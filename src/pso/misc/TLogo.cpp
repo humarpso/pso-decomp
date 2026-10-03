@@ -18,7 +18,7 @@ M2C_UNK TKeyBoardControl__sub_8000F90C(int);
 M2C_UNK TCameraCtrl__sub_8006A5EC(int);
 M2C_UNK TCameraCtrl__ct(u32, void *);
 M2C_UNK reset_keyboard_state__6TLobbyFv();
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
 M2C_UNK TLobby__sub_800F8B20();
 M2C_UNK invoke_callback__6TLobbyFv();
@@ -259,7 +259,7 @@ void TLogo__sub_8013F6C4(void) {
     TKeyBoardControl__sub_8000F90C(1);
     TLobby__sub_800F8B20();
     TLobby__sub_800FD6F8(lbl_804A72D8, sizeof(lbl_804A72D8));
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
         reset_keyboard_state__6TLobbyFv();

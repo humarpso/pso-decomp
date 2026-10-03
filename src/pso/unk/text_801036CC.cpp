@@ -81,7 +81,7 @@ void set_boss_buf_entry__6TLobbyFii(s32, u16);
 void TLobby__sub_80104258(void *, void *);
 void bswap_item__6TLobbyFPv(void *);
 void TItemData__sub_8010CCB0(void *);
-s32 TObjPlayer__sub_8001BEF8(void *, s32);
+s32 test_flags_any(void *, s32);
 void TLobby__sub_801041D8(void);
 extern u16 *lbl_805D542C;
 extern Ent_801037A0 **lbl_805D541C;
@@ -203,7 +203,7 @@ void TLobby__sub_80103890(Save_80103890 *src) {
             TItemData__sub_8010CCB0((u8 *)p + 0x10);
         }
     }
-    if (TObjPlayer__sub_8001BEF8(&lbl_805D5440, 1) != 0) {
+    if (test_flags_any(&lbl_805D5440, 1) != 0) {
         TLobby__sub_80103B70((s32)(0));
     }
     TLobby__sub_801041D8();

@@ -106,7 +106,7 @@ struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_800192DC(void *);
-s32 TObjPlayer__sub_800194AC(void *, int, int);
+s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -343,7 +343,7 @@ void run_task__12TBoss3VoloptFv(u8 *arg0) {
         return;
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
-        if (TObjPlayer__sub_800194AC((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
+        if (add_status_effect_timer__10TObjPlayerFPvii((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
             TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
             obj_clearFlags30((void *) (arg0), (int) (0x4000));
         }

@@ -38,7 +38,7 @@ M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, s16);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265E60(u32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, M2C_UNK, M2C_UNK);
-u32 TCheckRoomSequence__sub_802664A8(M2C_UNK *, M2C_UNK, M2C_UNK);
+u32 create_window_menu(M2C_UNK *, M2C_UNK, M2C_UNK);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK *, M2C_UNK);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
@@ -92,7 +92,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
         return;
     }
     if (M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
-        M2C_FIELD(arg0, u32 *, 0x34) = TCheckRoomSequence__sub_802664A8(lbl_804EF8D8, 2, 4);
+        M2C_FIELD(arg0, u32 *, 0x34) = create_window_menu(lbl_804EF8D8, 2, 4);
     } else {
         M2C_FIELD(arg0, u32 *, 0x34) = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_804EF8D8, 2);
     }

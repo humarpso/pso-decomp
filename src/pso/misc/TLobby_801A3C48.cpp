@@ -186,7 +186,7 @@ extern s32 lbl_805D55C0;
 extern s32 TLobby__data_805D5CF4;
 void TLobby__sub_801A46D8(void);
 M2C_UNK update__16TKeyBoardControlFv();
-M2C_UNK TLobby__sub_800F9B84();
+M2C_UNK clear_resource_load_tasks();
 M2C_UNK TLobby__sub_800FD6A0(void *, int);
 int TLobby__sub_8013998C(void);
 M2C_UNK cleanup__6TLobbyFv();
@@ -252,9 +252,9 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK get_current_floor();
 M2C_UNK cleanup_scene__9TLoadCtrlFv();
-M2C_UNK TLoadCtrl__sub_8001C978(M2C_UNK);
+M2C_UNK start_loading__9TLoadCtrlFUi(M2C_UNK);
 M2C_UNK set_enemy_mode_flag__6TLobbyFv();
-M2C_UNK TLobby__sub_800FA260();
+M2C_UNK process_pending_resources();
 M2C_UNK TLobby__sub_800FD614(void *, s32);
 M2C_UNK TLobby__sub_80137928();
 M2C_UNK reset_state_flags__6TLobbyFv();
@@ -300,12 +300,12 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK get_current_floor();
 M2C_UNK cleanup_scene__9TLoadCtrlFv();
-M2C_UNK TLoadCtrl__sub_8001C978(M2C_UNK);
+M2C_UNK start_loading__9TLoadCtrlFUi(M2C_UNK);
 M2C_UNK reset_keyboard_state__6TLobbyFv();
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
 M2C_UNK TLobby__sub_800F8B20();
-M2C_UNK TLobby__sub_800FA260();
+M2C_UNK process_pending_resources();
 M2C_UNK TLobby__sub_800FD614(void *, s32);
 M2C_UNK TLobby__sub_800FD6F8(void *, M2C_UNK);
 M2C_UNK TLobby__sub_80103F68();
@@ -357,11 +357,11 @@ M2C_UNK set_field1C__9TLoadCtrlFi(int);
 M2C_UNK cleanup_scene__9TLoadCtrlFv();
 M2C_UNK poll_default__9TLoadCtrlFv();
 M2C_UNK reset_keyboard_state__6TLobbyFv();
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
 M2C_UNK TLobby__sub_800F8B20();
 M2C_UNK invoke_callback__6TLobbyFv();
-M2C_UNK TLobby__sub_800F9B84();
+M2C_UNK clear_resource_load_tasks();
 M2C_UNK TLobby__sub_800FA464();
 M2C_UNK TLobby__sub_800FD6F8(void *, M2C_UNK);
 M2C_UNK init_range__6TLobbyFPvi(void *, int);
@@ -545,7 +545,7 @@ M2C_UNK start_quest_mission(void) {
     TObjPlayer__sub_801B1C8C();
     TLobby__sub_8022743C();
     update_lobby_subsystems__6TLobbyFv();
-    TLobby__sub_800FA260();
+    process_pending_resources();
     TKeyBoardControl__sub_801A66B8();
     render_tick__Fv();
     render_tick__Fv();
@@ -567,7 +567,7 @@ M2C_UNK start_quest_mission(void) {
     TQuestThread__sub_801F5DA8();
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();
-    TLoadCtrl__sub_8001C978(1);
+    start_loading__9TLoadCtrlFUi(1);
     TQuestThread__sub_801F60DC();
     clear_quest_floor_designations();
     if (lbl_805D5EE8 != 0) {
@@ -611,7 +611,7 @@ M2C_UNK change_floor_reload_area(void) {
     reset_state_flags__6TLobbyFv();
     TObjPlayer__sub_801B1C8C();
     TLobby__sub_8022743C();
-    TLobby__sub_800FA260();
+    process_pending_resources();
     TKeyBoardControl__sub_801A66B8();
     render_tick__Fv();
     render_tick__Fv();
@@ -628,7 +628,7 @@ M2C_UNK change_floor_reload_area(void) {
     update__16TKeyBoardControlFv();
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();
-    TLoadCtrl__sub_8001C978(2);
+    start_loading__9TLoadCtrlFUi(2);
     if (TLobby__data_805D5CEC & 1) {
         TLobby__data_805D5CEC &= ~1;
         init_limits__6TLobbyFv();
@@ -668,7 +668,7 @@ M2C_UNK change_floor_reload_area(void) {
             __ct__12TQuestThreadFv(q, lbl_805D5EEC, 0);
         }
     }
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         reset_keyboard_state__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
     }
@@ -716,7 +716,7 @@ void TLobby__sub_801A4610(void) {
     TLobby__sub_800FD6A0((void *) (&lbl_804C20E8.value), (int) (0x158));
     lbl_805D53A0 = 0;
     TLobby__data_805D5E24 = 0;
-    TLobby__sub_800F9B84();
+    clear_resource_load_tasks();
     update__16TKeyBoardControlFv();
     render_tick__Fv();
 }
@@ -843,14 +843,14 @@ void TLobby__sub_801A49B0(void) {
     TKeyBoardControl__sub_8000F9A4();
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(0xF);
-    TLobby__sub_800F9B84();
+    clear_resource_load_tasks();
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();
     poll_default__9TLoadCtrlFv();
     reset_keyboard_state__6TLobbyFv();
     TLobby__sub_800F8B20();
     TLobby__sub_800FD6F8((void *)(&lbl_804C20E8.value), (M2C_UNK)(0x158));
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         reset_keyboard_state__6TLobbyFv();
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();

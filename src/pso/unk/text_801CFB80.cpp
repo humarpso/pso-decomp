@@ -1,7 +1,7 @@
 #include "types.h"
 
 extern "C" {
-volatile int TObjPlayer__sub_8001BEF8(void *, s32);
+volatile int test_flags_any(void *, s32);
 u8 *TObjPlayer__sub_801CFBFC(u8 *arg0);
 s32 TObjPlayer__sub_801CFB40();
 s32 TObjPlayer__sub_801CFB44();
@@ -58,7 +58,7 @@ u8 *TObjPlayer__sub_801CFBFC(u8 *arg0) {
   var_r4 = 8;
   var_r31 = (u8 *) arg0;
   var_r3 = (u8 *) (var_r31 + 0x5EC);
-  if (TObjPlayer__sub_8001BEF8(var_r3, 8) != 0)
+  if (test_flags_any(var_r3, 8) != 0)
   {
     var_r3 = (u8 *) (*((u8 **) (((s8 *) var_r31) + 0x380)));
     var_r12 = *((s16 (**)(void *)) (((s8 *) var_r3) + 8));

@@ -79,7 +79,7 @@ extern void *TWindowCtrl__data_805D63F8;
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
 M2C_UNK TWindow__close(void *);
 void TWindowCtrl__sub_8024A4EC(void);
-s32 TWindowTimer__sub_80287D20(int, void *);
+s32 set_time__12TWindowTimerFPvUi(int, void *);
 extern void *TWindowCtrl__data_805D63F8;
 void TWindowCtrl__sub_8024A4B0(s32 arg0);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
@@ -100,20 +100,20 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 extern void *TWindowCtrl__data_805D63F8;
-void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
+void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
 char *TWindowCtrl__sub_8024A570(void *self, char *s);
 s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
 void *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
-s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker);
+s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 M2C_UNK TWindow__close(void *);
-s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker);
+s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
 s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void *TWindowFukidasi__sub_80252B74(void *, s32, s32, void *, f32);
-void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void *local);
+void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *local);
 s32 is_locally_controlled__10TObjPlayerFPv(u8 *);
 s32 obj_isState2_324(u8 *);
 s32 obj_is_hit_receivable();
@@ -121,7 +121,7 @@ void *get_quest_id__12TQuestListVMFPv(u8 *);
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBD8;
 extern const f32 lbl_805DCBDC;
-void TWindowCtrl__sub_8024A5AC(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
+void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3);
 void TOChatSensorCapture__sub_8015A99C(u16 arg0, const char *arg1);
 void *get_player_by_client_id(s32);
 char *TWindowCtrl__sub_8024A570(void *self, char *s);
@@ -277,7 +277,7 @@ void TWindowCtrl__sub_8024A4B0(s32 arg0) {
     if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) != NULL) {
         temp_r3 = M2C_FIELD((*(u8 * *)&TWindowCtrl__data_805D63F8), u32 *, 0x30);
         if (temp_r3 != 0U) {
-            TWindowTimer__sub_80287D20((int) (temp_r3), (void *) (arg0));
+            set_time__12TWindowTimerFPvUi((int) (temp_r3), (void *) (arg0));
         }
     }
 }
@@ -317,7 +317,7 @@ inline u8 *get_obj_8024A5AC(s32 id) {
     }
     return NULL;
 }
-void TWindowCtrl__sub_8024A5AC(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3) {
+void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 arg1, f32 *arg2, s32 *arg3) {
     u8 *obj;
     void *q;
     obj = get_obj_8024A5AC(arg1);
@@ -365,7 +365,7 @@ f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1,
   return (temp_f2 * temp_f2) + ((temp_f4 * temp_f4) + (temp_f3 * temp_f3));
 }
 
-s32 TWindowCtrl__sub_8024A714(Ctrl_8024A714 *ctrl, u16 speaker) {
+s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker) {
     s32 i;
     s32 result;
     RecoveredFields_8024A688_arg1 *local;
@@ -404,12 +404,12 @@ s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self) {
     return n;
 }
 
-void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void *local) {
+void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *local) {
     f32 f;
     s32 n;
     u32 i;
     void *b;
-    TWindowCtrl__sub_8024A5AC((Ctrl_8024A928 *)(self), (s32)(player), (f32 *)(&f), (s32 *)(&n));
+    get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv((Ctrl_8024A928 *)(self), (s32)(player), (f32 *)(&f), (s32 *)(&n));
     i = 4;
     if (!(flags & 0x10)) {
         for (i = 0; i < 4; i++) {
@@ -423,7 +423,7 @@ void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void
     if (i >= 4) {
         i = TWindowCtrl__sub_8024A7CC((Obj_8024A7CC *)self);
         if (i >= 4) {
-            i = ((s32 (*)(Ctrl_8024A714 *, s32))TWindowCtrl__sub_8024A714)((Ctrl_8024A714 *)self, player);
+            i = ((s32 (*)(Ctrl_8024A714 *, s32))find_farthest_balloon_slot__11TWindowCtrlFPvUs)((Ctrl_8024A714 *)self, player);
         }
         if (i >= 4) {
             return 0;
@@ -440,7 +440,7 @@ void *TWindowCtrl__sub_8024A800(Ctrl_8024A928 *self, s32 player, s32 flags, void
     return self->slots[i];
 }
 
-void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local) {
+void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local) {
     u32 i;
     if ((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8) == 0) {
         return 0;
@@ -456,7 +456,7 @@ void *TWindowCtrl__sub_8024A928(Ctrl_8024A928 *self, s32 player, s32 flags, void
             }
         }
     }
-    return TWindowCtrl__sub_8024A800((Ctrl_8024A928 *)((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8)), (s32)(player), (s32)(flags), (void *)(local));
+    return acquire_balloon_slot__11TWindowCtrlFPviiPv((Ctrl_8024A928 *)((*(Ctrl_8024A928 * *)&TWindowCtrl__data_805D63F8)), (s32)(player), (s32)(flags), (void *)(local));
 }
 
 void TWindowCtrl__sub_8024AA08(Obj_8024AA08 *arg0, char *arg1) {

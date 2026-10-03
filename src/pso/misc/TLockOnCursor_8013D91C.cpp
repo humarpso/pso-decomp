@@ -80,7 +80,7 @@ void run_task__13TLockOnCursorFv(s32 arg0);
 M2C_UNK TLockOnCursor__sub_8013EB80(s32);
 M2C_UNK TLockOnCursor__sub_8013EB8C(s32);
 void TLockOnCursor__sub_8013EEC0(void *, void *);
-s32 TMainCursor__sub_8013DF08(s32);
+s32 is_channel_active__11TMainCursorFPv(s32);
 void TMainCursor__sub_8013F1F0(void *);
 void __construct_array(void *, void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *);
@@ -96,7 +96,7 @@ void init_vtable__13TLockOnCursorFPv(void *);
 void reset_fields__13TLockOnCursorFPv(void *);
 
 void run_task__13TLockOnCursorFv(s32 arg0) {
-    if (TMainCursor__sub_8013DF08(arg0 + 0x520) != 0) {
+    if (is_channel_active__11TMainCursorFPv(arg0 + 0x520) != 0) {
         TLockOnCursor__sub_8013EB8C(arg0 + 0x520);
         return;
     }

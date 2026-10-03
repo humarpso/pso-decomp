@@ -70,7 +70,7 @@ struct Stack_800B8DC4 {
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 check_v2_mode__9TObjEneDDFv();
-u8 *TObjEneDD__sub_800BB940(M2C_UNK *, M2C_UNK *);
+u8 *load_enemy_bml_resource_named(M2C_UNK *, M2C_UNK *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 struct RecoveredGlobal_800B8DC4_lbl_8043B628 {
     M2C_UNK value;
@@ -172,7 +172,7 @@ void TObjCGrass__sub_800B8DC4(void) {
     u8 *var_r0;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5130 = (u32) TObjEneDD__sub_800BB940(&lbl_80492500.value, &lbl_8043B638.value);
+        lbl_805D5130 = (u32) load_enemy_bml_resource_named(&lbl_80492500.value, &lbl_8043B638.value);
     } else {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);

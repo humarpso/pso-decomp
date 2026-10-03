@@ -355,7 +355,7 @@ s32 obj_is_hit_receivable(void);
 s32 obj_testFlags30(void *, s32);
 void obj_setFlags30(void *, s32);
 Obj_80305C40 *get_battle_param__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_800BC53C(s32, void *);
+s32 attack_target_history_add(s32, void *);
 void init_all_slots__10TObjPlayerFv(void);
 void check_object_collisions__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -421,7 +421,7 @@ s32 TObjEneDellBiter__sub_80305C40(u8 *arg0) {
             if (p == NULL) {
                 break;
             }
-            if (obj_is_hit_receivable() != 0 && TObjPlayer__sub_800BC53C(M2C_FIELD(arg0, s32 *, 0x4A0), p) != 0) {
+            if (obj_is_hit_receivable() != 0 && attack_target_history_add(M2C_FIELD(arg0, s32 *, 0x4A0), p) != 0) {
                 if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x10) {
                     if (lbl_805D5550 == 3) {
                         atk.type = 5;

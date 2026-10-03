@@ -106,7 +106,7 @@ s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
-int fn_802437C4(void*);
+int spawn_action_palette_slot_light(void*);
 void free_member__15TWindowCtrlMainFPv(void* p);
 int open_submenu__15TWindowSubEquipFii(void*);
 void render__17TWindowCtrlPlayerFv(void);

@@ -40,7 +40,7 @@ s32 isV2Mode__12TBoss1DragonFv(void);
 extern RecoveredGlobal_8002BCE0_lbl_80435410 lbl_80435410;
 extern RecoveredGlobal_8002BCE0_lbl_8043541C lbl_8043541C;
 extern M2C_UNK *lbl_805D4B48;
-void TBoss1Dragon__sub_8002BCE0(void);
+void select_fireball_particle_table__12TBoss1DragonFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 play_sound_effect(int, void *, int, int);
@@ -178,7 +178,7 @@ u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return arg0;
 }
 
-void TBoss1Dragon__sub_8002BCE0(void) {
+void select_fireball_particle_table__12TBoss1DragonFv(void) {
     s32 temp_r3;
     temp_r3 = isV2Mode__12TBoss1DragonFv();
     switch (temp_r3) {

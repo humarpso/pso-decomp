@@ -29,7 +29,7 @@ struct Rec_802655E4 { s32 a; s32 b; };
 struct Win_802655E4 { u8 p0[0x72]; s16 f72; s16 f74; s16 f76; u8 p78[8]; Rec_802655E4 *f80; };
 
 extern "C" {
-M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
+M2C_UNK clamp_list_scroll_offset(int, void *, void *);
 extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
@@ -98,7 +98,7 @@ void TWindowSubComCard__sub_80265500(u8 *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
             stack.spC = temp_f1 - lbl_805DD158;
         }
-        TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, u32 *, 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
+        clamp_list_scroll_offset((int) (M2C_FIELD(arg0, u32 *, 0x84)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
     }
 }
 

@@ -64,7 +64,7 @@ u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s3
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
 void TWindowSubStatusDisp__sub_802877C8(void *arg0);
 void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1);
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, Rect_80287580 *);
+void apply_context_transform_to_rect(void *, Rect_80287580 *);
 void set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
@@ -114,7 +114,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     r1.v0 = lbl_8044FC90[idx].v / 256.0f;
     r1.u1 = (40.0f + lbl_8044FC90[idx].u) / 256.0f;
     r1.v1 = (27.0f + lbl_8044FC90[idx].v) / 256.0f;
-    TWindowKeyBoardSoft__sub_8024E6D8(obj, &r1);
+    apply_context_transform_to_rect(obj, &r1);
     draw_textured_quad_at_depth(&r1, scale);
     r2.x0 = 40.0f + pos[0];
     r2.y0 = pos[1];
@@ -124,7 +124,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     r2.v0 = lbl_8044FC90[idx].v / 256.0f;
     r2.u1 = (20.0f + (40.0f + lbl_8044FC90[idx].u)) / 256.0f;
     r2.v1 = (27.0f + lbl_8044FC90[idx].v) / 256.0f;
-    TWindowKeyBoardSoft__sub_8024E6D8(obj, &r2);
+    apply_context_transform_to_rect(obj, &r2);
     draw_textured_quad_at_depth(&r2, scale);
     r3.x0 = 40.0f + (pos[0] + w);
     r3.y0 = pos[1];
@@ -134,7 +134,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     r3.v0 = lbl_8044FC90[idx].v / 256.0f;
     r3.u1 = (80.0f + lbl_8044FC90[idx].u) / 256.0f;
     r3.v1 = (27.0f + lbl_8044FC90[idx].v) / 256.0f;
-    TWindowKeyBoardSoft__sub_8024E6D8(obj, &r3);
+    apply_context_transform_to_rect(obj, &r3);
     draw_textured_quad_at_depth(&r3, scale);
     get_player__20TWindowSubStatusDispFv();
 }

@@ -26,7 +26,7 @@ void set_field_0c__11TMainCursorFPvi(void* p, s32 v);
 void set_flags__11TMainCursorFPvi(void* p, s32 v);
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int TMainCursor__sub_8013B2A4(void*);
-int TMainCursor__sub_8013DF08(void*);
+int is_channel_active__11TMainCursorFPv(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);
@@ -38,13 +38,13 @@ void TMainCursor__sub_8013E694(void* p, s16 v);
 int TMainCursor__sub_8013E6E0(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 int TMainCursor__sub_8013E75C(void* p);
-s32 TMainCursor__sub_8013E810(void* p);
-s32 TMainCursor__sub_8013E818(void* p);
-s32 TMainCursor__sub_8013E820(void* p);
-s32 TMainCursor__sub_8013E828(void* p);
-void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
-int TMainCursor__sub_8013E854(void* a0 = 0);
-int TObjPlayer__sub_8001BEF8(void*, int);
+s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
+s32 get_body_include_mask__11TMainCursorFPv(void* p);
+s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);
+s32 get_actor_include_mask__11TMainCursorFPv(void* p);
+void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2);
+int copy_target_record__11TMainCursorFPvPv(void* a0 = 0);
+int test_flags_any(void*, int);
 int TObjPlayer__sub_8013DEF8(void*);
 s32 __dl__FPv(void* a0 = 0);
 int check_field_24__11TMainCursorFPv(void* p);
@@ -83,14 +83,14 @@ int update_sub_60__11TMainCursorFPv(void* p);
 int update_target_sub__11TMainCursorFPv(void* p);
 
 int TMainCursor__sub_8013E8A0(void* p) { return TObjPlayer__sub_8013DEF8(p); }
-int get_selected_entry__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013DF08(p); }
+int get_selected_entry__11TMainCursorFPv(void* p) { return is_channel_active__11TMainCursorFPv(p); }
 int get_active__11TMainCursorFPv(void* p) { return get_enabled__11TMainCursorFPv(p); }
 int TMainCursor__sub_8013E900(void* p) { return get_type__11TMainCursorFPv(p); }
 s16 TMainCursor__sub_8013E920(void* p) { return *(s16*)((char*)p + 0x2); }
 void TMainCursor__sub_8013E928(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 void TMainCursor__sub_8013E930(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 u16 get_target_id__11TMainCursorFPv(void* p) { return *(u16*)((char*)p + 0x20); }
-int is_cursor_clear__11TMainCursorFPv(void* p) { return (TObjPlayer__sub_8001BEF8((char*)p + 0x1c, 1)) == 0; }
+int is_cursor_clear__11TMainCursorFPv(void* p) { return (test_flags_any((char*)p + 0x1c, 1)) == 0; }
 
 void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3) {
     M2C_FIELD(arg0, s16 *, 0) = arg1;

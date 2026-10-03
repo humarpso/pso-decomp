@@ -41,13 +41,13 @@ s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 int TMainCursor__sub_8013BE98(void* p);
 struct Ent_8013C678 { u32 id; f32 key; };
 M2C_UNK fn_8004438C(void *);
-M2C_UNK TMainCursor__sub_8013E830(s32, Ent_8013C678 *, Ent_8013C678 *);
+M2C_UNK store_sorted_record__11TMainCursorFPvPvPv(s32, Ent_8013C678 *, Ent_8013C678 *);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
-s32 TMainCursor__sub_8013DF08();
+s32 is_channel_active__11TMainCursorFPv();
 int TMainCursor__sub_8013DF5C(void*, void* a1 = 0, void* a2 = 0);
 int TMainCursor__sub_8013E870(void*, void*);
 u8 TMainCursor__sub_8013E900(s32);
-M2C_UNK TMainCursor__sub_8013F154(void *, int);
+M2C_UNK get_record_at__11TMainCursorFPvi(void *, int);
 M2C_UNK TMainCursor__sub_8013F170(void *, int);
 M2C_UNK fn_80044330(s32);
 u8 get_active__11TMainCursorFPv(s32);
@@ -57,7 +57,7 @@ M2C_UNK set_cursor_id__11TMainCursorFPvs(M2C_UNK, int);
 M2C_UNK set_size__11TMainCursorFPvf(f32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
-    if (TMainCursor__sub_8013DF08() != 0) {
+    if (is_channel_active__11TMainCursorFPv() != 0) {
         return TMainCursor__sub_8013DF5C((void*)(arg0), (void*)(arg1), (void*)(arg2));
     }
     return 0;
@@ -160,9 +160,9 @@ void reset_cursor_parts__11TMainCursorFPv(u8 *arg0) {
     var_r30 = 0;
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {
-        TMainCursor__sub_8013F154((void *) (arg0 + 0x40), (int) (var_r30));
+        get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30));
         set_size__11TMainCursorFPvf((f32) (TMainCursor__data_805DB0C0));
-        set_cursor_id__11TMainCursorFPvs(TMainCursor__sub_8013F154((void *) (arg0 + 0x40), (int) (var_r30)), (int) (0xFFFF));
+        set_cursor_id__11TMainCursorFPvs(get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30)), (int) (0xFFFF));
         var_r30 += 1;
     } while (var_r30 < 0xA);
 }
@@ -185,13 +185,13 @@ s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo,
         if (i >= j) {
             break;
         }
-        TMainCursor__sub_8013E830(self, &a[i], &tmp);
-        TMainCursor__sub_8013E830(self, &a[j], &a[i]);
-        TMainCursor__sub_8013E830(self, &tmp, &a[j]);
+        store_sorted_record__11TMainCursorFPvPvPv(self, &a[i], &tmp);
+        store_sorted_record__11TMainCursorFPvPvPv(self, &a[j], &a[i]);
+        store_sorted_record__11TMainCursorFPvPvPv(self, &tmp, &a[j]);
     }
-    TMainCursor__sub_8013E830(self, &a[i], &tmp);
-    TMainCursor__sub_8013E830(self, &a[hi], &a[i]);
-    TMainCursor__sub_8013E830(self, &tmp, &a[hi]);
+    store_sorted_record__11TMainCursorFPvPvPv(self, &a[i], &tmp);
+    store_sorted_record__11TMainCursorFPvPvPv(self, &a[hi], &a[i]);
+    store_sorted_record__11TMainCursorFPvPvPv(self, &tmp, &a[hi]);
     return i;
 }
 

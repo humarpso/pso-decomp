@@ -34,7 +34,7 @@ struct VObj_8016CF5C : VBase_8016CF5C {
 
 extern "C" {
 s32 is_split_screen();
-s32 TOKey__sub_8016A280(void *);
+s32 is_any_player_in_range__5TOKeyFPv(void *);
 s32 TOKey__sub_8016A310(void *);
 s32 TOKeyMachine01__vt13(u8 *arg0);
 extern const f32 lbl_805DB780;
@@ -122,7 +122,7 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
-            var_r3 = TOKey__sub_8016A280((void *) (arg0));
+            var_r3 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
         } else {
             var_r3 = TOKey__sub_8016A310((void *) (arg0));
         }
@@ -131,7 +131,7 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
         }
         break;
     case 1:
-        var_r31 = TOKey__sub_8016A280((void *) (arg0));
+        var_r31 = is_any_player_in_range__5TOKeyFPv((void *) (arg0));
         break;
     }
     return var_r31;

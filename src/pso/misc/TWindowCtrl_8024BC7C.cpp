@@ -9,7 +9,7 @@ u32 __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(int);
 s32 fn_80246CDC();
 s32 TWindowCtrl__sub_8024701C(int);
-s32 TWindowCtrl__sub_8024AF74(void *);
+s32 has_player_active_menu__11TWindowCtrlFi(void *);
 s32 TWindowCtrl__sub_8024B054(void *);
 s32 get_flag_bit5__11TWindowCtrlFv();
 u32 TWindowGetComCard__ct(int, void *);
@@ -29,7 +29,7 @@ void TWindowCtrl__sub_8024BC7C(u8 *arg0) {
     if ((temp_r3 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((int) (temp_r3)) == 0)) {
         M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
     }
-    if ((fn_80246CDC() == 0) || (TWindowCtrl__sub_8024AF74((void *) (lbl_805D53A0)) != 0) || (TWindowCtrl__sub_8024B054((void *) (lbl_805D53A0)) != 0) || (get_flag_bit5__11TWindowCtrlFv() != 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) || ((temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x38), ((temp_r3_2 == 0U) == 0)) && (TWindowCtrl__sub_8024701C((int) (temp_r3_2)) != 0))) {
+    if ((fn_80246CDC() == 0) || (has_player_active_menu__11TWindowCtrlFi((void *) (lbl_805D53A0)) != 0) || (TWindowCtrl__sub_8024B054((void *) (lbl_805D53A0)) != 0) || (get_flag_bit5__11TWindowCtrlFv() != 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) || ((temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x38), ((temp_r3_2 == 0U) == 0)) && (TWindowCtrl__sub_8024701C((int) (temp_r3_2)) != 0))) {
         temp_r3_3 = M2C_FIELD(arg0, u32 *, 0x3C);
         if (temp_r3_3 != 0U) {
             queue_destruction__7TObjectFv((int) (temp_r3_3));

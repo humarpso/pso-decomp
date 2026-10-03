@@ -331,7 +331,7 @@ s32 obj_isState2_324(void *);
 M2C_UNK obj_getField1c(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_alive__9TObjEneDDFPv(void *);
-s32 TObjEneDD__sub_800BA828();
+s32 is_player_entity_id();
 extern const f32 lbl_805D9880;
 extern const f32 lbl_805D9884;
 void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0);
@@ -411,7 +411,7 @@ extern M2C_UNK lbl_8048FE94[];
 void TObjEneMe1CanadinLeader__sub_8009A938(u8 *arg0) {
     f32 temp_f1;
     obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0x1C)));
-    if (TObjEneDD__sub_800BA828() != 0) {
+    if (is_player_entity_id() != 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }

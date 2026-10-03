@@ -15,7 +15,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2948;
 extern Rec_80086E28 *lbl_805D4EF8;
 extern Rec_80086E28 *lbl_805D4EFC;
-void *TAdFloorLoadPrtGC__sub_80086EF8(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
+void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void *TAdLoadQuestPrtTxtGC__sub_80086E28(void *arg0, s32 arg1, s32 arg2) {
     }
     return NULL;
 }
-void *TAdFloorLoadPrtGC__sub_80086EF8(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4) {
+void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4) {
     void *o;
     if (lbl_805D2948 > arg2) {
         o = __nw__7TObjectFUl(0x78);

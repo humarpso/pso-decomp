@@ -11,7 +11,7 @@ struct Obj_800BB780 { u8 pad[0x30]; u32 flags; u8 pad1[0x70]; Part_800BB780 *par
 
 struct Pl_800BB688 { u8 pad0[0x38]; f32 pos[3]; };
 extern "C" {
-void TBoss8Dragon__sub_800BB664(f32 farg0);
+void enemy_find_nearest_player_in_range(f32 farg0);
 s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0);
 s32 get_player_data__10TObjPlayerFi(int);
 s32 obj_getField1c(void *);
@@ -19,7 +19,7 @@ s32 get_game_mode__6TLobbyFv();
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
-void TBoss8Dragon__sub_800BB664(f32 farg0);
+void enemy_find_nearest_player_in_range(f32 farg0);
 void clear_attack_receipts(Obj_800BB780 *self);
 }
 
@@ -29,7 +29,7 @@ void TBoss8Dragon__sub_800BB650(void* p, void* q);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
 void TBoss8Dragon__sub_800BB7DC(void);
-int TObjEneBm3Fly__sub_800BB774(void* p);
+int was_hit_by_ranged__9TObjEneDDFPv(void* p);
 void noop__12TBoss8DragonFv(void);
 void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p);
 int set_player_state_default__12TBoss8DragonFPv(void* p);
@@ -39,7 +39,7 @@ int send_entity_set_flags__6TLobbyFPv(void*);
 
 void TBoss8Dragon__sub_800BB650(void* p, void* q) { *(u16*)((char*)p + 0x0) = *(u16*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
-void TBoss8Dragon__sub_800BB664(f32 farg0) {
+void enemy_find_nearest_player_in_range(f32 farg0) {
     ((s32 (*)(f32))enemy_nearest_visible_player_sq)(farg0 * farg0);
 }
 
@@ -68,7 +68,7 @@ s32 enemy_nearest_visible_player_sq(u8 *arg0, f32 farg0) {
 
 void refresh_and_send_entity_flags__12TBoss8DragonFPv(void* p) { refresh_lobby_state__10TObjPlayerFPv(p); send_entity_set_flags__6TLobbyFPv(p); }
 
-int TObjEneBm3Fly__sub_800BB774(void* p) { return (*(u32*)((char*)p + 0x2dc) >> 1) & 0x1; }
+int was_hit_by_ranged__9TObjEneDDFPv(void* p) { return (*(u32*)((char*)p + 0x2dc) >> 1) & 0x1; }
 
 void clear_attack_receipts(Obj_800BB780 *self) {
     s32 i;

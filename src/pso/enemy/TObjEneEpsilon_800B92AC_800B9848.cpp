@@ -13,7 +13,7 @@ struct Obj_800B98D8 { u8 pad[0x38c]; u16 target_id; u8 pad2[2]; void *target; };
 
 extern "C" {
 void enemy_init_acquire_period(u8 *arg0, s32 arg1);
-s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x);
+s32 enemy_bind_or_clear_target(void *self, u16 x);
 void enemy_clear_target(O_800B98C0 *self, u16 _w1);
 s32 find_active_entity_by_id(u16);
 void enemy_set_target_id(Obj_800B9958 *self, u16 id);
@@ -28,7 +28,7 @@ extern "C" {
 int TObjEneEpsilon__vt101(void* p);
 int spawn_part__14TObjEneEpsilonFi(void*);
 
-s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x) {
+s32 enemy_bind_or_clear_target(void *self, u16 x) {
     if (x != 0xFFFF) {
         enemy_set_target_id((Obj_800B9958 *)((void *)(self)), x);
         return 1;

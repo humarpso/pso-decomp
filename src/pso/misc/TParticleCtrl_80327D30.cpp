@@ -64,7 +64,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK TParticleCtrl__sub_803DA7A8(int);
+M2C_UNK set_texture_num(int);
 M2C_UNK reset_particles__13TParticleCtrlFv();
 M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
 M2C_UNK TParticleCtrl__sub_803E2B68(int);
@@ -111,7 +111,7 @@ void TParticleCtrl__sub_80327D30(Obj_80327D30 *o) {
         rotate_matrix_x(0, *(s32 *)(lbl_805D4DF0 + 0x190));
         load_projected_texture_matrix(1.1333334f);
         set_global_param__8TObjFishFi(*(s32 *)(lbl_804C5820 + 0x16C));
-        TParticleCtrl__sub_803DA7A8(o->f31);
+        set_texture_num(o->f31);
         TParticleCtrl__sub_803E2B68(1);
         GXSetNumTevStages(2);
         GXSetNumTexGens(2);

@@ -133,7 +133,7 @@ struct EneDDObj_800BA138 : EneDDBase_800BA138 {
     virtual void m13(void *, void *, void *);
 };
 
-void TObjEneDD__sub_800BA498(void* p, void* a1);
+void emit_effect_at_position__9TObjEneDDFPvPv(void* p, void* a1);
 void TObjEneDD__sub_800BA5A4(void* p, void* a1);
 int TObjEneDD__sub_800BA6B8(void* p);
 int TObjEneDD__sub_800BA6C4(void* p);
@@ -233,7 +233,7 @@ void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1) {
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
-void TObjEneDD__sub_800BA498(void* p, void* a1) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
+void emit_effect_at_position__9TObjEneDDFPvPv(void* p, void* a1) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)((char*)p + 0x38), (u8 *)(a1), (s32)((void*)0)); }
 
 void emit_effect__9TObjEneDDFPvii(void* p, int a1, int a2) { emit_enemy_effect__9TObjEneDDFiiPvi((s32)(p), (s32)(a1), (u8 *)(a2), (s32)(0)); }
 

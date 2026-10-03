@@ -30,7 +30,7 @@ s32 TWindowSubComCard__sub_802452DC(int);
 s32 TWindowSubComCard__sub_80245320(void *, void *);
 s32 TWindowSubComCard__sub_802454E4(int);
 s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
-s32 TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+s32 apply_context_transform_to_rect(void *, void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
@@ -103,7 +103,7 @@ void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
     stack.sp1C = lbl_805DF1FC;
     stack.sp20 = lbl_805DF200;
     stack.sp24 = lbl_805DF204;
-    TWindowKeyBoardSoft__sub_8024E6D8((void *) (arg1), (void *) (&stack.sp8));
+    apply_context_transform_to_rect((void *) (arg1), (void *) (&stack.sp8));
     draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (temp_f31));
     get_player__20TWindowSubStatusDispFv();
     if (TWindowSubComCard__sub_80245558((void *) (arg1), (void *) (arg1 + 0x10), (void *) (arg1 + 0x18)) != 0) {

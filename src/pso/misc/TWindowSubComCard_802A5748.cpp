@@ -9,7 +9,7 @@ s32 is_visible__17TWindowSubComCardFPv(s32);
 s32 TWindowSubComCard__sub_802A57FC(void *arg0);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 u8 * create_yes_no_window(M2C_UNK, s32, void *, u32);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 u8 * fn_8026652C(M2C_UNK, M2C_UNK, s32, s32);
 int set_flag_40__16TAdChrSelASlotGCFPv(void*);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
@@ -25,7 +25,7 @@ void free_member__17TWindowSubComCardFPv(void* p);
 s32 get_card_data__17TWindowSubComCardFPv(void *arg0);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0);
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);
@@ -69,7 +69,7 @@ s32 TWindowSubComCard__sub_802A57FC(void *arg0) {
 }
 
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    M2C_FIELD(arg0, s32 *, 0x28) = TCheckRoomSequence__sub_802664A8(arg2, 1, M2C_FIELD(arg0, s32 *, 0x24));
+    M2C_FIELD(arg0, s32 *, 0x28) = create_window_menu(arg2, 1, M2C_FIELD(arg0, s32 *, 0x24));
     forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, s32 *, 0x28), arg1, 0x21, 0);
     set_flag_40__16TAdChrSelASlotGCFPv((void*)(M2C_FIELD(arg0, s32 *, 0x28)));
     set_status_flag_80__12TQuestThreadFPv(M2C_FIELD(arg0, s32 *, 0x28));
@@ -78,7 +78,7 @@ void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
 void TWindowSubShortMail__sub_802A58AC(u8 *arg0, u32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     M2C_UNK sp8;
     if (arg1 == 0U) {
-        M2C_FIELD(arg0, s32 *, 0x28) = TCheckRoomSequence__sub_802664A8(arg3, 1, M2C_FIELD(arg0, s32 *, 0x24));
+        M2C_FIELD(arg0, s32 *, 0x28) = create_window_menu(arg3, 1, M2C_FIELD(arg0, s32 *, 0x24));
     } else {
         M2C_FIELD(arg0, s32 *, 0x28) = (long) (fn_8026652C(arg3, 1, (s32) arg1, M2C_FIELD(arg0, s32 *, 0x24)));
     }

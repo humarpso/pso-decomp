@@ -14,7 +14,7 @@ void queue_destruction__7TObjectFv(void *);
 void update_position__11TAdRicoRingFPv(void *arg0);
 void set_flags__10TObjPlayerFPvUi(void *, s32);
 void clear_flags__11TAdRicoRingFPvUi(void *, s32);
-volatile int TObjPlayer__sub_8001BEF8(void *, s32);
+volatile int test_flags_any(void *, s32);
 extern const f32 lbl_805D7E4C;
 extern const f32 lbl_805D7E54;
 void run_task__11TAdRicoRingFv(u8 *arg0);
@@ -62,7 +62,7 @@ void update_position__11TAdRicoRingFPv(void *arg0) {
 }
 void run_task__11TAdRicoRingFv(u8 *arg0) {
   f32 temp_f1;
-  if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 1) != 0)
+  if (test_flags_any(arg0 + 0x2C, 1) != 0)
   {
     update_position__11TAdRicoRingFPv(arg0);
     if ((*((f32 *) (((s8 *) arg0) + 0x1C))) <= lbl_805D7E54)
@@ -71,7 +71,7 @@ void run_task__11TAdRicoRingFv(u8 *arg0) {
       return;
     }
   }
-  if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 2) != 0)
+  if (test_flags_any(arg0 + 0x2C, 2) != 0)
   {
     update_position__11TAdRicoRingFPv(arg0);
     temp_f1 = *((f32 *) (((s8 *) arg0) + 0x34));
@@ -85,7 +85,7 @@ void run_task__11TAdRicoRingFv(u8 *arg0) {
     }
   }
   *((s32 *) (((s8 *) arg0) + 0x68)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x68))) + (*((s32 *) (((s8 *) arg0) + 0x30))));
-  if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 4) != 0)
+  if (test_flags_any(arg0 + 0x2C, 4) != 0)
   {
     *((s32 *) (((s8 *) arg0) + 0x30)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x30))) + (*((s32 *) (((s8 *) arg0) + 0x48))));
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x30)))) >= 0xCCC)

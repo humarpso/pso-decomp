@@ -11,7 +11,7 @@ u8 *create_handgun_weapon(u8 *arg0);
 u8 * init_with_update_handler__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80126B6C(u8 *arg0);
+u8 *create_suppressed_gun_weapon(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80120D50(void*,s32,void*);
 M2C_UNK set_atp__10TObjPlayerFPvs(void *, int);
 void TObjPlayer__sub_80109440();
@@ -21,7 +21,7 @@ u8 *construct_handgun_weapon(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80126B6C(u8 *arg0) {
+u8 *create_suppressed_gun_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

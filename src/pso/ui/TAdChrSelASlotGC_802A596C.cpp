@@ -12,7 +12,7 @@ s32 get_status_flag__17TWindowSubComCardFPv(s32);
 s32 set_status_flag_80__12TQuestThreadFPv(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
 void run_task__19TWindowMessageYesNoFv(void* p);

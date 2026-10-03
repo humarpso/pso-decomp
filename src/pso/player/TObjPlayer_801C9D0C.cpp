@@ -20,7 +20,7 @@ M2C_UNK set_revived_state__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK broadcast_lobby_display__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
-s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
+s32 test_flags_any(s32, M2C_UNK);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, s32);
 M2C_UNK TObjPlayer__sub_801B4430(u32);
 s32 get_getup_protection_ticks__10TObjPlayerFPv(void *);
@@ -44,7 +44,7 @@ struct Local801C9D3C {
 void update_lobby_display__10TObjPlayerFUi(u32 arg0) {
     struct Local801C9D3C sp8;
 
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x858, 4) != 0) {
+    if (test_flags_any(arg0 + 0x858, 4) != 0) {
         send_code_49_1__10TObjPlayerFi(arg0);
         if (is_alive_and_ready__10TObjPlayerFi(arg0) != 0) {
             TObjPlayer__sub_801AF7E0(arg0);

@@ -24,7 +24,7 @@ extern "C" {
 void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 s32 TMainCursor__sub_80154288(void);
-s32 TObjPlayer__sub_8001BEF8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 test_flags_any(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 clear_flags__11TAdRicoRingFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 set_flags__10TObjPlayerFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 void update_cursor_pair__11TMainCursorFPv(void* p);

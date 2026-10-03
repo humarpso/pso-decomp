@@ -1,7 +1,7 @@
 #include "pso/TItemReverseTech.h"
 
 extern "C" void TLobby__sub_8022743C(void);
-extern "C" void TKeyBoardControl__sub_8000F9B0(void);
+extern "C" void request_queued_main_phase(void);
 
 #pragma opt_common_subs off
 #include "types.h"
@@ -85,7 +85,7 @@ void TItemReverseTech::run_task() {
 
 TItemReverseTech::~TItemReverseTech() {
     TLobby__sub_8022743C();
-    TKeyBoardControl__sub_8000F9B0();
+    request_queued_main_phase();
 }
 
 #include "types.h"

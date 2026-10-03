@@ -132,7 +132,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 void *get_window_layout_position(s32);
 M2C_UNK add_list_entry__6TLobbyFPviii(void *, s32, s32, s32);
-void *TShopJudgmentItemWindow__sub_8026DF00(void *, s32, s32);
+void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *lbl_805D61D8;
 void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self);
@@ -272,7 +272,7 @@ void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self) {
     update_lobbies_and_events__6TLobbyFPv(lbl_805D61D8);
     if (self->f3C == NULL) {
         t = TLobby__sub_80222C54(0);
-        self->f3C = TShopJudgmentItemWindow__sub_8026DF00(t, 0x40, obj_getField1c(self->f24));
+        self->f3C = create_item_list_window(t, 0x40, obj_getField1c(self->f24));
         if (TLobby__sub_80219F64() == 1) {
             e = self->f54;
             i = 0;

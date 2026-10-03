@@ -165,7 +165,7 @@ M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
 extern f32 lbl_805DC958;
 void update__10TTecSlicerFi(s32 arg0);
 void update__10TTecSlicerFi(s32 arg0);
-s32 TObjPlayer__sub_8001BEF8(void *, M2C_UNK);
+s32 test_flags_any(void *, M2C_UNK);
 u32 get_player_by_client_id(u16);
 M2C_UNK __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -415,14 +415,14 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     if (new_obj != 0U) {
         __ct__14TSlicerHistoryFv(new_obj, arg0, M2C_FIELD(arg0, s32 *, 0x24), var_r31, M2C_FIELD(arg0, s32 *, 0x118));
     }
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0xC0, 1) == 0) {
+    if (test_flags_any(arg0 + 0xC0, 1) == 0) {
         update__10TTecSlicerFi((s32)(arg0));
     }
     TTecSlicer__sub_8023B6BC((u8 *)(arg0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x124) != 0U) {
         copy_position__15TEffStarLight2DFPv(M2C_FIELD(arg0, void **, 0x124), arg0 + 0x38);
     }
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0xC0, 2) != 0) {
+    if (test_flags_any(arg0 + 0xC0, 2) != 0) {
         queue_destruction__7TObjectFv((s32)((void *)(arg0)));
         return;
     }

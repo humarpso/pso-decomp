@@ -95,7 +95,7 @@ void run_task__10TTecGiFoieFv(u8 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
-s32 fn_800871A0(void *, void *, s32);
+s32 spawn_continuous_particle_with_direction(void *, void *, s32);
 u32 *alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern Profile_802312E4 lbl_8044D2F4[];
@@ -133,7 +133,7 @@ Task_802312E4 *TTecGiFoie__sub_802312E4(Task_802312E4 *self, Vec_802312E4 *pos, 
         r.x = 0;
         r.y = 0;
         r.z = 0x4000;
-        self->emitters[0] = fn_800871A0(&self->pos, &r, 0x19D);
+        self->emitters[0] = spawn_continuous_particle_with_direction(&self->pos, &r, 0x19D);
         self->x38 = TTecGiFoie__data_805DC81C;
     } else {
         s32 i;

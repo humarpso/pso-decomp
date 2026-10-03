@@ -19,13 +19,13 @@ void set_field_2__10TObjPlayerFPvs(void *, s16);
 void set_type__10TObjPlayerFPvs(void *, s16);
 u8 *TObjPlayer__sub_80312FB0(u8 *arg0);
 int check_flag_at_4__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_80312F5C(s32 arg0, s16 arg1, s16 arg2);
+void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2);
 void *get_player_by_client_id(s32);
 void trigger_photon_blast__10TObjPlayerFPv(void *);
 void check_photon_blast_flag__10TObjPlayerFPv(void *);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
-void TObjPlayer__sub_80312C50(void *registry);
+void release_photon_blast_requests(void *registry);
 u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
 int process_indexed_element__10TObjPlayerFii(void* a0, void* a1);
@@ -61,7 +61,7 @@ void *TObjPlayer__sub_80312CCC(void *list, s32 section);
 extern "C" {
 
 void TObjPlayer__sub_80312F0C(void* p);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void* a0 = 0);
 int TObjPlayer__sub_80313218(void* p);
@@ -73,7 +73,7 @@ int query_field40__10TObjPlayerFPv(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 void update_children__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_80312C50(void *registry) {
+void release_photon_blast_requests(void *registry) {
     s32 count;
     s32 i;
     u8 *owner;
@@ -152,7 +152,7 @@ void TObjPlayer__sub_80312E98(void *o, u16 id) {
 
 void TObjPlayer__sub_80312F0C(void* p) { { int n = TObjPlayer__sub_803131AC(p); int i; for (i = 0; i < n; i++) { process_indexed_element__10TObjPlayerFii(p, (void*)i); } } }
 
-void TObjPlayer__sub_80312F5C(s32 arg0, s16 arg1, s16 arg2) {
+void append_photon_blast_request(s32 arg0, s16 arg1, s16 arg2) {
     s32 temp_r3;
     temp_r3 = ((s32)TObjPlayer__sub_80312FB0((u8 *)(arg0)));
     if (temp_r3 != 0) {

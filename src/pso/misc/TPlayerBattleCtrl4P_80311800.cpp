@@ -45,7 +45,7 @@ void TPlayerBattleCtrl4P__vt25(u8 *arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 M2C_UNK get_status_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 M2C_UNK TWindowSubComCard__sub_80265C30(void *);
 M2C_UNK TWindowSubComCard__sub_80265F60(void *);
@@ -243,7 +243,7 @@ void TPlayerBattleCtrl4P__vt23(u8 *arg0) {
 #pragma pop
 
 void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
-    if (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) {
+    if (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) {
         if (o->w0 == NULL) {
             o->w0 = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x53), lbl_80475B70, 1);
             if (o->w0 != NULL) {

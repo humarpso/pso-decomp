@@ -10,7 +10,7 @@ void reset_lobby_state__10TObjPlayerFPv(u8 *arg0);
 void try_use_mag__10TObjPlayerFPv(u8 *arg0);
 s32 is_active__8TItemMagFPv();
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_800194AC(void *, M2C_UNK, s32);
+M2C_UNK add_status_effect_timer__10TObjPlayerFPvii(void *, M2C_UNK, s32);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
@@ -29,7 +29,7 @@ void reset_lobby_state__10TObjPlayerFPv(u8 *arg0) {
 
 void try_use_mag__10TObjPlayerFPv(u8 *arg0) {
     if ((is_active__8TItemMagFPv() == 0) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0) && (check_input_angle__16TKeyBoardControlFPv(arg0 + 0x64C) != 0)) {
-        TObjPlayer__sub_800194AC(arg0, 1, M2C_FIELD(arg0, s32 *, 0x3D4));
+        add_status_effect_timer__10TObjPlayerFPvii(arg0, 1, M2C_FIELD(arg0, s32 *, 0x3D4));
     }
 }
 

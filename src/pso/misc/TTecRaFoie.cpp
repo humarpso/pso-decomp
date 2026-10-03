@@ -53,6 +53,44 @@ struct RaFoie_802381F8 {
     u8 m48[1];
 };
 
+#pragma fp_contract on
+struct Vec_80239070 { f32 x, y, z; };
+
+struct Eff_80239070 { u8 pad[0xC]; f32 scale; };
+
+struct Holder_80239070 { u8 pad[0xA4]; Eff_80239070 *eff; };
+
+struct VBase_80239070 { char pad[0x18]; };
+
+struct VObj_80239070 : VBase_80239070 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6(s32);
+};
+
+struct Self_80239070 {
+    u32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    void *source;
+    Vec_80239070 pos;
+    u8 pad2c[0x78 - 0x2C];
+    s16 level;
+    s16 band;
+    u8 pad7c[0x90 - 0x7C];
+    f32 range;
+    u8 pad94[0xB4 - 0x94];
+    u16 fb4;
+    u8 padb6[0xE8 - 0xB6];
+    Holder_80239070 *holder;
+    u8 padec[0xF0 - 0xEC];
+    Vec_80239070 pts[8];
+};
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 approach_position_if_far(void *, void *, f32);
@@ -95,6 +133,28 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC8D0;
 extern const f32 lbl_805DC8D4;
 void render_rafoie_explosion(RaFoie_802381F8 *o);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
+s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
+void *__nw__7TObjectFUl(int);
+void construct_area_technique_base(void *, void *, void *, void *, int);
+void TTecRaZonde__sub_80238D10(u8 *arg0);
+u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void TNpcPlayer__sub_803D97B4(void *);
+extern void *__vt__11TTecRaZonde[];
+extern u32 lbl_805D3808;
+extern s32 tl_07;
+extern const f32 lbl_805DC8F0;
+extern const f32 lbl_805DC8F4;
+extern const f32 lbl_805DC8F8;
+extern const f32 lbl_805DC8FC;
+extern const f32 lbl_805DC900;
+extern const f32 lbl_805DC904;
+void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level);
 }
 
 extern "C" {
@@ -751,7 +811,6 @@ extern "C" {
 
 void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2);
 void render__11TTecRaZondeFv(void);
-void *TTecRaZonde__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 int fn_80236EE8(void*);
 int init_cast__9TTecRestaFPv(void* p);
@@ -760,7 +819,7 @@ void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x150);
     if (o != NULL) {
-        TTecRaZonde__ct(o, arg0, arg1, arg2);
+        TTecRaZonde__ct((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2));
     }
 }
 
@@ -821,6 +880,107 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
     apply_technique_to_area_targets(self);
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }
+
+#pragma push
+#pragma opt_loop_invariants off
+#pragma opt_common_subs off
+#define self ((Self_80239070 *)self_)
+void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
+    s32 ang;
+    s32 i;
+    s32 j;
+    f32 r;
+    f32 len;
+    Vec_80239070 a;
+    Vec_80239070 b;
+    construct_area_technique_base(self_, source, origin, origin, (int)level);
+    self->vt = __vt__11TTecRaZonde;
+    self->f0 = lbl_805D3808;
+    TTecRaZonde__sub_80238D10((u8 *)self);
+    if (self->holder != 0) {
+        self->holder->eff->scale = lbl_805DC8F0 + self->range;
+    }
+    ((VObj_80239070 *)self)->m6(0);
+    r = lbl_805DC8F4;
+    ang = 0;
+    for (i = 0; i < 8; i++) {
+        s16 lv = self->level;
+        f32 step = lbl_805DC8F8;
+        if (lv >= 15 && lv < 25) {
+            step = lbl_805DC8FC;
+        } else if (lv >= 25 && lv < 30) {
+            step = lbl_805DC900;
+        }
+        r += step;
+        ang += 0x2AAA;
+        self->pts[i].x = r * TBoss8Dragon__sub_803D64DC(ang) + self->pos.x;
+        self->pts[i].y = self->pos.y;
+        self->pts[i].z = r * TBoss8Dragon__sub_803D64C0(ang) + self->pos.z;
+    }
+    for (j = 0; j < 7; j++) {
+        VecCopy__FP3VecPC3Vec(&a, &self->pts[j]);
+        VecCopy__FP3VecPC3Vec(&b, &self->pts[j + 1]);
+        b.x = b.x - a.x;
+        b.y = b.y - a.y;
+        b.z = b.z - a.z;
+        len = TBoss6Kakusan__sub_803D8BD8(&b);
+        if (lbl_805DC8F4 != len) {
+            TNpcPlayer__sub_803D97B4(&b);
+        }
+        {
+            u8 *o = (u8 *)__nw__7TObjectFUl(0x260);
+            if (o != 0) {
+                TTecZonde__sub_8023DA10(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, lbl_805DC8F0);
+            }
+        }
+        if (self->band == 5) {
+            u8 *o = (u8 *)__nw__7TObjectFUl(0x260);
+            if (o != 0) {
+                TTecZonde__sub_8023DA10(o, (u8 *)tl_07, (u8 *)&a, (u8 *)&b, 0x14000000, 6, len, lbl_805DC904);
+            }
+        }
+    }
+    switch (self->band) {
+    case 0: {
+        s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
+        if (h >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
+        }
+        break;
+    }
+    case 1:
+        play_sound_effect(0x4002A50A, &self->pos, 0, 0);
+        break;
+    case 2:
+    case 3: {
+        s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
+        if (h >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x180, 0);
+        }
+        break;
+    }
+    case 4: {
+        s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
+        if (h >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x250, 0);
+        }
+        break;
+    }
+    case 5: {
+        s32 h = play_sound_effect(0x4002A50A, &self->pos, 0, 0);
+        if (h >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
+        }
+        break;
+    }
+    }
+    if (self->source != 0) {
+        self->fb4 = obj_getField1c(self->source);
+    }
+    return self_;
+}
+#undef self
+#pragma pop
 
 void fn_802393D0(Tec_802393D0 *self) {
     s32 h;

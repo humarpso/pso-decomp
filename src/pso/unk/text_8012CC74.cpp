@@ -65,13 +65,13 @@ void TObjPlayer__sub_8012CD68(u8 *arg0);
 u8 * init_state__10TObjPlayerFPviPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8012CC74(u8 *arg0);
+u8 *create_saber_weapon(u8 *arg0);
 void TObjPlayer__sub_8012CCCC(Pl_8012CCCC *arg0);
 }
 
 extern "C" {
 
-u8 *TObjPlayer__sub_8012CC74(u8 *arg0) {
+u8 *create_saber_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

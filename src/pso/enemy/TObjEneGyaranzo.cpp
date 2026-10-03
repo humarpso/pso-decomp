@@ -64,7 +64,7 @@ u32 TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 VObj_800D3BA0_800D3B38 *TBreakUpMdl__sub_80096FD8(void *, s32, s32, f32);
 s32 check_v2_mode__9TObjEneDDFv(void);
-u32 TObjEneDD__sub_800BB940(void *, void *);
+u32 load_enemy_bml_resource_named(void *, void *);
 s32 collect_and_count__12TBoss3VoloptFUii(s32, int);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Pos_800D3C04 lbl_8043C25C;
@@ -89,7 +89,7 @@ void TLobby__sub_800D3C04(void) {
     void *p;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D51FC = TObjEneDD__sub_800BB940(lbl_8049414C, lbl_8043C428);
+        lbl_805D51FC = load_enemy_bml_resource_named(lbl_8049414C, lbl_8043C428);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {

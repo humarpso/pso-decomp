@@ -73,7 +73,7 @@ extern "C" {
 s32 is_split_screen(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK TCameraCtrl__sub_80068A68();
-M2C_UNK TLobby__sub_800F9B84();
+M2C_UNK clear_resource_load_tasks();
 M2C_UNK TLobby__sub_800FD6A0(void *, int);
 M2C_UNK reset_quest_state__6TLobbyFv();
 M2C_UNK enable_camera__19TAdSelectGameModeGCFv();
@@ -103,9 +103,9 @@ M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
 s32 get_current_floor();
 void cleanup_scene__9TLoadCtrlFv();
-void TLoadCtrl__sub_8001C978(int);
+void start_loading__9TLoadCtrlFUi(int);
 s32 get_game_mode__6TLobbyFv();
-void TLobby__sub_800FA260();
+void process_pending_resources();
 void TLobby__sub_800FD614(void *, s32);
 void create_map_csn_ctrl__6TLobbyFv();
 void TObjCityMainWarp__sub_801865B4(s32);
@@ -134,14 +134,14 @@ void __dt__7TObjectFv(void *, int);
 M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
 void cleanup_scene__9TLoadCtrlFv();
-void TLoadCtrl__sub_8001C978(int);
+void start_loading__9TLoadCtrlFUi(int);
 M2C_UNK TLobby__sub_8001DC30();
 s32 get_game_mode__6TLobbyFv();
 M2C_UNK reset_keyboard_state__6TLobbyFv();
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
 M2C_UNK TLobby__sub_800F8B20();
-void TLobby__sub_800FA260();
+void process_pending_resources();
 void create_map_csn_ctrl__6TLobbyFv();
 M2C_UNK TLobby__sub_80141038(void *, int, int);
 M2C_UNK update_main_warp_visible_mask(int);
@@ -179,9 +179,9 @@ void __dt__7TObjectFv(void *, int);
 M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
 void cleanup_scene__9TLoadCtrlFv();
-void TLoadCtrl__sub_8001C978(int);
+void start_loading__9TLoadCtrlFUi(int);
 s32 get_game_mode__6TLobbyFv();
-void TLobby__sub_800FA260();
+void process_pending_resources();
 void create_map_csn_ctrl__6TLobbyFv();
 M2C_UNK TLobby__sub_80141038(void *, int, int);
 M2C_UNK init_limits__6TLobbyFv();
@@ -268,7 +268,7 @@ void TLobby__sub_801A3014(void) {
     s32 i;
     s32 j;
     __ct__7TObjectFP7TObject(&holder, NULL);
-    TLobby__sub_800FA260();
+    process_pending_resources();
     TKeyBoardControl__sub_801A66B8();
     render_tick__Fv();
     render_tick__Fv();
@@ -301,7 +301,7 @@ void TLobby__sub_801A3014(void) {
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();
     TLobby__sub_800F8B20();
-    TLoadCtrl__sub_8001C978(1);
+    start_loading__9TLoadCtrlFUi(1);
     init_limits__6TLobbyFv();
     TLobby__sub_8020B118();
     TLobby__sub_8020901C();
@@ -309,7 +309,7 @@ void TLobby__sub_801A3014(void) {
     TLobby__sub_80141038(&lbl_80515BA0, 0, 0);
     TLobby__sub_802286C4(&lbl_80515BA0);
     cleanup_scene__9TLoadCtrlFv();
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         reset_keyboard_state__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
     }
@@ -337,7 +337,7 @@ void TLobby__sub_801A31D8(void) {
     s32 j;
     void *p;
     __ct__7TObjectFP7TObject(&holder, NULL);
-    TLobby__sub_800FA260();
+    process_pending_resources();
     TKeyBoardControl__sub_801A66B8();
     render_tick__Fv();
     render_tick__Fv();
@@ -371,7 +371,7 @@ void TLobby__sub_801A31D8(void) {
             break;
         }
     }
-    TLoadCtrl__sub_8001C978(1);
+    start_loading__9TLoadCtrlFUi(1);
     TQuestThread__sub_801F60DC();
     clear_quest_floor_designations();
     {
@@ -414,7 +414,7 @@ void run_offline_area_transfer(void) {
     void *p;
     s32 j;
     __ct__7TObjectFP7TObject(&holder, NULL);
-    TLobby__sub_800FA260();
+    process_pending_resources();
     TKeyBoardControl__sub_801A66B8();
     render_tick__Fv();
     render_tick__Fv();
@@ -429,7 +429,7 @@ void run_offline_area_transfer(void) {
     update__16TKeyBoardControlFv();
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();
-    TLoadCtrl__sub_8001C978(2);
+    start_loading__9TLoadCtrlFUi(2);
     TLobby__sub_800FD614(TLobby__data_805011D8, TLobby__data_805D53AC);
     TLobby__sub_802286C4(&lbl_80515BA0.value);
     TObjCityMainWarp__sub_801865B4(get_current_floor());
@@ -468,7 +468,7 @@ void TLobby__sub_801A3540(void) {
     delete_children__7TObjectFv((int) (tl_su));
     TLobby__sub_80228634((void *) (&lbl_80515BA0.value));
     TLobby__sub_800FD6A0((void *) (&lbl_804C1F68.value), (int) (0x180));
-    TLobby__sub_800F9B84();
+    clear_resource_load_tasks();
     update__16TKeyBoardControlFv();
     render_tick__Fv();
 }

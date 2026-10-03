@@ -64,7 +64,7 @@ s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
 void TObjPlayer__sub_803DA7E0(void);
 extern u8 *lbl_805D774C;
-s32 TParticleCtrl__sub_803DA7A8(s32 i);
+s32 set_texture_num(s32 i);
 extern s32 lbl_805D7768;
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
 void move_data__6TLobbyFv();
@@ -125,7 +125,7 @@ typedef char RecoveredFields_803DA84C_arg0_1C_offset[offsetof(RecoveredFields_80
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-s32 TParticleCtrl__sub_803DA7A8(s32 i) {
+s32 set_texture_num(s32 i) {
     Obj_803DA7A8 *o = ((G_803DA7A8 *)lbl_805D774C)->f20->arr[i].p;
     ((G_803DA7A8 *)lbl_805D774C)->f8 = o->fc + 4;
     ((G_803DA7A8 *)lbl_805D774C)->f18 = o->f8;

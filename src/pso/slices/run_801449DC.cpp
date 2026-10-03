@@ -3,7 +3,7 @@
 extern "C" {
 
     extern int lbl_805D3D80;
-int fn_801449DC(void) {  return lbl_805D3D80; }
+int get_opening_movie_selector(void) {  return lbl_805D3D80; }
 
     extern unsigned char lbl_805D6560;
 void fn_801449E4(void) { lbl_805D6560 = 1; }

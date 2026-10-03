@@ -50,13 +50,13 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void update_owner_visibility__5TItemFPv(u8 *arg0);
 M2C_UNK TOTrapAncient02__sub_800837D4(void *);
 void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1);
-s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
+s32 test_flags_any(M2C_UNK *, M2C_UNK);
 extern M2C_UNK lbl_805D53EC;
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 void play_particle_effect_once__10TObjPlayerFv(void);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(M2C_UNK *, M2C_UNK);
-s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
+s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80101088_lbl_8050BEC0 lbl_8050BEC0;
 extern RecoveredGlobal_80101088_lbl_8058D4C0 lbl_8058D4C0;
@@ -65,13 +65,13 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 void TObjPlayer__sub_80101088(void);
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
-s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
+s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK set_chunk_material_color(s32);
 extern M2C_UNK lbl_805D53EC;
 extern s32 some_id_805c6f74;
 void enable_flag20__10TObjPlayerFi(s32 arg0);
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
-s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
+s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK set_chunk_material_color(s32);
 extern M2C_UNK lbl_805D53EC;
 extern s32 some_id_805c6f74;
@@ -80,12 +80,12 @@ void TItemData__sub_8010CEF4(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void copy_item_data_to_icon__10TObjPlayerFPv(void *arg0);
 s32 get_player_by_client_id(u16);
-s16 *fn_8010A768();
+s16 *get_stat_bonus_ptr__14TItemEquipBaseFPv();
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 get_stat_bonus__10TObjPlayerFPv(s32);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0);
 s32 get_player_by_client_id(u16);
-s16 *fn_8010A768();
+s16 *get_stat_bonus_ptr__14TItemEquipBaseFPv();
 u32 get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 get_stat__10TObjPlayerFPv(s32);
 s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0);
@@ -109,7 +109,7 @@ void end_particle_effect__10TObjPlayerFv(void);
 f32 get_mag_scale__10TObjPlayerFPv(void *arg0);
 void setup_particle_once__10TObjPlayerFPv(void *arg0);
 void update_screen_particle_effect__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_8001BEF8(M2C_UNK *, M2C_UNK);
+s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(M2C_UNK *, M2C_UNK);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -153,7 +153,7 @@ void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1) {
 }
 
 void update_screen_particle_effect__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 0x10) != 0) {
+    if (test_flags_any(&lbl_805D53EC, 0x10) != 0) {
         disable_if_single_screen__13TParticleCtrlFv();
         set_tev_direct__13TParticleCtrlFi(1);
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x24));
@@ -166,7 +166,7 @@ int TObjPlayer__sub_80100F34(void) { return get_object__13TParticleCtrlFPv((void
 extern M2C_UNK lbl_805D53EC;
 
 void draw_shield_particle__10TObjPlayerFPv(void *arg0) {
-    if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 8) != 0) {
+    if (test_flags_any(&lbl_805D53EC, 8) != 0) {
         disable_if_single_screen__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x24));
         clear_flags__11TAdRicoRingFPvUi(&lbl_805D53EC, 8);
@@ -177,7 +177,7 @@ extern M2C_UNK lbl_805D53EC;
 
 void setup_particle_once__10TObjPlayerFPv(void *arg0) {
     play_particle_effect_once__10TObjPlayerFv();
-    if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 8) == 0) {
+    if (test_flags_any(&lbl_805D53EC, 8) == 0) {
         setup_particle_tev(0);
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x24));
         set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 8);
@@ -187,19 +187,19 @@ void setup_particle_once__10TObjPlayerFPv(void *arg0) {
 extern M2C_UNK lbl_805D53EC;
 
 void end_particle_effect__10TObjPlayerFv(void) {
-    if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 2) != 0) {
+    if (test_flags_any(&lbl_805D53EC, 2) != 0) {
         end_effect_render__13TParticleCtrlFv();
         clear_flags__11TAdRicoRingFPvUi(&lbl_805D53EC, 2);
     }
 }
 void play_particle_effect_once__10TObjPlayerFv(void) {
-    if (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 2) == 0) {
+    if (test_flags_any(&lbl_805D53EC, 2) == 0) {
         begin_effect_render__13TParticleCtrlFv();
         set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 2);
     }
 }
 void TObjPlayer__sub_80101088(void) {
-    if (TObjPlayer__sub_8001BEF8((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1))) != 0) {
+    if (test_flags_any((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1))) != 0) {
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BEC0.value));
         some_id_805c6f74 = lbl_805D5660;
         clear_flags__11TAdRicoRingFPvUi((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1)));
@@ -207,7 +207,7 @@ void TObjPlayer__sub_80101088(void) {
 }
 void enable_flag20__10TObjPlayerFi(s32 arg0) {
     s32 temp_r0;
-    if ((arg0 != 0) && (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 1) == 0)) {
+    if ((arg0 != 0) && (test_flags_any(&lbl_805D53EC, 1) == 0)) {
         temp_r0 = (*(volatile s32 *)&some_id_805c6f74) & 0xFFFFFFEF;
         (*(volatile s32 *)&some_id_805c6f74) = temp_r0;
         (*(volatile s32 *)&some_id_805c6f74) = temp_r0 | 0x20;
@@ -217,7 +217,7 @@ void enable_flag20__10TObjPlayerFi(s32 arg0) {
 }
 void enable_first_time_flag__10TObjPlayerFi(s32 arg0) {
     s32 temp_r0;
-    if ((arg0 != 0) && (TObjPlayer__sub_8001BEF8(&lbl_805D53EC, 1) == 0)) {
+    if ((arg0 != 0) && (test_flags_any(&lbl_805D53EC, 1) == 0)) {
         some_id_805c6f74 &= 0xFFFFFFDF;
         some_id_805c6f74 |= 0x10;
         set_chunk_material_color(arg0);
@@ -239,7 +239,7 @@ s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0) {
         var_cnt = 9;
         do {
             if (get_equip_field_d04__10TObjPlayerFPv(temp_r3, var_cnt) != 0U) {
-                var_acc += M2C_FIELD(fn_8010A768(), s16 *, 2);
+                var_acc += M2C_FIELD(get_stat_bonus_ptr__14TItemEquipBaseFPv(), s16 *, 2);
             }
             var_cnt += 1;
         } while (var_cnt != 0xD);
@@ -257,7 +257,7 @@ s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0) {
         var_cnt = 9;
         do {
             if (get_equip_field_d04__10TObjPlayerFPv(temp_r3, var_cnt) != 0U) {
-                var_acc += *fn_8010A768();
+                var_acc += *get_stat_bonus_ptr__14TItemEquipBaseFPv();
             }
             var_cnt += 1;
         } while (var_cnt != 0xD);

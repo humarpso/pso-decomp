@@ -168,10 +168,10 @@ void update_angle__14TObjEneEpsilonFPvi(void *arg0, s32 arg1);
 s32 update_death_check__14TObjEneEpsilonFPv(void *arg0);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
-s32 TObjEneDD__sub_800BA828(u16);
+s32 is_player_entity_id(u16);
 M2C_UNK calc_wall_clamped_destination(void *, s32, f32, f32, f32);
 M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
-int TObjEneEpsilon__sub_800B96FC(void*, void*, void*);
+int enemy_tick_target_acquisition(void*, void*, void*);
 s16 approach_angle_limited(s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
 M2C_UNK calc_shot_position__9TObjEneDDFPvPvfff(void *, s32, f32, f32, f32);
@@ -239,7 +239,7 @@ void update_angle__14TObjEneEpsilonFPvi(void *arg0, s32 arg1) {
 }
 
 s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
-    if ((((VObj_800B9578_800B92AC *)arg0)->m97() == 0) && (TObjEneDD__sub_800BA828(M2C_FIELD(arg0, u16 *, 0x38C)) == 0)) {
+    if ((((VObj_800B9578_800B92AC *)arg0)->m97() == 0) && (is_player_entity_id(M2C_FIELD(arg0, u16 *, 0x38C)) == 0)) {
         enemy_clear_target(arg0);
         return 0;
     }

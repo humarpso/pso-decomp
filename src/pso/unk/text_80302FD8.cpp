@@ -22,7 +22,7 @@ struct RecoveredGlobal_80302FD8_lbl_804E6AF8 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TAdFloorLoadPrtGC__sub_80086EF8(void *, void *, int, int, int);
+s32 create_particle_controller_with_angles(void *, void *, int, int, int);
 s32 clear_active_flag__13TParticleCtrlFPv(int);
 s32 fn_800BC4C8(void *, void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(void *);
@@ -59,7 +59,7 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     stack.sp8 = M2C_FIELD(&lbl_8047512C.value, s32 *, 0);
     stack.sp10 = M2C_FIELD(&lbl_8047512C.value, s32 *, 8);
     stack.spC = arg4 - 0x4000;
-    M2C_FIELD(arg0, s32 *, 0xCC) = TAdFloorLoadPrtGC__sub_80086EF8((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (0x210), (int) (0x32), (int) (2));
+    M2C_FIELD(arg0, s32 *, 0xCC) = create_particle_controller_with_angles((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (0x210), (int) (0x32), (int) (2));
     clear_active_flag__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, s32 *, 0xCC)));
     return arg0;
 }

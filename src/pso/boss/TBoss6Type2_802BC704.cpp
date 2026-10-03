@@ -214,7 +214,7 @@ extern Tb_802BD014 lbl_804E00DC[];
 void TBoss6Type2__sub_802BCC54(void *, int);
 s32 TObjControl__ct(s32, s32);
 f32 TObjPlayer__sub_80014108(void *, u32, f32);
-u8 *TObjPlayer__sub_80015DC4(u32, s32);
+u8 *get_attribute_entry__10TObjPlayerFPvi(u32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 get_phase__11TBoss6Type2FPv();
 s32 get_phase__14TBoss6PlotFalzFv();
@@ -421,7 +421,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
         var_r30 = 0;
         var_r29 = 0;
         do {
-            temp_r0 = *TObjPlayer__sub_80015DC4(arg1, var_r29);
+            temp_r0 = *get_attribute_entry__10TObjPlayerFPvi(arg1, var_r29);
             switch ((s32) temp_r0) {
             case 1:
                 var_r30 |= 1;

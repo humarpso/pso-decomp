@@ -131,7 +131,7 @@ s32 register_boss__6TLobbyFPv(int);
 u8 *TLobby__sub_80020004(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 check_v2_mode__9TObjEneDDFv();
-u8 *TObjEneDD__sub_800BB940(void *, void *);
+u8 *load_enemy_bml_resource_named(void *, void *);
 M2C_UNK TBoss4Type3__sub_800D9960(void *, s32, s32, int, int);
 u8 *TBoss4Type3__sub_800D9ABC(void *, int, f32, f32, f32);
 s32 *alloc_buffer__11TOBoss4RockFPv(int);
@@ -601,7 +601,7 @@ void destroy_all__9TObjGrassFv(void) {
 void TObjGrass__sub_800BF66C(void) {
     u8 *p;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        TObjGrass__data_805D5154 = (u32) TObjEneDD__sub_800BB940(lbl_80492954, lbl_8043B7C0);
+        TObjGrass__data_805D5154 = (u32) load_enemy_bml_resource_named(lbl_80492954, lbl_8043B7C0);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {

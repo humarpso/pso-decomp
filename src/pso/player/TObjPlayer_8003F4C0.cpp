@@ -330,7 +330,7 @@ void teardown_render_state__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80040558(void * _w0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
-s32 TObjPlayer__sub_800194AC(void *, int, int);
+s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 s32 obj_testFlags30(void *, s32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK fn_8003CFEC(void *);
@@ -794,7 +794,7 @@ void TObjPlayer__sub_800405D8(u8 *arg0) {
   }
   if (obj_testFlags30((void *)((void *)((void *) arg0)), (s32)((M2C_UNK)((int) 0x4000))) != 0)
   {
-    if (TObjPlayer__sub_800194AC((void *) arg0, (int) 4, (int) (-1)) <= 0)
+    if (add_status_effect_timer__10TObjPlayerFPvii((void *) arg0, (int) 4, (int) (-1)) <= 0)
     {
       TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
       obj_clearFlags30((void *)((void *) arg0), (M2C_UNK)((int) 0x4000));

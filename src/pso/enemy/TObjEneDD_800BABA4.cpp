@@ -272,11 +272,11 @@ void TObjEneDD__sub_800BAD1C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
 void move_with_wall_stop__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
-void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void move_with_wall_slide_commit__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
-void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void move_clamped_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
-void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+void move_with_wall_slide_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 int has_move_failures__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 f32 newton_sqrtf(f32);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
@@ -312,7 +312,7 @@ void TObjEneDD__sub_800BABCC(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
-void TObjEneDD__sub_800BAC14(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void move_with_wall_slide_commit__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
     calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
@@ -324,13 +324,13 @@ void move_with_wall_stop__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 f
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
-void TObjEneDD__sub_800BACA4(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void move_clamped_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
     calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
-void TObjEneDD__sub_800BACE0(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+void move_with_wall_slide_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     M2C_UNK sp8;
     calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));

@@ -150,7 +150,7 @@ void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg
 extern RecoveredGlobal_803589F8_lbl_804F15C8 lbl_804F15C8;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 fn_800871A0(void *, void *, int);
+s32 spawn_continuous_particle_with_direction(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 TBoss8Dragon__sub_803D64C0(void *);
 f32 TBoss8Dragon__sub_803D64DC(void *);
@@ -241,7 +241,7 @@ M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK attach_particle_model(s32, s32, s32, s32, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_800868C4(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK create_timed_particle_emitter_with_flags(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, int, int);
 void TObjPlayer__sub_80120D50(void *);
 M2C_UNK TObjPlayer__sub_802E451C();
@@ -394,7 +394,7 @@ u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     stack.sp8 = M2C_FIELD(&lbl_804793E4.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804793E4.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804793E4.value, s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x4C) = fn_800871A0((void *) (arg0 + 0x34), (void *) (&stack.sp8), (int) (0xA));
+    M2C_FIELD(arg0, s32 *, 0x4C) = spawn_continuous_particle_with_direction((void *) (arg0 + 0x34), (void *) (&stack.sp8), (int) (0xA));
     return arg0;
 }
 #pragma pop
@@ -532,7 +532,7 @@ void weapon_dim_shadow_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     if (arg3 == 1) {
         spawn_particle_effect_with_flags(arg2, 0xC8, 0x40);
-        TObjPlayer__sub_800868C4(arg2, 0x101, 0, 0x1E, 0x40);
+        create_timed_particle_emitter_with_flags(arg2, 0x101, 0, 0x1E, 0x40);
     }
 }
 
@@ -667,7 +667,7 @@ void handle_hit_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 a
         spawn_particle_effect((M2C_UNK *)(&sp8), (M2C_UNK)(0x68));
     }
     if (arg3 == 1) {
-        TObjPlayer__sub_800868C4(arg2, 0x18, 0, 5, 0x40);
+        create_timed_particle_emitter_with_flags(arg2, 0x18, 0, 5, 0x40);
     }
 }
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {

@@ -51,7 +51,7 @@ M2C_UNK get_field_2d4__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_getField1c(void *);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s32 check_value_equals__13TQuestColCtrlFPvi(int, void *);
 u8 *find_entity_by_id(s32);
 s32 get_trap_type__10TOMineTrapFPv(int);
@@ -79,7 +79,7 @@ M2C_UNK get_field_2d4__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 obj_getField1c(void *);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s32 check_value_equals__13TQuestColCtrlFPvi(int, void *);
 u8 *find_entity_by_id(s32);
 s32 get_trap_type__10TOMineTrapFPv(int);
@@ -120,7 +120,7 @@ s32 obj_isState2_324(void *);
 s32 obj_getField1c(void *);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, u32);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s32 is_cursor_clear__11TMainCursorFPv(void *);
 u32 find_revival_item__10TObjPlayerFv(void *);
 s32 is_flag_400_set__10TObjPlayerFPv(void *);
@@ -151,7 +151,7 @@ void enter_death_state__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_801CA3E4((void *) (arg0));
     TObjPlayer__sub_8001053C((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
-    if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x858), (int) (1)) != 0) {
+    if (test_flags_any((void *) (arg0 + 0x858), (int) (1)) != 0) {
         set_action_state__10TObjPlayerFPvss((void *) (arg0), (int) (0xF), (void *) (ret_801D26AC()));
         restart_death_pose__10TObjPlayerFPv((void *) (arg0));
     } else {
@@ -224,7 +224,7 @@ void prepare_death__10TObjPlayerFPv(u8 *arg0) {
             set_flags__10TObjPlayerFPvUi(arg0 + 0x858, 2);
         }
     }
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x858, 1) == 0) {
+    if (test_flags_any(arg0 + 0x858, 1) == 0) {
         drop_items_on_death__10TObjPlayerFPv(arg0);
     }
     if (is_flag_400_set__10TObjPlayerFPv(arg0) != 0) {

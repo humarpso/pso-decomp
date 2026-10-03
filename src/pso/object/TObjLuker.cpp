@@ -72,7 +72,7 @@ void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 s32 is_split_screen(void);
 void *get_window_layout_position(s32 a);
-void *TCheckRoomSequence__sub_802664A8(void *p, s32 a, s32 b);
+void *create_window_menu(void *p, s32 a, s32 b);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *p, s32 a);
 s32 get_player_floor__6TLobbyFi(s32 p);
 s32 TObjLuker__sub_801329B0(s32 f);
@@ -209,7 +209,7 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
     for (i = 0; i < 4; i++) {
         if (self->wins[i] == 0 && target > 0) {
             if (is_split_screen() != 0) {
-                self->wins[i] = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, i);
+                self->wins[i] = create_window_menu(get_window_layout_position(0x33), 1, i);
             } else {
                 self->wins[i] = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x33), 1);
             }

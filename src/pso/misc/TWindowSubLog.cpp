@@ -25,7 +25,7 @@ struct RecoveredGlobal_8027AF58_lbl_8050E208 {
 struct Lg_8027B194 { s32 f0; u8 pad4[0x14]; void *vt; void *f1c; void *f20; s32 f24; void *f28; u8 f2c[0x10]; };
 
 extern "C" {
-s32 fn_80076CD0(void *);
+s32 chat_accept_submission(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 is_flag_set__11TLoadingCurFPv(void *, int);
@@ -87,7 +87,7 @@ void run_task__13TWindowSubLogFv(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
-    if ((is_mode_bit4__11TWindowChatFPv((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) && (fn_80076CD0((void *) (arg0 + 0x2C)) != 0)) {
+    if ((is_mode_bit4__11TWindowChatFPv((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) && (chat_accept_submission((void *) (arg0 + 0x2C)) != 0)) {
         TWindowChat__sub_80247E50((int) (M2C_FIELD(arg0, s32 *, 0x28)));
     }
     if (is_visible__11TWindowChatFPv((int) (M2C_FIELD(arg0, s32 *, 0x28))) != 0) {

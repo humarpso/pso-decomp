@@ -107,8 +107,8 @@ s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
 M2C_UNK TNpcPlayer__sub_80151AB4(void *);
 void reset_partner_counter(s32 arg0, s32 arg1);
 void increment_partner_counter(s32 arg0, s32 arg1);
-s32 TNpcPlayer__sub_80152950(void *, int, int);
-s32 TNpcPlayer__sub_801529E0(void *, int, int);
+s32 is_partner_counter_reached(void *, int, int);
+s32 clamp_partner_counter(void *, int, int);
 u16 get_action_flags__10TNpcPlayerFPv(void *);
 void run_task__10TNpcPlayerFv(u8 *arg0);
 }
@@ -150,9 +150,9 @@ M2C_UNK TNpcPlayer__sub_801501A0(void *);
 s32 TNpcPlayer__sub_80152978(void* p);
 void TNpcPlayer__sub_80152A30(void);
 int TNpcPlayer__sub_80152A78(void* a0 = 0);
-int TNpcPlayer__sub_80152ACC(void*);
-int TNpcPlayer__sub_80152B5C(void*);
-int TNpcPlayer__sub_80152BEC(void*);
+int bswap_6x45_packet(void*);
+int bswap_6x44_packet(void*);
+int bswap_6x43_packet(void*);
 void TNpcPlayer__sub_80152D64(void* p);
 int TObjPlayer__sub_80102CE0(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -209,9 +209,9 @@ void run_task__10TNpcPlayerFv(u8 *arg0) {
             init_state__10TNpcPlayerFPv((void *) (arg0));
             if (!(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x74), void **, 0x94), s32 *, 0x30) & 0x800)) {
                 if (M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94), s32 *, 0x30) & 0x800) {
-                    if (TNpcPlayer__sub_801529E0((void *) (arg0 + 0x5C), (int) (3), (int) (0x400)) != 0) {
+                    if (clamp_partner_counter((void *) (arg0 + 0x5C), (int) (3), (int) (0x400)) != 0) {
                         request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (5));
-                    } else if (TNpcPlayer__sub_80152950((void *) (arg0 + 0x5C), (int) (3), (int) (0)) != 0) {
+                    } else if (is_partner_counter_reached((void *) (arg0 + 0x5C), (int) (3), (int) (0)) != 0) {
                         request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (4));
                     }
                     increment_partner_counter((s32) (arg0 + 0x5C), 3);

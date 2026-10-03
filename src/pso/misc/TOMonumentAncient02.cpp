@@ -89,7 +89,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_804B3960[];
 extern u32 TOMonumentAncient02__data_805D5A68;
-void TOMonumentAncient02__sub_80172D50(void);
+void load_resources__19TOMonumentAncient02Fv(void);
 s32 rand(void);
 int rotate_matrix_y(int, int);
 int TObjPlayer__sub_803D9B2C();
@@ -229,7 +229,7 @@ void free_shared_data__19TOMonumentAncient02Fv(void) {
 
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 
-void TOMonumentAncient02__sub_80172D50(void) {
+void load_resources__19TOMonumentAncient02Fv(void) {
     u8 *tbl = lbl_804B3960;
     u8 *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {

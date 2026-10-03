@@ -319,7 +319,7 @@ M2C_UNK spawn_confusion_feedback_effect(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800101B0(void *, M2C_UNK);
 M2C_UNK show_miss_for_collider__10TObjPlayerFi(void *, s32);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
-s32 TObjPlayer__sub_800194AC(void *, M2C_UNK, M2C_UNK);
+s32 add_status_effect_timer__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK);
 M2C_UNK angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 s32 project_actor_to_ground(s32, s32, s32);
@@ -341,7 +341,7 @@ s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_ret;
 
     if (obj_testFlags30(arg0, 0x10) != 0) {
-        temp_ret = TObjPlayer__sub_800194AC(arg0, 1, -1);
+        temp_ret = add_status_effect_timer__10TObjPlayerFPvii(arg0, 1, -1);
         if (temp_ret > 0) {
             obj_clearFlags30(arg0, 0x3C);
             obj_setFlags30(arg0, 0x10);
@@ -363,7 +363,7 @@ s32 update_action_timer__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_ret;
 
     if ((obj_testFlags30(arg0, 8) != 0) && ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U)) {
-        temp_ret = TObjPlayer__sub_800194AC(arg0, 1, -1);
+        temp_ret = add_status_effect_timer__10TObjPlayerFPvii(arg0, 1, -1);
         if (temp_ret > 0) {
             if ((temp_ret % 45) == 0) {
                 TObjPlayer__sub_800101B0(arg0, 1);

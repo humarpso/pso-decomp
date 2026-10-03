@@ -153,7 +153,7 @@ void update_owner_state__10TItemTimerFPv(void *arg0);
 M2C_UNK add_actor_hp(s32, M2C_UNK);
 s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
 M2C_UNK add_actor_tp(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_800112D4(s32, M2C_UNK);
+M2C_UNK subtract_actor_tp(s32, M2C_UNK);
 M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s32 is_item_area_enabled();
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -294,7 +294,7 @@ void set_owner_flag_800__10TItemTimerFPv(void *arg0) {
 void update_owner_state__10TItemTimerFPv(void *arg0) {
     get_field_3e0__12TBoss3VoloptFPv((void *)(M2C_FIELD(arg0, s32 *, 0x28)));
     if ((is_item_area_enabled() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
-        TObjPlayer__sub_800112D4(M2C_FIELD(arg0, s32 *, 0x28), 1);
+        subtract_actor_tp(M2C_FIELD(arg0, s32 *, 0x28), 1);
     }
 }
 

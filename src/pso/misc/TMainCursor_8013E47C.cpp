@@ -6,8 +6,8 @@ s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
-int TMainCursor__sub_8013E854(void* a0 = 0);
-void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
+int copy_target_record__11TMainCursorFPvPv(void* a0 = 0);
+void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);
 int check_field_24__11TMainCursorFPv(void* p);
 u16 get_id__11TMainCursorFPv(void* p);
@@ -36,10 +36,10 @@ int update_action_palette__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
 int TMainCursor__sub_8013E75C(void* p);
-s32 TMainCursor__sub_8013E810(void* p);
-s32 TMainCursor__sub_8013E818(void* p);
-s32 TMainCursor__sub_8013E820(void* p);
-s32 TMainCursor__sub_8013E828(void* p);
+s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
+s32 get_body_include_mask__11TMainCursorFPv(void* p);
+s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);
+s32 get_actor_include_mask__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E8A0(void* p);
 int get_selected_entry__11TMainCursorFPv(void* p);
 int get_active__11TMainCursorFPv(void* p);
@@ -66,10 +66,10 @@ int update_ring_sub__13TLockOnCursorFPv(void* p);
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int TMainCursor__sub_8013B2A4(void*);
 int TObjPlayer__sub_8013DEF8(void*);
-int TMainCursor__sub_8013DF08(void*);
+int is_channel_active__11TMainCursorFPv(void*);
 int get_enabled__11TMainCursorFPv(void*);
 int get_type__11TMainCursorFPv(void*);
 int set_slot__20TWindowActionPaletteFPvUc(void*);
@@ -79,10 +79,10 @@ int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
 
 u16 get_render_flag__11TMainCursorFPv(void* p) { return TMainCursor__sub_8013E4A0((char*)p + 0x24); }
 u16 TMainCursor__sub_8013E4A0(void* p) { return *(u16*)((char*)p + 0x0); }
-int test_flag_2_at_20__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 2); }
-int init_render_flags__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 8); }
-int update__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 4); }
-int check_flag_1__11TMainCursorFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x20, 1); }
+int test_flag_2_at_20__11TMainCursorFPv(void* p) { return test_flags_any((char*)p + 0x20, 2); }
+int init_render_flags__11TMainCursorFPv(void* p) { return test_flags_any((char*)p + 0x20, 8); }
+int update__11TMainCursorFPv(void* p) { return test_flags_any((char*)p + 0x20, 4); }
+int check_flag_1__11TMainCursorFPv(void* p) { return test_flags_any((char*)p + 0x20, 1); }
 u8 is_position_moved__11TMainCursorFPv(void* p) { return (u8)(TMainCursor__sub_8013E570((char*)p + 0x60)); }
 s16 TMainCursor__sub_8013E570(void* p) { return *(s16*)((char*)p + 0x6); }
 int check_flag_4__11TMainCursorFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x20, 4); }

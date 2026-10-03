@@ -41,9 +41,9 @@ struct Part_800BA084 { u8 pad[0x2c]; };
 struct Obj_800BA084 { u8 pad[0xa4]; Part_800BA084 *parts; s32 count; };
 
 extern "C" {
-void TObjEneDD__sub_800BA870(Part_800BA030 *);
+void set_collider_contact_low(Part_800BA030 *);
 void TObjEneDD__vt95(Obj_800BA030 *self);
-void TObjEneDD__sub_800BA88C(Part_800BA084 *);
+void set_collider_contact_high(Part_800BA084 *);
 void TObjEneDD__vt94(Obj_800BA084 *self);
 }
 
@@ -68,14 +68,14 @@ u8 TObjEneDD__vt96(void *arg0) {
 void TObjEneDD__vt95(Obj_800BA030 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {
-        TObjEneDD__sub_800BA870(&self->parts[i]);
+        set_collider_contact_low(&self->parts[i]);
     }
 }
 
 void TObjEneDD__vt94(Obj_800BA084 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {
-        TObjEneDD__sub_800BA88C(&self->parts[i]);
+        set_collider_contact_high(&self->parts[i]);
     }
 }
 

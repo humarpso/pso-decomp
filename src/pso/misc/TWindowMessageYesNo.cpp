@@ -15,7 +15,7 @@ extern "C" {
 void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 void run_task__19TWindowMessageYesNoFv(void* p);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);

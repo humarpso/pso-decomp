@@ -36,7 +36,7 @@ struct Obj_80190AA0 {
 };
 
 extern "C" {
-s32 fn_80190884(void *, int);
+s32 is_sound_enabled__12TObjEnvSoundFPvi(void *, int);
 s32 fn_801908F8(f32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 void run_task__12TObjEnvSoundFv(u8 *arg0);
@@ -73,7 +73,7 @@ void run_task__12TObjEnvSoundFv(u8 *arg0) {
     f32 temp_f0;
     s32 temp_r0;
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x90);
-    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (fn_80190884((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x98))) != 0)) {
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (is_sound_enabled__12TObjEnvSoundFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x98))) != 0)) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x9C);
         switch (temp_r0) {
         case 0:

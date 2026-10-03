@@ -362,7 +362,7 @@ extern "C" {
 s32 obj_isState2_324(void *);
 M2C_UNK obj_getField1c(void *);
 s32 is_alive__9TObjEneDDFPv(void *);
-s32 TObjEneDD__sub_800BA828();
+s32 is_player_entity_id();
 extern const f32 lbl_805DEFB0;
 extern const f32 lbl_805DEFB4;
 void TObjEneDellBiter__sub_803030D8(u8 *arg0);
@@ -415,7 +415,7 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BACA4(void *, f32, f32, f32);
+M2C_UNK move_clamped_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK advance_animation_playback(void *);
@@ -501,7 +501,7 @@ extern M2C_UNK lbl_804E6B54[];
 void TObjEneDellBiter__sub_803030D8(u8 *arg0) {
     f32 temp_f1;
     obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0x1C)));
-    if (TObjEneDD__sub_800BA828() != 0) {
+    if (is_player_entity_id() != 0) {
         queue_destruction__7TObjectFv((void *)((void *) (arg0)));
         return;
     }
@@ -729,7 +729,7 @@ void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1) {
         advance_animation_playback(arg0);
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
         len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        TObjEneDD__sub_800BACA4(arg0, v.x, v.z, len);
+        move_clamped_on_ground__9TObjEneDDFPvfff(arg0, v.x, v.z, len);
         M2C_FIELD(arg0, f32 *, 0x308) *= lbl_805DEFC8;
         M2C_FIELD(arg0, f32 *, 0x310) *= lbl_805DEFC8;
         ((VObj_18_fd6cbb *)(arg0))->m87();

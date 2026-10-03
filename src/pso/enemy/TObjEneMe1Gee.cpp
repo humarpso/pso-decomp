@@ -213,7 +213,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK advance_animation_playback();
 f32 TBoss8Dragon__sub_803D64C0(s32, f32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -235,7 +235,7 @@ void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
         advance_animation_playback();
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3EC));
         M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
-        TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x448), M2C_FIELD(arg0, f32 *, 0x44C), lbl_805DA0C4);
+        move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, M2C_FIELD(arg0, f32 *, 0x448), M2C_FIELD(arg0, f32 *, 0x44C), lbl_805DA0C4);
     case 3:
     case 5:
     case 1:
@@ -400,7 +400,7 @@ struct VObj : BaseVT {
 extern "C" {
 
 void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1);
-M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
@@ -450,7 +450,7 @@ void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1) {
             update_angle__13TObjEneMe1GeeFPv(arg0);
             set_move_speed_x__13TObjEneMe1GeeFPv(arg0);
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805DA0CC) {
-                TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805DA0D0);
+                move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805DA0D0);
             }
             break;
         }
@@ -485,7 +485,7 @@ extern "C" {
 
 void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK set_move_speed_x__13TObjEneMe1GeeFPv(void *);
@@ -523,7 +523,7 @@ void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
         update_velocity__9TObjEneDDFPv((void *) (arg0));
         update_angle__13TObjEneMe1GeeFPv((void *) (arg0));
         set_move_speed_x__13TObjEneMe1GeeFPv((void *) (arg0));
-        TObjEneDD__sub_800BAC14((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DA0D0));
+        move_with_wall_slide_commit__9TObjEneDDFPvfff((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DA0D0));
         ((VObj_800c9964 *) arg0)->m86();
         break;
     }

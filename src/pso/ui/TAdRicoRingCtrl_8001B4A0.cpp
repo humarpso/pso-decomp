@@ -68,7 +68,7 @@ void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
 void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 
 extern const f32 lbl_805D7E4C;
 
@@ -168,7 +168,7 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
 void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
     f32 temp_f0;
 
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 1) != 0) {
+    if (test_flags_any(arg0 + 0x2C, 1) != 0) {
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x2C, 1);
     }
     set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 2);
@@ -187,7 +187,7 @@ extern const f32 lbl_805D7E54;
 void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
     f32 temp_f0;
 
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x2C, 2) != 0) {
+    if (test_flags_any(arg0 + 0x2C, 2) != 0) {
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x2C, 2);
     }
     set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 1);

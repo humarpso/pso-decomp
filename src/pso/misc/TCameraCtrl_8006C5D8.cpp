@@ -22,7 +22,7 @@ extern "C" {
 extern G_8006C668 TCameraCtrl__data_804FF7C0;
 void xfree__FPv(void *);
 void TCameraCtrl__sub_8006C668(void);
-s32 TItemDrop__sub_800F94BC(s32, void *);
+s32 load_relocatable_file(s32, void *);
 s32 update_lobby_scene__6TSceneFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void *xmalloc__FUl(s32);
@@ -87,7 +87,7 @@ void load_camera_banks__11TCameraCtrlFv(void) {
         TCameraCtrl__data_804FF7C0.e[j].p = xmalloc__FUl(sz);
     }
     for (k = 0; k < n; k++) {
-        TCameraCtrl__data_804FF7C0.e[k].a = TItemDrop__sub_800F94BC(b->entries[k].id, TCameraCtrl__data_804FF7C0.e[k].p);
+        TCameraCtrl__data_804FF7C0.e[k].a = load_relocatable_file(b->entries[k].id, TCameraCtrl__data_804FF7C0.e[k].p);
     }
 }
 

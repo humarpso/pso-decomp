@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern s8 lbl_805D535A;
-bool TLobby__sub_800F8AE8(void);
+bool is_area_transfer_pending(void);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ void TLobby__sub_800F8AD0(void) {
     }
 }
 
-bool TLobby__sub_800F8AE8(void) {
+bool is_area_transfer_pending(void) {
     return (*(u8 *)&lbl_805D535A) != 0;
 }
 

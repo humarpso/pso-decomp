@@ -137,7 +137,7 @@ s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 check_v2_mode__9TObjEneDDFv();
-u32 TObjEneDD__sub_800BB940(void *, void *);
+u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 void TObjEneRe4Bit__sub_800EDAB4();
 u8 *alloc_tables__6TLobbyFPvii(void *, s32, s32);
@@ -306,7 +306,7 @@ void TObjEneRe4Sorcerer__sub_800F0464(void) {
     lbl_80501070.y = TObjEneRe4Sorcerer__data_805DA790;
     lbl_80501070.z = TObjEneRe4Sorcerer__data_805DA790;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D52E0 = TObjEneDD__sub_800BB940(lbl_80496F58, lbl_8043D418);
+        lbl_805D52E0 = load_enemy_bml_resource_named(lbl_80496F58, lbl_8043D418);
     } else {
         lbl_805D52E0 = load_enemy_bml_resource(lbl_80496F58);
     }

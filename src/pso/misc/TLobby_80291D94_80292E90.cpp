@@ -8,14 +8,14 @@ extern "C" {
 
 s32 get_clamped_time_limit__6TLobbyFv(void);
 s32 TLobby__sub_8006F994(s32);
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 
 extern M2C_UNK lbl_804DB1F0[];
 
 s32 get_clamped_time_limit__6TLobbyFv(void) {
     s32 var_r3;
 
-    if (TLobby__sub_80293080() == 0) {
+    if (is_challenge_mode_active() == 0) {
         return 0x12C;
     }
     var_r3 = TLobby__sub_8006F994(M2C_FIELD(lbl_804DB1F0, s32 *, 0x10));

@@ -116,7 +116,7 @@ extern "C" {
 s32 enemy_has_live_target(void *);
 s32 tick_period_counter(void *, s32 *, s32);
 M2C_UNK enemy_clear_target(void *);
-s32 TObjEneEpsilon__sub_800B96FC(u8 *arg0, s32 *counter, s32 limit, f32 scale);
+s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale);
 }
 
 extern "C" {
@@ -125,10 +125,10 @@ int copy_position__14TObjEneEpsilonFPv(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 
 void update_linked_position__14TObjEneEpsilonFPv(void *p, f32 scale) {
-    TObjEneEpsilon__sub_800B96FC((u8 *)p, (s32 *)((u8 *)p + 0x3B0),
+    enemy_tick_target_acquisition((u8 *)p, (s32 *)((u8 *)p + 0x3B0),
                                M2C_FIELD(p, s32 *, 0x3B4), scale);
 }
-s32 TObjEneEpsilon__sub_800B96FC(u8 *arg0, s32 *counter, s32 limit, f32 scale) {
+s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale) {
     s32 var_r31;
     if (tick_period_counter(arg0, counter, limit) != 0) {
         var_r31 = ((VObj_18_8e9c4f *)(arg0))->m102(scale);

@@ -104,7 +104,7 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800F290C *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BACA4(void *, f32, f32, f32);
+M2C_UNK move_clamped_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *, s32);
@@ -138,7 +138,7 @@ void TObjEneMe3Stelth__sub_800F290C(u8 *arg0, s32 arg1) {
         advance_animation_playback(arg0, arg1);
         VecCopy__FP3VecPC3Vec(&v, arg0 + 0x308);
         c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        TObjEneDD__sub_800BACA4(arg0, v.x, v.z, c);
+        move_clamped_on_ground__9TObjEneDDFPvfff(arg0, v.x, v.z, c);
         M2C_FIELD(arg0, f32 *, 0x308) *= lbl_805DA858;
         M2C_FIELD(arg0, f32 *, 0x310) *= lbl_805DA858;
         ((VObj_18_fd6cbb *) arg0)->m87();

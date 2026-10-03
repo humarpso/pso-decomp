@@ -10,7 +10,7 @@ struct RecoveredGlobal_80291EAC_lbl_804DB1F0 {
 };
 
 extern "C" {
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 extern M2C_UNK lbl_804DB1F0[];
 void TLobby__sub_80291EAC(s32 arg0);
 }
@@ -18,12 +18,12 @@ void TLobby__sub_80291EAC(s32 arg0);
 extern "C" {
 
 s32 get_normalized_mode__6TLobbyFv(void);
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 
 extern M2C_UNK lbl_804DB1F0[];
 
 s32 get_normalized_mode__6TLobbyFv(void) {
-    if (TLobby__sub_80293080() == 0) {
+    if (is_challenge_mode_active() == 0) {
         return 0;
     }
     if (((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x2C) != 1) && ((s32) M2C_FIELD(lbl_804DB1F0, s32 *, 0x2C) != 0)) {
@@ -35,7 +35,7 @@ typedef char RecoveredGlobal_80291EAC_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_80291EAC(s32 arg0) {
     s32 var_r31;
     var_r31 = arg0;
-    if (TLobby__sub_80293080() == 0) {
+    if (is_challenge_mode_active() == 0) {
         M2C_FIELD(&(*(RecoveredGlobal_80291EAC_lbl_804DB1F0 *)&lbl_804DB1F0).value, s32 *, 0x2C) = 0;
         return;
     }

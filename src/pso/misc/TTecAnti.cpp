@@ -120,7 +120,7 @@ extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s);
 void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
-void *TObjPlayer__sub_800868C4(Vec_8022AE10 *, s32, s32, s32, s32);
+void *create_timed_particle_emitter_with_flags(Vec_8022AE10 *, s32, s32, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern AntiRow_8022AE10 lbl_804CC0A8[];
@@ -187,12 +187,12 @@ Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *bod
         AntiRow_8022AE10 *row = &lbl_804CC0A8[i];
         void *p;
         if (row->flags & 1) {
-            p = TObjPlayer__sub_800868C4(&self->ground, row->c, row->a, row->b, 0x10);
+            p = create_timed_particle_emitter_with_flags(&self->ground, row->c, row->a, row->b, 0x10);
             if (p != NULL) {
                 set_owner_id__13TParticleCtrlFPvUs(p, actor);
             }
         } else {
-            p = TObjPlayer__sub_800868C4(&self->body, row->c, row->a, row->b, 0x10);
+            p = create_timed_particle_emitter_with_flags(&self->body, row->c, row->a, row->b, 0x10);
             if (p != NULL) {
                 set_owner_id__13TParticleCtrlFPvUs(p, actor);
             }

@@ -15,14 +15,14 @@ struct Obj_800F9BAC { u8 pad[0x1C]; u32 base; u8 pad20[4]; u32 root; };
 extern "C" {
 void delete_children__7TObjectFv(void *);
 extern RecoveredGlobal_800F9B84_lbl_8050113C lbl_8050113C;
-void TLobby__sub_800F9B84(void);
+void clear_resource_load_tasks(void);
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_800F9B84_lbl_8050113C_size[sizeof(RecoveredGlobal_800F9B84_lbl_8050113C) == 0x3C ? 1 : -1];
-void TLobby__sub_800F9B84(void) {
+void clear_resource_load_tasks(void) {
     delete_children__7TObjectFv(&lbl_8050113C.value);
 }
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {

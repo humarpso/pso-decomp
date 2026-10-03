@@ -10,12 +10,12 @@ extern s32 lbl_805D4DF0;
 s32 fn_801908F8(s32 arg0, f32 farg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
-s32 fn_80190884(void *self, s32 cue);
+s32 is_sound_enabled__12TObjEnvSoundFPvi(void *self, s32 cue);
 }
 
 extern "C" {
 
-s32 fn_80190884(void *self, s32 cue) {
+s32 is_sound_enabled__12TObjEnvSoundFPvi(void *self, s32 cue) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1 && get_global_state__14TOKeyMachine01Fv() == 2) {
         switch (cue) {
         case 0x43704:

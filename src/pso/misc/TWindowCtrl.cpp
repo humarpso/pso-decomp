@@ -48,7 +48,7 @@ s32 is_active__19THunterGuildWarningFv();
 s32 TLobby__sub_8030A770();
 s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
-s32 TWindowCtrl__sub_8024AF74(u16);
+s32 has_player_active_menu__11TWindowCtrlFi(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
 int check_flag__10TObjPlayerFPvi(void*, int);
 u32 get_card_window__17TWindowSubComCardFUi(s32);
@@ -404,9 +404,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TWindowCtrl__sub_8024A928(u32, s32, s32, s32, s32);
+s32 show_chat_balloon__11TWindowCtrlFPviiPvPv(u32, s32, s32, s32, s32);
 M2C_UNK set_text__15TWindowFukidasiFPvii(s32, s32, s32);
-M2C_UNK fn_8026A93C();
+M2C_UNK post_chat_log_message();
 
 extern s32 lbl_805D53A0;
 extern u32 TWindowCtrl__data_805D63F8;
@@ -418,9 +418,9 @@ s32 open__11TWindowCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
         return 0;
     }
     if (arg2 & 0x40) {
-        fn_8026A93C();
+        post_chat_log_message();
     }
-    temp_r3 = TWindowCtrl__sub_8024A928(TWindowCtrl__data_805D63F8, arg0, arg2, arg1, lbl_805D53A0);
+    temp_r3 = show_chat_balloon__11TWindowCtrlFPviiPvPv(TWindowCtrl__data_805D63F8, arg0, arg2, arg1, lbl_805D53A0);
     if (temp_r3 == 0) {
         return 0;
     }
@@ -601,7 +601,7 @@ void update_trade_window__11TWindowCtrlFPv(void *arg0);
 void handle_controller__11TWindowCtrlFi(s32 arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_active__13TRaderMapCoreFv();
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024B000(void *, s32);
 s32 TWindowCtrl__sub_8024B054(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, M2C_UNK *);
@@ -639,7 +639,7 @@ extern u8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 
 void handle_controller__11TWindowCtrlFi(s32 arg0) {
-    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (TWindowCtrl__sub_8024B054(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
+    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (TWindowCtrl__sub_8024B054(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
         advance_card_status__15TWindowCtrlMainFi(lbl_805D53A0);
     }
 }
@@ -656,7 +656,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_trade_request_window__11TWindowCtrlFPv(void *arg0);
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024B054(s32);
 void *TWindowTradeRequest__ct(void *, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
@@ -669,7 +669,7 @@ extern s32 lbl_805D53A0;
 void update_trade_request_window__11TWindowCtrlFPv(void *arg0) {
     void *var_r0;
 
-    if ((is_trade_active() == 0) || (TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) || (((u32) M2C_FIELD(arg0, void **, 0x38) != 0U) && (TWindowCtrl__sub_8024701C(M2C_FIELD(arg0, void **, 0x38)) != 0))) {
+    if ((is_trade_active() == 0) || (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) || (((u32) M2C_FIELD(arg0, void **, 0x38) != 0U) && (TWindowCtrl__sub_8024701C(M2C_FIELD(arg0, void **, 0x38)) != 0))) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x40));
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
@@ -696,11 +696,11 @@ extern "C" {
 
 void update_window_visibility__11TWindowCtrlFPv(u8 *arg0);
 u32 get_player_by_client_id(s32);
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024AFB8(void *, s32);
 s32 TWindowCtrl__sub_8024B054(s32);
 s32 get_display_flag__11TWindowCtrlFv();
-s32 fn_80076CD0(void *);
+s32 chat_accept_submission(void *);
 s32 get_current_target_id__10TObjPlayerFv();
 M2C_UNK update__11TWindowChatFPv(u32);
 M2C_UNK open_input__11TWindowChatFPv(u32);
@@ -725,12 +725,12 @@ void update_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
             return;
         }
         temp_r31 = get_current_target_id__10TObjPlayerFv();
-        if ((get_display_flag__11TWindowCtrlFv() != 0) || (TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024AFB8(arg0, lbl_805D53A0) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) lbl_805D53A0))) {
+        if ((get_display_flag__11TWindowCtrlFv() != 0) || (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024AFB8(arg0, lbl_805D53A0) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) lbl_805D53A0))) {
             update__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38));
             return;
         }
         open_input__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38));
-        if ((is_mode_bit4__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0) && (fn_80076CD0(arg0 + 0x94) != 0)) {
+        if ((is_mode_bit4__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0) && (chat_accept_submission(arg0 + 0x94) != 0)) {
             TWindowChat__sub_80247E50(M2C_FIELD(arg0, u32 *, 0x38));
         }
         if (is_visible__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0) {
@@ -1051,7 +1051,7 @@ void update_child_2c__15TWindowCtrlMainFPv(void* p);
 void TWindowCtrlMain__sub_8024D8A8(void* p);
 void update_field28__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
-int fn_802437C4(void*);
+int spawn_action_palette_slot_light(void*);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int open_submenu__15TWindowSubEquipFii(void*);
 int try_open_battle_menu__15TWindowMainMenuFPvs(void*);

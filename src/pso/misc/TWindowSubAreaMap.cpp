@@ -41,7 +41,7 @@ M2C_UNK TRaderMapCore__sub_801F986C(f32);
 extern RecoveredGlobal_80271480_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD478;
 extern const f32 lbl_805DD47C;
-void TCameraCtrl__sub_802715F0(u8 *arg0);
+void update_manual_scroll__21TWindowSubAreaMapDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -100,7 +100,7 @@ void *TWindowSubAreaMap__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 typedef char RecoveredGlobal_802715F0_lbl_8050E208_size[sizeof(RecoveredGlobal_802715F0_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TCameraCtrl__sub_802715F0(u8 *arg0) {
+void update_manual_scroll__21TWindowSubAreaMapDispFPv(u8 *arg0) {
     u8 *temp_r31;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         temp_r31 = (u8 *)&(*(RecoveredGlobal_802715F0_lbl_8050E208 *)&lbl_8050E208).value + 0x20;

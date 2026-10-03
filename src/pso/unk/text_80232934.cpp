@@ -16,7 +16,7 @@ struct Obj_80232934 {
 
 extern "C" {
 void get_bml_model(s32, s32);
-void TEffClitical__sub_80082674(Ctx_80232934 *, void *, void *, s32, s32);
+void init_texture_copy_rect(Ctx_80232934 *, void *, void *, s32, s32);
 void approach_position_if_far(Vec_80232934 *, Vec_80232934 *, f32);
 void fn_80082764(void *, Quad_80232934 *, f32);
 void fn_80082954(Ctx_80232934 *);
@@ -55,7 +55,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
         get_global_state__14TOKeyMachine01Fv() == 0xF) {
         return;
     }
-    TEffClitical__sub_80082674(&ctx, lbl_804CC868, lbl_804CC934, 0, arg0->f48 + 1);
+    init_texture_copy_rect(&ctx, lbl_804CC868, lbl_804CC934, 0, arg0->f48 + 1);
     Vec_80232934 v = lbl_8044D5A8;
     Quad_80232934 q = lbl_8044D5B4;
     fn_80082764(arg0->f38, &q, lbl_805DC840);

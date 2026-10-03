@@ -34,7 +34,7 @@ extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
-void TBoss3Volopt__sub_8016A630(u8 *arg0);
+void play_activate_sound__5TOKeyFPv(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
@@ -107,7 +107,7 @@ void call_vt21__12TBoss3VoloptFPv(void *arg0) {
     struct VObj_8016A604 *o = (struct VObj_8016A604 *)arg0;
     o->m21();
 }
-void TBoss3Volopt__sub_8016A630(u8 *arg0) {
+void play_activate_sound__5TOKeyFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     s32 temp_r0_3;

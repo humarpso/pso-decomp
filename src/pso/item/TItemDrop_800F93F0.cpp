@@ -77,7 +77,7 @@ s32 TItemDrop__sub_800F9448(s32 arg0, s32 arg1) {
     return finish_800F9448(&d, 0);
 }
 
-s32 TItemDrop__sub_800F94BC(s32 arg0, s32 arg1) {
+s32 load_relocatable_file(s32 arg0, s32 arg1) {
     Drop_800F9448 d;
     s32 n;
 

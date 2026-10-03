@@ -161,7 +161,7 @@ s32 TWindowSubComCard__sub_80265BF8(void *);
 void TWindowSubComCard__sub_80265C30(void *w);
 void TWindowSubComCard__sub_80265F60(void *w);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(int, f32);
 void update_buy_sell_choice__22TShopEquipmentSequenceFPv(void *arg0);
 }
@@ -256,7 +256,7 @@ void update_buy_sell_choice__22TShopEquipmentSequenceFPv(void *arg0) {
     s32 r;
     if (self->win == NULL) {
         s32 id = obj_getField1c(self->f24);
-        self->win = (void *)TCheckRoomSequence__sub_802664A8(((s32 (*)(int))get_window_layout_position)(0x2B), 2, id);
+        self->win = (void *)create_window_menu(((s32 (*)(int))get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(6), 6, 1);
         TWindowSubComCard__sub_80265F60(self->win);

@@ -55,7 +55,7 @@ M2C_UNK set_selected_index__17TWindowSubComCardFPvs(int, int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
-s32 TCheckRoomSequence__sub_802664A8(void *, int, int);
+s32 create_window_menu(void *, int, int);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 extern M2C_UNK lbl_80472890[];
 extern const f32 lbl_805DE894;
@@ -154,7 +154,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1) {
 
 s32 TAdMultiPlyChrSelectGC__sub_802DBF3C(void) {
     s32 temp_r31;
-    temp_r31 = TCheckRoomSequence__sub_802664A8((void *) (lbl_80472890), (int) (4), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()));
+    temp_r31 = create_window_menu((void *) (lbl_80472890), (int) (4), (int) (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (2))), (int) (6), (int) (0));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (3))), (int) (6), (int) (1));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0x1F), (int) (4))), (int) (6), (int) (2));

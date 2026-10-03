@@ -460,14 +460,14 @@ M2C_UNK TItemEquipBase__sub_8010B73C(void *);
 M2C_UNK TItemEquipBase__sub_8022C680(void *, void *, void *);
 void TItemEquipBase__sub_8010A82C(s32 arg0);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
-s32 TObjPlayer__sub_8001BEF8(void *, void *);
+s32 test_flags_any(void *, void *);
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_particle_effect(void *, int);
 u8 *resolve_hittable_target(s32, s32);
 void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, void *);
-s32 TObjPlayer__sub_8001BEF8(void *, void *);
+s32 test_flags_any(void *, void *);
 s32 update_owner_visibility__5TItemFPv(void *);
 M2C_UNK set_mode__5TItemFPvc(void *, int);
 s32 add_item_flags__10TObjPlayerFPvUi(void *, int);
@@ -484,7 +484,7 @@ u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 init__9TItemDataFv(void *);
 s32 request_item_model_load(void *);
-void TItemEquipBase__sub_8010B58C(u8 *arg0, s32 arg1);
+void request_model_load__14TItemEquipBaseFPvi(u8 *arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
 s16 clamp_value__10TObjPlayerFPv(void *);
 s32 add_actor_tp_bonus(void *, int);
@@ -506,7 +506,7 @@ extern s32 lbl_805D2BE0;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v);
 extern RecoveredGlobal_8010AD24_lbl_804C3BA8 lbl_804C3BA8;
-void TItemEquipBase__sub_8010AD24(u8 *arg0, s8 arg1);
+void set_attach_slot__14TItemEquipBaseFPvc(u8 *arg0, s8 arg1);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void apply_equip_effects__9TItemDataFPviiiii(void *, s32, s32, s32, void *, void *);
 int memset(void*, void*, void*);
@@ -559,7 +559,7 @@ void TItemEquipBase__sub_8010B620(void);
 void TItemEquipBase__vt42(void);
 void *__dt__14TItemEquipBaseFv(void *arg0, s16 arg1);
 s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1);
-void* fn_8010A768(void* p);
+void* get_stat_bonus_ptr__14TItemEquipBaseFPv(void* p);
 void release__14TItemEquipBaseFPv(void *arg0);
 void reset__14TItemEquipBaseFPv(void* p);
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
@@ -593,7 +593,7 @@ void fn_8010A710(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s16 arg3) {
     spawn_particle_effect((void *) (&stack.sp8), (int) (0x45));
 }
 
-void* fn_8010A768(void* p) { return (char*)p + 0x16c; }
+void* get_stat_bonus_ptr__14TItemEquipBaseFPv(void* p) { return (char*)p + 0x16c; }
 
 s8 get_attach_joint__14TItemEquipBaseFPv(u8 *arg0) {
     return (s8) M2C_FIELD(arg0, u8 *, 0x171);
@@ -742,7 +742,7 @@ void TItemEquipBase__sub_8010AAD0(u8 *arg0) {
 }
 
 s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2) {
-    if ((TObjPlayer__sub_8001BEF8((void *)((void *) (arg0 + 0x178)), (void *)((void *) (arg1))) != 0) && (TObjPlayer__sub_8001BEF8((void *)((void *) (arg0 + 0x178)), (void *)((void *) (arg2))) == 0)) {
+    if ((test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)((void *) (arg1))) != 0) && (test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)((void *) (arg2))) == 0)) {
         set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x178), (void *) (arg2));
         return 1;
     }
@@ -750,7 +750,7 @@ s32 TItemEquipBase__sub_8010AC60(s32 arg0, M2C_UNK arg1, s32 arg2) {
 }
 
 s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1) {
-    if (TObjPlayer__sub_8001BEF8((void *)(arg0 + 0x178), (void *)(arg1)) != 0) {
+    if (test_flags_any((void *)(arg0 + 0x178), (void *)(arg1)) != 0) {
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x178, arg1);
         return 1;
     }
@@ -759,7 +759,7 @@ s32 apply_ad_rico_ring__14TItemEquipBaseFii(s32 arg0, s32 arg1) {
 void set_equip_flag__14TItemEquipBaseFPvUc(void* p, s32 v) { *(u8*)((char*)p + 0x171) = v; }
 
 typedef char RecoveredGlobal_8010AD24_lbl_804C3BA8_size[sizeof(RecoveredGlobal_8010AD24_lbl_804C3BA8) == 0x14 ? 1 : -1];
-void TItemEquipBase__sub_8010AD24(u8 *arg0, s8 arg1) {
+void set_attach_slot__14TItemEquipBaseFPvc(u8 *arg0, s8 arg1) {
     M2C_FIELD(arg0, s8 *, 0x170) = arg1;
     set_equip_flag__14TItemEquipBaseFPvUc((void*)((void *) (arg0)), (s32)((int) ((s8) M2C_FIELD(((u8 *)(&lbl_804C3BA8.value) + (((VObj_18_b34251 *)(arg0))->m31() * 2)), s16 *, 0))));
 }
@@ -919,7 +919,7 @@ void equip__14TItemEquipBaseFPv(u8 *arg0) {
         set_mode__5TItemFPvc((void *) (arg0), (int) (2));
         add_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (8));
         ((VObj_18_df954d *)(arg0))->m20(1);
-        if ((get_global_state__14TOKeyMachine01Fv() != 0xF) && (TObjPlayer__sub_8001BEF8((void *)((void *) (arg0 + 0x178)), (void *)((int) (1))) == 0)) {
+        if ((get_global_state__14TOKeyMachine01Fv() != 0xF) && (test_flags_any((void *)((void *) (arg0 + 0x178)), (void *)((int) (1))) == 0)) {
             set_flags__10TObjPlayerFPvUi((void *)((void *) (arg0 + 0x178)), (void *)((int) (1)));
             ((VObj_18_df954d *)(arg0))->m44();
         }
@@ -942,7 +942,7 @@ void release__14TItemEquipBaseFPv(void *arg0) {
     }
 }
 
-void TItemEquipBase__sub_8010B58C(u8 *arg0, s32 arg1) {
+void request_model_load__14TItemEquipBaseFPvi(u8 *arg0, s32 arg1) {
     TItemData item_data;
     init__9TItemDataFv((void *) (&item_data.data1.data_u8[0]));
     item_data.data1.data_u8[0] = get_field_ec__12TOSwitchItemFPv((void *)((void *) (arg0)));
@@ -952,7 +952,7 @@ void TItemEquipBase__sub_8010B58C(u8 *arg0, s32 arg1) {
 }
 
 void update_with_player__14TItemEquipBaseFi(s32 object) {
-    TItemEquipBase__sub_8010B58C((u8*)object, get_field_ed__10TObjPlayerFPv((void*)object));
+    request_model_load__14TItemEquipBaseFPvi((u8*)object, get_field_ed__10TObjPlayerFPv((void*)object));
 }
 void TItemEquipBase__sub_8010B620(void) {  }
 

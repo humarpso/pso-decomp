@@ -108,7 +108,7 @@ extern void *lbl_8049EE00[];
 void TItemObject__sub_8011646C();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *lbl_8049EB58[];
-void TObjPlayer__sub_80120FC4();
+void create_common_weapon();
 void *TLobby__sub_80104438(In_80104438 *arg0);
 void TLobby__sub_8010314C(Ent_80103F68 *);
 void clear_object_count__6TLobbyFv(void);
@@ -224,7 +224,7 @@ void *TLobby__sub_80104438(In_80104438 *arg0) {
     if (i < 0xAA) {
         return lbl_8049EB58[i];
     }
-    return (void *)TObjPlayer__sub_80120FC4;
+    return (void *)create_common_weapon;
 }
 
 void TLobby__sub_80104464(void) {  }

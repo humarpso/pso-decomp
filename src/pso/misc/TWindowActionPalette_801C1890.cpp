@@ -128,7 +128,7 @@ int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
 int test_immunity_flags__10TObjPlayerFPvi(void);
 int TObjPlayer__sub_8001943C(void);
-int TObjPlayer__sub_800194AC(void);
+int add_status_effect_timer__10TObjPlayerFPvii(void);
 int obj_is_hit_receivable(void);
 void* TObjPlayer__sub_801C1A00(void* p);
 int TObjPlayer__sub_800193FC(void);
@@ -136,7 +136,7 @@ int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
 int test_immunity_flags__10TObjPlayerFPvi(void);
 int TObjPlayer__sub_8001943C(void);
-int TObjPlayer__sub_800194AC(void);
+int add_status_effect_timer__10TObjPlayerFPvii(void);
 int obj_is_hit_receivable(void);
     extern int TObjPlayer__data_8050D460[];
 void* TObjPlayer__sub_801C1A00(void* p);
@@ -195,7 +195,7 @@ int TWindowActionPalette__sub_801C1C20(void* p);
 int TFontSmallLobby__sub_801D65B4(void);
 int TFontSmallLobby__sub_801D6614(void);
 int TObjPlayer__sub_801C1F50(void* p);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int TFontSmallLobby__sub_801D65B4(void);
 int TFontSmallLobby__sub_801D6614(void);
 int TObjPlayer__sub_801C1F50(void* p);
@@ -327,7 +327,7 @@ void fn_801C1E98(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1F40(s32 *arg0);
-M2C_UNK TMainCursor__sub_8013DF08(s32);
+M2C_UNK is_channel_active__11TMainCursorFPv(s32);
 void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2);
 s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
@@ -366,7 +366,7 @@ s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
 int set_flags__10TObjPlayerFPvUi(void*, int);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
 int TFontSmallLobby__sub_801C0228(void*);
@@ -476,7 +476,7 @@ int TWindowActionPalette__sub_801C1C20(void* p) { return *(u32*)((char*)p + 0x0)
 
 void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2) {
     s32 *p = (s32 *)((s32)TWindowActionPalette__sub_801C1C68((O_801C1C68 *)((s32)(arg0)), (s32)((s32)(arg1))));
-    TMainCursor__sub_8013DF08((s32)(p + arg2));
+    is_channel_active__11TMainCursorFPv((s32)(p + arg2));
 }
 
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i) {
@@ -569,7 +569,7 @@ void fn_801C1F40(s32 *arg0) {
     *arg0 -= 1;
 }
 
-int TObjPlayer__sub_801C1F50(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x40, 2); }
+int TObjPlayer__sub_801C1F50(void* p) { return test_flags_any((char*)p + 0x40, 2); }
 
 void TObjPlayer__sub_801C1F78(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 

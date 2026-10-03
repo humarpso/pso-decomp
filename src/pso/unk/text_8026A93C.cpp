@@ -16,16 +16,16 @@ M2C_UNK text_builder_reset();
 M2C_UNK *get_active_photon_object__17TWindowMessageLogFv(u16);
 M2C_UNK fn_8026A62C(u32, s32);
 M2C_UNK TLobby__sub_8026A7B0(M2C_UNK *);
-M2C_UNK TLobby__sub_8026A89C();
+M2C_UNK chat_log_add_line();
 u32 get_field44__11TWindowCtrlFv();
 extern s32 lbl_805D53A0;
 extern M2C_UNK lbl_805DD250;
-void fn_8026A93C(u16 arg0, M2C_UNK *arg1);
+void post_chat_log_message(u16 arg0, M2C_UNK *arg1);
 }
 
 extern "C" {
 
-void fn_8026A93C(u16 arg0, M2C_UNK *arg1) {
+void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
     s32 temp_r30;
     M2C_UNK *temp_r31;
     if ((s32) arg0 == (s32) lbl_805D53A0) {
@@ -41,7 +41,7 @@ void fn_8026A93C(u16 arg0, M2C_UNK *arg1) {
     }
     text_builder_append(arg1);
     arg1 = (M2C_UNK *) TLobby__sub_8001DC24();
-    TLobby__sub_8026A89C();
+    chat_log_add_line();
     {
         u32 tmp_ad = get_field44__11TWindowCtrlFv();
         if (tmp_ad != 0U) {

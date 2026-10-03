@@ -26,7 +26,7 @@ int save_1__9TSaveChCrFPv(void* p);
 void save_if_dirty__9TSaveChCrFPv(void* p);
 void update_save_state__9TSaveChCrFPv(void *arg0);
 void update_save_status__9TSaveChCrFPv(void *arg0);
-int TKeyBoardControl__sub_8000F9B0(void);
+int request_queued_main_phase(void);
 s32 TKeyBoardControl__sub_8000F9CC(s32);
 int TSaveChCr__sub_80339F30(void*);
 s32 TSaveChCr__sub_8033A138(void *);
@@ -36,7 +36,7 @@ s32 poll_memcard_status();
 int queue_destruction__7TObjectFv(void*);
 s32 save_character__9TSaveChCrFPv(void *);
 
-void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p) { if (*(int*)((char*)p + 0x38) == 0) { queue_destruction__7TObjectFv(p); TKeyBoardControl__sub_8000F9B0(); } }
+void destroy_if_keyboard_idle__9TSaveChCrFPv(void* p) { if (*(int*)((char*)p + 0x38) == 0) { queue_destruction__7TObjectFv(p); request_queued_main_phase(); } }
 int TSaveChCr__sub_80339B94(void* p) { return close_window__9TSaveChCrFPv(p); }
 void save_if_dirty__9TSaveChCrFPv(void* p) { if (TSaveChCr__sub_80339F30(p) != 0) { TSaveChCr__sub_8033A184(p, (void*)4); } }
 int close_and_advance_to_3__9TSaveChCrFPv(void* p) { return close_and_advance__9TSaveChCrFPvPv(p, 3); }

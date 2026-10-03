@@ -19,7 +19,7 @@ extern s32 TObjBoss1Crater__data_804FE1E8[];
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern const f32 lbl_805D8168;
 extern const f32 lbl_805D816C;
-f32 TObjBoss1Crater__sub_8002C730(Obj_8002C730 *self);
+f32 calc_nearest_crater_distance(Obj_8002C730 *self);
 }
 
 extern "C" {
@@ -63,7 +63,7 @@ void * create__15TObjBoss1CraterFPvPv(void *arg0, void *arg1) {
 
 #pragma push
 #pragma fp_contract on
-f32 TObjBoss1Crater__sub_8002C730(Obj_8002C730 *self) {
+f32 calc_nearest_crater_distance(Obj_8002C730 *self) {
     f32 best;
     s32 i;
     f32 x;

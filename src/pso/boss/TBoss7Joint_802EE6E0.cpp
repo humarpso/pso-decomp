@@ -14,7 +14,7 @@ void TBoss7Joint__vt86(u8 *arg0);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-M2C_UNK TObjEneDD__sub_800B9E84(void *, int, int, int);
+M2C_UNK reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, int, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK TObjPlayer__sub_802E72DC(void *, void *, void *, int);
@@ -67,7 +67,7 @@ int is_part_active__11TBoss7JointFPv(void* p) { return *(u32*)((char*)p + 0x3bc)
 
 void TBoss7Joint__sub_802EE820(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3BC) = M2C_FIELD(arg0, s32 *, 0x3BC) | 1;
-    TObjEneDD__sub_800B9E84(arg0, register_boss__6TLobbyFPv(0x10), dispatch_shared_handler_b__6TLobbyFPv(0xF), register_object__6TLobbyFPv(0x10));
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, register_boss__6TLobbyFPv(0x10), dispatch_shared_handler_b__6TLobbyFPv(0xF), register_object__6TLobbyFPv(0x10));
     M2C_FIELD(arg0, s16 *, 0x32C) = 0x4E20;
     M2C_FIELD(arg0, s16 *, 0x2B8) = 0x4E20;
     u32 p = __nw__7TObjectFUl(0x2C);

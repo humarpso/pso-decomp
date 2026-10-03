@@ -8,7 +8,7 @@ extern "C" {
 
 void destroy_global__6TLobbyFv(void);
 void set_retry_selection__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 M2C_UNK queue_destruction__7TObjectFv(void*);
 
 extern M2C_UNK lbl_804DB1F0[];
@@ -17,7 +17,7 @@ void set_retry_selection__6TLobbyFi(s32 arg0) {
     s32 var_r31;
 
     var_r31 = arg0;
-    if (TLobby__sub_80293080() != 0) {
+    if (is_challenge_mode_active() != 0) {
         if ((var_r31 < 0) || (var_r31 > 1)) {
             var_r31 = 0;
         }

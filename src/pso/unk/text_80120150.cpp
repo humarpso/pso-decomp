@@ -97,8 +97,8 @@ void draw_shield_particle__10TObjPlayerFPv(void*);
 void update_screen_particle_effect__10TObjPlayerFPv(void*);
 void enable_first_time_flag__10TObjPlayerFi(const WeaponArgb*);
 void play_particle_effect_once__10TObjPlayerFv();
-s32 TObjPlayer__sub_8001BEF8(void*,u32);
-void TObjPlayer__sub_801211F0();
+s32 test_flags_any(void*,u32);
+void increment_model_node_counter();
 void apply_weapon_node_material();
 WeaponColorDescriptor_80120304 *get_photon_color_record(s16 color_index);
 f32 get_mag_scale__10TObjPlayerFPv(void *weapon);
@@ -126,12 +126,12 @@ void apply_weapon_node_material() {
     }
     if(node == lbl_80506248[0] || node == lbl_80506248[1] || node == lbl_80506248[2]) {
         play_particle_effect_once__10TObjPlayerFv();
-        if(TObjPlayer__sub_8001BEF8(&lbl_805D53EC,4)) {
+        if(test_flags_any(&lbl_805D53EC,4)) {
             WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
             enable_first_time_flag__10TObjPlayerFi(&color);
         }
     }
-    TObjPlayer__sub_801211F0();
+    increment_model_node_counter();
 }
 
 #pragma push

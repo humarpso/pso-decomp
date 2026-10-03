@@ -134,7 +134,7 @@ extern Row_8023967C lbl_804CCB90[];
 extern const f32 TTecResta__data_805DC908;
 void __ct__7TObjectFP7TObject(void *, void *);
 Vec_8023967C *VecCopy__FP3VecPC3Vec(Vec_8023967C *, const Vec_8023967C *);
-void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 s32 obj_getField1c(int);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
@@ -258,9 +258,9 @@ Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos,
             v.y -= TTecResta__data_805DC908;
         }
         if (i == 2) {
-            self->emitters[i] = TObjPlayer__sub_800868C4(&v, row->entry, row->delay, row->duration, 0x30);
+            self->emitters[i] = create_timed_particle_emitter_with_flags(&v, row->entry, row->delay, row->duration, 0x30);
         } else {
-            self->emitters[i] = TObjPlayer__sub_800868C4(&v, row->entry, row->delay, row->duration, 0x10);
+            self->emitters[i] = create_timed_particle_emitter_with_flags(&v, row->entry, row->delay, row->duration, 0x10);
         }
         if (self->emitters[i] != 0) {
             set_owner_id__13TParticleCtrlFPvUs(self->emitters[i], obj_getField1c(self->owner));

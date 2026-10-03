@@ -20,7 +20,7 @@ M2C_UNK forward_render__20TWindowSubStatusDispFPv(void *, int);
 void render__18TWindowSubItemListFv(u8 *arg0);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
-u8 *fn_8027AD5C(s32 arg0, s32 arg1, s16 arg2);
+u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_80267B18(void *);
 s32 ensure_status_display__20TWindowSubStatusDispFPvi(void *, int);
@@ -39,7 +39,7 @@ int TWindowSubStatusDisp__sub_80268048(void*);
 void __dl__7TObjectFPv(void *);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
 
-u8 *fn_8027AD5C(s32 arg0, s32 arg1, s16 arg2) {
+u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
     TShopJudgmentItemWindow__sub_80267F9C((void *) (arg1), (int) (0x24));

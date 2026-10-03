@@ -87,12 +87,12 @@ void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4);
 void render__9TDeadSpotFv(u8 *arg0);
 void update_lifetime__9TDeadSpotFPv(void *arg0);
 f32 horizontal_distance_squared(void *, s32);
-M2C_UNK TParticleCtrl__sub_803DA7A8(s32);
+M2C_UNK set_texture_num(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dt__9TDeadSpotFv(void *, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
-M2C_UNK fn_801418C4(M2C_UNK);
+M2C_UNK setup_alpha_test_render_state(M2C_UNK);
 M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK fn_803E29B0(void *, M2C_UNK, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
@@ -269,9 +269,9 @@ void render__9TDeadSpotFv(u8 *arg0) {
     if ((get_state_flag__9TMainTaskFv() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, lbl_805D4DF0 + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = some_id_805c6f74;
         reset_transform_state__10TObjPlayerFv();
-        fn_801418C4(0x8F);
+        setup_alpha_test_render_state(0x8F);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB8));
-        TParticleCtrl__sub_803DA7A8(M2C_FIELD(arg0, s32 *, 0xBC));
+        set_texture_num(M2C_FIELD(arg0, s32 *, 0xBC));
         fn_803E29B0(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();
         some_id_805c6f74 = lbl_805D5660;

@@ -20,9 +20,9 @@ void *TCameraCtrl__vt8(void);
 int TObjCMProportion__sub_802918B8(void* p);
 void *TCameraCtrl__sub_80291CBC(void *);
 void *__nw__7TObjectFUl(int);
-int fn_80291784(void*);
+int update_creation_camera_auto(void*);
 
-int TObjCMProportion__sub_802918B8(void* p) { return fn_80291784(p); }
+int TObjCMProportion__sub_802918B8(void* p) { return update_creation_camera_auto(p); }
 
 #pragma push
 #pragma fp_contract on

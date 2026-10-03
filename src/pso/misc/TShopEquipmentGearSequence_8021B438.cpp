@@ -176,7 +176,7 @@ s32 TWindowSubComCard__sub_80265BF8(void *);
 M2C_UNK TWindowSubComCard__sub_80265C30(void *);
 M2C_UNK TWindowSubComCard__sub_80265F60(void *);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
-void *TCheckRoomSequence__sub_802664A8(s32, s32, u16);
+void *create_window_menu(s32, s32, u16);
 s32 get_window_layout_position(int, f32);
 void TShopEquipmentGearSequence__sub_8021B518(void *self);
 }
@@ -215,7 +215,7 @@ void TShopEquipmentGearSequence__sub_8021B518(void *self) {
     s32 r;
     if (arg0->win == NULL) {
         id = obj_getField1c(arg0->f24);
-        arg0->win = TCheckRoomSequence__sub_802664A8(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
+        arg0->win = create_window_menu(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(6), 6, 1);
         TWindowSubComCard__sub_80265F60(arg0->win);

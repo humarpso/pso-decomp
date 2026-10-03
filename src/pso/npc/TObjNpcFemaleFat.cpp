@@ -102,7 +102,7 @@ u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014A540_lbl_804A8E00 lbl_804A8E00;
 extern u32 TObjNpcFemaleMacho__data_805D5780;
-void TObjNpcFemaleMacho__sub_8014A540(void);
+void load_resources__18TObjNpcFemaleMachoFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
 s32 TObjNpcFemaleBase__sub_80149CE0(void *);
@@ -174,7 +174,7 @@ void close_dialog_window__18TObjNpcFemaleMachoFv(void) {
         TObjNpcFemaleMacho__data_805D5780 = 0U;
     }
 }
-void TObjNpcFemaleMacho__sub_8014A540(void) {
+void load_resources__18TObjNpcFemaleMachoFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

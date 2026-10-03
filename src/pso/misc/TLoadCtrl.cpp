@@ -54,7 +54,7 @@ extern u32 TLoadCtrl__data_805D4A80;
 extern s32 TLoadCtrl__data_805D4A84;
 extern s32 tl_su;
 extern s32 tl_camera;
-void TLoadCtrl__sub_8001C978(u32 arg0);
+void start_loading__9TLoadCtrlFUi(u32 arg0);
 M2C_UNK TNowLoading__ct(s32, void *, void *);
 M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
 M2C_UNK TCameraCtrl__sub_80069E7C(int);
@@ -224,7 +224,7 @@ void cleanup_scene__9TLoadCtrlFv(void) {
     create__11TCameraCtrlFv();
 }
 
-void TLoadCtrl__sub_8001C978(u32 arg0) {
+void start_loading__9TLoadCtrlFUi(u32 arg0) {
     s32 temp_r3;
     u8 *var_r0;
     u8 *temp_cam;
@@ -282,6 +282,6 @@ void TLoadCtrl__sub_8001C978(u32 arg0) {
     TLoadCtrl__data_805D4A80 = (u32) var_r0;
 }
 
-void poll_default__9TLoadCtrlFv(void) { TLoadCtrl__sub_8001C978((u32)((void*)(0))); }
+void poll_default__9TLoadCtrlFv(void) { start_loading__9TLoadCtrlFUi((u32)((void*)(0))); }
 
 }

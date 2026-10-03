@@ -18,7 +18,7 @@ s16 get_item_type__8TItemMagFPv(void* p);
 s16 get_sync__8TItemMagFPv(void* p);
 int is_active__8TItemMagFPv(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
-int TItemData__sub_8010EE40(void*);
+int get_mag_mind_level__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
 int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
@@ -26,7 +26,7 @@ int get_percent__9TItemDataFPv(void*);
 int test_feed_flags__11TItemMagSubFPvUi(void* p, u32 m) { return *(u32*)((char*)p + 0x64) & m; }
 s16 TObjPlayer__sub_80113D90(void* p) { return *(s16*)((char*)p + 0x19a); }
 s16 get_mag_data__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x198); }
-int get_mag_item_data(void* p) { return TItemData__sub_8010EE40((char*)p + 0x198); }
+int get_mag_item_data(void* p) { return get_mag_mind_level__9TItemDataFPv((char*)p + 0x198); }
 int get_mag_level(void* p) { return get_level__9TItemDataFPv((char*)p + 0x198); }
 int get_mag_item_percent(void* p) { return get_percent__9TItemDataFPv((char*)p + 0x198); }
 int get_mag_item_stat_percent(void* p) { return get_stat_percent__9TItemDataFPv((char*)p + 0x198); }

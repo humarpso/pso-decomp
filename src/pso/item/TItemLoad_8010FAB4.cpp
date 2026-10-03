@@ -10,7 +10,7 @@ struct VOff_8010FB0C_arg0_8010fb0c_8010FAB4 { char pad_0[0x1C]; char f_1C[1]; };
 
 s32 begin_load__9TItemLoadFPvi(u8 *arg0, s32 arg1);
 void reset_state__9TItemLoadFPv(void *arg0);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 void clear_flags__11TAdRicoRingFPvUi(void *, int);
 void free_texture__9TItemLoadFPv(void *);
 void set_flags__10TObjPlayerFPvUi(void *, int);
@@ -32,7 +32,7 @@ void reset_state__9TItemLoadFPv(void *arg0) {
     struct VOff_8010FB0C_arg0_8010fb0c_8010FAB4 *self = (struct VOff_8010FB0C_arg0_8010fb0c_8010FAB4 *)arg0;
     free_texture__9TItemLoadFPv(arg0);
     set_flags__10TObjPlayerFPvUi(self->f_1C, 2);
-    x = TObjPlayer__sub_8001BEF8(self->f_1C, 4);
+    x = test_flags_any(self->f_1C, 4);
     if (x != 0) {
         lbl_805D5498 = 0;
         clear_flags__11TAdRicoRingFPvUi((void *)(self->f_1C), (int)(4));

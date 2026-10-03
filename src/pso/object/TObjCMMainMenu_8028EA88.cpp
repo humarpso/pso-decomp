@@ -55,7 +55,7 @@ extern M2C_UNK lbl_804D3900[];
 extern s32 tl_camera;
 extern s32 tl_03;
 extern void *lbl_805D6528;
-void TObjCMMainMenu__sub_8028EA88(void);
+void init_creation_menu_scene(void);
 }
 
 extern "C" {
@@ -69,7 +69,7 @@ extern s32 TObjCMMainMenu__data_805D659C;
 
 typedef char RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8_size[sizeof(RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8) == 0xA0 ? 1 : -1];
 
-void TObjCMMainMenu__sub_8028EA88(void) {
+void init_creation_menu_scene(void) {
     void *p;
     TObjLight__sub_80133A04(lbl_804A6F34, 4);
     TCameraCtrl__sub_8006A35C();

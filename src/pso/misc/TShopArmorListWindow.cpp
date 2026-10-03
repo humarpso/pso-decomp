@@ -94,7 +94,7 @@ void TShopArmorListWindow__vt4(void *arg0);
 void TShopArmorListWindow__vt5(void *arg0);
 void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1);
 void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
-u32 TCheckRoomSequence__sub_802664A8(s32, s32, u16);
+u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -143,7 +143,7 @@ s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
         temp_r31 = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, u32 *, 0x30) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x2B), 2, temp_r31);
+        M2C_FIELD(arg0, u32 *, 0x30) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(5), 6, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x30));

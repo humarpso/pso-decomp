@@ -30,7 +30,7 @@ extern Ent_800868C4 *lbl_805D4EF8;
 extern Ent_800868C4 *lbl_805D4EFC;
 void *__nw__7TObjectFUl(int);
 void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, void *, void *, s32, s32, s32, s32, s32);
-void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c);
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c);
 void *__nw__7TObjectFUl(int);
 void *initialize__13TParticleCtrlFPvPviiiii(void *self, void *owner, Ent_800868C4 *entry, s32 a, s32 b, s32 c, s32 d);
 extern s32 lbl_805D2948;
@@ -42,7 +42,7 @@ void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D2948;
 extern Ent_800868C4 *lbl_805D4EF8;
 extern Ent_800868C4 *lbl_805D4EFC;
-void *TObjPlayer__sub_80086A78(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
+void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags);
 }
 
 extern "C" {
@@ -89,7 +89,7 @@ s32 TParticleCtrl__sub_80086884(s32 arg0) {
 int get_instance__13TParticleCtrlFv(void) {  return TParticleCtrl__data_805D4F04; }
 #pragma push
 #pragma opt_propagation off
-void *TObjPlayer__sub_800868C4(void *pos, s32 id, s32 a, s32 b, s32 c) {
+void *create_timed_particle_emitter_with_flags(void *pos, s32 id, s32 a, s32 b, s32 c) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {
@@ -137,7 +137,7 @@ void *create_timed_particle_emitter(void *owner, s32 id, s32 b, s32 c) {
 
 #pragma push
 #pragma opt_propagation off
-void *TObjPlayer__sub_80086A78(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags) {
+void *create_timed_particle_emitter_with_angles(void *pos, void *dir, s32 id, s32 a, s32 b, s32 flags) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {

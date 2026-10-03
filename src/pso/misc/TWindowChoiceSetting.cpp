@@ -10,7 +10,7 @@ struct Stack_80268A6C {
 };
 
 extern "C" {
-M2C_UNK TWindowSubComCard__sub_8026D740(int, void *, void *);
+M2C_UNK clamp_list_scroll_offset(int, void *, void *);
 extern const f32 lbl_805DD1D8;
 extern const f32 lbl_805DD1DC;
 extern const f32 lbl_805DD1E0;
@@ -141,7 +141,7 @@ void TWindowChoiceSetting__sub_80268A6C(u8 *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
             stack.spC = temp_f1 - lbl_805DD1E0;
         }
-        TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, u32 *, 0x7C)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
+        clamp_list_scroll_offset((int) (M2C_FIELD(arg0, u32 *, 0x7C)), (void *) (arg0 + 0x68), (void *) (&stack.sp8));
     }
 }
 

@@ -69,7 +69,7 @@ extern const f32 lbl_805D93F4;
 extern const f32 lbl_805D93F8;
 extern const f32 lbl_805D93FC;
 extern const f32 lbl_805D9400;
-void TCameraCtrl__sub_80082FCC(f32 *arg0, f32 *arg1);
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1);
 }
 
 extern "C" {
@@ -86,7 +86,7 @@ void __dt__7TObjectFv(void *, int);
 s32 is_split_screen();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
-void TCameraCtrl__sub_80082FCC(f32 *arg0, f32 *arg1) {
+void calc_projection_screen_offset(f32 *arg0, f32 *arg1) {
     f32 dx = TCameraCtrl__data_804FF634.f8;
     f32 y = TCameraCtrl__data_804FF634.fC;
     f32 dy;

@@ -77,7 +77,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 extern RecoveredGlobal_80169710_lbl_804B2748 lbl_804B2748;
 extern RecoveredGlobal_80169710_lbl_804B2760 lbl_804B2760;
 extern u32 TOHealGeneral__data_805D59F0;
-void TOHealGeneral__sub_80169710(void);
+void load_resources__13TOHealGeneralFv(void);
 void request_destroy__11TBoss4Type2FUi(u32);
 void TObjPlayer__sub_80154A00(void *);
 void TObjEneGibbles__sub_80156720(void *);
@@ -129,15 +129,15 @@ s32 is_any_player_within_radius_xz(f32);
 M2C_UNK TOHangerMachine01__sub_80169168(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_model(int);
-M2C_UNK TObjPlayer__sub_80169334(void *);
+M2C_UNK find_heal_target__13TOHealGeneralFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK fn_8016916C(void *);
-M2C_UNK fn_80169230(void *);
+M2C_UNK update_closing__13TOHealGeneralFPv(void *);
+M2C_UNK update_opening__13TOHealGeneralFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 
 void run_task__13TOHealGeneralFv(void *arg0) {
@@ -150,13 +150,13 @@ void run_task__13TOHealGeneralFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        TObjPlayer__sub_80169334(arg0);
+        find_heal_target__13TOHealGeneralFPv(arg0);
         return;
     case 1:
-        fn_80169230(arg0);
+        update_opening__13TOHealGeneralFPv(arg0);
         return;
     case 2:
-        fn_8016916C(arg0);
+        update_closing__13TOHealGeneralFPv(arg0);
         return;
     }
 }
@@ -209,7 +209,7 @@ void close_dialog_window__13TOHealGeneralFv(void) {
 
 typedef struct RecoveredGlobal_80169710_lbl_804B2748 RecoveredGlobal_80169710_lbl_804B2748;
 typedef struct RecoveredGlobal_80169710_lbl_804B2760 RecoveredGlobal_80169710_lbl_804B2760;
-void TOHealGeneral__sub_80169710(void) {
+void load_resources__13TOHealGeneralFv(void) {
   s32 temp_r3;
   s32 temp_r3_2;
   s32 temp_r3_3;

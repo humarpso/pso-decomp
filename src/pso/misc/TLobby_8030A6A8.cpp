@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_player_count__10TObjPlayerFv();
 s32 is_flag_set__6TLobbyFv();
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 s32 get_game_play_mode(void);
 }
 
@@ -61,7 +61,7 @@ s32 get_game_play_mode(void) {
     if (is_flag_set__6TLobbyFv() == 1) {
         return 1;
     }
-    if (TLobby__sub_80293080() == 1) {
+    if (is_challenge_mode_active() == 1) {
         return 1;
     }
     n = get_player_count__10TObjPlayerFv();

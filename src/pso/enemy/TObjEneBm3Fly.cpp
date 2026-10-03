@@ -145,7 +145,7 @@ s32 TObjEneDD__sub_800BB484(void *, Cand_800B1684 *, f32);
 M2C_UNK transition_enemy_state(void *, int);
 void *find_entity_by_id(u16);
 extern const f32 lbl_805D9CDC;
-void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s);
+void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s);
 }
 
 extern "C" {
@@ -177,7 +177,7 @@ void TObjEneBm3Fly__sub_800B1634(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s) {
+void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s) {
     Cand_800B1684 players[4];
     void *nest;
     s32 count;

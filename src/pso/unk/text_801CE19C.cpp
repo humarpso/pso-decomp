@@ -112,7 +112,7 @@ s32 obj_isState2_324(void *);
 s32 obj_isState3_324(void *);
 s16 obj_getField1c(void *);
 s32 get_state_ptr__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_8012ADD4(void *, void *);
+M2C_UNK copy_attack_targets(void *, void *);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
 s32 reset_volopt_state__10TObjPlayerFv(void *);
 M2C_UNK build_packet_header__10TObjPlayerFPv(void *);
@@ -292,7 +292,7 @@ void send_attack_target_packet__10TObjPlayerFUi(u32 arg0) {
     if (((obj_isState2_324((void *) (arg0)) == 0) || (reset_volopt_state__10TObjPlayerFv((void *) (arg0)) != 0)) && ((obj_isState3_324((void *) (arg0)) != 0) || (capture_lockon_targets((void *) (arg0 + 0x7CC), (void *) (arg0)) != 0U)) && (test_flag_2000000__10TObjPlayerFPv((void *) (arg0)) == 0) && ((arg0 == 0U) || (obj_isState2_324((void *) (arg0)) == 0))) {
         build_packet_header__10TObjPlayerFPv((void *) (sp8));
         sp8[1] = obj_getField1c((void *) (arg0));
-        TObjPlayer__sub_8012ADD4((void *) (&sp8[2]), (void *) (get_state_ptr__10TObjPlayerFPv((void *) (arg0 + 0x7CC))));
+        copy_attack_targets((void *) (&sp8[2]), (void *) (get_state_ptr__10TObjPlayerFPv((void *) (arg0 + 0x7CC))));
         send_6x46_attack_finished((void *) (sp8));
     }
 }

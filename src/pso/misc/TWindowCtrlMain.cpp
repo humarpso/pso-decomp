@@ -58,7 +58,7 @@ extern void *TWindowCtrlMain__data_805D640C;
 extern void *TWindowCtrlMain__data_805D6410;
 extern void *TWindowCtrlMain__data_805D6414;
 void TWindowCtrlMain__sub_8024D690(void);
-M2C_UNK TLanguage__sub_80246780();
+M2C_UNK load_hud_palette_textures();
 void init_fields__15TWindowCtrlMainFPv(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8024EDF8();
 M2C_UNK TWindowCtrlMain__sub_8024EF30();
@@ -92,7 +92,7 @@ s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
 int end_effect_render__13TParticleCtrlFv(void);
-int fn_802437C4(void*);
+int spawn_action_palette_slot_light(void*);
 int open_submenu__15TWindowSubEquipFii(void*);
 int render_nodes__7TObjectFv(void);
 int reset_transform_state__10TObjPlayerFv(void*);
@@ -227,7 +227,7 @@ void TWindowCtrlMain__sub_8024D690(void) {
 
 void TWindowCtrlMain__sub_8024D7C0(void* _w0) {
     s32 i;
-    TLanguage__sub_80246780();
+    load_hud_palette_textures();
     TWindowCtrlMain__sub_8024EF30();
     TWindowKeyBoardSoft__sub_8024EDF8();
     TWindowCtrlMain__data_805D6400 = 0;
@@ -250,7 +250,7 @@ bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {
 }
 
 void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) send_and_handle__6TLobbyFPvii(m); }
-void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) fn_802437C4(m); }
+void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) spawn_action_palette_slot_light(m); }
 void update_field28__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) open_submenu__15TWindowSubEquipFii(m); }
 void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFPvs(m); }
 s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0) {

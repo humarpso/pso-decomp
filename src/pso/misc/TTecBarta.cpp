@@ -154,7 +154,7 @@ s32 TObjFish__sub_8001ED9C(s32, s32);
 s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 void set_position_xy__10TObjPlayerFPvff(TechniqueParticleEmitter *, f32, f32);
-TechniqueParticleEmitter *fn_800871A0(f32 *, s32 *, u32);
+TechniqueParticleEmitter *spawn_continuous_particle_with_direction(f32 *, s32 *, u32);
 TechniqueParticleEmitter *create_particle_emitter(f32 *, u32);
 TechniqueParticleEmitter **alloc_buffer__11TOBoss4RockFPv(u32);
 extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
@@ -240,12 +240,12 @@ void TTecBarta__sub_8022B540(void *arg) {
         row = &TTecBarta__data_8044CD98[self->band].rows[i];
         flags = row->flags;
         if (flags & 2) {
-            self->emitters[i] = fn_800871A0((f32 *)(base + 0x20), angles, row->entry);
+            self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), angles, row->entry);
         } else if (flags & 1) {
             reverse[0] = self->angles[0] + 0x8000;
             reverse[1] = 0;
             reverse[2] = self->angles[2];
-            self->emitters[i] = fn_800871A0((f32 *)(base + 0x20), reverse, TTecBarta__data_8044CD98[self->band].rows[i].entry);
+            self->emitters[i] = spawn_continuous_particle_with_direction((f32 *)(base + 0x20), reverse, TTecBarta__data_8044CD98[self->band].rows[i].entry);
         } else {
             self->emitters[i] = create_particle_emitter((f32 *)(base + 0x20), row->entry);
         }

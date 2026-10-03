@@ -183,7 +183,7 @@ struct Ent_800B23A0 { s32 a; u32 count; };
 struct Pair_800B23A0 { s32 k; Ent_800B23A0 *e; };
 
 extern "C" {
-s32 TObjEneBm3Fly__sub_800BB774();
+s32 was_hit_by_ranged__9TObjEneDDFPv();
 int transition_enemy_state(void*, void*);
 void TObjEneBm3Fly__vt61(u8 *arg0);
 s32 enemy_copy_target_destination();
@@ -232,7 +232,7 @@ extern M2C_UNK __vt__13TObjEneBm3Fly[];
 extern s32 lbl_805D2A10;
 u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6);
 s32 handle_message__13TObjEneBm3FlyFPvi(void *, void *);
-s32 TObjEneBm3Fly__sub_800AFDC8(void *, void *);
+s32 state_death_fall__13TObjEneBm3FlyFPvi(void *, void *);
 s32 action__13TObjEneBm3FlyFPvi(void *, void *);
 s32 TObjEneBm3Fly__sub_800B012C(void *, void *);
 s32 TObjEneBm3Fly__sub_800B02C8(void *, void *);
@@ -288,7 +288,7 @@ void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0);
 void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0);
 void update_height_offset__13TObjEneBm3FlyFPv(void *arg0);
 void update_state_flag__13TObjEneBm3FlyFPv(void *arg0);
-u32 TObjEneDD__sub_800BAC14();
+u32 move_with_wall_slide_commit__9TObjEneDDFPvfff();
 int transition_enemy_state(void*, void*);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
@@ -325,7 +325,7 @@ void update_state_flag__13TObjEneBm3FlyFPv(void *arg0) {
 }
 
 void update_dd_flag__13TObjEneBm3FlyFPv(void *arg0) {
-    if (TObjEneDD__sub_800BAC14() != 0U) {
+    if (move_with_wall_slide_commit__9TObjEneDDFPvfff() != 0U) {
         M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) | 2);
         return;
     }
@@ -367,7 +367,7 @@ void TObjEneBm3Fly__vt61(u8 *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if ((temp_r0 != 8) && (temp_r0 != 9) && (temp_r0 != 7)) {
-        if (TObjEneBm3Fly__sub_800BB774() != 0) {
+        if (was_hit_by_ranged__9TObjEneDDFPv() != 0) {
             transition_enemy_state((void*)((void *) (arg0)), (void*)((int) (7)));
             return;
         }
@@ -488,7 +488,7 @@ void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneBm3Fly__sub_800B012C((void *) (arg0), (void *) (arg2));
         return;
     case 8:
-        TObjEneBm3Fly__sub_800AFDC8((void *) (arg0), (void *) (arg2));
+        state_death_fall__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));
         return;
     case 5:
         TObjEneBm3Fly__sub_800B02C8((void *) (arg0), (void *) (arg2));

@@ -19,7 +19,7 @@ s32 get_field_828__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
 void TWindowSubTradeMain__sub_80244A4C(void *);
 void window_request_show(void *);
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024B048(void *);
 s32 TWindowCtrl__sub_8024B054(s32);
 s32 is_flag_2_set__11TWindowCtrlFPv(void *);
@@ -42,7 +42,7 @@ void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self) {
         w = self->slots[i];
         if (w != NULL && is_flag_2_set__11TWindowCtrlFPv(w) == 0) {
             pl = get_player_by_client_id(get_width__11TWindowCtrlFPv(w));
-            if (pl == NULL || TWindowCtrl__sub_8024AF74(lbl_805D53A0) != 0 ||
+            if (pl == NULL || has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0 ||
                 TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0 || TWindowCtrl__sub_8024B048(self) != 0 ||
                 is_script_controlled__10TObjPlayerFPv(pl) != 0 ||
                 (obj_isState3_324(pl) != 0 &&

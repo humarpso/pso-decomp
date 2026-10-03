@@ -157,7 +157,7 @@ struct Hit_802E3D8C { s32 pad; void *pos; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 f32 TObjPlayer__sub_8014241C(void *, void *);
@@ -298,7 +298,7 @@ void run_task__14TItemAttackColFv(u8 *arg0) {
         copy_pos__11TNowLoadingFPvPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
     }
     TItemAttackCol__sub_802E4918((void *) (arg0));
-    if ((M2C_FIELD(arg0, f32 *, 0xDC) <= TObjPlayer__sub_8014241C((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
+    if ((M2C_FIELD(arg0, f32 *, 0xDC) <= TObjPlayer__sub_8014241C((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

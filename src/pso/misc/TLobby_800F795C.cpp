@@ -29,7 +29,7 @@ extern "C" {
 
 void TLobby__sub_800F7A1C(void* p);
 void TLobby__sub_800F7A50(void* p);
-int TLobby__sub_800F7A64(void);
+int get_attack_credit_slot_count(void);
 void broadcast_state__6TLobbyFPv(void* p);
 void bswap_enemy_state__6TLobbyFPv(void* p);
 void bswap_field__6TLobbyFPv(void* p);
@@ -38,7 +38,7 @@ int TLobby__send_and_handle_60(void*);
 void TLobby__sub_800F7A8C(s32 arg0);
 s32 TLobby__sub_800F7B08(s32 arg0);
 extern Ent_800F7A8C *lbl_804998C8[];
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int get_global_state__14TOKeyMachine01Fv(void);
@@ -57,7 +57,7 @@ void TLobby__sub_800F79C4(u8 *arg0) {
 void bswap_enemy_state__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
 void TLobby__sub_800F7A1C(void* p) { bswap_enemy_state__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TLobby__sub_800F7A50(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
-int TLobby__sub_800F7A64(void) { return 4; }
+int get_attack_credit_slot_count(void) { return 4; }
 
 typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 f32 TLobby__sub_800F7A6C(void) {
@@ -90,7 +90,7 @@ s32 TLobby__sub_800F7B08(s32 arg0) {
         return 1;
     }
     while ((fn = p->fn) != 0) {
-        if (TLobby__sub_800F8AE8() != 0) {
+        if (is_area_transfer_pending() != 0) {
             return 0;
         }
         fn();

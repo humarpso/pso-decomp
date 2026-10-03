@@ -12,11 +12,11 @@ struct RecoveredGlobal_8006F23C_lbl_8048C9D8 {
 struct G_8006F2CC { u8 pad[0x28]; s32 x28; };
 
 extern "C" {
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_804DB1F0;
 s32 TLobby__sub_80292F7C(void);
 extern RecoveredGlobal_8006F23C_lbl_8048C9D8 lbl_804DB1F0;
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 void TLobby__sub_80292FB8(void);
 }
 
@@ -45,7 +45,7 @@ int TLobby__sub_80292F5C(void* p) { return get_instance__11TCameraCtrlFv(p); }
 #pragma fp_contract on
 typedef char RecoveredGlobal_8006F23C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F23C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 s32 TLobby__sub_80292F7C(void) {
-    if (TLobby__sub_80293080() != 0) {
+    if (is_challenge_mode_active() != 0) {
         return M2C_FIELD(&lbl_804DB1F0.value, s32 *, 0x34);
     }
     return 0;
@@ -53,7 +53,7 @@ s32 TLobby__sub_80292F7C(void) {
 #pragma pop
 
 void TLobby__sub_80292FB8(void) {
-    if (TLobby__sub_80293080() != 0) {
+    if (is_challenge_mode_active() != 0) {
         switch ((*(G_8006F2CC *)&lbl_804DB1F0).x28) {
         case 0:
             (*(G_8006F2CC *)&lbl_804DB1F0).x28 = 1;

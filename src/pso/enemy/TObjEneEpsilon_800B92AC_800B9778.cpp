@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void spawn_part__14TObjEneEpsilonFi(s32 arg0);
-M2C_UNK TObjEneEpsilon__sub_800B9848(s32, s32);
-s32 TBoss8Dragon__sub_800BB664();
+M2C_UNK enemy_bind_or_clear_target(s32, s32);
+s32 enemy_find_nearest_player_in_range();
 
 void spawn_part__14TObjEneEpsilonFi(s32 arg0) {
-    M2C_UNK8 *tmp = (M2C_UNK8 *)TBoss8Dragon__sub_800BB664();
-    TObjEneEpsilon__sub_800B9848(arg0, (s32)tmp);
+    M2C_UNK8 *tmp = (M2C_UNK8 *)enemy_find_nearest_player_in_range();
+    enemy_bind_or_clear_target(arg0, (s32)tmp);
 }
 
 }

@@ -20,13 +20,13 @@ struct Quad_8026D790 { f32 x, y, r, b, u, v, ur, vb; };
 
 extern "C" {
 s32 calc_pulse_flash_color(int, int, int, int, int, int, int, int);
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, Quad_8026D790 *);
+void apply_context_transform_to_rect(void *, Quad_8026D790 *);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(Quad_8026D790 *, f32);
 void set_draw_texture_and_color(int, u32);
-void TWindowKeyBoardSoft__sub_803DF1B0(s32);
+void set_constant_material_color(s32);
 extern void *lbl_805D63F0;
 extern const f32 lbl_805DD2FC;
 extern const f32 lbl_805DD300;
@@ -76,9 +76,9 @@ void TWindowSubStatusDisp__sub_8026D790(Scroll_8026D790 *scroll, Ctx_8026D790 *c
     q.v = lbl_805DD31C;
     q.ur = lbl_805DD320;
     q.vb = lbl_805DD324;
-    TWindowKeyBoardSoft__sub_8024E6D8(c, &q);
+    apply_context_transform_to_rect(c, &q);
     draw_textured_quad_at_depth(&q, depth);
-    TWindowKeyBoardSoft__sub_803DF1B0(calc_pulse_flash_color(0x86, 0xFF, 0x41, scroll->frame, 0x1C2, 0x12C, 0x13B, 0x14A));
+    set_constant_material_color(calc_pulse_flash_color(0x86, 0xFF, 0x41, scroll->frame, 0x1C2, 0x12C, 0x13B, 0x14A));
     depth = lbl_805DD308 / (lbl_805DD328 + c->x38);
     t = c->height;
     if (t >= lbl_805DD2FC) {
@@ -97,7 +97,7 @@ void TWindowSubStatusDisp__sub_8026D790(Scroll_8026D790 *scroll, Ctx_8026D790 *c
     q.v = lbl_805DD31C;
     q.ur = lbl_805DD330;
     q.vb = lbl_805DD324;
-    TWindowKeyBoardSoft__sub_8024E6D8(c, &q);
+    apply_context_transform_to_rect(c, &q);
     draw_textured_quad_at_depth(&q, depth);
     get_player__20TWindowSubStatusDispFv();
 }

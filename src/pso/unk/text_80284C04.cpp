@@ -92,7 +92,7 @@ struct Win_80284D68 {
     s32 card;
 };
 
-void TWindowSubComCard__sub_8026D740(s32, Vec2_80284D68 *, Vec2_80284D68 *);
+void clamp_list_scroll_offset(s32, Vec2_80284D68 *, Vec2_80284D68 *);
 extern const f32 lbl_805DD7D4;
 extern const f32 lbl_805DD7D8;
 extern const f32 lbl_805DD7DC;
@@ -113,7 +113,7 @@ void TWindowSubSymbolChat__sub_80284D68(Win_80284D68 *arg0, s32 arg1) {
     arg0->pos.y -= lbl_805DD7E0;
     v.x = lbl_805DD7E4;
     v.y = arg0->height - lbl_805DD7E8 - lbl_805DD7D8;
-    TWindowSubComCard__sub_8026D740(arg0->card, &arg0->pos, &v);
+    clamp_list_scroll_offset(arg0->card, &arg0->pos, &v);
 }
 #pragma pop
 }

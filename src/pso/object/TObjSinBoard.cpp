@@ -62,7 +62,7 @@ void rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
-void TParticleCtrl__sub_803DA7A8(int);
+void set_texture_num(int);
 extern Pos_8019806C lbl_80445FA0;
 extern Uv_8019806C lbl_80445FD0;
 extern u8 lbl_8050DD24[];
@@ -105,7 +105,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
         d.count = 4;
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi((int) lbl_8050DD24);
-        TParticleCtrl__sub_803DA7A8(0);
+        set_texture_num(0);
         begin_effect_render__13TParticleCtrlFv();
         TObjPlayer__sub_803D9B2C();
         translate_matrix(0, *(f32 *)(arg0 + 0x38), *(f32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x40));

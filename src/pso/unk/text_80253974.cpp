@@ -16,7 +16,7 @@ struct VBar_80253D10 : VBase_80253D10 {
 
 extern "C" {
 u8 * initialize_mag_data__9TItemDataFPv(void *);
-s16 TItemData__sub_8010EE40(void *);
+s16 get_mag_mind_level__9TItemDataFPv(void *);
 s16 get_stat_percent__9TItemDataFPv(void *);
 s16 get_level__9TItemDataFPv(void *);
 s16 get_percent__9TItemDataFPv(void *);
@@ -34,7 +34,7 @@ M2C_UNK TItemData__sub_8010D614(int, void *);
 extern const f32 lbl_805DCDF0;
 s32 TItemData__sub_80253974(u8 *arg0);
 u8 * initialize_mag_data__9TItemDataFPv(void *);
-s16 TItemData__sub_8010EE40(void *);
+s16 get_mag_mind_level__9TItemDataFPv(void *);
 s16 get_stat_percent__9TItemDataFPv(void *);
 s16 get_level__9TItemDataFPv(void *);
 s16 get_percent__9TItemDataFPv(void *);
@@ -117,7 +117,7 @@ s32 TItemData__sub_80253974(u8 *arg0) {
     }
     b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xD);
     a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE);
-    if ((s32) M2C_FIELD(b, s32 *, 0x20) < TItemData__sub_8010EE40(sp8)) {
+    if ((s32) M2C_FIELD(b, s32 *, 0x20) < get_mag_mind_level__9TItemDataFPv(sp8)) {
         var_r31 = 1;
         M2C_FIELD(a, f32 *, 0x24) = (f32) lbl_805DCDF0;
     } else {
@@ -182,7 +182,7 @@ void TWindowHelpItem__vt10(u8 *arg0) {
     b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xD);
     c = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE);
     reset_float_field__15TWindowHelpItemFPv((void *) a);
-    M2C_FIELD(b, s32 *, 0x20) = TItemData__sub_8010EE40(sp8);
+    M2C_FIELD(b, s32 *, 0x20) = get_mag_mind_level__9TItemDataFPv(sp8);
     M2C_FIELD(c, f32 *, 0x24) = (f32) TItemData__sub_801146A4(sp8);
     ((VBar_80253D10 *) c)->m3();
 }

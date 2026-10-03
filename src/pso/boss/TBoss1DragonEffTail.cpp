@@ -88,7 +88,7 @@ EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TBoss1Dragon__sub_8002885C(void *);
 M2C_UNK TBoss1Dragon__sub_80028890(void *);
-M2C_UNK TObjEneDD__sub_800BA838(void *, f32);
+M2C_UNK update_collider_contact_by_height(void *, f32);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 M2C_UNK TBoss4Zako__sub_803D8910(s32, s32, s32);
@@ -142,7 +142,7 @@ void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
         p = M2C_FIELD(arg0, u8 **, 0xA4) + i * 0x2C;
         VecCopy__FP3VecPC3Vec(p + 0x1C, src);
         TCameraCtrl__sub_803D8934(0, src++, p);
-        TObjEneDD__sub_800BA838(p, lbl_805D814C);
+        update_collider_contact_by_height(p, lbl_805D814C);
     }
     pop_matrix();
     if (M2C_FIELD(arg0, s32 *, 0xBC) == 1) {

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Obj_80010F54 { u8 pad[0x2D4]; u16 id; u16 id2; };
 
 extern "C" {
-s32 TObjPlayer__sub_80010C04(s32 id);
+s32 is_entity_locally_controlled(s32 id);
 s32 add_id_to_slots__10TObjPlayerFiUs(void *, s32);
 s32 is_split_screen();
 void record_attack_source(Obj_80010F54 *self, s32 id);
@@ -51,7 +51,7 @@ u16 fn_80010F4C(void* p) { return *(u16*)((char*)p + 0x2d6); }
 void record_attack_source(Obj_80010F54 *self, s32 id) {
     if ((u16)id != 0xFFFF) {
         self->id = id;
-        if (self->id < 0x1000 && TObjPlayer__sub_80010C04(self->id) != 0) {
+        if (self->id < 0x1000 && is_entity_locally_controlled(self->id) != 0) {
             if (is_split_screen() == 0) {
                 self->id2 = self->id;
             } else {

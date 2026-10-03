@@ -136,7 +136,7 @@ s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void clear_field_388__9TObjEneDDFPv(void *p);
 void set_active__9TObjEneDDFPv(void *p);
-void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
+void move_clamped_on_ground__9TObjEneDDFPvfff(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void clear_attack_receipts(void *);
 s32 transition_enemy_state(void *, s32);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
@@ -236,7 +236,7 @@ void TObjEneRe7Berura__sub_80093470(Berura_80093470 *obj, s32 mode) {
         advance_animation_playback(self);
         VecCopy__FP3VecPC3Vec(&v, &self->vel);
         speed = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        TObjEneDD__sub_800BACA4(self, v.x, v.z, speed);
+        move_clamped_on_ground__9TObjEneDDFPvfff(self, v.x, v.z, speed);
         self->vel.x *= TObjEneRe7Berura__data_805D9738;
         self->vel.z *= TObjEneRe7Berura__data_805D9738;
         break;

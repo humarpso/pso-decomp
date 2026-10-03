@@ -102,7 +102,7 @@ u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014D41C_lbl_804AB658 lbl_804AB658;
 extern u32 TObjNpcNurseBase__data_805D5840;
-void TObjNpcNurseBase__sub_8014D41C(void);
+void load_shared_data__16TObjNpcNurseBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 fn_80148274(void *);
 s32 TObjNpcFemaleBase__sub_80149CE0(void *);
@@ -135,7 +135,7 @@ void free_shared_data__16TObjNpcNurseBaseFv(void) {
 
 extern M2C_UNK __vt__16TObjNpcNurseBase[];
 
-void TObjNpcNurseBase__sub_8014D41C(void) {
+void load_shared_data__16TObjNpcNurseBaseFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -42,7 +42,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 void *TWindowActionPalette__ct(void *, s32);
 void *fn_80269FE8(M2C_UNK, void *, s32);
 M2C_UNK get_window_layout_position(M2C_UNK);
-void *fn_80271400(s32);
+void *create_status_window(s32);
 void *TWindowMainMenu1P__ct(void *, void *, s32);
 void *TWindowMainMenu4P__ct(void *, void *, s32);
 extern u8 lbl_8044EC4C[];
@@ -100,7 +100,7 @@ struct Ctl_8024E2A8 *TWindowCtrlPlayer__ct(struct Ctl_8024E2A8 *arg0, void *pare
         arg0->f28 = p;
     }
     arg0->f2c = fn_80269FE8(get_window_layout_position(0x20), lbl_8044EC4C, arg0->f24);
-    arg0->f30 = fn_80271400(arg0->f24);
+    arg0->f30 = create_status_window(arg0->f24);
     set_flag_4__9TObjLukerFPv(arg0->f30);
     p = __nw__7TObjectFUl(0x78);
     if (p != 0) {

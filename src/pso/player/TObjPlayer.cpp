@@ -100,7 +100,7 @@ int TObjPlayer__sub_801BF3C4(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 int TObjPlayer__sub_801BF3C4(void* p);
 int TObjPlayer__sub_801BF3E8(void* p);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int TObjPlayer__sub_801BF3E8(void* p);
 void TObjPlayer__sub_801BF40C(void* p, u8 v);
 void TObjPlayer__sub_801BF40C(void* p, u8 v);
@@ -373,7 +373,7 @@ int TObjPlayer__sub_801BF3A0(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 
 
 int TObjPlayer__sub_801BF3C4(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x18); }
 
-int TObjPlayer__sub_801BF3E8(void* p) { return TObjPlayer__sub_8001BEF8(p, 4); }
+int TObjPlayer__sub_801BF3E8(void* p) { return test_flags_any(p, 4); }
 
 void TObjPlayer__sub_801BF40C(void* p, u8 v) { *(u8*)((char*)p + 0x1c) = v; }
 

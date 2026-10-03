@@ -17,7 +17,7 @@ extern s32 TLobby__data_805D4AAC;
 extern s32 TLobby__data_805D4AB0;
 extern s32 TLobby__data_805D4ABC;
 extern s32 lbl_805D5550;
-void TLobby__sub_8001E3A0(void);
+void alloc_battle_param_tables(void);
 }
 
 extern "C" {
@@ -89,7 +89,7 @@ void free_boss4_rock__6TLobbyFv(void) {
     TLobby__data_805D4AB0 = 0;
 }
 
-void TLobby__sub_8001E3A0(void) {
+void alloc_battle_param_tables(void) {
     u8 *buf = alloc_buffer__11TOBoss4RockFPv(0x3d80);
     s32 i;
     for (i = 0; i < 0x3d80; i++) {

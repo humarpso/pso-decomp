@@ -40,7 +40,7 @@ u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 extern u8 lbl_804B7ED8[];
 extern u32 lbl_805D5C20;
 extern s32 lbl_805D5C24;
-void TKomorebi__sub_801923DC(void);
+void load_resources__9TKomorebiFv(void);
 s32 TObjFish__sub_8001ED9C(s32, s32);
 s32 get_bml_model(void *, int);
 extern s32 lbl_805D5C2C;
@@ -146,7 +146,7 @@ void free_static__9TKomorebiFv(void) {
     }
     lbl_805D5C24 = 0;
 }
-void TKomorebi__sub_801923DC(void) {
+void load_resources__9TKomorebiFv(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
         p = TLobby__sub_80020004(p, 1, lbl_804B7ED8, 0, 0, 0);

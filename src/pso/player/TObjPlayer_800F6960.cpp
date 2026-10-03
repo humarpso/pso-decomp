@@ -123,7 +123,7 @@ s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
 u16 obj_getArrU16_FC(void *, int);
 s32 is_split_screen();
 void TObjPlayer__sub_800F6BF0(void *, u16);
-s32 TLobby__sub_800F7A64(void *);
+s32 get_attack_credit_slot_count(void *);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
@@ -172,7 +172,7 @@ void distribute_experience(TObjPlayer_800F6B68 *self) {
     if (is_split_screen() == 0) {
         TObjPlayer__sub_800F6BF0(self, self->attacker_id);
     } else {
-        count = TLobby__sub_800F7A64(self);
+        count = get_attack_credit_slot_count(self);
         for (i = 0; i < count; i++) {
             id = obj_getArrU16_FC(self, i);
             if (id == 0xFFFF) {

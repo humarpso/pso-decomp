@@ -192,7 +192,7 @@ extern u8 lbl_8058D490[];
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 f32 TBoss2DeRolLe__sub_80034B60(Obj_80034B60 *self);
-s32 TObjEneDD__sub_800B9E84(void *, s32, s32, s32);
+s32 reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
 extern s32 lbl_804FE300[];
 extern s32 TBoss2DeRolLe__data_805D4B98[2];
 extern s32 TBoss2DeRolLe__data_805D4B9C[2];
@@ -381,7 +381,7 @@ void TBoss2DeRolLe__sub_80034E00(void *self, s32 kind) {
         b = 0;
         break;
     }
-    TObjEneDD__sub_800B9E84(self, TBoss2DeRolLe__data_805D4B98[a], lbl_804FE300[i], TBoss2DeRolLe__data_805D4B9C[b]);
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(self, TBoss2DeRolLe__data_805D4B98[a], lbl_804FE300[i], TBoss2DeRolLe__data_805D4B9C[b]);
 }
 
 void TBoss2DeRolLe__sub_80034E90(Obj_80034E90 *self, s32 kind) {

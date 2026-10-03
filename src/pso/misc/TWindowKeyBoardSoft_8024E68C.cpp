@@ -45,9 +45,9 @@ void set_open_tick__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1);
 extern const float lbl_805DCC78;
 extern const f32 lbl_805DCC7C;
 extern const f32 lbl_805DCC80;
-void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1);
+void apply_window_closing_stretch(u8 *arg0, int arg1);
 extern const float lbl_805DCC78;
-void TWindowKeyBoardSoft__sub_8024E6D8(Ctx_8024E6D8 *c, f32 *q);
+void apply_context_transform_to_rect(Ctx_8024E6D8 *c, f32 *q);
 s32 is_split_screen();
 f32 TCameraCtrl__sub_80068A04(s32);
 f32 get_split_offset__11TCameraCtrlFi(s32);
@@ -107,7 +107,7 @@ void TWindowKeyBoardSoft__sub_8024E68C(Ctx_8024E68C *c, f32 *q) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowKeyBoardSoft__sub_8024E6D8(Ctx_8024E6D8 *c, f32 *q) {
+void apply_context_transform_to_rect(Ctx_8024E6D8 *c, f32 *q) {
     if ((*(const f32 *)&lbl_805DCC78) != c->scale[0]) {
         q[0] = c->scale[0] * (q[0] - c->pivot[0]) + c->pivot[0];
         q[2] = c->scale[0] * (q[2] - c->pivot[0]) + c->pivot[0];
@@ -119,7 +119,7 @@ void TWindowKeyBoardSoft__sub_8024E6D8(Ctx_8024E6D8 *c, f32 *q) {
 }
 #pragma pop
 
-void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1) {
+void apply_window_closing_stretch(u8 *arg0, int arg1) {
   f32 temp_f2;
   RecoveredFields_8024E754_arg0 *new_var;
   new_var = (RecoveredFields_8024E754_arg0 *) arg0;
@@ -207,7 +207,7 @@ s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
     if (TWindowKeyBoardSoft__sub_8024E8E8((Win_8024E8E8 *)(arg0), (Box_8024E8E8 *)(arg1)) == 0) {
         return 0;
     }
-    TWindowKeyBoardSoft__sub_8024E6D8((Ctx_8024E6D8 *)(arg0), (f32 *)(arg1));
+    apply_context_transform_to_rect((Ctx_8024E6D8 *)(arg0), (f32 *)(arg1));
     return 1;
 }
 

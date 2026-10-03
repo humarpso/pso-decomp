@@ -156,16 +156,16 @@ s32 obj_isState2_324(void *);
 void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *recoil, Desc_800BBF08 *desc);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_800BC3FC(void *, int);
-s32 TObjPlayer__sub_800BC53C(void *, void *);
+s32 is_area_attack_target_eligible(void *, int);
+s32 attack_target_history_add(void *, void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
 s32 TObjPlayer__sub_800BC080(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
-s32 TObjPlayer__sub_800BC3FC(void *, int);
-s32 TObjPlayer__sub_800BC53C(void *, void *);
+s32 is_area_attack_target_eligible(void *, int);
+s32 attack_target_history_add(void *, void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
@@ -270,9 +270,9 @@ s32 TObjPlayer__sub_800BC080(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f
             if (t == NULL) {
                 break;
             }
-            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && TObjPlayer__sub_800BC3FC(arg0, t->x30) != 0) {
+            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
                 ok = 1;
-                if (arg2 != NULL && TObjPlayer__sub_800BC53C(arg2, t) == 0) {
+                if (arg2 != NULL && attack_target_history_add(arg2, t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {
@@ -325,9 +325,9 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
             if (t == NULL) {
                 break;
             }
-            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && TObjPlayer__sub_800BC3FC(arg0, t->x30) != 0) {
+            if (obj_is_hit_receivable() != 0 && t != arg0->self_tgt && is_area_attack_target_eligible(arg0, t->x30) != 0) {
                 ok = 1;
-                if (arg3 != NULL && TObjPlayer__sub_800BC53C(arg3, t) == 0) {
+                if (arg3 != NULL && attack_target_history_add(arg3, t) == 0) {
                     ok = 0;
                 }
                 if (ok != 0) {

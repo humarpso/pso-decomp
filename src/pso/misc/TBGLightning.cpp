@@ -33,7 +33,7 @@ struct Obj_802A9F48 {
 
 extern "C" {
 void TBGLightningCtrl__sub_802A9A08(void);
-void TParticleCtrl__sub_803DA7A8(s32);
+void set_texture_num(s32);
 void TParticleCtrl__sub_803E2B68(s32 arg0);
 u32 __cvt_fp2unsigned(f32);
 void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
@@ -41,7 +41,7 @@ void reset_particles__13TParticleCtrlFv(void);
 extern s32 lbl_8046FC8C[];
 void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir);
 void TBGLightningCtrl__sub_802A9A08(void);
-void TParticleCtrl__sub_803DA7A8(s32);
+void set_texture_num(s32);
 void TParticleCtrl__sub_803E2B68(s32 arg0);
 u32 __cvt_fp2unsigned(f32);
 void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
@@ -55,7 +55,7 @@ extern const f32 lbl_805DE030;
 extern const f32 lbl_805DE040;
 void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c);
 void TBGLightningCtrl__sub_802A9A08(void);
-void TParticleCtrl__sub_803DA7A8(s32);
+void set_texture_num(s32);
 void TParticleCtrl__sub_803E2B68(s32 arg0);
 u32 __cvt_fp2unsigned(f32);
 void reset_particles__13TParticleCtrlFv(void);
@@ -139,7 +139,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     p.y = self->pos.y - d.y;
     p.z = self->pos.z - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
-    TParticleCtrl__sub_803DA7A8(idx + lbl_8046FC8C[self->f1c]);
+    set_texture_num(idx + lbl_8046FC8C[self->f1c]);
     TParticleCtrl__sub_803E2B68(1);
     fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
@@ -177,7 +177,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     p.y = self->pos.y + dir->y * (-24.0f * self->f2c) - d.y;
     p.z = self->pos.z + dir->z * (-3.0f * self->f2c) - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
-    TParticleCtrl__sub_803DA7A8(0);
+    set_texture_num(0);
     TParticleCtrl__sub_803E2B68(1);
     fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();

@@ -19,7 +19,7 @@ struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
 
 extern "C" {
 int initialize_subwindow__9TWindowDDFPv(void *);
-void TCameraCtrl__sub_802715F0(void *);
+void update_manual_scroll__21TWindowSubAreaMapDispFPv(void *);
 void update_visibility__21TWindowSubAreaMapDispFPv(void *);
 int update_subwindow__20TWindowSubStatusDispFPv(void *);
 extern const f32 lbl_805DD4F0;
@@ -58,7 +58,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0);
 
 extern "C" {
 
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+void apply_context_transform_to_rect(void *, void *);
 s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
@@ -137,7 +137,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     r.v0 = lbl_805DD4A4;
     r.u1 = lbl_805DD4A8;
     r.v1 = lbl_805DD4AC;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
+    apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth(&r, scale);
     {
         f32 y;
@@ -151,7 +151,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     }
     r.u0 = lbl_805DD4B4;
     r.u1 = lbl_805DD4B8;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
+    apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth(&r, scale);
     {
         f32 y;
@@ -167,7 +167,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     r.v0 = lbl_805DD480;
     r.u1 = lbl_805DD4C8;
     r.v1 = lbl_805DD4CC;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
+    apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth(&r, scale);
     {
         f32 y;
@@ -181,7 +181,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     }
     r.v0 = lbl_805DD4D4;
     r.v1 = lbl_805DD4D8;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &r);
+    apply_context_transform_to_rect(arg1, &r);
     draw_textured_quad_at_depth(&r, scale);
     get_player__20TWindowSubStatusDispFv();
 }
@@ -220,7 +220,7 @@ void render__21TWindowSubAreaMapDispFv(void *arg0) {
 void run_task__21TWindowSubAreaMapDispFv(u8 *arg0) {
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_visibility__21TWindowSubAreaMapDispFPv(arg0);
-    TCameraCtrl__sub_802715F0(arg0);
+    update_manual_scroll__21TWindowSubAreaMapDispFPv(arg0);
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD4F0) {
         update_subwindow__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u8 **, 0x70));
     }

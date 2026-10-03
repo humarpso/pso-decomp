@@ -10,7 +10,7 @@ u8 *__nw__7TObjectFUl(int);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *TWindowSubStatusDisp__sub_8026E168(u8 *, s32, s32, s32);
 extern M2C_UNK lbl_8044F55C[];
-u8 *TShopJudgmentItemWindow__sub_8026DF00(s32 arg0, s32 arg1, s32 arg2);
+u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -19,7 +19,7 @@ void open_default__23TShopJudgmentItemWindowFi(s32 a);
 
 extern s32 lbl_805D53A0;
 
-u8 *TShopJudgmentItemWindow__sub_8026DF00(s32 arg0, s32 arg1, s32 arg2) {
+u8 *create_item_list_window(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     u8 *var_r0;
     temp_r3 = get_camera_id__11TCameraCtrlFv();
@@ -43,7 +43,7 @@ u8 *TShopJudgmentItemWindow__sub_8026DF00(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void open_default__23TShopJudgmentItemWindowFi(s32 a) {
-    TShopJudgmentItemWindow__sub_8026DF00((s32)(a), (s32)(0x40), (s32)(lbl_805D53A0));
+    create_item_list_window((s32)(a), (s32)(0x40), (s32)(lbl_805D53A0));
 }
 
 }

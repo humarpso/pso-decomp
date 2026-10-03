@@ -12,7 +12,7 @@ s32 fn_800FE0C8(s32);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 extern s32 lbl_805D53C0;
 extern s32 lbl_805D53D8;
-s32 TLobby__sub_800FE008(void *arg0, s32 dst, s32 size);
+s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size);
 }
 
 extern "C" {
@@ -43,7 +43,7 @@ loop_1:
 void TLobby__sub_800FDFEC(void *self, s32 n) {
     lbl_805D53D8 = n * ((lbl_805D53D8 + n - 1) / n);
 }
-s32 TLobby__sub_800FE008(void *arg0, s32 dst, s32 size) {
+s32 read_data__8TGStreamFPvii(void *arg0, s32 dst, s32 size) {
     s32 total;
     s32 n;
     total = 0;

@@ -180,7 +180,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
-int TObjEneDD__sub_800B9E84(void *self, void *a, void *b, void *c);
+int reload_stats_keep_hp_tp__9TObjEneDDFPv(void *self, void *a, void *b, void *c);
 extern s32 TObjEneRe7Berura__data_80439DA8[];
 extern s32 TObjEneRe7Berura__data_80439DB0[];
 extern s32 TObjEneRe7Berura__data_80439DB8[];
@@ -302,7 +302,7 @@ void TObjEneRe7Berura__sub_80094BFC(u8 *arg0) {
 #pragma pop
 
 void TObjEneRe7Berura__sub_80094CD0(void *self) {
-    TObjEneDD__sub_800B9E84(self, TObjEneRe7Berura__data_805D4F58[TObjEneRe7Berura__data_80439DA8[1]],
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(self, TObjEneRe7Berura__data_805D4F58[TObjEneRe7Berura__data_80439DA8[1]],
                             TObjEneRe7Berura__data_805007D4[TObjEneRe7Berura__data_80439DB0[1]],
                             TObjEneRe7Berura__data_805D4F5C[TObjEneRe7Berura__data_80439DB8[1]]);
 }

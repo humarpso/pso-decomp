@@ -68,7 +68,7 @@ extern "C" {
 
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1);
 void update_position__11TMainCursorFi(s32 arg0);
-s32 TMainCursor__sub_8013DF08();
+s32 is_channel_active__11TMainCursorFPv();
 void TMainCursor__sub_8013E5E8(void *, int);
 void *find_entity_by_id();
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);

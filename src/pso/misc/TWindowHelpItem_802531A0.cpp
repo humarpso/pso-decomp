@@ -60,7 +60,7 @@ extern V3_802534B0 lbl_804CF88C;
 s32 TLobby__sub_8001DC24();
 u8 calc_display_grade__9TItemDataFPv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_80253154(void *);
+M2C_UNK format_description_with_price__15TWindowHelpItemFPv(void *);
 void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
@@ -85,7 +85,7 @@ extern s32 lbl_805D5544;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
 extern const f32 lbl_805DCDEC;
-void TWindowHelpItem__sub_802532E8(u8 *arg0);
+void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -106,7 +106,7 @@ void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1) {
 }
 
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0) {
-    TWindowSubStatusDisp__sub_80253154((void *)(arg0));
+    format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));
     TWindowHelpItem__sub_802531A4((u8 *)(arg0), (void *)(TLobby__sub_8001DC24()));
 }
 void TWindowHelpItem__sub_80253268(u8 *arg0) {
@@ -129,7 +129,7 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
     }
 }
 
-void TWindowHelpItem__sub_802532E8(u8 *arg0) {
+void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
     s32 sp8;
     s32 temp_r3;
     u8 *e0;
@@ -183,7 +183,7 @@ void TWindowHelpItem__vt2(u8 *arg0) {
     TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF5AC, *(s16 *)(arg0 + 0x20));
     *(V3_802534B0 *)(arg0 + 0xB0) = lbl_804CF88C;
     e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
-    TWindowSubStatusDisp__sub_80253154((void *)(arg0));
+    format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));
     TWindowSubStatusDisp__sub_8025AC50((void *)(e), (void *)(TLobby__sub_8001DC24()), (s32)(0x20));
     reset_float_field__15TWindowHelpItemFPv(e);
     e2 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(1));

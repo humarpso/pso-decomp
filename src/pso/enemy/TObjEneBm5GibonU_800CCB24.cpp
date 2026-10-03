@@ -865,7 +865,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK clear_attack_receipts(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -1095,7 +1095,7 @@ void TObjEneBm5GibonU__sub_800CE370(u8 *arg0, s32 arg1) {
         VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x308);
         {
             f32 v = clamp_velocity__15TObjBoss2TunnelFPv(&sp8);
-            TObjEneDD__sub_800BACE0(arg0, sp8.x, sp8.z, v);
+            move_with_wall_slide_on_ground__9TObjEneDDFPvfff(arg0, sp8.x, sp8.z, v);
         }
         if (M2C_FIELD(arg0, s32 *, 0x518) == 0) {
             M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm5GibonU__data_805DA158;

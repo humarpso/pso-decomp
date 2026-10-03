@@ -76,7 +76,7 @@ s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 s32 is_rare_item__9TItemDataFPv(u8 *item);
 void *lookup_item_pmt_record(u8 *item);
 s32 check_item_flags__9TItemDataFPv(void *arg0);
-s32 TItemData__sub_8010EEC8(s32);
+s32 get_item_description_text(s32);
 int sprintf(char *, const char *, ...);
 extern s32 lbl_805D2B10;
 s32 format_item_description(u8 *item);
@@ -121,7 +121,7 @@ s32 TItemData__sub_8010C52C();
 M2C_UNK TItemData__sub_8010C5DC(void *, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
-s32 TItemData__sub_8010EEC8(s32);
+s32 get_item_description_text(s32);
 s32 get_player_by_client_id(s32);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 M2C_UNK apply_bonuses(void *, s32, s32, s32, s32, s32);
@@ -549,9 +549,9 @@ s32 calc_buy_price__9TItemDataFPv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 4);
         if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (((s32 (*)(void))is_rare_item__9TItemDataFPv)() == 0)) {
             if (check_item_flags__9TItemDataFPv((void *)(arg0)) == 1) {
-                return TItemData__sub_8010EEC8(M2C_FIELD(arg0, u8 *, 4) + 0x1CB);
+                return get_item_description_text(M2C_FIELD(arg0, u8 *, 4) + 0x1CB);
             }
-            return TItemData__sub_8010EEC8(0x1F4);
+            return get_item_description_text(0x1F4);
         }
     }
     return lbl_805D2B10;
@@ -567,7 +567,7 @@ s32 format_item_description(u8 *item) {
     if (p != NULL && out != NULL) {
         format = NULL;
         if (((s32 (*)(u8 *))TItemData__sub_8010C52C)(item) != 0) {
-            format = (char *)TItemData__sub_8010EEC8(0x77);
+            format = (char *)get_item_description_text(0x77);
         } else {
             name = p->name;
             if (name == 0x1F4) {
@@ -575,21 +575,21 @@ s32 format_item_description(u8 *item) {
             }
             if (item[0] == 0) {
                 if (is_rare_item__9TItemDataFPv(item) != 0 && check_item_flags__9TItemDataFPv(item) == 0) {
-                    format = (char *)TItemData__sub_8010EEC8(0x17E);
+                    format = (char *)get_item_description_text(0x17E);
                 } else {
-                    format = (char *)TItemData__sub_8010EEC8(name);
+                    format = (char *)get_item_description_text(name);
                 }
             } else if (item[0] == 1 && item[1] == 3) {
                 if (name < 0x2E2) {
                     if (p != NULL && out != NULL && p->stat != 0x1C) {
-                        sprintf(out, (char *)TItemData__sub_8010EEC8(name), p->amount + get_field6_bswap__9TItemDataFPv(item));
+                        sprintf(out, (char *)get_item_description_text(name), p->amount + get_field6_bswap__9TItemDataFPv(item));
                         return (s32)out;
                     }
                 } else {
-                    format = (char *)TItemData__sub_8010EEC8(name);
+                    format = (char *)get_item_description_text(name);
                 }
             } else {
-                format = (char *)TItemData__sub_8010EEC8(name);
+                format = (char *)get_item_description_text(name);
             }
         }
         if (format != NULL) {

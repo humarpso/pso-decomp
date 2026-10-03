@@ -60,7 +60,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B190(u8 *arg0);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
-int TKeyBoardControl__sub_8000F9B0(void*);
+int request_queued_main_phase(void*);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 M2C_UNK TLobby__sub_800FD6A0(void *, int);
 M2C_UNK render_tick__Fv();
@@ -462,7 +462,7 @@ void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 ar
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x38), TQuestVmDownLoadServer__sub_8006EF6C(arg2), 8);
     }
 }
-int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return TKeyBoardControl__sub_8000F9B0(p); }
+int TAdSinglePlyChrSelectGC__sub_8033B244(void* p) { return request_queued_main_phase(p); }
 void TAdSinglePlyChrSelectGC__sub_8033B264(void) {
     delete_all_task_children__9TMainTaskFv((void *) (&main_task.value));
     TLobby__sub_8022743C();

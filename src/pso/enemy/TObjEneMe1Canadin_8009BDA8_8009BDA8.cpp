@@ -150,7 +150,7 @@ void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
 f32 TBoss8Dragon__sub_803D64C0(s32, f32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
-M2C_UNK TObjEneDD__sub_800BAC14(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 
 extern const f32 lbl_805D98A8;
 
@@ -169,7 +169,7 @@ void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
         advance_animation_playback();
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3EC));
         M2C_FIELD(arg0, f32 *, 0x300) = (f32) M2C_FIELD(arg0, f32 *, 0x3F8);
-        TObjEneDD__sub_800BAC14(arg0, M2C_FIELD(arg0, f32 *, 0x484), M2C_FIELD(arg0, f32 *, 0x488), lbl_805D98A8);
+        move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, M2C_FIELD(arg0, f32 *, 0x484), M2C_FIELD(arg0, f32 *, 0x488), lbl_805D98A8);
     case 3:
     case 5:
     case 1:

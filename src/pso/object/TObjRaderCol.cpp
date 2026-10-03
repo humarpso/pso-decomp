@@ -35,7 +35,7 @@ f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *get_player_by_client_id(s32);
 void TRaderMapCore__sub_801F9CB8(s16);
-void TObjRaderCol__sub_8019750C(Col_8019750C *arg0);
+void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
 extern s32 lbl_805D53A0;
 }
 
@@ -44,7 +44,7 @@ extern "C" {
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void render__12TObjRaderColFv(void);
 void run_task__12TObjRaderColFv(void *arg0);
-void TObjRaderCol__sub_801975DC(void *);
+void check_local_player_in_range__12TObjRaderColFPv(void *);
 M2C_UNK TRaderMapCore__sub_801F9C54(s16);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -52,7 +52,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void render__12TObjRaderColFv(void) {  }
 
-void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
+void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
     s32 found;
     s32 i;
     s32 j;
@@ -81,7 +81,7 @@ void TObjRaderCol__sub_8019750C(Col_8019750C *arg0) {
 }
 
 #define arg0 ((Col_8019750C *)arg0_)
-void TObjRaderCol__sub_801975DC(void *arg0_) {
+void check_local_player_in_range__12TObjRaderColFPv(void *arg0_) {
     Ply_8019750C *p = get_player_by_client_id(lbl_805D53A0);
     if (p != 0) {
         if (test_flag_2000000__10TObjPlayerFPv(p) != 0) {
@@ -115,10 +115,10 @@ void run_task__12TObjRaderColFv(void *arg0) {
         return;
     case 1:
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            TObjRaderCol__sub_8019750C((Col_8019750C *)((void *)(arg0)));
+            check_any_player_in_range__12TObjRaderColFPv((Col_8019750C *)((void *)(arg0)));
             return;
         }
-        TObjRaderCol__sub_801975DC(arg0);
+        check_local_player_in_range__12TObjRaderColFPv(arg0);
         return;
     }
 }

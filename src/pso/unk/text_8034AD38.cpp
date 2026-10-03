@@ -36,7 +36,7 @@ extern s16 lbl_804F0070[];
 void fn_8034AED4(s16 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-void *TAdFloorLoadPrtGC__sub_80086EF8(void *, void *, int, int, int);
+void *create_particle_controller_with_angles(void *, void *, int, int, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
 extern Vec_8034ADE0 lbl_80478A28[];
@@ -86,9 +86,9 @@ Prt_8034ADE0 *TAdFloorLoadPrtGC__ct(Prt_8034ADE0 *arg0) {
     for (i = 0; i < 12; i++) {
         VecCopy__FP3VecPC3Vec(&arg0->slots[i].pos, p = &lbl_80478A28[i]);
         copy_xyz__10TObjPlayerFPvPv(&arg0->slots[i].ang, a = &lbl_80478AB8[i]);
-        arg0->slots[i].ctrl = TAdFloorLoadPrtGC__sub_80086EF8(p, a, 0x65, 1, 0x40);
+        arg0->slots[i].ctrl = create_particle_controller_with_angles(p, a, 0x65, 1, 0x40);
     }
-    arg0->bg = TAdFloorLoadPrtGC__sub_80086EF8(lbl_80478B48, lbl_80478B54, 0x2F, 1, 0x40);
+    arg0->bg = create_particle_controller_with_angles(lbl_80478B48, lbl_80478B54, 0x2F, 1, 0x40);
     return arg0;
 }
 #pragma pop

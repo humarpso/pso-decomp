@@ -21,7 +21,7 @@ extern "C" {
 void free_windows__17TWindowSubComCardFPv(void *arg0);
 void notify_trade_main__17TWindowSubComCardFPv(void* p);
 void update_card_slot__17TWindowSubComCardFPv(void* p);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);

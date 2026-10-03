@@ -73,13 +73,13 @@ M2C_UNK play_sound_effect(int, int, int, int);
 void apply_form_change__8TItemMagFPv(u8 *arg0);
 s32 check_class_equip_permission(void *, M2C_UNK);
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
-void TItemMag__sub_80112360(u8 *arg0);
+void evolve_first_form__8TItemMagFPv(u8 *arg0);
 u8 get_field_ed__10TObjPlayerFPv(s32);
 s8 TItemMag__sub_801117C0(void *);
-s32 TItemMag__sub_80111978(void *);
+s32 evolve_rare_form__8TItemMagFPv(void *);
 void update_feed_anim__8TItemMagFPv(void *arg0);
 void do_action_by_class__8TItemMagFi(s32 arg0);
-void TItemMag__sub_80112360(u8 *arg0);
+void evolve_first_form__8TItemMagFPv(u8 *arg0);
 void apply_form_change__8TItemMagFPv(u8 *arg0);
 s16 TItemMagSub__sub_8011455C(void *);
 extern s32 lbl_8043E534[];
@@ -330,7 +330,7 @@ void do_action_by_class__8TItemMagFi(s32 arg0) {
     }
 }
 
-void TItemMag__sub_80112360(u8 *arg0) {
+void evolve_first_form__8TItemMagFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
     if (temp_r3 != NULL) {
@@ -381,7 +381,7 @@ void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
     {
       if (stage < 1)
       {
-        TItemMag__sub_80112360((u8 *) self);
+        evolve_first_form__8TItemMagFPv((u8 *) self);
       }
     }
     else
@@ -393,7 +393,7 @@ void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
       }
     }
     else
-      if ((((lbl_8043E534[2] <= level) && ((level % 5) == 0)) && (stage <= 3)) && (TItemMag__sub_80111978(self) == 0))
+      if ((((lbl_8043E534[2] <= level) && ((level % 5) == 0)) && (stage <= 3)) && (evolve_rare_form__8TItemMagFPv(self) == 0))
     {
       update_feed_anim__8TItemMagFPv(self);
     }

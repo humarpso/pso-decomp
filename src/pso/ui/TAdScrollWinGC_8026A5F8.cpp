@@ -32,7 +32,7 @@ extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 void chat_log_remove_line(s32 arg0);
 s32 TLobby__sub_8026A680(void);
 s32 strlen();
-void TLobby__sub_8026A89C(s32 arg0);
+void chat_log_add_line(s32 arg0);
 s32 chat_text_lacks_language_tag(const char *text);
 }
 
@@ -138,7 +138,7 @@ void TLobby__sub_8026A7B0(u32 arg0) {
     }
 }
 
-void TLobby__sub_8026A89C(s32 arg0) {
+void chat_log_add_line(s32 arg0) {
     s32 temp_r29;
     s32 temp_r30;
     s32 var_r28;

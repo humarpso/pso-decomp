@@ -22,7 +22,7 @@ s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD990;
 extern const f32 lbl_805DD994;
-void fn_80291538(void *arg0);
+void update_creation_camera_idle(void *arg0);
 f32 calc_character_height(void *);
 extern RecoveredGlobal_802916D4_lbl_804DAA18 lbl_804DAA18;
 extern u8 *lbl_805D6520;
@@ -36,7 +36,7 @@ extern s32 lbl_805D6570;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void advance_creation_review_camera(CreationCameraFields* camera);
 f32 calc_character_height(void *);
-void fn_802912C4(void *, int, int, f32, f32);
+void approach_creation_camera_target(void *, int, int, f32, f32);
 u32 TObjCMMainMenu__sub_80291D44();
 extern u8 *lbl_805D6520;
 extern const f32 lbl_805DD96C;
@@ -45,14 +45,14 @@ extern const f32 lbl_805DD9A4;
 extern const f32 lbl_805DD9A8;
 extern const f32 lbl_805DD9AC;
 extern const f32 lbl_805DD9B0;
-void fn_80291784(Cam_80291784 *arg0);
+void update_creation_camera_auto(Cam_80291784 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_80291538(void *arg0) {
+void update_creation_camera_idle(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     if (TObjCMProportion__sub_8029916C(0x6F0) != 0) {
@@ -123,7 +123,7 @@ void begin_creation_review_camera(u8 *arg0) {
 }
 #pragma pop
 
-void fn_80291784(Cam_80291784 *arg0) {
+void update_creation_camera_auto(Cam_80291784 *arg0) {
     s32 want;
     switch (TObjCMMainMenu__sub_80291D44()) {
     case 0:
@@ -150,13 +150,13 @@ void fn_80291784(Cam_80291784 *arg0) {
         f32 s = calc_character_height(lbl_805D6520);
         switch (arg0->mode) {
         case 0:
-            fn_802912C4(arg0, 0, 0, lbl_805DD96C * s, lbl_805DD9A4 * s);
+            approach_creation_camera_target(arg0, 0, 0, lbl_805DD96C * s, lbl_805DD9A4 * s);
             break;
         case 1:
-            fn_802912C4(arg0, 0, 0, lbl_805DD998, lbl_805DD9A8);
+            approach_creation_camera_target(arg0, 0, 0, lbl_805DD998, lbl_805DD9A8);
             break;
         case 2:
-            fn_802912C4(arg0, 0, 0, lbl_805DD9AC * s, lbl_805DD9B0 * s);
+            approach_creation_camera_target(arg0, 0, 0, lbl_805DD9AC * s, lbl_805DD9B0 * s);
             break;
         }
     }

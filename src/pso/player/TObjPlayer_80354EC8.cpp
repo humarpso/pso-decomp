@@ -22,14 +22,14 @@ int TObjPlayer__sub_8035501C(void* p);
 int set_flag1__10TObjPlayerFPv(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 
 s32 get_quest_thread_id__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 void set_player_index__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 void TObjPlayer__sub_80354F8C(void* p) { fn_8035510C(p, (void*)3); }
 int TObjPlayer__sub_80354FB0(void* p) { return clear_flags__11TAdRicoRingFPvUi(p, 2); }
 int set_flag0_bits01__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi(p, 3); }
-int clear_lock_flag__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001BEF8(p, 1); }
+int clear_lock_flag__10TObjPlayerFPv(void* p) { return test_flags_any(p, 1); }
 int TObjPlayer__sub_8035501C(void* p) { return clear_flags__11TAdRicoRingFPvUi(p, 3); }
 int set_flag1__10TObjPlayerFPv(void* p) { return set_flags__10TObjPlayerFPvUi(p, 1); }
 void reset_field4__10TObjPlayerFPv(void* p) { clear_id__10TObjPlayerFPv(p); *(int*)((char*)p + 0x4) = 0; }

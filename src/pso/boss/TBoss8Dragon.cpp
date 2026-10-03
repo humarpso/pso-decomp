@@ -1206,7 +1206,7 @@ extern "C" {
 int refresh_lobby_state__10TObjPlayerFPv(void*);
 int send_entity_set_flags__6TLobbyFPv(void*);
 void TBoss8Dragon__sub_800BB650(void* p, void* q);
-int TObjEneBm3Fly__sub_800BB774(void* p);
+int was_hit_by_ranged__9TObjEneDDFPv(void* p);
 void noop__12TBoss8DragonFv(void);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
@@ -1226,7 +1226,7 @@ extern "C" {
 int refresh_lobby_state__10TObjPlayerFPv(void*);
 int send_entity_set_flags__6TLobbyFPv(void*);
 void TBoss8Dragon__sub_800BB650(void* p, void* q);
-int TObjEneBm3Fly__sub_800BB774(void* p);
+int was_hit_by_ranged__9TObjEneDDFPv(void* p);
 void noop__12TBoss8DragonFv(void);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
@@ -1246,7 +1246,7 @@ extern "C" {
 int refresh_lobby_state__10TObjPlayerFPv(void*);
 int send_entity_set_flags__6TLobbyFPv(void*);
 void TBoss8Dragon__sub_800BB650(void* p, void* q);
-int TObjEneBm3Fly__sub_800BB774(void* p);
+int was_hit_by_ranged__9TObjEneDDFPv(void* p);
 void noop__12TBoss8DragonFv(void);
 void TBoss8Dragon__sub_800BB7D4(void);
 void TBoss8Dragon__sub_800BB7D8(void);
@@ -1678,12 +1678,12 @@ extern "C" {
 int setup_instance__12TBoss8DragonFPv(void* p);
 int get_state_flags__12TBoss8DragonFPv(void* p);
 int emit_effect__12TBoss8DragonFPv(void* p);
-int TObjEneDD__sub_800BA498(void*);
+int emit_effect_at_position__9TObjEneDDFPvPv(void*);
 int emit_enemy_effect__9TObjEneDDFiiPvi(void*);
 int setup_instance__9TObjEneDDFiiPvi(void*);
 
 int setup_instance__12TBoss8DragonFPv(void* p) { return setup_instance__9TObjEneDDFiiPvi(p); }
-int get_state_flags__12TBoss8DragonFPv(void* p) { return TObjEneDD__sub_800BA498(p); }
+int get_state_flags__12TBoss8DragonFPv(void* p) { return emit_effect_at_position__9TObjEneDDFPvPv(p); }
 int emit_effect__12TBoss8DragonFPv(void* p) { return emit_enemy_effect__9TObjEneDDFiiPvi(p); }
 
 }

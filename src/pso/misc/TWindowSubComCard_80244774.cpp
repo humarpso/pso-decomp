@@ -34,7 +34,7 @@ f32 calc_offset__17TWindowSubComCardFPv(void *arg0);
 f32 TWindowSubComCard__sub_80244818(u8 *arg0);
 extern f32 lbl_805DCAC8;
 f32 TWindowSubComCard__sub_80244784(void *arg0);
-M2C_UNK TWindowKeyBoardSoft__sub_8024E754(int, int);
+M2C_UNK apply_window_closing_stretch(int, int);
 M2C_UNK set_open_tick__19TWindowKeyBoardSoftFPvi(int, int);
 M2C_UNK set_bounds__19TWindowKeyBoardSoftFPvffff(int, f32, f32, f32, f32);
 M2C_UNK TWindowKeyBoardSoft__sub_8024E84C(int);
@@ -264,7 +264,7 @@ s32 TWindowSubComCard__sub_80244C0C(u8 *arg0, s32 arg1) {
         var_r4 = (s32) ((f32) var_r4 - lbl_805DCAD0);
     }
     set_open_tick__19TWindowKeyBoardSoftFPvi((int) (temp_r31), (int) (var_r4));
-    TWindowKeyBoardSoft__sub_8024E754((int) (temp_r31), (int) (M2C_FIELD(arg0, s16 *, 0x22)));
+    apply_window_closing_stretch((int) (temp_r31), (int) (M2C_FIELD(arg0, s16 *, 0x22)));
     return temp_r31;
 }
 

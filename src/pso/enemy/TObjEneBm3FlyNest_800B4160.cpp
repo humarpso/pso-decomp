@@ -22,7 +22,7 @@ s32 register_boss__6TLobbyFPv(int);
 s32 TObjEneBm3Fly__sub_800B22C8();
 s32 TObjEneBm3FlyNest__sub_800B47C4();
 s32 check_v2_mode__9TObjEneDDFv();
-u32 TObjEneDD__sub_800BB940(void *, void *);
+u32 load_enemy_bml_resource_named(void *, void *);
 u32 load_enemy_bml_resource(void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Anim_800B41E8 lbl_8043B2F4;
@@ -81,7 +81,7 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
     lbl_805D5114 = 0;
     lbl_805D5118 = 0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5108 = TObjEneDD__sub_800BB940(lbl_80491E34, lbl_8043B380);
+        lbl_805D5108 = load_enemy_bml_resource_named(lbl_80491E34, lbl_8043B380);
     } else {
         lbl_805D5108 = load_enemy_bml_resource(lbl_80491E34);
     }

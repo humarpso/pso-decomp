@@ -9,7 +9,7 @@ struct Self_8012712C { u8 pad[0x18]; void *vt; u8 pad1c[0x1e4 - 0x1c]; f32 f1e4;
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_801271A4(u8 *arg0);
+u8 *create_agito_weapon(u8 *arg0);
 void TObjPlayer__sub_80120D50(void *, s32, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -34,7 +34,7 @@ u8 *TObjPlayer__sub_8012712C(void *self_, s32 a, void *b) {
     return (u8 *)self;
 }
 
-u8 *TObjPlayer__sub_801271A4(u8 *arg0) {
+u8 *create_agito_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

@@ -10,7 +10,7 @@ void TCameraCtrl__sub_80069C94(void *, void *);
 void TCameraCtrl__sub_8006A5EC(s8 arg0);
 void TCameraCtrl__ct(void *, void *);
 void __ct__7TEndingFv(void *);
-void TLobby__sub_800F9B84(void);
+void clear_resource_load_tasks(void);
 void TLobby__sub_800FD6F8(void *, int);
 void init_map_lights(void *);
 void TKeyBoardControl__sub_801A66B8(void);
@@ -53,7 +53,7 @@ int TEnding__sub_8008C5E8() {
     Vec_8008C5E8 b = lbl_8043957C;
     TCameraCtrl__sub_8006A5EC(9);
     TCameraCtrl__sub_80069C94(&a, &b);
-    TLobby__sub_800F9B84();
+    clear_resource_load_tasks();
     TLobby__sub_800FD6F8(lbl_8048E7C0, 0x68);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);

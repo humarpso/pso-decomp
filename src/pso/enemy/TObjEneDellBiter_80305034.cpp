@@ -27,7 +27,7 @@ extern "C" {
 void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
 M2C_UNK play_sound_effect(void *, void *, int, int);
-M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK noop__16TObjEneDellBiterFv(void *);
@@ -79,7 +79,7 @@ void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x40039B14)), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             }
             TObjEneDellBiter__sub_8030591C((void *) (arg0));
-            TObjEneDD__sub_800BACE0((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DF014));
+            move_with_wall_slide_on_ground__9TObjEneDDFPvfff((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8)), (f32) (lbl_805DF014));
             noop__16TObjEneDellBiterFv((void *) (arg0));
             break;
         case 1:

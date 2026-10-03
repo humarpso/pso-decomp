@@ -15,7 +15,7 @@ extern "C" {
 void fn_8010EFE8(O_8010EFE8 *self);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_flags__11TAdRicoRingFPvUi(void *, u32);
-s32 TObjPlayer__sub_8001BEF8(void *, s32);
+s32 test_flags_any(void *, s32);
 void fn_8010EFE8(O_8010EFE8 *self);
 s32 rand();
 extern const f32 lbl_805DAB90;
@@ -54,7 +54,7 @@ void fn_8010EFE8(O_8010EFE8 *self) {
 void fn_8010F018(Set_8010F0C0 *s) {
     s32 i;
     Fn_801Fn f;
-    if (TObjPlayer__sub_8001BEF8((u8 *)s + 0xC, 1) != 0) {
+    if (test_flags_any((u8 *)s + 0xC, 1) != 0) {
         for (i = s->count - 1; i >= 0; i--) {
             if (s->order != 0) {
                 f = s->ents[s->order[i]].b;
@@ -72,7 +72,7 @@ void fn_8010F018(Set_8010F0C0 *s) {
 void fn_8010F0C0(Set_8010F0C0 *s) {
     s32 i;
     Fn_801Fn f;
-    if (TObjPlayer__sub_8001BEF8((u8 *)s + 0xC, 1) == 0) {
+    if (test_flags_any((u8 *)s + 0xC, 1) == 0) {
         fn_8010EF14((O_8010EF14 *)(s));
         for (i = 0; i != s->count; i++) {
             if (s->order != 0) {

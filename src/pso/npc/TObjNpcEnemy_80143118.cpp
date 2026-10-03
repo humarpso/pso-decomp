@@ -10,8 +10,8 @@ void draw_model__12TObjNpcEnemyFPv(u8 *arg0);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
-M2C_UNK TPlyPhotonChair__sub_80142770(s32);
-M2C_UNK TPlyPhotonChair__sub_80142774();
+M2C_UNK restore_actor_draw_lighting(s32);
+M2C_UNK setup_actor_draw_lighting();
 M2C_UNK TObjPlayer__sub_801E2CCC(s32, void *, f32);
 M2C_UNK TObjPlayer__sub_801E2DE4(s32, s32, f32);
 M2C_UNK set_npc_enemy_param(s32);
@@ -20,7 +20,7 @@ extern s32 lbl_805D7710;
 
 void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
-    TPlyPhotonChair__sub_80142774();
+    setup_actor_draw_lighting();
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
         TObjPlayer__sub_801E2CCC(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
     } else {
@@ -29,7 +29,7 @@ void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
         set_npc_enemy_param(0);
     }
     reset_transform_state__10TObjPlayerFv();
-    TPlyPhotonChair__sub_80142770(M2C_FIELD(arg0, s32 *, 0));
+    restore_actor_draw_lighting(M2C_FIELD(arg0, s32 *, 0));
     clear_global_state__10TObjPlayerFv();
 }
 

@@ -676,7 +676,7 @@ extern "C" {
 void update_collide_flag__12TObjEneReconFPv(void *arg0);
 void set_flag2__12TObjEneReconFPv(void *arg0);
 void update_flag_0x444__12TObjEneReconFPv(void *arg0);
-u32 TObjEneDD__sub_800BAC14();
+u32 move_with_wall_slide_commit__9TObjEneDDFPvfff();
 u32 TObjEneEpsilon__sub_800B92F8(void *, s32, void *, f32);
 
 extern f32 *TObjEneRecon__data_805D6AFC;
@@ -693,7 +693,7 @@ void update_collide_flag__12TObjEneReconFPv(void *arg0) {
 }
 
 void set_flag2__12TObjEneReconFPv(void *arg0) {
-    if (TObjEneDD__sub_800BAC14() != 0U) {
+    if (move_with_wall_slide_commit__9TObjEneDDFPvfff() != 0U) {
         M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
         return;
     }

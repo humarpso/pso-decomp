@@ -13,13 +13,13 @@ void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 M2C_UNK GXSetAlphaCompare(int, void *, int, int, int);
 extern RecoveredGlobal_801418C4_lbl_8050C000 lbl_8050C000;
-void fn_801418C4(u8 arg0);
+void setup_alpha_test_render_state(u8 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801418C4_lbl_8050C000_size[sizeof(RecoveredGlobal_801418C4_lbl_8050C000) == 0x28 ? 1 : -1];
-void fn_801418C4(u8 arg0) {
+void setup_alpha_test_render_state(u8 arg0) {
     M2C_FIELD(&lbl_8050C000.value, s8 *, 4) = 0;
     M2C_FIELD(&lbl_8050C000.value, s8 *, 5) = 1;
     M2C_FIELD(&lbl_8050C000.value, s32 *, 8) = 3;

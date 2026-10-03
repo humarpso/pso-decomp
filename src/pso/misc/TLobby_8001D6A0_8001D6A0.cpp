@@ -32,9 +32,9 @@ M2C_UNK strncpy(int, int, int);
 extern s32 TLobby__data_805D4A98;
 void TLobby__sub_8001DAB4(s32 arg0);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
-void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node);
+void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
-Node_8001D808 *TLobby__sub_8001D808(Pool_8001D808 *pool, u32 size);
+Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
 void TLobby__sub_8001D9E8(void* p);
 void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool);
 s32 get_card_window_area__6TLobbyFv(void);
@@ -98,7 +98,7 @@ Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self) {
     return 0;
 }
 
-void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node) {
+void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node) {
     Node_8001D7AC *prev;
     Node_8001D7AC *cur;
     for (prev = pool->head; (cur = prev->next) != 0; prev = cur) {
@@ -115,7 +115,7 @@ void TLobby__sub_8001D7AC(Pool_8001D7AC *pool, Node_8001D7AC *node) {
 
 struct Ent_8001D768;
 struct Obj_8001D768;
-Node_8001D808 *TLobby__sub_8001D808(Pool_8001D808 *pool, u32 size) {
+Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size) {
     u32 sz = (size + 0x1F) & ~0x1F;
     Node_8001D808 *prev;
     Node_8001D808 *cur;

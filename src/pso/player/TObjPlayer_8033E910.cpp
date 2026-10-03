@@ -28,8 +28,8 @@ struct O_8033EB4C { u8 pad[0x1C]; Item_8033EB4C *items; s32 n; };
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
-f64 TObjPlayer__sub_80083A50();
+M2C_UNK calc_projection_screen_offset(void *, void *);
+f64 calc_camera_fov_degrees();
 M2C_UNK set_tex_coord_gen2(int, int, int, int);
 M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
@@ -95,8 +95,8 @@ void TObjPlayer__sub_8033E988(void) {
     f32 temp_f31;
     if ((u32) lbl_805D4DF0 != 0U) {
         TObjPlayer__sub_803D9B2C();
-        TCameraCtrl__sub_80082FCC((void *) (&spC), (void *) (&sp8));
-        temp_f31 = (f32) (lbl_804783B0 * TObjPlayer__sub_80083A50());
+        calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
+        temp_f31 = (f32) (lbl_804783B0 * calc_camera_fov_degrees());
         if (TCameraCtrl__sub_800689F4() != 0) {
             C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DFAC8), (f32) (lbl_805DFACC), (f32) (lbl_805DFAD0), (f32) (lbl_805DFACC - spC), (f32) (lbl_805DFACC - sp8));
         } else {

@@ -209,7 +209,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_800192DC(void *);
-s32 TObjPlayer__sub_800194AC(void *, int, int);
+s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *, int, f32, f32);
@@ -570,7 +570,7 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
         ((VObj_18 *)(arg0))->m60();
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
-        if (TObjPlayer__sub_800194AC((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
+        if (add_status_effect_timer__10TObjPlayerFPvii((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
             TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
             obj_clearFlags30((void *) (arg0), (int) (0x4000));
         }

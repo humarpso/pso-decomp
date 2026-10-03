@@ -13,7 +13,7 @@ extern "C" {
 void TObjLaboMapWarp__sub_80185400(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s32, s32);
-s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 void TObjLaboMapWarp__sub_80185400(u8 *arg0);
@@ -121,7 +121,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {
-        M2C_FIELD(temp_r31, u32 *, 0xEC) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
+        M2C_FIELD(temp_r31, u32 *, 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         TObjLaboMapWarp__sub_80185400((u8 *)((void *) (arg0)));
         TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), get_localized_text_entry(9, M2C_FIELD(&lbl_80444878.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 4))), 0xA, 0, -1);
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));

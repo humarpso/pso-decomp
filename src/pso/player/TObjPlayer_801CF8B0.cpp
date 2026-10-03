@@ -10,17 +10,17 @@ void handle_ring_release__10TObjPlayerFi(s32 arg0);
 void try_trigger_effect__10TObjPlayerFi(s32 arg0);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(s32, M2C_UNK);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(s32, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_8001BEF8(s32, M2C_UNK);
+s32 test_flags_any(s32, M2C_UNK);
 
 void handle_ring_release__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
+    if (test_flags_any(arg0 + 0x5EC, 4) != 0) {
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x5EC, 4);
         run_action_state_phase__10TObjPlayerFisi(arg0, 1, 0);
     }
 }
 
 void try_trigger_effect__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
+    if (test_flags_any(arg0 + 0x5EC, 4) != 0) {
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x5EC, 4);
         run_action_state_phase__10TObjPlayerFisi(arg0, 1, 5);
     }

@@ -19,7 +19,7 @@ struct Self_8014DC5C {
 extern "C" {
 u32 get_npc_state__10TNpcPlayerFPv(s32);
 M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
-M2C_UNK TNpcPlayer__sub_8015296C(void *, M2C_UNK, M2C_UNK);
+M2C_UNK set_partner_counter(void *, M2C_UNK, M2C_UNK);
 u32 TNpcPlayer__sub_80152978(s32);
 void partner_request_physical_attack(u8 *arg0);
 u8 *find_active_entity_by_id(s32);
@@ -157,7 +157,7 @@ void partner_request_physical_attack(u8 *arg0) {
     temp_r31 = TNpcPlayer__sub_80152978(M2C_FIELD(arg0, s32 *, 0x78));
     temp_r3 = get_npc_state__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x78));
     if (temp_r3 != temp_r31) {
-        TNpcPlayer__sub_8015296C(arg0 + 0x5C, 1, 0);
+        set_partner_counter(arg0 + 0x5C, 1, 0);
     }
     npc_counter_reset_if_reached(arg0 + 0x5C, 1, 3);
     send_partner_attack_stage_request((Self_8014DC5C *)(arg0));

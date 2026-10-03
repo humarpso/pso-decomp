@@ -98,7 +98,7 @@ struct Shield_8010A4C0 {
 
 extern "C" {
 s32 create_oneshot_particle_emitter(void *, void *, int, int);
-void TItemEffShield__sub_8010A460(u8 *arg0);
+void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0);
 s32 get_item_ctrl__10TObjPlayerFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_8049F148[];
@@ -110,7 +110,7 @@ extern s32 lbl_805D2BD8;
 u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
-void TItemEffShield__sub_8010A460(u8 *arg0);
+void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0);
 Player_8010A4C0 *get_player_by_client_id(u16);
 void play_sound_effect(s32, void *, s32, s32);
 void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self);
@@ -148,7 +148,7 @@ u8 *TItemEffShield__sub_8010A404(u8 *arg0, u8 *arg1, s16 arg2) {
     return arg0;
 }
 
-void TItemEffShield__sub_8010A460(u8 *arg0) {
+void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0) {
   s32 temp_r5;
   s32 var_r31;
   s32 var_r30;
@@ -183,7 +183,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
         case 0:
             if (self->m_38 - 1 == r->m_20) {
                 play_sound_effect(0x4001A81E, self->m_1c, 0, 0);
-                TItemEffShield__sub_8010A460((u8 *)self);
+                spawn_recipe_particles__14TItemEffShieldFPv((u8 *)self);
                 self->m_3c++;
                 self->m_38 = 0;
             } else {
@@ -192,7 +192,7 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
             break;
         default:
             if (self->m_38 == r->m_24) {
-                TItemEffShield__sub_8010A460((u8 *)self);
+                spawn_recipe_particles__14TItemEffShieldFPv((u8 *)self);
                 self->m_3c++;
                 self->m_38 = 0;
             } else {

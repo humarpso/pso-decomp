@@ -92,7 +92,7 @@ extern "C" {
 s32 check_owner__13TObjTombstoneFPv(void *arg0);
 void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
 void handle_6x96(void);
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 s32 get_current_floor();
 s32 is_flag_set__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -112,7 +112,7 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     s32 var_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        var_r3 = TLobby__sub_80293080();
+        var_r3 = is_challenge_mode_active();
     } else {
         var_r3 = is_flag_set__6TLobbyFv();
     }

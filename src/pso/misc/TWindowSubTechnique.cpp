@@ -45,7 +45,7 @@ s32 fn_80263A20(int, int);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 extern M2C_UNK lbl_805DD83C;
-void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1);
+void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 void set_flag_40__16TAdChrSelASlotGCFPv(void *);
@@ -73,7 +73,7 @@ void TWindowSubTechnique__sub_80286BD4(void *, void *, s32);
 s32 TWindowSubTechnique__sub_80286BF4(s32, s32);
 void rebuildTechniqueList__19TWindowSubTechniqueFll(void *, void *, s16);
 void *TWindowSubTechnique__sub_80286E0C(void *, s16);
-void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1);
+void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1);
 void clear_flag70_bit80__19TWindowSubTechniqueFPv(void* p);
 void clear_trade_flag__19TWindowSubTradeMainFPv(void* p);
 extern u8 lbl_8044FC54[];
@@ -124,7 +124,7 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     return temp_r31;
 }
 
-void TWindowSubTechnique__sub_80286FA4(u8 *arg0, s32 arg1) {
+void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1) {
   M2C_UNK saved_reg_r30;
   s32 temp_r3;
   s32 var_r29;
@@ -216,7 +216,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         if (update_selection__19TWindowSubTechniqueFPvPv(self->f20, self->f24, self->player) != 0) {
             rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, TWindowSubComCard__sub_80265BF8(self->list));
         }
-        TWindowSubTechnique__sub_80286FA4((u8 *)self, TWindowSubComCard__sub_80265BF8(self->sel));
+        update_selected_help__19TWindowSubTechniqueFPvi((u8 *)self, TWindowSubComCard__sub_80265BF8(self->sel));
         if (get_status_flag__17TWindowSubComCardFPv(self->sel) != 0) {
             self->state = 1;
         }

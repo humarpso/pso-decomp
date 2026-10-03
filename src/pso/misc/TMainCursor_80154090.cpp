@@ -9,7 +9,7 @@ extern "C" {
 s32 set_flags__10TObjPlayerFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 clear_flags__11TAdRicoRingFPvUi(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 TMainCursor__sub_80154288(void);
-s32 TObjPlayer__sub_8001BEF8(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 test_flags_any(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 int TMainCursor__sub_801540D8(void* a0 = 0, void* a1 = 0);
 int TMainCursor__sub_801540FC(void* a0 = 0, void* a1 = 0);
 void update_pair__11TMainCursorFPv(void* p);
@@ -22,7 +22,7 @@ s32 test_button__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
 
     if (TMainCursor__sub_80154288() != 0) {
         temp_r5 = M2C_FIELD(arg0, s32 *, 0x9C);
-        return TObjPlayer__sub_8001BEF8(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
+        return test_flags_any(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
     return 0;
 }

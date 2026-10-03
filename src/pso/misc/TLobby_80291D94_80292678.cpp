@@ -52,14 +52,14 @@ extern "C" {
 
 s32 set_camera_height_if_valid__6TLobbyFf(f32 farg0);
 s32 try_set_split_screen__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 
 extern M2C_UNK lbl_804DB1F0[];
 extern f32 lbl_805DD9D0;
 extern f32 lbl_805DD9D4;
 
 s32 set_camera_height_if_valid__6TLobbyFf(f32 farg0) {
-    if (TLobby__sub_80293080() == 0) {
+    if (is_challenge_mode_active() == 0) {
         return 0;
     }
     if ((farg0 < lbl_805DD9D0) || (farg0 > lbl_805DD9D4)) {
@@ -72,7 +72,7 @@ s32 set_camera_height_if_valid__6TLobbyFf(f32 farg0) {
 extern s32 lbl_805D5550;
 
 s32 try_set_split_screen__6TLobbyFi(s32 arg0) {
-    if (TLobby__sub_80293080() == 0) {
+    if (is_challenge_mode_active() == 0) {
         return 0;
     }
     lbl_805D5550 = arg0;

@@ -26,7 +26,7 @@ void draw_textured_quad_at_depth(f32 *q, f32 depth);
 s64 OSGetTime(void);
 u32 TLobby__sub_803DF1CC(void);
 extern s32 lbl_805D77B0;
-void TWindowKeyBoardSoft__sub_803DF1B0(u32 x);
+void set_constant_material_color(u32 x);
 void GXBegin(u32, u32, u16);
 extern s32 lbl_805D77B0;
 extern const f32 lbl_805E0FC8;
@@ -148,7 +148,7 @@ void set_draw_texture_and_color(s32 arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TWindowKeyBoardSoft__sub_803DF1B0(u32 x) {
+void set_constant_material_color(u32 x) {
     (*(u32 *)&lbl_805D77B0) = ((x & 0xFFFFFF) << 8) | ((x & 0xFF000000) >> 24);
 }
 #pragma pop

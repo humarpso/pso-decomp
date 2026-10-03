@@ -10,7 +10,7 @@ struct Pkt_801CF128 { u8 cmd; u8 size; u16 player; s16 heading; s16 kind; };
 extern "C" {
 M2C_UNK TNpcPlayer__sub_80152C28(void *);
 void TObjPlayer__sub_801D24B0(Pkt_801CF128 *, void *);
-void TNpcPlayer__sub_80152BEC(Pkt_801CF128 *);
+void bswap_6x43_packet(Pkt_801CF128 *);
 s32 validate_6x43_attack(Pkt_801CF128 *);
 u8 *get_player_by_client_id(u16);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
@@ -64,7 +64,7 @@ void handle_6x43_attack(void *src) {
     u8 *player;
     TNpcPlayer__sub_80152C28(&pkt);
     TObjPlayer__sub_801D24B0(&pkt, src);
-    TNpcPlayer__sub_80152BEC(&pkt);
+    bswap_6x43_packet(&pkt);
     if (validate_6x43_attack(&pkt) == 0) return;
     player = get_player_by_client_id(pkt.player);
     if (player == 0) return;

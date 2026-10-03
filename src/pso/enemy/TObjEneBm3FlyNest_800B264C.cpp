@@ -280,7 +280,7 @@ extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
 extern s32 lbl_805D510C;
 extern s32 lbl_805D5114;
 extern s32 lbl_805D5118;
-void TObjEneBm3FlyNest__sub_800B2948(s32 arg0);
+void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
 extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
 extern s32 lbl_805D510C;
 extern NestAttachmentPoint *lbl_805D5110;
@@ -315,7 +315,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjEneBm3FlyNest__sub_800B2948(s32 arg0);
+void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0);
 void capture_attachment__17TObjEneBm3FlyNestFv(void * _w0);
 extern Vec_800B264C lbl_8043B310;
 extern s32 lbl_805D510C;
@@ -339,7 +339,7 @@ extern const f32 lbl_805D9D18;
 extern const f32 lbl_805D9D1C;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0);
+void render__17TObjEneBm3FlyNestFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 M2C_UNK rotate_xz_pair_by_angle(void *, void *, int);
@@ -410,7 +410,7 @@ M2C_UNK send_entity_set_flags__6TLobbyFPv();
 typedef char RecoveredGlobal_800B2948_lbl_8043B2A4_size[sizeof(RecoveredGlobal_800B2948_lbl_8043B2A4) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_800B2948_lbl_80500B00_size[sizeof(RecoveredGlobal_800B2948_lbl_80500B00) == 0x40 ? 1 : -1];
 
-void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0) {
+void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     Cam_800B264C *cm;
     s32 cam;
     s32 res;
@@ -469,7 +469,7 @@ void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0) {
                 if (self->f326 == 0) {
                     lbl_805D5118 = 0;
                     lbl_805D5114 = (s32)self->f3E0;
-                    set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneBm3FlyNest__sub_800B2948);
+                    set_global_state__16TObjEneRe7BeruraFi((void *)handle_attachment_sample__17TObjEneBm3FlyNestFi);
                 } else {
                     set_global_state__16TObjEneRe7BeruraFi((void *)capture_attachment__17TObjEneBm3FlyNestFv);
                 }
@@ -497,7 +497,7 @@ void TObjEneBm3FlyNest__sub_800B264C(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(&self->f2FC, &self->f3C8);
 }
 
-void TObjEneBm3FlyNest__sub_800B2948(s32 arg0) {
+void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
     s32 temp_r4;
     if ((s32) lbl_805D510C == (s32) M2C_FIELD(&lbl_8043B2A4.value, M2C_UNK *, (lbl_805D5118 * 4))) {
         temp_r4 = lbl_805D5114;

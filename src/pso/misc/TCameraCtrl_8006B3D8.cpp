@@ -111,7 +111,7 @@ void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
 extern "C" {
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1);
-void TCameraCtrl__sub_8006BA04(void);
+void fixed_view_camera_update(void);
 void *TCameraCtrl__vt9(void);
 void copy_camera_params__11TCameraCtrlFPv(void *arg0);
 void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -306,7 +306,7 @@ void copy_camera_params__11TCameraCtrlFPv(void *arg0) {
     }
 }
 
-void TCameraCtrl__sub_8006BA04(void) {  }
+void fixed_view_camera_update(void) {  }
 typedef char RecoveredGlobal_8006BA08_lbl_80488B08_size[sizeof(RecoveredGlobal_8006BA08_lbl_80488B08) == 0x30 ? 1 : -1];
 u8 *TCameraCtrl__sub_8006BA08(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

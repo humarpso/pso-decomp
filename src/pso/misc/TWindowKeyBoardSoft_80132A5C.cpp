@@ -17,7 +17,7 @@ extern M2C_UNK lbl_8043ED08[];
 extern int lbl_805D5538;
 extern int lbl_805D553C;
 extern int TWindowKeyBoardSoft__data_805D5548;
-void TWindowKeyBoardSoft__sub_80132DA0(s32 arg0);
+void select_language_text_resources(s32 arg0);
 M2C_UNK TLobby__sub_8001EE48(void *);
 s32 TLobby__sub_8001EEFC(void *);
 M2C_UNK begin_render__20TWindowSubStatusDispFv();
@@ -126,7 +126,7 @@ void TLanguage__ct(s32 arg0) {
     TLanguage__sub_803DAF70((int) (4), (int) (3));
 }
 
-void TWindowKeyBoardSoft__sub_80132DA0(s32 arg0) {
+void select_language_text_resources(s32 arg0) {
     switch (arg0) {
     case 0:
         (*(u8 * *)&lbl_805D5538) = TWindowKeyBoardSoft__sub_800F98F0(lbl_8043ECD4);

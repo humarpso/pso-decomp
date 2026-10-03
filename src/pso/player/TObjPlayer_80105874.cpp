@@ -28,7 +28,7 @@ int activate_d04_slot__10TObjPlayerFPv(void* p);
 void fn_801058E8(void* p);
 void free_item_globals__10TObjPlayerFv(void);
 int TItemDrop__sub_8010F168(void*, void*);
-int TItemMagSub__sub_80114524(void*);
+int reset_initial_stats__11TItemMagSubFPv(void*);
 void clear_fields__20TWindowSubStatusDispFPv(void* p);
 int free_all__9TItemLoadFv(void);
 int free_all_and_init__9TItemBuffFv(void);

@@ -199,7 +199,7 @@ void *TObjAreaWarp__ct(void *arg0);
 s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0);
 void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1);
 void render__17TObjMapWarpForestFv(u8 *arg0);
-u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, u16);
+u32 create_window_menu(M2C_UNK, s32, u16);
 s32 get_game_play_mode();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_object(s32);
@@ -317,7 +317,7 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
     u32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
+        M2C_FIELD(arg0, u32 *, 0xB0) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         if (get_game_play_mode() == 1) {
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {

@@ -13,8 +13,8 @@ struct Node_800F58A4 {
 };
 
 extern "C" {
-void fn_800F591C(void *ctx, void *plist, void *arg);
-void fn_800F58A4(void *ctx, Node_800F58A4 *node, void *arg);
+void collect_plist_strips_by_texture(void *ctx, void *plist, void *arg);
+void collect_model_strips_by_texture(void *ctx, Node_800F58A4 *node, void *arg);
 }
 
 extern "C" {
@@ -22,13 +22,13 @@ extern "C" {
 int draw_model__16TObjEneMe3StelthFPv(void* p);
 int draw_model__12TObjNpcEnemyFPv(void*);
 
-void fn_800F58A4(void *ctx, Node_800F58A4 *node, void *arg) {
+void collect_model_strips_by_texture(void *ctx, Node_800F58A4 *node, void *arg) {
     do {
         if (node->model != 0 && node->model->plist != 0) {
-            fn_800F591C(ctx, node->model->plist, arg);
+            collect_plist_strips_by_texture(ctx, node->model->plist, arg);
         }
         if (node->child != 0) {
-            fn_800F58A4(ctx, node->child, arg);
+            collect_model_strips_by_texture(ctx, node->child, arg);
         }
         node = node->sibling;
     } while (node != 0);

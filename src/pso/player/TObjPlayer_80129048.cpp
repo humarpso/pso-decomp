@@ -13,7 +13,7 @@ void TObjPlayer__sub_80129124(void* p);
 void clear_rico_ring_flag__10TObjPlayerFUi(u32 arg0);
 void handle_tunnel_state_0__10TObjPlayerFPv(void* p);
 int rotate_matrix_z(void*, void*);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
 s32 clear_flags__11TAdRicoRingFPvUi(s32, s32);
@@ -46,7 +46,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 TObjPlayer__sub_801290D0(u8 *arg0) {
-    if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x1FC), (int) (4)) != 0) {
+    if (test_flags_any((void *) (arg0 + 0x1FC), (int) (4)) != 0) {
         return M2C_FIELD(arg0, s32 *, 0x188);
     }
     return M2C_FIELD(arg0, s32 *, 0x184);

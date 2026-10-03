@@ -78,7 +78,7 @@ extern char lbl_80441D24[];
 extern u8 lbl_804B2CC0[];
 extern Map_8016CA64 *TOKeyGenericSw__data_8050DB60[];
 extern s32 *TOKeyGenericSw__data_805D5A28;
-void TOKeyGenericSw__sub_8016CD28(void);
+void load_resources__14TOKeyGenericSwFv(void);
 }
 
 extern "C" {
@@ -175,7 +175,7 @@ void TOKeyGenericSw__sub_8016CC8C(void) {
     }
 }
 
-void TOKeyGenericSw__sub_8016CD28(void) {
+void load_resources__14TOKeyGenericSwFv(void) {
     u8 *base = lbl_804B2CC0;
     s32 st = get_global_state__14TOKeyMachine01Fv();
     void *p;

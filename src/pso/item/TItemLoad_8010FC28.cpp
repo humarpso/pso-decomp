@@ -10,7 +10,7 @@ struct RecoveredGlobal_8010FCB4_lbl_8049F42C {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK TItemLoad__sub_80110010(void *, int);
 extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
@@ -25,13 +25,13 @@ M2C_UNK request_load__9TItemLoadFPvi(void *, void *);
 u32 load_data__9TItemLoadFPvi(void *, int);
 M2C_UNK TItemLoad__sub_801107DC(void *);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 
 extern s32 lbl_805D5494;
 extern s32 lbl_805D5498;
 
 void advance_load_state__9TItemLoadFPv(u8 *arg0) {
-    if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x1C), (int) (4)) == 0) {
+    if (test_flags_any((void *) (arg0 + 0x1C), (int) (4)) == 0) {
         if ((s32) lbl_805D5498 != 1) {
             lbl_805D5498 = 1;
             set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1C), (int) (4));
@@ -50,7 +50,7 @@ typedef char RecoveredGlobal_8010FCB4_lbl_8049F42C_size[sizeof(RecoveredGlobal_8
 u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x14) = &lbl_8049F42C.value;
-        if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x1C), (int) (4)) != 0) {
+        if (test_flags_any((void *) (arg0 + 0x1C), (int) (4)) != 0) {
             lbl_805D5498 = 0;
         }
         TItemLoad__sub_80110010((void *) (arg0), (int) (0));

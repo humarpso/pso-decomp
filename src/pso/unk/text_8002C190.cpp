@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 isV2Mode__12TBoss1DragonFv(void);
-s32 TObjEneDD__sub_800BB940(void *, void *);
+s32 load_enemy_bml_resource_named(void *, void *);
 s32 load_enemy_bml_resource(void *);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80435514[];
@@ -22,7 +22,7 @@ void load_dragon_ground_assets(void) {
         lbl_805D4B54 = load_gvm_texture_file(lbl_80435514);
         break;
     case 1:
-        lbl_805D4B50 = TObjEneDD__sub_800BB940(lbl_80481FBC, lbl_8043552C);
+        lbl_805D4B50 = load_enemy_bml_resource_named(lbl_80481FBC, lbl_8043552C);
         lbl_805D4B54 = load_gvm_texture_file(lbl_80435548);
         break;
     }

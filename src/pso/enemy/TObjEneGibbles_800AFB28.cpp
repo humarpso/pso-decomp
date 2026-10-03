@@ -211,7 +211,7 @@ extern const f32 TObjEneBm3Fly__data_805D9C78;
 extern const f32 lbl_805D9C7C;
 extern const f32 TObjEneBm3Fly__data_805D9C80;
 extern const f32 lbl_805D9C84;
-void TObjEneBm3Fly__sub_800AFDC8(u8 *arg0, s32 arg1);
+void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -426,7 +426,7 @@ extern M2C_UNK lbl_8043B0D0[];
 extern s32 TObjEneBm3Fly__data_805D50F4;
 extern const f32 TObjEneBm3Fly__data_805D9C88;
 
-void TObjEneBm3Fly__sub_800AFDC8(u8 *arg0, s32 arg1) {
+void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
     f32 temp_f0;
     s32 temp_r0;
     u32 temp_photon;

@@ -29,7 +29,7 @@ void init_xyz_limits__10TObjPlayerFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void set_global_param__8TObjFishFi(s32);
-void TParticleCtrl__sub_803DA7A8(s32);
+void set_texture_num(s32);
 void reset_player_state__15TObjBoss2TunnelFv(void);
 void TObjBoss2Tunnel__sub_803E2BCC(void *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
@@ -124,9 +124,9 @@ void TLobby__sub_80338534(void) {
     if ((u32)lbl_805D6D5C != 0) {
         set_global_param__8TObjFishFi(lbl_805D6D5C);
         if (lbl_805D6D58 & 4) {
-            TParticleCtrl__sub_803DA7A8(1);
+            set_texture_num(1);
         } else {
-            TParticleCtrl__sub_803DA7A8(0);
+            set_texture_num(0);
         }
         init_xyz_limits__10TObjPlayerFv();
         TLobby__sub_803E2EE4(1);
@@ -134,7 +134,7 @@ void TLobby__sub_80338534(void) {
         reset_player_state__6TLobbyFv();
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi(lbl_805D63F0);
-        TParticleCtrl__sub_803DA7A8(5);
+        set_texture_num(5);
         TLobby__sub_803E2EE4(1);
         TLobby__sub_803E2D70(t->c, 4);
         reset_player_state__6TLobbyFv();

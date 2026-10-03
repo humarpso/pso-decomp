@@ -36,7 +36,7 @@ void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1);
 u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0);
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 void TObjPlayer__sub_80354F8C(void* p);
 int TObjPlayer__sub_80354FB0(void* p);
 int TObjPlayer__sub_8035501C(void* p);

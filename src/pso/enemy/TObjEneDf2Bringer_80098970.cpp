@@ -241,7 +241,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1);
 void handle_state__17TObjEneDf2BringerFPvi(void *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneDf2Bringer__sub_80098EB4(void *);
 M2C_UNK TObjEneDf2Bringer__sub_80099148(void *);
@@ -295,7 +295,7 @@ void exec__17TObjEneDf2BringerFPvi(u8 *arg0, s32 arg1) {
                 play_effect_if_v2__10TObjPlayerFi(-0x200);
             }
             TObjEneDf2Bringer__sub_80099188(arg0);
-            TObjEneDD__sub_800BACE0(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D9824);
+            move_with_wall_slide_on_ground__9TObjEneDDFPvfff(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D9824);
             TObjEneDf2Bringer__sub_80098EB4(arg0);
             break;
         case 1:

@@ -50,7 +50,7 @@ extern const f32 lbl_805DCFD8;
 void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+void apply_context_transform_to_rect(void *, void *);
 s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
 void set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
@@ -252,7 +252,7 @@ void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) 
     q.v[6] = arg0->f24;
     q.v[7] = arg0->f28;
     if (arg0->flags & 0x10) {
-        TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
+        apply_context_transform_to_rect(arg1, &q);
         draw_textured_quad_at_depth(&q, scale);
     } else if (try_open__19TWindowKeyBoardSoftFii(arg1, &q) != 0) {
         draw_textured_quad_at_depth(&q, scale);

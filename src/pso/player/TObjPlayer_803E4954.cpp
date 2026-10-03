@@ -44,7 +44,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
-s32 TObjPlayer__sub_803E49FC(void *arg);
+s32 draw_object_tree_recursive(void *arg);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
@@ -83,10 +83,10 @@ void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
     }
     M2C_FIELD(lbl_805D4698, s32 *, 0xC) = arg2;
-    TObjPlayer__sub_803E49FC((void *)((void *) (arg0)));
+    draw_object_tree_recursive((void *)((void *) (arg0)));
 }
 
-s32 TObjPlayer__sub_803E49FC(void *arg) {
+s32 draw_object_tree_recursive(void *arg) {
     struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;
     u32 t;
     do {
@@ -100,7 +100,7 @@ s32 TObjPlayer__sub_803E49FC(void *arg) {
             ((void (*)(u32, A_803E4BDC *))lbl_805D4698->fc)(t, lbl_805D4698);
         }
         if (arg0->child != NULL) {
-            TObjPlayer__sub_803E49FC((void *)arg0->child);
+            draw_object_tree_recursive((void *)arg0->child);
         }
         pop_matrix();
         arg0 = arg0->next;

@@ -62,7 +62,7 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 s32 get_player_list__10TObjPlayerFv(void);
-s32 TObjPlayer__sub_8001BEF8(void *p, s32 n);
+s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
 void TObjPlayer__sub_80128E08(Obj_80128E08 *self);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
@@ -108,8 +108,8 @@ void TObjPlayer__sub_80128E08(Obj_80128E08 *self) {
     void *p;
     switch (get_player_list__10TObjPlayerFv()) {
     case 1:
-        if (TObjPlayer__sub_8001BEF8(self->f1fc, 2) == 0) {
-            if (TObjPlayer__sub_8001BEF8(self->f1fc, 1)) {
+        if (test_flags_any(self->f1fc, 2) == 0) {
+            if (test_flags_any(self->f1fc, 1)) {
                 p = self->f188;
             } else {
                 p = self->f184;

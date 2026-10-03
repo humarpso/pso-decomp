@@ -16,7 +16,7 @@ s32 add_actor_tp(u8 *arg0, s32 arg1);
 int TObjPlayer__sub_8001124C(u8 *arg0);
 s32 add_actor_exp(u8 *arg0, s32 arg1);
 s32 add_actor_tp_bonus(O_80011274 *self, s32 x);
-s32 TObjPlayer__sub_800112D4(O_800112D4 *self, s32 x);
+s32 subtract_actor_tp(O_800112D4 *self, s32 x);
 }
 
 extern "C" {
@@ -96,7 +96,7 @@ s32 add_actor_tp(u8 *arg0, s32 arg1) {
     }
     return 1;
 }
-s32 TObjPlayer__sub_800112D4(O_800112D4 *self, s32 x) {
+s32 subtract_actor_tp(O_800112D4 *self, s32 x) {
     self->v -= x;
     if (self->v < 0) {
         self->v = 0;

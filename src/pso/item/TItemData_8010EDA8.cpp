@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern u8 *lbl_805D553C;
-s32 TItemData__sub_8010EEC8(s32 arg0);
+s32 get_item_description_text(s32 arg0);
 s32 get_text_collection(s32 arg0);
 }
 
@@ -21,7 +21,7 @@ void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
-s16 TItemData__sub_8010EE40(void *arg0);
+s16 get_mag_mind_level__9TItemDataFPv(void *arg0);
 s16 get_stat_percent__9TItemDataFPv(void *arg0);
 s16 get_level__9TItemDataFPv(void *arg0);
 s16 get_percent__9TItemDataFPv(void *arg0);
@@ -65,7 +65,7 @@ void TItemData__sub_8010EE30(s16 *arg0, s32 arg1) {
     *arg0 -= arg1;
 }
 
-s16 TItemData__sub_8010EE40(void *arg0) {
+s16 get_mag_mind_level__9TItemDataFPv(void *arg0) {
     return (s16) ((s16) M2C_FIELD(arg0, s16 *, 0xA) / 100);
 }
 
@@ -84,7 +84,7 @@ s16 get_percent__9TItemDataFPv(void *arg0) {
 void update_player_field__9TItemDataFi(s32 arg0) {
     TObjPlayer__sub_803373D0(arg0 + 0x374, TObjPlayer__sub_801AFDB0());
 }
-s32 TItemData__sub_8010EEC8(s32 arg0) {
+s32 get_item_description_text(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 4), M2C_UNK *, (arg0 * 4));
 }
 s32 get_text_collection(s32 arg0) {

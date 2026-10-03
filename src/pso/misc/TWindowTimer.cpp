@@ -47,7 +47,7 @@ M2C_UNK reset_float_field__15TWindowHelpItemFPv(s32);
 extern s32 lbl_8044FCE8[];
 extern s32 lbl_805DD888;
 extern s32 lbl_805DD88C;
-void TWindowTimer__sub_80287D20(void *self, u32 secs);
+void set_time__12TWindowTimerFPvUi(void *self, u32 secs);
 }
 
 extern "C" {
@@ -104,7 +104,7 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
     reset_float_field__15TWindowHelpItemFPv(temp_r31);
 }
 
-void TWindowTimer__sub_80287D20(void *self, u32 secs) {
+void set_time__12TWindowTimerFPvUi(void *self, u32 secs) {
     s32 entry;
     u32 hours;
     u32 mins;

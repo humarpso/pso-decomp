@@ -351,7 +351,7 @@ struct Obj_800BB88C {
 
 extern "C" {
 void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1);
-void TObjEneDD__sub_800BB940(s32 arg0, s32 arg1);
+void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt83(void *arg0);
 s32 TObjEneDD__vt81(u8 *arg0);
@@ -427,7 +427,7 @@ void TObjEneDD__vt77(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x326) = temp_r31;
 }
 
-void TObjEneDD__sub_800BB940(s32 arg0, s32 arg1) {
+void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
     s32 sp8;
     TObjEneDD__sub_800BB980((u8 *)((void *) (&sp8)), (u8 *)((void *) (arg0)));
     sp8 = arg1;

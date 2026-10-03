@@ -24,12 +24,12 @@ s32 fn_80244994(void *);
 s32 fn_80244D70(void *, void *, void *);
 s32 get_visible_flag__15TWindowFukidasiFPv(void *);
 s32 is_bit10_set__15TWindowFukidasiFPv(void *);
-Win_80244DFC *TWindowFukidasi__sub_80244DFC(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
+Win_80244DFC *find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
 }
 
 extern "C" {
 
-Win_80244DFC *TWindowFukidasi__sub_80244DFC(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p) {
+Win_80244DFC *find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p) {
     if (TWindowFukidasi__sub_8024695C(self) == 0) {
         return 0;
     }
@@ -51,7 +51,7 @@ Win_80244DFC *TWindowFukidasi__sub_80244DFC(Win_80244DFC *self, void *a, void *b
 }
 
 void TWindowFukidasi__sub_80244F00(s32 arg0, s32 arg1) {
-    TWindowFukidasi__sub_80244DFC((Win_80244DFC *)((void *) (arg0)), (void *)((void *) (arg0 + 0x30)), (void *)((void *) (arg0 + 0x38)), (Win_80244DFC *)((void *) (arg1)));
+    find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv((Win_80244DFC *)((void *) (arg0)), (void *)((void *) (arg0 + 0x30)), (void *)((void *) (arg0 + 0x38)), (Win_80244DFC *)((void *) (arg1)));
 }
 
 void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {

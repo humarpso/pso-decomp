@@ -68,7 +68,7 @@ extern RecoveredGlobal_8024AFB8_lbl_804CE9E0 lbl_804CE9E0;
 void TWindowCtrl__sub_8024AFB8(M2C_UNK arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AF74_lbl_804CE9EC lbl_804CE9EC;
-void TWindowCtrl__sub_8024AF74(s32 arg0);
+void has_player_active_menu__11TWindowCtrlFi(s32 arg0);
 extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 lbl_804CE9F8;
 void TWindowCtrl__sub_8024AEF0(s32 arg0);
 struct Win_8024AF34 { virtual void m0(); };
@@ -119,7 +119,7 @@ void TWindowCtrl__sub_8024AF34(void *self, Pmf_8024AF34 pmf) {
     }
 }
 
-void TWindowCtrl__sub_8024AF74(s32 arg0) {
+void has_player_active_menu__11TWindowCtrlFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024AF74, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024AF74, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AF74, sp10) == 0x8) ? 1 : -1];

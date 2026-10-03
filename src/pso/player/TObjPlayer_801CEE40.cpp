@@ -13,7 +13,7 @@ M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK get_anim_field_c__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D2D94(void *);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, s32);
-s32 TObjPlayer__sub_8001BEF8(s32, s32);
+s32 test_flags_any(s32, s32);
 M2C_UNK TObjPlayer__sub_80124C78(void *);
 s32 get_anim_state__10TObjPlayerFPv(void *);
 s16 get_handle_value__10TObjPlayerFPv(void *);
@@ -31,7 +31,7 @@ void update_anim_action__10TObjPlayerFPv(u8 *arg0) {
             apply_anim_action__10TObjPlayerFPvi(arg0 + 0x7CC, arg0);
         }
     } else {
-        if (TObjPlayer__sub_8001BEF8(get_anim_field_c__10TObjPlayerFPv(arg0 + 0x7CC), 8) == 0) {
+        if (test_flags_any(get_anim_field_c__10TObjPlayerFPv(arg0 + 0x7CC), 8) == 0) {
             TObjPlayer__sub_801D9078(arg0);
             if (objInBand__FP7GameObjf(arg0) != 0) {
                 send_attack_target_packet__10TObjPlayerFUi(arg0);

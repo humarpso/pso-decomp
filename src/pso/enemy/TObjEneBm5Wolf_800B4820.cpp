@@ -626,7 +626,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK spawn_recoil_dust__14TObjEneBm5WolfFiPv(void *, void *);
 M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK clear_attack_receipts(void *);
 M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -723,7 +723,7 @@ s32 get_flag_bit0__14TObjEneBm5WolfFPv(void *);
 void play_proximity_effect__14TObjEneBm5WolfFi(s32);
 s32 select_target__14TObjEneBm5WolfFPv(void *);
 M2C_UNK advance_pose_turn__14TObjEneBm5WolfFPvi(void *, s32);
-M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 u32 enemy_probe_wall_ahead(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -747,7 +747,7 @@ void TObjEneBm5Wolf__sub_800B7D44(void *);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 approach_angle_limited(int, int, int);
@@ -944,7 +944,7 @@ void hurt_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
         VecCopy__FP3VecPC3Vec(&v, (void *) (arg0 + 0x308));
         {
         f32 c = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        TObjEneDD__sub_800BACE0((void *) (arg0), v.x, v.z, c);
+        move_with_wall_slide_on_ground__9TObjEneDDFPvfff((void *) (arg0), v.x, v.z, c);
         }
         if (M2C_FIELD(arg0, s32 *, 0x41C) == 0) {
             M2C_FIELD(arg0, f32 *, 0x308) *= TObjEneBm5Wolf__data_805D9DAC;
@@ -1071,7 +1071,7 @@ void repositioning_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x41C) = 2;
             }
             play_proximity_effect__14TObjEneBm5WolfFi((s32)arg0);
-            TObjEneDD__sub_800BACE0(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D9DC0);
+            move_with_wall_slide_on_ground__9TObjEneDDFPvfff(arg0, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), lbl_805D9DC0);
             M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x42C), 0xF00);
             advance_pose_turn__14TObjEneBm5WolfFPvi(arg0, M2C_FIELD(arg0, s32 *, 0x42C));
             ((VObj_800B53F0 *)arg0)->m87();
@@ -1199,11 +1199,11 @@ void flanking_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= TObjEneBm5Wolf__data_805D9DF4) {
                 M2C_FIELD(arg0, f32 *, 0x404) *= TObjEneBm5Wolf__data_805D9DB0;
                 M2C_FIELD(arg0, f32 *, 0xC8) = TObjEneBm5Wolf__data_805D9DAC * M2C_FIELD(arg0, f32 *, 0x404);
-                TObjEneDD__sub_800BACE0(arg0, dst->x, dst->z, M2C_FIELD(arg0, f32 *, 0x404));
+                move_with_wall_slide_on_ground__9TObjEneDDFPvfff(arg0, dst->x, dst->z, M2C_FIELD(arg0, f32 *, 0x404));
             } else {
                 approach_target__14TObjEneBm5WolfFPvf(arg0, TObjEneBm5Wolf__data_805D9D8C);
                 M2C_FIELD(arg0, f32 *, 0xC8) = TObjEneBm5Wolf__data_805D9DAC * M2C_FIELD(arg0, f32 *, 0x404);
-                TObjEneDD__sub_800BACE0(arg0, dst->x, dst->z, M2C_FIELD(arg0, f32 *, 0x404));
+                move_with_wall_slide_on_ground__9TObjEneDDFPvfff(arg0, dst->x, dst->z, M2C_FIELD(arg0, f32 *, 0x404));
             }
             TObjEneBm5Wolf__sub_800B7D44(arg0);
             ((VObj_18_4225ac *)(arg0))->m87();

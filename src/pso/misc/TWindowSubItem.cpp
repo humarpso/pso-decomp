@@ -141,7 +141,7 @@ M2C_UNK close_sub_window__10TObjPlayerFPv();
 M2C_UNK create__18TWindowInputNumberFPvi(s32, s32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
 M2C_UNK fn_801B7F4C(s32, s32);
-s32 fn_8027AD5C(s32, M2C_UNK *, s32);
+s32 create_sub_item_list_window(s32, M2C_UNK *, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK get_cursor_pos__14TWindowSubItemFPv();
@@ -392,7 +392,7 @@ void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A50;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x30) = fn_8027AD5C(get_window_layout_position(3), lbl_8044F998, M2C_FIELD(arg0, s32 *, 0x24));
+    M2C_FIELD(arg0, s32 *, 0x30) = create_sub_item_list_window(get_window_layout_position(3), lbl_8044F998, M2C_FIELD(arg0, s32 *, 0x24));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 0);
     set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, s32 *, 0x30));
     set_flag70_bit10__20TWindowShortListCtrlFPv(M2C_FIELD(arg0, s32 *, 0x30));

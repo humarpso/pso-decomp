@@ -6,8 +6,8 @@ s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
-int TMainCursor__sub_8013E854(void* a0 = 0);
-void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
+int copy_target_record__11TMainCursorFPvPv(void* a0 = 0);
+void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);
 int check_field_24__11TMainCursorFPv(void* p);
 u16 get_id__11TMainCursorFPv(void* p);
@@ -36,10 +36,10 @@ int update_action_palette__11TMainCursorFPv(void* p);
 void TMainCursor__sub_8013E724(void* p, f32 v);
 void set_target_id__11TMainCursorFPvs(void* p, s16 v);
 int TMainCursor__sub_8013E75C(void* p);
-s32 TMainCursor__sub_8013E810(void* p);
-s32 TMainCursor__sub_8013E818(void* p);
-s32 TMainCursor__sub_8013E820(void* p);
-s32 TMainCursor__sub_8013E828(void* p);
+s32 get_body_exclude_mask__11TMainCursorFPv(void* p);
+s32 get_body_include_mask__11TMainCursorFPv(void* p);
+s32 get_actor_exclude_mask__11TMainCursorFPv(void* p);
+s32 get_actor_include_mask__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E8A0(void* p);
 int get_selected_entry__11TMainCursorFPv(void* p);
 int get_active__11TMainCursorFPv(void* p);
@@ -66,10 +66,10 @@ int update_ring_sub__13TLockOnCursorFPv(void* p);
 s32 TLockOnCursor__sub_8013EB2C(void* p);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int TMainCursor__sub_8013B2A4(void*);
 int TObjPlayer__sub_8013DEF8(void*);
-int TMainCursor__sub_8013DF08(void*);
+int is_channel_active__11TMainCursorFPv(void*);
 int get_enabled__11TMainCursorFPv(void*);
 int get_type__11TMainCursorFPv(void*);
 int set_slot__20TWindowActionPaletteFPvUc(void*);
@@ -77,10 +77,10 @@ int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
 
-s32 TMainCursor__sub_8013E810(void* p) { return *(s32*)((char*)p + 0xc); }
-s32 TMainCursor__sub_8013E818(void* p) { return *(s32*)((char*)p + 0x8); }
-s32 TMainCursor__sub_8013E820(void* p) { return *(s32*)((char*)p + 0x14); }
-s32 TMainCursor__sub_8013E828(void* p) { return *(s32*)((char*)p + 0x10); }
-void TMainCursor__sub_8013E830(void* p, void* a1, void* a2) { TMainCursor__sub_8013E854(a2); }
+s32 get_body_exclude_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0xc); }
+s32 get_body_include_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x8); }
+s32 get_actor_exclude_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x14); }
+s32 get_actor_include_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x10); }
+void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2) { copy_target_record__11TMainCursorFPvPv(a2); }
 
 }

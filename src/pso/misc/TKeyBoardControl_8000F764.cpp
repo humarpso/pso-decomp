@@ -75,7 +75,7 @@ void TKeyBoardControl__sub_8000F9A4(void);
 s32 flush_input__16TKeyBoardControlFv(void);
 M2C_UNK reset_state_byte__6TLobbyFv();
 M2C_UNK disable_disconnected_ports__16TKeyBoardControlFv(void *);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802430F4();
+M2C_UNK update_pad_rumble();
 M2C_UNK TKeyBoardControl__sub_803DEA18();
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 void TKeyBoardControl__sub_8000F764(void);
@@ -99,7 +99,7 @@ bool TKeyBoardControl__sub_8000F968(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
 s32 TKeyBoardControl__sub_8000F92C(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 lbl_804FE120;
-s32 TKeyBoardControl__sub_8000F9B0(void);
+s32 request_queued_main_phase(void);
 void set_cull_none__8TObjFishFv(void);
 void GXSetCopyClear(GXColor_8000FA00 clear_clr, u32 clear_z);
 void GXCopyDisp(void *dest, int clear);
@@ -117,14 +117,14 @@ extern GXColor_8000FA00 lbl_805D7D08;
 extern const f32 lbl_805D7D0C;
 extern const f32 lbl_805D7D10;
 extern GXColor_8000FA00 lbl_805E1200;
-void TKeyBoardControl__sub_8000FA00(void);
+void init_gx_lighting_defaults(void);
 M2C_UNK DVDInit();
 u32 OSGetArenaHi();
 u32 OSGetArenaLo();
 M2C_UNK OSInit();
 M2C_UNK OSSetArenaLo(u32);
 void TKeyBoardControl__sub_8000F9E4(void);
-void TKeyBoardControl__sub_8000FA00(void);
+void init_gx_lighting_defaults(void);
 M2C_UNK TLobby__sub_8007EB70();
 M2C_UNK fn_8007F8D0();
 M2C_UNK fn_80082AA8();
@@ -247,7 +247,7 @@ void TKeyBoardControl__sub_8000F764(void) {
     TKeyBoardControl__sub_803DEA18();
     disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
     flush_input__16TKeyBoardControlFv();
-    TAdSinglePlyChrSelectGC__sub_802430F4();
+    update_pad_rumble();
     reset_state_byte__6TLobbyFv();
 }
 
@@ -348,7 +348,7 @@ typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
-s32 TKeyBoardControl__sub_8000F9B0(void) {
+s32 request_queued_main_phase(void) {
     (*(G_8000F9B0 *)&lbl_804FE120).f10 = 2;
     return (*(G_8000F9B0 *)&lbl_804FE120).f4 = (*(G_8000F9B0 *)&lbl_804FE120).f8;
 }
@@ -364,7 +364,7 @@ void TKeyBoardControl__sub_8000F9E4(void) {
     M2C_FIELD(&lbl_804FE120.value, s32 *, 0xC) = 1;
     M2C_FIELD(&lbl_804FE120.value, s32 *, 0x14) = 1;
 }
-void TKeyBoardControl__sub_8000FA00(void) {
+void init_gx_lighting_defaults(void) {
     GXColor_8000FA00 c0 = lbl_805D7D00;
     GXColor_8000FA00 c1 = lbl_805D7D04;
     GXColor_8000FA00 c2 = lbl_805D7D08;
@@ -430,7 +430,7 @@ void init_game_systems(void) {
     fn_803D8030(lbl_805D49AC, 0x80, 0x800);
     set_global_count__12TObjNpcEnemyFi(-1);
     fn_803D8064(0xC);
-    TKeyBoardControl__sub_8000FA00();
+    init_gx_lighting_defaults();
     TObjPlayer__sub_801416AC();
     alloc_buffer__16TKeyBoardControlFv();
     TKeyBoardControl__sub_8000F9E4();

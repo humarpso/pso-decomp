@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-u8 TObjPlayer__sub_8001BEF8(s32 *arg0, s32 arg1);
+u8 test_flags_any(s32 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -17,7 +17,7 @@ void set_flags__10TObjPlayerFPvUi(void* p, u32 v);
 
 void clear_flags__11TAdRicoRingFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x0) &= ~v; }
 
-u8 TObjPlayer__sub_8001BEF8(s32 *arg0, s32 arg1) {
+u8 test_flags_any(s32 *arg0, s32 arg1) {
     return (u8) ((*arg0 & arg1) != 0);
 }
 

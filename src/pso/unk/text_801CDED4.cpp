@@ -4,7 +4,7 @@ struct Pkt_801CDED4 { u8 cmd; u8 size; u16 player; s16 heading; s16 kind; };
 extern "C" {
 void TNpcPlayer__sub_80152B98(Pkt_801CDED4 *);
 void TObjPlayer__sub_801D2348(Pkt_801CDED4 *, void *);
-void TNpcPlayer__sub_80152B5C(Pkt_801CDED4 *);
+void bswap_6x44_packet(Pkt_801CDED4 *);
 s32 validate_6x44_attack(Pkt_801CDED4 *);
 u8 *get_player_by_client_id(u16);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
@@ -23,7 +23,7 @@ void handle_6x44_attack(void *src) {
     u8 *player;
     TNpcPlayer__sub_80152B98(&pkt);
     TObjPlayer__sub_801D2348(&pkt, src);
-    TNpcPlayer__sub_80152B5C(&pkt);
+    bswap_6x44_packet(&pkt);
     if (validate_6x44_attack(&pkt) == 0) return;
     player = get_player_by_client_id(pkt.player);
     if (player == 0) return;

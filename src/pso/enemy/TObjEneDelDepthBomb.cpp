@@ -53,7 +53,7 @@ extern "C" {
 
 void *__dt__19TObjEneDelDepthBombFv(void *arg0, s16 arg1);
 void * create__19TObjEneDelDepthBombFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int TObjPlayer__sub_801AA64C(void* a0 = 0);
 int TObjPlayer__sub_80313138(void* a0 = 0);
 int TObjPlayer__sub_803131AC(void);

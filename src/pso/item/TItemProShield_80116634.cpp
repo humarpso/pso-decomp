@@ -146,11 +146,11 @@ extern "C" {
 void * TItemProShield__sub_80116B28(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProShield__sub_80116B64(u8 *arg0);
+u8 *create_status_cure_item(u8 *arg0);
 void * TItemProShield__sub_80116C44(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProShield__sub_80116C80(u8 *arg0);
+u8 *create_sol_atomizer_item(u8 *arg0);
 }
 
 extern "C" {
@@ -159,7 +159,7 @@ void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1);
 void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1);
 void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1);
 void apply_sol_atomizer(void *arg0);
-int TItemProShield__sub_80116CD8(void* p);
+int apply_star_atomizer(void* p);
 void *TItemProShield__sub_80116D54(void *arg0);
 void TItemObject__ct(void *);
 int TItemObject__sub_801160E0(void*);
@@ -187,7 +187,7 @@ void *TItemProShield__sub_80116B28(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TItemProShield__sub_80116B64(u8 *arg0) {
+u8 *create_status_cure_item(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -227,7 +227,7 @@ void *TItemProShield__sub_80116C44(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TItemProShield__sub_80116C80(u8 *arg0) {
+u8 *create_sol_atomizer_item(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -241,7 +241,7 @@ u8 *TItemProShield__sub_80116C80(u8 *arg0) {
     return NULL;
 }
 
-int TItemProShield__sub_80116CD8(void* p) { return TItemObject__sub_801160E0(*(void**)((char*)p + 0xf0)); }
+int apply_star_atomizer(void* p) { return TItemObject__sub_801160E0(*(void**)((char*)p + 0xf0)); }
 
 extern M2C_UNK lbl_8049FB08[];
 

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_action_render__10TObjPlayerFPv(u8 *arg0);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s16 get_action_animation__10TObjPlayerFPv(void *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK draw__10TObjPlayerFPvf(void *, f32);
@@ -17,7 +17,7 @@ M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 extern const f32 TObjPlayer__data_805DC360;
 
 void update_action_render__10TObjPlayerFPv(u8 *arg0) {
-    if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x858), (int) (1)) != 0) {
+    if (test_flags_any((void *) (arg0 + 0x858), (int) (1)) != 0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = get_action_animation__10TObjPlayerFPv((void *) (arg0));
     } else {
         M2C_FIELD(arg0, s16 *, 0xB8) = get_model_field_m25__10TObjPlayerFPv((void *) (arg0));

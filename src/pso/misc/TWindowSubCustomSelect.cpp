@@ -81,7 +81,7 @@ extern const f32 TWindowSubCustomSelect__data_805DD5B0;
 extern const f32 lbl_805DD5E8;
 extern const f32 lbl_805DD5EC;
 u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1);
-s32 TWindowSubComCard__sub_8026D740(void *, void *, void *);
+s32 clamp_list_scroll_offset(void *, void *, void *);
 extern const f32 lbl_805DD5A8;
 extern const f32 lbl_805DD5AC;
 extern const f32 TWindowSubCustomSelect__data_805DD5B0;
@@ -137,7 +137,7 @@ s32 TWindowSubCustomSelect__sub_80277368(void *a) {
   *new_var3 = (*new_var3) + (tgt - (*((f32 *) (((s8 *) arg0) + 0x6C))));
   stack.sp8 = lbl_805DD5B8;
   stack.spC = ((*((f32 *) (((s8 *) arg0) + 0x4C))) - lbl_805DD5BC) - lbl_805DD5C0;
-  TWindowSubComCard__sub_8026D740(*((u8 **) (((s8 *) arg0) + 0x80)), (new_var = arg0) + 0x68, &stack.sp8);
+  clamp_list_scroll_offset(*((u8 **) (((s8 *) arg0) + 0x80)), (new_var = arg0) + 0x68, &stack.sp8);
 }
 
 void TWindowSubCustomSelect__sub_80277408(u8 *arg0) {

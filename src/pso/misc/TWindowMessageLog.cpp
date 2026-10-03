@@ -15,7 +15,7 @@ struct Stack_8026A494 {
 };
 
 extern "C" {
-s32 TWindowSubComCard__sub_8026D740(int, void *, void *, f32);
+s32 clamp_list_scroll_offset(int, void *, void *, f32);
 extern const f32 lbl_805DD240;
 extern const f32 lbl_805DD244;
 void TWindowMessageLog__sub_8026A434(u8 *arg0);
@@ -57,7 +57,7 @@ void TWindowMessageLog__sub_8026A434(u8 *arg0) {
     stack.sp8 = lbl_805DD240;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x4C);
     stack.spC = temp_f1 - lbl_805DD244;
-    if (TWindowSubComCard__sub_8026D740((int) (M2C_FIELD(arg0, s32 *, 0x90)), (void *) (arg0 + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
+    if (clamp_list_scroll_offset((int) (M2C_FIELD(arg0, s32 *, 0x90)), (void *) (arg0 + 0x68), (void *) (&stack.sp8), (f32) (temp_f1)) != 0) {
         M2C_FIELD(arg0, f32 *, 0x84) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
     }
 }

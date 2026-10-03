@@ -9,7 +9,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 fn_80266378(void *);
 s32 TWindowMenu__ct(int, void *, void *, void *);
-s32 TCheckRoomSequence__sub_802664A8(s32 arg0, s32 arg1, s32 arg2);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 u32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 set_ready_flag__18TCheckRoomSequenceFPv(int);
 s32 set_field_1c__6TLobbyFPvf(int, f32);
@@ -17,7 +17,7 @@ s32 TWindowSubComCard__sub_80265C30(int);
 s32 TWindowSubComCard__sub_80265E60(int, f32);
 s32 TWindowSubComCard__sub_80265F60(int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int);
-s32 TCheckRoomSequence__sub_802664A8(s32 arg0, s32 arg1, s32 arg2);
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DD170;
 extern const f32 lbl_805DD174;
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3);
@@ -30,7 +30,7 @@ u8 * init_shop_judgment_window(void* p);
 u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
   u8 *temp_r31;
   u8 *temp_r3;
-  temp_r3 = (u8 *) ((u8 *)TCheckRoomSequence__sub_802664A8(arg0, 2, arg1));
+  temp_r3 = (u8 *) ((u8 *)create_window_menu(arg0, 2, arg1));
   temp_r31 = (u8 *) temp_r3;
   if (arg2 == 0U)
   {
@@ -60,7 +60,7 @@ u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
 }
 
 u8 * init_shop_judgment_window(void* p) { return create_yes_no_window((s32)(p), (s32)(4), (u32)(0), (u32)(0)); }
-s32 TCheckRoomSequence__sub_802664A8(s32 arg0, s32 arg1, s32 arg2) {
+s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
     fn_80266378((void *) (arg1));

@@ -31,7 +31,7 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 M2C_UNK fn_8015D5D4(void *);
 u8 TODoorAncient08__sub_80229220(int);
-void fn_8015DAE4(u8 *arg0);
+void update_door_switch_state(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK TRaderMapCore__sub_801F9AC4(void *, u32, u16, s32, s32);
@@ -41,7 +41,7 @@ void run_switch_door_task(u8 *arg0);
 
 extern "C" {
 
-void fn_8015DAE4(u8 *arg0) {
+void update_door_switch_state(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xCC);
     switch (temp_r0) {

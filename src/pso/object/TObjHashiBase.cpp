@@ -41,7 +41,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_model_motion(s32, void *, f32);
-void TObjHashiBase__sub_80191A38(u8 *arg0);
+void render__13TObjHashiBaseFPv(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 f32 xz_distance_squared(void *, void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
@@ -120,7 +120,7 @@ block_13:
 }
 #pragma pop
 
-void TObjHashiBase__sub_80191A38(u8 *arg0) {
+void render__13TObjHashiBaseFPv(u8 *arg0) {
     void *p;
     if (((VDisp *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         TObjPlayer__sub_803D9B2C();

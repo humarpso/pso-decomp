@@ -111,7 +111,7 @@ struct Base0_8016ab58_8016A8D0 { char pad[0x18]; };
 struct VObj0_8016ab58_8016A8D0 : Base0_8016ab58_8016A8D0 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); };
 
 void *TOKey__ct(void *arg0);
-void TOKey__sub_8016A8D0(void *arg0);
+void trigger_activate_sound__5TOKeyFPv(void *arg0);
 void TOKey__sub_8016AC88(void);
 void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
@@ -133,7 +133,7 @@ void init_map_object_base(void *);
 int read_be16_field2__10TObjPlayerFPv(void*);
 void set_type__14TOKeyAncient01FPv(void *);
 
-void TOKey__sub_8016A8D0(void *arg0) {
+void trigger_activate_sound__5TOKeyFPv(void *arg0) {
     struct VObj_8016A8D0 *o = (struct VObj_8016A8D0 *)arg0;
     o->m20();
 }

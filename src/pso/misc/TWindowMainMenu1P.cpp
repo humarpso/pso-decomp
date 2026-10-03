@@ -28,7 +28,7 @@ extern const f32 lbl_805DD8BC;
 extern const f32 lbl_805DD8C0;
 extern const f32 lbl_805DD8C4;
 extern const f32 lbl_805DD8C8;
-void TWindowMainMenu1P__sub_80288520(u8 *arg0);
+void update_backdrop_transition__17TWindowMainMenu1PFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ int TWindowMainMenu__sub_80263FE0(void*);
 int TWindowMainMenu__sub_802647CC(void*);
 
 #pragma fp_contract on
-void TWindowMainMenu1P__sub_80288520(u8 *arg0) {
+void update_backdrop_transition__17TWindowMainMenu1PFPv(u8 *arg0) {
   f32 temp_f1;
   s32 temp_r3;
   s32 temp_r3_2;
@@ -114,7 +114,7 @@ void TWindowMainMenu1P__sub_80288520(u8 *arg0) {
 }
 
 void render__17TWindowMainMenu1PFv(void) {  }
-void run_task__17TWindowMainMenu1PFv(void* p) { TWindowMainMenu__sub_802647CC(p); TWindowMainMenu__sub_80263FE0(p); TWindowMainMenu1P__sub_80288520((u8 *)(p)); }
+void run_task__17TWindowMainMenu1PFv(void* p) { TWindowMainMenu__sub_802647CC(p); TWindowMainMenu__sub_80263FE0(p); update_backdrop_transition__17TWindowMainMenu1PFPv((u8 *)(p)); }
 
 extern M2C_UNK __vt__17TWindowMainMenu1P[];
 extern const f32 lbl_805DD8A8;

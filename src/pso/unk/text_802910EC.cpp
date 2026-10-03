@@ -30,7 +30,7 @@ extern f32 lbl_805D3CA0;
 extern const f32 lbl_805DD968;
 extern const f32 lbl_805DD96C;
 extern const f32 lbl_805DD970;
-void fn_802911E8(f32 farg0);
+void set_creation_projection_center(f32 farg0);
 extern u8 lbl_804D9578[];
 extern s32 lbl_805D656C;
 void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
@@ -91,7 +91,7 @@ void fn_80291178(void) {
     TLobby__sub_801E468C(lbl_804DA944[lbl_805D656C], ((s32 *)&lbl_804D9668));
 }
 
-void fn_802911E8(f32 farg0) {
+void set_creation_projection_center(f32 farg0) {
     struct CopyStack_802911E8 { u8 bytes[0x48]; };
     CopyStack_802911E8 copy_storage_802911E8;
     *(M2CCopy_48 *)(copy_storage_802911E8.bytes) = *(const M2CCopy_48 *)((s32) ((u8 *)(&lbl_804DAA78.value) + -4) + 4);

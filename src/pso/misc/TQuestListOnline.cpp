@@ -51,7 +51,7 @@ s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, int);
 s32 get_window_layout_position(int);
 void add_list_entry__6TLobbyFPviii(u32, int, void *, int);
-u32 TShopJudgmentItemWindow__sub_8026DF00(s32, int, u16);
+u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__data_805D6190;
 void TQuestListOnline__sub_80217F88(u8 *arg0);
@@ -116,7 +116,7 @@ void TQuestListOnline__sub_80217F88(u8 *arg0) {
     if (((VObj_18_80217F88 *)M2C_FIELD(arg0, void **, 0x6C))->m8() != 0) {
         if (M2C_FIELD(arg0, u32 *, 0x38) == 0U) {
             id = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-            M2C_FIELD(arg0, u32 *, 0x38) = TShopJudgmentItemWindow__sub_8026DF00(TLobby__sub_80222C54(0), 0x40, id);
+            M2C_FIELD(arg0, u32 *, 0x38) = create_item_list_window(TLobby__sub_80222C54(0), 0x40, id);
         } else {
             TShopArmorListWindow__sub_80266DB0(M2C_FIELD(arg0, u32 *, 0x38));
         }

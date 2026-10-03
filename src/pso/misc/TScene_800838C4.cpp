@@ -53,7 +53,7 @@ extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D940C;
 extern const f32 lbl_805D9428;
 extern const f32 lbl_805D942C;
-f32 TObjPlayer__sub_80083A50(void);
+f32 calc_camera_fov_degrees(void);
 }
 
 extern "C" {
@@ -103,7 +103,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-f32 TObjPlayer__sub_80083A50(void) {
+f32 calc_camera_fov_degrees(void) {
     f32 temp_f2;
     f32 temp_f31;
     f32 var_f1;

@@ -24,7 +24,7 @@ extern RecoveredGlobal_8029AA74_lbl_804652A4 lbl_804652A4;
 extern s32 TChCrEffTag__data_805D3D0C;
 extern const f32 lbl_805DDC90;
 extern const f32 lbl_805DDC94;
-void TChCrEffTag__sub_8029AA74(u8 *arg0);
+void refresh_label__11TChCrEffTagFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -37,7 +37,7 @@ int set_depth_buffer_settings_1__Fv(void*);
 
 void render__11TChCrEffTagFv(void* p) { set_depth_buffer_settings_1__Fv(p); fn_8029A9B8(p); fn_8029A97C(p); restore_saved_depth_alpha_state(); }
 typedef char RecoveredGlobal_8029AA74_lbl_804652A4_size[sizeof(RecoveredGlobal_8029AA74_lbl_804652A4) == 0x34 ? 1 : -1];
-void TChCrEffTag__sub_8029AA74(u8 *arg0) {
+void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8029AA74, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8029AA74, spC) == 0x4) ? 1 : -1];
     Stack_8029AA74 stack;
@@ -75,7 +75,7 @@ void TChCrEffTag::run_task()
   s32 temp_r0;
   if (((s32) heading) != ((s32) TChCrEffTag__data_805D3D0C))
   {
-    TChCrEffTag__sub_8029AA74((u8*)this);
+    refresh_label__11TChCrEffTagFPv((u8*)this);
   }
   temp_r0 = heading;
   if (temp_r0 >= 0)

@@ -14,7 +14,7 @@ s16 get_mag_item_percent();
 M2C_UNK get_mag_item_stat_percent(s32);
 s16 TItemMagSub__sub_8011455C(void *);
 extern u8 lbl_8043E540[];
-u8 TItemMag__sub_80111978(u8 *arg0);
+u8 evolve_rare_form__8TItemMagFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -77,7 +77,7 @@ s32 get_max_stat_flags__8TItemMagFi(s32 arg0) {
     }
     return var_r31;
 }
-u8 TItemMag__sub_80111978(u8 *arg0) {
+u8 evolve_rare_form__8TItemMagFPv(u8 *arg0) {
     s16 stat;
     s16 data;
     s16 level;

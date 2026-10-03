@@ -107,7 +107,7 @@ extern s32 lbl_805D538C;
 void TFogCtrl__sub_800FBAB0(void);
 void read_disc_file(void *, void *);
 void create_instance__8TFogCtrlFv(void);
-void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
+void copy_fog_entry(u8 *arg0, u8 *arg1);
 FogParam_800FBC5C *alloc_buffer__11TOBoss4RockFPv(s32);
 void TObjFogCollisionPoison__sub_801533C0(void);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -251,7 +251,7 @@ void init_scene_fog_system(void) {
     lbl_80501198.f18[6] = 640.0f;
     lbl_805D5388 = (u32)alloc_buffer__11TOBoss4RockFPv(0x2000);
     for (i = 0; i < 0x80; i++) {
-        TFogCtrl__sub_800FAC90((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&lbl_80501198);
+        copy_fog_entry((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&lbl_80501198);
     }
     read_disc_file(lbl_8043DA20, (void *)lbl_805D5388);
     for (i = 0; i < 4; i++) {

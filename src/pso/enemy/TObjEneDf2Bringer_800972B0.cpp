@@ -247,7 +247,7 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 check_stage_advance__17TObjEneDf2BringerFPv(void *);
 void clear_field_388__9TObjEneDDFPv(void *p);
 void set_active__9TObjEneDDFPv(void *p);
-void TObjEneDD__sub_800BACA4(void *arg0, f32 farg0, f32 farg1, f32 farg2);
+void move_clamped_on_ground__9TObjEneDDFPvfff(void *arg0, f32 farg0, f32 farg1, f32 farg2);
 void clear_attack_receipts(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
@@ -437,7 +437,7 @@ void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode) {
         self->timer--;
         VecCopy__FP3VecPC3Vec(&v, &self->vel);
         speed = clamp_velocity__15TObjBoss2TunnelFPv(&v);
-        TObjEneDD__sub_800BACA4(self, v.x, v.z, speed);
+        move_clamped_on_ground__9TObjEneDDFPvfff(self, v.x, v.z, speed);
         self->vel.x *= lbl_805D97E4;
         self->vel.z *= lbl_805D97E4;
         obj->m87();

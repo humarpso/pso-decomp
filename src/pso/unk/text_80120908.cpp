@@ -37,7 +37,7 @@ s32 get_flag_40__8TItemMagFPv(void *);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, int);
 s32 get_attach_joint__14TItemEquipBaseFPv(void *);
 M2C_UNK TObjPlayer__sub_80121208(void *, void *);
-M2C_UNK TObjPlayer__sub_80121210();
+M2C_UNK reset_model_node_counter();
 M2C_UNK TObjPlayer__sub_801415BC();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
@@ -72,7 +72,7 @@ s32 draw_weapon_model(void *arg0) {
         return;
     }
     {
-        TObjPlayer__sub_80121210();
+        reset_model_node_counter();
         if (is_flag_400__10TObjPlayerFPv((void *) (arg0)) != 0) {
             var_r30 = 1;
         } else {
@@ -142,7 +142,7 @@ s32 draw_weapon_model(void *arg0) {
             apply_to_child__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0xDB4)));
         }
         pop_matrix();
-        TObjPlayer__sub_80121210();
+        reset_model_node_counter();
     }
 }
 

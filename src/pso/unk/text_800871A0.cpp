@@ -7,14 +7,14 @@ extern Ent_80086D50 *lbl_805D4EF8;
 extern Ent_80086D50 *lbl_805D4EFC;
 void *__nw__7TObjectFUl(int);
 void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d);
-void *fn_800871A0(void *pos, void *dir, s32 id);
+void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-void *fn_800871A0(void *pos, void *dir, s32 id) {
+void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id) {
     void *p;
     s32 idx = id;
     if (lbl_805D2948 > idx) {

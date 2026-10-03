@@ -130,7 +130,7 @@ M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
 M2C_UNK TLobby__sub_80266E34(void *);
 M2C_UNK add_ground_item__20TWindowSubStatusDispFPvii(void *, void *, s32);
 s32 get_window_layout_position(s32);
-void *TShopJudgmentItemWindow__sub_8026DF00(s32, s32, u16);
+void *create_item_list_window(s32, s32, u16);
 M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
 void *create_cost_window(u16);
 s32 is_camera_ctrl_active__6TLobbyFv();
@@ -145,7 +145,7 @@ void TShopEquipmentListWindow__vt4(void *arg0);
 void TShopEquipmentListWindow__vt5(void *arg0);
 void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1);
 void update_list__24TShopEquipmentListWindowFPvPv(void *arg0, void *arg1);
-u32 TCheckRoomSequence__sub_802664A8(s32, s32, u16);
+u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -194,7 +194,7 @@ s32 open_menu_window__24TShopEquipmentListWindowFPv(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
         temp_r31 = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-        M2C_FIELD(arg0, u32 *, 0x2C) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x2B), 2, temp_r31);
+        M2C_FIELD(arg0, u32 *, 0x2C) = create_window_menu(get_window_layout_position(0x2B), 2, temp_r31);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_shop_text(5), 6, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
@@ -275,7 +275,7 @@ void create_buy_list_windows__24TShopEquipmentListWindowFPv(void *p) {
         }
     }
     if (W->list == NULL) {
-        W->list = TShopJudgmentItemWindow__sub_8026DF00(get_shop_text(0x26), W->count, obj_getField1c(W->player));
+        W->list = create_item_list_window(get_shop_text(0x26), W->count, obj_getField1c(W->player));
     } else {
         save_cursor_selection__20TShopArmorListWindowFPv(W->list);
         TShopArmorListWindow__sub_80266DB0(W->list);

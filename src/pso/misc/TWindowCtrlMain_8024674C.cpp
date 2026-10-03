@@ -37,7 +37,7 @@ extern M2C_UNK lbl_8044E758[];
 extern M2C_UNK lbl_804D2F3C[];
 extern u32 lbl_805D63F0;
 extern s16 lbl_805D63F4;
-void TLanguage__sub_80246780(void);
+void load_hud_palette_textures(void);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ void free_window__15TWindowCtrlMainFv(void) {
     }
 }
 
-void TLanguage__sub_80246780(void) {
+void load_hud_palette_textures(void) {
     s32 sp8[3];
     sp8[0] = TLobby__sub_8001EEFC((void *) (lbl_8044E658));
     draw_string__9TLanguageFPvPvi((void *) (lbl_8044E688), (void *) (sp8), (int) (0x40));

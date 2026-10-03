@@ -45,7 +45,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 xyz_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
-s32 TOKey__sub_8016A280(Obj_8016A280 *arg0);
+s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0);
 }
 
 extern "C" {
@@ -184,7 +184,7 @@ void send_switch_on__5TOKeyFv(void* key) {
     finalize_and_send_60__6TLobbyFPv(&packet);
 }
 
-s32 TOKey__sub_8016A280(Obj_8016A280 *arg0) {
+s32 is_any_player_in_range__5TOKeyFPv(Obj_8016A280 *arg0) {
     u8 *p;
     s32 i;
     for (i = 0; i < lbl_805D586C; i++) {

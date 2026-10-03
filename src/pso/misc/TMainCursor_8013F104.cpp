@@ -20,7 +20,7 @@ void TMainCursor__sub_8013F13C(s32 *arg0);
 void TMainCursor__sub_8013F22C(void* a0);
 extern M2C_UNK lbl_804A7254[];
 u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
-Rec_8013F154 *TMainCursor__sub_8013F154(Obj_8013F154 *self, s32 i);
+Rec_8013F154 *get_record_at__11TMainCursorFPvi(Obj_8013F154 *self, s32 i);
 u8 fn_8013F24C(Obj_8013F24C *self, s16 i);
 }
 
@@ -66,7 +66,7 @@ void TMainCursor__sub_8013F13C(s32 *arg0) {
 
 f32 TMainCursor__sub_8013F14C(void* p) { return *(f32*)((char*)p + 0x4); }
 
-Rec_8013F154 *TMainCursor__sub_8013F154(Obj_8013F154 *self, s32 i) {
+Rec_8013F154 *get_record_at__11TMainCursorFPvi(Obj_8013F154 *self, s32 i) {
     return &self->recs[i];
 }
 

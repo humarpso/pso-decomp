@@ -39,7 +39,7 @@ void* TItemLoad__sub_801107EC(void* p);
 int TItemLoad__sub_801107F4(void* p);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 int TLobby__sub_803CC4C0(void*);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 M2C_UNK __ct__9TItemLoadFv(void *, s32);
 void * __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(s32);

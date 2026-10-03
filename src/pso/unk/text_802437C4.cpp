@@ -18,14 +18,14 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 fn_80244994();
 void create__18TWindowEffectLightFPvPvPv(void *, s32, s32);
 extern const f32 lbl_805DCA2C;
-void fn_802437C4(Win_802437C4 *arg0, s32 arg1);
+void spawn_action_palette_slot_light(Win_802437C4 *arg0, s32 arg1);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_802437C4(Win_802437C4 *arg0, s32 arg1) {
+void spawn_action_palette_slot_light(Win_802437C4 *arg0, s32 arg1) {
     Pt_802437C4 pt;
     s32 kind;
     Ent_802437C4 *e;

@@ -4,7 +4,7 @@ extern "C" {
 
 s32 TLobby__sub_8007BA98();
 s32 handle_disconnect_cleanup();
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 s32 TLobby__sub_800F8B20();
 s32 TItemDrop__sub_800FD98C();
 s32 TItemDrop__sub_800FDDF4();
@@ -32,7 +32,7 @@ s32 check_disconnect_conditions__6TLobbyFv(void) {
         return 1;
     }
     TItemDrop__sub_800FDDF4();
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         reset_and_invoke__6TLobbyFv();
         return 1;
     }

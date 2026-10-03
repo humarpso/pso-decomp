@@ -34,13 +34,13 @@ struct E_800BA8A8 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 struct O_800BA8A8 { u8 pad[0xa4]; E_800BA8A8 *entries; s32 count; };
 
 extern "C" {
-u32 TObjEneDD__sub_800BA828(u16 arg0);
+u32 is_player_entity_id(u16 arg0);
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFPv(void *arg0);
 s32 is_target_unobstructed__9TObjEneDDFii(s32 arg0, s32 arg1);
-void TObjEneDD__sub_800BA870(u8 *arg0);
-void TObjEneDD__sub_800BA88C(u8 *arg0);
-void TObjEneDD__sub_800BA838(u8 *arg0, f32 farg0);
+void set_collider_contact_low(u8 *arg0);
+void set_collider_contact_high(u8 *arg0);
+void update_collider_contact_by_height(u8 *arg0, f32 farg0);
 int TObjEneDD__sub_800BA804(u16 arg0);
 s32 TObjEneDD__vt87(O_800BA8A8 *self);
 }
@@ -88,24 +88,24 @@ int TObjEneDD__sub_800BA804(u16 arg0) {
     return var_r3;
 }
 
-u32 TObjEneDD__sub_800BA828(u16 arg0) {
+u32 is_player_entity_id(u16 arg0) {
     return (u32) (arg0 - 0x1000) >> 0x1FU;
 }
 
-void TObjEneDD__sub_800BA838(u8 *arg0, f32 farg0) {
+void update_collider_contact_by_height(u8 *arg0, f32 farg0) {
     if (M2C_FIELD(arg0, f32 *, 4) >= farg0) {
-        TObjEneDD__sub_800BA88C((u8 *)(arg0));
+        set_collider_contact_high((u8 *)(arg0));
         return;
     }
-    TObjEneDD__sub_800BA870((u8 *)(arg0));
+    set_collider_contact_low((u8 *)(arg0));
 }
 
-void TObjEneDD__sub_800BA870(u8 *arg0) {
+void set_collider_contact_low(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) & 0xFFFFFFFB);
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) | 2);
 }
 
-void TObjEneDD__sub_800BA88C(u8 *arg0) {
+void set_collider_contact_high(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) | 4);
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) & 0xFFFFFFFD);
 }

@@ -34,7 +34,7 @@ M2C_UNK queue_destruction__10TObjPlayerFPv(void *);
 M2C_UNK fn_80081B7C(void *);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-void TObjPlayer__sub_80081DC8(void *arg0);
+void freeze_shell_update(void *arg0);
 s32 create_timed_particle_emitter(void *, int, int, int);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
@@ -45,7 +45,7 @@ extern RecoveredGlobal_80081CD0_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
-void TObjPlayer__sub_80081CD0(u8 *arg0);
+void freeze_shell_grow(u8 *arg0);
 s32 obj_testFlags30(s32, s32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
@@ -59,7 +59,7 @@ extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9384;
-M2C_UNK TObjFish__sub_80081BB0(void *arg0);
+M2C_UNK freeze_shell_hold(void *arg0);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -83,7 +83,7 @@ void TObjPlayer__sub_80081EA4(u8 *arg0);
 
 extern "C" {
 
-M2C_UNK TObjFish__sub_80081BB0(void *arg0) {
+M2C_UNK freeze_shell_hold(void *arg0) {
     s32 p;
     p = find_active_entity_by_id(M2C_FIELD(arg0, u16 *, 0x358));
     if (p == 0) {
@@ -108,7 +108,7 @@ M2C_UNK TObjFish__sub_80081BB0(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805D9378;
 }
 
-void TObjPlayer__sub_80081CD0(u8 *arg0) {
+void freeze_shell_grow(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80081CD0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80081CD0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80081CD0, sp10) == 0x8) ? 1 : -1];
@@ -136,7 +136,7 @@ void TObjPlayer__sub_80081CD0(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_80081DC8(void *arg0) {
+void freeze_shell_update(void *arg0) {
     s32 temp_r0;
     u32 var_r3;
     u16 id = M2C_FIELD(arg0, u16 *, 0x358);
@@ -158,10 +158,10 @@ void TObjPlayer__sub_80081DC8(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x334);
     switch (temp_r0) {
     case 0:
-        TObjPlayer__sub_80081CD0((u8 *)(arg0));
+        freeze_shell_grow((u8 *)(arg0));
         return;
     case 1:
-        TObjFish__sub_80081BB0((void *)(arg0));
+        freeze_shell_hold((void *)(arg0));
         return;
     case 2:
         fn_80081B7C(arg0);

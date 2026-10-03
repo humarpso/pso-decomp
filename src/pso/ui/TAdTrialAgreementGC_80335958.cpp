@@ -72,7 +72,7 @@ extern RecoveredGlobal_80335A58_lbl_8050E3B8 lbl_8050E3B8;
 extern const f32 lbl_805DF8B4;
 extern const f32 lbl_805DF8B8;
 extern const f32 lbl_805DF8BC;
-void TAdTrialAgreementGC__sub_80335974(u8 *arg0);
+void update_title_prompt__19TAdTrialAgreementGCFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -94,7 +94,7 @@ typedef char RecoveredGlobal_80335A58_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 
 typedef struct RecoveredGlobal_80335974_lbl_8050E208 RecoveredGlobal_80335974_lbl_8050E208;
 typedef struct RecoveredGlobal_80335974_lbl_8050E3B8 RecoveredGlobal_80335974_lbl_8050E3B8;
-void TAdTrialAgreementGC__sub_80335974(u8 *arg0) {
+void update_title_prompt__19TAdTrialAgreementGCFPv(u8 *arg0) {
   float new_var;
   if ((TWindowShortListCtrl__check_controller_button((int)((void *) (((u8 *) (&(*(RecoveredGlobal_80335974_lbl_8050E3B8 *)&lbl_8050E3B8).value)) + 0x20)), (int)((int) 8)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&(*(RecoveredGlobal_80335974_lbl_8050E208 *)&lbl_8050E208).value)) + 0x160), (int) 4) != 0))
   {
@@ -179,7 +179,7 @@ void run_state__19TAdTrialAgreementGCFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     switch (temp_r0) {
     case 0:
-        TAdTrialAgreementGC__sub_80335974((u8 *)(arg0));
+        update_title_prompt__19TAdTrialAgreementGCFPv((u8 *)(arg0));
         break;
     case 1:
         TAdTrialAgreementGC__sub_80335A58((u8 *)(arg0));

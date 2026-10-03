@@ -59,7 +59,7 @@ M2C_UNK TObjPlayer__sub_801012DC(void *, s32);
 s32 check_feed_state__8TItemMagFPvi(void *, s32);
 void TItemMag__sub_80112DB4(u8 *arg0, s32 arg1);
 s32 get_status_flag__8TItemMagFPv(void *);
-s32 TLobby__sub_80293080();
+s32 is_challenge_mode_active();
 extern const f32 TItemMag__data_805DABA4;
 void request_support_action__8TItemMagFPvi(void *arg0, s32 arg1);
 }
@@ -224,7 +224,7 @@ void TItemMag__sub_80112DB4(u8 *arg0, s32 arg1) {
 }
 
 void request_support_action__8TItemMagFPvi(void *arg0, s32 arg1) {
-    if ((is_flag_set__6TLobbyFv() != 0 || TLobby__sub_80293080() != 0) && (arg1 == 7 || arg1 == 6)) {
+    if ((is_flag_set__6TLobbyFv() != 0 || is_challenge_mode_active() != 0) && (arg1 == 7 || arg1 == 6)) {
         return;
     }
     if (TCameraCtrl__sub_8006B368() != 0 && arg1 == 7) {

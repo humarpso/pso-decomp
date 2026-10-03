@@ -14,7 +14,7 @@ struct VObj_8010FA4C_8010F9EC : Base_8010FA4C_8010F9EC {
 
 void reset_ring_state__9TItemLoadFPv(u8 *arg0);
 void update_state__9TItemLoadFPv(void *arg0);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 M2C_UNK advance_load_state__9TItemLoadFPv();
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK clear_id__10TObjPlayerFPv(void *);
@@ -23,7 +23,7 @@ M2C_UNK update_ring__9TItemLoadFi();
 extern s32 lbl_805D5498;
 
 void reset_ring_state__9TItemLoadFPv(u8 *arg0) {
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x1C, 4) != 0) {
+    if (test_flags_any(arg0 + 0x1C, 4) != 0) {
         lbl_805D5498 = 0;
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x1C, 4);
     }

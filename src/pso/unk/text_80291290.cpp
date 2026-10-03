@@ -17,9 +17,9 @@ extern const f32 lbl_805DD980;
 extern const f32 lbl_805DD984;
 extern const f32 lbl_805DD988;
 extern const f32 lbl_805DD98C;
-void fn_802912C4(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 M2C_UNK TCameraCtrl__sub_800695A0(void *);
-M2C_UNK fn_802911E8(f32);
+M2C_UNK set_creation_projection_center(f32);
 extern RecoveredGlobal_80291290_lbl_804DAA78 lbl_804DAA78;
 extern const f32 lbl_805DD978;
 void fn_80291290(void);
@@ -30,10 +30,10 @@ extern "C" {
 typedef char RecoveredGlobal_80291290_lbl_804DAA78_size[sizeof(RecoveredGlobal_80291290_lbl_804DAA78) == 0x90 ? 1 : -1];
 void fn_80291290(void) {
     TCameraCtrl__sub_800695A0((void *) ((u8 *)&lbl_804DAA78.value + 0x48));
-    fn_802911E8((f32) (lbl_805DD978));
+    set_creation_projection_center((f32) (lbl_805DD978));
 }
 
-void fn_802912C4(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     f32 temp_f0;
     f32 temp_f0_10;
     f32 temp_f0_2;

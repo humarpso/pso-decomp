@@ -48,7 +48,7 @@ s32 fn_80242F0C(s32);
 void PADControlMotor(s32, u32);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 extern Pt_80243070 lbl_80518700[];
-void TAdSinglePlyChrSelectGC__sub_802430F4(void);
+void update_pad_rumble(void);
 }
 
 extern "C" {
@@ -109,7 +109,7 @@ void TAdSinglePlyChrSelectGC__sub_80243070(s16 arg0) {
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void) {
     return &lbl_80518580.value;
 }
-void TAdSinglePlyChrSelectGC__sub_802430F4(void) {
+void update_pad_rumble(void) {
     s32 j;
     s32 t;
     Ent_802430F4 *p;

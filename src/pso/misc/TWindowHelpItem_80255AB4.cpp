@@ -71,7 +71,7 @@ void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 fn_80244994(void *);
 M2C_UNK fn_80263A20(void *, s16);
-M2C_UNK fn_8026C9C8(s32);
+M2C_UNK decay_page_arrow_offset(s32);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
 s16 get_item_type__20TWindowSubStatusDispFPv(void* p);
 s16 get_stat__20TWindowSubStatusDispFPv(void* p);
@@ -122,7 +122,7 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
                 TWindowHelpItem__sub_80255440(arg0);
             }
         } else {
-            fn_8026C9C8(M2C_FIELD(arg0, s32 *, 0x64));
+            decay_page_arrow_offset(M2C_FIELD(arg0, s32 *, 0x64));
         }
         TWindowHelpItem__sub_802553F8(arg0);
     }

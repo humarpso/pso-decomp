@@ -50,7 +50,7 @@ extern const f32 lbl_805D2900;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
 void run_task__12TEffCliticalFv(u8 *arg0);
-void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK fn_80082954(void *);
 M2C_UNK fn_800829E0(void *);
 M2C_UNK set_depth_buffer_settings_1__Fv();
@@ -76,7 +76,7 @@ void render__12TEffCliticalFv(u8 *arg0);
 
 extern "C" {
 
-void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void *__ct__12TEffCliticalFv(void *arg0, void *arg1);
 void create__12TEffCliticalFPv(void *arg0);
 void __ct__7TEffectFv(void *);
@@ -97,7 +97,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     M2C_UNK sp8;
     s32 temp_r3;
     set_depth_buffer_settings_1__Fv();
-    TEffClitical__sub_80082674((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (lbl_804CC934)), (s32)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x70) + 1)));
+    init_texture_copy_rect((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (lbl_804CC934)), (s32)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x70) + 1)));
     temp_r3 = some_id_805c6f74;
     lbl_805D5660 = temp_r3;
     some_id_805c6f74 = temp_r3 | 0x10;
@@ -205,7 +205,7 @@ void create__12TEffCliticalFPv(void *arg0) {
     }
 }
 
-void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0) = arg2;
     M2C_FIELD(arg0, s32 *, 4) = arg1;
     M2C_FIELD(arg0, s32 *, 8) = arg4;

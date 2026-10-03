@@ -45,7 +45,7 @@ int TFontSmallLobby__sub_801C0228(void*);
 s32 TLobby__send_and_handle_60(s32);
 s32 TLobby__sub_801E44D8(s32, s32);
 s32 TLobby__sub_801E4534(s32);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 int __dl__FPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);

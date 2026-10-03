@@ -50,9 +50,9 @@ int is_active__8TItemMagFPv(void* p);
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
 void set_flags__8TItemMagFPvUi(void* p, u32 v);
 int test_flags__8TItemMagFPvUi(void* p, u32 m);
-int TItemData__sub_8010EE40(void*);
+int get_mag_mind_level__9TItemDataFPv(void*);
 s32 TItemMag__sub_801143E8(s32, s32);
-int TObjPlayer__sub_8001BEF8(void*, int);
+int test_flags_any(void*, int);
 s16 TObjPlayer__sub_80113D90(void* p);
 int get_level__9TItemDataFPv(void*);
 s16 get_mag_data__10TObjPlayerFPv(void* p);
@@ -103,7 +103,7 @@ void init_feed_timer__8TItemMagFPv(void *arg0) {
 
 s32 get_mag_id__8TItemMagFPv(void* p) { return *(s32*)((char*)p + 0x0); }
 f32 get_stat_f32__8TItemMagFPv(void* p) { return *(f32*)((char*)p + 0x8); }
-int check_state_flag_1__8TItemMagFPv(void* p) { return TObjPlayer__sub_8001BEF8((char*)p + 0x4, 1); }
+int check_state_flag_1__8TItemMagFPv(void* p) { return test_flags_any((char*)p + 0x4, 1); }
 void clear_feed_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) &= ~v; }
 void set_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) |= v; }
 int test_flags__8TItemMagFPvUi(void* p, u32 m) { return *(u32*)((char*)p + 0x4) & m; }

@@ -74,7 +74,7 @@ extern char lbl_804400D4[];
 extern char lbl_804400E0[];
 extern char lbl_805DB268;
 void TObjFogCollision__vt12(O_80153D98 *arg0);
-M2C_UNK TObjFogCollisionPoison__sub_801531EC(s32, s32, u8);
+M2C_UNK record_fog_collision_hit(s32, s32, u8);
 s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1);
 int TObjFogCollision__sub_80153F68(void * _w0);
 int TObjFogCollision__sub_80153F70(void);
@@ -167,7 +167,7 @@ void run_task__16TObjFogCollisionFv(void *arg0) {
     if (TObjFogCollision__sub_80153F70() == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
         for (i = 0; i != 4; i++) {
             if (check_collision__16TObjFogCollisionFPvUs((u8 *)arg0, i) != 0) {
-                TObjFogCollisionPoison__sub_801531EC(i, M2C_FIELD(arg0, s32 *, 0x84), M2C_FIELD(arg0, s32 *, 0x88) == 0);
+                record_fog_collision_hit(i, M2C_FIELD(arg0, s32 *, 0x84), M2C_FIELD(arg0, s32 *, 0x88) == 0);
             }
         }
     }

@@ -44,7 +44,7 @@ extern u32 TScene__data_805D5FD0;
 u8 *TScene__ct(u8 *arg0, s32 arg1);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
-s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
+s32 *load_relocatable_file(M2C_UNK *, u32);
 s32 strncmp(M2C_UNK, s32, M2C_UNK);
 extern u8 lbl_8044A948[];
 extern Ent_802066BC TScene__data_804C8B08[];
@@ -123,7 +123,7 @@ extern u32 TScene__data_805D6028;
 extern s32 lbl_805D602C;
 extern const f32 TScene__data_805DC5D8;
 void TScene__sub_80207038(void);
-s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
+s32 *load_relocatable_file(M2C_UNK *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 M2C_UNK collect_collision_groups(u32, s32);
@@ -151,7 +151,7 @@ void create__6TSceneFv(void);
 void load_file_to_buffer__6TSceneFi(s32 arg0);
 void load_map_texture_archive__6TSceneFi(s32 arg0);
 void load_scene_data__6TSceneFi(s32 arg0);
-s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
+s32 *load_relocatable_file(M2C_UNK *, u32);
 M2C_UNK read_disc_file(char *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK TScene__sub_80205AE8(M2C_UNK *);
@@ -230,7 +230,7 @@ void TScene__sub_802066BC(s32 arg0) {
     TScene__data_805D5FE8 = -1;
     TLobby__sub_801317E4((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A948);
     if (update_lobby_scene__6TSceneFPv((char *)sp8) <= TScene__data_805D6010 && TScene__data_805D5FFC != 0) {
-        TScene__data_805D5FCC = TItemDrop__sub_800F94BC((M2C_UNK *)sp8, TScene__data_805D5FFC);
+        TScene__data_805D5FCC = load_relocatable_file((M2C_UNK *)sp8, TScene__data_805D5FFC);
     }
     if (TScene__data_805D5FCC != NULL) {
         for (e = TScene__data_804C8B08; e->name != NULL; e++) {
@@ -247,7 +247,7 @@ void load_scene_collision_file(s32 arg0) {
     TLobby__sub_801317E4((M2C_UNK *)&sp8, arg0, lbl_8044A950);
     if (update_lobby_scene__6TSceneFPv((char *)&sp8) <= lbl_805D6014) {
         if (TScene__data_805D6000 != 0U) {
-            lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, TScene__data_805D6000);
+            lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, TScene__data_805D6000);
             if (lbl_805D4E68 != NULL && get_map_count__10TObjMapCsnFv() != 0U) {
                 u32 csn = get_map_count__10TObjMapCsnFv();
                 collect_collision_groups(csn, *lbl_805D4E68);
@@ -447,7 +447,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x10000);
             TScene__data_805D6000 = temp_r3;
             if (temp_r3 != 0U) {
-                lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, temp_r3);
+                lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, temp_r3);
                 lbl_805D6014 = 0x10000;
             }
         }
@@ -455,7 +455,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
         temp_r3_2 = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         TScene__data_805D6000 = temp_r3_2;
         if (temp_r3_2 != 0U) {
-            lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, temp_r3_2);
+            lbl_805D4E68 = load_relocatable_file((M2C_UNK *)&sp8, temp_r3_2);
             lbl_805D6014 = temp_r31;
         }
     }

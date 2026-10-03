@@ -53,7 +53,7 @@ extern u32 lbl_805D5C40;
 extern u32 lbl_805D5C44;
 extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
-void TMotorcycle__sub_801950B8(void);
+void load_resources__11TMotorcycleFv(void);
 f32 get_random_float__8TObjFishFv(f32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -125,7 +125,7 @@ void free_statics__11TMotorcycleFv(void) {
 
 extern M2C_UNK __vt__11TMotorcycle[];
 
-void TMotorcycle__sub_801950B8(void) {
+void load_resources__11TMotorcycleFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

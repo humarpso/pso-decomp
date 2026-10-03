@@ -7,12 +7,12 @@ extern "C" {
 u8 * init_vtable_804A1F20__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_80124068(u8 *arg0);
+u8 *create_delsabers_buster_weapon(u8 *arg0);
 }
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80124068(u8 *arg0) {
+u8 *create_delsabers_buster_weapon(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

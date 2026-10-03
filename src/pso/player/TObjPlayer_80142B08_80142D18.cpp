@@ -23,7 +23,7 @@ void clear_next_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     M2C_FIELD(lbl_805D5684, s32 *, 0) = 0;
 }
 
-extern M2C_UNK TObjPlayer__sub_80142EEC[];
+extern M2C_UNK save_joint_matrix_callback[];
 extern s32 lbl_805D567C;
 
 s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -32,7 +32,7 @@ s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2,
     }
     set_global_flag__10TObjPlayerFv();
     lbl_805D567C = arg2;
-    set_global_state__16TObjEneRe7BeruraFi(TObjPlayer__sub_80142EEC);
+    set_global_state__16TObjEneRe7BeruraFi(save_joint_matrix_callback);
     render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, u32 *, 0x34), arg1, farg0);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
     clear_global_state__10TObjPlayerFv();

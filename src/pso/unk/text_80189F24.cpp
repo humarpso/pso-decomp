@@ -229,7 +229,7 @@ extern f32 lbl_805DBCF4;
 f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
-void TObjPlayer__sub_80189F24(Obj_80189F24 *self);
+void render__17TObjContainerBaseFPv(Obj_80189F24 *self);
 }
 
 extern "C" {
@@ -239,7 +239,7 @@ f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *
 extern f32 lbl_805DBCF0;
 extern f32 lbl_805DBCF4;
 
-void TObjPlayer__sub_80189F24(Obj_80189F24 *self) {
+void render__17TObjContainerBaseFPv(Obj_80189F24 *self) {
     if (self->m8(self->x334, self->x338) != 1) {
         return;
     }

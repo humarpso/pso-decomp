@@ -10,7 +10,7 @@ void *TObjPlayer__sub_8012C950(void *arg0, s16 arg1);
 void update_rico_ring__10TObjPlayerFUi(u32 arg0);
 s32 get_hp_by_flag__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(s32, M2C_UNK);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
 
@@ -34,7 +34,7 @@ void update_rico_ring__10TObjPlayerFUi(u32 arg0) {
 }
 
 s32 get_hp_by_flag__10TObjPlayerFPv(u8 *arg0) {
-    if (TObjPlayer__sub_8001BEF8(arg0 + 0x1F8, 4) != 0) {
+    if (test_flags_any(arg0 + 0x1F8, 4) != 0) {
         return M2C_FIELD(arg0, s32 *, 0x188);
     }
     return M2C_FIELD(arg0, s32 *, 0x184);

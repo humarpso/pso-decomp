@@ -34,15 +34,15 @@ int TObjPlayer__sub_8001943C(ObjArr254* p, int i);
 void TObjPlayer__sub_800193FC(O_800193FC *self, s32 i, s32 v);
 void TObjPlayer__sub_8001940C(O_8001940C *self, s32 i, s32 v);
 void TObjPlayer__sub_8001941C(O_8001941C *self, s32 i, f32 v);
-s32 TObjPlayer__sub_800194AC(O_800194AC *self, s32 i, s32 v);
+s32 add_status_effect_timer__10TObjPlayerFPvii(O_800194AC *self, s32 i, s32 v);
 }
 
 extern "C" {
 
-s16 TObjPlayer__sub_8001944C(void* p);
+s16 get_ata__10TObjPlayerFPv(void* p);
 s16 TObjPlayer__sub_800194C4(void* p);
 s16 TObjPlayer__sub_800194E8(void* p);
-s16 TObjPlayer__sub_800194F0(void* p);
+s16 get_stats_atp_max__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8001951C(void* p);
 void TObjPlayer__sub_80019568(void* p, s16 v);
 void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v);
@@ -85,19 +85,19 @@ int TObjPlayer__sub_8001943C(ObjArr254* p, int i) {
 #pragma scheduling off
 #pragma pop
 
-s16 TObjPlayer__sub_8001944C(void* p) { return *(s16*)((char*)p + 0x2d0); }
+s16 get_ata__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2d0); }
 s32 update_field_318__10TObjPlayerFPv(void* p) { return get_field_0c__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }
 s32 get_field_0c__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0xc); }
 f32 get_target_value__10TObjPlayerFPv(void* p) { return get_pos_x__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }
 f32 get_pos_x__10TObjPlayerFPv(void* p) { return *(f32*)((char*)p + 0x8); }
 
-s32 TObjPlayer__sub_800194AC(O_800194AC *self, s32 i, s32 v) {
+s32 add_status_effect_timer__10TObjPlayerFPvii(O_800194AC *self, s32 i, s32 v) {
     return self->recs[i].c += v;
 }
 
 s16 TObjPlayer__sub_800194C4(void* p) { return TObjPlayer__sub_800194E8((void*)(*(void**)((char*)p + 0x318))); }
 s16 TObjPlayer__sub_800194E8(void* p) { return *(s16*)((char*)p + 0x4); }
-s16 TObjPlayer__sub_800194F0(void* p) { return get_level__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }
+s16 get_stats_atp_max__10TObjPlayerFPv(void* p) { return get_level__10TObjPlayerFPv((void*)(*(void**)((char*)p + 0x318))); }
 s16 get_level__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
 void TObjPlayer__sub_8001951C(void* p) { *(s16*)((char*)p + 0x11c) = 0; }
 void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x2e4) |= v; }

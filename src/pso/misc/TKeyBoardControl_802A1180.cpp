@@ -11,7 +11,7 @@ struct RecoveredGlobal_802A1180_main_task {
 
 extern "C" {
 M2C_UNK TKeyBoardControl__sub_8000F92C();
-M2C_UNK TKeyBoardControl__sub_8000F9B0();
+M2C_UNK request_queued_main_phase();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
@@ -27,7 +27,7 @@ M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_802A1180_main_task main_task;
 extern s8 lbl_805D6638;
-void TKeyBoardControl__sub_802A1180(void);
+void update_movie_phase(void);
 extern s8 lbl_805D6638;
 void TKeyBoardControl__sub_802A12C0(void);
 void __dl__7TObjectFPv(void *);
@@ -56,7 +56,7 @@ extern s8 lbl_805D6638;
 extern u8 lbl_805D6639;
 
 typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A1180_main_task) == 0x34 ? 1 : -1];
-void TKeyBoardControl__sub_802A1180(void) {
+void update_movie_phase(void) {
     M2C_UNK *var_r3;
     controller_stuff__Fv();
     TKeyBoardControl__sub_801A5EC4();
@@ -76,7 +76,7 @@ void TKeyBoardControl__sub_802A1180(void) {
     update_sound_request_slots();
     noop__23TAdSinglePlyChrSelectGCFv();
     if ((s32) (*(u8 *)&lbl_805D6638) == 1) {
-        TKeyBoardControl__sub_8000F9B0();
+        request_queued_main_phase();
     }
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();

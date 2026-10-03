@@ -24,7 +24,7 @@ struct Vec_8023F22C { f32 x, y, z; };
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 free_heap__13TParticleCtrlFv();
-s32 TLobby__sub_800F9B84();
+s32 clear_resource_load_tasks();
 s32 TLobby__sub_800FD6A0(void *, int);
 s32 render_tick__Fv();
 s32 TLobby__sub_8022743C();
@@ -40,11 +40,11 @@ void TCameraCtrl__sub_8006A5EC(s32);
 void TCameraCtrl__ct(void *, void *);
 void init_heap__13TParticleCtrlFPv(s32);
 void reset_keyboard_state__6TLobbyFv(void);
-s32 TLobby__sub_800F8AE8(void);
+s32 is_area_transfer_pending(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 void TLobby__sub_800F8B20(void);
 void invoke_callback__6TLobbyFv(void);
-s32 TLobby__sub_800F9B84();
+s32 clear_resource_load_tasks();
 void TLobby__sub_800FD6F8(void *, s32);
 void TObjLight__sub_80133A04(void *, s32);
 void TKeyBoardControl__sub_801A66B8(void);
@@ -85,7 +85,7 @@ void TLobby__sub_8023F1B8(void) {
     TLobby__sub_800FD6A0((void *) (&lbl_804CCE60.value), (int) (0x38));
     TLobby__sub_800FD6A0((void *) (&lbl_804CCDA8.value), (int) (0xB8));
     free_heap__13TParticleCtrlFv();
-    TLobby__sub_800F9B84();
+    clear_resource_load_tasks();
     render_tick__Fv();
 }
 void TObjLight__sub_8023F22C(void) {
@@ -97,18 +97,18 @@ void TObjLight__sub_8023F22C(void) {
     for (i = 0; i < 0x80; i++) {
     }
     TKeyBoardControl__sub_801A66B8();
-    TLobby__sub_800F9B84();
+    clear_resource_load_tasks();
     reset_keyboard_state__6TLobbyFv();
     TLobby__sub_800F8B20();
     TLobby__sub_800FD6F8(&lbl_804CCDA8.value, 0xb8);
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
         reset_keyboard_state__6TLobbyFv();
         return;
     }
     TLobby__sub_800FD6F8(&lbl_804CCE60.value, 0x38);
-    if (TLobby__sub_800F8AE8() != 0) {
+    if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
         reset_keyboard_state__6TLobbyFv();

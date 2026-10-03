@@ -32,8 +32,8 @@ struct Sora_8029EFFC {
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-M2C_UNK TCameraCtrl__sub_80082FCC(void *, void *);
-f64 TObjPlayer__sub_80083A50();
+M2C_UNK calc_projection_screen_offset(void *, void *);
+f64 calc_camera_fov_degrees();
 M2C_UNK fn_8029F5B0(int, int, int, int);
 M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
@@ -121,10 +121,10 @@ void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
     f32 sp8;
     f32 temp_f31;
     if (((u32) lbl_805D4DF0 != 0U) && ((u32) lbl_805D65F0 != 0U)) {
-        TCameraCtrl__sub_80082FCC((void *) (&spC), (void *) (&sp8));
+        calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
         if (arg2 & 0x80) {
             TObjPlayer__sub_803D9B2C();
-            temp_f31 = (f32) (lbl_80465E18 * TObjPlayer__sub_80083A50());
+            temp_f31 = (f32) (lbl_80465E18 * calc_camera_fov_degrees());
             if (TCameraCtrl__sub_800689F4() != 0) {
                 C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DDDA0), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA8), (f32) (lbl_805DDDA4 - spC), (f32) (lbl_805DDDA4 - sp8));
             } else {

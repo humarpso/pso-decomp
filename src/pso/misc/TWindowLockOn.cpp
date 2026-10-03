@@ -53,7 +53,7 @@ void validate_target__13TWindowLockOnFPv(void *);
 void run_task__13TWindowLockOnFv(Win_8026385C *w);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
-void TWindowSubStatusDisp__sub_80258F34(void *, void *, s32);
+void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void TWindowSubStatusDisp__sub_8025930C(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 calc_display_grade__5TItemFPv(void *);
@@ -121,7 +121,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     TWindowSubStatusDisp__sub_80257D44(arg0->sub, lbl_804D00DC, arg0->player);
     arg0->cb = lbl_804D0288;
     e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    TWindowSubStatusDisp__sub_80258F34(e, item, 0);
+    init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);
     TWindowSubStatusDisp__sub_8025930C(e);
     e->y = lbl_805DD114;
     if (e->kind != 0x33) {

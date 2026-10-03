@@ -406,7 +406,7 @@ void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1);
 M2C_UNK TBoss1Dragon__sub_80027A80(void *, void *);
 M2C_UNK TBoss8Dragon__sub_80064C94(void *, void *);
 M2C_UNK TBoss8Dragon__sub_80067074(void *, void *);
-M2C_UNK TObjEneDD__sub_800BA498(void *, void *);
+M2C_UNK emit_effect_at_position__9TObjEneDDFPvPv(void *, void *);
 extern RecoveredGlobal_800646F0_lbl_80437944 lbl_80437944;
 extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
 void TBoss8Dragon__sub_800646F0(s32 arg0);
@@ -420,7 +420,7 @@ extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
 extern const f32 lbl_805D8DD0;
 extern const f32 lbl_805D8EAC;
 void TBoss8Dragon__sub_8006435C(u8 *arg0);
-s32 TObjEneDD__sub_800B9E84(void *, int, int, int);
+s32 reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, int, int, int);
 extern RecoveredGlobal_80064CFC_lbl_80487848 lbl_80487848;
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
 extern M2C_UNK lbl_805D4D98;
@@ -825,7 +825,7 @@ void TBoss8Dragon__sub_800646F0(s32 arg0) {
     stack.sp10 = M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8), f32 *, 0x10);
     TBoss8Dragon__sub_80064C94((void *) (arg0), (void *) (M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8)));
     TBoss8Dragon__sub_80067074((void *) (arg0 + 0x38), (void *) (&stack.sp8));
-    TObjEneDD__sub_800BA498((void *) (arg0), (void *) (&stack.sp8));
+    emit_effect_at_position__9TObjEneDDFPvPv((void *) (arg0), (void *) (&stack.sp8));
     TBoss8Dragon__sub_80064CFC((s32)((void *) (arg0)));
 }
 
@@ -948,7 +948,7 @@ void handle_6x9F_gal_gryphon_boss_actions(void *arg0) {
 typedef char RecoveredGlobal_80064CFC_lbl_80487848_size[sizeof(RecoveredGlobal_80064CFC_lbl_80487848) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80064CFC_lbl_804FF5A0_size[sizeof(RecoveredGlobal_80064CFC_lbl_804FF5A0) == 0x14 ? 1 : -1];
 void TBoss8Dragon__sub_80064CFC(s32 arg0) {
-    TObjEneDD__sub_800B9E84((void *) (arg0), (int) (M2C_FIELD(&lbl_805D4D98, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x48) * 4))), (int) (M2C_FIELD(&(*(RecoveredGlobal_80064CFC_lbl_804FF5A0 *)&lbl_804FF5A0).value, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x54) * 4))), (int) (M2C_FIELD(&lbl_805D4D9C, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x60) * 4))));
+    reload_stats_keep_hp_tp__9TObjEneDDFPv((void *) (arg0), (int) (M2C_FIELD(&lbl_805D4D98, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x48) * 4))), (int) (M2C_FIELD(&(*(RecoveredGlobal_80064CFC_lbl_804FF5A0 *)&lbl_804FF5A0).value, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x54) * 4))), (int) (M2C_FIELD(&lbl_805D4D9C, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x60) * 4))));
 }
 
 void reset_radius__12TBoss8DragonFPv(void* a0) { *(float*)((char*)a0 + 0x3c) = lbl_805D8EC4; }

@@ -14,7 +14,7 @@ M2C_UNK render_model_tree__12TBoss8DragonFPvPv(u32, u32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
 
-extern M2C_UNK TObjPlayer__sub_80142EEC[];
+extern M2C_UNK save_joint_matrix_callback[];
 extern s32 lbl_805D5678;
 extern s32 lbl_805D567C;
 
@@ -24,7 +24,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     }
     set_global_flag__10TObjPlayerFv();
     lbl_805D567C = lbl_805D5678;
-    set_global_state__16TObjEneRe7BeruraFi(TObjPlayer__sub_80142EEC);
+    set_global_state__16TObjEneRe7BeruraFi(save_joint_matrix_callback);
     render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, u32 *, 0x34), M2C_FIELD(arg0, u32 *, 0xF8), farg0);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
     clear_global_state__10TObjPlayerFv();

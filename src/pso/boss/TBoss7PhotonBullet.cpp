@@ -111,7 +111,7 @@ void TObjFish__sub_802ED62C(u8 *arg0, s32 arg1);
 s32 register_object__6TLobbyFPv(M2C_UNK);
 s32 dispatch_shared_handler_b__6TLobbyFPv(M2C_UNK);
 s32 register_boss__6TLobbyFPv(M2C_UNK);
-M2C_UNK TObjEneDD__sub_800B9E84(void *, s32, s32, s32);
+M2C_UNK reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
 void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_local_colliders_from_world(void *, void *);
@@ -160,7 +160,7 @@ void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1) {
         v = 0x11;
         break;
     }
-    TObjEneDD__sub_800B9E84(arg0, register_boss__6TLobbyFPv(0xF), dispatch_shared_handler_b__6TLobbyFPv(v), register_object__6TLobbyFPv(0xF));
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, register_boss__6TLobbyFPv(0xF), dispatch_shared_handler_b__6TLobbyFPv(v), register_object__6TLobbyFPv(0xF));
 }
 
 void TObjFish__sub_802ED62C(u8 *arg0, s32 arg1) {

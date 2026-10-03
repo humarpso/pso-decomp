@@ -17,7 +17,7 @@ s32 obj_getField1c(void *);
 void TObjPlayer__sub_801C0D7C(void *);
 void TObjPlayer__sub_801C0D9C(void *);
 void fn_801B7E14(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK TItem__sub_801005EC(s32, s32);
+M2C_UNK feed_item_to_mag(s32, s32);
 u8 *get_player_by_client_id(u16);
 M2C_UNK bswap_body_dwords2__10TObjPlayerFi(void *);
 M2C_UNK copy_pair_fields2__10TObjPlayerFPvPv(void *, void *);
@@ -45,7 +45,7 @@ void handle_6x28_feed_mag(s32 arg0) {
             if (a != 0 && start_inventory_update__10TObjPlayerFPvi(M2C_FIELD(p, s32 *, 0xD00), cmd.item_b) != 0U) {
                 b = get_owner_if_alive__10TObjPlayerFPv();
                 if (b != 0) {
-                    TItem__sub_801005EC(a, b);
+                    feed_item_to_mag(a, b);
                 }
             }
         }

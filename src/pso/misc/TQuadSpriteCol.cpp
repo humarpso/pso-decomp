@@ -55,7 +55,7 @@ s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
-s32 TWindowKeyBoardSoft__sub_803DF1B0(int);
+s32 set_constant_material_color(int);
 extern Cam_801E4FF0 lbl_8058D4F8;
 extern const f32 lbl_805DC450;
 extern const f32 lbl_805DC454;
@@ -131,7 +131,7 @@ void render__14TQuadSpriteColFv(Self_801E4FF0 *self) {
                 VecCopy__FP3VecPC3Vec(&out, &pos);
             }
             if (out.z >= one || (s32)n->type == 1) {
-                TWindowKeyBoardSoft__sub_803DF1B0(n->tex);
+                set_constant_material_color(n->tex);
                 if ((s32)n->type != 1) {
                     d = lbl_805DC454 / -out.z;
                     sx = sh * d;

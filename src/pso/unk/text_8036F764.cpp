@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK memmove(s32, s32, M2C_UNK);
-s32 fn_8036F7A8(void *arg0);
+s32 prs_next_output_byte(void *arg0);
 u8 fn_8036F764(u8 *arg0, u32 arg1);
 }
 
@@ -26,7 +26,7 @@ u8 fn_8036F764(u8 *arg0, u32 arg1) {
     return M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x10) + temp_r4), u8 *, 0);
 }
 
-s32 fn_8036F7A8(void *arg0) {
+s32 prs_next_output_byte(void *arg0) {
   u32 temp_r3;
   if ((((u32) (*((u32 *) (((s8 *) arg0) + 0x1C)))) >= 0x17FFU) != 0)
   {

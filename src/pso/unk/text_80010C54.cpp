@@ -10,10 +10,10 @@ struct Pkt_80010C54 {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_80010C04(u16);
+s32 is_entity_locally_controlled(u16);
 M2C_UNK try_spend_actor_meseta(s32, s32);
 M2C_UNK add_actor_tp(s32, s16);
-M2C_UNK TObjPlayer__sub_800112D4(s32, s16);
+M2C_UNK subtract_actor_tp(s32, s16);
 M2C_UNK add_actor_hp(s32, s16);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 M2C_UNK spawn_recovery_effect__10TObjPlayerFPv(s32);
@@ -47,7 +47,7 @@ void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt) {
     case 0: {
         v = amount;
         TObjectV8047c128_subtract_hp(player, v);
-        if (TObjPlayer__sub_80010C04(pkt->target) != 0) {
+        if (is_entity_locally_controlled(pkt->target) != 0) {
             draw_hp_label(player, player + 0x2FC, 0xA, v);
         } else {
             draw_hp_label(player, player + 0x2FC, 0xA, -amount);
@@ -56,8 +56,8 @@ void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt) {
     }
     case 1: {
         v = amount;
-        TObjPlayer__sub_800112D4(player, v);
-        if (TObjPlayer__sub_80010C04(pkt->target) != 0) {
+        subtract_actor_tp(player, v);
+        if (is_entity_locally_controlled(pkt->target) != 0) {
             show_tp_font(player, player + 0x2FC, 0xA, v);
         } else {
             show_tp_font(player, player + 0x2FC, 0xA, -amount);

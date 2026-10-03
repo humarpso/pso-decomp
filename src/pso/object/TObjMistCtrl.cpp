@@ -52,7 +52,7 @@ void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 void render__16TPlayerFootStampFv(u8 *arg0);
 int run_task__12TObjMistCtrlFv(void* p);
 f32 horizontal_distance_squared(void *, void *);
-M2C_UNK TParticleCtrl__sub_803DA7A8(int);
+M2C_UNK set_texture_num(int);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 M2C_UNK restore_saved_depth_alpha_state();
@@ -102,7 +102,7 @@ void render__16TPlayerFootStampFv(u8 *arg0) {
         lbl_805D5660 = some_id_805c6f74;
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (lbl_805D6710));
-        TParticleCtrl__sub_803DA7A8((int) (M2C_FIELD(arg0, s16 *, 0xBE)));
+        set_texture_num((int) (M2C_FIELD(arg0, s16 *, 0xBE)));
         set_depth_buffer_settings_1__Fv();
         fn_803E29B0((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         restore_saved_depth_alpha_state();

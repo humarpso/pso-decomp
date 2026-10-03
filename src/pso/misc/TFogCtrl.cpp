@@ -63,7 +63,7 @@ extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 TFogCtrl__data_80501188;
 u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1);
 void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
-void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
+void copy_fog_entry(u8 *arg0, u8 *arg1);
 void *get_entry__8TFogCtrlFi(int a0);
 extern const f32 TFogCtrl__data_805DA948;
 void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry);
@@ -154,7 +154,7 @@ void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry) {
     s32 k;
     Fog_800FB424 *f = self->fogs[i];
     f->entry = entry;
-    TFogCtrl__sub_800FAC90((u8 *)f, (u8 *)get_entry__8TFogCtrlFi(entry));
+    copy_fog_entry((u8 *)f, (u8 *)get_entry__8TFogCtrlFi(entry));
     f->f44 = TFogCtrl__data_805DA948;
     for (k = 0; k < 3; k++) {
         f->f48[k] = 0;

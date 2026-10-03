@@ -163,7 +163,7 @@ void *create__13TLazerFenceSwFPv(void *arg0);
 void *create__15TObjLazerFence4FPv(void *arg0);
 void run_task__13TLazerFenceSwFv(u8 *arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
-void TOKey__sub_8016A8D0(void *);
+void trigger_activate_sound__5TOKeyFPv(void *);
 M2C_UNK TOKey__sub_8016AAE0(void *);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
@@ -265,7 +265,7 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
 }
 
 void TLazerFenceSw__vt16(void *arg0) {
-    TOKey__sub_8016A8D0(arg0);
+    trigger_activate_sound__5TOKeyFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xB0) = TLazerFenceSw__data_805DBE84;
     M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
 }

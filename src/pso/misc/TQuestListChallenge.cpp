@@ -107,7 +107,7 @@ s32 obj_getField1c(s32);
 s32 TLobby__sub_80222C54(s32);
 void TLobby__sub_80266E34(u32);
 void add_list_entry__6TLobbyFPviii(u32, s32, s32, s32);
-s32 TShopJudgmentItemWindow__sub_8026DF00(s32, s32, s32);
+s32 create_item_list_window(s32, s32, s32);
 void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0);
 }
 
@@ -242,7 +242,7 @@ void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0) {
 
     if (arg0->obj->v8() != 0 && arg0->list == 0) {
         id = obj_getField1c(arg0->f24);
-        arg0->list = TShopJudgmentItemWindow__sub_8026DF00(TLobby__sub_80222C54(0), 0x40, id);
+        arg0->list = create_item_list_window(TLobby__sub_80222C54(0), 0x40, id);
         for (i = 0; i < arg0->count; i++) {
             e = ((s32 (*)(s32, s32))TLobby__sub_80222C28)(arg0->f50, arg0->entries[i].id);
             add_list_entry__6TLobbyFPviii(arg0->list, 0x2C, e, i);

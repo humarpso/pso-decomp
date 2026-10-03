@@ -101,7 +101,7 @@ struct Rec_80113B6C {
 
 extern "C" {
 M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
-int TItemData__sub_8010EE40(void*);
+int get_mag_mind_level__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
 int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
@@ -110,7 +110,7 @@ void TItemMag__vt12(s32 arg0);
 s32 obj_isState2_324(void *);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s32 get_flag_40__8TItemMagFPv(void *);
 M2C_UNK register_photon_blasts__8TItemMagFPv(void *);
 M2C_UNK request_support_action__8TItemMagFPvi(void *, int);
@@ -214,8 +214,8 @@ void set_flags64__8TItemMagFPvUi(void* p, u32 v);
 void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3);
 void update__8TItemMagFPv(void *arg0);
 M2C_UNK TItemData__sub_8010D510(s32, s32, s32);
-int TItemData__sub_8010EE40(void*);
-M2C_UNK TItemEquipBase__sub_8010B58C(s32, u8);
+int get_mag_mind_level__9TItemDataFPv(void*);
+M2C_UNK request_model_load__14TItemEquipBaseFPvi(s32, u8);
 int TItemMag__sub_80110F04(void*);
 M2C_UNK TItemMag__sub_80111758(void *, M2C_UNK);
 void TItemMag__sub_80113E3C(void* p);
@@ -308,7 +308,7 @@ void TItemMag__vt14(Self_80113310 *self) {
 int TItemMag__vt13(void* p) { return TItemMag__sub_80110F04(p); }
 
 void TItemMag__vt12(s32 arg0) {
-    if ((TItemMagSub__sub_8011455C((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)TItemData__sub_8010EE40((void*)((void *) (arg0 + 0x198)))) < 0)) {
+    if ((TItemMagSub__sub_8011455C((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0)) {
         refresh_if_current_player__20TWindowSubStatusDispFPv((void *) (arg0));
     }
 }
@@ -416,7 +416,7 @@ void TItemMag__vt42(u8 *arg0) {
     }
     M2C_FIELD(arg0, s16 *, 0x1DC) = obj_getS16_32C((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
     M2C_FIELD(arg0, s16 *, 0x1DE) = obj_getS16_32E((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
-    if (TObjPlayer__sub_8001BEF8((void *) (arg0 + 0x178), (int) (1)) != 0) {
+    if (test_flags_any((void *) (arg0 + 0x178), (int) (1)) != 0) {
         M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) & 0xFFFFFFDF);
     } else {
         M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x20);
@@ -446,7 +446,7 @@ void TItemMag__vt44(s32 arg0) {
     if (temp_r3 >= 0x42U) {
         var_r4 = 0x42;
     }
-    TItemEquipBase__sub_8010B58C(arg0, var_r4);
+    request_model_load__14TItemEquipBaseFPvi(arg0, var_r4);
 }
 
 extern M2C_UNK __vt__8TItemMag[];

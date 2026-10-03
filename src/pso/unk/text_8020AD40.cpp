@@ -24,7 +24,7 @@ struct Grp_8020AD40 { Sub_8020AD40 *subs; s32 count; };
 struct Rec_8020AD40 { u8 pad0[2]; s16 f2; u8 pad4[0x40]; };
 
 extern "C" {
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 M2C_UNK TLobby__sub_801A2514(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK load_area_enemy_set(int, int, int, int);
@@ -33,7 +33,7 @@ extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D614C;
 s32 TLobby__sub_8020AF0C(void);
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 M2C_UNK TLobby__sub_801A2528(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK TLobby__sub_8020B308();
@@ -119,7 +119,7 @@ s32 TLobby__sub_8020AF0C(void) {
     var_r31 = 0;
 loop_1:
     if ((get_floor_map_selection((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
-        if (TLobby__sub_800F8AE8() != 0) {
+        if (is_area_transfer_pending() != 0) {
             return 0;
         }
         load_area_enemy_set((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
@@ -141,7 +141,7 @@ s32 TLobby__sub_8020AFA4(void) {
     var_r31 = 0;
 loop_1:
     if ((get_floor_map_selection((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
-        if (TLobby__sub_800F8AE8() != 0) {
+        if (is_area_transfer_pending() != 0) {
             return 0;
         }
         load_area_object_set((s32)((int) (var_r31)), (s32)((int) (stack.sp8)), (s32)((int) (stack.spC)), (s32)((int) (stack.sp10)));

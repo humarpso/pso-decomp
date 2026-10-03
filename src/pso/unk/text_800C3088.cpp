@@ -612,7 +612,7 @@ M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK enemy_set_target_id(void *, u16);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
-u16 TBoss8Dragon__sub_800BB664(void *, f32);
+u16 enemy_find_nearest_player_in_range(void *, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK transition_enemy_state(void *, int);
 s32 tick_period_counter(void *, void *, int);
@@ -675,7 +675,7 @@ void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
                     idx = set_squared_value__9TObjEneDDFf(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
                 }
                 if (idx == 0xFFFF) {
-                    idx = TBoss8Dragon__sub_800BB664(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
+                    idx = enemy_find_nearest_player_in_range(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
                 }
                 if (idx != 0xFFFF) {
                     enemy_set_target_id(arg0, idx);

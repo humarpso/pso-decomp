@@ -95,14 +95,14 @@ void * TItemProArmor__sub_80116F68(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_material_item(u8 *arg0);
-void * TItemProArmor__sub_8011709C(void *arg0, void *arg1, void *arg2);
+void * construct_technique_disk_item(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_technique_disk_item(u8 *arg0);
 void * init__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProArmor__sub_801171F4(u8 *arg0);
+u8 *create_telepipe_item(u8 *arg0);
 s32 set_item_owner_technique_level(void *, void *, int);
 s32 get_slot_count__14TItemProShieldFPv(void *);
 s32 TItemObject__sub_80115D7C(void *);
@@ -112,7 +112,7 @@ void technique_disk_apply_use(s32 arg0);
 extern "C" {
 
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1);
-void TItemProArmor__sub_80117130(void *arg0);
+void apply_telepipe(void *arg0);
 void *TItemProArmor__sub_80117160(void *arg0, s16 arg1);
 s16 calc_scaled_offset__13TItemProArmorFv(void);
 int get_stat_value__13TItemProArmorFPv(void* p);
@@ -165,7 +165,7 @@ void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void *TItemProArmor__sub_8011709C(void *arg0, void * _w1, void * _w2) {
+void *construct_technique_disk_item(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FC90;
     return arg0;
@@ -178,14 +178,14 @@ u8 *create_technique_disk_item(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x104));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)TItemProArmor__sub_8011709C((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
+            var_r0 = (u8 *)(((u8 *)construct_technique_disk_item((void *)((void *)(temp_r3)), (void *)((void *)(tl_05)), (void *)((void *)(arg0)))));
         }
         return var_r0;
     }
     return NULL;
 }
 
-void TItemProArmor__sub_80117130(void *arg0) {
+void apply_telepipe(void *arg0) {
     TObjPlayer__sub_8022D27C(0xE, 0, M2C_FIELD(arg0, s32 *, 0xF0));
 }
 
@@ -210,7 +210,7 @@ void *init__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TItemProArmor__sub_801171F4(u8 *arg0) {
+u8 *create_telepipe_item(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

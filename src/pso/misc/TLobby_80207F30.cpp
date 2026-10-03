@@ -23,7 +23,7 @@ typedef void (*Fn_80207F80)();
 struct E_80207F80 { u32 a; Fn_80207F80 fn; };
 typedef void (*Fn_80208020)();
 struct E_80208020 { Fn_80208020 fn; u32 b; };
-s32 TLobby__sub_800F8AE8();
+s32 is_area_transfer_pending();
 extern E_80208020 *lbl_804BB118[];
 void TLobby__sub_80207F80(s32 arg0);
 s32 TLobby__sub_80208020(s32 arg0);
@@ -67,7 +67,7 @@ s32 TLobby__sub_80208020(s32 arg0) {
         return 1;
     }
     while ((f = p->fn) != 0) {
-        if (TLobby__sub_800F8AE8() != 0) {
+        if (is_area_transfer_pending() != 0) {
             return 0;
         }
         f();

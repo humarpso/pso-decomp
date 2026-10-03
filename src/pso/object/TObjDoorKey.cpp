@@ -69,7 +69,7 @@ extern u32 lbl_805D5BF8;
 extern s32 TObjDoorKey__data_805D5BFC;
 extern s16 lbl_805D5C00;
 extern s32 TObjDoorKey__data_805D5C04;
-void TObjDoorKey__sub_801901C8(void);
+void load_resources__11TObjDoorKeyFv(void);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
@@ -359,7 +359,7 @@ void free_key__11TObjDoorKeyFv(void) {
 
 extern void *tl_05;
 
-void TObjDoorKey__sub_801901C8(void) {
+void load_resources__11TObjDoorKeyFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
         r = TLobby__sub_80020004(r, 5, lbl_804B7920, 0, 0, 0);

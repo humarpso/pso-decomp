@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK TWindowSubStatusDisp__sub_80258F34(s32, s32, s32);
+M2C_UNK init_item_row__20TWindowSubStatusDispFPvPvi(s32, s32, s32);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -15,7 +15,7 @@ void add_list_entry__23TShopJudgmentItemWindowFPvii(void *arg0, s32 arg1, s32 ar
     if (arg1 != 0) {
         temp_r4 = (s16) M2C_FIELD(arg0, s16 *, 0x72);
         if (temp_r4 < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
-            TWindowSubStatusDisp__sub_80258F34(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1, arg2);
+            init_item_row__20TWindowSubStatusDispFPvPvi(get_array_entry__20TWindowSubStatusDispFPvi(arg0, temp_r4), arg1, arg2);
             M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
         }
     }

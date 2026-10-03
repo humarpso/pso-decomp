@@ -12,7 +12,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
-M2C_UNK fn_802911E8(f32);
+M2C_UNK set_creation_projection_center(f32);
 M2C_UNK set_eff_tag__11TChCrEffTagFi(int);
 
 extern M2C_UNK __vt__16TObjCMAutoMkData[];
@@ -21,7 +21,7 @@ extern const f32 lbl_805DDA70;
 void *__dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCMAutoMkData;
-        fn_802911E8(lbl_805DDA70);
+        set_creation_projection_center(lbl_805DDA70);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

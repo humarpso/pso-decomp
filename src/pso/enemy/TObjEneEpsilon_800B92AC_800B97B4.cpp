@@ -14,9 +14,9 @@ struct VObj_800B97B4 : Base_800B97B4 {
 extern "C" {
 
 void select_and_apply_target__14TObjEneEpsilonFPvf(void *arg0, f32 farg0);
-M2C_UNK TObjEneEpsilon__sub_800B9848(void *, u16);
+M2C_UNK enemy_bind_or_clear_target(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
-u16 TBoss8Dragon__sub_800BB664(void *, f32);
+u16 enemy_find_nearest_player_in_range(void *, f32);
 
 void select_and_apply_target__14TObjEneEpsilonFPvf(void *arg0, f32 farg0) {
     u16 temp_r3;
@@ -26,12 +26,12 @@ void select_and_apply_target__14TObjEneEpsilonFPvf(void *arg0, f32 farg0) {
         temp_r3 = set_squared_value__9TObjEneDDFf(arg0, farg0);
         var_r4 = temp_r3;
         if (temp_r3 == 0xFFFF) {
-            var_r4 = TBoss8Dragon__sub_800BB664(arg0, farg0);
+            var_r4 = enemy_find_nearest_player_in_range(arg0, farg0);
         }
     } else {
-        var_r4 = TBoss8Dragon__sub_800BB664(arg0, farg0);
+        var_r4 = enemy_find_nearest_player_in_range(arg0, farg0);
     }
-    TObjEneEpsilon__sub_800B9848(arg0, var_r4);
+    enemy_bind_or_clear_target(arg0, var_r4);
 }
 
 }

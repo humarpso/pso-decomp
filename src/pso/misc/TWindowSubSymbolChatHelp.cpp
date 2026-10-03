@@ -58,9 +58,9 @@ extern s8 lbl_8050E208[];
 void TWindowSubSymbolChatHelp__sub_80284A28(u8 *arg0);
 int TWindowSubSymbolChatHelp__sub_80247EE8(int);
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowKeyBoardSoft__sub_803DF1B0(s32);
+void set_constant_material_color(s32);
 extern const f32 lbl_805DD788;
 extern const f32 lbl_805DD78C;
 extern const f32 lbl_805DD790;
@@ -70,17 +70,17 @@ extern const f32 lbl_805DD79C;
 extern const f32 lbl_805DD7B0;
 extern const f32 lbl_805DD7B4;
 void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *arg1);
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowKeyBoardSoft__sub_803DF1B0(s32);
+void set_constant_material_color(s32);
 extern UV_802844C8 lbl_8044FBA4[];
 extern const f32 lbl_805DD788;
 extern const f32 lbl_805DD78C;
 extern const f32 lbl_805DD7B8;
 void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
-void TWindowKeyBoardSoft__sub_8024E6D8(void *, void *);
+void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowKeyBoardSoft__sub_803DF1B0(s32);
+void set_constant_material_color(s32);
 extern UV_802845EC lbl_8044FB74[];
 extern const f32 lbl_805DD788;
 extern const f32 lbl_805DD78C;
@@ -124,18 +124,18 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
         } else {
             t = TWindowSubSymbolChatHelp__sub_80247EE8(i);
         }
-        TWindowKeyBoardSoft__sub_803DF1B0(t);
+        set_constant_material_color(t);
         q.x = 12.0f * (f32)i + (112.0f + arg1->x);
         q.y = 50.0f + arg1->y;
         q.x2 = 14.0f + q.x;
         q.y2 = 14.0f + q.y;
-        TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
+        apply_context_transform_to_rect(arg1, &q);
         draw_textured_quad_at_depth(&q, scale);
     }
     if (arg0->flags & 2) {
-        TWindowKeyBoardSoft__sub_803DF1B0(-1);
+        set_constant_material_color(-1);
     } else {
-        TWindowKeyBoardSoft__sub_803DF1B0(0xFF808080);
+        set_constant_material_color(0xFF808080);
     }
     q.x = 12.0f * (f32)*arg0->sel + (112.0f + arg1->x);
     q.y = 50.0f + arg1->y;
@@ -145,7 +145,7 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
     q.v0 = lbl_805DD794;
     q.u1 = lbl_805DD7B4;
     q.v1 = lbl_805DD79C;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
+    apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, scale);
 }
 #pragma pop
@@ -163,7 +163,7 @@ void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *a
     }
     uv = &lbl_8044FBA4[idx];
     scale = lbl_805DD788 / (lbl_805DD78C + arg1->scale);
-    TWindowKeyBoardSoft__sub_803DF1B0(arg3);
+    set_constant_material_color(arg3);
     q.x = lbl_805DD7B8 + arg1->x;
     q.y = lbl_805DD7B8 * (f32)arg2 + arg1->y;
     q.x2 = 231.0f + q.x;
@@ -172,7 +172,7 @@ void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *a
     q.v0 = uv->v / 256.0f;
     q.u1 = (231.0f + uv->u) / 256.0f;
     q.v1 = (lbl_805DD7B8 + uv->v) / 256.0f;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
+    apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, scale);
 }
 #pragma pop
@@ -185,7 +185,7 @@ void TWindowSubSymbolChatHelp__sub_802845EC(s32 arg0, Win_802845EC *arg1, s32 ar
     f32 scale;
     uv = &lbl_8044FB74[arg2];
     scale = lbl_805DD788 / (lbl_805DD78C + arg1->scale);
-    TWindowKeyBoardSoft__sub_803DF1B0(arg3);
+    set_constant_material_color(arg3);
     q.x = arg1->x;
     q.y = lbl_805DD7B8 * (f32)arg2 + arg1->y;
     q.x2 = lbl_805DD7B8 + q.x;
@@ -194,7 +194,7 @@ void TWindowSubSymbolChatHelp__sub_802845EC(s32 arg0, Win_802845EC *arg1, s32 ar
     q.v0 = uv->v / 256.0f;
     q.u1 = (lbl_805DD7B8 + uv->u) / 256.0f;
     q.v1 = (lbl_805DD7B8 + uv->v) / 256.0f;
-    TWindowKeyBoardSoft__sub_8024E6D8(arg1, &q);
+    apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, scale);
 }
 #pragma pop

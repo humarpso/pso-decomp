@@ -19,7 +19,7 @@ M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK draw_model_blend_motion(int, void *, f32);
 M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjPlayer__sub_80142EEC(void);
+void save_joint_matrix_callback(void);
 extern int lbl_805D567C;
 void TObjPlayer__sub_80142F1C(u8 *arg0);
 }
@@ -38,15 +38,15 @@ int objInBand(GameObj* obj, f32 v) {
 
 extern "C" {
 
-void TObjPlayer__sub_80142EEC(void);
+void save_joint_matrix_callback(void);
 int TObjPlayer__sub_803D898C(void*);
 
     extern int lbl_805D567C;
-void TObjPlayer__sub_80142EEC(void) { TObjPlayer__sub_803D898C((void*)(lbl_805D567C)); lbl_805D567C = (lbl_805D567C + 0x30); }
+void save_joint_matrix_callback(void) { TObjPlayer__sub_803D898C((void*)(lbl_805D567C)); lbl_805D567C = (lbl_805D567C + 0x30); }
 void TObjPlayer__sub_80142F1C(u8 *arg0) {
     s32 temp_r3;
     lbl_805D567C = M2C_FIELD(arg0, s32 *, 0xE0);
-    set_global_state__16TObjEneRe7BeruraFi((void *) TObjPlayer__sub_80142EEC);
+    set_global_state__16TObjEneRe7BeruraFi((void *) save_joint_matrix_callback);
     temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
         draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));

@@ -31,7 +31,7 @@ M2C_UNK TWindowChat__sub_80247E50(void *);
 s32 is_open__11TWindowChatFPv();
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowChat__sub_8025CB70(s32);
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 M2C_UNK clear_flag60_bit200__16TKeyBoardControlFPv(s32);
 M2C_UNK init_parts__10TObjPlayerFPv(s32);
 M2C_UNK set_flag60_bit200__16TKeyBoardControlFPv(s32);
@@ -47,7 +47,7 @@ void update__11TWindowChatFPv(void *arg0) {
         TWindowChat__sub_80247DFC(arg0);
         temp_r3 = get_player_by_client_id(lbl_805D53A0);
         if ((temp_r3 != 0) && !(M2C_FIELD(arg0, u16 *, 0x1E) & 2) && (is_mode_bit6__11TWindowChatFPv(arg0) != 0)) {
-            if (TWindowCtrl__sub_8024AF74(lbl_805D53A0) == 0) {
+            if (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) {
                 init_parts__10TObjPlayerFPv(temp_r3);
             }
             TWindowChat__sub_8024AD30(lbl_805D53A0);

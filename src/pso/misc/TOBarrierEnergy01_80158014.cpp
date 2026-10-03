@@ -55,7 +55,7 @@ extern RecoveredGlobal_80158078_lbl_804AFB24 lbl_804AFB24;
 extern u32 lbl_805D5890;
 extern s32 *TOBarrierEnergy01__data_805D5894;
 extern s32 lbl_805D5898;
-void TOBarrierEnergy01__sub_80158078(void);
+void load_resources__17TOBarrierEnergy01Fv(void);
 u8 *TObjFish__sub_8001ED9C(s32, s32);
 s32 get_bml_model(void *, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -106,7 +106,7 @@ void free_resources__17TOBarrierEnergy01Fv(void) {
 
 extern M2C_UNK __vt__17TOBarrierEnergy01[];
 
-void TOBarrierEnergy01__sub_80158078(void) {
+void load_resources__17TOBarrierEnergy01Fv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

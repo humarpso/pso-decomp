@@ -79,11 +79,11 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0);
 void render__20TWindowShortListCtrlFv(void);
 void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1);
-void *TCheckRoomSequence__sub_802664A8(s32, s32, s32);
+void *create_window_menu(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 s32 TWindowCtrl__sub_8024A1A8();
-s32 TWindowCtrl__sub_8024AF74(s32);
+s32 has_player_active_menu__11TWindowCtrlFi(s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -266,7 +266,7 @@ void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r31;
 
-    temp_r31 = TCheckRoomSequence__sub_802664A8(arg1, 0x13, M2C_FIELD(arg0, s32 *, 0x24));
+    temp_r31 = create_window_menu(arg1, 0x13, M2C_FIELD(arg0, s32 *, 0x24));
     set_flag70_bit10__16TObjCityMainWarpFPv();
     M2C_FIELD(temp_r31, s32 *, 0x5C) = 0x01000000;
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
@@ -283,7 +283,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void **, 0x18) = __vt__20TWindowShortListCtrl;
         temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x24)));
-        if ((temp_r3 != 0) && (TWindowCtrl__sub_8024AF74(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
+        if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFi(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             init_parts__10TObjPlayerFPv(temp_r3);
         }
         TWindowChat__sub_8024AD30(M2C_FIELD(arg0, s32 *, 0x24));

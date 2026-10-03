@@ -25,7 +25,7 @@ s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void TWindowSubStatusDisp__sub_800FC24C(s32, void *);
 void build_small_font_glyph_quad(s32, void *);
 void render_forward__20TWindowSubStatusDispFPv();
-void TWindowKeyBoardSoft__sub_8024E6D8(s32, void *);
+void apply_context_transform_to_rect(s32, void *);
 s32 TWindowKeyBoardSoft__sub_8024E8E8(s32, void *);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv();
@@ -90,7 +90,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
             x += (f32)adv;
             width -= (f32)adv;
             if (lbl_805D643C == 0 || TWindowKeyBoardSoft__sub_8024E8E8(lbl_805D6430, &q) != 0) {
-                TWindowKeyBoardSoft__sub_8024E6D8(lbl_805D6430, &q);
+                apply_context_transform_to_rect(lbl_805D6430, &q);
                 draw_textured_quad_at_depth(&q, lbl_805D6434);
             }
         }

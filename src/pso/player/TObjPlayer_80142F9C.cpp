@@ -15,7 +15,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK draw_model_blend_motion(s32, void *, f32);
 
-extern M2C_UNK TObjPlayer__sub_80142EEC[];
+extern M2C_UNK save_joint_matrix_callback[];
 extern u32 lbl_805D567C;
 
 void draw_model_with_callback__10TObjPlayerFPv(u8 *arg0) {
@@ -25,7 +25,7 @@ void draw_model_with_callback__10TObjPlayerFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0xE0);
     if (temp_r0 != 0U) {
         lbl_805D567C = temp_r0;
-        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(TObjPlayer__sub_80142EEC));
+        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(save_joint_matrix_callback));
         temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
             draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));

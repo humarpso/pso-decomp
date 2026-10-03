@@ -16,18 +16,18 @@ struct Count_800F5AC8 { s32 verts; s32 strips; };
 struct StripRef_800F591C { s16 *strip; s16 *uv; };
 
 extern "C" {
-void fn_800F5A50(void *ctx, Node_800F5A50 *node, void *arg);
+void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 extern s32 lbl_805D5320;
-void fn_800F5AC8(void *ctx, void *plist, void *arg);
+void count_plist_strips_by_texture(void *ctx, void *plist, void *arg);
 extern StripRef_800F591C *lbl_805D5318;
 extern s16 *lbl_805D531C;
 extern s32 lbl_805D5320;
-void fn_800F591C(void *ctx, s16 *p, s32 tex);
+void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex);
 }
 
 extern "C" {
 
-void fn_800F591C(void *ctx, s16 *p, s32 tex) {
+void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
     s16 c;
     s16 type;
     u32 n;
@@ -75,18 +75,18 @@ void fn_800F591C(void *ctx, s16 *p, s32 tex) {
     }
 }
 
-void fn_800F5A50(void *ctx, Node_800F5A50 *node, void *arg) {
+void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) {
     do {
         if (node->model != 0 && node->model->plist != 0) {
-            fn_800F5AC8((void *)(ctx), (void *)(node->model->plist), (void *)(arg));
+            count_plist_strips_by_texture((void *)(ctx), (void *)(node->model->plist), (void *)(arg));
         }
         if (node->child != 0) {
-            fn_800F5A50(ctx, node->child, arg);
+            count_model_strips_by_texture(ctx, node->child, arg);
         }
         node = node->sibling;
     } while (node != 0);
 }
-void fn_800F5AC8(void *ctx, void *plist, void *arg) {
+void count_plist_strips_by_texture(void *ctx, void *plist, void *arg) {
     Count_800F5AC8 *cnt = (Count_800F5AC8 *) ctx;
     s16 *p = (s16 *) plist;
     s16 c;

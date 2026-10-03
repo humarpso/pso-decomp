@@ -478,7 +478,7 @@ extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 void TObjEneEpsilonGuard__sub_8035E018(u8 *arg0, s32 arg1);
 M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BAC14(void *, void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
@@ -561,7 +561,7 @@ void set_target__19TObjEneEpsilonGuardFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 a
 void state_orbit__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjEneDD__sub_800BAC14(void *, void *, f32, f32, f32);
+M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, void *, f32, f32, f32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK TObjEneEpsilonGuard__sub_8035EFD8(void *, s32);
 s32 TObjEneEpsilonGuard__sub_8035F95C(u32);
@@ -917,7 +917,7 @@ block_23:
                 M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) + M2C_FIELD(arg0, s32 *, 0x43C));
                 TObjEneEpsilonGuard__sub_8035EFD8(arg0, M2C_FIELD(arg0, s32 *, 0x438));
                 update_velocity__9TObjEneDDFPv(arg0);
-                TObjEneDD__sub_800BAC14(arg0, TObjEneEpsilonGuard__data_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8));
+                move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, TObjEneEpsilonGuard__data_805D6F74, M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8), M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 8));
             }
             break;
         case 2:
@@ -958,7 +958,7 @@ void TObjEneEpsilonGuard__sub_8035E8C0(void *arg0, s32 arg1) {
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > d[0] + d[1]) {
                 M2C_FIELD(arg0, s32 *, 0x46C) |= 0x200;
             } else {
-                TObjEneDD__sub_800BAC14(arg0, d, -M2C_FIELD(arg0, f32 *, 0x3A0), -M2C_FIELD(arg0, f32 *, 0x3A8), d[1]);
+                move_with_wall_slide_commit__9TObjEneDDFPvfff(arg0, d, -M2C_FIELD(arg0, f32 *, 0x3A0), -M2C_FIELD(arg0, f32 *, 0x3A8), d[1]);
             }
         }
         M2C_FIELD(arg0, s32 *, 0x60) = calc_angle_to_target__19TObjEneEpsilonGuardFPv(arg0);

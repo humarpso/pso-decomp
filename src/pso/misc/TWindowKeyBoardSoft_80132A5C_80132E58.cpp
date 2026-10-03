@@ -9,7 +9,7 @@ extern "C" {
 int TLobby__sub_80132EC8(void);
 s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0);
 M2C_UNK TLanguage__ct(s32);
-M2C_UNK TWindowKeyBoardSoft__sub_80132DA0(s8);
+M2C_UNK select_language_text_resources(s8);
 M2C_UNK free_instance__19TWindowKeyBoardSoftFv();
 M2C_UNK free_resources__19TWindowKeyBoardSoftFv();
 void *get_global_state__23TAdSinglePlyChrSelectGCFv();
@@ -29,7 +29,7 @@ s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0) {
         M2C_FIELD(temp_r3, s8 *, 7) = arg0;
     }
     lbl_805D5544 = (s32)(s8) arg0;
-    TWindowKeyBoardSoft__sub_80132DA0((s8) lbl_805D5544);
+    select_language_text_resources((s8) lbl_805D5544);
     TLanguage__ct(lbl_805D5544);
     return 1;
 }

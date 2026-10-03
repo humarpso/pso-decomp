@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 obj_testFlags30(void *, int);
-s32 TObjPlayer__sub_8001BEF8(void *, int);
+s32 test_flags_any(void *, int);
 s32 calc_scaled_value__10TObjPlayerFii(void *, int);
 s32 handle_palette_button_input__10TObjPlayerFPv(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
@@ -29,7 +29,7 @@ void select_run_request__10TObjPlayerFPv(u8 *arg0) {
     temp_f31 = get_attached_float_24__10TObjPlayerFPv(arg0 + 0x550);
     if ((handle_palette_button_input__10TObjPlayerFPv(arg0) == 0) || (check_flag_48__10TObjPlayerFPv(arg0) == 0)) {
         if (temp_f31 < TObjPlayer__data_805DC368) {
-            if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
+            if (test_flags_any(arg0 + 0x5EC, 4) != 0) {
                 run_action_state_phase__10TObjPlayerFisi(arg0, 1, 5);
                 return;
             }
@@ -38,13 +38,13 @@ void select_run_request__10TObjPlayerFPv(u8 *arg0) {
             temp_r31_2 = calc_scaled_value__10TObjPlayerFii(arg0, temp_r31);
             if ((obj_testFlags30(arg0, 0x100000) != 0) || (temp_f31 < TObjPlayer__data_805DC3AC)) {
                 set_ring_action__10TObjPlayerFPvi(arg0 + 0x5E0, 0);
-                if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
+                if (test_flags_any(arg0 + 0x5EC, 4) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x3F0) = temp_r31_2;
                     run_action_state_phase__10TObjPlayerFisi(arg0, 2, 5);
                 }
             } else {
                 TObjPlayer__sub_801D2860(arg0 + 0x5E0);
-                if (TObjPlayer__sub_8001BEF8(arg0 + 0x5EC, 4) != 0) {
+                if (test_flags_any(arg0 + 0x5EC, 4) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x3F0) = temp_r31_2;
                     run_action_state_phase__10TObjPlayerFisi(arg0, 4, 5);
                 }
