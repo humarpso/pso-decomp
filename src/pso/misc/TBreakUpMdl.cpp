@@ -71,6 +71,31 @@ struct BreakUp_8009693C {
     f32 gravity;
 };
 
+struct RecoveredGlobal_80096F54_lbl_8058D490;
+struct Part_80096AD8 { f32 pos[3]; f32 vel[3]; s32 f18; s32 f1c; s32 f20; s32 f24; };
+
+struct Seg_80096AD8 { s32 f0; f32 a[3]; f32 b[3]; };
+
+struct Model_80096AD8 { s32 count; Seg_80096AD8 *segs; };
+
+struct BreakUp_80096AD8 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    M2C_UNK *vtable;
+    s32 count;
+    Model_80096AD8 *model;
+    s32 f24;
+    u8 pad28[0x30 - 0x28];
+    f32 f30;
+    Part_80096AD8 *parts;
+    s32 f38;
+    f32 f3C;
+    f32 f40;
+    u8 pad44[0x4C - 0x44];
+    f32 f4C;
+    f32 f50;
+};
+
 extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -131,6 +156,26 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self);
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D97CC;
 void run_task__11TBreakUpMdlFv(BreakUp_8009693C *self);
+f32 rand_signed_unit(void);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+void TBreakUpMdl__sub_80096A34(u8 *arg0, s32 arg1, f32 farg0);
+void copy__11TBreakUpMdlFPvPv(void* p, void* q);
+void *alloc_buffer__11TOBoss4RockFPv(int);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 rand(void);
+M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
+void rotate_vector_by_matrix(s32, void *, void *);
+void rotate_matrix_y(s32, s32);
+s32 push_matrix_from(u32);
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+extern u8 lbl_80439F30[];
+extern M2C_UNK __vt__11TBreakUpMdl[];
+extern RecoveredGlobal_80096F54_lbl_8058D490 lbl_8058D490;
+extern s32 lbl_805D2998;
+extern const f32 lbl_805D97D0;
+extern const f32 lbl_805D97D4;
+u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
 }
 
 extern "C" {
@@ -223,6 +268,49 @@ void *__dt__11TBreakUpMdlFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK TBreakUpMdl__data_8048FA00[];
+
+#pragma push
+#pragma fp_contract on
+u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6) {
+    BreakUp_80096AD8 *self = (BreakUp_80096AD8 *)arg0;
+    f32 base;
+    f32 scale;
+    Part_80096AD8 *part;
+    s32 i;
+    __ct__7TObjectFP7TObject(self, arg1);
+    self->vtable = __vt__11TBreakUpMdl;
+    self->f0 = lbl_805D2998;
+    self->model = arg2;
+    if (arg3 == NULL) {
+        copy__11TBreakUpMdlFPvPv(&self->f38, lbl_80439F30);
+    } else {
+        copy__11TBreakUpMdlFPvPv(&self->f38, arg3);
+    }
+    self->f24 = arg4;
+    self->count = self->model->count;
+    base = self->f4C;
+    scale = self->f50;
+    self->parts = (Part_80096AD8 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0x28);
+    push_matrix_from((u32)&lbl_8058D490);
+    post_translate_matrix(arg5);
+    rotate_matrix_y(0, arg6);
+    for (i = 0; i < self->count; i++) {
+        part = &self->parts[i];
+        TCameraCtrl__sub_803D8934(0, (int)self->model->segs[i].a, (int)part);
+        rotate_vector_by_matrix(0, self->model->segs[i].b, part->vel);
+        clamp_velocity__15TObjBoss2TunnelFPv(part->vel);
+        part->vel[1] = scale * (lbl_805D97D0 * (f32)rand()) + base;
+        part->f18 = 0;
+        part->f1c = arg6;
+        part->f20 = 0;
+        part->f24 = (s32)(lbl_805D97D4 * rand_signed_unit());
+    }
+    pop_matrix();
+    TBreakUpMdl__sub_80096A34(arg0, self->f38, self->f3C);
+    self->f30 = self->f40;
+    return arg0;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

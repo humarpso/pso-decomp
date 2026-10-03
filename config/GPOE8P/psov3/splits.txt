@@ -2433,6 +2433,7 @@ pso/enemy/TObjEneBm3FlyNest_800B42F4.cpp:
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp:
 	.text       start:0x800B4820 end:0x800B75A8
 	.data       start:0x804924A4 end:0x804924EC
+	.sdata2     start:0x805D9DD4 end:0x805D9DD8
 
 pso/enemy/TObjEneBm5Wolf_800B75A8.cpp:
 	.text       start:0x800B75A8 end:0x800B7B14
@@ -2564,6 +2565,7 @@ pso/object/TObjGrass.cpp:
 
 pso/player/TObjPlayer_800BFBBC.cpp:
 	.text       start:0x800BFBBC end:0x800C16E0
+	.rodata     start:0x8043BA20 end:0x8043BA28
 
 pso/enemy/TObjEneLappy_800C16E0.cpp:
 	.text       start:0x800C16E0 end:0x800C1748
