@@ -7,6 +7,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_8005A1AC { f32 x, y, z; };
+
+struct Obj_8005A1AC {
+    u8 pad0[0x3ba];
+    u16 f3ba;
+    u8 pad3bc[0x404 - 0x3bc];
+    void *f404[13];
+    u8 pad438[0x444 - 0x438];
+    Vec_8005A1AC f444;
+    Vec_8005A1AC f450;
+    Vec_8005A1AC f45c;
+    u8 pad468[0x480 - 0x468];
+    Vec_8005A1AC f480;
+    Vec_8005A1AC f48c;
+    Vec_8005A1AC f498;
+    u8 pad4a4[0x4d4 - 0x4a4];
+    Vec_8005A1AC f4d4;
+    Vec_8005A1AC f4e0;
+};
+
+extern "C" {
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+extern u8 lbl_80487150[];
+void TBoss4Type3__sub_8005A1AC(Obj_8005A1AC *arg0);
+}
+
 extern "C" {
 
 struct M2CCopy_C { u8 bytes[0xc]; };
@@ -2094,6 +2120,25 @@ void TBoss4Type3__sub_80059FC4(u8 *arg0) {
 }
 extern int fold_flush_8;
 #pragma pop
+
+void TBoss4Type3__sub_8005A1AC(Obj_8005A1AC *arg0) {
+    Vec_8005A1AC *pos[8] = {
+        &arg0->f48c, &arg0->f498, &arg0->f4d4, &arg0->f4e0,
+        &arg0->f444, &arg0->f450, &arg0->f45c, 0
+    };
+    Vec_8005A1AC **p = pos;
+    s32 i;
+    for (i = 0; i < 8; i++, p++) {
+        if (arg0->f404[i] != 0 && *p != 0) {
+            copy_pos__11TNowLoadingFPvPv(arg0->f404[i], *p);
+        }
+    }
+    if (arg0->f3ba == 0xFFFF) {
+        copy_pos__11TNowLoadingFPvPv(arg0->f404[7], lbl_80487150);
+    } else {
+        copy_pos__11TNowLoadingFPvPv(arg0->f404[7], &arg0->f480);
+    }
+}
 
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self) {
     s32 i;
