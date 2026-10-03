@@ -248,6 +248,10 @@ extern s8 lbl_805D74B1;
 extern s8 lbl_805D74B2;
 void TLobby__sub_803BAB10(s32 arg0);
 s32 schedule_sound_voice_update(void *, int, int);
+#pragma pack(push, 4)
+struct Obj_803A8C5C { u8 pad0[0x24]; s64 p24; s64 p2C; };
+#pragma pack(pop)
+extern s64 lbl_805D73C0;
 void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
 extern RecoveredGlobal_803A98F0_lbl_80556F88 lbl_80556F88;
 extern s32 lbl_805D73A8;
@@ -922,6 +926,13 @@ void TLobby__sub_803A897C(s32 arg0) {
         o->fA8 = 0;
         o->f214 = 0x1FFF;
     }
+}
+
+void reset_sound_voice_schedule(Obj_803A8C5C* voice) {
+    voice->p24 = lbl_805D73C0;
+    voice->p2C = lbl_805D73C0;
+    schedule_sound_voice_update(voice, 0, 0);
+    schedule_sound_voice_update(voice, 1, 0);
 }
 
 void TLobby__sub_803A8CC0(void *arg0) {

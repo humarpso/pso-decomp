@@ -481,6 +481,9 @@ extern u8 lbl_8056E118[];
 extern u8 lbl_8056E098[][16];
 u8 *TLobby__sub_803BB870(u8 a, u8 b);
 extern u32 lbl_8056DE98[][16];
+struct Ent_803BC490 { u8 pad[0x22]; u8 f22; u8 pad23; };
+extern Ent_803BC490 lbl_80557C6C[8][4];
+extern Ent_803BC490 lbl_805580EC[8][4];
 void TLobby__sub_803BADD0(u8 a, u8 b, u32 v);
 extern s32 lbl_805D748C;
 bool is_sound_hw_voice_active(s32 i);
@@ -982,6 +985,86 @@ u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0) {
     arg0->flags = arg0->flags & ~0x1000;
     return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x3C8), (u8)(arg0->b121), (u8)(arg0->b122));
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void reset_dirty_803BC490(void) {
+    u32 i, j;
+    for (i = 0; i < 8; ++i) {
+        for (j = 0; j < 16; ++j) {
+            lbl_8056DE98[i][j] = 0xFF;
+        }
+    }
+}
+
+void init_sound_controller_mappings(u8 *arg0) {
+    u32 i;
+    u32 s;
+
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, u8 *, 0x218) = 7;
+        M2C_FIELD(arg0, u8 *, 0x219) = 0;
+        M2C_FIELD(arg0, s32 *, 0x21C) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x220) = 0xB;
+        M2C_FIELD(arg0, u8 *, 0x221) = 2;
+        M2C_FIELD(arg0, s32 *, 0x224) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x23A) = 2;
+        M2C_FIELD(arg0, u8 *, 0x23C) = 0xA;
+        M2C_FIELD(arg0, u8 *, 0x23D) = 0;
+        M2C_FIELD(arg0, s32 *, 0x240) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x25E) = 1;
+        M2C_FIELD(arg0, u8 *, 0x260) = 0x83;
+        M2C_FIELD(arg0, u8 *, 0x261) = 0;
+        M2C_FIELD(arg0, s32 *, 0x264) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x282) = 1;
+        M2C_FIELD(arg0, u8 *, 0x284) = 0x80;
+        M2C_FIELD(arg0, u8 *, 0x285) = 0;
+        M2C_FIELD(arg0, s32 *, 0x288) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x2A6) = 1;
+        M2C_FIELD(arg0, u8 *, 0x2CC) = 1;
+        M2C_FIELD(arg0, u8 *, 0x2CD) = 0;
+        M2C_FIELD(arg0, s32 *, 0x2D0) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x2EE) = 1;
+        M2C_FIELD(arg0, u8 *, 0x2F0) = 0x40;
+        M2C_FIELD(arg0, u8 *, 0x2F1) = 0;
+        M2C_FIELD(arg0, s32 *, 0x2F4) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x312) = 1;
+        M2C_FIELD(arg0, u8 *, 0x314) = 0x41;
+        M2C_FIELD(arg0, u8 *, 0x315) = 0;
+        M2C_FIELD(arg0, s32 *, 0x318) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x336) = 1;
+        M2C_FIELD(arg0, u8 *, 0x35A) = 0;
+        M2C_FIELD(arg0, u8 *, 0x35C) = 0x5B;
+        M2C_FIELD(arg0, u8 *, 0x35D) = 0;
+        M2C_FIELD(arg0, s32 *, 0x360) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x37E) = 1;
+        M2C_FIELD(arg0, u8 *, 0x3A2) = 0;
+        M2C_FIELD(arg0, u8 *, 0x3A4) = 0x5D;
+        M2C_FIELD(arg0, u8 *, 0x3A5) = 0;
+        M2C_FIELD(arg0, s32 *, 0x3A8) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x3C6) = 1;
+        M2C_FIELD(arg0, u8 *, 0x2A8) = 0x84;
+        M2C_FIELD(arg0, u8 *, 0x2A9) = 0;
+        M2C_FIELD(arg0, s32 *, 0x2AC) = 0x10000;
+        M2C_FIELD(arg0, u8 *, 0x2CA) = 1;
+        M2C_FIELD(arg0, u8 *, 0x3EA) = 0;
+        M2C_FIELD(arg0, s32 *, 0x214) = 0x1FFF;
+        M2C_FIELD(arg0, u8 *, 0x1D4) = 0;
+        M2C_FIELD(arg0, u8 *, 0x1D5) = 0;
+        M2C_FIELD(arg0, u8 *, 0xA8) = 0;
+    } else {
+    for (s = 0; s < 8; ++s) {
+        for (i = 0; i < 4; ++i) {
+            lbl_805580EC[s][i].f22 = 0;
+            lbl_80557C6C[s][i].f22 = 0;
+        }
+    }
+    reset_dirty_803BC490();
+    }
+}
+
+#pragma pop
 
 #pragma push
 #pragma scheduling off
