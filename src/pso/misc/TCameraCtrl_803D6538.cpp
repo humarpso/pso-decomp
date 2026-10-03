@@ -109,6 +109,12 @@ struct Stack_803D7128 {
 
 extern "C" {
 
+s32 TObjPlayer__sub_803D6BA4(s32 arg0);
+s32 TObjPlayer__sub_803D6C1C(s32 arg0);
+void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
+void TBoss8Dragon__sub_803D78A8(s32 arg0);
+extern u8 *lbl_805D76BC;
+void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 }
 
 extern "C" {
@@ -275,6 +281,79 @@ void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1) {
 }
 
 #define G_803D6BA4 ((St_803D6BA4 *)lbl_805D76BC)
+
+#pragma push
+#pragma use_lmw_stmw off
+void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+    s32 temp_r31;
+    s32 *temp_r30;
+    s32 *temp_r29;
+    u8 *temp_r27;
+    u8 *temp_r26;
+    temp_r27 = (u8 *)(M2C_FIELD(arg2, u8 **, 0));
+    temp_r26 = (u8 *)(M2C_FIELD(arg2, u8 **, 4));
+    temp_r30 = (s32 *)(M2C_FIELD(arg2, s32 **, 8));
+    temp_r29 = (s32 *)(M2C_FIELD(arg2, s32 **, 0xC));
+    TBoss8Dragon__sub_803D78A8((int) (0));
+    select_motion_sampler((M2C_UNK *) (arg1), (f32) (farg0));
+    temp_r31 = M2C_FIELD(lbl_805D76BC, s32 *, 0x20);
+    if ((u32) (temp_r31 & 1) != 0) {
+        if (TObjPlayer__sub_803D6BA4((int) (temp_r27)) == 0) {
+            M2C_FIELD(temp_r27, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0);
+            M2C_FIELD(temp_r27, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 4);
+            M2C_FIELD(temp_r27, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 8);
+        }
+    } else {
+        M2C_FIELD(temp_r27, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0);
+        M2C_FIELD(temp_r27, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 4);
+        M2C_FIELD(temp_r27, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 8);
+    }
+    if ((u32) (temp_r31 & 2) != 0) {
+        M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) = (s32) (M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) + 1);
+    }
+    if ((u32) (temp_r31 & 4) != 0) {
+        M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) = (s32) (M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) + 1);
+    }
+    if ((u32) (temp_r31 & 0x40) != 0) {
+        if (TObjPlayer__sub_803D6BA4((int) (temp_r26)) != 0) {
+            M2C_FIELD(temp_r26, f32 *, 0) = (f32) (M2C_FIELD(temp_r26, f32 *, 0) - M2C_FIELD(temp_r27, f32 *, 0));
+            M2C_FIELD(temp_r26, f32 *, 4) = (f32) (M2C_FIELD(temp_r26, f32 *, 4) - M2C_FIELD(temp_r27, f32 *, 4));
+            M2C_FIELD(temp_r26, f32 *, 8) = (f32) (M2C_FIELD(temp_r26, f32 *, 8) - M2C_FIELD(temp_r27, f32 *, 8));
+        } else {
+            M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+            M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
+            M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+        }
+    } else if ((u32) (temp_r31 & 8) != 0) {
+        if (TObjPlayer__sub_803D6BA4((int) (temp_r26)) == 0) {
+            M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+            M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
+            M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+        }
+    } else {
+        M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+        M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
+        M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+    }
+    if ((u32) (temp_r31 & 0x10) != 0) {
+        M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) = (s32) (M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) + 1);
+    }
+    if ((u32) (temp_r31 & 0x20) != 0) {
+        M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) = (s32) (M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) + 1);
+    }
+    if (((u32) (temp_r31 & 0x80) != 0) && (TObjPlayer__sub_803D6C1C((int) (temp_r30)) == 0)) {
+        M2C_FIELD(temp_r30, s32 *, 0) = M2C_FIELD(arg0, s32 *, 0x18);
+    }
+    if ((u32) (temp_r31 & 0x100) != 0) {
+        if (TObjPlayer__sub_803D6C1C((int) (temp_r29)) == 0) {
+            M2C_FIELD(temp_r29, s32 *, 0) = M2C_FIELD(arg0, s32 *, 0x1C);
+        }
+    } else {
+        M2C_FIELD(temp_r29, s32 *, 0) = M2C_FIELD(arg0, s32 *, 0x1C);
+    }
+}
+#pragma pop
+
 s32 TObjPlayer__sub_803D6BA4(s32 arg0) {
     if (G_803D6BA4->keys[G_803D6BA4->idx] != 0) {
         G_803D6BA4->fn24(G_803D6BA4->keys[G_803D6BA4->idx], G_803D6BA4->vals[G_803D6BA4->idx], arg0, G_803D6BA4->t);

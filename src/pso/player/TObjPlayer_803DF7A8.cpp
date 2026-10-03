@@ -46,6 +46,11 @@ typedef struct TexList_803E1D90 { TexEnt_803E1D90 *ents; } TexList_803E1D90;
 
 typedef struct Ctx_803E1D90 { u8 pad[0x20]; TexList_803E1D90 *list; } Ctx_803E1D90;
 
+
+struct V_803E18C0 { f32 x, y, z; };
+
+struct Line_803E18C0 { V_803E18C0 o; V_803E18C0 d; };
+
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
@@ -72,6 +77,11 @@ extern s32 lbl_804FC7D0[];
 extern TexObj_803E1D90 lbl_8058DB90;
 extern Ctx_803E1D90 *lbl_805D774C;
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
+extern const f32 lbl_805E1020;
+extern const f32 lbl_805E1024;
+extern const f64 lbl_805E1028;
+extern const f64 lbl_805E1030;
+f32 TNpcPlayer__sub_803E18C0(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
 }
 
 extern "C" {
@@ -198,6 +208,44 @@ s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1) {
     temp_f5 = M2C_FIELD(arg0, f32 *, 0xC) + M2C_FIELD(arg1, f32 *, 0xC);
     return ((temp_f2 * temp_f2) + ((temp_f3 * temp_f3) + (temp_f4 * temp_f4))) <= (temp_f5 * temp_f5);
 }
+
+
+
+#pragma push
+#pragma scheduling off
+f32 TNpcPlayer__sub_803E18C0(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out) {
+    f32 t;
+    f32 x;
+    f32 r;
+    t = (l->d.z * (p->z - l->o.z) + (l->d.x * (p->x - l->o.x) + l->d.y * (p->y - l->o.y))) /
+        (l->d.z * l->d.z + (l->d.x * l->d.x + l->d.y * l->d.y));
+    if (out != NULL) {
+        out->x = l->o.x + l->d.x * t;
+        out->y = l->o.y + l->d.y * t;
+        out->z = l->o.z + l->d.z * t;
+        x = (p->z - out->z) * (p->z - out->z) + ((p->x - out->x) * (p->x - out->x) + (p->y - out->y) * (p->y - out->y));
+    } else {
+        x = (p->z - (l->o.z + l->d.z * t)) * (p->z - (l->o.z + l->d.z * t)) +
+            ((p->x - (l->o.x + l->d.x * t)) * (p->x - (l->o.x + l->d.x * t)) +
+             (p->y - (l->o.y + l->d.y * t)) * (p->y - (l->o.y + l->d.y * t)));
+    }
+    if (x < lbl_805E1020) {
+        return lbl_805E1024;
+    }
+    if (x > lbl_805E1024) {
+        volatile f32 y;
+        f64 g = __frsqrte(x);
+        g = lbl_805E1028 * g * (lbl_805E1030 - g * g * x);
+        g = lbl_805E1028 * g * (lbl_805E1030 - g * g * x);
+        g = lbl_805E1028 * g * (lbl_805E1030 - g * g * x);
+        y = (f32)(x * g);
+        r = y;
+    } else {
+        r = x;
+    }
+    return r;
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off

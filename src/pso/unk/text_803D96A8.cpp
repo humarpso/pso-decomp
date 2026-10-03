@@ -51,6 +51,10 @@ void PSMTXRotRad(Matrix34*, char, f32);
 f32 PSMTXConcat(int, int, int);
 extern u32 lbl_805D7774;
 void rotate_matrix_x(Matrix34* matrix, s32 angle);
+void move_data__6TLobbyFv(void *, void *, int);
+void TObjPlayer__sub_803D9C60(u32 *p);
+extern G_803D9DA8 lbl_8058D470;
+u32 *TObjPlayer__sub_803D9C98(void *arg0, u32 *arg1, u32 *arg2);
 }
 
 extern "C" {
@@ -172,6 +176,38 @@ void TObjPlayer__sub_803D9C60(u32 *p) {
     *p = ((v & 0xFF000000) >> 24) | ((v & 0xFF0000) >> 8) | ((v & 0xFF00) << 8) | ((v & 0xFF) << 24);
 }
 #pragma pop
+
+u32 *TObjPlayer__sub_803D9C98(void *arg0, u32 *arg1, u32 *arg2) {
+    u32 tag;
+    u32 *p = arg2;
+    if (arg1 != NULL) {
+        *arg1 = 0xFFFFFFFF;
+    }
+    do {
+        tag = *p;
+        TObjPlayer__sub_803D9C60(&tag);
+        switch (tag) {
+        case 0x54525647:
+            move_data__6TLobbyFv(arg0, p + 2, 8);
+            return p + 4;
+        case 0x58494247: {
+            u32 len;
+            p++;
+            len = *p++;
+            TObjPlayer__sub_803D9C60(&len);
+            if (arg1 != NULL) {
+                *arg1 = *p;
+            }
+            p += len >> 2;
+            break;
+        }
+        default:
+            lbl_8058D470.f8 = 4;
+            return NULL;
+        }
+    } while (tag != 0x54525647);
+    return p;
+}
 
 s32 TObjPlayer__sub_803D9DA8(A_803D9DA8 *arg0, B_803D9DA8 *arg1) {
     if (fn_803DA12C(arg0->p + 4, arg1->b, arg1->c, arg1->a) != 0) {

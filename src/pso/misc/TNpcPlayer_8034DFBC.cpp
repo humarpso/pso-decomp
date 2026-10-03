@@ -72,6 +72,7 @@ struct Player_8034E24C {
     f32 z;
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
     extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E420(void);
@@ -164,6 +165,14 @@ void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s32 get_player_by_client_id(s32);
 extern const f64 lbl_80478CB0[];
 void TNpcPlayer__sub_8034E24C(u16 src);
+s32 obj_isState3_324();
+s32 obj_getField1c(s32);
+s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
+s32 get_player_by_client_id(s32);
+void open__11TWindowCtrlFiii(s32, void *, s32);
+extern E_8034E02C lbl_804F0280[];
+extern int lbl_805D6EA0;
+void TNpcPlayer__sub_8034E508(s32 arg0);
 }
 
 extern "C" {
@@ -303,6 +312,20 @@ void TNpcPlayer__sub_8034E4B0(u16 arg0) {
             ((VObj_18_dac7f3 *)(temp_r3))->m0(1);
         }
     }
+}
+
+void TNpcPlayer__sub_8034E508(s32 arg0) {
+    s8 *win = (s8 *)((M2C_UNK *)&lbl_804F0280) + 0x3CC;
+    s32 i;
+    s32 p;
+    i = 0;
+    do {
+        p = get_player_by_client_id(i);
+        if (p != 0 && obj_isState3_324() != 0 && arg0 == get_stat_by_key_state__10TObjPlayerFPv(p) && !(lbl_805D6EA0 & 2) && *win != 0) {
+            open__11TWindowCtrlFiii((s32)(obj_getField1c(p)), (void *)((s32)win), (s32)(0x1B));
+        }
+        i += 1;
+    } while (i < 4);
 }
 
 void TNpcPlayer__sub_8034E5A8(s16 key) {
