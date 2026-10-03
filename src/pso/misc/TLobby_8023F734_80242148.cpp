@@ -17,7 +17,7 @@ extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
 extern u32 TLobby__data_805D5580;
 void TLobby__sub_8024259C(s32 arg0);
 char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
-char *TLobby__sub_8001DC24();
+char *get_shared_text_buffer();
 void TWindowSubStatusDisp__sub_80228D4C();
 void text_builder_append(char *);
 void text_builder_reset();
@@ -92,7 +92,7 @@ char *TLobby__sub_802424D8(char *list) {
         *d = '\0';
         text_builder_append(buf);
     }
-    return TLobby__sub_8001DC24();
+    return get_shared_text_buffer();
 }
 
 void TLobby__sub_8024259C(s32 arg0) {

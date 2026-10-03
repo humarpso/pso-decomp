@@ -128,13 +128,13 @@ f32 xyz_distance(void *, void *);
 extern M2C_UNK lbl_8058D490[];
 extern s32 tl_05;
 extern const f32 lbl_805DAC98;
-s32 TObjPlayer__sub_8011F108(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
 
 struct Obj_8011F474;
-s32 TObjPlayer__sub_8011F108(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
+s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 var_r31;
     ShotPayload hit;
     f32 *temp_r3_2;

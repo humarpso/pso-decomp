@@ -61,18 +61,18 @@ int set_and_notify__6TLobbyFi(void*);
 int set_and_notify_default__6TLobbyFv(void);
 int set_and_notify__6TLobbyFi(void*);
 int send_neg30__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803C9CBC(s32);
+M2C_UNK stop_audio_stream(s32);
 int init_layout_positions__6TLobbyFv(void);
 extern M2C_UNK lbl_804CB850[];
 extern s32 lbl_805D6330;
 void release_bgm_resource__6TLobbyFv(void);
 extern s32 lbl_805D6300;
 extern s32 lbl_805D631C;
-void TLobby__sub_80227220(s32 arg0);
+void set_dark_falz_music_request(s32 arg0);
 extern s32 lbl_805D6300;
 extern s32 lbl_805D631C;
 void set_target_id__6TLobbyFi(s32 arg0);
-void TLobby__sub_803CA824(void *, s32);
+void start_audio_stream_file(void *, s32);
 extern M2C_UNK lbl_804CB850[];
 void play_cue_stream_file(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
@@ -81,12 +81,12 @@ extern M2C_UNK lbl_804CB850[];
 extern s32 lbl_805D62E4;
 extern s32 lbl_805D62E8;
 void TLobby__sub_802272B4(void);
-M2C_UNK TLobby__sub_803C9CBC(s32);
+M2C_UNK stop_audio_stream(s32);
 extern M2C_UNK lbl_804CB850[];
-void TLobby__sub_80227248(void);
+void stop_cue_stream(void);
 s32 set_field_40_and_notify__6TLobbyFPvs(int, int);
 extern M2C_UNK lbl_804CB850[];
-void TLobby__sub_80226CB0(s32 arg0);
+void set_cue_stream_gain(s32 arg0);
 extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lbl_805D3720;
 extern s32 lbl_805D62E4;
@@ -95,7 +95,7 @@ u8 *TLobby__sub_80226C3C(void);
 s32 set_field_40_and_notify__6TLobbyFPvs(int, int);
 extern M2C_UNK lbl_804CB850[];
 extern s32 lbl_805D6330;
-void TLobby__sub_80226CF4(s32 arg0);
+void set_music_streams_volume(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
 extern M2C_UNK lbl_804CB850[];
 extern s32 lbl_805D62E4;
@@ -103,9 +103,9 @@ extern s32 lbl_805D62E8;
 void TLobby__sub_8022733C(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(void *);
-M2C_UNK TLobby__sub_80226294(int);
+M2C_UNK stop_sound_request(int);
 s32 fn_802264B8(int, int);
-M2C_UNK TLobby__sub_802275FC();
+M2C_UNK update_music_fade();
 s32 TLobby__sub_8023F880(int);
 extern Ent_802269B4 lbl_805145F0[];
 extern f32 lbl_80514C50[];
@@ -122,7 +122,7 @@ extern "C" {
 void update_lobby_subsystems__6TLobbyFv(void);
 int TLobby__sub_8022644C(void);
 
-void update_lobby_subsystems__6TLobbyFv(void) { TLobby__sub_8022644C(); TLobby__sub_80227248(); }
+void update_lobby_subsystems__6TLobbyFv(void) { TLobby__sub_8022644C(); stop_cue_stream(); }
 
 void update_sound_request_slots(void) {
     s32 i;
@@ -152,11 +152,11 @@ void update_sound_request_slots(void) {
                         (*t)--;
                         if ((e->flags & 0x1000) && e->f8 != 0U && fn_802264B8(i, 1) == 0) {
                             *t = 0;
-                            TLobby__sub_80226294(i);
+                            stop_sound_request(i);
                             e->flags &= ~0x400;
                         }
                     } else {
-                        TLobby__sub_80226294(i);
+                        stop_sound_request(i);
                         e->flags &= ~0x400;
                     }
                 } else {
@@ -167,13 +167,13 @@ void update_sound_request_slots(void) {
                         e->timer--;
                         if (e->timer <= 0) {
                             e->flags &= ~0x600;
-                            TLobby__sub_80226294(i);
+                            stop_sound_request(i);
                         }
                     }
                 }
             }
         }
-        TLobby__sub_802275FC();
+        update_music_fade();
     }
 }
 
@@ -191,7 +191,7 @@ int set_and_notify_default__6TLobbyFv(void) { return set_and_notify__6TLobbyFi((
 int send_neg30__6TLobbyFv(void) { return set_and_notify__6TLobbyFi((void*)(-30)); }
 
 typedef char RecoveredGlobal_80226CB0_lbl_804CB850_size[sizeof(RecoveredGlobal_80226CB0_lbl_804CB850) == 0xC ? 1 : -1];
-void TLobby__sub_80226CB0(s32 arg0) {
+void set_cue_stream_gain(s32 arg0) {
     s32 var_r4;
     var_r4 = arg0;
     if (var_r4 <= -0x140) {
@@ -203,7 +203,7 @@ void TLobby__sub_80226CB0(s32 arg0) {
 }
 
 typedef char RecoveredGlobal_80226CF4_lbl_804CB850_size[sizeof(RecoveredGlobal_80226CF4_lbl_804CB850) == 0xC ? 1 : -1];
-void TLobby__sub_80226CF4(s32 arg0) {
+void set_music_streams_volume(s32 arg0) {
     s32 var_r31;
     var_r31 = arg0;
     if (var_r31 <= -0x140) {
@@ -217,12 +217,12 @@ void TLobby__sub_80226CF4(s32 arg0) {
 
 void release_bgm_resource__6TLobbyFv(void) {
     if ((s32) lbl_805D6330 != 0) {
-        TLobby__sub_803C9CBC(M2C_FIELD(lbl_804CB850, s32 *, 4));
+        stop_audio_stream(M2C_FIELD(lbl_804CB850, s32 *, 4));
         lbl_805D6330 = 0;
         init_layout_positions__6TLobbyFv();
     }
 }
-void TLobby__sub_80227220(s32 arg0) {
+void set_dark_falz_music_request(s32 arg0) {
     if ((s32) lbl_805D6300 == 4) {
         lbl_805D631C = arg0;
     }
@@ -235,15 +235,15 @@ void set_target_id__6TLobbyFi(s32 arg0) {
 typedef char RecoveredGlobal_8022727C_lbl_804CB850_size[sizeof(RecoveredGlobal_8022727C_lbl_804CB850) == 0xC ? 1 : -1];
 
 typedef char RecoveredGlobal_80227248_lbl_804CB850_size[sizeof(RecoveredGlobal_80227248_lbl_804CB850) == 0xC ? 1 : -1];
-void TLobby__sub_80227248(void) {
+void stop_cue_stream(void) {
     if ((u32) M2C_FIELD(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8) != 0U) {
-        TLobby__sub_803C9CBC((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8))));
+        stop_audio_stream((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8))));
     }
 }
 
 void play_cue_stream_file(s32 arg0) {
     if ((void *) M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8) != NULL) {
-        TLobby__sub_803CA824(M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8), arg0);
+        start_audio_stream_file(M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8), arg0);
     }
 }
 typedef char RecoveredGlobal_802272B4_lbl_804CB850_size[sizeof(RecoveredGlobal_802272B4_lbl_804CB850) == 0xC ? 1 : -1];

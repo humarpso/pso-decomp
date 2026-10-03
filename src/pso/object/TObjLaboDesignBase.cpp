@@ -83,10 +83,10 @@ int fn_80365334(int a0);
 void render__18TObjLaboDesignBaseFPv(u8 *arg0);
 void run_task__18TObjLaboDesignBaseFv(void);
 M2C_UNK post_translate_matrix(void *);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 M2C_UNK TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-void TObjPlayer__sub_80154A00(void *);
+void unregister_object_by_id(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -223,8 +223,8 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjLaboDesignBase;
         if (M2C_FIELD(arg0, void **, 0xBC) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xBC)); M2C_FIELD(arg0, M2C_UNK *, 0xBC) = 0; }
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

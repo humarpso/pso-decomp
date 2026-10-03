@@ -143,7 +143,7 @@ void queue_destruction__7TObjectFv(void *);
 void TObjEneRe7Berura__sub_80094D3C(void *);
 void TObjPlayer__sub_800A05B8(void *, int);
 void __dt__9TObjEneDDFv(void *, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 void __destroy_arr(void *, void *, u32, u32);
@@ -221,7 +221,7 @@ Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag) {
             queue_destruction__7TObjectFv(self->effect);
             self->effect = 0;
         }
-        TObjEneGibbles__sub_80156720(self);
+        free_collision_body_parts(self);
         __destroy_arr(self->arr, (void *)((s32 *)&TObjPlayer__sub_800D7C58), 0x1C, 4);
         TObjPlayer__sub_800A05B8(self->motionB, -1);
         TObjPlayer__sub_800A05B8(self->motionA, -1);

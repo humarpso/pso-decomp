@@ -82,7 +82,7 @@ extern "C" {
 s32 obj_isState2_324(VObj_80052420 *);
 s16 obj_getS16_32C(VObj_80052420 *);
 s32 TBoss4Type3__sub_8005254C(s32);
-void TObjPlayer__sub_801B1E54(s32, s32, s16);
+void send_6x2F_change_player_hp(s32, s32, s16);
 VObj_80052420 *get_player_by_client_id(u16);
 void calc_photon_blast_charge__10TObjPlayerFv(VObj_80052420 *, u32);
 u32 fn_80052420(s32 arg0, u32 arg1);
@@ -107,7 +107,7 @@ u32 fn_80052420(s32 arg0, u32 arg1) {
         return n;
     }
     v -= n;
-    TObjPlayer__sub_801B1E54(0xFFFF, arg0, v);
+    send_6x2F_change_player_hp(0xFFFF, arg0, v);
     calc_photon_blast_charge__10TObjPlayerFv(p, n);
     p->m73();
     return n;

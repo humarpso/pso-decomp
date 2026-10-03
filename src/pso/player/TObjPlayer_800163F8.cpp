@@ -258,7 +258,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 M2C_UNK angle_difference_abs(s32, s32);
 extern const f64 TObjPlayer__data_804340B8;
-void TObjPlayer__sub_80018570(Obj_80018570 *self);
+void enemy_turn_half_toward_dest(Obj_80018570 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void subtract_vector(void *a, void *b);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -270,19 +270,19 @@ extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 TObjPlayer__data_805D7D80;
 extern const f64 TObjPlayer__data_804340B8;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
-void TObjPlayer__sub_800180E8(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
-void TObjPlayer__sub_800180E8(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
+void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
+void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_80017804(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0);
-void TObjPlayer__sub_800180E8(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
+void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed);
 s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 TObjPlayer__data_805D7D24;
-f32 TObjPlayer__sub_80017ABC(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0);
+f32 enemy_backstep_from_point(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK vec3_add_to(void *, void *);
-f32 TCameraCtrl__sub_803D8D00(void *);
+f32 vec_squared_length(void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 void subtract_vector(void *a, void *b);
@@ -340,7 +340,7 @@ extern const f64 TObjPlayer__data_804340B8;
 extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 TObjPlayer__data_805D7D80;
-f32 TObjPlayer__sub_800178C8(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 farg1);
+f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 farg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 f32 newton_sqrtf(f32);
 u32 csnVecterUnder(void *, int);
@@ -596,13 +596,13 @@ f32 enemy_move_toward(u8 *arg0, s32 arg1, Vec_800180E8 arg2, s32 arg3, f32 farg0
 f32 TObjPlayer__sub_80017804(Obj_80017804 *arg0, Vec_800180E8 *arg1, f32 farg0) {
     VecCopy__FP3VecPC3Vec((s32) &arg0->dest, (s32) arg1);
     VecCopy__FP3VecPC3Vec((s32) &arg0->home, (s32) &arg0->cur);
-    ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) TObjPlayer__sub_800180E8)(arg0, arg0->home, arg0->dest, farg0);
+    ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) calc_velocity_toward_destination)(arg0, arg0->home, arg0->dest, farg0);
     arg0->pos.x += arg0->vx;
     arg0->pos.z += arg0->vz;
     return horizontal_distance_squared(arg1, &arg0->pos);
 }
 
-f32 TObjPlayer__sub_800178C8(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 farg1) {
+f32 enemy_pursue_point(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f32 farg1) {
     f32 d0;
     f32 d1;
     f32 d2;
@@ -632,10 +632,10 @@ f32 TObjPlayer__sub_800178C8(u8 *arg0, s32 arg1, Vec_800180E8 arg2, f32 farg0, f
     return horizontal_distance_squared(&arg2, arg0 + 0x2FC);
 }
 
-f32 TObjPlayer__sub_80017ABC(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0) {
+f32 enemy_backstep_from_point(Obj_80017ABC *arg0, Vec_800180E8 arg1, f32 farg0) {
     if (TObjPlayer__sub_800181DC((u8 *)((u8 *) arg0), (Vec_800180E8)(arg1)) != 0) {
         ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, arg0->cur);
-        ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) TObjPlayer__sub_800180E8)(arg0, arg0->home, arg0->dest, farg0);
+        ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) calc_velocity_toward_destination)(arg0, arg0->home, arg0->dest, farg0);
         move_with_wall_slide((u8 *)(arg0));
         return horizontal_distance_squared(&arg1, &arg0->pos);
     }
@@ -675,13 +675,13 @@ f32 enemy_wander_home(u8 *arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
     return var_f31;
 }
 
-f32 TObjPlayer__sub_80017D68(Obj_80017ABC *arg0, Vec_800180E8 arg1, s32 arg2, f32 farg0) {
+f32 update_enemy_wander_move(Obj_80017ABC *arg0, Vec_800180E8 arg1, s32 arg2, f32 farg0) {
     if (((VObj_18_cc39a7 *)(arg0))->m17(0x1E) != 0) {
         if (((M2C_UNK (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, arg1, arg2) != 0) {
             ((s32 (*)(void *, Vec_800180E8)) copy_position_if_valid__10TObjPlayerFii)(arg0, arg0->cur);
         }
     }
-    ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) TObjPlayer__sub_800180E8)(arg0, arg0->home, arg0->dest, farg0);
+    ((void (*)(void *, Vec_800180E8, Vec_800180E8, f32)) calc_velocity_toward_destination)(arg0, arg0->home, arg0->dest, farg0);
     move_with_wall_slide((u8 *)(arg0));
     return horizontal_distance_squared(&arg1, &arg0->pos);
 }
@@ -769,7 +769,7 @@ void enemy_set_heading_velocity(u8 *arg0, s32 arg1, f32 farg0) {
 }
 
 struct RecoveredGlobal_8001806C_lbl_8058D490;
-void TObjPlayer__sub_800180E8(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed) {
+void calc_velocity_toward_destination(Obj_800180E8 *self, Vec_800180E8 *pos, Vec_800180E8 *dest, f32 speed) {
     Vec_800180E8 d;
     s32 a;
     VecCopy__FP3VecPC3Vec((s32)&d, (s32)dest);
@@ -798,7 +798,7 @@ s32 TObjPlayer__sub_800181DC(u8 *arg0, Vec_800180E8 arg1) {
     rotate_matrix_y(0, (void *) 0x8000);
     rotate_vector_by_matrix(0, &d, &d);
     pop_matrix();
-    if (TObjPlayer__data_805D7D80 < TCameraCtrl__sub_803D8D00(&d)) {
+    if (TObjPlayer__data_805D7D80 < vec_squared_length(&d)) {
         normalize_vector(&d);
         vec3_add_to(&d, arg0 + 0x2FC);
         return ((s32 (*)(void *, Vec_800180E8, int)) select_enemy_destination)(arg0, d, 1);
@@ -874,7 +874,7 @@ s32 copy_position_if_valid__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 extern const f64 TObjPlayer__data_804340B8;
 
-void TObjPlayer__sub_80018570(Obj_80018570 *self) {
+void enemy_turn_half_toward_dest(Obj_80018570 *self) {
     Vec_80018570 d;
     s32 a;
     VecCopy__FP3VecPC3Vec((s32)&d, (s32)&self->dest);

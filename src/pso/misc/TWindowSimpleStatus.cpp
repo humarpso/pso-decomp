@@ -11,7 +11,7 @@ struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20;
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_background__19TWindowSimpleStatusFv(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__19TWindowSimpleStatusFv(s32 arg0);
 void __dl__7TObjectFPv(void *);
@@ -35,7 +35,7 @@ s32 get_window_layout_position(M2C_UNK);
 M2C_UNK update_window_entry_list(s32, s32);
 void *__nw__7TObjectFUl(int);
 M2C_UNK fn_8026FDC0(s32);
-M2C_UNK fn_8026FEA8();
+M2C_UNK update_hp_tp_level__20TWindowSubStatusDispFPv();
 M2C_UNK fn_80270014(s32);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(s32);
 M2C_UNK update_fade__17TWindowSubComCardFPv(s32);
@@ -47,11 +47,11 @@ void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_background__19TWindowSimpleStatusFv((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__19TWindowSimpleStatusFv(s32 arg0) {
-    fn_8026FEA8();
+    update_hp_tp_level__20TWindowSubStatusDispFPv();
     fn_80270014(arg0);
     update_status_help_item(arg0);
     TWindowComCard__sub_8026F9F4(arg0, get_window_layout_position(0x1D));

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 append_text_space();
 s32 append_padded_number(void *, int);
@@ -54,7 +54,7 @@ void TWindowSubStatusDisp__sub_80244494(s32 arg0, s32 arg1, s32 arg2) {
     append_padded_number((void *) (arg1), (int) (2U));
     text_builder_append((void *) (&lbl_805DCAB8));
     append_padded_number((void *) (arg2), (int) (2U));
-    set_entry_display_value__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (TLobby__sub_8001DC24()));
+    set_entry_display_value__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (get_shared_text_buffer()));
     lbl_805D63E8 = arg1;
 }
 

@@ -250,7 +250,7 @@ extern s32 lbl_805D4458;
 void *TObjEneEpsilonGuard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5, void *arg6);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK TObjEneEpsilon__vt0(void *, int);
 extern void *__vt__19TObjEneEpsilonGuard[];
@@ -359,13 +359,13 @@ u8 *__dt__19TObjEneEpsilonGuardFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, void **, 0x440) = NULL;
         }
         if (M2C_FIELD(arg0, void **, 0x45C) != NULL) {
-            TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, void **, 0x45C));
+            free_collision_body_parts(M2C_FIELD(arg0, void **, 0x45C));
             if (M2C_FIELD(arg0, VObj_8035F234 **, 0x45C) != NULL) {
                 M2C_FIELD(arg0, VObj_8035F234 **, 0x45C)->m0(1);
             }
             M2C_FIELD(arg0, void **, 0x45C) = NULL;
         }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs(arg0 + 0x4BC, -1);
         TObjEneEpsilon__vt0(arg0, 0);
         if (arg1 > 0) {

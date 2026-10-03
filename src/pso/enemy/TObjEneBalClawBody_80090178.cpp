@@ -22,7 +22,7 @@ void queue_destruction__7TObjectFv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
 s32 get_flag_0x388_b24__10TObjPlayerFPv(void *);
 void *find_entity_by_id(u16);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_8048EF0C[];
 Body_80090178 *TObjEneBalClawBody__sub_80090178(Body_80090178 *self, s16 flag);
@@ -35,7 +35,7 @@ Body_80090178 *TObjEneBalClawBody__sub_80090178(Body_80090178 *self, s16 flag) {
     void *p;
     if (self != NULL) {
         self->vtable = lbl_8048EF0C;
-        TObjEneGibbles__sub_80156720(self);
+        free_collision_body_parts(self);
         if (self->parts[0] != NULL) {
             queue_destruction__7TObjectFv(self->parts[0]);
         }

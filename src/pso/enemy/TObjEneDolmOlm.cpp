@@ -335,7 +335,7 @@ void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void unlink_enemy_group_relations(void *);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804E6928[];
 Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag);
@@ -822,7 +822,7 @@ Ene_80302A34 *TObjEneDolmOlm__sub_80302A34(Ene_80302A34 *self, s16 flag) {
             }
         }
         unlink_enemy_group_relations(self);
-        TObjEneGibbles__sub_80156720(self);
+        free_collision_body_parts(self);
         __dt__18TObjEneMe3SinowZoaFPvs(self->sub, -1);
         TObjPlayer__sub_800C68FC(self, 0);
         if (flag > 0) {

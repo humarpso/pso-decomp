@@ -4,7 +4,7 @@ struct Names_8017E1E4 { const char *name[2]; };
 
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
-void TObjBgmColCtrl__sub_802274B8(const char *);
+void play_area_music(const char *);
 extern Names_8017E1E4 lbl_80443898[];
 extern char lbl_804438A0[];
 extern char lbl_804438B0[];
@@ -35,33 +35,33 @@ void TObjBgmColCtrl__sub_8017E1E4(void) {
     }
     switch (TObjBgmColCtrl__data_805D5B0C) {
     case 1:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438A0);
+        play_area_music(lbl_804438A0);
         break;
     case 7:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438B0);
+        play_area_music(lbl_804438B0);
         break;
     case 3:
     case 9:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438C0);
+        play_area_music(lbl_804438C0);
         break;
     case 4:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438D0);
+        play_area_music(lbl_804438D0);
         break;
     case 5:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438DC);
+        play_area_music(lbl_804438DC);
         break;
     case 6:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438EC);
+        play_area_music(lbl_804438EC);
         break;
     case 12:
     case 14:
-        TObjBgmColCtrl__sub_802274B8(lbl_804438F8);
+        play_area_music(lbl_804438F8);
         break;
     case 10:
-        TObjBgmColCtrl__sub_802274B8(lbl_80443904);
+        play_area_music(lbl_80443904);
         break;
     default:
-        TObjBgmColCtrl__sub_802274B8(name);
+        play_area_music(name);
         break;
     }
 }

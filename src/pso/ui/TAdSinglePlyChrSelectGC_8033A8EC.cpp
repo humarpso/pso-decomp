@@ -131,7 +131,7 @@ extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F92C();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
-M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
+M2C_UNK set_active_camera_pose(void *, void *);
 M2C_UNK TCameraCtrl__sub_80069E7C(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
@@ -153,17 +153,17 @@ extern RecoveredGlobal_8033B264_main_task main_task;
 extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033B2AC(void);
 M2C_UNK TKeyBoardControl__sub_8000F90C(int);
-M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
-M2C_UNK TCameraCtrl__sub_8006A5EC(int);
+M2C_UNK set_active_camera_pose(void *, void *);
+M2C_UNK select_active_controller__11TCameraCtrlFc(int);
 M2C_UNK TCameraCtrl__ct(u32, s32);
 M2C_UNK TLobby__sub_800FD6F8(void *, int);
-M2C_UNK TObjLight__sub_80133A04(void *, int);
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK init_menu_scene_lights(void *, int);
+M2C_UNK reset_controller_input_state();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(void *);
 M2C_UNK set_copy_clear_color_argb(int, int, int);
 M2C_UNK render_tick__Fv();
 M2C_UNK set_and_notify__6TLobbyFi(int);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+M2C_UNK play_area_music(void *);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK TWindowCtrlMain__ct(u32);
 M2C_UNK construct__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -175,7 +175,7 @@ extern RecoveredGlobal_8033B264_lbl_804EF728 lbl_804EF728;
 extern u8 lbl_8050EA40[];
 extern s32 tl_camera;
 extern s32 lbl_805D6D90;
-void TAdSinglePlyChrSelectGC__sub_8033B39C(void);
+void init_single_player_char_select_scene(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -478,7 +478,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
     V3_8033B2AC a = lbl_80477D78[0];
     V3_8033B2AC b = lbl_80477D84[0];
     TCameraCtrl__sub_80069E7C(9);
-    TCameraCtrl__sub_80069C94(&a, &b);
+    set_active_camera_pose(&a, &b);
     some_empty_func__9TMainTaskFv(&main_task.value);
     run_task__9TMainTaskFv(&main_task.value);
     render__9TMainTaskFv(&main_task.value);
@@ -499,20 +499,20 @@ void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
 }
 
 struct RecoveredGlobal_8033B264_lbl_804EF728;
-void TAdSinglePlyChrSelectGC__sub_8033B39C(void) {
+void init_single_player_char_select_scene(void) {
     u32 p;
     set_copy_clear_color_argb(0, 0, 0);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     TLobby__sub_800FD6F8(&lbl_804EF728, 0x30);
-    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    init_menu_scene_lights(lbl_804A6F34, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
         TCameraCtrl__ct(p, tl_camera);
     }
     V3_8033B39C a = lbl_80477D60[0];
     V3_8033B39C b = lbl_80477D6C[0];
-    TCameraCtrl__sub_8006A5EC(9);
-    TCameraCtrl__sub_80069C94(&a, &b);
+    select_active_controller__11TCameraCtrlFc(9);
+    set_active_camera_pose(&a, &b);
     p = __nw__7TObjectFUl(0x1C);
     if (p != 0) {
         TWindowCtrlMain__ct(p);
@@ -523,7 +523,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B39C(void) {
     }
     TKeyBoardControl__sub_8000F90C(2);
     lbl_805D6D90 = 0;
-    TObjBgmColCtrl__sub_802274B8(lbl_80477D90);
+    play_area_music(lbl_80477D90);
     set_and_notify__6TLobbyFi(-900);
     reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
     render_tick__Fv();

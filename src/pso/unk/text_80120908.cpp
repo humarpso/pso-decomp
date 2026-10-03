@@ -38,7 +38,7 @@ u32 test_flags_1b8__10TObjPlayerFPvUi(void *, int);
 s32 get_attach_joint__14TItemEquipBaseFPv(void *);
 M2C_UNK TObjPlayer__sub_80121208(void *, void *);
 M2C_UNK reset_model_node_counter();
-M2C_UNK TObjPlayer__sub_801415BC();
+M2C_UNK set_shadow_material_state();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80364028();
@@ -100,7 +100,7 @@ s32 draw_weapon_model(void *arg0) {
             if (is_flag_400__10TObjPlayerFPv((void *) (arg0)) != 0) {
                 some_id_805c6f74 |= 0x8011;
                 set_color_blend_mode((int) (1), (int) (4), (int) (5), (int) (0));
-                TObjPlayer__sub_801415BC();
+                set_shadow_material_state();
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x17C) == 0U) {
                     if (test_flags_1b8__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800000)) != 0U) {
                         draw_chunk_object((int) (M2C_FIELD(arg0, u32 *, 0xF4)));

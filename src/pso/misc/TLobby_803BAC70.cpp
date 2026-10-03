@@ -387,16 +387,16 @@ s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 extern SoundStudioMixView lbl_805663D8[];
-void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
 s32 OSDisableInterrupts(void);
 void TLobby__sub_803BE770(void);
 s32 OSRestoreInterrupts(s32 level);
 extern s32 lbl_805D7508;
 extern u16 lbl_805D7504;
-void TLobby__sub_803BE700(void);
+void sound_enable_irq(void);
 s32 create_sound_reverb_state(SoundReverb *self, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f);
-void TLobby__sub_803BE860(Obj_803BE860 *self);
+void init_sound_reverb(Obj_803BE860 *self);
 s32 OSEnableInterrupts(void);
 void TLobby__sub_803BE790(void);
 s32 OSDisableInterrupts(void);
@@ -409,7 +409,7 @@ Rec_803BE528 *TLobby__sub_803BE528(void);
 s32 OSDisableInterrupts(void);
 extern s32 lbl_805D7508;
 extern u16 lbl_805D7504;
-void TLobby__sub_803BE738(void);
+void sound_disable_irq(void);
 extern u8 lbl_8056E118[];
 extern u8 lbl_8056E098[][16];
 u8 *TLobby__sub_803BB870(u8 a, u8 b);
@@ -433,7 +433,7 @@ extern s32 lbl_805D748C;
 u8 TLobby__sub_803BD0E8(s32 i);
 extern s32 lbl_805D748C;
 extern s8 lbl_805D74B8;
-void TLobby__sub_803BD174(s32 i);
+void key_off_sound_hw_voice(s32 i);
 void TLobby__sub_803B58DC(u8 i, s32 a, s32 b);
 void TLobby__sub_803BD5EC(u8 i, s32 a, s32 b);
 u32 TLobby__sub_803BD800(u8 i);
@@ -527,7 +527,7 @@ extern RecoveredCallback_d26337a2813d lbl_805D74BC;
 f32* TLobby__sub_803BE7B0(s32 bytes);
 extern RecoveredCallback_d26337a2813d lbl_805D74BC;
 void TLobby__sub_803BE7D8(s32 arg0);
-void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2);
+void reverb_aux_callback(u8 arg0, u8 *arg1, u8 *arg2);
 u8 TLobby__sub_803BC774(u8 arg0);
 void TLobby__sub_803BB8F0(Obj_803BB8F0 *arg0, u8 arg1, s32 arg2, u8 arg3, u32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
@@ -545,7 +545,7 @@ void TLobby__sub_803BD8A8(Hdr_803BD8A8 **arg0, u32 *arg1);
 void TLobby__sub_803BE000(s32 arg0, s32 arg1);
 void TLobby__sub_803BD93C(Hdr_803BD93C *arg0, u32 arg1);
 void TLobby__sub_803BE6D4(void);
-void TLobby__sub_803BE700(void);
+void sound_enable_irq(void);
 void TLobby__sub_803BE508(void);
 u32 TLobby__sub_803BE43C(void *fn, u32 arg1, u32 arg2);
 u32 TLobby__sub_803B5500(u8 arg0, u8 arg1, bool arg2);
@@ -571,10 +571,10 @@ void TLobby__sub_803BD214(s32 index, u8 entry);
 void TLobby__sub_803BD240(s32 index, u8 entry);
 void TLobby__sub_803BD26C(s32 i, u8 mode);
 extern s8 lbl_805D74B8;
-void TLobby__sub_803BCD1C(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7);
+void start_sound_sample_voice(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7);
 u16 TLobby__sub_803B3ED8(s32);
 extern u8 lbl_804F68DC[];
-void TLobby__sub_803BCF18(s32 n, void *arg1, u8 mode);
+void set_sound_hw_voice_envelope(s32 n, void *arg1, u8 mode);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32 level);
 M2C_UNK ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
@@ -865,7 +865,7 @@ s32 TLobby__sub_803BCC0C(u32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     if (TLobby__sub_803BE43C((void *)TLobby__sub_803BCAA0, arg3, arg0) != 0 &&
         TLobby__sub_803B5500(arg1, arg2, (arg3 & 1) != 0) != 0 &&
         TLobby__sub_803BE554(arg3) != 0) {
-        TLobby__sub_803BE700();
+        sound_enable_irq();
         TLobby__sub_803BE508();
         return 0;
     }
@@ -891,7 +891,7 @@ void TLobby__sub_803BCD08(s32 i, s32 v) {
     (*(Slot_803BCD08 * *)&lbl_805D748C)[i].f1c = v;
 }
 
-void TLobby__sub_803BCD1C(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7) {
+void start_sound_sample_voice(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7) {
     u8 i;
     s32 flags = 0;
     for (i = 0; i <= (u8)lbl_805D74B8; i++) {
@@ -930,7 +930,7 @@ void TLobby__sub_803BCEC8(s32 i) {
     (*(Slot_803BCEC8 **)&lbl_805D748C)[i].f24[(u8)lbl_805D74B8] |= 0x20;
 }
 
-void TLobby__sub_803BCF18(s32 n, void *arg1, u8 mode) {
+void set_sound_hw_voice_envelope(s32 n, void *arg1, u8 mode) {
     u32 v;
     switch (mode) {
     case 0: {
@@ -993,7 +993,7 @@ void TLobby__sub_803BD138(s32 i, s32 x) {
     (*(Slot_803BD138 * *)&lbl_805D748C)[i].fd4 = lbl_805D74B8; TLobby__sub_803B8910(&(*(Slot_803BD138 * *)&lbl_805D748C)[i], x);
 }
 
-void TLobby__sub_803BD174(s32 i) {
+void key_off_sound_hw_voice(s32 i) {
     (*(Slot_803BD174 * *)&lbl_805D748C)[i].f24[(u8)lbl_805D74B8] |= 0x40;
 }
 
@@ -1084,7 +1084,7 @@ void TLobby__sub_803BD598(s32 arg0) {
 #pragma push
 #pragma scheduling off
 typedef char RecoveredGlobal_803BD5C4_lbl_805663D8_size[sizeof(RecoveredGlobal_803BD5C4_lbl_805663D8) == 0x6E0 ? 1 : -1];
-void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     temp_r3 = (u8 *)&lbl_805663D8 + (arg0 * 0xBC);
     M2C_FIELD(temp_r3, s32 *, 0xAC) = arg1;
@@ -1399,13 +1399,13 @@ void TLobby__sub_803BE6D4(void) {
 }
 #pragma pop
 
-void TLobby__sub_803BE700(void) {
+void sound_enable_irq(void) {
     if (--lbl_805D7504 == 0) {
         OSRestoreInterrupts(lbl_805D7508);
     }
 }
 
-void TLobby__sub_803BE738(void) {
+void sound_disable_irq(void) {
     if (lbl_805D7504++ == 0) {
         lbl_805D7508 = OSDisableInterrupts();
     }
@@ -1427,7 +1427,7 @@ void TLobby__sub_803BE7D8(s32 arg0) {
     (*(Cb_803BE7D8 *)&lbl_805D74BC).fn(arg0);
 }
 
-void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2) {
+void reverb_aux_callback(u8 arg0, u8 *arg1, u8 *arg2) {
     switch ((s32) arg0) {
     case 0:
         if ((u8) M2C_FIELD(arg2, u8 *, 0x1C4) == 0) {
@@ -1438,7 +1438,7 @@ void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2) {
     }
 }
 
-void TLobby__sub_803BE860(Obj_803BE860 *self) {
+void init_sound_reverb(Obj_803BE860 *self) {
     self->flag = 0;
     create_sound_reverb_state((SoundReverb*)self, self->a, self->c, self->b, self->d, self->e, self->f);
 }

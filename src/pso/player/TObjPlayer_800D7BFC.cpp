@@ -18,7 +18,7 @@ void *init_and_activate__10TObjPlayerFPv(void *arg0);
 void init_effect_9472__10TObjPlayerFv(void);
 M2C_UNK TObjPlayer__sub_800D96D0(M2C_UNK, M2C_UNK *);
 void TObjPlayer__sub_800D9718(void *);
-int TObjPlayer__sub_803E38FC(int);
+int set_chunk_blend(int);
 M2C_UNK __dl__FPv(void *);
 int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 
@@ -28,7 +28,7 @@ void activate_and_dispatch__10TObjPlayerFPv(void *arg0) {
     o->m2();
 }
 
-void init_effect_9472__10TObjPlayerFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); TObjPlayer__sub_803E38FC(9472); }
+void init_effect_9472__10TObjPlayerFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(9472); }
 
 extern M2C_UNK lbl_804949A8[];
 

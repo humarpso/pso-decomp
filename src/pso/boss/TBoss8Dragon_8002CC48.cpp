@@ -44,7 +44,7 @@ struct Trail_8002CC48 {
 
 extern "C" {
 extern const f32 lbl_805D81D0;
-s32 TBoss8Dragon__sub_8002D308(u8 *arg0);
+s32 is_dragon_trail_damaging(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -60,8 +60,8 @@ extern Hdr_8002D4C0 *lbl_805D4B70;
 extern const f32 lbl_805D81D8;
 extern const f32 lbl_805D81DC;
 extern const f32 lbl_805D81E0;
-void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
-void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
+void update_dragon_trail_uvs(Obj_8002D4C0 *self);
+void update_dragon_trail_uvs(Obj_8002D4C0 *self);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
 void pop_matrix(void);
@@ -81,7 +81,7 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D8198;
-void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0);
+void render_dragon_trail(Obj_8002CE78 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv();
 s32 get_state__12TBoss8DragonFv(void);
@@ -152,12 +152,12 @@ void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1) {
 }
 
 struct Obj_8002D4C0;
-void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0) {
+void render_dragon_trail(Obj_8002CE78 *arg0) {
     Ent_8002CE78 *p;
     s32 i;
     if (arg0->active != 0) {
         set_global_param__8TObjFishFi(lbl_805D4B54);
-        TBoss8Dragon__sub_8002D4C0((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)lbl_805D4B7C));
+        update_dragon_trail_uvs((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)lbl_805D4B7C));
         for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
             *p->dst = p->base + p->ofs;
         }
@@ -184,7 +184,7 @@ void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0) {
     }
 }
 
-s32 TBoss8Dragon__sub_8002D308(u8 *arg0) {
+s32 is_dragon_trail_damaging(u8 *arg0) {
     return M2C_FIELD(arg0, f32 *, 0x34) >= lbl_805D81D0;
 }
 
@@ -244,7 +244,7 @@ u8 *TBoss8Dragon__sub_8002D41C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     return arg0;
 }
 
-void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self) {
+void update_dragon_trail_uvs(Obj_8002D4C0 *self) {
     s32 cnt;
     s16 n;
     s16 *p = (s16 *)((u8 *)lbl_805D4B70 + 6);

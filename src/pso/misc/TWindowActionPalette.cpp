@@ -32,7 +32,7 @@ typedef struct Pal_80244108 {
 
 extern "C" {
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
-void TWindowHelpItem__sub_8025B08C(void*,float,float);
+void set_sprite_uv_from_pixels(void*,float,float);
 extern float lbl_8044E604[][2];
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
 s32 is_split_screen();
@@ -53,7 +53,7 @@ s32 TWindowActionPalette__sub_80243968(void *, int, int, int);
 void update_slot_sprites__20TWindowActionPaletteFv(void *, int, int, u16);
 u8 get_enabled__11TMainCursorFPv(void *);
 u8 get_type__11TMainCursorFPv(void *);
-s32 TObjPlayer__sub_801B5920(s32, s32);
+s32 is_action_channel_available__10TObjPlayerFii(s32, s32);
 void TWindowHelpItem__sub_80243544(void *, void *, int, u16, s32);
 void draw_action_palette_icon(void *, int, u16);
 extern const u8 lbl_805DCA10[4];
@@ -86,8 +86,8 @@ Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot);
 
 extern "C" {
 void draw_frame__20TWindowActionPaletteFv(void *, int);
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
-void TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+s32 setup_window_draw_context(void *, void *);
+void draw_visible_window_entries(void *, void *, int);
 u8 *destroy_window_base__9TWindowDDFPvs(void *, s16);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -96,14 +96,14 @@ extern u32 __vt__20TWindowActionPalette[6];
 }
 
 void TWindowActionPalette::render() {
-    s32 context = TWindowSubComCard__sub_80244C0C(this, &scale);
-    TWindowSubStatusDisp__sub_80257BC0(this, &children, context);
+    s32 context = setup_window_draw_context(this, &scale);
+    draw_visible_window_entries(this, &children, context);
     draw_frame__20TWindowActionPaletteFv(this, context);
 }
 
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {
     void* sprite=get_array_entry__20TWindowSubStatusDispFPvi(self,1);
-    TWindowHelpItem__sub_8025B08C(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
+    set_sprite_uv_from_pixels(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
 }
 
 extern "C" {
@@ -115,7 +115,7 @@ void update_slot_sprites__20TWindowActionPaletteFv(void *arg0, int idx, int mode
     player = get_player_by_client_id(*(s16 *)((u8 *)arg0 + 0x20));
     if (player != 0) {
         help = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette *)arg0, lbl_805DCA10[idx]);
-        if (TObjPlayer__sub_801B5920(player, lbl_805DCA14[idx]) != 0) {
+        if (is_action_channel_available__10TObjPlayerFii(player, lbl_805DCA14[idx]) != 0) {
             *(s32 *)(help + 0x2C) = -1;
         } else {
             *(s32 *)(help + 0x2C) = 0xFF404040;

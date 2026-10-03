@@ -112,14 +112,14 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 extern Pad_801A0F34 lbl_8050E208[];
-s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK spawn_particle_effect(void *, int);
 void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
-s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 void transfer_to_town__9TObjLukerFv(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -226,7 +226,7 @@ void TObjLuker__sub_801A0E38(Obj_801A0E38 *self) {
     }
 }
 
-s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range) {
+s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
     s32 ret;
     s32 flag;
     s32 i;
@@ -326,7 +326,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                 if (is_player_in_range__9TObjLukerFv((s32) arg0, lbl_805DC080) != 0) {
                     flag = 0;
                     if (is_split_screen() != 0) {
-                        if (TObjLuker__sub_801A0F34(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {
+                        if (are_players_gathered_near(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {
                             flag = 1;
                             M2C_FIELD(arg0, u16 *, 0xAA) = M2C_FIELD(arg0, u16 *, 0xA8);
                         }

@@ -11,7 +11,7 @@ struct RecoveredGlobal_8015B76C___vt__27TOContainerAncientEnemyRare {
 };
 
 extern "C" {
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 TOContainerAncientEnemyCommon__ct(int, void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_game_play_mode();
@@ -60,7 +60,7 @@ s32 TOContainerAncientEnemyCommon__create(s32 arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (TCameraCtrl__sub_8006B368() == 1)) {
+    if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (is_quest_active() == 1)) {
         temp_r3 = __nw__7TObjectFUl((int) (0x368));
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {

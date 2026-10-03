@@ -14,7 +14,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
 u32 find_entity_by_id(s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void TObjEneEpsilon__vt0(void *, s16);
 extern void *lbl_804F22DC[];
@@ -27,7 +27,7 @@ Eps_803622B0 *fn_803622B0(Eps_803622B0 *o, s16 arg1) {
     s32 i;
     if (o != NULL) {
         o->vt = lbl_804F22DC;
-        TObjEneGibbles__sub_80156720(o);
+        free_collision_body_parts(o);
         if (o->x430 != NULL) {
             queue_destruction__7TObjectFv(o->x430);
             o->x430 = NULL;

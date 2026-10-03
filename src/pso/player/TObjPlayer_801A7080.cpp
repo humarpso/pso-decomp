@@ -23,7 +23,7 @@ struct Ent_801A70C8 { s32 a; f32 b; s32 c; };
 struct Ent_801A710C { u32 a; f32 b; s32 c; };
 
 extern "C" {
-s32 TCameraCtrl__sub_8006A5EC(int);
+s32 select_active_controller__11TCameraCtrlFc(int);
 s32 set_scripted_camera_pose(int, int, void *);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -147,7 +147,7 @@ void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
     stack.spC = lbl_805DC0D0;
     stack.sp10 = lbl_805DC0D4;
     if ((M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 4) || (M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 8)) {
-        TCameraCtrl__sub_8006A5EC((int) (5));
+        select_active_controller__11TCameraCtrlFc((int) (5));
     }
     cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x4222));
     temp_r3 = (long) (arg0 + 0x38);

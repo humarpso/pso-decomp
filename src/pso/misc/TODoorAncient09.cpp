@@ -68,7 +68,7 @@ struct Door_80160BA8 {
 };
 
 extern "C" {
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 access_object_saved_state(void *, void *, int);
 M2C_UNK fn_80160838(void *, void *);
 u8 is_current_floor_switch_set(int);
 void TODoorAncient09__vt12(u8 *arg0);
@@ -131,8 +131,8 @@ void TLobby__sub_8001FE7C(void*, int);
 void *TODoorAncient09__ct(void *, void *, void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -230,10 +230,10 @@ void TODoorAncient09__vt12(u8 *arg0) {
         if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
             TODoorAncient09__sub_80160968((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
-            if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
                 sp8 = 1;
                 fn_80160838((void *) (arg0), (void *) (&sp8));
-                TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+                access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
             }
         }
         return;
@@ -443,8 +443,8 @@ typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8
 void *__dt__15TODoorAncient09Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TODoorAncient09;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

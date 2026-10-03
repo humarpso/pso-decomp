@@ -38,7 +38,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 TLobby__sub_800822E8(void *, M2C_UNK);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_801B21AC(s32);
+M2C_UNK sync_status_effect_flags__10TObjPlayerFPv(s32);
 M2C_UNK check_level_up__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF560(s32);
 s16 TObjPlayer__sub_801BF57C(s32);
@@ -90,7 +90,7 @@ s32 is_target_valid__10TObjPlayerFPv(void *arg0) {
 void update_subsystems__10TObjPlayerFi(s32 arg0) {
     if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         check_level_up__10TObjPlayerFPv(arg0);
-        TObjPlayer__sub_801B21AC(arg0);
+        sync_status_effect_flags__10TObjPlayerFPv(arg0);
         clear_action_flag__10TObjPlayerFPv(arg0);
         update_target__10TObjPlayerFi((s32)(arg0));
         if ((check_player_flag1__6TLobbyFPv(arg0) != 0) && (TObjPlayer__sub_801BF57C(arg0 + 0x730) >= 0) && (TObjPlayer__sub_801BF560(arg0 + 0x730) == 0)) {

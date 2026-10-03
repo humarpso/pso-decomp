@@ -49,7 +49,7 @@ Res_80355570 *csnVecterUnder(Vec_80355570 *, s32);
 void *spawn_continuous_particle_effect_with_flags(Vec_80355570 *, s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, Vec_80355570 *);
 void enable__13TParticleCtrlFPv(void *);
-void TRaderMapCore__sub_801F99EC(Vec_80355570 *, s32, s32, s32, f32);
+void add_radar_scaled_marker(Vec_80355570 *, s32, s32, s32, f32);
 void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
 void fn_803554F0(void *, Vec_80355570 *);
 extern s32 lbl_805D4DA4;
@@ -135,7 +135,7 @@ void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
         o->f3C *= lbl_805DFFB4;
         o->pos.x += o->f34;
         o->pos.z += o->f3C;
-        TRaderMapCore__sub_801F99EC(&o->pos, -0x5DB4, 1, 1, lbl_805DFFB8);
+        add_radar_scaled_marker(&o->pos, -0x5DB4, 1, 1, lbl_805DFFB8);
         play_persistent_sound(0x40032D05, o, &o->pos, 0, 0);
         o->timer++;
         break;

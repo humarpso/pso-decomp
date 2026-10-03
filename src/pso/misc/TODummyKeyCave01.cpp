@@ -43,7 +43,7 @@ u8 *TODummyKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
-M2C_UNK TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
+M2C_UNK rotate_matrix_zyx(s32, s32, s32, s32);
 M2C_UNK rotate_matrix_y(s32, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -80,7 +80,7 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         notify_fish_if_valid__10TObjPlayerFUi(v);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        TBoss7Tentacle__sub_803D8A6C(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
+        rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
         scale_current_matrix(arg0 + 0x68);
         node = *(u8 **)(arg0 + 0x34);
         draw_ginja_model(*(s32 *)(node + 4));

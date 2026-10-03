@@ -19,7 +19,7 @@ s32 apply_by_index__9TObjEnemyFs(s16 arg0);
 int apply_player_54a00__9TObjEnemyFPv(void* p);
 void clear_shadow_flag__10TObjPlayerFPv(void* p);
 void set_shadow_flag__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_80154A00(void*);
+int unregister_object_by_id(void*);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK copy_header__6TLobbyFPvPv(s32);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -85,7 +85,7 @@ s32 apply_by_index__9TObjEnemyFs(s16 arg0) {
     return 1;
 }
 
-int apply_player_54a00__9TObjEnemyFPv(void* p) { return TObjPlayer__sub_80154A00(p); }
+int apply_player_54a00__9TObjEnemyFPv(void* p) { return unregister_object_by_id(p); }
 void clear_shadow_flag__10TObjPlayerFPv(void* p) { *(u16*)((char*)p + 0x4) &= 0xfffffbff; }
 void set_shadow_flag__10TObjPlayerFPv(void* p) { *(u16*)((char*)p + 0x4) |= 0x400; }
 

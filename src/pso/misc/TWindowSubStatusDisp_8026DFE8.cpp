@@ -18,12 +18,12 @@ struct RecoveredGlobal_8026E168_lbl_804D0948 {
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK draw_item_list_capacity(void *, int, int, int);
 M2C_UNK draw_selected_list_entry(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_8026D790(void *, int, void *);
+M2C_UNK draw_window_scrollbar(void *, int, void *);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(void *, int);
-void TWindowSubStatusDisp__sub_8026DFE8(u8 *arg0);
+void render_item_list_window(u8 *arg0);
 u8 * fn_80268384(void *, s32, s32, s16, s32);
 M2C_UNK TWindowShop__ct(void *, void *);
 extern M2C_UNK lbl_804D0948[];
@@ -38,21 +38,21 @@ u8 *TWindowSubStatusDisp__sub_8026E168(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 
 extern "C" {
 
-int TWindowSubStatusDisp__sub_8026E098(void* p);
+int item_list_window_update(void* p);
 void *deleting_dtor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
-int TWindowSubStatusDisp__sub_80268048(void*);
+int update_item_list_window(void*);
 void __dl__7TObjectFPv(void *);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_8026DFE8(u8 *arg0) {
+void render_item_list_window(u8 *arg0) {
     s32 temp_r3;
     s32 n;
     void *p;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {
         draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
     }
@@ -66,12 +66,12 @@ void TWindowSubStatusDisp__sub_8026DFE8(u8 *arg0) {
     }
     p = M2C_FIELD(arg0, void **, 0x84);
     if (p != NULL) {
-        TWindowSubStatusDisp__sub_8026D790(p, (int) (temp_r3), (void *) (arg0 + 0x68));
+        draw_window_scrollbar(p, (int) (temp_r3), (void *) (arg0 + 0x68));
     }
 }
 #pragma pop
 
-int TWindowSubStatusDisp__sub_8026E098(void* p) { return TWindowSubStatusDisp__sub_80268048(p); }
+int item_list_window_update(void* p) { return update_item_list_window(p); }
 
 extern M2C_UNK lbl_804D0948[];
 

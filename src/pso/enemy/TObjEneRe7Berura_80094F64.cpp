@@ -34,7 +34,7 @@ struct Berura_800951AC {
 
 extern "C" {
 u8 TObjEneRe7Berura__sub_8009518C(O_8009518C *self);
-s32 TObjPlayer__sub_803D7CA4(int);
+s32 compose_motion_node_matrix(int);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 void TObjPlayer__sub_803D898C(void *);
 void TObjPlayer__sub_803D9324(int, void *);
@@ -76,7 +76,7 @@ M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
 M2C_UNK push_matrix_from(void *, int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TObjPlayer__sub_803E4684(s32);
+M2C_UNK draw_chunk_model(s32);
 
 extern s32 TObjEneRe7Berura__data_805D4F98;
 
@@ -93,7 +93,7 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
         TObjPlayer__sub_803D9730(0, temp_r4);
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
         if (!(temp_r31 & 8)) {
-            TObjPlayer__sub_803E4684(M2C_FIELD(var_r30, s32 *, 4));
+            draw_chunk_model(M2C_FIELD(var_r30, s32 *, 4));
         }
         pop_matrix();
         if (!(temp_r31 & 0x10)) {
@@ -133,7 +133,7 @@ M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx) {
     u32 flags;
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4((int)node);
+        compose_motion_node_matrix((int)node);
         flags = node->flags;
         if (idx == lbl_805D4F90) {
             V[0] = TObjEneRe7Berura__data_805D972C;

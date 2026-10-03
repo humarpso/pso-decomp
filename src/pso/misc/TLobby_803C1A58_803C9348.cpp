@@ -177,7 +177,7 @@ M2C_UNK TLobby__sub_803C8B38(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
 M2C_UNK DVDReadAbsAsyncPrio(int);
-void TLobby__sub_803C9CBC(u8 *arg0);
+void stop_audio_stream(u8 *arg0);
 M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
 void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
@@ -199,15 +199,15 @@ M2C_UNK set_scroll_position__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C8A14(void *);
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
-void TLobby__sub_803C9FCC(Stream_803C9FCC *self);
+void configure_audio_stream_output(Stream_803C9FCC *self);
 extern char lbl_8047C6F0[];
-void TLobby__sub_803C9CBC(u8 *arg0);
+void stop_audio_stream(u8 *arg0);
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK release_ref__6TLobbyFv();
 void *TLobby__sub_803C8BAC(const char *name, s32 arg);
 void TLobby__sub_803C5744(const char *msg, const char *arg);
-void TLobby__sub_803C9FCC(Stream_803C9FCC *self);
-void TLobby__sub_803CA824(Stream_803CA824 *self, const char *name);
+void configure_audio_stream_output(Stream_803C9FCC *self);
+void start_audio_stream_file(Stream_803CA824 *self, const char *name);
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i);
 extern volatile s32 lbl_805D759C;
 extern volatile s32 lbl_805D75C8;
@@ -231,7 +231,7 @@ void TLobby__sub_803C9608(void);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK TLobby__sub_803C57C8(void *);
-void TLobby__sub_803C9CBC(u8 *arg0);
+void stop_audio_stream(u8 *arg0);
 s32 TLobby__sub_803D2474(void *, int);
 extern char lbl_8047C6C0[];
 void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2);
@@ -536,7 +536,7 @@ s8 TLobby__sub_803C9CB0(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TLobby__sub_803C9CBC(u8 *arg0) {
+void stop_audio_stream(u8 *arg0) {
     void **temp_r3;
     void **temp_r3_2;
     void **temp_r3_3;
@@ -645,7 +645,7 @@ void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1) {
     release_ref__6TLobbyFv();
 }
 
-void TLobby__sub_803C9FCC(Stream_803C9FCC *self) {
+void configure_audio_stream_output(Stream_803C9FCC *self) {
     s32 i;
     s32 v;
     Stream_803C9FCC *pp;
@@ -767,7 +767,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
 
 void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {
     s32 r;
-    TLobby__sub_803C9CBC(arg0);
+    stop_audio_stream(arg0);
     if (arg2 >= ((Ent_803CA774 *)arg1)[0].len || arg2 < 0) {
         return;
     }
@@ -784,8 +784,8 @@ void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {
     release_ref__6TLobbyFv();
 }
 
-void TLobby__sub_803CA824(Stream_803CA824 *self, const char *name) {
-    TLobby__sub_803C9CBC((u8 *)self);
+void start_audio_stream_file(Stream_803CA824 *self, const char *name) {
+    stop_audio_stream((u8 *)self);
     init_once__6TLobbyFv();
     if ((self->handle = TLobby__sub_803C8BAC(name, self->f10)) == 0) {
         release_ref__6TLobbyFv();
@@ -793,7 +793,7 @@ void TLobby__sub_803CA824(Stream_803CA824 *self, const char *name) {
         self->f60 = -1;
         self->state = 6;
     } else {
-        TLobby__sub_803C9FCC((Stream_803C9FCC *)self);
+        configure_audio_stream_output((Stream_803C9FCC *)self);
         self->f98 = 0;
         release_ref__6TLobbyFv();
     }

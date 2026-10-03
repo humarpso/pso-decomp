@@ -88,7 +88,7 @@ extern const f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__vt22(V_8018BE98 *self);
 f32 xyz_distance_squared(void *, void *);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
-void TParticleCtrl__sub_803D8D1C(int, void *, void *, void *);
+void project_world_to_screen(int, void *, void *, void *);
 extern Vec_8018BEE4 lbl_804FF610;
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DBD60;
@@ -107,8 +107,8 @@ int TContainerAncient01__vt24(void);
 int TContainerAncient01__vt25(void);
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1);
 int get_table_entry__19TContainerAncient01Fi(int a0);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
@@ -117,8 +117,8 @@ extern M2C_UNK __vt__19TContainerAncient01[];
 void *__dt__19TContainerAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TContainerAncient01;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -202,7 +202,7 @@ s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
         p.x = lbl_804FF610.x * farg1 + M2C_FIELD(arg0, f32 *, 0x38);
         p.y = lbl_804FF610.y * farg1 + M2C_FIELD(arg0, f32 *, 0x3C);
         p.z = lbl_804FF610.z * farg1 + M2C_FIELD(arg0, f32 *, 0x40);
-        TParticleCtrl__sub_803D8D1C(0, &p, out, &lbl_804FF610);
+        project_world_to_screen(0, &p, out, &lbl_804FF610);
         if (out[0] < 0.0f) {
             return 0;
         }
@@ -210,7 +210,7 @@ s32 TObjContainerIdo__vt8(u8 *arg0, f32 farg0, f32 farg1) {
         p.x = M2C_FIELD(arg0, f32 *, 0x38) - lbl_804FF610.x * farg1;
         p.y = M2C_FIELD(arg0, f32 *, 0x3C) - lbl_804FF610.y * farg1;
         p.z = M2C_FIELD(arg0, f32 *, 0x40) - lbl_804FF610.z * farg1;
-        TParticleCtrl__sub_803D8D1C(0, &p, out, &lbl_804FF610);
+        project_world_to_screen(0, &p, out, &lbl_804FF610);
         if (out[0] > lbl_805DBD68) {
             return 0;
         }
@@ -541,8 +541,8 @@ extern char lbl_80445430[];
 extern char lbl_8044543C[];
 void TObjContainerJungEnemy__vt80(Obj_8018CBF0 *self);
 s32 get_current_floor();
-void TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+void send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
@@ -609,8 +609,8 @@ void TObjContainerIdo__sub_8018C6E8(void) {
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjContainerIdo;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xF0, -1);
         dt__16TObjContainerIdoFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -754,10 +754,10 @@ void TObjContainerJungEnemy__vt77(Obj_8018C9F0 *self) {
 f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0) {
     s16 sp8;
     Pkt_8018CB44 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (TLobby__sub_80156A80(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
         sp8 = 1;
-        TLobby__sub_80156A80(arg0, &sp8, 0);
-        TObjPlayer__sub_80154954(arg0, &sp8);
+        access_object_saved_state(arg0, &sp8, 0);
+        send_object_state_update(arg0, &sp8);
         init_packet_67_04__6TLobbyFPv(&pkt);
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

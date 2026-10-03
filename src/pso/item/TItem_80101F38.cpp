@@ -34,7 +34,7 @@ s16 get_current_floor();
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void send_6x5D__6TLobbyFPv(void *);
 void init_fields__6TLobbyFPv(void *);
-void TItemData__sub_8010CCB4(void *);
+void normalize__9TItemDataFv(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(u16);
 extern s32 lbl_805D5450;
@@ -77,7 +77,7 @@ void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos) {
     m.x = pos->x;
     m.z = pos->z;
     copy_item_data__6TLobbyFPvPv(m.item, item);
-    TItemData__sub_8010CCB4(m.item);
+    normalize__9TItemDataFv(m.item);
     send_6x5D__6TLobbyFPv(&m);
 }
 

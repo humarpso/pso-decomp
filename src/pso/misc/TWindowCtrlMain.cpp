@@ -86,7 +86,7 @@ int run_task__15TWindowCtrlMainFv(void* p);
 void update_child_2c__15TWindowCtrlMainFPv(void* p);
 void update_field28__15TWindowCtrlMainFPv(void* p);
 int TCameraCtrl__sub_80068EF0(void);
-int TCameraCtrl__sub_80069024(void);
+int restore_full_screen_view__11TCameraCtrlFv(void);
 int TWindowCtrlMain__sub_8024CE24(void);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
@@ -100,7 +100,7 @@ int send_and_handle__6TLobbyFPvii(void*);
 int try_open_battle_menu__15TWindowMainMenuFPvs(void*);
 int update_com_card__9TWindowDDFPv(void*);
 
-void render__15TWindowCtrlMainFv(void* p) { reset_transform_state__10TObjPlayerFv(p); begin_effect_render__13TParticleCtrlFv(); TCameraCtrl__sub_80069024(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); end_effect_render__13TParticleCtrlFv(); }
+void render__15TWindowCtrlMainFv(void* p) { reset_transform_state__10TObjPlayerFv(p); begin_effect_render__13TParticleCtrlFv(); restore_full_screen_view__11TCameraCtrlFv(); TWindowCtrlMain__sub_8024CE24(); render_nodes__7TObjectFv(); TCameraCtrl__sub_80068EF0(); end_effect_render__13TParticleCtrlFv(); }
 int run_task__15TWindowCtrlMainFv(void* p) { return update_com_card__9TWindowDDFPv(p); }
 
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {

@@ -16,7 +16,7 @@ extern "C" {
 s32 obj_testFlags30(void *, s32);
 void clear_shadow_flag__10TObjPlayerFPv(void *);
 void set_shadow_flag__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801415BC(void);
+void set_shadow_material_state(void);
 void set_chunk_material_override_pair(s32, s32);
 extern s32 some_id_805c6f74;
 void render_actor_shadows_default(u8 *arg0);
@@ -37,7 +37,7 @@ void render_actor_shadows_default(u8 *arg0) {
         set_shadow_flag__10TObjPlayerFPv(arg0);
         some_id_805c6f74 |= 0xC10;
         set_chunk_material_override_pair(-1, 0x800);
-        TObjPlayer__sub_801415BC();
+        set_shadow_material_state();
         ((VObj_18_2f517b *)(arg0))->m2();
         clear_shadow_flag__10TObjPlayerFPv(arg0);
         some_id_805c6f74 &= ~0xC10;

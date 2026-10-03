@@ -41,7 +41,7 @@ f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
 void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);
 s32 queue_destruction__7TObjectFv(void *);
-s32 fn_8008271C(void *, void *, f32);
+s32 approach_vector_in_place(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
 s32 spawn_particle_effect(void *, int);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 lbl_80438EB8;
@@ -51,7 +51,7 @@ extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
 void run_task__12TEffCliticalFv(u8 *arg0);
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-M2C_UNK fn_80082954(void *);
+M2C_UNK copy_slot_to_anim_frame(void *);
 M2C_UNK fn_800829E0(void *);
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK restore_saved_depth_alpha_state();
@@ -111,7 +111,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     scale_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
     draw_chunk_object((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
     pop_matrix();
-    fn_80082954((void *) (&sp8));
+    copy_slot_to_anim_frame((void *) (&sp8));
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     restore_saved_depth_alpha_state();
@@ -171,7 +171,7 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    fn_8008271C((void *) (arg0 + 0x3C), (void *) (&stack.sp14), (f32) (lbl_805D93AC));
+    approach_vector_in_place((void *) (arg0 + 0x3C), (void *) (&stack.sp14), (f32) (lbl_805D93AC));
     M2C_FIELD(arg0, s32 *, 0x70) = (s32) (M2C_FIELD(arg0, s32 *, 0x70) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x70) >= 7) {
         M2C_FIELD(arg0, s32 *, 0x70) = 0;

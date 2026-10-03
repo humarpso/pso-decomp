@@ -8,7 +8,7 @@ struct Outer_80132A5C { struct Inner_80132A5C *f0; };
 
 struct Outer_80132A5C;
 extern "C" {
-u8 *TWindowKeyBoardSoft__sub_800F98F0(M2C_UNK *);
+u8 *load_text_resource_pair(M2C_UNK *);
 extern M2C_UNK lbl_8043ECD4[];
 extern M2C_UNK lbl_8043ECE4[];
 extern M2C_UNK lbl_8043ECF0[];
@@ -129,19 +129,19 @@ void TLanguage__ct(s32 arg0) {
 void select_language_text_resources(s32 arg0) {
     switch (arg0) {
     case 0:
-        (*(u8 * *)&lbl_805D5538) = TWindowKeyBoardSoft__sub_800F98F0(lbl_8043ECD4);
+        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECD4);
         break;
     case 2:
-        (*(u8 * *)&lbl_805D5538) = TWindowKeyBoardSoft__sub_800F98F0(lbl_8043ECE4);
+        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECE4);
         break;
     case 3:
-        (*(u8 * *)&lbl_805D5538) = TWindowKeyBoardSoft__sub_800F98F0(lbl_8043ECF0);
+        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECF0);
         break;
     case 4:
-        (*(u8 * *)&lbl_805D5538) = TWindowKeyBoardSoft__sub_800F98F0(lbl_8043ECFC);
+        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ECFC);
         break;
     default:
-        (*(u8 * *)&lbl_805D5538) = TWindowKeyBoardSoft__sub_800F98F0(lbl_8043ED08);
+        (*(u8 * *)&lbl_805D5538) = load_text_resource_pair(lbl_8043ED08);
         break;
     }
     (*(s32 *)&TWindowKeyBoardSoft__data_805D5548) = M2C_FIELD((*(u8 * *)&lbl_805D5538), s32 *, 0);

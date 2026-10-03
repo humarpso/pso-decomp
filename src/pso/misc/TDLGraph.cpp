@@ -18,7 +18,7 @@ extern RecoveredGlobal_8007F77C___vt__8TDLGraph __vt__8TDLGraph;
 extern s32 TDLGraph__data_805D4EB0;
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1);
 void reset_transform_state__10TObjPlayerFv(void);
-void TCameraCtrl__sub_80069024(void);
+void restore_full_screen_view__11TCameraCtrlFv(void);
 void TCameraCtrl__sub_80068EF0(void);
 void fn_8007F27C(TDLGraph_8007F66C *self, void *a, void *b);
 void fn_8007F0E4(TDLGraph_8007F66C *self, f32 x, f32 y);
@@ -50,7 +50,7 @@ void reset__8TDLGraphFPv(void *arg0) {
 
 void render__8TDLGraphFv(TDLGraph_8007F66C *self) {
     reset_transform_state__10TObjPlayerFv();
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     fn_8007F27C(self, lbl_80438AA4, lbl_80438AAC);
     fn_8007F0E4(self, lbl_805D92CC, lbl_805D92D0);
     draw_percent_text(self, lbl_805D92D4, lbl_805D92D0);

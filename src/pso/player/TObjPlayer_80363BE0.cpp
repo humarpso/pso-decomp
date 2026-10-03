@@ -52,7 +52,7 @@ extern void *lbl_805D6FB8;
 void TObjPlayer__sub_803640F8(M2C_UNK *arg0);
 void TObjPlayer__sub_803640F8(M2C_UNK *arg0);
 void set_chunk_material_override_pair(s32, s32);
-M2C_UNK TObjPlayer__sub_803E38FC(M2C_UNK);
+M2C_UNK set_chunk_blend(M2C_UNK);
 extern Rec_80364028 lbl_80479FF8;
 extern void *lbl_805D6FB8;
 extern s32 some_id_805c6f74;
@@ -64,7 +64,7 @@ extern "C" {
 
 void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0);
 void warn_if_gauge_low__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_803E38FC(M2C_UNK);
+M2C_UNK set_chunk_blend(M2C_UNK);
 void *__nw__7TObjectFUl(int);
 void *init_vtable_804F2A10__10TObjPlayerFPv(void *, void *);
 
@@ -81,7 +81,7 @@ extern const f32 lbl_805E0288;
 
 void warn_if_gauge_low__10TObjPlayerFv(void) {
     if (M2C_FIELD(lbl_805D6FB8, f32 *, 0x2C) < lbl_805E0288) {
-        TObjPlayer__sub_803E38FC(0x2500);
+        set_chunk_blend(0x2500);
         TObjPlayer__sub_803640C8();
     }
 }
@@ -91,7 +91,7 @@ void TObjPlayer__sub_80364028(f32 farg0) {
     if (farg0 < lbl_805E0288) {
         some_id_805c6f74 |= 0x24;
         set_chunk_material_override_pair(-1, 0x800);
-        TObjPlayer__sub_803E38FC(0x2500);
+        set_chunk_blend(0x2500);
         Rec_80364028 r = lbl_80479FF8;
         r.a = farg0 - lbl_805E0288;
         TObjPlayer__sub_803640F8((M2C_UNK *)&r);

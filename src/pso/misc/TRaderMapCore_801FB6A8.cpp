@@ -12,7 +12,7 @@ extern u32 TRaderMapCore__data_805D5F4C;
 s32 TRaderMapCore__sub_801FB874(void);
 s32 get_current_floor();
 s32 TLobby__sub_800F957C(int);
-s32 TRaderMapCore__sub_801F9418(int, int);
+s32 save_floor_discovery__13TRaderMapCoreFiPv(int, int);
 s32 free_statics__13TRaderMapCoreFv();
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__data_805D5F28;
@@ -22,7 +22,7 @@ s32 get_current_floor();
 void copy_name(const char *);
 u8 *create_named_object(char *);
 void TLobby__sub_801317E4(char *, char *, const char *);
-void TRaderMapCore__sub_801F9474(s32, u8 *);
+void init_radar_floor_flags(s32, u8 *);
 void TRaderMapCore__sub_801FB904(void);
 int get_status__6TSceneFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -69,7 +69,7 @@ void TRaderMapCore__sub_801FB71C(void) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(TRaderMapCore__data_805D5F28);
     if (temp_r31 != NULL) {
-        TRaderMapCore__sub_801F9418((int) (get_current_floor()), (int) (temp_r31));
+        save_floor_discovery__13TRaderMapCoreFiPv((int) (get_current_floor()), (int) (temp_r31));
     }
     free_statics__13TRaderMapCoreFv();
     if ((void *) TRaderMapCore__data_805D5F28 != NULL) {
@@ -104,7 +104,7 @@ void load_map_resources__13TRaderMapCoreFv(void) {
     TRaderMapCore__sub_801FB904();
     e = (Ent_801FB798 *)TRaderMapCore__data_805D5F28;
     if (e != NULL) {
-        TRaderMapCore__sub_801F9474(get_current_floor(), (u8 *)e);
+        init_radar_floor_flags(get_current_floor(), (u8 *)e);
     }
     TRaderMapCore__data_805D5F30 = 0;
     lbl_805D5F34 = 0;

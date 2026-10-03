@@ -20,7 +20,7 @@ s32 get_entrance_id__10TObjPlayerFPv(void* p);
 int is_mounted__15TPlyPhotonChairFPv(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8011E204(void*, int);
-int TObjPlayer__sub_80154A00(void*);
+int unregister_object_by_id(void*);
 int TObjPlayer__sub_801BE6E4(void* p);
 void TObjPlayer__sub_801BE784(void* p, u8 v);
 void TObjPlayer__sub_801BE794(void* p, u8 v);

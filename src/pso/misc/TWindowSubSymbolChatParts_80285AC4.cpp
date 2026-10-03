@@ -47,7 +47,7 @@ void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1);
 void render__25TWindowSubSymbolChatPartsFv(u8 *arg0);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
+M2C_UNK draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_allocation__20TWindowSubStatusDispFis(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
@@ -76,7 +76,7 @@ void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
         fn_80285314(arg0, temp_r3);
         break;
     }
-    TWindowSubStatusDisp__sub_8026D790(M2C_FIELD(arg0, s32 *, 0x8C), temp_r3, arg0 + 0x68);
+    draw_window_scrollbar(M2C_FIELD(arg0, s32 *, 0x8C), temp_r3, arg0 + 0x68);
     fn_80285274(arg0, temp_r3);
     forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88), temp_r3);
 }

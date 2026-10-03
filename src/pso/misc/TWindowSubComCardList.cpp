@@ -39,8 +39,8 @@ struct Self_80275A8C {
 
 extern "C" {
 u32 get_item_field_6__10TObjPlayerFPv(void *);
-s32 TLobby__sub_8001DC24();
-void TItemData__sub_80076E84(u16);
+s32 get_shared_text_buffer();
+void get_technique_name(u16);
 s32 weapon_has_extra_attack();
 u8 *get_player_by_client_id(s32);
 u8 get_cast_technique_level(void *, s16);
@@ -118,7 +118,7 @@ s32 handle_list_page_flip_input(s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
+M2C_UNK draw_visible_window_entries(void *, void *, s32);
 M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TWindowMenuFv(void *, int);
@@ -135,7 +135,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame(arg0, temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);
     fn_802752D8(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
@@ -253,7 +253,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         if (validate_and_clear_slot__10TObjPlayerFPv(pl + 0x428, ev->id) != 0) {
             break;
         }
-        TItemData__sub_80076E84(ev->id);
+        get_technique_name(ev->id);
         text_builder_append();
         if (ev->id != 0x11 && ev->id != 0xE) {
             lvl = get_cast_technique_level(pl + 0x428, ev->id);
@@ -280,7 +280,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
     case 7:
         break;
     }
-    send_and_handle__6TLobbyFPvii(self->lobby, TLobby__sub_8001DC24(), 0x82);
+    send_and_handle__6TLobbyFPvii(self->lobby, get_shared_text_buffer(), 0x82);
 }
 
 void TWindowSubCustomEquip__sub_80275A88(void) {  }

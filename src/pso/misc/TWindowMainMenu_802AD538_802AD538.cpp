@@ -45,14 +45,14 @@ int TWindowMainMenu__sub_802ADB00(u8 *arg0);
 void TWindowMainMenu__sub_802ADADC(Obj_802ADADC *self, s8 i);
 int TWindowMainMenu__sub_802ADAAC(Obj_802ADAAC *self);
 void init_color__15TWindowMainMenuFPv(void *);
-void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0);
+void pop_level__15TWindowMainMenuFPv(MM_802AD90C *arg0);
 void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
 void set_symbol_chat_parts__15TWindowMainMenuFPv(void* p, void * _w1);
 void init_color__15TWindowMainMenuFPv(void *);
 void TWindowMainMenu__sub_802ADA48(Col_802ADA48 *arg0, Col_802ADA48 *arg1);
 u8 *find_free_slot__15TWindowMainMenuFi(void *);
-M2C_UNK TWindowMainMenu__sub_802ADC98(void *, void *, s32);
-void TWindowMainMenu__sub_802AD980(Menu_802AD980 *arg0);
+M2C_UNK get_row_position__15TWindowMainMenuFiPvi(void *, void *, s32);
+void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
     M2C_FIELD(arg0, u8 *, 0x13) = (u8) (M2C_FIELD(arg0, u8 *, 0x13) | 1);
 }
 
-void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0) {
+void pop_level__15TWindowMainMenuFPv(MM_802AD90C *arg0) {
     s32 i;
     arg0->cnt--;
     arg0->flags |= 8;
@@ -105,7 +105,7 @@ void TWindowMainMenu__sub_802AD90C(MM_802AD90C *arg0) {
     }
 }
 
-void TWindowMainMenu__sub_802AD980(Menu_802AD980 *arg0) {
+void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0) {
     Col_802ADA48 buf;
     u8 sp8[8];
     s32 i;
@@ -117,7 +117,7 @@ void TWindowMainMenu__sub_802AD980(Menu_802AD980 *arg0) {
             arg0->slots[i] = NULL;
         }
     }
-    TWindowMainMenu__sub_802ADC98(arg0, sp8, arg0->count);
+    get_row_position__15TWindowMainMenuFiPvi(arg0, sp8, arg0->count);
     slot = (Col_802ADA48 *)find_free_slot__15TWindowMainMenuFi(arg0);
     TWindowMainMenu__sub_802ADA48(slot, &buf);
     set_symbol_chat_parts__15TWindowMainMenuFPv(slot, sp8);

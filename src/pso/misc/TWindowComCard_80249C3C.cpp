@@ -5,14 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TWindowComCard__sub_80249CBC(u32 arg0);
+s32 get_status_effect_icon_index(u32 arg0);
 }
 
 extern "C" {
 
 void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1);
 void* get_card_name_ptr__14TWindowComCardFPv(void* p);
-M2C_UNK TWindowHelpItem__sub_8025B08C(void *, f32, f32);
+M2C_UNK set_sprite_uv_from_pixels(void *, f32, f32);
 
 extern u8 lbl_8044EB50[];
 
@@ -30,11 +30,11 @@ void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x34) = 2;
     }
     temp_r4 = lbl_8044EB50 + (arg1 * 8);
-    TWindowHelpItem__sub_8025B08C(arg0, M2C_FIELD(temp_r4, f32 *, 0), M2C_FIELD(temp_r4, f32 *, 4));
+    set_sprite_uv_from_pixels(arg0, M2C_FIELD(temp_r4, f32 *, 0), M2C_FIELD(temp_r4, f32 *, 4));
 }
 
 void* get_card_name_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0xa; }
-s32 TWindowComCard__sub_80249CBC(u32 arg0) {
+s32 get_status_effect_icon_index(u32 arg0) {
     switch (arg0) {
     case 3:
         return 1;

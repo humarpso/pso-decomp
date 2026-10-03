@@ -145,7 +145,7 @@ s32 init_owner__5TItemFPvUs(void *, s32);
 s32 get_item_type_or_default__9TItemListFPv(void *);
 s32 can_pickup_item__10TObjPlayerFPvPv();
 int get_item_record__23TShopJudgmentItemWindowFPv(void* p);
-int TObjPlayer__sub_801B8DE8(void*);
+int send_6x29_delete_item__10TObjPlayerFPvii(void*);
 
 int try_add_sale_meseta__10TObjPlayerFv(void) { return 0; }
 s32 try_buy_item(s32 arg0, void *arg1) {

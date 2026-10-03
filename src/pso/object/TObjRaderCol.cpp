@@ -34,7 +34,7 @@ void queue_destruction__7TObjectFv(void *);
 f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
 Ply_8019750C *get_player_by_client_id(s32);
-void TRaderMapCore__sub_801F9CB8(s16);
+void reveal_region_by_id__13TRaderMapCoreFs(s16);
 void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0);
 extern s32 lbl_805D53A0;
 }
@@ -45,7 +45,7 @@ void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void render__12TObjRaderColFv(void);
 void run_task__12TObjRaderColFv(void *arg0);
 void check_local_player_in_range__12TObjRaderColFPv(void *);
-M2C_UNK TRaderMapCore__sub_801F9C54(s16);
+M2C_UNK block_region_by_id__13TRaderMapCoreFs(s16);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -71,7 +71,7 @@ void check_any_player_in_range__12TObjRaderColFPv(Col_8019750C *arg0) {
             for (j = 0; j < 4; j++) {
                 p = get_player_by_client_id(j);
                 if (p != 0 && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
-                    TRaderMapCore__sub_801F9CB8(arg0->f94);
+                    reveal_region_by_id__13TRaderMapCoreFs(arg0->f94);
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
@@ -97,7 +97,7 @@ void check_local_player_in_range__12TObjRaderColFPv(void *arg0_) {
     }
     if (p != 0) {
         if (xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
-            TRaderMapCore__sub_801F9CB8((s16)arg0->f94);
+            reveal_region_by_id__13TRaderMapCoreFs((s16)arg0->f94);
             queue_destruction__7TObjectFv(arg0);
         }
     }
@@ -110,7 +110,7 @@ void run_task__12TObjRaderColFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x98);
     switch (temp_r0) {
     case 0:
-        TRaderMapCore__sub_801F9C54((s16) M2C_FIELD(arg0, s32 *, 0x94));
+        block_region_by_id__13TRaderMapCoreFs((s16) M2C_FIELD(arg0, s32 *, 0x94));
         M2C_FIELD(arg0, s32 *, 0x98) = 1;
         return;
     case 1:

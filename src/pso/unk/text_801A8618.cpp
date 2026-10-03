@@ -12,17 +12,17 @@ struct Rec_801A8868 { u8 pad[0x20]; s32 f20; };
 
 extern "C" {
 extern s32 lbl_8050E880[];
-void TObjPlayer__sub_801A8840(void);
+void clear_photon_blast_donations(void);
 s32 is_split_screen();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 u16 get_section_id__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(u32);
 extern s32 lbl_805D53A0;
-s32 TObjPlayer__sub_801A8618(u32 owner_id, void *records);
+s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801A8618(u32 owner_id, void *records);
+s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 M2C_UNK TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
 u16 get_section_id__10TObjPlayerFPv(void *);
 void set_field_2__10TObjPlayerFPvs(void *, s16);
@@ -40,7 +40,7 @@ void admit_photon_blast_sequence(u8 *players, void *self);
 
 extern "C" {
 
-s32 TObjPlayer__sub_801A8618(u32 owner_id, void *records) {
+s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records) {
     void *local;
     void *owner;
     s16 group;
@@ -64,7 +64,7 @@ s32 TObjPlayer__sub_801A8618(u32 owner_id, void *records) {
     return 0;
 }
 
-void TObjPlayer__sub_801A8840(void) {
+void clear_photon_blast_donations(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         lbl_8050E880[i] = 0;
@@ -149,7 +149,7 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
         TObjPlayer__sub_801AA528(&a[0], -1);
         return;
     }
-    if (TObjPlayer__sub_801A8618(obj_getField1c(self), b) != 0) {
+    if (is_photon_blast_presentation_admitted(obj_getField1c(self), b) != 0) {
         o = __nw__7TObjectFUl(0x98);
         if (o != NULL) {
             TObjPlayer__sub_801A9E10(o, obj_getField1c(self), b, &counts, 1, 0);

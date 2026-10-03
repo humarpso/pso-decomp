@@ -27,7 +27,7 @@ u8 TObjPlayer__sub_801BEC3C(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8011E204(void*, int);
 int set_state_flags__10TObjPlayerFPvUi(void*, int);
-int TObjPlayer__sub_80154A00(void*);
+int unregister_object_by_id(void*);
 s32 get_max_level__10TObjPlayerFv();
 int TObjPlayer__sub_801BE6E4(void* p);
 void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v);
@@ -83,7 +83,7 @@ int set_flag_4000__10TObjPlayerFPv(void* p);
 int start_freeze__10TObjPlayerFPv(void*);
 
 s32 TObjPlayer__sub_801BEB0C(void* p) { return *(s32*)((char*)p + 0x334); }
-int unregister_sub__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80154A00(p); }
+int unregister_sub__10TObjPlayerFPv(void* p) { return unregister_object_by_id(p); }
 void set_control_role__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x3e8) = v; }
 u8 TObjPlayer__sub_801BEB3C(void* p) { return *(u8*)((char*)p + 0x2e7); }
 u8 TObjPlayer__sub_801BEB44(void* p) { return *(u8*)((char*)p + 0x2cb); }

@@ -20,7 +20,7 @@ struct VObj_18 : VBase_18 {
 struct G80512220 { s32 a; void *b; u8 rest[0x18]; };
 
 extern "C" {
-M2C_UNK TNpcPlayer__sub_8034DFBC(int, int);
+M2C_UNK set_partner_common_remark(int, int);
 extern RecoveredGlobal_801EF5D0_TLobby__data_80512220 TLobby__data_80512220;
 void TLobby__sub_801EF5D0(void);
 void TLobby__sub_80228990(void *, void *);
@@ -42,9 +42,9 @@ int qst_op_cine_enable(void);
 void qst_op_hud_hide(void);
 void qst_op_hud_show(void);
 int TLobby__sub_80197F74(void);
-int TNpcPlayer__sub_8034E02C(void*);
-int TRaderMapCore__sub_801F9110(void);
-int TRaderMapCore__sub_801F9144(void);
+int clear_partner_dialogue_flags(void*);
+int hide_radar__13TRaderMapCoreFv(void);
+int show_radar__13TRaderMapCoreFv(void);
 int TWindowCtrl__sub_8024AEAC(void*);
 int unsuppress_slot__11TWindowCtrlFi(void*);
 int clear_quest_vm_flag__6TLobbyFv(void);
@@ -53,13 +53,13 @@ int free_luker_object__6TLobbyFv(void);
 int reset__9TCineCtrlFi(void*);
 int reset_state__9TCineCtrlFi(void*);
 
-int forward_npc_player__6TLobbyFPv(void* p) { return TNpcPlayer__sub_8034E02C(p); }
+int forward_npc_player__6TLobbyFPv(void* p) { return clear_partner_dialogue_flags(p); }
 void cleanup_luker_and_quest_flag__6TLobbyFv(void) { free_luker_object__6TLobbyFv(); TLobby__sub_80197F74(); clear_quest_vm_flag__6TLobbyFv(); }
 void clear_quest_vm__6TLobbyFv(void) { free_luker_object__6TLobbyFv(); fn_80197E64(); clear_quest_vm_flag__6TLobbyFv(); }
 
 typedef char RecoveredGlobal_801EF5D0_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EF5D0_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void TLobby__sub_801EF5D0(void) {
-    TNpcPlayer__sub_8034DFBC((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0)), (int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4)));
+    set_partner_common_remark((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0)), (int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4)));
 }
 
 void qst_op_nop_A0_debug(void) {
@@ -86,9 +86,9 @@ int qst_op_cine_disable(void) { return reset_state__9TCineCtrlFi((void*)(0)); }
 int qst_op_cine_enable(void) { return reset__9TCineCtrlFi((void*)(0)); }
 
     extern int lbl_805D53A0;
-void qst_op_hud_show(void) { unsuppress_slot__11TWindowCtrlFi((void*)(lbl_805D53A0)); TRaderMapCore__sub_801F9144(); }
+void qst_op_hud_show(void) { unsuppress_slot__11TWindowCtrlFi((void*)(lbl_805D53A0)); show_radar__13TRaderMapCoreFv(); }
 
     extern int lbl_805D53A0;
-void qst_op_hud_hide(void) { TWindowCtrl__sub_8024AEAC((void*)(lbl_805D53A0)); TRaderMapCore__sub_801F9110(); }
+void qst_op_hud_hide(void) { TWindowCtrl__sub_8024AEAC((void*)(lbl_805D53A0)); hide_radar__13TRaderMapCoreFv(); }
 
 }

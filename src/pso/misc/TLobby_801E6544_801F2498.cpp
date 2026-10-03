@@ -23,7 +23,7 @@ void qst_op_thread_stg(u16 arg0);
 int create__12TQuestThreadFi(void*);
 void qst_op_thread_stg(u16 arg0);
 void qst_op_thread(u16 arg0);
-int TQuestThread__sub_801F5C50(void*);
+int create_quest_thread(void*);
 void qst_op_thread(u16 arg0);
 void qst_op_rev(s32 arg0);
 void qst_op_clear(s32 arg0);
@@ -122,7 +122,7 @@ void qst_op_thread_stg(u16 arg0) {
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 void qst_op_thread(u16 arg0) {
-    TQuestThread__sub_801F5C50((void *) (arg0));
+    create_quest_thread((void *) (arg0));
 }
 
 void qst_op_sync(void) { TLobby__data_805D5E98 = 1; }

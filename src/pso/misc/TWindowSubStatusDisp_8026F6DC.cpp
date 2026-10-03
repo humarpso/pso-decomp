@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
+M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
 extern const f32 lbl_805DD388;
 extern const f32 lbl_805DD38C;
 void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0);
@@ -16,7 +16,7 @@ s16 get_field_2b8__14TItemProShieldFPv(int);
 void *get_player_by_client_id();
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK get_width__11TWindowCtrlFPv();
-M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
+M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
 void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
 extern const f32 lbl_805DD390;
 extern const f32 lbl_805DD394;
@@ -30,7 +30,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
 void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
 void *get_player_by_client_id();
 M2C_UNK get_width__11TWindowCtrlFPv();
-M2C_UNK TWindowSubStatusDisp__sub_802575C0(void *, M2C_UNK, f32);
+M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 s16 obj_getS16_2BA(void *);
 
@@ -45,7 +45,7 @@ void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0) {
     temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4))));
     M2C_FIELD(temp_r3, f32 *, 0x20) = (f32) (*(const f32 *)&lbl_805DD388);
     M2C_FIELD(temp_r3, f32 *, 0x24) = (f32) (*(const f32 *)&lbl_805DD388);
-    TWindowSubStatusDisp__sub_802575C0((void *)(temp_r3), (M2C_UNK)(0xFF008CFCU), (*(const f32 *)&lbl_805DD38C));
+    start_text_color_transition((void *)(temp_r3), (M2C_UNK)(0xFF008CFCU), (*(const f32 *)&lbl_805DD38C));
 }
 
 void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
@@ -57,7 +57,7 @@ void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
     M2C_FIELD(temp_r3, f32 *, 0x20) = temp_f0;
     M2C_FIELD(temp_r3, f32 *, 0x24) = temp_f0;
     temp_r3->m3();
-    TWindowSubStatusDisp__sub_802575C0(temp_r3, 0xFF00FF15, lbl_805DD38C);
+    start_text_color_transition(temp_r3, 0xFF00FF15, lbl_805DD38C);
 }
 
 struct Base_8026F77C_more_8026f8cc_0 { char pad[0x18]; };
@@ -107,7 +107,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
         var_r4 = -0x3EEC;
         var_r31 = -0x3EEC;
     }
-    TWindowSubStatusDisp__sub_802575C0(temp_r30, var_r4, lbl_805DD394);
+    start_text_color_transition(temp_r30, var_r4, lbl_805DD394);
     return var_r31;
 }
 s32 fn_8026F8CC(u8 *arg0) {
@@ -134,7 +134,7 @@ s32 fn_8026F8CC(u8 *arg0) {
         var_r4 = 0xFFF2FF19;
         var_r30 = 0xFFF2FF19;
     }
-    TWindowSubStatusDisp__sub_802575C0((void *)((int) (temp_r31)), (M2C_UNK)((int) (var_r4)), (f32) (lbl_805DD394));
+    start_text_color_transition((void *)((int) (temp_r31)), (M2C_UNK)((int) (var_r4)), (f32) (lbl_805DD394));
     return var_r30;
 }
 
@@ -155,7 +155,7 @@ extern "C" {
 void update_status_entry__20TWindowSubStatusDispFi(s32);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32);
 #define fn_8026F8CC ((s32 (*)(void *))fn_8026F8CC)
-void fn_8026FEA8(u8 *arg0);
+void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -183,7 +183,7 @@ void fn_8026FDC0(u8 *arg0) {
     }
 }
 #pragma pop
-void fn_8026FEA8(u8 *arg0) {
+void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);

@@ -60,9 +60,9 @@ extern "C" {
 
 void feed_mag__13TWindowSubMagFPvPvPv(void* p, void* a1, void* a2);
 int send_6x28_feed_mag(void*);
-int TObjPlayer__sub_801B8DE8(void*, void*, void*);
+int send_6x29_delete_item__10TObjPlayerFPvii(void*, void*, void*);
 
-void feed_mag__13TWindowSubMagFPvPvPv(void* p, void* a1, void* a2) { send_6x28_feed_mag(p); TObjPlayer__sub_801B8DE8(p, a2, (void*)1); }
+void feed_mag__13TWindowSubMagFPvPvPv(void* p, void* a1, void* a2) { send_6x28_feed_mag(p); send_6x29_delete_item__10TObjPlayerFPvii(p, a2, (void*)1); }
 void handle_6x27_use_item(s32 arg0) {
     Pkt_801B7EB8 pkt;
     u8 *temp_r3;

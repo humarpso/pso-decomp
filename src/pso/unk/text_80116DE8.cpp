@@ -94,7 +94,7 @@ M2C_UNK add_mst_and_item__10TObjPlayerFiUc(void *, int);
 M2C_UNK add_stat_and_item__10TObjPlayerFiUc(void *, int);
 M2C_UNK set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
 M2C_UNK apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
-void TObjPlayer__sub_80116DE8(u8 *arg0);
+void apply_material_item(u8 *arg0);
 }
 
 extern "C" {
@@ -103,7 +103,7 @@ void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_8049FBC0[];
 
-void TObjPlayer__sub_80116DE8(u8 *arg0) {
+void apply_material_item(u8 *arg0) {
     u8 temp_r3;
     u8 *temp_r3_2;
     temp_r3 = get_slot_count__14TItemProShieldFPv();

@@ -462,7 +462,7 @@ void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 void TBoss8Dragon__sub_800BC5A0(u32, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
@@ -1027,7 +1027,7 @@ Obj_80065658 *TBoss8Dragon__sub_80065658(Obj_80065658 *o, s16 flag) {
             TBoss8Dragon__sub_800BC5A0(o->f578, 1);
             o->f578 = 0;
         }
-        TObjEneGibbles__sub_80156720(o);
+        free_collision_body_parts(o);
         if (lbl_805D4DBC == o) {
             lbl_805D4DBC = 0;
         }

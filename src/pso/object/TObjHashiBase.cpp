@@ -45,7 +45,7 @@ void render__13TObjHashiBaseFPv(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 f32 xz_distance_squared(void *, void *);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
-s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
+s32 project_world_to_screen(int, void *, void *);
 extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DBE2C;
@@ -99,7 +99,7 @@ s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1) {
         stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) + M2C_FIELD(arg0, f32 *, 0x38);
         stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) + M2C_FIELD(arg0, f32 *, 0x3C);
         stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) + M2C_FIELD(arg0, f32 *, 0x40);
-        TParticleCtrl__sub_803D8D1C((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+        project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DBE2C) {
             M2C_FIELD(arg0, s16 *, 0x1E) = 0;
             return 0;
@@ -109,7 +109,7 @@ s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1) {
     stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) - M2C_FIELD(arg0, f32 *, 0x38));
     stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) - M2C_FIELD(arg0, f32 *, 0x3C));
     stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) - M2C_FIELD(arg0, f32 *, 0x40));
-    TParticleCtrl__sub_803D8D1C((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+    project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
     if (stack.sp8 > lbl_805DBE30) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 0;
         return 0;

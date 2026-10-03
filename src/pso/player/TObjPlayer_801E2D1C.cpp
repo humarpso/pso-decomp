@@ -10,7 +10,7 @@ extern "C" {
 void render_matrix_chain__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_803D7B68(s32);
 void prepare_ginja_model(G_801E2DE4 *);
-void TObjPlayer__sub_803DC6F4();
+void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *lbl_805D4698;
 void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1);
@@ -26,7 +26,7 @@ extern M2C_UNK (*lbl_805D7710)(void *);
 M2C_UNK PSMTXInverse(s32, M2C_UNK *);
 M2C_UNK PSMTXTranspose(M2C_UNK *, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_803D76B4(void *);
-M2C_UNK TObjPlayer__sub_803D7CA4(void *);
+M2C_UNK compose_motion_node_matrix(void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
@@ -70,7 +70,7 @@ void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1) {
     g->draw = draw_ginja_model_lists;
     prepare_ginja_model(g);
     render_matrix_chain__10TObjPlayerFPv(arg0);
-    TObjPlayer__sub_803DC6F4();
+    end_ginja_model_draw();
 }
 
 void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
@@ -81,7 +81,7 @@ void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
     var_r31 = arg0;
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4(var_r31);
+        compose_motion_node_matrix(var_r31);
         if (((M2C_UNK (*)(void *)) lbl_805D7710) != NULL) {
             lbl_805D7710(var_r31);
         }

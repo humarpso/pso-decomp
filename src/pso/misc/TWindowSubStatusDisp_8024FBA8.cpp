@@ -37,7 +37,7 @@ extern s32 lbl_805D643C;
 extern s32 lbl_805D6440;
 extern const f32 lbl_805DCCD8;
 extern const f32 lbl_805DCCDC;
-s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 width);
+s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width);
 }
 
 extern "C" {
@@ -46,7 +46,7 @@ void set_input_mode__20TWindowSubStatusDispFPvUc(void* p, u8 v);
 
 void set_input_mode__20TWindowSubStatusDispFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x64) = v; }
 
-s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 width) {
+s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width) {
     s32 ok;
     f32 x;
     f32 y;

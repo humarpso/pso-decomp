@@ -107,8 +107,8 @@ s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
 void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
-M2C_UNK TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 M2C_UNK fn_8015D5D4(void *);
 u8 is_current_floor_switch_set(int);
 void TODoorFourLightBase__vt12(u8 *arg0);
@@ -203,10 +203,10 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
             fn_8015D5D4(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
-        if (found == 0 && M2C_FIELD(arg0, void **, 0x80) != NULL && TLobby__sub_80156A80(arg0, &sp8, 1) == 1) {
+        if (found == 0 && M2C_FIELD(arg0, void **, 0x80) != NULL && access_object_saved_state(arg0, &sp8, 1) == 1) {
             sp8 = 1;
-            TObjPlayer__sub_80154954(arg0, &sp8);
-            TLobby__sub_80156A80(arg0, &sp8, 0);
+            send_object_state_update(arg0, &sp8);
+            access_object_saved_state(arg0, &sp8, 0);
         }
         break;
     }

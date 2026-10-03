@@ -35,7 +35,7 @@ extern RecoveredGlobal_80271480_lbl_8050E208 lbl_8050E208;
 void run_task__17TWindowSubAreaMapFv(u8 *arg0);
 s32 is_flag_set__11TLoadingCurFPv(void *, int);
 s32 is_on_current_screen__11TCameraCtrlFPv(int, int);
-M2C_UNK TRaderMapCore__sub_801F9720(f32);
+M2C_UNK add_zoom_distance__13TRaderMapCoreFf(f32);
 M2C_UNK pan_vertical__13TRaderMapCoreFv(f32);
 M2C_UNK pan_horizontal__13TRaderMapCoreFv(f32);
 extern RecoveredGlobal_80271480_lbl_8050E208 lbl_8050E208;
@@ -124,7 +124,7 @@ void update_manual_scroll__21TWindowSubAreaMapDispFPv(u8 *arg0) {
         }
         pan_horizontal__13TRaderMapCoreFv((f32) (M2C_FIELD(arg0, f32 *, 0x60)));
         pan_vertical__13TRaderMapCoreFv((f32) (M2C_FIELD(arg0, f32 *, 0x64)));
-        TRaderMapCore__sub_801F9720((f32) (M2C_FIELD(arg0, f32 *, 0x68)));
+        add_zoom_distance__13TRaderMapCoreFf((f32) (M2C_FIELD(arg0, f32 *, 0x68)));
         M2C_FIELD(arg0, f32 *, 0x60) = (f32) (M2C_FIELD(arg0, f32 *, 0x60) * lbl_805DD47C);
         M2C_FIELD(arg0, f32 *, 0x64) = (f32) (M2C_FIELD(arg0, f32 *, 0x64) * lbl_805DD47C);
         M2C_FIELD(arg0, f32 *, 0x68) = (f32) (M2C_FIELD(arg0, f32 *, 0x68) * lbl_805DD47C);

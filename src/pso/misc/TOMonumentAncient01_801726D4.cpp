@@ -30,8 +30,8 @@ struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
 
 extern "C" {
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 M2C_UNK start_camera_pan__10TObjPlayerFPvs(int, int, void *);
 s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
@@ -54,7 +54,7 @@ extern u32 TOMonumentAncient01__data_805D5A60;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
 u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 access_object_saved_state(void *, void *, int);
 s32 get_story_flag(s32);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 void TOMonumentAncient02__vt4(void *arg0, s16 *arg1);
@@ -66,8 +66,8 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1);
 void *create__19TOMonumentAncient01FPv(void *arg0);
 void release_static_resource__19TOMonumentAncient01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_key_object__5TOKeyFPvs(void *, M2C_UNK);
@@ -107,8 +107,8 @@ void TOMonumentAncient01__sub_80172758(void) {
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TOMonumentAncient01;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_key_object__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -152,7 +152,7 @@ void TOMonumentAncient02__vt4(void *arg0, s16 *arg1) {
     if ((get_story_flag(0x2C) != 0) && (get_story_flag(0x2D) != 0) && (get_story_flag(0x2E) != 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x2F);
     }
-    TLobby__sub_80156A80(arg0, arg1, 0);
+    access_object_saved_state(arg0, arg1, 0);
 }
 
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
@@ -164,10 +164,10 @@ void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
         if (temp_r3 != 0) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 2;
             start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (calc_angle_to__10TObjPlayerFPvPv((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38))));
-            if (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
+            if (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
                 sp8 = (s16) M2C_FIELD(arg0, s32 *, 0xAC);
-                TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
-                TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
+                access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+                send_object_state_update((void *) (arg0), (void *) (&sp8));
             }
         }
         break;

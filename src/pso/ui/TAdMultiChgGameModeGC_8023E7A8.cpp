@@ -13,7 +13,7 @@ extern s32 lbl_805D63C8;
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
 M2C_UNK TLobby__sub_80226C3C();
 s32 strcmp(M2C_UNK, s32);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(s32);
+M2C_UNK play_area_music(s32);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0);
 M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 lbl_805D3848;
@@ -46,7 +46,7 @@ void request_transition__21TAdMultiChgGameModeGCFv(void);
 u32 get_main_phase();
 extern s32 lbl_805D3848;
 s32 TAdMultiChgGameModeGC__sub_8023E7A8();
-s32 TCameraCtrl__sub_80069C94(void *, void *);
+s32 set_active_camera_pose(void *, void *);
 s32 TCameraCtrl__sub_80069E7C(int);
 extern V3_8023E834 lbl_8044DD00;
 extern V3_8023E834 lbl_8044DD0C;
@@ -100,7 +100,7 @@ void TAdMultiChgGameModeGC__sub_8023E834(void) {
     V3_8023E834 a = lbl_8044DD00;
     V3_8023E834 b = lbl_8044DD0C;
     TCameraCtrl__sub_80069E7C(9);
-    TCameraCtrl__sub_80069C94(&a, &b);
+    set_active_camera_pose(&a, &b);
 }
 
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {
@@ -111,7 +111,7 @@ void set_mode_change_state__21TAdMultiChgGameModeGCFv(void) {
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void) { sync_mode_state__21TAdMultiChgGameModeGCFv(); (*(int *)&lbl_805D3848) = 1; (*(int *)&lbl_805D63C8) = 1; }
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0) {
     if (strcmp(TLobby__sub_80226C3C(), arg0) != 0) {
-        TObjBgmColCtrl__sub_802274B8(arg0);
+        play_area_music(arg0);
     }
 }
 void set_state_0x1a__21TAdMultiChgGameModeGCFv(void) {

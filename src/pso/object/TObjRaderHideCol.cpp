@@ -32,8 +32,8 @@ extern s32 lbl_805D3414;
 u8 *TObjRaderHideCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 f32 xyz_distance_squared(void *, void *);
 Pl_801973B0 *get_player_by_client_id(s32);
-void TRaderMapCore__sub_801F9110();
-void TRaderMapCore__sub_801F9144();
+void hide_radar__13TRaderMapCoreFv();
+void show_radar__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
 void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0);
 }
@@ -54,11 +54,11 @@ void run_task__16TObjRaderHideColFv(Hide_801973B0 *arg0) {
     if (p != 0) {
         if (xyz_distance_squared(arg0->pos, p->pos) < arg0->f90 * arg0->f90) {
             if (!(arg0->f94 & 1)) {
-                TRaderMapCore__sub_801F9110();
+                hide_radar__13TRaderMapCoreFv();
                 arg0->f94 = 1;
             }
         } else if (arg0->f94 & 1) {
-            TRaderMapCore__sub_801F9144();
+            show_radar__13TRaderMapCoreFv();
             arg0->f94 = 0;
         }
     }

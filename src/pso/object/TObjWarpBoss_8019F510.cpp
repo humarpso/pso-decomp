@@ -69,7 +69,7 @@ int fn_8019F9CC(void);
 int fn_8019F9D4(void);
 int fn_8019F9DC(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__12TObjAreaWarpFv(void *, M2C_UNK);
 M2C_UNK close_windows__17TObjWarpBossMultiFPv(void *);
@@ -79,7 +79,7 @@ extern M2C_UNK __vt__12TObjWarpBoss[];
 void *__dt__12TObjWarpBossFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjWarpBoss;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
         close_windows__17TObjWarpBossMultiFPv(arg0);
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {

@@ -49,7 +49,7 @@ u8 get_cast_technique_level(void *, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
 u8 *calc_technique_parameters(s32, s32, s32);
-void TMainCursor__sub_8013B70C(u8 *self);
+void validate_target__11TMainCursorFPv(u8 *self);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ extern const f32 lbl_805DB0D0;
 
 #pragma push
 #pragma opt_common_subs off
-void TMainCursor__sub_8013B70C(u8 *self) {
+void validate_target__11TMainCursorFPv(u8 *self) {
     Target_8013B70C *t;
     clear_flags__11TAdRicoRingFPvUi(self + 0x20, 0xB);
     t = (Target_8013B70C *)((u8 *(*)(u8 *))check_field_24__11TMainCursorFPv)(self);
@@ -213,7 +213,7 @@ void run_task__11TMainCursorFv(u8 *arg0) {
     s32 temp_r0;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 2) {
-        TMainCursor__sub_8013B70C((u8 *)(arg0));
+        validate_target__11TMainCursorFPv((u8 *)(arg0));
         if (check_flag_1__11TMainCursorFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         }

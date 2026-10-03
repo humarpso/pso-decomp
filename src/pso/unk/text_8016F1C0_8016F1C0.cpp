@@ -23,7 +23,7 @@ extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
 extern s32 lbl_805D3084;
 extern const f32 lbl_805DB85C;
 u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2);
-void *TLobby__sub_8001DC24(void);
+void *get_shared_text_buffer(void);
 s32 get_trap_type__10TOMineTrapFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
 VO_8016F320 *get_player_by_client_id(u16);
@@ -99,7 +99,7 @@ s32 TOMineTrap__sub_8016F320(s32 arg0, u32 arg1) {
                 text_builder_append(lbl_805DB860);
                 text_builder_append(name);
                 text_builder_append(lbl_804421F0);
-                init_all__11TWindowCtrlFPvPv(TLobby__sub_8001DC24(), 0x200);
+                init_all__11TWindowCtrlFPvPv(get_shared_text_buffer(), 0x200);
                 return 1;
             }
         }

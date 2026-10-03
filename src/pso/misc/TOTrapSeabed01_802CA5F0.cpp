@@ -74,10 +74,10 @@ void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1);
 void *create__14TOTrapSeabed01FPv(void *arg0);
 void free_static_resources__14TOTrapSeabed01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_80226294(s32);
+M2C_UNK stop_sound_request(s32);
 M2C_UNK TLobby__sub_803DA16C(void*);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__6TOTrapFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -137,7 +137,7 @@ void TOTrapSeabed01__vt4(void *arg0, s16 *arg1, s32 arg2) {
         }
         s32 tmp = M2C_FIELD(arg0, s32 *, 0x358);
         if (tmp >= 0) {
-            TLobby__sub_80226294(tmp);
+            stop_sound_request(tmp);
             tmp = -1;
             M2C_FIELD(arg0, s32 *, 0x358) = tmp;
         }
@@ -152,8 +152,8 @@ extern M2C_UNK __vt__14TOTrapSeabed01[];
 void *__dt__14TOTrapSeabed01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TOTrapSeabed01;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__6TOTrapFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

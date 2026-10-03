@@ -19,7 +19,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_804912C8[];
 O_800AAC5C *fn_800AAC5C(O_800AAC5C *arg0, s16 arg1);
@@ -34,7 +34,7 @@ O_800AAC5C *fn_800AAC5C(O_800AAC5C *arg0, s16 arg1) {
         if (arg0->f3A8 != NULL) {
             queue_destruction__7TObjectFv(arg0->f3A8);
         }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         for (i = 0; i < 3; i++) {
             if (arg0->objs[i] != NULL) {
                 queue_destruction__7TObjectFv(arg0->objs[i]);

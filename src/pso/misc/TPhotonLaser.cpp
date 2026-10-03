@@ -81,8 +81,8 @@ void TObjPlayer__sub_801AC440(void);
 void TObjPlayer__sub_801AC444(void* a0);
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 void render__12TPhotonLaserFv(void);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -135,8 +135,8 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TPhotonLaser;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x364) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x364));
             M2C_FIELD(arg0, u32 *, 0x364) = 0U;

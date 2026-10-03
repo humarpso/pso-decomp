@@ -114,7 +114,7 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0);
 extern "C" {
 
 u16 TCameraCtrl__sub_8006B358(void* p);
-int TCameraCtrl__sub_8006B368(void);
+int is_quest_active(void);
 int TCameraCtrl__sub_8006B370(void);
 int TCameraCtrl__sub_8006B3B8(void* p);
 int get_camera_id__11TCameraCtrlFv(void);
@@ -233,7 +233,7 @@ u16 TCameraCtrl__sub_8006B358(void* p) { return *(u16*)((char*)p + 0x20); }
 s32 get_mode__11TCameraCtrlFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
 
     extern int lbl_805D5ED8;
-int TCameraCtrl__sub_8006B368(void) {  return lbl_805D5ED8; }
+int is_quest_active(void) {  return lbl_805D5ED8; }
 
 int TCameraCtrl__sub_8006B370(void) { return 0; }
 

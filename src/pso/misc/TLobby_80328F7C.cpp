@@ -154,10 +154,10 @@ s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 extern RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
 extern RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
 M2C_UNK *TLobby__sub_80329088(s32 arg0, s32 _w1);
-int TLobby__sub_802A7260(void* a0);
+int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
-int TLobby__sub_802A7260(void* a0 = 0);
+int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 s32 player_motion_provider0_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
@@ -231,7 +231,7 @@ s32 player_motion_provider0_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
-    if (((s32)TLobby__sub_802A7260((void*)((void *) (arg2)))) != 0) {
+    if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
         return M2C_FIELD(M2C_FIELD(&lbl_804ED7C8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
     }
     return 0;

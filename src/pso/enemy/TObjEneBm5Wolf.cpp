@@ -29,7 +29,7 @@ void TObjEneBm5Wolf__sub_800B8A40(void);
 
 extern "C" {
 
-s32 TObjEneBm5Wolf__sub_800B8AF8(void* p);
+s32 get_group_id__14TObjEneBm5WolfFPv(void* p);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 void apply_to_position__14TObjEneBm5WolfFPvPv(void* p, void* a1);
 void *create__14TObjEneBm5WolfFPv(void *arg0);
@@ -130,6 +130,6 @@ s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1) {
     return (s32) ((f32) arg1 * calc_boss4_scale__10TObjPlayerFi(arg0));
 }
 
-s32 TObjEneBm5Wolf__sub_800B8AF8(void* p) { return *(s32*)((char*)p + 0x3dc); }
+s32 get_group_id__14TObjEneBm5WolfFPv(void* p) { return *(s32*)((char*)p + 0x3dc); }
 
 }

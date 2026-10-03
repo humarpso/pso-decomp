@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Vec_803D8D1C { f32 x, y, z; };
 
 extern "C" {
-f32 TCameraCtrl__sub_803D8D00(u8 *arg0);
+f32 vec_squared_length(u8 *arg0);
 f32 matrix_identity(void *);
 extern u8 *lbl_805D7774;
 void TObjPlayer__sub_803D8CD4(u8 *arg0);
@@ -18,7 +18,7 @@ extern u8 *lbl_805D7774;
 void GXGetProjectionv(f32 *p);
 void GXGetViewportv(f32 *vp);
 void GXProject(f32 x, f32 y, f32 z, u8 *mtx, f32 *pm, f32 *vp, f32 *sx, f32 *sy, f32 *sz);
-void TParticleCtrl__sub_803D8D1C(u8 *mtx, Vec_803D8D1C *pos, f32 *out);
+void project_world_to_screen(u8 *mtx, Vec_803D8D1C *pos, f32 *out);
 }
 
 extern "C" {
@@ -50,7 +50,7 @@ void TObjPlayer__sub_803D8CD4(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-f32 TCameraCtrl__sub_803D8D00(u8 *arg0) {
+f32 vec_squared_length(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f2;
@@ -63,7 +63,7 @@ f32 TCameraCtrl__sub_803D8D00(u8 *arg0) {
 
 #pragma push
 #pragma scheduling off
-void TParticleCtrl__sub_803D8D1C(u8 *mtx, Vec_803D8D1C *pos, f32 *out) {
+void project_world_to_screen(u8 *mtx, Vec_803D8D1C *pos, f32 *out) {
     f32 proj[7];
     f32 vp[6];
     f32 sz;

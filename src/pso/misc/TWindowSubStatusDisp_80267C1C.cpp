@@ -14,7 +14,7 @@ M2C_UNK clamp_list_scroll_offset(int, void *, void *);
 extern const f32 lbl_805DD188;
 extern f32 lbl_805DD18C;
 extern f32 lbl_805DD190;
-void TWindowSubStatusDisp__sub_80267D14(u8 *arg0);
+void clamp_item_list_scroll(u8 *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void init_scroll_pos__20TWindowSubStatusDispFPv(void *arg0) {
     }
 }
 
-void TWindowSubStatusDisp__sub_80267D14(u8 *arg0) {
+void clamp_item_list_scroll(u8 *arg0) {
     Stack_80267D14 stack;
     f32 temp_f1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {

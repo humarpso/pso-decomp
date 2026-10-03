@@ -113,7 +113,7 @@ M2C_UNK fn_8003F3BC();
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFPv(int);
 M2C_UNK __dt__15TObjEnemyCustomFv(void *, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(int);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -211,7 +211,7 @@ u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
             obj_clear_flag30_20000((void *)((int) (temp_r3)));
         }
         fn_8003F3BC();
-        TObjEneGibbles__sub_80156720((void *) (arg0));
+        free_collision_body_parts((void *) (arg0));
         __dt__15TObjEnemyCustomFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));

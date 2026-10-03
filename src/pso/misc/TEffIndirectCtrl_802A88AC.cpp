@@ -16,10 +16,10 @@ struct RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 {
 
 extern "C" {
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
-s32 TEffIndirectCtrl__sub_802A9234(u8 arg0);
+s32 get_indirect_source_pixels(u8 arg0);
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
-s32 TEffIndirectCtrl__sub_802A925C(u8 arg0);
-u32 TEffIndirectCtrl__sub_802A920C(u32 x, u32 y, u32 w);
+s32 get_indirect_source_id(u8 arg0);
+u32 calc_i8_tiled_texel_offset(u32 x, u32 y, u32 w);
 f32 sin_table_lookup(s32);
 u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
@@ -119,14 +119,14 @@ s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 }
 #pragma pop
 
-u32 TEffIndirectCtrl__sub_802A920C(u32 x, u32 y, u32 w) {
+u32 calc_i8_tiled_texel_offset(u32 x, u32 y, u32 w) {
     u32 r = (((x >> 3) & 0x1F) << 5) + (x & 7);
     r += (((y >> 2) & 0x3F) * w) << 2;
     r += (y & 3) << 3;
     return r;
 }
 
-s32 TEffIndirectCtrl__sub_802A9234(u8 arg0) {
+s32 get_indirect_source_pixels(u8 arg0) {
     u8 var_r3;
     var_r3 = arg0;
     if (var_r3 >= 8U) {
@@ -135,7 +135,7 @@ s32 TEffIndirectCtrl__sub_802A9234(u8 arg0) {
     return M2C_FIELD(&TEffIndirectCtrl__data_80540AF0.value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)) + 0x20;
 }
 typedef char RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
-s32 TEffIndirectCtrl__sub_802A925C(u8 arg0) {
+s32 get_indirect_source_id(u8 arg0) {
     u8 var_r3;
     var_r3 = arg0;
     if (var_r3 >= 8U) {

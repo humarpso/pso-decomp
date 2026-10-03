@@ -137,7 +137,7 @@ void TShopItemTecSequence__sub_80220560(void);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
 void TShopItemTecSequence__sub_80220538(void);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
-s32 TKeyBoardControl__sub_801A66B8(void);
+s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void close__20TShopItemTecSequenceFPv(void *arg0);
@@ -145,7 +145,7 @@ void select_and_advance__20TShopItemTecSequenceFPv(void *arg0);
 extern void *tl_05;
 void TShopItemTecSequence__sub_80220030(S_80220030 *self);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
-s32 TKeyBoardControl__sub_801A66B8(void);
+s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopItemListWindow__ct(void *, s32, void *, s32);
 void close__20TShopItemTecSequenceFPv(void *arg0);
@@ -247,7 +247,7 @@ void TShopItemTecSequence__sub_80220030(S_80220030 *self) {
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
     o->cb1 = (void *)select_and_advance__20TShopItemTecSequenceFPv;
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     set_field_20__12TQuestListVMFPvi(self, 5);
 }
 
@@ -257,7 +257,7 @@ void TShopItemTecSequence__sub_802200A8(S_802200A8 *self) {
         o = (W_802200A8 *)(TShopItemListWindow__ct(o, (s32)tl_05, self, self->f24));
     }
     o->cb0 = (void *)close__20TShopItemTecSequenceFPv;
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     set_field_20__12TQuestListVMFPvi(self, 5);
 }
 

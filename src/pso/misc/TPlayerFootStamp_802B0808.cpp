@@ -23,7 +23,7 @@ int TBoss6PlotFalz__sub_802AC4D8(void);
 int TBoss6PlotFalz__sub_802AC678(void*);
 M2C_UNK TBoss6PlotFalz__sub_802AC6D0();
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK create_instance__8TObjFishFPv(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 int is_ready__14TBoss6PlotFalzFv(void*);
@@ -52,7 +52,7 @@ void TBoss6PlotFalz__sub_802B08F0(void* p) { if (is_ready__14TBoss6PlotFalzFv(p)
 extern M2C_UNK lbl_804709B4[];
 
 void init_proto1_adx(void *arg0) {
-    TObjBgmColCtrl__sub_802274B8(lbl_804709B4);
+    play_area_music(lbl_804709B4);
     TBoss6PlotFalz__sub_802AC6D0();
     M2C_FIELD(arg0, s32 *, 0x3D0) = 0;
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;

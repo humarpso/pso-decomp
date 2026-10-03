@@ -5,8 +5,8 @@ extern "C" {
 void reset_proportions__15TChCrCharSelectFv(void);
 
 int update_creation_direction_repeat(void);
-int TObjCMProportion__sub_80299238(void);
+int poll_pad_buttons__16TObjCMProportionFv(void);
 
-void reset_proportions__15TChCrCharSelectFv(void) { TObjCMProportion__sub_80299238(); update_creation_direction_repeat(); }
+void reset_proportions__15TChCrCharSelectFv(void) { poll_pad_buttons__16TObjCMProportionFv(); update_creation_direction_repeat(); }
 
 }

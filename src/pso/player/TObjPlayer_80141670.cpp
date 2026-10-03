@@ -66,14 +66,14 @@ void save_depth_buffer_settings__Fv(void);
 void set_current_scene__6TSceneFi(s32);
 extern RecoveredGlobal_80141730_lbl_8050C028 lbl_8050C028;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_801417E8(void);
+void restore_default_scene(void);
 s32 set_depth_buffer_id__16TObjEneMe3StelthFi(int);
 extern RecoveredGlobal_80141860_lbl_8050C000 lbl_8050C000;
 void set_depth_buffer_settings_id__FUl(s32 arg0);
 extern RecoveredGlobal_80141860_lbl_8050C000 lbl_8050C000;
 extern s32 some_id_805c6f74;
 void set_current_scene__6TSceneFi(s32);
-void TObjPlayer__sub_80141820(u8 scene);
+void set_scene_override(u8 scene);
 }
 
 extern "C" {
@@ -108,12 +108,12 @@ void save_depth_buffer_settings__Fv(void) {
 }
 
 typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];
-void TObjPlayer__sub_801417E8(void) {
+void restore_default_scene(void) {
     some_id_805c6f74 &= 0xFFFFFFFE;
     set_current_scene__6TSceneFi((s32)((int) ((s32) M2C_FIELD(&(*(RecoveredGlobal_801417E8_lbl_8050C028 *)&lbl_8050C028).value, u8 *, 0xD))));
 }
 
-void TObjPlayer__sub_80141820(u8 scene) {
+void set_scene_override(u8 scene) {
     some_id_805c6f74 |= 1;
     (*(G_80141820 *)&lbl_8050C000).scene = scene;
     set_current_scene__6TSceneFi(scene);

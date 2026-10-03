@@ -54,7 +54,7 @@ void rotate_matrix_x(Matrix34* matrix, s32 angle);
 void move_data__6TLobbyFv(void *, void *, int);
 void TObjPlayer__sub_803D9C60(u32 *p);
 extern G_803D9DA8 lbl_8058D470;
-u32 *TObjPlayer__sub_803D9C98(void *arg0, u32 *arg1, u32 *arg2);
+u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
 }
 
 extern "C" {
@@ -177,7 +177,7 @@ void TObjPlayer__sub_803D9C60(u32 *p) {
 }
 #pragma pop
 
-u32 *TObjPlayer__sub_803D9C98(void *arg0, u32 *arg1, u32 *arg2) {
+u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2) {
     u32 tag;
     u32 *p = arg2;
     if (arg1 != NULL) {

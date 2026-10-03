@@ -10,8 +10,8 @@ struct Hdr_803278B0 { Ent_803278B0 *ents; u8 pad4[4]; void *a; void *b; };
 struct Ref_803278B0 { Ent_803278B0 *ent; s16 *pts; };
 
 extern "C" {
-s32 TOComputerMachine01__sub_8023DD0C(void *, u16);
-void TOComputerMachine01__sub_8023DD60(void *);
+s32 has_texture_scroll_entry(void *, u16);
+void set_ginja_texture_wrap_repeat(void *);
 extern Ref_803278B0 *lbl_805D6C70;
 extern s16 *lbl_805D6C74;
 void TOComputerMachine01__sub_803278B0(s32 arg0, Hdr_803278B0 *arg1, s32 arg2);
@@ -26,12 +26,12 @@ void TOComputerMachine01__sub_803278B0(s32 arg0, Hdr_803278B0 *arg1, s32 arg2) {
     s32 i;
     u16 n;
     hit = 0;
-    if (arg1->a != 0 && TOComputerMachine01__sub_8023DD0C(arg1->a, (u16) arg2) == 1) {
-        TOComputerMachine01__sub_8023DD60(arg1->a);
+    if (arg1->a != 0 && has_texture_scroll_entry(arg1->a, (u16) arg2) == 1) {
+        set_ginja_texture_wrap_repeat(arg1->a);
         hit = 1;
     }
-    if (arg1->b != 0 && TOComputerMachine01__sub_8023DD0C(arg1->b, (u16) arg2) == 1) {
-        TOComputerMachine01__sub_8023DD60(arg1->b);
+    if (arg1->b != 0 && has_texture_scroll_entry(arg1->b, (u16) arg2) == 1) {
+        set_ginja_texture_wrap_repeat(arg1->b);
         hit = 1;
     }
     if (hit != 0) {

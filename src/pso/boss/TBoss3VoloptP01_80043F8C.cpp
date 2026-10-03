@@ -138,7 +138,7 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1);
 void *create__15TBoss3VoloptP01FPv(void *arg0);
 void fn_80044330(void* p);
 void* fn_8004438C(void* p);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -158,7 +158,7 @@ extern M2C_UNK __vt__15TBoss3VoloptP01[];
 void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss3VoloptP01;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

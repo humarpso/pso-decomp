@@ -26,12 +26,12 @@ void queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
 List_802370D8 *TObjPlayer__sub_80236780(void *, u32);
 List_802370D8 *TObjPlayer__sub_802367AC(void *, u32);
-void fn_802370D8(Obj_802370D8 *arg0);
+void deliver_technique_to_party_targets(Obj_802370D8 *arg0);
 }
 
 extern "C" {
 
-void fn_802370D8(Obj_802370D8 *arg0) {
+void deliver_technique_to_party_targets(Obj_802370D8 *arg0) {
     List_802370D8 *list;
     s32 i;
     if (M2C_FIELD(arg0, u32 *, 0xDC) == 0) {

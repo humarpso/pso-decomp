@@ -51,8 +51,8 @@ extern s32 lbl_805D3B1C;
 extern const f32 lbl_805DD8F4;
 extern const f32 lbl_805DD8F8;
 u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, s32);
+void send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, s32);
 void fn_8015D5D4(void *);
 u8 is_current_floor_switch_set(u16);
 void TODoorFourLightSpace__vt12(u8 *arg0);
@@ -93,8 +93,8 @@ void render__20TODoorFourLightSpaceFv(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -176,10 +176,10 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0xD0) &= ~1;
             }
             if (bad == 0 && M2C_FIELD(arg0, u32 *, 0x80) != 0 &&
-                TLobby__sub_80156A80(arg0, &sp8, 1) == 1) {
+                access_object_saved_state(arg0, &sp8, 1) == 1) {
                 sp8 = 1;
-                TObjPlayer__sub_80154954(arg0, &sp8);
-                TLobby__sub_80156A80(arg0, &sp8, 0);
+                send_object_state_update(arg0, &sp8);
+                access_object_saved_state(arg0, &sp8, 0);
             }
         }
         break;
@@ -303,8 +303,8 @@ extern M2C_UNK __vt__20TODoorFourLightSpace[];
 void *__dt__20TODoorFourLightSpaceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TODoorFourLightSpace;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -366,8 +366,8 @@ M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -449,10 +449,10 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
             ((M2C_UNK (*)(void *))fn_8015D5D4)(arg0);
             M2C_FIELD(arg0, s32 *, 0xD0) |= 1;
         }
-        if (off2 == 0 && M2C_FIELD(arg0, u32 *, 0x80) != 0 && ((s32 (*)(void *, void *, int))TLobby__sub_80156A80)(arg0, &sp8, 1) == 1) {
+        if (off2 == 0 && M2C_FIELD(arg0, u32 *, 0x80) != 0 && ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 1) == 1) {
             sp8 = 1;
-            ((M2C_UNK (*)(void *, void *))TObjPlayer__sub_80154954)(arg0, &sp8);
-            ((s32 (*)(void *, void *, int))TLobby__sub_80156A80)(arg0, &sp8, 0);
+            ((M2C_UNK (*)(void *, void *))send_object_state_update)(arg0, &sp8);
+            ((s32 (*)(void *, void *, int))access_object_saved_state)(arg0, &sp8, 0);
         }
         break;
     default:
@@ -510,8 +510,8 @@ extern M2C_UNK __vt__20TODoorFourLightRuins[];
 void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TODoorFourLightRuins;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

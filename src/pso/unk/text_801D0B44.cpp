@@ -13,17 +13,17 @@ void run_idle_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void run_idle_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void run_walk_state_phase__10TObjPlayerFis(s32, s32);
 void TObjPlayer__sub_801CFB80(s32, s32);
-void TObjPlayer__sub_801CFAC4(s32, s32);
+void dispatch_run_state__10TObjPlayerFis(s32, s32);
 void TObjPlayer__sub_801CF3E0(s32, s32);
 void TObjPlayer__sub_801CE19C(s32, s32);
 void TObjPlayer__sub_801CDD24(s32, s32);
-void TObjPlayer__sub_801CD928(s32, s32);
+void dispatch_technique_cast_state__10TObjPlayerFis(s32, s32);
 void dispatch_photon_blast_action__10TObjPlayerFis(s32, s32);
-void TObjPlayer__sub_801CBC14(s32, s32);
+void run_guard_reaction_phase__10TObjPlayerFis(s32, s32);
 void TObjPlayer__sub_801CB580(s32, s32);
 void TObjPlayer__sub_801CB7F8(s32, s32);
 void run_hurt_state_phase__10TObjPlayerFis(s32, s32);
-void TObjPlayer__sub_801CAFB4(s32, s32);
+void run_fall_reaction_phase__10TObjPlayerFis(s32, s32);
 void run_death_state_phase__10TObjPlayerFis(s32, s32);
 void TObjPlayer__sub_801C9F6C(s32, s32);
 void run_service_hold_state_phase__10TObjPlayerFis(s32, s32);
@@ -83,7 +83,7 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         TObjPlayer__sub_801CFB80(arg0, arg2);
         break;
     case 4:
-        TObjPlayer__sub_801CFAC4(arg0, arg2);
+        dispatch_run_state__10TObjPlayerFis(arg0, arg2);
         break;
     case 5:
         TObjPlayer__sub_801CF3E0(arg0, arg2);
@@ -95,13 +95,13 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         TObjPlayer__sub_801CDD24(arg0, arg2);
         break;
     case 8:
-        TObjPlayer__sub_801CD928(arg0, arg2);
+        dispatch_technique_cast_state__10TObjPlayerFis(arg0, arg2);
         break;
     case 9:
         dispatch_photon_blast_action__10TObjPlayerFis(arg0, arg2);
         break;
     case 10:
-        TObjPlayer__sub_801CBC14(arg0, arg2);
+        run_guard_reaction_phase__10TObjPlayerFis(arg0, arg2);
         break;
     case 11:
         TObjPlayer__sub_801CB580(arg0, arg2);
@@ -113,7 +113,7 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         run_hurt_state_phase__10TObjPlayerFis(arg0, arg2);
         break;
     case 14:
-        TObjPlayer__sub_801CAFB4(arg0, arg2);
+        run_fall_reaction_phase__10TObjPlayerFis(arg0, arg2);
         break;
     case 15:
         run_death_state_phase__10TObjPlayerFis(arg0, arg2);

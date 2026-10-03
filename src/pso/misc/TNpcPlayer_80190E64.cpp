@@ -54,8 +54,8 @@ extern u8 lbl_80445910[];
 extern M2C_UNK lbl_804B7C04[];
 extern s32 lbl_805D5860;
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
-void TObjPlayer__sub_80154A00(void *);
-void TObjEneGibbles__sub_80156720(void *);
+void unregister_object_by_id(void *);
+void free_collision_body_parts(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 Ctrl_801910F4 *get_player_by_client_id(u32);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -174,8 +174,8 @@ void TLobby__sub_80190FDC(Npc_80190FDC *arg0) {
 Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         arg0->f18 = ((u8 *)&lbl_804B7C1C);
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         u32 id = arg0->fAC;
         if (id != 0xFFFF) {
             Ctrl_801910F4 *c = get_player_by_client_id(id);

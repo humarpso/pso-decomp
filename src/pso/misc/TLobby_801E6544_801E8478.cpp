@@ -323,7 +323,7 @@ void set_story_select__6TLobbyFi(s32 arg0);
 void update_and_apply_alloc__6TLobbyFv(void);
 void update_by_screen_mode__6TLobbyFv(void);
 void update_split_screen__6TLobbyFv(void);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 int TCameraCtrl__sub_8006CCEC(void*);
 int TKeyBoardControl__sub_8000F950(void);
 M2C_UNK TLobby__sub_80070AFC();
@@ -677,7 +677,7 @@ extern s32 tl_00;
 
 void create_hunter_guild_seq__6TLobbyFv(void) {
     void *temp_r3;
-    if ((TCameraCtrl__sub_8006B368() == 1) && ((temp_r3 = (void*)__nw__7TObjectFUl(0x28)) != 0U)) {
+    if ((is_quest_active() == 1) && ((temp_r3 = (void*)__nw__7TObjectFUl(0x28)) != 0U)) {
         init__22THunterGuildSeqOfflineFPvPvPv(temp_r3, tl_00, (M2C_UNK *)reset_random_enemies_mode__6TLobbyFv);
     }
 }

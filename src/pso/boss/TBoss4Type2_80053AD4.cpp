@@ -183,7 +183,7 @@ extern const f32 lbl_805D8B80;
 
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 f32 cos_table_lookup(s32);
 
 void render_and_update_effects__10TObjPlayerFPv(void* p);
@@ -367,7 +367,7 @@ f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0) {
 extern M2C_UNK lbl_80437628;
 
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (arg1 + (s32) (M2C_FIELD(arg0, f32 *, 0x39C) * (f32) TBoss4Type2__sub_80141FA8(arg1, arg2)));
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (arg1 + (s32) (M2C_FIELD(arg0, f32 *, 0x39C) * (f32) angle_diff_s16(arg1, arg2)));
 }
 typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_80054530_lbl_80485EC8) == 0x1E0 ? 1 : -1];
 

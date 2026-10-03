@@ -85,7 +85,7 @@ extern const f32 TObjEneBalClawClaw__data_805D968C;
 void TObjEneBalClawClaw__sub_800906C8(Claw_800906C8 *self);
 void apply_actor_gravity(void *, int, f32);
 s32 move_with_wall_slide(void *);
-void TObjPlayer__sub_800180E8(void *self, Vec_80090850 pos, Vec_80090850 dest, f32 speed);
+void calc_velocity_toward_destination(void *self, Vec_80090850 pos, Vec_80090850 dest, f32 speed);
 void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 void advance_animation_playback(void *);
@@ -209,7 +209,7 @@ void TObjEneBalClawClaw__sub_80090850(Claw_80090850 *self) {
     case 1:
         self->field30C = TObjEneBalClawClaw__data_805D968C;
         VecCopy__FP3VecPC3Vec(&self->target, &self->field2FC);
-        TObjPlayer__sub_800180E8(self, self->target, self->home, self->params->speed);
+        calc_velocity_toward_destination(self, self->target, self->home, self->params->speed);
         update_angle__10TObjPlayerFPviPv(self, self->params->angle, &self->field308);
         move_with_wall_slide(self);
         advance_animation_playback(self);

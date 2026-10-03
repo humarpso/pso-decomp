@@ -161,7 +161,7 @@ void bind_controller_devices(void) {
     }
 }
 
-void TKeyBoardControl__sub_801A66B8(void) {
+void reset_controller_input_state(void) {
     s32 i;
     s32 j;
     Pad_801A66B8 *p;

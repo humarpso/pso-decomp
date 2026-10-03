@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+M2C_UNK play_area_music(void *);
 s32 is_flag_set__14TBoss6PlotFalzFv();
 M2C_UNK init_warp__15TBoss6EmptyWarpFv();
 M2C_UNK create__12TBoss6ThanksFv();
@@ -39,9 +39,9 @@ void run_task__15TBoss6EmptyWarpFv(u8 *arg0) {
         init_warp__15TBoss6EmptyWarpFv();
         if (TBoss6Thanks__sub_8035D230() != 0) {
             create__12TBoss6ThanksFv();
-            TObjBgmColCtrl__sub_802274B8((void *) (lbl_804709E0));
+            play_area_music((void *) (lbl_804709E0));
         } else {
-            TObjBgmColCtrl__sub_802274B8((void *) (lbl_804709E8));
+            play_area_music((void *) (lbl_804709E8));
         }
         queue_destruction__7TObjectFv((void *) (arg0));
     }

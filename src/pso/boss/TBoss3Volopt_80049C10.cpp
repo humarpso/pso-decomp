@@ -73,7 +73,7 @@ void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 void TObjPlayer__sub_80142170(void *, void *, void *);
-void TObjPlayer__sub_801422A8(void *, void *, void *);
+void direction_to_rotation_xy(void *, void *, void *);
 void check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 Tgt_80049C10 *get_player_by_client_id(s32);
@@ -89,7 +89,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self);
 extern "C" {
 
 void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -108,7 +108,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
     }
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
     vec3_add_to(&self->pos, &self->vel);
-    TObjPlayer__sub_801422A8(&self->vel, &self->f5c, &self->f60);
+    direction_to_rotation_xy(&self->vel, &self->f5c, &self->f60);
     if (self->fe0 != NULL) {
         Vec_80049C10 n = self->vel;
         n.x = -n.x;
@@ -148,7 +148,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
 void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484AFC;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xE0) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xE0));
         }

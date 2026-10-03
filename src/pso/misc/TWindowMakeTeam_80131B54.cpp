@@ -8,7 +8,7 @@ extern "C" {
 
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 void set_sub_position__15TWindowMakeTeamFPvPv(u8 *arg0, u8 *arg1);
-s32 TWindowKeyBoardSoft__sub_8025C974(s32, s32);
+s32 export_keyboard_text(s32, s32);
 s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
 s32 alloc_buffer__11TOBoss4RockFPv();
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);

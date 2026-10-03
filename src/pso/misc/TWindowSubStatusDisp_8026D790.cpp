@@ -42,12 +42,12 @@ extern const f32 lbl_805DD324;
 extern const f32 lbl_805DD328;
 extern const f32 lbl_805DD32C;
 extern const f32 lbl_805DD330;
-void TWindowSubStatusDisp__sub_8026D790(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset);
+void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset);
 }
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_8026D790(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset) {
+void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset) {
     Quad_8026D790 q;
     f32 depth;
     f32 x;

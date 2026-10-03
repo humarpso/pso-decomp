@@ -49,7 +49,7 @@ extern const f32 lbl_805DA214;
 extern const f32 lbl_805DA24C;
 extern const f32 lbl_805DA250;
 void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void TObjEneBm5GibonU__sub_800D0FDC(Ene_800D0FDC *arg0, s32 arg1);
 }
@@ -108,7 +108,7 @@ void TObjEneBm5GibonU__sub_800D0E14(Ene_800D0E14 *arg0) {
 
 void TObjEneBm5GibonU__sub_800D0FDC(Ene_800D0FDC *arg0, s32 arg1) {
     s32 d;
-    d = TBoss4Type2__sub_80141FA8(arg0->angle, arg1);
+    d = angle_diff_s16(arg0->angle, arg1);
     if (d > 0x3000) {
         d = 0x3000;
     } else if (d < -0x3000) {
@@ -116,7 +116,7 @@ void TObjEneBm5GibonU__sub_800D0FDC(Ene_800D0FDC *arg0, s32 arg1) {
     }
     if (arg0->turn * d >= 0) {
         arg0->turn = approach_angle_limited(arg0->turn, d, 0x400);
-    } else if (arg0->turn * TBoss4Type2__sub_80141FA8(arg0->turn, d) >= 0) {
+    } else if (arg0->turn * angle_diff_s16(arg0->turn, d) >= 0) {
         if (arg0->turn >= 0) {
             arg0->turn -= 0x400;
         } else {

@@ -151,7 +151,7 @@ void TLobby__sub_8013A170(const char *fmt, ...);
 void set_player_count__6TLobbyFi(s32);
 void fn_8013ACE4(s32);
 void fn_8013ACEC(s32);
-void TObjCityMainWarp__sub_80186634();
+void clear_enabled_main_warps();
 void set_flag_and_update__6TLobbyFv();
 s32 get_player_by_client_id(void *);
 void bswap_32__FPUl(u32 *);
@@ -330,7 +330,7 @@ void TLobby__sub_80136C94(Pkt_80136C94 *pkt) {
     for (j = 0; j < 4; j++) {
         lbl_8050ABA8[j] = 0;
     }
-    TObjCityMainWarp__sub_80186634();
+    clear_enabled_main_warps();
     TLobby__data_805D5590 = 4;
     set_area__6TLobbyFPvi(lbl_80515BA0, 0, 0);
     set_flag_and_update__6TLobbyFv();

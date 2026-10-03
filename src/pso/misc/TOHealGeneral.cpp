@@ -79,8 +79,8 @@ extern RecoveredGlobal_80169710_lbl_804B2760 lbl_804B2760;
 extern u32 TOHealGeneral__data_805D59F0;
 void load_resources__13TOHealGeneralFv(void);
 void request_destroy__11TBoss4Type2FUi(u32);
-void TObjPlayer__sub_80154A00(void *);
-void TObjEneGibbles__sub_80156720(void *);
+void unregister_object_by_id(void *);
+void free_collision_body_parts(void *);
 void destroy_key_base__5TOKeyFPvs(void *, s16);
 void __dl__7TObjectFPv(void *);
 extern void *__vt__13TOHealGeneral[];
@@ -262,8 +262,8 @@ TOHealGeneral_801697C0 *__dt__13TOHealGeneralFv(TOHealGeneral_801697C0 *self, s1
                 request_destroy__11TBoss4Type2FUi(self->handles[i]);
             }
         }
-        TObjPlayer__sub_80154A00(self);
-        TObjEneGibbles__sub_80156720(self);
+        unregister_object_by_id(self);
+        free_collision_body_parts(self);
         destroy_key_base__5TOKeyFPvs(self, 0);
         if (flag > 0) {
             __dl__7TObjectFPv(self);

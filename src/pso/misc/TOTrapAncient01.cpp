@@ -126,8 +126,8 @@ extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
 void TOTrapAncient01__sub_80179E34(void);
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK unregister_object_by_id(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
@@ -245,8 +245,8 @@ void TOTrapAncient01__sub_80179E34(void) {
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
     if (self != 0) {
         self->vt = __vt__15TOTrapAncient01;
-        TObjPlayer__sub_80154A00(self);
-        TObjEneGibbles__sub_80156720(self);
+        unregister_object_by_id(self);
+        free_collision_body_parts(self);
         __destroy_arr(self->arr, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__6TOTrapFv(self, 0);
         if (flag > 0) {

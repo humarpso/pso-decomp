@@ -90,7 +90,7 @@ void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1);
 s32 queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
-void fn_802370D8(void *);
+void deliver_technique_to_party_targets(void *);
 void run_task__9TTecSiftaFv(Sifta_8023AF94 *self);
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
@@ -225,7 +225,7 @@ void run_task__9TTecSiftaFv(Sifta_8023AF94 *self) {
     } else if (self->level <= 1) {
         ((VObj_8023AF94 *)self)->m5(self->source);
     } else {
-        fn_802370D8(self);
+        deliver_technique_to_party_targets(self);
     }
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }

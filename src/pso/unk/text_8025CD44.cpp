@@ -10,12 +10,12 @@ extern const f32 lbl_805DD03C;
 extern const f32 lbl_805DD040;
 extern const f32 lbl_805DD044;
 extern const f32 lbl_805DD048;
-void TWindowSubStatusDisp__sub_8025CD44(u8 *arg0, u32 arg1, u32 arg2);
+void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
 }
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_8025CD44(u8 *arg0, u32 arg1, u32 arg2) {
+void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2) {
     if (arg2 == 0) {
         M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DD038;
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DD03C;

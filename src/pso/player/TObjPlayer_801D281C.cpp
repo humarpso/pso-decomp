@@ -113,7 +113,7 @@ void TObjPlayer__sub_801D2C18(Obj_801D2C18 *arg0);
 s32 obj_getField1c(void *);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int test_flags_any(void*, int);
-u16 TObjPlayer__sub_801B5AC4(void *, s32);
+u16 get_action_palette_entry__10TObjPlayerFii(void *, s32);
 void set_attack_target__10TObjPlayerFPvs(void* p, s16 v);
 void* get_anim_field_c__10TObjPlayerFPv(void* p);
 void advance_and_clamp_state__10TObjPlayerFPv(void *arg0);
@@ -406,7 +406,7 @@ void queue_physical_attack_input(PlayerAttackController *self, TObjPlayer *obj, 
         if (get_validated_attack_stage((u8 *)self) > arg3) {
             set_saved_attack_stage__10TObjPlayerFPvs((void*)(self), arg3);
         }
-        t = TObjPlayer__sub_801B5AC4(obj, arg2);
+        t = get_action_palette_entry__10TObjPlayerFii(obj, arg2);
         get_field_340__10TObjPlayerFPv((void*)(obj), (int)(2));
         set_attack_target__10TObjPlayerFPvs((void*)(self), (s16)(t));
         dispatch_to_child__11TWindowCtrlFiPv(obj_getField1c(obj), arg2);

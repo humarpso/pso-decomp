@@ -37,7 +37,7 @@ u8 TAdTrialAgreementGC__sub_80335958(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 TCameraCtrl__sub_80068EF0();
-s32 TCameraCtrl__sub_80069024();
+s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 reset_transform_state__10TObjPlayerFv();
 s32 init_xyz_limits__10TObjPlayerFv();
 s32 begin_effect_render__13TParticleCtrlFv();
@@ -135,7 +135,7 @@ void TAdTrialAgreementGC__sub_80335BD4(u8 *arg0) {
     s32 var_r31;
     if (get_state_flag__9TMainTaskFv() != 0) {
         begin_effect_render__13TParticleCtrlFv();
-        TCameraCtrl__sub_80069024();
+        restore_full_screen_view__11TCameraCtrlFv();
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8050BEC0.value), (void *) (&lbl_8058D4C0.value));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {

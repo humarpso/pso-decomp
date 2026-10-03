@@ -55,15 +55,15 @@ extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
 extern s32 lbl_805D7774;
-void TObjPlayer__sub_803E1D1C(s32 arg0);
+void load_current_pos_matrix(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
 f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
 extern s32 lbl_805D7774;
 extern s32 lbl_804FC7A8[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
-void TObjPlayer__sub_803E1D54(s32 i);
-s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1);
+void load_current_tex_matrix(s32 i);
+s32 spheres_overlap(u8 *arg0, u8 *arg1);
 void OSPanic(const char *, int, const char *, ...);
 void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
@@ -81,7 +81,7 @@ extern const f32 lbl_805E1020;
 extern const f32 lbl_805E1024;
 extern const f64 lbl_805E1028;
 extern const f64 lbl_805E1030;
-f32 TNpcPlayer__sub_803E18C0(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
+f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
 }
 
 extern "C" {
@@ -197,7 +197,7 @@ __declspec(section ".sdata2") extern const f64 lbl_805E1040;
 __declspec(section ".sdata2") extern const f64 lbl_805E1048;
 
 
-s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1) {
+s32 spheres_overlap(u8 *arg0, u8 *arg1) {
     f32 temp_f2;
     f32 temp_f3;
     f32 temp_f4;
@@ -213,7 +213,7 @@ s32 TObjPlayer__sub_803E1864(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma scheduling off
-f32 TNpcPlayer__sub_803E18C0(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out) {
+f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out) {
     f32 t;
     f32 x;
     f32 r;
@@ -311,7 +311,7 @@ extern s8 lbl_805D77C8;
 #pragma push
 #pragma scheduling off
 typedef char RecoveredGlobal_803E1D1C_lbl_804FC780_size[sizeof(RecoveredGlobal_803E1D1C_lbl_804FC780) == 0x28 ? 1 : -1];
-void TObjPlayer__sub_803E1D1C(s32 arg0) {
+void load_current_pos_matrix(s32 arg0) {
     GXLoadPosMtxImm((void *) (lbl_805D7774), (int) (M2C_FIELD(((u8 *)(&lbl_804FC780.value) + (arg0 * 4)), s32 *, 0)));
 }
 #pragma pop
@@ -320,7 +320,7 @@ void TObjPlayer__sub_803E1D1C(s32 arg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803E1D54(s32 i) {
+void load_current_tex_matrix(s32 i) {
     GXLoadTexMtxImm((void *)lbl_805D7774, lbl_804FC7A8[i], 0);
 }
 #pragma pop

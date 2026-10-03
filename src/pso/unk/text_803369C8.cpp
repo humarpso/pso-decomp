@@ -17,7 +17,7 @@ void render_logo_with_default(void *,s32,s32,f32);
 void draw_title_background_pulse(void *,f32,s32);
 void draw_title_rings(void *,f32,s32);
 void TCameraCtrl__sub_80068EF0(void);
-void TCameraCtrl__sub_80069024(void);
+void restore_full_screen_view__11TCameraCtrlFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_state_flag__9TMainTaskFv();
@@ -54,7 +54,7 @@ void rotate_title_background_quad(M2C_UNK arg0, u8 *arg1, u8 *arg2, s32 arg3, f3
 void draw_title_background_layers(u8 *arg0) {
     if (get_state_flag__9TMainTaskFv() != 0) {
         begin_effect_render__13TParticleCtrlFv();
-        TCameraCtrl__sub_80069024();
+        restore_full_screen_view__11TCameraCtrlFv();
         render_logo_with_default(get_title_texture_list(), 0xD, -1, lbl_805DF968);
         draw_title_background_pulse(arg0, lbl_805DF96C, M2C_FIELD(arg0, s32 *, 0x20));
         TAdBackGC__sub_8001C5A0(get_title_texture_list(), 3, -1, lbl_805DF970);

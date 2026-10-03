@@ -50,7 +50,7 @@ extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EE77C(u8 arg0, u8 arg1);
 u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
-s32 TLobby__sub_8011AF58(u16);
+s32 advance_item_id_counter(u16);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Item_801EEE68 *);
 void fn_801B849C(void *, Item_801EEE68 *);
 extern s32 lbl_805D53A0;
@@ -58,7 +58,7 @@ extern int* TLobby__data_805D5E78;
 void qst_op_item_create(u8 arg0, u8 arg1);
 u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
-s32 TLobby__sub_8011AF58(u16);
+s32 advance_item_id_counter(u16);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Item_801EEE68 *);
 void fn_801B849C(void *, Item_801EEE68 *);
 extern s32 lbl_805D53A0;
@@ -281,7 +281,7 @@ void qst_op_item_create2(u8 arg0, u8 arg1) {
         item.data[3] = TLobby__data_805D5E78[arg0++];
         item.data[4] = TLobby__data_805D5E78[arg0++];
         item.data[5] = TLobby__data_805D5E78[arg0++];
-        item.id = TLobby__sub_8011AF58(lbl_805D53A0);
+        item.id = advance_item_id_counter(lbl_805D53A0);
         item.data[6] = TLobby__data_805D5E78[arg0++];
         item.data[7] = TLobby__data_805D5E78[arg0++];
         item.data[8] = TLobby__data_805D5E78[arg0++];
@@ -308,7 +308,7 @@ void qst_op_item_create(u8 arg0, u8 arg1) {
         item.data[0] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
         item.data[1] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0++];
         item.data[2] = (*(int * *)&TLobby__data_805D5E78)[(u8)arg0];
-        item.id = TLobby__sub_8011AF58(lbl_805D53A0);
+        item.id = advance_item_id_counter(lbl_805D53A0);
         if (can_inventory_accept_item__10TObjPlayerFPvPv(player, &item) > 0) {
             fn_801B849C(player, &item);
             (*(int * *)&TLobby__data_805D5E78)[arg1] = item.id;

@@ -21,7 +21,7 @@ void TObjEnePanarms__sub_800DFE08(u8 *arg0);
 extern "C" {
 
 void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
 s32 angle_difference_abs(s32, s32, void *);
 
@@ -38,7 +38,7 @@ void init_attack_state__14TObjEnePanarmsFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3B4) = 0x3C;
     M2C_FIELD(arg0, s32 *, 0x3C4) = 1;
     if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4), temp_r5) < 0x2000) {
-        if (TBoss4Type2__sub_80141FA8(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4)) >= 0) {
+        if (angle_diff_s16(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x3D4)) >= 0) {
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D4) - 0x2000);
         } else {
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D4) + 0x2000);

@@ -74,7 +74,7 @@ s32 TFogCtrl__ct(int, int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_800FBB68_lbl_8049C670 lbl_8049C670;
 extern M2C_UNK *tl_02;
-void TFogCtrl__sub_800FBB68(void);
+void create_area_fog_ctrl(void);
 u8 get_small_font_glyph_width(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
 void build_small_font_glyph_quad(s32, Pos_800FBEA8 *);
@@ -94,7 +94,7 @@ s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, void *);
-void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale);
+void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale);
 void read_disc_file(void *, void *);
 void TFogCtrl__sub_800FBAAC(void);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -123,7 +123,7 @@ extern "C" {
 
 void TFogCtrl__sub_800FBA58(void);
 void TFogCtrl__sub_800FBAAC(void);
-int fn_800FC0D8(void* p);
+int get_name_text_width(void* p);
 void reset__8TFogCtrlFv(void);
 M2C_UNK TFogCtrl__sub_800FBA54(M2C_UNK);
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
@@ -186,7 +186,7 @@ void TFogCtrl__sub_800FBAB0(void) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-void TFogCtrl__sub_800FBB68(void) {
+void create_area_fog_ctrl(void) {
     M2C_UNK *var_r3;
     M2C_UNK *var_r4;
     s32 var_r31;
@@ -321,7 +321,7 @@ void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 
     get_player__20TWindowSubStatusDispFv();
 }
 
-void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
+void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
     Pos_800FBFD8 pos;
     s32 id;
     reset_transform_state__10TObjPlayerFv();
@@ -340,6 +340,6 @@ void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
     get_player__20TWindowSubStatusDispFv();
 }
 
-int fn_800FC0D8(void* p) { return calc_small_font_text_width(p); }
+int get_name_text_width(void* p) { return calc_small_font_text_width(p); }
 
 }

@@ -84,8 +84,8 @@ void free_globals__15TORockJungleS01Fv(void);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -110,8 +110,8 @@ void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TORockJungleS01;
         if (M2C_FIELD(arg0, void **, 0xBC) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xBC)); M2C_FIELD(arg0, M2C_UNK *, 0xBC) = 0; }
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TORockCaveBrakableFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

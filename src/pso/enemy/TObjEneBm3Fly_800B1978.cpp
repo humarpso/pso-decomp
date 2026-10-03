@@ -189,7 +189,7 @@ void TObjEneBm3Fly__vt61(u8 *arg0);
 s32 enemy_copy_target_destination();
 f32 sin_table_lookup(s32);
 extern const f32 lbl_805D9CEC;
-void TObjEneBm3Fly__sub_800B1AEC(void *arg0, s32 arg1);
+void circle_destination__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 u8 *create_particle_emitter(void *, s32);
@@ -222,7 +222,7 @@ extern f32 *lbl_805D50EC;
 extern u8 *lbl_805D50F0;
 extern void *TObjEneBm3Fly__data_805D50F4;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
-void TObjEneBm3Fly__sub_800B22C8(void);
+void load_resources__13TObjEneBm3FlyFv(void);
 u16 obj_getField1c(void *);
 u8 * init_object__9TObjEneDDFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -242,7 +242,7 @@ s32 TObjEneBm3Fly__sub_800B0B20(void *, void *);
 s32 TObjEneBm3Fly__sub_800B0F70(void *, void *);
 s32 TObjEneBm3Fly__sub_800B1214(void *, void *);
 void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2);
-void TObjEneBm3Fly__sub_800B1978(u8 *arg0);
+void clamp_flight_height__13TObjEneBm3FlyFPv(u8 *arg0);
 void clear_global_flag_400__9TObjEneDDFv(void);
 void update_player_state__9TObjEneDDFPv(void *, Vec_800B23A0 *, s32);
 s32 get_target_info__9TObjEneDDFPv(void *);
@@ -292,13 +292,13 @@ u32 move_with_wall_slide_commit__9TObjEneDDFPvfff();
 int transition_enemy_state(void*, void*);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEneDDFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
 
-void TObjEneBm3Fly__sub_800B1978(u8 *arg0) {
+void clamp_flight_height__13TObjEneBm3FlyFPv(u8 *arg0) {
     if ((M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x3C)) < 1.2f) {
         M2C_FIELD(arg0, f32 *, 0x42C) = 1.2f + M2C_FIELD(arg0, f32 *, 0x3C);
     }
@@ -342,7 +342,7 @@ void update_collide_flag__13TObjEneBm3FlyFPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneBm3Fly__sub_800B1AEC(void *arg0, s32 arg1) {
+void circle_destination__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1) {
     f32 temp_f1;
     enemy_copy_target_destination();
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((lbl_805D9CEC * sin_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
@@ -507,7 +507,7 @@ void *__dt__13TObjEneBm3FlyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneBm3Fly;
         if (M2C_FIELD(arg0, void **, 0x458) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x458)); M2C_FIELD(arg0, M2C_UNK *, 0x458) = 0; }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -557,7 +557,7 @@ void * create__13TObjEneBm3FlyFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
 }
 typedef char RecoveredGlobal_800B22C8_lbl_8043B0FC_size[sizeof(RecoveredGlobal_800B22C8_lbl_8043B0FC) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_800B22C8_lbl_80491B4C_size[sizeof(RecoveredGlobal_800B22C8_lbl_80491B4C) == 0x2C ? 1 : -1];
-void TObjEneBm3Fly__sub_800B22C8(void) {
+void load_resources__13TObjEneBm3FlyFv(void) {
     typedef char sp8_offset[(offsetof(Stack_800B22C8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800B22C8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800B22C8, sp10) == 0x8) ? 1 : -1];

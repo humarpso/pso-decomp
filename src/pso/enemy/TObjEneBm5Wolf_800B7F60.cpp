@@ -164,10 +164,10 @@ extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__da
 Wolf_800B850C *play_sound__14TObjEneBm5WolfFPv(Node_800B850C *);
 M2C_UNK destroy__14TObjEneBm5WolfFis(void *, int);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804922F8[];
-Wolf_800B850C *TObjEneBm5Wolf__sub_800B850C(s32 id);
+Wolf_800B850C *find_pack_leader__14TObjEneBm5WolfFi(s32 id);
 }
 
 extern "C" {
@@ -249,7 +249,7 @@ u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, u8 **, 0x18) = lbl_804922F8;
         if (M2C_FIELD(arg0, D_800B8174 **, 0x410) != NULL) {
-            TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, D_800B8174 **, 0x410));
+            free_collision_body_parts(M2C_FIELD(arg0, D_800B8174 **, 0x410));
             delete M2C_FIELD(arg0, D_800B8174 **, 0x410);
             M2C_FIELD(arg0, D_800B8174 **, 0x410) = NULL;
         }
@@ -257,7 +257,7 @@ u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
             TObjEneBm5Wolf__sub_800B8570((s32) arg0);
         }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         destroy__14TObjEneBm5WolfFis(arg0 + 0x3CC, -1);
         destroy__14TObjEneBm5WolfFis(arg0 + 0x3C0, -1);
         __dt__9TObjEneDDFv(arg0, 0);
@@ -269,7 +269,7 @@ u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C_size[sizeof(RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C) == 0xC ? 1 : -1];
 
-Wolf_800B850C *TObjEneBm5Wolf__sub_800B850C(s32 id) {
+Wolf_800B850C *find_pack_leader__14TObjEneBm5WolfFi(s32 id) {
     Node_800B850C *n;
     for (n = ((Node_800B850C * *)&TObjEneBm5Wolf__data_80500B8C)[0]; n != 0; n = n->next) {
         Wolf_800B850C *w = play_sound__14TObjEneBm5WolfFPv(n);

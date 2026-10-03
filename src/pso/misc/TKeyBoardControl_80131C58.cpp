@@ -126,7 +126,7 @@ int is_key_held__16TKeyBoardControlFPv(void* p);
 void set_flag60_bit200__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit2__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p);
-s32 TWindowKeyBoardSoft__sub_8025C974(s32, s32);
+s32 export_keyboard_text(s32, s32);
 s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);

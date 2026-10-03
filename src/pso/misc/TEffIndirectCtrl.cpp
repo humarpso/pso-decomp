@@ -8,7 +8,7 @@ extern "C" {
 extern u32 lbl_805D66B0;
 u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 void read_disc_file(void *, void *);
-s16 TEffIndirectCtrl__sub_802A920C(u8, u8, s32);
+s16 calc_i8_tiled_texel_offset(u8, u8, s32);
 void *xmalloc__FUl(u32);
 void *memset(void *, s32, u32);
 extern void *lbl_805D3E24;
@@ -57,7 +57,7 @@ void load_indirect_info(void) {
         do {
             j = 0;
             do {
-                ((s16 *)lbl_805D66B0)[i * 0x40 + j] = TEffIndirectCtrl__sub_802A920C(j, i, 0x40);
+                ((s16 *)lbl_805D66B0)[i * 0x40 + j] = calc_i8_tiled_texel_offset(j, i, 0x40);
                 j++;
             } while (j < 0x40);
             i++;

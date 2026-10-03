@@ -212,8 +212,8 @@ void TOTrap__sub_80179028(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
 s32 check_player_flag1__6TLobbyFPv(s32);
-s32 TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
@@ -388,12 +388,12 @@ f32 TOTrap__sub_80178F54(u8 *arg0, u32 arg1) {
   s16 sp8;
   s32 temp_r3_2;
   u16 temp_r3;
-  if (((((u16) (*((u16 *) (((s8 *) arg0) + 0x1C)))) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) arg0) + 0x80)))) != 0U)) && (TLobby__sub_80156A80((void *) arg0, (void *) (&sp8), (int) 1) != 0))
+  if (((((u16) (*((u16 *) (((s8 *) arg0) + 0x1C)))) >= 0x4000U) && (((u32) (*((u32 *) (((s8 *) arg0) + 0x80)))) != 0U)) && (access_object_saved_state((void *) arg0, (void *) (&sp8), (int) 1) != 0))
   {
     *((s16 *) (((s8 *) arg0) + 0x326)) = 4;
     sp8 = *((s16 *) (((s8 *) arg0) + 0x326));
-    TLobby__sub_80156A80((void *) arg0, (void *) (&sp8), (int) 0);
-    TObjPlayer__sub_80154954((void *) arg0, (void *) (&sp8));
+    access_object_saved_state((void *) arg0, (void *) (&sp8), (int) 0);
+    send_object_state_update((void *) arg0, (void *) (&sp8));
     if (arg1 != 0U)
     {
       temp_r3 = obj_getField1c((u32)((void *) arg1));

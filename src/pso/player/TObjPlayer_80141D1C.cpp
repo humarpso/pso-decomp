@@ -18,16 +18,16 @@ void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
-void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 sin_table_lookup();
 f32 cos_table_lookup(s32);
 void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0);
 f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
-u16 TObjPlayer__sub_80142344(s32 a0, s32 b0);
+u16 approach_angle_adaptive(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
 u16 angle_difference_abs(s32 a, s32 b);
-s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b);
+s16 angle_diff_s16(s32 a, s32 b);
 void getDateStamp__FP9DateStamp(DS_80142108 *);
 void TAdSinglePlyChrSelectGC__sub_80142108(DS_80142108 *arg0);
 u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2);
@@ -47,7 +47,7 @@ u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void vsub(void *arg0, void *arg1, void *arg2);
 f32 sin_table_lookup();
-f32 TCameraCtrl__sub_803D8D00();
+f32 vec_squared_length();
 M2C_UNK normalize_vector(s32);
 int abs__4cXyzCFv(int, int);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -55,7 +55,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 extern f32 lbl_805DB158;
 
 s32 check_camera_distance__10TObjPlayerFi(s32 arg0) {
-    if (TCameraCtrl__sub_803D8D00() < lbl_805DB158) {
+    if (vec_squared_length() < lbl_805DB158) {
         return 0;
     }
     normalize_vector(arg0);
@@ -114,7 +114,7 @@ u16 angle_difference_abs(s32 a, s32 b) {
     return d;
 }
 
-s16 TBoss4Type2__sub_80141FA8(s32 a, s32 b) {
+s16 angle_diff_s16(s32 a, s32 b) {
     return (u16)b - (u16)a;
 }
 
@@ -169,7 +169,7 @@ void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2) {
 
 #pragma push
 #pragma scheduling on
-void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2) {
+void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
     *arg1 = -(s32) (lbl_8043F2C0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 8))));
@@ -179,7 +179,7 @@ void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2) {
 }
 #pragma pop
 
-u16 TObjPlayer__sub_80142344(s32 a0, s32 b0) {
+u16 approach_angle_adaptive(s32 a0, s32 b0) {
     u16 a = a0;
     u16 b = b0;
     s16 d = b - a;

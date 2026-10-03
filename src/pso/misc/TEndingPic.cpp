@@ -88,7 +88,7 @@ void run_task__10TEndingPicFv(void* p);
 void set_phase_18__10TEndingPicFPv(void* p);
 void update_player_object__10TEndingPicFPv(void *arg0);
 void update_shield__10TEndingPicFPv(void *arg0);
-int TItemObject__sub_80116004(void*, f32);
+int send_nearby_player_ids(void*, f32);
 s32 add_actor_hp(s32, s32);
 s32 add_actor_tp(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -278,7 +278,7 @@ void TEndingPic__sub_80353194(void *arg0) {
 }
 
     extern const f32 lbl_805DFF34;
-void TEndingPic__sub_803531D0(void* a0) { TItemObject__sub_80116004((void*)(*(int*)((char*)a0 + 0xf0)), lbl_805DFF34); }
+void TEndingPic__sub_803531D0(void* a0) { send_nearby_player_ids((void*)(*(int*)((char*)a0 + 0xf0)), lbl_805DFF34); }
 
 void TEndingPic__sub_803531F8(void) {  }
 

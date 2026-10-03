@@ -16,7 +16,7 @@ s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 int get_message_10__20TWindowSubStatusDispFPv(void*);
 extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_8044F6D4;
 void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 Rec_80272290 *get_com_count__17TWindowSubComCardFv();
 void text_builder_append(void *);
 void text_builder_reset();
@@ -72,7 +72,7 @@ void TWindowSubComCard__sub_80272290(u8 *arg0, s32 arg1) {
         text_builder_append(TWindowSubComCard__sub_8027523C(temp_r30));
         text_builder_append(&lbl_805DD4F8);
         text_builder_append(get_card_data_ptr__17TWindowSubComCardFPv(temp_r30));
-        send_and_handle__6TLobbyFPvii(*(s32 *)(arg0 + 0x6C), TLobby__sub_8001DC24(), 0x82);
+        send_and_handle__6TLobbyFPvii(*(s32 *)(arg0 + 0x6C), get_shared_text_buffer(), 0x82);
     }
 }
 

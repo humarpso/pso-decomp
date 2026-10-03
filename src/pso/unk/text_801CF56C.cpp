@@ -26,7 +26,7 @@ void apply_velocity__10TObjPlayerFPv(void *);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 void *get_position_ptr__10TObjPlayerFPv(void *);
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
-s32 TObjPlayer__sub_80142344(s32, s32);
+s32 approach_angle_adaptive(s32, s32);
 s32 lerp_angle_half__10TObjPlayerFUsUs(s32, s32);
 void emit_footstep_effect__10TObjPlayerFiff(void *, f32, f32);
 void play_footstep_sound__10TObjPlayerFi(void *, f32, f32);
@@ -47,7 +47,7 @@ void update_run_movement__10TObjPlayerFPv(Plr_801CF56C *self) {
     s32 ang;
     f32 dist;
     self->target_rot = calc_angle_to__10TObjPlayerFPvPv(get_position_ptr__10TObjPlayerFPv(self), &self->tx);
-    self->rot = TObjPlayer__sub_80142344(self->rot, self->target_rot);
+    self->rot = approach_angle_adaptive(self->rot, self->target_rot);
     ang = lerp_angle_half__10TObjPlayerFUsUs(self->rot, self->target_rot);
     self->vx = TObjPlayer__sub_801BF814(self->motion) * sin_table_lookup(ang);
     self->vy = TObjPlayer__data_805DC36C;

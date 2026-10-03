@@ -180,7 +180,7 @@ extern u8 lbl_805009A0[];
 void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
-M2C_UNK TObjPlayer__sub_800180E8(void *, Vec_800A8C4C, Vec_800A8C4C, f32);
+M2C_UNK calc_velocity_toward_destination(void *, Vec_800A8C4C, Vec_800A8C4C, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
@@ -199,7 +199,7 @@ M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -370,7 +370,7 @@ void TObjPlayer__sub_800A8C4C(u8 *arg0) {
             var_f31 = M2C_FIELD(((u8 *)(lbl_804910E4) + (M2C_FIELD(arg0, s32 *, 0x368) * 4)), f32 *, 0);
         }
         VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x290), (void *) ((u8 *)(arg0) + 0x2FC));
-        TObjPlayer__sub_800180E8((void *) (arg0), *(Vec_800A8C4C *)(arg0 + 0x290), *(Vec_800A8C4C *)(arg0 + 0x29C), var_f31);
+        calc_velocity_toward_destination((void *) (arg0), *(Vec_800A8C4C *)(arg0 + 0x290), *(Vec_800A8C4C *)(arg0 + 0x29C), var_f31);
         update_angle__10TObjPlayerFPviPv((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8)), (void *) ((u8 *)(arg0) + 0x308));
         move_with_wall_slide((void *) (arg0));
         if (xz_distance_squared((void *) ((u8 *)(arg0) + 0x38), (void *) ((u8 *)(arg0) + 0x50)) < lbl_805D9AE4) {
@@ -491,7 +491,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             }
             some_id_805c6f74 = lbl_805D5660;
             pop_matrix();
-            TObjLight__sub_80134098();
+            restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
             if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800) && (var_r30 != 0)) {
                 Vec_800AA334 v = *(Vec_800AA334 *)lbl_8043AC78;

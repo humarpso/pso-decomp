@@ -11,12 +11,12 @@ s32 select_cursor_entry__6TLobbyFPv(void *);
 extern u32 TQuestListOnline__data_805D6190;
 extern void *TQuestListOnline__data_805D61E0;
 s32 TQuestListOnline__sub_80217504(void);
-s32 TLobby__sub_800F7DAC(s32, s32);
+s32 prs_decompress_buffer(s32, s32);
 extern s32 TQuestListOnline__data_805D61E4;
 extern u32 lbl_805D61EC;
 extern s32 lbl_805D61F4;
 void TQuestListOnline__sub_802176DC(s32 arg0);
-s32 TLobby__sub_800F7DAC(s32, s32);
+s32 prs_decompress_buffer(s32, s32);
 extern s32 TQuestListOnline__data_805D61E4;
 extern u32 lbl_805D61E8;
 extern s32 lbl_805D61F0;
@@ -148,7 +148,7 @@ extern s32 TQuestListOnline__data_805D61E4;
 
 void TQuestListOnline__sub_802176DC(s32 arg0) {
     if ((u32) (*(u32 *)&TQuestListOnline__data_805D61E4) != 0U) {
-        lbl_805D61F4 = TLobby__sub_800F7DAC(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));
+        lbl_805D61F4 = prs_decompress_buffer(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));
         lbl_805D61EC = (*(u32 *)&TQuestListOnline__data_805D61E4);
     }
 }
@@ -156,7 +156,7 @@ void TQuestListOnline__sub_802176DC(s32 arg0) {
 void TQuestListOnline__sub_80217714(s32 arg0) {
     s32 temp_r3;
     if ((u32) (*(u32 *)&TQuestListOnline__data_805D61E4) != 0U) {
-        temp_r3 = TLobby__sub_800F7DAC(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));
+        temp_r3 = prs_decompress_buffer(arg0, (s32) (*(u32 *)&TQuestListOnline__data_805D61E4));
         lbl_805D61F0 = temp_r3;
         lbl_805D61E8 = (*(u32 *)&TQuestListOnline__data_805D61E4);
         (*(u32 *)&TQuestListOnline__data_805D61E4) += temp_r3;

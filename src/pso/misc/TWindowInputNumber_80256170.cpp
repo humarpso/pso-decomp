@@ -37,9 +37,9 @@ typedef struct InNum_802561E8 {
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void draw_right_aligned_number(void *);
-void TWindowInputNumber__sub_802562F0(u8 *arg0);
+void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 u8 * TWindowDD__sub_802466E0(void *, s32, s16, s32);
-void TWindowInputNumber__sub_802562F0(u8 *arg0);
+void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 void calc_digit_count__18TWindowInputNumberFv(void *);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
 extern M2C_UNK __vt__18TWindowInputNumber[];
@@ -66,9 +66,9 @@ void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 s32 is_locked__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 void render__18TWindowInputNumberFv(u8 *arg0);
 M2C_UNK draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 u32 TWindowSubStatusDisp__sub_802880BC(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
@@ -135,7 +135,7 @@ void align_digits__18TWindowInputNumberFv(InNum_802561E8 *self) {
 }
 #pragma pop
 
-void TWindowInputNumber__sub_802562F0(u8 *arg0) {
+void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0) {
   s32 var_r30;
   u8 *temp_r3;
   s32 var_r29;
@@ -156,9 +156,9 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_80244C0C((void *) (arg0), (void *) (arg0 + 0x74));
+    temp_r3 = setup_window_draw_context((void *) (arg0), (void *) (arg0 + 0x74));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r31 = is_confirmed__18TWindowInputNumberFPv((void *) (arg0));
     draw_arrows__18TWindowInputNumberFv((void *) (arg0), (int) (temp_r3), (int) (get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) M2C_FIELD(arg0, s8 *, 0x63))), (int) (temp_r31));
     {
@@ -259,7 +259,7 @@ u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) lbl_805DCE2C;
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) lbl_805DCE2C;
     calc_digit_count__18TWindowInputNumberFv(arg0);
-    TWindowInputNumber__sub_802562F0((u8 *)(arg0));
+    refresh_digit_entries__18TWindowInputNumberFPv((u8 *)(arg0));
     align_digits__18TWindowInputNumberFv((InNum_802561E8 *)(arg0));
     return arg0;
 }

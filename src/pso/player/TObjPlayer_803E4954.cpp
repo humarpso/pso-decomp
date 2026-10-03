@@ -31,7 +31,7 @@ M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
 void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TObjPlayer__sub_803D749C(void *);
+M2C_UNK bind_motion_blend_channels(void *);
 M2C_UNK TBoss8Dragon__sub_803D78A8(int);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
@@ -45,7 +45,7 @@ s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
 s32 draw_object_tree_recursive(void *arg);
-s32 TObjPlayer__sub_803D7CA4(int);
+s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
@@ -75,7 +75,7 @@ void set_global_state__10TObjPlayerFi(s32 arg0) {
 extern s32 lbl_805D7808;
 
 void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_803D749C((void *) (arg1));
+    bind_motion_blend_channels((void *) (arg1));
     if ((s32) lbl_805D7808 != 0) {
         TBoss8Dragon__sub_803D78A8((int) (1));
         M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
@@ -147,7 +147,7 @@ void traverse_animated_node_tree(void *arg) {
     u32 t;
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4((int) arg0);
+        compose_motion_node_matrix((int) arg0);
         if (lbl_805D7810 != NULL) {
             lbl_805D7810(arg0);
         }

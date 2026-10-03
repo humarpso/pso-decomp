@@ -43,7 +43,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK TObjPlayer__sub_803E4684(s32);
+M2C_UNK draw_chunk_model(s32);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK draw_model_motion(void *, void *, f32);
 void fn_80169E30(u8 *arg0);
@@ -171,7 +171,7 @@ void fn_80169E30(u8 *arg0) {
                 draw_chunk_object(M2C_FIELD(arg0, void **, 0x34));
             }
         } else {
-            TObjPlayer__sub_803E4684(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
+            draw_chunk_model(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
         }
         pop_matrix();
     }

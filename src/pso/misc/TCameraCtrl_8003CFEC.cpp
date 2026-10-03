@@ -72,7 +72,7 @@ void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
 s32 TBoss3Volopt__sub_8003DC34(void *);
 s32 set_player_view_flag__11TCameraCtrlFi();
 s32 set_flag_08000000__11TCameraCtrlFi();
-s32 TCameraCtrl__sub_80069C94(void *, void *);
+s32 set_active_camera_pose(void *, void *);
 s32 restore_player_cameras();
 s32 TCameraCtrl__sub_80069E7C(int);
 s32 set_scripted_camera_pose(int, int, void *);
@@ -217,7 +217,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
     case 0:
         TBoss3Volopt__sub_8003DC34((void *) (arg0));
         TCameraCtrl__sub_80069E7C((int) (9));
-        TCameraCtrl__sub_80069C94((void *) (&lbl_8048377C.value), (void *) ((u8 *)&lbl_8048377C.value + 0xC));
+        set_active_camera_pose((void *) (&lbl_8048377C.value), (void *) ((u8 *)&lbl_8048377C.value + 0xC));
         TObjPlayer__sub_801BA494();
         init_all_slots__11TWindowCtrlFv();
         if (((u32)find_entity_by_id((u16)((void *) (lbl_805D2718)))) != 0U) {

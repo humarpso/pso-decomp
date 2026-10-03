@@ -108,7 +108,7 @@ void queue_target_destruction__10TObjCameraFPv(void *);
 void fn_8017F4AC(void *);
 void fn_8017F52C();
 Obj_8017F910 *get_player_by_client_id(s32);
-f32 TCameraCtrl__sub_803D8D00(Vec_8017F910 *);
+f32 vec_squared_length(Vec_8017F910 *);
 extern s32 lbl_805D53A0;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB68;
@@ -200,7 +200,7 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
         d.x = pl->pos.x - self->pos.x;
         d.z = pl->pos.z - self->pos.z;
         d.y = TObjCamera__data_805DBB58;
-        if (TCameraCtrl__sub_803D8D00(&d) <= lbl_805DBB6C) {
+        if (vec_squared_length(&d) <= lbl_805DBB6C) {
             for (i = 0; i < 8; i++) {
                 if (self->lights[i] != NULL) {
                     allow_rendering__7TObjectFv(self->lights[i]);

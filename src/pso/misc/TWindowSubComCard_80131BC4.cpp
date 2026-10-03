@@ -9,7 +9,7 @@ extern "C" {
 int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
-s32 TWindowKeyBoardSoft__sub_8025C974(s32, s32);
+s32 export_keyboard_text(s32, s32);
 s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
 s32 alloc_buffer__11TOBoss4RockFPv();
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
@@ -22,7 +22,7 @@ s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0) {
 
     TWindowKeyBoardSoft__sub_8025CA70(M2C_FIELD(arg0, s32 *, 0x20));
     temp_r3 = alloc_buffer__11TOBoss4RockFPv();
-    TWindowKeyBoardSoft__sub_8025C974(M2C_FIELD(arg0, s32 *, 0x20), temp_r3);
+    export_keyboard_text(M2C_FIELD(arg0, s32 *, 0x20), temp_r3);
     return temp_r3;
 }
 

@@ -21,7 +21,7 @@ extern const f32 lbl_805DCB18;
 extern const f32 lbl_805DCB1C;
 extern const f32 lbl_805DCB20;
 extern const f32 lbl_805DCB24;
-void TWindowSubComCard__sub_802455CC(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
+void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r);
 }
 
 extern "C" {
@@ -33,7 +33,7 @@ extern M2C_UNK lbl_8044E680;
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubComCard__sub_802455CC(u8 *a, Quad_802455CC *q, Rect_802455CC *r) {
+void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r) {
     f32 rem;
     f32 t;
     f32 z;

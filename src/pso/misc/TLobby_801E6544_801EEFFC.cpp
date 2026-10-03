@@ -165,11 +165,11 @@ void qst_op_set_qt_success(u16 arg0);
 void qst_op_set_qt_failure(u16 arg0);
 int THunterGuildSeqOffline__sub_801F3748(void*);
 void qst_op_set_qt_failure(u16 arg0);
-s32 TQuestThread__sub_801F5D34(int);
+s32 clear_floor_handler(int);
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
-s32 TQuestThread__sub_801F5D34(int);
+s32 clear_floor_handler(int);
 void qst_op_clr_floor_handler(void);
-M2C_UNK TQuestThread__sub_801F5D60(int, int);
+M2C_UNK set_floor_handler(int, int);
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
 void qst_op_set_floor_handler(void);
 s32 clear_active_bit__16TObjCityMainWarpFv(int);
@@ -214,8 +214,8 @@ void qst_op_p_return_guild(void);
 int set_quest_cancel_callback(void*);
 int set_quest_success_callback(void*);
 int THunterGuildSeqOffline__sub_801F3748(void*);
-int TObjCityMainWarp__sub_80186634(void*);
-M2C_UNK TObjPlayer__sub_801B30BC(u32, M2C_UNK);
+int clear_enabled_main_warps(void*);
+M2C_UNK prepare_guild_return__10TObjPlayerFPv(u32, M2C_UNK);
 u32 get_player_by_client_id(s32);
 
 int qst_op_clr_qt_cancel(void) { return set_quest_cancel_callback((void*)(-1)); }
@@ -246,7 +246,7 @@ void qst_op_set_qt_failure(u16 arg0) {
 typedef char RecoveredGlobal_80141860_lbl_8050C000_size[sizeof(RecoveredGlobal_80141860_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141730_lbl_8050C028_size[sizeof(RecoveredGlobal_80141730_lbl_8050C028) == 0x18 ? 1 : -1];
 void qst_op_clr_floor_handler(void) {
-    TQuestThread__sub_801F5D34((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0x0)));
+    clear_floor_handler((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0x0)));
 }
 typedef char RecoveredGlobal_80141788_lbl_8050C000_size[sizeof(RecoveredGlobal_80141788_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141788_lbl_8050C028_size[sizeof(RecoveredGlobal_80141788_lbl_8050C028) == 0x18 ? 1 : -1];
@@ -257,10 +257,10 @@ typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801EF100_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EF100_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void qst_op_set_floor_handler(void) {
-    TQuestThread__sub_801F5D60((int) (M2C_FIELD(&(*(RecoveredGlobal_801EF100_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) ((u16) M2C_FIELD(&(*(RecoveredGlobal_801EF100_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
+    set_floor_handler((int) (M2C_FIELD(&(*(RecoveredGlobal_801EF100_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0)), (int) ((u16) M2C_FIELD(&(*(RecoveredGlobal_801EF100_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4)));
 }
 
-int TLobby__sub_801EF24C(void* p) { return TObjCityMainWarp__sub_80186634(p); }
+int TLobby__sub_801EF24C(void* p) { return clear_enabled_main_warps(p); }
 
 extern s32 lbl_805D53A0;
 
@@ -345,7 +345,7 @@ void qst_op_p_talk_guild(void) {
 void qst_op_p_return_guild(void) {
     u32 player = get_player_by_client_id(lbl_805D53A0);
     if (player != 0U) {
-        TObjPlayer__sub_801B30BC(player, 0);
+        prepare_guild_return__10TObjPlayerFPv(player, 0);
     }
 }
 

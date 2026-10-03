@@ -320,7 +320,7 @@ void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0);
 void init_models__20TBoss3VoloptHiraisinFv(void);
 void update_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 s32 get_bml_model(s32, M2C_UNK);
 int VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -377,7 +377,7 @@ extern M2C_UNK __vt__20TBoss3VoloptHiraisin[];
 void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TBoss3VoloptHiraisin;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

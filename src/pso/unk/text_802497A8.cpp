@@ -6,7 +6,7 @@ struct Set_802497A8 { void *t0; Txt_802497A8 *t4; void *t8; void *tC; void *t10;
 struct Win_802497A8 { u8 pad[4]; Set_802497A8 *set; };
 
 extern "C" {
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 s32 get_card_id__17TWindowSubComCardFPv(void *);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
@@ -19,7 +19,7 @@ s32 get_kbd_ptr__14TWindowComCardFPv(void *);
 s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
 s32 get_class_name_text(int);
-void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
+void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern s32 lbl_804CE8E4[];
 extern const f32 lbl_805DCBCC;
@@ -45,7 +45,7 @@ void fn_802497A8(Win_802497A8 *arg0, void *arg1) {
     t10 = s->t10;
     t4 = s->t4;
     t14 = s->t14;
-    TWindowSubStatusDisp__sub_8025AC50(t0, (void *)get_com_card_list__6TLobbyFPv(arg1), 0x220);
+    set_text_entry_string(t0, (void *)get_com_card_list__6TLobbyFPv(arg1), 0x220);
     n = TWindowComCard__sub_80249C20(arg1);
     if (n > 5) {
         n = 5;
@@ -68,7 +68,7 @@ void fn_802497A8(Win_802497A8 *arg0, void *arg1) {
         } else {
             text_builder_reset();
             TWindowSubStatusDisp__sub_80228F5C(id);
-            TWindowSubStatusDisp__sub_8025AC50(t4, (void *)TLobby__sub_8001DC24(), 0x20);
+            set_text_entry_string(t4, (void *)get_shared_text_buffer(), 0x20);
             refresh_status_display__9TWindowDDFv(t4);
             t4->x = lbl_805DCBCC - t4->w;
             t4->flags &= ~2;
@@ -76,7 +76,7 @@ void fn_802497A8(Win_802497A8 *arg0, void *arg1) {
     } else {
         t4->flags |= 2;
     }
-    TWindowSubStatusDisp__sub_8025AC50(t14, (void *)get_kbd_ptr__14TWindowComCardFPv(arg1), 0x220);
+    set_text_entry_string(t14, (void *)get_kbd_ptr__14TWindowComCardFPv(arg1), 0x220);
 }
 
 }

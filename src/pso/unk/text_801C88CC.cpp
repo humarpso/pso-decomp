@@ -4,14 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_8011E204(int, int);
-s32 TObjPlayer__sub_801AFF0C();
+s32 is_on_current_floor__10TObjPlayerFi();
 extern const f32 TObjPlayer__data_805DC368;
 extern const f32 TObjPlayer__data_805DC36C;
 void TObjPlayer__sub_801C8998(u8 *arg0);
 M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK TObjPlayer__sub_8011E204(int, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
-s32 TObjPlayer__sub_801AFF0C();
+s32 is_on_current_floor__10TObjPlayerFi();
 M2C_UNK set_flag_400000__10TObjPlayerFi(void *);
 M2C_UNK enter_battle_state__10TObjPlayerFPv(void *);
 M2C_UNK update_active_state__10TObjPlayerFPv(void *);
@@ -29,7 +29,7 @@ void TObjPlayer__sub_801C88CC(u8 *arg0) {
   f32 var_f31;
   s16 temp_r0;
   s16 *new_var;
-  if (TObjPlayer__sub_801AFF0C() != 0)
+  if (is_on_current_floor__10TObjPlayerFi() != 0)
   {
     TObjPlayer__sub_8011E204((int)((void *) arg0), (int)((int) 4));
     update_active_state__10TObjPlayerFPv((void *) arg0);
@@ -66,7 +66,7 @@ void TObjPlayer__sub_801C8998(u8 *arg0) {
   u8 *var_r31;
   u8 *var_r3;
   var_r31 = (u8 *) arg0;
-  if (((s32) TObjPlayer__sub_801AFF0C()) != 0)
+  if (((s32) is_on_current_floor__10TObjPlayerFi()) != 0)
   {
     var_r3 = (u8 *) var_r31;
     var_r4 = 4;

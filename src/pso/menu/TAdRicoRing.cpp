@@ -36,7 +36,7 @@ extern "C" {
 void render__11TAdRicoRingFv(void* p);
 void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0);
 void update_position__11TAdRicoRingFPv(void *arg0);
-int TBoss7Tentacle__sub_803D8A6C(void*, void*, void*, void*);
+int rotate_matrix_zyx(void*, void*, void*, void*);
 int post_translate_matrix(void*);
 int draw_chunk_object(void*);
 int push_matrix(void*);
@@ -45,7 +45,7 @@ int func_803e11e8__FUl(void*);
 int func_803e11f0__Fv(void);
 int set_global_param__8TObjFishFi(void*);
 
-void render__11TAdRicoRingFv(void* p) { push_matrix(p); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x50)); post_translate_matrix((char*)p + 0x58); TBoss7Tentacle__sub_803D8A6C((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); draw_chunk_object(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); draw_chunk_object(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
+void render__11TAdRicoRingFv(void* p) { push_matrix(p); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x50)); post_translate_matrix((char*)p + 0x58); rotate_matrix_zyx((void*)0, *(void**)((char*)p + 0x64), *(void**)((char*)p + 0x68), *(void**)((char*)p + 0x6c)); func_803e11e8__FUl((void*)1); draw_chunk_object(*(void**)((char*)p + 0x4c)); func_803e11e8__FUl((void*)2); draw_chunk_object(*(void**)((char*)p + 0x4c)); func_803e11f0__Fv(); pop_matrix(); }
 
 void set_scale4__15TAdRicoRingCtrlFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;

@@ -35,11 +35,11 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(void *p);
 extern Area_8020DEE4 TLobby__data_80513AD0[];
 extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
-void TLobby__sub_8020DEE4(int unused);
+void depart_floor_population(int unused);
 s32 get_current_floor(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
-void TLobby__sub_8020E08C(void);
+void arrive_floor_population(void);
 extern s32 lbl_805D60F8;
 extern s32 TLobby__data_805D60FC;
 extern u32 TLobby__data_805D611C;
@@ -144,7 +144,7 @@ void TLobby__sub_8020DB08(void) {
     temp_r3 = TLobby__data_805D6134 & ~8;
     TLobby__data_805D6134 = temp_r3;
     TLobby__data_805D6134 &= ~16;
-    TLobby__sub_8020DEE4((int)(temp_r3));
+    depart_floor_population((int)(temp_r3));
 }
 #pragma pop
 
@@ -152,7 +152,7 @@ void TLobby__sub_8020DB44(void) {
     Vec3_8020DB44 v;
     s32 t;
     s32 r;
-    TLobby__sub_8020E08C();
+    arrive_floor_population();
     (*(s32 *)&TLobby__data_805D611C) = 0;
     TLobby__data_805D6134 &= ~8;
     (*(s32 *)&TLobby__data_805D6124) = 0;
@@ -190,7 +190,7 @@ void TLobby__sub_8020DBCC(void) {
     }
 }
 
-void TLobby__sub_8020DEE4(int unused) {
+void depart_floor_population(int unused) {
     Area_8020DEE4 *area = &TLobby__data_80513AD0[get_current_floor()];
     if (TLobby__data_805D610C != 0) {
         SrcA_8020DEE4 *s = TLobby__data_805D610C;

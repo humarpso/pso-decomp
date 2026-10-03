@@ -177,7 +177,7 @@ extern "C" {
 
 void update_item_data__5TItemFPv(void *arg0);
 void TItem__sub_801013E8(void *arg0);
-void TItemData__sub_8010CC68(void *);
+void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 
@@ -185,7 +185,7 @@ void update_item_data__5TItemFPv(void *arg0) {
     M2C_UNK sp8[4];
 
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);
-    TItemData__sub_8010CC68(&sp8);
+    is_custom_name_srank__9TItemDataFPv(&sp8);
 }
 
 void TItem__sub_801013E8(void *arg0) {
@@ -354,7 +354,7 @@ void TItem__sub_80101CF8(void);
 s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemData__sub_8010B848(void *, s8);
 M2C_UNK TItemData__sub_8010C498(void *);
-M2C_UNK TItemData__sub_8010C638(void *, u16);
+M2C_UNK set_packed_value__9TItemDataFPvUs(void *, u16);
 M2C_UNK init__9TItemDataFv(void *);
 
 void TItem__sub_80101CEC(void) {  }
@@ -375,7 +375,7 @@ s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1) {
         M2C_FIELD(item, s32 *, 0xC) = (s32) M2C_FIELD(o, s32 *, 0xD8);
         o->m16(item);
         if (M2C_FIELD(o, s32 *, 0xDC) & 0x100) {
-            TItemData__sub_8010C638(item, M2C_FIELD(o, u16 *, 0xE8));
+            set_packed_value__9TItemDataFPvUs(item, M2C_FIELD(o, u16 *, 0xE8));
         }
         if (M2C_FIELD(o, s32 *, 0xDC) & 0x400) {
             TItemData__sub_8010C498(item);
@@ -401,13 +401,13 @@ void init_owner__5TItemFPvUs(void *arg0, u16 arg1);
 M2C_UNK TItem__sub_80101E7C(void *, u16);
 M2C_UNK get_player_by_client_id(int);
 s32 is_locally_controlled__10TObjPlayerFPv();
-s32 TLobby__sub_8011AF58(u16);
+s32 advance_item_id_counter(u16);
 
 void init_owner__5TItemFPvUs(void *arg0, u16 arg1) {
     get_player_by_client_id(arg1);
     if (is_locally_controlled__10TObjPlayerFPv() != 0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
-            M2C_FIELD(arg0, s32 *, 0xC) = TLobby__sub_8011AF58(arg1);
+            M2C_FIELD(arg0, s32 *, 0xC) = advance_item_id_counter(arg1);
         }
         TItem__sub_80101E7C(arg0, arg1);
     }
@@ -435,12 +435,12 @@ s32 get_current_floor();
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 get_field_d8__10TObjPlayerFPv();
 M2C_UNK TLobby__sub_8011AA44(s32, s32);
-s32 TLobby__sub_8011AF58(s32);
+s32 advance_item_id_counter(s32);
 M2C_UNK set_flag8__6TLobbyFPv(s32);
 
 void assign_id_and_init__5TItemFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == -1) {
-        M2C_FIELD(arg0, s32 *, 0xC) = TLobby__sub_8011AF58(arg1);
+        M2C_FIELD(arg0, s32 *, 0xC) = advance_item_id_counter(arg1);
     }
     TItem__sub_80101FEC(arg0, arg1, arg2);
 }

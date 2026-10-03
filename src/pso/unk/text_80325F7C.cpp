@@ -34,7 +34,7 @@ Ctl_80325F7C *get_player_by_client_id(s32);
 void get_wing_position__26TBoss5GryphonLightningWingFii(void *, void *);
 void copy_position__12TBoss8DragonFii(void *, void *);
 void TObjPlayer__sub_80325D58(void *, void *, void *, void *);
-void TNpcPlayer__sub_803E18C0(void *, void *, void *);
+void project_point_onto_line(void *, void *, void *);
 extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF638;
 void fn_80325F7C(void *arg0);
@@ -81,7 +81,7 @@ void fn_80325F7C(void *arg0) {
                 ray.d.x = wing.x - pos.x;
                 ray.d.y = lbl_805DF630;
                 ray.d.z = wing.z - pos.z;
-                TNpcPlayer__sub_803E18C0(&c->pos, &ray, &hit);
+                project_point_onto_line(&c->pos, &ray, &hit);
                 dir.x = ray.d.x;
                 dir.y = ray.d.y;
                 dir.z = ray.d.z;

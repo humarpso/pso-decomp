@@ -153,10 +153,10 @@ M2C_UNK TBoss7Crawfish__sub_80308BEC(void *);
 M2C_UNK TBoss7Crawfish__sub_80308D1C(void *);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
-M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 int update_window_entry_list(void*, void*);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
@@ -204,7 +204,7 @@ void run_task__14TBoss7CrawfishFv(u8 *arg0) {
     if (!(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x02000000)) {
         submit_cursor_candidate((void *) (arg0), (int) (-1));
     }
-    TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DF0FC));
+    add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DF0FC));
     advance_animation_playback((void *) (arg0));
 }
 
@@ -213,7 +213,7 @@ extern M2C_UNK __vt__14TBoss7Crawfish[];
 void *__dt__14TBoss7CrawfishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss7Crawfish;
-        TObjPlayer__sub_80154A00(arg0);
+        unregister_object_by_id(arg0);
         clear_obj_links(arg0);
         free_child__14TBoss7CrawfishFPv(arg0);
         __dt__9TObjEnemyFv(arg0, 0);

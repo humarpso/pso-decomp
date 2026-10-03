@@ -47,8 +47,8 @@ extern "C" {
 void* get_entry_ptr__20TWindowSubStatusDispFi(int a0);
 void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2);
-s32 TItemData__sub_8010C52C(void *);
-s32 TLobby__sub_8001DC24();
+s32 is_wrapped__9TItemDataFPv(void *);
+s32 get_shared_text_buffer();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK text_builder_reset();
 M2C_UNK select_item_icon__20TWindowSubStatusDispFPviUcUci(void *, s32, u8, u8, s32);
@@ -66,13 +66,13 @@ void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 a
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
     M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
     temp_r31 = get_item_data__6TLobbyFUi(arg1);
-    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r31, M2C_FIELD(arg1, u8 *, 0), M2C_FIELD(arg1, u8 *, 1), TItemData__sub_8010C52C(arg1));
-    forward_message__6TLobbyFiUi(TLobby__sub_8001DC24(), arg1);
-    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
+    select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r31, M2C_FIELD(arg1, u8 *, 0), M2C_FIELD(arg1, u8 *, 1), is_wrapped__9TItemDataFPv(arg1));
+    forward_message__6TLobbyFiUi(get_shared_text_buffer(), arg1);
+    M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, get_shared_text_buffer(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(M2C_FIELD(arg1, s32 *, 0x10));
-        M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
+        M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, get_shared_text_buffer(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
     }
     update_item_colors__20TWindowSubStatusDispFPvi(arg0, arg1);
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;

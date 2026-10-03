@@ -67,7 +67,7 @@ extern s32 lbl_805D6270;
 void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 lbl_80513F50;
-void TLobby__sub_8022559C(void);
+void clear_shop_weapon_flags(void);
 int is_flag_set__6TLobbyFPv(void* p);
 extern unsigned char lbl_80513F70[];
 s32 TLobby__sub_802259A0(void);
@@ -77,7 +77,7 @@ extern unsigned char lbl_80513F70[];
 void TLobby__sub_802258C8(void);
 s32 TLobby__sub_80225B90(O_80225B90 *o);
 extern G_80225550 lbl_80513F60;
-void TLobby__sub_80225550(C14_80225550 *dst, s32 idx, s32 tbl);
+void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl);
 extern G_80225550 lbl_80513F60;
 void TLobby__sub_802255CC(s32 a, s32 b);
 int get_short_mail_ctrl__6TLobbyFv(void);
@@ -117,10 +117,10 @@ void TLobby__sub_80225828(s32 arg0, void *arg1);
 s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C lbl_80513F40[];
 extern G_80225550 lbl_80513F60;
-s32 TLobby__sub_80224B7C(C14_80224B7C *item, s32 tbl);
+s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
 s8 TLobby__sub_8010540C(s32);
 s32 pop_byte__6TLobbyFPv(void *);
-void TLobby__sub_8020EEFC(void *, s32);
+void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
 s32 TLobby__sub_80224840(s32 arg0);
@@ -147,7 +147,7 @@ extern s32 lbl_805D6238;
 extern u32 lbl_805D6268;
 extern int lbl_805D626C;
 extern const f32 lbl_805DC738;
-void TLobby__sub_80225064(Item_80225064 *it);
+void roll_shop_weapon_grind(Item_80225064 *it);
 }
 
 extern "C" {
@@ -415,7 +415,7 @@ s32 level_to_reward__6TLobbyFi(s32 arg0) {
 #pragma push
 #pragma optimization_level 1
 struct G_80225550;
-s32 TLobby__sub_80224B7C(C14_80224B7C *item, s32 tbl) {
+s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl) {
     s32 n;
     C14_80224B7C *p;
     s32 i;
@@ -457,7 +457,7 @@ void TLobby__sub_80224F7C(Obj_80224F7C *obj) {
         }
         idx++;
     }
-    TLobby__sub_8020EEFC(buf, 3);
+    shuffle_shop_pool_n_times(buf, 3);
     switch (pop_byte__6TLobbyFPv(buf)) {
     case 1:
         obj->v = TLobby__sub_8010540C(0);
@@ -475,7 +475,7 @@ void TLobby__sub_80224F7C(Obj_80224F7C *obj) {
 
 #pragma push
 #pragma optimization_level 1
-void TLobby__sub_80225064(Item_80225064 *it) {
+void roll_shop_weapon_grind(Item_80225064 *it) {
     Range_80225064 *lo;
     Range_80225064 *hi;
     s32 b;
@@ -511,13 +511,13 @@ typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8
 
 #pragma push
 #pragma optimization_level 1
-void TLobby__sub_80225550(C14_80225550 *dst, s32 idx, s32 tbl) {
+void get_shop_weapon_stock_item(C14_80225550 *dst, s32 idx, s32 tbl) {
     C14_80225550 *arr = ((C14_80225550 **)&lbl_80513F60)[tbl];
     *dst = arr[idx];
 }
 #pragma pop
 
-void TLobby__sub_8022559C(void) {
+void clear_shop_weapon_flags(void) {
     memset((void *) (&lbl_80513F50.value), (int) (0), (int) (0x10));
 }
 

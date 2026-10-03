@@ -6,18 +6,18 @@ struct Vec_8008C5E8 { s32 x, y, z; };
 extern "C" {
 void TKeyBoardControl__sub_8000F90C(int);
 void TKeyBoardControl__sub_8000F91C(int);
-void TCameraCtrl__sub_80069C94(void *, void *);
-void TCameraCtrl__sub_8006A5EC(s8 arg0);
+void set_active_camera_pose(void *, void *);
+void select_active_controller__11TCameraCtrlFc(s8 arg0);
 void TCameraCtrl__ct(void *, void *);
 void __ct__7TEndingFv(void *);
 void clear_resource_load_tasks(void);
 void TLobby__sub_800FD6F8(void *, int);
 void init_map_lights(void *);
-void TKeyBoardControl__sub_801A66B8(void);
+void reset_controller_input_state(void);
 void set_copy_clear_color_argb(int, int, int);
 int render_tick__Fv(void);
 void create_quad_sprites__13TParticleCtrlFv(void);
-void TObjBgmColCtrl__sub_802274B8(void *);
+void play_area_music(void *);
 void *__nw__7TObjectFUl(int);
 void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1);
 extern Vec_8008C5E8 lbl_80439570;
@@ -43,7 +43,7 @@ int TEnding__sub_8008C5E8() {
     void *p;
     TCameraCtrl__sub_803D6688(lbl_805D9570, lbl_805D9574);
     set_copy_clear_color_argb(0, 0, 0);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     init_map_lights(lbl_804A6F34);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
@@ -51,13 +51,13 @@ int TEnding__sub_8008C5E8() {
     }
     Vec_8008C5E8 a = lbl_80439570;
     Vec_8008C5E8 b = lbl_8043957C;
-    TCameraCtrl__sub_8006A5EC(9);
-    TCameraCtrl__sub_80069C94(&a, &b);
+    select_active_controller__11TCameraCtrlFc(9);
+    set_active_camera_pose(&a, &b);
     clear_resource_load_tasks();
     TLobby__sub_800FD6F8(lbl_8048E7C0, 0x68);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
-    TObjBgmColCtrl__sub_802274B8(lbl_80439588);
+    play_area_music(lbl_80439588);
     create_quad_sprites__13TParticleCtrlFv();
     p = __nw__7TObjectFUl(0x710);
     if (p != 0) {

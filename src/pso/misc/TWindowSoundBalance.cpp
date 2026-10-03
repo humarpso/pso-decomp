@@ -57,7 +57,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(void *);
 u8 *get_player_by_client_id();
 M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK draw_right_aligned_number(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80259EB8(void *, s32);
+M2C_UNK set_status_entry_target(void *, s32);
 s32 fn_8026F8CC(void *);
 extern const f32 lbl_805DD430;
 void TWindowSubStatusDisp__sub_80270F14(u8 *arg0);
@@ -70,7 +70,7 @@ void play_open_sound__19TWindowSoundBalanceFPv(void *arg0);
 void render__19TWindowSoundBalanceFv(s32 arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK draw_window_frame(s32, void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, void *);
+M2C_UNK draw_visible_window_entries(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 M2C_UNK apply_balance__19TWindowSoundBalanceFPvPv(s32, void *, f32, f32);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -112,7 +112,7 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
 
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame(arg0, temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     temp_f2 = M2C_FIELD(temp_r3, f32 *, 0x10);
     M2C_FIELD(temp_r3, f32 *, 0x10) = (f32) (temp_f2 + lbl_805DD40C);
     temp_f1 = M2C_FIELD(temp_r3, f32 *, 0x18);
@@ -226,7 +226,7 @@ void TWindowSubStatusDisp__sub_80270F14(u8 *arg0) {
         M2C_FIELD(d, f32 *, 8) = M2C_FIELD(a, f32 *, 8);
         update_status_entry__20TWindowSubStatusDispFi(arg0);
         e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE);
-        TWindowSubStatusDisp__sub_80259EB8(e, get_sub_value__8TItemMagFi(pl));
+        set_status_entry_target(e, get_sub_value__8TItemMagFi(pl));
     }
 }
 

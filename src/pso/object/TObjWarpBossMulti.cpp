@@ -107,7 +107,7 @@ void update_warp_boss_visibility(void *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-void TObjPlayer__sub_80154A00(void *);
+void unregister_object_by_id(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -219,7 +219,7 @@ extern M2C_UNK __vt__17TObjWarpBossMulti[];
 void *__dt__17TObjWarpBossMultiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjWarpBossMulti;
-        TObjPlayer__sub_80154A00(arg0);
+        unregister_object_by_id(arg0);
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

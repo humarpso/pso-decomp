@@ -78,8 +78,8 @@ void free_static_model__17TOHangerMachine01Fv(void);
 s32 is_valid_slot__17TOHangerMachine01FiUs(int arg0, u16 arg1);
 void TLobby__sub_8001FE7C(void*, int);
 void TOHangceilingCave01KeyQuick__sub_80168D30(void);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
@@ -179,8 +179,8 @@ void TOHangerMachine01__sub_80168F94(void) {
 void *__dt__17TOHangerMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOHangerMachine01;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

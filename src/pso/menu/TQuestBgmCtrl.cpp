@@ -7,15 +7,15 @@ extern s32 TQuestBgmCtrl__data_805D5E68;
 extern s32 TQuestBgmCtrl__data_805D5E6C;
 
 extern "C" {
-s32 TQuestThread__sub_801F5EAC(void *, int);
-s32 TObjBgmColCtrl__sub_802274B8(int);
+s32 get_register__12TQuestThreadFPvi(void *, int);
+s32 play_area_music(int);
 extern s32 lbl_804C6970[];
 extern s32 lbl_805D5EE8;
 }
 
 void TQuestBgmCtrl::run_task() {
-    if (((s32) TQuestBgmCtrl__data_805D5E60 == 0) && ((TQuestThread__sub_801F5EAC((void *) (lbl_805D5EE8), (int) (0xFF)) != 0) || ((s32) TQuestBgmCtrl__data_805D5E64 != 0)) && ((s32) TQuestBgmCtrl__data_805D5E68 > 0) && ((s32) TQuestBgmCtrl__data_805D5E68 <= 0x11)) {
-        TObjBgmColCtrl__sub_802274B8(lbl_804C6970[TQuestBgmCtrl__data_805D5E68 - 1]);
+    if (((s32) TQuestBgmCtrl__data_805D5E60 == 0) && ((get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFF)) != 0) || ((s32) TQuestBgmCtrl__data_805D5E64 != 0)) && ((s32) TQuestBgmCtrl__data_805D5E68 > 0) && ((s32) TQuestBgmCtrl__data_805D5E68 <= 0x11)) {
+        play_area_music(lbl_804C6970[TQuestBgmCtrl__data_805D5E68 - 1]);
         TQuestBgmCtrl__data_805D5E60 = 1;
     }
 }

@@ -222,14 +222,14 @@ f32 post_translate_matrix(void *);
 extern void *lbl_805D4F4C;
 extern void *lbl_805D4F50;
 extern const f32 lbl_805D96E4;
-void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self);
+void update_claw_trail__12TObjEneBeastFPv(Obj_80091EA4 *self);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_80092028(u8 *arg0);
+void update_appearance__12TObjEneBeastFPv(u8 *arg0);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -238,7 +238,7 @@ s32 check_v2_mode__9TObjEneDDFv();
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK update_obstruction_fade(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -281,7 +281,7 @@ void spawn_claw_effect__18TObjEneBalClawClawFi(s32 arg0);
 void update_attack_distance_state__18TObjEneBalClawClawFPv(u8 *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 void *TObjControl__ct(void *, void *);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__14TObjEneBalClawFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -459,7 +459,7 @@ extern M2C_UNK lbl_8048F148[];
 void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048F148;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__14TObjEneBalClawFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -556,7 +556,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         }
     }
     pop_matrix();
-    TObjLight__sub_80134098();
+    restore_scene_lighting();
     if (o->f326 >= 10 || o->f326 < 8) {
         Vec_8009211C v;
         v.x = lbl_805D96F4;
@@ -599,7 +599,7 @@ void spawn_death_fire__12TObjEneBeastFPv(u8 *arg0) {
     spawn_dead_spot_type2__10TObjPlayerFii((void *) (&stack.sp8), (int) (0xF));
 }
 
-void TObjPlayer__sub_80091EA4(Obj_80091EA4 *self) {
+void update_claw_trail__12TObjEneBeastFPv(Obj_80091EA4 *self) {
     Vec_80091EA4 dir;
     Vec_80091EA4 pos;
     u32 entry;
@@ -659,7 +659,7 @@ void select_subtype__12TObjEneBeastFPv(u8 *arg0) {
         return;
     }
 }
-void TObjPlayer__sub_80092028(u8 *arg0) {
+void update_appearance__12TObjEneBeastFPv(u8 *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {

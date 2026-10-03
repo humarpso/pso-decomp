@@ -141,7 +141,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void update_projectile_lifetime__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -162,7 +162,7 @@ s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void *TObjPlayer__sub_800A05B8(void *, s16);
 void __dt__15TObjEnemyCustomFv(void *, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804907EC[];
 Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1);
@@ -496,7 +496,7 @@ Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
         arg0->vt = lbl_804907EC;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         for (i = 0; i < 4; i++) {
             if (arg0->items[i] != NULL) {
                 queue_destruction__7TObjectFv(arg0->items[i]);
@@ -590,7 +590,7 @@ void update_projectile_lifetime__10TObjPlayerFPv(u8 *arg0) {
 void *TObjPlayer__sub_800A3478(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804909C4;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0xD0) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD0));
         }

@@ -40,7 +40,7 @@ s32 get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowHelpItem__sub_80253268(u8 *arg0);
 void initialize_mag_data__9TItemDataFPv(MagData_80253564 *);
-void TItemData__sub_8010D614(void *, MagData_80253564 *);
+void deserialize_mag__9TItemDataFPvPv(void *, MagData_80253564 *);
 s32 TItemMag__sub_801143E8(MagData_80253564 *, int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void draw_action_palette_icon(void *, int, u16);
@@ -53,19 +53,19 @@ extern V3_802531A4 lbl_804CF8A4;
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
-s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
+s32 set_text_entry_string(void *, void *, s32);
 void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1);
 extern u8 lbl_804CF5AC[];
 extern V3_802534B0 lbl_804CF88C;
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 u8 calc_display_grade__9TItemDataFPv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK format_description_with_price__15TWindowHelpItemFPv(void *);
 void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
-s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
+s32 set_text_entry_string(void *, void *, s32);
 void TWindowHelpItem__vt2(u8 *arg0);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 void check_equip_requirements(int, void *, void *);
 s16 get_technique_level__9TItemDataFPv(void *);
 void format_item_description(void *);
@@ -77,8 +77,8 @@ void set_flag0_bit2__15TWindowHelpItemFPv(void *);
 void get_help_text_string(u8);
 void TWindowSubStatusDisp__sub_80257D44(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
-s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
-void TWindowHelpItem__sub_8025B08C(void *, f32, f32);
+s32 set_text_entry_string(void *, void *, s32);
+void set_sprite_uv_from_pixels(void *, f32, f32);
 extern u8 lbl_804CF5DC[];
 extern V3_802532E8 lbl_804CF898;
 extern s32 lbl_805D5544;
@@ -92,7 +92,7 @@ extern "C" {
 
 void TWindowHelpItem__sub_802531A0(void);
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 
 void TWindowHelpItem__sub_802531A0(void) {  }
 
@@ -101,13 +101,13 @@ void TWindowHelpItem__sub_802531A4(u8 *arg0, void *arg1) {
     TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF6BC, *(s16 *)(arg0 + 0x20));
     *(V3_802531A4 *)(arg0 + 0xB0) = lbl_804CF8A4;
     e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
-    TWindowSubStatusDisp__sub_8025AC50(e, arg1, 0x20);
+    set_text_entry_string(e, arg1, 0x20);
     reset_float_field__15TWindowHelpItemFPv(e);
 }
 
 void update_displayed_item__15TWindowHelpItemFi(s32 arg0) {
     format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));
-    TWindowHelpItem__sub_802531A4((u8 *)(arg0), (void *)(TLobby__sub_8001DC24()));
+    TWindowHelpItem__sub_802531A4((u8 *)(arg0), (void *)(get_shared_text_buffer()));
 }
 void TWindowHelpItem__sub_80253268(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80253268, sp8) == 0x0) ? 1 : -1];
@@ -151,7 +151,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
             get_help_text_string(*(*(u8 **)(arg0 + 0x68) + 4));
             text_builder_append();
         }
-        TWindowSubStatusDisp__sub_8025AC50(e0, (void *)TLobby__sub_8001DC24(), 0x20);
+        set_text_entry_string(e0, (void *)get_shared_text_buffer(), 0x20);
         reset_float_field__15TWindowHelpItemFPv(e0);
         e1 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
         e2 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
@@ -161,7 +161,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
         e6 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
         check_equip_requirements(temp_r3, *(void **)(arg0 + 0x68), &sp8);
         if (sp8 & 1) {
-            TWindowHelpItem__sub_8025B08C(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDE8);
+            set_sprite_uv_from_pixels(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDE8);
             set_flag0_bit2__15TWindowHelpItemFPv(e2);
             set_flag0_bit2__15TWindowHelpItemFPv(e3);
             set_flag0_bit2__15TWindowHelpItemFPv(e4);
@@ -169,7 +169,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
             set_flag0_bit2__15TWindowHelpItemFPv(e6);
             return;
         }
-        TWindowHelpItem__sub_8025B08C(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDEC);
+        set_sprite_uv_from_pixels(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDEC);
         reset_float_field__15TWindowHelpItemFPv(e2);
         reset_float_field__15TWindowHelpItemFPv(e4);
         reset_float_field__15TWindowHelpItemFPv(e6);
@@ -184,7 +184,7 @@ void TWindowHelpItem__vt2(u8 *arg0) {
     *(V3_802534B0 *)(arg0 + 0xB0) = lbl_804CF88C;
     e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
     format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));
-    TWindowSubStatusDisp__sub_8025AC50((void *)(e), (void *)(TLobby__sub_8001DC24()), (s32)(0x20));
+    set_text_entry_string((void *)(e), (void *)(get_shared_text_buffer()), (s32)(0x20));
     reset_float_field__15TWindowHelpItemFPv(e);
     e2 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(1));
     *(s32 *)(e2 + 0x10) = calc_display_grade__9TItemDataFPv(*(void **)(arg0 + 0x68));
@@ -197,7 +197,7 @@ void TWindowHelpItem__vt11(u8 *window) {
     initialize_mag_data__9TItemDataFPv(&mag);
     TWindowSubStatusDisp__sub_80257D44(window + 0x24, lbl_804CF4E4, M2C_FIELD(window, s16 *, 0x20));
     *(Callback_80253564 *) (window + 0xB0) = lbl_804CF880;
-    TItemData__sub_8010D614(M2C_FIELD(window, void **, 0x68), &mag);
+    deserialize_mag__9TItemDataFPvPv(M2C_FIELD(window, void **, 0x68), &mag);
     for (slot = 0; slot < 3; slot++) {
         blast = TItemMag__sub_801143E8(&mag, slot);
         if (blast != -1) {

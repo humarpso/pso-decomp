@@ -150,7 +150,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK TObjPlayer__sub_800A05B8(void *, int);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
 M2C_UNK __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __destroy_arr(void *, void *, int, int);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
@@ -187,7 +187,7 @@ void TObjEneMorfos__vt61(void* p);
 s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2);
 void *create__13TObjEneMorfosFPv(void *arg0);
 void unload_static_data__13TObjEneMorfosFv(void);
-s32 TBoss4Type2__sub_80141FA8(s32);
+s32 angle_diff_s16(s32);
 void TLobby__sub_8001FE7C(void*, int);
 int transition_enemy_state(void*, void*);
 M2C_UNK TObjEneMorfosArm__sub_8033542C();
@@ -205,7 +205,7 @@ s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
 
     var_r31 = 0;
-    temp_r3 = TBoss4Type2__sub_80141FA8(M2C_FIELD(arg0, s32 *, 0x60));
+    temp_r3 = angle_diff_s16(M2C_FIELD(arg0, s32 *, 0x60));
     if (temp_r3 > arg2) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + arg2);
     } else if (temp_r3 < (s32) -arg2) {
@@ -326,7 +326,7 @@ u8 *__dt__13TObjEneMorfosFv(u8 *arg0, s16 arg1) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x494));
             M2C_FIELD(arg0, u32 *, 0x494) = 0U;
         }
-        TObjEneGibbles__sub_80156720((void *) (arg0));
+        free_collision_body_parts((void *) (arg0));
         __destroy_arr((void *) (arg0 + 0x424), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
         __dt__18TObjEneMe3SinowZoaFPvs((void *) (arg0 + 0x408), (int) (-1));
         TObjPlayer__sub_800A05B8((void *) (arg0 + 0x3EC), (int) (-1));

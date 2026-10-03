@@ -56,7 +56,7 @@ extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
-void TLobby__sub_8011AF58(s32 arg0);
+void advance_item_id_counter(s32 arg0);
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 M2C_UNK bswap_6xa2_fields__6TLobbyFPv();
@@ -79,27 +79,27 @@ extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
 void TLobby__sub_8011AFB8(void);
 s32 get_main_phase();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 extern s32 lbl_805D54E4;
-u32 TLobby__sub_8011A780(u16 arg0);
-u32 TLobby__sub_8011A780(u16 arg0);
+u32 build_item_id(u16 arg0);
+u32 build_item_id(u16 arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void apply_table_entry__6TLobbyFs(s16, Source_8011AA68 *);
 void init__9TItemDataFv(void *);
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 isValidGroundDrop__9TItemDataFv(void *);
-void TItemData__sub_8010CCB4(void *p);
+void normalize__9TItemDataFv(void *p);
 void init_header_packet__6TLobbyFPv(void *);
 void send_item_packet__6TLobbyFPv(void *);
 extern Source_8011AA68 *TLobby__data_805D6140;
 void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32 z);
-u32 TLobby__sub_8011A780(u16 arg0);
+u32 build_item_id(u16 arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 void apply_by_index__9TObjEnemyFs(s16, void *);
 void init__9TItemDataFv(void *);
 void drop_item_from_slot__10TObjPlayerFiii(s8 arg0, s32 arg1, s32 arg2);
 s32 isValidGroundDrop__9TItemDataFv(void *);
-void TItemData__sub_8010CCB4(void *p);
+void normalize__9TItemDataFv(void *p);
 void init_header_packet__6TLobbyFPv(void *);
 void send_item_packet__6TLobbyFPv(void *);
 extern Source_8011AB64 *TLobby__data_805D6144;
@@ -126,10 +126,10 @@ void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
 M2C_UNK bswap_packet__6TLobbyFPv();
 
-u32 TLobby__sub_8011A780(u16 arg0) {
+u32 build_item_id(u16 arg0) {
     u32 id;
     if (get_main_phase() == 0xF) {
-        if (TCameraCtrl__sub_8006B368() != 0) {
+        if (is_quest_active() != 0) {
             id = arg0 | 0x06030000;
         } else {
             id = arg0 | 0x06010000;
@@ -183,14 +183,14 @@ void TLobby__sub_8011AA68(s16 source, int client, s16 room, int slot, f32 x, f32
     if (source != -1) {
         Source_8011AA68 row = TLobby__data_805D6140[source];
         if (row.claim != 0xFFFF) {
-            id = TLobby__sub_8011A780(row.claim);
+            id = build_item_id(row.claim);
             row.claim = 0xFFFF;
             apply_table_entry__6TLobbyFs(source, &row);
             init__9TItemDataFv(&item);
             drop_item__10TObjPlayerFii(slot, (s32)&item);
             item.id = id;
             if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
-                TItemData__sub_8010CCB4(&item);
+                normalize__9TItemDataFv(&item);
                 init_header_packet__6TLobbyFPv(&delivery);
                 delivery.client = client;
                 delivery.kind = 2;
@@ -212,14 +212,14 @@ void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int s
         Item_8011AB64 item;
         Source_8011AB64 row = TLobby__data_805D6144[source];
         if (row.claim != 0xFFFF) {
-            id = TLobby__sub_8011A780(row.claim);
+            id = build_item_id(row.claim);
             row.claim = 0xFFFF;
             apply_by_index__9TObjEnemyFs(source, &row);
             init__9TItemDataFv(&item);
             drop_item_from_slot__10TObjPlayerFiii(area, slot, (s32)&item);
             item.id = id;
             if (isValidGroundDrop__9TItemDataFv(&item) != 0) {
-                TItemData__sub_8010CCB4(&item);
+                normalize__9TItemDataFv(&item);
                 init_header_packet__6TLobbyFPv(&delivery);
                 delivery.client = client;
                 delivery.kind = 1;
@@ -316,7 +316,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
 }
 
 void handle_6x62(void) {  }
-void TLobby__sub_8011AF58(s32 arg0) {
+void advance_item_id_counter(s32 arg0) {
     s32 temp_r4;
     s32 temp_r4_2;
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {

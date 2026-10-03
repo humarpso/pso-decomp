@@ -25,7 +25,7 @@ u8 *update_actor_ground_y(u8 *arg0);
 
 extern "C" {
 
-void* TObjPlayer__sub_80018F5C(void* p);
+void* get_actor_body_center(void* p);
 
 u8 *TObjPlayer__sub_80018E6C(u8 *arg0, u8 *arg1) {
     Stack_80018E6C stack;

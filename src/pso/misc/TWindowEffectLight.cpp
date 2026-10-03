@@ -18,21 +18,21 @@ extern const f32 lbl_805DE0E0;
 extern const f32 lbl_805DE0E8;
 extern const f32 lbl_805DE0EC;
 extern const f32 lbl_805DE0F0;
-void TWindowEffectLight__sub_802ACFE0(u8 *arg0);
+void calc_alpha__18TWindowEffectLightFPv(u8 *arg0);
 extern const f32 lbl_805DE0E0;
 extern const f32 TWindowEffectLight__data_805DE0E4;
 extern const f32 lbl_805DE0E8;
-f32 TWindowEffectLight__sub_802ACF9C(u8 *arg0);
+f32 calc_scale__18TWindowEffectLightFPv(u8 *arg0);
 s32 is_split_screen(void);
 u16 TCameraCtrl__sub_80068958(s32);
 void TCameraCtrl__sub_80068EF0(void);
-void TCameraCtrl__sub_80069024(void);
+void restore_full_screen_view__11TCameraCtrlFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 s32 get_camera_no__11TCameraCtrlFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
-s32 TWindowCtrlMain__sub_8024CE44(void);
+s32 is_window_display_enabled(void);
 void TWindowEffectLight__sub_802AD040(void *, f32);
 s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
@@ -51,8 +51,8 @@ extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
 s32 get_camera_id__11TCameraCtrlFv();
-f32 TWindowEffectLight__sub_802ACF9C(u8 *arg0);
-void TWindowEffectLight__sub_802ACFE0(u8 *arg0);
+f32 calc_scale__18TWindowEffectLightFPv(u8 *arg0);
+void calc_alpha__18TWindowEffectLightFPv(u8 *arg0);
 s32 draw_textured_quad_at_depth(void *, f32);
 s32 set_draw_texture_and_color(int, int);
 extern const f32 TWindowEffectLight__data_805DE0E4;
@@ -73,8 +73,8 @@ void draw_outline_quad__18TWindowEffectLightFv(Light_802AD1CC *self, s32 color) 
     f32 s;
     f32 w;
     f32 h;
-    color |= ((s32 (*)(u8 *))TWindowEffectLight__sub_802ACFE0)((u8 *)self);
-    s = TWindowEffectLight__sub_802ACF9C((u8 *)self);
+    color |= ((s32 (*)(u8 *))calc_alpha__18TWindowEffectLightFPv)((u8 *)self);
+    s = calc_scale__18TWindowEffectLightFPv((u8 *)self);
     if (get_camera_id__11TCameraCtrlFv() <= 2 && get_camera_id__11TCameraCtrlFv() == 2) {
         s *= lbl_805DE10C;
     }
@@ -111,14 +111,14 @@ M2C_UNK queue_destruction__7TObjectFv();
 #pragma fp_contract on
 
 #pragma fp_contract on
-f32 TWindowEffectLight__sub_802ACF9C(u8 *arg0) {
+f32 calc_scale__18TWindowEffectLightFPv(u8 *arg0) {
   float new_var2;
   s16 *new_var;
   new_var2 = TWindowEffectLight__data_805DE0E4 * ((f32) (*(new_var = (s16 *) (((s8 *) arg0) + 0x26))));
   return (new_var2 * lbl_805DE0E8) + lbl_805DE0E0;
 }
 
-void TWindowEffectLight__sub_802ACFE0(u8 *arg0) {
+void calc_alpha__18TWindowEffectLightFPv(u8 *arg0) {
   float new_var;
   new_var = lbl_805DE0F0 * ((f32) (*((s16 *) (((s8 *) arg0) + 0x26))));
   __cvt_fp2unsigned(lbl_805DE0EC * ((new_var * lbl_805DE0E8) + lbl_805DE0E0));
@@ -127,10 +127,10 @@ void TWindowEffectLight__sub_802ACFE0(u8 *arg0) {
 void render__18TWindowEffectLightFv(u8 *arg0) {
   s16 temp_r0;
   temp_r0 = 0x28;
-  if ((TWindowCtrlMain__sub_8024CE44() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) TCameraCtrl__sub_80068958(get_camera_no__11TCameraCtrlFv())))))
+  if ((is_window_display_enabled() != 0) && ((is_split_screen() == 0) || (((s32) (*((s32 *) (((s8 *) arg0) + temp_r0)))) == ((s32) TCameraCtrl__sub_80068958(get_camera_no__11TCameraCtrlFv())))))
   {
     begin_effect_render__13TParticleCtrlFv();
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);

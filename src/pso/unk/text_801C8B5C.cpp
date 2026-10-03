@@ -30,7 +30,7 @@ s32 obj_isState2_324();
 u8 *get_player_by_client_id(s32);
 void swap_and_send__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801D1658(void *);
-void TObjPlayer__sub_801C8CCC(u16 id, void *pos, s32 c);
+void send_6x55_intra_map_warp(u16 id, void *pos, s32 c);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324();
 s16 obj_getField1c(void *);
@@ -109,7 +109,7 @@ void TObjPlayer__sub_801C8C50(s32 arg0, s16 arg1) {
     }
   }
 }
-void TObjPlayer__sub_801C8CCC(u16 id, void *pos, s32 c) {
+void send_6x55_intra_map_warp(u16 id, void *pos, s32 c) {
     struct Pkt_801C8CCC pkt;
     u8 *p;
     p = get_player_by_client_id(id);

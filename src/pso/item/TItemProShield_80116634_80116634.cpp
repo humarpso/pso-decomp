@@ -102,7 +102,7 @@ extern "C" {
 void *TItemProShield__sub_801166B0(void *arg0, s16 arg1);
 void *TItemProShield__sub_801167E8(void *arg0, s16 arg1);
 void apply_to_equip_slot__14TItemProShieldFPv(void *arg0);
-M2C_UNK TItemMag__sub_80111188(s32, s32);
+M2C_UNK apply_transform_action__8TItemMagFPvUc(s32, s32);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
 s32 activate_d04_slot__10TObjPlayerFPv(s32);
@@ -149,7 +149,7 @@ void apply_to_equip_slot__14TItemProShieldFPv(void *arg0) {
 
     temp_r3 = activate_d04_slot__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
     if (temp_r3 != 0) {
-        TItemMag__sub_80111188(temp_r3, get_slot_count__14TItemProShieldFPv(arg0));
+        apply_transform_action__8TItemMagFPvUc(temp_r3, get_slot_count__14TItemProShieldFPv(arg0));
     }
 }
 

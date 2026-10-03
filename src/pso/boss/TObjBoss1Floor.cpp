@@ -10,7 +10,7 @@ void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
 void render_boss_effect_object(u8 *arg0);
-M2C_UNK TBoss8Dragon__sub_8002D4C0(void *);
+M2C_UNK update_dragon_trail_uvs(void *);
 M2C_UNK TObjBoss1Floor__ct(void*, s32);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -44,7 +44,7 @@ extern s32 some_id_805c6f74;
 
 void render_boss_effect_object(u8 *arg0) {
     set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
-    TBoss8Dragon__sub_8002D4C0((void *) (arg0 + 0x28));
+    update_dragon_trail_uvs((void *) (arg0 + 0x28));
     push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x28)), (f32) (M2C_FIELD(arg0, f32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x48) != 0) {

@@ -41,14 +41,14 @@ s32 TLobby__sub_803CC53C(u32);
 s32 TLobby__sub_803CCB5C(u32, s32, u32);
 u32 TLobby__sub_803CD16C(s32, s32);
 extern Te_8028BFA4 lbl_804D88B8[];
-void TLobby__sub_8028BFA4(Cl_8028BFA4 *arg0);
+void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 f32 TLobby__sub_8028C50C(f32);
 s32 strcmp(const char *, const char *);
 extern Te_8028BFA4 lbl_804D88B8[];
 extern const f32 lbl_805DD920;
-s32 TLobby__sub_8028BCB0(u8 *arg0);
+s32 find_player_texture_name_ordinal(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 int TLobby__sub_803CC4C0(int);
 int TLobby__sub_803CCE9C(int);
@@ -56,7 +56,7 @@ int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 void set_render_rect__10TObjPlayerFPviiii(void *, s32, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
 s32 TObjPlayer__sub_803DDC50(void *);
-void TLobby__sub_8028BE00(Ld_8028BE00 *arg0);
+void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0);
 }
 
 extern "C" {
@@ -191,7 +191,7 @@ void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 
-s32 TLobby__sub_8028BCB0(u8 *arg0) {
+s32 find_player_texture_name_ordinal(u8 *arg0) {
     char *name;
     s32 count;
     s32 steps;
@@ -233,7 +233,7 @@ s32 TLobby__sub_8028BCB0(u8 *arg0) {
     return 0;
 }
 
-void TLobby__sub_8028BE00(Ld_8028BE00 *arg0) {
+void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
     s32 retry;
     s32 i;
     retry = 0;
@@ -279,11 +279,11 @@ void TLobby__sub_8028BE00(Ld_8028BE00 *arg0) {
     }
 }
 
-void TLobby__sub_8028BFA4(Cl_8028BFA4 *arg0) {
+void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
     s32 n;
     u32 t;
     void *buf;
-    t = TLobby__sub_803CD16C(lbl_804D88B8[arg0->f70].id, TLobby__sub_8028BCB0((u8 *)(arg0)));
+    t = TLobby__sub_803CD16C(lbl_804D88B8[arg0->f70].id, find_player_texture_name_ordinal((u8 *)(arg0)));
     arg0->f60 = t;
     if (t != 0) {
         arg0->f20 = 0;

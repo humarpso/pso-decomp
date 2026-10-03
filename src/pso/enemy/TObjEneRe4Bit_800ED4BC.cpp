@@ -248,7 +248,7 @@ void TObjEneRe4Bit__vt86(void *arg0);
 void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
 void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 M2C_UNK TObjEneRe4Bit__sub_800ED7FC(void *);
 void TObjPlayer__sub_800A05B8(void *, int);
 int VecCopy__FP3VecPC3Vec(void*, void*);
@@ -341,7 +341,7 @@ void run_task__13TObjEneRe4BitFv(u8 *arg0) {
 void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjEneRe4Bit;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         TObjPlayer__sub_800A05B8((s8 *)arg0 + 0x3DC, -1);
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {

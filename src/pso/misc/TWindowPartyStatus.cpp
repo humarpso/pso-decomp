@@ -23,7 +23,7 @@ struct RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus {
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__18TWindowPartyStatusFv(s32 arg0);
 s32 TWindowSubComCard__sub_802452DC(int);
@@ -117,7 +117,7 @@ void render__18TWindowPartyStatusFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_background__18TWindowPartyStatusFPvPv((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__18TWindowPartyStatusFv(s32 arg0) {

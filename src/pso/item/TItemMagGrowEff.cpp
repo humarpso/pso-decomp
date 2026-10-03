@@ -7,7 +7,7 @@ void queue_destruction__7TObjectFv(void *);
 void request_destroy__11TBoss4Type2FUi(void *);
 s32 create_particle_emitter(s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 TItemMagSub__sub_80114DB8(void *, u32);
+s32 get_world_position__11TItemMagSubFPvUi(void *, u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 }
 
@@ -26,7 +26,7 @@ void TItemMagGrowEff::run_task() {
         mag = NULL;
     }
     if ((effect != NULL) && (active_mag = mag, (active_mag != NULL))) {
-        if (TItemMagSub__sub_80114DB8(active_mag, (u32) position) != 0) {
+        if (get_world_position__11TItemMagSubFPvUi(active_mag, (u32) position) != 0) {
             if (progress_ticks == 0xA) {
                 request_destroy__11TBoss4Type2FUi(effect);
                 effect = (u8 *) (create_particle_emitter((s32) position, 0x9E));

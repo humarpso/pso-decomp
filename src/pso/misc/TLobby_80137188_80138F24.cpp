@@ -79,7 +79,7 @@ extern "C" {
 void handle_com_card__6TLobbyFv(void);
 void handle_create_game_window__6TLobbyFv(void);
 void update__6TLobbyFv(void);
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK reset_controller_input_state();
 s32 TLobby__sub_8013AD50(u32);
 s32 TLobby__sub_8013AD5C(u32);
 s8 TLobby__sub_8013AD6C(u32);
@@ -155,7 +155,7 @@ void update__6TLobbyFv(void) {
     } else {
         close_all_windows__6TLobbyFv();
     }
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
 }
 
 extern u32 lbl_805D55E4;

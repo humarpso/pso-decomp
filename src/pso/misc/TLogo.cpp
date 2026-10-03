@@ -15,7 +15,7 @@ struct V3_8013F5E8 { s32 x, y, z; };
 struct V3_8013F6C4 { s32 x, y, z; };
 extern "C" {
 M2C_UNK TKeyBoardControl__sub_8000F90C(int);
-M2C_UNK TCameraCtrl__sub_8006A5EC(int);
+M2C_UNK select_active_controller__11TCameraCtrlFc(int);
 M2C_UNK TCameraCtrl__ct(u32, void *);
 M2C_UNK reset_keyboard_state__6TLobbyFv();
 s32 is_area_transfer_pending();
@@ -23,8 +23,8 @@ M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
 M2C_UNK TLobby__sub_800F8B20();
 M2C_UNK invoke_callback__6TLobbyFv();
 M2C_UNK TLobby__sub_800FD6F8(void *, int);
-M2C_UNK TObjLight__sub_80133A04(void *, int);
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK init_menu_scene_lights(void *, int);
+M2C_UNK reset_controller_input_state();
 M2C_UNK set_copy_clear_color_argb(int, int, int);
 M2C_UNK create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK TWindowCtrlMain__ct(u32);
@@ -57,7 +57,7 @@ u32 TAdTrialModemChkGC__ct(void *, void *);
 void run_task__5TLogoFv(u8 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F92C();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
-M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
+M2C_UNK set_active_camera_pose(void *, void *);
 M2C_UNK TCameraCtrl__sub_80069E7C(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
@@ -221,7 +221,7 @@ void TLogo__sub_8013F5E8(void) {
     V3_8013F5E8 a = lbl_8043F150;
     V3_8013F5E8 b = lbl_8043F15C;
     TCameraCtrl__sub_80069E7C(9);
-    TCameraCtrl__sub_80069C94(&a, &b);
+    set_active_camera_pose(&a, &b);
     controller_stuff__Fv();
     TKeyBoardControl__sub_801A5EC4();
     main_task.some_empty_func();
@@ -244,18 +244,18 @@ void TLogo__sub_8013F6C4(void) {
     u32 p;
 
     set_copy_clear_color_argb(0, 0, 0);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     for (i = 0; i < 0x80; i++) {
     }
-    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    init_menu_scene_lights(lbl_804A6F34, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {
         TCameraCtrl__ct(p, tl_camera);
     }
     V3_8013F6C4 a = lbl_8043F138;
     V3_8013F6C4 b = lbl_8043F144;
-    TCameraCtrl__sub_8006A5EC(9);
-    TCameraCtrl__sub_80069C94(&a, &b);
+    select_active_controller__11TCameraCtrlFc(9);
+    set_active_camera_pose(&a, &b);
     TKeyBoardControl__sub_8000F90C(1);
     TLobby__sub_800F8B20();
     TLobby__sub_800FD6F8(lbl_804A72D8, sizeof(lbl_804A72D8));

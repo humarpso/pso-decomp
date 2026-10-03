@@ -10,7 +10,7 @@ void TWindowShop__ct(void *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 M2C_UNK set_position_xy(void *, f32, f32);
 M2C_UNK set_field_1c__6TLobbyFPvf(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_80267B18(void *);
+M2C_UNK create_menu_scroll_bar(void *);
 M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi();
 
 extern s32 lbl_805D39D0;
@@ -20,7 +20,7 @@ extern f32 lbl_805DD344;
 void TWindowShop__ct(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39D0;
     ensure_status_display__20TWindowSubStatusDispFPvi();
-    TWindowSubStatusDisp__sub_80267B18(arg0);
+    create_menu_scroll_bar(arg0);
     set_field_1c__6TLobbyFPvf(arg0, lbl_805DD340);
     if (get_camera_id__11TCameraCtrlFv() > 2) {
         set_position_xy(arg0, lbl_805DD344, lbl_805DD344);

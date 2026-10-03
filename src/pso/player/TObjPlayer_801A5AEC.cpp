@@ -94,11 +94,11 @@ extern u32 lbl_8050E568[];
 extern u8 lbl_805D5D09;
 extern s8 lbl_805D5D0C[4];
 extern const f32 lbl_805DC0B4;
-void TKeyBoardControl__sub_801A5C4C(void);
+void update_pad_recalibration(void);
 s32 is_split_screen();
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
-void TKeyBoardControl__sub_801A5C4C(void);
+void update_pad_recalibration(void);
 void bind_controller_devices(void);
 void fn_801A6A5C(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void fn_801A6AF4(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
@@ -201,7 +201,7 @@ s32 TKeyBoardControl__sub_801A5B00(void) {
   }
 }
 
-void TKeyBoardControl__sub_801A5C4C(void) {
+void update_pad_recalibration(void) {
     s32 i;
     s32 j;
     Masks_801A5C4C masks = lbl_804469D8;
@@ -407,7 +407,7 @@ void controller_stuff__Fv(void) {
                 }
             }
         }
-        TKeyBoardControl__sub_801A5C4C();
+        update_pad_recalibration();
     }
 }
 #pragma pop

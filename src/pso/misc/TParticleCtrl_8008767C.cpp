@@ -115,7 +115,7 @@ void *alloc_particle_memory(int);
 void *TParticleCtrl__sub_80089B50(void *, void *, void *, void *);
 void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
-f32 TCameraCtrl__sub_803D8D00(void *);
+f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
 extern const f32 TParticleCtrl__data_805D94FC;
 void TParticleCtrl__sub_80088844(u8 *arg0);
@@ -140,12 +140,12 @@ void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
 u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
 void *alloc_particle_memory(int);
-void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2);
+void * create_random_particle(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
-f32 TCameraCtrl__sub_803D8D00(void *);
-void TParticleCtrl__sub_8008B538(u8 *arg0);
+f32 vec_squared_length(void *);
+void check_radial_particle_retire(u8 *arg0);
 void TParticleCtrl__sub_8008655C(void *, int);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern M2C_UNK TParticleCtrl__data_8048E7A8[];
@@ -153,7 +153,7 @@ void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void *);
 int TKeyBoardControl__sub_8000F91C(int);
 int TKeyBoardControl__sub_8000F9CC(int);
-int TLobby__sub_80227248(void);
+int stop_cue_stream(void);
 int TLobby__sub_8022743C(void);
 void destroy_keyboard_objects(void * _w0);
 u8 * init_particle_base(void *, void *, s32);
@@ -198,7 +198,7 @@ s32 is_split_screen();
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
 M2C_UNK load_projected_texture_matrix(f32);
-s32 TParticleCtrl__sub_800861F4(void *, s32);
+s32 is_particle_sprite_additive(void *, s32);
 M2C_UNK draw_particle_refraction_quad(void *);
 M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
@@ -577,7 +577,7 @@ void TParticleCtrl__sub_80088844(u8 *arg0) {
         stack.spC = M2C_FIELD(arg0, f32 *, 0x74) - M2C_FIELD(arg0, f32 *, 0x34);
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x78);
         stack.sp10 = temp_f1 - M2C_FIELD(arg0, f32 *, 0x38);
-        if (TParticleCtrl__data_805D94F8 == TCameraCtrl__sub_803D8D00((void *)((void *) (&stack.sp8)))) {
+        if (TParticleCtrl__data_805D94F8 == vec_squared_length((void *)((void *) (&stack.sp8)))) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }
@@ -662,7 +662,7 @@ void draw_orbit_particle_sprite(u8 *arg0) {
                     temp_r4 = some_id_805c6f74;
                     lbl_805D5660 = temp_r4;
                     some_id_805c6f74 = temp_r4 | 0x8021;
-                    if (TParticleCtrl__sub_800861F4(arg0, temp_r4) != 0) {
+                    if (is_particle_sprite_additive(arg0, temp_r4) != 0) {
                         apply_particle_model_fade_color(arg0, 1);
                     } else {
                         apply_particle_model_fade_color(arg0, 0);
@@ -716,7 +716,7 @@ u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
     }
     return var_r0;
 }
-void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
+void * create_random_particle(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = alloc_particle_memory(0xc4);
     if (o != NULL) {
@@ -724,8 +724,8 @@ void * TParticleCtrl__sub_8008B4E0(void *arg0, void *arg1, void *arg2) {
     }
     return o;
 }
-void TParticleCtrl__sub_8008B538(u8 *arg0) {
-    if ((M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == TCameraCtrl__sub_803D8D00((void *) (arg0 + 0x3C)))) {
+void check_radial_particle_retire(u8 *arg0) {
+    if ((M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((void *) (arg0 + 0x3C)))) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
@@ -818,6 +818,6 @@ u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
 }
 #pragma pop
 
-void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); TLobby__sub_80227248(); }
+void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); stop_cue_stream(); }
 
 }

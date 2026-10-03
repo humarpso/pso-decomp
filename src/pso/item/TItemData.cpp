@@ -11,8 +11,8 @@ void TItemData__sub_8010C740(void);
 void bswap__9TItemDataFv(s32 arg0);
 s32 is_usable__9TItemDataFPv(void *arg0);
 void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1);
-s32 TItemData__sub_8010CC68();
-M2C_UNK TItemData__sub_8010D510(void *, M2C_UNK *);
+s32 is_custom_name_srank__9TItemDataFPv();
+M2C_UNK serialize_mag__9TItemDataFPvPv(void *, M2C_UNK *);
 M2C_UNK bswap_32__FPUl(s32);
 M2C_UNK init__9TItemDataFv();
 M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
@@ -21,7 +21,7 @@ M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, M2C_UNK);
 s32 is_usable__9TItemDataFPv(void *arg0) {
     u8 temp_r0;
 
-    if (TItemData__sub_8010CC68() == 0) {
+    if (is_custom_name_srank__9TItemDataFPv() == 0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         if ((temp_r0 != 2) && (temp_r0 != 4) && (M2C_FIELD(arg0, u8 *, 0xA) & 0x80)) {
             return 1;
@@ -80,7 +80,7 @@ void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
             return;
         case 2:
             initialize_mag_data__9TItemDataFPv(&sp8);
-            TItemData__sub_8010D510(arg0, &sp8);
+            serialize_mag__9TItemDataFPvPv(arg0, &sp8);
             break;
         }
     }

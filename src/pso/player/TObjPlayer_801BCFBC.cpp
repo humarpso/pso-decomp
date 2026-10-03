@@ -13,7 +13,7 @@ M2C_UNK set_pos_z__10TObjPlayerFPvf(void *, f32);
 s32 is_mounted__15TPlyPhotonChairFPv(void *);
 s32 test_flags_any(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
-s32 TObjPlayer__sub_801AFF0C(void *);
+s32 is_on_current_floor__10TObjPlayerFi(void *);
 M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
 M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
@@ -28,7 +28,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
         update_position_from_target__10TObjPlayerFPv(arg0);
         return;
     }
-    if (TObjPlayer__sub_801AFF0C(arg0) != 0) {
+    if (is_on_current_floor__10TObjPlayerFi(arg0) != 0) {
         TObjPlayer__sub_8011E204(arg0, 4);
         if (obj_testFlags30(arg0, 0x800) != 0) {
             run_action_state_phase__10TObjPlayerFisi(arg0, 0xF, 0);

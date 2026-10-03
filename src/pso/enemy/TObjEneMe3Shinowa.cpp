@@ -145,7 +145,7 @@ void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1);
 void copy_position_vector__17TObjEneMe3ShinowaFPv(void* p);
 void fn_800E762C(void);
 int transition_enemy_state(void*, void*);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
@@ -204,7 +204,7 @@ void *__dt__17TObjEneMe3ShinowaFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK *, 0x3E0) = 0;
         if (M2C_FIELD(arg0, void **, 0x424) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x424)); M2C_FIELD(arg0, M2C_UNK *, 0x424) = 0; }
         if (M2C_FIELD(arg0, void **, 0x428) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x428)); M2C_FIELD(arg0, M2C_UNK *, 0x428) = 0; }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3E8, -1);
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {

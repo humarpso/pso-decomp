@@ -30,7 +30,7 @@ int TBoss6PlotFalz__sub_802AC678(void*);
 M2C_UNK TBoss6PlotFalz__sub_802AC6D0();
 int TBoss6PlotFalz__sub_802AC86C(void*, void*);
 M2C_UNK TLobby__sub_8022743C();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK create_variant__8TObjFishFPv(void *);
 int is_ready__14TBoss6PlotFalzFv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -63,7 +63,7 @@ void stop_adx_audio(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x3DC) = 0U;
     TBoss6PlotFalz__sub_802AC6D0();
     TLobby__sub_8022743C();
-    TObjBgmColCtrl__sub_802274B8(lbl_80470990);
+    play_area_music(lbl_80470990);
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     create_variant__8TObjFishFPv(arg0);
 }
@@ -109,7 +109,7 @@ extern M2C_UNK lbl_804709A8[];
 void init_hall_boss_scene(void *arg0) {
     init_warp__15TBoss6EmptyWarpFv();
     release_object__14TBoss6PlotFalzFPv(arg0);
-    TObjBgmColCtrl__sub_802274B8(lbl_804709A8);
+    play_area_music(lbl_804709A8);
     TBoss6PlotFalz__sub_802AC4D8();
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     M2C_FIELD(arg0, s32 *, 0x3DC) = alloc__8TObjFishFPv(arg0);

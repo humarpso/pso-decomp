@@ -32,7 +32,7 @@ M2C_UNK clear_active_flag__11TWindowCtrlFv();
 M2C_UNK clear__13TRaderMapCoreFv();
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1);
-u8 *TLobby__sub_8001DC24();
+u8 *get_shared_text_buffer();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u8 *TObjLuker__sub_801329B0(s32);
@@ -259,7 +259,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
         append_text_space();
         append_padded_number((int) (fn_80271E40()), (int) (2U));
-        var_r30 = (u8 *)(TLobby__sub_8001DC24());
+        var_r30 = (u8 *)(get_shared_text_buffer());
     } else {
         var_r30 = (u8 *)(TObjLuker__sub_801329B0(get_global_state__14TOKeyMachine01Fv()));
     }

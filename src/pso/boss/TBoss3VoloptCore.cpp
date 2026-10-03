@@ -115,7 +115,7 @@ void *TBoss3VoloptCore__sub_800407E0(void *arg0);
 int TObjPlayer__sub_80040ADC(void);
 void *destroy__16TBoss3VoloptCoreFPvs(void *arg0, s16 arg1);
 M2C_UNK TBoss3VoloptCore__ct(void *, M2C_UNK *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK TObjEnemyCustom__ct();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__15TObjEnemyCustomFv(void *, M2C_UNK);
@@ -137,7 +137,7 @@ extern M2C_UNK lbl_80483A10[];
 void *destroy__16TBoss3VoloptCoreFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483A10;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         fn_8003CFEC(0);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if ((s16) arg1 > 0) {

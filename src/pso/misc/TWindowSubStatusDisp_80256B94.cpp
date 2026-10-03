@@ -35,7 +35,7 @@ void TWindowSubStatusDisp__sub_80256C00(struct Bar_80256C00 *bar);
 f32 get_random_float__8TObjFishFv(f32);
 extern const f32 lbl_805DCE58;
 extern const f32 lbl_805DCECC;
-void TWindowSubStatusDisp__sub_802571B4(Gauge_802571B4 *g);
+void step_gauge_bar_width(Gauge_802571B4 *g);
 }
 
 extern "C" {
@@ -77,7 +77,7 @@ void TWindowSubStatusDisp__sub_80256C00(struct Bar_80256C00 *bar) {
     }
     bar->width = v;
 }
-void TWindowSubStatusDisp__sub_802571B4(Gauge_802571B4 *g) {
+void step_gauge_bar_width(Gauge_802571B4 *g) {
     f32 target;
     f32 diff;
     g->flags &= ~4;

@@ -15,7 +15,7 @@ extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
 extern s32 lbl_805D62B0;
 void release_sound_with_fade(s32 idx);
-void TLobby__sub_80226294(s32 idx);
+void stop_sound_request(s32 idx);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ void update_technique_slot__10TTecRaFoieFi(s32 arg0) {
     }
 }
 
-void TLobby__sub_80226294(s32 idx) {
+void stop_sound_request(s32 idx) {
     if (lbl_805D62B0 != 0 && idx >= 0 && idx < 0x28) {
         release_sound_with_fade(idx);
         lbl_805145F0[idx].flags &= lbl_805DC748;

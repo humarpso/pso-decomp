@@ -28,7 +28,7 @@ M2C_UNK TWindowChat__sub_8024AD30(s32);
 void *TWindowKeyBoardBase__ct(void *);
 void *TWindowKeyBoardHard__ct(void *, void *);
 int TWindowSubComCard__sub_80265BF8(void*);
-void TWindowSubStatusDisp__sub_8025CD44(void *, int, int);
+void init_keyboard_text_field(void *, int, int);
 M2C_UNK TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -126,7 +126,7 @@ void *TWindowChat__ct(void *arg0, void *arg1, void *arg2) {
         o = TWindowKeyBoardBase__ct(o);
     }
     M2C_FIELD(arg0, void **, 0x20) = o;
-    TWindowSubStatusDisp__sub_8025CD44(M2C_FIELD(arg0, void **, 0x20), 200, 2);
+    init_keyboard_text_field(M2C_FIELD(arg0, void **, 0x20), 200, 2);
     o2 = __nw__7TObjectFUl(0x74);
     if (o2 != NULL) {
         o2 = TWindowKeyBoardHard__ct(o2, M2C_FIELD(arg0, void **, 0x20));

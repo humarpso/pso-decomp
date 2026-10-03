@@ -29,9 +29,9 @@ void fn_80262C2C(void* p);
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
 void run_task__22TWindowLoadItemTextureFv(void* p);
 u32 TItemTexLoad__sub_8011D164(s32);
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
+M2C_UNK draw_visible_window_entries(void *, void *, s32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -69,11 +69,11 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
             M2C_FIELD(arg0, u8 *, 0x60) = 1U;
         }
     }
-    temp_r31 = TWindowSubComCard__sub_80244C0C(arg0, arg0 + 0x64);
+    temp_r31 = setup_window_draw_context(arg0, arg0 + 0x64);
     if (M2C_FIELD(arg0, u8 *, 0x61) & 1) {
         draw_window_frame(arg0, temp_r31);
     }
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r31);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r31);
 }
 
 void run_task__22TWindowLoadItemTextureFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }

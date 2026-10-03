@@ -80,7 +80,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
 M2C_UNK spawn_particle_effect(void *, int);
 s32 TObjGyaranzoMissile__sub_800D40FC(s32 i);
-M2C_UNK TObjPlayer__sub_800F06B4(int, int);
+M2C_UNK remap_area_sound_id(int, int);
 u8 *find_entity_by_id(u16);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_enemy_body_collisions(void *);
@@ -189,7 +189,7 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
         }
     }
     spawn_particle_effect(arg0 + 0x38, 0xFB);
-    play_sound_effect((void *)TObjPlayer__sub_800F06B4(0x4003A80C, 0x19), arg0 + 0x38, 0, 0);
+    play_sound_effect((void *)remap_area_sound_id(0x4003A80C, 0x19), arg0 + 0x38, 0, 0);
     queue_destruction__7TObjectFv(arg0);
 }
 

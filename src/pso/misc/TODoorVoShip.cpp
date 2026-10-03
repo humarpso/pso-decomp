@@ -67,7 +67,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjPlayer__sub_803E4684(int);
+M2C_UNK draw_chunk_model(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -81,8 +81,8 @@ void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1);
 void *create__12TODoorVoShipFPv(void *arg0);
 void free_static_data__12TODoorVoShipFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
@@ -149,21 +149,21 @@ void render__12TODoorVoShipFv(u8 *arg0) {
         if (M2C_FIELD(arg0, s32 *, 0xCC) & 4) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
-            TObjPlayer__sub_803E4684((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+            draw_chunk_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
             pop_matrix();
         }
         temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x30);
         if (M2C_FIELD(arg0, s32 *, 0xCC) & 2) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
-            TObjPlayer__sub_803E4684((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+            draw_chunk_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
             pop_matrix();
         }
         temp_r31_4 = M2C_FIELD(temp_r31_3, u8 **, 0x30);
         if (M2C_FIELD(arg0, s32 *, 0xCC) & 8) {
             push_matrix();
             post_translate_matrix((void *) (temp_r31_4 + 8));
-            TObjPlayer__sub_803E4684((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
+            draw_chunk_model((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
             pop_matrix();
         }
         pop_matrix();
@@ -207,8 +207,8 @@ void TODoorVoShip__sub_80163B8C(void) {
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TODoorVoShip;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

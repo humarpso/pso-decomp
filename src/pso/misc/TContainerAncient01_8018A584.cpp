@@ -175,8 +175,8 @@ unsigned int __cvt_fp2unsigned(f32);
 extern const float TContainerAncient01__data_805DBD1C;
 extern const f32 TContainerAncient01__data_805DBD34;
 void TContainerAncient01__sub_8018A890(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__sub_8018ABE0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -288,8 +288,8 @@ void *TContainerAncient01R__create(void *arg0);
 void TContainerAncient01R__sub_8018AF74(void);
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
 void *TContainerAncient01R__ct(void *, void *, void *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -464,10 +464,10 @@ f32 TContainerAncient01__sub_8018ABE0(u8 *arg0) {
     s16 sp8;
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
         M2C_FIELD(arg0, s16 *, 0x338) = (s16) (M2C_FIELD(arg0, s16 *, 0x338) + 1);
-        if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+        if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
             sp8 = M2C_FIELD(arg0, s16 *, 0x338);
-            TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
-            TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
+            access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+            send_object_state_update((void *) (arg0), (void *) (&sp8));
         }
     }
     return (*(const f32 *)&TContainerAncient01__data_805DBD14);
@@ -581,8 +581,8 @@ void TContainerAncient01R__sub_8018AF80(void) {
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B6E1C;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

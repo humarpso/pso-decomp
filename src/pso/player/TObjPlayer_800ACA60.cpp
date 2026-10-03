@@ -140,15 +140,15 @@ struct Obj_800ACFE8 {
 };
 
 extern "C" {
-void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self);
+void begin_attack__11TObjEneMojaFPv(Moja_800ADE48 *self);
 s32 update_movement_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
-s32 TObjPlayer__sub_800AED14(void *arg0);
+s32 update_freeze_timer__11TObjEneMojaFPv(void *arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
-s32 TObjPlayer__sub_800AEDB4(void *arg0);
+s32 update_action_hold__11TObjEneMojaFPv(void *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-f32 TObjPlayer__sub_800178C8(void *, s32, Vec_800AE18C *, void *, f32, f32);
+f32 enemy_pursue_point(void *, s32, Vec_800AE18C *, void *, f32, f32);
 s32 select_enemy_destination(void *, Vec_800AE18C *, int);
 M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
 M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
@@ -190,7 +190,7 @@ M2C_UNK update_ground_effect__10TObjPlayerFPv(void *);
 void update_invincibility__10TObjPlayerFPv(void *arg0);
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
 M2C_UNK update_technique_state__11TObjEneMojaFv(void *);
-M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0);
+M2C_UNK update_approach_state__11TObjEneMojaFPv(u8 *arg0);
 M2C_UNK update_appearance_drop__11TObjEneMojaFv(void *);
 M2C_UNK update_appearance_jump__11TObjEneMojaFv(void *);
 M2C_UNK update_idle_state__11TObjEneMojaFv(void *);
@@ -245,7 +245,7 @@ extern const f32 lbl_805D9C04;
 extern const f32 lbl_805D9C28;
 extern const f32 lbl_805D9C2C;
 M2C_UNK move_with_wall_slide(void *);
-M2C_UNK TObjPlayer__sub_800180E8(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
+M2C_UNK calc_velocity_toward_destination(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
 s16 get_id__10TObjPlayerFPv(s32);
 s32 is_split_screen();
 f32 newton_sqrtf(f32);
@@ -380,7 +380,7 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
         }
         break;
     case 1:
-        TObjPlayer__sub_800180E8(arg0, arg0->f290, arg0->f29C, arg0->f378);
+        calc_velocity_toward_destination(arg0, arg0->f290, arg0->f29C, arg0->f378);
         move_with_wall_slide(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805D9C08) != 0) {
             arg0->f328 = 2;
@@ -518,7 +518,7 @@ M2C_UNK update_punch_attack__11TObjEneMojaFPv(void *self_800ADAAC) {
 }
 #undef arg0
 
-void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self) {
+void begin_attack__11TObjEneMojaFPv(Moja_800ADE48 *self) {
     switch (self->attack_kind) {
     case 2:
         self->mode = 6;
@@ -614,7 +614,7 @@ s32 select_attack__11TObjEneMojaFPv(u8 *arg0) {
     return 0;
 }
 
-M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
+M2C_UNK update_approach_state__11TObjEneMojaFPv(u8 *arg0) {
     f32 temp_f0_2;
     u8 *temp_r4;
     u8 *temp_r7;
@@ -646,7 +646,7 @@ M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0) {
         if (temp_r7 != NULL) {
             Vec_800AE18C v3 = *(Vec_800AE18C *)(temp_r7 + 0x2FC);
             temp_r4 = lbl_805D50D4[M2C_FIELD(arg0, s32 *, 0x368)];
-            if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 0) * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 0) < TObjPlayer__sub_800178C8((void *) (arg0), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v3, temp_r4, M2C_FIELD(temp_r4, f32 *, 8), lbl_805D9BF0)) {
+            if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 0) * M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 0) < enemy_pursue_point((void *) (arg0), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v3, temp_r4, M2C_FIELD(temp_r4, f32 *, 8), lbl_805D9BF0)) {
                 M2C_FIELD(arg0, u8 **, 0x2A8) = NULL;
             }
             if (horizontal_distance_squared((int) (arg0 + 0x29C), (void *) (arg0 + 0x38)) < (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC)) * (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC))
@@ -713,7 +713,7 @@ void update_meseta_anim_state__10TObjPlayerFPv(void *arg0) {
         return;
     }
 }
-s32 TObjPlayer__sub_800AED14(void *arg0) {
+s32 update_freeze_timer__11TObjEneMojaFPv(void *arg0) {
     void *temp_r3;
     if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
@@ -735,7 +735,7 @@ s32 TObjPlayer__sub_800AED14(void *arg0) {
     }
     return 0;
 }
-s32 TObjPlayer__sub_800AEDB4(void *arg0) {
+s32 update_action_hold__11TObjEneMojaFPv(void *arg0) {
     void *temp_r3;
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
@@ -856,7 +856,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
             update_appearance_drop__11TObjEneMojaFv((void *) (arg0));
             break;
         case 3:
-            TObjPlayer__sub_800AE18C((u8 *)((void *) (arg0)));
+            update_approach_state__11TObjEneMojaFPv((u8 *)((void *) (arg0)));
             break;
         case 4:
             update_punch_attack__11TObjEneMojaFPv((void *)((void *) (arg0)));

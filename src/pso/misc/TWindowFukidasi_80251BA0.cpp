@@ -18,7 +18,7 @@ s32 init_flags__15TWindowFukidasiFPvi(void *, void *);
 s32 clear_flag__15TWindowFukidasiFPv(void *);
 s32 TWindowSubStatusDisp__sub_80257CB8(void *);
 s32 measure_message_text_width(int, f32);
-s32 TWindowSubStatusDisp__sub_8025AC50(int, void *, int);
+s32 set_text_entry_string(int, void *, int);
 extern RecoveredGlobal_80251BA0_lbl_804CF080 lbl_804CF080;
 extern const f32 lbl_805DCCEC;
 extern const f32 lbl_805DCCF0;
@@ -45,11 +45,11 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   temp_r3 = (u8 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
   if (arg2 & 1)
   {
-    TWindowSubStatusDisp__sub_8025AC50((int) temp_r3, (void *) arg1, (int) 0x20);
+    set_text_entry_string((int) temp_r3, (void *) arg1, (int) 0x20);
   }
   else
   {
-    TWindowSubStatusDisp__sub_8025AC50((int) temp_r3, (void *) arg1, (int) 0);
+    set_text_entry_string((int) temp_r3, (void *) arg1, (int) 0);
   }
   if (arg2 & 4)
   {

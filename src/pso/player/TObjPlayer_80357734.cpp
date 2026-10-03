@@ -135,7 +135,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern const f32 lbl_805E006C;
-void TObjPlayer__sub_80357F60(u8 *arg0);
+void update_inward_orbit_effect(u8 *arg0);
 void * init_state_34_alt__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -158,10 +158,10 @@ extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
 extern M2C_UNK lbl_804F166C[];
 extern const f32 lbl_805E0068;
 extern const f32 lbl_805E0070;
-u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
+u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
-void TObjPlayer__sub_80357EFC(u8 *arg0);
+void update_inward_orbit_point(u8 *arg0);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 u32 get_player_list__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(int, int);
@@ -177,7 +177,7 @@ extern const f32 lbl_805E0080;
 void weapon_special_lightning_bolt_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
-u32 TTecRaFoie__sub_802385EC(u32, s32, s32, s32, f32);
+u32 create_fire_explosion_effect(u32, s32, s32, s32, f32);
 extern s32 tl_particle;
 extern const f32 lbl_805E0088;
 extern const f32 lbl_805E008C;
@@ -212,10 +212,10 @@ void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1);
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1);
 int TObjPlayer__sub_803579F4(void* p);
 void TObjPlayer__sub_80357F5C(void);
-void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void handle_exp_steal_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void weapon_fractional_hp_effect(void *arg0, void *arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 int clear_field1f8_flag8192__10TObjPlayerFPv(void* p);
 void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3);
 void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 arg3);
@@ -331,7 +331,7 @@ u8 *TObjPlayer__sub_80357AD4(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_80357EFC(u8 *arg0) {
+void update_inward_orbit_point(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * sin_table_lookup((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x1C));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * cos_table_lookup((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x24));
@@ -342,12 +342,12 @@ void TObjPlayer__sub_80357F5C(void) {  }
 
 extern M2C_UNK lbl_804F166C[];
 
-void TObjPlayer__sub_80357F60(u8 *arg0) {
+void update_inward_orbit_effect(u8 *arg0) {
     s32 temp_r3_2;
     u8 *temp_r3;
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) - 0x1999);
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) - lbl_805E006C);
-    TObjPlayer__sub_80357EFC((u8 *)((void *)(arg0)));
+    update_inward_orbit_point((u8 *)((void *)(arg0)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x4C));
     if (temp_r3 != NULL) {
         copy_pos__11TNowLoadingFPvPv(temp_r3, arg0 + 0x34);
@@ -376,7 +376,7 @@ void *dt_with_child_queue__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_80358048_lbl_804793E4_size[sizeof(RecoveredGlobal_80358048_lbl_804793E4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80358048_lbl_804F166C_size[sizeof(RecoveredGlobal_80358048_lbl_804F166C) == 0x1C ? 1 : -1];
-u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
+u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     typedef char sp8_offset[(offsetof(Stack_80358048, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80358048, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80358048, sp10) == 0x8) ? 1 : -1];
@@ -390,7 +390,7 @@ u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805E0070;
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (arg3 - 0x4000);
     M2C_FIELD(arg0, s32 *, 0x48) = 0xA;
-    TObjPlayer__sub_80357EFC((u8 *)((void *) (arg0)));
+    update_inward_orbit_point((u8 *)((void *) (arg0)));
     stack.sp8 = M2C_FIELD(&lbl_804793E4.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804793E4.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804793E4.value, s32 *, 8);
@@ -405,7 +405,7 @@ void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg
     }
 }
 
-void TObjPlayer__sub_8035814C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void handle_exp_steal_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (arg3 == 0) {
         update_battle_control_if_unlocked__10TObjPlayerFPv();
     }
@@ -484,7 +484,7 @@ void trigger_biter_effect__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s3
     }
 }
 
-void TObjPlayer__sub_803583B4(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void prepare_shock_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x18];
 
     if (arg3 == 0) {
@@ -611,7 +611,7 @@ void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     }
 }
 
-void TObjPlayer__sub_80358824(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void prepare_freeze_special_effect(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 sp8[0x18];
 
     if (arg3 == 0) {
@@ -631,7 +631,7 @@ void weapon_fire_explosion_effect(s32 arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     if (arg3 == 1) {
         obj = __nw__7TObjectFUl(0x64);
         if (obj != 0U) {
-            obj = ((u32 (*)(f32, u32, s32, s32, s32))TTecRaFoie__sub_802385EC)(lbl_805E0088, obj, arg2, 0, tl_particle);
+            obj = ((u32 (*)(f32, u32, s32, s32, s32))create_fire_explosion_effect)(lbl_805E0088, obj, arg2, 0, tl_particle);
         }
         if (obj != 0U) {
             M2C_FIELD(obj, f32 *, 0x34) = lbl_805E008C;
@@ -650,11 +650,11 @@ void spawn_mirror_pair__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 a
     if (arg3 == 1) {
         obj = __nw__7TObjectFUl(0x50);
         if (obj != 0U) {
-            TObjPlayer__sub_80358048((u8 *)(obj), (s32)(tl_05), (u8 *)(arg2), (s32)(M2C_FIELD(arg1, s32 *, 0x60)));
+            create_inward_orbit_effect((u8 *)(obj), (s32)(tl_05), (u8 *)(arg2), (s32)(M2C_FIELD(arg1, s32 *, 0x60)));
         }
         obj = __nw__7TObjectFUl(0x50);
         if (obj != 0U) {
-            TObjPlayer__sub_80358048((u8 *)(obj), (s32)(tl_05), (u8 *)(arg2), (s32)(M2C_FIELD(arg1, s32 *, 0x60) - 0x8000));
+            create_inward_orbit_effect((u8 *)(obj), (s32)(tl_05), (u8 *)(arg2), (s32)(M2C_FIELD(arg1, s32 *, 0x60) - 0x8000));
         }
     }
 }

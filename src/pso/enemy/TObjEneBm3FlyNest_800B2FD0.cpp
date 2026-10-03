@@ -112,7 +112,7 @@ extern "C" {
 
 void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
+M2C_UNK spawn_child__17TObjEneBm3FlyNestFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(f32);
@@ -138,7 +138,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         break;
     case 0:
         if (objInBand__FP7GameObjf(lbl_805D9D30) != 0) {
-            TObjEneBm3FlyNest__sub_800B39CC(arg0);
+            spawn_child__17TObjEneBm3FlyNestFPv(arg0);
             M2C_FIELD(arg0, s32 *, 0x4B8) = (s32) (M2C_FIELD(arg0, s32 *, 0x4B8) - 1);
         }
         advance_animation_playback(arg0);

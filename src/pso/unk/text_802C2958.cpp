@@ -65,7 +65,7 @@ void direction_to_rotation_xz(Vec_802C2C48 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C2C48 *, f32);
 f32 subtract_vector(Vec_802C2C48 *, Vec_802C2C48 *);
 s32 approach_angle_limited(s32, s32, s32);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 extern Entry_802C2C48 lbl_804717D4[];
 extern const f64 lbl_80471960[];
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
@@ -104,7 +104,7 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
     old = self->fB8;
     tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
     self->fB8 = approach_angle_limited(old, tmp, lbl_804717D4[self->fC8].e);
-    diff = TBoss4Type2__sub_80141FA8(old, tmp);
+    diff = angle_diff_s16(old, tmp);
     if (diff > 0x30) {
         if (self->fC4 > 0) {
             self->fC4 = 0;

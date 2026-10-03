@@ -46,7 +46,7 @@ M2C_UNK close__17TWindowSubComCardFPv(void *);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 lbl_805D53A0;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
-u8 *TLobby__sub_8001DC24(void);
+u8 *get_shared_text_buffer(void);
 u32 get_player_by_client_id(void *);
 u8 *get_window_layout_position(s32);
 s32 TWindowMessageYesNo__sub_802A59D8(s32, s32, s32, s32);
@@ -123,7 +123,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   text_builder_append();
   *((s32 *) (((s8 *) arg0) + 0x20)) = TWindowMessageYesNo__sub_802A59D8((s32) arg0, lbl_805D53A0, 0, 0);
   temp_r31_2 = (u8 *) get_window_layout_position(0xB2);
-  forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) TLobby__sub_8001DC24(), (int) temp_r31_2, (f32) lbl_805DE8A0);
+  forward_slot_selection__16TAdChrSelASlotGCFPvPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))), (int) get_shared_text_buffer(), (int) temp_r31_2, (f32) lbl_805DE8A0);
   new_var2 = ((s8 *) arg0) + 0x1C;
   notify_warp_flag70__19TWindowSubShortMailFPv((int) (*((s32 *) (((s8 *) arg0) + 0x20))));
   if (((s32)get_player_by_client_id((void *)((u32) lbl_805D53A0))) != 0U)

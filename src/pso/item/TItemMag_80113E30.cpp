@@ -13,7 +13,7 @@ void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
 u8 obj_isState7_324(u8 *arg0);
 s16 TItemMagSub__sub_8011455C(void *);
 s16 TItemData__sub_801146A4(void *);
-void TItemMag__sub_801140F4(u8 *arg0, s16 arg1);
+void mag_feed_add_mind(u8 *arg0, s16 arg1);
 s16 TItemMagSub__sub_8011455C(void *);
 s16 TItemData__sub_801146C0(void *);
 void TItemMag__sub_80114198(u8 *arg0, s16 arg1);
@@ -22,12 +22,12 @@ s16 TItemData__sub_801146DC(void *);
 void TItemMag__sub_8011423C(u8 *arg0, s16 arg1);
 s16 TItemMagSub__sub_8011455C(void *);
 s16 TItemData__sub_801146F8(void *);
-void TItemMag__sub_801142E0(u8 *arg0, s16 arg1);
+void mag_feed_add_def(u8 *arg0, s16 arg1);
 void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v);
 extern const u8 lbl_805DABC4[3];
 extern const u8 lbl_805DABC0[2];
 s32 is_pb_registered__8TItemMagFiUc(s32 arg0, u8 arg1);
-void TItemMag__sub_80113F64(MagData_80113F64 *data, u8 blast);
+void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast);
 }
 
 extern "C" {
@@ -108,7 +108,7 @@ void clear_feed_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) 
 void set_flags__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x4) |= v; }
 int test_flags__8TItemMagFPvUi(void* p, u32 m) { return *(u32*)((char*)p + 0x4) & m; }
 
-void TItemMag__sub_80113F64(MagData_80113F64 *data, u8 blast) {
+void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast) {
     u8 ord;
     if (blast >= 6) {
         return;
@@ -159,7 +159,7 @@ void add_stat_clamped__8TItemMagFPvi(s16 *arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-void TItemMag__sub_801140F4(u8 *arg0, s16 arg1) {
+void mag_feed_add_mind(u8 *arg0, s16 arg1) {
     s16 temp_r31;
     s16 temp_r3;
     s16 temp_r3_2;
@@ -239,7 +239,7 @@ void TItemMag__sub_8011423C(u8 *arg0, s16 arg1) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TItemMag__sub_801142E0(u8 *arg0, s16 arg1) {
+void mag_feed_add_def(u8 *arg0, s16 arg1) {
     s16 temp_r31;
     s16 temp_r3;
     s16 temp_r3_2;

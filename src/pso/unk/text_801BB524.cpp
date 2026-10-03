@@ -10,7 +10,7 @@ void set_control_role__10TObjPlayerFPvi(void *self, s32 role);
 void init_collision_body__10TObjPlayerFPv(void *self);
 s32 register_player_slot__10TObjPlayerFPv(void *self);
 s32 setup_control_role__10TObjPlayerFPvi(Player_801BB524 *self, s32 role);
-M2C_UNK TObjPlayer__sub_80018F64(void *);
+M2C_UNK reset_actor_action_state(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s16 obj_getS16_32C(void *);
 s32 obj_testFlags30(void *, int);
@@ -51,7 +51,7 @@ M2C_UNK set_battle_flag__10TObjPlayerFPvi(void *, int);
 s32 get_anim_id__10TObjPlayerFPv(void *);
 M2C_UNK set_meseta__10TObjPlayerFPvi(void *, int);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801D8D14(void *);
+s32 get_hospital_yaw__10TObjPlayerFv(void *);
 s32 get_hospital_position__10TObjPlayerFPv(void *);
 M2C_UNK TMedicalCenterMes__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -88,7 +88,7 @@ void TObjPlayer__vt6(s32 arg0) {
     reset_motion_fields__10TObjPlayerFPv();
     release_member_90__10TObjPlayerFPv((void *) (arg0));
     reset_movement__10TObjPlayerFPv((void *) (arg0));
-    TObjPlayer__sub_80018F64((void *) (arg0));
+    reset_actor_action_state((void *) (arg0));
     reset_state__10TObjPlayerFPv((void *) (arg0));
     TObjPlayer__sub_801BD3A4((void *) (arg0));
     place_on_area_entry__10TObjPlayerFPv((void *) (arg0));
@@ -111,7 +111,7 @@ void TObjPlayer__vt6(s32 arg0) {
             if (is_single_screen__10TObjPlayerFv() == 0) {
                 set_meseta__10TObjPlayerFPvi((void *) (arg0), (int) (0));
             }
-            send_6x24_teleport_player(obj_getField1c((void *) (arg0)), get_hospital_position__10TObjPlayerFPv((void *) (arg0)), TObjPlayer__sub_801D8D14((void *) (arg0)));
+            send_6x24_teleport_player(obj_getField1c((void *) (arg0)), get_hospital_position__10TObjPlayerFPv((void *) (arg0)), get_hospital_yaw__10TObjPlayerFv((void *) (arg0)));
             set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800));
             set_battle_flag__10TObjPlayerFPvi((void *) (arg0), (int) (0));
         }

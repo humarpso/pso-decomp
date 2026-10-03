@@ -54,7 +54,7 @@ extern "C" {
 
 void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
-s32 TItemData__sub_80076E84(s16);
+s32 get_technique_name(s16);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(u32, s32, u8);
 u32 get_player_by_client_id(s32);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
@@ -88,7 +88,7 @@ s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1) {
 void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
 
-    temp_r31 = TItemData__sub_80076E84(arg0);
+    temp_r31 = get_technique_name(arg0);
     if (lookup_technique__19TWindowSubTechniqueFii((s32)(arg0), (s32)(arg1)) == 0) {
         draw_text_gray__17TWindowSubComCardFiiii(arg2, temp_r31, 6, arg0);
         return;

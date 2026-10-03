@@ -96,7 +96,7 @@ extern const f32 lbl_805D88E8;
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2);
 void toggle_particle_effect__10TObjPlayerFv();
 void TObjPlayer__sub_800F09E8(s32);
-void TObjLight__sub_80134098();
+void restore_scene_lighting();
 void TObjLight__sub_80134194(void *);
 void end_effect_render__13TParticleCtrlFv();
 void scale_matrix(s32, f32, f32, f32);
@@ -156,7 +156,7 @@ extern "C" {
 
 void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1);
 void cache_target_values__16TObjVoloptPillarFv(void);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 
@@ -182,7 +182,7 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
         set_global_param__8TObjFishFi(lbl_805D4D44);
         draw_chunk_object(lbl_805D4D3C);
         pop_matrix();
-        TObjLight__sub_80134098();
+        restore_scene_lighting();
         end_effect_render__13TParticleCtrlFv();
         s = lbl_805D88C4 * (TObjVoloptPillar__data_805D88C8 - arg0->f3c) + lbl_805D88C0;
         push_matrix();
@@ -291,7 +291,7 @@ extern M2C_UNK __vt__16TObjVoloptPillar[];
 void *__dt__16TObjVoloptPillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjVoloptPillar;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -21,11 +21,11 @@ extern "C" {
 
 s32 is_end__12TCharaMakingFv(void);
 s32 get_display_index__12TCharaMakingFPv(void *arg0);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 get_main_phase();
 
 s32 is_end__12TCharaMakingFv(void) {
-    if ((get_main_phase() == 0xF) || (TCameraCtrl__sub_8006B368() != 0)) {
+    if ((get_main_phase() == 0xF) || (is_quest_active() != 0)) {
         return 1;
     }
     return 0;

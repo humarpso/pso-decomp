@@ -20,7 +20,7 @@ struct Vec2_8027654C { f32 x; f32 y; };
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK TWindowSubCustomEquip__sub_80275F90(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__21TWindowSubCustomEquipFv(u8 *arg0);
@@ -40,7 +40,7 @@ extern const f32 lbl_805DD594;
 extern const f32 lbl_805DD598;
 extern const f32 lbl_805DD59C;
 extern const f32 lbl_805DD5A0;
-void TWindowSubCustomEquip__sub_80276A38(u8 *arg0, s32 arg1, s32 arg2);
+void place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
@@ -167,7 +167,7 @@ s32 TWindowSubCustomEquip__sub_80276870(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubCustomEquip__sub_80276A38(u8 *arg0, s32 arg1, s32 arg2) {
+void place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
     f32 temp_f30;
     f32 temp_f31;
@@ -217,14 +217,14 @@ void update_rotate_anim__21TWindowSubCustomEquipFPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x68) & 0x8000) {
         M2C_FIELD(arg0, s8 *, 0x64) = 0;
         M2C_FIELD(arg0, s8 *, 0x65) = 1;
-        TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68)), (s32)(9));
-        TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68) + 0x8000), (s32)(0));
+        place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68)), (s32)(9));
+        place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68) + 0x8000), (s32)(0));
         return;
     }
     M2C_FIELD(arg0, s8 *, 0x64) = 1;
     M2C_FIELD(arg0, s8 *, 0x65) = 0;
-    TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68) + 0x8000), (s32)(9));
-    TWindowSubCustomEquip__sub_80276A38((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68)), (s32)(0));
+    place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68) + 0x8000), (s32)(9));
+    place_bank_slot_on_ring__21TWindowSubCustomEquipFPvii((u8 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x68)), (s32)(0));
 }
 
 void handle_cancel__21TWindowSubCustomEquipFPv(void *arg0) {
@@ -297,7 +297,7 @@ void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     TWindowSubCustomEquip__sub_80275F90((void *) (arg0), (int) (temp_r3));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C)), (int) (temp_r3));
 }

@@ -173,7 +173,7 @@ void init_all_slots__10TObjPlayerFv(void);
 void mark_enemy_body_contacts(void *);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
 void subtract_vector(void *, void *);
-f32 TCameraCtrl__sub_803D8D00(void *);
+f32 vec_squared_length(void *);
 void normalize_vector(void *);
 void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -293,8 +293,8 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                     subtract_vector(&selected_delta, &self->pos);
                     Vec_801AB868 candidate_delta = candidate->pos;
                     subtract_vector(&candidate_delta, &self->pos);
-                    selected_distance = TCameraCtrl__sub_803D8D00(&selected_delta);
-                    if (TCameraCtrl__sub_803D8D00(&candidate_delta) < selected_distance) {
+                    selected_distance = vec_squared_length(&selected_delta);
+                    if (vec_squared_length(&candidate_delta) < selected_distance) {
                         self->f1a8 = candidate;
                     }
                     owner = (Owner_801AB868 *)find_entity_by_id(self->owner_id);

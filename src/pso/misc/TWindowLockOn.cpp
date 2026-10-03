@@ -57,7 +57,7 @@ void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 calc_display_grade__5TItemFPv(void *);
-f32 TWindowHelpItem__sub_8025A60C(void *);
+f32 get_item_star_row_width(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 extern u8 lbl_804D00DC[];
 extern Cb_80263370 lbl_804D0288;
@@ -77,9 +77,9 @@ void render__13TWindowLockOnFv(u8 *arg0);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 M2C_UNK TWindowLockOn__update_for_enemy(s32, s32);
 M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257CB8(s32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -134,7 +134,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
         ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFPv(item);
         arg0->h += lbl_805DD120;
         e2->flags &= ~2;
-        r = TWindowHelpItem__sub_8025A60C(e2);
+        r = get_item_star_row_width(e2);
         if (arg0->w < r) {
             arg0->w = r;
         }
@@ -167,19 +167,19 @@ void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
 void render__13TWindowLockOnFv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_80244C0C(arg0, arg0 + 0x68);
+    temp_r3 = setup_window_draw_context(arg0, arg0 + 0x68);
     draw_window_frame(arg0, temp_r3);
     if ((M2C_FIELD(arg0, f32 *, 0x30) == M2C_FIELD(arg0, f32 *, 0x40)) && (M2C_FIELD(arg0, f32 *, 0x34) == M2C_FIELD(arg0, f32 *, 0x44)) && (M2C_FIELD(arg0, f32 *, 0x38) == M2C_FIELD(arg0, f32 *, 0x48)) && (M2C_FIELD(arg0, f32 *, 0x3C) == M2C_FIELD(arg0, f32 *, 0x4C))) {
-        TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+        draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     }
 }
 
 s32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 void *TWindowLockOn__ct(void *, s32, u16);
-void *TWindowLockOn__sub_80263748(s32 arg0, u16 arg1);
+void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1);
 
-void *TWindowLockOn__sub_80263748(s32 arg0, u16 arg1) {
+void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1) {
     void *p;
     if (arg1 == 0xFFFF) {
         return NULL;

@@ -135,7 +135,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK fill_status_info__10TObjPlayerFPvPv(u32, void *);
 M2C_UNK init_vtable_c4__10TObjPlayerFPv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
-M2C_UNK TTecRaFoie__sub_802385EC(void *, void *, s32, s32, f32);
+M2C_UNK create_fire_explosion_effect(void *, void *, s32, s32, f32);
 M2C_UNK TObjPlayer__sub_802E449C(void *);
 extern s32 tl_particle;
 extern const f32 lbl_805DF0B8;
@@ -157,7 +157,7 @@ s32 fn_80308294(u32 a0, s32 a1) {
     }
     o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {
-        ((M2C_UNK (*)(f32, void *, void *, s32, s32))TTecRaFoie__sub_802385EC)(lbl_805DF0B8, o, &info, 0, tl_particle);
+        ((M2C_UNK (*)(f32, void *, void *, s32, s32))create_fire_explosion_effect)(lbl_805DF0B8, o, &info, 0, tl_particle);
     }
 }
 typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8034F754_lbl_804F0A00) == 0xF8 ? 1 : -1];

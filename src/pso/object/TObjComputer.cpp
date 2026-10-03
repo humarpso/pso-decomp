@@ -201,10 +201,10 @@ extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
-M2C_UNK TObjComputer__sub_8018807C(void *arg0);
+M2C_UNK draw_model__12TObjComputerFPv(void *arg0);
 s32 get_current_floor();
-void TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+void send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
@@ -222,9 +222,9 @@ void free_resources__12TObjComputerFv(void);
 void render__12TObjComputerFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK TObjMesBase__vt12();
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__11TObjMesBaseFv(void *, M2C_UNK);
@@ -235,7 +235,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 extern const f32 lbl_805DBCDC;
 extern const f32 lbl_805DBCE0;
 
-M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
+M2C_UNK draw_model__12TObjComputerFPv(void *arg0) {
     Computer_8018807C *self = (Computer_8018807C *)arg0;
     if (self->model == NULL) {
         return;
@@ -269,7 +269,7 @@ M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
 
 void render__12TObjComputerFv(u8 *arg0) {
     if (((V_TOC_801881D4 *)arg0)->m8(lbl_805DBCDC, lbl_805DBCE0) != 0) {
-        TObjComputer__sub_8018807C((void *)(arg0));
+        draw_model__12TObjComputerFPv((void *)(arg0));
     }
 }
 
@@ -345,8 +345,8 @@ void TObjComputer__sub_80188358(void) {
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjComputer;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         __dt__11TObjMesBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -399,10 +399,10 @@ void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
 f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
     s16 sp8;
     Pkt_80188768 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (TLobby__sub_80156A80(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
         sp8 = 1;
-        TLobby__sub_80156A80(arg0, &sp8, 0);
-        TObjPlayer__sub_80154954(arg0, &sp8);
+        access_object_saved_state(arg0, &sp8, 0);
+        send_object_state_update(arg0, &sp8);
         init_packet_67_04__6TLobbyFPv(&pkt);
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

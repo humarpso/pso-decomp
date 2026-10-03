@@ -10,8 +10,8 @@ void close_result_windows__6TLobbyFv(void);
 f32 calc_result_offset__6TLobbyFv(void);
 M2C_UNK append_padded_number(s32, M2C_UNK);
 M2C_UNK text_builder_reset();
-M2C_UNK TLobby__sub_8001DC24();
-u32 fn_800FC0D8();
+M2C_UNK get_shared_text_buffer();
+u32 get_name_text_width();
 M2C_UNK text_builder_append(M2C_UNK *);
 
 extern M2C_UNK TLobby__data_8050AAAC[];
@@ -39,8 +39,8 @@ f32 calc_result_offset__6TLobbyFv(void) {
     var_f31 = TLobby__data_805D7EE0;
     if (get_main_phase() == 0xF) {
         close_result_windows__6TLobbyFv();
-        TLobby__sub_8001DC24();
-        var_f31 -= (f32) fn_800FC0D8();
+        get_shared_text_buffer();
+        var_f31 -= (f32) get_name_text_width();
     }
     return var_f31;
 }

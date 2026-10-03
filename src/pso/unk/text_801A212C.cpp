@@ -19,16 +19,16 @@ struct RecoveredGlobal_801A2340_lbl_804FF610 {
 
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
-s32 TObjPlayer__sub_80083CEC(f32, void *);
-s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
+s32 is_in_shadow_range(f32, void *);
+s32 project_world_to_screen(int, void *, void *);
 f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
 s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1);
 s32 get_state_flag__9TMainTaskFv();
-s32 TObjPlayer__sub_80083CEC(f32, void *);
-s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
+s32 is_in_shadow_range(f32, void *);
+s32 project_world_to_screen(int, void *, void *);
 f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
@@ -52,7 +52,7 @@ s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     Stack_801A2340 stack;
     f32 z;
     if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
-        if (TObjPlayer__sub_80083CEC(farg2, (void *) (arg0 + 0x38)) != 0) {
+        if (is_in_shadow_range(farg2, (void *) (arg0 + 0x38)) != 0) {
             M2C_FIELD(arg0, s16 *, 0x1E) = 1;
             return 1;
         }
@@ -76,7 +76,7 @@ s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
         stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg2) + M2C_FIELD(arg0, f32 *, 0x38);
         stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg2) + M2C_FIELD(arg0, f32 *, 0x3C);
         stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg2) + M2C_FIELD(arg0, f32 *, 0x40);
-        TParticleCtrl__sub_803D8D1C(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
             M2C_FIELD(arg0, s16 *, 0x1E) = 0;
             return 0;
@@ -85,7 +85,7 @@ s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
         stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg2) - M2C_FIELD(arg0, f32 *, 0x38));
         stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg2) - M2C_FIELD(arg0, f32 *, 0x3C));
         stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg2) - M2C_FIELD(arg0, f32 *, 0x40));
-        TParticleCtrl__sub_803D8D1C(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
+        project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 > lbl_805DC09C) {
             M2C_FIELD(arg0, s16 *, 0x1E) = 0;
             return 0;
@@ -107,7 +107,7 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
     typedef char sp18_offset[(offsetof(Stack_801A2340, sp18) == 0x10) ? 1 : -1];
     Stack_801A2340 stack;
     if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
-        if (TObjPlayer__sub_80083CEC((f32) (farg1), (void *) (arg0 + 0x38)) != 0) {
+        if (is_in_shadow_range((f32) (farg1), (void *) (arg0 + 0x38)) != 0) {
             M2C_FIELD(arg0, s16 *, 0x1E) = 1;
             return 1;
         }
@@ -130,7 +130,7 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
         stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) + M2C_FIELD(arg0, f32 *, 0x38);
         stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) + M2C_FIELD(arg0, f32 *, 0x3C);
         stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) + M2C_FIELD(arg0, f32 *, 0x40);
-        TParticleCtrl__sub_803D8D1C((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+        project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
             M2C_FIELD(arg0, s16 *, 0x1E) = 0;
             return 0;
@@ -140,7 +140,7 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
     stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) - M2C_FIELD(arg0, f32 *, 0x38));
     stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) - M2C_FIELD(arg0, f32 *, 0x3C));
     stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) - M2C_FIELD(arg0, f32 *, 0x40));
-    TParticleCtrl__sub_803D8D1C((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
+    project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
     if (stack.sp8 > lbl_805DC09C) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 0;
         return 0;

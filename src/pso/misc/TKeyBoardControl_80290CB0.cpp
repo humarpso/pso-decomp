@@ -15,7 +15,7 @@ void update_main_menu_scene__16TKeyBoardControlFv(void);
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F92C();
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK reset_controller_input_state();
 M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK init_creation_menu_scene();
 M2C_UNK render_tick__Fv();
@@ -24,7 +24,7 @@ extern u8 lbl_805D6560;
 
 void update_main_menu_scene__16TKeyBoardControlFv(void) {
     set_copy_clear_color_argb(0, 0, 0xFF);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(6);
     if ((u8) lbl_805D6560 != 0) {

@@ -73,7 +73,7 @@ void TObjPlayer__sub_801D4730(void* p);
 void TObjPlayer__sub_801D47D8(void* p, void* q);
 s32 check_player_action_allowed(void);
 int reset(void* p);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 get_game_play_mode();
 s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 s32 get_main_phase();
@@ -97,7 +97,7 @@ s32 fn_801D40D4(s32 arg0, Rec_801D40D4 *arg1, u8 *arg2) {
 }
 
 s32 check_player_action_allowed(void) {
-    if ((get_main_phase() == 0xE) || (is_technique_ready__8TTecCtrlFv() != 0) || ((TCameraCtrl__sub_8006B368() == 1) && (get_game_play_mode() == 1))) {
+    if ((get_main_phase() == 0xE) || (is_technique_ready__8TTecCtrlFv() != 0) || ((is_quest_active() == 1) && (get_game_play_mode() == 1))) {
         return 0;
     }
     return get_game_mode__23TAdSinglePlyChrSelectGCFv();

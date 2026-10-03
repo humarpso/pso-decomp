@@ -143,7 +143,7 @@ u32 CARDGetDiskID();
 int TAdSinglePlyChrSelectGC__sub_801FCD04(void*);
 int TAdSinglePlyChrSelectGC__sub_801FCD3C(void*);
 M2C_UNK TCheckRoomSequence__sub_802114D4(int, void *);
-s32 TCheckRoomSequence__sub_80211574(int);
+s32 is_item_record_empty(int);
 s32 TLobby__sub_8030A770();
 s32 get_game_play_mode();
 s32 item_identity_matches(s32, s32);
@@ -224,7 +224,7 @@ s32 find_entry__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     var_r31 = arg0 + 0x250;
     var_r30 = 0;
 loop_1:
-    if ((TCheckRoomSequence__sub_80211574((int)(var_r31)) == 0) && (item_identity_matches(arg1, var_r31) != 0)) {
+    if ((is_item_record_empty((int)(var_r31)) == 0) && (item_identity_matches(arg1, var_r31) != 0)) {
         return 1;
     }
     var_r30 += 1;
@@ -242,7 +242,7 @@ s32 register_in_free_room_slot__23TAdSinglePlyChrSelectGCFPvi(u8 *arg0, s32 arg1
     var_r30 = 0;
     var_r31 = (long) (arg0 + 0x250);
 loop_1:
-    if (TCheckRoomSequence__sub_80211574((int)((int) (var_r31))) != 0) {
+    if (is_item_record_empty((int)((int) (var_r31))) != 0) {
         TCheckRoomSequence__sub_802114D4((int) (var_r31), (void *) (arg1));
         M2C_FIELD(arg0, s32 *, 0x248) = (s32) (M2C_FIELD(arg0, s32 *, 0x248) + 1);
         return 1;

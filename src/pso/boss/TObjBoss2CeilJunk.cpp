@@ -105,7 +105,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjPlayer__sub_803E38FC(int);
+M2C_UNK set_chunk_blend(int);
 extern s32 lbl_80435BC0[];
 extern f32 lbl_80435BF0[];
 extern Color_8003A1B4 lbl_80435C1C;
@@ -153,7 +153,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
       set_chunk_material_color(&c);
     }
     set_chunk_material_override_pair(0xFF00, 0x800);
-    TObjPlayer__sub_803E38FC(0x2500);
+    set_chunk_blend(0x2500);
   }
   push_matrix();
   set_global_param__8TObjFishFi(lbl_805D4BEC);

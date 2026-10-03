@@ -106,7 +106,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
-void TTecRaFoie__sub_802380F4(u8 *arg0);
+void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0);
 void get_bml_model(void *, s32);
 void set_cull_none__8TObjFishFv(void);
 void set_cull_back__8TObjFishFv(void);
@@ -168,7 +168,7 @@ typedef struct RecoveredGlobal_80230D9C_lbl_804CC510 RecoveredGlobal_80230D9C_lb
 typedef struct RecoveredGlobal_80230D9C_lbl_804CC55C RecoveredGlobal_80230D9C_lbl_804CC55C;
 typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-void TTecRaFoie__sub_802380F4(u8 *arg0) {
+void calc_area_parameters__10TTecRaFoieFPv(u8 *arg0) {
   int new_var;
  new_var = (int) calc_technique_parameters((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { TTecAnti__sub_8022B35C((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
@@ -479,7 +479,7 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8E4;
 extern const f32 lbl_805DC8E8;
 extern const f32 lbl_805DC8EC;
-u8 *TTecRaFoie__sub_802385EC(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
+u8 *create_fire_explosion_effect(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
@@ -551,7 +551,7 @@ u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg
     return arg0;
 }
 
-u8 *TTecRaFoie__sub_802385EC(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0) {
+u8 *create_fire_explosion_effect(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_802385EC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802385EC, spC) == 0x4) ? 1 : -1];
     Stack_802385EC stack;
@@ -711,7 +711,7 @@ Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * 
     M2C_FIELD(arg0, void **, 0x18) = ((void * *)&__vt__10TTecRaFoie);
     TObjPlayer__sub_8004433C((u8 *)arg0 + 0xEC);
     M2C_FIELD(arg0, u32 *, 0) = lbl_805D3800;
-    TTecRaFoie__sub_802380F4((u8 *)arg0);
+    calc_area_parameters__10TTecRaFoieFPv((u8 *)arg0);
     fn_80044330((u8 *)arg0 + 0xEC);
     M2C_FIELD(arg0, s32 *, 0x148) = 1;
     t = M2C_FIELD(arg0, Sub_80238AE8 **, 0xE8);
@@ -733,7 +733,7 @@ u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__10TTecRaFoie;
     TObjPlayer__sub_8004433C(self + 0xEC);
     M2C_FIELD(self, u32 *, 0) = lbl_805D3800;
-    TTecRaFoie__sub_802380F4(self);
+    calc_area_parameters__10TTecRaFoieFPv(self);
     M2C_FIELD(self, s32 *, 0x148) = 0;
     copy_technique_target_list(self + 0xEC, targets);
     if (M2C_FIELD(self, void **, 0x1C) != NULL) {
@@ -800,7 +800,7 @@ struct Obj_80238F84 {
 extern "C" {
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
-void fn_802393D0(Tec_802393D0 *self);
+void play_launch_sound__9TTecRestaFPv(Tec_802393D0 *self);
 void create_timed_particle_emitter(void *, s32, s32, s32, void *);
 void spawn_particle_effect(void *, s32, void *);
 void apply_technique_to_area_targets(void *);
@@ -982,7 +982,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
 #undef self
 #pragma pop
 
-void fn_802393D0(Tec_802393D0 *self) {
+void play_launch_sound__9TTecRestaFPv(Tec_802393D0 *self) {
     s32 h;
     switch (self->band) {
     case 0:

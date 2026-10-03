@@ -9,10 +9,10 @@ extern f32 lbl_805D4AC0;
 extern const f32 TLobby__data_805D7EE0;
 void TLobby__sub_8001ED74(void);
 s32 get_main_phase();
-u8 * TLobby__sub_8001DC24(void);
+u8 * get_shared_text_buffer(void);
 s32 calc_alpha_shifted__6TLobbyFf(f32);
 void close_result_windows__6TLobbyFv(void);
-void TLobby__sub_800FBFD8(s32, void *, f32, f32, f32);
+void draw_small_font_text(s32, void *, f32, f32, f32);
 extern const f32 TLobby__data_805D7EE0;
 extern const f32 lbl_805D7EEC;
 extern const f32 lbl_805D7EF0;
@@ -62,7 +62,7 @@ void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
         temp_r31 = calc_alpha_shifted__6TLobbyFf(var_f4);
         if (get_main_phase() == 0xF) {
             close_result_windows__6TLobbyFv();
-            TLobby__sub_800FBFD8(temp_r31 | 0xFF0000 | 0xFFFF, TLobby__sub_8001DC24(), farg0, lbl_805D7EF0 + farg1, temp_f31);
+            draw_small_font_text(temp_r31 | 0xFF0000 | 0xFFFF, get_shared_text_buffer(), farg0, lbl_805D7EF0 + farg1, temp_f31);
         }
     }
 }

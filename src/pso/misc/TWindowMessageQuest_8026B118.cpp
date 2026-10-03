@@ -31,7 +31,7 @@ void create_quest_message_window(void);
 Ctx_8026B148 *TWindowSubStatusDisp__sub_80244364(void *);
 void draw_quest_message_frame(void *, void *);
 void draw_window_frame(void *, void *);
-void TWindowSubStatusDisp__sub_80257BC0(void *, void *, void *);
+void draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD260;
 void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w);
 }
@@ -59,7 +59,7 @@ void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w) {
     case 2:
         break;
     }
-    TWindowSubStatusDisp__sub_80257BC0(w, w->entries, c);
+    draw_visible_window_entries(w, w->entries, c);
 }
 
 }

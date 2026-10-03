@@ -113,12 +113,12 @@ struct Disp_803D676C { u8 pad[6]; u16 h; };
 
 extern "C" {
 
-s32 TObjPlayer__sub_803D6BA4(s32 arg0);
+s32 sample_motion_vector_channel(s32 arg0);
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 void TBoss8Dragon__sub_803D78A8(s32 arg0);
 extern u8 *lbl_805D76BC;
-void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
+void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 M2C_UNK C_MTXPerspective(void *, f32, f32, f32, f32);
 M2C_UNK GXSetProjection(void *, int);
 f64 atan(f32);
@@ -150,12 +150,12 @@ void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, voi
 void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern const f32 lbl_805E0E50;
-void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
+void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 void C_MTXLookAt(void *, void *, void *, void *);
 extern u8 *lbl_805D7774;
 void set_camera_look_at(u8 *arg0, u8 *arg1, u8 *arg2);
 extern f32 lbl_805D76B0;
-void TObjPlayer__sub_803D749C(u8 *arg0, f32 farg0);
+void bind_motion_blend_channels(u8 *arg0, f32 farg0);
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
 extern const f32 lbl_805E0E00;
 extern const f32 lbl_805E0E04;
@@ -174,16 +174,16 @@ void TBoss8Dragon__sub_803D78A8(s32 arg0);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z);
 extern u8 *lbl_805D76BC;
-void TObjPlayer__sub_803D7784(void);
-u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key);
-u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
+void advance_motion_row(void);
+u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
+u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *lbl_805D76BC;
 void set_motion_row_stride(s32 n);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
-void TObjPlayer__sub_803D7CA4(void *arg0);
+void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
@@ -199,7 +199,7 @@ extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E08;
 void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1);
 extern u8 *lbl_805D76BC;
-s32 TObjPlayer__sub_803D6BA4(s32 arg0);
+s32 sample_motion_vector_channel(s32 arg0);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 extern u8 *lbl_805D76BC;
@@ -207,17 +207,17 @@ s32 TObjPlayer__sub_803D6C94(s32 arg0);
 void TObjPlayer__sub_803D6D7C(u32, u32, s32, f32);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6D0C(s32 arg0);
-u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key);
-void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
+u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
+void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
-s32 TObjPlayer__sub_803D6BA4(s32 arg0);
+s32 sample_motion_vector_channel(s32 arg0);
 s32 TObjPlayer__sub_803D6C94(s32 arg0);
 s32 TObjPlayer__sub_803D6D0C(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
 extern u8 *lbl_805D76BC;
 void bind_motion_channel_samplers(int arg0, f32 farg0);
-void TObjPlayer__sub_803D7784(void);
+void advance_motion_row(void);
 extern u8 *lbl_805D76BC;
 s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
@@ -342,7 +342,7 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     M2C_FIELD(&lbl_8058D4D0.value, f32 *, 4) = farg1;
 }
 
-void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s32 temp_r31;
     s32 *temp_r30;
     s32 *temp_r29;
@@ -356,7 +356,7 @@ void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     select_motion_sampler((M2C_UNK *) (arg1), (f32) (farg0));
     temp_r31 = M2C_FIELD(lbl_805D76BC, s32 *, 0x20);
     if ((u32) (temp_r31 & 1) != 0) {
-        if (TObjPlayer__sub_803D6BA4((int) (temp_r27)) == 0) {
+        if (sample_motion_vector_channel((int) (temp_r27)) == 0) {
             M2C_FIELD(temp_r27, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0);
             M2C_FIELD(temp_r27, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 4);
             M2C_FIELD(temp_r27, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 8);
@@ -373,7 +373,7 @@ void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
         M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) = (s32) (M2C_FIELD(lbl_805D76BC, s32 *, 0x1C) + 1);
     }
     if ((u32) (temp_r31 & 0x40) != 0) {
-        if (TObjPlayer__sub_803D6BA4((int) (temp_r26)) != 0) {
+        if (sample_motion_vector_channel((int) (temp_r26)) != 0) {
             M2C_FIELD(temp_r26, f32 *, 0) = (f32) (M2C_FIELD(temp_r26, f32 *, 0) - M2C_FIELD(temp_r27, f32 *, 0));
             M2C_FIELD(temp_r26, f32 *, 4) = (f32) (M2C_FIELD(temp_r26, f32 *, 4) - M2C_FIELD(temp_r27, f32 *, 4));
             M2C_FIELD(temp_r26, f32 *, 8) = (f32) (M2C_FIELD(temp_r26, f32 *, 8) - M2C_FIELD(temp_r27, f32 *, 8));
@@ -383,7 +383,7 @@ void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
             M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
         }
     } else if ((u32) (temp_r31 & 8) != 0) {
-        if (TObjPlayer__sub_803D6BA4((int) (temp_r26)) == 0) {
+        if (sample_motion_vector_channel((int) (temp_r26)) == 0) {
             M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
             M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
             M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
@@ -412,7 +412,7 @@ void TObjPlayer__sub_803D6960(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 }
 #pragma pop
 
-s32 TObjPlayer__sub_803D6BA4(s32 arg0) {
+s32 sample_motion_vector_channel(s32 arg0) {
     if (G_803D6BA4->keys[G_803D6BA4->idx] != 0) {
         G_803D6BA4->fn24(G_803D6BA4->keys[G_803D6BA4->idx], G_803D6BA4->vals[G_803D6BA4->idx], arg0, G_803D6BA4->t);
         G_803D6BA4->idx = G_803D6BA4->idx + 1;
@@ -477,7 +477,7 @@ void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D6E8C(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
+void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_803D6E8C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_803D6E8C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803D6E8C, sp10) == 0x8) ? 1 : -1];
@@ -543,7 +543,7 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s16 temp_r5_2;
     s16 temp_r5_3;
 
-    TObjPlayer__sub_803D7940(arg0, 8, arg1, farg0, (u16 **)&stack.spC, (u16 **)&stack.sp8, &stack.sp10);
+    find_motion_key_interval_u16(arg0, 8, arg1, farg0, (u16 **)&stack.spC, (u16 **)&stack.sp8, &stack.sp10);
     temp_r5 = M2C_FIELD(stack.spC, s16 *, 2);
     M2C_FIELD(arg2, s32 *, 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 2) - temp_r5)));
     temp_r5_2 = M2C_FIELD(stack.spC, s16 *, 4);
@@ -555,7 +555,7 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D749C(u8 *arg0, f32 farg0) {
+void bind_motion_blend_channels(u8 *arg0, f32 farg0) {
     TBoss8Dragon__sub_803D78A8((s32)((int) (1)));
     bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 4))), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
     TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
@@ -613,7 +613,7 @@ void set_motion_row_stride(s32 n) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D7784(void) {
+void advance_motion_row(void) {
     s32 v = ((St_803D7784 *)lbl_805D76BC)->a0;
     v += ((St_803D7784 *)lbl_805D76BC)->a8;
     ((St_803D7784 *)lbl_805D76BC)->a0 = v;
@@ -657,7 +657,7 @@ void TBoss8Dragon__sub_803D78A8(s32 arg0) {
 }
 #pragma pop
 
-u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key) {
+u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key) {
     u32 lo = 0;
     while (hi - lo > 1) {
         u32 mid = (lo + hi) >> 1;
@@ -670,7 +670,7 @@ u32 TObjPlayer__sub_803D78C0(u8 *base, u32 stride, u32 hi, u32 key) {
     return lo;
 }
 
-u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key) {
+u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key) {
     u32 lo = 0;
     while (hi - lo > 1) {
         u32 mid = (lo + hi) >> 1;
@@ -686,12 +686,12 @@ u32 TObjPlayer__sub_803D7900(u8 *base, u32 stride, u32 hi, u32 key) {
 #pragma push
 #pragma optimize_for_size on
 #pragma use_lmw_stmw off
-void TObjPlayer__sub_803D7940(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac) {
+void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac) {
     u32 i;
     u16 *a;
     u16 *b;
     s32 d;
-    i = TObjPlayer__sub_803D7900(keys, stride, count, (u32) t);
+    i = find_motion_key_partition_u16(keys, stride, count, (u32) t);
     a = (u16 *) (keys + i * stride);
     if (i < count - 1) {
         b = (u16 *) (keys + (i + 1) * stride);
@@ -718,7 +718,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
     u32 *b;
     s32 d;
 
-    i = TObjPlayer__sub_803D78C0((u8 *) keys, stride, count, (u32) t);
+    i = find_motion_key_partition_u32((u8 *) keys, stride, count, (u32) t);
     a = (u32 *) ((u8 *) keys + i * stride);
     if (i < (u32) (count - 1)) {
         b = (u32 *) ((u8 *) keys + (i + 1) * stride);
@@ -749,7 +749,7 @@ void bind_motion_channel_samplers(int arg0, f32 farg0) {
     select_motion_sampler((M2C_UNK *)arg0, farg0);
     temp_r5 = M2C_FIELD(lbl_805D76BC, s32 *, 0x20);
     if ((u32) (temp_r5 & 1) != 0) {
-        M2C_FIELD(lbl_805D76BC, void **, 0x30) = (void *)TObjPlayer__sub_803D6BA4;
+        M2C_FIELD(lbl_805D76BC, void **, 0x30) = (void *)sample_motion_vector_channel;
     } else {
         M2C_FIELD(lbl_805D76BC, void **, 0x30) = (void *)TObjPlayer__sub_803D7FD0;
     }
@@ -764,13 +764,13 @@ void bind_motion_channel_samplers(int arg0, f32 farg0) {
         M2C_FIELD(lbl_805D76BC, void **, 0x3C) = NULL;
     }
     if ((u32) (temp_r5 & 4) != 0) {
-        M2C_FIELD(lbl_805D76BC, void **, 0x38) = (void *)TObjPlayer__sub_803D6BA4;
+        M2C_FIELD(lbl_805D76BC, void **, 0x38) = (void *)sample_motion_vector_channel;
         return;
     }
     M2C_FIELD(lbl_805D76BC, void **, 0x38) = (void *)TObjPlayer__sub_803D7FD0;
 }
 
-void TObjPlayer__sub_803D7CA4(void *arg0) {
+void compose_motion_node_matrix(void *arg0) {
     struct Vec_803D7CA4 trans;
     struct Vec_803D7CA4 scale;
     struct Angles_803D7CA4 rot;
@@ -846,7 +846,7 @@ s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3,
             sS->y = kK->scl.y;
             sS->z = kK->scl.z;
         }
-        TObjPlayer__sub_803D7784();
+        advance_motion_row();
     } else {
         pP->x = kK->pos.x;
         pP->y = kK->pos.y;

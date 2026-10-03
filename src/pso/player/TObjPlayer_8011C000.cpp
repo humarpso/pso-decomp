@@ -71,7 +71,7 @@ M2C_UNK select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
 M2C_UNK normalize_drop_area(s32 *);
 extern void *item_mgr;
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TItemDrop__sub_80106818(u32, s32, s32);
+M2C_UNK select_box_item__9TItemDropFiiPv(u32, s32, s32);
 M2C_UNK normalize_drop_area(s32 *);
 extern void *item_mgr;
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -85,7 +85,7 @@ s32 get_mag_feed_result(s32 arg0, s32 arg1);
 s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0);
-s32 TItemDrop__sub_801065F8(int, void *, void *);
+s32 roll_channel_below__9TItemDropFPviUi(int, void *, void *);
 f32 TObjPlayer__sub_8011C2C4(void *);
 s32 __cvt_fp2unsigned(f32);
 extern void *item_mgr;
@@ -112,7 +112,7 @@ extern void *item_pmt_tbl;
 extern const f32 lbl_805DAC74;
 extern s32 lbl_8043E7B4[];
 u8 roll_weapon_special_for_stars(u8 arg0);
-f32 TObjPlayer__sub_8011CA10(u8 arg0, u8 arg1);
+f32 get_item_price_coefficient(u8 arg0, u8 arg1);
 u8 get_field_ed__10TObjPlayerFPv(void *p);
 u8 get_field_ec__12TOSwitchItemFPv(void *p);
 u8 get_slot_count__14TItemProShieldFPv(void *p);
@@ -125,7 +125,7 @@ void play_shield_sound_cue(Obj_8011C59C *arg0);
 void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
 void *get_armor_pmt_record(u8, u8);
 extern void *item_pmt_tbl;
-s32 TObjPlayer__sub_8011C4AC(s32 arg0, s32 arg1, s32 arg2);
+s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -212,7 +212,7 @@ void register_item_drop__10TObjPlayerFPv(void *arg0) {
 
 void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
-        TItemDrop__sub_801065F8((int) ((*(u32 *)&item_mgr)), (void *) (arg0), (void *) (arg1));
+        roll_channel_below__9TItemDropFPviUi((int) ((*(u32 *)&item_mgr)), (void *) (arg0), (void *) (arg1));
         return;
     }
     __cvt_fp2unsigned((f32) arg0 * TObjPlayer__sub_8011C2C4((void *) (arg1)));
@@ -237,7 +237,7 @@ void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
         normalize_drop_area(&sp8);
         temp_r4 = sp8 - 1;
         sp8 = temp_r4;
-        TItemDrop__sub_80106818((*(u32 *)&item_mgr), temp_r4, arg1);
+        select_box_item__9TItemDropFiiPv((*(u32 *)&item_mgr), temp_r4, arg1);
     }
 }
 void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -252,7 +252,7 @@ void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1) {
     }
 }
 
-s32 TObjPlayer__sub_8011C4AC(s32 arg0, s32 arg1, s32 arg2) {
+s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2) {
     s32 idx;
     u8 *rec;
     idx = 0;
@@ -391,7 +391,7 @@ u8 roll_weapon_special_for_stars(u8 arg0) {
     return result;
 }
 
-f32 TObjPlayer__sub_8011CA10(u8 arg0, u8 arg1) {
+f32 get_item_price_coefficient(u8 arg0, u8 arg1) {
     switch (arg0) {
     case 0:
         if (arg1 < 0xAA) {

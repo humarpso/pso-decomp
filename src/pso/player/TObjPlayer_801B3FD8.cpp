@@ -202,7 +202,7 @@ u8 TObjPlayer__sub_801C2134(s32);
 u8 get_team_id__10TObjPlayerFPv(s32);
 u8 get_char_class__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C214C();
-s32 TObjPlayer__sub_801D9250(s32, s32);
+s32 get_ply_level_table_row(s32, s32);
 s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self);
 s32 is_locally_controlled__10TObjPlayerFPv();
 u16 obj_getField1c(void *);
@@ -299,7 +299,7 @@ s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self) {
         if (lvl > get_max_level__10TObjPlayerFv()) {
             break;
         }
-        e = TObjPlayer__sub_801D9250(cls, lvl);
+        e = get_ply_level_table_row(cls, lvl);
         if (e == 0) {
             break;
         }

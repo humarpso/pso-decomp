@@ -34,7 +34,7 @@ extern M2C_UNK lbl_805DC604;
 void TScene__sub_80206984(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TScene__sub_80205AEC(void *);
-s32 TScene__sub_80205CC4(void *);
+s32 create_texture_wave_tasks__6TSceneFi(void *);
 s32 TScene__sub_80206410(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__6TScene[];
@@ -52,7 +52,7 @@ extern void *TScene__data_805D5FCC;
 extern s32 TScene__data_805D5FE8;
 extern u32 TScene__data_805D5FFC;
 extern s32 TScene__data_805D6010;
-void TScene__sub_802066BC(s32 arg0);
+void load_scene_map_file(s32 arg0);
 M2C_UNK copy_name(M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
@@ -60,7 +60,7 @@ void TScene__sub_802065E8(void);
 void TScene__sub_802065EC(void);
 void TScene__sub_802065F0(s32);
 void TScene__sub_80206658(s32);
-void TScene__sub_802066BC(s32 arg0);
+void load_scene_map_file(s32 arg0);
 s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *get_floor_scene_table(s32);
 void bind_gvm_texture_list(M2C_UNK *, u32);
@@ -80,7 +80,7 @@ extern s32 TScene__data_805D5FF0;
 extern s32 TScene__data_805D5FF4;
 extern const f32 TScene__data_805DC5D8;
 extern M2C_UNK lbl_805DC604;
-void TScene__sub_8020681C(void);
+void load_floor_scene(void);
 M2C_UNK copy_name(M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
@@ -210,7 +210,7 @@ u8 *TScene__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     TScene__sub_80206410((void *) (arg0));
     if ((get_global_state__14TOKeyMachine01Fv() == 1) && ((u32) TScene__data_805D5FD0 != 0U) && ((void *) (*(u8 * *)&TScene__data_805D5FCC) != NULL) && ((u32) M2C_FIELD((*(u8 * *)&TScene__data_805D5FCC), u32 *, 0x14) != 0U)) {
-        TScene__sub_80205CC4((void *) (arg0));
+        create_texture_wave_tasks__6TSceneFi((void *) (arg0));
     }
     TScene__sub_80205AEC((void *) (arg0));
     return arg0;
@@ -231,7 +231,7 @@ extern M2C_UNK lbl_8044A98C[];
 extern u32 TScene__data_805D6028;
 extern s32 lbl_805D602C;
 
-void TScene__sub_802066BC(s32 arg0) {
+void load_scene_map_file(s32 arg0) {
     u8 sp8[0x20];
     Ent_802066BC *e;
     TScene__data_805D5FCC = NULL;
@@ -268,7 +268,7 @@ void load_scene_collision_file(s32 arg0) {
     }
 }
 
-void TScene__sub_8020681C(void) {
+void load_floor_scene(void) {
     Ent_802066BC *tbl;
     s32 ent;
     s32 found;
@@ -284,7 +284,7 @@ void TScene__sub_8020681C(void) {
         ent = tbl[res.index].idx;
     }
     copy_name((M2C_UNK *)TScene__data_805D3610);
-    TScene__sub_802066BC(ent);
+    load_scene_map_file(ent);
     load_scene_collision_file((s32)(ent));
     if (TScene__data_805D5FCC != NULL && M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) != 0) {
         found = 0;

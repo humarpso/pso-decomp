@@ -71,7 +71,7 @@ s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 init_entry_fields__6TLobbyFPviii(int, int, void *, void *);
 void zero_vec3(void *);
-M2C_UNK TObjPlayer__sub_801C58CC(void *, void *);
+M2C_UNK calc_death_pose_height_offset(void *, void *);
 M2C_UNK update_action_render__10TObjPlayerFPv(void *);
 s32 __nw__7TObjectFUl(int);
 void complete_deferred_player_death();
@@ -85,7 +85,7 @@ void restart_death_pose__10TObjPlayerFPv(u8 *arg0) {
     s32 var_r31;
     update_action_render__10TObjPlayerFPv(arg0);
     zero_vec3((void *) (arg0 + 0x5FC));
-    TObjPlayer__sub_801C58CC((void *) (arg0 + 0x5FC), (void *) (arg0));
+    calc_death_pose_height_offset((void *) (arg0 + 0x5FC), (void *) (arg0));
     if (is_locally_controlled__10TObjPlayerFPv((void *) (arg0)) != 0) {
         var_r31 = __nw__7TObjectFUl((int) (0x2C));
         if (var_r31 != 0) {

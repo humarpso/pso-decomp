@@ -311,7 +311,7 @@ void update_state__19TBoss3VoloptMonitorFPv(void *arg0);
 s32 TBoss3VoloptHiraisin__sub_80041D0C();
 s32 TBoss3VoloptHiraisin__sub_80041D3C();
 void TLobby__sub_803DA16C(void*);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -501,7 +501,7 @@ void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss3VoloptMonitor;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

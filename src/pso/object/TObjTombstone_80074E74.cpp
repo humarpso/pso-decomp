@@ -71,7 +71,7 @@ f32 get_view_scale__11TCameraCtrlFv();
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
 f32 vec3_dot(void *, void *);
-void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
+void project_world_to_screen(s32, void *, void *);
 void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_z(s32, s32);
@@ -173,7 +173,7 @@ s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
         return 0;
     }
     push_matrix();
-    TParticleCtrl__sub_803D8D1C(0, arg2, arg1);
+    project_world_to_screen(0, arg2, arg1);
     pop_matrix();
     if (is_split_screen() != 0) {
         arg1[0] -= (f32)get_screen_height__11TCameraCtrlFv();

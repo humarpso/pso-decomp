@@ -12,7 +12,7 @@ M2C_UNK set_pos_z__10TObjPlayerFPvf(void *, f32);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, M2C_UNK, M2C_UNK);
 s32 test_flags_any(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
-s32 TObjPlayer__sub_801AFF0C();
+s32 is_on_current_floor__10TObjPlayerFi();
 M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
 M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
 
@@ -20,7 +20,7 @@ s32 obj_testFlags30(void *, M2C_UNK);
 extern const f32 TObjPlayer__data_805DC360;
 
 void update_active_state__10TObjPlayerFPv(u8 *arg0) {
-    if (TObjPlayer__sub_801AFF0C() != 0) {
+    if (is_on_current_floor__10TObjPlayerFi() != 0) {
         TObjPlayer__sub_8011E204(arg0, 4);
         if (obj_testFlags30(arg0, 0x800) == 0) {
             run_action_state_phase__10TObjPlayerFisi(arg0, 1, 0);

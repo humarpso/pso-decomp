@@ -76,7 +76,7 @@ M2C_UNK set_chunk_material_color(s32);
 extern M2C_UNK lbl_805D53EC;
 extern s32 some_id_805c6f74;
 void enable_first_time_flag__10TObjPlayerFi(s32 arg0);
-void TItemData__sub_8010CEF4(void *);
+void has_bonus_stats__9TItemDataFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void copy_item_data_to_icon__10TObjPlayerFPv(void *arg0);
 s32 get_player_by_client_id(u16);
@@ -227,7 +227,7 @@ void enable_first_time_flag__10TObjPlayerFi(s32 arg0) {
 void copy_item_data_to_icon__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8[4];
     copy_to_item_data__5TItemFPvPv(arg0, &sp8);
-    TItemData__sub_8010CEF4(&sp8);
+    has_bonus_stats__9TItemDataFPv(&sp8);
 }
 s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16 arg0) {
     s32 temp_r3;

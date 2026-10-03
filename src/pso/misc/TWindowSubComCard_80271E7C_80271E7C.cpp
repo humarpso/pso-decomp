@@ -18,7 +18,7 @@ struct Ent_80271F04 {
 };
 
 extern "C" {
-u8 *TLobby__sub_8001DC24(void);
+u8 *get_shared_text_buffer(void);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *);
 void free__11TOBoss4RockFUi(u32);
 void TLobby__sub_80225828(s32, s32);
@@ -148,8 +148,8 @@ void TWindowSubComCard__sub_802721D8(u8 *arg0) {
   u8 *temp_r31;
   temp_r30 = realloc_buffer__17TWindowSubComCardFPv(*((u8 **) (((s8 *) arg0) + 0x80)));
   temp_r29 = (u8 *) TWindowSubComCard__sub_80275228();
-  TWindowSubComCard__sub_80225E80((void *) temp_r30, TLobby__sub_8001DC24());
-  new_var = TLobby__sub_8001DC24();
+  TWindowSubComCard__sub_80225E80((void *) temp_r30, get_shared_text_buffer());
+  new_var = get_shared_text_buffer();
   temp_r31 = (u8 *) new_var;
   TLobby__sub_80225828(get_id__6TLobbyFPv(temp_r29), (s32) temp_r31);
   free__11TOBoss4RockFUi((u32) temp_r30);

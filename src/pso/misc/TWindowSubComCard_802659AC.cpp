@@ -73,7 +73,7 @@ M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 void TWindowSubComCard__sub_80265F60(Win_80265F60 *self);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
-void TWindowSubComCard__sub_80265AA4(Card_80265AA4 *arg0);
+void advance_past_disabled_menu_rows(Card_80265AA4 *arg0);
 void TWindowSubComCard__sub_80266078(u8 *arg0);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
@@ -110,7 +110,7 @@ void TWindowSubComCard__sub_80265A38(u8 *arg0) {
     }
 }
 
-void TWindowSubComCard__sub_80265AA4(Card_80265AA4 *arg0) {
+void advance_past_disabled_menu_rows(Card_80265AA4 *arg0) {
     u16 *e;
     s16 t;
     if (arg0->cur < arg0->cnt) {

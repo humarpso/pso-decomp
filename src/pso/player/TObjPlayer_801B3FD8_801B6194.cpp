@@ -33,7 +33,7 @@ struct Color_801B6964 { f32 r, g, b, a; };
 extern "C" {
 M2C_UNK recalc_combat_stats__10TObjPlayerFv(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
 f32 get_tp_class_factor__10TObjPlayerFPv();
-f32 TObjPlayer__sub_801D9440(s32);
+f32 get_class_hp_factor__10TObjPlayerFPv(s32);
 s32 is_alive_and_ready__10TObjPlayerFi(Plr_801B6A5C *);
 void refill_traps__10TObjPlayerFPv(Plr_801B6A5C *);
 s32 reset_volopt_state__10TObjPlayerFv(Plr_801B6A5C *);
@@ -91,7 +91,7 @@ int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 TObjPlayer__sub_801D921C(void *, s32);
 s16 *TObjPlayer__sub_801D93C4();
 f32 get_tp_class_factor__10TObjPlayerFPv();
-f32 TObjPlayer__sub_801D9440(s32);
+f32 get_class_hp_factor__10TObjPlayerFPv(s32);
 M2C_UNK clamp_field_32E__10TObjPlayerFPv(s32);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 M2C_UNK clamp_value__10TObjPlayerFPv(s32);
@@ -148,7 +148,7 @@ void TObjPlayer__vt71(s32 arg0) {
     f32 temp_f1;
 
     temp_f31 = get_tp_class_factor__10TObjPlayerFPv();
-    temp_f1 = TObjPlayer__sub_801D9440(arg0);
+    temp_f1 = get_class_hp_factor__10TObjPlayerFPv(arg0);
     recalc_combat_stats__10TObjPlayerFv(arg0, 0, 0, 0, temp_f1, temp_f31);
     clamp_value__10TObjPlayerFPv(arg0);
     clamp_field_32E__10TObjPlayerFPv(arg0);
@@ -223,7 +223,7 @@ void handle_6x30_change_player_level(void *arg0) {
     p->stats->st[5] = pkt.st[5];
     p->stats->exp = pkt.exp;
     f = ((f32 (*)(Plr_801B6A5C *))get_tp_class_factor__10TObjPlayerFPv)(p);
-    recalc_combat_stats__10TObjPlayerFv((s32)p, (M2C_UNK)p->stats, 0, 0, TObjPlayer__sub_801D9440((s32)p), f);
+    recalc_combat_stats__10TObjPlayerFv((s32)p, (M2C_UNK)p->stats, 0, 0, get_class_hp_factor__10TObjPlayerFPv((s32)p), f);
     p->a2 = p->a;
     p->b2 = p->b;
     if (is_alive_and_ready__10TObjPlayerFi(p) != 0) {

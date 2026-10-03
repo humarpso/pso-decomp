@@ -47,7 +47,7 @@ extern "C" {
 
 void create_tasks__6TLobbyFv(void);
 M2C_UNK TCineCtrl__ct(u32, s32);
-M2C_UNK TFogCtrl__sub_800FBB68();
+M2C_UNK create_area_fog_ctrl();
 M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 is_scene_ready__6TLobbyFv();
 M2C_UNK activate_triggered_floor_events();
@@ -83,7 +83,7 @@ extern s32 tl_fade;
 
 void create_tasks__6TLobbyFv(void) {
     u32 tmp;
-    TFogCtrl__sub_800FBB68();
+    create_area_fog_ctrl();
     if (is_split_screen() == 0) {
         tmp = __nw__7TObjectFUl(0x20);
         if (tmp != 0U) {

@@ -48,7 +48,7 @@ extern "C" {
 extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
 extern u8 *lbl_805D774C;
 void TObjPlayer__sub_803DCBD8(s32 arg0);
-s32 TObjPlayer__sub_803D7CA4(int);
+s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 queue_model_draw_matrix(int, void *);
@@ -71,7 +71,7 @@ extern u32 lbl_8047E408[];
 extern u8 *lbl_805D774C;
 void apply_cached_blend_mode(s32 arg0);
 void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
-s32 TObjPlayer__sub_803D7CA4(int);
+s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
 extern struct MotionCtx_803DC894 * const lbl_805D4698;
@@ -123,7 +123,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     var_r31 = (u8 *)(arg0);
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4((int) (var_r31));
+        compose_motion_node_matrix((int) (var_r31));
         if (((M2C_UNK (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&lbl_805D7710)) != NULL) {
             (*(RecoveredCallback_92513335c3ed *)&lbl_805D7710)(var_r31);
         }
@@ -201,7 +201,7 @@ void TObjPlayer__sub_803DCB40(struct Node_803DCB40 *arg0) {
     u32 t;
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4((int) arg0);
+        compose_motion_node_matrix((int) arg0);
         if (lbl_805D76B8 != NULL) {
             lbl_805D76B8(arg0);
         }

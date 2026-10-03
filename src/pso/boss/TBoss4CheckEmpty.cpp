@@ -10,7 +10,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_active__11TBoss4Type2Fv();
 M2C_UNK init_music_sequencer(int);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+M2C_UNK play_area_music(void *);
 M2C_UNK create__12TBoss4ThanksFv();
 s32 TBoss4Thanks__sub_8035C92C();
 extern M2C_UNK lbl_804789DC[];
@@ -31,7 +31,7 @@ void run_task__16TBoss4CheckEmptyFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0x5A) {
         if (TBoss4Thanks__sub_8035C92C() != 0) {
             create__12TBoss4ThanksFv();
-            TObjBgmColCtrl__sub_802274B8((void *) (lbl_804789DC));
+            play_area_music((void *) (lbl_804789DC));
         } else {
             init_music_sequencer((int) (4));
         }

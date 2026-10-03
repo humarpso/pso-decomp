@@ -13,7 +13,7 @@ void *dt__9TWindowDDFPvs(void *arg0, s16 arg1);
 void init_window__9TWindowDDFPv(void* p);
 void *TWindowDD__sub_80340F00(void *);
 M2C_UNK TWindowDD__sub_80348AFC(s32, void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, void *, f32);
+M2C_UNK draw_visible_window_entries(s32, s32, void *, f32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -55,7 +55,7 @@ void draw_and_scroll_entry__9TWindowDDFi(s32 arg0) {
     draw_entry_if_visible__9TWindowDDFPvPv((void *)(arg0), (void *)(temp_r3));
     temp_f1 = M2C_FIELD(temp_r3, f32 *, 0x14);
     M2C_FIELD(temp_r3, f32 *, 0x14) = (f32) (temp_f1 + lbl_805DFC90);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3, temp_f1);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, temp_f1);
 }
 
 extern f32 lbl_805DFC94;

@@ -130,7 +130,7 @@ void copy_position__20TBoss3VoloptHiraisinFi(s32);
 void update_prev_position__10TObjPlayerFPv(void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void set_indexed_flags(void *, s32, s32);
-s32 TQuestThread__sub_801F5EAC(void *, s32);
+s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -145,7 +145,7 @@ void update_battle_target__10TObjPlayerFPv(void *arg0);
 void draw_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(s32);
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 u16 find_nearest_visible_player(void *, M2C_UNK, f32 *, f32);
@@ -197,7 +197,7 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         some_id_805c6f74 &= 0xFFFFFFFE;
-        TObjLight__sub_80134098();
+        restore_scene_lighting();
         render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
     }
 }
@@ -231,7 +231,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
     temp_r4 = *((s32 *) (((s8 *) arg0) + 0x3A0));
     if (temp_r4 > 0)
     {
-      if (TQuestThread__sub_801F5EAC(var_r31, temp_r4) != 0)
+      if (get_register__12TQuestThreadFPvi(var_r31, temp_r4) != 0)
       {
         *((s32 *) (((s8 *) arg0) + 0x390)) = 1;
         set_indexed_flags(arg0, 0, 1);
@@ -243,7 +243,7 @@ void run_task__11TObjNpcBaseFPv(u8 *arg0) {
       }
     }
     temp_r4_2 = *((s32 *) (((s8 *) arg0) + 0x3A4));
-    if ((temp_r4_2 > 0) && (TQuestThread__sub_801F5EAC(var_r31, temp_r4_2) != 0))
+    if ((temp_r4_2 > 0) && (get_register__12TQuestThreadFPvi(var_r31, temp_r4_2) != 0))
     {
       *((s32 *) (((s8 *) arg0) + 0x390)) = 0;
       clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1U);

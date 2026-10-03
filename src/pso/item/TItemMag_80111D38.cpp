@@ -68,14 +68,14 @@ int get_flag_40__8TItemMagFPv(void *);
 void copy_owner_data__8TItemMagFPv(void *);
 u8 * get_pmt_record__10TObjPlayerFi(int);
 M2C_UNK register_photon_blasts__8TItemMagFPv(void *);
-M2C_UNK TItemMag__sub_80113F64(void *, int);
+M2C_UNK add_photon_blast__8TItemMagFPvUc(void *, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 void apply_form_change__8TItemMagFPv(u8 *arg0);
 s32 check_class_equip_permission(void *, M2C_UNK);
 M2C_UNK try_add_action__8TItemMagFii(void *, M2C_UNK);
 void evolve_first_form__8TItemMagFPv(u8 *arg0);
 u8 get_field_ed__10TObjPlayerFPv(s32);
-s8 TItemMag__sub_801117C0(void *);
+s8 get_evolution_stage__8TItemMagFPv(void *);
 s32 evolve_rare_form__8TItemMagFPv(void *);
 void update_feed_anim__8TItemMagFPv(void *arg0);
 void do_action_by_class__8TItemMagFi(s32 arg0);
@@ -352,7 +352,7 @@ void apply_form_change__8TItemMagFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_pmt_record__10TObjPlayerFi((s32) get_field_ed__10TObjPlayerFPv((s32)(arg0))));
     if (temp_r3 != NULL) {
-        TItemMag__sub_80113F64((void *) (arg0 + 0x198), (int) (M2C_FIELD(temp_r3, u8 *, 0xA)));
+        add_photon_blast__8TItemMagFPvUc((void *) (arg0 + 0x198), (int) (M2C_FIELD(temp_r3, u8 *, 0xA)));
     }
     if (TObjPlayer__sub_80102C30(arg0) == 2) {
         ((VObj_18_8b050c *)(arg0))->m45();
@@ -372,7 +372,7 @@ void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
   s32 stage;
   s16 level;
   u8 before;
-  stage = TItemMag__sub_801117C0(self);
+  stage = get_evolution_stage__8TItemMagFPv(self);
   level = TItemMagSub__sub_8011455C(self->data);
   before = get_field_ed__10TObjPlayerFPv((s32) self);
   {

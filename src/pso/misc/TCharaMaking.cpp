@@ -63,7 +63,7 @@ struct P_8028DCCC { f32 a; f32 b; };
 extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 lbl_804D9164;
 u8 *get_class_appearance_preset(s32 arg0);
-M2C_UNK TObjPlayer__sub_801415BC();
+M2C_UNK set_shadow_material_state();
 M2C_UNK draw_chunk_object(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -73,7 +73,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
-s32 TCharaMaking__sub_8028DC74(s8 *arg0);
+s32 calc_section_id_from_name(s8 *arg0);
 extern P_8028DCCC lbl_804D398C[];
 f32 calc_character_height(void *p);
 }
@@ -98,7 +98,7 @@ s32 query_state__12TCharaMakingFv(void) {
     return TObjCMMainMenu__sub_8028EBCC((void*)lbl_805D6524);
 }
 
-s32 TCharaMaking__sub_8028DC74(s8 *arg0) {
+s32 calc_section_id_from_name(s8 *arg0) {
     s32 sum = 0;
     s32 i;
     s32 r;
@@ -150,7 +150,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
         set_chunk_material_override_pair((int) (-1), (int) (0x800));
     }
     if (arg2 != 0) {
-        TObjPlayer__sub_801415BC();
+        set_shadow_material_state();
     } else {
         color.a = farg0;
         color.r = lbl_805DD934 * (f32) arg1->red;
@@ -213,12 +213,12 @@ extern "C" {
 
 void clear_flag_bit0__12TCharaMakingFv(void);
 void enable_making__12TCharaMakingFv(void);
-int TObjPlayer__sub_801417E8(void);
-int TObjPlayer__sub_80141820(void*);
+int restore_default_scene(void);
+int set_scene_override(void*);
 
-void clear_flag_bit0__12TCharaMakingFv(void) { TObjPlayer__sub_801417E8(); some_id_805c6f74 = (some_id_805c6f74 & 0xfffffffe); }
+void clear_flag_bit0__12TCharaMakingFv(void) { restore_default_scene(); some_id_805c6f74 = (some_id_805c6f74 & 0xfffffffe); }
 
-void enable_making__12TCharaMakingFv(void) { some_id_805c6f74 = (some_id_805c6f74 | 0x1); TObjPlayer__sub_80141820((void*)31); }
+void enable_making__12TCharaMakingFv(void) { some_id_805c6f74 = (some_id_805c6f74 | 0x1); set_scene_override((void*)31); }
 typedef struct Appearance Appearance;
 typedef struct ClassAppearance ClassAppearance;
 typedef struct TextureList TextureList;

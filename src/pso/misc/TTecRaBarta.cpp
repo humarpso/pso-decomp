@@ -128,7 +128,7 @@ struct Self_80237A94 {
 };
 
 M2C_UNK free__11TOBoss4RockFUi(void *);
-M2C_UNK TLobby__sub_80226294(void *);
+M2C_UNK stop_sound_request(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, int);
 extern struct Profile_80237A94 lbl_8044D9F8[];
@@ -179,7 +179,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
                 queue_destruction__7TObjectFv(obj);
             }
         }
-        TLobby__sub_80226294(self->emitters);
+        stop_sound_request(self->emitters);
         free__11TOBoss4RockFUi(self->objs);
         destroy_technique_base__9TTecLukerFPvs((void *) (self), (int) (0));
         if (arg1 > 0) {

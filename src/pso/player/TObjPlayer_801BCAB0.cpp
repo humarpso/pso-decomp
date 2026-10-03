@@ -10,7 +10,7 @@ s32 set_flag_400000__10TObjPlayerFPv(s32);
 int queue_destruction__7TObjectFv(void*);
 void destroy_owned_object__10TObjPlayerFPv(void* p);
 int is_script_controlled__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_801AFF50(void*);
+int sync_current_floor__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801AFF80(void*);
 void update_if_active__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCA0C(void);
@@ -27,13 +27,13 @@ void update_state__10TObjPlayerFi(s32 arg0) {
         set_flag_400000__10TObjPlayerFPv(arg0);
     } else {
         TObjPlayer__sub_801AFF80((void*)(arg0));
-        TObjPlayer__sub_801AFF50((void*)(arg0));
+        sync_current_floor__10TObjPlayerFPv((void*)(arg0));
     }
     if ((is_final_phase__10TObjPlayerFv() != 0) && (is_current_room__10TObjRoomIdFPv(arg0) != 0)) {
         apply_state_transform__10TObjPlayerFUi(arg0);
     }
 }
 void TObjPlayer__sub_801BCB28(void) {  }
-void update_if_active__10TObjPlayerFPv(void* p) { if (is_script_controlled__10TObjPlayerFPv(p) != 0) { TObjPlayer__sub_801AFF80(p); TObjPlayer__sub_801AFF50(p); } }
+void update_if_active__10TObjPlayerFPv(void* p) { if (is_script_controlled__10TObjPlayerFPv(p) != 0) { TObjPlayer__sub_801AFF80(p); sync_current_floor__10TObjPlayerFPv(p); } }
 
 }

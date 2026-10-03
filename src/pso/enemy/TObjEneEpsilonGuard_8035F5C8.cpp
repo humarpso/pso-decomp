@@ -703,7 +703,7 @@ void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_transform_state__10TObjPlayerFv();
 s32 init_xyz_limits__10TObjPlayerFv();
-s32 TObjPlayer__sub_801E341C(void *, int, int);
+s32 draw_line_list(void *, int, int);
 extern RecoveredGlobal_80360638_lbl_804F22CC lbl_804F22CC;
 extern RecoveredGlobal_80360638_lbl_805439FC lbl_805439FC;
 void TObjEneEpsilonGuard__sub_80360638(s32 arg0);
@@ -1043,7 +1043,7 @@ void TObjEneEpsilonGuard__sub_80360638(s32 arg0) {
     VecCopy__FP3VecPC3Vec((void *) (&lbl_805439FC.value), (void *) (arg0 + 0x2FC));
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_805439FC.value + 0xC), (void *) (arg0 + 0x4FC));
     init_xyz_limits__10TObjPlayerFv();
-    TObjPlayer__sub_801E341C((void *) (&lbl_804F22CC.value), (int) (1), (int) (5));
+    draw_line_list((void *) (&lbl_804F22CC.value), (int) (1), (int) (5));
     reset_transform_state__10TObjPlayerFv();
 }
 

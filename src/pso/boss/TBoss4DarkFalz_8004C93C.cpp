@@ -59,7 +59,7 @@ extern int TBoss4DarkFalz__data_805D4D64;
 extern int lbl_805D4D68;
 void enter_state_126__14TBoss4DarkFalzFPv(void* a0);
 int TBoss4DarkFalz__sub_8004BA70(void*);
-void TObjBgmColCtrl__sub_802274B8(void *);
+void play_area_music(void *);
 void create__11TObjDFDemo4FPvPvPv(void *, void *, void *);
 extern M2C_UNK lbl_80437298[];
 extern s32 lbl_805D5550;
@@ -287,7 +287,7 @@ void TBoss4DarkFalz__sub_8004C704(u8 *arg0) {
 void init_state__14TBoss4DarkFalzFPv(void *arg0) {
     TBoss4DarkFalz__sub_8004BA70((void*)(arg0));
     create__11TObjDFDemo4FPvPvPv(arg0, (void *)((char *)arg0 + 924), M2C_FIELD(arg0, void **, 0x3A8));
-    TObjBgmColCtrl__sub_802274B8(lbl_80437298);
+    play_area_music(lbl_80437298);
     M2C_FIELD(arg0, u32 *, 0x380) = 114;
 }
 
@@ -549,7 +549,7 @@ void TBoss4DarkFalz__sub_8004CD88(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x394) != 0U) {
             ((M2C_UNK (*)(M2C_UNK, M2C_UNK))TBoss4DarkFalz__sub_8004D9A0)(M2C_FIELD(arg0, u32 *, 0x394), 2);
         }
-        TObjBgmColCtrl__sub_802274B8(lbl_804372A4);
+        play_area_music(lbl_804372A4);
     }
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x380);
     if (temp_r3 > 0x145) {
@@ -634,7 +634,7 @@ int TBoss4DarkFalz__sub_8004AB90(void*, void*);
 int TBoss4DarkFalz__sub_8004B77C(void*);
 int TBoss4DarkFalz__sub_8004B8F8(void*);
 int TBoss4DarkFalz__sub_8004BA70(void*);
-int TLobby__sub_80227220(void*);
+int set_dark_falz_music_request(void*);
 int check_demo_mode__10TObjPlayerFv(void*);
 int create__11TObjDFDemoFFPv(void*);
 int create__14TObjDFUsoTowerFPv(void);
@@ -667,7 +667,7 @@ void TBoss4DarkFalz__sub_8004D098(u8 *arg0) {
     }
 }
 
-void start_demo__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004B8F8(p); TBoss4DarkFalz__sub_8004AB90(p, (void*)1); TBoss4DarkFalz__sub_8004BA70(p); create__11TObjDFDemoFFPv(p); TLobby__sub_80227220((void*)1); fn_8036A514((void*)23); *(int*)((char*)p + 0x380) = 120; }
+void start_demo__14TBoss4DarkFalzFPv(void* p) { TBoss4DarkFalz__sub_8004B8F8(p); TBoss4DarkFalz__sub_8004AB90(p, (void*)1); TBoss4DarkFalz__sub_8004BA70(p); create__11TObjDFDemoFFPv(p); set_dark_falz_music_request((void*)1); fn_8036A514((void*)23); *(int*)((char*)p + 0x380) = 120; }
 
 void TBoss4DarkFalz__sub_8004D1E4(void *self) {
     V_8004D1E4 v;

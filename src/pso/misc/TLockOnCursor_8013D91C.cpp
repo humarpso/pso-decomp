@@ -33,7 +33,7 @@ extern u8 *lbl_805D5640;
 extern s32 lbl_805D5644;
 extern s32 TLockOnCursor__data_805D5648;
 extern s32 lbl_805D564C;
-void TLockOnCursor__sub_8013DC38(void);
+void load_target_cursor_models(void);
 M2C_UNK __dt__7TObjectFv(void *, int);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
@@ -67,7 +67,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_loc_start;
 extern s32 tl_loc_end;
 extern s32 tl_window;
-void TLockOnCursor__sub_8013DAB0(s32 arg0);
+void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0);
 }
 
 extern "C" {
@@ -103,7 +103,7 @@ void run_task__13TLockOnCursorFv(s32 arg0) {
     TLockOnCursor__sub_8013EB80(arg0 + 0x520);
 }
 
-void TLockOnCursor__sub_8013DAB0(s32 arg0) {
+void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
     s32 var_r31_2;
     s32 var_r31_3;
     s32 var_r31_4;
@@ -147,7 +147,7 @@ void TLockOnCursor__sub_8013DBF4(void) {
     TLockOnCursor__data_805D5648 = 0;
 }
 
-void TLockOnCursor__sub_8013DC38(void) {
+void load_target_cursor_models(void) {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) lbl_805D5640 == NULL) {

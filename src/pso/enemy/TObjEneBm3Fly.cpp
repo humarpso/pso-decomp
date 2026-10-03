@@ -153,7 +153,7 @@ extern "C" {
 void TObjEneBm3Fly__vt87(void* p);
 f32 approach_value__13TObjEneBm3FlyFff(f32 farg0, f32 farg1);
 u16 get_active_id__13TObjEneBm3FlyFPv(void *arg0);
-int TObjEneBm3Fly__sub_800B1978(void*);
+int clamp_flight_height__13TObjEneBm3FlyFPv(void*);
 int TObjEneDD__vt86(void*);
 f32 get_random_float__8TObjFishFv(f32);
 
@@ -247,6 +247,6 @@ void TObjEneBm3Fly__vt86(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 4) = temp_f31;
 }
 
-void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); TObjEneBm3Fly__sub_800B1978(p); }
+void TObjEneBm3Fly__vt87(void* p) { TObjEneDD__vt86(p); clamp_flight_height__13TObjEneBm3FlyFPv(p); }
 
 }

@@ -326,10 +326,10 @@ void *create__13TOCtrlDubchikFPv(void *arg0);
 void destroy_instance__13TOCtrlDubchikFv(void);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
 s32 select_melee_contact_body__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 void *__nw__7TObjectFUl(int);
@@ -540,8 +540,8 @@ void TOCtrlDubchik__sub_8015D314(void) {
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TOCtrlDubchik;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

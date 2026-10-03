@@ -63,7 +63,7 @@ struct Obj_801A7428 {
 extern "C" {
 void fn_801A753C(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
-void TCameraCtrl__sub_80069D04(struct PbCameraParams_801A73B0 *);
+void set_active_camera_pose_from_params(struct PbCameraParams_801A73B0 *);
 void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
 extern const f32 lbl_805DC0D8;
 extern const f32 lbl_805DC0DC;
@@ -95,7 +95,7 @@ void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self) {
     VecCopy__FP3VecPC3Vec(&parameters.position, &self->position);
     VecCopy__FP3VecPC3Vec(&parameters.target, &self->target);
     parameters.projection = 0x4222;
-    TCameraCtrl__sub_80069D04(&parameters);
+    set_active_camera_pose_from_params(&parameters);
 }
 
 void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {

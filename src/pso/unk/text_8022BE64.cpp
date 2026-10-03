@@ -12,7 +12,7 @@ struct T_8022BEAC { u8 pad[0x20]; u8 f20[0xC]; u8 f2c[0x10]; f32 f3c; u8 pad2[0x
 
 extern "C" {
 void fn_8022BE64(u8 *arg0, u8 *arg1, s32 arg2);
-void fn_8008271C(void *, void *, f32);
+void approach_vector_in_place(void *, void *, f32);
 void TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern V3_8022BEAC lbl_8044CDE0;
 extern const f32 lbl_805DC7B0;
@@ -65,7 +65,7 @@ void render__9TTecLukerFv(T_8022BEAC *self) {
     case 0:
         break;
     case 1:
-        fn_8008271C(&self->f3c, &v, lbl_805DC7B0);
+        approach_vector_in_place(&self->f3c, &v, lbl_805DC7B0);
         break;
     }
     TObjRoomId__sub_80141CF4(self->f20, self->f2c, self->f3c);

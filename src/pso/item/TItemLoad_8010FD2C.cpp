@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-s32 TLobby__sub_800F7DAC(s32, s32);
+s32 prs_decompress_buffer(s32, s32);
 extern int lbl_805D5494;
 s32 TItemLoad__sub_8010FD80(u32 arg0);
 }
@@ -37,7 +37,7 @@ void *init__9TItemLoadFPv(void *arg0) {
 
 s32 TItemLoad__sub_8010FD80(u32 arg0) {
     if (((u32) (*(u32 *)&lbl_805D5494) != 0U) && (arg0 != 0U)) {
-        return TLobby__sub_800F7DAC((s32) (*(u32 *)&lbl_805D5494), (s32) arg0);
+        return prs_decompress_buffer((s32) (*(u32 *)&lbl_805D5494), (s32) arg0);
     }
     return 0;
 }

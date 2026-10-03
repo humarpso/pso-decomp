@@ -62,7 +62,7 @@ extern M2C_UNK TQuestThread__data_804C8678[];
 extern u8 *lbl_805D5EE8;
 extern u32 lbl_805D5EEC;
 extern u8 lbl_805DC50C;
-u8 *TQuestThread__sub_801F62E0(u8 *arg0, void *parent, void *arg2, s32 arg3);
+u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -154,7 +154,7 @@ u8 *TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 #pragma pop
 
-u8 *TQuestThread__sub_801F62E0(u8 *arg0, void *parent, void *arg2, s32 arg3) {
+u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
     s32 size;
     void *mem;
     TObj_801F62E0 *obj;

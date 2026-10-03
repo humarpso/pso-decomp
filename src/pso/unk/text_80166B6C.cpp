@@ -74,8 +74,8 @@ void TOFenceAncient02__vt13(void* p);
 void TOFenceAncient02__vt14(void);
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1);
 void *create__16TOFenceAncient01FPv(void *arg0);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
@@ -140,8 +140,8 @@ void TOFenceAncient01__sub_80166C40(void) {
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOFenceAncient01;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy__16TOFenceAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -201,28 +201,28 @@ void TLobby__sub_803A8DC0(u8 *arg0);
 void TLobby__sub_803BB98C(u8, void *, void *);
 void TLobby__sub_803A93D0(u8 *arg0, u8 *arg1);
 void TLobby__sub_803A4DDC(u32, s16);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 void TLobby__sub_803A9F80(s32 arg0, s16 arg1);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 void TLobby__sub_803A9FC8(s32 arg0);
 void TLobby__sub_803A4FC4(s32, s32, s32);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 void TLobby__sub_803AA000(s32 arg0, s32 arg1, s32 arg2);
 void TLobby__sub_803A5078(s8, s32, s32, s32);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_803AA0C0_lbl_80556E88 lbl_80556E88;
-u16 TLobby__sub_803AA0C0(s32 arg0, s32 arg1);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+u16 lookup_sound_bank_index(s32 arg0, s32 arg1);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 s32 TLobby__sub_803AA1A0(s32 arg0);
 void TLobby__sub_803A94E0(u8, u16, u8, s8, s32);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 void TLobby__sub_803AA2FC(u8 arg0, u16 arg1, u8 arg2);
 void TLobby__sub_803BD62C(u8);
 void TLobby__sub_803AA75C(u8 arg0);
@@ -230,7 +230,7 @@ void TLobby__sub_803BD660(u8);
 void TLobby__sub_803AA77C(u8 arg0);
 extern s32 lbl_805D73AC;
 void TLobby__sub_803AB574(s8 *arg0, s8 *arg1);
-void TLobby__sub_803B41A0(u8 *arg0);
+void start_sound_envelope(u8 *arg0);
 M2C_UNK DCFlushRangeNoSync(void *, int);
 M2C_UNK memset(void *, int, int);
 extern s32 lbl_805D7480;
@@ -263,9 +263,9 @@ extern Rec_803A9944 lbl_8055755C[];
 void TLobby__sub_803A9944(u8 i, u8 v);
 u32 TLobby__sub_803AA2B8(u32 id);
 extern Program_803B1DA4 *lbl_805D7420;
-void TLobby__sub_803B1DA4(Program_803B1DA4 *self);
+void enqueue_sound_program_deadline(Program_803B1DA4 *self);
 extern s32 release_sound_envelope(struct Envelope_803B431C *e, u32 duration);
-s32 TLobby__sub_803B431C(struct Envelope_803B431C *e);
+s32 key_off_sound_envelope(struct Envelope_803B431C *e);
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
 s32 *search_sound_sample_directory(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
 extern Req_803AE60C lbl_805D73F8;
@@ -323,12 +323,12 @@ void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0);
 extern Rec_803A8D2C *lbl_805D73B0;
 void TLobby__sub_803A8D2C(Node_803A8D2C **list, void (*cb)(u8));
 s32 TLobby__sub_803A7880(s32, s32, s32, s32, u8, u8, s32, s32, s32, s32, s32, s32, s32, s32, s32);
-Se_803A9144 *TLobby__sub_803AE76C(s16);
+Se_803A9144 *find_sound_fx_record(s16);
 s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 extern u8 lbl_805D7380;
 extern Rec_803A8D2C *lbl_805D73B0;
-void TLobby__sub_803B1BA4(Rec_803A9454 *);
-s32 TLobby__sub_803A9454(int id);
+void key_off_sound_program(Rec_803A9454 *);
+s32 key_off_sound_fx(int id);
 extern Rec_803A8D2C *lbl_805D73B0;
 s32 get_slot_value__6TLobbyFi(u8);
 void TLobby__sub_803B488C(s32);
@@ -336,20 +336,20 @@ void TLobby__sub_803B1AF4(Rec_803A996C *);
 void TLobby__sub_803B36A8(u8);
 s32 TLobby__sub_803B46A4(u8);
 s32 TLobby__sub_803A996C(s32 op, u32 idx);
-s32 TLobby__sub_803A9454(int id);
+s32 key_off_sound_fx(int id);
 extern Owner_803A3C24 *lbl_805D7360;
 s32 TLobby__sub_803A3A28(void);
 extern Node_803A4964 *lbl_805D7378;
 extern Node_803A4964 *lbl_805D737C;
 extern Slot_803A4EB8 lbl_8054AB48[];
 void TLobby__sub_803A4EB8(s32 arg0);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 extern u8 lbl_80559E70[];
 extern u16 lbl_805D73DA;
 s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 extern Ent_803ADD18 lbl_80564070[];
 extern u16 lbl_805D73DA;
 s32 TLobby__sub_803ADD18(u16 id);
@@ -360,7 +360,7 @@ void shift_left_8__6TLobbyFPv(void *);
 void TLobby__sub_803BCA50(void *, void *);
 void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op);
 extern const f32 lbl_805E0B78;
-s32 TLobby__sub_803B3DAC(s32 current);
+s32 calc_sound_pitch_semitone_up(s32 current);
 f32 powf(f32, f32, f32);
 extern const f32 lbl_805E0B90;
 extern const f32 lbl_805E0B94;
@@ -372,8 +372,8 @@ extern Tbl_803AA1E0 lbl_80557C1C[];
 s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 s32 TLobby__sub_803A9200(u32 id, u8 a1, u8 a2);
 s32 TLobby__sub_803A92E8(u32 id, u8 a1, u16 a2);
-void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE738(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
 s32 start_sound_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, Req_803AA1E0 *req);
 extern Node_803B2598 *lbl_805D743C;
 u32 find_sound_voice_by_id(u32 arg0);
@@ -464,7 +464,7 @@ extern Node_803B24A0 *lbl_805D7440;
 struct Slot_803B312C { u8 prev; u8 next; u16 refs; };
 struct Obj_803B312C { u8 pad0[0x34]; s32 f34; u8 pad38[0xBC]; s32 id; u8 padF8[0x14]; u8 grp; u8 pad10d[0x10]; u8 f11d; };
 
-void TLobby__sub_803B202C(Obj_803B312C *, s32);
+void set_sound_program_wait_state(Obj_803B312C *, s32);
 void TLobby__sub_803B2A80(Obj_803B312C *);
 extern Slot_803B312C lbl_80565388[];
 extern u8 lbl_805D7446;
@@ -531,7 +531,7 @@ struct Ch_803B1E48 {
 void TLobby__sub_803B1C98(Voice_803B1C98 *, u32);
 u16 TLobby__sub_803BC168(Ch_803A897C *);
 void TLobby__sub_803BD138(s32, u8);
-void TLobby__sub_803BD174(s32);
+void key_off_sound_hw_voice(s32);
 void TLobby__sub_803BADD0(u8, u8, u32);
 void TLobby__sub_803BB8F0(s32, u8, s32, u8, bool);
 void TLobby__sub_803BADF8(s32, u8, u8, s32);
@@ -547,7 +547,7 @@ extern u64 lbl_805D7428;
 void TLobby__sub_803AA864(void);
 void TLobby__sub_803AB0E0(void);
 s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1);
-s32 TLobby__sub_803AE4C4(u16 *arg0, u16 *arg1);
+s32 compare_sound_sample_id(u16 *arg0, u16 *arg1);
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1);
@@ -636,7 +636,7 @@ s32 TLobby__sub_803A3A28(void) {
             continue;
         }
         while (n->key <= ((Tbl_803A3A28 *)lbl_805D7360)->ch[n->ch].lim[i].v) {
-            TLobby__sub_803A9454(n->f8);
+            key_off_sound_fx(n->f8);
             if ((lbl_805D7360->lists[i] = n->next) != NULL) {
                 lbl_805D7360->lists[i]->prev = NULL;
             }
@@ -665,7 +665,7 @@ void TLobby__sub_803A3B54(void) {
     for (i = 0; i < 2; i++) {
         for (n = lbl_805D7360->lists[i]; n != NULL; n = next) {
             next = n->next;
-            TLobby__sub_803A9454(n->f8);
+            key_off_sound_fx(n->f8);
             if ((lbl_805D7360->lists[i] = n->next) != NULL) {
                 lbl_805D7360->lists[i]->prev = NULL;
             }
@@ -912,8 +912,8 @@ void TLobby__sub_803A897C(s32 arg0) {
         }
         if ((o->flags & 0x10000000090ULL) == 0x90) {
             o->flags &= ~0x90ULL;
-            TLobby__sub_803BD174(arg0);
-            if ((o->flags & 0x20000000000ULL) != 0 && (u32)TLobby__sub_803B431C((struct Envelope_803B431C *)o->env) != 0) {
+            key_off_sound_hw_voice(arg0);
+            if ((o->flags & 0x20000000000ULL) != 0 && (u32)key_off_sound_envelope((struct Envelope_803B431C *)o->env) != 0) {
                 o->flags &= ~0x20000000000ULL;
             }
         }
@@ -965,7 +965,7 @@ void TLobby__sub_803A8DC0(u8 *arg0) {
 
 s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
     s32 ret = -1;
-    Se_803A9144 *p = TLobby__sub_803AE76C(arg0);
+    Se_803A9144 *p = find_sound_fx_record(arg0);
     if (p != NULL) {
         if (arg1 == 0xFF) {
             arg1 = p->b6;
@@ -989,7 +989,7 @@ void TLobby__sub_803A93D0(u8 *arg0, u8 *arg1) {
 
 typedef char RecoveredGlobal_803A98F0_lbl_80556F88_size[sizeof(RecoveredGlobal_803A98F0_lbl_80556F88) == 0x3C0 ? 1 : -1];
 
-s32 TLobby__sub_803A9454(int id) {
+s32 key_off_sound_fx(int id) {
     u8 idx;
     s32 found = 0;
     u32 cur;
@@ -998,7 +998,7 @@ s32 TLobby__sub_803A9454(int id) {
         while (cur != 0xFFFFFFFF) {
             idx = cur;
             if (cur == (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].id) {
-                TLobby__sub_803B1BA4(&(*(Rec_803A9454 * *)&lbl_805D73B0)[idx]);
+                key_off_sound_program(&(*(Rec_803A9454 * *)&lbl_805D73B0)[idx]);
                 found = 1;
             }
             cur = (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].next;
@@ -1047,31 +1047,31 @@ s32 TLobby__sub_803A996C(s32 op, u32 idx) {
 }
 
 void TLobby__sub_803A9F80(s32 arg0, s16 arg1) {
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     TLobby__sub_803A4DDC(arg0, arg1);
-    TLobby__sub_803BE700();
+    sound_enable_irq();
 }
 
 void TLobby__sub_803A9FC8(s32 arg0) {
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     TLobby__sub_803A4EB8((s32)(arg0));
-    TLobby__sub_803BE700();
+    sound_enable_irq();
 }
 
 void TLobby__sub_803AA000(s32 arg0, s32 arg1, s32 arg2) {
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     TLobby__sub_803A4FC4(arg0, arg1, arg2);
-    TLobby__sub_803BE700();
+    sound_enable_irq();
 }
 
 void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     TLobby__sub_803A5078(arg0, arg1, arg2, arg3);
-    TLobby__sub_803BE700();
+    sound_enable_irq();
 }
 
 typedef char RecoveredGlobal_803AA0C0_lbl_80556E88_size[sizeof(RecoveredGlobal_803AA0C0_lbl_80556E88) == 0x100 ? 1 : -1];
-u16 TLobby__sub_803AA0C0(s32 arg0, s32 arg1) {
+u16 lookup_sound_bank_index(s32 arg0, s32 arg1) {
     return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
 }
 
@@ -1079,10 +1079,10 @@ s32 TLobby__sub_803AA1A0(s32 arg0) {
     s32 var_r31;
     s32 var_r3;
     var_r31 = arg0;
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     var_r3 = var_r31;
-    var_r31 = TLobby__sub_803A9454((int)((int) (var_r3)));
-    TLobby__sub_803BE700();
+    var_r31 = key_off_sound_fx((int)((int) (var_r3)));
+    sound_enable_irq();
     var_r3 = var_r31;
     return var_r3;
 }
@@ -1092,7 +1092,7 @@ s32 start_sound_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, Req_803AA1E0 *req) {
     u8 i;
     Ent_803AA1E0 *e;
     u8 t;
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     id = TLobby__sub_803A9144(arg0, arg1, arg2, arg3, lbl_80557C1C[(u8)arg3].b1);
     if (id != 0xFFFFFFFF) {
         e = req->ents;
@@ -1108,7 +1108,7 @@ s32 start_sound_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, Req_803AA1E0 *req) {
             i++;
         }
     }
-    TLobby__sub_803BE700();
+    sound_enable_irq();
     return id;
 }
 
@@ -1118,12 +1118,12 @@ u32 TLobby__sub_803AA2B8(u32 id) {
 }
 
 void TLobby__sub_803AA2FC(u8 arg0, u16 arg1, u8 arg2) {
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     TLobby__sub_803A94E0(arg0, arg1, arg2, 0, -1);
-    TLobby__sub_803BE700();
+    sound_enable_irq();
 }
 
-void TLobby__sub_803AA35C(s32 mode) {
+void set_sound_output_mode(s32 mode) {
     u32 old = lbl_805D73AC;
     u32 i;
 
@@ -1246,7 +1246,7 @@ s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2) {
         i++;
     }
     if (i == n && n < 0x80) {
-        TLobby__sub_803BE738();
+        sound_disable_irq();
         k = lbl_805D73DA;
         t->ents[k].id = arg0;
         t->ents[k].count = arg2;
@@ -1258,7 +1258,7 @@ s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2) {
             arg1++;
         }
         lbl_805D73DA++;
-        TLobby__sub_803BE700();
+        sound_enable_irq();
         return 1;
     }
     return 0;
@@ -1274,12 +1274,12 @@ s32 TLobby__sub_803ADD18(u16 id) {
         i++;
     }
     if (i != n) {
-    TLobby__sub_803BE738();
+    sound_disable_irq();
     for (j = i + 1; j < lbl_805D73DA; j++) {
         lbl_80564070[j - 1] = lbl_80564070[j];
     }
     lbl_805D73DA--;
-    TLobby__sub_803BE700();
+    sound_enable_irq();
     return 1;
     }
     return 0;
@@ -1289,18 +1289,18 @@ s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
 
-s32 TLobby__sub_803AE4C4(u16 *arg0, u16 *arg1) {
+s32 compare_sound_sample_id(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
-s32 TLobby__sub_803AE4D4(s16 id, Sample_803AE4D4 *s) {
+s32 find_sound_sample(s16 id, Sample_803AE4D4 *s) {
     u8 *base;
     s32 i;
 
     base = lbl_80559E70;
     *(s16 *)(base + 0xA600) = id;
     for (i = 0; i < lbl_805D73D0; i++) {
-        if ((lbl_805D73F0 = (Row_803AE4D4 *)search_sound_sample_directory((Req_803AE60C *)(base + 0xA600), (void *)((Reg_803AE4D4 *)base)[i].rows, ((Reg_803AE4D4 *)base)[i].count, 0x20, (s32 (*)(u8 *, u8 *))TLobby__sub_803AE4C4)) != 0 &&
+        if ((lbl_805D73F0 = (Row_803AE4D4 *)search_sound_sample_directory((Req_803AE60C *)(base + 0xA600), (void *)((Reg_803AE4D4 *)base)[i].rows, ((Reg_803AE4D4 *)base)[i].count, 0x20, (s32 (*)(u8 *, u8 *))compare_sound_sample_id)) != 0 &&
             lbl_805D73F0->ref != 0xFFFF) {
             lbl_805D73F4 = (Part_803AE4D4 *)&lbl_805D73F0->key;
             s->key = lbl_805D73F4->key;
@@ -1356,7 +1356,7 @@ s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
-Se_803A9144 *TLobby__sub_803AE76C(s16 arg0) {
+Se_803A9144 *find_sound_fx_record(s16 arg0) {
     s32 i;
     Blk_803AE76C *b;
     s32 *r;
@@ -1596,7 +1596,7 @@ void TLobby__sub_803B1AF4(Rec_803A996C *ov) {
 }
 #undef o
 
-void TLobby__sub_803B1BA4(Rec_803A9454 *arg0) {
+void key_off_sound_program(Rec_803A9454 *arg0) {
     Ch_803B1BA4 *o = (Ch_803B1BA4 *)arg0;
     u32 done;
 
@@ -1649,7 +1649,7 @@ void TLobby__sub_803B1C98(Voice_803B1C98 *v, u32 hold) {
 #undef FLAGS
 #define FLAGS (*(u64 *)&o->fh)
 
-void TLobby__sub_803B1DA4(Program_803B1DA4 *self) {
+void enqueue_sound_program_deadline(Program_803B1DA4 *self) {
     Program_803B1DA4 *p;
     Program_803B1DA4 *prev;
     p = lbl_805D7420;
@@ -1679,7 +1679,7 @@ void TLobby__sub_803B1DA4(Program_803B1DA4 *self) {
     }
 }
 
-void TLobby__sub_803B1E48(Ch_803B1E48 *o, u32 arg1) {
+void dequeue_sound_program_deadline(Ch_803B1E48 *o, u32 arg1) {
     if (o->f98 != 0) {
         if (o->f98 != -1) {
             if (o->prev == NULL) {
@@ -1734,7 +1734,7 @@ void TLobby__sub_803B1F24(void *arg0) {
 #define FLAGS (*(u64 *)&o->fh)
 
 #define o ((Ch_803B202C *)ov)
-void TLobby__sub_803B202C(Obj_803B312C *ov, s32 state) {
+void set_sound_program_wait_state(Obj_803B312C *ov, s32 state) {
     if (o->state == state) {
         return;
     }
@@ -1878,7 +1878,7 @@ void TLobby__sub_803B312C(Obj_803B312C *o) {
     u8 idx;
     Slot_803B312C *e;
 
-    TLobby__sub_803B202C(o, 2);
+    set_sound_program_wait_state(o, 2);
     TLobby__sub_803B2A80(o);
     o->f34 = 0;
     o->grp = 0;
@@ -1958,7 +1958,7 @@ void TLobby__sub_803B3B80(Obj_803B3B80 *arg0) {
     }
 }
 
-s32 TLobby__sub_803B3DAC(s32 current) {
+s32 calc_sound_pitch_semitone_up(s32 current) {
     return (s32)(lbl_805E0B78 * (f32)(u16)current);
 }
 
@@ -2084,13 +2084,13 @@ s32 transition_sound_envelope(void *a0) {
 }
 #undef arg0
 
-void TLobby__sub_803B41A0(u8 *arg0) {
+void start_sound_envelope(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; };
     ((Fields_arg0*)arg0)->field_1 = 0;
     transition_sound_envelope((void *)(arg0));
 }
 
-s32 TLobby__sub_803B431C(struct Envelope_803B431C *e) {
+s32 key_off_sound_envelope(struct Envelope_803B431C *e) {
     switch (e->mode) {
     case 0:
     case 1:
@@ -2250,9 +2250,9 @@ s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
                     if (locked) {
                         r = TLobby__sub_803A3D8C(p1, p2, q, a2, a3, a5, id);
                     } else {
-                        TLobby__sub_803BE738();
+                        sound_disable_irq();
                         r = TLobby__sub_803A3D8C(p1, p2, q, a2, a3, a5, id);
-                        TLobby__sub_803BE700();
+                        sound_enable_irq();
                     }
                     return r;
                 }
@@ -2353,7 +2353,7 @@ s32 TLobby__sub_803B8ABC(Obj_803B8ABC *arg0, u32 arg1) {
     return 0;
 }
 
-void TLobby__sub_803B8B40(void) {
+void process_sound_aux_callbacks(void) {
     s32 bufs[3];
     u8 i;
     Voice_803B8B40 *v;
@@ -2396,7 +2396,7 @@ void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0) {
     }
     arg0->f10 = (u16)arg0->f10;
     if (arg0->id != 0xFFFFFFFF) {
-        TLobby__sub_803A9454((int)(arg0->id));
+        key_off_sound_fx((int)(arg0->id));
     }
 }
 
@@ -2410,11 +2410,11 @@ void TLobby__sub_803BA228(Ent_803BA228 *arg0, u32 arg1) {
         for (i = 0; i < arg1; i++) {
             if (n->id == arg0[i].id) {
                 if (lbl_805D7380 != 0) {
-                    TLobby__sub_803BE738();
+                    sound_disable_irq();
                     if (n->f10 & 0x10000) {
                         TLobby__sub_803BA1B8((Node_803BA1B8 *)n);
                     }
-                    TLobby__sub_803BE700();
+                    sound_enable_irq();
                 }
                 break;
             }

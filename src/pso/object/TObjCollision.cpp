@@ -27,8 +27,8 @@ void *__dt__13TObjCollisionFv(void *arg0, s16 arg1);
 void *create__13TObjCollisionFPv(void *arg0);
 void render__13TObjCollisionFv(void);
 void run_task__13TObjCollisionFv(void);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -51,8 +51,8 @@ extern M2C_UNK __vt__13TObjCollision[];
 void *__dt__13TObjCollisionFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjCollision;
-        TObjEneGibbles__sub_80156720(arg0);
-        TObjPlayer__sub_80154A00(arg0);
+        free_collision_body_parts(arg0);
+        unregister_object_by_id(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

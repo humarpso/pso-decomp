@@ -130,7 +130,7 @@ int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
-void fn_802370D8(void *);
+void deliver_technique_to_party_targets(void *);
 void run_task__8TTecAntiFv(Anti_8022B150 *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
@@ -284,7 +284,7 @@ void run_task__8TTecAntiFv(Anti_8022B150 *self) {
     } else if (self->level == 0) {
         ((VObj_8022B150 *)self)->m5(self->source);
     } else {
-        fn_802370D8(self);
+        deliver_technique_to_party_targets(self);
     }
     queue_destruction__7TObjectFv((void*)(self));
 }

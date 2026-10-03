@@ -22,7 +22,7 @@ extern "C" {
 
 void draw__10TObjPlayerFPv(void *arg0);
 s32 try_pickup_item__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, M2C_UNK);
+M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, M2C_UNK);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
 s32 get_position_ptr__10TObjPlayerFPv(void *);
 s32 get_field_d8__10TObjPlayerFPv(s32);
@@ -59,7 +59,7 @@ s32 try_pickup_item__10TObjPlayerFi(s32 arg0) {
         }
         recover_full__10TObjPlayerFPv(arg0);
         set_flags__10TObjPlayerFPvUi(arg0 + 0x858, 4);
-        TObjPlayer__sub_801B8DE8(arg0, get_field_d8__10TObjPlayerFPv(temp_r3), 1);
+        send_6x29_delete_item__10TObjPlayerFPvii(arg0, get_field_d8__10TObjPlayerFPv(temp_r3), 1);
         return 1;
     }
     return 0;

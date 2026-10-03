@@ -29,7 +29,7 @@ u8 *TLobby__sub_802D299C(void);
 extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__data_80540BD0;
 M2C_UNK *TLobby__sub_802D29AC(void);
 M2C_UNK try_spend_actor_meseta(s32, s32);
-M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, s32);
+M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
 M2C_UNK fn_801D41B4(s32);
@@ -139,7 +139,7 @@ void TLobby__sub_802D2A70(void) {
                                 fn_801D41B4(id);
                                 flag = 1;
                             }
-                            TObjPlayer__sub_801B8DE8(player, id, count);
+                            send_6x29_delete_item__10TObjPlayerFPvii(player, id, count);
                         }
                     }
                 }

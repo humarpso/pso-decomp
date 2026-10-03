@@ -23,7 +23,7 @@ s32 TWindowSubStatusDisp__sub_802880BC(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u32 calc_text_width();
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
-M2C_UNK TWindowSubStatusDisp__sub_8025AC50(int, int, int);
+M2C_UNK set_text_entry_string(int, int, int);
 M2C_UNK update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, f32);
 M2C_UNK select_next__26TWindowSubQuestBoardSelectFPv(void *);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 lbl_804D19A8;
@@ -54,7 +54,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x64) = var_r30;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    TWindowSubStatusDisp__sub_8025AC50((int) (temp_r30), (int) (TQuestThread__sub_801F5E58()), (int) (0));
+    set_text_entry_string((int) (temp_r30), (int) (TQuestThread__sub_801F5E58()), (int) (0));
     get_field_20__17TWindowSubComCardFPv((void *) temp_r30);
     temp_f2 = (f32) calc_text_width();
     M2C_FIELD(temp_r30, f32 *, 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);

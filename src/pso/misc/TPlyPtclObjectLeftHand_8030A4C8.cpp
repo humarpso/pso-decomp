@@ -34,7 +34,7 @@ extern "C" {
 void *TPlyPtclObjectLeftHand__ct(void *arg0, u8 * _w1);
 void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1);
 void destroy_if_inactive__22TPlyFollowParticleCtrlFi(s32 arg0);
-void TObjPlayer__sub_80154A00(void *);
+void unregister_object_by_id(void *);
 u32 get_player_by_client_id(u16);
 void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
@@ -63,7 +63,7 @@ extern M2C_UNK __vt__22TPlyFollowParticleCtrl[];
 void *__dt__22TPlyFollowParticleCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TPlyFollowParticleCtrl;
-        TObjPlayer__sub_80154A00(arg0);
+        unregister_object_by_id(arg0);
         clear_obj_links(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

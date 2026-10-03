@@ -216,13 +216,13 @@ void is_sound_enabled(void);
 s32 is_special_sound_id(u32 x);
 s32 is_special_sound_id(u32 x);
 void is_sound_enabled(void);
-M2C_UNK TLobby__sub_8023F780(s32, f32);
+M2C_UNK set_sound_slot_special_scale(s32, f32);
 s32 TLobby__sub_8023F944(s32, s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 is_special_sound_id(u32 x);
 void is_sound_enabled(void);
-M2C_UNK TLobby__sub_8023F780(s32, f32);
+M2C_UNK set_sound_slot_special_scale(s32, f32);
 s32 TLobby__sub_8023FA8C(s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -239,7 +239,7 @@ void set_mode__6TLobbyFi(s32 arg0);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 u16 TCameraCtrl__sub_8006A5DC();
 int TLobby__sub_8023F754(void*);
-int TLobby__sub_8023F8B0(void*, int);
+int fade_out_sound_slot(void*, int);
 int TLobby__sub_8023FF64(void*);
 s32 get_player_by_client_id(s32);
 M2C_UNK bswap_6xB2_play_sound();
@@ -345,7 +345,7 @@ typedef char RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628_size[sizeof(Rec
 typedef char RecoveredGlobal_80069D04_camera_controller_registry_size[sizeof(RecoveredGlobal_80069D04_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
 
-int release_sound_with_fade(void* p) { return TLobby__sub_8023F8B0(p, 64); }
+int release_sound_with_fade(void* p) { return fade_out_sound_slot(p, 64); }
 int TLobby__sub_80227D38(void) { return TLobby__sub_8023FF64((void*)(0)); }
 
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -385,7 +385,7 @@ s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     if (((s32 (*)(void))is_sound_enabled)() == 1) {
         h = TLobby__sub_8023F944(m, arg1, arg2, r, flags);
         if (is_special_sound_id(m) != 0) {
-            TLobby__sub_8023F780(h, lbl_805DC768);
+            set_sound_slot_special_scale(h, lbl_805DC768);
         }
         return h;
     }
@@ -429,7 +429,7 @@ s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (((s32 (*)(void))is_sound_enabled)() == 1) {
         h = TLobby__sub_8023FA8C(m, arg1, r, flags);
         if (is_special_sound_id(m) != 0) {
-            TLobby__sub_8023F780(h, lbl_805DC768);
+            set_sound_slot_special_scale(h, lbl_805DC768);
         }
         return h;
     }

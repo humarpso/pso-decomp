@@ -51,7 +51,7 @@ extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
 extern const f32 lbl_805DD668;
-bool TWindowSubMag__sub_8027C0F4(u8 *arg0);
+bool is_mag_full(u8 *arg0);
 struct TWindowSubMag_8027B62C {
     u8 pad0[0x28];
     M2C_UNK field_0x28;
@@ -67,13 +67,13 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32,
 void *create_titled_window_menu(s32, s32, s32, M2C_UNK);
 extern const f32 lbl_805DD664;
 void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id);
-s32 TWindowSubMag__sub_8027C0C4(Obj_8027C0C4 *o);
-s32 TLobby__sub_8001DC24();
+s32 get_selected_blast__13TWindowSubMagFPv(Obj_8027C0C4 *o);
+s32 get_shared_text_buffer();
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
-M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
+M2C_UNK deserialize_mag__9TItemDataFPvPv(s32, M2C_UNK *);
 s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
 s32 calc_text_width();
 M2C_UNK append_text_space();
@@ -164,7 +164,7 @@ void set_mag_mode__13TWindowSubMagFPvi(void *arg0, s32 arg1);
 s32 setup_list__13TWindowSubMagFPv(void *arg0);
 void update_displayed_item__13TWindowSubMagFPv(void *arg0);
 void update_mag_help__13TWindowSubMagFPv(void *arg0);
-M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
+M2C_UNK deserialize_mag__9TItemDataFPvPv(s32, M2C_UNK *);
 s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
 void *TLobby__sub_80269CC0(M2C_UNK, M2C_UNK *, s32, M2C_UNK);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(s32, s32);
@@ -199,7 +199,7 @@ void update_mag_help__13TWindowSubMagFPv(void *arg0) {
     s32 temp_r3;
 
     toggle_help_window_on_button(M2C_FIELD(arg0, s32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x28));
-    temp_r3 = TWindowSubMag__sub_8027C0C4((Obj_8027C0C4 *)((s32)(M2C_FIELD(arg0, s32 *, 0x48))));
+    temp_r3 = get_selected_blast__13TWindowSubMagFPv((Obj_8027C0C4 *)((s32)(M2C_FIELD(arg0, s32 *, 0x48))));
     if (temp_r3 != (s8) M2C_FIELD(arg0, u8 *, 0x1D)) {
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) temp_r3;
         if (temp_r3 == -1) {
@@ -225,7 +225,7 @@ s32 count_slots__13TWindowSubMagFPv(void *arg0) {
     s32 var_r31;
 
     initialize_mag_data__9TItemDataFPv(&sp8);
-    TItemData__sub_8010D614(M2C_FIELD(arg0, s32 *, 0x2C), &sp8);
+    deserialize_mag__9TItemDataFPvPv(M2C_FIELD(arg0, s32 *, 0x2C), &sp8);
     var_r31 = 0;
 loop_1:
     if (TItemMag__sub_801143E8(&sp8, var_r31) == -1) {
@@ -261,7 +261,7 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     s32 n;
     void *win;
     initialize_mag_data__9TItemDataFPv((M2C_UNK *)&item);
-    TItemData__sub_8010D614(M2C_FIELD(arg0, s32 *, 0x2C), (M2C_UNK *)&item);
+    deserialize_mag__9TItemDataFPvPv(M2C_FIELD(arg0, s32 *, 0x2C), (M2C_UNK *)&item);
     n = TItemMag__sub_801143E8((M2C_UNK *)&item, M2C_FIELD(arg0, s8 *, 0x1E));
     if (n == -1) {
         return 0;
@@ -274,7 +274,7 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     text_builder_append();
     get_message_10__20TWindowSubStatusDispFPv(0x4C);
     text_builder_append();
-    TLobby__sub_8001DC24();
+    get_shared_text_buffer();
     n = calc_text_width();
     if (get_camera_id__11TCameraCtrlFv() > 2) {
         scale = 0.85f;
@@ -288,7 +288,7 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     win = TLobby__sub_80269CC0((M2C_UNK)&pos, (M2C_UNK *)&size, 1, M2C_FIELD(arg0, s32 *, 0x28));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 6);
     set_field_1c__6TLobbyFPvf(win);
-    send_and_handle__6TLobbyFPvii((s32)win, (M2C_UNK *)TLobby__sub_8001DC24(), 2);
+    send_and_handle__6TLobbyFPvii((s32)win, (M2C_UNK *)get_shared_text_buffer(), 2);
     set_position_xy(win, scale, scale);
     return win;
 }
@@ -318,12 +318,12 @@ void *TWindowSubMag__sub_8027B62C(TWindowSubMag_8027B62C *menu, s32 id) {
     window = create_titled_window_menu(get_window_layout_position(8), 2, get_message_10__20TWindowSubStatusDispFPv(0x1D), menu->field_0x28);
     TWindowSubEquip__sub_80263AF8(menu->field_0x30, 1);
     set_field_1c__6TLobbyFPvf(window);
-    if (((s32 (*)(u8 *))TWindowSubMag__sub_8027C0F4)(item) != 0) {
+    if (((s32 (*)(u8 *))is_mag_full)(item) != 0) {
         draw_text_gray__17TWindowSubComCardFiiii(window, get_message_10__20TWindowSubStatusDispFPv(0x65), 6, 1);
     } else {
         forward_trade_action_default__16TObjCityMainWarpFPviii(window, get_message_10__20TWindowSubStatusDispFPv(0x65), 6, 1);
     }
-    TItemData__sub_8010D614(menu->field_0x2c, mag);
+    deserialize_mag__9TItemDataFPvPv(menu->field_0x2c, mag);
     if (TItemMag__sub_801143E8(mag, 0) != -1) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(window, get_message_10__20TWindowSubStatusDispFPv(0x64), 6, 0);
     } else {
@@ -631,14 +631,14 @@ s32 TWindowSubMag__sub_8027C0B0(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x20), M2C_UNK *, (arg0 * 4));
 }
 
-s32 TWindowSubMag__sub_8027C0C4(Obj_8027C0C4 *o) {
+s32 get_selected_blast__13TWindowSubMagFPv(Obj_8027C0C4 *o) {
     return o->arr[o->f61];
 }
 
 int get_active_flag__13TWindowSubMagFPv(void* p) { return *(u8*)((char*)p + 0x60) & 0x1; }
 int TWindowSubMag__sub_8027C0E8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 
-bool TWindowSubMag__sub_8027C0F4(u8 *arg0) {
+bool is_mag_full(u8 *arg0) {
     return (M2C_FIELD(arg0, f32 *, 0x194) < lbl_805DD668) == 0;
 }
 

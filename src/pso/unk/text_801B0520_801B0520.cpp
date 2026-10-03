@@ -22,7 +22,7 @@ extern "C" {
 
 void draw_player_status(s32 arg0, void *arg1, s32 arg2);
 void show_sub_status_window(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2);
-M2C_UNK TLobby__sub_8001DC24();
+M2C_UNK get_shared_text_buffer();
 s32 TObjPlayer__sub_801AFFD0(void *);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
@@ -52,7 +52,7 @@ void show_sub_status_window(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2) {
     text_builder_append(arg1);
     text_builder_append(arg2);
     text_builder_append(&lbl_805DC27C);
-    init_all__11TWindowCtrlFPvPv(TLobby__sub_8001DC24(), 0x200);
+    init_all__11TWindowCtrlFPvPv(get_shared_text_buffer(), 0x200);
 }
 
 }

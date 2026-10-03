@@ -44,7 +44,7 @@ extern const f32 lbl_805DCAD0;
 extern const f32 lbl_805DCAD4;
 extern const f32 lbl_805DCAD8;
 extern const f32 lbl_805DCADC;
-s32 TWindowSubComCard__sub_80244C0C(u8 *arg0, s32 arg1);
+s32 setup_window_draw_context(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -246,7 +246,7 @@ void window_request_show(void *arg0) {
     }
     allow_rendering__7TObjectFv(arg0);
 }
-s32 TWindowSubComCard__sub_80244C0C(u8 *arg0, s32 arg1) {
+s32 setup_window_draw_context(u8 *arg0, s32 arg1) {
     s32 temp_r31;
     s32 var_r4;
     temp_r31 = ((s32 (*)(void *, void *, void *, f32, int))open_singleton__19TWindowKeyBoardSoftFiiii)((void *) (arg0 + 0x40), (void *) (arg0 + 0x48), (void *) (arg1), (f32) (M2C_FIELD(arg0, f32 *, 0x54)), (int) (M2C_FIELD(arg0, s32 *, 0x2C)));

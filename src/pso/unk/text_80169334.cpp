@@ -66,7 +66,7 @@ typedef struct Ring_80169334 {
 extern "C" {
 void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *obj);
-f32 TObjPlayer__sub_801547E0(void *, s32);
+f32 get_collision_body_radius(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 s16 obj_getS16_32C(void *);
@@ -106,7 +106,7 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
         if ((u16)id >= 0x1000) {
             continue;
         }
-        r = lbl_805DB6C8 - TObjPlayer__sub_801547E0(actor, 0);
+        r = lbl_805DB6C8 - get_collision_body_radius(actor, 0);
         if (!(horizontal_distance_squared((u8 *)actor + 0x38, self->pos) < r * r)) {
             continue;
         }

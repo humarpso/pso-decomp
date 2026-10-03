@@ -45,8 +45,8 @@ struct RecoveredGlobal_8000F91C_lbl_804FE120 {
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_801B1A84(M2C_UNK *);
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 TObjPlayer__sub_801D0F40;
-void TObjPlayer__sub_801CBF7C(void);
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 release_control_lock__10TObjPlayerFPv;
+void release_all_players_control_lock(void);
 s32 is_locally_controlled__10TObjPlayerFPv();
 s32 obj_testFlags30(s32, s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
@@ -56,12 +56,12 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void TObjPlayer__vt73(s32 arg0, f32 farg0);
 u32 get_player_by_client_id(u32);
 void clear_flag_200__10TObjPlayerFPv(u32);
-void TObjPlayer__sub_801CBFA4(u16 *p);
+void release_photon_blast_player_holds(u16 *p);
 u16 obj_getField1c(void *);
 s32 TLobby__sub_800822E8(void *, s32);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_single_screen__10TObjPlayerFv(void);
-s32 TObjPlayer__sub_801AFF0C(void *);
+s32 is_on_current_floor__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801D0F70(void *);
 void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 extern void *lbl_8050EA10[];
@@ -82,10 +82,10 @@ void TObjPlayer__vt73(s32 arg0, f32 farg0) {
     add_photon_blast_charge(arg0 + 0x4AC, farg0);
 }
 
-void TObjPlayer__sub_801CBF7C(void) {
-    TObjPlayer__sub_801B1A84((M2C_UNK *)(&TObjPlayer__sub_801D0F40.value));
+void release_all_players_control_lock(void) {
+    TObjPlayer__sub_801B1A84((M2C_UNK *)(&release_control_lock__10TObjPlayerFPv.value));
 }
-void TObjPlayer__sub_801CBFA4(u16 *p) {
+void release_photon_blast_player_holds(u16 *p) {
     s32 i;
     u32 obj;
     if (p != NULL) {
@@ -114,7 +114,7 @@ void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
     i = 0;
     do {
         obj = *tbl;
-        if (obj != NULL && TObjPlayer__sub_801AFF0C(obj) != 0 && TLobby__sub_800822E8(obj, 0x8000) == 0 &&
+        if (obj != NULL && is_on_current_floor__10TObjPlayerFi(obj) != 0 && TLobby__sub_800822E8(obj, 0x8000) == 0 &&
             (is_single_screen__10TObjPlayerFv() != 0 ||
              (is_single_screen__10TObjPlayerFv() == 0 && arg0 == get_stat_by_key_state__10TObjPlayerFPv(obj)))) {
             TObjPlayer__sub_801D0F70(obj);

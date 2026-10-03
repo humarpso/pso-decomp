@@ -43,7 +43,7 @@ void TObjWarpJungMain__vt12(void* p);
 int TObjWarpJungMain__vt17(void* p);
 void *TObjWarpJung__create(void *arg0);
 void *__dt__16TObjWarpJungMainFv(void *arg0, s16 arg1);
-int TObjAreaWarp__sub_8019CA24(void*);
+int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
 int TObjWarpBase__vt12(void*);
 void *TObjWarpJung__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -62,7 +62,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
     return 0;
 }
 
-int TObjWarpJungMain__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
+int TObjWarpJungMain__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
 void TObjWarpJungMain__vt12(void* p) { TObjWarpBase__vt12(p); clear_flag__11TWindowCtrlFv(); }
 
 extern M2C_UNK __vt__16TObjWarpJungMain[];
@@ -137,7 +137,7 @@ f32 get_static_field4_as_float__12TObjWarpJungFv(void);
 void render__12TObjWarpJungFv(u8 *arg0);
 M2C_UNK PPCSync();
 M2C_UNK post_translate_matrix(void *);
-int TObjAreaWarp__sub_8019CA24(void*);
+int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -182,7 +182,7 @@ void render__12TObjWarpJungFv(u8 *arg0) {
     }
 }
 
-int TObjWarpJung__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
+int TObjWarpJung__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
 
 extern M2C_UNK __vt__12TObjWarpJung[];
 

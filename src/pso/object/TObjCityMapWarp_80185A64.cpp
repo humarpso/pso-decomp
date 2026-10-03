@@ -9,7 +9,7 @@ extern "C" {
 void TObjCityAreaWarp__vt17(void);
 void *TObjCityMapWarp__ct(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-void TObjCityMapWarp__sub_801858E4(void *);
+void clamp_destination_index__15TObjCityMapWarpFPv(void *);
 void TObjMapWarp__ct(void *);
 
 extern M2C_UNK __vt__15TObjCityMapWarp[];
@@ -21,7 +21,7 @@ void *TObjCityMapWarp__ct(void *arg0) {
     TObjMapWarp__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjCityMapWarp;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D32B0;
-    TObjCityMapWarp__sub_801858E4(arg0);
+    clamp_destination_index__15TObjCityMapWarpFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xAC) = lbl_805DBC8C;
     M2C_FIELD(arg0, f32 *, 0xFC) = lbl_805DBC90;
     return arg0;

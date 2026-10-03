@@ -22,7 +22,7 @@ int get_array_entry__20TWindowSubStatusDispFPvi(void*, int);
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 TWindowDD__sub_802466E0(void *, void *, int, int);
 s32 refresh_status_display__9TWindowDDFv(int);
-s32 TWindowSubStatusDisp__sub_8025AC50(s32, s32, s32);
+s32 set_text_entry_string(s32, s32, s32);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026D674_lbl_804D08DC lbl_804D08DC;
 extern M2C_UNK __vt__11TWindowRoom[];
@@ -42,10 +42,10 @@ int fn_8026D504(void* p);
 void fn_8026D564(void *arg0, s32 arg1);
 void run_task__11TWindowRoomFv(void* p);
 void set_entry_display_value__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
-s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
+s32 draw_visible_window_entries(s32, s32, s32);
 int update_window_entry_list(void*, void*);
-s32 TWindowSubStatusDisp__sub_8025AC50(s32, s32, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
+s32 set_text_entry_string(s32, s32, s32);
+M2C_UNK draw_window_tab(s32, s32, M2C_UNK, f32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 draw_default_entry__9TWindowDDFi();
@@ -54,17 +54,17 @@ int initialize_subwindow__9TWindowDDFPv(void*);
 
 int fn_8026D504(void* p) { return get_array_entry__20TWindowSubStatusDispFPvi(p, 0); }
 void set_entry_display_value__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), 0), arg1, 0x60);
+    set_text_entry_string(get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), 0), arg1, 0x60);
 }
 void fn_8026D564(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
+    draw_window_tab(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
 void draw_status__11TWindowRoomFi(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = draw_default_entry__9TWindowDDFi();
     fn_8026D564((void *)((void *)(arg0)), (s32)(temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
 }
 void run_task__11TWindowRoomFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
@@ -88,7 +88,7 @@ u8 *TWindowRoom__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026D674___vt__11TWindowRoom *)&__vt__11TWindowRoom).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39C0;
     temp_r3 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((void*)(arg0), (int)(0))));
-    TWindowSubStatusDisp__sub_8025AC50((s32)((int) (temp_r3)), (s32)((void *) (arg1)), (s32)((int) (0x60)));
+    set_text_entry_string((s32)((int) (temp_r3)), (s32)((void *) (arg1)), (s32)((int) (0x60)));
     refresh_status_display__9TWindowDDFv((int) (temp_r3));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DD2F0 + (M2C_FIELD(temp_r3, f32 *, 8) + M2C_FIELD(temp_r3, f32 *, 0x10)));
     M2C_FIELD(arg0, f32 *, 0x30) = (f32) (M2C_FIELD(arg0, f32 *, 0x30) - M2C_FIELD(arg0, f32 *, 0x38));

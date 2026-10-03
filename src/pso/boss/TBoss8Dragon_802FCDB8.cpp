@@ -15,7 +15,7 @@ void __dt__7TObjectFv(void *, s32);
 void maybe_delete__15TObjBoss2TunnelFis(void *, s32);
 void __dt__9TObjEneDDFv(void *, s32);
 void TBoss8Dragon__sub_800BC5A0(void *, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
 void TObjPlayer__sub_800D7C58(void *, s32);
@@ -37,7 +37,7 @@ u8 *TBoss8Dragon__sub_802FD354(u8 *arg0, s16 arg1) {
             delete M2C_FIELD(arg0, Del_802FD354 **, 0x67C);
             M2C_FIELD(arg0, Del_802FD354 **, 0x67C) = NULL;
         }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         if (TBoss8Dragon__data_805D69AC == arg0) {
             TBoss8Dragon__data_805D69AC = NULL;
         }

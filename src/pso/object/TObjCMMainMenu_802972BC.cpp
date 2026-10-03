@@ -48,7 +48,7 @@ extern Quad_80297DB8 lbl_804DBC88[2];
 extern const f32 lbl_805DDB90;
 extern const f32 lbl_805DDBB0;
 extern const f32 lbl_805DDBB4;
-void TObjCMMainMenu__sub_80297DB8(Menu_80297DB8 *self);
+void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self);
 }
 
 extern "C" {
@@ -62,7 +62,7 @@ void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0);
 void fn_802972BC(void);
 void fn_802972C0(void);
-u8 TCharaMaking__sub_8028DC74();
+u8 calc_section_id_from_name();
 M2C_UNK create__16TObjCMAutoMkDataFPv(s32);
 M2C_UNK create__14TObjCMHairMenuFPv(s32);
 M2C_UNK create__10TObjCMNameFPv(s32);
@@ -105,7 +105,7 @@ void confirm_selection__14TObjCMMainMenuFPv(void *arg0) {
     }
     play_sound_effect((s32)(0x52D01), (s32)(0), (s32)(0), (s32)(0));
     if ((s8) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), u8 *, 0x30) == -1) {
-        M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), u8 *, 0x30) = TCharaMaking__sub_8028DC74();
+        M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), u8 *, 0x30) = calc_section_id_from_name();
     } else {
         try_pay_fee__14TObjCMMainMenuFv();
     }
@@ -152,7 +152,7 @@ void TObjCMMainMenu__sub_8029756C(u8 *arg0) {
     TObjCMMainMenu__data_805D659C = 1;
     create__16TObjCMAssignMenuFPvPv(M2C_FIELD(arg0, s32 *, 0x50), M2C_FIELD(&TObjCMMainMenu__data_804DB9C8.value, M2C_UNK *, (M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x24), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x2C) * 4)) * 0x10)));
 }
-void TObjCMMainMenu__sub_80297DB8(Menu_80297DB8 *self) {
+void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self) {
     Prim_80297DB8 prim;
     u32 cols[4];
     f32 s = get_scale__14TObjCMMainMenuFv();

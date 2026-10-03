@@ -48,7 +48,7 @@ s32 is_inactive__10TObjPlayerFPv(void *);
 struct VObj_8026ff0c *get_player_by_client_id(s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(void *);
-M2C_UNK TWindowSubStatusDisp__sub_8025AC50(void *, s32, M2C_UNK);
+M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
 
 void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
@@ -77,7 +77,7 @@ void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
     }
     clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
     if ((get_field_20__17TWindowSubComCardFPv(arg0) == 0U) || (strcmp(get_field_20__17TWindowSubComCardFPv(arg0), temp_r31) != 0)) {
-        TWindowSubStatusDisp__sub_8025AC50(arg0, temp_r31, 0x20);
+        set_text_entry_string(arg0, temp_r31, 0x20);
     }
     if (temp_r30->m31() != 0) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0xFFFF0000;

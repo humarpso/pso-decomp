@@ -55,7 +55,7 @@ struct Stack_8021488C {
 };
 
 extern "C" {
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 __ct__12TMemberCheckFP7TObject(int, void *);
 s32 TShopSequence__sub_80223600(void *, int, void *);
@@ -143,7 +143,7 @@ void THunterGuildSeqOffline__sub_8021488C(u8 *arg0) {
     stack.sp8 = lbl_805DC658;
     stack.spC = lbl_805DC65C;
     TShopSequence__sub_80223600((void *) (arg0), (int) (get_window_layout_position((s32)((int) (0x2C)))), (void *) (&stack.sp8));
-    if (TCameraCtrl__sub_8006B368() == 0) {
+    if (is_quest_active() == 0) {
         temp_r3 = __nw__7TObjectFUl((int) (0x80));
         if (temp_r3 != 0U) {
             __ct__12TMemberCheckFP7TObject((int) (temp_r3), (void *) (arg0));

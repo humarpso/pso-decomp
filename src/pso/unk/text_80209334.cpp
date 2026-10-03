@@ -16,14 +16,14 @@ struct Arg_80209334 { u8 pad[0xC]; s32 c; s32 d; };
 
 extern "C" {
 extern RecoveredGlobal_802093EC_lbl_805139F8 lbl_805139F8;
-s32 TLobby__sub_802093EC(s32 arg0);
+s32 get_area_event_data(s32 arg0);
 s32 TLobby__sub_80209410(Obj_80209410 *s);
 void TLobby__sub_80209440(void *);
 void TLobby__sub_802094AC(S_802094AC *arg0, s32 arg1);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 void *TEnemyTaskList__ct(void *, void *, s32);
-s32 TLobby__sub_802093EC(s32 arg0);
+s32 get_area_event_data(s32 arg0);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__14TSetEvtDestroy[];
@@ -41,7 +41,7 @@ void *TSetEvtDestroy__ct(void *arg0, void *parent, Arg_80209334 *arg2) {
     __ct__7TObjectFP7TObject(arg0, parent);
     M2C_FIELD(arg0, void **, 0x18) = __vt__14TSetEvtDestroy;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3630;
-    p = (s32 *)TLobby__sub_802093EC(get_current_floor());
+    p = (s32 *)get_area_event_data(get_current_floor());
     M2C_FIELD(arg0, void **, 0x1C) = NULL;
     M2C_FIELD(arg0, void **, 0x30) = NULL;
     if (p != NULL) {
@@ -61,7 +61,7 @@ void *TSetEvtDestroy__ct(void *arg0, void *parent, Arg_80209334 *arg2) {
     return arg0;
 }
 
-s32 TLobby__sub_802093EC(s32 arg0) {
+s32 get_area_event_data(s32 arg0) {
     if (arg0 < 0x12) {
         return M2C_FIELD(&lbl_805139F8.value, M2C_UNK *, (arg0 * 4));
     }

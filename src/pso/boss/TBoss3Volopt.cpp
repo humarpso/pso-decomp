@@ -117,7 +117,7 @@ M2C_UNK *VecCopy__FP3VecPC3Vec(void *, M2C_UNK *);
 int TBoss3Volopt__sub_8003EA2C(void*);
 M2C_UNK fn_8003F3BC();
 M2C_UNK TObjEnemyCustom__sub_800C7860();
-int TObjBgmColCtrl__sub_802274B8(void*);
+int play_area_music(void*);
 extern RecoveredGlobal_8003DC34_lbl_80436318 lbl_80436318;
 extern RecoveredGlobal_8003DC34_lbl_804FEE68 lbl_804FEE68;
 extern u16 lbl_805D2718;
@@ -225,7 +225,7 @@ int TBoss3Volopt__sub_8003EA2C(void*);
 M2C_UNK TBoss3Volopt__sub_800479D0();
 int TLobby__send_and_handle_60(void*);
 void TLobby__sub_8001FE7C(void*, int);
-int TObjBgmColCtrl__sub_802274B8(void*);
+int play_area_music(void*);
 void *__nw__7TObjectFUl(int);
 int bswap_16__FPUs(void* a0 = 0);
 int bswap_32__FPUl(void*);
@@ -313,7 +313,7 @@ void TBoss3Volopt__sub_8003DC34(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x3F0) = 0;
     M2C_FIELD(arg0, s16 *, 0x3F2) = 0;
     fn_8003F3BC();
-    TObjBgmColCtrl__sub_802274B8((void*)((void *) (&lbl_80436318.value)));
+    play_area_music((void*)((void *) (&lbl_80436318.value)));
     M2C_FIELD(arg0, s32 *, 0x404) = 0;
 }
 
@@ -331,7 +331,7 @@ void reset_vol_opt_state(void* a0) {
     *(int*)((char*)a0 + 0x400) = 1;
     *(short*)((char*)a0 + 0x3fc) = 2;
     lbl_805D4C24 = 0;
-    TObjBgmColCtrl__sub_802274B8(lbl_80436328);
+    play_area_music(lbl_80436328);
     lbl_805D4C2C = 1;
 }
 

@@ -51,7 +51,7 @@ extern s32 lbl_805D2670;
 extern const f32 lbl_805D8144;
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
-s32 TBoss1Dragon__sub_80027650(int, void *);
+s32 apply_fireball_impact_damage__12TBoss1DragonFPvi(int, void *);
 s32 get_instance__12TBoss1DragonFv();
 s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
@@ -127,7 +127,7 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
                 arg0->field_44 = NULL;
             }
             play_sound_effect(0x4003AD0C, &arg0->field_1C, 0, 0);
-            TBoss1Dragon__sub_80027650(get_instance__12TBoss1DragonFv(), &arg0->field_1C);
+            apply_fireball_impact_damage__12TBoss1DragonFPvi(get_instance__12TBoss1DragonFv(), &arg0->field_1C);
         }
         if ((s32) arg0->field_34 <= 2) {
             spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&lbl_805D4B48), s32 *, 8), 0x40);

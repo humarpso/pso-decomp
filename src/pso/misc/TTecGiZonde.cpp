@@ -32,7 +32,7 @@ extern "C" {
 u32 find_entity_by_id(u16);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
-void TTecGiZonde__sub_80232598(GChain_80232598 *self);
+void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self);
 s16 obj_getField1c(void *);
 M2C_UNK TObjPlayer__sub_8004433C(void *);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
@@ -78,7 +78,7 @@ void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TTecGiZonde__sub_80232598(GChain_80232598 *self) {
+void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self) {
     s32 i;
     u32 actor;
     for (i = 0; i < self->count; i++) {
@@ -100,7 +100,7 @@ void run_task__11TTecGiZondeFv(void *arg0) {
         return;
     }
     if (find_chain_targets__11TTecGiZondeFv(arg0) == 1) {
-        TTecGiZonde__sub_80232598((GChain_80232598 *)(arg0));
+        deliver_chain_hits__11TTecGiZondeFPv((GChain_80232598 *)(arg0));
     }
     queue_destruction__7TObjectFv(arg0);
 }

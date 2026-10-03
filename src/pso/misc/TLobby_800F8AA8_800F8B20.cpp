@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 get_main_phase();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 int set_keyboard_mode__6TLobbyFi(int);
 void TLobby__sub_800F8BD8(void);
 void reset_keyboard_input__6TLobbyFv();
@@ -29,14 +29,14 @@ int set_keyboard_mode__6TLobbyFi(int);
 void TLobby__sub_800F8B20(void) {
     switch (get_main_phase()) {
     case 15:
-        if (TCameraCtrl__sub_8006B368() != 0) {
+        if (is_quest_active() != 0) {
             set_keyboard_mode__6TLobbyFi((int)(init_chr_select__6TLobbyFv));
         } else {
             set_keyboard_mode__6TLobbyFi((int)(reset_to_chr_select__6TLobbyFv));
         }
         break;
     case 14:
-        if (TCameraCtrl__sub_8006B368() != 0) {
+        if (is_quest_active() != 0) {
             set_keyboard_mode__6TLobbyFi((int)(shutdown_keyboard_control__6TLobbyFv));
         } else {
             set_keyboard_mode__6TLobbyFi((int)(reset_keyboard_input__6TLobbyFv));

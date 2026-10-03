@@ -16,7 +16,7 @@ extern const f32 TObjEneDelDepth__data_805DF258;
 void TObjEneDelDepth__sub_80315D34(f32 farg0);
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjPlayer__sub_803E38FC(M2C_UNK);
+M2C_UNK set_chunk_blend(M2C_UNK);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -31,7 +31,7 @@ extern "C" {
 
 int get_data__15TObjEneDelDepthFv(void);
 void reset_globals__15TObjEneDelDepthFv(void);
-M2C_UNK TObjPlayer__sub_803E38FC(M2C_UNK);
+M2C_UNK set_chunk_blend(M2C_UNK);
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
 extern s32 lbl_805D5660;
@@ -44,8 +44,8 @@ extern s32 some_id_805c6f74;
 void reset_globals__15TObjEneDelDepthFv(void) {
     some_id_805c6f74 &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);
-    TObjPlayer__sub_803E38FC(0x2500);
-    TObjPlayer__sub_803E38FC(0x2500);
+    set_chunk_blend(0x2500);
+    set_chunk_blend(0x2500);
     lbl_805D7784 = lbl_805D5664;
     lbl_805D7780 = lbl_805D5668;
     some_id_805c6f74 = lbl_805D5660;
@@ -64,7 +64,7 @@ void TObjEneDelDepth__sub_80315D60(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     lbl_805D5668 = lbl_805D7780;
     some_id_805c6f74 |= 0x8820;
     set_chunk_material_override_pair((M2C_UNK)(0xFF00), (M2C_UNK)(0x800));
-    TObjPlayer__sub_803E38FC((M2C_UNK)((int) (0x2100)));
+    set_chunk_blend((M2C_UNK)((int) (0x2100)));
     stack.spC = farg1;
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DF2E0 + farg0;

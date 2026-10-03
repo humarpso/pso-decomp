@@ -15,7 +15,7 @@ M2C_UNK clamp_stat_41c__10TObjPlayerFPv(s32);
 void *get_quest_id__12TQuestListVMFPv();
 M2C_UNK TObjPlayer__sub_801AFDB0(s32);
 s32 get_current_state_field__10TObjPlayerFv(s32, s32);
-void *TObjPlayer__sub_801D9390();
+void *get_class_stat_caps();
 
 void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     s16 temp_r0;
@@ -43,7 +43,7 @@ void clamp_stats__10TObjPlayerFiPv(s32 arg0, void *arg1) {
 
     temp_r31 = get_quest_id__12TQuestListVMFPv();
     TObjPlayer__sub_801AFDB0(arg0);
-    temp_r28 = TObjPlayer__sub_801D9390();
+    temp_r28 = get_class_stat_caps();
     temp_r4 = M2C_FIELD(temp_r31, s16 *, 0);
     if (temp_r4 < 0) {
         M2C_FIELD(arg1, s16 *, 0) = 1;

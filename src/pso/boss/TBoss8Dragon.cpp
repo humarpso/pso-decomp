@@ -618,7 +618,7 @@ void update_heading__12TBoss8DragonFPvi(void *arg0, s32 arg1);
 void TBoss8Dragon__sub_8005F968(void *, s32, s32);
 M2C_UNK TBoss8Dragon__sub_80064AB0(void *);
 struct Obj_8005F968 { u8 pad[0x60]; s32 f60; u8 pad64[0x480 - 0x64]; s32 f480; };
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 extern const f32 lbl_805D8DA0;
 s32 enemy_validate_retained_target(void *);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, M2C_UNK *);
@@ -669,8 +669,8 @@ void TBoss8Dragon__sub_8005F968(void *selfv, s32 arg1, s32 arg2) {
     s32 t;
     s32 v;
 
-    t = TBoss4Type2__sub_80141FA8(self->f60, arg2);
-    t = TBoss4Type2__sub_80141FA8((s32)((f32)t * lbl_805D8DA0), self->f480);
+    t = angle_diff_s16(self->f60, arg2);
+    t = angle_diff_s16((s32)((f32)t * lbl_805D8DA0), self->f480);
     v = (t < -arg1) ? -arg1 : ((t < arg1) ? t : arg1);
     self->f480 = self->f480 - v;
 #undef self
@@ -1817,10 +1817,10 @@ void set_active_flag__12TBoss8DragonFPv(void* a0);
 void set_action_state__12TBoss8DragonFPv(void* p);
 void set_state__12TBoss8DragonFPv(void* p);
 void reset_timer__12TBoss8DragonFPv(void* p);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 
 void check_hit_result__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
-    if (TBoss4Type2__sub_80141FA8(arg1, arg2) >= 0) {
+    if (angle_diff_s16(arg1, arg2) >= 0) {
         M2C_FIELD(arg0, s32 *, 0x654) = 1;
         return;
     }

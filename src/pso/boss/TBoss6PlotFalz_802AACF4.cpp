@@ -96,7 +96,7 @@ extern s32 lbl_805D586C;
 s32 TBoss6PlotFalz__sub_802AAE78(void);
 s32 obj_isState2_324(void *);
 s16 obj_getS16_32C(void *);
-M2C_UNK TObjPlayer__sub_801B1E54(int, s32, s16);
+M2C_UNK send_6x2F_change_player_hp(int, s32, s16);
 u8 *get_player_by_client_id(s32);
 M2C_UNK calc_photon_blast_charge__10TObjPlayerFv(void *, s32);
 s32 is_active__14TBoss6PlotFalzFPv(void *arg0);
@@ -126,7 +126,7 @@ s32 TBoss6PlotFalz__sub_802AAD84(s32 arg0, u32 arg1) {
         return v;
     }
     hp -= v;
-    TObjPlayer__sub_801B1E54(0xFFFF, arg0, hp);
+    send_6x2F_change_player_hp(0xFFFF, arg0, hp);
     calc_photon_blast_charge__10TObjPlayerFv(p, v);
     ((VObj_18_a328de *)p)->m73();
     return v;

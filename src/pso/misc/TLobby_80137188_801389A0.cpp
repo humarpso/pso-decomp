@@ -43,7 +43,7 @@ M2C_UNK destroy_lobby_ui__6TLobbyFv();
 M2C_UNK close_all_windows__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TWindow__close(u32);
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK reset_controller_input_state();
 M2C_UNK send_message_box_closed__9TProtocolFv(s32);
 s32 TMCFormatSequence__sub_802693B4(u32);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
@@ -58,7 +58,7 @@ void update_scroll_close__6TLobbyFv(void) {
             close__14TAdScrollWinGCFPv(lbl_805D55F8);
             lbl_805D55F8 = 0U;
             destroy_lobby_ui__6TLobbyFv();
-            TKeyBoardControl__sub_801A66B8();
+            reset_controller_input_state();
             send_message_box_closed__9TProtocolFv(TLobby__data_805D5580);
         }
     } else {
@@ -90,7 +90,7 @@ void handle_short_list_input__6TLobbyFv(void) {
     } else {
         close_all_windows__6TLobbyFv();
     }
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
 }
 
 extern s8 lbl_8050E208[];
@@ -117,7 +117,7 @@ void update_short_list__6TLobbyFv(void) {
     } else {
         close_all_windows__6TLobbyFv();
     }
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
 }
 void TLobby__sub_80138B7C(void) {
     s32 sel;

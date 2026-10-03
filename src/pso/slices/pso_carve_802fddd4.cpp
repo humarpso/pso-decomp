@@ -10,7 +10,7 @@ struct Node_802FDDD4 {
 };
 
 extern "C" {
-void TBoss1Dragon__sub_8002ACE0(u8 *, u8 *);
+void copy_model_node(u8 *, u8 *);
 Node_802FDDD4 *TBoss8Dragon__sub_802FDDD4(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v);
 }
 
@@ -34,7 +34,7 @@ void build_6xA8_gol_dragon_boss_actions(void* p);
 Node_802FDDD4 *TBoss8Dragon__sub_802FDDD4(Node_802FDDD4 *src, Node_802FDDD4 *dst, s32 v) {
     Node_802FDDD4 *cur = dst;
     dst = dst + 1;
-    TBoss1Dragon__sub_8002ACE0((u8 *)cur, (u8 *)src);
+    copy_model_node((u8 *)cur, (u8 *)src);
     cur->v = v;
     if (src->c0 != NULL) {
         cur->c0 = dst;

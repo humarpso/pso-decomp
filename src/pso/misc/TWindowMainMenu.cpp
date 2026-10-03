@@ -60,7 +60,7 @@ extern "C" {
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
 M2C_UNK get_window_layout_position(int);
 M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
-M2C_UNK TWindowMainMenu__sub_802ADD38(int, void *);
+M2C_UNK append_child_rows__15TWindowMainMenuFPvi(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
@@ -93,7 +93,7 @@ M2C_UNK get_window_layout_position(int);
 s32 TWindowMainMenu__sub_802ADAAC(u32);
 M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
 void update_if_active__15TWindowMainMenuFv(int, int);
-M2C_UNK TWindowMainMenu__sub_802ADD38(int, void *);
+M2C_UNK append_child_rows__15TWindowMainMenuFPvi(int, void *);
 int update_scaled_position__15TWindowMainMenuFi(void*);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void TWindowMainMenu__sub_802646E4(u8 *arg0, Ent_802646E4 *arg1);
@@ -117,8 +117,8 @@ void show_child_window__15TWindowMainMenuFPv(void* p);
 int test_keyboard_card_flag4(void* p);
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
 void update_trade_submenu__15TWindowMainMenuFPv(void* p);
-int TWindowMainMenu__sub_802AD90C(void*);
-int TWindowMainMenu__sub_802AD980(void*);
+int pop_level__15TWindowMainMenuFPv(void*);
+int park_selection__15TWindowMainMenuFPv(void*);
 int TWindowSubTradeMain__sub_80244A4C(void*);
 int TWindow__close(void*);
 int clear_menu_flags__15TWindowMainMenuFPv(void*);
@@ -133,15 +133,15 @@ void show_child_window__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((ch
 void update_trade_submenu__15TWindowMainMenuFPv(void* p) { void* m = *(void**)((char*)p + 0x1c); if (m) TWindowSubTradeMain__sub_80244A4C(m); }
 void update_submenu__15TWindowMainMenuFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-        TWindowMainMenu__sub_802AD980((void*)(M2C_FIELD(arg0, void **, 0x1C)));
+        park_selection__15TWindowMainMenuFPv((void*)(M2C_FIELD(arg0, void **, 0x1C)));
         update_scaled_position__15TWindowMainMenuFi((void*)(M2C_FIELD(arg0, u32 *, 0x1C)));
     }
     if (is_split_screen() != 0) {
         update_trade_submenu__15TWindowMainMenuFPv((void*)((void*)((void*)(arg0))));
     }
 }
-void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { TWindowMainMenu__sub_802AD90C(*(void**)((char*)p + 0x1c)); clear_menu_flags__15TWindowMainMenuFPv(*(void**)((char*)p + 0x1c)); TWindowMainMenu__sub_802646E4((u8 *)((void*)(p)), (Ent_802646E4 *)((void*)(a1))); } }
-void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { TWindowMainMenu__sub_802AD980(*(void**)((char*)p + 0x1c)); clear_menu_flags__15TWindowMainMenuFPv(*(void**)((char*)p + 0x1c)); TWindowMainMenu__sub_802646E4((u8 *)((void*)(p)), (Ent_802646E4 *)((void*)(a1))); } }
+void close_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { pop_level__15TWindowMainMenuFPv(*(void**)((char*)p + 0x1c)); clear_menu_flags__15TWindowMainMenuFPv(*(void**)((char*)p + 0x1c)); TWindowMainMenu__sub_802646E4((u8 *)((void*)(p)), (Ent_802646E4 *)((void*)(a1))); } }
+void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { park_selection__15TWindowMainMenuFPv(*(void**)((char*)p + 0x1c)); clear_menu_flags__15TWindowMainMenuFPv(*(void**)((char*)p + 0x1c)); TWindowMainMenu__sub_802646E4((u8 *)((void*)(p)), (Ent_802646E4 *)((void*)(a1))); } }
 
 void close__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { TWindow__close(*(void**)((char*)p + 0x1c)); *(int*)((char*)p + 0x1c) = 0; } }
 
@@ -151,7 +151,7 @@ void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
         M2C_FIELD(arg0, u32 *, 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
     }
     temp_r31 = M2C_FIELD(arg0, u32 *, 0x1C);
-    TWindowMainMenu__sub_802ADD38((int) (temp_r31), (void *) (arg1));
+    append_child_rows__15TWindowMainMenuFPvi((int) (temp_r31), (void *) (arg1));
     TWindowMainMenu__sub_802ADADC((int) (temp_r31), (int) (0));
     update_submenu__15TWindowMainMenuFPv((void *) (arg0));
 }
@@ -174,7 +174,7 @@ void TWindowMainMenu__sub_802646E4(u8 *arg0, Ent_802646E4 *arg1) {
         }
         if (filter_menu_entry__15TWindowMainMenuFPvPvPv(arg0, &id, &flag) != 0) {
             if (flag != 0) {
-                TWindowMainMenu__sub_802ADD38(w, (void *)(s32)id);
+                append_child_rows__15TWindowMainMenuFPvi(w, (void *)(s32)id);
             } else {
                 update_if_active__15TWindowMainMenuFv(w, id);
             }

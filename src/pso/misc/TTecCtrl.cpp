@@ -22,7 +22,7 @@ extern RecoveredGlobal_8022F068_lbl_804CC934 lbl_804CC934;
 extern u8 *lbl_805D63AC;
 extern void **lbl_805D63B0;
 void TLobby__sub_8022F068(void);
-s32 TTecCtrl__sub_8022EF78(s32 x);
+s32 clamp_nonnegative_int(s32 x);
 extern u8 *lbl_805D63AC;
 extern void **lbl_805D63B0;
 extern u8 lbl_804CC1BC[];
@@ -39,31 +39,31 @@ void load_technique_resources(void);
 
 extern "C" {
 
-void* TTecCtrl__sub_8022EF88(int a0);
+void* get_technique_base_params(int a0);
 void *__ct__8TTecCtrlFv(void *arg0);
 void render__8TTecCtrlFv(void);
 void run_task__8TTecCtrlFv(void);
-M2C_UNK TTecLuker__sub_80234F28();
+M2C_UNK reset_telepipe_visit_counts();
 void __ct__7TObjectFP7TObject(void *);
 
 void render__8TTecCtrlFv(void) {  }
 
     extern unsigned char lbl_804CC1CC[];
 
-s32 TTecCtrl__sub_8022EF78(s32 x) {
+s32 clamp_nonnegative_int(s32 x) {
     if (x <= 0) {
         x = 0;
     }
     return x;
 }
 
-void* TTecCtrl__sub_8022EF88(int a0) {  return (char*)lbl_804CC1CC + a0 * 44; }
+void* get_technique_base_params(int a0) {  return (char*)lbl_804CC1CC + a0 * 44; }
 
 extern s8 lbl_805D63A8;
 
 void run_task__8TTecCtrlFv(void) {
     lbl_805D63A8 = 0;
-    TTecLuker__sub_80234F28();
+    reset_telepipe_visit_counts();
 }
 
 extern M2C_UNK __vt__8TTecCtrl[];

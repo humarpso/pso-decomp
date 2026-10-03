@@ -60,7 +60,7 @@ extern const f32 lbl_805DBF64;
 extern const f32 lbl_805DBF74;
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 extern int lbl_8050DD50[];
-s16 TWindowTimer__sub_8019A70C(s32 i);
+s16 get_timer_value__12TWindowTimerFi(s32 i);
 extern int lbl_8050DD50[];
 void TWindowTimer__sub_8019A738(s32 i);
 extern int lbl_8050DD50[];
@@ -102,7 +102,7 @@ void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1);
 void send_gogo_ball__12TWindowTimerFi(s32 arg0);
 void update_best_time__12TWindowTimerFPv(void *arg0);
 M2C_UNK TLobby__send_and_handle_60(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 s32 bswap_32__FPUl(s32);
 M2C_UNK clear_obj_links(void *);
@@ -197,7 +197,7 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
 void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8E18;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
         clear_obj_links(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -266,7 +266,7 @@ void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
 }
 void TWindowTimer__sub_8019A6F8(void* p) { *(u8*)((char*)p + 0x0) = 121; *(u8*)((char*)p + 0x1) = 6; }
 
-s16 TWindowTimer__sub_8019A70C(s32 i) {
+s16 get_timer_value__12TWindowTimerFi(s32 i) {
     return ((s32 *)&lbl_8050DD50)[i];
 }
 

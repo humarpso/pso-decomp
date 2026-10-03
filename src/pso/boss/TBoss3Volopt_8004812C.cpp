@@ -42,7 +42,7 @@ s32 TBoss3Volopt__sub_8004816C(s32 i);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
-void TObjPlayer__sub_801E341C(void *, s32, s32);
+void draw_line_list(void *, s32, s32);
 void vec3_add_to(void *, void *);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TObjPlayer__sub_803D8CD4(s32);
@@ -110,7 +110,7 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
     }
     pop_matrix();
     init_xyz_limits__10TObjPlayerFv();
-    TObjPlayer__sub_801E341C(lbl_80484830, 1, 5);
+    draw_line_list(lbl_80484830, 1, 5);
     reset_transform_state__10TObjPlayerFv();
 }
 

@@ -297,7 +297,7 @@ void TObjEneMerillLia__sub_800D6AAC(u8 *arg0);
 s32 render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
-s32 TObjLight__sub_80134098();
+s32 restore_scene_lighting();
 s32 TObjLight__sub_80134194(void *);
 s32 render_world_model__10TObjPlayerFPv(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
@@ -412,7 +412,7 @@ void reset_action_state__16TObjEneMerillLiaFPv(void *arg0);
 void update_motion_state__16TObjEneMerillLiaFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void *TObjEneMerillLia__ct(void *, void *, void *);
 void TObjPlayer__sub_800C68FC(void *, int);
 void unlink_enemy_group_relations(void *);
@@ -874,7 +874,7 @@ void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
       }
     }
     pop_matrix();
-    TObjLight__sub_80134098();
+    restore_scene_lighting();
     temp_r0 = ((RecoveredFields_800D6810_arg0 *) arg0)->field_326;
     if ((temp_r0 >= 0xA) || (temp_r0 < 8))
     {
@@ -1038,7 +1038,7 @@ void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494728;
         unlink_enemy_group_relations(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3A8, -1);
         TObjPlayer__sub_800C68FC(arg0, 0);
         if (arg1 > 0) {

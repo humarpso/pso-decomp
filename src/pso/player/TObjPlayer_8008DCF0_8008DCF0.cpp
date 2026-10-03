@@ -104,7 +104,7 @@ extern const f32 lbl_805D9630;
 void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
-M2C_UNK TObjPlayer__sub_800180E8(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
+M2C_UNK calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
 s32 check_path_obstructed(void *, void *);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -117,7 +117,7 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self);
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
-M2C_UNK TObjPlayer__sub_800180E8(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
+M2C_UNK calc_velocity_toward_destination(void *, Vec_8008DD14, Vec_8008DD14, Info_8008DD14 *, f32);
 s32 check_path_obstructed(void *, void *);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -153,7 +153,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK TObjPlayer__sub_8008ED48(void *, s16);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -194,7 +194,7 @@ void TObjPlayer__sub_8008DD14(Obj_8008DD14 *self) {
     case 1: {
         self->vel.y = lbl_805D9620;
         VecCopy__FP3VecPC3Vec(&self->f290, &self->pos);
-        TObjPlayer__sub_800180E8(self, self->f290, self->f29C, self->info, self->info->f4);
+        calc_velocity_toward_destination(self, self->f290, self->f29C, self->info, self->info->f4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, &self->vel);
         Vec_8008DD14 v = self->pos;
         v.x += self->vel.x;
@@ -238,7 +238,7 @@ void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self) {
             TObjPlayer__sub_800C6A48(self, &d2, lbl_805D9624, lbl_805D9628);
         }
         VecCopy__FP3VecPC3Vec(&self->f290, &self->pos);
-        TObjPlayer__sub_800180E8(self, self->f290, self->f29C, self->info, self->info->f4);
+        calc_velocity_toward_destination(self, self->f290, self->f29C, self->info, self->info->f4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, &self->vel);
         Vec_8008DD14 v = self->pos;
         v.x += self->vel.x;
@@ -346,7 +346,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
                 }
             }
             pop_matrix();
-            TObjLight__sub_80134098();
+            restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
             some_id_805c6f74 = lbl_805D5660;
             TObjEneBalClaw__sub_8008D700(arg0, var_r30);

@@ -60,7 +60,7 @@ s32 TObjCityMainWarp__vt15(u8 *arg0);
 s32 get_instance__6TLobbyFv(void);
 void set_active_bit__16TObjCityMainWarpFv(s32 id);
 s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
-void TObjCityMainWarp__sub_801865B4(s32 id);
+void unlock_main_warp_destination(s32 id);
 s32 is_split_screen();
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void TObjAreaWarp__ct(void *, void *, void *);
@@ -74,7 +74,7 @@ void *TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2);
 
 extern "C" {
 
-void TObjCityMainWarp__sub_80186634(void);
+void clear_enabled_main_warps(void);
 void TObjCityMainWarp__vt12(void* p);
 s32 TObjCityMainWarp__vt14(s32 arg0);
 void TObjCityMainWarp__vt16(void *arg0);
@@ -82,7 +82,7 @@ void *__dt__16TObjCityMainWarpFv(void *arg0, s16 arg1);
 void clear_active_bit__16TObjCityMainWarpFv(void);
 void *create__16TObjCityMainWarpFPv(void *arg0);
 void render__16TObjCityMainWarpFv(u8 *arg0);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 get_game_play_mode();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
@@ -121,7 +121,7 @@ void render__16TObjCityMainWarpFv(u8 *arg0) {
 }
 
 s32 TObjCityMainWarp__vt14(s32 arg0) {
-    if ((get_game_play_mode() == 1) && (TCameraCtrl__sub_8006B368() == 0)) {
+    if ((get_game_play_mode() == 1) && (is_quest_active() == 0)) {
         return 0;
     }
     return is_warp_enabled__12TObjAreaWarpFi(arg0);
@@ -228,7 +228,7 @@ void *TObjCityMainWarp__ct(void *arg0, void *arg1, void *arg2) {
     return self;
 }
 
-void TObjCityMainWarp__sub_801865B4(s32 id) {
+void unlock_main_warp_destination(s32 id) {
     if (get_instance__6TLobbyFv() == 0) {
         set_active_bit__16TObjCityMainWarpFv(id);
         if (id == 8) {
@@ -246,7 +246,7 @@ void TObjCityMainWarp__sub_801865B4(s32 id) {
     }
 }
 
-void TObjCityMainWarp__sub_80186634(void) { TObjCityMainWarp__data_805D5B50 = 0; }
+void clear_enabled_main_warps(void) { TObjCityMainWarp__data_805D5B50 = 0; }
 
 void clear_active_bit__16TObjCityMainWarpFv(void) {
     s32 temp_r3;

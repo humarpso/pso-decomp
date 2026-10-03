@@ -86,7 +86,7 @@ extern "C" {
 void set_inventory_item__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3);
 void update_from_player__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s32 arg2, s32 arg3);
 s32 get_camera_id__11TCameraCtrlFv();
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 s32 get_field_ec__12TOSwitchItemFPv(void *);
 s32 get_field_ed__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C1AC8(void *);
@@ -130,7 +130,7 @@ void update_from_player__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
         text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(arg2);
-        M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
+        M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, get_shared_text_buffer(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
     }
     update_item_icon_colors__20TWindowSubStatusDispFPvPv(arg0, arg1);
     M2C_FIELD(arg0, s32 *, 0x18) = arg3;

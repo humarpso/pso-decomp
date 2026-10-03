@@ -28,7 +28,7 @@ s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1E38(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E2048(M2C_UNK, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_800846C8(M2C_UNK);
+M2C_UNK init_capture_texture(M2C_UNK);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 get_instance__15TAdPlayerLoadGCFv();
 s32 get_load_result__15TAdPlayerLoadGCFv(M2C_UNK);
@@ -54,7 +54,7 @@ void load_data_buffers(void) {
     TObjBoss2Tunnel__data_805D4E94 = 0;
     TObjBoss2Tunnel__data_805D4E90 = xmalloc__FUl(0x1E000);
     TObjBoss2Tunnel__data_805D4E8A = 0;
-    TObjPlayer__sub_800846C8(0);
+    init_capture_texture(0);
     temp_r3 = xmalloc__FUl(0x1818C);
     lbl_805D4E8C = temp_r3;
     if (temp_r3 != 0U) {

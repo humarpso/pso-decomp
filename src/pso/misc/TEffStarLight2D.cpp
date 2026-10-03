@@ -54,7 +54,7 @@ void *__nw__7TObjectFUl(u32);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TParticleCtrl__sub_803D8D1C(int, void *, void *);
+void project_world_to_screen(int, void *, void *);
 extern u8 __vt__15TEffStarLight2D[];
 extern u32 lbl_805D292C;
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -86,7 +86,7 @@ void run_task__15TEffStarLight2DFv(Star_800851B0 *self) {
     if (view.z > 0.0f) {
         return;
     }
-    TParticleCtrl__sub_803D8D1C(0, &self->pos, &scr);
+    project_world_to_screen(0, &self->pos, &scr);
     if (scr.x >= -100.0f && scr.x <= 740.0f && scr.z >= -100.0f && scr.z <= 580.0f) {
         self->prevX = self->curX;
         self->prevZ = self->curZ;
@@ -120,7 +120,7 @@ O_80085388 *__ct__15TEffStarLight2DFv(O_80085388 *arg0, void *arg1, void *arg2, 
     arg0->f0 = lbl_805D292C;
     copy_from__15TEffStarLight2DFPvPv((void*)((u8 *)arg0 + 0x38), (void*)(arg2));
     VecCopy__FP3VecPC3Vec((u8 *)arg0 + 0x2C, arg1);
-    TParticleCtrl__sub_803D8D1C(0, (u8 *)arg0 + 0x2C, &p);
+    project_world_to_screen(0, (u8 *)arg0 + 0x2C, &p);
     arg0->f24 = p.x;
     arg0->f28 = p.z;
     arg0->f1c = arg0->f24;

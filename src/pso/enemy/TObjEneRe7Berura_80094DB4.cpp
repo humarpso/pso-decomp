@@ -9,7 +9,7 @@ extern "C" {
 s32 TObjEneRe7Berura__sub_80094DB4(void *arg0);
 u8 is_over_limit__16TObjEneRe7BeruraFPv(void *arg0);
 s32 step_toward_target__16TObjEneRe7BeruraFPvii(void *arg0, s32 arg1, s32 arg2);
-s32 TBoss4Type2__sub_80141FA8(s32);
+s32 angle_diff_s16(s32);
 
 s32 TObjEneRe7Berura__sub_80094DB4(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0x3D4) * 0x96;
@@ -36,7 +36,7 @@ s32 step_toward_target__16TObjEneRe7BeruraFPvii(void *arg0, s32 arg1, s32 arg2) 
     s32 var_r31;
 
     var_r31 = 0;
-    temp_r3 = TBoss4Type2__sub_80141FA8(M2C_FIELD(arg0, s32 *, 0x60));
+    temp_r3 = angle_diff_s16(M2C_FIELD(arg0, s32 *, 0x60));
     if (temp_r3 > arg2) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + arg2);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x4BC);

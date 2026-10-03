@@ -8,7 +8,7 @@ struct Acc_80327A38 { s32 sum; s32 count; };
 
 extern "C" {
 void fn_803279CC(s32 arg0, u8 *arg1, s32 arg2);
-s32 TOComputerMachine01__sub_8023DD0C(void *, u16);
+s32 has_texture_scroll_entry(void *, u16);
 void fn_80327A38(Acc_80327A38 *acc, Src_80327A38 *src, s32 id);
 }
 
@@ -40,10 +40,10 @@ void fn_803279CC(s32 arg0, u8 *arg1, s32 arg2) {
 void fn_80327A38(Acc_80327A38 *acc, Src_80327A38 *src, s32 id) {
     s32 hit = 0;
     Rec_80327A38 *p;
-    if (src->t0 != 0 && TOComputerMachine01__sub_8023DD0C(src->t0, id) == 1) {
+    if (src->t0 != 0 && has_texture_scroll_entry(src->t0, id) == 1) {
         hit = 1;
     }
-    if (src->t1 != 0 && TOComputerMachine01__sub_8023DD0C(src->t1, id) == 1) {
+    if (src->t1 != 0 && has_texture_scroll_entry(src->t1, id) == 1) {
         hit = 1;
     }
     if (hit != 0) {

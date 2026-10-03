@@ -15,7 +15,7 @@ struct RecoveredGlobal_80350440_lbl_804F0D1C {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TObjBgmColCtrl__sub_802274B8(s32);
+void play_area_music(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80350440_lbl_804F0D00 lbl_804F0D00;
 extern RecoveredGlobal_80350440_lbl_804F0D1C lbl_804F0D1C;
@@ -34,7 +34,7 @@ u8 *fn_80350440(u8 *arg0, u8 *arg1, s32 arg2) {
         queue_destruction__7TObjectFv(lbl_805D6EA8);
     }
     lbl_805D6EA8 = arg0;
-    TObjBgmColCtrl__sub_802274B8(M2C_FIELD(&lbl_804F0D00.value, M2C_UNK *, (arg2 * 4)));
+    play_area_music(M2C_FIELD(&lbl_804F0D00.value, M2C_UNK *, (arg2 * 4)));
     return arg0;
 }
 

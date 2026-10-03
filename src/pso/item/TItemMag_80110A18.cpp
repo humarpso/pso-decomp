@@ -11,7 +11,7 @@ struct TItemMag_80110B94 { u8 pad[0x1a8]; void *subs[2]; };
 extern "C" {
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
-void TItemMag__sub_80110F04(O_80110F04 *self);
+void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self);
 void set_flags64__8TItemMagFPvUi(void *p, u32 v);
 void spawn_item_timer__13TItemAttackerFiii(void *a, void *fn, s32 t);
 void clear_flag2__11TItemMagSubFPv(void *arg0);
@@ -32,7 +32,7 @@ s32 check_feed_state__8TItemMagFPvi(void *arg0, s32 arg1);
 void copy_owner_data__8TItemMagFPv(u8 *arg0);
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1);
 M2C_UNK TItemMag__sub_80111140(void *, void *, void *);
-s32 TItemMag__sub_801117C0();
+s32 get_evolution_stage__8TItemMagFPv();
 s16 TObjPlayer__sub_80113D90(s32);
 s32 activate_d04_slot__10TObjPlayerFPv();
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, void *);
@@ -56,7 +56,7 @@ void call_preserve_flag__8TItemMagFPvi(void *arg0, s32 arg1) {
 }
 
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1) {
-    if (TItemMag__sub_801117C0() < 4) {
+    if (get_evolution_stage__8TItemMagFPv() < 4) {
         fn_80100D9C(arg0, arg1);
     }
 }
@@ -168,7 +168,7 @@ void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
     } while (var_r30 != 3);
 }
 
-void TItemMag__sub_80110F04(O_80110F04 *self) {
+void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self) {
     if (TItemMag__data_805DABA4 != self->f190) {
         self->f190 -= TItemMag__data_805DABA8;
         if (TItemMag__data_805DABA4 == self->f190) {

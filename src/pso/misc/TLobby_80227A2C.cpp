@@ -56,20 +56,20 @@ s32 get_player_floor__6TLobbyFi(s32);
 s32 select_area_entrance(void *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
-void TLobby__sub_80228634(u8 *arg0);
+void run_area_scene_cleanup(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 M2C_UNK reset_story_select_state__6TLobbyFv();
 extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
-void TLobby__sub_80228754(u8 *arg0);
+void promote_area_floor(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 M2C_UNK set_scene__6TSceneFi(int);
 M2C_UNK set_current_floor_area(int);
 extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
-void TLobby__sub_802286C4(u8 *arg0);
+void load_area_scene_and_init(u8 *arg0);
 M2C_UNK TLobby__sub_802401C8(void *);
 extern unsigned char lbl_80514F64[];
 void TLobby__sub_8022804C(void);
-M2C_UNK TLobby__sub_802401D0(void *);
+M2C_UNK update_sound_frame(void *);
 extern unsigned char lbl_80514F64[];
 void TLobby__sub_80228074(void);
 M2C_UNK TLobby__sub_80240310(void *);
@@ -87,7 +87,7 @@ void TLobby__sub_802280C4(void);
 s32 init_range_zero__6TLobbyFPv(void* arg0);
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
 s32 TLobby__sub_802287F0(void);
-void *TLobby__sub_80240858(void *self);
+void *reset_sound_owner_state(void *self);
 void TLobby__sub_80240808(void *self, s32 x);
 void *__register_global_object(void *obj, void *dtor, void *entry);
 extern unsigned char lbl_80514F64[];
@@ -168,7 +168,7 @@ void TLobby__sub_8022804C(void) {
 
 typedef char RecoveredGlobal_80228074_lbl_80514F64_size[sizeof(RecoveredGlobal_80228074_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_80228074(void) {
-    TLobby__sub_802401D0((void *) (&(*(RecoveredGlobal_80228074_lbl_80514F64 *)&lbl_80514F64).value));
+    update_sound_frame((void *) (&(*(RecoveredGlobal_80228074_lbl_80514F64 *)&lbl_80514F64).value));
 }
 
 typedef char RecoveredGlobal_8022809C_lbl_80514F64_size[sizeof(RecoveredGlobal_8022809C_lbl_80514F64) == 0xC3C ? 1 : -1];
@@ -189,7 +189,7 @@ void TLobby__sub_802280C4(void) {
 }
 
 void TLobby__sub_80228118(void) {
-    __register_global_object(TLobby__sub_80240858(((char *)&lbl_80514F64)), (void *)TLobby__sub_80240808, lbl_80514F58);
+    __register_global_object(reset_sound_owner_state(((char *)&lbl_80514F64)), (void *)TLobby__sub_80240808, lbl_80514F58);
 }
 
 void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0) {
@@ -233,7 +233,7 @@ s32 select_area_entrance(void *arg0) {
 #pragma pop
 
 typedef char RecoveredGlobal_80228634_lbl_804CBE98_size[sizeof(RecoveredGlobal_80228634_lbl_804CBE98) == 0x1B0 ? 1 : -1];
-void TLobby__sub_80228634(u8 *arg0) {
+void run_area_scene_cleanup(u8 *arg0) {
     s32 sp8;
     M2C_UNK (*var_r12)(s32);
     s32 *var_r4;
@@ -263,7 +263,7 @@ void TLobby__sub_80228634(u8 *arg0) {
 typedef char RecoveredGlobal_80228754_lbl_804CBE98_size[sizeof(RecoveredGlobal_80228754_lbl_804CBE98) == 0x1B0 ? 1 : -1];
 
 typedef char RecoveredGlobal_802286C4_lbl_804CBE98_size[sizeof(RecoveredGlobal_802286C4_lbl_804CBE98) == 0x1B0 ? 1 : -1];
-void TLobby__sub_802286C4(u8 *arg0) {
+void load_area_scene_and_init(u8 *arg0) {
     s32 sp8;
     M2C_UNK (*var_r12)(s32);
     s32 *var_r4;
@@ -291,7 +291,7 @@ void TLobby__sub_802286C4(u8 *arg0) {
     var_r12(var_r3);
 }
 
-void TLobby__sub_80228754(u8 *arg0) {
+void promote_area_floor(u8 *arg0) {
     s32 sp8;
     M2C_UNK (*var_r12)(s32);
     s32 *var_r4;

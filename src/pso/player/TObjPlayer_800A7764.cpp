@@ -138,7 +138,7 @@ s32 check_v2_mode__9TObjEneDDFv();
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK update_obstruction_fade(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -435,7 +435,7 @@ void TObjPlayer__sub_800A7CA4(Player_800A7CA4 *self) {
         }
     }
     pop_matrix();
-    TObjLight__sub_80134098();
+    restore_scene_lighting();
     switch (self->f326) {
     case 0:
     case 1:

@@ -144,7 +144,7 @@ extern s32 lbl_805D5668;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TItem__sub_8010255C(u8 *arg0);
+void render__5TItemFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 void spawn_particle_effect(void *, s32);
@@ -194,7 +194,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
     }
 }
 
-void TItem__sub_8010255C(u8 *arg0) {
+void render__5TItemFPv(u8 *arg0) {
     if (all_parents_unqueued_for_destruction__7TObjectFv((void *) (arg0)) != 0) {
         set_shadow_flag__10TObjPlayerFPv((void *) (arg0));
         if ((TObjPlayer__sub_80102C30((void *)((void *) (arg0))) == 2) && (reset_key_machine_state__10TObjPlayerFv() != 0)) {

@@ -167,7 +167,7 @@ void set_random_timer__15TObjEneSlimeOneFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_target_flag_bit0__15TObjEneSlimeOneFPv(void *arg0);
 void update_wait_search__15TObjEneSlimeOneFPv(void *arg0);
 s32 TObjControl__ct(s32, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 int TObjEneSlimeOne__sub_800EAD84(void);
 int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
 u16 find_nearest_visible_player(void *, M2C_UNK, f32);
@@ -289,7 +289,7 @@ void TObjEneSlimeOne__sub_800EAE78(TSlime_800EAE78 *arg0, s32 arg1) {
 void *__dt__15TObjEneSlimeOneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjEneSlimeOne;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         M2C_FIELD(arg0, M2C_UNK *, 0x38C) = 0;
         if (M2C_FIELD(arg0, void **, 0x3E8) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3E8)); M2C_FIELD(arg0, M2C_UNK *, 0x3E8) = 0; }
         __dt__15TObjEneSlimeOneFis(M2C_FIELD(arg0, void **, 0x388), 1);

@@ -16,7 +16,7 @@ s32 create_window_menu(int, int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
 extern const f32 lbl_805DD6D8;
-s32 TWindowSubShortMail__sub_8027FB00(u8 *arg0);
+s32 create_status_category_menu(u8 *arg0);
 }
 
 extern "C" {
@@ -149,7 +149,7 @@ void* get_mail_ptr__19TWindowSubShortMailFPv(void* p) { return (char*)p + 0x20; 
 
 u8 get_field_cc__19TWindowSubShortMailFPv(void* p) { return *(u8*)((char*)p + 0xcc); }
 
-s32 TWindowSubShortMail__sub_8027FB00(u8 *arg0) {
+s32 create_status_category_menu(u8 *arg0) {
   s32 temp_r31;
   s32 var_r31;
   if (get_camera_id__11TCameraCtrlFv() > 2)

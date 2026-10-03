@@ -116,8 +116,8 @@ M2C_UNK set_global_param__8TObjFishFi();
 extern u32 TOKeyJungleMain__data_805D65E0;
 void render__15TOKeyJungleMainFv(u8 *arg0);
 void TOKeyJungleMain__vt15(void *arg0);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 extern M2C_UNK __vt__15TOKeyJungleMain[];
@@ -270,8 +270,8 @@ void TOKeyJungleMain__vt15(void *arg0) {
 void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TOKeyJungleMain;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

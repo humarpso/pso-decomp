@@ -13,7 +13,7 @@ struct RecoveredGlobal_801FB430___vt__13TRaderMapCore {
 extern "C" {
 u16 obj_getField1c(void *);
 s32 get_player_by_client_id(int);
-M2C_UNK TRaderMapCore__sub_801F9D84(void *, int, void *);
+M2C_UNK update_radar_auto_discovery(void *, int, void *);
 M2C_UNK gather_player_markers__13TRaderMapCoreFv(void *);
 M2C_UNK update_follow_projection__13TRaderMapCoreFv(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FAF24();
@@ -74,12 +74,12 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
             do {
                 temp_r3 = get_player_by_client_id((int) (var_r31));
                 if (temp_r3 != 0) {
-                    TRaderMapCore__sub_801F9D84((void *) (arg0), (int) (0), (void *) (temp_r3 + 0x38));
+                    update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (temp_r3 + 0x38));
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            TRaderMapCore__sub_801F9D84((void *) (arg0), (int) (0), (void *) (arg0 + M2C_FIELD(arg0, s32 *, 0x134) * 0x28 + 0x94));
+            update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (arg0 + M2C_FIELD(arg0, s32 *, 0x134) * 0x28 + 0x94));
         }
         advance_scroll__13TRaderMapCoreFPv((void *) (arg0));
     }

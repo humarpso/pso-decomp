@@ -35,7 +35,7 @@ extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 extern const f32 lbl_805D9E18;
 extern const f32 lbl_805D9E54;
 extern const f32 lbl_805D9E58;
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 void advance_pose_turn__14TObjEneBm5WolfFPvi(Wolf_800B7DDC *s, s32 target);
 }
@@ -103,7 +103,7 @@ void TObjEneBm5Wolf::choose_roaming_destination() {
 
 void advance_pose_turn__14TObjEneBm5WolfFPvi(Wolf_800B7DDC *s, s32 target) {
     s32 d;
-    d = TBoss4Type2__sub_80141FA8(s->facing, target);
+    d = angle_diff_s16(s->facing, target);
     if (d > 0x4000) {
         d = 0x4000;
     } else if (d < -0x4000) {
@@ -111,7 +111,7 @@ void advance_pose_turn__14TObjEneBm5WolfFPvi(Wolf_800B7DDC *s, s32 target) {
     }
     if (s->turn * d >= 0) {
         s->turn = approach_angle_limited(s->turn, d, 0x800);
-    } else if (s->turn * TBoss4Type2__sub_80141FA8(s->turn, d) >= 0) {
+    } else if (s->turn * angle_diff_s16(s->turn, d) >= 0) {
         if (s->turn >= 0) {
             s->turn -= 0x800;
         } else {

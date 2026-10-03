@@ -30,7 +30,7 @@ M2C_UNK TObjPlayer__sub_801BE890(s32 *);
 M2C_UNK destroy_subobjects__10TObjPlayerFPvi(u32, void *);
 void fn_801B802C(void *arg0);
 s16 obj_getField1c(void *);
-s32 TLobby__sub_8011AF58(int);
+s32 advance_item_id_counter(int);
 void fn_801B80C0(void *arg0, Ent_801B80C0 *arg1, s32 arg2);
 }
 
@@ -82,7 +82,7 @@ void fn_801B80C0(void *arg0, Ent_801B80C0 *arg1, s32 arg2) {
     if (arg1 != NULL) {
         v = obj_getField1c(arg0);
         for (i = 0; i < arg2; i++) {
-            arg1->f14 = ((s32 (*)(s16))TLobby__sub_8011AF58)(v);
+            arg1->f14 = ((s32 (*)(s16))advance_item_id_counter)(v);
             arg1++;
         }
     }

@@ -92,7 +92,7 @@ u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_particle;
 u8 *TParticleCtrl__sub_8008598C(s32 arg0);
 extern RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
-s32 TParticleCtrl__sub_800861F4(u8 *arg0);
+s32 is_particle_sprite_additive(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
@@ -232,7 +232,7 @@ u8 *TParticleCtrl__sub_80085E78(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-s32 TParticleCtrl__sub_800861F4(u8 *arg0) {
+s32 is_particle_sprite_additive(u8 *arg0) {
     return *M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (M2C_FIELD(arg0, u16 *, 0x1C) * 4)), s32 **, 0x28) & 1;
 }
 

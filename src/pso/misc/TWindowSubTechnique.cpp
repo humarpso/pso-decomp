@@ -33,7 +33,7 @@ extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 u8 *calc_technique_parameters(s16, u8, M2C_UNK);
-M2C_UNK *TLobby__sub_8001DC24();
+M2C_UNK *get_shared_text_buffer();
 s32 get_player_by_client_id(int);
 s32 get_cast_technique_level(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, int);
@@ -157,7 +157,7 @@ void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1) {
       text_builder_append((int) get_help_text_string((int) 0x2E));
       TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) calc_technique_parameters((s16) var_r29, (u8) var_r30, 0xFFFF)) + 0x10)))));
       text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) var_r29)))));
-      send_and_handle__6TLobbyFPvii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) TLobby__sub_8001DC24(), (int) 0x82);
+      send_and_handle__6TLobbyFPvii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) get_shared_text_buffer(), (int) 0x82);
     }
   }
 }

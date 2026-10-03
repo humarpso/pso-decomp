@@ -10,8 +10,8 @@ s32 TObjPlayer__sub_801BED78(s32);
 s32 TObjPlayer__sub_801BED80(s32);
 s32 TObjPlayer__sub_801BED88(s32);
 s32 TObjPlayer__sub_801BED90();
-s32 TObjPlayer__sub_8033741C(s32 arg0);
-u8 TObjPlayer__sub_80337480(s32 arg0);
+s32 get_total_materials_used(s32 arg0);
+u8 get_material_limit_for_class(s32 arg0);
 }
 
 extern "C" {
@@ -23,15 +23,15 @@ s32 fn_803374F8(s32, s32);
 s32 try_add_item_count__10TObjPlayerFiiiUc(s32 arg0, s32 arg1, s32 arg2, u8 arg3) {
     s32 temp_r31;
 
-    temp_r31 = TObjPlayer__sub_8033741C((s32)(arg0));
-    if ((u8) (temp_r31 + arg3) > TObjPlayer__sub_80337480((s32)(arg1))) {
+    temp_r31 = get_total_materials_used((s32)(arg0));
+    if ((u8) (temp_r31 + arg3) > get_material_limit_for_class((s32)(arg1))) {
         return 0;
     }
     fn_803374F0(arg0, arg2, (u8) (arg3 + fn_803374F8(arg0, arg2)));
     return 1;
 }
 
-s32 TObjPlayer__sub_8033741C(s32 arg0) {
+s32 get_total_materials_used(s32 arg0) {
     s32 sum;
     sum = TObjPlayer__sub_801BED90();
     sum += TObjPlayer__sub_801BED88(arg0);
@@ -41,7 +41,7 @@ s32 TObjPlayer__sub_8033741C(s32 arg0) {
     return sum;
 }
 
-u8 TObjPlayer__sub_80337480(s32 arg0) {
+u8 get_material_limit_for_class(s32 arg0) {
     switch ((s8)arg0) {
     case 0:
     case 3:

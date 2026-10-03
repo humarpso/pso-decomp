@@ -112,8 +112,8 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(Col_802E6CB0 *);
-M2C_UNK TObjPlayer__sub_803E38FC(int);
-M2C_UNK TObjPlayer__sub_803E4684(s32);
+M2C_UNK set_chunk_blend(int);
+M2C_UNK draw_chunk_model(s32);
 extern Col_802E6CB0 lbl_80472C9C;
 extern s32 lbl_805D5560;
 extern s32 lbl_805D5660;
@@ -148,8 +148,8 @@ M2C_UNK scale_current_matrix(Vec_802E708C *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(Col_802E6CB0 *);
-M2C_UNK TObjPlayer__sub_803E38FC(int);
-M2C_UNK TObjPlayer__sub_803E4684(s32);
+M2C_UNK set_chunk_blend(int);
+M2C_UNK draw_chunk_model(s32);
 extern Col_802E708C lbl_80472C80;
 extern Vec_802E708C lbl_80472C90;
 extern s32 lbl_805D5560;
@@ -224,7 +224,7 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
         switch (part->type) {
         case 0:
         case 1:
-            TObjPlayer__sub_803E4684(node->model);
+            draw_chunk_model(node->model);
             break;
         case 2:
             lbl_805D5660 = some_id_805c6f74;
@@ -232,8 +232,8 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
             c.a = part->f24;
             set_chunk_material_color(&c);
             set_chunk_material_override_pair(0xFF00, 0x800);
-            TObjPlayer__sub_803E38FC(0x2500);
-            TObjPlayer__sub_803E4684(node->model);
+            set_chunk_blend(0x2500);
+            draw_chunk_model(node->model);
             set_chunk_material_override_pair(0xFF00, 0);
             some_id_805c6f74 = lbl_805D5660;
             break;
@@ -309,7 +309,7 @@ void TObjPlayer__sub_802E708C(u8 *arg0) {
         switch (part->type) {
         case 0:
         case 1:
-            TObjPlayer__sub_803E4684(node->model);
+            draw_chunk_model(node->model);
             break;
         case 2:
             lbl_805D5660 = some_id_805c6f74;
@@ -317,8 +317,8 @@ void TObjPlayer__sub_802E708C(u8 *arg0) {
             c.a = part->f24;
             set_chunk_material_color((Col_802E6CB0 *)(&c));
             set_chunk_material_override_pair(0xFF00, 0x800);
-            TObjPlayer__sub_803E38FC(0x2500);
-            TObjPlayer__sub_803E4684(node->model);
+            set_chunk_blend(0x2500);
+            draw_chunk_model(node->model);
             set_chunk_material_override_pair(0xFF00, 0);
             some_id_805c6f74 = lbl_805D5660;
             break;

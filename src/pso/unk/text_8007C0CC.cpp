@@ -17,8 +17,8 @@ int bswap_32__FPUl(void *);
 void TAdSinglePlyChrSelectGC__sub_8007C2FC(s32 *self, u32 *data, s32 len);
 s32 subtractive_rng_next(s32 *arg0);
 void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
-void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c);
-void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c);
+void subtractive_rng_refill(Crypt_8007C438 *c);
+void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
 }
 
@@ -57,12 +57,12 @@ s32 subtractive_rng_next(s32 *arg0) {
     temp_r4 = *arg0;
     *arg0 = temp_r4 + 1;
     if (temp_r4 + 1 > 0x37) {
-        TAdSinglePlyChrSelectGC__sub_8007C438((Crypt_8007C438 *)((void *)(arg0)));
+        subtractive_rng_refill((Crypt_8007C438 *)((void *)(arg0)));
         *arg0 = 1;
     }
     return arg0[*arg0 + 1];
 }
-void TAdSinglePlyChrSelectGC__sub_8007C438(Crypt_8007C438 *c) {
+void subtractive_rng_refill(Crypt_8007C438 *c) {
     s32 i;
     for (i = 1; i < 0x19; i++) {
         c->k[i] -= c->k[i + 0x1F];
@@ -85,10 +85,10 @@ void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1) {
         a = arg1 - a;
         arg1 = arg0->tbl[idx];
     }
-    TAdSinglePlyChrSelectGC__sub_8007C438((Crypt_8007C438 *)arg0);
-    TAdSinglePlyChrSelectGC__sub_8007C438((Crypt_8007C438 *)arg0);
-    TAdSinglePlyChrSelectGC__sub_8007C438((Crypt_8007C438 *)arg0);
-    TAdSinglePlyChrSelectGC__sub_8007C438((Crypt_8007C438 *)arg0);
+    subtractive_rng_refill((Crypt_8007C438 *)arg0);
+    subtractive_rng_refill((Crypt_8007C438 *)arg0);
+    subtractive_rng_refill((Crypt_8007C438 *)arg0);
+    subtractive_rng_refill((Crypt_8007C438 *)arg0);
     arg0->f0 = 0x37;
 }
 

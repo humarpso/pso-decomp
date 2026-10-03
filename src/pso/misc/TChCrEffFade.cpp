@@ -13,7 +13,7 @@ void render__12TChCrEffFadeFv(void *arg0);
 void run_task__12TChCrEffFadeFv(void *arg0);
 void update_fade__12TChCrEffFadeFPv(u8 *arg0);
 M2C_UNK TCameraCtrl__sub_80068EF0();
-M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK TChCrEffFade__sub_80293F98(void *, f32);
 M2C_UNK __ct__7TObjectFP7TObject(s32, s32);
 M2C_UNK fn_80293E58(void *, f32);
@@ -23,7 +23,7 @@ void render__12TChCrEffFadeFv(void *arg0) {
     f32 temp_f0;
     s32 temp_r0;
 
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x2C);
     switch (temp_r0) {
     case 0:

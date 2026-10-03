@@ -38,7 +38,7 @@ void queue_destruction__7TObjectFv(TObject*);
 extern const f32 lbl_805DAA30;
 extern const f32 lbl_805DAA00;
 extern const f32 lbl_805DAA04;
-f32 TFontSmallTask__sub_800FCCFC(void);
+f32 calc_small_font_scale(void);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5);
 void fn_800FCCC8(s32 arg0, s32 arg1);
 s32 fn_800FCCF4(void* p);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
@@ -62,7 +62,7 @@ s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
 
 extern M2C_UNK lbl_805DAA34;
 
-f32 TFontSmallTask__sub_800FCCFC(void) {
+f32 calc_small_font_scale(void) {
     f32 temp_f1;
     temp_f1 = get_view_scale__11TCameraCtrlFv();
     if (temp_f1 >= 1.0) {
@@ -88,7 +88,7 @@ void pop_matrix(void);
 s32 is_boss_area(void);
 f32 vec3_dot(Vec_800FCD40 *, Vec_800FCD40 *);
 void push_matrix(void);
-void TParticleCtrl__sub_803D8D1C(int, f32 *, f32 *);
+void project_world_to_screen(int, f32 *, f32 *);
 s32 is_split_screen(void);
 s32 get_screen_height__11TCameraCtrlFv(void);
 s32 get_screen_width__11TCameraCtrlFv(void);
@@ -162,7 +162,7 @@ void TFontSmallTask::render() {
         return;
     }
     push_matrix();
-    TParticleCtrl__sub_803D8D1C(0, position, screen);
+    project_world_to_screen(0, position, screen);
     pop_matrix();
     if (is_split_screen() != 0) {
         screen[0] -= (f32)get_screen_height__11TCameraCtrlFv();
@@ -183,7 +183,7 @@ void TFontSmallTask::render() {
     } else {
         fade = lbl_805DAA04;
     }
-    scale = ((f32 (*)(void *))TFontSmallTask__sub_800FCCFC)(this);
+    scale = ((f32 (*)(void *))calc_small_font_scale)(this);
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
     while (*cursor != 0) {
@@ -245,7 +245,7 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4
     TWindowSubStatusDisp__sub_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)((s32)(var_r31), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), (s32)(TLobby__sub_8001DC24()), (s32)(arg6));
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)((s32)(var_r31), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), (s32)(get_shared_text_buffer()), (s32)(arg6));
     }
     return var_r31;
 }
@@ -263,7 +263,7 @@ s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3,
     TWindowSubStatusDisp__sub_80228F5C(arg5);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)((s32)(var_r31), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), (s32)(TLobby__sub_8001DC24()), (s32)(0xFFFF));
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)((s32)(var_r31), (s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(arg3), (s32)(get_shared_text_buffer()), (s32)(0xFFFF));
     }
     return var_r31;
 }
@@ -282,7 +282,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK text_builder_reset();
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -294,7 +294,7 @@ s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2,
     TWindowSubStatusDisp__sub_80228F5C(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, TLobby__sub_8001DC24(), 0xFFFF);
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, get_shared_text_buffer(), 0xFFFF);
     }
     return var_r31;
 }
@@ -310,7 +310,7 @@ extern "C" {
 
 s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK text_builder_reset();
 s32 __nw__7TObjectFUl(M2C_UNK);
 
@@ -321,7 +321,7 @@ s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((M2C_UNK (*)(s32))text_builder_append)(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
-        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, TLobby__sub_8001DC24(), 0xFFFF);
+        var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, get_shared_text_buffer(), 0xFFFF);
     }
     return var_r31;
 }
@@ -390,7 +390,7 @@ struct VObj_800FD614 : VBase_800FD614 {
 struct Out_800FD614 { s32 a; s32 b; };
 
 extern "C" {
-void TFontSmallTask__sub_800FD604(void* p);
+void reset_leader_selection(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
 void TLobby__sub_800FD764(void);
 void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size);
@@ -400,7 +400,7 @@ void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c();
 s32 get_game_mode__6TLobbyFv();
 s32 get_actor_section_id(void *);
-void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1);
+void find_leader_section_id(struct Out_800FD614 *out, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 u32 calc_small_font_text_width(char *);
 void *get_instance__15TWindowCtrlMainFv(void);
@@ -415,7 +415,7 @@ extern const f32 lbl_805DAA20;
 extern "C" {
 
 void TFontSmallTask__sub_800FD5F4(void* p, s32 v);
-void TFontSmallTask__sub_800FD604(void* p);
+void reset_leader_selection(void* p);
 s32 get_task_id__14TFontSmallTaskFPv(void* p);
 
 #pragma push
@@ -440,18 +440,18 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     strncpy(self->text, text, 0xF);
     self->text[0xF] = 0;
     self->width = calc_small_font_text_width(self->text);
-    self->ofs_x -= lbl_805DAA20 * self->width * ((f32 (*)(void *))TFontSmallTask__sub_800FCCFC)(self);
+    self->ofs_x -= lbl_805DAA20 * self->width * ((f32 (*)(void *))calc_small_font_scale)(self);
     return self;
 }
 #pragma pop
 
 void TFontSmallTask__sub_800FD5F4(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 s32 get_task_id__14TFontSmallTaskFPv(void* p) { return *(s32*)((char*)p + 0x4); }
-void TFontSmallTask__sub_800FD604(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
+void reset_leader_selection(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 
-void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1) {
+void find_leader_section_id(struct Out_800FD614 *out, s32 arg1) {
     s32 n;
     s32 i;
     VObj_800FD614 *p;
@@ -493,7 +493,7 @@ s32 TLobby__sub_800FD6F8(Ent_800FD6F8 *p, u32 size) {
 }
 
 void TLobby__sub_800FD764(void) {
-    TFontSmallTask__sub_800FD604((void*)((M2C_UNK *)(&TLobby__data_805011D8.value)));
+    reset_leader_selection((void*)((M2C_UNK *)(&TLobby__data_805011D8.value)));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

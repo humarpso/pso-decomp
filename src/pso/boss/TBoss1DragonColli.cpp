@@ -65,7 +65,7 @@ extern M2C_UNK lbl_80481BD4[];
 extern s32 lbl_805D2658;
 extern const f32 lbl_805D8108;
 extern const f32 lbl_805D8120;
-s32 TBoss1DragonColli__sub_8002B4CC(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
+s32 create_sphere_chain__17TBoss1DragonColliFiPviPvf(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
 }
 
 extern "C" {
@@ -107,8 +107,8 @@ void TBoss1DragonDemo__sub_8002B68C(void);
 void TBoss1DragonDemo__sub_8002B690(void);
 int TCameraCtrl__sub_803D8934(void*, void*, void*);
 int post_translate_matrix(void*);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
 int TObjPlayer__sub_803D8CD4(void*);
 int rotate_matrix_y(void*, void*);
@@ -138,7 +138,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl((int) (0xB8));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TBoss1DragonColli__sub_8002B4CC((int)((int) (temp_r3)), (void *)((void *) (arg0)), (int)((int) (1)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
+        var_r0 = create_sphere_chain__17TBoss1DragonColliFiPviPvf((int)((int) (temp_r3)), (void *)((void *) (arg0)), (int)((int) (1)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = var_r0;
     stack.sp8 = lbl_805D8110;
@@ -147,7 +147,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_2 = __nw__7TObjectFUl((int) (0xB8));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = TBoss1DragonColli__sub_8002B4CC((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), (int)((int) (3)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
+        var_r0_2 = create_sphere_chain__17TBoss1DragonColliFiPviPvf((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), (int)((int) (3)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
     M2C_FIELD(arg0, s32 *, 0x20) = var_r0_2;
     stack.sp8 = lbl_805D8110;
@@ -156,7 +156,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_3 = __nw__7TObjectFUl((int) (0xB8));
     var_r0_3 = temp_r3_3;
     if (var_r0_3 != 0) {
-        var_r0_3 = TBoss1DragonColli__sub_8002B4CC((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), (int)((int) (5)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
+        var_r0_3 = create_sphere_chain__17TBoss1DragonColliFiPviPvf((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), (int)((int) (5)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
     M2C_FIELD(arg0, s32 *, 0x24) = var_r0_3;
     return arg0;
@@ -187,8 +187,8 @@ void TBoss1DragonColli__sub_8002B42C(O_8002B42C *self) {
 void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80481BD4;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -198,7 +198,7 @@ void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1) {
 }
 
 #define self ((O_8002B4CC *)arg0)
-s32 TBoss1DragonColli__sub_8002B4CC(int arg0, void *arg1, int arg2, void *arg3, f32 scale) {
+s32 create_sphere_chain__17TBoss1DragonColliFiPviPvf(int arg0, void *arg1, int arg2, void *arg3, f32 scale) {
     E_8002B4CC *e;
     s32 i;
     f32 zero;

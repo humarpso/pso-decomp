@@ -92,7 +92,7 @@ extern "C" {
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
-s32 TTecCtrl__sub_8022EF78(int);
+s32 clamp_nonnegative_int(int);
 extern RecoveredGlobal_8022FE84_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8022FE84_lbl_804CC55C lbl_804CC55C;
 void init_projectile_params__8TTecFoieFPv(u8 *arg0);
@@ -196,7 +196,7 @@ void init_projectile_params__8TTecFoieFPv(u8 *arg0) {
       ((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC = (f32) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_CC * lbl_804CC55C.value);
     }
   }
-  ((RecoveredFields_8022FE84_arg0 *) arg0)->field_64 = (f32) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_D0 + ((f32) TTecCtrl__sub_8022EF78((int) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4 - 4))));
+  ((RecoveredFields_8022FE84_arg0 *) arg0)->field_64 = (f32) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_D0 + ((f32) clamp_nonnegative_int((int) (((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4 - 4))));
   ((RecoveredFields_8022FE84_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_D4;
 }
 

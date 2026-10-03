@@ -229,7 +229,7 @@ void run_attack_phase__14TObjEneIllGillFPv(u8 *arg0);
 M2C_UNK TBoss3Volopt__sub_800D8C48(void *);
 int TLobby__sub_8001FE7C(void*, void*);
 void *TObjControl__ct(void *, void *);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void *TObjEneIllGill__ct(void *, void *, void *);
 M2C_UNK TObjEneIllGill__sub_80367B00(void *);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -712,7 +712,7 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEneIllGill;
         free_resources__14TObjEneIllGillFPv((void *)(arg0));
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x374, -1);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

@@ -26,10 +26,10 @@ extern const f32 lbl_805DD948;
 extern const f32 lbl_805DD94C;
 extern const f32 lbl_805DD950;
 extern const f32 lbl_805DD954;
-s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
+s32 find_shape_triangle_region(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
 extern RecoveredGlobal_8029057C_lbl_804D3F74 lbl_804D3F74;
-void TAdSinglePlyChrSelectGC__sub_8029057C(s32 arg0);
+void reset_creation_shape_set(s32 arg0);
 extern CreationHeadModelStates lbl_8051C0E8;
 extern CreationHeadModelStates lbl_8051C110[7];
 extern void ***lbl_805D6550;
@@ -47,7 +47,7 @@ void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 s32 creation_motion_group(u32);
 extern u32 lbl_805D6520;
 extern u32 lbl_805D653C;
-void TAdSinglePlyChrSelectGC__sub_8028FF64(s32 arg0);
+void request_creation_motion(s32 arg0);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 s32 request_file_read__6TLobbyFiiPvPv(int, int, void *, int);
 s32 get_display_index__12TCharaMakingFPv(void *);
@@ -57,7 +57,7 @@ void load_creation_shape_rel(W_80290250 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
 s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 void TCharaMaking__sub_8028E3A0();
-s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
+s32 find_shape_triangle_region(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
 extern u8 lbl_80451CD0[];
@@ -256,7 +256,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
     s32 x;
     s32 i;
     TCharaMaking__sub_8028E3A0();
-    map_shape_region_samples((s32)(((void *)TAdSinglePlyChrSelectGC__sub_8028FBCC((u8 *)(arg0)))), (s32 *)(arg1));
+    map_shape_region_samples((s32)(((void *)find_shape_triangle_region((u8 *)(arg0)))), (s32 *)(arg1));
     for (i = 0; i < 2; i++) {
         for (j = 2; j > i; j--) {
             x = arg1[j];
@@ -282,7 +282,7 @@ void map_shape_region_samples(s32 region, s32 *samples) {
     }
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0) {
+s32 find_shape_triangle_region(u8 *arg0) {
     f32 temp_f3;
     f32 temp_f4;
     f32 temp_f4_2;
@@ -399,7 +399,7 @@ void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0) {
 
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p) { set_motion_interpolation_flag(p); draw_model_with_callback__10TObjPlayerFPv(p); }
 
-void TAdSinglePlyChrSelectGC__sub_8028FF64(s32 arg0) {
+void request_creation_motion(s32 arg0) {
     if (lbl_805D653C == 0 || lbl_805D6520 == 0) {
         return;
     }
@@ -474,7 +474,7 @@ void reset_creation_body_shapes() {
   s32 i = 0;
   do
   {
-    TAdSinglePlyChrSelectGC__sub_8029057C((s32)(p));
+    reset_creation_shape_set((s32)(p));
     ++i;
     ++p;
   }
@@ -486,7 +486,7 @@ void reset_creation_body_shapes() {
     s32 j = 0;
     do
     {
-      TAdSinglePlyChrSelectGC__sub_8029057C((s32)(q));
+      reset_creation_shape_set((s32)(q));
       ++j;
       ++q;
     }
@@ -506,7 +506,7 @@ void reset_creation_head_shapes() {
   s32 i = 0;
   do
   {
-    TAdSinglePlyChrSelectGC__sub_8029057C((s32)(p));
+    reset_creation_shape_set((s32)(p));
     ++i;
     ++p;
   }
@@ -518,7 +518,7 @@ void reset_creation_head_shapes() {
     s32 j = 0;
     do
     {
-      TAdSinglePlyChrSelectGC__sub_8029057C((s32)(q));
+      reset_creation_shape_set((s32)(q));
       ++j;
       ++q;
     }
@@ -529,7 +529,7 @@ void reset_creation_head_shapes() {
 }
 #pragma pop
 
-void TAdSinglePlyChrSelectGC__sub_8029057C(s32 arg0) {
+void reset_creation_shape_set(s32 arg0) {
     TAdSinglePlyChrSelectGC__sub_802905A4((void*)((void *) (arg0)), (void*)((void *) (&lbl_804D3F74.value)));
 }
 

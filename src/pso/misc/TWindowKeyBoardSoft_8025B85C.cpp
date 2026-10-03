@@ -78,7 +78,7 @@ M2C_UNK set_kanji_mode__19TWindowKeyBoardSoftFPv(void *);
 s32 convert_input_text__19TWindowKeyBoardSoftFPv(void *);
 s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
 void TWindowKeyBoardSoft__vt8(u8 *arg0);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK TWindowKeyBoardSoft__sub_80080798(void *, s32);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
@@ -100,7 +100,7 @@ extern s32 lbl_805D5544;
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
-void TWindowKeyBoardSoft__sub_8025C974(Base_8025C974 *base, char *out);
+void export_keyboard_text(Base_8025C974 *base, char *out);
 s32 TWindowKeyBoardSoft__sub_80080D1C(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
 s32 TWindowKeyBoardSoft__sub_8025CA70(Base_8025C974 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
@@ -602,7 +602,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
                 text_builder_append(&lbl_805DD034);
             }
         }
-        TWindowKeyBoardSoft__sub_80080798(arg0 + 0x6C, TLobby__sub_8001DC24());
+        TWindowKeyBoardSoft__sub_80080798(arg0 + 0x6C, get_shared_text_buffer());
     }
 }
 
@@ -659,7 +659,7 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & ~0x86);
 }
 
-void TWindowKeyBoardSoft__sub_8025C974(Base_8025C974 *base, char *out) {
+void export_keyboard_text(Base_8025C974 *base, char *out) {
     u32 a = 0;
     u32 b = 0;
     u32 c = 0;

@@ -56,8 +56,8 @@ s32 update_player_state__9TObjEneDDFPv(void *, void *, int);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 s32 TObjEneRe2Flower__sub_800C3B8C(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801417E8();
-M2C_UNK TObjPlayer__sub_80141820(int);
+M2C_UNK restore_default_scene();
+M2C_UNK set_scene_override(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -73,12 +73,12 @@ void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o);
 
 extern "C" {
 
-int TObjEneLappy__sub_800C2014(void);
+int is_lying_down__12TObjEneLappyFv(void);
 void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1);
 void fn_800C20B0(void *arg0);
 void fn_800C20C0(void *arg0);
 void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 s32 get_instance__6TLobbyFv();
@@ -88,7 +88,7 @@ extern M2C_UNK lbl_80492F28[];
 void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80492F28;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -97,7 +97,7 @@ void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjEneLappy__sub_800C2014(void) { return 0; }
+int is_lying_down__12TObjEneLappyFv(void) { return 0; }
 
 extern void *lbl_805D5164;
 extern s32 lbl_805D516C;
@@ -151,9 +151,9 @@ void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o) {
     rotate_matrix_y(0, o->f60);
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
-    TObjPlayer__sub_80141820(0);
+    set_scene_override(0);
     draw_chunk_object(o->f34);
-    TObjPlayer__sub_801417E8();
+    restore_default_scene();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
     if (get_flag_11__16TObjEneRe2FlowerFPv(o) == 0 && TObjEneRe2Flower__sub_800C3B8C(o) != 0) {

@@ -65,7 +65,7 @@ void TObjFogCollisionPoison__vt12(void *self);
 s16 obj_getS16_32C(s32);
 s32 obj_getField1c(s32);
 s32 is_valid_target__9TObjEneDDFPv(s32);
-M2C_UNK TObjPlayer__sub_801B1E54(M2C_UNK, s32, s16);
+M2C_UNK send_6x2F_change_player_hp(M2C_UNK, s32, s16);
 s32 get_player_by_client_id(u16);
 void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -260,7 +260,7 @@ void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1) {
         if (v < 0) {
             v = 0;
         }
-        TObjPlayer__sub_801B1E54(0xFFFF, obj_getField1c(p), v);
+        send_6x2F_change_player_hp(0xFFFF, obj_getField1c(p), v);
     }
 }
 

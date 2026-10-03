@@ -50,7 +50,7 @@ M2C_UNK TObjCityMainWarp__sub_80186DA0();
 M2C_UNK TObjCityMainWarp__sub_8018709C();
 M2C_UNK TObjCityMainWarp__sub_801871D0();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -155,7 +155,7 @@ void run_task__25TObjCityMainWarpChallengeFv(u8 *arg0) {
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TObjCityMainWarpChallenge;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
         close_windows__16TObjCityMainWarpFPv(arg0);
         __dt__12TObjAreaWarpFv(arg0, 0);
         if (arg1 > 0) {

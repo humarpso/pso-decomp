@@ -40,7 +40,7 @@ void set_type_bytes__10TObjPlayerFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 is_current_room__10TObjRoomIdFPv(void *);
 Obj_80116004 *get_player_by_client_id(s32);
-void TItemObject__sub_80116004(Obj_80116004 *self, f32 range);
+void send_nearby_player_ids(Obj_80116004 *self, f32 range);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
@@ -59,7 +59,7 @@ s16 get_type_id__10TObjPlayerFPv(void *);
 void *TObjPlayer__sub_80116620(void *, s32);
 s32 find_by_pos__11TMainCursorFiss(u32, s32, s32);
 s32 is_current_room__10TObjRoomIdFPv(void *);
-void TItemObject__sub_801160E0(void *arg0);
+void send_star_atomizer_targets(void *arg0);
 }
 
 void TItemObject::store_encoded_value(s32 value) {
@@ -169,7 +169,7 @@ void handle_6x66_use_star_atomizer(u8 *arg0) {
     }
 }
 
-void TItemObject__sub_80116004(Obj_80116004 *self, f32 range) {
+void send_nearby_player_ids(Obj_80116004 *self, f32 range) {
     Msg_80116004 msg;
     s32 j;
     u16 i;
@@ -193,7 +193,7 @@ void TItemObject__sub_80116004(Obj_80116004 *self, f32 range) {
     }
 }
 
-void TItemObject__sub_801160E0(void *arg0) {
+void send_star_atomizer_targets(void *arg0) {
     Msg_801160E0 msg;
     s32 t;
     s32 i;

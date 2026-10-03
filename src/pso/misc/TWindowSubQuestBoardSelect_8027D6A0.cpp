@@ -17,7 +17,7 @@ struct Win_8027D6A0 { u8 pad0[0x61]; s8 f61; };
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK TWindowSubQuestBoardSelect__sub_8027D444(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__26TWindowSubQuestBoardSelectFv(u8 *arg0);
@@ -84,7 +84,7 @@ void render__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (temp_r3));
     TWindowSubQuestBoardSelect__sub_8027D444((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 typedef char RecoveredGlobal_8027D888_lbl_8050E208_size[sizeof(RecoveredGlobal_8027D888_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void run_task__26TWindowSubQuestBoardSelectFv(u8 *arg0) {

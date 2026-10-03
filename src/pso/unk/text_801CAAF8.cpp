@@ -11,7 +11,7 @@ M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, M2C_UNK);
 s32 classify_action_state__10TObjPlayerFv(void *);
 s32 check_actor_blocking_move__10TObjPlayerFPv(void *);
 u32 resolve_move_collision__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B5FB0(void *);
+M2C_UNK damp_planar_velocity(void *);
 s16 query_child_state2__10TObjPlayerFPv();
 extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC36C;
@@ -51,7 +51,7 @@ void update_fall_reaction__10TObjPlayerFPv(void *arg0) {
     case 2:
         break;
     }
-    TObjPlayer__sub_801B5FB0(arg0);
+    damp_planar_velocity(arg0);
     if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C(arg0);
     }

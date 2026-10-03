@@ -20,7 +20,7 @@ struct Obj_8036B1AC {
 extern "C" {
 extern M2C_UNK lbl_804F3610[];
 void TBoss8Dragon__sub_8036AF40(M2C_UNK **arg0);
-M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -103,7 +103,7 @@ void TBoss8Dragon__sub_8036B088(void) {
     ang = (-lbl_805D7000 << 16) / 30;
     init_xyz_limits__10TObjPlayerFv();
     begin_effect_render__13TParticleCtrlFv();
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     set_draw_texture_and_color(5, -1);

@@ -20,17 +20,17 @@ extern "C" {
 u8 *TScene__sub_80081A30(void *, M2C_UNK, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern void **TScene__data_805D5FD0;
-void TScene__sub_80205CC4(s32 arg0);
+void create_texture_wave_tasks__6TSceneFi(s32 arg0);
 extern void* TScene__data_805D6004;
 s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
 void copy_header_and_vec__6TSceneFPvPv(void* p, void* q);
 extern void* TScene__data_805D6004;
-s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
+s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
-s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
-void TScene__sub_802062B8(void *task);
+s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
+void initialize_fmt1_materials__6TSceneFPv(void *task);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 Info_80205AEC *TScene__sub_80205AA8(void *, u16);
@@ -41,7 +41,7 @@ void TScene__sub_80205AEC(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
-s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
+s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 void* alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -121,7 +121,7 @@ void TScene__sub_80205AEC(void *scene) {
     }
 }
 
-void TScene__sub_80205CC4(s32 arg0) {
+void create_texture_wave_tasks__6TSceneFi(s32 arg0) {
   s8 *new_var;
   s16 temp_r0;
   u8 *temp_r3;
@@ -166,7 +166,7 @@ s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c) {
     return 0;
 }
 
-s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv) {
+s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv) {
     s16 *p;
     s16 n = 0;
     u16 *rec = NULL;
@@ -230,7 +230,7 @@ void TScene::initialize_fmt2_materials() {
                 if (uv->buffer) continue;
                 Def_80206058 def;
                 def.id = uv->id;
-                if (TScene__sub_80205DE4(task, (Uv_80205DE4 *)&def) == 1) {
+                if (find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)&def) == 1) {
                     uv->id = def.id; uv->texture = def.texture;
                     uv->u = def.u; uv->v = def.v; uv->du = def.du; uv->dv = def.dv;
                     SceneMaterialNode *node = TScene__sub_80203324(task, object);
@@ -250,7 +250,7 @@ void TScene::initialize_fmt2_materials() {
                 if (uv2->buffer) continue;
                 Def_80206058 def2;
                 def2.id = uv2->id;
-                if (TScene__sub_80205DE4(task, (Uv_80205DE4 *)&def2) == 1) {
+                if (find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)&def2) == 1) {
                     uv2->id = def2.id; uv2->texture = def2.texture;
                     uv2->u = def2.u; uv2->v = def2.v; uv2->du = def2.du; uv2->dv = def2.dv;
                     SceneMaterialNode *node2 = resolve_indirect_object_record(task, anim);
@@ -268,7 +268,7 @@ void TScene::initialize_fmt2_materials() {
 
 extern "C" {
 
-void TScene__sub_802062B8(void *task) {
+void initialize_fmt1_materials__6TSceneFPv(void *task) {
     SceneMaterialSection *room;
     s32 section;
     SceneMaterialStatic *object;
@@ -280,12 +280,12 @@ void TScene__sub_802062B8(void *task) {
     for (section = 0; section < TScene__data_805D5FCC->count; section++, room++) {
         object = room->objects;
         for (i = 0; i < room->count; i++, object++) {
-            if ((object->flags & 0x20) && !TScene__sub_80205DE4(task, (Uv_80205DE4 *)object->uv)) object->flags &= ~0x20;
+            if ((object->flags & 0x20) && !find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)object->uv)) object->flags &= ~0x20;
             if ((object->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)object->cycle)) object->flags &= ~0x40;
         }
         anim = room->animated;
         for (j = 0; j < room->animatedCount; j++, anim++) {
-            if ((anim->flags & 0x20) && !TScene__sub_80205DE4(task, (Uv_80205DE4 *)anim->uv)) anim->flags &= ~0x20;
+            if ((anim->flags & 0x20) && !find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)anim->uv)) anim->flags &= ~0x20;
             if ((anim->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
         }
     }

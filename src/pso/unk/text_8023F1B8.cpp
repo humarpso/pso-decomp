@@ -35,8 +35,8 @@ extern RecoveredGlobal_8023F1B8_lbl_804CCE60 lbl_804CCE60;
 extern RecoveredGlobal_8023F1B8_main_task main_task;
 extern u32 lbl_805D63CC;
 void TLobby__sub_8023F1B8(void);
-void TCameraCtrl__sub_80069C94(Vec_8023F22C *, Vec_8023F22C *);
-void TCameraCtrl__sub_8006A5EC(s32);
+void set_active_camera_pose(Vec_8023F22C *, Vec_8023F22C *);
+void select_active_controller__11TCameraCtrlFc(s32);
 void TCameraCtrl__ct(void *, void *);
 void init_heap__13TParticleCtrlFPv(s32);
 void reset_keyboard_state__6TLobbyFv(void);
@@ -46,8 +46,8 @@ void TLobby__sub_800F8B20(void);
 void invoke_callback__6TLobbyFv(void);
 s32 clear_resource_load_tasks();
 void TLobby__sub_800FD6F8(void *, s32);
-void TObjLight__sub_80133A04(void *, s32);
-void TKeyBoardControl__sub_801A66B8(void);
+void init_menu_scene_lights(void *, s32);
+void reset_controller_input_state(void);
 void set_copy_clear_color_argb(s32, s32, s32);
 void create_quad_sprites__13TParticleCtrlFv(void);
 void load_floor_sound_bank(s32);
@@ -96,7 +96,7 @@ void TObjLight__sub_8023F22C(void) {
     set_copy_clear_color_argb(0, 0, 0);
     for (i = 0; i < 0x80; i++) {
     }
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     clear_resource_load_tasks();
     reset_keyboard_state__6TLobbyFv();
     TLobby__sub_800F8B20();
@@ -116,7 +116,7 @@ void TObjLight__sub_8023F22C(void) {
     }
     clear_callback_and_reset_keyboard__6TLobbyFv();
     init_heap__13TParticleCtrlFPv(0x100000);
-    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    init_menu_scene_lights(lbl_804A6F34, 4);
     TObjLight__data_80506320.y = lbl_805DC9BC * sin_table_lookup(0x1555);
     c = cos_table_lookup(0x1555);
     TObjLight__data_80506320.x = c * sin_table_lookup(0x9000);
@@ -128,8 +128,8 @@ void TObjLight__sub_8023F22C(void) {
     {
         Vec_8023F22C eye = lbl_8044DCE8;
         Vec_8023F22C at = lbl_8044DCF4;
-        TCameraCtrl__sub_8006A5EC(9);
-        TCameraCtrl__sub_80069C94(&eye, &at);
+        select_active_controller__11TCameraCtrlFc(9);
+        set_active_camera_pose(&eye, &at);
     }
     create_quad_sprites__13TParticleCtrlFv();
     p = __nw__7TObjectFUl(0x1c);

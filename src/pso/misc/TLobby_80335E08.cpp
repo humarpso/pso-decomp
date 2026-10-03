@@ -73,7 +73,7 @@ void* get_record__6TLobbyFi(int a0);
 int TAdTrialAgreementGC__sub_8033596C(void*);
 int TLobby__sub_80336030(void* p);
 s32 TCameraCtrl__sub_80068EF0();
-s32 TCameraCtrl__sub_80069024();
+s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 begin_screen_draw(int);
@@ -114,7 +114,7 @@ typedef struct Stack_80335E7C Stack_80335E7C;
 void TLobby__sub_80335E7C(void) {
   Stack_80335E7C stack;
   begin_effect_render__13TParticleCtrlFv();
-  TCameraCtrl__sub_80069024();
+  restore_full_screen_view__11TCameraCtrlFv();
   begin_screen_draw((int) 1);
   bind_title_texture_list();
   set_draw_texture_and_color((int) 1, (int) (-1));

@@ -259,8 +259,8 @@ extern u8 lbl_804A7448[];
 extern const f32 lbl_805DB3A0;
 void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self);
 s32 get_current_floor();
-void TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+void send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *, int);
 void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
@@ -281,8 +281,8 @@ extern "C" {
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -341,10 +341,10 @@ f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0) {
     s16 sp8;
     s32 r4;
     Pk_8015BAE0 pk;
-    if (arg0->id >= 0x1000U && arg0->f80 != 0U && TLobby__sub_80156A80(arg0, &sp8, 1) != 0) {
+    if (arg0->id >= 0x1000U && arg0->f80 != 0U && access_object_saved_state(arg0, &sp8, 1) != 0) {
         sp8 = 1;
-        TLobby__sub_80156A80(arg0, &sp8, 0);
-        TObjPlayer__sub_80154954(arg0, &sp8);
+        access_object_saved_state(arg0, &sp8, 0);
+        send_object_state_update(arg0, &sp8);
         init_packet_67_04__6TLobbyFPv(&pk);
         pk.id = arg0->id;
         pk.a = get_current_floor();
@@ -411,8 +411,8 @@ void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self) {
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TOContainerAncientEnemy;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

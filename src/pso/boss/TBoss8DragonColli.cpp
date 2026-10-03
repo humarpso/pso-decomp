@@ -93,8 +93,8 @@ void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1);
 void init__17TBoss8DragonColliFPvPvPv(void* p, void* a1, void* a2);
 int TCameraCtrl__sub_803D8934(void*, void*, void*);
 int post_translate_matrix(void*);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
 int TObjPlayer__sub_803D8CD4(void*);
 int rotate_matrix_y(void*, void*);
@@ -166,8 +166,8 @@ void TBoss8DragonColli__sub_802F3144(O_802F3144 *self) {
 void *destroy__17TBoss8DragonColliFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E4BB4;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

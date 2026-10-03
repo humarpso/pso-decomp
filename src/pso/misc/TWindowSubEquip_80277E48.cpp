@@ -26,7 +26,7 @@ M2C_UNK save_and_refresh_cursor__20TShopArmorListWindowFPvPvPv(int, int, int);
 M2C_UNK init_and_setup__13TWindowSubMagFPvPv(int, int);
 s32 create_equip_kind_window(void *, void *, int);
 extern M2C_UNK lbl_8044F920[];
-s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1);
+s32 open_equip_kind_list__15TWindowSubEquipFPvUi(u8 *arg0, u32 arg1);
 s32 get_status_flag__6TLobbyFPv(u32);
 s32 get_flag_bit2__6TLobbyFPv(u32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
@@ -45,7 +45,7 @@ M2C_UNK init_scroll_pos__20TWindowSubStatusDispFPv(u32);
 M2C_UNK update_displayed_item__15TWindowSubEquipFPv(void *);
 M2C_UNK update__15TWindowSubEquipFPv(void *);
 M2C_UNK apply_slot_selection__15TWindowSubEquipFPv(void *);
-s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1);
+s32 open_equip_kind_list__15TWindowSubEquipFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK update_window__15TWindowSubEquipFPv(u32);
 extern u8 lbl_8050E208[];
 extern const f32 lbl_805DD5F0;
@@ -72,7 +72,7 @@ void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1) {
+s32 open_equip_kind_list__15TWindowSubEquipFPvUi(u8 *arg0, u32 arg1) {
     s32 temp_r31;
     temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (M2C_FIELD(arg0, s32 *, 0x28)));
     TWindowSubEquip__sub_80263AF8((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (int) (1));
@@ -144,7 +144,7 @@ void run_task__15TWindowSubEquipFv(void *arg0) {
     case 3:
         init_scroll_pos__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x34));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x38) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x38) = TWindowSubEquip__sub_80277E48((u8 *)arg0, select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x34)));
+            M2C_FIELD(arg0, u32 *, 0x38) = open_equip_kind_list__15TWindowSubEquipFPvUi((u8 *)arg0, select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x34)));
         }
         clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, u32 *, 0x38));
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;

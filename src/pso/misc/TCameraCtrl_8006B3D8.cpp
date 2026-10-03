@@ -74,7 +74,7 @@ void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8006BA08_lbl_80488B08 lbl_80488B08;
 extern s32 TCameraCtrl__data_805D4E10;
 u8 *TCameraCtrl__sub_8006BA08(u8 *arg0, s16 arg1);
-void TCameraCtrl__sub_80069C94(void *, void *);
+void set_active_camera_pose(void *, void *);
 s32 approach_camera_vector(void *, void *, f32);
 extern RecoveredGlobal_8006B4A0_lbl_804381E0 lbl_804381E0;
 extern s32 TCameraCtrl__data_805D4E10;
@@ -82,7 +82,7 @@ extern const f32 lbl_805D8FF8;
 void update_fixed_npc_camera(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
-void TCameraCtrl__sub_80069C94(void *, void *);
+void set_active_camera_pose(void *, void *);
 s32 TCameraCtrl__sub_80069E7C(int);
 s32 TCameraCtrl__sub_8006BAB4(void *, void *);
 s32 TCameraCtrl__sub_8006BAC8(void *, void *);
@@ -169,7 +169,7 @@ void update_fixed_npc_camera(u8 *arg0) {
     approach_camera_vector(arg0 + 0x1C, (u8 *)&lbl_804381E0.value + (M2C_FIELD(arg0, s32 *, 0x34) * 0x18), lbl_805D8FF8);
     approach_camera_vector(arg0 + 0x28, (u8 *)&lbl_804381E0.value + (M2C_FIELD(arg0, s32 *, 0x34) * 0x18) + 0xC, lbl_805D8FF8);
     TCameraCtrl__data_805D4E10 = 1;
-    TCameraCtrl__sub_80069C94(arg0 + 0x1C, arg0 + 0x28);
+    set_active_camera_pose(arg0 + 0x1C, arg0 + 0x28);
 }
 
 void *TCameraCtrl__sub_8006B520(void *arg0, s16 arg1) {
@@ -206,7 +206,7 @@ u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) ((*(s32 *)&lbl_805D4DF0) + 0x178));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) ((*(s32 *)&lbl_805D4DF0) + 0x184));
   }
-  TCameraCtrl__sub_80069C94((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
+  set_active_camera_pose((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
   TCameraCtrl__data_805D4E10 = 0;
   return arg0;
 }

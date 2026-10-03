@@ -6,7 +6,7 @@ struct Win_8027C13C { u8 pad[0x61]; s8 sel; };
 extern "C" {
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *initialize_mag_data__9TItemDataFPv(void *p);
-void TItemData__sub_8010D614(void *src, void *dst);
+void deserialize_mag__9TItemDataFPvPv(void *src, void *dst);
 s32 TItemMag__sub_801143E8(void *mag, s32 slot);
 void draw_action_palette_icon(void *e, s32 a, u16 b);
 extern s8 lbl_805DD678[3];
@@ -28,7 +28,7 @@ void init_photon_blast_entries__19TWindowSubMagPhotonFPv(Win_8027C188 *w) {
     u8 mag[16];
     s32 i;
     initialize_mag_data__9TItemDataFPv(mag);
-    TItemData__sub_8010D614(w->mag, mag);
+    deserialize_mag__9TItemDataFPvPv(w->mag, mag);
     for (i = 0; i < 3; i++) {
         s32 blast = TItemMag__sub_801143E8(mag, i);
         w->pb[lbl_805DD678[i]] = blast;

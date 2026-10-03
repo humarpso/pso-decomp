@@ -34,7 +34,7 @@ extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void TLobby__sub_8020ECD8(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 lbl_80513D58;
-void TLobby__sub_8020ECA8(void);
+void clear_shop_armor_flags(void);
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void TLobby__sub_8020EC68(s32 i, s32 j);
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
@@ -46,12 +46,12 @@ void reset_counter_64__6TLobbyFPv(Ctr_8020E934 *);
 s32 TLobby__sub_8020E5E0(s32);
 s32 get_lobby_group__6TLobbyFi(s32);
 void push_shop_pool_entry(Ctr_8020E934 *, u8);
-void TLobby__sub_8020EEFC(Ctr_8020E934 *, s32);
+void shuffle_shop_pool_n_times(Ctr_8020E934 *, s32);
 s32 pop_byte__6TLobbyFPv(Ctr_8020E934 *);
 void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 void copy_item_data__6TLobbyFPvPv(Item_8020E934 *, Item_8020E934 *);
-void TLobby__sub_8020E934(s32 arg0);
+void generate_shop_shield_pool(s32 arg0);
 extern s32 lbl_80513D68[];
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1);
@@ -74,7 +74,7 @@ s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1) {
     return 1;
 }
 
-void TLobby__sub_8020E934(s32 arg0) {
+void generate_shop_shield_pool(s32 arg0) {
     Item_8020E934 item;
     Ctr_8020E934 ctr;
     Item_8020E934 *dst;
@@ -102,7 +102,7 @@ void TLobby__sub_8020E934(s32 arg0) {
         }
         p += 2;
     }
-    TLobby__sub_8020EEFC(&ctr, 8);
+    shuffle_shop_pool_n_times(&ctr, 8);
     j = 0;
     counts = lbl_80513D68;
     while (j < n) {
@@ -138,7 +138,7 @@ void TLobby__sub_8020EC68(s32 i, s32 j) {
     }
 }
 
-void TLobby__sub_8020ECA8(void) {
+void clear_shop_armor_flags(void) {
     memset((void *) (&lbl_80513D58.value), (int) (0), (int) (0x10));
 }
 

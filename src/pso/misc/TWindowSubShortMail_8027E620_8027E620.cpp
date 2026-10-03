@@ -66,7 +66,7 @@ s32 open_delete_confirm_dialog__19TWindowSubShortMailFPv(void *arg0);
 s32 open_menu__19TWindowSubShortMailFv(void);
 void update_mail_count__19TWindowSubShortMailFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK TLobby__sub_80225828(s32, s32);
 u32 TLobby__sub_80225924(s32);
 s32 TLobby__sub_8022598C(s32);
@@ -119,8 +119,8 @@ void close__19TWindowSubShortMailFPv(void *arg0) {
     s32 var_r29;
 
     temp_r31 = realloc_buffer__17TWindowSubComCardFPv(M2C_FIELD(arg0, s32 *, 0x5C));
-    TWindowSubComCard__sub_80225E80(temp_r31, TLobby__sub_8001DC24());
-    TLobby__sub_80225828(M2C_FIELD(arg0, s32 *, 0x2C), TLobby__sub_8001DC24());
+    TWindowSubComCard__sub_80225E80(temp_r31, get_shared_text_buffer());
+    TLobby__sub_80225828(M2C_FIELD(arg0, s32 *, 0x2C), get_shared_text_buffer());
     free__11TOBoss4RockFUi(temp_r31);
     temp_r31_2 = get_short_mail_ctrl__6TLobbyFv();
     for (var_r29 = 0; var_r29 < temp_r31_2; var_r29 += 1) {

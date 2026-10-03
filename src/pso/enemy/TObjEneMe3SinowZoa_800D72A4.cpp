@@ -31,7 +31,7 @@ extern "C" {
 void TObjEneMe3SinowZoa__sub_800D74A4(void* a0);
 void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void);
 void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q);
-int TObjPlayer__sub_803E38FC(int);
+int set_chunk_blend(int);
 int set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 
 s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
@@ -42,7 +42,7 @@ s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0) {
     return M2C_FIELD(arg0, f32 *, 0x18) > (*(const f32 *)&lbl_805DA348);
 }
 
-void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); TObjPlayer__sub_803E38FC(8448); }
+void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(8448); }
 
 s32 TObjEneMe3SinowZoa__sub_800D7310(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) (M2C_FIELD(arg0, f32 *, 0x18) + M2C_FIELD(arg0, f32 *, 0x10));

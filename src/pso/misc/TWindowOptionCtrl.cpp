@@ -19,7 +19,7 @@ M2C_UNK init_layout_positions__6TLobbyFv();
 s16 TLobby__sub_80226328();
 M2C_UNK TLobby__sub_802263A8(s16);
 M2C_UNK TLobby__sub_8022743C();
-M2C_UNK TObjBgmColCtrl__sub_802274B8();
+M2C_UNK play_area_music();
 M2C_UNK fn_8023F160();
 M2C_UNK fn_8023F18C();
 M2C_UNK TWindowSubComCard__sub_80244B1C(u32);
@@ -58,7 +58,7 @@ void apply_and_close__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
     TLobby__sub_8022743C();
     close_option_window__6TLobbyFv();
     fn_8036A648(arg1);
-    TObjBgmColCtrl__sub_802274B8();
+    play_area_music();
     M2C_FIELD(arg0, u8 *, 0x1D) = (u8) (M2C_FIELD(arg0, u8 *, 0x1D) | 2);
 }
 

@@ -17,9 +17,9 @@ struct RecoveredGlobal_8024E548___vt__14TWindowDeposit
 };
 
 extern "C" {
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+s32 setup_window_draw_context(void *, void *);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 void render__14TWindowDepositFv(s32 arg0);
 f32 get_base_y__20TWindowSubStatusDispFf(f32);
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
@@ -29,7 +29,7 @@ u32 calc_text_width(int);
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0, s32 a1);
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
-s32 TWindowSubStatusDisp__sub_8025AC50(int, int, int);
+s32 set_text_entry_string(int, int, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8024E548_lbl_804CEB70 lbl_804CEB70;
 extern M2C_UNK __vt__14TWindowDeposit[];
@@ -55,21 +55,21 @@ int TWindowMainMenu__sub_8024E3F4(void* p);
 void TWindowMainMenu__vt4(void);
 void TWindowMainMenu__vt6(void);
 int update_window_entry_list(void*, void*);
-M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
+M2C_UNK draw_window_tab(s32, s32, M2C_UNK, f32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
 int initialize_subwindow__9TWindowDDFPv(void*);
 
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
+    draw_window_tab(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
 
 void render__14TWindowDepositFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowSubComCard__sub_80244C0C((void *)(arg0), (void *) (arg0 + 0x64));
+    temp_r3 = setup_window_draw_context((void *)(arg0), (void *) (arg0 + 0x64));
     render_status__14TWindowDepositFPvi((void *)((void *) (arg0)), (s32)((int) (temp_r3)));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__14TWindowDepositFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
@@ -110,7 +110,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   *((f32 *) (((s8 *) arg0) + 0x60)) = TWindowSubStatusDisp__sub_802877A4(lbl_805DCC60 + (lbl_805DCC64 + temp_f31));
   temp_r30 = (u8 *) ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((s32)(arg0), (s32)(0)));
   temp_r31 = (u8 *) ((u8 *)get_array_entry__20TWindowSubStatusDispFPvi((s32)(arg0), (s32)(1)));
-  TWindowSubStatusDisp__sub_8025AC50((int) temp_r30, (int) temp_r3, (int) 0);
+  set_text_entry_string((int) temp_r30, (int) temp_r3, (int) 0);
   *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) (lbl_805DCC60 + (lbl_805DCC64 + (lbl_805DCC68 + temp_f31)));
   *((f32 *) (((s8 *) arg0) + 0x38)) = get_base_y__20TWindowSubStatusDispFf(*((f32 *) (((s8 *) arg0) + 0x60)));
   save_position__17TWindowSubComCardFPv((void *) arg0);

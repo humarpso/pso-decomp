@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_main_phase();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 u32 get_card_window__17TWindowSubComCardFUi(M2C_UNK);
 M2C_UNK notify_quest_thread__22THunterGuildSeqOfflineFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -19,7 +19,7 @@ void copy_card_window_data(void) {
     u32 temp_r3;
 
     if ((get_main_phase() != 0xF) && (is_not_split_screen__13TRaderMapCoreFv() != 1)) {
-        if (TCameraCtrl__sub_8006B368() != 0) {
+        if (is_quest_active() != 0) {
             notify_quest_thread__22THunterGuildSeqOfflineFv();
         }
         temp_r3 = get_card_window__17TWindowSubComCardFUi(0);

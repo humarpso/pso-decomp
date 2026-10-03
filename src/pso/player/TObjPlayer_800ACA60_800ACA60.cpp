@@ -13,7 +13,7 @@ void select_rare_variant__11TObjEneMojaFPv(u8 *arg0);
 s32 spawn_particle_effect(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
-void TObjPlayer__sub_800ACD00(u8 *arg0);
+void handle_death__11TObjEneMojaFPv(u8 *arg0);
 struct Vec_800ACB58 { f32 x, y, z; };
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK move_with_wall_slide(void *);
@@ -112,7 +112,7 @@ void update_death_state__11TObjEneMojaFv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_800ACD00(u8 *arg0) {
+void handle_death__11TObjEneMojaFPv(u8 *arg0) {
     u8 *temp_r6;
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {
         M2C_FIELD(arg0, s16 *, 0x326) = 9;

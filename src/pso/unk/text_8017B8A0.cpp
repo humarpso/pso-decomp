@@ -56,14 +56,14 @@ extern const f32 lbl_805DBA78;
 void TOTrapAncient02R__vt21(Obj_8017B8A0 *self);
 extern const f32 lbl_805DBA78;
 void TOTrapAncient02R__vt22(V_8017B8D4 *self);
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 access_object_saved_state(void *, void *, int);
 void update_and_send__11TOVS2Wall01FPv(void *);
 void init__11TOVS2Wall01FPv(void *);
 void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, int);
 void apply_table_entry__6TLobbyFs(s16, void *);
 VObj_8017B9B0 *find_entity_by_id();
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 access_object_saved_state(void *, void *, int);
 void init__11TOVS2Wall01Fi(void *);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
 s32 TOVS2Wall01__sub_8017CA50(void *);
@@ -162,9 +162,9 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
             init__11TOVS2Wall01Fi(o);
             break;
         }
-        TLobby__sub_80156A80(o, &spC, 1);
+        access_object_saved_state(o, &spC, 1);
         spC.a = o->state;
-        TLobby__sub_80156A80(o, &spC, 0);
+        access_object_saved_state(o, &spC, 0);
         o->m4(&spC, 0);
     } else {
         *(s32 *)&sp8 = *(s32 *)&TLobby__data_805D6140[arg0->d];
@@ -183,9 +183,9 @@ void TOVS2Wall01__sub_8017BAFC(Obj_8017BAFC *arg0, u16 arg1) {
     if (arg1 == 1) {
         v = 1;
     }
-    if ((arg0->sub != NULL) && (TLobby__sub_80156A80(arg0, &sp8, 1) != 0)) {
+    if ((arg0->sub != NULL) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
         sp8 = v;
-        TLobby__sub_80156A80(arg0, &sp8, 0);
+        access_object_saved_state(arg0, &sp8, 0);
         sub = arg0->sub;
         init__11TOVS2Wall01FPv(&pkt);
         pkt.b = arg0->f1C;

@@ -20,10 +20,10 @@ struct Model_8023DDC8 { Arr_8023DDC8 *arrays; u8 pad[4]; void *s0; void *s1; };
 
 extern "C" {
 void TObjPlayer__sub_8023E034(void **arg0);
-s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id);
-void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
-s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id);
-void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t);
+s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id);
+void set_ginja_texture_wrap_repeat(Tbl_8023DD60 *t);
+s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id);
+void set_ginja_texture_wrap_repeat(Tbl_8023DD60 *t);
 void DCFlushRangeNoSync(void *, u32);
 void scroll_ginja_mesh_uvs(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
 void TObjPlayer__sub_8023E034(void **arg0);
@@ -32,7 +32,7 @@ void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
 
 extern "C" {
 
-s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id) {
+s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id) {
     s32 found = 0;
     if (t != 0) {
         Ent_8023DD0C *e = t->entries;
@@ -47,7 +47,7 @@ s32 TOComputerMachine01__sub_8023DD0C(Tbl_8023DD0C *t, u16 id) {
     return found;
 }
 
-void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t) {
+void set_ginja_texture_wrap_repeat(Tbl_8023DD60 *t) {
     if (t != 0) {
         Ent_8023DD60 *e = t->entries;
         u32 i;
@@ -65,16 +65,16 @@ void TOComputerMachine01__sub_8023DD60(Tbl_8023DD60 *t) {
 void scroll_ginja_mesh_uvs(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite) {
     s32 found = 0;
     Arr_8023DDC8 *a;
-    if (self->s0 != 0 && TOComputerMachine01__sub_8023DD0C((Tbl_8023DD0C *)(self->s0), cmd) == 1) {
+    if (self->s0 != 0 && has_texture_scroll_entry((Tbl_8023DD0C *)(self->s0), cmd) == 1) {
         found = 1;
         if (rewrite != 0) {
-            TOComputerMachine01__sub_8023DD60((Tbl_8023DD60 *)(self->s0));
+            set_ginja_texture_wrap_repeat((Tbl_8023DD60 *)(self->s0));
         }
     }
-    if (self->s1 != 0 && TOComputerMachine01__sub_8023DD0C((Tbl_8023DD0C *)(self->s1), cmd) == 1) {
+    if (self->s1 != 0 && has_texture_scroll_entry((Tbl_8023DD0C *)(self->s1), cmd) == 1) {
         found = 1;
         if (rewrite != 0) {
-            TOComputerMachine01__sub_8023DD60((Tbl_8023DD60 *)(self->s1));
+            set_ginja_texture_wrap_repeat((Tbl_8023DD60 *)(self->s1));
         }
     }
     if (found != 0) {

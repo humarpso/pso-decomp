@@ -521,7 +521,7 @@ void copy_to_item_data__5TItemFPvPv(void *, void *);
 void deduct_cap_excess__14TItemEquipBaseFiPvs(s32 unused, s16 *arg1, s16 arg2);
 s32 TItemData__sub_8010B808(void *);
 s32 TItemData__sub_8010B810(int);
-void TItemData__sub_8010B818(s32, s32);
+void add_accuracy__9TItemDataFPvi(s32, s32);
 void add_stat__9TItemDataFPvi(s32, s32);
 void add_s16__9TItemDataFPvi(s32, s32);
 void apply_equip_effects__9TItemDataFPviiiii(void *, s32, s32, s32, void *, void *);
@@ -882,7 +882,7 @@ void add_equip_stats__14TItemEquipBaseFPvi(VObj_8010B224 *self, s32 arg1) {
         if (t != 0) {
             add_s16__9TItemDataFPvi(t, get_id__10TObjPlayerFPv(arg0 + 0x11C));
             add_stat__9TItemDataFPvi(t, get_level__10TObjPlayerFPv(arg0 + 0x11C));
-            TItemData__sub_8010B818(t, TObjPlayer__sub_800194E8(arg0 + 0x11C));
+            add_accuracy__9TItemDataFPvi(t, TObjPlayer__sub_800194E8(arg0 + 0x11C));
         }
         p = (u8 *)TItemData__sub_8010B808(M2C_FIELD(arg0, void **, 0xF0));
         if (p != NULL) {

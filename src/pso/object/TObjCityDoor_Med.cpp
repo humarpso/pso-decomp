@@ -102,7 +102,7 @@ s32 is_rader_map_active(void);
 s32 TLobby__sub_80182E60();
 s32 get_game_play_mode();
 void *TObjCityDoor_Med__ct(void *, void *, void *);
-u8 *TObjPlayer__sub_80182D8C(u8 *, M2C_UNK, s32, u8 *);
+u8 *init_city_door(u8 *, M2C_UNK, s32, u8 *);
 s32 get_city_common_motion(M2C_UNK);
 void *TObjPlayer__sub_80182D24(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -134,7 +134,7 @@ void *dt__16TObjCityDoor_MedFPvs(void *arg0, s16 arg1) {
 
 extern u8 lbl_80443FA0[]; extern s32 lbl_805D325C;
 void *TObjCityDoor_Med__ct(void *o, void *parent, void *set) {
- TObjPlayer__sub_80182D8C((u8*)o,(s32)parent,(s32)set,lbl_80443FA0);
+ init_city_door((u8*)o,(s32)parent,(s32)set,lbl_80443FA0);
  *(M2C_UNK **)((u8 *)o + 0x18)=lbl_804B5A38;*(s32 *)((u8 *)o + 0)=lbl_805D325C;
  *(f32 *)((u8 *)o + 0xB0)=(f32)(*(u32 *)((u8 *)get_city_common_motion(11) + 4)-1);
  return o;
@@ -213,7 +213,7 @@ extern "C" {
 void fn_801822D8(u8 *arg0);
 extern s32 lbl_805D5B2C;
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-void fn_80182234(void* o);
+void render_door__17TObjCityDoor_WarpFPv(void* o);
 }
 
 extern "C" {
@@ -221,7 +221,7 @@ extern "C" {
 s32 get_city_common_motion(M2C_UNK);M2C_UNK get_city_common_model(M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(s32);M2C_UNK push_matrix();M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-void fn_80182234(void* o) {
+void render_door__17TObjCityDoor_WarpFPv(void* o) {
  if(((CityDoorProbe*)o)->visible()!=0) {
   set_global_param__8TObjFishFi(lbl_805D5B2C);push_matrix();
   post_translate_matrix((u8*)o+0x38);rotate_matrix_y(0,F(o,s32,0x60));
@@ -255,19 +255,19 @@ extern "C" {
 void city_door_tick_opening(void *);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-void TObjCityDoor_Warp__sub_801823E4(u8 *arg0);
+void update_opening__17TObjCityDoor_WarpFPv(u8 *arg0);
 extern const f32 lbl_805DBBF8;
 extern const f32 lbl_805DBBFC;
 }
 
 extern "C" {
 
-void TObjCityDoor_Warp__sub_80182348(s32 arg0);
+void play_close_sound__17TObjCityDoor_WarpFi(s32 arg0);
 void spawn_boss3_volopt_effect(s32 arg0);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, M2C_UNK);
 
-void TObjCityDoor_Warp__sub_80182348(s32 arg0) {
+void play_close_sound__17TObjCityDoor_WarpFi(s32 arg0) {
     update_technique_slot__10TTecRaFoieFi((s32)(play_sound_effect(0x42A05, arg0 + 0x38, 0, 0)), (s32)(-0x500), (M2C_UNK)(0));
 }
 
@@ -279,7 +279,7 @@ void spawn_boss3_volopt_effect(s32 arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void TObjCityDoor_Warp__sub_801823E4(u8 *arg0) {
+void update_opening__17TObjCityDoor_WarpFPv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0xB4);
     if ((temp_f1 >= lbl_805DBBF8) && (temp_f1 <= lbl_805DBBFC)) {
@@ -297,7 +297,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-u8 *TObjPlayer__sub_80182D8C(u8 *, M2C_UNK, s32, u8 *);
+u8 *init_city_door(u8 *, M2C_UNK, s32, u8 *);
 u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_city_common_motion(M2C_UNK);
 }
@@ -395,7 +395,7 @@ void *dt__17TObjCityDoor_WarpFPvs(void *arg0, s16 arg1) {
 
 extern u8 lbl_80443F84[]; extern s32 lbl_805D3258;
 void *TObjCityDoor_Warp__ct(void *o, void *parent, void *set) {
- TObjPlayer__sub_80182D8C((u8*)o,(s32)parent,(s32)set,lbl_80443F84);
+ init_city_door((u8*)o,(s32)parent,(s32)set,lbl_80443F84);
  FOLD_F(o,s32*,0x18)=lbl_804B5A94;FOLD_F(o,s32,0)=lbl_805D3258;
  FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(get_city_common_motion(8),u32,4)-1);
  return o;
@@ -497,7 +497,7 @@ void *dt__18TObjCityDoor_GuildFPvs(void *arg0, s16 arg1) {
 
 extern u8 lbl_80443F68[]; extern s32 lbl_805D3254;
 void *TObjCityDoor_Guild__ct(void *o, void *parent, void *set) {
- TObjPlayer__sub_80182D8C((u8*)o,(s32)parent,(s32)set,lbl_80443F68);
+ init_city_door((u8*)o,(s32)parent,(s32)set,lbl_80443F68);
  FOLD_F(o,s32*,0x18)=lbl_804B5AF0;FOLD_F(o,s32,0)=lbl_805D3254;
  FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(get_city_common_motion(12),u32,4)-1);
  return o;
@@ -537,7 +537,7 @@ struct RecoveredGlobal_8018289C_lbl_804B5B4C
 };
 
 extern "C" {
-u8 *TObjPlayer__sub_80182D8C(u8 *, M2C_UNK, s32, u8 *);
+u8 *init_city_door(u8 *, M2C_UNK, s32, u8 *);
 extern RecoveredGlobal_8018289C_lbl_80443F4C lbl_80443F4C;
 extern RecoveredGlobal_8018289C_lbl_804B5B4C lbl_804B5B4C;
 extern s32 lbl_805D3250;
@@ -586,7 +586,7 @@ u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2) {
   unsigned int new_var2;
   M2C_UNK *new_var;
   new_var = &lbl_804B5B4C.value;
-  TObjPlayer__sub_80182D8C(arg0, arg1, arg2, (u8 *)&lbl_80443F4C.value);
+  init_city_door(arg0, arg1, arg2, (u8 *)&lbl_80443F4C.value);
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = new_var;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3250;
   new_var2 = 1;
@@ -695,8 +695,8 @@ struct CityDoorFields {
 extern "C" {
 s32 is_player_in_range__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 void __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 extern M2C_UNK lbl_804B5BA8[];
@@ -710,7 +710,7 @@ M2C_UNK init_collision_body_parts(void *, void *, int, int);
 M2C_UNK TObjPlayer__sub_801569F4();
 extern RecoveredGlobal_80182D8C_lbl_80443F20 lbl_80443F20;
 extern M2C_UNK lbl_804B5BA8[];
-u8 *TObjPlayer__sub_80182D8C(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
+u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
 void city_door_tick_opening(void* o);
 void city_door_tick_closing(void* o);
 }
@@ -744,8 +744,8 @@ struct VObj_80182C04_8018291C : Base_80182C04_8018291C {
 };
 
 void TObjPlayer__sub_8018291C(VObj_8018291C *arg0);
-void TObjPlayer__sub_801829E8(s32 arg0);
-void TObjPlayer__sub_80182A20(s32 arg0);
+void city_door_play_open_sound(s32 arg0);
+void city_door_play_close_sound(s32 arg0);
 void begin_state_1__10TObjPlayerFPv(void *arg0);
 void check_ground_or_fall__10TObjPlayerFPv(void *arg0);
 void dispatch_state__10TObjPlayerFPv(void *arg0);
@@ -778,11 +778,11 @@ void dispatch_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801829E8(s32 arg0) {
+void city_door_play_open_sound(s32 arg0) {
     play_sound_effect(0x42A04, arg0 + 0x38, 0, 0);
 }
 
-void TObjPlayer__sub_80182A20(s32 arg0) {
+void city_door_play_close_sound(s32 arg0) {
     play_sound_effect(0x42A05, arg0 + 0x38, 0, 0);
 }
 
@@ -856,8 +856,8 @@ s32 check_player_in_range__10TObjPlayerFPv(void *arg0, s32 _w1, f32 _w2) { retur
 void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5BA8;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -868,7 +868,7 @@ void *TObjPlayer__sub_80182D24(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80182D8C_lbl_80443F20_size[sizeof(RecoveredGlobal_80182D8C_lbl_80443F20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80182D8C_lbl_804B5BA8_size[sizeof(RecoveredGlobal_80182D8C_lbl_804B5BA8) == 0x60 ? 1 : -1];
-u8 *TObjPlayer__sub_80182D8C(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
+u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     struct CopyStack_80182D8C { u8 bytes[0x2C]; };
     CopyStack_80182D8C copy_storage_80182D8C;
     u8 *temp_r4;

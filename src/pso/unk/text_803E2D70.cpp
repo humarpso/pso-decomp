@@ -73,7 +73,7 @@ M2C_UNK load_context_texture_obj();
 void TLobby__sub_803E2EE4(s32 arg0);
 void TObjPlayer__sub_803E4354(void *);
 void TObjPlayer__sub_803E44D4(void *);
-void TObjPlayer__sub_803E4684(void *arg0);
+void draw_chunk_model(void *arg0);
 void GXSetNumTexGens(u8);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
@@ -86,7 +86,7 @@ M2C_UNK GXSetNumTevStages(int);
 extern s32 some_id_805c6f74;
 extern u8 lbl_805D77D8;
 extern u8 lbl_805D77D9;
-void TObjPlayer__sub_803E39EC(void);
+void setup_chunk_tev_stages(void);
 M2C_UNK GXSetZMode(int, int, int);
 M2C_UNK GXSetZCompLoc(int);
 M2C_UNK pop_matrix();
@@ -106,9 +106,9 @@ extern const ByteColor lbl_805E1090;
 extern s32 some_id_805c6f74,lbl_805D7788;
 extern u32 lbl_805D77F0;
 extern u32 lbl_805D77D4;
-void TObjPlayer__sub_803E38FC(u32 x);
+void set_chunk_blend(u32 x);
 void GXSetAlphaCompare(int comp0, int ref0, int op, int comp1, int ref1);
-s32 TObjPlayer__sub_803E3B38(int ref);
+s32 set_chunk_alpha_compare_ref(int ref);
 extern s32 lbl_805D7800;
 extern s32 lbl_805D77FC;
 extern s32 lbl_805D77F8;
@@ -301,7 +301,7 @@ void submit_chunk_material_color(u8 type, s16* data) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803E38FC(u32 x) {
+void set_chunk_blend(u32 x) {
     lbl_805D77F0 = x & 0x3F00;
     lbl_805D77D4 |= 8;
 }
@@ -347,7 +347,7 @@ void TObjPlayer__sub_803E39A0(void) {
 
 #pragma push
 #pragma peephole off
-void TObjPlayer__sub_803E39EC(void) {
+void setup_chunk_tev_stages(void) {
     if ((u32) (some_id_805c6f74 & 0x80000) != 0) {
         GXSetNumTevStages((int)((void *) ((u8) (lbl_805D77D8 + 1))));
         GXSetNumTexGens((u8)((void *) ((u8) (lbl_805D77D9 + 1))));
@@ -380,7 +380,7 @@ void set_strip_lighting_chan_ctrl(u32 flags) {
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803E3B38(int ref) {
+s32 set_chunk_alpha_compare_ref(int ref) {
     GXSetAlphaCompare(4, ref, 0, 7, 0);
 }
 #pragma pop
@@ -395,14 +395,14 @@ void TObjPlayer__sub_803E4468(void) {
     pop_matrix();
     GXSetZCompLoc((int) (1));
     GXSetZMode((int) (1), (int) (1), (int) (1));
-    TObjPlayer__sub_803E3B38((int)((int) (0)));
+    set_chunk_alpha_compare_ref((int)((int) (0)));
     if (((M2C_UNK (*)()) lbl_805D77DC) != NULL) {
         lbl_805D77DC();
     }
 }
 #pragma pop
 
-void TObjPlayer__sub_803E4684(void *arg0) {
+void draw_chunk_model(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);
     TObjPlayer__sub_803E44D4(arg0);
     TObjPlayer__sub_803E4468();

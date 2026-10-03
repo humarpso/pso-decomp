@@ -67,7 +67,7 @@ extern u8 *lbl_805D4DF0;
 extern const f32 TMainCursor__data_805DB0C0;
 s32 TLobby__sub_800822E8(s32, s32);
 s32 TObjPlayer__sub_801B5990(s32, s32);
-s32 TObjPlayer__sub_801B5AC4(s32, s32);
+s32 get_action_palette_entry__10TObjPlayerFii(s32, s32);
 s32 TObjPlayer__sub_801B5AF8(s32, s32);
 s32 try_camera_action__10TObjPlayerFii(s32, u16);
 s32 check_mode_action__10TObjPlayerFii(s32, u16);
@@ -107,7 +107,7 @@ void TMainCursor__sub_80154230(void *, s16, u16);
 Ent_8013D4A0 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 extern s32 tl_loc_end;
-void TMainCursor__sub_8013D4A0(Self_8013D4A0 *arg0, s32 arg1);
+void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 obj_isState3_324(void *);
 s32 obj_getField1c(void *);
@@ -170,7 +170,7 @@ s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg
     u16 kind;
     u16 sub;
     kind = TObjPlayer__sub_801B5AF8(arg1, arg2);
-    sub = TObjPlayer__sub_801B5AC4(arg1, arg2);
+    sub = get_action_palette_entry__10TObjPlayerFii(arg1, arg2);
     switch (kind) {
     case 1:
         if (TObjPlayer__sub_801B5990(arg1, 0) != 0) {
@@ -415,7 +415,7 @@ void sort_list__11TMainCursorFii(s32 arg0, s32 arg1) {
         quick_sort__11TMainCursorFiiii(temp_r30, get_record_at__11TMainCursorFPvi(temp_r30 + 0x40, 0), 0, temp_r31 - 1);
     }
 }
-void TMainCursor__sub_8013D4A0(Self_8013D4A0 *arg0, s32 arg1) {
+void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
     s32 count;
     s32 i;
     Sub_8013D4A0 *sub;

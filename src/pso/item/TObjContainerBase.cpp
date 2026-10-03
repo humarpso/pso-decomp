@@ -58,8 +58,8 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerNoItem__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-M2C_UNK TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 extern const f32 lbl_805DBCF4;
 f32 TObjContainerNoItem__vt20(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -99,8 +99,8 @@ extern "C" {
 
 void TObjContainerBase__vt78(void *arg0);
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -124,8 +124,8 @@ extern M2C_UNK __vt__17TObjContainerBase[];
 void *__dt__17TObjContainerBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjContainerBase;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -198,10 +198,10 @@ void TObjContainerNoItem__vt77(Obj_8018990C *self) {
 
 f32 TObjContainerNoItem__vt20(u8 *arg0) {
     s16 sp8;
-    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
-        TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
-        TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
+        access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+        send_object_state_update((void *) (arg0), (void *) (&sp8));
     }
     return lbl_805DBCF4;
 }

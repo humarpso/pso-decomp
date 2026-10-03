@@ -12,7 +12,7 @@ struct Wave_801E4BCC {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_801413D8(s32 x, s32 y, s16 w);
+s32 calc_gx_tile_index(s32 x, s32 y, s16 w);
 void TObjPlayer__sub_803E1EE8(s32, void *, u32, s32);
 void distort_texture_wave_image(Wave_801E4BCC *wave);
 }
@@ -55,7 +55,7 @@ void distort_texture_wave_image(Wave_801E4BCC *wave) {
                 sy -= wave->height;
             }
             color = image[sx + sy * wave->width] | 0x8000;
-            out[TObjPlayer__sub_801413D8(x, y, wave->width)] = color;
+            out[calc_gx_tile_index(x, y, wave->width)] = color;
         }
     }
     TObjPlayer__sub_803E1EE8(0, wave->output + 0x20, 0x40000000, 0);

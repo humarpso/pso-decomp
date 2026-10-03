@@ -91,7 +91,7 @@ void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D4698;
 void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
-void TObjPlayer__sub_803D7CA4(Node_803E4E20 *);
+void compose_motion_node_matrix(Node_803E4E20 *);
 void push_matrix(void);
 void pop_matrix(void);
 void TObjPlayer__sub_803E53BC(void);
@@ -135,7 +135,7 @@ void TObjPlayer__sub_803E4E20(s32 arg0) {
     ctx = (Ctx_803E4E20 *)lbl_805D4698;
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4(n);
+        compose_motion_node_matrix(n);
         if (!(n->flags & 0x80)) {
             obj = n->obj;
             if (obj != NULL && !(n->flags & 8)) {

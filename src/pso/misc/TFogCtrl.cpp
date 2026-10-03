@@ -78,7 +78,7 @@ extern "C" {
 M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern const f32 TFogCtrl__data_805DA948;
 extern const f32 lbl_805DA958;
-s32 TFogCtrl__sub_800FB31C(s32 arg0, s32 arg1);
+s32 is_controller_animated__8TFogCtrlFii(s32 arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void end_effect_render__13TParticleCtrlFv(void);
 void __dl__7TObjectFPv(s32);
@@ -90,7 +90,7 @@ void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 void *get_entry__8TFogCtrlFi(int a0);
 extern const f32 TFogCtrl__data_805DA948;
-void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry);
+void load_entry_into_slot__8TFogCtrlFPvii(Ctrl_800FB424 *self, s32 i, s32 entry);
 f32 sin_table_lookup(s32);
 extern s32 lbl_805D53A4;
 extern const f32 TFogCtrl__data_805DA948;
@@ -140,7 +140,7 @@ void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx) {
 }
 #pragma pop
 
-s32 TFogCtrl__sub_800FB31C(s32 arg0, s32 arg1) {
+s32 is_controller_animated__8TFogCtrlFii(s32 arg0, s32 arg1) {
   f32 temp_f31;
   f32 var_f31;
   s32 temp_r3;
@@ -183,7 +183,7 @@ void TFogCtrl__sub_800FB400(O_800FB400 *self, s32 i, s32 j) {
     self->arr[j] = t;
 }
 
-void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry) {
+void load_entry_into_slot__8TFogCtrlFPvii(Ctrl_800FB424 *self, s32 i, s32 entry) {
     s32 k;
     Fog_800FB424 *f = self->fogs[i];
     f->entry = entry;

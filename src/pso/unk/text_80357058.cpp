@@ -84,7 +84,7 @@ void create__20TItemEffOrgaFlowShotFPvPv(void *arg0, void *arg1);
 int read_be16_field2_forward(void* p);
 void render__20TItemEffOrgaFlowShotFv(s32 arg0);
 int TLobby__send_and_handle_60(void*);
-M2C_UNK TObjPlayer__sub_803DF5E4(s32, M2C_UNK);
+M2C_UNK draw_untextured_trail_strip(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DF768(M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -235,7 +235,7 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     set_depth_buffer_settings_1__Fv();
     init_xyz_limits__10TObjPlayerFv();
     TObjPlayer__sub_803DF768(1);
-    TObjPlayer__sub_803DF5E4(arg0 + 0xC4, 0xA);
+    draw_untextured_trail_strip(arg0 + 0xC4, 0xA);
     reset_player_transform();
     reset_transform_state__10TObjPlayerFv();
     restore_saved_depth_alpha_state();

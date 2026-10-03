@@ -54,7 +54,7 @@ void TObjNpcBase__vt86(void);
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1);
 void play_voice__11TObjNpcBaseFi(s32 arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 s32 bswap_16__FPUs(s32);
@@ -66,7 +66,7 @@ extern M2C_UNK __vt__11TObjNpcBase[];
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjNpcBase;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

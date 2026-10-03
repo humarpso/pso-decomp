@@ -14,7 +14,7 @@ s32 TFontSmallLobby__sub_801AFEE0();
 s32 add_actor_hp(s32, s32);
 s32 TObjPlayer__sub_801AF290(s32);
 u32 resolve_move_collision__10TObjPlayerFPv();
-s32 TObjPlayer__sub_801B6024(s32);
+s32 rewind_position_history__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BE2D0(s32);
 int zero_vec3(void*);
 s32 get_idle_animation__10TObjPlayerFPv(void *);
@@ -39,7 +39,7 @@ void update_action__10TObjPlayerFi(s32 arg0) {
     if (temp_r3 == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     } else if (temp_r3 == 1U) {
-        TObjPlayer__sub_801B6024(arg0);
+        rewind_position_history__10TObjPlayerFPv(arg0);
     }
     if ((TObjPlayer__sub_801BE2D0(arg0) != 0) && (TFontSmallLobby__sub_801AFEE0() == 0) && (TObjPlayer__sub_801AF290(arg0) != 0)) {
         add_actor_tp(arg0, 1);

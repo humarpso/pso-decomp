@@ -19,18 +19,18 @@ struct TItemMag_801112B8 {
 extern "C" {
 M2C_UNK try_add_action__8TItemMagFii(void *, int);
 M2C_UNK apply_form_change__8TItemMagFPv(void *);
-void TItemMag__sub_80111188(u8 *arg0, u8 arg1);
+void apply_transform_action__8TItemMagFPvUc(u8 *arg0, u8 arg1);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 *get_type__8TItemMagFPv(s32);
 extern s32 TItemMag__data_805D54A8;
-s32 TItemMag__sub_801117C0(void * _w0);
+s32 get_evolution_stage__8TItemMagFPv(void * _w0);
 void *memcpy(void *dst, const void *src, u32 n);
 void TItemMag__sub_80111140(TItemMag_80111140 *self, void *a, void *b);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 void set_flag_4__9TObjLukerFPv(void *);
-void TItemMag__sub_80111758(TItemMag_80111758 *self, s32 on);
+void set_subs_visible__8TItemMagFPvi(TItemMag_80111758 *self, s32 on);
 void set_type__8TItemMagFPvi(u8 *arg0, s32 arg1);
-void TItemMag__sub_801112B8(TItemMag_801112B8 *self);
+void select_action_motion__8TItemMagFPv(TItemMag_801112B8 *self);
 }
 
 extern "C" {
@@ -107,7 +107,7 @@ void TItemMag__sub_80111140(TItemMag_80111140 *self, void *a, void *b) {
     memcpy(self->b, b, 4);
 }
 
-void TItemMag__sub_80111188(u8 *arg0, u8 arg1) {
+void apply_transform_action__8TItemMagFPvUc(u8 *arg0, u8 arg1) {
     u8 temp_r31;
     temp_r31 = get_field_ed__10TObjPlayerFPv((void *) (arg0));
     switch ((s32) arg1) {
@@ -145,7 +145,7 @@ void TItemMag__sub_80111188(u8 *arg0, u8 arg1) {
 
 int TItemMag__sub_801112B0(void) { return 0; }
 
-void TItemMag__sub_801112B8(TItemMag_801112B8 *self) {
+void select_action_motion__8TItemMagFPv(TItemMag_801112B8 *self) {
     s32 i;
     u8 *o;
     s16 lv;
@@ -164,7 +164,7 @@ void TItemMag__sub_801112B8(TItemMag_801112B8 *self) {
     }
 }
 
-void TItemMag__sub_80111758(TItemMag_80111758 *self, s32 on) {
+void set_subs_visible__8TItemMagFPvi(TItemMag_80111758 *self, s32 on) {
     s32 i;
     for (i = 0; i != 2; i++) {
         if (self->subs[i] != 0) {
@@ -177,7 +177,7 @@ void TItemMag__sub_80111758(TItemMag_80111758 *self, s32 on) {
     }
 }
 
-s32 TItemMag__sub_801117C0(void * _w0) {
+s32 get_evolution_stage__8TItemMagFPv(void * _w0) {
     u8 temp_r3;
     u8 var_r31;
     temp_r3 = get_field_ed__10TObjPlayerFPv((void *)(_w0));

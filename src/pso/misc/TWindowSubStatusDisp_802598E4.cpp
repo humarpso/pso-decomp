@@ -23,7 +23,7 @@ extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
 extern const f32 lbl_805DCF60;
 extern const f32 lbl_805DCF64;
-void TWindowSubStatusDisp__sub_80259EB8(void *arg0, s32 arg1);
+void set_status_entry_target(void *arg0, s32 arg1);
 extern M2C_UNK lbl_804CF9E0[];
 extern const f32 lbl_805DCF58;
 u8 *TWindowSubStatusDisp__sub_8025A0A4(u8 *arg0, u8 *arg1, s32 arg2);
@@ -114,7 +114,7 @@ void set_animated_target__20TWindowSubStatusDispFPvif(void *arg0, s32 arg1, f32 
 
 extern M2C_UNK lbl_804CF9E0[];
 
-void TWindowSubStatusDisp__sub_80259EB8(void *arg0, s32 arg1) {
+void set_status_entry_target(void *arg0, s32 arg1) {
   f32 temp_f2;
   f32 var_f31;
   if ((*((f32 *) (((s8 *) arg0) + 0x28))) != ((f32) arg1))

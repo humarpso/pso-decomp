@@ -18,7 +18,7 @@ s32 get_flag__11TWindowChatFPv(int);
 M2C_UNK set_active_flag__11TWindowChatFPv(void *);
 M2C_UNK set_input_active__11TWindowChatFPv(void *);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025C974(int, void *);
+M2C_UNK export_keyboard_text(int, void *);
 M2C_UNK TWindowChat__sub_8025CB70(int);
 s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0);
 int forward_card_at_1c__11TWindowChatFPv(void *);
@@ -124,7 +124,7 @@ s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0) {
             update_selected_symbol__20TWindowSubSymbolChatFPv();
         }
     } else {
-        TWindowKeyBoardSoft__sub_8025C974((int) (M2C_FIELD(arg0, u32 *, 0x20)), (void *) ((u8 *) M2C_FIELD(arg0, u32 **, 0x38) + 4));
+        export_keyboard_text((int) (M2C_FIELD(arg0, u32 *, 0x20)), (void *) ((u8 *) M2C_FIELD(arg0, u32 **, 0x38) + 4));
     }
     TWindowChat__sub_8025CB70((int) (M2C_FIELD(arg0, u32 *, 0x20)));
     return 1;

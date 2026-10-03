@@ -27,12 +27,12 @@ extern ObjRow_8020E08C *TLobby__data_805D610C;
 extern EneRow_8020E08C *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6110;
 extern s32 TLobby__data_805D6118;
-void TLobby__sub_8020E08C(void);
+void arrive_floor_population(void);
 }
 
 extern "C" {
 
-void TLobby__sub_8020E08C(void) {
+void arrive_floor_population(void) {
     s32 index;
     Floor_8020E08C *floor;
     s32 bytes;

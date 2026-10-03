@@ -146,7 +146,7 @@ s32 restore_player_cameras();
 void __dt__9TObjEnemyFv(void *, int);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 s32 TLobby__sub_8022743C();
-s32 TObjBgmColCtrl__sub_802274B8(void *);
+s32 play_area_music(void *);
 volatile int __dl__7TObjectFPv(void *);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
 s32 destroy_static_instance__14TBoss6PlotFalzFv(void *);
@@ -269,7 +269,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
       TLobby__sub_8022743C();
       if (((s32) (*new_var)) == 7)
       {
-        TObjBgmColCtrl__sub_802274B8((void *) (&lbl_804705E8.value));
+        play_area_music((void *) (&lbl_804705E8.value));
       }
     }
     temp_r3 = ((RecoveredFields_802AC904_arg0 *) arg0)->field_380;

@@ -29,7 +29,7 @@ M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void save_position__17TWindowSubComCardFPv(void *);
 void TWindowDD__sub_802466E0(void *, M2C_UNK *, s16, s32);
 void TWindowSubStatusDisp__sub_80259DB0(void *, s32);
-void TWindowSubStatusDisp__sub_8025AC50(void *, s32, s32);
+void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFPv();
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 extern M2C_UNK lbl_804D06CC[];
@@ -91,7 +91,7 @@ void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     self->meseta = ((s32 (*)(void *))get_meseta_value__13TWindowMesetaFPv)(arg0);
     a = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     b = (Sub_80269244 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
-    TWindowSubStatusDisp__sub_8025AC50(a, arg3, 0);
+    set_text_entry_string(a, arg3, 0);
     TWindowSubStatusDisp__sub_80259DB0(b, self->meseta);
     self->x38 = lbl_805DD204 + b->x8;
     save_position__17TWindowSubComCardFPv(arg0);

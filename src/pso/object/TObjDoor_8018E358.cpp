@@ -89,12 +89,12 @@ extern const f32 lbl_805DBDD0;
 extern const f32 lbl_805DBDD4;
 void update_anim__8TObjDoorFPv(void *arg0);
 f32 xyz_distance_squared(void *, void *);
-M2C_UNK TParticleCtrl__sub_803D8D1C(int, void *, void *);
+M2C_UNK project_world_to_screen(int, void *, void *);
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DBDDC;
 s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 extern M2C_UNK __vt__8TObjDoor[];
@@ -113,7 +113,7 @@ extern void *tl_05;
 void *TObjDoorJung__create(void *arg0);
 extern const f32 lbl_805DBDC0;
 extern const f32 TObjDoor__data_805DBDC4;
-void TObjDoor__sub_8018E894(u8 *arg0);
+void update_opening_glow__8TObjDoorFPv(u8 *arg0);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
@@ -147,7 +147,7 @@ extern Glob_8018E358 TObjDoor__data_8050DC80[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoor__data_805D5BC0;
 extern s32 some_id_805c6f74;
-M2C_UNK TObjDoor__sub_8018E5F4(Door_8018E5F4 *arg0);
+M2C_UNK draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
@@ -179,7 +179,7 @@ extern s32 TObjDoor__data_805D5BC0;
 extern s32 some_id_805c6f74;
 M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
-void TCameraCtrl__sub_80069C94(f32*,f32*);
+void set_active_camera_pose(f32*,f32*);
 void restore_player_cameras();
 s32 TCameraCtrl__sub_80069E7C(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
@@ -208,7 +208,7 @@ struct DoorMotionHeader { void* rows; u32 frameCount; };
 extern const f32 lbl_805DBDC8,lbl_805DBDCC;
 
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
-void TCameraCtrl__sub_80069C94(f32*,f32*);
+void set_active_camera_pose(f32*,f32*);
 void restore_player_cameras();
 s32 TCameraCtrl__sub_80069E7C(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
@@ -274,7 +274,7 @@ void TObjDoor__sub_8018E40C(Door_8018E40C *arg0) {
     pop_matrix();
 }
 
-void TObjDoor__sub_8018E540(Door_8018E358 *arg0) {
+void draw_closing__8TObjDoorFPv(Door_8018E358 *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__data_805D5BC0);
     push_matrix();
     post_translate_matrix(arg0->f38);
@@ -291,7 +291,7 @@ void TObjDoor__sub_8018E540(Door_8018E358 *arg0) {
     pop_matrix();
 }
 
-M2C_UNK TObjDoor__sub_8018E5F4(Door_8018E5F4 *arg0) {
+M2C_UNK draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__data_805D5BC0);
     push_matrix();
     post_translate_matrix(arg0->f38);
@@ -319,7 +319,7 @@ M2C_UNK TObjDoor__sub_8018E5F4(Door_8018E5F4 *arg0) {
 
 void update_timer__8TObjDoorFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) < 0x3C) {
-        TObjDoor__sub_8018E5F4((Door_8018E5F4 *)(arg0));
+        draw_closed__8TObjDoorFPv((Door_8018E5F4 *)(arg0));
         return;
     }
     draw_locked__8TObjDoorFPv((Door_8018E74C *)(arg0));
@@ -356,7 +356,7 @@ void TObjDoor__sub_8018E890(void) {  }
 
 #pragma push
 #pragma opt_common_subs off
-void TObjDoor__sub_8018E894(u8 *arg0) {
+void update_opening_glow__8TObjDoorFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805DBDC0);
     if (M2C_FIELD(arg0, f32 *, 0xC4) < TObjDoor__data_805DBDC4) {
         M2C_FIELD(arg0, f32 *, 0xC4) = (f32) TObjDoor__data_805DBDC4;
@@ -379,7 +379,7 @@ void update_anim__8TObjDoorFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x300);
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBDD4 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xC8)) + lbl_805DBDD0;
 }
-void TObjDoor__sub_8018E98C(TObjDoor* door) {
+void update_locked_pulse__8TObjDoorFPv(TObjDoor* door) {
     door->accentFrame+=lbl_805DBDD8;
     if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=TObjDoor__data_805DBDC4;
     door->phase+=0x300;
@@ -398,7 +398,7 @@ s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1) {
     if (temp_f1 < (farg1 * farg1)) {
         return 1;
     }
-    TParticleCtrl__sub_803D8D1C((int) (0), (void *) (arg0 + 0x38), (void *) (&sp8));
+    project_world_to_screen((int) (0), (void *) (arg0 + 0x38), (void *) (&sp8));
     if ((-farg1 <= sp8) && (sp8 <= (lbl_805DBDDC + farg1))) {
         return 1;
     }
@@ -420,7 +420,7 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
         if(door->cameraMode==1 && TCameraCtrl__sub_80069E7C(9)!=0) {
             VecCopy__FP3VecPC3Vec(target,door->position);
             VecCopy__FP3VecPC3Vec(position,door->cameraPosition);
-            TCameraCtrl__sub_80069C94(position,target);door->cameraMode=2;
+            set_active_camera_pose(position,target);door->cameraMode=2;
         }
         if(door->cameraMode==2) {
             s32 ticks=door->cameraTicks-1;door->cameraTicks=ticks;
@@ -459,8 +459,8 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TObjDoor;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

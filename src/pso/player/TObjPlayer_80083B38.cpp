@@ -74,7 +74,7 @@ f32 horizontal_distance_squared(void *, void *);
 extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D9434;
-s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0);
+s32 is_in_shadow_range(u8 *arg0, f32 farg0);
 extern G_800845F8 lbl_8048E5B4;
 s32 TObjPlayer__sub_800845F8(void);
 extern G_800845F8 lbl_8048E5B4;
@@ -91,7 +91,7 @@ extern G_800845F8 lbl_8048E5B4;
 void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, int, int);
 s32 TObjPlayer__sub_803DDC50(void *);
-void TObjPlayer__sub_800846C8(s32 wide);
+void init_capture_texture(s32 wide);
 void **TLobby__sub_803DA16C();
 extern G_800845F8 lbl_8048E5B4;
 void **TObjPlayer__sub_80084694(void);
@@ -111,9 +111,9 @@ M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetScissor(int, int, int, int);
 M2C_UNK pop_matrix();
 M2C_UNK set_ginja_draw_flags(int);
-M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
-M2C_UNK TObjLight__sub_803DF31C(int, int);
-M2C_UNK TObjLight__sub_803DF528(int);
+M2C_UNK set_light_ambient_color(f32, f32, f32);
+M2C_UNK submit_light0(int, int);
+M2C_UNK load_gx_light_slot(int);
 extern M2C_UNK lbl_8048E5C8[];
 extern M2C_UNK lbl_8058CA60[];
 extern u32 lbl_805D4DF0;
@@ -126,20 +126,20 @@ extern const f32 lbl_805D9430;
 extern GXColor_80083B8C lbl_805E120C;
 void func_80083a00__Fv(void);
 s32 is_split_screen();
-M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 void TObjPlayer__sub_80083FA4(void);
 s32 check_all_players_ready__10TObjPlayerFv(void);
 void C_MTXFrustum(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetProjection(void *, int);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetScissor(int, int, int, int);
-f32 TCameraCtrl__sub_803D8D00(void *);
+f32 vec_squared_length(void *);
 void normalize_vector(void *);
 M2C_UNK push_matrix();
 M2C_UNK set_ginja_draw_flags(int);
-M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
-M2C_UNK TObjLight__sub_803DF31C(int, int);
-M2C_UNK TObjLight__sub_803DF528(int);
+M2C_UNK set_light_ambient_color(f32, f32, f32);
+M2C_UNK submit_light0(int, int);
+M2C_UNK load_gx_light_slot(int);
 void translate_current_matrix_ps(f32, f32, f32);
 void rotate_current_matrix_x_ps(s32);
 void push_identity_matrix_ps();
@@ -208,15 +208,15 @@ void func_80083a00__Fv(void) {
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         GXSetProjection((void *) (lbl_8058CA60), (int) (0));
-        TObjLight__sub_803DF268((f32) (lbl_805D9430), (f32) (lbl_805D9430), (f32) (lbl_805D9430));
-        TObjLight__sub_803DF31C((int) (0), (int) (1));
-        TObjLight__sub_803DF528((int) (0));
+        set_light_ambient_color((f32) (lbl_805D9430), (f32) (lbl_805D9430), (f32) (lbl_805D9430));
+        submit_light0((int) (0), (int) (1));
+        load_gx_light_slot((int) (0));
         set_ginja_draw_flags((int) (0));
         TCameraCtrl__sub_80068EF0();
     }
 }
 
-s32 TObjPlayer__sub_80083CEC(u8 *arg0, f32 farg0) {
+s32 is_in_shadow_range(u8 *arg0, f32 farg0) {
     if (((u32) lbl_805D4DF0 != 0U) && (((farg0 * farg0) + horizontal_distance_squared(arg0, &lbl_8048E5D0.value)) <= lbl_805D9434)) {
         return 1;
     }
@@ -240,14 +240,14 @@ void camera_stuff__Fv(void) {
     if (check_all_players_ready__10TObjPlayerFv() == 0) {
         return;
     }
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     if (lbl_805D4DF0 == 0) {
         return;
     }
     d.x = VIEW->target.x - VIEW->pos.x;
     d.y = VIEW->target.y - VIEW->pos.y;
     d.z = VIEW->target.z - VIEW->pos.z;
-    if (lbl_805D93D0 != TCameraCtrl__sub_803D8D00(&d)) {
+    if (lbl_805D93D0 != vec_squared_length(&d)) {
         normalize_vector(&d);
         LIGHT.x = VIEW->pos.x + lbl_805D9438 * (lbl_805D93C8 * d.x);
         LIGHT.y = VIEW->pos.y;
@@ -264,9 +264,9 @@ void camera_stuff__Fv(void) {
     r = lbl_805D9420;
     C_MTXFrustum(&proj, t, -t, r, -r, lbl_805D9424, lbl_805D943C);
     GXSetProjection(&proj, 0);
-    TObjLight__sub_803DF268(lbl_805D93D8, lbl_805D93D8, lbl_805D93D8);
-    TObjLight__sub_803DF31C(0, 0);
-    TObjLight__sub_803DF528(0);
+    set_light_ambient_color(lbl_805D93D8, lbl_805D93D8, lbl_805D93D8);
+    submit_light0(0, 0);
+    load_gx_light_slot(0);
     push_identity_matrix_ps();
     translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
     rotate_current_matrix_x_ps(0x3800);
@@ -348,8 +348,8 @@ s32 TObjPlayer__sub_800845F8(void) {
 }
 
 void TObjPlayer__sub_80084614(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_80084694(); }
-void TObjPlayer__sub_8008463C(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((s32)((void*)0)); }
-void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_800846C8((s32)((void*)1)); }
+void TObjPlayer__sub_8008463C(void) { lbl_805D4EE4 = 0; init_capture_texture((s32)((void*)0)); }
+void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; init_capture_texture((s32)((void*)1)); }
 
 void **TObjPlayer__sub_80084694(void) {
     void **var_r3;
@@ -360,7 +360,7 @@ void **TObjPlayer__sub_80084694(void) {
     return var_r3;
 }
 
-void TObjPlayer__sub_800846C8(s32 wide) {
+void init_capture_texture(s32 wide) {
     Rect_800846C8 r;
     s32 mode;
     u16 w;

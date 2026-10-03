@@ -127,7 +127,7 @@ int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
 int rotate_matrix_x(void*, void*);
 s32 TObjControl__ct(s32, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 M2C_UNK draw_model_motion(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
@@ -372,7 +372,7 @@ void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECBAC;
         if (M2C_FIELD(arg0, void **, 0x3CC) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3CC)); M2C_FIELD(arg0, M2C_UNK *, 0x3CC) = 0; }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         if (M2C_FIELD(arg0, void **, 0x378) != NULL) { TBoss6Type1__sub_802B5DD4(M2C_FIELD(arg0, void **, 0x378)); }
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

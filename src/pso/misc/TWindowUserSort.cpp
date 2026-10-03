@@ -34,7 +34,7 @@ struct RecoveredGlobal_80288380___vt__15TWindowUserSort {
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 s32 get_player_by_client_id(u32);
 s32 is_ready__10TObjPlayerFPv(void *);
 void open__15TWindowMainMenuFPvi(void *, s32);
@@ -71,7 +71,7 @@ void render__15TWindowUserSortFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__15TWindowUserSortFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); update_window_entry_list(p, (char*)p + 0x24); }

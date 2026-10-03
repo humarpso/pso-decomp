@@ -260,7 +260,7 @@ void set_state_12__17TObjEneMe1CanadinFPv(void* p);
 void update__17TObjEneMe1CanadinFPv(void *arg0);
 void update_by_field_0x354__17TObjEneMe1CanadinFPv(void *arg0);
 int transition_enemy_state(void*, void*);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E334(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E350(void *);
 void TObjEneMe1Canadin__sub_8009F004(void *);
@@ -352,7 +352,7 @@ void *__dt__17TObjEneMe1CanadinFv(void *arg0, s16 arg1) {
         if (M2C_FIELD(arg0, void **, 0x4A0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4A0)); M2C_FIELD(arg0, M2C_UNK *, 0x4A0) = 0; }
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x408));
         M2C_FIELD(arg0, M2C_UNK *, 0x408) = 0;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3CC, -1);
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {

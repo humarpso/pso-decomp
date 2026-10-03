@@ -140,7 +140,7 @@ void queue_destruction__7TObjectFv(void *);
 Obj_800D47B4 *get_battle_param__10TObjPlayerFi(s32);
 s32 spawn_particle_effect(void *, int);
 s32 TObjGyaranzoMissile__sub_800D40FC(int);
-s32 TObjPlayer__sub_800F06B4(int, int);
+s32 remap_area_sound_id(int, int);
 void *find_entity_by_id(u16);
 void init_all_slots__10TObjPlayerFv(void *);
 void check_enemy_body_collisions(void *);
@@ -155,7 +155,7 @@ u32 csnVector(void *, void *, int);
 void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0);
 Target_800D4990 *find_active_entity_by_id(u16);
 int scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
-int TObjPlayer__sub_801422A8(void *, void *, void *);
+int direction_to_rotation_xy(void *, void *, void *);
 void check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 s32 project_actor_to_ground(void *, void *, int);
@@ -177,11 +177,11 @@ void render__19TObjGyaranzoMissileFv(u8 *arg0);
 f32 sin_table_lookup(int);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(int, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
 M2C_UNK get_bml_model(void *, int);
 M2C_UNK draw_chunk_object();
-void TObjPlayer__sub_80154A00(void *);
+void unregister_object_by_id(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -195,8 +195,8 @@ extern M2C_UNK lbl_8049442C[];
 void *destroy__19TObjGyaranzoMissileFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049442C;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -268,7 +268,7 @@ void TObjGyaranzoMissile__sub_800D47B4(Missile_800D47B4 *arg0) {
         }
     }
     spawn_particle_effect(arg0->pos, 0xFB);
-    play_sound_effect((void *)TObjPlayer__sub_800F06B4(0x4003A80C, 0x19), arg0->pos, 0, 0);
+    play_sound_effect((void *)remap_area_sound_id(0x4003A80C, 0x19), arg0->pos, 0, 0);
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -304,7 +304,7 @@ void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self) {
     }
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
     vec3_add_to(&self->pos, &self->vel);
-    TObjPlayer__sub_801422A8(&self->vel, self->x5C, self->x60);
+    direction_to_rotation_xy(&self->vel, self->x5C, self->x60);
     self->xCC += self->xD0;
     if (self->timer >= 10) {
         if (csnVector(&self->prev, &self->pos, -1) != 0) {
@@ -337,7 +337,7 @@ void run_task__19TObjGyaranzoMissileFv(Gyr_800D4990 *self) {
 void *__dt__19TObjGyaranzoMissileFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjGyaranzoMissile;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

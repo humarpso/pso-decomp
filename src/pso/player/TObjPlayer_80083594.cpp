@@ -22,8 +22,8 @@ M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TObjPlayer__sub_803E1D1C(int);
-M2C_UNK TObjPlayer__sub_803E1D54(int);
+M2C_UNK load_current_pos_matrix(int);
+M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
 extern s32 lbl_805D7774;
 extern const f32 lbl_805D93DC;
@@ -38,8 +38,8 @@ M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TObjPlayer__sub_803E1D1C(int);
-M2C_UNK TObjPlayer__sub_803E1D54(int);
+M2C_UNK load_current_pos_matrix(int);
+M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
 extern s32 lbl_805D7774;
 extern const f32 lbl_805D93DC;
@@ -112,9 +112,9 @@ void load_projected_texture_matrix(f32 farg0) {
             C_MTXLightPerspective((void *) (&stack.sp10), (f32) (temp_f31), (f32) (farg0), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
         }
         PSMTXConcat((void *) (&stack.sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
-        TObjPlayer__sub_803E1D54((int) (0));
+        load_current_tex_matrix((int) (0));
         pop_matrix();
-        TObjPlayer__sub_803E1D1C((int) (0));
+        load_current_pos_matrix((int) (0));
     }
 }
 
@@ -134,9 +134,9 @@ void TOTrapAncient02__sub_800837D4(s32 arg0) {
             C_MTXLightPerspective((void *) (sp10), (f32) (temp_f31), (f32) (lbl_805D940C), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
         }
         PSMTXConcat((void *) (sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));
-        TObjPlayer__sub_803E1D54((int) (0));
+        load_current_tex_matrix((int) (0));
         pop_matrix();
-        TObjPlayer__sub_803E1D1C((int) (0));
+        load_current_pos_matrix((int) (0));
     }
 }
 

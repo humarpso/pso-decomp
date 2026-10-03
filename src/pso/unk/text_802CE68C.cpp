@@ -46,8 +46,8 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK update_player_state__9TObjEneDDFPv(void *, Vec_802CE740 *, int);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801417E8();
-M2C_UNK TObjPlayer__sub_80141820(int);
+M2C_UNK restore_default_scene();
+M2C_UNK set_scene_override(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -117,9 +117,9 @@ void TObjPlayer__sub_802CE740(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
-        TObjPlayer__sub_80141820(0);
+        set_scene_override(0);
         draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
-        TObjPlayer__sub_801417E8();
+        restore_default_scene();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
         if (M2C_FIELD(arg0, s32 *, 0x368) == 1 || M2C_FIELD(arg0, s32 *, 0x368) == 2) {

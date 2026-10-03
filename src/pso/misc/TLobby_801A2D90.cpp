@@ -25,7 +25,7 @@ M2C_UNK clear_quest_state__6TLobbyFv();
 M2C_UNK reset_quest_counter__6TLobbyFv();
 M2C_UNK set_cleanup_flag__6TLobbyFv();
 M2C_UNK reset_door_state__6TLobbyFv();
-M2C_UNK TObjCityMainWarp__sub_80186634();
+M2C_UNK clear_enabled_main_warps();
 M2C_UNK reset_instance__8TObjDoorFv();
 M2C_UNK TRaderMapCore__sub_801F9540();
 M2C_UNK clear_switch_table();
@@ -111,7 +111,7 @@ void reset_quest_state__6TLobbyFv(void) {
     if ((u32) lbl_805D5EE8 != 0U) {
         queue_destruction__7TObjectFv(lbl_805D5EE8);
     }
-    TObjCityMainWarp__sub_80186634();
+    clear_enabled_main_warps();
     THunterGuildSeqOffline__sub_80213430();
     clear_counter__6TLobbyFv();
     reset_door_state__6TLobbyFv();

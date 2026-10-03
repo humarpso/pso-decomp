@@ -97,9 +97,9 @@ s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 extern const f32 lbl_805D9694;
 void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1);
 void apply_actor_gravity(void *, s32, f32);
-f32 TObjPlayer__sub_80017D68(void *, Vec_80090A70 *, s32, Sub_80090A70 *, f32);
+f32 update_enemy_wander_move(void *, Vec_80090A70 *, s32, Sub_80090A70 *, f32);
 void select_enemy_destination(void *, Vec_80090A70 *, s32);
-void TObjPlayer__sub_80018570(void *);
+void enemy_turn_half_toward_dest(void *);
 void clear_attack_flag__18TObjEneBalClawClawFPv(void *);
 void clear_flag__18TObjEneBalClawClawFPv(void *arg0);
 Ent_80090A70 *get_enemy_entity(u16);
@@ -118,7 +118,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
@@ -187,8 +187,8 @@ void TObjEneBalClawClaw__sub_80090A70(Obj_80090A70 *arg0) {
         Vec_80090A70 a = e->pos;
         select_enemy_destination(arg0, &a, 1);
         Vec_80090A70 b = e->pos;
-        arg0->f3C0 = TObjPlayer__sub_80017D68(arg0, &b, 1, arg0->f350, arg0->f350->f4);
-        TObjPlayer__sub_80018570(arg0);
+        arg0->f3C0 = update_enemy_wander_move(arg0, &b, 1, arg0->f350, arg0->f350->f4);
+        enemy_turn_half_toward_dest(arg0);
         advance_animation_playback(arg0);
         apply_actor_gravity(arg0, 0, TObjEneBalClawClaw__data_805D968C);
         check_object_collisions__10TObjPlayerFPv(arg0);
@@ -246,7 +246,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
                 }
             }
             pop_matrix();
-            TObjLight__sub_80134098();
+            restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
             TObjEneBalClaw__sub_8008D700(arg0, var_r30);
         }

@@ -954,8 +954,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TRaderMapCore__sub_801F9110();
-s32 TRaderMapCore__sub_801F9144();
+s32 hide_radar__13TRaderMapCoreFv();
+s32 show_radar__13TRaderMapCoreFv();
 void TWindowCtrl__sub_8024C6CC(void* p);
 void TWindowCtrl__sub_8024C6DC(void* p);
 void TWindowCtrl__sub_8024C6EC(void* p);
@@ -986,11 +986,11 @@ void TWindowCtrl__sub_8024C74C(void* p) { *(u16*)((char*)p + 0x1c) |= 0x10; }
 void TWindowCtrl__sub_8024C75C(void* p) { *(u16*)((char*)p + 0x1c) &= 0xffffffef; }
 void set_radar_dirty_flag__11TWindowCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) | 1);
-    TRaderMapCore__sub_801F9110();
+    hide_radar__13TRaderMapCoreFv();
 }
 void clear_flag_bit0__11TWindowCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) & 0xFFFE);
-    TRaderMapCore__sub_801F9144();
+    show_radar__13TRaderMapCoreFv();
 }
 
 }
@@ -1004,8 +1004,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TRaderMapCore__sub_801F9110();
-s32 TRaderMapCore__sub_801F9144();
+s32 hide_radar__13TRaderMapCoreFv();
+s32 show_radar__13TRaderMapCoreFv();
 void TWindowCtrl__sub_8024C6CC(void* p);
 void TWindowCtrl__sub_8024C6DC(void* p);
 void TWindowCtrl__sub_8024C6EC(void* p);

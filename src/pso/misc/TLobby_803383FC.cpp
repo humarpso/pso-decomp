@@ -15,7 +15,7 @@ s32 get_instance__15TAdPlayerLoadGCFv();
 void TLobby__sub_803384D4(void);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
-M2C_UNK TLobby__sub_800F7DAC(int, int);
+M2C_UNK prs_decompress_buffer(int, int);
 M2C_UNK set_stream_state__6TLobbyFi(void *, int);
 M2C_UNK load_gvm_texture_archive(int, void *);
 extern M2C_UNK lbl_80477BC4[];
@@ -23,7 +23,7 @@ extern M2C_UNK lbl_804EF1DC[];
 extern s32 lbl_805D6D58;
 void TLobby__sub_8033843C(void);
 void TCameraCtrl__sub_80068EF0(void);
-void TCameraCtrl__sub_80069024(void);
+void restore_full_screen_view__11TCameraCtrlFv(void);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
@@ -82,7 +82,7 @@ void TLobby__sub_8033843C(void) {
         temp_r31 = alloc__22TQuestVmDownLoadServerFPv((int) (0x11000));
         temp_r3 = alloc__22TQuestVmDownLoadServerFPv((int) (0x2000));
         set_stream_state__6TLobbyFi((void *) (lbl_80477BC4), (int) (temp_r3));
-        TLobby__sub_800F7DAC((int) (temp_r3), (int) (temp_r31));
+        prs_decompress_buffer((int) (temp_r3), (int) (temp_r31));
         load_gvm_texture_archive((int) (temp_r31), (void *) (lbl_804EF1DC));
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) (temp_r3));
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) (temp_r31));
@@ -115,7 +115,7 @@ void TLobby__sub_803384D4(void) {
 #pragma opt_propagation off
 void TLobby__sub_80338534(void) {
     G_80338534 *t = &lbl_804EF1B8;
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     reset_transform_state__10TObjPlayerFv();
     begin_effect_render__13TParticleCtrlFv();
     TObjBoss2Tunnel__sub_803E2D10(1);

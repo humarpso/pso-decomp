@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK TKeyBoardControl__sub_8000F950();
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 M2C_UNK clear_counter__6TLobbyFv();
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_cue_stream_file(M2C_UNK *);
@@ -35,7 +35,7 @@ void giveup_window_handle_select(void *arg0) {
         close_window__6TLobbyFPv(arg0);
         close_window_field30__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
-        if (TCameraCtrl__sub_8006B368() == 1) {
+        if (is_quest_active() == 1) {
             clear_counter__6TLobbyFv();
             evt2_random_enemies_mode = 0;
             TKeyBoardControl__sub_8000F950();

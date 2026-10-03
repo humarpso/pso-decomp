@@ -130,7 +130,7 @@ s32 handle_state__12TObjEneReconFPvi(void *, void *);
 void TObjEneRecon__sub_8031FCB0(s32 arg0, u32 arg1, s32 arg2);
 void __dt__9TObjEneDDFv(void *, int);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 extern u8 TObjPlayer__sub_800D7C58[];
@@ -186,7 +186,7 @@ void fn_8031FD3C(u8 *arg0) {
 Obj_8031FE14 *fn_8031FE14(Obj_8031FE14 *arg0, s16 arg1) {
     if (arg0 != 0) {
         arg0->vt = lbl_804EC7A0;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x460, TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3C0, -1);
         __dt__9TObjEneDDFv(arg0, 0);

@@ -87,7 +87,7 @@ int clamp_stat_41c__10TObjPlayerFPv(void* p);
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1);
 int is_ready__10TObjPlayerFPv(void* p);
 int set_flag_41c_bit1__10TObjPlayerFPv(void* p);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 int subtract_photon_blast_charge(void*);
 int add_photon_blast_chain_charge(void*);
 M2C_UNK __dl__FPv(s32);
@@ -114,7 +114,7 @@ int TObjPlayer__vt75(void* p) { return add_photon_blast_chain_charge((char*)p + 
 
 int TObjPlayer__vt77(void) { return 0; }
 u8 check_camera_mode__10TObjPlayerFv(void) {
-    return (u8) (TCameraCtrl__sub_8006B368() == 1);
+    return (u8) (is_quest_active() == 1);
 }
 void TObjPlayer__sub_801BE2C0(void* p, s32 v) { *(s32*)((char*)p + 0x370) = v; }
 s32 TObjPlayer__sub_801BE2C8(void* p) { return *(s32*)((char*)p + 0x370); }

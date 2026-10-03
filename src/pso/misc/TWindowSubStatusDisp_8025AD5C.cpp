@@ -28,7 +28,7 @@ extern "C" {
 void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0);
 void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0);
 extern const f32 lbl_805DCFE0;
-void TWindowHelpItem__sub_8025B08C(u8 *arg0, f32 farg0, f32 farg1);
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
 s32 reset_entry__20TWindowSubStatusDispFPv(void *, void *);
 extern M2C_UNK lbl_804CFA28[];
@@ -38,7 +38,7 @@ extern const f32 lbl_805DCFC4;
 u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
 extern const f32 lbl_805DCFA8;
 void advance_text_entry_reveal(u8 *arg0);
-s32 TWindowSubStatusDisp__sub_8024FBB0(void *, void *, s32, f32);
+s32 draw_small_font_string_clipped(void *, void *, s32, f32);
 s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, u8, s32, f32, f32);
 extern const f32 lbl_805DCFB0;
@@ -47,7 +47,7 @@ extern const f32 lbl_805DCFCC;
 extern const f32 lbl_805DCFD0;
 extern const f32 lbl_805DCFD4;
 extern const f32 lbl_805DCFD8;
-void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
+void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 void apply_context_transform_to_rect(void *, void *);
@@ -84,7 +84,7 @@ extern M2C_UNK lbl_804CFA28[];
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) {
+void render_text_entry(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) {
     f32 t;
     f32 a;
     f32 len;
@@ -110,7 +110,7 @@ void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) 
     }
     set_text_draw_params(arg1, !(arg0->flags & 0x100), arg0->flags & 0x80, scale, alpha);
     if (arg0->flags & 4) {
-        r = TWindowSubStatusDisp__sub_8024FBB0(&pt, arg0->text, arg0->i24, len);
+        r = draw_small_font_string_clipped(&pt, arg0->text, arg0->i24, len);
     } else {
         r = draw_window_text(&pt, arg0->text, arg0->i24, (arg0->flags >> 9) & 1, len);
     }
@@ -191,7 +191,7 @@ void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0) {
 
 void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
 
-void TWindowHelpItem__sub_8025B08C(u8 *arg0, f32 farg0, f32 farg1) {
+void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1) {
     f32 x, y;
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (farg0 * lbl_805DCFE0);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (farg1 * lbl_805DCFE0);

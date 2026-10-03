@@ -28,16 +28,16 @@ extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
-void TCineCtrl__sub_80077E70(u8 *arg0);
+void update_letterbox_show__9TCineCtrlFPv(u8 *arg0);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91E0;
 extern const f32 lbl_805D91E4;
-void TCineCtrl__sub_80077D84(u8 *arg0);
-void TCineCtrl__sub_80077E70(u8 *arg0);
-void TCineCtrl__sub_80077D84(u8 *arg0);
+void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
+void update_letterbox_show__9TCineCtrlFPv(u8 *arg0);
+void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0);
 void run_task__9TCineCtrlFv(Obj_80077F58 *self);
 void TCameraCtrl__sub_80068EF0(void);
-void TCameraCtrl__sub_80069024(void);
+void restore_full_screen_view__11TCameraCtrlFv(void);
 void TObjCMHairMenu__sub_801E35C4(void *, u16, s32, f32);
 void abs__4cXyzCFv(s32, s32);
 extern const f32 TCineCtrl__data_805D91D0;
@@ -63,7 +63,7 @@ void render__9TCineCtrlFv(u8 *arg0) {
     u32 col[4];
     f32 pos[8];
     if (!(M2C_FIELD(arg0, f32 *, 0x1C) <= TCineCtrl__data_805D91D0)) {
-        TCameraCtrl__sub_80069024();
+        restore_full_screen_view__11TCameraCtrlFv();
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
         vl.pos = pos;
@@ -103,7 +103,7 @@ void render__9TCineCtrlFv(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TCineCtrl__sub_80077D84(u8 *arg0) {
+void update_letterbox_hide__9TCineCtrlFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)(void *);
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805D91E0);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) - lbl_805D91E4);
@@ -138,7 +138,7 @@ extern const f32 TCineCtrl__data_805D91D0;
 
 #pragma push
 #pragma opt_common_subs off
-void TCineCtrl__sub_80077E70(u8 *arg0) {
+void update_letterbox_show__9TCineCtrlFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)(void *);
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805D91E0);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805D91E4);
@@ -181,10 +181,10 @@ void run_task__9TCineCtrlFv(Obj_80077F58 *self) {
     case 0:
         break;
     case 1:
-        TCineCtrl__sub_80077E70((u8 *)self);
+        update_letterbox_show__9TCineCtrlFPv((u8 *)self);
         break;
     case 2:
-        TCineCtrl__sub_80077D84((u8 *)self);
+        update_letterbox_hide__9TCineCtrlFPv((u8 *)self);
         break;
     }
 }

@@ -6,13 +6,13 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 prs_decompress(int, int, int, int);
 M2C_UNK destroy_ep3_exist__6TLobbyFis(int, int);
 u32 reset_counters__6TLobbyFPv();
-u32 TLobby__sub_800F7DAC(s32 arg0, s32 arg1);
+u32 prs_decompress_buffer(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
 #pragma scheduling off
-u32 TLobby__sub_800F7DAC(s32 arg0, s32 arg1) {
+u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   s32 var_r28;
   s32 var_r29;
   s32 var_r4;

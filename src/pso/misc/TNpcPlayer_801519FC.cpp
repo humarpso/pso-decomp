@@ -96,7 +96,7 @@ Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg
 Npc_80152330 *TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_inactive__10TObjPlayerFPv(void *);
-M2C_UNK TNpcPlayer__sub_8014E090(void *, int);
+M2C_UNK change_ai_state__10TNpcPlayerFPvUi(void *, int);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, int);
 s32 TNpcPlayer__sub_8014F7F0(void *);
 M2C_UNK partner_observe_surroundings(void *);
@@ -126,7 +126,7 @@ M2C_UNK __dt__7TObjectFv(void *, int);
 u32 get_player_by_client_id(int);
 extern RecoveredGlobal_801520B8___vt__10TNpcPlayer __vt__10TNpcPlayer;
 u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1);
-void TNpcPlayer__sub_801528A8(Obj_801528A8 *self, s16 i, u8 v);
+void set_technique_seed_level(Obj_801528A8 *self, s16 i, u8 v);
 void *__ct__12TPlyCharDataFv(void *self);
 void __dt__12TPlyCharDataFv(void *self, s32 flag);
 void __register_global_object(void *obj, void *dtor, void *link);
@@ -143,9 +143,9 @@ void ensure_rock_singleton__10TNpcPlayerFv(void);
 s32 get_npc_state__10TNpcPlayerFPv(void* p);
 u16 get_npc_type__10TNpcPlayerFPv(void* p);
 s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
-M2C_UNK TNpcPlayer__sub_8014E090(void *, int);
-s32 TNpcPlayer__sub_8014FF5C(void *);
-s32 TNpcPlayer__sub_801500F4();
+M2C_UNK change_ai_state__10TNpcPlayerFPvUi(void *, int);
+s32 check_movement_progress__10TNpcPlayerFPv(void *);
+s32 needs_movement__10TNpcPlayerFPvPvi();
 M2C_UNK select_path_waypoint__10TNpcPlayerFv(void *);
 s32 TNpcPlayer__sub_80152978(void* p);
 void TNpcPlayer__sub_80152A30(void);
@@ -171,12 +171,12 @@ void update_players__10TNpcPlayerFPv(void* p);
 int update_players__6TLobbyFi(void*);
 
 s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
-    if (TNpcPlayer__sub_801500F4() != 0) {
+    if (needs_movement__10TNpcPlayerFPvPvi() != 0) {
         select_path_waypoint__10TNpcPlayerFv((void *) (arg0));
-        if (TNpcPlayer__sub_8014FF5C((void *) (arg0)) != 0) {
+        if (check_movement_progress__10TNpcPlayerFPv((void *) (arg0)) != 0) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 2U) {
-                TNpcPlayer__sub_8014E090((void *) (arg0), (int) (1));
+                change_ai_state__10TNpcPlayerFPvUi((void *) (arg0), (int) (1));
             }
         } else {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xAC), (void *) (M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), s32 *, 0x94) + 0x38));
@@ -184,7 +184,7 @@ s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
         return 1;
     }
     if ((M2C_FIELD(arg0, s32 *, 0x80) & 0x20) && ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 8U)) {
-        TNpcPlayer__sub_8014E090((void *) (arg0), (int) (0));
+        change_ai_state__10TNpcPlayerFPvUi((void *) (arg0), (int) (0));
     }
     return 0;
 }
@@ -215,7 +215,7 @@ void run_task__10TNpcPlayerFv(u8 *arg0) {
                         request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (4));
                     }
                     increment_partner_counter((s32) (arg0 + 0x5C), 3);
-                    TNpcPlayer__sub_8014E090((void *) (arg0), (int) (0));
+                    change_ai_state__10TNpcPlayerFPvUi((void *) (arg0), (int) (0));
                 } else {
                     reset_partner_counter((s32) (arg0 + 0x5C), 3);
                     update_condition_flags__10TNpcPlayerFPv((void *) (arg0));
@@ -370,7 +370,7 @@ void TNpcPlayer__sub_8015286C(void) {
     __register_global_object(__ct__12TPlyCharDataFv(lbl_8050CFC4), (void *)__dt__12TPlyCharDataFv, lbl_8050CFB8);
 }
 
-void TNpcPlayer__sub_801528A8(Obj_801528A8 *self, s16 i, u8 v) {
+void set_technique_seed_level(Obj_801528A8 *self, s16 i, u8 v) {
     self->arr[i] = v;
 }
 

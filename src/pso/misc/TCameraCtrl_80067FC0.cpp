@@ -87,7 +87,7 @@ extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F94;
 extern const f32 lbl_805D8F98;
 extern const f32 lbl_805D8F9C;
-void TCameraCtrl__sub_8006835C(void);
+void post_update_view__11TCameraCtrlFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv(void);
 extern Flags_8006835C TCameraCtrl__data_804FF628;
@@ -116,7 +116,7 @@ extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
-s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self);
+s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self);
 }
 
 extern "C" {
@@ -155,7 +155,7 @@ void set_target_pos__11TCameraCtrlFPvPv(void* p, void* q) { *(f32*)((char*)p + 0
 
 #pragma push
 #pragma fp_contract on
-s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self) {
+s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
     Vec_8006835C dir;
     Vec_8006835C probe;
     Vec_8006835C d;
@@ -235,7 +235,7 @@ void TCameraCtrl__sub_80068358(void) {  }
 
 extern M2C_UNK lbl_80488A28[];
 
-void TCameraCtrl__sub_8006835C(void) {
+void post_update_view__11TCameraCtrlFv(void) {
     Vec_8006835C e;
     Vec_8006835C d;
     Vec_8006835C *t;

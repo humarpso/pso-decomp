@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TBoss4Type2__sub_80141FA8(int);
+s32 angle_diff_s16(int);
 extern const f32 lbl_805DF17C;
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(s32);
@@ -65,7 +65,7 @@ void TBoss8Dragon__sub_8030B818(u8 *arg0, int _w1) {
   s32 temp_r0;
   s32 var_r3;
   s32 new_var;
-  new_var = TBoss4Type2__sub_80141FA8((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  new_var = angle_diff_s16((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   temp_r0 = (s32) (((f32) new_var) * lbl_805DF17C);
   if (temp_r0 < (-0x280))
   {

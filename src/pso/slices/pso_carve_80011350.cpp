@@ -8,8 +8,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct O_80011378 { u8 pad[0x2bc]; s16 v; };
 
 extern "C" {
-s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
-s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1);
+s32 clamp_hp_value__10TObjPlayerFPvPv(u8 *arg0, s16 *arg1);
+s32 clamp_hp_value__10TObjPlayerFPvPv(u8 *arg0, s16 *arg1);
 void set_hp_clamped__10TObjPlayerFPvs(u8 *arg0, s16 arg1);
 s32 add_actor_hp(u8 *arg0, s16 arg1);
 int TObjPlayer__sub_80011350(u8 *arg0);
@@ -47,7 +47,7 @@ s32 add_actor_hp_bonus(O_80011378 *self, s32 x) {
     return 1;
 }
 
-s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1) {
+s32 clamp_hp_value__10TObjPlayerFPvPv(u8 *arg0, s16 *arg1) {
     s16 temp_r0;
     s16 temp_r5;
     temp_r5 = *arg1;
@@ -65,7 +65,7 @@ s32 TObjPlayer__sub_800113A8(u8 *arg0, s16 *arg1) {
 
 void set_hp_clamped__10TObjPlayerFPvs(u8 *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0x32C) = arg1;
-    TObjPlayer__sub_800113A8((u8 *)(arg0), (s16 *)(arg0 + 0x32C));
+    clamp_hp_value__10TObjPlayerFPvPv((u8 *)(arg0), (s16 *)(arg0 + 0x32C));
 }
 
 #pragma push

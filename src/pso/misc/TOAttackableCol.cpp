@@ -74,7 +74,7 @@ void release__15TOAttackableColFPv(void* p);
 void check_door_trigger__15TOAttackableColFPv(void *arg0);
 extern M2C_UNK __vt__11TOVS2Wall01[];
 void run_task__15TOAttackableColFv(u8 *arg0);
-M2C_UNK TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK access_object_saved_state(void *, void *, int);
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
@@ -105,7 +105,7 @@ extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
 s8 get_current_floor();
-M2C_UNK TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK access_object_saved_state(void *, void *, int);
 void broadcast_state__15TOAttackableColFPv(void* p);
 void *fn_80157CA8(void *arg0);
 int TOAttackableCol__sub_801575AC(void *arg0, u16 state);
@@ -127,8 +127,8 @@ void render__15TOAttackableColFv(void);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void TOBarrierEnergy01__vt18(void);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
@@ -190,7 +190,7 @@ int TOAttackableCol__sub_801575AC(void *arg0, u16 state) {
     s16 id;
     u8 *parent;
     id = self->id;
-    TLobby__sub_80156A80(self, &id, 0);
+    access_object_saved_state(self, &id, 0);
     parent = self->parent;
     if (parent != NULL) {
         fn_80157CA8(&msg);
@@ -229,7 +229,7 @@ void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
         }
     }
     sp8 = M2C_FIELD(arg0, s16 *, 0x326);
-    TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
+    access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
 }
 
 int handle_6x91_update_state__15TOAttackableColFPv(void* p) { return clear_player_status_flag__10TObjPlayerFPviUi((void*)(p), (int)(0), (int)(1)); }
@@ -350,8 +350,8 @@ void * TOAttackableCol__sub_80157A28(void *arg0) {
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TOAttackableCol;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);

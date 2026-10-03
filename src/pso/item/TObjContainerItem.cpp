@@ -36,8 +36,8 @@ void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
 void *create__17TObjContainerItemFPv(void *arg0);
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1);
 M2C_UNK request_box_item_drop(s32, void *, s32, void *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -72,8 +72,8 @@ extern M2C_UNK __vt__17TObjContainerItem[];
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjContainerItem;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

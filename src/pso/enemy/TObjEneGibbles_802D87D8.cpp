@@ -76,7 +76,7 @@ void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 f32 subtract_vector(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
 extern const f64 TObjEneGibbles__data_80472798;
 void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self);
@@ -503,7 +503,7 @@ void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self) {
     VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
     subtract_vector(&d, &self->pos);
     clamp_angle__14TObjEneGibblesFPvi(self,
-        TBoss4Type2__sub_80141FA8(self->angle, (s32)(TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
+        angle_diff_s16(self->angle, (s32)(TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
 }
 typedef char RecoveredGlobal_800A6BE0_lbl_804FF5E8_size[sizeof(RecoveredGlobal_800A6BE0_lbl_804FF5E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_800A6BE0_lbl_80500978_size[sizeof(RecoveredGlobal_800A6BE0_lbl_80500978) == 0x10 ? 1 : -1];

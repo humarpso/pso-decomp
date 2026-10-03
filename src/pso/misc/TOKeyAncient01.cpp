@@ -132,8 +132,8 @@ int TLobby__send_and_handle_60(void*);
 void TOKey__sub_8016AC88(void);
 void TOKey__sub_8016AC8C(void);
 void TOKey__sub_8016AC90(void);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -232,8 +232,8 @@ void TOKeyAncient01__sub_8016AF84(void) {
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TOKeyAncient01;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

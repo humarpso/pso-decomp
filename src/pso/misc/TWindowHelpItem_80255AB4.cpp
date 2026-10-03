@@ -61,9 +61,9 @@ s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 M2C_UNK TWindowHelpItem__sub_802553F8(void *);
 M2C_UNK dispatch_item_help__15TWindowHelpItemFv(void *);
 s32 handle_list_page_flip_input(s32);
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
@@ -103,9 +103,9 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     s32 temp_r3;
     u8 temp_r3_2;
 
-    temp_r3 = TWindowSubComCard__sub_80244C0C((void *) (arg0), (void *) (arg0 + 0xA8));
+    temp_r3 = setup_window_draw_context((void *) (arg0), (void *) (arg0 + 0xA8));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r3_2 = M2C_FIELD(arg0, u8 *, 0x60);
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2)) {
         draw_list_page_indicator((int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (temp_r3));

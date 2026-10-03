@@ -19,12 +19,12 @@ s32 TObjPlayer__sub_801CBB10();
 s32 complete_guard_reaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CBB80();
 s32 select_hit_action__10TObjPlayerFi(void *);
-void TObjPlayer__sub_801CBC14(s32 arg0, s16 arg1);
+void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CBC14(s32 arg0, s16 arg1) {
+void run_guard_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   {
     switch (arg1)
     {

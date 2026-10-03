@@ -114,7 +114,7 @@ void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void draw_obj_model(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -218,7 +218,7 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
 void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484A94;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         if (M2C_FIELD(arg0, void **, 0xD4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD4)); }
         if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD8)); }
         if (M2C_FIELD(arg0, void **, 0x10) != NULL) { TObjPlayer__sub_80049A0C((void*)(M2C_FIELD(arg0, void **, 0x10))); }

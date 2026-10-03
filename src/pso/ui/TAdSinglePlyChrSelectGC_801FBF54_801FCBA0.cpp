@@ -114,7 +114,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD668(void);
 void init_new_character_data(void *);
 void TAdSinglePlyChrSelectGC__sub_801FC0C8(void *);
 extern Ent_801FD668 *lbl_805D5F58;
-void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0);
+void init_fresh_character_slot(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(A_801FD8B8 *a, A_801FD8B8 *b, C_801FD8B8 *c, C_801FD8B8 *d);
 }
 
@@ -254,7 +254,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {
     return 1;
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FD728(s32 arg0) {
+void init_fresh_character_slot(s32 arg0) {
     init_new_character_data((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].a);
     TAdSinglePlyChrSelectGC__sub_801FC0C8((*(Ent_801FD728 * *)&lbl_805D5F58)[arg0].b);
 }

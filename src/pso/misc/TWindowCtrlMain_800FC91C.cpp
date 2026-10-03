@@ -27,7 +27,7 @@ struct VObj_18_7b3651 : VBase_18_7b3651 {
 typedef struct Ent_800FC968 { u8 pad0[4]; char name[0x100]; u16 a; u8 pad106[6]; u16 b; u8 pad10E[0x11C - 0x10E]; } Ent_800FC968;
 
 extern "C" {
-s32 TLobby__sub_8001DC24(void);
+s32 get_shared_text_buffer(void);
 char *TWindowSubStatusDisp__sub_80071820(char *);
 s32 get_card_status_bits__20TWindowShortListCtrlFv();
 s32 TObjPlayer__sub_801AFD8C(void *);
@@ -111,7 +111,7 @@ s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
     case 4:
         return 0;
     }
-    return TLobby__sub_8001DC24();
+    return get_shared_text_buffer();
 }
 
 }

@@ -12,7 +12,7 @@ struct Stack_800A01C0 {
 
 extern "C" {
 void init_xyz_limits__10TObjPlayerFv(void);
-M2C_UNK TObjPlayer__sub_801E341C(void *, int, int);
+M2C_UNK draw_line_list(void *, int, int);
 void fn_800A01C0(s32 arg0);
 }
 
@@ -25,7 +25,7 @@ void fn_800A01C0(s32 arg0) {
     stack.sp10 = 0;
     stack.sp14 = 2;
     init_xyz_limits__10TObjPlayerFv();
-    TObjPlayer__sub_801E341C((void *) (&stack.sp8), (int) (1), (int) (5));
+    draw_line_list((void *) (&stack.sp8), (int) (1), (int) (5));
 }
 
 }

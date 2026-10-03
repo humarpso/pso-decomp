@@ -19,7 +19,7 @@ M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void TBoss3Volopt__sub_800D8F78(s32 arg0);
-s32 TObjPlayer__sub_800F06B4(int, int);
+s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8B30(s32 arg0);
@@ -35,7 +35,7 @@ s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8E80(s32 arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_particle_effect(void *, int, f32);
-s32 TObjPlayer__sub_800F06B4(int, int);
+s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 extern const f32 lbl_805DA3C0;
@@ -87,7 +87,7 @@ void TBoss3Volopt__sub_800D8B30(s32 arg0) {
         play_sound_effect((int) (0x4003AD3F), (void *) (arg0), (int) (0), (int) (0));
         return;
     default:
-        play_sound_effect((int) (TObjPlayer__sub_800F06B4((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
+        play_sound_effect((int) (remap_area_sound_id((int) (0x4003AD06), (int) (0x1E))), (void *) (arg0), (int) (0), (int) (0));
         return;
     }
 }
@@ -122,7 +122,7 @@ void TBoss3Volopt__sub_800D8C48(s32 arg0) {
         play_sound_effect(0x4003AD3F, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(TObjPlayer__sub_800F06B4(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
+        play_sound_effect(remap_area_sound_id(0x4003AD06, 0x1E), (void *)arg0, 0, 0);
         break;
     }
     VecCopy__FP3VecPC3Vec(&v, (void *)arg0);

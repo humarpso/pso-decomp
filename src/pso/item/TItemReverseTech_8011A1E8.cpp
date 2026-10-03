@@ -68,13 +68,13 @@ extern int lbl_805D54D8;
 void TItemReverseTech__sub_8011A270(void);
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F91C(s32);
-void TCameraCtrl__sub_80069C94(Vec_8011A43C *, Vec_8011A43C *);
-void TCameraCtrl__sub_8006A5EC(s32);
+void set_active_camera_pose(Vec_8011A43C *, Vec_8011A43C *);
+void select_active_controller__11TCameraCtrlFc(s32);
 void TCameraCtrl__ct(void *, s32);
 void clear_resource_load_tasks();
 void create__16TItemReverseTechFv(void);
 void init_map_lights(void *);
-void TKeyBoardControl__sub_801A66B8();
+void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
@@ -218,7 +218,7 @@ void TItemReverseTech__sub_8011A43C(void) {
     void *cam;
     TCameraCtrl__sub_803D6688((*(const f32 *)&lbl_805DAC4C), lbl_805DAC50);
     set_copy_clear_color_argb(0, 0, 0);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     clear_resource_load_tasks();
     e = ((Ent_8011A43C *)&lbl_804A03A8);
     for (i = 0; i != 7; i++) {
@@ -235,8 +235,8 @@ void TItemReverseTech__sub_8011A43C(void) {
     }
     Vec_8011A43C eye = lbl_8043E68C[0];
     Vec_8011A43C at = lbl_8043E698[0];
-    TCameraCtrl__sub_8006A5EC(9);
-    TCameraCtrl__sub_80069C94(&eye, &at);
+    select_active_controller__11TCameraCtrlFc(9);
+    set_active_camera_pose(&eye, &at);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
     create_quad_sprites__13TParticleCtrlFv();

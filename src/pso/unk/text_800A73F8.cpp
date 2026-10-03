@@ -6,7 +6,7 @@ extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 void *TObjPlayer__sub_800A05B8(void *, s16);
 void __dt__9TObjEnemyFv(void *, int);
-s32 TObjEneGibbles__sub_80156720(void *);
+s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern u8 lbl_80490B70[];
 Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1);
@@ -26,7 +26,7 @@ Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1) {
             }
             i++;
         } while (i < 3);
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A4, -1);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

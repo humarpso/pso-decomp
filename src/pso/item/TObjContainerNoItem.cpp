@@ -173,8 +173,8 @@ extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 void TObjContainerEnemy__vt80(Obj_801895A4 *self);
 s32 get_current_floor();
-void TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+void send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 extern s32 lbl_805D53A0;
@@ -209,8 +209,8 @@ extern "C" {
 void TObjContainerNoItem__vt78(void *arg0);
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 void *create__19TObjContainerNoItemFPv(void *arg0);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -245,8 +245,8 @@ extern M2C_UNK __vt__19TObjContainerNoItem[];
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjContainerNoItem;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -321,10 +321,10 @@ void TObjContainerEnemy__vt77(Obj_8018990C *self) {
 f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0) {
     s16 sp8;
     Pkt_801894F8 pkt;
-    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (TLobby__sub_80156A80(arg0, &sp8, 1) != 0)) {
+    if ((arg0->f1C >= 0x1000U) && (arg0->f80 != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
         sp8 = 1;
-        TLobby__sub_80156A80(arg0, &sp8, 0);
-        TObjPlayer__sub_80154954(arg0, &sp8);
+        access_object_saved_state(arg0, &sp8, 0);
+        send_object_state_update(arg0, &sp8);
         init_packet_67_04__6TLobbyFPv(&pkt);
         pkt.b = arg0->f1C;
         pkt.c = get_current_floor();

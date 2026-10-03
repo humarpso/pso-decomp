@@ -91,7 +91,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern Obj_8020D4E8 *lbl_805D4DF0;
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 s32 get_player_count__10TObjPlayerFv();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 TLobby__sub_801C2614();
 s32 get_global_state__14TOKeyMachine01Fv();
 u8 *call_area_set_factory(void *, void *);
@@ -200,7 +200,7 @@ void spawn_decorations_in_range(void *arg0) {
     if (tbl == NULL) {
         return;
     }
-    if (get_player_count__10TObjPlayerFv() != 0 && TCameraCtrl__sub_8006B368() != 0 && TLobby__sub_801C2614() == 0) {
+    if (get_player_count__10TObjPlayerFv() != 0 && is_quest_active() != 0 && TLobby__sub_801C2614() == 0) {
         return;
     }
     p = (Rec_8020D5AC *)TLobby__data_805D611C;

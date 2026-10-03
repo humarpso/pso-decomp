@@ -9,7 +9,7 @@ extern "C" {
 s32 can_guard__10TObjPlayerFPv(void * a0 = 0);
 s32 is_status_flag_200__10TObjPlayerFPv(void);
 s32 use_current_item__10TObjPlayerFPv(void * a0 = 0);
-s32 TObjPlayer__sub_801B1E54(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 send_6x2F_change_player_hp(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 obj_clearFlags30(void * a0 = 0, s32 a1 = 0);
 s32 obj_getField1c(void * a0 = 0);
 s32 obj_getS16_32C(void * a0 = 0);
@@ -24,7 +24,7 @@ void update_gated_action__10TObjPlayerFPv(void *arg0) {
     if (M2C_FIELD(arg0, s16 *, 0x328) == 0) {
         if (is_status_flag_200__10TObjPlayerFPv() != 0) {
             temp_r31 = obj_getField1c(arg0);
-            TObjPlayer__sub_801B1E54(temp_r31, temp_r31, obj_getS16_32C(arg0));
+            send_6x2F_change_player_hp(temp_r31, temp_r31, obj_getS16_32C(arg0));
             obj_clearFlags30(arg0, 0x200);
             return;
         }

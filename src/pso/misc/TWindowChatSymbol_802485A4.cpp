@@ -10,7 +10,7 @@ extern "C" {
 void render__17TWindowChatSymbolFv(u8 *arg0);
 u8 *draw_default_entry__9TWindowDDFi();
 M2C_UNK draw_quest_message_frame(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, void *, f32, f32, f32);
+M2C_UNK draw_visible_window_entries(void *, void *, void *, f32, f32, f32);
 
 extern M2C_UNK lbl_8044EAB8;
 extern const f32 lbl_805DCB7C;
@@ -33,7 +33,7 @@ void render__17TWindowChatSymbolFv(u8 *arg0) {
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x4C);
     temp_f1 = temp_f2 - lbl_805DCB98;
     M2C_FIELD(temp_r3, f32 *, 0x14) = (f32) ((lbl_805DCB7C * temp_f1) + M2C_FIELD(temp_r3, f32 *, 0x14));
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3, temp_f1, temp_f2, lbl_805DCB7C);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3, temp_f1, temp_f2, lbl_805DCB7C);
 }
 
 }

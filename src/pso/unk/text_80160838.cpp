@@ -9,7 +9,7 @@ struct Self_80160838 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; Obj_80160838
 
 extern "C" {
 void copy_short_fields__6TLobbyFPvPv(void *, void *);
-s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2);
+s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void init__17TOBarrierEnergy01FPv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
 void fn_80160838(Self_80160838 *self, State_80160838 *src);
@@ -23,7 +23,7 @@ void fn_80160838(Self_80160838 *self, State_80160838 *src) {
     if (src != 0) {
         copy_short_fields__6TLobbyFPvPv(&st, src);
     } else {
-        TLobby__sub_80156A80((u8 *)self, (s32)&st, 1);
+        access_object_saved_state((u8 *)self, (s32)&st, 1);
     }
     obj = self->obj;
     if (obj != 0) {

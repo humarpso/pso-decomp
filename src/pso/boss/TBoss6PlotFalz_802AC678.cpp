@@ -45,7 +45,7 @@ void *get_player_data__10TObjPlayerFi(s32 i);
 extern s32 lbl_805D586C;
 s32 init_all_slots2__11TWindowCtrlFv();
 s32 end_camera_pan__10TObjPlayerFPv(void *p);
-s32 TObjPlayer__sub_801CBF7C();
+s32 release_all_players_control_lock();
 void TBoss6PlotFalz__sub_802AC678(void *self);
 void *get_player_data__10TObjPlayerFi(s32 i);
 void start_freeze__10TObjPlayerFPv();
@@ -77,7 +77,7 @@ void TBoss6PlotFalz__sub_802AC678(void *self) {
             end_camera_pan__10TObjPlayerFPv(p);
         }
     }
-    TObjPlayer__sub_801CBF7C();
+    release_all_players_control_lock();
 }
 
 void TBoss6PlotFalz__sub_802AC6D0(void) {

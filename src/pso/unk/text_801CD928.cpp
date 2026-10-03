@@ -8,12 +8,12 @@ s32 check_anim_done__10TObjPlayerFPv(void *);
 s32 update_state5_action__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CD904();
 s32 apply_status_action_a__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801CD928(s32 arg0, s16 arg1);
+void dispatch_technique_cast_state__10TObjPlayerFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CD928(s32 arg0, s16 arg1) {
+void dispatch_technique_cast_state__10TObjPlayerFis(s32 arg0, s16 arg1) {
   {
     switch (arg1)
     {

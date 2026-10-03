@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjNpcLappy__sub_8014B808(void *arg0, s32 arg1);
+void request_action__15TObjNpcMaleBaseFPvi(void *arg0, s32 arg1);
 void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__11TObjNpcBaseFv(void *, int);
@@ -24,7 +24,7 @@ void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TObjNpcLappy__sub_8014B808(void *arg0, s32 arg1) {
+void request_action__15TObjNpcMaleBaseFPvi(void *arg0, s32 arg1) {
     if (arg1 != 1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         return;

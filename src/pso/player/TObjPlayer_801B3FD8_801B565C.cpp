@@ -64,7 +64,7 @@ s32 is_flag_400_set__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 s32 is_action_channel_active(s32, s32);
-s32 TObjPlayer__sub_801B5920(s32 arg0, s32 arg1);
+s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 s32 is_action_channel_active(s32, s32);
 void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1);
@@ -79,14 +79,14 @@ M2C_UNK TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
 void TObjPlayer__sub_801B5A88(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 M2C_UNK TWindowActionPalette__sub_801C1DB8(s32, s32);
-s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
+s32 get_action_palette_entry__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 M2C_UNK TWindowActionPalette__sub_801C1E1C(s32, s32);
 void TObjPlayer__sub_801B5AF8(s32 arg0, s32 arg1);
 u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BE918(void *, s32, M2C_UNK *, M2C_UNK *);
-void TObjPlayer__sub_801B6024(u8 *arg0);
-s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
+void rewind_position_history__10TObjPlayerFPv(u8 *arg0);
+s32 get_action_palette_entry__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0);
 Player_801B6110 *get_player_by_client_id(s32);
 void bswap_body_dwords__10TObjPlayerFi(void *);
@@ -107,7 +107,7 @@ extern const f32 TObjPlayer__data_805DC278;
 extern const f32 TObjPlayer__data_805DC28C;
 extern const f32 lbl_805DC298;
 extern const f32 lbl_805DC29C;
-void TObjPlayer__sub_801B5FB0(P_801B5FB0 *p);
+void damp_planar_velocity(P_801B5FB0 *p);
 s32 get_position_ptr__10TObjPlayerFPv(s32);
 s32 TLobby__sub_800822E8(void *, M2C_UNK);
 u16 get_id__11TMainCursorFPv(s32);
@@ -181,7 +181,7 @@ s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, u32 *, 0x424) == 0U) {
         return 0;
     }
-    switch ((u16) TObjPlayer__sub_801B5AC4((s32) arg0, 0)) {
+    switch ((u16) get_action_palette_entry__10TObjPlayerFii((s32) arg0, 0)) {
     case 0:
     case 2:
         return 0;
@@ -192,7 +192,7 @@ s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0) {
 }
 
 s32 TObjPlayer__sub_801B58DC(u8 *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) && (((u16)TObjPlayer__sub_801B5AC4((s32)((void *)((void *)(arg0))), (s32)((int)((int) (0))))) != 0)) {
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) && (((u16)get_action_palette_entry__10TObjPlayerFii((s32)((void *)((void *)(arg0))), (s32)((int)((int) (0))))) != 0)) {
         return 1;
     }
     return 0;
@@ -200,7 +200,7 @@ s32 TObjPlayer__sub_801B58DC(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjPlayer__sub_801B5920(s32 arg0, s32 arg1) {
+s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1) {
     if (arg1 == 1) {
         if (is_flag_400_set__10TObjPlayerFPv() != 0) {
             return 1;
@@ -252,7 +252,7 @@ void TObjPlayer__sub_801B5A88(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1) {
+s32 get_action_palette_entry__10TObjPlayerFii(s32 arg0, s32 arg1) {
     return TWindowActionPalette__sub_801C1DB8(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
 #pragma pop
@@ -391,7 +391,7 @@ s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0) {
     return 0;
 }
 
-void TObjPlayer__sub_801B5FB0(P_801B5FB0 *p) {
+void damp_planar_velocity(P_801B5FB0 *p) {
     if (p->a < lbl_805DC298 && p->a > lbl_805DC29C) {
         p->a = TObjPlayer__data_805DC278;
     } else {
@@ -404,7 +404,7 @@ void TObjPlayer__sub_801B5FB0(P_801B5FB0 *p) {
     }
 }
 
-void TObjPlayer__sub_801B6024(u8 *arg0) {
+void rewind_position_history__10TObjPlayerFPv(u8 *arg0) {
     Stack_801B6024 stack;
     s32 temp_r0;
     u8 *temp_r3;

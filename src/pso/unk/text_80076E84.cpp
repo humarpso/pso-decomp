@@ -5,12 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern u8 *lbl_805D553C;
-s32 TItemData__sub_80076E84(s32 arg0);
+s32 get_technique_name(s32 arg0);
 }
 
 extern "C" {
 
-s32 TItemData__sub_80076E84(s32 arg0) {
+s32 get_technique_name(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x10), M2C_UNK *, (arg0 * 4));
 }
 

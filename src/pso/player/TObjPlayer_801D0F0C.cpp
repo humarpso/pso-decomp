@@ -34,7 +34,7 @@ struct VObj_801D0F0C : Base_801D0F0C {
 extern "C" {
 
 short query_child_state2__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_801D0F40(void* p);
+void release_control_lock__10TObjPlayerFPv(void* p);
 void clear_flag_200__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D0F70(void* p);
 void* get_field4_ptr__10TObjPlayerFPv(void* p);
@@ -48,7 +48,7 @@ short query_child_state2__10TObjPlayerFPv(void *arg0) {
     return o->m23();
 }
 
-void TObjPlayer__sub_801D0F40(void* p) { clear_flag_200__10TObjPlayerFPv((void*)(p)); }
+void release_control_lock__10TObjPlayerFPv(void* p) { clear_flag_200__10TObjPlayerFPv((void*)(p)); }
 void clear_flag_200__10TObjPlayerFPv(void* p) { *(u32*)((char*)p + 0x334) &= 0xfffffdff; }
 void TObjPlayer__sub_801D0F70(void* p) { *(u32*)((char*)p + 0x334) |= 0x200; }
 void* get_field4_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x4; }

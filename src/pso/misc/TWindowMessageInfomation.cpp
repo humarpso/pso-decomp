@@ -21,13 +21,13 @@ extern "C" {
 void *__dt__24TWindowMessageInfomationFv(void *arg0, s16 arg1);
 void render__24TWindowMessageInfomationFv(s32 arg0);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
+M2C_UNK draw_visible_window_entries(s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__14TWindowMessageFv(void *, int);
 
 void render__24TWindowMessageInfomationFv(s32 arg0) {
     M2C_UNK8 *tmp = (M2C_UNK8 *)TWindowSubStatusDisp__sub_80244364();
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, (s32)tmp);
+    draw_visible_window_entries(arg0, arg0 + 0x24, (s32)tmp);
 }
 
 extern M2C_UNK __vt__24TWindowMessageInfomation[];

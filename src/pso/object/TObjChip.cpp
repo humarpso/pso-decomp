@@ -171,7 +171,7 @@ struct Task_8018019C {
 
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
-void TObjChip__sub_80180134(u8 *arg0);
+void render__8TObjChipFPv(u8 *arg0);
 void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
 void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -208,9 +208,9 @@ extern void **lbl_805D5B24;
 extern void **lbl_805D5B2C;
 extern const f32 lbl_805DBBA0;
 extern const f32 lbl_805DBBA4;
-void TObjPlayer__sub_80180D18(u8 *arg0);
+void render__18TObjCityAirCar_CarFPv(u8 *arg0);
 void TCameraCtrl__sub_803D8934(int, Vec_8018085C *, Vec_8018085C *);
-void TParticleCtrl__sub_803D8D1C(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
+void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;
 s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -248,7 +248,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void TObjChip__sub_80180134(u8 *arg0) {
+void render__8TObjChipFPv(u8 *arg0) {
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x68)));
     if (M2C_FIELD(arg0, s32 *, 0x6C) & 0x10) {
         ((VObj_18 *)(arg0))->m10();
@@ -382,7 +382,7 @@ s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1) {
         v.x = arg1->x - lbl_804FF610.x * farg1;
         v.y = arg1->y + lbl_804FF610.y * farg1;
         v.z = arg1->z + lbl_804FF610.z * farg1;
-        TParticleCtrl__sub_803D8D1C(0, &v, &o1, &lbl_804FF610);
+        project_world_to_screen(0, &v, &o1, &lbl_804FF610);
         if (o1.x < 0.0f) {
             return 0;
         }
@@ -390,7 +390,7 @@ s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1) {
         v.x = arg1->x + lbl_804FF610.x * farg1;
         v.y = arg1->y - lbl_804FF610.y * farg1;
         v.z = arg1->z - lbl_804FF610.z * farg1;
-        TParticleCtrl__sub_803D8D1C(0, &v, &o2, &lbl_804FF610);
+        project_world_to_screen(0, &v, &o2, &lbl_804FF610);
         if (o2.x > 640.0f) {
             return 0;
         }
@@ -479,7 +479,7 @@ u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
     return arg0;
 }
-void TObjPlayer__sub_80180D18(u8 *arg0) {
+void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBBA0, lbl_805DBBA4) != 0) {

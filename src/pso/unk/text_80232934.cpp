@@ -19,7 +19,7 @@ void get_bml_model(s32, s32);
 void init_texture_copy_rect(Ctx_80232934 *, void *, void *, s32, s32);
 void approach_position_if_far(Vec_80232934 *, Vec_80232934 *, f32);
 void approach_alpha_clamped(void *, Quad_80232934 *, f32);
-void fn_80082954(Ctx_80232934 *);
+void copy_slot_to_anim_frame(Ctx_80232934 *);
 void fn_800829E0(Ctx_80232934 *);
 void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
@@ -75,7 +75,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
     get_bml_model(lbl_805D63AC, 10);
     draw_ginja_object();
     pop_matrix();
-    fn_80082954(&ctx);
+    copy_slot_to_anim_frame(&ctx);
     func_80141618__Fv();
     some_id_805c6f74 = lbl_805D5660;
 }

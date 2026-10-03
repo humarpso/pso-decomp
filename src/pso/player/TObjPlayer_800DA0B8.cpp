@@ -62,7 +62,7 @@ extern const f32 lbl_805DA418;
 extern const f32 lbl_805DA41C;
 void TObjPlayer__sub_800DA508(Ene_800DA508 *arg0, Vec_800DA508 *center, f32 radius);
 M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK TObjPlayer__sub_80018570(void *);
+M2C_UNK enemy_turn_half_toward_dest(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
@@ -190,7 +190,7 @@ void TObjPlayer__sub_800DB390(u8 *arg0) {
             break;
         }
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x29C), (void *) (M2C_FIELD(arg0, u32 *, 0x2A8) + 0x2FC));
-        TObjPlayer__sub_80018570((void *) (arg0));
+        enemy_turn_half_toward_dest((void *) (arg0));
         advance_animation_playback((void *) (arg0));
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x01000000)) {
             apply_actor_gravity((void *) (arg0), (int) (0), (f32) (lbl_805DA3F8));

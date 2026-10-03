@@ -86,7 +86,7 @@ f32 horizontal_distance_squared(void *, void *);
 s32 obj_getField1c(void *obj);
 void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern const f32 TNpcPlayer__data_805DB1F0;
-s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range);
+s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 range);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
 extern const f32 TNpcPlayer__data_805DB1F0;
@@ -104,14 +104,14 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
 s32 partner_find_wall_segment(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1);
+void change_ai_state__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
 s32 find_active_entity_by_id(void *);
-bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1);
+bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void *self);
 s32 obj_getField1c(void *obj);
-char *fn_8034D9E0(s32 state, u16 id);
+char *get_partner_custom_text(s32 state, u16 id);
 void open__11TWindowCtrlFiii(u16 id, char *text, s32 kind);
 s32 npc_counter_reset_if_reached(void *timer, s32 a, s32 b);
 extern Text_8014E250 lbl_804F0280[];
@@ -142,7 +142,7 @@ void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 struct Ent_8014F28C { s32 a; s32 b; f32 key; };
 M2C_UNK TNpcPlayer__sub_80152988(s32, Ent_8014F28C *, Ent_8014F28C *);
 s32 TNpcPlayer__sub_8014F28C(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
-M2C_UNK TNpcPlayer__sub_80150A34(void *, M2C_UNK);
+M2C_UNK request_technique_cast__10TNpcPlayerFPvi(void *, M2C_UNK);
 s32 find_inventory_item_id__10TObjPlayerFPvcc(s32, M2C_UNK, M2C_UNK);
 M2C_UNK try_send_6x27_use_item(s32, s32, void *);
 s32 get_condition__10TNpcPlayerFPv(s32);
@@ -173,7 +173,7 @@ extern "C" {
 f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
 f32 vector_length(Vec_8014E3B0 *);
 void normalize_vector(Vec_8014E3B0 *);
-void TNpcPlayer__sub_803E18C0(void *, Line_8014EE98 *, Vec_8014E3B0 *);
+void project_point_onto_line(void *, Line_8014EE98 *, Vec_8014E3B0 *);
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 }
 
@@ -183,7 +183,7 @@ void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
         if (get_condition__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x78)) & 0x20) {
             handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
         } else {
-            TNpcPlayer__sub_80150A34(arg0, 0xF);
+            request_technique_cast__10TNpcPlayerFPvi(arg0, 0xF);
         }
         if (M2C_FIELD(arg0, s32 *, 0x80) & 0x200) {
             request_chatter__10TNpcPlayerFPvUi((u8 *)(arg0), (u32)(0x13));
@@ -200,19 +200,19 @@ void dispatch_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
             handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
             return;
         }
-        TNpcPlayer__sub_80150A34(arg0, 0x10);
+        request_technique_cast__10TNpcPlayerFPvi(arg0, 0x10);
         return;
     case 3:
         if (get_condition__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x78)) & 0x20) {
             handle_action__10TNpcPlayerFPvi((void *)(arg0), (s32)(arg1));
             return;
         }
-        TNpcPlayer__sub_80150A34(arg0, 0x11);
+        request_technique_cast__10TNpcPlayerFPvi(arg0, 0x11);
         break;
     }
 }
 
-void TNpcPlayer__sub_8014E090(u8 *arg0, u32 arg1) {
+void change_ai_state__10TNpcPlayerFPvUi(u8 *arg0, u32 arg1) {
     M2C_FIELD(arg0, u32 *, 0x7C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) & 0xFFFFEFFF);
     switch (arg1) {
@@ -287,7 +287,7 @@ void deliver_partner_chatter(Npc_8014E250 *self) {
     }
     id = obj_getField1c(self->owner->obj);
     if (id != 0xFFFF) {
-        text = fn_8034D9E0(self->state, id);
+        text = get_partner_custom_text(self->state, id);
         if (text != 0) {
             open__11TWindowCtrlFiii(id, text, 0x1B);
         } else {
@@ -432,7 +432,7 @@ s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E
     line.d.x = perp.x;
     line.d.y = TNpcPlayer__data_805DB1F0;
     line.d.z = perp.z;
-    TNpcPlayer__sub_803E18C0(self->fDC, &line, &hit);
+    project_point_onto_line(self->fDC, &line, &hit);
     s = lbl_805DB208 * len;
     if (s <= TNpcPlayer__data_805DB204) {
         s = TNpcPlayer__data_805DB204;
@@ -578,7 +578,7 @@ s32 TNpcPlayer__sub_8014F424(View_8014F424 *view, void *pos, s32 id, f32 range) 
     return found;
 }
 
-s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range) {
+s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 range) {
     f32 origin[3];
     Actor_8014F57C *actor;
     s32 found;
@@ -625,7 +625,7 @@ s32 TNpcPlayer__sub_8014F57C(View_8014F57C *view, void *pos, f32 range) {
     return found;
 }
 
-bool TNpcPlayer__sub_8014F728(u8 *arg0, u16 arg1) {
+bool is_target_line_clear__10TNpcPlayerFPvUs(u8 *arg0, u16 arg1) {
     Stack_8014F728 stack;
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void *)((void *) (&stack.sp8)), (int)((void *) (find_active_entity_by_id((void *) (arg1)) + 0x2FC)));

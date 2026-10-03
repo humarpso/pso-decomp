@@ -6,12 +6,12 @@ struct PartnerText_8034D9E0 {
 
 extern "C" {
 extern struct PartnerText_8034D9E0 lbl_805436B8[];
-const char *fn_8034D9E0(s32 kind, u16 player);
+const char *get_partner_custom_text(s32 kind, u16 player);
 }
 
 extern "C" {
 
-const char *fn_8034D9E0(s32 kind, u16 player) {
+const char *get_partner_custom_text(s32 kind, u16 player) {
     s32 i;
     if (player >= 4) {
         return NULL;

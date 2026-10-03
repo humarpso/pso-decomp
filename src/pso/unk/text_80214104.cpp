@@ -16,7 +16,7 @@ struct Seq_80214104 : Base_80214104 {
 extern "C" {
 void *obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 void init__22THunterGuildSeqOfflineFPvPvPv(void *, s32, void (*)(void));
 void send_quest_menu_closed__9TProtocolFv(s32);
 void THunterGuildSeqOffline__sub_8021E180(void *);
@@ -44,7 +44,7 @@ void TLobby__sub_80214104(Seq_80214104 *self) {
     switch (self->mode) {
     case 0:
         if (TShopWindowBase__sub_80223A48(self) == 0 && TShopWindowBase__sub_802239EC(self) == 0) return;
-        if (TCameraCtrl__sub_8006B368() == 0) {
+        if (is_quest_active() == 0) {
             send_quest_menu_closed__9TProtocolFv(TLobby__data_805D5580);
         }
         close_window__13TShopSequenceFPv(self);

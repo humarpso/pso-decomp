@@ -180,7 +180,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0);
 M2C_UNK draw_ginja_object(s32);
 void *TObjControl__ct(void *, void *);
 M2C_UNK draw_chunk_object(s32);
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, int, f32, f32, f32);
@@ -388,7 +388,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
         if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
             some_id_805c6f74 &= 0xFFFFFFFE;
         }
-        TObjLight__sub_80134098();
+        restore_scene_lighting();
         render_with_position_override__10TObjPlayerFPvPvi((void *) (arg0), (int) (0), (int) (0));
     }
 }

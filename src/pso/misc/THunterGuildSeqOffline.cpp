@@ -152,10 +152,10 @@ extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGu
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
 extern s32 THunterGuildSeqOffline__data_805D6188;
 u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1);
-s32 TCameraCtrl__sub_8006B368(void);
+s32 is_quest_active(void);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-s32 TQuestThread__sub_801F5C50(s32);
-s32 TQuestThread__sub_801F5EAC(void *, s32);
+s32 create_quest_thread(s32);
+s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
@@ -171,7 +171,7 @@ u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-s32 TQuestThread__sub_801F5C50(s32);
+s32 create_quest_thread(s32);
 s32 TWindow__close(int);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
@@ -264,19 +264,19 @@ void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0) {
 
 void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     if ((((VObj_18_b54460 *)(arg0))->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
-        if (TCameraCtrl__sub_8006B368() == 1) {
-            if (TQuestThread__sub_801F5EAC(lbl_805D5EE8, 0xFF) == 1) {
+        if (is_quest_active() == 1) {
+            if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFF) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0xB, 1);
                 if ((s32) M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 4) != -1) {
-                    M2C_FIELD(arg0, s32 *, 0x34) = TQuestThread__sub_801F5C50(M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 4));
+                    M2C_FIELD(arg0, s32 *, 0x34) = create_quest_thread(M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 4));
                 }
                 set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(7));
                 return;
             }
-            if (TQuestThread__sub_801F5EAC(lbl_805D5EE8, 0xFD) == 1) {
+            if (get_register__12TQuestThreadFPvi(lbl_805D5EE8, 0xFD) == 1) {
                 ((VObj_18_b54460 *)(arg0))->m7(0x12, 1);
                 if ((s32) M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 0) != -1) {
-                    M2C_FIELD(arg0, s32 *, 0x34) = TQuestThread__sub_801F5C50(M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 0));
+                    M2C_FIELD(arg0, s32 *, 0x34) = create_quest_thread(M2C_FIELD(&(*(RecoveredGlobal_80212F34_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 0));
                 }
                 set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(8));
                 return;
@@ -452,7 +452,7 @@ void THunterGuildSeqOffline__sub_8021354C(u8 *arg0) {
             ((VObj_18_97738d *)(arg0))->m7(9, 1);
             M2C_FIELD(arg0, s32 *, 0x34) = 1;
             if ((s32) M2C_FIELD(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 8) != -1) {
-                M2C_FIELD(arg0, s32 *, 0x38) = TQuestThread__sub_801F5C50(M2C_FIELD(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 8));
+                M2C_FIELD(arg0, s32 *, 0x38) = create_quest_thread(M2C_FIELD(&(*(RecoveredGlobal_8021354C_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 8));
             }
             set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xC));
             break;

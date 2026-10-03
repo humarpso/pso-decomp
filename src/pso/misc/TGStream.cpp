@@ -18,7 +18,7 @@ struct Stream_800FDBA8 {
 extern "C" {
 void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
-void TLobby__sub_800F7DAC(s32, s32);
+void prs_decompress_buffer(s32, s32);
 M2C_UNK read_sectors_sync__8TGStreamFPvii(M2C_UNK *, s32, s32);
 s32 get_instance__8TGStreamFv(M2C_UNK *);
 M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
@@ -110,7 +110,7 @@ s32 TGStream__sub_800FDBA8(s32 name, s32 dst) {
             debug_print__6TLobbyFii(lbl_8043DE90);
         }
         read_sectors_sync__8TGStreamFPvii((M2C_UNK *)((s32 *)&st), (s32)(sectors), (s32)(buf));
-        TLobby__sub_800F7DAC(buf, dst);
+        prs_decompress_buffer(buf, dst);
         safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
         size = st.info->size;
         TGStream__ct((M2C_UNK *)((s32 *)&st), (M2C_UNK)(-1));

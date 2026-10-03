@@ -103,7 +103,7 @@ void TBoss4DarkFalz__sub_8004B77C(void *self);
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 init_all_slots2__11TWindowCtrlFv();
 s32 end_camera_pan__10TObjPlayerFPv(void *p);
-s32 TObjPlayer__sub_801CBF7C();
+s32 release_all_players_control_lock();
 extern s32 lbl_805D586C;
 void TBoss4DarkFalz__sub_8004BA18(void *self);
 void *get_player_data__10TObjPlayerFi(s32 i);
@@ -448,7 +448,7 @@ void TBoss4DarkFalz__sub_8004BA18(void *self) {
             end_camera_pan__10TObjPlayerFPv(p);
         }
     }
-    TObjPlayer__sub_801CBF7C();
+    release_all_players_control_lock();
 }
 void TBoss4DarkFalz__sub_8004BA70(void *self) {
     s32 i;

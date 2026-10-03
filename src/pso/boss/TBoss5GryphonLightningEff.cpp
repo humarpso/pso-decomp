@@ -39,7 +39,7 @@ extern const f32 lbl_805DF5F8;
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-void TTecZondeEff__sub_8023D4A8(void *);
+void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
 void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
 void TBoss8Dragon__sub_8034D500(void *, void *, s32, void *, f32);
 void subtract_vector(void *, void *);
@@ -140,7 +140,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
         subtract_vector(&v, &self->pts[i + 1]);
         self->f34 += update_scale__15TObjBoss2TunnelFPv(&v);
     }
-    TTecZondeEff__sub_8023D4A8(self);
+    randomize_bolt_jitter__12TTecZondeEffFPv(self);
     for (i = 0; i < self->n; i++) {
         VecCopy__FP3VecPC3Vec(&self->pts2[i], &self->pts[i]);
     }

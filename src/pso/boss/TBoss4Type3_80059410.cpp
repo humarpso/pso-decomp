@@ -90,7 +90,7 @@ extern const f32 lbl_805D8C90;
 extern const f32 lbl_805D8C94;
 extern const f32 lbl_805D8C98;
 void TBoss4Type3__sub_80059FC4(u8 *arg0);
-s32 TCameraCtrl__sub_8006D2B0(void *, void *, int);
+s32 request_follow_camera_offsets(void *, void *, int);
 extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
 extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
@@ -191,7 +191,7 @@ void TBoss4Type3__sub_80059450(u8 *arg0) {
         stack.sp20 = M2C_FIELD(&lbl_80437860.value, s32 *, 0);
         stack.sp24 = M2C_FIELD(&lbl_80437860.value, s32 *, 4);
         stack.sp28 = M2C_FIELD(&lbl_80437860.value, s32 *, 8);
-        TCameraCtrl__sub_8006D2B0((void *) (&stack.sp20), (void *) (&stack.sp2C), (int) (0xFFFFU));
+        request_follow_camera_offsets((void *) (&stack.sp20), (void *) (&stack.sp2C), (int) (0xFFFFU));
         return;
     }
     stack.sp14 = M2C_FIELD(&lbl_8043786C.value, s32 *, 0);
@@ -200,7 +200,7 @@ void TBoss4Type3__sub_80059450(u8 *arg0) {
     stack.sp8 = M2C_FIELD(&lbl_80437878.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_80437878.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_80437878.value, s32 *, 8);
-    TCameraCtrl__sub_8006D2B0((void *) (&stack.sp8), (void *) (&stack.sp14), (int) (0xFFFFU));
+    request_follow_camera_offsets((void *) (&stack.sp8), (void *) (&stack.sp14), (int) (0xFFFFU));
 }
 #pragma pop
 

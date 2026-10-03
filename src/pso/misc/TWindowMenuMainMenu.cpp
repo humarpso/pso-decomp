@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct W_802AE864 { u8 pad[0x124]; void *a[8]; };
 
 extern "C" {
-M2C_UNK TWindowMainMenu__sub_802ADED4(void *, int);
+M2C_UNK draw_entries_reversed__15TWindowMainMenuFiPv(void *, int);
 M2C_UNK draw_frame__19TWindowMenuMainMenuFv(void *, int);
-s32 TWindowMainMenu__sub_802AE2B0();
+s32 setup_content_frame__15TWindowMainMenuFPv();
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
 M2C_UNK init_color__15TWindowMainMenuFPv(void *);
@@ -26,7 +26,7 @@ void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
 M2C_UNK TWindowMainMenu__sub_802AD7F0(void *);
 M2C_UNK TWindowMainMenu__sub_802AE380(void *);
-M2C_UNK TWindowMainMenu__sub_802AE59C(void *);
+M2C_UNK handle_navigation_input__15TWindowMainMenuFPv(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
@@ -34,9 +34,9 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 
 void render__19TWindowMenuMainMenuFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowMainMenu__sub_802AE2B0();
+    temp_r3 = setup_content_frame__15TWindowMainMenuFPv();
     draw_frame__19TWindowMenuMainMenuFv((void *) (arg0), (int) (temp_r3));
-    TWindowMainMenu__sub_802ADED4((void *) (arg0), (int) (temp_r3));
+    draw_entries_reversed__15TWindowMainMenuFiPv((void *) (arg0), (int) (temp_r3));
 }
 
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
@@ -56,7 +56,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
         var_r31 += 1;
         var_r30 += 0x18;
     } while (var_r31 < 8);
-    TWindowMainMenu__sub_802AE59C(arg0);
+    handle_navigation_input__15TWindowMainMenuFPv(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
     TWindowMainMenu__sub_802AE380(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);

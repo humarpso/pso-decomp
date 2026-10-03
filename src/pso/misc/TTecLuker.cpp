@@ -94,10 +94,10 @@ struct Luker_80234D50 {
 };
 
 extern "C" {
-void TTecLuker__sub_80234F7C(void* p);
-void TTecLuker__sub_80234F7C(void* p);
-s32 TTecLuker__sub_80234F88(void* p);
-s32 TTecLuker__sub_80234F88(void* p);
+void clear_pipe_interaction_latch(void* p);
+void clear_pipe_interaction_latch(void* p);
+s32 get_pipe_interaction_latch(void* p);
+s32 get_pipe_interaction_latch(void* p);
 int TObjPlayer__sub_80019664(void);
 void TTecLuker__sub_80234F90(void* p);
 s32 TLobby__send_and_handle_60(s32);
@@ -122,7 +122,7 @@ void TTecLuker__sub_80234FC4(void *arg0);
 int fn_80235078(void *arg0);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void TTecLuker__sub_80233E3C(u16 arg0);
+void create_quest_telepipe_for_client(u16 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(s32);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
@@ -151,11 +151,11 @@ int check_flag_0x80__10TObjPlayerFPv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state);
 extern u8 TTecLuker__data_805D37E0[4];
-void TTecLuker__sub_80234F28(void);
+void reset_telepipe_visit_counts(void);
 extern u8 TTecLuker__data_805D37E0[4];
 void TTecLuker__sub_80234F08(void);
 extern const f32 lbl_805DC85C;
-void TTecLuker__sub_802340A0(O_802340A0 *o);
+void reset_telepipe_record(O_802340A0 *o);
 extern u8 TTecLuker__data_805D37E0[4];
 void TTecLuker__sub_80234F48(void);
 u32 get_player_by_client_id(s32);
@@ -175,7 +175,7 @@ void restore_floor_telepipes(void);
 f32 vector_length(void *);
 extern const f32 lbl_805DC85C;
 extern const f32 lbl_805DC860;
-s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
+s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 void *__nw__7TObjectFUl(int);
 s32 obj_getField1c(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
@@ -198,7 +198,7 @@ void TTecLuker__sub_80234FC4(void *arg0);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
-s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
+s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 s32 is_split_screen();
 u8 *find_entity_by_id(u16);
 s32 get_field_3e4__10TObjPlayerFPv(u32);
@@ -233,7 +233,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 get_instance__6TLobbyFv();
 void* spawn_particle_effect(float*,u32);
 u8 *find_entity_by_id(u16);
-s32 TObjLuker__sub_801A0F34(void *, M2C_UNK, f32);
+s32 are_players_gathered_near(void *, M2C_UNK, f32);
 void set_state__9TTecLukerFPvi(void *p, s32 v);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, s32);
 u32 get_player_by_client_id(s32);
@@ -242,10 +242,10 @@ s32 get_floor_map_terrain(M2C_UNK);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 s32 play_sound_effect(int, void *, int, int);
 M2C_UNK set_area__6TLobbyFPvi(M2C_UNK *, M2C_UNK, s32);
-s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
+s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s);
-void TTecLuker__sub_80234F7C(void* p);
-s32 TTecLuker__sub_80234F88(void* p);
+void clear_pipe_interaction_latch(void* p);
+s32 get_pipe_interaction_latch(void* p);
 int TTecLuker__sub_80235054(void* p);
 M2C_UNK offset_point_toward_camera(void *, M2C_UNK *, f32);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
@@ -258,7 +258,7 @@ void run_task__9TTecLukerFv(u8 *arg0);
 
 extern "C" {
 
-void TTecLuker__sub_80233C18(void* p);
+void set_interaction_latch__9TTecLukerFPv(void* p);
 void TTecLuker__sub_80234F68(void* p);
 void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1);
 void *__dt__9TTecLukerFv(void *arg0, s16 arg1);
@@ -270,10 +270,10 @@ s16 get_field_2__9TTecLukerFPv(void* p);
 void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1);
 void update_player_target__9TTecLukerFPv(u8 *arg0);
 s32 TLobby__send_and_handle_60(s32);
-void TLobby__sub_80226294(void *);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-s32 TObjLuker__sub_801A0F34(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+void stop_sound_request(void *);
+M2C_UNK free_collision_body_parts(void *);
+s32 are_players_gathered_near(void *, M2C_UNK, f32);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
@@ -300,7 +300,7 @@ void TTecLuker__updateRecoveryTechniqueCharge(TechniqueChargeEmitter* state) {
 void *destroy__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC990;
-        TLobby__sub_80226294(M2C_FIELD(arg0, void **, 0x30));
+        stop_sound_request(M2C_FIELD(arg0, void **, 0x30));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -319,7 +319,7 @@ u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TTecLuker__sub_80233C18(void* p) { *(s32*)((char*)p + 0xb0) = 1; }
+void set_interaction_latch__9TTecLukerFPv(void* p) { *(s32*)((char*)p + 0xb0) = 1; }
 
 extern const f32 lbl_805DC858;
 
@@ -329,7 +329,7 @@ void update_player_target__9TTecLukerFPv(u8 *arg0) {
             submit_cursor_candidate(arg0, -1);
             return;
         }
-        if (TObjLuker__sub_801A0F34(arg0 + 0x38, 0, lbl_805DC858) != 0) {
+        if (are_players_gathered_near(arg0 + 0x38, 0, lbl_805DC858) != 0) {
             submit_cursor_candidate(arg0, -1);
         }
     } else {
@@ -342,8 +342,8 @@ extern M2C_UNK lbl_804CC9D4[];
 void *__dt__9TTecLukerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CC9D4;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         M2C_FIELD(arg0, s32 *, 0xB0) = 0;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -376,7 +376,7 @@ void apply_all_players__9TTecLukerFv(void) {
     do {
         temp_r3 = get_player_by_client_id((s32)(var_r31));
         if (temp_r3 != 0U) {
-            TTecLuker__sub_802340A0((O_802340A0 *)(temp_r3 + 0x830));
+            reset_telepipe_record((O_802340A0 *)(temp_r3 + 0x830));
         }
         var_r31 += 1;
     } while (var_r31 < 4);
@@ -389,7 +389,7 @@ void create_for_player__9TTecLukerFii(int arg0, s32 arg1) {
     }
 }
 
-void TTecLuker__sub_80233E3C(u16 arg0) {
+void create_quest_telepipe_for_client(u16 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((s32)get_player_by_client_id((s32)((u32) arg0))));
     if (temp_r3 != NULL) {
@@ -449,7 +449,7 @@ bool TTecLuker__sub_8023401C(u8 *arg0) {
     return M2C_FIELD(arg0, s16 *, 2) != 0;
 }
 
-s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused) {
+s32 telepipe_record_differs(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused) {
     Vec_8023402C d;
     if (r->floor == floor) {
         d.x = r->pos.x - p->x;
@@ -462,7 +462,7 @@ s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unu
     return 1;
 }
 
-void TTecLuker__sub_802340A0(O_802340A0 *o) {
+void reset_telepipe_record(O_802340A0 *o) {
     o->h0 = 0xffff;
     o->w4 = 0;
     o->h2 = 0;
@@ -520,7 +520,7 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
         return;
     }
     rec = (Rec_8023402C *)(player + 0x830);
-    if (TTecLuker__sub_8023402C(rec, pkt->rec.floor, &pkt->rec.pos, pkt->rec.owner) == 0) {
+    if (telepipe_record_differs(rec, pkt->rec.floor, &pkt->rec.pos, pkt->rec.owner) == 0) {
         return;
     }
     write_telepipe_record((u8 *)rec, pkt->rec.owner, pkt->rec.floor, (u8 *)&pkt->rec.pos, pkt->rec.section);
@@ -636,7 +636,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
             }
             if (TTecLuker__sub_80235054((void*)(tgt)) != 0) {
                 VecCopy__FP3VecPC3Vec(arg0 + 0xFC, M2C_FIELD(arg0, u8 **, 0x1C) + 0x38);
-                if ((TTecLuker__sub_8023402C((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) == 0) && ((s8) *(TTecLuker__data_805D37E0 + M2C_FIELD(arg0, u16 *, 0xB4)) >= 1)) {
+                if ((telepipe_record_differs((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) == 0) && ((s8) *(TTecLuker__data_805D37E0 + M2C_FIELD(arg0, u16 *, 0xB4)) >= 1)) {
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
@@ -649,7 +649,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
         if (temp_r5 < 4U) {
             *(TTecLuker__data_805D37E0 + temp_r5) = *(TTecLuker__data_805D37E0 + temp_r5) + 1;
         }
-        if (TTecLuker__sub_8023402C((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) != 0) {
+        if (telepipe_record_differs((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) != 0) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
@@ -658,7 +658,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
-        if ((get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xF6)) != 0) && (TTecLuker__sub_80234F88(M2C_FIELD(arg0, void **, 0xF0)) != 0) && (TObjLuker__sub_801A0F34(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
+        if ((get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xF6)) != 0) && (get_pipe_interaction_latch(M2C_FIELD(arg0, void **, 0xF0)) != 0) && (are_players_gathered_near(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
             offset_point_toward_camera(arg0 + 0xFC, (M2C_UNK *) &sp8, lbl_805DC858);
             spawn_particle_effect((float *) &sp8, 0xB3);
             temp_r3_2 = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xF6));
@@ -689,7 +689,7 @@ void run_task__9TTecLukerFv(u8 *arg0) {
                     queue_destruction__7TObjectFv(arg0);
                     return;
                 }
-                TTecLuker__sub_80234F7C((void*)(M2C_FIELD(arg0, void **, 0xF0)));
+                clear_pipe_interaction_latch((void*)(M2C_FIELD(arg0, void **, 0xF0)));
                 M2C_FIELD(arg0, s32 *, 0x10C) = 0;
                 return;
             }
@@ -827,7 +827,7 @@ void TTecLuker__sub_80234F08(void) {
     }
 }
 
-void TTecLuker__sub_80234F28(void) {
+void reset_telepipe_visit_counts(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         TTecLuker__data_805D37E0[i] = 0;
@@ -844,9 +844,9 @@ void TTecLuker__sub_80234F48(void) {
 void TTecLuker__sub_80234F68(void* p) { *(s32*)((char*)p + 0x0) = 6; }
 s16 get_field_2__9TTecLukerFPv(void* p) { return *(s16*)((char*)p + 0x2); }
 
-void TTecLuker__sub_80234F7C(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
+void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
-s32 TTecLuker__sub_80234F88(void* p) { return *(s32*)((char*)p + 0xb0); }
+s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
 
 void TTecLuker__sub_80234F90(void* p) { TTecLuker__sub_80234FC4((void *)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
 

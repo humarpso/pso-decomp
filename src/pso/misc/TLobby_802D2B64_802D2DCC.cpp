@@ -23,7 +23,7 @@ extern "C" {
 void reset__6TLobbyFv(void);
 s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 void update_sub_status_disp__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 void *find_item_by_id(s32);
 M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
@@ -45,7 +45,7 @@ void update_sub_status_disp__6TLobbyFi(s32 arg0) {
     refresh_player_status__6TLobbyFv(arg0);
     get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEF));
     text_builder_append();
-    TLobby__sub_8001DC24();
+    get_shared_text_buffer();
 }
 
 extern s32 lbl_805D53A0;
@@ -64,7 +64,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         refresh_player_status__6TLobbyFv(arg0);
         get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEA));
         text_builder_append();
-        return TLobby__sub_8001DC24();
+        return get_shared_text_buffer();
     case 2:
         temp_r3 = find_item_by_id(arg2);
         if (temp_r3 == NULL) {
@@ -83,7 +83,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         text_builder_append();
         get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xE9));
         text_builder_append();
-        return TLobby__sub_8001DC24();
+        return get_shared_text_buffer();
     case 3:
         if (arg0 == (s32) lbl_805D53A0) {
             return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF2));
@@ -92,7 +92,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         refresh_player_status__6TLobbyFv(arg0);
         get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xE7));
         text_builder_append();
-        return TLobby__sub_8001DC24();
+        return get_shared_text_buffer();
     case 4:
         return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEE));
     default:

@@ -307,7 +307,7 @@ extern "C" {
 void TObjEneDelDepth__sub_80315518(void);
 void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1);
 void set_depth_offset__15TObjEneDelDepthFPvii(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 f32 calc_boss4_scale__10TObjPlayerFi();
@@ -390,7 +390,7 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
 void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjEneDelDepth;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         M2C_FIELD(arg0, s32 *, 0x380) = 0;
         conditional_delete__15TObjEneDelDepthFis(M2C_FIELD(arg0, s32 *, 0x37C), 1);
         M2C_FIELD(arg0, s32 *, 0x37C) = 0;

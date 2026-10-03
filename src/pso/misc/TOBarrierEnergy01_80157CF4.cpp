@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
-void TOBarrierEnergy01__sub_80157D28(s32 arg0);
+void play_ambient_loop_sound__17TOBarrierEnergy01Fi(s32 arg0);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ int bswap_header__6TLobbyFi(void*);
 void* init__17TOBarrierEnergy01FPv(void* p) { TLobby__sub_80156BA8(p); return p; }
 
 void TOBarrierEnergy01__vt18(void) {  }
-void TOBarrierEnergy01__sub_80157D28(s32 arg0) {
+void play_ambient_loop_sound__17TOBarrierEnergy01Fi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {

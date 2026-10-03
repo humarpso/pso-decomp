@@ -28,7 +28,7 @@ M2C_UNK TBoss3Volopt__sub_8003EA2C(int);
 void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
 M2C_UNK TObjPlayer__sub_801BA42C();
 M2C_UNK TObjPlayer__sub_801BA494();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+M2C_UNK play_area_music(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
 extern s32 lbl_805D4C2C;
@@ -133,7 +133,7 @@ void TBoss3VoloptCtrl::run_task() {
                 TBoss3Volopt__sub_8003EA2C((int) (1));
                 TCameraCtrl__sub_80069E7C(9);
                 TObjPlayer__sub_801BA494();
-                TObjBgmColCtrl__sub_802274B8((void *) (&lbl_8043636C.value));
+                play_area_music((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
                         unhide_room_set_objects((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(1));

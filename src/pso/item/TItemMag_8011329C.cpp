@@ -138,7 +138,7 @@ extern const f32 lbl_805DABB0;
 extern const f32 lbl_805DABB8;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *initialize_mag_data__9TItemDataFPv(void *p);
-void TItemData__sub_8010D614(void *src, void *dst);
+void deserialize_mag__9TItemDataFPvPv(void *src, void *dst);
 s16 TItemMagSub__sub_8011455C(void *);
 void set_field_EE__8TItemMagFPvUc(void *p, u8 v);
 void copy_owner_data__8TItemMagFPv(void *);
@@ -157,7 +157,7 @@ s32 pop_matrix();
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt25(Self_801134CC *self);
 s32 bind_loaded_resources__14TItemEquipBaseFPv(void *);
-int TItemMag__sub_80110F04(void*);
+int tick_fullness_timer__8TItemMagFPv(void*);
 void feed_by_item_flags__8TItemMagFPvc(void *, s8);
 void TItemMag__sub_8011271C(void *);
 s8 collect_support_events__8TItemMagFv(void *);
@@ -167,7 +167,7 @@ void feed_if_over_45__8TItemMagFPv(void *);
 void update_feed__8TItemMagFPv(void *);
 void check_level_cap__8TItemMagFPv(void *);
 void check_level_evolve__8TItemMagFPv(void *);
-void TItemMag__sub_80113244(void *);
+void apply_auto_support_techniques__8TItemMagFPv(void *);
 void update__8TItemMagFPv(void *arg0);
 int get_status_flag__8TItemMagFPv(void* p);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -213,11 +213,11 @@ void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
 void set_flags64__8TItemMagFPvUi(void* p, u32 v);
 void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3);
 void update__8TItemMagFPv(void *arg0);
-M2C_UNK TItemData__sub_8010D510(s32, s32, s32);
+M2C_UNK serialize_mag__9TItemDataFPvPv(s32, s32, s32);
 int get_mag_mind_level__9TItemDataFPv(void*);
 M2C_UNK request_model_load__14TItemEquipBaseFPvi(s32, u8);
-int TItemMag__sub_80110F04(void*);
-M2C_UNK TItemMag__sub_80111758(void *, M2C_UNK);
+int tick_fullness_timer__8TItemMagFPv(void*);
+M2C_UNK set_subs_visible__8TItemMagFPvi(void *, M2C_UNK);
 void TItemMag__sub_80113E3C(void* p);
 u8 TItemMag__sub_80113E74(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
@@ -254,15 +254,15 @@ void update__8TItemMagFPv(void *arg0) {
         M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (temp_f1 - TItemMag__data_805DABA8);
     }
     if (obj_testFlags30(arg0, 0x08000000) == 0) {
-        TItemMag__sub_80111758(arg0, 1);
+        set_subs_visible__8TItemMagFPvi(arg0, 1);
         return;
     }
-    TItemMag__sub_80111758(arg0, 0);
+    set_subs_visible__8TItemMagFPvi(arg0, 0);
 }
 
 void TItemMag__vt14(Self_80113310 *self) {
     s8 events;
-    TItemMag__sub_80110F04((void*)(self));
+    tick_fullness_timer__8TItemMagFPv((void*)(self));
     bind_loaded_resources__14TItemEquipBaseFPv(self);
     if (self->f18C & 0x20) {
         return;
@@ -281,7 +281,7 @@ void TItemMag__vt14(Self_80113310 *self) {
         update__8TItemMagFPv(self);
         break;
     case 4:
-        TItemMag__sub_80113244(self);
+        apply_auto_support_techniques__8TItemMagFPv(self);
         break;
     case 6:
         check_level_evolve__8TItemMagFPv(self);
@@ -305,7 +305,7 @@ void TItemMag__vt14(Self_80113310 *self) {
     self->f1CC++;
 }
 
-int TItemMag__vt13(void* p) { return TItemMag__sub_80110F04(p); }
+int TItemMag__vt13(void* p) { return tick_fullness_timer__8TItemMagFPv(p); }
 
 void TItemMag__vt12(s32 arg0) {
     if ((TItemMagSub__sub_8011455C((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0)) {
@@ -368,7 +368,7 @@ void TItemMag__vt24(Self_801135E0 *self) {
 }
 
 void TItemMag__vt16(s32 arg0, s32 arg1) {
-    TItemData__sub_8010D510(arg1, arg0 + 0x198, arg0);
+    serialize_mag__9TItemDataFPvPv(arg1, arg0 + 0x198, arg0);
 }
 
 void TItemMag__vt43(u8 *arg0) {
@@ -477,7 +477,7 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
     self->x1c8 = TItemMag__data_805DABA4;
     self->x190 = lbl_805DABB0;
     self->x194 = lbl_805DABB8;
-    TItemData__sub_8010D614((void *)src, self->data198);
+    deserialize_mag__9TItemDataFPvPv((void *)src, self->data198);
     self->flags1a4 &= ~0x40;
     set_field_EE__8TItemMagFPvUc(self, TItemMagSub__sub_8011455C(self->data198));
     self->m17(1);

@@ -18,7 +18,7 @@ void apply_heal_to_target__13TOHealGeneralFPv(u8 *arg0);
 s16 obj_getS16_32C(void *);
 s32 is_valid_slot__17TOHangerMachine01FiUs(int, u16);
 void apply_heal_to_target__13TOHealGeneralFPv(u8 *arg0);
-void TObjPlayer__sub_801B1E54(u16, u16, s16);
+void send_6x2F_change_player_hp(u16, u16, s16);
 s32 get_player_by_client_id(u32);
 extern const f32 lbl_805DB6B8;
 extern const f32 lbl_805DB6BC;
@@ -46,7 +46,7 @@ void update_closing__13TOHealGeneralFPv(u8 *arg0) {
             if (temp_r3 != NULL) {
                 temp_r3_2 = obj_getS16_32C(temp_r3);
                 if (temp_r3_2 > 0) {
-                    TObjPlayer__sub_801B1E54(0xFFFFU, M2C_FIELD(arg0, u16 *, 0xF4), temp_r3_2);
+                    send_6x2F_change_player_hp(0xFFFFU, M2C_FIELD(arg0, u16 *, 0xF4), temp_r3_2);
                 }
             }
         }

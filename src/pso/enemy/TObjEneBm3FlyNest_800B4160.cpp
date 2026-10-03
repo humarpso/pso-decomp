@@ -19,7 +19,7 @@ s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-s32 TObjEneBm3Fly__sub_800B22C8();
+s32 load_resources__13TObjEneBm3FlyFv();
 s32 TObjEneBm3FlyNest__sub_800B47C4();
 s32 check_v2_mode__9TObjEneDDFv();
 u32 load_enemy_bml_resource_named(void *, void *);
@@ -89,7 +89,7 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
     lbl_805D50FC = dispatch_shared_handler_b__6TLobbyFPv(1);
     lbl_805D5100 = register_object__6TLobbyFPv(1);
     lbl_805D5104 = dispatch_shared_handler_a__6TLobbyFPv(1);
-    TObjEneBm3Fly__sub_800B22C8();
+    load_resources__13TObjEneBm3FlyFv();
     TObjEneBm3FlyNest__sub_800B47C4();
     {
         Anim_800B41E8 anim = lbl_8043B2F4;

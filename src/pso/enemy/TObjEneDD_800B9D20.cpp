@@ -49,7 +49,7 @@ int update_secondary_light__9TObjEneDDFPv(void* p);
 int TCameraCtrl__sub_80069148(void*);
 int TCameraCtrl__sub_800691C8(void*);
 int TLobby__sub_800C6C10(void*);
-int TObjLight__sub_80134098(void*);
+int restore_scene_lighting(void*);
 int TObjLight__sub_80134194(void*);
 int bind_enemy_combat_stats(void*);
 s32 get_main_phase();
@@ -88,7 +88,7 @@ void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     pop_matrix();
 }
 
-int update_primary_light__9TObjEneDDFPv(void* p) { return TObjLight__sub_80134098(p); }
+int update_primary_light__9TObjEneDDFPv(void* p) { return restore_scene_lighting(p); }
 int update_secondary_light__9TObjEneDDFPv(void* p) { return TObjLight__sub_80134194(p); }
 
 void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {

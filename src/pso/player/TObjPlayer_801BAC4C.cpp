@@ -13,7 +13,7 @@ struct Stack_801BAD60 {
 extern "C" {
 M2C_UNK get_item_ptr__10TObjPlayerFPvi(void *, int);
 f32 get_mag_scale_f__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801415BC();
+M2C_UNK set_shadow_material_state();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK play_phase_transition_sound__10TObjPlayerFi(int);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
@@ -25,7 +25,7 @@ M2C_UNK draw_chunk_object(int);
 void draw_head_attachments__10TObjPlayerFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
-M2C_UNK TObjPlayer__sub_801415BC();
+M2C_UNK set_shadow_material_state();
 s32 TObjPlayer__sub_80142F1C(void *);
 s32 draw_model_with_callback__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801B4C34(void *);
@@ -49,7 +49,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 obj_isState2_324(void *);
 void obj_clearFlags30(void *, u32);
 f32 get_speed__10TObjPlayerFPv(void *);
-void TObjLight__sub_80134098(void);
+void restore_scene_lighting(void);
 void TObjLight__sub_80134194(void *);
 void set_depth_buffer_settings_id__FUl(u32);
 s32 check_flag_800000__10TObjPlayerFPv(void *);
@@ -73,7 +73,7 @@ void draw_head_attachments__10TObjPlayerFPv(u8 *arg0) {
         push_matrix_from();
         set_global_param__8TObjFishFi((void *) (arg0 + 0xB88));
         if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
-            TObjPlayer__sub_801415BC();
+            set_shadow_material_state();
         }
         play_phase_transition_sound__10TObjPlayerFi((int) (M2C_FIELD(arg0, u32 *, 0x8B4)));
         reset_transform_state__10TObjPlayerFv();
@@ -84,7 +84,7 @@ void draw_head_attachments__10TObjPlayerFPv(u8 *arg0) {
         push_matrix_from();
         set_global_param__8TObjFishFi((void *) (arg0 + 0xA1C));
         if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
-            TObjPlayer__sub_801415BC();
+            set_shadow_material_state();
         }
         enable_making__12TCharaMakingFv();
         draw_chunk_object((int) (M2C_FIELD(arg0, u32 *, 0x8B0)));
@@ -129,7 +129,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
         some_id_805c6f74 |= 0x810;
         set_chunk_material_override_pair((int) (-1), (int) (0x800));
-        TObjPlayer__sub_801415BC();
+        set_shadow_material_state();
     }
     set_global_param__8TObjFishFi((void *) (arg0 + 0xCF4));
     set_global_flag__10TObjPlayerFv();
@@ -166,7 +166,7 @@ void TObjPlayer__sub_801BB118(u8 *self, f32 f) {
     set_depth_buffer_settings_id__FUl(1);
     TObjPlayer__sub_801BAC48(self);
     write_ids__10TObjPlayerFPv(self + 0x608);
-    TObjLight__sub_80134098();
+    restore_scene_lighting();
 }
 
 }

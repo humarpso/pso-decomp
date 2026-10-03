@@ -117,7 +117,7 @@ extern "C" {
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
-s32 fn_802393D0(void *);
+s32 play_launch_sound__9TTecRestaFPv(void *);
 int init_cast__9TTecRestaFPv(void* p);
 void init_parameters__9TTecRestaFPv(u8 *arg0);
 s32 TTecAnti__sub_8022B35C(void *, int);
@@ -141,7 +141,7 @@ Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos,
 M2C_UNK queue_destruction__7TObjectFv();
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
-void fn_802370D8(void *);
+void deliver_technique_to_party_targets(void *);
 void run_task__9TTecRestaFv(Resta_802399F8 *self);
 s32 obj_getField1c(int);
 s32 is_split_screen(void);
@@ -158,7 +158,7 @@ s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 copy_technique_target_list(void *, void *);
-s32 fn_802393D0(void *);
+s32 play_launch_sound__9TTecRestaFPv(void *);
 int init_cast__9TTecRestaFPv(void* p);
 void init_parameters__9TTecRestaFPv(u8 *arg0);
 extern M2C_UNK __vt__9TTecResta[];
@@ -355,7 +355,7 @@ void run_task__9TTecRestaFv(Resta_802399F8 *self) {
     } else if (self->level <= 1) {
         ((VObj_802399F8 *)self)->m5(self->source);
     } else {
-        fn_802370D8(self);
+        deliver_technique_to_party_targets(self);
     }
     ((void (*)(void *))queue_destruction__7TObjectFv)(self);
 }
@@ -394,7 +394,7 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     }
     if (M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
         init_cast__9TTecRestaFPv(arg0);
-        fn_802393D0(arg0);
+        play_launch_sound__9TTecRestaFPv(arg0);
     }
     return arg0;
 }
@@ -419,7 +419,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
         init_cast__9TTecRestaFPv((void*)((void *) (arg0)));
-        fn_802393D0((void *) (arg0));
+        play_launch_sound__9TTecRestaFPv((void *) (arg0));
     }
     return arg0;
 }

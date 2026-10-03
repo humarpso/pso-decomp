@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 draw_default_entry__9TWindowDDFi(void *, f32, f32);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK draw_right_aligned_number();
 M2C_UNK draw_background__13TWindowStatusFv(void *, int);
 extern const f32 lbl_805DD470;
@@ -47,7 +47,7 @@ void render__13TWindowStatusFv(u8 *arg0) {
   *((f32 *) (((s8 *) temp_r31) + 8)) = (f32) ((lbl_805DD474 * temp_f1) + lbl_805DD470);
   temp_r3 = draw_default_entry__9TWindowDDFi((void *) arg0, (f32) temp_f1, new_var2);
   draw_background__13TWindowStatusFv((void *) arg0, (int) temp_r3);
-  TWindowSubStatusDisp__sub_80257BC0((void *) new_var, (void *) (arg0 + 0x24), (int) temp_r3);
+  draw_visible_window_entries((void *) new_var, (void *) (arg0 + 0x24), (int) temp_r3);
 }
 
 void run_task__13TWindowStatusFv(s32 arg0) {

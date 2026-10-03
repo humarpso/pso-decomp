@@ -9,7 +9,7 @@ extern "C" {
 short get_screen_height__11TCameraCtrlFv(void);
 short get_screen_width__11TCameraCtrlFv(void);
 s32 should_update__11TCameraCtrlFv(void);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -30,7 +30,7 @@ s32 should_update__11TCameraCtrlFv(void) {
         if ((get_player_by_client_id(lbl_805D53A0) == 0U) || (check_player_state_flag_2__6TLobbyFPv() != 0)) {
             return 0;
         }
-        if (TCameraCtrl__sub_8006B368() == 0) {
+        if (is_quest_active() == 0) {
             return 0;
         }
         goto block_6;

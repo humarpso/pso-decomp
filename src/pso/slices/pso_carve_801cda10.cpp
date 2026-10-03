@@ -9,7 +9,7 @@ M2C_UNK set_action_type__10TObjPlayerFPvs(void *, void *);
 M2C_UNK apply_speed_scale__10TObjPlayerFif(void *, f32);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, void *);
 s32 get_model_state__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801CE3EC(void *);
+M2C_UNK setup_attack_stage__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 M2C_UNK query_field_340__10TObjPlayerFPv(void *, void *);
 f32 TObjPlayer__sub_801D2640(void *);
@@ -34,7 +34,7 @@ void enter_attack_stage3__10TObjPlayerFPv(u8 *arg0) {
     set_action_type__10TObjPlayerFPvs((void *) (arg0 + 0x7CC), (void *) (TObjPlayer__sub_801D2F0C((void *) (arg0 + 0x7CC))));
     query_field_340__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801D2F4C((void *) (arg0 + 0x7CC))));
     begin_player_attack((void *) (arg0 + 0x7CC), (void *) (arg0), (int) (2), (int) (2));
-    TObjPlayer__sub_801CE3EC((void *) (arg0));
+    setup_attack_stage__10TObjPlayerFPv((void *) (arg0));
     set_action_state__10TObjPlayerFPvss((void *) (arg0), (int) (7), (void *) (get_model_state__10TObjPlayerFPv((void *) (arg0))));
     apply_speed_scale__10TObjPlayerFif((void *) (arg0), (f32) (TObjPlayer__sub_801D2640((void *) (arg0)) * TObjPlayer__sub_801D2CDC((void *) (arg0 + 0x7CC))));
 }

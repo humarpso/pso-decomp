@@ -110,10 +110,10 @@ void calc_lightning_scatter_direction(void *, s32, void *);
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0);
 extern const f32 TTecZondeEff__data_805DC990;
 extern const f32 lbl_805DC9A4;
-void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0);
+void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0);
 s32 is_split_screen(void);
 void spawn_particle_effect(Rec_8023D568 *, s32);
-void TTecZondeEff__sub_8023D568(void *arg0);
+void init_bolt_points__12TTecZondeEffFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 extern P_8023DBB4 lbl_805161D8;
 extern s32 TTecZondeEff__data_805D63B8;
@@ -167,7 +167,7 @@ extern s32 TTecZondeEff__data_805D63B8;
 
 typedef char RecoveredGlobal_8023D988___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023D988___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
 
-void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0) {
+void randomize_bolt_jitter__12TTecZondeEffFPv(Obj_8023D4A8 *arg0) {
     Rec_8023D4A8 *p;
     s32 axis;
     s32 i;
@@ -187,7 +187,7 @@ void TTecZondeEff__sub_8023D4A8(Obj_8023D4A8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TTecZondeEff__sub_8023D568(void *arg0) {
+void init_bolt_points__12TTecZondeEffFPv(void *arg0) {
     Obj_8023D568 *o = (Obj_8023D568 *)arg0;
     f32 x0 = o->a.x;
     f32 y0 = o->a.y;
@@ -309,8 +309,8 @@ u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s3
     M2C_FIELD(arg0, s32 *, 0x250) = 0;
     M2C_FIELD(arg0, s16 *, 0x25C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
-    TTecZondeEff__sub_8023D568((void *)(arg0));
-    TTecZondeEff__sub_8023D4A8((Obj_8023D4A8 *)(arg0));
+    init_bolt_points__12TTecZondeEffFPv((void *)(arg0));
+    randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x248) = 0;
     M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
     M2C_FIELD(arg0, s16 *, 0x25E) = 0;
@@ -330,8 +330,8 @@ u8 *TTecZondeEff__sub_8023DADC(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0
     M2C_FIELD(arg0, s32 *, 0x250) = 0;
     M2C_FIELD(arg0, s16 *, 0x25C) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
-    TTecZondeEff__sub_8023D568((void *)(arg0));
-    TTecZondeEff__sub_8023D4A8((Obj_8023D4A8 *)(arg0));
+    init_bolt_points__12TTecZondeEffFPv((void *)(arg0));
+    randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x248) = 0;
     M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
     M2C_FIELD(arg0, s16 *, 0x25E) = 0;

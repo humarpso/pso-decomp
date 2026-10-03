@@ -82,8 +82,8 @@ void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2);
 void render__17TBoss5GryphonDemoFv(void);
 int TCameraCtrl__sub_803D8934(void*, void*, void*);
 int post_translate_matrix(void*);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
 int TObjPlayer__sub_803D8CD4(void*);
 int rotate_matrix_y(void*, void*);
@@ -115,8 +115,8 @@ void TBoss5GryphonDemo__sub_8006633C(O_8006633C *self) {
 void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804886AC;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if ((s16) arg1 > 0) {
             __dl__7TObjectFPv(arg0);

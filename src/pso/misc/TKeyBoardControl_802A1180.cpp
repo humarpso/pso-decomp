@@ -44,7 +44,7 @@ void update_menu_scene__16TKeyBoardControlFv(void);
 M2C_UNK init_fresh_character_card();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK reset_controller_input_state();
 M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create_opening_movie_sequence();
@@ -90,7 +90,7 @@ void update_movie_phase(void) {
 
 void update_menu_scene__16TKeyBoardControlFv(void) {
     set_copy_clear_color_argb(0, 0, 0);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     TKeyBoardControl__sub_8000F90C(2);
     switch ((s8) lbl_805D6639) {
     case 0:

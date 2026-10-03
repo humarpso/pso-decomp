@@ -65,9 +65,9 @@ bool TScene__sub_80204188(f32 farg0);
 f32 xyz_distance_squared(void *, void *);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 lbl_805DC5D0;
-s32 TScene__sub_80203510(void *arg0);
+s32 find_section_at_position__6TSceneFPv(void *arg0);
 f32 vec3_dot(void *, void *);
-f32 TNpcPlayer__sub_803E18C0(void *, void *, void *);
+f32 project_point_onto_line(void *, void *, void *);
 extern Root_80204024 *lbl_805D4DF0;
 extern const f32 TScene__data_805DC5D8;
 s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
@@ -105,7 +105,7 @@ extern s32 lbl_805D5660;
 void draw_if_all_ready__10TObjPlayerFv(void);
 void set_global_param__8TObjFishFi(void *);
 void prepare_ginja_model(void);
-void TObjPlayer__sub_803DC6F4(void);
+void end_ginja_model_draw(void);
 void push_matrix(void);
 void pop_matrix(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -146,7 +146,7 @@ extern "C" {
 s32 get_player_ctrl_field__6TSceneFUs(u16 arg0);
 u32 get_player_by_client_id(void *);
 
-s32 TScene__sub_80203510(void *arg0) {
+s32 find_section_at_position__6TSceneFPv(void *arg0) {
     Rec_80203510 *r;
     s32 best = -1;
     s32 i;
@@ -173,7 +173,7 @@ s32 get_player_ctrl_field__6TSceneFUs(u16 arg0) {
 
     temp_r3 = get_player_by_client_id((void *) (arg0));
     if (temp_r3 != 0U) {
-        return TScene__sub_80203510((void *)((void *) (temp_r3 + 0x38)));
+        return find_section_at_position__6TSceneFPv((void *)((void *) (temp_r3 + 0x38)));
     }
     return -1;
 }
@@ -441,7 +441,7 @@ s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c)
     s.q.x = c->x;
     s.q.y = c->y;
     s.q.z = c->z;
-    return TNpcPlayer__sub_803E18C0(a, &s, &o) <= thr;
+    return project_point_onto_line(a, &s, &o) <= thr;
 }
 
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1) {
@@ -622,7 +622,7 @@ void render_map_sections__6TSceneFPv(void *scene) {
             }
         }
         some_id_805c6f74 = lbl_805D5660;
-        TObjPlayer__sub_803DC6F4();
+        end_ginja_model_draw();
     }
 }
 

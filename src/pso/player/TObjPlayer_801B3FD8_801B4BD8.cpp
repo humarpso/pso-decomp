@@ -171,7 +171,7 @@ void *init_192dc_return_self__10TObjPlayerFPv(void *);
 extern const f32 TObjPlayer__data_805DC278;
 Obj_801B4FD8 *TObjPlayer__sub_801B4FD8(Obj_801B4FD8 *self);
 void set_state_flags__10TObjPlayerFPvUi(s32, u32);
-s32 TObjPlayer__sub_801AFF0C();
+s32 is_on_current_floor__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
 s32 check_flag_4__10TObjPlayerFPv(s32);
 void TObjPlayer__sub_801BF6C0(s32, f32);
@@ -238,7 +238,7 @@ void clear_action_flag__10TObjPlayerFPv(void *arg0);
 s32 get_battle_ctrl_flag__10TObjPlayerFUs(u16 arg0);
 void send_code_45_1__10TObjPlayerFi(s32 arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
-s32 TObjPlayer__sub_801AFF0C();
+s32 is_on_current_floor__10TObjPlayerFi();
 s32 TObjPlayer__sub_801C2044(s32);
 s32 get_player_by_client_id(s32);
 M2C_UNK clear_flag_0x2__10TObjPlayerFPv(void *);
@@ -268,7 +268,7 @@ s32 get_battle_ctrl_flag__10TObjPlayerFUs(u16 arg0) {
     s32 temp_r3;
 
     temp_r3 = get_player_by_client_id((u16)arg0);
-    if ((temp_r3 != 0) && (TObjPlayer__sub_801AFF0C() != 0)) {
+    if ((temp_r3 != 0) && (is_on_current_floor__10TObjPlayerFi() != 0)) {
         return temp_r3;
     }
     return 0;
@@ -433,7 +433,7 @@ void handle_6x2C_impose_hold(s32 arg0) {
     TObjPlayer__sub_801BF6C8(player + 0x730, pkt.f8, pkt.fC);
     TObjPlayer__sub_801BF6C0(player + 0x730, pkt.f10);
     set_state_flags__10TObjPlayerFPvUi(player, 1);
-    if (check_flag_4__10TObjPlayerFPv(player) == 0 && ((s32 (*)(s32))TObjPlayer__sub_801AFF0C)(player) != 0) {
+    if (check_flag_4__10TObjPlayerFPv(player) == 0 && ((s32 (*)(s32))is_on_current_floor__10TObjPlayerFi)(player) != 0) {
         create__17TObjEneHoldEffectFPvPvPv(player, pkt.f6, pkt.f4);
     }
 }

@@ -18,10 +18,10 @@ void TObjPlayer__sub_80354EEC(void);
 extern "C" {
 
 void finish_quest_thread__10TObjPlayerFv(void);
-int TQuestThread__sub_801F5C50(void);
+int create_quest_thread(void);
 int get_quest_thread_id__10TObjPlayerFPv(void);
 
-void finish_quest_thread__10TObjPlayerFv(void) { get_quest_thread_id__10TObjPlayerFPv(); TQuestThread__sub_801F5C50(); }
+void finish_quest_thread__10TObjPlayerFv(void) { get_quest_thread_id__10TObjPlayerFPv(); create_quest_thread(); }
 
 void TObjPlayer__sub_80354EEC(void) {
     __construct_array(lbl_80543984, (void *)init_and_reset_forward__10TObjPlayerFPv, (void *)TObjPlayer__sub_80355098, 8, 4);

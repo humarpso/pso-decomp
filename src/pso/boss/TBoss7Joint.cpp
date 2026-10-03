@@ -207,7 +207,7 @@ void TBoss7Joint__vt61(void* p);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 void store_position__11TBoss7JointFPv(void *arg0);
 extern const f32 lbl_805DEBB8;
 void run_task__11TBoss7JointFv(u8 *arg0);
@@ -301,7 +301,7 @@ void run_task__11TBoss7JointFv(u8 *arg0) {
         ((VObj_18 *)(arg0))->m86();
         if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) & 1) {
             set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
-            TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEBB8));
+            add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEBB8));
         }
     }
 }

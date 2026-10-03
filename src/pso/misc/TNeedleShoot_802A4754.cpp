@@ -69,7 +69,7 @@ int TNeedleShoot__vt4(void* p);
 void TNeedleShoot__vt7(void);
 void *__dt__12TNeedleShootFv(void *arg0, s16 arg1);
 int queue_destruction__12TNeedleShootFPv(void* p);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
@@ -79,7 +79,7 @@ extern M2C_UNK __vt__12TNeedleShoot[];
 void *__dt__12TNeedleShootFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TNeedleShoot;
-        if (M2C_FIELD(arg0, void **, 0x68) != NULL) { TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, void **, 0x68)); M2C_FIELD(arg0, M2C_UNK *, 0x68) = 0; }
+        if (M2C_FIELD(arg0, void **, 0x68) != NULL) { free_collision_body_parts(M2C_FIELD(arg0, void **, 0x68)); M2C_FIELD(arg0, M2C_UNK *, 0x68) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

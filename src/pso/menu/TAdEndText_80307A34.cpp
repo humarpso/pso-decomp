@@ -30,7 +30,7 @@ M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TAdEndText__sub_8001B370();
 M2C_UNK set_ending_callback__6TLobbyFv();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
-M2C_UNK TKeyBoardControl__sub_801A66B8();
+M2C_UNK reset_controller_input_state();
 M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
 int render_tick__Fv(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -86,7 +86,7 @@ void start_ending_sequence(void) {
     (*(s32 *)&lbl_805D6A58) = 1;
     TCameraCtrl__sub_803D6688(lbl_805DF0B0, lbl_805DF0B4);
     set_copy_clear_color_argb(0, 0, 0);
-    TKeyBoardControl__sub_801A66B8();
+    reset_controller_input_state();
     TKeyBoardControl__sub_8000F91C(2);
     TKeyBoardControl__sub_8000F90C(2);
     TAdEndText__sub_8001B370();

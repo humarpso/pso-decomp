@@ -22,7 +22,7 @@ extern M2C_UNK __vt__22TWindowSubShortCutList[];
 extern s32 lbl_805D3A90;
 extern s32 lbl_805D53A0;
 void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 s32 fn_80076BC4(s32 *);
 s32 *TWindowKeyBoardSoft__sub_80076E2C(s32);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv();
@@ -45,8 +45,8 @@ void run_task__22TWindowSubShortCutListFv(void *arg0);
 s32 handle_list_page_flip_input(s32);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80268048();
+M2C_UNK draw_visible_window_entries(void *, void *, s32);
+M2C_UNK update_item_list_window();
 M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
@@ -76,8 +76,8 @@ void TWindowSubShortCutList__sub_8027E278(void *arg0) {
             draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x12, temp_r0, var_r29);
             break;
         case 2:
-            update_state__9TWindowDDFv(temp_r3 + 1, TLobby__sub_8001DC24(), (u16) lbl_805D53A0);
-            draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x10, TLobby__sub_8001DC24(), var_r29);
+            update_state__9TWindowDDFv(temp_r3 + 1, get_shared_text_buffer(), (u16) lbl_805D53A0);
+            draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x10, get_shared_text_buffer(), var_r29);
             break;
         case 3:
             open_symbol_chat__11TWindowChatFPv(temp_r3 + 1);
@@ -108,7 +108,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame(arg0, temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
@@ -119,7 +119,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
 }
 
 void run_task__22TWindowSubShortCutListFv(void *arg0) {
-    TWindowSubStatusDisp__sub_80268048();
+    update_item_list_window();
     if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
         TWindowSubShortCutList__sub_8027E278((void *)(arg0));
     }

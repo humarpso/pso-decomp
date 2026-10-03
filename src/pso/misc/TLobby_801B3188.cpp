@@ -35,7 +35,7 @@ M2C_UNK get_dest_area__17TObjAreaWarpQuestFPv(void *);
 M2C_UNK send_6x21_inter_level_warp(s32, int);
 int set_battle_flag__10TObjPlayerFPvi(void*, int);
 M2C_UNK set_arrival_override_pos(u16, int, int);
-s32 TObjPlayer__sub_801D8D14(void *);
+s32 get_hospital_yaw__10TObjPlayerFv(void *);
 s32 get_hospital_position__10TObjPlayerFPv(void *);
 s32 TNpcPlayer__sub_8034DE40();
 s32 TNpcPlayer__sub_8034DE70();
@@ -51,7 +51,7 @@ s32 is_camera_mode_active__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801AF554(void *, u8);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_pickup_item__10TObjPlayerFi(void *);
-M2C_UNK TObjPlayer__sub_801B30BC(void *, int);
+M2C_UNK prepare_guild_return__10TObjPlayerFPv(void *, int);
 M2C_UNK create_return_city_window__10TObjPlayerFPv(void *);
 M2C_UNK update_aim_angle__10TObjPlayerFPvi(void *, int);
 VObj_801B3274 *get_player_by_client_id(M2C_UNK);
@@ -76,7 +76,7 @@ M2C_UNK get_dest_area__17TObjAreaWarpQuestFPv(void *);
 M2C_UNK send_6x21_inter_level_warp(s32, int);
 int set_battle_flag__10TObjPlayerFPvi(void*, int);
 M2C_UNK set_arrival_override_pos(u16, int, int);
-s32 TObjPlayer__sub_801D8D14(void *);
+s32 get_hospital_yaw__10TObjPlayerFv(void *);
 s32 get_hospital_position__10TObjPlayerFPv(void *);
 s32 TNpcPlayer__sub_8034DE40();
 s32 TNpcPlayer__sub_8034DE70();
@@ -99,7 +99,7 @@ void handle_6x34(void) {  }
 
 void prepare_hospital_return__10TObjPlayerFi(void *arg0) {
     send_6x21_inter_level_warp((s32)arg0, 0);
-    set_arrival_override_pos(obj_getField1c(arg0), TObjPlayer__sub_801D8D14(arg0), get_hospital_position__10TObjPlayerFPv(arg0));
+    set_arrival_override_pos(obj_getField1c(arg0), get_hospital_yaw__10TObjPlayerFv(arg0), get_hospital_position__10TObjPlayerFPv(arg0));
     set_state_flags__10TObjPlayerFPvUi(arg0, 0x800);
     set_battle_flag__10TObjPlayerFPvi((void*)(arg0), (int)(0));
     apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0), TNpcPlayer__sub_8034DE70(), TNpcPlayer__sub_8034DE40());
@@ -146,7 +146,7 @@ void complete_deferred_player_death(void) {
     if (get_main_phase() == 0xE) {
         if (check_camera_mode__10TObjPlayerFv() != 0) {
             if (get_anim_id__10TObjPlayerFPv(p) == 1) {
-                TObjPlayer__sub_801B30BC(p, 0);
+                prepare_guild_return__10TObjPlayerFPv(p, 0);
                 return;
             }
             prepare_hospital_return__10TObjPlayerFi((void *)((s32)p));

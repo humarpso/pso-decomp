@@ -19,23 +19,23 @@ struct Obj_80018F64 {
 extern "C" {
 extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 TObjPlayer__data_805D7D44;
-void TObjPlayer__sub_80018F64(Obj_80018F64 *self);
+void reset_actor_action_state(Obj_80018F64 *self);
 }
 
 extern "C" {
 
-void* TObjPlayer__sub_80018F5C(void* p);
+void* get_actor_body_center(void* p);
 void *destroy_motion_object__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void get_pos__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
 
-void* TObjPlayer__sub_80018F5C(void* p) { return (char*)p + 0x2fc; }
+void* get_actor_body_center(void* p) { return (char*)p + 0x2fc; }
 
 extern M2C_UNK lbl_804806E8[];
 
-void TObjPlayer__sub_80018F64(Obj_80018F64 *self) {
+void reset_actor_action_state(Obj_80018F64 *self) {
     self->v104.x = self->v104.y = self->v104.z = TObjPlayer__data_805D7D24;
     self->v290.x = self->v290.y = self->v290.z = TObjPlayer__data_805D7D24;
     self->v29c.x = self->v29c.y = self->v29c.z = TObjPlayer__data_805D7D24;

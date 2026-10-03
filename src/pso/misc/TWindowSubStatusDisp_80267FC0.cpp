@@ -26,13 +26,13 @@ s32 handle_open__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor_next__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor__20TWindowSubStatusDispFPv(void *);
 s32 center_list_selection(void *);
-s32 TWindowSubStatusDisp__sub_80267D14(void *);
+s32 clamp_item_list_scroll(void *);
 s32 TWindowSubStatusDisp__sub_80267D80(void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80268048_lbl_8050E208 lbl_8050E208;
 extern const f32 lbl_805DD1D0;
-void TWindowSubStatusDisp__sub_80268048(u8 *arg0);
+void update_item_list_window(u8 *arg0);
 }
 
 extern "C" {
@@ -41,8 +41,8 @@ void *destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *arg0, s16 ar
 void render_card_and_list__20TWindowSubStatusDispFPv(u8 *arg0);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
+M2C_UNK draw_visible_window_entries(void *, void *, s32);
+M2C_UNK draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_allocation__20TWindowSubStatusDispFis(void *, int);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
@@ -55,20 +55,20 @@ void render_card_and_list__20TWindowSubStatusDispFPv(u8 *arg0) {
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame(arg0, temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
-        TWindowSubStatusDisp__sub_8026D790(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
+        draw_window_scrollbar(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
     }
 }
 
 extern M2C_UNK lbl_804D0618[];
 
 typedef char RecoveredGlobal_80268048_lbl_8050E208_size[sizeof(RecoveredGlobal_80268048_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TWindowSubStatusDisp__sub_80268048(u8 *arg0) {
+void update_item_list_window(u8 *arg0) {
     s32 temp_r31;
     u32 temp_r3;
     u32 temp_r3_2;
@@ -116,7 +116,7 @@ void TWindowSubStatusDisp__sub_80268048(u8 *arg0) {
     TWindowSubStatusDisp__sub_80267D80((void *) (arg0));
     TWindowSubStatusDisp__sub_80244238((void *) (arg0));
     center_list_selection((void *) (arg0));
-    TWindowSubStatusDisp__sub_80267D14((void *) (arg0));
+    clamp_item_list_scroll((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 

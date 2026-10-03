@@ -165,8 +165,8 @@ void run_task__13TLazerFenceSwFv(u8 *arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
 void trigger_activate_sound__5TOKeyFPv(void *);
 M2C_UNK TOKey__sub_8016AAE0(void *);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -191,8 +191,8 @@ extern M2C_UNK __vt__15TObjLazerFence4[];
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjLazerFence4;
-        TObjPlayer__sub_80154A00((void *)((M2C_UNK *)arg0));
-        TObjEneGibbles__sub_80156720((void *)(arg0));
+        unregister_object_by_id((void *)((M2C_UNK *)arg0));
+        free_collision_body_parts((void *)(arg0));
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -338,8 +338,8 @@ extern M2C_UNK __vt__13TLazerFenceSw[];
 void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TLazerFenceSw;
-        TObjPlayer__sub_80154A00((void *)(arg0));
-        TObjEneGibbles__sub_80156720((void *)(arg0));
+        unregister_object_by_id((void *)(arg0));
+        free_collision_body_parts((void *)(arg0));
         destroy__14TOAirconCave01FPvs((s8 *)arg0 + 0xF0, -1);
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {

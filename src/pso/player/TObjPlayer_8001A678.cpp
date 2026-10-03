@@ -46,7 +46,7 @@ extern s32 lbl_805D49E0;
 extern s8 lbl_805D49E4;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TCameraCtrl__sub_80069D04(void *);
+void set_active_camera_pose_from_params(void *);
 void TCameraCtrl__sub_80069E7C(int);
 extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
@@ -110,7 +110,7 @@ int TObjPlayer__sub_8001A77C(void *p) {
     VecCopy__FP3VecPC3Vec(&sp20.v1c, &sp14);
     VecCopy__FP3VecPC3Vec(&sp20.v28, &sp8);
     sp20.f14 = 0x1693;
-    TCameraCtrl__sub_80069D04(&sp20);
+    set_active_camera_pose_from_params(&sp20);
 }
 
 void update_flag890_state__10TObjPlayerFi(s32 arg0) {

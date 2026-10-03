@@ -86,7 +86,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
-M2C_UNK fn_802370D8(void *);
+M2C_UNK deliver_technique_to_party_targets(void *);
 void run_task__10TTecDebandFv(Deband_8022F73C *self);
 s32 obj_getField1c(int);
 s32 is_split_screen();
@@ -204,7 +204,7 @@ void run_task__10TTecDebandFv(Deband_8022F73C *self) {
     } else if (self->level <= 1) {
         ((VObj_8022F73C *)self)->m5(self->source);
     } else {
-        fn_802370D8(self);
+        deliver_technique_to_party_targets(self);
     }
     queue_destruction__7TObjectFv(self);
 }

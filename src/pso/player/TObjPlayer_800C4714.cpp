@@ -738,7 +738,7 @@ extern const f32 lbl_805DA048;
 extern const f32 lbl_805DA04C;
 extern const f32 lbl_805DA050;
 void beast_update_attack(Self_800C53DC *arg0);
-f32 TObjPlayer__sub_80017ABC(void *, void *, f32);
+f32 enemy_backstep_from_point(void *, void *, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 M2C_UNK advance_animation_playback();
@@ -753,7 +753,7 @@ void TObjPlayer__sub_800C5D84(u8 *arg0);
 
 extern "C" {
 
-int TObjPlayer__sub_800C4FB4(void* p);
+int beast_retire_corpse(void* p);
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -930,7 +930,7 @@ M2C_UNK update_target_near_flag(void *arg0) {
     }
 }
 
-int TObjPlayer__sub_800C4FB4(void* p) { return queue_destruction__7TObjectFv((void*)(p)); }
+int beast_retire_corpse(void* p) { return queue_destruction__7TObjectFv((void*)(p)); }
 void beast_update_dead(u8 *arg0) {
     advance_animation_playback();
     if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DA034)) != 0) {
@@ -1114,7 +1114,7 @@ void TObjPlayer__sub_800C57F0(Self_800C57F0 *arg0) {
     Tgt_800C57F0 *t = arg0->target;
     if (t != NULL) {
         Vec_800C57F0 v = t->pos;
-        d = TObjPlayer__sub_80017ABC(arg0, &v, arg0->f398);
+        d = enemy_backstep_from_point(arg0, &v, arg0->f398);
         update_angle__10TObjPlayerFPviPv(arg0, arg0->f350->p8, arg0->f308);
         r = arg0->f398 + arg0->a4->rC;
         if (d < r * r) {

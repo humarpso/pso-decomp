@@ -35,9 +35,9 @@ void render_tree__10TObjPlayerFPv(void *arg0);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
 extern M2C_UNK (*lbl_805D7810)(void *);
-M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK TKeyBoardControl__sub_8000F7FC();
-M2C_UNK TObjPlayer__sub_803D7CA4(void *);
+M2C_UNK compose_motion_node_matrix(void *);
 M2C_UNK TObjPlayer__sub_803D85D8(s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -54,7 +54,7 @@ void render_tree__10TObjPlayerFPv(void *arg0) {
     var_r31 = arg0;
     do {
         push_matrix();
-        TObjPlayer__sub_803D7CA4(var_r31);
+        compose_motion_node_matrix(var_r31);
         if (((M2C_UNK (*)(void *)) lbl_805D7810) != NULL) {
             lbl_805D7810(var_r31);
         }
@@ -76,7 +76,7 @@ void render_tick__Fv(void) {
     run_tasks__16TKeyBoardControlFv();
     begin_effect_render__13TParticleCtrlFv();
     GXSetZMode(1, 7, 0);
-    TCameraCtrl__sub_80069024();
+    restore_full_screen_view__11TCameraCtrlFv();
     set_cull_none__8TObjFishFv();
     TObjPlayer__sub_803D85D8(lbl_805D3584);
     GXSetZMode(1, 3, 1);

@@ -13,7 +13,7 @@ int TObjPlayer__sub_8001053C(void*);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, s32);
 s32 check_actor_blocking_move__10TObjPlayerFPv(s32);
 u32 resolve_move_collision__10TObjPlayerFPv(s32);
-M2C_UNK TObjPlayer__sub_801B5FB0();
+M2C_UNK damp_planar_velocity();
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 s32 get_hurt_protection_ticks__10TObjPlayerFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -30,7 +30,7 @@ M2C_UNK trigger_switch_attack__10TObjPlayerFPvi(void *, s32);
 void set_flag_100000__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001053C((void*)(p)); obj_setFlags30(p, (void*)1048576); }
 
 void update_move_state__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_801B5FB0();
+    damp_planar_velocity();
     if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C((void*)(arg0));
     }

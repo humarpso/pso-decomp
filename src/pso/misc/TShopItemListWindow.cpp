@@ -126,7 +126,7 @@ M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 M2C_UNK set_entry1_field20__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
-s32 TShopItemListWindow__sub_8021F798(void *p);
+s32 handle_tool_list_select__19TShopItemListWindowFPv(void *p);
 s32 obj_getPtr2B0_20(s32);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(s32, void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
@@ -212,7 +212,7 @@ s32 update__19TShopItemListWindowFPv(void *arg0) {
 extern M2C_UNK __vt__19TShopItemListWindow[];
 
 #define W ((Win_8021F798 *)p)
-s32 TShopItemListWindow__sub_8021F798(void *p) {
+s32 handle_tool_list_select__19TShopItemListWindowFPv(void *p) {
     s32 i;
     s32 n;
     u8 *e;
@@ -350,7 +350,7 @@ void TShopItemListWindow__vt9(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
         return;
     case 1:
-        TShopItemListWindow__sub_8021F798((void *)((void *) (arg0)));
+        handle_tool_list_select__19TShopItemListWindowFPv((void *)((void *) (arg0)));
         return;
     case 2:
         handle_amount_confirm__19TShopItemListWindowFv((void *) (arg0));

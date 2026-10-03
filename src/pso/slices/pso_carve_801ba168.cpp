@@ -9,7 +9,7 @@ extern "C" {
 s32 get_main_phase();
 s32 TLobby__sub_800822E8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
-s32 TObjPlayer__sub_801AFF0C(void *);
+s32 is_on_current_floor__10TObjPlayerFi(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
 M2C_UNK select_contextual_pickup_action__10TObjPlayerFv(void *);
 s32 check_flag_4__10TObjPlayerFPv(void *);
@@ -43,7 +43,7 @@ call3:
         run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 3);
         break;
     case 2:
-        if ((TObjPlayer__sub_801AFF0C(arg0) == 0) && (check_flag_4__10TObjPlayerFPv(arg0) == 0)) {
+        if ((is_on_current_floor__10TObjPlayerFi(arg0) == 0) && (check_flag_4__10TObjPlayerFPv(arg0) == 0)) {
             run_action_state_phase__10TObjPlayerFisi(arg0, 0x16, 0);
             return;
         }

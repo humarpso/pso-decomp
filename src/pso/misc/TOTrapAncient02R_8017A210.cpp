@@ -53,8 +53,8 @@ s32 get_player_by_client_id(u32);
 u8 is_current_floor_switch_set(u16);
 void TOTrapAncient02R__vt77(Obj_8017A8B0 *self);
 s32 spawn_particle_effect(void *, int);
-s32 TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 extern const f32 lbl_805DBA80;
 f32 TOTrapAncient02R__vt20(Obj_8017A988 *self);
 }
@@ -114,11 +114,11 @@ f32 TOTrapAncient02R__vt20(Obj_8017A988 *self) {
         spawn_particle_effect(&v, 1);
         if (--self->timer <= 0) {
             self->timer = 0;
-            if (TLobby__sub_80156A80(self, &msg, 1) != 0) {
+            if (access_object_saved_state(self, &msg, 1) != 0) {
                 self->state = 4;
                 msg = self->state;
-                TObjPlayer__sub_80154954(self, &msg);
-                TLobby__sub_80156A80(self, &msg, 0);
+                send_object_state_update(self, &msg);
+                access_object_saved_state(self, &msg, 0);
                 self->m4(&msg, 1);
             }
         }

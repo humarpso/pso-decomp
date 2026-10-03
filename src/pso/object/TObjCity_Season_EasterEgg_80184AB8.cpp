@@ -8,8 +8,8 @@ extern "C" {
 
 void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 arg1);
 int get_anim_frame__25TObjCity_Season_EasterEggFPv(void* a0);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 
@@ -24,8 +24,8 @@ void *destroy_seasonal_object__25TObjCity_Season_EasterEggFPvs(void *arg0, s16 a
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5E48;
         var_r0 = (u32) M2C_FIELD(arg0, u32 *, 0xA4);
         if (var_r0 != 0U) {
-            TObjPlayer__sub_80154A00(arg0);
-            TObjEneGibbles__sub_80156720(arg0);
+            unregister_object_by_id(arg0);
+            free_collision_body_parts(arg0);
         }
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

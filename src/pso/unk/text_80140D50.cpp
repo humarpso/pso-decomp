@@ -30,7 +30,7 @@ void fn_80140E38(s32 arg0, u32 arg1);
 s32 get_main_phase();
 s32 is_split_screen();
 s32 get_instance__6TLobbyFv();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 void create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 void init_area_lights();
@@ -38,7 +38,7 @@ void TLobby__sub_801403B4(int);
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
 s32 get_global_state__14TOKeyMachine01Fv();
 void init_music_sequencer(int);
-void TObjBgmColCtrl__sub_802274B8(void *);
+void play_area_music(void *);
 void load_floor_sound_bank();
 extern char lbl_8043F260[];
 s32 fn_80140D50(void);
@@ -56,7 +56,7 @@ s32 fn_80140D50(void) {
     }
     init_area_lights();
     create_tasks__6TLobbyFv();
-    if (get_main_phase() != 0xE || TCameraCtrl__sub_8006B368() == 0) {
+    if (get_main_phase() != 0xE || is_quest_active() == 0) {
         switch (get_global_state__14TOKeyMachine01Fv()) {
         case 0x14:
             dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x4B);
@@ -65,7 +65,7 @@ s32 fn_80140D50(void) {
     }
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F260);
+        play_area_music(lbl_8043F260);
     } else if (get_instance__6TLobbyFv() == 1) {
         init_music_sequencer(7);
     }

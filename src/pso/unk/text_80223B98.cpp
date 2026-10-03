@@ -53,32 +53,32 @@ extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 lbl_80513F10;
-void TLobby__sub_802243D4(void);
+void clear_shop_tool_flags(void);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
-void TLobby__sub_8022444C(s32 a, s32 b);
+void mark_shop_tool_sold_out(s32 a, s32 b);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 void init__9TItemDataFv(void *);
-s32 fn_80223CB8(s32 arg0);
+s32 classify_tool_shop_level_bracket(s32 arg0);
 extern Pair_802242F8 lbl_8044C398[];
 extern s32 lbl_80513EF0[];
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern Tbl_802242F8 **lbl_805D6260;
 extern s32 lbl_805D6264;
-void TLobby__sub_802242F8(s32 arg0);
+void generate_shop_common_tool_pool(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
 s32 rand();
 extern Tbl_802242F8 **lbl_805D6260;
 extern s32 lbl_805D6264;
-void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1);
+void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
 s32 fn_80223B98(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
 void reset_counter_64__6TLobbyFPv(void *);
 void push_shop_pool_entry(void *, u8);
-void TLobby__sub_8020EEFC(void *, s32);
+void shuffle_shop_pool_n_times(void *, s32);
 s32 pop_byte__6TLobbyFPv(void *);
 void init__9TItemDataFv(void *);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
-void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1);
+void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1);
 s32 TLobby__sub_80223DD8(Item_802242F8 *, s32);
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 extern s32 lbl_80513EF0[];
@@ -90,7 +90,7 @@ s32 fn_80223C28(s32 arg0);
 s32 TLobby__sub_80223D48(s32 arg0);
 void reset_counter_64__6TLobbyFPv(void *);
 void push_shop_pool_entry(void *, u8);
-void TLobby__sub_8020EEFC(void *, s32);
+void shuffle_shop_pool_n_times(void *, s32);
 s32 pop_byte__6TLobbyFPv(void *);
 void init__9TItemDataFv(void *);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
@@ -149,7 +149,7 @@ s32 fn_80223C28(s32 arg0) {
     return -1;
 }
 
-s32 fn_80223CB8(s32 arg0) {
+s32 classify_tool_shop_level_bracket(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 0xA)) {
         return 0;
     }
@@ -198,7 +198,7 @@ typedef char RecoveredGlobal_802243D4_lbl_80513F10_size[sizeof(RecoveredGlobal_8
 
 struct RecoveredGlobal_80224404_lbl_80513F20;
 
-void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1) {
+void roll_shop_technique_level(Obj_80223EE0 *arg0, s32 arg1) {
     Tbl_80223EE0 *t = ((Tbl_80223EE0 **)lbl_805D6260)[2];
     s32 idx = TLobby__sub_80223D48(lbl_805D6264);
     Ent_80223EE0 *e;
@@ -268,7 +268,7 @@ void generate_shop_technique_pool(s32 arg0) {
             }
             e++;
         }
-        TLobby__sub_8020EEFC(&ctr, 5);
+        shuffle_shop_pool_n_times(&ctr, 5);
         i = 0;
         while (i < n) {
             s32 b = pop_byte__6TLobbyFPv(&ctr);
@@ -277,7 +277,7 @@ void generate_shop_technique_pool(s32 arg0) {
                 it.b[0] = 3;
                 it.b[1] = 2;
                 it.b[4] = lbl_8044C418[b];
-                TLobby__sub_80223EE0((Obj_80223EE0 *)&it, b);
+                roll_shop_technique_level((Obj_80223EE0 *)&it, b);
                 if (TLobby__sub_80223DD8(&it, arg0) == 1) {
                     copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
                     i++;
@@ -315,7 +315,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
             }
             e++;
         }
-        TLobby__sub_8020EEFC(&ctr, 8);
+        shuffle_shop_pool_n_times(&ctr, 8);
         {
             orig = n;
             j = 0;
@@ -340,7 +340,7 @@ void generate_shop_rare_tool_pool(s32 arg0) {
     }
 }
 
-void TLobby__sub_802242F8(s32 arg0) {
+void generate_shop_common_tool_pool(s32 arg0) {
     Item_802242F8 it;
     Item_802242F8 *arr;
     Tbl_802242F8 *t;
@@ -348,7 +348,7 @@ void TLobby__sub_802242F8(s32 arg0) {
     s32 i;
     s32 row;
     arr = ((Item_802242F8 **)&lbl_80513F20)[arg0];
-    row = fn_80223CB8(lbl_805D6264);
+    row = classify_tool_shop_level_bracket(lbl_805D6264);
     if (row >= 0) {
         t = *lbl_805D6260;
         row *= t->count;
@@ -365,14 +365,14 @@ void TLobby__sub_802242F8(s32 arg0) {
     }
 }
 
-void TLobby__sub_802243D4(void) {
+void clear_shop_tool_flags(void) {
     memset((void *) (&lbl_80513F10.value), (int) (0), (int) (0x10));
 }
 
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2) {
     *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(M2C_FIELD(&lbl_80513F20.value, M2C_UNK *, (arg2 * 4)) + (arg1 * 0x14));
 }
-void TLobby__sub_8022444C(s32 a, s32 b) {
+void mark_shop_tool_sold_out(s32 a, s32 b) {
     E_8022444C *arr = ((E_8022444C * *)&lbl_80513F20)[b];
     if (a >= 0 && a <= 0x11) {
         if (arr[a].f10 != -1) {

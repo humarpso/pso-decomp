@@ -6,7 +6,7 @@ struct Pkt_80101E7C { u8 subcommand; u8 size; u16 client_id; Item_80101E7C item;
 extern "C" {
 void TLobby__sub_80102EBC(void *p);
 void copy_item_data__6TLobbyFPvPv(void *p, void *q);
-void TItemData__sub_8010CCB4(void *p);
+void normalize__9TItemDataFv(void *p);
 void send_item_and_handle_60__6TLobbyFPv(void *p);
 void TItem__sub_80101E7C(void *item, u16 client_id);
 }
@@ -18,7 +18,7 @@ void TItem__sub_80101E7C(void *item, u16 client_id) {
     TLobby__sub_80102EBC(&pkt);
     pkt.client_id = client_id;
     copy_item_data__6TLobbyFPvPv(&pkt.item, item);
-    TItemData__sub_8010CCB4(&pkt.item);
+    normalize__9TItemDataFv(&pkt.item);
     send_item_and_handle_60__6TLobbyFPv(&pkt);
 }
 

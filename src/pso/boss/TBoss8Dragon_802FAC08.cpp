@@ -134,7 +134,7 @@ M2C_UNK spawn_particle_effect_with_flags(void *, void *, int);
 extern const f32 TBoss8Dragon__data_805DED9C;
 void TBoss8Dragon__sub_802FB0DC(u8 *arg0);
 s32 reset_lobby_model__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801B1E54(int, int, int);
+s32 send_6x2F_change_player_hp(int, int, int);
 s32 end_camera_pan__10TObjPlayerFPv(int);
 u8 * get_player_by_client_id(s32);
 s32 TBoss8Dragon__sub_802FBA84(void *);
@@ -289,7 +289,7 @@ void TBoss8Dragon__sub_802FAC78(u8 *arg0) {
         M2C_FIELD(temp_r3, f32 *, 0x3C) = (f32) TBoss8Dragon__data_805DED50;
         temp_r4 = M2C_FIELD(arg0, u16 *, 0x750);
         if (((s32) temp_r4 == (s32) lbl_805D53A0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 0x15)) {
-            TObjPlayer__sub_801B1E54((int) (0xFFFFU), (int) (temp_r4), (int) (0));
+            send_6x2F_change_player_hp((int) (0xFFFFU), (int) (temp_r4), (int) (0));
         }
     }
     M2C_FIELD(arg0, s32 *, 0x74C) = 0;

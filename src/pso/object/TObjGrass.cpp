@@ -88,7 +88,7 @@ void TObjGrass__vt56(Obj_800BEE2C *self);
 s32 queue_destruction__7TObjectFv(void *);
 s32 __dt__18TObjEneMe3SinowZoaFPvs(void *, s16);
 void __dt__9TObjEnemyFv(void *, int);
-s32 TObjEneGibbles__sub_80156720(void *);
+s32 free_collision_body_parts(void *);
 s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__9TObjGrass[];
 Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1);
@@ -649,7 +649,7 @@ Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1) {
             }
             i++;
         } while (i < 2);
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3B0, -1);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

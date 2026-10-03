@@ -40,7 +40,7 @@ typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
 
 extern "C" {
 extern const f32 lbl_805DCF90;
-f32 TWindowHelpItem__sub_8025A60C(u8 *arg0);
+f32 get_item_star_row_width(u8 *arg0);
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
 extern M2C_UNK lbl_804CFA10[];
@@ -54,7 +54,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(s32);
 s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
 M2C_UNK strncpy(s32, u32, s32);
 extern const f32 lbl_805DCFAC;
-void TWindowSubStatusDisp__sub_8025AC50(u8 *arg0, u32 arg1, s32 arg2);
+void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 int TWindowHelpItem__sub_8025A600(void* p);
 void draw_window_text(void *, void *, s32, s32, f32);
@@ -230,7 +230,7 @@ u8 *TWindowHelpItem__sub_8025A594(u8 *arg0, s32 arg1, s32 arg2) {
 
 int TWindowHelpItem__sub_8025A600(void* p) { return *(u16*)((char*)p + 0x0) & 0x20; }
 
-f32 TWindowHelpItem__sub_8025A60C(u8 *arg0) {
+f32 get_item_star_row_width(u8 *arg0) {
     s32 var_r0;
     var_r0 = M2C_FIELD(arg0, s32 *, 0x10);
     if (var_r0 < 0xA) {
@@ -270,7 +270,7 @@ void reset_float_field__15TWindowHelpItemFPv(void *arg0) {
 }
 #pragma push
 #pragma opt_common_subs off
-void TWindowSubStatusDisp__sub_8025AC50(u8 *arg0, u32 arg1, s32 arg2) {
+void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {
     s32 temp_r3_2;
     u16 temp_r3;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {

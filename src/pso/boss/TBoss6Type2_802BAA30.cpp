@@ -55,7 +55,7 @@ s32 TBoss6Type2__sub_8035DC60(s32, s32, f32);
 extern const f32 TBoss6Type2__data_805DE45C;
 extern const f32 TBoss6Type2__data_805DE460;
 void TBoss6Type2__sub_802BAD04(s32 arg0);
-void TCameraCtrl__sub_8006D2B0(s32, s32, u16);
+void request_follow_camera_offsets(s32, s32, u16);
 extern RecoveredGlobal_802BB180_lbl_804DFAC4 lbl_804DFAC4;
 extern RecoveredGlobal_802BB180_lbl_804DFAD0 lbl_804DFAD0;
 void TBoss6Type2__sub_802BB180(void);
@@ -183,7 +183,7 @@ void TBoss6Type2__sub_802BAD04(s32 arg0) {
 typedef char RecoveredGlobal_802BB180_lbl_804DFAC4_size[sizeof(RecoveredGlobal_802BB180_lbl_804DFAC4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_802BB180_lbl_804DFAD0_size[sizeof(RecoveredGlobal_802BB180_lbl_804DFAD0) == 0xC ? 1 : -1];
 void TBoss6Type2__sub_802BB180(void) {
-    TCameraCtrl__sub_8006D2B0((s32) &lbl_804DFAC4.value, (s32) &lbl_804DFAD0.value, 0xFFFFU);
+    request_follow_camera_offsets((s32) &lbl_804DFAC4.value, (s32) &lbl_804DFAD0.value, 0xFFFFU);
 }
 
 void init_range__11TBoss6Type2Fv(void) {

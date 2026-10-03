@@ -10,7 +10,7 @@ s32 TObjPlayer__sub_801D84F0(void* p);
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1);
 int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 TLobby__sub_8011AF58(u16);
+s32 advance_item_id_counter(u16);
 M2C_UNK equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
 s32 TObjPlayer__sub_801D84A8(void* p);
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
@@ -32,7 +32,7 @@ extern s32 lbl_805D53A0;
 
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     if (M2C_FIELD(arg1, s32 *, 4) & 8) {
-        M2C_FIELD(arg1, s32 *, 0x14) = TLobby__sub_8011AF58((u16) lbl_805D53A0);
+        M2C_FIELD(arg1, s32 *, 0x14) = advance_item_id_counter((u16) lbl_805D53A0);
         equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(arg0, arg1);
     }
 }

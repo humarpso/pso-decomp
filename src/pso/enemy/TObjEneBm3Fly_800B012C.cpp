@@ -145,7 +145,7 @@ f32 calc_scaled_value__15TObjBoss2TunnelFif(int, int, f32, f32);
 void TObjEneBm3Fly__sub_800B15C4(s32 arg0);
 M2C_UNK TObjEneBm3Fly__sub_800B1634(void *);
 f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
-M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
+M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
 M2C_UNK update_state_flag__13TObjEneBm3FlyFPv(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
@@ -198,7 +198,7 @@ M2C_UNK play_sound_effect(void *, void *, int, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 TObjEneBm3Fly__sub_800B177C(void *);
-M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
+M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
 M2C_UNK TObjEneDD__sub_800BA3D8(void *, void *);
 M2C_UNK transition_enemy_state(void *, int);
 f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
@@ -258,7 +258,7 @@ void TObjEneBm3Fly__sub_800B02C8(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, f32 *, 0x42C) = approach_value__13TObjEneBm3FlyFff((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x42C)), (f32) (M2C_FIELD(arg0, f32 *, 0x398)));
         update_state_flag__13TObjEneBm3FlyFPv((void *) (arg0));
         ((VObj_18_b7c757 *)(arg0))->m86();
-        TObjEneBm3Fly__sub_800B1978((void *) (arg0));
+        clamp_flight_height__13TObjEneBm3FlyFPv((void *) (arg0));
         TObjEneDD__sub_800BA934((void *) (arg0));
         TObjEneBm3Fly__sub_800B15C4((s32) arg0);
         break;
@@ -319,7 +319,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
             M2C_FIELD(arg0, f32 *, 0x438) = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
             update_state_flag__13TObjEneBm3FlyFPv((void *) (arg0));
             M2C_FIELD(arg0, f32 *, 0x42C) = approach_value__13TObjEneBm3FlyFff((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0x42C)), (f32) (M2C_FIELD(arg0, f32 *, 0x398)));
-            TObjEneBm3Fly__sub_800B1978((void *) (arg0));
+            clamp_flight_height__13TObjEneBm3FlyFPv((void *) (arg0));
             if (TObjEneBm3Fly__sub_800B177C((void *) (arg0)) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 0;
                 M2C_FIELD(arg0, s32 *, 0x3C0) = 1;

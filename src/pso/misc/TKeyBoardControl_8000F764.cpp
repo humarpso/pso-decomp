@@ -127,7 +127,7 @@ void TKeyBoardControl__sub_8000F9E4(void);
 void init_gx_lighting_defaults(void);
 M2C_UNK TLobby__sub_8007EB70();
 M2C_UNK fn_8007F8D0();
-M2C_UNK fn_80082AA8();
+M2C_UNK load_critical_effect_resources();
 M2C_UNK init_particle_buffer__13TParticleCtrlFv();
 M2C_UNK load_ha_u032_kage();
 M2C_UNK init_download_state__6TLobbyFv();
@@ -452,7 +452,7 @@ void init_game_systems(void) {
     init_heap__16TAdWarningBaseGCFv();
     TLobby__sub_8025EAD4();
     TCharaMaking__sub_8028E6B4();
-    fn_80082AA8();
+    load_critical_effect_resources();
     init_particle_sprite_atlas();
     init_particle_buffer__13TParticleCtrlFv();
     GXSetPixelFmt((int) (1), (int) (0));

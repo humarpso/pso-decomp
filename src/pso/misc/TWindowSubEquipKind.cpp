@@ -10,7 +10,7 @@ struct RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind {
 };
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80267B18(void *);
+s32 create_menu_scroll_bar(void *);
 s32 fn_802683F4(void *, void *, int, void *);
 extern M2C_UNK __vt__19TWindowSubEquipKind[];
 extern s32 lbl_805D3A38;
@@ -24,9 +24,9 @@ void render__19TWindowSubEquipKindFv(u8 *arg0);
 void run_task__19TWindowSubEquipKindFv(void *arg0);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_80268048();
-M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
+M2C_UNK draw_visible_window_entries(void *, void *, s32);
+M2C_UNK update_item_list_window();
+M2C_UNK draw_window_scrollbar(s32, s32, void *);
 M2C_UNK TWindowSubStatusDisp__sub_8027831C(void *, s32);
 void __dl__7TObjectFPv(void *);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
@@ -38,7 +38,7 @@ void render__19TWindowSubEquipKindFv(u8 *arg0) {
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame(arg0, temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x88) != 4) {
         TWindowSubStatusDisp__sub_8027831C(arg0, temp_r3);
@@ -47,14 +47,14 @@ void render__19TWindowSubEquipKindFv(u8 *arg0) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
-        TWindowSubStatusDisp__sub_8026D790(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
+        draw_window_scrollbar(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
     }
 }
 
 void run_task__19TWindowSubEquipKindFv(void *arg0) {
     int temp_r3;
 
-    TWindowSubStatusDisp__sub_80268048();
+    update_item_list_window();
     temp_r3 = M2C_FIELD(arg0, s16 *, 0x8A);
     if (temp_r3 != 0) {
         M2C_FIELD(arg0, s16 *, 0x8A) = (s16) (temp_r3 - 1);
@@ -78,7 +78,7 @@ u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (0x1F), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind *)&__vt__19TWindowSubEquipKind).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A38;
-    TWindowSubStatusDisp__sub_80267B18((void *) (arg0));
+    create_menu_scroll_bar((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x88) = 4;
     M2C_FIELD(arg0, s16 *, 0x8A) = 0;
     return arg0;

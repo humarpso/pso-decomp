@@ -137,8 +137,8 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TObjPlayer__sub_803E38FC(int);
-M2C_UNK TObjPlayer__sub_803E4684(s32);
+M2C_UNK set_chunk_blend(int);
+M2C_UNK draw_chunk_model(s32);
 extern Color_8002E3D4 lbl_8043560C;
 extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 lbl_805D5560;
@@ -232,7 +232,7 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
             switch (p->f28) {
             case 0:
             case 1:
-                TObjPlayer__sub_803E4684(n->f4);
+                draw_chunk_model(n->f4);
                 break;
             case 2:
                 lbl_805D5660 = some_id_805c6f74;
@@ -240,8 +240,8 @@ void TObjPlayer__sub_8002E3D4(Obj_8002E3D4 *self) {
                 c.a = p->f24;
                 set_chunk_material_color(&c);
                 set_chunk_material_override_pair(0xFF00, 0x800);
-                TObjPlayer__sub_803E38FC(0x2500);
-                TObjPlayer__sub_803E4684(n->f4);
+                set_chunk_blend(0x2500);
+                draw_chunk_model(n->f4);
                 set_chunk_material_override_pair(0xFF00, 0);
                 some_id_805c6f74 = lbl_805D5660;
                 break;

@@ -46,7 +46,7 @@ M2C_UNK advance_rng__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_8023FCC0(void *);
 M2C_UNK TLobby__sub_80240B64(void *);
 extern Voice_802401D0 lbl_805162EC[];
-s32 TLobby__sub_802401D0(Lobby_802401D0 *self);
+s32 update_sound_frame(Lobby_802401D0 *self);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ int TLobby__sub_802401C8(void);
 
 int TLobby__sub_802401C8(void) { return 0; }
 
-s32 TLobby__sub_802401D0(Lobby_802401D0 *self) {
+s32 update_sound_frame(Lobby_802401D0 *self) {
     s32 t;
     s32 i;
     s32 j;

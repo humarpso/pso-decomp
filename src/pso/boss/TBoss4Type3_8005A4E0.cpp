@@ -48,7 +48,7 @@ void TBoss4Type3__sub_8005A2A4(void *);
 void __dt__11TBoss4Type3FPvs(void *, s16);
 void init_state_1__8TObjFishFPv(void *);
 void __dt__9TObjEnemyFv(void *, s32);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 extern u8 lbl_80487184[];
 S_8005AD50 *TBoss4Type3__sub_8005AD50(S_8005AD50 *o, s16 flag);
@@ -195,7 +195,7 @@ S_8005AD50 *TBoss4Type3__sub_8005AD50(S_8005AD50 *o, s16 flag) {
             init_state_1__8TObjFishFPv(o->fx[i]);
             o->fx[i] = 0;
         }
-        TObjEneGibbles__sub_80156720(o);
+        free_collision_body_parts(o);
         o->f394 = 0;
         __dt__9TObjEnemyFv(o, 0);
         if (flag > 0) {

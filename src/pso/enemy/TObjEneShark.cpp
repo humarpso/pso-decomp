@@ -29,7 +29,7 @@ s32 TObjPlayer__sub_800ACA10(Obj_800ACA10 *self);
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
 void unlink_enemy_group_relations(void *);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
@@ -117,7 +117,7 @@ O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1) {
             }
         }
         unlink_enemy_group_relations(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3A8, -1);
         TObjPlayer__sub_800C68FC(arg0, 0);

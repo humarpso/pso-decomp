@@ -29,7 +29,7 @@ void *__dt__14TWindowBreakInFv(void *arg0, s16 arg1);
 void render__14TWindowBreakInFv(s32 arg0);
 void run_task__14TWindowBreakInFv(void* p);
 int TWindowSubStatusDisp__sub_80246980(void*);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
+M2C_UNK draw_visible_window_entries(s32, s32, s32);
 int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -38,7 +38,7 @@ int initialize_subwindow__9TWindowDDFPv(void*);
 
 void render__14TWindowBreakInFv(s32 arg0) {
     s32 tmp = draw_default_entry__9TWindowDDFi();
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, tmp);
+    draw_visible_window_entries(arg0, arg0 + 0x24, tmp);
 }
 
 void run_task__14TWindowBreakInFv(void* p) { TWindowSubStatusDisp__sub_80246980(p); initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }

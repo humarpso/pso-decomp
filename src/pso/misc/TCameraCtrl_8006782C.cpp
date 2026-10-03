@@ -16,7 +16,7 @@ typedef char RecoveredGlobal_80067AB0_lbl_80438150_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TCameraCtrl__sub_8006809C(void *);
+s32 predict_obstruction__11TCameraCtrlFPv(void *);
 f32 vector_length(void *);
 extern RecoveredGlobal_80067AB0_lbl_80438150 lbl_80438150;
 extern u8 *lbl_805D4DF0;
@@ -62,7 +62,7 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
     stack.spC = M2C_FIELD(lbl_805D4DF0, f32 *, 0x188) - M2C_FIELD(arg0, f32 *, 0x4C);
     stack.sp10 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x18C) - M2C_FIELD(arg0, f32 *, 0x50);
     M2C_FIELD(arg0, f32 *, 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
-    if (TCameraCtrl__sub_8006809C((void *) (arg0)) != 0) {
+    if (predict_obstruction__11TCameraCtrlFPv((void *) (arg0)) != 0) {
         M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) | 1);
     } else {
         M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) & 0xFFFFFFFE);

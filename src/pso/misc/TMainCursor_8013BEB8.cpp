@@ -24,7 +24,7 @@ f32 vec3_dot(void *, void *);
 extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0E0;
-s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
+s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 void update_scale__15TObjBoss2TunnelFPv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -36,7 +36,7 @@ extern Vec_8013C0A0 lbl_8050BEE0;
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 s32 obj_testFlags30(void *, s32);
 s32 obj_getField1c(void *);
-s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
+s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
 void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2);
 s32 get_body_exclude_mask__11TMainCursorFPv(void *);
@@ -95,7 +95,7 @@ extern const f32 TMainCursor__data_805DB0C0;
 
 #pragma push
 #pragma fp_contract on
-s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist) {
+s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist) {
     Vec_8013BF0C a;
     Vec_8013BF0C b;
     f32 x;
@@ -250,7 +250,7 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
                               *(f32 *)(cursor + 0x2C), *(f32 *)(cursor + 0x3C)) == 0) {
             continue;
         }
-        if (TMainCursor__sub_8013BF0C((Vec_8013BF0C *)(cursor + 0x1C), (Vec_8013BF0C *)c->pos, yaw, *(f32 *)(cursor + 0x30),
+        if (target_in_vertical_cone((Vec_8013BF0C *)(cursor + 0x1C), (Vec_8013BF0C *)c->pos, yaw, *(f32 *)(cursor + 0x30),
                                       *(f32 *)(cursor + 0x3C)) == 0) {
             continue;
         }

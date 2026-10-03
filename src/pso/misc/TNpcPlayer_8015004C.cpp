@@ -110,21 +110,21 @@ void set_state__10TNpcPlayerFPvs(void *, s16);
 void set_type__10TNpcPlayerFPvs(void *, u16);
 s32 try_camera_action__10TObjPlayerFii(void *, s32);
 s8 get_cast_technique_level(void *, s16);
-void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind);
+void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind);
 u8 *find_active_entity_by_id(int);
 Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
-s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0);
+s32 check_return_to_leader__10TNpcPlayerFPv(Npc_801518A4 *arg0);
 Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
 M2C_UNK increment_partner_counter(void *, M2C_UNK);
 M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
 s32 get_condition__10TNpcPlayerFPv(s32);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
-s32 TNpcPlayer__sub_8014F728(void *, u32);
+s32 is_target_line_clear__10TNpcPlayerFPvUs(void *, u32);
 u8 *find_active_entity_by_id(int);
 void TNpcPlayer__sub_80152A34(void *, u32, s32);
 f32 horizontal_distance_squared(void *, void *, int);
 extern const f32 TNpcPlayer__data_805DB1F4;
-s32 TNpcPlayer__sub_80151708(Npc_80151708 *self);
+s32 choose_attack_target__10TNpcPlayerFPv(Npc_80151708 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *find_active_entity_by_id(int);
 f32 horizontal_distance_squared(void *, void *, int);
@@ -158,19 +158,19 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *, int, f32, f32);
 M2C_UNK normalize_vector(void *);
 extern const f32 TNpcPlayer__data_805DB1F0;
-s32 TNpcPlayer__sub_801515E0(u8 *arg0);
+s32 calc_follow_goal__10TNpcPlayerFPv(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *, int);
 extern const f32 lbl_805DB1FC;
 extern const f32 lbl_805DB238;
-s32 TNpcPlayer__sub_801500F4(u8 *arg0, void * _w1, int _w2);
+s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2);
 void reset_move_state__10TNpcPlayerFPv(void *m);
 u16 get_npc_type__10TNpcPlayerFPv(void *);
 void reset_model__10TNpcPlayerFPv(void *m);
-void TNpcPlayer__sub_80150DE8(Npc_80150DE8 *self);
+void send_run_request__10TNpcPlayerFPv(Npc_80150DE8 *self);
 void TNpcPlayer__sub_80152E74(void *m);
 u16 get_npc_type__10TNpcPlayerFPv(void *);
 void sync_from_lobby__10TNpcPlayerFPv(void *m);
-void TNpcPlayer__sub_80150E44(Npc_80150E44 *self);
+void send_walk_request__10TNpcPlayerFPv(Npc_80150E44 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 extern V3_80150050 lbl_8043FFAC;
 void TNpcPlayer__sub_80150050(Npc_80150050 *arg0);
@@ -210,7 +210,7 @@ void TNpcPlayer__sub_80150050(Npc_80150050 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-s32 TNpcPlayer__sub_801500F4(u8 *arg0, void * _w1, int _w2) {
+s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2) {
     f32 temp_f1;
     f32 var_f31;
     if (M2C_FIELD(arg0, s32 *, 0x80) & 0x10) {
@@ -328,7 +328,7 @@ void init_state__10TNpcPlayerFPv(void *arg0) {
         return;
     }
 }
-void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind) {
+void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind) {
     Msg_80150A34 m;
     u8 *actor;
 
@@ -361,7 +361,7 @@ void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind) {
     }
 }
 
-void TNpcPlayer__sub_80150DE8(Npc_80150DE8 *self) {
+void send_run_request__10TNpcPlayerFPv(Npc_80150DE8 *self) {
     Msg_80150DE8 m;
     reset_move_state__10TNpcPlayerFPv(&m);
     if (self->owner != 0) {
@@ -372,7 +372,7 @@ void TNpcPlayer__sub_80150DE8(Npc_80150DE8 *self) {
     }
 }
 
-void TNpcPlayer__sub_80150E44(Npc_80150E44 *self) {
+void send_walk_request__10TNpcPlayerFPv(Npc_80150E44 *self) {
     Msg_80150E44 m;
     TNpcPlayer__sub_80152E74(&m);
     if (self->owner != 0) {
@@ -523,7 +523,7 @@ s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TNpcPlayer__sub_801515E0(u8 *arg0) {
+s32 calc_follow_goal__10TNpcPlayerFPv(u8 *arg0) {
     Stack_801515E0 stack;
     f32 temp_f0;
     f32 temp_f1;
@@ -558,7 +558,7 @@ s32 TNpcPlayer__sub_801515E0(u8 *arg0) {
 }
 #pragma pop
 
-s32 TNpcPlayer__sub_80151708(Npc_80151708 *self) {
+s32 choose_attack_target__10TNpcPlayerFPv(Npc_80151708 *self) {
     s32 i;
     View_80151708 *view;
     Pos_80151708 *tgt;
@@ -578,7 +578,7 @@ s32 TNpcPlayer__sub_80151708(Npc_80151708 *self) {
     }
     if (view->count != 0) {
         for (i = 0; i < view->count; i++) {
-            if (TNpcPlayer__sub_8014F728(self->f78, view->c[i].id) != 0) {
+            if (is_target_line_clear__10TNpcPlayerFPvUs(self->f78, view->c[i].id) != 0) {
                 tgt = (Pos_80151708 *)find_active_entity_by_id((u16)view->c[0].id);
                 TNpcPlayer__sub_80152A34(self->f78, view->c[i].id, view->c[i].idx);
                 self->dst[0] = tgt->x;
@@ -597,7 +597,7 @@ s32 TNpcPlayer__sub_80151708(Npc_80151708 *self) {
     return 0;
 }
 
-s32 TNpcPlayer__sub_801518A4(Npc_801518A4 *arg0) {
+s32 check_return_to_leader__10TNpcPlayerFPv(Npc_801518A4 *arg0) {
     Tgt_801518A4 *t;
     u8 *o;
     f32 r2;

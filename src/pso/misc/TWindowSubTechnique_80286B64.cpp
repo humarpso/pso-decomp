@@ -2,7 +2,7 @@
 
 extern "C" {
 
-s32 TItemData__sub_80076E84(s16);
+s32 get_technique_name(s16);
 s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);

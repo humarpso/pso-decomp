@@ -32,7 +32,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 extern "C" {
-void TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
+void rotate_matrix_zyx(s32, s32, s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
@@ -138,7 +138,7 @@ void render__8TOKurageFv(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        TBoss7Tentacle__sub_803D8A6C(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
+        rotate_matrix_zyx(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
         case 4:

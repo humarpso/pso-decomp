@@ -6,7 +6,7 @@ s32 TLobby__sub_8007BA98();
 s32 handle_disconnect_cleanup();
 s32 is_area_transfer_pending();
 s32 TLobby__sub_800F8B20();
-s32 TItemDrop__sub_800FD98C();
+s32 load_area_gsl();
 s32 TItemDrop__sub_800FDDF4();
 s32 update_key_machine__6TLobbyFv();
 void reset_and_invoke__6TLobbyFv(void);
@@ -20,7 +20,7 @@ s32 check_disconnect_conditions__6TLobbyFv(void) {
         reset_and_invoke__6TLobbyFv();
         return 1;
     }
-    TItemDrop__sub_800FD98C();
+    load_area_gsl();
     if (update_key_machine__6TLobbyFv() == 0) {
         TItemDrop__sub_800FDDF4();
         reset_and_invoke__6TLobbyFv();

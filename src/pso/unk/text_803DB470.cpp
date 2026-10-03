@@ -41,7 +41,7 @@ void draw_ginja_model(s32 arg0);
 M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
 M2C_UNK GXClearVtxDesc();
 s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
-void TObjPlayer__sub_803DB59C(s32 arg0);
+void set_ginja_indexed_vtx_desc(s32 arg0);
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 void set_effect_active__10TObjPlayerFv(void);
@@ -49,18 +49,18 @@ void apply_scene_fog(void);
 extern RecoveredCallback_d26337a2813d lbl_805D76E4;
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_803DC6F4(void);
+void end_ginja_model_draw(void);
 void queue_model_draw_matrix(s32, s32);
 extern s32 lbl_805D7774;
-s32 TObjPlayer__sub_803DB4E8(s32 arg0);
+s32 queue_model_draw_current_matrix(s32 arg0);
 extern S_803DB560 lbl_8058CD80;
 u32 TObjPlayer__sub_803DB560(s32 i, u32 v);
 extern S_803DB560 lbl_8058CD80;
 extern s32 some_id_805c6f74;
 extern u32 lbl_805D46C0;
-void TObjPlayer__sub_803DBB78(u32 x);
+void set_ginja_blend_param(u32 x);
 void GXSetAlphaCompare(s32 comp0, s32 ref0, s32 op, s32 comp1, s32 ref1);
-void TObjPlayer__sub_803DBDE8(s32 ref);
+void ginja_set_alpha_compare(s32 ref);
 extern S_803DB560 lbl_8058CD80;
 void TObjPlayer__sub_803DBB38(u32 v);
 extern S_803DB560 lbl_8058CD80;
@@ -76,13 +76,13 @@ extern s32 lbl_804FC56C[];
 extern s32 lbl_804FC5EC[];
 extern s32 lbl_804FC610[];
 void GXSetVtxAttrFmt(s32, s32, s32, s32, u8);
-void TObjPlayer__sub_803DBBA8(u32 arg0);
+void ginja_set_vertex_format(u32 arg0);
 extern S_803DB560 lbl_8058CD80;
 void load_list_texture(u32, u32, u32, u32);
-void TObjPlayer__sub_803DBC1C(u32 arg0);
+void ginja_load_texture_slot(u32 arg0);
 extern s32 lbl_804FC56C[];
 void GXSetArray(s32, void *, u8);
-void TObjPlayer__sub_803DC3BC(Arr_803DC3BC *arg0);
+void set_ginja_vertex_arrays(Arr_803DC3BC *arg0);
 extern S_803DB560 lbl_8058CD80;
 extern s32 some_id_805c6f74;
 GinjaMaterialCache *invalidate_ginja_inherited_state();
@@ -113,7 +113,7 @@ void GXLoadNrmMtxImm(void *, void *);
 void GXLoadTexMtxImm(void *, int, int);
 extern s32 lbl_805D7774;
 extern s32 some_id_805c6f74;
-M2C_UNK TObjPlayer__sub_803DC76C(int arg0);
+M2C_UNK load_ginja_model_matrices(int arg0);
 void GXSetChanMatColor(s32, C_803DB9A0);
 void convert_color_f32_to_u8(const F_803DB9A0 *, C_803DB9A0 *);
 void convert_color_u8_to_f32(const C_803DB9A0 *, F_803DB9A0 *);
@@ -129,7 +129,7 @@ void prepare_ginja_model(void);
 void TObjPlayer__sub_803DC9E4(void *, void *);
 void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
-s32 TObjPlayer__sub_803DB4E8(s32 arg0);
+s32 queue_model_draw_current_matrix(s32 arg0);
 s32 draw_ginja_model_lists(GinjaModel *model);
 extern RecoveredCallback_d26337a2813d lbl_805D76E4;
 extern s32 lbl_805D7788;
@@ -148,7 +148,7 @@ s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
 void draw_ginja_object(void *arg0) {
     prepare_ginja_model();
     init_model_draw_queue((void *) draw_ginja_model_lists);
-    TObjPlayer__sub_803DC9E4(arg0, (void *) TObjPlayer__sub_803DB4E8);
+    TObjPlayer__sub_803DC9E4(arg0, (void *) queue_model_draw_current_matrix);
     flush_model_draw_queue();
     if (lbl_805D76E4 != NULL) {
         lbl_805D76E4();
@@ -161,17 +161,17 @@ void draw_ginja_object(void *arg0) {
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803DB4E8(s32 arg0) {
+s32 queue_model_draw_current_matrix(s32 arg0) {
     queue_model_draw_matrix(arg0, lbl_805D7774);
     return 1;
 }
 #pragma pop
 
 void draw_ginja_model(s32 arg0) {
-    TObjPlayer__sub_803DC76C((int)((int) (0)));
+    load_ginja_model_matrices((int)((int) (0)));
     prepare_ginja_model();
     draw_ginja_model_lists((GinjaModel *)arg0);
-    TObjPlayer__sub_803DC6F4();
+    end_ginja_model_draw();
 }
 
 s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1) {
@@ -190,7 +190,7 @@ u32 TObjPlayer__sub_803DB560(s32 i, u32 v) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803DB59C(s32 arg0) {
+void set_ginja_indexed_vtx_desc(s32 arg0) {
     GXClearVtxDesc();
     Dolphin_GXSetVtxDesc((int) (9), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (1)))));
     Dolphin_GXSetVtxDesc((int) (0xA), (void *) (TObjPlayer__sub_803DB550((u32)((void *) (arg0)), (s32)((int) (2)))));
@@ -269,7 +269,7 @@ void TObjPlayer__sub_803DBB38(u32 v) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DBB78(u32 x) {
+void set_ginja_blend_param(u32 x) {
     if ((u32)some_id_805c6f74 & 0x8000) {
         x = lbl_805D46C0;
     }
@@ -278,11 +278,11 @@ void TObjPlayer__sub_803DBB78(u32 x) {
 }
 #pragma pop
 
-void TObjPlayer__sub_803DBBA8(u32 arg0) {
+void ginja_set_vertex_format(u32 arg0) {
     GXSetVtxAttrFmt(0, lbl_804FC56C[(arg0 & 0xFF0000) >> 16], lbl_804FC5EC[(arg0 & 0xF000) >> 12], lbl_804FC610[(arg0 & 0xF00) >> 8], arg0);
 }
 
-void TObjPlayer__sub_803DBC1C(u32 arg0) {
+void ginja_load_texture_slot(u32 arg0) {
     (*(G_803DBC1C *)&lbl_8058CD80).f88 = arg0;
     (*(G_803DBC1C *)&lbl_8058CD80).f7c |= 2;
     load_list_texture(arg0 & 0x1FFF, (arg0 & 0xC0000) >> 18, (arg0 & 0x30000) >> 16, (arg0 & 0x6000) >> 13);
@@ -326,12 +326,12 @@ void OSDetachThread(u32 arg0) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DBDE8(s32 ref) {
+void ginja_set_alpha_compare(s32 ref) {
     GXSetAlphaCompare(4, ref, 0, 7, 0);
 }
 #pragma pop
 
-void TObjPlayer__sub_803DC3BC(Arr_803DC3BC *arg0) {
+void set_ginja_vertex_arrays(Arr_803DC3BC *arg0) {
     while (arg0->idx != 0xFF) {
         GXSetArray(lbl_804FC56C[arg0->idx], arg0->base, arg0->stride);
         arg0++;
@@ -363,7 +363,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
   s32 primaryCount;
   s32 result = (s32)invalidate_ginja_inherited_state();
   if (model->vertices) {
-    result = ((s32 (*)(void *))TObjPlayer__sub_803DC3BC)(model->vertices);
+    result = ((s32 (*)(void *))set_ginja_vertex_arrays)(model->vertices);
   }
   lbl_805D7704 = 0;
   if ((lbl_805D7708 & 1) && (lbl_805D7708 & 2)) {
@@ -429,7 +429,7 @@ void prepare_ginja_model(void) {
 
 #pragma push
 #pragma peephole off
-void TObjPlayer__sub_803DC6F4(void) {
+void end_ginja_model_draw(void) {
     if ((u32) (lbl_805D7788 & 2) != 0) {
         set_effect_active__10TObjPlayerFv();
         apply_scene_fog();
@@ -437,7 +437,7 @@ void TObjPlayer__sub_803DC6F4(void) {
     if ((u32) (some_id_805c6f74 & 1) == 0) {
         GXSetZCompLoc(1);
         GXSetZMode(1U, 1, 1);
-        TObjPlayer__sub_803DBDE8((s32)(0));
+        ginja_set_alpha_compare((s32)(0));
         if (((M2C_UNK (*)()) lbl_805D76E4) != NULL) {
             lbl_805D76E4();
         }
@@ -445,7 +445,7 @@ void TObjPlayer__sub_803DC6F4(void) {
 }
 #pragma pop
 
-M2C_UNK TObjPlayer__sub_803DC76C(int arg0) {
+M2C_UNK load_ginja_model_matrices(int arg0) {
     f32 s[3][4];
     f32 t[3][4];
     f32 m[3][4];

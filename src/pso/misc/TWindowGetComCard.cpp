@@ -21,7 +21,7 @@ struct GetCard_80252CCC {
 };
 
 extern "C" {
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 init_com_card__17TWindowSubComCardFv();
 s32 TWindowGetComCard__sub_8007B594();
@@ -210,7 +210,7 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         text_builder_append();
         get_message_10__20TWindowSubStatusDispFPv((int) (0x36));
         text_builder_append();
-        send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (TLobby__sub_8001DC24()), (int) (2));
+        send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (get_shared_text_buffer()), (int) (2));
         M2C_FIELD(arg0, s32 *, 0x28) = 0;
     } else {
         send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x37))), (int) (0));

@@ -22,14 +22,14 @@ struct Params_80240B64 {
 };
 
 extern "C" {
-s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
+s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_803AA0E0(int, int, int);
-void TLobby__sub_80241AD8(u8 *arg0);
+void send_voice_controller_updates(u8 *arg0);
 int TLobby__sub_80240E8C(void);
 extern const f32 lbl_805DC9E4;
 s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK TLobby__sub_803AA1A0(int);
-s32 TLobby__sub_80241FD8(struct Voice_80241FD8 *v, s32 step);
+s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32);
 s32 resolve_sound_effect_bank(SoundRequestOwner *, s32, s32, s32);
@@ -39,7 +39,7 @@ void TLobby__sub_80240F38(void);
 void TLobby__sub_80240F3C(SoundRequestVoice *);
 void TLobby__sub_80241798(SoundRequestVoice *);
 void TLobby__sub_80241A0C(void);
-void TLobby__sub_80241AD8(u8 *arg0);
+void send_voice_controller_updates(u8 *arg0);
 void clamp_params__6TLobbyFPv(void *arg0);
 void calc_sound_spatial_params(SoundRequestVoice *);
 M2C_UNK TLobby__sub_803AA1A0(int);
@@ -59,7 +59,7 @@ void clamp_params__6TLobbyFPv(void *arg0);
 void TLobby__sub_802409E4(void* p);
 s32 get_field_308__6TLobbyFPv(s32);
 
-s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2) {
+s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r5;
     var_r5 = arg2;
     if (var_r5 <= 0) {
@@ -107,7 +107,7 @@ s32 TLobby__sub_80240B64(SoundRequestVoice *v) {
             level = OSDisableInterrupts();
         }
         v->token = start_sound_fx(v->effect, 0x7F, v->pan, v->studio, &params);
-        TLobby__sub_80241AD8((u8 *)v);
+        send_voice_controller_updates((u8 *)v);
         if (!(TLobby__data_805D5E24 & 2) && TLobby__data_805434A8[7] == 0) {
             OSRestoreInterrupts(level);
         }
@@ -157,7 +157,7 @@ s32 TLobby__sub_80240B64(SoundRequestVoice *v) {
             }
             v->state = 0;
         } else {
-            TLobby__sub_80241AD8((u8 *)v);
+            send_voice_controller_updates((u8 *)v);
             TLobby__sub_802409F0(v);
             if ((v->flags & 1) && v->refresh < 0) {
                 TLobby__sub_803AA1A0(v->token);
@@ -200,7 +200,7 @@ void send_sound_request_reverb(SoundRequestVoice *voice) {
         TLobby__sub_803AA0E0(voice->token, 91, amount);
 }
 
-void TLobby__sub_80241AD8(u8 *arg0) {
+void send_voice_controller_updates(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 temp_r3_3;
@@ -254,7 +254,7 @@ void clamp_params__6TLobbyFPv(void *arg0) {
     }
 }
 
-s32 TLobby__sub_80241FD8(struct Voice_80241FD8 *v, s32 step) {
+s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step) {
     switch (v->kind) {
     case 0:
         if (v->fadeStep == 0) {

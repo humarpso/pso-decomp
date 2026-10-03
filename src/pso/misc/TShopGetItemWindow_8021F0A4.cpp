@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void reset_shop_stock_and_params(void);
-M2C_UNK TLobby__sub_8020ECA8();
-M2C_UNK TLobby__sub_8022559C();
+M2C_UNK clear_shop_armor_flags();
+M2C_UNK clear_shop_weapon_flags();
 s32 get_task_id__14TFontSmallTaskFPv(M2C_UNK *);
-M2C_UNK TLobby__sub_802243D4();
+M2C_UNK clear_shop_tool_flags();
 
 extern M2C_UNK TLobby__data_805011D8[];
 extern s32 lbl_805D5550;
@@ -21,9 +21,9 @@ extern s32 lbl_805D6244;
 void reset_shop_stock_and_params(void) {
     s32 temp_r3;
 
-    TLobby__sub_8022559C();
-    TLobby__sub_8020ECA8();
-    TLobby__sub_802243D4();
+    clear_shop_weapon_flags();
+    clear_shop_armor_flags();
+    clear_shop_tool_flags();
     lbl_805D6244 = 0;
     temp_r3 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
     lbl_805D6238 = temp_r3;

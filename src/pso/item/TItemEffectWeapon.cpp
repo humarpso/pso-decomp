@@ -13,7 +13,7 @@ void restore_saved_depth_alpha_state();
 void init_xyz_limits__10TObjPlayerFv();
 void reset_transform_state__10TObjPlayerFv();
 void reset_player_transform();
-void TObjPlayer__sub_803DF5E4(TItemEffectWeapon::TrailVertex*, s32);
+void draw_untextured_trail_strip(TItemEffectWeapon::TrailVertex*, s32);
 void TObjPlayer__sub_803DF768(s32);
 void set_flag_9__7TObjectFv(void*);
 void* alloc_buffer__11TOBoss4RockFPv(size_t);
@@ -105,7 +105,7 @@ void TItemEffectWeapon::render_trail() {
             init_xyz_limits__10TObjPlayerFv();
             if (vertex_count > 2) {
                 TObjPlayer__sub_803DF768(1);
-                TObjPlayer__sub_803DF5E4(vertices, vertex_count);
+                draw_untextured_trail_strip(vertices, vertex_count);
                 reset_player_transform();
             }
             reset_transform_state__10TObjPlayerFv();

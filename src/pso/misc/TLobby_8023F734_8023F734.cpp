@@ -33,12 +33,12 @@ extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 TLobby__sub_8023F880(s32 arg0);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 void clamp_field9c__6TLobbyFPvf(void *voice, f32 scale);
-void TLobby__sub_8023F780(s32 slot, f32 scale);
+void set_sound_slot_special_scale(s32 slot, f32 scale);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
-void TLobby__sub_80241FD8(void *voice, s32 step);
-void TLobby__sub_8023F8B0(s32 slot, s32 step);
+void start_voice_fade(void *voice, s32 step);
+void fade_out_sound_slot(s32 slot, s32 step);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
-s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
+s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
 extern Tables_8023FBBC lbl_804CCFB8;
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
@@ -52,7 +52,7 @@ f32 get_field_2a4__6TLobbyFPv(void* p);
 void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0);
 void set_menu_index__6TLobbyFPvi(void* p, s32 v);
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
-s32 TLobby__sub_803AA35C(s32);
+s32 set_sound_output_mode(s32);
 
 s32 advance_rng__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2AC) = (s32) ((M2C_FIELD(arg0, s32 *, 0x2AC) * 0x10DCD) + 1);
@@ -69,7 +69,7 @@ void TLobby__sub_8023F754(s32 arg0, s32 arg1) {
     p[arg0 * 40 + 34] = arg1;
 }
 
-void TLobby__sub_8023F780(s32 slot, f32 scale) {
+void set_sound_slot_special_scale(s32 slot, f32 scale) {
     if (slot < 0 || slot >= 32) return;
     clamp_field9c__6TLobbyFPvf((u8 *)&lbl_805162EC.value + slot * 0xA0, scale);
 }
@@ -80,15 +80,15 @@ void set_menu_index__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x280) = v
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 0:
-        TLobby__sub_803AA35C(0);
+        set_sound_output_mode(0);
         M2C_FIELD(arg0, s32 *, 0x2A0) = arg1;
         return;
     case 1:
-        TLobby__sub_803AA35C(1);
+        set_sound_output_mode(1);
         M2C_FIELD(arg0, s32 *, 0x2A0) = arg1;
         return;
     case 2:
-        TLobby__sub_803AA35C(2);
+        set_sound_output_mode(2);
         M2C_FIELD(arg0, s32 *, 0x2A0) = arg1;
         return;
     }
@@ -125,15 +125,15 @@ s32 TLobby__sub_8023F880(s32 arg0) {
   }
   return -9;
 }
-void TLobby__sub_8023F8B0(s32 slot, s32 step) {
+void fade_out_sound_slot(s32 slot, s32 step) {
     if (slot < 0 || slot >= 32) return;
-    TLobby__sub_80241FD8((u8 *)&lbl_805162EC.value + slot * 0xA0, step);
+    start_voice_fade((u8 *)&lbl_805162EC.value + slot * 0xA0, step);
 }
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration) {
     if (slot < 0 || slot >= 0x20) {
         return;
     }
-    TLobby__sub_80240B40((u8 *)&lbl_805162EC.value + slot * 0xA0, (s32)((u32)pitch << 13) / 3072, duration);
+    set_voice_pitch_slide((u8 *)&lbl_805162EC.value + slot * 0xA0, (s32)((u32)pitch << 13) / 3072, duration);
 }
 #pragma push
 #pragma opt_common_subs off

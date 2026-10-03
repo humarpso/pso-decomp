@@ -31,10 +31,10 @@ extern char lbl_80438EF8[];
 extern void *lbl_80438EE8[];
 void *create_named_object(const char *name);
 void bind_gvm_texture_list(const char *name, void *data);
-void fn_80082AA8(void);
+void load_critical_effect_resources(void);
 extern s32 lbl_80500620[];
 s32 find_particle_texture_index(s32 id);
-void fn_80082954(struct Copy_80082954 *c);
+void copy_slot_to_anim_frame(struct Copy_80082954 *c);
 void fn_800829E0(struct Copy_800829E0 *c);
 }
 
@@ -52,7 +52,7 @@ s32 find_particle_texture_index(s32 id) {
     return r;
 }
 
-void fn_80082954(struct Copy_80082954 *c) {
+void copy_slot_to_anim_frame(struct Copy_80082954 *c) {
     (*c->animation)[c->frame].z = (*c->destination)[c->slot].z;
     (*c->animation)[c->frame].y = (*c->destination)[c->slot].y;
     (*c->animation)[c->frame].x = (*c->destination)[c->slot].x;
@@ -64,7 +64,7 @@ void fn_800829E0(struct Copy_800829E0 *c) {
     (*c->destination)[c->slot].x = (*c->animation)[c->frame].x;
 }
 
-void fn_80082AA8(void) {
+void load_critical_effect_resources(void) {
     E_80082AA8 *e;
     s32 i;
     lbl_805D4ED8 = create_named_object(lbl_80438EF8);

@@ -218,7 +218,7 @@ void TObjPlayer__sub_801B1C8C(void);
 s32 is_locally_controlled__10TObjPlayerFPv();
 void TObjPlayer__sub_801C0708(void *);
 void TObjPlayer__sub_801C0734(void *);
-void TObjPlayer__sub_801B1E54(s32 arg0, s32 arg1, s32 arg2);
+void send_6x2F_change_player_hp(s32 arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_801B28AC(u32, Pair_801B2C04 *);
 u32 get_player_by_client_id(s32);
 void TObjPlayer__sub_801BEE68(void *, void *);
@@ -257,7 +257,7 @@ extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801B2014(s32 arg0);
 M2C_UNK send_code_13_3__10TObjPlayerFii(void *, Item_801B21AC);
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801B21AC(s32 *arg0);
+void sync_status_effect_flags__10TObjPlayerFPv(s32 *arg0);
 }
 
 extern "C" {
@@ -285,7 +285,7 @@ s32 TObjPlayer__sub_80016C54(s32);
 s32 update_movement_status__10TObjPlayerFv(s32);
 s32 update_action_hold_status__10TObjPlayerFv(s32);
 s32 update_poison_status__10TObjPlayerFv(s32);
-s32 TObjPlayer__sub_801AFF0C();
+s32 is_on_current_floor__10TObjPlayerFi();
 s32 check_flag_4__10TObjPlayerFPv();
 M2C_UNK check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 s32 get_position_ptr__10TObjPlayerFPv(s32);
@@ -327,7 +327,7 @@ void TObjPlayer__sub_801B1C8C(void) {
 }
 
 void send_field_state_if_active__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    if (TObjPlayer__sub_801AFF0C() != 0) {
+    if (is_on_current_floor__10TObjPlayerFi() != 0) {
         play_sound_effect(arg1, get_position_ptr__10TObjPlayerFPv(arg0), 0, 0);
     }
 }
@@ -373,7 +373,7 @@ void handle_6x2F_change_player_hp(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801B1E54(s32 arg0, s32 arg1, s32 arg2) {
+void send_6x2F_change_player_hp(s32 arg0, s32 arg1, s32 arg2) {
     Msg_801B1E54 m;
 
     if (((((u32 (*)(u16))get_player_by_client_id)((u16)arg0) == 0U) || (obj_isState2_324() == 0)) && ((((u32 (*)(u16))get_player_by_client_id)((u16)arg1) == 0U) || (is_locally_controlled__10TObjPlayerFPv() != 0))) {
@@ -454,7 +454,7 @@ void TObjPlayer__sub_801B2014(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801B21AC(s32 *arg0) {
+void sync_status_effect_flags__10TObjPlayerFPv(s32 *arg0) {
     Player_801B21AC *self = (Player_801B21AC *)arg0;
     Item_801B21AC item;
     u32 diff;

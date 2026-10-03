@@ -28,7 +28,7 @@ void notify_hit__13TItemEffFlameFPv(u8 *arg0);
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
 M2C_UNK set_item_count__6TLobbyFPvs(void *, M2C_UNK);
 M2C_UNK TLobby__sub_80103B04();
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 u8 *get_player_by_client_id(u16);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -342,7 +342,7 @@ void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F038;
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA4) != 0U) {
-            TObjPlayer__sub_80154A00(arg0);
+            unregister_object_by_id(arg0);
             clear_obj_links(arg0);
             obj_getField1c(arg0);
             TLobby__sub_80103B04();

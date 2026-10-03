@@ -377,7 +377,7 @@ void TObjEneDellBiter__vt59(void);
 void TObjEneDellBiter__vt61(void* p);
 void TObjEneDellBiter__vt86(void);
 void destroy_static_instance__16TObjEneDellBiterFv(void);
-void fn_80306994(void *arg0);
+void apply_armor_add_slot(void *arg0);
 void update_attack_effect__16TObjEneDellBiterFi(s32 arg0);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 void TItemObject__ct(void *);
@@ -635,7 +635,7 @@ void *TObjEneDellBiter__create(void *arg0) {
     return o;
 }
 
-void fn_80306994(void *arg0) {
+void apply_armor_add_slot(void *arg0) {
     struct VObj_80306994_80305BDC *o = (struct VObj_80306994_80305BDC *)get_item_field_2__9TItemDataFPv(M2C_FIELD(arg0, s32 *, 0xF0));
     if (o != NULL) {
         o->m38();

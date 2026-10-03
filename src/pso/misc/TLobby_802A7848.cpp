@@ -77,7 +77,7 @@ extern s32 lbl_805D6698;
 s32 copy_if_space(void);
 s32 fn_802A5B2C(s32);
 s32 fn_802A5B50(s32, s32);
-s32 fn_802A5BB4(s32);
+s32 rlc_get_directory_offset(s32);
 M2C_UNK fn_802A6070(s32, s32);
 M2C_UNK fn_802A6078(s32, s32);
 extern u32 lbl_805D6694;
@@ -250,7 +250,7 @@ void TLobby__sub_802A7C5C(void) {
 
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = fn_802A5BB4((*(s32 *)&lbl_805D6694));
+    temp_r31 = rlc_get_directory_offset((*(s32 *)&lbl_805D6694));
     temp_r31 = (*(s32 *)&lbl_805D6694) + temp_r31;
     temp_r31 = temp_r31 + arg0 * 8;
     fn_802A6078(arg1, lbl_805D669C + fn_802A5B50(temp_r31, (*(s32 *)&lbl_805D6694)));

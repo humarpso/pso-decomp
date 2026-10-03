@@ -109,7 +109,7 @@ void bind_gvm_texture_list(const char *name, void *data);
 void *create_named_object(const char *name);
 void TAdEndText__sub_8001B370(void);
 M2C_UNK TAdEndText__sub_8001A998(s32, f32, f32, f32);
-M2C_UNK TLobby__sub_800FBFD8(s32, f32, f32, f32);
+M2C_UNK draw_small_font_text(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK begin_screen_draw(int);
@@ -223,7 +223,7 @@ void render__10TAdEndTextFv(u8 *arg0) {
             break;
         default:
             if (col != 0xFFFFFF) {
-                TLobby__sub_800FBFD8(col, self->pos[i].x, y, lbl_805D7E18);
+                draw_small_font_text(col, self->pos[i].x, y, lbl_805D7E18);
             }
             break;
         }

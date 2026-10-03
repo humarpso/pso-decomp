@@ -63,11 +63,11 @@ f32 TContainerAncient01__vt20(void *arg0);
 f32 TContainerAncient01__vt21(void *arg0, s32 arg1, s32 *arg2);
 void render__19TContainerAncient01Fv(u8 *arg0);
 M2C_UNK scale_current_matrix(void *);
-s32 TLobby__sub_80156A80(void *, s16 *, M2C_UNK);
+s32 access_object_saved_state(void *, s16 *, M2C_UNK);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-M2C_UNK TObjPlayer__sub_80154954(void *, s16 *);
+M2C_UNK send_object_state_update(void *, s16 *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -82,10 +82,10 @@ f32 TContainerAncient01__vt20(void *arg0) {
 
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
         reset_state__19TContainerAncient01FPv();
-        if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80(arg0, &sp8, 1) != 0)) {
+        if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
             sp8 = 1;
-            TLobby__sub_80156A80(arg0, &sp8, 0);
-            TObjPlayer__sub_80154954(arg0, &sp8);
+            access_object_saved_state(arg0, &sp8, 0);
+            send_object_state_update(arg0, &sp8);
         }
     }
     return TContainerAncient01__data_805DBD14;

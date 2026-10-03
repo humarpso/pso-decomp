@@ -175,8 +175,8 @@ M2C_UNK update_player_state__9TObjEneDDFPv(void *, M2C_UNK, M2C_UNK);
 M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
 M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801417E8();
-M2C_UNK TObjPlayer__sub_80141820(M2C_UNK);
+M2C_UNK restore_default_scene();
+M2C_UNK set_scene_override(M2C_UNK);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -193,7 +193,7 @@ extern const f32 lbl_805D9E88;
 void render__13TObjEneBm3FlyFv(VObj_800AFBF0 *o);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-M2C_UNK TObjEneBm3Fly__sub_800B1978(void *);
+M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
 M2C_UNK update_dd_flag__13TObjEneBm3FlyFPv(void *, f32, f32, f32);
 M2C_UNK remove_child__17TObjEneBm3FlyNestFPvPv(u32, void *);
 M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *, s32);
@@ -394,13 +394,13 @@ void render__13TObjEneBm3FlyFv(VObj_800AFBF0 *o) {
         rotate_matrix_y(0, M2C_FIELD(o, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
-        TObjPlayer__sub_80141820(0x8F);
+        set_scene_override(0x8F);
         if (kind == 1) {
             draw__16TObjEneRe7BeruraFPv(o);
         } else {
             render_world_model__10TObjPlayerFPv(o);
         }
-        TObjPlayer__sub_801417E8();
+        restore_default_scene();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
         update_primary_light__9TObjEneDDFPv(o);
@@ -479,7 +479,7 @@ void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                     spawn_effect_at_ground__10TObjPlayerFPvi(arg0 + 0x38, 0x1E);
                 }
             }
-            TObjEneBm3Fly__sub_800B1978(arg0);
+            clamp_flight_height__13TObjEneBm3FlyFPv(arg0);
             break;
         case 2:
             M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) + 1);

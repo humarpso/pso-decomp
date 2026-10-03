@@ -73,7 +73,7 @@ void set_draw_texture_and_color(int, s32);
 extern const UV_80287580 lbl_8044FC90[];
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD84C;
-void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width);
+void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ f32 TWindowSubStatusDisp__sub_80287570(void *arg0) {
 
 extern f32 lbl_805DD840;
 
-void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
+void draw_window_tab(Obj_80287580 *obj, f32 *pos, u8 idx, f32 width) {
     Rect_80287580 r3;
     Rect_80287580 r2;
     Rect_80287580 r1;
@@ -192,7 +192,7 @@ void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1) {
     f32 pos[2];
     pos[0] = ((f32 *)arg1)[0] + e->x;
     pos[1] = ((f32 *)arg1)[1] + e->y;
-    ((void (*)(f32, Obj_80287580 *, f32 *, u8))TWindowSubStatusDisp__sub_80287580)(e->width, (Obj_80287580 *)arg1, pos, e->state);
+    ((void (*)(f32, Obj_80287580 *, f32 *, u8))draw_window_tab)(e->width, (Obj_80287580 *)arg1, pos, e->state);
 }
 
 void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {

@@ -606,7 +606,7 @@ extern const f32 lbl_805D9D3C;
 extern const f32 lbl_805D9D40;
 void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
+M2C_UNK spawn_child__17TObjEneBm3FlyNestFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -615,7 +615,7 @@ extern const f32 lbl_805D9D04;
 extern const f32 lbl_805D9D14;
 extern const f32 lbl_805D9D18;
 extern const f32 lbl_805D9D30;
-void TObjEneBm3FlyNest__sub_800B34F0(u8 *arg0, s32 arg1);
+void state_initial_emit__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -623,7 +623,7 @@ extern "C" {
 void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
 void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1);
-M2C_UNK TObjEneBm3FlyNest__sub_800B39CC(void *);
+M2C_UNK spawn_child__17TObjEneBm3FlyNestFPv(void *);
 s32 TObjEneBm3FlyNest__sub_800B3AC8();
 M2C_UNK update_replenish__17TObjEneBm3FlyNestFPv(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -731,7 +731,7 @@ void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
     case 0:
         advance_animation_playback((void *)(arg0));
         if (objInBand__FP7GameObjf(arg0, lbl_805D9D30) != 0) {
-            TObjEneBm3FlyNest__sub_800B39CC(arg0);
+            spawn_child__17TObjEneBm3FlyNestFPv(arg0);
             M2C_FIELD(arg0, s32 *, 0x4B8) = (s32) (M2C_FIELD(arg0, s32 *, 0x4B8) - 1);
         }
         ((VObj_800B3354_800B30B0 *)arg0)->m100();
@@ -765,7 +765,7 @@ void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         break;
     }
 }
-void TObjEneBm3FlyNest__sub_800B34F0(u8 *arg0, s32 arg1) {
+void state_initial_emit__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
@@ -822,7 +822,7 @@ void TObjEneBm3FlyNest__sub_800B34F0(u8 *arg0, s32 arg1) {
             }
             if ((M2C_FIELD(arg0, s32 *, 0x4C8) % 10) == 0) {
                 if (M2C_FIELD(arg0, s32 *, 0x4CC) < M2C_FIELD(arg0, s32 *, 0x390)) {
-                    TObjEneBm3FlyNest__sub_800B39CC((void *) (arg0));
+                    spawn_child__17TObjEneBm3FlyNestFPv((void *) (arg0));
                     M2C_FIELD(arg0, s32 *, 0x4CC) += 1;
                 } else {
                     M2C_FIELD(arg0, s32 *, 0x4D0) = 3;
@@ -836,7 +836,7 @@ void TObjEneBm3FlyNest__sub_800B34F0(u8 *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneBm3FlyNest__sub_800B36F8(u8 *arg0, s32 arg1) {
+void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
     s32 *cnt = (s32 *)(arg0 + 0x4CC);
     s32 i;
     void *o;

@@ -126,7 +126,7 @@ s32 update_lobby_state__9TObjEneDDFPv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjEneDD__sub_800BBA0C(void *);
-M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK run_tasks__7TObjectFv(void *);
 M2C_UNK TBoss8Dragon__sub_802FAC78(void *);
@@ -224,7 +224,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     ((VObj_18 *)(arg0))->m86();
     store_position__12TBoss8DragonFi((void *) (arg0));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
-    TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805E00B0));
+    add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805E00B0));
     if (temp_r30_2 == 0) {
         run_tasks__7TObjectFv((void *) (arg0 + 0x3C4));
     }

@@ -37,7 +37,7 @@ s32 is_keyboard_active__17TWindowSubComCardFPv(void *);
 s32 update_keyboard__17TWindowSubComCardFPv(void *);
 void free__11TOBoss4RockFUi(void *);
 char *realloc_buffer__17TWindowSubComCardFPv(void *);
-char *TLobby__sub_8001DC24(void);
+char *get_shared_text_buffer(void);
 void TWindowSubComCard__sub_80225E80(char *, char *);
 s32 measure_string_len__20TWindowSubStatusDispFPv(char *);
 char *strncpy(char *, const char *, u32);
@@ -118,9 +118,9 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
             s32 n;
             free__11TOBoss4RockFUi(self->name);
             self->name = realloc_buffer__17TWindowSubComCardFPv(self->keyboard);
-            TWindowSubComCard__sub_80225E80(self->name, TLobby__sub_8001DC24());
+            TWindowSubComCard__sub_80225E80(self->name, get_shared_text_buffer());
             n = measure_string_len__20TWindowSubStatusDispFPv(self->name);
-            strncpy(self->name, TLobby__sub_8001DC24(), n);
+            strncpy(self->name, get_shared_text_buffer(), n);
             TWindowMakeTeam__sub_80268650(self->menu, self->name, 0);
             self->state = 1;
         }
@@ -146,9 +146,9 @@ void run_task__15TWindowMakeTeamFv(Self_80264EB8 *self) {
             s32 n;
             free__11TOBoss4RockFUi(self->comment);
             self->comment = realloc_buffer__17TWindowSubComCardFPv(self->keyboard);
-            TWindowSubComCard__sub_80225E80(self->comment, TLobby__sub_8001DC24());
+            TWindowSubComCard__sub_80225E80(self->comment, get_shared_text_buffer());
             n = measure_string_len__20TWindowSubStatusDispFPv(self->comment);
-            strncpy(self->comment, TLobby__sub_8001DC24(), n);
+            strncpy(self->comment, get_shared_text_buffer(), n);
             TWindowMakeTeam__sub_80268650(self->menu, self->comment, 1);
             self->state = 1;
         }

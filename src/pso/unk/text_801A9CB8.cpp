@@ -29,7 +29,7 @@ void restore_player_cameras(void);
 void reset_cameras_to_actor(void *, int);
 void TFogCtrl__sub_800FAC10(int, int);
 void *get_player_by_client_id(s32);
-void TObjPlayer__sub_801CBFA4(void *);
+void release_photon_blast_player_holds(void *);
 void set_and_notify_default__6TLobbyFv(void);
 void __dl__7TObjectFPv(void *);
 void TLobby__sub_8024AC20(s32);
@@ -48,7 +48,7 @@ Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
         self->vt = lbl_804C349C;
         if (self->active != 0) {
             set_and_notify_default__6TLobbyFv();
-            TObjPlayer__sub_801CBFA4((u8 *)self + 0x90);
+            release_photon_blast_player_holds((u8 *)self + 0x90);
             if (get_player_by_client_id(lbl_805D53A0) != NULL) {
                 TLobby__sub_8024AC20(lbl_805D53A0);
                 TCameraCtrl__sub_80069D7C();

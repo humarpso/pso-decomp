@@ -490,7 +490,7 @@ s32 obj_testFlags30(void*, M2C_UNK);
 void set_action__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(s32);
-M2C_UNK TObjLight__sub_80134098();
+M2C_UNK restore_scene_lighting();
 M2C_UNK TObjLight__sub_80134194(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -508,7 +508,7 @@ void *__nw__7TObjectFUl(M2C_UNK);
 void *fn_800480B0(void *, void *, void *);
 extern void *tl_04;
 void *TBoss3Volopt__sub_80047DD4(void *arg0);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
@@ -1254,7 +1254,7 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }
         pop_matrix();
-        TObjLight__sub_80134098();
+        restore_scene_lighting();
         end_effect_render__13TParticleCtrlFv();
         ((VObjB_80044498 *)(arg0 + 0x490))->n7();
     }
@@ -1339,7 +1339,7 @@ void *TBoss3Volopt__sub_80047DD4(void *arg0) {
 void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484610;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         if (M2C_FIELD(arg0, void **, 0x474) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x474)); }
         if (M2C_FIELD(arg0, void **, 0x478) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x478)); }
         TBoss3Volopt__sub_800450D0((void *)(arg0));

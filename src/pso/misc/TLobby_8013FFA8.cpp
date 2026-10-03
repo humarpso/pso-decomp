@@ -34,7 +34,7 @@ struct Light_80140514 {
 extern "C" {
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -50,7 +50,7 @@ int update_current_floor__6TLobbyFv(void);
 void update_floor_state__6TLobbyFv(void);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -60,13 +60,13 @@ extern M2C_UNK lbl_8043F1A8[];
 s32 load_scene_ship_b(void);
 int TLobby__sub_8007BA20(void);
 M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
-M2C_UNK TLobby__sub_80227248();
+M2C_UNK stop_cue_stream();
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 extern M2C_UNK lbl_804A7358[];
-void TLobby__sub_8014018C(void);
+void cleanup_dragon_area_scene(void);
 int TLobby__sub_8007BA20(void);
 M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
 int TLobby__sub_8022743C(void);
@@ -77,7 +77,7 @@ extern M2C_UNK lbl_804A7360[];
 void TLobby__sub_80140308(void);
 int TLobby__sub_8007BA20(void);
 int update_current_floor__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80227248();
+M2C_UNK stop_cue_stream();
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
@@ -92,7 +92,7 @@ u32 __nw__7TObjectFUl(s32);
 s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void);
 int TLobby__sub_8007BA20(void);
 int update_current_floor__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80227248();
+M2C_UNK stop_cue_stream();
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 int free_heap__13TParticleCtrlFv(void);
@@ -109,7 +109,7 @@ s32 init_lobby_scene__6TLobbyFv(void);
 int TLobby__sub_8007BA20(void);
 M2C_UNK TLobby__sub_800FD6A0(M2C_UNK *, M2C_UNK);
 int update_current_floor__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80227248();
+M2C_UNK stop_cue_stream();
 int TLobby__sub_8022743C(void);
 int refresh_render_state__6TLobbyFv(void);
 int free_heap__13TParticleCtrlFv(void);
@@ -122,11 +122,11 @@ int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 void run_floor_update__6TLobbyFv(void);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 void TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -145,7 +145,7 @@ void update_floor_and_windows__6TLobbyFv(void);
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -162,7 +162,7 @@ void update_scene__6TLobbyFv(void);
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -206,7 +206,7 @@ int update_current_floor__6TLobbyFv(void);
 void update_floor_objects__6TLobbyFv(void);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -228,7 +228,7 @@ void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
 M2C_UNK init_music_sequencer(M2C_UNK);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK create__12TObjRainCtrlFv();
 s32 is_split_screen();
 extern M2C_UNK lbl_8043F228[];
@@ -261,11 +261,11 @@ int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 void update_floor_alt__6TLobbyFv(void);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -284,7 +284,7 @@ void update_floor_b__6TLobbyFv(void);
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -311,7 +311,7 @@ M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
 M2C_UNK init_area_lights();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_8043F1C8[];
 extern M2C_UNK lbl_804A7360[];
@@ -323,7 +323,7 @@ s32 check_v2_mode__9TObjEneDDFv();
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
 M2C_UNK init_map_lights(Light_801401D0 *);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_8043F1B8[];
 extern M2C_UNK lbl_804A7358[];
@@ -336,7 +336,7 @@ M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
 M2C_UNK init_map_lights(Light_801401D0 *);
 M2C_UNK create__12TObjRainCtrlFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lbl_8043F1D8[];
 extern M2C_UNK lbl_804A7368[];
@@ -353,7 +353,7 @@ int TLobby__sub_8007BA20(void);
 M2C_UNK init_music_sequencer(M2C_UNK);
 int TLobby__sub_8022743C(void);
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK init_area_lights();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -378,7 +378,7 @@ s32 ship_scene_update(void) {
     init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F188);
+        play_area_music(lbl_8043F188);
     } else {
         init_music_sequencer(3);
     }
@@ -396,7 +396,7 @@ s32 init_ship_scene(void) {
     init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F198);
+        play_area_music(lbl_8043F198);
     } else {
         init_music_sequencer(3);
     }
@@ -412,16 +412,16 @@ s32 load_scene_ship_b(void) {
     init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F1A8);
+        play_area_music(lbl_8043F1A8);
     } else {
         init_music_sequencer(3);
     }
     return 1;
 }
-void TLobby__sub_8014018C(void) {
+void cleanup_dragon_area_scene(void) {
     refresh_render_state__6TLobbyFv();
     TLobby__sub_8022743C();
-    TLobby__sub_80227248();
+    stop_cue_stream();
     TLobby__sub_800FD6A0(lbl_804A7358, 8);
     update_current_floor__6TLobbyFv();
     reset_keyboard_control__6TLobbyFv();
@@ -470,7 +470,7 @@ s32 init_dragon_area_scene(void) {
     init_map_lights(&l);
     create_tasks__6TLobbyFv();
     forward_floor_2CB44__6TLobbyFPv();
-    TObjBgmColCtrl__sub_802274B8(lbl_8043F1B8);
+    play_area_music(lbl_8043F1B8);
     return 1;
 }
 
@@ -494,12 +494,12 @@ s32 TLobby__sub_80140348(void) {
     create_tasks__6TLobbyFv();
     create_boss2_tunnel__6TLobbyFv();
     TLobby__sub_801403B4((M2C_UNK)((int) (0)));
-    TObjBgmColCtrl__sub_802274B8((M2C_UNK *)((void *) (lbl_8043F1C8)));
+    play_area_music((M2C_UNK *)((void *) (lbl_8043F1C8)));
     return 1;
 }
 
 void TLobby__sub_801403B4(M2C_UNK _w0) {  }
-void TLobby__sub_801403B8(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void TLobby__sub_801403B8(void) { refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); stop_cue_stream(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     get_global_state__14TOKeyMachine01Fv();
     load_floor_sound_bank();
@@ -513,7 +513,7 @@ s32 spawn_boss3_volopt_ctrl__6TLobbyFv(void) {
     }
     return 1;
 }
-void reset_subsystems__6TLobbyFv(void) { free_heap__13TParticleCtrlFv(); refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); TLobby__sub_80227248(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
+void reset_subsystems__6TLobbyFv(void) { free_heap__13TParticleCtrlFv(); refresh_render_state__6TLobbyFv(); TLobby__sub_8022743C(); stop_cue_stream(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); TLobby__sub_8007BA20(); }
 s32 init_lobby_scene__6TLobbyFv(void) {
     get_global_state__14TOKeyMachine01Fv();
     load_floor_sound_bank();
@@ -529,7 +529,7 @@ s32 init_lobby_scene__6TLobbyFv(void) {
 void cleanup_floor_state__6TLobbyFv(void) {
     refresh_render_state__6TLobbyFv();
     TLobby__sub_8022743C();
-    TLobby__sub_80227248();
+    stop_cue_stream();
     TLobby__sub_800FD6A0(lbl_804A7368, 8);
     free_heap__13TParticleCtrlFv();
     update_current_floor__6TLobbyFv();
@@ -564,7 +564,7 @@ s32 TLobby__sub_80140514(void) {
     create_tasks__6TLobbyFv();
     create__12TObjRainCtrlFv();
     create__13TObjBoss5CtrlFv();
-    TObjBgmColCtrl__sub_802274B8(lbl_8043F1D8);
+    play_area_music(lbl_8043F1D8);
     return 1;
 }
 
@@ -579,11 +579,11 @@ s32 init_cave_b_stage(void) {
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4((M2C_UNK)(0));
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F1E8);
+        play_area_music(lbl_8043F1E8);
     } else {
         init_music_sequencer(1);
     }
-    if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
+    if ((get_main_phase() != 0xE) || (is_quest_active() == 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x1E);
     }
     return 1;
@@ -599,7 +599,7 @@ s32 load_scene_cave_b(void) {
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F1F8);
+        play_area_music(lbl_8043F1F8);
     } else {
         init_music_sequencer(1);
     }
@@ -616,7 +616,7 @@ s32 init_stage_cave_b(void) {
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F208);
+        play_area_music(lbl_8043F208);
     } else {
         init_music_sequencer(1);
     }
@@ -668,7 +668,7 @@ s32 init_stage_forest_b(void) {
     init_area_lights();
     create_tasks__6TLobbyFv();
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F218);
+        play_area_music(lbl_8043F218);
     } else {
         init_music_sequencer(0);
     }
@@ -687,7 +687,7 @@ s32 init_forest_b(void) {
     create__12TObjRainCtrlFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F228);
+        play_area_music(lbl_8043F228);
     } else {
         init_music_sequencer(0);
     }
@@ -731,11 +731,11 @@ s32 init_machine_scene(void) {
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F238);
+        play_area_music(lbl_8043F238);
     } else {
         init_music_sequencer(2);
     }
-    if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
+    if ((get_main_phase() != 0xE) || (is_quest_active() == 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x28);
     }
     return 1;
@@ -751,7 +751,7 @@ s32 init_machine_b_scene(void) {
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_8043F248);
+        play_area_music(lbl_8043F248);
     } else {
         init_music_sequencer(2);
     }

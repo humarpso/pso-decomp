@@ -78,7 +78,7 @@ struct Obj054_80249DE4 { char pad[0x38]; u32 field38; };
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1);
 void request_active_window_close(void);
 void update_status_disp__14TWindowComCardFi(s32 arg0);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
+M2C_UNK draw_visible_window_entries(s32, s32, s32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 draw_default_entry__9TWindowDDFi();
@@ -86,7 +86,7 @@ M2C_UNK set_flag1e_bit8__11TWindowCtrlFPv(void*);
 
 void update_status_disp__14TWindowComCardFi(s32 arg0) {
     M2C_UNK8 *tmp = (M2C_UNK8 *)draw_default_entry__9TWindowDDFi();
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, (s32)tmp);
+    draw_visible_window_entries(arg0, arg0 + 0x24, (s32)tmp);
 }
 
 extern M2C_UNK lbl_804CE964[];

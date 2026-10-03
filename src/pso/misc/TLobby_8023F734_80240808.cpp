@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern const f32 lbl_805DC9D8;
-void TLobby__sub_80240858(u8 *arg0);
+void reset_sound_owner_state(u8 *arg0);
 void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
 void TLobby__sub_80242148(void *self, s32 x);
 extern char lbl_805162EC[];
@@ -45,7 +45,7 @@ void *TLobby__sub_80240808(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TLobby__sub_80240858(u8 *arg0) {
+void reset_sound_owner_state(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2BC) = 0;
     M2C_FIELD(arg0, s32 *, 0x2B8) = 0;
     M2C_FIELD(arg0, s32 *, 0x294) = 0;

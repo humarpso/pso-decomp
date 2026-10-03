@@ -22,13 +22,13 @@ struct RecoveredGlobal_8018590C_lbl_80444878 {
 };
 
 extern "C" {
-void TObjCityMapWarp__sub_801858E4(u8 *arg0);
+void clamp_destination_index__15TObjCityMapWarpFPv(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
 s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
-void TObjCityMapWarp__sub_801858E4(u8 *arg0);
+void clamp_destination_index__15TObjCityMapWarpFPv(u8 *arg0);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
@@ -77,7 +77,7 @@ void render__15TObjCityMapWarpFv(u8 *arg0) {
 
 int is_field88_zero__15TObjCityMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
 
-void TObjCityMapWarp__sub_801858E4(u8 *arg0) {
+void clamp_destination_index__15TObjCityMapWarpFPv(u8 *arg0) {
     s32 var_r0;
     var_r0 = M2C_FIELD(arg0, s32 *, 0x8C);
     if (var_r0 < 0) {
@@ -95,7 +95,7 @@ void TObjCityMapWarp__vt13(u8 *arg0, s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {
         M2C_FIELD(temp_r31, u32 *, 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
-        TObjCityMapWarp__sub_801858E4((u8 *)((void *) (arg0)));
+        clamp_destination_index__15TObjCityMapWarpFPv((u8 *)((void *) (arg0)));
         TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), get_localized_text_entry(9, M2C_FIELD(&lbl_80444878.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 4))), 0xA, 0, -1);
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag_40__16TAdChrSelASlotGCFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));

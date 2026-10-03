@@ -54,7 +54,7 @@ extern "C" {
 M2C_UNK init_from__20TWindowSubStatusDispFPvPvi();
 extern M2C_UNK lbl_804CF948[];
 u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
-void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx);
+void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 extern const f32 lbl_805DCEF0;
 void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
 void free__11TOBoss4RockFUi(void *);
@@ -112,7 +112,7 @@ u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-void TWindowSubStatusDisp__sub_80257BC0(void *self, List_80257BC0 *list, void *ctx) {
+void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx) {
     Item_80257BC0 **p;
     u32 n;
     for (n = list->count, p = list->items; n != 0; n--, p++) {

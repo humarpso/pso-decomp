@@ -33,7 +33,7 @@ void TObjPlayer__sub_801C9400(u8 *arg0);
 extern "C" {
 
 int TFontSmallLobby__sub_801C0228(void*);
-s32 TObjPlayer__sub_801B1E54(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
+s32 send_6x2F_change_player_hp(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 is_status_flag_200__10TObjPlayerFPv(void);
 void TObjPlayer__sub_801C959C(void);
 s32 can_guard__10TObjPlayerFPv(void * a0 = 0);

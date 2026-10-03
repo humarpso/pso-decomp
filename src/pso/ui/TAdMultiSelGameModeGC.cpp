@@ -26,7 +26,7 @@ extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 s32 TObjEneDolmOlm__sub_80300CF0(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
 Ent_80300850 *get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int);
-s32 TAdMultiSelGameModeGC__sub_80300850(void);
+s32 get_max_difficulty_for_party_level(void);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ void render__21TAdMultiSelGameModeGCFv(void) {  }
 s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx) {
     switch (mode) {
     case 0:
-        return idx < (u32)(TAdMultiSelGameModeGC__sub_80300850() + 1) ? 1 : 0;
+        return idx < (u32)(get_max_difficulty_for_party_level() + 1) ? 1 : 0;
     case 1:
         return 1;
     case 2:
@@ -139,7 +139,7 @@ void run_task__21TAdMultiSelGameModeGCFv(Self_80300770 *self) {
     };
     (self->*tbl[self->state])();
 }
-s32 TAdMultiSelGameModeGC__sub_80300850(void) {
+s32 get_max_difficulty_for_party_level(void) {
     s32 m;
     s32 i;
     if (TAdMultiSelGameModeGC__data_805D69F0 == 2) {

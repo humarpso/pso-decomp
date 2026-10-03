@@ -37,9 +37,9 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
-void TObjPlayer__sub_801E341C(void *, int, int);
-void fn_801E3518(void);
-void fn_801E3524(int);
+void draw_line_list(void *, int, int);
+void reset_line_width(void);
+void set_line_width(int);
 void subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 extern u8 *lbl_804B8998[];
@@ -58,7 +58,7 @@ void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
     drop = self->drops;
     for (i = 0; i < self->count; drop++, i++) {
         if (drop->active != 0) {
-            fn_801E3524(5);
+            set_line_width(5);
             VecCopy__FP3VecPC3Vec(lbl_804B8998[0], &drop->position);
             struct Vec_801977D4 pos = drop->position;
             if (xz_distance_squared(lbl_805D4DF0 + 0x178, &pos) < lbl_805DBF10) {
@@ -69,11 +69,11 @@ void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
                 dir.z *= lbl_805DBF14;
                 subtract_vector(&pos, &drop->velocity);
                 VecCopy__FP3VecPC3Vec(lbl_804B8998[0] + 0xC, &pos);
-                TObjPlayer__sub_801E341C(lbl_804B8998, 1, 5);
+                draw_line_list(lbl_804B8998, 1, 5);
             }
         }
     }
-    fn_801E3518();
+    reset_line_width();
     reset_transform_state__10TObjPlayerFv();
 }
 

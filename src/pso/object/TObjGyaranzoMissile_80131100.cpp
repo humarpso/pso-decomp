@@ -49,7 +49,7 @@ void* init_effect__19TObjGyaranzoMissileFPv(void* a0, M2C_UNK _w1, void * _w2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjGyaranzoMissile__sub_80131430(u8 *arg0);
-f32 TCameraCtrl__sub_803D8D00();
+f32 vec_squared_length();
 f32 newton_sqrtf();
 extern f32 lbl_805DB068;
 extern f32 lbl_805DB06C;
@@ -193,7 +193,7 @@ void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self) {
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0) {
     f32 temp_f1;
     f32 temp_f2;
-    if (TCameraCtrl__sub_803D8D00() > lbl_805DB068) {
+    if (vec_squared_length() > lbl_805DB068) {
         temp_f1 = newton_sqrtf();
         temp_f2 = farg0 / temp_f1;
         M2C_FIELD(arg0, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 0) * temp_f2);

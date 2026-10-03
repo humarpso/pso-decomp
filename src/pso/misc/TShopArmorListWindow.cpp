@@ -129,7 +129,7 @@ s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 handle_buy_confirm__20TShopArmorListWindowFv(void *);
 s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0);
-int TShopArmorListWindow__sub_8021AA08(void* p);
+int advance_to_preparation_phase__20TShopArmorListWindowFPv(void* p);
 s32 update__20TShopArmorListWindowFPv(void *arg0);
 s32 handle_select__20TShopArmorListWindowFPv(void *arg0);
 s32 TShopArmorListWindow__sub_8021AE18(void *);
@@ -143,7 +143,7 @@ s32 obj_getField1c(s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-s32 TLobby__sub_8011AF58(u16);
+s32 advance_item_id_counter(u16);
 M2C_UNK try_buy_item(int, void *);
 M2C_UNK TLobby__sub_8020EC68(int, void *);
 void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
@@ -238,7 +238,7 @@ void handle_equip_offer__20TShopArmorListWindowFv(void *p) {
                 Rec_8021A43C c;
                 i = select_cursor_entry__6TLobbyFPv(w->list);
                 c = w->recs[i];
-                c.w[3] = TLobby__sub_8011AF58(lbl_805D53A0);
+                c.w[3] = advance_item_id_counter(lbl_805D53A0);
                 try_buy_item(w->player, &c);
                 update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
                 if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
@@ -280,7 +280,7 @@ s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
     }
     set_field_20__12TQuestListVMFPvi((void*)((void*)(arg0)), (int)(2));
 }
-int TShopArmorListWindow__sub_8021AA08(void* p) { return set_field_20__12TQuestListVMFPvi((void*)(p), (int)(8)); }
+int advance_to_preparation_phase__20TShopArmorListWindowFPv(void* p) { return set_field_20__12TQuestListVMFPvi((void*)(p), (int)(8)); }
 
 s32 update__20TShopArmorListWindowFPv(void *arg0) {
     if ((((VObj_8021AA2C_8021A394 *)arg0)->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
@@ -401,7 +401,7 @@ void TShopArmorListWindow__vt9(u8 *arg0) {
         update__20TShopArmorListWindowFPv((void *) (arg0));
         return;
     case 7:
-        ((s32)TShopArmorListWindow__sub_8021AA08((void*)(arg0)));
+        ((s32)advance_to_preparation_phase__20TShopArmorListWindowFPv((void*)(arg0)));
         return;
     case 8:
         open_menu_window__20TShopArmorListWindowFPv((void *) (arg0));

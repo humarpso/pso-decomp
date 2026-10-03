@@ -135,7 +135,7 @@ void *init_with_name__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
 void release_ref__6TLobbyFPv(u8 *arg0);
 void send_neg50__6TLobbyFPvPv(void* p, void* a1);
 int play_cue_stream_file(void*);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
+M2C_UNK play_area_music(void *);
 s32 TObjPlayer__sub_801AFFD0();
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -154,7 +154,7 @@ void release_ref__6TLobbyFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C) - 1;
     M2C_FIELD(arg0, s32 *, 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
-        TObjBgmColCtrl__sub_802274B8(arg0 + 0x20);
+        play_area_music(arg0 + 0x20);
         queue_destruction__7TObjectFv(arg0);
     }
 }

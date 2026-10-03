@@ -11,7 +11,7 @@ M2C_UNK strncpy(s8 *, u32, M2C_UNK);
 M2C_UNK memset(s8 *, M2C_UNK, M2C_UNK);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
 s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
-s32 TItemData__sub_8010CC68(u8 *arg0);
+s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s8 TItemData__sub_8010CACC(void *self, s8 c);
 s8 TItemData__sub_8010CACC(void *self, s8 c);
 void TItemData__sub_8010CBAC(u8 *self, u8 *in);
@@ -22,7 +22,7 @@ extern "C" {
 u32 find_item_by_id(u32);
 int TItemData__sub_8010CB10(void);
 void TItemData__sub_8010CCB0(void);
-void TItemData__sub_8010CCB4(void);
+void normalize__9TItemDataFv(void);
 u8 get_entry_field16__9TItemDataFv(void);
 s32 get_item_use_result__9TItemDataFPv(u8 *arg0);
 int register_drop__9TItemDataFPv(void* p);
@@ -108,7 +108,7 @@ void TItemData__sub_8010CBAC(u8 *self, u8 *in) {
   }
 }
 
-s32 TItemData__sub_8010CC68(u8 *arg0) {
+s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0) {
     u8 temp_r0;
     if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
         temp_r0 = M2C_FIELD(arg0, u8 *, 1);
@@ -123,7 +123,7 @@ s32 TItemData__sub_8010CC68(u8 *arg0) {
 }
 
 void TItemData__sub_8010CCB0(void) {  }
-void TItemData__sub_8010CCB4(void) {  }
+void normalize__9TItemDataFv(void) {  }
 u8 get_entry_field16__9TItemDataFv(void) {
     void *temp_r3;
 

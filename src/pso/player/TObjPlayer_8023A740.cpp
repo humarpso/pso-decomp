@@ -33,7 +33,7 @@ extern "C" {
 
 void TObjPlayer__sub_8023AC84(void);
 void *destroy_technique_effect_resources__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 int TTecSifta__sub_8023AC88(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
@@ -44,7 +44,7 @@ extern M2C_UNK lbl_804CCC68[];
 void *destroy_technique_effect_resources__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCC68;
-        if (M2C_FIELD(arg0, void **, 0x128) != NULL) { TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, void **, 0x128)); M2C_FIELD(arg0, M2C_UNK *, 0x128) = 0; }
+        if (M2C_FIELD(arg0, void **, 0x128) != NULL) { free_collision_body_parts(M2C_FIELD(arg0, void **, 0x128)); M2C_FIELD(arg0, M2C_UNK *, 0x128) = 0; }
         __dt__7TEffectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

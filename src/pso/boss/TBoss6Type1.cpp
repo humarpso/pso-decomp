@@ -436,7 +436,7 @@ void TBoss6Type1__sub_802B4D5C(u8 *self, s32 num, s32 den);
 s32 rand();
 f32 xyz_distance(void *, void *);
 f32 vec3_add_to(void *, void *);
-void TCameraCtrl__sub_8006D2B0(void *, void *, int);
+void request_follow_camera_offsets(void *, void *, int);
 extern Vec_802B57D4 TBoss6Type1__data_80470FB4;
 extern Vec_802B57D4 lbl_80470FC0;
 extern const f32 TBoss6Type1__data_805DE2E0;
@@ -446,7 +446,7 @@ s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *, f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern const f64 TBoss6Type1__data_80471038;
@@ -651,7 +651,7 @@ void TBoss6Type1__sub_802B4EAC(Boss_802B4EAC *self, s32 step, s32 total) {
         k = lbl_805DE2E8 * sin_table_lookup(lbl_805DE2DC * t) / (f32)step;
     }
     r = k * (r1 - r0) + r0;
-    a = k * (f32)TBoss4Type2__sub_80141FA8(a0, a1) + (f32)a0;
+    a = k * (f32)angle_diff_s16(a0, a1) + (f32)a0;
     self->pos.x = r * sin_table_lookup(a);
     self->pos.z = r * cos_table_lookup(a);
     self->pos.y += k * (self->target.y - self->pos.y);
@@ -859,7 +859,7 @@ s32 TBoss6Type1__sub_802B57D4(void *arg0, void *arg1, void *arg2, int arg3) {
     {
         Vec_802B57D4 p = *(Vec_802B57D4 *)arg1;
         vec3_add_to(&p, &off);
-        TCameraCtrl__sub_8006D2B0(&p, arg2, arg3);
+        request_follow_camera_offsets(&p, arg2, arg3);
     }
 }
 #pragma pop

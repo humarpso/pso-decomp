@@ -26,10 +26,10 @@ struct Inner_801F5E58 { u8 pad[0x14]; char name[1]; };
 struct Obj_801F5E58 { u8 pad[0x198]; Inner_801F5E58 *inner; };
 
 extern "C" {
-s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1);
+s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern u32 lbl_805D5EE8;
-u8 *TQuestThread__sub_801F5C50(s32 arg0);
+u8 *create_quest_thread(s32 arg0);
 M2C_UNK bswap_header__6TLobbyFPv();
 extern u32 lbl_805D5EE8;
 void handle_6x77_sync_quest_register(u8 *arg0);
@@ -51,11 +51,11 @@ extern u32 lbl_805D5EE8;
 extern char lbl_8044A5D0[];
 char *TQuestThread__sub_801F5E58(void);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
-void TQuestThread__sub_801F5D60(s32 i, s32 v);
+void set_floor_handler(s32 i, s32 v);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
-void TQuestThread__sub_801F5D34(s32 i);
+void clear_floor_handler(s32 i);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
-void TQuestThread__sub_801F5DA8(void* _w0);
+void clear_all_floor_handlers(void* _w0);
 }
 
 extern "C" {
@@ -104,7 +104,7 @@ u32 create__12TQuestThreadFi(s32 arg0) {
     return 0U;
 }
 
-u8 *TQuestThread__sub_801F5C50(s32 arg0) {
+u8 *create_quest_thread(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if ((u32) lbl_805D5EE8 != 0U) {
@@ -132,23 +132,23 @@ u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
-void TQuestThread__sub_801F5D34(s32 i) {
+void clear_floor_handler(s32 i) {
     if (i < 0 || i > 0x11) {
         return;
     }
     ((s32 *)&TQuestThread__data_80512AD0)[i] = -1;
 }
 
-void TQuestThread__sub_801F5D60(s32 i, s32 v) {
+void set_floor_handler(s32 i, s32 v) {
     if (i < 0 || i > 0x11) {
         return;
     }
     ((s32 *)&TQuestThread__data_80512AD0)[i] = v;
 }
 
-void TQuestThread__sub_801F5D88(void* p) { TQuestThread__sub_801F5DA8((void*)(p)); }
+void TQuestThread__sub_801F5D88(void* p) { clear_all_floor_handlers((void*)(p)); }
 
-void TQuestThread__sub_801F5DA8(void* _w0) {
+void clear_all_floor_handlers(void* _w0) {
     s32 i;
     for (i = 0; i < 0x12; i++) {
         ((s32 *)&TQuestThread__data_80512AD0)[i] = -1;
@@ -188,7 +188,7 @@ void TQuestThread__sub_801F5E7C(void) {
     memset((void*)((void *) (&lbl_805129F8.value)), (void*)((int) (0)), (void*)((int) (0xD8)));
 }
 
-s32 TQuestThread__sub_801F5EAC(u8 *arg0, s32 arg1) {
+s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1) {
     if (arg0 != NULL) {
         return M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x2C), M2C_UNK *, (arg1 * 4));
     }

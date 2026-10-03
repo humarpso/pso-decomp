@@ -65,7 +65,7 @@ struct Col_8030A9B0 { f32 r, g, b, a; };
 void set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
 f32 xyz_distance(void *, void *);
-void TObjPlayer__sub_803E4684(s32);
+void draw_chunk_model(s32);
 extern u8 *lbl_805D4DF0;
 extern u32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -151,7 +151,7 @@ void TObjPlayer__sub_8030A9B0() {
         col.r = lbl_805DF13C * k + lbl_805DF14C;
         col.g = lbl_805DF14C;
         set_chunk_material_color(&col);
-        TObjPlayer__sub_803E4684(lbl_805D6A6C);
+        draw_chunk_model(lbl_805D6A6C);
         pop_matrix();
     }
     lbl_805D7784 = lbl_805D5664;

@@ -22,7 +22,7 @@ struct Stack_8011A00C {
 extern "C" {
 
 s32 queue_destruction__7TObjectFv(void *);
-s32 TCameraCtrl__sub_80069C94(void *, void *);
+s32 set_active_camera_pose(void *, void *);
 s32 TCameraCtrl__sub_80069E7C(int);
 u32 __ct__21TItemReverseTechPart2Fv(int, void *, int);
 void *__nw__7TObjectFUl(int);
@@ -64,7 +64,7 @@ void TItemReverseTech::run_task() {
     stack.spC = M2C_FIELD(&lbl_8043E6B0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043E6B0.value, s32 *, 8);
     TCameraCtrl__sub_80069E7C((int) (9));
-    TCameraCtrl__sub_80069C94((void *) (&stack.sp14), (void *) (&stack.sp8));
+    set_active_camera_pose((void *) (&stack.sp14), (void *) (&stack.sp8));
     temp_r3 = (u32)part_one;
     if ((temp_r3 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((int) (temp_r3)) == 0)) {
         part_one = NULL;
@@ -96,7 +96,7 @@ extern "C" {
 
 void *TItemReverseTech__ct(void *arg0);
 void *TItemReverseTechPart1__ct(void *, void *, void *);
-void TObjBgmColCtrl__sub_802274B8(void *);
+void play_area_music(void *);
 void *__ct__10TAdEndTextFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
@@ -122,7 +122,7 @@ void *TItemReverseTech__ct(void *arg0) {
     if (o2 != NULL) {
         __ct__10TAdEndTextFv(o2, arg0);
     }
-    TObjBgmColCtrl__sub_802274B8(lbl_8043E708);
+    play_area_music(lbl_8043E708);
     return arg0;
 }
 

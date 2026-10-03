@@ -25,7 +25,7 @@ struct Player_801B3DD4 {
 
 extern "C" {
 s32 TObjPlayer__sub_801B5AF8(void *, s32);
-s32 TObjPlayer__sub_801B5AC4(void *, s32);
+s32 get_action_palette_entry__10TObjPlayerFii(void *, s32);
 void set_action_palette_mode__10TObjPlayerFPv(void *, u8);
 void update_action_palette__10TObjPlayerFPv(void *, u8);
 s32 is_target_valid__10TObjPlayerFPv(void *);
@@ -114,7 +114,7 @@ s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2)
     s16 kind;
     s16 act;
     kind = TObjPlayer__sub_801B5AF8(arg0, arg1);
-    act = TObjPlayer__sub_801B5AC4(arg0, arg1);
+    act = get_action_palette_entry__10TObjPlayerFii(arg0, arg1);
     set_action_palette_mode__10TObjPlayerFPv(self + 0x340, kind);
     update_action_palette__10TObjPlayerFPv(self + 0x340, act);
     switch (kind) {

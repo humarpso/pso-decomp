@@ -27,7 +27,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
-M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 s32 TBoss6PlotFalz__sub_802ABA9C();
 M2C_UNK TBoss6Type2__sub_8032E834(void *);
 M2C_UNK TBoss6Type2__sub_8032E8DC(void *);
@@ -127,7 +127,7 @@ void TBoss6Type2__sub_8033053C(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x388) != 0) {
             var_r4 = -0x5DB4;
         }
-        TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (var_r4), (int) (1), (int) (1), (f32) (lbl_805DF854));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (var_r4), (int) (1), (int) (1), (f32) (lbl_805DF854));
         TBoss6Type2__sub_8032FD78((void *) (arg0));
         sync_hp_apply_damage__11TBoss6Type2FPv((void *) (arg0));
         spawn_trap_by_stat__10TObjPlayerFPv(arg0);

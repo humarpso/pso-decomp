@@ -10,7 +10,7 @@ extern "C" {
 void TObjBgmColCtrl__sub_8017E1E4();
 s32 check__10TObjBgmColFPv(void *arg0);
 s32 get_bgm_object__13TQuestBgmCtrlFv();
-void TObjBgmColCtrl__sub_802274B8(s32);
+void play_area_music(s32);
 extern s32 lbl_804B5780[];
 extern s32 lbl_805D5B00;
 extern s32 lbl_805D5B04;
@@ -48,7 +48,7 @@ void run_task__10TObjBgmColFv(Zone_8017E748 *zone) {
                 if (zone->category == 4) {
                     TObjBgmColCtrl__sub_8017E1E4();
                 } else {
-                    TObjBgmColCtrl__sub_802274B8(lbl_804B5780[zone->category]);
+                    play_area_music(lbl_804B5780[zone->category]);
                 }
                 lbl_805D5B00 = zone->category;
             }

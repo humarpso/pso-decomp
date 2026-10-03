@@ -176,11 +176,11 @@ void TObjPlayer__sub_80156A68(void* p);
 void TObjPlayer__sub_80156A74(void* p);
 M2C_UNK copy_short_fields__6TLobbyFPvPv(void *, void *);
 extern s32 TLobby__data_805D6140;
-s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2);
+s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK subtract_vector(void *, void *);
@@ -201,7 +201,7 @@ s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
 void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC);
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 extern const f32 TObjPlayer__data_805DB270;
-f32 TObjPlayer__sub_801547E0(Obj_801547E0 *self, s32 i);
+f32 get_collision_body_radius(Obj_801547E0 *self, s32 i);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 void TObjPlayer__sub_801549D0(void);
@@ -215,10 +215,10 @@ extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D5868;
 void *find_entity_by_id(u16 id);
 M2C_UNK copy_short_fields__6TLobbyFPvPv(void *, void *);
-s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2);
+s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void TLobby__sub_80156BA8(Pkt_80154954 *pkt);
 void update_and_send_60__6TLobbyFi(Pkt_80154954 *pkt);
-void TObjPlayer__sub_80154954(Player_80154954 *self, State_80154954 *src);
+void send_object_state_update(Player_80154954 *self, State_80154954 *src);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 TObjPlayer__data_805DB298;
@@ -228,7 +228,7 @@ void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 void check_enemy_body_collisions(void *arg0);
 s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 resolve_player_box_contact(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 TObjPlayer__sub_801557BC(u8 *arg0, u32 arg1, u8 *arg2);
+s32 respond_to_body_contact(u8 *arg0, u32 arg1, u8 *arg2);
 u32 check_actor_body_contact(Obj_80156268 *, Obj_80156268 *, f32);
 extern s32 TObjPlayer__data_8050D460[];
 extern s32 lbl_805D586C;
@@ -243,7 +243,7 @@ extern unsigned char lbl_8050DAD0[];
 extern int lbl_805D5878;
 void TObjPlayer__sub_801546D0(u32 arg0, s32 arg1);
 void free__11TOBoss4RockFUi(s32);
-void TObjEneGibbles__sub_80156720(G_80156720 *arg0);
+void free_collision_body_parts(G_80156720 *arg0);
 u16 obj_getField1c(int);
 u32 check_actor_body_contact(Obj_80156268 *, Obj_80156268 *, f32);
 extern s32 TObjPlayer__data_8050D460[];
@@ -257,7 +257,7 @@ extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern s32 TObjPlayer__data_805D5874;
-u16 TObjPlayer__sub_80154A00(Obj_80154A00 *self);
+u16 unregister_object_by_id(Obj_80154A00 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 Hit_80156844 *csnVectorUnder(Vec_80156844 *, void *, s32);
 Hit_80156844 *csnVecterUnder(Vec_80156844 *, s32);
@@ -266,7 +266,7 @@ extern const f32 lbl_805DB2A0;
 s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 *normal);
 s32 TObjPlayer__sub_803E0ED4(CollisionBox_80155C54*,CollisionBox_80155C54*);
 s32 test_box_sphere_contact(CollisionBox_80155C54*,CollisionSphere_80155C54*);
-s32 TObjPlayer__sub_803E1864(CollisionSphere_80155C54*,CollisionSphere_80155C54*);
+s32 spheres_overlap(CollisionSphere_80155C54*,CollisionSphere_80155C54*);
 }
 
 extern "C" {
@@ -360,7 +360,7 @@ u8 test_elt_flag__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     return 0U;
 }
 
-f32 TObjPlayer__sub_801547E0(Obj_801547E0 *self, s32 i) {
+f32 get_collision_body_radius(Obj_801547E0 *self, s32 i) {
     if (self->arr != 0) {
         return self->arr[i].f;
     }
@@ -384,13 +384,13 @@ void *resolve_hittable_target(u16 actorId, s16 collider) {
     return target;
 }
 
-void TObjPlayer__sub_80154954(Player_80154954 *self, State_80154954 *src) {
+void send_object_state_update(Player_80154954 *self, State_80154954 *src) {
     State_80154954 st;
     Obj_80154954 *obj;
     if (src != 0) {
         copy_short_fields__6TLobbyFPvPv(&st, src);
     } else {
-        TLobby__sub_80156A80((u8 *)self, (s32)&st, 1);
+        access_object_saved_state((u8 *)self, (s32)&st, 1);
     }
     obj = self->obj;
     if (obj != 0) {
@@ -411,7 +411,7 @@ void TObjPlayer__sub_801549D0(void) {
     lbl_805D5868 = 0;
 }
 
-u16 TObjPlayer__sub_80154A00(Obj_80154A00 *self) {
+u16 unregister_object_by_id(Obj_80154A00 *self) {
     s32 mid;
     s32 lo;
     s32 hi;
@@ -656,7 +656,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     }
     VecCopy__FP3VecPC3Vec((void *) (&displacement), (void *) (arg2 + 0x1C));
     subtract_vector((void *) (&displacement), (void *) (arg0 + 0x44));
-    temp_r3 = TBoss4Type2__sub_80141FA8((s32) (lbl_804400F0 * get_ad_end_text_start__10TObjPlayerFv(displacement.x, displacement.z)), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    temp_r3 = angle_diff_s16((s32) (lbl_804400F0 * get_ad_end_text_start__10TObjPlayerFv(displacement.x, displacement.z)), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     if ((s32) temp_r3 < 0x4000) {
         tangentScale = lbl_805DB280;
         var_r31 = 0x4000;
@@ -693,7 +693,7 @@ block_7:
     return 0;
 }
 
-s32 TObjPlayer__sub_801557BC(u8 *arg0, u32 arg1, u8 *arg2) {
+s32 respond_to_body_contact(u8 *arg0, u32 arg1, u8 *arg2) {
     if (arg1 != 0 && arg2 != NULL) {
         switch (*(s32 *)(arg2 + 0x14)) {
         case 0:
@@ -874,7 +874,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
                     case 0: default:
                         TObjPlayer__sub_80155050(worldA,source,&sphereAA);
                         TObjPlayer__sub_80155050(worldB,destination,&sphereBB);
-                        if (TObjPlayer__sub_803E1864(&sphereAA,&sphereBB)) return destination;
+                        if (spheres_overlap(&sphereAA,&sphereBB)) return destination;
                         break;
                     }
                     break;
@@ -984,7 +984,7 @@ void update_enemy_collision_flags__10TObjPlayerFPv(void *arg0) {
             temp_r3 = get_player_data__10TObjPlayerFi(var_r30);
             if (temp_r3 != 0) {
                 temp_r3_2 = find_actor_body_contact((u8*)(arg0), (u8*)(temp_r3), TObjPlayer__data_805DB298);
-                if ((temp_r3_2 != NULL) && (check_flag_pair__10TObjPlayerFii(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC((u8 *)(arg0), (u32)(temp_r3), (u8 *)(temp_r3_2)) != 0)) {
+                if ((temp_r3_2 != NULL) && (check_flag_pair__10TObjPlayerFii(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (respond_to_body_contact((u8 *)(arg0), (u32)(temp_r3), (u8 *)(temp_r3_2)) != 0)) {
                     temp_r3_3 = M2C_FIELD(arg0, void **, 0xA4);
                     M2C_FIELD(temp_r3_3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0x18) | 0x01200000);
                 }
@@ -1008,7 +1008,7 @@ void check_enemy_body_collisions(void *arg0) {
                     if (ct != 0) {
                         self->coll->flags |= 0x100000;
                         if (check_flag_pair__10TObjPlayerFii(self->coll->flags, ct->flags) == 0 &&
-                            TObjPlayer__sub_801557BC((u8 *)(self), (u32)((s32)other), (u8 *)(ct)) != 0) {
+                            respond_to_body_contact((u8 *)(self), (u32)((s32)other), (u8 *)(ct)) != 0) {
                             self->coll->flags |= 0x800000;
                         }
                     }
@@ -1035,7 +1035,7 @@ void check_object_collisions__10TObjPlayerFPv(void *arg0) {
                 if (temp_r3_2 != NULL) {
                     temp_r3_3 = M2C_FIELD(arg0, void **, 0xA4);
                     M2C_FIELD(temp_r3_3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_3, s32 *, 0x18) | 0x80000);
-                    if ((check_flag_pair__10TObjPlayerFii(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (TObjPlayer__sub_801557BC((u8 *)((void *)(arg0)), (u32)((s32)(temp_r3)), (u8 *)((void *)(temp_r3_2))) != 0)) {
+                    if ((check_flag_pair__10TObjPlayerFii(M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18), M2C_FIELD(temp_r3_2, s32 *, 0x18)) == 0) && (respond_to_body_contact((u8 *)((void *)(arg0)), (u32)((s32)(temp_r3)), (u8 *)((void *)(temp_r3_2))) != 0)) {
                         temp_r3_4 = M2C_FIELD(arg0, void **, 0xA4);
                         M2C_FIELD(temp_r3_4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_4, s32 *, 0x18) | 0x400000);
                     }
@@ -1051,7 +1051,7 @@ void update_collisions__10TObjPlayerFPv(void* p) { check_object_collisions__10TO
 void clear_obj_links(void* p) { *(s32*)((char*)p + 0x9c) = 0; *(s32*)((char*)p + 0xa4) = 0; }
 void* initialize_linked_object_reference(void* p, void* a1) { *(int*)((char*)p + 0xa8) = 1; *(void**)((char*)p + 0xa4) = a1; *(void**)((char*)p + 0x9c) = (char*)p + 0xa0; refresh_collision_body_centers((Obj_80154E3C *)((void *)(p))); return *(void**)((char*)p + 0xa4); }
 
-void TObjEneGibbles__sub_80156720(G_80156720 *arg0) {
+void free_collision_body_parts(G_80156720 *arg0) {
     u8 *p = arg0->f9c;
     if (p != 0) {
         if (p != 0) {
@@ -1145,7 +1145,7 @@ u8 *TObjPlayer__sub_801569F4(u8 *arg0) {
 
 void TObjPlayer__sub_80156A68(void* p) { *(s16*)((char*)p + 0x96) = 0; }
 void TObjPlayer__sub_80156A74(void* p) { *(s32*)((char*)p + 0x0) = 0; }
-s32 TLobby__sub_80156A80(u8 *arg0, s32 arg1, s16 arg2) {
+s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2) {
     s16 temp_r31;
     u8 *temp_r3;
     temp_r3 = M2C_FIELD(arg0, u8 **, 0x80);

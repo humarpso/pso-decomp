@@ -759,7 +759,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-s32 TObjPlayer__sub_803E4684(void *);
+s32 draw_chunk_model(void *);
 extern M2C_UNK main_task[];
 extern int TObjEneMorfos__data_805D6D14;
 void TObjEneMorfos__sub_803326CC(u8 *arg0);
@@ -866,11 +866,11 @@ void TObjEneMorfos__sub_803326CC(u8 *arg0) {
         if (((RecoveredFields_803326CC_arg0 *)arg0)->field_3C0 & 2) {
             if (((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m8() != 0) {
                 ((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m6();
-                TObjPlayer__sub_803E4684((void *) (M2C_FIELD(M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, void **, 0x28), s32 *, 4)));
+                draw_chunk_model((void *) (M2C_FIELD(M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, void **, 0x28), s32 *, 4)));
                 ((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m7();
             }
         } else {
-            TObjPlayer__sub_803E4684((void *) (M2C_FIELD(M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, void **, 0x28), s32 *, 4)));
+            draw_chunk_model((void *) (M2C_FIELD(M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, void **, 0x28), s32 *, 4)));
         }
         pop_matrix();
     }

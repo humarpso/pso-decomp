@@ -140,7 +140,7 @@ M2C_UNK send_6x21_inter_level_warp(void *, void *);
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0();
 extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
-void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1);
+void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1);
 u8 * TObjWarpBase__vt0(void *, s16);
 u8 * destroy__13TAdVIConfigGCFPvs(void *, s16);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -174,7 +174,7 @@ s32 can_warp__11TObjMapWarpFiUs(void *, u16);
 void *find_warp_player_in_range(void *, u16, f32);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 is_target_valid__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801C8CCC(u16, Vec_8019D250 *, s32);
+void send_6x55_intra_map_warp(u16, Vec_8019D250 *, s32);
 void TWindow__close(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 lbl_805D53A0;
@@ -228,7 +228,7 @@ M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 typedef char RecoveredGlobal_8019CA24_lbl_80515BA0_size[sizeof(RecoveredGlobal_8019CA24_lbl_80515BA0) == 0x28 ? 1 : -1];
-void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
+void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
     set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (int) (get_floor_map_terrain(M2C_FIELD(arg0, s32 *, 0xBC))));
     mark_area_change_pending();
     get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
@@ -452,7 +452,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
                     if (is_target_valid__10TObjPlayerFPv(t) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t)) != 0) {
                         for (j = 0; j < 4; j++) {
                             if (test_player_body_overlap_at(self, t, &d->ends[j]) == 0) {
-                                TObjPlayer__sub_801C8CCC(obj_getField1c(t), &d->ends[j], d->f84);
+                                send_6x55_intra_map_warp(obj_getField1c(t), &d->ends[j], d->f84);
                             }
                         }
                     }
@@ -481,7 +481,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
             if (is_target_valid__10TObjPlayerFPv(t2) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
                 for (j2 = 0; j2 < 4; j2++) {
                     if (test_player_body_overlap_at(self, t2, &d->ends[j2]) == 0) {
-                        TObjPlayer__sub_801C8CCC(obj_getField1c(t2), &d->ends[j2], d->f84);
+                        send_6x55_intra_map_warp(obj_getField1c(t2), &d->ends[j2], d->f84);
                     }
                 }
             }

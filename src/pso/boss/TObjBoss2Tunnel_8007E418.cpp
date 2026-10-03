@@ -20,7 +20,7 @@ void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
-s32 TBoss4Type2__sub_80141FA8(s32, s32);
+s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 limit);
 }
@@ -90,7 +90,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
 void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(p), (f32 *)((char*)p + 0x8), (s32)(_w2)); vec3_add_to(p, a1); }
 
 s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
-    target = TBoss4Type2__sub_80141FA8(arg0, target);
+    target = angle_diff_s16(arg0, target);
     if (target > limit) {
         target = limit;
     } else if (target < -limit) {
@@ -98,7 +98,7 @@ s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 l
     }
     if (cur * target >= 0) {
         cur = approach_angle_limited(cur, target, step);
-    } else if (cur * TBoss4Type2__sub_80141FA8(cur, target) >= 0) {
+    } else if (cur * angle_diff_s16(cur, target) >= 0) {
         if (cur >= 0) {
             cur = cur - step;
         } else {

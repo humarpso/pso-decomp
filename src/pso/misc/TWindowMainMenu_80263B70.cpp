@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 get_main_phase();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 u8 *get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_short_mail_ctrl__6TLobbyFv();
@@ -73,7 +73,7 @@ s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) 
         }
         break;
     case 15:
-        if (TCameraCtrl__sub_8006B368() != 1) {
+        if (is_quest_active() != 1) {
             *arg2 = 0;
         }
         break;

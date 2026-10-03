@@ -17,7 +17,7 @@ typedef struct Curve_8007E16C {
 } Curve_8007E16C;
 
 extern "C" {
-f32 TObjBoss2Tunnel__sub_8007E16C(Curve_8007E16C *c, f32 t);
+f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0) {
 
 #pragma push
 #pragma fp_contract on
-f32 TObjBoss2Tunnel__sub_8007E16C(Curve_8007E16C *c, f32 t) {
+f32 sample_acceleration_curve(Curve_8007E16C *c, f32 t) {
     if (t < 0.0f) {
         return 0.0f;
     }

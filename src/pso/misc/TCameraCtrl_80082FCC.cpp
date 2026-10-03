@@ -32,7 +32,7 @@ struct G_80082FCC { s32 value; s32 v4; f32 f8; f32 fC; };
 extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_80068EF0();
-s32 TCameraCtrl__sub_80069024();
+s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006ABAC(void *, int, int);
 s32 TCameraCtrl__sub_8006AC70(void *);
 s32 TCameraCtrl__sub_8006AF9C(void *, int);
@@ -131,7 +131,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
     typedef char sp28_offset[(offsetof(Stack_800830B0, sp28) == 0x20) ? 1 : -1];
     Stack_800830B0 stack;
     if (is_split_screen() == 0) {
-        TCameraCtrl__sub_80069024();
+        restore_full_screen_view__11TCameraCtrlFv();
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
         stack.sp20 = M2C_FIELD(&lbl_80439348.value, s32 *, 0);

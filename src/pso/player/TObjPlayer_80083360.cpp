@@ -15,7 +15,7 @@ M2C_UNK reset_lobby_subobject__10TObjPlayerFPv(void*);
 extern u32 lbl_805D4EE8;
 void update_camera_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TCameraCtrl__sub_80068EF0();
-M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK TObjPlayer__sub_80084038(s32, M2C_UNK, f32);
 M2C_UNK capture_viewport_texture();
 M2C_UNK TObjPlayer__sub_80084764();
@@ -62,7 +62,7 @@ void update_camera_effect__10TObjPlayerFPv(void *arg0) {
     if (!(TObjPlayer__sub_800847CC() & 4)) {
         if (M2C_FIELD(arg0, s32 *, 0x1C) & 1) {
             if (TObjPlayer__sub_800847A8() == 1) {
-                TCameraCtrl__sub_80069024();
+                restore_full_screen_view__11TCameraCtrlFv();
                 begin_effect_render__13TParticleCtrlFv();
                 TObjPlayer__sub_80084038(lbl_805D2910 << 0x18, 0, lbl_805D93D0);
                 end_effect_render__13TParticleCtrlFv();

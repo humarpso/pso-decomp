@@ -30,9 +30,9 @@ typedef struct Win_8024F094 {
 } Win_8024F094;
 
 extern "C" {
-s32 TWindowSubComCard__sub_80244C0C(void *, void *);
+s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK draw_list_page_indicator(int, int);
 void TWindowDuelResult__sub_8024F478(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -52,11 +52,11 @@ u8 *get_player_by_client_id(int);
 s32 TWindowDuelResult__sub_801C19AC(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
-void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
+void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 lbl_804CEDD0[];
 void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
-s32 TLobby__sub_8001DC24(s32);
+s32 get_shared_text_buffer(s32);
 s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
 Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
@@ -67,7 +67,7 @@ s32 text_builder_append(s32);
 void text_builder_reset(void);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
-void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
+void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 TWindowDuelResult__data_804CEBA0[];
 extern u8 lbl_8050EA40[];
@@ -106,7 +106,7 @@ void TWindowDuelResult__vt1(Win_8024EF40 *arg0) {
     set_default_status__17TWindowDuelResultFPvi(c, get_localized_text_entry(0x10, 5));
     pl = get_player_by_client_id(arg0->player);
     if (pl != 0) {
-        TWindowSubStatusDisp__sub_8025AC50(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), pl + 0x85C, 0x20);
+        set_text_entry_string(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), pl + 0x85C, 0x20);
         vals[0] = TWindowDuelResult__sub_801C19AC(pl + 0x75C);
         vals[1] = TWindowDuelResult__sub_801C19AC(pl + 0x76C);
         vals[2] = TWindowDuelResult__sub_801C19AC(pl + 0x78C);
@@ -168,10 +168,10 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
             } else {
                 set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, e->rank + 6));
             }
-            TWindowSubStatusDisp__sub_8025AC50(c, p + 0x85C, 0x20);
+            set_text_entry_string(c, p + 0x85C, 0x20);
             text_builder_reset();
             TWindowSubStatusDisp__sub_80228F5C(e->value);
-            TWindowSubStatusDisp__sub_8025AC50(d, (void *)TLobby__sub_8001DC24(text_builder_append(get_localized_text_entry(0x10, 0xD))), 0x20);
+            set_text_entry_string(d, (void *)get_shared_text_buffer(text_builder_append(get_localized_text_entry(0x10, 0xD))), 0x20);
             refresh_status_display__9TWindowDDFv(d);
             *(f32 *)(d + 8) = lbl_805DCCAC - *(f32 *)(d + 0x10);
         }
@@ -180,9 +180,9 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
 
 void TWindowDuelResult__sub_8024F478(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowSubComCard__sub_80244C0C(arg0, (void *) (arg0 + 0x60));
+    temp_r3 = setup_window_draw_context(arg0, (void *) (arg0 + 0x60));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     draw_list_page_indicator((int) (M2C_FIELD(arg0, s32 *, 0x68)), (int) (temp_r3));
 }
 

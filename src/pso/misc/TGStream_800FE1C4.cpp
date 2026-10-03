@@ -23,7 +23,7 @@ extern "C" {
 
 void TItemDrop__sub_800FE2D8(void);
 void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2);
-void *TItemDrop__sub_800FDD70(void *, M2C_UNK);
+void *find_gsl_entry(void *, M2C_UNK);
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
 M2C_UNK TLobby__sub_803CC578(s32, s32, M2C_UNK);
@@ -44,7 +44,7 @@ void *open__8TGStreamFPvPvi(void *arg0, void *arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, void **, 0x28) = NULL;
     reset__8TGStreamFv();
-    M2C_FIELD(arg0, void **, 0x28) = TItemDrop__sub_800FDD70(arg1, 1);
+    M2C_FIELD(arg0, void **, 0x28) = find_gsl_entry(arg1, 1);
     if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
         M2C_FIELD(arg0, s32 *, 0x20) = (s32) TItemDrop__data_805D53C4;
         TLobby__sub_803CC578(M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), s32 *, 0x20), 0);

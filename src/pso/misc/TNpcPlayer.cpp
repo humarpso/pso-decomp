@@ -51,7 +51,7 @@ M2C_UNK increment_partner_counter(void *, int);
 s16 get_partner_counter(void *, int);
 M2C_UNK npc_counter_reset_if_reached(void *, int, int);
 extern const f32 lbl_805DB234;
-s32 TNpcPlayer__sub_8014FF5C(u8 *arg0);
+s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0);
 u8 *get_position_ptr__10TObjPlayerFPv(s32);
 u8 *get_target_ptr__11TCameraCtrlFPv(s32);
 f32 vector_length(void *, f32);
@@ -91,8 +91,8 @@ void *dt__10TNpcPlayerFPvs(void *arg0, s16 arg1);
 s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1);
 s32 TNpcPlayer__sub_8014F424(void *, s32, s32, s32);
-s32 TNpcPlayer__sub_8014F57C(void *, s32);
-M2C_UNK TObjEneGibbles__sub_80156720(u32);
+s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(void *, s32);
+M2C_UNK free_collision_body_parts(u32);
 M2C_UNK __dl__FPv(void *);
 s32 find_inventory_item_id__10TObjPlayerFPvcc(s32, M2C_UNK, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(u32);
@@ -101,7 +101,7 @@ s32 try_camera_action__10TObjPlayerFii(s32, M2C_UNK);
 void *dt__10TNpcPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA8) != 0U) {
-            TObjEneGibbles__sub_80156720(M2C_FIELD(arg0, u32 *, 0xA8));
+            free_collision_body_parts(M2C_FIELD(arg0, u32 *, 0xA8));
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xA8));
             M2C_FIELD(arg0, u32 *, 0xA8) = 0U;
         }
@@ -248,7 +248,7 @@ s32 try_update_target_flag__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
 }
 
 s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0) {
-    if (TNpcPlayer__sub_8014F57C(arg0, M2C_FIELD(arg0, s32 *, 0x94) + 0x38) != 0) {
+    if (scan_nearby_enemies__10TNpcPlayerFPvPvf(arg0, M2C_FIELD(arg0, s32 *, 0x94) + 0x38) != 0) {
         M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 2);
         return 1;
     }
@@ -313,7 +313,7 @@ s32 partner_view_check_moved(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TNpcPlayer__sub_8014FF5C(u8 *arg0) {
+s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0) {
     s8 temp_r3;
     if (horizontal_distance_squared((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0)) <= lbl_805DB234) {
         return 0;

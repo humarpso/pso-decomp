@@ -198,7 +198,7 @@ void update_state__16TObjEneRe2FlowerFPv(void *arg0);
 s32 clear_attack_receipts(void * a0 = 0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void *TObjEneRe2Flower__ct(void *, void *, void *);
 M2C_UNK TObjPlayer__sub_800C4D44();
 void __dl__7TObjectFPv(void *);
@@ -300,7 +300,7 @@ void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804931FC;
         if (M2C_FIELD(arg0, void **, 0x428) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x428)); M2C_FIELD(arg0, M2C_UNK *, 0x428) = 0; }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3F4, -1);
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {

@@ -82,7 +82,7 @@ void TLobby__sub_80070550(void);
 void TLobby__sub_80070598(u8 *arg0);
 void cleanup_if_inactive__6TLobbyFPv(void* p);
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 M2C_UNK TLobby__sub_8006FC7C(void *);
 M2C_UNK TLobby__sub_8006FE7C();
 s32 TLobby__sub_80070078(void *);
@@ -217,7 +217,7 @@ void cleanup_if_inactive__6TLobbyFPv(void* p) { if (TLobby__sub_800704CC((void *
 void TLobby__sub_80070598(u8 *arg0) {
     if (((s32)TLobby__sub_800704CC((void *)((void*)((void*)(arg0))))) == 0) {
         ((M2C_UNK)TLobby__sub_80070078((void *) (arg0)));
-        if (TCameraCtrl__sub_8006B368() != 0) {
+        if (is_quest_active() != 0) {
             ((M2C_UNK)init__23TAdSinglePlyChrSelectGCFv());
             ((M2C_UNK)TLobby__sub_800739BC((void *) (arg0)));
             ((M2C_UNK)TLobby__sub_8026A328());

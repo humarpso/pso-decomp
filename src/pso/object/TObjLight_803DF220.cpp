@@ -42,11 +42,11 @@ M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjPlayer__sub_803DF768(s32 arg0);
 extern M2C_UNK lbl_804FC748[];
 extern s32 lbl_805D7794;
-void TObjLight__sub_803DF31C(s32 arg0, s32 arg1);
+void submit_light0(s32 arg0, s32 arg1);
 M2C_UNK GXLoadLightObjImm(void *, int);
 extern M2C_UNK lbl_804FC748[];
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
-void TObjLight__sub_803DF528(s32 arg0);
+void load_gx_light_slot(s32 arg0);
 extern char lbl_804FC75C[];
 extern char lbl_804FC768[];
 void OSPanic(char *, s32, char *, ...);
@@ -55,20 +55,20 @@ void reset_player_transform(void);
 void TObjPlayer__sub_803DF768(s32 arg0);
 void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2);
 void GXSetChanAmbColor(s32 chan, GXColor_803DF268 color);
-void TObjLight__sub_803DF268(f32 r, f32 g, f32 b);
+void set_light_ambient_color(f32 r, f32 g, f32 b);
 void GXInitLightColor(void *, GXColor_803DF268);
 void TObjLight__sub_803DF220(s32 arg0);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
 extern const f32 lbl_805E0FD4;
-void TObjLight__sub_803DF394(s32 idx, f32 r, f32 g, f32 b);
+void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b);
 M2C_UNK GXInitLightPos(void *, f32, f32, f32);
 M2C_UNK GXInitLightDir(void *, f32, f32, f32);
 void TObjLight__sub_803DF220(s32 arg0);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
 extern const f32 lbl_805D7790;
-void TObjLight__sub_803DF464(s32 idx, f32 x, f32 y, f32 z);
+void init_distant_light(s32 idx, f32 x, f32 y, f32 z);
 void GXBegin(int, int, u16);
-void TObjPlayer__sub_803DF5E4(void *arg0, void *arg1);
+void draw_untextured_trail_strip(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void TObjLight__sub_803DF220(s32 arg0) {
 
 
 
-void TObjLight__sub_803DF268(f32 r, f32 g, f32 b) {
+void set_light_ambient_color(f32 r, f32 g, f32 b) {
     GXColor_803DF268 c;
     if (r >= 1.0f) {
         r = 1.0f;
@@ -105,7 +105,7 @@ void TObjLight__sub_803DF268(f32 r, f32 g, f32 b) {
     GXSetChanAmbColor(4, c);
 }
 
-void TObjLight__sub_803DF31C(s32 arg0, s32 arg1) {
+void submit_light0(s32 arg0, s32 arg1) {
     s32 var_r0;
     TObjLight__sub_803DF220((s32)(arg0));
     if (arg1 == 0) {
@@ -123,7 +123,7 @@ typedef char RecoveredGlobal_803DF528_TObjLight__data_8058D528_size[sizeof(Recov
 
 #pragma push
 #pragma scheduling off
-void TObjLight__sub_803DF394(s32 idx, f32 r, f32 g, f32 b) {
+void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b) {
     GXColor_803DF268 c;
     TObjLight__sub_803DF220(idx);
     c.r = (u8)(lbl_805E0FD4 * r);
@@ -138,7 +138,7 @@ void TObjLight__sub_803DF394(s32 idx, f32 r, f32 g, f32 b) {
 
 #pragma push
 #pragma scheduling off
-void TObjLight__sub_803DF464(s32 idx, f32 x, f32 y, f32 z) {
+void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
     TObjLight__sub_803DF220(idx);
     if (idx == 0) {
         GXInitLightPos((u8 *)&TObjLight__data_8058D528 + (idx << 6), lbl_805D7790 * -x, lbl_805D7790 * -y, lbl_805D7790 * -z);
@@ -148,7 +148,7 @@ void TObjLight__sub_803DF464(s32 idx, f32 x, f32 y, f32 z) {
 }
 #pragma pop
 
-void TObjLight__sub_803DF528(s32 arg0) {
+void load_gx_light_slot(s32 arg0) {
     TObjLight__sub_803DF220((s32)(arg0));
     GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__data_8058D528.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(lbl_804FC748) + (arg0 * 4)), s32 *, 0)));
 }
@@ -157,7 +157,7 @@ void TObjLight__sub_803DF528(s32 arg0) {
 
 void TObjPlayer__sub_803DF578(void *arg0, void *arg1, s32 arg2) {
     TObjPlayer__sub_803DF768(arg2);
-    TObjPlayer__sub_803DF5E4((void *)(arg0), (void *)(arg1));
+    draw_untextured_trail_strip((void *)(arg0), (void *)(arg1));
     reset_player_transform();
 }
 
@@ -178,7 +178,7 @@ static inline void GXPosition3f32_803DF5E4(f32 x, f32 y, f32 z) {
 static inline void GXColor1u32_803DF5E4(u32 c) {
     (*(volatile WGPipe_803DF5E4 *)0xCC008000).u32 = c;
 }
-void TObjPlayer__sub_803DF5E4(void *arg0, void *arg1) {
+void draw_untextured_trail_strip(void *arg0, void *arg1) {
     s32 n;
     Vtx_803DF5E4 *v;
     u32 c;

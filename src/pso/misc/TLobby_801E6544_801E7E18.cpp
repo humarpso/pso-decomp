@@ -168,7 +168,7 @@ int get_selected_slot__6TLobbyFPv(void* p);
 int init_graph__6TLobbyFPv(void* p);
 void notify_player_battle__6TLobbyFv(void);
 void set_handler_entry__6TLobbyFi(int a0);
-M2C_UNK TObjPlayer__sub_801B8DE8(u32, s32, s32);
+M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(u32, s32, s32);
 u32 get_player_by_client_id(s32);
 int TWindowSubComCard__sub_8007AFB8(void);
 int destroy_singleton__6TLobbyFv(void*);
@@ -228,7 +228,7 @@ void notify_player_battle__6TLobbyFv(void) {
     temp_r31 = TLobby__data_80512220[0];
     ret = get_player_by_client_id(lbl_805D53A0);
     if (ret != 0U) {
-        TObjPlayer__sub_801B8DE8(ret, temp_r31, 1);
+        send_6x29_delete_item__10TObjPlayerFPvii(ret, temp_r31, 1);
     }
 }
 

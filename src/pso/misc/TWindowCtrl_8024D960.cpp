@@ -46,7 +46,7 @@ s32 TWindowCtrl__sub_8024C7E0(void *);
 s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 M2C_UNK bind_target__13TWindowLockOnFv(void *, s32);
-u32 TWindowLockOn__sub_80263748(int, s32);
+u32 create_for_target__13TWindowLockOnFiUs(int, s32);
 void update_target_info_window__11TWindowCtrlFPv(u8 *arg0);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -286,7 +286,7 @@ void update_target_info_window__11TWindowCtrlFPv(u8 *arg0) {
         if ((u16) id != 0xFFFF) {
             void *w = M2C_FIELD(arg0, void **, 0x38);
             if (w == NULL) {
-                M2C_FIELD(arg0, u32 *, 0x38) = TWindowLockOn__sub_80263748((int) (M2C_FIELD(arg0, s32 *, 0x24)), id);
+                M2C_FIELD(arg0, u32 *, 0x38) = create_for_target__13TWindowLockOnFiUs((int) (M2C_FIELD(arg0, s32 *, 0x24)), id);
             } else {
                 bind_target__13TWindowLockOnFv(w, id);
             }

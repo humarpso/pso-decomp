@@ -17,7 +17,7 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 reset_selection__20TWindowSubStatusDispFPv(int, void *);
 extern const f32 lbl_805DD180;
 extern const f32 lbl_805DD188;
-void TWindowSubStatusDisp__sub_80267B18(u8 *arg0);
+void create_menu_scroll_bar(u8 *arg0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 void TWindowSubStatusDisp__sub_80267AA8(Win_80267AA8 *w, s16 v);
 }
@@ -125,7 +125,7 @@ void TWindowSubStatusDisp__sub_80267AA8(Win_80267AA8 *w, s16 v) {
     }
 }
 
-void TWindowSubStatusDisp__sub_80267B18(u8 *arg0) {
+void create_menu_scroll_bar(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80267B18, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80267B18, spC) == 0x4) ? 1 : -1];
     Stack_80267B18 stack;

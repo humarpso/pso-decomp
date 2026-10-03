@@ -29,7 +29,7 @@ extern s32 lbl_805D3878;
 extern const f32 lbl_805DCAAC;
 extern const f32 lbl_805DCAB0;
 void TWindowAddition__ct(u8 *arg0);
-Ctx_80244364 *TWindowSubComCard__sub_80244C0C(Obj_80244364 *self, f32 *p);
+Ctx_80244364 *setup_window_draw_context(Obj_80244364 *self, f32 *p);
 Ctx_80244364 *TWindowSubStatusDisp__sub_80244364(Obj_80244364 *self);
 void save_position__17TWindowSubComCardFPv(void *p);
 extern const f32 lbl_805DCAA8;
@@ -59,7 +59,7 @@ void TWindowSubStatusDisp__sub_80244238(Disp_80244238 *o) {
 #pragma pop
 
 Ctx_80244364 *TWindowSubStatusDisp__sub_80244364(Obj_80244364 *self) {
-    Ctx_80244364 *c = TWindowSubComCard__sub_80244C0C(self, self->a);
+    Ctx_80244364 *c = setup_window_draw_context(self, self->a);
     c->x -= self->x;
     c->y -= self->y;
     return c;

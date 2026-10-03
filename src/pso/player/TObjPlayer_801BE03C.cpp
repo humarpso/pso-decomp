@@ -5,7 +5,7 @@ extern "C" {
 void finalize_shared__10TObjPlayerFv(void);
 void init_shared__10TObjPlayerFv(void);
 int TLockOnCursor__sub_8013DBF4(void);
-int TLockOnCursor__sub_8013DC38(void);
+int load_target_cursor_models(void);
 int free_shared_data__10TObjPlayerFv(void);
 int TObjPlayer__sub_801BDFC4(void);
 int set_shared_flag__10TObjPlayerFi(void*);
@@ -29,6 +29,6 @@ void finalize_shared__10TObjPlayerFv(void) { set_player_count__6TLobbyFi((void*)
 
     extern int lbl_805D5D7C;
     extern int lbl_805D5D88;
-void init_shared__10TObjPlayerFv(void) { TObjPlayer__sub_801BDFC4(); set_player_count__6TLobbyFi((void*)0); set_shared_count__10TObjPlayerFi((void*)1); set_shared_flag__10TObjPlayerFi((void*)0); lbl_805D5D7C = 0; TLobby__sub_802A7C5C(); load_player_motion_data(); copy_if_space(); init_default__15TWindowSnapShotFv(); free_shared_instance__15TWindowSnapShotFv(); TLockOnCursor__sub_8013DC38(); load_player_footstamp(); TObjPlayer__sub_80354E7C(); lbl_805D5D88 = 0; }
+void init_shared__10TObjPlayerFv(void) { TObjPlayer__sub_801BDFC4(); set_player_count__6TLobbyFi((void*)0); set_shared_count__10TObjPlayerFi((void*)1); set_shared_flag__10TObjPlayerFi((void*)0); lbl_805D5D7C = 0; TLobby__sub_802A7C5C(); load_player_motion_data(); copy_if_space(); init_default__15TWindowSnapShotFv(); free_shared_instance__15TWindowSnapShotFv(); load_target_cursor_models(); load_player_footstamp(); TObjPlayer__sub_80354E7C(); lbl_805D5D88 = 0; }
 
 }

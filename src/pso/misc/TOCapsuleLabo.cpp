@@ -80,8 +80,8 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_object(int);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -163,8 +163,8 @@ extern M2C_UNK __vt__13TOCapsuleLabo[];
 void *__dt__13TOCapsuleLaboFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TOCapsuleLabo;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_key_object__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

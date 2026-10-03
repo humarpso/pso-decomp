@@ -37,7 +37,7 @@ void TObjPlayer__sub_803E20B0(void);
 void TObjPlayer__sub_803E21B8(void);
 void TObjPlayer__sub_803E21DC(void);
 void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
-void fn_801E3518(void);
+void reset_line_width(void);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
@@ -47,7 +47,7 @@ void load_camera_view_matrix(void);
 void TObjPlayer__sub_803E21B8(void);
 void TObjPlayer__sub_803E21DC(void);
 extern int lbl_805D3580;
-void TObjPlayer__sub_801E341C(Lines_801E341C *l, s32 n, u32 flags);
+void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
 void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
@@ -66,8 +66,8 @@ void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f3
 
 extern "C" {
 
-void fn_801E3518(void);
-void fn_801E3524(int a0);
+void reset_line_width(void);
+void set_line_width(int a0);
 void TCameraCtrl__sub_801E32E4(void);
 int TObjPlayer__sub_803DAD28(void*);
 int TObjPlayer__sub_803E2810(void*, void*, void*);
@@ -97,7 +97,7 @@ void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
     TObjEneRe4Sorcerer__sub_801E3F20();
 }
 
-void TObjPlayer__sub_801E341C(Lines_801E341C *l, s32 n, u32 flags) {
+void draw_line_list(Lines_801E341C *l, s32 n, u32 flags) {
     Vec3_801E341C *p;
     u32 *c;
     load_camera_view_matrix();
@@ -128,13 +128,13 @@ void TObjPlayer__sub_801E341C(Lines_801E341C *l, s32 n, u32 flags) {
         n--;
     }
     TObjEneRe4Sorcerer__sub_801E3F20();
-    fn_801E3518();
+    reset_line_width();
 }
 
-void fn_801E3518(void) { lbl_805D3580 = 12; }
+void reset_line_width(void) { lbl_805D3580 = 12; }
 
     extern int lbl_805D3580;
-void fn_801E3524(int a0) { lbl_805D3580 = a0; }
+void set_line_width(int a0) { lbl_805D3580 = a0; }
 void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3) {
     s32 i;
     u32 x;

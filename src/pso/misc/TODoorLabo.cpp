@@ -90,8 +90,8 @@ void *__dt__10TODoorLaboFv(void *arg0, s16 arg1);
 void free_resources__10TODoorLaboFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -109,8 +109,8 @@ s32 TODoorLaboNormal__vt19(void) {
 void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TODoorLaboNormal;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -198,8 +198,8 @@ s32 TODoorLabo__vt19(void) {
 void *__dt__10TODoorLaboFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TODoorLabo;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -306,8 +306,8 @@ extern "C" {
 s32 TODoorFourLightSeabedU__vt19(void);
 s32 TODoorFourLightSeabedU__vt20(void);
 void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 
@@ -328,8 +328,8 @@ extern M2C_UNK __vt__22TODoorFourLightSeabedU[];
 void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TODoorFourLightSeabedU;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -486,8 +486,8 @@ extern "C" {
 s32 TODoorFourLightSeabed__vt19(void);
 s32 TODoorFourLightSeabed__vt20(void);
 void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
 
@@ -508,8 +508,8 @@ extern M2C_UNK __vt__21TODoorFourLightSeabed[];
 void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TODoorFourLightSeabed;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

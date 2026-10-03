@@ -162,7 +162,7 @@ void apply_sol_atomizer(void *arg0);
 int apply_star_atomizer(void* p);
 void *TItemProShield__sub_80116D54(void *arg0);
 void TItemObject__ct(void *);
-int TItemObject__sub_801160E0(void*);
+int send_star_atomizer_targets(void*);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 
@@ -241,7 +241,7 @@ u8 *create_sol_atomizer_item(u8 *arg0) {
     return NULL;
 }
 
-int apply_star_atomizer(void* p) { return TItemObject__sub_801160E0(*(void**)((char*)p + 0xf0)); }
+int apply_star_atomizer(void* p) { return send_star_atomizer_targets(*(void**)((char*)p + 0xf0)); }
 
 extern M2C_UNK lbl_8049FB08[];
 

@@ -80,11 +80,11 @@ struct VObj_802A75C8 : Base_802A75C8 {
 };
 
 extern "C" {
-int TLobby__sub_802A7260(void* a0);
+int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804DDBD8;
 s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
-int TLobby__sub_802A7260(void* a0);
+int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A74B8_lbl_804DD9F8 lbl_804DD9F8;
 s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2);
@@ -131,12 +131,12 @@ void TLobby__sub_802A7318(void* p);
 s32 calc_cell_offset__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 get_valid_child__6TLobbyFPv(void *arg0);
 s32 validate_handle__6TLobbyFPv(s32 *arg0);
-int TLobby__sub_802A7260(void* a0 = 0);
+int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
 void TObjSeabedSuisoBrakable__vt17(void);
 
 s32 get_valid_child__6TLobbyFPv(void *arg0) {
-    if (TLobby__sub_802A7260((void*)(M2C_FIELD(arg0, s32 *, 4))) != 0) {
+    if (is_valid_player_motion_variant((void*)(M2C_FIELD(arg0, s32 *, 4))) != 0) {
         return M2C_FIELD(arg0, s32 *, 4);
     }
     return 0;
@@ -172,7 +172,7 @@ s32 player_motion_provider1_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
-    if (((s32)TLobby__sub_802A7260((void*)((void *) (arg2)))) != 0) {
+    if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
         return M2C_FIELD(M2C_FIELD(&lbl_804DDBD8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
     }
     return 0;
@@ -182,7 +182,7 @@ s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
-    if (((s32)TLobby__sub_802A7260((void*)((void *) (arg2)))) != 0) {
+    if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
         return M2C_FIELD(M2C_FIELD(&lbl_804DD9F8.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
     }
     return 0;

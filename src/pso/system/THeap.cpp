@@ -18,7 +18,7 @@ void *THeap::operator new(size_t size) {
 struct V3_801412D0 { f32 x, y, z; };
 
 extern "C" {
-u32 TObjPlayer__sub_801413D8(u32 x, u32 y, s16 w);
+u32 calc_gx_tile_index(u32 x, u32 y, s16 w);
 s32 is_in_range__10TObjPlayerFf(f32);
 f64 TPlyPhotonChair__sub_80142624(f32);
 s32 TObjPlayer__sub_801412D0(V3_801412D0 *v, V3_801412D0 *out);
@@ -177,7 +177,7 @@ s32 TObjPlayer__sub_801412D0(V3_801412D0 *v, V3_801412D0 *out) {
 }
 #pragma pop
 
-u32 TObjPlayer__sub_801413D8(u32 x, u32 y, s16 w) {
+u32 calc_gx_tile_index(u32 x, u32 y, s16 w) {
     u32 r = ((x >> 2) << 4) + (x & 3);
     r += ((y >> 2) * w) << 2;
     r += (y & 3) << 2;

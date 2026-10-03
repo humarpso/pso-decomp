@@ -21,8 +21,8 @@ struct RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog {
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK draw_window_frame(void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_8026D790(int, int, void *);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
+M2C_UNK draw_window_scrollbar(int, int, void *);
 void render__17TWindowMessageLogFv(u8 *arg0);
 int initialize_subwindow__9TWindowDDFPv(void *);
 void update_window_entry_list(void *, void *);
@@ -56,8 +56,8 @@ void render__17TWindowMessageLogFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_8026D790((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (temp_r3), (void *) (arg0 + 0x68));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_window_scrollbar((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (temp_r3), (void *) (arg0 + 0x68));
 }
 void run_task__17TWindowMessageLogFv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {

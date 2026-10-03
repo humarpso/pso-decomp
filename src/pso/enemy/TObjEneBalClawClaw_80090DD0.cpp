@@ -136,7 +136,7 @@ extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B4;
 void TObjEneBalClawClaw__sub_80091200(Claw_80091200 *self);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80017D68(void *, void *, int, void *, f32);
+M2C_UNK update_enemy_wander_move(void *, void *, int, void *, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TBoss3VoloptMonitor__sub_8004292C(void *);
@@ -150,7 +150,7 @@ extern const f32 TObjEneBalClawClaw__data_805D968C;
 extern const f32 lbl_805D96B8;
 void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-M2C_UNK TObjPlayer__sub_80017D68(void *, void *, int, void *, f32);
+M2C_UNK update_enemy_wander_move(void *, void *, int, void *, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 f32 get_pos_x__10TObjPlayerFPv(s32);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
@@ -225,7 +225,7 @@ void action__18TObjEneBalClawClawFPv(u8 *arg0) {
 }
 
 #define RESET_80090ECC(p) ((M2C_UNK (*)(void *))reset_active_state__18TObjEneBalClawClawFPv)(p)
-#define SEEK_80090ECC(p, v, f) ((M2C_UNK (*)(void *, void *, int, f32))TObjPlayer__sub_80017D68)(p, v, 1, f)
+#define SEEK_80090ECC(p, v, f) ((M2C_UNK (*)(void *, void *, int, f32))update_enemy_wander_move)(p, v, 1, f)
 void TObjEneBalClawClaw__sub_80090ECC(Claw_80090ECC *self) {
     switch (self->state) {
     case -1:
@@ -366,7 +366,7 @@ void TObjEneBalClawClaw__sub_80091354(Claw_80091354 *self) {
         }
         play_persistent_sound(0x4003B235, self, (u8 *)self + 0x38, 0, 0);
         Vec_80091354 v = self->target->pos;
-        TObjPlayer__sub_80017D68(self, &v, 1, self->info, self->info->f4);
+        update_enemy_wander_move(self, &v, 1, self->info, self->info->f4);
         update_angle__10TObjPlayerFPviPv(self, self->info->f8, (u8 *)self + 0x308);
         advance_animation_playback(self);
         apply_actor_gravity(self, 0, TObjEneBalClawClaw__data_805D968C);

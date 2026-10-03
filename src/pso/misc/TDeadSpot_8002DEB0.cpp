@@ -40,7 +40,7 @@ extern s32 lbl_805D4B54;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D8200;
-void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self);
+void render__13TObjBoss1RockFPv(Obj_8002DF7C *self);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1) {
 f32 rand_signed_unit(void) {
     return lbl_805D8184 * ((lbl_805D818C * (f32) rand()) - lbl_805D817C);
 }
-void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {
+void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
     if (self->color < lbl_805D8200) {
         lbl_805D5660 = some_id_805c6f74;
         some_id_805c6f74 = lbl_805D5660 | 0x810;

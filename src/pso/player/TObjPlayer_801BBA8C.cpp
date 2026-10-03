@@ -9,7 +9,7 @@ extern "C" {
 void setup_fresh_player_state__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 TFontSmallLobby__sub_801AFEE0();
 u32 TLockOnCursor__ct(u32, void *, s32);
-int TLockOnCursor__sub_8013DAB0(void*);
+int reset_and_spawn_cursors__13TLockOnCursorFi(void*);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK refill_traps__10TObjPlayerFPv(void *);
 M2C_UNK deactivate_body_collision__10TObjPlayerFPv(void *);

@@ -223,8 +223,8 @@ M2C_UNK fn_80156CA0(void *);
 void TObjPlayer__sub_80189FEC(u8 *arg0);
 f32 xyz_distance_squared(void *, void *);
 s32 TObjPlayer__sub_8018A10C(u8 *arg0, s32 arg1);
-M2C_UNK TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+M2C_UNK send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 extern f32 lbl_805DBCF4;
 f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0);
 s32 fn_80156BBC(void *, void *);
@@ -264,10 +264,10 @@ void TObjPlayer__sub_80189FEC(u8 *arg0) {
 
 f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0) {
     s16 sp8;
-    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
-        TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (0));
-        TObjPlayer__sub_80154954((void *) (arg0), (void *) (&sp8));
+        access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
+        send_object_state_update((void *) (arg0), (void *) (&sp8));
     }
     return (*(const f32 *)&lbl_805DBCF4);
 }

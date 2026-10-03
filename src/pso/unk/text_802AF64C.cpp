@@ -13,7 +13,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
+M2C_UNK rotate_matrix_zyx(s32, s32, s32, s32);
 M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
 M2C_UNK normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
@@ -30,7 +30,7 @@ extern "C" {
 void fn_802AF64C(Obj_802AF64C *arg0) {
     Vec_802AF64C v = lbl_804707E8;
     push_matrix_from(lbl_8058D490);
-    TBoss7Tentacle__sub_803D8A6C(0, lbl_805D4DF0->a, lbl_805D4DF0->b, lbl_805D4DF0->c);
+    rotate_matrix_zyx(0, lbl_805D4DF0->a, lbl_805D4DF0->b, lbl_805D4DF0->c);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     normalize_vector(&v);

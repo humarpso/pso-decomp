@@ -173,7 +173,7 @@ extern "C" {
 u8 *lookup_inventory_item__10TObjPlayerFPv(s32);
 u32 pickup_item__10TObjPlayerFv(int, int);
 s32 get_player_by_client_id(void *);
-void TItem__sub_801007B4(s32 arg0, s32 arg1);
+void give_item_to_client(s32 arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
 s16 clamp_value__10TObjPlayerFPv(void *);
 void set_hp_clamped__10TObjPlayerFPvs(void *, s16);
@@ -189,7 +189,7 @@ void TObjPlayer__sub_801B9634(u32);
 s32 get_player_by_client_id(void *);
 u8 get_field_ed__10TObjPlayerFPv(u32);
 s32 get_field_d8__10TObjPlayerFPv(void *);
-void TItem__sub_801007B4(s32 arg0, s32 arg1);
+void give_item_to_client(s32 arg0, s32 arg1);
 s32 consume_item_by_id(s32 arg0);
 s32 get_id__13TItemProArmorFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(u32);
@@ -275,7 +275,7 @@ void TItem__sub_801007A8(void) {  }
 void TItem__sub_801007AC(void) {  }
 void TItem__sub_801007B0(void) {  }
 
-void TItem__sub_801007B4(s32 arg0, s32 arg1) {
+void give_item_to_client(s32 arg0, s32 arg1) {
     s32 temp_r3;
     u8 *temp_r3_2;
     temp_r3 = get_player_by_client_id((void *) (u16)arg0);
@@ -370,7 +370,7 @@ void replace_item_with_new_code(void *arg0, u32 arg1) {
     sp8.value = get_field_d8__10TObjPlayerFPv((void *)(arg1));
     if (consume_item_by_id(get_field_d8__10TObjPlayerFPv((void *)(arg1))) != 0)
     {
-      TItem__sub_801007B4(temp_r31, (s32)(&sp8));
+      give_item_to_client(temp_r31, (s32)(&sp8));
     }
   }
 }

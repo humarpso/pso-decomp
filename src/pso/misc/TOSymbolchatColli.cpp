@@ -47,7 +47,7 @@ s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 void run_task__17TOSymbolchatColliFv(Obj_80178890 *self);
 void bswap_entry__20TWindowSubSymbolChatFPv(void *);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-void TLobby__sub_800F7DAC(s32, s32);
+void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u32 lbl_8050DB70[];
@@ -63,8 +63,8 @@ void *create__17TOSymbolchatColliFPv(void *arg0);
 void free_rock__17TOSymbolchatColliFv(void);
 s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 u8 is_current_floor_switch_set(u16);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -134,7 +134,7 @@ void TOSymbolchatColli__sub_801789D4(void) {
     lbl_805D5AC8 = alloc_buffer__11TOBoss4RockFPv(0x840);
     h = set_stream_and_load_file__6TLobbyFi(lbl_805D3190);
     if (h != 0) {
-        TLobby__sub_800F7DAC(h, lbl_805D5AC8);
+        prs_decompress_buffer(h, lbl_805D5AC8);
     }
     safe_free__23TAdSinglePlyChrSelectGCFUi(h);
     for (i = 0; i < 0x18; i++) {
@@ -148,8 +148,8 @@ void TOSymbolchatColli__sub_801789D4(void) {
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOSymbolchatColli;
-        TObjPlayer__sub_80154A00((M2C_UNK *)arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id((M2C_UNK *)arg0);
+        free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

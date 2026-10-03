@@ -50,7 +50,7 @@ extern M2C_UNK TFogCtrl__data_80501188[];
 s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
 s32 get_param__8TFogCtrlFPv(void* p);
 void request_transition__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
+M2C_UNK load_entry_into_slot__8TFogCtrlFPvii(int, int, int);
 s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
@@ -61,7 +61,7 @@ void TFogCtrl__sub_800FAD08(void);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 void request_transition__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
-M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
+M2C_UNK load_entry_into_slot__8TFogCtrlFPvii(int, int, int);
 s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 is_split_screen();
 void end_effect_render__13TParticleCtrlFv(void);
@@ -240,7 +240,7 @@ s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if (self->slots[self->selected]->identity == arg1) {
         return 1;
     }
-    TFogCtrl__sub_800FB424((int)arg0, 2, arg1);
+    load_entry_into_slot__8TFogCtrlFPvii((int)arg0, 2, arg1);
     request_transition__8TFogCtrlFPvii(arg0, 1, arg2);
     return 1;
 }
@@ -273,7 +273,7 @@ s32 TFogCtrl__sub_800FB06C(u8 *arg0, s32 arg1, s32 arg2) {
   var_r3 = (u8 *) var_r29;
   var_r5 = var_r30;
   var_r4 = 2;
-  TFogCtrl__sub_800FB424((int) var_r3, (int) 2, (int) var_r5);
+  load_entry_into_slot__8TFogCtrlFPvii((int) var_r3, (int) 2, (int) var_r5);
   var_r3 = (u8 *) var_r29;
   var_r5 = var_r31;
   var_r4 = 0;

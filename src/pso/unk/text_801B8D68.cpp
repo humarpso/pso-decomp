@@ -58,7 +58,7 @@ void init_cmd_6x29__10TObjPlayerFPv(void *cmd);
 s16 obj_getField1c(void *obj);
 void bswap_body_dwords3_and_send__10TObjPlayerFPv(void *cmd);
 void TObjPlayer__sub_801B9634(void *obj);
-void TObjPlayer__sub_801B8DE8(void *obj, s32 a, s32 b);
+void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b);
 s32 is_volopt_phase_final__10TObjPlayerFv(void);
 void dispatch_action__10TObjPlayerFPvii(void *, s32, s32);
 s32 get_player_by_client_id(s32);
@@ -103,7 +103,7 @@ void handle_6x29_delete_inventory_item(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801B8DE8(void *obj, s32 a, s32 b) {
+void send_6x29_delete_item__10TObjPlayerFPvii(void *obj, s32 a, s32 b) {
     Cmd_801B8DE8 cmd;
     if (is_volopt_phase_final__10TObjPlayerFv() != 0) {
         return;

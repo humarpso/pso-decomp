@@ -49,8 +49,8 @@ extern "C" {
 void TNpcPlayer__sub_8014DC30(void);
 int TNpcPlayer__sub_8014DC3C(void* p);
 void init_equipment__10TNpcPlayerFPv(void *arg0);
-int TNpcPlayer__sub_80150A34(void*);
-M2C_UNK TNpcPlayer__sub_801528A8(s32, M2C_UNK, u8);
+int request_technique_cast__10TNpcPlayerFPvi(void*);
+M2C_UNK set_technique_seed_level(s32, M2C_UNK, u8);
 M2C_UNK clamp_and_set_unit_value__10TObjPlayerFiUci(s32, u8, M2C_UNK);
 
 void init_equipment__10TNpcPlayerFPv(void *arg0) {
@@ -62,29 +62,29 @@ void init_equipment__10TNpcPlayerFPv(void *arg0) {
     if (temp_r4 & 4) {
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 0);
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 1);
-        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 0, M2C_FIELD(arg0, u8 *, 0x50));
-        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 1, M2C_FIELD(arg0, u8 *, 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 0, M2C_FIELD(arg0, u8 *, 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 1, M2C_FIELD(arg0, u8 *, 0x50));
     } else if (temp_r4 & 8) {
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 3);
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 4);
-        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 3, M2C_FIELD(arg0, u8 *, 0x50));
-        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 4, M2C_FIELD(arg0, u8 *, 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 3, M2C_FIELD(arg0, u8 *, 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 4, M2C_FIELD(arg0, u8 *, 0x50));
     } else if (temp_r4 & 0x10) {
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 6);
         clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 8);
-        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 6, M2C_FIELD(arg0, u8 *, 0x50));
-        TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 8, M2C_FIELD(arg0, u8 *, 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 6, M2C_FIELD(arg0, u8 *, 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 8, M2C_FIELD(arg0, u8 *, 0x50));
     }
     clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x51), 0xF);
     clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x51), 0x10);
-    TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 0xF, M2C_FIELD(arg0, u8 *, 0x51));
-    TNpcPlayer__sub_801528A8(temp_r31 + 0x428, 0x10, M2C_FIELD(arg0, u8 *, 0x51));
+    set_technique_seed_level(temp_r31 + 0x428, 0xF, M2C_FIELD(arg0, u8 *, 0x51));
+    set_technique_seed_level(temp_r31 + 0x428, 0x10, M2C_FIELD(arg0, u8 *, 0x51));
 }
 
     extern int TNpcPlayer__data_805D5864;
 void TNpcPlayer__sub_8014DC30(void) { TNpcPlayer__data_805D5864 = 1; }
 
-int TNpcPlayer__sub_8014DC3C(void* p) { return TNpcPlayer__sub_80150A34(p); }
+int TNpcPlayer__sub_8014DC3C(void* p) { return request_technique_cast__10TNpcPlayerFPvi(p); }
 
 typedef u16 (*GetState_8014DC5C)(void *);
 void send_partner_attack_stage_request(Self_8014DC5C *self) {

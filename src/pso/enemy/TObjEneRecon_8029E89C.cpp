@@ -19,7 +19,7 @@ struct Stack_8029E960 {
 extern "C" {
 void restore_render_scissor(s32 arg0);
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
+void project_world_to_screen(s32, void *, void *);
 extern u16 lbl_805D65F8;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD94;
@@ -128,7 +128,7 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1) {
         return 1;
     }
     restore_render_scissor(1);
-    TParticleCtrl__sub_803D8D1C(0, arg0, &v);
+    project_world_to_screen(0, arg0, &v);
     if (v.y >= lbl_805DDD8C && v.y <= lbl_805DDD94) {
         GXSetScissor((M2C_UNK)(0), (M2C_UNK)((u32)v.y), (M2C_UNK)(0x280), (M2C_UNK)((u32)(lbl_805DDD94 - v.y)));
         return 1;

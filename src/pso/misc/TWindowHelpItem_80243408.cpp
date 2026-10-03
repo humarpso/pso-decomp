@@ -35,7 +35,7 @@ void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
 s32 get_help_value__15TWindowHelpItemFv(void);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
-M2C_UNK TWindowHelpItem__sub_8025B08C(s32, f32, f32);
+M2C_UNK set_sprite_uv_from_pixels(s32, f32, f32);
 s32 test_card_flag_2__12TBoss8DragonFPv(s32);
 
 extern f32 lbl_805DCA1C;
@@ -44,10 +44,10 @@ extern f32 lbl_805DCA24;
 
 void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1) {
     if (test_card_flag_2__12TBoss8DragonFPv(arg1) != 0) {
-        TWindowHelpItem__sub_8025B08C(arg0, lbl_805DCA1C, lbl_805DCA20);
+        set_sprite_uv_from_pixels(arg0, lbl_805DCA1C, lbl_805DCA20);
         return;
     }
-    TWindowHelpItem__sub_8025B08C(arg0, lbl_805DCA1C, lbl_805DCA24);
+    set_sprite_uv_from_pixels(arg0, lbl_805DCA1C, lbl_805DCA24);
 }
 
 s32 get_help_value__15TWindowHelpItemFv(void) {

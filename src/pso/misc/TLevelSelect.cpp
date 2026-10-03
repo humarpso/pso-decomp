@@ -26,7 +26,7 @@ struct Poss_8013319C { Pos_8013319C p[4]; };
 
 extern "C" {
 s32 TLevelSelect__sub_801F441C(int, int);
-int TLevelSelect__sub_80132F9C(void);
+int count_unlocked_difficulties__12TLevelSelectFv(void);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_localized_text_entry(s32, s32);
@@ -45,7 +45,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void TKeyBoardControl__sub_8000F90C(s32);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
-int TLevelSelect__sub_80132F9C(void);
+int count_unlocked_difficulties__12TLevelSelectFv(void);
 void *__nw__7TObjectFUl(u32);
 void __ct__9TAdBackGCFv(void *, void *);
 void __ct__12TAdBackTxtGCFv(void *, void *);
@@ -75,7 +75,7 @@ extern "C" {
 void render__12TLevelSelectFv(void);
 
 void render__12TLevelSelectFv(void) {  }
-int TLevelSelect__sub_80132F9C(void) {
+int count_unlocked_difficulties__12TLevelSelectFv(void) {
     u8 f;
     int n;
     f = 0;
@@ -124,7 +124,7 @@ Self_8013319C *__ct__12TLevelSelectFv(Self_8013319C *self) {
     self->f0 = lbl_805D2CA0;
     TKeyBoardControl__sub_8000F90C(2);
     lbl_805D5550 = 0;
-    self->count = ((int (*)(void *))TLevelSelect__sub_80132F9C)(self);
+    self->count = ((int (*)(void *))count_unlocked_difficulties__12TLevelSelectFv)(self);
     if (self->count == 0) {
         TKeyBoardControl__sub_8000F9CC(0xE);
         queue_destruction__7TObjectFv(self);

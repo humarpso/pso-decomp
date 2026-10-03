@@ -126,7 +126,7 @@ s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
-void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);

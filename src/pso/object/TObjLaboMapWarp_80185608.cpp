@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 struct Obj_80185664 { u8 pad[0x8C]; s32 dest; };
 
 extern "C" {
-void TObjCityMapWarp__sub_801858E4(void *);
+void clamp_destination_index__15TObjCityMapWarpFPv(void *);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
@@ -39,7 +39,7 @@ void *TObjLaboMapWarp__ct(void *arg0) {
     return arg0;
 }
 void TObjCityMapWarp__vt17(Obj_80185664 *self) {
-    TObjCityMapWarp__sub_801858E4(self);
+    clamp_destination_index__15TObjCityMapWarpFPv(self);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_804449C0);
     TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_804449D0);

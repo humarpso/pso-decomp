@@ -145,7 +145,7 @@ u8 *TItemProArmor__sub_8011768C(u8 *arg0);
 void * init_item_object__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProArmor__sub_801177C4(u8 *arg0);
+u8 *create_item_grinder(u8 *arg0);
 u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
@@ -178,7 +178,7 @@ extern "C" {
 
 void *TItemProArmor__sub_80117730(void *arg0, s16 arg1);
 void TItemProArmor__sub_801178A8(void* p, void* q);
-u8 TItemProArmor__sub_801178CC(void* p);
+u8 get_slot_count__13TItemProArmorFPv(void* p);
 void TItemProArmor__sub_80117D00(void);
 void TItemProArmor__sub_80117D04(void);
 void TItemProArmor__vt14(void *arg0);
@@ -255,7 +255,7 @@ void *init_item_object__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TItemProArmor__sub_801177C4(u8 *arg0) {
+u8 *create_item_grinder(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -299,7 +299,7 @@ void increment_slot_count__13TItemProArmorFPv(u8 *arg0) {
     }
 }
 
-u8 TItemProArmor__sub_801178CC(void* p) { return *(u8*)((char*)p + 0x192); }
+u8 get_slot_count__13TItemProArmorFPv(void* p) { return *(u8*)((char*)p + 0x192); }
 
 void TItemProArmor__sub_801178D4(u8 *arg0) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x195) < (u8) M2C_FIELD(arg0, u8 *, 0x193)) {

@@ -120,8 +120,8 @@ void free_shared_data__19TOMonumentAncient02Fv(void);
 void run_task__19TOMonumentAncient02Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK play_persistent_sound(s32, void *, void *, M2C_UNK, M2C_UNK);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -261,8 +261,8 @@ void *__dt__19TOMonumentAncient02Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TOMonumentAncient02;
         request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0xE8));
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

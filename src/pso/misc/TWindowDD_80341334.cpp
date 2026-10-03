@@ -35,7 +35,7 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 TWindowDD__sub_802466E0(void *, void *, int, void *);
 s32 refresh_status_display__9TWindowDDFv(int);
 s32 reset_float_field__15TWindowHelpItemFPv(int);
-s32 TWindowSubStatusDisp__sub_8025AC50(int, void *, int);
+s32 set_text_entry_string(int, void *, int);
 extern RecoveredGlobal_8034138C_TWindowDD__data_804EFC24 TWindowDD__data_804EFC24;
 extern M2C_UNK lbl_804EFC38[];
 extern s32 lbl_805D42D8;
@@ -85,7 +85,7 @@ u8 *TWindowDD__sub_8034138C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0x60) = arg4;
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));
     if (temp_r3 != NULL) {
-        TWindowSubStatusDisp__sub_8025AC50((int) (temp_r3), (void *) (arg3), (int) (0x80));
+        set_text_entry_string((int) (temp_r3), (void *) (arg3), (int) (0x80));
         M2C_FIELD(temp_r3, f32 *, 8) = (f32) lbl_805DFC94;
         M2C_FIELD(temp_r3, f32 *, 0xC) = (f32) lbl_805DFC94;
         refresh_status_display__9TWindowDDFv((int) (temp_r3));

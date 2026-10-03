@@ -10,8 +10,8 @@ bool TWindowCtrl__sub_8024C7C4(u8 *arg0);
 
 extern "C" {
 
-s32 TRaderMapCore__sub_801F9110();
-s32 TRaderMapCore__sub_801F9144();
+s32 hide_radar__13TRaderMapCoreFv();
+s32 show_radar__13TRaderMapCoreFv();
 void TWindowCtrl__sub_8024C6CC(void* p);
 void TWindowCtrl__sub_8024C6DC(void* p);
 void TWindowCtrl__sub_8024C6EC(void* p);

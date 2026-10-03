@@ -18,7 +18,7 @@ extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801ED764(s32 arg0);
 s32 is_split_screen(void);
 void init__9TItemDataFv(Item_801ED7BC *);
-s32 TLobby__sub_8011AF58(u16);
+s32 advance_item_id_counter(u16);
 void TLobby__sub_801F3708(s32, s32, s32, Item_801ED7BC *);
 void TLobby__sub_801F36F8(s32, s32, s32, Item_801ED7BC *);
 extern s32 lbl_805D53A0;
@@ -69,7 +69,7 @@ void TLobby__sub_801ED7BC(u8 arg0) {
     item.data[3] = REGS_801ED7BC[(u8)arg0++];
     item.data[4] = REGS_801ED7BC[(u8)arg0++];
     item.data[5] = REGS_801ED7BC[(u8)arg0];
-    item.id = TLobby__sub_8011AF58(lbl_805D53A0);
+    item.id = advance_item_id_counter(lbl_805D53A0);
     if (is_split_screen() == 1) {
         TLobby__sub_801F3708(a, b, c, &item);
     } else {

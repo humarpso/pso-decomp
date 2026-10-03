@@ -16,17 +16,17 @@ struct RecoveredGlobal_80287FBC___vt__12TWindowTimer {
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__12TWindowTimerFv(s32 arg0);
-s16 TWindowTimer__sub_8019A70C(int);
+s16 get_timer_value__12TWindowTimerFi(int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK fn_80287BE8(void *);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
 void run_task__12TWindowTimerFv(u8 *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_80287580(void *, void *, int, f32);
+M2C_UNK draw_window_tab(void *, void *, int, f32);
 extern const f32 lbl_805DD890;
 void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1);
 void save_position__17TWindowSubComCardFPv(void *);
@@ -37,11 +37,11 @@ extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
 extern M2C_UNK __vt__12TWindowTimer[];
 extern s32 lbl_805D3AD8;
 u8 *TWindowTimer__ct(u8 *arg0);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK append_padded_number(s32, M2C_UNK);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
-M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
+M2C_UNK set_text_entry_string(s32, s32, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK reset_float_field__15TWindowHelpItemFPv(s32);
 extern s32 lbl_8044FCE8[];
@@ -57,12 +57,12 @@ s32 create__12TWindowTimerFv(void);
 s32 create_alt__12TWindowTimerFv(void);
 void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK append_padded_number(s32, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
-M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
+M2C_UNK set_text_entry_string(s32, s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
@@ -100,7 +100,7 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
     append_padded_number(arg1, 3);
     text_builder_append(lbl_8044FCE0);
     append_padded_number(arg2, 3);
-    TWindowSubStatusDisp__sub_8025AC50(temp_r31, TLobby__sub_8001DC24(), 0x20);
+    set_text_entry_string(temp_r31, get_shared_text_buffer(), 0x20);
     reset_float_field__15TWindowHelpItemFPv(temp_r31);
 }
 
@@ -123,12 +123,12 @@ void set_time__12TWindowTimerFPvUi(void *self, u32 secs) {
         text_builder_append((M2C_UNK *)(&lbl_805DD88C));
         append_padded_number((s32)(secs), (M2C_UNK)(2));
     }
-    TWindowSubStatusDisp__sub_8025AC50((s32)(entry), (s32)(TLobby__sub_8001DC24()), (M2C_UNK)(0x20));
+    set_text_entry_string((s32)(entry), (s32)(get_shared_text_buffer()), (M2C_UNK)(0x20));
     reset_float_field__15TWindowHelpItemFPv(entry);
 }
 
 void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80287580((void *) (arg1), (void *) (arg1 + 0x10), (int) (3), (f32) (lbl_805DD890));
+    draw_window_tab((void *) (arg1), (void *) (arg1 + 0x10), (int) (3), (f32) (lbl_805DD890));
 }
 
 s32 create__12TWindowTimerFv(void) {
@@ -161,15 +161,15 @@ void render__12TWindowTimerFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     TWindowTimer__sub_80287DD8((M2C_UNK)((void *) (arg0)), (s32)((int) (temp_r3)));
-    TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
+    draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 
 void run_task__12TWindowTimerFv(u8 *arg0) {
   int temp_r31;
   if ((*((s32 *) (((s8 *) arg0) + 0x60))) & 1)
   {
-    temp_r31 = TWindowTimer__sub_8019A70C((int) 1);
-    draw__12TWindowTimerFPvii((void *)((void *) arg0), (s32)((int) TWindowTimer__sub_8019A70C((int) 0)), (s32)((int) temp_r31));
+    temp_r31 = get_timer_value__12TWindowTimerFi((int) 1);
+    draw__12TWindowTimerFPvii((void *)((void *) arg0), (s32)((int) get_timer_value__12TWindowTimerFi((int) 0)), (s32)((int) temp_r31));
   }
  do { initialize_subwindow__9TWindowDDFPv((void *) arg0); update_chat_parts__12TWindowTimerFPv((u8 *)((void *) arg0)); fn_80287BE8((void *) arg0); update_window_entry_list((void *) arg0, (void *) (arg0 + 0x24)); } while (0);
 }

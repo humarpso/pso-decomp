@@ -8,7 +8,7 @@ extern "C" {
 
 s32 get_main_phase();
 s32 is_split_screen();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 M2C_UNK create_tasks__6TLobbyFv();
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK init_area_lights();
@@ -16,7 +16,7 @@ M2C_UNK TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK init_music_sequencer(M2C_UNK);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create_instance__10TSceneSoraFPv(s32, s32);
@@ -42,11 +42,11 @@ s32 initialize_boss_scene(void) {
     create_tasks__6TLobbyFv();
     TLobby__sub_801403B4(0);
     if (is_split_screen() != 0) {
-        TObjBgmColCtrl__sub_802274B8(lbl_804651C8);
+        play_area_music(lbl_804651C8);
     } else {
         init_music_sequencer(6);
     }
-    if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
+    if ((get_main_phase() != 0xE) || (is_quest_active() == 0)) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
         switch (temp_r3) {
         case 28:

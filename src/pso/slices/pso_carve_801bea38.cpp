@@ -72,7 +72,7 @@ int is_mounted__15TPlyPhotonChairFPv(void* p);
 int check_flag__10TObjPlayerFPvi(void*, int);
 int TObjPlayer__sub_8011E204(void*, int);
 int set_state_flags__10TObjPlayerFPvUi(void*, int);
-int TObjPlayer__sub_80154A00(void*);
+int unregister_object_by_id(void*);
 int end_camera_pan__10TObjPlayerFPv(void*);
 int start_freeze__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BED70(void*);

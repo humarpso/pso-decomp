@@ -39,7 +39,7 @@ void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input);
 f32 get_stat_f32__8TItemMagFPv(PlayerScaleState*);
 f32* TObjPlayer__sub_801C6FDC(f32*);
 void TObjPlayer__sub_801C6FE0(f32*, f32, f32, f32);
-void TCameraCtrl__sub_8006D2B0(f32*, f32*, u16);
+void request_follow_camera_offsets(f32*, f32*, u16);
 extern const f32 lbl_805DC32C, lbl_805DC344, lbl_805DC348, lbl_805DC34C, lbl_805DC350, lbl_805DC354;
 void update_player_scale_camera(PlayerScaleState *state);
 }
@@ -73,7 +73,7 @@ void update_player_scale_camera(PlayerScaleState *state) {
   f32 z = lbl_805DC34C * get_stat_f32__8TItemMagFPv(state);
   TObjPlayer__sub_801C6FE0(state->camera_position, lbl_805DC32C, lbl_805DC344 * (lbl_805DC348 * get_stat_f32__8TItemMagFPv(state)), z);
   TObjPlayer__sub_801C6FE0(state->camera_target, lbl_805DC32C, lbl_805DC350 * get_stat_f32__8TItemMagFPv(state), lbl_805DC354);
-  TCameraCtrl__sub_8006D2B0(TObjPlayer__sub_801C6FDC(state->camera_target), TObjPlayer__sub_801C6FDC(state->camera_position), 0xFFFF);
+  request_follow_camera_offsets(TObjPlayer__sub_801C6FDC(state->camera_target), TObjPlayer__sub_801C6FDC(state->camera_position), 0xFFFF);
 }
 
 void handle_6x88_restore_shrunken_player(const PlayerRestoreSizePacket* input) {

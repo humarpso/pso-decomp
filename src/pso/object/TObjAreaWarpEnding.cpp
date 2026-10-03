@@ -217,7 +217,7 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
-void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
+void rotate_matrix_zyx(int, s32, s32, s32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, s32);
 void push_matrix();
@@ -245,7 +245,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
-void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
+void rotate_matrix_zyx(int, s32, s32, s32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, s32);
 void push_matrix();
@@ -261,7 +261,7 @@ void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
-void TBoss7Tentacle__sub_803D8A6C(int, s32, s32, s32);
+void rotate_matrix_zyx(int, s32, s32, s32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, s32);
 void push_matrix();
@@ -386,7 +386,7 @@ void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self) {
     for (root = root->child; root != 0; root = root->sibling) {
         push_matrix();
         post_translate_matrix(root->pos);
-        TBoss7Tentacle__sub_803D8A6C(0, root->ang[0], root->ang[1], root->ang[2]);
+        rotate_matrix_zyx(0, root->ang[0], root->ang[1], root->ang[2]);
         rotate_matrix_x(0, arg0->fC8);
         draw_ginja_model(root->model);
         pop_matrix();
@@ -538,7 +538,7 @@ void render__17TObjAreaWarpQuestFv(Obj_8019C250 *self) {
         while (m != NULL) {
             push_matrix();
             post_translate_matrix(m->f8);
-            TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
+            rotate_matrix_zyx((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
             draw_ginja_model(m->f4);
             pop_matrix();
@@ -588,7 +588,7 @@ extern "C" {
 
 int TObjAreaWarpForest__vt17(void* p);
 void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1);
-int TObjAreaWarp__sub_8019CA24(void*);
+int confirm_area_transfer__12TObjAreaWarpFPvi(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
 
@@ -665,7 +665,7 @@ void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {
         while (m != NULL) {
             push_matrix();
             post_translate_matrix(m->f8);
-            TBoss7Tentacle__sub_803D8A6C((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
+            rotate_matrix_zyx((int)(0), (s32)(m->f14), (s32)(m->f18), (s32)(m->f1C));
             rotate_matrix_x((int)(0), (s32)(self->fCC));
             draw_ginja_model(m->f4);
             pop_matrix();
@@ -680,7 +680,7 @@ void render__18TObjAreaWarpForestFv(Obj_8019C604 *self) {
     }
 }
 
-int TObjAreaWarpForest__vt17(void* p) { return TObjAreaWarp__sub_8019CA24(p); }
+int TObjAreaWarpForest__vt17(void* p) { return confirm_area_transfer__12TObjAreaWarpFPvi(p); }
 
 extern M2C_UNK __vt__18TObjAreaWarpForest[];
 

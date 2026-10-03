@@ -59,7 +59,7 @@ void TObjEneMe1GiGue__sub_802CDAC0(void);
 void TObjEneMe1GiGue__sub_802CDAE8(void);
 void *TObjPlayer__sub_802CDE28(void *arg0, s16 arg1);
 void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 void TObjPlayer__sub_800D7C58(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
@@ -72,7 +72,7 @@ extern M2C_UNK lbl_804E135C[];
 void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E135C;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x418, -1);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3FC, -1);
         __dt__15TObjEnemyCustomFv(arg0, 0);

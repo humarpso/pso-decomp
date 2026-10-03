@@ -11,7 +11,7 @@ void apply_velocity_if_free__10TObjPlayerFi(s32 arg0);
 void start_use_item_action__10TObjPlayerFPv(u8 *arg0);
 int TObjPlayer__sub_8001053C(void*);
 u32 resolve_move_collision__10TObjPlayerFPv(s32);
-M2C_UNK TObjPlayer__sub_801B5FB0();
+M2C_UNK damp_planar_velocity();
 M2C_UNK use_current_item__10TObjPlayerFPv(void *);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, M2C_UNK, s32);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
@@ -26,7 +26,7 @@ s16 ret_801D26AC();
 void set_flag_0x100000__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8001053C(p); obj_setFlags30(p, (void*)1048576); }
 
 void apply_velocity_if_free__10TObjPlayerFi(s32 arg0) {
-    TObjPlayer__sub_801B5FB0();
+    damp_planar_velocity();
     if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }

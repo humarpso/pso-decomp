@@ -48,9 +48,9 @@ struct ShopPlayerLevel : ShopPlayerHeader {
 extern "C" {
 s32 get_task_id__14TFontSmallTaskFPv(M2C_UNK *);
 void *get_player_by_client_id(s32);
-M2C_UNK TLobby__sub_8020ECA8();
-M2C_UNK TLobby__sub_802243D4();
-M2C_UNK TLobby__sub_8022559C();
+M2C_UNK clear_shop_armor_flags();
+M2C_UNK clear_shop_tool_flags();
+M2C_UNK clear_shop_weapon_flags();
 extern M2C_UNK TLobby__data_805011D8[];
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5550;
@@ -127,9 +127,9 @@ void init_shop_world_context(void) {
     if ((s32) lbl_805D6240 > 3) {
         lbl_805D6240 = 3;
     }
-    TLobby__sub_8022559C();
-    TLobby__sub_8020ECA8();
-    TLobby__sub_802243D4();
+    clear_shop_weapon_flags();
+    clear_shop_armor_flags();
+    clear_shop_tool_flags();
     lbl_805D6244 = 0;
 }
 #pragma pop

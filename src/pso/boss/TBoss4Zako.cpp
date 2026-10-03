@@ -21,7 +21,7 @@ void update_state3__10TBoss4ZakoFPv(void* p);
 s32 TBoss4Zako__ct(s32, s32, s32);
 int TBoss8Dragon__sub_8005D700(void);
 s32 TObjControl__ct(s32, s32);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -36,7 +36,7 @@ extern M2C_UNK lbl_804876F8[];
 void *__dt__10TBoss4ZakoFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804876F8;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         M2C_FIELD(arg0, s32 *, 0x384) = 0;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x3B4) != 0U) {
             request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3B4));

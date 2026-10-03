@@ -65,7 +65,7 @@ s32 query_game_join_id__10TObjPlayerFv(void);
 void submit_computer_command__10TObjPlayerFPv(void *arg0);
 s32 PPCSync();
 s32 play_sound_effect(s32, s32, s32, s32);
-s32 TItemData__sub_8010C52C(s32);
+s32 is_wrapped__9TItemDataFPv(s32);
 void TItem__sub_801005D8(void);
 void TItem__sub_801005DC(void);
 void TItem__sub_801005E0(void);
@@ -96,7 +96,7 @@ void apply_item_flags__10TObjPlayerFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0xDC) = (s32) (M2C_FIELD(arg0, s32 *, 0xDC) | 0x100);
         M2C_FIELD(arg0, s16 *, 0xE8) = get_packed_value__9TItemDataFPv(arg1);
     }
-    if (TItemData__sub_8010C52C(arg1) != 0) {
+    if (is_wrapped__9TItemDataFPv(arg1) != 0) {
         M2C_FIELD(arg0, s32 *, 0xDC) = (s32) (M2C_FIELD(arg0, s32 *, 0xDC) | 0x400);
     }
 }

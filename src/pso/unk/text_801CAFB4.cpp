@@ -8,12 +8,12 @@ s32 TObjPlayer__sub_801CAEAC();
 s32 complete_fall_reaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CAF6C();
 s32 check_and_trigger_19_5__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801CAFB4(s32 arg0, s16 arg1);
+void run_fall_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CAFB4(s32 arg0, s16 arg1) {
+void run_fall_reaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   void *new_var;
   {
     switch (arg1)

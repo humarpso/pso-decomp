@@ -76,10 +76,10 @@ s32 TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(int);
 s32 select_cursor_entry__6TLobbyFPv(int);
-void TShopGetItemWindow__sub_8021E5D8(u8 *arg0);
+void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 close__18TShopGetItemWindowFPv(void *arg0);
-void TShopGetItemWindow__sub_8021E5D8(u8 *arg0);
+void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0);
 void TShopGetItemWindow__sub_8021E76C(void *arg0);
 s32 rebuild_item_list__18TShopGetItemWindowFv(void *);
 void TShopGetItemWindow__vt9(u8 *arg0);
@@ -132,7 +132,7 @@ typedef struct Stack_8021E5D8 Stack_8021E5D8;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-void TShopGetItemWindow__sub_8021E5D8(u8 *arg0) {
+void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0) {
   Stack_8021E5D8 stack;
   s32 temp_r30;
   s32 temp_r3_2;
@@ -281,7 +281,7 @@ void TShopGetItemWindow__vt9(u8 *arg0) {
         TShopGetItemWindow__sub_8021E76C((void *) (arg0));
         return;
     case 3:
-        TShopGetItemWindow__sub_8021E5D8((u8 *)((void *) (arg0)));
+        handle_withdraw_confirm__18TShopGetItemWindowFPv((u8 *)((void *) (arg0)));
         return;
     case 4:
         close__18TShopGetItemWindowFPv((void *) (arg0));

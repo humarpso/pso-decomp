@@ -44,8 +44,8 @@ void refresh_with_default_list__20TWindowSubStatusDispFii(s32 a, s32 b);
 void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
+M2C_UNK draw_visible_window_entries(void *, void *, s32);
+M2C_UNK draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
 M2C_UNK draw_selected_list_entry(void *, s32);
@@ -74,13 +74,13 @@ void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame(arg0, temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
-        TWindowSubStatusDisp__sub_8026D790(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
+        draw_window_scrollbar(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
     }
 }
 

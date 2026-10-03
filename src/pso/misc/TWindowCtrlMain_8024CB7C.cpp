@@ -31,7 +31,7 @@ s32 TWindowCtrlMain__sub_8024CDB0(void* p);
 s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0);
 s32 TWindowCtrlMain__sub_8024CE24(void);
 s32 TWindowCtrlMain__sub_8024CE34(void);
-s32 TWindowCtrlMain__sub_8024CE44(void);
+s32 is_window_display_enabled(void);
 bool TWindowCtrlMain__sub_8024CE58(void);
 
 void TWindowCtrlMain__sub_8024CB7C() {
@@ -116,7 +116,7 @@ s32 TWindowCtrlMain__sub_8024CE34(void) {
 }
 #undef TWindowCtrlMain__data_80518730
 
-s32 TWindowCtrlMain__sub_8024CE44(void) {
+s32 is_window_display_enabled(void) {
     if (TWindowCtrlMain__data_805D6400 & 1) return 0;
     return 1;
 }

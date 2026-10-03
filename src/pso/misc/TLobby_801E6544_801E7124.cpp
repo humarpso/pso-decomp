@@ -22,7 +22,7 @@ extern Glob_801E75F0 TLobby__data_80512220;
 extern s32 tl_01;
 void TLobby__sub_801E75F0(void);
 void init__9TItemDataFv(ItemData_801E72B4 *);
-u32 TLobby__sub_8011AF58(u16);
+u32 advance_item_id_counter(u16);
 void update_entries__18TChallenge4PResultFii(ItemData_801E72B4 *, s32);
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D5E78;
@@ -63,7 +63,7 @@ void TLobby__sub_801E72B4(u8 i) {
     item.data1[3] = ((s32 *)TLobby__data_805D5E78)[i++];
     item.data1[4] = ((s32 *)TLobby__data_805D5E78)[i++];
     item.data1[5] = ((s32 *)TLobby__data_805D5E78)[i];
-    item.id = TLobby__sub_8011AF58(lbl_805D53A0);
+    item.id = advance_item_id_counter(lbl_805D53A0);
     switch (mode) {
     case 0:
         update_entries__18TChallenge4PResultFii(&item, 2);

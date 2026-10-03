@@ -78,8 +78,8 @@ void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1);
 void *create__17TObjContainerJungFPv(void *arg0);
 void release__17TObjContainerJungFv(void);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -189,8 +189,8 @@ extern M2C_UNK __vt__17TObjContainerJung[];
 void *__dt__17TObjContainerJungFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjContainerJung;
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u8 TLobby__sub_802A7260(u32 arg0);
+u8 is_valid_player_motion_variant(u32 arg0);
 u8 TLobby__sub_802A7278(u32 arg0);
 int fn_802A7238(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -57,7 +57,7 @@ int fn_802A7238(u8 *arg0, s32 arg1, s32 arg2) {
     return var_r6;
 }
 
-u8 TLobby__sub_802A7260(u32 arg0) {
+u8 is_valid_player_motion_variant(u32 arg0) {
     return (u8) (arg0 < 0x13U);
 }
 

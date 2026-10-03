@@ -51,7 +51,7 @@ void TWindowDD__sub_803421D0(u8 *arg0, u8 *arg1);
 s16 *alloc_buffer__11TOBoss4RockFPv(int);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void * a0, s32 a1);
 int refresh_status_display__9TWindowDDFv(void *);
-int TWindowSubStatusDisp__sub_8025AC50(void *, s32, int);
+int set_text_entry_string(void *, s32, int);
 Elem_80341FFC *get_element_ptr__9TWindowDDFi(s32);
 s32 TWindowDD__sub_80348B70(s32);
 void TWindowDD__sub_80341FFC(Win_80341FFC *self);
@@ -225,7 +225,7 @@ void TWindowDD__sub_80341FFC(Win_80341FFC *self) {
     self->shown = n;
     for (i = 0; i < self->shown; i++) {
         ent = (Entry_80341FFC *)get_array_entry__20TWindowSubStatusDispFPvi(self, i);
-        TWindowSubStatusDisp__sub_8025AC50(ent, TWindowDD__sub_80348B70(self->buf[i]), 0xC0);
+        set_text_entry_string(ent, TWindowDD__sub_80348B70(self->buf[i]), 0xC0);
         ent->y = i * 20;
         refresh_status_display__9TWindowDDFv(ent);
     }

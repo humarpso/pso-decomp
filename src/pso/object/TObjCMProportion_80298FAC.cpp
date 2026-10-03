@@ -17,7 +17,7 @@ struct RecoveredGlobal_8029916C_lbl_805409C8 {
 typedef s32 M2C_UNK;
 extern "C" {
 u8 *TObjCMProportion__sub_80298F08();
-f32 TObjCMProportion__sub_80298FF4(void);
+f32 get_right_trigger_ratio__16TObjCMProportionFv(void);
 extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
 u8 TObjCMProportion__sub_8029914C(s32 arg0);
 extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
@@ -27,7 +27,7 @@ u8 *TObjCMProportion__sub_80298F08();
 extern s32 lbl_804DBDC0[];
 extern u8 lbl_8050E208[];
 extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
-void TObjCMProportion__sub_80299238(void);
+void poll_pad_buttons__16TObjCMProportionFv(void);
 }
 
 extern "C" {
@@ -41,7 +41,7 @@ extern const f32 lbl_805DDC20;
 f32 get_ratio__16TObjCMProportionFv(void) {
     return (f32) M2C_FIELD(TObjCMProportion__sub_80298F08(), u16 *, 0x18) / lbl_805DDC20;
 }
-f32 TObjCMProportion__sub_80298FF4(void) {
+f32 get_right_trigger_ratio__16TObjCMProportionFv(void) {
     return (f32) M2C_FIELD(TObjCMProportion__sub_80298F08(), u16 *, 0x1A) / lbl_805DDC20;
 }
 typedef char RecoveredGlobal_8029914C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029914C_lbl_805409C8) == 0x18 ? 1 : -1];
@@ -53,7 +53,7 @@ u8 TObjCMProportion__sub_8029916C(s32 arg0) {
     return (u8) ((M2C_FIELD(&(*(RecoveredGlobal_8029916C_lbl_805409C8 *)&lbl_805409C8).value, s32 *, 0x10) & arg0) != 0);
 }
 #define G_80299238(off) M2C_FIELD(&lbl_805409C8, s32 *, off)
-void TObjCMProportion__sub_80299238(void) {
+void poll_pad_buttons__16TObjCMProportionFv(void) {
     s32 old;
     s32 i;
     old = G_80299238(0xC);

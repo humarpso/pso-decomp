@@ -13,7 +13,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 set_position_xy(int, f32, f32);
-s32 TWindowSubShortMail__sub_8027FB00(void *);
+s32 create_status_category_menu(void *);
 s32 fn_8027FD88(int, f32, f32);
 s32 TWindowSubStatusDisp__ct(int, int);
 extern RecoveredGlobal_8027FCE4_lbl_804D1AD0 lbl_804D1AD0;
@@ -31,7 +31,7 @@ u8 *fn_8027FCE4(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804D1AD0.value;
     M2C_FIELD(arg0, s32 *, 0x20) = arg1;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubShortMail__sub_8027FB00((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x24) = create_status_category_menu((void *) (arg0));
     temp_r3 = __nw__7TObjectFUl((int) (0x74));
     var_r0 = temp_r3;
     if (var_r0 != 0) {

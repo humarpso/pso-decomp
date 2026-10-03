@@ -19,7 +19,7 @@ extern V3_8017F624 lbl_8050DB80[];
 extern s32 TObjCamera__data_805D5B1C;
 void TObjCamera__sub_8017F624(void);
 void TCameraCtrl__sub_803D8934(s32, Vec_8017F6C0 *, Vec_8017F6C0 *);
-void TParticleCtrl__sub_803D8D1C(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
+void project_world_to_screen(s32, Vec_8017F6C0 *, Out_8017F6C0 *);
 extern Vec_8017F6C0 lbl_804FF610;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB5C;
@@ -52,7 +52,7 @@ s32 TObjCamera__vt8(Obj_8017F6C0 *o, f32 r, f32 d) {
         v.x = o->pos.x - lbl_804FF610.x * d;
         v.y = lbl_804FF610.y * d + o->pos.y;
         v.z = lbl_804FF610.z * d + o->pos.z;
-        TParticleCtrl__sub_803D8D1C(0, &v, &out);
+        project_world_to_screen(0, &v, &out);
         if (out.x < TObjCamera__data_805DBB58) {
             return 0;
         }
@@ -60,7 +60,7 @@ s32 TObjCamera__vt8(Obj_8017F6C0 *o, f32 r, f32 d) {
         v.x = lbl_804FF610.x * d + o->pos.x;
         v.y = o->pos.y - lbl_804FF610.y * d;
         v.z = o->pos.z - lbl_804FF610.z * d;
-        TParticleCtrl__sub_803D8D1C(0, &v, &out);
+        project_world_to_screen(0, &v, &out);
         if (out.x > lbl_805DBB5C) {
             return 0;
         }

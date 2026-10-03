@@ -35,7 +35,7 @@ struct Vec_800C7C30 { s32 x, y, z; };
 
 extern "C" {
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-f32 TObjPlayer__sub_80017D68(void *, void *, int, int, f32);
+f32 update_enemy_wander_move(void *, void *, int, int, f32);
 M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
@@ -151,7 +151,7 @@ void TObjEnemyCustom__sub_800C7C30(u8 *arg0) {
         if (temp_r7 != NULL) {
             Vec_800C7C30 v = *(Vec_800C7C30 *)(temp_r7 + 0x2FC);
             temp_r6 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x350));
-            temp_f1 = TObjPlayer__sub_80017D68((void *) (arg0), (void *) (&v), (int) (1), (int) (temp_r6), (f32) (M2C_FIELD(temp_r6, f32 *, 4)));
+            temp_f1 = update_enemy_wander_move((void *) (arg0), (void *) (&v), (int) (1), (int) (temp_r6), (f32) (M2C_FIELD(temp_r6, f32 *, 4)));
             temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x350));
             if ((M2C_FIELD(temp_r3, f32 *, 0) < temp_f1) || (temp_f1 < M2C_FIELD(temp_r3, f32 *, 4))) {
                 M2C_FIELD(arg0, void **, 0x2A8) = NULL;

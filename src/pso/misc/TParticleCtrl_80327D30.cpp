@@ -44,9 +44,9 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 fn_803281B8(int, int, int, int);
 extern M2C_UNK lbl_804ED598[];
 extern s32 tl_05;
-u8 *TParticleCtrl__sub_80327F88(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
+u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(s32, s32, s32, s32, s32, s32);
-void TParticleCtrl__sub_80328090(u8 arg0, u16 arg1, s32 arg2);
+void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2);
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(int);
 M2C_UNK load_projected_texture_matrix(f32);
@@ -163,7 +163,7 @@ void *__dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_80327F88_lbl_804ED598_size[sizeof(RecoveredGlobal_80327F88_lbl_804ED598) == 0x18 ? 1 : -1];
-u8 *TParticleCtrl__sub_80327F88(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1) {
+u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1) {
     s32 temp_r3;
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
@@ -195,7 +195,7 @@ void set_tev_direct__13TParticleCtrlFi(s32 arg0) {
     TObjPlayer__sub_803DC83C(0);
 }
 
-void TParticleCtrl__sub_80328090(u8 arg0, u16 arg1, s32 arg2) {
+void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2) {
     play_particle_at_active_slot__10TObjPlayerFiiiiii((s32) arg0, (s32) arg1, 0, 0, 0, arg2);
 }
 

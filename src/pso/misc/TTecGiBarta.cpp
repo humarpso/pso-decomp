@@ -107,7 +107,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_802308A0_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
-void TTecGiBarta__sub_802308A0(u8 *arg0);
+void calc_params__11TTecGiBartaFPv(u8 *arg0);
 u16 obj_getField1c(void *);
 void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -120,7 +120,7 @@ TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 dele
 u16 obj_getField1c(void *);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 void create_particles__11TTecGiBartaFv(void *);
-void TTecGiBarta__sub_802308A0(u8 *arg0);
+void calc_params__11TTecGiBartaFPv(u8 *arg0);
 void construct_aimed_technique_projectile();
 extern void *__vt__11TTecGiBarta[];
 extern s32 lbl_805D37B8;
@@ -129,7 +129,7 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
 u16 obj_getField1c(void *);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
 void create_particles__11TTecGiBartaFv(void *);
-void TTecGiBarta__sub_802308A0(u8 *arg0);
+void calc_params__11TTecGiBartaFPv(u8 *arg0);
 void TObjPlayer__sub_8023AA4C();
 extern void *__vt__11TTecGiBarta[];
 extern s32 lbl_805D37B8;
@@ -194,7 +194,7 @@ typedef struct RecoveredGlobal_802308A0_lbl_804CC510 RecoveredGlobal_802308A0_lb
 typedef struct RecoveredGlobal_802308A0_lbl_804CC55C RecoveredGlobal_802308A0_lbl_804CC55C;
 typedef char RecoveredGlobal_802308A0_lbl_804CC510_size[((sizeof(RecoveredGlobal_802308A0_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_802308A0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802308A0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-void TTecGiBarta__sub_802308A0(u8 *arg0) {
+void calc_params__11TTecGiBartaFPv(u8 *arg0) {
   s32 new_var;
   new_var = calc_technique_parameters((int) 4, (int) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
@@ -282,7 +282,7 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
     construct_aimed_technique_projectile();
     self->vtable = __vt__11TTecGiBarta;
     self->f0 = lbl_805D37B8;
-    TTecGiBarta__sub_802308A0((u8 *)self);
+    calc_params__11TTecGiBartaFPv((u8 *)self);
     self->f12c = lbl_805DC80C;
     for (i = 0; i < 32; i++) {
         self->slots[i] = 0xFFFF;
@@ -301,7 +301,7 @@ u8 *TTecGiBarta__sub_80230CFC(u8 *arg0, void * _w1, void * _w2, void * _w3, void
     TObjPlayer__sub_8023AA4C();
     M2C_FIELD(arg0, void **, 0x18) = __vt__11TTecGiBarta;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37B8;
-    TTecGiBarta__sub_802308A0(arg0);
+    calc_params__11TTecGiBartaFPv(arg0);
     for (i = 0; i < 0x20; i++) {
         ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;
     }

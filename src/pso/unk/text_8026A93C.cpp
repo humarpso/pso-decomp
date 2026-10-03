@@ -9,7 +9,7 @@ u8 * TWindowMessageLog__ct(void *, M2C_UNK, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TLobby__sub_80269DA4(void *, int);
 u8 *fn_8026A9D8(s32 arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 M2C_UNK append_text_space();
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
@@ -40,7 +40,7 @@ void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
         append_text_space();
     }
     text_builder_append(arg1);
-    arg1 = (M2C_UNK *) TLobby__sub_8001DC24();
+    arg1 = (M2C_UNK *) get_shared_text_buffer();
     chat_log_add_line();
     {
         u32 tmp_ad = get_field44__11TWindowCtrlFv();

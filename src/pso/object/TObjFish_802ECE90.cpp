@@ -35,7 +35,7 @@ extern const f32 lbl_805DEB64;
 extern const f32 lbl_805DEB94;
 u32 TObjFish__sub_802ED254(u8 *arg0);
 M2C_UNK TObjPlayer__sub_803D7B68(int, f32);
-M2C_UNK TObjPlayer__sub_803D7CA4(int);
+M2C_UNK compose_motion_node_matrix(int);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
@@ -249,7 +249,7 @@ f32 TObjFish__sub_802ED3E4(u8 *arg0) {
     push_matrix_from(lbl_8058D490);
     scale_matrix(0, lbl_805DEB24, lbl_805DEB24, lbl_805DEB24);
     TObjPlayer__sub_803D7B68(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
-    TObjPlayer__sub_803D7CA4(M2C_FIELD(arg0, s32 *, 0x34));
+    compose_motion_node_matrix(M2C_FIELD(arg0, s32 *, 0x34));
     transform_point_by_current_matrix(&v, &v);
     pop_matrix();
     return v.y;

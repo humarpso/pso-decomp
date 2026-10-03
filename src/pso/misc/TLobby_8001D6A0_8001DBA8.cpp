@@ -13,7 +13,7 @@ extern "C" {
 extern s32 TLobby__data_805D4A98;
 void TLobby__sub_8001DBD8(s32 _w0);
 extern RecoveredGlobal_8001DC24_lbl_80515BC8 lbl_80515BC8;
-M2C_UNK *TLobby__sub_8001DC24(void);
+M2C_UNK *get_shared_text_buffer(void);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void TLobby__sub_8001DC04(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
     extern int TLobby__data_805D4ABC;
 
 typedef char RecoveredGlobal_8001DC24_lbl_80515BC8_size[sizeof(RecoveredGlobal_8001DC24_lbl_80515BC8) == 0x100 ? 1 : -1];
-M2C_UNK *TLobby__sub_8001DC24(void) {
+M2C_UNK *get_shared_text_buffer(void) {
     return &lbl_80515BC8.value;
 }
 

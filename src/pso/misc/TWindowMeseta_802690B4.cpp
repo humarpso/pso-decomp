@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TWindowSubComCard__sub_80244C0C(s32, s32);
-s32 TWindowSubStatusDisp__sub_80257BC0(s32, s32, s32);
+s32 setup_window_draw_context(s32, s32);
+s32 draw_visible_window_entries(s32, s32, s32);
 void *get_quest_id__12TQuestListVMFPv();
 u32 get_player_by_client_id(s32);
 void draw_value__13TWindowMesetaFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowSubStatusDisp__sub_80287580(s32, s32, M2C_UNK, f32);
+M2C_UNK draw_window_tab(s32, s32, M2C_UNK, f32);
 s32 get_entry_id__17TWindowSubComCardFPv(void* p);
 int TWindowSubComCard__sub_8026906C(void* p);
 
@@ -28,14 +28,14 @@ s32 get_meseta_value__13TWindowMesetaFPv(void *arg0) {
     return M2C_FIELD(temp_r3, s32 *, 0x20);
 }
 void draw_value__13TWindowMesetaFPvi(void *arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80287580(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
+    draw_window_tab(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
 }
 void update_display__13TWindowMesetaFi(s32 arg0) {
     s32 temp_r3;
 
-    temp_r3 = TWindowSubComCard__sub_80244C0C(arg0, arg0 + 0x6C);
+    temp_r3 = setup_window_draw_context(arg0, arg0 + 0x6C);
     draw_value__13TWindowMesetaFPvi((void *)(arg0), temp_r3);
-    TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
+    draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
 }
 
 }

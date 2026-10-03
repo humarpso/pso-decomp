@@ -71,7 +71,7 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(int, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
-s32 TObjLight__sub_80134098();
+s32 restore_scene_lighting();
 s32 TObjLight__sub_80134194(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
@@ -243,7 +243,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
         }
         pop_matrix();
-        TObjLight__sub_80134098();
+        restore_scene_lighting();
         end_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 = lbl_805D5660;
         if (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C < lbl_805D8708) {

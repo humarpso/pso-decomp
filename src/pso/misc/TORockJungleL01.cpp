@@ -11,8 +11,8 @@ void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void TObjPlayer__sub_800D7C58(void *, int);
-void TObjPlayer__sub_80154A00(void *);
-void TObjEneGibbles__sub_80156720(void *);
+void unregister_object_by_id(void *);
+void free_collision_body_parts(void *);
 void queue_destruction__7TObjectFv(void *);
 
 void *TORockJungleL01__create(void *arg0) {
@@ -29,8 +29,8 @@ void *destroy__15TORockJungleL01FPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DC448;
         if (M2C_FIELD(arg0, void **, 0xD4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD4)); M2C_FIELD(arg0, M2C_UNK *, 0xD4) = 0; }
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xB4, -1);
         __dt__10TORockCaveFv(arg0, 0);
         if (arg1 > 0) {

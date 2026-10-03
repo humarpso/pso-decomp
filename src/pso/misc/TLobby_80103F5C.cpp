@@ -109,7 +109,7 @@ void TItemObject__sub_8011646C();
 void *TLobby__sub_8010440C(In_8010440C *arg0);
 extern void *lbl_8049EB58[];
 void create_common_weapon();
-void *TLobby__sub_80104438(In_80104438 *arg0);
+void *get_weapon_factory_for_item(In_80104438 *arg0);
 void TLobby__sub_8010314C(Ent_80103F68 *);
 void clear_object_count__6TLobbyFv(void);
 extern u32 lbl_805D5418;
@@ -118,7 +118,7 @@ extern s32 lbl_805D5420;
 extern s32 lbl_805D542C;
 void TLobby__sub_80103F68(void);
 s32 get_instance__6TLobbyFv();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 TItemDropSub__sub_80107B74();
 extern Tbl_801044B8 lbl_8043E068;
 void normalize_drop_area(s32 *p);
@@ -219,7 +219,7 @@ void *TLobby__sub_8010440C(In_8010440C *arg0) {
     return (void *)TItemObject__sub_8011646C;
 }
 
-void *TLobby__sub_80104438(In_80104438 *arg0) {
+void *get_weapon_factory_for_item(In_80104438 *arg0) {
     u8 i = arg0->idx;
     if (i < 0xAA) {
         return lbl_8049EB58[i];
@@ -239,7 +239,7 @@ void handle_select_confirm__6TLobbyFv(void) {
 
 void normalize_drop_area(s32 *p) {
     s32 v;
-    if (TCameraCtrl__sub_8006B368() != 0 && p != NULL) {
+    if (is_quest_active() != 0 && p != NULL) {
         switch (*p) {
         case 0x10:
         case 0x11:

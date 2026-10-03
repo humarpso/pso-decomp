@@ -50,7 +50,7 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
 extern u8 lbl_805DAB68;
 void TItemData__sub_8010C498(struct Item_8010C498 *self);
 s32 lookup_item_def__9TItemDataFPv(void *);
-u8 TItemData__sub_8010C52C(Item_8010C52C *it);
+u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
 f32 TItemData__sub_8010C5DC(u8 *arg0);
 f32 get_set_bonus_multiplier__9TItemDataFPvi(void *, s32);
 Parm_8010C1E0 *lookup_item_pmt_record(void *);
@@ -71,18 +71,18 @@ void TItemData__sub_8010EDD8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDC8(void *arg0, s32 arg1);
 void TItemData__sub_8010EDA8(void *arg0, s32 arg1);
 void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
-void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
+void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
 void fn_8010B7D8(u8 *arg0, s32 arg1);
 void fn_8010B7E8(u8 *arg0, s32 arg1);
 void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
-void TItemData__sub_8010B818(void *arg0, s32 arg1);
+void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1);
 void TItemData__sub_8010EE1C(void *arg0, s16 arg1);
 void TItemData__sub_8010EE30(s16 *arg0, s32 arg1);
-Bonus_8010BA9C *TObjPlayer__sub_8011C4AC(u8, u8, u8);
+Bonus_8010BA9C *get_item_stat_boost_record(u8, u8, u8);
 void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st);
 }
 
@@ -91,8 +91,8 @@ extern "C" {
 void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
-void TItemData__sub_8010B818(void *arg0, s32 arg1);
-void TItemData__sub_8010C638(void *arg0, u16 arg1);
+void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
+void set_packed_value__9TItemDataFPvUs(void *arg0, u16 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 u16 get_packed_value__9TItemDataFPv(void *arg0);
@@ -108,7 +108,7 @@ void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1) {
 s32 TItemData__sub_8010B808(void* p) { return *(s32*)((char*)p + 0x31c); }
 s32 TItemData__sub_8010B810(void* p) { return *(s32*)((char*)p + 0x318); }
 
-void TItemData__sub_8010B818(void *arg0, s32 arg1) {
+void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) + arg1);
 }
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1) {
@@ -158,7 +158,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
     switch (t) {
     case 0:
     case 1:
-        bn = TObjPlayer__sub_8011C4AC(t, item[1], item[2]);
+        bn = get_item_stat_boost_record(t, item[1], item[2]);
         if (bn != NULL && a != NULL && b != NULL && st != NULL)
         switch (bn->kind) {
         case 1:
@@ -166,7 +166,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             add_stat__9TItemDataFPvi(a, bn->val);
             break;
         case 2:
-            TItemData__sub_8010B818(a, (s16)(bn->val * 10));
+            add_accuracy__9TItemDataFPvi(a, (s16)(bn->val * 10));
             break;
         case 3:
             add_stat_ptr__9TItemDataFPvi((s16 *)b, bn->val);
@@ -186,7 +186,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
         case 8:
             add_s16__9TItemDataFPvi((s16 *)a, bn->val);
             add_stat__9TItemDataFPvi(a, bn->val);
-            TItemData__sub_8010B818(a, (s16)(bn->val * 10));
+            add_accuracy__9TItemDataFPvi(a, (s16)(bn->val * 10));
             add_stat_ptr__9TItemDataFPvi((s16 *)b, bn->val);
             add_bonus__9TItemDataFPvs(b, bn->val);
             st->x2 += bn->val;
@@ -228,7 +228,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
     }
 }
 
-void TItemData__sub_8010BEC4(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2) {
+void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2) {
     Parm_8010C1E0 *parm;
     s32 kind;
     s16 amount;
@@ -366,7 +366,7 @@ void TItemData__sub_8010C498(struct Item_8010C498 *self) {
     }
 }
 
-u8 TItemData__sub_8010C52C(Item_8010C52C *it) {
+u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it) {
     switch (it->kind) {
     case 0:
     case 1:
@@ -403,7 +403,7 @@ f32 TItemData__sub_8010C5DC(u8 *arg0) {
     return var_f1;
 }
 
-void TItemData__sub_8010C638(void *arg0, u16 arg1) {
+void set_packed_value__9TItemDataFPvUs(void *arg0, u16 arg1) {
     M2C_FIELD(arg0, u8 *, 0xA) = (u8) (arg1 >> 8U);
     M2C_FIELD(arg0, u8 *, 0xB) = arg1;
     M2C_FIELD(arg0, u8 *, 0xA) = (u8) (M2C_FIELD(arg0, u8 *, 0xA) | 0x80);

@@ -18,7 +18,7 @@ void TCameraCtrl__sub_803D8934(u32 arg0);
 void rotate_matrix_z(void *, s32);
 void rotate_matrix_x(void *, s32);
 void rotate_matrix_y(void *, s32);
-void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z);
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z);
 extern s32 lbl_805D7774;
 void PSMTXCopy(void *src, void *dst);
 void TObjPlayer__sub_803D898C(void *m);
@@ -100,7 +100,7 @@ void TObjPlayer__sub_803D89E8(u32 arg0) {
 #pragma push
 #pragma scheduling off
 #pragma optimize_for_size off
-void TBoss7Tentacle__sub_803D8A6C(void *m, s32 x, s32 y, s32 z) {
+void rotate_matrix_zyx(void *m, s32 x, s32 y, s32 z) {
     if (z != 0) {
         rotate_matrix_z(m, z);
     }

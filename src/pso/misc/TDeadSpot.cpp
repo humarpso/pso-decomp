@@ -70,7 +70,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
-void TDeadSpot__sub_800D7CF4(u8 *arg0);
+void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0);
 u32 __cvt_fp2unsigned(f32);
 extern const f32 TDeadSpot__data_805DA388;
 extern const f32 TDeadSpot__data_805DA38C;
@@ -113,7 +113,7 @@ extern M2C_UNK lbl_804949D8[];
 
 #pragma push
 #pragma opt_common_subs off
-void TDeadSpot__sub_800D7CF4(u8 *arg0) {
+void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_800D7CF4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800D7CF4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800D7CF4, sp10) == 0x8) ? 1 : -1];

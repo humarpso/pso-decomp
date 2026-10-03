@@ -18,14 +18,14 @@ typedef struct List_8023E638 {
 extern "C" {
 void safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
-void TLobby__sub_800F7DAC(s32, s32);
+void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 s32 sprintf(char *, const char *, ...);
 void load_gvm_texture_archive(s32, s32);
 extern char lbl_8044DCE0[];
 extern char lbl_80516260[];
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
-void TLobby__sub_800F7DAC(s32, s32);
+void prs_decompress_buffer(s32, s32);
 s32 update_lobby_scene__6TSceneFPv(void *);
 s32 read_disc_file(void *, s32);
 s32 sprintf(char *, const char *, ...);
@@ -76,7 +76,7 @@ s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1) {
         return 0;
     }
     buf = alloc__22TQuestVmDownLoadServerFPv(0x100000);
-    TLobby__sub_800F7DAC(h, buf);
+    prs_decompress_buffer(h, buf);
     load_gvm_texture_archive(buf, arg1);
     safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
     safe_free__23TAdSinglePlyChrSelectGCFUi(h);
@@ -95,7 +95,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
         b = xmalloc__FUl((M2C_UNK)(b << 11));
         if (read_disc_file(lbl_805161E0, b) != -1) {
             c = xmalloc__FUl((M2C_UNK)(0x200000));
-            TLobby__sub_800F7DAC(b, c);
+            prs_decompress_buffer(b, c);
             load_gvm_texture_archive(c, arg1);
             xfree__FPv(c);
         }

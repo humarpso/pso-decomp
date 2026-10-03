@@ -91,15 +91,15 @@ struct Pkt_8034E814 { u8 pad0[4]; u16 client; u16 target; s16 cmd; s16 state; };
 
 extern "C" {
     extern int lbl_805D6EA0;
-void TNpcPlayer__sub_8034E420(void);
+void enable_partner_chatter__10TNpcPlayerFv(void);
 extern int lbl_805D6EA0;
-void TNpcPlayer__sub_8034E430(void);
+void disable_partner_chatter__10TNpcPlayerFv(void);
 s32 get_player_by_client_id(s32);
 s32 obj_isState3_324();
 void enable_all_battle_ctrl__10TNpcPlayerFv(void);
 void send_item_pickup_request__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(s32);
-void TNpcPlayer__sub_8034E4B0(u16 arg0);
+void quest_remove_npc_player(u16 arg0);
 M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 s32 get_player_by_client_id(s32);
 M2C_UNK send_6x21_inter_level_warp(s32, s32);
@@ -115,7 +115,7 @@ s32 get_player_by_client_id(s32);
 void TNpcPlayer__sub_8034EB08(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void send_6x24_teleport_player(u16, s32, s32);
 M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
-void TNpcPlayer__sub_8034EC40(s16 arg0, s16 arg1, u8 *arg2, s32 arg3);
+void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, s32 arg3);
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034EDB8(void);
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
@@ -141,7 +141,7 @@ int TLobby__send_and_handle_60(void*);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
 extern E_8034E02C lbl_804F0280[];
-void TNpcPlayer__sub_8034E02C(void);
+void clear_partner_dialogue_flags(void);
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
 s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
@@ -154,8 +154,8 @@ void send_6x24_teleport_player(u16, s32, s32);
 M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
-void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading);
-void TNpcPlayer__sub_8034E02C(void);
+void create_companion__10TNpcPlayerFUsUsiPvi(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading);
+void clear_partner_dialogue_flags(void);
 extern struct Slot_8034EDC4 lbl_805436B8[];
 extern s32 TNpcPlayer__data_805D5864;
 extern int lbl_805D6EA0;
@@ -165,12 +165,12 @@ s32 obj_testFlags30(void *, int);
 void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s32 get_player_by_client_id(s32);
-void TNpcPlayer__sub_8034E3A0(u16 id, void *pos, s16 arg);
+void send_stop_at_position__10TNpcPlayerFUsPvs(u16 id, void *pos, s16 arg);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 extern const char lbl_805DFDF0[4];
-void TNpcPlayer__sub_8034DFBC(s32 kind, const char *text);
+void set_partner_common_remark(s32 kind, const char *text);
 void TNpcPlayer__sub_8034E7A0(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState3_324();
@@ -180,7 +180,7 @@ void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s32 get_player_by_client_id(s32);
 extern const f64 lbl_80478CB0[];
-void TNpcPlayer__sub_8034E24C(u16 src);
+void quest_player_look_at_partner(u16 src);
 s32 obj_isState3_324();
 s32 obj_getField1c(s32);
 s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
@@ -222,7 +222,7 @@ M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 
 s32 obj_isState2_324();
 
-void TNpcPlayer__sub_8034DFBC(s32 kind, const char *text) {
+void set_partner_common_remark(s32 kind, const char *text) {
     char buf[0x40];
 
     if (kind < 25 && strlen(text) < 53) {
@@ -231,7 +231,7 @@ void TNpcPlayer__sub_8034DFBC(s32 kind, const char *text) {
     }
 }
 
-void TNpcPlayer__sub_8034E02C(void) {
+void clear_partner_dialogue_flags(void) {
     s32 i;
     for (i = 0; i < 25; i++) {
         lbl_804F0280[i].flag = 0;
@@ -280,7 +280,7 @@ void quest_player_face_actor(u16 src, u16 dst) {
     send_6x3E__10TNpcPlayerFi(&pkt);
 }
 
-void TNpcPlayer__sub_8034E24C(u16 src) {
+void quest_player_look_at_partner(u16 src) {
     struct Pkt_8034E3A0 pkt;
     Player_8034E24C *a;
     Player_8034E24C *c;
@@ -330,7 +330,7 @@ void TNpcPlayer__sub_8034E24C(u16 src) {
     }
 }
 
-void TNpcPlayer__sub_8034E3A0(u16 id, void *pos, s16 arg) {
+void send_stop_at_position__10TNpcPlayerFUsPvs(u16 id, void *pos, s16 arg) {
     struct Pkt_8034E3A0 pkt;
     s16 flag;
     u8 *p;
@@ -349,8 +349,8 @@ void TNpcPlayer__sub_8034E3A0(u16 id, void *pos, s16 arg) {
     }
 }
 
-void TNpcPlayer__sub_8034E420(void) { lbl_805D6EA0 = (lbl_805D6EA0 & 0xfffffffd); }
-void TNpcPlayer__sub_8034E430(void) { lbl_805D6EA0 = (lbl_805D6EA0 | 0x2); }
+void enable_partner_chatter__10TNpcPlayerFv(void) { lbl_805D6EA0 = (lbl_805D6EA0 & 0xfffffffd); }
+void disable_partner_chatter__10TNpcPlayerFv(void) { lbl_805D6EA0 = (lbl_805D6EA0 | 0x2); }
 void enable_all_battle_ctrl__10TNpcPlayerFv(void) {
     s32 var_r31;
     void *temp_r3;
@@ -363,7 +363,7 @@ void enable_all_battle_ctrl__10TNpcPlayerFv(void) {
         var_r31 += 1;
     } while (var_r31 < 4);
 }
-void TNpcPlayer__sub_8034E4B0(u16 arg0) {
+void quest_remove_npc_player(u16 arg0) {
     s32 temp_r3;
     temp_r3 = ((s32)((void *)get_player_by_client_id((s32)((void *) (arg0)))));
     if (temp_r3 != 0) {
@@ -544,7 +544,7 @@ loop_1:
     send_state_60__10TNpcPlayerFPv((void*)((void *) (&stack.sp8)));
 }
 
-void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading) {
+void create_companion__10TNpcPlayerFUsUsiPvi(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading) {
     NpcCreatePacket_8034EBB0 pkt;
     build_6x69_npc_control((void*)(&pkt));
     pkt.leader = leader;
@@ -557,7 +557,7 @@ void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 
     send_6x24_teleport_player(pkt.slot, (s32)p, heading);
 }
 
-void TNpcPlayer__sub_8034EC40(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
+void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
     Stack_8034EC40 stack;
     build_6x69_npc_control((void*)(&stack.sp8));
     stack.spE = 0xFFFF;
@@ -575,7 +575,7 @@ void TNpcPlayer__sub_8034EDC4(void) {
     s32 i;
     s32 j;
     (*(s32 *)&lbl_805D6EA0) = 0;
-    TNpcPlayer__sub_8034E02C();
+    clear_partner_dialogue_flags();
     TNpcPlayer__data_805D5864 = 0;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 6; j++) {

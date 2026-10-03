@@ -238,7 +238,7 @@ f32 get_random_float__8TObjFishFv(f32);
 extern const f32 lbl_805D901C;
 f32 get_random_float__8TObjFishFv(f32);
 extern const f32 lbl_805D9018;
-s32 TCameraCtrl__sub_8006BCD8(f32 *arg0, f32 *arg1, f32 farg0);
+s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
@@ -259,7 +259,7 @@ void *reset__11TCameraCtrlFPv(void *);
 
 void* init_defaults__11TCameraCtrlFPv(void* a0) { TCameraCtrl__sub_80068714(); *(int*)((char*)a0 + 0x18) = (int)lbl_80488B38; *(float*)((char*)a0 + 0x6c) = 10.0f; *(int*)((char*)a0 + 0x38) = 0; return a0; }
 
-s32 TCameraCtrl__sub_8006BCD8(f32 *arg0, f32 *arg1, f32 farg0) {
+s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0) {
   f32 temp_f0;
   f32 new_var;
   f32 temp_f1;
@@ -468,9 +468,9 @@ struct Stack_8006C28C {
     u8 out[0x2C];
 };
 
-void TObjPlayer__sub_803D6960(void *, Motion_8006C28C *, void **, f32);
+void sample_camera_motion(void *, Motion_8006C28C *, void **, f32);
 void set_active_player__10TObjPlayerFi(int);
-f32 TCameraCtrl__sub_803D8D00(Vec_8006C28C *);
+f32 vec_squared_length(Vec_8006C28C *);
 void normalize_vector(Vec_8006C28C *);
 void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
@@ -490,7 +490,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
     st.ptrs[1] = &st.v;
     st.ptrs[2] = &st.sp54;
     st.ptrs[3] = &st.sp58;
-    TObjPlayer__sub_803D6960(st.out, s->motion, st.ptrs, s->frame);
+    sample_camera_motion(st.out, s->motion, st.ptrs, s->frame);
     s->projection = lbl_805D4E1C;
     set_active_player__10TObjPlayerFi(0x8F);
     if (s->mode->flags & 4) {
@@ -499,7 +499,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
             tmp.x = st.v.x;
             tmp.y = lbl_805D9028;
             tmp.z = st.v.z;
-            f32 m = TCameraCtrl__sub_803D8D00(&tmp);
+            f32 m = vec_squared_length(&tmp);
             if (m != lbl_805D9028) {
                 normalize_vector(&tmp);
             }
@@ -524,7 +524,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
         v2.x = st.v.x;
         v2.y = st.v.y;
         v2.z = st.v.z;
-        if (TCameraCtrl__sub_803D8D00(&v2) != lbl_805D9028) {
+        if (vec_squared_length(&v2) != lbl_805D9028) {
             normalize_vector(&v2);
         }
         push_matrix_from(lbl_8058D490);

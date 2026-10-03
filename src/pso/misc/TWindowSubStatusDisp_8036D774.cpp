@@ -44,7 +44,7 @@ extern const f32 lbl_805E0408;
 extern const f32 lbl_805E041C;
 void TWindowSubStatusDisp__sub_8036DA94(void);
 M2C_UNK TCameraCtrl__sub_80068EF0();
-M2C_UNK TCameraCtrl__sub_80069024();
+M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -210,7 +210,7 @@ void TWindowSubStatusDisp__sub_8036DB54(void) {
         set_depth_buffer_settings_2__Fv();
         reset_transform_state__10TObjPlayerFv();
         begin_effect_render__13TParticleCtrlFv();
-        TCameraCtrl__sub_80069024();
+        restore_full_screen_view__11TCameraCtrlFv();
         TWindowSubStatusDisp__sub_8036DA94();
         TWindowSubStatusDisp__sub_8036D994();
         TWindowSubStatusDisp__sub_8036D88C();

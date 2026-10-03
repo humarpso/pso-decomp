@@ -22,15 +22,15 @@ s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
 void *load_resource_from_descriptor(void *, M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_800693F4();
 M2C_UNK TCameraCtrl__sub_8006A35C();
-M2C_UNK TCameraCtrl__sub_8006A5EC(M2C_UNK);
+M2C_UNK select_active_controller__11TCameraCtrlFc(M2C_UNK);
 M2C_UNK TCameraCtrl__ct(void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK set_ending_callback__6TLobbyFv();
 M2C_UNK TKeyBoardControl__sub_80131F60();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
-M2C_UNK TObjLight__sub_80133A04(M2C_UNK *, M2C_UNK);
+M2C_UNK init_menu_scene_lights(M2C_UNK *, M2C_UNK);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
-M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
+M2C_UNK play_area_music(M2C_UNK *);
 M2C_UNK load_floor_sound_bank(M2C_UNK);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TWindowCtrlMain__ct(void *);
@@ -71,14 +71,14 @@ typedef char RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8_size[sizeof(
 
 void init_creation_menu_scene(void) {
     void *p;
-    TObjLight__sub_80133A04(lbl_804A6F34, 4);
+    init_menu_scene_lights(lbl_804A6F34, 4);
     TCameraCtrl__sub_8006A35C();
     TCameraCtrl__sub_800693F4();
     p = __nw__7TObjectFUl(0x1D4);
     if (p != NULL) {
         TCameraCtrl__ct(p, tl_camera);
     }
-    TCameraCtrl__sub_8006A5EC(8);
+    select_active_controller__11TCameraCtrlFc(8);
     fn_80291290();
     register_texture_f256_ad_pic_2();
     register_texture_f256_backtext();
@@ -99,7 +99,7 @@ void init_creation_menu_scene(void) {
         fn_80291178();
         fn_8028D940();
         load_floor_sound_bank(0);
-        TObjBgmColCtrl__sub_802274B8(lbl_80451290);
+        play_area_music(lbl_80451290);
         if (get_current_char_flag__14TObjCMMainMenuFv() != 0) {
             TObjCMMainMenu__sub_8028EC34();
             TObjCMMainMenu__sub_8028EC24();

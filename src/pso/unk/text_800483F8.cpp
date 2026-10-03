@@ -34,11 +34,11 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801E341C(void *, int, int);
+M2C_UNK draw_line_list(void *, int, int);
 extern RecoveredGlobal_80048560_lbl_80484860 lbl_80484860;
 extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
 void fn_80048560(u8 *arg0);
-void TObjPlayer__sub_801422A8(Vec_800483F8 *, s32 *, s32 *);
+void direction_to_rotation_xy(Vec_800483F8 *, s32 *, s32 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 f32 vector_length(Vec_800483F8 *);
@@ -68,7 +68,7 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
         Vec_800483F8 d = *to;
         subtract_vector(&d, from);
         self->f40 = lbl_805D8828 * vector_length(&d);
-        TObjPlayer__sub_801422A8(&d, &self->f28, &self->f2c);
+        direction_to_rotation_xy(&d, &self->f28, &self->f2c);
     }
     self->f2c -= n * 0x71c + (s32)(lbl_805D882C * (lbl_805D8830 * (f32)rand()));
     self->f38 = n * (s32)(lbl_805D882C * ((lbl_805D8828 * (lbl_805D8830 * (f32)rand()) + lbl_805D8834) / (f32)m));
@@ -79,7 +79,7 @@ void fn_80048560(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((void *) (&lbl_804FF1D0.value), (int) (M2C_FIELD(arg0, s32 *, 0x1C)));
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_804FF1D0.value + 0xC), (int) (M2C_FIELD(arg0, s32 *, 0x20)));
     init_xyz_limits__10TObjPlayerFv();
-    TObjPlayer__sub_801E341C((void *) (&lbl_80484860.value), (int) (1), (int) (5));
+    draw_line_list((void *) (&lbl_80484860.value), (int) (1), (int) (5));
     reset_transform_state__10TObjPlayerFv();
 }
 

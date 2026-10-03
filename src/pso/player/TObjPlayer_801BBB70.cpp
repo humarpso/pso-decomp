@@ -19,7 +19,7 @@ void TObjPlayer__sub_801BBC2C(void* p);
 void update_lock_on_cursor__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BBC64(void);
 int clear_links__10TObjPlayerFPv(void* p);
-int TLockOnCursor__sub_8013DAB0(void*);
+int reset_and_spawn_cursors__13TLockOnCursorFi(void*);
 int clear_obj_links(void*);
 int enable_action_input__10TObjPlayerFPv(void*);
 

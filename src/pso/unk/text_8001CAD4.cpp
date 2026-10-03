@@ -34,7 +34,7 @@ struct Obj_8001CBC4 { u8 pad[0x44]; Vec_8001CBC4 pos; };
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-s32 TObjPlayer__sub_801422A8(void *, void *, void *);
+s32 direction_to_rotation_xy(void *, void *, void *);
 f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -69,7 +69,7 @@ void fn_8001CAD4(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x50) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC);
         M2C_FIELD(arg0, f32 *, 0x54) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10);
         M2C_FIELD(arg0, f32 *, 0x58) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14);
-        TObjPlayer__sub_801422A8((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
+        direction_to_rotation_xy((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
         push_matrix_from((void *) (&lbl_8058D490.value));
         rotate_matrix_y((int) (0), (int) (stack.spC));
         rotate_matrix_x((int) (0), (int) (stack.sp8));

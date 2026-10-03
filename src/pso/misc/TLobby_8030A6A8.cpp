@@ -18,7 +18,7 @@ s32 is_camera_ctrl_active__6TLobbyFv(void);
 s32 is_ready__6TLobbyFv(void);
 s32 TLobby__sub_8030A770(void);
 s32 get_instance__11TCameraCtrlFv();
-s32 TCameraCtrl__sub_8006B368();
+s32 is_quest_active();
 s32 get_instance__6TLobbyFv();
 s32 get_online_ready_flag__6TLobbyFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -43,14 +43,14 @@ s32 is_camera_ctrl_active__6TLobbyFv(void) {
 }
 
 s32 is_ready__6TLobbyFv(void) {
-    if ((get_game_play_mode() == 2) && (TCameraCtrl__sub_8006B368() == 1)) {
+    if ((get_game_play_mode() == 2) && (is_quest_active() == 1)) {
         return 1;
     }
     return 0;
 }
 
 s32 TLobby__sub_8030A770(void) {
-    if ((get_game_play_mode() == 1) && (TCameraCtrl__sub_8006B368() == 1)) {
+    if ((get_game_play_mode() == 1) && (is_quest_active() == 1)) {
         return 1;
     }
     return 0;

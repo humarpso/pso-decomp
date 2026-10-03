@@ -127,7 +127,7 @@ extern "C" {
 void emit_hit_effect__18TBoss7PhotonBulletFPvPv(void *arg0, void *arg1);
 void flee_if_disturbed__8TObjFishFPv(u8 *arg0);
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
-M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 void emit_effect__9TObjEneDDFPvii(void *, void *, void *);
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
@@ -186,7 +186,7 @@ void TObjFish__sub_802ED62C(u8 *arg0, s32 arg1) {
 void flee_if_disturbed__8TObjFishFPv(u8 *arg0) {
     if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 1) {
         set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
-        TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
     }
 }
 void TObjFish__sub_802ED73C(u8 *arg0) {

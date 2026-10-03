@@ -22,7 +22,7 @@ extern "C" {
 
 int TObjPlayer__sub_801B066C(void* p);
 void draw_status_line(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2, s32 arg3);
-void *TLobby__sub_8001DC24();
+void *get_shared_text_buffer();
 int TLobby__sub_801C19D0(void*);
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK text_builder_append(M2C_UNK *);
@@ -38,7 +38,7 @@ void draw_status_line(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2, s32 arg3) {
     text_builder_append(&lbl_805DC27C);
     TWindowSubStatusDisp__sub_80228F5C(arg3);
     text_builder_append(&lbl_805DC27C);
-    init_all__11TWindowCtrlFPvPv(TLobby__sub_8001DC24(), 0x200);
+    init_all__11TWindowCtrlFPvPv(get_shared_text_buffer(), 0x200);
 }
 
 int TObjPlayer__sub_801B066C(void* p) { return TLobby__sub_801C19D0((char*)p + 0x828); }

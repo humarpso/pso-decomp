@@ -24,8 +24,8 @@ struct VObj_801ABD90 : Base_801ABD90 {
 extern "C" {
 
 void *destroy__12TPhotonGollaFPvs(void *arg0, s16 arg1);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjPlayer__sub_80154A00(void *);
+M2C_UNK free_collision_body_parts(void *);
+M2C_UNK unregister_object_by_id(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_photon_motion_object(void *, M2C_UNK);
 M2C_UNK free_photon__10TObjPlayerFPv(void *);
@@ -37,8 +37,8 @@ void *destroy__12TPhotonGollaFPvs(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C35F4;
         ((VObj_801ABD90 *)arg0)->m13();
         free_photon__10TObjPlayerFPv(arg0);
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_photon_motion_object(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

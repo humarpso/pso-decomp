@@ -305,7 +305,7 @@ void TCameraCtrl__sub_8006D460(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVector(void *, void *, u32);
 extern const f32 TCameraCtrl__data_805D9050;
-void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
+void recenter_with_obstruction__11TCameraCtrlFPvPvPv(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK set_field_100__11TCameraCtrlFPvi(void* p, s32 v);
 s32 angle_difference_abs(int, void *);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
@@ -324,13 +324,13 @@ V_8006CC7C TCameraCtrl__sub_8006CC7C(void);
 s32 is_split_screen();
 s32 get_player_by_client_id(u32);
 extern void *lbl_805D53A0;
-void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
+void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 void push_matrix_from(void *);
 void rotate_matrix_y(s32, s32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern u8 lbl_8058D490[];
-void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self);
+void calc_follow_position__11TCameraCtrlFPv(Cam_8006D95C *self);
 int get_camera_mode__11TCameraCtrlFv();
 extern FollowView *lbl_805D4DF0;
 extern const f32 lbl_805D9078,lbl_805D907C;
@@ -360,7 +360,7 @@ extern const f32 lbl_805D9070;
 void TCameraCtrl__sub_8006D1A4(Obj_8006D1A4 *arg0);
 s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
-s32 TCameraCtrl__sub_8006809C(void *);
+s32 predict_obstruction__11TCameraCtrlFPv(void *);
 s32 get_camera_id__11TCameraCtrlFv();
 f32 horizontal_distance_squared(void *, void *);
 extern FollowView *lbl_805D4DF0;
@@ -371,7 +371,7 @@ extern const f32 lbl_805D90A4;
 void update_follow_flags__11TCameraCtrlFPv(Cam_8006DB68 *arg0);
 u8 * csnVector(void *, void *, u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
-f32 TCameraCtrl__sub_803D8D00(FollowVector *);
+f32 vec_squared_length(FollowVector *);
 void rotate_matrix_y(s32, s32);
 void normalize_vector(FollowVector *);
 void push_matrix_from(void *);
@@ -403,10 +403,10 @@ s32 is_split_screen();
 int get_camera_mode__11TCameraCtrlFv();
 FollowVector *get_position_ptr__10TObjPlayerFPv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFPv(void *);
-void TCameraCtrl__sub_8006BCD8(void *, f32 *, f32);
+void approach_camera_scalar(void *, f32 *, f32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
-f32 TCameraCtrl__sub_803D8D00(FollowVector *);
+f32 vec_squared_length(FollowVector *);
 void rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(s32);
@@ -417,10 +417,10 @@ extern const f32 lbl_805D90AC;
 extern const f32 lbl_805D90B0;
 void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self);
 s32 is_split_screen();
-void TBoss1Dragon__sub_8002AA0C(Vec_8006D9F0 *, Vec_8006D9F0 *);
+void get_dragon_follow_camera_offsets(Vec_8006D9F0 *, Vec_8006D9F0 *);
 void TBoss8Dragon__sub_80065EA0(Vec_8006D9F0 *, Vec_8006D9F0 *);
 s32 get_camera_id__11TCameraCtrlFv();
-void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2);
+void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TBoss8Dragon__sub_802FDC1C(Vec_8006D9F0 *, Vec_8006D9F0 *);
 extern Vec_8006D9F0 lbl_80488DD0;
@@ -434,7 +434,7 @@ FollowVector *get_position_ptr__10TObjPlayerFPv(void *);
 FollowVector *get_target_ptr__11TCameraCtrlFPv(void *);
 s32 clamp_distance__11TCameraCtrlFiii(int, void *, int);
 s32 TCameraCtrl__sub_8006E7FC(void* p);
-f32 TCameraCtrl__sub_803D8D00(FollowVector *);
+f32 vec_squared_length(FollowVector *);
 extern const f32 lbl_805D9080;
 extern const f32 lbl_805D9084;
 extern const f32 lbl_805D9088;
@@ -567,7 +567,7 @@ void TCameraCtrl__sub_8006D1A4(Obj_8006D1A4 *arg0) {
     }
 }
 
-void TCameraCtrl__sub_8006D2B0(void *arg0, void *arg1, u16 arg2) {
+void request_follow_camera_offsets(void *arg0, void *arg1, u16 arg2) {
     Ply_8006D2B0 *p;
     s32 v;
     v = 0x8000;
@@ -712,7 +712,7 @@ void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0) {
         d.x = temp_r3->x - temp_r31->x;
         d.y = temp_r3->y - temp_r31->y;
         d.z = temp_r3->z - temp_r31->z;
-        if (TCameraCtrl__sub_803D8D00(&d) < lbl_805D9080) {
+        if (vec_squared_length(&d) < lbl_805D9080) {
             var_r31 = 0;
         } else {
             var_r31 = 1;
@@ -773,7 +773,7 @@ void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0) {
     }
 }
 
-void TCameraCtrl__sub_8006D95C(Cam_8006D95C *self) {
+void calc_follow_position__11TCameraCtrlFPv(Cam_8006D95C *self) {
     Vec_8006D95C v;
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, self->f30);
@@ -791,20 +791,20 @@ void select_follow_camera_offsets(Cam_8006D9F0 *arg0) {
         Vec_8006D9F0 a0;
         Vec_8006D9F0 b1;
         Vec_8006D9F0 a1;
-        TBoss1Dragon__sub_8002AA0C(&a0, &b0);
-        TCameraCtrl__sub_8006D2B0(&a0, &b0, 0xFFFF);
-        TBoss1Dragon__sub_8002AA0C(&a1, &b1);
-        TCameraCtrl__sub_8006D2B0(&a1, &b1, 0xFFFF);
+        get_dragon_follow_camera_offsets(&a0, &b0);
+        request_follow_camera_offsets(&a0, &b0, 0xFFFF);
+        get_dragon_follow_camera_offsets(&a1, &b1);
+        request_follow_camera_offsets(&a1, &b1, 0xFFFF);
     } else if (state == 30) {
         Vec_8006D9F0 b;
         Vec_8006D9F0 a;
         TBoss8Dragon__sub_80065EA0(&a, &b);
-        TCameraCtrl__sub_8006D2B0(&a, &b, 0xFFFF);
+        request_follow_camera_offsets(&a, &b, 0xFFFF);
     } else if (state == 33) {
         Vec_8006D9F0 b;
         Vec_8006D9F0 a;
         TBoss8Dragon__sub_802FDC1C(&a, &b);
-        TCameraCtrl__sub_8006D2B0(&a, &b, 0xFFFF);
+        request_follow_camera_offsets(&a, &b, 0xFFFF);
     } else {
         if (!(arg0->flags & 8)) {
             arg0->v12(arg0->ply->f60 + 0x8000);
@@ -841,7 +841,7 @@ void update_follow_flags__11TCameraCtrlFPv(Cam_8006DB68 *arg0) {
     } else {
         arg0->flags &= ~4;
     }
-    if (TCameraCtrl__sub_8006809C(arg0) != 0) {
+    if (predict_obstruction__11TCameraCtrlFPv(arg0) != 0) {
         if (is_split_screen() != 0) {
             src = &lbl_805D4DF0->split_positions[get_camera_mode__11TCameraCtrlFv()];
         } else {
@@ -862,7 +862,7 @@ void update_follow_flags__11TCameraCtrlFPv(Cam_8006DB68 *arg0) {
 
 void TCameraCtrl__sub_8006DCC8(void* p) { *(s32*)((char*)p + 0xfc) = 0; }
 
-void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2) {
+void recenter_with_obstruction__11TCameraCtrlFPvPvPv(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f1;
     u8 *temp_r3;
     if (arg1 != NULL) {
@@ -901,7 +901,7 @@ void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1
             d.x = arg0->position.x - arg0->target.x;
             d.y = arg0->position.y - arg0->target.y;
             d.z = arg0->position.z - arg0->target.z;
-            if (TCameraCtrl__data_805D905C != TCameraCtrl__sub_803D8D00(&d)) {
+            if (TCameraCtrl__data_805D905C != vec_squared_length(&d)) {
                 normalize_vector(&d);
             }
             arg0->position.x = hit->point->x - d.x;
@@ -983,7 +983,7 @@ void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self) {
     d.x = p->x - t->x;
     d.y = p->y - t->y;
     d.z = p->z - t->z;
-    TCameraCtrl__sub_803D8D00(&d);
+    vec_squared_length(&d);
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, self->actor->angle + 0x8000);
     TCameraCtrl__sub_803D8934(0, &self->fE8, &o);
@@ -1000,10 +1000,10 @@ void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self) {
     if (get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12) {
         if (self->f100 != 0) {
             k = lbl_805D90B0;
-            TCameraCtrl__sub_8006BCD8(&self->f108, &k, lbl_805D9094);
+            approach_camera_scalar(&self->f108, &k, lbl_805D9094);
         } else {
             k = TCameraCtrl__data_805D905C;
-            TCameraCtrl__sub_8006BCD8(&self->f108, &k, lbl_805D9094);
+            approach_camera_scalar(&self->f108, &k, lbl_805D9094);
         }
     }
     self->pos.y += self->f108;

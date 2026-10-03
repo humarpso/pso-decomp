@@ -35,7 +35,7 @@ void init_no_item_entry__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_802589AC(u8 *arg0, s8 arg1, s8 arg2, u8 arg3, u32 arg4, s32 arg5);
-s32 TLobby__sub_8001DC24();
+s32 get_shared_text_buffer();
 s32 get_download_server__20TWindowSubStatusDispFv();
 s32 TWindowSubStatusDisp__sub_80228F5C(void *);
 s32 text_builder_append(int);
@@ -54,10 +54,10 @@ extern "C" {
 void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 void update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *arg0, void *arg1);
-s32 TItemData__sub_8010C52C(s32);
+s32 is_wrapped__9TItemDataFPv(s32);
 s32 TItemData__sub_8010C738(s32);
-s32 TItemData__sub_8010CC68(s32);
-s32 TItemData__sub_8010CEF4(s32);
+s32 is_custom_name_srank__9TItemDataFPv(s32);
+s32 has_bonus_stats__9TItemDataFPv(s32);
 u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
 s32 is_rare_item__9TItemDataFPv(s32);
 s32 TItem__sub_801013E8(void *);
@@ -160,7 +160,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     s32 temp_r30;
     s32 temp_r3;
 
-    if (TItemData__sub_8010C52C(arg1) != 0) {
+    if (is_wrapped__9TItemDataFPv(arg1) != 0) {
         M2C_FIELD(arg0, s32 *, 0x30) = -1;
         return;
     }
@@ -183,7 +183,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
         }
         if (temp_r29 != 0) {
             M2C_FIELD(arg0, s32 *, 0x2C) = -1;
-            if (TItemData__sub_8010CC68(arg1) != 0) {
+            if (is_custom_name_srank__9TItemDataFPv(arg1) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFFFE3C28;
                 return;
             }
@@ -195,7 +195,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x30) = -0x1600;
                 return;
             }
-            if (TItemData__sub_8010CEF4(arg1) != 0) {
+            if (has_bonus_stats__9TItemDataFPv(arg1) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF61E853;
                 return;
             }
@@ -325,7 +325,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2) {
     text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C((void *) (arg1));
     text_builder_append((int) (get_download_server__20TWindowSubStatusDispFv()));
-    M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (TLobby__sub_8001DC24())), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))), (s32)((int) (0x10)), (s32)((int) (1)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (get_shared_text_buffer())), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))), (s32)((int) (0x10)), (s32)((int) (1)));
     M2C_FIELD(arg0, s32 *, 0x34) = -1;
     M2C_FIELD(arg0, s32 *, 0x18) = arg2;
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x45);

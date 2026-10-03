@@ -288,8 +288,8 @@ struct Vec_8029B640 { s32 x, y, z; };
 struct Mtx_8029B640 { f32 m[12]; };
 
 extern "C" {
-s32 TObjPlayer__sub_80154954(void *, void *);
-s32 TLobby__sub_80156A80(void *, void *, int);
+s32 send_object_state_update(void *, void *);
+s32 access_object_saved_state(void *, void *, int);
 s32 TLevelSelect__sub_801F441C(s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
@@ -311,8 +311,8 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1);
 void free_static_resources__16TODoorJungleMainFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
-void TObjEneGibbles__sub_80156720(void *);
-void TObjPlayer__sub_80154A00(void *);
+void free_collision_body_parts(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_ancient_door_base__15TODoorAncient01FPvs(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -392,9 +392,9 @@ void TODoorJungleMain__vt12(Door_8029B524 *self) {
         } else {
             self->flags &= ~1;
         }
-        if ((self->flags & 1) && TLobby__sub_80156A80(self, &sp8, 1) == 1) {
+        if ((self->flags & 1) && access_object_saved_state(self, &sp8, 1) == 1) {
             sp8 = 1;
-            TObjPlayer__sub_80154954(self, &sp8);
+            send_object_state_update(self, &sp8);
         }
     }
 }
@@ -449,8 +449,8 @@ void *__dt__16TODoorJungleMainFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TODoorJungleMain;
         if (M2C_FIELD(arg0, void **, 0xDC) != NULL) { ((void (*)(void *))queue_destruction__7TObjectFv)(M2C_FIELD(arg0, void **, 0xDC)); M2C_FIELD(arg0, M2C_UNK *, 0xDC) = 0; }
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

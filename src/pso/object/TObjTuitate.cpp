@@ -96,10 +96,10 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1);
 void fn_8019B09C(void);
 int run_task__11TObjTuitateFv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 int update_obstruction_fade(void*);
 void TObjPlayer__sub_800D7C58(void *, int);
-void TObjPlayer__sub_80154A00(void *);
+void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -149,8 +149,8 @@ void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjTuitate;
         if (M2C_FIELD(arg0, void **, 0xC8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xC8)); M2C_FIELD(arg0, M2C_UNK *, 0xC8) = 0; }
-        TObjPlayer__sub_80154A00(arg0);
-        TObjEneGibbles__sub_80156720(arg0);
+        unregister_object_by_id(arg0);
+        free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

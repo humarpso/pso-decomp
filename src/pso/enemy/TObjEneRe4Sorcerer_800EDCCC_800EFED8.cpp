@@ -125,7 +125,7 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK TObjPlayer__sub_800A05B8(void *, int);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
 void *find_entity_by_id(u16);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, u32, u32);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
@@ -167,7 +167,7 @@ s32 get_instance__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Map_800F06B4 lbl_804971C0[];
 extern Map_800F06B4 lbl_80497438[];
-s32 TObjPlayer__sub_800F06B4(s32 arg0, s32 arg1);
+s32 remap_area_sound_id(s32 arg0, s32 arg1);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK enemy_clear_target(void *);
 s32 TObjEneDD__sub_800BA804(int);
@@ -251,7 +251,7 @@ Obj_800F0054 *__dt__18TObjEneRe4SorcererFv(Obj_800F0054 *arg0, s16 arg1) {
             }
             arg0->handles[i] = 0xFFFF;
         }
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         __destroy_arr((u8 *) arg0 + 0x474, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800A05B8((u8 *) arg0 + 0x3FC, -1);
         __dt__9TObjEneDDFv(arg0, 0);
@@ -359,7 +359,7 @@ s32 TBoss3Volopt__sub_800F05A0(s32 arg0) {
     }
     return result;
 }
-s32 TObjPlayer__sub_800F06B4(s32 arg0, s32 arg1) {
+s32 remap_area_sound_id(s32 arg0, s32 arg1) {
     s32 st;
     s32 base;
     s32 start;

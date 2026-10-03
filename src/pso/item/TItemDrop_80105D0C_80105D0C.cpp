@@ -9,15 +9,15 @@ struct Item_80105EA4 { u8 type; u8 b1; u8 b2; };
 extern "C" {
 s32 get_game_play_mode();
 s32 get_instance__6TLobbyFv();
-s32 TItemDrop__sub_80105D60(void);
+s32 get_drop_table_mode_flags(void);
 void *memset(void *dst, int c, u32 n);
 void init_drop_table__9TItemDropFv(void);
 extern u8 *TItemDrop__data_805D5468;
 extern u8 *TItemDrop__data_805D546C;
-void TItemDrop__sub_801063D8(void);
+void count_unit_star_buckets__9TItemDropFv(void);
 s32 get_task_id__14TFontSmallTaskFPv(void *p);
 s32 calc_drop_offset__9TItemDropFi(s32 arg0);
-s32 TItemDrop__sub_80105D60(void);
+s32 get_drop_table_mode_flags(void);
 void TItemDrop__vt0(void);
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D2B78;
@@ -52,8 +52,8 @@ void init_drop_table__9TItemDropFv(void);
 u8 is_enabled__9TItemDropFv(void);
 u8 is_not_special__9TItemDropFv(void);
 void set_drop_index__9TItemDropFPvPv(void *arg0, void *arg1);
-int TItemData__sub_8010C638(void*, void*);
-s8 TItemDrop__sub_80107790(s32, s32, s32, s32, s32);
+int set_packed_value__9TItemDataFPvUs(void*, void*);
+s8 select_weighted_byte__9TItemDropFiiiii(s32, s32, s32, s32, s32);
 s32 get_game_play_mode();
 int is_unsealable_item(void*);
 u8 get_item_star_count(s32);
@@ -65,11 +65,11 @@ void TItemDrop__sub_80105D0C(void) {  }
     extern int lbl_805D5450;
 void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
 
-void clear_item_if_player_picked_up__9TItemDropFPvPv(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { TItemData__sub_8010C638(a1, (void*)0); } }
+void clear_item_if_player_picked_up__9TItemDropFPvPv(void* p, void* a1) { if (is_unsealable_item(a1) == 1) { set_packed_value__9TItemDataFPvUs(a1, (void*)0); } }
 
 extern s32 lbl_805D5550;
 
-s32 TItemDrop__sub_80105D60(void) {
+s32 get_drop_table_mode_flags(void) {
     s32 f = 0;
     if (get_game_play_mode() == 1) {
         f |= 1;
@@ -192,7 +192,7 @@ u8 can_drop__9TItemDropFv(void) {
 extern void *TItemDrop__data_805D5460;
 
 void set_drop_index__9TItemDropFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg1, s8 *, 5) = TItemDrop__sub_80107790((s32)arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x14), 0, 5, 1);
+    M2C_FIELD(arg1, s8 *, 5) = select_weighted_byte__9TItemDropFiiiii((s32)arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x14), 0, 5, 1);
 }
 
 extern u8 *TItemDrop__data_805D5468;
@@ -226,7 +226,7 @@ void init_drop_table__9TItemDropFv(void) {
         var_r31 += 1;
     }
 }
-void TItemDrop__sub_801063D8(void) {
+void count_unit_star_buckets__9TItemDropFv(void) {
     s32 i;
     u8 v;
     memset(TItemDrop__data_805D546C, 0, 0xD);
@@ -240,7 +240,7 @@ void TItemDrop__sub_801063D8(void) {
 }
 void TItemDrop__sub_8010643C(void) {
     if (lbl_805D2B78 != calc_drop_offset__9TItemDropFi(get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8)) ||
-        TItemDrop__data_805D5470 != TItemDrop__sub_80105D60()) {
+        TItemDrop__data_805D5470 != get_drop_table_mode_flags()) {
         TItemDrop__data_805D5474 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
         TItemDrop__vt0();
     }

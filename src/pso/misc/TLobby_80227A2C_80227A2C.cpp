@@ -24,7 +24,7 @@ void TLobby__sub_80227A6C(void);
 int TLobby__sub_80227A70(void* p);
 void TLobby__sub_80227A90(void);
 void TLobby__sub_80227A94(void);
-int TLobby__sub_80227AA0(void);
+int get_music_base_gain(void);
 int TLobby__sub_8022804C(void*);
 int xfree__FPv(void*);
 int xmalloc__FUl(void*);
@@ -40,7 +40,7 @@ void TLobby__sub_80227A90(void) {  }
 void TLobby__sub_80227A94(void) { lbl_805D6314 = lbl_805D3710; }
 
     extern int lbl_805D6288;
-int TLobby__sub_80227AA0(void) {  return lbl_805D6288; }
+int get_music_base_gain(void) {  return lbl_805D6288; }
 typedef char RecoveredGlobal_80227AA8_lbl_80514F64_size[sizeof(RecoveredGlobal_80227AA8_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_80227AA8(s32 arg0) {
     fn_8023F660((void *) (&lbl_80514F64.value), (void *) (arg0), (void *) (TLobby__sub_80227CC0() + 0x55), (int) (0x40), (int) (0x40), (int) (0));

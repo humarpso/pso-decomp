@@ -267,7 +267,7 @@ s32 is_main_phase_15__9TObjEneDDFv();
 s32 set_player_state_default__12TBoss8DragonFPv(void *);
 s32 get_target_info__9TObjEneDDFPv(void *);
 s32 TObjEneDD__sub_800BBA0C(void *);
-s32 TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+s32 add_radar_scaled_marker(void *, int, int, int, f32);
 s32 send_entity_set_flags__6TLobbyFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 run_tasks__7TObjectFv(void *);
@@ -283,7 +283,7 @@ s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
 M2C_UNK __dt__9TObjEneDDFv(void *, int);
 M2C_UNK TBoss8Dragon__sub_800BC5A0(void *, int);
 M2C_UNK free__11TOBoss4RockFUi(int);
-M2C_UNK TObjEneGibbles__sub_80156720(void *);
+M2C_UNK free_collision_body_parts(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804824D0[];
 extern s32 TBoss2DeRolLe__data_805D4BC4;
@@ -465,7 +465,7 @@ void TBoss2DeRolLe__sub_800350E8(u8 *arg0) {
   PSO_VCALL_VObj_18_bd2ad6_m86(arg0);
   backup_pos__13TBoss2DeRolLeFi((void *) arg0);
   set_player_state_default__12TBoss8DragonFPv((void *) arg0);
-  TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 1, (f32) TBoss2DeRolLe__data_805D82A0);
+  add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 1, (f32) TBoss2DeRolLe__data_805D82A0);
   TBoss2DeRolLe__sub_80033AA4((void *) arg0);
   if (temp_r30 == 0)
   {
@@ -527,7 +527,7 @@ u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1) {
             self->a620[i] = NULL;
         }
         free__11TOBoss4RockFUi(self->x61C);
-        TObjEneGibbles__sub_80156720(self);
+        free_collision_body_parts(self);
         if ((u32)TBoss2DeRolLe__data_805D4BC4 == (u32)arg0) {
             TBoss2DeRolLe__data_805D4BC4 = 0;
         }

@@ -318,7 +318,7 @@ void update_position_history__11TBoss2JointFi(s32 arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 M2C_UNK TObjEneDD__sub_800BBA0C(void *);
-M2C_UNK TRaderMapCore__sub_801F99EC(void *, int, int, int, f32);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
 void run_task__11TBoss2JointFv(u8 *arg0);
 M2C_UNK TObjEneDD__vt91(void *);
@@ -384,7 +384,7 @@ M2C_UNK TBoss2DeRolLe__sub_800339BC(void *, f32, f32);
 M2C_UNK TBoss2DeRolLe__sub_80034134(s32, s32, u16);
 M2C_UNK clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
-void TObjEneGibbles__sub_80156720(void *);
+void free_collision_body_parts(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 
@@ -497,14 +497,14 @@ void run_task__11TBoss2JointFv(u8 *arg0) {
         update_position_history__11TBoss2JointFi((s32)((void *) (arg0)));
         ((VObj_18 *)(arg0))->m86();
         set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
-        TRaderMapCore__sub_801F99EC((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D848C));
+        add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D848C));
     }
 }
 
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TBoss2Joint;
-        TObjEneGibbles__sub_80156720(arg0);
+        free_collision_body_parts(arg0);
         TObjEneDD__vt0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
