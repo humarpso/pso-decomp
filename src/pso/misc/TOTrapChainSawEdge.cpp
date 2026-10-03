@@ -5,6 +5,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 fn_802C9924(s32);
+s32 TOTrapChainSawKey__sub_802C9960(s32);
+s32 TOTrapChainSawKey__sub_802C999C(int, f32);
+extern const f32 lbl_805DE618;
+extern const f32 lbl_805DE61C;
+void TOTrapChainSawKey__vt14(u8 *arg0);
+}
+
+extern "C" {
 
 struct VBase_18_373ea7 { char pad[0x18]; };
 
@@ -309,7 +318,7 @@ void TOTrapChainSawDamage__vt12(void);
 void TOTrapChainSawDamage__vt23(void *arg0);
 void TOTrapChainSawDamage__vt22(void *arg0);
 void TOTrapChainSawDamage__vt16(u8 *arg0, u8 *arg1);
-void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0);
+void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1);
 void TOTrapChainSawDamage__vt13(void *arg0);
 void * create__20TOTrapChainSawDamageFPv(void *arg0);
 void * __dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
@@ -331,7 +340,6 @@ void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
 u8 * TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 fn_802C9924(s32);
 s32 TOTrapChainSawKey__sub_802C9960(s32);
-s32 TOTrapChainSawKey__sub_802C999C(s32);
 void set_damage__20TOTrapChainSawDamageFPvi(void *, void *);
 M2C_UNK TOTrapChainSawDamage__sub_802C9C00(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -519,6 +527,24 @@ void TOTrapChainSawKey__vt16(S_802C86D4 *arg0) {
     finalize_and_send_60__6TLobbyFPv(&p);
 }
 
+void TOTrapChainSawKey__vt14(u8 *arg0) {
+    s32 a[2] = {3, 4};
+    s32 b[2] = {3, 4};
+    s32 x;
+    M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
+    x = M2C_FIELD(arg0, s32 *, 0xF8);
+    M2C_FIELD(arg0, s32 *, 0xF8) = (x < 0) ? 0 : ((x > 1) ? 1 : x);
+    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(int))TOTrapChainSawKey__sub_802C999C)(a[M2C_FIELD(arg0, s32 *, 0xF8)]);
+    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960((s32)(b[M2C_FIELD(arg0, s32 *, 0xF8)]));
+    M2C_FIELD(arg0, s32 *, 0x24) = fn_802C9924((s32)(3));
+    M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DE618;
+    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DE61C;
+    M2C_FIELD(arg0, s32 *, 0xFC) = TOTrapChainSawKey__sub_802C999C((int)(2), lbl_805DE618);
+    M2C_FIELD(arg0, s32 *, 0x100) = TOTrapChainSawKey__sub_802C9960((s32)(2));
+    M2C_FIELD(arg0, f32 *, 0x104) = lbl_805DE618;
+    M2C_FIELD(arg0, f32 *, 0x108) = lbl_805DE61C;
+}
+
 int TOTrapChainSawKey__vt13(void* p) { return ((int (*)(void*))decode_params__14TOTrapChainSawFPv)(p); }
 
 void *create__17TOTrapChainSawKeyFPv(void *arg0) {
@@ -644,14 +670,14 @@ extern int fold_flush_2;
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma inline_depth(1)
-void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0) {
+void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     Pair_802C8C60 a = *(Pair_802C8C60 *)lbl_80471F28;
     Pair_802C8C60 b = *(Pair_802C8C60 *)lbl_80471F30;
     s32 v;
     arg0->fF8 = (s32)arg0->f70;
     v = arg0->fF8;
     arg0->fF8 = v < 0 ? 0 : (v > 1 ? 1 : v);
-    arg0->fC8 = TOTrapChainSawKey__sub_802C999C(a.v[arg0->fF8]);
+    arg0->fC8 = TOTrapChainSawKey__sub_802C999C((int)(a.v[arg0->fF8]), _w1);
     arg0->fBC = TOTrapChainSawKey__sub_802C9960(b.v[arg0->fF8]);
     arg0->f24 = fn_802C9924(0);
     arg0->fB4 = lbl_805DE618;

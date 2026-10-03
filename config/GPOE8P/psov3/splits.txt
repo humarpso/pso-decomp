@@ -12197,7 +12197,7 @@ pso/object/TObjTradeCollision.cpp:
 
 pso/misc/TOTrapChainSawEdge.cpp:
 	.text       start:0x802C823C end:0x802C9924
-	.rodata     start:0x80471F80 end:0x80471FA8
+	.rodata     start:0x80471F4C end:0x80471FA8
 
 pso/unk/text_802C9924.cpp:
 	.text       start:0x802C9924 end:0x802C9960
