@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/camera/CameraArrivalReset.h"
 #include "pso/camera/FollowCameraController.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -184,20 +185,9 @@ struct Cam_8006DB68 {
     u32 flags;
 };
 
-struct Cam_8006DD78 {
-    u8 pad0[0x30];
-    s32 angle;
-    u8 pad34[8];
-    FollowVector pos;
-    FollowVector target;
-};
+typedef ArrivalCameraPose Cam_8006DD78;
 
-struct Tgt_8006DD78 {
-    u8 pad0[0x38];
-    FollowVector pos;
-    u8 pad44[0x1C];
-    s32 angle;
-};
+typedef ArrivalCameraActor Tgt_8006DD78;
 
 struct Hit_8006DD78 {
     u32 f0;
@@ -390,7 +380,7 @@ extern FollowVector lbl_80438534;
 extern u8 lbl_8058D490[];
 extern const f32 TCameraCtrl__data_805D9050;
 extern const float TCameraCtrl__data_805D905C;
-void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1);
+void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
@@ -890,33 +880,33 @@ void TCameraCtrl__sub_8006DCD4(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *a
     }
 }
 
-void TCameraCtrl__sub_8006DD78(Cam_8006DD78 *arg0, Tgt_8006DD78 *arg1) {
+void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1) {
     FollowVector v = lbl_80438534;
     FollowVector d;
     Hit_8006DD78 *hit;
     if (arg1 != NULL) {
-        arg0->angle = arg1->angle + 0x8000;
+        arg0->heading = arg1->heading + 0x8000;
         push_matrix_from(lbl_8058D490);
-        rotate_matrix_y(0, arg0->angle);
+        rotate_matrix_y(0, arg0->heading);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         TCameraCtrl__sub_803D9858(1);
-        arg0->target.x = arg1->pos.x;
-        arg0->target.y = TCameraCtrl__data_805D9050 + arg1->pos.y;
-        arg0->target.z = arg1->pos.z;
-        arg0->pos.x = arg0->target.x + v.x;
-        arg0->pos.y = arg0->target.y + v.y;
-        arg0->pos.z = arg0->target.z + v.z;
-        hit = (Hit_8006DD78 *)csnVector(&arg0->target, &arg0->pos, 0x100);
+        arg0->target.x = arg1->position.x;
+        arg0->target.y = TCameraCtrl__data_805D9050 + arg1->position.y;
+        arg0->target.z = arg1->position.z;
+        arg0->position.x = arg0->target.x + v.x;
+        arg0->position.y = arg0->target.y + v.y;
+        arg0->position.z = arg0->target.z + v.z;
+        hit = (Hit_8006DD78 *)csnVector(&arg0->target, &arg0->position, 0x100);
         if (hit != NULL) {
-            d.x = arg0->pos.x - arg0->target.x;
-            d.y = arg0->pos.y - arg0->target.y;
-            d.z = arg0->pos.z - arg0->target.z;
+            d.x = arg0->position.x - arg0->target.x;
+            d.y = arg0->position.y - arg0->target.y;
+            d.z = arg0->position.z - arg0->target.z;
             if (TCameraCtrl__data_805D905C != TCameraCtrl__sub_803D8D00(&d)) {
                 TNpcPlayer__sub_803D97B4(&d);
             }
-            arg0->pos.x = hit->point->x - d.x;
-            arg0->pos.y = hit->point->y - d.y;
-            arg0->pos.z = hit->point->z - d.z;
+            arg0->position.x = hit->point->x - d.x;
+            arg0->position.y = hit->point->y - d.y;
+            arg0->position.z = hit->point->z - d.z;
         }
     }
 }

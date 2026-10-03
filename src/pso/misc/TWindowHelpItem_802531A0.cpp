@@ -35,7 +35,7 @@ struct V3_802532E8 { u8 bytes[0xc]; };
 
 extern "C" {
 M2C_UNK clear_fields__20TWindowSubStatusDispFPv(void *);
-s32 TWindowHelpItem__sub_801B3038(int, void *);
+s32 build_player_equipment_requirement_stats(int, void *);
 s32 get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void TWindowHelpItem__sub_80253268(u8 *arg0);
@@ -122,7 +122,7 @@ void TWindowHelpItem__sub_80253268(u8 *arg0) {
         temp_r31 = (u8 *)(temp_r3 + 0x85C);
         if (temp_r31 != NULL) {
             temp_r31_2 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 5));
-            if (!(M2C_FIELD(temp_r31, s32 *, 0x34) & 0x10) && (TWindowHelpItem__sub_801B3038((int) (temp_r3), (void *) (&stack.sp8)) != 0)) {
+            if (!(M2C_FIELD(temp_r31, s32 *, 0x34) & 0x10) && (build_player_equipment_requirement_stats((int) (temp_r3), (void *) (&stack.sp8)) != 0)) {
                 M2C_FIELD(temp_r31_2, s32 *, 0x20) = (s32) stack.spC;
             }
         }

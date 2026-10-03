@@ -61,7 +61,6 @@ void TScene__sub_802065EC(void);
 void TScene__sub_802065F0(s32);
 void TScene__sub_80206658(s32);
 void TScene__sub_802066BC(s32 arg0);
-void TScene__sub_8020677C(s32);
 s32 TLobby__sub_802077CC(s32, void *);
 Ent_802066BC *TLobby__sub_80207E88(s32);
 void TScene__sub_8023E638(M2C_UNK *, u32);
@@ -124,6 +123,18 @@ extern u32 TScene__data_805D6028;
 extern s32 lbl_805D602C;
 extern const f32 TScene__data_805DC5D8;
 void TScene__sub_80207038(void);
+s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
+M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+M2C_UNK fn_80140F18(u32, s32);
+u32 get_map_count__10TObjMapCsnFv();
+s32 update_lobby_scene__6TSceneFPv(char *);
+extern M2C_UNK lbl_8044A950[];
+extern M2C_UNK lbl_8044A958[];
+extern s32 *lbl_805D4E68;
+extern u32 TScene__data_805D6000;
+extern s32 lbl_805D6014;
+void load_scene_collision_file(s32 arg0);
 }
 
 extern "C" {
@@ -231,6 +242,24 @@ void TScene__sub_802066BC(s32 arg0) {
     }
 }
 
+void load_scene_collision_file(s32 arg0) {
+    struct Sp8Buf20_80206494 sp8;
+    TLobby__sub_801317E4((M2C_UNK *)&sp8, arg0, lbl_8044A950);
+    if (update_lobby_scene__6TSceneFPv((char *)&sp8) <= lbl_805D6014) {
+        if (TScene__data_805D6000 != 0U) {
+            lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, TScene__data_805D6000);
+            if (lbl_805D4E68 != NULL && get_map_count__10TObjMapCsnFv() != 0U) {
+                u32 csn = get_map_count__10TObjMapCsnFv();
+                fn_80140F18(csn, *lbl_805D4E68);
+                return;
+            }
+            debug_print__6TLobbyFii(lbl_8044A958);
+            return;
+        }
+        lbl_805D4E68 = NULL;
+    }
+}
+
 void TScene__sub_8020681C(void) {
     Ent_802066BC *tbl;
     s32 ent;
@@ -248,7 +277,7 @@ void TScene__sub_8020681C(void) {
     }
     copy_name((M2C_UNK *)TScene__data_805D3610);
     TScene__sub_802066BC(ent);
-    TScene__sub_8020677C(ent);
+    load_scene_collision_file((s32)(ent));
     if (TScene__data_805D5FCC != NULL && M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) != 0) {
         found = 0;
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/PlayerAttackController.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -121,7 +122,7 @@ void TObjPlayer__sub_801D3424(void* p, s16 v);
 int is_flag32_clear__10TObjPlayerFPv(void* p);
 int get_field_340__10TObjPlayerFPv(void* p, int);
 void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
-void TObjPlayer__sub_801D2FB0(u8 *self, void *obj, s32 arg2, s16 arg3);
+
 void VecCopy__FP3VecPC3Vec(Vec_801D3224 *, Vec_801D3224 *);
 u16 get_uid__10TObjPlayerFPv(void *);
 Obj_801D3224 *find_entity_by_id(u16);
@@ -392,7 +393,7 @@ s32 TObjPlayer__sub_801D2F8C(s16 arg0) {
     return 1;
 }
 
-void TObjPlayer__sub_801D2FB0(u8 *self, void *obj, s32 arg2, s16 arg3) {
+void queue_physical_attack_input(PlayerAttackController *self, TObjPlayer *obj, s32 arg2, s16 arg3) {
     s16 t;
     if (TObjPlayer__sub_8001BEF8((void*)(((void *)get_anim_field_c__10TObjPlayerFPv((void*)(self)))), (int)(2)) == 0 ||
         is_flag32_clear__10TObjPlayerFPv((void*)(self)) == 0) {
@@ -402,7 +403,7 @@ void TObjPlayer__sub_801D2FB0(u8 *self, void *obj, s32 arg2, s16 arg3) {
         TObjPlayer__sub_8001BEF8((void*)(((void *)get_anim_field_c__10TObjPlayerFPv((void*)(self)))), (int)(4)) == 0) {
         set_flags__10TObjPlayerFPvUi((void*)(((void *)get_anim_field_c__10TObjPlayerFPv((void*)(self)))), (int)(1));
         advance_and_clamp_state__10TObjPlayerFPv(self);
-        if (get_validated_attack_stage(self) > arg3) {
+        if (get_validated_attack_stage((u8 *)self) > arg3) {
             TObjPlayer__sub_801D3424((void*)(self), arg3);
         }
         t = TObjPlayer__sub_801B5AC4(obj, arg2);

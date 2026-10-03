@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/audio/SoundRequestVoice.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -47,6 +48,29 @@ int TLobby__sub_80240E8C(void) { return 0; }
 void TLobby__sub_80240F38(void) {  }
 
 void TLobby__sub_80241A0C(void) {  }
+
+extern const f32 TLobby__data_805DC9E0;
+extern const f32 lbl_805DC9EC;
+
+void send_sound_request_reverb(SoundRequestVoice *voice) {
+    f32 request = voice->reverb;
+    s32 amount;
+    if (request < TLobby__data_805DC9E0) {
+        if (voice->bank == 5 || (voice->flags & 0x10)) amount = 0;
+        else amount = s32(lbl_805DC9EC * voice->owner->reverb);
+    } else amount = s32(lbl_805DC9EC * request);
+    if (voice->bank == 6) {
+        switch (voice->index) {
+        case 12:
+        case 25:
+            return;
+        default:
+            break;
+        }
+    }
+    if (voice->previousReverb != u8(amount))
+        TLobby__sub_803AA0E0(voice->token, 91, amount);
+}
 
 void TLobby__sub_80241AD8(u8 *arg0) {
     s32 temp_r3;

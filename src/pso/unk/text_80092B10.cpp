@@ -20,8 +20,6 @@ void TObjEneRe7Berura__vt103(void* p);
 int TObjEneRe7Berura__sub_80095328(void*);
 int get_target_info__9TObjEneDDFPv(void*);
 
-void TObjEneRe7Berura__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneRe7Berura__sub_80095328(p); } }
-
 typedef struct { s32 x, y, z; } Vec_80092B10;
 typedef struct { u32 pad0; u32 count; } Motion_80092B10;
 typedef struct { u32 pad0; Motion_80092B10 *motion; } MotEnt_80092B10;
@@ -97,5 +95,6 @@ void TObjEneRe7Berura__vt104(Ene_80092B10 *self) {
         end_effect_render__13TParticleCtrlFv();
     }
 }
+void TObjEneRe7Berura__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneRe7Berura__sub_80095328(p); } }
 
 }

@@ -73,14 +73,8 @@ pso/slices/pso_carve_80010c04.cpp:
 pso/unk/text_80010C54.cpp:
 	.text       start:0x80010C54 end:0x80010DE8
 
-pso/slices/pso_carve_80010de8.cpp:
-	.text       start:0x80010DE8 end:0x80010E40
-
-pso/player/TObjPlayer_80010E40.cpp:
-	.text       start:0x80010E40 end:0x80010E44
-
-pso/unk/text_80010E44.cpp:
-	.text       start:0x80010E44 end:0x80010EBC
+pso/player/DamageBookkeeping.cpp:
+	.text       start:0x80010DE8 end:0x80010EBC
 
 pso/slices/pso_carve_80010ebc.cpp:
 	.text       start:0x80010EBC end:0x80010FCC
@@ -9964,11 +9958,8 @@ pso/slices/pso_carve_801d247c.cpp:
 pso/player/TObjPlayer_801D2618.cpp:
 	.text       start:0x801D2618 end:0x801D2640
 
-pso/slices/pso_carve_801d2640.cpp:
-	.text       start:0x801D2640 end:0x801D2680
-
-pso/player/TObjPlayer_801D2680.cpp:
-	.text       start:0x801D2680 end:0x801D269C
+pso/player/PlayerActionState.cpp:
+	.text       start:0x801D2640 end:0x801D269C
 
 pso/misc/pso_const_ids2.cpp:
 	.text       start:0x801D269C end:0x801D281C
@@ -12453,6 +12444,7 @@ pso/misc/TWindowSubStatusDisp_80257784_8025903C.cpp:
 
 pso/misc/TWindowSubStatusDisp_80257784_8025910C.cpp:
 	.text       start:0x8025910C end:0x80259838
+	.rodata     start:0x8044EFF8 end:0x8044F000
 
 pso/misc/TWindowSubStatusDisp_80257784_80259838.cpp:
 	.text       start:0x80259838 end:0x802598E4

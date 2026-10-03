@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/player/PlayerRequirementStats.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -112,7 +113,7 @@ void handle_6x0E_clear_negative_status_effects(s32 arg0);
 extern "C" {
 
 void TObjPlayer__vt76(s32 arg0, s32 arg1);
-s32 TWindowHelpItem__sub_801B3038(void *self, void *arg1);
+s32 build_player_equipment_requirement_stats(TObjPlayer *self, PlayerRequirementStats *arg1);
 s32 get_quest_id__12TQuestListVMFPv(void *);
 void apply_speed_scale__10TObjPlayerFif(s32 arg0, f32 farg0);
 s32 calc_scaled_value__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -265,7 +266,7 @@ s32 fn_801B2FC8(s32 arg0, s32 arg1) {
 }
 
 #pragma scheduling on
-s32 TWindowHelpItem__sub_801B3038(void *self, void *arg1) {
+s32 build_player_equipment_requirement_stats(TObjPlayer *self, PlayerRequirementStats *arg1) {
     set_params__10TObjPlayerFPvPvPviPv(arg1, self, (void *) get_quest_id__12TQuestListVMFPv(self),
                                        get_class_attack_template(self), get_class_defense_template());
     return 1;

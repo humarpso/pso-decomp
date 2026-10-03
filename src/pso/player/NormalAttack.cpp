@@ -34,7 +34,7 @@ M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 f32 TObjPlayer__sub_801D2640(void *);
 f32 TObjPlayer__sub_801D2CDC(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
-s32 TObjPlayer__sub_801D2FB0(s32, s32, s32, s32);
+s32 queue_physical_attack_input(s32, s32, s32, s32);
 M2C_UNK begin_player_attack(void *, void *, int, int);
 s32 TObjPlayer__sub_801D3224(void *, void *);
 u32 capture_lockon_targets(void *, void *);
