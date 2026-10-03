@@ -64,7 +64,7 @@ M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 s32 check_player_flag1__6TLobbyFPv();
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 extern s32 lbl_805D53A0;
-int TWindowCtrl__sub_8024AEAC(void*);
+int suppress_slot__11TWindowCtrlFi(void*);
 extern s32 lbl_805D53A0;
 int TObjPlayer__sub_8024ABDC(void*);
 extern s32 lbl_805D53A0;
@@ -305,7 +305,7 @@ void send_45_and_close_windows__6TLobbyFv(void * _w0) {
     unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
     TLobby__sub_8024AC20(lbl_805D53A0);
 }
-void show_ctrl_and_play_effect__6TLobbyFPv(void* a0) { TWindowCtrl__sub_8024AEAC((void*)((*(int *)&lbl_805D53A0))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
+void show_ctrl_and_play_effect__6TLobbyFPv(void* a0) { suppress_slot__11TWindowCtrlFi((void*)((*(int *)&lbl_805D53A0))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
 void play_default_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((void*)((*(int *)&lbl_805D53A0))); play_player_default_effect__6TLobbyFv((s32)(a0)); }
 void play_player_default_effect__6TLobbyFv(s32 _w0) {
     s32 temp_r3;

@@ -71,13 +71,13 @@ void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
 u32 get_player_by_client_id(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK end_player_keyboard_hold(s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 extern s32 lbl_805D53A0;
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
 u32 get_player_by_client_id(u16);
-M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
-M2C_UNK fn_8024ACEC(s32);
+M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
+M2C_UNK begin_player_keyboard_hold(s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, M2C_UNK);
 extern s32 lbl_805D53A0;
 M2C_UNK request_active_window_close();
@@ -344,7 +344,7 @@ void handle_battle_result__6TLobbyFii(int arg0, s32 arg1) {
         send_code_45_1__10TObjPlayerFi();
     }
     if (arg1 != 0) {
-        TWindowChat__sub_8024AD30(lbl_805D53A0);
+        end_player_keyboard_hold(lbl_805D53A0);
         clear_flag__11TWindowCtrlFv();
         unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
     }
@@ -355,9 +355,9 @@ void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1) {
         play_effect_default__10TObjPlayerFii(temp, -1);
     }
     if (arg1 != 0) {
-        fn_8024ACEC(lbl_805D53A0);
+        begin_player_keyboard_hold(lbl_805D53A0);
         request_active_window_close();
-        TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
     }
 }
 s32 TLobby__sub_801C417C(void) {

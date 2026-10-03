@@ -92,7 +92,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK align_menu_entry_positions(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 s32 create_titled_window_menu(int, int, int, int);
@@ -102,7 +102,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK align_menu_entry_positions(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
@@ -469,7 +469,7 @@ s32 TWindowSubItem__sub_80279E68(u8 *arg0) {
     set_field_1c__6TLobbyFPvf((s32)((int) (temp_r31)));
     set_flag70_bit10__16TObjCityMainWarpFPv((int) (temp_r31));
     TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DD630));
-    TWindowSubComCard__sub_80265C30((int) (temp_r31));
+    align_menu_entry_positions((int) (temp_r31));
     return temp_r31;
 }
 
@@ -487,7 +487,7 @@ s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1) {
     set_field_1c__6TLobbyFPvf((s32)((int) (temp_r31)));
     set_flag70_bit10__16TObjCityMainWarpFPv((int) (temp_r31));
     TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DD630));
-    TWindowSubComCard__sub_80265C30((int) (temp_r31));
+    align_menu_entry_positions((int) (temp_r31));
     return temp_r31;
 }
 

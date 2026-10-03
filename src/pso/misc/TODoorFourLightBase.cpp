@@ -87,7 +87,7 @@ struct VObj_802A07E0 : VBase_802A07E0 {
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
-f32 TObjPlayer__sub_803D99F8(void *, void *);
+f32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
@@ -238,7 +238,7 @@ void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1) {
             post_translate_matrix((void *) (var_r30 + 8));
         }
         if (!(temp_r31 & 2)) {
-            TObjPlayer__sub_803D99F8((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
+            rotate_matrix_by_node_angles((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
             scale_current_matrix((void *) (var_r30 + 0x20));

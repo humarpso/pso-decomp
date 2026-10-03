@@ -34,7 +34,7 @@ extern u8 *lbl_805D6918;
 void TBoss7DeRolLeC__sub_802EE4E0(void);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void TLobby__sub_800FD6F8(void *, int);
+void run_load_callback_table(void *, int);
 u8 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
 void init_all_slots__11TWindowCtrlFv();
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
@@ -95,7 +95,7 @@ void TObjPlayer__sub_802EE574(void) {
     lbl_805D6930 = 0;
     lbl_805D6934 = 0;
     lbl_805D6938 = 0;
-    TLobby__sub_800FD6F8(&lbl_804E3C5C.value, 0x30);
+    run_load_callback_table(&lbl_804E3C5C.value, 0x30);
     lbl_805D693C = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D6918, u8 **, 0x42C), s32 *, 8), 0x4D);
     lbl_805D6940 = M2C_FIELD(lbl_805D693C, s32 *, 0x2C);
     for (i = 0; i < 11; i++) {

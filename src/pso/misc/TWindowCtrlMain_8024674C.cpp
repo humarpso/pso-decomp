@@ -12,7 +12,7 @@ M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
 s32 is_trade_active();
 s32 is_active__19TWindowSubShortMailFv();
-s32 fn_80246CD0();
+s32 is_com_card_active();
 s32 is_guild_card_receive_active();
 void TWindowSubStatusDisp__sub_80246980(s32 arg0);
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
@@ -131,7 +131,7 @@ void TWindowSubStatusDisp__sub_80246980(s32 arg0) {
             set_flag0_bit2__15TWindowHelpItemFPv((int) (temp_r30));
         }
     }
-    if (fn_80246CD0() != 0) {
+    if (is_com_card_active() != 0) {
         if (temp_r29 != 0U) {
             clear_visible_flag__20TWindowSubStatusDispFPv((int) (temp_r29));
         }

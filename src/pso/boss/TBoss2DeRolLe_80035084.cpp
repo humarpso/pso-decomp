@@ -272,7 +272,7 @@ s32 send_entity_set_flags__6TLobbyFPv(void *);
 void *__nw__7TObjectFUl(int);
 s32 run_tasks__7TObjectFv(void *);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
-void TBoss2DeRolLe__sub_800350E8(u8 *arg0);
+void run_task__13TBoss2DeRolLeFPv(u8 *arg0);
 void TBoss2Fin__sub_80036620(u8 *arg0);
 s32 fn_800FF788(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
@@ -353,7 +353,7 @@ typedef struct VObj_18_bd2ad6 VObj_18_bd2ad6;
 #define PSO_VCALL_VObj_18_bd2ad6_m30(_self) (((VObj_18_bd2ad6 *)(_self))->m30())
 #define PSO_VCALL_VObj_18_bd2ad6_m60(_self) (((VObj_18_bd2ad6 *)(_self))->m60())
 #define PSO_VCALL_VObj_18_bd2ad6_m86(_self) (((VObj_18_bd2ad6 *)(_self))->m86())
-void TBoss2DeRolLe__sub_800350E8(u8 *arg0) {
+void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
   s16 temp_r0_2;
   s32 temp_r0;
   s32 temp_r0_3;

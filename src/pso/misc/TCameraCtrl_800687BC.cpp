@@ -394,7 +394,7 @@ void update_target_smoothing__11TCameraCtrlFPv(u8 *arg0);
 void TCameraCtrl__sub_80068A68(void);
 s32 set_target__11TCameraCtrlFii(int, int);
 s32 set_target_coords__11TCameraCtrlFii(int, int);
-s32 TCameraCtrl__sub_801E32E4(void *, int);
+s32 camera_renderer_setup_nop(void *, int);
 s32 fn_803D64F8(void *);
 s32 update_camera_state__11TCameraCtrlFv(f32, f32, f32);
 s32 TCameraCtrl__sub_803D6558(f32, f32, f32);
@@ -777,7 +777,7 @@ void TCameraCtrl__sub_80069318(void) {
     TCameraCtrl__sub_80068A68();
     TCameraCtrl__sub_80069534();
     fn_803D64F8((void *) (&lbl_804FF5E8.value));
-    TCameraCtrl__sub_801E32E4((void *) (&lbl_804FF5E8.value), (int) (0x3555));
+    camera_renderer_setup_nop((void *) (&lbl_804FF5E8.value), (int) (0x3555));
     update_camera_state__11TCameraCtrlFv((f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)));
     TCameraCtrl__sub_803D6558((f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) ((*(const f32 *)&TCameraCtrl__data_805D8FA8)), (f32) (lbl_805D8FE4));
     stack.sp10 = TCameraCtrl__data_805D8FC0;

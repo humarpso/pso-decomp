@@ -100,7 +100,7 @@ extern u8 lbl_8044C478[];
 extern M2C_UNK lbl_80513F20[];
 extern u32 lbl_805D6260;
 extern int lbl_805D6264;
-void TLobby__sub_802245B4(void);
+void load_tool_random_rel(void);
 M2C_UNK TLobby__sub_800F957C(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 extern G_80225550 lbl_80513F60;
@@ -118,7 +118,7 @@ s32 memcmp(const void *, const void *, u32);
 extern Cnt_80224B7C lbl_80513F40[];
 extern G_80225550 lbl_80513F60;
 s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
-s8 TLobby__sub_8010540C(s32);
+s8 roll_weapon_special_channel15(s32);
 s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
@@ -126,7 +126,7 @@ void reset_counter_64__6TLobbyFPv(void *);
 s32 TLobby__sub_80224840(s32 arg0);
 extern u32 lbl_805D6268;
 extern int lbl_805D626C;
-void TLobby__sub_80224F7C(Obj_80224F7C *obj);
+void roll_shop_weapon_special(Obj_80224F7C *obj);
 s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
@@ -138,7 +138,7 @@ extern G_80225550 lbl_80513F60;
 extern s32 lbl_805D6240;
 extern u32 lbl_805D6268;
 extern int lbl_805D626C;
-void TLobby__sub_802256B8(void);
+void load_weapon_random_tables(void);
 u8 get_entry_field16__9TItemDataFv(void *);
 s32 classify_level_bracket_narrow__6TLobbyFi(s32 arg0);
 s32 rand();
@@ -203,7 +203,7 @@ void free_all_rocks__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_802245B4(void) {
+void load_tool_random_rel(void) {
     s32 i;
     (*(s32 *)&lbl_805D6260) = create_named_object(lbl_8044C478);
     for (i = 0; i < 4; i++) {
@@ -438,7 +438,7 @@ s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl) {
 
 #pragma push
 #pragma optimization_level 1
-void TLobby__sub_80224F7C(Obj_80224F7C *obj) {
+void roll_shop_weapon_special(Obj_80224F7C *obj) {
     u8 buf[0x68];
     Ent_80224F7C *e;
     s32 idx;
@@ -460,10 +460,10 @@ void TLobby__sub_80224F7C(Obj_80224F7C *obj) {
     shuffle_shop_pool_n_times(buf, 3);
     switch (pop_byte__6TLobbyFPv(buf)) {
     case 1:
-        obj->v = TLobby__sub_8010540C(0);
+        obj->v = roll_weapon_special_channel15(0);
         break;
     case 2:
-        obj->v = TLobby__sub_8010540C(1);
+        obj->v = roll_weapon_special_channel15(1);
         break;
     case 0:
     default:
@@ -552,7 +552,7 @@ void TLobby__sub_80225618(void) {
 
 #pragma push
 #pragma optimization_level 1
-void TLobby__sub_802256B8(void) {
+void load_weapon_random_tables(void) {
     s32 i;
     s32 j;
     switch (lbl_805D6240) {

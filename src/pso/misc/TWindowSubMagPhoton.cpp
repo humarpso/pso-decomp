@@ -89,7 +89,7 @@ void update_photon_selection__19TWindowSubMagPhotonFPv(void *arg0);
 void update_quest_board_card_flags(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_selected_menu_value(s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
@@ -335,7 +335,7 @@ s32 create_option_menu_window(void *arg0) {
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD688);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x24), 0);
     set_field_1c__6TLobbyFPvf(temp_r31);
     return temp_r31;

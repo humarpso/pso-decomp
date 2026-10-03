@@ -10,7 +10,7 @@ extern "C" {
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
 void draw_weapon_model(void *);
-void TObjPlayer__sub_80120BBC(void *, s32);
+void draw_weapon_at_joint(void *, s32);
 s32 is_rand_below_threshold__10TObjPlayerFv(void *);
 void TObjPlayer__sub_8012B1F0(void *p, s16 v);
 s16 TObjPlayer__sub_8012B1F8(void *p);
@@ -40,7 +40,7 @@ void TObjPlayer__sub_8012AFF8(Obj_8012AFF8 *arg0) {
     } else {
         TObjPlayer__sub_8012B1F0(arg0, saved);
     }
-    TObjPlayer__sub_80120BBC(arg0, 0x23);
+    draw_weapon_at_joint(arg0, 0x23);
     if (TObjPlayer__sub_8012B1F8(arg0) != 8) {
         update_trail_slot__11TItemWeaponFPvi(arg0, 1);
     }

@@ -12,7 +12,7 @@ extern const f32 lbl_805D820C;
 extern const f32 lbl_805D8210;
 extern const f32 lbl_805D8214;
 extern const f32 lbl_805D8218;
-void fn_8002E090(u8 *arg0);
+void run_task__13TObjBoss1RockFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -20,7 +20,7 @@ extern "C" {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void fn_8002E090(u8 *arg0) {
+void run_task__13TObjBoss1RockFPv(u8 *arg0) {
     f32 temp_f2;
     M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) + 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3C) > 0x28) {

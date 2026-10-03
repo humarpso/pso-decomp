@@ -25,12 +25,12 @@ s32 has_valid_handle__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BD0C0(void *);
 s32 sub_802a7290_fwd__10TObjPlayerFPv(void *);
 extern u8 lbl_804FE120[];
-void TKeyBoardControl__sub_801AFCF4(Player_801AFCF4 *arg0, s16 arg1);
+void set_action_provider_variant__10TObjPlayerFPvs(Player_801AFCF4 *arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TKeyBoardControl__sub_801AFCF4(Player_801AFCF4 *arg0, s16 arg1) {
+void set_action_provider_variant__10TObjPlayerFPvs(Player_801AFCF4 *arg0, s16 arg1) {
     if (arg1 != sub_802a7290_fwd__10TObjPlayerFPv(arg0->obj) && fn_8000F740(lbl_804FE120) != 0) {
         arg0->obj->m4(obj_getField1c(arg0), has_valid_handle__10TObjPlayerFPv(arg0), arg1);
         TObjPlayer__sub_801BD0C0(arg0);

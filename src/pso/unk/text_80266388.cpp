@@ -13,7 +13,7 @@ s32 create_window_menu(s32 arg0, s32 arg1, s32 arg2);
 u32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 set_ready_flag__18TCheckRoomSequenceFPv(int);
 s32 set_field_1c__6TLobbyFPvf(int, f32);
-s32 TWindowSubComCard__sub_80265C30(int);
+s32 align_menu_entry_positions(int);
 s32 TWindowSubComCard__sub_80265E60(int, f32);
 s32 TWindowSubComCard__sub_80265F60(int);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int);
@@ -53,7 +53,7 @@ u8 *create_yes_no_window(s32 arg0, s32 arg1, u32 arg2, u32 arg3) {
   {
     TWindowSubComCard__sub_80265E60((int) ((u8 *) temp_r3), (f32) lbl_805DD170);
   }
-  TWindowSubComCard__sub_80265C30((int) ((u8 *) temp_r3));
+  align_menu_entry_positions((int) ((u8 *) temp_r3));
   set_ready_flag__18TCheckRoomSequenceFPv((int) ((u8 *) temp_r3));
   set_field_1c__6TLobbyFPvf((int) ((u8 *) temp_r3), (f32) lbl_805DD174);
   return (u8 *) temp_r3;

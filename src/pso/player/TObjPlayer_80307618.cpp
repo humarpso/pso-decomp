@@ -60,7 +60,7 @@ f32 sin_table_lookup(s32);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 M2C_UNK draw_weapon_model();
-M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
+M2C_UNK draw_weapon_at_joint(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -75,7 +75,7 @@ void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0) {
     temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);
     draw_weapon_model();
     M2C_FIELD(arg0, s32 *, 0xF4) = (s32) M2C_FIELD(arg0, s32 *, 0x188);
-    TObjPlayer__sub_80120BBC(arg0, 0x23);
+    draw_weapon_at_joint(arg0, 0x23);
     M2C_FIELD(arg0, s32 *, 0xF4) = temp_r31;
 }
 

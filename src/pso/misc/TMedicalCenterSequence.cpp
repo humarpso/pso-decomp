@@ -154,7 +154,7 @@ M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
-M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0);
+M2C_UNK open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0);
 void TMedicalCenterSequence__vt9(u8 *arg0);
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 void TMedicalCenterSequence__sub_80216B14(void);
@@ -292,7 +292,7 @@ typedef struct Stack_80216830 Stack_80216830;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0) {
+M2C_UNK open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0) {
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
@@ -315,7 +315,7 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
         ((VObj_18_0e2b36 *)(arg0))->m10();
         return;
     case 1:
-        TMedicalCenterSequence__sub_80216830((u8 *)(arg0));
+        open_greeting_window__22TMedicalCenterSequenceFPv((u8 *)(arg0));
         return;
     case 2:
         handle_confirm__22TMedicalCenterSequenceFPv((void *)(arg0));

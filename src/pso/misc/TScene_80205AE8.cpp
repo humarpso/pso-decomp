@@ -22,13 +22,13 @@ u8 *__nw__7TObjectFUl(M2C_UNK);
 extern void **TScene__data_805D5FD0;
 void create_texture_wave_tasks__6TSceneFi(s32 arg0);
 extern void* TScene__data_805D6004;
-s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
+s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 void copy_header_and_vec__6TSceneFPvPv(void* p, void* q);
 extern void* TScene__data_805D6004;
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
-s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
+s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 void initialize_fmt1_materials__6TSceneFPv(void *task);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -40,9 +40,9 @@ extern u8 lbl_8044A80C[];
 void TScene__sub_80205AEC(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
-s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
+s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
-SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 void* alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void* init_buffers__6TSceneFPvii(void*,SceneMaterialNode*,u16);
@@ -141,7 +141,7 @@ void create_texture_wave_tasks__6TSceneFi(s32 arg0) {
   while (temp_r0 >= 0);
 }
 
-s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c) {
+s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c) {
     s16 *p = (*(s16 * *)&TScene__data_805D6004);
     while (p[0] != -1) {
         if (p[0] & 1) {
@@ -204,7 +204,7 @@ void TScene__sub_80205FD0(void) {  }
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
-SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 
 void* alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -233,7 +233,7 @@ void TScene::initialize_fmt2_materials() {
                 if (find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)&def) == 1) {
                     uv->id = def.id; uv->texture = def.texture;
                     uv->u = def.u; uv->v = def.v; uv->du = def.du; uv->dv = def.dv;
-                    SceneMaterialNode *node = TScene__sub_80203324(task, object);
+                    SceneMaterialNode *node = resolve_indirect_node_record(task, object);
                     void *buffer = alloc__23TAdSinglePlyChrSelectGCFPv(20);
                     if (buffer) buffer = init_buffers__6TSceneFPvii(buffer, node, uv->texture);
                     uv->buffer = buffer;
@@ -241,7 +241,7 @@ void TScene::initialize_fmt2_materials() {
                     object->flags &= ~0x20;
                 }
             }
-            if ((object->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)object->cycle)) object->flags &= ~0x40;
+            if ((object->flags & 0x40) && !load_texture_sequence_frame(task, (Cyc_80205D24 *)object->cycle)) object->flags &= ~0x40;
         }
         anim = room->animated;
         for (j = 0; j < room->animatedCount; j++, anim++) {
@@ -261,7 +261,7 @@ void TScene::initialize_fmt2_materials() {
                     anim->flags &= ~0x20;
                 }
             }
-            if ((anim->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
+            if ((anim->flags & 0x40) && !load_texture_sequence_frame(task, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
         }
     }
 }
@@ -281,12 +281,12 @@ void initialize_fmt1_materials__6TSceneFPv(void *task) {
         object = room->objects;
         for (i = 0; i < room->count; i++, object++) {
             if ((object->flags & 0x20) && !find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)object->uv)) object->flags &= ~0x20;
-            if ((object->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)object->cycle)) object->flags &= ~0x40;
+            if ((object->flags & 0x40) && !load_texture_sequence_frame(task, (Cyc_80205D24 *)object->cycle)) object->flags &= ~0x40;
         }
         anim = room->animated;
         for (j = 0; j < room->animatedCount; j++, anim++) {
             if ((anim->flags & 0x20) && !find_uv_animation__6TSceneFPvPv(task, (Uv_80205DE4 *)anim->uv)) anim->flags &= ~0x20;
-            if ((anim->flags & 0x40) && !TScene__sub_80205D24(task, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
+            if ((anim->flags & 0x40) && !load_texture_sequence_frame(task, (Cyc_80205D24 *)anim->cycle)) anim->flags &= ~0x40;
         }
     }
 }

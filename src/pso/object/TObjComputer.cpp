@@ -184,13 +184,13 @@ extern M2C_UNK lbl_804B6244[];
 extern u32 TObjComputer__data_805D5B68;
 extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
-void TObjComputer__sub_80188358(void);
+void load_computer_resources(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 M2C_UNK PPCSync();
 s32 rotate_matrix_y(s32, s32);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, u32);
+M2C_UNK rotate_matrix_by_node_angles(void *, u32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
@@ -254,7 +254,7 @@ M2C_UNK draw_model__12TObjComputerFPv(void *arg0) {
             self->time_c0 = time - (f32)(s32)time;
         }
         post_translate_matrix(self->model->pos8);
-        TObjPlayer__sub_803D99F8(self->model->angles14, self->model->flags0 & 0x20);
+        rotate_matrix_by_node_angles(self->model->angles14, self->model->flags0 & 0x20);
         draw_ginja_object(self->model);
         if (self->model->sub2c != NULL) {
             begin_effect_render__13TParticleCtrlFv();
@@ -317,7 +317,7 @@ void free_resources__12TObjComputerFv(void) {
 
 extern M2C_UNK __vt__12TObjComputer[];
 
-void TObjComputer__sub_80188358(void) {
+void load_computer_resources(void) {
     void *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 23: case 24: case 25: case 26: case 27: case 28: case 29:

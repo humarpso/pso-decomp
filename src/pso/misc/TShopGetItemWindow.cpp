@@ -70,7 +70,7 @@ s32 can_inventory_accept_item__10TObjPlayerFPvPv(int, void *);
 s32 TCheckRoomSequence__sub_80210904(int);
 s32 TCheckRoomSequence__sub_80210E28(int, int, int);
 s32 TCheckRoomSequence__sub_80211034(int, void *, int);
-s32 TCheckRoomSequence__sub_8021118C(int);
+s32 copy_bank_to_card_window(int);
 s32 get_item_def__18TCheckRoomSequenceFUi(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
@@ -164,7 +164,7 @@ void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0) {
           fn_801B849C((int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_24, (void *) (&stack.sp8));
           TCheckRoomSequence__sub_80210E28((int) temp_r3_3, (int) ((RecoveredFields_8021E5D8_arg0 *) arg0)->field_54, (int) temp_r30);
           TCheckRoomSequence__sub_80210904((int) temp_r30);
-          TCheckRoomSequence__sub_8021118C((int) temp_r30);
+          copy_bank_to_card_window((int) temp_r30);
           set_field_20__12TQuestListVMFPvi((void *)((void *) arg0), (M2C_UNK)((int) 0));
         }
       }

@@ -68,7 +68,7 @@ extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C8914;
 s32 TAdSinglePlyChrSelectGC__sub_802E15C8(void);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 int set_selected_index__17TWindowSubComCardFPvs(void *, s16);
-int TWindowSubComCard__sub_80265C30(void *);
+int align_menu_entry_positions(void *);
 int TWindowSubComCard__sub_80265E60(void *, f32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, void *a1, int a2, int a3);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
@@ -367,7 +367,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1A8C(Self_802E1A8C *self, void *arg1, s32 
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->x54, m, 5, 1);
     }
     TWindowSubComCard__sub_80265E60(self->x54, lbl_805D68E0);
-    TWindowSubComCard__sub_80265C30(self->x54);
+    align_menu_entry_positions(self->x54);
     if (arg2 == -2) {
         set_selected_index__17TWindowSubComCardFPvs(self->x54, 0);
     } else {

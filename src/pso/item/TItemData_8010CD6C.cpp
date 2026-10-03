@@ -111,14 +111,14 @@ s16 get_bswap16_field8__9TItemDataFPv(void *arg0);
 s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 s16 get_technique_level__9TItemDataFPv(void *arg0);
 void lookup_item_def__9TItemDataFPv(void *arg0);
-M2C_UNK TItemData__sub_8010B908(void *, s32, s32, s32, s32, s32);
+M2C_UNK apply_custom_shield_bonus__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_mag_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 M2C_UNK apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_shield_stat_contribution__9TItemDataFPviiPv(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_armor_stat_contribution__9TItemDataFPviiPv(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_weapon_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 s32 is_wrapped__9TItemDataFPv();
-M2C_UNK TItemData__sub_8010C5DC(void *, s32);
+M2C_UNK calc_clock_bonus__9TItemDataFPv(void *, s32);
 void TItemData__sub_8010CCB0(void);
 void normalize__9TItemDataFv(void);
 s32 get_item_description_text(s32);
@@ -491,7 +491,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
 
     if ((arg1 != 0) || (arg1 = get_player_by_client_id(lbl_805D53A0), ((arg1 == 0) == 0))) {
         get_set_bonus_multiplier__9TItemDataFPvi((void *)(arg0), (s32)(arg1));
-        TItemData__sub_8010C5DC(arg0, arg1);
+        calc_clock_bonus__9TItemDataFPv(arg0, arg1);
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         switch ((s32) temp_r0) {
         case 0:
@@ -516,7 +516,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
             break;
         }
         apply_bonuses(arg0, arg1, arg2, arg3, arg4, arg5);
-        TItemData__sub_8010B908(arg0, arg1, arg2, arg3, arg4, arg5);
+        apply_custom_shield_bonus__9TItemDataFv(arg0, arg1, arg2, arg3, arg4, arg5);
     }
 }
 

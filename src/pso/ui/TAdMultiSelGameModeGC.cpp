@@ -44,7 +44,7 @@ extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx);
 s32 get_localized_text_entry(s32, s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
-void TWindowSubComCard__sub_80265C30(s32);
+void align_menu_entry_positions(s32);
 void TWindowSubComCard__sub_80265E60(s32, f32);
 void draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
@@ -108,7 +108,7 @@ s32 TAdMultiSelGameModeGC__sub_803001B4(void *arg0, s32 arg1) {
         }
         TWindowSubComCard__sub_80265E60(r, lbl_805DEF40);
         set_selected_index__17TWindowSubComCardFPvs(r, a.v[arg1]);
-        TWindowSubComCard__sub_80265C30(r);
+        align_menu_entry_positions(r);
     }
     return r;
     }

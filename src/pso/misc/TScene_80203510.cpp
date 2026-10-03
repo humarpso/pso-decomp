@@ -80,7 +80,7 @@ extern Root_80204024 *lbl_805D4DF0;
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern f32 TScene__data_805D5FE4;
 void TScene__sub_8020430C(void);
-SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 extern const f32 lbl_805DC5DC;
@@ -109,19 +109,19 @@ void end_ginja_model_draw(void);
 void push_matrix(void);
 void pop_matrix(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-void TScene__sub_8020533C(void *, SceneMaterialSection *, s32);
+void render_static_map_section__6TSceneFv(void *, SceneMaterialSection *, s32);
 void render_animated_map_section__6TSceneFv(void *, SceneMaterialSection *, s32);
 void post_translate_matrix(f32 *);
-void TObjPlayer__sub_803D99F8(s32 *, s32);
+void rotate_matrix_by_node_angles(s32 *, s32);
 void render_map_sections__6TSceneFPv(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 void advance_scene_object_animations(void);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
-SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
-s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 f32 get_random_float__8TObjFishFv(f32);
 void offset_position__6TSceneFPvii(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
@@ -130,9 +130,9 @@ extern const f32 lbl_805DC5D4;
 void tick_material_fmt2__6TSceneFPv(void *task);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
-SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
-s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 f32 get_random_float__8TObjFishFv(f32);
 void scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
@@ -184,9 +184,9 @@ s32 get_player_ctrl_field__6TSceneFUs(u16 arg0) {
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
-SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
 SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
-s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+s32 load_texture_sequence_frame(void*,SceneMaterialCycle*);
 
 f32 get_random_float__8TObjFishFv(f32);
 void offset_position__6TSceneFPvii(void*,s32,s32);
@@ -243,7 +243,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
             if (object->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)TScene__sub_80203324((void*)(task), (SceneMaterialStatic*)(object)));
+            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(task), (SceneMaterialStatic*)(object)));
             if (object->flags & 0x20) {
                 uv = object->uv;
                 uv->u += uv->du;
@@ -260,7 +260,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
                 object->cycle->timer--;
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
-                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(object->cycle));
+                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(object->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
@@ -294,7 +294,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
                 anim->cycle->timer--;
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
-                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(anim->cycle));
+                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(anim->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
                 }
             }
@@ -342,7 +342,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
             if (object->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)TScene__sub_80203324((void*)(task), (SceneMaterialStatic*)(object)));
+            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(task), (SceneMaterialStatic*)(object)));
             if (object->flags & 0x20) {
                 uv = object->uv;
                 uv->u += uv->du;
@@ -357,7 +357,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
                 object->cycle->timer--;
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
-                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(object->cycle));
+                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(object->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
@@ -389,7 +389,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
                 anim->cycle->timer--;
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
-                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(anim->cycle));
+                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(anim->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
                 }
             }
@@ -473,7 +473,7 @@ void TScene__sub_802041F4(void *task, SceneMaterialSection *room) {
     room->flags |= 0x10000;
     for (object = room->objects; i < room->count; i++, object++) {
         if (object->node != NULL) {
-            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)TScene__sub_80203324((void*)(task), (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_node_record((void*)(task), (SceneMaterialStatic*)(object))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
                 object->flags |= 0x10000;
             } else {
                 object->flags &= ~0x10000;
@@ -595,11 +595,11 @@ void render_map_sections__6TSceneFPv(void *scene) {
                     case 0:
                     case 0xF:
                     case 0x12:
-                        TScene__sub_8020533C(scene, sec, 0);
+                        render_static_map_section__6TSceneFv(scene, sec, 0);
                         render_animated_map_section__6TSceneFv(scene, sec, 0);
                         break;
                     default:
-                        TScene__sub_8020533C(scene, sec, 1);
+                        render_static_map_section__6TSceneFv(scene, sec, 1);
                         render_animated_map_section__6TSceneFv(scene, sec, 1);
                         break;
                     }
@@ -607,15 +607,15 @@ void render_map_sections__6TSceneFPv(void *scene) {
                 } else if (sec->flags & 0x100000) {
                     push_matrix();
                     post_translate_matrix(sec->position);
-                    TObjPlayer__sub_803D99F8(sec->angles, 1);
-                    TScene__sub_8020533C(scene, sec, 1);
+                    rotate_matrix_by_node_angles(sec->angles, 1);
+                    render_static_map_section__6TSceneFv(scene, sec, 1);
                     render_animated_map_section__6TSceneFv(scene, sec, 1);
                     pop_matrix();
                 } else {
                     push_matrix();
                     post_translate_matrix(sec->position);
-                    TObjPlayer__sub_803D99F8(sec->angles, 1);
-                    TScene__sub_8020533C(scene, sec, 0);
+                    rotate_matrix_by_node_angles(sec->angles, 1);
+                    render_static_map_section__6TSceneFv(scene, sec, 0);
                     render_animated_map_section__6TSceneFv(scene, sec, 0);
                     pop_matrix();
                 }

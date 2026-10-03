@@ -42,7 +42,7 @@ extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
 extern const f32 lbl_805DAF38;
 extern const f32 lbl_805DAF3C;
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2);
-void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
+void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
@@ -60,7 +60,7 @@ extern "C" {
 void launch_slicer_shot(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
-    TObjPlayer__sub_801295FC(&launch);
+    init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(M2C_FIELD(weapon, u8 **, 0xF0));
     launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
     launch.textures = M2C_FIELD(weapon, void **, 0x24);

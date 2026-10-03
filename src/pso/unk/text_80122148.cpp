@@ -93,7 +93,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80122148(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80109440();
+void spawn_weapon_impact_effect();
 void fn_8011B328();
 void create_gun_shot();
 void TObjPlayer__sub_801221A0(Self_801221A0 *self);
@@ -120,7 +120,7 @@ void TObjPlayer__sub_801221A0(Self_801221A0 *self) {
         self->fn1ec = NULL;
     } else {
         self->fn1f0 = (void *)create_gun_shot;
-        self->fn1ec = (void *)TObjPlayer__sub_80109440;
+        self->fn1ec = (void *)spawn_weapon_impact_effect;
     }
     if (self->m49(self->a1f8, 0, 0, 1) != 0) {
         self->m49(self->a204, 0, 0, 0);

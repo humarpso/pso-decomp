@@ -104,7 +104,7 @@ s32 TKeyBoardControl__ct(s32, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 M2C_UNK TWindowSubComCard__sub_802655E4(s32);
 s32 TWindowSubComCard__sub_80265660(s32, s32);
 s32 get_selected_menu_value(s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubSymbolChatPartsSet__ct(s32, s32, s16, M2C_UNK *, M2C_UNK *);
 s32 TWindowSubSymbolChatParts__ct(s32, s32, M2C_UNK *, M2C_UNK *);
@@ -344,7 +344,7 @@ s32 create_menu__20TWindowSubSymbolChatFv(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xBE), 0x26, 8);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     set_scroll_target__17TWindowSubComCardFPvff(temp_r31, lbl_805DD73C, lbl_805DD740);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 
@@ -369,7 +369,7 @@ s32 create_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     set_scroll_target__17TWindowSubComCardFPvff(temp_r31, lbl_805DD73C, lbl_805DD740);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 
@@ -414,7 +414,7 @@ void open_menu__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(arg1, get_message_10__20TWindowSubStatusDispFPv(0xAF), 6, 0x10);
     set_flag70_bit10__16TObjCityMainWarpFPv(arg1);
     set_scroll_target__17TWindowSubComCardFPvff(arg1, lbl_805DD73C, lbl_805DD744);
-    TWindowSubComCard__sub_80265C30(arg1);
+    align_menu_entry_positions(arg1);
 }
 s32 TWindowSubSymbolChat__sub_8028233C(s32 arg0) {
     s32 r = draw_card_icon__17TWindowSubComCardFiii((s32)(get_window_layout_position((M2C_UNK)(0x79))), (M2C_UNK)(6), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xA9))));

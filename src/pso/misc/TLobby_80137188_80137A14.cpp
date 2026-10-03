@@ -59,7 +59,7 @@ void init_player_window_effect__6TLobbyFv(void);
 void update_com_card_window__6TLobbyFv(void);
 void update_player_window__6TLobbyFv(void);
 u32 get_player_by_client_id(s32);
-M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
+M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 s32 get_selected_menu_value(void*);
 M2C_UNK clear_lobby_flag__10TObjPlayerFPv();
@@ -194,7 +194,7 @@ void init_player_window_effect__6TLobbyFv(void) {
     if (get_player_by_client_id(lbl_805D53A0) != 0U) {
         init_effect_5f0__10TObjPlayerFPv();
     }
-    TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+    suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
 }
 
 extern s32 TLobby__data_805D5580;

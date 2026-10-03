@@ -76,7 +76,7 @@ extern s32 TLobby__data_805D610C;
 extern s32 TLobby__data_805D6114;
 extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
-void TLobby__sub_8020D6F0(u8 *arg0);
+void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0);
 void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count);
@@ -104,7 +104,7 @@ void spawn_decorations_in_range(void *arg0);
 
 extern "C" {
 
-void TLobby__sub_8020D6D0(void* p);
+void update_decoration_spawning__11TSetManagerFPv(void* p);
 
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     push_matrix_from((u32) &lbl_8058D490.value);
@@ -223,12 +223,12 @@ void spawn_decorations_in_range(void *arg0) {
     }
 }
 
-void TLobby__sub_8020D6D0(void* p) { spawn_decorations_in_range((void *)(p)); }
+void update_decoration_spawning__11TSetManagerFPv(void* p) { spawn_decorations_in_range((void *)(p)); }
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
 typedef char RecoveredGlobal_8020D6F0_TLobby__data_80513AD0_size[sizeof(RecoveredGlobal_8020D6F0_TLobby__data_80513AD0) == 0x1B0 ? 1 : -1];
-void TLobby__sub_8020D6F0(u8 *arg0) {
+void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r30;
     temp_r3 = get_current_floor();

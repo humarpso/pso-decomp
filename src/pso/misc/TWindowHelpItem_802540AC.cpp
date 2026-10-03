@@ -187,7 +187,7 @@ void set_items_and_refresh__15TWindowHelpItemFPvPvPv(void* p, void* a1, void* a2
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
 void TWindowHelpItem__sub_80254DEC(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+M2C_UNK init_window_layout_entries(void *, void *, int);
 M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, int);
 extern M2C_UNK TWindowHelpItem__data_804CF140[];
 extern Vec3_80254F18 lbl_804CF82C;
@@ -204,7 +204,7 @@ s32 is_item_already_equipped__15TWindowHelpItemFPv(void *);
 s16 get_item_type__20TWindowSubStatusDispFPv(s32);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(s32);
 s16 get_stat__20TWindowSubStatusDispFPv(s32);
-M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+M2C_UNK init_window_layout_entries(void *, void *, int);
 void set_flag8_and_field20__15TWindowHelpItemFPvi(s32, s32);
 void set_flag4_and_field1c__15TWindowHelpItemFPvi(s32, s32);
 M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, int);
@@ -284,7 +284,7 @@ void update_resistance_rows__15TWindowHelpItemFPv(void *arg0) {
     clear_fields__20TWindowSubStatusDispFPv(&st);
     pl = get_player_by_client_id(self->player);
     if (pl != 0) {
-        TWindowSubStatusDisp__sub_80257D44(self->disp, lbl_804CF290, self->player);
+        init_window_layout_entries(self->disp, lbl_804CF290, self->player);
         self->pos = lbl_804CF868;
         a = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
         b = get_array_entry__20TWindowSubStatusDispFPvi(self, 1);
@@ -467,7 +467,7 @@ void TWindowHelpItem__sub_80254DEC(void *arg0) {
     s32 temp_r27;
     s32 temp_r26;
 
-    TWindowSubStatusDisp__sub_80257D44((void *) ((u8 *) arg0 + 0x24), (void *) (TWindowHelpItem__data_804CF140), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
+    init_window_layout_entries((void *) ((u8 *) arg0 + 0x24), (void *) (TWindowHelpItem__data_804CF140), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (0));
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (1));
     temp_r29 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (2));

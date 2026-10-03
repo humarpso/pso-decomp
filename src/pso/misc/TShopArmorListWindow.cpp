@@ -180,7 +180,7 @@ u32 create_window_menu(s32, s32, u16);
 s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-s32 TWindowSubComCard__sub_80265C30(u32);
+s32 align_menu_entry_positions(u32);
 s32 TWindowSubComCard__sub_80265F60(u32);
 s32 get_window_layout_position(s32);
 void TWindow__close(void *);
@@ -273,7 +273,7 @@ s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(5), 6, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x30));
-        TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x30));
+        align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0x30));
         set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x30));
         temp_f31 = get_scale__15TShopWindowBaseFv(arg0);
         set_position_xy(M2C_FIELD(arg0, u32 *, 0x30), get_scale__15TShopWindowBaseFv(arg0), temp_f31);

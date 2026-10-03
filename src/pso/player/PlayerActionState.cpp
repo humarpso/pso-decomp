@@ -10,7 +10,7 @@ struct Obj_801D2640 {
 extern "C" {
 void set_flags_B0__10TObjPlayerFPvUi(void *, u32);
 
-f32 TObjPlayer__sub_801D2640(Obj_801D2640 *p) {
+f32 get_action_rate_entry(Obj_801D2640 *p) {
     return p->arr[p->idx].f;
 }
 

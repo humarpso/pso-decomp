@@ -157,8 +157,8 @@ void *TItemList__sub_801D3B64(void *arg0, s16 arg1);
 void *TItemList__sub_801D3FC4(void *arg0, s16 arg1);
 void * create_node__9TItemListFPvPvPvPv(void *arg0, void *arg1, void *arg2, s8 arg3);
 void *destroy__9TItemListFPvs(void *arg0, s16 arg1);
-M2C_UNK TItemList__sub_801D59E8(void *, s32);
-M2C_UNK TItemList__sub_801D5A28(void *, s32);
+M2C_UNK decrement_placement_search_pending(void *, s32);
+M2C_UNK clear_placement_search_slot(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -214,8 +214,8 @@ extern M2C_UNK lbl_804C4468[];
 void *destroy__9TItemListFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4468;
-        TItemList__sub_801D5A28(arg0, M2C_FIELD(arg0, s32 *, 0x54));
-        TItemList__sub_801D59E8(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        clear_placement_search_slot(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        decrement_placement_search_pending(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         TItemList__sub_801D3FC4((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -279,8 +279,8 @@ extern M2C_UNK lbl_804C4480[];
 void *TItemList__sub_801D3B64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4480;
-        TItemList__sub_801D5A28(arg0, M2C_FIELD(arg0, s32 *, 0x54));
-        TItemList__sub_801D59E8(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        clear_placement_search_slot(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        decrement_placement_search_pending(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         TItemList__sub_801D3FC4((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));

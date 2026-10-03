@@ -35,7 +35,7 @@ u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1);
 u8 *get_shared_text_buffer();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-u8 *TObjLuker__sub_801329B0(s32);
+u8 *get_floor_destination_name(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 measure_string_len__20TWindowSubStatusDispFPv(int);
@@ -261,7 +261,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         append_padded_number((int) (fn_80271E40()), (int) (2U));
         var_r30 = (u8 *)(get_shared_text_buffer());
     } else {
-        var_r30 = (u8 *)(TObjLuker__sub_801329B0(get_global_state__14TOKeyMachine01Fv()));
+        var_r30 = (u8 *)(get_floor_destination_name(get_global_state__14TOKeyMachine01Fv()));
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFPv((int) (var_r30));
     M2C_FIELD(arg0, s32 *, 0x74) = alloc_buffer__11TOBoss4RockFPv((void *) (temp_r3 + 1));

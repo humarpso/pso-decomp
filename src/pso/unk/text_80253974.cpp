@@ -48,7 +48,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void set_flag0_bit2__15TWindowHelpItemFPv(void *);
 M2C_UNK deserialize_mag__9TItemDataFPvPv(int, void *);
 s16 TItemMagSub__sub_8011455C(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, s16);
+M2C_UNK init_window_layout_entries(void *, void *, s16);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 M2C_UNK set_help_text__15TWindowHelpItemFPvUi(void *, s32);
 M2C_UNK set_flag0_bit20__15TWindowHelpItemFPv(void *);
@@ -140,7 +140,7 @@ void TWindowHelpItem__vt10(u8 *arg0) {
     s32 iq;
     s32 up;
     initialize_mag_data__9TItemDataFPv(sp8);
-    TWindowSubStatusDisp__sub_80257D44(arg0 + 0x24, lbl_804CF30C, M2C_FIELD(arg0, s16 *, 0x20));
+    init_window_layout_entries(arg0 + 0x24, lbl_804CF30C, M2C_FIELD(arg0, s16 *, 0x20));
     M2C_FIELD(arg0, PM_80253D10 *, 0xB0) = lbl_804CF874;
     deserialize_mag__9TItemDataFPvPv(M2C_FIELD(arg0, s32 *, 0x68), sp8);
     lv = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);

@@ -46,7 +46,7 @@ extern const f32 lbl_805DBE74;
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 s32 begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-f32 TObjPlayer__sub_803D99F8(void *, void *);
+f32 rotate_matrix_by_node_angles(void *, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 scale_current_matrix(void *);
@@ -185,7 +185,7 @@ void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1) {
             post_translate_matrix((void *) (var_r30 + 8));
         }
         if (!(temp_r31 & 2)) {
-            TObjPlayer__sub_803D99F8((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
+            rotate_matrix_by_node_angles((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
             scale_current_matrix((void *) (var_r30 + 0x20));

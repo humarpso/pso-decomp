@@ -44,7 +44,7 @@ extern const f32 lbl_805DC6A8;
 void TQuestListOnline__sub_80217EC4(u8 *arg0);
 s32 obj_getField1c(int);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-s32 TLobby__sub_80222C54(int);
+s32 get_guild_text(int);
 M2C_UNK TShopArmorListWindow__sub_80266DB0(u32);
 M2C_UNK calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
@@ -116,7 +116,7 @@ void TQuestListOnline__sub_80217F88(u8 *arg0) {
     if (((VObj_18_80217F88 *)M2C_FIELD(arg0, void **, 0x6C))->m8() != 0) {
         if (M2C_FIELD(arg0, u32 *, 0x38) == 0U) {
             id = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
-            M2C_FIELD(arg0, u32 *, 0x38) = create_item_list_window(TLobby__sub_80222C54(0), 0x40, id);
+            M2C_FIELD(arg0, u32 *, 0x38) = create_item_list_window(get_guild_text(0), 0x40, id);
         } else {
             TShopArmorListWindow__sub_80266DB0(M2C_FIELD(arg0, u32 *, 0x38));
         }

@@ -15,7 +15,7 @@ int TObjPlayer__sub_8011E618(void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
-int TObjPlayer__sub_80120BBC(void*, void*);
+int draw_weapon_at_joint(void*, void*);
 s32 get_tp__10TObjPlayerFPv(void *);
 s32 create__8TTecFoieFPvPvPvPv(void *, s32 *, s32, s32);
 
@@ -34,7 +34,7 @@ void TObjPlayer__sub_801251B4(void *arg0) {
         update_active_game_effect__10TObjPlayerFPv(arg0);
     }
 }
-void reset_effect_slots__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); update_trail_slot__11TItemWeaponFPvi(p, (void*)2); }
+void reset_effect_slots__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); update_trail_slot__11TItemWeaponFPvi(p, (void*)2); }
 void apply_11e618_twice__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
 
 }

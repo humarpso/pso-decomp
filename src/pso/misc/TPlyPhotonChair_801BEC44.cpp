@@ -21,7 +21,7 @@ int is_mounted__15TPlyPhotonChairFPv(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8011E204(void*, int);
 int unregister_object_by_id(void*);
-int TObjPlayer__sub_801BE6E4(void* p);
+int clear_flag_4000_callback__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BE784(void* p, u8 v);
 void TObjPlayer__sub_801BE794(void* p, u8 v);
 void TObjPlayer__sub_801BE7A4(void* p, u8 v);

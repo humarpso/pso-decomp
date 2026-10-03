@@ -21,7 +21,7 @@ s8 get_class_index__10TObjPlayerFPv(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8 arg0);
 s32 get_current_floor();
 void sync_current_floor__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_801AFF80(u8 *arg0);
+void sync_current_area__10TObjPlayerFPv(u8 *arg0);
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
@@ -51,7 +51,7 @@ u8 *get_player_by_client_id(u16);
 void TFontSmallLobby__sub_801C02D0(Pkt_801B01AC *);
 void TFontSmallLobby__sub_801C030C(Pkt_801B01AC *, s32);
 void TFontSmallLobby__sub_801C0350(Pkt_801B01AC *);
-s32 TOMineTrap__sub_801D6A44(s32, s32, s32);
+s32 accumulate_damage_stats(s32, s32, s32);
 s32 validate_6x8F_add_battle_damage_scores(Pkt_801B01AC *);
 void handle_6x8F_add_battle_damage_scores(s32 arg0);
 }
@@ -64,7 +64,7 @@ s32 get_move_mode__10TObjPlayerFPv(void* p);
 void handle_6x8E(void);
 u8 is_key_machine_ready__10TObjPlayerFv(void);
 u8 is_volopt_phase_final__10TObjPlayerFv(void);
-s32 TOMineTrap__sub_801D6A44(s32, s32, s32);
+s32 accumulate_damage_stats(s32, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 is_boss_area();
 s32 check_technique_flag__10TObjPlayerFPv(s32);
@@ -138,7 +138,7 @@ void sync_current_floor__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3E4) = get_current_floor();
 }
 
-void TObjPlayer__sub_801AFF80(u8 *arg0) {
+void sync_current_area__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3E0) = TObjPlayer__sub_801AFFB0((void*)(arg0));
 }
 
@@ -164,20 +164,20 @@ void handle_6x8F_add_battle_damage_scores(s32 arg0) {
         return;
     }
     if ((u16)obj_getField1c(target) != (u16)obj_getField1c(player)) {
-        TOMineTrap__sub_801D6A44((s32)(player + 0x78C), (s32)target, pkt.amount);
+        accumulate_damage_stats((s32)(player + 0x78C), (s32)target, pkt.amount);
     }
     if (obj_testFlags30((s32)target, 0x10000000) == 0) {
         return;
     }
     other = get_player_by_client_id((u16)obj_getField1c(target));
     if (other != NULL) {
-        TOMineTrap__sub_801D6A44((s32)(other + 0x77C), (s32)player, pkt.amount);
+        accumulate_damage_stats((s32)(other + 0x77C), (s32)player, pkt.amount);
     }
 }
 
 void apply_camera_shake__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((is_technique_ready__8TTecCtrlFv() != 0) && (obj_testFlags30(arg1, 0x10000000) == 0) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0)) {
-        TOMineTrap__sub_801D6A44(arg0 + 0x78C, arg1, arg2);
+        accumulate_damage_stats(arg0 + 0x78C, arg1, arg2);
     }
 }
 void handle_6x8E(void) {  }

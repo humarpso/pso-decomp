@@ -106,7 +106,7 @@ s32 get_param__6TLobbyFPv(void* p);
 s32 get_field_04__6TLobbyFPv(void* p);
 void TLobby__sub_802A7BC8(void* p);
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
-s32 TLobby__sub_802A7994(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3);
+s32 load_action_motion_pairs(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -153,7 +153,7 @@ s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     return temp_r31;
 }
 
-s32 TLobby__sub_802A7994(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) {
+s32 load_action_motion_pairs(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) {
     Pair_802A7994 sp8;
     s32 *slots;
     s32 i;

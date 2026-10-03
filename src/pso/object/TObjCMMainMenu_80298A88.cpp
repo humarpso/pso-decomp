@@ -87,7 +87,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent);
 extern "C" {
 
 void TObjCMMainMenu__sub_80298DA0(int a0);
-u8 TObjCMMainMenu__sub_80298DC4(void);
+u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void);
 void clear_task_state__14TObjCMMainMenuFv(void);
 void *create__14TObjCMMainMenuFPv(void *arg0);
 void *destroy__14TObjCMMainMenuFPvs(void *arg0, s16 arg1);
@@ -220,7 +220,7 @@ void set_speed__14TObjCMMainMenuFf(f32 farg0) {
 
 extern s32 lbl_805D652C;
 
-u8 TObjCMMainMenu__sub_80298DC4(void) {
+u8 is_not_dressing_room_mode__14TObjCMMainMenuFv(void) {
     return (u8) (lbl_805D652C == 0);
 }
 typedef char RecoveredGlobal_80298F08_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80298F08_lbl_8050E3B8) == 0x1B0 ? 1 : -1];

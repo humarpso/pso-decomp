@@ -65,7 +65,7 @@ s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *arg0);
 u8 read_byte__22TQuestVmDownLoadServerFPv(void *arg0);
 void send_message__22TQuestVmDownLoadServerFPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK strcpy(s32, s32);
-s32 TLobby__sub_80222C54(s32);
+s32 get_guild_text(s32);
 s32 TLobby__sub_80222CBC(s32);
 M2C_UNK TWindowMessagePage__sub_8026AE20(u32, void *, s32);
 s32 is_ready__18TWindowMessagePageFPv(void *);
@@ -212,7 +212,7 @@ void format_and_send_message__22TQuestVmDownLoadServerFPvii(u8 *arg0, s32 arg1, 
     s32 temp_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x20C) != 0U) {
-        temp_r31 = TLobby__sub_80222C54(arg1);
+        temp_r31 = get_guild_text(arg1);
         memset(arg0 + 4, 0, 0x200);
         TQuestVmDownLoadServer__sub_80222774((void *)(arg0), (s32)(temp_r31), (s32)(arg0 + 4));
         TWindowMessagePage__sub_8026AE20((u32)(M2C_FIELD(arg0, u32 *, 0x20C)), (void *)(arg0 + 4), (s32)(arg2 | 0x80));

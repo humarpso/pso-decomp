@@ -389,7 +389,7 @@ void pop_matrices(s32);
 s32 get_player_by_client_id(u32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TCameraCtrl__sub_803D662C(f32, f32);
-void TCameraCtrl__sub_801E32E4(void *, s32);
+void camera_renderer_setup_nop(void *, s32);
 void update_camera_state__11TCameraCtrlFv(f32, f32, f32);
 extern u8 lbl_8058D490[];
 extern void *lbl_805D53A0;
@@ -953,7 +953,7 @@ void follow_camera_init_pose(Cam_8006DEF8 *self) {
             break;
         }
     }
-    TCameraCtrl__sub_801E32E4(lbl_804FF5E8, self->id);
+    camera_renderer_setup_nop(lbl_804FF5E8, self->id);
     update_camera_state__11TCameraCtrlFv(self->pos.x, self->pos.y, self->pos.z);
 }
 

@@ -37,7 +37,7 @@ typedef s32 M2C_UNK;
 struct Ent_802776D0 { u16 id; u16 sub; };
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_window_scrollbar(int, int, void *);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
@@ -95,7 +95,7 @@ s32 TWindowSubCustomSelect__sub_80277368(void *a);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(s32, u8, u8);
 Big_80277AEC *get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-s32 TWindowHelpItem__sub_80243544(void *, void *, u16, u16, s32);
+s32 update_palette_item_count_label(void *, void *, u16, u16, s32);
 s32 draw_action_palette_icon(void *, u16, u16);
 s32 draw_visible_window_entries(void *, void *, void *);
 extern const f32 TWindowSubCustomSelect__data_805DD5B0;
@@ -252,7 +252,7 @@ void draw_palette_cells__22TWindowSubCustomSelectFv(void *arg0, int arg1) {
             M2C_FIELD(w1, s32 *, 0x2C) = 0xFF404040;
         }
         draw_action_palette_icon(w1, id, sub);
-        TWindowHelpItem__sub_80243544(w2, w1, id, sub, M2C_FIELD(arg0, s16 *, 0x20));
+        update_palette_item_count_label(w2, w1, id, sub, M2C_FIELD(arg0, s16 *, 0x20));
         draw_visible_window_entries(arg0, &M2C_FIELD(arg0, u8 *, 0x24), (void *)arg1);
     }
 }
@@ -260,7 +260,7 @@ void draw_palette_cells__22TWindowSubCustomSelectFv(void *arg0, int arg1) {
 
 void render__22TWindowSubCustomSelectFv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_palette_cells__22TWindowSubCustomSelectFv((void *)((void *) (arg0)), (int)((int) (temp_r3)));
     TWindowSubCustomSelect__sub_80277638((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));

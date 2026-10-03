@@ -13,7 +13,7 @@ struct RecoveredGlobal_802492C8_lbl_8050E208 {
 extern "C" {
 void render__20TWindowChoiceSettingFv(u8 *arg0);
 M2C_UNK draw_window_frame(void *, s32);
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_visible_window_entries(void *, void *, s32);
 M2C_UNK draw_window_scrollbar(s32, s32, void *);
 M2C_UNK draw_setting__20TWindowChoiceSettingFPvi(void *, s32);
@@ -57,7 +57,7 @@ extern M2C_UNK __vt__20TWindowChoiceSetting[];
 
 void render__20TWindowChoiceSettingFv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_setting__20TWindowChoiceSettingFPvi(arg0, temp_r3);

@@ -66,7 +66,7 @@ extern "C" {
 void obj_setFlags30(void *, u32);
 void reset_lobby_model__10TObjPlayerFPv(void *);
 void zero_vec3(void *);
-void TObjPlayer__sub_801CA3E4(u8 *arg0);
+void reset_on_death__10TObjPlayerFPv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 init_entry_fields__6TLobbyFPviii(int, int, void *, void *);
@@ -95,7 +95,7 @@ void restart_death_pose__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_801CA3E4(u8 *arg0) {
+void reset_on_death__10TObjPlayerFPv(u8 *arg0) {
     obj_setFlags30(arg0, 0x800U);
     M2C_FIELD(arg0, s16 *, 0x32C) = 0;
     ((VObj_18_4841bb *)(arg0))->m53();

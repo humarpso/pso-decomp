@@ -55,7 +55,7 @@ int TLobby__sub_803CCE9C(int);
 int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 void set_render_rect__10TObjPlayerFPviiii(void *, s32, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
-s32 TObjPlayer__sub_803DDC50(void *);
+s32 load_texture_list(void *);
 void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0);
 }
 
@@ -273,7 +273,7 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0) {
         set_render_rect__10TObjPlayerFPviiii(&arg0->rects[i], arg0->bufs[i], 0, 0, 0);
         set_texture_name(&arg0->f30->ents[i], &arg0->rects[i], 0, 0x40000000);
     }
-    if (TObjPlayer__sub_803DDC50(arg0->f30) != -1) {
+    if (load_texture_list(arg0->f30) != -1) {
         arg0->f1c = 1;
         queue_destruction__7TObjectFv(arg0);
     }

@@ -25,7 +25,7 @@ void TObjCMMainMenu__vt2(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TObjCMMainMenu__sub_8028D9B4(void *);
 s32 is_active__23TAdSinglePlyChrSelectGCFv();
-s32 TObjCMMainMenu__sub_80298DC4();
+s32 is_not_dressing_room_mode__14TObjCMMainMenuFv();
 s32 TChCrCharSelect__sub_80298F8C(int);
 s32 TObjCMProportion__sub_8029916C(M2C_UNK);
 M2C_UNK set_eff_tag__11TChCrEffTagFi(int);
@@ -112,7 +112,7 @@ void TObjCMMainMenu__handle_creation_input(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r5;
-    if (TObjCMMainMenu__sub_80298DC4() != 0) {
+    if (is_not_dressing_room_mode__14TObjCMMainMenuFv() != 0) {
         set_eff_tag__11TChCrEffTagFi((int) (1));
     } else {
         set_eff_tag__11TChCrEffTagFi((int) (2));

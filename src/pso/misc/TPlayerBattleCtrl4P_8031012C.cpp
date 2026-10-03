@@ -220,14 +220,14 @@ M2C_UNK TLobby__sub_8020BB18();
 M2C_UNK TLobby__sub_8020BCE4();
 void TPlayerBattleCtrl4P__vt28(void);
 void TPlayerBattleCtrl4P__vt29(void);
-M2C_UNK TWindowChat__sub_8024AD30(u16);
-M2C_UNK TWindowCtrl__sub_8024AEAC(u32);
+M2C_UNK end_player_keyboard_hold(u16);
+M2C_UNK suppress_slot__11TWindowCtrlFi(u32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK clear_trap_counts(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
-M2C_UNK fn_8024ACEC(u32);
+M2C_UNK begin_player_keyboard_hold(u32);
 M2C_UNK obj_set_flag_20000();
 s32 obj_testFlags30(u32, s32);
 M2C_UNK play_effect_default__10TObjPlayerFii(u32, s32);
@@ -544,7 +544,7 @@ void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s3
         send_code_45_1__10TObjPlayerFi();
     }
     if (temp_r30 != 0) {
-        TWindowChat__sub_8024AD30(temp_r31);
+        end_player_keyboard_hold(temp_r31);
         clear_flag__11TWindowCtrlFv();
         unsuppress_slot__11TWindowCtrlFi(temp_r31);
     }
@@ -577,9 +577,9 @@ void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2) 
         play_effect_default__10TObjPlayerFii(temp, -1);
     }
     if (arg2 != 0) {
-        fn_8024ACEC(id);
+        begin_player_keyboard_hold(id);
         request_active_window_close();
-        TWindowCtrl__sub_8024AEAC(id);
+        suppress_slot__11TWindowCtrlFi(id);
     }
 }
 

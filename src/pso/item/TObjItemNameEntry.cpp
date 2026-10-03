@@ -19,7 +19,7 @@ extern "C" {
 void *TObjItemNameEntry__ct(void *arg0);
 u32 TKeyBoardControl__ct(void *, void *, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -58,7 +58,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x20), TQuestVmDownLoadServer__sub_8006EF6C(0x47), 0x81, 0);
     }
     set_scroll_target__17TWindowSubComCardFPvff(M2C_FIELD(arg0, u32 *, 0x20), lbl_805DC4EC, lbl_805DC4F0);
-    TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x20));
+    align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0x20));
     set_status_flag_80__12TQuestThreadFPv(M2C_FIELD(arg0, u32 *, 0x20));
     return arg0;
 }

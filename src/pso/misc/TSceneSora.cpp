@@ -54,7 +54,7 @@ s32 get_floor_map_terrain(s32);
 void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D2CD8;
-void TLobby__sub_802075F8(void);
+void prepare_adventure_maps(void);
 s32 TObjFish__sub_8001ED9C(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -98,7 +98,7 @@ extern s32 TSceneSora__data_805D3620;
 extern s32 TSceneSora__data_805D6050;
 extern u32 TSceneSora__data_805D6054;
 extern s32 lbl_805D6058;
-void TSceneSora__sub_80207478(void);
+void load_sky_resources__10TSceneSoraFv(void);
 }
 
 extern "C" {
@@ -198,7 +198,7 @@ void TSceneSora__sub_80207430(void) {
     TSceneSora__data_805D6050 = 0;
 }
 
-void TSceneSora__sub_80207478(void) {
+void load_sky_resources__10TSceneSoraFv(void) {
     char name2[0x20];
     char name1[0x20];
     Ref_80207478 ref;
@@ -250,7 +250,7 @@ void TSceneSora__sub_80207478(void) {
 
 void TLobby__sub_802075F4(void) {  }
 typedef char RecoveredGlobal_802075F8_lbl_80515BA0_size[sizeof(RecoveredGlobal_802075F8_lbl_80515BA0) == 0x28 ? 1 : -1];
-void TLobby__sub_802075F8(void) {
+void prepare_adventure_maps(void) {
     randomize_adventure_maps();
     if ((s32) lbl_805D2CD8 != -1) {
         TLobby__sub_80141038(&lbl_80515BA0.value, lbl_805D2CD8, get_floor_map_terrain(lbl_805D2CD8));

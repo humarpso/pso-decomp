@@ -105,13 +105,13 @@ s32 is_inactive__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_80108164(int);
 s32 get_mode__11TCameraCtrlFv();
 s32 is_on_current_floor__10TObjPlayerFi(int);
-M2C_UNK TObjPlayer__sub_801B0FF4(int);
+M2C_UNK refresh_equipment_slot__10TObjPlayerFv(int);
 M2C_UNK activate_body_collision__10TObjPlayerFPv(int);
 s32 check_flag_40000__10TObjPlayerFPv(int);
 u8 *get_player_by_client_id(u16);
 M2C_UNK set_flag_2000000_alt__10TObjPlayerFPv();
 s32 check_flag_04000000__10TObjPlayerFPv(int);
-void TObjPlayer__sub_801C5968(u8 *arg0);
+void update_player_appear_fade(u8 *arg0);
 }
 
 extern "C" {
@@ -119,7 +119,7 @@ extern "C" {
 struct VOff_801C5870_arg0_801C57D0 { char pad_0[0x1C]; char f_1C[1]; };
 
 void *TForceOperate__ct(void *arg0, void *arg1, void *arg2);
-void TObjPlayer__sub_801C5954(void *arg0);
+void calc_death_sink_offset(void *arg0);
 void run_task__13TForceOperateFv(s32 arg0);
 s32 TObjPlayer__sub_801B58DC(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
@@ -175,10 +175,10 @@ void calc_death_pose_height_offset(Out_801C58CC *arg0, Actor_801C58CC *arg1) {
     }
 }
 
-void TObjPlayer__sub_801C5954(void *arg0) {
+void calc_death_sink_offset(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 4) * M2C_FIELD(arg0, f32 *, 8));
 }
-void TObjPlayer__sub_801C5968(u8 *arg0) {
+void update_player_appear_fade(u8 *arg0) {
     f32 var_f31;
     s16 temp_r3_2;
     s32 temp_r0;
@@ -204,7 +204,7 @@ void TObjPlayer__sub_801C5968(u8 *arg0) {
                         TObjPlayer__sub_80108164((int) (M2C_FIELD(arg0, u16 *, 0)));
                     }
                     M2C_FIELD(temp_r3, f32 *, 0x624) = (f32) 0.0f;
-                    TObjPlayer__sub_801B0FF4((int) (temp_r3));
+                    refresh_equipment_slot__10TObjPlayerFv((int) (temp_r3));
                     return;
                 }
             }

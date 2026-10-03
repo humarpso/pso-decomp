@@ -209,7 +209,7 @@ s32 obj_getField1c(void *);
 s32 is_split_screen();
 s32 get_current_floor(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-M2C_UNK TTecLuker__sub_801D3728(void *, void *, void *);
+M2C_UNK start_placement_search(void *, void *, void *);
 void *init_array__9TItemListFPv(void *);
 s32 play_sound_effect(int, void *, int, int);
 M2C_UNK construct_area_technique_base(void *, void *, void *);
@@ -811,7 +811,7 @@ void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
                 v.x += o->pos.x;
                 v.y += lbl_805DC878 + o->pos.y;
                 v.z += o->pos.z;
-                TTecLuker__sub_801D3728(L->fx, &v, o);
+                start_placement_search(L->fx, &v, o);
             }
         }
     }

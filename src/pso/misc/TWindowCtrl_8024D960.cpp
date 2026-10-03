@@ -73,7 +73,7 @@ s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void *TWindowShortListCtrl__ct(void *, void *, int);
 extern Pad_8024DCE8 lbl_8050E208[];
-void TWindowCtrl__sub_8024DAC4(void *arg0);
+void update_short_list_request__11TWindowCtrlFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_inactive__10TObjPlayerFPv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -89,7 +89,7 @@ s32 TKeyBoardControl__sub_8024D994(void *arg0);
 s32 TWindowMainMenu__sub_8024E3F4(void *);
 M2C_UNK try_open_battle_menu__15TWindowMainMenuFPvs(void *, s16);
 extern Pad_8024DCE8 lbl_8050E208[];
-void TWindowCtrl__sub_8024DCE8(void *arg0);
+void update_main_menu_request__11TWindowCtrlFPv(void *arg0);
 }
 
 extern "C" {
@@ -168,7 +168,7 @@ void TWindowCtrl__sub_8024DAAC(void *arg0) {
     }
 }
 
-void TWindowCtrl__sub_8024DAC4(void *arg0) {
+void update_short_list_request__11TWindowCtrlFPv(void *arg0) {
     s32 idx;
     u16 id;
     u8 *btn;
@@ -221,7 +221,7 @@ void show_active_window__11TWindowCtrlFPv(void *arg0) {
     }
 }
 
-void TWindowCtrl__sub_8024DCE8(void *arg0) {
+void update_main_menu_request__11TWindowCtrlFPv(void *arg0) {
     u32 p;
     s16 key;
     if (M2C_FIELD(arg0, void **, 0x28) == NULL) {
@@ -317,7 +317,7 @@ void TWindowCtrl__sub_8024DFF4(u8 *arg0) {
     }
 }
 
-void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((u8 *)((void*)(p))); TWindowCtrl__sub_8024DF5C((u8 *)((void*)(p))); update_target_info_window__11TWindowCtrlFPv((u8 *)((void*)(p))); TWindowCtrl__sub_8024DCE8((void *)(p)); show_active_window__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAC4((void *)(p)); TWindowCtrl__sub_8024DAAC((void *)(p)); }
+void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4((u8 *)((void*)(p))); TWindowCtrl__sub_8024DF5C((u8 *)((void*)(p))); update_target_info_window__11TWindowCtrlFPv((u8 *)((void*)(p))); update_main_menu_request__11TWindowCtrlFPv((void *)(p)); show_active_window__11TWindowCtrlFPv((void *)(p)); update_short_list_request__11TWindowCtrlFPv((void *)(p)); TWindowCtrl__sub_8024DAAC((void *)(p)); }
 #pragma push
 #pragma scheduling off
 void fn_8024E0F0(u8 *arg0) {

@@ -205,7 +205,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 s32 TObjCityMainWarp__sub_80186AF4();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-s32 TObjLuker__sub_801329B0();
+s32 get_floor_destination_name();
 s32 get_current_floor();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
@@ -213,7 +213,7 @@ M2C_UNK pop_matrix();
 M2C_UNK TObjWarpBase__ct();
 s32 TObjWarpBase__vt13(s32);
 u32 get_player_by_client_id(s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -322,10 +322,10 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {
             get_player_floor__6TLobbyFi(M2C_FIELD(arg0, s32 *, 0xBC));
-            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjLuker__sub_801329B0(), 2, 0, -1);
+            TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_floor_destination_name(), 2, 0, -1);
         }
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
-        TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
+        align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, u16 *, 0xB8) = arg1;

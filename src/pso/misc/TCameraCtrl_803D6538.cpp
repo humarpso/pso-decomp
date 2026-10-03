@@ -119,7 +119,7 @@ extern "C" {
 s32 sample_motion_vector_channel(s32 arg0);
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
-void TBoss8Dragon__sub_803D78A8(s32 arg0);
+void select_motion_context(s32 arg0);
 extern u8 *lbl_805D76BC;
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
 M2C_UNK C_MTXPerspective(void *, f32, f32, f32, f32);
@@ -173,7 +173,7 @@ void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *lbl_805D76BC;
-void TBoss8Dragon__sub_803D78A8(s32 arg0);
+void select_motion_context(s32 arg0);
 s32 translate_matrix(s32, f32, f32, f32);
 s32 TCameraCtrl__sub_803D65C8(f32 x, f32 y, f32 z);
 extern u8 *lbl_805D76BC;
@@ -183,13 +183,13 @@ u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 extern u8 *lbl_805D76BC;
 void set_motion_row_stride(s32 n);
 void TObjPlayer__sub_803D98E4(void *);
-void TObjPlayer__sub_803D99F8(void *, int);
+void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void compose_motion_node_matrix(void *arg0);
 s32 blend_motion_poses(void *, void *, void *, void *, void *);
 void TObjPlayer__sub_803D98E4(void *);
-void TObjPlayer__sub_803D99F8(void *, int);
+void rotate_matrix_by_node_angles(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void TObjPlayer__sub_803D76B4(void *arg0);
@@ -200,7 +200,7 @@ extern u8 lbl_804FA4F0[];
 void TCameraCtrl__sub_803D6558(f32 farg0, f32 farg1, f32 farg2);
 extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E08;
-void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1);
+void set_screen_size(f32 farg0, f32 farg1);
 extern u8 *lbl_805D76BC;
 s32 sample_motion_vector_channel(s32 arg0);
 extern u8 *lbl_805D76BC;
@@ -294,7 +294,7 @@ void TCameraCtrl__sub_803D662C(f32 farg0, f32 farg1) {
 }
 #pragma pop
 
-void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1) {
+void set_screen_size(f32 farg0, f32 farg1) {
     f32 a, b;
     lbl_8058D4F8.f1c = farg0;
     lbl_8058D4F8.f20 = farg1;
@@ -359,7 +359,7 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     temp_r26 = (u8 *)(M2C_FIELD(arg2, u8 **, 4));
     temp_r30 = (s32 *)(M2C_FIELD(arg2, s32 **, 8));
     temp_r29 = (s32 *)(M2C_FIELD(arg2, s32 **, 0xC));
-    TBoss8Dragon__sub_803D78A8((int) (0));
+    select_motion_context((int) (0));
     select_motion_sampler((M2C_UNK *) (arg1), (f32) (farg0));
     temp_r31 = M2C_FIELD(lbl_805D76BC, s32 *, 0x20);
     if ((u32) (temp_r31 & 1) != 0) {
@@ -563,9 +563,9 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
 #pragma push
 #pragma scheduling off
 void bind_motion_blend_channels(u8 *arg0, f32 farg0) {
-    TBoss8Dragon__sub_803D78A8((s32)((int) (1)));
+    select_motion_context((s32)((int) (1)));
     bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 4))), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
-    TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
+    select_motion_context((s32)((int) (0)));
     bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 0))), (f32) (M2C_FIELD(arg0, f32 *, 8)));
     lbl_805D76B0 = farg0;
 }
@@ -591,9 +591,9 @@ s32 blend_motion_poses(void *node, void *arg1, void *unused, void *arg3, void *r
 
     t = lbl_805D76B0;
     u = lbl_805E0E88 - t;
-    TBoss8Dragon__sub_803D78A8(1);
+    select_motion_context(1);
     res_a = sample_motion_node_transform(node, &pa, &ra, &sa, &qa);
-    TBoss8Dragon__sub_803D78A8(0);
+    select_motion_context(0);
     res_b = sample_motion_node_transform(node, &pb, &rb, &sb, &qb);
     if (res_b != 2) {
         if (res_b == 0) {
@@ -645,10 +645,10 @@ void TObjPlayer__sub_803D76B4(void *arg0) {
     post_translate_matrix(&trans);
     switch (kind) {
     case 0:
-        TObjPlayer__sub_803D99F8(&rot, 0);
+        rotate_matrix_by_node_angles(&rot, 0);
         break;
     case 1:
-        TObjPlayer__sub_803D99F8(&rot, 1);
+        rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
         TObjPlayer__sub_803D98E4(&quat);
@@ -710,7 +710,7 @@ void select_motion_sampler(M2C_UNK *arg0, f32 farg0) {
 #pragma push
 #pragma scheduling off
 typedef char RecoveredGlobal_803D78A8_lbl_8058CAB8_size[sizeof(RecoveredGlobal_803D78A8_lbl_8058CAB8) == 0x80 ? 1 : -1];
-void TBoss8Dragon__sub_803D78A8(s32 arg0) {
+void select_motion_context(s32 arg0) {
     lbl_805D76BC = (u8 *)(&lbl_8058CAB8.value) + (arg0 << 6);
 }
 #pragma pop
@@ -797,7 +797,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0) {
-    TBoss8Dragon__sub_803D78A8((s32)((int) (0)));
+    select_motion_context((s32)((int) (0)));
     bind_motion_channel_samplers((int)((int)((void *) (arg0))), (f32) (farg0));
 }
 #pragma pop
@@ -838,10 +838,10 @@ void compose_motion_node_matrix(void *arg0) {
     post_translate_matrix(&trans);
     switch (kind) {
     case 0:
-        TObjPlayer__sub_803D99F8(&rot, 0);
+        rotate_matrix_by_node_angles(&rot, 0);
         break;
     case 1:
-        TObjPlayer__sub_803D99F8(&rot, 1);
+        rotate_matrix_by_node_angles(&rot, 1);
         break;
     default:
         TObjPlayer__sub_803D98E4(&quat);

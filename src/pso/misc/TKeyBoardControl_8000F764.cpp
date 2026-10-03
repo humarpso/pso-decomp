@@ -181,7 +181,7 @@ M2C_UNK fn_803DE804(u32, u32);
 s32 xmalloc__FUl(u32);
 M2C_UNK TKeyBoardControl__sub_803DE9C4(int, int, int);
 M2C_UNK TObjPlayer__sub_803DEC98(s32, int);
-M2C_UNK TObjLight__sub_803DECFC(int, int);
+M2C_UNK init_light_globals(int, int);
 M2C_UNK set_some_id__FUl(int);
 M2C_UNK TObjPlayer__sub_803E492C(void *, int);
 M2C_UNK set_global_7778__10TObjPlayerFi(void *);
@@ -217,7 +217,7 @@ int TLobby__sub_80147978(void);
 int TLobby__sub_8020E3BC(void);
 M2C_UNK update_music_sequencer();
 int TLobby__sub_80227794(void);
-M2C_UNK TLobby__sub_80228074();
+M2C_UNK update_global_sound_frame();
 int TLobby__sub_8022809C(void);
 int TLobby__sub_802433A8(void);
 int TObjBoss2Tunnel__sub_8036EF4C(void);
@@ -253,7 +253,7 @@ void TKeyBoardControl__sub_8000F764(void) {
 
 void run_tasks__16TKeyBoardControlFv(void) {
     TObjPlayer__sub_80083FB0();
-    TLobby__sub_80228074();
+    update_global_sound_frame();
     if ((s32) lbl_805D62B0 != 0) {
         update_music_sequencer();
     }
@@ -411,7 +411,7 @@ void init_game_systems(void) {
     (*(s32 *)&lbl_805D49A0) = xmalloc__FUl(0x4560);
     (*(s32 *)&lbl_805D49A4) = xmalloc__FUl(0x73A0);
     fn_803DA754((*(s32 *)&lbl_805D49A0), 0x2E4, (*(s32 *)&lbl_805D49A4), 0x2E4);
-    TObjLight__sub_803DECFC((int) (0), (int) (0));
+    init_light_globals((int) (0), (int) (0));
     set_some_id__FUl(0x100000);
     (*(s32 *)&lbl_805D49B0) = xmalloc__FUl(0x80000);
     (*(s32 *)&lbl_805D5680) = xmalloc__FUl(0x6000);

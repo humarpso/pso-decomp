@@ -74,7 +74,7 @@ void render__18TWindowSubShortCutFv(void);
 void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
 u32 *TWindowKeyBoardSoft__sub_80076E2C();
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 get_window_layout_position(s32 a0 = 0);
 s32 TWindowSubShortCutList__sub_8027E3B4(s32 a0 = 0, s32 a1 = 0);
@@ -133,7 +133,7 @@ s32 open_menu__18TWindowSubShortCutFPv(void *arg0) {
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD6C0);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 

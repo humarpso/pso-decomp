@@ -52,7 +52,7 @@ extern RecoveredGlobal_80051A18_lbl_804FF240 lbl_804FF240;
 extern int lbl_805D4D78;
 void TObjDFTenchuFuru__sub_80051A18(void);
 s32 matrix_mult_vec(int, void *, void *);
-f32 TObjPlayer__sub_803D99F8(void *, int);
+f32 rotate_matrix_by_node_angles(void *, int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
@@ -167,7 +167,7 @@ void TObjDFTenchuFuru__sub_80051AD0(u8 *arg0) {
     do {
         push_matrix();
         post_translate_matrix((void *) (var_r31 + 8));
-        TObjPlayer__sub_803D99F8((void *) (var_r31 + 0x14), (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
+        rotate_matrix_by_node_angles((void *) (var_r31 + 0x14), (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
         scale_current_matrix((void *) (var_r31 + 0x20));
         switch ((s32) (*(s32 *)&lbl_805D4D78)) {
         case 0x3B:

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 get_localized_text_entry(int, int);
-M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK align_menu_entry_positions(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
@@ -23,7 +23,7 @@ s32 TWindowOptionCtrl__sub_8026B774(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0xF), (int) (0x1B))), (int) (6), (int) (0x14));
     forward_trade_action_default__16TObjCityMainWarpFPviii((int) (temp_r31), (int) (get_localized_text_entry((int) (0xF), (int) (0x1C))), (int) (6), (int) (0x15));
     TWindowSubComCard__sub_80265E60((int) (temp_r31), (f32) (lbl_805DD268));
-    TWindowSubComCard__sub_80265C30((int) (temp_r31));
+    align_menu_entry_positions((int) (temp_r31));
     return temp_r31;
 }
 

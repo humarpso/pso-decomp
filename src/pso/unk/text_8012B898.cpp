@@ -32,7 +32,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8012B898(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjPlayer__sub_801012DC(void *, s32);
+void send_6x61_activate_mag_effect(void *, s32);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 s32 get_extended_state__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_80121238(s32);
@@ -103,7 +103,7 @@ void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self) {
     }
     self->f264 = self->owner->f60;
     VecCopy__FP3VecPC3Vec(self->f268, self->owner->pos);
-    TObjPlayer__sub_801012DC(self, lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
+    send_6x61_activate_mag_effect(self, lbl_805DAEC0 * (lbl_805DAEC4 * (f32)rand()));
 }
 
 }

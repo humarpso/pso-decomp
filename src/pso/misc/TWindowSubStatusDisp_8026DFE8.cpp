@@ -16,7 +16,7 @@ struct RecoveredGlobal_8026E168_lbl_804D0948 {
 };
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK draw_item_list_capacity(void *, int, int, int);
@@ -50,7 +50,7 @@ void render_item_list_window(u8 *arg0) {
     s32 temp_r3;
     s32 n;
     void *p;
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {

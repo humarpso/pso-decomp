@@ -43,7 +43,7 @@ struct Npc_8014F844 {
 extern "C" {
 u32 get_player_by_client_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-s32 TNpcPlayer__sub_8014F7F0(void *arg0);
+s32 refresh_npc_view_actor_lost(void *arg0);
 f32 horizontal_distance_squared(void *, void *);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, int);
 M2C_UNK reset_partner_counter(void *, int);
@@ -114,7 +114,7 @@ void *dt__10TNpcPlayerFPvs(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TNpcPlayer__sub_8014F7F0(void *arg0) {
+s32 refresh_npc_view_actor_lost(void *arg0) {
     u32 v;
     M2C_FIELD(arg0, u32 *, 0x94) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x8A));
     v = M2C_FIELD(arg0, u32 *, 0x94);

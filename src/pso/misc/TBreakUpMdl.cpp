@@ -107,7 +107,7 @@ s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK matrix_mult_vec(int, int, int);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
@@ -139,7 +139,7 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *);
 void *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805D97CC;
 void alloc_breakup_piece_records(Brk_80096EBC *arg0, void *arg1);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
@@ -211,7 +211,7 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
         part = &self->parts[i];
         push_matrix();
         post_translate_matrix(part->pos);
-        TObjPlayer__sub_803D99F8(part->rot, 0);
+        rotate_matrix_by_node_angles(part->rot, 0);
         if (self->model->is_chunk != 0) {
             draw_ginja_model(self->model->chunks[i].model);
         } else {
@@ -358,7 +358,7 @@ s32 build_node_records__11TBreakUpMdlFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     do {
         push_matrix();
         post_translate_matrix((void *) (var_r28 + 8));
-        TObjPlayer__sub_803D99F8((void *) (var_r28 + 0x14), (int) (0));
+        rotate_matrix_by_node_angles((void *) (var_r28 + 0x14), (int) (0));
         scale_current_matrix((void *) (var_r28 + 0x20));
         temp_r30 = M2C_FIELD(var_r28, s32 *, 0);
         if (!(temp_r30 & 8)) {

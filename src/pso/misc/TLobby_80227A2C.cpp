@@ -71,7 +71,7 @@ extern unsigned char lbl_80514F64[];
 void TLobby__sub_8022804C(void);
 M2C_UNK update_sound_frame(void *);
 extern unsigned char lbl_80514F64[];
-void TLobby__sub_80228074(void);
+void update_global_sound_frame(void);
 M2C_UNK TLobby__sub_80240310(void *);
 extern unsigned char lbl_80514F64[];
 void TLobby__sub_8022809C(void);
@@ -167,7 +167,7 @@ void TLobby__sub_8022804C(void) {
 }
 
 typedef char RecoveredGlobal_80228074_lbl_80514F64_size[sizeof(RecoveredGlobal_80228074_lbl_80514F64) == 0xC3C ? 1 : -1];
-void TLobby__sub_80228074(void) {
+void update_global_sound_frame(void) {
     update_sound_frame((void *) (&(*(RecoveredGlobal_80228074_lbl_80514F64 *)&lbl_80514F64).value));
 }
 

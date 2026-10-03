@@ -43,7 +43,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDA4C();
 void increment_counter__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200778(void *, void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200A44(int);
-void TAdSinglePlyChrSelectGC__sub_80201650(void);
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 void TWindowSubComCard__sub_80244888(Win_801FEE14 *);
 void complete_reveal__14TWindowMessageFPv(Win_801FEE14 *);
@@ -231,7 +231,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEE14(void) {
     while (1) {
         func_803DCDFC__Fv();
         controller_stuff__Fv();
-        TAdSinglePlyChrSelectGC__sub_80201650();
+        run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
         TAdSinglePlyChrSelectGC__sub_801FCD74();
         if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
             result = 0;

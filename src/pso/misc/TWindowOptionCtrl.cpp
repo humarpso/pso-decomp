@@ -22,7 +22,7 @@ M2C_UNK TLobby__sub_8022743C();
 M2C_UNK play_area_music();
 M2C_UNK fn_8023F160();
 M2C_UNK fn_8023F18C();
-M2C_UNK TWindowSubComCard__sub_80244B1C(u32);
+M2C_UNK window_request_refresh(u32);
 u32 create_menu__17TWindowOptionCtrlFv(void *);
 M2C_UNK fn_8036A648(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -75,7 +75,7 @@ s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1) {
             M2C_FIELD(arg0, u32 *, 0x28) = 0U;
         }
         M2C_FIELD(arg0, u32 *, 0x28) = create_menu__17TWindowOptionCtrlFv(arg0);
-        TWindowSubComCard__sub_80244B1C(M2C_FIELD(arg0, u32 *, 0x28));
+        window_request_refresh(M2C_FIELD(arg0, u32 *, 0x28));
         return 1;
     }
     return 0;
@@ -341,7 +341,7 @@ s32 create_list_window__17TWindowOptionCtrlFv(void);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 M2C_UNK set_flag70_bit400__17TWindowOptionCtrlFPv(s32);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv();
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, M2C_UNK *, M2C_UNK, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -375,7 +375,7 @@ s32 create_list_window__17TWindowOptionCtrlFv(void) {
     } while (var_r31 < 0x31);
     set_flag70_bit400__17TWindowOptionCtrlFPv(temp_r30);
     set_scroll_target__17TWindowSubComCardFPvff(temp_r30, lbl_805DD268, lbl_805DD26C);
-    TWindowSubComCard__sub_80265C30(temp_r30);
+    align_menu_entry_positions(temp_r30);
     return temp_r30;
 }
 
@@ -393,7 +393,7 @@ extern "C" {
 s32 create_menu__17TWindowOptionCtrlFv(void);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 M2C_UNK get_option_entry__17TWindowOptionCtrlFi(M2C_UNK);
@@ -415,7 +415,7 @@ s32 create_menu__17TWindowOptionCtrlFv(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 6), 6, 0x19);
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_localized_text_entry(0xF, 7), 6, 0x1B);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD268);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 

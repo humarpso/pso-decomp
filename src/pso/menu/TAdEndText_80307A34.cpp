@@ -35,7 +35,7 @@ M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
 int render_tick__Fv(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_80307964();
-M2C_UNK TCameraCtrl__sub_803D6688(f32, f32);
+M2C_UNK set_screen_size(f32, f32);
 extern int lbl_805D6A58;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
@@ -84,7 +84,7 @@ void TKeyBoardControl__sub_80307A74(void) {
 }
 void start_ending_sequence(void) {
     (*(s32 *)&lbl_805D6A58) = 1;
-    TCameraCtrl__sub_803D6688(lbl_805DF0B0, lbl_805DF0B4);
+    set_screen_size(lbl_805DF0B0, lbl_805DF0B4);
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     TKeyBoardControl__sub_8000F91C(2);

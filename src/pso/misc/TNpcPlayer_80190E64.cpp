@@ -87,7 +87,7 @@ u8 *create_player_object(u16, M2C_UNK, s32);
 M2C_UNK queue_player_injured_pose();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8019127C(void *);
+M2C_UNK set_player_quest_control_flag(void *);
 int queue_destruction__7TObjectFv(void*);
 
 void queue_destruction_if_dead__10TNpcPlayerFPv(void* p) { if (*(int*)((char*)p + 0x2c) == 1) { queue_destruction__7TObjectFv(p); } }
@@ -104,7 +104,7 @@ u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
             M2C_FIELD(temp_r3, s16 *, 0x324) = 6;
             if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 1) {
                 queue_player_injured_pose();
-                fn_8019127C(temp_r3);
+                set_player_quest_control_flag(temp_r3);
             }
             send_6x24_teleport_player(M2C_FIELD(arg0, u16 *, 0x30), arg0 + 0x1C, M2C_FIELD(arg0, s32 *, 0x28));
         }

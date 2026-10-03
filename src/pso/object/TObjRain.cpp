@@ -12,7 +12,7 @@ struct RecoveredGlobal_80197C84___vt__8TObjRain {
 };
 
 extern "C" {
-M2C_UNK TOBoss4Rock__sub_80197998(void *);
+M2C_UNK init_drops__8TObjRainFv(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 extern RecoveredGlobal_80197C84___vt__8TObjRain __vt__8TObjRain;
 extern s32 lbl_805D3420;
@@ -35,7 +35,7 @@ u8 *__ct__8TObjRainFv(u8 *arg0, M2C_UNK arg1, u32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TObjRain.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3420;
     M2C_FIELD(arg0, u32 *, 0x21C) = (arg2 > 0x10U) ? 0x10U : arg2;
-    TOBoss4Rock__sub_80197998((void *) (arg0));
+    init_drops__8TObjRainFv((void *) (arg0));
     return arg0;
 }
 

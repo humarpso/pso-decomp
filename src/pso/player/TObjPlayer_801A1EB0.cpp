@@ -22,7 +22,7 @@ u16 TLobby__sub_801A2078(s32 arg);
 extern "C" {
 
 void TLobby__sub_801A1FD8(void);
-u16 TLobby__sub_801A1FDC(void *arg0, s32 arg1);
+u16 get_or_assign_actor_id(void *arg0, s32 arg1);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0);
 s32 TContainerAncient01__sub_8020335C(void);
 u16 TLobby__sub_801A20C8(s32);
@@ -59,7 +59,7 @@ void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
 }
 
 void TLobby__sub_801A1FD8(void) {  }
-u16 TLobby__sub_801A1FDC(void *arg0, s32 arg1) {
+u16 get_or_assign_actor_id(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     if (M2C_FIELD(arg0, u16 *, 0x1C) == 0xFFFF) {

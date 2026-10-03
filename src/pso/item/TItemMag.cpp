@@ -55,7 +55,7 @@ extern const f32 lbl_805DABB0;
 s32 TItemMag__vt39(u8 *arg0, u8 *arg1);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
-M2C_UNK TObjPlayer__sub_801012DC(void *, s32);
+M2C_UNK send_6x61_activate_mag_effect(void *, s32);
 s32 check_feed_state__8TItemMagFPvi(void *, s32);
 void select_support_action__8TItemMagFPvi(u8 *arg0, s32 arg1);
 s32 get_status_flag__8TItemMagFPv(void *);
@@ -232,7 +232,7 @@ void request_support_action__8TItemMagFPvi(void *arg0, s32 arg1) {
     }
     if (arg1 != 1) {
         if (get_status_flag__8TItemMagFPv(arg0) != 0 && !(TItemMag__data_805DABA4 < M2C_FIELD(arg0, f32 *, 0x1C8)) && check_feed_state__8TItemMagFPvi(arg0, arg1) != 0) {
-            TObjPlayer__sub_801012DC(arg0, arg1);
+            send_6x61_activate_mag_effect(arg0, arg1);
         }
     } else {
         select_support_action__8TItemMagFPvi((u8 *)arg0, arg1);

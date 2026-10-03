@@ -47,7 +47,7 @@ M2C_UNK get_status_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 get_selected_menu_value(void *);
-M2C_UNK TWindowSubComCard__sub_80265C30(void *);
+M2C_UNK align_menu_entry_positions(void *);
 M2C_UNK TWindowSubComCard__sub_80265F60(void *);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
@@ -255,7 +255,7 @@ void TPlayerBattleCtrl4P__vt22(O_80311C2C *o) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(o->w1, o->ids->b, 6, 1);
             forward_trade_action_default__16TObjCityMainWarpFPviii(o->w1, o->ids->d, 6, 3);
             TWindowSubComCard__sub_80265F60(o->w1);
-            TWindowSubComCard__sub_80265C30(o->w1);
+            align_menu_entry_positions(o->w1);
             set_ready_flag__18TCheckRoomSequenceFPv(o->w1);
         }
         if (o->w1 != NULL) {

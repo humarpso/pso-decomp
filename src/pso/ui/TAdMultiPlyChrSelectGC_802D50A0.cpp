@@ -8,7 +8,7 @@ extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
 void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3);
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
-void TObjPlayer__sub_80120BBC(s32, s8);
+void draw_weapon_at_joint(s32, s8);
 void draw_twin_weapon_trails(s32 arg0);
 }
 
@@ -31,14 +31,14 @@ void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3) {
 void draw_twin_weapon_trails(s32 arg0) {
     u32 temp_r0;
     u32 temp_r31;
-    TObjPlayer__sub_80120BBC(arg0, 0x30);
+    draw_weapon_at_joint(arg0, 0x30);
     update_trail_slot__11TItemWeaponFPvi((void *) arg0, 0);
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x188);
     temp_r31 = M2C_FIELD(arg0, u32 *, 0xF4);
     if (temp_r0 != 0U) {
         M2C_FIELD(arg0, u32 *, 0xF4) = temp_r0;
     }
-    TObjPlayer__sub_80120BBC(arg0, 0x23);
+    draw_weapon_at_joint(arg0, 0x23);
     update_trail_slot__11TItemWeaponFPvi((void *) arg0, 1);
     M2C_FIELD(arg0, u32 *, 0xF4) = temp_r31;
 }

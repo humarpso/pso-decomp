@@ -72,7 +72,7 @@ void set_destroy_event__6TLobbyFi(int a0);
 void spawn_destroy_event__6TLobbyFPv(void *arg0);
 void create_empty_floor_event(void);
 s32 get_destroy_event_obj__6TLobbyFv();
-M2C_UNK TNpcPlayer__sub_8034E5A8(s16);
+M2C_UNK show_partner_chatter_for_key(s16);
 M2C_UNK TSetEvtDestroy__ct(void *, s32, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 
@@ -89,7 +89,7 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0) {
     void *obj;
 
     if (get_destroy_event_obj__6TLobbyFv() != -1) {
-        TNpcPlayer__sub_8034E5A8(M2C_FIELD(arg0, s16 *, 8));
+        show_partner_chatter_for_key(M2C_FIELD(arg0, s16 *, 8));
     }
     obj = __nw__7TObjectFUl(0x34);
     if (obj != NULL) {

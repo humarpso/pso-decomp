@@ -161,7 +161,7 @@ extern s32 tl_05;
 s32 TItemProArmor__sub_80117C60(s32 arg0);
 void set_flags__10TObjPlayerFPvUi(void *, u32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-void TItemProArmor__sub_8011781C(TItemProArmor_8011781C *self);
+void init_effect_flags__13TItemProArmorFPv(TItemProArmor_8011781C *self);
 s32 get_id__13TItemProArmorFPv(void *);
 void *fn_80107DA4(void *, void *, s32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -269,7 +269,7 @@ u8 *create_item_grinder(u8 *arg0) {
     return NULL;
 }
 
-void TItemProArmor__sub_8011781C(TItemProArmor_8011781C *self) {
+void init_effect_flags__13TItemProArmorFPv(TItemProArmor_8011781C *self) {
     switch (get_slot_count__14TItemProShieldFPv(self)) {
     case 0x23:
         set_flags__10TObjPlayerFPvUi(self->flags178, 2);
@@ -398,7 +398,7 @@ u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x192) > 4U) {
         M2C_FIELD(arg0, u8 *, 0x192) = 4U;
     }
-    TItemProArmor__sub_8011781C((TItemProArmor_8011781C *)((void *)((void *) (arg0))));
+    init_effect_flags__13TItemProArmorFPv((TItemProArmor_8011781C *)((void *)((void *) (arg0))));
     return arg0;
 }
 

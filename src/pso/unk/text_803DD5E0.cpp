@@ -59,7 +59,7 @@ void TLobby__sub_803DDF4C(void);
 s32 calc_gvm_entry_stride(u16 arg0);
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
-s32 TObjPlayer__sub_803DDC50(struct Obj_803DD6DC *arg0);
+s32 load_texture_list(struct Obj_803DD6DC *arg0);
 typedef void (*Fn_803DD6DC)(struct Obj_803DD6DC *, s32);
 extern Fn_803DD6DC lbl_804FC688[];
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
@@ -252,7 +252,7 @@ s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx) {
     return 1;
 }
 
-s32 TObjPlayer__sub_803DDC50(struct Obj_803DD6DC *arg0) {
+s32 load_texture_list(struct Obj_803DD6DC *arg0) {
     u32 i;
     if (arg0->count == 0) {
         lbl_8058D470.c = 1;

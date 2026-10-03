@@ -41,7 +41,7 @@ M2C_UNK clear_photon_blast_state__10TObjPlayerFPv(void *);
 M2C_UNK reset_fields__15TFontSmallLobbyFPv(void *);
 M2C_UNK init_pkt_cmd_3B__15TFontSmallLobbyFPv(void *);
 M2C_UNK update_and_send__15TFontSmallLobbyFPv(void *);
-void TFontSmallLobby__sub_801D5F08(u16 *arg0);
+void reinit_photon_blast_gauge(u16 *arg0);
 s32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
 M2C_UNK set_bit1_at_40__15TFontSmallLobbyFPv(void *);
@@ -82,7 +82,7 @@ void handle_6x3B_clear_temporary_photon_blast_state_flags(s32 arg0) {
     }
 }
 
-void TFontSmallLobby__sub_801D5F08(u16 *arg0) {
+void reinit_photon_blast_gauge(u16 *arg0) {
     struct { s16 a; u16 b; } sp8;
     clear_photon_blast_state__10TObjPlayerFPv(arg0);
     reset_fields__15TFontSmallLobbyFPv((u8 *)arg0 + 0x4C);

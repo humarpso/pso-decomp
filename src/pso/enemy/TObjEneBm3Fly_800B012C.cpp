@@ -199,7 +199,7 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 s32 TObjEneBm3Fly__sub_800B177C(void *);
 M2C_UNK clamp_flight_height__13TObjEneBm3FlyFPv(void *);
-M2C_UNK TObjEneDD__sub_800BA3D8(void *, void *);
+M2C_UNK inflict_poison__9TObjEneDDFiPv(void *, void *);
 M2C_UNK transition_enemy_state(void *, int);
 f32 approach_value__13TObjEneBm3FlyFff(void *, f32, f32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
@@ -344,7 +344,7 @@ void execute_action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
                     temp_r3_3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x390));
                     ((VObjB0_800b07d0 *)temp_r3_3)->v23(arg0, lbl_805D9CB4);
                     if ((check_v2_mode__9TObjEneDDFv() != 0) && (calc_boss4_scale__10TObjPlayerFi((void *) (arg0)) < lbl_805D9CB8)) {
-                        TObjEneDD__sub_800BA3D8((void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x390)));
+                        inflict_poison__9TObjEneDDFiPv((void *) (arg0), (void *) (M2C_FIELD(arg0, void **, 0x390)));
                     }
                 }
                 play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003A524)), (void *) (arg0 + 0x38), (int) (0), (int) (0));

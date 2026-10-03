@@ -95,7 +95,7 @@ extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F80;
 extern s32 lbl_805D5F8C;
 extern s32 lbl_805D5FA8;
-void TAdSinglePlyChrSelectGC__sub_80201650(void);
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void);
 void TWindowSubSymbolChat__sub_80077544(Card_80201354 *);
 s32 TLobby__sub_80146D50(s32);
 s32 TLobby__sub_80146D68(s32);
@@ -360,7 +360,7 @@ extern u32 lbl_805D5F70;
 typedef char RecoveredGlobal_80201970_lbl_805137D8_size[sizeof(RecoveredGlobal_80201970_lbl_805137D8) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80201970_lbl_805137F8_size[sizeof(RecoveredGlobal_80201970_lbl_805137F8) == 0x24 ? 1 : -1];
 
-void TAdSinglePlyChrSelectGC__sub_80201650(void) {
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
     switch (lbl_805D5F78) {
     case 2:
         init_fresh_character_card();

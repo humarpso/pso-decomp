@@ -17,7 +17,7 @@ M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
 s32 get_attack_stage__11TItemWeaponFPv();
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, Sp8Type_80123524 *, s32);
-M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
+M2C_UNK draw_weapon_at_joint(void *, M2C_UNK, void *);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
@@ -45,7 +45,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(temp_r30, s32 *, 0) = (s32) (M2C_FIELD(temp_r30, s32 *, 0) | 8);
         temp_r29 = M2C_FIELD(temp_r30, void **, 0x30);
         M2C_FIELD(temp_r29, s32 *, 0) = (s32) (M2C_FIELD(temp_r29, s32 *, 0) | 8);
-        TObjPlayer__sub_80120BBC(arg0, 0x30, temp_r5);
+        draw_weapon_at_joint(arg0, 0x30, temp_r5);
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFF7);
         M2C_FIELD(temp_r30, s32 *, 0) = (s32) (M2C_FIELD(temp_r30, s32 *, 0) & 0xFFFFFFF7);
         M2C_FIELD(temp_r29, s32 *, 0) = (s32) (M2C_FIELD(temp_r29, s32 *, 0) & 0xFFFFFFF7);

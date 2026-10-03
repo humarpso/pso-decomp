@@ -12,7 +12,7 @@ M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
 M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
-M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, int, int);
+M2C_UNK init_window_layout_entries(void *, int, int);
 M2C_UNK TWindowCtrlMain__sub_8026CCA4(void *, f32);
 extern s32 lbl_805D3888;
 extern const f32 lbl_805DCAD4;
@@ -69,7 +69,7 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     TWindowCtrlMain__sub_8026CCA4((void *) (arg0), (f32) (temp_f1));
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
     M2C_FIELD(arg0, s16 *, 0x20) = arg3;
-    TWindowSubStatusDisp__sub_80257D44((void *) (arg0 + 0x24), (int) (M2C_FIELD(arg1, s32 *, 0xC)), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
+    init_window_layout_entries((void *) (arg0 + 0x24), (int) (M2C_FIELD(arg1, s32 *, 0xC)), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
     M2C_FIELD(arg0, s32 *, 0x5C) = 0;
     M2C_FIELD(arg0, s16 *, 0x22) = 0;
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x2C);

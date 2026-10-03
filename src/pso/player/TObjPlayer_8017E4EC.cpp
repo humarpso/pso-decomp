@@ -28,7 +28,7 @@ extern Row_8017E550 lbl_80443690[];
 extern Row_8017E550 lbl_80443780[];
 extern s32 lbl_805D5B00;
 extern s32 TObjBgmColCtrl__data_805D5B08;
-void TObjBgmColCtrl__sub_8017E550(void);
+void create_bgm_col_zones(void);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ void set_camera_mode__10TObjPlayerFi(s32 arg0) {
         play_area_music(lbl_804B5780[arg0]);
     }
 }
-void TObjBgmColCtrl__sub_8017E550(void) {
+void create_bgm_col_zones(void) {
     Set_8017E550 set;
     s32 i;
     void *p;

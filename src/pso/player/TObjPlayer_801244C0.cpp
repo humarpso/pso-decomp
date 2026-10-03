@@ -15,7 +15,7 @@ M2C_UNK draw_ginja_object(void *);
 M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8011E618(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_80120BBC(void *, M2C_UNK, void *);
+M2C_UNK draw_weapon_at_joint(void *, M2C_UNK, void *);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
 M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_80364198();
@@ -39,7 +39,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
         temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF4), void **, 0x2C), void **, 0x30);
         temp_r31 = M2C_FIELD(temp_r5, void **, 0x30);
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x18);
-        TObjPlayer__sub_80120BBC(arg0, 0x30, temp_r5);
+        draw_weapon_at_joint(arg0, 0x30, temp_r5);
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFE7);
         if (draw_icon__10TObjPlayerFPvii(arg0, 5, &sp8) != 0) {
             push_matrix();

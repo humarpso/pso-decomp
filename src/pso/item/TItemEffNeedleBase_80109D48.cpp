@@ -38,7 +38,7 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void notify_fish_if_valid__10TObjPlayerFUi(u32);
-void TObjPlayer__sub_803D99F8(void *, s32);
+void rotate_matrix_by_node_angles(void *, s32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
@@ -75,7 +75,7 @@ void TItemEffNeedleBase__sub_80109D48(Needle_80109D48 *self) {
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
         post_translate_matrix(self->m_30);
-        TObjPlayer__sub_803D99F8(self->m_44, 1);
+        rotate_matrix_by_node_angles(self->m_44, 1);
         draw_ginja_object(self->m_3c);
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();

@@ -39,7 +39,7 @@ extern "C" {
 
 void TLobby__sub_8015C8C4(void);
 int TLobby__sub_8015C8C8(void);
-int TLobby__sub_8015C8D0(void);
+int check_accuracy_hit__17TObjContainerBaseFv(void);
 int TObjPlayer__sub_8015C884(void);
 
 void TLanguage__sub_8015C680(void) {
@@ -90,6 +90,6 @@ f32 TObjPlayer__sub_8015C88C(Obj_8015C88C *self) {
 
 void TLobby__sub_8015C8C4(void) {  }
 int TLobby__sub_8015C8C8(void) { return 1; }
-int TLobby__sub_8015C8D0(void) { return 1; }
+int check_accuracy_hit__17TObjContainerBaseFv(void) { return 1; }
 
 }

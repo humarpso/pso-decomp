@@ -61,7 +61,7 @@ M2C_UNK get_object__13TParticleCtrlFPv(int);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 void TObjPlayer__sub_8033E988(void);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
@@ -143,7 +143,7 @@ void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
         set_depth_buffer_settings_id__FUl(3);
         push_matrix();
         post_translate_matrix(self->items[i].a);
-        TObjPlayer__sub_803D99F8(self->items[i].b, 1);
+        rotate_matrix_by_node_angles(self->items[i].b, 1);
         play_indirect_effect_recipe(self->items[i].obj, 1, 1);
         ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);
         ((void (*)(void *))TObjPlayer__sub_8033E988)(self);

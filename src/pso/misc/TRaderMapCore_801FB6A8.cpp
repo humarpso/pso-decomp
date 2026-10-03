@@ -17,7 +17,7 @@ s32 free_statics__13TRaderMapCoreFv();
 s32 TLobby__sub_803DA16C(int);
 extern u8 *TRaderMapCore__data_805D5F28;
 extern s32 TRaderMapCore__data_805D5F44;
-void TRaderMapCore__sub_801FB71C(void);
+void unload_floor_map__13TRaderMapCoreFv(void);
 s32 get_current_floor();
 void copy_name(const char *);
 u8 *create_named_object(char *);
@@ -64,7 +64,7 @@ void create__13TRaderMapCoreFv(void) {
     }
 }
 
-void TRaderMapCore__sub_801FB71C(void) {
+void unload_floor_map__13TRaderMapCoreFv(void) {
     u32 temp_r3;
     u8 *temp_r31;
     temp_r31 = (u8 *)(TRaderMapCore__data_805D5F28);

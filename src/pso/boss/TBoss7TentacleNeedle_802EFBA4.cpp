@@ -10,7 +10,7 @@ void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0);
 void render__20TBoss7TentacleNeedleFv(void *arg0);
 void post_translate_matrix(void *);
 void draw_model_motion(void *, void *, f32);
-void TObjPlayer__sub_803D99F8(void *, int);
+void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void pop_matrix(void);
 void clear_global_state__10TObjPlayerFv(void);
@@ -38,7 +38,7 @@ void render__20TBoss7TentacleNeedleFv(void *arg0) {
     set_global_flag__10TObjPlayerFv();
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 28));
-    TObjPlayer__sub_803D99F8((void *)((char *)arg0 + 40), 1);
+    rotate_matrix_by_node_angles((void *)((char *)arg0 + 40), 1);
     draw_model_motion(lbl_805D6948, M2C_FIELD(arg0, void **, 0x78), M2C_FIELD(arg0, f32 *, 0x74));
     pop_matrix();
     clear_global_state__10TObjPlayerFv();

@@ -209,7 +209,7 @@ void *get_player_by_client_id(s32);
 void send_6x21_inter_level_warp(void *, void *);
 s32 get_floor_map_terrain(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
-void TWindowCtrl__sub_8024AEAC(s32);
+void suppress_slot__11TWindowCtrlFi(s32);
 void TNpcPlayer__sub_8034E7A0();
 extern u8 lbl_80515BA0[];
 extern s32 lbl_805D53A0;
@@ -303,7 +303,7 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 create_window_menu(M2C_UNK, s32, s16);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -335,7 +335,7 @@ void open_confirm_window__18TObjAreaWarpEndingFPvs(void *arg0, s16 arg1) {
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, 0x23), 2, 0, -1);
         }
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
-        TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
+        align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
@@ -748,7 +748,7 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
     if (arg0->f4 != get_current_floor()) {
         set_area__6TLobbyFPvi(lbl_80515BA0, arg0->f4, get_floor_map_terrain(arg0->f4));
         mark_area_change_pending();
-        TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
         TNpcPlayer__sub_8034E7A0();
         void *p = get_player_by_client_id(lbl_805D53A0);

@@ -10,7 +10,7 @@ struct V_8017E410 : B_8017E410 { virtual ~V_8017E410(); };
 
 extern "C" {
 s32 TObjBgmColCtrl__ct(int, int);
-s32 TObjBgmColCtrl__sub_8017E550();
+s32 create_bgm_col_zones();
 u32 __nw__7TObjectFUl(int);
 u32 __ct__7TObjectFP7TObject(int, int);
 extern u32 TObjBgmColCtrl__data_805D5B08;
@@ -81,7 +81,7 @@ void TObjBgmColCtrl__sub_8017E3B8(void) {
     if (temp_r3_2 != 0U) {
         TObjBgmColCtrl__ct((int) (temp_r3_2), (int) (tl_05));
     }
-    TObjBgmColCtrl__sub_8017E550();
+    create_bgm_col_zones();
 }
 void *__dt__14TObjBgmColCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

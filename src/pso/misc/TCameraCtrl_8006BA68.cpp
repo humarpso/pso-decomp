@@ -186,7 +186,7 @@ struct RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 {
 };
 
 extern "C" {
-void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 set_camera_look_at(void *, void *, void *);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 lbl_804383E0;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
@@ -242,7 +242,7 @@ s32 approach_camera_scalar(f32 *arg0, f32 *arg1, f32 farg0);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_804383D0;
-void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2);
+void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 }
 
 extern "C" {
@@ -288,7 +288,7 @@ void step_camera_scalar(const f32* current, const f32* target, f32* output, f32 
     *output = value - step;
 }
 
-void TCameraCtrl__sub_8006BE00(u8 *arg0, s32 *arg1, s32 *arg2) {
+void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2) {
   f32 new_var;
   f32 temp_f0;
   f32 temp_f1;
@@ -371,7 +371,7 @@ void TCameraCtrl__sub_8006C03C(u8 *arg0) {
     stack.sp14 = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_48 - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_3C;
     stack.sp18 = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_4C - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_40;
     stack.sp1C = ((RecoveredFields_8006C03C_arg0 *)arg0)->field_50 - ((RecoveredFields_8006C03C_arg0 *)arg0)->field_44;
-    TCameraCtrl__sub_8006BE00((u8 *)((void *) (&stack.sp14)), (s32 *)((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x190)), (s32 *)((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x194)));
+    direction_to_pitch_yaw((u8 *)((void *) (&stack.sp14)), (s32 *)((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x190)), (s32 *)((void *) ((*(u8 * *)&lbl_805D4DF0) + 0x194)));
     stack.sp20 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_184;
     stack.sp24 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_188;
     stack.sp28 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&lbl_805D4DF0))->field_18C;

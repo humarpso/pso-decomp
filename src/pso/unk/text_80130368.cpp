@@ -73,7 +73,7 @@ void TObjPlayer__sub_801303D8(u8 *arg0);
 s32 init_shoot_model__10TObjPlayerFPv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 TObjPlayer__sub_80130368(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-M2C_UNK TObjPlayer__sub_801012DC(void *, int);
+M2C_UNK send_6x61_activate_mag_effect(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_8011F474(void *, f32);
@@ -125,7 +125,7 @@ void TObjPlayer__sub_80130490(u8 *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         draw_status_icon__10TObjPlayerFPvi((void *) (arg0), (void *) (arg0 + 0x208));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) > 0x1999) {
-            TObjPlayer__sub_801012DC((void *) (arg0), (int) (0));
+            send_6x61_activate_mag_effect((void *) (arg0), (int) (0));
             spawn_item_timer__13TItemAttackerFiii((void *) (arg0), (void *) (TObjPlayer__sub_801307D0), (int) (0x1E));
             M2C_FIELD(arg0, s32 *, 0x204) = 0;
             return;

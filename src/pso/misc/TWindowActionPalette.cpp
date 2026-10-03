@@ -54,7 +54,7 @@ void update_slot_sprites__20TWindowActionPaletteFv(void *, int, int, u16);
 u8 get_enabled__11TMainCursorFPv(void *);
 u8 get_type__11TMainCursorFPv(void *);
 s32 is_action_channel_available__10TObjPlayerFii(s32, s32);
-void TWindowHelpItem__sub_80243544(void *, void *, int, u16, s32);
+void update_palette_item_count_label(void *, void *, int, u16, s32);
 void draw_action_palette_icon(void *, int, u16);
 extern const u8 lbl_805DCA10[4];
 extern const u8 lbl_805DCA14[4];
@@ -120,7 +120,7 @@ void update_slot_sprites__20TWindowActionPaletteFv(void *arg0, int idx, int mode
         } else {
             *(s32 *)(help + 0x2C) = 0xFF404040;
         }
-        TWindowHelpItem__sub_80243544(get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette *)arg0, lbl_805DCA18[idx]), help, mode, slot, *(s16 *)((u8 *)arg0 + 0x20));
+        update_palette_item_count_label(get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette *)arg0, lbl_805DCA18[idx]), help, mode, slot, *(s16 *)((u8 *)arg0 + 0x20));
         cursor = (u8 *)arg0 + 0x60 + idx * 4;
         if ((u16)mode != get_type__11TMainCursorFPv(cursor) || get_enabled__11TMainCursorFPv(cursor) != slot) {
             set_mode__20TWindowActionPaletteFPvUc(cursor, mode);

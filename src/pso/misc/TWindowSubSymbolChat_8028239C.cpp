@@ -40,7 +40,7 @@ s32 TWindowSubSymbolChat__sub_80077480(s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
@@ -58,7 +58,7 @@ s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0);
 s32 open_main_menu__20TWindowSubSymbolChatFv(void);
 void render__20TWindowSubSymbolChatFv(void);
 M2C_UNK TWindowSubComCard__sub_80265680(s32, s16);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
@@ -92,7 +92,7 @@ s32 open_edit_menu__20TWindowSubSymbolChatFPv(void *arg0) {
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     set_scroll_target__17TWindowSubComCardFPvff(temp_r31, lbl_805DD73C, lbl_805DD740);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 
@@ -110,7 +110,7 @@ s32 open_main_menu__20TWindowSubSymbolChatFv(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xAD), 6, 0x28);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD73C);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 
@@ -135,7 +135,7 @@ s32 TWindowSubSymbolChat__sub_80282600(Win_80282600 *arg0) {
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(card);
     set_scroll_target__17TWindowSubComCardFPvff(card, lbl_805DD748, lbl_805DD74C);
-    TWindowSubComCard__sub_80265C30(card);
+    align_menu_entry_positions(card);
     set_selected_index__17TWindowSubComCardFPvs(card, arg0->sel);
     return card;
 }

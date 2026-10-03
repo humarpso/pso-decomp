@@ -3,7 +3,7 @@
 extern "C" {
 void TWindowActionPalette__sub_801C1D3C(void *, int, int, int);
 extern s32 lbl_80447184[];
-void TItemMag__sub_801D7964(u8 *arg0);
+void assign_default_photon_blast_palette_slots(u8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ int ret_801D7944(void) { return 0; }
 int ret_801D794C(void) { return 0; }
 int ret_801D7954(void) { return 0; }
 int ret_801D795C(void) { return 0; }
-void TItemMag__sub_801D7964(u8 *arg0) {
+void assign_default_photon_blast_palette_slots(u8 *arg0) {
     s32 tbl[3];
     s32 i;
     i = 0;

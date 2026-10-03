@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 M2C_UNK copy_name(M2C_UNK *);
-M2C_UNK TLobby__sub_801A2514(u16);
+M2C_UNK advance_enemy_id_counter(u16);
 M2C_UNK advance_object_id_counter(u16);
 M2C_UNK load_enemy_set_file(s32, s32);
 M2C_UNK load_object_set_file(s32, s32);
@@ -39,7 +39,7 @@ void load_map_set_data(s32 arg0, s32 arg1) {
         load_enemy_set_file(arg0, arg1);
         advance_object_id_counter((u16) TLobby__data_805D60E8);
         TLobby__data_805D6148 = TLobby__data_805D60E0;
-        TLobby__sub_801A2514((u16) TLobby__data_805D60EC);
+        advance_enemy_id_counter((u16) TLobby__data_805D60EC);
         TLobby__data_805D614C = TLobby__data_805D60E4;
         free_data_60F0__6TLobbyFv();
         TLobby__data_805D6134 |= 1;

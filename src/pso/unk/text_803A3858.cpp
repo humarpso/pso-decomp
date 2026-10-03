@@ -324,7 +324,7 @@ extern Rec_803A8D2C *lbl_805D73B0;
 void TLobby__sub_803A8D2C(Node_803A8D2C **list, void (*cb)(u8));
 s32 TLobby__sub_803A7880(s32, s32, s32, s32, u8, u8, s32, s32, s32, s32, s32, s32, s32, s32, s32);
 Se_803A9144 *find_sound_fx_record(s16);
-s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
+s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 extern u8 lbl_805D7380;
 extern Rec_803A8D2C *lbl_805D73B0;
 void key_off_sound_program(Rec_803A9454 *);
@@ -369,7 +369,7 @@ u32 TLobby__sub_803B3ED8(s32 arg0);
 void TLobby__sub_803B3B80(Obj_803B3B80 *arg0);
 void unlink_sound_program(Prog_803B25CC *p);
 extern Tbl_803AA1E0 lbl_80557C1C[];
-s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
+s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 s32 TLobby__sub_803A9200(u32 id, u8 a1, u8 a2);
 s32 TLobby__sub_803A92E8(u32 id, u8 a1, u16 a2);
 void sound_enable_irq(void);
@@ -963,7 +963,7 @@ void TLobby__sub_803A8DC0(u8 *arg0) {
     }
 }
 
-s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
+s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
     s32 ret = -1;
     Se_803A9144 *p = find_sound_fx_record(arg0);
     if (p != NULL) {
@@ -1093,7 +1093,7 @@ s32 start_sound_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, Req_803AA1E0 *req) {
     Ent_803AA1E0 *e;
     u8 t;
     sound_disable_irq();
-    id = TLobby__sub_803A9144(arg0, arg1, arg2, arg3, lbl_80557C1C[(u8)arg3].b1);
+    id = synth_start_fx(arg0, arg1, arg2, arg3, lbl_80557C1C[(u8)arg3].b1);
     if (id != 0xFFFFFFFF) {
         e = req->ents;
         i = 0;
@@ -1874,7 +1874,7 @@ u32 find_sound_voice_by_id(u32 arg0) {
 }
 #pragma pop
 
-void TLobby__sub_803B312C(Obj_803B312C *o) {
+void free_sound_voice(Obj_803B312C *o) {
     u8 idx;
     Slot_803B312C *e;
 

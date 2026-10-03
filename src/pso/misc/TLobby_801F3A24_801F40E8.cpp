@@ -8,7 +8,7 @@ extern "C" {
 
 s32 handle_msg_type1__6TLobbyFi(s32 arg0);
 void setup_quest_list__6TLobbyFv(void);
-M2C_UNK TLobby__sub_801A2514(u16);
+M2C_UNK advance_enemy_id_counter(u16);
 M2C_UNK advance_object_id_counter(u16);
 M2C_UNK convert_quest_object_rows(void *, s32);
 M2C_UNK TLobby__sub_8020AA94(void *, u32, s32);
@@ -98,7 +98,7 @@ void setup_quest_list__6TLobbyFv(void) {
         break;
     }
     advance_object_id_counter((u16) TLobby__data_805D60E8);
-    TLobby__sub_801A2514((u16) TLobby__data_805D60EC);
+    advance_enemy_id_counter((u16) TLobby__data_805D60EC);
     TLobby__data_805D6148 = TLobby__data_805D60E0;
     TLobby__data_805D614C = TLobby__data_805D60E4;
     TLobby__sub_8020B308(TLobby__data_805D60E0);

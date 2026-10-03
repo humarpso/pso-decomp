@@ -14,7 +14,7 @@ M2C_UNK get_anim_field_c__10TObjPlayerFPv(void *);
 M2C_UNK increment_strike_counter__10TObjPlayerFPv(void *);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, s32);
 s32 test_flags_any(s32, s32);
-M2C_UNK TObjPlayer__sub_80124C78(void *);
+M2C_UNK increment_burst_counter(void *);
 s32 get_anim_state__10TObjPlayerFPv(void *);
 s16 get_handle_value__10TObjPlayerFPv(void *);
 M2C_UNK apply_anim_action__10TObjPlayerFPvi(void *, void *);
@@ -35,7 +35,7 @@ void update_anim_action__10TObjPlayerFPv(u8 *arg0) {
             select_normal_attack_marker__10TObjPlayerFPv(arg0);
             if (objInBand__FP7GameObjf(arg0) != 0) {
                 send_attack_target_packet__10TObjPlayerFUi(arg0);
-                TObjPlayer__sub_80124C78(arg0 + 0x7CC);
+                increment_burst_counter(arg0 + 0x7CC);
                 if (get_anim_state__10TObjPlayerFPv(arg0 + 0x7CC) >= 3) {
                     set_flags__10TObjPlayerFPvUi(get_anim_field_c__10TObjPlayerFPv(arg0 + 0x7CC), 8);
                     apply_anim_action__10TObjPlayerFPvi(arg0 + 0x7CC, arg0);

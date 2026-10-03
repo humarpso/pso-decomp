@@ -161,7 +161,7 @@ s32 attack_target_history_add(void *, void *);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK mark_enemy_body_contacts(void *);
 M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
-s32 TObjPlayer__sub_800BC080(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
+s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
@@ -244,7 +244,7 @@ void dispatch_vt15__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     ((VObj800BC050_800bc050_800BBE90*)arg0)->m15(arg1, 0);
 }
 
-s32 TObjPlayer__sub_800BC080(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0) {
+s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0) {
     s32 hit = 0;
     s32 mask = 0;
     Tgt_800BC080 *t;

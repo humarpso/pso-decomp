@@ -27,7 +27,7 @@ s32 get_game_play_mode();
 extern RecoveredGlobal_80222C54_lbl_8044C330 lbl_8044C330;
 extern s32 lbl_805D36F0;
 extern s32 **lbl_805D6258;
-s32 TLobby__sub_80222C54(s32 arg0);
+s32 get_guild_text(s32 arg0);
 extern RecoveredGlobal_80222CBC_lbl_8044C308 lbl_8044C308;
 extern s32 lbl_805D36F0;
 extern s32 lbl_805D6238;
@@ -46,7 +46,7 @@ s32 get_quest_list_text(s32 arg0, s32 arg1) {
 
 typedef struct RecoveredGlobal_80222C54_lbl_8044C330 RecoveredGlobal_80222C54_lbl_8044C330;
 typedef char RecoveredGlobal_80222C54_lbl_8044C330_size[((sizeof(RecoveredGlobal_80222C54_lbl_8044C330)) == 0x10) ? (1) : (-1)];
-s32 TLobby__sub_80222C54(s32 arg0) {
+s32 get_guild_text(s32 arg0) {
   s32 new_var;
   if (((s32 *) (*(s32 * *)&lbl_805D6258)) != 0)
   {

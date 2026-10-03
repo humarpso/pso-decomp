@@ -20,7 +20,7 @@ extern "C" {
 void *__dt__21TBoss1DragonEffBreathFv(void *arg0, s16 arg1);
 void render__21TBoss1DragonEffBreathFv(void);
 void run_task__21TBoss1DragonEffBreathFv(u8 *arg0);
-M2C_UNK TBoss1Dragon__sub_80027710(int, void *, int);
+M2C_UNK deliver_breath_attack__12TBoss1DragonFPvii(int, void *, int);
 M2C_UNK vec3_add_to(void *, void *);
 void TBoss8Dragon__sub_800BC5A0(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -43,7 +43,7 @@ void run_task__21TBoss1DragonEffBreathFv(u8 *arg0) {
         return;
     }
     if (temp_f1 < lbl_805D8134) {
-        TBoss1Dragon__sub_80027710((int) get_instance__12TBoss1DragonFv(), (void *) (arg0 + 0x1C), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        deliver_breath_attack__12TBoss1DragonFPvii((int) get_instance__12TBoss1DragonFv(), (void *) (arg0 + 0x1C), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
     }
 }
 

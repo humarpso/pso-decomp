@@ -18,13 +18,13 @@ struct RecoveredGlobal_8024ACEC_lbl_804CEA34 {
 extern "C" {
 s32 TWindowCtrl__sub_8024AF34(void *, void *);
 extern RecoveredGlobal_8024ACEC_lbl_804CEA34 lbl_804CEA34;
-void fn_8024ACEC(s32 arg0);
+void begin_player_keyboard_hold(s32 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8024ACEC_lbl_804CEA34_size[sizeof(RecoveredGlobal_8024ACEC_lbl_804CEA34) == 0xC ? 1 : -1];
-void fn_8024ACEC(s32 arg0) {
+void begin_player_keyboard_hold(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024ACEC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024ACEC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024ACEC, sp10) == 0x8) ? 1 : -1];

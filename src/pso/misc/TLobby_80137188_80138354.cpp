@@ -33,7 +33,7 @@ void update_state__6TLobbyFv(void);
 M2C_UNK TLobby__sub_801397E8();
 M2C_UNK TLobby__sub_8013990C(M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80244888(s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265F60(s32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
@@ -55,7 +55,7 @@ void create_warp_menu__6TLobbyFv(void) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, get_seq_phase__6TLobbyFPv(0x39), 6, 0);
     forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E4, get_seq_phase__6TLobbyFPv(0x3A), 6, 1);
     TWindowSubComCard__sub_80265F60(lbl_805D55E4);
-    TWindowSubComCard__sub_80265C30(lbl_805D55E4);
+    align_menu_entry_positions(lbl_805D55E4);
     set_ready_flag__18TCheckRoomSequenceFPv(lbl_805D55E4);
     TLobby__data_805D5594 = 4;
 }
@@ -151,7 +151,7 @@ void open_lobby_warp_menu__6TLobbyFv(void) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55E0, get_seq_phase__6TLobbyFPv(0x47), 6, 3);
     }
     TWindowSubComCard__sub_80265F60(lbl_805D55E0);
-    TWindowSubComCard__sub_80265C30(lbl_805D55E0);
+    align_menu_entry_positions(lbl_805D55E0);
     set_ready_flag__18TCheckRoomSequenceFPv(lbl_805D55E0);
     init_player_window_effect__6TLobbyFv();
     TLobby__data_805D5594 = 3;

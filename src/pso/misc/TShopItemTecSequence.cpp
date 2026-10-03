@@ -161,7 +161,7 @@ f32 get_scale__15TShopWindowBaseFv(void *);
 int set_position_xy(void *, f32, f32);
 M2C_UNK TWindow__close(void *);
 s32 get_selected_menu_value(void *);
-int TWindowSubComCard__sub_80265C30(void *);
+int align_menu_entry_positions(void *);
 int TWindowSubComCard__sub_80265F60(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3);
 int create_window_menu(void* a0, void* a1, void* a2);
@@ -269,7 +269,7 @@ void update_buy_sell_choice__20TShopItemTecSequenceFPv(Seq_80220110 *self) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(4), 6, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win, get_shop_text(6), 6, 1);
         TWindowSubComCard__sub_80265F60(self->win);
-        TWindowSubComCard__sub_80265C30(self->win);
+        align_menu_entry_positions(self->win);
         set_ready_flag__18TCheckRoomSequenceFPv(self->win);
         set_position_xy(self->win, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
     }

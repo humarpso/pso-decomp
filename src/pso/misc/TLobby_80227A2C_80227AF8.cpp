@@ -217,13 +217,13 @@ s32 is_special_sound_id(u32 x);
 s32 is_special_sound_id(u32 x);
 void is_sound_enabled(void);
 M2C_UNK set_sound_slot_special_scale(s32, f32);
-s32 TLobby__sub_8023F944(s32, s32, s32, s32, s32);
+s32 alloc_looping_sound_slot(s32, s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 is_special_sound_id(u32 x);
 void is_sound_enabled(void);
 M2C_UNK set_sound_slot_special_scale(s32, f32);
-s32 TLobby__sub_8023FA8C(s32, s32, s32, s32);
+s32 alloc_one_shot_sound_slot(s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
@@ -383,7 +383,7 @@ s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     }
     m = arg0 & 0xBFFF00FF;
     if (((s32 (*)(void))is_sound_enabled)() == 1) {
-        h = TLobby__sub_8023F944(m, arg1, arg2, r, flags);
+        h = alloc_looping_sound_slot(m, arg1, arg2, r, flags);
         if (is_special_sound_id(m) != 0) {
             set_sound_slot_special_scale(h, lbl_805DC768);
         }
@@ -427,7 +427,7 @@ s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     m = arg0 & 0xBFFF00FF;
     if (((s32 (*)(void))is_sound_enabled)() == 1) {
-        h = TLobby__sub_8023FA8C(m, arg1, r, flags);
+        h = alloc_one_shot_sound_slot(m, arg1, r, flags);
         if (is_special_sound_id(m) != 0) {
             set_sound_slot_special_scale(h, lbl_805DC768);
         }

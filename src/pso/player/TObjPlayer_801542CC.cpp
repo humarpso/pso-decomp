@@ -139,7 +139,7 @@ void TObjPlayer__sub_8015431C(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DB270;
-s32 TObjPlayer__sub_80155050(M2C_UNK arg0, u8 *arg1, u32 arg2);
+s32 test_collider_sphere_overlap_xz(M2C_UNK arg0, u8 *arg1, u32 arg2);
 extern int lbl_8050DA90[];
 int TObjPlayer__sub_80154E28(int a0, int a1);
 s32 get_player_data__10TObjPlayerFi(s32);
@@ -287,7 +287,7 @@ s32 obj_is_hit_receivable(void *);
 s32 obj_testFlags30(void *, u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void *resolve_hittable_target(u16 actorId, s16 collider);
-int TLobby__sub_801A1FDC(void*, void*);
+int get_or_assign_actor_id(void*, void*);
 M2C_UNK TObjPlayer__sub_8015434C(s32, s32, s32);
 u16 register_entity_by_id(void*);
 u32 get_battle_param__10TObjPlayerFi(s32);
@@ -446,7 +446,7 @@ u16 unregister_object_by_id(Obj_80154A00 *self) {
     return 0xFFFF;
 }
 
-void reset_photon_effect__10TObjPlayerFPv(void* p) { TLobby__sub_801A1FDC(p, (void*)0); register_entity_by_id(p); }
+void reset_photon_effect__10TObjPlayerFPv(void* p) { get_or_assign_actor_id(p, (void*)0); register_entity_by_id(p); }
 
 #define o ((Obj_80154B60 *)ov)
 #define TBL ((Obj_80154B60 **)TObjPlayer__data_8050D460)
@@ -625,7 +625,7 @@ u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1) {
     return (u8 *)arg0;
 }
 
-s32 TObjPlayer__sub_80155050(M2C_UNK arg0, u8 *arg1, u32 arg2) {
+s32 test_collider_sphere_overlap_xz(M2C_UNK arg0, u8 *arg1, u32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_80155050, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80155050, spC) == 0x4) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80155050, sp14) == 0xC) ? 1 : -1];
@@ -812,7 +812,7 @@ s32 test_player_body_overlap_at(M2C_UNK arg0, u8 *self, void *pos) {
     return 0;
 }
 #define build_collision_box_corners ((void (*)(CollisionVector_80155C54,s32,Collider_80155C54*,CollisionBox_80155C54*))build_collision_box_corners)
-#define TObjPlayer__sub_80155050 ((void (*)(CollisionVector_80155C54,Collider_80155C54*,CollisionSphere_80155C54*))TObjPlayer__sub_80155050)
+#define test_collider_sphere_overlap_xz ((void (*)(CollisionVector_80155C54,Collider_80155C54*,CollisionSphere_80155C54*))test_collider_sphere_overlap_xz)
 void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC b) {
     CollisionBox_80155C54 boxAA,boxBB,boxAB,boxBA;
     CollisionVector_80155C54 worldA,worldB,offsetA,offsetB;
@@ -859,7 +859,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
                         break;
                     case 0: default:
                         build_collision_box_corners(worldA,facingA,source,&boxAB);
-                        TObjPlayer__sub_80155050(worldB,destination,&sphereAB);
+                        test_collider_sphere_overlap_xz(worldB,destination,&sphereAB);
                         if (test_box_sphere_contact(&boxAB,&sphereAB)) return destination;
                         break;
                     }
@@ -867,13 +867,13 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
                 case 0: default:
                     switch(destination->shape) {
                     case 1:
-                        TObjPlayer__sub_80155050(worldA,source,&sphereBA);
+                        test_collider_sphere_overlap_xz(worldA,source,&sphereBA);
                         build_collision_box_corners(worldB,facingB,destination,&boxBA);
                         if (test_box_sphere_contact(&boxBA,&sphereBA)) return destination;
                         break;
                     case 0: default:
-                        TObjPlayer__sub_80155050(worldA,source,&sphereAA);
-                        TObjPlayer__sub_80155050(worldB,destination,&sphereBB);
+                        test_collider_sphere_overlap_xz(worldA,source,&sphereAA);
+                        test_collider_sphere_overlap_xz(worldB,destination,&sphereBB);
                         if (spheres_overlap(&sphereAA,&sphereBB)) return destination;
                         break;
                     }
@@ -886,7 +886,7 @@ void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC
 }
 
 #undef build_collision_box_corners
-#undef TObjPlayer__sub_80155050
+#undef test_collider_sphere_overlap_xz
 
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit) {
     CollisionBody_80155FBC source, destination;

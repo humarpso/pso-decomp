@@ -13,7 +13,7 @@ void reset_keyboard_input__6TLobbyFv();
 void shutdown_keyboard_control__6TLobbyFv();
 void init_chr_select__6TLobbyFv();
 void reset_to_chr_select__6TLobbyFv();
-void TLobby__sub_800F8B20(void);
+void apply_phase_keyboard_mode(void);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int reset__16TKeyBoardControlFv(void);
 int set_keyboard_mode__6TLobbyFi(int);
 
-void TLobby__sub_800F8B20(void) {
+void apply_phase_keyboard_mode(void) {
     switch (get_main_phase()) {
     case 15:
         if (is_quest_active() != 0) {

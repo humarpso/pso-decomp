@@ -47,7 +47,7 @@ struct RecoveredGlobal_80010E44_lbl_8050EA40
 
 extern "C" {
 int is_locally_controlled__10TObjPlayerFPv(void *);
-u8 TOMineTrap__sub_801D7238(void *);
+u8 get_rule_field_0__6TLobbyFPv(void *);
 M2C_UNK TOMineTrap__sub_801B0300(void *, void *, void *);
 extern RecoveredGlobal_80010E44_lbl_8050EA40 lbl_8050EA40;
 void record_local_damage_if_enabled(void *arg0, void *arg1, s32 arg2);
@@ -59,7 +59,7 @@ typedef struct RecoveredGlobal_80010E44_lbl_8050EA40 RecoveredGlobal_80010E44_lb
 #pragma opt_pointer_analysis on
 typedef char RecoveredGlobal_80010E44_lbl_8050EA40_size[((sizeof(RecoveredGlobal_80010E44_lbl_8050EA40)) == 0x30) ? (1) : (-1)];
 void record_local_damage_if_enabled(void *arg0, void *arg1, s32 arg2) {
-  if ((((TOMineTrap__sub_801D7238(&lbl_8050EA40.value) == 1) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0)) && (arg2 > 0)) && (arg1 != NULL))
+  if ((((get_rule_field_0__6TLobbyFPv(&lbl_8050EA40.value) == 1) && (is_locally_controlled__10TObjPlayerFPv(arg0) != 0)) && (arg2 > 0)) && (arg1 != NULL))
   {
     TOMineTrap__sub_801B0300((void *) arg0, (void *) arg1, (void *) arg2);
   }

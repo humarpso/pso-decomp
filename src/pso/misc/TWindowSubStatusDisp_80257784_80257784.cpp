@@ -74,7 +74,7 @@ void *init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void *init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void *init_fields__17TWindowSubComCardFPvii(void *, void *, s32);
 void *init_state__20TWindowSubStatusDispFPvii(void *, void *, s32);
-void TWindowSubStatusDisp__sub_80257D44(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
+void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
 }
 
 extern "C" {
@@ -154,7 +154,7 @@ void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0) {
 }
 
 typedef void *(*Ctor_80257D44)(void *, void *, s32);
-void TWindowSubStatusDisp__sub_80257D44(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2) {
+void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2) {
     u32 cols;
     u32 rows;
     u32 *rec;

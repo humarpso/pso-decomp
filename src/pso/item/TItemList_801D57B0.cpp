@@ -40,7 +40,7 @@ int copy_item_data__9TItemListFPv(void* p);
 int copy_position__9TItemListFPv(void* p);
 void* get_ptr_0x44__9TItemListFPv(void* p);
 void TItemList__sub_801D59DC(void* p);
-void TItemList__sub_801D59E8(void* p, void* a1);
+void decrement_placement_search_pending(void* p, void* a1);
 int TItemList__sub_801D5A0C(void* a0 = 0);
 void TItemList__sub_801D5A64(void* p);
 int VecCopy__FP3VecPC3Vec(void*);

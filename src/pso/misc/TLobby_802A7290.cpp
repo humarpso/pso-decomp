@@ -90,7 +90,7 @@ extern RecoveredGlobal_802A74B8_lbl_804DD9F8 lbl_804DD9F8;
 s32 player_motion_provider1_get_actions(M2C_UNK arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_802A7848(void *, s32);
 s32 TLobby__sub_802A7868(void *, s32, s32);
-s32 TLobby__sub_802A7994(void *, s32, s32, s32);
+s32 load_action_motion_pairs(void *, s32, s32, s32);
 M2C_UNK forward_801C210C__10TObjPlayerFPv(void *, s32);
 s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void free__11TOBoss4RockFUi(void*);
@@ -121,7 +121,7 @@ s32 TLobby__sub_802A7420(void *self, s32 a, s32 b, s32 c);
 void player_motion_provider1_set_attack_interpolation(u8 *arg0);
 s32 sub_802a7290_fwd__10TObjPlayerFPv(void *);
 s32 is_handle_valid__10TObjPlayerFPv(void *);
-s32 TLobby__sub_802A7994(void *, s32, s32, s32);
+s32 load_action_motion_pairs(void *, s32, s32, s32);
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1);
 }
 
@@ -194,7 +194,7 @@ s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     forward_801C210C__10TObjPlayerFPv(arg0, arg2);
     TLobby__sub_802A7848(arg0, arg3);
-    temp_r3 = TLobby__sub_802A7994(arg0, arg1, arg2, arg3);
+    temp_r3 = load_action_motion_pairs(arg0, arg1, arg2, arg3);
     if (temp_r3 != 0) {
         ((VObj_802A752C_802A7290 *)arg0)->m12();
     }
@@ -204,7 +204,7 @@ s32 handle_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
 s32 TLobby__sub_802A75C8(void *arg0, s32 arg1) {
     s32 a = is_handle_valid__10TObjPlayerFPv(arg0);
     s32 b = sub_802a7290_fwd__10TObjPlayerFPv(arg0);
-    s32 r = TLobby__sub_802A7994(arg0, arg1, a, b);
+    s32 r = load_action_motion_pairs(arg0, arg1, a, b);
     if (r != 0) {
         ((VObj_802A75C8 *)arg0)->m12();
     }

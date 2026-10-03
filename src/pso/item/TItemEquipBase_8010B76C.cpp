@@ -14,7 +14,7 @@ extern "C" {
 int check_flag_32__14TItemEquipBaseFPv(void* p);
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p);
 void init_slot__14TItemEquipBaseFPv(void* a0);
-void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
+void subtract_s16_stat(s16 *arg0, s32 arg1);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
 void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);

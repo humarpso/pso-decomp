@@ -16,7 +16,7 @@ s32 TWindowSubSymbolChat__sub_80077464(void *);
 s32 get_data_ptr__20TWindowSubSymbolChatFPv(u32);
 void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1);
 void TWindowSubSymbolChat__sub_802484C0(u8 *arg0);
-s32 TWindowSubStatusDisp__sub_80257D44(void *, void *, void *);
+s32 init_window_layout_entries(void *, void *, void *);
 extern RecoveredGlobal_80248494_lbl_804CE2E8 lbl_804CE2E8;
 void TWindowSubSymbolChat__sub_80248494(s32 arg0, s32 arg1);
 }
@@ -56,7 +56,7 @@ void set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(s32 arg0, void *arg1) {
 
 typedef char RecoveredGlobal_80248494_lbl_804CE2E8_size[sizeof(RecoveredGlobal_80248494_lbl_804CE2E8) == 0x4B8 ? 1 : -1];
 void TWindowSubSymbolChat__sub_80248494(s32 arg0, s32 arg1) {
-    TWindowSubStatusDisp__sub_80257D44((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (arg1));
+    init_window_layout_entries((void *) (arg0), (void *) (&lbl_804CE2E8.value), (void *) (arg1));
 }
 
 void TWindowSubSymbolChat__sub_802484C0(u8 *arg0) {

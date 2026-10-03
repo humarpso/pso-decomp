@@ -17,7 +17,7 @@ s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_800F8FB8();
 s32 reset_state_byte__6TLobbyFv();
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
-s32 TLobby__sub_80228074();
+s32 update_global_sound_frame();
 s32 flush_input__16TKeyBoardControlFv();
 s32 TLobby__sub_803CD5C4(void *);
 s32 TLobby__sub_803CD840(void *, void *, int, void *);
@@ -96,7 +96,7 @@ loop_2:
         if (TLobby__sub_803CD5C4((void *) (arg0)) != 3) {
             TLobby__sub_800F8FB8();
             flush_input__16TKeyBoardControlFv();
-            TLobby__sub_80228074();
+            update_global_sound_frame();
             TKeyBoardControl__sub_803DEA18();
             disable_disconnected_ports__16TKeyBoardControlFv((void *) (&TKeyBoardControl__data_80506270.value));
             reset_state_byte__6TLobbyFv();

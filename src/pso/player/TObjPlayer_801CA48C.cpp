@@ -9,7 +9,7 @@ extern "C" {
 void update_death_pose__10TObjPlayerFPv(u8 *arg0);
 s32 TBoss1Dragon__sub_80143960(void *, M2C_UNK);
 u32 resolve_move_collision__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801C5954(void *);
+M2C_UNK calc_death_sink_offset(void *);
 M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
 M2C_UNK add_death_sink_progress(void *, f32);
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
@@ -21,7 +21,7 @@ void update_death_pose__10TObjPlayerFPv(u8 *arg0) {
         restart_death_pose__10TObjPlayerFPv(arg0);
     }
     add_death_sink_progress(arg0 + 0x5FC, lbl_805DC37C);
-    TObjPlayer__sub_801C5954(arg0 + 0x5FC);
+    calc_death_sink_offset(arg0 + 0x5FC);
     if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);
     }

@@ -71,7 +71,7 @@ u8 *create_mechgun_weapon(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80120D50(void *, s32, void *);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 M2C_UNK set_atp__10TObjPlayerFPvs(void *, M2C_UNK);
-void TObjPlayer__sub_80109440();
+void spawn_weapon_impact_effect();
 extern M2C_UNK lbl_804A3260[];
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
 }
@@ -114,7 +114,7 @@ void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     TObjPlayer__sub_80120D50(arg0, parent, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3260;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x203);
-    M2C_FIELD(arg0, void (**)(), 0x1EC) = &TObjPlayer__sub_80109440;
+    M2C_FIELD(arg0, void (**)(), 0x1EC) = &spawn_weapon_impact_effect;
     M2C_FIELD(arg0, s32 *, 0x210) = -1;
     M2C_FIELD(arg0, s32 *, 0x214) = 0;
     M2C_FIELD(arg0, s32 *, 0x218) = -1;

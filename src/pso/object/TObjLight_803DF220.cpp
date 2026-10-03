@@ -37,7 +37,7 @@ typedef union WGPipe_803DF5E4 {
 
 extern "C" {
 M2C_UNK load_camera_view_matrix();
-M2C_UNK TObjPlayer__sub_803E21B8();
+M2C_UNK setup_opaque_color_draw();
 M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjPlayer__sub_803DF768(s32 arg0);
 extern M2C_UNK lbl_804FC748[];
@@ -200,7 +200,7 @@ void TObjPlayer__sub_803DF768(s32 arg0) {
         TObjPlayer__sub_803E21DC();
         return;
     }
-    TObjPlayer__sub_803E21B8();
+    setup_opaque_color_draw();
 }
 
 

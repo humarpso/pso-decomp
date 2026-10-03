@@ -29,7 +29,7 @@ void TLanguage__sub_80198F14(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_802A5154(void);
 void load_obj_lobby_main(void);
-s32 TLobby__sub_800FD6F8(void *, int);
+s32 run_load_callback_table(void *, int);
 extern RecoveredGlobal_8007BA98_lbl_8048D4C0 lbl_8048D4C0;
 extern RecoveredGlobal_8007BA98_lbl_8048D5A8 lbl_8048D5A8;
 s32 TLobby__sub_8007BA98(void);
@@ -172,12 +172,12 @@ void TLobby__sub_8007BA20(void) {
 s32 TLobby__sub_8007BA98(void) {
     s32 temp_r3;
     s32 temp_r3_2;
-    temp_r3_2 = TLobby__sub_800FD6F8((void *) (&lbl_8048D4C0.value), (int) (0xE8));
+    temp_r3_2 = run_load_callback_table((void *) (&lbl_8048D4C0.value), (int) (0xE8));
     if (temp_r3_2 == 0) {
         return temp_r3_2;
     }
     if ((get_global_state__14TOKeyMachine01Fv() != 0) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (get_global_state__14TOKeyMachine01Fv() != 0x12)) {
-        temp_r3 = TLobby__sub_800FD6F8((void *) (&lbl_8048D5A8.value), (int) (0x20));
+        temp_r3 = run_load_callback_table((void *) (&lbl_8048D5A8.value), (int) (0x20));
         if (temp_r3 == 0) {
             return temp_r3;
         }

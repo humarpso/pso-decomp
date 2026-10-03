@@ -66,7 +66,7 @@ struct Self_80121CB8 : Pl_80121CB8 {
 extern "C" {
 void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_8011EDFC(void *, s32, s32, f32);
+void launch_rare_weapon_special__10TObjPlayerFv(void *, s32, s32, f32);
 void draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 void fire_shoot_particle__10TObjPlayerFPviif();
 void TObjPlayer__sub_80121E94();
@@ -83,7 +83,7 @@ void TObjPlayer__sub_80121CB8(Self_80121CB8 *self) {
         self->fn1f0 = (void *)fire_shoot_particle__10TObjPlayerFPviif;
         self->f1f8 = 0;
         spawn_item_timer__13TItemAttackerFiii(self, (void *)TObjPlayer__sub_80122014, 0x1E);
-        TObjPlayer__sub_8011EDFC(self, 0, 1, lbl_805DACD0);
+        launch_rare_weapon_special__10TObjPlayerFv(self, 0, 1, lbl_805DACD0);
     } else {
         self->fn1f0 = (void *)TObjPlayer__sub_80121E94;
         self->f1f8 = 0;

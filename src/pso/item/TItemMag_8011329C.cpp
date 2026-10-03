@@ -125,7 +125,7 @@ M2C_UNK apply_feed_delta__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80113EDC(void *, int, int, int);
 M2C_UNK init_feed_timer__8TItemMagFPv(void *);
 M2C_UNK send_6x3A_clear_photon_blast_ready_flag(void *);
-M2C_UNK TItemMag__sub_801D7964(void *);
+M2C_UNK assign_default_photon_blast_palette_slots(void *);
 void TItemMag__vt43(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -378,7 +378,7 @@ void TItemMag__vt43(u8 *arg0) {
   u8 *new_var;
   if (((volatile int)obj_isState2_324(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
   {
-    TItemMag__sub_801D7964((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
+    assign_default_photon_blast_palette_slots((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
     var_r31 = 0;
     do
     {

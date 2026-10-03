@@ -35,7 +35,7 @@ void TWindowSubComCard__sub_8033C024(u8 *arg0, s32 arg1);
 u32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 void TWindowSubComCard__sub_80244888(s32);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, s16);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265E60(u32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, M2C_UNK, M2C_UNK);
 u32 create_window_menu(M2C_UNK *, M2C_UNK, M2C_UNK);
@@ -115,7 +115,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
         forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x34), msg, 5, 1);
     }
     TWindowSubComCard__sub_80265E60(M2C_FIELD(arg0, u32 *, 0x34), lbl_805D6D98);
-    TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x34));
+    align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0x34));
     if (arg2 != -2) {
         set_selected_index__17TWindowSubComCardFPvs(M2C_FIELD(arg0, u32 *, 0x34), arg2);
     } else {

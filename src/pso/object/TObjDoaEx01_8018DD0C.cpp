@@ -32,7 +32,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
@@ -103,7 +103,7 @@ M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1) {
         post_translate_matrix(obj->pos);
     }
     if (!(flags & 2)) {
-        TObjPlayer__sub_803D99F8(obj->ang, flags & 0x20);
+        rotate_matrix_by_node_angles(obj->ang, flags & 0x20);
     }
     if (!(flags & 4)) {
         scale_current_matrix(obj->scl);

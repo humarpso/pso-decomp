@@ -188,7 +188,7 @@ s16 get_remain_count__10TTecSlicerFPv(void *);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 lbl_8044DC20;
-void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
+void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, int);
 u32 get_player_by_client_id(u16);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -237,7 +237,7 @@ void TPhotonMagicSquare__sub_801A2640(void *, s32);
 void fn_8023B590(void *, s32, s32);
 void reset_fields_1e__10TTecSlicerFPv(void* p);
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
-void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
+void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
@@ -309,7 +309,7 @@ void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused
     self->mid.z = t;
 }
 
-void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
+void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
   M2C_UNK *var_r29;
   M2C_UNK *var_r30;
   M2C_UNK *var_r3;
@@ -481,7 +481,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     }
     self->f10c = (s32)arg2;
     self->f108 = find_item_by_id(self->f118);
-    TTecSlicer__sub_8023B770((M2C_UNK *)self, (M2C_UNK *)self->f10c, init->f28);
+    init_launch_angles__10TTecSlicerFPvPvi((M2C_UNK *)self, (M2C_UNK *)self->f10c, init->f28);
     set_launch_midpoint__10TTecSlicerFPvPvPvPv((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;

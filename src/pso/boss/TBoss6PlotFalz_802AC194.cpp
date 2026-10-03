@@ -71,7 +71,7 @@ void TBoss6PlotFalz__sub_802AC25C(Obj_8004AA04 *self);
 void *get_player_data__10TObjPlayerFi(s32 i);
 extern s32 lbl_805D586C;
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
-void TObjPlayer__sub_801B0FF4(void *p);
+void refresh_equipment_slot__10TObjPlayerFv(void *p);
 void TBoss6PlotFalz__sub_802AC4D8(void *self);
 void scroll_strip_uvs(u32, s16, s16);
 void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy);
@@ -201,7 +201,7 @@ void TBoss6PlotFalz__sub_802AC4D8(void *self) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
             if (get_field_3e0__12TBoss3VoloptFPv(p) == 0x1f) {
-                TObjPlayer__sub_801B0FF4(p);
+                refresh_equipment_slot__10TObjPlayerFv(p);
             }
         }
     }

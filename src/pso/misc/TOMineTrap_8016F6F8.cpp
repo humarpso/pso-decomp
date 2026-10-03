@@ -12,7 +12,7 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 u16 get_trap_type__10TOMineTrapFPv(void *);
 s32 get_trap_count__10TOMineTrapFv(void);
-u8 TOMineTrap__sub_801D7238(void *);
+u8 get_rule_field_0__6TLobbyFPv(void *);
 extern u8 lbl_8050EA40[];
 s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self);
 }
@@ -442,7 +442,7 @@ s32 TOMineTrap__sub_8016F704(Trap_8016F704 *self) {
             continue;
         }
         if (id == get_trap_type__10TOMineTrapFPv(self) && get_trap_count__10TOMineTrapFv() != 1 &&
-            TOMineTrap__sub_801D7238(lbl_8050EA40) != 0) {
+            get_rule_field_0__6TLobbyFPv(lbl_8050EA40) != 0) {
             continue;
         }
         if (id < 0x1000) {

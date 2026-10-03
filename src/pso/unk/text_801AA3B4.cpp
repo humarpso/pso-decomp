@@ -18,7 +18,7 @@ extern struct PhotonBlastChain_801AA424 lbl_8050E890[];
 void TObjPlayer__sub_801AA424(void);
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-M2C_UNK TLobby__sub_800FD6F8(void *, int);
+M2C_UNK run_load_callback_table(void *, int);
 void TObjPlayer__sub_801AA424(void);
 extern u8 lbl_804C343C[];
 extern u8 lbl_804C344C[];
@@ -60,7 +60,7 @@ void load_photon_blast_resources(void) {
         p = load_resource_from_descriptor(p, 1, lbl_804C343C, 0, 0, 0);
     }
     lbl_805D5D28 = (u32) p;
-    TLobby__sub_800FD6F8(lbl_804C344C, 0x50);
+    run_load_callback_table(lbl_804C344C, 0x50);
     for (i = 0; i < 4; i++) {
         lbl_8050E880[i] = 0;
     }

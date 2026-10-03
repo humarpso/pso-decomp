@@ -7,11 +7,11 @@ extern "C" {
 void TObjPlayer__sub_801284F0(void* p);
 void *TObjPlayer__sub_80128538(void *arg0);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
-int TObjPlayer__sub_80120BBC(void*, void*);
+int draw_weapon_at_joint(void*, void*);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 void TObjPlayer__sub_8012A884(void *);
 
-void TObjPlayer__sub_801284F0(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
+void TObjPlayer__sub_801284F0(void* p) { draw_weapon_at_joint(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
 
 extern M2C_UNK lbl_804A3C20[];
 

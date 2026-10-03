@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_80131744(s32 arg0, ...);
+void debug_printf_nop(s32 arg0, ...);
 s32 collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1);
 M2C_UNK collect_recursive__23TObjSeabedSuisoBrakableFPv();
 
@@ -25,6 +25,6 @@ s32 collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1) {
     return lbl_805D5528;
 }
 
-void TLobby__sub_80131744(s32 arg0, ...) {}
+void debug_printf_nop(s32 arg0, ...) {}
 
 }

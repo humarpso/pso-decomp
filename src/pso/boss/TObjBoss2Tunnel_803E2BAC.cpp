@@ -13,7 +13,7 @@ struct Vtx_803E2BCC {
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
-M2C_UNK TObjPlayer__sub_803E21B8();
+M2C_UNK setup_opaque_color_draw();
 M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjBoss2Tunnel__sub_803E2D10(s32 arg0);
 M2C_UNK GXBegin(int, int, u16);
@@ -69,7 +69,7 @@ void TObjBoss2Tunnel__sub_803E2D10(s32 arg0) {
         TObjPlayer__sub_803E21DC();
         return;
     }
-    TObjPlayer__sub_803E21B8();
+    setup_opaque_color_draw();
 }
 
 }

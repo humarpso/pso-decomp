@@ -20,7 +20,7 @@ int TItemList__sub_801D3B00(void*, void*, void*, void*);
 int TItemList__sub_801D5868(void*, void*);
 int TItemList__sub_801D5804(void*);
 int TItemList__sub_801D5838(void* a0);
-void TTecLuker__sub_801D3728(s32 arg0, s32 arg1, s32 arg2);
+void start_placement_search(s32 arg0, s32 arg1, s32 arg2);
 void fn_801D371C(void* p, void* q);
 u8 *fn_801D36B4(u8 *arg0, u8 *arg1);
 }
@@ -89,7 +89,7 @@ u8 *fn_801D36B4(u8 *arg0, u8 *arg1) {
 }
 
 void fn_801D371C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
-void TTecLuker__sub_801D3728(s32 arg0, s32 arg1, s32 arg2) {
+void start_placement_search(s32 arg0, s32 arg1, s32 arg2) {
     TItemList__sub_801D5838((void*)((void *)((s32)TItemList__sub_801D5868((void*)(arg0), (void*)(0)))));
     TItemList__sub_801D3B00((void*)(arg0), (void*)(arg2), (void*)(arg1), (void*)(0));
     TItemList__sub_801D5804((void*)((void *) (arg0)));

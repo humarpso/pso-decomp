@@ -5,7 +5,7 @@ extern "C" {
 s32 TLobby__sub_8007BA98();
 s32 handle_disconnect_cleanup();
 s32 is_area_transfer_pending();
-s32 TLobby__sub_800F8B20();
+s32 apply_phase_keyboard_mode();
 s32 load_area_gsl();
 s32 TItemDrop__sub_800FDDF4();
 s32 update_key_machine__6TLobbyFv();
@@ -15,7 +15,7 @@ int clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int invoke_callback__6TLobbyFv(void);
 
 s32 check_disconnect_conditions__6TLobbyFv(void) {
-    TLobby__sub_800F8B20();
+    apply_phase_keyboard_mode();
     if (TLobby__sub_8007BA98() == 0) {
         reset_and_invoke__6TLobbyFv();
         return 1;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BF548();
+s32 is_timer_running();
 s32 TObjPlayer__sub_801BF640();
 int clear_fields__20TWindowSubStatusDispFPv(void*);
 void* reset_sub_status_disp__10TObjPlayerFPv(void* p);
@@ -55,7 +55,7 @@ void* reset_sub_status_disp__10TObjPlayerFPv(void* p) { clear_fields__20TWindowS
 s32 update_timer__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
 
-    if (TObjPlayer__sub_801BF548() != 0) {
+    if (is_timer_running() != 0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 4) - 1;
         M2C_FIELD(arg0, s32 *, 4) = temp_r0;
         if (temp_r0 < 0) {

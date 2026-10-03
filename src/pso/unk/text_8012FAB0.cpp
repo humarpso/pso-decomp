@@ -98,9 +98,9 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8012FAB0(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_8011EDFC(void *, void *, s32, f32);
-void TObjPlayer__sub_80124C78(void *);
-void TObjPlayer__sub_80109440(void);
+void launch_rare_weapon_special__10TObjPlayerFv(void *, void *, s32, f32);
+void increment_burst_counter(void *);
+void spawn_weapon_impact_effect(void);
 void fn_8011B328(void);
 void create_gun_shot(void);
 extern const f32 lbl_805DAFC8;
@@ -135,15 +135,15 @@ void TObjPlayer__sub_8012FB08(Self_8012FB08 *self) {
     if (is_mode_two_and_ready__10TObjPlayerFPv(self) != 0) {
         p = self->owner + 0x7CC;
         for (i = 0; i != 2; i++) {
-            TObjPlayer__sub_80124C78(p);
+            increment_burst_counter(p);
         }
         self->f1F0 = (void *)fn_8011B328;
-        self->f1EC = (void *)TObjPlayer__sub_80109440;
-        TObjPlayer__sub_8011EDFC(self, self->f1F8, 1, lbl_805DAFC8);
-        TObjPlayer__sub_8011EDFC(self, self->f204, 0, lbl_805DAFC8);
+        self->f1EC = (void *)spawn_weapon_impact_effect;
+        launch_rare_weapon_special__10TObjPlayerFv(self, self->f1F8, 1, lbl_805DAFC8);
+        launch_rare_weapon_special__10TObjPlayerFv(self, self->f204, 0, lbl_805DAFC8);
     } else {
         self->f1F0 = (void *)create_gun_shot;
-        self->f1EC = (void *)TObjPlayer__sub_80109440;
+        self->f1EC = (void *)spawn_weapon_impact_effect;
         if (self->m49(self->f1F8, 0, 0, 1) != 0) {
             self->m49(self->f204, 0, 0, 0);
         } else {

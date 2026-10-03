@@ -46,7 +46,7 @@ void send_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 void sync_current_floor__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801AFF80(void *);
+void sync_current_area__10TObjPlayerFPv(void *);
 void send_6x3E_stop_at_position__10TObjPlayerFPv(Player_801D094C *arg0);
 }
 
@@ -81,7 +81,7 @@ void send_6x3E_stop_at_position__10TObjPlayerFPv(Player_801D094C *arg0) {
         m.f4 = t;
         m.f6 = arg0->f60;
         sync_current_floor__10TObjPlayerFPv(arg0);
-        TObjPlayer__sub_801AFF80(arg0);
+        sync_current_area__10TObjPlayerFPv(arg0);
         m.f8 = get_field_3e4__10TObjPlayerFPv(arg0);
         m.fa = get_stat_by_key_state__10TObjPlayerFPv(arg0);
         VecCopy__FP3VecPC3Vec(m.vec, arg0->vec);

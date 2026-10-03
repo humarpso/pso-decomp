@@ -15,12 +15,12 @@ s32 TObjPlayer__sub_801CB7A4();
 s32 update_if_flag_set__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CB7D4();
 s32 TObjPlayer__sub_801CB7D8(void *);
-void TObjPlayer__sub_801CB7F8(s32 arg0, s16 arg1);
+void run_switch_interaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CB7F8(s32 arg0, s16 arg1) {
+void run_switch_interaction_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   {
     switch (arg1)
     {

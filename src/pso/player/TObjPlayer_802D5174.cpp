@@ -96,7 +96,7 @@ struct Pl_802D564C : VBase_802D564C {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_801012DC(void *, s16);
+M2C_UNK send_6x61_activate_mag_effect(void *, s16);
 M2C_UNK TObjPlayer__sub_802D577C(void *);
 void TObjPlayer__sub_802D5894(void *arg0);
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
@@ -194,7 +194,7 @@ void TObjPlayer__sub_802D5894(void *arg0) {
         temp_r4_2 = M2C_FIELD(arg0, s16 *, 0x24A);
         if (temp_r4_2 < 5) {
             M2C_FIELD(arg0, s16 *, 0x24A) = (s16) (temp_r4_2 + 1);
-            TObjPlayer__sub_801012DC((void *)(arg0), M2C_FIELD(arg0, s16 *, 0x24A));
+            send_6x61_activate_mag_effect((void *)(arg0), M2C_FIELD(arg0, s16 *, 0x24A));
         }
         M2C_FIELD(arg0, s16 *, 0x248) = 0;
     }

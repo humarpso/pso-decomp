@@ -664,7 +664,7 @@ void run_task__12TObjEneBeastFPv(u8 *arg0);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
-s32 TObjPlayer__sub_800C576C(u8 *arg0);
+s32 update_action_hold__12TObjEneBeastFPv(u8 *arg0);
 extern u8 lbl_80500C30[];
 extern void *lbl_805D5188;
 void TLobby__sub_803DA16C(void *);
@@ -744,11 +744,11 @@ s32 obj_clearFlags30(void * a0, s32 a1);
 M2C_UNK advance_animation_playback();
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
-void TObjPlayer__sub_800C57F0(Self_800C57F0 *arg0);
+void beast_update_group_chase(Self_800C57F0 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void * a0, s32 a1);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
-void TObjPlayer__sub_800C5D84(u8 *arg0);
+void beast_enter_approach(u8 *arg0);
 }
 
 extern "C" {
@@ -1067,7 +1067,7 @@ s32 tick_freeze_and_reset_appearance(u8 *arg0) {
   return 0;
 }
 
-s32 TObjPlayer__sub_800C576C(u8 *arg0) {
+s32 update_action_hold__12TObjEneBeastFPv(u8 *arg0) {
   if (update_action_hold_status__10TObjPlayerFv((void *) arg0) != 0)
   {
     if ((*((s16 *) (((s8 *) arg0) + 0x326))) != 0)
@@ -1101,7 +1101,7 @@ s32 TObjPlayer__sub_800C576C(u8 *arg0) {
 #define PSO_VCALL_VObj_18_477421_m89(_self) (((VObj_18_477421 *)(_self))->m89())
 #define PSO_VCALL_VObj_18_477421_m90(_self) (((VObj_18_477421 *)(_self))->m90())
 
-void TObjPlayer__sub_800C57F0(Self_800C57F0 *arg0) {
+void beast_update_group_chase(Self_800C57F0 *arg0) {
     f32 d;
     f32 r;
     advance_animation_playback();
@@ -1177,7 +1177,7 @@ void beast_update_approach(u8 *arg0) {
     obj_clearFlags30(arg0, 0x200000);
 }
 
-void TObjPlayer__sub_800C5D84(u8 *arg0) {
+void beast_enter_approach(u8 *arg0) {
     s16 temp_r0;
     if (obj_testFlags30(arg0, 0x1000) != 0) {
         M2C_FIELD(arg0, s16 *, 0x326) = 4;

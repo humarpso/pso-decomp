@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern u16 lbl_805D5CD2;
 extern u16 lbl_805D5CD8;
-void TLobby__sub_801A2514(s32 arg0);
+void advance_enemy_id_counter(s32 arg0);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
 void advance_object_id_counter(s32 arg0);
@@ -15,7 +15,7 @@ void advance_object_id_counter(s32 arg0);
 
 extern "C" {
 
-void TLobby__sub_801A2514(s32 arg0) {
+void advance_enemy_id_counter(s32 arg0) {
     u16 temp_r0;
     temp_r0 = lbl_805D5CD2 + arg0;
     lbl_805D5CD2 = temp_r0;

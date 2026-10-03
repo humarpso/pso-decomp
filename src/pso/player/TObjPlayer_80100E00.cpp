@@ -94,7 +94,7 @@ s32 get_field_d8__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_80102D14(void *);
 M2C_UNK TObjPlayer__sub_80102D84(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TObjPlayer__sub_801012DC(u8 *arg0, s32 arg1);
+void send_6x61_activate_mag_effect(u8 *arg0, s32 arg1);
 s32 get_global_state__14TOKeyMachine01Fv();
 struct VObj_80101350_80100E00 *find_item_by_id(s32);
 M2C_UNK swap_6x61_fields__10TObjPlayerFPv(void *);
@@ -265,7 +265,7 @@ s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0) {
     }
     return 0;
 }
-void TObjPlayer__sub_801012DC(u8 *arg0, s32 arg1) {
+void send_6x61_activate_mag_effect(u8 *arg0, s32 arg1) {
     Stack_801012DC stack;
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (get_global_state__14TOKeyMachine01Fv() != 0xF) && (obj_isState2_324((int) (M2C_FIELD(arg0, u32 *, 0xF0))) == 0)) {
         TObjPlayer__sub_80102D84((void *) (&stack.sp8));

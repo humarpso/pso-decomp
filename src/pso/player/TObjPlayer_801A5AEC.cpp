@@ -100,8 +100,8 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 void update_pad_recalibration(void);
 void bind_controller_devices(void);
-void fn_801A6A5C(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-void fn_801A6AF4(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
+void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
+void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 M2C_UNK update_button_hold_counters(int);
 extern const f64 lbl_80446A00[];
 extern Src_801A5F1C lbl_804C2308;
@@ -369,8 +369,8 @@ void controller_stuff__Fv(void) {
                     old = pad->prev_hold;
                     pad->prev_hold = pad->hold &= 0xC30FFFFF;
                     pad->prev_press = pad->press &= 0xC30FFFFF;
-                    fn_801A6AF4((u8 *)pad, pad->sx, pad->sy, old);
-                    fn_801A6A5C((u8 *)pad, pad->cx, pad->cy, old);
+                    map_main_stick_to_buttons((u8 *)pad, pad->sx, pad->sy, old);
+                    map_c_stick_to_buttons((u8 *)pad, pad->cx, pad->cy, old);
                     if (lbl_805D4DF0 != NULL) {
                         if (is_split_screen() != 0) {
                             a = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));

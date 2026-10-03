@@ -11,7 +11,7 @@ struct RecoveredGlobal_80127F40_lbl_804A0588 {
 
 extern "C" {
 M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, int);
-M2C_UNK TObjPlayer__sub_80120BBC(void *, int);
+M2C_UNK draw_weapon_at_joint(void *, int);
 void TObjPlayer__sub_80127F8C(u8 *arg0);
 u8 * init_vtable_804A3738__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -48,12 +48,12 @@ u8 *TObjPlayer__sub_80127F40(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
 
 void TObjPlayer__sub_80127F8C(u8 *arg0) {
     s32 temp_r31;
-    TObjPlayer__sub_80120BBC((void *) (arg0), (int) (0x31));
+    draw_weapon_at_joint((void *) (arg0), (int) (0x31));
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
     temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);
     M2C_FIELD(arg0, s32 *, 0xF4) = (s32) M2C_FIELD(arg0, s32 *, 0x188);
-    TObjPlayer__sub_80120BBC((void *) (arg0), (int) (0x24));
+    draw_weapon_at_joint((void *) (arg0), (int) (0x24));
     M2C_FIELD(arg0, s32 *, 0xF4) = temp_r31;
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (2));
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (3));

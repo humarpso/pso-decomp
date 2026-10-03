@@ -141,7 +141,7 @@ u8 *TObjPlayer__sub_802E6F10(u8 *arg0, void *arg1, s32 arg2);
 M2C_UNK TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK draw_effect__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(Vec_802E708C *);
@@ -304,7 +304,7 @@ void TObjPlayer__sub_802E708C(u8 *arg0) {
     for (node = node->child; node != NULL; node = node->next) {
         push_matrix();
         post_translate_matrix(part);
-        TObjPlayer__sub_803D99F8(part->rot, 0);
+        rotate_matrix_by_node_angles(part->rot, 0);
         scale_current_matrix(&s);
         switch (part->type) {
         case 0:

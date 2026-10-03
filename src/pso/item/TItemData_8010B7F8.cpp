@@ -33,9 +33,9 @@ s32 TItemData__sub_8010B8B0(u8 *arg0);
 s32 get_minutes__6TLobbyFv(void);
 extern M2C_UNK lbl_8043E348;
 extern const f32 lbl_805DAB6C;
-f32 TItemData__sub_8010C5DC(u8 *arg0);
+f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
 f32 get_set_bonus_multiplier__9TItemDataFPvi(void *, s32);
-f32 TItemData__sub_8010C5DC(u8 *arg0);
+f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
 Parm_8010C1E0 *lookup_item_pmt_record(void *);
 s32 getS16_06__9TItemDataFPv(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
@@ -51,7 +51,7 @@ extern u8 lbl_805DAB68;
 void TItemData__sub_8010C498(struct Item_8010C498 *self);
 s32 lookup_item_def__9TItemDataFPv(void *);
 u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it);
-f32 TItemData__sub_8010C5DC(u8 *arg0);
+f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0);
 f32 get_set_bonus_multiplier__9TItemDataFPvi(void *, s32);
 Parm_8010C1E0 *lookup_item_pmt_record(void *);
 s32 getS16_06__9TItemDataFPv(void *);
@@ -74,7 +74,7 @@ void add_quantity__9TItemDataFPvi(void *arg0, s32 arg1);
 void apply_unit_stat_bonus__9TItemDataFPviiPvPvPv(void *self, s32 arg1, s32 arg2, void *res, Stats_8010BEC4 *st, Stats2_8010BEC4 *st2);
 void fn_8010B7D8(u8 *arg0, s32 arg1);
 void fn_8010B7E8(u8 *arg0, s32 arg1);
-void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
+void subtract_s16_stat(s16 *arg0, s32 arg1);
 void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1);
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1);
@@ -88,7 +88,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st);
 
 extern "C" {
 
-void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1);
+void subtract_s16_stat(s16 *arg0, s32 arg1);
 s32 TItemData__sub_8010B808(void* p);
 s32 TItemData__sub_8010B810(void* p);
 void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1);
@@ -102,7 +102,7 @@ int clear_flags__11TAdRicoRingFPvUi(void*, int);
 s32 is_usable__9TItemDataFPv();
 int set_flags__10TObjPlayerFPvUi(void*, int);
 
-void TItemData__sub_8010B7F8(s16 *arg0, s32 arg1) {
+void subtract_s16_stat(s16 *arg0, s32 arg1) {
     *arg0 -= arg1;
 }
 s32 TItemData__sub_8010B808(void* p) { return *(s32*)((char*)p + 0x31c); }
@@ -193,7 +193,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             st->xC += bn->val;
             break;
         case 9:
-            TItemData__sub_8010B7F8((s16 *)a, bn->val);
+            subtract_s16_stat((s16 *)a, bn->val);
             fn_8010B7E8(a, bn->val);
             break;
         case 10:
@@ -215,7 +215,7 @@ void apply_bonuses(u8 *item, s32 arg1, u8 *a, u8 *b, Stats_8010BA9C *st) {
             st->xC -= bn->val;
             break;
         case 16:
-            TItemData__sub_8010B7F8((s16 *)a, bn->val);
+            subtract_s16_stat((s16 *)a, bn->val);
             fn_8010B7E8(a, bn->val);
             fn_8010B7D8(a, (s16)(bn->val * 10));
             TItemData__sub_8010EE30((s16 *)b, bn->val);
@@ -305,7 +305,7 @@ void add_shield_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 u
     s32 b06;
     Parm_8010C0A4 *parm;
     f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);
-    f32 add = ((f32 (*)(u8 *, s32))TItemData__sub_8010C5DC)(self, player);
+    f32 add = ((f32 (*)(u8 *, s32))calc_clock_bonus__9TItemDataFPv)(self, player);
     parm = ((Parm_8010C0A4 *)lookup_item_pmt_record(self));
     if (parm != 0) {
         b06 = getS16_06__9TItemDataFPv(self);
@@ -330,7 +330,7 @@ void add_armor_stat_contribution__9TItemDataFPviiPv(u8 *self, s32 player, s32 un
     s32 dfpBonus;
     Parm_8010C1E0 *parm;
     f32 mult = get_set_bonus_multiplier__9TItemDataFPvi(self, player);
-    f32 add = ((f32 (*)(u8 *, s32))TItemData__sub_8010C5DC)(self, player);
+    f32 add = ((f32 (*)(u8 *, s32))calc_clock_bonus__9TItemDataFPv)(self, player);
     parm = lookup_item_pmt_record(self);
     if (parm != 0) {
         dfpBonus = getS16_06__9TItemDataFPv(self);
@@ -383,7 +383,7 @@ u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it) {
     }
 }
 
-f32 TItemData__sub_8010C5DC(u8 *arg0) {
+f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
     M2C_UNK *var_r4;
     f32 var_f1;
     s32 temp_r3;

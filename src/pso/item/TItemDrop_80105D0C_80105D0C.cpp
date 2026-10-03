@@ -35,7 +35,7 @@ u8 fn_801D7168(void *);
 u8 fn_801D719C(void *);
 u8 fn_801D71D0(void *);
 u8 fn_801D7204(void *);
-u8 TOMineTrap__sub_801D7238(void *);
+u8 get_rule_field_0__6TLobbyFPv(void *);
 s32 get_game_play_mode();
 extern M2C_UNK lbl_8050EA40[];
 void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
@@ -43,7 +43,7 @@ void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
 
 extern "C" {
 
-void TItemDrop__sub_80105D0C(void);
+void unload_item_drop_globals(void);
 void TItemDrop__sub_80105D10(void);
 s32 calc_drop_offset__9TItemDropFi(s32 arg0);
 u8 can_drop__9TItemDropFv(void);
@@ -60,7 +60,7 @@ u8 get_item_star_count(s32);
 s32 get_drop_flag__6TLobbyFv();
 s32 get_instance__6TLobbyFv();
 
-void TItemDrop__sub_80105D0C(void) {  }
+void unload_item_drop_globals(void) {  }
 
     extern int lbl_805D5450;
 void TItemDrop__sub_80105D10(void) { lbl_805D5450 = 0; }
@@ -119,7 +119,7 @@ void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it) {
         }
     }
     p = lbl_8050EA40;
-    if (TOMineTrap__sub_801D7238(lbl_8050EA40) == TItemDrop__sub_80107B04(p)) {
+    if (get_rule_field_0__6TLobbyFPv(lbl_8050EA40) == TItemDrop__sub_80107B04(p)) {
         return;
     }
     if (it->type == 0 || it->type == 1) {

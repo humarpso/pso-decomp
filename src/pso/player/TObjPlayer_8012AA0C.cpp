@@ -13,7 +13,7 @@ M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK advance_angle_wrap(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E2FC(s32, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_8011EDFC(s32, M2C_UNK, M2C_UNK, f32);
+M2C_UNK launch_rare_weapon_special__10TObjPlayerFv(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
 int TObjPlayer__sub_80120D50(void);
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
@@ -25,7 +25,7 @@ extern f32 lbl_805DAE6C;
 void update_motion_state__10TObjPlayerFi(s32 arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         TObjPlayer__sub_8011E2FC(arg0, lbl_805DAE68);
-        TObjPlayer__sub_8011EDFC(arg0, 0, 1, lbl_805DAE6C);
+        launch_rare_weapon_special__10TObjPlayerFv(arg0, 0, 1, lbl_805DAE6C);
         return;
     }
     update_active_game_effect__10TObjPlayerFPv(arg0);

@@ -66,7 +66,7 @@ s32 add_actor_tp(s32, s16);
 int refresh_owner_stats__5TItemFPv(void*);
 M2C_UNK TObjPlayer__sub_80115BC0(void *, int, int);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
-int TObjPlayer__sub_80120BBC(void*, void*);
+int draw_weapon_at_joint(void*, void*);
 void set_weapon_trail_joints(void *, int, int, int);
 M2C_UNK TObjPlayer__sub_80126414(s32, u32, s32, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80127F40(s32, u32, s32, M2C_UNK, f32);
@@ -299,7 +299,7 @@ u8 *TObjPlayer__sub_80326B7C(u8 *arg0) {
 }
 
 int TObjPlayer__sub_80326BD4(void* p) { return refresh_owner_stats__5TItemFPv(p); }
-void init_item_slots__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)48); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); update_trail_slot__11TItemWeaponFPvi(p, (void*)2); }
+void init_item_slots__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)48); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); update_trail_slot__11TItemWeaponFPvi(p, (void*)2); }
 
 extern M2C_UNK lbl_804ED1A0[];
 

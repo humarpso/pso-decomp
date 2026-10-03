@@ -25,7 +25,7 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D49B0;
     extern int lbl_805D5678;
     extern int lbl_805D5680;
-int TWindowSubTechnique__sub_80286BD4(void* p, void* _w1);
+int get_current_selection__19TWindowSubTechniqueFPvPv(void* p, void* _w1);
 u32 get_player_by_client_id(s32);
 s32 is_palette_entry_displayable__10TObjPlayerFv(s32, M2C_UNK, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -45,7 +45,7 @@ s32 get_cursor_pos__20TWindowShortListCtrlFPv(s32);
 void TWindowSubComCard__sub_802655E4(s32);
 void draw_technique_row__19TWindowSubTechniqueFiii(s32 arg0, s32 arg1, s32 arg2);
 void TWindowSubComCard__sub_80265E60(s32, f32);
-void TWindowSubComCard__sub_80265C30(s32);
+void align_menu_entry_positions(s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s32);
 
 }
@@ -61,7 +61,7 @@ s32 TWindowSubTradeMain__sub_80266200(s32, s32, s32, s16, s32);
 s32 draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s16);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s16);
 
-int TWindowSubTechnique__sub_80286BD4(void* p, void* _w1) { return get_selection__19TWindowSubTechniqueFPvPvi((void*)(p), (void*)(_w1)); }
+int get_current_selection__19TWindowSubTechniqueFPvPv(void* p, void* _w1) { return get_selection__19TWindowSubTechniqueFPvPvi((void*)(p), (void*)(_w1)); }
 
 s32 TWindowSubTechnique__sub_80286BF4(s32 arg0, s32 arg1) {
     s32 temp_r3;
@@ -112,7 +112,7 @@ void TWindowSubTechnique::rebuildTechniqueList(s32 list, s32 category) {
         ++entry;
     }
     TWindowSubComCard__sub_80265E60(list, lbl_805DD838);
-    TWindowSubComCard__sub_80265C30(list);
+    align_menu_entry_positions(list);
     set_selected_index__17TWindowSubComCardFPvs(list, selected);
 }
 

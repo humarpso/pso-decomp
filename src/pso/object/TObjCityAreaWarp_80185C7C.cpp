@@ -11,7 +11,7 @@ void TObjCityAreaWarp__vt13(void *arg0, s16 arg1);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(u32);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 u32 create_window_menu(M2C_UNK, s32, s16);
@@ -24,7 +24,7 @@ void TObjCityAreaWarp__vt13(void *arg0, s16 arg1) {
         set_flag70_bit10__16TObjCityMainWarpFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
-        TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
+        align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
         M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
     }
 }

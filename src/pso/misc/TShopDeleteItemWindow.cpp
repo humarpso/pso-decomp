@@ -61,7 +61,7 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 TCheckRoomSequence__sub_80210904(int);
 s32 TCheckRoomSequence__sub_80210E28(int, int, int);
 s32 TCheckRoomSequence__sub_80211034(int, void *, int);
-s32 TCheckRoomSequence__sub_8021118C(int);
+s32 copy_bank_to_card_window(int);
 s32 TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
 s32 get_selected_menu_value(int);
@@ -169,7 +169,7 @@ void TShopDeleteItemWindow__sub_803379E0(u8 *arg0) {
             if (TCheckRoomSequence__sub_80211034((int) (temp_r3_3), (void *) (&stack.sp8), (int) (temp_r30)) != 0) {
                 TCheckRoomSequence__sub_80210E28((int) (temp_r3_3), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (temp_r30));
                 TCheckRoomSequence__sub_80210904((int) (temp_r30));
-                TCheckRoomSequence__sub_8021118C((int) (temp_r30));
+                copy_bank_to_card_window((int) (temp_r30));
                 set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (0)));
             }
             TWindow__close((void *)((int) (M2C_FIELD(arg0, u32 *, 0x34))));

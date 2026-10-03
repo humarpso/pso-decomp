@@ -13,7 +13,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(u32);
 s32 is_owner_alive__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, M2C_UNK);
+M2C_UNK rotate_matrix_by_node_angles(void *, M2C_UNK);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -26,7 +26,7 @@ void draw_effect_model__10TObjPlayerFPv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x5C));
         post_translate_matrix(arg0 + 0x1C);
-        TObjPlayer__sub_803D99F8(arg0 + 0x28, 1);
+        rotate_matrix_by_node_angles(arg0 + 0x28, 1);
         draw_ginja_object(M2C_FIELD(arg0, u32 *, 0x58));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();

@@ -33,7 +33,7 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0);
 void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK end_player_keyboard_hold(s32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
@@ -58,7 +58,7 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0) {
         TWindow__close(M2C_FIELD(arg0, void **, 0x164));
         M2C_FIELD(arg0, u32 *, 0x164) = 0U;
     }
-    TWindowChat__sub_8024AD30(lbl_805D53A0);
+    end_player_keyboard_hold(lbl_805D53A0);
     clear_flag__11TWindowCtrlFv();
     unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
 }

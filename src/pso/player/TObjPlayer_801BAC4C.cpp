@@ -26,7 +26,7 @@ void draw_head_attachments__10TObjPlayerFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
 M2C_UNK set_shadow_material_state();
-s32 TObjPlayer__sub_80142F1C(void *);
+s32 draw_motion_model_saving_joints(void *);
 s32 draw_model_with_callback__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801B4C34(void *);
 s32 draw_projected_shadow__10TObjPlayerFPvPvi(void *, void *, int);
@@ -135,7 +135,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     set_global_flag__10TObjPlayerFv();
     if (arg1 == 2) {
         M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 0x400);
-        TObjPlayer__sub_80142F1C((void *) (arg0));
+        draw_motion_model_saving_joints((void *) (arg0));
     } else {
         M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFBFF);
         draw_model_with_callback__10TObjPlayerFPv((void *) (arg0));

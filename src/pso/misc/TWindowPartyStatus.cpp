@@ -63,7 +63,7 @@ s32 get_window_layout_position(int);
 M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
-int fn_8026F8CC(void*);
+int update_hp_entry__20TWindowSubStatusDispFPv(void*);
 M2C_UNK fn_8026FDC0(void *);
 M2C_UNK fn_80270014();
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
@@ -71,7 +71,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 int update_status_entry__20TWindowSubStatusDispFi(void*);
 M2C_UNK update_status_help_item(void *);
 
-void draw__18TWindowPartyStatusFPv(void* p) { fn_8026F8CC(p); update_status_entry__20TWindowSubStatusDispFi(p); }
+void draw__18TWindowPartyStatusFPv(void* p) { update_hp_entry__20TWindowSubStatusDispFPv(p); update_status_entry__20TWindowSubStatusDispFi(p); }
 
 }
 extern "C" {

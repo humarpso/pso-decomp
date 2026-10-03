@@ -44,7 +44,7 @@ s32 TLobby__sub_802405B0(void *p, s32 arg1);
 s32 OSGetTick();
 M2C_UNK advance_rng__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_8023FCC0(void *);
-M2C_UNK TLobby__sub_80240B64(void *);
+M2C_UNK tick_sound_voice(void *);
 extern Voice_802401D0 lbl_805162EC[];
 s32 update_sound_frame(Lobby_802401D0 *self);
 }
@@ -67,7 +67,7 @@ s32 update_sound_frame(Lobby_802401D0 *self) {
     TLobby__sub_8023FCC0(self);
     advance_rng__6TLobbyFPv(self);
     for (i = 0; i < 40; i++) {
-        TLobby__sub_80240B64(&lbl_805162EC[i]);
+        tick_sound_voice(&lbl_805162EC[i]);
     }
     n = 0;
     for (i = 0; i < 40; i++) {

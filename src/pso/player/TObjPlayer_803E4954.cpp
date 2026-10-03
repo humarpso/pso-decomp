@@ -32,7 +32,7 @@ M2C_UNK TObjPlayer__sub_803E4468();
 void TObjPlayer__sub_803E44D4();
 void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK bind_motion_blend_channels(void *);
-M2C_UNK TBoss8Dragon__sub_803D78A8(int);
+M2C_UNK select_motion_context(int);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK TObjPlayer__sub_803E4354();
 M2C_UNK TObjPlayer__sub_803E4468();
@@ -77,9 +77,9 @@ extern s32 lbl_805D7808;
 void TObjPlayer__sub_803E496C(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
     if ((s32) lbl_805D7808 != 0) {
-        TBoss8Dragon__sub_803D78A8((int) (1));
+        select_motion_context((int) (1));
         M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
-        TBoss8Dragon__sub_803D78A8((int) (0));
+        select_motion_context((int) (0));
         M2C_FIELD(lbl_805D76BC, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
     }
     M2C_FIELD(lbl_805D4698, s32 *, 0xC) = arg2;

@@ -9,7 +9,7 @@ s32 is_active__8TItemMagFPv(void *);
 s32 check_flag30_bit20__10TObjPlayerFi(s32);
 void update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
-void TObjPlayer__sub_801C95A0(u8 *arg0);
+void update_frozen_release__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ s32 obj_getField1c(void * a0 = 0);
 s32 obj_getS16_32C(void * a0 = 0);
 s32 use_current_item__10TObjPlayerFPv(void * a0 = 0);
 
-void TObjPlayer__sub_801C95A0(u8 *arg0) {
+void update_frozen_release__10TObjPlayerFPv(u8 *arg0) {
   s16 temp_r0;
   if (obj_testFlags30(arg0, 0x800) != 0)
   {

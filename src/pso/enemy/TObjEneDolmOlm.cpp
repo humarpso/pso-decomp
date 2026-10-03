@@ -361,7 +361,7 @@ extern s32 lbl_805D53A4;
 extern const f32 lbl_805DEF4C;
 extern const f32 TObjEneDolmOlm__data_805DEF50;
 void TObjEneDolmOlm__sub_80300D00(u8 *arg0, Vec_80300D00 *arg1);
-M2C_UNK TBoss4Type3__sub_800D9960(u32, s32, s32, int, int);
+M2C_UNK draw_trail_with_colors(u32, s32, s32, int, int);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
 void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
 M2C_UNK set_global_flag__10TObjPlayerFv();
@@ -539,10 +539,10 @@ void TObjEneDolmOlm__sub_80301148(u8 *arg0) {
     }
     TObjEneDolmOlm__sub_80302D80((O_80302D80 *)arg0, M2C_FIELD(arg0, s32 *, 0x368));
     set_global_flag__10TObjPlayerFv();
-    TBoss4Type3__sub_800D9960(TObjEneDolmOlm__data_805D6A14,
+    draw_trail_with_colors(TObjEneDolmOlm__data_805D6A14,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[lbl_804E67C8[13]].v, 0x1C, 0x1D);
-    TBoss4Type3__sub_800D9960(TObjEneDolmOlm__data_805D6A18,
+    draw_trail_with_colors(TObjEneDolmOlm__data_805D6A18,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->b[lbl_804E67C8[17]].v, 0x14, 0x15);
     clear_global_state__10TObjPlayerFv();

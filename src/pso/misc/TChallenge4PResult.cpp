@@ -59,7 +59,7 @@ M2C_UNK TChallenge4PResult__ct(void *, s32, int, s32);
 void TChallenge4PResult__sub_8034B694(W_8034B694 *arg0, void *arg1, s32 arg2);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 TChallenge4PResult__sub_8034B720(void *, s32);
-s32 TMCFormatSequence__sub_802693B4(u32);
+s32 is_message_window_ready(u32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 int TWindow__close(void*);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -183,7 +183,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
         TChallenge4PResult__sub_8034B720((void *)(arg0), (s32)(get_localized_text_entry(0x2B, 6)));
     }
     p = M2C_FIELD(arg0, u32 *, 0x2C);
-    if ((p != 0U) && (TMCFormatSequence__sub_802693B4(p) != 0)) {
+    if ((p != 0U) && (is_message_window_ready(p) != 0)) {
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x20);
         if (temp_r3 > 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (temp_r3 - 1);

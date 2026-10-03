@@ -145,7 +145,7 @@ extern f32 lbl_805D4E74;
 extern M2C_UNK *lbl_805D4E78;
 extern s32 lbl_805D4E7C;
 extern const f32 lbl_805D91F4;
-s32 TObjPlayer__sub_8007970C(void *arg0, void *arg1, u32 arg2, Node_8007970C **list);
+s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **list);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
 void vsub(void *, void *, void *);
 extern M2C_UNK lbl_80500140[];
@@ -244,7 +244,7 @@ s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r) {
 }
 #pragma pop
 
-s32 TObjPlayer__sub_8007970C(void *arg0, void *arg1, u32 arg2, Node_8007970C **list) {
+s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **list) {
     u8 dir[12];
     Mesh_8007970C *mesh;
     s32 i;

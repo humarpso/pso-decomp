@@ -31,7 +31,7 @@ void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 f32 query_extended_state__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80128A70(void);
-void TObjPlayer__sub_801295FC(void *);
+void init_slicer_launch_state(void *);
 s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *create__10TTecSlicerFPUs(void *);
@@ -48,7 +48,7 @@ extern "C" {
 void TObjPlayer__sub_801293FC(Self_801293FC *self) {
     Tec_801293FC tec;
     TObjPlayer__sub_80128A70();
-    TObjPlayer__sub_801295FC(&tec);
+    init_slicer_launch_state(&tec);
     tec.id = obj_getField1c(self->owner);
     tec.fC = get_field_d8__10TObjPlayerFPv(self);
     tec.f4 = self->f24;

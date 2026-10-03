@@ -60,7 +60,7 @@ struct TWindowSubMag_8027B62C {
 };
 u8 *find_item_by_id(s32);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
-M2C_UNK TWindowSubComCard__sub_80265C30(void *);
+M2C_UNK align_menu_entry_positions(void *);
 M2C_UNK TWindowSubComCard__sub_80265E60(void *, f32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(void *, s32, s32, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
@@ -125,7 +125,7 @@ M2C_UNK play_sound_effect(s32, s32, s32, s32);
 s32 is_usable__14TWindowSubItemFi(void *);
 s32 count_slots__13TWindowSubMagFPv(void *arg0);
 M2C_UNK feed_mag__13TWindowSubMagFPvPvPv(void *, s32, s32);
-M2C_UNK TWindowSubComCard__sub_80244B1C(void *);
+M2C_UNK window_request_refresh(void *);
 void set_flag60_bit8__13TWindowSubMagFPv(void* p);
 M2C_UNK refresh_copied_items__15TWindowHelpItemFPv(void *);
 s32 TItemData__sub_80253974(void *);
@@ -331,7 +331,7 @@ void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(window);
     TWindowSubComCard__sub_80265E60(window, lbl_805DD664);
-    TWindowSubComCard__sub_80265C30(window);
+    align_menu_entry_positions(window);
     return window;
 }
 
@@ -479,7 +479,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         break;
     case 8:
         window_request_show(self->help);
-        TWindowSubComCard__sub_80244B1C(self->help);
+        window_request_refresh(self->help);
         set_flag60_bit8__13TWindowSubMagFPv((void*)(self->help));
         refresh_copied_items__15TWindowHelpItemFPv(self->help);
         init_and_setup__13TWindowSubMagFPvPv((s32)self->list, 2);

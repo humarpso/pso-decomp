@@ -114,8 +114,8 @@ void TOHealGeneral__sub_80169A04(void *arg0, u16 arg1);
 extern "C" {
 
 void TOHealGeneral__sub_801699F4(void);
-void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1);
-void TOHealGeneral__sub_80169B3C(void *arg0, s32 arg1);
+void set_enable_count__13TOHealGeneralFPvi(void *arg0, s32 arg1);
+void set_script_entry__13TOHealGeneralFPvi(void *arg0, s32 arg1);
 void* TOHealGeneral__vt7(void* p);
 void close_dialog_window__13TOHealGeneralFv(void);
 void *create__13TOHealGeneralFPv(void *arg0);
@@ -359,7 +359,7 @@ s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
     return M2C_FIELD(arg0, s32 *, 0xCC);
 }
 
-void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1) {
+void set_enable_count__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
@@ -369,7 +369,7 @@ void TOHealGeneral__sub_80169B28(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xD8) = var_r4;
 }
 
-void TOHealGeneral__sub_80169B3C(void *arg0, s32 arg1) {
+void set_script_entry__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
     s32 var_r4;
 
     var_r4 = arg1;
@@ -391,8 +391,8 @@ s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0) {
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 2;
     }
-    TOHealGeneral__sub_80169B3C((void *)((void *)(arg0)), (s32)((s32)(M2C_FIELD(arg0, s32 *, 0x88))));
-    TOHealGeneral__sub_80169B28((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x8C)));
+    set_script_entry__13TOHealGeneralFPvi((void *)((void *)(arg0)), (s32)((s32)(M2C_FIELD(arg0, s32 *, 0x88))));
+    set_enable_count__13TOHealGeneralFPvi((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x8C)));
     return M2C_FIELD(arg0, s32 *, 0xD0);
 }
 

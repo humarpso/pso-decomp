@@ -66,7 +66,7 @@ extern const f32 TWindowFukidasi__data_805DCD30;
 void run_task__15TWindowFukidasiFPv(u8 *arg0);
 f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
-View_80252764 *TWindowSubStatusDisp__sub_80244364(void *);
+View_80252764 *get_draw_context__11TWindowBaseFPv(void *);
 void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void refresh_rect_placement__15TWindowFukidasiFPv(void *);
 s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *, f32 *, f32 *);
@@ -230,7 +230,7 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
         break;
     }
     follow_anchor__15TWindowFukidasiFv(b);
-    v = TWindowSubStatusDisp__sub_80244364(b);
+    v = get_draw_context__11TWindowBaseFPv(b);
     v->sx /= get_view_scale__11TCameraCtrlFv();
     v->sy /= get_fov__11TCameraCtrlFv();
     off[0] = TWindowFukidasi__data_805DCD28 * b->tail;

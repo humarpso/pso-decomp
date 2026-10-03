@@ -8,7 +8,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_801093B4(void *);
 void TObjPlayer__sub_8010941C(M2C_UNK arg0, s32 arg1);
 M2C_UNK TObjPlayer__sub_801093B4(void *);
-void TObjPlayer__sub_80109440(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3);
+void spawn_weapon_impact_effect(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ void spawn_heaven_effect__10TObjPlayerFiUiUsi(s32 arg0, u32 arg1, u16 arg2, s32 
 void TObjPlayer__sub_8010941C(M2C_UNK arg0, s32 arg1) {
     TObjPlayer__sub_801093B4((void *) (arg1));
 }
-void TObjPlayer__sub_80109440(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3) {
+void spawn_weapon_impact_effect(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3) {
     TObjPlayer__sub_801093B4((void *) (arg3));
 }
 

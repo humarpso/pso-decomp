@@ -15,16 +15,16 @@ void reset_float_field__15TWindowHelpItemFPv(void *);
 void complete_reveal__14TWindowMessageFPv(Win_80269454 *self);
 Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void *get_field_20__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_80244AD8();
-s32 TMCFormatSequence__sub_802693B4(struct Win_802693B4 *arg0);
+s32 is_window_reveal_complete();
+s32 is_message_window_ready(struct Win_802693B4 *arg0);
 }
 
 extern "C" {
 
-s32 TMCFormatSequence__sub_802693B4(struct Win_802693B4 *arg0) {
+s32 is_message_window_ready(struct Win_802693B4 *arg0) {
     Entry_80269454 *e;
     u32 i;
-    if (TWindowSubComCard__sub_80244AD8() == 0) {
+    if (is_window_reveal_complete() == 0) {
         return 0;
     }
     if (arg0->f6c != arg0->f84) {

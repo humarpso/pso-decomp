@@ -58,7 +58,7 @@ s32 is_wrapped__9TItemDataFPv(s32);
 s32 TItemData__sub_8010C738(s32);
 s32 is_custom_name_srank__9TItemDataFPv(s32);
 s32 has_bonus_stats__9TItemDataFPv(s32);
-u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
+u32 calc_action_flags__9TItemDataFv(s32, M2C_UNK, s32);
 s32 is_rare_item__9TItemDataFPv(s32);
 s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFPvUiUi(void *, M2C_UNK, s32);
@@ -199,7 +199,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF61E853;
                 return;
             }
-            if (TItemData__sub_8010D028(arg1, 0x10000, temp_r3) != 0U) {
+            if (calc_action_flags__9TItemDataFv(arg1, 0x10000, temp_r3) != 0U) {
                 M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
                 return;
             }

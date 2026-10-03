@@ -54,7 +54,7 @@ u8 *__ct__9TItemListFv(void *, void *);
 u8 *__nw__7TObjectFUl(s32);
 u8 *__ct__7TObjectFP7TObject(void *, void *);
 void create_inventory__10TObjPlayerFPv(u8 *arg0);
-void TKeyBoardControl__sub_801AFCF4(u8 *, s32);
+void set_action_provider_variant__10TObjPlayerFPvs(u8 *, s32);
 void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s16 TObjPlayer__sub_801C2114(void);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
@@ -77,13 +77,13 @@ void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 void bind_saved_inventory_equipment__10TObjPlayerFPvPvi(u8 *p, u8 *records, s32 count) {
     s32 i;
     if (records != NULL) {
-        TKeyBoardControl__sub_801AFCF4(p, TObjPlayer__sub_801C2114());
+        set_action_provider_variant__10TObjPlayerFPvs(p, TObjPlayer__sub_801C2114());
         for (i = 0; i < count; i++) {
             equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(p, records);
             records += 0x1C;
         }
         if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-            TKeyBoardControl__sub_801AFCF4(p, TObjPlayer__sub_801C2114());
+            set_action_provider_variant__10TObjPlayerFPvs(p, TObjPlayer__sub_801C2114());
         }
     }
 }

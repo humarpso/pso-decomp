@@ -25,7 +25,7 @@ struct Rec_8020AD40 { u8 pad0[2]; s16 f2; u8 pad4[0x40]; };
 
 extern "C" {
 s32 is_area_transfer_pending();
-M2C_UNK TLobby__sub_801A2514(int);
+M2C_UNK advance_enemy_id_counter(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK load_area_enemy_set(int, int, int, int);
 M2C_UNK TLobby__sub_8020B2DC();
@@ -128,7 +128,7 @@ loop_1:
 block_6:
     var_r31 += 1;
     if (var_r31 >= 0x12) {
-        TLobby__sub_801A2514((int) ((u16) TLobby__data_805D60EC));
+        advance_enemy_id_counter((int) ((u16) TLobby__data_805D60EC));
         TLobby__data_805D614C = TLobby__data_805D60E4;
         TLobby__sub_8020B2DC();
         return 1;

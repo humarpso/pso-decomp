@@ -11,7 +11,7 @@ void init_render_target__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803DA16C(void *);
 M2C_UNK set_render_rect__10TObjPlayerFPviiii(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK set_texture_name(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
-s32 TObjPlayer__sub_803DDC50(void *);
+s32 load_texture_list(void *);
 
 void reset_lobby_subobject__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
@@ -25,7 +25,7 @@ void init_render_target__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x20) = 1;
     set_render_rect__10TObjPlayerFPviiii(sp8, 0, 4, 0x280, 0x1E0);
     set_texture_name(M2C_FIELD(arg0, s32 *, 0x1C), sp8, 0x901, 0x08800000);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjPlayer__sub_803DDC50(arg0 + 0x1C);
+    M2C_FIELD(arg0, s32 *, 0x24) = load_texture_list(arg0 + 0x1C);
 }
 
 }

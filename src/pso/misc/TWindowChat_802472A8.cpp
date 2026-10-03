@@ -29,7 +29,7 @@ s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK TWindowChat__sub_80247DFC(void *);
 M2C_UNK TWindowChat__sub_80247E50(void *);
 s32 is_open__11TWindowChatFPv();
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK end_player_keyboard_hold(s32);
 M2C_UNK TWindowChat__sub_8025CB70(s32);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 M2C_UNK clear_flag60_bit200__16TKeyBoardControlFPv(s32);
@@ -50,7 +50,7 @@ void update__11TWindowChatFPv(void *arg0) {
             if (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) {
                 init_parts__10TObjPlayerFPv(temp_r3);
             }
-            TWindowChat__sub_8024AD30(lbl_805D53A0);
+            end_player_keyboard_hold(lbl_805D53A0);
         }
         TWindowChat__sub_8025CB70(M2C_FIELD(arg0, s32 *, 0x20));
         close_all_children__11TWindowChatFPv(arg0);

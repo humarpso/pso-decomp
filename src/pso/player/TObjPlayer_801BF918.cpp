@@ -20,7 +20,7 @@ s32 TObjPlayer__sub_801BF95C(void* p);
 s16 get_action_id__10TObjPlayerFPv(void* p);
 s32 get_lock_timer__10TObjPlayerFPv(void* p);
 void* get_sub_object__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_801BF548();
+s32 is_timer_running();
 s32 TObjPlayer__sub_801BF640();
 f32 TObjPlayer__sub_801BF6B0(void* p);
 void* TObjPlayer__sub_801BF6B8(void* p);

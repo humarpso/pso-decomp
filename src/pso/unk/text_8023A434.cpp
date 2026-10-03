@@ -27,14 +27,14 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVector(f32 *, f32 *, s32);
-void fn_8023A434(u8 *arg0);
+void check_technique_projectile_wall_hit(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_8023A434(u8 *arg0) {
+void check_technique_projectile_wall_hit(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8023A434, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8023A434, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8023A434, sp10) == 0x8) ? 1 : -1];

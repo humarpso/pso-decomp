@@ -50,7 +50,7 @@ void TObjPlayer__sub_801C210C(void* p, s32 v);
 int TObjPlayer__sub_801C2114(void);
 u8 TObjPlayer__sub_801C212C(void* p);
 u8 TObjPlayer__sub_801C2134(void* p);
-s32 TObjPlayer__sub_801C214C(void* p);
+s32 get_level_row_exp_threshold(void* p);
 u8 TObjPlayer__sub_801C21AC(void* p);
 u8 TObjPlayer__sub_801C21B4(void* p);
 u8 TObjPlayer__sub_801C21BC(void* p);
@@ -122,7 +122,7 @@ u8 TObjPlayer__sub_801C212C(void* p) { return *(u8*)((char*)p + 0x3); }
 u8 TObjPlayer__sub_801C2134(void* p) { return *(u8*)((char*)p + 0x2); }
 u8 get_team_id__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0x1); }
 u8 get_char_class__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0x0); }
-s32 TObjPlayer__sub_801C214C(void* p) { return *(s32*)((char*)p + 0x8); }
+s32 get_level_row_exp_threshold(void* p) { return *(s32*)((char*)p + 0x8); }
 
 u32 TObjPlayer__sub_801C2154(O_801C2154 *self) {
     u32 r = (u8)self->recs[4].v;

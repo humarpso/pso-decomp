@@ -69,7 +69,7 @@ void clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s32 fn_80286AA8(void *);
 s32 update_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
-void TWindowSubTechnique__sub_80286BD4(void *, void *, s32);
+void get_current_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 s32 TWindowSubTechnique__sub_80286BF4(s32, s32);
 void rebuildTechniqueList__19TWindowSubTechniqueFll(void *, void *, s16);
 void *TWindowSubTechnique__sub_80286E0C(void *, s16);
@@ -89,7 +89,7 @@ void clear_flag70_bit80__19TWindowSubTechniqueFPv(void* p);
 void clear_trade_flag__19TWindowSubTradeMainFPv(void* p);
 s32 open_menu__19TWindowSubTechniqueFPv(void *arg0);
 void render__19TWindowSubTechniqueFv(void);
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
@@ -120,7 +120,7 @@ s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0xA0), 6, 4);
     set_flag70_bit10__16TObjCityMainWarpFPv(temp_r31);
     TWindowSubComCard__sub_80265E60(temp_r31, lbl_805DD838);
-    TWindowSubComCard__sub_80265C30(temp_r31);
+    align_menu_entry_positions(temp_r31);
     return temp_r31;
 }
 
@@ -182,7 +182,7 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
         }
         set_flag_40__16TAdChrSelASlotGCFPv(self->sel);
         set_status_flag_80__12TQuestThreadFPv(self->sel);
-        TWindowSubTechnique__sub_80286BD4(self->f20, self->f24, self->player);
+        get_current_selection__19TWindowSubTechniqueFPvPv(self->f20, self->f24, self->player);
         clear_flag_and_release__17TWindowSubComCardFPv(self->list);
         self->state = 2;
     case 2: {

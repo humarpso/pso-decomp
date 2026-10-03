@@ -12,7 +12,7 @@ void TObjPlayer__sub_801BF8F8(s32 *p);
 extern "C" {
 
 void TObjPlayer__sub_801BF914(void);
-s32 TObjPlayer__sub_801BF548();
+s32 is_timer_running();
 s32 TObjPlayer__sub_801BF640();
 f32 TObjPlayer__sub_801BF6B0(void* p);
 void* TObjPlayer__sub_801BF6B8(void* p);

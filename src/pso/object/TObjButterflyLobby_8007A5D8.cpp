@@ -12,7 +12,7 @@ extern u32 lbl_805D4E6C;
 void alloc_scene_buffer__18TObjButterflyLobbyFv(void);
 void TObjPlayer__sub_80079118(const char *);
 void TObjPlayer__sub_8007911C(void *, void *, u32);
-s32 TObjPlayer__sub_8007970C(void *, void *, u32, void *);
+s32 query_segment_wall_meshes(void *, void *, u32, void *);
 u32 query_collision_segment_groups(void *, void *, u32);
 extern char lbl_804389FC[];
 extern u8 lbl_804FFD40[];
@@ -33,7 +33,7 @@ Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     hit = &lbl_80500140;
     if (query_collision_segment_groups(from, to, mask) == 0) {
         hit = 0;
-    } else if (TObjPlayer__sub_8007970C(from, to, mask, lbl_804FFD40) == 0) {
+    } else if (query_segment_wall_meshes(from, to, mask, lbl_804FFD40) == 0) {
         hit = 0;
     }
     TObjPlayer__sub_80079118(lbl_804389FC);

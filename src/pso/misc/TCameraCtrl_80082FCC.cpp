@@ -36,7 +36,7 @@ s32 restore_full_screen_view__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_8006ABAC(void *, int, int);
 s32 TCameraCtrl__sub_8006AC70(void *);
 s32 TCameraCtrl__sub_8006AF9C(void *, int);
-s32 TCameraCtrl__sub_8006BE00(void *, void *, void *);
+s32 direction_to_pitch_yaw(void *, void *, void *);
 s32 TObjPlayer__sub_80084744();
 s32 TObjPlayer__sub_80084754();
 s32 render_scene_passes__9TMainTaskFv(void *);
@@ -143,7 +143,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
             stack.sp14 = M2C_FIELD(arg0, f32 *, 0x2C) - M2C_FIELD(arg0, f32 *, 0x20);
             stack.sp18 = M2C_FIELD(arg0, f32 *, 0x30) - M2C_FIELD(arg0, f32 *, 0x24);
             stack.sp1C = M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x28);
-            TCameraCtrl__sub_8006BE00((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
+            direction_to_pitch_yaw((void *) (&stack.sp14), (void *) (&stack.sp10), (void *) (&stack.spC));
             TCameraCtrl__sub_8006ABAC((void *) (lbl_805D4DF0), (int) (stack.sp10), (int) (stack.spC));
         }
         TObjPlayer__sub_80084754();

@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK TAdBackGC__sub_8001C5A0(void *, int, int, f32);
+M2C_UNK draw_title_background_layer(void *, int, int, f32);
 M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK restore_saved_depth_alpha_state();
 s32 toggle_flag_9__10TObjPlayerFPv();
@@ -35,7 +35,7 @@ block_4:
         fn_8029A6EC((void *) (arg0));
         abs__4cXyzCFv((int) (0), (int) (8));
         abs__4cXyzCFv((int) (1), (int) (0xA));
-        TAdBackGC__sub_8001C5A0((void *) (lbl_804DBF20), (int) (0), (int) (-1), (f32) (M2C_FIELD(arg0, f32 *, 0x1C)));
+        draw_title_background_layer((void *) (lbl_804DBF20), (int) (0), (int) (-1), (f32) (M2C_FIELD(arg0, f32 *, 0x1C)));
         abs__4cXyzCFv((int) (0), (int) (8));
         abs__4cXyzCFv((int) (1), (int) (6));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 0) {

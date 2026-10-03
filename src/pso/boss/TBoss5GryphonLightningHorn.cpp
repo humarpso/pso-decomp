@@ -39,7 +39,7 @@ u8 *__ct__26TBoss5GryphonLightningHornFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF654;
 s32 TBoss8Dragon__sub_803263A4(s32 arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
+void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
@@ -113,7 +113,7 @@ extern M2C_UNK lbl_804ECDC0[];
 void TObjPlayer__sub_80326450(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
-    TObjPlayer__sub_801295FC(&launch);
+    init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(M2C_FIELD(weapon, u8 **, 0xF0));
     launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
     launch.textures = M2C_FIELD(weapon, void **, 0x24);

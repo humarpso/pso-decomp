@@ -98,7 +98,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 is_inactive__10TObjPlayerFPv(void *);
 M2C_UNK change_ai_state__10TNpcPlayerFPvUi(void *, int);
 M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, int);
-s32 TNpcPlayer__sub_8014F7F0(void *);
+s32 refresh_npc_view_actor_lost(void *);
 M2C_UNK partner_observe_surroundings(void *);
 M2C_UNK update_condition_flags__10TNpcPlayerFPv(void *);
 M2C_UNK init_state__10TNpcPlayerFPv(void *);
@@ -197,11 +197,11 @@ void run_task__10TNpcPlayerFv(u8 *arg0) {
     }
     {
         {
-        if (TNpcPlayer__sub_8014F7F0((void *) (owner)) != 0) {
+        if (refresh_npc_view_actor_lost((void *) (owner)) != 0) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }
-        if (TNpcPlayer__sub_8014F7F0((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
+        if (refresh_npc_view_actor_lost((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
             queue_destruction__7TObjectFv((void *) (arg0));
             return;
         }

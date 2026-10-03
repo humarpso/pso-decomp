@@ -139,7 +139,7 @@ s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
+M2C_UNK run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK update_sound_request_slots();
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
@@ -156,7 +156,7 @@ M2C_UNK TKeyBoardControl__sub_8000F90C(int);
 M2C_UNK set_active_camera_pose(void *, void *);
 M2C_UNK select_active_controller__11TCameraCtrlFc(int);
 M2C_UNK TCameraCtrl__ct(u32, s32);
-M2C_UNK TLobby__sub_800FD6F8(void *, int);
+M2C_UNK run_load_callback_table(void *, int);
 M2C_UNK init_menu_scene_lights(void *, int);
 M2C_UNK reset_controller_input_state();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(void *);
@@ -485,7 +485,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
     render_screen_overlay__9TMainTaskFv(&main_task.value);
     TLobby__sub_800FA464();
     update_sound_request_slots();
-    TAdSinglePlyChrSelectGC__sub_80201650();
+    run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     noop__23TAdSinglePlyChrSelectGCFv();
     if (!(lbl_805D6D90 & 1)) {
         if (func_801A5E54__Fv() != 0) {
@@ -503,7 +503,7 @@ void init_single_player_char_select_scene(void) {
     u32 p;
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
-    TLobby__sub_800FD6F8(&lbl_804EF728, 0x30);
+    run_load_callback_table(&lbl_804EF728, 0x30);
     init_menu_scene_lights(lbl_804A6F34, 4);
     p = __nw__7TObjectFUl(0x1D4);
     if (p != 0) {

@@ -28,12 +28,12 @@ s32 create_quest_message_window_at(int, void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
 void create_quest_message_window(void);
-Ctx_8026B148 *TWindowSubStatusDisp__sub_80244364(void *);
+Ctx_8026B148 *get_draw_context__11TWindowBaseFPv(void *);
 void draw_quest_message_frame(void *, void *);
 void draw_window_frame(void *, void *);
 void draw_visible_window_entries(void *, void *, void *);
 extern const f32 lbl_805DD260;
-void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w);
+void render__19TWindowMessageQuestFPv(Win_8026B148 *w);
 }
 
 extern "C" {
@@ -42,9 +42,9 @@ typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8
 void create_quest_message_window(void) {
     create_quest_message_window_at((int) (get_window_layout_position((int) (0xAD))), (void *) (&lbl_8044F464.value));
 }
-void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w) {
+void render__19TWindowMessageQuestFPv(Win_8026B148 *w) {
     Ctx_8026B148 *c;
-    c = TWindowSubStatusDisp__sub_80244364(w);
+    c = get_draw_context__11TWindowBaseFPv(w);
     switch (w->mode) {
     case 0:
         if (c->reveal < 0) {

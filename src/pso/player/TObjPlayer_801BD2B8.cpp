@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_input_and_draw__10TObjPlayerFi(s32 arg0);
-M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, int);
+M2C_UNK set_action_provider_variant__10TObjPlayerFPvs(void *, int);
 M2C_UNK TObjPlayer__sub_801BD1B4(void *);
 void TObjPlayer__sub_801BD314(void);
 s16 TObjPlayer__sub_801C2114();
@@ -24,7 +24,7 @@ extern "C" {
 
 void update_input_and_draw__10TObjPlayerFi(s32 arg0) {
     if (reset_key_machine_state__10TObjPlayerFv() == 0) {
-        TKeyBoardControl__sub_801AFCF4((void *) (arg0), (int) (TObjPlayer__sub_801C2114()));
+        set_action_provider_variant__10TObjPlayerFPvs((void *) (arg0), (int) (TObjPlayer__sub_801C2114()));
     }
     TObjPlayer__sub_801BD1B4((void *) (arg0));
     draw__10TObjPlayerFPv((void *) (arg0));

@@ -65,7 +65,7 @@ M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, void *);
 s32 get_model_field_m25__10TObjPlayerFPv(void *);
 M2C_UNK send_neg50__6TLobbyFPvPv(void *, int);
 M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801CA3E4(void *);
+M2C_UNK reset_on_death__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 s16 ret_801D26AC();
 M2C_UNK clear_photon_blast_state__10TObjPlayerFPv(void *);
@@ -93,7 +93,7 @@ M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, void *);
 s32 get_model_field_m25__10TObjPlayerFPv(void *);
 M2C_UNK send_neg50__6TLobbyFPvPv(void *, int);
 M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801CA3E4(void *);
+M2C_UNK reset_on_death__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 s16 ret_801D26AC();
 M2C_UNK clear_photon_blast_state__10TObjPlayerFPv(void *);
@@ -107,7 +107,7 @@ void enter_death_state__10TObjPlayerFPv(u8 *arg0);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
 u8 *get_player_by_client_id(s32);
 M2C_UNK TObjPlayer__sub_801BEEE0(void *, void *);
-M2C_UNK TObjPlayer__sub_801CA3E4(void *);
+M2C_UNK reset_on_death__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 M2C_UNK init_field_4__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801D192C(void *);
@@ -148,7 +148,7 @@ void enter_death_state__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3_3;
     M2C_FIELD(arg0, s32 *, 0x33C) = 0xF;
     run_action_state_phase__10TObjPlayerFisi((void *)(arg0), (int) (M2C_FIELD(arg0, s16 *, 0x326)), (int) (6));
-    TObjPlayer__sub_801CA3E4((void *) (arg0));
+    reset_on_death__10TObjPlayerFPv((void *) (arg0));
     TObjPlayer__sub_8001053C((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
     if (test_flags_any((void *) (arg0 + 0x858), (int) (1)) != 0) {
@@ -204,7 +204,7 @@ void handle_6x4D_player_died(void *arg0) {
         p = get_player_by_client_id(cmd.client);
         if (p != NULL) {
             TObjPlayer__sub_801BEEE0(p + 0x858, cmd.data);
-            TObjPlayer__sub_801CA3E4(p);
+            reset_on_death__10TObjPlayerFPv(p);
             if (is_in_tl03_state__10TObjPlayerFPv(p) != 0) {
                 run_action_state_phase__10TObjPlayerFisi(p, 0xF, 0);
             }

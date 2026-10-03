@@ -156,7 +156,7 @@ void TObjPlayer__sub_8034F4AC(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 void TObjPlayer__sub_8034F020(P_8034F020 *arg0);
-void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
+void init_slicer_launch_state(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
@@ -205,7 +205,7 @@ M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
 int update_trail_slot__11TItemWeaponFPvi(void*, void*);
-int TObjPlayer__sub_80120BBC(void*, void*);
+int draw_weapon_at_joint(void*, void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -229,7 +229,7 @@ void TObjPlayer__sub_8034F020(P_8034F020 *arg0) {
     }
 }
 
-void reset_shoot_models__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
+void reset_shoot_models__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
 int apply_recoil_forward__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)(1820), (void*)(13653)); }
 int shrink_field1f8__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)(-4551), (void*)(0)); }
 
@@ -287,7 +287,7 @@ void TObjPlayer__sub_8034F268(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     u8 *t;
-    TObjPlayer__sub_801295FC(&launch);
+    init_slicer_launch_state(&launch);
     launch.player = obj_getField1c(M2C_FIELD(weapon, u8 **, 0xF0));
     launch.weapon = get_field_d8__10TObjPlayerFPv(weapon);
     launch.textures = M2C_FIELD(weapon, void **, 0x24);
@@ -466,7 +466,7 @@ void dispatch_by_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void reset_animation_flags__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80120BBC(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
+void reset_animation_flags__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)49); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); }
 
 void TObjPlayer__sub_8034F8B8(void* p) { TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1f8), (void*)((void*)-8192), (void*)((void*)-30947)); TObjPlayer__sub_80115BC0((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-7281)); }
 

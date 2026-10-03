@@ -9,19 +9,19 @@ s32 load_system_file(s32);
 extern s32 lbl_805D5FA8;
 void TAdSinglePlyChrSelectGC__sub_801FF2D4(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
-void TAdSinglePlyChrSelectGC__sub_80201650();
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32);
 extern s32 lbl_805D5FA8;
 u8 TAdSinglePlyChrSelectGC__sub_801FF310(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
-void TAdSinglePlyChrSelectGC__sub_80201650();
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 load_selected_character__23TAdSinglePlyChrSelectGCFv();
 s32 TAdSinglePlyChrSelectGC__sub_802002E8(s32);
 extern s32 lbl_805D5FA8;
 u8 TAdSinglePlyChrSelectGC__sub_801FF384(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
-void TAdSinglePlyChrSelectGC__sub_80201650();
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 load_player__23TAdSinglePlyChrSelectGCFv();
 s32 load_and_verify_data(s32);
 extern s32 lbl_805D5FA8;
@@ -67,7 +67,7 @@ u8 TAdSinglePlyChrSelectGC__sub_801FF310(void) {
     }
     for (;;) {
         if (get_instance__15TAdPlayerLoadGCFv() == 0) break;
-        TAdSinglePlyChrSelectGC__sub_80201650();
+        run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     }
     lbl_805D5FA8 = 0;
     return TAdSinglePlyChrSelectGC__sub_801FFE44(1) == 0;
@@ -82,7 +82,7 @@ u8 TAdSinglePlyChrSelectGC__sub_801FF384(void) {
     }
     for (;;) {
         if (get_instance__15TAdPlayerLoadGCFv() == 0) break;
-        TAdSinglePlyChrSelectGC__sub_80201650();
+        run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     }
     lbl_805D5FA8 = 0;
     return TAdSinglePlyChrSelectGC__sub_802002E8(1) == 0;
@@ -97,7 +97,7 @@ u8 TAdSinglePlyChrSelectGC__sub_801FF3F4(void) {
     }
     for (;;) {
         if (get_instance__15TAdPlayerLoadGCFv() == 0) break;
-        TAdSinglePlyChrSelectGC__sub_80201650();
+        run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     }
     lbl_805D5FA8 = 0;
     return load_and_verify_data(1) == 0;

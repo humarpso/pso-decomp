@@ -20,7 +20,7 @@ s32 is_active__19TWindowSubShortMailFv(void) {
 
 extern u16 lbl_805D63FC;
 
-s32 fn_80246CD0(void) {
+s32 is_com_card_active(void) {
     return ((u16) lbl_805D63FC >> 2U) & 1;
 }
 

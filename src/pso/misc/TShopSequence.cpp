@@ -43,7 +43,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
 s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
-s32 TWindowCtrl__sub_8024AEAC(u16);
+s32 suppress_slot__11TWindowCtrlFi(u16);
 s32 unsuppress_slot__11TWindowCtrlFi(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 M2C_UNK close__17TMedicalCenterMesFPv(void *);
@@ -133,7 +133,7 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        TWindowCtrl__sub_8024AEAC(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
+        suppress_slot__11TWindowCtrlFi(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
     }
 }
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1) {

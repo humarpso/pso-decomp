@@ -27,7 +27,7 @@ struct RecoveredGlobal_80142734_lbl_8058D4C0 {
 
 extern "C" {
 extern s32 some_id_805c6f74;
-void TPlyPhotonChair__sub_801426C0(s32 arg0, s32 arg1);
+void set_global_draw_flag_bits(s32 arg0, s32 arg1);
     extern int lbl_805D566C;
 extern s32 some_id_805c6f74;
 void restore_state__15TPlyPhotonChairFv(s32 _w0);
@@ -86,9 +86,9 @@ void update_parts__15TPlyPhotonChairFPv(void* p);
 int set_chunk_material_color(void*);
 int set_chunk_material_override_pair(void*, void*);
 
-void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(a1); }
+void play_sound_with_arg__15TPlyPhotonChairFPvPv(void* p, void* a1) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(a1); }
 
-void play_sound__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_801426C0((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(p); }
+void play_sound__15TPlyPhotonChairFPv(void* p) { set_global_draw_flag_bits((s32)(p), (s32)((void*)2064)); set_chunk_material_override_pair((void*)-1, (void*)2048); set_chunk_material_color(p); }
 
 void update_parts__15TPlyPhotonChairFPv(void* p) { TPlyPhotonChair__sub_8014270C((s32)(p)); TPlyPhotonChair__sub_801426DC((s32)(p)); restore_state__15TPlyPhotonChairFv((s32)(p)); }
 
@@ -117,7 +117,7 @@ f64 TPlyPhotonChair__sub_80142624(f64 x) {
 
 #pragma push
 #pragma scheduling off
-void TPlyPhotonChair__sub_801426C0(s32 arg0, s32 arg1) {
+void set_global_draw_flag_bits(s32 arg0, s32 arg1) {
     some_id_805c6f74 |= arg1;
 }
 #pragma pop

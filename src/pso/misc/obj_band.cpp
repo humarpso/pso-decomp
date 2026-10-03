@@ -21,7 +21,7 @@ M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void save_joint_matrix_callback(void);
 extern int lbl_805D567C;
-void TObjPlayer__sub_80142F1C(u8 *arg0);
+void draw_motion_model_saving_joints(u8 *arg0);
 }
 
 int objInBand(GameObj* obj, f32 v) {
@@ -43,7 +43,7 @@ int get_current_matrix(void*);
 
     extern int lbl_805D567C;
 void save_joint_matrix_callback(void) { get_current_matrix((void*)(lbl_805D567C)); lbl_805D567C = (lbl_805D567C + 0x30); }
-void TObjPlayer__sub_80142F1C(u8 *arg0) {
+void draw_motion_model_saving_joints(u8 *arg0) {
     s32 temp_r3;
     lbl_805D567C = M2C_FIELD(arg0, s32 *, 0xE0);
     set_global_state__16TObjEneRe7BeruraFi((void *) save_joint_matrix_callback);

@@ -35,7 +35,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 s32 is_any_player_in_range__16TObjEvtCollisionFif(s32 arg0, f32 farg0);
-M2C_UNK fn_8020C408(void *, M2C_UNK);
+M2C_UNK set_event_source_flag(void *, M2C_UNK);
 extern s32 lbl_805D53A0;
 void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0);
 }
@@ -101,7 +101,7 @@ void run_task__16TObjEvtCollisionFv(Obj_80190CFC *arg0) {
             pkt.x10 = arg0->x84;
             pkt.x14 = lbl_805D53A0;
             byteswap_and_send__6TLobbyFi(&pkt);
-            fn_8020C408(arg0, 8);
+            set_event_source_flag(arg0, 8);
             queue_destruction__7TObjectFv(arg0);
         }
     }

@@ -21,14 +21,14 @@ extern RecoveredGlobal_8019DBB4_lbl_80446470 lbl_80446470;
 extern RecoveredGlobal_8019DBB4_lbl_804B90FC lbl_804B90FC;
 extern s32 lbl_805D5C78;
 extern u8 *lbl_805D5C7C;
-void fn_8019DBB4(void);
+void load_forest_warp_resources(void);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8019DBB4_lbl_80446470_size[sizeof(RecoveredGlobal_8019DBB4_lbl_80446470) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8019DBB4_lbl_804B90FC_size[sizeof(RecoveredGlobal_8019DBB4_lbl_804B90FC) == 0x10 ? 1 : -1];
-void fn_8019DBB4(void) {
+void load_forest_warp_resources(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

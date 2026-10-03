@@ -28,7 +28,7 @@ struct Arg_800D9994 { s32 a; s32 b; s32 count; f32 start; u8 pad10[4]; f32 step;
 
 extern "C" {
 extern RecoveredGlobal_800D9960_lbl_80500FA4 lbl_80500FA4;
-void TBoss4Type3__sub_800D9960(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 Vec_800D9ABC *alloc_buffer__11TOBoss4RockFPv(int);
@@ -59,7 +59,7 @@ int free__11TOBoss4RockFUi(s32);
 int __dl__FPv(s32 *);
 
 typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_800D9960_lbl_80500FA4) == 0xC ? 1 : -1];
-void TBoss4Type3__sub_800D9960(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
+void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 0) = arg3;
     M2C_FIELD(&lbl_80500FA4.value, s32 *, 4) = arg4;
     TBoss4Type3__sub_800D9994((Arg_800D9994 *)(arg0), (s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));

@@ -14,7 +14,7 @@ extern s32 tl_05;
 u8 *create_suppressed_gun_weapon(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80120D50(void*,s32,void*);
 M2C_UNK set_atp__10TObjPlayerFPvs(void *, int);
-void TObjPlayer__sub_80109440();
+void spawn_weapon_impact_effect();
 extern M2C_UNK lbl_804A2C90[];
 u8 *construct_handgun_weapon(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 }
@@ -38,7 +38,7 @@ u8 *create_suppressed_gun_weapon(u8 *arg0) {
 u8 *construct_handgun_weapon(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     TObjPlayer__sub_80120D50(arg0,arg1,arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2C90;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = (M2C_UNK*)&TObjPlayer__sub_80109440;
+    M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = (M2C_UNK*)&spawn_weapon_impact_effect;
     if ((u8) M2C_FIELD(arg2, u8 *, 2) >= 5U) {
         set_atp__10TObjPlayerFPvs((void *) (arg0), (int) (-1));
     }

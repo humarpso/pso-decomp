@@ -24,9 +24,9 @@ s32 set_parent__7TObjectFP7TObject(s32, s32);
 extern M2C_UNK __vt__14TItemEquipBase[];
 void TWindowSubComCard__sub_80244888(s32 arg0);
 extern const f32 lbl_805DCAD0;
-s32 TWindowSubComCard__sub_80244AD8(u8 *arg0);
+s32 is_window_reveal_complete(u8 *arg0);
 extern const f32 lbl_805DCAD0;
-void TWindowSubComCard__sub_80244B1C(u8 *arg0);
+void window_request_refresh(u8 *arg0);
 extern f32 lbl_805DCAC8;
 extern const f32 lbl_805DCAD0;
 f32 TWindowSubComCard__sub_80244818(u8 *arg0);
@@ -215,11 +215,11 @@ void TWindowSubTradeMain__sub_80244A4C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 2);
 }
 
-s32 TWindowSubComCard__sub_80244AD8(u8 *arg0) {
+s32 is_window_reveal_complete(u8 *arg0) {
     return (f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCAD0;
 }
 
-void TWindowSubComCard__sub_80244B1C(u8 *arg0) {
+void window_request_refresh(u8 *arg0) {
     if (!((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCAD0)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 7;
     }

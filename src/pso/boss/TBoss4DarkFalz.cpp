@@ -97,7 +97,7 @@ void swap_and_send__14TBoss4DarkFalzFPv(void *p);
 void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg);
 void *get_player_data__10TObjPlayerFi(s32 i);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *p);
-void TObjPlayer__sub_801B0FF4(void *p);
+void refresh_equipment_slot__10TObjPlayerFv(void *p);
 extern s32 lbl_805D586C;
 void TBoss4DarkFalz__sub_8004B77C(void *self);
 void *get_player_data__10TObjPlayerFi(s32 i);
@@ -141,7 +141,7 @@ Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
 void reset_cameras_to_actor(void *, s32);
-void TObjPlayer__sub_801B0FF4(void *p);
+void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Vec_8004B7DC lbl_804371C8;
@@ -156,7 +156,7 @@ Hit_8004B7DC *get_hit_data__14TBoss4DarkFalzFPv(void *);
 void save_position__14TBoss4DarkFalzFi(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
 void reset_cameras_to_actor(void *, s32);
-void TObjPlayer__sub_801B0FF4(void *p);
+void refresh_equipment_slot__10TObjPlayerFv(void *p);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Vec_8004B8F8 lbl_804371BC;
@@ -378,7 +378,7 @@ void TBoss4DarkFalz__sub_8004B77C(void *self) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != 0) {
             if (get_field_3e0__12TBoss3VoloptFPv(p) == 0xE) {
-                TObjPlayer__sub_801B0FF4(p);
+                refresh_equipment_slot__10TObjPlayerFv(p);
             }
         }
     }
@@ -402,7 +402,7 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
             TBoss4DarkFalz__sub_8004C220(p, &v);
             save_position__14TBoss4DarkFalzFi(p);
             get_hit_data__14TBoss4DarkFalzFPv(p)->f4 = ang + 0x8000;
-            TObjPlayer__sub_801B0FF4(p);
+            refresh_equipment_slot__10TObjPlayerFv(p);
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
                 reset_cameras_to_actor(p, 0);
             }
@@ -429,7 +429,7 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
             TBoss4DarkFalz__sub_8004C220((void *)(p), (Vec_8004B7DC *)(&v));
             save_position__14TBoss4DarkFalzFi(p);
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFPv(p))->f4 = 0x8000;
-            TObjPlayer__sub_801B0FF4(p);
+            refresh_equipment_slot__10TObjPlayerFv(p);
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
                 reset_cameras_to_actor(p, 0);
             }

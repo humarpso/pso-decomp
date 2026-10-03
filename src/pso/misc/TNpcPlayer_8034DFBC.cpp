@@ -149,7 +149,7 @@ s32 get_player_by_client_id(s32);
 void open__11TWindowCtrlFiii(s32, void *, s32);
 extern E_8034E02C lbl_804F0280[];
 extern int lbl_805D6EA0;
-void TNpcPlayer__sub_8034E5A8(s16 key);
+void show_partner_chatter_for_key(s16 key);
 void send_6x24_teleport_player(u16, s32, s32);
 M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 void send_state_60__10TNpcPlayerFPv(void* p);
@@ -159,7 +159,7 @@ void clear_partner_dialogue_flags(void);
 extern struct Slot_8034EDC4 lbl_805436B8[];
 extern s32 TNpcPlayer__data_805D5864;
 extern int lbl_805D6EA0;
-void TNpcPlayer__sub_8034EDC4(void);
+void init_partner_dialogue(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_testFlags30(void *, int);
 void send_6x3E__10TNpcPlayerFi(void *);
@@ -188,11 +188,11 @@ s32 get_player_by_client_id(s32);
 void open__11TWindowCtrlFiii(s32, void *, s32);
 extern E_8034E02C lbl_804F0280[];
 extern int lbl_805D6EA0;
-void TNpcPlayer__sub_8034E508(s32 arg0);
+void notify_partner_room_cleared(s32 arg0);
 s32 obj_isState3_324();
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
 void TNpcPlayer__sub_80152330(void *, u16, u16, s16, s32);
-s32 TNpcPlayer__sub_80152484(s16);
+s32 load_npc_player_template(s16);
 M2C_UNK notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
 Obj_8034E814 *create_player_object(u16, s32, s32);
@@ -374,7 +374,7 @@ void quest_remove_npc_player(u16 arg0) {
     }
 }
 
-void TNpcPlayer__sub_8034E508(s32 arg0) {
+void notify_partner_room_cleared(s32 arg0) {
     s8 *win = (s8 *)((M2C_UNK *)&lbl_804F0280) + 0x3CC;
     s32 i;
     s32 p;
@@ -388,7 +388,7 @@ void TNpcPlayer__sub_8034E508(s32 arg0) {
     } while (i < 4);
 }
 
-void TNpcPlayer__sub_8034E5A8(s16 key) {
+void show_partner_chatter_for_key(s16 key) {
     s32 i;
     s32 player;
     for (i = 0; i < 4; i++) {
@@ -447,7 +447,7 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
             return;
         }
         if (client == lbl_805D53A0) {
-            p = create_player_object(pkt->target, 5, TNpcPlayer__sub_80152484(pkt->state));
+            p = create_player_object(pkt->target, 5, load_npc_player_template(pkt->state));
             if (p == NULL) {
                 return;
             }
@@ -459,7 +459,7 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
                 TNpcPlayer__sub_80152330(o, (u16)lbl_805D53A0, pkt->target, pkt->state, tl_00);
             }
         } else {
-            p = create_player_object(pkt->target, 4, TNpcPlayer__sub_80152484(pkt->state));
+            p = create_player_object(pkt->target, 4, load_npc_player_template(pkt->state));
             if (p != NULL) {
                 p->m6();
             }
@@ -484,7 +484,7 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
             return;
         }
         if (client == lbl_805D53A0) {
-            p = create_player_object(pkt->target, 5, TNpcPlayer__sub_80152484(pkt->state));
+            p = create_player_object(pkt->target, 5, load_npc_player_template(pkt->state));
             if (p == NULL) {
                 return;
             }
@@ -497,7 +497,7 @@ void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
                 TNpcPlayer__ct(o, (u16)lbl_805D53A0, pkt->target, pkt->state, 1, tl_00);
             }
         } else {
-            p = create_player_object(pkt->target, 4, TNpcPlayer__sub_80152484(pkt->state));
+            p = create_player_object(pkt->target, 4, load_npc_player_template(pkt->state));
             if (p != NULL) {
                 p->m6();
                 NOTIFY_8034E814(p);
@@ -571,7 +571,7 @@ void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, 
 }
 void TNpcPlayer__sub_8034EDB8(void) { lbl_805D6EA0 = 0; }
 
-void TNpcPlayer__sub_8034EDC4(void) {
+void init_partner_dialogue(void) {
     s32 i;
     s32 j;
     (*(s32 *)&lbl_805D6EA0) = 0;

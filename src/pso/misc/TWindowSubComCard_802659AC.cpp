@@ -51,7 +51,7 @@ extern const f32 lbl_805DD160;
 extern const f32 lbl_805DD148;
 extern const f32 lbl_805DD168;
 extern const f32 lbl_805DD150;
-void TWindowSubComCard__sub_80265C30(Win_80265C30 *self);
+void align_menu_entry_positions(Win_80265C30 *self);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
@@ -144,7 +144,7 @@ extern const f32 lbl_805DD154;
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubComCard__sub_80265C30(Win_80265C30 *self) {
+void align_menu_entry_positions(Win_80265C30 *self) {
     f32 left = self->x - lbl_805DD15C;
     f32 right = lbl_805DD160 * self->x - lbl_805DD148;
     u32 i;

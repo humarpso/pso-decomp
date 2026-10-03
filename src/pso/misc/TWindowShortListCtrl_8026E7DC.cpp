@@ -61,7 +61,7 @@ void TWindowShortListCtrl__sub_8026E8EC(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 void TWindowSubComCard__sub_802655E4(void *);
 void set_selected_index__17TWindowSubComCardFPvs(void *, s16);
-void TWindowSubComCard__sub_80265C30(void *);
+void align_menu_entry_positions(void *);
 void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void draw_technique_row__19TWindowSubTechniqueFiii(int, int, void *);
@@ -81,7 +81,7 @@ void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1);
 void *create_window_menu(s32, s32, s32);
 s32 get_player_by_client_id(s32);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK end_player_keyboard_hold(s32);
 s32 TWindowCtrl__sub_8024A1A8();
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
@@ -259,7 +259,7 @@ void TWindowShortListCtrl__sub_8026EBB0(Wn_8026EBB0 *arg0, s32 arg1, Sc_8026EBB0
         draw_technique_row__19TWindowSubTechniqueFiii(tbl->e[i], arg0->card, (void *)arg1);
     }
     set_scroll_target__17TWindowSubComCardFPvff((void *)arg1, arg2->x, arg2->y);
-    TWindowSubComCard__sub_80265C30((void *)arg1);
+    align_menu_entry_positions((void *)arg1);
     set_selected_index__17TWindowSubComCardFPvs((void *)arg1, cur);
 }
 
@@ -286,7 +286,7 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
         if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFi(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             init_parts__10TObjPlayerFPv(temp_r3);
         }
-        TWindowChat__sub_8024AD30(M2C_FIELD(arg0, s32 *, 0x24));
+        end_player_keyboard_hold(M2C_FIELD(arg0, s32 *, 0x24));
         clear_flag_8__11TWindowCtrlFv();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
             TWindow__close(M2C_FIELD(arg0, void **, 0x34));

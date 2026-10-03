@@ -8,7 +8,7 @@ extern "C" {
 
 void init_data_table_ptr__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_801C2114();
-M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, s16);
+M2C_UNK set_action_provider_variant__10TObjPlayerFPvs(void *, s16);
 M2C_UNK create_inventory__10TObjPlayerFPv();
 
 u16 obj_getField1c(void *);
@@ -16,7 +16,7 @@ extern s32 lbl_805D5D84;
 
 void init_data_table_ptr__10TObjPlayerFPv(void *arg0) {
     create_inventory__10TObjPlayerFPv();
-    TKeyBoardControl__sub_801AFCF4(arg0, TObjPlayer__sub_801C2114());
+    set_action_provider_variant__10TObjPlayerFPvs(arg0, TObjPlayer__sub_801C2114());
     M2C_FIELD(arg0, s32 *, 0xDB4) = (s32) (lbl_805D5D84 + (obj_getField1c(arg0) * 0x600));
 }
 

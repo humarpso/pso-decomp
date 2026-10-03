@@ -39,7 +39,7 @@ void TObjFogCollisionPoison__sub_801534E8(u8 *arg0, u16 arg1);
 s32 TFogCtrl__sub_800FAB94(s32, s32, s32);
 s32 TFogCtrl__sub_800FAC10(s32, s32);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
-void TObjFogCollisionPoison__sub_801530DC(u8 *arg0);
+void update_fog_region_arbitration(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804AF7B0[];
 u8 *TObjFogCollisionPoison__sub_80153084(u8 *arg0, u8 *arg1, s16 arg2);
@@ -114,7 +114,7 @@ u8 *TObjFogCollisionPoison__sub_80153084(u8 *arg0, u8 *arg1, s16 arg2) {
     return arg0;
 }
 
-void TObjFogCollisionPoison__sub_801530DC(u8 *arg0) {
+void update_fog_region_arbitration(u8 *arg0) {
     s32 temp_r0;
     s32 var_r4;
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {

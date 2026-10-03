@@ -53,7 +53,7 @@ s32 free_texture_if_valid(u32 arg0);
 void init_buffers(void);
 s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0);
 int TLobby__sub_803DA16C();
-M2C_UNK TObjPlayer__sub_803DDC50();
+M2C_UNK load_texture_list();
 M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
 int set_global_param__8TObjFishFi();
 s32 xmalloc__FUl(M2C_UNK);
@@ -139,7 +139,7 @@ s32 fn_8023E734(u32 arg0) {
     if (arg0 == 0U) {
         return 0;
     }
-    TObjPlayer__sub_803DDC50();
+    load_texture_list();
     return 1;
 }
 

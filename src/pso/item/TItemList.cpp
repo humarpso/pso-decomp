@@ -13,7 +13,7 @@ void TItemList__sub_801D5A0C(s32 *arg0);
 u8 get_item_count__9TItemListFPv(void* p);
 void TItemList__sub_801D5A64(void* p);
 u8 *TItemList__sub_801D5868(s32, s8);
-void TItemList__sub_801D5A28(u8 *arg0, s32 arg1);
+void clear_placement_search_slot(u8 *arg0, s32 arg1);
 void* get_ptr_0x44__9TItemListFPv(void* p);
 u8 get_item_count__9TItemListFPv(void* p);
 void copy_position__9TItemListFPv(void *, s32);
@@ -28,7 +28,7 @@ u8 *TItemList__sub_801D5CF8(u8 *arg0);
 extern "C" {
 
 void TItemList__sub_801D59DC(void* p);
-void TItemList__sub_801D59E8(void* p, void* a1);
+void decrement_placement_search_pending(void* p, void* a1);
 void TItemList__sub_801D5A64(void* p);
 void *TItemList__sub_801D5B10(void *arg0, s16 arg1);
 void *__dt__9TItemListFPvs(void *arg0, s16 arg1);
@@ -53,7 +53,7 @@ int copy_item_data__9TItemListFPv(void* p);
 u8 get_item_count__9TItemListFPv(void* p);
 
 void TItemList__sub_801D59DC(void* p) { *(s32*)((char*)p + 0x0) = 2; }
-void TItemList__sub_801D59E8(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)((void*)(a1))); }
+void decrement_placement_search_pending(void* p, void* a1) { TItemList__sub_801D5A0C((s32 *)((void*)(a1))); }
 
 void TItemList__sub_801D5A0C(s32 *arg0) {
     s32 temp_r0;
@@ -64,7 +64,7 @@ void TItemList__sub_801D5A0C(s32 *arg0) {
     }
 }
 
-void TItemList__sub_801D5A28(u8 *arg0, s32 arg1) {
+void clear_placement_search_slot(u8 *arg0, s32 arg1) {
     TItemList__sub_801D5A64((void*)(TItemList__sub_801D5868(arg1, get_item_count__9TItemListFPv((void*)(arg0)))));
 }
 

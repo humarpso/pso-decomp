@@ -269,7 +269,7 @@ struct VObj_800914a8 : VObjBase_800914a8 {
     virtual M2C_UNK m16(); virtual M2C_UNK m17(M2C_UNK);
 };
 
-void TObjEneBalClawClaw__sub_80091CCC(void);
+void on_attack_cooldown_expired__12TObjEneBeastFv(void);
 void TObjEneBalClawClaw__sub_80091CD0(s32 arg0);
 void * create__18TObjEneBalClawClawFPv(void *arg0);
 void * create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
@@ -501,7 +501,7 @@ u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     return arg0;
 }
 
-void TObjEneBalClawClaw__sub_80091CCC(void) {  }
+void on_attack_cooldown_expired__12TObjEneBeastFv(void) {  }
 void TObjEneBalClawClaw__sub_80091CD0(s32 arg0) {
     play_sound_effect(0x4003E431, arg0 + 0x38, 0, 0);
 }

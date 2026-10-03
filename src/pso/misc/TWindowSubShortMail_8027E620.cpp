@@ -9,7 +9,7 @@ void TWindowSubShortMail__sub_8027FAD0(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 set_flag70_bit10__16TObjCityMainWarpFPv(int);
-s32 TWindowSubComCard__sub_80265C30(int);
+s32 align_menu_entry_positions(int);
 s32 TWindowSubComCard__sub_80265E60(int, f32);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_window_menu(int, int, int);
@@ -167,7 +167,7 @@ s32 create_status_category_menu(u8 *arg0) {
   forward_trade_action_default__16TObjCityMainWarpFPviii((int) var_r31, (int) get_message_10__20TWindowSubStatusDispFPv((int) 0x10C), (int) 0x36, (int) 2);
   set_flag70_bit10__16TObjCityMainWarpFPv((int) var_r31);
   TWindowSubComCard__sub_80265E60((int) var_r31, (f32) lbl_805DD6D8);
-  TWindowSubComCard__sub_80265C30((int) var_r31);
+  align_menu_entry_positions((int) var_r31);
   return var_r31;
 }
 

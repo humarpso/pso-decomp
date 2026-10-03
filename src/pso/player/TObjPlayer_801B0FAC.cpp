@@ -50,7 +50,7 @@ struct VObj_18 : VBase_18 {
 };
 extern "C" {
 u8 *activate_d04_slot__10TObjPlayerFPv();
-void TObjPlayer__sub_801B0FF4(void);
+void refresh_equipment_slot__10TObjPlayerFv(void);
 }
 
 extern "C" {
@@ -69,7 +69,7 @@ void update_photon_chair__10TObjPlayerFi(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801B0FF4(void) {
+void refresh_equipment_slot__10TObjPlayerFv(void) {
     u8 *temp_r3;
     temp_r3 = activate_d04_slot__10TObjPlayerFPv();
     if (temp_r3 != NULL) {

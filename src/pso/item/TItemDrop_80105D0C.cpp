@@ -146,7 +146,7 @@ u8 select_weighted_byte__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 count,
 extern void *TItemDrop__data_805D5460;
 void roll_rare_weapon_attributes__9TItemDropFiPvi(s32 rng, Obj_80106F4C *item, s32 idx);
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, M2C_UNK arg1, u32 arg2);
-u16 TItemDrop__sub_801075B4(void *self, s32 arg1, s32 a, s32 b, s32 c);
+u16 roll_meseta_range__9TItemDropFPviiii(void *self, s32 arg1, s32 a, s32 b, s32 c);
 }
 
 extern "C" {
@@ -274,7 +274,7 @@ void select_enemy_drop__9TItemDropFPviiPv(u8 *self, s32 area, s32 idx, Item_8010
         break;
     case 5:
         item->type = 4;
-        item->id = TItemDrop__sub_801075B4((void *)(self), (s32)(((Tbl_8010663C *)TItemDrop__data_805D5460)->f18), (s32)(area), (s32)(0), (s32)(1));
+        item->id = roll_meseta_range__9TItemDropFPviiii((void *)(self), (s32)(((Tbl_8010663C *)TItemDrop__data_805D5460)->f18), (s32)(area), (s32)(0), (s32)(1));
         break;
     default:
         return;
@@ -344,7 +344,7 @@ void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item) {
         generate_tool_drop__9TItemDropFiiPv((s32)self, idx, item);
         break;
     case 4:
-        *(u32 *)(item + 0x10) = TItemDrop__sub_801075B4((void *)(self), (s32)(*(s32 *)((u8 *)TItemDrop__data_805D5460 + 0x24)), (s32)(idx), (s32)(0), (s32)(1));
+        *(u32 *)(item + 0x10) = roll_meseta_range__9TItemDropFPviiii((void *)(self), (s32)(*(s32 *)((u8 *)TItemDrop__data_805D5460 + 0x24)), (s32)(idx), (s32)(0), (s32)(1));
         break;
     case 2:
         apply_item_data__9TItemDropFPvPv(self, item);
@@ -578,7 +578,7 @@ block_18:
     return 0;
 }
 
-u16 TItemDrop__sub_801075B4(void *self, s32 arg1, s32 a, s32 b, s32 c) {
+u16 roll_meseta_range__9TItemDropFPviiii(void *self, s32 arg1, s32 a, s32 b, s32 c) {
     Pair_801075B4 *tbl = (Pair_801075B4 *)arg1;
     u32 lo = tbl[b + a * c].lo;
     u32 hi = tbl[b + a * c].hi;

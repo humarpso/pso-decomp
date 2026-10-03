@@ -45,7 +45,7 @@ int TLobby__sub_80197F74(void);
 int clear_partner_dialogue_flags(void*);
 int hide_radar__13TRaderMapCoreFv(void);
 int show_radar__13TRaderMapCoreFv(void);
-int TWindowCtrl__sub_8024AEAC(void*);
+int suppress_slot__11TWindowCtrlFi(void*);
 int unsuppress_slot__11TWindowCtrlFi(void*);
 int clear_quest_vm_flag__6TLobbyFv(void);
 int fn_80197E64(void);
@@ -89,6 +89,6 @@ int qst_op_cine_enable(void) { return reset__9TCineCtrlFi((void*)(0)); }
 void qst_op_hud_show(void) { unsuppress_slot__11TWindowCtrlFi((void*)(lbl_805D53A0)); show_radar__13TRaderMapCoreFv(); }
 
     extern int lbl_805D53A0;
-void qst_op_hud_hide(void) { TWindowCtrl__sub_8024AEAC((void*)(lbl_805D53A0)); hide_radar__13TRaderMapCoreFv(); }
+void qst_op_hud_hide(void) { suppress_slot__11TWindowCtrlFi((void*)(lbl_805D53A0)); hide_radar__13TRaderMapCoreFv(); }
 
 }

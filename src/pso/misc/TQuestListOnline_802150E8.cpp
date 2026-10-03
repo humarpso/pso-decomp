@@ -155,14 +155,14 @@ void TLobby__sub_80215720(Obj_80215720 *arg0);
 void TDLGraph__sub_8007F6F8(s32, s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void render_tick__Fv();
-s32 TLobby__sub_80222C54(s32);
+s32 get_guild_text(s32);
 void render_screen_overlay__9TMainTaskFv(void *);
 void some_empty_func__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
 void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
-M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
+M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
 void complete_reveal__14TWindowMessageFPv(int);
 M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
 int update_window_mode_from_progress__6TLobbyFiPv(s32, Pair_802150E8 *);
@@ -194,7 +194,7 @@ s32 THunterGuildSeqOffline__sub_80212074();
 M2C_UNK set_position_xy(int, f32, f32);
 s32 TWindow__close(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
-M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
+M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
 int TLobby__sub_80269CC0(s32, Pair_80215380 *, s32, s32);
 s32 get_window_layout_position(s32);
@@ -230,7 +230,7 @@ void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0) {
         p.a = lbl_8044BCC0[0].a;
         p.b = lbl_8044BCC0[0].b;
         TQuestListOnline__data_805D61A0 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0x2C), &p);
-        send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A0, TLobby__sub_80222C54(0x14), 1);
+        send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A0, get_guild_text(0x14), 1);
         complete_reveal__14TWindowMessageFPv(TQuestListOnline__data_805D61A0);
         set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A0, lbl_805DC664);
         some_empty_func__9TMainTaskFv(main_task);
@@ -248,7 +248,7 @@ void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0) {
         render__9TMainTaskFv(main_task);
         render_screen_overlay__9TMainTaskFv(main_task);
         render_tick__Fv();
-        TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+        suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         run_all_lists__9TMainTaskFv(main_task);
         lbl_805D61AC = 1;
         lbl_805D61B0 = 0;
@@ -295,7 +295,7 @@ void TQuestListOnline__sub_80215380(void *arg0) {
         memcpy(TQuestListOnline__data_805D6194, arg0, 0x124);
         TQuestListOnline__sub_8013ACF4(2);
         if (THunterGuildSeqOffline__sub_80212074() != 0) {
-            TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+            suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
             if ((u32) TQuestListOnline__data_805D61A4 != 0U) {
                 TWindow__close(TQuestListOnline__data_805D61A4);
                 TQuestListOnline__data_805D61A4 = 0;

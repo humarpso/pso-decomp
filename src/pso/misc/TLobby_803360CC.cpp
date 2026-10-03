@@ -63,7 +63,7 @@ extern u8 *lbl_805D6D48;
 void TLobby__sub_8033670C(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 s32 disallow_rendering__7TObjectFv(void *);
-void TLobby__sub_8033612C(O_8033612C *arg0);
+void hide_title_layers_and_release(O_8033612C *arg0);
 s32 TKeyBoardControl__sub_8000F828(void);
 void TKeyBoardControl__sub_8000F90C(int);
 void set_flag_4__9TObjLukerFPv(void *);
@@ -107,8 +107,8 @@ M2C_UNK set_opening_movie_purpose(int);
 s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK TLobby__sub_803362A4(void *);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
-void TKeyBoardControl__sub_80336340(Obj_80336340 *arg0);
-s32 TLobby__sub_800FD6F8(void *, int);
+void update_title_idle_transition(Obj_80336340 *arg0);
+s32 run_load_callback_table(void *, int);
 s32 update_menu_cursor__6TLobbyFv();
 s32 reset_counter__6TLobbyFv();
 s32 set_current_floor_area(int);
@@ -135,7 +135,7 @@ extern u32 lbl_805D6D40;
 void queue_destruction_and_cleanup__6TLobbyFv(void* _w0) {
     queue_destruction__7TObjectFv((void*)(_w0));
     if ((u32) lbl_805D6D40 != 0U) {
-        TLobby__sub_8033612C((O_8033612C *)((void*)((void*)lbl_805D6D40)));
+        hide_title_layers_and_release((O_8033612C *)((void*)((void*)lbl_805D6D40)));
     }
 }
 
@@ -148,7 +148,7 @@ void destroy_download_server__6TLobbyFv(void* _w0) {
     }
 }
 
-void TLobby__sub_8033612C(O_8033612C *arg0) {
+void hide_title_layers_and_release(O_8033612C *arg0) {
     s32 i;
     arg0->flags |= 4;
     if (arg0->f1c != 0) {
@@ -183,7 +183,7 @@ void enter_chg_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 0; set_mode_0x15__21T
 void TLobby__sub_8033633C(void) {  }
 
 typedef char RecoveredGlobal_80336340_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80336340_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
-void TKeyBoardControl__sub_80336340(Obj_80336340 *arg0) {
+void update_title_idle_transition(Obj_80336340 *arg0) {
     s32 var_r28;
     TAdMultiChgGameModeGC__sub_8023E834();
     if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) == 0) {
@@ -315,7 +315,7 @@ void TLobby__sub_80336750(void) {
     Tbl_80336750 t = lbl_80477804;
     lbl_805D6D48 = lbl_804EE584;
     TLobby__sub_8023E4B4((void *)t.s[lbl_805D5544], lbl_804EE584);
-    TLobby__sub_800FD6F8(&lbl_804EE58C, 0x20);
+    run_load_callback_table(&lbl_804EE58C, 0x20);
     reset_counter__6TLobbyFv();
     set_current_floor_area(0);
 }

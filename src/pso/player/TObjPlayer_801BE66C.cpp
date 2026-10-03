@@ -12,7 +12,7 @@ void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
 int TFontSmallLobby__sub_801C0228(void*);
 int check_flag_4__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801BE6E4(void* p);
+int clear_flag_4000_callback__10TObjPlayerFPv(void* p);
 int set_flag_4000__10TObjPlayerFPv(void* p);
 int clear_flag_4000__10TObjPlayerFPv(void* p);
 void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v);
@@ -87,7 +87,7 @@ void set_flag_200000__10TObjPlayerFi(s32 arg0) {
 }
 int check_flag_4__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 4); }
 void* set_invisible__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C0228(p); return p; }
-int TObjPlayer__sub_801BE6E4(void* p) { return set_flag_4000__10TObjPlayerFPv(p); }
+int clear_flag_4000_callback__10TObjPlayerFPv(void* p) { return set_flag_4000__10TObjPlayerFPv(p); }
 int set_flag_4000__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8011E204(p, 16384); }
 int clear_flag_4000__10TObjPlayerFPv(void* p) { return set_state_flags__10TObjPlayerFPvUi(p, 16384); }
 void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x3b4) = v; }

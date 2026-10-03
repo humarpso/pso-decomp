@@ -82,7 +82,7 @@ extern Ctx_803E224C *lbl_805D774C;
 void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
 M2C_UNK TObjPlayer__sub_803E20B0();
-void TObjPlayer__sub_803E21B8(void);
+void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2248(void);
 extern const f32 lbl_805E1070;
@@ -93,7 +93,7 @@ M2C_UNK TObjPlayer__sub_803E2468(int arg0);
 void GXBegin(int, int, u16);
 M2C_UNK TObjPlayer__sub_803E20B0();
 void setup_render__10TObjPlayerFv(void);
-void TObjPlayer__sub_803E2224(void);
+void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 void load_context_texture_obj(void);
 extern const f32 lbl_805E1078;
@@ -102,13 +102,13 @@ void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode);
 
 extern "C" {
 
-void TObjPlayer__sub_803E21B8(void);
+void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void setup_render__10TObjPlayerFv(void);
-void TObjPlayer__sub_803E2224(void);
+void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
 
-void TObjPlayer__sub_803E21B8(void) {
+void setup_opaque_color_draw(void) {
     TObjPlayer__sub_803E24E0();
     setup_vertex_format__10TObjPlayerFv();
 }
@@ -123,7 +123,7 @@ void setup_render__10TObjPlayerFv(void) {
     setup_vtx_desc__10TObjPlayerFv();
 }
 
-void TObjPlayer__sub_803E2224(void) {
+void setup_blended_textured_draw(void) {
     TObjPlayer__sub_803E2504();
     setup_vtx_desc__10TObjPlayerFv();
 }
@@ -268,7 +268,7 @@ void TObjPlayer__sub_803E26A4(Vtx_803E26A4 *v, s32 n, s32 mode) {
     if (mode != 0) {
         TObjPlayer__sub_803E21DC();
     } else {
-        TObjPlayer__sub_803E21B8();
+        setup_opaque_color_draw();
     }
     GXBegin(0x98, 4, n);
     for (; n > 0; n--) {
@@ -302,7 +302,7 @@ void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode) {
     u32 c;
     TObjPlayer__sub_803E20B0();
     if (mode != 0) {
-        TObjPlayer__sub_803E2224();
+        setup_blended_textured_draw();
     } else {
         setup_render__10TObjPlayerFv();
     }

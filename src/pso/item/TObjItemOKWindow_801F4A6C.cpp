@@ -27,7 +27,7 @@ s32 TObjItemOKWindow__sub_801F3268(void);
 s32 fn_801F4C98(void);
 void set_status_flag_80__12TQuestThreadFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TWindowSubComCard__sub_80265C30(void *);
+void align_menu_entry_positions(void *);
 void set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, s32, s32);
 void *init_shop_judgment_window(void *);
@@ -57,7 +57,7 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
     self->win60 = init_shop_judgment_window(get_window_layout_position(0x57));
     if (self->win60 != NULL) {
         set_scroll_target__17TWindowSubComCardFPvff(self->win60, lbl_805DC4E0, lbl_805DC4E4);
-        TWindowSubComCard__sub_80265C30(self->win60);
+        align_menu_entry_positions(self->win60);
     }
     self->win5C = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x56), 1);
     if (self->win5C != NULL) {
@@ -71,7 +71,7 @@ Self_801F4B10 *TObjItemOKWindow__ct(Self_801F4B10 *self, void *parent) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(self->win5C, self->buf, 0x81, 0);
     }
     set_scroll_target__17TWindowSubComCardFPvff(self->win5C, lbl_805DC4EC, lbl_805DC4F0);
-    TWindowSubComCard__sub_80265C30(self->win5C);
+    align_menu_entry_positions(self->win5C);
     set_status_flag_80__12TQuestThreadFPv(self->win5C);
     pos.x = lbl_805DC4F4;
     pos.y = lbl_805DC4F8;

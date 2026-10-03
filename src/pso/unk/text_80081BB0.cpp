@@ -78,7 +78,7 @@ extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D9390;
 extern const f32 lbl_805D9394;
-void TObjPlayer__sub_80081EA4(u8 *arg0);
+void freeze_shell_draw(u8 *arg0);
 }
 
 extern "C" {
@@ -171,7 +171,7 @@ void freeze_shell_update(void *arg0) {
         return;
     }
 }
-void TObjPlayer__sub_80081EA4(u8 *arg0) {
+void freeze_shell_draw(u8 *arg0) {
     s32 ok;
     VObj_80081EA4 *p;
     ok = 1;

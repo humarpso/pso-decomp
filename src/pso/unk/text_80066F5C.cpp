@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK apply_single_screen_state__6TSceneFv();
 M2C_UNK render_projected_shadow_receiver(void *, void *);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
+M2C_UNK rotate_matrix_by_node_angles(void *, int);
 int push_matrix(void);
 int pop_matrix(void);
 M2C_UNK scale_current_matrix(void *);
@@ -28,7 +28,7 @@ void TObjPlayer__sub_80066F5C(u8 *arg0) {
     if (arg0 != NULL) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 8));
-        TObjPlayer__sub_803D99F8((void *) (arg0 + 0x14), (int) (1));
+        rotate_matrix_by_node_angles((void *) (arg0 + 0x14), (int) (1));
         scale_current_matrix((void *) (arg0 + 0x20));
         if (!(M2C_FIELD(arg0, s32 *, 0) & 8) && ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U)) {
             render_projected_shadow_receiver((void *) (arg0 + 8), (void *) (arg0 + 0x14));

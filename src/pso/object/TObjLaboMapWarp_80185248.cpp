@@ -18,7 +18,7 @@ s32 get_window_layout_position(s32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 void TObjLaboMapWarp__sub_80185400(u8 *arg0);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
-M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK align_menu_entry_positions(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 extern RecoveredGlobal_80185428_lbl_80444878 lbl_80444878;
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
@@ -127,7 +127,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag_40__16TAdChrSelASlotGCFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
-        TWindowSubComCard__sub_80265C30((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
+        align_menu_entry_positions((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
     }
 }
 #pragma pop

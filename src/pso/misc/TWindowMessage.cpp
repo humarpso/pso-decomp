@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
@@ -34,7 +34,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 
 void render__14TWindowMessageFv(s32 arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }

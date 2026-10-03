@@ -19,7 +19,7 @@ void TCameraCtrl__sub_801E317C(s32 mode, Rect_801E317C *r);
 
 extern "C" {
 
-void TCameraCtrl__sub_801E32E4(void);
+void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
 int TObjPlayer__sub_803E2810(void*, void*, void*);
 
@@ -59,6 +59,6 @@ void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1) {
     lbl_805D358C = farg1;
 }
 
-void TCameraCtrl__sub_801E32E4(void) {  }
+void camera_renderer_setup_nop(void) {  }
 
 }

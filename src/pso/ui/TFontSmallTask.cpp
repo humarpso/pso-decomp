@@ -395,7 +395,7 @@ extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
 void TLobby__sub_800FD764(void);
 void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size);
 s32 is_area_transfer_pending(void);
-s32 TLobby__sub_800FD6F8(Ent_800FD6F8 *p, u32 size);
+s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c();
 s32 get_game_mode__6TLobbyFv();
@@ -477,7 +477,7 @@ void TLobby__sub_800FD6A0(Ent_800FD6A0 *arr, u32 size) {
     }
 }
 
-s32 TLobby__sub_800FD6F8(Ent_800FD6F8 *p, u32 size) {
+s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size) {
     s32 n = size / sizeof(Ent_800FD6F8);
     while (n > 0) {
         if (is_area_transfer_pending() != 0) {

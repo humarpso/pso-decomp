@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_80124C64(void *arg0);
-void TObjPlayer__sub_80124C78(u8 *arg0);
+void increment_burst_counter(u8 *arg0);
 void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1);
 s32 get_anim_state__10TObjPlayerFPv(void* p);
 void __dl__7TObjectFPv(void *);
@@ -32,7 +32,7 @@ void TObjPlayer__sub_80124C64(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80124C78(u8 *arg0) {
+void increment_burst_counter(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + 1);
 }
 

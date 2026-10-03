@@ -565,7 +565,7 @@ void reset__14TItemEquipBaseFPv(void* p);
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3);
 void update_equip__14TItemEquipBaseFPv(void *arg0);
 void update_with_player__14TItemEquipBaseFi(s32 arg0);
-M2C_UNK TItemData__sub_8010B7F8(void *, void *);
+M2C_UNK subtract_s16_stat(void *, void *);
 s32 TItemLoad__sub_801103F4(s16);
 s32 TObjPlayer__sub_800194E8(void *);
 s8 TObjPlayer__sub_80102C30();
@@ -772,7 +772,7 @@ void deduct_cap_excess__14TItemEquipBaseFiPvs(s32 unused, s16 *arg1, s16 arg2) {
 
 void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3) {
     if (arg1 != 0) {
-        TItemData__sub_8010B7F8((void *) (arg1), (void *) (get_id__10TObjPlayerFPv((void *) (arg0 + 0x11C))));
+        subtract_s16_stat((void *) (arg1), (void *) (get_id__10TObjPlayerFPv((void *) (arg0 + 0x11C))));
         fn_8010B7E8((void *) (arg1), (void *) (get_level__10TObjPlayerFPv((void *) (arg0 + 0x11C))));
         fn_8010B7D8((void *) (arg1), (void *) (TObjPlayer__sub_800194E8((void *) (arg0 + 0x11C))));
     }

@@ -24,12 +24,12 @@ struct Pair_801F68FC { s32 a; s32 b; };
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 TMCFormatSequence__sub_802693B4();
+s32 is_message_window_ready();
 extern s8 lbl_8050E208[];
 void TMCFormatSequence__sub_801F65C4(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 TMCFormatSequence__sub_802693B4();
+s32 is_message_window_ready();
 extern s8 lbl_8050E208[];
 void TMCFormatSequence__sub_801F6640(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
@@ -79,7 +79,7 @@ void TMCFormatSequence__sub_801F65C4(void *arg0) {
     M2C_UNK (*temp_r12)(void *);
     void *self = arg0;
     arg0 = M2C_FIELD(arg0, void **, 0x34);
-    if (arg0 == NULL || ((TMCFormatSequence__sub_802693B4() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
+    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
         temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x20);
         if (temp_r12 != NULL) {
             temp_r12(self);
@@ -92,7 +92,7 @@ void TMCFormatSequence__sub_801F6640(void *arg0) {
     M2C_UNK (*temp_r12)(void *);
     void *self = arg0;
     arg0 = M2C_FIELD(arg0, void **, 0x34);
-    if (arg0 == NULL || ((TMCFormatSequence__sub_802693B4() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
+    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
         temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x1C);
         if (temp_r12 != NULL) {
             temp_r12(self);

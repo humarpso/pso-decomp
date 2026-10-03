@@ -11,7 +11,7 @@ void destroy_owned_object__10TObjPlayerFPv(void* p);
 void init_battle__10TObjPlayerFi(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 int sync_current_floor__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_801AFF80(void*);
+int sync_current_area__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801B1A84(void *);
 M2C_UNK TObjPlayer__sub_801BC8F0();
 void TObjPlayer__sub_801BCA0C(void);

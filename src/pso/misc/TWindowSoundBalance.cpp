@@ -58,7 +58,7 @@ u8 *get_player_by_client_id();
 M2C_UNK get_width__11TWindowCtrlFPv();
 M2C_UNK draw_right_aligned_number(void *);
 M2C_UNK set_status_entry_target(void *, s32);
-s32 fn_8026F8CC(void *);
+s32 update_hp_entry__20TWindowSubStatusDispFPv(void *);
 extern const f32 lbl_805DD430;
 void TWindowSubStatusDisp__sub_80270F14(u8 *arg0);
 }
@@ -200,7 +200,7 @@ void TWindowSubStatusDisp__sub_80270F14(u8 *arg0) {
         d = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 8);
         M2C_FIELD(b, s32 *, 0x20) = get_field_2b8__14TItemProShieldFPv(pl);
         M2C_FIELD(a, s32 *, 0x20) = M2C_FIELD(pl, s16 *, 0x32C);
-        v = fn_8026F8CC(arg0);
+        v = update_hp_entry__20TWindowSubStatusDispFPv(arg0);
         M2C_FIELD(a, s32 *, 0x1C) = v;
         M2C_FIELD(c, s32 *, 0x24) = v;
         M2C_FIELD(b, s32 *, 0x1C) = v;

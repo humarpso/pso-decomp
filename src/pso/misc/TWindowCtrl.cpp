@@ -308,7 +308,7 @@ extern "C" {
 
 void init_all_slots__11TWindowCtrlFv(void);
 void init_all_slots2__11TWindowCtrlFv(void);
-int TWindowCtrl__sub_8024AEAC(s32);
+int suppress_slot__11TWindowCtrlFi(s32);
 int unsuppress_slot__11TWindowCtrlFi(s32);
 
 void init_all_slots__11TWindowCtrlFv(void) {
@@ -316,7 +316,7 @@ void init_all_slots__11TWindowCtrlFv(void) {
 
     var_r31 = 0;
     do {
-        TWindowCtrl__sub_8024AEAC(var_r31);
+        suppress_slot__11TWindowCtrlFi(var_r31);
         var_r31 += 1;
     } while (var_r31 < 0xC);
 }
@@ -1129,9 +1129,9 @@ void show_active_window__11TWindowCtrlFPv(void *arg0) {
 extern "C" {
 
 int TWindowCtrl__sub_8024DAAC(void*);
-int TWindowCtrl__sub_8024DAC4(void*);
+int update_short_list_request__11TWindowCtrlFPv(void*);
 int show_active_window__11TWindowCtrlFPv(void*);
-int TWindowCtrl__sub_8024DCE8(void*);
+int update_main_menu_request__11TWindowCtrlFPv(void*);
 int update_target_info_window__11TWindowCtrlFPv(void* a0 = 0);
 int TWindowCtrl__sub_8024DF5C(void* a0 = 0);
 int TWindowCtrl__sub_8024DFF4(void* a0 = 0);
@@ -1140,7 +1140,7 @@ void run_all_updates__11TWindowCtrlFPv(void* p);
 void run_task__17TWindowCtrlPlayerFv(void* p);
 void render__17TWindowCtrlPlayerFv(void);
 
-void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4(p); TWindowCtrl__sub_8024DF5C(p); update_target_info_window__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024DCE8(p); show_active_window__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024DAC4(p); TWindowCtrl__sub_8024DAAC(p); }
+void run_all_updates__11TWindowCtrlFPv(void* p) { TWindowCtrl__sub_8024DFF4(p); TWindowCtrl__sub_8024DF5C(p); update_target_info_window__11TWindowCtrlFPv(p); update_main_menu_request__11TWindowCtrlFPv(p); show_active_window__11TWindowCtrlFPv(p); update_short_list_request__11TWindowCtrlFPv(p); TWindowCtrl__sub_8024DAAC(p); }
 
 }
 #endif

@@ -20,9 +20,9 @@ M2C_UNK TCameraCtrl__ct(u32, void *);
 M2C_UNK reset_keyboard_state__6TLobbyFv();
 s32 is_area_transfer_pending();
 M2C_UNK clear_callback_and_reset_keyboard__6TLobbyFv();
-M2C_UNK TLobby__sub_800F8B20();
+M2C_UNK apply_phase_keyboard_mode();
 M2C_UNK invoke_callback__6TLobbyFv();
-M2C_UNK TLobby__sub_800FD6F8(void *, int);
+M2C_UNK run_load_callback_table(void *, int);
 M2C_UNK init_menu_scene_lights(void *, int);
 M2C_UNK reset_controller_input_state();
 M2C_UNK set_copy_clear_color_argb(int, int, int);
@@ -257,8 +257,8 @@ void TLogo__sub_8013F6C4(void) {
     select_active_controller__11TCameraCtrlFc(9);
     set_active_camera_pose(&a, &b);
     TKeyBoardControl__sub_8000F90C(1);
-    TLobby__sub_800F8B20();
-    TLobby__sub_800FD6F8(lbl_804A72D8, sizeof(lbl_804A72D8));
+    apply_phase_keyboard_mode();
+    run_load_callback_table(lbl_804A72D8, sizeof(lbl_804A72D8));
     if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();

@@ -11,7 +11,7 @@ void TLobby__sub_80191270(void);
 void TObjHashiVersus2__sub_801912A4(void);
 void TObjHashiVersus2__sub_801912B0(void);
 void *create_npc__6TLobbyFPv(void *arg0);
-void fn_8019127C(register M2C_UNK r3);
+void set_player_quest_control_flag(register M2C_UNK r3);
 void *TLobby__sub_8019118C(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(M2C_UNK, M2C_UNK);
@@ -32,7 +32,7 @@ void TLobby__sub_80191264(void) { lbl_805D3360 = -1; }
     extern int lbl_805D3360;
 void TLobby__sub_80191270(void) { lbl_805D3360 = -1; }
 
-void fn_8019127C(register M2C_UNK r3) {
+void set_player_quest_control_flag(register M2C_UNK r3) {
     set_state_flags__10TObjPlayerFPvUi(r3, 0x8000);
 }
 

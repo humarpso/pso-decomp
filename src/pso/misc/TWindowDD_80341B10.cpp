@@ -43,7 +43,7 @@ extern const f32 TWindowDD__data_805DFB20;
 extern const float TWindowDD__data_805DFCA8;
 void TWindowDD__sub_80341B28(u8 *arg0);
 int TWindowDD__sub_80342158(u8 *arg0);
-M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+M2C_UNK init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
 void TWindowDD__sub_80341F9C(u8 *arg0);
 extern const f32 TWindowDD__data_805DFB20;
@@ -195,7 +195,7 @@ void init_child__9TWindowDDFPvPv(void* p, void* a1) { free_child__9TWindowDDFPv(
 typedef char RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
 void TWindowDD__sub_80341F9C(u8 *arg0) {
     M2C_FIELD(&TWindowDD__data_804EFC50.value, s32 *, 4) = (s32) M2C_FIELD(arg0, s32 *, 0x78);
-    TWindowSubStatusDisp__sub_80257D44((void *) (arg0 + 0x24), (void *) (&TWindowDD__data_804EFC50.value), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
+    init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&TWindowDD__data_804EFC50.value), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
 }
 
 void reset_fields__9TWindowDDFPv(void* a0) { *(float*)((char*)a0 + 0x88) = TWindowDD__data_805DFCA8; *(float*)((char*)a0 + 0x84) = TWindowDD__data_805DFCA8; *(int*)((char*)a0 + 0x68) = 0; *(int*)((char*)a0 + 0x6c) = 0; *(int*)((char*)a0 + 0x8c) = 1; }

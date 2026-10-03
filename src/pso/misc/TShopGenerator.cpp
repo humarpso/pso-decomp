@@ -79,7 +79,7 @@ void TShopGenerator__sub_8021E1FC(void);
 s32 obj_getField1c(s32);
 s32 TShopGenerator__sub_80222DAC(s32);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
-s32 TShopGenerator__sub_8021DD38(void *self, s32 player);
+s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player);
 s32 obj_getField1c(s32);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_instance__15TAdPlayerLoadGCFv(void);
@@ -91,7 +91,7 @@ s32 get_player_by_client_id(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TMedicalCenterMes__sub_80216084(s32);
 bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 farg0);
-s32 TShopGenerator__sub_8021DD38(void *self, s32 player);
+s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player);
 u8 TShopGenerator__sub_8021E110(s32 arg0);
 s32 TShopGenerator__sub_80222DAC(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
@@ -152,7 +152,7 @@ bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 
 }
 #pragma pop
 
-s32 TShopGenerator__sub_8021DD38(void *self, s32 player) {
+s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player) {
     s32 i;
     s32 (*fn)(u16);
     for (i = 0; i < 7; i++) {
@@ -206,7 +206,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
         if (TMedicalCenterMes__sub_80216084(obj_getField1c(q)) == 1) return;
         if (is_flag_400_set__10TObjPlayerFPv(q) == 1) return;
         if (check_flag_100__10TObjPlayerFPv(q) == 1) return;
-        if (TShopGenerator__sub_8021DD38(self, q) == 0) return;
+        if (is_no_service_active__14TShopGeneratorFPvi(self, q) == 0) return;
         fn2 = e->f10;
         if (fn2(TShopGenerator__sub_80222DAC(obj_getField1c(q))) == 1) return;
         if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPvPvf)(self, (u8 *)q, lbl_805DC6EC) == 0) return;

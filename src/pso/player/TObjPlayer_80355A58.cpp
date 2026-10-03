@@ -10,7 +10,7 @@ struct RecoveredGlobal_80355BA0_lbl_804F1320 {
 };
 
 extern "C" {
-void TObjPlayer__sub_801012DC(void *, s32);
+void send_6x61_activate_mag_effect(void *, s32);
 s32 get_sub_value__8TItemMagFi(s32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void update_active_game_effect__10TObjPlayerFPv(void *);
@@ -55,7 +55,7 @@ void TObjPlayer__sub_80355AE0(u8 *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
         temp_r3 = get_sub_value__8TItemMagFi(M2C_FIELD(arg0, s32 *, 0xF0));
         if (temp_r3 >= 0x14) {
-            TObjPlayer__sub_801012DC(arg0, temp_r3);
+            send_6x61_activate_mag_effect(arg0, temp_r3);
             return;
         }
         update_active_game_effect__10TObjPlayerFPv(arg0);

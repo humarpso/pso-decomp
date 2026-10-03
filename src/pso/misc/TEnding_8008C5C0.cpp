@@ -11,7 +11,7 @@ void select_active_controller__11TCameraCtrlFc(s8 arg0);
 void TCameraCtrl__ct(void *, void *);
 void __ct__7TEndingFv(void *);
 void clear_resource_load_tasks(void);
-void TLobby__sub_800FD6F8(void *, int);
+void run_load_callback_table(void *, int);
 void init_map_lights(void *);
 void reset_controller_input_state(void);
 void set_copy_clear_color_argb(int, int, int);
@@ -19,7 +19,7 @@ int render_tick__Fv(void);
 void create_quad_sprites__13TParticleCtrlFv(void);
 void play_area_music(void *);
 void *__nw__7TObjectFUl(int);
-void TCameraCtrl__sub_803D6688(f32 farg0, f32 farg1);
+void set_screen_size(f32 farg0, f32 farg1);
 extern Vec_8008C5E8 lbl_80439570;
 extern Vec_8008C5E8 lbl_8043957C;
 extern u8 lbl_80439588[];
@@ -41,7 +41,7 @@ void set_flag_and_advance__7TEndingFv() {
 
 int TEnding__sub_8008C5E8() {
     void *p;
-    TCameraCtrl__sub_803D6688(lbl_805D9570, lbl_805D9574);
+    set_screen_size(lbl_805D9570, lbl_805D9574);
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     init_map_lights(lbl_804A6F34);
@@ -54,7 +54,7 @@ int TEnding__sub_8008C5E8() {
     select_active_controller__11TCameraCtrlFc(9);
     set_active_camera_pose(&a, &b);
     clear_resource_load_tasks();
-    TLobby__sub_800FD6F8(lbl_8048E7C0, 0x68);
+    run_load_callback_table(lbl_8048E7C0, 0x68);
     TKeyBoardControl__sub_8000F90C(2);
     TKeyBoardControl__sub_8000F91C(2);
     play_area_music(lbl_80439588);

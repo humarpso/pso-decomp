@@ -8,7 +8,7 @@ struct RecoveredGlobal_80251BA0_lbl_804CF080
 };
 
 extern "C" {
-M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+M2C_UNK init_window_layout_entries(void *, void *, int);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 play_sound_effect(int, int, int, int);
@@ -40,7 +40,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   {
     *((u8 *) (((s8 *) arg0) + 0x72)) = 0U;
     TWindowSubStatusDisp__sub_80257CB8((void *) (arg0 + 0x24));
-    TWindowSubStatusDisp__sub_80257D44((void *) (arg0 + 0x24), (void *) (&lbl_804CF080.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
+    init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&lbl_804CF080.value), (int) (*((s16 *) (((s8 *) arg0) + 0x20))));
   }
   temp_r3 = (u8 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
   if (arg2 & 1)

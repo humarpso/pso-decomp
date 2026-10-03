@@ -48,7 +48,7 @@ s32 DCFlushRange(s32, s32);
 s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
 void deform_indirect_texture_scroll(s32, s32, s32, s32, s32);
 s32 get_indirect_source_pixels(u8);
-void TEffIndirectCtrl__sub_802A8728(Ctrl_802A8728 *self);
+void update_scroll_mode__16TEffIndirectCtrlFPv(Ctrl_802A8728 *self);
 void GXSetIndTexMtx(s32, f32 (*)[3], s32);
 void Dolphin_GXSetIndTexCoordScale(s32, s32, s32);
 void Dolphin_GXSetIndTexOrder(s32, s32, s32);
@@ -168,7 +168,7 @@ s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
     }
 }
 
-void TEffIndirectCtrl__sub_802A8728(Ctrl_802A8728 *self) {
+void update_scroll_mode__16TEffIndirectCtrlFPv(Ctrl_802A8728 *self) {
     s32 rate;
     copy_and_flush_texture__16TEffIndirectCtrlFPvi(self, get_indirect_source_pixels(self->index));
     rate = (s32) self->rate;

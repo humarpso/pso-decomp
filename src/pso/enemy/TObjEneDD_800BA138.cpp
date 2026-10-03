@@ -84,7 +84,7 @@ void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B684;
 void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
-void TObjEneDD__sub_800BA3D8(s32 arg0, u8 *arg1);
+void inflict_poison__9TObjEneDDFiPv(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B674;
 void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1);
 void TObjEneDD__vt90(O_800BA1C8 *self);
@@ -215,7 +215,7 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1) {
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
-void TObjEneDD__sub_800BA3D8(s32 arg0, u8 *arg1) {
+void inflict_poison__9TObjEneDDFiPv(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;

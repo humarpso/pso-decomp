@@ -47,7 +47,7 @@ u32 start_sound_fx(u16, u8, u8, u8, Params_80240B64 *);
 u32 TLobby__sub_803AA2B8(u32);
 extern s8 TLobby__data_805434A8[];
 extern s32 TLobby__data_805D5E24;
-s32 TLobby__sub_80240B64(SoundRequestVoice *v);
+s32 tick_sound_voice(SoundRequestVoice *v);
 }
 
 extern "C" {
@@ -71,7 +71,7 @@ s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 
-s32 TLobby__sub_80240B64(SoundRequestVoice *v) {
+s32 tick_sound_voice(SoundRequestVoice *v) {
     Params_80240B64 params;
     Ctl_80240B64 ctl[6];
     s32 level;

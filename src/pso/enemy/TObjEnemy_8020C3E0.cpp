@@ -40,7 +40,7 @@ s32 mask_sub_flags__9TObjEnemyFPvi(void *arg0, s32 arg1) {
     return 0;
 }
 
-s32 fn_8020C408(void *arg0, s32 arg1) {
+s32 set_event_source_flag(void *arg0, s32 arg1) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x80);

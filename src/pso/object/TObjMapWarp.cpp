@@ -72,7 +72,7 @@ s32 create_window_menu(s32, s32, s32);
 s32 get_window_layout_position(s32);
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
-M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK align_menu_entry_positions(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
 void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1);
 void *TObjWarpBase__ct(void *, void *, void *);
@@ -146,7 +146,7 @@ void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1) {
         M2C_FIELD(temp_r31, u32 *, 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
         TWindowSubTradeMain__sub_80266200(M2C_FIELD(temp_r31, u32 *, 0xEC), get_localized_text_entry(9, 0x25), 2, 0, -1);
         TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
-        TWindowSubComCard__sub_80265C30((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
+        align_menu_entry_positions((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag_40__16TAdChrSelASlotGCFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
     }

@@ -14,7 +14,7 @@ union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803E2224();
+M2C_UNK setup_blended_textured_draw();
 void begin_screen_draw(s32 arg0);
 s32 load_list_texture(void *, int, int, int);
 extern s32 lbl_805D77B0;
@@ -41,7 +41,7 @@ M2C_UNK TObjPlayer__sub_803E2248();
 void begin_screen_draw(s32 arg0) {
     TObjPlayer__sub_803E20B0();
     if (arg0 != 0) {
-        TObjPlayer__sub_803E2224();
+        setup_blended_textured_draw();
         return;
     }
     setup_render__10TObjPlayerFv();

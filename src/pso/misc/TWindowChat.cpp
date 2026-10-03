@@ -24,7 +24,7 @@ u8 get_input_mode__11TWindowChatFPv(void* p);
 s32 get_player_by_client_id(s32);
 void TWindowChat__sub_8024792C(void *);
 int TWindowChat__sub_80247DAC(void* p);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK end_player_keyboard_hold(s32);
 void *TWindowKeyBoardBase__ct(void *);
 void *TWindowKeyBoardHard__ct(void *, void *);
 int get_selected_menu_value(void*);
@@ -74,7 +74,7 @@ void *__dt__11TWindowChatFv(void *arg0, s16 arg1) {
             if (!(M2C_FIELD(arg0, u16 *, 0x1E) & 2)) {
                 if (is_mode_bit6__11TWindowChatFPv((void *)(arg0)) != 0) {
                     init_parts__10TObjPlayerFPv(temp_r3);
-                    TWindowChat__sub_8024AD30(lbl_805D53A0);
+                    end_player_keyboard_hold(lbl_805D53A0);
                 }
             }
         }

@@ -16,17 +16,17 @@ void warp_boss_handle_window(void *arg0);
 void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 u32 TObjWarpBossMulti__sub_8019E570(f32);
 s32 get_player_by_client_id(s32);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
-M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
+M2C_UNK end_player_keyboard_hold(s32);
+M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TWindow__close(void *);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK, M2C_UNK);
 M2C_UNK clear_flag__11TWindowCtrlFv();
-M2C_UNK fn_8024ACEC(s32);
+M2C_UNK begin_player_keyboard_hold(s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK obj_clear_flag30_20000(s32);
 M2C_UNK obj_set_flag_20000(s32);
@@ -95,18 +95,18 @@ void warp_boss_handle_window(void *arg0) {
                     TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), get_message_10__20TWindowSubStatusDispFPv(0x40), 0, 0, -1);
                     set_flag_40__16TAdChrSelASlotGCFPv(M2C_FIELD(arg0, u32 *, 0xB0));
                     TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0xB0));
-                    TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0xB0));
+                    align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));
                 }
-                fn_8024ACEC(lbl_805D53A0);
+                begin_player_keyboard_hold(lbl_805D53A0);
                 request_active_window_close();
-                TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
+                suppress_slot__11TWindowCtrlFi(lbl_805D53A0);
             }
         } else {
             if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
                 TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
                 M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
             }
-            TWindowChat__sub_8024AD30(lbl_805D53A0);
+            end_player_keyboard_hold(lbl_805D53A0);
             clear_flag__11TWindowCtrlFv();
             unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         }
@@ -119,7 +119,7 @@ void warp_boss_handle_window(void *arg0) {
             TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
             M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
         }
-        TWindowChat__sub_8024AD30(lbl_805D53A0);
+        end_player_keyboard_hold(lbl_805D53A0);
         clear_flag__11TWindowCtrlFv();
         unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         break;

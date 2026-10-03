@@ -34,7 +34,7 @@ void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
 void TObjPlayer__sub_803E20B0(void);
-void TObjPlayer__sub_803E21B8(void);
+void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void reset_line_width(void);
@@ -44,7 +44,7 @@ void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void GXSetLineWidth(s32, s32);
 void load_camera_view_matrix(void);
-void TObjPlayer__sub_803E21B8(void);
+void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 extern int lbl_805D3580;
 void draw_line_list(Lines_801E341C *l, s32 n, u32 flags);
@@ -53,9 +53,9 @@ void TObjPlayer__sub_801E3F24(u32);
 void TObjPlayer__sub_801E3F30(f32, f32, f32);
 void GXBegin(s32, s32, u16);
 void TObjPlayer__sub_803E20B0(void);
-void TObjPlayer__sub_803E21B8(void);
+void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
-void TObjPlayer__sub_803E2224(void);
+void setup_blended_textured_draw(void);
 void setup_render__10TObjPlayerFv(void);
 void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -68,7 +68,7 @@ extern "C" {
 
 void reset_line_width(void);
 void set_line_width(int a0);
-void TCameraCtrl__sub_801E32E4(void);
+void camera_renderer_setup_nop(void);
 int TObjPlayer__sub_803DAD28(void*);
 int TObjPlayer__sub_803E2810(void*, void*, void*);
 
@@ -80,7 +80,7 @@ void fn_801E3330(Lines_801E3330 *l, s32 n, s32 flags, f32 scale) {
     if (flags & 4) {
         TObjPlayer__sub_803E21DC();
     } else {
-        TObjPlayer__sub_803E21B8();
+        setup_opaque_color_draw();
     }
     GXSetLineWidth(0xC, 0);
     if (flags & 0x10) {
@@ -104,7 +104,7 @@ void draw_line_list(Lines_801E341C *l, s32 n, u32 flags) {
     if (flags & 4) {
         TObjPlayer__sub_803E21DC();
     } else {
-        TObjPlayer__sub_803E21B8();
+        setup_opaque_color_draw();
     }
     GXSetLineWidth((u8)lbl_805D3580, 0);
     if (flags & 0x10) {
@@ -185,14 +185,14 @@ void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f3
     tex = flags & 8;
     if (tex) {
         if (flags & 4) {
-            TObjPlayer__sub_803E2224();
+            setup_blended_textured_draw();
         } else {
             setup_render__10TObjPlayerFv();
         }
     } else if (flags & 4) {
         TObjPlayer__sub_803E21DC();
     } else {
-        TObjPlayer__sub_803E21B8();
+        setup_opaque_color_draw();
     }
     GXBegin(0xA0, 4, count);
     pts = self->verts;

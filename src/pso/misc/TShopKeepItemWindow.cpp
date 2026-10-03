@@ -76,7 +76,7 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 get_field_d8__10TObjPlayerFPv(s32);
 M2C_UNK get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
 s32 store_item_in_bank(void *, s32, s32);
-M2C_UNK TCheckRoomSequence__sub_8021118C(s32);
+M2C_UNK copy_bank_to_card_window(s32);
 M2C_UNK TShopWindowBase__sub_8022397C(void *);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TWindow__close(void *);
@@ -168,7 +168,7 @@ void handle_deposit_confirm__19TShopKeepItemWindowFv(void *arg0) {
             i = select_cursor_entry__6TLobbyFPv(self->f384);
             if (store_item_in_bank(&self->ents[i].f4, self->f378, base) != 0) {
                 get_item_record__23TShopJudgmentItemWindowFPv(self->f24, get_field_d8__10TObjPlayerFPv(self->ents[i].f0), self->f378);
-                TCheckRoomSequence__sub_8021118C(base);
+                copy_bank_to_card_window(base);
                 play_sound_effect(0x52D01, 0, 0, 0);
                 TWindow__close(self->f388);
                 self->f388 = NULL;

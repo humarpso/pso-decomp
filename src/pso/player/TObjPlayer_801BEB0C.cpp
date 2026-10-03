@@ -29,7 +29,7 @@ int TObjPlayer__sub_8011E204(void*, int);
 int set_state_flags__10TObjPlayerFPvUi(void*, int);
 int unregister_object_by_id(void*);
 s32 get_max_level__10TObjPlayerFv();
-int TObjPlayer__sub_801BE6E4(void* p);
+int clear_flag_4000_callback__10TObjPlayerFPv(void* p);
 void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v);
 s32 get_anim_id__10TObjPlayerFPv(void* p);
 int is_action_active__10TObjPlayerFPv(void* p);

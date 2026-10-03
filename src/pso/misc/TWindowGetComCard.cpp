@@ -56,7 +56,7 @@ void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 s32 get_selected_menu_value(void *);
 void *init_shop_judgment_window(void *);
-s32 TMCFormatSequence__sub_802693B4(void *);
+s32 is_message_window_ready(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
 extern u8 lbl_804CF120[];
 extern Pad_80252CCC lbl_8050E208[];
@@ -111,7 +111,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
     switch (self->state) {
     case 0:
     case 1:
-        if (TMCFormatSequence__sub_802693B4(self->fmt) != 0) {
+        if (is_message_window_ready(self->fmt) != 0) {
             self->state = 2;
         }
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[0].m20, 4) != 0) {

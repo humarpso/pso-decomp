@@ -70,14 +70,14 @@ M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
 M2C_UNK TParticleCtrl__sub_803E2B68(int);
 extern u8 lbl_804C5820[];
 extern u8 *lbl_805D4DF0;
-void TParticleCtrl__sub_80327D30(Obj_80327D30 *o);
+void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o);
 }
 
 extern "C" {
 
 void update_lifetime__13TParticleCtrlFPv(void *arg0);
 
-void TParticleCtrl__sub_80327D30(Obj_80327D30 *o) {
+void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o) {
     Vtx_80327D30 v[4];
     if (o->f40 != NULL && o->f38 != 0) {
         v[0].x = 10.0f * o->w;

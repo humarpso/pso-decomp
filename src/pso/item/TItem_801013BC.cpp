@@ -8,7 +8,7 @@ struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
 extern "C" {
 M2C_UNK get_current_matrix(void *);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
+M2C_UNK rotate_matrix_by_node_angles(void *, void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK scale_current_matrix(void *);
@@ -26,7 +26,7 @@ void TItem__sub_80101514(s32 arg0);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 u32 test_item_flags__10TObjPlayerFPvUi(void *, int);
 s32 has_flag_128__10TObjPlayerFPv(void *);
-u32 TItemData__sub_8010D028(void *, u32, u32);
+u32 calc_action_flags__9TItemDataFv(void *, u32, u32);
 u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kind);
 }
 
@@ -85,7 +85,7 @@ u32 get_usable_action_flags__5TItemFPvUiUi(Player_8010147C *p, u32 mask, u32 kin
     if (kind == 0) {
         kind = p->f_F0;
     }
-    r = TItemData__sub_8010D028(item, mask, kind);
+    r = calc_action_flags__9TItemDataFv(item, mask, kind);
     if (test_item_flags__10TObjPlayerFPvUi(p, 0x200) != 0) {
         r |= 2;
     }
@@ -177,7 +177,7 @@ void draw_model_node_tree(u8 *arg0) {
                 post_translate_matrix((void *) (var_r31 + 8));
             }
             if (!(temp_r30 & 2)) {
-                TObjPlayer__sub_803D99F8((void *) (var_r31 + 0x14), (void *) (temp_r30 & 0x20));
+                rotate_matrix_by_node_angles((void *) (var_r31 + 0x14), (void *) (temp_r30 & 0x20));
             }
             if (!(temp_r30 & 4)) {
                 scale_current_matrix((void *) (var_r31 + 0x20));

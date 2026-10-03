@@ -68,7 +68,7 @@ void TObjPlayer__sub_80128E08(Obj_80128E08 *self);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
-M2C_UNK TObjPlayer__sub_80124C78(int);
+M2C_UNK increment_burst_counter(int);
 s32 get_anim_state__10TObjPlayerFPv(int);
 M2C_UNK TObjPlayer__sub_80128A70();
 void clear_rico_ring_flag__10TObjPlayerFUi(u32);
@@ -88,7 +88,7 @@ void TObjPlayer__sub_80128CE8(u8 *arg0) {
     if (get_anim_state__10TObjPlayerFPv((int) (temp_r31)) == 0) {
         var_r30 = 0;
         do {
-            TObjPlayer__sub_80124C78((int) (temp_r31));
+            increment_burst_counter((int) (temp_r31));
             var_r30 += 1;
         } while (var_r30 != 2);
         set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1FC), (int) (2));

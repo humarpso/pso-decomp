@@ -59,14 +59,14 @@ s32 obj_clear_flag30_20000(void *);
 u32 create__15TFontSmallLobbyFPv(void *);
 s32 init_feed_timer__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
-s32 TKeyBoardControl__sub_801AFCF4(void *, void *);
+s32 set_action_provider_variant__10TObjPlayerFPvs(void *, void *);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 check_flag_800000__10TObjPlayerFPv(void *);
 s32 draw_small_label__15TFontSmallLobbyFi(void *);
 s32 TFontSmallLobby__sub_801C013C(void *);
 s32 request_player_size_restore(void *);
 s32 update_photon_blast_state__10TObjPlayerFv();
-s32 TFontSmallLobby__sub_801D5F08(void *);
+s32 reinit_photon_blast_gauge(void *);
 s32 update_if_ready__15TFontSmallLobbyFPv(void *);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 TObjPlayer__sub_80354E7C();
@@ -87,7 +87,7 @@ void TFontSmallLobby__ct(u8 *arg0) {
     temp_r3 = (u8 *) get_item_field_6__10TObjPlayerFPv(arg0);
     if (temp_r3 != 0)
     {
-      TKeyBoardControl__sub_801AFCF4((void *) arg0, (void *) ((s16) PSO_VCALL_VObj_18_9c7036_m41(temp_r3)));
+      set_action_provider_variant__10TObjPlayerFPvs((void *) arg0, (void *) ((s16) PSO_VCALL_VObj_18_9c7036_m41(temp_r3)));
     }
   }
   if ((is_locally_controlled__10TObjPlayerFPv((void *) arg0) != 0) && (TFontSmallLobby__sub_801AFEE0() == 0))
@@ -96,7 +96,7 @@ void TFontSmallLobby__ct(u8 *arg0) {
     {
       init_feed_timer__8TItemMagFPv((void *) (arg0 + 0x4AC));
     }
-    TFontSmallLobby__sub_801D5F08((void *) (arg0 + 0x4AC));
+    reinit_photon_blast_gauge((void *) (arg0 + 0x4AC));
     update_if_ready__15TFontSmallLobbyFPv((void *) (arg0 + 0x4AC));
     update_photon_blast_state__10TObjPlayerFv();
   }

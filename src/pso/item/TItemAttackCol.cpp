@@ -175,7 +175,7 @@ u8 *get_player_by_client_id(s32);
 f32 calc_photon_blast_charge__10TObjPlayerFv(int, int);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
-s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1);
+s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DE914;
 extern const float lbl_805DE918;
 extern const f32 lbl_805DE924;
@@ -215,7 +215,7 @@ void shift_collision_bounds__14TItemAttackColFPv(void *arg0) {
 
 void TItemAttackCol__vt4(Obj_802E3C4C *o, s32 *a) {
     if (!(o->fE4 & 0x80)) {
-        if (TObjPlayer__sub_802E456C((u8 *)o, (u8 *)a) != 0) {
+        if (resolve_attack_col_hit((u8 *)o, (u8 *)a) != 0) {
             if (o->cb != NULL) {
                 o->cb(o->fAC, a, o->fD0);
             }
@@ -344,7 +344,7 @@ void TObjPlayer__sub_802E451C(S_802E451C *arg0) {
     arg0->f24 = 0;
 }
 
-s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
+s32 resolve_attack_col_hit(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_802E456C, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_802E456C, sp9) == 0x1) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802E456C, spC) == 0x4) ? 1 : -1];

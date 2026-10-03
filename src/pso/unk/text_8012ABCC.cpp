@@ -186,7 +186,7 @@ struct Pl_8012AC68 : PlB_8012AC68 {
 
 extern "C" {
 s32 get_minutes__6TLobbyFv();
-M2C_UNK TObjPlayer__sub_801012DC(void *, int);
+M2C_UNK send_6x61_activate_mag_effect(void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 s32 get_extended_state__10TObjPlayerFPv(int);
@@ -260,7 +260,7 @@ void TObjPlayer__sub_8012AD24(u8 *arg0) {
         if (!((get_minutes__6TLobbyFv() / 100) & 1)) {
             var_r31 = 1;
         }
-        TObjPlayer__sub_801012DC((void *) (arg0), (int) (var_r31));
+        send_6x61_activate_mag_effect((void *) (arg0), (int) (var_r31));
         return;
     }
     draw_status_icon__10TObjPlayerFPvi((void *) (arg0), (void *) (&sp8));

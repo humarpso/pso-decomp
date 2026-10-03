@@ -142,7 +142,7 @@ s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, int a1, int a2, int a3);
 int set_selected_index__17TWindowSubComCardFPvs(void *, s16);
 M2C_UNK TWindowSubComCard__sub_80265E60(void *, f32);
-M2C_UNK TWindowSubComCard__sub_80265C30(void *);
+M2C_UNK align_menu_entry_positions(void *);
 extern u8 lbl_804F3A18[];
 extern const f32 lbl_805D7020;
 M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *arg0, M2C_UNK arg1);
@@ -337,7 +337,7 @@ M2C_UNK TAdMultiChgGameModeGC__sub_8036E2AC(void *arg0, M2C_UNK arg1) {
             set_selected_index__17TWindowSubComCardFPvs(self->win, 0);
         }
         TWindowSubComCard__sub_80265E60(self->win, lbl_805D7020);
-        TWindowSubComCard__sub_80265C30(self->win);
+        align_menu_entry_positions(self->win);
     }
 }
 #undef self

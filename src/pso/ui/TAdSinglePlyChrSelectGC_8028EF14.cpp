@@ -122,7 +122,7 @@ extern u32 lbl_805D6520;
 extern int lbl_805D6534;
 extern u32 lbl_805D6538;
 extern E_8028F210 *lbl_805D6540;
-void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0);
+void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 extern s32 lbl_804D3FAC[];
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend lbl_8051D268;
@@ -347,7 +347,7 @@ s32 scan_creation_resources(void *arg0) {
     return 1;
 }
 
-void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
+void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     u32 v;
     begin_effect_render__13TParticleCtrlFv();
     if (scan_creation_resources((void *)(arg0)) == 0) {
@@ -393,7 +393,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
 
 void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0) {
     if ((s32) lbl_805D6530 != 0) {
-        TAdSinglePlyChrSelectGC__sub_8028FD90((u8 *)(_w0));
+        draw_creation_figure__23TAdSinglePlyChrSelectGCFPv((u8 *)(_w0));
     }
 }
 

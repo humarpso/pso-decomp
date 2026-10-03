@@ -59,8 +59,8 @@ void close_all_children__11TWindowChatFPv(void *arg0);
 void TWindowChat__sub_8024792C(u8 *arg0);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
 s32 TWindowChat__sub_80247EC0(void *);
-M2C_UNK fn_8024ACEC(void *);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK begin_player_keyboard_hold(void *);
+M2C_UNK end_player_keyboard_hold(s32);
 s32 TWindowChat__sub_8025CB10(int);
 s32 TWindowChat__sub_8025CB70(void *);
 extern RecoveredGlobal_8024775C_lbl_8050E208 lbl_8050E208;
@@ -79,7 +79,7 @@ s32 TWindowChat__sub_80247080(void *);
 s32 TWindowChat__sub_80247128(void *);
 s32 submit_keyboard_input__11TWindowChatFPv(void *);
 s32 TWindowChat__sub_80247EC0(void *);
-M2C_UNK TWindowChat__sub_8024AD30(s32);
+M2C_UNK end_player_keyboard_hold(s32);
 M2C_UNK handle_dpad_shortcuts__11TWindowChatFPv(void *);
 M2C_UNK TWindow__close(void *);
 M2C_UNK init_parts__10TObjPlayerFPv(s32);
@@ -126,7 +126,7 @@ void handle_input__11TWindowChatFPv(void *arg0) {
                 if ((submit_keyboard_input__11TWindowChatFPv(arg0) != 0) && (TWindowChat__sub_80247EC0(arg0) != 0)) {
                     if (is_mode_bit6__11TWindowChatFPv(arg0) != 0) {
                         init_parts__10TObjPlayerFPv(temp_r3);
-                        TWindowChat__sub_8024AD30(lbl_805D53A0);
+                        end_player_keyboard_hold(lbl_805D53A0);
                     }
                     close_all_children__11TWindowChatFPv((void *)((void *)(arg0)));
                     M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 2);
@@ -137,7 +137,7 @@ void handle_input__11TWindowChatFPv(void *arg0) {
                 if ((TWindowChat__sub_80247128(arg0) != 0) && (TWindowChat__sub_80247EC0(arg0) != 0)) {
                     if (is_mode_bit6__11TWindowChatFPv(arg0) != 0) {
                         init_parts__10TObjPlayerFPv(temp_r3);
-                        TWindowChat__sub_8024AD30(lbl_805D53A0);
+                        end_player_keyboard_hold(lbl_805D53A0);
                     }
                     close_all_children__11TWindowChatFPv((void *)((void *)(arg0)));
                     M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 2);
@@ -148,7 +148,7 @@ void handle_input__11TWindowChatFPv(void *arg0) {
                 if ((TWindowChat__sub_80247080(arg0) != 0) && (TWindowChat__sub_80247EC0(arg0) != 0)) {
                     if (is_mode_bit6__11TWindowChatFPv(arg0) != 0) {
                         init_parts__10TObjPlayerFPv(temp_r3);
-                        TWindowChat__sub_8024AD30(lbl_805D53A0);
+                        end_player_keyboard_hold(lbl_805D53A0);
                     }
                     close_all_children__11TWindowChatFPv((void *)((void *)(arg0)));
                     M2C_FIELD(arg0, u16 *, 0x1E) = (u16) (M2C_FIELD(arg0, u16 *, 0x1E) | 2);
@@ -188,7 +188,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
         TWindowChat__sub_8024792C((u8 *)((void *) arg0));
         if (is_mode_bit6__11TWindowChatFPv((void *) arg0) != 0)
         {
-          fn_8024ACEC((void *) lbl_805D53A0);
+          begin_player_keyboard_hold((void *) lbl_805D53A0);
           reset_equip_slots__10TObjPlayerFPv((int) temp_r3);
         }
       }
@@ -206,7 +206,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
       if (is_mode_bit6__11TWindowChatFPv((void *) arg0) != 0)
       {
         init_parts__10TObjPlayerFPv((s32)((int) temp_r3));
-        TWindowChat__sub_8024AD30((s32)((void *) lbl_805D53A0));
+        end_player_keyboard_hold((s32)((void *) lbl_805D53A0));
       }
     }
     else

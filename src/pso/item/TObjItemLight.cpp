@@ -18,7 +18,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 is_item_light_interaction_blocked();
 f32 xz_distance_squared(void *, void *);
 Ply_80191F90 *get_player_by_client_id(s32);
-void fn_8020C408(void *, s32);
+void set_event_source_flag(void *, s32);
 void run_task__13TObjItemLightFv(Light_80191F90 *arg0);
 }
 
@@ -59,7 +59,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
         if (p != 0 && get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()
             && is_locally_controlled__10TObjPlayerFPv(p) != 0
             && xz_distance_squared(p->pos, arg0->pos) < arg0->f90 * arg0->f90) {
-            fn_8020C408(arg0, 8);
+            set_event_source_flag(arg0, 8);
             queue_destruction__7TObjectFv(arg0);
             return;
         }

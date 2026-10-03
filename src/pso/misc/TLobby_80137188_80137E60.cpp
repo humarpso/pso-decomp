@@ -10,7 +10,7 @@ void close_and_set_state_12__6TLobbyFv(void);
 void open_keyboard_window__6TLobbyFv(void);
 void send_room_change__6TLobbyFi(s32 arg0);
 s32 TKeyBoardControl__ct(s32, s32, s32, s32, s32, s32);
-M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindow__close(u32);
@@ -72,7 +72,7 @@ void open_keyboard_window__6TLobbyFv(void) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55F0, get_seq_phase__6TLobbyFPv(0x44), 2, 0);
         forward_trade_action_default__16TObjCityMainWarpFPviii(lbl_805D55F0, lbl_805D5614, 2, 1);
         TWindowSubComCard__sub_80265F60(lbl_805D55F0);
-        TWindowSubComCard__sub_80265C30(lbl_805D55F0);
+        align_menu_entry_positions(lbl_805D55F0);
         set_flag_40__16TAdChrSelASlotGCFPv(lbl_805D55F0);
     }
     var_r0 = __nw__7TObjectFUl(0x2C);

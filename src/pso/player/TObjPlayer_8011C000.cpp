@@ -89,7 +89,7 @@ s32 roll_channel_below__9TItemDropFPviUi(int, void *, void *);
 f32 TObjPlayer__sub_8011C2C4(void *);
 s32 __cvt_fp2unsigned(f32);
 extern void *item_mgr;
-void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1);
+void roll_item_channel_below(u32 arg0, s32 arg1);
 extern void *item_pmt_tbl;
 u8 get_weapon_class_motion_type(u8 arg0);
 extern void *item_pmt_tbl;
@@ -210,7 +210,7 @@ void register_item_drop__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_8011C328(u32 arg0, s32 arg1) {
+void roll_item_channel_below(u32 arg0, s32 arg1) {
     if ((u32) (*(u32 *)&item_mgr) != 0U) {
         roll_channel_below__9TItemDropFPviUi((int) ((*(u32 *)&item_mgr)), (void *) (arg0), (void *) (arg1));
         return;
@@ -373,7 +373,7 @@ u8 roll_weapon_special_for_stars(u8 arg0) {
     s32 i;
     result = 0;
     if (arg0 < 4U) {
-        n = ((u32 (*)(int, int))TObjPlayer__sub_8011C328)(lbl_8043E7B4[arg0], 0xF);
+        n = ((u32 (*)(int, int))roll_item_channel_below)(lbl_8043E7B4[arg0], 0xF);
         key = arg0 + 1;
         c = 0;
         i = 1;

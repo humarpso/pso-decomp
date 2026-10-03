@@ -78,7 +78,7 @@ typedef union WGPipe_803E47E0 {
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803E2224();
+M2C_UNK setup_blended_textured_draw();
 M2C_UNK load_context_texture_obj();
 void TLobby__sub_803E2EE4(s32 arg0);
 void TObjPlayer__sub_803E4354(void *);
@@ -133,7 +133,7 @@ void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
 void get_current_matrix(void *m);
 void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0);
-void TObjPlayer__sub_803D99F8(void *, int);
+void rotate_matrix_by_node_angles(void *, int);
 void push_matrix(void);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
@@ -204,7 +204,7 @@ void TLobby__sub_803E2D70(Vtx_803E2D70 *v, s32 n) {
 void TLobby__sub_803E2EE4(s32 arg0) {
     TObjPlayer__sub_803E20B0();
     if (arg0 != 0) {
-        TObjPlayer__sub_803E2224();
+        setup_blended_textured_draw();
     } else {
         setup_render__10TObjPlayerFv();
     }
@@ -258,7 +258,7 @@ void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
                 } else if (flags & 0x400) {
                     ((void (*)(f32, f32 *))TObjPlayer__sub_803D993C)(node->f34, (f32 *)node->ang);
                 } else {
-                    TObjPlayer__sub_803D99F8(node->ang, flags & 0x20);
+                    rotate_matrix_by_node_angles(node->ang, flags & 0x20);
                 }
             }
             if (!(flags & 4)) {

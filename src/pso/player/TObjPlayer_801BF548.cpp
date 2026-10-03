@@ -9,7 +9,7 @@ extern "C" {
 s16 TObjPlayer__sub_801BF57C(void* p);
 void TObjPlayer__sub_801BF5F0(void* p, s32 v);
 int TObjPlayer__sub_801BFFA0(void*);
-u8 TObjPlayer__sub_801BF548(u8 *arg0);
+u8 is_timer_running(u8 *arg0);
 void TObjPlayer__sub_801BF5F0(void* p, s32 v);
 s32 TObjPlayer__sub_801BF584(u8 *arg0);
 int TObjPlayer__sub_801BF640(void* p);
@@ -32,7 +32,7 @@ int set_flags__10TObjPlayerFPvUi(void*, int);
 int set_slot__20TWindowActionPaletteFPvUc(void*);
 int set_mode__20TWindowActionPaletteFPvUc(void*);
 
-u8 TObjPlayer__sub_801BF548(u8 *arg0) {
+u8 is_timer_running(u8 *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 4) != -1);
 }
 

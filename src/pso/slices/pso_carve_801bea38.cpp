@@ -16,7 +16,7 @@ void set_flag_2000000__10TObjPlayerFPv(void *arg0);
 void set_flag_02000000__10TObjPlayerFPv(void *arg0);
 int TFontSmallLobby__sub_801C0228(void*);
 int check_flag_4__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_801BE6E4(void* p);
+int clear_flag_4000_callback__10TObjPlayerFPv(void* p);
 int set_flag_4000__10TObjPlayerFPv(void* p);
 int clear_flag_4000__10TObjPlayerFPv(void* p);
 void set_battle_flag__10TObjPlayerFPvi(void* p, s32 v);

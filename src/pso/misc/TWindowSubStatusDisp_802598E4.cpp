@@ -17,7 +17,7 @@ struct RecoveredGlobal_80259D3C_lbl_804CF9C8 {
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32, f32);
 M2C_UNK play_persistent_sound(int, void *, int, int, int);
-void TWindowSubStatusDisp__sub_80259F74(u8 *arg0);
+void update_pb_counter_approach__20TWindowSubStatusDispFPv(u8 *arg0);
 f32 get_random_float__8TObjFishFv(f32, f32);
 extern const f32 lbl_805DCF58;
 extern const f32 lbl_805DCF5C;
@@ -140,7 +140,7 @@ void set_status_entry_target(void *arg0, s32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_80259F74(u8 *arg0) {
+void update_pb_counter_approach__20TWindowSubStatusDispFPv(u8 *arg0) {
     f32 temp_f2;
     f32 temp_f30;
     f32 temp_f31;

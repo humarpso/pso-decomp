@@ -32,7 +32,7 @@ s32 is_locked__11TWindowMenuFPvi(void *arg0, s32 arg1);
 void render__11TWindowMenuFv(u8 *arg0);
 M2C_UNK draw_window_frame(void *, s32);
 M2C_UNK TWindowSubComCard__sub_802665C0(void *, s32);
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_visible_window_entries(void *, void *, s32);
 M2C_UNK draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
@@ -48,7 +48,7 @@ void reset_selection__17TWindowSubComCardFPv(void* p);
 void render__11TWindowMenuFv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {

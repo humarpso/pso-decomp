@@ -177,7 +177,7 @@ M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK set_flag_2000000__10TObjPlayerFPv(void *);
 s32 set_flag_02000000__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801C5968(void *);
+M2C_UNK update_player_appear_fade(void *);
 void update_status_effects__10TObjPlayerFPv(u8 *arg0);
 s32 obj_isState2_324(void *);
 u16 obj_getField1c(void *);
@@ -201,7 +201,7 @@ u8 TObjPlayer__sub_801C212C(s32);
 u8 TObjPlayer__sub_801C2134(s32);
 u8 get_team_id__10TObjPlayerFPv(s32);
 u8 get_char_class__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_801C214C();
+s32 get_level_row_exp_threshold();
 s32 get_ply_level_table_row(s32, s32);
 s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self);
 s32 is_locally_controlled__10TObjPlayerFPv();
@@ -303,7 +303,7 @@ s32 apply_exp_level_growth__10TObjPlayerFPv(Obj_801B6CE0 *self) {
         if (e == 0) {
             break;
         }
-        if (TObjPlayer__sub_801C214C() > self->stats->exp) {
+        if (get_level_row_exp_threshold() > self->stats->exp) {
             break;
         }
         add_stat__10TObjPlayerFPvi(self, get_char_class__10TObjPlayerFPv(e));
@@ -364,7 +364,7 @@ void check_level_up__10TObjPlayerFPv(u8 *arg0) {
 }
 
 void update_status_effects__10TObjPlayerFPv(u8 *arg0) {
-  TObjPlayer__sub_801C5968((void *) (arg0 + 0x634));
+  update_player_appear_fade((void *) (arg0 + 0x634));
   update_target_lock__10TObjPlayerFPv(arg0);
   if (PSO_VCALL_VObj_18_c0d9f3_m17(arg0, 3) != 0)
   {

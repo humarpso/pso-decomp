@@ -177,7 +177,7 @@ s32 get_selected_menu_value(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 void THunterGuildSeqOffline__sub_8021354C(u8 *arg0);
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
-void THunterGuildSeqOffline__sub_80213374(void);
+void clear_instance_table__22THunterGuildSeqOfflineFv(void);
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__data_80513DD8;
 void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
@@ -371,7 +371,7 @@ u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
-void THunterGuildSeqOffline__sub_80213374(void) {
+void clear_instance_table__22THunterGuildSeqOfflineFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) ((s32 *)&THunterGuildSeqOffline__data_80513DD8)[i] = 0;
 }

@@ -193,7 +193,7 @@ extern u8 lbl_8048E768[];
 extern s32 lbl_805D4EFC;
 extern u32 TParticleCtrl__data_805D4F00;
 extern u32 TParticleCtrl__data_805D4F04;
-void TParticleCtrl__sub_8008869C(void);
+void load_particle_entry_resources(void);
 s32 is_split_screen();
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
@@ -527,7 +527,7 @@ s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {
     return (*(s32 *)&lbl_805D4EF8) + (arg0 * 0x98);
 }
 
-void TParticleCtrl__sub_8008869C(void) {
+void load_particle_entry_resources(void) {
     char name[0x20];
     s32 state;
     void *p;

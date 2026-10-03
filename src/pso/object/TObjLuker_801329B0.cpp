@@ -17,7 +17,7 @@ s32 enemy_name_for_rt_index(s32 arg0);
 s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_801329B0_lbl_8043EA58 lbl_8043EA58;
 extern s32 lbl_805D5550;
-void TObjLuker__sub_801329B0(u32 arg0);
+void get_floor_destination_name(u32 arg0);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ int get_stat_table_entry__9TObjLukerFi(int a0);
     extern int lbl_804A6EE0[];
 
 typedef char RecoveredGlobal_801329B0_lbl_8043EA58_size[sizeof(RecoveredGlobal_801329B0_lbl_8043EA58) == 0x90 ? 1 : -1];
-void TObjLuker__sub_801329B0(u32 arg0) {
+void get_floor_destination_name(u32 arg0) {
     u32 var_r3;
     var_r3 = arg0;
     if ((var_r3 == 0xB) && ((s32) lbl_805D5550 >= 3)) {

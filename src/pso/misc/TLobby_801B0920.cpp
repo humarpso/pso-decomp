@@ -41,7 +41,7 @@ void set_state_flag_6043__10TObjPlayerFPv(Pl_801B0B88 *);
 void TObjPlayer__sub_801B269C(Pl_801B0B88 *);
 void check_technique_flag__10TObjPlayerFPv(Pl_801B0B88 *);
 void recover_full__10TObjPlayerFPv(Pl_801B0B88 *);
-void TObjPlayer__sub_801B6488(Pl_801B0B88 *, s32);
+void apply_battle_level_reset__10TObjPlayerFv(Pl_801B0B88 *, s32);
 void unequip_item__10TObjPlayerFiPv(Pl_801B0B88 *, s32);
 VObj_801B09A4 *get_player_by_client_id(s32);
 void set_meseta__10TObjPlayerFPvi(Pl_801B0B88 *, s32);
@@ -71,7 +71,7 @@ u8 fn_801D7168(M2C_UNK *);
 u8 fn_801D719C(M2C_UNK *);
 u8 fn_801D71D0(M2C_UNK *);
 u8 fn_801D7204(M2C_UNK *);
-u8 TOMineTrap__sub_801D7238(M2C_UNK *);
+u8 get_rule_field_0__6TLobbyFPv(M2C_UNK *);
 void update_all_units__10TObjPlayerFii(void *, u8);
 void TObjPlayer__sub_801D9B38(void *, s32);
 void TObjPlayer__sub_801D9B90(void *, s32);
@@ -193,7 +193,7 @@ void TLobby__sub_801B0B88(void) {
             continue;
         }
         update_all_children__6TLobbyFPv(p->f754);
-        if (TOMineTrap__sub_801D7238(q) == 1) {
+        if (get_rule_field_0__6TLobbyFPv(q) == 1) {
             set_state_flag_6043__10TObjPlayerFPv(p);
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
                 lbl_805D5D6C = 1;
@@ -237,7 +237,7 @@ void TLobby__sub_801B0B88(void) {
         case 1:
             TObjPlayer__sub_801BEE2C(p, 0);
             TObjPlayer__sub_801BEE24(p, 0);
-            TObjPlayer__sub_801B6488(p, clamp_player_index__6TLobbyFPv(q));
+            apply_battle_level_reset__10TObjPlayerFv(p, clamp_player_index__6TLobbyFPv(q));
             break;
         }
         lv = TLobby__sub_801D6DDC(q);

@@ -15,7 +15,7 @@ void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o);
 void *get_player_by_client_id(s32);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(void *, u8, u8);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void TWindowHelpItem__sub_80243544(u8 *, u8 *, s32, s32, s32);
+void update_palette_item_count_label(u8 *, u8 *, s32, s32, s32);
 void draw_action_palette_icon(u8 *, s32, s32);
 extern u8 lbl_8044F738[];
 extern u8 lbl_8044F740[];
@@ -119,7 +119,7 @@ void TWindowSubCustomEquip__sub_80275FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
             *(s32 *)(a + 0x2C) = 0xFF404040;
         }
         draw_action_palette_icon(a, arg2, arg3);
-        TWindowHelpItem__sub_80243544(b, a, arg2, arg3, *(s16 *)(arg0 + 0x20));
+        update_palette_item_count_label(b, a, arg2, arg3, *(s16 *)(arg0 + 0x20));
     }
 }
 

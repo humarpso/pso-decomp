@@ -117,7 +117,7 @@ M2C_UNK initialize__9TObjEnemyFPv();
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK initialize_linked_object_reference(void *, void *);
-M2C_UNK TLobby__sub_801A1FDC(void *, int);
+M2C_UNK get_or_assign_actor_id(void *, int);
 s32 TBoss7Crawfish__sub_80308AA8(void *);
 M2C_UNK TBoss7Crawfish__sub_80308B38(void *);
 M2C_UNK TBoss7Crawfish__sub_80308ED8(void *, void *);
@@ -252,7 +252,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (9));
         M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TBoss7Crawfish__data_805D6A60), (int) (1));
     }
-    TLobby__sub_801A1FDC((void *) (arg0), (int) (0));
+    get_or_assign_actor_id((void *) (arg0), (int) (0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     TBoss7Crawfish__sub_80308B38((void *) (arg0));
     TBoss7Crawfish__sub_80308F8C((void *) (arg0), (int) (0));

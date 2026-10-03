@@ -21,7 +21,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 extern "C" {
 s32 get_attach_joint__14TItemEquipBaseFPv(void *);
 s32 set_equip_flag__14TItemEquipBaseFPvUc(void *, void *);
-void TObjPlayer__sub_80120BBC(s32 arg0, s8 arg1);
+void draw_weapon_at_joint(s32 arg0, s8 arg1);
 M2C_UNK clear_id__10TObjPlayerFPv(void *);
 M2C_UNK get_item_ptr__10TObjPlayerFPvi(void *, void *);
 s32 is_flag_400__10TObjPlayerFPv(void *);
@@ -146,7 +146,7 @@ s32 draw_weapon_model(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80120BBC(s32 arg0, s8 arg1) {
+void draw_weapon_at_joint(s32 arg0, s8 arg1) {
     s8 temp_r31;
     temp_r31 = get_attach_joint__14TItemEquipBaseFPv((void *) (arg0));
     set_equip_flag__14TItemEquipBaseFPvUc((void *) (arg0), (void *) (arg1));

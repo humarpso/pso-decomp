@@ -29,7 +29,7 @@ extern "C" {
 
 void start_action_21__10TObjPlayerFPv(void *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B0FF4(void *);
+M2C_UNK refresh_equipment_slot__10TObjPlayerFv(void *);
 s32 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK cleanup_idle_entry__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
@@ -45,7 +45,7 @@ void start_action_21__10TObjPlayerFPv(void *arg0) {
     cleanup_idle_entry__10TObjPlayerFPv(arg0);
     clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
     M2C_FIELD(arg0, f32 *, 0x624) = (f32) TObjPlayer__data_805DC36C;
-    TObjPlayer__sub_801B0FF4(arg0);
+    refresh_equipment_slot__10TObjPlayerFv(arg0);
     ((V_A *) arg0)->m15();
     if (is_locally_controlled__10TObjPlayerFPv(arg0) != 0) {
         send_field_state_if_active__10TObjPlayerFii(arg0, 0x40003206);

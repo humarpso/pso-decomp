@@ -71,7 +71,7 @@ extern const f32 lbl_805E0FB8;
 extern const f32 lbl_805E0FBC;
 void GXInitLightAttnK(void *, f32, f32, f32);
 void fn_803E2070(void);
-void TObjLight__sub_803DECFC(void);
+void init_light_globals(void);
 extern u8 lbl_8058D490[];
 extern u32 lbl_805D776C;
 extern u32 lbl_805D7770;
@@ -241,7 +241,7 @@ void TObjPlayer__sub_803DEC98(s32 arg0, s32 arg1) {
     move_data__6TLobbyFv(lbl_805D7770, lbl_8058D490, 0x30);
 }
 
-void TObjLight__sub_803DECFC(void) {
+void init_light_globals(void) {
     some_id_805c6f74 = 0;
     lbl_805D7784 = -1;
     lbl_805D7780 = 0;

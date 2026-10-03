@@ -240,7 +240,7 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s16 obj_getField1c(void *);
 void TBoss4DarkFalz__sub_8004C220(u32, f32 *);
 void reset_cameras_to_actor(u32, s32);
-void TObjPlayer__sub_801B0FF4(u32);
+void refresh_equipment_slot__10TObjPlayerFv(u32);
 u32 get_player_by_client_id(s32);
 void clear_flag_4000__10TObjPlayerFPv(u32);
 void TObjPlayer__sub_801C0768(Pkt_801B1EE0 *);
@@ -248,7 +248,7 @@ void TObjPlayer__sub_801C07B4(Pkt_801B1EE0 *, s32);
 void init_cmd_6x24__10TObjPlayerFPv(void *);
 void create__15TPlyOnCountOverFPvPvPv(s16, s32, void (*)(void));
 s32 validate_6x24_teleport_player(Pkt_801B1EE0 *);
-void TObjPlayer__sub_801BE6E4(void);
+void clear_flag_4000_callback__10TObjPlayerFPv(void);
 void handle_6x24_teleport_player(s32 arg0);
 void TObjPlayer__sub_801B2AE8(u32 arg0, Pair_801B2AE8 *msg);
 s32 obj_testFlags30(s32, M2C_UNK);
@@ -279,8 +279,8 @@ u8 is_in_tl03_state__10TObjPlayerFPv(void *arg0);
 void send_field_state_if_active__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK TFontSmallLobby__sub_801C0228();
-s32 TObjPlayer__sub_800166DC(s32);
-s32 TObjPlayer__sub_80016944(s32);
+s32 update_defense_stat_status(s32);
+s32 update_attack_stat_status(s32);
 s32 TObjPlayer__sub_80016C54(s32);
 s32 update_movement_status__10TObjPlayerFv(s32);
 s32 update_action_hold_status__10TObjPlayerFv(s32);
@@ -403,8 +403,8 @@ void handle_6x24_teleport_player(s32 arg0) {
     *(s32 *)(player + 0x60) = *(s32 *)(player + 0x3F0) = pkt.heading;
     calc_attach_pos__10TObjPlayerFPv(player);
     clear_flag_4000__10TObjPlayerFPv(player);
-    TObjPlayer__sub_801B0FF4(player);
-    create__15TPlyOnCountOverFPvPvPv(obj_getField1c((void *)player), 2, TObjPlayer__sub_801BE6E4);
+    refresh_equipment_slot__10TObjPlayerFv(player);
+    create__15TPlyOnCountOverFPvPvPv(obj_getField1c((void *)player), 2, clear_flag_4000_callback__10TObjPlayerFPv);
     if (((s32 (*)(u32))is_locally_controlled__10TObjPlayerFPv)(player) != 0) {
         reset_cameras_to_actor(player, 0);
     }
@@ -505,14 +505,14 @@ void sync_status_effect_flags__10TObjPlayerFPv(s32 *arg0) {
 
 s32 TObjPlayer__vt40(s32 arg0) {
     if (reset_volopt_state__10TObjPlayerFv() != 0) {
-        return TObjPlayer__sub_800166DC(arg0);
+        return update_defense_stat_status(arg0);
     }
     return 0;
 }
 
 s32 TObjPlayer__vt39(s32 arg0) {
     if (reset_volopt_state__10TObjPlayerFv() != 0) {
-        return TObjPlayer__sub_80016944(arg0);
+        return update_attack_stat_status(arg0);
     }
     return 0;
 }

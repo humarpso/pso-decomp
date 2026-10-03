@@ -52,7 +52,7 @@ void update_window_entry_list(void *, void *);
 void validate_target__13TWindowLockOnFPv(void *);
 void run_task__13TWindowLockOnFv(Win_8026385C *w);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
-void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
+void init_window_layout_entries(void *, void *, int);
 void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
@@ -71,7 +71,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
 
 extern "C" {
 
-void TWindowLockOn__sub_80262FD8(void);
+void refresh_ground_item__13TWindowLockOnFv(void);
 void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 void render__13TWindowLockOnFv(u8 *arg0);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
@@ -104,7 +104,7 @@ bool TWindowLockOn__sub_80262DC4(s32 arg0) {
     return obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x80000000))) != 0;
 }
 
-void TWindowLockOn__sub_80262FD8(void) {  }
+void refresh_ground_item__13TWindowLockOnFv(void) {  }
 
 void TWindowLockOn__sub_80262FDC(u8 *arg0) {
     update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
@@ -118,7 +118,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     Ent_80263370 *e;
     Ent_80263370 *e2;
     f32 r;
-    TWindowSubStatusDisp__sub_80257D44(arg0->sub, lbl_804D00DC, arg0->player);
+    init_window_layout_entries(arg0->sub, lbl_804D00DC, arg0->player);
     arg0->cb = lbl_804D0288;
     e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);

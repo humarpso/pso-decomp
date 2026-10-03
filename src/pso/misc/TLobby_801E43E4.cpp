@@ -39,7 +39,7 @@ s32 TLobby__sub_801E468C(const char *name, s32 arg1);
 void run_frame__6TLobbyFv(void);
 void pump_frames__6TLobbyFv(void);
 void debug_print__6TLobbyFii(const char *, ...);
-s32 TObjPlayer__sub_803DDC50(s32 **);
+s32 load_texture_list(s32 **);
 extern char lbl_804497FC[];
 s32 TLobby__sub_801E47C4(s32 **arg0);
 }
@@ -207,7 +207,7 @@ s32 TLobby__sub_801E47C4(s32 **arg0) {
     s32 ret;
     pump_frames__6TLobbyFv();
     while (1) {
-        r = TObjPlayer__sub_803DDC50(arg0);
+        r = load_texture_list(arg0);
         if (r == 1) {
             ret = 1;
             break;

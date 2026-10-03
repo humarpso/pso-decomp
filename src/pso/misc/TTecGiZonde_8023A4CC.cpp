@@ -59,7 +59,7 @@ struct RecoveredFields_8023A510_temp_r6 {
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK fn_8023A434(void *, f32, f32);
+M2C_UNK check_technique_projectile_wall_hit(void *, f32, f32);
 void move_technique_projectile(u8 *arg0);
 f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -177,7 +177,7 @@ void move_technique_projectile(u8 *arg0) {
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x50);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x64);
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) ((temp_f2 * temp_f1) + M2C_FIELD(arg0, f32 *, 0x28));
-    fn_8023A434((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
+    check_technique_projectile_wall_hit((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
 }
 #pragma pop
 

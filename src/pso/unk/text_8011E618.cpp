@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TObjPlayer__sub_801012DC(void *, s32);
+void send_6x61_activate_mag_effect(void *, s32);
 s32 rand(void);
 extern const f32 lbl_805DAC8C;
 void TObjPlayer__sub_8011E618(u8 *arg0);
@@ -18,7 +18,7 @@ extern "C" {
 
 void TObjPlayer__sub_8011E618(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C0) = (s32) M2C_FIELD(arg0, s32 *, 0x1BC);
-    TObjPlayer__sub_801012DC(arg0, (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x1C4) * (lbl_805DAC8C * (f32) rand())));
+    send_6x61_activate_mag_effect(arg0, (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x1C4) * (lbl_805DAC8C * (f32) rand())));
 }
 void TObjPlayer__sub_8011E6A4(u8 *arg0) {
     u8 *var_r31;

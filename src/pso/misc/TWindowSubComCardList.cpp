@@ -117,7 +117,7 @@ void run_task__21TWindowSubComCardListFv(void *arg0);
 s32 handle_list_page_flip_input(s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 M2C_UNK draw_window_frame(void *, s32);
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_visible_window_entries(void *, void *, s32);
 M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -133,7 +133,7 @@ M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
 void render__21TWindowSubComCardListFv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);

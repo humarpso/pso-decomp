@@ -71,7 +71,7 @@ void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
 extern "C" {
 
 void *TWindowSubStatusDisp__sub_8025AF0C(void *arg0, s16 arg1);
-void TWindowSubStatusDisp__sub_8025B2D8(void);
+void update_palette_sprite__20TWindowSubStatusDispFv(void);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
 void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b);
 void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d);
@@ -262,7 +262,7 @@ void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) 
 }
 #pragma pop
 
-void TWindowSubStatusDisp__sub_8025B2D8(void) {  }
+void update_palette_sprite__20TWindowSubStatusDispFv(void) {  }
 
 extern M2C_UNK lbl_804CFA40[];
 

@@ -18,7 +18,7 @@ extern "C" {
 void TObjEneBm5Wolf__sub_800B896C(u8 *arg0, void **arg1, void **arg2);
 void TObjEneBm5Wolf__sub_800B89A4(u8 *arg0, void ***arg1, void **arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1);
+s32 actor_rand_int(s32 arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
 extern Globals_800B8A40 TObjEneBm5Wolf__data_80500B40;
 void* reset__14TObjEneBm5WolfFPv(void* p);
@@ -126,7 +126,7 @@ void TObjEneBm5Wolf__sub_800B8A40(void) {
 }
 #pragma pop
 
-s32 TObjEneBm5Wolf__sub_800B8A9C(s32 arg0, s32 arg1) {
+s32 actor_rand_int(s32 arg0, s32 arg1) {
     return (s32) ((f32) arg1 * calc_boss4_scale__10TObjPlayerFi(arg0));
 }
 

@@ -82,7 +82,7 @@ extern u8 *lbl_805D774C;
 void abs__4cXyzCFv(s32 arg0, s32 arg1);
 M2C_UNK get_current_matrix(void *);
 M2C_UNK TObjPlayer__sub_803D993C(void *, f32);
-M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
+M2C_UNK rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 M2C_UNK scale_current_matrix(void *);
@@ -179,7 +179,7 @@ void TObjPlayer__sub_803DC9E4(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
                 } else if (f & 0x400) {
                     ((M2C_UNK (*)(f32, void *))TObjPlayer__sub_803D993C)(p->f34, p->m14);
                 } else {
-                    TObjPlayer__sub_803D99F8(p->m14, (void *) (f & 0x20));
+                    rotate_matrix_by_node_angles(p->m14, (void *) (f & 0x20));
                 }
             }
             if (!(f & 4)) {

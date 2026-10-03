@@ -44,13 +44,13 @@ struct Tec_80129648 {
 extern "C" {
 extern const f32 lbl_805DAE18;
 extern const f32 lbl_805DAE2C;
-void TObjPlayer__sub_801295FC(struct SlicerState_801295FC *s);
+void init_slicer_launch_state(struct SlicerState_801295FC *s);
 s16 obj_getField1c(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 f32 query_extended_state__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80128A70(void);
-void TObjPlayer__sub_801295FC(struct SlicerState_801295FC *s);
+void init_slicer_launch_state(struct SlicerState_801295FC *s);
 s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *create__10TTecSlicerFPUs(void *);
@@ -63,7 +63,7 @@ void TObjPlayer__sub_80129648(Self_80129648 *self);
 
 extern "C" {
 
-void TObjPlayer__sub_801295FC(struct SlicerState_801295FC *s) {
+void init_slicer_launch_state(struct SlicerState_801295FC *s) {
     s->id = 0xFFFF;
     s->owner = -1;
     s->count = 0;
@@ -80,7 +80,7 @@ struct SlicerState_801295FC;
 void TObjPlayer__sub_80129648(Self_80129648 *self) {
     Tec_80129648 tec;
     TObjPlayer__sub_80128A70();
-    TObjPlayer__sub_801295FC((struct SlicerState_801295FC *)((SlicerState_801295FC *)&tec));
+    init_slicer_launch_state((struct SlicerState_801295FC *)((SlicerState_801295FC *)&tec));
     tec.id = obj_getField1c(self->owner);
     tec.fC = get_field_d8__10TObjPlayerFPv(self);
     tec.f4 = self->f24;

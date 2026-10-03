@@ -85,7 +85,7 @@ extern const f32 lbl_805DC090;
 
 extern "C" {
 
-void TObjRoomId__sub_801A1D94(void *arg0);
+void set_player_room_control_flag(void *arg0);
 int TObjRoomId__sub_801A1E2C(void);
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1);
 void *create__10TObjRoomIdFPv(void *arg0);
@@ -183,14 +183,14 @@ void TObjRoomId::run_task() {
         if (vec3_dot(&d, &o->normal) > lbl_805DC094) {
             if (o->mode == 0x10000) {
                 M2C_FIELD(p, s16 *, 0x28) = (s16)o->room_pos;
-                TObjRoomId__sub_801A1D94(p);
+                set_player_room_control_flag(p);
             } else {
                 set__10TObjRoomIdFPvs(p, (s16)o->room_pos);
             }
         } else {
             if (o->mode == 0x10000) {
                 M2C_FIELD(p, s16 *, 0x28) = (s16)o->room_other;
-                TObjRoomId__sub_801A1D94(p);
+                set_player_room_control_flag(p);
             } else {
                 set__10TObjRoomIdFPvs(p, (s16)o->room_other);
             }
@@ -234,7 +234,7 @@ void *create__10TObjRoomIdFPv(void *arg0) {
     return o;
 }
 
-void TObjRoomId__sub_801A1D94(void *arg0) {
+void set_player_room_control_flag(void *arg0) {
     set_state_flags__10TObjPlayerFPvUi(arg0, 0x02000000);
 }
 

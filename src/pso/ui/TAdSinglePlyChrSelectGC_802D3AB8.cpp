@@ -135,7 +135,7 @@ s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801334DC(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
 s32 TAdSinglePlyChrSelectGC__sub_802D4D9C();
-M2C_UNK TWindowSubComCard__sub_80265C30(s32);
+M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK TWindowSubComCard__sub_80265F60(s32);
 s32 TWindowSubComCard__sub_802A57FC(s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(s32, M2C_UNK);
@@ -167,7 +167,7 @@ s32 create_chr_warp__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(var_r31, get_localized_text_entry(0x1E, 4), 6, 3);
     }
     TWindowSubComCard__sub_80265F60(var_r31);
-    TWindowSubComCard__sub_80265C30(var_r31);
+    align_menu_entry_positions(var_r31);
     return var_r31;
 }
 

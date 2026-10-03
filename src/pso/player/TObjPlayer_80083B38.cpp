@@ -85,12 +85,12 @@ extern M2C_UNK lbl_8048E5C8[];
 extern int lbl_805D4EE0;
 void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, int, int);
-s32 TObjPlayer__sub_803DDC50(void *);
+s32 load_texture_list(void *);
 void TObjPlayer__sub_80083F38(void);
 extern G_800845F8 lbl_8048E5B4;
 void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, int, int);
-s32 TObjPlayer__sub_803DDC50(void *);
+s32 load_texture_list(void *);
 void init_capture_texture(s32 wide);
 void **TLobby__sub_803DA16C();
 extern G_800845F8 lbl_8048E5B4;
@@ -295,7 +295,7 @@ void TObjPlayer__sub_80083F38(void) {
     Rect_80083F38 r;
     set_render_rect__10TObjPlayerFPviiii(&r, 0, 2, 0x100, 0x100);
     set_texture_name((void *)((s32 *)&lbl_8048E5C8)[0], &r, 0x2EE1, 0x08800000);
-    TObjPlayer__sub_803DDC50(((s32 *)&lbl_8048E5C8));
+    load_texture_list(((s32 *)&lbl_8048E5C8));
     lbl_805D4EE0 = 0;
 }
 
@@ -376,7 +376,7 @@ void init_capture_texture(s32 wide) {
     }
     set_render_rect__10TObjPlayerFPviiii(&r, 0, mode, w, h);
     set_texture_name((*(G_800846C8 *)&lbl_8048E5B4).a, &r, 0x2EE0, 0x08800000);
-    TObjPlayer__sub_803DDC50(&lbl_8048E5B4);
+    load_texture_list(&lbl_8048E5B4);
 }
 
 void TObjPlayer__sub_80084744(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) & 0xfffffffb); }

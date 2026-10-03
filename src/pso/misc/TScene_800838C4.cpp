@@ -26,7 +26,7 @@ s32 check_all_players_ready__10TObjPlayerFv();
 s32 set_tex_coord_gen__10TObjPlayerFiiii(int, int, int, int);
 f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
-f32 TObjPlayer__sub_803D99F8(void *, int);
+f32 rotate_matrix_by_node_angles(void *, int);
 s32 pop_matrix();
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
@@ -86,7 +86,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         rotate_current_matrix_x_ps((int) (0x3800));
         translate_current_matrix_ps(-M2C_FIELD(&lbl_8048E5D0.value, f32 *, 0), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 4), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 8));
         translate_current_matrix_ps(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
-        TObjPlayer__sub_803D99F8((void *) (arg1), (int) (1));
+        rotate_matrix_by_node_angles((void *) (arg1), (int) (1));
         stack.sp8 = lbl_805D93DC;
         C_MTXLightFrustum((void *) (&stack.sp10), (f32) (-lbl_805D941C), (f32) (lbl_805D941C), (f32) (lbl_805D9420), (f32) (-lbl_805D9420), (f32) (lbl_805D9424), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
         PSMTXConcat((void *) (&stack.sp10), (void *) (lbl_805D7774), (void *) (lbl_805D7774));

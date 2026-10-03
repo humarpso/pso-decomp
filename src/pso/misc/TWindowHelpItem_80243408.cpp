@@ -26,7 +26,7 @@ void draw_right_aligned_number(void *);
 extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
 extern const f32 lbl_805DCA30;
-void TWindowHelpItem__sub_80243544(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
+void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ s32 get_help_value__15TWindowHelpItemFv(void) {
 }
 #pragma push
 #pragma fp_contract on
-void TWindowHelpItem__sub_80243544(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
+void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 arg4) {
     s32 v;
     u32 p;
     if (arg2 != 4) {

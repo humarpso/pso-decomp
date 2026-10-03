@@ -107,7 +107,7 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self);
 
 extern "C" {
 
-int TLobby__sub_8010540C(void* p);
+int roll_weapon_special_channel15(void* p);
 int roll_weapon_special_for_stars(void*);
 
 int check_class_equip_permission(Player_80105348 *player, s32 perm) {
@@ -134,7 +134,7 @@ int check_class_equip_permission(Player_80105348 *player, s32 perm) {
     return 1;
 }
 
-int TLobby__sub_8010540C(void* p) { return roll_weapon_special_for_stars(p); }
+int roll_weapon_special_channel15(void* p) { return roll_weapon_special_for_stars(p); }
 s32 TLobby__sub_8010542C(Item_8010542C *src) {
     Fn_8010542C fn;
     if (src != 0) {

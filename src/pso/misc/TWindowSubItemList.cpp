@@ -9,7 +9,7 @@ struct RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList { M2C_UNK value; u8 r
 typedef char RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList_size[sizeof(RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList) == 0x20 ? 1 : -1];
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_80244364();
+s32 get_draw_context__11TWindowBaseFPv();
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
 M2C_UNK draw_item_list_capacity(void *, int, int, int);
@@ -55,7 +55,7 @@ u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2) {
 #pragma fp_contract on
 void render__18TWindowSubItemListFv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TWindowSubStatusDisp__sub_80244364();
+    temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     draw_selected_list_entry((void *) (arg0), (int) (temp_r3));

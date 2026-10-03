@@ -33,7 +33,7 @@ int queue_destruction__7TObjectFv(void*);
 void destroy_owned_object__10TObjPlayerFPv(void* p);
 int is_script_controlled__10TObjPlayerFPv(void*);
 int sync_current_floor__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_801AFF80(void*);
+int sync_current_area__10TObjPlayerFPv(void*);
 void update_if_active__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCA0C(void);
 void TObjPlayer__sub_801BCA10(void);

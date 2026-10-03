@@ -25,7 +25,7 @@ u8 *TWindowMessagePage__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 is_player_input_active(int);
-s32 TMCFormatSequence__sub_802693B4(void *);
+s32 is_message_window_ready(void *);
 M2C_UNK complete_reveal__14TWindowMessageFPv(void *);
 M2C_UNK draw__14TWindowMessageFPv();
 void update_message__18TWindowMessagePageFPv(void *arg0);
@@ -54,7 +54,7 @@ s32 is_ready__18TWindowMessagePageFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
         return 0;
     }
-    return TMCFormatSequence__sub_802693B4((void *)(arg0)) != 0 ? 1 : 0;
+    return is_message_window_ready((void *)(arg0)) != 0 ? 1 : 0;
 }
 
 void update_message__18TWindowMessagePageFPv(void *arg0) {
@@ -102,7 +102,7 @@ void run_task__18TWindowMessagePageFv(u8 *arg0) {
     draw__14TWindowMessageFPv();
     temp_r5 = is_player_input_active((int) (M2C_FIELD(arg0, s16 *, 0x20))) * 0x50;
     if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
-        if (TMCFormatSequence__sub_802693B4((void *)((void *) (arg0))) != 0) {
+        if (is_message_window_ready((void *)((void *) (arg0))) != 0) {
             update_message__18TWindowMessagePageFPv((void *) (arg0));
             return;
         }

@@ -42,10 +42,10 @@ void init_heap__13TParticleCtrlFPv(s32);
 void reset_keyboard_state__6TLobbyFv(void);
 s32 is_area_transfer_pending(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
-void TLobby__sub_800F8B20(void);
+void apply_phase_keyboard_mode(void);
 void invoke_callback__6TLobbyFv(void);
 s32 clear_resource_load_tasks();
-void TLobby__sub_800FD6F8(void *, s32);
+void run_load_callback_table(void *, s32);
 void init_menu_scene_lights(void *, s32);
 void reset_controller_input_state(void);
 void set_copy_clear_color_argb(s32, s32, s32);
@@ -55,7 +55,7 @@ void *__nw__7TObjectFUl(u32);
 void TWindowCtrlMain__ct(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-void TCameraCtrl__sub_803D6688(f32, f32);
+void set_screen_size(f32, f32);
 extern Vec_8023F22C lbl_8044DCE8;
 extern Vec_8023F22C lbl_8044DCF4;
 extern RecoveredGlobal_8023F1B8_lbl_804CCDA8 lbl_804CCDA8;
@@ -66,7 +66,7 @@ extern void *tl_camera;
 extern u32 lbl_805D63CC;
 extern const f32 lbl_805DC9B8;
 extern const f32 lbl_805DC9BC;
-void TObjLight__sub_8023F22C(void);
+void init_game_mode_select_scene(void);
 }
 
 extern "C" {
@@ -88,26 +88,26 @@ void TLobby__sub_8023F1B8(void) {
     clear_resource_load_tasks();
     render_tick__Fv();
 }
-void TObjLight__sub_8023F22C(void) {
+void init_game_mode_select_scene(void) {
     s32 i;
     f32 c;
     void *p;
-    TCameraCtrl__sub_803D6688(lbl_805DC9B8, lbl_805DC9B8);
+    set_screen_size(lbl_805DC9B8, lbl_805DC9B8);
     set_copy_clear_color_argb(0, 0, 0);
     for (i = 0; i < 0x80; i++) {
     }
     reset_controller_input_state();
     clear_resource_load_tasks();
     reset_keyboard_state__6TLobbyFv();
-    TLobby__sub_800F8B20();
-    TLobby__sub_800FD6F8(&lbl_804CCDA8.value, 0xb8);
+    apply_phase_keyboard_mode();
+    run_load_callback_table(&lbl_804CCDA8.value, 0xb8);
     if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();
         reset_keyboard_state__6TLobbyFv();
         return;
     }
-    TLobby__sub_800FD6F8(&lbl_804CCE60.value, 0x38);
+    run_load_callback_table(&lbl_804CCE60.value, 0x38);
     if (is_area_transfer_pending() != 0) {
         invoke_callback__6TLobbyFv();
         clear_callback_and_reset_keyboard__6TLobbyFv();

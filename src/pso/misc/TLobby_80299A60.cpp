@@ -25,7 +25,7 @@ s32 TLobby__sub_80292F7C();
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
 s32 get_player_by_client_id(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-int TWindowCtrl__sub_8024AEAC(void*);
+int suppress_slot__11TWindowCtrlFi(void*);
 M2C_UNK unsuppress_slot__11TWindowCtrlFi(int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
@@ -95,7 +95,7 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
 }
 
     extern int lbl_805D53A0;
-void close_giveup_window__6TLobbyFPv(void* a0) { TWindowCtrl__sub_8024AEAC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
+void close_giveup_window__6TLobbyFPv(void* a0) { suppress_slot__11TWindowCtrlFi((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }
 
     extern int lbl_805D53A0;
 void play_all_players_effect__6TLobbyFPv(void* a0) { TObjPlayer__sub_8024ABDC((void*)(lbl_805D53A0)); play_effect_all_players__6TLobbyFPv((void*)(a0)); }

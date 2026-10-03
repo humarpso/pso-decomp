@@ -276,7 +276,7 @@ s32 get_window_layout_position(s32 id);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(s32 a, s32 b);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
 void TWindowSubComCard__sub_80265F60(s32 win);
-void TWindowSubComCard__sub_80265C30(s32 win);
+void align_menu_entry_positions(s32 win);
 void set_ready_flag__18TCheckRoomSequenceFPv(s32 win);
 void set_field_1c__6TLobbyFPvf(s32 win, f32 v);
 s32 close_window_if_active(void *);
@@ -732,7 +732,7 @@ void qst_op_list(void) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(TLobby__data_805D5E84, list->names[i], 7, i);
     }
     TWindowSubComCard__sub_80265F60(TLobby__data_805D5E84);
-    TWindowSubComCard__sub_80265C30(TLobby__data_805D5E84);
+    align_menu_entry_positions(TLobby__data_805D5E84);
     set_ready_flag__18TCheckRoomSequenceFPv(TLobby__data_805D5E84);
     set_field_1c__6TLobbyFPvf(TLobby__data_805D5E84, lbl_805DC4D8);
     (*(int * *)&TLobby__data_805D5E78)[idx] = 0;

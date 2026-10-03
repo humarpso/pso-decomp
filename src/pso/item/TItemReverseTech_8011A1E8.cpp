@@ -79,7 +79,7 @@ void set_copy_clear_color_argb(s32, s32, s32);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
 void * __nw__7TObjectFUl(M2C_UNK);
-void TCameraCtrl__sub_803D6688(f32, f32);
+void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
@@ -216,7 +216,7 @@ void TItemReverseTech__sub_8011A43C(void) {
     u32 i;
     void (*fn)();
     void *cam;
-    TCameraCtrl__sub_803D6688((*(const f32 *)&lbl_805DAC4C), lbl_805DAC50);
+    set_screen_size((*(const f32 *)&lbl_805DAC4C), lbl_805DAC50);
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     clear_resource_load_tasks();

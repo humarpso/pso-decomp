@@ -1700,7 +1700,7 @@ M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
 void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
 extern RecoveredGlobal_80027710_lbl_80435324 lbl_80435324;
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
-void TBoss1Dragon__sub_80027710(u8 *arg0, s32 arg1, s32 arg2);
+void deliver_breath_attack__12TBoss1DragonFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
 s32 is_dragon_trail_damaging(void *);
@@ -1751,7 +1751,7 @@ extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 TBoss1Dragon__data_805D7F38;
 extern const f32 TBoss1Dragon__data_805D7FC4;
 extern const f32 lbl_805D7FE0;
-s32 TBoss1Dragon__sub_80028EA8(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1);
+s32 choose_burrow_ring_destination__12TBoss1DragonFPvPv(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -1901,7 +1901,7 @@ s32 filter_input_flags__12TBoss1DragonFiii(s32 arg1, s32 arg2, s32 arg3);
 s32 check_can_attack__12TBoss1DragonFPv(void *arg0);
 u8 check_attack_ready__12TBoss1DragonFPv(void *arg0);
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
-void TBoss1Dragon__sub_80027B20(void);
+void sweep_head_fall_spheres_late__12TBoss1DragonFv(void);
 void update_from_data__12TBoss1DragonFv(void);
 void clear_work__12TBoss1DragonFi(s32 arg0);
 s32 check_phase_advance__12TBoss1DragonFPv(void *arg0);
@@ -3195,7 +3195,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
         }
         break;
     case 6:
-        if (TBoss1Dragon__sub_80028EA8((Dragon_80028EA8 *)u, (Vec_80028EA8 *)(arg0 + 0x394)) == 0) {
+        if (choose_burrow_ring_destination__12TBoss1DragonFPvPv((Dragon_80028EA8 *)u, (Vec_80028EA8 *)(arg0 + 0x394)) == 0) {
             F(f32, 0x394) = TBoss1Dragon__data_805D7F28;
             F(f32, 0x398) = TBoss1Dragon__data_805D7F28;
             F(f32, 0x39C) = TBoss1Dragon__data_805D7F28;
@@ -3472,7 +3472,7 @@ void update_head_down_attack_state__12TBoss1DragonFPvUi(u8 *arg0, u32 arg1) {
             } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss1Dragon__data_805D8018)) != 0) {
                 ((void (*)(void *))update_from_data__12TBoss1DragonFv)(arg0);
             } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss1Dragon__data_805D8008)) != 0) {
-                ((void (*)(void *))TBoss1Dragon__sub_80027B20)(arg0);
+                ((void (*)(void *))sweep_head_fall_spheres_late__12TBoss1DragonFv)(arg0);
             }
             if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) != 8) {
                 enable_dragon_blocking_bodies((int) (M2C_FIELD(arg0, s32 *, 0x68C)), (void *) ((u8 *)(arg0) + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -4521,7 +4521,7 @@ void apply_fireball_impact_damage__12TBoss1DragonFPvi(u8 *arg0, s32 arg1) {
 
 typedef char RecoveredGlobal_80027710_lbl_80435324_size[sizeof(RecoveredGlobal_80027710_lbl_80435324) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C_size[sizeof(RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C) == 0xC ? 1 : -1];
-void TBoss1Dragon__sub_80027710(u8 *arg0, s32 arg1, s32 arg2) {
+void deliver_breath_attack__12TBoss1DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     struct CopyStack_80027710 { u8 bytes[0x14]; };
     CopyStack_80027710 copy_storage_80027710;
     s32 temp_r3;
@@ -4641,7 +4641,7 @@ void apply_ground_impact_attack__12TBoss1DragonFi(s32 arg0) {
     TBoss1Dragon__sub_80028890((s32)((void *) (arg0)));
 }
 
-void TBoss1Dragon__sub_80027B20(void) {
+void sweep_head_fall_spheres_late__12TBoss1DragonFv(void) {
     ((M2C_UNK (*)(f32, f32, f32))sweep_body_attack_spheres__12TBoss1DragonFv)(TBoss1Dragon__data_805D8010, lbl_805D8098, TBoss1Dragon__data_805D7F84);
 }
 
@@ -5167,7 +5167,7 @@ s32 select_forward_target__12TBoss1DragonFPv(u8 *self) {
     return 1;
 }
 
-s32 TBoss1Dragon__sub_80028EA8(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1) {
+s32 choose_burrow_ring_destination__12TBoss1DragonFPvPv(Dragon_80028EA8 *arg0, Vec_80028EA8 *arg1) {
     s32 idx;
     f32 r;
     idx = (s32)get_random_float__21TObjEneMe3ShinowaRealFv(TBoss1Dragon__data_805D7F38 * calc_boss4_scale__10TObjPlayerFi());

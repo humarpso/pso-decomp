@@ -166,10 +166,10 @@ struct Player_8012065C : VBase_8012065C {
 extern "C" {
 void apply_model_params__10TObjPlayerFPv(void *);
 void set_attribute_entry__10TObjPlayerFPviPv(void *, s32, Pair_801205F4 *);
-void TObjPlayer__sub_801205F4(Self_801205F4 *self);
+void bind_attribute_entries__11TItemWeaponFPv(Self_801205F4 *self);
 void TItemEquipBase__sub_8010A82C(void *);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
-void TKeyBoardControl__sub_801AFCF4(void *, s32);
+void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 void TObjPlayer__sub_80120568(Pl_80120568 *arg0);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
@@ -181,27 +181,27 @@ s32 obj_isState7_324(s32);
 s32 get_item_flags__10TObjPlayerFPv(void *);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
-void TKeyBoardControl__sub_801AFCF4(void *, s32);
+void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, s32, s32);
 M2C_UNK play_sound_effect(s32, s32, s32, s32);
 void TObjPlayer__sub_8011E6A4();
 extern void *tl_05;
-void TObjPlayer__sub_8012065C(Player_8012065C *arg0);
+void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_80120568(Pl_80120568 *arg0) {
     if (arg0->ctl->m64(arg0->m31()) == 0) {
-        TKeyBoardControl__sub_801AFCF4(arg0->ctl, 0);
+        set_action_provider_variant__10TObjPlayerFPvs(arg0->ctl, 0);
     }
     arg0->m56();
     TItemEquipBase__sub_8010A82C(arg0);
     clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x03000000);
 }
 
-void TObjPlayer__sub_801205F4(Self_801205F4 *self) {
+void bind_attribute_entries__11TItemWeaponFPv(Self_801205F4 *self) {
     s32 i;
     apply_model_params__10TObjPlayerFPv(self);
     if (!(self->data->flags & 8)) {
@@ -210,10 +210,10 @@ void TObjPlayer__sub_801205F4(Self_801205F4 *self) {
         }
     }
 }
-void TObjPlayer__sub_8012065C(Player_8012065C *arg0) {
+void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0) {
     if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
         if (!(get_item_flags__10TObjPlayerFPv(arg0) & 0x20) && reset_key_machine_state__10TObjPlayerFv() != 0) {
-            TKeyBoardControl__sub_801AFCF4(M2C_FIELD(arg0, void **, 0xF0), arg0->v41());
+            set_action_provider_variant__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), arg0->v41());
         }
         clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x100);
         if (get_flag_40__8TItemMagFPv(arg0) != 0 || obj_isState7_324(M2C_FIELD(arg0, s32 *, 0xF0)) != 0) {
@@ -227,7 +227,7 @@ void TObjPlayer__sub_8012065C(Player_8012065C *arg0) {
             update_technique_slot__10TTecRaFoieFi(play_sound_effect(0x4000B20A, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0), 0x300, 0);
         }
     } else {
-        TKeyBoardControl__sub_801AFCF4(M2C_FIELD(arg0, void **, 0xF0), 0);
+        set_action_provider_variant__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), 0);
         set_status_flags__10TObjPlayerFPvUi(arg0, 0x100);
         set_status_flags__10TObjPlayerFPvUi(arg0, 8);
     }

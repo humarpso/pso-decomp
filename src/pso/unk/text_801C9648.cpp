@@ -7,7 +7,7 @@ s32 TObjPlayer__sub_801C9400(void *);
 s32 TObjPlayer__sub_801C94B8(void *);
 s32 update_gated_action__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C959C();
-s32 TObjPlayer__sub_801C95A0(void *);
+s32 update_frozen_release__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C9648(s32 arg0, s16 arg1);
 }
 
@@ -18,7 +18,7 @@ void TObjPlayer__sub_801C9648(s32 arg0, s16 arg1) {
     switch (arg1)
     {
       case 7:
-        TObjPlayer__sub_801C95A0((void *) arg0);
+        update_frozen_release__10TObjPlayerFPv((void *) arg0);
         return;
       case 2:
         TObjPlayer__sub_801C959C();
