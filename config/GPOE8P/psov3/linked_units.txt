@@ -858,6 +858,7 @@ pso/item/TItemProShield_80076B5C.cpp
 pso/item/TItemProShield_8010A650.cpp
 pso/item/TItemProShield_80116634.cpp
 pso/item/TItemProShield_80116634_80116840.cpp
+pso/item/TItemProShield_801181D0.cpp
 pso/item/TItemProUnit.cpp
 pso/item/TItemReverseTech.cpp
 pso/item/TItemReverseTechBG.cpp
@@ -1111,6 +1112,7 @@ pso/misc/TLobby_800F8AA8_800F8AD0.cpp
 pso/misc/TLobby_800F8AA8_800F8B20.cpp
 pso/misc/TLobby_800F8AA8_800F8C2C.cpp
 pso/misc/TLobby_800F8AA8_800F8F40.cpp
+pso/misc/TLobby_800F9690.cpp
 pso/misc/TLobby_800F9A60.cpp
 pso/misc/TLobby_800F9D38.cpp
 pso/misc/TLobby_800F9DA0.cpp
@@ -2608,6 +2610,7 @@ pso/player/TObjPlayer_800A0408_800A0478.cpp
 pso/player/TObjPlayer_800A0408_800A04B8.cpp
 pso/player/TObjPlayer_800A0408_800A05B8.cpp
 pso/player/TObjPlayer_800A7764.cpp
+pso/player/TObjPlayer_800ACA60_800ACA60.cpp
 pso/player/TObjPlayer_800ACA60_800ACD80.cpp
 pso/player/TObjPlayer_800BBE90.cpp
 pso/player/TObjPlayer_800BC40C.cpp
@@ -4050,6 +4053,7 @@ pso/unk/text_801B7D68.cpp
 pso/unk/text_801B7F4C.cpp
 pso/unk/text_801B811C.cpp
 pso/unk/text_801B8CB0.cpp
+pso/unk/text_801B8D68.cpp
 pso/unk/text_801B91F0.cpp
 pso/unk/text_801B9544.cpp
 pso/unk/text_801B9E0C.cpp
@@ -4098,6 +4102,7 @@ pso/unk/text_801CC0F4.cpp
 pso/unk/text_801CC2B0.cpp
 pso/unk/text_801CC7F8.cpp
 pso/unk/text_801CCA08.cpp
+pso/unk/text_801CCD38.cpp
 pso/unk/text_801CDAD8.cpp
 pso/unk/text_801CDD24.cpp
 pso/unk/text_801CDED4.cpp
@@ -4127,6 +4132,7 @@ pso/unk/text_801D79DC.cpp
 pso/unk/text_801D7BF4.cpp
 pso/unk/text_801D94C8.cpp
 pso/unk/text_801D9514.cpp
+pso/unk/text_801D9870.cpp
 pso/unk/text_801D98F8.cpp
 pso/unk/text_801D9AD0.cpp
 pso/unk/text_801D9B38.cpp
