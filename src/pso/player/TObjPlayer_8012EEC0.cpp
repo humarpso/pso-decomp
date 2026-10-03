@@ -12,7 +12,7 @@ void *init_effect_state__10TObjPlayerFPv(void *arg0);
 s32 rotate_matrix_z(s32, s32);
 s32 play_particle_effect_once__10TObjPlayerFv();
 int advance_angle_wrap(void*, int);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 s32 get_player_list__10TObjPlayerFv();
 
 void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
@@ -38,7 +38,7 @@ int TObjPlayer__sub_8012EF40(void* p) { return advance_angle_wrap((char*)p + 0x1
 extern M2C_UNK lbl_804A6108[];
 
 void *init_effect_state__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A6108;
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
     return arg0;

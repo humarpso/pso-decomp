@@ -16,7 +16,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void update_active_game_effect__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80355AE0(u8 *arg0);
 u8 get_field_ed__10TObjPlayerFPv(void *);
-u8 * TObjPlayer__sub_80120D50(void *, void *);
+u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern M2C_UNK lbl_804F1320[];
 extern const f32 lbl_805DFFC0;
@@ -78,7 +78,7 @@ void *item_equip_variant_deleting_dtor_80355B48(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TObjPlayer__sub_80355BA0(u8 *arg0, u8 *arg1) {
-    TObjPlayer__sub_80120D50(arg0, arg1);
+    TItemWeapon__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80355BA0_lbl_804F1320 *)&lbl_804F1320).value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
     if (get_field_ed__10TObjPlayerFPv(arg0) == 0x3D) {

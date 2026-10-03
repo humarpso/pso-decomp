@@ -10,7 +10,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_agito_weapon(u8 *arg0);
-void TObjPlayer__sub_80120D50(void *, s32, void *);
+void TItemWeapon__ct(void *, s32, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void fn_80109710(void);
@@ -23,7 +23,7 @@ extern "C" {
 
 u8 *TObjPlayer__sub_8012712C(void *self_, s32 a, void *b) {
     Self_8012712C *self = (Self_8012712C *)self_;
-    TObjPlayer__sub_80120D50(self, a, b);
+    TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3070;
     set_status_flags__10TObjPlayerFPvUi(self, 2);
     if (get_slot_count__14TItemProShieldFPv(self) == 0) {

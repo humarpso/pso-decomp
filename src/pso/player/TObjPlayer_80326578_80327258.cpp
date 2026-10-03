@@ -9,7 +9,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1);
 void *TObjPlayer__sub_803272F0(void *arg0);
 void submit_com_command__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1);
@@ -41,7 +41,7 @@ void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804ED488[];
 
 void *TObjPlayer__sub_803272F0(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED488;
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     return arg0;

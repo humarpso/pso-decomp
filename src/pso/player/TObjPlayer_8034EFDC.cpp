@@ -145,7 +145,7 @@ u8 *TObjPlayer__sub_8034F418(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F7B8(s32 arg0);
-void TObjPlayer__sub_80120D50(void *, void *);
+void TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
@@ -249,7 +249,7 @@ void *item_equip_variant_deleting_dtor_8034F104(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804F0810[];
 
 void *enter_timed_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
+    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0810;
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     M2C_FIELD(arg0, u32 *, 0x1F8) = 13653;
@@ -325,7 +325,7 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804F0908[];
 
 void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
+    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0908;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = ((M2C_UNK *)TObjPlayer__sub_8034F204);
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
@@ -423,7 +423,7 @@ void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8034F754_lbl_804F0A00) == 0xF8 ? 1 : -1];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(arg1));
+    TItemWeapon__ct((void *)(arg0), (void *)(arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8034F754_lbl_804F0A00 *)&lbl_804F0A00).value;
     set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (int)(0x8000));
     M2C_FIELD(arg0, s32 *, 0x1F8) = -0x1C71;

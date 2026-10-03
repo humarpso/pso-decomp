@@ -36,7 +36,7 @@ extern const f32 lbl_805DAF44;
 extern const f32 lbl_805DAF48;
 extern const f32 lbl_805DAF4C;
 void TObjPlayer__sub_8012DA98(u8 *arg0);
-u8 * TObjPlayer__sub_80120D50(void *, void *);
+u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012DBF4_lbl_804A5B20 lbl_804A5B20;
 extern const f32 lbl_805DAF38;
@@ -126,7 +126,7 @@ void TObjPlayer__sub_8012DB48(u8 *arg0) {
 typedef char RecoveredGlobal_8012DBF4_lbl_804A5B20_size[sizeof(RecoveredGlobal_8012DBF4_lbl_804A5B20) == 0xF8 ? 1 : -1];
 u8 *construct_slicer_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 temp_r0;
-    TObjPlayer__sub_80120D50(arg0, arg1);
+    TItemWeapon__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A5B20.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x1F8) = 0;

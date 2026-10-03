@@ -58,7 +58,7 @@ void TItemEffPG__sub_8034FA50(void* p);
 void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1);
 s32 countdown_timer__10TItemEffPGFPv(void *arg0);
 void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__10TItemEffPGFv(void *, int);
 void __dt__7TObjectFv(void *, int);
@@ -68,7 +68,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0AF8[];
 
 void *init_fields__10TItemEffPGFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0AF8;
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     M2C_FIELD(arg0, u32 *, 0x1F8) = -30947;

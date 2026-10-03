@@ -243,7 +243,7 @@ s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK attach_particle_model(s32, s32, s32, s32, M2C_UNK, f32);
 M2C_UNK create_timed_particle_emitter_with_flags(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int TObjPlayer__sub_80115BC0(void*, int, int);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 M2C_UNK TObjPlayer__sub_802E451C();
 M2C_UNK spawn_scattered_lightning_strikes(s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
@@ -307,7 +307,7 @@ extern M2C_UNK lbl_804F14A8[];
 extern M2C_UNK spawn_shoot_particle__10TItemShootFv[];
 
 void *init_state_34_alt__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F14A8;
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;

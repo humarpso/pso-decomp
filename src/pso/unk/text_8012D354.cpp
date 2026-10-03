@@ -14,7 +14,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_soul_eater_weapon(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-u8 * TObjPlayer__sub_80120D50(void *, void *);
+u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_8012D354_lbl_804A5838 lbl_804A5838;
 u8 *construct_soul_eater_weapon(u8 *arg0, u8 *arg1, s32 _w2);
@@ -24,7 +24,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8012D354_lbl_804A5838_size[sizeof(RecoveredGlobal_8012D354_lbl_804A5838) == 0xF8 ? 1 : -1];
 u8 *construct_soul_eater_weapon(u8 *arg0, u8 *arg1, s32 _w2) {
-    TObjPlayer__sub_80120D50(arg0, arg1);
+    TItemWeapon__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A5838.value;
     M2C_FIELD(arg0, s32 *, 0x1F8) = 0;
     if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {

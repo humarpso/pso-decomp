@@ -8,7 +8,7 @@ void *init_trade_action__10TObjPlayerFPv(void *arg0);
 void set_flags__10TObjPlayerFPvUi(void *, int);
 void init_forward__10TObjPlayerFPv(void *);
 void clear_id__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern M2C_UNK lbl_804A535C[];
@@ -20,7 +20,7 @@ struct VOff_8012C868_arg0_8012c868 { char pad_0[0x1F8]; char f_1F8[1]; };
 
 void *init_trade_action__10TObjPlayerFPv(void *arg0) {
     struct VOff_8012C868_arg0_8012c868 *self = (struct VOff_8012C868_arg0_8012c868 *)arg0;
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A535C;
     init_forward__10TObjPlayerFPv(self->f_1F8);
     set_flags__10TObjPlayerFPvUi((void *)((char *)arg0 + 376), 32);

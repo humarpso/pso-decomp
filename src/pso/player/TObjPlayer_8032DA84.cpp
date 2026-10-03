@@ -54,7 +54,7 @@ void TObjPlayer__sub_8032DDE8(void* p);
 void fire_projectiles__10TObjPlayerFPv(void *arg0);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, M2C_UNK *, s32, M2C_UNK);
 s32 get_attack_stage__11TItemWeaponFPv(void *);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 s16 get_validated_attack_stage(s32);
 void __dl__7TObjectFPv(void *);
 void destroy__18TItemWpnCardEffectFPvs(void *, int);
@@ -86,7 +86,7 @@ void fire_projectiles__10TObjPlayerFPv(void *arg0) {
 extern M2C_UNK lbl_804EDC28[];
 
 void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDC28;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;

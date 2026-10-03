@@ -12,7 +12,7 @@ M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK create__8TTecFoieFPvPvPvPv(void *, M2C_UNK *, s32, M2C_UNK);
 
@@ -33,7 +33,7 @@ void cast_foie__10TObjPlayerFPv(void *arg0) {
 extern M2C_UNK lbl_804A1380[];
 
 void *TObjPlayer__sub_80122BE4(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A1380;
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     return arg0;

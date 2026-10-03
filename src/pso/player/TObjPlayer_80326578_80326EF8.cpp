@@ -23,7 +23,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
 void approach_orgaflow_shot__10TObjPlayerFi(s32 arg0);
 void approach_position_x__10TObjPlayerFi(s32 arg0);
-int TObjPlayer__sub_80120D50(void);
+int TItemWeapon__ct(void);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -32,7 +32,7 @@ void *item_equip_variant_deleting_dtor_8032704C(void *arg0, s16 arg1);
     extern unsigned char lbl_804ED298[];
     extern const float lbl_805DF660;
     extern const float lbl_805DF678;
-void* set_mode_floats__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED298; *(float*)((char*)a0 + 0x1f8) = lbl_805DF660; *(float*)((char*)a0 + 0x1fc) = lbl_805DF678; return a0; }
+void* set_mode_floats__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED298; *(float*)((char*)a0 + 0x1f8) = lbl_805DF660; *(float*)((char*)a0 + 0x1fc) = lbl_805DF678; return a0; }
 
 extern const f32 lbl_805DF684;
 extern const f32 lbl_805DF688;

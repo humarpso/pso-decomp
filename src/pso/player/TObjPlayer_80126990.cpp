@@ -11,7 +11,7 @@ void *init_vtable_and_flags__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK draw_weapon_model(s32);
 M2C_UNK draw_weapon_at_joint(s32, M2C_UNK);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 extern s32 lbl_805D5518;
@@ -28,7 +28,7 @@ void update_shield_ready__10TObjPlayerFi(s32 arg0) {
 extern M2C_UNK lbl_804A2B98[];
 
 void *init_vtable_and_flags__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A2B98;
     set_status_flags__10TObjPlayerFPvUi(arg0, 577);
     return arg0;

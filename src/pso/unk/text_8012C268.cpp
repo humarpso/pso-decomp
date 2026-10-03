@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-TItemWeaponRifle* TObjPlayer__sub_80120D50(TItemWeaponRifle*,s32,u8*);
+TItemWeaponRifle* TItemWeapon__ct(TItemWeaponRifle*,s32,u8*);
 void set_atp__10TObjPlayerFPvs(void*,s16);
 void spawn_weapon_impact_effect();
 extern u32 lbl_804A5248[];
@@ -14,7 +14,7 @@ extern const f32 lbl_805DAEE0;
 
 TItemWeaponRifle* TItemWeaponRifle::initialize(s32 parent,u8* item) {
     TItemWeaponRifle* self=this;
-    TObjPlayer__sub_80120D50(self,parent,item);
+    TItemWeapon__ct(self,parent,item);
     self->dispatch=lbl_804A5248;
     self->impactFactory=spawn_weapon_impact_effect;
     self->phase=lbl_805DAEE0;

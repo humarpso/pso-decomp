@@ -9,7 +9,7 @@ extern "C" {
 void update_from_owner__10TObjPlayerFPv(void *arg0);
 void *init_bringer_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK submit_computer_command__10TObjPlayerFPv(s32, s16, M2C_UNK, M2C_UNK);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 
 void update_from_owner__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
@@ -24,7 +24,7 @@ extern M2C_UNK lbl_804A1668[];
 extern M2C_UNK create__15TItemEffBringerFUiiif[];
 
 void *init_bringer_effect__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A1668;
     M2C_FIELD(arg0, u16 *, 0x1F8) = 2;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = create__15TItemEffBringerFUiiif;

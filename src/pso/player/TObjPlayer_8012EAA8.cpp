@@ -17,7 +17,7 @@ int TObjPlayer__sub_80115BC0(void*, int, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 int TObjPlayer__sub_8011E618(void*);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 int get_player_list__10TObjPlayerFv(void*);
 s32 get_tp__10TObjPlayerFPv(void *);
@@ -50,7 +50,7 @@ void release_container_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list_
 extern M2C_UNK lbl_804A5F18[];
 
 void *init_variant_a__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A5F18;
     M2C_FIELD(arg0, u32 *, 0x1F8) = 10922;
     set_status_flags__10TObjPlayerFPvUi(arg0, 1570);

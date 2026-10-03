@@ -22,7 +22,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80126054(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-u8 * TObjPlayer__sub_80120D50(void *, void *);
+u8 * TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, s32);
 extern RecoveredGlobal_80125FD8_lbl_804A2868 lbl_804A2868;
 extern const f32 lbl_805DAD68;
@@ -56,7 +56,7 @@ void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o) {
 }
 
 u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2) {
-    TObjPlayer__sub_80120D50(arg0, arg1);
+    TItemWeapon__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A2868.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x8000);
     M2C_FIELD(arg0, f32 *, 0x1E4) = (f32) lbl_805DAD68;

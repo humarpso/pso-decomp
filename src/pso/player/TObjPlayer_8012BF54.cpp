@@ -13,7 +13,7 @@ void *init_vtable_and_handlers__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 int TObjPlayer__sub_80115BC0(void*, void*, void*);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 s32 get_player_list__10TObjPlayerFv();
 
 void init_positions__10TObjPlayerFPv(void* p) { TObjPlayer__sub_80115BC0((char*)p + 0x1f8, (void*)-910, (void*)-7281); TObjPlayer__sub_80115BC0((char*)p + 0x1fc, (void*)-910, (void*)-9102); }
@@ -43,7 +43,7 @@ extern M2C_UNK fn_80109CBC[];
 extern M2C_UNK fn_80109A30[];
 
 void *init_vtable_and_handlers__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A5150;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = spawn_shoot_particle_attached__10TItemShootFiiif;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = fn_80109CBC;

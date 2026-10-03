@@ -68,7 +68,7 @@ void mechgun_update_rotation_decay(void *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);
-M2C_UNK TObjPlayer__sub_80120D50(void *, s32, void *);
+M2C_UNK TItemWeapon__ct(void *, s32, void *);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 M2C_UNK set_atp__10TObjPlayerFPvs(void *, M2C_UNK);
 void spawn_weapon_impact_effect();
@@ -111,7 +111,7 @@ void mechgun_sample_muzzle_points(u8 *arg0) {
 
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;
-    TObjPlayer__sub_80120D50(arg0, parent, arg2);
+    TItemWeapon__ct(arg0, parent, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3260;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x203);
     M2C_FIELD(arg0, void (**)(), 0x1EC) = &spawn_weapon_impact_effect;

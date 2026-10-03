@@ -23,7 +23,7 @@ void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_802D526C(void *arg0, s16 arg1);
 int do_action_447__10TObjPlayerFPv(void* p);
 int spawn_particle_effect(void*, int);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void *item_equip_variant_deleting_dtor_802D5214(void *arg0, s16 arg1);
@@ -34,7 +34,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804E1BB0[];
 
 void *init_state_513__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E1BB0;
     set_status_flags__10TObjPlayerFPvUi(arg0, 513);
     return arg0;

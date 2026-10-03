@@ -10,7 +10,7 @@ extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80127314(u8 *arg0);
-void TObjPlayer__sub_80120D50(void *, s32, void *);
+void TItemWeapon__ct(void *, s32, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
 void fn_80109710(void);
 extern void *lbl_804A3168[];
@@ -22,7 +22,7 @@ extern "C" {
 
 u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b) {
     Self_801272B4 *self = (Self_801272B4 *)self_;
-    TObjPlayer__sub_80120D50(self, a, b);
+    TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3168;
     set_status_flags__10TObjPlayerFPvUi(self, 0x100622);
     self->f1f0 = (void *)fn_80109710;

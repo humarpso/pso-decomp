@@ -11,7 +11,7 @@ void *set_vtable_804A1478__10TObjPlayerFPv(void *arg0);
 u8 get_slot_count__14TItemProShieldFPv();
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_attack_stage__11TItemWeaponFPv(s32);
-void TObjPlayer__sub_80120D50(void *);
+void TItemWeapon__ct(void *);
 
 extern s32 tl_05;
 
@@ -24,7 +24,7 @@ void spawn_cane__10TObjPlayerFi(s32 arg0) {
 extern M2C_UNK lbl_804A1478[];
 
 void *set_vtable_804A1478__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_80120D50(arg0);
+    TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A1478;
     return arg0;
 }

@@ -33,7 +33,7 @@ void * init_variant_b__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80326CA4(u8 *arg0);
-void TObjPlayer__sub_80120D50(void *, void *);
+void TItemWeapon__ct(void *, void *);
 extern M2C_UNK lbl_804ECFB0[];
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
 u8 *TItemTimerEvent__ct(void *, u32, s32, s32);
@@ -87,7 +87,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804ECDC0[];
 
 void *set_vtable_mode2_alt__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
+    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECDC0;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
@@ -123,7 +123,7 @@ void *item_equip_variant_deleting_dtor_80326618(void *arg0, s16 arg1) {
     return arg0;
 }
 void *init_vtable_variant__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
+    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ECEB8;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = create__13TItemShootGunFiiif;
     return arg0;
@@ -204,7 +204,7 @@ void *item_equip_variant_deleting_dtor_80326880(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_803268D8_lbl_804ECFB0_size[sizeof(RecoveredGlobal_803268D8_lbl_804ECFB0) == 0xF8 ? 1 : -1];
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(arg1));
+    TItemWeapon__ct((void *)(arg0), (void *)(arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803268D8_lbl_804ECFB0 *)&lbl_804ECFB0).value;
     M2C_FIELD(arg0, s16 *, 0x1FC) = -1;
     M2C_FIELD(arg0, s32 *, 0x1F8) = 0;
@@ -276,7 +276,7 @@ void *item_equip_variant_deleting_dtor_80326AD0(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804ED0A8[];
 
 void *init_state_1536__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
+    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED0A8;
     set_status_flags__10TObjPlayerFPvUi(arg0, 1536);
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
@@ -304,7 +304,7 @@ void init_item_slots__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)
 extern M2C_UNK lbl_804ED1A0[];
 
 void *init_variant_b__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_80120D50((void *)(arg0), (void *)(_w1));
+    TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED1A0;
     set_weapon_trail_joints(arg0, 2, 6, 5);
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);

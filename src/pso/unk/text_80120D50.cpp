@@ -28,24 +28,24 @@ M2C_UNK set_weapon_trail_joints(void *, int, int, int);
 M2C_UNK memcpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
 void create_gun_shot(void);
-extern void *lbl_804A06C8[];
+extern void *__vt__11TItemWeapon[];
 extern M2C_UNK lbl_805D53EC;
 extern const f32 lbl_805DAC98;
 extern u8 lbl_805DACA4;
 extern const f32 lbl_805DACB0;
-u8 *TObjPlayer__sub_80120D50(u8 *arg0, void *arg1, u8 *arg2);
+u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2);
 }
 
 extern "C" {
 
-u8 *TObjPlayer__sub_80120D50(u8 *arg0, void *arg1, u8 *arg2) {
+u8 *TItemWeapon__ct(u8 *arg0, void *arg1, u8 *arg2) {
     s32 temp_r3;
     u8 temp_r0;
     u8 *temp_r4;
     u8 *temp_r6;
     u8 *temp_r6_2;
     TItemEquipBase__ct(arg0, arg1, arg2);
-    M2C_FIELD(arg0, void ***, 0x18) = lbl_804A06C8;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__11TItemWeapon;
     ((V_80120D50 *)arg0)->v17(6);
     M2C_FIELD(arg0, void **, 0x1DC) = lookup_item_pmt_record(arg2);
     M2C_FIELD(arg0, s32 *, 0x1E0) = get_shield_pmt_entry__10TObjPlayerFUc(M2C_FIELD(M2C_FIELD(arg0, void **, 0x1DC), u8 *, 0x26));

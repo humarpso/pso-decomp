@@ -17,7 +17,7 @@ void TObjPlayer__sub_80327140(int a0, void* a1);
 void fire_spread_attack__10TObjPlayerFPv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, s32, M2C_UNK, M2C_UNK);
-int TObjPlayer__sub_80120D50(void);
+int TItemWeapon__ct(void);
 s16 get_field_2b8__14TItemProShieldFPv(s32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
 s16 obj_getS16_32C(s32);
@@ -25,7 +25,7 @@ M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 
     extern unsigned char lbl_804ED390[];
     extern const float lbl_805DF680;
-void* init_vtable_1f8__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED390; *(float*)((char*)a0 + 0x1f8) = lbl_805DF680; return a0; }
+void* init_vtable_1f8__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804ED390; *(float*)((char*)a0 + 0x1f8) = lbl_805DF680; return a0; }
 
     extern const float lbl_805DF690;
 

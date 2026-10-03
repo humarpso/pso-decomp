@@ -178,7 +178,7 @@ void set_radar_marker_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 void update_swim_flag__10TObjPlayerFPv(void *arg0);
 s32 get_attack_stage__11TItemWeaponFPv();
 M2C_UNK get_weapon_color__11TItemWeaponFPv(M2C_UNK *, void *);
-int TObjPlayer__sub_80120D50(void);
+int TItemWeapon__ct(void);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, M2C_UNK *);
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, void *, M2C_UNK, s32);
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
@@ -262,6 +262,6 @@ void TObjPlayer__sub_802D5E8C(u8 *arg0) {
     }
 }
 
-void* init_state_445__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_80120D50(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E23F0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)3); *(int*)((char*)a0 + 0x1f8) = 0; *(int*)((char*)a0 + 0x1fc) = 445; *(int*)((char*)a0 + 0x204) = (int)TObjPlayer__sub_8032E648; *(int*)((char*)a0 + 0x208) = (int)create_network_object__10TObjPlayerFiPvi; *(float*)((char*)a0 + 0x200) = lbl_805DE7A0; return a0; }
+void* init_state_445__10TObjPlayerFPv(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E23F0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)3); *(int*)((char*)a0 + 0x1f8) = 0; *(int*)((char*)a0 + 0x1fc) = 445; *(int*)((char*)a0 + 0x204) = (int)TObjPlayer__sub_8032E648; *(int*)((char*)a0 + 0x208) = (int)create_network_object__10TObjPlayerFiPvi; *(float*)((char*)a0 + 0x200) = lbl_805DE7A0; return a0; }
 
 }
