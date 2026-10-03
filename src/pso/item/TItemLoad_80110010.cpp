@@ -60,7 +60,7 @@ void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2);
 void lookup_item_data__9TItemLoadFiPv(s32 arg0, s32 *arg1);
 void update__9TItemLoadFv(void);
 s32 TItemLoad__sub_801107F4(void *);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, s32);
 M2C_UNK __dl__FPv(void *);
@@ -129,7 +129,7 @@ void get_item_params__9TItemLoadFPvPvPv(s32 *arg0, s32 *arg1, s32 *arg2) {
     if ((arg0 != NULL) && (arg1 != NULL) && (arg2 != NULL)) {
         *arg0 = get_bml_model((s32)(TItemLoad__data_805D5480), (s32)(1));
         *arg1 = TObjFish__sub_8001EDB0(TItemLoad__data_805D5480, 0);
-        *arg2 = TObjFish__sub_8001ED9C(TItemLoad__data_805D5480, 0);
+        *arg2 = get_bml_motion(TItemLoad__data_805D5480, 0);
     }
 }
 

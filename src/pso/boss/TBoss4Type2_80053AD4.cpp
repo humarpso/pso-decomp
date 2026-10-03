@@ -153,7 +153,7 @@ u8 *TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void vec3_add_to(void *, void *);
 void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 M2C_UNK TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
@@ -423,17 +423,17 @@ void TObjFish__sub_800543A4(u8 *arg0) {
             off = (i - 2) * 4 + 0x42C;
             TObjFish__sub_800E3074(*(s32 *)(arg0 + off));
             a = get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]);
-            draw_model_motion(a, TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
+            draw_model_motion(a, get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
             clear_render_callback__8TObjFishFv(*(s32 *)(arg0 + off));
             update_camera_target__14TBoss6PlotFalzFv();
             break;
         case 5:
             TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x480));
-            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
+            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
             clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x480));
             break;
         default:
-            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
+            draw_model_motion(get_bml_model(M2C_FIELD(arg0, s32 *, 0x390), lbl_80485EB0[i]), get_bml_motion(M2C_FIELD(arg0, s32 *, 0x390), M2C_FIELD((u8 *)&lbl_80485EC8.value + (M2C_FIELD(arg0, s32 *, 0x3E4) << 5) + i * 4, s32 *, 8)), M2C_FIELD(arg0, f32 *, 0x3E8));
             break;
         }
     }

@@ -13,7 +13,7 @@ struct Obj_80189E3C {
 extern "C" {
 void TItem__sub_80101DB8(Item_80189E3C *);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80444F00[];
 extern const char lbl_80444F10[];
 extern const char lbl_80444F20[];
@@ -32,11 +32,11 @@ void fn_80189E3C(Obj_80189E3C *self) {
     }
     if (self->x360 != 0) {
         set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
-        TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80444F00);
+        debug_printf_at(0x13001C, lbl_80444F00);
     } else {
         set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-        TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80444F10);
-        TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444F20);
+        debug_printf_at(0x13001C, lbl_80444F10);
+        debug_printf_at(0x130020, lbl_80444F20);
         item.data[0] = self->data[0];
         item.data[1] = self->data[1];
         item.data[2] = self->data[2];

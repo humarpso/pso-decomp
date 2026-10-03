@@ -34,7 +34,7 @@ u8 TLobby__sub_801D6FC8(Obj_801D6FC8 *p);
 u8 ret_801D7904(Obj_801D6FFC *p);
 u8 TLobby__sub_801D6FFC(Obj_801D6FFC *p);
 u8 ret_801D7914(Obj_801D7064 *p);
-u8 TLobby__sub_801D7064(Obj_801D7064 *p);
+u8 get_rule_field_a__6TLobbyFPv(Obj_801D7064 *p);
 u8 ret_801D7924(Obj_801D70CC *p);
 u8 TLobby__sub_801D70CC(Obj_801D70CC *p);
 u8 ret_801D791C(Obj_801D7098 *p);
@@ -161,7 +161,7 @@ u8 TLobby__sub_801D7030(Obj_801D7030 *p) {
     }
     return p->v;
 }
-u8 TLobby__sub_801D7064(Obj_801D7064 *p) {
+u8 get_rule_field_a__6TLobbyFPv(Obj_801D7064 *p) {
     if (p->v >= 2) {
         return ret_801D7914(p);
     }

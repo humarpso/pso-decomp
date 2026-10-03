@@ -31,7 +31,7 @@ void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t);
 u32 get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
-u8 TLobby__sub_801D7064(void *);
+u8 get_rule_field_a__6TLobbyFPv(void *);
 u8 TLobby__sub_801D7100(void *);
 extern u8 lbl_8050EA40[];
 extern s32 TLobby__data_80511CA0[];
@@ -138,7 +138,7 @@ u8 TLobby__sub_801C271C(void) {
             }
             if (ok != 0) {
                 cnt++;
-                if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+                if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
                     idx = TLobby__sub_801C19D0(p + 0x828) - 1;
                     if (idx >= 0 && idx < 2) {
                         seen[idx] = 1;
@@ -147,7 +147,7 @@ u8 TLobby__sub_801C271C(void) {
             }
         }
     }
-    if (TLobby__sub_801D7064(lbl_8050EA40) == 1 && (seen[0] == 0 || seen[1] == 0)) {
+    if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1 && (seen[0] == 0 || seen[1] == 0)) {
         return 1;
     }
     return cnt <= 1;

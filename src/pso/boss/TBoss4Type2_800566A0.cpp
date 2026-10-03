@@ -197,7 +197,7 @@ s32 TBoss4Type3__sub_8005254C(u16);
 void TBoss4Type3__sub_800599F4(void *, s32, s32);
 void TBoss4Type3__vt44(S_800582B4 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void create_zanzo__11TBoss4Type2FPvPv(void *, void *);
@@ -224,7 +224,7 @@ void TBoss4Type2__sub_80056F38(Obj_80056F38 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
 extern u8 __vt__11TBoss4Type2[];
 void TBoss4Type2__sub_80056A54(Obj_80056A54 *arg0);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
@@ -345,7 +345,7 @@ void TBoss4Type2__sub_8005676C(Obj_8005676C *arg0) {
     for (i = 0; i < 2; i++) {
         z.f10 = TObjFish__sub_8001EDB0(arg0->f390, lbl_804867C0[i]);
         z.f14 = get_bml_model(arg0->f390, lbl_804867C0[i]);
-        z.f18 = TObjFish__sub_8001ED9C(arg0->f390, ((Row_8005676C *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i]);
+        z.f18 = get_bml_motion(arg0->f390, ((Row_8005676C *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i]);
         create_zanzo__11TBoss4Type2FPvPv(arg0, &z);
     }
 }
@@ -537,7 +537,7 @@ void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
             TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
             TObjFish__sub_800E3074(arg0->f44c);
             draw_model_motion(get_bml_model(arg0->f390, lbl_804867C0[i]),
-                TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
+                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             clear_render_callback__8TObjFishFv(arg0->f44c);
             some_id_805c6f74 &= ~0x20000;
@@ -545,7 +545,7 @@ void TBoss4Type2__sub_80057270(Obj_80057270 *arg0) {
         default:
             TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);
             draw_model_motion(get_bml_model(arg0->f390, lbl_804867C0[i]),
-                TObjFish__sub_8001ED9C((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
+                get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__data_804867C8)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             update_camera_target__14TBoss6PlotFalzFv();
             break;

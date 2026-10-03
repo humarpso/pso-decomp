@@ -98,13 +98,13 @@ void TObjPlayer__sub_802E8234(u8 *arg0);
 void draw_effect__10TObjPlayerFv(void);
 void notify_fish_obj__10TObjPlayerFPv(void* a0);
 void queue_boss_effect__10TObjPlayerFPv(void* a0);
-int TObjFish__sub_8001ED9C(void*, void*);
+int get_bml_motion(void*, void*);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*, void*);
 int set_global_param__8TObjFishFi(void);
 
     extern int lbl_805D6918;
-void notify_fish_obj__10TObjPlayerFPv(void* a0) { TObjFish__sub_8001ED9C((void*)(lbl_805D6918), a0); }
+void notify_fish_obj__10TObjPlayerFPv(void* a0) { get_bml_motion((void*)(lbl_805D6918), a0); }
 
     extern int lbl_805D6918;
 void queue_boss_effect__10TObjPlayerFPv(void* a0) { get_bml_model((void*)(lbl_805D6918), a0); }

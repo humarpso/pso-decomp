@@ -491,7 +491,7 @@ void set_action__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -535,7 +535,7 @@ s32 TBoss3Volopt__sub_8003F398(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 minimap_render_dot(void *, s32, s16, s32);
 f32 sin_table_lookup(s32);
-M2C_UNK TObjPlayer__sub_800192DC(void *);
+M2C_UNK reset_status_effect_row(void *);
 s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
@@ -1242,7 +1242,7 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
             ((VObjB_80044498 *)(arg0 + 0x490))->n6();
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjLight__sub_80134194(arg0);
+        select_actor_lighting(arg0);
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         some_id_805c6f74 &= 0xFFFFFBFF;
@@ -1302,7 +1302,7 @@ void TBoss3Volopt__sub_800477A0(u8 *arg0) {
         }
         if (obj_testFlags30((void*)(arg0), (M2C_UNK)(0x4000)) != 0) {
             if (add_status_effect_timer__10TObjPlayerFPvii((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
-                TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
+                reset_status_effect_row((void *) (arg0 + 0x284));
                 obj_clearFlags30((void *) (arg0), (int) (0x4000));
             }
         } else {

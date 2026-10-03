@@ -68,7 +68,7 @@ extern const f32 lbl_805DB258;
 extern const f32 lbl_805DB260;
 extern const f32 lbl_805DB264;
 void TObjFogCollision__sub_80153B64(u8 *arg0);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern char lbl_804400C8[];
 extern char lbl_804400D4[];
 extern char lbl_804400E0[];
@@ -153,12 +153,12 @@ void TObjFogCollision__sub_80153D2C(u8 *arg0) {
 }
 
 void TObjFogCollision__vt12(O_80153D98 *arg0) {
-    TObjEneBm5GibonU__sub_803D853C(0x13001C, &lbl_805DB268);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_804400C8);
+    debug_printf_at(0x13001C, &lbl_805DB268);
+    debug_printf_at(0x130020, lbl_804400C8);
     if (arg0->mode == 0) {
-        TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_804400D4);
+        debug_printf_at(0x130021, lbl_804400D4);
     } else {
-        TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_804400E0);
+        debug_printf_at(0x130021, lbl_804400E0);
     }
 }
 

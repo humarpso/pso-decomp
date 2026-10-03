@@ -21,7 +21,7 @@ struct Obj_8035CB88 { u8 pad[0x34]; s32 x30; u8 pad38[0x1C]; void *p[4]; };
 
 typedef s32 M2C_UNK;
 extern "C" {
-s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -187,11 +187,11 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     temp_r3 = (u8 *)(get_fish_count__8TObjFishFv());
     M2C_FIELD(arg0, s32 *, 0x38) = get_bml_model(temp_r3, 7);
     M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);
-    M2C_FIELD(arg0, s32 *, 0x48) = TObjFish__sub_8001ED9C(temp_r3, 9);
-    M2C_FIELD(arg0, s32 *, 0x4C) = TObjFish__sub_8001ED9C(temp_r3, 0xB);
+    M2C_FIELD(arg0, s32 *, 0x48) = get_bml_motion(temp_r3, 9);
+    M2C_FIELD(arg0, s32 *, 0x4C) = get_bml_motion(temp_r3, 0xB);
     M2C_FIELD(arg0, s32 *, 0x3C) = get_bml_model(temp_r3, 9);
     M2C_FIELD(arg0, s32 *, 0x44) = TObjFish__sub_8001EDB0(temp_r3, 9);
-    M2C_FIELD(arg0, s32 *, 0x50) = TObjFish__sub_8001ED9C(temp_r3, 0xA);
+    M2C_FIELD(arg0, s32 *, 0x50) = get_bml_motion(temp_r3, 0xA);
     TBoss6Thanks__sub_8035CCAC((s32)((s32) arg0));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;

@@ -41,7 +41,7 @@ extern u8 lbl_804B7ED8[];
 extern u32 lbl_805D5C20;
 extern s32 lbl_805D5C24;
 void load_resources__9TKomorebiFv(void);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 s32 get_bml_model(void *, int);
 extern s32 lbl_805D5C2C;
 void TObjFish__sub_80192434(Fish_80192434 *arg0);
@@ -161,11 +161,11 @@ void TObjFish__sub_80192434(Fish_80192434 *arg0) {
     if (arg0->f8C % 2 == 0) {
         arg0->fBC = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 1);
         arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 0);
-        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 0);
+        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 0);
     } else {
         arg0->fBC = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 3);
         arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 2);
-        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 1);
+        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 1);
     }
     for (j = 0; j < 4; j++) {
         arg0->fC8[j] = 0;

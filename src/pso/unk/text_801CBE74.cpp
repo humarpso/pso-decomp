@@ -58,7 +58,7 @@ u32 get_player_by_client_id(u32);
 void clear_flag_200__10TObjPlayerFPv(u32);
 void release_photon_blast_player_holds(u16 *p);
 u16 obj_getField1c(void *);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_single_screen__10TObjPlayerFv(void);
 s32 is_on_current_floor__10TObjPlayerFi(void *);
@@ -114,7 +114,7 @@ void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
     i = 0;
     do {
         obj = *tbl;
-        if (obj != NULL && is_on_current_floor__10TObjPlayerFi(obj) != 0 && TLobby__sub_800822E8(obj, 0x8000) == 0 &&
+        if (obj != NULL && is_on_current_floor__10TObjPlayerFi(obj) != 0 && test_action_mask__10TObjPlayerFPvi(obj, 0x8000) == 0 &&
             (is_single_screen__10TObjPlayerFv() != 0 ||
              (is_single_screen__10TObjPlayerFv() == 0 && arg0 == get_stat_by_key_state__10TObjPlayerFPv(obj)))) {
             TObjPlayer__sub_801D0F70(obj);

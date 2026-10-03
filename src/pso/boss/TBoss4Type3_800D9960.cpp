@@ -36,7 +36,7 @@ extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *TBoss4Type3__sub_800D9ABC(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
 void fn_800D97E8(void *, s32, M2C_UNK);
-void TObjPlayer__sub_803D7B68(s32, f32);
+void bind_motion_context(s32, f32);
 void TObjPlayer__sub_803D8CD4(M2C_UNK);
 void push_matrix(Vec_800D9994 *);
 void pop_matrix();
@@ -81,7 +81,7 @@ void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3,
     for (i = 0; i < arg0->count; i++) {
         lbl_805D5238 = 0;
         TObjPlayer__sub_803D8CD4(0);
-        TObjPlayer__sub_803D7B68(arg2, f);
+        bind_motion_context(arg2, f);
         fn_800D97E8(arg0, arg1, 0);
         f += arg0->step;
     }

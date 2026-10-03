@@ -108,7 +108,7 @@ M2C_UNK fn_800D7AD0(int);
 s32 updateFromCamera__15RenderFadeStateFPCf(int, void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -245,7 +245,7 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
             }
             TObjPlayer__sub_800D2E8C((Ene_800D2E8C *) (arg0));
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            TObjLight__sub_80134194((void *) (arg0));
+            select_actor_lighting((void *) (arg0));
             toggle_particle_effect__10TObjPlayerFv();
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));

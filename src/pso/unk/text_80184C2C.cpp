@@ -16,7 +16,7 @@ void TLobby__sub_80184D00(void* _w0);
 void TLobby__sub_80184C80(void *p);
 void TObjLaboMapWarp__sub_80185400(void *);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
 extern const char lbl_804449D0[];
 extern const char lbl_804449E0[];
@@ -30,7 +30,7 @@ void TObjLaboMapWarp__vt17(Obj_80185160 *self);
 extern "C" {
 
 int TLobby__sub_80184C2C(int a0);
-int TLobby__sub_80184C40(int a0);
+int get_season_model_resource(int a0);
 u8 TLobby__sub_80184C54(void);
 int TLobby__sub_80184C6C(int a0);
 void TLobby__sub_80184CE0(void* p);
@@ -39,7 +39,7 @@ void TLobby__sub_80184CE0(void* p);
 int TLobby__sub_80184C2C(int a0) {  return lbl_8050DC50[a0]; }
 
     extern int lbl_8050DC38[];
-int TLobby__sub_80184C40(int a0) {  return lbl_8050DC38[a0]; }
+int get_season_model_resource(int a0) {  return lbl_8050DC38[a0]; }
 
 extern s32 lbl_805D5B30;
 
@@ -71,12 +71,12 @@ void TLobby__sub_80184D00(void* _w0) {
 void TObjLaboMapWarp__vt17(Obj_80185160 *self) {
     TObjLaboMapWarp__sub_80185400(self);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_804449C0);
-    TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_804449D0);
-    TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_804449E0);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_804449F0);
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80444A00);
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80444A10, lbl_804B6028[self->dest]);
+    debug_printf_at(0x13001C, lbl_804449C0);
+    debug_printf_at(0x13001D, lbl_804449D0);
+    debug_printf_at(0x13001E, lbl_804449E0);
+    debug_printf_at(0x130020, lbl_804449F0);
+    debug_printf_at(0x130021, lbl_80444A00);
+    debug_printf_at(0x130022, lbl_80444A10, lbl_804B6028[self->dest]);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

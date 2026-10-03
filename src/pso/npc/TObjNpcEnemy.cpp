@@ -146,7 +146,7 @@ M2C_UNK TObjNpcEnemy__sub_801480FC();
 s16 *TObjNpcEnemy__sub_802D72E4(s16 arg0);
 void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
 M2C_UNK set_global_count__12TObjNpcEnemyFi(u32);
-void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+void debug_printf_at(s32, const char *, ...);
 extern char lbl_80472600[];
 extern char lbl_80472610[];
 extern char lbl_80472620[];
@@ -181,7 +181,7 @@ M2C_UNK draw_ginja_object(s32);
 void *TObjControl__ct(void *, void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, int, f32, f32, f32);
 M2C_UNK push_matrix_from(int);
@@ -303,8 +303,8 @@ void TObjNpcEnemy__vt91(u8 *arg0) {
     s16 *p;
     TObjNpcEnemy__sub_801480FC();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130018, lbl_80472600);
-    TObjEneBm5GibonU__sub_803D853C(0x13001A, lbl_80472610);
+    debug_printf_at(0x130018, lbl_80472600);
+    debug_printf_at(0x13001A, lbl_80472610);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     p = TObjNpcEnemy__sub_802D72E4((s16) M2C_FIELD(arg0, s32 *, 0x5C));
     if (p != M2C_FIELD(arg0, s16 **, 0x3B8)) {
@@ -313,7 +313,7 @@ void TObjNpcEnemy__vt91(u8 *arg0) {
     p = M2C_FIELD(arg0, s16 **, 0x3B8);
     if (p == NULL) {
         set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
-        TObjEneBm5GibonU__sub_803D853C(0x240018, lbl_80472620);
+        debug_printf_at(0x240018, lbl_80472620);
         set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
         return;
     }
@@ -326,7 +326,7 @@ void TObjNpcEnemy__vt91(u8 *arg0) {
     case 3:
         if (p[0x10] <= M2C_FIELD(arg0, s32 *, 0x64) || M2C_FIELD(arg0, s32 *, 0x64) < 0) {
             set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
-            TObjEneBm5GibonU__sub_803D853C(0x24001A, lbl_80472620);
+            debug_printf_at(0x24001A, lbl_80472620);
             set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
             M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         } else {
@@ -373,7 +373,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
     u8 *temp_r4;
 
     if (((void *) M2C_FIELD(arg0, void **, 0x3B8) != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
-        TObjLight__sub_80134194((void *) (arg0));
+        select_actor_lighting((void *) (arg0));
         if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
             some_id_805c6f74 |= 1;
         }

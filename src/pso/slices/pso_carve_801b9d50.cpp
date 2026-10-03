@@ -46,7 +46,7 @@ VA
 extern "C" {
 
 u8 get_field_ed__10TObjPlayerFPv(void *);
-s32 TLobby__sub_800822E8(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 M2C_UNK set_animation__10TObjPlayerFPvs(s32, s32);
 s32 unequip_by_field326__10TObjPlayerFPv(s32);
@@ -61,7 +61,7 @@ void unequip_item__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     if ((get_field_ec__12TOSwitchItemFPv(arg1) == 1) && (get_field_ed__10TObjPlayerFPv(arg1) == 1)) {
         unequip_all_units__10TObjPlayerFi(arg0);
     }
-    if (TLobby__sub_800822E8(arg0, 2) != 0) {
+    if (test_action_mask__10TObjPlayerFPvi(arg0, 2) != 0) {
         set_animation__10TObjPlayerFPvs(arg0, unequip_by_field326__10TObjPlayerFPv(arg0));
     }
 }

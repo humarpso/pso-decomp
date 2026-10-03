@@ -11,14 +11,14 @@ s32 is_locally_controlled__10TObjPlayerFPv(s32);
 s32 reset_volopt_state__10TObjPlayerFv(s32);
 s32 check_flag_clear__10TObjPlayerFPv(s32);
 s32 check_flag_100__10TObjPlayerFPv(s32);
-s32 TLobby__sub_800822E8(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
 s32 TObjPlayer__sub_801C1F50(s32);
 s32 get_camera_field__10TObjPlayerFPv(s32);
 
 s32 obj_testFlags30(s32, M2C_UNK);
 
 s32 check_conditions__10TObjPlayerFi(s32 arg0) {
-    if ((obj_testFlags30(arg0, 0x20006) != 0) || (TLobby__sub_800822E8(arg0, 0x11E) == 0) || (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0) || (check_flag_clear__10TObjPlayerFPv(arg0 + 0x4AC) == 0) || ((is_locally_controlled__10TObjPlayerFPv(arg0) != 0) && ((check_flag_100__10TObjPlayerFPv(arg0) != 0) || (get_camera_field__10TObjPlayerFPv(arg0) == 0))) || (reset_volopt_state__10TObjPlayerFv(arg0) == 0)) {
+    if ((obj_testFlags30(arg0, 0x20006) != 0) || (test_action_mask__10TObjPlayerFPvi(arg0, 0x11E) == 0) || (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0) || (check_flag_clear__10TObjPlayerFPv(arg0 + 0x4AC) == 0) || ((is_locally_controlled__10TObjPlayerFPv(arg0) != 0) && ((check_flag_100__10TObjPlayerFPv(arg0) != 0) || (get_camera_field__10TObjPlayerFPv(arg0) == 0))) || (reset_volopt_state__10TObjPlayerFv(arg0) == 0)) {
         return 0;
     }
     return 1;

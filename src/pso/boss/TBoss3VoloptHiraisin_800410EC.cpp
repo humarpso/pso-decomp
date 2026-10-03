@@ -72,7 +72,7 @@ s32 get_bml_model(int, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
-s32 TObjLight__sub_80134194(void *);
+s32 select_actor_lighting(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 f32 sin_table_lookup(int);
@@ -227,7 +227,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         set_global_param__8TObjFishFi((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_24));
         lbl_805D5660 = some_id_805c6f74;
         some_id_805c6f74 |= 0x01000000;
-        TObjLight__sub_80134194((void *) (arg0));
+        select_actor_lighting((void *) (arg0));
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         some_id_805c6f74 &= 0xFFFFFBFF;

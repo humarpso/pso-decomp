@@ -8,7 +8,7 @@ struct V3_80185E14 { s32 w[3]; };
 
 extern "C" {
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern V3_80185E14 lbl_80444998[];
 extern u8 lbl_805DBC94;
 void TObjCityMainWarp__vt18(Obj_80185E14 *arg0);
@@ -43,7 +43,7 @@ void TObjCityMainWarp__vt18(Obj_80185E14 *arg0) {
     }
     V3_80185E14 sp8 = lbl_80444998[0];
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130021, &lbl_805DBC94, sp8.w[arg0->f150]);
+    debug_printf_at(0x130021, &lbl_805DBC94, sp8.w[arg0->f150]);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u8 * TObjFish__sub_8001ED9C(void *, int);
+u8 * get_bml_motion(void *, int);
 extern u8 *lbl_805D64C8;
 u8 *fn_8028A714(s32 arg0);
 u8 * TObjFish__sub_8001EDB0(void *, int);
@@ -20,7 +20,7 @@ extern "C" {
 
 u8 *fn_8028A714(s32 arg0) {
     if ((void *) lbl_805D64C8 != NULL) {
-        return TObjFish__sub_8001ED9C(lbl_805D64C8, arg0);
+        return get_bml_motion(lbl_805D64C8, arg0);
     }
     return NULL;
 }

@@ -71,7 +71,7 @@ f32 TObjPlayer__sub_80018780(void *, u16, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 Obj_800A4C4C *get_player_data__10TObjPlayerFi(s32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TLobby__sub_800822E8(void *, int);
+s32 test_action_mask__10TObjPlayerFPvi(void *, int);
 s32 angle_difference_abs(s32, s32);
 M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043A8D0[];
@@ -157,7 +157,7 @@ s32 TObjPlayer__sub_800A4C4C(Obj_800A4C4C *self) {
             if (angle_difference_abs(self->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) >= 0x2AAA) {
                 continue;
             }
-            if (TLobby__sub_800822E8(p, 0xE0) == 0) {
+            if (test_action_mask__10TObjPlayerFPvi(p, 0xE0) == 0) {
                 continue;
             }
             VecCopy__FP3VecPC3Vec(&v, &self->pos);

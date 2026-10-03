@@ -30,12 +30,12 @@ void* __ct__12TQuestThreadFv(void*, void*, s32);
 void set_parent__7TObjectFP7TObject(void*, void*);
 f32 get_random_float__8TObjFishFv(f32);
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern s32 lbl_80445DF4[];
 extern u8 lbl_80445E08[];
 void TMotorcycle__vt14(Mc_80194EC4 *arg0);
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern Pair_80194AEC lbl_80445D94[];
 extern u8 lbl_80445D9C[];
 extern u8 lbl_80445DAC[];
@@ -90,8 +90,8 @@ void TObjMesBase__sub_80194AEC(Mes_80194AEC *arg0) {
     }
     Pair_80194AEC names = lbl_80445D94[0];
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80445D9C, arg0->fB4);
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80445DAC, names.s[arg0->fB8]);
+    debug_printf_at(0x130020, lbl_80445D9C, arg0->fB4);
+    debug_printf_at(0x130022, lbl_80445DAC, names.s[arg0->fB8]);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
@@ -188,7 +188,7 @@ void TMotorcycle__vt14(Mc_80194EC4 *arg0) {
     arg0->fBC = arg0->fBC % 2;
     arg0->fBC = lbl_80445DF4[arg0->fBC];
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80445E08);
+    debug_printf_at(0x13001C, lbl_80445E08);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

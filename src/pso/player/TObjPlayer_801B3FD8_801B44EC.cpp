@@ -51,7 +51,7 @@ void send_code50_packet__10TObjPlayerFi(s32 arg0);
 void send_code_49_1__10TObjPlayerFi(s32 arg0);
 void send_field_state__10TObjPlayerFPv(void* p);
 M2C_UNK TFontSmallLobby__sub_801C0228();
-s32 TLobby__sub_800822E8(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 int TObjPlayer__sub_801BF324(void*);
 M2C_UNK bswap_font_lobby__10TObjPlayerFPv(void *);
@@ -145,7 +145,7 @@ s32 can_use_action__10TObjPlayerFi(s32 arg0) {
     if (check_flag_100__10TObjPlayerFPv(arg0) != 0) {
         return 0;
     }
-    if (TLobby__sub_800822E8(arg0, 0x200) != 0) {
+    if (test_action_mask__10TObjPlayerFPvi(arg0, 0x200) != 0) {
         return 0;
     }
     return is_ready__15TFontSmallLobbyFPv(arg0 + 0x4AC) != 0 ? 1 : 0;

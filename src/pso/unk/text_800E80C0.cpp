@@ -57,7 +57,7 @@ void TObjPlayer__sub_800E8128(void);
 extern RecoveredGlobal_800E8128_lbl_80501010 lbl_80501010;
 void TObjPlayer__sub_800E80C0(u8 *arg0);
 S_800E80E8 *TObjPlayer__sub_800E80E8(S_800E80E8 *dst, S_800E80E8 *src);
-M2C_UNK TObjPlayer__sub_800F09E8(int);
+M2C_UNK draw_blob_shadow(int);
 M2C_UNK direction_to_rotation_xz(Rot_800E81B4 *, s32 *, s32 *);
 s32 project_actor_to_ground(void *, Vec_800E81B4 *, Rot_800E81B4 *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -171,7 +171,7 @@ void TObjPlayer__sub_800E81B4(Obj_800E81B4 *arg0) {
             rotate_matrix_z(0, sp8);
             rotate_matrix_x(0, spC + 0x4000);
             scale_matrix(0, lbl_805DA674, lbl_805DA674, lbl_805DA674);
-            TObjPlayer__sub_800F09E8(0);
+            draw_blob_shadow(0);
             pop_matrix();
         }
     }

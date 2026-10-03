@@ -120,7 +120,7 @@ extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt15(u8 *arg0);
 void TOKey__sub_8016AA20();
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern u16 lbl_80445CB8[];
 extern u8 lbl_80445CD8[];
 void TLazerFenceSw__vt24(Sw_80193978 *arg0);
@@ -260,7 +260,7 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
     }
     arg0->fE8 = lbl_80445CB8[arg0->f8C % 4];
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80445CD8);
+    debug_printf_at(0x130022, lbl_80445CD8);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

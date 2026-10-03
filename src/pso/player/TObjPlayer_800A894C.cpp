@@ -200,7 +200,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -449,7 +449,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000)) {
         temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805D9B24, lbl_805D9B28, lbl_805D9B2C);
         if (temp_r3 != 0) {
-            TObjLight__sub_80134194((void *) (arg0));
+            select_actor_lighting((void *) (arg0));
             toggle_particle_effect__10TObjPlayerFv();
             if (M2C_FIELD(arg0, s16 *, 0x392) != 0) {
                 set_global_param__8TObjFishFi((void *) (lbl_805D5094));

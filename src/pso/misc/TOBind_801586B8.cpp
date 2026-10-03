@@ -34,7 +34,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801587D8_lbl_804AFC44 lbl_804AFC44;
 extern u32 TOBind__data_805D58A0;
 void TOBind__sub_801587D8(void);
-u8 *TObjFish__sub_8001ED9C(s32, s32);
+u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -159,7 +159,7 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
     M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
-    M2C_FIELD(arg0, u8 **, 0xCC) = TObjFish__sub_8001ED9C((*(s32 *)&TOBind__data_805D58A0), 0);
+    M2C_FIELD(arg0, u8 **, 0xCC) = get_bml_motion((*(s32 *)&TOBind__data_805D58A0), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB300;
     M2C_FIELD(arg0, f32 *, 0xBC) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xCC), u32 *, 4) - lbl_805DB304);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB304;

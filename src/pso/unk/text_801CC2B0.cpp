@@ -62,7 +62,7 @@ M2C_UNK reset_photon_blast_gauge(void *);
 void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 Player_801CC6B8 *get_player_by_client_id(s32);
 void set_photon_blast_kind(void *, s32);
 void apply_photon_blast__10TObjPlayerFii(u16, s32);
@@ -228,7 +228,7 @@ void handle_6x49_execute_photon_blast(void *arg0) {
     TObjPlayer__sub_801D1DDC(&m);
     if (TObjEneHoldEffect__sub_8036BBF4(&m) != 0) {
         p = get_player_by_client_id(m.id);
-        if (p != NULL && TLobby__sub_800822E8(p, 0x8000) == 0 && reset_key_machine_state__10TObjPlayerFv() != 0) {
+        if (p != NULL && test_action_mask__10TObjPlayerFPvi(p, 0x8000) == 0 && reset_key_machine_state__10TObjPlayerFv() != 0) {
             if (get_current_floor() == get_field_3e4__10TObjPlayerFPv(p)) {
                 s32 count;
                 u32 *dst;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-f32 TObjPlayer__sub_803D7B68(void *, f32);
+f32 bind_motion_context(void *, f32);
 M2C_UNK sample_motion_node_transform(s32, s32, M2C_UNK *, M2C_UNK *, M2C_UNK *);
 
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0) {
@@ -24,7 +24,7 @@ s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s
         var_r31 = 0;
         var_f1 = (f32) temp_r7;
     }
-    TObjPlayer__sub_803D7B68(arg2, var_f1);
+    bind_motion_context(arg2, var_f1);
     sample_motion_node_transform(arg1, arg3, sp24, sp18, sp8);
     return var_r31;
 }

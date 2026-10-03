@@ -45,7 +45,7 @@ void post_translate_matrix(void *);
 extern Vec3_80352240 lbl_804790D0[];
 extern Vec3_80352240 lbl_804790DC[];
 void TObjLobbyMain__sub_80352240(u8 *arg0);
-s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 get_bml_motion(void *, s32);
 s32 get_bml_model(void *, s32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
@@ -229,7 +229,7 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
         idx = M2C_FIELD(arg0, s16 *, 0xD0);
         r = lbl_80479078[idx];
         if (r != 5) {
-            r = TObjFish__sub_8001ED9C(TObjLobbyMain__data_805D6EC8, r);
+            r = get_bml_motion(TObjLobbyMain__data_805D6EC8, r);
             draw_ginja_model_with_motion(get_bml_model(TObjLobbyMain__data_805D6EC8, M2C_FIELD(arg0, s16 *, 0xD0)), r, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
             get_bml_model(TObjLobbyMain__data_805D6EC8, idx);

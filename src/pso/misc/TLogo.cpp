@@ -58,7 +58,7 @@ void run_task__5TLogoFv(u8 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F92C();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 M2C_UNK set_active_camera_pose(void *, void *);
-M2C_UNK TCameraCtrl__sub_80069E7C(int);
+M2C_UNK activate_camera_mode(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
@@ -220,7 +220,7 @@ void TLogo__sub_8013F5E8(void) {
     func_803DCDFC__Fv();
     V3_8013F5E8 a = lbl_8043F150;
     V3_8013F5E8 b = lbl_8043F15C;
-    TCameraCtrl__sub_80069E7C(9);
+    activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
     controller_stuff__Fv();
     TKeyBoardControl__sub_801A5EC4();

@@ -208,7 +208,7 @@ struct Obj_80043CAC { u8 pad0[0x326]; s16 state; };
 typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjPlayer__sub_800192DC(void *);
+M2C_UNK reset_status_effect_row(void *);
 s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, int);
@@ -271,7 +271,7 @@ M2C_UNK sin_table_lookup(s32);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
@@ -511,7 +511,7 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
 
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((TBoss3VoloptP01_800430AC*)arg0)->m8(lbl_805D8780, lbl_805D8784) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjLight__sub_80134194(arg0);
+        select_actor_lighting(arg0);
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         if (check_demo_mode__10TObjPlayerFv() == 1) {
@@ -571,7 +571,7 @@ void run_task__15TBoss3VoloptP01Fv(u8 *arg0) {
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (add_status_effect_timer__10TObjPlayerFPvii((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
-            TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
+            reset_status_effect_row((void *) (arg0 + 0x284));
             obj_clearFlags30((void *) (arg0), (int) (0x4000));
         }
     } else {

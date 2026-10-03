@@ -60,7 +60,7 @@ s32 get_shared_text_buffer(s32);
 s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
 Entry_8024F094 *TWindowDuelResult__sub_801C257C(void);
-u8 TLobby__sub_801D7064(void *);
+u8 get_rule_field_a__6TLobbyFPv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
@@ -159,7 +159,7 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
         } else {
             if (none) {
                 set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xA));
-            } else if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+            } else if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
                 if (e->rank == 0) {
                     set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, 0xB));
                 } else {

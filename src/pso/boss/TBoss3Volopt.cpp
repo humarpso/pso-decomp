@@ -105,7 +105,7 @@ struct S_8003EF38 { u8 pad0[0x18]; void *vt; };
 struct Cam_8003DA78 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_800192DC(void *);
+M2C_UNK reset_status_effect_row(void *);
 s32 add_status_effect_timer__10TObjPlayerFPvii(void *, int, int);
 s32 obj_testFlags30(void *, int);
 M2C_UNK obj_clearFlags30(void *, int);
@@ -179,7 +179,7 @@ void reset_vol_opt_state(void* a0);
 M2C_UNK set_player_flag_08000000__12TBoss3VoloptFPv();
 M2C_UNK set_flag_08000000__12TBoss3VoloptFPv();
 M2C_UNK restore_player_cameras();
-M2C_UNK TCameraCtrl__sub_80069E7C(int);
+M2C_UNK activate_camera_mode(int);
 M2C_UNK cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
 M2C_UNK TObjEnemyCustom__sub_800C7860();
@@ -260,7 +260,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
         c1.c = 0;
         c1.d = lbl_805D8660;
         c1.e = lbl_805D8660;
-        TCameraCtrl__sub_80069E7C(5);
+        activate_camera_mode(5);
         cache_target_and_forward__11TCameraCtrlFii(&c1, 0x271C);
         M2C_FIELD(arg0, s32 *, 0x37C) = 1;
     case 1:
@@ -274,7 +274,7 @@ void TBoss3Volopt__sub_8003DA78(u8 *arg0) {
             c2.c = 0;
             c2.d = lbl_805D8660;
             c2.e = lbl_805D8678;
-            TCameraCtrl__sub_80069E7C(5);
+            activate_camera_mode(5);
             cache_target_and_forward__11TCameraCtrlFii(&c2, 0x271C);
         }
         break;
@@ -344,7 +344,7 @@ void run_task__12TBoss3VoloptFv(u8 *arg0) {
     }
     if (obj_testFlags30((void *) (arg0), (int) (0x4000)) != 0) {
         if (add_status_effect_timer__10TObjPlayerFPvii((void *) (arg0), (int) (4), (int) (-1)) <= 0) {
-            TObjPlayer__sub_800192DC((void *) (arg0 + 0x284));
+            reset_status_effect_row((void *) (arg0 + 0x284));
             obj_clearFlags30((void *) (arg0), (int) (0x4000));
         }
     } else {

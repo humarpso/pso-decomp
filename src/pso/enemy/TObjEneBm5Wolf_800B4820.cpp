@@ -939,7 +939,7 @@ M2C_UNK clear_global_flag_400__9TObjEneDDFv();
 M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
 M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_800F09E8(M2C_UNK);
+M2C_UNK draw_blob_shadow(M2C_UNK);
 M2C_UNK direction_to_rotation_xz(void *, s32 *, s32 *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -1142,7 +1142,7 @@ s32 TObjEneDD__sub_800BB878(int, int);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjMapWarp__sub_80141CB0(void *, void *, int, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+M2C_UNK debug_printf_at(s32, const char *, ...);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -1169,11 +1169,11 @@ void TObjEneBm5Wolf__sub_800B4824(u8 *arg0) {
     u32 temp_r3;
 
     if (get_target_info__9TObjEneDDFPv() != 0) {
-        TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 0), lbl_8043B584, M2C_FIELD(arg0, s32 *, 0x3DC));
+        debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B584, M2C_FIELD(arg0, s32 *, 0x3DC));
         if (M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
-            TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 1), lbl_8043B590);
+            debug_printf_at(TObjEneDD__sub_800BB878(0, 1), lbl_8043B590);
         } else {
-            TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 1), lbl_8043B59C);
+            debug_printf_at(TObjEneDD__sub_800BB878(0, 1), lbl_8043B59C);
         }
     }
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805D9D70, TObjEneBm5Wolf__data_805D9D74) != 0) {
@@ -1267,7 +1267,7 @@ void render__14TObjEneBm5WolfFPv(u8 *arg0) {
                 translate_matrix(0, TObjEneBm5Wolf__data_805D9D78, TObjEneBm5Wolf__data_805D9D78, TObjEneBm5Wolf__data_805D9D7C);
                 scale_matrix(0, lbl_805D9D88, TObjEneBm5Wolf__data_805D9D8C, lbl_805D9D90);
                 rotate_matrix_x(0, -0x4000);
-                TObjPlayer__sub_800F09E8(0);
+                draw_blob_shadow(0);
                 pop_matrix();
             }
             update_secondary_light__9TObjEneDDFPv(arg0);

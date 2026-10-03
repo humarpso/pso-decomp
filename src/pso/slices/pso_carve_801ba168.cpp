@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 get_main_phase();
-s32 TLobby__sub_800822E8(void *, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 s32 is_on_current_floor__10TObjPlayerFi(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
@@ -47,7 +47,7 @@ call3:
             run_action_state_phase__10TObjPlayerFisi(arg0, 0x16, 0);
             return;
         }
-        if ((TObjPlayer__sub_801BF918(arg0 + 0x634) != 0) && (test_flag_2000000__10TObjPlayerFPv(arg0) != 0) && (TLobby__sub_800822E8(arg0, 4) != 0)) {
+        if ((TObjPlayer__sub_801BF918(arg0 + 0x634) != 0) && (test_flag_2000000__10TObjPlayerFPv(arg0) != 0) && (test_action_mask__10TObjPlayerFPvi(arg0, 4) != 0)) {
             set_flag_400000__10TObjPlayerFi(arg0);
             enter_battle_state__10TObjPlayerFPv(arg0 + 0x634);
         }

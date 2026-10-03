@@ -150,7 +150,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjMapWarp__sub_80141CB0(void *, void *, u32, u32);
 M2C_UNK TObjMapWarp__sub_80141CB4(void *, f32);
 M2C_UNK set_global_count__12TObjNpcEnemyFi(u32);
-M2C_UNK TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+M2C_UNK debug_printf_at(s32, const char *, ...);
 M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix_from(void *);
@@ -190,7 +190,7 @@ s32 find_active_player__12TObjAreaWarpFPv(void *);
 s32 get_field_14__13TAdVIConfigGCFPv(void *);
 M2C_UNK TAdVIConfigGC__sub_80307DF4(void *);
 extern s32 lbl_805D53A0;
-void TObjAreaWarp__sub_8019CAB0(VObj_8019CAB0 *self);
+void handle_area_selection__12TObjAreaWarpFPv(VObj_8019CAB0 *self);
 }
 
 extern "C" {
@@ -237,7 +237,7 @@ void confirm_area_transfer__12TObjAreaWarpFPvi(u8 *arg0, s32 arg1) {
     play_sound_effect(0x40003205, 0U, 0, 0);
 }
 
-void TObjAreaWarp__sub_8019CAB0(VObj_8019CAB0 *self) {
+void handle_area_selection__12TObjAreaWarpFPv(VObj_8019CAB0 *self) {
     Data_8019CAB0 *d = (Data_8019CAB0 *)self;
     s32 found;
     s32 i;
@@ -403,10 +403,10 @@ void TObjMapWarp__sub_8019D0A8(u8 *arg0) {
     Vec_8019D0A8 *end;
     s32 i;
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80446430);
-    TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_80446440);
-    TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80446450);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80446460);
+    debug_printf_at(0x13001C, lbl_80446430);
+    debug_printf_at(0x13001D, lbl_80446440);
+    debug_printf_at(0x13001E, lbl_80446450);
+    debug_printf_at(0x130020, lbl_80446460);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     for (i = 0; i < 4; i++) {
         Vec_8019D0A8 b;

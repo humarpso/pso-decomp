@@ -39,10 +39,10 @@ s32 get_phase__8TObjFishFPv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
 void TBoss4Type2__sub_8033C86C(u8 *arg0);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-int TCameraCtrl__sub_80069E7C(int);
+int activate_camera_mode(int);
 int set_scripted_camera_pose(void *, void *, void *);
 int cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 TObjFish__sub_800E3124(void *, void *);
@@ -225,12 +225,12 @@ Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
     k = k & 0xFFFFFFFFu;
     self->tbl[i].a = get_bml_model(n, k);
     self->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
-    self->tbl[i].c = TObjFish__sub_8001ED9C(n, lbl_804EF9B8[i]);
+    self->tbl[i].c = get_bml_motion(n, lbl_804EF9B8[i]);
   }
   self->x60 = TObjFish__sub_800E3124(lbl_80477DF8, self->x54);
   self->x64 = 0;
   TBoss6PlotFalz__sub_802AC2D8(self->x40, lbl_80477E18, 2);
-  TCameraCtrl__sub_80069E7C(5);
+  activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
   cache_target_and_forward__11TCameraCtrlFii(lbl_80477E3C, 0x416C);
   self->x34 = lbl_805DFA50;

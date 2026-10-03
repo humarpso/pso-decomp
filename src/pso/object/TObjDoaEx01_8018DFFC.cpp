@@ -49,7 +49,7 @@ extern u32 TObjDoaEx01__data_805D5BB0;
 extern u8 *TObjDoaEx01__data_805D5BB4;
 extern s32 TObjDoaEx01__data_805D5BB8;
 void TObjDoaEx01__sub_8018E1E0(void);
-u8 *TObjFish__sub_8001ED9C(s32, s32);
+u8 *get_bml_motion(s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -106,7 +106,7 @@ u8 *TObjDoaEx01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DBDBC;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(TObjFish__sub_8001ED9C((*(s32 *)&TObjDoaEx01__data_805D5BB0), 0), u32 *, 4);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(get_bml_motion((*(s32 *)&TObjDoaEx01__data_805D5BB0), 0), u32 *, 4);
     M2C_FIELD(arg0, s32 *, 0xD0) = 0x100001;
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) TObjDoaEx01__data_805DBDA8;
     M2C_FIELD(arg0, f32 *, 0xD8) = (f32) TObjDoaEx01__data_805DBDA8;

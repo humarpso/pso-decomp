@@ -245,7 +245,7 @@ extern RecoveredGlobal_801C5B68_lbl_8058D4C0 lbl_8058D4C0;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_801C5B68(u8 *arg0);
+void save_render_material_state(u8 *arg0);
 s32 tick_battle_music_timer(Obj_801C5C38 *p);
 }
 
@@ -290,7 +290,7 @@ void TObjPlayer__sub_801C5B18(void* a0) { *(float*)((char*)a0 + 0x1c) = 1.0f; }
 void write_ids__10TObjPlayerFPv(void* p) { set_some_id__FUl(*(void**)((char*)p + 0x0)); set_chunk_material_override_pair(*(void**)((char*)p + 0x4), *(void**)((char*)p + 0x8)); set_chunk_material_color((char*)p + 0xc); }
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void TObjPlayer__sub_801C5B68(u8 *arg0) {
+void save_render_material_state(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) some_id_805c6f74;
     M2C_FIELD(arg0, s32 *, 4) = (s32) lbl_805D7784;
     M2C_FIELD(arg0, s32 *, 8) = (s32) lbl_805D7780;

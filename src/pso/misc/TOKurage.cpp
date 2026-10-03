@@ -54,7 +54,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8016E800_lbl_804B2E6C lbl_804B2E6C;
 extern u32 TOKurage__data_805D5A38;
 void TOKurage__sub_8016E800(void);
-u8 *TObjFish__sub_8001ED9C(s32, s32);
+u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 init_map_object_base(void *);
@@ -68,7 +68,7 @@ extern const f32 lbl_805DB820;
 extern const f32 lbl_805DB824;
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 fn_800FD8B4(void *);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
 extern const char lbl_80441EB0[];
 extern const char lbl_80441EBC[];
@@ -111,9 +111,9 @@ extern const f32 TOKurage__data_805DB7AC;
 
 void TOKurage__sub_8016DA34(void *self) {
     if (fn_800FD8B4(self) == 1) {
-        TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80441EA0);
-        TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_80441EB0);
-        TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80441EBC);
+        debug_printf_at(0x13001C, lbl_80441EA0);
+        debug_printf_at(0x13001D, lbl_80441EB0);
+        debug_printf_at(0x13001E, lbl_80441EBC);
     }
 }
 
@@ -216,8 +216,8 @@ u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
-    M2C_FIELD(arg0, u8 **, 0xBC) = TObjFish__sub_8001ED9C((*(s32 *)&TOKurage__data_805D5A38), 0);
-    M2C_FIELD(arg0, u8 **, 0xC8) = TObjFish__sub_8001ED9C((*(s32 *)&TOKurage__data_805D5A38), 1);
+    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&TOKurage__data_805D5A38), 0);
+    M2C_FIELD(arg0, u8 **, 0xC8) = get_bml_motion((*(s32 *)&TOKurage__data_805D5A38), 1);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB7D8;
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - TOKurage__data_805DB7AC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB820;

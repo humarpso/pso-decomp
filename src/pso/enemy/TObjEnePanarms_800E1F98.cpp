@@ -12,7 +12,7 @@ M2C_UNK post_translate_matrix(void *, f32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, void *);
-M2C_UNK TObjPlayer__sub_800F09E8(int);
+M2C_UNK draw_blob_shadow(int);
 s32 project_actor_to_ground(void *, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
@@ -43,7 +43,7 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
         scale_matrix((int) (0), (f32) (lbl_805DA590), (f32) (lbl_805DA590), (f32) (TObjEnePanarms__data_805DA530));
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x378);
         if ((temp_r0 != 7) && (temp_r0 != 8)) {
-            TObjPlayer__sub_800F09E8((int) (0));
+            draw_blob_shadow((int) (0));
         }
         pop_matrix();
     }

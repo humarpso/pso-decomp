@@ -84,7 +84,7 @@ f32 TObjPlayer__sub_80018780(void *, u16, Vec_802D8828 *);
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 u8 *get_player_data__10TObjPlayerFi(s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-s32 TLobby__sub_800822E8(void *, int);
+s32 test_action_mask__10TObjPlayerFPvi(void *, int);
 s32 angle_difference_abs(s32, s32);
 f32 subtract_vector(void *, void *);
 extern const f64 TObjEneGibbles__data_80472798;
@@ -191,7 +191,7 @@ s32 TObjEneGibbles__sub_802D8828(u8 *arg0) {
             if (pl != NULL && !(M2C_FIELD(pl, s32 *, 0x30) & 0x800)
                 && TObjPlayer__sub_80018780(arg0, i, &v) < lbl_805DE824
                 && angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA
-                && TLobby__sub_800822E8(pl, 0xE0) != 0) {
+                && test_action_mask__10TObjPlayerFPvi(pl, 0xE0) != 0) {
                 VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (arg0 + 0x2FC));
                 subtract_vector(&v, pl + 0x2FC);
                 if (angle_difference_abs(M2C_FIELD(pl, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA) {

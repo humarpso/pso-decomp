@@ -54,7 +54,7 @@ extern s32 lbl_805D3284;
 u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80444250[];
 void fn_80183AA0(void *self);
 void VecCopy__FP3VecPC3Vec(Vec_80183AF0 *, const Vec_80183AF0 *);
@@ -87,7 +87,7 @@ u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void fn_80183AA0(void *self) {
     TObjCity_Season_SonicAdv2__sub_80183C38(self);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444250);
+    debug_printf_at(0x130020, lbl_80444250);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 void fn_80183AF0(Obj_80183AF0 *self) {

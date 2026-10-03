@@ -36,7 +36,7 @@ u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DBE68;
 extern const f32 lbl_805DBE6C;
 void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
 extern s32 lbl_805D5C2C;
 void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0);
@@ -81,11 +81,11 @@ void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0) {
     if (arg0->f8C % 2 == 0) {
         arg0->fBC = get_bml_model(lbl_805D5C2C, 4);
         arg0->fC0 = get_bml_model(lbl_805D5C2C, 5);
-        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 2);
+        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 2);
     } else {
         arg0->fBC = get_bml_model(lbl_805D5C2C, 6);
         arg0->fC0 = get_bml_model(lbl_805D5C2C, 7);
-        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 3);
+        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 3);
     }
     for (j = 0; j < 12; j++) {
         arg0->fC8[j] = 0;

@@ -13,7 +13,7 @@ void add_mst_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1);
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 get_game_play_mode();
 M2C_UNK add_actor_tp_bonus(void *, int);
 M2C_UNK add_actor_hp_bonus(void *, int);

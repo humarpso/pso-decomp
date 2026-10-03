@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK TObjAreaWarp__sub_8019C924();
 M2C_UNK set_global_count__12TObjNpcEnemyFi(M2C_UNK);
-M2C_UNK TObjEneBm5GibonU__sub_803D853C(M2C_UNK, M2C_UNK *, ...);
+M2C_UNK debug_printf_at(M2C_UNK, M2C_UNK *, ...);
 extern M2C_UNK lbl_80446854[];
 void TObjWarpLobby__vt18(void *arg0);
 }
@@ -40,7 +40,7 @@ void TObjWarpLobby__vt18(void *arg0) {
         break;
     }
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80446854);
+    debug_printf_at(0x130021, lbl_80446854);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

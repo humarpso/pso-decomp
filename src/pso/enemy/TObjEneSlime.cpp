@@ -112,7 +112,7 @@ M2C_UNK set_cull_mode_front__8TObjFishFv();
 M2C_UNK set_cull_back__8TObjFishFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv();
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *, void *);
@@ -171,7 +171,7 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
     temp_r31 = toggle_flag_9__10TObjPlayerFPv();
     if (check_demo_mode__10TObjPlayerFv() != 0) {
         temp_r30 = (M2C_FIELD(arg0, s32 *, 0x36C) * 4) & 4;
-        TObjEneBm5GibonU__sub_803D853C((int) (0x130020), lbl_8043D298, (int) (M2C_FIELD(((u8 *)(lbl_80496360) + temp_r30), s32 *, 0)));
+        debug_printf_at((int) (0x130020), lbl_8043D298, (int) (M2C_FIELD(((u8 *)(lbl_80496360) + temp_r30), s32 *, 0)));
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         temp_r30_2 = M2C_FIELD(((u8 *)(lbl_80496368) + temp_r30), s32 *, 0);

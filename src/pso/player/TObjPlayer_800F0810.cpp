@@ -59,7 +59,7 @@ extern s32 lbl_805D52F8;
 extern const f32 lbl_805DA7F8;
 extern const f32 lbl_805DA7FC;
 extern const f32 lbl_805DA800;
-void TObjPlayer__sub_800F09E8(s32 arg0);
+void draw_blob_shadow(s32 arg0);
 }
 
 extern "C" {
@@ -105,7 +105,7 @@ s32 is_split_screen__10TObjPlayerFv(void) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjPlayer__sub_800F09E8(s32 arg0) {
+void draw_blob_shadow(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_800F09E8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800F09E8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800F09E8, sp10) == 0x8) ? 1 : -1];

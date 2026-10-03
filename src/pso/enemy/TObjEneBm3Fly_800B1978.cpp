@@ -226,7 +226,7 @@ void load_resources__13TObjEneBm3FlyFv(void);
 u16 obj_getField1c(void *);
 u8 * init_object__9TObjEneDDFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneBm3Fly__sub_800B1F80(void *);
+M2C_UNK init_child_params__13TObjEneBm3FlyFv(void *);
 M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
 extern M2C_UNK __vt__13TObjEneBm3Fly[];
 extern s32 lbl_805D2A10;
@@ -249,7 +249,7 @@ s32 get_target_info__9TObjEneDDFPv(void *);
 s32 TObjEneDD__sub_800BB878(s32, s32);
 void toggle_particle_effect__10TObjPlayerFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
-void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+void debug_printf_at(s32, const char *, ...);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
 void push_matrix(void);
@@ -530,7 +530,7 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (void *)((void *) (arg5)));
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x41C)), (void *)((void *) (arg2 + 0x38)));
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x40C)), (void *)((void *) (arg6)));
-    TObjEneBm3Fly__sub_800B1F80((void *) (arg0));
+    init_child_params__13TObjEneBm3FlyFv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x80) = 0;
     return arg0;
 }
@@ -592,17 +592,17 @@ void TObjPlayer__sub_800B23A0(u8 *arg0) {
         switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
         default:
         case 2:
-            TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 0), lbl_8043B328);
+            debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B328);
             break;
         case 9:
-            TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 0), lbl_8043B338);
+            debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B338);
             break;
         case 5:
-            TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 0), lbl_8043B348);
+            debug_printf_at(TObjEneDD__sub_800BB878(0, 0), lbl_8043B348);
             break;
         }
-        TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 1), lbl_8043B358, M2C_FIELD(arg0, s32 *, 0x390));
-        TObjEneBm5GibonU__sub_803D853C(TObjEneDD__sub_800BB878(0, 2), lbl_8043B368, M2C_FIELD(arg0, s32 *, 0x394));
+        debug_printf_at(TObjEneDD__sub_800BB878(0, 1), lbl_8043B358, M2C_FIELD(arg0, s32 *, 0x390));
+        debug_printf_at(TObjEneDD__sub_800BB878(0, 2), lbl_8043B368, M2C_FIELD(arg0, s32 *, 0x394));
     }
     switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
     default:

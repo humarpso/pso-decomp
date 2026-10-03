@@ -181,7 +181,7 @@ void set_lobby_id__6TLobbyFi(int a0);
 void sync_quest_register_and_send__6TLobbyFPv(void* p);
 int test_flag_16__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
-int TLobby__sub_800822E8(void*, int);
+int test_action_mask__10TObjPlayerFPvi(void*, int);
 M2C_UNK TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
@@ -396,26 +396,26 @@ void free_luker_object__6TLobbyFv(void) {
 }
 
 void set_flag_80000__6TLobbyFi(s32 arg0) {
-    TLobby__sub_800822E8((void*)(arg0), 0x80000);
+    test_action_mask__10TObjPlayerFPvi((void*)(arg0), 0x80000);
 }
 void set_flag_40000__6TLobbyFPv(void *arg0) {
-    TLobby__sub_800822E8(arg0, 0x40000);
+    test_action_mask__10TObjPlayerFPvi(arg0, 0x40000);
 }
 void TLobby__sub_801F3314(s32 arg0) {
-    TLobby__sub_800822E8((void*)(arg0), 0x10000);
+    test_action_mask__10TObjPlayerFPvi((void*)(arg0), 0x10000);
 }
 void set_flag_8000__6TLobbyFi(s32 arg0) {
-    TLobby__sub_800822E8((void*)(arg0), 0x8000);
+    test_action_mask__10TObjPlayerFPvi((void*)(arg0), 0x8000);
 }
-int check_flag_24576__6TLobbyFPv(void* p) { return TLobby__sub_800822E8(p, 24576); }
-int TLobby__sub_801F3384(void* p) { return TLobby__sub_800822E8(p, 1024); }
-int TLobby__sub_801F33A8(void* p) { return TLobby__sub_800822E8(p, 512); }
-int TLobby__sub_801F33CC(void* p) { return TLobby__sub_800822E8(p, 256); }
-int TLobby__sub_801F33F0(void* p) { return TLobby__sub_800822E8(p, 224); }
-int test_flag_16__6TLobbyFPv(void* p) { return TLobby__sub_800822E8(p, 16); }
-int set_flag_4__6TLobbyFPv(void* p) { return TLobby__sub_800822E8(p, 4); }
+int check_flag_24576__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 24576); }
+int TLobby__sub_801F3384(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 1024); }
+int TLobby__sub_801F33A8(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 512); }
+int TLobby__sub_801F33CC(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 256); }
+int TLobby__sub_801F33F0(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 224); }
+int test_flag_16__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 16); }
+int set_flag_4__6TLobbyFPv(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 4); }
 
-int TLobby__sub_801F345C(void* p) { return TLobby__sub_800822E8(p, 2); }
+int TLobby__sub_801F345C(void* p) { return test_action_mask__10TObjPlayerFPvi(p, 2); }
 
 int fn_801F3480(void* p) { return has_item_flag_4096__10TObjPlayerFPv(p); }
 int fn_801F34A0(void* p) { return check_technique_flag__10TObjPlayerFPv(p); }

@@ -40,7 +40,7 @@ void handle_6x3F_set_position(void *arg0);
 void obj_clearFlags30(void *, u32);
 void obj_setFlags30(void *, u32);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 void bswap_6x3E__10TNpcPlayerFi(void *);
 void init_6x3E_packet__10TNpcPlayerFPv(void *);
 void set__10TObjRoomIdFPvs(void *, s16);
@@ -104,9 +104,9 @@ void handle_6x3E_stop_at_position(void *arg0) {
         set_floor_index__10TObjPlayerFPvi(p, get_player_floor__6TLobbyFi(m.floor));
     }
     p->ang = m.ang;
-    if (is_in_tl03_state__10TObjPlayerFPv(p) == 0 || TLobby__sub_800822E8(p, 0x8100) != 0 ||
-        (TLobby__sub_800822E8(p, 0x200) != 0 && p->f328 <= 2) ||
-        (TLobby__sub_800822E8(p, 0x4000) != 0 && p->f328 == 0)) {
+    if (is_in_tl03_state__10TObjPlayerFPv(p) == 0 || test_action_mask__10TObjPlayerFPvi(p, 0x8100) != 0 ||
+        (test_action_mask__10TObjPlayerFPvi(p, 0x200) != 0 && p->f328 <= 2) ||
+        (test_action_mask__10TObjPlayerFPvi(p, 0x4000) != 0 && p->f328 == 0)) {
         return;
     }
     if (m.room >= 0) {

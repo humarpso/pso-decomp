@@ -11,7 +11,7 @@ struct Obj800192C4 { u8 pad[0x254]; Rec800192C4 recs[1]; };
 
 extern "C" {
 extern const f32 TObjPlayer__data_805D7D24;
-void TObjPlayer__sub_800192DC(u8 *arg0);
+void reset_status_effect_row(u8 *arg0);
 f32 TObjPlayer__sub_800192C4(Obj800192C4 *self, s32 i);
 }
 
@@ -43,7 +43,7 @@ f32 TObjPlayer__sub_800192C4(Obj800192C4 *self, s32 i) {
 }
 
 s16 get_s16_2c4__10TObjPlayerFPv(void* p) { return *(s16*)((char*)p + 0x2c4); }
-void TObjPlayer__sub_800192DC(u8 *arg0) {
+void reset_status_effect_row(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = 0;
     M2C_FIELD(arg0, f32 *, 4) = (f32) TObjPlayer__data_805D7D24;
     M2C_FIELD(arg0, s32 *, 8) = 0;

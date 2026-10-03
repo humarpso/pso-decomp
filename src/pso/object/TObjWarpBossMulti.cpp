@@ -78,7 +78,7 @@ s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0);
 void update__17TObjWarpBossMultiFPv(void *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern u8 lbl_8044663C[];
 extern u8 lbl_80446650[];
 void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0);
@@ -176,9 +176,9 @@ void TObjWarpBossMulti__vt18(Wb_8019DE74 *arg0) {
     update__17TObjWarpBossMultiFPv(arg0);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     if (get_global_state__14TOKeyMachine01Fv() == 0) {
-        TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_8044663C);
+        debug_printf_at(0x130020, lbl_8044663C);
     }
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80446650, arg0->fF4);
+    debug_printf_at(0x130021, lbl_80446650, arg0->fF4);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

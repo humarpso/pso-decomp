@@ -11,7 +11,7 @@ struct RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile {
 
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-s32 TObjFish__sub_8001ED9C(void *, int);
+s32 get_bml_motion(void *, int);
 s32 get_bml_model(void *, int);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -98,7 +98,7 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
   rotate_matrix_x((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));
   set_global_param__8TObjFishFi((void *) (*((s32 *) (((s8 *) (*((u8 **) (((s8 *) (*(u8 * *)&lbl_805D6858)) + 0x42C)))) + 0x1C))));
   set_global_flag__10TObjPlayerFv();
-  temp_r31 = TObjFish__sub_8001ED9C((void *) (*(u8 * *)&lbl_805D6858), (int) 5);
+  temp_r31 = get_bml_motion((void *) (*(u8 * *)&lbl_805D6858), (int) 5);
   draw_model_motion((void *) get_bml_model((void *) (*(u8 * *)&lbl_805D6858), (int) 1), (int) temp_r31, (f32) (*((f32 *) (((s8 *) arg0) + 0xBC))));
   clear_global_state__10TObjPlayerFv();
   end_effect_render__13TParticleCtrlFv();

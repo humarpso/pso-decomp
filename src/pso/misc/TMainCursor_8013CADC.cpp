@@ -65,7 +65,7 @@ extern u8 lbl_8048E5A0[];
 extern RecoveredGlobal_8013D7E0_lbl_804A7164 lbl_804A7164;
 extern u8 *lbl_805D4DF0;
 extern const f32 TMainCursor__data_805DB0C0;
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 TObjPlayer__sub_801B5990(s32, s32);
 s32 get_action_palette_entry__10TObjPlayerFii(s32, s32);
 s32 TObjPlayer__sub_801B5AF8(s32, s32);
@@ -137,7 +137,7 @@ extern f32 lbl_8050BF60[3];
 extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 lbl_805DB0E4;
 extern const f32 lbl_805DB0E8;
-void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id);
+void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, s32 kind, s32 id);
 }
 
 extern "C" {
@@ -188,7 +188,7 @@ s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg
         }
         break;
     case 4:
-        if (TObjPlayer__sub_801B5990(arg1, arg2) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && TLobby__sub_800822E8(arg1, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
+        if (TObjPlayer__sub_801B5990(arg1, arg2) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && test_action_mask__10TObjPlayerFPvi(arg1, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
             return 0xF;
         }
         break;
@@ -242,7 +242,7 @@ void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     cur->f2c = cos_table_lookup(cur->f34);              \
     cur->f38 = (t)->f1c;                                          \
     cur->f30 = cos_table_lookup(cur->f38);
-void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id) {
+void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, s32 kind, s32 id) {
     Cursor_8013CDE4 *cur;
     Tech_8013CDE4 *tech;
     Weapon_8013CDE4 *wpn;

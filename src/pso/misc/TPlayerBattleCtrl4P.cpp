@@ -79,7 +79,7 @@ void TPlayerBattleCtrl4P__vt18(void *arg0);
 void TPlayerBattleCtrl4P__vt19(void *arg0);
 void TPlayerBattleCtrl4P__vt8(void *arg0);
 M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, M2C_UNK);
-u8 TLobby__sub_801D7064(M2C_UNK *);
+u8 get_rule_field_a__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 int TPlayerBattleCtrl4P__sub_80311618(void*);
 M2C_UNK TWindow__close(void *);
@@ -250,7 +250,7 @@ void TPlayerBattleCtrl4P__vt8(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x240) - 1;
     M2C_FIELD(arg0, s32 *, 0x240) = temp_r0;
     if (temp_r0 <= 0) {
-        if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+        if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
             set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(3));
             return;
         }

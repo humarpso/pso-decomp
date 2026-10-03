@@ -7,7 +7,7 @@ struct Obj_80185664 { u8 pad[0x8C]; s32 dest; };
 extern "C" {
 void clamp_destination_index__15TObjCityMapWarpFPv(void *);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
 extern const char lbl_804449D0[];
 extern const char lbl_804449E0[];
@@ -41,12 +41,12 @@ void *TObjLaboMapWarp__ct(void *arg0) {
 void TObjCityMapWarp__vt17(Obj_80185664 *self) {
     clamp_destination_index__15TObjCityMapWarpFPv(self);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_804449C0);
-    TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_804449D0);
-    TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_804449E0);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_804449F0);
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80444A00);
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_80444A10, lbl_804B601C[self->dest]);
+    debug_printf_at(0x13001C, lbl_804449C0);
+    debug_printf_at(0x13001D, lbl_804449D0);
+    debug_printf_at(0x13001E, lbl_804449E0);
+    debug_printf_at(0x130020, lbl_804449F0);
+    debug_printf_at(0x130021, lbl_80444A00);
+    debug_printf_at(0x130022, lbl_80444A10, lbl_804B601C[self->dest]);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

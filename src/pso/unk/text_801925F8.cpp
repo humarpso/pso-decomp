@@ -122,7 +122,7 @@ struct VObj_80192874 : VBase_80192874 {
 struct Ent_80192874 { u8 b[0x84]; };
 
 extern "C" {
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lbl_805D5C2C;
 void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0);
@@ -234,11 +234,11 @@ void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0) {
     if (arg0->f8C % 2 == 0) {
         arg0->fBC = get_bml_model(lbl_805D5C2C, 1);
         arg0->fC0 = get_bml_model(lbl_805D5C2C, 0);
-        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 0);
+        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 0);
     } else {
         arg0->fBC = get_bml_model(lbl_805D5C2C, 3);
         arg0->fC0 = get_bml_model(lbl_805D5C2C, 2);
-        arg0->fC4 = TObjFish__sub_8001ED9C(lbl_805D5C2C, 1);
+        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 1);
     }
     for (j = 0; j < 4; j++) {
         arg0->fC8[j] = 0;

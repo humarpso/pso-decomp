@@ -139,7 +139,7 @@ s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK update_obstruction_fade(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -369,7 +369,7 @@ void TObjPlayer__sub_800A7CA4(Player_800A7CA4 *self) {
         update_obstruction_fade(&self->fades[mode]);
         fading = updateFromCamera__15RenderFadeStateFPCf(&self->fades[mode], self->cam);
     }
-    TObjLight__sub_80134194(self);
+    select_actor_lighting(self);
     set_global_param__8TObjFishFi(self->f24);
     push_matrix();
     post_translate_matrix(self->pos);

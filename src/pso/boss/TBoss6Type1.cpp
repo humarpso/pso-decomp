@@ -351,7 +351,7 @@ extern Tbl_802B4BA8 lbl_80470D28[];
 s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern u8 lbl_80471014[];
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 extern Tbl_802B82B8 TBoss6Type1__data_804DF61C[];
 extern s32 TBoss6Type1__data_805DE3C4;
 void TBoss6Type1__sub_802B4BA8(u8 *arg0, s32 arg1);
@@ -1571,7 +1571,7 @@ void TBoss6Type1__sub_802B82B8(void *arg0_, s32 arg1) {
     arg0->f440 = t->f0;
     for (i = 0; i < n; i++) {
         a = &arg0->anim[i];
-        s32 id = TObjFish__sub_8001ED9C(arg0->f3FC, t->ids[i]);
+        s32 id = get_bml_motion(arg0->f3FC, t->ids[i]);
         a->blend = a->f10;
         a->prevId = a->id;
         a->prevT = a->t;

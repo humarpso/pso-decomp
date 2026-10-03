@@ -19,7 +19,7 @@ struct Obj_800B9E84 {
 extern "C" {
 M2C_UNK minimap_render_dot(void *, int, int, int);
 void TObjEneDD__vt97(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800F09E8(int);
+M2C_UNK draw_blob_shadow(int);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK rotate_matrix_z(int, int);
@@ -50,7 +50,7 @@ int TCameraCtrl__sub_80069148(void*);
 int TCameraCtrl__sub_800691C8(void*);
 int TLobby__sub_800C6C10(void*);
 int restore_scene_lighting(void*);
-int TObjLight__sub_80134194(void*);
+int select_actor_lighting(void*);
 int bind_enemy_combat_stats(void*);
 s32 get_main_phase();
 int is_any_teammate_in_state__10TObjPlayerFv(void*);
@@ -84,12 +84,12 @@ void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
         scale_current_matrix((void *) (arg3));
     }
     rotate_matrix_x((int) (0), (int) (-0x4000));
-    TObjPlayer__sub_800F09E8((int) (0));
+    draw_blob_shadow((int) (0));
     pop_matrix();
 }
 
 int update_primary_light__9TObjEneDDFPv(void* p) { return restore_scene_lighting(p); }
-int update_secondary_light__9TObjEneDDFPv(void* p) { return TObjLight__sub_80134194(p); }
+int update_secondary_light__9TObjEneDDFPv(void* p) { return select_actor_lighting(p); }
 
 void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {
     s16 a = self->a;

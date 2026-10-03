@@ -30,7 +30,7 @@ extern s32 lbl_805D53A0;
 void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
 void TObjFogCollision__vt12(O_801538D4 *);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern char lbl_80440090[];
 extern char lbl_804400A4[];
 extern char lbl_804400B8[];
@@ -141,11 +141,11 @@ void *create__22TObjFogCollisionPoisonFPv(void *arg0) {
 void TObjFogCollisionSwitch__vt12(O_801538D4 *arg0) {
     TObjFogCollision__vt12(arg0);
     if (TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0) != 0) {
-        TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80440090);
+        debug_printf_at(0x13001E, lbl_80440090);
     } else {
-        TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_804400A4);
+        debug_printf_at(0x13001E, lbl_804400A4);
     }
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804400B8, arg0->v);
+    debug_printf_at(0x130022, lbl_804400B8, arg0->v);
 }
 
 void run_task__22TObjFogCollisionSwitchFv(void *arg0) {

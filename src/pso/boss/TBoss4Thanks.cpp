@@ -20,7 +20,7 @@ struct Ent_8035C35C { s32 id; s32 lo; s32 hi; };
 struct Obj_8035C35C { u8 pad[0x30]; s32 x30; u8 pad34[0x10]; void *p[4]; };
 
 extern "C" {
-s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 int get_instance_count__9TBoss4UroFv(void);
@@ -187,8 +187,8 @@ u8 *TBoss4Thanks__ct(u8 *arg0, u8 *arg1) {
     temp_r3 = (u8 *)(get_instance_count__9TBoss4UroFv());
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(temp_r3, 1);
     M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDB0(temp_r3, 1);
-    M2C_FIELD(arg0, s32 *, 0x3C) = TObjFish__sub_8001ED9C(temp_r3, 0x46);
-    M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001ED9C(temp_r3, 0x47);
+    M2C_FIELD(arg0, s32 *, 0x3C) = get_bml_motion(temp_r3, 0x46);
+    M2C_FIELD(arg0, s32 *, 0x40) = get_bml_motion(temp_r3, 0x47);
     TBoss4Thanks__sub_8035C480((s32)((s32) arg0));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;

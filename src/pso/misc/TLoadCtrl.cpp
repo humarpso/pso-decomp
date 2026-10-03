@@ -57,7 +57,7 @@ extern s32 tl_camera;
 void start_loading__9TLoadCtrlFUi(u32 arg0);
 M2C_UNK TNowLoading__ct(s32, void *, void *);
 M2C_UNK set_active_camera_pose(void *, void *);
-M2C_UNK TCameraCtrl__sub_80069E7C(int);
+M2C_UNK activate_camera_mode(int);
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK update_sound_request_slots();
@@ -145,7 +145,7 @@ void run_task__9TLoadCtrlFv(Obj_8001C620 *self) {
         update_sound_request_slots();
         Vec_8001C620 a = lbl_804349D8;
         Vec_8001C620 b = lbl_804349E4;
-        TCameraCtrl__sub_80069E7C(9);
+        activate_camera_mode(9);
         set_active_camera_pose(&a, &b);
     }
 }

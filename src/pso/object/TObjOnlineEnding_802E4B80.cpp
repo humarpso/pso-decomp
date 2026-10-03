@@ -45,7 +45,7 @@ struct Obj_802E4C70 {
 
 extern "C" {
 u32 get_player_by_client_id(u16);
-M2C_UNK TCameraCtrl__sub_80069E7C(s32);
+M2C_UNK activate_camera_mode(s32);
 M2C_UNK set_active_camera_pose_from_params(Cam_802E4E44 *);
 void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -178,7 +178,7 @@ void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0) {
         arg0->state = 1;
         break;
     case 1: {
-        TCameraCtrl__sub_80069E7C(9);
+        activate_camera_mode(9);
         Vec_802E4E44 t1 = lbl_80472B9C;
         Vec_802E4E44 t2 = lbl_80472BA8;
         Cam_802E4E44 cam;

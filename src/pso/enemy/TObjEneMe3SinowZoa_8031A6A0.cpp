@@ -93,7 +93,7 @@ extern const f32 TObjEneMe3SinowZoa__data_805DF320;
 extern const f32 lbl_805DF350;
 bool TObjEneMe3SinowZoa__sub_8031A820(u8 *arg0);
 s32 push_matrix_from(void *);
-void TObjPlayer__sub_803D7B68(s32, f32);
+void bind_motion_context(s32, f32);
 s32 compose_motion_node_matrix(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 pop_matrix();
@@ -215,7 +215,7 @@ f32 TObjEneMe3SinowZoa__sub_8031A9A0(Obj_800E75AC *self) {
     v.y = TObjEneMe3SinowZoa__data_805DF31C;
     v.z = TObjEneMe3SinowZoa__data_805DF31C;
     push_matrix_from(lbl_8058D490);
-    TObjPlayer__sub_803D7B68(self->ff8, self->fc0);
+    bind_motion_context(self->ff8, self->fc0);
     node = self->node;
     compose_motion_node_matrix(node);
     compose_motion_node_matrix(node->child);

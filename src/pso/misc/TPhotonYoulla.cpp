@@ -71,7 +71,7 @@ void TObjPlayer__sub_801AEB80(void);
 void *__dt__13TPhotonYoullaFv(void *arg0, s16 arg1);
 void run_task__13TPhotonYoullaFv(void *arg0);
 M2C_UNK advance_animation_playback(void *);
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 get_game_play_mode();
 int is_locally_controlled__10TObjPlayerFPv(void*);
 M2C_UNK update_photon_blast_attachments(void *);

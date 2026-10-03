@@ -30,7 +30,7 @@ s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 is_technique_ready__8TTecCtrlFv();

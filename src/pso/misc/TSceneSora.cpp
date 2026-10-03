@@ -55,7 +55,7 @@ void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D2CD8;
 void prepare_adventure_maps(void);
-s32 TObjFish__sub_8001ED9C(int, int);
+s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *);
@@ -165,7 +165,7 @@ u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3624;
     M2C_FIELD(arg0, s32 *, 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
     if (lbl_805D6058 != 0) {
-        M2C_FIELD(arg0, s32 *, 0x94) = TObjFish__sub_8001ED9C((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0x94) = get_bml_motion((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
     } else {
         M2C_FIELD(arg0, s32 *, 0x94) = 0;
     }

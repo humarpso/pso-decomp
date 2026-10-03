@@ -83,7 +83,7 @@ void update_fixed_npc_camera(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen(void);
 void set_active_camera_pose(void *, void *);
-s32 TCameraCtrl__sub_80069E7C(int);
+s32 activate_camera_mode(int);
 s32 TCameraCtrl__sub_8006BAB4(void *, void *);
 s32 TCameraCtrl__sub_8006BAC8(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -194,7 +194,7 @@ u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
   __ct__7TObjectFP7TObject((void *) arg0, (void *) arg3);
   ((RecoveredFields_8006B588_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_8006B588_lbl_80488AD8 *)&lbl_80488AD8).value;
   ((RecoveredFields_8006B588_arg0 *) arg0)->field_34 = arg2;
-  TCameraCtrl__sub_80069E7C((int) 9);
+  activate_camera_mode((int) 9);
   if (is_split_screen() != 0)
   {
     new_var = (void *) TCameraCtrl__sub_8006BAC8((void *) (*(s32 *)&lbl_805D4DF0), (void *) arg1);

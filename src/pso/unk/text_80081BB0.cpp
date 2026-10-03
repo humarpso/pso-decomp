@@ -47,7 +47,7 @@ extern const f32 lbl_805D9388;
 extern const f32 lbl_805D938C;
 void freeze_shell_grow(u8 *arg0);
 s32 obj_testFlags30(s32, s32);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK attach_particle_model(s32, s32, s32, s32, M2C_UNK, f32);
@@ -102,7 +102,7 @@ M2C_UNK freeze_shell_hold(void *arg0) {
     }
     p = spawn_particle_effect((u8 *)arg0 + 0x38, 0x33);
     if (p != 0) {
-        attach_particle_model(p, get_bml_model(lbl_805D4ED0, 0), TObjFish__sub_8001EDB0(lbl_805D4ED0, 1), TObjFish__sub_8001ED9C(lbl_805D4ED0, 0), 0, lbl_805D9384);
+        attach_particle_model(p, get_bml_model(lbl_805D4ED0, 0), TObjFish__sub_8001EDB0(lbl_805D4ED0, 1), get_bml_motion(lbl_805D4ED0, 0), 0, lbl_805D9384);
         set_position_xy__10TObjPlayerFPvff(p, M2C_FIELD(arg0, f32 *, 0x68), M2C_FIELD(arg0, f32 *, 0x6C));
     }
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805D9378;

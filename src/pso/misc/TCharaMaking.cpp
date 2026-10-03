@@ -84,7 +84,7 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0);
 s32 query_state__12TCharaMakingFv(void);
 void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1);
 void update_body_parts__12TCharaMakingFPv(u8 *arg0);
-M2C_UNK TCharaMaking__sub_8028DF98(void *);
+M2C_UNK validate_player_visual_record(void *);
 M2C_UNK TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
 M2C_UNK create__12TChCrLoadReqFPv(void *);
@@ -201,7 +201,7 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
 }
 
 void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
-    TCharaMaking__sub_8028DF98(arg0 + 0x85C);
+    validate_player_visual_record(arg0 + 0x85C);
     M2C_FIELD(arg0, f32 *, 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
     ((M2C_UNK (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     create__12TChCrLoadReqFPv(arg0);

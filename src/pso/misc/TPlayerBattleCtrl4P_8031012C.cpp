@@ -128,7 +128,7 @@ void TPlayerBattleCtrl4P__sub_80310910(Ctl_80310910 *o, s32 frames);
 void *get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
-u8 TLobby__sub_801D7064(void *);
+u8 get_rule_field_a__6TLobbyFPv(void *);
 u8 TLobby__sub_801D7100(void *);
 extern P_803109D4 lbl_80475B80[];
 extern u8 lbl_8050EA40[];
@@ -517,7 +517,7 @@ u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o) {
             }
             if (ok != 0) {
                 count++;
-                if (TLobby__sub_801D7064(lbl_8050EA40) == 1) {
+                if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
                     team = TLobby__sub_801C19D0(p + 0x828) - 1;
                     if (team >= 0 && team < 2) {
                         seen.v[team] = 1;
@@ -527,7 +527,7 @@ u8 TPlayerBattleCtrl4P__sub_803109D4(O_803109D4 *o) {
         }
         i++;
     } while (i < 4);
-    if (TLobby__sub_801D7064(lbl_8050EA40) == 1 && (seen.v[0] == 0 || seen.v[1] == 0)) {
+    if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1 && (seen.v[0] == 0 || seen.v[1] == 0)) {
         return 1;
     }
     return count <= 1;

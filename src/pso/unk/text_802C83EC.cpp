@@ -62,7 +62,7 @@ void init_6x05_switch_changed__6TLobbyFPv(void *);
 void TOTrapChainSawKey__vt16(S_802C86D4 *arg0);
 M2C_UNK TOTrapChainSaw__sub_802C9090();
 M2C_UNK set_global_count__12TObjNpcEnemyFi(M2C_UNK);
-void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+void debug_printf_at(s32, const char *, ...);
 extern char lbl_80471F88[];
 void TOTrapChainSawKey__vt12(void);
 M2C_UNK TOTrapChainSaw__sub_802C9600();
@@ -132,7 +132,7 @@ void TOTrapChainSawKey__vt23(void *arg0) {
 void TOTrapChainSawKey__vt12(void) {
     TOTrapChainSaw__sub_802C9090();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80471F88);
+    debug_printf_at(0x13001E, lbl_80471F88);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

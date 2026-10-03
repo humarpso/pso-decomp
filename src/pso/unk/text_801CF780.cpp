@@ -26,7 +26,7 @@ void init_model__10TNpcPlayerFPv(void *cmd);
 s32 validate_6x42_move_to_position(void *cmd);
 void *get_player_by_client_id(s32 id);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *p);
-s32 TLobby__sub_800822E8(void *obj, s32 id);
+s32 test_action_mask__10TObjPlayerFPvi(void *obj, s32 id);
 void run_action_state_phase__10TObjPlayerFisi(void *obj, s16 a, s32 b);
 void handle_6x42_move_to_position(void *pkt);
 s32 obj_isState2_324(void *);
@@ -48,7 +48,7 @@ void handle_6x42_move_to_position(void *pkt) {
     init_model__10TNpcPlayerFPv(&cmd);
     if (validate_6x42_move_to_position(&cmd) != 0) {
         p = (Player_801CF780 *)get_player_by_client_id(cmd.id);
-        if (p != 0 && is_in_tl03_state__10TObjPlayerFPv(p) != 0 && TLobby__sub_800822E8(p, 0x1E) != 0) {
+        if (p != 0 && is_in_tl03_state__10TObjPlayerFPv(p) != 0 && test_action_mask__10TObjPlayerFPvi(p, 0x1E) != 0) {
             p->x = cmd.x;
             p->z = cmd.z;
             run_action_state_phase__10TObjPlayerFisi(p, 4, 0);

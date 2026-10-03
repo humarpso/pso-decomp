@@ -150,7 +150,7 @@ extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
 extern const f32 lbl_805DC7A4;
 void run_task__9TTecBartaFv(TTecBarta *self);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 void attach_particle_model(TechniqueParticleEmitter *, s32, s32, s32, s32, f32);
 void set_position_xy__10TObjPlayerFPvff(TechniqueParticleEmitter *, f32, f32);
@@ -252,7 +252,7 @@ void create_particle_emitters__9TTecBartaFPv(void *arg) {
         if (self->emitters[i] != NULL) {
             row = &TTecBarta__data_8044CD98[self->band].rows[i];
             if (row->flags & 0x20) {
-                attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805DC7A0);
+                attach_particle_model(self->emitters[i], get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 0), 0, lbl_805DC7A0);
             } else {
                 set_position_xy__10TObjPlayerFPvff(self->emitters[i], row->scale, row->scale);
             }

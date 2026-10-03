@@ -26,7 +26,7 @@ typedef struct V4_8011EA10 { f32 a; f32 b; f32 c; f32 d; } V4_8011EA10;
 
 extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 fn_80100CC8(Pl_8011E87C *);
 s32 is_flag_400__10TObjPlayerFPv(void *);
 void draw_icon__10TObjPlayerFPvii(void *, s32, Vec_8011E87C *);
@@ -51,7 +51,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
     Vec_8011E87C a;
     Vec_8011E87C b;
     if (fn_80100CC8(self) != 0 && is_flag_400__10TObjPlayerFPv(self) == 0 &&
-        TLobby__sub_800822E8(self->owner, 0xE0) != 0 &&
+        test_action_mask__10TObjPlayerFPvi(self->owner, 0xE0) != 0 &&
         is_flag_b0_4__10TObjPlayerFPv(self->owner) == 0 &&
         !(get_mode__11TCameraCtrlFPv(main_task) & 0x78)) {
         if (self->trails[slot] != NULL) {

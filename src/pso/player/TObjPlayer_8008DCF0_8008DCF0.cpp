@@ -154,7 +154,7 @@ M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK TObjEneBalClaw__sub_8008D700(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK TObjPlayer__sub_8008ED48(void *, s16);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
@@ -305,7 +305,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
         if (temp_r3 != 0) {
             var_r30 = 1;
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-            TObjLight__sub_80134194(arg0);
+            select_actor_lighting(arg0);
             toggle_particle_effect__10TObjPlayerFv();
             push_matrix();
             some_id_805c6f74 &= 0xFFFFFBFF;

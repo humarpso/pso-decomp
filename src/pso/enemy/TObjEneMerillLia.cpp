@@ -298,7 +298,7 @@ s32 render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
 s32 restore_scene_lighting();
-s32 TObjLight__sub_80134194(void *);
+s32 select_actor_lighting(void *);
 s32 render_world_model__10TObjPlayerFPv(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
@@ -824,7 +824,7 @@ void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
   if (temp_r3 != 0)
   {
     lbl_805D5660 = some_id_805c6f74;
-    TObjLight__sub_80134194((void *) arg0);
+    select_actor_lighting((void *) arg0);
     set_global_param__8TObjFishFi((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
     push_matrix();
     translate_matrix((int) 0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);

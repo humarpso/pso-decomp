@@ -25,7 +25,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK restore_player_cameras();
 u8 *get_scripted_camera_playback();
 s32 isV2Mode__12TBoss1DragonFv();
-s32 TCameraCtrl__sub_80069E7C(int);
+s32 activate_camera_mode(int);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo __vt__16TBoss1DragonDemo;
@@ -75,7 +75,7 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         stack.spA = 0;
         stack.spC = M2C_FIELD(arg0, f32 *, 0x20);
         stack.sp10 = M2C_FIELD(arg0, f32 *, 0x1C);
-        TCameraCtrl__sub_80069E7C((int) (5));
+        activate_camera_mode((int) (5));
         cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x238E));
         break;
     case 1:
@@ -84,7 +84,7 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
         stack.spA = 0;
         stack.spC = M2C_FIELD(arg0, f32 *, 0x20);
         stack.sp10 = M2C_FIELD(arg0, f32 *, 0x1C);
-        TCameraCtrl__sub_80069E7C((int) (5));
+        activate_camera_mode((int) (5));
         cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x3333));
         break;
     }

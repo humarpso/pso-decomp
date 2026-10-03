@@ -15,7 +15,7 @@ extern s32 lbl_805D5CAC;
 extern s32 lbl_805D5CB0;
 extern s32 lbl_8050DDC8[6];
 void fn_801A0520(void);
-s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -57,7 +57,7 @@ void fn_801A0578(void) {
         p = load_resource_from_descriptor(p, 5, lbl_804B963C, 0, 0, 0);
     }
     lbl_805D5CA8 = p;
-    lbl_805D5CAC = TObjFish__sub_8001ED9C(p, 0);
+    lbl_805D5CAC = get_bml_motion(p, 0);
     lbl_805D5CB0 = TObjFish__sub_8001EDB0(lbl_805D5CA8, 0);
     root = get_bml_model(lbl_805D5CA8, 1)->child;
     lbl_8050DDC8[0] = root->child->f4;

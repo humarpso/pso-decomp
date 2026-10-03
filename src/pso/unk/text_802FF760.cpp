@@ -10,13 +10,13 @@ struct Cam_802FF7EC { u8 pad[0x14]; s32 v; u8 pad2[4]; Vec_802FF7EC c; Vec_802FF
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_802FF760 *, Vec_802FF760 *);
 void set_active_camera_pose_from_params(void *);
-void TCameraCtrl__sub_80069E7C(int);
+void activate_camera_mode(int);
 extern Vec_802FF760 lbl_80474DC4[];
 extern Vec_802FF760 lbl_80474DD0[];
 void fn_802FF760(void);
 void VecCopy__FP3VecPC3Vec(Vec_802FF760 *, Vec_802FF760 *);
 void set_active_camera_pose_from_params(void *);
-void TCameraCtrl__sub_80069E7C(int);
+void activate_camera_mode(int);
 extern Vec_802FF7EC lbl_80474DAC[];
 extern Vec_802FF7EC lbl_80474DB8[];
 void fn_802FF7EC(void);
@@ -31,7 +31,7 @@ void fn_802FF760(void) {
     VecCopy__FP3VecPC3Vec(&cam.c, &b);
     VecCopy__FP3VecPC3Vec(&cam.d, &a);
     cam.v = 0x36C1;
-    TCameraCtrl__sub_80069E7C(9);
+    activate_camera_mode(9);
     set_active_camera_pose_from_params(&cam);
 }
 void fn_802FF7EC(void) {
@@ -41,7 +41,7 @@ void fn_802FF7EC(void) {
     VecCopy__FP3VecPC3Vec((Vec_802FF760 *)(&cam.c), (Vec_802FF760 *)(&b));
     VecCopy__FP3VecPC3Vec((Vec_802FF760 *)(&cam.d), (Vec_802FF760 *)(&a));
     cam.v = 0x1999;
-    TCameraCtrl__sub_80069E7C(9);
+    activate_camera_mode(9);
     set_active_camera_pose_from_params(&cam);
 }
 

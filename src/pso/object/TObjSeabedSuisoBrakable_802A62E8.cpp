@@ -445,7 +445,7 @@ void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0) {
 }
 
 extern "C" {
-u8 * TObjFish__sub_8001ED9C(void *, int);
+u8 * get_bml_motion(void *, int);
 extern u8 *TObjSeabedSuisoBrakable__data_805D6670;
 u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0);
 u8 * get_bml_model(void *, int);
@@ -599,7 +599,7 @@ Obj_802A6DA8 *TObjSeabedSuisoBrakable__sub_802A6DA8(Obj_802A6DA8 *self, s32 arg1
 
 u8 *TObjSeabedSuisoBrakable__sub_802A6EC0(s32 arg0) {
     if ((void *) TObjSeabedSuisoBrakable__data_805D6670 != NULL) {
-        return TObjFish__sub_8001ED9C(TObjSeabedSuisoBrakable__data_805D6670, arg0);
+        return get_bml_motion(TObjSeabedSuisoBrakable__data_805D6670, arg0);
     }
     return NULL;
 }

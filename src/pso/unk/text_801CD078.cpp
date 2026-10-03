@@ -68,7 +68,7 @@ typedef struct Msg_801CD6BC {
 extern "C" {
 s32 test_bit1_at_10__10TObjPlayerFPv(void *techs);
 s32 obj_testFlags30(void *obj, u32 flags);
-s32 TLobby__sub_800822E8(void *obj, s32 id);
+s32 test_action_mask__10TObjPlayerFPvi(void *obj, s32 id);
 s32 is_flag_clear__17TObjWarpBossMultiFPv(void *obj);
 s32 is_camera_mode_active__10TObjPlayerFv();
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *techs, s16 tech);
@@ -155,7 +155,7 @@ s32 can_start_technique__10TObjPlayerFPvi(Player_801CD078 *self, s32 tech) {
     if (test_bit1_at_10__10TObjPlayerFPv(self->techs) != 0 ||
         obj_testFlags30(self, 0x20006) != 0 ||
         obj_testFlags30(self, 0x2000000) != 0 ||
-        TLobby__sub_800822E8(self, 0x11E) == 0 ||
+        test_action_mask__10TObjPlayerFPvi(self, 0x11E) == 0 ||
         (tech == 0xE && is_flag_clear__17TObjWarpBossMultiFPv(self) == 0) ||
         (tech == 0x11 && is_camera_mode_active__10TObjPlayerFv() != 0) ||
         validate_and_clear_slot__10TObjPlayerFPv(self->techs, tech) != 0 ||

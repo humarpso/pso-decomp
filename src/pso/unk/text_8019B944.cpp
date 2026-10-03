@@ -15,7 +15,7 @@ struct Obj_8019B978 {
 extern "C" {
 M2C_UNK TObjMapWarp__sub_8019D0A8(Obj_8019B978 *);
 M2C_UNK set_global_count__12TObjNpcEnemyFi(M2C_UNK);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804463D0[];
 extern char lbl_804463E0[];
 extern char lbl_804463F0[];
@@ -41,11 +41,11 @@ void TObjMapForceWarp__vt17(Obj_8019B978 *arg0) {
         arg0->ffc = 1;
     }
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_804463D0);
+    debug_printf_at(0x130021, lbl_804463D0);
     if (arg0->ffc != 0) {
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463E0);
+        debug_printf_at(0x130022, lbl_804463E0);
     } else {
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463F0);
+        debug_printf_at(0x130022, lbl_804463F0);
     }
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }

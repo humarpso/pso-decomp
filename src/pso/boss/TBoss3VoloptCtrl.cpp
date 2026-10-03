@@ -19,7 +19,7 @@ s32 get_main_phase(void);
 M2C_UNK get_current_floor();
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 s32 restore_player_cameras(void);
-s32 TCameraCtrl__sub_80069E7C(s32);
+s32 activate_camera_mode(s32);
 s32 get_story_flag(s32);
 M2C_UNK unhide_room_set_objects(M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
@@ -131,7 +131,7 @@ void TBoss3VoloptCtrl::run_task() {
         if ((s32) countdown <= 0) {
             if ((s32) lbl_805D4C2C == 0) {
                 TBoss3Volopt__sub_8003EA2C((int) (1));
-                TCameraCtrl__sub_80069E7C(9);
+                activate_camera_mode(9);
                 TObjPlayer__sub_801BA494();
                 play_area_music((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {

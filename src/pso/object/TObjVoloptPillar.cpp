@@ -95,9 +95,9 @@ extern const f32 lbl_805D88E4;
 extern const f32 lbl_805D88E8;
 S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2);
 void toggle_particle_effect__10TObjPlayerFv();
-void TObjPlayer__sub_800F09E8(s32);
+void draw_blob_shadow(s32);
 void restore_scene_lighting();
-void TObjLight__sub_80134194(void *);
+void select_actor_lighting(void *);
 void end_effect_render__13TParticleCtrlFv();
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
@@ -170,7 +170,7 @@ extern s32 lbl_805D4D44;
 void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
     f32 s;
     if (arg0->m8(lbl_805D88B8, lbl_805D88BC) != 0) {
-        TObjLight__sub_80134194(arg0);
+        select_actor_lighting(arg0);
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         post_translate_matrix(&arg0->f38);
@@ -190,7 +190,7 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
         rotate_matrix_y(0, arg0->f60);
         rotate_matrix_x(0, -0x4000);
         scale_matrix(0, s, s, s);
-        TObjPlayer__sub_800F09E8(0);
+        draw_blob_shadow(0);
         pop_matrix();
     }
 }

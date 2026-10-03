@@ -231,7 +231,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
-s32 TWindowSubStatusDisp__sub_80244238(void *);
+s32 step_window_tween(void *);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_selected__20TWindowChoiceSettingFPv(void *);
 s32 update_window_entry_list(void *, void *);
@@ -317,7 +317,7 @@ void TWindowSubStatusDisp__sub_80268D08(u8 *arg0) {
         }
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    TWindowSubStatusDisp__sub_80244238((void *) (arg0));
+    step_window_tween((void *) (arg0));
     ((s32 (*)(void *))TWindowChoiceSetting__sub_802689EC)((void *) (arg0));
     ((s32 (*)(void *))TWindowChoiceSetting__sub_80268A6C)((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

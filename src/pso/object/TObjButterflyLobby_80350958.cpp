@@ -19,7 +19,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK draw_ginja_model_with_motion(int, void *, f32);
-s32 TObjFish__sub_8001ED9C(void *, int);
+s32 get_bml_motion(void *, int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -40,7 +40,7 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x94);
         scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
     }
-    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (TObjFish__sub_8001ED9C((void *) (lbl_805D6EB8), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (get_bml_motion((void *) (lbl_805D6EB8), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
     pop_matrix();
 }
 

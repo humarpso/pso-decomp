@@ -270,12 +270,12 @@ void TProtocol__sub_801DF774(void *, void *);
 void fn_801DFC3C(void *);
 void destroy__9TProtocolFis(void *, int);
 void init_char_data__9TProtocolFi(void *);
-void TCharaMaking__sub_8028DF98(void *);
+void validate_player_visual_record(void *);
 
 void TProtocol__sub_801DC1E4(Proto_801DC1E4 *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC1E4 *blocked_senders, Text_801DC1E4 *auto_reply, char *info_board) {
     if (self->connected) {
-        TCharaMaking__sub_8028DF98(char_data + 0x370);
+        validate_player_visual_record(char_data + 0x370);
         TProtocol__sub_8013A650(self->char_data, char_data);
         Join_801DC1E4 tmp;
         init_char_data__9TProtocolFi(&tmp);
@@ -341,12 +341,12 @@ void TProtocol__sub_801DF774(void *, void *);
 void fn_801DFC3C(void *);
 void destroy__9TProtocolFis(void *, int);
 void init_char_data__9TProtocolFi(void *);
-void TCharaMaking__sub_8028DF98(void *);
+void validate_player_visual_record(void *);
 
 void TProtocol__sub_801DC34C(Proto_801DC34C *self, u8 *char_data, void *challenge, void *choice_search_config,
                                List_801DC34C *blocked_senders, Text_801DC34C *auto_reply, char *info_board) {
     if (self->connected) {
-        TCharaMaking__sub_8028DF98(char_data + 0x370);
+        validate_player_visual_record(char_data + 0x370);
         TProtocol__sub_8013A650(self->char_data, char_data);
         Join_801DC34C tmp;
         init_char_data__9TProtocolFi(&tmp);

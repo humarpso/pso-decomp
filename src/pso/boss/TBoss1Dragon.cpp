@@ -1728,7 +1728,7 @@ extern const f32 lbl_805D8024;
 void send_6x12_packet__10TObjPlayerFPv(void *);
 void set_type_dragon__10TObjPlayerFPv(void *);
 void send_state_sync__12TBoss1DragonFPv(struct dragon_80028530 *s);
-M2C_UNK TObjPlayer__sub_803D7B68(int, f32);
+M2C_UNK bind_motion_context(int, f32);
 M2C_UNK compose_motion_node_matrix(int);
 M2C_UNK matrix_mult_vec(int, void *, void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
@@ -5197,7 +5197,7 @@ f32 sample_root_height__12TBoss1DragonFPv(u8 *arg0) {
     v.z = TBoss1Dragon__data_805D7F28;
     push_matrix_from(lbl_8058D490);
     scale_matrix((M2C_UNK)(0), TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
-    TObjPlayer__sub_803D7B68(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+    bind_motion_context(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
     compose_motion_node_matrix(M2C_FIELD(arg0, s32 *, 0x34));
     matrix_mult_vec(0, &v, &v);
     pop_matrix();

@@ -100,7 +100,7 @@ extern "C" {
 void update_armed_switch__5TOKeyFPv(u8 *arg0);
 void TOKey__sub_8016AAE0(u8 *arg0);
 void set_global_count__12TObjNpcEnemyFi(s32);
-void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+void debug_printf_at(s32, const char *, ...);
 extern char lbl_80441958[];
 void TOKey__sub_8016AA20(VObj_8016AA20 *arg0);
 }
@@ -186,7 +186,7 @@ void TOKey__sub_8016AA20(VObj_8016AA20 *arg0) {
         arg0->fD0 = 0;
     }
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80441958, arg0->fC8);
+    debug_printf_at(0x130020, lbl_80441958, arg0->fC8);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     arg0->m23();
 }

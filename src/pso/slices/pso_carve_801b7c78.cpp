@@ -37,7 +37,7 @@ s32 is_locally_controlled__10TObjPlayerFPv(void * a0 = 0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 obj_testFlags30(s32, s32);
 s32 check_player_flag1__6TLobbyFPv(s32);
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 u32 is_action_active__10TObjPlayerFPv();
 void handle_6x99(void);
 void handle_6x98(void);

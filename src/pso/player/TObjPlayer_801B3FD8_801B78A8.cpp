@@ -61,7 +61,7 @@ void handle_6x98(void);
 void handle_6x99(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32, f32);
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 TObjPlayer__sub_801D4368(void * a0 = 0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 check_player_flag1__6TLobbyFPv(s32);

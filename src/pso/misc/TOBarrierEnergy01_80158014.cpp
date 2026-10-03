@@ -56,7 +56,7 @@ extern u32 lbl_805D5890;
 extern s32 *TOBarrierEnergy01__data_805D5894;
 extern s32 lbl_805D5898;
 void load_resources__17TOBarrierEnergy01Fv(void);
-u8 *TObjFish__sub_8001ED9C(s32, s32);
+u8 *get_bml_motion(s32, s32);
 s32 get_bml_model(void *, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -144,7 +144,7 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&lbl_805D5890))), (s32)((int) (1)));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOBarrierEnergy01__data_805D5894;
-    M2C_FIELD(arg0, u8 **, 0xBC) = TObjFish__sub_8001ED9C((*(s32 *)&lbl_805D5890), 0);
+    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&lbl_805D5890), 0);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB2D8);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB2DC;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));

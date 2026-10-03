@@ -23,7 +23,7 @@ M2C_UNK TWindowSubComCard__sub_80265F60(int);
 extern RecoveredGlobal_80185428_lbl_80444878 lbl_80444878;
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
 s32 get_instance__6TLobbyFv(void);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 M2C_UNK process_player_warps__11TObjMapWarpFPv(void *);
 s32 get_game_play_mode();
 extern s32 TObjLaboMapWarp__data_805D5B58;
@@ -51,7 +51,7 @@ void render__15TObjLaboMapWarpFv(u8 *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -78,11 +78,11 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
             get_bml_model(TObjLaboMapWarp__data_805D5B58, 1);
             draw_ginja_object();
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), get_bml_motion(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         } else {
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
+            draw_ginja_model_with_motion(get_bml_model(TObjLaboMapWarp__data_805D5B58, 0), get_bml_motion(TObjLaboMapWarp__data_805D5B58, 0), M2C_FIELD(arg0, f32 *, 0xFC));
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();
@@ -91,7 +91,7 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
 
 void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
     f32 lim;
-    lim = (f32)(u32)(M2C_FIELD(TObjFish__sub_8001ED9C(TObjLaboMapWarp__data_805D5B58, 0), s32 *, 4) - 1);
+    lim = (f32)(u32)(M2C_FIELD(get_bml_motion(TObjLaboMapWarp__data_805D5B58, 0), s32 *, 4) - 1);
     M2C_FIELD(arg0, f32 *, 0xFC) += lbl_805DBC88;
     if (M2C_FIELD(arg0, f32 *, 0xFC) >= lim) {
         M2C_FIELD(arg0, f32 *, 0xFC) -= lim;

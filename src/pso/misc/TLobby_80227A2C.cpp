@@ -102,7 +102,7 @@ extern char lbl_805DC788[4];
 u32 strlen(const char *s);
 char *strcpy(char *dst, const char *src);
 void TLobby__sub_80228B54(char *s);
-s32 TObjEneBm5GibonU__sub_803D853C(u32, void *, ...);
+s32 debug_printf_at(u32, void *, ...);
 void TLobby__sub_8022884C(L_8022884C *self);
 M2C_UNK run_frame__6TLobbyFv();
 M2C_UNK TLobby__sub_80226B64(int);
@@ -339,7 +339,7 @@ void TLobby__sub_8022884C(L_8022884C *self) {
     off = 0;
     while (i < self->count) {
         t = off + 0x1c;
-        TObjEneBm5GibonU__sub_803D853C((self->hi << 16) | (self->lo + i), (u8 *)self + t);
+        debug_printf_at((self->hi << 16) | (self->lo + i), (u8 *)self + t);
         i++;
         off += 0x20;
     }

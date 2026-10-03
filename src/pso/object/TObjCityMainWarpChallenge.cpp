@@ -33,7 +33,7 @@ extern const f32 lbl_805DBCD0;
 u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 void set_global_count__12TObjNpcEnemyFi(s32);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444A44[];
 extern char lbl_80444A58[];
 void TObjCityMainWarpChallenge__vt18(void *arg0);
@@ -103,9 +103,9 @@ void TObjCityMainWarpChallenge__vt18(void *arg0) {
     }
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     if (get_global_state__14TOKeyMachine01Fv() == 0) {
-        TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444A44, *(s32 *)((u8 *)arg0 + 0x84));
+        debug_printf_at(0x130020, lbl_80444A44, *(s32 *)((u8 *)arg0 + 0x84));
     }
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80444A58, *(s32 *)((u8 *)arg0 + 0x16C));
+    debug_printf_at(0x130021, lbl_80444A58, *(s32 *)((u8 *)arg0 + 0x16C));
 }
 
 void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {

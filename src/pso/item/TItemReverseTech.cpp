@@ -23,7 +23,7 @@ extern "C" {
 
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_active_camera_pose(void *, void *);
-s32 TCameraCtrl__sub_80069E7C(int);
+s32 activate_camera_mode(int);
 u32 __ct__21TItemReverseTechPart2Fv(int, void *, int);
 void *__nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(int);
@@ -63,7 +63,7 @@ void TItemReverseTech::run_task() {
     stack.sp8 = M2C_FIELD(&lbl_8043E6B0.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8043E6B0.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_8043E6B0.value, s32 *, 8);
-    TCameraCtrl__sub_80069E7C((int) (9));
+    activate_camera_mode((int) (9));
     set_active_camera_pose((void *) (&stack.sp14), (void *) (&stack.sp8));
     temp_r3 = (u32)part_one;
     if ((temp_r3 != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv((int) (temp_r3)) == 0)) {

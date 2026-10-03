@@ -60,7 +60,7 @@ void clear_active__15TItemTimerEventFv(void);
 void notify_if_active__15TItemTimerEventFi(int arg0);
 void tick_hp_drain__15TItemTimerEventFPv(void *arg0);
 void update_timer__15TItemTimerEventFPv(void *arg0);
-s32 TLobby__sub_800822E8(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
 s32 is_item_area_enabled();
 M2C_UNK TObjectV8047c128_subtract_hp(s32, M2C_UNK);
 u32 get_player_by_client_id(u16);
@@ -73,7 +73,7 @@ s32 obj_testFlags30(s32, M2C_UNK);
 M2C_UNK set_flag_10000__10TObjPlayerFPv();
 
 void TItemTimerEvent__sub_8011DA9C(void *arg0) {
-    if (TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0x28), 0x1C) != 0) {
+    if (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0x28), 0x1C) != 0) {
         M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
     }
 }
@@ -86,7 +86,7 @@ void tick_hp_drain__15TItemTimerEventFPv(void *arg0) {
 }
 
 void update_timer__15TItemTimerEventFPv(void *arg0) {
-    if (TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0x28), 0x1C) != 0) {
+    if (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0x28), 0x1C) != 0) {
         M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
     }
 }

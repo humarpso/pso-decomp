@@ -292,7 +292,7 @@ s32 set_speed_params__12TObjEneLappyFPvi(void *, int);
 s32 toggle_particle_effect__10TObjPlayerFv();
 s32 is_item_light_interaction_blocked();
 s32 restore_scene_lighting();
-s32 TObjLight__sub_80134194(void *);
+s32 select_actor_lighting(void *);
 s32 render_world_model__10TObjPlayerFPv(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
@@ -562,7 +562,7 @@ void render__12TObjEneLappyFPv(u8 *arg0) {
         if (temp_r3 != 0) {
             set_speed_params__12TObjEneLappyFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x368)));
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            TObjLight__sub_80134194((void *) (arg0));
+            select_actor_lighting((void *) (arg0));
             toggle_particle_effect__10TObjPlayerFv();
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));

@@ -17,7 +17,7 @@ typedef struct Cmd_801C8FCC {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 is_in_tl03_state__10TObjPlayerFPv(void *);
 u8 *get_player_by_client_id(u16);
 void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
@@ -38,7 +38,7 @@ void handle_6x55_intra_map_warp(s32 arg0) {
     swap_endian__10TObjPlayerFPv(&cmd);
     if (validate_6x55_intra_map_warp(&cmd) != 0) {
         p = get_player_by_client_id(cmd.client);
-        if (p != NULL && is_in_tl03_state__10TObjPlayerFPv(p) != 0 && TLobby__sub_800822E8(p, 0x8200) == 0) {
+        if (p != NULL && is_in_tl03_state__10TObjPlayerFPv(p) != 0 && test_action_mask__10TObjPlayerFPvi(p, 0x8200) == 0) {
             *(s32 *)(p + 0x65C) = cmd.area;
             TBoss4DarkFalz__sub_8004C220(p, &cmd.a);
             VecCopy__FP3VecPC3Vec(p + 0x660, &cmd.pos);

@@ -53,7 +53,7 @@ s32 validate_6x21_inter_level_warp(void *);
 void handle_6x21_inter_level_warp(void *arg0);
 void TObjPlayer__sub_801C18AC(Msg_801BAB1C *m);
 void send_6x21_inter_level_warp(void *obj, s32 value);
-void TObjPlayer__sub_800F09E8(s32);
+void draw_blob_shadow(s32);
 void direction_to_rotation_xz(void *, void *, void *);
 void scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
@@ -112,7 +112,7 @@ void draw_projected_shadow__10TObjPlayerFPvPvi(VObj_801BAB78 *self, f32 *pos, s3
     if (pos != NULL) {
         scale_matrix(0, pos[0], pos[2], TObjPlayer__data_805DC294);
     }
-    TObjPlayer__sub_800F09E8(arg2);
+    draw_blob_shadow(arg2);
     pop_matrix();
 }
 

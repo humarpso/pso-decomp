@@ -170,7 +170,7 @@ extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
 extern u8 *lbl_805D76BC;
 extern s32 lbl_805D7808;
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
-void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0);
+void bind_motion_context(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *lbl_805D76BC;
 void select_motion_context(s32 arg0);
@@ -796,7 +796,7 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t, void *k0
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D7B68(s32 arg0, f32 farg0) {
+void bind_motion_context(s32 arg0, f32 farg0) {
     select_motion_context((s32)((int) (0)));
     bind_motion_channel_samplers((int)((int)((void *) (arg0))), (f32) (farg0));
 }

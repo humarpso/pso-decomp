@@ -32,12 +32,12 @@ void PSMTXConcat(f32 (*a)[4], f32 (*b)[4], f32 (*ab)[4]);
 void scale_matrix(f32 (*m)[4], f32 sx, f32 sy, f32 sz);
 int vsprintf(char *s, const char *fmt, va_list ap);
 void TObjEneMe1Gee__sub_803D8098(s32 arg0, char *arg1);
-void TObjEneBm5GibonU__sub_803D853C(s32 arg0, const char *fmt, ...);
+void debug_printf_at(s32 arg0, const char *fmt, ...);
 }
 
 extern "C" {
 
-void TObjEneBm5GibonU__sub_803D853C(s32 arg0, const char *fmt, ...) {
+void debug_printf_at(s32 arg0, const char *fmt, ...) {
     va_list ap;
     char buf[128];
     va_start(ap, fmt);

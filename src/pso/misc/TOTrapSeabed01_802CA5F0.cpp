@@ -35,7 +35,7 @@ struct RecoveredGlobal_802CA9AC_lbl_804E0FB8 { M2C_UNK value; u8 remaining[0x28]
 struct RecoveredGlobal_802CA9AC___vt__14TOTrapSeabed01 { M2C_UNK value; u8 remaining[0x168]; };
 
 extern "C" {
-s32 TObjFish__sub_8001ED9C(int, int);
+s32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -167,7 +167,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F10;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0xF8) = TObjFish__sub_8001ED9C((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DE640;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644;
     TOTrapSeabed01__sub_802CA5F4((void *) (arg0));

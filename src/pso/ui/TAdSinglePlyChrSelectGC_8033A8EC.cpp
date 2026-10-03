@@ -132,7 +132,7 @@ void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F92C();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 M2C_UNK set_active_camera_pose(void *, void *);
-M2C_UNK TCameraCtrl__sub_80069E7C(int);
+M2C_UNK activate_camera_mode(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
 M2C_UNK TLobby__sub_800FA464();
 s8 func_801A5E54__Fv();
@@ -477,7 +477,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
     TKeyBoardControl__sub_801A5EC4();
     V3_8033B2AC a = lbl_80477D78[0];
     V3_8033B2AC b = lbl_80477D84[0];
-    TCameraCtrl__sub_80069E7C(9);
+    activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
     some_empty_func__9TMainTaskFv(&main_task.value);
     run_task__9TMainTaskFv(&main_task.value);

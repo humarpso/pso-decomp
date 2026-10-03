@@ -55,7 +55,7 @@ void TObjGoalWarpAncient__sub_8017D2D4(void* a0);
 s32 get_instance__19TObjGoalWarpAncientFv(void);
 void register_warp__19TObjGoalWarpAncientFPv(void* a0);
 void register_warp_object__19TObjGoalWarpAncientFPv(void* a0);
-int TObjFish__sub_8001ED9C(void*, void*);
+int get_bml_motion(void*, void*);
 int TObjFish__sub_8001EDB0(void*, void*);
 int get_bml_model(void*, void*);
 
@@ -86,7 +86,7 @@ s32 get_instance__19TObjGoalWarpAncientFv(void) {
 }
 
     extern int lbl_805D5AF0;
-void register_warp__19TObjGoalWarpAncientFPv(void* a0) { TObjFish__sub_8001ED9C((void*)(lbl_805D5AF0), a0); }
+void register_warp__19TObjGoalWarpAncientFPv(void* a0) { get_bml_motion((void*)(lbl_805D5AF0), a0); }
 
     extern int lbl_805D5AF0;
 void TObjGoalWarpAncient__sub_8017D2D4(void* a0) { get_bml_model((void*)(lbl_805D5AF0), a0); }

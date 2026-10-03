@@ -46,7 +46,7 @@ extern s32 lbl_805D3F08;
 u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2);
 void TOTrapChainSaw__sub_802C9090(void);
 void set_global_count__12TObjNpcEnemyFi(s32);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern u8 lbl_80471F88[];
 extern u8 lbl_80471FA8[];
 void TOTrapChainSawDamage__vt12(void);
@@ -141,8 +141,8 @@ void TOTrapChainSawDamage__vt24(void* p) { *(s32*)((char*)p + 0x100) = 0; }
 void TOTrapChainSawDamage__vt12(void) {
     TOTrapChainSaw__sub_802C9090();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_80471FA8);
-    TObjEneBm5GibonU__sub_803D853C(0x13001E, lbl_80471F88);
+    debug_printf_at(0x13001D, lbl_80471FA8);
+    debug_printf_at(0x13001E, lbl_80471F88);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

@@ -414,7 +414,7 @@ s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK spawn_confusion_feedback_effect(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800101B0(void *, M2C_UNK);
 M2C_UNK show_miss_for_collider__10TObjPlayerFi(void *, s32);
-M2C_UNK TObjPlayer__sub_800192DC(void *);
+M2C_UNK reset_status_effect_row(void *);
 s32 add_status_effect_timer__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK);
 M2C_UNK angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
@@ -500,7 +500,7 @@ s32 update_flag30_timer__10TObjPlayerFPv(u8 *arg0) {
         }
         obj_clearFlags30(arg0, 0x3C);
         M2C_FIELD(arg0, s32 *, 0x330) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0x3F);
-        TObjPlayer__sub_800192DC(arg0 + 0x260);
+        reset_status_effect_row(arg0 + 0x260);
         goto block_6;
     }
 block_6:
@@ -520,7 +520,7 @@ s32 update_action_timer__10TObjPlayerFPv(u8 *arg0) {
         }
         obj_clearFlags30(arg0, 0x3C);
         M2C_FIELD(arg0, s32 *, 0x330) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0x3F);
-        TObjPlayer__sub_800192DC(arg0 + 0x260);
+        reset_status_effect_row(arg0 + 0x260);
         goto block_7;
     }
 block_7:

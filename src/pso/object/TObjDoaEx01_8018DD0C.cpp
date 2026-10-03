@@ -45,7 +45,7 @@ extern u8 *TObjDoaEx01__data_805D5BB4;
 extern u8 *TObjDoaEx01__data_805D5BB8;
 extern s32 some_id_805c6f74;
 M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK TObjDoaEx01__sub_8018DD0C(void *arg0, s32 arg1);
@@ -162,7 +162,7 @@ void TObjDoaEx01__sub_8018DEC8(u8 *arg0) {
         rotate_matrix_y((0), (M2C_FIELD(arg0, s32 *, 0x60)));
         temp_f31 = M2C_FIELD(arg0, f32 *, 0xB0);
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
-            temp_r31 = TObjFish__sub_8001ED9C((TObjDoaEx01__data_805D5BB0), (0));
+            temp_r31 = get_bml_motion((TObjDoaEx01__data_805D5BB0), (0));
             draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__data_805D5BB0), (0)), temp_r31, temp_f31);
         } else {
             TObjDoaEx01__sub_8018DD0C(arg0, (temp_r31));

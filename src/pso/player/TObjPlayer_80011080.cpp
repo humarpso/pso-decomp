@@ -11,7 +11,7 @@ M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_800F09E8(void *);
+M2C_UNK draw_blob_shadow(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -34,7 +34,7 @@ void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 a
     if (arg1 != NULL) {
         scale_matrix((int) (0), (f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 8)), (f32) (TObjPlayer__data_805D7D44));
     }
-    TObjPlayer__sub_800F09E8((void *) (arg2));
+    draw_blob_shadow((void *) (arg2));
     pop_matrix();
 }
 

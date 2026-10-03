@@ -104,7 +104,7 @@ extern "C" {
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -125,7 +125,7 @@ void *__dt__15TOKeyJungleMainFv(void *arg0, s16 arg1);
 s32 is_lobby_event_active();
 extern s32 TObjFish__data_805D65EC;
 u8 update_state__8TObjFishFPv(void *arg0);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 extern u32 TOKeyJungleMain__data_805D65E0;
 extern const f32 lbl_805DDD38;
 extern const f32 lbl_805DDD3C;
@@ -211,9 +211,9 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), M2C_FIELD(arg0, f32 *, 0xE8));
+            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), get_bml_motion((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), M2C_FIELD(arg0, f32 *, 0xE8));
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), M2C_FIELD(arg0, f32 *, 0xEC));
+            draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), get_bml_motion((*(s32 *)&TOKeyJungleMain__data_805D65E0), 0), M2C_FIELD(arg0, f32 *, 0xEC));
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();
             break;
@@ -247,14 +247,14 @@ void TOKeyJungleMain__vt14(u8 *arg0) {
   s32 temp_r3_3;
   u32 temp_r3_2;
   new_var = 0;
-  temp_r3 = TObjFish__sub_8001ED9C((s32)((*(u8 * *)&TOKeyJungleMain__data_805D65E0)), (M2C_UNK)(1));
+  temp_r3 = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__data_805D65E0)), (M2C_UNK)(1));
   *((f32 *) (((s8 *) arg0) + 0xE8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xE8))) + lbl_805DDD38);
   temp_r3_2 = (*((s32 *) (((s8 *) temp_r3) + 4))) - 1;
   if ((*((f32 *) (((s8 *) arg0) + 0xE8))) > ((f32) temp_r3_2))
   {
     *((f32 *) (((s8 *) arg0) + 0xE8)) = (f32) temp_r3_2;
   }
-  temp_r3_3 = TObjFish__sub_8001ED9C((s32)((*(u8 * *)&TOKeyJungleMain__data_805D65E0)), (M2C_UNK)(new_var));
+  temp_r3_3 = get_bml_motion((s32)((*(u8 * *)&TOKeyJungleMain__data_805D65E0)), (M2C_UNK)(new_var));
   *((f32 *) (((s8 *) arg0) + 0xEC)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xEC))) + lbl_805DDD38);
   temp_r3_2 = (*((s32 *) (((s8 *) temp_r3_3) + 4))) - 1;
   if ((*((f32 *) (((s8 *) arg0) + 0xEC))) > ((f32) temp_r3_2))

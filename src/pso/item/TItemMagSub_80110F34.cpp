@@ -8,14 +8,14 @@ extern "C" {
 
 u8 has_feed_flag__11TItemMagSubFPv(void *arg0);
 s32 is_mag_active__11TItemMagSubFPv(void *arg0);
-s32 TLobby__sub_800822E8(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
 s32 is_active__8TItemMagFPv(u32);
 
 u8 has_feed_flag__11TItemMagSubFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0xF0), 4) != 0) || (TLobby__sub_800822E8(M2C_FIELD(arg0, s32 *, 0xF0), 0x10) != 0)) {
+    if ((test_action_mask__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xF0), 4) != 0) || (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xF0), 0x10) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

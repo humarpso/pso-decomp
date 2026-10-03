@@ -26,7 +26,7 @@ struct RecoveredGlobal_8019FCFC_lbl_804B9658 {
 };
 
 extern "C" {
-void TObjAreaWarp__sub_8019CAB0(void *);
+void handle_area_selection__12TObjAreaWarpFPv(void *);
 extern void *lbl_805D5CAC;
 extern const f32 lbl_805DC048;
 extern const f32 lbl_805DC04C;
@@ -73,7 +73,7 @@ void run_task__16TObjWarpJungMainFv(u8 *arg0) {
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
-  TObjAreaWarp__sub_8019CAB0(arg0);
+  handle_area_selection__12TObjAreaWarpFPv(arg0);
 }
 
 void *__dt__16TObjWarpJungMainFv(void *arg0, s16 arg1) {
@@ -122,7 +122,7 @@ struct VObj_801A0070_more_8019fe60_1 : VObjBase_801A0070_more_8019fe60_1 {
 };
 
 extern "C" {
-void TObjAreaWarp__sub_8019CAB0(void *);
+void handle_area_selection__12TObjAreaWarpFPv(void *);
 extern void *lbl_805D5CAC;
 extern const f32 lbl_805DC048;
 extern const f32 lbl_805DC04C;
@@ -192,7 +192,7 @@ void run_task__12TObjWarpJungFv(u8 *arg0) {
   {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DC04C;
   }
-  TObjAreaWarp__sub_8019CAB0(arg0);
+  handle_area_selection__12TObjAreaWarpFPv(arg0);
 }
 
 void *__dt__12TObjWarpJungFv(void *arg0, s16 arg1) {

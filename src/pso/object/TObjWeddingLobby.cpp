@@ -34,7 +34,7 @@ struct Obj_8035BCE8 {
 struct Fish_8035BCE8 { u32 a; u32 n; };
 
 extern "C" {
-s32 TObjFish__sub_8001ED9C(void *, int);
+s32 get_bml_motion(void *, int);
 s32 get_bml_model(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -64,7 +64,7 @@ extern s32 lbl_805D4428;
 extern const f32 TObjWeddingLobby__data_805E0158;
 extern const f32 lbl_805E0160;
 u8 *TObjWeddingLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 TObjFish__sub_8001ED9C(void *, int);
+s32 get_bml_motion(void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 TLobby__sub_80351DFC();
 void TObjWeddingLobby__sub_8035BC20(void);
@@ -103,7 +103,7 @@ void render__16TObjWeddingLobbyFv(u8 *arg0) {
         }
         get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (0));
         draw_ginja_object();
-        draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (1)), (int) TObjFish__sub_8001ED9C((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (0)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+        draw_ginja_model_with_motion((int) get_bml_model((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (1)), (int) get_bml_motion((void *) ((*(s32 *)&TObjWeddingLobby__data_805D6F60)), (int) (0)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
@@ -143,7 +143,7 @@ void run_task__16TObjWeddingLobbyFv(Obj_8035BCE8 *self) {
         }
         break;
     }
-    last = (f32)((Fish_8035BCE8 *)TObjFish__sub_8001ED9C((void *)TObjWeddingLobby__data_805D6F60, 0))->n - 1.0f;
+    last = (f32)((Fish_8035BCE8 *)get_bml_motion((void *)TObjWeddingLobby__data_805D6F60, 0))->n - 1.0f;
     self->b0 += 2.0f;
     if (last < self->b0) {
         self->b0 -= last;

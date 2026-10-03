@@ -35,7 +35,7 @@ s32 TObjPlayer__sub_801C6FBC(void *, void *);
 extern M2C_UNK lbl_804C3FD8[];
 u8 *TObjPlayer__sub_801C6518(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv(void *);
-s32 TLobby__sub_800822E8(VO_801C6408 *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(VO_801C6408 *, s32);
 void copy_pos__11TNowLoadingFPvPv(s32, Vec_801C6408 *);
 s32 is_on_current_floor__10TObjPlayerFi(VO_801C6408 *);
 u32 update_battle_ctrl_field1c__10TObjPlayerFPv(void *);
@@ -70,7 +70,7 @@ void TObjPlayer__sub_801C6408(s32 arg0) {
     s32 h;
     Vec_801C6408 v;
     p = (VO_801C6408 *)update_battle_ctrl_field1c__10TObjPlayerFPv((void *)arg0);
-    if (p != NULL && TLobby__sub_800822E8(p, 0x8000) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 &&
+    if (p != NULL && test_action_mask__10TObjPlayerFPvi(p, 0x8000) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 &&
         is_on_current_floor__10TObjPlayerFi(p) != 0) {
         h = free_handle__13TParticleCtrlFPv(arg0);
         if (h != 0) {

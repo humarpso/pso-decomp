@@ -30,7 +30,7 @@ s32 strcmp(void *, void *);
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 lbl_804FE148;
 extern s32 lbl_805D4AD4;
 void TLobby__sub_8001EDF4(u8 *arg0);
-s32 TObjFish__sub_8001ED9C(Fish_8001ED9C *self, s32 i);
+s32 get_bml_motion(Fish_8001ED9C *self, s32 i);
 s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i);
 s32 get_bml_model(Fish_8001EDC4 *self, s32 i);
 void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item);
@@ -58,7 +58,7 @@ s32 TLobby__sub_8001ED88(void* p);
 
 int fn_8001ED90(void* p) { return (*(u32*)((char*)p + 0x0) >> 10) & 0x1; }
 
-s32 TObjFish__sub_8001ED9C(Fish_8001ED9C *self, s32 i) {
+s32 get_bml_motion(Fish_8001ED9C *self, s32 i) {
     return self->entries[i].b;
 }
 

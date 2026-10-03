@@ -20,7 +20,7 @@ struct Warp_8019B170 { u8 pad0[0x8C]; s32 f8C; };
 
 extern "C" {
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_804463A4[];
 extern char lbl_804463B4[];
 void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0);
@@ -34,7 +34,7 @@ void run_task__22TObjAreaWarpEndingJungFv(void *arg0);
 M2C_UNK PPCSync();
 M2C_UNK post_translate_matrix(void *);
 void *TObjAreaWarpEndingJung__ct(void *, void *, void *);
-M2C_UNK TObjAreaWarp__sub_8019CAB0(void *);
+M2C_UNK handle_area_selection__12TObjAreaWarpFPv(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
@@ -69,10 +69,10 @@ void TObjAreaWarpEndingJung__vt18(Warp_8019B170 *arg0) {
     arg0->f8C = arg0->f8C % 2;
     if (arg0->f8C == 0) {
         set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+        debug_printf_at(0x130022, lbl_804463A4);
     } else {
         set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+        debug_printf_at(0x130022, lbl_804463B4);
     }
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
@@ -117,7 +117,7 @@ void run_task__22TObjAreaWarpEndingJungFv(void *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0xC4) > (get_static_field4_as_float__12TObjWarpJungFv(temp_f1) - lbl_805DBFE0)) {
         M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBFE4;
     }
-    TObjAreaWarp__sub_8019CAB0(arg0);
+    handle_area_selection__12TObjAreaWarpFPv(arg0);
 }
 
 }

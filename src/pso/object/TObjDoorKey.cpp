@@ -54,7 +54,7 @@ void TObjDoorKey__vt14(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TOKey__sub_8016AA20();
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(int, void *, ...);
+void debug_printf_at(int, void *, ...);
 extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
 void TObjDoorKey__vt24(Key_8018FD9C *arg0);
@@ -240,7 +240,7 @@ void TObjDoorKey__vt24(Key_8018FD9C *arg0) {
     VecCopy__FP3VecPC3Vec(&arg0->f74, arg0->f38);
     arg0->f78 = arg0->f78 + lbl_805DBE08;
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804456C8, arg0->f8C);
+    debug_printf_at(0x130022, lbl_804456C8, arg0->f8C);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     if (arg0->f8C < 0) {
         arg0->f8C = 0;

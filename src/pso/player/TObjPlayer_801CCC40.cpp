@@ -10,7 +10,7 @@ void update_cursor__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 try_equip_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 can_equip_item__10TObjPlayerFii(s32, s16);
 M2C_UNK request_technique_cast__10TObjPlayerFPv(s32);
-s32 TLobby__sub_800822E8(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
 s32 canSetMenuCursorAction(s32, void *, M2C_UNK, u8);
 M2C_UNK set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 M2C_UNK set_mode__20TWindowActionPaletteFPvUc(s32, M2C_UNK);
@@ -29,7 +29,7 @@ void update_cursor__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 }
 
 s32 try_equip_item__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    if (TLobby__sub_800822E8(arg0, 0x100) == 0) {
+    if (test_action_mask__10TObjPlayerFPvi(arg0, 0x100) == 0) {
         if (can_equip_item__10TObjPlayerFii(arg0, arg1) == 0) {
             return 0;
         }

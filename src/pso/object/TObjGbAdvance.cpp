@@ -26,7 +26,7 @@ u8 *TObjGbAdvance__ct(u8 *arg0, s32 arg1);
 s32 get_bml_model(void *, s32);
 void TObjMesBase__sub_80194AEC(void *);
 void set_global_count__12TObjNpcEnemyFi(int);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80444B48[];
 extern u32 TObjComputer__data_805D5B68;
 extern s16 TObjComputer__data_805DBCD8[2];
@@ -82,7 +82,7 @@ void TObjComputer__vt14(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x88) = M2C_FIELD(arg0, s32 *, 0x88) % 2;
     M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_model((void *)TObjComputer__data_805D5B68, TObjComputer__data_805DBCD8[M2C_FIELD(arg0, s32 *, 0x88)]);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130021, lbl_80444B48);
+    debug_printf_at(0x130021, lbl_80444B48);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

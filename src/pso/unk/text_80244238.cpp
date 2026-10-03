@@ -33,14 +33,14 @@ Ctx_80244364 *setup_window_draw_context(Obj_80244364 *self, f32 *p);
 Ctx_80244364 *get_draw_context__11TWindowBaseFPv(Obj_80244364 *self);
 void save_position__17TWindowSubComCardFPv(void *p);
 extern const f32 lbl_805DCAA8;
-void TWindowSubStatusDisp__sub_80244238(Disp_80244238 *o);
+void step_window_tween(Disp_80244238 *o);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_80244238(Disp_80244238 *o) {
+void step_window_tween(Disp_80244238 *o) {
     f32 d;
     u32 n = o->n;
     if (n == 0) {

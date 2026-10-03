@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 f32 get_speed__10TObjPlayerFPv(void *);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 extern const f32 lbl_805DAEA8;
 extern const f32 lbl_805DAEAC;
@@ -32,17 +32,17 @@ void TObjPlayer__sub_8012B664(u8 *self) {
         speed = get_speed__10TObjPlayerFPv(M2C_FIELD(self, void **, 0xF0));
         flag = is_flag_b0_4__10TObjPlayerFPv(M2C_FIELD(self, void **, 0xF0));
         ok = 1;
-        if (TLobby__sub_800822E8(M2C_FIELD(self, void **, 0xF0), 0x20) != 0) {
+        if (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(self, void **, 0xF0), 0x20) != 0) {
             flo = lbl_805DAEA8;
             lo = 0;
             fhi = lbl_805DAEAC;
             hi = 0x4000;
-        } else if (TLobby__sub_800822E8(M2C_FIELD(self, void **, 0xF0), 0x40) != 0) {
+        } else if (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(self, void **, 0xF0), 0x40) != 0) {
             flo = lbl_805DAEB0;
             lo = 0x4000;
             fhi = lbl_805DAEB4;
             hi = -0x4000;
-        } else if (TLobby__sub_800822E8(M2C_FIELD(self, void **, 0xF0), 0x80) != 0) {
+        } else if (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(self, void **, 0xF0), 0x80) != 0) {
             flo = lbl_805DAEB8;
             lo = -0x4000;
             fhi = lbl_805DAEBC;

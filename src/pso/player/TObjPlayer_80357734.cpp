@@ -238,7 +238,7 @@ void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg
 s32 create_timed_particle_emitter(s32, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
 M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK attach_particle_model(s32, s32, s32, s32, M2C_UNK, f32);
 M2C_UNK create_timed_particle_emitter_with_flags(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -588,7 +588,7 @@ void spawn_effect_by_type__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 a
     if (arg3 == 1) {
         temp_a = create_timed_particle_emitter(arg2, 0xBF, 0, 0xF);
         if (temp_a != 0) {
-            attach_particle_model(temp_a, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805E0084);
+            attach_particle_model(temp_a, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 0), 0, lbl_805E0084);
         }
     }
 }
@@ -606,7 +606,7 @@ void spawn_hit_effect__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     if (arg3 == 1) {
         temp_r30 = create_timed_particle_emitter(arg2, 0x9A, 0, 0xF);
         if (temp_r30 != 0) {
-            attach_particle_model(temp_r30, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 0), 0, lbl_805E0084);
+            attach_particle_model(temp_r30, get_bml_model(lbl_805D63AC, 0), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 0), 0, lbl_805E0084);
         }
     }
 }

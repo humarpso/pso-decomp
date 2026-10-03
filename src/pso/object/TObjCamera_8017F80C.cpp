@@ -84,7 +84,7 @@ extern RecoveredGlobal_8017FC78_lbl_804B5888 lbl_804B5888;
 extern u32 TObjCamera__data_805D5B18;
 extern s32 TObjCamera__data_805D5B1C;
 void TObjCamera__sub_8017FC78(void);
-s32 TObjFish__sub_8001ED9C(u32, int);
+s32 get_bml_motion(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
 void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
@@ -132,7 +132,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void TObjChip__vt10(u8 *arg0);
 s32 is_split_screen(void);
-s32 TObjFish__sub_8001ED9C(u32, int);
+s32 get_bml_motion(u32, int);
 void *__ct__15TEffStarLight2DFv(void *, void *, void *, void *);
 void init_map_object_base(void *);
 void fn_8017F550(void *);
@@ -169,7 +169,7 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         TObjCamera__data_805D5B1C = 0;
         set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
         draw_ginja_model_with_motion(get_bml_model(TObjCamera__data_805D5B18, 0),
-                               TObjFish__sub_8001ED9C(TObjCamera__data_805D5B18, 0), self->xb0);
+                               get_bml_motion(TObjCamera__data_805D5B18, 0), self->xb0);
         set_npc_enemy_param(NULL);
         pop_matrix();
         if (self->count != 0) {
@@ -242,7 +242,7 @@ u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_8017FA9C *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, f32 *, 0xB0) = TObjCamera__data_805DBB58;
     M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DBB70;
-    M2C_FIELD(arg0, f32 *, 0xB4) = *(u32 *)(TObjFish__sub_8001ED9C(TObjCamera__data_805D5B18, 0) + 4);
+    M2C_FIELD(arg0, f32 *, 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__data_805D5B18, 0) + 4);
     if (is_split_screen() != 0) {
         for (i = 0; i < 8; i++) {
             ((Cam_8017FA9C *)arg0)->arr[i] = 0;

@@ -54,7 +54,7 @@ u32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv();
 s32 validate_6x25_equip_item(void *);
 void handle_6x25_equip_item(void *arg0);
-s32 TLobby__sub_800822E8(void *, int);
+s32 test_action_mask__10TObjPlayerFPvi(void *, int);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 s32 is_state_ec1_ed3__10TObjPlayerFPv(void *);
 s16 unequip_by_field326__10TObjPlayerFPv(void *);
@@ -97,7 +97,7 @@ void equip_item_to_slot__10TObjPlayerFPvPvi(void *self, void *item, s32 slot) {
         set_equip_slot_entry(p->slots, slot, item);
         ((VObj_801B9F40 *)item)->m18();
     }
-    if (TLobby__sub_800822E8(self, 2) != 0) {
+    if (test_action_mask__10TObjPlayerFPvi(self, 2) != 0) {
         set_animation__10TObjPlayerFPvs(self, unequip_by_field326__10TObjPlayerFPv(self));
     }
 }

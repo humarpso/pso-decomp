@@ -132,7 +132,7 @@ extern char lbl_8043F4A8[];
 extern char lbl_8043F4BC[];
 void TObjNpcARW00__sub_80147FA4(void);
 void set_global_count__12TObjNpcEnemyFi(s32);
-void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
+void debug_printf_at(s32, const char *, ...);
 extern char lbl_8043F4DC[];
 extern char lbl_8043F4F8[];
 extern char lbl_8043F514[];
@@ -223,10 +223,10 @@ void TObjNpcEnemy__sub_801480FC(Npc_801480FC *o) {
     o->f3A8 = o->f364;
     o->f3AC = o->f360;
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x1A001D, lbl_8043F4DC, o->f358);
-    TObjEneBm5GibonU__sub_803D853C(0x1A001E, lbl_8043F4F8, o->f35C);
-    TObjEneBm5GibonU__sub_803D853C(0x1A001F, lbl_8043F514, o->f3AC);
-    TObjEneBm5GibonU__sub_803D853C(0x1A0020, lbl_8043F52C, o->f3A8);
+    debug_printf_at(0x1A001D, lbl_8043F4DC, o->f358);
+    debug_printf_at(0x1A001E, lbl_8043F4F8, o->f35C);
+    debug_printf_at(0x1A001F, lbl_8043F514, o->f3AC);
+    debug_printf_at(0x1A0020, lbl_8043F52C, o->f3A8);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 

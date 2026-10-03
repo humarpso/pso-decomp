@@ -146,7 +146,7 @@ void draw_model__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
 u16 find_nearest_visible_player(void *, M2C_UNK, f32 *, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, void *);
@@ -182,7 +182,7 @@ extern s32 some_id_805c6f74;
 void draw_model__10TObjPlayerFPv(u8 *arg0) {
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
     if ((self->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
-        TObjLight__sub_80134194(arg0);
+        select_actor_lighting(arg0);
         some_id_805c6f74 |= 1;
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         push_matrix_from(0);

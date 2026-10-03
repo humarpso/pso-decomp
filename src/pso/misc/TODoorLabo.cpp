@@ -44,7 +44,7 @@ struct Door_8029FAE4 {
 };
 
 extern "C" {
-Res_8029F7E0 *TObjFish__sub_8001ED9C(s32, s32);
+Res_8029F7E0 *get_bml_motion(s32, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
 void init_collision_body_parts(void *, void *, s32);
@@ -127,7 +127,7 @@ Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self) {
     refresh_collision_body_centers(self);
     reset_photon_effect__10TObjPlayerFPv(self);
     init_field_d4__16TODoorLaboNormalFPv((void*)(self));
-    self->fBC = TObjFish__sub_8001ED9C((s32)lbl_805D6624, 0);
+    self->fBC = get_bml_motion((s32)lbl_805D6624, 0);
     self->fB4 = (f32)self->fBC->f4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
     {
@@ -219,7 +219,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     TODoorLabo__sub_8029F9EC(arg0);
-    arg0->fBC = (u8 *)TObjFish__sub_8001ED9C(lbl_805D6618, 0);
+    arg0->fBC = (u8 *)get_bml_motion(lbl_805D6618, 0);
     arg0->fB4 = (f32)M2C_FIELD(arg0->fBC, u32 *, 4) - lbl_805DDDB8;
     arg0->fB8 = lbl_805DDDBC;
     tbl = lbl_80465FD8;
@@ -384,7 +384,7 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     self->fD4 = get_bml_model((s32)lbl_805D660C, 0);
-    self->infoBC = (Info_8029FD70 *)TObjFish__sub_8001ED9C((s32)lbl_805D660C, 0);
+    self->infoBC = (Info_8029FD70 *)get_bml_motion((s32)lbl_805D660C, 0);
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
     {
@@ -563,7 +563,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     self->fD4 = get_bml_model(lbl_805D6600, 0);
-    self->infoBC = (Info_802A0068 *)TObjFish__sub_8001ED9C(lbl_805D6600, 0);
+    self->infoBC = (Info_802A0068 *)get_bml_motion(lbl_805D6600, 0);
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
     {

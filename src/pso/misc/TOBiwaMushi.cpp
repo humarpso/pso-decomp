@@ -106,7 +106,7 @@ struct Self_802AA3FC : Obj_802AA3FC {
     s32 fFC;
 };
 
-Anim_802AA3FC *TObjFish__sub_8001ED9C(u32, s32);
+Anim_802AA3FC *get_bml_motion(u32, s32);
 s32 TObjFish__sub_8001EDB0(u32, s32);
 ModelRef_802AA3FC *get_bml_model(u32, s32);
 void TODragonfly__ct(void *, void *);
@@ -133,7 +133,7 @@ void *TOBiwaMushi__ct(void *arg0, void *arg1) {
     self->m5(arg1);
     self->f34 = get_bml_model(TOBiwaMushi__data_805D66E0, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOBiwaMushi__data_805D66E0, 0);
-    self->fBC = TObjFish__sub_8001ED9C(TOBiwaMushi__data_805D66E0, 0);
+    self->fBC = get_bml_motion(TOBiwaMushi__data_805D66E0, 0);
     self->fB4 = (f32)self->fBC->frames - lbl_805DE068;
     self->fB8 = lbl_805DE06C;
     self->fC0 = lbl_805DE070;
@@ -252,7 +252,7 @@ struct Self_802AA6EC : Obj_802AA6EC {
     s32 fFC;
 };
 
-#define TObjFish__sub_8001ED9C ((Anim_802AA6EC * (*)(u32, s32))TObjFish__sub_8001ED9C)
+#define get_bml_motion ((Anim_802AA6EC * (*)(u32, s32))get_bml_motion)
 s32 TObjFish__sub_8001EDB0(u32, s32);
 #define get_bml_model ((ModelRef_802AA6EC * (*)(u32, s32))get_bml_model)
 void TODragonfly__ct(void *, void *);
@@ -279,7 +279,7 @@ void *TOMekaFish01__ct(void *arg0, void *arg1) {
     self->m5(arg1);
     self->f34 = get_bml_model(TOMekaFish01__data_805D66DC, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOMekaFish01__data_805D66DC, 0);
-    self->fBC = TObjFish__sub_8001ED9C(TOMekaFish01__data_805D66DC, 0);
+    self->fBC = get_bml_motion(TOMekaFish01__data_805D66DC, 0);
     self->fB4 = (f32)self->fBC->frames - lbl_805DE068;
     self->fB8 = lbl_805DE06C;
     self->fC0 = lbl_805DE070;
@@ -295,7 +295,7 @@ void *TOMekaFish01__ct(void *arg0, void *arg1) {
 #undef self
 #pragma pop
 }
-#undef TObjFish__sub_8001ED9C
+#undef get_bml_motion
 #undef get_bml_model
 
 extern "C" {
@@ -339,7 +339,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802AA934_lbl_804DDFC0 lbl_804DDFC0;
 extern u32 TOMekaFish00__data_805D66D8;
 void TOMekaFish00__sub_802AA934(void);
-#define TObjFish__sub_8001ED9C ((s32 (*)(void *, s32))TObjFish__sub_8001ED9C)
+#define get_bml_motion ((s32 (*)(void *, s32))get_bml_motion)
 #define TObjFish__sub_8001EDB0 ((s32 (*)(void *, s32))TObjFish__sub_8001EDB0)
 #define get_bml_model ((s32 (*)(void *, s32))get_bml_model)
 #define TODragonfly__ct ((u8 * (*)(void *))TODragonfly__ct)
@@ -413,7 +413,7 @@ u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__data_805D66D8), 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__data_805D66D8), 0);
-    M2C_FIELD(arg0, s32 *, 0xBC) = TObjFish__sub_8001ED9C((*(u8 * *)&TOMekaFish00__data_805D66D8), 0);
+    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TOMekaFish00__data_805D66D8), 0);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0xBC), u32 *, 4) - lbl_805DE068);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DE06C;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DE070;
@@ -438,7 +438,7 @@ s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
 
 }
 
-#undef TObjFish__sub_8001ED9C
+#undef get_bml_motion
 #undef TObjFish__sub_8001EDB0
 #undef get_bml_model
 #undef TODragonfly__ct

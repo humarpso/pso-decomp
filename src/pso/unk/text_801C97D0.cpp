@@ -21,7 +21,7 @@ s16 TObjPlayer__sub_801D2824(void *);
 void enter_service_hold_action__10TObjPlayerFPv(u8 *arg0);
 s32 obj_isState2_324(int);
 s32 check_flag__10TObjPlayerFPvi(int, int);
-s32 TLobby__sub_800822E8(int, int);
+s32 test_action_mask__10TObjPlayerFPvi(int, int);
 s32 TFontSmallLobby__sub_801AFEE0();
 s32 is_in_tl03_state__10TObjPlayerFPv();
 s32 get_player_by_client_id(int);
@@ -53,7 +53,7 @@ void handle_6x52_set_animation_state(s32 arg0) {
     swap_stats_bytes__10TObjPlayerFPv((void *) (&pkt));
     if (validate_6x52_set_animation_state((void *) (&pkt)) != 0) {
         temp_r3 = get_player_by_client_id((int) (pkt.client));
-        if ((temp_r3 != 0) && (is_in_tl03_state__10TObjPlayerFPv() != 0) && (TLobby__sub_800822E8((int) (temp_r3), (int) (0x8000)) == 0) && ((TFontSmallLobby__sub_801AFEE0() == 0) || (obj_isState2_324((int) (temp_r3)) == 0) || (check_flag__10TObjPlayerFPvi((int) (temp_r3), (int) (0x04000000)) == 0))) {
+        if ((temp_r3 != 0) && (is_in_tl03_state__10TObjPlayerFPv() != 0) && (test_action_mask__10TObjPlayerFPvi((int) (temp_r3), (int) (0x8000)) == 0) && ((TFontSmallLobby__sub_801AFEE0() == 0) || (obj_isState2_324((int) (temp_r3)) == 0) || (check_flag__10TObjPlayerFPvi((int) (temp_r3), (int) (0x04000000)) == 0))) {
             set_anim_state__10TObjPlayerFPvs((void *) (temp_r3 + 0x5F0), (int) (pkt.c));
             set_anim_state__10TObjPlayerFPvi((void *) (temp_r3 + 0x5F0), (int) (pkt.g));
             set_state__10TObjPlayerFPvs((void *) (temp_r3 + 0x5F0), (int) (pkt.e));

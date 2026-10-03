@@ -108,7 +108,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802E1DF8(s32 a0 = 0, s32 a1 = 0);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802E1F14(void *);
 int TKeyBoardControl__sub_8000F9CC(void*);
 s32 TLobby__sub_8022614C(s32 a0 = 0);
-s32 TLobby__sub_802261E0(s16 a0 = 0);
+s32 update_music_stream_gain(s16 a0 = 0);
 s32 TLobby__sub_80226328(void);
 M2C_UNK TWindow__close(void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
@@ -307,7 +307,7 @@ void apply_settings__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
         return;
     }
     set_language__19TWindowKeyBoardSoftFc(M2C_FIELD(temp_r3, u8 *, 7));
-    TLobby__sub_802261E0(M2C_FIELD(temp_r3, s16 *, 4));
+    update_music_stream_gain(M2C_FIELD(temp_r3, s16 *, 4));
     TLobby__sub_8022614C(M2C_FIELD(temp_r3, s8 *, 6));
     TLobby__sub_80226328();
     fn_8023F160();

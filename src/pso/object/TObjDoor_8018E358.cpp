@@ -152,7 +152,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
 s32 get_bml_model(s32, s32);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 extern u8 lbl_804B763C[];
 extern u8 lbl_80445588[];
 extern u32 lbl_805D5BC4;
@@ -181,7 +181,7 @@ M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void set_active_camera_pose(f32*,f32*);
 void restore_player_cameras();
-s32 TCameraCtrl__sub_80069E7C(s32);
+s32 activate_camera_mode(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
 s32 check_player_door_proximity(TObjDoor*,s32,f32);
@@ -210,7 +210,7 @@ extern const f32 lbl_805DBDC8,lbl_805DBDCC;
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void set_active_camera_pose(f32*,f32*);
 void restore_player_cameras();
-s32 TCameraCtrl__sub_80069E7C(s32);
+s32 activate_camera_mode(s32);
 void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
 s32 check_player_door_proximity(TObjDoor*,s32,f32);
@@ -417,7 +417,7 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
         }
         set_indexed_flags(door,0,1);return;
     case 1:
-        if(door->cameraMode==1 && TCameraCtrl__sub_80069E7C(9)!=0) {
+        if(door->cameraMode==1 && activate_camera_mode(9)!=0) {
             VecCopy__FP3VecPC3Vec(target,door->position);
             VecCopy__FP3VecPC3Vec(position,door->cameraPosition);
             set_active_camera_pose(position,target);door->cameraMode=2;
@@ -525,8 +525,8 @@ void TObjDoor__sub_8018F30C(void) {
     ((s32 *)&TObjDoor__data_8050DC80)[2] = get_bml_model(lbl_805D5BC4, 0);
     ((s32 *)&TObjDoor__data_8050DC80)[3] = get_bml_model(lbl_805D5BC4, 1);
     ((s32 *)&TObjDoor__data_8050DC80)[4] = get_bml_model(lbl_805D5BC4, 2);
-    ((s32 *)&TObjDoor__data_8050DC78)[0] = TObjFish__sub_8001ED9C(lbl_805D5BC4, 0);
-    ((s32 *)&TObjDoor__data_8050DC78)[1] = TObjFish__sub_8001ED9C(lbl_805D5BC4, 1);
+    ((s32 *)&TObjDoor__data_8050DC78)[0] = get_bml_motion(lbl_805D5BC4, 0);
+    ((s32 *)&TObjDoor__data_8050DC78)[1] = get_bml_motion(lbl_805D5BC4, 1);
 }
 
 void *TObjDoorJung__create(void *arg0) {

@@ -272,7 +272,7 @@ u16 obj_getField1c(void *);
 s32 obj_isState3_324(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-s32 TTecCtrl__sub_8022C4D4(s32, u16);
+s32 get_technique_caster_flags(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern TTecGiBartaData_80230B48 TTecMegid__data_8044D874[];
@@ -452,7 +452,7 @@ void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target) {
         target->m21(self->source, &info, self->contact, 0x12, -1);
         play_sound_effect(0x4002AD29, (s32)((u8 *)target + 0x38), 0, 0);
         if (self->fc8 < 12) {
-            if ((TTecCtrl__sub_8022C4D4(0x12, self->fc8) & 1) == 0) {
+            if ((get_technique_caster_flags(0x12, self->fc8) & 1) == 0) {
                 queue_destruction__7TObjectFv(self);
             }
         }

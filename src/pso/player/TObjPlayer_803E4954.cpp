@@ -22,7 +22,7 @@ void TObjPlayer__sub_803E44D4();
 struct A_803E4BDC { u8 pad[0xC]; s32 fc; };
 struct B_803E4BDC { u8 pad[0x28]; s32 f28; };
 void TObjPlayer__sub_803E4BDC(void *arg0, void *arg1, s32 arg2);
-void TObjPlayer__sub_803D7B68(void *);
+void bind_motion_context(void *);
 extern s32 lbl_804FA50C[];
 extern A_803E4BDC *lbl_805D4698;
 extern B_803E4BDC *lbl_805D76BC;
@@ -135,7 +135,7 @@ void clear_global_state__10TObjPlayerFv(void) {
     lbl_805D7808 = 0;
 }
 void TObjPlayer__sub_803E4BDC(void *arg0, void *arg1, s32 arg2) {
-    TObjPlayer__sub_803D7B68(arg1);
+    bind_motion_context(arg1);
     lbl_805D4698->fc = arg2;
     if (lbl_805D7808 != 0) {
         lbl_805D76BC->f28 = lbl_804FA50C[3];

@@ -30,7 +30,7 @@ void render__11TMainCursorFv(u8 *arg0);
 s32 obj_testFlags30(M2C_UNK, M2C_UNK);
 s32 obj_getField1c(void *);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, u32);
-s32 TLobby__sub_800822E8(void *, s32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 check_visible__11TMainCursorFPv(void *, void *, s32, s32);
 M2C_UNK set_target_index__11TMainCursorFPvs(void *, s32);
 u32 check_field_24__11TMainCursorFPv(s32);
@@ -136,7 +136,7 @@ void validate_target__11TMainCursorFPv(u8 *self) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
-        if (TLobby__sub_800822E8(t, 0x548000) != 0) {
+        if (test_action_mask__10TObjPlayerFPvi(t, 0x548000) != 0) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
@@ -158,7 +158,7 @@ void validate_target__11TMainCursorFPv(u8 *self) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
-        if (TLobby__sub_800822E8(t, 0x548000) != 0) {
+        if (test_action_mask__10TObjPlayerFPvi(t, 0x548000) != 0) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }

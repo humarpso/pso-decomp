@@ -37,7 +37,7 @@ struct VObj8018B8BC_8018B79C : VBase8018B8BC_8018B79C {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-u32 TObjFish__sub_8001ED9C(int, int);
+u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 M2C_UNK TContainerAncient01__sub_8018B284(void *);
 M2C_UNK TContainerAncient01__sub_8018B48C(void *);
@@ -170,10 +170,10 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
             }
         }
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == TObjFish__sub_8001ED9C((int) (TContainerAncient01__data_805D5B90), (int) (0))) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__data_805D5B90), (int) (0))) {
         M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__data_805D5B90), (int) (0));
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == TObjFish__sub_8001ED9C((int) (TContainerAncient01__data_805D5B90), (int) (1))) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__data_805D5B90), (int) (1))) {
         M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__data_805D5B90), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));

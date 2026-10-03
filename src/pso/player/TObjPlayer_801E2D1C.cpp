@@ -8,7 +8,7 @@ struct G_801E2DE4 { u8 pad[0xC]; void (*draw)(); };
 
 extern "C" {
 void render_matrix_chain__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_803D7B68(s32);
+void bind_motion_context(s32);
 void prepare_ginja_model(G_801E2DE4 *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
@@ -65,7 +65,7 @@ extern s32 lbl_805D7774;
 
 void TObjPlayer__sub_801E2DE4(void *arg0, s32 arg1) {
     G_801E2DE4 *g;
-    TObjPlayer__sub_803D7B68(arg1);
+    bind_motion_context(arg1);
     g = (G_801E2DE4 *)lbl_805D4698;
     g->draw = draw_ginja_model_lists;
     prepare_ginja_model(g);

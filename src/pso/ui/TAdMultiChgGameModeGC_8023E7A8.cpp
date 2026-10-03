@@ -47,7 +47,7 @@ u32 get_main_phase();
 extern s32 lbl_805D3848;
 s32 TAdMultiChgGameModeGC__sub_8023E7A8();
 s32 set_active_camera_pose(void *, void *);
-s32 TCameraCtrl__sub_80069E7C(int);
+s32 activate_camera_mode(int);
 extern V3_8023E834 lbl_8044DD00;
 extern V3_8023E834 lbl_8044DD0C;
 void TAdMultiChgGameModeGC__sub_8023E834(void);
@@ -99,7 +99,7 @@ s32 TAdMultiChgGameModeGC__sub_8023E7A8() {
 void TAdMultiChgGameModeGC__sub_8023E834(void) {
     V3_8023E834 a = lbl_8044DD00;
     V3_8023E834 b = lbl_8044DD0C;
-    TCameraCtrl__sub_80069E7C(9);
+    activate_camera_mode(9);
     set_active_camera_pose(&a, &b);
 }
 

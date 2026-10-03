@@ -76,7 +76,7 @@ s32 update_player_state__9TObjEneDDFPv(void *, void *, int);
 extern RecoveredGlobal_800E7324_lbl_8043CF94 lbl_8043CF94;
 void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
 s32 push_matrix_from(void *);
-void TObjPlayer__sub_803D7B68(s32, f32);
+void bind_motion_context(s32, f32);
 s32 compose_motion_node_matrix(void *);
 s32 matrix_mult_vec(int, void *, void *);
 s32 pop_matrix();
@@ -203,7 +203,7 @@ f32 TObjEneMe3ShinowaMirage__sub_800E75AC(Obj_800E75AC *self) {
     v.y = TObjEneMe3ShinowaMirage__data_805DA5B8;
     v.z = TObjEneMe3ShinowaMirage__data_805DA5B8;
     push_matrix_from(lbl_8058D490);
-    TObjPlayer__sub_803D7B68(self->ff8, self->fc0);
+    bind_motion_context(self->ff8, self->fc0);
     node = self->node;
     compose_motion_node_matrix(node);
     compose_motion_node_matrix(node->child);

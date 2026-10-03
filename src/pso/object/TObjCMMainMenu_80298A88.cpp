@@ -58,7 +58,7 @@ struct Menu_80298B70 {
 extern "C" {
 s32 get_clamped_player_index__14TChCrEffCtrlPlFv(void);
 extern RecoveredGlobal_80298F08_lbl_8050E3B8 lbl_8050E3B8;
-s32 TObjCMProportion__sub_80298F08(void);
+s32 get_creation_pad(void);
 extern RecoveredGlobal_80298DD4_lbl_8051C07C lbl_8051C07C;
 M2C_UNK *TObjCMMainMenu__sub_80298DD4(void);
 void *__ct__7TObjectFP7TObject(void *, void *);
@@ -230,7 +230,7 @@ M2C_UNK *TObjCMMainMenu__sub_80298DD4(void) {
     return &lbl_8051C07C.value;
 }
 
-s32 TObjCMProportion__sub_80298F08(void) {
+s32 get_creation_pad(void) {
     return M2C_FIELD(&lbl_8050E3B8.value, M2C_UNK *, (get_clamped_player_index__14TChCrEffCtrlPlFv() * 4));
 }
 

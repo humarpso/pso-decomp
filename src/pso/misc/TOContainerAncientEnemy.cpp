@@ -252,7 +252,7 @@ u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
 void submit_cursor_candidate(Obj_8015BCC0 *self, s32 x);
 void TOContainerAncientEnemy__sub_8015BCC0(Obj_8015BCC0 *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80440830[];
 extern u8 lbl_804A7448[];
@@ -358,7 +358,7 @@ f32 TOContainerAncientEnemy__sub_8015BAE0(O_8015BAE0 *arg0) {
 
 void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self) {
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80440830, self->id);
+    debug_printf_at(0x130020, lbl_80440830, self->id);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DB3A0);
 }

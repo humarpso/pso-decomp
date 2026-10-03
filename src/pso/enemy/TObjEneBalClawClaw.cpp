@@ -239,7 +239,7 @@ s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK update_obstruction_fade(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK restore_scene_lighting();
-M2C_UNK TObjLight__sub_80134194(void *);
+M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -526,7 +526,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         fade = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
     }
     lbl_805D5660 = some_id_805c6f74;
-    TObjLight__sub_80134194(o);
+    select_actor_lighting(o);
     set_global_param__8TObjFishFi(o->f24);
     push_matrix();
     translate_matrix(0, lbl_805D96D8, o->f380, lbl_805D96D8);

@@ -36,7 +36,7 @@ void update_subsystems__10TObjPlayerFi(s32 arg0);
 void update_target__10TObjPlayerFi(s32 arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-s32 TLobby__sub_800822E8(void *, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(void *, M2C_UNK);
 s32 is_locally_controlled__10TObjPlayerFPv();
 M2C_UNK sync_status_effect_flags__10TObjPlayerFPv(s32);
 M2C_UNK check_level_up__10TObjPlayerFPv(s32);
@@ -81,7 +81,7 @@ s32 is_target_valid__10TObjPlayerFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x424) == 0U) {
         return 0;
     }
-    if (((u16) M2C_FIELD(arg0, u16 *, 0x94) != 0xFFFF) || (check_flag_100__10TObjPlayerFPv() != 0) || (is_cursor_clear__11TMainCursorFPv(M2C_FIELD(arg0, u32 *, 0x424)) == 0) || (check_flag_0x40000000__10TObjPlayerFPv(arg0) != 0) || (TLobby__sub_800822E8(arg0, 0x1E) == 0)) {
+    if (((u16) M2C_FIELD(arg0, u16 *, 0x94) != 0xFFFF) || (check_flag_100__10TObjPlayerFPv() != 0) || (is_cursor_clear__11TMainCursorFPv(M2C_FIELD(arg0, u32 *, 0x424)) == 0) || (check_flag_0x40000000__10TObjPlayerFPv(arg0) != 0) || (test_action_mask__10TObjPlayerFPvi(arg0, 0x1E) == 0)) {
         return 0;
     }
     return 1;

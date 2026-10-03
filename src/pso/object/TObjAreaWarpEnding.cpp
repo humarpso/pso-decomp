@@ -147,15 +147,15 @@ struct Obj_8019C144 {
 };
 
 extern "C" {
-void TObjAreaWarp__sub_8019CAB0(void *);
+void handle_area_selection__12TObjAreaWarpFPv(void *);
 extern const f32 lbl_805DBFDC;
 extern const f32 lbl_805DBFE4;
 void run_task__18TObjAreaWarpEndingFv(u8 *arg0);
-void TObjAreaWarp__sub_8019CAB0(void *);
+void handle_area_selection__12TObjAreaWarpFPv(void *);
 extern const f32 lbl_805DBFDC;
 extern const f32 lbl_805DBFE4;
 void run_task__18TObjAreaWarpForestFv(u8 *arg0);
-void TObjAreaWarp__sub_8019CAB0(void *);
+void handle_area_selection__12TObjAreaWarpFPv(void *);
 extern const f32 lbl_805DBFDC;
 extern const f32 lbl_805DBFE4;
 void run_task__17TObjAreaWarpQuestFv(u8 *arg0);
@@ -198,7 +198,7 @@ extern const f32 lbl_805DBFD8;
 extern const f32 lbl_805DBFE4;
 u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_8044641C[];
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
 void mark_area_change_pending();
@@ -275,19 +275,19 @@ extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
 void render__18TObjAreaWarpForestFv(Obj_8019C604 *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
 extern char lbl_804463A4[];
 extern char lbl_804463B4[];
 void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
 extern char lbl_804463A4[];
 extern char lbl_804463B4[];
 void TObjAreaWarpForest__vt18(Obj_8019C53C *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
 extern char lbl_804463A4[];
 extern char lbl_804463B4[];
@@ -353,10 +353,10 @@ void TObjAreaWarpEnding__vt18(Obj_8019BCBC *self) {
     self->f8C = self->f8C % 2;
     if (self->f8C == 0) {
         set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+        debug_printf_at(0x130022, lbl_804463B4);
     } else {
         set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+        debug_printf_at(0x130022, lbl_804463A4);
     }
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
@@ -408,7 +408,7 @@ void run_task__18TObjAreaWarpEndingFv(u8 *arg0) {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DBFE4;
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0xC8))) + 0x150);
-  TObjAreaWarp__sub_8019CAB0(arg0);
+  handle_area_selection__12TObjAreaWarpFPv(arg0);
 }
 
 void *__dt__18TObjAreaWarpEndingFv(void *arg0, s16 arg1) {
@@ -502,13 +502,13 @@ void TObjAreaWarpQuest__vt18(Obj_8019C144 *self) {
     }
     self->f8C = self->f8C % 2;
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x13001C, lbl_80446404, self->fC4);
+    debug_printf_at(0x13001C, lbl_80446404, self->fC4);
     if (self->f8C == 0) {
         set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+        debug_printf_at(0x130022, lbl_804463B4);
     } else {
         set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+        debug_printf_at(0x130022, lbl_804463A4);
     }
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
@@ -560,7 +560,7 @@ void run_task__17TObjAreaWarpQuestFv(u8 *arg0) {
     *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) lbl_805DBFE4;
   }
   *((s32 *) (((s8 *) arg0) + 0xCC)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0xCC))) + 0x150);
-  TObjAreaWarp__sub_8019CAB0(arg0);
+  handle_area_selection__12TObjAreaWarpFPv(arg0);
 }
 
 void *__dt__17TObjAreaWarpQuestFv(void *arg0, s16 arg1) {
@@ -632,10 +632,10 @@ void TObjAreaWarpForest__vt18(Obj_8019C53C *self) {
     self->f8C = self->f8C % 2;
     if (self->f8C == 0) {
         set_global_count__12TObjNpcEnemyFi(0xFFFFFF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463B4);
+        debug_printf_at(0x130022, lbl_804463B4);
     } else {
         set_global_count__12TObjNpcEnemyFi(0xFF0000FF);
-        TObjEneBm5GibonU__sub_803D853C(0x130022, lbl_804463A4);
+        debug_printf_at(0x130022, lbl_804463A4);
     }
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
@@ -691,7 +691,7 @@ void run_task__18TObjAreaWarpForestFv(u8 *arg0) {
     *((f32 *) (((s8 *) arg0) + 0xC4)) = (f32) lbl_805DBFE4;
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0xC8))) + 0x150);
-  TObjAreaWarp__sub_8019CAB0(arg0);
+  handle_area_selection__12TObjAreaWarpFPv(arg0);
 }
 
 void *__dt__18TObjAreaWarpForestFv(void *arg0, s16 arg1) {
@@ -740,7 +740,7 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self) {
     self->saved_id = self->id;
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_8044641C, self->saved_id);
+    debug_printf_at(0x130020, lbl_8044641C, self->saved_id);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {

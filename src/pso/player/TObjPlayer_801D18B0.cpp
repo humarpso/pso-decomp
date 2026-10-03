@@ -7,7 +7,7 @@ extern "C" {
 struct VOff_801D192C_arg0_801D18B0 { char pad_0[0x4]; char f_4[1]; };
 
 void *TObjPlayer__sub_801D192C(void *arg0);
-void TObjPlayer__sub_801D1A24(void* a0);
+void init_6x4C_packet__10TObjPlayerFPv(void* a0);
 void bswap_font_lobby2__10TObjPlayerFPv(void* p);
 void bswap_head_pair__10TObjPlayerFPv(void* p);
 void init_and_send__10TObjPlayerFPv(void* p);
@@ -50,7 +50,7 @@ void update_and_send3__10TObjPlayerFPv(void* p) { bswap_fields__10TObjPlayerFPv(
 void bswap_head_pair__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); TObjPlayer__sub_801D28DC((char*)p + 0x8); }
 
     extern const float TObjPlayer__data_805DC36C;
-void TObjPlayer__sub_801D1A24(void* a0) { *(short*)((char*)a0 + 0x6) = 0; *(short*)((char*)a0 + 0x4) = 0; *(float*)((char*)a0 + 0xc) = TObjPlayer__data_805DC36C; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC36C; *(unsigned char*)((char*)a0 + 0x0) = 76; *(unsigned char*)((char*)a0 + 0x1) = 4; }
+void init_6x4C_packet__10TObjPlayerFPv(void* a0) { *(short*)((char*)a0 + 0x6) = 0; *(short*)((char*)a0 + 0x4) = 0; *(float*)((char*)a0 + 0xc) = TObjPlayer__data_805DC36C; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC36C; *(unsigned char*)((char*)a0 + 0x0) = 76; *(unsigned char*)((char*)a0 + 0x1) = 4; }
 
 void send_head_pair_packet__10TObjPlayerFPv(void* p) { bswap_head_pair__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 

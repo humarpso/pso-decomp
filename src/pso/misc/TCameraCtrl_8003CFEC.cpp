@@ -74,7 +74,7 @@ s32 set_player_view_flag__11TCameraCtrlFi();
 s32 set_flag_08000000__11TCameraCtrlFi();
 s32 set_active_camera_pose(void *, void *);
 s32 restore_player_cameras();
-s32 TCameraCtrl__sub_80069E7C(int);
+s32 activate_camera_mode(int);
 s32 set_scripted_camera_pose(int, int, void *);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
@@ -216,7 +216,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         TBoss3Volopt__sub_8003DC34((void *) (arg0));
-        TCameraCtrl__sub_80069E7C((int) (9));
+        activate_camera_mode((int) (9));
         set_active_camera_pose((void *) (&lbl_8048377C.value), (void *) ((u8 *)&lbl_8048377C.value + 0xC));
         TObjPlayer__sub_801BA494();
         init_all_slots__11TWindowCtrlFv();
@@ -246,7 +246,7 @@ void TCameraCtrl__sub_8003D648(u8 *arg0) {
         stack.spA = 0;
         stack.spC = lbl_805D8660;
         stack.sp10 = lbl_805D8678;
-        TCameraCtrl__sub_80069E7C((int) (5));
+        activate_camera_mode((int) (5));
         cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x160A));
         temp_r3 = (u8 *)(arg0 + 0x38);
         set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));

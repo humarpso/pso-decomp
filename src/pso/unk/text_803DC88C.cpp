@@ -55,7 +55,7 @@ s32 queue_model_draw_matrix(int, void *);
 extern s32 lbl_805D7710;
 extern s32 lbl_805D7774;
 void draw_ginja_motion_node_tree(u8 *arg0);
-void TObjPlayer__sub_803D7B68(void *);
+void bind_motion_context(void *);
 void init_model_draw_queue(void *);
 void flush_model_draw_queue(void);
 void prepare_ginja_model(void *);
@@ -102,7 +102,7 @@ void set_npc_enemy_param(s32 arg0) {
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
 
 void draw_ginja_model_with_motion(void *arg0, void *arg1) {
-    TObjPlayer__sub_803D7B68(arg1);
+    bind_motion_context(arg1);
     lbl_805D4698->fn = draw_ginja_model_lists;
     prepare_ginja_model(lbl_805D4698);
     init_model_draw_queue((void *) draw_ginja_model_lists);

@@ -34,7 +34,7 @@ void reset_player_state__15TObjBoss2TunnelFv(void);
 void TObjBoss2Tunnel__sub_803E2BCC(void *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
 void reset_player_state__6TLobbyFv(void);
-void TLobby__sub_803E2D70(void *, s32);
+void draw_projected_textured_strip(void *, s32);
 void TLobby__sub_803E2EE4(s32);
 extern G_80338534 lbl_804EF1B8;
 extern s32 lbl_805D63F0;
@@ -130,13 +130,13 @@ void TLobby__sub_80338534(void) {
         }
         init_xyz_limits__10TObjPlayerFv();
         TLobby__sub_803E2EE4(1);
-        TLobby__sub_803E2D70(t->b, 4);
+        draw_projected_textured_strip(t->b, 4);
         reset_player_state__6TLobbyFv();
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi(lbl_805D63F0);
         set_texture_num(5);
         TLobby__sub_803E2EE4(1);
-        TLobby__sub_803E2D70(t->c, 4);
+        draw_projected_textured_strip(t->c, 4);
         reset_player_state__6TLobbyFv();
     }
     reset_transform_state__10TObjPlayerFv();

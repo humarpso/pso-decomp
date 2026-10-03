@@ -221,7 +221,7 @@ u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804DC004;
 void TODoorJungleMain__sub_8029B3C8(void);
-s32 TObjFish__sub_8001ED9C(void *, s32);
+s32 get_bml_motion(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
@@ -468,7 +468,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D20;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0xBC) = TObjFish__sub_8001ED9C((*(u8 * *)&TODoorJungleMain__data_805D65B8), 0);
+    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorJungleMain__data_805D65B8), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DDCD8;
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DDCDC;
     init_collision_body_parts(arg0, (s32) &lbl_804DC014.value, 1);

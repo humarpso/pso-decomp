@@ -66,7 +66,7 @@ extern const f32 lbl_805DA6D4;
 extern const f32 lbl_805DA6D8;
 extern const f32 lbl_805DA6DC;
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0);
-M2C_UNK TObjPlayer__sub_800F09E8(int);
+M2C_UNK draw_blob_shadow(int);
 M2C_UNK direction_to_rotation_xz(void *, s32 *, s32 *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
@@ -143,7 +143,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     v.x = v.y = k;
     v.z = lbl_805DA67C;
     scale_current_matrix(&v);
-    TObjPlayer__sub_800F09E8(0);
+    draw_blob_shadow(0);
     pop_matrix();
 }
 #pragma pop

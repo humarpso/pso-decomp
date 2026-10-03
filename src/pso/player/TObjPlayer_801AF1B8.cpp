@@ -11,7 +11,7 @@ s32 check_flag_100__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354C7C(s32);
 s32 TObjPlayer__sub_80354E3C();
-s32 TLobby__sub_800822E8(s32, s32);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -29,10 +29,10 @@ void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
 void update_movement_effects__10TObjPlayerFi(s32 arg0) {
-    if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (TLobby__sub_800822E8(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
+    if ((is_technique_ready__8TTecCtrlFv() != 0) && (TObjPlayer__sub_801AF868(arg0) == 0) && (update_movement_by_screen__10TObjPlayerFv(arg0) != 0) && (test_action_mask__10TObjPlayerFPvi(arg0, 0x408000) == 0) && (test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (check_flag_800000__10TObjPlayerFPv(arg0) == 0)) {
         TObjPlayer__sub_801BF1DC(arg0 + 0x384);
     }
-    if ((test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (TLobby__sub_800822E8(arg0, 2) != 0) && (has_water_ground_flag(arg0 + 0x360) != 0)) {
+    if ((test_flag_2000000__10TObjPlayerFPv((void*)(arg0)) == 0) && (test_action_mask__10TObjPlayerFPvi(arg0, 2) != 0) && (has_water_ground_flag(arg0 + 0x360) != 0)) {
         emit_idle_water_effect(arg0 + 0x384);
     }
 }

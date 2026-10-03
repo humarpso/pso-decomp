@@ -109,7 +109,7 @@ extern const f32 lbl_805DC298;
 extern const f32 lbl_805DC29C;
 void damp_planar_velocity(P_801B5FB0 *p);
 s32 get_position_ptr__10TObjPlayerFPv(s32);
-s32 TLobby__sub_800822E8(void *, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(void *, M2C_UNK);
 u16 get_id__11TMainCursorFPv(s32);
 s32 fn_8013F264(s32);
 s32 find_entity_by_id(u16);
@@ -301,7 +301,7 @@ void select_contextual_pickup_action__10TObjPlayerFv(u8 *arg0) {
                 if (type != 0) {
                     switch (type) {
                     case 4:
-                        if (TLobby__sub_800822E8(arg0, 0xE0) != 0) {
+                        if (test_action_mask__10TObjPlayerFPvi(arg0, 0xE0) != 0) {
                             type = 0;
                         } else {
                             s32 item = find_entity_by_id(get_id__11TMainCursorFPv(cursor));

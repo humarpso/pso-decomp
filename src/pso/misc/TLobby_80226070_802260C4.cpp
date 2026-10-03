@@ -3,10 +3,10 @@
 extern "C" {
 
 void close_option_window__6TLobbyFv(void);
-int TLobby__sub_802261E0(void*);
+int update_music_stream_gain(void*);
 
     extern int lbl_805D6280;
     extern int lbl_805D6284;
-void close_option_window__6TLobbyFv(void) { lbl_805D6284 = 0; TLobby__sub_802261E0((void*)(lbl_805D6280)); }
+void close_option_window__6TLobbyFv(void) { lbl_805D6284 = 0; update_music_stream_gain((void*)(lbl_805D6280)); }
 
 }

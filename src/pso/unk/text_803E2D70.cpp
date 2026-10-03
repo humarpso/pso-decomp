@@ -143,7 +143,7 @@ void rotate_vector_by_current_matrix(u8 *, u8 *);
 void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
 void GXBegin(int, int, u16);
 extern const f32 lbl_805E1088;
-void TLobby__sub_803E2D70(Vtx_803E2D70 *v, s32 n);
+void draw_projected_textured_strip(Vtx_803E2D70 *v, s32 n);
 void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
 void GXBegin(int, int, u16);
@@ -186,7 +186,7 @@ static inline void GXTexCoord2f32_803E2D70(f32 s, f32 t) {
     (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = s;
     (*(volatile WGPipe_803E2D70 *)0xCC008000).f32 = t;
 }
-void TLobby__sub_803E2D70(Vtx_803E2D70 *v, s32 n) {
+void draw_projected_textured_strip(Vtx_803E2D70 *v, s32 n) {
     f32 inv;
     u32 c;
     GXBegin(0x98, 4, n);

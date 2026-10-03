@@ -165,7 +165,7 @@ extern const f32 lbl_805DC8B4;
 extern const f32 lbl_805DC8B8;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void *TObjFish__sub_8001ED9C(void *, int);
+void *get_bml_motion(void *, int);
 void *get_bml_model(void *, int);
 void attach_particle_model(void *, void *, void *, void *, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
@@ -345,7 +345,7 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
     id = b2->flags >> 16;
     if (emitter != 0)
     {
-      attach_particle_model(emitter, get_bml_model(lbl_805D63AC, id), lbl_805D63B0, TObjFish__sub_8001ED9C(lbl_805D63AC, 1), 0, lbl_805DC8C0);
+      attach_particle_model(emitter, get_bml_model(lbl_805D63AC, id), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 1), 0, lbl_805DC8C0);
     }
   }
 }

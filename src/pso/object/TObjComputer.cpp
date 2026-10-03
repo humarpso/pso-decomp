@@ -154,7 +154,7 @@ extern void *lbl_805D5B88;
 extern s32 lbl_805D5B8C;
 void TObjContainerAbeEnemy__vt79(Obj_80188884 *self);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
@@ -415,7 +415,7 @@ f32 TObjContainerAbeEnemy__vt20(Obj_80188768 *arg0) {
 
 void TObjContainerAbeEnemy__vt80(Obj_80188814 *self) {
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    TObjEneBm5GibonU__sub_803D853C(0x130020, lbl_80444EF4, self->id);
+    debug_printf_at(0x130020, lbl_80444EF4, self->id);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
     TObjRoomId__sub_80141CF4(self->pos, lbl_804A7448, lbl_805DBCF8);
 }

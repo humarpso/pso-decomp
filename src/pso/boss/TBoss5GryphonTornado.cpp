@@ -39,7 +39,7 @@ extern s32 lbl_805D4398;
 extern const f32 lbl_805DFFA8;
 u8 *TBoss5GryphonTornado__ct(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, s16 arg4);
 void queue_destruction__7TObjectFv(void *);
-s32 TObjFish__sub_8001ED9C(s32, s32);
+s32 get_bml_motion(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 get_flag_bit6__12TBoss8DragonFPv(s32);
 void TBoss8Dragon__sub_800640A4(s32, Vec_80355570 *);
@@ -108,7 +108,7 @@ void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
         if (o->p54 == NULL) {
             o->p54 = spawn_continuous_particle_effect_with_flags(&o->pos, lbl_805D6F10[1], 0x40);
             if (o->p54 != NULL) {
-                attach_particle_model(o->p54, get_bml_model(lbl_805D4DA4, 0), lbl_805D4DA8, TObjFish__sub_8001ED9C(lbl_805D4DA4, 0), 0, lbl_805DFFAC);
+                attach_particle_model(o->p54, get_bml_model(lbl_805D4DA4, 0), lbl_805D4DA8, get_bml_motion(lbl_805D4DA4, 0), 0, lbl_805DFFAC);
             }
         }
         if (o->p58 == NULL) {

@@ -454,7 +454,7 @@ extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 s32 TCameraCtrl__sub_80069D7C(void);
 extern RecoveredGlobal_80069094_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-s32 TCameraCtrl__sub_80069E7C(s32 arg0);
+s32 activate_camera_mode(s32 arg0);
 extern s16 TCameraCtrl__data_805D4E0A;
 bool TCameraCtrl__sub_800689F4(void);
 extern s32 lbl_805D53A0;
@@ -1166,7 +1166,7 @@ s32 restore_player_cameras(void) {
     return 0;
 }
 
-s32 TCameraCtrl__sub_80069E7C(s32 arg0) {
+s32 activate_camera_mode(s32 arg0) {
   u8 *temp_r3;
   short new_var;
   if ((*((s32 *) (((s8 *) (&(*(RecoveredGlobal_80069E7C_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value)) + 8))) & 4)

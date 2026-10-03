@@ -98,7 +98,7 @@ void TObjPlayer__sub_801C17D0(void *);
 s32 get_player_floor__6TLobbyFi(s32);
 s32 validate_6x1F_set_player_floor(void *);
 void handle_6x1F_set_player_floor(void *arg0);
-s32 TLobby__sub_800822E8(void *, u32);
+s32 test_action_mask__10TObjPlayerFPvi(void *, u32);
 void set_state_flags__10TObjPlayerFPvUi(void *, u32);
 s32 TFontSmallLobby__sub_801AFEE0(void);
 void *get_player_by_client_id(s32 i);
@@ -139,7 +139,7 @@ void handle_6xAE_set_animation_state(void *arg0) {
     bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(&m);
     if (TObjEneHoldEffect__sub_8036C9D8(&m) != 0) {
         p = get_player_by_client_id(m.slot);
-        if (p != NULL && TFontSmallLobby__sub_801AFEE0() != 0 && TLobby__sub_800822E8(p, 0x01000000) == 0 && (m.flags & 0x04000000)) {
+        if (p != NULL && TFontSmallLobby__sub_801AFEE0() != 0 && test_action_mask__10TObjPlayerFPvi(p, 0x01000000) == 0 && (m.flags & 0x04000000)) {
             set_state_flags__10TObjPlayerFPvUi(p, m.flags & 0x1C000000);
             run_action_state_phase__10TObjPlayerFisi(p, 0x18, 0);
         }

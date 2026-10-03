@@ -11,7 +11,7 @@ void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1);
 int run_task__14TObjWarpBoss03Fv(void* p);
 void TObjAreaWarp__ct(void *);
 int TObjAreaWarp__sub_8019C924(void*);
-int TObjAreaWarp__sub_8019CAB0(void*);
+int handle_area_selection__12TObjAreaWarpFPv(void*);
 void *TObjWarpJungMain__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__12TObjAreaWarpFv(void *, int);
@@ -19,7 +19,7 @@ void *__nw__7TObjectFUl(int);
 int fn_8019F9E4(void*);
 
 void TObjWarpBoss03__vt18(void* p) { TObjAreaWarp__sub_8019C924(p); fn_8019F9E4(p); }
-int run_task__14TObjWarpBoss03Fv(void* p) { return TObjAreaWarp__sub_8019CAB0(p); }
+int run_task__14TObjWarpBoss03Fv(void* p) { return handle_area_selection__12TObjAreaWarpFPv(p); }
 
 extern M2C_UNK __vt__14TObjWarpBoss03[];
 

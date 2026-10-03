@@ -85,7 +85,7 @@ extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E53BC(void);
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
-void TObjPlayer__sub_803D7B68(s32);
+void bind_motion_context(s32);
 void TObjPlayer__sub_803DCB40(s32);
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_803E5458(s32 arg0);
@@ -114,7 +114,7 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_8
 
 void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
     u8 *p = lbl_805D4698;
-    TObjPlayer__sub_803D7B68(arg1);
+    bind_motion_context(arg1);
     *(s32 *)(p + 0xC) = arg3;
     if (arg2 == NULL) {
         TObjPlayer__sub_803DCB40(arg0);

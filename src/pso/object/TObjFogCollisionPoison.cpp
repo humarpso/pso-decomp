@@ -59,7 +59,7 @@ u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
 void TObjFogCollisionPoison__sub_801533C0(void);
 void TObjFogCollisionSwitch__vt12(void *self);
-void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
+void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80440078[];
 void TObjFogCollisionPoison__vt12(void *self);
 s16 obj_getS16_32C(s32);
@@ -241,7 +241,7 @@ void TObjFogCollisionPoison__sub_801533C0(void) {
 
 void TObjFogCollisionPoison__vt12(void *self) {
     TObjFogCollisionSwitch__vt12(self);
-    TObjEneBm5GibonU__sub_803D853C(0x13001D, lbl_80440078);
+    debug_printf_at(0x13001D, lbl_80440078);
 }
 
 u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {

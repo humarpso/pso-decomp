@@ -52,7 +52,7 @@ int spawn_particle_effect_with_flags(void*, void*, void*);
 s32 TObjControl__ct(s32, s32);
 void free_collision_body_parts(void *);
 M2C_UNK draw_model_motion(s32, s32, f32);
-s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
+s32 get_bml_motion(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 int rotate_matrix_y(void*, void*);
@@ -94,7 +94,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     set_global_flag__10TObjPlayerFv();
     temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 2);
     temp_r30 = get_bml_model(M2C_FIELD(arg0, s32 *, 0x374), 2);
-    temp_r31_2 = TObjFish__sub_8001ED9C(M2C_FIELD(arg0, s32 *, 0x374), 0);
+    temp_r31_2 = get_bml_motion(M2C_FIELD(arg0, s32 *, 0x374), 0);
     set_global_param__8TObjFishFi(temp_r31);
     TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3A8), TBoss6MagMine__data_805E0314);
     draw_model_motion(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x398));

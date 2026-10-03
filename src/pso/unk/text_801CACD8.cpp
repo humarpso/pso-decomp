@@ -13,7 +13,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 M2C_UNK spawn_effect__10TObjPlayerFi(void *);
 M2C_UNK drop_items_on_death__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D1A24(Pkt_801CADA4 *);
+M2C_UNK init_6x4C_packet__10TObjPlayerFPv(Pkt_801CADA4 *);
 M2C_UNK send_head_pair_packet__10TObjPlayerFPv(Pkt_801CADA4 *);
 extern const f64 lbl_80447148;
 extern const f32 lbl_805DC390;
@@ -38,7 +38,7 @@ void begin_fall_reaction__10TObjPlayerFPv(void *arg0) {
     }
     spawn_effect__10TObjPlayerFi(arg0);
     if ((arg0 == NULL) || (obj_isState2_324(arg0) == 0)) {
-        TObjPlayer__sub_801D1A24(&pkt);
+        init_6x4C_packet__10TObjPlayerFPv(&pkt);
         pkt.id = obj_getField1c(arg0);
         pkt.dir = (s16) M2C_FIELD(arg0, s32 *, 0x60);
         pkt.f6 = M2C_FIELD(arg0, s16 *, 0x32C);

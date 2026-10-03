@@ -41,7 +41,7 @@ M2C_UNK clamp_list_scroll_offset(int, void *, void *);
 extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD154;
 extern const f32 lbl_805DD158;
-void TWindowSubComCard__sub_80265A38(u8 *arg0);
+void clamp_menu_choice_scroll(u8 *arg0);
 u32 get_selected_menu_value(Obj_80265BF8 *o);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
@@ -96,7 +96,7 @@ M2C_UNK TWindowSubComCard__sub_80265484(void *);
 M2C_UNK TWindowSubComCard__sub_8026556C(void *);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 
-void TWindowSubComCard__sub_80265A38(u8 *arg0) {
+void clamp_menu_choice_scroll(u8 *arg0) {
     Stack_80265A38 stack;
     f32 temp_f1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
