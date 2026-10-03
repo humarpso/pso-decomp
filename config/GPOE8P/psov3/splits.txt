@@ -10258,61 +10258,10 @@ pso/misc/TLobby_801E6544_801E6C40.cpp:
 pso/misc/TLobby_801E6544_801E6EF8.cpp:
 	.text       start:0x801E6EF8 end:0x801E7124
 
-pso/misc/TLobby_801E6544_801E7124.cpp:
-	.text       start:0x801E7124 end:0x801E765C
-
-pso/misc/TLobby_801E6544_801E765C.cpp:
-	.text       start:0x801E765C end:0x801E76E4
-
-pso/misc/TLobby_801E6544_801E76E4.cpp:
-	.text       start:0x801E76E4 end:0x801E7E18
-
-pso/misc/TLobby_801E6544_801E7E18.cpp:
-	.text       start:0x801E7E18 end:0x801E8478
-
-pso/misc/TLobby_801E6544_801E8478.cpp:
-	.text       start:0x801E8478 end:0x801EA05C
-
-pso/misc/TLobby_801E6544_801EA05C.cpp:
-	.text       start:0x801EA05C end:0x801ED6CC
-	.rodata     start:0x80449CB8 end:0x80449CC0
-	.data       start:0x804C81D8 end:0x804C81F4
-
-pso/misc/TLobby_801E6544_801ED6CC.cpp:
-	.text       start:0x801ED6CC end:0x801ED718
-
-pso/misc/TLobby_801E6544_801ED718.cpp:
-	.text       start:0x801ED718 end:0x801ED8B8
-
-pso/misc/TLobby_801E6544_801ED8B8.cpp:
-	.text       start:0x801ED8B8 end:0x801EDF30
-
-pso/misc/TLobby_801E6544_801EDF30.cpp:
-	.text       start:0x801EDF30 end:0x801EE188
-
-pso/misc/TLobby_801E6544_801EE188.cpp:
-	.text       start:0x801EE188 end:0x801EE44C
-
-pso/misc/TLobby_801E6544_801EE44C.cpp:
-	.text       start:0x801EE44C end:0x801EE48C
-
-pso/misc/TLobby_801E6544_801EE48C.cpp:
-	.text       start:0x801EE48C end:0x801EE4B0
-
-pso/misc/TLobby_801E6544_801EE4B0.cpp:
-	.text       start:0x801EE4B0 end:0x801EE63C
-
-pso/misc/TLobby_801E6544_801EE63C.cpp:
-	.text       start:0x801EE63C end:0x801EEFFC
-
-pso/misc/TLobby_801E6544_801EEFFC.cpp:
-	.text       start:0x801EEFFC end:0x801EF560
-
-pso/misc/TLobby_801E6544_801EF560.cpp:
-	.text       start:0x801EF560 end:0x801EF748
-
 pso/misc/TLobby_801E6544.cpp:
-	.text       start:0x801EF748 end:0x801F2498
+	.text       start:0x801E7124 end:0x801F2498
+	.rodata     start:0x80449CB8 end:0x80449CC0
+	.data       start:0x804C81D8 end:0x804C8230
 
 pso/misc/TLobby_801E6544_801F2498.cpp:
 	.text       start:0x801F2498 end:0x801F2700

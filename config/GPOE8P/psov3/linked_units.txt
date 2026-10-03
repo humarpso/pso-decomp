@@ -1206,16 +1206,6 @@ pso/misc/TLobby_801E6544_801E6948.cpp
 pso/misc/TLobby_801E6544_801E6C2C.cpp
 pso/misc/TLobby_801E6544_801E6C40.cpp
 pso/misc/TLobby_801E6544_801E6EF8.cpp
-pso/misc/TLobby_801E6544_801E765C.cpp
-pso/misc/TLobby_801E6544_801ED6CC.cpp
-pso/misc/TLobby_801E6544_801ED718.cpp
-pso/misc/TLobby_801E6544_801ED8B8.cpp
-pso/misc/TLobby_801E6544_801EDF30.cpp
-pso/misc/TLobby_801E6544_801EE44C.cpp
-pso/misc/TLobby_801E6544_801EE48C.cpp
-pso/misc/TLobby_801E6544_801EE4B0.cpp
-pso/misc/TLobby_801E6544_801EE63C.cpp
-pso/misc/TLobby_801E6544_801EF560.cpp
 pso/misc/TLobby_801E6544_801F2498.cpp
 pso/misc/TLobby_801E6544_801F2700.cpp
 pso/misc/TLobby_801E6544_801F2974.cpp
