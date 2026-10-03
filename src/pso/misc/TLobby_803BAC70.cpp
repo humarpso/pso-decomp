@@ -297,6 +297,11 @@ struct Req_803BDAE4 {
 
 struct Q_803BDAE4 { Req_803BDAE4 reqs[16]; volatile u8 wp; volatile u8 count; };
 
+typedef struct S_803BF408 {
+    u8 pad0[0x1A8];
+    f32 f1A8;
+} S_803BF408;
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -519,7 +524,6 @@ extern RecoveredCallback_d26337a2813d lbl_805D74BC;
 void TLobby__sub_803BE7B0(void);
 extern RecoveredCallback_d26337a2813d lbl_805D74BC;
 void TLobby__sub_803BE7D8(s32 arg0);
-M2C_UNK TLobby__sub_803BF408(int, int, int, void *);
 void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2);
 u8 TLobby__sub_803BC774(u8 arg0);
 void TLobby__sub_803BB8F0(Obj_803BB8F0 *arg0, u8 arg1, s32 arg2, u8 arg3, u32 arg4);
@@ -575,6 +579,9 @@ void TLobby__sub_803BDA4C(void);
 extern Obj_803BDCB8 lbl_8056E158;
 extern Obj_803BDCB8 lbl_8056E3DC;
 void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
+void TLobby__sub_803BED6C(void *, void *, f32, f32);
+void TLobby__sub_803BEEFC(void *, void *, int);
+void TLobby__sub_803BF408(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
 }
 
 extern "C" {
@@ -1369,7 +1376,7 @@ void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2) {
     switch ((s32) arg0) {
     case 0:
         if ((u8) M2C_FIELD(arg2, u8 *, 0x1C4) == 0) {
-            TLobby__sub_803BF408((int) (M2C_FIELD(arg1, s32 *, 0)), (int) (M2C_FIELD(arg1, s32 *, 4)), (int) (M2C_FIELD(arg1, s32 *, 8)), (void *) (arg2));
+            TLobby__sub_803BF408((void *)((int) (M2C_FIELD(arg1, s32 *, 0))), (void *)((int) (M2C_FIELD(arg1, s32 *, 4))), (void *)((int) (M2C_FIELD(arg1, s32 *, 8))), (S_803BF408 *)((void *) (arg2)));
         }
     case 1:
         return;
@@ -1380,5 +1387,28 @@ void TLobby__sub_803BE860(Obj_803BE860 *self) {
     self->flag = 0;
     TLobby__sub_803BE8A0(self, self->a, self->c, self->b, self->d, self->e, self->f);
 }
+#pragma push
+#pragma peephole off
+void TLobby__sub_803BF408(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
+    u8 i;
+    for (i = 0; i < 3; i++) {
+        switch (i) {
+        case 0:
+            if (0.0f != arg3->f1A8) {
+                f32 t = 0.5f * arg3->f1A8;
+                TLobby__sub_803BED6C(arg0, arg1, t, 1.0f - t);
+            }
+            TLobby__sub_803BEEFC(arg0, arg3, 0);
+            break;
+        case 1:
+            TLobby__sub_803BEEFC(arg1, arg3, 1);
+            break;
+        case 2:
+            TLobby__sub_803BEEFC(arg2, arg3, 2);
+            break;
+        }
+    }
+}
+#pragma pop
 
 }
