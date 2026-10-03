@@ -117,6 +117,28 @@ void render_map_sections__6TSceneFPv(void *scene);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern const f32 TScene__data_805DC5D8;
 void advance_scene_object_animations(void);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern void* TScene__data_805D6004;
+SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
+s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+f32 get_random_float__8TObjFishFv(f32);
+void offset_position__6TSceneFPvii(void*,s32,s32);
+void free_children__12TObjDoorJungFPvPv(void*,u16);
+void PPCSync();
+extern const f32 lbl_805DC5D4;
+void TScene__sub_80203640(void *task);
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern void* TScene__data_805D6004;
+SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
+s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
+f32 get_random_float__8TObjFishFv(f32);
+void scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
+void free_children__12TObjDoorJungFPvPv(void*,u16);
+void PPCSync();
+extern const f32 lbl_805DC5D4;
+void TScene__sub_80203A64(void *task);
 }
 
 extern "C" {
@@ -183,54 +205,195 @@ SceneMaterialSection *find_scene_room_by_id(s32 id) {
     return NULL;
 }
 
-void TScene__sub_80203640(void* task) {
-    if(!TScene__data_805D6004||!TScene__data_805D5FCC)return;
-    SceneMaterialRoot* root=TScene__data_805D5FCC;
-    for(s32 section=0;section<root->count;++section) {
-        SceneMaterialSection* room=&root->sections[section];
-        for(s32 i=0;i<room->count;++i)room->objects[i].flags&=~0x20000;
-        for(s32 i=0;i<room->animatedCount;++i)room->animated[i].flags&=~0x20000;
+void TScene__sub_80203640(void *task) {
+    SceneMaterialSection *room;
+    s32 section;
+    SceneMaterialStatic *object;
+    s32 i;
+    SceneMaterialAnimated *anim;
+    SceneMaterialNode *node;
+    SceneMaterialUv *uv;
+    if ((*(void * *)&TScene__data_805D6004) == NULL || (*(SceneMaterialRoot * *)&TScene__data_805D5FCC) == NULL) {
+        return;
     }
-    for(s32 section=0;section<root->count;++section) {
-        SceneMaterialSection* room=&root->sections[section];
-        for(s32 i=0;i<room->count;++i) {
-            SceneMaterialStatic* object=&room->objects[i];
-            if(object->flags&(0x20000|0x04000000))continue;
-            SceneMaterialNode* node=TScene__sub_80203324(task,object);
-            if(object->flags&0x20) {
-                SceneMaterialUv* uv=object->uv;uv->u+=uv->du;uv->v+=uv->dv;
-                if(get_random_float__8TObjFishFv(uv->u)>=lbl_805DC5D4||get_random_float__8TObjFishFv(uv->v)>=lbl_805DC5D4) {
-                    if(uv->buffer)offset_position__6TSceneFPvii(uv->buffer,(s32)uv->u,(s32)uv->v);
-                    uv->u-=(f32)(s32)uv->u;uv->v-=(f32)(s32)uv->v;
-                }
-            }
-            if(object->flags&0x40) {
-                if(--object->cycle->timer<0) {
-                    ++object->cycle->index;TScene__sub_80205D24(task,object->cycle);
-                    free_children__12TObjDoorJungFPvPv(node->model,object->cycle->texture);
-                    if(object->flags&0x20)object->uv->texture=object->cycle->texture;
-                }
-            }
-            object->flags|=0x20000;
+    room = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
+    for (section = 0; section < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->count; section++, room++) {
+        SceneMaterialStatic *o2;
+        s32 k;
+        o2 = room->objects;
+        for (k = 0; k < room->count; k++, o2++) {
+            o2->flags &= ~0x20000;
         }
-        for(s32 i=0;i<room->animatedCount;++i) {
-            SceneMaterialAnimated* object=&room->animated[i];
-            if(object->flags&(0x20000|0x04000000))continue;
-            SceneMaterialNode* node=resolve_indirect_object_record(task,object);
-            if(object->flags&0x20) {
-                SceneMaterialUv* uv=object->uv;uv->u+=uv->du;uv->v+=uv->dv;
-                if(uv->u>=lbl_805DC5D4||uv->v>=lbl_805DC5D4) {
-                    if(uv->buffer)offset_position__6TSceneFPvii(uv->buffer,(s32)uv->u,(s32)uv->v);
-                    uv->u-=(f32)(s32)uv->u;uv->v-=(f32)(s32)uv->v;
+        {
+            SceneMaterialAnimated *a2;
+            s32 k2;
+            a2 = room->animated;
+            for (k2 = 0; k2 < room->animatedCount; k2++, a2++) {
+                a2->flags &= ~0x20000;
+            }
+        }
+    }
+    room = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
+    for (section = 0; section < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->count; section++, room++) {
+        object = room->objects;
+        for (i = 0; i < room->count; i++, object++) {
+            if (object->flags & 0x20000) {
+                continue;
+            }
+            if (object->flags & 0x04000000) {
+                continue;
+            }
+            node = ((SceneMaterialNode *)TScene__sub_80203324((void*)(task), (SceneMaterialStatic*)(object)));
+            if (object->flags & 0x20) {
+                uv = object->uv;
+                uv->u += uv->du;
+                uv->v += uv->dv;
+                if (get_random_float__8TObjFishFv(uv->u) >= lbl_805DC5D4 || get_random_float__8TObjFishFv(uv->v) >= lbl_805DC5D4) {
+                    if (uv->buffer != NULL) {
+                        offset_position__6TSceneFPvii((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
+                    }
+                    uv->u -= (f32)(s32)uv->u;
+                    uv->v -= (f32)(s32)uv->v;
                 }
             }
-            if(object->flags&0x40) {
-                if(--object->cycle->timer<0) {
-                    ++object->cycle->index;TScene__sub_80205D24(task,object->cycle);
-                    free_children__12TObjDoorJungFPvPv(node->model,object->cycle->texture);
+            if (object->flags & 0x40) {
+                object->cycle->timer--;
+                if (object->cycle->timer < 0) {
+                    (*(s16 *)&object->cycle->index)++;
+                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(object->cycle));
+                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
+                    if (object->flags & 0x20) {
+                        object->uv->texture = object->cycle->texture;
+                    }
                 }
             }
-            object->flags|=0x20000;
+            object->flags |= 0x20000;
+        }
+        anim = room->animated;
+        for (i = 0; i < room->animatedCount; i++, anim++) {
+            if (anim->flags & 0x20000) {
+                continue;
+            }
+            if (anim->flags & 0x04000000) {
+                continue;
+            }
+            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(task), (SceneMaterialAnimated*)(anim)));
+            if (anim->flags & 0x20) {
+                uv = anim->uv;
+                uv->u += uv->du;
+                uv->v += uv->dv;
+                if (uv->u >= 1.0f || uv->v >= 1.0f) {
+                    if (uv->buffer != NULL) {
+                        offset_position__6TSceneFPvii((void*)(uv->buffer), (s32)((s32)uv->u), (s32)((s32)uv->v));
+                    }
+                    uv->u -= (f32)(s32)uv->u;
+                    uv->v -= (f32)(s32)uv->v;
+                }
+            }
+            if (anim->flags & 0x40) {
+                anim->cycle->timer--;
+                if (anim->cycle->timer < 0) {
+                    (*(s16 *)&anim->cycle->index)++;
+                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(anim->cycle));
+                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
+                }
+            }
+            anim->flags |= 0x20000;
+        }
+    }
+    PPCSync();
+}
+
+void TScene__sub_80203A64(void *task) {
+    SceneMaterialSection *room;
+    s32 section;
+    SceneMaterialStatic *object;
+    s32 i;
+    SceneMaterialAnimated *anim;
+    SceneMaterialNode *node;
+    SceneMaterialUv *uv;
+    if ((*(void * *)&TScene__data_805D6004) == NULL || (*(SceneMaterialRoot * *)&TScene__data_805D5FCC) == NULL) {
+        return;
+    }
+    room = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
+    for (section = 0; section < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->count; section++, room++) {
+        SceneMaterialStatic *o2;
+        s32 k;
+        o2 = room->objects;
+        for (k = 0; k < room->count; k++, o2++) {
+            o2->flags &= ~0x20000;
+        }
+        {
+            SceneMaterialAnimated *a2;
+            s32 k2;
+            a2 = room->animated;
+            for (k2 = 0; k2 < room->animatedCount; k2++, a2++) {
+                a2->flags &= ~0x20000;
+            }
+        }
+    }
+    room = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
+    for (section = 0; section < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->count; section++, room++) {
+        object = room->objects;
+        for (i = 0; i < room->count; i++, object++) {
+            if (object->flags & 0x20000) {
+                continue;
+            }
+            if (object->flags & 0x04000000) {
+                continue;
+            }
+            node = ((SceneMaterialNode *)TScene__sub_80203324((void*)(task), (SceneMaterialStatic*)(object)));
+            if (object->flags & 0x20) {
+                uv = object->uv;
+                uv->u += uv->du;
+                uv->v += uv->dv;
+                if (get_random_float__8TObjFishFv(uv->u) >= lbl_805DC5D4 || get_random_float__8TObjFishFv(uv->v) >= lbl_805DC5D4) {
+                    scroll_ginja_mesh_uvs(node->model, (s32)uv->u, (s32)uv->v, uv->texture, 1);
+                    uv->u -= (f32)(s32)uv->u;
+                    uv->v -= (f32)(s32)uv->v;
+                }
+            }
+            if (object->flags & 0x40) {
+                object->cycle->timer--;
+                if (object->cycle->timer < 0) {
+                    (*(s16 *)&object->cycle->index)++;
+                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(object->cycle));
+                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
+                    if (object->flags & 0x20) {
+                        object->uv->texture = object->cycle->texture;
+                    }
+                }
+            }
+            object->flags |= 0x20000;
+        }
+        anim = room->animated;
+        for (i = 0; i < room->animatedCount; i++, anim++) {
+            if (anim->flags & 0x20000) {
+                continue;
+            }
+            if (anim->flags & 0x04000000) {
+                continue;
+            }
+            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(task), (SceneMaterialAnimated*)(anim)));
+            if (anim->flags & 0x20) {
+                uv = anim->uv;
+                uv->u += uv->du;
+                uv->v += uv->dv;
+                if (uv->u >= 1.0f || uv->v >= 1.0f) {
+                    scroll_ginja_mesh_uvs(node->model, (s32)uv->u, (s32)uv->v, uv->texture, 1);
+                    uv->u -= (f32)(s32)uv->u;
+                    uv->v -= (f32)(s32)uv->v;
+                }
+            }
+            if (anim->flags & 0x40) {
+                anim->cycle->timer--;
+                if (anim->cycle->timer < 0) {
+                    (*(s16 *)&anim->cycle->index)++;
+                    TScene__sub_80205D24((void*)(task), (SceneMaterialCycle*)(anim->cycle));
+                    free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
+                }
+            }
+            anim->flags |= 0x20000;
         }
     }
     PPCSync();

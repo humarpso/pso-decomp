@@ -79,6 +79,28 @@ struct Npc_80151708 {
     f32 dst[3];
 };
 
+struct Tgt_801510F8 { s32 a; s32 b; };
+
+struct Obj_801510F8 { u8 pad[0x94]; u8 *obj; };
+
+struct Npc_801510F8 {
+    u8 pad0[0x34];
+    s32 f34;
+    u8 pad38[0x48 - 0x38];
+    f32 f48;
+    u8 pad4C[0x5C - 0x4C];
+    u8 counters[0x74 - 0x5C];
+    Obj_801510F8 *f74;
+    Obj_801510F8 *f78;
+    u8 pad7C[0x80 - 0x7C];
+    s32 f80;
+    s32 f84;
+    u8 pad88[0x92 - 0x88];
+    s16 f92;
+    u8 pad94[0xDC - 0x94];
+    u8 dst[0xC];
+};
+
 extern "C" {
 s32 TNpcPlayer__sub_801528DC(void *);
 u16 get_npc_state__10TNpcPlayerFPv(void *);
@@ -103,6 +125,18 @@ void TNpcPlayer__sub_80152A34(void *, u32, s32);
 f32 horizontal_distance_squared(void *, void *, int);
 extern const f32 TNpcPlayer__data_805DB1F4;
 s32 TNpcPlayer__sub_80151708(Npc_80151708 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *find_active_entity_by_id(int);
+f32 horizontal_distance_squared(void *, void *, int);
+M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, M2C_UNK);
+s32 try_attack__10TNpcPlayerFPvii(void *, M2C_UNK, M2C_UNK);
+M2C_UNK increment_partner_counter(void *, M2C_UNK);
+s16 get_partner_counter(void *, M2C_UNK);
+M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
+s32 get_condition__10TNpcPlayerFPv(s32);
+s32 get_action_state__10TNpcPlayerFPv(void *);
+Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
+s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1);
 }
 
 extern "C" {
@@ -351,6 +385,140 @@ void TNpcPlayer__sub_80150E44(Npc_80150E44 *self) {
         }
         sync_from_lobby__10TNpcPlayerFPv(&m);
     }
+}
+
+s32 select_recovery_action__10TNpcPlayerFv(Npc_801510F8 *self, s32 arg1) {
+    u8 flags = 0;
+    Tgt_801510F8 *tgt;
+    u8 *ent;
+    if (get_action_state__10TNpcPlayerFPv(self->f78) & 4) {
+        flags |= 1;
+    }
+    if (arg1 != 0 && (get_action_state__10TNpcPlayerFPv(self->f74) & 4) && self->f84 == 0) {
+        flags |= 2;
+    }
+    tgt = ((Tgt_801510F8 *)TNpcPlayer__sub_80152A30(self->f78));
+    if (arg1 != 0 && tgt->a != 0 && (flags & 2)) {
+        increment_partner_counter(self->counters, 5);
+        if (npc_counter_reset_if_reached(self->counters, 5, 0x1E) != 0) {
+            ent = find_active_entity_by_id((u16)tgt->b);
+            self->f80 &= ~0x8000;
+            if (ent != NULL) {
+                if (((f32 (*)(void *, void *))horizontal_distance_squared)(ent + 0x38, self->f78->obj + 0x38) < self->f48 * self->f48) {
+                    VecCopy__FP3VecPC3Vec(self->dst, ent + 0x38);
+                    self->f80 |= 0x8080;
+                    return 1;
+                }
+            }
+        }
+    }
+    if (flags == 3) {
+        self->f80 |= 0x200;
+        if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 2) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 2, 1) != 0) {
+                if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x20) {
+                    self->f92 = 2;
+                    return 1;
+                }
+                if (!(self->f34 & 0x40)) {
+                    self->f92 = 2;
+                    return 1;
+                }
+            }
+        } else if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 8) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 0, 1) != 0) {
+                if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x20) {
+                    self->f92 = 0;
+                    return 1;
+                }
+                if (!(self->f34 & 0x40)) {
+                    self->f92 = 0;
+                    return 1;
+                }
+            } else {
+                if (get_partner_counter(self->counters, 8) == 0) {
+                    request_chatter__10TNpcPlayerFPvUi(self, 0x14);
+                }
+                increment_partner_counter(self->counters, 8);
+                npc_counter_reset_if_reached(self->counters, 8, 0x5DC);
+            }
+        } else if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x10) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 1, 1) != 0) {
+                self->f92 = 1;
+                return 1;
+            }
+        } else {
+            flags = 2;
+        }
+    }
+    if (flags == 2) {
+        if (get_action_state__10TNpcPlayerFPv(self->f78) & 2) {
+            return 0;
+        }
+        VecCopy__FP3VecPC3Vec(self->dst, self->f74->obj + 0x2FC);
+        self->f80 |= 0x20;
+        if (get_condition__10TNpcPlayerFPv((s32)self->f74) & 2) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 2, 0) != 0) {
+                if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x20) {
+                    self->f92 = 2;
+                    return 1;
+                }
+                if (!(self->f34 & 0x40)) {
+                    self->f92 = 2;
+                    return 1;
+                }
+            }
+        } else if (get_condition__10TNpcPlayerFPv((s32)self->f74) & 0x800) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 0, 0) != 0) {
+                if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x20) {
+                    self->f92 = 0;
+                    return 1;
+                }
+                if (!(self->f34 & 0x40)) {
+                    self->f92 = 0;
+                    return 1;
+                }
+            }
+        }
+    }
+    if (flags == 1) {
+        self->f80 |= 0x200;
+        if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 2) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 2, 1) != 0) {
+                if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x20) {
+                    self->f92 = 2;
+                    return 1;
+                }
+                if (!(self->f34 & 0x40)) {
+                    self->f92 = 2;
+                    return 1;
+                }
+            }
+        } else if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 8) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 0, 1) != 0) {
+                if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x20) {
+                    self->f92 = 0;
+                    return 1;
+                }
+                if (!(self->f34 & 0x40)) {
+                    self->f92 = 0;
+                    return 1;
+                }
+            } else {
+                if (get_partner_counter(self->counters, 8) == 0) {
+                    request_chatter__10TNpcPlayerFPvUi(self, 0x14);
+                }
+                increment_partner_counter(self->counters, 8);
+                npc_counter_reset_if_reached(self->counters, 8, 0x5DC);
+            }
+        } else if (get_condition__10TNpcPlayerFPv((s32)self->f78) & 0x10) {
+            if (try_attack__10TNpcPlayerFPvii(self->f78, 1, 1) != 0) {
+                self->f92 = 1;
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 #pragma push

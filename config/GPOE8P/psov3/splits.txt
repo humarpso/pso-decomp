@@ -10837,7 +10837,8 @@ pso/player/TObjPlayer_802034EC.cpp:
 
 pso/misc/TScene_80203510.cpp:
 	.text       start:0x80203510 end:0x80205A54
-	.rodata     start:0x8044A930 end:0x8044A938
+	.rodata     start:0x8044A928 end:0x8044A938
+	.sdata2     start:0x805DC5D4 end:0x805DC5D8
 
 pso/misc/TScene_80205A54.cpp:
 	.text       start:0x80205A54 end:0x80205A6C
