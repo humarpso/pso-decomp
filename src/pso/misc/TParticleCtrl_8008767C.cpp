@@ -94,6 +94,45 @@ struct Ang_8008BAF8 { s32 x, y, z; };
 
 struct Scr_8008BAF8 { f32 x, y; };
 
+typedef u8 *(*Gen_8008767C)(void *, void *, u32);
+struct Vec_8008767C { f32 x, y, z; };
+
+struct Color_8008767C { u8 r, g, b, a; };
+
+struct Def_8008767C {
+    u8 pad0[0x10];
+    s32 kind;
+    u8 pad14[0x40 - 0x14];
+    f32 freq;
+    f32 amp;
+};
+
+struct Ctrl_8008767C {
+    u8 pad0[0x1C];
+    f32 accum;
+    s32 angle;
+    f32 rate;
+    Def_8008767C *def;
+    u16 flags;
+    u16 f2E;
+    s32 f30;
+    s32 delay;
+    s32 lifetime;
+    s32 age;
+    f32 sx;
+    f32 sy;
+    Color_8008767C color;
+    s32 model;
+    s32 texlist;
+    s32 motion;
+    u32 tex;
+    f32 frame;
+    Vec_8008767C pos;
+    Vec_8008767C dir;
+};
+
+struct GenEntry_8008767C { s32 id; Gen_8008767C fn; };
+
 extern "C" {
 void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
@@ -267,6 +306,32 @@ extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
 void draw_radial_sprite_particle(u8 *arg0);
+void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
+void set_particle_tint_color(u8 *arg0, void *arg1);
+u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
+u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4);
+int queue_destruction__7TObjectFv(void *);
+int TParticleCtrl__sub_800884F0(void* p);
+void set_particle_draw_scale(void* p, f32 a, f32 b);
+s32 is_split_screen();
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+s32 TLoadCtrl__sub_8001C60C();
+void mark_active__13TParticleCtrlFPv(void *);
+f32 horizontal_distance_squared(void *, void *);
+u8 *get_player_by_client_id(s32);
+f32 sin_table_lookup(s32);
+f32 get_random_float__8TObjFishFv(f32);
+extern GenEntry_8008767C lbl_8048E710[];
+extern u8 *lbl_805D4DF0;
+extern void *tl_07;
+extern void *tl_particlemodel;
+extern const f32 TParticleCtrl__data_805D94E0;
+extern const f32 TParticleCtrl__data_805D94E4;
+extern const f32 lbl_805D94E8;
+extern const f32 lbl_805D94EC;
+extern const f32 lbl_805D94F0;
+void run_task__13TParticleCtrlFv(Ctrl_8008767C *self);
 }
 
 extern "C" {
@@ -517,6 +582,149 @@ void free_system__13TParticleCtrlFv(void);
 int copy_xyz__10TObjPlayerFPvPv(void*);
 int free__11TOBoss4RockFUi(void*);
 
+#pragma push
+#pragma fp_contract on
+#define CREATE6(fn) ((u8 *(*)(void *, void *, void *, u32, u32, u32))fn)
+#define SETUP_8008767C(p, B)                                                            \
+    set_particle_draw_scale(p, self->sx, self->sy);                                   \
+    if (self->flags & 0x100) {                                                        \
+        Color_8008767C c = self->color;                                               \
+        f32 rgba[4];                                                                  \
+        rgba[0] = c.r / 255.0f;                                                 \
+        rgba[1] = c.g / 255.0f;                                                 \
+        rgba[2] = c.B / 255.0f;                                                 \
+        rgba[3] = c.a / 255.0f;                                                 \
+        set_particle_tint_color(p, rgba);                                             \
+    }                                                                                 \
+    if (self->flags & 0x200) {                                                        \
+        if (self->flags & 0x400) {                                                    \
+            attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 1, self->frame); \
+        } else {                                                                      \
+            attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 0, self->frame); \
+        }                                                                             \
+    }
+void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
+    Def_8008767C *def;
+    s32 kind;
+    u8 *p;
+    f32 step;
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
+        return;
+    }
+    if (self->delay-- <= 0) {
+        self->delay = 0;
+    } else {
+        return;
+    }
+    self->age++;
+    if (self->flags & 1) {
+        self->flags &= ~1;
+        return;
+    }
+    if (((self->flags & 0x200) || (self->flags & 0x2000)) && self->tex == (u32)tl_07) {
+        self->tex = (u32)tl_particlemodel;
+    }
+    def = self->def;
+    if (def == NULL) {
+        return;
+    }
+    if (TParticleCtrl__data_805D94E0 == def->freq) {
+        self->accum += def->amp * self->rate;
+    } else {
+        self->angle += (s32)(lbl_805D94E8 * def->freq);
+        self->accum += self->rate * (self->def->amp * get_random_float__8TObjFishFv(sin_table_lookup(self->angle)));
+    }
+    if (lbl_805D4DF0 != NULL && !(self->flags & 0x40)) {
+        if (is_split_screen() != 0) {
+            if (TLoadCtrl__sub_8001C60C() == 0) {
+                f32 lim = lbl_805D94EC;
+                s32 near = 0;
+                s32 i;
+                for (i = 0; i < 4; i++) {
+                    u8 *pl = get_player_by_client_id(i);
+                    if (pl != NULL && horizontal_distance_squared(&self->pos, pl + 0x38) < lim) {
+                        near = 1;
+                    }
+                }
+                if (near == 0) {
+                    self->accum = TParticleCtrl__data_805D94E0;
+                }
+            }
+        } else if (TLoadCtrl__sub_8001C60C() == 0) {
+            if (!(horizontal_distance_squared(&self->pos, lbl_805D4DF0 + 0x178) < lbl_805D94F0)) {
+                self->accum = TParticleCtrl__data_805D94E0;
+            }
+        }
+    }
+    step = TParticleCtrl__data_805D94E4;
+    while (self->accum >= step) {
+        self->accum -= step;
+        kind = self->def->kind;
+        if (kind == 0) {
+            u8 *q = CREATE6(create_ballistic_particle)(self->def, &self->pos, &self->dir, self->tex, self->flags, self->f2E);
+            if (q != NULL) {
+                SETUP_8008767C(q, b)
+            }
+        } else if (self->flags & 0x10) {
+            if (kind == 1) {
+                p = CREATE6(create_orbit_particle)(self->def, &self->pos, &self->dir, self->tex, 0x10, self->f2E);
+                if (p != NULL) {
+                    SETUP_8008767C(p, b)
+                }
+            } else if (kind == 2) {
+                p = ((u8 *(*)(void *, void *, u32, u32, u32))create_radial_particle)(self->def, &self->pos, self->tex, 0x10, self->f2E);
+                if (p != NULL) {
+                    SETUP_8008767C(p, a)
+                }
+            }
+        } else if (self->flags & 0x80) {
+            if (kind == 1) {
+                p = CREATE6(create_orbit_particle)(self->def, &self->pos, &self->dir, self->tex, 0x80, 0xFFFF);
+                if (p != NULL) {
+                    SETUP_8008767C(p, b)
+                }
+            } else if (kind == 2) {
+                p = ((u8 *(*)(void *, void *, u32, u32, u32))create_radial_particle)(self->def, &self->pos, self->tex, 0x80, 0xFFFF);
+                if (p != NULL) {
+                    SETUP_8008767C(p, b)
+                }
+            }
+        } else if (kind < 3) {
+            p = lbl_8048E710[kind].fn(self->def, &self->pos, self->tex);
+            if (p != NULL) {
+                set_particle_draw_scale(p, self->sx, self->sy);
+                ((int (*)(void *, void *))TParticleCtrl__sub_800884F0)(p, &self->dir);
+                if (self->flags & 0x100) {
+                    Color_8008767C c = self->color;
+                    f32 rgba[4];
+                    rgba[0] = c.r / 255.0f;
+                    rgba[1] = c.g / 255.0f;
+                    rgba[2] = c.b / 255.0f;
+                    rgba[3] = c.a / 255.0f;
+                    set_particle_tint_color(p, rgba);
+                }
+                if (self->flags & 0x200) {
+                    if (self->flags & 0x400) {
+                        attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 1, self->frame);
+                    } else {
+                        attach_model__13TParticleCtrlFPviiiif(p, self->model, self->texlist, self->motion, 0, self->frame);
+                    }
+                }
+                if (self->flags & 0x2000) {
+                    mark_active__13TParticleCtrlFPv(p);
+                }
+            }
+        }
+    }
+    if (self->f30 == 1) {
+        queue_destruction__7TObjectFv(self);
+    }
+    if (self->lifetime != 0 && self->age >= self->lifetime) {
+        queue_destruction__7TObjectFv(self);
+    }
+}
+#pragma pop
+
 void clear_active_flag__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }
 void enable__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) |= 0x1; }
 
@@ -593,382 +801,5 @@ void load_particle_entry_resources(void) {
     TParticleCtrl__data_805D4F00 = (u32)p;
     TParticleCtrl__data_805D4F04 = load_gvm_texture_file(lbl_804394D4);
 }
-
-u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
-    u8 *temp_r3;
-    u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xD0))));
-    var_r0 = (u8 *)(temp_r3);
-    if (var_r0 != NULL) {
-        var_r0 = (u8 *)(construct_ballistic_particle(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
-    }
-    return var_r0;
-}
-void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
-    void *o;
-    o = alloc_particle_memory(0xd0);
-    if (o != NULL) {
-        o = TParticleCtrl__sub_80089B50(o, arg0, arg1, arg2);
-    }
-    return o;
-}
-void retire_ballistic_particle_if_done(u8 *arg0) {
-    Stack_80088844 stack;
-    f32 temp_f1;
-    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 8) {
-        stack.sp8 = M2C_FIELD(arg0, f32 *, 0x70) - M2C_FIELD(arg0, f32 *, 0x30);
-        stack.spC = M2C_FIELD(arg0, f32 *, 0x74) - M2C_FIELD(arg0, f32 *, 0x34);
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0x78);
-        stack.sp10 = temp_f1 - M2C_FIELD(arg0, f32 *, 0x38);
-        if (TParticleCtrl__data_805D94F8 == vec_squared_length((void *)((void *) (&stack.sp8)))) {
-            queue_destruction__7TObjectFv((void *) (arg0));
-            return;
-        }
-    }
-    if (M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D94FC) {
-        queue_destruction__7TObjectFv((void *) (arg0));
-    }
-}
-void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E778;
-        TParticleCtrl__sub_8008655C(arg0, 0);
-        if (arg1 > 0) {
-            free_from_heap__13TParticleCtrlFPv(arg0);
-        }
-    }
-    return arg0;
-}
-u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
-    u8 *temp_r3;
-    u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xE0))));
-    var_r0 = (u8 *)(temp_r3);
-    if (var_r0 != NULL) {
-        var_r0 = (u8 *)(init_orbit_sprite_particle(temp_r3, arg0, arg1, arg2, arg3, arg4, arg5));
-    }
-    return var_r0;
-}
-void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3) {
-    void *o;
-    o = alloc_particle_memory(0xe0);
-    if (o != NULL) {
-        o = TParticleCtrl__sub_8008B060(o, arg0, arg1, arg2, arg3);
-    }
-    return o;
-}
-void retire_orbit_particle(u8 *arg0) {
-    if (M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9528) {
-        queue_destruction__7TObjectFv((void *)(arg0));
-    }
-}
-
-void draw_orbit_particle_sprite(u8 *arg0) {
-    Vec_8008A92C sp8;
-    f32 temp_f1;
-    f32 temp_f1_2;
-    f32 temp_f3;
-    s32 temp_r4;
-    u16 temp_r3;
-    if (all_parents_unqueued_for_destruction__7TObjectFv() != 0) {
-        temp_f3 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), f32 *, 0x70) * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0xDC));
-        M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * (TParticleCtrl__data_805D9528 + temp_f3));
-        M2C_FIELD(arg0, f32 *, 0x8C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * (TParticleCtrl__data_805D9528 - temp_f3));
-        M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, f32 *, 0x88) * M2C_FIELD(arg0, f32 *, 0xA4));
-        M2C_FIELD(arg0, f32 *, 0x8C) = (f32) (M2C_FIELD(arg0, f32 *, 0x8C) * M2C_FIELD(arg0, f32 *, 0xA8));
-        temp_r3 = M2C_FIELD(arg0, u16 *, 0x24);
-        if (temp_r3 & 0x200) {
-            if (((is_split_screen() == 0) || !(M2C_FIELD(arg0, u16 *, 0x24) & 0x400)) && ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U)) {
-                sp8.x = M2C_FIELD(arg0, f32 *, 0x70) + M2C_FIELD(arg0, f32 *, 0x7C);
-                sp8.y = M2C_FIELD(arg0, f32 *, 0x74) + M2C_FIELD(arg0, f32 *, 0x80);
-                sp8.z = M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(arg0, f32 *, 0x84);
-                push_matrix(M2C_FIELD(arg0, f32 *, 0x78));
-                post_translate_matrix(&sp8);
-                temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x88);
-                scale_matrix(0, temp_f1_2, temp_f1_2, temp_f1_2);
-                rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0xA0));
-                rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x98));
-                rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x9C));
-                lbl_805D5660 = some_id_805c6f74;
-                if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
-                    begin_effect_render__13TParticleCtrlFv();
-                    load_projected_texture_matrix(lbl_805D9540);
-                }
-                rotate_matrix_y(0, (s32) M2C_FIELD(arg0, s16 *, 0x96));
-                if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && ((void *) lbl_805D4DF0 != NULL)) {
-                    rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
-                }
-                end_effect_render__13TParticleCtrlFv();
-                if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
-                    setup_particle_tev(0);
-                } else {
-                    temp_r4 = some_id_805c6f74;
-                    lbl_805D5660 = temp_r4;
-                    some_id_805c6f74 = temp_r4 | 0x8021;
-                    if (is_particle_sprite_additive(arg0, temp_r4) != 0) {
-                        apply_particle_model_fade_color(arg0, 1);
-                    } else {
-                        apply_particle_model_fade_color(arg0, 0);
-                    }
-                }
-                set_global_param__8TObjFishFi(M2C_FIELD(arg0, u32 *, 0xB4));
-                set_depth_buffer_settings_id__FUl(3);
-                if ((u32) M2C_FIELD(arg0, u32 *, 0xB8) != 0U) {
-                    draw_ginja_model_with_motion(M2C_FIELD(arg0, u32 *, 0xB0), M2C_FIELD(arg0, u32 *, 0xB8), M2C_FIELD(arg0, f32 *, 0xBC));
-                } else {
-                    draw_ginja_object(M2C_FIELD(arg0, u32 *, 0xB0));
-                }
-                if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
-                    disable_if_single_screen__13TParticleCtrlFv();
-                }
-                some_id_805c6f74 = lbl_805D5660;
-                end_effect_render__13TParticleCtrlFv();
-                pop_matrix();
-            }
-        } else {
-            if (temp_r3 & 0x2000) {
-                draw_particle_refraction_quad(arg0);
-                return;
-            }
-            if (M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 0x88) & 0x20) {
-                TParticleCtrl__sub_801E4E7C(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
-                return;
-            }
-            TParticleCtrl__sub_801E4E7C(((s32 *)&TParticleCtrl__data_80511F70)[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
-        }
-    }
-}
-
-void *TParticleCtrl__sub_8008ABCC(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E790;
-        TParticleCtrl__sub_8008655C(arg0, 0);
-        if (arg1 > 0) {
-            free_from_heap__13TParticleCtrlFPv(arg0);
-        }
-    }
-    return arg0;
-}
-u8 *create_radial_particle(u8 *arg0, u8 *arg1, s32 arg2, u16 arg3, s16 arg4) {
-    u8 *temp_r3;
-    u8 *var_r0;
-    temp_r3 = (u8 *)(((u8 *)alloc_particle_memory((int)(0xC4))));
-    var_r0 = (u8 *)(temp_r3);
-    if (var_r0 != NULL) {
-        var_r0 = (u8 *)(construct_radial_particle((u8 *)(temp_r3), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2), arg3, arg4));
-    }
-    return var_r0;
-}
-void * create_random_particle(void *arg0, void *arg1, void *arg2) {
-    void *o;
-    o = alloc_particle_memory(0xc4);
-    if (o != NULL) {
-        o = TParticleCtrl__sub_8008C21C((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
-    }
-    return o;
-}
-void check_radial_particle_retire(u8 *arg0) {
-    if ((M2C_FIELD(arg0, f32 *, 0x58) >= TParticleCtrl__data_805D9558) || (TParticleCtrl__data_805D955C == vec_squared_length((void *) (arg0 + 0x3C)))) {
-        queue_destruction__7TObjectFv((void *)(arg0));
-    }
-}
-
-void draw_radial_sprite_particle(u8 *arg0) {
-    Scr_8008BAF8 s1;
-    Scr_8008BAF8 s2;
-    Vec_8008BAF8 end;
-    Vec_8008BAF8 pos;
-    f32 len;
-    u16 flags;
-    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
-        return;
-    }
-    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 4) {
-        if (M2C_FIELD(arg0, u16 *, 0x24) & 0x10) {
-            pos.x = M2C_FIELD(arg0, f32 *, 0x70) + M2C_FIELD(arg0, f32 *, 0x7C);
-            pos.y = M2C_FIELD(arg0, f32 *, 0x74) + M2C_FIELD(arg0, f32 *, 0x80);
-            pos.z = M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(arg0, f32 *, 0x84);
-        } else {
-            VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x70);
-        }
-        end.x = pos.x + M2C_FIELD(arg0, f32 *, 0x3C);
-        end.y = pos.y + M2C_FIELD(arg0, f32 *, 0x40);
-        end.z = pos.z + M2C_FIELD(arg0, f32 *, 0x44);
-        len = vector_length(arg0 + 0x3C);
-        if (TParticleCtrl__data_805D955C == len) {
-            return;
-        }
-        project_world_to_screen(0, &pos, &s1);
-        project_world_to_screen(0, &end, &s2);
-        s2.x = s2.x - s1.x;
-        s2.y = s2.y - s1.y;
-        M2C_FIELD(arg0, s16 *, 0x96) = (s16)(lbl_80439560[0] * get_ad_end_text_start__10TObjPlayerFv(s2.y, s2.x));
-        M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0x60) * len;
-        M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0x64) * len;
-    } else {
-        M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(arg0, f32 *, 0x28);
-        M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(arg0, f32 *, 0x2C);
-    }
-    M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(arg0, f32 *, 0x88) * M2C_FIELD(arg0, f32 *, 0xA4);
-    M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(arg0, f32 *, 0x8C) * M2C_FIELD(arg0, f32 *, 0xA8);
-    flags = M2C_FIELD(arg0, u16 *, 0x24);
-    if (flags & 0x200) {
-        if (((is_split_screen() == 0) || !(M2C_FIELD(arg0, u16 *, 0x24) & 0x400)) && (M2C_FIELD(arg0, u32 *, 0xB4) != 0U) && (M2C_FIELD(arg0, u32 *, 0xB0) != 0U)) {
-            Ang_8008BAF8 ang = lbl_80439540;
-            Vec_8008BAF8 pos2;
-            direction_to_rotation_xz(arg0 + 0x3C, &ang.x, &ang.z);
-            if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 4) {
-                pos2.x = M2C_FIELD(arg0, f32 *, 0x70) + M2C_FIELD(arg0, f32 *, 0x7C);
-                pos2.y = M2C_FIELD(arg0, f32 *, 0x74) + M2C_FIELD(arg0, f32 *, 0x80);
-                pos2.z = M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(arg0, f32 *, 0x84);
-            } else {
-                VecCopy__FP3VecPC3Vec(&pos2, arg0 + 0x70);
-            }
-            ((void (*)(void))push_matrix)();
-            post_translate_matrix(&pos2);
-            scale_matrix(0, M2C_FIELD(arg0, f32 *, 0x88), M2C_FIELD(arg0, f32 *, 0x88), M2C_FIELD(arg0, f32 *, 0x88));
-            if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 4) {
-                rotate_matrix_z(0, ang.z);
-                rotate_matrix_x(0, ang.x);
-                rotate_matrix_y(0, ang.y);
-            }
-            if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && (lbl_805D4DF0 != NULL)) {
-                rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
-            }
-            begin_effect_render__13TParticleCtrlFv();
-            if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
-                load_projected_texture_matrix(lbl_805D9564);
-            }
-            rotate_matrix_y(0, M2C_FIELD(arg0, s16 *, 0x96));
-            if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
-                setup_particle_tev(0);
-            } else {
-                s32 temp_r4 = some_id_805c6f74;
-                lbl_805D5660 = temp_r4;
-                some_id_805c6f74 = temp_r4 | 0x8021;
-                if (is_particle_sprite_additive(arg0, temp_r4) != 0) {
-                    apply_particle_model_fade_color(arg0, 1);
-                } else {
-                    apply_particle_model_fade_color(arg0, 0);
-                }
-            }
-            set_global_param__8TObjFishFi(M2C_FIELD(arg0, u32 *, 0xB4));
-            set_depth_buffer_settings_id__FUl(3);
-            if (M2C_FIELD(arg0, u32 *, 0xB8) != 0U) {
-                draw_ginja_model_with_motion(M2C_FIELD(arg0, u32 *, 0xB0), M2C_FIELD(arg0, u32 *, 0xB8), M2C_FIELD(arg0, f32 *, 0xBC));
-            } else {
-                draw_ginja_object(M2C_FIELD(arg0, u32 *, 0xB0));
-            }
-            if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
-                disable_if_single_screen__13TParticleCtrlFv();
-            } else {
-                some_id_805c6f74 = lbl_805D5660;
-            }
-            end_effect_render__13TParticleCtrlFv();
-            pop_matrix();
-        }
-    } else {
-        if (flags & 0x2000) {
-            draw_particle_refraction_quad(arg0);
-            return;
-        }
-        if (M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 0x88) & 0x20) {
-            TParticleCtrl__sub_801E4E7C(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
-            return;
-        }
-        TParticleCtrl__sub_801E4E7C(((s32 *)&TParticleCtrl__data_80511F70)[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
-    }
-}
-
-void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E7A8;
-        TParticleCtrl__sub_8008655C(arg0, 0);
-        if (arg1 > 0) {
-            free_from_heap__13TParticleCtrlFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-#pragma push
-#pragma fp_contract on
-typedef char RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8_size[sizeof(RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
-
-#pragma push
-#pragma fp_contract on
-typedef char RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8_size[sizeof(RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8) == 0x18 ? 1 : -1];
-typedef char RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70_size[sizeof(RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70) == 0x1B0 ? 1 : -1];
-u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {
-    struct Fields_arg0 { u8 pad_0[24]; M2C_UNK * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; s16 field_26; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; u8 pad_7C[25]; s8 field_95; };
-    struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
-    struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };
-    s32 temp_r0;
-    init_particle_base(arg0, arg1, arg3);
-    ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_8008BF58_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
-    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
-    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
-    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
-    ((Fields_arg0*)arg0)->field_24 = arg4;
-    if (((Fields_arg0*)arg0)->field_24 & 0x80) {
-        ((Fields_arg0*)arg0)->field_95 = 1;
-    }
-    ((Fields_arg0*)arg0)->field_26 = arg5;
-    ((Fields_arg0*)arg0)->field_30 = (f32) ((Fields_arg2*)arg2)->field_0;
-    ((Fields_arg0*)arg0)->field_34 = (f32) ((Fields_arg2*)arg2)->field_4;
-    ((Fields_arg0*)arg0)->field_38 = (f32) ((Fields_arg2*)arg2)->field_8;
-    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_24);
-    ((Fields_arg0*)arg0)->field_2C = (f32) ((Fields_arg0*)arg0)->field_28;
-    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand())) + (f32) ((Fields_arg1*)arg1)->field_48);
-    if (((Fields_arg1*)arg1)->field_88 & 1) {
-        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 *)&TParticleCtrl__data_80511F70).value, M2C_UNK *, (((Fields_arg0*)arg0)->field_1C * 4)), void **, 0x28), s32 *, 0xC));
-    } else {
-        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) temp_r0);
-    }
-    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_30);
-    ((Fields_arg0*)arg0)->field_3C = (f32) TParticleCtrl__data_805D955C;
-    ((Fields_arg0*)arg0)->field_40 = (f32) TParticleCtrl__data_805D955C;
-    ((Fields_arg0*)arg0)->field_44 = (f32) TParticleCtrl__data_805D955C;
-    if (((Fields_arg0*)arg0)->field_24 & 0x2000) {
-        get_object__13TParticleCtrlFPv((void *)0x1F);
-    }
-    return arg0;
-}
-#pragma pop
-
-u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
-    struct Fields_arg0 { u8 pad_0[24]; M2C_UNK * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; u8 pad_26[2]; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; };
-    struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
-    struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };
-    s32 temp_r0;
-    init_particle_base(arg0, arg1, arg3);
-    ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_8008C21C_TParticleCtrl__data_8048E7A8 *)&TParticleCtrl__data_8048E7A8).value;
-    ((Fields_arg0*)arg0)->field_70 = (f32) ((((Fields_arg1*)arg1)->field_18 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_0);
-    ((Fields_arg0*)arg0)->field_74 = (f32) ((((Fields_arg1*)arg1)->field_1C * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_4);
-    ((Fields_arg0*)arg0)->field_78 = (f32) ((((Fields_arg1*)arg1)->field_20 * ((lbl_805D9568 * (f32) rand()) - lbl_805D956C)) + ((Fields_arg2*)arg2)->field_8);
-    ((Fields_arg0*)arg0)->field_30 = (f32) ((Fields_arg2*)arg2)->field_0;
-    ((Fields_arg0*)arg0)->field_34 = (f32) ((Fields_arg2*)arg2)->field_4;
-    ((Fields_arg0*)arg0)->field_38 = (f32) ((Fields_arg2*)arg2)->field_8;
-    ((Fields_arg0*)arg0)->field_28 = (f32) ((((Fields_arg1*)arg1)->field_28 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_24);
-    ((Fields_arg0*)arg0)->field_2C = (f32) ((Fields_arg0*)arg0)->field_28;
-    temp_r0 = (s32) (((f32) ((Fields_arg1*)arg1)->field_4C * (lbl_805D9568 * (f32) rand())) + (f32) ((Fields_arg1*)arg1)->field_48);
-    if (((Fields_arg1*)arg1)->field_88 & 1) {
-        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (((Fields_arg0*)arg0)->field_1C * 4)), void **, 0x28), s32 *, 0xC));
-    } else {
-        ((Fields_arg0*)arg0)->field_5C = (f32) (TParticleCtrl__data_805D9558 / (f32) temp_r0);
-    }
-    ((Fields_arg0*)arg0)->field_68 = (f32) ((((Fields_arg1*)arg1)->field_38 * (lbl_805D9568 * (f32) rand())) + ((Fields_arg1*)arg1)->field_30);
-    ((Fields_arg0*)arg0)->field_3C = (f32) TParticleCtrl__data_805D955C;
-    ((Fields_arg0*)arg0)->field_40 = (f32) TParticleCtrl__data_805D955C;
-    ((Fields_arg0*)arg0)->field_44 = (f32) TParticleCtrl__data_805D955C;
-    if (((Fields_arg0*)arg0)->field_24 & 0x2000) {
-        get_object__13TParticleCtrlFPv((void *)0x1F);
-    }
-    return arg0;
-}
-#pragma pop
-
-void destroy_keyboard_objects(void * _w0) { queue_destruction__7TObjectFv((void *)(_w0)); TKeyBoardControl__sub_8000F91C(2); TKeyBoardControl__sub_8000F9CC(18); TLobby__sub_8022743C(); stop_cue_stream(); }
 
 }
