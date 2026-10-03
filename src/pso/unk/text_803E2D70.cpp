@@ -25,6 +25,16 @@ struct MotionCtx_803DC894 {
 };
 
 struct Mtx_803DC994 { f32 m[3][4]; };
+struct ChunkNode_803E2F78 {
+    u32 flags;
+    s32 obj;
+    f32 pos[3];
+    s32 ang[3];
+    f32 scl[3];
+    ChunkNode_803E2F78 *child;
+    ChunkNode_803E2F78 *sibling;
+    f32 f34;
+};
 
 struct Hdr_803E34B0 { u8 *dst; u8 *src; s32 count; };
 
@@ -121,6 +131,13 @@ void draw_chunk_object(void *arg0);
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
+void get_current_matrix(void *m);
+void TObjPlayer__sub_803D993C(f32 *arg0, f32 farg0);
+void TObjPlayer__sub_803D99F8(void *, int);
+void push_matrix(void);
+void scale_current_matrix(void *);
+void post_translate_matrix(void *);
+extern u8 lbl_8058DBD0[];
 void transform_point_by_current_matrix(u8 *, u8 *);
 void rotate_vector_by_current_matrix(u8 *, u8 *);
 void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
@@ -211,6 +228,54 @@ void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src) {
     dst->m[2][2] = src->m[2][2];
 }
 #pragma pop
+
+#define node ((ChunkNode_803E2F78 *)arg0)
+void transform_chunk_object_tree(void *arg0, void (*cb)(void *)) {
+    u32 flags;
+    s32 r;
+
+    do {
+        flags = node->flags;
+        r = 0;
+        if (flags & 0x800) {
+            get_current_matrix(lbl_8058DBD0);
+        }
+        if ((flags & 7) == 7) {
+            if (!(flags & 8)) {
+                r = ((s32 (*)(s32))cb)(node->obj);
+            }
+            if (!(flags & 0x10) && (!(flags & 0x100) || r == 0)) {
+                transform_chunk_object_tree(node->child, cb);
+            }
+        } else {
+            push_matrix();
+            if (!(flags & 1)) {
+                post_translate_matrix(node->pos);
+            }
+            if (!(flags & 2)) {
+                if (flags & 0x1000) {
+                    TObjPlayer__sub_803E2F28((struct Mtx_803DC994 *)lbl_8058DBD0);
+                } else if (flags & 0x400) {
+                    ((void (*)(f32, f32 *))TObjPlayer__sub_803D993C)(node->f34, (f32 *)node->ang);
+                } else {
+                    TObjPlayer__sub_803D99F8(node->ang, flags & 0x20);
+                }
+            }
+            if (!(flags & 4)) {
+                scale_current_matrix(node->scl);
+            }
+            if (!(flags & 8)) {
+                r = ((s32 (*)(s32))cb)(node->obj);
+            }
+            if (!(flags & 0x10) && (!(flags & 0x100) || r == 0)) {
+                transform_chunk_object_tree(node->child, cb);
+            }
+            pop_matrix();
+        }
+        arg0 = node->sibling;
+    } while (arg0 != NULL);
+}
+#undef node
 
 void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0) {
     s32 n = arg0->count;

@@ -49,6 +49,9 @@ struct RecoveredGlobal_803D78A8_lbl_8058CAB8 {
 
 struct St_803D7784 { s32 a0, a4, a8, ac, b0, b4, b8, x1c; };
 
+struct Vec_803D7504 { f32 x, y, z; };
+struct Quat_803D7504 { f32 x, y, z, w; };
+
 struct Vec_803D7CA4 { f32 x, y, z; };
 
 struct Angles_803D7CA4 { s32 x, y, z; };
@@ -220,6 +223,10 @@ void bind_motion_channel_samplers(int arg0, f32 farg0);
 void advance_motion_row(void);
 extern u8 *lbl_805D76BC;
 s32 sample_motion_node_transform(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void blend_quaternions_nlerp(void *a, void *b, void *out, f32 t);
+void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1);
+void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1);
+extern const f32 lbl_805E0E88;
 }
 
 extern "C" {
@@ -563,6 +570,57 @@ void bind_motion_blend_channels(u8 *arg0, f32 farg0) {
     lbl_805D76B0 = farg0;
 }
 #pragma pop
+
+#pragma push
+#pragma use_lmw_stmw off
+#define pos ((Vec_803D7504 *)arg1)
+#define scl ((Vec_803D7504 *)arg3)
+s32 blend_motion_poses(void *node, void *arg1, void *unused, void *arg3, void *rot) {
+    Vec_803D7504 pb;
+    Vec_803D7504 sb;
+    Vec_803D7504 rb;
+    Quat_803D7504 qb;
+    Vec_803D7504 pa;
+    Vec_803D7504 sa;
+    Vec_803D7504 ra;
+    Quat_803D7504 qa;
+    f32 u;
+    f32 t;
+    s32 res_a;
+    s32 res_b;
+
+    t = lbl_805D76B0;
+    u = lbl_805E0E88 - t;
+    TBoss8Dragon__sub_803D78A8(1);
+    res_a = sample_motion_node_transform(node, &pa, &ra, &sa, &qa);
+    TBoss8Dragon__sub_803D78A8(0);
+    res_b = sample_motion_node_transform(node, &pb, &rb, &sb, &qb);
+    if (res_b != 2) {
+        if (res_b == 0) {
+            euler_zyx_to_quaternion((u8 *)&rb, (u8 *)&qb);
+        } else {
+            euler_yxz_to_quaternion((u8 *)&rb, (u8 *)&qb);
+        }
+    }
+    if (res_a != 2) {
+        if (res_a == 0) {
+            euler_zyx_to_quaternion((u8 *)&ra, (u8 *)&qa);
+        } else {
+            euler_yxz_to_quaternion((u8 *)&ra, (u8 *)&qa);
+        }
+    }
+    pos->x = pb.x * u + pa.x * t;
+    pos->y = pb.y * u + pa.y * t;
+    pos->z = pb.z * u + pa.z * t;
+    scl->x = sb.x * u + sa.x * t;
+    scl->y = sb.y * u + sa.y * t;
+    scl->z = sb.z * u + sa.z * t;
+    ((void (*)(void *, void *, f32, void *))blend_quaternions_nlerp)(&qb, &qa, t, rot);
+    return 2;
+}
+#pragma pop
+#undef pos
+#undef scl
 
 #pragma push
 #pragma opt_common_subs off

@@ -74,6 +74,17 @@ s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1) {
     return 1;
 }
 
+s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *arg0, s32 arg1) {
+    s32 i;
+    Item_8020E934 *tbl = ((Item_8020E934 **)&lbl_80513D78)[arg1];
+    for (i = 0; i < lbl_80513D68[arg1]; i++) {
+        if (arg0->b[0] == tbl[i].b[0] && arg0->b[1] == tbl[i].b[1] && arg0->b[2] == tbl[i].b[2]) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 void generate_shop_shield_pool(s32 arg0) {
     Item_8020E934 item;
     Ctr_8020E934 ctr;
