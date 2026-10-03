@@ -1398,6 +1398,39 @@ struct V3_802FAC08 { f32 x, y, z; };
 
 struct Obj_802FAC08 { u8 pad0[0x38]; f32 x; u8 pad1[4]; f32 z; };
 
+struct Vec_80021490 { f32 x, y, z; };
+
+struct Rot_80021490 { s32 x, y, z; };
+
+struct Tbl_80021490 { u8 pad0[8]; s32 e8; u8 padC[0x14 - 0xC]; s32 e14; u8 pad18[4]; s32 e1C; };
+
+struct Dragon_80021490 {
+    u8 pad0[0x38];
+    Vec_80021490 pos;
+    u8 pad44[0x5C - 0x44];
+    s32 rot[3];
+    u8 pad68[0xB8 - 0x68];
+    s16 action;
+    u8 padBA[0xC0 - 0xBA];
+    f32 frame;
+    u8 padC4[0x40C - 0xC4];
+    Vec_80021490 fxpos;
+    Vec_80021490 fxdir;
+    u8 pad424[0x5D8 - 0x424];
+    f32 altitude;
+    f32 offset;
+    f32 base;
+    u8 pad5E4[0x778 - 0x5E4];
+    Tbl_80021490 *tbl;
+    u8 pad77C[0x864 - 0x77C];
+    s32 phase;
+    s32 ticks;
+    s32 stage;
+    s32 demo_active;
+    u8 pad874[0x8AC - 0x874];
+    u32 mouth;
+};
+
 extern "C" {
 extern f32 lbl_805D4AF8;
 extern f32 lbl_805D4AFC;
@@ -1433,6 +1466,50 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 get_player_by_client_id(s32);
 extern s32 TLobby__data_805D53AC;
 u16 TBoss1Dragon__sub_800273E0(void *arg0);
+M2C_UNK clearState__12TBoss1DragonFv(void *);
+M2C_UNK advance_animation_playback();
+s32 isV2Mode__12TBoss1DragonFv(void);
+u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 init_all_slots__11TWindowCtrlFv();
+int get_target_state_b__9TObjEneDDFPv(void *p);
+M2C_UNK update_pair__11TMainCursorFPv(void *);
+M2C_UNK TBoss1Dragon__sub_800284B4(void *vself, s16 state32);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+s32 init_all_slots2__11TWindowCtrlFv();
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK spawn_particle_effect_with_flags(void *, s32, M2C_UNK);
+M2C_UNK play_cue_stream_file(void *, int);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
+u32 spawn_particle_effect_with_rotation(void *, void *, void *, int);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK copy_vec3__11TBoss4Type2FPvPv(void *, void *);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK update_cursor_pair__11TMainCursorFPv(void *);
+int get_target_state_a__9TObjEneDDFPv(void *p);
+extern s32 tl_01;
+extern u8 lbl_80435368[];
+extern const f32 TBoss1Dragon__data_805D7F24;
+extern const f32 TBoss1Dragon__data_805D7F28;
+extern const f32 TBoss1Dragon__data_805D7F48;
+extern const f32 lbl_805D7F4C;
+extern const f32 TBoss1Dragon__data_805D7F50;
+extern const f32 lbl_805D7F54;
+extern const f32 lbl_805D7F58;
+extern const f32 lbl_805D7F5C;
+extern const f32 lbl_805D7F60;
+extern const f32 TBoss1Dragon__data_805D7F64;
+extern const f32 TBoss1Dragon__data_805D7F68;
+extern const f32 lbl_805D7F6C;
+extern const f32 lbl_805D7F70;
+extern const f32 lbl_805D7F74;
+extern const f32 lbl_805D7F78;
+extern const f32 lbl_805D7F7C;
+extern const f32 lbl_805D7F80;
+extern const f32 TBoss1Dragon__data_805D7F84;
+extern const f32 lbl_805D7F88;
+void update_appearance_state__12TBoss1DragonFv(Dragon_80021490 *self, u32 reason);
 }
 struct G_80025C68 { u8 *value; u8 remaining[0x8]; };
 struct Vec_80024314 { f32 x, y, z; };
@@ -1576,7 +1653,6 @@ extern u8 TBoss1Dragon__data_80434EA0[];
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
 void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
-s32 update_appearance_state__12TBoss1DragonFv(void *, void *);
 void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1);
 s32 TBoss1Dragon__sub_80021DE4(void *, void *);
 s32 TBoss1Dragon__sub_80021F98(void *, void *);
@@ -1998,6 +2074,268 @@ void action__12TBoss1DragonFPvi(void *arg0, s32 arg1) {
         if ((get_player_by_client_id((s32)(0)) != 0U) || (get_player_by_client_id((s32)(1)) != 0U) || (get_player_by_client_id((s32)(2)) != 0U) || (get_player_by_client_id((s32)(3)) != 0U)) {
             M2C_FIELD(arg0, s32 *, 0x864) = (s32) (M2C_FIELD(arg0, s32 *, 0x864) + 1);
         }
+        break;
+    }
+}
+
+#define ANIM(s) ((M2C_UNK (*)(void *)) advance_animation_playback)(s)
+void update_appearance_state__12TBoss1DragonFv(Dragon_80021490 *self, u32 reason) {
+    s32 *demo = &self->demo_active;
+    u8 *p;
+    switch (reason) {
+    case 4:
+        self->action = 0;
+        clearState__12TBoss1DragonFv(self);
+        ANIM(self);
+        self->pos.x = TBoss1Dragon__data_805D7F28;
+        self->pos.y = TBoss1Dragon__data_805D7F28;
+        self->pos.z = TBoss1Dragon__data_805D7F28;
+        self->rot[0] = 0;
+        self->rot[1] = 0;
+        self->rot[2] = 0;
+        self->altitude = TBoss1Dragon__data_805D7F28;
+        self->offset = self->base;
+        self->mouth = 0;
+        switch (isV2Mode__12TBoss1DragonFv()) {
+        case 0:
+            self->phase = 1;
+            break;
+        case 1:
+            self->phase = 2;
+            break;
+        }
+        self->stage = 0;
+        self->ticks = 0;
+        *demo = 1;
+        p = __nw__7TObjectFUl(0x28);
+        if (p != NULL) {
+            __ct__16TBoss1DragonDemoFv(p, tl_01, (s32) demo, TBoss1Dragon__data_805D7F48);
+        }
+        self->action = 25;
+        init_all_slots__11TWindowCtrlFv();
+        get_target_state_b__9TObjEneDDFPv(self);
+        update_pair__11TMainCursorFPv(self);
+        break;
+    case 2:
+    case 9:
+        if (self->phase == 4) {
+            TBoss1Dragon__sub_800284B4(self, 0);
+        }
+        break;
+    case 0:
+        switch (self->phase) {
+        case 0:
+            break;
+        case 1:
+            ANIM(self);
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
+                self->phase = 4;
+                init_all_slots2__11TWindowCtrlFv();
+                self->action = 0;
+            }
+            switch (self->stage) {
+            case 0:
+                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F24) != 0) {
+                    play_sound_effect(0x4003A804, 0, 0, 0);
+                    self->stage++;
+                }
+                break;
+            case 1:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F4C) != 0) {
+                    play_sound_effect(0x4003AD0E, 0, 0, 0);
+                }
+                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F50) != 0) {
+                    spawn_particle_effect_with_flags(&self->pos, self->tbl->e8, 0x40);
+                    self->stage++;
+                }
+                break;
+            case 2:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F54) != 0) {
+                    play_sound_effect(0x4003AD06, 0, 0, 0);
+                    self->stage++;
+                    self->ticks = 0;
+                }
+                break;
+            case 3:
+                if (self->frame <= lbl_805D7F58) {
+                    self->ticks++;
+                    if (self->ticks % 4 == 0) {
+                        spawn_particle_effect_with_flags(&self->fxpos, self->tbl->e1C, 0x40);
+                    }
+                } else {
+                    self->stage++;
+                }
+                break;
+            case 4:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F5C) != 0) {
+                    ((M2C_UNK (*)(void *)) play_cue_stream_file)(lbl_80435368);
+                    self->stage++;
+                    self->ticks = 0;
+                }
+                break;
+            case 5:
+                if (self->frame < lbl_805D7F60) {
+                    Rot_80021490 rot;
+                    direction_to_rotation_xz(&self->fxdir, &rot.x, &rot.z);
+                    if (self->mouth == 0) {
+                        self->mouth = spawn_particle_effect_with_rotation(&self->fxpos, &rot, (void *) self->tbl->e14, 0x40);
+                    } else {
+                        copy_pos__11TNowLoadingFPvPv((void *) self->mouth, &self->fxpos);
+                        copy_vec3__11TBoss4Type2FPvPv((void *) self->mouth, &rot);
+                    }
+                } else {
+                    if (self->mouth != 0) {
+                        queue_destruction__7TObjectFv((void *) self->mouth);
+                        self->mouth = 0;
+                    }
+                    self->stage++;
+                }
+                break;
+            }
+            break;
+        case 2:
+            ANIM(self);
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
+                self->phase = 4;
+                init_all_slots2__11TWindowCtrlFv();
+                self->action = 0;
+            }
+            switch (self->stage) {
+            case 0:
+                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F64) != 0 ||
+                    objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F68) != 0) {
+                    play_sound_effect(0x4003A804, 0, 0, 0);
+                }
+                if (objInBand__FP7GameObjf(self, lbl_805D7F6C) != 0) {
+                    play_sound_effect(0x4003AD0E, 0, 0, 0);
+                }
+                if (objInBand__FP7GameObjf(self, lbl_805D7F70) != 0) {
+                    play_sound_effect(0x4003A804, 0, 0, 0);
+                    spawn_particle_effect_with_flags(&self->pos, self->tbl->e8, 0x40);
+                    self->stage++;
+                }
+                break;
+            case 1:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F74) != 0) {
+                    play_sound_effect(0x4003AD06, 0, 0, 0);
+                    self->stage++;
+                    self->ticks = 0;
+                }
+                break;
+            case 2:
+                if (self->frame <= lbl_805D7F78) {
+                    self->ticks++;
+                    if (self->ticks % 4 == 0) {
+                        spawn_particle_effect_with_flags(&self->fxpos, self->tbl->e1C, 0x40);
+                    }
+                } else {
+                    self->stage++;
+                }
+                break;
+            case 3:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F7C) != 0) {
+                    ((M2C_UNK (*)(void *)) play_cue_stream_file)(lbl_80435368);
+                    self->stage++;
+                    self->ticks = 0;
+                }
+                break;
+            case 4:
+                if (self->frame < lbl_805D7F80) {
+                    Rot_80021490 rot;
+                    direction_to_rotation_xz(&self->fxdir, &rot.x, &rot.z);
+                    if (self->mouth == 0) {
+                        self->mouth = spawn_particle_effect_with_rotation(&self->fxpos, &rot, (void *) self->tbl->e14, 0x40);
+                    } else {
+                        copy_pos__11TNowLoadingFPvPv((void *) self->mouth, &self->fxpos);
+                        copy_vec3__11TBoss4Type2FPvPv((void *) self->mouth, &rot);
+                    }
+                } else {
+                    if (self->mouth != 0) {
+                        queue_destruction__7TObjectFv((void *) self->mouth);
+                        self->mouth = 0;
+                    }
+                    self->stage++;
+                }
+                break;
+            }
+            break;
+        case 3:
+            ANIM(self);
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
+                self->phase = 4;
+                init_all_slots2__11TWindowCtrlFv();
+                self->action = 0;
+            }
+            switch (self->stage) {
+            case 0:
+                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F24) != 0) {
+                    play_sound_effect(0x4003A804, 0, 0, 0);
+                    self->stage++;
+                }
+                break;
+            case 1:
+                if (objInBand__FP7GameObjf(self, TBoss1Dragon__data_805D7F84) != 0) {
+                    play_sound_effect(0x4003AD0E, 0, 0, 0);
+                }
+                if (objInBand__FP7GameObjf(self, lbl_805D7F88) != 0) {
+                    spawn_particle_effect_with_flags(&self->pos, self->tbl->e8, 0x40);
+                    spawn_particle_effect_with_flags(&self->pos, 0x203, 0x40);
+                    self->stage++;
+                }
+                break;
+            case 2:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F54) != 0) {
+                    play_sound_effect(0x4003AD06, 0, 0, 0);
+                    self->stage++;
+                    self->ticks = 0;
+                }
+                break;
+            case 3:
+                if (self->frame > lbl_805D7F58) {
+                    self->stage++;
+                }
+                break;
+            case 4:
+                if (objInBand__FP7GameObjf(self, lbl_805D7F5C) != 0) {
+                    ((M2C_UNK (*)(void *)) play_cue_stream_file)(lbl_80435368);
+                    self->stage++;
+                    self->ticks = 0;
+                }
+                break;
+            case 5:
+                if (self->frame < lbl_805D7F60) {
+                    Rot_80021490 rot;
+                    direction_to_rotation_xz(&self->fxdir, &rot.x, &rot.z);
+                    if (self->mouth == 0) {
+                        self->mouth = spawn_particle_effect_with_rotation(&self->fxpos, &rot, (void *) self->tbl->e14, 0x40);
+                    } else {
+                        copy_pos__11TNowLoadingFPvPv((void *) self->mouth, &self->fxpos);
+                        copy_vec3__11TBoss4Type2FPvPv((void *) self->mouth, &rot);
+                    }
+                } else {
+                    if (self->mouth != 0) {
+                        queue_destruction__7TObjectFv((void *) self->mouth);
+                        self->mouth = 0;
+                    }
+                    self->stage++;
+                }
+                break;
+            }
+            break;
+        case 4:
+            ANIM(self);
+            break;
+        }
+        break;
+    case 5:
+        if (self->mouth != 0) {
+            queue_destruction__7TObjectFv((void *) self->mouth);
+            self->mouth = 0;
+        }
+        update_cursor_pair__11TMainCursorFPv(self);
+        *demo = 0;
+        init_all_slots2__11TWindowCtrlFv();
+        get_target_state_a__9TObjEneDDFPv(self);
         break;
     }
 }
@@ -3859,7 +4197,7 @@ void dispatch_action__12TBoss1DragonFiUii(s32 arg0, u32 arg1, s32 arg2) {
         TBoss1Dragon__sub_80022158((void *) (arg0), (void *) (arg2));
         return;
     case 29:
-        update_appearance_state__12TBoss1DragonFv((void *) (arg0), (void *) (arg2));
+        update_appearance_state__12TBoss1DragonFv((Dragon_80021490 *)((void *) (arg0)), (u32)((void *) (arg2)));
         return;
     case 30:
         action__12TBoss1DragonFPvi((void *)((void *) (arg0)), (s32)((void *) (arg2)));

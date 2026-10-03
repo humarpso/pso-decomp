@@ -43,6 +43,48 @@ struct ItemData_80279754 {
     u8 b[0x14];
 };
 
+struct VBase_18_1de278 { char pad[0x18]; };
+
+struct VObj_18_1de278 : VBase_18_1de278 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual M2C_UNK m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual s32 m34();
+};
+
+struct Pad_80279FFC { u8 pad0[0x20]; u8 f20[0x30]; };
+
 extern "C" {
 void TWindowSubItem__sub_8027AA30(u8 *arg0);
 s32 TWindowSubItem__sub_8027AA78(s32 arg0);
@@ -110,6 +152,56 @@ u8 get_field_ec__12TOSwitchItemFPv(int);
 s32 get_player_by_client_id(s32);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
 s32 has_armor_with_unit_slot(void *arg0, int arg1);
+s32 is_visible__17TWindowSubComCardFPv(u32);
+s32 get_status_flag__17TWindowSubComCardFPv(u32);
+void *find_item_by_id(s32);
+s32 get_status_flag__6TLobbyFPv(s32);
+s32 get_flag_bit2__6TLobbyFPv(s32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 is_usable__14TWindowSubItemFi(s32);
+void TObjPlayer__sub_801B89B0(s32, s32);
+void TObjPlayer__sub_801B8A80(s32, s32);
+void request_item_drop__10TObjPlayerFPvii(s32, s32, s32);
+s32 get_player_by_client_id(s32);
+u32 is_action_active__10TObjPlayerFPv(s32);
+s32 create_if_key_pressed__23TAdSinglePlyChrSelectGCFv();
+void decrement_clamped(void *, s32);
+void clear_selected_and_update_entry__14TWindowSubItemFPv(s32);
+s32 is_confirmed__24TShopEquipmentSellWindowFPv(u32);
+s32 get_result__24TShopEquipmentSellWindowFPv(u32);
+s32 is_confirmed__18TWindowInputNumberFPv(u32);
+void clear_flag_and_release__17TWindowSubComCardFPv(u32);
+s16 get_cursor_index__18TShopGetItemWindowFPv(s32);
+void play_sound_effect(s32, s32, s32, s32);
+s32 __nw__7TObjectFUl(M2C_UNK);
+void TWindow__close(void *);
+M2C_UNK set_field_1c__6TLobbyFPvf(s32);
+s32 is_player_input_active(s32);
+s32 TWindowCtrl__sub_8024A228(s32);
+u32 TWindowHelpItem__ct(s32, s32, s32);
+M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
+s32 TWindowSubComCard__sub_80265BF8(u32);
+void clear_transition_flag__17TWindowSubComCardFPv(u32);
+void open__17TWindowOptionCtrlFPv(u32);
+s32 select_cursor_entry__6TLobbyFPv(int);
+s32 get_window_layout_position(M2C_UNK);
+void TWindowShortListCtrl__sub_8026E93C(s32, s32);
+void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1);
+void TWindowSubItem__sub_802797FC(u8 *arg0);
+void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
+void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
+void TWindowSubItem__sub_802799E4(void *, s32);
+s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
+s32 TWindowSubItem__sub_80279E68(u8 *arg0);
+s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1);
+void clear_flag_and_release__14TWindowSubItemFPv(void *arg0);
+void TWindowSubItem__sub_8027AA30(u8 *arg0);
+void reset_selected__14TWindowSubItemFPv(void* p);
+void set_field_74__14TWindowSubItemFPvs(void* p, s16 v);
+void refresh__14TWindowSubItemFPv(void* p);
+extern Pad_80279FFC lbl_8050E208[];
+void run_task__14TWindowSubItemFv(u8 *arg0);
 }
 
 extern "C" {
@@ -164,6 +256,12 @@ s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(s32);
 M2C_UNK set_value__18TWindowInputNumberFPvf(s32, f32);
+
+extern "C" {
+Quest_8027ABFC *get_quest_id__12TQuestListVMFPv(void *);
+void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0);
+void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
+}
 
 void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) && (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x20))) {
@@ -396,6 +494,269 @@ s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1) {
 void render__14TWindowSubItemFv(void) {  }
 
 extern M2C_UNK __vt__14TWindowSubItem[];
+
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define LIST F(s32, 0x30)
+#define BACK_PRESSED(idx) (TWindowShortListCtrl__check_controller_button(lbl_8050E208[idx].f20, 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].f20, 2) != 0)
+void run_task__14TWindowSubItemFv(u8 *arg0) {
+    s32 p;
+    s32 idx;
+    u32 w;
+    p = get_player_by_client_id(F(s32, 0x24));
+    if (p != 0) {
+        idx = is_player_input_active(F(s32, 0x24));
+        switch (F(u8, 0x1C)) {
+        case 0:
+        case 1:
+            if (F(u32, 0x3C) != 0) {
+                TWindow__close((void *) F(u32, 0x3C));
+                F(u32, 0x3C) = 0;
+            }
+            if (F(u32, 0x38) != 0) {
+                TWindow__close((void *) F(u32, 0x38));
+                F(u32, 0x38) = 0;
+            }
+            if (F(u32, 0x34) != 0) {
+                TWindow__close((void *) F(u32, 0x34));
+                F(u32, 0x34) = 0;
+            }
+            if (F(u32, 0x40) == 0) {
+                w = __nw__7TObjectFUl(0xBC);
+                if (w != 0) {
+                    w = TWindowHelpItem__ct(w, get_window_layout_position(2), F(s32, 0x24));
+                }
+                F(u32, 0x40) = w;
+                TWindowSubEquip__sub_80263AF8(F(s32, 0x2C), 4);
+                set_field_1c__6TLobbyFPvf(F(u32, 0x40));
+                F(s32, 0x20) = -1;
+            }
+            refresh__14TWindowSubItemFPv((void *) LIST);
+            clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
+            F(u8, 0x1C) = 2;
+        case 2:
+            set_displayed_item__14TWindowSubItemFPvi(arg0, select_cursor_entry__6TLobbyFPv(LIST));
+            if (get_flag_bit2__6TLobbyFPv(LIST) != 0) {
+                ((VObj_18_1de278 *) F(u8 *, 0x2C))->m7();
+                F(u8, 0x1C) = 0x17;
+                return;
+            }
+            if (get_status_flag__6TLobbyFPv(LIST) != 0) {
+                F(u8, 0x1C) = 3;
+                return;
+            }
+            break;
+        case 3:
+            if (F(u32, 0x3C) != 0) {
+                TWindow__close((void *) F(u32, 0x3C));
+                F(u32, 0x3C) = 0;
+            }
+            if (F(u32, 0x38) != 0) {
+                TWindow__close((void *) F(u32, 0x38));
+                F(u32, 0x38) = 0;
+            }
+            if (F(u32, 0x40) != 0) {
+                TWindow__close((void *) F(u32, 0x40));
+                F(u32, 0x40) = 0;
+            }
+            if (F(u32, 0x34) == 0) {
+                F(u32, 0x34) = TWindowSubItem__sub_80279F28(arg0, select_cursor_entry__6TLobbyFPv(LIST));
+            }
+            clear_flag_and_release__17TWindowSubComCardFPv(F(u32, 0x34));
+            clear_transition_flag__17TWindowSubComCardFPv(F(u32, 0x34));
+            F(u8, 0x1C) = 4;
+        case 4:
+            if (TWindowSubComCard__sub_80265BF8(F(u32, 0x34)) == 0) {
+                TWindowShortListCtrl__sub_8026E93C(select_cursor_entry__6TLobbyFPv(LIST), F(s32, 0x24));
+            }
+            if (get_status_flag__17TWindowSubComCardFPv(F(u32, 0x34)) != 0) {
+                F(u8, 0x1C) = 1;
+            }
+            if (is_visible__17TWindowSubComCardFPv(F(u32, 0x34)) != 0) {
+                TWindowSubItem__sub_802799E4(arg0, TWindowSubComCard__sub_80265BF8(F(u32, 0x34)));
+                return;
+            }
+            break;
+        case 5:
+            if (BACK_PRESSED(idx)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
+                F(u8, 0x1C) = 3;
+            }
+            if (is_usable__14TWindowSubItemFi(p) != 0) {
+                exec_item_command__14TWindowSubItemFPvii(arg0, select_cursor_entry__6TLobbyFPv(LIST), TWindowSubComCard__sub_80265BF8(F(u32, 0x34)));
+                return;
+            }
+            break;
+        case 6:
+            open__17TWindowOptionCtrlFPv(F(u32, 0x34));
+            F(u32, 0x38) = TWindowSubItem__sub_80279E68(arg0);
+            F(u8, 0x1C) = 7;
+        case 7:
+            if (get_status_flag__17TWindowSubComCardFPv(F(u32, 0x38)) != 0) {
+                F(u8, 0x1C) = 3;
+            }
+            if (is_visible__17TWindowSubComCardFPv(F(u32, 0x38)) != 0) {
+                close_windows__14TWindowSubItemFPvi(arg0, TWindowSubComCard__sub_80265BF8(F(u32, 0x38)));
+                return;
+            }
+            break;
+        case 8: {
+            s16 cur = get_cursor_index__18TShopGetItemWindowFPv(LIST);
+            refresh__14TWindowSubItemFPv((void *) LIST);
+            TWindowSubItem__sub_8027AB10((Wn_8027AB10 *) LIST);
+            TWindowSubItem__sub_8027AA80((Wn_8027AA80 *) LIST);
+            set_field_74__14TWindowSubItemFPvs((void *) LIST, cur);
+            clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
+            reset_selected__14TWindowSubItemFPv((void *) LIST);
+            F(u8, 0x1C) = 9;
+        }
+        case 9:
+            if (get_flag_bit2__6TLobbyFPv(LIST) != 0) {
+                ((VObj_18_1de278 *) F(u8 *, 0x2C))->m7();
+                F(u8, 0x1C) = 0x17;
+                return;
+            }
+            if (get_status_flag__6TLobbyFPv(LIST) != 0) {
+                clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
+                F(u8, 0x1C) = 0xA;
+                return;
+            }
+            break;
+        case 10:
+            TWindowSubItem__sub_8027AB10((Wn_8027AB10 *) LIST);
+            TWindowSubItem__sub_8027AA80((Wn_8027AA80 *) LIST);
+            TWindowSubItem__sub_8027AA30((u8 *) LIST);
+            clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
+            F(u8, 0x1C) = 0xB;
+        case 11:
+            if (get_flag_bit2__6TLobbyFPv(LIST) != 0) {
+                F(u8, 0x1C) = 8;
+                return;
+            }
+            if (get_status_flag__6TLobbyFPv(LIST) != 0) {
+                TWindowSubItem__sub_802797FC(arg0);
+                clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
+                F(u8, 0x1C) = 8;
+                return;
+            }
+            break;
+        case 12: {
+            s32 n = ((VObj_18_1de278 *) find_item_by_id(select_cursor_entry__6TLobbyFPv(LIST)))->m34();
+            if (n <= 1) {
+                F(s32, 0x28) = 1;
+                F(u8, 0x1C) = 0xE;
+                return;
+            }
+            open__17TWindowOptionCtrlFPv(F(u32, 0x34));
+            if (F(u32, 0x3C) == 0) {
+                F(u32, 0x3C) = create_count_input__14TWindowSubItemFPvi(arg0, n);
+            }
+            clear_flag_and_release__14TWindowSubItemFPv((void *) F(u32, 0x3C));
+            F(u8, 0x1C) = 0xD;
+        }
+        case 13:
+            if (is_confirmed__24TShopEquipmentSellWindowFPv(F(u32, 0x3C)) != 0) {
+                F(u8, 0x1C) = 3;
+            }
+            if (is_confirmed__18TWindowInputNumberFPv(F(u32, 0x3C)) != 0) {
+                F(s32, 0x28) = get_result__24TShopEquipmentSellWindowFPv(F(u32, 0x3C));
+                F(u8, 0x1C) = 0xE;
+                return;
+            }
+            break;
+        case 14:
+            if (BACK_PRESSED(idx)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
+                F(u8, 0x1C) = 3;
+            }
+            if (is_usable__14TWindowSubItemFi(p) != 0) {
+                request_item_drop__10TObjPlayerFPvii(p, select_cursor_entry__6TLobbyFPv(LIST), F(s32, 0x28));
+                F(u8, 0x1C) = 0x16;
+                return;
+            }
+            break;
+        case 15:
+            F(u8, 0x1C) = 0x10;
+        case 16:
+            if (BACK_PRESSED(idx)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
+                F(u8, 0x1C) = 1;
+            }
+            p = get_player_by_client_id(F(s32, 0x24));
+            if (p != 0 && is_usable__14TWindowSubItemFi(p) != 0 && TWindowCtrl__sub_8024A228(F(s32, 0x24)) != 0) {
+                TObjPlayer__sub_801B89B0(p, select_cursor_entry__6TLobbyFPv(LIST) & 0xF);
+                F(u8, 0x1C) = 1;
+                return;
+            }
+            break;
+        case 17:
+            F(u8, 0x1C) = 0x12;
+        case 18:
+            if (BACK_PRESSED(idx)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
+                F(u8, 0x1C) = 1;
+            }
+            p = get_player_by_client_id(F(s32, 0x24));
+            if (p != 0 && is_usable__14TWindowSubItemFi(p) != 0 && create_if_key_pressed__23TAdSinglePlyChrSelectGCFv() != 0) {
+                decrement_clamped((void *) (p + 0x7C8), 1);
+                F(u8, 0x1C) = 1;
+                return;
+            }
+            break;
+        case 19: {
+            Quest_8027ABFC *q = get_quest_id__12TQuestListVMFPv((void *) p);
+            s32 n;
+            if (q == NULL) {
+                F(u8, 0x1C) = 0x16;
+                return;
+            }
+            n = q->count;
+            if (n <= 1) {
+                if (n == 1) {
+                    F(s32, 0x28) = 1;
+                    F(u8, 0x1C) = 0x15;
+                    return;
+                }
+                F(u8, 0x1C) = 0x16;
+                return;
+            }
+            open__17TWindowOptionCtrlFPv(F(u32, 0x34));
+            if (F(u32, 0x3C) == 0) {
+                F(u32, 0x3C) = create_count_input__14TWindowSubItemFPvi(arg0, n);
+            }
+            clear_flag_and_release__14TWindowSubItemFPv((void *) F(u32, 0x3C));
+            F(u8, 0x1C) = 0x14;
+        }
+        case 20:
+            if (is_confirmed__24TShopEquipmentSellWindowFPv(F(u32, 0x3C)) != 0) {
+                F(u8, 0x1C) = 3;
+            }
+            if (is_confirmed__18TWindowInputNumberFPv(F(u32, 0x3C)) != 0) {
+                F(s32, 0x28) = get_result__24TShopEquipmentSellWindowFPv(F(u32, 0x3C));
+                F(u8, 0x1C) = 0x15;
+                return;
+            }
+            break;
+        case 21:
+            if (BACK_PRESSED(idx)) {
+                play_sound_effect(0x52F16, 0, 0, 0);
+                F(u8, 0x1C) = 3;
+            }
+            if (is_usable__14TWindowSubItemFi(p) != 0) {
+                TObjPlayer__sub_801B8A80(p, F(s32, 0x28));
+                F(u8, 0x1C) = 0x16;
+                return;
+            }
+            break;
+        case 22:
+            if (is_action_active__10TObjPlayerFPv(p) == 0) {
+                F(u8, 0x1C) = 1;
+            }
+            break;
+        case 23:
+            break;
+        }
+    }
+}
 
 void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
