@@ -11339,21 +11339,9 @@ pso/misc/TTecGiBarta.cpp:
 	.text       start:0x80230378 end:0x80230D9C
 	.rodata     start:0x8044D298 end:0x8044D2A0
 
-pso/unk/text_80230D9C.cpp:
-	.text       start:0x80230D9C end:0x80230EA0
-	.rodata     start:0x8044D350 end:0x8044D358
-
-pso/unk/text_80230EA0.cpp:
-	.text       start:0x80230EA0 end:0x80231224
-
-pso/unk/text_80231224.cpp:
-	.text       start:0x80231224 end:0x802312E4
-
-pso/unk/text_802312E4.cpp:
-	.text       start:0x802312E4 end:0x80231AEC
-
 pso/misc/TTecGiFoie.cpp:
-	.text       start:0x80231AEC end:0x80231AF0
+	.text       start:0x80230D9C end:0x80231AF0
+	.rodata     start:0x8044D350 end:0x8044D358
 
 pso/unk/text_80231AF0.cpp:
 	.text       start:0x80231AF0 end:0x80231BF4
