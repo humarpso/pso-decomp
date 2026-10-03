@@ -2952,6 +2952,282 @@ void apply_knockback_from_attacker(u8 *arg0, u8 *arg1) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+struct VBase_18_d805cd { char pad[0x18]; };
+struct VObj_18_d805cd : VBase_18_d805cd {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72(s32);
+    virtual void m73();
+};
+
+struct Vec_80014108 { f32 x, y, z; };
+struct Coll_80014108 { u8 pad0[0x18]; u32 flags; Vec_80014108 pos; f32 def; };
+struct Elem_80014108 { u8 type; s8 value; };
+struct Obj_80014108 {
+    u8 pad0[0x30];
+    u32 flags30;
+    u8 pad34[0xA4 - 0x34];
+    Coll_80014108 *colls;
+    s32 ncolls;
+    u8 padAC[0x110 - 0xAC];
+    Elem_80014108 elem[3];
+    u8 pad116[0x2C8 - 0x116];
+    s16 atp;
+    s16 atpRange;
+    s16 f2CC;
+    s16 dfp;
+    s16 f2D0;
+    s16 lck;
+    u8 pad2D4[0x2E4 - 0x2D4];
+    s32 elemKind;
+    s16 atkElem[5];
+    s16 resist[5];
+    u8 pad2FC[0x32C - 0x2FC];
+    s16 hp;
+};
+
+void create__12TEffCliticalFPv(void *);
+extern const f32 TObjPlayer__data_805D7D20;
+extern const f32 lbl_805D7D84;
+extern const f32 lbl_805D7D88;
+#define check_heavy_damage_flag(a, b) ((void (*)(void *, f32))check_heavy_damage_flag)(a, b)
+#define attach_mine_trap__10TObjPlayerFiUi(a, b) ((void (*)(void *, void *))attach_mine_trap__10TObjPlayerFiUi)(a, b)
+#define calc_boss4_scale__10TObjPlayerFi(a) ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(a)
+#define TObjectV8047c128_subtract_hp(a, b) ((void (*)(void *, s32))TObjectV8047c128_subtract_hp)(a, b)
+#define trigger_switch_attack__10TObjPlayerFPvi(a, b) ((void (*)(void *, void *))trigger_switch_attack__10TObjPlayerFPvi)(a, b)
+#define try_apply_damage__19TObjEneEpsilonGuardFPvUii(a, b, c) ((void (*)(void *, void *, s32))try_apply_damage__19TObjEneEpsilonGuardFPvUii)(a, b, c)
+#define VecCopy__FP3VecPC3Vec(a, b) ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(a, b)
+#define is_locally_controlled__10TObjPlayerFPv(a) ((s32 (*)(void *))is_locally_controlled__10TObjPlayerFPv)(a)
+#define obj_isState2_324(a) ((s32 (*)(void *))obj_isState2_324)(a)
+#define get_model_animation_id__10TObjPlayerFPv(a) ((s16 (*)(void *))get_model_animation_id__10TObjPlayerFPv)(a)
+#define obj_testFlags30(a, b) ((s32 (*)(void *, int))obj_testFlags30)(a, b)
+#define obj_getField1c(a) ((u16 (*)(void *))obj_getField1c)(a)
+#define obj_setFlags30(a, b) ((void (*)(void *, u32))obj_setFlags30)(a, b)
+#define get_type__10TObjPlayerFPv(a) ((s32 (*)(void *))get_type__10TObjPlayerFPv)(a)
+#define play_sound_effect(a, b, c, d) ((void (*)(s32, void *, s32, s32))play_sound_effect)(a, b, c, d)
+#define RESIST_80014108(k) \
+    dmg += att->atkElem[k] * (0.01f * (f32)(100 - self->resist[k]));
+
+#pragma opt_loop_invariants off
+#define COLL_80014108() (&self->colls[i])
+
+f32 receive_physical_attack__10TObjPlayerFv(Obj_80014108 *self, Obj_80014108 *att, f32 scale) {
+    Vec_80014108 hit;
+    s32 immune;
+    s32 i;
+    s32 j;
+    f32 scl0;
+    f32 dmg;
+    f32 elem;
+    f32 total;
+    f32 d;
+    f32 crit;
+    f32 lck;
+    f32 boss;
+
+    if (att == NULL || obj_getField1c(att) == 0xFFFF || obj_testFlags30(self, 0x800) != 0) {
+        return 0.0f;
+    }
+    if (obj_testFlags30(self, 0x04000000) != 0 && obj_testFlags30(self, 0x02000000) == 0) {
+        try_apply_damage__19TObjEneEpsilonGuardFPvUii(self, (u8 *)self + 0x2FC, 0);
+        return 0.0f;
+    }
+    attach_mine_trap__10TObjPlayerFiUi(self, att);
+    if (obj_isState2_324(self) != 0) {
+        immune = 1;
+    } else if (obj_isState2_324(att) != 0) {
+        if (is_locally_controlled__10TObjPlayerFPv(self) != 0 && get_type__10TObjPlayerFPv((u8 *)att + 0x828) != 0) {
+            immune = 0;
+        } else {
+            immune = 1;
+        }
+    } else {
+        immune = 0;
+    }
+    scl0 = calc_boss4_scale__10TObjPlayerFi(self);
+    dmg = 0.2f * (att->atpRange * scl0 + att->atp);
+    elem = 0.2f * get_model_animation_id__10TObjPlayerFPv(att);
+    for (j = 0; j < 3; j++) {
+        switch (self->elemKind) {
+        case 1:
+            if (att->elem[j].type == 1) {
+                elem *= 0.01f * att->elem[j].value + 1.0f;
+            }
+            break;
+        case 2:
+            if (att->elem[j].type == 2) {
+                elem *= 0.01f * att->elem[j].value + 1.0f;
+            }
+            break;
+        case 4:
+            if (att->elem[j].type == 3) {
+                elem *= 0.01f * att->elem[j].value + 1.0f;
+            }
+            break;
+        case 8:
+            if (att->elem[j].type == 4) {
+                elem *= 0.01f * att->elem[j].value + 1.0f;
+            }
+            break;
+        }
+    }
+    dmg += elem;
+    RESIST_80014108(0)
+    RESIST_80014108(1)
+    RESIST_80014108(2)
+    RESIST_80014108(3)
+    RESIST_80014108(4)
+    total = 0.0f;
+    for (i = 0; i < self->ncolls; i++) {
+        if (COLL_80014108()->flags & 0x04000000) {
+            COLL_80014108()->flags &= ~0x04000000;
+            VecCopy__FP3VecPC3Vec(&hit, &COLL_80014108()->pos);
+            d = dmg - 0.2f * self->dfp - COLL_80014108()->def;
+            if (d < 0.0f) {
+                d = 0.0f;
+                try_apply_damage__19TObjEneEpsilonGuardFPvUii(self, &hit, (s32)d);
+            } else {
+                d *= scale;
+                if (obj_testFlags30(self, 0x02000000) == 0) {
+                    boss = calc_boss4_scale__10TObjPlayerFi(self);
+                    if (obj_getField1c(att) < 0x1000) {
+                        crit = boss * lbl_805D7D84;
+                    } else {
+                        crit = boss * lbl_805D7D68;
+                    }
+                    lck = att->lck;
+                    if (100.0f < lck) {
+                        lck = 100.0f;
+                    }
+                    if (crit <= lck) {
+                        create__12TEffCliticalFPv(&hit);
+                        play_sound_effect(0x4001A31F, &hit, 0, 0);
+                        d *= lbl_805D7D88;
+                    } else {
+                        create_hit_effect__10TObjPlayerFPv(&hit);
+                    }
+                    trigger_switch_attack__10TObjPlayerFPvi(self, &hit);
+                    try_apply_damage__19TObjEneEpsilonGuardFPvUii(self, &hit, (s32)d);
+                }
+                total += d;
+            }
+        }
+    }
+    if (total <= 0.0f) {
+        self->flags30 |= 0x100;
+        return 0.0f;
+    }
+    obj_setFlags30(self, 0x200);
+    check_heavy_damage_flag(self, total);
+    if (immune == 0) {
+        TObjectV8047c128_subtract_hp(self, (s32)total);
+        if (self->hp <= 0) {
+            self->flags30 |= 0x800;
+        }
+    }
+    if (immune == 0) {
+        ((VObj_18_d805cd *)self)->m72(0);
+    }
+    if (is_locally_controlled__10TObjPlayerFPv(self) != 0) {
+        calc_photon_blast_charge__10TObjPlayerFv(self, (s32)(20.0f * total));
+        ((VObj_18_d805cd *)self)->m73();
+    }
+    record_local_damage_if_enabled(self, att, (s32)total);
+    empty_post_damage_hook(self, att);
+    return total;
+}
+
+#undef check_heavy_damage_flag
+#undef attach_mine_trap__10TObjPlayerFiUi
+#undef calc_boss4_scale__10TObjPlayerFi
+#undef TObjectV8047c128_subtract_hp
+#undef trigger_switch_attack__10TObjPlayerFPvi
+#undef try_apply_damage__19TObjEneEpsilonGuardFPvUii
+#undef VecCopy__FP3VecPC3Vec
+#undef is_locally_controlled__10TObjPlayerFPv
+#undef obj_isState2_324
+#undef get_model_animation_id__10TObjPlayerFPv
+#undef obj_testFlags30
+#undef obj_getField1c
+#undef obj_setFlags30
+#undef get_type__10TObjPlayerFPv
+#undef play_sound_effect
+#undef RESIST_80014108
+#undef COLL_80014108
+#pragma pop
+
 int TObjPlayer__sub_80014830(void) { return 0; }
 
 int TObjPlayer__sub_80014838(void) { return 0; }
@@ -3320,6 +3596,57 @@ s16 *get_attribute_entry__10TObjPlayerFPvi(O_80015DC4 *self, s32 i) {
     }
     return 0;
 }
+
+#pragma push
+#pragma fp_contract on
+extern const float lbl_805D7DA4;
+extern const double lbl_80434090;
+#define get_ata__10TObjPlayerFPv(a) ((short (*)(const void *))get_ata__10TObjPlayerFPv)(a)
+#define obj_testFlag_2E4(a, b) ((int (*)(const void *, RangedU))obj_testFlag_2E4)(a, b)
+#define VecCopy__FP3VecPC3Vec(a, b) ((void (*)(RangedVec *, const RangedVec *))VecCopy__FP3VecPC3Vec)(a, b)
+#define subtract_vector(a, b) ((void (*)(RangedVec *, const RangedVec *))subtract_vector)(a, b)
+#define calc_boss4_scale__10TObjPlayerFi(a) ((float (*)(RangedActor *))calc_boss4_scale__10TObjPlayerFi)(a)
+#define attach_mine_trap__10TObjPlayerFiUi(a, b) ((void (*)(RangedActor *, RangedActor *))attach_mine_trap__10TObjPlayerFiUi)(a, b)
+#define show_miss_popup(a, b) ((void (*)(RangedActor *, const RangedVec *))show_miss_popup)(a, b)
+typedef unsigned int RangedU;
+typedef struct { float x,y,z; } RangedVec;
+typedef struct {
+    unsigned char before_flags[0x30]; RangedU flags;
+    unsigned char before_position[4]; RangedVec position;
+    unsigned char before_evp[0x2cc-0x44]; short evp;
+    unsigned char before_hit_flags[0x2dc-0x2ce]; RangedU hit_flags;
+} RangedActor;
+typedef struct { unsigned char prefix[0x18]; RangedU flags; RangedVec center; float defense; } RangedBody;
+int calc_distance_accuracy_penalty__10TObjPlayerFv(RangedActor* target,RangedActor* attacker,RangedBody* body,const RangedVec* origin,float multiplier) {
+    RangedVec delta;
+    if(attacker&&body&&!(target->flags&0x04000000)) {
+        float chance=TObjPlayer__data_805D7D54*((multiplier*(float)get_ata__10TObjPlayerFPv(attacker))-(TObjPlayer__data_805D7D28*(float)target->evp));
+        VecCopy__FP3VecPC3Vec(&delta,&body->center);
+        if(!obj_testFlag_2E4(attacker,0x20)) {
+            if(origin)subtract_vector(&delta,origin);
+            else subtract_vector(&delta,&attacker->position);
+            const float squared=delta.x*delta.x+delta.z*delta.z;
+            const float dist=newton_sqrtf(squared);
+            float pen=(float)(dist*lbl_80434090);
+            pen*=lbl_805D7DA4;
+            chance-=pen;
+        }
+        if(TObjPlayer__data_805D7D24<chance&&calc_boss4_scale__10TObjPlayerFi(target)<=chance) {
+            body->flags|=0x04000000;attach_mine_trap__10TObjPlayerFiUi(target,attacker);target->hit_flags|=2;return 1;
+        }
+        target->flags|=0x100;VecCopy__FP3VecPC3Vec(&delta,&body->center);show_miss_popup(target,&delta);
+    }
+    return 0;
+}
+
+#undef get_ata__10TObjPlayerFPv
+#undef obj_testFlag_2E4
+#undef VecCopy__FP3VecPC3Vec
+#undef subtract_vector
+#undef calc_boss4_scale__10TObjPlayerFi
+#undef attach_mine_trap__10TObjPlayerFiUi
+#undef show_miss_popup
+#pragma pop
 
 void display_exp_gain(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
     if ((((s32 (*)(s32, u32))obj_testFlags30)(arg0, 0x02000000) == 0) && (((s32 (*)(s32))is_locally_controlled__10TObjPlayerFPv)(arg0) == 0) && (arg1 != 0U)) {
