@@ -49,17 +49,12 @@ force_active:
   - TBoss8Dragon__sub_8005E17C
   - TBoss8Dragon__sub_802FC978
   - TChCrTagInformation__sub_802A1E8C
-  - TFogCtrl__sub_800FB0F8
-  - TFontSmallLobby__sub_801B117C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
-  - TItemList__sub_801D3E20
   - TItemWeaponMechgun__ct
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
   - TLobby__sub_801E6604
-  - TLobby__sub_802080F4
-  - TLobby__sub_802081E0
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
@@ -76,7 +71,6 @@ force_active:
   - TNpcPlayer__sub_80152CE8
   - TODragonfly__sub_80164764
   - TObjBagWarnWin__sub_8006EC20
-  - TObjEneBm3FlyNest__sub_800B2948
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjFish__sub_800E2FFC
@@ -85,18 +79,10 @@ force_active:
   - TObjPlayer__sub_800DA1F4
   - TObjPlayer__sub_80130A30
   - TObjPlayer__sub_801AA6E4
-  - TObjPlayer__sub_801B40D0
   - TObjPlayer__sub_801BBBD0
-  - TObjPlayer__sub_801BEF8C
-  - TObjPlayer__sub_801BF014
-  - TObjPlayer__sub_801BF060
-  - TObjPlayer__sub_801BF0A8
-  - TObjPlayer__sub_801BF134
-  - TObjPlayer__sub_801BF1D4
   - TObjPlayer__sub_801BF204
   - TObjPlayer__sub_801BF2F8
   - TObjPlayer__sub_801BF31C
-  - TObjPlayer__sub_801BF34C
   - TObjPlayer__sub_801BF5F0
   - TObjPlayer__sub_801BF5F8
   - TObjPlayer__sub_801BF60C
@@ -104,7 +90,6 @@ force_active:
   - TObjPlayer__sub_801BF8CC
   - TObjPlayer__sub_801BFD3C
   - TObjPlayer__sub_801C1A30
-  - TObjPlayer__sub_801D0B44
   - TObjPlayer__sub_801D1FA4
   - TObjPlayer__sub_801D2004
   - TObjPlayer__sub_801D2EE8
@@ -118,18 +103,14 @@ force_active:
   - TObjPlayer__sub_803DAA70
   - TObjPlayer__sub_803DAD84
   - TObjPlayer__sub_803DC994
-  - TObjRaderCol__sub_8019750C
-  - TObjRaderCol__sub_801975DC
   - TObjResultWin__sub_80074664
   - TPlyDispConfig__sub_801E0A68
   - TRecvGenerateID__sub_801DFBC4
   - TSaveChCr__sub_8033A010
   - TWindowActionPalette__sub_801C1C20
   - TWindowActionPalette__sub_801C1C30
-  - TWindowCtrl__sub_8024A714
   - TWindowCtrl__sub_8024A7CC
   - TWindowKeyBoardSoft__sub_8024ECDC
-  - TWindowMainMenu1P__sub_80288520
   - TWindowSetLevelUp__sub_8026DDE0
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
@@ -259,36 +240,68 @@ force_active:
   - __ull2dec
   - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
+  - advance_position__10TTecSlicerFPv
+  - apply_fog_entry
+  - apply_heal_to_target__13TOHealGeneralFPv
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
+  - bswap_enemy_set_row_fields
   - bswap_guild_card_tag__17TWindowSubComCardFPv
+  - bswap_object_row_fields
   - capture_attachment__17TObjEneBm3FlyNestFv
+  - chat_dispatch_accepted_result
+  - chat_log_remove_line
+  - chat_text_lacks_language_tag
+  - check_any_player_in_range__12TObjRaderColFPv
+  - check_local_player_in_range__12TObjRaderColFPv
+  - check_purchase_eligibility__24TShopEquipmentListWindowFPv
   - construct_cane_weapon
   - construct_dagger_weapon
   - construct_handgun_weapon
   - construct_shot_weapon
   - construct_slicer_weapon
+  - construct_soul_eater_weapon
   - construct_tec_barta_facing
+  - construct_technique_disk_item
+  - copy_motion_pair
+  - count_plist_strips_by_texture
   - create__13TItemProArmorFiUi
+  - create_buy_list_windows__24TShopEquipmentListWindowFPv
   - create_icon__10TObjPlayerFiii
+  - create_particle_emitters__9TTecBartaFPv
+  - deduct_cap_excess__14TItemEquipBaseFiPvs
+  - deliver_target_hit__10TTecSlicerFPv
   - disable_stealth_suit_effect__15TFontSmallLobbyFi
   - dispatch_callback
   - dispatch_lobby_callback
   - draw_active_beam__11TObjDoorKeyFPv
   - draw_animated_beam__18TObjLazerFenceNormFPv
+  - draw_background__18TWindowPartyStatusFPvPv
   - draw_ginja_motion_node_tree
   - draw_inactive_badge__11TObjDoorKeyFPv
+  - draw_object_tree_recursive
+  - draw_palette_cells__22TWindowSubCustomSelectFv
   - draw_status_window__15TAdMcSelectMcGCFPv
   - draw_value__13TWindowMesetaFPvi
+  - emit_deband_support_effect
   - emit_heavy_attack_particles
+  - emit_jellen_support_effect
+  - emit_photon_blast_feedback_effects
   - emit_player_model_particle
+  - emit_player_sprite_particle
+  - emit_shifta_support_effect
+  - emit_zalure_support_effect
   - enemy_nearest_visible_player_sq
+  - enemy_tick_target_acquisition
+  - evolve_first_form__8TItemMagFPv
+  - find_area_technique_contact
+  - find_farthest_balloon_slot__11TWindowCtrlFPvUs
+  - find_placement_obstruction
+  - find_support_technique_contact
   - fn_80010F4C
-  - fn_80076C68
   - fn_8007F560
   - fn_8010EFE8
-  - fn_801692AC
   - fn_8016AD3C
   - fn_801A753C
   - fn_801C1E98
@@ -307,25 +320,52 @@ force_active:
   - fn_80349C54
   - fn_803CBE00
   - free_item_pmt
+  - freeze_shell_grow
+  - freeze_shell_hold
   - gTRKMsgBufs
   - get_floor_switch_flag
+  - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
+  - get_surface_contact_point
+  - handle_attachment_sample__17TObjEneBm3FlyNestFi
+  - handle_buy_confirm__24TShopEquipmentListWindowFPv
+  - handle_equip_offer__24TShopEquipmentListWindowFv
+  - handle_selection__24TShopEquipmentListWindowFv
   - has_serial_input__22TAdEnterSerialAccessGCFv
   - hook__15TItemEffBringerFv
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
+  - init_gx_lighting_defaults
   - init_object__23TAdSinglePlyChrSelectGCFPvPv
+  - init_parameters__9TTecBartaFPv
+  - init_parameters__9TTecMegidFPv
+  - init_parameters__9TTecRestaFPv
+  - init_parameters__9TTecZondeFPv
+  - init_player_scale_state
   - init_text_window_layout
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - initialize_player_data__10TObjPlayerFPv
   - invoke_callback__10TItemTimerFPv
+  - is_player_in_range__10TObjRoomIdFPvUsf
   - is_player_in_service_range__14TShopGeneratorFPvPvf
+  - is_special_sound_id
   - is_target_in_range__11TObjInfoColFf
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - load_item_pmt
+  - open_buy_window__22TShopEquipmentSequenceFPv
+  - open_greeting__20TShopItemTecSequenceFPv
+  - open_greeting__22THunterGuildSeqOfflineFPv
+  - open_greeting__22TShopEquipmentSequenceFPv
+  - open_greeting__26TShopEquipmentGearSequenceFPv
+  - open_sell_window__22TShopEquipmentSequenceFPv
   - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - play_sifta_cast_sound
+  - prepare_heavy_attack_particles
   - queue_deferred_photon_blast_hit
+  - read_stream_u8
+  - refresh_label__11TChCrEffTagFPv
+  - remove_duplicate_bindings__21TWindowSubCustomEquipFPvPv
   - render__10TAdADXlogoFv
   - render__10TEndingPicFv
   - render__11TAdRicoRingFv
@@ -362,11 +402,20 @@ force_active:
   - render__8TObjRainFv
   - render__9TAdBackGCFv
   - render_background_status__18TAdGameStartBackGCFPv
+  - request_transition__8TFogCtrlFPvii
   - resetTechniqueContactQuery
   - reset_and_invoke__6TLobbyFv
   - reset_placement_search_ring
   - reset_state__13TObjWarnChimeFPv
   - resolve_active_quest_result__22THunterGuildSeqOfflineFPv
+  - resolve_set_row_factory_indices
+  - return_to_city_after_defeat
+  - run_idle_state_phase__10TObjPlayerFis
+  - run_offline_area_transfer
+  - run_offline_game_frame
+  - run_offline_transfer_frame
+  - run_single_view_frame
+  - run_split_screen_frame
   - run_task__10TAdADXlogoFv
   - run_task__10TDPBShowerFv
   - run_task__10TEndingPicFv
@@ -444,16 +493,39 @@ force_active:
   - run_task__9TEffGuardFv
   - run_task__9TEndingABFv
   - run_task__9TSaveChCrFv
+  - send_partner_attack_stage_request
   - set_code_43_6__10TObjPlayerFPv
+  - set_launch_midpoint__10TTecSlicerFPvPvPvPv
+  - set_saved_attack_stage__10TObjPlayerFPvs
+  - set_stealth_suit_flags__10TObjPlayerFPv
+  - set_tev_stage_mode
   - setup_state_helper__10TObjPlayerFPv
+  - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range
   - spawn_effect__10TObjPlayerFiUiii
+  - spawn_laser__12TPhotonPillaFPv
+  - spawn_line__13TPhotonEstllaFPv
+  - spawn_recipe_particles__14TItemEffShieldFPv
+  - step_fade_opacity_decrease
+  - step_fade_opacity_increase
+  - step_ground_technique_projectile
   - step_placement_search
   - strstr
   - traverse_animated_node_tree
   - update_and_destroy__10TObjPlayerFPv
+  - update_backdrop_transition__17TWindowMainMenu1PFPv
+  - update_button_hold_counter
+  - update_buy_sell_choice__20TShopItemTecSequenceFPv
+  - update_buy_sell_choice__22TShopEquipmentSequenceFPv
+  - update_buy_sell_choice__26TShopEquipmentGearSequenceFPv
+  - update_customize_help_text
+  - update_foot_stamp__10TObjPlayerFPvi
+  - update_light_direction__12TCharaMakingFPv
   - update_load_state__9TItemLoadFPv
+  - update_selected_help__19TWindowSubTechniqueFPvi
+  - update_selection_input__19TWindowSubMagPhotonFPv
   - update_target_info_window__11TWindowCtrlFPv
+  - update_title_prompt__19TAdTrialAgreementGCFPv
   - update_trails__11TItemWeaponFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_when_camera_active__13TObjWarnChimeFPv

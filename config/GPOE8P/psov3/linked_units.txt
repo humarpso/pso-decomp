@@ -978,6 +978,7 @@ pso/misc/TCheckRoomSequence_8013AD28.cpp
 pso/misc/TCheckRoomSequence_80211614.cpp
 pso/misc/TCheckRoomSequence_8021E464.cpp
 pso/misc/TCheckRoomSequence_80222FC0.cpp
+pso/misc/TCineCtrl.cpp
 pso/misc/TContainerAncient01_8018B79C.cpp
 pso/misc/TContainerAncient01_8018BAE0.cpp
 pso/misc/TDLGraph.cpp
@@ -1034,6 +1035,7 @@ pso/misc/TKeyBoardControl.cpp
 pso/misc/TKeyBoardControl_8000F764.cpp
 pso/misc/TKeyBoardControl_8019BB2C.cpp
 pso/misc/TKeyBoardControl_801A57C4.cpp
+pso/misc/TKeyBoardControl_801A6510.cpp
 pso/misc/TKeyBoardControl_802433DC.cpp
 pso/misc/TKeyBoardControl_8025CB70.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
@@ -1187,6 +1189,7 @@ pso/misc/TLobby_801A3BF4.cpp
 pso/misc/TLobby_801A3C18.cpp
 pso/misc/TLobby_801B0810.cpp
 pso/misc/TLobby_801B0920.cpp
+pso/misc/TLobby_801B3188.cpp
 pso/misc/TLobby_801C25B4_801C29A0.cpp
 pso/misc/TLobby_801C4F80.cpp
 pso/misc/TLobby_801D3518.cpp
@@ -1480,6 +1483,7 @@ pso/misc/TMovie_80144250.cpp
 pso/misc/TMovie_801443C0.cpp
 pso/misc/TMovie_80144484.cpp
 pso/misc/TMovie_801444C0.cpp
+pso/misc/TMovie_80144778.cpp
 pso/misc/TMovie_803DCFE4.cpp
 pso/misc/TNeedleShoot.cpp
 pso/misc/TNeedleShoot_802A4540.cpp
@@ -1816,6 +1820,7 @@ pso/misc/TShopArmorListWindow_802787AC.cpp
 pso/misc/TShopEquipmentGearSequence.cpp
 pso/misc/TShopEquipmentGearSequence_8021B438.cpp
 pso/misc/TShopEquipmentGearSequence_8021E3A4.cpp
+pso/misc/TShopEquipmentListWindow.cpp
 pso/misc/TShopEquipmentListWindow_8010ED54.cpp
 pso/misc/TShopEquipmentSellWindow_801047B4.cpp
 pso/misc/TShopEquipmentSellWindow_802115F4.cpp
@@ -2093,6 +2098,7 @@ pso/misc/TWindowSubAreaMap.cpp
 pso/misc/TWindowSubAreaMapDisp.cpp
 pso/misc/TWindowSubAreaMapDisp_802717B8.cpp
 pso/misc/TWindowSubComCard.cpp
+pso/misc/TWindowSubComCardList.cpp
 pso/misc/TWindowSubComCardList_8026CB08.cpp
 pso/misc/TWindowSubComCard_80073DB8.cpp
 pso/misc/TWindowSubComCard_80077788.cpp
@@ -2140,12 +2146,14 @@ pso/misc/TWindowSubComCard_8034CD98.cpp
 pso/misc/TWindowSubCustomEquip_80275D9C.cpp
 pso/misc/TWindowSubCustomEquip_802760AC.cpp
 pso/misc/TWindowSubCustomEquip_80276114.cpp
+pso/misc/TWindowSubCustomSelect.cpp
 pso/misc/TWindowSubCustomSelect_80275D84.cpp
 pso/misc/TWindowSubEquip.cpp
 pso/misc/TWindowSubEquipKind.cpp
 pso/misc/TWindowSubEquipList.cpp
 pso/misc/TWindowSubEquip_80263AB0.cpp
 pso/misc/TWindowSubEquip_80275C0C.cpp
+pso/misc/TWindowSubEquip_80277E48.cpp
 pso/misc/TWindowSubEquip_80279044.cpp
 pso/misc/TWindowSubInformationBoard.cpp
 pso/misc/TWindowSubInformationBoard_8034C224.cpp
@@ -2629,6 +2637,7 @@ pso/player/TObjPlayer_80100E00.cpp
 pso/player/TObjPlayer_80101824.cpp
 pso/player/TObjPlayer_80102C78.cpp
 pso/player/TObjPlayer_80102D48.cpp
+pso/player/TObjPlayer_80104860.cpp
 pso/player/TObjPlayer_80105874.cpp
 pso/player/TObjPlayer_8010853C.cpp
 pso/player/TObjPlayer_80108854.cpp
@@ -3961,9 +3970,11 @@ pso/unk/text_8017E0D0.cpp
 pso/unk/text_8017E900.cpp
 pso/unk/text_8017F45C.cpp
 pso/unk/text_8017F624.cpp
+pso/unk/text_80180E70.cpp
 pso/unk/text_801811FC.cpp
 pso/unk/text_80181278.cpp
 pso/unk/text_8018130C.cpp
+pso/unk/text_80181310.cpp
 pso/unk/text_801815A0.cpp
 pso/unk/text_80181F10.cpp
 pso/unk/text_80182E90.cpp
@@ -3984,6 +3995,7 @@ pso/unk/text_80190940.cpp
 pso/unk/text_80191D14.cpp
 pso/unk/text_80192554.cpp
 pso/unk/text_801925F8.cpp
+pso/unk/text_80193018.cpp
 pso/unk/text_801930E8.cpp
 pso/unk/text_8019608C.cpp
 pso/unk/text_80196214.cpp
@@ -4014,6 +4026,7 @@ pso/unk/text_801A212C.cpp
 pso/unk/text_801A2514.cpp
 pso/unk/text_801A2640.cpp
 pso/unk/text_801A2B38.cpp
+pso/unk/text_801A3014.cpp
 pso/unk/text_801A5778.cpp
 pso/unk/text_801A69E4.cpp
 pso/unk/text_801A6A28.cpp
@@ -4028,6 +4041,7 @@ pso/unk/text_801AF454.cpp
 pso/unk/text_801AF734.cpp
 pso/unk/text_801AF7E0.cpp
 pso/unk/text_801AF904.cpp
+pso/unk/text_801AFCF4.cpp
 pso/unk/text_801B0520.cpp
 pso/unk/text_801B0520_801B0520.cpp
 pso/unk/text_801B1050.cpp
@@ -4066,6 +4080,7 @@ pso/unk/text_801C7874.cpp
 pso/unk/text_801C851C.cpp
 pso/unk/text_801C88CC.cpp
 pso/unk/text_801C8A28.cpp
+pso/unk/text_801C8FCC.cpp
 pso/unk/text_801C9130.cpp
 pso/unk/text_801C97D0.cpp
 pso/unk/text_801C9ACC.cpp
@@ -4109,6 +4124,7 @@ pso/unk/text_801D6DB0.cpp
 pso/unk/text_801D7134.cpp
 pso/unk/text_801D7238.cpp
 pso/unk/text_801D79DC.cpp
+pso/unk/text_801D7BF4.cpp
 pso/unk/text_801D94C8.cpp
 pso/unk/text_801D9514.cpp
 pso/unk/text_801D98F8.cpp
