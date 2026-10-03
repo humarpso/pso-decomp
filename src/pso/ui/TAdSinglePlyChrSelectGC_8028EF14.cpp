@@ -57,7 +57,6 @@ void load_creation_shape_rel(W_80290250 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
 s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 void TCharaMaking__sub_8028E3A0();
-void *map_shape_region_samples(void *, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
@@ -125,6 +124,8 @@ extern int lbl_805D6534;
 extern u32 lbl_805D6538;
 extern E_8028F210 *lbl_805D6540;
 void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0);
+extern s32 lbl_804D3FAC[];
+void map_shape_region_samples(s32 region, s32 *samples);
 }
 
 extern "C" {
@@ -237,7 +238,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
     s32 x;
     s32 i;
     TCharaMaking__sub_8028E3A0();
-    map_shape_region_samples(((void *)TAdSinglePlyChrSelectGC__sub_8028FBCC((u8 *)(arg0))), arg1);
+    map_shape_region_samples((s32)(((void *)TAdSinglePlyChrSelectGC__sub_8028FBCC((u8 *)(arg0)))), (s32 *)(arg1));
     for (i = 0; i < 2; i++) {
         for (j = 2; j > i; j--) {
             x = arg1[j];
@@ -247,6 +248,19 @@ void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
                 arg1[j] = y;
             }
         }
+    }
+}
+
+void map_shape_region_samples(s32 region, s32 *samples) {
+    s32 i;
+    for (i = 0; i < 3; i++) {
+        s32 sample = lbl_804D3FAC[i + region * 3];
+        if (sample == 7) {
+            sample = 4;
+        } else if (sample == 8) {
+            sample = 0;
+        }
+        samples[i] = sample;
     }
 }
 

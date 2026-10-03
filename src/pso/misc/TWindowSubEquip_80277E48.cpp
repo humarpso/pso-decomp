@@ -4,6 +4,15 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct VBase_80277F4C { u8 pad[0x18]; };
+
+class VObj_80277F4C : public VBase_80277F4C {
+public:
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+};
+
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
@@ -17,6 +26,29 @@ M2C_UNK init_and_setup__13TWindowSubMagFPvPv(int, int);
 s32 create_equip_kind_window(void *, void *, int);
 extern M2C_UNK lbl_8044F920[];
 s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1);
+s32 get_status_flag__6TLobbyFPv(u32);
+s32 get_flag_bit2__6TLobbyFPv(u32);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
+s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
+s32 is_usable__14TWindowSubItemFi();
+u32 get_player_by_client_id(s32);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(u32);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void TWindow__close(void *);
+s32 is_player_input_active(s32);
+M2C_UNK fn_80255A38(s32);
+M2C_UNK TWindowSubEquip__sub_80263AF4(void *, M2C_UNK);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+M2C_UNK start_scroll__13TWindowSubMagFPvf(u32, f32);
+M2C_UNK init_scroll_pos__20TWindowSubStatusDispFPv(u32);
+M2C_UNK update_displayed_item__15TWindowSubEquipFPv(void *);
+M2C_UNK update__15TWindowSubEquipFPv(void *);
+M2C_UNK apply_slot_selection__15TWindowSubEquipFPv(void *);
+s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1);
+M2C_UNK update_window__15TWindowSubEquipFPv(u32);
+extern u8 lbl_8050E208[];
+extern const f32 lbl_805DD5F0;
+void run_task__15TWindowSubEquipFv(void *arg0);
 }
 
 extern "C" {
@@ -61,6 +93,75 @@ s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1) {
 void render__15TWindowSubEquipFv(void) {  }
 
 extern M2C_UNK __vt__15TWindowSubEquip[];
+
+void run_task__15TWindowSubEquipFv(void *arg0) {
+    s32 temp_r3;
+    s32 temp_r5;
+    u8 temp_r0;
+    void *temp_r3_2;
+    temp_r3 = is_player_input_active(M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r0 = M2C_FIELD(arg0, u8 *, 0x1C);
+    switch ((s32) temp_r0) {
+    case 0:
+    case 1:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
+            TWindowSubEquip__sub_80263AF4(M2C_FIELD(arg0, void **, 0x2C), 1);
+            TWindow__close(M2C_FIELD(arg0, void **, 0x38));
+            M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        }
+        fn_80255A38(M2C_FIELD(arg0, s32 *, 0x30));
+        M2C_FIELD(arg0, s32 *, 0x20) = -1;
+        M2C_FIELD(arg0, s32 *, 0x24) = -1;
+        update_window__15TWindowSubEquipFPv(M2C_FIELD(arg0, u32 *, 0x34));
+        clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, u32 *, 0x34));
+        start_scroll__13TWindowSubMagFPvf(M2C_FIELD(arg0, u32 *, 0x34), lbl_805DD5F0);
+        M2C_FIELD(arg0, u8 *, 0x1C) = 2U;
+    case 2:
+        update__15TWindowSubEquipFPv(arg0);
+        if (get_flag_bit2__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x34)) != 0) {
+            VObj_80277F4C *o = M2C_FIELD(arg0, VObj_80277F4C **, 0x2C);
+            o->v7();
+            M2C_FIELD(arg0, u8 *, 0x1C) = 6U;
+            return;
+        }
+        if (get_status_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x34)) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
+        }
+        break;
+    case 3:
+        init_scroll_pos__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x34));
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x38) == 0U) {
+            M2C_FIELD(arg0, u32 *, 0x38) = TWindowSubEquip__sub_80277E48((u8 *)arg0, select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x34)));
+        }
+        clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, u32 *, 0x38));
+        M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
+    case 4:
+        update_displayed_item__15TWindowSubEquipFPv(arg0);
+        if (get_flag_bit2__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+            return;
+        }
+        if (get_status_flag__6TLobbyFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0) {
+            M2C_FIELD(arg0, u8 *, 0x1C) = 5U;
+            return;
+        }
+        break;
+    case 5:
+        temp_r5 = temp_r3 * 0x50;
+        if ((TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 2, temp_r5) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
+            play_sound_effect(0x52F16, 0, 0, 0);
+            M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
+            return;
+        }
+        if ((get_player_by_client_id(M2C_FIELD(arg0, s32 *, 0x28)) != 0U) && (is_usable__14TWindowSubItemFi() != 0)) {
+            apply_slot_selection__15TWindowSubEquipFPv(arg0);
+            M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
+        }
+        break;
+    case 6:
+        break;
+    }
+}
 
 void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
