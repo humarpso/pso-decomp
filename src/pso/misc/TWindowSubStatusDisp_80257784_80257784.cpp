@@ -38,6 +38,18 @@ struct List_80257CB8 {
     Elem_80257CB8 **items;
 };
 
+typedef s32 M2C_UNK;
+struct List_80257D44 {
+    u32 count;
+    void **items;
+};
+
+struct Desc_80257D44 {
+    u32 cols;
+    u32 rows;
+    u32 recs[1];
+};
+
 extern "C" {
 M2C_UNK init_from__20TWindowSubStatusDispFPvPvi();
 extern M2C_UNK lbl_804CF948[];
@@ -47,6 +59,22 @@ extern const f32 lbl_805DCEF0;
 void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
 void free__11TOBoss4RockFUi(void *);
 void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void **alloc_buffer__11TOBoss4RockFPv(u32);
+M2C_UNK init_from__20TWindowSubStatusDispFPvPvi();
+u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
+void *TWindowSubStatusDisp__sub_80258100(void *, void *, s32);
+void *reset_entry__20TWindowSubStatusDispFPvii(void *, void *, s32);
+void *TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
+void *TWindowSubStatusDisp__sub_8025A0A4(void *, void *, s32);
+void *TWindowHelpItem__sub_8025A594(void *, void *, s32);
+void *TWindowHelpItem__sub_8025A95C(void *, void *, s32);
+void *construct_text_entry(void *, void *, s32);
+void *init_part_direct__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
+void *init_part_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
+void *init_fields__17TWindowSubComCardFPvii(void *, void *, s32);
+void *init_state__20TWindowSubStatusDispFPvii(void *, void *, s32);
+void TWindowSubStatusDisp__sub_80257D44(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2);
 }
 
 extern "C" {
@@ -122,6 +150,142 @@ void TWindowSubStatusDisp__sub_80257CB8(List_80257CB8 *arg0) {
         free__11TOBoss4RockFUi(arg0->items);
         arg0->count = 0;
         arg0->items = 0;
+    }
+}
+
+typedef void *(*Ctor_80257D44)(void *, void *, s32);
+void TWindowSubStatusDisp__sub_80257D44(List_80257D44 *self, Desc_80257D44 *desc, s32 arg2) {
+    u32 cols;
+    u32 rows;
+    u32 *rec;
+    void **out;
+    void *o;
+    if (desc == NULL) {
+        self->count = 0;
+        self->items = NULL;
+        return;
+    }
+    rows = desc->rows;
+    self->count = desc->cols * rows;
+    if (self->count == 0) {
+        self->count = 0;
+        self->items = NULL;
+        return;
+    }
+    self->items = alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    out = self->items;
+    while (rows-- != 0) {
+        cols = desc->cols;
+        rec = desc->recs;
+        while (cols-- != 0) {
+            switch (*rec) {
+            case 0:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+                if (o != NULL) {
+                    o = TWindowSubStatusDisp__sub_80258100(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x14 / 4;
+                break;
+            case 1:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+                if (o != NULL) {
+                    o = ((Ctor_80257D44)init_from__20TWindowSubStatusDispFPvPvi)(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x24 / 4;
+                break;
+            case 2:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x68);
+                if (o != NULL) {
+                    o = ((Ctor_80257D44)TWindowSubStatusDisp__sub_80257B4C)(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x2C / 4;
+                break;
+            case 3:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x2C);
+                if (o != NULL) {
+                    o = construct_text_entry(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x1C / 4;
+                break;
+            case 4:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+                if (o != NULL) {
+                    o = TWindowSubStatusDisp__sub_80259D3C(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x1C / 4;
+                break;
+            case 5:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x30);
+                if (o != NULL) {
+                    o = TWindowSubStatusDisp__sub_8025A0A4(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x1C / 4;
+                break;
+            case 6:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x38);
+                if (o != NULL) {
+                    o = init_part_scaled__20TWindowSubStatusDispFPvPvi(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x30 / 4;
+                break;
+            case 7:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x38);
+                if (o != NULL) {
+                    o = init_part_direct__20TWindowSubStatusDispFPvPvi(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0x38 / 4;
+                break;
+            case 8:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x38);
+                if (o != NULL) {
+                    o = reset_entry__20TWindowSubStatusDispFPvii(o, rec, arg2);
+                }
+                *out = o;
+                rec += 1;
+                break;
+            case 9:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+                if (o != NULL) {
+                    o = init_fields__17TWindowSubComCardFPvii(o, rec, arg2);
+                }
+                *out = o;
+                rec += 1;
+                break;
+            case 10:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+                if (o != NULL) {
+                    o = TWindowHelpItem__sub_8025A95C(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0xC / 4;
+                break;
+            case 11:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+                if (o != NULL) {
+                    o = TWindowHelpItem__sub_8025A594(o, rec, arg2);
+                }
+                *out = o;
+                rec += 0xC / 4;
+                break;
+            case 12:
+                o = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
+                if (o != NULL) {
+                    o = init_state__20TWindowSubStatusDispFPvii(o, rec, arg2);
+                }
+                *out = o;
+                rec += 1;
+                break;
+            }
+            out++;
+        }
     }
 }
 

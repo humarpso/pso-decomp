@@ -224,6 +224,36 @@ extern s32 lbl_805D37E4;
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DC878;
 void *TTecLuker__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+M2C_UNK mark_area_change_pending();
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_isState3_324(void *);
+s32 obj_getField1c(void *);
+s32 is_split_screen();
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 get_instance__6TLobbyFv();
+void* spawn_particle_effect(float*,u32);
+u8 *find_entity_by_id(u16);
+s32 TObjLuker__sub_801A0F34(void *, M2C_UNK, f32);
+void set_state__9TTecLukerFPvi(void *p, s32 v);
+M2C_UNK play_effect_default__10TObjPlayerFii(void *, s32);
+u32 get_player_by_client_id(s32);
+M2C_UNK send_6x21_inter_level_warp(void *, M2C_UNK);
+s32 get_floor_map_terrain(M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(int, void *, int, int);
+M2C_UNK set_area__6TLobbyFPvi(M2C_UNK *, M2C_UNK, s32);
+s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
+void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s);
+void TTecLuker__sub_80234F7C(void* p);
+s32 TTecLuker__sub_80234F88(void* p);
+int TTecLuker__sub_80235054(void* p);
+M2C_UNK offset_point_toward_camera(void *, M2C_UNK *, f32);
+M2C_UNK init_all_slots__11TWindowCtrlFv();
+M2C_UNK init_all_slots2__11TWindowCtrlFv();
+extern M2C_UNK lbl_80515BA0[];
+extern u8 TTecLuker__data_805D37E0[4];
+extern const f32 lbl_805DC858;
+void run_task__9TTecLukerFv(u8 *arg0);
 }
 
 extern "C" {
@@ -566,6 +596,149 @@ void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
         h = get_stat_by_key_state__10TObjPlayerFPv(s->player);
         ((Write_802347B4)write_telepipe_record)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
         TTecLuker__sub_802340E4(s->player + 0x830);
+    }
+}
+
+struct Rec_8023402C;
+struct Vec_8023402C;
+struct Pipe_802347B4;
+void run_task__9TTecLukerFv(u8 *arg0) {
+    struct { f32 x, y, z; } sp8;
+    s32 temp_r0;
+    M2C_UNK temp_r30;
+    u16 temp_r3;
+    u16 temp_r5;
+    s32 var_r29;
+    u8 *temp_r29;
+    u8 *temp_r3_2;
+    u8 *owner;
+    u8 *tgt;
+    u16 st;
+    M2C_FIELD(arg0, u8 **, 0x1C) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xB4));
+    owner = M2C_FIELD(arg0, u8 **, 0x1C);
+    if (owner == NULL) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x108);
+    switch (temp_r0) {
+    case 0:
+        temp_r3 = obj_getField1c(owner);
+        if (temp_r3 != 0xFFFFU) {
+            if (temp_r3 > 0xCU) {
+                M2C_FIELD(arg0, s32 *, 0x108) = 4;
+                return;
+            }
+            tgt = M2C_FIELD(arg0, u8 **, 0xEC);
+            if (tgt == NULL) {
+                setup_telepipe_field__9TTecLukerFPv((Pipe_802347B4 *)arg0);
+                return;
+            }
+            if (TTecLuker__sub_80235054((void*)(tgt)) != 0) {
+                VecCopy__FP3VecPC3Vec(arg0 + 0xFC, M2C_FIELD(arg0, u8 **, 0x1C) + 0x38);
+                if ((TTecLuker__sub_8023402C((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) == 0) && ((s8) *(TTecLuker__data_805D37E0 + M2C_FIELD(arg0, u16 *, 0xB4)) >= 1)) {
+                    queue_destruction__7TObjectFv(arg0);
+                    return;
+                }
+                setup_telepipe_field__9TTecLukerFPv((Pipe_802347B4 *)arg0);
+            }
+        }
+        break;
+    case 1:
+        temp_r5 = M2C_FIELD(arg0, u16 *, 0xB4);
+        if (temp_r5 < 4U) {
+            *(TTecLuker__data_805D37E0 + temp_r5) = *(TTecLuker__data_805D37E0 + temp_r5) + 1;
+        }
+        if (TTecLuker__sub_8023402C((Rec_8023402C *)(M2C_FIELD(arg0, u8 **, 0x1C) + 0x830), M2C_FIELD(arg0, s16 *, 0xF4), (Vec_8023402C *)(arg0 + 0xFC), M2C_FIELD(arg0, u16 *, 0xF6)) != 0) {
+            queue_destruction__7TObjectFv(arg0);
+            return;
+        }
+        play_persistent_sound(0x4002B219, arg0, arg0 + 0xFC, 0, 0);
+        if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) == 0U) {
+            queue_destruction__7TObjectFv(arg0);
+            return;
+        }
+        if ((get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xF6)) != 0) && (TTecLuker__sub_80234F88(M2C_FIELD(arg0, void **, 0xF0)) != 0) && (TObjLuker__sub_801A0F34(arg0 + 0xFC, 0, lbl_805DC858) != 0)) {
+            offset_point_toward_camera(arg0 + 0xFC, (M2C_UNK *) &sp8, lbl_805DC858);
+            spawn_particle_effect((float *) &sp8, 0xB3);
+            temp_r3_2 = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xF6));
+            if (temp_r3_2 != NULL) {
+                play_effect_default__10TObjPlayerFii(temp_r3_2, 0xA);
+                play_sound_effect(0x40022D1A, temp_r3_2 + 0x38, 0, 0);
+            }
+            init_all_slots__11TWindowCtrlFv();
+            M2C_FIELD(arg0, s32 *, 0x108) = 2;
+            return;
+        }
+        break;
+    case 2:
+        M2C_FIELD(arg0, s32 *, 0x10C) = (s32) (M2C_FIELD(arg0, s32 *, 0x10C) + 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x10C) > 0xA) {
+            M2C_FIELD(arg0, s32 *, 0x108) = 3;
+            return;
+        }
+        break;
+    case 3:
+        temp_r30 = obj_getField1c(owner);
+        temp_r29 = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xF6));
+        if ((is_split_screen() == 0) && (temp_r29 != NULL)) {
+            if (M2C_FIELD(temp_r29, s32 *, 0x30) & 0x800) {
+                M2C_FIELD(arg0, s32 *, 0x108) = 1;
+                init_all_slots2__11TWindowCtrlFv();
+                if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) == 0U) {
+                    queue_destruction__7TObjectFv(arg0);
+                    return;
+                }
+                TTecLuker__sub_80234F7C((void*)(M2C_FIELD(arg0, void **, 0xF0)));
+                M2C_FIELD(arg0, s32 *, 0x10C) = 0;
+                return;
+            }
+            ((void (*)(void *, u16))set_state__9TTecLukerFPvi)(temp_r29 + 0x848, temp_r30);
+            if (get_instance__6TLobbyFv() == 1) {
+                send_6x21_inter_level_warp(temp_r29, 0);
+            } else {
+                send_6x21_inter_level_warp(temp_r29, 0);
+            }
+            goto block_43;
+        }
+block_43:
+        {
+        s32 i;
+        u16 st2;
+        u8 *p;
+        i = 0;
+        st2 = (u16) temp_r30;
+        do {
+            p = (u8 *)get_player_by_client_id(i);
+            if (p != NULL) {
+                if (is_split_screen() != 0) {
+                    ((void (*)(void *, u16))set_state__9TTecLukerFPvi)(p + 0x848, st2);
+                    if (get_instance__6TLobbyFv() == 1) {
+                        send_6x21_inter_level_warp(p, 0);
+                    } else {
+                        send_6x21_inter_level_warp(p, 0);
+                    }
+                } else if (obj_isState3_324(p) != 0) {
+                    ((void (*)(void *, u16))set_state__9TTecLukerFPvi)(p + 0x848, st2);
+                    if (get_instance__6TLobbyFv() == 1) {
+                        send_6x21_inter_level_warp(p, 0);
+                    } else {
+                        send_6x21_inter_level_warp(p, 0);
+                    }
+                }
+            }
+            i += 1;
+        } while (i < 4);
+        }
+        if (is_split_screen() != 0) {
+            init_all_slots2__11TWindowCtrlFv();
+        }
+        set_area__6TLobbyFPvi(lbl_80515BA0, 0, get_floor_map_terrain(0));
+        mark_area_change_pending();
+        return;
+    case 4:
+        queue_destruction__7TObjectFv(arg0);
+        break;
     }
 }
 

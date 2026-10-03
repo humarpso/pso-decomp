@@ -102,6 +102,12 @@ s32 TObjPlayer__sub_803D9E04(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 M2C_UNK TObjPlayer__sub_803DAC1C(s32);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
+void DCFlushRange(void *, u32);
+void TLobby__sub_803DE2C0(u32 *p);
+u32 TLobby__sub_803DE2F8(u32 v);
+void move_data__6TLobbyFv(void*, const void*, s32);
+void *xmalloc__FUl(u32 bytes);
+void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out);
 }
 
 extern "C" {
@@ -501,5 +507,125 @@ u32 TLobby__sub_803DE2F8(u32 v) {
     return ((v & 0xFF) << 24) | ((v & 0xFF00) << 8) | ((v & 0xFF0000) >> 8) | ((v & 0xFF000000) >> 24);
 }
 #pragma pop
+
+void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out) {
+    u32 magic;
+    u32 size;
+    u8 b0;
+    u8 b1;
+    u8 b2;
+    u8 b3;
+    u8 *src;
+    u8 *buf;
+    u32 pos;
+    u32 v;
+    pos = 0;
+    src = base + *off;
+    move_data__6TLobbyFv(&magic, src, 4);
+    TLobby__sub_803DE2C0(&magic);
+    move_data__6TLobbyFv(&size, src + 4, 4);
+    TLobby__sub_803DE2C0(&size);
+    src += 8;
+    *off += 8;
+    magic = TLobby__sub_803DE2F8(magic);
+    switch ((s32) magic) {
+    case 0x4E4A494E:
+        *out = 0x4E4A494E;
+        break;
+    case 0x4E4A434D:
+    case 0x474A434D:
+        *out = 0x4E4A434D;
+        break;
+    case 0x474A424D:
+        *out = 0x4E4A424D;
+        break;
+    case 0x4E4A544C:
+    case 0x474A544C:
+        *out = 0x4E4A544C;
+        break;
+    case 0x4E4A4C49:
+        *out = 0x4E4A4C49;
+        break;
+    case 0x4E4A4341:
+        *out = 0x4E4A4341;
+        break;
+    case 0x4E4D444D:
+    case 0x474D444D:
+        *out = 0x4E4D444D;
+        break;
+    case 0x474C494D:
+        *out = 0x4E4C494D;
+        break;
+    case 0x4743414D:
+        *out = 0x4E43414D;
+        break;
+    case 0x4E53534D:
+    case 0x4753534D:
+        *out = 0x4E53534D;
+        break;
+    default:
+        goto unknown;
+    }
+    buf = (u8 *) xmalloc__FUl(size);
+    if (buf == NULL) {
+        return NULL;
+    }
+    move_data__6TLobbyFv(buf, src, size);
+    DCFlushRange(buf, size);
+    src += size;
+    *off += size;
+    goto relocate;
+unknown:
+    *out = 0x2A2A2A2A;
+    return NULL;
+relocate:
+    move_data__6TLobbyFv(&magic, src, 4);
+    TLobby__sub_803DE2C0(&magic);
+    *off += 4;
+    magic = TLobby__sub_803DE2F8(magic);
+    if (magic == 0x504F4630) {
+        move_data__6TLobbyFv(&size, src + 4, 4);
+        TLobby__sub_803DE2C0(&size);
+        src += 8;
+        *off += 4;
+        while (size != 0) {
+            move_data__6TLobbyFv(&b0, src, 1);
+            src++;
+            (*off)++;
+            size--;
+            switch (b0 & 0xC0) {
+            case 0x40:
+                v = b0 & 0x3F;
+                break;
+            case 0x80:
+                move_data__6TLobbyFv(&b1, src, 1);
+                src++;
+                size--;
+                (*off)++;
+                v = ((b0 & 0x3F) << 8) | b1;
+                break;
+            case 0xC0:
+                move_data__6TLobbyFv(&b1, src, 1);
+                size--;
+                move_data__6TLobbyFv(&b2, src + 1, 1);
+                size--;
+                move_data__6TLobbyFv(&b3, src + 2, 1);
+                src += 3;
+                size--;
+                *off += 3;
+                v = ((b0 & 0x3F) << 24) | (b1 << 16) | (b2 << 8) | b3;
+                break;
+            case 0:
+            default:
+                continue;
+            }
+            pos += v * 4;
+            if (*(u32 *)(buf + pos) != 0) {
+                *(u32 *)(buf + pos) += (u32) buf;
+            }
+        }
+    }
+    return buf;
+}
 
 }
