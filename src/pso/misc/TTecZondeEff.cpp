@@ -143,6 +143,68 @@ extern "C" {
 void TTecZondeEff__sub_8023DBA8(void);
 f32 get_random_float__8TObjFishFv(f32);
 
+struct Vec_8023D294 { f32 x, y, z; };
+struct Obj_8023D294 { u8 pad[0x28]; Vec_8023D294 d; };
+
+extern "C" {
+
+f32 rand_signed_unit();
+void update_scale__15TObjBoss2TunnelFPv(void *);
+extern const f32 TTecZondeEff__data_805DC994;
+extern const f32 lbl_805DC9A0;
+
+#pragma push
+#pragma fp_contract on
+void calc_lightning_scatter_direction(void *arg0, s32 axis, void *arg2) {
+    Obj_8023D294 *o = (Obj_8023D294 *)arg0;
+    Vec_8023D294 *out = (Vec_8023D294 *)arg2;
+
+    switch (axis) {
+    case 0: {
+        f32 a, inv, q, p, b;
+        inv = TTecZondeEff__data_805DC994 / o->d.x;
+        p = o->d.y;
+        q = o->d.z;
+        a = lbl_805DC9A0 * rand_signed_unit();
+        b = lbl_805DC9A0 * rand_signed_unit();
+        out->y = a;
+        out->z = b;
+        out->x = inv * (a * p + b * q);
+        update_scale__15TObjBoss2TunnelFPv(out);
+        break;
+    }
+    case 1: {
+        f32 a, inv, q, p, b;
+        inv = TTecZondeEff__data_805DC994 / o->d.y;
+        p = o->d.z;
+        q = o->d.x;
+        a = lbl_805DC9A0 * rand_signed_unit();
+        b = lbl_805DC9A0 * rand_signed_unit();
+        out->z = a;
+        out->x = b;
+        out->y = inv * (a * p + b * q);
+        update_scale__15TObjBoss2TunnelFPv(out);
+        break;
+    }
+    case 2: {
+        f32 a, inv, q, p, b;
+        inv = TTecZondeEff__data_805DC994 / o->d.z;
+        p = o->d.x;
+        q = o->d.y;
+        a = lbl_805DC9A0 * rand_signed_unit();
+        b = lbl_805DC9A0 * rand_signed_unit();
+        out->x = a;
+        out->y = b;
+        out->z = inv * (a * p + b * q);
+        update_scale__15TObjBoss2TunnelFPv(out);
+        break;
+    }
+    }
+}
+#pragma pop
+
+}
+
 s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f30;
