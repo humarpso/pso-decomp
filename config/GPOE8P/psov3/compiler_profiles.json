@@ -111,7 +111,7 @@
   "pso/misc/TLobby_803BAC70.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
-    "inline": "off",
+    "inline": "auto",
     "use_lmw_stmw": "on",
     "sdata2": 8
   },
