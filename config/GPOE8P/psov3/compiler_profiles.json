@@ -753,5 +753,13 @@
     "inline": "off",
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
+  },
+  "pso/math/MatrixTransforms.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole",
+    "sdata2": 8
   }
 }

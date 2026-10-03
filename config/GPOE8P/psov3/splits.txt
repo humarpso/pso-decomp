@@ -18268,8 +18268,12 @@ pso/unk/text_803D8DE0.cpp:
 	.sdata2     start:0x805E0EEC end:0x805E0EF0
 
 pso/unk/text_803D8F74.cpp:
-	.text       start:0x803D8F74 end:0x803D9650
+	.text       start:0x803D8F74 end:0x803D929C
 	.sdata2     start:0x805E0F30 end:0x805E0F38
+
+pso/math/MatrixTransforms.cpp:
+	.text       start:0x803D929C end:0x803D9650
+	.sdata2     start:0x805E0F40 end:0x805E0F48
 
 pso/unk/text_803D9650.cpp:
 	.text       start:0x803D9650 end:0x803D96A8
