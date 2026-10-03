@@ -11,6 +11,13 @@ struct RecoveredGlobal_80077FA0___vt__9TCineCtrl {
 
 struct Obj_80077F58 { u8 pad[0x28]; s32 state; };
 
+struct VtxList_80077BC0 {
+    f32 *pos;
+    u32 *col;
+    s32 n;
+    s32 cap;
+};
+
 extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
@@ -29,6 +36,15 @@ void TCineCtrl__sub_80077D84(u8 *arg0);
 void TCineCtrl__sub_80077E70(u8 *arg0);
 void TCineCtrl__sub_80077D84(u8 *arg0);
 void run_task__9TCineCtrlFv(Obj_80077F58 *self);
+void TCameraCtrl__sub_80068EF0(void);
+void TCameraCtrl__sub_80069024(void);
+void TObjCMHairMenu__sub_801E35C4(void *, u16, s32, f32);
+void abs__4cXyzCFv(s32, s32);
+extern const f32 TCineCtrl__data_805D91D0;
+extern const f32 lbl_805D91D4;
+extern const f32 lbl_805D91D8;
+extern const f32 lbl_805D91DC;
+void render__9TCineCtrlFv(u8 *arg0);
 }
 
 extern "C" {
@@ -41,6 +57,49 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern void *lbl_805D4E60;
 extern const f32 lbl_805D91E8;
 extern const f32 lbl_805D91EC;
+
+void render__9TCineCtrlFv(u8 *arg0) {
+    VtxList_80077BC0 vl;
+    u32 col[4];
+    f32 pos[8];
+    if (!(M2C_FIELD(arg0, f32 *, 0x1C) <= TCineCtrl__data_805D91D0)) {
+        TCameraCtrl__sub_80069024();
+        abs__4cXyzCFv(0, 8);
+        abs__4cXyzCFv(1, 6);
+        vl.pos = pos;
+        vl.col = col;
+        vl.n = 0;
+        vl.cap = 4;
+        M2C_FIELD(arg0, s8 *, 0x27) = (s8) M2C_FIELD(arg0, f32 *, 0x1C);
+        vl.pos[0] = TCineCtrl__data_805D91D0;
+        vl.pos[1] = TCineCtrl__data_805D91D0;
+        vl.col[0] = M2C_FIELD(arg0, u32 *, 0x24);
+        vl.pos[2] = lbl_805D91D4;
+        vl.pos[3] = TCineCtrl__data_805D91D0;
+        vl.col[1] = M2C_FIELD(arg0, u32 *, 0x24);
+        vl.pos[4] = lbl_805D91D4;
+        vl.pos[5] = M2C_FIELD(arg0, f32 *, 0x20);
+        vl.col[2] = M2C_FIELD(arg0, u32 *, 0x24);
+        vl.pos[6] = TCineCtrl__data_805D91D0;
+        vl.pos[7] = M2C_FIELD(arg0, f32 *, 0x20);
+        vl.col[3] = M2C_FIELD(arg0, u32 *, 0x24);
+        TObjCMHairMenu__sub_801E35C4(&vl, 4U, 0x16, lbl_805D91D8);
+        vl.pos[0] = TCineCtrl__data_805D91D0;
+        vl.pos[1] = lbl_805D91DC - M2C_FIELD(arg0, f32 *, 0x20);
+        vl.col[0] = M2C_FIELD(arg0, u32 *, 0x24);
+        vl.pos[2] = lbl_805D91D4;
+        vl.pos[3] = lbl_805D91DC - M2C_FIELD(arg0, f32 *, 0x20);
+        vl.col[1] = M2C_FIELD(arg0, u32 *, 0x24);
+        vl.pos[4] = lbl_805D91D4;
+        vl.pos[5] = lbl_805D91DC;
+        vl.col[2] = M2C_FIELD(arg0, u32 *, 0x24);
+        vl.pos[6] = TCineCtrl__data_805D91D0;
+        vl.pos[7] = lbl_805D91DC;
+        vl.col[3] = M2C_FIELD(arg0, u32 *, 0x24);
+        TObjCMHairMenu__sub_801E35C4(&vl, 4U, 0x16, lbl_805D91D8);
+        TCameraCtrl__sub_80068EF0();
+    }
+}
 
 #pragma push
 #pragma opt_common_subs off

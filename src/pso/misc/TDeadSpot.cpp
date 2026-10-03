@@ -45,6 +45,12 @@ struct E_800D80E4 { V3_800D80E4 v; u8 pad[8]; u32 col; };
 
 struct Obj_800D80E4 { u8 pad0[0x18]; void *vt; E_800D80E4 e[4]; V3_800D80E4 base; V3_800D80E4 dir[4]; u8 padb8[8]; f32 sc; u8 padc4[4]; f32 c8; };
 
+struct V3_800D8228 { f32 x; f32 y; f32 z; };
+
+struct E_800D8228 { V3_800D8228 v; u8 pad[8]; u32 col; };
+
+struct Obj_800D8228 { u8 pad0[0x18]; void *vt; E_800D8228 e[4]; V3_800D8228 base; V3_800D8228 dir[4]; u8 padb8[8]; f32 sc; f32 t; f32 c8; };
+
 extern "C" {
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
@@ -76,6 +82,9 @@ void __ct__9TDeadSpotFv(void *);
 extern M2C_UNK lbl_80494A10[];
 extern const f32 TDeadSpot__data_805DA38C;
 Obj_800D80E4 *TDeadSpot__sub_800D80E4(Obj_800D80E4 *arg0);
+extern const f32 TDeadSpot__data_805DA388;
+extern const f32 TDeadSpot__data_805DA38C;
+void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
 }
 
 extern "C" {
@@ -275,6 +284,28 @@ void render__9TDeadSpotFv(u8 *arg0) {
         draw_particle_strip(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();
         some_id_805c6f74 = lbl_805D5660;
+    }
+}
+#pragma fp_contract on
+void run_task__9TDeadSpotFv(Obj_800D8228 *arg0) {
+    E_800D8228 *p;
+    s32 i;
+    f32 bx, by, bz;
+    if (arg0->t <= arg0->sc) {
+        arg0->t += TDeadSpot__data_805DA388;
+        if (arg0->t <= TDeadSpot__data_805DA38C) {
+            return;
+        }
+        p = arg0->e;
+        bx = arg0->base.x;
+        by = arg0->base.y;
+        bz = arg0->base.z;
+        for (i = 0; i < 4; i++) {
+            p->v.x = arg0->dir[i].x * arg0->t + bx;
+            p->v.y = arg0->dir[i].y * arg0->t + by;
+            p->v.z = arg0->dir[i].z * arg0->t + bz;
+            p++;
+        }
     }
 }
 

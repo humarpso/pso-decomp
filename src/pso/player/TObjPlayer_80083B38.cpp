@@ -155,6 +155,15 @@ extern const f32 lbl_805D9424;
 extern const f32 lbl_805D9438;
 extern const f32 lbl_805D943C;
 void camera_stuff__Fv(void);
+M2C_UNK GXPixModeSync();
+M2C_UNK GXSetTexCopySrc(int, int, int, int);
+M2C_UNK GXSetTexCopyDst(int, int, int, int);
+void GXSetCopyClear(GXColor_80083B8C, u32);
+M2C_UNK GXCopyTex(void *, int);
+extern G_800845F8 lbl_8048E5B4;
+extern unsigned char lbl_805D4EE4;
+extern GXColor_80083B8C lbl_805E1208;
+void capture_viewport_texture(void);
 }
 
 extern "C" {
@@ -317,6 +326,21 @@ s32 check_all_players_ready__10TObjPlayerFv(void) {
 void TObjPlayer__sub_80084500(void) {
     set_global_param__8TObjFishFi((M2C_UNK *)(((u8 *)&lbl_8048E5B4)));
     load_list_texture((M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0));
+}
+
+void capture_viewport_texture(void) {
+    if (!(lbl_805D4EE4 & 4)) {
+        GXColor_80083B8C c = lbl_805E1208;
+        GXSetCopyClear(c, 0xFFFFFF);
+        GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
+        GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
+        if (lbl_805D4EE4 & 8) {
+            GXCopyTex((void *)lbl_8048E5B4.a->b->c->x20, 1);
+        } else {
+            GXCopyTex((void *)lbl_8048E5B4.a->b->c->x20, 0);
+        }
+        GXPixModeSync();
+    }
 }
 
 s32 TObjPlayer__sub_800845F8(void) {

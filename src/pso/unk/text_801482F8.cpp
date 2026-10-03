@@ -341,6 +341,12 @@ extern s32 lbl_805D53A0;
 extern u32 lbl_805D5EE8;
 extern u32 lbl_805D5EEC;
 void update_conversation__11TObjNpcBaseFPv(u8 *arg0);
+void TObjNpcBase__sub_80149358(void *, s32);
+void TObjNpcBase__sub_80149360(void *, s32);
+extern const f32 lbl_805DB1B8;
+extern const f32 lbl_805DB1BC;
+extern const f32 lbl_805DB1C0;
+void apply_set_params__11TObjNpcBaseFv(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -378,6 +384,37 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
 }
 
 #define F(T, o) M2C_FIELD(arg0, T *, o)
+
+void apply_set_params__11TObjNpcBaseFv(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x368);
+    if (temp_r0 <= arg1) {
+        M2C_FIELD(arg0, s32 *, 0x368) = arg1;
+    } else if (arg2 <= temp_r0) {
+        M2C_FIELD(arg0, s32 *, 0x368) = arg2;
+    }
+    if (lbl_805DB1B8 <= M2C_FIELD(arg0, f32 *, 0x358)) {
+        M2C_FIELD(arg0, s32 *, 0x38C) = 1;
+        M2C_FIELD(arg0, s32 *, 0x3A0) = (s32) (M2C_FIELD(arg0, f32 *, 0x358) - lbl_805DB1B8);
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x3A0) = (s32) M2C_FIELD(arg0, f32 *, 0x358);
+    }
+    if (lbl_805DB1B8 <= M2C_FIELD(arg0, f32 *, 0x35C)) {
+        M2C_FIELD(arg0, s32 *, 0x38C) = 1;
+        M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) (M2C_FIELD(arg0, f32 *, 0x35C) - lbl_805DB1B8);
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) M2C_FIELD(arg0, f32 *, 0x35C);
+    }
+    TObjNpcBase__sub_80149360(arg0, (s32) M2C_FIELD(arg0, f32 *, 0x364));
+    TObjNpcBase__sub_80149358(arg0, (s32) M2C_FIELD(arg0, f32 *, 0x360));
+    M2C_FIELD(arg0, s32 *, 0x384) = (s32) M2C_FIELD(arg0, s32 *, 0x60);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x3AC) > 0) {
+        M2C_FIELD(arg0, f32 *, 0x398) = (f32) lbl_805DB1BC;
+        return;
+    }
+    M2C_FIELD(arg0, f32 *, 0x398) = (f32) lbl_805DB1C0;
+}
+
 void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
     Pkt_8014854C pkt1;
     Pkt_8014854C pkt2;

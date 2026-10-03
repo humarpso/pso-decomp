@@ -50,6 +50,30 @@ struct FogCtrl_800FB134 {
     f32 width;
 };
 
+typedef s32 M2C_UNK;
+struct TFogCtrl_800FB92C {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    s32 f1C;
+    s32 f20;
+    Fog_800FB424 fogs[4];
+    Fog_800FB424 *ptrs[4];
+    s32 f184;
+    u8 pad188[0x19C - 0x188];
+    s32 f19C;
+    s32 f1A0;
+    s32 f1A4;
+    s32 f1A8;
+    s32 f1AC;
+    s32 f1B0;
+    s32 f1B4;
+    f32 f1B8;
+    f32 f1BC;
+    s32 f1C0;
+    s32 index;
+};
+
 extern "C" {
 M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 extern const f32 TFogCtrl__data_805DA948;
@@ -73,6 +97,15 @@ extern const f32 TFogCtrl__data_805DA948;
 extern const f32 TFogCtrl__data_805DA94C;
 extern const f32 lbl_805DA954;
 void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx);
+void copy_fog_entry(u8 *arg0, u8 *arg1);
+void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
+extern RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 TFogCtrl__data_80501188;
+extern u8 lbl_80501198[];
+extern s32 lbl_805D2B18;
+extern const f32 TFogCtrl__data_805DA948;
+TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index);
 }
 
 extern "C" {
@@ -182,6 +215,44 @@ u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index) {
+    s32 i;
+    f32 one;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = &__vt__8TFogCtrl;
+    self->f0 = lbl_805D2B18;
+    self->index = index;
+    if (self->index >= 0 && self->index < 4) {
+        ((TFogCtrl_800FB92C **)&TFogCtrl__data_80501188)[self->index] = self;
+    }
+    self->f20 = 0;
+    one = TFogCtrl__data_805DA948;
+    for (i = 0; i < 4; i++) {
+        self->fogs[i].entry = 0;
+        copy_fog_entry((u8 *)&self->fogs[i], lbl_80501198);
+        self->fogs[i].f44 = one;
+        self->ptrs[i] = &self->fogs[i];
+    }
+    self->f184 = 0;
+    one = TFogCtrl__data_805DA948;
+    self->f19C = 0;
+    self->f1A0 = 0;
+    self->f1A4 = 0;
+    self->f1A8 = 0;
+    self->f1AC = 0;
+    self->f1B0 = 0;
+    self->f1B4 = 0;
+    self->f1B8 = one;
+    self->f1BC = one;
+    self->f1C0 = 0;
+    self->f1C = 0;
+    apply_slot_params__8TFogCtrlFPvi((FogCtrl_800FB134 *)(self), (s32)(0));
+    return self;
+}
+#pragma pop
 
 void TFogCtrl__sub_800FBA54(void) {  }
 

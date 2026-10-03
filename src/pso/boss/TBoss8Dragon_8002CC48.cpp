@@ -30,6 +30,18 @@ typedef struct Obj_8002CE78 {
     s32 unk38;
 } Obj_8002CE78;
 
+struct Trail_8002CC48 {
+    u8 pad0[0x28];
+    u8 pos[0x34 - 0x28];
+    f32 f34;
+    f32 f38;
+    u8 pad3C[0x40 - 0x3C];
+    s32 f40;
+    s32 state;
+    u8 pad48[0x4C - 0x48];
+    s32 f4C;
+};
+
 extern "C" {
 extern const f32 lbl_805D81D0;
 s32 TBoss8Dragon__sub_8002D308(u8 *arg0);
@@ -70,6 +82,13 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D8198;
 void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void queue_destruction__7TObjectFv();
+s32 get_state__12TBoss8DragonFv(void);
+extern const f32 lbl_805D8178;
+extern const f32 lbl_805D817C;
+extern const f32 lbl_805D8180;
+void update_dragon_trail_piece(Trail_8002CC48 *self);
 }
 
 extern "C" {
@@ -89,6 +108,31 @@ int destroy__12TBoss8DragonFPvs(void*, void*);
 int free__11TOBoss4RockFUi(void*);
 
 extern s32 lbl_805D4B7C;
+
+void update_dragon_trail_piece(Trail_8002CC48 *self) {
+    switch (self->state) {
+    case 0:
+        self->f34 += lbl_805D8178;
+        if (self->f34 >= self->f38) {
+            self->f34 = self->f38;
+            self->state = 1;
+        }
+        VecCopy__FP3VecPC3Vec(self->pos, ((void *(*)(void *))get_state__12TBoss8DragonFv)(self));
+        break;
+    case 1:
+        self->f40++;
+        if (self->f40 > self->f4C) {
+            self->state = 2;
+        }
+        break;
+    case 2:
+        self->f34 -= lbl_805D817C;
+        if (self->f34 < lbl_805D8180) {
+            queue_destruction__7TObjectFv();
+        }
+        break;
+    }
+}
 
 s32 get_state__12TBoss8DragonFv(void) {
     return lbl_805D4B7C;

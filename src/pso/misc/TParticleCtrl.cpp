@@ -49,6 +49,39 @@ struct Ctrl_80086418 {
     Col_80086418 color;
 };
 
+struct Src_800865BC {
+    u8 pad0[0x14];
+    s32 texId;
+    u8 pad18[0x58 - 0x18];
+    f32 f58;
+    f32 f5C;
+};
+
+struct Particle_800865BC {
+    u8 pad0[0x18];
+    void *vt;
+    s16 tex;
+    u8 pad1E[0x20 - 0x1E];
+    Src_800865BC *src;
+    s16 f24;
+    u16 f26;
+    f32 f28, f2C;
+    u8 pad30[0x3C - 0x30];
+    f32 f3C, f40, f44, f48, f4C, f50, f54, f58, f5C, f60, f64;
+    u8 pad68[0x6C - 0x68];
+    s32 f6C;
+    f32 f70, f74, f78, f7C, f80, f84, f88, f8C;
+    s32 f90;
+    s8 f94;
+    s8 f95;
+    s16 f96;
+    s32 f98, f9C, fA0;
+    f32 fA4, fA8;
+    u8 padAC[0xB0 - 0xAC];
+    s32 fB0, fB4, fB8;
+    f32 fBC;
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -80,6 +113,12 @@ void TParticleCtrl__sub_80085798(Obj_80085798 *self);
 M2C_UNK set_color_blend_mode(int, int, int, int);
 M2C_UNK set_chunk_material_color(void *);
 void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode);
+s32 find_particle_texture_index(s32 id);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
+extern const f32 TParticleCtrl__data_805D94C4;
+extern const f32 TParticleCtrl__data_805D94CC;
+void *init_particle_base(void *arg0, void *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -232,6 +271,60 @@ u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1) {
             free_from_heap__13TParticleCtrlFPv(arg0);
         }
     }
+    return arg0;
+}
+void *init_particle_base(void *arg0, void *arg1, s32 arg2) {
+    Particle_800865BC *p = (Particle_800865BC *)arg0;
+    f32 v;
+    __ct__7TObjectFP7TObject(arg0, (void *)arg2);
+    p->vt = &lbl_8048E728.value;
+    p->fB0 = 0;
+    p->fB4 = 0;
+    p->fB8 = 0;
+    p->fBC = TParticleCtrl__data_805D94C4;
+    p->f48 = TParticleCtrl__data_805D94C4;
+    p->f4C = TParticleCtrl__data_805D94C4;
+    p->f50 = TParticleCtrl__data_805D94C4;
+    p->f54 = TParticleCtrl__data_805D94C4;
+    p->f98 = 0;
+    p->f9C = 0;
+    p->fA0 = 0;
+    p->fA4 = TParticleCtrl__data_805D94CC;
+    p->fA8 = TParticleCtrl__data_805D94CC;
+    p->src = (Src_800865BC *)arg1;
+    v = TParticleCtrl__data_805D94C4;
+    if (p->src->f58 > TParticleCtrl__data_805D94C4) {
+        v = TParticleCtrl__data_805D94CC / p->src->f58;
+    }
+    p->f60 = v;
+    v = TParticleCtrl__data_805D94C4;
+    if (p->src->f5C > TParticleCtrl__data_805D94C4) {
+        v = TParticleCtrl__data_805D94CC / p->src->f5C;
+    }
+    p->f64 = v;
+    p->tex = find_particle_texture_index(p->src->texId);
+    p->f28 = TParticleCtrl__data_805D94CC;
+    p->f2C = TParticleCtrl__data_805D94CC;
+    p->f3C = TParticleCtrl__data_805D94C4;
+    p->f40 = TParticleCtrl__data_805D94C4;
+    p->f44 = TParticleCtrl__data_805D94C4;
+    p->f58 = TParticleCtrl__data_805D94C4;
+    p->f5C = TParticleCtrl__data_805D94C4;
+    p->f70 = TParticleCtrl__data_805D94C4;
+    p->f74 = TParticleCtrl__data_805D94C4;
+    p->f78 = TParticleCtrl__data_805D94C4;
+    p->f7C = TParticleCtrl__data_805D94C4;
+    p->f80 = TParticleCtrl__data_805D94C4;
+    p->f84 = TParticleCtrl__data_805D94C4;
+    p->f88 = TParticleCtrl__data_805D94C4;
+    p->f8C = TParticleCtrl__data_805D94C4;
+    p->f90 = 0;
+    p->f94 = 0;
+    p->f95 = 0;
+    p->f96 = 0;
+    p->f6C = 0;
+    p->f24 = 0;
+    p->f26 = 0xFFFF;
     return arg0;
 }
 

@@ -5,10 +5,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 compare_item_data_masked(void *, void *, s32);
 s32 item_identity_matches(u8 *arg0, u8 *arg1);
 M2C_UNK get_weapon_special_type_amount(u8, s16 *, s16 *);
 u8 TObjPlayer__sub_8010494C(u8 arg0);
+s32 compare_item_data_masked(void *arg0, void *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -83,24 +83,24 @@ s32 item_identity_matches(u8 *arg0, u8 *arg1) {
     {
       case 0:
         var_r5 = 0x41;
-        return compare_item_data_masked(arg0, arg1, 0x41);
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0x41));
       case 1:
         var_r5 = 1;
-        return compare_item_data_masked(arg0, arg1, 1);
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(1));
       case 2:
         var_r5 = 0;
-        return compare_item_data_masked(arg0, arg1, 0);
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0));
       case 3:
         if (var_r6 == 2)
       {
         var_r5 = 0x41;
-        return compare_item_data_masked(arg0, arg1, 0x41);
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0x41));
       }
         var_r5 = 1;
-        return compare_item_data_masked(arg0, arg1, 1);
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(1));
       case 4:
         var_r5 = 0;
-        return compare_item_data_masked(arg0, arg1, 0);
+        return compare_item_data_masked((void *)(arg0), (void *)(arg1), (s32)(0));
     }
   }
   else
@@ -108,6 +108,64 @@ s32 item_identity_matches(u8 *arg0, u8 *arg1) {
     var_r3 = 0;
   }
   return 0;
+}
+s32 compare_item_data_masked(void *arg0, void *arg1, s32 arg2) {
+    u8 *a = (u8 *)arg0;
+    u8 *b = (u8 *)arg1;
+    s32 r;
+    s32 m;
+    s32 t;
+    s32 m2;
+    s32 t2;
+    r = 0;
+    if (a[0] == b[0] && a[1] == b[1]) {
+        r = 1;
+        if (arg2 & 7) {
+            t = 0;
+            if (arg2 & 1) {
+                t = (u8)(a[2] == b[2]);
+            }
+            m = arg2 & 2;
+            if (m != 0 && !(arg2 & 4)) {
+                t |= a[2] < b[2];
+            }
+            if (m == 0 && (arg2 & 4)) {
+                t |= a[2] > b[2];
+            }
+            if (m != 0 && (arg2 & 4)) {
+                t |= (u8)(a[2] != b[2]);
+            }
+        } else {
+            t = 1;
+        }
+        r &= t;
+        if (arg2 & 0x38) {
+            t2 = 0;
+            if (arg2 & 8) {
+                t2 = a[3] == b[3];
+            }
+            m2 = arg2 & 0x10;
+            if (m2 != 0 && !(arg2 & 0x20)) {
+                t2 |= a[3] < b[3];
+            }
+            if (m2 == 0 && (arg2 & 0x20)) {
+                t2 |= a[3] > b[3];
+            }
+            if (m2 != 0 && (arg2 & 0x20)) {
+                t2 |= (u8)(a[3] != b[3]);
+            }
+        } else {
+            t2 = 1;
+        }
+        r &= t2;
+        if (arg2 & 0x40) {
+            t = a[4] == b[4];
+        } else {
+            t = 1;
+        }
+        r &= t;
+    }
+    return r;
 }
 
 }
