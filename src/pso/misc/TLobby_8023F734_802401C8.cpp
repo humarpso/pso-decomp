@@ -16,6 +16,24 @@ struct Mgr_802405B0 {
     Slot_802405B0 slots[8];
 };
 
+typedef s32 M2C_UNK;
+struct Voice_802401D0 {
+    u8 pad0[4];
+    s32 state;
+    u8 pad8[0x14 - 0x8];
+    s32 kind;
+    u8 pad18[0xA0 - 0x18];
+};
+
+struct Lobby_802401D0 {
+    u8 pad0[0x284];
+    s32 age;
+    u8 pad288[0x300 - 0x288];
+    s32 tick;
+    u32 elapsed;
+    u32 ms;
+};
+
 extern "C" {
 s32 TLobby__sub_80240310(u8 *arg0);
 M2C_UNK TLobby__sub_8023FF38();
@@ -23,6 +41,12 @@ M2C_UNK TLobby__sub_8023FF64(int);
 M2C_UNK TLobby__sub_803B5258();
 void xfree__FPv(void *);
 s32 TLobby__sub_802405B0(void *p, s32 arg1);
+s32 OSGetTick();
+M2C_UNK advance_rng__6TLobbyFPv(void *);
+M2C_UNK TLobby__sub_8023FCC0(void *);
+M2C_UNK TLobby__sub_80240B64(void *);
+extern Voice_802401D0 lbl_805162EC[];
+s32 TLobby__sub_802401D0(Lobby_802401D0 *self);
 }
 
 extern "C" {
@@ -30,6 +54,37 @@ extern "C" {
 int TLobby__sub_802401C8(void);
 
 int TLobby__sub_802401C8(void) { return 0; }
+
+s32 TLobby__sub_802401D0(Lobby_802401D0 *self) {
+    s32 t;
+    s32 i;
+    s32 j;
+    s32 n;
+    t = OSGetTick();
+    self->elapsed = t - self->tick;
+    self->tick = t;
+    self->ms = self->elapsed / ((*(u32 *)0x800000F8 >> 2) / 1000);
+    TLobby__sub_8023FCC0(self);
+    advance_rng__6TLobbyFPv(self);
+    for (i = 0; i < 40; i++) {
+        TLobby__sub_80240B64(&lbl_805162EC[i]);
+    }
+    n = 0;
+    for (i = 0; i < 40; i++) {
+        if (lbl_805162EC[i].state != 3 && lbl_805162EC[i].kind == 6 && lbl_805162EC[i].kind == 0x19) {
+            n++;
+        }
+    }
+    for (i = 0; i < 40; i++) {
+        if (lbl_805162EC[i].state != 3 && !(lbl_805162EC[i].kind == 6 && lbl_805162EC[i].kind == 0x19)) {
+            for (j = 0; j < n; j++) {
+            }
+        }
+    }
+    self->age++;
+    return 0;
+}
+
 s32 TLobby__sub_80240310(u8 *arg0) {
     TLobby__sub_802405B0((void *)(arg0), (s32)(1));
     M2C_FIELD(arg0, s32 *, 0x298) = 4;

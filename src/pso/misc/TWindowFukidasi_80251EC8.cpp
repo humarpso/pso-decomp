@@ -40,6 +40,12 @@ struct Prim_802521E8 {
     s32 count;
 };
 
+struct Slice_80252558 { f32 x, y, z, width, f10, lean, rowHeight, f1c, u, v, uw, f2c, f30, vh, pad[4]; };
+
+struct Fukidasi_80252558 { u8 pad[0x40]; f32 position[2]; f32 size[2]; };
+
+struct DrawCtx_80252558 { u8 pad[0x20]; f32 pivot[2]; f32 scale[2]; };
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TWindowFukidasi__sub_80250314(void *, void *);
@@ -66,7 +72,6 @@ void TWindowFukidasi__sub_80251028(void *);
 s32 TWindowFukidasi__sub_802511E4(Fuki_80250F70 *, f32 *, f32 *);
 void TWindowFukidasi__sub_80251594(void *);
 void TWindowFukidasi__sub_80251EC8(void *, View_80252764 *, u32);
-void TWindowFukidasi__sub_80252558(void *, View_80252764 *, u32, f32 *, f32);
 int is_active__15TWindowFukidasiFPv(void *);
 void TWindowSubStatusDisp__sub_80257BC0(void *, void *, View_80252764 *);
 extern const f32 TWindowFukidasi__data_805DCD0C;
@@ -90,6 +95,13 @@ extern const f32 TWindowFukidasi__data_805DCD08;
 extern const f32 lbl_805DCD78;
 extern const f32 lbl_805DCD90;
 void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 color, f32 *off, f32 depth);
+void TWindowFukidasi__sub_802523CC(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32);
+void set_global_param__8TObjFishFi(void *);
+void begin_screen_draw(int);
+void get_player__20TWindowSubStatusDispFv();
+void TWindowSubStatusDisp__sub_803DF160(int, u32);
+extern void *lbl_805D63F0;
+void TWindowFukidasi__sub_80252558(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 }
 
 extern "C" {
@@ -134,6 +146,63 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
 
 #pragma push
 #pragma fp_contract on
+extern const f32 TWindowFukidasi__data_805DCD0C;
+extern const f32 TWindowFukidasi__data_805DCD30;
+extern const f32 TWindowFukidasi__data_805DCD4C;
+extern const f32 lbl_805DCD94;
+extern const f32 lbl_805DCD98;
+extern const f32 lbl_805DCD9C;
+extern const f32 lbl_805DCDA4;
+extern const f32 lbl_805DCDB0;
+extern const f32 lbl_805DCDB4;
+void TWindowFukidasi__sub_80252558(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth) {
+    struct Slice_80252558 s;
+    f32 width;
+    f32 capY;
+    f32 mid;
+    f32 d;
+    f32 t;
+    width = b->size[0] + lbl_805DCD9C * b->size[1];
+    s.f10 = 0.0f;
+    s.f2c = 0.0f;
+    s.f30 = 0.0f;
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi(lbl_805D63F0);
+    TWindowSubStatusDisp__sub_803DF160(1, argb);
+    if (b->size[1] < lbl_805DCD98) {
+        capY = TWindowFukidasi__data_805DCD0C * b->size[1];
+    } else {
+        capY = lbl_805DCD94;
+    }
+    s.z = TWindowFukidasi__data_805DCD4C / depth;
+    s.y = b->position[1] + offset[1];
+    s.rowHeight = capY;
+    s.v = 0.0f;
+    s.vh = capY * lbl_805DCDA4;
+    s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
+    s.rowHeight *= ctx->scale[1];
+    TWindowFukidasi__sub_802523CC(b, &s, ctx, offset[0], 0.0f, width, capY);
+    s.y = (b->size[1] + (b->position[1] + offset[1])) - capY;
+    s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
+    t = lbl_805DCDB0 - capY;
+    s.v = t * lbl_805DCDA4;
+    TWindowFukidasi__sub_802523CC(b, &s, ctx, offset[0], b->size[1] - capY, width, capY);
+    d = b->size[1] - lbl_805DCD98;
+    mid = d * ctx->scale[1];
+    if (mid >= TWindowFukidasi__data_805DCD30) {
+        f32 y = lbl_805DCD94 + b->position[1];
+        s.y = y + offset[1];
+        s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
+        s.v = lbl_805DCDB4;
+        s.rowHeight = mid;
+        TWindowFukidasi__sub_802523CC(b, &s, ctx, offset[0], lbl_805DCD94, width, d);
+    }
+    get_player__20TWindowSubStatusDispFv();
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
 void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     f32 off[2];
     View_80252764 *v;
@@ -166,11 +235,11 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     v->sy /= get_fov__11TCameraCtrlFv();
     off[0] = TWindowFukidasi__data_805DCD28 * b->tail;
     off[1] = lbl_805DCDB8 * b->tail;
-    TWindowFukidasi__sub_80252558(b, v, 0xFF000000, off, lbl_805DCDBC + b->f54);
+    TWindowFukidasi__sub_80252558((struct Fukidasi_80252558 *)(b), (struct DrawCtx_80252558 *)(v), (u32)(0xFF000000), (f32 *)(off), lbl_805DCDBC + b->f54);
     draw_tail__15TWindowFukidasiFPvPvUiPvf((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(0xFF000000), (f32 *)(off), lbl_805DCDC0 + b->f54);
     off[0] = TWindowFukidasi__data_805DCD30;
     off[1] = TWindowFukidasi__data_805DCD30;
-    TWindowFukidasi__sub_80252558(b, v, b->color, off, lbl_805DCDC0 + b->f54);
+    TWindowFukidasi__sub_80252558((struct Fukidasi_80252558 *)(b), (struct DrawCtx_80252558 *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCDC0 + b->f54);
     draw_tail__15TWindowFukidasiFPvPvUiPvf((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCD90 + b->f54);
     if (is_active__15TWindowFukidasiFPv(b) != 0) {
         TWindowSubStatusDisp__sub_80257BC0(b, b->f24, v);

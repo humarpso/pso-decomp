@@ -33,6 +33,16 @@ u32 find_entity_by_id(u16);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
 void TTecGiZonde__sub_80232598(GChain_80232598 *self);
+s16 obj_getField1c(void *);
+M2C_UNK TObjPlayer__sub_8004433C(void *);
+M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 play_sound_effect(s32, void *, s32, s32);
+M2C_UNK TTecAnti__sub_8022B3E8(void *, void *);
+M2C_UNK fn_80231AF0(void *);
+M2C_UNK TObjPlayer__sub_8023AA4C(void *, void *, void *, s32);
+extern M2C_UNK __vt__11TTecGiZonde[];
+extern s32 lbl_805D37C8;
+u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4);
 }
 
 extern "C" {
@@ -41,7 +51,6 @@ void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
 void create__11TTecGiZondeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void run_task__11TTecGiZondeFv(void *arg0);
 u32 find_entity_by_id(u16);
-void *TTecGiZonde__ct(void *, void *, void *, void *, void *);
 s32 TTecGiZonde__sub_80231C58(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -52,7 +61,7 @@ void create__11TTecGiZondeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     void *o;
     o = __nw__7TObjectFUl(0x18C);
     if (o != NULL) {
-        TTecGiZonde__ct(o, arg0, arg1, arg2, arg3);
+        TTecGiZonde__ct((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -94,6 +103,45 @@ void run_task__11TTecGiZondeFv(void *arg0) {
         TTecGiZonde__sub_80232598((GChain_80232598 *)(arg0));
     }
     queue_destruction__7TObjectFv(arg0);
+}
+u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
+    s32 h;
+    TObjPlayer__sub_8023AA4C(arg0, arg1, arg2, 0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TTecGiZonde;
+    TObjPlayer__sub_8004433C(arg0 + 0x130);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37C8;
+    fn_80231AF0(arg0);
+    TTecAnti__sub_8022B3E8(arg0 + 0x130, arg3);
+    switch (M2C_FIELD(arg0, s16 *, 0xC6)) {
+    case 0:
+        if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
+        }
+        break;
+    case 1:
+        play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0);
+        break;
+    case 2:
+    case 3:
+        if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x180, 0);
+        }
+        break;
+    case 4:
+        if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x250, 0);
+        }
+        break;
+    case 5:
+        if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {
+            update_technique_slot__10TTecRaFoieFi(h, -0x100, 0);
+        }
+        break;
+    }
+    if (M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
+        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c((void *)M2C_FIELD(arg0, u32 *, 0x1C));
+    }
+    return arg0;
 }
 
 }

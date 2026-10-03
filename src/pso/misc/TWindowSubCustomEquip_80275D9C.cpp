@@ -6,6 +6,9 @@ struct Vec2_80275DE8 { f32 x, y; };
 
 struct Win_80275F90 { u8 pad[0x66]; s16 f66; };
 
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+struct Rect_80275DE8 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
+
 extern "C" {
 void set_entry_state__20TWindowSubStatusDispFPvc(void *p, char c);
 void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o);
@@ -22,9 +25,22 @@ void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *, void *);
 extern u8 lbl_8044F738[];
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1);
-void TWindowSubCustomEquip__sub_80275DE8(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0);
 extern const f32 lbl_805DD564;
 void TWindowSubCustomEquip__sub_80275F90(Win_80275F90 *arg0, u8 *arg1);
+void reset_transform_state__10TObjPlayerFv();
+void init_xyz_limits__10TObjPlayerFv();
+s32 try_open__19TWindowKeyBoardSoftFii(void *, void *);
+void set_global_param__8TObjFishFi(s32);
+void begin_screen_draw(int);
+void get_player__20TWindowSubStatusDispFv();
+void draw_textured_quad_at_depth(void *, f32);
+void TWindowSubStatusDisp__sub_803DF160(int, int);
+extern Vec2_80275DE8 lbl_8044F760[];
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DD550;
+extern const f32 lbl_805DD554;
+extern const f32 lbl_805DD560;
+void TWindowSubCustomEquip__sub_80275DE8(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0);
 }
 
 extern "C" {
@@ -40,6 +56,37 @@ void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o) {
     o->f60 &= ~1;
     set_entry_state__20TWindowSubStatusDispFPvc(o->f6c, 1);
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubCustomEquip__sub_80275DE8(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0) {
+    Rect_80275DE8 r;
+    Vec2_80275DE8 *t;
+    f32 scale;
+    if (M2C_FIELD(arg0, s32 *, 0x30) < 0) {
+        return;
+    }
+    t = &lbl_8044F760[arg2 & 0xF];
+    scale = lbl_805DD550 / (lbl_805DD554 * farg0 + M2C_FIELD(arg0, f32 *, 0x38));
+    init_xyz_limits__10TObjPlayerFv();
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi(lbl_805D63F0);
+    TWindowSubStatusDisp__sub_803DF160(0xC, -1);
+    r.x0 = arg1->x + M2C_FIELD(arg0, f32 *, 0x10);
+    r.y0 = arg1->y + M2C_FIELD(arg0, f32 *, 0x14);
+    r.x1 = 72.32f + r.x0;
+    r.y1 = 72.32f + r.y0;
+    r.u0 = t->x / 256.0f;
+    r.v0 = t->y / 256.0f;
+    r.u1 = (lbl_805DD560 + t->x) / 256.0f;
+    r.v1 = (lbl_805DD560 + t->y) / 256.0f;
+    if (try_open__19TWindowKeyBoardSoftFii(arg0, &r) != 0) {
+        draw_textured_quad_at_depth(&r, scale);
+    }
+    get_player__20TWindowSubStatusDispFv();
+    reset_transform_state__10TObjPlayerFv();
+}
+#pragma pop
 
 void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1) {
     s8 idx;

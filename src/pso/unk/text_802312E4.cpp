@@ -51,6 +51,30 @@ struct Obj_8023154C {
     s32 cursor;
 };
 
+typedef s32 M2C_UNK;
+struct Vec_802312E4 { f32 x, y, z; };
+
+struct Rot_802312E4 { s32 x, y, z; };
+
+struct Part_802312E4 { s32 id; u32 flags; u8 pad8[4]; };
+
+struct Profile_802312E4 { Part_802312E4 *parts; u32 count; };
+
+struct Task_802312E4 {
+    u8 pad0[0x18];
+    void **vt;
+    u32 *emitters;
+    Vec_802312E4 pos;
+    Vec_802312E4 pos2;
+    f32 x38;
+    s32 x3c;
+    s32 x40;
+    u8 band;
+    s8 x45;
+    u8 x46;
+    u8 single;
+};
+
 extern "C" {
 u8 *destroy_technique_base__9TTecLukerFPvs(void *, s16);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
@@ -68,6 +92,19 @@ void apply_technique_to_area_targets(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 extern const f32 TTecGiFoie__data_805DC81C;
 void run_task__10TTecGiFoieFv(u8 *self);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
+s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
+s32 fn_800871A0(void *, void *, s32);
+u32 *alloc_buffer__11TOBoss4RockFPv(s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern Profile_802312E4 lbl_8044D2F4[];
+extern void *lbl_804CC800[];
+extern const f32 lbl_805DC810;
+extern const f32 TTecGiFoie__data_805DC81C;
+extern const f32 lbl_805DC820;
+extern const f32 lbl_805DC824;
+Task_802312E4 *TTecGiFoie__sub_802312E4(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single);
 }
 
 extern "C" {
@@ -75,6 +112,55 @@ extern "C" {
 void create__10TTecGiFoieFPvPvPv(void *arg0, void *arg1, void *arg2);
 void *TTecGiFoie__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(int);
+
+Task_802312E4 *TTecGiFoie__sub_802312E4(Task_802312E4 *self, Vec_802312E4 *pos, s32 arg2, u8 band, s32 arg4, void *parent, u8 single) {
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = lbl_804CC800;
+    self->x46 = 0;
+    self->pos.x = pos->x;
+    self->pos.y = pos->y;
+    self->pos.z = pos->z;
+    self->band = band;
+    self->x45 = arg4;
+    VecCopy__FP3VecPC3Vec(&self->pos2, &self->pos);
+    self->x3c = arg2;
+    self->x38 = lbl_805DC810;
+    self->x40 = 0;
+    self->single = single;
+    if (self->single != 0) {
+        Rot_802312E4 r;
+        self->emitters = alloc_buffer__11TOBoss4RockFPv(4);
+        r.x = 0;
+        r.y = 0;
+        r.z = 0x4000;
+        self->emitters[0] = fn_800871A0(&self->pos, &r, 0x19D);
+        self->x38 = TTecGiFoie__data_805DC81C;
+    } else {
+        s32 i;
+        self->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D2F4[self->band].count * 4);
+        for (i = 0; i < lbl_8044D2F4[self->band].count; i++) {
+            Rot_802312E4 r;
+            Part_802312E4 *p;
+            r.x = 0;
+            r.y = 0;
+            r.z = 0x4000;
+            p = &lbl_8044D2F4[self->band].parts[i];
+            self->emitters[i] = spawn_particle_effect_with_rotation(&self->pos, &r, p->id, (p->flags & 0x1000) ? 0x2000 : 0);
+            if (self->band == 2) {
+                if (arg4 >= 0xF && arg4 < 0x19) {
+                    if (i <= 1 && self->emitters[i] != 0) {
+                        set_position_xy__10TObjPlayerFPvff(self->emitters[i], lbl_805DC820, lbl_805DC820);
+                    }
+                } else if (arg4 >= 0x19 && arg4 < 0x1E) {
+                    if (i <= 1 && self->emitters[i] != 0) {
+                        set_position_xy__10TObjPlayerFPvff(self->emitters[i], lbl_805DC820, lbl_805DC824);
+                    }
+                }
+            }
+        }
+    }
+    return self;
+}
 
 void create__10TTecGiFoieFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
