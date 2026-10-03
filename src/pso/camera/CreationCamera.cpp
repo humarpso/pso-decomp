@@ -30,7 +30,7 @@ extern s32 lbl_805D6570;
 extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
-void fn_802916D4(u8 *arg0);
+void begin_creation_review_camera(u8 *arg0);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
@@ -106,7 +106,7 @@ void advance_creation_review_camera(CreationCameraFields* camera) {
 }
 #pragma pop
 
-void fn_802916D4(u8 *arg0) {
+void begin_creation_review_camera(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r7;
     if ((void *) lbl_805D6520 != NULL) {

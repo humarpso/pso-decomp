@@ -87,7 +87,7 @@ void free_resources__15TODoorVS2Door01Fv(void);
 u8 is_open__15TODoorVS2Door01FPv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -115,7 +115,7 @@ void TODoorVS2Door01__vt16(u8 *arg0) {
 #pragma pop
 
 void TODoorVS2Door01__vt15(u8 *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (TODragonfly__sub_80158360(lbl_805DB54C) == 0)) {
+    if (!(M2C_FIELD(arg0, s32 *, 0xD0) & 1) || (is_any_player_within_radius_xz(lbl_805DB54C) == 0)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
         play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);
@@ -137,7 +137,7 @@ void TODoorVS2Door01__vt14(u8 *arg0) {
 }
 
 void TODoorVS2Door01__vt13(u8 *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (TODragonfly__sub_80158360(lbl_805DB554) != 0)) {
+    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (is_any_player_within_radius_xz(lbl_805DB554) != 0)) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);
         play_sound_effect(0x4004AA0B, arg0 + 0x38, 0, 0);

@@ -520,7 +520,7 @@ int update_state_3__12TBoss8DragonFPv(void* p);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 int TBoss8Dragon__sub_80065F4C(void*);
 void TBoss8Dragon__sub_80065F80(void *);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 s32 spawn_particle_effect_with_flags(void *, M2C_UNK, M2C_UNK);
 M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
@@ -929,7 +929,7 @@ void handle_6xA0_gal_gryphon_boss_actions(void *arg0) {
 }
 
 void set_target_from_action__12TBoss8DragonFPvPv(void *arg0, void *arg1) {
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 4));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 4));
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) M2C_FIELD(arg1, f32 *, 8);
     M2C_FIELD(arg0, f32 *, 0x39C) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
 }

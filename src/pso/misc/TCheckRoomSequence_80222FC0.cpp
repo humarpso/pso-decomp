@@ -11,7 +11,7 @@ s32 compare_version__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
 s32 compare_greater__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
 s32 TLobby__sub_8022318C(Item_80222FF0 *, Item_80222FF0 *);
 M2C_UNK swap_item_data__6TLobbyFPvPv(Item_80222FF0 *, Item_80222FF0 *);
-void TLobby__sub_80222FF0(Item_80222FF0 *items, s32 n, s32 mode);
+void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ s32 get_item_def__18TCheckRoomSequenceFUi(u32 arg0) {
     }
     return 0;
 }
-void TLobby__sub_80222FF0(Item_80222FF0 *items, s32 n, s32 mode) {
+void sort_shop_items(Item_80222FF0 *items, s32 n, s32 mode) {
     s32 i;
     s32 j;
     for (i = 0; i < n - 1; i++) {

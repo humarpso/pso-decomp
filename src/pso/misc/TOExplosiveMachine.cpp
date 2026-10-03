@@ -73,11 +73,11 @@ extern const f32 lbl_805DB5F0;
 extern const f32 lbl_805DB5F4;
 extern const f32 lbl_805DB5F8;
 O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 u8 TODoorAncient08__sub_80229220(u16);
 extern const f32 lbl_805DB600;
 M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 u8 TODoorAncient08__sub_80229220(u16);
 extern const f32 lbl_805DB604;
@@ -168,7 +168,7 @@ M2C_UNK TOExplosiveMachine__sub_80166778(void *arg0) {
     case 0:
         break;
     case 1:
-        if (TODragonfly__sub_80158360(lbl_805DB600) == 1) {
+        if (is_any_player_within_radius_xz(lbl_805DB600) == 1) {
             ((VObj_80166778 *)arg0)->m12();
         }
         break;
@@ -187,7 +187,7 @@ M2C_UNK TOExplosiveMachine__sub_80166814(void *arg0) {
     case 0:
         break;
     case 1:
-        if (TODragonfly__sub_80158360((f32) (lbl_805DB604)) != 1) {
+        if (is_any_player_within_radius_xz((f32) (lbl_805DB604)) != 1) {
             ((VObj_80166814 *)(arg0))->m13();
         }
         break;

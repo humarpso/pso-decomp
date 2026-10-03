@@ -28,7 +28,7 @@ s32 weapon_has_extra_attack();
 u8 *get_player_by_client_id(s32);
 u8 fn_801D9870(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s16);
-void TWindowSubStatusDisp__sub_80228D80();
+void append_text_space();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
 void text_builder_reset();
@@ -226,7 +226,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         if (ev->id != 0x11 && ev->id != 0xE) {
             lvl = fn_801D9870(pl + 0x428, ev->id);
             if (lbl_805D5544 != 0) {
-                TWindowSubStatusDisp__sub_80228D80();
+                append_text_space();
             }
             get_help_text_string(0x2D);
             text_builder_append();

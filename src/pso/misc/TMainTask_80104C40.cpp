@@ -17,7 +17,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_current_floor();
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 M2C_UNK create_cleanup_object__10TObjPlayerFPv(s32);
 M2C_UNK spawn_cleanup_helper__10TObjPlayerFPv(s32);
 
@@ -48,7 +48,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
             TItemDrop__sub_8010643C();
         }
     }
-    if (TLobby__sub_8030A7B0() == 1) {
+    if (get_game_play_mode() == 1) {
         TItemDrop__sub_8010643C();
     }
     if ((temp_r30 == 0xF) && (__nw__7TObjectFUl(0x1C) != 0U)) {

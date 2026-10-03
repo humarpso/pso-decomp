@@ -72,7 +72,7 @@ void get_camera_ctrl__9TObjEneDDFPv(Vec_801A7578 *, Vec_801A7578 *);
 extern Vec_801A7578 lbl_80446A44;
 extern struct Reg_801A7578 lbl_8050E578[];
 extern s32 lbl_805D5D10;
-void fn_801A7578(void);
+void publish_photon_blast_joint_origins(void);
 void create_timed_particle_emitter(Vec_801A7428 *, s32, s32, s32);
 Obj_801A7428 *find_entity_by_id(u16);
 void fn_801A753C(u8 *arg0, u8 *arg1);
@@ -136,7 +136,7 @@ void fn_801A753C(u8 *arg0, u8 *arg1) {
     *(M2CCopy_C *)((s32) arg0 + 0xC) = *(const M2CCopy_C *)((s32) arg1 + 0xC);
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
 }
-void fn_801A7578(void) {
+void publish_photon_blast_joint_origins(void) {
     s32 i;
     for (i = 0; i < lbl_8050E578->count; i++) {
         struct Node_801A7578 *node = &lbl_8050E578->list[i];

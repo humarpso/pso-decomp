@@ -61,7 +61,7 @@ M2C_UNK TTecZondeEff__sub_8023D128(void *, void *, void *, void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_depth_buffer_settings_1__Fv();
@@ -96,7 +96,7 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     end_effect_render__13TParticleCtrlFv();
     set_chunk_material_color(lbl_804A7418);
     some_id_805c6f74 = lbl_805D5660;
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
 }
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
     run_task__12TTecZondeEffFv(arg0);

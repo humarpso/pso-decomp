@@ -83,14 +83,14 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
 void *__nw__7TObjectFUl(u32);
 List_80212B88 *TQuestListChallenge__ct(void *, s32, Seq_80212B88 *, s32);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 void set_state_close__22THunterGuildSeqOfflineFv(void);
 void set_state_4__22THunterGuildSeqOfflineFv(void);
 void THunterGuildSeqOffline__sub_80212710(void);
 void set_state_close2__22THunterGuildSeqOfflineFv(void);
 void request_close__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
-void THunterGuildSeqOffline__sub_80212B88(Seq_80212B88 *self);
+void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self);
 void obj_getField1c(s32);
 void queue_destruction__7TObjectFv(void *);
 void init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
@@ -243,10 +243,10 @@ void THunterGuildSeqOffline__vt11(Seq_802129FC *arg0) {
     queue_destruction__7TObjectFv(arg0);
 }
 
-void THunterGuildSeqOffline__sub_80212B88(Seq_80212B88 *self) {
+void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self) {
     List_80212B88 *list;
     if (self->m8() == 0) return;
-    switch (TLobby__sub_8030A7B0()) {
+    switch (get_game_play_mode()) {
     case 2:
         list = (List_80212B88 *)__nw__7TObjectFUl(0x5C);
         if (list != NULL) list = TQuestListChallenge__ct(list, tl_05, self, self->player);

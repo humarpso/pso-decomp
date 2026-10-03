@@ -55,7 +55,7 @@ f32 get_weapon_set_multiplier__9TItemDataFPvPv(u8 *arg0, u8 *arg1);
 f32 get_shield_set_multiplier__9TItemDataFPvPv(u8 *arg0, u8 *arg1);
 f32 get_set_bonus_multiplier__9TItemDataFPvi(void *self, s32 player);
 void *get_item_pmt_record__10TObjPlayerFii(int type, int id);
-void *TObjPlayer__sub_8011CD48(int type, int id);
+void *get_armor_pmt_record(int type, int id);
 void *get_pmt_record_by_index__10TObjPlayerFi(int i);
 void *get_pmt_record__10TObjPlayerFi(int i);
 void *get_pmt_record_by_type_id__10TObjPlayerFii(int type, int id);
@@ -126,13 +126,13 @@ s32 get_player_by_client_id(s32);
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 M2C_UNK apply_bonuses(void *, s32, s32, s32, s32, s32);
 int bswap_16__FPUs(void*);
-s32 fn_80101A48(u8, u8);
+s32 is_item_stackable(u8, u8);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8);
 int register_drop__9TItemDataFPv(void* p);
 int register_item_drop__10TObjPlayerFPv(void*);
 
 void lookup_item_def__9TItemDataFPv(void *arg0) {
-    fn_80101A48(M2C_FIELD(arg0, u8 *, 0), M2C_FIELD(arg0, u8 *, 1));
+    is_item_stackable(M2C_FIELD(arg0, u8 *, 0), M2C_FIELD(arg0, u8 *, 1));
 }
 s16 get_field6_bswap__9TItemDataFPv(void *arg0) {
     s16 sp8;
@@ -610,7 +610,7 @@ void *lookup_item_pmt_record(u8 *item) {
         switch (item[1]) {
         case 1:
         case 2:
-            r = TObjPlayer__sub_8011CD48(item[1], item[2]);
+            r = get_armor_pmt_record(item[1], item[2]);
             break;
         case 3:
             r = get_pmt_record_by_index__10TObjPlayerFi(item[2]);

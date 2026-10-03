@@ -1,8 +1,8 @@
 #include "types.h"
 extern "C" {
-s32 TObjPlayer__sub_801CA440(void *);
+s32 exit_death_state__10TObjPlayerFPv(void *);
 s32 update_death_pose__10TObjPlayerFPv(void *);
-s32 TOMineTrap__sub_801CA508(void *);
+s32 enter_death_state__10TObjPlayerFPv(void *);
 s32 prepare_death__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CA8F0(void *);
 s32 request_revival_if_not_dead__10TObjPlayerFPv(void *);
@@ -33,13 +33,13 @@ void TObjPlayer__sub_801CAA5C(s32 arg0, s16 arg1) {
         prepare_death__10TObjPlayerFPv((void *) arg0);
         return;
       case 0:
-        TOMineTrap__sub_801CA508((void *) arg0);
+        enter_death_state__10TObjPlayerFPv((void *) arg0);
         return;
       case 1:
         update_death_pose__10TObjPlayerFPv((void *) arg0);
         return;
       case 6:
-        TObjPlayer__sub_801CA440((void *) arg0);
+        exit_death_state__10TObjPlayerFPv((void *) arg0);
         break;
     }
   }

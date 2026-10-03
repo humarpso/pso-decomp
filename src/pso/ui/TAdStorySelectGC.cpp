@@ -9,7 +9,7 @@ extern "C" {
 s32 TAdStorySelectGC__sub_80207D44(s32 arg0);
 void set_state__16TAdStorySelectGCFi(s32 arg0);
 M2C_UNK TLobby__sub_80207BB0();
-M2C_UNK TLobby__sub_80207C60();
+M2C_UNK init_floor_map_registry();
 
 extern s32 lbl_805D3628;
 
@@ -27,7 +27,7 @@ void set_state__16TAdStorySelectGCFi(s32 arg0) {
     lbl_805D6060 = arg0;
     switch (arg0) {
     case 0:
-        TLobby__sub_80207C60();
+        init_floor_map_registry();
         return;
     case 1:
         TLobby__sub_80207BB0();

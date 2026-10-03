@@ -789,7 +789,7 @@ u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
 u32 csnLookAt(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-void TBoss8Dragon__sub_800B9958(void *, u16);
+void enemy_set_target_id(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
@@ -829,7 +829,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 s32 TObjEneMorfos__sub_803344F0();
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -1077,7 +1077,7 @@ void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1) {
         switch (temp_r0_2) {
         case 0:
             if (((s32 (*)(void *, f32))update_linked_position__14TObjEneEpsilonFPv)((void *) (arg0), (f32) (TObjEneMorfos__data_805DF86C)) != 0) {
-                TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+                enemy_copy_target_destination((void *) (arg0));
                 update_velocity__9TObjEneDDFPv((void *) (arg0));
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 2;
             } else {
@@ -1156,7 +1156,7 @@ void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
         case 0:
             if (update_linked_position__14TObjEneEpsilonFPv(TObjEneMorfos__data_805DF86C) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
-                TObjEneEpsilon__sub_800B96A4(arg0);
+                enemy_copy_target_destination(arg0);
                 update_velocity__9TObjEneDDFPv(arg0);
             }
             break;
@@ -1282,7 +1282,7 @@ s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0) {
         }
     }
     if (id != 0xFFFF) {
-        TBoss8Dragon__sub_800B9958(arg0, id);
+        enemy_set_target_id(arg0, id);
         return 1;
     }
     return 0;

@@ -217,7 +217,7 @@ void TLobby__sub_80135208(s32 arg0);
 void TLobby__sub_8013A170(const char *fmt, ...);
 void TLobby__sub_8013A348(void *);
 s32 get_player_by_client_id(void *);
-Plr_801354AC *TObjPlayer__sub_801BDD8C(void *);
+Plr_801354AC *create_remote_player_object(void *);
 char *strncpy(char *, const char *, u32);
 extern char lbl_8043EE7C[];
 extern char TLobby__data_8050AAE8[][16];
@@ -309,7 +309,7 @@ s32 DateToSeconds__FP9DateStampPi(void *, void *);
 s32 getDateStamp__FP9DateStamp(void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 s32 TWindowCtrlMain__sub_8024CE58();
-void TLobby__sub_80269454(void *);
+void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFPvii(void *, char *, int);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
 void *get_window_layout_position(int);
@@ -418,7 +418,7 @@ void TLobby__sub_80134F9C(u8 *arg0) {
                 (*(Obj_80134F9C * *)&TLobby__data_805D5608) = (Obj_80134F9C *)set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0xCA), &tmp, 1);
                 send_and_handle__6TLobbyFPvii((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608), lbl_8050ADB8, 0x80);
                 set_field_1c__6TLobbyFPvf((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608), lbl_805DB0A8);
-                TLobby__sub_80269454((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608));
+                complete_reveal__14TWindowMessageFPv((void *)(*(Obj_80134F9C * *)&TLobby__data_805D5608));
             }
         }
         break;
@@ -486,7 +486,7 @@ void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
             if (p != NULL) {
                 delete p;
             }
-            plr = TObjPlayer__sub_801BDD8C(disp);
+            plr = create_remote_player_object(disp);
             strncpy(TLobby__data_8050AAE8[obj_getField1c(plr)], plr->m10(), 0x10);
             TLobby__sub_80135208(disp->id);
             TLobby__sub_8013A170(lbl_8043EE7C, obj_getField1c(plr));

@@ -65,7 +65,7 @@ M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9__10TObjPlayerFPv();
@@ -111,7 +111,7 @@ block_5:
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
     }
 }

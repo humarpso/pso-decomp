@@ -21,7 +21,7 @@ M2C_UNK GXSetZCompLoc(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
 extern RecoveredGlobal_80141A30_lbl_8050C000 lbl_8050C000;
 extern RecoveredGlobal_80141A30_lbl_8050C028 lbl_8050C028;
-void fn_80141A30(void);
+void restore_saved_depth_alpha_state(void);
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end);
 }
 
@@ -29,7 +29,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80141A30_lbl_8050C000_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C000) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_80141A30_lbl_8050C028_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C028) == 0x18 ? 1 : -1];
-void fn_80141A30(void) {
+void restore_saved_depth_alpha_state(void) {
     copy_config__10TObjPlayerFPvPv((void *) (&lbl_8050C000.value), (void *) (&lbl_8050C028.value));
     GXSetAlphaCompare((int) (M2C_FIELD(&lbl_8050C000.value, s32 *, 0)), (int) (0), (int) (0), (int) (7), (int) (0));
     GXSetZCompLoc((int) (M2C_FIELD(&lbl_8050C000.value, u8 *, 4)));

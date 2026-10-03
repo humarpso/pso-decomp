@@ -27,7 +27,7 @@ struct O_803396C8 { u8 pad[0x24]; f32 x; f32 y; f32 f2c; f32 f30; s32 f34; };
 
 extern "C" {
 M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK draw_ui_sprite(int, void *, f32, f32);
 extern const f32 lbl_805DF9F0;
 extern const f32 lbl_805DF9F4;
@@ -69,7 +69,7 @@ void render__14TChCrEffCtrlPlFv(u8 *arg0) {
     }
     draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (var_f2));
     draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
 }
 #pragma pop
 

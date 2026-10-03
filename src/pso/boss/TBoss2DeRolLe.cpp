@@ -75,7 +75,7 @@ int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2);
 void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
 int play_sound_effect(void*, int, int, int);
 M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
-s32 TBoss8Dragon__sub_800B9958(void * a0 = 0, u16 a1 = 0);
+s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
 s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
@@ -361,7 +361,7 @@ void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self) {
 
 void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p) { *(s32*)((char*)p + 0x3d0) = 0; *(s32*)((char*)p + 0x3d4) = 0; }
 void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) M2C_FIELD(arg1, s16 *, 6);
     transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
 }

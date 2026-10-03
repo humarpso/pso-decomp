@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
-void TObjBoss2Tunnel__sub_8007E764(void *arg0, void *arg1, s32 arg2);
+void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
 s32 TCameraCtrl__sub_80069258();
 M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
 M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
@@ -19,7 +19,7 @@ f32 TBoss8Dragon__sub_803D64DC(s32);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
-bool TObjBoss2Tunnel__sub_8007E84C(u8 *arg0, u8 *arg1);
+bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
 s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 limit);
@@ -151,7 +151,7 @@ f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
 }
 #pragma push
 #pragma fp_contract on
-void TObjBoss2Tunnel__sub_8007E764(void *arg0, void *arg1, s32 arg2) {
+void rotate_vec_xz(void *arg0, void *arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f31;
@@ -183,7 +183,7 @@ void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-bool TObjBoss2Tunnel__sub_8007E84C(u8 *arg0, u8 *arg1) {
+bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
     return (((M2C_FIELD(arg0, f32 *, 8) * M2C_FIELD(arg1, f32 *, 0)) - (M2C_FIELD(arg0, f32 *, 0) * M2C_FIELD(arg1, f32 *, 8))) >= TObjBoss2Tunnel__data_805D9234) == 0;
 }
 #pragma pop

@@ -16,7 +16,7 @@ extern "C" {
 void delete_children__7TObjectFv(void *);
 extern RecoveredGlobal_800F9B84_lbl_8050113C lbl_8050113C;
 void TLobby__sub_800F9B84(void);
-u32 fn_800F9BAC(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr);
+u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ typedef char RecoveredGlobal_800F9B84_lbl_8050113C_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_800F9B84(void) {
     delete_children__7TObjectFv(&lbl_8050113C.value);
 }
-u32 fn_800F9BAC(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {
+u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {
     u32 i;
     u32 n = hdr->count;
     u16 *p = hdr->relocs;

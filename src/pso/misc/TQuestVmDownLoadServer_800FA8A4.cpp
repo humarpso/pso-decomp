@@ -21,10 +21,10 @@ void create_instance__8TFogCtrlFv(void);
 M2C_UNK TFogCtrl__sub_800FB06C(u32, s32, s32);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1);
-M2C_UNK TFogCtrl__sub_800FAFE0(u32, s32, s32);
+M2C_UNK select_fog__8TFogCtrlFPvii(u32, s32, s32);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1);
-M2C_UNK TFogCtrl__sub_800FAF3C(M2C_UNK, s32);
+M2C_UNK restore_fog__8TFogCtrlFPvi(M2C_UNK, s32);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 update_all__8TFogCtrlFi(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -113,7 +113,7 @@ s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     do {
         u32 v = (u32)var_r30[var_r31];
         if (v != 0U) {
-            TFogCtrl__sub_800FAFE0(v, arg0, arg1);
+            select_fog__8TFogCtrlFPvii(v, arg0, arg1);
         }
         var_r29 += 1;
         var_r31 += 1;
@@ -140,7 +140,7 @@ s32 update_all__8TFogCtrlFi(s32 arg0) {
     do {
         temp_r3 = *(TFogCtrl__data_80501188 + var_r31);
         if ((u32) temp_r3 != 0U) {
-            TFogCtrl__sub_800FAF3C(temp_r3, arg0);
+            restore_fog__8TFogCtrlFPvi(temp_r3, arg0);
         }
         var_r29 += 1;
         var_r31 += 1;

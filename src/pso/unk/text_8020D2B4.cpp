@@ -83,8 +83,8 @@ void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count);
 void *find_scene_room_by_id(s32 room);
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n);
-s32 TLobby__sub_8020CF40(void *, void *);
-s32 TLobby__sub_8020D474(void *arg0, int arg1, int arg2);
+s32 find_set_factory_index(void *, void *);
+s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2);
 s32 get_instance__11TCameraCtrlFv();
 f32 xyz_distance_squared(void *, void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -155,7 +155,7 @@ void apply_room_transform_to_object_rows(Rec_8020D3F0 *arr, s32 n) {
     }
 }
 
-s32 TLobby__sub_8020D474(void *arg0, int arg1, int arg2) {
+s32 resolve_set_row_factory_indices(void *arg0, int arg1, int arg2) {
     Out_8020D474 o;
     Rec_8020D474 *p;
     s32 i;
@@ -163,7 +163,7 @@ s32 TLobby__sub_8020D474(void *arg0, int arg1, int arg2) {
     p = (Rec_8020D474 *)arg1;
     for (i = 0; i < arg2; i++, p++) {
         if (p->id != -1) {
-            r = TLobby__sub_8020CF40(p, &o);
+            r = find_set_factory_index(p, &o);
             if (r >= 0) {
                 p->id = r;
             } else {
@@ -250,7 +250,7 @@ void TLobby__sub_8020D6F0(u8 *arg0) {
     }
     if ((s32) TLobby__data_805D6120 > 0) {
         apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));
-        TLobby__sub_8020D474((void *)((void *) (arg0)), (int)((int) (TLobby__data_805D611C)), (int)((int) (TLobby__data_805D6120)));
+        resolve_set_row_factory_indices((void *)((void *) (arg0)), (int)((int) (TLobby__data_805D611C)), (int)((int) (TLobby__data_805D6120)));
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = 1;
 }

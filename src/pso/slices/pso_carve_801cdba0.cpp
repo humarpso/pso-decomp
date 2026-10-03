@@ -16,7 +16,7 @@ M2C_UNK TNpcPlayer__sub_80152B08(void *);
 u8 *resolve_hittable_target(u16, s16);
 s16 calc_scaled_value__10TObjPlayerFii(void *, int);
 s16 TObjPlayer__sub_801D2F0C(void *);
-void TObjPlayer__sub_801CDBA0(u8 *arg0);
+void send_attack_stage3_request__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ void TObjPlayer__sub_801CDD00(void);
 int try_apply_status_action_1__10TObjPlayerFPv(void* p);
 int try_apply_status_action__10TObjPlayerFi(void*);
 
-void TObjPlayer__sub_801CDBA0(u8 *arg0) {
+void send_attack_stage3_request__10TObjPlayerFPv(u8 *arg0) {
     s16 sp8[4];
     s16 temp_r31;
     u8 *temp_r5;

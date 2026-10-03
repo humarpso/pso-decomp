@@ -57,7 +57,7 @@ s32 is_player_input_active(s32);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 void *init_shop_judgment_window(void *);
 s32 TMCFormatSequence__sub_802693B4(void *);
-void TLobby__sub_80269454(void *);
+void complete_reveal__14TWindowMessageFPv(void *);
 extern u8 lbl_804CF120[];
 extern Pad_80252CCC lbl_8050E208[];
 extern s32 lbl_805D53A0;
@@ -115,7 +115,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             self->state = 2;
         }
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[0].m20, 4) != 0) {
-            TLobby__sub_80269454(self->fmt);
+            complete_reveal__14TWindowMessageFPv(self->fmt);
             self->state = 2;
         }
         break;

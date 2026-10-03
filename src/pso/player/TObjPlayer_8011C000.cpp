@@ -82,7 +82,7 @@ void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
 extern void *item_pmt_tbl;
 s32 get_mag_feed_result(s32 arg0, s32 arg1);
-s32 TItemData__sub_8010EEDC(s32);
+s32 get_text_collection(s32);
 extern s32 lbl_805D2B10;
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0);
 s32 TItemDrop__sub_801065F8(int, void *, void *);
@@ -123,7 +123,7 @@ s32 play_sound_effect(s32, void *, s32, s32);
 extern void *item_pmt_tbl;
 void play_shield_sound_cue(Obj_8011C59C *arg0);
 void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
-void *TObjPlayer__sub_8011CD48(u8, u8);
+void *get_armor_pmt_record(u8, u8);
 extern void *item_pmt_tbl;
 s32 TObjPlayer__sub_8011C4AC(s32 arg0, s32 arg1, s32 arg2);
 }
@@ -267,7 +267,7 @@ s32 TObjPlayer__sub_8011C4AC(s32 arg0, s32 arg1, s32 arg2) {
         switch ((u8) arg1) {
         case 1:
         case 2:
-            rec = (u8 *)TObjPlayer__sub_8011CD48(arg1, arg2);
+            rec = (u8 *)get_armor_pmt_record(arg1, arg2);
             if (rec != NULL) {
                 idx = rec[0x18];
             }
@@ -419,10 +419,10 @@ u8 get_weapon_class_motion_type(u8 arg0) {
 s32 get_item_by_slot_flag__10TObjPlayerFUc(u8 arg0) {
     if (arg0 & 0x3F) {
         if (arg0 & 0x80) {
-            return TItemData__sub_8010EEDC(0x1F4);
+            return get_text_collection(0x1F4);
         }
         if ((arg0 != 0) && (arg0 < 0x29U)) {
-            return TItemData__sub_8010EEDC(arg0 + 0x1CB);
+            return get_text_collection(arg0 + 0x1CB);
         }
         goto block_6;
     }

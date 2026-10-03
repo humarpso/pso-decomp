@@ -16,7 +16,7 @@ M2C_UNK add_actor_tp(s32, s16);
 M2C_UNK TObjPlayer__sub_800112D4(s32, s16);
 M2C_UNK add_actor_hp(s32, s16);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
-M2C_UNK TObjPlayer__sub_80015C68(s32);
+M2C_UNK spawn_recovery_effect__10TObjPlayerFPv(s32);
 M2C_UNK show_meseta_label(s32, s32, M2C_UNK, s16);
 M2C_UNK show_tp_font(s32, s32, M2C_UNK, s16);
 M2C_UNK draw_hp_label(s32, s32, M2C_UNK, s16);
@@ -72,14 +72,14 @@ void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt) {
         v = amount;
         add_actor_hp(player, v);
         draw_hp_label(player, player + 0x2FC, 0xA, v);
-        TObjPlayer__sub_80015C68(player);
+        spawn_recovery_effect__10TObjPlayerFPv(player);
         break;
     }
     case 4: {
         v = amount;
         add_actor_tp(player, v);
         show_tp_font(player, player + 0x2FC, 0xA, v);
-        TObjPlayer__sub_80015C68(player);
+        spawn_recovery_effect__10TObjPlayerFPv(player);
         break;
     }
     }

@@ -30,9 +30,9 @@ void TLobby__sub_80207E44(void);
 int TLobby__sub_80207E48(void* p);
 int lookup_scene_object__6TLobbyFPv(void* p);
 int set_state__16TAdStorySelectGCFi(void*);
-int TLobby__sub_802077CC(void*);
+int get_floor_map_selection(void*);
 int TLobby__sub_8020780C(void*);
-int TOBoss4Rock__sub_802078A4(void*);
+int randomize_adventure_maps(void*);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_status__6TSceneFv();
 
@@ -53,8 +53,8 @@ s32 is_scene_ready__6TLobbyFv(void) {
 }
 int TLobby__sub_80207E24(void* p) { return TLobby__sub_8020780C(p); }
 void TLobby__sub_80207E44(void) {  }
-int TLobby__sub_80207E48(void* p) { return TOBoss4Rock__sub_802078A4(p); }
-int lookup_scene_object__6TLobbyFPv(void* p) { return TLobby__sub_802077CC(p); }
+int TLobby__sub_80207E48(void* p) { return randomize_adventure_maps(p); }
+int lookup_scene_object__6TLobbyFPv(void* p) { return get_floor_map_selection(p); }
 typedef char RecoveredGlobal_80207E88_lbl_804C8FC0_size[sizeof(RecoveredGlobal_80207E88_lbl_804C8FC0) == 0x120 ? 1 : -1];
 typedef char RecoveredGlobal_80207E88_lbl_804C9270_size[sizeof(RecoveredGlobal_80207E88_lbl_804C9270) == 0x120 ? 1 : -1];
 s32 TLobby__sub_80207E88(s32 arg0) {

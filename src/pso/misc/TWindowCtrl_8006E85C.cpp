@@ -10,7 +10,7 @@ s32 get_flag_bit3__11TWindowCtrlFv(void);
 s32 is_map_visible__11TWindowCtrlFv(void);
 int is_player_flag_4000_set__11TWindowCtrlFPv(void* p);
 s32 TLobby__sub_8030A770();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024AF74(u16);
 s32 TWindowCtrl__sub_8024B054(u16);
@@ -35,7 +35,7 @@ s32 is_map_visible__11TWindowCtrlFv(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
         return 1;
     }
-    if (TLobby__sub_8030A7B0() != 1) {
+    if (get_game_play_mode() != 1) {
         return 1;
     }
     return TLobby__sub_8030A770() != 0 ? 1 : 0;

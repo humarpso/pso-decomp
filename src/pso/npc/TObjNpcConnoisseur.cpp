@@ -109,7 +109,7 @@ extern s32 lbl_804A8310[];
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D5748;
 extern u32 TObjNpcConnoisseur__data_805D574C;
-void TObjNpcConnoisseur__sub_80149918(void);
+void load_section_motion__18TObjNpcConnoisseurFv(void);
 }
 
 extern "C" {
@@ -135,7 +135,7 @@ void destroy_instance__18TObjNpcConnoisseurFv(void) {
 
 extern M2C_UNK __vt__18TObjNpcConnoisseur[];
 
-void TObjNpcConnoisseur__sub_80149918(void) {
+void load_section_motion__18TObjNpcConnoisseurFv(void) {
     void *o;
     lbl_805D5748 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

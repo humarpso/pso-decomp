@@ -119,7 +119,7 @@ u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC1A0;
 extern const f32 lbl_805DC1A4;
 extern const f32 lbl_805DC1A8;
-void TObjPlayer__sub_801ABBAC(u8 *arg0);
+void run_task__12TPhotonGollaFPv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
@@ -145,7 +145,7 @@ extern void *lbl_805D5D40;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self);
+void render__12TPhotonGollaFPv(Self_801ABAA0 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 find_entity_by_id(int);
 u32 __nw__7TObjectFUl(int);
@@ -166,7 +166,7 @@ extern const f32 lbl_805DC18C;
 extern const f32 lbl_805DC190;
 extern const f32 lbl_805DC194;
 extern const f32 lbl_805DC198;
-s32 TObjPlayer__sub_801AB6A0(void *arg0);
+s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0);
 s32 find_entity_by_id(int);
 s32 rotate_matrix_y(int, int);
 void init_all_slots__10TObjPlayerFv(void);
@@ -222,7 +222,7 @@ void TObjPlayer__sub_801AB688(void* a0) { *(float*)((char*)a0 + 0x15c) = lbl_805
 #pragma fp_contract on
 #pragma opt_common_subs off
 #define self ((Golla_801AB6A0 *)arg0)
-s32 TObjPlayer__sub_801AB6A0(void *arg0) {
+s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
     Vec_801AB6A0 target;
     Vec_801AB6A0 local;
     Vec_801AB6A0 rotated;
@@ -340,7 +340,7 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
 #pragma pop
 #undef self
 
-void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self) {
+void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
     if (self->started != 0) {
         scroll_strip_uvs(lbl_805D5D40, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
@@ -369,7 +369,7 @@ void TObjPlayer__sub_801ABAA0(Self_801ABAA0 *self) {
     }
 }
 
-void TObjPlayer__sub_801ABBAC(u8 *arg0) {
+void run_task__12TPhotonGollaFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_801ABBAC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801ABBAC, spC) == 0x4) ? 1 : -1];
     Stack_801ABBAC stack;
@@ -405,11 +405,11 @@ void TObjPlayer__sub_801ABBAC(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C8) == 0x50) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1AC), (void *) (M2C_FIELD(arg0, s32 *, 0x148) + 0x44));
         spawn_particle_effect((void *) (arg0 + 0x1AC), (int) (0x133));
-        TObjPlayer__sub_801AB6A0((void *)((void *) (arg0)));
+        spawn_concentrate__12TPhotonGollaFPv((void *)((void *) (arg0)));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C8);
     if ((temp_r0 == 0x56) || (temp_r0 == 0x5C) || (temp_r0 == 0x62) || (temp_r0 == 0x68) || (temp_r0 == 0x6E) || (temp_r0 == 0x74)) {
-        TObjPlayer__sub_801AB6A0((void *)((void *) (arg0)));
+        spawn_concentrate__12TPhotonGollaFPv((void *)((void *) (arg0)));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C4) != 0) {
         play_persistent_sound((int) (0x4002462F), (void *) (arg0), (int) (0), (int) (0), (int) (0));

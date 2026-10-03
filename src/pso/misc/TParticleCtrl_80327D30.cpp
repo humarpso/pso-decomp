@@ -51,7 +51,7 @@ M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(int);
 M2C_UNK load_projected_texture_matrix(f32);
 M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 void reset_ind_tev_stages__13TParticleCtrlFv(void *);
@@ -122,7 +122,7 @@ void TParticleCtrl__sub_80327D30(Obj_80327D30 *o) {
         }
         TParticleCtrl__sub_803E2A1C(v, 4);
         if (o->f34 != 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
         reset_particles__13TParticleCtrlFv();
         disable_if_single_screen__13TParticleCtrlFv();

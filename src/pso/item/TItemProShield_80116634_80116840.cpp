@@ -97,7 +97,7 @@ M2C_UNK TObjPlayer__sub_80116620(s32, M2C_UNK);
 s32 find_by_pos__11TMainCursorFiss(M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_current_room__10TObjRoomIdFPv(void *);
 M2C_UNK TObjPlayer__sub_801CCB58(M2C_UNK, M2C_UNK);
-void TItemProShield__sub_801168D4(void *arg0);
+void apply_moon_atomizer(void *arg0);
 void * init__14TItemProShieldFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -161,7 +161,7 @@ u8 *TItemProShield__sub_8011687C(u8 *arg0) {
 
 #pragma push
 #pragma scheduling off
-void TItemProShield__sub_801168D4(void *arg0) {
+void apply_moon_atomizer(void *arg0) {
     s32 temp_r3;
     u32 temp_r424;
     int temp_r31;

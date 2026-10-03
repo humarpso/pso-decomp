@@ -158,7 +158,7 @@ extern "C" {
 void *item_object_variant_deleting_dtor_80116BEC(void *arg0, s16 arg1);
 void *item_object_variant_deleting_dtor_80116CFC(void *arg0, s16 arg1);
 void *TItemProShield__sub_80116AD0(void *arg0, s16 arg1);
-void TItemProShield__sub_80116BBC(void *arg0);
+void apply_sol_atomizer(void *arg0);
 int TItemProShield__sub_80116CD8(void* p);
 void *TItemProShield__sub_80116D54(void *arg0);
 void TItemObject__ct(void *);
@@ -201,7 +201,7 @@ u8 *TItemProShield__sub_80116B64(u8 *arg0) {
     return NULL;
 }
 
-void TItemProShield__sub_80116BBC(void *arg0) {
+void apply_sol_atomizer(void *arg0) {
     struct VObj_80116BBC_80116634 *o = (struct VObj_80116BBC_80116634 *)M2C_FIELD(arg0, void **, 0xF0);
     o->m48();
 }

@@ -6,7 +6,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32, f32, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(void *, void *);
+M2C_UNK set_draw_texture_and_color(void *, void *);
 extern s32 lbl_805D65C0;
 extern const f32 lbl_805DDCF8;
 extern const f32 lbl_805DDCFC;
@@ -21,7 +21,7 @@ void draw_character_background_frame(u8 *arg0, s32 arg1, s32 arg2) {
   f32 buffer_8[8];
   begin_screen_draw((int) 1);
   set_global_param__8TObjFishFi((void *) lbl_805D65C0);
-  TWindowSubStatusDisp__sub_803DF160((void *) arg1, (void *) arg2);
+  set_draw_texture_and_color((void *) arg1, (void *) arg2);
   buffer_8[0] = lbl_805DDCF8;
   buffer_8[1] = lbl_805DDCF8;
   buffer_8[2] = lbl_805DDCFC;

@@ -21,7 +21,7 @@ void send_info__9TProtocolFR16TPlyGuildCardTag(s32, void *);
 void send_action__9TProtocolFR13GameListEntryPcPc(s32, void *, void *, void *);
 M2C_UNK TWindow__close(u32);
 s32 select_cursor_entry__6TLobbyFPv(u32);
-M2C_UNK TLobby__sub_80269454(u32);
+M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 void send_and_handle__6TLobbyFPvii(u32, void *, s32);
 extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D5580;
@@ -46,7 +46,7 @@ M2C_UNK TWindow__close(u32);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK send_message_box_closed__9TProtocolFv(s32);
 s32 TMCFormatSequence__sub_802693B4(u32);
-M2C_UNK TLobby__sub_80269454(u32);
+M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 
 extern s8 lbl_8050E208[];
 extern s32 TLobby__data_805D5580;
@@ -76,7 +76,7 @@ void handle_short_list_input__6TLobbyFv(void) {
         temp_r31 = lbl_8050E208 + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
             if (TMCFormatSequence__sub_802693B4(TLobby__data_805D55DC) == 0) {
-                TLobby__sub_80269454(TLobby__data_805D55DC);
+                complete_reveal__14TWindowMessageFPv(TLobby__data_805D55DC);
             } else {
                 TWindow__close(TLobby__data_805D55DC);
                 TLobby__data_805D55DC = 0U;
@@ -103,7 +103,7 @@ void update_short_list__6TLobbyFv(void) {
         temp_r31 = lbl_8050E208 + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
             if (TMCFormatSequence__sub_802693B4(TLobby__data_805D55CC) == 0) {
-                TLobby__sub_80269454(TLobby__data_805D55CC);
+                complete_reveal__14TWindowMessageFPv(TLobby__data_805D55CC);
             } else {
                 TWindow__close(TLobby__data_805D55CC);
                 TLobby__data_805D55CC = 0U;
@@ -144,7 +144,7 @@ void TLobby__sub_80138B7C(void) {
         sel = select_cursor_entry__6TLobbyFPv(TLobby__data_805D55D0);
         if (sel != TLobby__data_805D55A4) {
             send_and_handle__6TLobbyFPvii(TLobby__data_805D55CC, &((Lobby_80138B7C *)TLobby__data_805D5580)->cards[sel].b[0x28], 3);
-            TLobby__sub_80269454(TLobby__data_805D55CC);
+            complete_reveal__14TWindowMessageFPv(TLobby__data_805D55CC);
             if (TLobby__data_805D55C8 != 0) {
                 TWindow__close(TLobby__data_805D55C8);
                 TLobby__data_805D55C8 = 0;

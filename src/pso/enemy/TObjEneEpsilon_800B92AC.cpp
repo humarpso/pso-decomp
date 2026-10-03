@@ -112,7 +112,7 @@ struct VObj_18_807e53 : VBase_18_807e53 {
 extern "C" {
 void enemy_init_validate_period(u8 *arg0, s32 arg1);
 int copy_position__14TObjEneEpsilonFPv(void *, void *);
-void TObjEneEpsilon__sub_800B96A4(u8 *arg0);
+void enemy_copy_target_destination(u8 *arg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 u8 * try_move_actor_xz_on_ground(void *, void *);
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0);
@@ -124,7 +124,7 @@ void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
 s32 enemy_has_live_target(void *);
-s32 TObjEneEpsilon__sub_800BBE64(M2C_UNK, void *, s32);
+s32 tick_period_counter(M2C_UNK, void *, s32);
 M2C_UNK enemy_clear_target(void *);
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
 s32 enemy_validate_retained_target(u8 *arg0);
@@ -247,7 +247,7 @@ s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
 }
 
 s32 enemy_validate_retained_target(u8 *arg0) {
-    if (TObjEneEpsilon__sub_800BBE64((s32) arg0, arg0 + 0x3B8, M2C_FIELD(arg0, s32 *, 0x3BC)) != 0) {
+    if (tick_period_counter((s32) arg0, arg0 + 0x3B8, M2C_FIELD(arg0, s32 *, 0x3BC)) != 0) {
         if (transform_relative_position__9TObjEneDDFPvPv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x390))) != 0) {
             return 1;
         }
@@ -267,7 +267,7 @@ void enemy_init_validate_period(u8 *arg0, s32 arg1) {
 }
 
 int copy_position__14TObjEneEpsilonFPv(void* p, void * _w1) { return VecCopy__FP3VecPC3Vec((char*)p + 0x394); }
-void TObjEneEpsilon__sub_800B96A4(u8 *arg0) {
+void enemy_copy_target_destination(u8 *arg0) {
     u32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, u32 *, 0x390);
     if (temp_r4 != 0U) {

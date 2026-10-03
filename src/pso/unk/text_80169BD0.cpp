@@ -52,7 +52,7 @@ s32 check_player_flag1__6TLobbyFPv();
 s32 end_conversation_camera();
 s32 begin_conversation_camera();
 s32 check_demo_mode__10TObjPlayerFv();
-s32 TODragonfly__sub_80158360(void *, f32);
+s32 is_any_player_within_radius_xz(void *, f32);
 s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 u32 __ct__12TQuestThreadFv(int, void *, int);
@@ -90,7 +90,7 @@ void run_script_object_task(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
     switch (temp_r0) {
     case 0:
-        if ((((VObj_18_ac8580 *)(arg0))->m12() != 0) && (TODragonfly__sub_80158360((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD8) > 0)) {
+        if ((((VObj_18_ac8580 *)(arg0))->m12() != 0) && (is_any_player_within_radius_xz((void *) (arg0), (f32) (lbl_805DB6D8)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD8) > 0)) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         }
         break;

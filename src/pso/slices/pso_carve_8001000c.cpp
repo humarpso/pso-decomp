@@ -35,7 +35,7 @@ s32 obj_getField1c(void* a0);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_800102C0(s32 arg0, s32 arg1);
+void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1);
 int obj_testFlags30(void*, int);
 void create__10TObjPlayerFUiii(u32, s32, s32);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -125,7 +125,7 @@ void spawn_paralysis_feedback_effect(s32 arg0, s32 arg1) {
         }
     }
 }
-void TObjPlayer__sub_800102C0(s32 arg0, s32 arg1) {
+void spawn_poison_effect__10TObjPlayerFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     if (((s32)obj_testFlags30((void*)(arg0), (int)(0x02000000))) == 0) {
         temp_r3 = spawn_particle_effect_with_flags((s32)(arg0 + 0x2FC), (s32)(0x25), (s32)(0x50));

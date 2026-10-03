@@ -109,7 +109,7 @@ s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 void apply_by_index__9TObjEnemyFs(s16, void *);
 void apply_table_entry__6TLobbyFs(s16, Source_8011AA68 *);
-s32 fn_801057A8(void *, int);
+s32 spawn_dropped_item_from_msg(void *, int);
 extern Source_8011AB64 *TLobby__data_805D6144;
 extern Source_8011AA68 *TLobby__data_805D6140;
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
@@ -295,7 +295,7 @@ void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt) {
         row.claim = 0xFFFF;
         apply_table_entry__6TLobbyFs((s16)(pkt->source), (Source_8011AA68 *)(&row));
     }
-    fn_801057A8(&pkt->client, 0);
+    spawn_dropped_item_from_msg(&pkt->client, 0);
 }
 
 void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {

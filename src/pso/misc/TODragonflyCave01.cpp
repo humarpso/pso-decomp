@@ -159,7 +159,7 @@ struct Self_8016492C { u8 pad[0x38]; u8 pos[0x70 - 0x38]; f32 radius; u8 pad74[0
 struct O_80164A90 { u8 pad[0x38]; u8 pos[0x34]; f32 f6c; f32 f70; u8 pad74[0xAC - 0x74]; s32 st; u8 padb0[0xCC - 0xB0]; s32 cc; u8 padd0[4]; u8 d4[0xC]; u8 e0[0xC]; };
 
 extern "C" {
-s32 TODragonfly__sub_80158360(s32, f32);
+s32 is_any_player_within_radius_xz(s32, f32);
 s32 rand(void);
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB578;
@@ -167,7 +167,7 @@ extern const f32 lbl_805DB57C;
 extern const f32 lbl_805DB588;
 extern const f32 lbl_805DB58C;
 void TODragonfly__sub_80164990(u8 *arg0);
-s32 TODragonfly__sub_80158360(s32, f32);
+s32 is_any_player_within_radius_xz(s32, f32);
 s32 rand(void);
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB578;
@@ -215,7 +215,7 @@ f32 TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805DB584;
 void TODragonfly__sub_8016492C(Self_8016492C *self);
 f32 horizontal_distance_squared(void *, void *);
-s32 TODragonfly__sub_80158360(s32, f32);
+s32 is_any_player_within_radius_xz(s32, f32);
 s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
 f32 TBoss4Zako__sub_803D8910(void *, void *);
 extern const f32 lbl_805DB578;
@@ -327,7 +327,7 @@ void TODragonfly__sub_80164990(u8 *arg0) {
     temp_r5 = M2C_FIELD(arg0, s32 *, 0xCC);
     M2C_FIELD(arg0, s32 *, 0xCC) = (s32) (temp_r5 + 1);
     if (lbl_805DB578 < (f32) temp_r5) {
-        if (TODragonfly__sub_80158360((s32) arg0, lbl_805DB588) == 1) {
+        if (is_any_player_within_radius_xz((s32) arg0, lbl_805DB588) == 1) {
             if (TODragonfly__sub_80164764((u8 *)(arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
                 M2C_FIELD(arg0, s32 *, 0xAC) = 3;
                 M2C_FIELD(arg0, s32 *, 0xCC) = 0;
@@ -343,7 +343,7 @@ void TODragonfly__sub_80164990(u8 *arg0) {
 void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
     f32 t;
     f32 d;
-    if (TODragonfly__sub_80158360((s32)arg0, lbl_805DB590) == 1) {
+    if (is_any_player_within_radius_xz((s32)arg0, lbl_805DB590) == 1) {
         if (TODragonfly__sub_80164764((u8 *)arg0, lbl_805DB578 + arg0->f6c) == 1) {
             arg0->st = 3;
             arg0->cc = 0;
@@ -363,7 +363,7 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
 #pragma fp_contract on
 void TODragonfly__sub_80164B34(s32 arg0) {
     s32 temp_r4;
-    if (TODragonfly__sub_80158360(arg0, lbl_805DB590) == 1) {
+    if (is_any_player_within_radius_xz(arg0, lbl_805DB590) == 1) {
         if (TODragonfly__sub_80164764((u8 *)((void *) arg0), lbl_805DB578 + M2C_FIELD(arg0, f32 *, 0x6C)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;

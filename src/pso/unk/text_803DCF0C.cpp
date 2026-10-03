@@ -6,10 +6,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-M2C_UNK fn_803DCF2C();
+M2C_UNK present_frame_and_wait_vsync();
 
 void fn_803DCF0C(void) {
-    fn_803DCF2C();
+    present_frame_and_wait_vsync();
 }
 
 }

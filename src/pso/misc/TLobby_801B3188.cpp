@@ -34,7 +34,7 @@ M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK get_dest_area__17TObjAreaWarpQuestFPv(void *);
 M2C_UNK send_6x21_inter_level_warp(s32, int);
 int set_battle_flag__10TObjPlayerFPvi(void*, int);
-M2C_UNK TObjPlayer__sub_801C5F84(u16, int, int);
+M2C_UNK set_arrival_override_pos(u16, int, int);
 s32 TObjPlayer__sub_801D8D14(void *);
 s32 get_hospital_position__10TObjPlayerFPv(void *);
 s32 TNpcPlayer__sub_8034DE40();
@@ -43,7 +43,7 @@ M2C_UNK apply_to_players__10TNpcPlayerFiPvi(s32, int, int);
 extern ReturnLobby lbl_80515BA0;
 void TObjPlayer__sub_801B31D8(s32 arg0);
 s32 get_main_phase();
-M2C_UNK TKeyBoardControl__sub_8000F998();
+M2C_UNK mark_area_change_pending();
 M2C_UNK get_field_2d4__10TObjPlayerFPv(void *);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK get_dest_area__17TObjAreaWarpQuestFPv(void *);
@@ -91,7 +91,7 @@ void TObjPlayer__sub_801B31D8(s32 arg0) {
     send_6x21_inter_level_warp(arg0, 0);
     temp_r31 = get_hospital_position__10TObjPlayerFPv((void *) (arg0));
     temp_r30 = TObjPlayer__sub_801D8D14((void *) (arg0));
-    TObjPlayer__sub_801C5F84(obj_getField1c((void *)arg0), temp_r30, temp_r31);
+    set_arrival_override_pos(obj_getField1c((void *)arg0), temp_r30, temp_r31);
     set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800));
     set_battle_flag__10TObjPlayerFPvi((void*)((void *) (arg0)), (int)((int) (0)));
     temp_r30 = TNpcPlayer__sub_8034DE40();
@@ -144,7 +144,7 @@ void complete_deferred_player_death(void) {
             }
             TObjPlayer__sub_801B31D8((s32)p);
             set_area__6TLobbyFPvi(&lbl_80515BA0, 0, TLobby__sub_80207770(0));
-            TKeyBoardControl__sub_8000F998();
+            mark_area_change_pending();
             TNpcPlayer__sub_8034E7A0(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0));
             return;
         }

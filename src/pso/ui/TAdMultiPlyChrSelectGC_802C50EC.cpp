@@ -145,7 +145,7 @@ M2C_UNK abs__4cXyzCFv(int, int);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+M2C_UNK set_draw_texture_and_color(int, int);
 extern s32 lbl_805D67D4;
 extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
 extern const f32 lbl_805DE57C;
@@ -217,7 +217,7 @@ void TAdMultiPlyChrSelectGC__sub_802C5314(S_802C5314 *self) {
                 abs__4cXyzCFv(1, 0xA);
                 begin_screen_draw(1);
                 set_global_param__8TObjFishFi(lbl_805D67D4);
-                TWindowSubStatusDisp__sub_803DF160(0, self->sel[i][j]);
+                set_draw_texture_and_color(0, self->sel[i][j]);
                 draw_textured_quad_at_depth(self->r324, lbl_805DE580);
                 draw_textured_quad_at_depth(self->r344, lbl_805DE580);
                 draw_textured_quad_at_depth(self->r364, lbl_805DE580);

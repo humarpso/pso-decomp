@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 u16 obj_getField1c(void* a0);
-s32 TObjPlayer__sub_8000FF5C(s32 arg0);
+s32 is_local_player__10TObjPlayerFi(s32 arg0);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ void TObjPlayer__sub_8000FF4C(void* p, s16 v);
 u16 get_field_2d4__10TObjPlayerFPv(void* p);
 int obj_testFlags30(void*, int);
 
-s32 TObjPlayer__sub_8000FF5C(s32 arg0) {
+s32 is_local_player__10TObjPlayerFi(s32 arg0) {
     if (obj_getField1c((void*)(arg0)) < 0x1000U) {
         return is_locally_controlled__10TObjPlayerFPv((s32)((void *) (arg0)));
     }

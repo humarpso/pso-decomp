@@ -203,7 +203,7 @@ u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
 u32 csnLookAt(void *, void *);
 void enemy_clear_target(void *);
-void TBoss8Dragon__sub_800B9958(void *, u16);
+void enemy_set_target_id(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
@@ -431,7 +431,7 @@ s32 TObjEneDf2Bringer__sub_80098FF4(Obj_80098FF4 *self) {
         }
     }
     if (id != 0xFFFF) {
-        TBoss8Dragon__sub_800B9958(self, id);
+        enemy_set_target_id(self, id);
         return 1;
     }
     enemy_clear_target(self);

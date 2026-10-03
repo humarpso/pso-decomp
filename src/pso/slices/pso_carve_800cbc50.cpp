@@ -12,7 +12,7 @@ void TObjEneMe1Gee__vt103(u8 *arg0);
 extern "C" {
 
 int enemy_has_live_target(void*);
-int TObjEneEpsilon__sub_800B96A4(void*);
+int enemy_copy_target_destination(void*);
 int update_velocity__9TObjEneDDFPv(void*);
 int update_angle__13TObjEneMe1GeeFPv(void*);
 void update__13TObjEneMe1GeeFPv(void* p);

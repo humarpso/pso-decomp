@@ -117,7 +117,7 @@ extern const f32 lbl_805DAC98;
 void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
 Item_8011F760 *get_weapon_range_record(void *, s32);
-u32 TObjPlayer__sub_8011F760(void *self);
+u32 get_attack_flags__11TItemWeaponFPv(void *self);
 s32 is_active_in_game__10TObjPlayerFPv(void*);
 s32 get_flag_40__8TItemMagFPv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -151,7 +151,7 @@ s32 add_weapon_grind(Obj_8011F710 *arg0, s32 arg1) {
     return 1;
 }
 
-u32 TObjPlayer__sub_8011F760(void *self) {
+u32 get_attack_flags__11TItemWeaponFPv(void *self) {
     u32 flags = 0;
     Item_8011F760 *it;
     if (lookup_item_data__20TWindowSubStatusDispFPv(self) == 3) {

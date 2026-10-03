@@ -50,7 +50,7 @@ s32 reset_transform_state__10TObjPlayerFv();
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
+s32 set_draw_texture_and_color(int, void *);
 extern const f32 lbl_805DA978;
 extern const f32 lbl_805DA97C;
 extern const f32 lbl_805DA980;
@@ -83,7 +83,7 @@ s32 reset_transform_state__10TObjPlayerFv();
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
+s32 set_draw_texture_and_color(int, void *);
 void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale);
 u8 get_small_font_glyph_width(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
@@ -93,9 +93,9 @@ s32 reset_transform_state__10TObjPlayerFv();
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, void *);
+s32 set_draw_texture_and_color(int, void *);
 void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale);
-void TLobby__sub_800F9DF4(void *, void *);
+void read_disc_file(void *, void *);
 void TFogCtrl__sub_800FBAAC(void);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 is_online_ready__6TLobbyFv();
@@ -105,7 +105,7 @@ extern M2C_UNK TFogCtrl__data_80501188[];
 extern u32 lbl_805D5388;
 extern s32 lbl_805D538C;
 void TFogCtrl__sub_800FBAB0(void);
-void TLobby__sub_800F9DF4(void *, void *);
+void read_disc_file(void *, void *);
 void create_instance__8TFogCtrlFv(void);
 void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
 FogParam_800FBC5C *alloc_buffer__11TOBoss4RockFPv(s32);
@@ -166,11 +166,11 @@ void TFogCtrl__sub_800FBAB0(void) {
     M2C_UNK v;
     if (is_online_ready__6TLobbyFv() != 0) {
         if (!(lbl_805D538C & 2)) {
-            TLobby__sub_800F9DF4(lbl_8043DA30, (void *)lbl_805D5388);
+            read_disc_file(lbl_8043DA30, (void *)lbl_805D5388);
             lbl_805D538C |= 2;
         }
     } else if (lbl_805D538C & 2) {
-        TLobby__sub_800F9DF4(lbl_8043DA20, (void *)lbl_805D5388);
+        read_disc_file(lbl_8043DA20, (void *)lbl_805D5388);
         lbl_805D538C &= ~2;
     }
     i = 0;
@@ -253,7 +253,7 @@ void init_scene_fog_system(void) {
     for (i = 0; i < 0x80; i++) {
         TFogCtrl__sub_800FAC90((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&lbl_80501198);
     }
-    TLobby__sub_800F9DF4(lbl_8043DA20, (void *)lbl_805D5388);
+    read_disc_file(lbl_8043DA20, (void *)lbl_805D5388);
     for (i = 0; i < 4; i++) {
         TFogCtrl__data_80501188[i] = 0;
     }
@@ -277,7 +277,7 @@ void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg
     reset_transform_state__10TObjPlayerFv();
     begin_screen_draw((int) (1));
     render_forward__20TWindowSubStatusDispFPv();
-    TWindowSubStatusDisp__sub_803DF160((int) (0), (void *) (arg0));
+    set_draw_texture_and_color((int) (0), (void *) (arg0));
     stack.sp8 = farg0;
     stack.spC = farg1;
     stack.sp10 = lbl_805DA978 + farg0;
@@ -308,7 +308,7 @@ void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 
     reset_transform_state__10TObjPlayerFv();
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
-    TWindowSubStatusDisp__sub_803DF160(0, color);
+    set_draw_texture_and_color(0, color);
     for (i = 0; i < digits; i++) {
         id = TWindowSubStatusDisp__sub_800FC248((u8)(value % 10) + '0');
         x -= get_small_font_glyph_width(id);
@@ -327,7 +327,7 @@ void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
     reset_transform_state__10TObjPlayerFv();
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
-    TWindowSubStatusDisp__sub_803DF160(0, color);
+    set_draw_texture_and_color(0, color);
     while (*s != 0) {
         u8 c = *s++;
         pos.x = x;

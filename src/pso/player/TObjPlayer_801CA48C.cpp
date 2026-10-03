@@ -10,17 +10,17 @@ void update_death_pose__10TObjPlayerFPv(u8 *arg0);
 s32 TBoss1Dragon__sub_80143960(void *, M2C_UNK);
 u32 resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801C5954(void *);
-M2C_UNK TObjPlayer__sub_801CA35C(void *);
-M2C_UNK TObjPlayer__sub_801D2834(void *, f32);
+M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
+M2C_UNK add_death_sink_progress(void *, f32);
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 
 extern const f32 lbl_805DC37C;
 
 void update_death_pose__10TObjPlayerFPv(u8 *arg0) {
     if ((TBoss1Dragon__sub_80143960(arg0, 0x20) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == (s16) M2C_FIELD(arg0, s16 *, 0xBA))) {
-        TObjPlayer__sub_801CA35C(arg0);
+        restart_death_pose__10TObjPlayerFPv(arg0);
     }
-    TObjPlayer__sub_801D2834(arg0 + 0x5FC, lbl_805DC37C);
+    add_death_sink_progress(arg0 + 0x5FC, lbl_805DC37C);
     TObjPlayer__sub_801C5954(arg0 + 0x5FC);
     if (resolve_move_collision__10TObjPlayerFPv(arg0) == 0U) {
         apply_velocity__10TObjPlayerFPv(arg0);

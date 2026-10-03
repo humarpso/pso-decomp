@@ -163,7 +163,7 @@ void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
 M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
-void TLobby__sub_80269454(int);
+void complete_reveal__14TWindowMessageFPv(int);
 M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
 int update_window_mode_from_progress__6TLobbyFiPv(s32, Pair_802150E8 *);
 s32 get_window_layout_position(s32);
@@ -231,7 +231,7 @@ void TQuestListOnline__sub_802150E8(Ent_802150E8 *arg0) {
         p.b = lbl_8044BCC0[0].b;
         TQuestListOnline__data_805D61A0 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0x2C), &p);
         send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A0, TLobby__sub_80222C54(0x14), 1);
-        TLobby__sub_80269454(TQuestListOnline__data_805D61A0);
+        complete_reveal__14TWindowMessageFPv(TQuestListOnline__data_805D61A0);
         set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A0, lbl_805DC664);
         some_empty_func__9TMainTaskFv(main_task);
         run_tl_camera_tasks__9TMainTaskFv(main_task);

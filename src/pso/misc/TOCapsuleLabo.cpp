@@ -59,7 +59,7 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern RecoveredGlobal_802AF4F4_lbl_804DE450 lbl_804DE450;
 extern M2C_UNK __vt__13TOCapsuleLabo[];
 extern s32 enable_v2_features;
@@ -189,7 +189,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DE1E8;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DE1EC;
     M2C_FIELD(arg0, s32 *, 0xE4) = 0;
-    if (((s32) enable_v2_features == 1) && (TLobby__sub_8030A7B0() == 1)) {
+    if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     if (is_split_screen() == 1) {

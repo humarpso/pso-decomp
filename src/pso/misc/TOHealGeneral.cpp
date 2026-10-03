@@ -125,7 +125,7 @@ s32 update_active_state__13TOHealGeneralFPv(void *arg0);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 u8 TODoorAncient08__sub_80229220(u16);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 M2C_UNK TOHangerMachine01__sub_80169168(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_model(int);
@@ -342,7 +342,7 @@ s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
     switch (temp_r0) {
     case 1:
-        if (TODragonfly__sub_80158360(lbl_805DB6D8) != 0) {
+        if (is_any_player_within_radius_xz(lbl_805DB6D8) != 0) {
             M2C_FIELD(arg0, s32 *, 0xCC) = 1;
         } else {
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;

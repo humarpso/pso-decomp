@@ -87,7 +87,7 @@ s16 TWindowMainMenu__sub_802ADB00(u32);
 s32 is_flag_set__15TWindowMainMenuFPv(u32);
 s32 get_menu_flag__15TWindowMainMenuFPv(u32);
 void TWindowMainMenu__sub_802647CC(Menu_802647CC *arg0);
-s32 TWindowMainMenu__sub_80263E40(void *, s16 *, s32 *);
+s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(void *, s16 *, s32 *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
 M2C_UNK get_window_layout_position(int);
 s32 TWindowMainMenu__sub_802ADAAC(u32);
@@ -172,7 +172,7 @@ void TWindowMainMenu__sub_802646E4(u8 *arg0, Ent_802646E4 *arg1) {
         if (id == 0x1F) {
             break;
         }
-        if (TWindowMainMenu__sub_80263E40(arg0, &id, &flag) != 0) {
+        if (filter_menu_entry__15TWindowMainMenuFPvPvPv(arg0, &id, &flag) != 0) {
             if (flag != 0) {
                 TWindowMainMenu__sub_802ADD38(w, (void *)(s32)id);
             } else {

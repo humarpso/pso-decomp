@@ -134,7 +134,7 @@ int fn_8019DD14(void*, void*);
 int fn_8019DD24(void*, void*);
 s32 fn_801C1E44(s32);
 s32 fn_801C1E48(s32);
-s32 fn_801C1E50(s32);
+s32 test_photon_blast_modifier(s32);
 M2C_UNK fn_801C1E74(s32);
 M2C_UNK fn_801C1EA4(s32);
 M2C_UNK fn_801C1EC4(s32);
@@ -263,7 +263,7 @@ TObjPlayer::ActionPalette* TObjPlayer::select_action_palette(int secondary) {
 extern "C" {
 s32 refresh_effect__10TObjPlayerFi(s32 arg0) {
     if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) != 0) {
-        if (fn_801C1E50(arg0 + 0x500) != 0) {
+        if (test_photon_blast_modifier(arg0 + 0x500) != 0) {
             return fn_801C1E44(arg0 + 0x500);
         }
         return fn_801C1E48(arg0 + 0x500);

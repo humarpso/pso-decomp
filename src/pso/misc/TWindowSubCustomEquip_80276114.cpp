@@ -19,7 +19,7 @@ s16 TWindowActionPalette__sub_801C1DE0(s32, s32, s32);
 s32 is_type_valid__21TWindowSubCustomEquipFPv(void *, u8);
 s32 TWindowSubCustomEquip__sub_802760DC(void *, u8);
 void TWindowSubCustomEquip__sub_802761BC(void *arg0, void *arg1);
-void TWindowSubCustomEquip__sub_8027642C(void *arg0, void *arg1);
+void toggle_action_binding__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ void TWindowSubCustomEquip__sub_802761BC(void *arg0, void *arg1) {
         TObjPlayer__sub_801B59F8(temp_r3, 0, 1, 2, 0, 0);
     }
 }
-void TWindowSubCustomEquip__sub_8027642C(void *arg0, void *arg1) {
+void toggle_action_binding__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
     s32 temp_r3;
     s32 temp_r29;
     s32 valid;

@@ -126,7 +126,7 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 handle_confirm__22TShopEquipmentSequenceFPv(void *arg0);
 s32 TShopEquipmentSequence__sub_8021D65C(void);
 s32 close_if_done__22TShopEquipmentSequenceFPv(void *arg0);
-s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0);
+s32 open_greeting__22TShopEquipmentSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopEquipmentSequence__vt9(u8 *arg0);
 extern RecoveredGlobal_8021DA90_TShopEquipmentSequence__data_80513EC0 TShopEquipmentSequence__data_80513EC0;
@@ -163,7 +163,7 @@ void TWindowSubComCard__sub_80265F60(void *w);
 s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
 s32 get_window_layout_position(int, f32);
-void TShopEquipmentSequence__sub_8021D7B8(void *arg0);
+void update_buy_sell_choice__22TShopEquipmentSequenceFPv(void *arg0);
 }
 
 extern "C" {
@@ -251,7 +251,7 @@ void TShopEquipmentSequence__sub_8021D750(S_8021D750 *self) {
     set_field_20__12TQuestListVMFPvi(self, 7);
 }
 
-void TShopEquipmentSequence__sub_8021D7B8(void *arg0) {
+void update_buy_sell_choice__22TShopEquipmentSequenceFPv(void *arg0) {
 #define self ((Seq_8021D7B8 *)arg0)
     s32 r;
     if (self->win == NULL) {
@@ -287,7 +287,7 @@ void TShopEquipmentSequence__sub_8021D7B8(void *arg0) {
     }
 }
 
-s32 TShopEquipmentSequence__sub_8021D948(u8 *arg0) {
+s32 open_greeting__22TShopEquipmentSequenceFPv(u8 *arg0) {
   Stack_8021D948 stack;
   stack.sp8 = lbl_805DC6E0;
   stack.spC = lbl_805DC6E4;
@@ -309,10 +309,10 @@ void TShopEquipmentSequence__vt9(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
         return;
     case 1:
-        TShopEquipmentSequence__sub_8021D948((u8 *)((void *) (arg0)));
+        open_greeting__22TShopEquipmentSequenceFPv((u8 *)((void *) (arg0)));
         return;
     case 2:
-        TShopEquipmentSequence__sub_8021D7B8((void *)((void *) (arg0)));
+        update_buy_sell_choice__22TShopEquipmentSequenceFPv((void *)((void *) (arg0)));
         return;
     case 3:
         TShopEquipmentSequence__sub_8021D750((S_8021D750 *)((void *) (arg0)));

@@ -55,7 +55,7 @@ s32 init__11TMainCursorFPv(s32, s32, s32);
 M2C_UNK TMainCursor__sub_8013B3AC(s32);
 M2C_UNK destroy_lock_on__11TMainCursorFPvi(s32, s32);
 M2C_UNK set_target__11TMainCursorFPvi(s32, s32);
-M2C_UNK TMainCursor__sub_8013E240(s32);
+M2C_UNK reset_nearest_target_record(s32);
 M2C_UNK set_sub_cursor_value__11TMainCursorFPvi(s32, s32);
 s32 get_target_id__11TMainCursorFPv(s32);
 Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
@@ -114,7 +114,7 @@ void TLockOnCursor__sub_8013DAB0(s32 arg0) {
     }
     TLockOnCursor__sub_8013EC38(arg0 + 0x4EC);
     TLockOnCursor__sub_8013EC1C(arg0 + 0x508);
-    TMainCursor__sub_8013E240(arg0 + 0x510);
+    reset_nearest_target_record(arg0 + 0x510);
     if (cleanup_field_3c__13TLockOnCursorFPv((void *)arg0) == NULL) {
         var_r31_2 = __nw__7TObjectFUl(0x24);
         if (var_r31_2 != 0) {

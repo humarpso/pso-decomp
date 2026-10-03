@@ -27,8 +27,8 @@ extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
 M2C_UNK *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C lbl_804448CC;
 s32 get_player_floor__6TLobbyFi(s32);
-s32 fn_802033DC(s32);
-s32 TObjCityMainWarp__sub_80186A3C(s32 floor);
+s32 is_warp_excluded_area(s32);
+s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor);
 s32 is_split_screen();
 s32 get_instance__6TLobbyFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -133,16 +133,16 @@ void update_main_warp_visible_mask(s32 arg0) {
 void set_active_bit__16TObjCityMainWarpFv(s32 _w0) {
     s32 temp_r3;
 
-    temp_r3 = TObjCityMainWarp__sub_80186A3C((s32)(_w0));
+    temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi((s32)(_w0));
     if (temp_r3 >= 0) {
         TObjCityMainWarp__data_805D5B50 |= 1 << temp_r3;
     }
 }
 
-s32 TObjCityMainWarp__sub_80186A3C(s32 floor) {
+s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor) {
     s32 bit = -1;
     Bits_80186A3C bits = lbl_804448CC;
-    if (fn_802033DC(get_player_floor__6TLobbyFi(floor)) == 0) {
+    if (is_warp_excluded_area(get_player_floor__6TLobbyFi(floor)) == 0) {
         bit = bits.v[floor];
     }
     return bit;

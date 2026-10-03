@@ -56,18 +56,18 @@ struct Ent_80269664 { u8 pad0[0xC]; f32 y; u8 pad10[4]; f32 h; };
 extern "C" {
 extern const f32 lbl_805DD224;
 extern const f32 lbl_805DD228;
-void fn_802698C4(struct RecoveredFields_802698C4_arg0 *arg0);
+void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *arg0);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void set_default_status__17TWindowDuelResultFPvi(void *, s32);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
-void fn_802694F4(u8 *arg0, u8 *arg1);
+void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 void fn_802695A8(Msg_802695A8 *arg0);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
-void fn_802694F4(u8 *arg0, u8 *arg1);
+void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
 void fn_802697B4(Q_802697B4 *w);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
@@ -77,7 +77,7 @@ void fn_80269664(Q_80269664 *arg0);
 
 extern "C" {
 
-void fn_802694F4(u8 *arg0, u8 *arg1) {
+void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1) {
     f32 d;
     s32 i;
     u8 *e;
@@ -156,7 +156,7 @@ void fn_802697B4(Q_802697B4 *w) {
     e = get_array_entry__20TWindowSubStatusDispFPvi(w, w->oldest);
     m = &w->meta[w->oldest];
     while (get_field_20__17TWindowSubComCardFPv(e) != 0 && *(f32 *)(e + 0xC) + *(f32 *)(e + 0x14) < w->scroll) {
-        fn_802694F4((u8 *)w, e);
+        scroll_up_line__14TWindowMessageFPvPv((u8 *)w, e);
         m->flags = 0;
         m->timer = 0;
         if (w->reveal == w->oldest) {
@@ -178,7 +178,7 @@ void fn_802697B4(Q_802697B4 *w) {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_802698C4(struct RecoveredFields_802698C4_arg0 *arg0) {
+void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *arg0) {
     f32 temp_f2;
     f32 temp_f3;
     f32 var_f1;

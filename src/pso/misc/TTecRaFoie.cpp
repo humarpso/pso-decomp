@@ -55,7 +55,7 @@ struct RaFoie_802381F8 {
 
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
-s32 TTecRaFoie__sub_80082688(void *, void *, f32);
+s32 approach_position_if_far(void *, void *, f32);
 s32 fn_80082764(void *, void *, f32);
 extern RecoveredGlobal_80238388_lbl_8044DAF0 lbl_8044DAF0;
 extern const f32 TTecRaFoie__data_805DC8CC;
@@ -198,9 +198,9 @@ void update_rafoie_explosion(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x60) != 0) {
             M2C_FIELD(arg0, s32 *, 0x60) = 0;
         }
-        TTecRaFoie__sub_80082688((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) (lbl_805DC8D8));
+        approach_position_if_far((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) (lbl_805DC8D8));
     } else {
-        TTecRaFoie__sub_80082688((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) (lbl_805DC8DC));
+        approach_position_if_far((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) (lbl_805DC8DC));
     }
     fn_80082764((void *) (arg0 + 0x48), (void *) (&stack.sp8), (f32) (lbl_805DC8E0));
 }
@@ -401,7 +401,7 @@ extern s32 tl_particle;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TTecRaFoie__sub_80237DAC(void *);
+s32 spawn_rafoie_explosion_bursts(void *);
 s32 fn_802A8210(int, int, void *);
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 extern const f32 TTecRaFoie__data_805DC8CC;
@@ -412,7 +412,7 @@ u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-s32 TTecRaFoie__sub_80237DAC(void *);
+s32 spawn_rafoie_explosion_bursts(void *);
 s32 fn_802A8210(int, int, void *);
 extern RecoveredGlobal_802384E0_lbl_804CCB28 lbl_804CCB28;
 extern const f32 TTecRaFoie__data_805DC8CC;
@@ -480,7 +480,7 @@ u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
     stack.spC += lbl_805DC8E8;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (&stack.sp8));
-    TTecRaFoie__sub_80237DAC((void *) (arg0));
+    spawn_rafoie_explosion_bursts((void *) (arg0));
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
@@ -516,7 +516,7 @@ u8 *TTecRaFoie__sub_802385EC(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 fa
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x28));
     stack.spC += lbl_805DC8E8;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (&stack.sp8));
-    TTecRaFoie__sub_80237DAC((void *) (arg0));
+    spawn_rafoie_explosion_bursts((void *) (arg0));
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x20)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {

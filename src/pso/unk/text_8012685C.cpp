@@ -91,7 +91,7 @@ M2C_UNK reflect_matrix_in_plane(M2C_UNK, f32 *, f32);
 extern s32 lbl_805D5518;
 extern const f32 lbl_805DAD80;
 extern const f32 lbl_805DAD94;
-void TObjPlayer__sub_8012685C(s32 arg0);
+void reflect_knuckle_second_hand(s32 arg0);
 void spawn_particle_effect(void *, s32);
 void spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, s32, s32);
 u8 get_slot_count__14TItemProShieldFPv(s32);
@@ -104,7 +104,7 @@ extern s32 tl_05;
 
 extern "C" {
 
-void TObjPlayer__sub_8012685C(s32 arg0) {
+void reflect_knuckle_second_hand(s32 arg0) {
     Stack_8012685C stack;
     if ((get_player_list__10TObjPlayerFv() == 0) && (get_slot_count__14TItemProShieldFPv(arg0) == 3) && ((s32) lbl_805D5518 != 0)) {
         stack.sp10 = lbl_805DAD94;

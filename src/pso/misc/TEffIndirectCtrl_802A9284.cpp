@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef s32 M2C_UNK;
 extern "C" {
-s32 TLobby__sub_800F9DF4(s32, u8 *);
+s32 read_disc_file(s32, u8 *);
 M2C_UNK TObjPlayer__sub_802A841C();
 M2C_UNK TEffIndirectCtrl__sub_802A94A4();
 u8 *xmalloc__FUl(u32);
@@ -75,7 +75,7 @@ void TEffIndirectCtrl__sub_802A92E8(void) {
     p = xmalloc__FUl(0x8100);
     if (p != NULL) {
         buf = p;
-        if (TLobby__sub_800F9DF4(lbl_805D3E20, p) == 0x8100) {
+        if (read_disc_file(lbl_805D3E20, p) == 0x8100) {
             for (k = 0; k < 8; k++) {
                 memcpy((void *)TEffIndirectCtrl__data_80540AF0[k], p, 0x1020);
                 p += 0x1020;

@@ -352,7 +352,7 @@ M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void TObjEneRe4Sorcerer__sub_800EF214(s32 arg0);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -683,7 +683,7 @@ void TObjEneRe4Sorcerer__sub_800EEFE4(u8 *arg0, s32 arg1) {
     case 3:
       if (try_attack__18TObjEneRe4SorcererFiff((void *)((void *) arg0), (f32) lbl_805DA7C0, (f32) lbl_805DA7D8) != 0)
     {
-      TObjEneEpsilon__sub_800B96A4((void *)((void *) arg0));
+      enemy_copy_target_destination((void *)((void *) arg0));
       update_velocity__9TObjEneDDFPv((void *) arg0);
       *((s32 *) (((s8 *) arg0) + 0x3F0)) = (s32) (TObjEneRe4Sorcerer__data_8043D408 * (get_ad_end_text_start__10TObjPlayerFv(-(*((f32 *) (((s8 *) arg0) + 0x3A0))), -(*((f32 *) (((s8 *) arg0) + 0x3A8))))));
       TObjEneRe4Sorcerer__sub_800EF95C((void *) arg0, (f32) lbl_805DA7DC);
@@ -818,7 +818,7 @@ s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0) {
 }
 
 void turn_to_target__18TObjEneRe4SorcererFPv(void *arg0) {
-    TObjEneEpsilon__sub_800B96A4((void *)(arg0));
+    enemy_copy_target_destination((void *)(arg0));
     update_velocity__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneRe4Sorcerer__data_8043D408 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), 0xA00);
 }

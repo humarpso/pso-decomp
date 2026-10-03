@@ -23,10 +23,10 @@ extern "C" {
 
 int render__8TObjRainFv(void* p);
 int run_task__8TObjRainFv(void* p);
-int fn_801977D4(void*);
+int draw_streaks__8TObjRainFPv(void*);
 int fn_80197904(void*);
 
-int render__8TObjRainFv(void* p) { return fn_801977D4(p); }
+int render__8TObjRainFv(void* p) { return draw_streaks__8TObjRainFPv(p); }
 int run_task__8TObjRainFv(void* p) { return fn_80197904(p); }
 typedef char RecoveredGlobal_80197C84___vt__8TObjRain_size[sizeof(RecoveredGlobal_80197C84___vt__8TObjRain) == 0x18 ? 1 : -1];
 TObjRain::~TObjRain() {}

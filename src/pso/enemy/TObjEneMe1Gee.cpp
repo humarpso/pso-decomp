@@ -1417,7 +1417,7 @@ s32 check_can_attack__13TObjEneMe1GeeFPv(void *arg0) {
 extern "C" {
 
 int enemy_has_live_target(void*);
-int TObjEneEpsilon__sub_800B96A4(void*);
+int enemy_copy_target_destination(void*);
 int update_velocity__9TObjEneDDFPv(void*);
 int update_angle__13TObjEneMe1GeeFPv(void*);
 void update__13TObjEneMe1GeeFPv(void* p);
@@ -1434,14 +1434,14 @@ int TObjEneMe1Gee__vt87(void* p) { return TObjEneDD__vt86(p); }
 extern "C" {
 
 int enemy_has_live_target(void*);
-int TObjEneEpsilon__sub_800B96A4(void*);
+int enemy_copy_target_destination(void*);
 int update_velocity__9TObjEneDDFPv(void*);
 int update_angle__13TObjEneMe1GeeFPv(void*);
 void update__13TObjEneMe1GeeFPv(void* p);
 int TObjEneMe1Gee__vt87(void* p);
 int TObjEneDD__vt86(void*);
 
-void update__13TObjEneMe1GeeFPv(void* p) { if (enemy_has_live_target(p) != 0) { TObjEneEpsilon__sub_800B96A4(p); update_velocity__9TObjEneDDFPv(p); update_angle__13TObjEneMe1GeeFPv(p); } }
+void update__13TObjEneMe1GeeFPv(void* p) { if (enemy_has_live_target(p) != 0) { enemy_copy_target_destination(p); update_velocity__9TObjEneDDFPv(p); update_angle__13TObjEneMe1GeeFPv(p); } }
 
 }
 #endif

@@ -8,7 +8,7 @@ extern "C" {
 
 void init_player_data__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TObjPlayer__sub_80018990(void *, void *, void *, void *, f32, f32);
-M2C_UNK TObjPlayer__sub_801B5450(void *);
+M2C_UNK init_trait_flags__10TObjPlayerFPv(void *);
 s32 get_class_attack_template(void *);
 s32 get_class_defense_template(void *);
 f32 get_tp_class_factor__10TObjPlayerFPv(void *);
@@ -31,7 +31,7 @@ void init_player_data__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, void **, 0x2B0) = (void *) (arg0 + 0xD38);
     apply_input_mode__10TObjPlayerFi(arg0);
     set_move_mode__10TObjPlayerFi(arg0);
-    TObjPlayer__sub_801B5450(arg0);
+    init_trait_flags__10TObjPlayerFPv(arg0);
     copy_from__6TLobbyFPvPv(arg0 + 0xD5C, get_class_attack_template(arg0));
     copy_entry__6TLobbyFPvPv(arg0 + 0xD8C, get_class_defense_template(arg0));
     temp_f31_2 = get_tp_class_factor__10TObjPlayerFPv(arg0);

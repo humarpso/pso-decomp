@@ -48,7 +48,7 @@ M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK func_80141618__Fv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK set_depth_buffer_settings_1__Fv();
@@ -81,13 +81,13 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
     set_depth_buffer_settings_id__FUl((int)((int) (1)));
     draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xF8)), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     func_80141618__Fv();
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
     set_depth_buffer_settings_id__FUl((int)((int) (2)));
     draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xF8)), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     func_80141618__Fv();
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
     set_npc_enemy_param((void *) (NULL));
@@ -147,7 +147,7 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0) {
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         func_80141618__Fv();
-        fn_80141A30();
+        restore_saved_depth_alpha_state();
     }
 }
 void render__14TOTrapSeabed01Fv(S_802CA550 *arg0) {

@@ -12,7 +12,7 @@ int TLobby__sub_80207F30(R_80207F30 *arg0);
 
 extern "C" {
 
-void TLobby__sub_802080C0(void *arg0);
+void bswap_enemy_set_row(void *arg0);
 void TLobby__sub_802080F4(void *arg0);
 void swap_object_row_endian(void *arg0);
 void TLobby__sub_802081E0(void *arg0);
@@ -77,7 +77,7 @@ s32 TLobby__sub_80208020(s32 arg0) {
 }
 
 void update_key_machine__6TLobbyFv(void) { get_global_state__14TOKeyMachine01Fv(); ((int (*)(void))TLobby__sub_80208020)(); }
-void TLobby__sub_802080C0(void *arg0) {
+void bswap_enemy_set_row(void *arg0) {
     bswap_16__FPUs((s32)(arg0));
     TLobby__sub_802080F4((void *)((void *)((char *)arg0 + 4)));
 }

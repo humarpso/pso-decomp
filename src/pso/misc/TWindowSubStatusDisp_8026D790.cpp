@@ -25,7 +25,7 @@ void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(Quad_8026D790 *, f32);
-void TWindowSubStatusDisp__sub_803DF160(int, u32);
+void set_draw_texture_and_color(int, u32);
 void TWindowKeyBoardSoft__sub_803DF1B0(s32);
 extern void *lbl_805D63F0;
 extern const f32 lbl_805DD2FC;
@@ -66,7 +66,7 @@ void TWindowSubStatusDisp__sub_8026D790(Scroll_8026D790 *scroll, Ctx_8026D790 *c
     y = lbl_805DD304 + c->y;
     begin_screen_draw(0);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(0, 0xFF646464);
+    set_draw_texture_and_color(0, 0xFF646464);
     depth = lbl_805DD308 / (lbl_805DD30C + c->x38);
     q.x = x;
     q.r = lbl_805DD310 + x;

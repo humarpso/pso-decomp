@@ -51,7 +51,7 @@ extern s32 TSceneSora__data_805D6050;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
 void TLobby__sub_80141038(void *, s32, s32);
 s32 TLobby__sub_80207770(s32);
-void TOBoss4Rock__sub_802078A4(void);
+void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D2CD8;
 void TLobby__sub_802075F8(void);
@@ -251,7 +251,7 @@ void TSceneSora__sub_80207478(void) {
 void TLobby__sub_802075F4(void) {  }
 typedef char RecoveredGlobal_802075F8_lbl_80515BA0_size[sizeof(RecoveredGlobal_802075F8_lbl_80515BA0) == 0x28 ? 1 : -1];
 void TLobby__sub_802075F8(void) {
-    TOBoss4Rock__sub_802078A4();
+    randomize_adventure_maps();
     if ((s32) lbl_805D2CD8 != -1) {
         TLobby__sub_80141038(&lbl_80515BA0.value, lbl_805D2CD8, TLobby__sub_80207770(lbl_805D2CD8));
         lbl_805D2CD8 = -1;

@@ -28,7 +28,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 void *xmalloc__FUl(s32);
 extern Bank_8006C6CC lbl_80488C50[];
 extern G_8006C668 TCameraCtrl__data_804FF7C0;
-void TCameraCtrl__sub_8006C6CC(void);
+void load_camera_banks__11TCameraCtrlFv(void);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ void TCameraCtrl__sub_8006C668(void) {
     }
 }
 
-void TCameraCtrl__sub_8006C6CC(void) {
+void load_camera_banks__11TCameraCtrlFv(void) {
     u32 j;
     Bank_8006C6CC *b;
     u32 n;

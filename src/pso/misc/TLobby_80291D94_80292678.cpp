@@ -35,7 +35,7 @@ void TBoss4DarkFalz__sub_8004C220(void *, void *);
 Tbl_80292730 *TLobby__sub_8006EF98(s32, s32);
 void __dt__12TPlyCharDataFv(void *, int);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
-void TNpcPlayer__sub_8007206C(void *, void *);
+void copy_player_visual_record(void *, void *);
 void __ct__12TPlyCharDataFv(void *);
 void clear_header_struct__10TObjPlayerFPv(void *);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
@@ -96,7 +96,7 @@ void TLobby__sub_80292730(s32 arg0) {
         clear_header_struct__10TObjPlayerFPv(&hdr);
         if (p != NULL) {
             VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);
-            TNpcPlayer__sub_8007206C(&info, (u8 *)p + 0x85C);
+            copy_player_visual_record(&info, (u8 *)p + 0x85C);
             copy_header_struct__6TLobbyFPvPv(&hdr, (u8 *)p + 0xDAC);
             map = get_map_id__13TRaderMapCoreFPv(p);
             if (p != NULL) {
@@ -117,7 +117,7 @@ void TLobby__sub_80292730(s32 arg0) {
                 break;
             }
             __ct__12TPlyCharDataFv(&cd);
-            TNpcPlayer__sub_8007206C(&cd.info, &info);
+            copy_player_visual_record(&cd.info, &info);
             begin_action_state__10TObjPlayerFPv(&cd);
             send_command__10TNpcPlayerFiciiPv(info.cls, tbl->f4, tbl->f8, tbl->f0, &cd);
             p = TObjPlayer__sub_801BDEF8(i, map, &cd);

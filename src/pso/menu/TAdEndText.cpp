@@ -115,7 +115,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+M2C_UNK set_draw_texture_and_color(int, int);
 extern u32 TAdEndText__data_805D49F4;
 extern u32 TAdEndText__data_805D49F8;
 extern const f32 lbl_805D7E04;
@@ -210,14 +210,14 @@ void render__10TAdEndTextFv(u8 *arg0) {
         case 0x21:
             set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
             begin_screen_draw(1);
-            TWindowSubStatusDisp__sub_803DF160(3, -1);
+            set_draw_texture_and_color(3, -1);
             draw_textured_quad_at_depth(&self->box1, lbl_805D7E18);
             get_player__20TWindowSubStatusDispFv();
             break;
         case 0x40:
             set_global_param__8TObjFishFi(TAdEndText__data_805D49F4);
             begin_screen_draw(1);
-            TWindowSubStatusDisp__sub_803DF160(4, -1);
+            set_draw_texture_and_color(4, -1);
             draw_textured_quad_at_depth(&self->box2, lbl_805D7E18);
             get_player__20TWindowSubStatusDispFv();
             break;

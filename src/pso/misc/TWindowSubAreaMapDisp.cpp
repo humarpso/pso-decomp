@@ -39,7 +39,7 @@ u8 *TObjLuker__sub_801329B0(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 measure_string_len__20TWindowSubStatusDispFPv(int);
-s32 TWindowSubStatusDisp__sub_80228D80();
+s32 append_text_space();
 s32 TWindowChallengeResult__sub_80228DB4(int, int);
 s32 text_builder_append(int);
 s32 text_builder_reset();
@@ -47,7 +47,7 @@ s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 s32 fn_80271E40();
 s32 TWindowSubStatusDisp__sub_802880BC(int, int, int);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 strncpy(int, int, void *);
 extern RecoveredGlobal_80271D00_lbl_804D0FC0 lbl_804D0FC0;
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
@@ -63,7 +63,7 @@ s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowSubStatusDisp__sub_803DF160(s32, s32);
+void set_draw_texture_and_color(s32, s32);
 extern const f64 lbl_8044F690;
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD480;
@@ -122,7 +122,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     }
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(0, color);
+    set_draw_texture_and_color(0, color);
     {
         f32 y;
         f32 x;
@@ -254,10 +254,10 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     TWindowDD__sub_802466E0((void *) (arg0), (void *) (&lbl_804D0FC0.value), (void *) ((s16) lbl_805D53A0), (int) (get_window_layout_position((int) (0x59))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A08;
-    if (TLobby__sub_8030A7B0() == 1) {
+    if (get_game_play_mode() == 1) {
         text_builder_reset();
         text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
-        TWindowSubStatusDisp__sub_80228D80();
+        append_text_space();
         TWindowChallengeResult__sub_80228DB4((int) (fn_80271E40()), (int) (2U));
         var_r30 = (u8 *)(TLobby__sub_8001DC24());
     } else {

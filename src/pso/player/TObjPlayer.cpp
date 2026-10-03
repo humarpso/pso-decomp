@@ -123,7 +123,7 @@ void TObjPlayer__sub_801BF19C(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
-void TObjPlayer__sub_801BF34C(s32 arg0, s32 arg1);
+void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
 int TObjPlayer__sub_801BF014(void* p, int a1);
 int TObjPlayer__sub_801BEFEC(u16 *arg0);
 int TObjPlayer__sub_801BF060(void* p, int a1);
@@ -132,11 +132,11 @@ int TObjPlayer__sub_801BF204(void* p, int a1);
 int TObjPlayer__sub_801BF1DC(u16 *arg0);
 M2C_UNK check_hit_by_id_431__10TObjPlayerFPvi(void *, u16);
 void TObjPlayer__sub_801BF228(u16 *arg0);
-void TObjPlayer__sub_801BF34C(s32 arg0, s32 arg1);
+void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801BF324(u16 *arg0);
 s32 obj_getField1c(int);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
-void TObjPlayer__sub_801BEF8C(u8 *arg0);
+void prepare_heavy_attack_particles(u8 *arg0);
 s32 obj_getField1c(int);
 int TObjPlayer__sub_8030A1E4(void*, int, int);
 void TObjPlayer__sub_801BF0A8(u8 *arg0);
@@ -281,11 +281,11 @@ void TObjPlayer__sub_801BEF44(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u3
 
 void TObjPlayer__sub_801BEF60(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
 
-void TObjPlayer__sub_801BEF68(void* p) { TObjPlayer__sub_801BEF8C((u8 *)((char*)p + 0x4)); }
+void TObjPlayer__sub_801BEF68(void* p) { prepare_heavy_attack_particles((u8 *)((char*)p + 0x4)); }
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801BEF8C(u8 *arg0) {
+void prepare_heavy_attack_particles(u8 *arg0) {
     if (M2C_FIELD(arg0, u32 *, 4) != 0U) {
         check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x11)));
         check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x12)));
@@ -360,10 +360,10 @@ int TObjPlayer__sub_801BF2F8(void* p, int a1) { return TObjPlayer__sub_8030A2CC(
 void* TObjPlayer__sub_801BF31C(void* p) { return (char*)p + 0x18; }
 
 void TObjPlayer__sub_801BF324(u16 *arg0) {
-    TObjPlayer__sub_801BF34C((s32)((s8 *)arg0 + 4), (s32)(*arg0));
+    emit_photon_blast_feedback_effects((s32)((s8 *)arg0 + 4), (s32)(*arg0));
 }
 
-void TObjPlayer__sub_801BF34C(s32 arg0, s32 arg1) {
+void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1) {
     check_hit_by_id__10TObjPlayerFiii((void*)(arg0), (int)(arg1), (int)(5));
     check_hit_by_id__10TObjPlayerFiii((void*)(arg0), (int)(arg1), (int)(0x2C));
     check_hit_by_id__10TObjPlayerFiii((void*)(arg0), (int)(arg1), (int)(0x3B));

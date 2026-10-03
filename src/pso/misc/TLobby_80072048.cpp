@@ -24,7 +24,7 @@ struct Npc_8007206C {
 };
 
 extern "C" {
-Npc_8007206C *TNpcPlayer__sub_8007206C(Npc_8007206C *dst, Npc_8007206C *src);
+Npc_8007206C *copy_player_visual_record(Npc_8007206C *dst, Npc_8007206C *src);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ extern "C" {
 void copy_header_struct__6TLobbyFPvPv(void* p, void* q);
 
 void copy_header_struct__6TLobbyFPvPv(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-Npc_8007206C *TNpcPlayer__sub_8007206C(Npc_8007206C *dst, Npc_8007206C *src) {
+Npc_8007206C *copy_player_visual_record(Npc_8007206C *dst, Npc_8007206C *src) {
     *dst = *src;
     return dst;
 }

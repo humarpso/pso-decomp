@@ -181,7 +181,7 @@ extern M2C_UNK lbl_804A7370[];
 void cleanup_boss3_scene__6TLobbyFv(void);
 M2C_UNK TLobby__sub_800FD6F8(M2C_UNK *, M2C_UNK);
 M2C_UNK TLobby__sub_80207E44();
-M2C_UNK TLobby__sub_8021EF84();
+M2C_UNK init_shop_world_context();
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_8017E3B8();
 M2C_UNK init_area_lights();
@@ -640,7 +640,7 @@ s32 setup_scene__6TLobbyFv(void) {
         return 0;
     }
     init_area_lights();
-    TLobby__sub_8021EF84();
+    init_shop_world_context();
     TLobby__sub_800FD6F8(lbl_804A7370, 0x60);
     reset_settings_to_default__6TLobbyFPv(lbl_8050EA40);
     create_tasks__6TLobbyFv();

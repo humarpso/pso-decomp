@@ -226,7 +226,7 @@ void bswap_status_effect__10TObjPlayerFPv(void *);
 void set_code_13_3__10TObjPlayerFPv(void *);
 s32 fn_8036B748(void *);
 void handle_6x0D_add_or_remove_status_effect(void *arg0);
-void TObjPlayer__sub_800113E4(u32, s32);
+void set_hp_clamped__10TObjPlayerFPvs(u32, s32);
 void add_actor_hp(u32, s32);
 s32 obj_testFlags30(s32, M2C_UNK);
 u32 get_player_by_client_id(s32);
@@ -362,7 +362,7 @@ void handle_6x2F_change_player_hp(s32 arg0) {
     }
     switch (pkt.type) {
     case 0:
-        TObjPlayer__sub_800113E4(player, pkt.amount);
+        set_hp_clamped__10TObjPlayerFPvs(player, pkt.amount);
         break;
     case 1:
         add_actor_hp(player, pkt.amount);

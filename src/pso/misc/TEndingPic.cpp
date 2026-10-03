@@ -94,7 +94,7 @@ s32 add_actor_tp(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK begin_screen_draw(int);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+M2C_UNK set_draw_texture_and_color(int, int);
 s32 get_field_2b8__14TItemProShieldFPv(s32);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 s32 obj_getS16_2BA(s32);
@@ -173,12 +173,12 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
     case 3:
         break;
     case 2:
-        TWindowSubStatusDisp__sub_803DF160((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 2), (int) (-1));
+        set_draw_texture_and_color((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 2), (int) (-1));
         draw_textured_quad_at_depth((void *) (arg0 + 0xAC), (f32) (lbl_805DFEF0));
         break;
     case 4:
     case 5:
-        TWindowSubStatusDisp__sub_803DF160((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 3), (int) (-1));
+        set_draw_texture_and_color((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 3), (int) (-1));
         draw_textured_quad_at_depth((void *) (arg0 + 0xCC), (f32) (lbl_805DFEF0));
         break;
     default:

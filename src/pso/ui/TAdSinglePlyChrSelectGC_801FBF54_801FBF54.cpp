@@ -145,7 +145,7 @@ int TAdSinglePlyChrSelectGC__sub_801FCD3C(void*);
 M2C_UNK TCheckRoomSequence__sub_802114D4(int, void *);
 s32 TCheckRoomSequence__sub_80211574(int);
 s32 TLobby__sub_8030A770();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 item_identity_matches(s32, s32);
 M2C_UNK __destroy_arr(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
 int __ct__12TPlyCharDataFv(void*);
@@ -256,7 +256,7 @@ loop_1:
 }
 
 s32 is_ready__23TAdSinglePlyChrSelectGCFv(void) {
-    if (TLobby__sub_8030A7B0() == 0) {
+    if (get_game_play_mode() == 0) {
         return 1;
     }
     if (TLobby__sub_8030A770() != 0) {

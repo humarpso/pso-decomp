@@ -37,7 +37,7 @@ extern "C" {
 
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32, f32);
+M2C_UNK set_draw_texture_and_color(M2C_UNK, s32, f32);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 
@@ -51,10 +51,10 @@ extern const f32 lbl_805D95C8;
 void TEndingC::render() {
     set_global_param__8TObjFishFi(lbl_8048EB30);
     begin_screen_draw(1);
-    TWindowSubStatusDisp__sub_803DF160(1, ((s32) (lbl_805D95C0 * primary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
+    set_draw_texture_and_color(1, ((s32) (lbl_805D95C0 * primary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
     draw_textured_quad_at_depth(render_geometry + 0x0, lbl_805D95C4);
     draw_textured_quad_at_depth(render_geometry + 0x20, lbl_805D95C4);
-    TWindowSubStatusDisp__sub_803DF160(0, ((s32) (lbl_805D95C0 * secondary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
+    set_draw_texture_and_color(0, ((s32) (lbl_805D95C0 * secondary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
     draw_textured_quad_at_depth(render_geometry + 0x40, lbl_805D95C8);
     get_player__20TWindowSubStatusDispFv();
 }

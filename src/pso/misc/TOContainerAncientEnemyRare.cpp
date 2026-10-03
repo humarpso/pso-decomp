@@ -14,7 +14,7 @@ extern "C" {
 s32 TCameraCtrl__sub_8006B368();
 s32 TOContainerAncientEnemyCommon__ct(int, void *);
 s32 __nw__7TObjectFUl(int);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern s32 enable_v2_features;
 s32 TOContainerAncientEnemyCommon__create(s32 arg0);
 u8 * TOContainerAncientEnemy__ct(void *, s32);
@@ -60,7 +60,7 @@ s32 TOContainerAncientEnemyCommon__create(s32 arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    if (((s32) enable_v2_features == 1) && (TLobby__sub_8030A7B0() == 1) && (TCameraCtrl__sub_8006B368() == 1)) {
+    if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (TCameraCtrl__sub_8006B368() == 1)) {
         temp_r3 = __nw__7TObjectFUl((int) (0x368));
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {

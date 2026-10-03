@@ -50,7 +50,7 @@ M2C_UNK TCineCtrl__ct(u32, s32);
 M2C_UNK TFogCtrl__sub_800FBB68();
 M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 is_scene_ready__6TLobbyFv();
-M2C_UNK TLobby__sub_80208BD8();
+M2C_UNK activate_triggered_floor_events();
 M2C_UNK cleanup_game_objects__9TMainTaskFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK restore_floor_telepipes();
@@ -106,7 +106,7 @@ void create_tasks__6TLobbyFv(void) {
     create__6TSceneFv();
     create_instance__10TSceneSoraFv();
     create__11TSetManagerFv();
-    TLobby__sub_80208BD8();
+    activate_triggered_floor_events();
     tmp = __nw__7TObjectFUl(0x1C);
     if (tmp != 0U) {
         TWindowCtrlMain__ct();

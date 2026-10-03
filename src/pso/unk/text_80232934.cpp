@@ -17,7 +17,7 @@ struct Obj_80232934 {
 extern "C" {
 void get_bml_model(s32, s32);
 void TEffClitical__sub_80082674(Ctx_80232934 *, void *, void *, s32, s32);
-void TTecRaFoie__sub_80082688(Vec_80232934 *, Vec_80232934 *, f32);
+void approach_position_if_far(Vec_80232934 *, Vec_80232934 *, f32);
 void fn_80082764(void *, Quad_80232934 *, f32);
 void fn_80082954(Ctx_80232934 *);
 void fn_800829E0(Ctx_80232934 *);
@@ -59,7 +59,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
     Vec_80232934 v = lbl_8044D5A8;
     Quad_80232934 q = lbl_8044D5B4;
     fn_80082764(arg0->f38, &q, lbl_805DC840);
-    TTecRaFoie__sub_80082688(&arg0->pos, &v, arg0->f4c);
+    approach_position_if_far(&arg0->pos, &v, arg0->f4c);
     fn_800829E0(&ctx);
     id = some_id_805c6f74;
     lbl_805D5660 = id;

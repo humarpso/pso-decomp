@@ -10,7 +10,7 @@ struct Ent_8002C730 { u8 pad0[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
 struct Obj_8002C730 { f32 x; u8 pad[4]; f32 z; };
 
 extern "C" {
-void fn_8002C7EC(u8 *arg0, s32 arg1);
+void attack_target_list_remove(u8 *arg0, s32 arg1);
 extern s32 TObjBoss1Crater__data_805D4B58;
 extern s32 TObjBoss1Crater__data_804FE1E8[];
 void TObjBoss1Crater__sub_8002C7B8(void);
@@ -35,7 +35,7 @@ int TObjBoss1Rock__sub_8002E3CC(void);
 int TObjBoss1Rock__sub_8002E3D0(void);
 void *__nw__7TObjectFUl(int);
 int create_instance__14TObjBoss1FloorFv(void*);
-int fn_8002C190(void);
+int load_dragon_ground_assets(void);
 int forward_floor_2CB44__6TLobbyFPv(void* p);
 int free_char_select__6TLobbyFv(void);
 int free_resources__12TBoss8DragonFv(void);
@@ -101,7 +101,7 @@ void TObjBoss1Crater__sub_8002C7B8(void) {
 }
 
 s32 TObjBoss1Crater__sub_8002C7E4(void* p) { return *(s32*)((char*)p + 0x8); }
-void fn_8002C7EC(u8 *arg0, s32 arg1) {
+void attack_target_list_remove(u8 *arg0, s32 arg1) {
     s32 temp_r5;
     s32 temp_r5_2;
     if (arg1 >= 0) {

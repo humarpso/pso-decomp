@@ -15,14 +15,14 @@ struct VObj : VObjBase {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_800113E4(s32, s32);
+M2C_UNK set_hp_clamped__10TObjPlayerFPvs(s32, s32);
 s32 obj_getS16_32E(s32);
 s32 obj_getS16_32C();
 u16 get_id__13TItemProArmorFPv();
 M2C_UNK set_facing__10TObjPlayerFPvs(s32, s32);
 void *get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 get_player_by_client_id(s32);
-M2C_UNK TItemProUnit__sub_801D98F8(s32, s16, u8);
+M2C_UNK set_technique_level_entry(s32, s16, u8);
 void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2);
 }
 
@@ -50,7 +50,7 @@ void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2) {
                 }
                 temp_r31 += 1;
             } while (temp_r31 != 0xD);
-            TItemProUnit__sub_801D98F8(temp_r30 + 0x428, arg1, (u8) arg2);
+            set_technique_level_entry(temp_r30 + 0x428, arg1, (u8) arg2);
             temp_r31 = 9;
             do {
                 temp_r3_2 = get_equip_field_d04__10TObjPlayerFPv(temp_r30, temp_r31);
@@ -59,7 +59,7 @@ void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2) {
                 }
                 temp_r31 += 1;
             } while (temp_r31 != 0xD);
-            TObjPlayer__sub_800113E4(temp_r30, temp_r29);
+            set_hp_clamped__10TObjPlayerFPvs(temp_r30, temp_r29);
             set_facing__10TObjPlayerFPvs(temp_r30, temp_r28);
         }
     }

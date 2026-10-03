@@ -25,7 +25,7 @@ extern "C" {
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 bswap_6x5D__6TLobbyFPv(void *);
 s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
-s32 fn_801057A8(void *, int);
+s32 spawn_dropped_item_from_msg(void *, int);
 s32 TItemData__sub_8010C740(void *, int);
 s32 TItemData__sub_8010CCB0(void *);
 s32 get_player_floor__6TLobbyFi(int);
@@ -59,7 +59,7 @@ void handle_6x5D_drop_stacked_item(u8 *arg0) {
             TItemData__sub_8010C740((void *) (arg0 + 0x10), (int) (2));
         }
         TItemData__sub_8010CCB0((void *) (&drop.item));
-        fn_801057A8((void *) (&drop.floor), (int) (0));
+        spawn_dropped_item_from_msg((void *) (&drop.floor), (int) (0));
     }
 }
 void TItem__sub_80101FEC(void *item, s32 id, Pos_80101FEC *pos) {

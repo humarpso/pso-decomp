@@ -48,7 +48,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, s32);
+M2C_UNK set_draw_texture_and_color(int, s32);
 extern s32 lbl_805D6A48;
 extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;
@@ -71,7 +71,7 @@ void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1) {
         e += arg1;
         base = lbl_805DF040 * (f32)arg1;
         for (i = 0; i < 5; i++) {
-            TWindowSubStatusDisp__sub_803DF160(0, e->vals[i]);
+            set_draw_texture_and_color(0, e->vals[i]);
             if (e->t - (i - 1) >= 0) {
                 f32 t = lbl_805DF048 * (f32)i + lbl_805DF044;
                 draw_textured_quad_at_depth(&e->q[i], t + base);

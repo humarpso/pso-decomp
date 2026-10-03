@@ -24,11 +24,11 @@ struct Obj_801C5FCC { s32 n; Pair_801C5FCC e[16]; };
 
 extern "C" {
 extern Arrival_801C5F84 TObjPlayer__data_8050E920[12];
-void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
+void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjPlayer__sub_801C5F84(u16 idx, s32 yaw, void *pos);
+void set_arrival_override_pos(u16 idx, s32 yaw, void *pos);
 extern const f32 lbl_805DC32C;
-void TObjPlayer__sub_801C5FCC(Obj_801C5FCC *p);
+void clear_movement_history(Obj_801C5FCC *p);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920_size[sizeof(RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920) == 0xF0 ? 1 : -1];
-void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
+void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2) {
     s32 temp_r5;
     u8 *temp_r3;
     temp_r5 = arg0 * 0x14;
@@ -72,12 +72,12 @@ void TObjPlayer__sub_801C5F54(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg
 }
 #pragma pop
 
-void TObjPlayer__sub_801C5F84(u16 idx, s32 yaw, void *pos) {
+void set_arrival_override_pos(u16 idx, s32 yaw, void *pos) {
     TObjPlayer__data_8050E920[idx].active = 1;
     TObjPlayer__data_8050E920[idx].yaw = yaw;
     VecCopy__FP3VecPC3Vec(&TObjPlayer__data_8050E920[idx].pos, pos);
 }
-void TObjPlayer__sub_801C5FCC(Obj_801C5FCC *p) {
+void clear_movement_history(Obj_801C5FCC *p) {
     s32 i;
     Pair_801C5FCC *e;
     p->n = 0;

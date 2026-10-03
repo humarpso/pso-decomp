@@ -33,7 +33,7 @@ void TObjPlayer__sub_801BE838(void* p, u8 v);
 void TObjPlayer__sub_801BE864(void* p, u8 v);
 int TObjPlayer__sub_801BEABC(void* p);
 s32 TObjPlayer__sub_801BEB0C(void* p);
-void TObjPlayer__sub_801BEB34(void* p, s32 v);
+void set_control_role__10TObjPlayerFPvi(void* p, s32 v);
 u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);

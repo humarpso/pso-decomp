@@ -40,14 +40,14 @@ extern const f32 lbl_805DC174;
 extern const f32 lbl_805DC178;
 extern const f32 lbl_805DC17C;
 extern const f32 lbl_805DC180;
-void fn_801AB018(u8 *arg0);
+void run_task__13TPhotonFarllaFPv(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_801AB018(u8 *arg0) {
+void run_task__13TPhotonFarllaFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_801AB018, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801AB018, spC) == 0x4) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_801AB018, sp14) == 0xC) ? 1 : -1];

@@ -58,7 +58,7 @@ extern s32 lbl_805D6238;
 extern s32 lbl_805D623C;
 extern s32 lbl_805D6240;
 extern s32 lbl_805D6244;
-void TLobby__sub_8021EF84(void);
+void init_shop_world_context(void);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void calc_item_count__18TShopGetItemWindowFPvPv(void *arg0, s32 *arg1) {
 }
 #pragma push
 #pragma opt_dead_code off
-void TLobby__sub_8021EF84(void) {
+void init_shop_world_context(void) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     void *temp_r3;

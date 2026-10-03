@@ -41,7 +41,7 @@ typedef struct Ene_800DA508 {
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjPlayer__sub_800DB8D4(u8 *arg0);
-void *fn_80086D50(void *pos, void *dir, s32 id);
+void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i);
 void TObjPlayer__sub_800DCD04(void *, void *, int, void *, s32, int);
 u32 find_entity_by_id(int);
@@ -119,7 +119,7 @@ void TObjPlayer__sub_800DA4B4(Obj_800DA4B4 *self, s32 i) {
     v.x = self->f60 + 0x4000;
     v.y = 0;
     v.z = 0x4000;
-    fn_80086D50(&self->recs[i], &v, 0xfd);
+    spawn_directional_particle(&self->recs[i], &v, 0xfd);
 }
 
 #pragma push

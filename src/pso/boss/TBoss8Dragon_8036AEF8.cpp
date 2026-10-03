@@ -27,7 +27,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
+M2C_UNK set_draw_texture_and_color(int, int);
 extern s32 lbl_805D63F0;
 extern s32 lbl_805D7000;
 extern const f32 lbl_805E038C;
@@ -106,7 +106,7 @@ void TBoss8Dragon__sub_8036B088(void) {
     TCameraCtrl__sub_80069024();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(5, -1);
+    set_draw_texture_and_color(5, -1);
     o[0] = lbl_805E0398;
     o[1] = lbl_805E039C;
     p[1] = p[0] = lbl_805E03A0;

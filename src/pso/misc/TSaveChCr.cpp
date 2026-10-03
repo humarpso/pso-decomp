@@ -18,7 +18,7 @@ extern "C" {
 s32 get_localized_text_entry(s32, s32);
 extern RecoveredGlobal_80339F98_lbl_80477CBC lbl_80477CBC;
 void TSaveChCr__sub_80339F98(s32 arg0, s32 arg1);
-M2C_UNK TLobby__sub_80269454(u32);
+M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
 u32 update_window_mode_from_progress__6TLobbyFiPv(M2C_UNK *, M2C_UNK *);
 extern M2C_UNK lbl_80477CAC[];
@@ -95,7 +95,7 @@ void TSaveChCr__sub_8033A010(void *arg0, u32 arg1) {
             if (arg1 != 0U) {
                 send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x3C), arg1, 3);
             }
-            TLobby__sub_80269454(M2C_FIELD(arg0, u32 *, 0x3C));
+            complete_reveal__14TWindowMessageFPv(M2C_FIELD(arg0, u32 *, 0x3C));
         }
     }
 }

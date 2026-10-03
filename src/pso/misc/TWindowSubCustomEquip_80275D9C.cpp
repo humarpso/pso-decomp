@@ -34,13 +34,13 @@ void set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowSubStatusDisp__sub_803DF160(int, int);
+void set_draw_texture_and_color(int, int);
 extern Vec2_80275DE8 lbl_8044F760[];
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD550;
 extern const f32 lbl_805DD554;
 extern const f32 lbl_805DD560;
-void TWindowSubCustomEquip__sub_80275DE8(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0);
+void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubCustomEquip__sub_80275DE8(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0) {
+void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2, f32 farg0) {
     Rect_80275DE8 r;
     Vec2_80275DE8 *t;
     f32 scale;
@@ -71,7 +71,7 @@ void TWindowSubCustomEquip__sub_80275DE8(u8 *arg0, Vec2_80275DE8 *arg1, s32 arg2
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(0xC, -1);
+    set_draw_texture_and_color(0xC, -1);
     r.x0 = arg1->x + M2C_FIELD(arg0, f32 *, 0x10);
     r.y0 = arg1->y + M2C_FIELD(arg0, f32 *, 0x14);
     r.x1 = 72.32f + r.x0;
@@ -102,7 +102,7 @@ void TWindowSubCustomEquip__sub_80275F08(u8 *arg0, void *arg1) {
 void TWindowSubCustomEquip__sub_80275F90(Win_80275F90 *arg0, u8 *arg1) {
     Vec2_80275DE8 pos;
     TWindowSubCustomEquip__sub_80275F08((u8 *)arg0, &pos);
-    ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))TWindowSubCustomEquip__sub_80275DE8)(lbl_805DD564, arg1, &pos, arg0->f66);
+    ((void (*)(f32, u8 *, Vec2_80275DE8 *, s32))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD564, arg1, &pos, arg0->f66);
 }
 
 void TWindowSubCustomEquip__sub_80275FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {

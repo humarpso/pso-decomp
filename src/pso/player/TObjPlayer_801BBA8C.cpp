@@ -12,8 +12,8 @@ u32 TLockOnCursor__ct(u32, void *, s32);
 int TLockOnCursor__sub_8013DAB0(void*);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801AF7E0(void *);
-M2C_UNK TObjPlayer__sub_801B130C(void *);
-int TObjPlayer__sub_801B35AC(void*);
+M2C_UNK deactivate_body_collision__10TObjPlayerFPv(void *);
+int enable_action_input__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801BBB70(void);
 int TObjPlayer__sub_801BBB74(void* p);
 void TObjPlayer__sub_801BBB94(void);
@@ -45,7 +45,7 @@ void setup_fresh_player_state__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
     M2C_FIELD(arg0, s16 *, 0x32E) = (s16) M2C_FIELD(arg0, s16 *, 0x2BA);
     if ((obj_isState2_324() != 0) && (TFontSmallLobby__sub_801AFEE0() == 0) && (check_camera_mode__10TObjPlayerFv() == 0)) {
-        TObjPlayer__sub_801B130C((void *) (arg0));
+        deactivate_body_collision__10TObjPlayerFPv((void *) (arg0));
     }
     if (is_ready__10TObjPlayerFPv((void *) (arg0)) != 0) {
         set_flag_10000__10TObjPlayerFPv((void *) (arg0));

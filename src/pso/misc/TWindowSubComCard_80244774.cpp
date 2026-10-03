@@ -10,12 +10,12 @@ int TItemEquipBase__sub_8010A82C(void);
 int register_technique_boosts__14TItemEquipBaseFPvPv(void);
 int TItemEquipBase__sub_8010AC60(void);
 s32 set_parent__7TObjectFP7TObject(s32, s32);
-int TObjPlayer__sub_8010A770(void);
+int get_attach_joint__14TItemEquipBaseFPv(void);
 int fn_8010A710(void);
 void TWindowSubComCard__sub_80244888(s32 arg0);
 s32 TWindowCtrlMain__sub_8024CE24();
 int fn_8010A710(void);
-int TObjPlayer__sub_8010A770(void);
+int get_attach_joint__14TItemEquipBaseFPv(void);
 int TItemEquipBase__sub_8010A77C(void);
 int TItemEquipBase__sub_8010A82C(void);
 int register_technique_boosts__14TItemEquipBaseFPvPv(void);
@@ -35,7 +35,7 @@ f32 TWindowSubComCard__sub_80244818(u8 *arg0);
 extern f32 lbl_805DCAC8;
 f32 TWindowSubComCard__sub_80244784(void *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8024E754(int, int);
-M2C_UNK TWindowKeyBoardSoft__sub_8024E7B8(int, int);
+M2C_UNK set_open_tick__19TWindowKeyBoardSoftFPvi(int, int);
 M2C_UNK set_bounds__19TWindowKeyBoardSoftFPvffff(int, f32, f32, f32, f32);
 M2C_UNK TWindowKeyBoardSoft__sub_8024E84C(int);
 M2C_UNK animate_scale__19TWindowKeyBoardSoftFPv();
@@ -149,7 +149,7 @@ void window_request_show(void *arg0);
 s32 play_sound_effect(s32, s32, s32, s32);
 s32 TWindowCtrlMain__sub_8024CE24();
 s32 TWindowSubAreaMapDisp__sub_80246948();
-f32 TWindowSubStatusDisp__sub_801A5228(s16);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(s16);
 M2C_UNK allow_rendering__7TObjectFv(void *);
 int copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void*);
 void save_position__17TWindowSubComCardFPv(void* p);
@@ -237,7 +237,7 @@ void window_request_show(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (temp_r3 | 4);
         return;
     }
-    if (TWindowSubStatusDisp__sub_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > lbl_805DCAD4) {
+    if (get_card_window_scale__20TWindowSubStatusDispFi(M2C_FIELD(arg0, s16 *, 0x20)) > lbl_805DCAD4) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 3);
@@ -263,7 +263,7 @@ s32 TWindowSubComCard__sub_80244C0C(u8 *arg0, s32 arg1) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 0x2000)) {
         var_r4 = (s32) ((f32) var_r4 - lbl_805DCAD0);
     }
-    TWindowKeyBoardSoft__sub_8024E7B8((int) (temp_r31), (int) (var_r4));
+    set_open_tick__19TWindowKeyBoardSoftFPvi((int) (temp_r31), (int) (var_r4));
     TWindowKeyBoardSoft__sub_8024E754((int) (temp_r31), (int) (M2C_FIELD(arg0, s16 *, 0x22)));
     return temp_r31;
 }

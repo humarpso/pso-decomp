@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TLobby__sub_8001DC24();
 M2C_UNK *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-s32 TWindowSubStatusDisp__sub_80228D80();
+s32 append_text_space();
 s32 TWindowChallengeResult__sub_80228DB4(void *, int);
 s32 text_builder_append(void *);
 s32 text_builder_reset();
@@ -50,7 +50,7 @@ void *construct_with_parent__15TWindowAdditionFPvPv(void *arg0, void *arg1) {
 void TWindowSubStatusDisp__sub_80244494(s32 arg0, s32 arg1, s32 arg2) {
     text_builder_reset();
     text_builder_append((void *) (TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
-    TWindowSubStatusDisp__sub_80228D80();
+    append_text_space();
     TWindowChallengeResult__sub_80228DB4((void *) (arg1), (int) (2U));
     text_builder_append((void *) (&lbl_805DCAB8));
     TWindowChallengeResult__sub_80228DB4((void *) (arg2), (int) (2U));

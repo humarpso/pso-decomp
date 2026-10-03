@@ -953,7 +953,7 @@ s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2);
 u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
-M2C_UNK TLobby__sub_8020E484(s32, void *);
+M2C_UNK append_wave_member(s32, void *);
 
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
@@ -988,7 +988,7 @@ s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2) {
                 if (temp_r0 != -1) {
                     ((VObj *)temp_r3_2)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
                 }
-                TLobby__sub_8020E484(arg2, temp_r3_2);
+                append_wave_member(arg2, temp_r3_2);
                 var_r30 += 1;
             } else {
                 M2C_FIELD(var_r29, void **, 0x44) = NULL;
@@ -1091,7 +1091,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1);
-u8 *TLobby__sub_8020D054(void *);
+u8 *create_set_object_from_row(void *);
 u8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
 
@@ -1121,7 +1121,7 @@ s32 spawn_objects_at_pos__6TLobbyFss(s16 arg0, s16 arg1) {
     for (var_r28 = 0; var_r28 < temp_r31; var_r28++, var_r29 += 0x44) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xA) == arg1)) {
-            temp_r3_2 = TLobby__sub_8020D054(var_r29);
+            temp_r3_2 = create_set_object_from_row(var_r29);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(var_r29, void **, 0x40) = temp_r3_2;
                 M2C_FIELD(var_r29, s16 *, 2) = (s16) (M2C_FIELD(var_r29, s16 *, 2) | 0x12);
@@ -1462,7 +1462,7 @@ struct VObj : VBase {
 extern "C" {
 
 void attach_objects_by_id__6TLobbyFi(s32 arg0);
-u8 *TLobby__sub_8020D054(void *);
+u8 *create_set_object_from_row(void *);
 u8 *get_object_count__6TLobbyFPv();
 s32 get_obj_table_entry__6TLobbyFi(s32);
 
@@ -1481,7 +1481,7 @@ void attach_objects_by_id__6TLobbyFi(s32 arg0) {
     for (i = 0; i < count; i++, ptr += 0x44) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (M2C_FIELD(ptr, s16 *, 0) != -1) && ((temp_r3 & 0x10) || (temp_r3 & 1) || (M2C_FIELD(ptr, s16 *, 0xA) == 0))) {
-            temp_r3_2 = TLobby__sub_8020D054(ptr);
+            temp_r3_2 = create_set_object_from_row(ptr);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(ptr, void **, 0x40) = temp_r3_2;
                 M2C_FIELD(ptr, s16 *, 2) = (s16) (M2C_FIELD(ptr, s16 *, 2) | 2);
@@ -1520,7 +1520,7 @@ struct VObj_8020d1bc : VBase_8020d1bc {
 extern "C" {
 
 void assign_objects_to_slots__6TLobbyFPvi(u8 *arg0, s32 arg1);
-u8 *TLobby__sub_8020D054(void *);
+u8 *create_set_object_from_row(void *);
 
 extern s32 TLobby__data_805D6140;
 
@@ -1535,7 +1535,7 @@ void assign_objects_to_slots__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     for (i = 0; i < arg1; i++, ptr += 0x44) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (M2C_FIELD(ptr, s16 *, 0) != -1) && ((temp_r3 & 0x10) || (temp_r3 & 1) || (M2C_FIELD(ptr, s16 *, 0xA) == 0))) {
-            temp_r3_2 = TLobby__sub_8020D054(ptr);
+            temp_r3_2 = create_set_object_from_row(ptr);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(ptr, void **, 0x40) = temp_r3_2;
                 M2C_FIELD(ptr, s16 *, 2) = (s16) (M2C_FIELD(ptr, s16 *, 2) | 2);

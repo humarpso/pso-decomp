@@ -14,7 +14,7 @@ struct QuestList_802171BC {
 };
 
 void init_quest_list_window__17TQuestListOfflineFPv(QuestList_802171BC *);
-void TLobby__sub_80216CF8(QuestList_802171BC *);
+void update_list_navigation__17TQuestListOfflineFPv(QuestList_802171BC *);
 void handle_confirm_dialog(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 
@@ -24,7 +24,7 @@ void dispatch_list_state__17TQuestListOfflineFPv(QuestList_802171BC *self) {
         init_quest_list_window__17TQuestListOfflineFPv(self);
         break;
     case 1:
-        TLobby__sub_80216CF8(self);
+        update_list_navigation__17TQuestListOfflineFPv(self);
         break;
     case 2:
         handle_confirm_dialog(self);

@@ -48,7 +48,7 @@ s32 register_warp__19TObjGoalWarpAncientFPv(int);
 s32 TObjGoalWarpAncient__sub_8017D2D4(int);
 s32 TObjAreaWarp__ct(void *, void *, void *);
 s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern M2C_UNK __vt__19TObjGoalWarpAncient[];
 extern s32 lbl_805D31EC;
 extern const f32 lbl_805DBABC;
@@ -219,7 +219,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xE0) = register_warp_object__19TObjGoalWarpAncientFPv((int) (5));
     M2C_FIELD(arg0, s32 *, 0xE4) = register_warp__19TObjGoalWarpAncientFPv((int) (0));
     M2C_FIELD(arg0, s32 *, 0xE8) = register_warp__19TObjGoalWarpAncientFPv((int) (2));
-    if ((TLobby__sub_8030A7B0() == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) >= 0)) {
+    if ((get_game_play_mode() == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) >= 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
     if (is_split_screen() == 1) {

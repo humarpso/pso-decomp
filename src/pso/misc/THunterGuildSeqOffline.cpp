@@ -185,7 +185,7 @@ void THunterGuildSeqOffline__sub_80213430(void* _w0);
 void THunterGuildSeqOffline__sub_802130AC(u8 *arg0);
 void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0);
 void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
-void THunterGuildSeqOffline__sub_80212B88(void *arg0);
+void open_quest_list__22THunterGuildSeqOfflineFPv(void *arg0);
 void THunterGuildSeqOffline__sub_802128B0(void *arg0);
 void handle_select__22THunterGuildSeqOfflineFPv(void *arg0);
 void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -312,7 +312,7 @@ void THunterGuildSeqOffline__vt9(Guild_8021317C *self) {
     case 1: THunterGuildSeqOffline__sub_802130AC((u8 *)self); break;
     case 2: resolve_active_quest_result__22THunterGuildSeqOfflineFPv((u8 *)self); break;
     case 3: open_judgment_window__22THunterGuildSeqOfflineFPv(self); break;
-    case 4: THunterGuildSeqOffline__sub_80212B88(self); break;
+    case 4: open_quest_list__22THunterGuildSeqOfflineFPv(self); break;
     case 5: self->finish(); break;
     case 6: THunterGuildSeqOffline__sub_802128B0(self); break;
     case 7: handle_select__22THunterGuildSeqOfflineFPv(self); break;

@@ -11,13 +11,13 @@ struct RecoveredGlobal_801D94C8_lbl_804C4A20 {
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D94C8_lbl_804C4A20 lbl_804C4A20;
-f32 fn_801D94C8(s8 arg0, s16 arg1);
+f32 get_class_technique_boost(s8 arg0, s16 arg1);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801D94C8_lbl_804C4A20_size[sizeof(RecoveredGlobal_801D94C8_lbl_804C4A20) == 0x30 ? 1 : -1];
-f32 fn_801D94C8(s8 arg0, s16 arg1) {
+f32 get_class_technique_boost(s8 arg0, s16 arg1) {
     M2C_UNK *var_r3;
     s16 var_r31;
     s32 var_r4;

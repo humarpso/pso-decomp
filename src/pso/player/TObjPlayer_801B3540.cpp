@@ -33,7 +33,7 @@ s32 can_use_item__10TObjPlayerFPvPv(u8 *arg0, void *arg1);
 
 extern "C" {
 
-void TObjPlayer__sub_801B35AC(void* p);
+void enable_action_input__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801B35E4(void* p);
 void TObjPlayer__sub_801B3620(void* p);
 s32 can_use_camera_field__10TObjPlayerFi(s32 arg0);
@@ -62,7 +62,7 @@ int check_technique_flag__10TObjPlayerFPv(void* p) { return set_state_flags__10T
 
 int is_flag_400_set__10TObjPlayerFPv(void* p) { return check_flag__10TObjPlayerFPvi(p, 1024); }
 
-void TObjPlayer__sub_801B35AC(void* p) { TObjPlayer__sub_8011E204((void*)(p), (void*)((void*)1024)); get_player_rank__18TChallenge4PResultFPv(p); }
+void enable_action_input__10TObjPlayerFPv(void* p) { TObjPlayer__sub_8011E204((void*)(p), (void*)((void*)1024)); get_player_rank__18TChallenge4PResultFPv(p); }
 void TObjPlayer__sub_801B35E4(void* p) { set_state_flags__10TObjPlayerFPvUi((void*)(p), (void*)((void*)1024)); get_player_result__18TChallenge4PResultFPv(p, (void*)1); }
 void TObjPlayer__sub_801B3620(void* p) { set_state_flags__10TObjPlayerFPvUi((void*)(p), (void*)((void*)1024)); get_player_result__18TChallenge4PResultFPv(p, (void*)1); get_player_result__18TChallenge4PResultFPv(p, (void*)2); get_player_result__18TChallenge4PResultFPv(p, (void*)3); }
 

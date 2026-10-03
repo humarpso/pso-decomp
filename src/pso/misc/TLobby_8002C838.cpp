@@ -57,7 +57,7 @@ int TObjBoss1Floor__sub_8002CB40(void);
 int TObjBoss1Floor__sub_8002CB78(void);
 int TObjBoss1Rock__sub_8002E3CC(void);
 int TObjBoss1Rock__sub_8002E3D0(void);
-M2C_UNK TObjPlayer__sub_80083914(void *, void *);
+M2C_UNK render_projected_shadow_receiver(void *, void *);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK apply_single_screen_state__6TSceneFv();
@@ -65,7 +65,7 @@ s32 check_v2_mode__9TObjEneDDFv();
 int create_instance__14TObjBoss1FloorFv(void*);
 M2C_UNK draw_if_all_ready__10TObjPlayerFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv(int);
-int fn_8002C190(void);
+int load_dragon_ground_assets(void);
 int free_char_select__6TLobbyFv(void);
 int free_resources__12TBoss8DragonFv(void);
 M2C_UNK func_80141618__Fv();
@@ -76,7 +76,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 
 void update_boss1_objects__6TLobbyFv(void) { free_resources__12TBoss8DragonFv(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); free_char_select__6TLobbyFv(); }
 int forward_floor_2CB44__6TLobbyFPv(void* p) { return create_instance__14TObjBoss1FloorFv(p); }
-void init_bosses__6TLobbyFv(void) { fn_8002C190(); TObjBoss1Floor__sub_8002CB78(); TObjBoss1Crater__sub_8002C7B8(); TObjBoss1Rock__sub_8002E3D0(); TBoss8Dragon__sub_8002D5F8(); }
+void init_bosses__6TLobbyFv(void) { load_dragon_ground_assets(); TObjBoss1Floor__sub_8002CB78(); TObjBoss1Crater__sub_8002C7B8(); TObjBoss1Rock__sub_8002E3D0(); TBoss8Dragon__sub_8002D5F8(); }
 
 extern u8 *lbl_805D4B50;
 extern s32 lbl_805D4B54;
@@ -98,7 +98,7 @@ void render__14TObjBoss1FloorFv(void) {
         draw_if_all_ready__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
         temp_r31 = (unsigned char *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), void **, 0x58));
-        TObjPlayer__sub_80083914((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
+        render_projected_shadow_receiver((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
         draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         apply_single_screen_state__6TSceneFv();
         func_80141618__Fv();

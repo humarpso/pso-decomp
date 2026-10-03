@@ -3,7 +3,7 @@
 extern "C" {
 
 s32 check_camera_mode__10TObjPlayerFv();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 reset_volopt_state__10TObjPlayerFv(s32);
@@ -35,7 +35,7 @@ u8 is_camera_ready__10TObjPlayerFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((check_camera_mode__10TObjPlayerFv() != 0) && (TLobby__sub_8030A7B0() == 2)) {
+    if ((check_camera_mode__10TObjPlayerFv() != 0) && (get_game_play_mode() == 2)) {
         var_r31 = 1;
     }
     return (u8)var_r31;
@@ -44,7 +44,7 @@ u8 is_camera_mode_active__10TObjPlayerFv(void) {
     int var_r31;
 
     var_r31 = 0;
-    if ((check_camera_mode__10TObjPlayerFv() != 0) && (TLobby__sub_8030A7B0() == 1)) {
+    if ((check_camera_mode__10TObjPlayerFv() != 0) && (get_game_play_mode() == 1)) {
         var_r31 = 1;
     }
     return (u8)var_r31;

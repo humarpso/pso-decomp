@@ -26,7 +26,7 @@ M2C_UNK TWindowSubStatusDisp__sub_8026D790(int, int, void *);
 void render__17TWindowMessageLogFv(u8 *arg0);
 int initialize_subwindow__9TWindowDDFPv(void *);
 void update_window_entry_list(void *, void *);
-void fn_802698C4(void *);
+void update_scroll__14TWindowMessageFPv(void *);
 void update_fade_offset__17TWindowMessageLogFPv(void *);
 void update_scroll_animation__17TWindowMessageLogFPv(void *);
 void increment_counter__20TWindowSubStatusDispFPv(void *);
@@ -67,7 +67,7 @@ void run_task__17TWindowMessageLogFv(u8 *arg0) {
         increment_counter__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u8 **, 0x90));
     }
     update_scroll_animation__17TWindowMessageLogFPv(arg0);
-    fn_802698C4(arg0);
+    update_scroll__14TWindowMessageFPv(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade_offset__17TWindowMessageLogFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);

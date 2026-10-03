@@ -28,7 +28,7 @@ void TQuestVmDownLoadServer__sub_8022241C(s32 arg0);
 void *TQuestListOnline__sub_80217504(void);
 void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 void *TQuestListChallenge__sub_80288B04(void);
-s32 TLobby__sub_8030A7B0(void);
+s32 get_game_play_mode(void);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 extern u8 lbl_8044C290[];
 void TQuestVmDownLoadServer__sub_80222480(void *arg0);
@@ -84,7 +84,7 @@ void TQuestVmDownLoadServer__sub_80222480(void *arg0) {
     void *p = 0;
     s32 t;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        t = TLobby__sub_8030A7B0();
+        t = get_game_play_mode();
         switch (t) {
         case 1:
         case 2:

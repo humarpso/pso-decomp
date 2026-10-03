@@ -12,8 +12,8 @@ struct Stack_80208F7C {
 
 extern "C" {
 s32 TLobby__sub_800F8AE8();
-s32 TLobby__sub_802077CC(int, void *);
-M2C_UNK TLobby__sub_80208E8C(int, int, int, int);
+s32 get_floor_map_selection(int, void *);
+M2C_UNK load_area_event_set(int, int, int, int);
 s32 TLobby__sub_80208F7C(void);
 }
 
@@ -27,11 +27,11 @@ s32 TLobby__sub_80208F7C(void) {
     s32 var_r31;
     var_r31 = 0;
 loop_1:
-    if ((TLobby__sub_802077CC((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
+    if ((get_floor_map_selection((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
         if (TLobby__sub_800F8AE8() != 0) {
             return 0;
         }
-        TLobby__sub_80208E8C((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
+        load_area_event_set((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
         goto block_6;
     }
 block_6:

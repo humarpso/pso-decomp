@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void *TObjPlayer__sub_801BDD8C(void *arg0);
+void *create_remote_player_object(void *arg0);
 M2C_UNK TItem__sub_80101CF0();
 void *__ct__10TObjPlayerFPvPvPv(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_03;
 
-void *TObjPlayer__sub_801BDD8C(void *arg0) {
+void *create_remote_player_object(void *arg0) {
     void *o;
 
     TItem__sub_80101CF0();

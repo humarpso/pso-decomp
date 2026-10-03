@@ -33,8 +33,8 @@ void draw_status_window__15TAdMcSelectMcGCFPv(u8 *arg0);
 void render__15TAdMcSelectMcGCFv(void *arg0);
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK begin_screen_draw(int);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(int, int);
-M2C_UNK fn_80141A30();
+M2C_UNK set_draw_texture_and_color(int, int);
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
@@ -49,7 +49,7 @@ extern const f32 lbl_805DF748;
 void draw_status_window__15TAdMcSelectMcGCFPv(u8 *arg0) {
     begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (TAdMcSelectMcGC__data_805D6C98));
-    TWindowSubStatusDisp__sub_803DF160((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x20), (f32) (lbl_805DF748));
     get_player__20TWindowSubStatusDispFv();
 }
@@ -68,7 +68,7 @@ block_5:
         draw_status_window__15TAdMcSelectMcGCFPv((u8 *)(arg0));
         reset_transform_state__10TObjPlayerFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
     }
 }

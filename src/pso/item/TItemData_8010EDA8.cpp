@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TItemData__sub_8010EEC8(s32 arg0);
-s32 TItemData__sub_8010EEDC(s32 arg0);
+s32 get_text_collection(s32 arg0);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void update_player_field__9TItemDataFi(s32 arg0) {
 s32 TItemData__sub_8010EEC8(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 4), M2C_UNK *, (arg0 * 4));
 }
-s32 TItemData__sub_8010EEDC(s32 arg0) {
+s32 get_text_collection(s32 arg0) {
     return M2C_FIELD(*(*(s32 * *)&lbl_805D553C), M2C_UNK *, (arg0 * 4));
 }
 

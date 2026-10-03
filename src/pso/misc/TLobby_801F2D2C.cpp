@@ -130,7 +130,7 @@ extern u8 TLobby__data_805D5EA9;
 extern u16 TLobby__data_805D5EAA;
 extern u16 TLobby__data_805D5EAC;
 extern s16 TLobby__data_805D5ECC;
-void TLobby__sub_801F3124(Hdr_801F3124 *h, Ctx_801F3124 *c);
+void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c);
 }
 
 extern "C" {
@@ -336,7 +336,7 @@ void TLobby__sub_801F301C(u8 *arg0) {
 
 typedef char RecoveredGlobal_801F3268_lbl_80512B18_size[sizeof(RecoveredGlobal_801F3268_lbl_80512B18) == 0x10 ? 1 : -1];
 
-void TLobby__sub_801F3124(Hdr_801F3124 *h, Ctx_801F3124 *c) {
+void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c) {
     u32 n;
     u32 i;
     bswap_32__FPUl((void*)(&h->off0));

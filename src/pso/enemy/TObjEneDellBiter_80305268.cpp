@@ -14,7 +14,7 @@ extern "C" {
 void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
@@ -33,7 +33,7 @@ void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (update_linked_position__14TObjEneEpsilonFPv((f32) (TObjEneDellBiter__data_805DF00C)) != 0) {
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TObjEneDellBiter__data_80475328 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x3A0)), (f32) (M2C_FIELD(arg0, f32 *, 0x3A8))));
             if ((s32) M2C_FIELD(arg0, s32 *, 0x4BC) == 1) {

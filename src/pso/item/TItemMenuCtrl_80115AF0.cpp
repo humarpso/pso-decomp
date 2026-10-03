@@ -10,7 +10,7 @@ void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 is_split_screen(void);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
 u8 *__nw__7TObjectFUl(M2C_UNK);
-u8 *fn_80115B14(s32 arg0, s32 arg1, s32 arg2);
+u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ extern const f32 lbl_805DABE8;
 
 #pragma push
 #pragma scheduling off
-u8 *fn_80115B14(s32 arg0, s32 arg1, s32 arg2) {
+u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
     if (is_split_screen() == 0) {

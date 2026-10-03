@@ -19,7 +19,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 extern "C" {
-s32 TObjPlayer__sub_8010A770(void *);
+s32 get_attach_joint__14TItemEquipBaseFPv(void *);
 s32 set_equip_flag__14TItemEquipBaseFPvUc(void *, void *);
 void TObjPlayer__sub_80120BBC(s32 arg0, s8 arg1);
 M2C_UNK clear_id__10TObjPlayerFPv(void *);
@@ -35,7 +35,7 @@ M2C_UNK apply_sign_effect__10TObjPlayerFPvi(void *, void *);
 M2C_UNK apply_to_child__10TObjPlayerFPvi(void *, void *);
 s32 get_flag_40__8TItemMagFPv(void *);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, int);
-s32 TObjPlayer__sub_8010A770(void *);
+s32 get_attach_joint__14TItemEquipBaseFPv(void *);
 M2C_UNK TObjPlayer__sub_80121208(void *, void *);
 M2C_UNK TObjPlayer__sub_80121210();
 M2C_UNK TObjPlayer__sub_801415BC();
@@ -79,7 +79,7 @@ s32 draw_weapon_model(void *arg0) {
             var_r30 = ((VObj_18_26a62c *)(arg0))->m8(lbl_805DACA8, lbl_805DACAC);
         }
         notify_fish_if_valid__10TObjPlayerFUi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        get_item_ptr__10TObjPlayerFPvi((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (void *) ((s8)TObjPlayer__sub_8010A770((void *) (arg0))));
+        get_item_ptr__10TObjPlayerFPvi((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (void *) ((s8)get_attach_joint__14TItemEquipBaseFPv((void *) (arg0))));
         push_matrix_from();
         if ((var_r30 != 0) && (get_flag_40__8TItemMagFPv((void *) (arg0)) == 0)) {
             lbl_805D5514 = (u8 *)arg0;
@@ -148,7 +148,7 @@ s32 draw_weapon_model(void *arg0) {
 
 void TObjPlayer__sub_80120BBC(s32 arg0, s8 arg1) {
     s8 temp_r31;
-    temp_r31 = TObjPlayer__sub_8010A770((void *) (arg0));
+    temp_r31 = get_attach_joint__14TItemEquipBaseFPv((void *) (arg0));
     set_equip_flag__14TItemEquipBaseFPvUc((void *) (arg0), (void *) (arg1));
     draw_weapon_model((void *)((void *) (arg0)));
     set_equip_flag__14TItemEquipBaseFPvUc((void *) (arg0), (void *) (temp_r31));

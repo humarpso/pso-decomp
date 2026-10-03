@@ -96,7 +96,7 @@ void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0);
 void run_task__24TWindowSubSymbolChatHelpFv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
+M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 M2C_UNK begin_render__20TWindowSubStatusDispFv();
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -203,7 +203,7 @@ void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1) 
     if ((s32) M2C_FIELD(arg1, s32 *, 0x30) >= 0) {
         begin_screen_draw(1);
         set_global_param__8TObjFishFi(lbl_805D63F0);
-        TWindowSubStatusDisp__sub_803DF160(2, -1);
+        set_draw_texture_and_color(2, -1);
         TWindowSubSymbolChatHelp__sub_802845EC((s32)(arg0), (Win_802845EC *)(arg1), (s32)(0), (s32)(-1));
         TWindowSubSymbolChatHelp__sub_802845EC((s32)(arg0), (Win_802845EC *)(arg1), (s32)(1), (s32)(-1));
         if (M2C_FIELD(arg0, u8 *, 0x60) & 1) {
@@ -227,7 +227,7 @@ void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1) 
         get_player__20TWindowSubStatusDispFv();
         begin_screen_draw(1);
         begin_render__20TWindowSubStatusDispFv();
-        TWindowSubStatusDisp__sub_803DF160(1, -1);
+        set_draw_texture_and_color(1, -1);
         TWindowSubSymbolChatHelp__sub_802844C8((Self_802844C8 *)(arg0), (Win_802844C8 *)(arg1), (s32)(0), (s32)(-1));
         TWindowSubSymbolChatHelp__sub_802844C8((Self_802844C8 *)(arg0), (Win_802844C8 *)(arg1), (s32)(1), (s32)(-1));
         if (M2C_FIELD(arg0, u8 *, 0x60) & 1) {

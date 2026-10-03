@@ -19,7 +19,7 @@ void run_action_state_phase__10TObjPlayerFisi(void *, s16, s32);
 void clear_status_bit6__10TObjPlayerFPv(void *);
 void *get_anim_field_c__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
-void TObjPlayer__sub_801CF2B0(Player_801CF2B0 *self);
+void finish_attack_stage1__10TObjPlayerFPv(Player_801CF2B0 *self);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void TObjPlayer__sub_801CF2AC(void);
 int TObjPlayer__sub_801CF3C0(void* p);
 int try_apply_status_action__10TObjPlayerFi(void*);
 
-void TObjPlayer__sub_801CF2B0(Player_801CF2B0 *self) {
+void finish_attack_stage1__10TObjPlayerFPv(Player_801CF2B0 *self) {
     if (self->state == 4) {
         if (is_anim_finished__10TObjPlayerFPv(self) != 0) {
             run_action_state_phase__10TObjPlayerFisi(self, 1, 5);

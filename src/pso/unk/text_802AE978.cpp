@@ -16,7 +16,7 @@ void set_global_param__8TObjFishFi(int);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowSubStatusDisp__sub_803DF160(int, int);
+void set_draw_texture_and_color(int, int);
 extern s32 lbl_805D6700;
 void fn_802AE978(Obj_802AE978 *o);
 }
@@ -28,7 +28,7 @@ void fn_802AE978(Obj_802AE978 *o) {
     for (i = 0; i < o->count; i++) {
         begin_screen_draw(1);
         set_global_param__8TObjFishFi(lbl_805D6700);
-        TWindowSubStatusDisp__sub_803DF160(0, (o->colors[i] << 24) | 0xFFFFFF);
+        set_draw_texture_and_color(0, (o->colors[i] << 24) | 0xFFFFFF);
         draw_textured_quad_at_depth(&o->cards[i], o->scale);
         draw_textured_quad_at_depth(&o->cards[i + 16], o->scale);
         draw_textured_quad_at_depth(&o->cards[i + 32], o->scale);

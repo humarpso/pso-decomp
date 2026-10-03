@@ -78,7 +78,7 @@ extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4DC;
 void TODoorCave03__vt14(u8 *arg0);
 s32 set_indexed_flags(void *, int, int);
-s32 TODragonfly__sub_80158360(void *, f32);
+s32 is_any_player_within_radius_xz(void *, f32);
 extern const f32 lbl_805DB4D0;
 extern const f32 TODoorCave03__data_805DB4D4;
 extern const f32 lbl_805DB4E0;
@@ -152,7 +152,7 @@ void TODoorCave03__vt16(u8 *arg0) {
 
 void TODoorCave03__vt15(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        if (TODragonfly__sub_80158360(arg0, lbl_805DB4D8) != 1) {
+        if (is_any_player_within_radius_xz(arg0, lbl_805DB4D8) != 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 3;
             clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8U);
         }
@@ -183,7 +183,7 @@ void TODoorCave03__vt13(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xD0);
     if (temp_r4 & 1) {
-        if (TODragonfly__sub_80158360((void *)((void *) (arg0)), (f32) (lbl_805DB4E0)) == 1) {
+        if (is_any_player_within_radius_xz((void *)((void *) (arg0)), (f32) (lbl_805DB4E0)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xAC) = 1;
             set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
         }

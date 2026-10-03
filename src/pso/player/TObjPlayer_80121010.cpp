@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_80121010(s32 arg0);
+s32 create_weapon_for_item(s32 arg0);
 
 s32 (*TLobby__sub_80104438())(s32);
 
-s32 TObjPlayer__sub_80121010(s32 arg0) {
+s32 create_weapon_for_item(s32 arg0) {
     if (arg0 != 0) {
         s32 (*fp)(s32) = TLobby__sub_80104438();
         return fp(arg0);

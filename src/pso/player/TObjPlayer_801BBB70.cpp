@@ -21,7 +21,7 @@ void TObjPlayer__sub_801BBC64(void);
 int clear_links__10TObjPlayerFPv(void* p);
 int TLockOnCursor__sub_8013DAB0(void*);
 int clear_obj_links(void*);
-int TObjPlayer__sub_801B35AC(void*);
+int enable_action_input__10TObjPlayerFPv(void*);
 
 void TObjPlayer__sub_801BBB70(void) {  }
 

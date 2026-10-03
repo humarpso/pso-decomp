@@ -16,7 +16,7 @@ void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, vo
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1);
 void run_task__19TWindowMessageYesNoFv(void* p);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
-int TWindowMenu__sub_802657E4(void*);
+int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);
@@ -43,7 +43,7 @@ void update_card_slot__17TWindowSubComCardFPv(void* p);
 
 void render__19TWindowMessageYesNoFv(void) {  }
 
-void run_task__19TWindowMessageYesNoFv(void* p) { if (TWindowSubComCard__sub_802A57FC(p) != 0) { TWindowMenu__sub_802657E4(*(void**)((char*)p + 0x28)); } }
+void run_task__19TWindowMessageYesNoFv(void* p) { if (TWindowSubComCard__sub_802A57FC(p) != 0) { confirm_selection__11TWindowMenuFPv(*(void**)((char*)p + 0x28)); } }
 
 extern M2C_UNK __vt__19TWindowMessageYesNo[];
 

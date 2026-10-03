@@ -24,7 +24,7 @@ M2C_UNK set_cursor_pos__11TMainCursorFiUsi(int, int, int);
 s32 reset_volopt_state__10TObjPlayerFv();
 M2C_UNK copy_tech_params__10TObjPlayerFPvPv(int, int);
 M2C_UNK TObjPlayer__sub_801D1EE4(void *);
-M2C_UNK TObjPlayer__sub_801D1F60(void *);
+M2C_UNK send_photon_blast_targets_packet(void *);
 u8 *TObjPlayer__sub_801D2AB0(void *, M2C_UNK);
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *);
 s16 get_valid_index__15TFontSmallLobbyFPv(void *);
@@ -58,7 +58,7 @@ void prepare_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
             for (i = 0; i < n; i++) {
                 copy_tech_params__10TObjPlayerFPvPv((int)dst++, (int)src++);
             }
-            TObjPlayer__sub_801D1F60(&pkt);
+            send_photon_blast_targets_packet(&pkt);
         }
     }
 }

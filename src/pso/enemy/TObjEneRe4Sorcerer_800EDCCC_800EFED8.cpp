@@ -138,7 +138,7 @@ s32 register_boss__6TLobbyFPv(int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 check_v2_mode__9TObjEneDDFv();
 u32 TObjEneDD__sub_800BB940(void *, void *);
-u32 TObjEneDD__sub_800BB9AC(void *);
+u32 load_enemy_bml_resource(void *);
 void TObjEneRe4Bit__sub_800EDAB4();
 u8 *alloc_tables__6TLobbyFPvii(void *, s32, s32);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
@@ -308,7 +308,7 @@ void TObjEneRe4Sorcerer__sub_800F0464(void) {
     if (check_v2_mode__9TObjEneDDFv() != 0) {
         lbl_805D52E0 = TObjEneDD__sub_800BB940(lbl_80496F58, lbl_8043D418);
     } else {
-        lbl_805D52E0 = TObjEneDD__sub_800BB9AC(lbl_80496F58);
+        lbl_805D52E0 = load_enemy_bml_resource(lbl_80496F58);
     }
     lbl_805D52D0 = register_boss__6TLobbyFPv(0xA);
     lbl_805D52D4 = dispatch_shared_handler_b__6TLobbyFPv(0xA);

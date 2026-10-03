@@ -38,7 +38,7 @@ Entry_80269A0C *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 void TWindowSubStatusDisp__sub_8025A9C0(void *, f32);
 void TWindowSubStatusDisp__sub_8025AC50(void *, s32, s32);
-void fn_802694F4(void *, void *);
+void scroll_up_line__14TWindowMessageFPvPv(void *, void *);
 extern const f32 lbl_805DD218;
 extern const f32 lbl_805DD21C;
 extern const f32 lbl_805DD234;
@@ -60,7 +60,7 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
     e = get_array_entry__20TWindowSubStatusDispFPvi(self, self->idx);
     rec = &self->recs[self->idx];
     if (get_field_20__17TWindowSubComCardFPv(e) != 0U) {
-        fn_802694F4(self, e);
+        scroll_up_line__14TWindowMessageFPvPv(self, e);
     }
     if (flags & 0x80) {
         self->f80 = self->f6C;

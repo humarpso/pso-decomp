@@ -67,12 +67,12 @@ extern int lbl_8050DD50[];
 void TWindowTimer__sub_8019A754(s32 i);
 void TNpcPlayer__sub_80152E74(void *cmd);
 Player_8019A098 *get_player_by_client_id(s32);
-void TObjPlayer__sub_801CFD5C(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
+void calc_movement_target__10TObjPlayerFPviPvPv(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
 void sync_from_lobby__10TNpcPlayerFPv(void *p);
 extern s32 lbl_805D53A0;
 void TWindowTimer__sub_8019A098(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TObjBoss2Tunnel__sub_8007E764(void *, void *, s32);
+void rotate_vec_xz(void *, void *, s32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
 extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
 extern M2C_UNK lbl_8050DDAC[];
@@ -167,7 +167,7 @@ void TWindowTimer__sub_8019A098(void) {
     p = get_player_by_client_id(lbl_805D53A0);
     if (p != 0) {
         pkt.id = lbl_805D53A0;
-        TObjPlayer__sub_801CFD5C(p, p->area, &x, &z);
+        calc_movement_target__10TObjPlayerFPviPvPv(p, p->area, &x, &z);
         pkt.x = x;
         pkt.z = z;
         pkt.flag = 0;
@@ -188,7 +188,7 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
     arg0->f348 = arg0->f394;
     arg0->f34C = arg0->f390;
     arg0->f3A0 = TBoss6Kakusan__sub_803D8BD8(&arg0->f344, lbl_805DBF98);
-    TObjBoss2Tunnel__sub_8007E764(&arg0->f344, &arg0->f344, arg1);
+    rotate_vec_xz(&arg0->f344, &arg0->f344, arg1);
     arg0->f334 = arg1;
     VecCopy__FP3VecPC3Vec(arg0->f50, &arg0->f344);
     arg0->f50[1] = lbl_805DBF58;

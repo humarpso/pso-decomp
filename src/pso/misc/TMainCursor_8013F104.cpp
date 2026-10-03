@@ -43,7 +43,7 @@ void set_field2__11TMainCursorFPvs(void* p, s16 v);
 void set_size__11TMainCursorFPvf(void* p, f32 v);
 int TLockOnCursor__sub_8013EC1C(void*);
 int TLockOnCursor__sub_8013EC38(void*);
-int TMainCursor__sub_8013E240(void*);
+int reset_nearest_target_record(void*);
 M2C_UNK __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 int fn_8004438C(void*);

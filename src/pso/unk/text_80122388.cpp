@@ -34,7 +34,7 @@ u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 void scale_matrix(s32, f32, f32, f32);
 extern const f32 lbl_805DACE0;
-void TObjPlayer__sub_801223E0(Self_801223E0 *self);
+void apply_blade_dance_model_scale(Self_801223E0 *self);
 }
 
 extern "C" {
@@ -52,7 +52,7 @@ u8 *TObjPlayer__sub_80122388(s32 arg0) {
     }
     return NULL;
 }
-void TObjPlayer__sub_801223E0(Self_801223E0 *self) {
+void apply_blade_dance_model_scale(Self_801223E0 *self) {
     if (get_slot_count__14TItemProShieldFPv(self) == 5) {
         s32 n = get_player_list__10TObjPlayerFv();
         switch (n) {

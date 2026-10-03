@@ -11,7 +11,7 @@ s16 get_idle_animation__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
 M2C_UNK get_anim_field_c__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801CDC6C(u8 *arg0);
+void finish_attack_stage3__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -21,7 +21,7 @@ void TObjPlayer__sub_801CDD00(void);
 int try_apply_status_action_1__10TObjPlayerFPv(void* p);
 int try_apply_status_action__10TObjPlayerFi(void*);
 
-void TObjPlayer__sub_801CDC6C(u8 *arg0) {
+void finish_attack_stage3__10TObjPlayerFPv(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x328) == 4) {
         if (is_anim_finished__10TObjPlayerFPv() != 0) {
             run_action_state_phase__10TObjPlayerFisi((void *) (arg0), (int) (1), (int) (5));

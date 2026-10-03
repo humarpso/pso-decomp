@@ -18,7 +18,7 @@ struct Node_801F57B4 {
 };
 
 extern "C" {
-void fn_801F56A8(u8 *arg0, u8 *arg1);
+void copy_quest_script_context(u8 *arg0, u8 *arg1);
 void queue_destruction__7TObjectFv(void*);
 s32 check_value_equals__13TQuestColCtrlFPvi(void*, s32);
 extern s32 lbl_805D35D0;
@@ -27,7 +27,7 @@ void fn_801F57B4(Node_801F57B4* arg0);
 
 extern "C" {
 
-void fn_801F56A8(u8 *arg0, u8 *arg1) {
+void copy_quest_script_context(u8 *arg0, u8 *arg1) {
     s32 var_r5;
     s32 var_r7;
     u8 *var_r6;

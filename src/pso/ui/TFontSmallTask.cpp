@@ -96,7 +96,7 @@ f32 get_fov__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
 void begin_screen_draw(int);
 void render_forward__20TWindowSubStatusDispFPv(void);
-void TWindowSubStatusDisp__sub_803DF160(int, u32);
+void set_draw_texture_and_color(int, u32);
 void build_small_font_glyph_quad(u8, Quad_800FCD40 *);
 void draw_textured_quad_at_depth(Quad_800FCD40 *, f32);
 u8 get_small_font_glyph_width(u8);
@@ -199,7 +199,7 @@ void TFontSmallTask::render() {
             alpha = 0xFF;
         }
         alpha = (f32)alpha * fade;
-        TWindowSubStatusDisp__sub_803DF160(0, (alpha << 24) | rgb);
+        set_draw_texture_and_color(0, (alpha << 24) | rgb);
         q.x = x;
         q.y = y;
         build_small_font_glyph_quad(c, &q);

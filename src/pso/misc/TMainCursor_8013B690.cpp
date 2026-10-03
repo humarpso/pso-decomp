@@ -37,7 +37,7 @@ u32 check_field_24__11TMainCursorFPv(s32);
 M2C_UNK TMainCursor__sub_8013E310(void *);
 u8 TMainCursor__sub_8013E338(void *);
 u8 TMainCursor__sub_8013E358(void *);
-s32 TMainCursor__sub_8013E378(void *, void *);
+s32 is_same_target__11TMainCursorFPvPv(void *, void *);
 void *get_list__11TMainCursorFPv(void *);
 M2C_UNK update_target_sub__11TMainCursorFPv(void *);
 s8 TMainCursor__sub_8013F244(void);
@@ -99,7 +99,7 @@ void TMainCursor__sub_8013B70C(u8 *self) {
         update_target_sub__11TMainCursorFPv(self);
         return;
     }
-    if (TMainCursor__sub_8013E378(self + 0x60, get_list__11TMainCursorFPv(t->f424 + 0x4EC)) == 0) {
+    if (is_same_target__11TMainCursorFPvPv(self + 0x60, get_list__11TMainCursorFPv(t->f424 + 0x4EC)) == 0) {
         update_target_sub__11TMainCursorFPv(self);
         return;
     }

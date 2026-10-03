@@ -97,7 +97,7 @@ void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
 extern RafoieBursts_80237DAC lbl_8044DAB4[];
 extern const f32 lbl_805DC8C8;
-void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self);
+void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 void TTecRaBarta__sub_802377FC(void *);
@@ -263,7 +263,7 @@ void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *le
     return self;
 }
 
-void TTecRaFoie__sub_80237DAC(Obj_80237DAC *self) {
+void spawn_rafoie_explosion_bursts(Obj_80237DAC *self) {
     Vec_80237DAC higher;
     u32 i;
     VecCopy__FP3VecPC3Vec(&higher, &self->position);

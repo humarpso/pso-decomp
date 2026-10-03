@@ -96,7 +96,7 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
 };
 
 extern "C" {
-void TBoss8Dragon__sub_800B9958(void *, u16);
+void enemy_set_target_id(void *, u16);
 void transition_enemy_state(void *, s16);
 void TBoss8Dragon__sub_802F3CA0(void *, unsigned char);
 void TBoss8Dragon__sub_802FBD68(u8 *arg0, u8 *arg1);
@@ -112,7 +112,7 @@ void TBoss8Dragon__sub_802FBD68(u8 *arg0, u8 *arg1) {
   s16 temp_r4;
   u16 new_var;
   new_var = (u16) (*((s32 *) (((s8 *) arg1) + 8)));
-  TBoss8Dragon__sub_800B9958(arg0, new_var);
+  enemy_set_target_id(arg0, new_var);
   *((s32 *) (((s8 *) arg0) + 0x674)) = (s32) (*((s16 *) (((s8 *) arg1) + 6)));
   new_var2 = (s8 *) arg0;
   *((f32 *) (new_var2 + 0x690)) = (f32) (*((f32 *) (((s8 *) arg1) + 0xC)));

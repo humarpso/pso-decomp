@@ -43,7 +43,7 @@ extern const f32 lbl_805D9418;
 extern const f32 lbl_805D941C;
 extern const f32 lbl_805D9420;
 extern const f32 lbl_805D9424;
-void TObjPlayer__sub_80083914(u8 *arg0, s32 arg1);
+void render_projected_shadow_receiver(u8 *arg0, s32 arg1);
 f64 get_end_text_value__10TObjPlayerFv(f32);
 f32 TBoss8Dragon__sub_803D64C0(int);
 f32 TBoss8Dragon__sub_803D64DC(int);
@@ -76,7 +76,7 @@ void apply_single_screen_state__6TSceneFv(void) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80083914_lbl_8048E5D0_size[sizeof(RecoveredGlobal_80083914_lbl_8048E5D0) == 0xC ? 1 : -1];
-void TObjPlayer__sub_80083914(u8 *arg0, s32 arg1) {
+void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80083914, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80083914, sp10) == 0x8) ? 1 : -1];
     Stack_80083914 stack;

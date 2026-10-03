@@ -35,7 +35,7 @@ s32 set_global_param__8TObjFishFi(void *);
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DF1EC;
 extern const f32 lbl_805DF1F0;
@@ -92,7 +92,7 @@ void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
     temp_f31 = lbl_805DF1EC / M2C_FIELD(arg0, f32 *, 0x54);
     begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
-    TWindowSubStatusDisp__sub_803DF160((int) (0xB), (int) (M2C_FIELD(arg1, s32 *, 0x34)));
+    set_draw_texture_and_color((int) (0xB), (int) (M2C_FIELD(arg1, s32 *, 0x34)));
     temp_f2 = M2C_FIELD(arg1, f32 *, 0x10);
     stack.sp8 = temp_f2;
     temp_f6 = M2C_FIELD(arg1, f32 *, 0x14);

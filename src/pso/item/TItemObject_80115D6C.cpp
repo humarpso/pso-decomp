@@ -44,7 +44,7 @@ void TItemObject__sub_80116004(Obj_80116004 *self, f32 range);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
-M2C_UNK TObjPlayer__sub_800113E4(void *, s32);
+M2C_UNK set_hp_clamped__10TObjPlayerFPvs(void *, s32);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_field_2b8__14TItemProShieldFPv(void *);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
@@ -155,7 +155,7 @@ void handle_6x66_use_star_atomizer(u8 *arg0) {
             temp_r3_2 = (u8 *)get_player_by_client_id(((Pkt_80115F28 *)arg0)->ids[var_r28]);
             if ((temp_r3_2 != NULL) && (((VObj_80115F28 *)temp_r3_2)->m31() == 0)) {
                 if (get_field_3e4__10TObjPlayerFPv(temp_r3) == get_field_3e4__10TObjPlayerFPv(temp_r3_2)) {
-                    TObjPlayer__sub_800113E4(temp_r3_2, get_field_2b8__14TItemProShieldFPv(temp_r3_2));
+                    set_hp_clamped__10TObjPlayerFPvs(temp_r3_2, get_field_2b8__14TItemProShieldFPv(temp_r3_2));
                     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
                         if (var_r28 == 0) {
                             spawn_particle_effect(temp_r3_2 + 0x2FC, 0x19);

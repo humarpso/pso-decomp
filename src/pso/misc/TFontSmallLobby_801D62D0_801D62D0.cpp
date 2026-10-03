@@ -26,21 +26,21 @@ typedef struct Obj_801D650C {
 } Obj_801D650C;
 
 extern "C" {
-M2C_UNK TFontSmallLobby__sub_801D60B4();
+M2C_UNK send_6x39_photon_blast_ready();
 extern const f32 lbl_805DC3DC;
 void add_photon_blast_charge(u8 *arg0, f32 farg0);
-M2C_UNK TFontSmallLobby__sub_801D60B4();
+M2C_UNK send_6x39_photon_blast_ready();
 int update_ready__15TFontSmallLobbyFPv(void*);
 M2C_UNK TFontSmallLobby__sub_801D677C(void *);
 extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E4;
-void TFontSmallLobby__sub_801D6350(u8 *arg0, f32 farg0);
+void add_photon_blast_chain_charge(u8 *arg0, f32 farg0);
 int update_field_40__15TFontSmallLobbyFPv(void *);
 M2C_UNK TFontSmallLobby__sub_801D5FC0();
 extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E4;
-s32 TFontSmallLobby__sub_801D62D0(u8 *arg0, f32 farg0);
+s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0);
 void init_feed_timer__8TItemMagFPv(void *);
 void TFontSmallLobby__sub_80152F28(void *);
 void clear_photon_blast_state__10TObjPlayerFPv(void *);
@@ -65,7 +65,7 @@ u32 get_player_by_client_id(int);
 u16 get_type__15TFontSmallLobbyFPv();
 M2C_UNK send_field_state__10TObjPlayerFPv();
 
-s32 TFontSmallLobby__sub_801D62D0(u8 *arg0, f32 farg0) {
+s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0) {
   const f32 *new_var;
   f32 temp_f0;
   f32 temp_f1;
@@ -95,13 +95,13 @@ s32 TFontSmallLobby__sub_801D62D0(u8 *arg0, f32 farg0) {
   return 1;
 }
 
-void TFontSmallLobby__sub_801D6350(u8 *arg0, f32 farg0) {
+void add_photon_blast_chain_charge(u8 *arg0, f32 farg0) {
     f32 temp_f0;
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x3C);
     if (temp_f0 < lbl_805DC3DC) {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f0 + farg0);
         if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3DC) {
-            TFontSmallLobby__sub_801D60B4();
+            send_6x39_photon_blast_ready();
         }
     } else if (temp_f0 < lbl_805DC3E4) {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f0 + farg0);
@@ -120,7 +120,7 @@ void add_photon_blast_charge(u8 *arg0, f32 farg0) {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f0 + farg0);
         if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3DC) {
             M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DC3DC;
-            TFontSmallLobby__sub_801D60B4();
+            send_6x39_photon_blast_ready();
         }
     }
 }

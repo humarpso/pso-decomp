@@ -37,7 +37,7 @@ extern "C" {
 u32 TObjEneDD__sub_800BA828(u16 arg0);
 u32 csnLookAt(void *, void *);
 s32 is_alive__9TObjEneDDFPv(void *arg0);
-s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1);
+s32 is_target_unobstructed__9TObjEneDDFii(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BA870(u8 *arg0);
 void TObjEneDD__sub_800BA88C(u8 *arg0);
 void TObjEneDD__sub_800BA838(u8 *arg0, f32 farg0);
@@ -62,7 +62,7 @@ void init_model__9TObjEneDDFPv(void* p);
 void set_active__9TObjEneDDFPv(void* p);
 void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
 
-s32 TObjEneDD__sub_800BA754(s32 arg0, s32 arg1) {
+s32 is_target_unobstructed__9TObjEneDDFii(s32 arg0, s32 arg1) {
     if ((is_alive__9TObjEneDDFPv((void *)(arg0)) != 0) && (csnLookAt((void *) (arg1), (void *) (arg0 + 0x2FC)) == 0U)) {
         return 1;
     }

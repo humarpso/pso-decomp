@@ -29,7 +29,7 @@ struct Pos_801F4DFC {
 
 s32 get_instance__6TLobbyFv(void);
 void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
-void *TItemData__sub_8010EEDC(s32);
+void *get_text_collection(s32);
 void __ct__7TObjectFP7TObject(Self_801F4DFC *, void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void TWindowSubComCard__sub_80265500(void *);
@@ -60,7 +60,7 @@ Self_801F4DFC *TObjItemNameSelect__ct(Self_801F4DFC *self, void *parent) {
     lbl_805D5EF8 = get_instance__6TLobbyFv() == 0 ? lbl_804C8410 : lbl_804C8488;
     self->m_1c = check_room_seq_4__16TAdChrSelASlotGCFii(get_window_layout_position(0x58), 0x19);
     for (i = 0; lbl_805D5EF8[i].id != -1; i++) {
-        forward_trade_action_default__16TObjCityMainWarpFPviii(self->m_1c, TItemData__sub_8010EEDC(lbl_805D5EF8[i].id), 6, i);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(self->m_1c, get_text_collection(lbl_805D5EF8[i].id), 6, i);
     }
     set_scroll_target__17TWindowSubComCardFPvff(self->m_1c, lbl_805DC500, lbl_805DC504);
     TWindowSubComCard__sub_80265500(self->m_1c);

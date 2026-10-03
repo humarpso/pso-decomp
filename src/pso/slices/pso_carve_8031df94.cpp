@@ -11,7 +11,7 @@ void TObjEneRecon__vt61(u8 *arg0);
 
 extern "C" {
 
-s32 TObjEneEpsilon__sub_800B96A4();
+s32 enemy_copy_target_destination();
 int transition_enemy_state(void*, void*);
 void TObjEneRecon__vt60(void* p);
 void TObjEneRecon__vt59(void);

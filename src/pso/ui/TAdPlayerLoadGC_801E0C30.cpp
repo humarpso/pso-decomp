@@ -87,7 +87,7 @@ s32 TAdPlayerLoadGC__sub_801E0CE0(s32 arg0);
 s32 CARDUnmount();
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 void TAdPlayerLoadGC__sub_801E12B0(s32 n);
-s32 TLobby__sub_800F9DF4(const char*, void*);
+s32 read_disc_file(const char*, void*);
 void* xmalloc__FUl(u32);
 extern Names_801E13C4 lbl_80449690;
 extern char lbl_804496A8[];
@@ -302,11 +302,11 @@ void TAdPlayerLoadGC__sub_801E13C4(void) {
             return;
         }
     }
-    if (TLobby__sub_800F9DF4(path, *(void**)&TAdPlayerLoadGC__data_805D5E38) <= 0) {
+    if (read_disc_file(path, *(void**)&TAdPlayerLoadGC__data_805D5E38) <= 0) {
         return;
     }
     for (i = 0; i < 6; i++) {
-        if (TLobby__sub_800F9DF4(names.p[i], ((void**)&TAdPlayerLoadGC__data_80511ED0)[i]) <= 0) {
+        if (read_disc_file(names.p[i], ((void**)&TAdPlayerLoadGC__data_80511ED0)[i]) <= 0) {
             return;
         }
     }

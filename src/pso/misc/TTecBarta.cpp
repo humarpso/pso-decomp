@@ -110,7 +110,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_8022B6FC_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8022B6FC_lbl_804CC55C lbl_804CC55C;
-void TTecBarta__sub_8022B6FC(u8 *arg0);
+void init_parameters__9TTecBartaFPv(u8 *arg0);
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
@@ -122,14 +122,14 @@ u16 obj_getField1c(void *);
 void TTecBarta__vt6(Obj_8022B8F4 *self, VObj_8022B8F4 *target);
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
-void TTecBarta__sub_8022B6FC(u8 *arg0);
+void init_parameters__9TTecBartaFPv(u8 *arg0);
 void construct_aimed_technique_projectile();
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
-void TTecBarta__sub_8022B6FC(u8 *arg0);
+void init_parameters__9TTecBartaFPv(u8 *arg0);
 void TObjPlayer__sub_8023AA4C();
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
@@ -261,7 +261,7 @@ void TTecBarta__sub_8022B540(void *arg) {
 #undef self
 }
 
-void TTecBarta__sub_8022B6FC(u8 *arg0) {
+void init_parameters__9TTecBartaFPv(u8 *arg0) {
   int new_var;
   new_var = (int) TTecCtrl__sub_8022DBC4((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), new_var);
@@ -372,7 +372,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
     construct_aimed_technique_projectile();
     self->vtable = ((void * *)&__vt__9TTecBarta);
     self->f0 = lbl_805D3798;
-    TTecBarta__sub_8022B6FC((u8 *)self);
+    init_parameters__9TTecBartaFPv((u8 *)self);
     self->f114 = 0x40003;
     for (i = 0; i < 32; i++) {
         self->slots[i] = 0xFFFF;
@@ -391,7 +391,7 @@ u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, voi
     TObjPlayer__sub_8023AA4C();
     M2C_FIELD(arg0, void **, 0x18) = ((u8 *)&__vt__9TTecBarta);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3798;
-    TTecBarta__sub_8022B6FC((u8 *)(arg0));
+    init_parameters__9TTecBartaFPv((u8 *)(arg0));
     for (i = 0; i < 0x20; i++) {
         ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;
     }

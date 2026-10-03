@@ -87,8 +87,8 @@ s32 get_ptr_4__10TObjPlayerFPv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80203220(s32);
 M2C_UNK TObjPlayer__sub_802C3720(void *);
-M2C_UNK TObjPlayer__sub_802C38B4(u8, void *, s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802C3AC0(void *);
+M2C_UNK init_character_stats_for_level(u8, void *, s32);
+M2C_UNK init_class_starting_inventory(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D5F58;
 extern void *lbl_805D5F60;
@@ -113,7 +113,7 @@ M2C_UNK TLobby__sub_801F494C(M2C_UNK);
 s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
 u32 check_flag__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 void TAdSinglePlyChrSelectGC__sub_80200B28(void);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802C3AC0(void *);
+M2C_UNK init_class_starting_inventory(void *);
 void set_state__23TAdSinglePlyChrSelectGCFi(int a0);
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5544;
@@ -179,7 +179,7 @@ int TAdSinglePlyChrSelectGC__sub_801FFDB8(s32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998();
 void TAdSinglePlyChrSelectGC__sub_80200B28(void);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802C3AC0(void *);
+M2C_UNK init_class_starting_inventory(void *);
 M2C_UNK TLobby__sub_801F494C(M2C_UNK);
 u32 check_flag__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
@@ -308,7 +308,7 @@ void game_state_load(void) {
             void *a = lbl_805D5F60;
             void *b;
             if (((u8) M2C_FIELD(a, u8 *, 0) == 0) && ((s32) M2C_FIELD(a, s32 *, 0x36C) == 0) && ((b = lbl_805D5F64, (s32) M2C_FIELD(b, s32 *, 0x248)) == 0) && ((s32) M2C_FIELD(b, s32 *, 0x24C) == 0)) {
-                TAdSinglePlyChrSelectGC__sub_802C3AC0(a);
+                init_class_starting_inventory(a);
             }
         }
     }
@@ -339,7 +339,7 @@ s32 TAdSinglePlyChrSelectGC__sub_802002E8(s32 arg0) {
             void *b;
             if (*(u8 *)a == 0 && *(s32 *)((u8 *)a + 0x36C) == 0 &&
                 (b = (*(void *const *)&lbl_805D5F64), *(s32 *)((u8 *)b + 0x248) == 0) && *(s32 *)((u8 *)b + 0x24C) == 0) {
-                TAdSinglePlyChrSelectGC__sub_802C3AC0(a);
+                init_class_starting_inventory(a);
             }
         }
     }
@@ -465,8 +465,8 @@ void TAdSinglePlyChrSelectGC__sub_80200B28(void) {
             var_r30 += 0x1C;
         } while (var_r31 < 0x1E);
         M2C_FIELD(lbl_805D5F60, s8 *, 0) = 0;
-        TAdSinglePlyChrSelectGC__sub_802C3AC0(lbl_805D5F60);
-        TObjPlayer__sub_802C38B4(M2C_FIELD(lbl_805D5F60, u8 *, 0x3A1), lbl_805D5F60, M2C_FIELD(lbl_805D5F60, s32 *, 0x364));
+        init_class_starting_inventory(lbl_805D5F60);
+        init_character_stats_for_level(M2C_FIELD(lbl_805D5F60, u8 *, 0x3A1), lbl_805D5F60, M2C_FIELD(lbl_805D5F60, s32 *, 0x364));
         TObjPlayer__sub_802C3720(lbl_805D5F60);
         M2C_FIELD(lbl_805D5F60, s32 *, 0x36C) = 0;
     }

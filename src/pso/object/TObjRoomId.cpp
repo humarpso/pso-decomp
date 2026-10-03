@@ -60,7 +60,7 @@ u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
 u16 TObjRoomId__sub_801A1DB8(u16 x);
 Obj_801A1888 *get_player_by_client_id(s32);
 f32 horizontal_distance_squared(f32 *a, f32 *b);
-s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range);
+s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range);
 s32 check_demo_mode__10TObjPlayerFv();
 void draw_debug_line__10TObjRoomIdFUiiii(void *, int, int, void *);
 void TObjMapWarp__sub_80141CB0(Vec_801A18EC *, Vec_801A18EC *, u32, u32);
@@ -106,7 +106,7 @@ M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 
 extern M2C_UNK __vt__10TObjRoomId[];
 
-s32 TObjRoomId__sub_801A1888(Obj_801A1888 *self, u16 id, f32 range) {
+s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range) {
     Obj_801A1888 *p = get_player_by_client_id(id);
     if (p == 0) {
         return 0;
@@ -155,7 +155,7 @@ void TObjRoomId::run_task() {
         for (s32 i = 0; i < 4; i++) {
             if (get_player_by_client_id(i) != NULL) {
                 r = lbl_805DC08C * o->radius + lbl_805DC090;
-                if (TObjRoomId__sub_801A1888((Obj_801A1888 *)o, i, r * r) != 0) {
+                if (is_player_in_range__10TObjRoomIdFPvUsf((Obj_801A1888 *)o, i, r * r) != 0) {
                     absent = 0;
                 }
             }
@@ -174,7 +174,7 @@ void TObjRoomId::run_task() {
             continue;
         }
         r = lbl_805DC08C * o->radius;
-        if (TObjRoomId__sub_801A1888((Obj_801A1888 *)o, i, r * r) == 0) {
+        if (is_player_in_range__10TObjRoomIdFPvUsf((Obj_801A1888 *)o, i, r * r) == 0) {
             continue;
         }
         d.x = p->pos[0] - o->pos.x;

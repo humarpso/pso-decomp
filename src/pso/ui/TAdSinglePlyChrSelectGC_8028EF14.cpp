@@ -141,7 +141,7 @@ void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 int TAdSinglePlyChrSelectGC__sub_8029071C(void*);
 M2C_UNK TLobby__sub_803DA16C(void *);
-int TObjPlayer__sub_8014394C(void*);
+int set_motion_interpolation_flag(void*);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 
@@ -331,7 +331,7 @@ void close_if_active__23TAdSinglePlyChrSelectGCFv(u8 * _w0) {
     }
 }
 
-void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p) { TObjPlayer__sub_8014394C(p); draw_model_with_callback__10TObjPlayerFPv(p); }
+void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p) { set_motion_interpolation_flag(p); draw_model_with_callback__10TObjPlayerFPv(p); }
 
 void TAdSinglePlyChrSelectGC__sub_8028FF64(s32 arg0) {
     if (lbl_805D653C == 0 || lbl_805D6520 == 0) {

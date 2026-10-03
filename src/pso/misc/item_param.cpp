@@ -50,7 +50,7 @@ void* get_pmt_record_by_index__10TObjPlayerFi(int i) {
     return &c->records[c->count * 0x10];
 }
 
-void* TObjPlayer__sub_8011CD48(int type, int id) {
+void* get_armor_pmt_record(int type, int id) {
     if (type > 0 && type < 3) {
         PmtSub* s = (PmtSub*)(*(char**)((char*)item_pmt_tbl + 0x04) + (type - 1) * 8);
         if (id < s->count) {

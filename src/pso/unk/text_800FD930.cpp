@@ -5,12 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern u8 lbl_805D53B8;
-bool fn_800FD930(void);
+bool is_item_light_interaction_blocked(void);
 }
 
 extern "C" {
 
-bool fn_800FD930(void) {
+bool is_item_light_interaction_blocked(void) {
     return (s8) lbl_805D53B8 != 0;
 }
 

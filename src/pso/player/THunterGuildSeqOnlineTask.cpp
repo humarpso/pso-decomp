@@ -40,7 +40,7 @@ void set_enemy_mode_flag__6TLobbyFv();
 void TQuestListOnline__sub_8013ACF4(s32);
 void free__11TOBoss4RockFUi(void *);
 void clear_counter__6TLobbyFv();
-void TObjPlayer__sub_801B12CC(void *);
+void activate_body_collision__10TObjPlayerFPv(void *);
 void clear_lobby_flag__10TObjPlayerFPv(void *);
 void *get_player_by_client_id(s32);
 void TQuestListOnline__sub_802176DC(void *, s32);
@@ -64,7 +64,7 @@ void *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 void TDLGraph__sub_8007F6F8(s32, s32);
 void send_quest_barrier__9TProtocolFv(s32);
 void set_field_1c__6TLobbyFPvf(void *, f32);
-void TLobby__sub_80269454(void *);
+void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFPvii(void *, void *, s32);
 void *update_window_mode_from_progress__6TLobbyFiPv(void *, Pos_80214F80 *);
 void *get_window_layout_position(s32);
@@ -231,7 +231,7 @@ void TQuestListOnline__sub_80214E08(void) {
         p = get_player_by_client_id(i);
         if (p != NULL) {
             clear_lobby_flag__10TObjPlayerFPv(p);
-            TObjPlayer__sub_801B12CC(p);
+            activate_body_collision__10TObjPlayerFPv(p);
         }
     }
     TWindowCtrl__sub_8024AEF0((void *)lbl_805D53A0);
@@ -266,7 +266,7 @@ void TLobby__sub_80214F80(Pkt_80214F80 *p) {
             TQuestListOnline__data_805D61A8 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0xBE), &pos);
             send_and_handle__6TLobbyFPvii(TQuestListOnline__data_805D61A8, TQuestVmDownLoadServer__sub_8006EF6C(0x61), 1);
             set_field_1c__6TLobbyFPvf(TQuestListOnline__data_805D61A8, lbl_805DC660);
-            TLobby__sub_80269454(TQuestListOnline__data_805D61A8);
+            complete_reveal__14TWindowMessageFPv(TQuestListOnline__data_805D61A8);
         }
         send_quest_barrier__9TProtocolFv(TLobby__data_805D5580);
     }

@@ -15,12 +15,12 @@ extern s32 lbl_805D7730;
 extern void *lbl_805D7738;
 extern void *lbl_805D773C;
 extern void *lbl_805D7740;
-void fn_803DCF2C(void);
+void present_frame_and_wait_vsync(void);
 }
 
 extern "C" {
 
-void fn_803DCF2C(void) {
+void present_frame_and_wait_vsync(void) {
     s32 level;
     VISetNextFrameBuffer(lbl_805D7738);
     if (lbl_805D46C8 != 0) {

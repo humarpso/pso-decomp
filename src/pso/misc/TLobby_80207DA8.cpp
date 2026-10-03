@@ -39,7 +39,7 @@ struct Grp_802089B0 { u8 pad[8]; s32 count; s32 pad3; Rec_802089B0 recs[1]; };
 extern "C" {
 s32 get_current_floor();
 extern Fn_80208BD8 lbl_804C9428[];
-void TLobby__sub_80208BD8(void);
+void activate_triggered_floor_events(void);
 s32 TLobby__sub_80208C78(s32 idx, s32 id);
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
@@ -48,7 +48,7 @@ u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 TLobby__sub_80208A04(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
-s32 TLobby__sub_80208B7C(s32 arg0, s32 arg1, s32 arg2);
+s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(void *);
 void bswap_32__FPUl(void *);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
@@ -211,7 +211,7 @@ s32 TLobby__sub_80208AD8(s16 *arg0) {
     return ret;
 }
 
-s32 TLobby__sub_80208B7C(s32 arg0, s32 arg1, s32 arg2) {
+s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2) {
     Grp_80208B7C *g = ((Grp_80208B7C * *)&lbl_805139F8)[arg0];
     Rec_80208B7C *r;
     s32 n;
@@ -230,7 +230,7 @@ s32 TLobby__sub_80208B7C(s32 arg0, s32 arg1, s32 arg2) {
     return 1;
 }
 
-void TLobby__sub_80208BD8(void) {
+void activate_triggered_floor_events(void) {
     Fn_80208BD8 *tbl;
     s32 n;
     Rec_80208BD8 *r;

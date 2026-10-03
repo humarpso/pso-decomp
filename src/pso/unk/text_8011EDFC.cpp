@@ -72,7 +72,7 @@ struct PlSelf_8011F474 : Pl_8011F474 {
 };
 
 extern "C" {
-void TObjPlayer__sub_8011E484(void *);
+void restore_action_type__11TItemWeaponFPv(void *);
 void remap_extra_attack_type(void *);
 s32 is_active_in_game__10TObjPlayerFPv(void *);
 s16 is_status_subsystem_ready__10TObjPlayerFPv(void *);
@@ -113,7 +113,7 @@ void TObjPlayer__sub_8011F474(PlSelf_8011F474 *self, f32 range) {
                 }
             }
         }
-        TObjPlayer__sub_8011E484(self);
+        restore_action_type__11TItemWeaponFPv(self);
     }
 }
 

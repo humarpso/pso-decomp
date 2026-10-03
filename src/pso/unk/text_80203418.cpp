@@ -9,7 +9,7 @@ struct Stack_80203470 {
 };
 
 extern "C" {
-s32 TLobby__sub_802077CC(void *, void *);
+s32 get_floor_map_selection(void *, void *);
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5FC4;
 void TLobby__sub_80203470(s32 arg0);
@@ -32,7 +32,7 @@ s32 is_boss_area(void) {
 void TLobby__sub_80203470(s32 arg0) {
     Stack_80203470 stack;
     lbl_805D5FC0 = arg0;
-    if (TLobby__sub_802077CC((void *) (arg0), (void *) (&stack.sp8)) == 1) {
+    if (get_floor_map_selection((void *) (arg0), (void *) (&stack.sp8)) == 1) {
         lbl_805D5FC4 = stack.sp8;
     }
 }

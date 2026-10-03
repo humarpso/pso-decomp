@@ -125,7 +125,7 @@ extern "C" {
 s32 TObjFish__sub_8001ED9C(s32, s32);
 Node_80192A3C *get_bml_model(s32, s32);
 extern s32 lbl_805D5C2C;
-void TObjFish__sub_80192A3C(Fish_80192A3C *arg0);
+void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void refresh_collision_body_centers(void *);
@@ -227,7 +227,7 @@ void *TObjLazerFenceExtra__create(void *arg0) {
     }
     return o;
 }
-void TObjFish__sub_80192A3C(Fish_80192A3C *arg0) {
+void select_models__18TObjLazerFenceNormFPv(Fish_80192A3C *arg0) {
     s32 i;
     Node_80192A3C *node;
     s32 j;
@@ -319,7 +319,7 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 u8 TODoorAncient08__sub_80229220(u16);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
-void TObjLazerFenceNorm__sub_80192CCC(TObjLazerFenceNorm_80192CCC *self);
+void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self);
 }
 
 extern "C" {
@@ -366,7 +366,7 @@ void render__18TObjLazerFenceNormFv(void *arg0) {
     }
 }
 
-void TObjLazerFenceNorm__sub_80192CCC(TObjLazerFenceNorm_80192CCC *self) {
+void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self) {
     self->frame += lbl_805DBE64;
     if ((f32)(self->motion->frames - 1) < self->frame) {
         self->frame = lbl_805DBE58;

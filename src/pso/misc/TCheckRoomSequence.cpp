@@ -254,7 +254,7 @@ void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 void init_check_params__18TCheckRoomSequenceFUi(u32 arg0);
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
 int TCheckRoomSequence__sub_80211210(void);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 int TShopWindowBase__sub_8022397C(void*);
 int copy_entry_bytes__10TObjPlayerFPvPv(void*, void*);
 s32 get_result__24TShopEquipmentSellWindowFPv(void* p);
@@ -270,7 +270,7 @@ s32 check_room_ready__18TCheckRoomSequenceFv(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 0) {
         return 1;
     }
-    return (u32)__cntlzw(TLobby__sub_8030A7B0()) >> 5;
+    return (u32)__cntlzw(get_game_play_mode()) >> 5;
 }
 
 extern s32 TCheckRoomSequence__data_805D6164;

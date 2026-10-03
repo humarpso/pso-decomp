@@ -18,12 +18,12 @@ struct Ctx_80290B3C {
 extern "C" {
 void *construct__9TItemDropFPv(void *p);
 void *destroy__9TItemDropFPvs(void *p, s16 flag);
-u32 fn_80290B3C(u32 arg0, u32 arg1);
+u32 relocate_data_block_pointers(u32 arg0, u32 arg1);
 }
 
 extern "C" {
 
-u32 fn_80290B3C(u32 arg0, u32 arg1) {
+u32 relocate_data_block_pointers(u32 arg0, u32 arg1) {
     Ctx_80290B3C c;
     u16 *idx;
     u32 p;

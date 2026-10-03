@@ -27,7 +27,7 @@ extern char lbl_80516260[];
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 void TLobby__sub_800F7DAC(s32, s32);
 s32 update_lobby_scene__6TSceneFPv(void *);
-s32 TLobby__sub_800F9DF4(void *, s32);
+s32 read_disc_file(void *, s32);
 s32 sprintf(char *, const char *, ...);
 s32 TLobby__sub_803CC53C();
 void TLobby__sub_803CCE9C(s32);
@@ -93,7 +93,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
         b = TLobby__sub_803CC53C();
         TLobby__sub_803CCE9C(a);
         b = xmalloc__FUl((M2C_UNK)(b << 11));
-        if (TLobby__sub_800F9DF4(lbl_805161E0, b) != -1) {
+        if (read_disc_file(lbl_805161E0, b) != -1) {
             c = xmalloc__FUl((M2C_UNK)(0x200000));
             TLobby__sub_800F7DAC(b, c);
             load_gvm_texture_archive(c, arg1);

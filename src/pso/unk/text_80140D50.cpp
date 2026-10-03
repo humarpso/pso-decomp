@@ -25,7 +25,7 @@ void fn_80140EA8(s32 arg0, s32 arg1);
 s32 TLobby__sub_80141030(void *);
 void fn_80140EA8(s32 arg0, s32 arg1);
 void fn_80140EE4(Obj_80140EE4 *self, void *p);
-void fn_80140F18(Obj_80140F18 *self, Ent_80140F18 *e);
+void collect_collision_groups(Obj_80140F18 *self, Ent_80140F18 *e);
 void fn_80140E38(s32 arg0, u32 arg1);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -112,7 +112,7 @@ void fn_80140EE4(Obj_80140EE4 *self, void *p) {
         }
     }
 }
-void fn_80140F18(Obj_80140F18 *self, Ent_80140F18 *e) {
+void collect_collision_groups(Obj_80140F18 *self, Ent_80140F18 *e) {
     Ent_80140F18 **p = self->slots;
     while (e->key != 0) {
         *p++ = e;

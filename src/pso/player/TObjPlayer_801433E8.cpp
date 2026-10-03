@@ -39,7 +39,7 @@ extern "C" {
 
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 M2C_UNK update_animation_frame__10TObjPlayerFPvi(void *, s16);
-M2C_UNK TObjPlayer__sub_8014394C(void *, f64);
+M2C_UNK set_motion_interpolation_flag(void *, f64);
 void *get_anim_entry__10TObjPlayerFPvi(void *, s16);
 
 extern const f64 lbl_8043F2D8[];
@@ -66,7 +66,7 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB168;
     M2C_FIELD(arg0, s16 *, 0xBC) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     if (M2C_FIELD(arg0, s32 *, 0xB4) & 0x20000000) {
-        TObjPlayer__sub_8014394C(arg0, conv);
+        set_motion_interpolation_flag(arg0, conv);
     }
 }
 void advance_animation_playback(Anim_80143504 *a) {

@@ -42,7 +42,7 @@ M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 void run_task__12TObjEnvSoundFv(u8 *arg0);
 void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
 s32 get_current_floor(void);
-void TLobby__sub_80208B7C(s32, s32, s32);
+void set_floor_event_flags(s32, s32, s32);
 void TLobby__sub_80208C78(s32, s32);
 void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt);
 void queue_destruction__7TObjectFv(void *);
@@ -130,7 +130,7 @@ void *TObjEnvSound__ct(Obj_80190AA0 *self, void *parent, void *arg2) {
 void handle_6x67_trigger_set_event(Pkt_80190BA0 *pkt) {
     byteswap_event_packet__6TLobbyFi(pkt);
     if (pkt->target != get_current_floor()) {
-        TLobby__sub_80208B7C(pkt->target, pkt->event, 4);
+        set_floor_event_flags(pkt->target, pkt->event, 4);
     } else {
         TLobby__sub_80208C78(pkt->target, pkt->event);
     }

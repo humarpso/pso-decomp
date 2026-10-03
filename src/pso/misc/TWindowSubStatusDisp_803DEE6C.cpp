@@ -18,7 +18,7 @@ M2C_UNK TObjPlayer__sub_803E2224();
 void begin_screen_draw(s32 arg0);
 s32 load_list_texture(void *, int, int, int);
 extern s32 lbl_805D77B0;
-void TWindowSubStatusDisp__sub_803DF160(s32 arg0, s32 arg1);
+void set_draw_texture_and_color(s32 arg0, s32 arg1);
 void GXBegin(u32, u32, u16);
 extern s32 lbl_805D77B0;
 extern const f32 lbl_805E0FC8;
@@ -139,7 +139,7 @@ void DVDConvertEntrynumToPath(f32 *q) {
 #pragma opt_common_subs off
 #pragma scheduling off
 #pragma peephole off
-void TWindowSubStatusDisp__sub_803DF160(s32 arg0, s32 arg1) {
+void set_draw_texture_and_color(s32 arg0, s32 arg1) {
     load_list_texture((void *) (arg0), (int) (0), (int) (0), (int) (0));
     lbl_805D77B0 = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
 }

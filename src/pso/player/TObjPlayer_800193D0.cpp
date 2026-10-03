@@ -28,7 +28,7 @@ struct R_800194AC { s32 a; f32 b; s32 c; };
 struct O_800194AC { u8 pad[0x254]; R_800194AC recs[1]; };
 
 extern "C" {
-s16 TObjPlayer__sub_8001942C(u8 *arg0, s32 arg1);
+s16 test_immunity_flags__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u8 obj_is_hit_receivable(u8 *arg0);
 int TObjPlayer__sub_8001943C(ObjArr254* p, int i);
 void TObjPlayer__sub_800193FC(O_800193FC *self, s32 i, s32 v);
@@ -72,7 +72,7 @@ void TObjPlayer__sub_8001941C(O_8001941C *self, s32 i, f32 v) {
     self->recs[i].b = v;
 }
 
-s16 TObjPlayer__sub_8001942C(u8 *arg0, s32 arg1) {
+s16 test_immunity_flags__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     return (s16) (M2C_FIELD(arg0, s16 *, 0x11C) & arg1);
 }
 

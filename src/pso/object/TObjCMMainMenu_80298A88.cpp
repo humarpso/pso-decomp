@@ -64,7 +64,7 @@ M2C_UNK *TObjCMMainMenu__sub_80298DD4(void);
 void *__ct__7TObjectFP7TObject(void *, void *);
 void *__nw__7TObjectFUl(int);
 Chara_80298B70 *TObjCMMainMenu__sub_8028D9A8(void);
-void TNpcPlayer__sub_8007206C(void *, void *);
+void copy_player_visual_record(void *, void *);
 M2C_UNK *TObjCMMainMenu__sub_80298DD4(void);
 char *strncpy(char *, const char *, u32);
 void fn_802993F0(void);
@@ -143,7 +143,7 @@ void *TObjCMMainMenu__ct(void *arg0, void *parent) {
     self->name = lbl_805D3CD0;
     self->chara = lbl_805D6520;
     if (!(self->chara->f32 & 0xA) && self->chara->f31 == TObjCMMainMenu__sub_8028D9A8()->f31) {
-        TNpcPlayer__sub_8007206C(self->chara, TObjCMMainMenu__sub_8028D9A8());
+        copy_player_visual_record(self->chara, TObjCMMainMenu__sub_8028D9A8());
     }
     strncpy(self->chara->name, (const char *)TObjCMMainMenu__sub_80298DD4(), 0xC);
     self->chara->fC = 0;

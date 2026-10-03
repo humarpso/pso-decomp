@@ -476,7 +476,7 @@ extern s32 some_id_805c6f74;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 void TObjEneEpsilonGuard__sub_8035E018(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BAC14(void *, void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -951,7 +951,7 @@ void TObjEneEpsilonGuard__sub_8035E8C0(void *arg0, s32 arg1) {
         return;
     case 0:
         advance_animation_playback(arg0);
-        TObjEneEpsilon__sub_800B96A4(arg0);
+        enemy_copy_target_destination(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
         if (!(M2C_FIELD(arg0, s32 *, 0x46C) & 0x200)) {
             f32 *d = (f32 *)TObjEneEpsilonGuard__data_805D6F74;

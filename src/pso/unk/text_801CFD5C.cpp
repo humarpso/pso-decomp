@@ -7,14 +7,14 @@ extern "C" {
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern const f32 lbl_805DC388;
-void TObjPlayer__sub_801CFD5C(u8 *arg0, s32 arg1, f32 *arg2, f32 *arg3);
+void calc_movement_target__10TObjPlayerFPviPvPv(u8 *arg0, s32 arg1, f32 *arg2, f32 *arg3);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801CFD5C(u8 *arg0, s32 arg1, f32 *arg2, f32 *arg3) {
+void calc_movement_target__10TObjPlayerFPviPvPv(u8 *arg0, s32 arg1, f32 *arg2, f32 *arg3) {
     *arg2 = (lbl_805DC388 * TBoss8Dragon__sub_803D64C0(arg1)) + M2C_FIELD(arg0, f32 *, 0x38);
     *arg3 = (lbl_805DC388 * TBoss8Dragon__sub_803D64DC(arg1)) + M2C_FIELD(arg0, f32 *, 0x40);
 }

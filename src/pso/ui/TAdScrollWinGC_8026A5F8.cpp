@@ -27,13 +27,13 @@ M2C_UNK heap_free__5THeapFPv(s32, void *);
 s32 TLobby__sub_803DE7BC(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 extern s32 lbl_805D6460;
-void TLobby__sub_8026A6DC(s32 arg0);
+void chat_log_remove_line(s32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
-void TLobby__sub_8026A6DC(s32 arg0);
+void chat_log_remove_line(s32 arg0);
 s32 TLobby__sub_8026A680(void);
 s32 strlen();
 void TLobby__sub_8026A89C(s32 arg0);
-s32 TLobby__sub_8026A76C(const char *text);
+s32 chat_text_lacks_language_tag(const char *text);
 }
 
 extern "C" {
@@ -70,11 +70,11 @@ s32 TLobby__sub_8026A680(void) {
             return i;
         }
     }
-    TLobby__sub_8026A6DC(0);
+    chat_log_remove_line(0);
     return 29;
 }
 
-void TLobby__sub_8026A6DC(s32 arg0) {
+void chat_log_remove_line(s32 arg0) {
     u32 *temp_r31;
     u32 temp_r4;
     temp_r31 = (u32 *)((u8 *)&lbl_805187D8.value + (arg0 * 4));
@@ -89,7 +89,7 @@ void TLobby__sub_8026A6DC(s32 arg0) {
     }
 }
 
-s32 TLobby__sub_8026A76C(const char *text) {
+s32 chat_text_lacks_language_tag(const char *text) {
     if (text[0] != 9) {
         return 1;
     }
@@ -110,7 +110,7 @@ void TLobby__sub_8026A7B0(u32 arg0) {
         lbl_805D6464 = NULL;
     }
     if (arg0 != 0U) {
-        temp_r31 = TLobby__sub_8026A76C((const char *)((void *) (arg0)));
+        temp_r31 = chat_text_lacks_language_tag((const char *)((void *) (arg0)));
         var_r30 = measure_string_len__20TWindowSubStatusDispFPv((void *) (arg0)) + 1;
         if (temp_r31 != 0) {
             var_r30 += 2;
@@ -118,7 +118,7 @@ void TLobby__sub_8026A7B0(u32 arg0) {
         var_r3 = heap_alloc__5THeapFUl(lbl_805D6460, var_r30);
         if (var_r3 == NULL) {
             do {
-                TLobby__sub_8026A6DC((s32)((int) (0)));
+                chat_log_remove_line((s32)((int) (0)));
                 var_r3 = heap_alloc__5THeapFUl(lbl_805D6460, var_r30);
             } while (var_r3 == NULL);
         }
@@ -148,7 +148,7 @@ void TLobby__sub_8026A89C(s32 arg0) {
     var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
     if (var_r28 == 0) {
         do {
-            TLobby__sub_8026A6DC((s32) (0));
+            chat_log_remove_line((s32) (0));
             var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
         } while (var_r28 == 0);
         var_r30 = TLobby__sub_8026A680();

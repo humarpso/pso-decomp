@@ -13,7 +13,7 @@ extern const f32 lbl_805DD268;
 s32 TWindowOptionCtrl__sub_8026B64C(s32 arg0, s32 arg1, s32 arg2);
 s32 get_localized_text_entry(s32, s32);
 void *TAdEnterPasswordGC__sub_8013ADE4();
-M2C_UNK TLobby__sub_80269454(s32);
+M2C_UNK complete_reveal__14TWindowMessageFPv(s32);
 M2C_UNK TWindowOptionCtrl__sub_80269908(s32, s32, s32, M2C_UNK);
 s32 set_window_mode_4__6TLobbyFPvii(void *, M2C_UNK *, M2C_UNK);
 s32 warn_if_empty__17TWindowOptionCtrlFPv(void *);
@@ -43,7 +43,7 @@ s32 TWindowOptionCtrl__sub_8026B4E0(void *arg0, s32 arg1) {
         TWindowOptionCtrl__sub_80269908(w, get_localized_text_entry(0xF, 0x18), warn_if_empty__17TWindowOptionCtrlFPv(get_chr_select_base_plus_1154c__17TWindowOptionCtrlFv()), 0);
         break;
     }
-    TLobby__sub_80269454(w);
+    complete_reveal__14TWindowMessageFPv(w);
     return w;
 }
 

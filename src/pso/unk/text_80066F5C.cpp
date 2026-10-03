@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK apply_single_screen_state__6TSceneFv();
-M2C_UNK TObjPlayer__sub_80083914(void *, void *);
+M2C_UNK render_projected_shadow_receiver(void *, void *);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
 int TObjPlayer__sub_803D9B2C(void);
 int pop_matrix(void);
@@ -31,7 +31,7 @@ void TObjPlayer__sub_80066F5C(u8 *arg0) {
         TObjPlayer__sub_803D99F8((void *) (arg0 + 0x14), (int) (1));
         TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x20));
         if (!(M2C_FIELD(arg0, s32 *, 0) & 8) && ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U)) {
-            TObjPlayer__sub_80083914((void *) (arg0 + 8), (void *) (arg0 + 0x14));
+            render_projected_shadow_receiver((void *) (arg0 + 8), (void *) (arg0 + 0x14));
             draw_ginja_model((int) (M2C_FIELD(arg0, u32 *, 4)));
             apply_single_screen_state__6TSceneFv();
         }

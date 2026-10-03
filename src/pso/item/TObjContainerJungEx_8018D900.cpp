@@ -46,13 +46,13 @@ extern const f32 TObjDoaEx01__data_805DBDA0;
 void TObjDoaEx01__vt16(u8 *arg0);
 extern const f32 TObjDoaEx01__data_805DBDA8;
 void TObjDoaEx01__vt14(O_8018DB94 *self);
-s32 TODragonfly__sub_80158360(void *, f32);
+s32 is_any_player_within_radius_xz(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DBDA4;
 void TObjDoaEx01__vt15(Obj_8018DA54 *self);
 void set_indexed_flags(void *, int, int);
-s32 TODragonfly__sub_80158360(void *, f32);
+s32 is_any_player_within_radius_xz(void *, f32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 TObjDoaEx01__data_805DBDA0;
@@ -114,7 +114,7 @@ void TObjDoaEx01__vt16(u8 *arg0) {
 
 void TObjDoaEx01__vt15(Obj_8018DA54 *self) {
     if (self->flags & 1) {
-        if (TODragonfly__sub_80158360(self, lbl_805DBDA4) == 0) {
+        if (is_any_player_within_radius_xz(self, lbl_805DBDA4) == 0) {
             self->state = 3;
             switch (get_global_state__14TOKeyMachine01Fv()) {
             case 19:
@@ -157,7 +157,7 @@ void TObjDoaEx01__vt14(O_8018DB94 *self) {
 }
 void TObjDoaEx01__vt13(Obj_8018DBCC *self) {
     if (self->flags & 1) {
-        if (TODragonfly__sub_80158360(self, lbl_805DBDAC) == 1) {
+        if (is_any_player_within_radius_xz(self, lbl_805DBDAC) == 1) {
             self->state = 1;
             set_indexed_flags(self, 0, 8);
             switch (get_global_state__14TOKeyMachine01Fv()) {

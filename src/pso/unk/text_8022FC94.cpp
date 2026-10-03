@@ -109,7 +109,7 @@ TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
 s32 attach_particle_model(int, int, int, int, int, f32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 s32 TParticleCtrl__sub_80086884(int);
-void *fn_80086D50(void *pos, void *dir, s32 id);
+void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
@@ -147,7 +147,7 @@ void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
   fwd.x = self->ax;
   fwd.y = 0;
   fwd.z = self->az;
-  fn_80086D50(self->pos, &fwd, 0x18);
+  spawn_directional_particle(self->pos, &fwd, 0x18);
   self->emitters = (void **) alloc_buffer__11TOBoss4RockFPv(TTecFoie__data_8044D13C[self->band].count * 4);
   for (i = 0; i < TTecFoie__data_8044D13C[self->band].count; i++)
   {

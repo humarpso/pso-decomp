@@ -119,7 +119,7 @@ s32 TObjPlayer__sub_8004433C(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 fn_802393D0(void *);
 int init_cast__9TTecRestaFPv(void* p);
-void TTecResta__sub_80239548(u8 *arg0);
+void init_parameters__9TTecRestaFPv(u8 *arg0);
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern M2C_UNK __vt__9TTecResta[];
 extern s32 lbl_805D3810;
@@ -160,7 +160,7 @@ s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 s32 TTecAnti__sub_8022B3E8(void *, void *);
 s32 fn_802393D0(void *);
 int init_cast__9TTecRestaFPv(void* p);
-void TTecResta__sub_80239548(u8 *arg0);
+void init_parameters__9TTecRestaFPv(u8 *arg0);
 extern M2C_UNK __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
@@ -204,7 +204,7 @@ f32 TTecResta__sub_802394B0(s32 arg0) {
   return var_f31;
 }
 
-void TTecResta__sub_80239548(u8 *arg0) {
+void init_parameters__9TTecRestaFPv(u8 *arg0) {
   int new_var;
   new_var = (int) TTecCtrl__sub_8022DBC4((int) 0xF, (int) (*((s16 *) (((s8 *) arg0) + 0xA4))), (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0x74), new_var);
@@ -383,7 +383,7 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3810;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
     TTecAnti__sub_8022B3E8((u8 *)arg0 + 0xE0, arg3);
-    TTecResta__sub_80239548((u8 *)arg0);
+    init_parameters__9TTecRestaFPv((u8 *)arg0);
     p = M2C_FIELD(arg0, u8 **, 0xDC);
     if (p != NULL) {
         M2C_FIELD(M2C_FIELD(p, u8 **, 0xA4), f32 *, 0xC) = TTecResta__data_805DC908 + M2C_FIELD(arg0, f32 *, 0x7C);
@@ -408,7 +408,7 @@ u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3810;
     M2C_FIELD(arg0, s32 *, 0x13C) = 0;
-    TTecResta__sub_80239548((u8 *) (arg0));
+    init_parameters__9TTecRestaFPv((u8 *) (arg0));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xDC));
     if (temp_r3 != NULL) {
         M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = (f32) (TTecResta__data_805DC908 + M2C_FIELD(arg0, f32 *, 0x7C));

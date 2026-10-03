@@ -70,7 +70,7 @@ s32 create_particle_emitter(s32, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_map_object_base(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 TLobby__sub_8030A7B0(void);
+s32 get_game_play_mode(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
@@ -311,7 +311,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xE8) = create_particle_emitter((s32) (arg0 + 0x38), 0x7F);
     M2C_FIELD(arg0, s32 *, 0xEC) = 1;
     if ((s32) enable_v2_features == 1) {
-        if (TLobby__sub_8030A7B0() == 1) {
+        if (get_game_play_mode() == 1) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }
     }

@@ -22,18 +22,18 @@ M2C_UNK set_cmd_87__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK draw_and_send__10TObjPlayerFPv(M2C_UNK *);
 int TObjPlayer__sub_8011E204(void*, void*);
 int set_indexed_flags(void*, void*, void*);
-int TObjPlayer__sub_801B12CC(void*);
+int activate_body_collision__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BE9A8(void*);
 int TObjPlayer__sub_801C5B18(void*);
 int TObjPlayer__sub_801C8770(void* p);
-int TObjPlayer__sub_801B130C(void*);
+int deactivate_body_collision__10TObjPlayerFPv(void*);
 
 void TObjPlayer__sub_801C8790(u8 *arg0) {
     TObjPlayer__sub_801BF690((void *) (arg0 + 0x730));
     TObjPlayer__sub_801BF964((void *) (arg0 + 0x5FC));
     reset_lobby_model__10TObjPlayerFPv((void *) (arg0 + 0x644));
     set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (4));
-    TObjPlayer__sub_801B130C((void *) (arg0));
+    deactivate_body_collision__10TObjPlayerFPv((void *) (arg0));
     set_flag_20000__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
     set_action_state__10TObjPlayerFPvss((void *) (arg0), (int) (0x16), (int) (ret_801D26AC()));

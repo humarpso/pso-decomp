@@ -207,7 +207,7 @@ s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0);
 void update_move__17TObjEneMe1CanadinFPv(void* p);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 int TObjEneDD__vt86(void*);
-int TObjEneEpsilon__sub_800B96A4(void*);
+int enemy_copy_target_destination(void*);
 int TObjEneMe1Canadin__sub_8009E3E4(void*);
 void *find_entity_by_id(u16);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
@@ -351,6 +351,6 @@ void TObjEneMe1Canadin__vt103(u8 *arg0) {
     transition_enemy_state((void *)((void *)(arg0)), (s32)((int) (6)));
 }
 
-void update_move__17TObjEneMe1CanadinFPv(void* p) { if (enemy_has_live_target(p) != 0) { TObjEneEpsilon__sub_800B96A4(p); update_velocity__9TObjEneDDFPv(p); update_angle__17TObjEneMe1CanadinFPv(p); } }
+void update_move__17TObjEneMe1CanadinFPv(void* p) { if (enemy_has_live_target(p) != 0) { enemy_copy_target_destination(p); update_velocity__9TObjEneDDFPv(p); update_angle__17TObjEneMe1CanadinFPv(p); } }
 
 }

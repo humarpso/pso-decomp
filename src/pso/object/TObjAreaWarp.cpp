@@ -135,7 +135,7 @@ u8 *TObjMapWarpForest__ct(u8 *arg0);
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
 s32 TLobby__sub_80207770(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
-M2C_UNK TKeyBoardControl__sub_8000F998();
+M2C_UNK mark_area_change_pending();
 M2C_UNK send_6x21_inter_level_warp(void *, void *);
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0();
@@ -200,7 +200,7 @@ s32 is_warp_enabled__12TObjAreaWarpFi(s32 arg0);
 void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1);
 void render__17TObjMapWarpForestFv(u8 *arg0);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, u16);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_object(s32);
 s32 TObjCityMainWarp__sub_80186AF4();
@@ -230,7 +230,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 typedef char RecoveredGlobal_8019CA24_lbl_80515BA0_size[sizeof(RecoveredGlobal_8019CA24_lbl_80515BA0) == 0x28 ? 1 : -1];
 void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
     set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (int) (TLobby__sub_80207770(M2C_FIELD(arg0, s32 *, 0xBC))));
-    TKeyBoardControl__sub_8000F998();
+    mark_area_change_pending();
     get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
     TNpcPlayer__sub_8034E7A0();
     send_6x21_inter_level_warp((void *) (arg1), (void *) (get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value)));
@@ -318,7 +318,7 @@ void open_confirm_window__12TObjAreaWarpFPvUs(void *arg0, u16 arg1) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x33), 1, arg1);
-        if (TLobby__sub_8030A7B0() == 1) {
+        if (get_game_play_mode() == 1) {
             TWindowSubTradeMain__sub_80266200(M2C_FIELD(arg0, u32 *, 0xB0), TObjCityMainWarp__sub_80186AF4(), 2, 0, -1);
         } else {
             get_player_floor__6TLobbyFi(M2C_FIELD(arg0, s32 *, 0xBC));

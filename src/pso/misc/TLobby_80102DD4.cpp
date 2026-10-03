@@ -82,7 +82,7 @@ s32 __ct__13TItemAttackerFv(void *, void *, void *, s32, void *);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, void *);
 s32 __nw__7TObjectFUl(int);
 void TItemAttacker__sub_8010349C(u32);
-void TObjPlayer__sub_801032CC(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3);
 M2C_UNK show_miss_for_collider__10TObjPlayerFi(int, int);
 u8 *find_item_by_id(s32);
 f32 horizontal_distance_squared(void *, void *);
@@ -168,7 +168,7 @@ void deliver_delayed_weapon_hit(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = 1;
 }
 
-void TObjPlayer__sub_801032CC(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
+void spawn_item_attacker(s32 arg0, u32 arg1, s32 arg2, u8 *arg3) {
     s32 var_r0;
     if ((arg0 != 0) && (arg3 != NULL) && (arg1 != 0U) && ((u16) M2C_FIELD(arg3, u16 *, 0xC) != 65535U) && ((u16) M2C_FIELD(arg3, u16 *, 0xE) != 65535U)) {
         var_r0 = __nw__7TObjectFUl((int) (0x50));

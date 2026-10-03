@@ -30,7 +30,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TObjPlayer__sub_801569F4(void *);
-s32 TObjFish__sub_80192A3C(void *);
+s32 select_models__18TObjLazerFenceNormFPv(void *);
 extern RecoveredGlobal_80192E70_lbl_804B7FB0 lbl_804B7FB0;
 extern M2C_UNK __vt__18TObjLazerFenceNorm[];
 extern s32 lbl_805D33A0;
@@ -47,7 +47,7 @@ void run_task__18TObjLazerFenceNormFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
-M2C_UNK TObjLazerFenceNorm__sub_80192CCC();
+M2C_UNK update_closed__18TObjLazerFenceNormFPv();
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -61,7 +61,7 @@ void run_task__18TObjLazerFenceNormFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
     switch (temp_r0) {
     case 0:
-        TObjLazerFenceNorm__sub_80192CCC();
+        update_closed__18TObjLazerFenceNormFPv();
         return;
     case 1:
         reset_by_door__18TObjLazerFenceNormFPv();
@@ -105,7 +105,7 @@ u8 *TObjLazerFenceNorm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 3;
     }
     M2C_FIELD(arg0, s16 *, 0xB0) = (s16) M2C_FIELD(arg0, s32 *, 0x84);
-    TObjFish__sub_80192A3C((void *) (arg0));
+    select_models__18TObjLazerFenceNormFPv((void *) (arg0));
     temp_r4 = M2C_FIELD(arg0, u32 *, 0x8C);
     temp_r6 = temp_r4 >> 0x1FU;
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&lbl_804B7FB0.value + ((((temp_r4 & 1) ^ temp_r6) - temp_r6) * 0x84)), (int) (3));

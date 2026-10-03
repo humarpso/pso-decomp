@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2);
-M2C_UNK TFontSmallLobby__sub_801D62D0(s32, f32);
+M2C_UNK subtract_photon_blast_charge(s32, f32);
 M2C_UNK set_target_index__15TFontSmallLobbyFPvi(s32, M2C_UNK);
 M2C_UNK TFontSmallLobby__sub_801D671C(s32, M2C_UNK);
 M2C_UNK set_flag_40_bit5__15TFontSmallLobbyFPv();
@@ -25,7 +25,7 @@ void draw_party_label__15TFontSmallLobbyFiUis(s32 arg0, u32 arg1, s16 arg2) {
     Sp801D6230_801d6230 sp8;
 
     set_flag_40_bit5__15TFontSmallLobbyFPv();
-    TFontSmallLobby__sub_801D62D0(arg0, lbl_805DC3D8);
+    subtract_photon_blast_charge(arg0, lbl_805DC3D8);
     set_target_index__15TFontSmallLobbyFPvi(arg0 + 0x4C, 8);
     TFontSmallLobby__sub_801D671C(arg0 + 0x4C, 1);
     create_party_effect__11TWindowCtrlFPvPv(obj_getField1c(arg1), arg2);

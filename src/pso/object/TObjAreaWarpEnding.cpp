@@ -166,7 +166,7 @@ s32 get_story_select__16TAdStorySelectGCFv();
 s32 register_area_warp_object__16TAdStorySelectGCFPv(int);
 s32 register_warp__16TObjMapForceWarpFPv(int);
 s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
-s32 TLobby__sub_8030A7B0(int);
+s32 get_game_play_mode(int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern M2C_UNK __vt__18TObjAreaWarpForest[];
 extern s32 lbl_805D346C;
@@ -201,7 +201,7 @@ void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern char lbl_8044641C[];
 void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self);
-void TKeyBoardControl__sub_8000F998();
+void mark_area_change_pending();
 s32 get_current_floor();
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void bswap_6x94_inter_level_warp(void *);
@@ -230,7 +230,7 @@ extern Ids_8019BD84 lbl_805DBFD0;
 extern const f32 lbl_805DBFD4;
 extern const f32 lbl_805DBFD8;
 void render__18TObjAreaWarpEndingFv(Obj_8019BD84 *self);
-void TKeyBoardControl__sub_8000F998();
+void mark_area_change_pending();
 s32 obj_isState3_324(void *);
 s32 get_action_flags__10TNpcPlayerFPv(void *);
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
@@ -474,7 +474,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     s32 i;
     void *p;
     set_area__6TLobbyFPvi(lbl_80515BA0, arg0->fBC, TLobby__sub_80207770(arg0->fBC));
-    TKeyBoardControl__sub_8000F998();
+    mark_area_change_pending();
     if (arg1 != 0 && arg0->fC4 > 1) {
         TObjAreaWarpQuest__sub_8019DCD8(arg1, arg0->fC4);
     }
@@ -717,7 +717,7 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
     temp_r3 = temp_r0 >> 0x1FU;
     M2C_FIELD(arg0, u32 *, 0x8C) = (u32) (((temp_r0 & 1) ^ temp_r3) - temp_r3);
-    if ((TLobby__sub_8030A7B0((int) (temp_r3)) == 1) && ((s32) M2C_FIELD(arg0, u32 *, 0x8C) == 0)) {
+    if ((get_game_play_mode((int) (temp_r3)) == 1) && ((s32) M2C_FIELD(arg0, u32 *, 0x8C) == 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
@@ -747,7 +747,7 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
     bswap_6x94_inter_level_warp(arg0);
     if (arg0->f4 != get_current_floor()) {
         set_area__6TLobbyFPvi(lbl_80515BA0, arg0->f4, TLobby__sub_80207770(arg0->f4));
-        TKeyBoardControl__sub_8000F998();
+        mark_area_change_pending();
         TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
         TNpcPlayer__sub_8034E7A0();

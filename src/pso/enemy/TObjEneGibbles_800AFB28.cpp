@@ -200,7 +200,7 @@ M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *, s32);
 M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK spawn_effect_at_ground__10TObjPlayerFPvi(void *, M2C_UNK);
-M2C_UNK TObjPlayer__sub_800D9340(void *, M2C_UNK);
+M2C_UNK spawn_landing_dead_spot(void *, M2C_UNK);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK advance_animation_playback();
 u32 find_entity_by_id(u16);
@@ -475,7 +475,7 @@ void TObjEneBm3Fly__sub_800AFDC8(u8 *arg0, s32 arg1) {
                     M2C_FIELD(arg0, s32 *, 0x3C0) = 2;
                     M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) TObjEneBm3Fly__data_805D9C70;
                     M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) & 0xFFFFFFFD);
-                    TObjPlayer__sub_800D9340(arg0 + 0x38, 0xA);
+                    spawn_landing_dead_spot(arg0 + 0x38, 0xA);
                     spawn_effect_at_ground__10TObjPlayerFPvi(arg0 + 0x38, 0x1E);
                 }
             }

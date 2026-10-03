@@ -21,9 +21,9 @@ extern M2C_UNK lbl_805139F8[];
 void TLobby__sub_801317E4(Buf_80208E8C *, void *, void *);
 s32 update_lobby_scene__6TSceneFPv(Buf_80208E8C *);
 s32 heap_alloc__5THeapFUl(s32, s32);
-void TLobby__sub_800F9DF4(Buf_80208E8C *, void *);
+void read_disc_file(Buf_80208E8C *, void *);
 M2C_UNK TLobby__sub_80208904(s32);
-s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities);
+s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 void heap_free__5THeapFPv(void *, void *);
 extern M2C_UNK lbl_805139F8[];
 extern s32 lbl_805D6094;
@@ -71,7 +71,7 @@ void TLobby__sub_80208E30(void) {
     }
 }
 
-s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities) {
+s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
     Buf_80208E8C buf;
     s32 n;
     void *p;
@@ -86,7 +86,7 @@ s32 TLobby__sub_80208E8C(s32 floor, s32 area, s32 terrain, s32 entities) {
     if (n > 0) {
         p = ((void *)heap_alloc__5THeapFUl((s32)((*(void * *)&lbl_805D6094)), (s32)(n)));
         if (p != 0) {
-            TLobby__sub_800F9DF4(&buf, p);
+            read_disc_file(&buf, p);
             ((void * *)&lbl_805139F8)[floor] = p;
             TLobby__sub_80208904(floor);
             return 1;

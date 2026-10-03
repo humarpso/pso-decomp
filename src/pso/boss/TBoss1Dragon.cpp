@@ -1316,7 +1316,7 @@ extern const f32 TBoss1Dragon__data_805D7F98;
 extern const f32 lbl_805D80B0;
 void TBoss1Dragon__sub_80028BE0(u8 *arg0);
 void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 M2C_UNK transition_enemy_state(void *, s16);
 void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1);
 M2C_UNK get_position__12TBoss1DragonFPv(void *);
@@ -1530,7 +1530,7 @@ s32 get_game_mode__6TLobbyFv();
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 void enemy_clear_target(void *);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -1609,7 +1609,7 @@ extern const f32 TBoss1Dragon__data_805D7F1C;
 void TBoss1Dragon__sub_80027DDC(void *);
 M2C_UNK TBoss1Dragon__sub_80029178();
 M2C_UNK TBoss1Dragon__sub_8002B118(int);
-M2C_UNK fn_8002B164(int, void *, int);
+M2C_UNK enable_dragon_blocking_bodies(int, void *, int);
 extern const f32 TBoss1Dragon__data_805D8000;
 extern const f32 lbl_805D8014;
 extern const f32 TBoss1Dragon__data_805D8018;
@@ -1630,7 +1630,7 @@ M2C_UNK copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK enable__13TParticleCtrlFPv(void *);
 s32 enemy_validate_retained_target();
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 extern const f32 lbl_805D8074;
@@ -1651,7 +1651,7 @@ s32 TBoss1Dragon__sub_80028CA8(u8 *self);
 M2C_UNK set_field_1c__12TBoss8DragonFPv(int);
 M2C_UNK spawn_child_object__12TBoss8DragonFPv(int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 s32 approach_angle_limited(int, int, int);
 f32 TBoss8Dragon__sub_803D64C0(s32);
@@ -1682,7 +1682,7 @@ M2C_UNK TBoss1Dragon__sub_80027B78(f32, f32, f32);
 int TBoss1Dragon__sub_80027F54(u8*, int);
 M2C_UNK TBoss1Dragon__sub_800284B4(void *, s16);
 M2C_UNK advance_animation_playback();
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -2499,7 +2499,7 @@ void TBoss1Dragon__sub_80023D60(u8 *arg0, u32 arg1) {
         break;
     case 6:
         if (TBoss1Dragon__sub_80028CA8(arg0) != 0) {
-            TObjEneEpsilon__sub_800B96A4(arg0);
+            enemy_copy_target_destination(arg0);
             update_velocity__9TObjEneDDFPv(arg0);
         } else {
             M2C_FIELD(arg0, f32 *, 0x3A0) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
@@ -2806,7 +2806,7 @@ void TBoss1Dragon__sub_80024B48(u8 *arg0, u32 arg1) {
                 ((void (*)(void *))TBoss1Dragon__sub_80027B20)(arg0);
             }
             if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) != 8) {
-                fn_8002B164((int) (M2C_FIELD(arg0, s32 *, 0x68C)), (void *) ((u8 *)(arg0) + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+                enable_dragon_blocking_bodies((int) (M2C_FIELD(arg0, s32 *, 0x68C)), (void *) ((u8 *)(arg0) + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
                 M2C_FIELD(arg0, s32 *, 0x868) = 1;
                 return;
             }
@@ -3025,7 +3025,7 @@ void TBoss1Dragon__sub_800263C8(u8 *arg0, u32 arg1) {
         return;
     case 6:
         if (enemy_validate_retained_target() != 0) {
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
         } else {
             M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((lbl_805D8074 * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)))) + M2C_FIELD(arg0, f32 *, 0x40C));
             M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
@@ -3951,7 +3951,7 @@ void TBoss1Dragon__sub_80028530(struct dragon_80028530 *s) {
 
 void TBoss1Dragon__sub_80028598(u8 *arg0, u8 *arg1) {
     s16 temp_r4;
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x67C) = (s32) M2C_FIELD(arg1, s16 *, 6);
     M2C_FIELD(arg0, f32 *, 0x698) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0x69C) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
@@ -3972,7 +3972,7 @@ void handle_6x12_dragon_boss_actions(void *arg0) {
 }
 
 void set_params__12TBoss1DragonFPvPv(void *arg0, void *arg1) {
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x67C) = (s32) M2C_FIELD(arg1, s16 *, 6);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s16) M2C_FIELD(arg1, s16 *, 4)) {
         transition_enemy_state((void *)(arg0), (s16)((s16) M2C_FIELD(arg1, s16 *, 4)));
@@ -3989,7 +3989,7 @@ void handle_6x11_dragon_boss_actions(void *arg0) {
 }
 
 void copy_params__12TBoss1DragonFPvPv(void *arg0, void *arg1) {
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x67C) = (s32) M2C_FIELD(arg1, s16 *, 6);
     transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
 }
@@ -4133,10 +4133,10 @@ s32 TBoss1Dragon__sub_80028CA8(u8 *self) {
         return 0;
     }
     if (n == 1) {
-        TBoss8Dragon__sub_800B9958(self, selected[0]);
+        enemy_set_target_id(self, selected[0]);
         return 1;
     }
-    TBoss8Dragon__sub_800B9958(self, selected[(s32)get_random_float__21TObjEneMe3ShinowaRealFv((f32)n * ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(self))]);
+    enemy_set_target_id(self, selected[(s32)get_random_float__21TObjEneMe3ShinowaRealFv((f32)n * ((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(self))]);
     return 1;
 }
 

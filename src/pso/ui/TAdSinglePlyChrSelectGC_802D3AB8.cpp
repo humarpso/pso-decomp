@@ -110,7 +110,7 @@ extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
 extern M2C_UNK lbl_8050E3B8[];
 extern s32 tl_fade;
 extern M2C_UNK lbl_805DE784;
-void TAdSinglePlyChrSelectGC__sub_802D4294(void *arg0);
+void handle_slot_selection__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
@@ -390,7 +390,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4168(u8 *arg0) {
     }
 }
 
-void TAdSinglePlyChrSelectGC__sub_802D4294(void *arg0) {
+void handle_slot_selection__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 var_r30;
     u32 var_r0;
     if (M2C_FIELD(arg0, u32 *, 0x38) != 0U) {

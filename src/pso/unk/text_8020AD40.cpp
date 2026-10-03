@@ -26,8 +26,8 @@ struct Rec_8020AD40 { u8 pad0[2]; s16 f2; u8 pad4[0x40]; };
 extern "C" {
 s32 TLobby__sub_800F8AE8();
 M2C_UNK TLobby__sub_801A2514(int);
-s32 TLobby__sub_802077CC(int, void *);
-M2C_UNK TLobby__sub_8020AB50(int, int, int, int);
+s32 get_floor_map_selection(int, void *);
+M2C_UNK load_area_enemy_set(int, int, int, int);
 M2C_UNK TLobby__sub_8020B2DC();
 extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60EC;
@@ -35,19 +35,19 @@ extern s32 TLobby__data_805D614C;
 s32 TLobby__sub_8020AF0C(void);
 s32 TLobby__sub_800F8AE8();
 M2C_UNK TLobby__sub_801A2528(int);
-s32 TLobby__sub_802077CC(int, void *);
+s32 get_floor_map_selection(int, void *);
 M2C_UNK TLobby__sub_8020B308();
 extern s32 TLobby__data_805D60E0;
 extern s32 TLobby__data_805D60E8;
 extern s32 TLobby__data_805D6148;
 s32 TLobby__sub_8020AFA4(void);
-s32 TLobby__sub_800F9DF4(void *, Rec_8020AD40 *);
+s32 read_disc_file(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFii(void *, ...);
 void TLobby__sub_801317E4(void *, s32, void *);
 void swap_object_row_endian(Rec_8020AD40 *);
 void TLobby__sub_8020AA94(Rec_8020AD40 *, s32, s32);
 void TLobby__sub_8020B3E4(s32, Rec_8020AD40 *, s32);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern u8 lbl_8044BBB0[];
 extern u8 lbl_8044BBB8[];
 extern u8 lbl_8044BBDC[];
@@ -81,7 +81,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
     id = items[arg3].id;
     if (arg1 == 0 || arg1 == 0x12) {
-        switch (TLobby__sub_8030A7B0()) {
+        switch (get_game_play_mode()) {
         case 0:
             TLobby__sub_801317E4(name, id, lbl_8044BBB0);
             break;
@@ -95,7 +95,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     } else {
         TLobby__sub_801317E4(name, id, lbl_8044BBB0);
     }
-    len = TLobby__sub_800F9DF4(name, TLobby__data_805D60F0);
+    len = read_disc_file(name, TLobby__data_805D60F0);
     if (len < 0) {
         return 0;
     }
@@ -118,11 +118,11 @@ s32 TLobby__sub_8020AF0C(void) {
     s32 var_r31;
     var_r31 = 0;
 loop_1:
-    if ((TLobby__sub_802077CC((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
+    if ((get_floor_map_selection((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
         if (TLobby__sub_800F8AE8() != 0) {
             return 0;
         }
-        TLobby__sub_8020AB50((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
+        load_area_enemy_set((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
         goto block_6;
     }
 block_6:
@@ -140,7 +140,7 @@ s32 TLobby__sub_8020AFA4(void) {
     s32 var_r31;
     var_r31 = 0;
 loop_1:
-    if ((TLobby__sub_802077CC((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
+    if ((get_floor_map_selection((int) (var_r31), (void *) (&stack.sp8)) == 1) && (stack.sp8 >= 0)) {
         if (TLobby__sub_800F8AE8() != 0) {
             return 0;
         }

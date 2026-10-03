@@ -27,9 +27,9 @@ extern u8 lbl_80449D30[];
 void TItemDrop__sub_800FDDF4(void);
 void TItemDrop__sub_800FDE7C(void *);
 bool load_quest_encounter_section(s32 arg0);
-s32 TLobby__sub_802077CC(s32, Sel_801F3E1C *);
-void TLobby__sub_80208E8C(s32, s32, s32, s32);
-void TLobby__sub_8020AB50(s32, s32, s32, s32);
+s32 get_floor_map_selection(s32, Sel_801F3E1C *);
+void load_area_event_set(s32, s32, s32, s32);
+void load_area_enemy_set(s32, s32, s32, s32);
 void load_area_object_set(s32, s32, s32, s32);
 void free_data_60F0__6TLobbyFv(void);
 void handle_msg_type1__6TLobbyFi(s32);
@@ -37,7 +37,7 @@ void handle_msg_type2__6TLobbyFi(s32);
 void init_handle__6TLobbyFi(s32);
 int init_sub_state__6TLobbyFPv(void);
 int rebuild_entry__6TLobbyFPv(void);
-void TLobby__sub_801F3E1C(void);
+void populate_quest_floor_sets(void);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
 void TLobby__sub_80207798(s32, s32, s32, s32);
 void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused);
@@ -108,7 +108,7 @@ void clear_quest_floor_designations(void) {
     memset((void *) (&TLobby__data_805127D0.value), (int) (0), (int) (0x24));
 }
 
-void TLobby__sub_801F3E1C(void) {
+void populate_quest_floor_sets(void) {
     s32 i;
     Sel_801F3E1C sel;
     init_handle__6TLobbyFi(0x8000);
@@ -121,15 +121,15 @@ void TLobby__sub_801F3E1C(void) {
             break;
         case 1:
         case 2:
-            if (TLobby__sub_802077CC(i, &sel) == 1 && sel.area >= 0) {
+            if (get_floor_map_selection(i, &sel) == 1 && sel.area >= 0) {
                 TItemDrop__sub_800FDE7C(lbl_80449D08);
                 load_area_object_set(i, sel.area, sel.terrain, sel.entities);
                 TItemDrop__sub_800FDDF4();
                 TItemDrop__sub_800FDE7C(lbl_80449D1C);
-                TLobby__sub_8020AB50(i, sel.area, sel.terrain, sel.entities);
+                load_area_enemy_set(i, sel.area, sel.terrain, sel.entities);
                 TItemDrop__sub_800FDDF4();
                 TItemDrop__sub_800FDE7C(lbl_80449D30);
-                TLobby__sub_80208E8C(i, sel.area, sel.terrain, sel.entities);
+                load_area_event_set(i, sel.area, sel.terrain, sel.entities);
                 TItemDrop__sub_800FDDF4();
             }
             break;

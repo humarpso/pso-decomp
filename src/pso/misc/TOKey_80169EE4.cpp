@@ -62,9 +62,9 @@ M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 get_current_floor();
 void *find_entity_by_id(u16);
 M2C_UNK clear_floor_switch_flag(u16, s32);
-M2C_UNK TSwitch__sub_802292E0(u16);
+M2C_UNK clear_current_floor_switch(u16);
 M2C_UNK set_floor_switch_flag(u16, s32);
-M2C_UNK TSwitch__sub_802293A0(u16);
+M2C_UNK set_current_floor_switch(u16);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 M2C_UNK bswap_6x05_switch_flag__5TOKeyFPv();
@@ -120,9 +120,9 @@ void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
         play_sound_effect(0x4005281F, 0, 0, 0);
     }
     if (M2C_FIELD(arg1, u8 *, 0xB) & 1) {
-        TSwitch__sub_802293A0(M2C_FIELD(arg1, u16 *, 8));
+        set_current_floor_switch(M2C_FIELD(arg1, u16 *, 8));
     } else {
-        TSwitch__sub_802292E0(M2C_FIELD(arg1, u16 *, 8));
+        clear_current_floor_switch(M2C_FIELD(arg1, u16 *, 8));
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
     switch (temp_r0) {

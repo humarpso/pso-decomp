@@ -270,7 +270,7 @@ extern f32 lbl_804FEE68[];
 extern const f32 lbl_805D8700;
 void obj_setFlags30(void *, u32);
 void TBoss3VoloptHiraisin__sub_80041B64(u8 *arg0);
-s32 fn_80086D50(void *, void *, int);
+s32 spawn_directional_particle(void *, void *, int);
 s32 spawn_particle_effect(void *, int);
 void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
@@ -469,7 +469,7 @@ void TBoss3VoloptHiraisin__sub_80041BB4(u8 *arg0) {
     stack.sp8 = 0;
     stack.spC = M2C_FIELD(arg0, s32 *, 0x60);
     stack.sp10 = 0;
-    fn_80086D50((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(M2C_FIELD(arg0, s16 *, 0x38C) & 3) >> 5) + 0x61));
+    spawn_directional_particle((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(M2C_FIELD(arg0, s16 *, 0x38C) & 3) >> 5) + 0x61));
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x45));
 }
 

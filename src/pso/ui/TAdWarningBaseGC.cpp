@@ -56,7 +56,7 @@ void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1);
 void render__16TAdWarningBaseGCFi(s32 arg0);
 M2C_UNK draw_textured_quad_at_depth(s32, f32);
 M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
+M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -173,7 +173,7 @@ void render__16TAdWarningBaseGCFi(s32 arg0) {
     if ((u32) lbl_805D6D00 != 0U) {
         set_global_param__8TObjFishFi(lbl_805D6D00);
         begin_screen_draw(1);
-        TWindowSubStatusDisp__sub_803DF160(0, -1);
+        set_draw_texture_and_color(0, -1);
         draw_textured_quad_at_depth(arg0 + 0x1C, lbl_805DF7C0);
         get_player__20TWindowSubStatusDispFv();
     }

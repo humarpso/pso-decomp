@@ -40,7 +40,7 @@ M2C_UNK TWindowSubStatusDisp__sub_8026D790(int, int, void *);
 M2C_UNK TWindowSubCustomSelect__sub_802776D0(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__22TWindowSubCustomSelectFv(u8 *arg0);
-void TWindowSubCustomEquip__sub_80275DE8(void *, void *, s32, f32);
+void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, s32, f32);
 extern const f32 TWindowSubCustomSelect__data_805DD5B0;
 extern const f32 lbl_805DD5C4;
 extern const f32 lbl_805DD5C8;
@@ -188,7 +188,7 @@ void TWindowSubCustomSelect__sub_80277638(u8 *arg0, u8 *arg1) {
     Stack_80277638 stack;
     stack.sp8 = (lbl_805DD5C8 * (f32) (s8) M2C_FIELD(arg0, u8 *, 0x70)) + lbl_805DD5C4;
     stack.spC = (TWindowSubCustomSelect__data_805DD5B0 * (f32) (s8) M2C_FIELD(arg0, u8 *, 0x71)) + lbl_805DD5CC;
-    TWindowSubCustomEquip__sub_80275DE8(arg1, &stack.sp8, M2C_FIELD(arg0, s32 *, 0x74), lbl_805DD5D0);
+    draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(arg1, &stack.sp8, M2C_FIELD(arg0, s32 *, 0x74), lbl_805DD5D0);
 }
 #pragma pop
 

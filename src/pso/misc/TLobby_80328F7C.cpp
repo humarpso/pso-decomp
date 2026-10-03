@@ -159,7 +159,7 @@ int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
 int TLobby__sub_802A7260(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
-s32 TLobby__sub_80329100(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 player_motion_provider0_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 lbl_804ED7C8;
 s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c);
 }
@@ -227,7 +227,7 @@ s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c) {
     return ((s32 ** *)&lbl_804ED7C8)[a][b][c];
 }
 
-s32 TLobby__sub_80329100(M2C_UNK arg0, s32 arg1, s32 arg2) {
+s32 player_motion_provider0_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
@@ -237,8 +237,8 @@ s32 TLobby__sub_80329100(M2C_UNK arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 extern s32 *lbl_804ED728[];
-s32 TLobby__sub_80329174(void);
-s32 TLobby__sub_80329174(void) {
+s32 player_motion_provider0_get_actions(void);
+s32 player_motion_provider0_get_actions(void) {
     s32 i = ((s32 (*)(void))is_valid_state__6TLobbyFPvi)();
     if (((s32 (*)(void))TLobby__sub_802A7278)() != 0) {
         return *lbl_804ED728[i];

@@ -41,7 +41,7 @@ void TNpcPlayer__sub_80152C28(void *);
 void set_field2__10TNpcPlayerFPvs(void *, s32);
 void set_field_0__10TNpcPlayerFPvs(void *, s32);
 void set_state__10TNpcPlayerFPvi(void *, s32);
-void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self);
+void send_partner_attack_stage_request(Self_8014DC5C *self);
 }
 
 extern "C" {
@@ -87,7 +87,7 @@ void TNpcPlayer__sub_8014DC30(void) { TNpcPlayer__data_805D5864 = 1; }
 int TNpcPlayer__sub_8014DC3C(void* p) { return TNpcPlayer__sub_80150A34(p); }
 
 typedef u16 (*GetState_8014DC5C)(void *);
-void TNpcPlayer__sub_8014DC5C(Self_8014DC5C *self) {
+void send_partner_attack_stage_request(Self_8014DC5C *self) {
     Msg_8014DC5C m0;
     Msg_8014DC5C m1;
     Msg_8014DC5C m2;
@@ -160,7 +160,7 @@ void partner_request_physical_attack(u8 *arg0) {
         TNpcPlayer__sub_8015296C(arg0 + 0x5C, 1, 0);
     }
     npc_counter_reset_if_reached(arg0 + 0x5C, 1, 3);
-    TNpcPlayer__sub_8014DC5C((Self_8014DC5C *)(arg0));
+    send_partner_attack_stage_request((Self_8014DC5C *)(arg0));
 }
 #pragma pop
 

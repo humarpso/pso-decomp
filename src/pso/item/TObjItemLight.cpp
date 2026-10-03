@@ -15,7 +15,7 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 void queue_destruction__7TObjectFv(void *);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 fn_800FD930();
+s32 is_item_light_interaction_blocked();
 f32 xz_distance_squared(void *, void *);
 Ply_80191F90 *get_player_by_client_id(s32);
 void fn_8020C408(void *, s32);
@@ -51,7 +51,7 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
         copy_pos__11TNowLoadingFPvPv(arg0->f94, arg0->pos);
         copy_vec3__11TBoss4Type2FPvPv(arg0->f94, arg0->rot);
     }
-    if (fn_800FD930() != 0) {
+    if (is_item_light_interaction_blocked() != 0) {
         return;
     }
     for (i = 0; i < 4; i++) {

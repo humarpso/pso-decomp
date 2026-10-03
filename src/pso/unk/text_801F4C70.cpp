@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct E_801F4C70 { s32 a; s32 b; };
 
 extern "C" {
-M2C_UNK *TItemData__sub_8010EEDC(s32);
+M2C_UNK *get_text_collection(s32);
 extern s32 lbl_805D5EF4;
 extern s32 lbl_805D5EF8;
 extern M2C_UNK lbl_805DC4FC;
@@ -28,7 +28,7 @@ s32 fn_801F4C70(void) {
 
 M2C_UNK *fn_801F4C98(void) {
     if ((s32) lbl_805D5EF4 >= 0) {
-        return TItemData__sub_8010EEDC(M2C_FIELD(lbl_805D5EF8, M2C_UNK *, (lbl_805D5EF4 * 8)));
+        return get_text_collection(M2C_FIELD(lbl_805D5EF8, M2C_UNK *, (lbl_805D5EF4 * 8)));
     }
     return &lbl_805DC4FC;
 }

@@ -16,7 +16,7 @@ void* forward_release__10TObjPlayerFPv(void* p);
 s32 reset_and_return__10TObjPlayerFi(s32 arg0);
 void* set_vec3_const_wrapper__10TObjPlayerFPv(void* p);
 M2C_UNK TObjPlayer__sub_801BF8F8();
-int TObjPlayer__sub_801C5FCC(void*);
+int clear_movement_history(void*);
 int set_vec3_const__10TObjPlayerFPv(void*);
 
 s32 reset_and_return__10TObjPlayerFi(s32 arg0) {
@@ -31,7 +31,7 @@ void TObjPlayer__sub_801BFB4C(u8 *arg0) {
 }
 
 void clear_base__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; }
-void* forward_release__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801C5FCC(p); return p; }
+void* forward_release__10TObjPlayerFPv(void* p) { clear_movement_history(p); return p; }
 void* set_vec3_const_wrapper__10TObjPlayerFPv(void* p) { set_vec3_const__10TObjPlayerFPv(p); return p; }
 
 }

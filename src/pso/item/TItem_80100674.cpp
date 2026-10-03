@@ -176,7 +176,7 @@ s32 get_player_by_client_id(void *);
 void TItem__sub_801007B4(s32 arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
 s16 clamp_value__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_800113E4(void *, s16);
+void set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 s16 obj_getS16_32E(void *);
 s16 obj_getS16_32C(void *);
 void set_facing__10TObjPlayerFPvs(void *, s16);
@@ -255,7 +255,7 @@ void refresh_owner_stats__5TItemFPv(u8 *arg0) {
     PSO_VCALL_VObj_18_94668e_m20(arg0, 0);
     temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xF0)));
     PSO_VCALL_VObj_18_94668e_m71(temp_r3_2);
-    TObjPlayer__sub_800113E4(*((u8 **) (((s8 *) arg0) + 0xF0)), temp_r31);
+    set_hp_clamped__10TObjPlayerFPvs(*((u8 **) (((s8 *) arg0) + 0xF0)), temp_r31);
     set_facing__10TObjPlayerFPvs(*((u8 **) (((s8 *) arg0) + 0xF0)), temp_r30);
     clamp_value__10TObjPlayerFPv(*((u8 **) (((s8 *) arg0) + 0xF0)));
     clamp_field_32E__10TObjPlayerFPv(*((u8 **) (((s8 *) arg0) + 0xF0)));

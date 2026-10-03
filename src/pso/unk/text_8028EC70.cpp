@@ -36,7 +36,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 extern s32 lbl_805D6520;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
 void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s);
-void TNpcPlayer__sub_8007206C(void *, void *);
+void copy_player_visual_record(void *, void *);
 s32 get_display_index__12TCharaMakingFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *);
 extern Row_8028EE20 lbl_804D8E20[];
@@ -142,7 +142,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_) {
     }
     return 0;
 ok:
-    TNpcPlayer__sub_8007206C(arg0, &c);
+    copy_player_visual_record(arg0, &c);
     return 1;
 }
 

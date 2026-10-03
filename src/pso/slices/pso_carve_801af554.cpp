@@ -26,7 +26,7 @@ s32 TObjPlayer__sub_801BF40C(u32 a0 = 0, s32 a1 = 0);
 s32 TFontSmallLobby__sub_801AFEE0(void);
 s32 obj_getField1c(void * a0 = 0);
 s32 set_facing__10TObjPlayerFPvs(void * a0 = 0, s16 a1 = 0);
-s32 TObjPlayer__sub_800113E4(void * a0 = 0, s16 a1 = 0);
+s32 set_hp_clamped__10TObjPlayerFPvs(void * a0 = 0, s16 a1 = 0);
 int update_rotation__10TObjPlayerFPv(void*);
 int obj_clearFlags30(void*, void*);
 int TObjPlayer__sub_801AF694(void* p);

@@ -65,7 +65,7 @@ void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0);
 M2C_UNK TChCrCharSelect__sub_802937D4(void *);
 s32 get_class_appearance_preset();
 M2C_UNK create__12TCharaMakingFPvPv(void *, int);
-M2C_UNK TNpcPlayer__sub_8007206C(int, int);
+M2C_UNK copy_player_visual_record(int, int);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -81,7 +81,7 @@ void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0) {
     if (temp_r0 <= 0) {
         temp_r31 = (unsigned char *) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF)) + 0x370);
         TChCrCharSelect__sub_802937D4((void *) (TChCrCharSelect__data_805D3CB8));
-        TNpcPlayer__sub_8007206C((int) (temp_r31), (int) (get_class_appearance_preset()));
+        copy_player_visual_record((int) (temp_r31), (int) (get_class_appearance_preset()));
         M2C_FIELD(temp_r31, s8 *, 0x30) = -1;
         M2C_FIELD(temp_r31, s8 *, 0) = 0;
         create__12TCharaMakingFPvPv((void *) (tl_03), (int) (temp_r31));

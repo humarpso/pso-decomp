@@ -8,7 +8,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_801BEB0C(void* p);
 int unregister_sub__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BEB34(void* p, s32 v);
+void set_control_role__10TObjPlayerFPvi(void* p, s32 v);
 u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);
@@ -84,7 +84,7 @@ int start_freeze__10TObjPlayerFPv(void*);
 
 s32 TObjPlayer__sub_801BEB0C(void* p) { return *(s32*)((char*)p + 0x334); }
 int unregister_sub__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_80154A00(p); }
-void TObjPlayer__sub_801BEB34(void* p, s32 v) { *(s32*)((char*)p + 0x3e8) = v; }
+void set_control_role__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x3e8) = v; }
 u8 TObjPlayer__sub_801BEB3C(void* p) { return *(u8*)((char*)p + 0x2e7); }
 u8 TObjPlayer__sub_801BEB44(void* p) { return *(u8*)((char*)p + 0x2cb); }
 u8 TObjPlayer__sub_801BEB4C(void* p) { return *(u8*)((char*)p + 0x2af); }

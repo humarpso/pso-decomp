@@ -69,7 +69,7 @@ s32 TObjQuestColALock2__vt13(void *arg0);
 void *__dt__18TObjQuestColALock2Fv(void *arg0, s16 arg1);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
-M2C_UNK TObjPlayer__sub_801B35AC(s32);
+M2C_UNK enable_action_input__10TObjPlayerFPv(s32);
 M2C_UNK TObjPlayer__sub_801B35E4(s32);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 s32 is_quest_interaction_blocked__10TObjPlayerFPv(s32);
@@ -132,11 +132,11 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
     temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
         if (check_flag_100__10TObjPlayerFPv() != 0) {
-            TObjPlayer__sub_801B35AC(temp_r3);
+            enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
         if (is_quest_interaction_blocked__10TObjPlayerFPv(temp_r3) != 0) {
-            TObjPlayer__sub_801B35AC(temp_r3);
+            enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
         submit_cursor_candidate(arg0, -1);
@@ -145,7 +145,7 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
             TObjPlayer__sub_801B35E4(temp_r3);
         }
         if (temp_r3_2 == 3) {
-            TObjPlayer__sub_801B35AC(temp_r3);
+            enable_action_input__10TObjPlayerFPv(temp_r3);
         }
         if (temp_r3_2 == 0) {
             TObjPlayer__sub_801B35E4(temp_r3);

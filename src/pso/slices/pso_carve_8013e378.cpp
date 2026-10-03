@@ -12,7 +12,7 @@ int get_enabled__11TMainCursorFPv(void*);
 int get_type__11TMainCursorFPv(void*);
 u16 get_id__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
-int TMainCursor__sub_8013E378(void *a, void *b);
+int is_same_target__11TMainCursorFPvPv(void *a, void *b);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
 
-int TMainCursor__sub_8013E378(void *a, void *b) {
+int is_same_target__11TMainCursorFPvPv(void *a, void *b) {
     u8 result = 0;
     if (TMainCursor__sub_8013E40C((u8 *)a, get_id__11TMainCursorFPv((void*)(b))) != 0) {
         if (((u8)get_type__11TMainCursorFPv((void*)(a))) == ((u8)get_type__11TMainCursorFPv((void*)(b)))) {

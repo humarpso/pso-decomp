@@ -15,7 +15,7 @@ M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-M2C_UNK fn_8017E900(void *);
+M2C_UNK draw_model__10TButterflyFPv(void *);
 s32 rand();
 M2C_UNK set_global_param__8TObjFishFi();
 
@@ -45,7 +45,7 @@ void render__10TButterflyFv(void *arg0) {
     if (((VObj_8017E978*)arg0)->m8(lbl_805DBAE4, lbl_805DBAE8) != 0) {
         TObjFish__sub_8001EDB0(lbl_805D5B10, 0);
         set_global_param__8TObjFishFi();
-        fn_8017E900(arg0);
+        draw_model__10TButterflyFPv(arg0);
     }
 }
 

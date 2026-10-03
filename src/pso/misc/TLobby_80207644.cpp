@@ -46,7 +46,7 @@ extern "C" {
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
-s32 TLobby__sub_802077CC(s32 arg0, u8 *arg1);
+s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
 M2C_UNK set_state__16TAdStorySelectGCFi(void*);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
@@ -56,11 +56,11 @@ extern RecoveredGlobal_802078A4_lbl_8044B778 lbl_8044B778;
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 extern int lbl_805D6060;
 extern const f32 lbl_805DC610;
-void TOBoss4Rock__sub_802078A4(void);
+void randomize_adventure_maps(void);
 M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B898;
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
-void TLobby__sub_80207C60(void);
+void init_floor_map_registry(void);
 extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
 M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B8E0;
@@ -68,7 +68,7 @@ void TLobby__sub_80207BB0(void);
 s32 get_current_floor();
 s32 get_instance__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern Tbl_8020765C lbl_8044B928;
 extern Tbl_8020765C lbl_8044B9B8;
 s32 TLobby__sub_8020765C(void);
@@ -100,7 +100,7 @@ void sync_story_select__6TLobbyFv(void) { lbl_805D362C = lbl_805D6060; }
 s32 TLobby__sub_8020765C(void) {
     Tbl_8020765C a = lbl_8044B928;
     Tbl_8020765C b = lbl_8044B9B8;
-    if (TLobby__sub_8030A7B0() == 1) {
+    if (get_game_play_mode() == 1) {
         return b.w[0][get_global_state__14TOKeyMachine01Fv()];
     }
     s32 i = get_instance__6TLobbyFv();
@@ -111,7 +111,7 @@ s32 TLobby__sub_8020765C(void) {
 s32 get_player_floor__6TLobbyFi(s32 idx) {
     struct Buf12_80207718_80207644 buf;
 
-    if (TLobby__sub_802077CC((s32)(idx), (u8 *)(&buf)) == 1) {
+    if (get_floor_map_selection((s32)(idx), (u8 *)(&buf)) == 1) {
         return buf.a;
     }
     return -1;
@@ -156,7 +156,7 @@ s32 TLobby__sub_80207798(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_802077CC_lbl_80513920_size[sizeof(RecoveredGlobal_802077CC_lbl_80513920) == 0xD8 ? 1 : -1];
-s32 TLobby__sub_802077CC(s32 arg0, u8 *arg1) {
+s32 get_floor_map_selection(s32 arg0, u8 *arg1) {
     s32 temp_r6;
     u8 *temp_r5;
     if (arg0 > 0x11) {
@@ -200,7 +200,7 @@ void TLobby__sub_8020780C(s32 *src, u32 size) {
     }
 }
 
-void TOBoss4Rock__sub_802078A4(void) {
+void randomize_adventure_maps(void) {
   M2C_UNK *var_r31;
   s32 var_r30;
   s32 var_r29;
@@ -253,7 +253,7 @@ void TLobby__sub_80207BB0(void) {
 }
 #pragma pop
 
-void TLobby__sub_80207C60(void) {
+void init_floor_map_registry(void) {
     struct Ids_80207C60 ids = lbl_8044B898;
     s32 i;
     memset((void *) ((struct Map_80207C60 *)&lbl_80513920), 0, 0xD8);

@@ -197,7 +197,7 @@ M2C_UNK TWindow__close(void*);
 s32 request_active_window_close();
 s32 close_window_if_active(void *);
 s32 set_flag_bit2__11TWindowCtrlFv();
-s32 fn_8026B074(int, int, int);
+s32 dispatch_message_window_text(int, int, int);
 u32 fn_8026B118();
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 lbl_805D53A0;
@@ -295,7 +295,7 @@ s32 TNpcPlayer__sub_8034ECD0(s32, s32, s32);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_npc_crtpk(void);
 void send_and_handle__6TLobbyFPvii(void*, s32, s32);
-s32 fn_8026B074(int, int, int);
+s32 dispatch_message_window_text(int, int, int);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern u8 *TLobby__data_805D5E7C;
 extern u32 TLobby__data_805D5E80;
@@ -358,7 +358,7 @@ int TNpcPlayer__sub_8034E420(void*);
 int TNpcPlayer__sub_8034E430(void*);
 int TObjHashiVersus2__sub_801912A4(void*);
 int TObjHashiVersus2__sub_801912B0(void*);
-M2C_UNK TObjPlayer__sub_801B35AC();
+M2C_UNK enable_action_input__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_801B3620();
 s32 get_player_by_client_id(s32);
 M2C_UNK TWindow__close(void*);
@@ -419,7 +419,7 @@ void qst_op_p_action_enable(void) {
 
     temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
-        TObjPlayer__sub_801B35AC();
+        enable_action_input__10TObjPlayerFPv();
         action_enable_if_present__10TObjPlayerFPv(temp_r3);
     }
 }
@@ -580,7 +580,7 @@ void qst_op_winend(void) {
 void qst_op_add_msg(void) {
     s32 x = ((s32 *)&TLobby__data_80512220)[0];
     if ((*(u8* *)&TLobby__data_805D5E7C) != 0) {
-        fn_8026B074((int)(*(u8* *)&TLobby__data_805D5E7C), x, 3);
+        dispatch_message_window_text((int)(*(u8* *)&TLobby__data_805D5E7C), x, 3);
         TLobby__data_805D5E98 = 4;
         return;
     }
@@ -612,7 +612,7 @@ void qst_op_window_msg(void) {
     }
     temp_r3 = fn_8026B118();
     (*(u32 *)&TLobby__data_805D5E7C) = temp_r3;
-    fn_8026B074((int) (temp_r3), (int) (temp_r31), (int) (3));
+    dispatch_message_window_text((int) (temp_r3), (int) (temp_r31), (int) (3));
     (*(s32 *)&TLobby__data_805D5E98) = 4;
     set_flag_bit2__11TWindowCtrlFv();
     close_window_if_active((void *) (lbl_805D53A0));

@@ -30,12 +30,12 @@ void TChCrEffTag__sub_8029AA74(u8 *arg0);
 extern "C" {
 
 void render__11TChCrEffTagFv(void* p);
-int fn_80141A30(void);
+int restore_saved_depth_alpha_state(void);
 int fn_8029A97C(void*);
 int fn_8029A9B8(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void render__11TChCrEffTagFv(void* p) { set_depth_buffer_settings_1__Fv(p); fn_8029A9B8(p); fn_8029A97C(p); fn_80141A30(); }
+void render__11TChCrEffTagFv(void* p) { set_depth_buffer_settings_1__Fv(p); fn_8029A9B8(p); fn_8029A97C(p); restore_saved_depth_alpha_state(); }
 typedef char RecoveredGlobal_8029AA74_lbl_804652A4_size[sizeof(RecoveredGlobal_8029AA74_lbl_804652A4) == 0x34 ? 1 : -1];
 void TChCrEffTag__sub_8029AA74(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8029AA74, sp8) == 0x0) ? 1 : -1];

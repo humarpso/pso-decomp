@@ -57,7 +57,7 @@ f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
 u32 TWindowSubStatusDisp__sub_80144D68(void *);
-f32 TWindowSubStatusDisp__sub_801A5228(void *);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(void *);
 extern const f32 lbl_805DD864;
 extern const f32 lbl_805DD874;
 u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
@@ -69,7 +69,7 @@ void set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_80287580 *, f32);
-void TWindowSubStatusDisp__sub_803DF160(int, s32);
+void set_draw_texture_and_color(int, s32);
 extern const UV_80287580 lbl_8044FC90[];
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD84C;
@@ -105,7 +105,7 @@ void TWindowSubStatusDisp__sub_80287580(Obj_80287580 *obj, f32 *pos, u8 idx, f32
     w = width + lbl_805DD84C;
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(1, obj->f34);
+    set_draw_texture_and_color(1, obj->f34);
     r1.x0 = pos[0];
     r1.y0 = pos[1];
     r1.x1 = 40.0f + pos[0];
@@ -235,7 +235,7 @@ u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s3
     M2C_FIELD(arg0, s8 *, 0x19) = 0;
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DD864;
     set_entry_state__20TWindowSubStatusDispFPvc(arg0, arg3);
-    M2C_FIELD(arg0, f32 *, 0x20) = TWindowSubStatusDisp__sub_801A5228((void *) (arg4));
+    M2C_FIELD(arg0, f32 *, 0x20) = get_card_window_scale__20TWindowSubStatusDispFi((void *) (arg4));
     if (M2C_FIELD(arg0, f32 *, 0x20) <= lbl_805DD864) {
         M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DD874;
     }

@@ -18,7 +18,7 @@ struct Stack_8028B810 {
 
 extern "C" {
 u8 * create_ch_cr_load_req(void *, void *);
-M2C_UNK TNpcPlayer__sub_8007206C(void *, void *);
+M2C_UNK copy_player_visual_record(void *, void *);
 M2C_UNK TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
 u8 *TNpcPlayer__sub_8028B810(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 }
@@ -37,7 +37,7 @@ u8 *TNpcPlayer__sub_8028B810(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     typedef char sp20_offset[(offsetof(Stack_8028B810, sp20) == 0x18) ? 1 : -1];
     typedef char sp24_offset[(offsetof(Stack_8028B810, sp24) == 0x1C) ? 1 : -1];
     Stack_8028B810 stack;
-    TNpcPlayer__sub_8007206C((void *) (arg0 + 4), (void *) (arg2));
+    copy_player_visual_record((void *) (arg0 + 4), (void *) (arg2));
     M2C_FIELD(arg0, s32 *, 0x4A8) = 0xFF;
     TCharaMaking__bind_appearance_texture_lists((void *) (arg0 + 0x54), (void *) (arg0 + 0x1C0), (void *) (arg0 + 0x32C), (void *) (arg0 + 4));
     stack.sp8 = (u8 *)(arg0 + 4);

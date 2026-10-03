@@ -10,12 +10,12 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
-s32 TODragonfly__sub_80158360(u8 *self, f32 radius);
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius);
 }
 
 extern "C" {
 
-s32 TODragonfly__sub_80158360(u8 *self, f32 radius) {
+s32 is_any_player_within_radius_xz(u8 *self, f32 radius) {
     u16 slot;
     u8 *player;
     for (slot = 0; (s32) slot < lbl_805D586C; slot++) {

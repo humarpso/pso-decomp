@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TItemData__sub_8010DF9C(M2C_UNK *);
 s32 get_item_price_if_valid__24TShopEquipmentSellWindowFUi(u32 arg0);
-s32 TLobby__sub_80104820(s32 arg0);
+s32 is_valid_drop_floor(s32 arg0);
 s32 TObjPlayer__sub_80104840(s32 arg0);
 }
 
@@ -31,7 +31,7 @@ s32 get_item_price_if_valid__24TShopEquipmentSellWindowFUi(u32 arg0) {
     }
     return 0;
 }
-s32 TLobby__sub_80104820(s32 arg0) {
+s32 is_valid_drop_floor(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 0x12)) {
         return 1;
     }

@@ -72,7 +72,7 @@ int TWindowSubComCard__sub_80265C30(void *);
 int TWindowSubComCard__sub_80265E60(void *, f32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *p, void *a1, int a2, int a3);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
-int TLobby__sub_80269454(void *);
+int complete_reveal__14TWindowMessageFPv(void *);
 int send_and_handle__6TLobbyFPvii(void *, void *, int);
 void *update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 int clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
@@ -342,7 +342,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1A8C(Self_802E1A8C *self, void *arg1, s32 
     if (arg1 != NULL) {
         send_and_handle__6TLobbyFPvii(self->x50, arg1, 3);
     }
-    TLobby__sub_80269454(self->x50);
+    complete_reveal__14TWindowMessageFPv(self->x50);
     if (arg2 == -1) {
         return;
     }

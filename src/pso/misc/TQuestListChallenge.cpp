@@ -77,7 +77,7 @@ s32 TLobby__sub_80222C28(int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(s32);
 extern s32 TQuestListChallenge__data_805D64B0;
 s32 TQuestListChallenge__sub_80288B04(void);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 M2C_UNK __ct__15TShopWindowBaseFv();
 s32 calc_min_challenge_progress__6TLobbyFv();
 s32 get_instance__6TLobbyFv();
@@ -304,7 +304,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0x24) = arg3;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    temp_r3 = TLobby__sub_8030A7B0();
+    temp_r3 = get_game_play_mode();
     switch (temp_r3) {
     case 1:
         if (get_instance__6TLobbyFv() == 0) {

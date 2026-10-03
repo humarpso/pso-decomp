@@ -76,12 +76,12 @@ M2C_UNK update_action_render__10TObjPlayerFPv(void *);
 s32 __nw__7TObjectFUl(int);
 void complete_deferred_player_death();
 extern s32 tl_particlemodel;
-void TObjPlayer__sub_801CA35C(u8 *arg0);
+void restart_death_pose__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CA35C(u8 *arg0) {
+void restart_death_pose__10TObjPlayerFPv(u8 *arg0) {
     s32 var_r31;
     update_action_render__10TObjPlayerFPv(arg0);
     TObjPlayer__sub_801BF964((void *) (arg0 + 0x5FC));

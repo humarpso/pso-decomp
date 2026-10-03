@@ -20,7 +20,7 @@ extern s32 lbl_805D49BC;
 void TKeyBoardControl__sub_8000F978(void);
 void TKeyBoardControl__sub_8000F984(void);
 extern s32 lbl_805D49B8;
-void TKeyBoardControl__sub_8000F998(void);
+void mark_area_change_pending(void);
 void TKeyBoardControl__sub_8000F9A4(void);
 int TMainCursor__sub_8013DF5C(void*, void* a1, void* a2);
 extern M2C_UNK lbl_80515F70[];
@@ -61,7 +61,7 @@ extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0D4;
 extern const f32 lbl_805DB0D8;
 extern const f32 lbl_805DB0DC;
-void TMainCursor__sub_8013BC2C(u8 *arg0);
+void refresh_target_marker__11TMainCursorFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ void update_position__11TMainCursorFi(s32 arg0) {
 extern M2C_UNK __vt__11TMainCursor[];
 
 typedef char RecoveredGlobal_8013BC2C_lbl_804A7164_size[sizeof(RecoveredGlobal_8013BC2C_lbl_804A7164) == 0x60 ? 1 : -1];
-void TMainCursor__sub_8013BC2C(u8 *arg0) {
+void refresh_target_marker__11TMainCursorFPv(u8 *arg0) {
     u8 temp_r31;
     s32 temp_r3;
     s32 temp_r3_2;

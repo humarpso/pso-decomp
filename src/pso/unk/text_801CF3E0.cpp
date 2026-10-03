@@ -5,7 +5,7 @@ s32 update_action_state__10TObjPlayerFv(void *);
 s32 enter_attack_stage1__10TObjPlayerFPv(void *);
 s32 request_normal_attack_stage1__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801CF2AC();
-s32 TObjPlayer__sub_801CF2B0(void *);
+s32 finish_attack_stage1__10TObjPlayerFPv(void *);
 s32 update_active_item__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801CF3C0(void *);
 void TObjPlayer__sub_801CF3E0(s32 arg0, s16 arg1);
@@ -24,7 +24,7 @@ void TObjPlayer__sub_801CF3E0(s32 arg0, s16 arg1) {
         update_active_item__10TObjPlayerFi((void *) arg0);
         return;
       case 3:
-        TObjPlayer__sub_801CF2B0((void *) arg0);
+        finish_attack_stage1__10TObjPlayerFPv((void *) arg0);
         return;
       case 8:
         TObjPlayer__sub_801CF2AC();

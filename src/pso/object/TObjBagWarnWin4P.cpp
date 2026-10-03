@@ -20,7 +20,7 @@ void *__ct__16TObjBagWarnWin4PFv(void *arg0);
 void create_window__16TObjBagWarnWin4PFPv(u8 *arg0);
 u32 TLobby__sub_80269CC0(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 TLobby__sub_8030A770();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 s32 TWindowCtrl__sub_8024AF74(u16);

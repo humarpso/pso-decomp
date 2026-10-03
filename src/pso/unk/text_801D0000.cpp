@@ -42,7 +42,7 @@ void sync_from_lobby__10TNpcPlayerFPv(void *);
 void TNpcPlayer__sub_80152E74(void *cmd);
 s32 TObjPlayer__sub_801BFFA0(void *);
 s32 update_combat_stats__10TObjPlayerFPv();
-void TObjPlayer__sub_801CFD5C(void *, s32, void *, void *);
+void calc_movement_target__10TObjPlayerFPviPvPv(void *, s32, void *, void *);
 void TObjPlayer__sub_801D00B0(Npc_801D00B0 *arg0);
 }
 
@@ -67,7 +67,7 @@ void handle_6x40_walk_to_position(void *pkt) {
 void TObjPlayer__sub_801D00B0(Npc_801D00B0 *arg0) {
     Msg_801D00B0 m;
     if (update_combat_stats__10TObjPlayerFPv() != 0) {
-        TObjPlayer__sub_801CFD5C(arg0, arg0->f3f0, &arg0->x, &arg0->z);
+        calc_movement_target__10TObjPlayerFPviPvPv(arg0, arg0->f3f0, &arg0->x, &arg0->z);
         clear_id__10TObjPlayerFPv(arg0->sub);
         if (obj_testFlags30(arg0, 0x100000) != 0) {
             set_flags__10TObjPlayerFPvUi(arg0->sub, 8);

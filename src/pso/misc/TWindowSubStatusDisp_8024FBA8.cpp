@@ -30,7 +30,7 @@ s32 TWindowKeyBoardSoft__sub_8024E8E8(s32, void *);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowSubStatusDisp__sub_803DF160(s32, u32);
+void set_draw_texture_and_color(s32, u32);
 extern s32 lbl_805D6430;
 extern f32 lbl_805D6434;
 extern s32 lbl_805D643C;
@@ -65,7 +65,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
     y = pos[1];
     begin_screen_draw(1);
     render_forward__20TWindowSubStatusDispFPv();
-    TWindowSubStatusDisp__sub_803DF160(0, color);
+    set_draw_texture_and_color(0, color);
     while (*s != 0) {
         c = (u8)*s++;
         if (c == 0x20) {

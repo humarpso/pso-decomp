@@ -86,7 +86,7 @@ extern RecoveredGlobal_801D2CF4_lbl_804C43CC lbl_804C43CC;
 extern RecoveredGlobal_801D2CF4_lbl_804C43D8 lbl_804C43D8;
 f32 TObjPlayer__sub_801D2CF4(M2C_UNK arg0, s32 arg1);
 extern const f32 TObjPlayer__data_805DC360;
-void TObjPlayer__sub_801D2834(u8 *arg0, f32 farg0);
+void add_death_sink_progress(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_8012AF80(void *);
 void TObjPlayer__sub_801D2E20(s32 *arg0, void * _w1, f32 _w2, f32 _w3);
 Ent_801D2AB0 *TObjPlayer__sub_801D2AB0(Obj_801D2AB0 *p, s32 i);
@@ -204,7 +204,7 @@ s16 TObjPlayer__sub_801D282C(void* p) { return *(s16*)((char*)p + 0x0); }
 
 #pragma push
 #pragma opt_common_subs off
-void TObjPlayer__sub_801D2834(u8 *arg0, f32 farg0) {
+void add_death_sink_progress(u8 *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) + farg0);
     if (M2C_FIELD(arg0, f32 *, 8) > TObjPlayer__data_805DC360) {
         M2C_FIELD(arg0, f32 *, 8) = (f32) TObjPlayer__data_805DC360;

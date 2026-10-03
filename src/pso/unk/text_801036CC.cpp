@@ -110,7 +110,7 @@ extern s32 lbl_805D5420;
 extern u16 *lbl_805D542C;
 s32 TLobby__sub_80103DD8(Ent_80103DD8 *e);
 void *find_item_by_id(s32);
-void fn_801057A8(void *, s32);
+void spawn_dropped_item_from_msg(void *, s32);
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void TLobby__sub_80103B70(s32 n);
@@ -243,7 +243,7 @@ void TLobby__sub_80103B70(s32 n) {
             for (i = 0; i != (*(s32 **)&lbl_805D5420)[n]; i++) {
                 Ent_801037A0 *e = &lbl_805D541C[n][i];
                 if (find_item_by_id(e->val) == 0) {
-                    fn_801057A8(e, 1);
+                    spawn_dropped_item_from_msg(e, 1);
                 }
             }
         }

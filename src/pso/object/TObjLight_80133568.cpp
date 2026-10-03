@@ -210,7 +210,7 @@ extern s32 lbl_805D5578;
 extern char lbl_8043ED80[];
 s32 update_lobby_scene__6TSceneFPv(void *);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TLobby__sub_800F9DF4(void *, u32);
+s32 read_disc_file(void *, u32);
 void TObjLight__sub_80133E7C(void);
 s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -541,7 +541,7 @@ void TObjLight__sub_80133E7C(void) {
     if (lbl_805D5578 > 0) {
         TObjLight__data_805D5574 = alloc__22TQuestVmDownLoadServerFPv(lbl_805D5578);
         if (TObjLight__data_805D5574) {
-            TLobby__sub_800F9DF4(lbl_8043ED80, TObjLight__data_805D5574);
+            read_disc_file(lbl_8043ED80, TObjLight__data_805D5574);
         }
     }
 }

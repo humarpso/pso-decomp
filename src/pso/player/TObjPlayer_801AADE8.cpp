@@ -54,7 +54,7 @@ extern void *lbl_805D5D38;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_801AAF00(Self_801AAF00 *self);
+void render__13TPhotonFarllaFPv(Self_801AAF00 *self);
 }
 
 extern "C" {
@@ -108,7 +108,7 @@ void update_all_slots__10TObjPlayerFPv(void *arg0) {
         } while (var_r31 < 0x10);
     }
 }
-void TObjPlayer__sub_801AAF00(Self_801AAF00 *self) {
+void render__13TPhotonFarllaFPv(Self_801AAF00 *self) {
     if (self->started != 0) {
         scroll_strip_uvs(lbl_805D5D38, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();

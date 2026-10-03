@@ -131,7 +131,7 @@ void TLobby__sub_8013A348(void *);
 s32 TLobby__sub_801A3E8C();
 s32 TObjPlayer__sub_801B4CE4(void *, void *);
 s32 TObjPlayer__sub_801B4FD8(void *);
-Ply_80136A8C *TObjPlayer__sub_801BDD8C(void *);
+Ply_80136A8C *create_remote_player_object(void *);
 u8 *TObjPlayer__sub_801BDEF8(s32, s32, void *);
 void TLobby__sub_801DB554(void *);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -143,7 +143,7 @@ extern s32 TLobby__data_805D53AC;
 extern u8 *TLobby__data_805D5580;
 extern s32 TLobby__data_805D5594;
 void TLobby__sub_80136A8C(void);
-void TKeyBoardControl__sub_8000F998();
+void mark_area_change_pending();
 void clear_header_struct__10TObjPlayerFPv(void *);
 void TFontSmallTask__sub_800FD5F4(void *, s32);
 void destroy_all_objects__6TLobbyFv();
@@ -277,7 +277,7 @@ void TLobby__sub_80136A8C(void) {
             hdr.fAC = 0;
             hdr.f488 = 0;
             delete p;
-            q = TObjPlayer__sub_801BDD8C(&hdr);
+            q = create_remote_player_object(&hdr);
             if (q != NULL) {
                 q->m6();
             }
@@ -334,7 +334,7 @@ void TLobby__sub_80136C94(Pkt_80136C94 *pkt) {
     TLobby__data_805D5590 = 4;
     set_area__6TLobbyFPvi(lbl_80515BA0, 0, 0);
     set_flag_and_update__6TLobbyFv();
-    TKeyBoardControl__sub_8000F998();
+    mark_area_change_pending();
 }
 
 }

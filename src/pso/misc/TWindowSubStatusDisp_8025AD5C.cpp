@@ -29,7 +29,7 @@ void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0);
 void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0);
 extern const f32 lbl_805DCFE0;
 void TWindowHelpItem__sub_8025B08C(u8 *arg0, f32 farg0, f32 farg1);
-f32 TWindowSubStatusDisp__sub_801A5228(int);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
 s32 reset_entry__20TWindowSubStatusDispFPv(void *, void *);
 extern M2C_UNK lbl_804CFA28[];
 extern const f32 lbl_805DCFA8;
@@ -56,7 +56,7 @@ void set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowSubStatusDisp__sub_803DF160(s32, s32);
+void set_draw_texture_and_color(s32, s32);
 extern const f32 lbl_805DCFE4;
 extern const f32 lbl_805DCFE8;
 extern const f32 lbl_805DCFEC;
@@ -164,7 +164,7 @@ u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, s32 *, 0x14);
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFAC;
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, f32 *, 0x28) = TWindowSubStatusDisp__sub_801A5228((int) ((s32) M2C_FIELD(arg0, s16 *, 2)));
+    M2C_FIELD(arg0, f32 *, 0x28) = get_card_window_scale__20TWindowSubStatusDispFi((int) ((s32) M2C_FIELD(arg0, s16 *, 2)));
     if (M2C_FIELD(arg0, u16 *, 0) & 4) {
         M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * lbl_805DCFC4);
     }
@@ -239,7 +239,7 @@ void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) 
         begin_screen_draw(0);
     }
     set_global_param__8TObjFishFi(*arg0->p30);
-    TWindowSubStatusDisp__sub_803DF160(arg0->i34, arg0->i2C);
+    set_draw_texture_and_color(arg0->i34, arg0->i2C);
     w = arg0->f10;
     lo = lbl_805DD000 - len;
     hi = lbl_805DD000 + len;

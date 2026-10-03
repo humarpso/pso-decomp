@@ -106,7 +106,7 @@ M2C_UNK TObjPlayer__sub_80108164(int);
 s32 get_mode__11TCameraCtrlFv();
 s32 TObjPlayer__sub_801AFF0C(int);
 M2C_UNK TObjPlayer__sub_801B0FF4(int);
-M2C_UNK TObjPlayer__sub_801B12CC(int);
+M2C_UNK activate_body_collision__10TObjPlayerFPv(int);
 s32 check_flag_40000__10TObjPlayerFPv(int);
 u8 *get_player_by_client_id(u16);
 M2C_UNK set_flag_2000000_alt__10TObjPlayerFPv();
@@ -199,7 +199,7 @@ void TObjPlayer__sub_801C5968(u8 *arg0) {
                         return;
                     }
                     M2C_FIELD(arg0, s32 *, 4) = 1;
-                    TObjPlayer__sub_801B12CC((int) (temp_r3));
+                    activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
                     if (obj_testFlags30((int) (temp_r3), (int) (0x800)) == 0) {
                         TObjPlayer__sub_80108164((int) (M2C_FIELD(arg0, u16 *, 0)));
                     }
@@ -216,7 +216,7 @@ void TObjPlayer__sub_801C5968(u8 *arg0) {
                 var_f31 = 1.0f;
                 M2C_FIELD(arg0, s32 *, 4) = 2;
                 set_flag_2000000_alt__10TObjPlayerFPv();
-                TObjPlayer__sub_801B12CC((int) (temp_r3));
+                activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
             }
             M2C_FIELD(temp_r3, f32 *, 0x624) = var_f31;
             break;
@@ -259,7 +259,7 @@ void set_vec4_const__10TObjPlayerFPv(void* a0);
 void update_target_lock__10TObjPlayerFii(s32 arg0, s32 arg1);
 void write_ids__10TObjPlayerFPv(void* p);
 s32 get_current_floor();
-M2C_UNK TObjPlayer__sub_801B130C(s32);
+M2C_UNK deactivate_body_collision__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801C6F90();
 int set_chunk_material_color(void*);
 int clear_flags__11TAdRicoRingFPvUi(void*, void*);
@@ -280,7 +280,7 @@ void enter_battle_state__10TObjPlayerFPv(void *arg0) {
     temp_r3 = ((s32 (*)(u16))get_player_by_client_id)(M2C_FIELD(arg0, u16 *, 0));
     if ((temp_r3 != 0) && (fn_801C6F2C(arg0) == 0)) {
         M2C_FIELD(arg0, s32 *, 4) = 0;
-        TObjPlayer__sub_801B130C(temp_r3);
+        deactivate_body_collision__10TObjPlayerFPv(temp_r3);
         M2C_FIELD(arg0, s16 *, 2) = 4;
     }
 }

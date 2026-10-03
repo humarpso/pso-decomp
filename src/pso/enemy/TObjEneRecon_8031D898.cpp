@@ -40,7 +40,7 @@ extern const f32 lbl_805DF3CC;
 extern f32 TObjEneRecon__data_805DF3D4;
 s32 TObjEneRecon__sub_8031DA90(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
-void TBoss8Dragon__sub_800B9958(void *, u16);
+void enemy_set_target_id(void *, u16);
 s32 TObjEneDD__sub_800BB484(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
@@ -48,7 +48,7 @@ s32 TObjEneRecon__sub_8031F0F0(void *, u16);
 extern const f32 lbl_805DF420;
 void TObjEneRecon__sub_8031D898(Recon_8031D898 *o);
 void queue_destruction__7TObjectFv(void *);
-void TBoss8Dragon__sub_800B9958(void *, u16);
+void enemy_set_target_id(void *, u16);
 s32 TObjEneDD__sub_800BB484(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
@@ -80,7 +80,7 @@ void TObjEneRecon__sub_8031D898(Recon_8031D898 *o) {
         id = hits[i].id;
         if (id != o->target && TObjEneRecon__sub_8031F0F0(p, id) != 0) {
             o->f470 = 0;
-            TBoss8Dragon__sub_800B9958(o, id);
+            enemy_set_target_id(o, id);
             transition_enemy_state(o, 3);
             return;
         }
@@ -110,7 +110,7 @@ void TObjEneRecon__sub_8031D994(Recon_8031D994 *o) {
         id = hits[i].id;
         if (id != o->target && TObjEneRecon__sub_8031F0F0(p, id) != 0) {
             o->f46C = 0;
-            TBoss8Dragon__sub_800B9958(o, id);
+            enemy_set_target_id(o, id);
             transition_enemy_state(o, 2);
             return;
         }

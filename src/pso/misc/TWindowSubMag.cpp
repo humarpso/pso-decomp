@@ -40,7 +40,7 @@ M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
 M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
 s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
 s32 TWindowSubStatusDisp__sub_80144D68();
-M2C_UNK TWindowSubStatusDisp__sub_80228D80();
+M2C_UNK append_text_space();
 M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
 M2C_UNK set_position_xy(void *, f32, f32);
@@ -171,7 +171,7 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     text_builder_reset();
     get_message_10__20TWindowSubStatusDispFPv(0x64);
     text_builder_append();
-    TWindowSubStatusDisp__sub_80228D80();
+    append_text_space();
     TWindowSubMag__sub_8027C0B0(n);
     text_builder_append();
     get_message_10__20TWindowSubStatusDispFPv(0x4C);

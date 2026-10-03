@@ -195,7 +195,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 void destroy_if_set__10TTecSlicerFUi(u32);
 
 extern const f32 lbl_805DC954;
-void TTecSlicer__sub_8023B72C(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
+void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
 void TTecSlicer__sub_8023B5D8(u8 *arg0);
@@ -236,7 +236,7 @@ s32 TObjPlayer__sub_8012125C(s32);
 void TPhotonMagicSquare__sub_801A2640(void *, s32);
 void fn_8023B590(void *, s32, s32);
 void reset_fields_1e__10TTecSlicerFPv(void* p);
-void TTecSlicer__sub_8023B72C(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
+void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -296,7 +296,7 @@ typedef struct RecoveredFields_8023B770_var_r29 RecoveredFields_8023B770_var_r29
 typedef struct RecoveredGlobal_8023B770_lbl_8044DC20 RecoveredGlobal_8023B770_lbl_8044DC20;
 typedef char RecoveredGlobal_8023B770_lbl_8044DC20_size[((sizeof(RecoveredGlobal_8023B770_lbl_8044DC20)) == 0x48) ? (1) : (-1)];
 
-void TTecSlicer__sub_8023B72C(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b) {
+void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b) {
     f32 t;
     t = a->x + b->x;
     t *= lbl_805DC954;
@@ -482,7 +482,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     self->f10c = (s32)arg2;
     self->f108 = find_item_by_id(self->f118);
     TTecSlicer__sub_8023B770((M2C_UNK *)self, (M2C_UNK *)self->f10c, init->f28);
-    TTecSlicer__sub_8023B72C((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
+    set_launch_midpoint__10TTecSlicerFPvPvPvPv((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;
     VecCopy__FP3VecPC3Vec((s32)self + 0x9C, (s32)self + 0x38);

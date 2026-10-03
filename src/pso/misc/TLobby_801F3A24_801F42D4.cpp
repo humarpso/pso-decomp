@@ -17,11 +17,11 @@ void TLobby__sub_801F4340(void);
 extern "C" {
 
 void open_session__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby__sub_801F3E1C();
+M2C_UNK populate_quest_floor_sets();
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 alloc__22TQuestVmDownLoadServerFPv();
 s32 update_lobby_scene__6TSceneFPv();
-M2C_UNK TLobby__sub_800F9DF4(s32, s32);
+M2C_UNK read_disc_file(s32, s32);
 
 extern s32 TLobby__data_805D5EE0;
 extern s16 TLobby__data_805D6134;
@@ -32,8 +32,8 @@ void open_session__6TLobbyFi(s32 arg0) {
     if (update_lobby_scene__6TSceneFPv() >= 0) {
         t = (TLobby__data_805D5EE0 = alloc__22TQuestVmDownLoadServerFPv());
         if (t != 0) {
-            TLobby__sub_800F9DF4(arg0, t);
-            TLobby__sub_801F3E1C();
+            read_disc_file(arg0, t);
+            populate_quest_floor_sets();
             TLobby__sub_801F4340();
             TLobby__data_805D6134 = 1;
             safe_free__23TAdSinglePlyChrSelectGCFUi(TLobby__data_805D5EE0);

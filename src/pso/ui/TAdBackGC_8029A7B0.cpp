@@ -10,7 +10,7 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK TAdBackGC__sub_8001C5A0(void *, int, int, f32);
 M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 s32 toggle_flag_9__10TObjPlayerFPv();
 M2C_UNK fn_8029A6EC(void *);
 M2C_UNK abs__4cXyzCFv(int, int);
@@ -39,7 +39,7 @@ block_4:
         abs__4cXyzCFv((int) (0), (int) (8));
         abs__4cXyzCFv((int) (1), (int) (6));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
     }
 }

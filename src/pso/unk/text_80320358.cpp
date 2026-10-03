@@ -11,7 +11,7 @@ struct S_80320358 {
 
 extern "C" {
 s32 update_lobby_scene__6TSceneFPv(void *);
-M2C_UNK TLobby__sub_800F9DF4(void *, void *);
+M2C_UNK read_disc_file(void *, void *);
 u8 *fn_803204B0(void *);
 M2C_UNK OSLink(void *, void *);
 u8 *xmalloc__FUl(u32);
@@ -62,7 +62,7 @@ u8 *fn_803203EC(u8 *arg0, s32 arg1) {
         if ((void *) M2C_FIELD(arg0, void **, 4) == NULL) {
             return arg0;
         }
-        TLobby__sub_800F9DF4((void *) (arg1), M2C_FIELD(arg0, void **, 4));
+        read_disc_file((void *) (arg1), M2C_FIELD(arg0, void **, 4));
         size2 = M2C_FIELD(M2C_FIELD(arg0, void **, 4), u32 *, 0x20);
         if (size2 != 0U) {
             M2C_FIELD(arg0, void **, 0) = xmalloc__FUl(size2);

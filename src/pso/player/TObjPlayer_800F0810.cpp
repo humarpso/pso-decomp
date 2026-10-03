@@ -49,7 +49,7 @@ s32 is_split_screen();
 s32 is_split_screen__10TObjPlayerFv(void);
 s32 is_split_screen__10TObjPlayerFv(void);
 s32 set_depth_buffer_settings_1__Fv();
-s32 fn_80141A30();
+s32 restore_saved_depth_alpha_state();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 TObjPlayer__sub_801E2FEC(void *, int, int);
@@ -144,7 +144,7 @@ block_2:
         stack.spC = lbl_805DA7F8;
         TObjPlayer__sub_801E2FEC((void *) (&stack.sp8), (int) (0), (int) (0x2C));
         end_effect_render__13TParticleCtrlFv();
-        fn_80141A30();
+        restore_saved_depth_alpha_state();
     }
 }
 #pragma pop

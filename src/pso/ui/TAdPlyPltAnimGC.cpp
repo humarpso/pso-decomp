@@ -49,7 +49,7 @@ s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
-void TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32);
+void set_draw_texture_and_color(M2C_UNK, s32);
 extern s32 lbl_805D6F18;
 extern const f32 lbl_805DFFC8;
 extern const f32 lbl_805DFFCC;
@@ -84,7 +84,7 @@ void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
         init_xyz_limits__10TObjPlayerFv();
         begin_screen_draw(1);
         set_global_param__8TObjFishFi(lbl_805D6F18);
-        TWindowSubStatusDisp__sub_803DF160(0, (M2C_FIELD(arg0, u8 *, 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
+        set_draw_texture_and_color(0, (M2C_FIELD(arg0, u8 *, 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
         draw_textured_quad_at_depth((u8 *)(arg0) + 0x1C, (lbl_805DFFCC * (f32) M2C_FIELD(arg0, s32 *, 0x70)) + lbl_805DFFC8);
         get_player__20TWindowSubStatusDispFv();
         reset_transform_state__10TObjPlayerFv();

@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D4;
 void TBoss3Volopt__sub_8015D7B0(u8 *arg0);
 void set_indexed_flags(void *, int, int);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
@@ -24,7 +24,7 @@ void TBoss3Volopt__sub_8015D97C(u8 *arg0);
 extern "C" {
 
 void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
-    if ((*(s32 *)(arg0 + 0xD0) & 1) && TODragonfly__sub_80158360(lbl_805DB3D4) != 0) {
+    if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D4) != 0) {
         return;
     }
     *(s32 *)(arg0 + 0xAC) = 3;
@@ -62,7 +62,7 @@ void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
     }
 }
 void TBoss3Volopt__sub_8015D97C(u8 *arg0) {
-    if ((*(s32 *)(arg0 + 0xD0) & 1) && TODragonfly__sub_80158360(lbl_805DB3D8) == 1) {
+    if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D8) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);
         switch ((u32)get_global_state__14TOKeyMachine01Fv()) {

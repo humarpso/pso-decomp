@@ -99,7 +99,7 @@ extern s32 lbl_805D4EFC;
 extern u32 TParticleCtrl__data_805D4F00;
 extern u32 TParticleCtrl__data_805D4F04;
 void free_all__13TParticleCtrlFv(void);
-s32 TLobby__sub_800F9DF4(s32, s32);
+s32 read_disc_file(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 extern s32 lbl_805D2944;
 extern u32 lbl_805D2948;
@@ -178,7 +178,7 @@ extern const f32 lbl_805D956C;
 u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TLobby__sub_800F9DF4(s32, s32);
+s32 read_disc_file(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -514,7 +514,7 @@ void free_all__13TParticleCtrlFv(void) {
 }
 void init_particle_buffer__13TParticleCtrlFv(void) {
     s32 temp_r3;
-    temp_r3 = TLobby__sub_800F9DF4(lbl_805D2944, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
+    temp_r3 = read_disc_file(lbl_805D2944, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
     lbl_805D2948 = 0;
     if (temp_r3 >= 0) {
         lbl_805D2948 = (u32) temp_r3 / 152U;
@@ -542,7 +542,7 @@ void TParticleCtrl__sub_8008869C(void) {
     } else {
         sprintf(name, lbl_804394BC, state);
     }
-    TLobby__sub_800F9DF4((s32)name, lbl_805D4EFC = alloc_buffer__11TOBoss4RockFPv((M2C_UNK)(0x2600)));
+    read_disc_file((s32)name, lbl_805D4EFC = alloc_buffer__11TOBoss4RockFPv((M2C_UNK)(0x2600)));
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
         p = TLobby__sub_80020004(p, 1, lbl_8048E768, 0, 0, 0);

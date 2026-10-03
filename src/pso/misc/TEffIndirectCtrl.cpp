@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern u32 lbl_805D66B0;
 u16 TEffIndirectCtrl__sub_802A9478(u8 arg0, s32 arg1);
-void TLobby__sub_800F9DF4(void *, void *);
+void read_disc_file(void *, void *);
 s16 TEffIndirectCtrl__sub_802A920C(u8, u8, s32);
 void *xmalloc__FUl(u32);
 void *memset(void *, s32, u32);
@@ -63,7 +63,7 @@ void TEffIndirectCtrl__sub_802A94A4(void) {
             i++;
         } while (i < 0x40);
     }
-    TLobby__sub_800F9DF4(lbl_805D3E24, (void *)lbl_805D66A8);
+    read_disc_file(lbl_805D3E24, (void *)lbl_805D66A8);
 }
 
 void TEffIndirectCtrl__sub_802A9548(void* p) { *(s16*)((char*)p + 0x46) = 0; }

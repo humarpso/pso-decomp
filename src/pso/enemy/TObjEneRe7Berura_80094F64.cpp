@@ -58,7 +58,7 @@ u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv();
 u32 csnLookAt(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
@@ -202,7 +202,7 @@ s32 TObjEneRe7Berura__sub_800951AC(Berura_800951AC *self) {
         }
     }
     if (id != 0xFFFF) {
-        TBoss8Dragon__sub_800B9958(self, id);
+        enemy_set_target_id(self, id);
         return 1;
     }
     return 0;

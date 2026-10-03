@@ -8,7 +8,7 @@ extern "C" {
 
 void TObjPlayer__sub_800D9290(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800D92BC(s32 arg0, s32 arg1);
-void TObjPlayer__sub_800D9340(s32 arg0, s32 arg1);
+void spawn_landing_dead_spot(s32 arg0, s32 arg1);
 void apply_effect_variant_a__10TObjPlayerFii(s32 arg0, s32 arg1);
 void apply_effect_variant_b__10TObjPlayerFii(s32 arg0, s32 arg1);
 void spawn_dead_spot_default__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -64,7 +64,7 @@ void spawn_dead_spot_here__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
 extern const f32 lbl_805DA3C4;
 
-void TObjPlayer__sub_800D9340(s32 arg0, s32 arg1) {
+void spawn_landing_dead_spot(s32 arg0, s32 arg1) {
     spawn_dead_spot__10TObjPlayerFiiif(arg0, 2, arg1, lbl_805DA3C4);
 }
 

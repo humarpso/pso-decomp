@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TSwitch__sub_802292E0(s32 arg0);
+void clear_current_floor_switch(s32 arg0);
 s16 get_current_floor();
-void TSwitch__sub_802292E0(s32 arg0);
-void TSwitch__sub_802293A0(s32 arg0);
+void clear_current_floor_switch(s32 arg0);
+void set_current_floor_switch(s32 arg0);
 s16 get_current_floor();
-void TSwitch__sub_802293A0(s32 arg0);
+void set_current_floor_switch(s32 arg0);
 void TODoorAncient08__sub_80229220(s32 arg0);
 u8 TSwitch__sub_802291F4(u32 id, s16 floor);
 s16 get_current_floor();
@@ -113,7 +113,7 @@ void clear_floor_switch_flag(u32 id, s16 floor) {
     }
 }
 
-void TSwitch__sub_802292E0(s32 arg0) {
+void clear_current_floor_switch(s32 arg0) {
     clear_floor_switch_flag((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
 }
 }
@@ -141,7 +141,7 @@ void set_floor_switch_flag(u32 id, s16 floor) {
     }
 }
 
-void TSwitch__sub_802293A0(s32 arg0) {
+void set_current_floor_switch(s32 arg0) {
     set_floor_switch_flag((u32)((u32)arg0), (s16)((s16)((int) (get_current_floor()))));
 }
 }

@@ -20,7 +20,7 @@ s32 __cvt_fp2unsigned(f32);
 s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
-void TWindowSubStatusDisp__sub_803DF160(M2C_UNK, s32);
+void set_draw_texture_and_color(M2C_UNK, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D932C;
 void render__17TDuelEffectStringFv(u8 *arg0);
@@ -87,7 +87,7 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(6, temp_r31);
+    set_draw_texture_and_color(6, temp_r31);
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     switch (temp_r0) {
     case 0:

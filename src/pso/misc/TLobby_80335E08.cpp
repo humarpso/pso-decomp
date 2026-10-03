@@ -79,7 +79,7 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 begin_screen_draw(int);
 s32 get_player__20TWindowSubStatusDispFv();
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+s32 set_draw_texture_and_color(int, int);
 extern const f32 lbl_805DF8C8;
 extern const f32 lbl_805DF8CC;
 extern const f32 lbl_805DF8D0;
@@ -117,7 +117,7 @@ void TLobby__sub_80335E7C(void) {
   TCameraCtrl__sub_80069024();
   begin_screen_draw((int) 1);
   TLobby__sub_80336008();
-  TWindowSubStatusDisp__sub_803DF160((int) 1, (int) (-1));
+  set_draw_texture_and_color((int) 1, (int) (-1));
   stack.sp8 = lbl_805DF8C8;
   stack.spC = lbl_805DF8CC;
   stack.sp10 = lbl_805DF8D0;
@@ -125,7 +125,7 @@ void TLobby__sub_80335E7C(void) {
   stack.sp1C = (stack.sp18 = lbl_805DF8D8);
   stack.sp24 = (stack.sp20 = lbl_805DF8DC);
   draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) lbl_805DF8E0);
-  TWindowSubStatusDisp__sub_803DF160((int) 2, (int) (-1));
+  set_draw_texture_and_color((int) 2, (int) (-1));
   stack.sp8 = lbl_805DF8D0;
   stack.spC = lbl_805DF8CC;
   stack.sp10 = lbl_805DF8E4;

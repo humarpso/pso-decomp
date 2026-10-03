@@ -41,7 +41,7 @@ u32 TWindowKeyBoardSoft__sub_8024EDF8(void);
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DCC84;
 extern const f32 lbl_805DCC88;
-void TWindowKeyBoardSoft__sub_8024E7B8(u8 *arg0, s32 arg1);
+void set_open_tick__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1);
 extern const float lbl_805DCC78;
 extern const f32 lbl_805DCC7C;
 extern const f32 lbl_805DCC80;
@@ -134,7 +134,7 @@ void TWindowKeyBoardSoft__sub_8024E754(u8 *arg0, int arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TWindowKeyBoardSoft__sub_8024E7B8(u8 *arg0, s32 arg1) {
+void set_open_tick__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x30) = arg1;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x30);

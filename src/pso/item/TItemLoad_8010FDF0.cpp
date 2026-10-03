@@ -31,7 +31,7 @@ void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2);
 void request_load__9TItemLoadFPvi(void *arg0, s32 arg1);
 M2C_UNK TItemBuff__ct();
 s32 TItemDrop__sub_800F9C00(M2C_UNK *);
-s32 TLobby__sub_800F9DF4(u32, s32);
+s32 read_disc_file(u32, s32);
 M2C_UNK TLobby__sub_803CCB5C(s32, s32, s32, void *);
 M2C_UNK __dl__FPv(s32 *);
 int alloc_buffer__11TOBoss4RockFPv(void*);
@@ -65,7 +65,7 @@ void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2) {
     if ((arg2 != 0) && (arg1 != 0U)) {
         M2C_FIELD(arg0, u32 *, 0) = alloc_buffer__11TOBoss4RockFPv((void*)(arg2));
         temp_r3 = create_item_buff(arg2);
-        if ((temp_r3 != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) && (TLobby__sub_800F9DF4(arg1, temp_r3) > 0)) {
+        if ((temp_r3 != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) && (read_disc_file(arg1, temp_r3) > 0)) {
             temp_r31 = fn_800F7D30(temp_r3, M2C_FIELD(arg0, u32 *, 0), arg2);
             construct__9TItemDropFPv((M2C_UNK *)&sp8);
             sp8.field1c = M2C_FIELD(arg0, u32 *, 0);

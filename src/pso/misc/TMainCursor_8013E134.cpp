@@ -31,7 +31,7 @@ int TMainCursor__sub_8013DFC4(void*);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);
 int TMainCursor__sub_8013E358(void* p);
-int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);
+int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
 u16 TMainCursor__sub_8013E4A0(void* p);
 s16 TMainCursor__sub_8013E570(void* p);
 void TMainCursor__sub_8013E694(void* p, s16 v);

@@ -13,7 +13,7 @@ s16 get_section_clamped__10TObjPlayerFPv(void *arg0);
 u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1);
-M2C_UNK TItemProUnit__sub_801D98F8(s32, s16, s32);
+M2C_UNK set_technique_level_entry(s32, s16, s32);
 M2C_UNK fn_801D9870(s32, s16);
 s32 is_invalid_slot__10TObjPlayerFUc();
 s32 is_valid_technique_id__10TObjPlayerFs(s16);
@@ -21,7 +21,7 @@ s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
 M2C_UNK set_technique_id__10TObjPlayerFPvs(void *, M2C_UNK);
 u8 get_item_count_max__10TObjPlayerFv();
 s32 check_technique_level__10TObjPlayerFiiUc(void *, int, u8);
-u8 TObjPlayer__sub_801D9BE8(void *, int);
+u8 get_effective_technique_level__10TObjPlayerFPvs(void *, int);
 s32 TObjPlayer__sub_801C010C(void *, s16);
 s32 clamp_to_max__10TObjPlayerFiUcUc(void *, s32, s32);
 u8 TObjPlayer__sub_801D96CC(Rec_801D96CC *p);
@@ -73,7 +73,7 @@ u8 TObjPlayer__sub_801D96CC(Rec_801D96CC *p) {
     if (((s32 (*)(u8))is_invalid_slot__10TObjPlayerFUc)(a) != 0) {
         return a;
     }
-    t = TObjPlayer__sub_801D9BE8(p, p->b);
+    t = get_effective_technique_level__10TObjPlayerFPvs(p, p->b);
     if (((s32 (*)(u8))is_invalid_slot__10TObjPlayerFUc)(t) != 0) {
         return get_item_count_max__10TObjPlayerFv();
     }
@@ -90,7 +90,7 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
     do {
         fn_801D9870(arg0, (s16) var_r31);
         if (is_invalid_slot__10TObjPlayerFUc() == 0) {
-            TItemProUnit__sub_801D98F8(arg0, (s16) var_r31, arg1);
+            set_technique_level_entry(arg0, (s16) var_r31, arg1);
         }
         var_r31 += 1;
     } while (var_r31 < 0x13);
@@ -102,8 +102,8 @@ void TObjPlayer__sub_801D97C8(void *p, s32 add) {
         s32 v = ((s32 (*)(void *, s16))fn_801D9870)(p, i);
         if (((s32 (*)(s32))is_invalid_slot__10TObjPlayerFUc)(v) == 0) {
             v += add;
-            v = clamp_to_max__10TObjPlayerFiUcUc(p, v, ((s32 (*)(void *, s16))TObjPlayer__sub_801D9BE8)(p, i));
-            ((void (*)(void *, s16, s32))TItemProUnit__sub_801D98F8)(p, i, clamp_to_max__10TObjPlayerFiUcUc(p, v, TObjPlayer__sub_801C010C(p, i)));
+            v = clamp_to_max__10TObjPlayerFiUcUc(p, v, ((s32 (*)(void *, s16))get_effective_technique_level__10TObjPlayerFPvs)(p, i));
+            ((void (*)(void *, s16, s32))set_technique_level_entry)(p, i, clamp_to_max__10TObjPlayerFiUcUc(p, v, TObjPlayer__sub_801C010C(p, i)));
         }
         i++;
     } while (i < 0x13);

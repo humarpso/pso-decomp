@@ -119,7 +119,7 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 void enable__13TParticleCtrlFPv(void *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 int set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK TObjPlayer__sub_800113E4(void *, int);
+M2C_UNK set_hp_clamped__10TObjPlayerFPvs(void *, int);
 u8 *create_particle_emitter(void *, M2C_UNK);
 s32 find_entity_by_id(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -201,7 +201,7 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     if ((temp_r0 != 8) && (temp_r0 != 7) && (is_anim_6__12TObjEneReconFPv((int) (temp_r3)) == 1)) {
         M2C_FIELD(arg0, s32 *, 0x2DC) = (s32) (M2C_FIELD(arg0, s32 *, 0x2DC) | 4);
-        TObjPlayer__sub_800113E4((void *) (arg0), (int) (0));
+        set_hp_clamped__10TObjPlayerFPvs((void *) (arg0), (int) (0));
         obj_setFlags30(arg0, 0xA00U);
         ((VObj_18_825e13 *)(arg0))->m72(0);
     }

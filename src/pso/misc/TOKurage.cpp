@@ -84,7 +84,7 @@ void destroy_static_instance__8TOKurageFv(void);
 void init__8TOKurageFPv(u8 *arg0);
 void update_state__8TOKurageFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-s32 TODragonfly__sub_80158360(f32);
+s32 is_any_player_within_radius_xz(f32);
 f32 xyz_distance(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -101,7 +101,7 @@ void update_state__8TOKurageFPv(void *arg0) {
     f32 temp_f0;
 
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
-    if (TODragonfly__sub_80158360(temp_f0 * temp_f0) == 1) {
+    if (is_any_player_within_radius_xz(temp_f0 * temp_f0) == 1) {
         M2C_FIELD(arg0, s8 *, 0x100) = 4;
     }
 }
@@ -151,7 +151,7 @@ void render__8TOKurageFv(u8 *arg0) {
             }
             break;
         default:
-            if (((s32 (*)(void *, f32))TODragonfly__sub_80158360)(arg0, *(f32 *)(arg0 + 0x70) * *(f32 *)(arg0 + 0x70)) == 0 &&
+            if (((s32 (*)(void *, f32))is_any_player_within_radius_xz)(arg0, *(f32 *)(arg0 + 0x70) * *(f32 *)(arg0 + 0x70)) == 0 &&
                 *(f32 *)(arg0 + 0x104) < lbl_805DB7A8) {
                 *(f32 *)(arg0 + 0x104) = TOKurage__data_805DB7AC;
             }

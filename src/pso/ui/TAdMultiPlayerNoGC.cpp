@@ -43,7 +43,7 @@ void render_status__18TAdMultiPlayerNoGCFi(s32 arg0);
 void run_task__18TAdMultiPlayerNoGCFv(void);
 M2C_UNK draw_textured_quad_at_depth(s32, f32);
 M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(M2C_UNK, M2C_UNK);
+M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
 int abs__4cXyzCFv(void*, void*);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
@@ -55,7 +55,7 @@ extern f32 lbl_805DFA10;
 void render_status__18TAdMultiPlayerNoGCFi(s32 arg0) {
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D6D78);
-    TWindowSubStatusDisp__sub_803DF160(0, -1);
+    set_draw_texture_and_color(0, -1);
     draw_textured_quad_at_depth(arg0 + 0x20, lbl_805DFA10);
     get_player__20TWindowSubStatusDispFv();
 }

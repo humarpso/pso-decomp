@@ -51,7 +51,7 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
 M2C_UNK bswap_16__FPUs(void *);
 M2C_UNK bswap_32__FPUl(void *);
-M2C_UNK fn_801E4BCC(void *);
+M2C_UNK distort_texture_wave_image(void *);
 s32 get_camera_no__11TCameraCtrlFv();
 s32 is_split_screen();
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
@@ -161,7 +161,7 @@ void fn_801E4B68(void *arg0) {
     if ((is_split_screen() == 0) || (get_camera_no__11TCameraCtrlFv() == 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x3C));
         ((VObj_801E4B68_801E4874 *)arg0)->m0();
-        fn_801E4BCC(arg0);
+        distort_texture_wave_image(arg0);
     }
 }
 

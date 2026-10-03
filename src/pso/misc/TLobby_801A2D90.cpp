@@ -36,7 +36,7 @@ extern u32 lbl_805D5EE8;
 void reset_quest_state__6TLobbyFv(void);
 void apply_char_to_players__6TLobbyFv(void);
 Ctrl_801A2E00 *get_player_by_client_id(s32);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void TLobby__sub_801A2E00(void);
 }
@@ -62,7 +62,7 @@ void TLobby__sub_801A2DFC(void) {  }
 
 void TLobby__sub_801A2E00(void) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        switch (TLobby__sub_8030A7B0()) {
+        switch (get_game_play_mode()) {
         case 1:
         case 2: {
             s32 i;

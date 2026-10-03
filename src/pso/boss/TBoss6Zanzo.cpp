@@ -58,7 +58,7 @@ extern "C" {
 s32 fn_803204B0(void* p);
 void render__11TBoss6ZanzoFv(void* p);
 int TBoss6Zanzo__sub_803205C4(void*);
-int fn_80141A30(void);
+int restore_saved_depth_alpha_state(void);
 int set_depth_buffer_settings_1__Fv(void*);
 
 s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }
@@ -97,7 +97,7 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1) {
     *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
 }
 
-void render__11TBoss6ZanzoFv(void* p) { set_depth_buffer_settings_1__Fv(p); TBoss6Zanzo__sub_803205C4(p); fn_80141A30(); }
+void render__11TBoss6ZanzoFv(void* p) { set_depth_buffer_settings_1__Fv(p); TBoss6Zanzo__sub_803205C4(p); restore_saved_depth_alpha_state(); }
 
 void run_task__11TBoss6ZanzoFv(Obj_803208CC *arg0) {
     Src_80320534 *base;

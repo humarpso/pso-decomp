@@ -42,11 +42,11 @@ void run_task__17TChCrTagPlGraphicFv(void* p);
 int TChCrTagPlGraphic__sub_802A3230(void*);
 int TChCrTag__sub_802A1A00(void*);
 void *__nw__7TObjectFUl(int);
-int fn_80141A30(void);
+int restore_saved_depth_alpha_state(void);
 int fn_802A3138(void*);
 int set_depth_buffer_settings_1__Fv(void*);
 
-void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); fn_802A3138(p); fn_80141A30(); }
+void render__17TChCrTagPlGraphicFv(void* p) { set_depth_buffer_settings_1__Fv(p); fn_802A3138(p); restore_saved_depth_alpha_state(); }
 
 void run_task__17TChCrTagPlGraphicFv(void* p) { TChCrTag__sub_802A1A00(p); TChCrTagPlGraphic__sub_802A3230(p); }
 

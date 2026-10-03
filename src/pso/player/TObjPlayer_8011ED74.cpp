@@ -8,7 +8,7 @@ extern "C" {
 
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 get_field_d8__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_8011E484(void *);
+M2C_UNK restore_action_type__11TItemWeaponFPv(void *);
 M2C_UNK remap_extra_attack_type();
 s16 is_status_subsystem_ready__10TObjPlayerFPv(s32);
 f32 query_extended_state__10TObjPlayerFPv(s32);
@@ -24,7 +24,7 @@ void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, f32 *, 0x1C) = get_attack_accuracy_scale(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC);
     M2C_FIELD(arg1, s32 *, 0x24) = (s32) is_status_subsystem_ready__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
     M2C_FIELD(arg1, f32 *, 0x20) = query_extended_state__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
-    TObjPlayer__sub_8011E484(arg0);
+    restore_action_type__11TItemWeaponFPv(arg0);
 }
 
 }

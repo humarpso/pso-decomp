@@ -34,7 +34,7 @@ M2C_UNK TObjPlayer__sub_801BF954(void *, int);
 s32 TObjPlayer__sub_801BF95C(void *);
 M2C_UNK TForceOperate__ct(void *, s32, u16);
 M2C_UNK copy_offset_position__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TObjPlayer__sub_801C5FCC(void *);
+M2C_UNK clear_movement_history(void *);
 s32 TObjPlayer__sub_801D8C3C(void *);
 u8 *TObjPlayer__sub_801D8C6C(void *);
 void *__nw__7TObjectFUl(u32);
@@ -87,7 +87,7 @@ void place_on_area_entry__10TObjPlayerFPv(u8 *arg0) {
     calc_attach_pos__10TObjPlayerFPv(arg0);
     copy_offset_position__10TObjPlayerFPvPv(arg0 + 0x84C, arg0);
     TObjPlayer__sub_801BEA38(arg0, 0, M2C_FIELD(arg0, f32 *, 0x38), M2C_FIELD(arg0, f32 *, 0x40));
-    TObjPlayer__sub_801C5FCC(arg0 + 0x6AC);
+    clear_movement_history(arg0 + 0x6AC);
     if (is_single_screen__10TObjPlayerFv() != 0) {
         reset_cameras_to_actor(arg0, 0);
     } else if (is_current_room__10TObjRoomIdFPv(arg0) != 0) {

@@ -12,7 +12,7 @@ struct RecoveredGlobal_801A5228_lbl_80446970 {
 extern "C" {
 s32 get_card_window_flags__20TWindowSubStatusDispFi(s32 arg0);
 extern RecoveredGlobal_801A5228_lbl_80446970 lbl_80446970;
-f32 TWindowSubStatusDisp__sub_801A5228(s32 _w0);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(s32 _w0);
 }
 
 extern "C" {
@@ -22,7 +22,7 @@ void *get_card_window__17TWindowSubComCardFUi(s32);
 extern s32 lbl_805D53A0;
 
 typedef char RecoveredGlobal_801A5228_lbl_80446970_size[sizeof(RecoveredGlobal_801A5228_lbl_80446970) == 0x10 ? 1 : -1];
-f32 TWindowSubStatusDisp__sub_801A5228(s32 _w0) {
+f32 get_card_window_scale__20TWindowSubStatusDispFi(s32 _w0) {
     return M2C_FIELD(((u8 *)(&lbl_80446970.value) + (get_card_window_flags__20TWindowSubStatusDispFi((s32)(_w0)) * 4)), f32 *, 0);
 }
 

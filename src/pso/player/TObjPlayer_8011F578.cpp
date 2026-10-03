@@ -22,7 +22,7 @@ extern "C" {
 
 void apply_scale_if_active__10TObjPlayerFPvf(void *arg0, f32 farg0);
 void update_active_game_effect__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_8011E484(void *);
+M2C_UNK restore_action_type__11TItemWeaponFPv(void *);
 M2C_UNK remap_extra_attack_type(void *);
 s32 is_active_in_game__10TObjPlayerFPv();
 
@@ -54,7 +54,7 @@ void apply_scale_if_active__10TObjPlayerFPvf(void *arg0, f32 farg0) {
         remap_extra_attack_type(arg0);
         temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
         ((VObj_8011F578 *)temp_r3)->m65(farg0);
-        TObjPlayer__sub_8011E484(arg0);
+        restore_action_type__11TItemWeaponFPv(arg0);
     }
 }
 
@@ -67,7 +67,7 @@ void update_active_game_effect__10TObjPlayerFPv(void *arg0) {
         remap_extra_attack_type(arg0);
         temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
         ((VObj_8011F5E0 *)temp_r3)->v67(lbl_805DAC9C);
-        TObjPlayer__sub_8011E484(arg0);
+        restore_action_type__11TItemWeaponFPv(arg0);
     }
 }
 

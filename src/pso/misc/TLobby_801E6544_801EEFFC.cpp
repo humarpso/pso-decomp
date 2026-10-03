@@ -189,10 +189,10 @@ extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
 s32 TQuestBgmCtrl__sub_801E63F4(int);
 void qst_op_playbgm_epi(void);
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
-s32 TSwitch__sub_802292E0(int);
+s32 clear_current_floor_switch(int);
 void qst_op_switch_off(void);
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
-s32 TSwitch__sub_802293A0(int);
+s32 set_current_floor_switch(int);
 void qst_op_switch_on(void);
 s32 TLobby__sub_80190FD0(int);
 extern RecoveredGlobal_80141730_lbl_8050C028 TLobby__data_80512220;
@@ -292,7 +292,7 @@ typedef char RecoveredGlobal_801F1654_TLobby__data_80512220_size[sizeof(Recovere
 #pragma pop
 typedef char RecoveredGlobal_801F00E4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F00E4_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void qst_op_switch_off(void) {
-    TSwitch__sub_802292E0((int) ((u16) (*(RecoveredGlobal_801F00E4_TLobby__data_80512220 *)&TLobby__data_80512220).value));
+    clear_current_floor_switch((int) ((u16) (*(RecoveredGlobal_801F00E4_TLobby__data_80512220 *)&TLobby__data_80512220).value));
 }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
@@ -322,7 +322,7 @@ typedef char RecoveredGlobal_801F196C_TLobby__data_80512220_size[sizeof(Recovere
 #pragma fp_contract on
 #pragma pop
 void qst_op_switch_on(void) {
-    TSwitch__sub_802293A0((int) ((u16) (*(RecoveredGlobal_801F00E4_TLobby__data_80512220 *)&TLobby__data_80512220).value));
+    set_current_floor_switch((int) ((u16) (*(RecoveredGlobal_801F00E4_TLobby__data_80512220 *)&TLobby__data_80512220).value));
 }
 #pragma push
 #pragma fp_contract on

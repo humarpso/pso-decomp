@@ -16,7 +16,7 @@ struct RecoveredGlobal_8014AAC4_lbl_804A92A8 {
 extern "C" {
 u8 * TObjNpcBase__ct(void *);
 M2C_UNK init_npc_animation__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
-M2C_UNK TObjPlayer__sub_8014394C(void *);
+M2C_UNK set_motion_interpolation_flag(void *);
 extern RecoveredGlobal_8014AAC4_lbl_8043F9C8 lbl_8043F9C8;
 extern RecoveredGlobal_8014AAC4_lbl_804A92A8 lbl_804A92A8;
 extern s32 *lbl_805D5738;
@@ -31,7 +31,7 @@ u8 *fn_8014AAC4(u8 *arg0) {
     TObjNpcBase__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A92A8.value;
     init_npc_animation__10TObjPlayerFPvPvPvPv((void *) (arg0), (void *) (&lbl_8043F9C8.value), (void *) (*lbl_805D5738), (int) (0));
-    TObjPlayer__sub_8014394C((void *) (arg0));
+    set_motion_interpolation_flag((void *) (arg0));
     return arg0;
 }
 

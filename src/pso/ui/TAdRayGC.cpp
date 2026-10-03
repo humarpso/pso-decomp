@@ -16,7 +16,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(void *, void *);
+M2C_UNK set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 lbl_804DC2E0[];
 extern s32 lbl_805D65C8;
 extern const f32 lbl_805DDD10;
@@ -42,7 +42,7 @@ void TAdRayGC__sub_8029BCB4(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3) {
         for (i = 0; i < 2; i++) {
             begin_screen_draw(1);
             set_global_param__8TObjFishFi((void *) lbl_805D65C8);
-            TWindowSubStatusDisp__sub_803DF160(p, arg2);
+            set_draw_texture_and_color(p, arg2);
             draw_textured_quad_at_depth(&lbl_804DC2E0[i], lbl_805DDD10);
             get_player__20TWindowSubStatusDispFv();
         }
@@ -52,7 +52,7 @@ void TAdRayGC__sub_8029BCB4(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3) {
         for (i = 2; i < 4; i++) {
             begin_screen_draw(1);
             set_global_param__8TObjFishFi((void *) lbl_805D65C8);
-            TWindowSubStatusDisp__sub_803DF160(p, arg2);
+            set_draw_texture_and_color(p, arg2);
             draw_textured_quad_at_depth(&lbl_804DC2E0[i], lbl_805DDD10);
             get_player__20TWindowSubStatusDispFv();
         }

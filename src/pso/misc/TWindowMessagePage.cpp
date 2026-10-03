@@ -26,7 +26,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 is_player_input_active(int);
 s32 TMCFormatSequence__sub_802693B4(void *);
-M2C_UNK TLobby__sub_80269454(void *);
+M2C_UNK complete_reveal__14TWindowMessageFPv(void *);
 M2C_UNK draw__14TWindowMessageFPv();
 void update_message__18TWindowMessagePageFPv(void *arg0);
 extern RecoveredGlobal_8026AF24_lbl_8050E208 lbl_8050E208;
@@ -106,7 +106,7 @@ void run_task__18TWindowMessagePageFv(u8 *arg0) {
             update_message__18TWindowMessagePageFPv((void *) (arg0));
             return;
         }
-        TLobby__sub_80269454((void *) (arg0));
+        complete_reveal__14TWindowMessageFPv((void *) (arg0));
     }
 }
 

@@ -26,7 +26,7 @@ int TObjPlayer__sub_801B4044(void* p);
 int attach_battle_ctrl_sub__10TObjPlayerFPv(void* p);
 s32 classify_action_state__10TObjPlayerFv(void);
 int forward_1BF500_at_63c__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_800113E4(void *, s16);
+s32 set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 s8 TObjPlayer__sub_801AFDB0();
 s32 TObjPlayer__sub_801D8E90(s32);
 s32 check_camera_mode__10TObjPlayerFv();

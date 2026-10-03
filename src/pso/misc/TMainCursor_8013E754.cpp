@@ -5,7 +5,7 @@ extern "C" {
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
-int TMainCursor__sub_8013E378(void* a0 = 0, void* a1 = 0);
+int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
 int TMainCursor__sub_8013E854(void* a0 = 0);
 void TMainCursor__sub_8013E830(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);

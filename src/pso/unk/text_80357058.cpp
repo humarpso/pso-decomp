@@ -91,7 +91,7 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 void destroy_attack_collision__14TItemAttackColFPvs(void *, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 int read_be16_field2__10TObjPlayerFPv(void*);
 M2C_UNK reset_player_transform();
@@ -238,7 +238,7 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     TObjPlayer__sub_803DF5E4(arg0 + 0xC4, 0xA);
     reset_player_transform();
     reset_transform_state__10TObjPlayerFv();
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
 }

@@ -13,7 +13,7 @@ s32 is_status_locked__10TObjPlayerFPv(s32);
 s32 is_status_flag_200__10TObjPlayerFPv(s32);
 M2C_UNK set_action_id__10TObjPlayerFPvs(s32, M2C_UNK);
 s16 get_action_id__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_801CB874(s32);
+s32 can_guard__10TObjPlayerFPv(s32);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(s32, s16, M2C_UNK);
 
 s32 try_apply_status_action__10TObjPlayerFi(s32 arg0) {
@@ -29,7 +29,7 @@ s32 try_apply_status_action__10TObjPlayerFi(s32 arg0) {
         }
         return 1;
     }
-    if (TObjPlayer__sub_801CB874(arg0) != 0) {
+    if (can_guard__10TObjPlayerFPv(arg0) != 0) {
         run_action_state_phase__10TObjPlayerFisi(arg0, 0xA, 5);
         return 1;
     }

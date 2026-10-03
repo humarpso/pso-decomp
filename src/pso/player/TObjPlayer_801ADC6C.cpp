@@ -54,14 +54,14 @@ extern void *lbl_805D5D58;
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self);
+void render__12TPhotonPillaFPv(Self_801ADDDC *self);
 void TPhotonLaser__ct(void *, void *, void *, u16);
 s32 __nw__7TObjectFUl(M2C_UNK);
 void TBoss4Zako__sub_803D8910(void *, void *);
 extern Packet_801ADD10 lbl_80446EA8;
 extern Vec_801ADD10 lbl_804C3A84[];
 extern const f32 lbl_805DC22C;
-void TObjPlayer__sub_801ADD10(u8 *self);
+void spawn_laser__12TPhotonPillaFPv(u8 *self);
 }
 
 extern "C" {
@@ -124,7 +124,7 @@ extern const f32 lbl_805DC24C;
 extern const f32 lbl_805DC250;
 extern const f32 lbl_805DC254;
 
-void TObjPlayer__sub_801ADD10(u8 *self) {
+void spawn_laser__12TPhotonPillaFPv(u8 *self) {
     Vec_801ADD10 position;
     u8 *laser;
     position.x = M2C_FIELD(self, f32 *, 0x38);
@@ -142,7 +142,7 @@ void TObjPlayer__sub_801ADD10(u8 *self) {
     }
 }
 
-void TObjPlayer__sub_801ADDDC(Self_801ADDDC *self) {
+void render__12TPhotonPillaFPv(Self_801ADDDC *self) {
     if (self->started != 0) {
         scroll_strip_uvs(lbl_805D5D58, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
@@ -204,7 +204,7 @@ void update_photon_blast(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1A8);
     if ((lbl_805DC23C == (f32) temp_r3_2) || (lbl_805DC240 == (f32) temp_r3_2) || (lbl_805DC244 == (f32) temp_r3_2) || (lbl_805DC248 == (f32) temp_r3_2) || (lbl_805DC24C == (f32) temp_r3_2) || (lbl_805DC250 == (f32) temp_r3_2)) {
-        TObjPlayer__sub_801ADD10((u8 *)(arg0));
+        spawn_laser__12TPhotonPillaFPv((u8 *)(arg0));
     }
     if (lbl_805DC254 == (f32) M2C_FIELD(arg0, s32 *, 0x1A8)) {
         apply_photon_blast_effects__10TObjPlayerFPv((void *)(arg0));

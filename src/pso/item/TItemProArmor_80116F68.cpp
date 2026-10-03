@@ -94,11 +94,11 @@ extern "C" {
 void * TItemProArmor__sub_80116F68(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProArmor__sub_80116FA4(u8 *arg0);
+u8 *create_material_item(u8 *arg0);
 void * TItemProArmor__sub_8011709C(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TItemProArmor__sub_801170D8(u8 *arg0);
+u8 *create_technique_disk_item(u8 *arg0);
 void * init__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -135,7 +135,7 @@ extern M2C_UNK lbl_8049FC90[];
 
 extern M2C_UNK lbl_8049FC90[];
 
-u8 *TItemProArmor__sub_80116FA4(u8 *arg0) {
+u8 *create_material_item(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
@@ -171,7 +171,7 @@ void *TItemProArmor__sub_8011709C(void *arg0, void * _w1, void * _w2) {
     return arg0;
 }
 
-u8 *TItemProArmor__sub_801170D8(u8 *arg0) {
+u8 *create_technique_disk_item(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

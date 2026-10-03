@@ -11,7 +11,7 @@ s32 TPlayerBattleCtrl4P__sub_80211B10(s32);
 s32 THunterGuildSeqOffline__sub_80211FEC(s32);
 s32 THunterGuildSeqOffline__sub_80212000(s32);
 s32 THunterGuildSeqOffline__sub_80212060(s32);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 lbl_8050E208[][0x50];
 extern s32 lbl_805D55C0;
@@ -25,7 +25,7 @@ s32 TLobby__sub_80211D58(s32 arg0) {
     s32 player;
     if (get_main_phase() == 14) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-            if (TLobby__sub_8030A7B0() == 0) {
+            if (get_game_play_mode() == 0) {
                 return 1;
             }
             player = TCameraCtrl__sub_80068958(0);

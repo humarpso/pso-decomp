@@ -118,7 +118,7 @@ s32 get_lobby_flag__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 extern const f32 lbl_805DC89C;
-s32 TObjPlayer__sub_80236154(void *self, int target, void *_w2, void *_w3);
+s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
@@ -129,7 +129,7 @@ s32 get_lobby_flag__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 u16 obj_getField1c(void *);
-s32 TObjPlayer__sub_80236378(void *self, int target, void *_w2, void *arg3);
+s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
 extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
 extern const f32 lbl_805DC89C;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -195,7 +195,7 @@ s32 is_valid_and_active__10TObjPlayerFUi(u32 arg0) {
 typedef char RecoveredGlobal_80236290_lbl_80516150_size[sizeof(RecoveredGlobal_80236290_lbl_80516150) == 0x88 ? 1 : -1];
 
 struct RecoveredGlobal_80236290_lbl_80516150;
-s32 TObjPlayer__sub_80236154(void *self, int target, void *_w2, void *_w3) {
+s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3) {
     Vec_80236154 pos;
     f32 range;
     s32 i;
@@ -255,7 +255,7 @@ loop_3:
     return &lbl_80516150.value;
 }
 
-s32 TObjPlayer__sub_80236378(void *self, int target, void *_w2, void *arg3) {
+s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     Vec_80236378 pos;
     f32 range;
     PD_80236378 *pd;
@@ -350,7 +350,7 @@ s32 TObjPlayer__sub_802364D8(void *self, int target, void *_w2, void *arg3) {
 }
 
 void TObjPlayer__sub_80236728(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_80236378((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
+    find_area_technique_contact((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {
@@ -358,7 +358,7 @@ void TObjPlayer__sub_80236754(u8 *arg0, s32 arg1) {
 }
 
 void TObjPlayer__sub_80236780(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_80236154((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
+    find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
 }
 
 void TObjPlayer__sub_802367AC(u8 *arg0, s32 arg1) {

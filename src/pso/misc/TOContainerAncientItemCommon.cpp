@@ -126,7 +126,7 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0);
 s32 TCameraCtrl__sub_8006B368();
 void * TOContainerAncientItemCommon__ct(void *, void *);
 s32 __nw__7TObjectFUl(int);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern s32 enable_v2_features;
 s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0);
 void submit_cursor_candidate(Obj_8015C48C *self, s32 x);
@@ -199,7 +199,7 @@ s32 TOContainerAncientItemCommon__sub_8015C108(s32 arg0) {
     s32 temp_r3_2;
     s32 var_r0;
     s32 var_r0_2;
-    if (((s32) enable_v2_features == 1) && (TLobby__sub_8030A7B0() == 1) && (TCameraCtrl__sub_8006B368() == 1)) {
+    if (((s32) enable_v2_features == 1) && (get_game_play_mode() == 1) && (TCameraCtrl__sub_8006B368() == 1)) {
         temp_r3 = __nw__7TObjectFUl((int) (0x368));
         var_r0_2 = temp_r3;
         if (var_r0_2 != 0) {

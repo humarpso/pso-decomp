@@ -13,11 +13,11 @@ M2C_UNK set_cmd_87__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK draw_and_send__10TObjPlayerFPv(M2C_UNK *);
 int TObjPlayer__sub_8011E204(void*, void*);
 int set_indexed_flags(void*, void*, void*);
-int TObjPlayer__sub_801B12CC(void*);
+int activate_body_collision__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BE9A8(void*);
 int TObjPlayer__sub_801C5B18(void*);
 int TObjPlayer__sub_801C8770(void* p);
-int TObjPlayer__sub_801B130C(void*);
+int deactivate_body_collision__10TObjPlayerFPv(void*);
 
 int handle_6x57(void);
 void draw_and_send_field1c__10TObjPlayerFi(s32 arg0) {

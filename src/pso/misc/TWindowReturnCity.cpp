@@ -31,7 +31,7 @@ extern "C" {
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void *get_player_by_client_id(s32);
 s32 TLobby__sub_80207770(s32);
-M2C_UNK TKeyBoardControl__sub_8000F998();
+M2C_UNK mark_area_change_pending();
 M2C_UNK TObjPlayer__sub_801B31D8();
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0();
@@ -104,7 +104,7 @@ void TWindowReturnCity__sub_8026D18C(void) {
             TObjPlayer__sub_801B31D8();
         }
         set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (0), (int) (TLobby__sub_80207770(0)));
-        TKeyBoardControl__sub_8000F998();
+        mark_area_change_pending();
         get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
         TNpcPlayer__sub_8034E7A0();
         (*(s32 *)&TWindowReturnCity__data_805D6468) = 4;

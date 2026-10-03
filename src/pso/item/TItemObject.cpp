@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void copy_and_register_item_data__11TItemObjectFPv(void *arg0);
-s32 fn_80101A48(s32 arg0, s32 arg1);
+s32 is_item_stackable(s32 arg0, s32 arg1);
 int fn_80101A98(int a0);
 int fn_80101AA8(void);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
@@ -21,7 +21,7 @@ void copy_and_register_item_data__11TItemObjectFPv(void *arg0) {
     get_item_use_result__9TItemDataFPv(&sp8);
 }
 
-s32 fn_80101A48(s32 arg0, s32 arg1) {
+s32 is_item_stackable(s32 arg0, s32 arg1) {
     if (arg0 == 4) {
         return 1;
     }

@@ -14,7 +14,7 @@ s32 TObjDoorJung__sub_8023DBEC(List_8023DBEC *list, const char *name);
 extern "C" {
 
 void free_children__12TObjDoorJungFPvPv(void *arg0, void *arg1);
-void fn_8023DCB8(void *);
+void set_material_texture_slot(void *);
 
 s32 TObjDoorJung__sub_8023DBEC(List_8023DBEC *list, const char *name) {
     Ent_8023DBEC *ents;
@@ -34,10 +34,10 @@ s32 TObjDoorJung__sub_8023DBEC(List_8023DBEC *list, const char *name) {
 
 void free_children__12TObjDoorJungFPvPv(void *arg0, void *arg1) {
     if (M2C_FIELD(arg0, void **, 0x8) != NULL) {
-        fn_8023DCB8(M2C_FIELD(arg0, void **, 0x8));
+        set_material_texture_slot(M2C_FIELD(arg0, void **, 0x8));
     }
     if (M2C_FIELD(arg0, void **, 0xC) != NULL) {
-        ((void (*)(void *, void *))fn_8023DCB8)(M2C_FIELD(arg0, void **, 0xC), arg1);
+        ((void (*)(void *, void *))set_material_texture_slot)(M2C_FIELD(arg0, void **, 0xC), arg1);
     }
 }
 

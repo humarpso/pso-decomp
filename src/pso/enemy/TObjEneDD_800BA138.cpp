@@ -148,7 +148,7 @@ int set_state_8__9TObjEneDDFPv(void* p);
 void setup__9TObjEneDDFPvii(void* p, int a1, int a2);
 void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3);
 void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
-int TObjEneDD__sub_800BA754(void* a0 = 0, void* a1 = 0, void* a2 = 0);
+int is_target_unobstructed__9TObjEneDDFii(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int add_flags_2e4__10TObjPlayerFPvUi(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK fn_800BC3E8(void *, s32);
@@ -282,6 +282,6 @@ u8 is_alive__9TObjEneDDFPv(void *arg0) {
     }
     return (u8) var_r31;
 }
-void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1) { TObjEneDD__sub_800BA754(a1, (char*)p + 0x2fc, p); }
+void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1) { is_target_unobstructed__9TObjEneDDFii(a1, (char*)p + 0x2fc, p); }
 
 }

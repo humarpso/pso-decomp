@@ -40,7 +40,7 @@ M2C_UNK TWindowSubComCard__sub_80265E60(u32, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, u32, M2C_UNK, M2C_UNK);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK *, M2C_UNK, M2C_UNK);
 u32 check_room_seq_4__16TAdChrSelASlotGCFii(M2C_UNK *, M2C_UNK);
-M2C_UNK TLobby__sub_80269454(u32);
+M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
 u32 TLobby__sub_80269CC0(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK);
 u32 update_window_mode_from_progress__6TLobbyFiPv(M2C_UNK *, M2C_UNK *);
@@ -87,7 +87,7 @@ void TWindowSubComCard__sub_8033BDB0(void *arg0, u32 arg1, s32 arg2, u32 arg3, u
     if (arg1 != 0U) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x30), arg1, 3);
     }
-    TLobby__sub_80269454(M2C_FIELD(arg0, u32 *, 0x30));
+    complete_reveal__14TWindowMessageFPv(M2C_FIELD(arg0, u32 *, 0x30));
     if (arg2 == -1) {
         return;
     }

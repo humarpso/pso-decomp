@@ -84,7 +84,7 @@ void enable_all_battle_ctrl__10TNpcPlayerFv(void);
 void send_item_pickup_request__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(s32);
 void TNpcPlayer__sub_8034E4B0(u16 arg0);
-M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
+M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 s32 get_player_by_client_id(s32);
 M2C_UNK send_6x21_inter_level_warp(s32, s32);
 u16 get_action_flags__10TNpcPlayerFPv(s32);
@@ -93,12 +93,12 @@ s32 obj_isState3_324();
 void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2);
 void TNpcPlayer__sub_8034EA80(s16 arg0);
 void TNpcPlayer__sub_8034EAC4(s16 arg0);
-M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
+M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 M2C_UNK notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
 void TNpcPlayer__sub_8034EB08(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void send_6x24_teleport_player(u16, s32, s32);
-M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
+M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 void TNpcPlayer__sub_8034EC40(s16 arg0, s16 arg1, u8 *arg2, s32 arg3);
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034EDB8(void);
@@ -135,7 +135,7 @@ extern E_8034E02C lbl_804F0280[];
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E5A8(s16 key);
 void send_6x24_teleport_player(u16, s32, s32);
-M2C_UNK TObjPlayer__sub_801C5F54(s32, s32, f32, f32, f32);
+M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
 void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading);
@@ -347,7 +347,7 @@ void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
     do {
         temp_r3 = get_player_by_client_id(var_r31);
         if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) get_action_flags__10TNpcPlayerFPv(temp_r3) != 0xFFFF)) {
-            TObjPlayer__sub_801C5F54(obj_getField1c(temp_r3), arg2, M2C_FIELD(arg1, f32 *, 0), M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg1, f32 *, 8));
+            set_arrival_override_coords(obj_getField1c(temp_r3), arg2, M2C_FIELD(arg1, f32 *, 0), M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg1, f32 *, 8));
             send_6x21_inter_level_warp(temp_r3, arg0);
         }
         var_r31 += 1;
@@ -397,7 +397,7 @@ loop_1:
         }
     }
     stack.spE = arg1;
-    TObjPlayer__sub_801C5F54((s32)((void *) (arg1)), (s32)((void *) (arg4)), (f32) (M2C_FIELD(arg3, f32 *, 0)), (f32) (M2C_FIELD(arg3, f32 *, 4)), (f32) (M2C_FIELD(arg3, f32 *, 8)));
+    set_arrival_override_coords((s32)((void *) (arg1)), (s32)((void *) (arg4)), (f32) (M2C_FIELD(arg3, f32 *, 0)), (f32) (M2C_FIELD(arg3, f32 *, 4)), (f32) (M2C_FIELD(arg3, f32 *, 8)));
     send_state_60__10TNpcPlayerFPv((void*)((void *) (&stack.sp8)));
 }
 
@@ -409,7 +409,7 @@ void TNpcPlayer__sub_8034EBB0(u16 leader, u16 slot, s32 appearance, f32 *p, s32 
     pkt.zero = 0;
     pkt.appearance = appearance;
     pkt.slot = slot;
-    TObjPlayer__sub_801C5F54(slot, heading, p[0], p[1], p[2]);
+    set_arrival_override_coords(slot, heading, p[0], p[1], p[2]);
     send_state_60__10TNpcPlayerFPv((void*)(&pkt));
     send_6x24_teleport_player(pkt.slot, (s32)p, heading);
 }
@@ -422,7 +422,7 @@ void TNpcPlayer__sub_8034EC40(s16 arg0, s16 arg1, u8 *arg2, s32 arg3) {
     stack.sp10 = 0;
     stack.sp12 = arg1;
     stack.spE = 1;
-    TObjPlayer__sub_801C5F54((s32)(1U), (s32)(arg3), M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 4), M2C_FIELD(arg2, f32 *, 8));
+    set_arrival_override_coords((s32)(1U), (s32)(arg3), M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 4), M2C_FIELD(arg2, f32 *, 8));
     send_state_60__10TNpcPlayerFPv((void*)(&stack.sp8));
     send_6x24_teleport_player(stack.spE, (s32) arg2, arg3);
 }

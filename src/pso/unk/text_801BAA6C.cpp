@@ -64,7 +64,7 @@ void TObjPlayer__sub_803D9B2C(void);
 void pop_matrix(void);
 extern const f32 TObjPlayer__data_805DC294;
 extern const f32 lbl_805DC2C8;
-void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2);
+void draw_projected_shadow__10TObjPlayerFPvPvi(VObj_801BAB78 *self, f32 *pos, s32 arg2);
 }
 
 extern "C" {
@@ -97,7 +97,7 @@ void send_6x21_inter_level_warp(void *obj, s32 value) {
         TObjPlayer__sub_801C18AC(&m);
     }
 }
-void TObjPlayer__sub_801BAB78(VObj_801BAB78 *self, f32 *pos, s32 arg2) {
+void draw_projected_shadow__10TObjPlayerFPvPvi(VObj_801BAB78 *self, f32 *pos, s32 arg2) {
     Vec_801BAB78 v;
     s32 a;
     s32 b;

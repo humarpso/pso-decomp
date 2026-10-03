@@ -12,7 +12,7 @@ extern "C" {
 Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void *get_field_20__17TWindowSubComCardFPv(void *);
 void reset_float_field__15TWindowHelpItemFPv(void *);
-void TLobby__sub_80269454(Win_80269454 *self);
+void complete_reveal__14TWindowMessageFPv(Win_80269454 *self);
 Entry_80269454 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void *get_field_20__17TWindowSubComCardFPv(void *);
 s32 TWindowSubComCard__sub_80244AD8();
@@ -39,7 +39,7 @@ s32 TMCFormatSequence__sub_802693B4(struct Win_802693B4 *arg0) {
     return 1;
 }
 
-void TLobby__sub_80269454(Win_80269454 *self) {
+void complete_reveal__14TWindowMessageFPv(Win_80269454 *self) {
     Line_80269454 *lines;
     u32 i;
     Entry_80269454 *e;

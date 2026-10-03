@@ -367,7 +367,7 @@ struct VObj_18_e66632 : VBase_18_e66632 {
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 update_angle__14TObjEneEpsilonFPvi(void *, int);
-s32 TObjEneEpsilon__sub_800B96A4(void *);
+s32 enemy_copy_target_destination(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 s32 update_velocity__9TObjEneDDFPv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
@@ -400,7 +400,7 @@ extern const f32 lbl_805DA890;
 void TObjEneMe3Stelth__sub_800F42B8(u8 *arg0, s32 arg1);
 M2C_UNK enemy_turn_and_move_on_ground(void *, int, f32);
 s32 update_angle__14TObjEneEpsilonFPvi(void *, int);
-s32 TObjEneEpsilon__sub_800B96A4(void *);
+s32 enemy_copy_target_destination(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 s32 update_velocity__9TObjEneDDFPv(void *);
 s32 set_field_378__9TObjEneDDFPvi(void *, int);
@@ -451,7 +451,7 @@ void TObjEneMe3Stelth__sub_800F39E4(u8 *arg0, s32 arg1) {
     case 0:
         advance_animation_playback(arg0);
         if (update_linked_position__14TObjEneEpsilonFPv((void *) (arg0), (f32) (TObjEneMe3Stelth__data_805DA848)) != 0) {
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             TObjEneMe3Stelth__sub_800F0C90((void *) (arg0));
             temp_f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
@@ -542,7 +542,7 @@ void TObjEneMe3Stelth__sub_800F40C8(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x424) = (s32) (M2C_FIELD(arg0, s32 *, 0x424) + 1);
         advance_animation_playback((void *) (arg0));
         if (update_linked_position__14TObjEneEpsilonFPv((void *) (arg0), (f32) (TObjEneMe3Stelth__data_805DA848)) != 0) {
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             temp_f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
             M2C_FIELD(arg0, f32 *, 0x434) = (f32) ((M2C_FIELD(arg0, f32 *, 0x3A0) * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)))) + temp_f31);

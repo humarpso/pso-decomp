@@ -23,7 +23,7 @@ extern "C" {
 
 s32 TItemDrop__sub_800F9C00(void *);
 void *construct__9TItemDropFPv(void *);
-s32 TLobby__sub_800F9DF4(void *, void *);
+s32 read_disc_file(void *, void *);
 void *destroy__9TItemDropFPvs(void *arg0, s16 arg1);
 int fn_800F953C(void* p);
 int fn_800F955C(void* p);
@@ -81,7 +81,7 @@ s32 TItemDrop__sub_800F94BC(s32 arg0, s32 arg1) {
     Drop_800F9448 d;
     s32 n;
 
-    n = TLobby__sub_800F9DF4((void *) arg0, (void *) arg1);
+    n = read_disc_file((void *) arg0, (void *) arg1);
     if (n > 0) {
         d.b = n;
         d.a = arg1;

@@ -14,9 +14,9 @@ void add_stat_and_item__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1);
 s32 TLobby__sub_800822E8(s32, s32);
-s32 TLobby__sub_8030A7B0();
-M2C_UNK TObjPlayer__sub_80011274(void *, int);
-M2C_UNK TObjPlayer__sub_80011378(void *, int);
+s32 get_game_play_mode();
+M2C_UNK add_actor_tp_bonus(void *, int);
+M2C_UNK add_actor_hp_bonus(void *, int);
 int is_locally_controlled__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801AEB80(void);
 void stop_force_if_alive__10TObjPlayerFPv(void* p);
@@ -139,7 +139,7 @@ void set_speed_scaled_by_camera__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
         var_r31 *= 5;
     }
-    TObjPlayer__sub_80011274((void *) (arg0), (int) (var_r31));
+    add_actor_tp_bonus((void *) (arg0), (int) (var_r31));
 }
 
 }
@@ -150,7 +150,7 @@ void apply_speed_with_camera_scale__10TObjPlayerFiUc(s32 arg0, u8 arg1) {
     if (is_camera_mode_active__10TObjPlayerFv() != 0) {
         var_r31 *= 5;
     }
-    TObjPlayer__sub_80011378((void *) (arg0), (int) (var_r31));
+    add_actor_hp_bonus((void *) (arg0), (int) (var_r31));
 }
 
 }

@@ -75,7 +75,7 @@ extern const Packet_801AA710 lbl_80446CE8;
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DC138;
 extern const f32 lbl_805DC13C;
-void fn_801AA710(Self_801AA710 *self);
+void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
@@ -106,7 +106,7 @@ void render__13TPhotonEstllaFv(Self_801AA818 *self);
 
 extern "C" {
 
-void fn_801AA710(Self_801AA710 *self) {
+void spawn_line__13TPhotonEstllaFPv(Self_801AA710 *self) {
     Owner_801AA710 *owner;
     Vec_801AA710 forward;
     Vec_801AA710 direction;
@@ -197,7 +197,7 @@ void run_task__13TPhotonEstllaFv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
     M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
     if (lbl_805DC144 == (f32) M2C_FIELD(arg0, s32 *, 0x1A0)) {
-        fn_801AA710((Self_801AA710 *)((void *) (arg0)));
+        spawn_line__13TPhotonEstllaFPv((Self_801AA710 *)((void *) (arg0)));
     }
     if ((f32) M2C_FIELD(arg0, s32 *, 0x1A0) > lbl_805DC148) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x180);

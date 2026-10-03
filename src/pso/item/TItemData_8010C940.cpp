@@ -29,7 +29,7 @@ int register_drop__9TItemDataFPv(void* p);
 void *lookup_item_pmt_record();
 void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
 s32 bswap_16__FPUs(s16 *);
-s32 fn_80101A48(u8, u8);
+s32 is_item_stackable(u8, u8);
 s32 lookup_item_def__9TItemDataFPv();
 int register_item_drop__10TObjPlayerFPv(void*);
 

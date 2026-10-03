@@ -39,7 +39,7 @@ struct RecoveredGlobal_800823E0_lbl_80438EC8 {
 extern "C" {
 f32 TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TTecRaFoie__sub_80082688(u8 *arg0, u8 *arg1, f32 farg0);
+void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 fn_8008271C(void *, void *, f32);
 s32 fn_80082764(void *, void *, f32);
@@ -54,7 +54,7 @@ void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
 M2C_UNK fn_80082954(void *);
 M2C_UNK fn_800829E0(void *);
 M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK begin_effect_render__13TParticleCtrlFv(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -114,7 +114,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     fn_80082954((void *) (&sp8));
     some_id_805c6f74 = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
 }
 
 void run_task__12TEffCliticalFv(u8 *arg0) {
@@ -211,7 +211,7 @@ void TEffClitical__sub_80082674(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 ar
     M2C_FIELD(arg0, s32 *, 8) = arg4;
     M2C_FIELD(arg0, s32 *, 0xC) = arg3;
 }
-void TTecRaFoie__sub_80082688(u8 *arg0, u8 *arg1, f32 farg0) {
+void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0) {
     Stack_80082688 stack;
     f32 temp_f1;
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);

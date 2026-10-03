@@ -55,7 +55,7 @@ f32 horizontal_distance_squared(void *, void *);
 M2C_UNK TParticleCtrl__sub_803DA7A8(int);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 int fn_802AF64C(void*);
 M2C_UNK fn_803E29B0(void *, int, int);
 void queue_destruction__7TObjectFv(void *);
@@ -105,7 +105,7 @@ void render__16TPlayerFootStampFv(u8 *arg0) {
         TParticleCtrl__sub_803DA7A8((int) (M2C_FIELD(arg0, s16 *, 0xBE)));
         set_depth_buffer_settings_1__Fv();
         fn_803E29B0((void *) (arg0 + 0x1C), (int) (4), (int) (1));
-        fn_80141A30();
+        restore_saved_depth_alpha_state();
         some_id_805c6f74 = lbl_805D5660;
     }
 }

@@ -521,7 +521,7 @@ struct Vec_800B62AC { f32 x, y, z; };
 extern "C" {
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 s32 enemy_validate_retained_target(void *);
-void TObjEneEpsilon__sub_800B96A4(void *);
+void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -537,7 +537,7 @@ extern const f32 lbl_805D9E38;
 void alerted_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void set_attack_flag__14TObjEneBm5WolfFPv(void *);
 void set_anim_state__14TObjEneBm5WolfFPv(void *);
-void TObjEneEpsilon__sub_800B96A4(void *);
+void enemy_copy_target_destination(void *);
 void enemy_clear_target(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
@@ -550,9 +550,9 @@ void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
-void TObjEneEpsilon__sub_800B96A4(void *);
+void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
-int TObjEneDD__sub_800BABA4(void *, s32);
+int has_move_failures__9TObjEneDDFPvi(void *, s32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -579,7 +579,7 @@ s32 TObjEneBm5Wolf__sub_800B8A9C(void *actor, s32 max);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
 void update_velocity__9TObjEneDDFPv(void *);
 f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
-int TObjEneDD__sub_800BABA4(void *, s32);
+int has_move_failures__9TObjEneDDFPvi(void *, s32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
 f32 TBoss8Dragon__sub_803D64C0(s32 angle);
@@ -643,7 +643,7 @@ void hurt_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 angle, f32 speed);
-s32 TObjBoss2Tunnel__sub_8007E84C(void *, void *);
+s32 is_vec_xz_cross_negative(void *, void *);
 void play_footsteps__14TObjEneBm5WolfFPv(void *actor);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
@@ -745,7 +745,7 @@ void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *, s32, void *, void *);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 void TObjEneBm5Wolf__sub_800B7D44(void *);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
-void TObjEneEpsilon__sub_800B96A4(void *);
+void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK TObjEneDD__sub_800BACE0(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -1105,7 +1105,7 @@ void TObjEneBm5Wolf__sub_800B56CC(u8 *arg0, s32 arg1) {
             t = M2C_FIELD(arg0, u8 **, 0x390);
             d.x = M2C_FIELD(t, f32 *, 0x38) - M2C_FIELD(arg0, f32 *, 0x38);
             d.z = M2C_FIELD(t, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40);
-            if (TObjBoss2Tunnel__sub_8007E84C(&a, &d) != 0) {
+            if (is_vec_xz_cross_negative(&a, &d) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x42C) = 0x5000;
             } else {
                 M2C_FIELD(arg0, s32 *, 0x42C) = -0x5000;
@@ -1180,7 +1180,7 @@ void flanking_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
             }
             play_proximity_effect__14TObjEneBm5WolfFi((s32)arg0);
             if (objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DF4) != 0) {
-                TObjEneEpsilon__sub_800B96A4(arg0);
+                enemy_copy_target_destination(arg0);
                 update_velocity__9TObjEneDDFPv(arg0);
                 if (M2C_FIELD(arg0, s32 *, 0x420) == 0) {
                     M2C_FIELD(arg0, s32 *, 0x420) = 1;
@@ -1228,7 +1228,7 @@ void chasing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
             transition_enemy_state((void *)(arg0), (M2C_UNK)(7));
             break;
         }
-        if (TObjEneDD__sub_800BABA4(arg0, 0xA) != 0) {
+        if (has_move_failures__9TObjEneDDFPvi(arg0, 0xA) != 0) {
             transition_enemy_state((void *)(arg0), (M2C_UNK)(9));
             break;
         }
@@ -1248,7 +1248,7 @@ void chasing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
             play_proximity_effect__14TObjEneBm5WolfFi((s32) arg0);
         }
         if (update_death_check__14TObjEneEpsilonFPv(arg0) != 0) {
-            TObjEneEpsilon__sub_800B96A4(arg0);
+            enemy_copy_target_destination(arg0);
             update_velocity__9TObjEneDDFPv(arg0);
             if (M2C_FIELD(arg0, f32 *, 0xC0) >= TObjEneBm5Wolf__data_805D9DF4) {
                 M2C_FIELD(arg0, f32 *, 0x404) = (f32) (M2C_FIELD(arg0, f32 *, 0x404) * TObjEneBm5Wolf__data_805D9DB0);
@@ -1329,7 +1329,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
             if ((this->destinationDistance < this->stoppingDistance) || ((s32) this->roamingTimer > 0x64)) {
                 this->roamingSubstate = 1;
                 this->desiredSpeed = (f32) TObjEneBm5Wolf__data_805D9D78;
-            } else if (((s32)TObjEneDD__sub_800BABA4(this, 0x14)) != 0) {
+            } else if (((s32)has_move_failures__9TObjEneDDFPvi(this, 0x14)) != 0) {
                 this->roamingTimer = 0;
                 choose_roaming_destination();
                 this->desiredSpeed = rand_range__9TObjEneDDFff(this, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D8C);
@@ -1453,7 +1453,7 @@ void standing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
       objInBand__FP7GameObjf(arg0, TObjEneBm5Wolf__data_805D9DEC);
       if (enemy_validate_retained_target(arg0) != 0)
     {
-      TObjEneEpsilon__sub_800B96A4(arg0);
+      enemy_copy_target_destination(arg0);
       update_velocity__9TObjEneDDFPv(arg0);
       TObjEneBm5Wolf__sub_800B7D44(arg0);
     }
@@ -1524,7 +1524,7 @@ void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     }
       if (((u32) (*((u32 *) (((s8 *) arg0) + 0x390)))) != 0U)
     {
-      TObjEneEpsilon__sub_800B96A4(arg0);
+      enemy_copy_target_destination(arg0);
       set_anim_state__14TObjEneBm5WolfFPv(arg0);
       temp_r3 = (u8 *) find_entity_by_id(*((u16 *) (((s8 *) arg0) + 0x3E0)));
       if (temp_r3 != 0)

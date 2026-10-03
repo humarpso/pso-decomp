@@ -42,7 +42,7 @@ int memset(void*, void*, void*);
 extern RecoveredGlobal_801F5E7C_lbl_805129F8 lbl_805129F8;
 void TQuestThread__sub_801F5E7C(void);
 s32 queue_destruction__7TObjectFv(void *);
-s32 fn_801F56A8(void *, void *);
+s32 copy_quest_script_context(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801F5CB0___vt__12TQuestThread __vt__12TQuestThread;
 extern s32 lbl_805D35D0;
@@ -123,7 +123,7 @@ u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TQuestThread.value;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D35D0;
-    fn_801F56A8((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
+    copy_quest_script_context((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
     M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x20) + (arg2 * 4)), s32 *, 0);
     M2C_FIELD(arg0, s32 *, 0x190) = 0;
     if (M2C_FIELD(arg0, s32 *, 0x3C) == -1) {

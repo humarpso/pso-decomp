@@ -110,7 +110,7 @@ void end_effect_render__13TParticleCtrlFv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
-void TLobby__sub_80269454(void *);
+void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *TLobby__sub_80269CC0(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
@@ -139,7 +139,7 @@ void controller_stuff__Fv(void);
 void render_tick__Fv(void);
 void render__9TMainTaskFv(void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
-void TLobby__sub_80269454(void *);
+void complete_reveal__14TWindowMessageFPv(void *);
 void send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *TLobby__sub_80269CC0(f32 *, f32 *, s32, s32);
 void func_803DCDFC__Fv(void);
@@ -188,7 +188,7 @@ s32 TObjBoss2Tunnel__sub_8007C5C0(void) {
         send_and_handle__6TLobbyFPvii(win, get_localized_text_entry(0x24, 0xB), 3);
         set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
     }
-    TLobby__sub_80269454(win);
+    complete_reveal__14TWindowMessageFPv(win);
     graph = create__8TDLGraphFv();
     if (graph != NULL) {
         set_graph_param__8TDLGraphFPvi(graph, 2);
@@ -274,7 +274,7 @@ void TObjBoss2Tunnel__sub_8007C8AC(s32 arg0) {
             break;
         }
         set_field_1c__6TLobbyFPvf(win, lbl_805D921C);
-        TLobby__sub_80269454(win);
+        complete_reveal__14TWindowMessageFPv(win);
     }
     if (get_main_phase() == 0xF) {
         reset_state_flags__6TLobbyFv();

@@ -85,12 +85,12 @@ M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 s32 get_target_field_1c__10TObjPlayerFPv(void *);
 f32 get_attached_float_24__10TObjPlayerFPv(void *);
 extern const f32 TObjPlayer__data_805DC368;
-void TObjPlayer__sub_801D09FC(u8 *arg0);
+void check_idle_movement_request__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801D09FC(u8 *arg0) {
+void check_idle_movement_request__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r31;
     temp_f31 = get_attached_float_24__10TObjPlayerFPv((void *) (arg0 + 0x550));

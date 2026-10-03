@@ -1313,7 +1313,7 @@ extern const f32 TObjEneMe3ShinowaMirage__data_805DA5EC;
 void TObjEneMe3ShinowaMirage__sub_800E4DD0(u8 *arg0, s32 arg1);
 M2C_UNK enemy_turn_and_move_on_ground(void *, int, f32);
 M2C_UNK update_angle__14TObjEneEpsilonFPvi(void *, int);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 s32 update_linked_position__14TObjEneEpsilonFPv(f32);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -1667,7 +1667,7 @@ void TObjEneMe3ShinowaMirage__sub_800E64F4(u8 *arg0, s32 arg1) {
     case 0:
         ((void (*)())advance_animation_playback)();
         if (((s32 (*)(void *, f32))update_linked_position__14TObjEneEpsilonFPv)(arg0, TObjEneMe3ShinowaMirage__data_805DA5F4) != 0) {
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             temp_f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
             M2C_FIELD(arg0, f32 *, 0x414) = (f32) ((M2C_FIELD(arg0, f32 *, 0x3A0) * TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)))) + temp_f31);

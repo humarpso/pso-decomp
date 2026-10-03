@@ -68,7 +68,7 @@ s32 is_split_screen(void);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D53A0;
 extern s32 tl_07;
-u8 *TCameraCtrl__sub_8006B438(s32 arg0);
+u8 *create_conversation_camera(s32 arg0);
 u8 * TCameraCtrl__sub_800686BC(void *, s16);
 void __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8006BA08_lbl_80488B08 lbl_80488B08;
@@ -121,8 +121,8 @@ void update_battle_camera__11TCameraCtrlFv(void);
 M2C_UNK restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
 void TCameraCtrl__sub_8006CCEC();
-M2C_UNK TObjPlayer__sub_801B12CC();
-M2C_UNK TObjPlayer__sub_801B130C();
+M2C_UNK activate_body_collision__10TObjPlayerFPv();
+M2C_UNK deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -133,7 +133,7 @@ extern s32 lbl_805D53A0;
 
 void update_active_player__11TCameraCtrlFv(void) {
     if (get_player_by_client_id(lbl_805D53A0) != 0U) {
-        TObjPlayer__sub_801B12CC();
+        activate_body_collision__10TObjPlayerFPv();
     }
 }
 
@@ -141,14 +141,14 @@ extern s32 lbl_805D53A0;
 
 void update_battle_camera__11TCameraCtrlFv(void) {
     if (get_player_by_client_id(lbl_805D53A0) != 0U) {
-        TObjPlayer__sub_801B130C();
+        deactivate_body_collision__10TObjPlayerFPv();
     }
 }
 
 extern const M2C_UNK lbl_80488AD8[];
 extern s32 TCameraCtrl__data_805D4E10;
 
-u8 *TCameraCtrl__sub_8006B438(s32 arg0) {
+u8 *create_conversation_camera(s32 arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     u8 *var_r0;

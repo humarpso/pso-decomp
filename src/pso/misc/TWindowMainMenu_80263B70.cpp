@@ -12,7 +12,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_short_mail_ctrl__6TLobbyFv();
 s32 TWindowSubTradeMain__sub_802D3924(s32);
 extern s32 lbl_805D53A0;
-s32 TWindowMainMenu__sub_80263E40(u8 *arg0, s16 *arg1, s32 *arg2);
+s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0) {
     TWindowMainMenu__sub_80263DBC(arg0);
 }
 
-s32 TWindowMainMenu__sub_80263E40(u8 *arg0, s16 *arg1, s32 *arg2) {
+s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) {
     u8 *base;
     u8 *p;
     s32 st;

@@ -95,7 +95,7 @@ s8 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 u32 csnVecterUnder(Vec_80105538 *, s32);
-s32 TLobby__sub_80104820();
+s32 is_valid_drop_floor();
 void dispatch_packet_wrapper__6TLobbyFPv(void *);
 void build_6x06_send_guild_card(void *);
 extern s32 lbl_805D53A0;
@@ -161,7 +161,7 @@ void send_6x60_standard_drop_item_request(Obj_80105538 *self) {
         p2 = get_player_by_client_id(lbl_805D53A0);
         if (p1 != 0 && p2 != 0) {
             get_current_floor();
-            if (TLobby__sub_80104820() != 0 &&
+            if (is_valid_drop_floor() != 0 &&
                 (get_field_3e4__10TObjPlayerFPv(p1) != get_field_3e4__10TObjPlayerFPv(p2) ||
                  TLobby__data_805D53AC == lbl_805D53A0)) {
                 if (self->f2c != -1) {

@@ -84,7 +84,7 @@ s32 TLobby__sub_8013AD50(u32);
 s32 TLobby__sub_8013AD5C(u32);
 s8 TLobby__sub_8013AD6C(u32);
 s32 TLobby__sub_8013AD74(u32);
-M2C_UNK TLobby__sub_80269454(u32);
+M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 s32 TMCFormatSequence__sub_802693B4(u32);
 s32 TWindowMakeTeam__sub_80264B24(u32);
 s32 TWindowMakeTeam__sub_80264B38(u32);
@@ -144,7 +144,7 @@ void update__6TLobbyFv(void) {
     if ((u32) TLobby__data_805D55DC != 0U) {
         if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0) {
             if (TMCFormatSequence__sub_802693B4(TLobby__data_805D55DC) == 0) {
-                TLobby__sub_80269454(TLobby__data_805D55DC);
+                complete_reveal__14TWindowMessageFPv(TLobby__data_805D55DC);
             } else {
                 TWindow__close(TLobby__data_805D55DC);
                 TLobby__data_805D55DC = 0U;

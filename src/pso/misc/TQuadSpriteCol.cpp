@@ -54,7 +54,7 @@ s32 set_global_param__8TObjFishFi(void *);
 s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+s32 set_draw_texture_and_color(int, int);
 s32 TWindowKeyBoardSoft__sub_803DF1B0(int);
 extern Cam_801E4FF0 lbl_8058D4F8;
 extern const f32 lbl_805DC450;
@@ -110,7 +110,7 @@ void render__14TQuadSpriteColFv(Self_801E4FF0 *self) {
     begin_effect_render__13TParticleCtrlFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi((void *)self->desc->param4);
-    TWindowSubStatusDisp__sub_803DF160(self->desc->param8, self->desc->param1C);
+    set_draw_texture_and_color(self->desc->param8, self->desc->param1C);
     one = lbl_805DC454;
     for (i = 0, ci = 0, li = 0; i < self->desc->count; i++, ci += 0x10, li += 0x2C) {
         Col_801E4FF0 *c = (Col_801E4FF0 *)((u8 *)self->desc->cols + ci);

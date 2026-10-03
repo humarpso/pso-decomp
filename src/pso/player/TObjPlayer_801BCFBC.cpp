@@ -15,7 +15,7 @@ s32 TObjPlayer__sub_8001BEF8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AFF0C(void *);
 M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
-M2C_UNK TObjPlayer__sub_801CA35C(void *);
+M2C_UNK restart_death_pose__10TObjPlayerFPv(void *);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, M2C_UNK, M2C_UNK);
 
@@ -35,7 +35,7 @@ void update_action_animation__10TObjPlayerFPv(u8 *arg0) {
             if (TObjPlayer__sub_8001BEF8(arg0 + 0x858, 1) != 0) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = get_action_animation__10TObjPlayerFPv(arg0);
             } else {
-                TObjPlayer__sub_801CA35C(arg0);
+                restart_death_pose__10TObjPlayerFPv(arg0);
             }
             set_pos_z__10TObjPlayerFPvf(arg0 + 0x5FC, TObjPlayer__data_805DC294);
             revive_or_spawn_marker__10TObjPlayerFi(arg0);

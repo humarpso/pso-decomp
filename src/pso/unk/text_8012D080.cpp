@@ -13,14 +13,14 @@ extern const f32 lbl_805DAF08;
 extern const f32 lbl_805DAF0C;
 extern const f32 lbl_805DAF10;
 extern const f32 lbl_805DAF14;
-void TObjPlayer__sub_8012D080(u8 *self);
+void update_soul_scythe_sweep(u8 *self);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_8012D080(u8 *self) {
+void update_soul_scythe_sweep(u8 *self) {
     s32 flag;
     s32 ok;
     s32 lo;

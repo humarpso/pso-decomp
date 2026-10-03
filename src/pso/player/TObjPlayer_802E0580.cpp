@@ -33,7 +33,7 @@ extern "C" {
 
 void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_8014394C(void*);
+int set_motion_interpolation_flag(void*);
 M2C_UNK TObjPlayer__sub_802E0468(f32);
 
 extern const f32 lbl_805DE8A8;
@@ -42,7 +42,7 @@ void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
     TObjPlayer__sub_802E0468(lbl_805DE8A8);
 }
 
-void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1) { *(void**)((char*)p + 0x34) = a1; TObjPlayer__sub_8014394C(p); draw_model_with_callback__10TObjPlayerFPv(p); }
+void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1) { *(void**)((char*)p + 0x34) = a1; set_motion_interpolation_flag(p); draw_model_with_callback__10TObjPlayerFPv(p); }
 void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));

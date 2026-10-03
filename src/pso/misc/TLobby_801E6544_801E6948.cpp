@@ -48,12 +48,12 @@ u32 get_player_by_client_id(s32);
 void append_string(s32 arg0);
 extern char lbl_80449C9C[];
 extern s32 lbl_805D53A0;
-void TLobby__sub_801E6B20(void);
+void append_hero_class_name(void);
 u32 get_player_by_client_id(s32);
 void append_string(s32 arg0);
 extern char lbl_80449CA8[];
 extern s32 lbl_805D53A0;
-void TLobby__sub_801E6B68(void);
+void append_hero_name(void);
 s32 is_split_screen();
 char *TLobby__sub_800713C8();
 void append_string(s32 arg0);
@@ -125,7 +125,7 @@ void TLobby__sub_801E6AE0(void) {
     append_string((s32)buf);
 }
 
-void TLobby__sub_801E6B20(void) {
+void append_hero_class_name(void) {
     Ctrl_801E6B20 *c = (Ctrl_801E6B20 *)get_player_by_client_id(lbl_805D53A0);
     if (c != NULL) {
         append_string(select_download_type__6TLobbyFi(c->type));
@@ -134,7 +134,7 @@ void TLobby__sub_801E6B20(void) {
     }
 }
 
-void TLobby__sub_801E6B68(void) {
+void append_hero_name(void) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id(lbl_805D53A0));
     if (temp_r3 != NULL) {

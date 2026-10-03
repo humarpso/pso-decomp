@@ -22,7 +22,7 @@ void TObjPlayer__vt67(u8 *arg0);
 extern "C" {
 
 s32 check_camera_mode__10TObjPlayerFv();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 reset_volopt_state__10TObjPlayerFv(s32);

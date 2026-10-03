@@ -46,7 +46,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_80200A44(int);
 void TAdSinglePlyChrSelectGC__sub_80201650(void);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
 void TWindowSubComCard__sub_80244888(Win_801FEE14 *);
-void TLobby__sub_80269454(Win_801FEE14 *);
+void complete_reveal__14TWindowMessageFPv(Win_801FEE14 *);
 void send_and_handle__6TLobbyFPvii(Win_801FEE14 *, s32, s32);
 void TLobby__sub_80269C90(void);
 void TLobby__sub_80269CA4(s32);
@@ -204,7 +204,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEE14(void) {
             send_and_handle__6TLobbyFPvii(w, get_localized_text_entry(0x20, 4), 3);
             TWindowSubComCard__sub_80244888(w);
         }
-        TLobby__sub_80269454(w);
+        complete_reveal__14TWindowMessageFPv(w);
         while (1) {
             func_803DCDFC__Fv();
             controller_stuff__Fv();
@@ -257,7 +257,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEE14(void) {
         }
         TWindowSubComCard__sub_80244888(w);
     }
-    TLobby__sub_80269454(w);
+    complete_reveal__14TWindowMessageFPv(w);
     if (result == 0) {
         while (1) {
             func_803DCDFC__Fv();

@@ -25,7 +25,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
 s32 get_instance__6TLobbyFv(void);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK process_player_warps__11TObjMapWarpFPv(void *);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 extern s32 TObjLaboMapWarp__data_805D5B58;
 extern const f32 lbl_805DBC88;
 void run_task__15TObjLaboMapWarpFv(u8 *arg0);
@@ -96,7 +96,7 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0xFC) >= lim) {
         M2C_FIELD(arg0, f32 *, 0xFC) -= lim;
     }
-    if (get_instance__6TLobbyFv() == 0 && (TLobby__sub_8030A7B0() == 1 || TLobby__sub_8030A7B0() == 2)) {
+    if (get_instance__6TLobbyFv() == 0 && (get_game_play_mode() == 1 || get_game_play_mode() == 2)) {
         return;
     }
     process_player_warps__11TObjMapWarpFPv(arg0);

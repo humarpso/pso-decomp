@@ -608,14 +608,14 @@ extern const f32 lbl_805D9FF0;
 s32 get_field_0c__10TObjPlayerFPv(int);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_copy_target_destination(void *);
+M2C_UNK enemy_set_target_id(void *, u16);
 M2C_UNK update_velocity__9TObjEneDDFPv(void *);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 TBoss8Dragon__sub_800BB664(void *, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
 M2C_UNK transition_enemy_state(void *, int);
-s32 TObjEneEpsilon__sub_800BBE64(void *, void *, int);
+s32 tick_period_counter(void *, void *, int);
 M2C_UNK noop__9TObjEneDDFv(void *);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 M2C_UNK set_child_flags__16TObjEneRe2FlowerFPv(void *);
@@ -669,7 +669,7 @@ void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
     case 0:
         ((M2C_UNK (*)())advance_animation_playback)();
         idx = 0xFFFF;
-        if (TObjEneEpsilon__sub_800BBE64(arg0, arg0 + 0x3D0, 0x14) != 0) {
+        if (tick_period_counter(arg0, arg0 + 0x3D0, 0x14) != 0) {
             if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805D9FEC) {
                 if (((VObj_18 *)(arg0))->m97() != 0) {
                     idx = set_squared_value__9TObjEneDDFf(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
@@ -678,13 +678,13 @@ void TObjEneDD__sub_800C34FC(u8 *arg0, s32 arg1) {
                     idx = TBoss8Dragon__sub_800BB664(arg0, M2C_FIELD(arg0, f32 *, 0x3AC) - lbl_805D9FEC);
                 }
                 if (idx != 0xFFFF) {
-                    TBoss8Dragon__sub_800B9958(arg0, idx);
+                    enemy_set_target_id(arg0, idx);
                 }
             }
         } else if (update_death_check__14TObjEneEpsilonFPv(arg0) == 0) {
             break;
         }
-        TObjEneEpsilon__sub_800B96A4(arg0);
+        enemy_copy_target_destination(arg0);
         update_velocity__9TObjEneDDFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x414)++;
         M2C_FIELD(arg0, s32 *, 0x420) = (s32)(lbl_8043BBD8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));

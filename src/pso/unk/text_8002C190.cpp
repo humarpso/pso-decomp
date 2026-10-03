@@ -2,7 +2,7 @@
 extern "C" {
 s32 isV2Mode__12TBoss1DragonFv(void);
 s32 TObjEneDD__sub_800BB940(void *, void *);
-s32 TObjEneDD__sub_800BB9AC(void *);
+s32 load_enemy_bml_resource(void *);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80435514[];
 extern u8 lbl_8043552C[];
@@ -10,15 +10,15 @@ extern u8 lbl_80435548[];
 extern u8 lbl_80481FBC[];
 extern s32 lbl_805D4B50;
 extern s32 lbl_805D4B54;
-void fn_8002C190(void);
+void load_dragon_ground_assets(void);
 }
 
 extern "C" {
 
-void fn_8002C190(void) {
+void load_dragon_ground_assets(void) {
     switch (isV2Mode__12TBoss1DragonFv()) {
     case 0:
-        lbl_805D4B50 = TObjEneDD__sub_800BB9AC(lbl_80481FBC);
+        lbl_805D4B50 = load_enemy_bml_resource(lbl_80481FBC);
         lbl_805D4B54 = load_gvm_texture_file(lbl_80435514);
         break;
     case 1:

@@ -9,7 +9,7 @@ void *__nw__7TObjectFUl(int);
 void *ct_object__9TItemDropFPv(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
-void fn_800F9BAC(void *, void *);
+void apply_pointer_relocations(void *, void *);
 struct VOff_800F99D0_o { char pad_0[0x28]; char f_28[1]; };
 
 void alloc_named_object(void *arg0, void *arg1, void *arg2, void *arg3) {
@@ -23,7 +23,7 @@ void alloc_named_object(void *arg0, void *arg1, void *arg2, void *arg3) {
     M2C_FIELD(o, void **, 0x0) = o->f_28;
     M2C_FIELD(o, void **, 0x1C) = arg1;
     M2C_FIELD(o, void **, 0x20) = arg2;
-    fn_800F9BAC(o, arg3);
+    apply_pointer_relocations(o, arg3);
 }
 
 }

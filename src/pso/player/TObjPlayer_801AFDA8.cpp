@@ -29,7 +29,7 @@ extern s32 lbl_805D49BC;
 void TKeyBoardControl__sub_8000F978(void);
 void TKeyBoardControl__sub_8000F984(void);
 extern s32 lbl_805D49B8;
-void TKeyBoardControl__sub_8000F998(void);
+void mark_area_change_pending(void);
 void TKeyBoardControl__sub_8000F9A4(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern M2C_UNK lbl_80515F70[];

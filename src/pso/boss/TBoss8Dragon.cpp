@@ -622,7 +622,7 @@ s32 TBoss4Type2__sub_80141FA8(s32, s32);
 extern const f32 lbl_805D8DA0;
 s32 enemy_validate_retained_target(void *);
 M2C_UNK copy_position__14TObjEneEpsilonFPv(void *, M2C_UNK *);
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK update_epsilon_position__12TBoss8DragonFv();
 M2C_UNK update_velocity__9TObjEneDDFPv();
@@ -633,7 +633,7 @@ void update_periodic_effect__12TBoss8DragonFPv(void *arg0) {
     update_epsilon_position__12TBoss8DragonFv();
     if (!(M2C_FIELD(arg0, s32 *, 0x490) & 0x1F)) {
         if (enemy_validate_retained_target(arg0) != 0) {
-            TObjEneEpsilon__sub_800B96A4(arg0);
+            enemy_copy_target_destination(arg0);
         } else {
             copy_position__14TObjEneEpsilonFPv(arg0, lbl_80437938);
         }
@@ -841,10 +841,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void set_target_from_action__12TBoss8DragonFPvPv(void *arg0, void *arg1);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 
 void set_target_from_action__12TBoss8DragonFPvPv(void *arg0, void *arg1) {
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 4));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 4));
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) M2C_FIELD(arg1, f32 *, 8);
     M2C_FIELD(arg0, f32 *, 0x39C) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
 }

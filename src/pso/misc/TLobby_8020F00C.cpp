@@ -8,7 +8,7 @@ extern "C" {
 
 void TLobby__sub_8020F00C(u8 *arg0, s8 arg1);
 void reset_counter_64__6TLobbyFPv(void* p);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 void TLobby__sub_8020F00C(u8 *arg0, s8 arg1) {

@@ -30,7 +30,7 @@ void TObjPlayer__sub_802C4668(O_802C4668 *self, u32 c);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 s8 TObjPlayer__sub_8001124C(void *);
 s8 TObjPlayer__sub_80011350(void *);
-M2C_UNK TNpcPlayer__sub_8007206C(void *, void *);
+M2C_UNK copy_player_visual_record(void *, void *);
 M2C_UNK TObjPlayer__sub_8013A748(void *, void *);
 M2C_UNK clamp_stats__10TObjPlayerFiPv(void *, void *, void *);
 s8 query_state_if_present__10TObjPlayerFPv(void *, void *);
@@ -107,7 +107,7 @@ void TObjPlayer__sub_802C4374(u8 *arg0, u8 *arg1) {
     E_802C4698 *e;
     s32 i;
     set_flag_80000__10TObjPlayerFPv((void *) (arg1));
-    TNpcPlayer__sub_8007206C((void *) (arg0 + 0x370), (void *) (arg1 + 0x85C));
+    copy_player_visual_record((void *) (arg0 + 0x370), (void *) (arg1 + 0x85C));
     M2C_FIELD(arg0, s8 *, 0) = query_state_if_present__10TObjPlayerFPv((void *) (arg1), (void *) (get_ptr_4__10TObjPlayerFPv((void *) (arg0))));
     set_flag_and_update__10TObjPlayerFPvi((int) (M2C_FIELD(arg1, s32 *, 0xD00)), (void *) (arg1));
     clamp_stats__10TObjPlayerFiPv((void *) (arg1), (void *) (arg0 + 0x34C), (void *) (TObjPlayer__sub_801D93C4((void *) (arg1))));

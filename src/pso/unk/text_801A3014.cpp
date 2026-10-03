@@ -168,7 +168,7 @@ M2C_UNK run_task__9TMainTaskFv(void *);
 void set_parent__7TObjectFP7TObject(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK destroy_global__6TLobbyFv();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 fn_801B309C[];
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
@@ -216,7 +216,7 @@ M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 void set_parent__7TObjectFP7TObject(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 fn_801B309C[];
 extern RecoveredGlobal_801A3540_lbl_80515BA0 lbl_80515BA0;
@@ -280,7 +280,7 @@ void TLobby__sub_801A3014(void) {
         }
     }
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        switch (TLobby__sub_8030A7B0()) {
+        switch (get_game_play_mode()) {
         case 0:
             break;
         case 1:
@@ -361,7 +361,7 @@ void TLobby__sub_801A31D8(void) {
     create_map_csn_ctrl__6TLobbyFv();
     create_quad_sprites__13TParticleCtrlFv();
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        switch (TLobby__sub_8030A7B0()) {
+        switch (get_game_play_mode()) {
         case 0:
             break;
         case 1:

@@ -83,10 +83,10 @@ void clear_active_bit__16TObjCityMainWarpFv(void);
 void *create__16TObjCityMainWarpFPv(void *arg0);
 void render__16TObjCityMainWarpFv(u8 *arg0);
 s32 TCameraCtrl__sub_8006B368();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_object(s32);
-s32 TObjCityMainWarp__sub_80186A3C();
+s32 get_floor_warp_bit__16TObjCityMainWarpFi();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -121,7 +121,7 @@ void render__16TObjCityMainWarpFv(u8 *arg0) {
 }
 
 s32 TObjCityMainWarp__vt14(s32 arg0) {
-    if ((TLobby__sub_8030A7B0() == 1) && (TCameraCtrl__sub_8006B368() == 0)) {
+    if ((get_game_play_mode() == 1) && (TCameraCtrl__sub_8006B368() == 0)) {
         return 0;
     }
     return is_warp_enabled__12TObjAreaWarpFi(arg0);
@@ -251,7 +251,7 @@ void TObjCityMainWarp__sub_80186634(void) { TObjCityMainWarp__data_805D5B50 = 0;
 void clear_active_bit__16TObjCityMainWarpFv(void) {
     s32 temp_r3;
 
-    temp_r3 = TObjCityMainWarp__sub_80186A3C();
+    temp_r3 = get_floor_warp_bit__16TObjCityMainWarpFi();
     if (temp_r3 >= 0) {
         TObjCityMainWarp__data_805D5B50 &= ~(1 << temp_r3);
     }

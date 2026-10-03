@@ -12,7 +12,7 @@ s32 TWindowMessageQuest__ct(int, void *);
 s32 fn_8026B0C4(s32 arg0, s32 arg1);
 int append_message_window_line(void *w, int text, int flags, int color);
 int send_and_handle__6TLobbyFPvii(void *w, int text, int flags);
-int fn_8026B074(void *w, int text, int flags);
+int dispatch_message_window_text(void *w, int text, int flags);
 }
 
 extern "C" {
@@ -21,7 +21,7 @@ void set_field_90__6TLobbyFPvi(void* p, s32 v);
 
 void set_field_90__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x90) = v; }
 
-int fn_8026B074(void *w, int text, int flags) {
+int dispatch_message_window_text(void *w, int text, int flags) {
     switch (*(s32 *)((u8 *)w + 0x90)) {
     case 0:
         return append_message_window_line(w, text, flags, 0xFF000000);

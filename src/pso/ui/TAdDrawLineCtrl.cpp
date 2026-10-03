@@ -24,7 +24,7 @@ void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void fn_80019AB0(void *, f32);
 void fn_80019B08(void *, int);
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 s32 get_main_phase();
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK render_nodes__7TObjectFv(void *);
@@ -45,7 +45,7 @@ block_5:
             render_nodes__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
     }
 }

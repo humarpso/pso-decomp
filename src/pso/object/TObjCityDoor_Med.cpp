@@ -100,7 +100,7 @@ void *TObjCityDoor_Med__create(void *arg0);
 void *dt__16TObjCityDoor_MedFPvs(void *arg0, s16 arg1);
 s32 is_rader_map_active(void);
 s32 TLobby__sub_80182E60();
-s32 TLobby__sub_8030A7B0();
+s32 get_game_play_mode();
 void *TObjCityDoor_Med__ct(void *, void *, void *);
 u8 *TObjPlayer__sub_80182D8C(u8 *, M2C_UNK, s32, u8 *);
 s32 get_city_common_motion(M2C_UNK);
@@ -144,7 +144,7 @@ s32 is_rader_map_active(void) {
     s32 temp_r3;
 
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        if (TLobby__sub_8030A7B0() == 1) {
+        if (get_game_play_mode() == 1) {
             return 0;
         }
         goto block_6;

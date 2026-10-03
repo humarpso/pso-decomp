@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjPlayer__sub_801CB874(void * a0 = 0);
+s32 can_guard__10TObjPlayerFPv(void * a0 = 0);
 s32 is_status_flag_200__10TObjPlayerFPv(void);
 s32 use_current_item__10TObjPlayerFPv(void * a0 = 0);
 s32 TObjPlayer__sub_801B1E54(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
@@ -28,7 +28,7 @@ void update_gated_action__10TObjPlayerFPv(void *arg0) {
             obj_clearFlags30(arg0, 0x200);
             return;
         }
-        if (TObjPlayer__sub_801CB874(arg0) != 0) {
+        if (can_guard__10TObjPlayerFPv(arg0) != 0) {
             use_current_item__10TObjPlayerFPv(arg0);
         }
     }

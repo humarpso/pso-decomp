@@ -99,7 +99,7 @@ void TWindowFukidasi__sub_802523CC(struct Fukidasi_80252558 *, struct Slice_8025
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
-void TWindowSubStatusDisp__sub_803DF160(int, u32);
+void set_draw_texture_and_color(int, u32);
 extern void *lbl_805D63F0;
 void TWindowFukidasi__sub_80252558(struct Fukidasi_80252558 *b, struct DrawCtx_80252558 *ctx, u32 argb, f32 *offset, f32 depth);
 }
@@ -168,7 +168,7 @@ void TWindowFukidasi__sub_80252558(struct Fukidasi_80252558 *b, struct DrawCtx_8
     s.f30 = 0.0f;
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
-    TWindowSubStatusDisp__sub_803DF160(1, argb);
+    set_draw_texture_and_color(1, argb);
     if (b->size[1] < lbl_805DCD98) {
         capY = TWindowFukidasi__data_805DCD0C * b->size[1];
     } else {

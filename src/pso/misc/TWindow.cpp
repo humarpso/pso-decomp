@@ -119,7 +119,7 @@ void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
 extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
-void TLobby__sub_80216CF8(Win_80216CF8 *self);
+void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self);
 u16 obj_getField1c(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 get_story_flag(s16);
@@ -208,7 +208,7 @@ block_9:
         }
     }
 }
-void TLobby__sub_80216CF8(Win_80216CF8 *self) {
+void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self) {
     s32 sel;
     s32 msg;
     s32 msg2;

@@ -378,7 +378,7 @@ void clear_mirage__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 void * create__23TObjEneMe3ShinowaMirageFPvPvPv(void *arg0, void *arg1, void *arg2);
 int init_mirage__23TObjEneMe3ShinowaMirageFPv(void* p);
 void set_flag_0x100__23TObjEneMe3ShinowaMirageFPv(void *arg0);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, int);
+M2C_UNK enemy_set_target_id(void *, int);
 int transition_enemy_state(void*, int);
 void *TObjEneMe3ShinowaMirage__ct(void *, void *, void *, void *, void *);
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
@@ -447,7 +447,7 @@ void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x30) = 0x20000000;
         M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
         M2C_FIELD(arg0, s32 *, 0x3D4) = arg1;
-        TBoss8Dragon__sub_800B9958((void *) (arg0), (int) (TObjEneMe3ShinowaReal__sub_800E45CC((int) (temp_r3), (int) (temp_r4))));
+        enemy_set_target_id((void *) (arg0), (int) (TObjEneMe3ShinowaReal__sub_800E45CC((int) (temp_r3), (int) (temp_r4))));
         M2C_FIELD(arg0, f32 *, 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
         temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFDFF;
         M2C_FIELD(arg0, s32 *, 0x3C4) = temp_r4_2;

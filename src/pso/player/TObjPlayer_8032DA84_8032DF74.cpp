@@ -28,12 +28,12 @@ struct VObj_8032E11C : VBase_8032E11C {
 
 extern "C" {
 u32 create_particle_emitter(void *, int);
-M2C_UNK TTecLuker__sub_8008764C(u32, int);
+M2C_UNK set_tint_color__13TParticleCtrlFPvi(u32, int);
 void TObjPlayer__sub_8032E058(u8 *arg0);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TTecLuker__sub_8008764C(u32, int);
+M2C_UNK set_tint_color__13TParticleCtrlFPvi(u32, int);
 extern const f32 lbl_805DF7E8;
 void TObjPlayer__sub_8032E0A4(u8 *arg0);
 u8 *find_entity_by_id(u16);
@@ -85,7 +85,7 @@ void TObjPlayer__sub_8032E054(void) {  }
 void TObjPlayer__sub_8032E058(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x24) = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        TTecLuker__sub_8008764C(M2C_FIELD(arg0, u32 *, 0x24), (int) (-0x78));
+        set_tint_color__13TParticleCtrlFPvi(M2C_FIELD(arg0, u32 *, 0x24), (int) (-0x78));
     }
 }
 #pragma pop
@@ -101,7 +101,7 @@ void TObjPlayer__sub_8032E0A4(u8 *arg0) {
         set_position_xy__10TObjPlayerFPvff(p, (f32) (lbl_805DF7E8), (f32) (lbl_805DF7E8));
         q = M2C_FIELD(arg0, u32 *, 0x50);
         if (q != 0U) {
-            TTecLuker__sub_8008764C((u32)(M2C_FIELD(arg0, u32 *, 0x1C)), (int)(q));
+            set_tint_color__13TParticleCtrlFPvi((u32)(M2C_FIELD(arg0, u32 *, 0x1C)), (int)(q));
         }
     }
     spawn_particle_effect((void *) (arg0 + 0x64), (int) (0x30));

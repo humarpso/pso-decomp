@@ -15,7 +15,7 @@ void render__12TAdBackTxtGCFv(void *arg0);
 void run_task__12TAdBackTxtGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK draw_character_background_frame(void *, s32, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
@@ -35,7 +35,7 @@ block_4:
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
     }
 }

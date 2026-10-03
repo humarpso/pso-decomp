@@ -105,7 +105,7 @@ struct VObj_18_599a64 : VBase_18_599a64 {
 
 extern "C" {
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
-s32 TObjEneEpsilon__sub_800B96A4(void *);
+s32 enemy_copy_target_destination(void *);
 M2C_UNK update_linked_position__14TObjEneEpsilonFPv(void *, f32);
 s32 update_velocity__9TObjEneDDFPv(void *);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -327,7 +327,7 @@ void TObjEneDf2Bringer__sub_80098BAC(u8 *arg0, s32 arg1) {
         return;
     case 3:
         if (((s32)update_linked_position__14TObjEneEpsilonFPv((void *) (arg0), (f32) (TObjEneDf2Bringer__data_805D9820))) != 0) {
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0x60) = (s32) (TObjEneDf2Bringer__data_8043A0F8 * get_ad_end_text_start__10TObjPlayerFv((f64) M2C_FIELD(arg0, f32 *, 0x3A0), (f64) M2C_FIELD(arg0, f32 *, 0x3A8)));
             transition_enemy_state((void *)((void *) (arg0)), (M2C_UNK)((int) (2)));

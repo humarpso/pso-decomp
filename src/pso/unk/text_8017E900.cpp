@@ -12,12 +12,12 @@ s32 get_bml_model(void *, s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK pop_matrix();
 extern void *lbl_805D5B10;
-void fn_8017E900(Self_8017E900 *self);
+void draw_model__10TButterflyFPv(Self_8017E900 *self);
 }
 
 extern "C" {
 
-void fn_8017E900(Self_8017E900 *self) {
+void draw_model__10TButterflyFPv(Self_8017E900 *self) {
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(self->pos);
     rotate_matrix_y(0, self->f60);

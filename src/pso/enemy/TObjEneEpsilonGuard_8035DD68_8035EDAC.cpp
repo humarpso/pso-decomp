@@ -23,7 +23,7 @@ M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK TObjEneDD__vt86();
 M2C_UNK TObjEneEpsilonGuard__sub_8035EA90(void *);
 s32 TObjEneEpsilonGuard__sub_8035F950();
-M2C_UNK TObjEneEpsilon__sub_800B96A4(void *);
+M2C_UNK enemy_copy_target_destination(void *);
 s32 find_entity_by_id(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, void *, f32);
 s16 obj_getField1c(int);
@@ -43,7 +43,7 @@ void update_guard_state__19TObjEneEpsilonGuardFPv(u8 *arg0) {
         } else {
             M2C_FIELD(arg0, s32 *, 0x390) = temp_r3;
             M2C_FIELD(arg0, s16 *, 0x38C) = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x390)));
-            TObjEneEpsilon__sub_800B96A4((void *) (arg0));
+            enemy_copy_target_destination((void *) (arg0));
             TObjEneEpsilonGuard__sub_8035EA90((void *) (arg0));
         }
         if (M2C_FIELD(arg0, s32 *, 0x46C) & 0x20) {

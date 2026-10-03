@@ -39,7 +39,7 @@ void TObjPlayer__sub_801C1F78(void *, s32);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D955C(void *, s32);
 void TObjPlayer__sub_801D9B90(void *, s32);
-void TObjPlayer__sub_801BC948(Player_801BC948 *self, Src_801BC948 *src);
+void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ void TObjPlayer__sub_801BC8F0(s32 arg0) {
     update_follow_particle__10TObjPlayerFii((void *) (arg0 + 0x384), (void *) (arg0));
     TObjPlayer__sub_801C2244((void *) (arg0 + 0x34C), (void *) (obj_getField1c((void *) (arg0))));
 }
-void TObjPlayer__sub_801BC948(Player_801BC948 *self, Src_801BC948 *src) {
+void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src) {
     s32 i;
     TObjPlayer__sub_801C1F78(self->f4ac, obj_getField1c(self));
     TObjPlayer__sub_801D955C(self->techs, TObjPlayer__sub_801AFDB0(self));

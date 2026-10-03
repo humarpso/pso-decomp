@@ -11,7 +11,7 @@ u8 is_valid_technique_slot__10TObjPlayerFUc(u8 arg0);
 s32 check_technique_level__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2);
 u8 TObjPlayer__sub_801C010C(s32, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
-u8 TObjPlayer__sub_801D9BE8(s32, s32);
+u8 get_effective_technique_level__10TObjPlayerFPvs(s32, s32);
 
 u8 is_valid_technique_id__10TObjPlayerFs(s16 arg0) {
     s32 var_r4;
@@ -34,7 +34,7 @@ s32 check_technique_level__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2) {
     if (arg2 > TObjPlayer__sub_801C010C(arg0, arg1)) {
         return 0;
     }
-    return arg2 <= TObjPlayer__sub_801D9BE8(arg0, arg1) ? 1 : 0;
+    return arg2 <= get_effective_technique_level__10TObjPlayerFPvs(arg0, arg1) ? 1 : 0;
 }
 
 }

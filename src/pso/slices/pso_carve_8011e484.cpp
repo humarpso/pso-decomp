@@ -16,7 +16,7 @@ void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
 s32 test_flags_1b8__10TObjPlayerFPvUi(void *, s32);
 M2C_UNK clear_equip_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_action_type__10TObjPlayerFPvs(int, int);
-void TObjPlayer__sub_8011E484(u8 *arg0);
+void restore_action_type__11TItemWeaponFPv(u8 *arg0);
 s32 test_flags_1b8__10TObjPlayerFPvUi(void *, s32);
 M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_action_type__10TObjPlayerFPvs(int, int);
@@ -38,7 +38,7 @@ void TObjPlayer__sub_8011E5DC(void);
 void weapon_prepare_marker_noop(void);
 void TObjPlayer__sub_8011E610(void* p, s32 v);
 
-void TObjPlayer__sub_8011E484(u8 *arg0) {
+void restore_action_type__11TItemWeaponFPv(u8 *arg0) {
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x04000000) != 0U) {
         set_action_type__10TObjPlayerFPvs((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (int) (2));
         clear_equip_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x04000000));

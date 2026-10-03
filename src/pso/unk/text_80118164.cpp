@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-s8 TObjPlayer__sub_8010A770(void *);
+s8 get_attach_joint__14TItemEquipBaseFPv(void *);
 void deactivate_shield_effect__14TItemProShieldFPvi(void *, s32);
 void TItemProShield__vt24(u8 *arg0);
 }
@@ -21,7 +21,7 @@ void TItemProShield__vt24(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xF4) = temp_r31;
         return;
     }
-    deactivate_shield_effect__14TItemProShieldFPvi(arg0, (s32) TObjPlayer__sub_8010A770(arg0));
+    deactivate_shield_effect__14TItemProShieldFPvi(arg0, (s32) get_attach_joint__14TItemEquipBaseFPv(arg0));
 }
 
 }

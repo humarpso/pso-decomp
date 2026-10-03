@@ -9,7 +9,7 @@ struct Win_80244DFC { u8 pad[0xC]; Win_80244DFC *next; };
 extern "C" {
 M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-f32 TWindowSubStatusDisp__sub_801A5228(int);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
 M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, int, int);
@@ -80,7 +80,7 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2) && !(temp_r3_2 & 0x20)) {
         play_sound_effect((int) (0x53703), (int) (0), (int) (0), (int) (0));
     }
-    if (TWindowSubStatusDisp__sub_801A5228((int) (M2C_FIELD(arg0, s16 *, 0x20))) <= lbl_805DCAD4) {
+    if (get_card_window_scale__20TWindowSubStatusDispFi((int) (M2C_FIELD(arg0, s16 *, 0x20))) <= lbl_805DCAD4) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
 }

@@ -16,7 +16,7 @@ M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 extern M2C_UNK (*lbl_805D53F8)(s32);
 extern M2C_UNK (*lbl_805D53FC)(void *);
 extern u8 *lbl_805D5404;
-void TObjPlayer__sub_801016D0(u8 *arg0);
+void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
 M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
 M2C_UNK TLobby__sub_80103B04();
@@ -149,7 +149,7 @@ void calc_display_grade__5TItemFPv(void *arg0) {
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
     calc_display_grade__9TItemDataFPv(&sp8);
 }
-void TObjPlayer__sub_801016D0(u8 *arg0) {
+void draw_model_node_tree(u8 *arg0) {
     s32 temp_r30;
     u8 *var_r31;
     var_r31 = arg0;
@@ -168,7 +168,7 @@ void TObjPlayer__sub_801016D0(u8 *arg0) {
                 lbl_805D53F8(M2C_FIELD(var_r31, s32 *, 4));
             }
             if (!(temp_r30 & 0x10)) {
-                TObjPlayer__sub_801016D0(M2C_FIELD(var_r31, u8 **, 0x2C));
+                draw_model_node_tree(M2C_FIELD(var_r31, u8 **, 0x2C));
             }
             pop_matrix();
         } else {
@@ -193,7 +193,7 @@ void TObjPlayer__sub_801016D0(u8 *arg0) {
                 lbl_805D53F8(M2C_FIELD(var_r31, s32 *, 4));
             }
             if (!(temp_r30 & 0x10)) {
-                TObjPlayer__sub_801016D0(M2C_FIELD(var_r31, u8 **, 0x2C));
+                draw_model_node_tree(M2C_FIELD(var_r31, u8 **, 0x2C));
             }
             pop_matrix();
         }

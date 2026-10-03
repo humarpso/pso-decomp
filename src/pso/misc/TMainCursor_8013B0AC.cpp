@@ -20,7 +20,7 @@ M2C_UNK TMainCursor__sub_8013C924(Cur_8013B0F0 *);
 s32 TMainCursor__sub_8013E03C(void *);
 M2C_UNK set_target_index__11TMainCursorFPvs(void *, int);
 M2C_UNK update_cursor_pos__11TMainCursorFPv(void *);
-M2C_UNK TMainCursor__sub_8013E240(void *);
+M2C_UNK reset_nearest_target_record(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
 M2C_UNK submit_cursor_candidate(Pl_8013B0F0 *, int);
 Pl_8013B0F0 *get_player_by_client_id(u16);
@@ -48,7 +48,7 @@ void run_cursor_reset_task(s32 arg0) {
     if (cur == NULL) {
         return;
     }
-    TMainCursor__sub_8013E240(cur->sub);
+    reset_nearest_target_record(cur->sub);
     update_cursor_pos__11TMainCursorFPv(cur->pos);
     set_target_index__11TMainCursorFPvs(cur->target, 0xFFFF);
     init_slots__11TMainCursorFPv(cur);

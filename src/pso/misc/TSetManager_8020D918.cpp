@@ -53,7 +53,7 @@ extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
 void TLobby__sub_8020DBCC(void);
 s32 update_lobby_scene__6TSceneFPv(char *);
-void TLobby__sub_800F9DF4(char *, void *);
+void read_disc_file(char *, void *);
 void TLobby__sub_801317E4(char *, s32, char *);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
 void swap_object_row_endian(void *);
@@ -126,7 +126,7 @@ s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
     if ((TLobby__data_805D611C = (u32)alloc_buffer__11TOBoss4RockFPv(TLobby__data_805D6120 * 0x44)) == 0) {
         return 0;
     }
-    TLobby__sub_800F9DF4(path, (void *)TLobby__data_805D611C);
+    read_disc_file(path, (void *)TLobby__data_805D611C);
     for (i = 0; i < TLobby__data_805D6120; i++) {
         swap_object_row_endian(&((Rec_8020D9A0 *)TLobby__data_805D611C)[i]);
         ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f2 = 0;

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_800F9DF4(int a0);
+void read_disc_file(int a0);
 s32 get_file_size__6TLobbyFv(void);
 void run_frame__6TLobbyFv(void);
 int TGStream__sub_800FDADC(void);
@@ -21,7 +21,7 @@ s32 TLobby__sub_803CD3A8(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK empty_func2__7TObjectFv(s32);
 M2C_UNK empty_func__7TObjectFv(s32);
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK fn_801E2C50();
 s8 func_801A5E54__Fv();
 M2C_UNK func_803DCDFC__Fv();
@@ -48,7 +48,7 @@ s32 get_file_size__6TLobbyFv(void) {
 }
 
     extern int lbl_805D5338;
-void TLobby__sub_800F9DF4(int a0) { lbl_805D5338 = a0; TGStream__sub_800FDADC(); }
+void read_disc_file(int a0) { lbl_805D5338 = a0; TGStream__sub_800FDADC(); }
 
 extern s32 tl_su;
 extern s32 tl_camera;
@@ -79,7 +79,7 @@ void run_frame__6TLobbyFv(void) {
         system_reset();
         fn_801E2C50();
     }
-    fn_80141A30();
+    restore_saved_depth_alpha_state();
     if (func_801A5E54__Fv() != 0) {
         TLobby__sub_800F8AD0();
     }

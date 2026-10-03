@@ -261,7 +261,7 @@ s32 init_lights__9TObjEneDDFv();
 s32 TObjEneDD__sub_800B9B24(f32);
 s32 set_speed_params__12TObjEneLappyFPvi(void *, int);
 s32 toggle_particle_effect__10TObjPlayerFv();
-s32 fn_800FD930();
+s32 is_item_light_interaction_blocked();
 s32 TObjLight__sub_80134098();
 s32 TObjLight__sub_80134194(void *);
 s32 render_world_model__10TObjPlayerFPv(void *);
@@ -509,7 +509,7 @@ void TObjPlayer__sub_800BFF58(u8 *arg0) {
             }
             some_id_805c6f74 &= 0xFFFFFBFF;
             set_global_flag__10TObjPlayerFv();
-            if (fn_800FD930() == 1) {
+            if (is_item_light_interaction_blocked() == 1) {
                 draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
             } else {
                 some_id_805c6f74 |= 0x01000000;

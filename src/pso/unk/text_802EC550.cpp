@@ -31,7 +31,7 @@ void fn_802EC9A4(void *arg0, void *arg1);
 void fn_802EC9F0(void *arg0, void *arg1);
 void handle_6xA9_barba_ray_boss_actions(void *arg0);
 void handle_6xAA_barba_ray_boss_actions(void *arg0);
-s32 TBoss8Dragon__sub_800B9958(void * a0 = 0, u16 a1 = 0);
+s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
 void byteswap_action_packet__11TBoss7JointFPv(void *);
 void *get_enemy_entity(int);
@@ -120,7 +120,7 @@ void TObjFish__sub_802EC7F0(u8 *arg0) {
 
 void TBoss7DeRolLeC__sub_802EC994(void* p) { *(s32*)((char*)p + 0x6b0) = 0; *(s32*)((char*)p + 0x6b4) = 0; }
 void fn_802EC9A4(void *arg0, void *arg1) {
-    TBoss8Dragon__sub_800B9958(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
+    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
     M2C_FIELD(arg0, s32 *, 0x6B4) = (s32) M2C_FIELD(arg1, s16 *, 6);
     transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
 }

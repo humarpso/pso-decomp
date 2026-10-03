@@ -12,7 +12,7 @@ extern "C" {
 int TObjPlayer__sub_801D1FA4(void *);
 u8 TObjPlayer__sub_801D2004(u8 *arg0);
 int TLobby__send_and_handle_60(void*);
-void TObjPlayer__sub_801D1F60(u8 *arg0);
+void send_photon_blast_targets_packet(u8 *arg0);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ int read_swapped_fields__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801D2B2C(void*);
 int TObjPlayer__sub_801D2C18(void*);
 
-void TObjPlayer__sub_801D1F60(u8 *arg0) {
+void send_photon_blast_targets_packet(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TObjPlayer__sub_801D2004((u8 *)(arg0))) >> 2U) & 0x3F);
     ((M2C_UNK)TObjPlayer__sub_801D1FA4((void *)((void *) (arg0))));
     ((M2C_UNK)TLobby__send_and_handle_60((void*)((void *) (arg0))));

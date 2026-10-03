@@ -8,7 +8,7 @@ extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(void *);
 void set_entry_state__20TWindowSubStatusDispFPvc(void *, s8);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-void TWindowMenu__sub_802657E4(u8 *arg0);
+void confirm_selection__11TWindowMenuFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -28,7 +28,7 @@ void set_active_flag__11TWindowMenuFPv(void *arg0) {
     }
 }
 
-void TWindowMenu__sub_802657E4(u8 *arg0) {
+void confirm_selection__11TWindowMenuFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r3_2;
     if (((int)is_visible__17TWindowSubComCardFPv((void *)(arg0))) == 0) {

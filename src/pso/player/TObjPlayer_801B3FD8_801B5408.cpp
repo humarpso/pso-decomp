@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 get_move_mode__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801B5450(u8 *arg0);
+void init_trait_flags__10TObjPlayerFPv(u8 *arg0);
 s8 TObjPlayer__sub_801AFDB0(void *);
 s32 forward_801C210C__10TObjPlayerFPv(int, int);
 void select_class_action_provider__10TObjPlayerFPv(u8 *arg0);
@@ -30,7 +30,7 @@ void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1) {
     send_6x2C_impose_hold(arg0, get_position_ptr__10TObjPlayerFPv(), arg1, 0, TObjPlayer__data_805DC278);
 }
 
-void TObjPlayer__sub_801B5450(u8 *arg0) {
+void init_trait_flags__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2E4) = 0;
     if (get_move_mode__10TObjPlayerFPv((void *)((void *) (arg0))) & 0x10) {
         add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (4));

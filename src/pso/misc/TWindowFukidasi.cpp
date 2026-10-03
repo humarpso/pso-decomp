@@ -249,7 +249,7 @@ extern "C" {
 void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2);
 M2C_UNK init_flags__15TWindowFukidasiFPvi(void *, s32);
 M2C_UNK TWindowSubSymbolChat__sub_800773BC(s32);
-f32 TWindowSubStatusDisp__sub_801A5228(s16);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(s16);
 M2C_UNK set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
 M2C_UNK TWindowSubSymbolChat__sub_80248494(void *, s16);
 M2C_UNK clear_flag__15TWindowFukidasiFPv(void *);
@@ -279,7 +279,7 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     if (var_r31 != 0) {
         M2C_FIELD(arg0, u8 *, 0x70) = 5U;
         clear_flag__15TWindowFukidasiFPv(arg0);
-        if (TWindowSubStatusDisp__sub_801A5228(M2C_FIELD(arg0, s16 *, 0x20)) > TWindowFukidasi__data_805DCD30) {
+        if (get_card_window_scale__20TWindowSubStatusDispFi(M2C_FIELD(arg0, s16 *, 0x20)) > TWindowFukidasi__data_805DCD30) {
             M2C_FIELD(arg0, s32 *, 0x5C) = 0;
         }
     }

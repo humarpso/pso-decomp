@@ -16,12 +16,12 @@ s32 get_target_field_1c__10TObjPlayerFPv(void *);
 f32 get_attached_float_24__10TObjPlayerFPv(void *);
 extern const f32 TObjPlayer__data_805DC368;
 extern const f32 TObjPlayer__data_805DC3AC;
-void TObjPlayer__sub_801CF960(u8 *arg0);
+void select_run_request__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CF960(u8 *arg0) {
+void select_run_request__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f31;
     s32 temp_r31;
     s32 temp_r31_2;

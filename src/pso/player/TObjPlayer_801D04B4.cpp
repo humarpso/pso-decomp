@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801D04B4(void* p);
+void cleanup_idle_entry__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D0514(void);
 void update_action__10TObjPlayerFi(s32 arg0);
 void start_animation__10TObjPlayerFPv(void *arg0);
@@ -30,7 +30,7 @@ int set_ring_action__10TObjPlayerFPvi(void*, void*);
 
 int obj_clearFlags30(void*, void*);
 
-void TObjPlayer__sub_801D04B4(void* p) { obj_clearFlags30(p, (void*)3840); TObjPlayer__sub_8011E204(p, (void*)128); set_ring_action__10TObjPlayerFPvi((char*)p + 0x5e0, (void*)0); clear_status_bit6__10TObjPlayerFPv(p); TObjPlayer__sub_8001053C(p); TObjPlayer__sub_801BF964((char*)p + 0x5fc); }
+void cleanup_idle_entry__10TObjPlayerFPv(void* p) { obj_clearFlags30(p, (void*)3840); TObjPlayer__sub_8011E204(p, (void*)128); set_ring_action__10TObjPlayerFPvi((char*)p + 0x5e0, (void*)0); clear_status_bit6__10TObjPlayerFPv(p); TObjPlayer__sub_8001053C(p); TObjPlayer__sub_801BF964((char*)p + 0x5fc); }
 void TObjPlayer__sub_801D0514(void) {  }
 void update_action__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
@@ -51,7 +51,7 @@ void update_action__10TObjPlayerFi(s32 arg0) {
 void start_animation__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 1;
     run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 6);
-    TObjPlayer__sub_801D04B4((void*)(arg0));
+    cleanup_idle_entry__10TObjPlayerFPv((void*)(arg0));
     set_action_state__10TObjPlayerFPvss(arg0, 1, get_idle_animation__10TObjPlayerFPv(arg0));
 }
 

@@ -26,7 +26,7 @@ s32 get_card_data__17TWindowSubComCardFPv(void *arg0);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *arg0);
 void initialize_option_dialog(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 TCheckRoomSequence__sub_802664A8(s32, s32, s32);
-int TWindowMenu__sub_802657E4(void*);
+int confirm_selection__11TWindowMenuFPv(void*);
 s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);

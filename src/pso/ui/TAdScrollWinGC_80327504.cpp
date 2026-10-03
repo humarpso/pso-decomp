@@ -26,7 +26,7 @@ extern const f32 lbl_805DF6B0;
 void run_task__14TAdScrollWinGCFv(u8 *arg0);
 s32 get_localized_text_entry(M2C_UNK, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TLobby__sub_80269454(s32);
+void complete_reveal__14TWindowMessageFPv(s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
 void TWindowMessageLog__sub_8026A494(s32);
 void TAdScrollWinGC__sub_8026A5F8(s32);
@@ -127,7 +127,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), arg3, 1);
         break;
     }
-    TLobby__sub_80269454(M2C_FIELD(arg0, s32 *, 0x40));
+    complete_reveal__14TWindowMessageFPv(M2C_FIELD(arg0, s32 *, 0x40));
     TWindowMessageLog__sub_8026A494(M2C_FIELD(arg0, s32 *, 0x40));
     TAdScrollWinGC__sub_8026A5F8(M2C_FIELD(arg0, s32 *, 0x40));
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DF6B4;

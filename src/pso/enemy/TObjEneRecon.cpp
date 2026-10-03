@@ -719,18 +719,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneEpsilon__sub_800B96A4();
+s32 enemy_copy_target_destination();
 int transition_enemy_state(void*, void*);
 void TObjEneRecon__vt60(void* p);
 void TObjEneRecon__vt59(void);
 void TObjEneRecon__vt26(void);
 
 void advance_field398__12TObjEneReconFPv(void *arg0) {
-    TObjEneEpsilon__sub_800B96A4();
+    enemy_copy_target_destination();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + M2C_FIELD(arg0, f32 *, 0x464));
 }
 void sync_height__12TObjEneReconFPv(void *arg0) {
-    TObjEneEpsilon__sub_800B96A4();
+    enemy_copy_target_destination();
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x460);
 }
 void TObjEneRecon__vt59(void) {  }
@@ -747,7 +747,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TObjEneEpsilon__sub_800B96A4();
+s32 enemy_copy_target_destination();
 int transition_enemy_state(void*, void*);
 void TObjEneRecon__vt60(void* p);
 void TObjEneRecon__vt59(void);

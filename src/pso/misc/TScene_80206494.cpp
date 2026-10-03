@@ -61,7 +61,7 @@ void TScene__sub_802065EC(void);
 void TScene__sub_802065F0(s32);
 void TScene__sub_80206658(s32);
 void TScene__sub_802066BC(s32 arg0);
-s32 TLobby__sub_802077CC(s32, void *);
+s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *TLobby__sub_80207E88(s32);
 void TScene__sub_8023E638(M2C_UNK *, u32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -90,7 +90,7 @@ void load_scene_data__6TSceneFi(s32 arg0);
 void TScene__sub_80206B4C(s32);
 void TScene__sub_80206D3C(s32);
 void TScene__sub_80206DB8(s32);
-s32 TLobby__sub_802077CC(s32, void *);
+s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *TLobby__sub_80207E88(s32);
 void TScene__sub_8023E638(M2C_UNK *, u32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -126,7 +126,7 @@ void TScene__sub_80207038(void);
 s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK fn_80140F18(u32, s32);
+M2C_UNK collect_collision_groups(u32, s32);
 u32 get_map_count__10TObjMapCsnFv();
 s32 update_lobby_scene__6TSceneFPv(char *);
 extern M2C_UNK lbl_8044A950[];
@@ -152,7 +152,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0);
 void load_map_texture_archive__6TSceneFi(s32 arg0);
 void load_scene_data__6TSceneFi(s32 arg0);
 s32 *TItemDrop__sub_800F94BC(M2C_UNK *, u32);
-M2C_UNK TLobby__sub_800F9DF4(char *, u32);
+M2C_UNK read_disc_file(char *, u32);
 M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
 M2C_UNK TScene__sub_80205AE8(M2C_UNK *);
 M2C_UNK TScene__sub_80205FD4(void *);
@@ -162,7 +162,7 @@ void *__nw__7TObjectFUl(int);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 M2C_UNK alloc_scene_buffer__18TObjButterflyLobbyFv();
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK fn_80140F18(u32, s32);
+M2C_UNK collect_collision_groups(u32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 u32 get_map_count__10TObjMapCsnFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -250,7 +250,7 @@ void load_scene_collision_file(s32 arg0) {
             lbl_805D4E68 = TItemDrop__sub_800F94BC((M2C_UNK *)&sp8, TScene__data_805D6000);
             if (lbl_805D4E68 != NULL && get_map_count__10TObjMapCsnFv() != 0U) {
                 u32 csn = get_map_count__10TObjMapCsnFv();
-                fn_80140F18(csn, *lbl_805D4E68);
+                collect_collision_groups(csn, *lbl_805D4E68);
                 return;
             }
             debug_print__6TLobbyFii(lbl_8044A958);
@@ -270,7 +270,7 @@ void TScene__sub_8020681C(void) {
         TLobby__sub_803DA16C(M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
         M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) = 0;
     }
-    if (TLobby__sub_802077CC(lbl_805D5FC0, &res) == 1) {
+    if (get_floor_map_selection(lbl_805D5FC0, &res) == 1) {
         tbl = TLobby__sub_80207E88(res.table);
         lbl_805D5FC8 = res.index;
         ent = tbl[res.index].idx;
@@ -367,7 +367,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x100);
             TScene__data_805D6028 = temp_r3;
             if (temp_r3 != 0U) {
-                TLobby__sub_800F9DF4((char *)(sp8), (u32)(temp_r3));
+                read_disc_file((char *)(sp8), (u32)(temp_r3));
                 lbl_805D602C = 0x100;
             }
         }
@@ -375,7 +375,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
         temp_r3_2 = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         TScene__data_805D6028 = temp_r3_2;
         if (temp_r3_2 != 0U) {
-            TLobby__sub_800F9DF4((char *)(sp8), (u32)(temp_r3_2));
+            read_disc_file((char *)(sp8), (u32)(temp_r3_2));
             lbl_805D602C = temp_r31;
         }
     }
@@ -410,7 +410,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
             temp_r3 = alloc__22TQuestVmDownLoadServerFPv(0x100);
             TScene__data_805D6004 = temp_r3;
             if (temp_r3 != 0U) {
-                TLobby__sub_800F9DF4((char *)(sp8), (u32)(temp_r3));
+                read_disc_file((char *)(sp8), (u32)(temp_r3));
                 lbl_805D6018 = 0x100;
             }
         }
@@ -418,7 +418,7 @@ void load_map_texture_archive__6TSceneFi(s32 arg0) {
         temp_r3_2 = alloc__22TQuestVmDownLoadServerFPv(var_r30);
         TScene__data_805D6004 = temp_r3_2;
         if (temp_r3_2 != 0U) {
-            TLobby__sub_800F9DF4((char *)(sp8), (u32)(temp_r3_2));
+            read_disc_file((char *)(sp8), (u32)(temp_r3_2));
             lbl_805D6018 = var_r30;
         }
     }
@@ -461,7 +461,7 @@ void load_scene_data__6TSceneFi(s32 arg0) {
     }
     if (((s32 *) lbl_805D4E68 != NULL) && (get_map_count__10TObjMapCsnFv() != 0U)) {
         u32 temp_csn = get_map_count__10TObjMapCsnFv();
-        fn_80140F18(temp_csn, *lbl_805D4E68);
+        collect_collision_groups(temp_csn, *lbl_805D4E68);
         return;
     }
     debug_print__6TLobbyFii(lbl_8044A958);
@@ -487,7 +487,7 @@ void TScene__sub_80207038(void) {
     lbl_805D6024 = 0;
     lbl_805D602C = 0;
     TScene__data_805D5FE8 = -1;
-    if (TLobby__sub_802077CC(lbl_805D5FC0, &res) == 1) {
+    if (get_floor_map_selection(lbl_805D5FC0, &res) == 1) {
         tbl = TLobby__sub_80207E88(res.table);
         lbl_805D5FC8 = res.index;
         ent = tbl[res.index].idx;

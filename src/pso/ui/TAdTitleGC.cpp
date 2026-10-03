@@ -51,7 +51,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK TWindowSubStatusDisp__sub_803DF160(s32, s32);
+M2C_UNK set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D6630;
 extern const f32 lbl_805DDDC8;
 extern const f32 lbl_805DDDCC;
@@ -78,7 +78,7 @@ void render__10TAdTitleGCFv(u8 *arg0);
 void run_task__10TAdTitleGCFv(u8 *arg0);
 s32 get_localized_text_entry(M2C_UNK, s32);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
-M2C_UNK fn_80141A30();
+M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK fn_802A0A30(void *, void *, s32, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK set_depth_buffer_settings_2__Fv();
@@ -88,7 +88,7 @@ M2C_UNK TAdTitleGC__sub_802A0A60(void *arg0, s32 arg1, M2C_UNK arg2) {
     s32 i;
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D6630);
-    TWindowSubStatusDisp__sub_803DF160(arg1 > 0xB, arg2);
+    set_draw_texture_and_color(arg1 > 0xB, arg2);
     for (i = 0; i < 8; i++) {
         draw_textured_quad_at_depth(&((Title_802A0A60 *)arg0)->recs[i], lbl_805DDDC8 / -(lbl_805DDDCC - (f32)i));
     }
@@ -112,7 +112,7 @@ block_5:
         abs__4cXyzCFv(1, 6);
         fn_802A0A30(arg0, arg0 + 0x120, M2C_FIELD(arg0, s32 *, 0x1C), (M2C_FIELD(arg0, s32 *, 0x12C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x134) == 0) {
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
         }
     }
 }

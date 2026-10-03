@@ -48,7 +48,7 @@ void set_floor__10TObjPlayerFPvi(void* p, s32 v);
 void set_floor_index__10TObjPlayerFPvi(void* p, s32 v);
 s32 TObjPlayer__sub_801BEB0C(void* p);
 int unregister_sub__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801BEB34(void* p, s32 v);
+void set_control_role__10TObjPlayerFPvi(void* p, s32 v);
 u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);

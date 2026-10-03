@@ -28,7 +28,7 @@ s32 get_current_floor();
 s32 TLobby__sub_8020B260(s32, s32, s32, s32);
 Set_8020C9C8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
-Obj_8020C9C8 *TLobby__sub_8020D054(Set_8020C9C8 *);
+Obj_8020C9C8 *create_set_object_from_row(Set_8020C9C8 *);
 extern u8 *TLobby__data_805D6140;
 s32 TLobby__sub_8020C9C8(s32 arg0, s32 arg1, s32 arg2);
 }
@@ -59,7 +59,7 @@ s32 TLobby__sub_8020C9C8(s32 arg0, s32 arg1, s32 arg2) {
         if (set->x != (s16)arg1) continue;
         if (set->z != (s16)arg2) continue;
         if (local != 0) {
-            obj = TLobby__sub_8020D054(set);
+            obj = create_set_object_from_row(set);
             if (obj != NULL) {
                 set->obj = obj;
                 set->flags |= 0x12;

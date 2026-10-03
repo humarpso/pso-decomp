@@ -49,7 +49,7 @@ void *TChallenge4PItemSelect__ct(void *arg0, void *arg1, void *arg2);
 void challenge4p_item_select_open_menu(void *arg0);
 void queue_destruction_with_callback__22TChallenge4PItemSelectFPv(void *arg0);
 u32 TCheckRoomSequence__sub_802664A8(M2C_UNK, s32, s32);
-s32 TItemData__sub_8010EEDC(s32);
+s32 get_text_collection(s32);
 M2C_UNK TWindowSubComCard__sub_80265500(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
@@ -114,7 +114,7 @@ void challenge4p_item_select_open_menu(void *arg0) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             var_r29 = 0;
             do {
-                forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TItemData__sub_8010EEDC(lbl_804F00A8[var_r29]), 6, var_r29);
+                forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_text_collection(lbl_804F00A8[var_r29]), 6, var_r29);
                 var_r29 += 1;
             } while (var_r29 < 8);
             set_scroll_target__17TWindowSubComCardFPvff(M2C_FIELD(arg0, u32 *, 0x2C), lbl_805DFD98, lbl_805DFD9C);

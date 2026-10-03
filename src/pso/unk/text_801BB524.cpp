@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-void TObjPlayer__sub_801BEB34(void *self, s32 role);
+void set_control_role__10TObjPlayerFPvi(void *self, s32 role);
 void init_collision_body__10TObjPlayerFPv(void *self);
 s32 register_player_slot__10TObjPlayerFPv(void *self);
 s32 setup_control_role__10TObjPlayerFPvi(Player_801BB524 *self, s32 role);
@@ -63,7 +63,7 @@ void TObjPlayer__vt6(s32 arg0);
 extern "C" {
 
 s32 setup_control_role__10TObjPlayerFPvi(Player_801BB524 *self, s32 role) {
-    TObjPlayer__sub_801BEB34(self, role);
+    set_control_role__10TObjPlayerFPvi(self, role);
     if (role < 4) {
         self->control = 1;
     } else if (role == 4) {

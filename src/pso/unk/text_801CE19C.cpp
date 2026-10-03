@@ -122,9 +122,9 @@ void send_attack_target_packet__10TObjPlayerFUi(u32 arg0);
 s32 reset_target_link__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CDDEC(void *);
 s32 enter_attack_stage2__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CDF9C(void *);
+s32 send_attack_stage2_request__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CE064();
-s32 TObjPlayer__sub_801CE068(void *);
+s32 finish_attack_stage2__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CE134(void *);
 s32 apply_status_action__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CE19C(s32 arg0, s16 arg1);
@@ -189,13 +189,13 @@ void TObjPlayer__sub_801CE19C(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CE134((void *) arg0);
         return;
       case 3:
-        TObjPlayer__sub_801CE068(new_var);
+        finish_attack_stage2__10TObjPlayerFPv(new_var);
         return;
       case 8:
         TObjPlayer__sub_801CE064();
         return;
       case 5:
-        TObjPlayer__sub_801CDF9C((void *) arg0);
+        send_attack_stage2_request__10TObjPlayerFPv((void *) arg0);
         return;
       case 0:
         enter_attack_stage2__10TObjPlayerFPv(new_var);

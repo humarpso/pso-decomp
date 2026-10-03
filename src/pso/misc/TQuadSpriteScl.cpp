@@ -56,7 +56,7 @@ s32 set_global_param__8TObjFishFi(void *);
 s32 begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv(void);
 s32 draw_textured_quad_at_depth(void *, f32);
-s32 TWindowSubStatusDisp__sub_803DF160(int, int);
+s32 set_draw_texture_and_color(int, int);
 extern Cam_801E58D8 lbl_8058D4F8;
 extern const f32 lbl_805DC470;
 extern const f32 lbl_805DC474;
@@ -111,7 +111,7 @@ void render__14TQuadSpriteSclFv(Self_801E58D8 *self) {
     sh = sw * (lbl_805DC470 / (lbl_805DC470 * lbl_8058D4F8.aspect));
     begin_screen_draw(1);
     set_global_param__8TObjFishFi((void *)self->desc->param4);
-    TWindowSubStatusDisp__sub_803DF160(self->desc->param8, self->desc->param1C);
+    set_draw_texture_and_color(self->desc->param8, self->desc->param1C);
     begin_effect_render__13TParticleCtrlFv();
     one = lbl_805DC474;
     for (i = 0, ci = 0, li = 0; i < self->desc->count; i++, ci += 0x10, li += 0x2C) {

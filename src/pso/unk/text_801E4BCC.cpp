@@ -14,12 +14,12 @@ struct Wave_801E4BCC {
 extern "C" {
 s32 TObjPlayer__sub_801413D8(s32 x, s32 y, s16 w);
 void TObjPlayer__sub_803E1EE8(s32, void *, u32, s32);
-void fn_801E4BCC(Wave_801E4BCC *wave);
+void distort_texture_wave_image(Wave_801E4BCC *wave);
 }
 
 extern "C" {
 
-void fn_801E4BCC(Wave_801E4BCC *wave) {
+void distort_texture_wave_image(Wave_801E4BCC *wave) {
     s32 y;
     u8 *dx;
     u8 *dy;

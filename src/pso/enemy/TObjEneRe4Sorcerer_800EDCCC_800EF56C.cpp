@@ -174,7 +174,7 @@ void TObjEneRe4Sorcerer__sub_800EF844(Obj_800EF844 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVectorUnder(void *, void *, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-void TObjEneEpsilon__sub_800B96A4(void *);
+void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
 void TObjEneDD__sub_800BA934(void *);
 void calc_wall_clamped_destination(void *, Vec_800EF95C *, f32, f32, f32);
@@ -204,7 +204,7 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
 f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
-s32 TObjEneEpsilon__sub_800BBE64(s32, M2C_UNK, M2C_UNK);
+s32 tick_period_counter(s32, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe4Sorcerer__sub_800ED428(u32, s32);
 s32 TObjEneRe4Sorcerer__sub_800EFB60(s32, f32, f32);
 void TObjEneRe4Sorcerer__sub_800EFE30(void);
@@ -328,7 +328,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
     Vec_800EF95C v;
     Vec_800EF95C t;
     u32 p;
-    TObjEneEpsilon__sub_800B96A4(self);
+    enemy_copy_target_destination(self);
     update_velocity__9TObjEneDDFPv(self);
     v.x = speed * TBoss8Dragon__sub_803D64C0(self->ang);
     v.y = TObjEneRe4Sorcerer__data_805DA790;
@@ -359,7 +359,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
 }
 
 s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
-    if (TObjEneEpsilon__sub_800BBE64(arg0, arg0 + 0x3B0, 0x1E) != 0) {
+    if (tick_period_counter(arg0, arg0 + 0x3B0, 0x1E) != 0) {
         return TObjEneRe4Sorcerer__sub_800EFB60(arg0, farg0, farg1);
     }
     if (enemy_has_live_target(arg0) != 0) {

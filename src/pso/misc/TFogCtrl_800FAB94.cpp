@@ -40,12 +40,12 @@ struct TFogCtrl_800FAE1C {
 extern "C" {
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
-s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
+s32 restore_fog__8TFogCtrlFPvi(u8 *arg0, s32 arg1);
 s32 is_split_screen();
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2);
 s32 is_split_screen();
-s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1);
+s32 restore_fog__8TFogCtrlFPvi(u8 *arg0, s32 arg1);
 extern M2C_UNK TFogCtrl__data_80501188[];
 s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
 s32 get_param__8TFogCtrlFPv(void* p);
@@ -62,7 +62,7 @@ void TFogCtrl__sub_800FAC90(u8 *arg0, u8 *arg1);
 void TFogCtrl__sub_800FB0F8(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_param__8TFogCtrlFPv(void* p);
 M2C_UNK TFogCtrl__sub_800FB424(int, int, int);
-s32 TFogCtrl__sub_800FAFE0(u8 *arg0, s32 arg1, s32 arg2);
+s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 is_split_screen();
 void end_effect_render__13TParticleCtrlFv(void);
 void GXInitFogAdjTable(GXFogAdjTable_800FAE1C *, s32, void *);
@@ -91,7 +91,7 @@ s32 TFogCtrl__sub_800FAB94(s32 arg0, s32 arg1, s32 arg2) {
         arg0 = 0;
     }
     if ((arg0 >= 0) && (arg0 < 4) && ((u32) TFogCtrl__data_80501188[arg0] != 0U)) {
-        return ((s32)TFogCtrl__sub_800FAFE0((u8 *)((s32)(TFogCtrl__data_80501188[arg0])), (s32)((s32)(arg1)), (s32)((s32)(arg2))));
+        return ((s32)select_fog__8TFogCtrlFPvii((u8 *)((s32)(TFogCtrl__data_80501188[arg0])), (s32)((s32)(arg1)), (s32)((s32)(arg2))));
     }
     return 0;
 }
@@ -103,7 +103,7 @@ s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0) {
     if ((arg1 >= 0) && (arg1 < 4)) {
         s32 elem = *(s32 *)(((s8 *)&TFogCtrl__data_80501188) + arg1 * 4);
         if ((u32) elem != 0U) {
-            return TFogCtrl__sub_800FAF3C((u8 *)(elem), (s32)(arg0));
+            return restore_fog__8TFogCtrlFPvi((u8 *)(elem), (s32)(arg0));
         }
     }
     return 0;
@@ -209,7 +209,7 @@ s32 TFogCtrl__sub_800FAE1C(void *arg0) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {
+s32 restore_fog__8TFogCtrlFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     if (get_param__8TFogCtrlFPv((void*)arg0) != 0) {
         return 0;
@@ -232,7 +232,7 @@ s32 TFogCtrl__sub_800FAF3C(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-s32 TFogCtrl__sub_800FAFE0(u8 *arg0, s32 arg1, s32 arg2) {
+s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     struct Ctrl_800FAFE0 *self = (struct Ctrl_800FAFE0 *)arg0;
     if (get_param__8TFogCtrlFPv((void*)((void *)arg0)) != 0) {
         return 0;

@@ -2,7 +2,7 @@
 extern "C" {
 extern char *lbl_805187D8[];
 void fn_8026A62C(void *, char *);
-void TLobby__sub_80269454(void *);
+void complete_reveal__14TWindowMessageFPv(void *);
 void TWindowMessageLog__sub_8026A434(void *);
 void fn_8026A360(void *window);
 }
@@ -16,7 +16,7 @@ void fn_8026A360(void *window) {
             fn_8026A62C(window, lbl_805187D8[i]);
         }
     }
-    TLobby__sub_80269454(window);
+    complete_reveal__14TWindowMessageFPv(window);
     TWindowMessageLog__sub_8026A434(window);
 }
 

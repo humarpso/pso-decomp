@@ -10,7 +10,7 @@ int test_ordered_anim_markers__10TObjPlayerFPvff(void);
 s8 TObjPlayer__sub_801AFDB0();
 s32 send_field_state_if_active__10TObjPlayerFii(s32, s32);
 s32 TObjPlayer__sub_801D8E90(s32);
-s32 TObjPlayer__sub_800113E4(void *, s16);
+s32 set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 s32 obj_isState3_324(void *);
 s32 set_facing__10TObjPlayerFPvs(void *, s16);
 s32 is_technique_ready__8TTecCtrlFv();
@@ -32,10 +32,10 @@ void play_footstep_sound__10TObjPlayerFi(s32 arg0) {
 }
 void update_rotation__10TObjPlayerFPv(void *arg0) {
     if ((check_camera_mode__10TObjPlayerFv() == 0) && (reset_volopt_state__10TObjPlayerFv(arg0) != 0) && (is_technique_ready__8TTecCtrlFv() == 0) && (obj_isState3_324(arg0) == 0)) {
-        TObjPlayer__sub_800113E4(arg0, (s16) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2));
+        set_hp_clamped__10TObjPlayerFPvs(arg0, (s16) ((s16) M2C_FIELD(arg0, s16 *, 0x2B8) / 2));
         return;
     }
-    TObjPlayer__sub_800113E4(arg0, M2C_FIELD(arg0, s16 *, 0x2B8));
+    set_hp_clamped__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0x2B8));
     set_facing__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0x2BA));
 }
 

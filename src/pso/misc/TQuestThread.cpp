@@ -27,7 +27,7 @@ extern s32 tl_su;
 s32 TQuestThread__sub_801F60DC(void);
 int queue_destruction__7TObjectFv(void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
-M2C_UNK TLobby__sub_801F3124(s32, void *);
+M2C_UNK init_quest_script_context(s32, void *);
 M2C_UNK TQuestThread__sub_801F5E7C();
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK memcpy(s32, s32, s32);
@@ -38,8 +38,8 @@ int queue_destruction__7TObjectFv(void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 void copy_name(void *);
 s32 update_lobby_scene__6TSceneFPv(void *);
-void TLobby__sub_800F9DF4(void *, s32);
-M2C_UNK TLobby__sub_801F3124(s32, void *);
+void read_disc_file(void *, s32);
+M2C_UNK init_quest_script_context(s32, void *);
 M2C_UNK TQuestThread__sub_801F5E7C();
 M2C_UNK __ct__7TObjectFP7TObject();
 extern u8 lbl_8044A640[];
@@ -51,8 +51,8 @@ int queue_destruction__7TObjectFv(void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 void copy_name(void *);
 s32 update_lobby_scene__6TSceneFPv(void *);
-void TLobby__sub_800F9DF4(void *, s32);
-M2C_UNK TLobby__sub_801F3124(s32, void *);
+void read_disc_file(void *, s32);
+M2C_UNK init_quest_script_context(s32, void *);
 M2C_UNK TQuestThread__sub_801F5E7C();
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK __ct__12TQuestThreadFv(void *, void *, M2C_UNK);
@@ -146,7 +146,7 @@ u8 *TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(temp_r31);
         memcpy(M2C_FIELD(arg0, s32 *, 0x198), arg2, temp_r31);
         lbl_805D5EE8 = arg0;
-        TLobby__sub_801F3124(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
+        init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
         M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
     }
     TQuestThread__sub_801F5E7C();
@@ -171,10 +171,10 @@ u8 *TQuestThread__sub_801F62E0(u8 *arg0, void *parent, void *arg2, s32 arg3) {
             queue_destruction__7TObjectFv(arg0);
         } else {
             M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(size + 0x400);
-            TLobby__sub_800F9DF4(arg2, M2C_FIELD(arg0, s32 *, 0x198));
+            read_disc_file(arg2, M2C_FIELD(arg0, s32 *, 0x198));
             copy_name(&lbl_805DC50C);
             lbl_805D5EE8 = arg0;
-            TLobby__sub_801F3124(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
+            init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
             mem = (void *)__nw__7TObjectFUl(0x194);
             if (mem != NULL) {
                 __ct__12TQuestThreadFv(mem, arg0, 0);
@@ -188,9 +188,9 @@ u8 *TQuestThread__sub_801F62E0(u8 *arg0, void *parent, void *arg2, s32 arg3) {
             queue_destruction__7TObjectFv(arg0);
         } else {
             M2C_FIELD(arg0, s32 *, 0x198) = alloc__22TQuestVmDownLoadServerFPv(size + 0x400);
-            TLobby__sub_800F9DF4(arg2, M2C_FIELD(arg0, s32 *, 0x198));
+            read_disc_file(arg2, M2C_FIELD(arg0, s32 *, 0x198));
             lbl_805D5EEC = (u32)arg0;
-            TLobby__sub_801F3124(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
+            init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
         }
         break;
     default:
@@ -210,10 +210,10 @@ QThread_801F6418 *TQuestThread__sub_801F6418(QThread_801F6418 *self, void *unuse
         queue_destruction__7TObjectFv((void*)(self));
     } else {
         self->f198 = alloc__22TQuestVmDownLoadServerFPv(r + 0x400);
-        TLobby__sub_800F9DF4(scene, self->f198);
+        read_disc_file(scene, self->f198);
         copy_name(&lbl_805DC50C);
         (*(QThread_801F6418 * *)&lbl_805D5EE8) = self;
-        TLobby__sub_801F3124(self->f198, (u8 *)self + 0x24);
+        init_quest_script_context(self->f198, (u8 *)self + 0x24);
         self->f1A0 = 0;
     }
     TQuestThread__sub_801F5E7C();

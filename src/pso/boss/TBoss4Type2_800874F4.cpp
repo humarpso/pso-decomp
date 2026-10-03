@@ -9,7 +9,7 @@ struct O_80087638 { u8 pad[0x2e]; u16 x2e; };
 struct Ent_800874F4 { u8 data[0x98]; };
 
 extern "C" {
-void TTecLuker__sub_8008764C(u8 *arg0, s32 arg1);
+void set_tint_color__13TParticleCtrlFPvi(u8 *arg0, s32 arg1);
 void set_owner_id__13TParticleCtrlFPvUs(O_80087638 *self, u16 x);
 extern s32 lbl_805D2948;
 extern s32 lbl_805D4EF8;
@@ -71,7 +71,7 @@ void set_owner_id__13TParticleCtrlFPvUs(O_80087638 *self, u16 x) {
     }
 }
 
-void TTecLuker__sub_8008764C(u8 *arg0, s32 arg1) {
+void set_tint_color__13TParticleCtrlFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, u16 *, 0x2C) = (u16) (M2C_FIELD(arg0, u16 *, 0x2C) | 0x100);
     M2C_FIELD(arg0, s32 *, 0x48) = arg1;
 }

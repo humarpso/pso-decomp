@@ -146,7 +146,7 @@ s32 get_idle_animation__10TObjPlayerFPv();
 void TObjPlayer__sub_801BD1B4(Player_801BD1B4 *arg0);
 void set_field_d8__10TObjPlayerFPvi(void *, s32);
 void update_animation_frame__10TObjPlayerFPvi(void *, s32);
-void TObjPlayer__sub_8014394C(void *);
+void set_motion_interpolation_flag(void *);
 Anim_801BD0C0 *get_anim_entry__10TObjPlayerFPvi(void *, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
@@ -167,7 +167,7 @@ void TObjPlayer__sub_801BD0C0(Player_801BD0C0 *self) {
     self->fb0 &= ~4;
     self->fb4 = a->flags;
     if (self->fb4 & 0x20000000) {
-        TObjPlayer__sub_8014394C(self);
+        set_motion_interpolation_flag(self);
     }
     if (self->frame >= self->end) {
         self->frame = TObjPlayer__data_805DC278;

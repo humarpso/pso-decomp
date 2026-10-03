@@ -9,7 +9,7 @@ struct RecoveredGlobal_80251BA0_lbl_804CF080
 
 extern "C" {
 M2C_UNK TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
-f32 TWindowSubStatusDisp__sub_801A5228(int);
+f32 get_card_window_scale__20TWindowSubStatusDispFi(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 s32 play_sound_effect(int, int, int, int);
 u32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
@@ -71,7 +71,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   *((s32 *) (((s8 *) temp_r3) + 0x24)) = 0xFF000000;
   new_var = strnlen__19TWindowKeyBoardSoftFPvUi((void *) arg1, (int) 0x100);
   *((s16 *) (((s8 *) arg0) + 0x74)) = (s16) ((lbl_805DCCF0 * ((f32) new_var)) + lbl_805DCCEC);
-  if (TWindowSubStatusDisp__sub_801A5228((int) ((s32) (*((s16 *) (((s8 *) arg0) + 0x20))))) > TWindowFukidasi__data_805DCD30)
+  if (get_card_window_scale__20TWindowSubStatusDispFi((int) ((s32) (*((s16 *) (((s8 *) arg0) + 0x20))))) > TWindowFukidasi__data_805DCD30)
   {
     *((s32 *) (((s8 *) arg0) + 0x5C)) = 0;
   }

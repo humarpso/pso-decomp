@@ -25,7 +25,7 @@ int is_status_subsystem_ready__10TObjPlayerFPv(void* p) { return TObjPlayer__sub
 void* get_extended_state__10TObjPlayerFPv(void* p) { return get_state_ptr__10TObjPlayerFPv((char*)p + 0x7cc); }
 int query_extended_state__10TObjPlayerFPv(void* p) { return get_attack_damage_scale((char*)p + 0x7cc); }
 void test_flag30_bit0x100000__10TObjPlayerFPv(void* p) { obj_testFlags30(p, (void*)1048576); }
-void* TObjPlayer__sub_80121160(void* a0, int a1) {  return (char*)(*(int*)((char*)a0 + 0xdb4)) + a1 * 48; }
+void* get_model_joint_matrix(void* a0, int a1) {  return (char*)(*(int*)((char*)a0 + 0xdb4)) + a1 * 48; }
 void set_action_type__10TObjPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
 
 }

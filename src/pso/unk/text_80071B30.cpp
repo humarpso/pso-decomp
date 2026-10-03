@@ -46,7 +46,7 @@ void VecCopy__FP3VecPC3Vec(Vec_80071BC0 *, void *);
 void save_position__14TBoss4DarkFalzFi(Plr_80071BC0 *);
 void TBoss4DarkFalz__sub_8004C220(Plr_80071BC0 *, Vec_80071BC0 *);
 void copy_header_struct__6TLobbyFPvPv(void *, void *);
-void TNpcPlayer__sub_8007206C(Chr_80071BC0 *, void *);
+void copy_player_visual_record(Chr_80071BC0 *, void *);
 void clear_header_struct__10TObjPlayerFPv(Hdr_80071BC0 *);
 Plr_80071BC0 *get_player_by_client_id(s32);
 Plr_80071BC0 *TObjPlayer__sub_801BDEF8(s32, s32, TPlyCharData *);
@@ -99,7 +99,7 @@ void TObjPlayer__sub_80071BC0(s32 arg0) {
                 continue;
             }
             VecCopy__FP3VecPC3Vec(&pos, (u8 *)p + 0x38);
-            TNpcPlayer__sub_8007206C(&chr, (u8 *)p + 0x85c);
+            copy_player_visual_record(&chr, (u8 *)p + 0x85c);
             copy_header_struct__6TLobbyFPvPv(&hdr, (u8 *)p + 0xdac);
             if (p != NULL) {
                 p->m0(1);
@@ -120,7 +120,7 @@ void TObjPlayer__sub_80071BC0(s32 arg0) {
             }
             {
                 TPlyCharData cd;
-                TNpcPlayer__sub_8007206C(&cd.chr, &chr);
+                copy_player_visual_record(&cd.chr, &chr);
                 begin_action_state__10TObjPlayerFPv(&cd);
                 send_command__10TNpcPlayerFiciiPv(chr.f31, t->b, t->c, t->a, &cd);
                 if (i == lbl_805D53A0) {

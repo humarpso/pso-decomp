@@ -103,7 +103,7 @@ M2C_UNK advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *);
 M2C_UNK fn_801682E4(void *, int);
 M2C_UNK fn_80168488(void *);
 u8 TODoorAncient08__sub_80229220(int);
-M2C_UNK TSwitch__sub_802292E0(int);
+M2C_UNK clear_current_floor_switch(int);
 extern s32 lbl_805DB658;
 extern const f32 lbl_805DB65C;
 extern const f32 lbl_805DB660;
@@ -137,7 +137,7 @@ void TOHangceilingCave01Key__vt78(u8 *arg0) {
             *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) &= ~8;
         } else if (lbl_805DB660 == *(f32 *)(arg0 + 0xC0)) {
             ((VObj_18_f90cfc *)(arg0))->m77();
-            TSwitch__sub_802292E0((u16)*(s32 *)(arg0 + 0x35C));
+            clear_current_floor_switch((u16)*(s32 *)(arg0 + 0x35C));
         }
         break;
     case 2:

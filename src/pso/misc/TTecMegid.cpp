@@ -244,7 +244,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80235348_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
-void TTecMegid__sub_80235348(u8 *arg0);
+void init_parameters__9TTecMegidFPv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void free__11TOBoss4RockFUi(void **);
 void __dl__7TObjectFPv(void *);
@@ -254,7 +254,7 @@ extern void *__vt__9TTecMegid[];
 TTecGiBarta_80230B48 *__dt__9TTecMegidFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
-void TTecMegid__sub_80235348(u8 *arg0);
+void init_parameters__9TTecMegidFPv(u8 *arg0);
 void construct_aimed_technique_projectile();
 extern void *__vt__9TTecMegid[];
 extern s32 lbl_805D37E8;
@@ -262,7 +262,7 @@ extern const f32 lbl_805DC884;
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 u16 obj_getField1c(void *);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
-void TTecMegid__sub_80235348(u8 *arg0);
+void init_parameters__9TTecMegidFPv(u8 *arg0);
 void TObjPlayer__sub_8023AA4C();
 extern void *__vt__9TTecMegid[];
 extern s32 lbl_805D37E8;
@@ -407,7 +407,7 @@ void TTecMegid__sub_802351B4(void *arg0) {
   }
 }
 
-void TTecMegid__sub_80235348(u8 *arg0) {
+void init_parameters__9TTecMegidFPv(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 0x12, (int) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
@@ -528,7 +528,7 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     construct_aimed_technique_projectile();
     M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
-    TTecMegid__sub_80235348(arg0);
+    init_parameters__9TTecMegidFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
         ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
@@ -547,7 +547,7 @@ u8 *TTecMegid__sub_80235940(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     TObjPlayer__sub_8023AA4C();
     M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
-    TTecMegid__sub_80235348(arg0);
+    init_parameters__9TTecMegidFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
         ((Obj_80235940 *)arg0)->ids[i] = 0xFFFF;

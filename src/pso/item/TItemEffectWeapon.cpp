@@ -9,7 +9,7 @@ u32 get_mode__11TCameraCtrlFPv(void*);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void set_depth_buffer_settings_1__Fv();
-void fn_80141A30();
+void restore_saved_depth_alpha_state();
 void init_xyz_limits__10TObjPlayerFv();
 void reset_transform_state__10TObjPlayerFv();
 void reset_player_transform();
@@ -110,7 +110,7 @@ void TItemEffectWeapon::render_trail() {
             }
             reset_transform_state__10TObjPlayerFv();
             some_id_805c6f74 = lbl_805D5660;
-            fn_80141A30();
+            restore_saved_depth_alpha_state();
             end_effect_render__13TParticleCtrlFv();
         }
     } else {

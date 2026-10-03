@@ -24,12 +24,12 @@ s32 place_on_ground__5TItemFPvsPvi(Item_801057A8 *, s32, f32 *, s32);
 s32 is_active_battle_player__10TObjPlayerFv(void);
 Item_801057A8 *TLobby__sub_8010542C(void *);
 s32 TLobby__sub_8011AED8(s32, s32, void *, f32, f32);
-Item_801057A8 *fn_801057A8(Msg_801057A8 *arg0, s32 arg1);
+Item_801057A8 *spawn_dropped_item_from_msg(Msg_801057A8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-Item_801057A8 *fn_801057A8(Msg_801057A8 *arg0, s32 arg1) {
+Item_801057A8 *spawn_dropped_item_from_msg(Msg_801057A8 *arg0, s32 arg1) {
     Item_801057A8 *item;
     s32 me;
     s32 act;

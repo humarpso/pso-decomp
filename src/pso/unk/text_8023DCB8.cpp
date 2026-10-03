@@ -4,12 +4,12 @@ struct Rec_8023DCB8 { u8 kind; u8 pad[3]; u32 w; };
 struct Set_8023DCB8 { Rec_8023DCB8 *recs; u32 count; };
 
 extern "C" {
-void fn_8023DCB8(Set_8023DCB8 *set, s32 arg1);
+void set_material_texture_slot(Set_8023DCB8 *set, s32 arg1);
 }
 
 extern "C" {
 
-void fn_8023DCB8(Set_8023DCB8 *set, s32 arg1) {
+void set_material_texture_slot(Set_8023DCB8 *set, s32 arg1) {
     Rec_8023DCB8 *p;
     u32 i;
     if (set != NULL) {

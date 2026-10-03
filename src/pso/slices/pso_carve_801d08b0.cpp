@@ -36,7 +36,7 @@ s16 get_field_3e4__10TObjPlayerFPv(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C18E0(void *);
 void TObjPlayer__sub_801C1978(void *);
-void TObjPlayer__sub_801D08B0(void *arg0, void *arg1, s16 arg2);
+void send_idle_return_event__10TObjPlayerFPvPvs(void *arg0, void *arg1, s16 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324();
 s32 obj_testFlags30(void *, s32);
@@ -56,7 +56,7 @@ void update_position_from_target__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D09F4(void);
 void TObjPlayer__sub_801D09F8(void);
 
-void TObjPlayer__sub_801D08B0(void *arg0, void *arg1, s16 arg2) {
+void send_idle_return_event__10TObjPlayerFPvPvs(void *arg0, void *arg1, s16 arg2) {
     Msg_801D08B0 m;
     s32 t;
     if ((arg0 == NULL) || (obj_isState2_324() == 0)) {

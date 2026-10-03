@@ -40,8 +40,8 @@ void free_member__13TShopSequenceFPv(void* p);
 void restore_player_state__13TShopSequenceFPv(void *arg0);
 s32 update_download_server__13TShopSequenceFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
-s32 TObjPlayer__sub_801B12CC();
-s32 TObjPlayer__sub_801B130C();
+s32 activate_body_collision__10TObjPlayerFPv();
+s32 deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024AEAC(u16);
 s32 TWindowCtrl__sub_8024AEF0(u16);
@@ -111,7 +111,7 @@ void close_window__13TShopSequenceFPv(void *arg0) {
             var_r31 = 0;
             do {
                 if (get_player_by_client_id(var_r31) != 0U) {
-                    TObjPlayer__sub_801B12CC();
+                    activate_body_collision__10TObjPlayerFPv();
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);
@@ -128,7 +128,7 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
             var_r31 = 0;
             do {
                 if (get_player_by_client_id(var_r31) != 0U) {
-                    TObjPlayer__sub_801B130C();
+                    deactivate_body_collision__10TObjPlayerFPv();
                 }
                 var_r31 += 1;
             } while (var_r31 < 4);

@@ -29,7 +29,7 @@ M2C_UNK TObjPlayer__sub_801415BC();
 s32 TObjPlayer__sub_80142F1C(void *);
 s32 draw_model_with_callback__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801B4C34(void *);
-s32 TObjPlayer__sub_801BAB78(void *, void *, int);
+s32 draw_projected_shadow__10TObjPlayerFPvPvi(void *, void *, int);
 void draw_head_attachments__10TObjPlayerFPv(u8 *arg0);
 u8 *TObjPlayer__sub_801BF934(void *);
 s32 write_ids__10TObjPlayerFPv(void *);
@@ -145,10 +145,10 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     write_ids__10TObjPlayerFPv((void *) (arg0 + 0x608));
     pop_matrix();
     if (check_state_flag_1__8TItemMagFPv((void *) (arg0 + 0x5B0)) != 0) {
-        TObjPlayer__sub_801BAB78((void *) (arg0), (void *) (TObjPlayer__sub_801BF934(arg0 + 0x5B0)), (int) (0));
+        draw_projected_shadow__10TObjPlayerFPvPvi((void *) (arg0), (void *) (TObjPlayer__sub_801BF934(arg0 + 0x5B0)), (int) (0));
         return;
     }
-    TObjPlayer__sub_801BAB78((void *) (arg0), (void *) (NULL), (int) (0));
+    draw_projected_shadow__10TObjPlayerFPvPvi((void *) (arg0), (void *) (NULL), (int) (0));
 }
 void TObjPlayer__sub_801BB118(u8 *self, f32 f) {
     obj_clearFlags30(self, 0x08000000);

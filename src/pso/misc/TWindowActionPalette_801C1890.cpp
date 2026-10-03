@@ -126,7 +126,7 @@ s32 TLobby__sub_801C19D0(void* p);
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
-int TObjPlayer__sub_8001942C(void);
+int test_immunity_flags__10TObjPlayerFPvi(void);
 int TObjPlayer__sub_8001943C(void);
 int TObjPlayer__sub_800194AC(void);
 int obj_is_hit_receivable(void);
@@ -134,7 +134,7 @@ void* TObjPlayer__sub_801C1A00(void* p);
 int TObjPlayer__sub_800193FC(void);
 int TObjPlayer__sub_8001940C(void);
 int TObjPlayer__sub_8001941C(void);
-int TObjPlayer__sub_8001942C(void);
+int test_immunity_flags__10TObjPlayerFPvi(void);
 int TObjPlayer__sub_8001943C(void);
 int TObjPlayer__sub_800194AC(void);
 int obj_is_hit_receivable(void);
@@ -251,9 +251,9 @@ void* fn_801C1E44(void* p);
 void* fn_801C1E44(void* p);
 void* fn_801C1E48(void* p);
 void* fn_801C1E48(void* p);
-int fn_801C1E50(void* p);
+int test_photon_blast_modifier(void* p);
 int TWindowActionPalette__sub_801C1C20(void* p);
-int fn_801C1E50(void* p);
+int test_photon_blast_modifier(void* p);
 void fn_801C1E74(void* p);
 void fn_801C1E74(void* p);
 extern s32 lbl_805D49C0;
@@ -265,7 +265,7 @@ void TKeyBoardControl__sub_8000F978(void);
 extern s32 lbl_805D49BC;
 void TKeyBoardControl__sub_8000F984(void);
 extern s32 lbl_805D49B8;
-void TKeyBoardControl__sub_8000F998(void);
+void mark_area_change_pending(void);
 extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F9A4(void);
 void fn_801C1EA4(void* p);
@@ -283,7 +283,7 @@ void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
 void TKeyBoardControl__sub_8000F978(void);
 void TKeyBoardControl__sub_8000F984(void);
-void TKeyBoardControl__sub_8000F998(void);
+void mark_area_change_pending(void);
 void TKeyBoardControl__sub_8000F9A4(void);
 void fn_801C1EA4(void* p);
 void fn_801C1EC4(void* p);
@@ -297,7 +297,7 @@ void TKeyBoardControl__sub_8000F978(void);
 extern s32 lbl_805D49BC;
 void TKeyBoardControl__sub_8000F984(void);
 extern s32 lbl_805D49B8;
-void TKeyBoardControl__sub_8000F998(void);
+void mark_area_change_pending(void);
 extern s32 lbl_805D49B8;
 void TKeyBoardControl__sub_8000F9A4(void);
 void fn_801C1EF4(void* p);
@@ -315,7 +315,7 @@ void TKeyBoardControl__sub_8000F950(void);
 void TKeyBoardControl__sub_8000F95C(void);
 void TKeyBoardControl__sub_8000F978(void);
 void TKeyBoardControl__sub_8000F984(void);
-void TKeyBoardControl__sub_8000F998(void);
+void mark_area_change_pending(void);
 void TKeyBoardControl__sub_8000F9A4(void);
 void fn_801C1EF4(void* p);
 void fn_801C1F14(void* p, s16 v);
@@ -349,7 +349,7 @@ u8 *TWindowActionPalette__sub_801C1D7C(s32 arg0, s32 arg1, s32 arg2);
 void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i);
 s32 get_field_ed__10TObjPlayerFPv(void *p);
 s32 get_field_ec__12TOSwitchItemFPv(void *p);
-s32 fn_80101A48(u8, u8);
+s32 is_item_stackable(u8, u8);
 void TObjPlayer__sub_801C1AC8(void *self);
 S_801C1BA8 *fn_801C1BA8(S_801C1BA8 *arg0, S_801C1BA8 *arg1);
 }
@@ -441,7 +441,7 @@ u8 is_item_equipped(u8 *arg0) {
 }
 
 void TObjPlayer__sub_801C1AC8(void *self) {
-    fn_80101A48(get_field_ec__12TOSwitchItemFPv(self), get_field_ed__10TObjPlayerFPv(self));
+    is_item_stackable(get_field_ec__12TOSwitchItemFPv(self), get_field_ed__10TObjPlayerFPv(self));
 }
 
 void TObjPlayer__sub_801C1B0C(void) {  }
@@ -541,7 +541,7 @@ void* fn_801C1E44(void* p) { return p; }
 
 void* fn_801C1E48(void* p) { return (char*)p + 0x24; }
 
-int fn_801C1E50(void* p) { return TWindowActionPalette__sub_801C1C20((char*)p + 0x24); }
+int test_photon_blast_modifier(void* p) { return TWindowActionPalette__sub_801C1C20((char*)p + 0x24); }
 
 void fn_801C1E74(void* p) { fn_801C1E98((void*)((char*)p + 0x24)); }
 

@@ -56,7 +56,7 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_8027C56C_lbl_8050E208 lbl_8050E208;
 void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0);
 void fn_8027C13C(void *, void *);
-void TWindowSubCustomEquip__sub_80275DE8(void *, void *, int, f32);
+void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, int, f32);
 extern const f32 lbl_805DD680;
 M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1);
 s32 test_card_flag_2__12TBoss8DragonFPv(int);
@@ -158,7 +158,7 @@ void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0) {
 M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1) {
     u8 sp8[16];
     fn_8027C13C(arg0, sp8);
-    ((void (*)(f32, void *, void *, int))TWindowSubCustomEquip__sub_80275DE8)(lbl_805DD680, (void *)arg1, sp8, ((Win_8027C4C8 *)arg0)->f62);
+    ((void (*)(f32, void *, void *, int))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD680, (void *)arg1, sp8, ((Win_8027C4C8 *)arg0)->f62);
 }
 
 void render__19TWindowSubMagPhotonFv(s32 arg0) {

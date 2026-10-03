@@ -16,7 +16,7 @@ void enemy_init_acquire_period(u8 *arg0, s32 arg1);
 s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x);
 void enemy_clear_target(O_800B98C0 *self, u16 _w1);
 s32 find_active_entity_by_id(u16);
-void TBoss8Dragon__sub_800B9958(Obj_800B9958 *self, u16 id);
+void enemy_set_target_id(Obj_800B9958 *self, u16 id);
 s32 get_game_mode__6TLobbyFv(void);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
@@ -30,7 +30,7 @@ int spawn_part__14TObjEneEpsilonFi(void*);
 
 s32 TObjEneEpsilon__sub_800B9848(void *self, u16 x) {
     if (x != 0xFFFF) {
-        TBoss8Dragon__sub_800B9958((Obj_800B9958 *)((void *)(self)), x);
+        enemy_set_target_id((Obj_800B9958 *)((void *)(self)), x);
         return 1;
     }
     enemy_clear_target((O_800B98C0 *)((void *)(self)), x);
@@ -64,7 +64,7 @@ void TBoss2DeRolLe__sub_800B98D8(Obj_800B98D8 *self, void *player) {
     }
 }
 
-void TBoss8Dragon__sub_800B9958(Obj_800B9958 *self, u16 id) {
+void enemy_set_target_id(Obj_800B9958 *self, u16 id) {
     self->id = id;
     if (id != 0xFFFF) {
         self->ptr = find_active_entity_by_id(self->id);

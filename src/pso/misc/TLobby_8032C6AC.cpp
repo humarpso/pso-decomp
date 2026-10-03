@@ -13,7 +13,7 @@ void update_alloc_size__6TLobbyFv(void);
 M2C_UNK TAdWarningBaseGC__sub_8032CF70(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
 M2C_UNK TDLGraph__sub_8007F6F8(s32, M2C_UNK);
-M2C_UNK TLobby__sub_800F9DF4(s32, u32);
+M2C_UNK read_disc_file(s32, u32);
 s32 TLobby__sub_801F34F8();
 int GBAInit(void*);
 s32 GBAGetProcessStatus(M2C_UNK, u8 *);
@@ -33,7 +33,7 @@ void send_data__6TLobbyFi(s32 arg0) {
         return;
     }
     if ((u32) TLobby__data_805D6CC0 != 0U) {
-        TLobby__sub_800F9DF4(arg0, TLobby__data_805D6CC0);
+        read_disc_file(arg0, TLobby__data_805D6CC0);
         return;
     }
     TLobby__data_805D6CC8 = 0U;

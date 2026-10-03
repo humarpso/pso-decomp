@@ -22,7 +22,7 @@ s32 validate_6x39_set_photon_blast_ready_flag(void *);
 void handle_6x39_set_photon_blast_ready_flag(s32 arg0);
 M2C_UNK init_6x39_packet__15TFontSmallLobbyFPv(void *);
 void update_and_send_60__15TFontSmallLobbyFPv(void *p);
-void TFontSmallLobby__sub_801D60B4(u16 *p);
+void send_6x39_photon_blast_ready(u16 *p);
 s32 obj_isState2_324();
 s32 get_player_by_client_id(int);
 void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
@@ -135,7 +135,7 @@ void handle_6x39_set_photon_blast_ready_flag(s32 arg0) {
     }
 }
 typedef s32 M2C_UNK_801D60B4;
-void TFontSmallLobby__sub_801D60B4(u16 *p) {
+void send_6x39_photon_blast_ready(u16 *p) {
     Pkt_801D60B4 pk;
     init_6x39_packet__15TFontSmallLobbyFPv(&pk);
     pk.b = *p;

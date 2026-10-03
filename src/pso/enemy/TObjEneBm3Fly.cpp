@@ -140,7 +140,7 @@ extern const f32 TObjEneBm3Fly__data_805D9C94;
 extern const f32 lbl_805D9CD8;
 void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
 s32 has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(void *, u16);
-M2C_UNK TBoss8Dragon__sub_800B9958(void *, u16);
+M2C_UNK enemy_set_target_id(void *, u16);
 s32 TObjEneDD__sub_800BB484(void *, Cand_800B1684 *, f32);
 M2C_UNK transition_enemy_state(void *, int);
 void *find_entity_by_id(u16);
@@ -196,7 +196,7 @@ void TObjEneBm3Fly__sub_800B1684(Fly_800B1684 *s) {
     for (i = 0; i < count; i++) {
         id = players[i].id;
         if (id != s->f38C && has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(nest, id) != 0) {
-            TBoss8Dragon__sub_800B9958(s, id);
+            enemy_set_target_id(s, id);
             transition_enemy_state(s, 3);
             return;
         }
