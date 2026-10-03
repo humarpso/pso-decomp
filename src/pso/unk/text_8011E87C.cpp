@@ -22,6 +22,8 @@ struct Pl_8011E950 {
     s8 kind[4];
 };
 
+typedef struct V4_8011EA10 { f32 a; f32 b; f32 c; f32 d; } V4_8011EA10;
+
 extern "C" {
 s32 get_mode__11TCameraCtrlFPv(void *);
 s32 TLobby__sub_800822E8(void *, s32);
@@ -33,11 +35,14 @@ void push_trail_interpolated__17TItemEffectWeaponFv(void *, Vec_8011E87C *, Vec_
 extern u8 main_task[];
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 s32 obj_testFlags30(void *, M2C_UNK);
-u32 pack_weapon_trail_color(void *);
 M2C_UNK TObjPlayer__sub_80121228(void *, M2C_UNK);
 void *__ct__17TItemEffectWeaponFv(void *, u32, u32);
 void *alloc__13TItemProArmorFi(M2C_UNK);
 void create_weapon_trail_effects(Pl_8011E950 *arg0);
+V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
+u32 __cvt_fp2unsigned(f32);
+extern const f32 lbl_805DAC90;
+u32 pack_weapon_trail_color(void *arg0);
 }
 
 extern "C" {
@@ -59,7 +64,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
 void create_weapon_trail_effects(Pl_8011E950 *arg0) {
     u32 flags;
     s32 i;
-    flags = pack_weapon_trail_color(arg0) & 0x8FFFFFFF;
+    flags = pack_weapon_trail_color((void *)(arg0)) & 0x8FFFFFFF;
     if (arg0->x174 != 0U) {
         for (i = 0; i != 4; i++) {
             if (arg0->kind[i] != -1) {
@@ -74,6 +79,10 @@ void create_weapon_trail_effects(Pl_8011E950 *arg0) {
             }
         }
     }
+}
+u32 pack_weapon_trail_color(void *arg0) {
+    V4_8011EA10 w = get_weapon_color__11TItemWeaponFPv(arg0);
+    return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
 }
 
 }
