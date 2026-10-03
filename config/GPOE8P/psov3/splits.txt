@@ -4296,6 +4296,7 @@ pso/unk/text_80118164.cpp:
 
 pso/item/TItemProShield_801181D0.cpp:
 	.text       start:0x801181D0 end:0x8011892C
+	.rodata     start:0x8043E658 end:0x8043E660
 
 pso/unk/text_8011892C.cpp:
 	.text       start:0x8011892C end:0x80118F5C

@@ -46,6 +46,8 @@ struct VObj_18_1a8f71 : VBase_18_1a8f71 {
 
 struct RecoveredGlobal_801186EC___vt__14TItemProShield { M2C_UNK value; u8 remaining[0xCC]; };
 
+struct Status_80118558 { s8 a; u8 b; u8 pad[2]; u32 c; s32 d; s32 e; s32 f; };
+
 extern "C" {
 void TItemProShield__vt12(u8 *arg0);
 s32 TItemData__sub_8010CE70(s32 a0, int a1);
@@ -90,6 +92,20 @@ extern M2C_UNK __vt__14TItemProShield[];
 extern s32 lbl_805D2C38;
 extern int lbl_805D54C8;
 u8 *TItemProShield__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+M2C_UNK add_actor_tp(u32, s32);
+M2C_UNK add_actor_hp(u32, s32);
+s16 obj_getS16_2BA(u32);
+s8 get_field_ed__10TObjPlayerFPv(void *);
+s16 get_field_2b8__14TItemProShieldFPv(u32);
+s32 get_id__13TItemProArmorFPv(void *);
+s32 get_flag_40__8TItemMagFPv(void *);
+M2C_UNK create_shield_effect__14TItemProShieldFiUsUi(s32, s32, s32);
+u8 get_slot_count__14TItemProShieldFPv(void *);
+M2C_UNK play_shield_sound_cue(Status_80118558 *);
+M2C_UNK reset_status_block__10TObjPlayerFPv(Status_80118558 *);
+extern s32 tl_05;
+extern const f32 lbl_805DABF0;
+void TItemProShield__vt28(void *arg0);
 }
 
 extern "C" {
@@ -208,6 +224,31 @@ void TItemProShield__vt42(u8 *arg0) {
             temp_r3_5 = __nw__7TObjectFUl((int) (0x30));
             if (temp_r3_5 != 0) {
                 TObjPlayer__sub_8010A1D0((int) (temp_r3_5), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (get_id__13TItemProArmorFPv((void *) (arg0))), (int) (temp_r3));
+            }
+        }
+    }
+}
+
+void TItemProShield__vt28(void *arg0) {
+    Status_80118558 st;
+    if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
+        if (get_flag_40__8TItemMagFPv(arg0) == 0) {
+            create_shield_effect__14TItemProShieldFiUsUi(tl_05, get_id__13TItemProArmorFPv(arg0), M2C_FIELD(arg0, s32 *, 0x190));
+            reset_status_block__10TObjPlayerFPv(&st);
+            st.a = get_field_ed__10TObjPlayerFPv(arg0);
+            st.b = get_slot_count__14TItemProShieldFPv(arg0);
+            st.c = M2C_FIELD(arg0, u32 *, 0xF0);
+            play_shield_sound_cue(&st);
+        }
+        if (M2C_FIELD(arg0, s32 *, 0x19C) & 1) {
+            switch (get_slot_count__14TItemProShieldFPv(arg0)) {
+            case 34:
+                add_actor_hp(M2C_FIELD(arg0, u32 *, 0xF0), (s32) (lbl_805DABF0 * (f32)get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, u32 *, 0xF0))));
+                break;
+            case 35:
+                add_actor_hp(M2C_FIELD(arg0, u32 *, 0xF0), (s32) (lbl_805DABF0 * (f32)get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, u32 *, 0xF0))));
+                add_actor_tp(M2C_FIELD(arg0, u32 *, 0xF0), (s32) (lbl_805DABF0 * (f32)obj_getS16_2BA(M2C_FIELD(arg0, u32 *, 0xF0))));
+                break;
             }
         }
     }
