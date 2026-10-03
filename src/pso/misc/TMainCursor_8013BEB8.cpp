@@ -8,6 +8,12 @@ typedef struct Vec_8013BF0C { f32 x, y, z; } Vec_8013BF0C;
 
 typedef struct Vec_8013C0A0 { f32 x, y, z; } Vec_8013C0A0;
 
+struct Vec_8013BF0C;
+struct Vec_8013C0A0;
+struct Coll_8013C288 { u8 pad0[0xC]; f32 radius; u8 pad10[0x18 - 0x10]; u32 flags; u8 pos[0x2C - 0x1C]; };
+
+struct Best_8013C288 { s32 index; u8 pad4[2]; u16 id; u8 pad8[4]; f32 dist; };
+
 extern "C" {
 u8 * csnVector(s32, s32, s32);
 void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2);
@@ -28,6 +34,28 @@ extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0E0;
 extern Vec_8013C0A0 lbl_8050BEE0;
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
+s32 obj_testFlags30(void *, s32);
+s32 obj_getField1c(void *);
+s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
+s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
+void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 get_body_exclude_mask__11TMainCursorFPv(void *);
+s32 get_body_include_mask__11TMainCursorFPv(void *);
+s32 get_actor_exclude_mask__11TMainCursorFPv(void *);
+s32 get_actor_include_mask__11TMainCursorFPv(void *);
+M2C_UNK set_cursor_id__11TMainCursorFPvs(M2C_UNK, int);
+M2C_UNK set_field2__11TMainCursorFPvs(M2C_UNK, s16);
+M2C_UNK set_size__11TMainCursorFPvf(f32);
+M2C_UNK TMainCursor__sub_8013F13C(void *);
+f32 TMainCursor__sub_8013F14C(M2C_UNK);
+M2C_UNK get_record_at__11TMainCursorFPvi(void *, int);
+s32 TMainCursor__sub_8013F168(void *);
+f32 horizontal_distance_squared(void *, void *);
+M2C_UNK set_flag_bit__11TMainCursorFPviUs(void *, int, int);
+s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+s32 is_technique_ready__8TTecCtrlFv();
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+s32 TMainCursor__sub_8013C288(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
 }
 
 extern "C" {
@@ -151,6 +179,102 @@ s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw
 
 void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2) {
     csnVector(arg2, arg1, 0x28A0);
+}
+
+s32 TMainCursor__sub_8013C288(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best) {
+    f32 dist;
+    s32 slot;
+    s32 found;
+    s32 i;
+    Coll_8013C288 *c;
+    s32 yaw;
+    s32 stat;
+    s32 j;
+    slot = 0;
+    found = 0;
+    if (target == NULL) {
+        return 0;
+    }
+    if ((u16)obj_getField1c(target) == (u16)obj_getField1c(player)) {
+        return 0;
+    }
+    if (is_technique_ready__8TTecCtrlFv() == 0) {
+        if (get_stat_by_key_state__10TObjPlayerFPv(target) != (stat = get_stat_by_key_state__10TObjPlayerFPv(player)) && (*(u32 *)(player + 0x30) & 0x60000000) == 0x20000000 && stat != -1) {
+            return 0;
+        }
+    }
+    if (obj_testFlags30(target, 0xA00) != 0) {
+        return 0;
+    }
+    if (player == NULL || all_parents_unqueued_for_destruction__7TObjectFv(player) == 0) {
+        return 0;
+    }
+    if (obj_testFlags30(player, get_actor_include_mask__11TMainCursorFPv(cursor)) == 0 ||
+        obj_testFlags30(player, get_actor_exclude_mask__11TMainCursorFPv(cursor)) != 0) {
+        return 0;
+    }
+    yaw = *(s32 *)(target + 0x60);
+    for (i = 0; i < *(s32 *)(player + 0xA8); i++) {
+        c = &(*(Coll_8013C288 **)(player + 0xA4))[i];
+        if (c == NULL) {
+            continue;
+        }
+        c->flags &= ~0x10000000;
+        set_flag_bit__11TMainCursorFPviUs(player, i, obj_getField1c(target));
+        if (!(c->flags & 1)) {
+            continue;
+        }
+        if (!(c->flags & get_body_include_mask__11TMainCursorFPv(cursor))) {
+            continue;
+        }
+        if (c->flags & get_body_exclude_mask__11TMainCursorFPv(cursor)) {
+            continue;
+        }
+        dist = horizontal_distance_squared(cursor + 0x1C, c->pos);
+        if (!(c->flags & 0x22000) && best->dist > dist) {
+            best->dist = dist;
+            best->id = obj_getField1c(player);
+            best->index = i;
+        }
+        {
+            f32 r = *(f32 *)(cursor + 0x28) + c->radius;
+            if (dist > r * r) {
+                continue;
+            }
+        }
+        if (is_technique_ready__8TTecCtrlFv() != 0 && (c->flags & 0xA000) &&
+            ((u32 (*)(u8 *, void *, s32))TMainCursor__sub_8013C260)(cursor, c->pos, *(s32 *)(target + 0xA4) + 0x1C) != 0) {
+            continue;
+        }
+        if (target_in_xz_cone((Vec_8013C0A0 *)(cursor + 0x1C), (Vec_8013C0A0 *)c->pos, (Vec_8013C0A0 *)(target + 0x38), yaw,
+                              *(f32 *)(cursor + 0x2C), *(f32 *)(cursor + 0x3C)) == 0) {
+            continue;
+        }
+        if (TMainCursor__sub_8013BF0C((Vec_8013BF0C *)(cursor + 0x1C), (Vec_8013BF0C *)c->pos, yaw, *(f32 *)(cursor + 0x30),
+                                      *(f32 *)(cursor + 0x3C)) == 0) {
+            continue;
+        }
+        if (*(f32 *)(cursor + 0x18) < dist) {
+            *(f32 *)(cursor + 0x18) = dist;
+        }
+        if (TMainCursor__sub_8013F168(cursor + 0x40) >= 10) {
+            for (j = 0; j <= TMainCursor__sub_8013F168(cursor + 0x40); j++) {
+                if (*(f32 *)(cursor + 0x18) == TMainCursor__sub_8013F14C(get_record_at__11TMainCursorFPvi(cursor + 0x40, j))) {
+                    *(f32 *)(cursor + 0x18) = dist;
+                    slot = j;
+                    break;
+                }
+            }
+        } else {
+            slot = TMainCursor__sub_8013F168(cursor + 0x40);
+            TMainCursor__sub_8013F13C(cursor + 0x40);
+        }
+        ((void (*)(M2C_UNK, f32))set_size__11TMainCursorFPvf)(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), dist);
+        set_field2__11TMainCursorFPvs(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), i);
+        set_cursor_id__11TMainCursorFPvs(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), obj_getField1c(player));
+        found = 1;
+    }
+    return found;
 }
 
 void reset_cursor_parts__11TMainCursorFPv(u8 *arg0) {

@@ -22,6 +22,25 @@ struct Self_8013D4A0 { u8 pad0[0x5C]; Sub_8013D4A0 subs[3]; u8 pad3C8[0x124]; u8
 
 struct Ent_8013D4A0 { u8 pad0[0xA4]; Part_8013D4A0 *parts; };
 
+struct Cursor_8013CDE4 {
+    u8 pad0[0x1C];
+    f32 pos[3];
+    f32 f28;
+    f32 f2c;
+    f32 f30;
+    s32 f34;
+    s32 f38;
+    f32 f3c;
+    u8 f40[0x9C - 0x40];
+    u8 f9c[0x124 - 0x9C];
+};
+
+struct Main_8013CDE4 { u8 pad0[0x5C]; Cursor_8013CDE4 cursors[4]; };
+
+struct Tech_8013CDE4 { u8 pad0[8]; f32 f8; f32 fc; u8 pad10[0x18 - 0x10]; s32 f18; s32 f1c; u8 pad20[2]; s8 f22; };
+
+struct Weapon_8013CDE4 { f32 f0; f32 f4; s32 f8; s32 fc; s32 f10; };
+
 extern "C" {
 s32 check_visible__11TMainCursorFPv(void *, int, void *, void *);
 M2C_UNK get_cursor_state__11TMainCursorFv();
@@ -89,6 +108,36 @@ Ent_8013D4A0 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 extern s32 tl_loc_end;
 void TMainCursor__sub_8013D4A0(Self_8013D4A0 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 obj_isState3_324(void *);
+s32 obj_getField1c(void *);
+void *get_item_field_6__10TObjPlayerFPv(void *);
+s32 get_type__10TObjPlayerFPv(s32);
+M2C_UNK fn_80044330(void *);
+Weapon_8013CDE4 *get_weapon_range_record(void *, s32);
+s32 TMainCursor__sub_8013BE98(Cursor_8013CDE4 *, u8, u8);
+void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
+void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
+void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
+M2C_UNK reset_slot__11TMainCursorFPv(void *);
+M2C_UNK set_type__11TMainCursorFPvi(Cursor_8013CDE4 *, s32);
+M2C_UNK set_color__11TMainCursorFPvi(s32, M2C_UNK);
+M2C_UNK set_color_mode__11TMainCursorFPvi(s32, M2C_UNK);
+M2C_UNK set_field_0c__11TMainCursorFPvi(s32, M2C_UNK);
+M2C_UNK set_flags__11TMainCursorFPvi(s32, M2C_UNK);
+M2C_UNK TMainCursor__sub_8013E9A0(Cursor_8013CDE4 *);
+void TMainCursor__sub_8013E9C0(void *, s32);
+M2C_UNK TMainCursor__sub_8013E9E0(Cursor_8013CDE4 *, u8);
+Tech_8013CDE4 *get_photon_blast_entry__10TObjPlayerFi(s16);
+s32 fn_801D9870(void *, s32);
+Tech_8013CDE4 *TTecCtrl__sub_8022DBC4(s16, u8, s32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+extern f32 lbl_8050BF60[3];
+extern const f32 TMainCursor__data_805DB0C0;
+extern const f32 lbl_805DB0E4;
+extern const f32 lbl_805DB0E8;
+void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id);
 }
 
 extern "C" {
@@ -182,6 +231,177 @@ void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     set_color_mode__11TMainCursorFPvi(arg2, 0x800);
     set_flags__11TMainCursorFPvi(arg2, 0xE0000000);
 }
+
+#pragma push
+#pragma fp_contract on
+#define C_8013CDE4 ((s32)cur)
+#define TECH_8013CDE4(t)                                          \
+    cur->f3c = (t)->fc;                                           \
+    cur->f28 = (t)->f8 + cur->f3c;                                \
+    cur->f34 = (t)->f18;                                          \
+    cur->f2c = TBoss8Dragon__sub_803D64DC(cur->f34);              \
+    cur->f38 = (t)->f1c;                                          \
+    cur->f30 = TBoss8Dragon__sub_803D64DC(cur->f38);
+void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id) {
+    Cursor_8013CDE4 *cur;
+    Tech_8013CDE4 *tech;
+    Weapon_8013CDE4 *wpn;
+    s16 sid;
+    if (player == NULL) {
+        return;
+    }
+    cur = &((Main_8013CDE4 *)self)->cursors[slot];
+    if (TMainCursor__sub_8013BE98(cur, kind, id) == 0) {
+        fn_80044330(cur->f40);
+        reset_slot__11TMainCursorFPv(cur->f9c);
+    }
+    TMainCursor__sub_8013E9E0(cur, kind);
+    ((void (*)(void *, u8))TMainCursor__sub_8013E9C0)(cur, id);
+    switch ((s16)kind) {
+    case 1:
+        if (obj_isState3_324(player) == 0) {
+            TMainCursor__sub_8013E9A0(cur);
+            set_color__11TMainCursorFPvi(C_8013CDE4, 0x20000);
+            set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0x8000);
+            set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0xC0000000);
+            set_flags__11TMainCursorFPvi(C_8013CDE4, 0x30040800);
+            set_type__11TMainCursorFPvi(cur, 1);
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            cur->f3c = TMainCursor__data_805DB0C0;
+            cur->f28 = lbl_805DB0E4;
+            cur->f34 = 0x8000;
+            cur->f38 = 0x8000;
+            cur->f2c = TBoss8Dragon__sub_803D64DC(cur->f34);
+            cur->f30 = TBoss8Dragon__sub_803D64DC(cur->f38);
+        }
+        break;
+    case 4:
+        switch ((s16)id) {
+        case 10:
+            tech = TTecCtrl__sub_8022DBC4(0xF, 0xE, obj_getField1c(player));
+            TMainCursor__sub_8013E9A0(cur);
+            TECH_8013CDE4(tech)
+            set_type__11TMainCursorFPvi(cur, tech->f22);
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            set_display_flags__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
+            break;
+        case 9:
+            tech = TTecCtrl__sub_8022DBC4(0x11, 0xE, obj_getField1c(player));
+            TMainCursor__sub_8013E9A0(cur);
+            TECH_8013CDE4(tech)
+            set_type__11TMainCursorFPvi(cur, tech->f22);
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            setup_flags__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
+            break;
+        }
+        break;
+    case 2:
+        wpn = get_weapon_range_record(get_item_field_6__10TObjPlayerFPv(player), id);
+        TMainCursor__sub_8013E9A0(cur);
+        set_cursor_color__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
+        set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0);
+        set_flags__11TMainCursorFPvi(C_8013CDE4, 0x40800);
+        VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+        cur->f3c = wpn->f4;
+        cur->f28 = wpn->f0 + cur->f3c;
+        cur->f34 = wpn->f8;
+        cur->f38 = wpn->fc;
+        cur->f2c = TBoss8Dragon__sub_803D64DC(cur->f34);
+        cur->f30 = TBoss8Dragon__sub_803D64DC(cur->f38);
+        set_type__11TMainCursorFPvi(cur, wpn->f10);
+        break;
+    case 3: {
+        s32 f1c = obj_getField1c(player);
+        u8 lvl = fn_801D9870(player + 0x428, id);
+        sid = id;
+        tech = TTecCtrl__sub_8022DBC4(sid, lvl, f1c);
+        TMainCursor__sub_8013E9A0(cur);
+        TECH_8013CDE4(tech)
+        set_type__11TMainCursorFPvi(cur, tech->f22);
+        switch (sid) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+        case 18:
+            set_cursor_color__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
+            set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0);
+            set_flags__11TMainCursorFPvi(C_8013CDE4, 0x40800);
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            break;
+        case 14:
+            set_color__11TMainCursorFPvi(C_8013CDE4, 0x8000);
+            set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0);
+            set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x60000000);
+            set_flags__11TMainCursorFPvi(C_8013CDE4, 0x40800);
+            lbl_8050BF60[0] = lbl_805DB0E8 * TBoss8Dragon__sub_803D64C0(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x2FC);
+            lbl_8050BF60[1] = *(f32 *)(player + 0x300);
+            lbl_8050BF60[2] = lbl_805DB0E8 * TBoss8Dragon__sub_803D64DC(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x304);
+            VecCopy__FP3VecPC3Vec(cur->pos, lbl_8050BF60);
+            break;
+        case 10:
+        case 13:
+        case 15:
+        case 16:
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            set_display_flags__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
+            break;
+        case 11:
+        case 12:
+            if (get_type__10TObjPlayerFPv((s32)(player + 0x828)) != 0) {
+                set_color__11TMainCursorFPvi(C_8013CDE4, 0xA000);
+                set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x30000000);
+            } else {
+                set_color__11TMainCursorFPvi(C_8013CDE4, 0x8000);
+                set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x20000000);
+            }
+            set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0x30000);
+            set_flags__11TMainCursorFPvi(C_8013CDE4, 0xC0040800);
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            break;
+        case 17:
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            setup_flags__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
+            break;
+        }
+        break;
+    }
+    case 5: {
+        s16 pid = id;
+        tech = get_photon_blast_entry__10TObjPlayerFi(pid);
+        TMainCursor__sub_8013E9A0(cur);
+        if (get_type__10TObjPlayerFPv((s32)(player + 0x828)) == 0) {
+            set_color__11TMainCursorFPvi(C_8013CDE4, 0x8000);
+            set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x20000000);
+        } else {
+            set_color__11TMainCursorFPvi(C_8013CDE4, 0xA000);
+            set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x30000000);
+        }
+        set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0);
+        set_flags__11TMainCursorFPvi(C_8013CDE4, 0xD0040800);
+        TECH_8013CDE4(tech)
+        switch (pid) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
+            set_type__11TMainCursorFPvi(cur, 0xA);
+            break;
+        }
+        break;
+    }
+    }
+}
+#pragma pop
 
 void sort_list__11TMainCursorFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
