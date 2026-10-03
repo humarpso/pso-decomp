@@ -21,6 +21,30 @@ struct VObj_8022187C_80221844 : Base_8022187C_80221844 {
     virtual void m4();
 };
 
+struct Base_802219A0 { char pad[0x18]; };
+
+struct V_802219A0 : Base_802219A0 {
+    virtual void p0(); virtual void p1(); virtual void p2(); virtual void p3();
+    virtual void m4(s32, s32);
+};
+
+struct Ent_802219A0 {
+    s32 f0;
+    s32 f4;
+    char pad8[0x14];
+};
+
+struct Self_802219A0 {
+    char pad0[0x24];
+    s32 f24;
+    Ent_802219A0 ents[30];
+    char pad370[0x8];
+    s32 f378;
+    char pad37C[0x8];
+    s32 f384;
+    void *f388;
+};
+
 extern "C" {
 u32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -37,7 +61,6 @@ void TShopKeepItemWindow__sub_80221B34(void *arg0);
 s32 close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0);
 s32 close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0);
 s32 close__19TShopKeepItemWindowFPv(void *arg0);
-s32 handle_deposit_confirm__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__sub_80221B34(void *arg0);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 s32 rebuild_item_list__19TShopKeepItemWindowFv(void *);
@@ -47,6 +70,19 @@ int sprintf(char *, const char *, ...);
 M2C_UNK TQuestVmDownLoadServer__sub_80222704(s32, M2C_UNK *);
 extern char lbl_805DC718[4];
 void TQuestVmDownLoadServer__sub_8022236C(s32 arg0);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 get_field_d8__10TObjPlayerFPv(s32);
+M2C_UNK get_item_record__23TShopJudgmentItemWindowFPv(s32, s32, s32);
+s32 store_item_in_bank(void *, s32, s32);
+M2C_UNK TCheckRoomSequence__sub_8021118C(s32);
+M2C_UNK TShopWindowBase__sub_8022397C(void *);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void TWindow__close(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+s32 select_cursor_entry__6TLobbyFPv(s32);
+void handle_deposit_confirm__19TShopKeepItemWindowFv(void *arg0);
 }
 
 extern "C" {
@@ -118,6 +154,49 @@ s32 close__19TShopKeepItemWindowFPv(void *arg0) {
 
 extern M2C_UNK __vt__19TShopKeepItemWindow[];
 
+void handle_deposit_confirm__19TShopKeepItemWindowFv(void *arg0) {
+    Self_802219A0 *self = (Self_802219A0 *)arg0;
+    s32 base;
+    s32 r;
+    s32 i;
+    void *win;
+    win = self->f388;
+    if (win != NULL && is_visible__17TWindowSubComCardFPv(win) != 0) {
+        base = TShopWindowBase__sub_8022397C(arg0);
+        r = TWindowSubComCard__sub_80265BF8(self->f388);
+        if (r == 0) {
+            i = select_cursor_entry__6TLobbyFPv(self->f384);
+            if (store_item_in_bank(&self->ents[i].f4, self->f378, base) != 0) {
+                get_item_record__23TShopJudgmentItemWindowFPv(self->f24, get_field_d8__10TObjPlayerFPv(self->ents[i].f0), self->f378);
+                TCheckRoomSequence__sub_8021118C(base);
+                play_sound_effect(0x52D01, 0, 0, 0);
+                TWindow__close(self->f388);
+                self->f388 = NULL;
+                set_field_20__12TQuestListVMFPvi(arg0, 0);
+                return;
+            }
+            ((V_802219A0 *) arg0)->m4(0x3C, 1);
+            play_sound_effect(0x53F06, 0, 0, 0);
+            TWindow__close(self->f388);
+            self->f388 = NULL;
+            set_field_20__12TQuestListVMFPvi(arg0, 7);
+            return;
+        }
+        if (r == 1) {
+            TWindow__close(self->f388);
+            self->f388 = NULL;
+            set_field_20__12TQuestListVMFPvi(arg0, 3);
+            return;
+        }
+    }
+    win = self->f388;
+    if (win != NULL && get_status_flag__17TWindowSubComCardFPv(win) != 0) {
+        TWindow__close(self->f388);
+        self->f388 = NULL;
+        set_field_20__12TQuestListVMFPvi(arg0, 3);
+    }
+}
+
 void TShopKeepItemWindow__sub_80221B34(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
@@ -156,7 +235,7 @@ void TShopKeepItemWindow__vt9(u8 *arg0) {
         handle_deposit_list_select__19TShopKeepItemWindowFv((void *) (arg0));
         return;
     case 2:
-        handle_deposit_confirm__19TShopKeepItemWindowFv((void *) (arg0));
+        handle_deposit_confirm__19TShopKeepItemWindowFv((void *)((void *) (arg0)));
         return;
     case 3:
         close__19TShopKeepItemWindowFPv((void *) (arg0));
