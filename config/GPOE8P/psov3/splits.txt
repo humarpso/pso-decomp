@@ -8762,37 +8762,9 @@ pso/item/TObjItemNameSelect.cpp:
 pso/misc/TQuestThread_801F4D20.cpp:
 	.text       start:0x801F4D20 end:0x801F4D70
 
-pso/item/TObjItemNameSelect_801F4D70.cpp:
-	.text       start:0x801F4D70 end:0x801F4F20
-	.data       start:0x804C8618 end:0x804C8630
-
-pso/unk/text_801F4F20.cpp:
-	.text       start:0x801F4F20 end:0x801F4F60
-
-pso/misc/TWindowSubComCard_801F4F60.cpp:
-	.text       start:0x801F4F60 end:0x801F5018
-
-pso/item/TObjItemNameEntry_801F5018.cpp:
-	.text       start:0x801F5018 end:0x801F5060
-
-pso/item/TObjItemNameEntry.cpp:
-	.text       start:0x801F5060 end:0x801F5200
-	.data       start:0x804C8630 end:0x804C8648
-
-pso/misc/TQuestThreadBoard_801F5200.cpp:
-	.text       start:0x801F5200 end:0x801F56A8
-
-pso/unk/text_801F56A8.cpp:
-	.text       start:0x801F56A8 end:0x801F5828
-
-pso/misc/TQuestThread_801F5828.cpp:
-	.text       start:0x801F5828 end:0x801F5ECC
-
-pso/misc/TQuestThread_801F5ECC.cpp:
-	.text       start:0x801F5ECC end:0x801F5F58
-
 pso/misc/TQuestThread.cpp:
-	.text       start:0x801F5F58 end:0x801F6530
+	.text       start:0x801F4D70 end:0x801F6530
+	.data       start:0x804C8528 end:0x804C8678
 
 pso/misc/TQuestListOnline_801F6530.cpp:
 	.text       start:0x801F6530 end:0x801F6548
