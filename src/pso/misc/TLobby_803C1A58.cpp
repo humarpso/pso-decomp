@@ -174,6 +174,13 @@ extern u8 lbl_80572BE0[];
 void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *memcpy(void *, const void *, u32);
 s32 TRKRequestSend(Obj_803C7C10 *arg0);
+void TLobby__sub_803C526C(s32, s32, char *, s32);
+void TLobby__sub_803C5744(const char *, const char *);
+s32 TLobby__sub_803CC294(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
+void TLobby__sub_803D16BC(s32, char *, s32, s32, s32);
+extern char lbl_8047C5D8[];
+extern char lbl_80572FE0[];
+void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -297,6 +304,21 @@ void TLobby__sub_803C5D24(u8 *arg0) {
     TLobby__sub_803D158C(temp_r31);
     ((Fields_arg0*)arg0)->field_98 = 1;
     release_ref__6TLobbyFv();
+}
+
+void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2) {
+    char buf[16];
+    s32 a;
+    s32 b;
+    s32 c;
+    s32 h;
+    h = *(s32 *)(arg0 + 0x94);
+    if (TLobby__sub_803CC294(arg1, arg2, lbl_80572FE0, &a, &b, &c) == 0) {
+        TLobby__sub_803D16BC(h, lbl_80572FE0, a, b, c);
+        return;
+    }
+    TLobby__sub_803C526C(arg1, arg2, buf, 0x10);
+    TLobby__sub_803C5744(lbl_8047C5D8, buf);
 }
 
 void TLobby__sub_803C5E58(void) {
