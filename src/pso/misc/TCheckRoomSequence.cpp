@@ -100,6 +100,7 @@ struct Seq_8020F730 : VObj_8020F730 {
 
 struct Item_80210A04 { u8 b0, b1, b2, b3, b4; u8 pad5[0x14 - 5]; s16 f14; u8 pad16[2]; };
 
+struct TWin_8020F070;
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
@@ -238,6 +239,23 @@ s32 TCheckRoomSequence__sub_80210B34(u8 *, s32, s32);
 void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
 M2C_UNK TCheckRoomSequence__sub_8021118C(int);
 s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot);
+s32 obj_getField1c(int);
+s32 is_visible__17TWindowSubComCardFPv(int);
+s32 get_status_flag__17TWindowSubComCardFPv(int);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(int);
+s32 check_room_ready__18TCheckRoomSequenceFv(void);
+s32 get_shop_text(int);
+f32 get_scale__15TShopWindowBaseFv(void *);
+M2C_UNK set_position_xy(int, f32, f32);
+void TWindow__close(TWin_8020F070 *);
+s32 TWindowSubComCard__sub_80265BF8(int);
+M2C_UNK TWindowSubComCard__sub_80265C30(int);
+M2C_UNK TWindowSubComCard__sub_80265F60(int);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+u32 create_window_menu(s32, int, u16);
+s32 get_window_layout_position(s32);
+void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0);
 }
 
 extern "C" {
@@ -505,6 +523,101 @@ void begin_meseta_deposit__18TCheckRoomSequenceFPv(Seq_8020F730 *self) {
 #pragma pop
 
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p) { return set_field_20__12TQuestListVMFPvi((void*)(p), (void*)(19)); }
+
+#pragma push
+#pragma optimization_level 1
+void handle_root_choice__18TCheckRoomSequenceFv(u8 *arg0) {
+    f32 temp_f31;
+    f32 temp_f31_2;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r3;
+    s32 temp_r3_2;
+    u16 temp_r30;
+    u16 temp_r30_2;
+    if (check_room_ready__18TCheckRoomSequenceFv() != 0) {
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x2C);
+        switch (temp_r0) {
+        case 0:
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
+                temp_r30 = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+                M2C_FIELD(arg0, u32 *, 0x3C) = create_window_menu(((M2C_UNK)get_window_layout_position((s32)(0x2B))), 2, temp_r30);
+                forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (8))), (int) (6), (int) (0));
+                forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (9))), (int) (6), (int) (1));
+                TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                TWindowSubComCard__sub_80265C30((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                set_ready_flag__18TCheckRoomSequenceFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
+            }
+            M2C_FIELD(arg0, s32 *, 0x2C) = 1;
+            return;
+        case 1:
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
+                temp_r3 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                if (temp_r3 == 0) {
+                    set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (3));
+                    TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                    M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+                }
+                if (temp_r3 == 1) {
+                    set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0xA));
+                    TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                    M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+                }
+                M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+            }
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
+                ((VObj_18_a93f07 *)(arg0))->m4(0x48, 1);
+                set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0xD));
+                TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+                M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+                return;
+            }
+            break;
+        }
+    } else {
+        temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x2C);
+        switch (temp_r0_2) {
+        case 0:
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
+                temp_r30_2 = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+                M2C_FIELD(arg0, u32 *, 0x3C) = create_window_menu(((M2C_UNK)get_window_layout_position((s32)(0x2B))), 2, temp_r30_2);
+                forward_trade_action_default__16TObjCityMainWarpFPviii((int) (M2C_FIELD(arg0, u32 *, 0x3C)), (int) (get_shop_text((int) (0xA))), (int) (6), (int) (1));
+                TWindowSubComCard__sub_80265F60((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                TWindowSubComCard__sub_80265C30((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                set_ready_flag__18TCheckRoomSequenceFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                set_position_xy((int) (M2C_FIELD(arg0, u32 *, 0x3C)), get_scale__15TShopWindowBaseFv((void *) (arg0)), get_scale__15TShopWindowBaseFv((void *) (arg0)));
+            }
+            M2C_FIELD(arg0, s32 *, 0x2C) = 1;
+            return;
+        case 1:
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
+                temp_r3_2 = TWindowSubComCard__sub_80265BF8((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                if (temp_r3_2 == 0) {
+                    set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0xA));
+                    TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                    M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+                }
+                if (temp_r3_2 == 1) {
+                    set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0x12));
+                    TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                    M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+                }
+                M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+            }
+            if (((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) && (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0)) {
+                ((VObj_18_a93f07 *)(arg0))->m4(0x48, 1);
+                set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0xD));
+                TWindow__close((TWin_8020F070 *) (M2C_FIELD(arg0, u32 *, 0x3C)));
+                M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+                M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+            }
+            return;
+        }
+    }
+}
+#pragma pop
 
 void TCheckRoomSequence__sub_802100F8(void) {  }
 void TCheckRoomSequence__sub_802100FC(void) {  }

@@ -122,6 +122,52 @@ struct Obj_803AF0CC { u8 pad0[0x114]; u32 fh; u32 fl; u8 pad11C[0x24]; s8 b140; 
 
 struct Op_803AF0CC { u32 w0; u32 w4; };
 
+struct Node_803B2598;
+struct Node_803B24A0;
+struct Rec_803A8D2C;
+struct Obj_803B3B80;
+#define HEAD_803B25CC (*(Node_803B25CC **)&lbl_805D743C)
+#define FREE_803B25CC (*(Node_803B25CC **)&lbl_805D7440)
+#define VOICES_803B25CC (*(Prog_803B25CC **)&lbl_805D73B0)
+#define UNLINK_803B25CC(n)                         \
+    {                                              \
+        Node_803B25CC *q = (n)->prev;              \
+        if (q != NULL) {                           \
+            q->next = (n)->next;                   \
+        } else {                                   \
+            HEAD_803B25CC = (n)->next;              \
+        }                                          \
+    }                                              \
+    {                                              \
+        Node_803B25CC *q = (n)->next;              \
+        if (q != NULL) {                           \
+            q->prev = (n)->prev;                   \
+        }                                          \
+    }
+#define PUSH_803B25CC(n)                           \
+    (n)->next = FREE_803B25CC;                      \
+    if (FREE_803B25CC != NULL) {                    \
+        FREE_803B25CC->prev = (n);                  \
+    }                                              \
+    (n)->prev = NULL;                              \
+    FREE_803B25CC = (n);
+struct Node_803B25CC {
+    Node_803B25CC *next;
+    Node_803B25CC *prev;
+    u32 pad8;
+    u32 owner;
+};
+
+struct Prog_803B25CC {
+    u8 pad0[0xEC];
+    u32 nextId;
+    u32 prevId;
+    u32 id;
+    Node_803B25CC *node;
+    Node_803B25CC *node2;
+    u8 pad100[0x404 - 0x100];
+};
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -298,6 +344,8 @@ extern const f32 lbl_805E0B90;
 extern const f32 lbl_805E0B94;
 extern const f32 lbl_805E0B98;
 u32 TLobby__sub_803B3ED8(s32 arg0);
+void TLobby__sub_803B3B80(Obj_803B3B80 *arg0);
+void unlink_sound_program(Prog_803B25CC *p);
 }
 
 extern "C" {
@@ -1685,6 +1733,44 @@ Node_803B2598 *TLobby__sub_803B2598(u32 key) {
         }
     }
     return 0;
+}
+
+void unlink_sound_program(Prog_803B25CC *p) {
+    if (p->id != 0xFFFFFFFF) {
+        TLobby__sub_803B3B80((Obj_803B3B80 *)p);
+        if (p->prevId != 0xFFFFFFFF) {
+            VOICES_803B25CC[(u8)p->prevId].nextId = p->nextId;
+            if (p->nextId != 0xFFFFFFFF) {
+                VOICES_803B25CC[(u8)p->nextId].prevId = p->prevId;
+            }
+            UNLINK_803B25CC(p->node)
+            PUSH_803B25CC(p->node)
+            p->node = NULL;
+        } else if (p->nextId != 0xFFFFFFFF) {
+            p->node->owner = p->nextId;
+            VOICES_803B25CC[(u8)p->nextId].prevId = 0xFFFFFFFF;
+            VOICES_803B25CC[(u8)p->nextId].node2 = p->node2;
+            if (p->node != p->node2) {
+                UNLINK_803B25CC(p->node)
+                PUSH_803B25CC(p->node)
+                p->node = NULL;
+            }
+            p->node = NULL;
+            p->node2 = NULL;
+        } else if (p->node != p->node2) {
+            UNLINK_803B25CC(p->node)
+            PUSH_803B25CC(p->node)
+            p->node = NULL;
+            UNLINK_803B25CC(p->node2)
+            PUSH_803B25CC(p->node2)
+            p->node2 = NULL;
+        } else {
+            UNLINK_803B25CC(p->node)
+            PUSH_803B25CC(p->node)
+            p->node = NULL;
+            p->node2 = NULL;
+        }
+    }
 }
 
 s32 TLobby__sub_803B2920(u8 *arg0) {

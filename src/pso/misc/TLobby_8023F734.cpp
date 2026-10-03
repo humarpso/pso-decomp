@@ -11,6 +11,16 @@ struct Voice_80241FD8 {
     u8 pad3[0x48 - 0x24]; s32 fade; s32 fadeStep;
 };
 
+struct Ctl_80240B64 {
+    u8 type;
+    s16 value;
+};
+
+struct Params_80240B64 {
+    u8 count;
+    Ctl_80240B64 *ctl;
+};
+
 extern "C" {
 s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_803AA0E0(int, int, int);
@@ -20,6 +30,24 @@ extern const f32 lbl_805DC9E4;
 s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK TLobby__sub_803AA1A0(int);
 s32 TLobby__sub_80241FD8(struct Voice_80241FD8 *v, s32 step);
+s32 OSDisableInterrupts(void);
+s32 OSRestoreInterrupts(s32);
+s32 resolve_sound_effect_bank(SoundRequestOwner *, s32, s32, s32);
+void TLobby__sub_802409F0(SoundRequestVoice *);
+void update__6TLobbyFPv(void *);
+void TLobby__sub_80240F38(void);
+void TLobby__sub_80240F3C(SoundRequestVoice *);
+void TLobby__sub_80241798(SoundRequestVoice *);
+void TLobby__sub_80241A0C(void);
+void TLobby__sub_80241AD8(u8 *arg0);
+void clamp_params__6TLobbyFPv(void *arg0);
+void calc_sound_spatial_params(SoundRequestVoice *);
+M2C_UNK TLobby__sub_803AA1A0(int);
+u32 start_sound_fx(u16, u8, u8, u8, Params_80240B64 *);
+u32 TLobby__sub_803AA2B8(u32);
+extern s8 TLobby__data_805434A8[];
+extern s32 TLobby__data_805D5E24;
+s32 TLobby__sub_80240B64(SoundRequestVoice *v);
 }
 
 extern "C" {
@@ -40,6 +68,106 @@ s32 TLobby__sub_80240B40(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x7C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x80) = var_r5;
     M2C_FIELD(arg0, s32 *, 0x84) = var_r5;
+    return 0;
+}
+
+s32 TLobby__sub_80240B64(SoundRequestVoice *v) {
+    Params_80240B64 params;
+    Ctl_80240B64 ctl[6];
+    s32 level;
+    s32 fade;
+    s32 step;
+    switch (v->kind) {
+    case 0:
+    switch (v->state) {
+    case -1:
+        v->age++;
+        v->effect = resolve_sound_effect_bank(v->owner, v->kind, v->bank, v->index);
+        if (v->effect < 0) {
+            v->state = 0;
+            return 0;
+        }
+        if (v->delay != 0) {
+            v->delay--;
+            break;
+        }
+        ((void (*)(SoundRequestVoice *))TLobby__sub_80241A0C)(v);
+        TLobby__sub_80241798(v);
+    start:
+        ((void (*)(SoundRequestVoice *))TLobby__sub_80240F38)(v);
+        TLobby__sub_80240F3C(v);
+        calc_sound_spatial_params(v);
+        clamp_params__6TLobbyFPv(v);
+        update__6TLobbyFPv(v);
+        params.count = 1;
+        params.ctl = ctl;
+        ctl[0].type = 0x80;
+        ctl[0].value = v->pitch;
+        if (!(TLobby__data_805D5E24 & 2) && TLobby__data_805434A8[7] == 0) {
+            level = OSDisableInterrupts();
+        }
+        v->token = start_sound_fx(v->effect, 0x7F, v->pan, v->studio, &params);
+        TLobby__sub_80241AD8((u8 *)v);
+        if (!(TLobby__data_805D5E24 & 2) && TLobby__data_805434A8[7] == 0) {
+            OSRestoreInterrupts(level);
+        }
+        send_sound_request_reverb((SoundRequestVoice *)(v));
+        v->state = 1;
+        break;
+    case 0:
+        break;
+    case 1:
+        if (v->flags & 0x80) {
+            v->pitchMoving += v->pitchVelocity;
+            if (v->pitchVelocity > 0) {
+                if (v->pitchMoving > v->pitchLimit) {
+                    v->pitchVelocity = -v->pitchVelocity;
+                }
+            } else if (v->pitchMoving < -v->pitchLimit) {
+                v->pitchVelocity = -v->pitchVelocity;
+            }
+        }
+        v->age++;
+        fade = v->fade;
+        if (fade <= -0x7F) {
+            TLobby__sub_803AA1A0(v->token);
+            v->state = 0;
+            break;
+        }
+        step = v->fadeStep;
+        if (step != 0) {
+            v->fade = fade - step;
+        }
+        if (v->flags & 1) {
+            if (v->refresh >= 5) {
+                calc_sound_spatial_params(v);
+            }
+        } else {
+            calc_sound_spatial_params(v);
+        }
+        v->refresh--;
+        send_sound_request_reverb((SoundRequestVoice *)(v));
+        clamp_params__6TLobbyFPv(v);
+        update__6TLobbyFPv(v);
+        if (TLobby__sub_803AA2B8(v->token) == 0xFFFFFFFF) {
+            if ((v->flags & 1) && v->refresh >= 0) {
+                TLobby__sub_803AA1A0(v->token);
+                v->previousPan = v->previousSurround = v->previousVolume = 0x88888888;
+                goto start;
+            }
+            v->state = 0;
+        } else {
+            TLobby__sub_80241AD8((u8 *)v);
+            TLobby__sub_802409F0(v);
+            if ((v->flags & 1) && v->refresh < 0) {
+                TLobby__sub_803AA1A0(v->token);
+                v->state = 0;
+            }
+        }
+        break;
+    }
+        break;
+    }
     return 0;
 }
 
