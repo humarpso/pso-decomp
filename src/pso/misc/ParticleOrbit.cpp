@@ -155,6 +155,26 @@ struct Vec_8008AC24 { f32 x, y, z; };
 
 struct IVec_8008AC24 { s32 x, y, z; };
 
+struct RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70;
+extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+struct OObj_8008B060 {
+    u8 pad_0[0x18]; M2C_UNK *f18; u16 f1C; u8 pad_1E[6]; u16 f24; s16 f26;
+    f32 f28; f32 f2C; f32 f30; f32 f34; f32 f38; f32 f3C; f32 f40; u8 pad_44[0x18];
+    f32 f5C; u8 pad_60[8]; f32 f68; u8 pad_6C[8]; f32 f74; u8 pad_78[0x1D];
+    s8 f95; s16 f96; s32 f98; s32 f9C; s32 fA0; u8 pad_A4[0x20];
+    f32 fC4; f32 fC8; u8 pad_CC[4]; f32 fD0; f32 fD4; s32 fD8; s32 fDC;
+};
+
+struct ODesc_8008B060 {
+    u8 pad_0[0x18]; f32 f18; f32 f1C; f32 f20; f32 f24; f32 f28; u8 pad_2C[4];
+    f32 f30; f32 f34; u8 pad_38[0x10]; s32 f48; s32 f4C; u8 pad_50[0x10];
+    f32 f60; f32 f64; f32 f68; u8 pad_6C[8]; f32 f74; u8 pad_78[0x10]; u8 f88;
+};
+
+struct OVec_8008B060 { f32 x, y, z; };
+
+struct OIVec_8008B060 { s32 x, y, z; };
+
 extern "C" {
 void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
@@ -194,8 +214,6 @@ void *TParticleCtrl__sub_8008968C(void *arg0, s16 arg1);
 void *alloc_particle_memory(int);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
-void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
@@ -340,6 +358,18 @@ extern const f32 lbl_805D9548;
 extern const f32 lbl_805D954C;
 extern const f32 lbl_805D9550;
 u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, u16 arg5, s16 arg6);
+u8 * init_particle_base(void *, void *, s32);
+int get_object__13TParticleCtrlFPv(void *);
+s32 rand(void);
+extern M2C_UNK TParticleCtrl__data_8048E790[];
+extern const f32 TParticleCtrl__data_805D9528;
+extern const f32 TParticleCtrl__data_805D952C;
+extern const f32 TParticleCtrl__data_805D9530;
+extern const f32 lbl_805D9544;
+extern const f32 lbl_805D9548;
+extern const f32 lbl_805D954C;
+extern const f32 lbl_805D9550;
+void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
 extern "C" {
@@ -467,7 +497,7 @@ void * TParticleCtrl__sub_80089FEC(void *arg0, void *arg1, void *arg2, void *arg
     void *o;
     o = alloc_particle_memory(0xe0);
     if (o != NULL) {
-        o = TParticleCtrl__sub_8008B060(o, arg0, arg1, arg2, arg3);
+        o = TParticleCtrl__sub_8008B060((void *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
     return o;
 }
@@ -592,6 +622,48 @@ u8 *init_orbit_sprite_particle(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4,
     temp_r0 = (s32)((f32)d->f4C * (lbl_805D9548 * (f32)rand()) + (f32)d->f48);
     if (d->f88 & 1) {
         o->f5C = TParticleCtrl__data_805D9528 / (f32)M2C_FIELD(M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (o->f1C * 4)), void **, 0x28), s32 *, 0xC);
+    } else {
+        o->f5C = TParticleCtrl__data_805D9528 / (f32)temp_r0;
+    }
+    o->f3C = d->f74 * (lbl_805D9548 * (f32)rand()) + d->f30;
+    o->f40 = d->f68 * (lbl_805D9548 * (f32)rand()) + d->f34;
+    o->fD8 = (s32)(TParticleCtrl__data_805D952C * (lbl_805D9550 * (lbl_805D9548 * (f32)rand())));
+    o->fD0 = d->f64 * (lbl_805D9548 * (f32)rand()) + d->f60;
+    o->fDC = (s32)(TParticleCtrl__data_805D952C * (lbl_805D9550 * (lbl_805D9548 * (f32)rand())));
+    o->f96 = o->fD8;
+    o->f68 = (lbl_805D9548 * (f32)rand()) - lbl_805D954C;
+    o->fD4 = TParticleCtrl__data_805D9530;
+    if (o->f24 & 0x2000) {
+        get_object__13TParticleCtrlFPv((void *)0x1F);
+    }
+    return arg0;
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    OObj_8008B060 *o = (OObj_8008B060 *)arg0;
+    ODesc_8008B060 *d = (ODesc_8008B060 *)arg1;
+    OVec_8008B060 *p = (OVec_8008B060 *)arg2;
+    OIVec_8008B060 *v = (OIVec_8008B060 *)arg3;
+    s32 temp_r0;
+    init_particle_base(arg0, arg1, (s32)arg4);
+    o->f18 = TParticleCtrl__data_8048E790;
+    o->f98 = v->x;
+    o->f9C = v->y;
+    o->fA0 = v->z;
+    o->fC4 = (lbl_805D9544 * d->f18) * ((lbl_805D9548 * (f32)rand()) - lbl_805D954C) + p->x;
+    o->fC8 = (lbl_805D9544 * d->f20) * ((lbl_805D9548 * (f32)rand()) - lbl_805D954C) + p->z;
+    o->f74 = (lbl_805D9544 * d->f1C) * ((lbl_805D9548 * (f32)rand()) - lbl_805D954C) + p->y;
+    o->f30 = p->x;
+    o->f38 = p->z;
+    o->f34 = o->f74;
+    o->f28 = d->f28 * (lbl_805D9548 * (f32)rand()) + d->f24;
+    o->f2C = o->f28;
+    temp_r0 = (s32)((f32)d->f4C * (lbl_805D9548 * (f32)rand()) + (f32)d->f48);
+    if (d->f88 & 1) {
+        o->f5C = TParticleCtrl__data_805D9528 / (f32)M2C_FIELD(M2C_FIELD(M2C_FIELD((M2C_UNK *)&TParticleCtrl__data_80511F70, M2C_UNK *, (o->f1C * 4)), void **, 0x28), s32 *, 0xC);
     } else {
         o->f5C = TParticleCtrl__data_805D9528 / (f32)temp_r0;
     }
