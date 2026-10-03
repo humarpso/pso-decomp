@@ -25,6 +25,16 @@ struct Parm_8010EBD8 { s32 name; u8 pad04[0xC]; u32 flags; };
 
 struct Params_8010E414 { s32 name; u8 pad4[4]; s16 stat; s16 amount; };
 
+struct Item_8010E59C {
+    u8 type;
+    u8 sub;
+    u8 b2;
+    u8 grind;
+    u8 flags;
+    u8 pad5[0xB];
+    s32 meseta;
+};
+
 extern "C" {
 int bswap_16__FPUs(void*);
 void TItemData__sub_8010CDC8(u8 *arg0, s16 arg1);
@@ -96,6 +106,29 @@ s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 s16 get_bswap16_field8__9TItemDataFPv(void *arg0);
 s16 getS16_06__9TItemDataFPv(void *arg0);
 s32 has_bonus_stats__9TItemDataFPv(TItemData_8010E344 *item);
+char *get_technique_name();
+s32 is_wrapped__9TItemDataFPv();
+void TItemData__sub_8010CB10(void *, s8 *);
+s32 is_custom_name_srank__9TItemDataFPv(void *);
+s16 get_field6_bswap__9TItemDataFPv(void *arg0);
+s32 is_rare_item__9TItemDataFPv(u8 *item);
+void *lookup_item_pmt_record(u8 *item);
+s32 check_item_flags__9TItemDataFPv(void *arg0);
+char *get_text_collection(s32);
+char *get_download_server__20TWindowSubStatusDispFv();
+s8 *get_item_by_slot_flag__10TObjPlayerFUc(u8);
+int sprintf(char *, const char *, ...);
+void *memset(void *, int, int);
+extern char lbl_8043E358[];
+extern char lbl_8043E360[];
+extern char lbl_8043E368[];
+extern char lbl_8043E374[];
+extern char lbl_8043E37C[];
+extern char lbl_8043E384[];
+extern char lbl_8043E390[];
+extern s32 lbl_805D5544;
+extern char lbl_805DAB8C;
+void format_item_name__9TItemDataFv(u8 *arg0, char *buf);
 }
 
 extern "C" {
@@ -598,6 +631,124 @@ s32 format_item_description(u8 *item) {
     return (s32)out;
     }
     return lbl_805D2B10;
+}
+
+void format_item_name__9TItemDataFv(u8 *arg0, char *buf) {
+    Item_8010E59C *item = (Item_8010E59C *)arg0;
+    s8 *slot;
+    char *name;
+    s32 *pmt;
+    s8 tmp[10];
+    s8 sign[3];
+    s16 lim;
+    s16 v;
+    u8 t;
+    if (buf == NULL) {
+        return;
+    }
+    if (item->type == 4) {
+        sprintf(buf, lbl_8043E358, item->meseta, get_download_server__20TWindowSubStatusDispFv());
+        return;
+    }
+    pmt = (s32 *)lookup_item_pmt_record(arg0);
+    if (pmt != NULL) {
+        name = get_text_collection(*pmt);
+    } else {
+        name = get_text_collection(0x1F4);
+    }
+    if (((s32 (*)(void *))is_wrapped__9TItemDataFPv)(arg0) != 0) {
+        sprintf(buf, &lbl_805DAB8C, get_text_collection(0x77));
+        return;
+    }
+    t = item->type;
+    if (t == 0) {
+        if (is_custom_name_srank__9TItemDataFPv(arg0) != 0) {
+            memset(tmp, 0, 10);
+            TItemData__sub_8010CB10(arg0, tmp);
+            if (tmp[0] - 0x41 == 1) {
+                if (item->grind != 0) {
+                    sprintf(buf, lbl_8043E360, &tmp[1], item->grind);
+                } else {
+                    sprintf(buf, &lbl_805DAB8C, &tmp[1]);
+                }
+            } else if (item->grind != 0) {
+                sprintf(buf, lbl_8043E368, &tmp[1], name, item->grind);
+            } else {
+                sprintf(buf, lbl_8043E374, &tmp[1], name);
+            }
+            return;
+        }
+        slot = get_item_by_slot_flag__10TObjPlayerFUc(item->flags);
+        if (is_rare_item__9TItemDataFPv(arg0) != 0) {
+            if (check_item_flags__9TItemDataFPv(arg0) == 1) {
+                if (item->grind != 0) {
+                    sprintf(buf, lbl_8043E360, name, item->grind);
+                } else {
+                    sprintf(buf, &lbl_805DAB8C, name);
+                }
+            } else {
+                sprintf(buf, &lbl_805DAB8C, get_text_collection(0x17E));
+            }
+            return;
+        }
+        if (*slot != 0) {
+            if (item->grind != 0) {
+                sprintf(buf, lbl_8043E368, slot, name, item->grind);
+            } else {
+                sprintf(buf, lbl_8043E374, slot, name);
+            }
+        } else if (item->grind != 0) {
+            sprintf(buf, lbl_8043E360, name, item->grind);
+        } else {
+            sprintf(buf, &lbl_805DAB8C, name);
+        }
+    } else if (t == 3 && item->sub == 2) {
+        u8 f = item->flags;
+        if (f < 0x13) {
+            switch (f) {
+            case 0xE:
+            case 0x11:
+                if (lbl_805D5544 == 0) {
+                    sprintf(buf, lbl_8043E37C, ((char *(*)(s32))get_technique_name)(f), name);
+                } else {
+                    sprintf(buf, lbl_8043E37C, name, ((char *(*)(s32))get_technique_name)(f));
+                }
+                break;
+            default:
+                if (lbl_805D5544 == 0) {
+                    sprintf(buf, lbl_8043E384, ((char *(*)(s32))get_technique_name)(f), item->b2 + 1, name);
+                } else {
+                    sprintf(buf, lbl_8043E390, name, ((char *(*)(s32))get_technique_name)(f), item->b2 + 1);
+                }
+                break;
+            }
+        } else {
+            sprintf(buf, name);
+        }
+    } else if (t == 1 && item->sub == 3) {
+        memset(sign, 0, 3);
+        pmt = (s32 *)lookup_item_pmt_record(arg0);
+        if (pmt != NULL) {
+            lim = *(s16 *)((u8 *)pmt + 0xC);
+            v = get_field6_bswap__9TItemDataFPv(arg0);
+            if (v < -lim) {
+                sign[0] = '-';
+                sign[1] = '-';
+            } else if (v < 0) {
+                sign[0] = '-';
+            } else if (v == 0) {
+                sign[0] = 0;
+            } else if (v <= lim) {
+                sign[0] = '+';
+            } else if (lim < v) {
+                sign[0] = '+';
+                sign[1] = '+';
+            }
+        }
+        sprintf(buf, lbl_8043E37C, name, sign);
+    } else {
+        sprintf(buf, name);
+    }
 }
 
 void *lookup_item_pmt_record(u8 *item) {

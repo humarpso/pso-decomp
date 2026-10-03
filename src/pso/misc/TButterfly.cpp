@@ -6,6 +6,43 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Base_8017E978 { char pad[0x18]; };
 struct VObj_8017E978 : Base_8017E978 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7(); virtual s32 m8(f32, f32); };
 
+struct Vec_8017EA74 { f32 x, y, z; };
+
+struct Butterfly_8017EA74 {
+    u8 pad0[0x38];
+    Vec_8017EA74 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 rotY;
+    u8 pad64[0x94 - 0x64];
+    f32 baseY;
+    u8 pad98[0x9C - 0x98];
+    Vec_8017EA74 vel;
+    f32 phase;
+    f32 phaseSpeed;
+    f32 lift;
+    s16 timer;
+    s16 angle;
+    u8 state;
+    u8 flag;
+    u8 dir;
+};
+
+extern "C" {
+s32 rand();
+f32 sin_table_lookup(s16);
+void vec3_add_to(Vec_8017EA74 *, Vec_8017EA74 *);
+void rotate_vector_by_matrix(void *, Vec_8017EA74 *, Vec_8017EA74 *);
+void rotate_matrix_y(void *, s32);
+s32 push_matrix_from(void *);
+s32 pop_matrices(s32);
+extern u8 lbl_8058D490[];
+extern const f32 lbl_805DBB14;
+extern const f32 lbl_805DBB24;
+extern const f32 lbl_805DBB28;
+extern const f32 lbl_805DBB34;
+void run_task__10TButterflyFv(Butterfly_8017EA74 *self);
+}
+
 extern "C" {
 
 void *__dt__10TButterflyFv(void *arg0, s16 arg1);
@@ -50,6 +87,143 @@ void render__10TButterflyFv(void *arg0) {
 }
 
 extern M2C_UNK __vt__10TButterfly[];
+
+#pragma push
+#pragma fp_contract on
+void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
+    f32 target;
+    f32 lift;
+    target = 3.2f * sin_table_lookup(self->angle) + self->baseY;
+    if (self->flag == 0) {
+        self->lift = 5.0f * (target - self->pos.y);
+        lift = self->lift;
+        if (lift < 0.1f) {
+            self->lift = 0.1f;
+        } else if (lift > 4.0f) {
+            self->lift = 4.0f;
+        }
+        self->phaseSpeed = 2.0f * (0.01f * self->lift) + 0.3f;
+        self->vel.y = 0.1f * (0.027f * self->lift) + self->vel.y;
+        self->vel.y = self->vel.y - 0.027f;
+        self->phase = self->phase + self->phaseSpeed;
+        if (self->phase > 5.0f) {
+            self->phase = 0.0f;
+        }
+    } else {
+        self->lift = -7.0f * (target - self->pos.y);
+        lift = self->lift;
+        if (lift < 0.1f) {
+            self->lift = 0.1f;
+        } else if (lift > 4.0f) {
+            self->lift = 4.0f;
+        }
+        self->phaseSpeed = 2.0f * (0.1f * self->lift) + 0.32f;
+        self->vel.y = self->vel.y - 0.5f * (0.027f * self->lift);
+        self->vel.y = self->vel.y - 0.027f;
+        self->phase = self->phase + self->phaseSpeed;
+        if (self->phase > 5.0f) {
+            self->phase = 0.0f;
+            self->flag = 0;
+        }
+    }
+    switch (self->state) {
+    case 0:
+        self->vel.x = self->vel.x * lbl_805DBB14;
+        self->vel.z = self->vel.z * lbl_805DBB14;
+        break;
+    case 1:
+        if (self->flag == 0) {
+            Vec_8017EA74 dir;
+            Vec_8017EA74 out;
+            dir.x = 2.0f * (0.0015f * (2.0f * (3.0517578125e-05f * (f32)rand()) - 1.0f));
+            dir.y = 0.0f;
+            dir.z = 2.0f * (0.0015f * (3.0517578125e-05f * (f32)rand())) + 0.05f;
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(NULL, self->rotY);
+            rotate_vector_by_matrix(NULL, &dir, &out);
+            pop_matrices(1);
+            self->vel.x = self->vel.x + out.x;
+            self->vel.z = self->vel.z + out.z;
+            self->vel.x = self->vel.x * lbl_805DBB24;
+            self->vel.z = self->vel.z * lbl_805DBB24;
+        } else {
+            self->vel.x = self->vel.x * lbl_805DBB28;
+            self->vel.z = self->vel.z * lbl_805DBB28;
+        }
+        break;
+    case 2:
+        if (self->dir == 0) {
+            self->rotY = (f32)self->rotY + (200.0f * (3.0517578125e-05f * (f32)rand()) + 200.0f);
+        } else {
+            self->rotY = (f32)self->rotY - (200.0f * (3.0517578125e-05f * (f32)rand()) + 200.0f);
+        }
+        if (self->flag == 0) {
+            Vec_8017EA74 dir;
+            Vec_8017EA74 out;
+            dir.x = 2.0f * (0.025f * (2.0f * (3.0517578125e-05f * (f32)rand()) - 1.0f));
+            dir.y = 0.0f;
+            dir.z = 2.0f * (0.025f * (3.0517578125e-05f * (f32)rand())) + 0.05f;
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(NULL, self->rotY);
+            rotate_vector_by_matrix(NULL, &dir, &out);
+            pop_matrices(1);
+            self->vel.x = self->vel.x + out.x;
+            self->vel.z = self->vel.z + out.z;
+            self->vel.x = self->vel.x * lbl_805DBB28;
+            self->vel.z = self->vel.z * lbl_805DBB28;
+        } else {
+            self->vel.x = self->vel.x * lbl_805DBB34;
+            self->vel.z = self->vel.z * lbl_805DBB34;
+        }
+        break;
+    }
+    vec3_add_to(&self->pos, &self->vel);
+    if (self->pos.y > 12.0f + target) {
+        self->pos.y = 12.0f + target;
+    } else if (self->pos.y < target - 6.0f) {
+        self->pos.y = target - 6.0f;
+    }
+    if (self->timer != 0) {
+        self->timer--;
+    } else {
+        switch (self->state) {
+        case 0:
+            self->state = 1;
+            self->timer = 2.0f * (20.0f * (3.0517578125e-05f * (f32)rand())) + 20.0f;
+            break;
+        case 1:
+            if (3.0517578125e-05f * (f32)rand() < 0.5f) {
+                self->state = 2;
+                self->timer = 50.0f * (3.0517578125e-05f * (f32)rand()) + 50.0f;
+                if (3.0517578125e-05f * (f32)rand() < 0.5f) {
+                    self->dir = 0;
+                } else {
+                    self->dir = 1;
+                }
+            } else {
+                self->state = 0;
+                self->timer = 30.0f * (3.0517578125e-05f * (f32)rand()) + 30.0f;
+            }
+            break;
+        case 2:
+            if (3.0517578125e-05f * (f32)rand() < 0.4f) {
+                self->state = 2;
+                self->timer = 50.0f * (3.0517578125e-05f * (f32)rand()) + 50.0f;
+                if (3.0517578125e-05f * (f32)rand() < 0.5f) {
+                    self->dir = 0;
+                } else {
+                    self->dir = 1;
+                }
+            } else {
+                self->state = 1;
+                self->timer = 2.0f * (30.0f * (3.0517578125e-05f * (f32)rand())) + 30.0f;
+            }
+            break;
+        }
+    }
+    self->angle = self->angle + (s32)(40.0f * (3.0517578125e-05f * (f32)rand()) + 160.0f);
+}
+#pragma pop
 
 void *__dt__10TButterflyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

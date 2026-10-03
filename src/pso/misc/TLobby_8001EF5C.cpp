@@ -65,6 +65,38 @@ struct Lobby_8001FE7C {
     s32 nEnts8;
 };
 
+struct Lobby_8001FB6C;
+typedef struct Lobby_8001F018 Lobby_8001F018;
+struct Ent16_80020004 { u32 flags; u8 pad4[4]; void *a; void *b; };
+
+struct Ent8_80020004 { s32 x; void *data; };
+
+struct Lobby_80020004 {
+    u32 flags;
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    s32 f10;
+    s32 f14;
+    u8 pad18[0x41C - 0x18];
+    s32 f41C;
+    s32 f420;
+    s32 f424;
+    u8 pad428[4];
+    Ent16_80020004 *ents16;
+    Ent8_80020004 *ents8;
+    s32 nEnts16;
+    s32 nEnts8;
+};
+
+struct Desc_80020004 { s32 name; u8 pad4[8]; s16 n16; s16 n8; };
+
+struct Rec_80020004 { char name[0x20]; s32 size; u8 pad24[8]; s32 texSize; u8 pad30[0x10]; };
+
+struct Hdr_80020004 { u8 pad0[8]; u8 compressed; s8 small; u8 padA[0x36]; Rec_80020004 recs[1]; };
+
+struct Stream_80020004 { u8 pad[0x30]; };
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -136,6 +168,39 @@ M2C_UNK free__11TOBoss4RockFUi(void *);
 M2C_UNK TLobby__sub_803DA16C(void *);
 extern char lbl_80434C38[];
 Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
+s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+void reset_battle_state__6TLobbyFPv(void *arg0);
+void set_flag_and_notify__6TLobbyFPv(void *arg0);
+s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
+M2C_UNK load_gvm_texture_archive(s32, s32);
+void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
+s32 bind_bml_model(void *, u32, s32, s32);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+extern s32 lbl_805D4AD0;
+extern u32 lbl_805D4AD8;
+void pump_frames__6TLobbyFv(void);
+void open__8TGStreamFPvPvi(void *, s32, s32);
+s32 get_instance__8TGStreamFv(void *);
+void read_data__8TGStreamFPvii(void *, void *, s32);
+void TGStream__ct(void *, s32);
+void TLobby__sub_800FDFEC(void *, s32);
+void prs_decompress_buffer(s32, void *);
+void add_named_entry__6TLobbyFii(void *, s32);
+void debug_printf_nop(void *, ...);
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+char *strncpy(char *dest, const char *src, unsigned long num);
+extern u8 *lbl_805D49B0;
+extern u8 lbl_805D4AC8;
+extern s32 lbl_805D5338;
+extern s32 lbl_805D2B10;
+extern M2C_UNK lbl_80434B70[];
+extern M2C_UNK lbl_80434DB8[];
+extern M2C_UNK lbl_80434DD4[];
+extern M2C_UNK lbl_80434DF4[];
+extern M2C_UNK lbl_80434E10[];
+extern M2C_UNK lbl_80434E2C[];
+Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, Desc_80020004 *desc, s32 arg3, s32 arg4, s32 arg5);
 }
 
 extern "C" {
@@ -398,6 +463,167 @@ void reset_battle_state__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x418) = 0;
     M2C_FIELD(arg0, s32 *, 0x428) = 0;
     lbl_805D4AD0 = 0;
+}
+Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, Desc_80020004 *desc, s32 arg3, s32 arg4, s32 arg5) {
+    Stream_80020004 st;
+    char name[0x20];
+    Hdr_80020004 *hdr;
+    s32 blk;
+    s32 i;
+    s32 j;
+    Rec_80020004 *rec;
+    Rec_80020004 *first;
+    s32 sectors;
+    s32 size;
+    s32 buf;
+    u32 flags;
+    reset_battle_state__6TLobbyFPv(self);
+    self->flags = kind | 0x100;
+    self->f41C = arg3;
+    self->f420 = arg4;
+    self->f424 = arg5;
+    self->nEnts16 = desc->n16;
+    self->nEnts8 = desc->n8;
+    if (self->nEnts16 > 0) {
+        self->ents16 = (Ent16_80020004 *)alloc_buffer__11TOBoss4RockFPv(self->nEnts16 * 16);
+        for (s32 i = 0; i < self->nEnts16; i++) {
+            self->ents16[i].flags = 0;
+            self->ents16[i].a = NULL;
+            self->ents16[i].b = NULL;
+        }
+    }
+    if (self->nEnts8 > 0) {
+        self->ents8 = (Ent8_80020004 *)alloc_buffer__11TOBoss4RockFPv(self->nEnts8 * 8);
+        for (s32 i = 0; i < self->nEnts8; i++) {
+            self->ents8[i].data = NULL;
+        }
+    }
+    flags = self->flags;
+    if (flags & 1) {
+        pump_frames__6TLobbyFv();
+        lbl_805D4AD0 = 1;
+        open__8TGStreamFPvPvi(&st, desc->name, 0);
+        if (get_instance__8TGStreamFv(&st) <= 0) {
+            debug_print__6TLobbyFii(lbl_80434DB8, desc->name);
+            self->nEnts16 = self->nEnts8 = 0;
+            TGStream__ct(&st, -1);
+            return self;
+        }
+        sectors = (((self->nEnts16 + self->nEnts8 + 1) << 6) + 0x7FF) / 2048;
+        if (sectors > 0x4000) {
+            debug_printf_nop(lbl_80434B70, sectors);
+        }
+        hdr = (Hdr_80020004 *)lbl_805D4AD8;
+        first = hdr->recs;
+        read_data__8TGStreamFPvii(&st, hdr, sectors << 11);
+        switch (hdr->compressed) {
+        case 0x50:
+            lbl_805D4AC8 = 1;
+            break;
+        default:
+            lbl_805D4AC8 = 0;
+            break;
+        }
+        blk = 0x800;
+        if (hdr->small != 0) {
+            blk = 0x20;
+            self->flags |= 0x800;
+        }
+        rec = first;
+        for (i = 0; i < self->nEnts16; i++, rec++) {
+            size = rec->size;
+            if (size > 0x40000) {
+                debug_print__6TLobbyFii(lbl_80434DD4, size - 0x40000);
+            }
+            switch (lbl_805D4AC8) {
+            case 1:
+                buf = alloc__22TQuestVmDownLoadServerFPv(size + 0x800);
+                if (buf != 0) {
+                    lbl_805D5338 = desc->name;
+                    read_data__8TGStreamFPvii(&st, (void *)buf, size);
+                    TLobby__sub_800FDFEC(&st, blk);
+                    lbl_805D5338 = lbl_805D2B10;
+                    prs_decompress_buffer(buf, lbl_805D49B0);
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                    bind_bml_model(self, size, i, (s32)lbl_805D49B0);
+                } else {
+                    debug_print__6TLobbyFii(lbl_80434DF4, desc->name);
+                }
+                break;
+            default:
+                read_data__8TGStreamFPvii(&st, lbl_805D49B0, size);
+                TLobby__sub_800FDFEC(&st, blk);
+                lbl_805D5338 = lbl_805D2B10;
+                bind_bml_model(self, size, i, (s32)lbl_805D49B0);
+                break;
+            }
+            if (self->flags & 0x800) {
+                Ent16_80020004 *e = &self->ents16[i];
+                if (e->b != NULL) {
+                    s32 tsize = rec->texSize;
+                    if (tsize != 0) {
+                        s32 tbuf = alloc__22TQuestVmDownLoadServerFPv(tsize + 0x800);
+                        read_data__8TGStreamFPvii(&st, (void *)tbuf, tsize);
+                        TLobby__sub_800FDFEC(&st, blk);
+                        prs_decompress_buffer(tbuf, lbl_805D49B0);
+                        safe_free__23TAdSinglePlyChrSelectGCFUi(tbuf);
+                        if (load_gvm_texture_archive((s32)lbl_805D49B0, (s32)self->ents16[i].b) > 0) {
+                            self->ents16[i].flags |= 1;
+                        } else {
+                            self->ents16[i].flags |= 2;
+                            debug_print__6TLobbyFii(lbl_80434E10);
+                        }
+                    } else {
+                        e->flags |= 2;
+                        if (!(self->flags & 4)) {
+                            debug_print__6TLobbyFii(lbl_80434E2C);
+                        }
+                    }
+                }
+            }
+        }
+        for (j = 0; j < self->nEnts8; j++, rec++) {
+            s32 sz = rec->size;
+            if (sz > 0x40000) {
+                debug_print__6TLobbyFii(lbl_80434DD4, sz - 0x40000);
+            }
+            switch (lbl_805D4AC8) {
+            case 1: {
+                s32 mb = alloc__22TQuestVmDownLoadServerFPv(sz + 0x800);
+                read_data__8TGStreamFPvii(&st, (void *)mb, sz);
+                TLobby__sub_800FDFEC(&st, blk);
+                prs_decompress_buffer(mb, lbl_805D49B0);
+                safe_free__23TAdSinglePlyChrSelectGCFUi(mb);
+                bind_bml_motion((struct Lobby_8001FB6C *)self, j, lbl_805D49B0);
+                break;
+            }
+            default:
+                read_data__8TGStreamFPvii(&st, lbl_805D49B0, sz);
+                TLobby__sub_800FDFEC(&st, blk);
+                bind_bml_motion((struct Lobby_8001FB6C *)self, j, lbl_805D49B0);
+                break;
+            }
+        }
+        TGStream__ct(&st, -1);
+        if (!(self->flags & 0x800)) {
+            rec = hdr->recs;
+            for (s32 i = 0; i < self->nEnts16; i++, rec++) {
+                if (self->ents16[i].b != NULL) {
+                    strncpy(name, rec->name, 0x20);
+                    TLobby__sub_8001F018((Lobby_8001F018 *)self, name, i);
+                }
+            }
+        }
+        set_flag_and_notify__6TLobbyFPv(self);
+    } else if (flags & 2) {
+        self->fC = 0;
+        self->f8 = 0;
+        self->f4 = 0;
+        self->f10 = 0;
+        self->f14 = 0;
+        add_named_entry__6TLobbyFii(self, desc->name);
+    }
+    return self;
 }
 
 }

@@ -43,12 +43,29 @@ struct ClassAppearance
   struct TextureList *bodyTextures;
 };
 
+struct CharData_8028DF98 {
+    s8 name[0x18];
+    s32 f18;
+    u8 pad1c[0x14];
+    s8 f30;
+    s8 f31;
+    u8 fl32;
+    u8 pad33;
+    s32 f34;
+    s16 f38[8];
+    f32 f48;
+};
+
 extern "C" {
 extern struct ClassAppearance lbl_804D8E20[19];
 s32 get_display_index__12TCharaMakingFPv(struct Appearance *);
 void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
+s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
+extern s32 lbl_804D395C[];
+extern struct ClassAppearance lbl_804D8E20[19];
+M2C_UNK validate_player_visual_record(void *arg0);
 }
 
 struct RecoveredGlobal_8028DE78_lbl_804D9164 {
@@ -84,7 +101,6 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0);
 s32 query_state__12TCharaMakingFv(void);
 void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1);
 void update_body_parts__12TCharaMakingFPv(u8 *arg0);
-M2C_UNK validate_player_visual_record(void *);
 M2C_UNK TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
 M2C_UNK create__12TChCrLoadReqFPv(void *);
@@ -201,7 +217,7 @@ void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
 }
 
 void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
-    validate_player_visual_record(arg0 + 0x85C);
+    validate_player_visual_record((void *)(arg0 + 0x85C));
     M2C_FIELD(arg0, f32 *, 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
     ((M2C_UNK (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     create__12TChCrLoadReqFPv(arg0);
@@ -215,6 +231,108 @@ void clear_flag_bit0__12TCharaMakingFv(void);
 void enable_making__12TCharaMakingFv(void);
 int restore_default_scene(void);
 int set_scene_override(void*);
+
+M2C_UNK validate_player_visual_record(void *arg0) {
+    s32 bad;
+    s32 ok;
+    s32 flags;
+    CharData_8028DF98 *d;
+    s32 i;
+    ClassAppearance *row;
+    s32 v;
+    s32 lim;
+    d = (CharData_8028DF98 *)arg0;
+    bad = 0;
+    ok = 1;
+    flags = 0;
+    if (d->name[0] == 0) {
+        bad = 1;
+    }
+    if (bad == 0) {
+        s8 *p;
+        s8 *end;
+        s32 found;
+        end = d->name + 0xD;
+        found = 0;
+        for (p = d->name; p < end; p++) {
+            if (*p == 0) {
+                found = 1;
+                break;
+            }
+        }
+        if (found == 0) {
+            bad = 1;
+        }
+    }
+    if (bad == 0) {
+        s8 *q;
+        for (q = d->name; *q != 0; q++) {
+            if (*q < 0x20 || *q >= 0x7F) {
+                bad = 1;
+                break;
+            }
+        }
+    }
+    if (bad == 0) {
+        s8 *q;
+        q = d->name;
+        while (*q == 0x20) {
+            q++;
+        }
+        if (*q == 0) {
+            bad = 1;
+        }
+    }
+    if (bad != 0) {
+        d->name[0] = d->name[1] = d->name[2] = '-';
+        ok = 0;
+        d->name[3] = 0;
+    }
+    if ((u32)(d->f18 & 0xFF000000) != 0xFF000000) {
+        d->f18 = -1;
+    }
+    if (d->f30 == -1) {
+        d->f30 = 0;
+    }
+    if (d->f30 < 0 || d->f30 >= 10) {
+        flags |= 1;
+        ok = 0;
+        d->f30 %= 10;
+    }
+    if (d->f31 < 0 || d->f31 >= 12) {
+        flags |= 2;
+        d->f31 = 0;
+        ok = 0;
+    }
+    if (d->f34 != lbl_804D395C[d->f31]) {
+        d->f34 = lbl_804D395C[d->f31];
+        flags |= 4;
+        ok = 0;
+    }
+    row = &lbl_804D8E20[d->f31];
+    for (i = 0; i < 5; i++) {
+        lim = row->counts[i];
+        v = d->f38[i];
+        if (v < 0 || (lim == 0 && v != 0) || (lim > 0 && v >= lim)) {
+            d->f38[i] = 0;
+            ok = 0;
+        }
+    }
+    for (; i < 8; i++) {
+        v = d->f38[i];
+        if (v < 0 || v > 0xFF) {
+            d->f38[i] = 0;
+            ok = 0;
+        }
+    }
+    if (TCharaMaking__sub_8028E3A0(&d->f48) != 0) {
+        ok = 0;
+    }
+    if (flags != 0) {
+        d->fl32 |= flags;
+    }
+    return ok;
+}
 
 void clear_flag_bit0__12TCharaMakingFv(void) { restore_default_scene(); some_id_805c6f74 = (some_id_805c6f74 & 0xfffffffe); }
 

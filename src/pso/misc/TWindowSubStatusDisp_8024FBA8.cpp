@@ -13,6 +13,14 @@ struct Quad_8024FBB0 {
     f32 u[4];
 };
 
+struct Quad_8024FD8C {
+    f32 x;
+    f32 y;
+    f32 x2;
+    f32 y2;
+    f32 u[4];
+};
+
 extern "C" {
 extern s32 lbl_805D6430;
 extern f32 lbl_805D6434;
@@ -38,6 +46,27 @@ extern s32 lbl_805D6440;
 extern const f32 lbl_805DCCD8;
 extern const f32 lbl_805DCCDC;
 s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width);
+const char *parse_text_control_codes(const char *, s32 *, s32 *);
+void set_glyph_quad_extents(s32, void *);
+s32 get_font_char_advance(s32);
+s32 map_char_to_font_code(s32);
+void calc_gauge_scale__20TWindowSubStatusDispFPvPvi(s32, void *, s32);
+void end_render_forward__20TWindowSubStatusDispFPv();
+void reset_gauge__20TWindowSubStatusDispFPv(s32);
+void apply_context_transform_to_rect(s32, void *);
+s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(s32, void *);
+s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
+void draw_textured_quad_at_depth(void *, f32);
+extern s32 lbl_805D5544;
+extern s32 lbl_805D6430;
+extern f32 lbl_805D6434;
+extern f32 lbl_805D6438;
+extern s32 lbl_805D643C;
+extern s32 lbl_805D6440;
+extern const f32 lbl_805DCCDC;
+extern const f32 lbl_805DCCE0;
+extern const f32 lbl_805DCCE4;
+s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width);
 }
 
 extern "C" {
@@ -96,6 +125,102 @@ s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width
         }
     }
     get_player__20TWindowSubStatusDispFv();
+    return ok;
+}
+
+s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
+    s32 glyph;
+    s32 adv;
+    s32 ok;
+    f32 x;
+    f32 y;
+    char ch;
+    s32 code;
+    s32 col;
+    s32 flag;
+    Quad_8024FD8C q;
+    col = color;
+    ok = 1;
+    flag = 0;
+    if (s == NULL) {
+        return 1;
+    }
+    if (*s == 0) {
+        return 1;
+    }
+    if (lbl_805D5544 == 0) {
+        flag = 1;
+    }
+    x = pos[0];
+    y = pos[1];
+    s = parse_text_control_codes(s, &flag, &col);
+    if (mode == 1) {
+        col = color;
+    }
+    reset_gauge__20TWindowSubStatusDispFPv(0);
+    while (*s != 0) {
+        s = parse_text_control_codes(s, &flag, &col);
+        if (mode == 1) {
+            col = color;
+        }
+        if (*s == 0) {
+            continue;
+        }
+        code = *s++ & 0xFF;
+        if (code == '\n') {
+            if (mode == 0) {
+                if (lbl_805D6440 != 0) {
+                    x += lbl_805DCCE0;
+                    width -= lbl_805DCCE0;
+                } else {
+                    x = pos[0];
+                    y += lbl_805DCCE4;
+                }
+            }
+            continue;
+        }
+        if (flag != 0 && ((code & 0xE0) == 0x80 || (code & 0xE0) == 0xE0)) {
+            code = (u16)(code << 8);
+            code |= (u8)*s++;
+        }
+        if (width <= lbl_805DCCDC) {
+            ok = 0;
+            continue;
+        }
+        glyph = map_char_to_font_code(code);
+        adv = get_font_char_advance(glyph);
+        if (x + (f32)(u8)adv > lbl_805D6438) {
+            x = pos[0];
+            y += lbl_805DCCE4;
+        }
+        if ((glyph & 0xFFFF) == 0x20) {
+            x += (f32)(s32)(u8)adv;
+            width -= (f32)(s32)(u8)adv;
+            continue;
+        }
+        q.x = x;
+        q.y = y;
+        set_glyph_quad_extents(adv, &q);
+        if ((f32)(u8)adv > width) {
+            ok = 0;
+            q.x2 = q.x + width;
+        }
+        if (lbl_805D643C == 0 || is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(lbl_805D6430, &q) != 0) {
+            calc_gauge_scale__20TWindowSubStatusDispFPvPvi(glyph, &q, col);
+            set_glyph_quad_extents(adv, &q);
+            if ((f32)(u8)adv > width) {
+                q.x2 = q.x + width;
+            }
+            if (lbl_805D643C != 0) {
+                clip_textured_quad__19TWindowKeyBoardSoftFPvPv(lbl_805D6430, &q);
+            }
+            apply_context_transform_to_rect(lbl_805D6430, &q);
+            draw_textured_quad_at_depth(&q, lbl_805D6434);
+        }
+        x += (f32)(u8)adv;
+        width -= (f32)(u8)adv;
+    }
+    end_render_forward__20TWindowSubStatusDispFPv();
     return ok;
 }
 

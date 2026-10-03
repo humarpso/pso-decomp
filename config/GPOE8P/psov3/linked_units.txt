@@ -972,6 +972,7 @@ pso/misc/TChCrTagPlBack_802A54D0.cpp
 pso/misc/TChCrTagPlBack_802A552C.cpp
 pso/misc/TChallenge.cpp
 pso/misc/TChallenge4PItemSelect.cpp
+pso/misc/TCharaMaking.cpp
 pso/misc/TCharaMaking_8028E790.cpp
 pso/misc/TChatMessage.cpp
 pso/misc/TChatMessage_801DF918.cpp
@@ -2210,6 +2211,7 @@ pso/misc/TWindowSubStatusDisp_80248ADC.cpp
 pso/misc/TWindowSubStatusDisp_80248BE8.cpp
 pso/misc/TWindowSubStatusDisp_80249060.cpp
 pso/misc/TWindowSubStatusDisp_8024F688.cpp
+pso/misc/TWindowSubStatusDisp_8024FBA8.cpp
 pso/misc/TWindowSubStatusDisp_80255DF4.cpp
 pso/misc/TWindowSubStatusDisp_80256B94_80257298.cpp
 pso/misc/TWindowSubStatusDisp_80257784.cpp
@@ -3751,6 +3753,7 @@ pso/unk/text_80120150.cpp
 pso/unk/text_80120568.cpp
 pso/unk/text_80120908.cpp
 pso/unk/text_80120C5C.cpp
+pso/unk/text_80120D50.cpp
 pso/unk/text_80121180.cpp
 pso/unk/text_80121318.cpp
 pso/unk/text_801214B4.cpp

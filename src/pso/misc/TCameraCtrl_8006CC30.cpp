@@ -277,6 +277,24 @@ struct Stack_8006D6DC {
     f32 sp10;
 };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual M2C_UNK m10();
+};
+
+struct Rec_8006E310 { u8 pad0[0x20]; u8 pad20[0x30]; };
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern RecoveredGlobal_8006CD78_TCameraCtrl__data_80488DE8 TCameraCtrl__data_80488DE8;
@@ -440,6 +458,37 @@ extern const f32 lbl_805D9084;
 extern const f32 lbl_805D9088;
 extern const f32 lbl_805D908C;
 void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0);
+s32 is_split_screen();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+void set_target__11TCameraCtrlFPvUi(void *, s32);
+u16 TCameraCtrl__sub_80068958(s32 n);
+void reset_cameras_to_actor(void *p, s32 x);
+s32 TCameraCtrl__sub_8006CDD0(u8 *arg0);
+s32 is_flag_set__11TCameraCtrlFv(void);
+M2C_UNK TCameraCtrl__sub_8006CF38(void *);
+void TCameraCtrl__sub_8006D1A4(Obj_8006D1A4 *arg0);
+void end_conversation_camera(void);
+void update_follow_motion_state__11TCameraCtrlFPv(u8 *arg0);
+void calc_follow_position__11TCameraCtrlFPv(Cam_8006D95C *self);
+void TCameraCtrl__sub_8006DCC8(void* p);
+void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self);
+s32 fn_8006E82C(s32);
+s32 get_flag_bit3__11TWindowCtrlFv();
+s32 is_player_flag_4000_set__11TWindowCtrlFPv(void *);
+s32 approach_angle_limited(s32, s32, s32);
+s32 get_camera_no__11TCameraCtrlFv();
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 get_map_id__13TRaderMapCoreFPv(void *);
+void refresh_equipment_slot__10TObjPlayerFv(void *);
+s32 check_flag_100__10TObjPlayerFPv(void *);
+s32 get_player_by_client_id(u32);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern Pads_8006D1A4 lbl_8050E208;
+extern void *lbl_805D53A0;
+extern const f32 TCameraCtrl__data_805D9050;
+extern const f32 lbl_805D90B4;
+void update_follow_camera__11TCameraCtrlFv(u8 *arg0);
 }
 
 extern "C" {
@@ -1009,6 +1058,103 @@ void compute_follow_target__11TCameraCtrlFPv(Cam_8006E170 *self) {
     self->pos.y += self->f108;
 }
 #pragma pop
+
+struct Pads_8006D1A4;
+struct Cam_8006D95C;
+struct Obj_8006D1A4;
+struct Cam_8006E170;
+void update_follow_camera__11TCameraCtrlFv(u8 *arg0) {
+    s32 i;
+    u8 *player;
+    s32 flags;
+    M2C_FIELD(arg0, u8 **, 0x1C) = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x20));
+    if (M2C_FIELD(arg0, u8 **, 0x1C) == NULL) {
+        set_target__11TCameraCtrlFPvUi(arg0, get_player_by_client_id((u32)lbl_805D53A0));
+        M2C_FIELD(arg0, s32 *, 0x38) = 0;
+        return;
+    }
+    if (is_split_screen() == 0) {
+        u8 *p;
+        p = (u8 *)get_player_by_client_id((u32)lbl_805D53A0);
+        if (p != NULL) {
+            if (get_field_3e4__10TObjPlayerFPv(M2C_FIELD(arg0, u8 **, 0x1C)) != get_field_3e4__10TObjPlayerFPv(p)) {
+                reset_cameras_to_actor((void *)get_player_by_client_id((u32)lbl_805D53A0), 0);
+                for (i = 0; i < 4; i++) {
+                    p = (u8 *)get_player_by_client_id(i);
+                    if (p != NULL) {
+                        refresh_equipment_slot__10TObjPlayerFv(p);
+                    }
+                }
+                return;
+            }
+            if (M2C_FIELD(arg0, u16 *, 0x20) != (s32)lbl_805D53A0 && M2C_FIELD(arg0, u8 **, 0x1C) != NULL && is_player_flag_4000_set__11TWindowCtrlFPv(M2C_FIELD(arg0, u8 **, 0x1C)) != 0) {
+                reset_cameras_to_actor((void *)get_player_by_client_id((u32)lbl_805D53A0), 0);
+                for (i = 0; i < 4; i++) {
+                    p = (u8 *)get_player_by_client_id(i);
+                    if (p != NULL) {
+                        refresh_equipment_slot__10TObjPlayerFv(p);
+                    }
+                }
+            }
+        }
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x100) != 0) {
+        M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+        M2C_FIELD(arg0, s32 *, 0x54) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x54), 0x22D8, 0xB6);
+    } else if (get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12) {
+        if (is_split_screen() == 0 && is_on_current_screen__11TCameraCtrlFPv((u8 *)&lbl_8050E208 + 0x110, 0x20000) == 0) {
+            M2C_FIELD(arg0, s32 *, 0x54) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x54), 0x36C1, 0xB6);
+        }
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x54) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x54), 0x36C1, 0xB6);
+    }
+    if (get_global_state__14TOKeyMachine01Fv() == 0 || get_global_state__14TOKeyMachine01Fv() == 0x12) {
+        M2C_FIELD(arg0, f32 *, 0xE0) = lbl_805D90B4;
+    }
+    ((VObj_18 *)(arg0))->m10();
+    if (TCameraCtrl__sub_8006CDD0(arg0) != 0) {
+        end_conversation_camera();
+        TCameraCtrl__sub_8006DCC8(arg0);
+        return;
+    }
+    switch (M2C_FIELD(arg0, s32 *, 0x24)) {
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0x48) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x38);
+        M2C_FIELD(arg0, f32 *, 0x4C) = TCameraCtrl__data_805D9050 + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x3C);
+        M2C_FIELD(arg0, f32 *, 0x50) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x40);
+        M2C_FIELD(arg0, s32 *, 0x30) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 0x60) + 0x8000;
+        M2C_FIELD(arg0, s32 *, 0x24) = 1;
+        break;
+    case 1:
+        i = (u16)((s32 (*)(s32))TCameraCtrl__sub_80068958)(get_camera_no__11TCameraCtrlFv());
+        player = (u8 *)get_player_by_client_id(i);
+        if ((player != NULL && check_flag_100__10TObjPlayerFPv(player) == 0) || get_flag_bit3__11TWindowCtrlFv() == 1) {
+            i = fn_8006E82C(i);
+            if ((TWindowShortListCtrl__check_controller_button(&((Rec_8006E310 *)&lbl_8050E208)[get_map_id__13TRaderMapCoreFPv(player)].pad20, i) != 0 && M2C_FIELD(arg0, s32 *, 0x100) == 0) || M2C_FIELD(arg0, s32 *, 0x104) != 0) {
+                M2C_FIELD(arg0, s32 *, 0x104) = 0;
+                M2C_FIELD(arg0, s32 *, 0x30) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 0x60) + 0x8000;
+            }
+        }
+        if (((s32 (*)(void *))is_flag_set__11TCameraCtrlFv)(arg0) != 0) {
+            M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+            TCameraCtrl__sub_8006CF38(arg0);
+        } else {
+            flags = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 0x30);
+            if ((flags & 0x100000) || (flags & 0x20)) {
+                M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+            } else if (flags & 0x800) {
+                M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+                TCameraCtrl__sub_8006D1A4((Obj_8006D1A4 *)arg0);
+            } else {
+                update_follow_motion_state__11TCameraCtrlFPv(arg0);
+            }
+        }
+        calc_follow_position__11TCameraCtrlFPv((Cam_8006D95C *)arg0);
+        compute_follow_target__11TCameraCtrlFPv((Cam_8006E170 *)arg0);
+        break;
+    }
+    TCameraCtrl__sub_8006DCC8(arg0);
+}
 
 void *deleting_dtor__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

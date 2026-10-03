@@ -87,6 +87,13 @@ struct RecoveredGlobal_8008BF58_TParticleCtrl__data_80511F70 {
 
 struct Vec_8008A92C { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct Vec_8008BAF8 { f32 x, y, z; };
+
+struct Ang_8008BAF8 { s32 x, y, z; };
+
+struct Scr_8008BAF8 { f32 x, y; };
+
 extern "C" {
 void attach_model__13TParticleCtrlFPviiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *, void *);
@@ -224,6 +231,42 @@ extern s32 some_id_805c6f74;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 is_split_screen();
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
+M2C_UNK setup_particle_tev(M2C_UNK);
+M2C_UNK load_projected_texture_matrix(f32);
+s32 is_particle_sprite_additive(void *, s32);
+M2C_UNK draw_particle_refraction_quad(void *);
+M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
+M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+void direction_to_rotation_xz(void *, s32 *, s32 *);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TParticleCtrl__sub_801E4E7C(s32, void *);
+s32 all_parents_unqueued_for_destruction__7TObjectFv();
+M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
+f32 vector_length(void *);
+void project_world_to_screen(s32, void *, void *);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
+M2C_UNK rotate_matrix_x(M2C_UNK, s32);
+M2C_UNK push_matrix(f32);
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(u32);
+M2C_UNK draw_ginja_object(u32);
+M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
+extern const Ang_8008BAF8 lbl_80439540;
+extern const f64 lbl_80439560[];
+extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
+extern u8 *lbl_805D4DF0;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 TParticleCtrl__data_805D955C;
+extern const f32 lbl_805D9564;
+void draw_radial_sprite_particle(u8 *arg0);
 }
 
 extern "C" {
@@ -729,6 +772,114 @@ void check_radial_particle_retire(u8 *arg0) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }
 }
+
+void draw_radial_sprite_particle(u8 *arg0) {
+    Scr_8008BAF8 s1;
+    Scr_8008BAF8 s2;
+    Vec_8008BAF8 end;
+    Vec_8008BAF8 pos;
+    f32 len;
+    u16 flags;
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0) {
+        return;
+    }
+    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 4) {
+        if (M2C_FIELD(arg0, u16 *, 0x24) & 0x10) {
+            pos.x = M2C_FIELD(arg0, f32 *, 0x70) + M2C_FIELD(arg0, f32 *, 0x7C);
+            pos.y = M2C_FIELD(arg0, f32 *, 0x74) + M2C_FIELD(arg0, f32 *, 0x80);
+            pos.z = M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(arg0, f32 *, 0x84);
+        } else {
+            VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x70);
+        }
+        end.x = pos.x + M2C_FIELD(arg0, f32 *, 0x3C);
+        end.y = pos.y + M2C_FIELD(arg0, f32 *, 0x40);
+        end.z = pos.z + M2C_FIELD(arg0, f32 *, 0x44);
+        len = vector_length(arg0 + 0x3C);
+        if (TParticleCtrl__data_805D955C == len) {
+            return;
+        }
+        project_world_to_screen(0, &pos, &s1);
+        project_world_to_screen(0, &end, &s2);
+        s2.x = s2.x - s1.x;
+        s2.y = s2.y - s1.y;
+        M2C_FIELD(arg0, s16 *, 0x96) = (s16)(lbl_80439560[0] * get_ad_end_text_start__10TObjPlayerFv(s2.y, s2.x));
+        M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0x60) * len;
+        M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), f32 *, 0x64) * len;
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(arg0, f32 *, 0x28);
+        M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(arg0, f32 *, 0x2C);
+    }
+    M2C_FIELD(arg0, f32 *, 0x88) = M2C_FIELD(arg0, f32 *, 0x88) * M2C_FIELD(arg0, f32 *, 0xA4);
+    M2C_FIELD(arg0, f32 *, 0x8C) = M2C_FIELD(arg0, f32 *, 0x8C) * M2C_FIELD(arg0, f32 *, 0xA8);
+    flags = M2C_FIELD(arg0, u16 *, 0x24);
+    if (flags & 0x200) {
+        if (((is_split_screen() == 0) || !(M2C_FIELD(arg0, u16 *, 0x24) & 0x400)) && (M2C_FIELD(arg0, u32 *, 0xB4) != 0U) && (M2C_FIELD(arg0, u32 *, 0xB0) != 0U)) {
+            Ang_8008BAF8 ang = lbl_80439540;
+            Vec_8008BAF8 pos2;
+            direction_to_rotation_xz(arg0 + 0x3C, &ang.x, &ang.z);
+            if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 4) {
+                pos2.x = M2C_FIELD(arg0, f32 *, 0x70) + M2C_FIELD(arg0, f32 *, 0x7C);
+                pos2.y = M2C_FIELD(arg0, f32 *, 0x74) + M2C_FIELD(arg0, f32 *, 0x80);
+                pos2.z = M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(arg0, f32 *, 0x84);
+            } else {
+                VecCopy__FP3VecPC3Vec(&pos2, arg0 + 0x70);
+            }
+            ((void (*)(void))push_matrix)();
+            post_translate_matrix(&pos2);
+            scale_matrix(0, M2C_FIELD(arg0, f32 *, 0x88), M2C_FIELD(arg0, f32 *, 0x88), M2C_FIELD(arg0, f32 *, 0x88));
+            if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x20), u8 *, 0x88) & 4) {
+                rotate_matrix_z(0, ang.z);
+                rotate_matrix_x(0, ang.x);
+                rotate_matrix_y(0, ang.y);
+            }
+            if ((M2C_FIELD(arg0, u16 *, 0x24) & 0x1000) && (lbl_805D4DF0 != NULL)) {
+                rotate_matrix_y(0, M2C_FIELD(lbl_805D4DF0, s32 *, 0x194));
+            }
+            begin_effect_render__13TParticleCtrlFv();
+            if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
+                load_projected_texture_matrix(lbl_805D9564);
+            }
+            rotate_matrix_y(0, M2C_FIELD(arg0, s16 *, 0x96));
+            if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
+                setup_particle_tev(0);
+            } else {
+                s32 temp_r4 = some_id_805c6f74;
+                lbl_805D5660 = temp_r4;
+                some_id_805c6f74 = temp_r4 | 0x8021;
+                if (is_particle_sprite_additive(arg0, temp_r4) != 0) {
+                    apply_particle_model_fade_color(arg0, 1);
+                } else {
+                    apply_particle_model_fade_color(arg0, 0);
+                }
+            }
+            set_global_param__8TObjFishFi(M2C_FIELD(arg0, u32 *, 0xB4));
+            set_depth_buffer_settings_id__FUl(3);
+            if (M2C_FIELD(arg0, u32 *, 0xB8) != 0U) {
+                draw_ginja_model_with_motion(M2C_FIELD(arg0, u32 *, 0xB0), M2C_FIELD(arg0, u32 *, 0xB8), M2C_FIELD(arg0, f32 *, 0xBC));
+            } else {
+                draw_ginja_object(M2C_FIELD(arg0, u32 *, 0xB0));
+            }
+            if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
+                disable_if_single_screen__13TParticleCtrlFv();
+            } else {
+                some_id_805c6f74 = lbl_805D5660;
+            }
+            end_effect_render__13TParticleCtrlFv();
+            pop_matrix();
+        }
+    } else {
+        if (flags & 0x2000) {
+            draw_particle_refraction_quad(arg0);
+            return;
+        }
+        if (M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 0x88) & 0x20) {
+            TParticleCtrl__sub_801E4E7C(((s32 *)((u8 *)&TParticleCtrl__data_80511F70 + 0xD8))[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
+            return;
+        }
+        TParticleCtrl__sub_801E4E7C(((s32 *)&TParticleCtrl__data_80511F70)[M2C_FIELD(arg0, u16 *, 0x1C)], arg0 + 0x6C);
+    }
+}
+
 void *TParticleCtrl__sub_8008BF00(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TParticleCtrl__data_8048E7A8;
