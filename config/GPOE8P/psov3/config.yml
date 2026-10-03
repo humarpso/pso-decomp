@@ -339,6 +339,7 @@ force_active:
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - init_gx_lighting_defaults
+  - init_launch_angles__10TTecSlicerFPvPvi
   - init_object__23TAdSinglePlyChrSelectGCFPvPv
   - init_parameters__9TTecBartaFPv
   - init_parameters__9TTecMegidFPv
@@ -350,6 +351,7 @@ force_active:
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - initialize_player_data__10TObjPlayerFPv
   - invoke_callback__10TItemTimerFPv
+  - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
   - is_player_in_service_range__14TShopGeneratorFPvPvf
   - is_special_sound_id
@@ -500,8 +502,11 @@ force_active:
   - run_task__9TSaveChCrFv
   - send_partner_attack_stage_request
   - set_code_43_6__10TObjPlayerFPv
+  - set_enable_count__13TOHealGeneralFPvi
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
+  - set_player_room_control_flag
   - set_saved_attack_stage__10TObjPlayerFPvs
+  - set_script_entry__13TOHealGeneralFPvi
   - set_stealth_suit_flags__10TObjPlayerFPv
   - set_tev_stage_mode
   - setup_state_helper__10TObjPlayerFPv
@@ -529,8 +534,10 @@ force_active:
   - update_letterbox_show__9TCineCtrlFPv
   - update_light_direction__12TCharaMakingFPv
   - update_load_state__9TItemLoadFPv
+  - update_main_menu_request__11TWindowCtrlFPv
   - update_selected_help__19TWindowSubTechniqueFPvi
   - update_selection_input__19TWindowSubMagPhotonFPv
+  - update_short_list_request__11TWindowCtrlFPv
   - update_target_info_window__11TWindowCtrlFPv
   - update_title_prompt__19TAdTrialAgreementGCFPv
   - update_trails__11TItemWeaponFPv

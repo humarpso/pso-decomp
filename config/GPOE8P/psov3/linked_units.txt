@@ -434,6 +434,7 @@ pso/enemy/TObjEneMe1CanadinLeader.cpp
 pso/enemy/TObjEneMe1CanadinLeader_8009E238.cpp
 pso/enemy/TObjEneMe1CanadinLeader_8009F4A0.cpp
 pso/enemy/TObjEneMe1Canadin_8009BDA8_8009BDA8.cpp
+pso/enemy/TObjEneMe1Canadin_8009BDA8_8009D800.cpp
 pso/enemy/TObjEneMe1Canadin_8009EB6C.cpp
 pso/enemy/TObjEneMe1Canadin_8009EC00.cpp
 pso/enemy/TObjEneMe1Canadin_8009EC50.cpp
