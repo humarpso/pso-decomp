@@ -14,6 +14,30 @@ struct RecoveredGlobal_8025A594_lbl_804CF9F8 {
     u8 remaining[0x14];
 };
 
+typedef struct Item_8025A354 {
+    u16 flags;
+    u8 pad2[6];
+    f32 x;
+    f32 y;
+    s32 value10;
+    u8 pad14[4];
+    char *label;
+    s32 cur;
+    s32 next;
+} Item_8025A354;
+
+typedef struct Win_8025A354 {
+    u8 pad0[0x10];
+    f32 x;
+    f32 y;
+    u8 pad18[0x18];
+    s32 f30;
+    u8 pad34[4];
+    f32 f38;
+} Win_8025A354;
+
+typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
+
 extern "C" {
 extern const f32 lbl_805DCF90;
 f32 TWindowHelpItem__sub_8025A60C(u8 *arg0);
@@ -31,6 +55,19 @@ s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
 M2C_UNK strncpy(s32, u32, s32);
 extern const f32 lbl_805DCFAC;
 void TWindowSubStatusDisp__sub_8025AC50(u8 *arg0, u32 arg1, s32 arg2);
+void set_text_draw_params(void *, s32, s32, f32, f32);
+int TWindowHelpItem__sub_8025A600(void* p);
+void draw_window_text(void *, void *, s32, s32, f32);
+void draw_number_value__15TWindowHelpItemFv(void *, void *, s32, s32, s32);
+extern char lbl_8044F020[];
+extern const f32 lbl_805DCF70;
+extern const f32 lbl_805DCF74;
+extern const f32 lbl_805DCF78;
+extern const f32 lbl_805DCF7C;
+extern char lbl_805DCF80[4];
+extern const f32 lbl_805DCF84;
+extern const f32 lbl_805DCF88;
+void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *w);
 }
 
 extern "C" {
@@ -114,6 +151,41 @@ void set_help_text__15TWindowHelpItemFPvUi(void *arg0, u32 arg1) {
         temp_r3 = measure_string_len__20TWindowSubStatusDispFPv(arg1);
         M2C_FIELD(arg0, s32 *, 0x18) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
         strncpy(M2C_FIELD(arg0, s32 *, 0x18), arg1, temp_r3 + 1);
+    }
+}
+
+void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *w) {
+    Vec2_8025A354 pos;
+    s32 color;
+    if (w->f30 < 0) {
+        return;
+    }
+    if (!(self->flags & 4) && !(self->flags & 8)) {
+        return;
+    }
+    pos.x = w->x + self->x;
+    pos.y = w->y + self->y;
+    set_text_draw_params(w, 1, 0, lbl_805DCF70 / (lbl_805DCF74 + w->f38), lbl_805DCF78);
+    draw_window_text(&pos, self->label, -1, 1, lbl_805DCF78);
+    pos.x += lbl_805DCF7C;
+    draw_window_text(&pos, lbl_805DCF80, -1, 0, lbl_805DCF78);
+    pos.x += lbl_805DCF84;
+    if (self->flags & 4) {
+        draw_number_value__15TWindowHelpItemFv(self, &pos, self->cur, self->value10, TWindowHelpItem__sub_8025A600((void*)(self)));
+    }
+    if (self->flags & 8) {
+        draw_window_text(&pos, lbl_8044F020, -1, 0, lbl_805DCF78);
+        pos.x += lbl_805DCF88;
+        if (!(self->flags & 0x10)) {
+            color = 0xFF909090;
+        } else if (self->cur == self->next) {
+            color = -1;
+        } else if (self->cur > self->next) {
+            color = 0xFF77E8FF;
+        } else {
+            color = 0xFFDD8C41;
+        }
+        draw_number_value__15TWindowHelpItemFv(self, &pos, self->next, color, TWindowHelpItem__sub_8025A600((void*)(self)));
     }
 }
 

@@ -203,6 +203,14 @@ void byteswap_header__10TNpcPlayerFPv(void* p);
 extern s32 lbl_805D53A0;
 extern s32 tl_00;
 void handle_6x69_npc_control(Pkt_8034E814 *pkt);
+s32 get_player_by_client_id(s32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_testFlags30(void *, int);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void send_6x3E__10TNpcPlayerFi(void *);
+void init_6x3E_packet__10TNpcPlayerFPv(void *);
+extern const f64 lbl_80478CB0[];
+void quest_player_face_actor(u16 src, u16 dst);
 }
 
 extern "C" {
@@ -248,6 +256,28 @@ void play_effect__10TNpcPlayerFi(int arg0) {
     if ((temp_r3 != 0) && (obj_isState2_324() == 0)) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
     }
+}
+
+void quest_player_face_actor(u16 src, u16 dst) {
+    struct Pkt_8034E3A0 pkt;
+    Player_8034E24C *a;
+    Player_8034E24C *c;
+    s32 heading;
+    a = (Player_8034E24C *) get_player_by_client_id(src);
+    if (a == NULL) {
+        return;
+    }
+    c = (Player_8034E24C *) get_player_by_client_id(dst);
+    if (c == NULL) {
+        return;
+    }
+    init_6x3E_packet__10TNpcPlayerFPv(&pkt);
+    obj_testFlags30(a, 0x100000);
+    heading = (s32) (lbl_80478CB0[0] * get_ad_end_text_start__10TObjPlayerFv(c->x - a->x, c->z - a->z));
+    pkt.id = src;
+    VecCopy__FP3VecPC3Vec(&pkt.x, &a->x);
+    pkt.arg = heading;
+    send_6x3E__10TNpcPlayerFi(&pkt);
 }
 
 void TNpcPlayer__sub_8034E24C(u16 src) {

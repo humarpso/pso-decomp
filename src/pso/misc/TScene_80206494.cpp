@@ -88,7 +88,6 @@ void load_file_to_buffer__6TSceneFi(s32 arg0);
 void load_map_texture_archive__6TSceneFi(s32 arg0);
 void load_scene_data__6TSceneFi(s32 arg0);
 void TScene__sub_80206B4C(s32);
-void load_supplementary_t_rel__6TSceneFv(s32);
 void TScene__sub_80206DB8(s32);
 s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *get_floor_scene_table(s32);
@@ -135,6 +134,15 @@ extern s32 *lbl_805D4E68;
 extern u32 TScene__data_805D6000;
 extern s32 lbl_805D6014;
 void load_scene_collision_file(s32 arg0);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 *load_relocatable_file(M2C_UNK *, u32);
+s32 update_lobby_scene__6TSceneFPv(char *);
+M2C_UNK TLobby__sub_801317E4(M2C_UNK *, s32, M2C_UNK *);
+extern u8 lbl_8044A938[];
+extern u32 TScene__data_805D5FD0;
+extern u32 TScene__data_805D6008;
+extern s32 TScene__data_805D601C;
+void load_supplementary_t_rel__6TSceneFv(s32 arg0);
 }
 
 extern "C" {
@@ -430,6 +438,23 @@ extern s32 *lbl_805D4E68;
 extern u32 TScene__data_805D6000;
 extern s32 lbl_805D6014;
 
+void load_supplementary_t_rel__6TSceneFv(s32 arg0) {
+    u8 sp8[0x20];
+    s32 n;
+    TScene__data_805D5FD0 = 0;
+    TScene__data_805D6008 = 0U;
+    TScene__data_805D601C = 0;
+    TLobby__sub_801317E4((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A938);
+    n = update_lobby_scene__6TSceneFPv((char *)sp8);
+    if (n > 0) {
+        TScene__data_805D6008 = alloc__22TQuestVmDownLoadServerFPv(n);
+        if (TScene__data_805D6008 != 0U) {
+            TScene__data_805D5FD0 = (u32)load_relocatable_file((M2C_UNK *)sp8, TScene__data_805D6008);
+            TScene__data_805D601C = n;
+        }
+    }
+}
+
 void load_scene_data__6TSceneFi(s32 arg0) {
     struct Sp8Buf20_80206494 sp8;
     s32 temp_r31;
@@ -506,7 +531,7 @@ void TScene__sub_80207038(void) {
         bind_gvm_texture_list(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
     }
     load_scene_data__6TSceneFi(ent);
-    load_supplementary_t_rel__6TSceneFv(ent);
+    load_supplementary_t_rel__6TSceneFv((s32)(ent));
     load_map_texture_archive__6TSceneFi(ent);
     TScene__sub_80206B4C(ent);
     load_file_to_buffer__6TSceneFi(ent);

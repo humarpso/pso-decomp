@@ -13,6 +13,7 @@ public:
     virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
@@ -49,6 +50,18 @@ M2C_UNK update_window__15TWindowSubEquipFPv(u32);
 extern u8 lbl_8050E208[];
 extern const f32 lbl_805DD5F0;
 void run_task__15TWindowSubEquipFv(void *arg0);
+M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
+M2C_UNK set_field_1c__6TLobbyFPvf(int);
+M2C_UNK TWindowSubEquip__sub_80263AF8(int, int);
+void *get_window_layout_position(int);
+void *__nw__7TObjectFUl(u32);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 TWindowHelpItem__ct(void *, void *, s32);
+s32 create_equip_list_window(void *, void *, s32);
+extern M2C_UNK lbl_8044F918[];
+extern M2C_UNK __vt__15TWindowSubEquip[];
+extern s32 lbl_805D3A30;
+u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -174,6 +187,30 @@ void *__dt__15TWindowSubEquipFv(void *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
+    void *p;
+    __ct__7TObjectFP7TObject(arg0, (void *)arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TWindowSubEquip;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3A30;
+    M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x28) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x34) = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, M2C_FIELD(arg0, s32 *, 0x28));
+    TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 0);
+    set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, s32 *, 0x34));
+    set_flag70_bit10__20TWindowShortListCtrlFPv(M2C_FIELD(arg0, s32 *, 0x34));
+    p = __nw__7TObjectFUl(0xBC);
+    if (p != 0) {
+        p = (void *)TWindowHelpItem__ct(p, get_window_layout_position(2), M2C_FIELD(arg0, s32 *, 0x28));
+    }
+    M2C_FIELD(arg0, void **, 0x30) = p;
+    TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 2);
+    set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, s32 *, 0x30));
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = -1;
+    M2C_FIELD(arg0, s32 *, 0x24) = -1;
+    M2C_FIELD(arg0, s8 *, 0x1C) = 0;
     return arg0;
 }
 

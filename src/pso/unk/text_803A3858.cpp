@@ -168,6 +168,31 @@ struct Prog_803B25CC {
     u8 pad100[0x404 - 0x100];
 };
 
+struct Ent_803AA1E0 {
+    u8 type;
+    u8 pad1;
+    union {
+        u16 w;
+        u8 b;
+    } v;
+};
+
+struct Req_803AA1E0 {
+    u8 count;
+    u8 pad[3];
+    Ent_803AA1E0 *ents;
+};
+
+struct Tbl_803AA1E0 { u8 b0; u8 b1; };
+
+struct Node_803B2A30 { Node_803B2A30 *next; u32 pad4; u32 key; s32 val; };
+
+struct Env_803B4360 {
+    u8 mode; u8 phase; u8 pad2[2];
+    u32 remaining; s32 level; s32 c; s32 step;
+    u8 pad14[0x12]; u8 f26;
+};
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -205,7 +230,6 @@ void TLobby__sub_803BD660(u8);
 void TLobby__sub_803AA77C(u8 arg0);
 extern s32 lbl_805D73AC;
 void TLobby__sub_803AB574(s8 *arg0, s8 *arg1);
-s32 transition_sound_envelope(void *);
 void TLobby__sub_803B41A0(u8 *arg0);
 M2C_UNK DCFlushRangeNoSync(void *, int);
 M2C_UNK memset(void *, int, int);
@@ -237,7 +261,6 @@ Node_803B2598 *TLobby__sub_803B2598(u32 key);
 extern u8 lbl_805D7380;
 extern Rec_803A9944 lbl_8055755C[];
 void TLobby__sub_803A9944(u8 i, u8 v);
-extern u32 find_sound_voice_by_id(u32 id);
 u32 TLobby__sub_803AA2B8(u32 id);
 extern Program_803B1DA4 *lbl_805D7420;
 void TLobby__sub_803B1DA4(Program_803B1DA4 *self);
@@ -304,7 +327,6 @@ Se_803A9144 *TLobby__sub_803AE76C(s16);
 s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 extern u8 lbl_805D7380;
 extern Rec_803A8D2C *lbl_805D73B0;
-extern u32 find_sound_voice_by_id(u32 id);
 void TLobby__sub_803B1BA4(Rec_803A9454 *);
 s32 TLobby__sub_803A9454(int id);
 extern Rec_803A8D2C *lbl_805D73B0;
@@ -346,6 +368,24 @@ extern const f32 lbl_805E0B98;
 u32 TLobby__sub_803B3ED8(s32 arg0);
 void TLobby__sub_803B3B80(Obj_803B3B80 *arg0);
 void unlink_sound_program(Prog_803B25CC *p);
+extern Tbl_803AA1E0 lbl_80557C1C[];
+s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
+s32 TLobby__sub_803A9200(u32 id, u8 a1, u8 a2);
+s32 TLobby__sub_803A92E8(u32 id, u8 a1, u16 a2);
+void TLobby__sub_803BE700(void);
+void TLobby__sub_803BE738(void);
+s32 start_sound_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, Req_803AA1E0 *req);
+extern Node_803B2598 *lbl_805D743C;
+u32 find_sound_voice_by_id(u32 arg0);
+extern f32 lbl_804F6358[];
+extern f32 lbl_804F6558[];
+extern const f32 lbl_805E0B88;
+u32 calc_sound_base_pitch(u8 note, u32 r);
+extern u16 lbl_804F6758[];
+s32 transition_sound_envelope(void *a0);
+s32 transition_sound_envelope(void *a0);
+extern u16 lbl_804F6758[];
+u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -431,7 +471,6 @@ extern u8 lbl_805D7446;
 extern u8 lbl_805D7447;
 extern u8 lbl_805D7448;
 extern u8 lbl_805D7449;
-u32 advance_sound_envelope(void *, void *, void *);
 void TLobby__sub_803B4CF8(u16, void *, void *, void *);
 void TLobby__sub_803B4CF8(u16, void *, void *, void *);
 struct Ent_803B5DB0 {
@@ -514,6 +553,10 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1);
 s32 TLobby__sub_803B2920(u8 *arg0);
 void TLobby__sub_803B4CEC(void);
+
+extern "C" {
+extern Cfg_803AA35C lbl_80557348;
+}
 
 void TLobby__sub_803A3858(Owner_803A3C24 *o) {
     u32 i;
@@ -951,7 +994,7 @@ s32 TLobby__sub_803A9454(int id) {
     s32 found = 0;
     u32 cur;
     if (lbl_805D7380 != 0) {
-        cur = find_sound_voice_by_id(id);
+        cur = find_sound_voice_by_id((u32)(id));
         while (cur != 0xFFFFFFFF) {
             idx = cur;
             if (cur == (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].id) {
@@ -1044,8 +1087,33 @@ s32 TLobby__sub_803AA1A0(s32 arg0) {
     return var_r3;
 }
 
+s32 start_sound_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, Req_803AA1E0 *req) {
+    u32 id;
+    u8 i;
+    Ent_803AA1E0 *e;
+    u8 t;
+    TLobby__sub_803BE738();
+    id = TLobby__sub_803A9144(arg0, arg1, arg2, arg3, lbl_80557C1C[(u8)arg3].b1);
+    if (id != 0xFFFFFFFF) {
+        e = req->ents;
+        i = 0;
+        while (i < req->count) {
+            t = e->type;
+            if (t < 0x40 || t == 0x80 || t == 0x84) {
+                TLobby__sub_803A92E8(id, t, e->v.w);
+            } else {
+                TLobby__sub_803A9200(id, t, e->v.b);
+            }
+            e++;
+            i++;
+        }
+    }
+    TLobby__sub_803BE700();
+    return id;
+}
+
 u32 TLobby__sub_803AA2B8(u32 id) {
-    if (find_sound_voice_by_id(id) != 0xFFFFFFFF) return id;
+    if (find_sound_voice_by_id((u32)(id)) != 0xFFFFFFFF) return id;
     return 0xFFFFFFFF;
 }
 
@@ -1780,6 +1848,32 @@ s32 TLobby__sub_803B2920(u8 *arg0) {
 
 extern s16 lbl_805D7450;
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Node_803B2A30 *find_node_803B2A30(u32 id) {
+    Node_803B2A30 *p;
+    for (p = (Node_803B2A30 *)lbl_805D743C; p != 0; p = p->next) {
+        if (p->key == id) {
+            return p;
+        }
+        if (p->key > id) {
+            break;
+        }
+    }
+    return 0;
+}
+u32 find_sound_voice_by_id(u32 arg0) {
+    if (arg0 != 0xFFFFFFFF) {
+        Node_803B2A30 *p = find_node_803B2A30(arg0);
+        if (p != 0) {
+            return p->val;
+        }
+    }
+    return -1;
+}
+#pragma pop
+
 void TLobby__sub_803B312C(Obj_803B312C *o) {
     u8 idx;
     Slot_803B312C *e;
@@ -1868,14 +1962,132 @@ s32 TLobby__sub_803B3DAC(s32 current) {
     return (s32)(lbl_805E0B78 * (f32)(u16)current);
 }
 
+u32 calc_sound_base_pitch(u8 note, u32 r) {
+    u32 base;
+    f32 v;
+    if (r == 0xFFFFFFFF) {
+        r = 0x40005622;
+    }
+    base = r >> 24;
+    if (note != base) {
+        f32 m;
+        if (base < note) {
+            m = lbl_804F6358[note - base];
+        } else {
+            m = lbl_804F6558[base - note];
+        }
+        v = (f32)(r & 0xFFFFFF) * m;
+    } else {
+        v = (f32)(r & 0xFFFFFF);
+    }
+    return lbl_805E0B88 * v / (f32)*(u32 *)lbl_80557348.pad;
+}
+
 u32 TLobby__sub_803B3ED8(s32 arg0) {
     return (u32)(lbl_805E0B90 * powf(lbl_805E0B94, lbl_805E0B98 * (f32)arg0, lbl_805E0B98));
 }
 
+#define arg0 ((u8 *)a0)
+s32 transition_sound_envelope(void *a0) {
+    s32 var_r0;
+    s32 var_r5;
+    u32 temp_r4_3;
+    u32 temp_r4_4;
+    u32 temp_r4_6;
+    u8 temp_r4;
+    u8 temp_r4_2;
+    u8 temp_r4_5;
+    temp_r4 = M2C_FIELD(arg0, u8 *, 0);
+    var_r0 = 0;
+    switch ((s32) temp_r4) {
+    case 0:
+        temp_r4_2 = M2C_FIELD(arg0, u8 *, 1);
+        switch ((s32) temp_r4_2) {
+        case 0:
+            temp_r4_3 = M2C_FIELD(arg0, u32 *, 0x14);
+            M2C_FIELD(arg0, u32 *, 4) = temp_r4_3;
+            if (temp_r4_3 != 0) {
+                M2C_FIELD(arg0, u8 *, 1) = 1U;
+                M2C_FIELD(arg0, s32 *, 8) = 0;
+                M2C_FIELD(arg0, u32 *, 0x10) = (u32) (0x7FFF0000U / (u32) M2C_FIELD(arg0, u32 *, 0x14));
+            } else {
+            case 1:
+                temp_r4_4 = M2C_FIELD(arg0, u32 *, 0x18);
+                M2C_FIELD(arg0, u32 *, 4) = temp_r4_4;
+                if (temp_r4_4 != 0) {
+                    M2C_FIELD(arg0, u8 *, 1) = 2U;
+                    M2C_FIELD(arg0, s32 *, 8) = 0x7FFF0000;
+                    M2C_FIELD(arg0, u32 *, 0x10) = (u32) -(s32) ((u32) (0x7FFF0000 - (M2C_FIELD(arg0, u16 *, 0x1C) << 0x10)) / (u32) M2C_FIELD(arg0, u32 *, 0x18));
+                } else {
+                case 2:
+                    if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) != 0) {
+                        M2C_FIELD(arg0, u8 *, 1) = 3U;
+                        M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(arg0, u16 *, 0x1C) << 0x10);
+                        M2C_FIELD(arg0, u32 *, 0x10) = 0U;
+                    } else {
+                    case 4:
+                        M2C_FIELD(arg0, s32 *, 8) = 0;
+                        var_r0 = 1;
+                    }
+                }
+            }
+            break;
+        }
+        break;
+    case 1:
+        temp_r4_5 = M2C_FIELD(arg0, u8 *, 1);
+        switch ((s32) temp_r4_5) {
+        case 0:
+            temp_r4_6 = M2C_FIELD(arg0, u32 *, 0x14);
+            M2C_FIELD(arg0, u32 *, 4) = temp_r4_6;
+            if (temp_r4_6 != 0) {
+                M2C_FIELD(arg0, u8 *, 1) = 1U;
+                if ((u8) M2C_FIELD(arg0, u8 *, 0x26) == 0) {
+                    M2C_FIELD(arg0, s32 *, 8) = 0;
+                    M2C_FIELD(arg0, u32 *, 0x10) = (u32) (0x7FFF0000U / (u32) M2C_FIELD(arg0, u32 *, 4));
+                } else {
+                    M2C_FIELD(arg0, s32 *, 0xC) = 0;
+                    M2C_FIELD(arg0, s32 *, 8) = 0;
+                    M2C_FIELD(arg0, u32 *, 0x10) = (u32) (0xC10000U / (u32) M2C_FIELD(arg0, u32 *, 4));
+                }
+            } else {
+            case 1:
+                M2C_FIELD(arg0, u32 *, 4) = (u32) ((u32) (M2C_FIELD(arg0, u32 *, 0x18) * ((u32)((0xC1 - M2C_FIELD(arg0, u16 *, 0x1C)) << 0x10) / 193)) >> 0x10U);
+                if ((u32) M2C_FIELD(arg0, u32 *, 4) != 0) {
+                    M2C_FIELD(arg0, u8 *, 1) = 2U;
+                    M2C_FIELD(arg0, s32 *, 8) = 0x7FFF0000;
+                    M2C_FIELD(arg0, s32 *, 0xC) = 0xC10000;
+                    M2C_FIELD(arg0, u32 *, 0x10) = (u32) -(s32) ((u32) ((0xC1 - M2C_FIELD(arg0, u16 *, 0x1C)) << 0x10) / (u32) M2C_FIELD(arg0, u32 *, 4));
+                } else {
+                case 2:
+                    if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) != 0) {
+                        M2C_FIELD(arg0, u8 *, 1) = 3U;
+                        M2C_FIELD(arg0, s32 *, 0xC) = (s32) (M2C_FIELD(arg0, u16 *, 0x1C) << 0x10);
+                        var_r5 = 0xC1 - ((s32) (M2C_FIELD(arg0, s32 *, 0xC) + 0x8000) >> 0x10);
+                        if (var_r5 < 0) {
+                            var_r5 = 0;
+                        }
+                        M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(((u8 *)(lbl_804F6758) + (var_r5 * 2)), u16 *, 0) << 0x10);
+                        M2C_FIELD(arg0, u32 *, 0x10) = 0U;
+                    } else {
+                    case 4:
+                        M2C_FIELD(arg0, s32 *, 8) = 0;
+                        var_r0 = 1;
+                    }
+                }
+            }
+            break;
+        }
+        break;
+    }
+    return var_r0;
+}
+#undef arg0
+
 void TLobby__sub_803B41A0(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; };
     ((Fields_arg0*)arg0)->field_1 = 0;
-    transition_sound_envelope(arg0);
+    transition_sound_envelope((void *)(arg0));
 }
 
 s32 TLobby__sub_803B431C(struct Envelope_803B431C *e) {
@@ -1888,11 +2100,73 @@ s32 TLobby__sub_803B431C(struct Envelope_803B431C *e) {
     }
 }
 
+#define e ((Env_803B4360 *)arg0)
+#define out ((u16 *)arg1)
+#define dlt ((u16 *)arg2)
+u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2) {
+    s32 ret = 0;
+    s32 old;
+    s32 d;
+    s32 v;
+    switch (e->mode) {
+    case 0:
+        if (e->phase != 3) {
+            old = e->level;
+            e->level = old + e->step;
+            *out = old >> 16;
+            if (e->step >= 0) {
+                *dlt = e->step >> 21;
+            } else {
+                *dlt = -(-e->step >> 21);
+            }
+            if (--e->remaining == 0) {
+                ret = transition_sound_envelope(arg0);
+            }
+        } else {
+            *out = e->level >> 16;
+            *dlt = 0;
+        }
+        break;
+    case 1:
+        if (e->phase != 3) {
+            old = e->level;
+            if (e->f26 == 0 && e->phase == 1) {
+                e->level = old + e->step;
+            } else {
+                e->c += e->step;
+                v = 0xC1 - ((e->c + 0x8000) >> 16);
+                if (v < 0) {
+                    v = 0;
+                }
+                e->level = lbl_804F6758[v] << 16;
+            }
+            *out = old >> 16;
+            d = e->level - old;
+            if (d >= 0) {
+                *dlt = d >> 21;
+            } else {
+                *dlt = -(-d >> 21);
+            }
+            if (--e->remaining == 0) {
+                ret = transition_sound_envelope(arg0);
+            }
+        } else {
+            *out = e->level >> 16;
+            *dlt = 0;
+        }
+        break;
+    }
+    return ret;
+}
+#undef e
+#undef out
+#undef dlt
+
 s32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2) {
     u8 i;
 
     for (i = 0; i < 15; i++) {
-        if (advance_sound_envelope(arg0, arg1, arg2) != 0) {
+        if (advance_sound_envelope((void *)(arg0), (void *)(arg1), (void *)(arg2)) != 0) {
             return 1;
         }
     }

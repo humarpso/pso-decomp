@@ -33,11 +33,13 @@ struct Stack_80277368
   f32 spC;
 };
 
+typedef s32 M2C_UNK;
+struct Ent_802776D0 { u16 id; u16 sub; };
+
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(int, int, void *);
-M2C_UNK draw_palette_cells__22TWindowSubCustomSelectFv(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__22TWindowSubCustomSelectFv(u8 *arg0);
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, s32, f32);
@@ -90,6 +92,20 @@ extern const f32 lbl_805DD5B8;
 extern const f32 lbl_805DD5BC;
 extern const f32 lbl_805DD5C0;
 s32 TWindowSubCustomSelect__sub_80277368(void *a);
+s32 can_use_palette_action__10TObjPlayerFPvUcUc(s32, u8, u8);
+Big_80277AEC *get_player_by_client_id(int);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+s32 TWindowHelpItem__sub_80243544(void *, void *, u16, u16, s32);
+s32 draw_action_palette_icon(void *, u16, u16);
+s32 TWindowSubStatusDisp__sub_80257BC0(void *, void *, void *);
+extern const f32 TWindowSubCustomSelect__data_805DD5B0;
+extern const f32 lbl_805DD5BC;
+extern const f32 lbl_805DD5C8;
+extern const f32 lbl_805DD5D4;
+extern const f32 lbl_805DD5D8;
+extern const f32 lbl_805DD5DC;
+extern const f32 lbl_805DD5E0;
+void draw_palette_cells__22TWindowSubCustomSelectFv(void *arg0, int arg1);
 }
 
 extern "C" {
@@ -192,11 +208,61 @@ void TWindowSubCustomSelect__sub_80277638(u8 *arg0, u8 *arg1) {
 }
 #pragma pop
 
+#pragma push
+#pragma opt_loop_invariants off
+void draw_palette_cells__22TWindowSubCustomSelectFv(void *arg0, int arg1) {
+    u32 i;
+    s32 p;
+    Ent_802776D0 *e;
+    s16 id;
+    s16 sub;
+    u8 *w1;
+    u8 *w0;
+    u8 *w2;
+    f32 y;
+    f32 fx;
+    f32 fy;
+    p = ((s32)get_player_by_client_id((int)(M2C_FIELD(arg0, s16 *, 0x20))));
+    if (p == 0) {
+        return;
+    }
+    e = M2C_FIELD(arg0, Ent_802776D0 **, 0x78);
+    for (i = 0; e->id != 8; i++, e++) {
+        if (e->id == 0) {
+            continue;
+        }
+        fx = lbl_805DD5C8 * (f32)(i % 3);
+        fy = TWindowSubCustomSelect__data_805DD5B0 * (f32)(i / 3);
+        y = M2C_FIELD(arg1, f32 *, 0x14) + fy;
+        if (lbl_805DD5D4 + (lbl_805DD5D8 + y) < M2C_FIELD(arg1, f32 *, 0x40) || lbl_805DD5D8 + y > M2C_FIELD(arg1, f32 *, 0x48)) {
+            continue;
+        }
+        w1 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+        w0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+        w2 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 2);
+        M2C_FIELD(w1, f32 *, 8) = lbl_805DD5DC + fx;
+        M2C_FIELD(w1, f32 *, 0xC) = lbl_805DD5BC + fy;
+        M2C_FIELD(w0, f32 *, 8) = lbl_805DD5E0 + fx;
+        M2C_FIELD(w0, f32 *, 0xC) = lbl_805DD5D8 + fy;
+        id = e->id;
+        sub = e->sub;
+        if (can_use_palette_action__10TObjPlayerFPvUcUc(p, id, sub) != 0) {
+            M2C_FIELD(w1, s32 *, 0x2C) = -1;
+        } else {
+            M2C_FIELD(w1, s32 *, 0x2C) = 0xFF404040;
+        }
+        draw_action_palette_icon(w1, id, sub);
+        TWindowHelpItem__sub_80243544(w2, w1, id, sub, M2C_FIELD(arg0, s16 *, 0x20));
+        TWindowSubStatusDisp__sub_80257BC0(arg0, &M2C_FIELD(arg0, u8 *, 0x24), (void *)arg1);
+    }
+}
+#pragma pop
+
 void render__22TWindowSubCustomSelectFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    draw_palette_cells__22TWindowSubCustomSelectFv((void *) (arg0), (int) (temp_r3));
+    draw_palette_cells__22TWindowSubCustomSelectFv((void *)((void *) (arg0)), (int)((int) (temp_r3)));
     TWindowSubCustomSelect__sub_80277638((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x7C)), (int) (temp_r3));
     TWindowSubStatusDisp__sub_8026D790((int) (M2C_FIELD(arg0, s32 *, 0x80)), (int) (temp_r3), (void *) (arg0 + 0x68));

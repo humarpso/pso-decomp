@@ -26,6 +26,10 @@ struct Plr_801B6A5C {
     s16 b2;
 };
 
+typedef struct Vec_801B6964 { f32 x, y, z; } Vec_801B6964;
+
+struct Color_801B6964 { f32 r, g, b, a; };
+
 extern "C" {
 M2C_UNK recalc_combat_stats__10TObjPlayerFv(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
 f32 get_tp_class_factor__10TObjPlayerFPv();
@@ -33,7 +37,6 @@ f32 TObjPlayer__sub_801D9440(s32);
 s32 is_alive_and_ready__10TObjPlayerFi(Plr_801B6A5C *);
 void refill_traps__10TObjPlayerFPv(Plr_801B6A5C *);
 s32 reset_volopt_state__10TObjPlayerFv(Plr_801B6A5C *);
-void spawn_level_change_feedback__10TObjPlayerFv(Plr_801B6A5C *, void *);
 void copy_fields__10TObjPlayerFPvPv(Pkt_801B6A5C *, void *);
 Plr_801B6A5C *get_player_by_client_id(u16);
 s32 check_flag_4__10TObjPlayerFPv(Plr_801B6A5C *);
@@ -43,6 +46,17 @@ s32 validate_6x30_change_player_level(Pkt_801B6A5C *);
 extern u8 lbl_80446F50[];
 extern u8 lbl_80446F5C[];
 void handle_6x30_change_player_level(void *arg0);
+s32 obj_getField1c(s32);
+void __ct__14TFontSmallHelpFUlUllUl(void *, u16, s32, s32, s32);
+void publish_actor_light_scalars(u16, f32, f32);
+void notify_volopt_if_ready__10TObjPlayerFPv(void* p);
+void new_child_object__10TObjPlayerFi(s32);
+void *__nw__7TObjectFUl(u32);
+void construct_actor_light_task(void *, Color_801B6964 *, Vec_801B6964 *, s32, s32, s32, f32);
+extern Vec_801B6964 lbl_8050BEE0[];
+extern Color_801B6964 lbl_8050BFE0[];
+extern s32 tl_07;
+void spawn_level_change_feedback__10TObjPlayerFv(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -161,6 +175,29 @@ void copy_stats__10TObjPlayerFPvPv(void *arg0, void *arg1) {
 }
 
 void notify_volopt_if_ready__10TObjPlayerFPv(void* p) { if (is_locally_controlled__10TObjPlayerFPv(p) != 0) { play_sound_effect((void*)335646, (void*)0, (void*)0, (void*)0); } }
+
+void spawn_level_change_feedback__10TObjPlayerFv(s32 arg0, s32 arg1) {
+    void *p;
+    notify_volopt_if_ready__10TObjPlayerFPv((void *)arg0);
+    p = __nw__7TObjectFUl(0x60);
+    if (p != NULL) {
+        __ct__14TFontSmallHelpFUlUllUl(p, obj_getField1c(arg0), -1, 0x3C, arg1);
+    }
+    new_child_object__10TObjPlayerFi(obj_getField1c(arg0));
+    lbl_8050BEE0[0].x = 0.0f;
+    lbl_8050BEE0[0].y = -1.0f;
+    lbl_8050BEE0[0].z = 0.0f;
+    lbl_8050BFE0[0].r = 1.0f;
+    lbl_8050BFE0[0].g = 1.0f;
+    lbl_8050BFE0[0].b = 0.8f;
+    lbl_8050BFE0[0].a = 0.63f;
+    p = __nw__7TObjectFUl(0x64);
+    if (p != NULL) {
+        ((void (*)(void *, Color_801B6964 *, f32, Vec_801B6964 *, s32, s32, s32))construct_actor_light_task)(p, lbl_8050BFE0, 0.2f, lbl_8050BEE0, 10, arg0, tl_07);
+    }
+    publish_actor_light_scalars(obj_getField1c(arg0), 1.0f, 0.5f);
+}
+
 void handle_6x30_change_player_level(void *arg0) {
     Pkt_801B6A5C pkt;
     Plr_801B6A5C *p;
@@ -194,9 +231,9 @@ void handle_6x30_change_player_level(void *arg0) {
     }
     if (check_flag_4__10TObjPlayerFPv(p) == 0) {
         if (pkt.kind == 1) {
-            spawn_level_change_feedback__10TObjPlayerFv(p, lbl_80446F50);
+            spawn_level_change_feedback__10TObjPlayerFv((s32)(p), (s32)(lbl_80446F50));
         } else {
-            spawn_level_change_feedback__10TObjPlayerFv(p, lbl_80446F5C);
+            spawn_level_change_feedback__10TObjPlayerFv((s32)(p), (s32)(lbl_80446F5C));
         }
     }
 }

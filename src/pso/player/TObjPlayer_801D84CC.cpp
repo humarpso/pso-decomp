@@ -129,6 +129,29 @@ struct RecoveredGlobal_801D8FB4_lbl_804C495C
 
 struct Vec_801D8CCC { f32 x, y, z; };
 
+typedef struct Src_801D88C8 {
+    u8 pad0[0x50];
+    u8 slot0[0x1C];
+    u8 slot1[0x40];
+    u8 sub[0x18];
+    f32 frame;
+} Src_801D88C8;
+
+typedef struct Player_801D88C8 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x38 - 0x1C];
+    u8 pos[12];
+    u8 pad44[0x60 - 0x44];
+    s32 ang;
+    u8 pad64[0xC0 - 0x64];
+    f32 frame;
+    u8 padc4[0xE0 - 0xC4];
+    u8 *model;
+    u8 pade4[0xF8 - 0xE4];
+    void *motion;
+} Player_801D88C8;
+
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -226,6 +249,27 @@ u16 obj_getField1c(void *);
 s32 get_instance__6TLobbyFv(void);
 extern Vec_801D8CCC *lbl_804C49E8[];
 Vec_801D8CCC *TObjPlayer__sub_801D8CCC(void *player);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u16 obj_getField1c(void *);
+void draw_model_with_callback__10TObjPlayerFPviif(void *, void *, void *, f32);
+void init_npc_animation__10TObjPlayerFPvPvPvPv(void *, s32, s32, s32);
+void select_class_action_provider__10TObjPlayerFPv(void *);
+void TObjPlayer__ct(void *, void *);
+void set_floor_index__10TObjPlayerFPvi(void *, s32);
+void *get_sub_object__10TObjPlayerFPv(void *);
+s32 get_lock_timer__10TObjPlayerFPv(void *);
+void set_action_flag_40__10TObjPlayerFPv(void *);
+void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(void *, void *);
+s32 TObjPlayer__sub_801D8E60(u8 *arg0);
+void set_position_vec3__10TObjPlayerFPvPv(s32, void *);
+void rotate_matrix_y(s32, s32);
+void push_matrix(void);
+void pop_matrix(void);
+extern M2C_UNK lbl_804C4540[];
+extern u8 *TObjPlayer__data_805D5D80;
+extern int lbl_805D5E08;
+extern const float lbl_805DC3F8;
+Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
 }
 
 extern "C" {
@@ -256,6 +300,28 @@ M2C_UNK init__17TPlyInventoryItemFv(s32);
 void create_player_ending_motion(void) { TObjPlayer__sub_801BDFC4(); lbl_805D5E08 = create_named_object(lbl_80447190); }
 
 extern M2C_UNK lbl_804C4540[];
+
+Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src) {
+    TObjPlayer__ct(self, parent);
+    self->vt = ((s32 *)&lbl_804C4540);
+    set_floor_index__10TObjPlayerFPvi(self, 1);
+    set_floor_index__10TObjPlayerFPvi(self, 1);
+    VecCopy__FP3VecPC3Vec(self->pos, get_sub_object__10TObjPlayerFPv(src->sub));
+    self->ang = get_lock_timer__10TObjPlayerFPv(src->sub);
+    select_class_action_provider__10TObjPlayerFPv(self);
+    self->model = TObjPlayer__data_805D5D80 + obj_getField1c(self) * 0xC00;
+    init_npc_animation__10TObjPlayerFPvPvPvPv(self, TObjPlayer__sub_801D8E60((u8 *)self), *(s32 *)lbl_805D5E08, 1);
+    self->frame = src->frame;
+    set_action_flag_40__10TObjPlayerFPv(self);
+    push_matrix();
+    set_position_vec3__10TObjPlayerFPvPv(0, self->pos);
+    rotate_matrix_y(0, self->ang);
+    ((void (*)(void *, void *, f32, void *))draw_model_with_callback__10TObjPlayerFPviif)(self, self->motion, (*(const f32 *)&lbl_805DC3F8), self->model);
+    pop_matrix();
+    assign_lobby_slot_if_flagged__10TObjPlayerFiPv(self, src->slot0);
+    assign_lobby_slot_if_flagged__10TObjPlayerFiPv(self, src->slot1);
+    return self;
+}
 
 void *TObjPlayer__sub_801D89E0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -41,7 +41,6 @@ s32 TNpcPlayer__sub_8034DE40();
 s32 TNpcPlayer__sub_8034DE70();
 M2C_UNK apply_to_players__10TNpcPlayerFiPvi(s32, int, int);
 extern ReturnLobby lbl_80515BA0;
-void prepare_hospital_return__10TObjPlayerFi(s32 arg0);
 s32 get_main_phase();
 M2C_UNK mark_area_change_pending();
 M2C_UNK get_field_2d4__10TObjPlayerFPv(void *);
@@ -53,7 +52,6 @@ M2C_UNK TObjPlayer__sub_801AF554(void *, u8);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_pickup_item__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801B30BC(void *, int);
-void prepare_hospital_return__10TObjPlayerFi(s32 arg0);
 M2C_UNK create_return_city_window__10TObjPlayerFPv(void *);
 M2C_UNK update_aim_angle__10TObjPlayerFPvi(void *, int);
 VObj_801B3274 *get_player_by_client_id(M2C_UNK);
@@ -72,6 +70,19 @@ M2C_UNK TNpcPlayer__sub_8034E7A0(M2C_UNK);
 extern u8 lbl_8050EA40[];
 extern ReturnLobby lbl_80515BA0;
 void complete_deferred_player_death(void);
+u16 obj_getField1c(void *);
+M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
+M2C_UNK get_dest_area__17TObjAreaWarpQuestFPv(void *);
+M2C_UNK send_6x21_inter_level_warp(s32, int);
+int set_battle_flag__10TObjPlayerFPvi(void*, int);
+M2C_UNK set_arrival_override_pos(u16, int, int);
+s32 TObjPlayer__sub_801D8D14(void *);
+s32 get_hospital_position__10TObjPlayerFPv(void *);
+s32 TNpcPlayer__sub_8034DE40();
+s32 TNpcPlayer__sub_8034DE70();
+M2C_UNK apply_to_players__10TNpcPlayerFiPvi(s32, int, int);
+extern ReturnLobby lbl_80515BA0;
+void prepare_hospital_return__10TObjPlayerFi(void *arg0);
 }
 
 extern "C" {
@@ -85,19 +96,15 @@ int set_battle_flag__10TObjPlayerFPvi(void*, int);
 int player_flag_1__6TLobbyFPv(void* p) { return set_battle_flag__10TObjPlayerFPvi(p, 1); }
 int check_player_state_flag_2__6TLobbyFPv(void* p) { return test_flags_any((char*)p + 0x858, 2); }
 void handle_6x34(void) {  }
-void prepare_hospital_return__10TObjPlayerFi(s32 arg0) {
-    s32 temp_r30;
-    s32 temp_r31;
-    send_6x21_inter_level_warp(arg0, 0);
-    temp_r31 = get_hospital_position__10TObjPlayerFPv((void *) (arg0));
-    temp_r30 = TObjPlayer__sub_801D8D14((void *) (arg0));
-    set_arrival_override_pos(obj_getField1c((void *)arg0), temp_r30, temp_r31);
-    set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800));
-    set_battle_flag__10TObjPlayerFPvi((void*)((void *) (arg0)), (int)((int) (0)));
-    temp_r30 = TNpcPlayer__sub_8034DE40();
-    temp_r31 = TNpcPlayer__sub_8034DE70();
-    apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0), temp_r31, temp_r30);
+
+void prepare_hospital_return__10TObjPlayerFi(void *arg0) {
+    send_6x21_inter_level_warp((s32)arg0, 0);
+    set_arrival_override_pos(obj_getField1c(arg0), TObjPlayer__sub_801D8D14(arg0), get_hospital_position__10TObjPlayerFPv(arg0));
+    set_state_flags__10TObjPlayerFPvUi(arg0, 0x800);
+    set_battle_flag__10TObjPlayerFPvi((void*)(arg0), (int)(0));
+    apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0), TNpcPlayer__sub_8034DE70(), TNpcPlayer__sub_8034DE40());
 }
+
 void complete_deferred_player_death(void) {
     u8 lvl;
     s16 aim;
@@ -142,7 +149,7 @@ void complete_deferred_player_death(void) {
                 TObjPlayer__sub_801B30BC(p, 0);
                 return;
             }
-            prepare_hospital_return__10TObjPlayerFi((s32)p);
+            prepare_hospital_return__10TObjPlayerFi((void *)((s32)p));
             set_area__6TLobbyFPvi(&lbl_80515BA0, 0, get_floor_map_terrain(0));
             mark_area_change_pending();
             TNpcPlayer__sub_8034E7A0(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0));

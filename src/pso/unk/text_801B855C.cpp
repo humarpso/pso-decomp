@@ -65,6 +65,18 @@ struct Item_801B8AF8 {
     u8 data2[4];
 };
 
+typedef struct Vec_801B8870 { f32 x, y, z; } Vec_801B8870;
+
+typedef struct Cmd_801B8870 {
+    u8 cmd;
+    u8 size;
+    s16 client;
+    s16 b;
+    s16 floor;
+    s32 a;
+    Vec_801B8870 pos;
+} Cmd_801B8870;
+
 extern "C" {
 s32 init__9TItemDataFv(void *);
 s32 count_items_by_id__10TObjPlayerFPvi(int, void *);
@@ -114,6 +126,15 @@ s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 void play_sound_effect(s32, s32, s32, s32);
 void request_item_drop__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_isState2_324(void *);
+s32 obj_getField1c(s32);
+s16 get_current_floor(void);
+s32 is_volopt_phase_final__10TObjPlayerFv();
+void TObjPlayer__sub_801B9634(void *);
+void init_6x2A__10TObjPlayerFPv(void *);
+void bswap_fields_and_send__10TObjPlayerFPv(Cmd_801B8870 *);
+void send_6x2A_drop_item__10TObjPlayerFv(void *arg0, s32 arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -193,6 +214,20 @@ void handle_6x2A_drop_item(void *arg0) {
         if ((p != NULL) && (is_volopt_phase_final__10TObjPlayerFv() == 0)) {
             update_inventory_item__10TObjPlayerFPviiiii(p->inv, p, m.c, m.d, m.a, m.b);
         }
+    }
+}
+
+void send_6x2A_drop_item__10TObjPlayerFv(void *arg0, s32 arg1, void *arg2, s32 arg3) {
+    Cmd_801B8870 cmd;
+    if (is_volopt_phase_final__10TObjPlayerFv() == 0 && (arg0 == NULL || obj_isState2_324(arg0) == 0)) {
+        init_6x2A__10TObjPlayerFPv(&cmd);
+        cmd.client = obj_getField1c((s32)arg0);
+        cmd.a = arg1;
+        cmd.b = arg3;
+        cmd.floor = get_current_floor();
+        VecCopy__FP3VecPC3Vec(&cmd.pos, arg2);
+        bswap_fields_and_send__10TObjPlayerFPv(&cmd);
+        TObjPlayer__sub_801B9634(arg0);
     }
 }
 

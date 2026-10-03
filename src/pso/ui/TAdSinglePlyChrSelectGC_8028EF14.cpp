@@ -108,7 +108,6 @@ void end_effect_render__13TParticleCtrlFv();
 void setup_from_data__12TCharaMakingFii(u32, u32);
 void clear_flag_bit0__12TCharaMakingFv();
 void enable_making__12TCharaMakingFv();
-s32 scan_creation_resources(void *);
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p);
 void set_position_vec3__10TObjPlayerFPvPv(int, void *);
 void rotate_matrix_y(int, u32);
@@ -126,6 +125,14 @@ extern E_8028F210 *lbl_805D6540;
 void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0);
 extern s32 lbl_804D3FAC[];
 void map_shape_region_samples(s32 region, s32 *samples);
+extern CreationShapeBlend lbl_8051D268;
+s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
+s32 TAdSinglePlyChrSelectGC__sub_8028EC70(void *, void *);
+extern Slot_8028F150 lbl_8051D288[];
+extern u32 lbl_805D6520;
+extern E_8028F210 *lbl_805D6540;
+extern s32 lbl_805D6558;
+s32 scan_creation_resources(void *arg0);
 }
 
 extern "C" {
@@ -232,6 +239,17 @@ s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 extern s32 lbl_805D6530;
 
+#pragma push
+#pragma fp_contract on
+s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c) {
+    s32 i;
+    for (i = 0; i < 3; i++) {
+        *dst++ = lbl_8051D268.weights[2] * *c++ + (lbl_8051D268.weights[0] * *a++ + lbl_8051D268.weights[1] * *b++);
+    }
+    return 1;
+}
+#pragma pop
+
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
     s32 j;
     s32 y;
@@ -295,10 +313,44 @@ s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0) {
     return 5;
 }
 
+s32 scan_creation_resources(void *arg0) {
+    E_8028F210 *p;
+    E_8028F210 *end;
+    end = &((E_8028F210 *)&lbl_8051D288)[0x80];
+    for (p = (E_8028F210 *)&lbl_8051D288; p < end; p++) {
+        if (p->f0 == 0) {
+            continue;
+        }
+        if (p->f14 != 0 && p->f10 == 0) {
+            continue;
+        }
+        if (p->f188 != 0 && p->f184 == 0) {
+            continue;
+        }
+        if (p->f2f8 == 0) {
+            continue;
+        }
+        if (TAdSinglePlyChrSelectGC__sub_8028EC70(p, (void *)lbl_805D6520) != 0) {
+            break;
+        }
+    }
+    if (p == end) {
+        if (lbl_805D6540 == NULL) {
+            lbl_805D6558 = 0;
+            return 0;
+        }
+        lbl_805D6558 = 1;
+        return 1;
+    }
+    lbl_805D6540 = p;
+    lbl_805D6558 = 2;
+    return 1;
+}
+
 void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
     u32 v;
     begin_effect_render__13TParticleCtrlFv();
-    if (scan_creation_resources(arg0) == 0) {
+    if (scan_creation_resources((void *)(arg0)) == 0) {
         lbl_805D6534 = 0;
         return;
     }

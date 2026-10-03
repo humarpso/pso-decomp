@@ -39,6 +39,10 @@ struct V_A_80279714 : Base_A_80279714 {
     virtual s32 m31();
 };
 
+struct ItemData_80279754 {
+    u8 b[0x14];
+};
+
 extern "C" {
 void TWindowSubItem__sub_8027AA30(u8 *arg0);
 s32 TWindowSubItem__sub_8027AA78(s32 arg0);
@@ -78,7 +82,6 @@ s32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
-s32 has_armor_with_unit_slot(void *, int);
 void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2);
 struct En_8027AA80 { u16 flags; u8 pad2[0x2A]; u32 c2c; u32 c30; u32 c34; };
 s32 is_flag_4_set__20TWindowSubStatusDispFPv();
@@ -101,6 +104,12 @@ void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, s32);
 void TWindowSubItem__sub_8027AA80(Wn_8027AA80 *arg0);
 void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0);
 void fn_8027ABFC(Win_8027ABFC *arg0);
+u8 get_field_ed__10TObjPlayerFPv(void *);
+void copy_to_item_data__5TItemFPvPv(void *, ItemData_80279754 *);
+u8 get_field_ec__12TOSwitchItemFPv(int);
+s32 get_player_by_client_id(s32);
+u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
+s32 has_armor_with_unit_slot(void *arg0, int arg1);
 }
 
 extern "C" {
@@ -161,6 +170,28 @@ void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x20) = arg1;
         TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, u32 *, 0x40));
     }
+}
+
+s32 has_armor_with_unit_slot(void *arg0, int arg1) {
+    ItemData_80279754 d;
+    s32 pl;
+    u32 item;
+    pl = get_player_by_client_id(*(s32 *)((u8 *)arg0 + 0x24));
+    if (pl == 0) {
+        return 0;
+    }
+    if (get_field_ec__12TOSwitchItemFPv(arg1) != 1) {
+        return 1;
+    }
+    if (get_field_ed__10TObjPlayerFPv((void *)arg1) != 3) {
+        return 1;
+    }
+    item = get_slot_value__10TObjPlayerFPvi(pl + 0xD04, 2);
+    if (item == 0) {
+        return 0;
+    }
+    copy_to_item_data__5TItemFPvPv((void *)item, &d);
+    return d.b[5] != 0 ? 1 : 0;
 }
 
 #pragma push
@@ -265,7 +296,7 @@ void add_item_purpose_actions(u8 *arg0, s32 arg1, s32 arg2) {
         temp_r3_2 = get_player_by_client_id((s32)((int) (*((s32 *) (((s8 *) arg0) + 0x24)))));
         if (temp_r3_2 != 0)
         {
-          if (((get_item_info__10TObjPlayerFiiPv((int) temp_r3, (int) temp_r3_2, (void *) (&sp8)) != 0) && (has_armor_with_unit_slot((void *) arg0, (int) temp_r3) != 0)) && (get_global_state__14TOKeyMachine01Fv() != 0xF))
+          if (((get_item_info__10TObjPlayerFiiPv((int) temp_r3, (int) temp_r3_2, (void *) (&sp8)) != 0) && (has_armor_with_unit_slot((void *)((void *) arg0), (int)((int) temp_r3)) != 0)) && (get_global_state__14TOKeyMachine01Fv() != 0xF))
           {
             forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((void *) arg1), (s32)((int) get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) 0x62))), (M2C_UNK)((int) 6), (s32)((int) 1));
           }

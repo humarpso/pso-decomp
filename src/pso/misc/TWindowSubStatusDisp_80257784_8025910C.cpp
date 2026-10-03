@@ -5,6 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct Row_8025930C {
+    u8 pad0[0x10];
+    f32 width;
+    u8 pad14[8];
+    u8 kind1c;
+    u8 kind1d;
+    u8 pad1e[2];
+    char *label;
+    char *suffix;
+} Row_8025930C;
+
 extern "C" {
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
 void TWindowSubStatusDisp__sub_80259814(void *p);
@@ -22,6 +33,13 @@ extern const f32 lbl_805DCF24;
 extern const f32 lbl_805DCF28;
 extern const f32 lbl_805DCF2C;
 void draw_item_list_row(ItemListRow *row, ItemListWindowView *win);
+u32 calc_text_width(s32);
+s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
+extern const f32 lbl_805DCF08;
+extern const f32 lbl_805DCF10;
+extern const f32 lbl_805DCF14;
+extern const f32 lbl_805DCF18;
+void calc_row_width__20TWindowSubStatusDispFv(Row_8025930C *arg0);
 }
 
 extern "C" {
@@ -74,6 +92,25 @@ void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
     extern unsigned char lbl_8044EE60[];
+
+void calc_row_width__20TWindowSubStatusDispFv(Row_8025930C *arg0) {
+    arg0->width = lbl_805DCF08;
+    if (is_flag_4_set__20TWindowSubStatusDispFPv(arg0) != 0) {
+        if (arg0->kind1c != 0x33) {
+            arg0->width += lbl_805DCF10;
+        } else if (arg0->kind1d != 0x33) {
+            arg0->width += lbl_805DCF14;
+        }
+        if (arg0->label != 0) {
+            arg0->width += (f32)calc_text_width((s32)arg0->label);
+        }
+        if (arg0->suffix != 0) {
+            arg0->width += lbl_805DCF18;
+            arg0->width += (f32)calc_text_width((s32)arg0->suffix);
+        }
+    }
+}
+
 void* get_entry_ptr__20TWindowSubStatusDispFi(int a0) {  return (char*)lbl_8044EE60 + (unsigned char)(a0) * 8; }
 
 typedef struct ItemListRow ItemListRow;

@@ -101,6 +101,31 @@ struct VObj_18_0e2b36 : VBase_18_0e2b36 {
     virtual M2C_UNK m11();
 };
 
+struct Base_802164A4 { char pad[0x18]; };
+
+struct VObj_802164A4 : Base_802164A4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(s32, s32);
+    char pad2[0x24 - 0x1C];
+    s32 f24;
+    char pad3[0x30 - 0x28];
+    s32 f30;
+};
+
+struct Base_80216540 { char pad[0x18]; };
+
+struct VObj_80216540 : Base_80216540 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(s32, s32);
+};
+
+struct Base_8021658C { char pad[0x18]; };
+
+struct VObj_8021658C : Base_8021658C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(s32, s32);
+};
+
 extern "C" {
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
@@ -126,9 +151,6 @@ extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCe
 extern s32 lbl_805D3678;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
-M2C_UNK show_fee_prompt__22TMedicalCenterSequenceFv();
-M2C_UNK show_already_healthy__22TMedicalCenterSequenceFv();
-M2C_UNK show_declined__22TMedicalCenterSequenceFv();
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
@@ -138,6 +160,17 @@ extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCe
 void TMedicalCenterSequence__sub_80216B14(void);
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 void TMedicalCenterSequence__sub_80216AEC(void);
+s32 obj_getField1c(s32);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+f32 get_scale__15TShopWindowBaseFv(void *);
+void set_position_xy(s32, f32, f32);
+s32 create_yes_no_window(s32, u16, s32, s32);
+s32 get_window_layout_position(int, f32);
+void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+void show_already_healthy__22TMedicalCenterSequenceFv(VObj_80216540 *self);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+void show_declined__22TMedicalCenterSequenceFv(VObj_8021658C *self);
 }
 
 extern "C" {
@@ -178,6 +211,25 @@ M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
         o->m4(0x22, 1);
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xa));
     }
+}
+
+void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self) {
+    u16 v;
+    self->m4(0x20, 1);
+    v = obj_getField1c(self->f24);
+    self->f30 = create_yes_no_window(((s32 (*)(int))get_window_layout_position)(0x2B), v, 0, 0);
+    set_position_xy(self->f30, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+    set_field_20__12TQuestListVMFPvi(self, (void *)3);
+}
+
+void show_already_healthy__22TMedicalCenterSequenceFv(VObj_80216540 *self) {
+    self->m4(0x21, 1);
+    set_field_20__12TQuestListVMFPvi(self, (void *)8);
+}
+
+void show_declined__22TMedicalCenterSequenceFv(VObj_8021658C *self) {
+    self->m4(0x24, 1);
+    set_field_20__12TQuestListVMFPvi(self, (void *)8);
 }
 
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
@@ -269,10 +321,10 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
         handle_confirm__22TMedicalCenterSequenceFPv((void *)(arg0));
         return;
     case 6:
-        show_already_healthy__22TMedicalCenterSequenceFv();
+        show_already_healthy__22TMedicalCenterSequenceFv((VObj_80216540 *)(arg0));
         return;
     case 7:
-        show_fee_prompt__22TMedicalCenterSequenceFv();
+        show_fee_prompt__22TMedicalCenterSequenceFv((VObj_802164A4 *)(arg0));
         return;
     case 3:
         handle_window_result__22TMedicalCenterSequenceFPv((void *)(arg0));
@@ -281,7 +333,7 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
         exec_heal__22TMedicalCenterSequenceFPv((void *)(arg0));
         return;
     case 5:
-        show_declined__22TMedicalCenterSequenceFv();
+        show_declined__22TMedicalCenterSequenceFv((VObj_8021658C *)(arg0));
         return;
     case 8:
         handle_window_input__22TMedicalCenterSequenceFPv((void *)(arg0));

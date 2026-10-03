@@ -75,13 +75,46 @@ struct Win_8021CF04 : WinBase_8021CF04 {
     void *cost_win;
 };
 
+struct ItemData_8021CC44 {
+    u8 b[0xC];
+    s32 id;
+};
+
+struct Entry_8021CC44 {
+    u32 id;
+    ItemData_8021CC44 item;
+    s32 price;
+    s32 index;
+};
+
+struct Owner_8021CC44 {
+    u8 pad0[0xD00];
+    void *inventory;
+};
+
+struct Win_8021CC44 {
+    u8 pad0[0x24];
+    Owner_8021CC44 *owner;
+    Entry_8021CC44 entries[30];
+    u8 pad370[0x37C - 0x370];
+    s32 f37c;
+    u8 pad380[4];
+    s32 sel;
+    u8 pad388[4];
+    void *list_win;
+    u32 menu_win;
+    void *qty_win;
+    void *status_win;
+    void *help_win;
+    void *cost_win;
+};
+
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 update__24TShopEquipmentSellWindowFPv(void *arg0);
 s32 handle_sell_confirm__24TShopEquipmentSellWindowFv(void *);
 void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0);
 s32 close__24TShopEquipmentSellWindowFPv(void *arg0);
-s32 handle_selection__24TShopEquipmentSellWindowFv(void *);
 void TShopEquipmentSellWindow__vt9(u8 *arg0);
 int count_matching_items__10TObjPlayerFPvi(void *a0, u32 *a1);
 s32 get_item_data_value__24TShopEquipmentSellWindowFUi(u32 arg0);
@@ -111,6 +144,34 @@ void get_item_count__24TShopEquipmentSellWindowFPv(void *, s32);
 int set_field_20__12TQuestListVMFPvi(void *, int);
 extern const f32 lbl_805DC6D8;
 void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self);
+int set_field_20__12TQuestListVMFPvi(void *, int);
+s32 get_item_type_or_default__9TItemListFPv(void *);
+M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(u32);
+u32 set_mode_and_refresh_object__10TObjPlayerFPvi(void *, void *);
+void *get_owner_if_alive__10TObjPlayerFPv(u32);
+void set_position__18TCheckRoomSequenceFPvff(void *, f32, f32);
+s32 get_shop_text(M2C_UNK);
+f32 get_scale__15TShopWindowBaseFv(void *);
+s32 get_child_field1c__15TShopWindowBaseFPv(void *);
+int TShopWindowBase__sub_802239EC(void *);
+int TShopWindowBase__sub_80223A48(void *);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void *__nw__7TObjectFUl(u32);
+M2C_UNK set_position_xy(u32, f32, f32);
+void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
+void *TWindowInputNumber__ct(void *, M2C_UNK, s32, s32, s32, s16);
+M2C_UNK TWindowSubComCard__sub_80265C30(u32);
+M2C_UNK TWindowSubComCard__sub_80265F60(u32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
+u32 create_window_menu(M2C_UNK, M2C_UNK, u16);
+s32 select_cursor_entry__6TLobbyFPv(void *);
+M2C_UNK get_window_layout_position(M2C_UNK);
+void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2);
+void get_item_count__24TShopEquipmentSellWindowFPv(void *, s32);
+s32 is_camera_ctrl_active__6TLobbyFv();
+s32 obj_getField1c(s32);
+extern const f32 lbl_805DC6D8;
+void handle_selection__24TShopEquipmentSellWindowFv(Win_8021CC44 *w);
 }
 
 extern "C" {
@@ -202,6 +263,63 @@ s32 close__24TShopEquipmentSellWindowFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__24TShopEquipmentSellWindow[];
+
+void handle_selection__24TShopEquipmentSellWindowFv(Win_8021CC44 *w) {
+    s32 i;
+    void *n;
+    s32 type;
+    if (w->list_win != NULL) {
+        i = select_cursor_entry__6TLobbyFPv(w->list_win);
+        if (w->help_win != NULL && i != w->sel) {
+            TWindowHelpItem__set_displayed_item_by_id(w->help_win, w->entries[i].item.id);
+        }
+        if (w->status_win != NULL && i != w->sel) {
+            if (set_mode_and_refresh_object__10TObjPlayerFPvi(w->owner->inventory, &w->entries[i].item) != 0) {
+                set_entry_count__24TShopEquipmentSellWindowFPvPv(w->status_win, ((void *(*)(void))get_owner_if_alive__10TObjPlayerFPv)());
+            } else {
+                set_entry_count__24TShopEquipmentSellWindowFPvPv(w->status_win, 0);
+            }
+        }
+        if (w->cost_win != NULL && i != w->sel && w->entries[i].price > 0) {
+            get_item_count__24TShopEquipmentSellWindowFPv(w->cost_win, w->entries[i].price);
+        }
+        w->sel = i;
+    }
+    if (TShopWindowBase__sub_802239EC(w) != 0) {
+        set_field_20__12TQuestListVMFPvi(w, 8);
+        play_sound_effect(0x52D01, 0, 0, 0);
+        return;
+    }
+    if (TShopWindowBase__sub_80223A48(w) != 0) {
+        w->f37c = 1;
+        i = select_cursor_entry__6TLobbyFPv(w->list_win);
+        if (w->entries[i].item.b[0] == 3) {
+            type = get_item_type_or_default__9TItemListFPv(&w->entries[i].item);
+            if (type > 1 && w->qty_win == NULL) {
+                n = __nw__7TObjectFUl(0x7C);
+                if (n != NULL) {
+                    n = TWindowInputNumber__ct(n, get_window_layout_position(0x2B), 1, type, 1, get_child_field1c__15TShopWindowBaseFPv(w));
+                }
+                w->qty_win = n;
+                if (w->qty_win != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
+                    set_position__18TCheckRoomSequenceFPvff(w->qty_win, lbl_805DC6D8, lbl_805DC6D8);
+                }
+                set_field_20__12TQuestListVMFPvi(w, 3);
+                return;
+            }
+        }
+        if (w->menu_win == 0) {
+            w->menu_win = create_window_menu(get_window_layout_position(0x2B), 2, obj_getField1c((s32)w->owner));
+            forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(6), 6, 0);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(w->menu_win, get_shop_text(7), 6, 1);
+            TWindowSubComCard__sub_80265F60(w->menu_win);
+            TWindowSubComCard__sub_80265C30(w->menu_win);
+            set_ready_flag__18TCheckRoomSequenceFPv(w->menu_win);
+            set_position_xy(w->menu_win, get_scale__15TShopWindowBaseFv(w), get_scale__15TShopWindowBaseFv(w));
+            set_field_20__12TQuestListVMFPvi(w, 2);
+        }
+    }
+}
 
 void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
     u32 ids[32];
@@ -301,7 +419,7 @@ void TShopEquipmentSellWindow__vt9(u8 *arg0) {
         build_sell_list__24TShopEquipmentSellWindowFPv((Win_8021CF04 *)((void *) (arg0)));
         return;
     case 1:
-        handle_selection__24TShopEquipmentSellWindowFv((void *) (arg0));
+        handle_selection__24TShopEquipmentSellWindowFv((Win_8021CC44 *)((void *) (arg0)));
         return;
     case 2:
         handle_sell_confirm__24TShopEquipmentSellWindowFv((void *) (arg0));

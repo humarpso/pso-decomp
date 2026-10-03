@@ -20,6 +20,23 @@ struct Ev_802758C8 {
 
 typedef s32 M2C_UNK;
 
+class VObj_80275A8C {
+public:
+    u8 pad0[0x18];
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+};
+
+struct Self_80275A8C {
+    u8 pad0[0x1C];
+    u8 state;
+    u8 pad1d[3];
+    s32 f20;
+    VObj_80275A8C *f24;
+    s32 f28;
+    void *f2c;
+};
+
 extern "C" {
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 TLobby__sub_8001DC24();
@@ -74,6 +91,21 @@ extern const f32 lbl_805DD540;
 extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3, s8 arg4);
+void *__nw__7TObjectFUl(u32);
+M2C_UNK TWindow__close(void *);
+M2C_UNK set_field_1c__6TLobbyFPvf(void *);
+M2C_UNK TWindowSubEquip__sub_80263AF8(void *, M2C_UNK);
+void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
+s32 is_active__22TWindowSubCustomSelectFPv(void *);
+s32 fn_80275D90(void *);
+s32 is_selected__21TWindowSubCustomEquipFPv(s32);
+s32 TWindowSubCustomEquip__sub_80275DA8(s32);
+M2C_UNK TWindowSubCustomEquip__sub_80275DB4(s32);
+M2C_UNK get_cursor_pos__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
+M2C_UNK toggle_action_binding__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
+Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFPv(void *);
+void *TWindowSubCustomSelect__ct(void *, s32);
+void TWindowSubCustomEquip__sub_80275A8C(Self_80275A8C *self);
 }
 
 extern "C" {
@@ -252,5 +284,51 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
 }
 
 void TWindowSubCustomEquip__sub_80275A88(void) {  }
+void TWindowSubCustomEquip__sub_80275A8C(Self_80275A8C *self) {
+    Ev_802758C8 ev;
+    void *p;
+    switch (self->state) {
+    case 0:
+    case 1:
+        if (self->f2c != NULL) {
+            TWindow__close(self->f2c);
+            self->f2c = NULL;
+        }
+        TWindowSubCustomEquip__sub_80275DB4(self->f28);
+        self->state = 2;
+    case 2:
+        get_cursor_pos__21TWindowSubCustomEquipFPvPv(self->f28, &ev);
+        update_customize_help_text((Win_802758C8 *)self, &ev);
+        if (TWindowSubCustomEquip__sub_80275DA8(self->f28) != 0) {
+            self->f24->v7();
+            self->state = 5;
+        } else if (is_selected__21TWindowSubCustomEquipFPv(self->f28) != 0) {
+            self->state = 3;
+        }
+        break;
+    case 3:
+        p = __nw__7TObjectFUl(0x84);
+        if (p != NULL) {
+            p = TWindowSubCustomSelect__ct(p, self->f20);
+        }
+        self->f2c = p;
+        TWindowSubEquip__sub_80263AF8(self->f24, 1);
+        set_field_1c__6TLobbyFPvf(self->f2c);
+        self->state = 4;
+    case 4:
+        update_customize_help_text((Win_802758C8 *)self, calc_equip_index__21TWindowSubCustomEquipFPv(self->f2c));
+        if (fn_80275D90(self->f2c) != 0) {
+            self->state = 1;
+        }
+        if (is_active__22TWindowSubCustomSelectFPv(self->f2c) != 0) {
+            Ev_802758C8 *e = calc_equip_index__21TWindowSubCustomEquipFPv(self->f2c);
+            toggle_action_binding__21TWindowSubCustomEquipFPvPv(self->f28, e);
+            self->state = 1;
+        }
+        break;
+    case 5:
+        break;
+    }
+}
 
 }

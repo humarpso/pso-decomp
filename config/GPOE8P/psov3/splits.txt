@@ -8796,6 +8796,7 @@ pso/player/TObjPlayer_801B3FD8_801B565C.cpp:
 
 pso/player/TObjPlayer_801B3FD8_801B6194.cpp:
 	.text       start:0x801B6194 end:0x801B6BBC
+	.sdata2     start:0x805DC278 end:0x805DC2B0
 
 pso/player/TObjPlayer_801B3FD8.cpp:
 	.text       start:0x801B6BBC end:0x801B78A8
@@ -12406,6 +12407,7 @@ pso/misc/TWindowInputNumber.cpp:
 
 pso/misc/TWindowInputNumber_80256170.cpp:
 	.text       start:0x80256170 end:0x80256B94
+	.rodata     start:0x8044EE38 end:0x8044EE40
 
 pso/misc/TWindowSubStatusDisp_80256B94.cpp:
 	.text       start:0x80256B94 end:0x80257298
@@ -13054,7 +13056,7 @@ pso/misc/TWindowSubCustomEquip.cpp:
 
 pso/misc/TWindowSubCustomSelect.cpp:
 	.text       start:0x802772B8 end:0x80277C70
-	.rodata     start:0x8044F808 end:0x8044F810
+	.rodata     start:0x8044F808 end:0x8044F818
 
 pso/misc/TWindowSubEquip.cpp:
 	.text       start:0x80277C70 end:0x80277D3C

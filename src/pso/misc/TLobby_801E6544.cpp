@@ -117,6 +117,8 @@ struct Cfg_801F0970 { s32 i; s32 b; f32 c; };
 
 struct Vec3_801F0970 { f32 x, y, z; };
 
+struct Pair_801F1838 { s32 a; s32 b; };
+
 extern "C" {
 s32 is_room_enemy_set_cleared(int, int, void *);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
@@ -324,6 +326,30 @@ void qst_op_message(void);
 extern int* TLobby__data_805D5E78;
 void unhide_room_set_objects(s32 a, s16 b, s16 c, s32 d);
 void qst_op_unhide_obj(s32 arg0);
+void *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+s32 get_game_mode__6TLobbyFv(void);
+void clear_flag_2__11TWindowCtrlFv(void);
+s32 get_lobby_flag__6TLobbyFv(void);
+s32 get_field_d4(void *);
+s32 fn_get_field_3ac(void *);
+void clear_flag__11TWindowCtrlFv(void);
+M2C_UNK TLobby__sub_8024AC20(void *);
+void TWindowCtrl__sub_8024B328(u16);
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5EA0;
+void qst_op_mesend(void);
+M2C_UNK TWindow__close(void*);
+void set_field_1c__6TLobbyFPvf(s32 win, f32 v);
+void send_and_handle__6TLobbyFPvii(void*, s32, s32);
+u32 update_window_mode_from_progress__6TLobbyFiPv(s32, Pair_801F1838 *);
+s32 get_window_layout_position(s32 id);
+extern Pair_801F1838 lbl_80449A38[];
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+extern u32 TLobby__data_805D5E80;
+extern int TLobby__data_805D5E98;
+extern const f32 lbl_805DC4D4;
+void quest_cmd_winend(void);
 }
 
 extern "C" {
@@ -577,6 +603,41 @@ void qst_op_winend(void) {
     clear_flag_2__11TWindowCtrlFv();
 }
 
+void qst_op_mesend(void) {
+    s32 id;
+    void *p;
+    s32 start;
+    s32 end;
+    s32 i;
+    s32 f;
+    s32 v;
+    TLobby__sub_8024AC20((void *)lbl_805D53A0);
+    clear_flag__11TWindowCtrlFv();
+    clear_flag_2__11TWindowCtrlFv();
+    id = lbl_805D5EA0;
+    if (id < 100) {
+        TWindowCtrl__sub_8024B328(id);
+        return;
+    }
+    start = get_game_mode__6TLobbyFv();
+    end = start + get_lobby_flag__6TLobbyFv();
+    for (i = start; i < end; i++) {
+        p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL) {
+            f = obj_getField1c(p);
+            if (f < 0x4000) {
+                v = fn_get_field_3ac(p);
+            } else {
+                v = get_field_d4(p);
+            }
+            if (v == id) {
+                ((void (*)(s32))TWindowCtrl__sub_8024B328)(f);
+                return;
+            }
+        }
+    }
+}
+
 void qst_op_add_msg(void) {
     s32 x = ((s32 *)&TLobby__data_80512220)[0];
     if ((*(u8* *)&TLobby__data_805D5E7C) != 0) {
@@ -602,6 +663,19 @@ void close_window__6TLobbyFv(void) {
 }
 
     extern int TLobby__data_805D5E98;
+
+void quest_cmd_winend(void) {
+    s32 t = TLobby__data_80512220.value;
+    Pair_801F1838 pr = lbl_80449A38[0];
+    if (TLobby__data_805D5E80 != 0) {
+        TWindow__close((void*)((void *)TLobby__data_805D5E80));
+        TLobby__data_805D5E80 = 0;
+    }
+    TLobby__data_805D5E80 = update_window_mode_from_progress__6TLobbyFiPv(get_window_layout_position(0x71), &pr);
+    send_and_handle__6TLobbyFPvii((void*)((void *)TLobby__data_805D5E80), (s32)(t), (s32)(3));
+    set_field_1c__6TLobbyFPvf(TLobby__data_805D5E80, lbl_805DC4D4);
+    TLobby__data_805D5E98 = 5;
+}
 
 void qst_op_window_msg(void) {
     s32 temp_r31;

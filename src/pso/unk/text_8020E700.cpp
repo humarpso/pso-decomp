@@ -27,6 +27,8 @@ struct Ctr_8020E934 { u8 b[0x74]; };
 
 struct Tbl_8020E934 { u8 pad[8]; u8 *pairs; u8 count; };
 
+struct Rec_8020E700 { u8 a, b, c, d, e, f; u8 pad[0x14 - 6]; };
+
 extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void TLobby__sub_8020ECD8(s32 arg0, s32 arg1, s32 arg2);
@@ -50,6 +52,9 @@ void init__9TItemDataFv(Item_8020E934 *);
 s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 void copy_item_data__6TLobbyFPvPv(Item_8020E934 *, Item_8020E934 *);
 void TLobby__sub_8020E934(s32 arg0);
+extern s32 lbl_80513D68[];
+extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
+s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -57,6 +62,17 @@ extern "C" {
 typedef char RecoveredGlobal_8020ECD8_lbl_80513D78_size[sizeof(RecoveredGlobal_8020ECD8_lbl_80513D78) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_8020ECA8_lbl_80513D58_size[sizeof(RecoveredGlobal_8020ECA8_lbl_80513D58) == 0x10 ? 1 : -1];
+
+s32 is_duplicate_shop_armor(Rec_8020E700 *arg0, s32 arg1) {
+    s32 i;
+    Rec_8020E700 *tbl = ((Rec_8020E700 **)&lbl_80513D78)[arg1];
+    for (i = 0; i < lbl_80513D68[arg1]; i++) {
+        if (arg0->a == tbl[i].a && arg0->b == tbl[i].b && arg0->c == tbl[i].c && arg0->f == tbl[i].f) {
+            return 0;
+        }
+    }
+    return 1;
+}
 
 void TLobby__sub_8020E934(s32 arg0) {
     Item_8020E934 item;

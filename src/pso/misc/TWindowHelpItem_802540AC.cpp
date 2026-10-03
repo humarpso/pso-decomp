@@ -128,6 +128,28 @@ struct HelpItem_802551C4 {
     Vec3_802551C4 pos;
 };
 
+typedef struct Stats_80254CE4 {
+    s16 atp;
+    s16 pad2;
+    s16 mst;
+    s16 ata;
+    u8 pad8[0x10];
+} Stats_80254CE4;
+
+typedef struct Pmt_80254CE4 {
+    u8 pad0[0xE];
+    u16 req_atp;
+    u16 req_mst;
+    u16 req_ata;
+} Pmt_80254CE4;
+
+typedef struct Help_80254CE4 {
+    u8 pad0[0x20];
+    s16 client;
+    u8 pad22[0x46];
+    s32 item;
+} Help_80254CE4;
+
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
@@ -198,6 +220,14 @@ extern const f32 lbl_805DCE04;
 extern const f32 lbl_805DCE08;
 extern const f32 lbl_805DCDEC;
 extern const f32 lbl_805DCE0C;
+s32 check_equip_requirements(s32, M2C_UNK, M2C_UNK *);
+void clear_fields__20TWindowSubStatusDispFPv(Stats_802541E0 *);
+u8 *lookup_item_pmt_record(s32);
+s32 build_player_equipment_requirement_stats(s32, Stats_80254CE4 *);
+s32 get_player_by_client_id(s16);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK update_stat_comparison__15TWindowHelpItemFv(void *);
+void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self);
 }
 
 extern "C" {
@@ -392,6 +422,39 @@ block_4:
                     M2C_FIELD(temp_r30, s32 *, 0x20) = (s32) (((VObj_18_eecf68 *)(temp_r3))->m14() + 1);
                 }
             }
+        }
+    }
+}
+
+struct Stats_802541E0;
+void update_requirements__15TWindowHelpItemFv(Help_80254CE4 *self) {
+    s32 flags;
+    Stats_80254CE4 st;
+    s32 pl;
+    u8 *entry;
+    Pmt_80254CE4 *pmt;
+    clear_fields__20TWindowSubStatusDispFPv((Stats_802541E0 *)((struct Stats_802541E0 *)&st));
+    pl = get_player_by_client_id(self->client);
+    if (pl == 0) {
+        return;
+    }
+    update_stat_comparison__15TWindowHelpItemFv(self);
+    entry = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(10));
+    pmt = (Pmt_80254CE4 *)lookup_item_pmt_record(self->item);
+    if (check_equip_requirements((s32)(pl), (M2C_UNK)(self->item), (M2C_UNK *)(&flags)) == 0 && (flags & 1)) {
+        return;
+    }
+    if (pmt->req_atp != 0) {
+        if (build_player_equipment_requirement_stats(pl, &st) != 0) {
+            *(s32 *)(entry + 0x20) = st.atp;
+        }
+    } else if (pmt->req_mst != 0) {
+        if (build_player_equipment_requirement_stats(pl, &st) != 0) {
+            *(s32 *)(entry + 0x20) = st.mst;
+        }
+    } else if (pmt->req_ata != 0) {
+        if (build_player_equipment_requirement_stats(pl, &st) != 0) {
+            *(s32 *)(entry + 0x20) = st.ata;
         }
     }
 }

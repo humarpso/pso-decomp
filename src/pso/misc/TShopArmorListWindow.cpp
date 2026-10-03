@@ -62,6 +62,61 @@ struct Win_8021AD24 {
     s32 flag;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct VBase_18_a93f07 { char pad[0x18]; };
+
+struct VObj_18_a93f07 : VBase_18_a93f07 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
+struct M2CCopy_10 { u8 bytes[0x10]; };
+
+struct M2CCopy_14 { u8 bytes[0x14]; };
+
+struct Rec_8021A43C { s32 w[5]; };
+
+struct Win_8021A43C {
+    VObj_18_a93f07 base;
+    u8 pad1c[0x24 - 0x1C];
+    s32 player;
+    u8 pad28[4];
+    void *list;
+    void *win;
+    u8 pad34[0x4c - 0x34];
+    Rec_8021A43C recs[(0x1f0 - 0x4c) / 0x14];
+    s32 flag;
+};
+
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+};
+
+struct Rec_8021AB4C { s32 w[5]; };
+
+struct Win_8021AB4C : VObj_18 {
+    u8 pad1c[0x20 - 0x1C];
+    s32 f20;
+    u8 pad24[0x2c - 0x24];
+    void *list;
+    u8 pad30[4];
+    void *help;
+    u8 pad38[0x48 - 0x38];
+    s32 sel;
+    Rec_8021AB4C recs[1];
+};
+
 extern "C" {
 s32 set_shop_armor_list_flag__6TLobbyFii(void *, int);
 s32 calc_item_count__18TShopGetItemWindowFPvPv(int, void *);
@@ -72,13 +127,11 @@ extern s32 lbl_805D3698;
 u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-s32 handle_equip_offer__20TShopArmorListWindowFv(void *);
 s32 handle_buy_confirm__20TShopArmorListWindowFv(void *);
 s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0);
 int TShopArmorListWindow__sub_8021AA08(void* p);
 s32 update__20TShopArmorListWindowFPv(void *arg0);
 s32 handle_select__20TShopArmorListWindowFPv(void *arg0);
-s32 handle_selection__20TShopArmorListWindowFv(void *);
 s32 TShopArmorListWindow__sub_8021AE18(void *);
 void TShopArmorListWindow__vt9(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
@@ -86,6 +139,35 @@ s32 check_equip_requirements(void *, Rec_8021AD24 *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021AD24 *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w);
+s32 obj_getField1c(s32);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+s32 TLobby__sub_8011AF58(u16);
+M2C_UNK try_buy_item(int, void *);
+M2C_UNK TLobby__sub_8020EC68(int, void *);
+void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
+s32 is_single_purchase_shop_item(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
+s32 TShopWindowBase__sub_8022397C(void *);
+s32 set_position_xy(u32, f32, f32);
+void TWindow__close(void *);
+s32 TWindowSubComCard__sub_80265BF8(void *);
+u32 create_yes_no_window(int, u16, int, int);
+M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
+s32 select_cursor_entry__6TLobbyFPv(void *);
+s32 get_window_layout_position(s32);
+extern const s32 lbl_805D53A0;
+void handle_equip_offer__20TShopArmorListWindowFv(void *p);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
+s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w);
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
+M2C_UNK play_sound_effect(int, int, int, int);
+M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(int, void *);
+s32 select_cursor_entry__6TLobbyFPv(void *);
+void handle_selection__20TShopArmorListWindowFv(Win_8021AB4C *w);
 }
 
 extern "C" {
@@ -137,6 +219,50 @@ void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1) {
     }
 }
 
+void handle_equip_offer__20TShopArmorListWindowFv(void *p) {
+    Win_8021A43C *w = (Win_8021A43C *)p;
+    s32 i;
+    s32 r;
+    f32 sc;
+    if (w->win != NULL && is_visible__17TWindowSubComCardFPv(w->win) != 0) {
+        r = TWindowSubComCard__sub_80265BF8(w->win);
+        if (r == 0 && w->list != NULL) {
+            if (w->flag != 0) {
+                w->base.m4(0x18, 1);
+                TWindow__close(w->win);
+                w->win = (void *)create_yes_no_window(get_window_layout_position(0x2B), obj_getField1c(w->player), 0, 0);
+                sc = get_scale__15TShopWindowBaseFv(w);
+                set_position_xy((u32)w->win, get_scale__15TShopWindowBaseFv(w), sc);
+                set_field_20__12TQuestListVMFPvi(w, 9);
+            } else {
+                Rec_8021A43C c;
+                i = select_cursor_entry__6TLobbyFPv(w->list);
+                c = w->recs[i];
+                c.w[3] = TLobby__sub_8011AF58(lbl_805D53A0);
+                try_buy_item(w->player, &c);
+                update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
+                if (is_single_purchase_shop_item(&w->recs[i]) != 0) {
+                    TLobby__sub_8020EC68(i, (void *)TShopWindowBase__sub_8022397C(w));
+                }
+                save_cursor_selection__20TShopArmorListWindowFPv(w->list);
+                TWindow__close(w->win);
+                w->win = NULL;
+                set_field_20__12TQuestListVMFPvi(w, 0);
+            }
+        }
+        if (r == 1) {
+            TWindow__close(w->win);
+            w->win = NULL;
+            set_field_20__12TQuestListVMFPvi(w, 0);
+        }
+    }
+    if (w->win != NULL && get_status_flag__17TWindowSubComCardFPv(w->win) != 0) {
+        TWindow__close(w->win);
+        w->win = NULL;
+        set_field_20__12TQuestListVMFPvi(w, 0);
+    }
+}
+
 s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
     f32 temp_f31;
     u16 temp_r31;
@@ -173,6 +299,50 @@ s32 handle_select__20TShopArmorListWindowFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__20TShopArmorListWindow[];
+
+struct Win_8021AD24;
+void handle_selection__20TShopArmorListWindowFv(Win_8021AB4C *w) {
+    s32 i;
+    if (w->list != NULL) {
+        i = select_cursor_entry__6TLobbyFPv(w->list);
+        if (w->help != NULL && i != w->sel) {
+            set_displayed_item_colored__15TWindowHelpItemFPvUi((int)w->help, &w->recs[i]);
+        }
+        if (i != w->sel) {
+            update_selection__20TShopArmorListWindowFPvPv(w, &w->recs[i]);
+        }
+        w->sel = i;
+    }
+    if (TShopWindowBase__sub_802239EC(w) != 0) {
+        w->f20 = 3;
+        play_sound_effect(0x52D01, 0, 0, 0);
+        return;
+    }
+    if (TShopWindowBase__sub_80223A48(w) != 0) {
+        play_sound_effect(0x52D01, 0, 0, 0);
+        switch (check_purchase_eligibility__20TShopArmorListWindowFPv((Win_8021AD24 *)w)) {
+        case 0:
+            w->m4(0xF, 1);
+            set_field_20__12TQuestListVMFPvi(w, 5);
+            break;
+        case 1:
+            w->m4(0x19, 1);
+            set_field_20__12TQuestListVMFPvi(w, 6);
+            break;
+        case 2:
+            w->m4(0x12, 1);
+            set_field_20__12TQuestListVMFPvi(w, 7);
+            break;
+        case 3:
+            w->m4(0x11, 1);
+            set_field_20__12TQuestListVMFPvi(w, 7);
+            break;
+        case 4:
+            set_field_20__12TQuestListVMFPvi(w, 8);
+            break;
+        }
+    }
+}
 
 s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w) {
     u32 res;
@@ -211,10 +381,10 @@ void TShopArmorListWindow__vt9(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (1)));
         return;
     case 1:
-        handle_selection__20TShopArmorListWindowFv((void *) (arg0));
+        handle_selection__20TShopArmorListWindowFv((Win_8021AB4C *)((void *) (arg0)));
         return;
     case 2:
-        handle_equip_offer__20TShopArmorListWindowFv((void *) (arg0));
+        handle_equip_offer__20TShopArmorListWindowFv((void *)((void *) (arg0)));
         return;
     case 3:
     case 10:

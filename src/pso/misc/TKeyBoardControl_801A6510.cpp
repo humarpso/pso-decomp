@@ -69,6 +69,11 @@ struct Pad_801A66B8 {
     s32 f4C;
 };
 
+struct Ctl_801A6510 {
+    u8 pad0[0x30];
+    u32 *f30;
+};
+
 extern "C" {
 s32 TKeyBoardControl__sub_803DEB74(int);
 extern s32 lbl_8050E208[];
@@ -91,9 +96,70 @@ void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
 void reset__16TKeyBoardControlFv();
 extern Src_801A66B8 lbl_804C2308[];
 extern const f32 lbl_805DC0C0;
+s32 is_split_screen(void);
+s32 TKeyBoardControl__sub_803DEB74(int);
+extern Src_801A66B8 lbl_804C2308[];
+extern s32 lbl_804C236C[];
+extern s32 lbl_8050E208[];
+extern s32 lbl_8050E3B8[];
+void bind_controller_devices(void);
 }
 
 extern "C" {
+
+void bind_controller_devices(void) {
+    Ctl_801A6510 *p;
+    void **pb;
+    s32 *fb;
+    void **pa;
+    s32 i;
+    s32 *ids;
+    s32 *fa;
+    s32 n;
+    pb = (void **)lbl_8050E208;
+    pa = (void **)lbl_8050E3B8;
+    fb = &lbl_8050E208[4];
+    ids = lbl_804C236C;
+    fa = &lbl_8050E3B8[4];
+    for (i = 0; i < 4; i++) {
+        p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
+        if (*p->f30 & 1) {
+            *pa++ = p;
+            *fa++ = 1;
+        } else {
+            *pa++ = lbl_804C2308;
+            *fa++ = 0;
+        }
+    }
+    ids = lbl_804C236C;
+    if (is_split_screen() != 0) {
+        for (i = 0; i < 4; i++) {
+            p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
+            if (*p->f30 & 1) {
+                *pb++ = p;
+                *fb++ = 1;
+            } else {
+                *pb++ = lbl_804C2308;
+                *fb++ = 0;
+            }
+        }
+    } else {
+        n = 0;
+        for (i = 0; i < 4; i++) {
+            p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
+            if (p != NULL && (*p->f30 & 1)) {
+                *pb = p;
+                n++;
+                pb++;
+                *fb++ = 1;
+            }
+        }
+        for (; n < 4; n++) {
+            *pb++ = lbl_804C2308;
+            *fb++ = 0;
+        }
+    }
+}
 
 void TKeyBoardControl__sub_801A66B8(void) {
     s32 i;

@@ -26,6 +26,9 @@ struct RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 {
 
 struct Obj_80336340 { u8 pad[0x40]; void *objs[3]; };
 
+typedef s32 M2C_UNK;
+struct Tbl_80336750 { const char *s[5]; };
+
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lbl_805D6D44;
@@ -105,6 +108,18 @@ s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK TLobby__sub_803362A4(void *);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 void TKeyBoardControl__sub_80336340(Obj_80336340 *arg0);
+s32 TLobby__sub_800FD6F8(void *, int);
+s32 update_menu_cursor__6TLobbyFv();
+s32 reset_counter__6TLobbyFv();
+s32 set_current_floor_area(int);
+s32 TLobby__sub_8023E4B4(void *, void *);
+extern const Tbl_80336750 lbl_80477804;
+extern u8 lbl_804EE584[];
+extern RecoveredGlobal_8033670C_lbl_804EE58C lbl_804EE58C;
+extern const s32 lbl_805D5544;
+extern u32 lbl_805D6D40;
+extern u8 *lbl_805D6D48;
+void TLobby__sub_80336750(void);
 }
 
 extern "C" {
@@ -292,6 +307,17 @@ void TLobby__sub_8033670C(void) {
         TLobby__sub_803DA16C(lbl_805D6D48, (s32) temp_r4);
         lbl_805D6D48 = NULL;
     }
+}
+
+void TLobby__sub_80336750(void) {
+    lbl_805D6D40 = 0;
+    update_menu_cursor__6TLobbyFv();
+    Tbl_80336750 t = lbl_80477804;
+    lbl_805D6D48 = lbl_804EE584;
+    TLobby__sub_8023E4B4((void *)t.s[lbl_805D5544], lbl_804EE584);
+    TLobby__sub_800FD6F8(&lbl_804EE58C, 0x20);
+    reset_counter__6TLobbyFv();
+    set_current_floor_area(0);
 }
 
 void TAdMultiPlyChrSelectGC__sub_803367E8(void) { lbl_805D68C8 = 0; }

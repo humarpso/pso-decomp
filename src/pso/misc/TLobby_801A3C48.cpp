@@ -124,7 +124,6 @@ M2C_UNK TLobby__sub_800FA464();
 M2C_UNK disconnect_protocol__6TLobbyFv();
 int TLobby__sub_8013998C(void);
 void init_chr_select__6TLobbyFv(void);
-M2C_UNK TLobby__sub_801A3E98();
 M2C_UNK TLobby__sub_801A40D8();
 void update_periodic_tick__6TLobbyFv(void);
 s8 func_801A5E54__Fv();
@@ -162,7 +161,6 @@ M2C_UNK TLobby__sub_800FA464();
 M2C_UNK disconnect_protocol__6TLobbyFv();
 int TLobby__sub_8013998C(void);
 void reset_to_chr_select__6TLobbyFv(void);
-M2C_UNK TLobby__sub_801A3E98();
 M2C_UNK TLobby__sub_801A40D8();
 void update_periodic_tick__6TLobbyFv(void);
 s8 func_801A5E54__Fv();
@@ -416,6 +414,54 @@ extern s32 TLobby__data_805D5E24;
 extern M2C_UNK *tl_su;
 extern void *tl_window;
 void TLobby__sub_801A49B0(void);
+M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+M2C_UNK update__16TKeyBoardControlFv();
+M2C_UNK cleanup_scene__9TLoadCtrlFv();
+M2C_UNK start_loading__9TLoadCtrlFUi(M2C_UNK);
+M2C_UNK load_battle_param_entry();
+M2C_UNK process_pending_resources();
+M2C_UNK TLobby__sub_800FD614(void *, s32);
+M2C_UNK TLobby__sub_80134D28();
+M2C_UNK clear_counters__6TLobbyFv();
+M2C_UNK TLobby__sub_80134E30();
+M2C_UNK TLobby__sub_80137928();
+M2C_UNK reset_state_flags__6TLobbyFv();
+M2C_UNK send_room_change__6TLobbyFi(s32);
+M2C_UNK create_map_csn_ctrl__6TLobbyFv();
+M2C_UNK TLobby__sub_80141038(void *, M2C_UNK, s32);
+M2C_UNK set_scene__6TSceneFi(int);
+void TLobby__sub_801A3E94(void);
+void free_objects__6TLobbyFv(void);
+void set_value__6TLobbyFPvi(void* p, s32 v);
+void reset_counter__6TLobbyFv(void);
+int TKeyBoardControl__sub_801A66B8(void);
+M2C_UNK TObjPlayer__sub_801B1BA4();
+M2C_UNK TObjPlayer__sub_801B1C8C();
+M2C_UNK render_tick__Fv();
+M2C_UNK create_quad_sprites__13TParticleCtrlFv();
+M2C_UNK TLobby__sub_801F494C(M2C_UNK);
+M2C_UNK set_current_floor_area(int);
+M2C_UNK reset_story_select__6TLobbyFPv();
+M2C_UNK get_team_state__6TLobbyFPv();
+M2C_UNK TLobby__sub_8020A6B0(int);
+M2C_UNK TLobby__sub_8020DC78();
+M2C_UNK TLobby__sub_8022743C();
+M2C_UNK TLobby__sub_802286C4(void *);
+M2C_UNK TLobby__sub_80228754(void *);
+M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
+M2C_UNK some_empty_func__9TMainTaskFv(void *);
+M2C_UNK clear_flag3_all_tasks__9TMainTaskFv(void *);
+M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
+M2C_UNK run_task__9TMainTaskFv(void *);
+M2C_UNK __ct__7TObjectFP7TObject(void *, M2C_UNK);
+M2C_UNK TOKeyJungleMain__sub_8029B2C4();
+extern u8 TLobby__data_805011D8[];
+extern unsigned char lbl_80515BA0[];
+extern RecoveredGlobal_801A4820_main_task main_task;
+extern s32 TLobby__data_805D53AC;
+extern s32 TLobby__data_805D55B0;
+extern s16 TLobby__data_805D5CE8;
+void TLobby__sub_801A3E98(void);
 }
 
 extern "C" {
@@ -480,6 +526,53 @@ void TLobby__sub_801A3E38(u8 *arg0) {
 
 int TLobby__sub_801A3E8C(void) { return 0; }
 void TLobby__sub_801A3E94(void) {  }
+
+void TLobby__sub_801A3E98(void) {
+    M2C_UNK sp8[9];
+    __ct__7TObjectFP7TObject(sp8, 0);
+    clear_counters__6TLobbyFv();
+    reset_state_flags__6TLobbyFv();
+    TObjPlayer__sub_801B1C8C();
+    TLobby__sub_8022743C();
+    process_pending_resources();
+    TKeyBoardControl__sub_801A66B8();
+    TLobby__sub_80134E30();
+    render_tick__Fv();
+    render_tick__Fv();
+    TLobby__sub_800FD614(TLobby__data_805011D8, TLobby__data_805D53AC);
+    free_objects__6TLobbyFv();
+    delete_all_task_children__9TMainTaskFv(&main_task);
+    clear_flag3_all_tasks__9TMainTaskFv(&main_task);
+    TLobby__sub_80228754(lbl_80515BA0);
+    reset_counter__6TLobbyFv();
+    reset_story_select__6TLobbyFPv();
+    get_team_state__6TLobbyFPv();
+    TLobby__sub_8020DC78();
+    update__16TKeyBoardControlFv();
+    create_map_csn_ctrl__6TLobbyFv();
+    create_quad_sprites__13TParticleCtrlFv();
+    start_loading__9TLoadCtrlFUi(2);
+    TLobby__sub_8020A6B0((int)(0xF));
+    TLobby__sub_80141038(lbl_80515BA0, 0xF, TLobby__data_805D55B0);
+    set_value__6TLobbyFPvi((void*)(lbl_80515BA0), (s32)(0));
+    set_current_floor_area((int)(0xF));
+    set_scene__6TSceneFi((int)(TLobby__data_805D55B0));
+    TLobby__sub_802286C4(lbl_80515BA0);
+    load_battle_param_entry();
+    cleanup_scene__9TLoadCtrlFv();
+    some_empty_func__9TMainTaskFv(&main_task);
+    run_task__9TMainTaskFv(&main_task);
+    render_screen_overlay__9TMainTaskFv(&main_task);
+    TLobby__sub_801F494C(0);
+    TLobby__sub_801A3E94();
+    TLobby__sub_80137928();
+    TLobby__sub_80134D28();
+    TObjPlayer__sub_801B1BA4();
+    send_room_change__6TLobbyFi(TLobby__data_805D55B0);
+    TOKeyJungleMain__sub_8029B2C4();
+    TLobby__data_805D5CE8 = 0;
+    __dt__7TObjectFv(sp8, -1);
+}
 
 void send_and_handle__6TLobbyFPv(void* p) { TLobby__sub_801A400C((void*)(p)); }
 

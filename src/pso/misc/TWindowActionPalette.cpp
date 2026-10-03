@@ -13,6 +13,23 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 struct TWindowActionPalette;
+
+typedef struct Pal_80244108 {
+    s32 f0;
+    u8 pad4[0x14];
+    u32 *vt;
+    u8 pad1c[4];
+    s16 slot;
+    u8 pad22[0x36];
+    f32 f58;
+    u8 pad5c[4];
+    u8 arr[0xC];
+    s8 f6c;
+    u8 pad6d[3];
+    f32 f70;
+    f32 f74;
+} Pal_80244108;
+
 extern "C" {
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 void TWindowHelpItem__sub_8025B08C(void*,float,float);
@@ -41,6 +58,22 @@ s32 update_window_entry_list(void *, void *);
 s32 TObjPlayer__sub_80354D5C(int);
 extern u8 lbl_8050E208[];
 void run_task__20TWindowActionPaletteFv(u8 *arg0);
+s32 get_camera_id__11TCameraCtrlFv(void);
+void set_slot__20TWindowActionPaletteFPvUc(void *, u8);
+void set_mode__20TWindowActionPaletteFPvUc(void *, u8);
+void TWindowDD__sub_802466E0(void *, void *, s32, s32);
+s32 get_window_layout_position(s32);
+void *__construct_array(void *, void *, void *, u32, u32);
+void free_if_valid__14TPlyDispConfigFis(void *, s16);
+s32 init_gc_tag(void *);
+extern u8 lbl_804CDF9C[];
+extern u32 __vt__20TWindowActionPalette[6];
+extern s32 lbl_805D3870;
+extern const f32 lbl_805DCA2C;
+extern const f32 lbl_805DCA48;
+extern const f32 lbl_805DCAA0;
+extern const f32 lbl_805DCAA4;
+Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot);
 }
 
 extern "C" {
@@ -137,6 +170,31 @@ extern "C" u8 *__dt__20TWindowActionPaletteFv(u8 *self, s16 delete_flag) {
         if (delete_flag > 0) {
             __dl__7TObjectFPv(self);
         }
+    }
+    return self;
+}
+Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot) {
+    u32 i;
+    TWindowDD__sub_802466E0(self, lbl_804CDF9C, slot, get_window_layout_position(0x1F));
+    self->vt = __vt__20TWindowActionPalette;
+    __construct_array(self->arr, (void *)init_gc_tag, (void *)free_if_valid__14TPlyDispConfigFis, 4, 3);
+    self->f0 = lbl_805D3870;
+    if (get_camera_id__11TCameraCtrlFv() > 2) {
+        self->f70 = lbl_805DCA2C;
+        self->f74 = lbl_805DCA2C;
+    } else if (get_camera_id__11TCameraCtrlFv() == 2) {
+        self->f70 = lbl_805DCAA0;
+        self->f74 = lbl_805DCAA0;
+    } else {
+        self->f70 = lbl_805DCAA4;
+        self->f74 = lbl_805DCAA4;
+    }
+    self->f58 = lbl_805DCA48;
+    self->f6c = 0;
+    self->slot = slot;
+    for (i = 0; i < 3; i++) {
+        set_mode__20TWindowActionPaletteFPvUc(self->arr, 0);
+        set_slot__20TWindowActionPaletteFPvUc(self->arr, 0);
     }
     return self;
 }
