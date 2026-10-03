@@ -86,7 +86,7 @@ s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8028C938(u8 *arg0);
 void *create__12TChCrLoadAfsFPvPvPv(void *, int, void *);
 void *TAdSinglePlyChrSelectGC__sub_8028CF8C(void *, s32, s32);
-void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *, s32, s16, s32);
+void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *, s32, s32, s32);
 s32 get_display_index__12TCharaMakingFPv(void *);
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8028CB6C(Gc_8028CB6C *arg0);
@@ -320,6 +320,12 @@ extern s32 lbl_805D6510;
 
 s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
     return lbl_805D6510 < 1;
+}
+
+extern s32 lbl_804D3788[];
+extern s32 lbl_804D37D4[];
+void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+    return (void *)(arg2 + (arg3 * lbl_804D3788[arg1] + lbl_804D37D4[arg1]));
 }
 
 void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
