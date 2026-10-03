@@ -60,6 +60,60 @@ s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2) {
     }
     return ret;
 }
+M2C_UNK TLobby__sub_8001EE48(M2C_UNK *);
+s32 TLobby__sub_8001EEF4();
+s32 TLobby__sub_8001EEFC(M2C_UNK *);
+u8 *set_stream_and_load_file__6TLobbyFi(s32);
+s32 update_lobby_scene__6TSceneFPv();
+M2C_UNK read_disc_file(s32, s32);
+M2C_UNK read_sectors_sync__8TGStreamFPvii(M2C_UNK *, M2C_UNK, void *);
+M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
+M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
+extern M2C_UNK lbl_80499A40[];
+
+struct Stream_800F979C { u8 data[0x2c]; };
+struct Sel_800F979C { u8 data[240]; };
+
+s32 load_encrypted_text_archive(char *arg0, s32 *arg1) {
+    s32 size;
+    s32 h;
+    u8 *buf;
+    s32 ret;
+    s32 sp8;
+    Stream_800F979C st;
+    Sel_800F979C sel;
+
+    size = update_lobby_scene__6TSceneFPv();
+    if (size <= 0) {
+        return 0;
+    }
+    if ((size <= 0x40000) && (TLobby__sub_8001EEF4() != 0)) {
+        buf = (u8 *)TLobby__sub_8001EEFC(lbl_80499A40);
+        read_disc_file((s32)arg0, (s32)buf);
+        ret = alloc_download_quest__6TLobbyFPviPv(buf, size, &sp8);
+        TLobby__sub_8001EE48(lbl_80499A40);
+    } else {
+        open__8TGStreamFPvPvi((M2C_UNK *)&st, (s32)arg0, 1);
+        buf = (u8 *)alloc__22TQuestVmDownLoadServerFPv(0x800);
+        read_sectors_sync__8TGStreamFPvii((M2C_UNK *)&st, 1, buf);
+        sp8 = M2C_FIELD(buf, s32 *, 0);
+        h = M2C_FIELD(buf, s32 *, 4);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        ret = alloc__22TQuestVmDownLoadServerFPv(sp8);
+        buf = set_stream_and_load_file__6TLobbyFi((s32)arg0);
+        init_single_player_chr_select__6TLobbyFPv((M2C_UNK *)&sel);
+        subtractive_rng_seed((M2C_UNK *)&sel, h);
+        subtractive_rng_xor_buffer((M2C_UNK *)&sel, buf + 8, size - 8);
+        TLobby__sub_800F7DAC(buf + 8, ret);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        TGStream__ct((M2C_UNK *)&st, -1);
+    }
+    if (arg1 != NULL) {
+        *arg1 = sp8;
+    }
+    return ret;
+}
+
 s32 TWindowKeyBoardSoft__sub_800F98F0(s32 arg0) {
     s32 sp8;
     char buf[0x40];
