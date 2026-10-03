@@ -7556,41 +7556,8 @@ pso/unk/text_80184C2C.cpp:
 	.text       start:0x80184C2C end:0x80185248
 
 pso/object/TObjLaboMapWarp_80185248.cpp:
-	.text       start:0x80185248 end:0x801854DC
+	.text       start:0x80185248 end:0x801867F4
 	.rodata     start:0x80444A20 end:0x80444A28
-
-pso/object/TObjLaboMapWarp_801854DC.cpp:
-	.text       start:0x801854DC end:0x80185564
-
-pso/object/TObjLaboMapWarp.cpp:
-	.text       start:0x80185564 end:0x80185608
-
-pso/object/TObjLaboMapWarp_80185608.cpp:
-	.text       start:0x80185608 end:0x8018574C
-
-pso/object/TObjCityMapWarp_8018574C.cpp:
-	.text       start:0x8018574C end:0x801859C0
-
-pso/object/TObjCityMapWarp.cpp:
-	.text       start:0x801859C0 end:0x80185A64
-
-pso/object/TObjCityMapWarp_80185A64.cpp:
-	.text       start:0x80185A64 end:0x80185AFC
-
-pso/object/TObjCityAreaWarp.cpp:
-	.text       start:0x80185AFC end:0x80185C7C
-
-pso/object/TObjCityAreaWarp_80185C7C.cpp:
-	.text       start:0x80185C7C end:0x80185D14
-
-pso/object/TObjCityAreaWarp_80185D14.cpp:
-	.text       start:0x80185D14 end:0x80185DB8
-
-pso/object/TObjCityAreaWarp_80185DB8.cpp:
-	.text       start:0x80185DB8 end:0x80185EC8
-
-pso/object/TObjCityMainWarp.cpp:
-	.text       start:0x80185EC8 end:0x801867F4
 
 pso/object/TObjCityMainWarp_801867F4.cpp:
 	.text       start:0x801867F4 end:0x80186C44
@@ -7987,40 +7954,10 @@ pso/unk/text_8019B0D4.cpp:
 	.text       start:0x8019B0D4 end:0x8019B124
 
 pso/object/TObjAreaWarpEndingJung.cpp:
-	.text       start:0x8019B124 end:0x8019B364
-
-pso/object/TObjAreaWarpEndingJung_8019B364.cpp:
-	.text       start:0x8019B364 end:0x8019B480
-
-pso/unk/text_8019B480.cpp:
-	.text       start:0x8019B480 end:0x8019B52C
-
-pso/object/TObjWarpString_8019B52C.cpp:
-	.text       start:0x8019B52C end:0x8019B798
-
-pso/object/TObjWarpString.cpp:
-	.text       start:0x8019B798 end:0x8019B8D8
-	.data       start:0x804B91E0 end:0x804B91F8
-
-pso/unk/text_8019B8D8.cpp:
-	.text       start:0x8019B8D8 end:0x8019B944
-
-pso/unk/text_8019B944.cpp:
-	.text       start:0x8019B944 end:0x8019BA34
-
-pso/object/TObjMapForceWarp.cpp:
-	.text       start:0x8019BA34 end:0x8019BB2C
-
-pso/misc/TKeyBoardControl_8019BB2C.cpp:
-	.text       start:0x8019BB2C end:0x8019BB9C
-
-pso/object/TObjAreaWarpEnding.cpp:
-	.text       start:0x8019BB9C end:0x8019CA24
+	.text       start:0x8019B124 end:0x8019D4E4
 	.rodata     start:0x804463C8 end:0x804463D0
+	.data       start:0x804B91E0 end:0x804B91F8
 	.sdata2     start:0x805DBFE4 end:0x805DBFE8
-
-pso/object/TObjAreaWarp.cpp:
-	.text       start:0x8019CA24 end:0x8019D4E4
 
 pso/object/TObjMapWarp.cpp:
 	.text       start:0x8019D4E4 end:0x8019D964
@@ -8268,15 +8205,9 @@ pso/misc/TScene_801A7E40.cpp:
 	.text       start:0x801A7E40 end:0x801A7E58
 
 pso/misc/TPhotonConcentrate.cpp:
-	.text       start:0x801A7E58 end:0x801A85A0
+	.text       start:0x801A7E58 end:0x801A9BAC
 	.rodata     start:0x80446CC8 end:0x80446CD0
 	.sdata2     start:0x805DC130 end:0x805DC138
-
-pso/player/TObjPlayer_801A85A0.cpp:
-	.text       start:0x801A85A0 end:0x801A8618
-
-pso/unk/text_801A8618.cpp:
-	.text       start:0x801A8618 end:0x801A9BAC
 
 pso/player/TObjPlayer_801A9BAC.cpp:
 	.text       start:0x801A9BAC end:0x801A9CB8

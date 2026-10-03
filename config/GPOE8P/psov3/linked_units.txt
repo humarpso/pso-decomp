@@ -1032,7 +1032,6 @@ pso/misc/TJudgmentSequence.cpp
 pso/misc/TJudgmentSequence_8021E4C4.cpp
 pso/misc/TKeyBoardControl.cpp
 pso/misc/TKeyBoardControl_8000F764.cpp
-pso/misc/TKeyBoardControl_8019BB2C.cpp
 pso/misc/TKeyBoardControl_801A57C4.cpp
 pso/misc/TKeyBoardControl_801A6510.cpp
 pso/misc/TKeyBoardControl_802433DC.cpp
@@ -2331,8 +2330,6 @@ pso/npc/TObjNpcSecretaryBase.cpp
 pso/npc/TObjNpcSoldierBase.cpp
 pso/npc/TObjNpcSoldierMacho.cpp
 pso/npc/TObjNpcSoutokufu.cpp
-pso/object/TObjAreaWarpEndingJung.cpp
-pso/object/TObjAreaWarpEndingJung_8019B364.cpp
 pso/object/TObjAreaWarpQuest.cpp
 pso/object/TObjAreaWarp_80307B70.cpp
 pso/object/TObjBagWarnWin4P.cpp
@@ -2362,16 +2359,11 @@ pso/object/TObjCMName_80294CA0.cpp
 pso/object/TObjCMProportion_802951EC.cpp
 pso/object/TObjCamera.cpp
 pso/object/TObjCamera_8017F80C.cpp
-pso/object/TObjCityAreaWarp_80185C7C.cpp
-pso/object/TObjCityAreaWarp_80185D14.cpp
-pso/object/TObjCityAreaWarp_80185DB8.cpp
 pso/object/TObjCityDoor_Lobby.cpp
 pso/object/TObjCityMainWarpChallenge.cpp
 pso/object/TObjCityMainWarp_801867F4.cpp
 pso/object/TObjCityMainWarp_80186C44.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
-pso/object/TObjCityMapWarp.cpp
-pso/object/TObjCityMapWarp_80185A64.cpp
 pso/object/TObjCity_Season_21_21.cpp
 pso/object/TObjCity_Season_Board.cpp
 pso/object/TObjCity_Season_EasterEgg.cpp
@@ -2421,9 +2413,6 @@ pso/object/TObjHashiVersus1.cpp
 pso/object/TObjHashiVersus2.cpp
 pso/object/TObjIllGillKage.cpp
 pso/object/TObjInfoCol.cpp
-pso/object/TObjLaboMapWarp.cpp
-pso/object/TObjLaboMapWarp_801854DC.cpp
-pso/object/TObjLaboMapWarp_80185608.cpp
 pso/object/TObjLazerFence4.cpp
 pso/object/TObjLazerFenceNorm.cpp
 pso/object/TObjLight_8022F34C.cpp
@@ -2441,7 +2430,6 @@ pso/object/TObjLobbyMain.cpp
 pso/object/TObjLuker_8001A438.cpp
 pso/object/TObjLuker_801329B0.cpp
 pso/object/TObjMapCsn_8007A720.cpp
-pso/object/TObjMapForceWarp.cpp
 pso/object/TObjMapWarp.cpp
 pso/object/TObjMapWarpAncient_8017D0DC.cpp
 pso/object/TObjMapWarpForest.cpp
@@ -2509,7 +2497,6 @@ pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0760.cpp
 pso/object/TObjWarpLobby_801A0A34.cpp
-pso/object/TObjWarpString.cpp
 pso/object/TObject_80019A50.cpp
 pso/object/TObject_8001A448.cpp
 pso/object/TObject_8003F3DC.cpp
@@ -2833,7 +2820,6 @@ pso/player/TObjPlayer_80178150.cpp
 pso/player/TObjPlayer_8017E4EC.cpp
 pso/player/TObjPlayer_801A2570.cpp
 pso/player/TObjPlayer_801A7080.cpp
-pso/player/TObjPlayer_801A85A0.cpp
 pso/player/TObjPlayer_801A9BAC.cpp
 pso/player/TObjPlayer_801AA220.cpp
 pso/player/TObjPlayer_801AA508.cpp
@@ -3948,9 +3934,6 @@ pso/unk/text_80198960.cpp
 pso/unk/text_80198E84.cpp
 pso/unk/text_8019AD50.cpp
 pso/unk/text_8019B0D4.cpp
-pso/unk/text_8019B480.cpp
-pso/unk/text_8019B8D8.cpp
-pso/unk/text_8019B944.cpp
 pso/unk/text_8019DBB4.cpp
 pso/unk/text_8019F9E4.cpp
 pso/unk/text_801A0520.cpp
