@@ -66,6 +66,12 @@ typedef struct Pmt_8011C59C { u8 pad[4]; Sub_8011C59C *sub; u8 pad2[0x34]; Ent_8
 
 typedef struct Obj_8011C59C { u8 pad0; u8 idx; u8 pad[2]; u8 *ptr; } Obj_8011C59C;
 
+typedef struct PmtEnt_8011C234 { s32 id; u8 pad[0x10]; } PmtEnt_8011C234;
+
+typedef struct PmtRow_8011C234 { s32 count; PmtEnt_8011C234 *ents; } PmtRow_8011C234;
+
+typedef struct Pmt_8011C234 { u8 pad[0xC]; PmtRow_8011C234 *rows; } Pmt_8011C234;
+
 extern "C" {
 M2C_UNK select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
 M2C_UNK normalize_drop_area(s32 *);
@@ -126,6 +132,8 @@ void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
 void *get_armor_pmt_record(u8, u8);
 extern void *item_pmt_tbl;
 s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2);
+extern void *item_pmt_tbl;
+void find_tool_pmt_base_id(s32 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -207,6 +215,28 @@ void register_item_drop__10TObjPlayerFPv(void *arg0) {
 
     if (p != 0 && item_mgr != 0 && p->a == 1 && p->b == 1) {
         set_drop_index__9TItemDropFPvPv(item_mgr, p);
+    }
+}
+
+#define PMT_8011C234 ((Pmt_8011C234 *)item_pmt_tbl)
+void find_tool_pmt_base_id(s32 arg0, u8 *arg1) {
+    s32 found;
+    u8 i;
+    u8 j;
+    if (arg1 == NULL) {
+        return;
+    }
+    found = 0;
+    for (i = 0; i != 0x18 && found != 1; i++) {
+        for (j = 0; j != PMT_8011C234->rows[i].count && found != 1; j++) {
+            PmtEnt_8011C234 *e = &PMT_8011C234->rows[i].ents[j];
+            if (e->id == arg0) {
+                arg1[0] = 3;
+                found = 1;
+                arg1[1] = i;
+                arg1[2] = j;
+            }
+        }
     }
 }
 

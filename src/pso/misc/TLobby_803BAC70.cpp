@@ -339,6 +339,39 @@ struct Info_803BF884 {
 
 struct Pair_803BD9E4 { s32 a; s32 b; };
 
+typedef struct Src_803BBB30 {
+    u8 midiCtrl;
+    u8 combine;
+    u8 pad2[2];
+    s32 scale;
+} Src_803BBB30;
+
+typedef struct Inp_803BBB30 {
+    Src_803BBB30 source[4];
+    u16 oldValue;
+    u8 numSource;
+} Inp_803BBB30;
+
+typedef struct Lfo_803BBB30 {
+    u8 pad0[8];
+    s16 value;
+    u8 padA[2];
+} Lfo_803BBB30;
+
+typedef struct Voice_803BBB30 {
+    u8 pad0[0x90];
+    u64 time;
+    u8 pad98[0xA8 - 0x98];
+    u8 timeUsedByInput;
+    u8 padA9[0x12F - 0xA9];
+    u8 b12F;
+    u8 pad130[0x158 - 0x130];
+    u32 w158;
+    u8 pad15C[0x1BC - 0x15C];
+    Lfo_803BBB30 lfo[2];
+    u8 lfoUsedByInput[2];
+} Voice_803BBB30;
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -512,29 +545,17 @@ extern u8 lbl_8056BD18[][0x86];
 extern M2C_UNK lbl_80567958[];
 extern M2C_UNK lbl_805679D8[];
 u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC000(Lob_803BC000 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC048(Lob_803BC048 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC090(Lob_803BC090 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC120(Lob_803BC120 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC168(Lob_803BC168 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC240(Lob_803BC240 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC288(Lob_803BC288 *arg0);
-u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0);
 extern s16 lbl_804F7168[];
 s16 TLobby__sub_803BC93C(s32 arg0);
@@ -632,6 +653,10 @@ extern const f32 lbl_805E0C48;
 u32 TLobby__sub_803BD828(u32 arg0);
 extern RecoveredCallback_d26337a2813d lbl_805D74BC;
 void TLobby__sub_803BD9E4(Pair_803BD9E4 *arg0);
+s16 TLobby__sub_803AFF9C(Voice_803BBB30 *, u32, u32);
+u16 TLobby__sub_803BB5E4(u8 arg0, u8 arg1, u8 arg2);
+extern u64 lbl_805D73C0;
+u16 calc_sound_controller_value(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSet);
 }
 
 extern "C" {
@@ -723,12 +748,151 @@ u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1) {
     return M2C_FIELD(((u8 *)(lbl_805679D8) + arg0), u8 *, 0);
 }
 
+#define CLAMP(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
+#define CLAMP_INV(value, min, max) ((value) < (min) ? (min) : (value) > (max) ? (max) : (value))
+#define MIN(a, b) ((a) > (b) ? (b) : (a))
+u16 calc_sound_controller_value(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSet) {
+    u32 i;
+    u32 value;
+    u8 ctrl;
+    s32 tmp;
+    s32 vtmp;
+    u32 sign;
+    for (value = 0, i = 0; i < inp->numSource; ++i) {
+        if (inp->source[i].combine & 0x10) {
+            tmp = (svoice != NULL ? TLobby__sub_803AFF9C(svoice, 0, inp->source[i].midiCtrl) : 0);
+            goto block_18;
+        }
+        ctrl = inp->source[i].midiCtrl;
+        if (ctrl == 128 || ctrl == 1 || ctrl == 10 || ctrl == 160 || ctrl == 161 || ctrl == 131) {
+            switch (ctrl) {
+            case 160:
+            case 161:
+                if (svoice != NULL) {
+                    tmp = svoice->lfo[ctrl - 160].value << 1;
+                    svoice->lfoUsedByInput[ctrl - 160] = 1;
+                } else {
+                    tmp = 0;
+                }
+                break;
+            default:
+                tmp = TLobby__sub_803BB5E4(ctrl, midi, midiSet) - 0x2000;
+                break;
+            }
+        block_18:
+            tmp = (tmp * (inp->source[i].scale >> 1)) >> 15;
+            tmp = CLAMP_INV(tmp, -0x2000, 0x1FFF);
+            switch (inp->source[i].combine & 15) {
+            case 0:
+                value = tmp + 0x2000;
+                sign = 1;
+                break;
+            case 1:
+                if (sign != 0) {
+                    vtmp = (value + tmp);
+                    vtmp -= 0x2000;
+                    value = CLAMP_INV(vtmp, -0x2000, 0x1FFF) + 0x2000;
+                } else {
+                    vtmp = value + tmp;
+                    value = CLAMP(vtmp, 0, 0x3FFF);
+                }
+                break;
+            case 2:
+                if (sign != 0) {
+                    vtmp = (s32)((value - 0x2000) * tmp) >> 13;
+                } else {
+                    vtmp = (tmp * value) >> 13;
+                    sign = 1;
+                }
+                value = CLAMP_INV(vtmp, -0x2000, 0x1FFF) + 0x2000;
+                break;
+            case 3:
+                if (sign != 0) {
+                    vtmp = (value - 0x2000) - tmp;
+                    value = CLAMP_INV(vtmp, -0x2000, 0x1FFF) + 0x2000;
+                } else {
+                    vtmp = value - tmp;
+                    value = CLAMP(vtmp, 0, 0x3FFF);
+                }
+                break;
+            }
+        } else {
+            switch (ctrl) {
+            case 162:
+                if (svoice != NULL) {
+                    tmp = svoice->b12F << 7;
+                } else {
+                    tmp = 0;
+                }
+                break;
+            case 163:
+                tmp = svoice != NULL ? svoice->w158 >> 9 : 0;
+                break;
+            case 164:
+                if (svoice != NULL) {
+                    tmp = (lbl_805D73C0 - svoice->time) >> 8;
+                    if (tmp > 0x3fff) {
+                        tmp = 0x3fff;
+                    }
+                    svoice->timeUsedByInput = 1;
+                } else {
+                    tmp = 0;
+                }
+                break;
+            default:
+                tmp = TLobby__sub_803BB5E4(ctrl, midi, midiSet);
+                break;
+            }
+            tmp = (tmp * (inp->source[i].scale >> 1)) >> 15;
+            if (tmp > 0x3FFF) {
+                tmp = 0x3FFF;
+            }
+            switch (inp->source[i].combine & 0xF) {
+            case 0:
+                value = tmp;
+                sign = 0;
+                break;
+            case 1:
+                if (sign != 0) {
+                    vtmp = (value + tmp);
+                    vtmp -= 0x2000;
+                    value = CLAMP_INV(vtmp, -0x2000, 0x1FFF) + 0x2000;
+                } else {
+                    value += tmp;
+                    value = MIN(value, 0x3FFF);
+                }
+                break;
+            case 2:
+                if (sign != 0) {
+                    vtmp = (s32)(tmp * (value - 0x2000)) >> 14;
+                    value = CLAMP_INV(vtmp, -0x2000, 0x1FFF) + 0x2000;
+                } else {
+                    value = ((value * tmp) >> 0xE);
+                    value = MIN(value, 0x3FFF);
+                }
+                break;
+            case 3:
+                if (sign != 0) {
+                    vtmp = (value - 0x2000) - tmp;
+                    value = CLAMP_INV(vtmp, -0x2000, 0x1FFF) + 0x2000;
+                } else {
+                    vtmp = value - tmp;
+                    value = CLAMP(vtmp, 0, 0x3FFF);
+                }
+                break;
+            }
+        }
+    }
+    inp->oldValue = value;
+    return value;
+}
+
 u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0) {
     if (!(arg0->flags & 1)) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~1;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x218, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x218), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC000(Lob_803BC000 *arg0) {
@@ -736,7 +900,7 @@ u16 TLobby__sub_803BC000(Lob_803BC000 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~2;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x23C, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x23C), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC048(Lob_803BC048 *arg0) {
@@ -744,7 +908,7 @@ u16 TLobby__sub_803BC048(Lob_803BC048 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~4;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x260, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x260), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC090(Lob_803BC090 *arg0) {
@@ -752,7 +916,7 @@ u16 TLobby__sub_803BC090(Lob_803BC090 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~8;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x284, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x284), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0) {
@@ -760,7 +924,7 @@ u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x10;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x2A8, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x2A8), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC120(Lob_803BC120 *arg0) {
@@ -768,7 +932,7 @@ u16 TLobby__sub_803BC120(Lob_803BC120 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x20;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x2CC, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x2CC), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC168(Lob_803BC168 *arg0) {
@@ -776,7 +940,7 @@ u16 TLobby__sub_803BC168(Lob_803BC168 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x40;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x2F0, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x2F0), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0) {
@@ -784,7 +948,7 @@ u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x100;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x338, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x338), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0) {
@@ -792,7 +956,7 @@ u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x200;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x35C, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x35C), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC240(Lob_803BC240 *arg0) {
@@ -800,7 +964,7 @@ u16 TLobby__sub_803BC240(Lob_803BC240 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x400;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x380, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x380), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC288(Lob_803BC288 *arg0) {
@@ -808,7 +972,7 @@ u16 TLobby__sub_803BC288(Lob_803BC288 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x800;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x3A4, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x3A4), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0) {
@@ -816,7 +980,7 @@ u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x1000;
-    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x3C8, arg0->b121, arg0->b122);
+    return calc_sound_controller_value((Voice_803BBB30 *)(arg0), (Inp_803BBB30 *)((u8 *)arg0 + 0x3C8), (u8)(arg0->b121), (u8)(arg0->b122));
 }
 
 #pragma push

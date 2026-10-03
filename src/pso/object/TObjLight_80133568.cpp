@@ -257,6 +257,11 @@ extern Light_801347A4 TObjLight__data_805068FC[];
 extern s32 TObjLight__data_805D556C;
 extern s32 TObjLight__data_805D5570;
 void reset_actor_light_registries(void);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+extern Light_801347A4 TObjLight__data_805068FC[];
+extern s32 TObjLight__data_805D5570;
+void publish_light_direction_color(u32 id, void *dir, void *color);
 }
 
 extern "C" {
@@ -690,6 +695,36 @@ void publish_actor_light_scalars(u32 arg0, f32 farg0, f32 farg1) {
             q->f1C = farg0;
             q->f20 = farg1;
             q->f24 |= 1;
+            TObjLight__data_805D5570++;
+        }
+    }
+}
+
+void publish_light_direction_color(u32 id, void *dir, void *color) {
+    s32 add;
+    s32 i;
+    Light_801347A4 *e;
+    add = 1;
+    if (TObjLight__data_805D5570 < 8) {
+        for (i = 0; i < 8; i++) {
+            e = &TObjLight__data_805068FC[i];
+            if (id == e->id) {
+                TObjLight__data_805068FC[i].id = id;
+                VecCopy__FP3VecPC3Vec((int)e, dir);
+                copy_vec4__13TRaderMapCoreFPvPv(e->color, color);
+                add = 0;
+                TObjLight__data_805068FC[i].f24 |= 2;
+                break;
+            }
+            if (e->id == 0xFFFF) {
+                break;
+            }
+        }
+        if (add) {
+            TObjLight__data_805068FC[TObjLight__data_805D5570].id = id;
+            VecCopy__FP3VecPC3Vec((int)&TObjLight__data_805068FC[TObjLight__data_805D5570], dir);
+            copy_vec4__13TRaderMapCoreFPvPv(TObjLight__data_805068FC[TObjLight__data_805D5570].color, color);
+            TObjLight__data_805068FC[TObjLight__data_805D5570].f24 |= 2;
             TObjLight__data_805D5570++;
         }
     }

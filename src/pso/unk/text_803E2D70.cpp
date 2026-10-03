@@ -75,6 +75,12 @@ typedef union WGPipe_803E47E0 {
     f32 f32;
 } WGPipe_803E47E0;
 
+struct Sub_803E3B6C { u8 pad[0xC]; u8 *q; };
+
+struct Rec_803E3B6C { u8 pad[8]; Sub_803E3B6C *p; };
+
+struct Holder_803E3B6C { Rec_803E3B6C *recs; };
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -162,6 +168,24 @@ void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern s32 lbl_805D77F8;
 void TObjPlayer__sub_803E47E0(s16 *list, Vtx_803E47E0 *verts, u32 info);
+M2C_UNK GXSetBlendMode(int, int, int, int);
+M2C_UNK GXSetZMode(int, int, int);
+M2C_UNK GXSetZCompLoc(int);
+s32 set_chunk_alpha_compare_ref(int ref);
+void clear_move_state_bits__10TObjPlayerFv(void);
+extern FloatColor lbl_8058D4C0;
+extern s32 lbl_805D46D0;
+extern u8 *lbl_805D774C;
+extern s32 lbl_805D7788;
+extern s32 some_id_805c6f74;
+extern s32 lbl_805D77EC;
+extern u32 lbl_805D77F0;
+extern s32 lbl_805D77F8;
+extern u32 lbl_805E1094;
+extern const u32 lbl_805E1098;
+extern const f32 lbl_805E109C;
+extern const f32 lbl_805E10A0;
+void set_chunk_blend_depth_mode(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -449,6 +473,107 @@ s32 set_chunk_alpha_compare_ref(int ref) {
     GXSetAlphaCompare(4, ref, 0, 7, 0);
 }
 #pragma pop
+
+void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
+    s32 var_r31;
+    s32 temp_r30;
+    s32 temp_r29;
+    u32 var_r28;
+    u8 *temp_r4;
+    u32 id;
+    u8 *temp_r3;
+    u32 var_r6;
+    if ((u32) (arg0 & 8) != 0) {
+        var_r31 = 1;
+    } else {
+        var_r31 = 0;
+    }
+    temp_r30 = (u32) (lbl_805D77F0 & 0x3800) >> 0xBU;
+    temp_r29 = (u32) (lbl_805D77F0 & 0x700) >> 8U;
+    if ((u32) lbl_805D77F8 != 0) {
+        clear_move_state_bits__10TObjPlayerFv();
+    }
+    if (arg1 == 0) {
+        GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
+        GXSetZCompLoc((int) (0));
+        GXSetZMode((int) (1), (int) (3), (int) (0));
+    } else if (var_r31 != 0) {
+        var_r6 = 0;
+        var_r28 = 1U;
+        temp_r4 = (u8 *)((*(Holder_803E3B6C **)(lbl_805D774C + 0x20))->recs[lbl_805D77EC].p->q);
+        id = some_id_805c6f74;
+        if (((u32) (id & 0x10) != 0) && (lbl_805E109C != lbl_8058D4C0.a)) {
+            var_r28 = 0U;
+        }
+        if (((u32) (id & 0x20) != 0) && (lbl_805E10A0 != lbl_8058D4C0.a)) {
+            var_r28 = 0U;
+        }
+        if ((u32) M2C_FIELD(temp_r4, u32 *, 4) == 0xEU) {
+            if ((u32) (id & 0x400000) != 0) {
+                if ((u32) (M2C_FIELD(temp_r4, s32 *, 0x1C) & 0x40000000) != 0) {
+                    var_r6 |= lbl_805E1094;
+                }
+            } else {
+                var_r6 |= lbl_805E1094;
+            }
+        }
+        if ((u32) (id & 1) != 0) {
+            var_r6 |= lbl_805E1098;
+        }
+        if ((var_r28 != 0U) && (var_r6 != 0) && (temp_r30 == 4) && (temp_r29 == 5)) {
+            if ((u32) lbl_805D77F8 != 0) {
+                lbl_805D77F8 |= 0x200;
+            }
+            GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
+            if ((u32) (some_id_805c6f74 & 0x200000) != 0) {
+                GXSetZCompLoc((int) (0));
+                GXSetZMode((int) (1), (int) (3), (int) (1));
+                set_chunk_alpha_compare_ref(0);
+            } else {
+                GXSetZCompLoc((int) (0));
+                GXSetZMode((int) (1), (int) (3), (int) (1));
+                set_chunk_alpha_compare_ref((u8) lbl_805D46D0);
+            }
+        } else {
+            if ((u32) lbl_805D77F8 != 0) {
+                lbl_805D77F8 |= 0x200;
+            }
+            if (((u32) (id & 0x01000000) != 0) && ((u32) (lbl_805D7788 & 2) == 0)) {
+                GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
+                GXSetZCompLoc((int) (0));
+                GXSetZMode((int) (1), (int) (3), (int) (1));
+                set_chunk_alpha_compare_ref((u8) lbl_805D46D0);
+            } else {
+                GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
+                GXSetZCompLoc((int) (0));
+                if (var_r28 != 0U) {
+                    GXSetZMode((int) (1), (int) (3), (int) (0));
+                } else {
+                    GXSetZMode((int) (1), (int) (3), (int) (1));
+                }
+                set_chunk_alpha_compare_ref(0);
+            }
+        }
+    } else {
+        if ((u32) lbl_805D77F8 != 0) {
+            lbl_805D77F8 |= 0x400;
+        }
+        temp_r3 = (u8 *)((*(Holder_803E3B6C **)(lbl_805D774C + 0x20))->recs[lbl_805D77EC].p->q);
+        if (((u32) M2C_FIELD(temp_r3, u32 *, 4) == 0xEU) && ((u32) (M2C_FIELD(temp_r3, s32 *, 0x1C) & 0x40000000) != 0)) {
+            set_chunk_alpha_compare_ref(0x1F);
+            GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));
+            GXSetZCompLoc((int) (0));
+            GXSetZMode((int) (1), (int) (3), (int) (1));
+        } else {
+            GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));
+            GXSetZCompLoc((int) (1));
+            GXSetZMode((int) (1), (int) (3), (int) (1));
+        }
+    }
+    if ((u32) (some_id_805c6f74 & 0x400) != 0) {
+        GXSetZMode((int) (1), (int) (3), (int) (0));
+    }
+}
 
 #pragma push
 #pragma peephole off
