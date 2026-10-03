@@ -72,6 +72,18 @@ struct Node_800797DC {
     Mesh_800797DC *mesh;
 };
 
+struct Vec_800798A0 {
+    f32 x;
+    f32 y;
+    f32 z;
+};
+
+struct Face_800798A0 {
+    u16 idx[3];
+    u16 flags;
+    Vec_800798A0 n;
+};
+
 extern "C" {
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_800790F0_lbl_804F5800 lbl_804F5800;
@@ -140,6 +152,19 @@ extern M2C_UNK lbl_80500140[];
 extern M2C_UNK *lbl_805D4E78;
 extern s32 lbl_805D4E7C;
 s32 TObjPlayer__sub_800797DC(void *arg0, void *arg1, int arg2, Node_800797DC **list);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 vec3_dot(void *, void *);
+void vec3_cross(void *, void *, void *);
+extern Vec_800798A0 lbl_8050BEE0;
+extern Vec_800798A0 lbl_8050BF00;
+extern Vec_800798A0 lbl_8050BF20;
+extern Vec_800798A0 lbl_8050BF40;
+extern Vec_800798A0 lbl_8050BF60;
+extern s32 lbl_805D4E70;
+extern const f32 lbl_805D91F0;
+extern const f32 lbl_805D91FC;
+extern const f32 lbl_805D9208;
+extern const f32 lbl_805D920C;
 }
 
 extern "C" {
@@ -266,6 +291,105 @@ s32 TObjPlayer__sub_800797DC(void *arg0, void *arg1, int arg2, Node_800797DC **l
     }
     return 0;
 }
+
+#pragma push
+#pragma fp_contract on
+#define FACE ((Face_800798A0 *)arg3)
+#define ORG ((Vec_800798A0 *)arg0)
+#define DIR ((Vec_800798A0 *)arg1)
+#define VERTS ((Vec_800798A0 *)arg4)
+
+s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_80079580 *arg3, u32 arg4, s32 arg5) {
+    Vec_800798A0 n;
+    Vec_800798A0 *v;
+    Vec_800798A0 *v1;
+    f32 denom;
+    f32 t;
+
+    if ((FACE->flags & (u32)arg2) == 0) {
+        return 0;
+    }
+    n.x = FACE->n.x;
+    n.y = FACE->n.y;
+    n.z = FACE->n.z;
+    denom = vec3_dot(DIR, &n);
+    if (denom >= lbl_805D9208) {
+        return 0;
+    }
+    v = &VERTS[FACE->idx[0]];
+    lbl_8050BEE0.x = ORG->x - v->x;
+    lbl_8050BEE0.y = ORG->y - v->y;
+    lbl_8050BEE0.z = ORG->z - v->z;
+    t = vec3_dot(&lbl_8050BEE0, &n);
+    if (t <= lbl_805D91FC) {
+        return 0;
+    }
+    t = -(t / denom);
+    if (t > lbl_805D920C || t < lbl_805D91F0) {
+        return 0;
+    }
+    lbl_8050BF60.x = DIR->x * t + ORG->x;
+    lbl_8050BF60.y = DIR->y * t + ORG->y;
+    lbl_8050BF60.z = DIR->z * t + ORG->z;
+    v1 = &VERTS[FACE->idx[1]];
+    vsub(&lbl_8050BF60, v, &lbl_8050BEE0);
+    vsub(&lbl_8050BF60, v1, &lbl_8050BF00);
+    vec3_cross(&lbl_8050BEE0, &lbl_8050BF00, &lbl_8050BF40);
+    if (vec3_dot(&lbl_8050BF40, &n) < lbl_805D91F0) {
+        return 0;
+    }
+    vsub(&lbl_8050BF60, &VERTS[FACE->idx[2]], &lbl_8050BF20);
+    vec3_cross(&lbl_8050BF00, &lbl_8050BF20, &lbl_8050BF40);
+    if (vec3_dot(&lbl_8050BF40, &n) < lbl_805D91F0) {
+        return 0;
+    }
+    vec3_cross(&lbl_8050BF20, &lbl_8050BEE0, &lbl_8050BF40);
+    if (vec3_dot(&lbl_8050BF40, &n) < lbl_805D91F0) {
+        return 0;
+    }
+    switch (arg5) {
+    case 0:
+        if (t < lbl_805D4E74) {
+            lbl_805D4E74 = t;
+            *lbl_805D4E78 = 1;
+            VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
+            VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
+            M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        }
+        break;
+    case 1:
+        *lbl_805D4E78 = 1;
+        VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
+        VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
+        M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        break;
+    case 2:
+        if (lbl_805D4E70 >= 0x20) {
+            return 0;
+        }
+        *lbl_805D4E78 = 1;
+        VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
+        VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
+        M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        lbl_805D4E7C += 0x1C;
+        lbl_805D4E70++;
+        break;
+    case 3:
+        if (t < lbl_805D4E74) {
+            lbl_805D4E74 = t;
+            VecCopy__FP3VecPC3Vec((void *)lbl_805D4E7C, &lbl_8050BF60);
+            VecCopy__FP3VecPC3Vec((void *)(lbl_805D4E7C + 0xC), &n);
+            M2C_FIELD(lbl_805D4E7C, u32 *, 0x18) = FACE->flags;
+        }
+        break;
+    }
+    return 1;
+}
+#pragma pop
+#undef FACE
+#undef ORG
+#undef DIR
+#undef VERTS
 
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);

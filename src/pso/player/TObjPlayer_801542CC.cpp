@@ -29,6 +29,10 @@ struct Vec_801550DC { f32 x, y, z; };
 struct CollisionVector_80155FBC { f32 x,y,z; };
 
 struct CollisionBody_80155FBC { void* colliders; s32 count; CollisionVector_80155FBC position; s32 facing; };
+struct CollisionVector_80155C54 { f32 x,y,z; };
+struct Collider_80155C54 { CollisionVector_80155C54 offset; f32 radius; u32 unknown10; s32 shape; s32 flags; CollisionVector_80155C54 world; u32 unknown28; };
+struct CollisionBox_80155C54 { f32 data[24]; };
+struct CollisionSphere_80155C54 { CollisionVector_80155C54 center; f32 radius; };
 
 struct E_801547E0 { u8 pad[0xc]; f32 f; u8 pad2[0x2c - 0x10]; };
 
@@ -260,6 +264,9 @@ Hit_80156844 *csnVecterUnder(Vec_80156844 *, s32);
 u16 TObjRoomId__sub_801A1DB8(u16);
 extern const f32 lbl_805DB2A0;
 s32 project_actor_to_ground(Obj_80156844 *self, Vec_80156844 *pos, Vec_80156844 *normal);
+s32 TObjPlayer__sub_803E0ED4(CollisionBox_80155C54*,CollisionBox_80155C54*);
+s32 test_box_sphere_contact(CollisionBox_80155C54*,CollisionSphere_80155C54*);
+s32 TObjPlayer__sub_803E1864(CollisionSphere_80155C54*,CollisionSphere_80155C54*);
 }
 
 extern "C" {
@@ -804,6 +811,82 @@ s32 test_player_body_overlap_at(M2C_UNK arg0, u8 *self, void *pos) {
     }
     return 0;
 }
+#define build_collision_box_corners ((void (*)(CollisionVector_80155C54,s32,Collider_80155C54*,CollisionBox_80155C54*))build_collision_box_corners)
+#define TObjPlayer__sub_80155050 ((void (*)(CollisionVector_80155C54,Collider_80155C54*,CollisionSphere_80155C54*))TObjPlayer__sub_80155050)
+void* refresh_actor_body_spheres(CollisionBody_80155FBC a,CollisionBody_80155FBC b) {
+    CollisionBox_80155C54 boxAA,boxBB,boxAB,boxBA;
+    CollisionVector_80155C54 worldA,worldB,offsetA,offsetB;
+    CollisionSphere_80155C54 sphereAB,sphereBA,sphereAA,sphereBB;
+    Collider_80155C54* source;
+    Collider_80155C54* destination;
+    s32 facingA,facingB,countA,countB;
+    s32 flags;
+    s32 i,j;
+    countA=a.count;countB=b.count;
+    for (i=0;i<countA;++i) {
+        source=&((Collider_80155C54*)a.colliders)[i];
+        flags=source->flags;
+        VecCopy__FP3VecPC3Vec(&worldA,&a.position);
+        VecCopy__FP3VecPC3Vec(&offsetA,source);
+        facingA=a.facing;
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0,facingA);
+        rotate_vector_by_current_matrix(&offsetA,&offsetA);
+        pop_matrix();
+        vec3_add_to(&worldA,&offsetA);
+        VecCopy__FP3VecPC3Vec(&source->world,&worldA);
+        VecCopy__FP3VecPC3Vec(&worldA,&a.position);
+        for (j=0;j<countB;++j) {
+            destination=&((Collider_80155C54*)b.colliders)[j];
+            if (check_flags__10TObjPlayerFii(flags,destination->flags)) {
+                VecCopy__FP3VecPC3Vec(&worldB,&b.position);
+                VecCopy__FP3VecPC3Vec(&offsetB,destination);
+                facingB=b.facing;
+                push_matrix_from(lbl_8058D490);
+                rotate_matrix_y(0,facingB);
+                rotate_vector_by_current_matrix(&offsetB,&offsetB);
+                pop_matrix();
+                vec3_add_to(&worldB,&offsetB);
+                VecCopy__FP3VecPC3Vec(&destination->world,&worldB);
+                VecCopy__FP3VecPC3Vec(&worldB,&b.position);
+                switch (source->shape) {
+                case 1:
+                    switch(destination->shape) {
+                    case 1:
+                        build_collision_box_corners(worldA,facingA,source,&boxAA);
+                        build_collision_box_corners(worldB,facingB,destination,&boxBB);
+                        if (TObjPlayer__sub_803E0ED4(&boxAA,&boxBB)) return destination;
+                        break;
+                    case 0: default:
+                        build_collision_box_corners(worldA,facingA,source,&boxAB);
+                        TObjPlayer__sub_80155050(worldB,destination,&sphereAB);
+                        if (test_box_sphere_contact(&boxAB,&sphereAB)) return destination;
+                        break;
+                    }
+                    break;
+                case 0: default:
+                    switch(destination->shape) {
+                    case 1:
+                        TObjPlayer__sub_80155050(worldA,source,&sphereBA);
+                        build_collision_box_corners(worldB,facingB,destination,&boxBA);
+                        if (test_box_sphere_contact(&boxBA,&sphereBA)) return destination;
+                        break;
+                    case 0: default:
+                        TObjPlayer__sub_80155050(worldA,source,&sphereAA);
+                        TObjPlayer__sub_80155050(worldB,destination,&sphereBB);
+                        if (TObjPlayer__sub_803E1864(&sphereAA,&sphereBB)) return destination;
+                        break;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+#undef build_collision_box_corners
+#undef TObjPlayer__sub_80155050
 
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit) {
     CollisionBody_80155FBC source, destination;
