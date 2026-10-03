@@ -50,7 +50,15 @@ void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 s32 set_help_text__15TWindowHelpItemFii(void *, int);
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
 s32 TWindowActionPalette__sub_80243968(void *, int, int, int);
-s32 update_slot_sprites__20TWindowActionPaletteFv(void *, int, int, u16);
+void update_slot_sprites__20TWindowActionPaletteFv(void *, int, int, u16);
+u8 get_enabled__11TMainCursorFPv(void *);
+u8 get_type__11TMainCursorFPv(void *);
+s32 TObjPlayer__sub_801B5920(s32, s32);
+void TWindowHelpItem__sub_80243544(void *, void *, int, u16, s32);
+void draw_action_palette_icon(void *, int, u16);
+extern const u8 lbl_805DCA10[4];
+extern const u8 lbl_805DCA14[4];
+extern const u8 lbl_805DCA18[4];
 s32 update_fade__17TWindowSubComCardFPv(void *);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_player_input_active(int);
@@ -96,6 +104,32 @@ void TWindowActionPalette::render() {
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {
     void* sprite=get_array_entry__20TWindowSubStatusDispFPvi(self,1);
     TWindowHelpItem__sub_8025B08C(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
+}
+
+extern "C" {
+void update_slot_sprites__20TWindowActionPaletteFv(void *arg0, int idx, int mode, u16 slot) {
+    s32 player;
+    u8 *help;
+    u8 *cursor;
+
+    player = get_player_by_client_id(*(s16 *)((u8 *)arg0 + 0x20));
+    if (player != 0) {
+        help = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette *)arg0, lbl_805DCA10[idx]);
+        if (TObjPlayer__sub_801B5920(player, lbl_805DCA14[idx]) != 0) {
+            *(s32 *)(help + 0x2C) = -1;
+        } else {
+            *(s32 *)(help + 0x2C) = 0xFF404040;
+        }
+        TWindowHelpItem__sub_80243544(get_array_entry__20TWindowSubStatusDispFPvi((TWindowActionPalette *)arg0, lbl_805DCA18[idx]), help, mode, slot, *(s16 *)((u8 *)arg0 + 0x20));
+        cursor = (u8 *)arg0 + 0x60 + idx * 4;
+        if ((u16)mode != get_type__11TMainCursorFPv(cursor) || get_enabled__11TMainCursorFPv(cursor) != slot) {
+            set_mode__20TWindowActionPaletteFPvUc(cursor, mode);
+            set_slot__20TWindowActionPaletteFPvUc(cursor, slot);
+            draw_action_palette_icon(help, mode, slot);
+        }
+    }
+}
+
 }
 
 #define SELF ((TWindowActionPalette *)arg0)

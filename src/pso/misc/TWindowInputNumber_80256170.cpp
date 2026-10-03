@@ -78,6 +78,21 @@ void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(void *, int);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 s32 is_confirmed__18TWindowInputNumberFPv(void *);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(int, int, int, int);
+s32 fn_80244994(void *);
+s32 update_fade__17TWindowSubComCardFPv(void *);
+s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 is_player_input_active(int);
+s32 mark_confirmed__18TWindowInputNumberFPv(void *);
+s32 confirm_input__18TWindowInputNumberFPv(void *);
+s32 update__18TWindowInputNumberFPv(void *);
+s32 update_value__18TWindowInputNumberFPv(void *);
+s32 handle_decrement__18TWindowInputNumberFPv(void *);
+s32 move_cursor_next__18TWindowInputNumberFPv(void *);
+s32 update_window_entry_list(void *, void *);
+s32 update_subwindow__20TWindowSubStatusDispFPv(int);
+extern const f32 lbl_805DCE54;
 
 extern const f32 lbl_805DCE18;
 
@@ -152,6 +167,64 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
             forward_render__20TWindowSubStatusDispFPv(temp_ptr, (int) (temp_r3));
         }
     }
+}
+
+void run_task__18TWindowInputNumberFv(u8 *arg0) {
+    s32 temp_r30;
+    u32 temp_r3;
+    u8 *temp_r29;
+    u8 *temp_r29_2;
+    u8 *temp_r29_3;
+
+    temp_r30 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
+    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    }
+    if ((is_confirmed__18TWindowInputNumberFPv((void *) (arg0)) == 0) && !(M2C_FIELD(arg0, u16 *, 0x60) & 0x40) && (fn_80244994((void *) (arg0)) != 0)) {
+        if (M2C_FIELD(arg0, u16 *, 0x60) & 0x10) {
+            temp_r29 = (u8 *)lbl_8050E208 + (temp_r30 * 0x50) + 0x20;
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x10)) != 0)) {
+                update_value__18TWindowInputNumberFPv((void *) (arg0));
+            }
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x20), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x20)) != 0)) {
+                update__18TWindowInputNumberFPv((void *) (arg0));
+            }
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x40), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x40)) != 0)) {
+                move_cursor_next__18TWindowInputNumberFPv((void *) (arg0));
+            }
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x80), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x80)) != 0)) {
+                handle_decrement__18TWindowInputNumberFPv((void *) (arg0));
+            }
+        } else {
+            temp_r29_2 = (u8 *)lbl_8050E208 + (temp_r30 * 0x50) + 0x20;
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x10)) != 0)) {
+                update_value__18TWindowInputNumberFPv((void *) (arg0));
+            }
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x20)) != 0)) {
+                update__18TWindowInputNumberFPv((void *) (arg0));
+            }
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x40), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x40)) != 0)) {
+                move_cursor_next__18TWindowInputNumberFPv((void *) (arg0));
+            }
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x80), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x80)) != 0)) {
+                handle_decrement__18TWindowInputNumberFPv((void *) (arg0));
+            }
+        }
+        temp_r29_3 = (u8 *)lbl_8050E208 + (temp_r30 * 0x50) + 0x20;
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (((s32 (*)(void *, int))TWindowInputNumber__sub_80256B0C)((void *) (arg0), (int) (4)) != 0)) {
+            confirm_input__18TWindowInputNumberFPv((void *) (arg0));
+        }
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (((s32 (*)(void *, int))TWindowInputNumber__sub_80256B0C)((void *) (arg0), (int) (2)) != 0)) {
+            mark_confirmed__18TWindowInputNumberFPv((void *) (arg0));
+        }
+    }
+    temp_r3 = M2C_FIELD(arg0, u32 *, 0x70);
+    if ((temp_r3 != 0U) && ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCE54)) {
+        update_subwindow__20TWindowSubStatusDispFPv((int) (temp_r3));
+    }
+    initialize_subwindow__9TWindowDDFPv((void *) (arg0));
+    update_fade__17TWindowSubComCardFPv((void *) (arg0));
+    update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 extern M2C_UNK __vt__18TWindowInputNumber[];
