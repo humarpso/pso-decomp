@@ -1853,6 +1853,7 @@ pso/misc/TTecDeband.cpp
 pso/misc/TTecFoie.cpp
 pso/misc/TTecFoie_802301EC.cpp
 pso/misc/TTecGiFoie.cpp
+pso/misc/TTecGiZonde.cpp
 pso/misc/TTecGiZonde_8023A4CC.cpp
 pso/misc/TTecGiZonde_8023CDC4.cpp
 pso/misc/TTecGrants.cpp
@@ -4082,6 +4083,7 @@ pso/unk/text_801C5470.cpp
 pso/unk/text_801C7430.cpp
 pso/unk/text_801C75A4.cpp
 pso/unk/text_801C7874.cpp
+pso/unk/text_801C7A6C.cpp
 pso/unk/text_801C851C.cpp
 pso/unk/text_801C88CC.cpp
 pso/unk/text_801C8A28.cpp

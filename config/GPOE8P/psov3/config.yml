@@ -74,7 +74,6 @@ force_active:
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjFish__sub_800E2FFC
-  - TObjPlayer__sub_800113A8
   - TObjPlayer__sub_800D9FC4
   - TObjPlayer__sub_800DA1F4
   - TObjPlayer__sub_80130A30
@@ -256,6 +255,7 @@ force_active:
   - check_any_player_in_range__12TObjRaderColFPv
   - check_local_player_in_range__12TObjRaderColFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
+  - clamp_hp_value__10TObjPlayerFPvPv
   - construct_cane_weapon
   - construct_dagger_weapon
   - construct_handgun_weapon
@@ -266,11 +266,13 @@ force_active:
   - construct_technique_disk_item
   - copy_motion_pair
   - count_plist_strips_by_texture
+  - count_unlocked_difficulties__12TLevelSelectFv
   - create__13TItemProArmorFiUi
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
   - create_icon__10TObjPlayerFiii
   - create_particle_emitters__9TTecBartaFPv
   - deduct_cap_excess__14TItemEquipBaseFiPvs
+  - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
   - disable_stealth_suit_effect__15TFontSmallLobbyFi
   - dispatch_callback
@@ -296,6 +298,7 @@ force_active:
   - enemy_tick_target_acquisition
   - evolve_first_form__8TItemMagFPv
   - find_area_technique_contact
+  - find_chain_targets__11TTecGiZondeFv
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_placement_obstruction
   - find_support_technique_contact
@@ -329,6 +332,7 @@ force_active:
   - handle_attachment_sample__17TObjEneBm3FlyNestFi
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
   - handle_equip_offer__24TShopEquipmentListWindowFv
+  - handle_grid_navigation__22TWindowSubCustomSelectFPv
   - handle_selection__24TShopEquipmentListWindowFv
   - has_serial_input__22TAdEnterSerialAccessGCFv
   - hook__15TItemEffBringerFv
@@ -354,6 +358,7 @@ force_active:
   - is_within_camera_distance
   - load_item_pmt
   - open_buy_window__22TShopEquipmentSequenceFPv
+  - open_equip_kind_list__15TWindowSubEquipFPvUi
   - open_greeting__20TShopItemTecSequenceFPv
   - open_greeting__22THunterGuildSeqOfflineFPv
   - open_greeting__22TShopEquipmentSequenceFPv
@@ -520,6 +525,8 @@ force_active:
   - update_buy_sell_choice__26TShopEquipmentGearSequenceFPv
   - update_customize_help_text
   - update_foot_stamp__10TObjPlayerFPvi
+  - update_letterbox_hide__9TCineCtrlFPv
+  - update_letterbox_show__9TCineCtrlFPv
   - update_light_direction__12TCharaMakingFPv
   - update_load_state__9TItemLoadFPv
   - update_selected_help__19TWindowSubTechniqueFPvi
