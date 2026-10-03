@@ -22,7 +22,7 @@ pso/misc/TKeyBoardControl_8000F764.cpp:
 pso/player/TObjPlayer_80011014.cpp:
 	.text       start:0x8000FD54 end:0x80019848
 	.rodata     start:0x80434080 end:0x80434090
-	.data       start:0x80480894 end:0x804808EC
+	.data       start:0x80480824 end:0x804808EC
 	.sdata2     start:0x805D7D1C end:0x805D7D74
 
 pso/ui/TAdADXlogo_80019848.cpp:
@@ -267,19 +267,7 @@ pso/boss/TObjBoss1Floor.cpp:
 	.text       start:0x8002CB40 end:0x8002CC48
 
 pso/boss/TBoss8Dragon_8002CC48.cpp:
-	.text       start:0x8002CC48 end:0x8002DAEC
-
-pso/boss/TBoss8Dragon_8002CC48_8002DAEC.cpp:
-	.text       start:0x8002DAEC end:0x8002DDB4
-
-pso/boss/TBoss8Dragon_8002CC48_8002DDB4.cpp:
-	.text       start:0x8002DDB4 end:0x8002DDDC
-
-pso/boss/TBoss8Dragon_8002CC48_8002DDDC.cpp:
-	.text       start:0x8002DDDC end:0x8002DEB0
-
-pso/misc/TDeadSpot_8002DEB0.cpp:
-	.text       start:0x8002DEB0 end:0x8002E090
+	.text       start:0x8002CC48 end:0x8002E090
 	.rodata     start:0x804355D0 end:0x804355D8
 
 pso/unk/text_8002E090.cpp:
@@ -8051,22 +8039,7 @@ pso/object/TObjAreaWarpQuest.cpp:
 	.text       start:0x8019DCD0 end:0x8019DD34
 
 pso/object/TObjWarpBossMulti.cpp:
-	.text       start:0x8019DD34 end:0x8019E48C
-
-pso/object/TObjWarpBossMulti_8019E48C.cpp:
-	.text       start:0x8019E48C end:0x8019E708
-
-pso/object/TObjWarpBossMulti_8019E708.cpp:
-	.text       start:0x8019E708 end:0x8019E97C
-
-pso/object/TObjWarpBossMulti_8019E97C.cpp:
-	.text       start:0x8019E97C end:0x8019EA7C
-
-pso/object/TObjWarpBossMulti_8019EA7C.cpp:
-	.text       start:0x8019EA7C end:0x8019F22C
-
-pso/object/TObjWarpBoss.cpp:
-	.text       start:0x8019F22C end:0x8019F510
+	.text       start:0x8019DD34 end:0x8019F510
 	.rodata     start:0x80446660 end:0x80446668
 
 pso/object/TObjWarpBoss_8019F510.cpp:
@@ -12375,11 +12348,8 @@ pso/misc/TWindowLoadItemTexture.cpp:
 	.text       start:0x8026297C end:0x80262C3C
 
 pso/unk/text_80262C3C.cpp:
-	.text       start:0x80262C3C end:0x80262DC4
+	.text       start:0x80262C3C end:0x80263A20
 	.rodata     start:0x8044F2C0 end:0x8044F2C8
-
-pso/misc/TWindowLockOn.cpp:
-	.text       start:0x80262DC4 end:0x80263A20
 
 pso/unk/text_80263A20.cpp:
 	.text       start:0x80263A20 end:0x80263AB0

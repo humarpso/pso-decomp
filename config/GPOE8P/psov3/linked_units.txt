@@ -229,9 +229,6 @@ pso/boss/TBoss8Dragon.cpp
 pso/boss/TBoss8DragonEffBreath.cpp
 pso/boss/TBoss8DragonEffBullet.cpp
 pso/boss/TBoss8Dragon_8002AE38.cpp
-pso/boss/TBoss8Dragon_8002CC48_8002DAEC.cpp
-pso/boss/TBoss8Dragon_8002CC48_8002DDB4.cpp
-pso/boss/TBoss8Dragon_8002CC48_8002DDDC.cpp
 pso/boss/TBoss8Dragon_8005D6F4.cpp
 pso/boss/TBoss8Dragon_8005D700.cpp
 pso/boss/TBoss8Dragon_8005D860.cpp
@@ -2507,9 +2504,6 @@ pso/object/TObjWarnChime.cpp
 pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
-pso/object/TObjWarpBossMulti_8019E48C.cpp
-pso/object/TObjWarpBossMulti_8019E708.cpp
-pso/object/TObjWarpBossMulti_8019E97C.cpp
 pso/object/TObjWarpBossMulti_801B3514.cpp
 pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp

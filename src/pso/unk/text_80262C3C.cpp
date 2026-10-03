@@ -1,6 +1,10 @@
 #include "types.h"
+#include <stddef.h>
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_7b8813
 {
   char pad[0x18];
@@ -41,19 +45,103 @@ struct VObj_18_7b8813 : VBase_18_7b8813 {
     virtual s32 m31();
 };
 
+struct Win_8026385C {
+    u8 pad00[0x24];
+    u8 m24[0x38];
+    s32 refresh_flags;
+    u8 pad60[4];
+    s32 retention;
+    u8 pad68[8];
+    void (Win_8026385C::*refresh)();
+};
+
+struct Win_8026366C {
+    u8 pad00[0x60];
+    u16 id;
+    u8 pad62[2];
+    s32 retention;
+    u8 pad68[8];
+    void (Win_8026366C::*refresh)();
+};
+
+struct Obj_80263370;
+typedef void (Obj_80263370::*Cb_80263370)();
+struct Lock_80263370 {
+    u8 pad0[0x20];
+    s16 player;
+    u8 pad22[2];
+    u8 sub[0x34 - 0x24];
+    f32 dist;
+    f32 w;
+    f32 h;
+    u8 pad40[0x50 - 0x40];
+    s32 i50;
+    u8 pad54[0x6C - 0x54];
+    f32 scale;
+    Cb_80263370 cb;
+};
+
+struct Ent_80263370 { u16 flags; u8 pad2[6]; f32 y; u8 padc[4]; f32 w; u8 pad14[8]; u8 kind; };
+
+struct Ent2_80263370 { u16 flags; u8 pad2[0xE]; s32 grade; };
+
 extern "C" {
-s32 obj_testFlags30(void *, s32);
-s8 TObjPlayer__sub_80102C30(void *);
-u8 *find_entity_by_id(u16);
-s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern const f32 lbl_805DD12C;
+
+extern u8 lbl_804D00DC[];
+extern Cb_80263370 lbl_804D0288;
+extern M2C_UNK __vt__13TWindowLockOn[];
 extern const f32 lbl_805DD100;
+extern const f32 TWindowLockOn__data_805DD110;
+extern const f32 lbl_805DD114;
+extern const f32 lbl_805DD118;
+extern const f32 lbl_805DD11C;
+extern const f32 lbl_805DD120;
+
+s32 obj_testFlags30(s32, M2C_UNK);
+s8 TObjPlayer__sub_80102C30(void *);
+s32 find_entity_by_id(u16);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void update_photon_blast_player_marker(s32, u32);
+s32 obj_isState3_324(void *);
+s32 get_target_id__13TWindowLockOnFPv(void *);
+s32 is_script_controlled__10TObjPlayerFPv(void *);
+void TWindow__close(void *);
+void update_fade__17TWindowSubComCardFPv(void *);
+void initialize_subwindow__9TWindowDDFPv(void *);
+void update_window_entry_list(void *, void *);
+void init_window_layout_entries(void *, void *, int);
+void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
+void calc_row_width__20TWindowSubStatusDispFv(void *);
+u8 get_field_ec__12TOSwitchItemFPv(void *);
+u8 calc_display_grade__5TItemFPv(void *);
+f32 get_item_star_row_width(void *);
+f32 get_target_distance__13TWindowLockOnFv(s32);
+s32 setup_window_draw_context(void *, void *);
+M2C_UNK draw_window_frame(void *, int);
+M2C_UNK draw_visible_window_entries(void *, void *, int);
+M2C_UNK TWindowSubStatusDisp__sub_80257CB8(s32);
+void __dl__7TObjectFPv(void *);
+void destroy_window_base__9TWindowDDFPvs(void *, int);
+void queue_destruction__7TObjectFv(void *);
+void *__nw__7TObjectFUl(u32);
+void *TWindowLockOn__ct(void *, s32, u16);
+
 void validate_target__13TWindowLockOnFPv(u8 *arg0);
-}
+bool TWindowLockOn__sub_80262DC4(s32 arg0);
+void refresh_ground_item__13TWindowLockOnFv(void);
+void TWindowLockOn__sub_80262FDC(u8 *arg0);
+M2C_UNK TWindowLockOn__update_for_enemy(s32, s32);
+M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
+M2C_UNK TWindowLockOn__update_for_other_player(s32, s32);
+void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
+void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id);
+void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1);
+void render__13TWindowLockOnFv(u8 *arg0);
+void run_task__13TWindowLockOnFv(Win_8026385C *w);
+void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1);
 
-extern "C" {
-
-typedef struct VBase_18_7b8813 VBase_18_7b8813;
-typedef struct VObj_18_7b8813 VObj_18_7b8813;
 #define PSO_VCALL_VObj_18_7b8813_m31(_self) (((VObj_18_7b8813 *)(_self))->m31())
 void validate_target__13TWindowLockOnFPv(u8 *arg0) {
   u16 temp_r3;
@@ -61,7 +149,7 @@ void validate_target__13TWindowLockOnFPv(u8 *arg0) {
   temp_r3 = *((u16 *) (((s8 *) arg0) + 0x60));
   if (temp_r3 != ((-1U) & 0xFFFFu))
   {
-    temp_r3_2 = (u8 *) find_entity_by_id(temp_r3);
+    temp_r3_2 = (u8 *) ((u8 *(*)(u16))find_entity_by_id)(temp_r3);
     if ((temp_r3_2 == 0) || (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3_2) == 0))
     {
       *((u16 *) (((s8 *) arg0) + 0x60)) = 0xFFFFU;
@@ -71,9 +159,9 @@ void validate_target__13TWindowLockOnFPv(u8 *arg0) {
       }
     }
     else
-      if (obj_testFlags30(temp_r3_2, 0x10000000) == 0)
+      if (((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x10000000) == 0)
     {
-      if (obj_testFlags30(temp_r3_2, 0x20000000) != 0)
+      if (((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x20000000) != 0)
       {
         if (PSO_VCALL_VObj_18_7b8813_m31(temp_r3_2) != 0)
         {
@@ -85,7 +173,7 @@ void validate_target__13TWindowLockOnFPv(u8 *arg0) {
         }
       }
       else
-        if ((obj_testFlags30(temp_r3_2, 0x80000000) != 0) && (TObjPlayer__sub_80102C30(temp_r3_2) != 0))
+        if ((((s32 (*)(void *, s32))obj_testFlags30)(temp_r3_2, 0x80000000) != 0) && (TObjPlayer__sub_80102C30(temp_r3_2) != 0))
       {
         *((u16 *) (((s8 *) arg0) + 0x60)) = 0xFFFFU;
         if (((f32) (*((s32 *) (((s8 *) arg0) + 0x64)))) > lbl_805DD100)
@@ -95,6 +183,165 @@ void validate_target__13TWindowLockOnFPv(u8 *arg0) {
       }
     }
   }
+}
+#undef PSO_VCALL_VObj_18_7b8813_m31
+
+bool TWindowLockOn__sub_80262DC4(s32 arg0) {
+    if (arg0 == 0) {
+        return 0;
+    }
+    if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x10000000))) != 0) {
+        if ((obj_isState3_324((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFPv((void *) (arg0)) != 0)) {
+            return 0;
+        }
+        return 1;
+    }
+    if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x20000000))) != 0) {
+        if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x40000000))) != 0) {
+            return 0;
+        }
+        return get_target_id__13TWindowLockOnFPv((void *) (arg0)) != 0;
+    }
+    return obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x80000000))) != 0;
+}
+
+void refresh_ground_item__13TWindowLockOnFv(void) {  }
+
+void TWindowLockOn__sub_80262FDC(u8 *arg0) {
+    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
+}
+
+#pragma push
+#pragma fp_contract on
+#define arg0 ((Lock_80263370 *)a0)
+#define item ((void *)a1)
+M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
+    Ent_80263370 *e;
+    Ent_80263370 *e2;
+    f32 r;
+    init_window_layout_entries(arg0->sub, lbl_804D00DC, arg0->player);
+    arg0->cb = lbl_804D0288;
+    e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);
+    calc_row_width__20TWindowSubStatusDispFv(e);
+    e->y = lbl_805DD114;
+    if (e->kind != 0x33) {
+        e->y += lbl_805DD118;
+    }
+    arg0->w = e->w;
+    arg0->h = lbl_805DD11C;
+    e2 = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    if (get_field_ec__12TOSwitchItemFPv(item) == 0 || get_field_ec__12TOSwitchItemFPv(item) == 1) {
+        ((Ent2_80263370 *)e2)->grade = calc_display_grade__5TItemFPv(item);
+        arg0->h += lbl_805DD120;
+        e2->flags &= ~2;
+        r = get_item_star_row_width(e2);
+        if (arg0->w < r) {
+            arg0->w = r;
+        }
+    } else {
+        e2->flags |= 2;
+    }
+    arg0->w += TWindowLockOn__data_805DD110;
+    arg0->dist = get_target_distance__13TWindowLockOnFv(0x1E) - arg0->h * arg0->scale;
+    arg0->i50 = 0;
+}
+#undef arg0
+#undef item
+#pragma pop
+
+void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1) {
+    TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
+    if (obj_testFlags30(arg1, 0x10000000) != 0) {
+        TWindowLockOn__update_for_other_player(arg0, arg1);
+        return;
+    }
+    if (obj_testFlags30(arg1, 0x80000000) != 0) {
+        TWindowLockOn__update_for_item((s32)(arg0), (s32)(arg1));
+        return;
+    }
+    if (obj_testFlags30(arg1, 0x20000000) != 0) {
+        TWindowLockOn__update_for_enemy(arg0, arg1);
+    }
+}
+
+void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id) {
+    s32 actor;
+
+    if (id == 0xFFFF) {
+        queue_destruction__7TObjectFv(w);
+        return;
+    }
+    actor = find_entity_by_id(id);
+    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(actor) == 0) {
+        return;
+    }
+    if (w->id == id) {
+        w->retention = 0x5A;
+        return;
+    }
+    if ((f32)w->retention > lbl_805DD12C) {
+        return;
+    }
+    w->id = id;
+    w->retention = 0x5A;
+    update_for_target__13TWindowLockOnFii((s32)w, actor);
+    if (w->refresh) {
+        (w->*w->refresh)();
+    }
+}
+
+void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1) {
+    void *p;
+    if (arg1 == 0xFFFF) {
+        return NULL;
+    }
+    if (((s32 (*)(s32))TWindowLockOn__sub_80262DC4)(find_entity_by_id(arg1)) == 0) {
+        return NULL;
+    }
+    p = __nw__7TObjectFUl(0x7C);
+    if (p != NULL) {
+        p = TWindowLockOn__ct(p, arg0, arg1);
+    }
+    return p;
+}
+
+void render__13TWindowLockOnFv(u8 *arg0) {
+    s32 temp_r3;
+
+    temp_r3 = setup_window_draw_context(arg0, arg0 + 0x68);
+    draw_window_frame(arg0, temp_r3);
+    if ((M2C_FIELD(arg0, f32 *, 0x30) == M2C_FIELD(arg0, f32 *, 0x40)) && (M2C_FIELD(arg0, f32 *, 0x34) == M2C_FIELD(arg0, f32 *, 0x44)) && (M2C_FIELD(arg0, f32 *, 0x38) == M2C_FIELD(arg0, f32 *, 0x48)) && (M2C_FIELD(arg0, f32 *, 0x3C) == M2C_FIELD(arg0, f32 *, 0x4C))) {
+        draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
+    }
+}
+
+void run_task__13TWindowLockOnFv(Win_8026385C *w) {
+    s32 old;
+    w->refresh_flags = 0x01000000;
+    if (w->refresh) {
+        (w->*w->refresh)();
+    }
+    ((void (*)(void *))validate_target__13TWindowLockOnFPv)(w);
+    initialize_subwindow__9TWindowDDFPv(w);
+    update_fade__17TWindowSubComCardFPv(w);
+    update_window_entry_list(w, w->m24);
+    old = w->retention;
+    w->retention = old - 1;
+    if (old < 0) {
+        TWindow__close(w);
+    }
+}
+
+void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowLockOn;
+        destroy_window_base__9TWindowDDFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 }
