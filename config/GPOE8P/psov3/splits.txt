@@ -2379,6 +2379,7 @@ pso/player/TObjPlayer_800ACA60_800ACD80.cpp:
 
 pso/player/TObjPlayer_800ACA60.cpp:
 	.text       start:0x800ACE48 end:0x800AF450
+	.rodata     start:0x8043B0C0 end:0x8043B0C8
 	.data       start:0x80491B08 end:0x80491B30
 
 pso/enemy/TObjEneMoja.cpp:
@@ -8467,6 +8468,8 @@ pso/misc/TScene_801A7E40.cpp:
 
 pso/misc/TPhotonConcentrate.cpp:
 	.text       start:0x801A7E58 end:0x801A85A0
+	.rodata     start:0x80446CC8 end:0x80446CD0
+	.sdata2     start:0x805DC130 end:0x805DC138
 
 pso/player/TObjPlayer_801A85A0.cpp:
 	.text       start:0x801A85A0 end:0x801A8618
