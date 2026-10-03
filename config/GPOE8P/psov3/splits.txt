@@ -11758,24 +11758,8 @@ pso/misc/TWindowArea.cpp:
 	.text       start:0x8024467C end:0x80244774
 
 pso/misc/TWindowSubComCard_80244774.cpp:
-	.text       start:0x80244774 end:0x80244CF4
-	.rodata     start:0x8044E678 end:0x8044E680
-
-pso/misc/TWindowDD_80244CF4.cpp:
-	.text       start:0x80244CF4 end:0x80244D2C
-
-pso/misc/TLobby_80244D2C.cpp:
-	.text       start:0x80244D2C end:0x80244D70
-
-pso/unk/text_80244D70.cpp:
-	.text       start:0x80244D70 end:0x80244DFC
-
-pso/unk/text_80244DFC.cpp:
-	.text       start:0x80244DFC end:0x8024503C
-
-pso/misc/TWindowSubComCard_8024503C.cpp:
-	.text       start:0x8024503C end:0x8024662C
-	.rodata     start:0x8044E680 end:0x8044E688
+	.text       start:0x80244774 end:0x8024662C
+	.rodata     start:0x8044E678 end:0x8044E688
 
 pso/misc/TWindowDD_8024662C.cpp:
 	.text       start:0x8024662C end:0x8024674C
@@ -12434,38 +12418,8 @@ pso/misc/TWindowMakeTeam_8026534C.cpp:
 	.text       start:0x8026534C end:0x80265410
 
 pso/misc/TWindowSubComCard_80265410.cpp:
-	.text       start:0x80265410 end:0x80265774
+	.text       start:0x80265410 end:0x80266BC4
 	.rodata     start:0x8044F320 end:0x8044F328
-
-pso/misc/TWindowMenu.cpp:
-	.text       start:0x80265774 end:0x802659AC
-
-pso/misc/TWindowSubComCard_802659AC.cpp:
-	.text       start:0x802659AC end:0x80266160
-
-pso/misc/TWindowOptionCtrl_80266160.cpp:
-	.text       start:0x80266160 end:0x802661D4
-
-pso/misc/TWindowSubComCard_802661D4.cpp:
-	.text       start:0x802661D4 end:0x80266354
-
-pso/object/TObjCityMainWarp_80266354.cpp:
-	.text       start:0x80266354 end:0x80266378
-
-pso/unk/text_80266378.cpp:
-	.text       start:0x80266378 end:0x80266388
-
-pso/unk/text_80266388.cpp:
-	.text       start:0x80266388 end:0x80266508
-
-pso/ui/TAdChrSelASlotGC_80266508.cpp:
-	.text       start:0x80266508 end:0x8026659C
-
-pso/misc/TWindowSubComCard_8026659C.cpp:
-	.text       start:0x8026659C end:0x8026667C
-
-pso/misc/TWindowMenu_8026667C.cpp:
-	.text       start:0x8026667C end:0x80266BC4
 
 pso/misc/TWindowSubComCard_80266BC4.cpp:
 	.text       start:0x80266BC4 end:0x80266BD0
