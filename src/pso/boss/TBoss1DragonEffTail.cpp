@@ -45,6 +45,32 @@ typedef struct EffTail_8002C06C {
     f32 unkC8;
 } EffTail_8002C06C;
 
+typedef s32 M2C_UNK;
+struct VBase_18_8002BD38 { char pad[0x18]; };
+
+struct VObj_18_8002BD38 : VBase_18_8002BD38 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15(void *, void *);
+};
+
+struct Pair_8002BD38 { s32 a, b; };
+
+struct Vec_8002BD38 { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
 s32 check_v2_mode__9TObjEneDDFv();
@@ -59,6 +85,25 @@ extern M2C_UNK __vt__19TBoss1DragonEffTail[];
 extern s32 lbl_805D2678;
 extern const f32 lbl_805D8154;
 EffTail_8002C06C *TBoss1DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK TBoss1Dragon__sub_8002885C(void *);
+M2C_UNK TBoss1Dragon__sub_80028890(void *);
+M2C_UNK TObjEneDD__sub_800BA838(void *, f32);
+f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 TBoss8Dragon__sub_803D64DC(s32);
+M2C_UNK TBoss4Zako__sub_803D8910(s32, s32, s32);
+M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK TObjPlayer__sub_803D9B2C(void);
+M2C_UNK pop_matrix(void);
+extern u8 lbl_80435454[];
+extern const f32 lbl_805D8148;
+extern const f32 lbl_805D814C;
+extern const f32 lbl_805D8150;
+extern const f32 lbl_805D8154;
+void run_task__19TBoss1DragonEffTailFv(u8 *arg0);
 }
 
 extern "C" {
@@ -76,6 +121,46 @@ void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 int fn_8002B094(void*);
 
 void render__19TBoss1DragonEffTailFv(void) {  }
+
+void run_task__19TBoss1DragonEffTailFv(u8 *arg0) {
+    u8 *p;
+    Vec_8002BD38 *src;
+    s32 i;
+    f32 f;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, M2C_FIELD(arg0, u8 **, 0xB4) + 0x24);
+    ((M2C_UNK (*)(void *, void *)) TBoss4Zako__sub_803D8910)(arg0 + 0x38, M2C_FIELD(arg0, u8 **, 0xB4) + 0x78);
+    M2C_FIELD(arg0, f32 *, 0x38) *= lbl_805D8148;
+    M2C_FIELD(arg0, f32 *, 0x40) *= lbl_805D8148;
+    M2C_FIELD(arg0, f32 *, 0x3C) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xB0), f32 *, 0x3C);
+    M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xB0), s32 *, 0x60);
+    src = M2C_FIELD(arg0, Vec_8002BD38 **, 0xB4);
+    TObjPlayer__sub_803D9B2C();
+    TObjPlayer__sub_803D8CD4(0);
+    rotate_matrix_y(0, -M2C_FIELD(arg0, s32 *, 0x60));
+    translate_matrix(0, -M2C_FIELD(arg0, f32 *, 0x38), -M2C_FIELD(arg0, f32 *, 0x3C), -M2C_FIELD(arg0, f32 *, 0x40));
+    for (i = 0; i < 0x11; i++) {
+        p = M2C_FIELD(arg0, u8 **, 0xA4) + i * 0x2C;
+        VecCopy__FP3VecPC3Vec(p + 0x1C, src);
+        TCameraCtrl__sub_803D8934(0, src++, p);
+        TObjEneDD__sub_800BA838(p, lbl_805D814C);
+    }
+    pop_matrix();
+    if (M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
+        M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805D8150 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805D8154;
+        M2C_FIELD(arg0, f32 *, 0xC8) = lbl_805D8150 * -TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    } else {
+        M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805D8150 * -TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805D8154;
+        M2C_FIELD(arg0, f32 *, 0xC8) = lbl_805D8150 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    }
+    {
+        Pair_8002BD38 sp8 = *(Pair_8002BD38 *) lbl_80435454;
+        TBoss1Dragon__sub_8002885C(M2C_FIELD(arg0, void **, 0xB0));
+        ((VObj_18_8002BD38 *) arg0)->m15(&sp8, M2C_FIELD(arg0, void **, 0xB8));
+    }
+    TBoss1Dragon__sub_80028890(M2C_FIELD(arg0, void **, 0xB0));
+}
 
 void TBoss1DragonEffTail__vt18(s32 arg0, s32 arg1) {
     TBoss4Zako__sub_803D8910(arg1 + 0x308, arg0 + 0xC0, arg0);

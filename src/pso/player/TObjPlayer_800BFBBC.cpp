@@ -150,6 +150,74 @@ struct VObj_18_800C1224 : VBase_18_800C1224 {
 };
 
 #include "pso/enemy/TObjEneLappy.h"
+
+struct VBase_18_800C0588 { char pad[0x18]; };
+
+struct VObj_18_800C0588 : VBase_18_800C0588 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual M2C_UNK m18(void *, f32);
+    virtual void m19();
+    virtual M2C_UNK m20(void *, f32);
+    virtual void m21();
+    virtual void m22();
+    virtual M2C_UNK m23(void *, f32);
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual M2C_UNK m57();
+};
+
+struct Sp800C0D3C { s32 a; s32 b; s32 c; };
+
+struct Vec_800C1144 { f32 x, y, z; };
+
 extern "C" {
 s32 TObjPlayer__sub_800F06B4(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -226,7 +294,6 @@ void TObjPlayer__sub_800BFF54(void *);
 void set_boss4_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK apply_move_friction__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_800C0318(void *);
-M2C_UNK TObjPlayer__sub_800C0588(void *);
 M2C_UNK TObjPlayer__sub_800C08A0(void *);
 M2C_UNK TObjPlayer__sub_800C0E30(void *);
 M2C_UNK fn_800C20C0();
@@ -273,6 +340,28 @@ s32 push_matrix_from(void *);
 s32 TCameraCtrl__sub_803D9858(s32);
 extern f32 lbl_8058D490[3][4];
 extern const f32 lbl_805D9F24;
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK enemy_set_heading_velocity(void *, int, f32);
+M2C_UNK enemy_turn_toward_dest(void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjPlayer__sub_800F06B4(s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+s32 play_sound_effect(s32, u32, M2C_UNK, s32);
+extern const f32 lbl_805D9F4C;
+extern const f32 lbl_805D9F54;
+extern const f32 lbl_805D9F58;
+extern const f32 lbl_805D9F5C;
+extern const f32 lbl_805D9F60;
+extern const f32 lbl_805D9F64;
+void TObjPlayer__sub_800C0588(u8 *arg0);
+s32 select_enemy_destination(void *, struct Sp800C0D3C *, M2C_UNK);
+void TObjPlayer__sub_800C0D3C(void *arg0);
+M2C_UNK obj_clearFlags30(void *, M2C_UNK);
+M2C_UNK project_actor_to_ground(void *, void *, M2C_UNK);
+extern const f32 lbl_805D9F7C;
+void TObjPlayer__sub_800C1144(void *arg0);
 }
 
 extern "C" {
@@ -538,6 +627,61 @@ void set_action_state_3__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFF9FFFFF);
     }
 }
+
+void TObjPlayer__sub_800C0588(u8 *arg0) {
+    u8 *temp_r3;
+    advance_animation_playback(arg0);
+    switch (M2C_FIELD(arg0, s16 *, 0x328)) {
+    case 0:
+        enemy_turn_toward_dest(arg0, (void *) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
+        apply_actor_gravity(arg0, 0, lbl_805D9F4C);
+        if (objInBand__FP7GameObjf(arg0, lbl_805D9F54) != 0) {
+            enemy_set_heading_velocity(arg0, M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4));
+            M2C_FIELD(arg0, f32 *, 0x30C) = lbl_805D9F4C;
+            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+        }
+        break;
+    case 1:
+        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+        M2C_FIELD(arg0, f32 *, 0x38) += M2C_FIELD(arg0, f32 *, 0x308);
+        M2C_FIELD(arg0, f32 *, 0x308) *= lbl_805D9F58;
+        M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x310);
+        M2C_FIELD(arg0, f32 *, 0x310) *= lbl_805D9F58;
+        apply_actor_gravity(arg0, 0, lbl_805D9F4C);
+        if (objInBand__FP7GameObjf(arg0, lbl_805D9F5C) != 0) {
+            temp_r3 = M2C_FIELD(arg0, u8 **, 0x2A8);
+            if (temp_r3 != NULL && ((VObj_18_800C0588 *) temp_r3)->m18(arg0, lbl_805D9F60) != 0) {
+                ((VObj_18_800C0588 *) M2C_FIELD(arg0, u8 **, 0x2A8))->m20(arg0, lbl_805D9F60);
+                ((VObj_18_800C0588 *) M2C_FIELD(arg0, u8 **, 0x2A8))->m23(arg0, lbl_805D9F64);
+            }
+            play_sound_effect(TObjPlayer__sub_800F06B4(0x3BC0D, 5), (u32) (arg0 + 0x38), 0, 0);
+            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+            M2C_FIELD(arg0, s16 *, 0x33C) = 0x1E;
+        }
+        break;
+    case 2:
+        apply_actor_gravity(arg0, 0, lbl_805D9F4C);
+        M2C_FIELD(arg0, s16 *, 0x33C)--;
+        if (M2C_FIELD(arg0, s16 *, 0x33C) < 0) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 3;
+        }
+        break;
+    case 3:
+        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+        M2C_FIELD(arg0, f32 *, 0x38) += M2C_FIELD(arg0, f32 *, 0x308);
+        M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x310);
+        apply_actor_gravity(arg0, 0, lbl_805D9F4C);
+        if (M2C_FIELD(arg0, u32 *, 0xB4) != 4U) {
+            M2C_FIELD(arg0, f32 *, 0x308) = M2C_FIELD(arg0, f32 *, 0x30C) = M2C_FIELD(arg0, f32 *, 0x310) = lbl_805D9F4C;
+            M2C_FIELD(arg0, s32 *, 0x30) &= 0xFFDFFFFF;
+            ((VObj_18_800C0588 *) arg0)->m57();
+            M2C_FIELD(arg0, s16 *, 0x33C) = 0;
+        }
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+}
+
 void enter_down_state__10TObjPlayerFPv(void *arg0) {
     u16 temp_r4;
     if (!(M2C_FIELD(arg0, s16 *, 0x374) & 0x42) && (obj_testFlags30(arg0, 0xA02) == 0) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 2)) {
@@ -567,6 +711,66 @@ typedef char RecoveredFields_800C1478_arg0_374_offset[offsetof(RecoveredFields_8
 typedef char RecoveredFields_800C1478_arg0_380_offset[offsetof(RecoveredFields_800C1478_arg0, field_380) == 0x380 ? 1 : -1];
 typedef char RecoveredFields_800C1478_temp_r3_30_offset[offsetof(RecoveredFields_800C1478_temp_r3, field_30) == 0x30 ? 1 : -1];
 typedef char RecoveredFields_800C1478_temp_r3_2_18_offset[offsetof(RecoveredFields_800C1478_temp_r3_2, field_18) == 0x18 ? 1 : -1];
+
+void TObjPlayer__sub_800C0D3C(void *arg0) {
+    s32 temp_r6;
+    u8 temp_r0;
+    void *temp_r3;
+    void *temp_r7;
+    if (!(M2C_FIELD(arg0, s16 *, 0x374) & 0x42) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0xA00)) {
+        if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 1) {
+            temp_r7 = M2C_FIELD(arg0, void **, 0x2A8);
+            if (temp_r7 != NULL) {
+                struct Sp800C0D3C sp8 = M2C_FIELD(temp_r7, struct Sp800C0D3C *, 0x2FC);
+                if (select_enemy_destination(arg0, &sp8, 1) == 1) {
+                    temp_r0 = M2C_FIELD(arg0, u8 *, 0x378);
+                    switch ((s8) temp_r0) {
+                    case 0:
+                        M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+                        break;
+                    case 1:
+                        M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+                        break;
+                    }
+                    M2C_FIELD(arg0, s16 *, 0x37A) = 0;
+                    M2C_FIELD(arg0, s16 *, 0x380) = 0;
+                    M2C_FIELD(arg0, u8 *, 0x378) = 0U;
+                    M2C_FIELD(arg0, s16 *, 0x326) = 1;
+                    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDBFFFF);
+                }
+            }
+        }
+        temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
+        M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
+    }
+}
+
+void TObjPlayer__sub_800C1144(void *arg0) {
+    s16 flags;
+    flags = M2C_FIELD(arg0, s16 *, 0x374);
+    if (!(flags & 2) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0xA00)) {
+        if (flags & 0x20) {
+            M2C_FIELD(arg0, s16 *, 0x374) = flags & ~0x20;
+            obj_clearFlags30(arg0, 0x02000000);
+            Vec_800C1144 v = M2C_FIELD(arg0, Vec_800C1144 *, 0x38);
+            if (project_actor_to_ground(arg0, &v, 0) == 1) {
+                M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805D9F7C + v.y;
+            }
+        }
+        if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
+            M2C_FIELD(arg0, s16 *, 0x326) = 0;
+            M2C_FIELD(arg0, s16 *, 0x328) = 0;
+            switch ((s8) M2C_FIELD(arg0, u8 *, 0x378)) {
+            case 0:
+                M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+                break;
+            case 1:
+                M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+                break;
+            }
+        }
+    }
+}
 
 void TObjPlayer__sub_800C1224(u8 *arg0) {
     s32 best_id;
@@ -655,7 +859,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
         TObjPlayer__sub_800C08A0((void *) (arg0));
         break;
     case 2:
-        TObjPlayer__sub_800C0588((void *) (arg0));
+        TObjPlayer__sub_800C0588((u8 *)((void *) (arg0)));
         break;
     case 3:
         update_invuln_timer__10TObjPlayerFPv((u8 *)((void *) (arg0)));

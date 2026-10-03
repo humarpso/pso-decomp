@@ -58,6 +58,12 @@ struct Cam_80068530 {
     f32 f5c;
 };
 
+struct Obj_8006809C { u8 pad0[0x38]; f32 x; f32 y; f32 z; u8 pad44[0x60 - 0x44]; s32 angle; };
+
+struct Hit_8006809C { u8 pad0[4]; void *pos; };
+
+struct Cam_8006809C { u8 pad0[0x1C]; Obj_8006809C *obj; u8 pad20[0x60 - 0x20]; Vec_8006835C out; };
+
 extern "C" {
 extern G_80068018 lbl_8050E208;
 extern M2C_UNK lbl_80488838[];
@@ -87,6 +93,30 @@ s32 get_camera_no__11TCameraCtrlFv(void);
 extern Flags_8006835C TCameraCtrl__data_804FF628;
 extern View_8006835C *lbl_805D4DF0;
 void apply_camera_controller_pose(Cam_80068530 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 is_split_screen();
+f32 get_random_float__8TObjFishFv();
+s32 get_camera_mode__11TCameraCtrlFv();
+Vec_8006835C *get_position_ptr__10TObjPlayerFPv(void *);
+Vec_8006835C *get_target_ptr__11TCameraCtrlFPv(void *);
+Hit_8006809C *csnVector(void *, void *, M2C_UNK);
+M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D89C0(void *, void *);
+f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK rotate_matrix_y(int, s32);
+void TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK push_matrix_from(void *);
+M2C_UNK TCameraCtrl__sub_803D9858(int);
+extern const Vec_8006835C lbl_80438168;
+extern const Vec_8006835C lbl_80438174;
+extern u8 lbl_8058D490[];
+extern View_8006835C *lbl_805D4DF0;
+extern const f32 TCameraCtrl__data_805D8F80;
+extern const f32 TCameraCtrl__data_805D8F84;
+extern const f32 lbl_805D8F88;
+extern const f32 lbl_805D8F8C;
+extern const f32 lbl_805D8F90;
+s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self);
 }
 
 extern "C" {
@@ -122,6 +152,83 @@ O_80068018 *TCameraCtrl__sub_80068018(O_80068018 *self) {
 }
 
 void set_target_pos__11TCameraCtrlFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x48) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4c) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x50) = *(f32*)((char*)q + 0x8); }
+
+#pragma push
+#pragma fp_contract on
+s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self) {
+    Vec_8006835C dir;
+    Vec_8006835C probe;
+    Vec_8006835C d;
+    Vec_8006835C *tgt;
+    Vec_8006835C *pos;
+    Vec_8006835C *a;
+    Vec_8006835C *b;
+    Hit_8006809C *hit;
+    f32 len;
+    f32 dist;
+    if (self->obj == NULL) {
+        return 0;
+    }
+    tgt = get_target_ptr__11TCameraCtrlFPv(self->obj);
+    pos = get_position_ptr__10TObjPlayerFPv(self->obj);
+    d.x = pos->x - tgt->x;
+    d.y = pos->y - tgt->y;
+    d.z = pos->z - tgt->z;
+    len = TBoss6Kakusan__sub_803D8BD8(&d);
+    if (len < TCameraCtrl__data_805D8F80) {
+        Vec_8006835C v1 = lbl_80438168;
+        Vec_8006835C v2 = lbl_80438174;
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, *(s32 *) lbl_805D4DF0->f194);
+        TCameraCtrl__sub_803D8934(0, &v1, &v1);
+        TCameraCtrl__sub_803D9858(1);
+        v1.y = TCameraCtrl__data_805D8F84;
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, self->obj->angle);
+        TCameraCtrl__sub_803D8934(0, &v2, &v2);
+        TCameraCtrl__sub_803D9858(1);
+        TObjPlayer__sub_803D89C0(&v1, &v2);
+        if (get_random_float__8TObjFishFv() > lbl_805D8F88) {
+            dist = TCameraCtrl__data_805D8F84;
+        } else {
+            dist = len * lbl_805D8F8C;
+        }
+    } else {
+        dist = len * lbl_805D8F8C;
+    }
+    if (is_split_screen() != 0) {
+        s32 mode = get_camera_mode__11TCameraCtrlFv();
+        View_80068530 *v = (View_80068530 *) lbl_805D4DF0;
+        a = &v->eye[mode];
+        b = &v->look[mode];
+        probe.y = v->look[mode].y;
+    } else {
+        a = &lbl_805D4DF0->pos;
+        b = &lbl_805D4DF0->target;
+        probe.y = lbl_805D4DF0->target.y;
+    }
+    dir.x = a->x - b->x;
+    dir.y = a->y - b->y;
+    dir.z = a->z - b->z;
+    if (TCameraCtrl__data_805D8F84 != TBoss6Kakusan__sub_803D8BD8(&dir)) {
+        TNpcPlayer__sub_803D97B4(&dir);
+    }
+    probe.x = dist * dir.x + self->obj->x;
+    probe.z = dist * dir.z + self->obj->z;
+    if (lbl_805D4DF0 == NULL) {
+        return 0;
+    }
+    hit = csnVector(a, &probe, 0x100);
+    if (hit != NULL) {
+        VecCopy__FP3VecPC3Vec(&self->out, hit->pos);
+        self->out.x -= lbl_805D8F90 * dir.x;
+        self->out.y -= lbl_805D8F90 * dir.y;
+        self->out.z -= lbl_805D8F90 * dir.z;
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
 
 void TCameraCtrl__sub_80068354(void) {  }
 void TCameraCtrl__sub_80068358(void) {  }

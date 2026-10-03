@@ -1744,6 +1744,7 @@ pso/boss/TObjBoss2Tunnel_8007E0CC.cpp:
 
 pso/boss/TObjBoss2Tunnel_8007E100.cpp:
 	.text       start:0x8007E100 end:0x8007E380
+	.sdata2     start:0x805D9234 end:0x805D9270
 
 pso/boss/TObjBoss2Tunnel_8007E380.cpp:
 	.text       start:0x8007E380 end:0x8007E3AC
@@ -2432,6 +2433,7 @@ pso/enemy/TObjEneBm3FlyNest_800B4160.cpp:
 
 pso/enemy/TObjEneBm3FlyNest_800B42F4.cpp:
 	.text       start:0x800B42F4 end:0x800B4820
+	.rodata     start:0x8043B3A0 end:0x8043B3A8
 
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp:
 	.text       start:0x800B4820 end:0x800B75A8

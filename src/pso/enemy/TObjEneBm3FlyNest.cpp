@@ -114,6 +114,25 @@ struct VObj_18 : VBase_18 {
 
 struct Obj_800B3E40 { u8 pad[0x18]; void *vtbl; u8 pad2[0x440 - 0x1c]; u8 arr[4][0x1c]; };
 
+typedef s32 M2C_UNK;
+typedef struct Vec_800B39CC {
+    f32 x, y, z;
+} Vec_800B39CC;
+
+typedef struct Nest_800B39CC {
+    u8 pad0[0x2C];
+    s16 f2C;
+    u8 pad2E[0x38 - 0x2E];
+    Vec_800B39CC pos;
+    u8 pad44[0x3B0 - 0x44];
+    s32 count;
+    s32 spawned;
+    u16 ids[6];
+    u16 nextId;
+    u8 pad3C6[0x3D4 - 0x3C6];
+    u8 f3D4[0xC];
+} Nest_800B39CC;
+
 extern "C" {
 s32 TObjEneBm3FlyNest__sub_800B3AC8(u8 *arg0);
 void update_replenish__17TObjEneBm3FlyNestFPv(u8 *arg0);
@@ -140,6 +159,15 @@ void __destroy_arr(void *, void *, u32, u32);
 void TObjEneDD__vt0(void *, int);
 void __dl__7TObjectFPv(void *);
 Obj_800B3E40 *TObjEneBm3FlyNest__sub_800B3E40(Obj_800B3E40 *self, s16 flag);
+int VecCopy__FP3VecPC3Vec(void*, void*);
+M2C_UNK spawn_particle_effect(void *, int);
+u32 create__13TObjEneBm3FlyFPvPvPvPvPv(void *, u16, s32, void *, void *);
+Vec_800B39CC *TObjEneBm3FlyNest__sub_800B2A54(void *);
+M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern Vec_800B39CC lbl_8043B304[];
+void TObjEneBm3FlyNest__sub_800B39CC(Nest_800B39CC *s);
 }
 
 extern "C" {
@@ -178,6 +206,24 @@ void init_params__17TObjEneBm3FlyNestFPv(void *arg0) {
     }
     if (temp_r0_2 > 0x1E) {
         M2C_FIELD(arg0, s32 *, 0x394) = 0x1E;
+    }
+}
+
+void TObjEneBm3FlyNest__sub_800B39CC(Nest_800B39CC *s) {
+    Vec_800B39CC velocity = lbl_8043B304[0];
+    Vec_800B39CC position;
+    s32 n;
+    if (s->count <= 6) {
+        n = (s->f2C + 1) + s->spawned;
+        VecCopy__FP3VecPC3Vec((void*)(&position), (void*)(TObjEneBm3FlyNest__sub_800B2A54(s)));
+        if (create__13TObjEneBm3FlyFPvPvPvPvPv(s, s->nextId, n, &position, &velocity) != 0) {
+            s->ids[s->count++] = s->nextId;
+            s->nextId++;
+            s->spawned++;
+            spawn_particle_effect(s->f3D4, 0xC8);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(s, 0x4003AB27), &s->pos, 0, 0);
+            play_effect_if_v2__10TObjPlayerFi(-0x400);
+        }
     }
 }
 
