@@ -15,6 +15,7 @@ struct RecoveredGlobal_8029916C_lbl_805409C8 {
 };
 
 typedef s32 M2C_UNK;
+
 extern "C" {
 u8 *get_creation_pad();
 f32 get_right_trigger_ratio__16TObjCMProportionFv(void);
@@ -28,6 +29,14 @@ extern s32 lbl_804DBDC0[];
 extern u8 lbl_8050E208[];
 extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
 void poll_pad_buttons__16TObjCMProportionFv(void);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 newton_sqrtf(f32);
+u8 *get_creation_pad();
+extern const f64 lbl_80465170;
+extern const f32 lbl_805DDC28;
+extern const f32 lbl_805DDC2C;
+extern const f32 lbl_805DDC30;
+void get_creation_pad_stick(s32 *arg0, f32 *arg1);
 }
 
 extern "C" {
@@ -45,6 +54,34 @@ f32 get_right_trigger_ratio__16TObjCMProportionFv(void) {
     return (f32) M2C_FIELD(get_creation_pad(), u16 *, 0x1A) / lbl_805DDC20;
 }
 typedef char RecoveredGlobal_8029914C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029914C_lbl_805409C8) == 0x18 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+void get_creation_pad_stick(s32 *arg0, f32 *arg1) {
+    f32 x;
+    f32 y;
+    f32 d;
+    s32 ang;
+    x = (f32)M2C_FIELD(get_creation_pad(), s16 *, 0x1C);
+    y = (f32)M2C_FIELD(get_creation_pad(), s16 *, 0x1E);
+    ang = (s32)(lbl_80465170 * get_ad_end_text_start__10TObjPlayerFv(x, -y));
+    d = newton_sqrtf(x * x + y * y) / lbl_805DDC28;
+    if (d > 1.0f) {
+        d = 1.0f;
+    }
+    if (d < lbl_805DDC2C) {
+        ang = 0;
+        d = lbl_805DDC30;
+    }
+    if (arg0 != NULL) {
+        *arg0 = ang;
+    }
+    if (arg1 != NULL) {
+        *arg1 = d;
+    }
+}
+#pragma pop
+
 u8 TObjCMProportion__sub_8029914C(s32 arg0) {
     return (u8) ((M2C_FIELD(&lbl_805409C8.value, s32 *, 0xC) & arg0) != 0);
 }

@@ -48,6 +48,80 @@ struct Vec_800B7018;
 struct Vec_800B78F8;
 struct Vec_800B79E0;
 struct Wolf_800B78F8;
+struct Vec_800B5D4C { f32 x, y, z; };
+
+struct Col_800B5D4C { u8 pad[0x18]; u32 flags; };
+
+struct Wolf_800B5D4C {
+    u8 pad0[0x38];
+    Vec_800B5D4C pos;
+    f32 f44;
+    u8 pad48[0x4C - 0x48];
+    f32 f4C;
+    u8 pad50[0x60 - 0x50];
+    s32 angle;
+    u8 pad64[0xA4 - 0x64];
+    Col_800B5D4C *col;
+    u8 padA8[0xB8 - 0xA8];
+    s16 fB8;
+    u8 padBA[0xC8 - 0xBA];
+    f32 fC8;
+    u8 padCC[0x390 - 0xCC];
+    Wolf_800B5D4C *target;
+    u8 pad394[0x400 - 0x394];
+    f32 f400;
+    f32 f404;
+    u8 pad408[0x41C - 0x408];
+    s32 f41C;
+    s32 f420;
+    s32 f424;
+    s32 f428;
+    s32 f42C;
+    u8 pad430[0x434 - 0x430];
+    f32 f434;
+    f32 f438;
+    u8 pad43C[0x444 - 0x43C];
+    Vec_800B5D4C f444;
+    Vec_800B5D4C f450;
+};
+
+extern "C" {
+f32 calc_boss4_scale__10TObjPlayerFi(s32);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
+s32 is_vec_xz_cross_negative(void *, void *);
+void play_footsteps__14TObjEneBm5WolfFPv(u8 *arg0);
+f32 calc_circle_offset__14TObjEneBm5WolfFPvPvPv(Obj_800B79E0 *self, Vec_800B79E0 *target, Vec_800B79E0 *out);
+void set_state_by_timer__14TObjEneBm5WolfFi(s32 arg0);
+void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
+s32 update_death_check__14TObjEneEpsilonFPv(void *);
+f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
+M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
+M2C_UNK set_active__9TObjEneDDFPv(void *);
+int has_move_failures__9TObjEneDDFPvi(void *, s32);
+M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 approach_angle_limited(int, int, int);
+M2C_UNK advance_animation_playback(void *);
+f32 sin_table_lookup(s32 angle);
+f32 cos_table_lookup(s32 angle);
+extern const f64 TObjEneBm5Wolf__data_8043B5B0;
+extern const f32 TObjEneBm5Wolf__data_805D9D78;
+extern const f32 TObjEneBm5Wolf__data_805D9D80;
+extern const f32 TObjEneBm5Wolf__data_805D9DAC;
+extern const f32 lbl_805D9DCC;
+extern const f32 TObjEneBm5Wolf__data_805D9DD0;
+extern const f32 lbl_805D9DF8;
+extern const f32 lbl_805D9DFC;
+extern const f32 lbl_805D9E00;
+extern const f32 lbl_805D9E04;
+extern const f32 lbl_805D9E08;
+extern const f32 lbl_805D9E0C;
+void circling_state__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1);
+}
+
 extern "C" {
 void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
@@ -883,7 +957,6 @@ void alerted_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void standing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void roaming_state__14TObjEneBm5WolfFi(u8 *arg0, s32 arg1);
 void chasing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
-void circling_state__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1);
 void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void despawn_state__14TObjEneBm5WolfFPvi(void *self, s32 msg);
 void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event);
@@ -1767,6 +1840,179 @@ void update_lunge__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
+#pragma push
+#pragma fp_contract on
+void circling_state__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1) {
+    Vec_800B5D4C *b;
+    Wolf_800B5D4C *self = (Wolf_800B5D4C *)arg0;
+    Vec_800B5D4C *a;
+    f32 vx;
+    f32 vz;
+    a = &self->f444;
+    b = &self->f450;
+    switch (arg1) {
+    case 4:
+        self->fB8 = 1;
+        set_field_378__9TObjEneDDFPvi(self, 10);
+        ((VObj_18_4225ac *)self)->m94();
+        self->f400 = lbl_805D9DF8;
+        self->f41C = 0;
+        self->f420 = 0;
+        self->f424 = 0;
+        self->f428 = 0;
+        self->f42C = 0;
+        self->f434 = TObjEneBm5Wolf__data_805D9D78;
+        self->f438 = TObjEneBm5Wolf__data_805D9D78;
+        a->x = TObjEneBm5Wolf__data_805D9D78;
+        a->y = TObjEneBm5Wolf__data_805D9D78;
+        a->z = TObjEneBm5Wolf__data_805D9D78;
+        b->x = TObjEneBm5Wolf__data_805D9D78;
+        b->y = TObjEneBm5Wolf__data_805D9D78;
+        b->z = TObjEneBm5Wolf__data_805D9D78;
+        set_active__9TObjEneDDFPv(self);
+        break;
+    case 3:
+        if (self->target == NULL) {
+            transition_enemy_state(self, 7);
+            break;
+        }
+        if (self->f41C > 450) {
+            self->f41C = 0;
+            if (((f32 (*)(void))calc_boss4_scale__10TObjPlayerFi)() < TObjEneBm5Wolf__data_805D9DAC) {
+                transition_enemy_state(self, 11);
+            }
+        } else if (self->f41C > 45) {
+            f32 dz = self->pos.z - self->target->pos.z;
+            f32 dx = self->pos.x - self->target->pos.x;
+            f32 d = dx * dx + dz * dz;
+            if (d >= lbl_805D9DFC) {
+                ((void (*)(void *))set_state_by_timer__14TObjEneBm5WolfFi)(self);
+            } else if (d < lbl_805D9E00) {
+                transition_enemy_state(self, 11);
+            } else {
+                f32 c;
+                vx = sin_table_lookup(self->target->angle);
+                c = cos_table_lookup(self->target->angle);
+                vz = vx * b->x + c * b->z;
+                if (vz < cos_table_lookup(0x6AAA)) {
+                    transition_enemy_state(self, 11);
+                }
+            }
+        }
+        break;
+    case 0:
+        advance_animation_playback(self);
+        if (update_death_check__14TObjEneEpsilonFPv(self) != 0) {
+            if (self->f424 == 0) {
+                Vec_800B5D4C fwd;
+                Vec_800B5D4C to;
+                self->f424 = 1;
+                VecCopy__FP3VecPC3Vec(a, &self->target->pos);
+                self->f434 = calc_circle_offset__14TObjEneBm5WolfFPvPvPv((Obj_800B79E0 *)self, (Vec_800B79E0 *)a, (Vec_800B79E0 *)b);
+                self->f438 = rand_range__9TObjEneDDFff(self, TObjEneBm5Wolf__data_805D9D80, lbl_805D9E04);
+                fwd.x = sin_table_lookup(self->angle);
+                fwd.y = TObjEneBm5Wolf__data_805D9D78;
+                fwd.z = cos_table_lookup(self->angle);
+                to.x = self->target->pos.x - self->pos.x;
+                to.y = TObjEneBm5Wolf__data_805D9D78;
+                to.z = self->target->pos.z - self->pos.z;
+                if (is_vec_xz_cross_negative(&fwd, &to) != 0) {
+                    self->f42C = -1;
+                } else {
+                    self->f42C = 1;
+                }
+            }
+            self->f41C++;
+            play_footsteps__14TObjEneBm5WolfFPv((u8 *)self);
+            if (self->f428 > 0) {
+                self->f428--;
+                if (self->f42C > 0) {
+                    self->f434 -= TObjEneBm5Wolf__data_805D9DAC;
+                } else {
+                    self->f434 += TObjEneBm5Wolf__data_805D9DAC;
+                }
+            } else {
+                f32 cur = self->f434;
+                f32 tgt = self->f438;
+                f32 diff = cur - tgt;
+                if (diff > lbl_805D9DCC) {
+                    self->f434 = cur - lbl_805D9DCC;
+                } else if (diff < lbl_805D9E08) {
+                    self->f434 = cur + lbl_805D9DCC;
+                } else {
+                    self->f434 = tgt;
+                }
+            }
+            switch (self->f424) {
+            case 1: {
+                self->f400 = lbl_805D9DF8;
+                approach_target__14TObjEneBm5WolfFPvf(self, lbl_805D9E0C);
+                calc_circle_offset__14TObjEneBm5WolfFPvPvPv((Obj_800B79E0 *)self, (Vec_800B79E0 *)a, (Vec_800B79E0 *)b);
+                if (self->f42C >= 0) {
+                    vx = b->z;
+                    vz = -b->x;
+                } else {
+                    vz = b->x;
+                    vx = -b->z;
+                }
+                if (has_move_failures__9TObjEneDDFPvi(self, 1) != 0) {
+                    set_active__9TObjEneDDFPv(self);
+                } else {
+                    clear_field_388__9TObjEneDDFPv(self);
+                }
+                move_with_wall_slide_on_ground__9TObjEneDDFPvfff(self, vx, vz, self->f404);
+                if (has_move_failures__9TObjEneDDFPvi(self, 10) != 0) {
+                    self->f420 = 0;
+                    self->f424 = 2;
+                }
+                break;
+            }
+            case 2: {
+                s32 ang;
+                f32 sx;
+                f32 cz;
+                self->f400 = TObjEneBm5Wolf__data_805D9DAC;
+                approach_target__14TObjEneBm5WolfFPvf(self, lbl_805D9E0C);
+                self->f420++;
+                if (self->f420 >= 40) {
+                    ang = self->angle;
+                } else {
+                    ang = self->angle + (self->f42C << 11);
+                }
+                sx = sin_table_lookup(ang);
+                cz = cos_table_lookup(ang);
+                if (has_move_failures__9TObjEneDDFPvi(self, 2) != 0) {
+                    self->f420 = 0;
+                    set_active__9TObjEneDDFPv(self);
+                } else {
+                    clear_field_388__9TObjEneDDFPv(self);
+                }
+                move_with_wall_slide_on_ground__9TObjEneDDFPvfff(self, sx, cz, self->f404);
+                if (self->f420 >= 80) {
+                    self->f424 = 0;
+                }
+                break;
+            }
+            }
+            self->angle = approach_angle_limited(self->angle,
+                (s32)(TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv(self->pos.x - self->f44, self->pos.z - self->f4C)),
+                0x200);
+            self->angle = (s16)self->angle;
+            self->fC8 = TObjEneBm5Wolf__data_805D9DD0 * self->f404;
+            turn_pose_to_target__14TObjEneBm5WolfFv(self);
+            ((VObj_18_4225ac *)self)->m87();
+            if (self->col->flags & 0x380000) {
+                self->f428 = 20;
+            }
+        }
+        break;
+    case 5:
+        clear_field_388__9TObjEneDDFPv(self);
+        break;
+    }
+}
+#pragma pop
+
 void flanking_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     s32 *ang = (s32 *)(arg0 + 0x42C);
     Vec_800B62AC *dst = (Vec_800B62AC *)(arg0 + 0x444);
@@ -2301,7 +2547,7 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         flanking_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 10:
-        circling_state__14TObjEneBm5WolfFv(arg0, event);
+        circling_state__14TObjEneBm5WolfFv((u8 *)(arg0), (s32)(event));
         break;
     case 11:
         update_lunge__14TObjEneBm5WolfFv((u8 *)(arg0), (s32)(event));

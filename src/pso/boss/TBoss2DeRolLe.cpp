@@ -20,6 +20,47 @@ struct Obj_80034034 { u8 pad[0x326]; s16 f326; };
 
 struct Obj_800333F4 { u8 pad0[0xB8]; s16 f_B8; };
 
+struct Obj_8002F73C { u8 pad0[0xB8]; s16 fB8; u8 pad1[0x3C0 - 0xBA]; u32 f3C0; };
+
+struct Obj_8002FCE4 {
+    u8 pad0[0x5C];
+    s32 f5C;
+    u8 pad1[0xB8 - 0x60];
+    s16 fB8;
+    u8 pad2[0x3C0 - 0xBA];
+    u32 f3C0;
+    u8 pad3[0x6A4 - 0x3C4];
+    f32 f6A4;
+};
+
+typedef struct DeRolLe_8002FD9C {
+    u8 pad0[0xB8];
+    s16 state;
+    u8 padBA[0x3C0 - 0xBA];
+    s32 flags;
+    u8 pad3C4[0x654 - 0x3C4];
+    s32 mode;
+} DeRolLe_8002FD9C;
+
+typedef s32 M2C_UNK;
+struct Vec_80030720 { f32 x, y, z; };
+
+struct Obj_80030720 {
+    u8 pad0[0xB8];
+    s16 fB8;
+    u8 padBA[0x390 - 0xBA];
+    s32 f390;
+    u8 pad394[0x3C0 - 0x394];
+    u32 f3C0;
+    u8 pad3C4[0x4D0 - 0x3C4];
+    u8 f4D0[0x524 - 0x4D0];
+    u8 f524[0x630 - 0x524];
+    s32 f630[5];
+    s32 f644[3];
+    u8 pad650[4];
+    s32 f654;
+};
+
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
@@ -29,13 +70,9 @@ extern RecoveredGlobal_800339BC_lbl_804FF5E8 lbl_804FF5E8;
 void TBoss2DeRolLe__sub_800339BC(s32 arg0, f32 farg0, f32 farg1);
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 void TBoss2DeRolLe__sub_8003383C(u8 *arg0);
-s32 TBoss2DeRolLe__sub_8002F73C(void *, void *);
 s32 TBoss2DeRolLe__sub_8002F7C4(void *, void *);
-s32 TBoss2DeRolLe__sub_8002FCE4(void *, void *);
-s32 TBoss2DeRolLe__sub_8002FD9C(void *, void *, int);
 s32 TBoss2DeRolLe__sub_8002FE60(void *, void *);
 s32 TBoss2DeRolLe__sub_80030588(void *, void *);
-s32 TBoss2DeRolLe__sub_80030720(void *, void *, int);
 s32 TBoss2DeRolLe__sub_80030898(void *, void *, int);
 s32 TBoss2DeRolLe__sub_80030A38(void *, void *);
 s32 TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
@@ -50,7 +87,6 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void TBoss2DeRolLe__sub_80034034(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
-void advance_animation_playback(void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 s32 check_v2_mode__9TObjEneDDFv(void);
@@ -59,6 +95,39 @@ extern s32 lbl_80482108[];
 extern s32 lbl_804821B8[];
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void queue_destruction__7TObjectFv(void *);
+void TBoss2DeRolLe__sub_80034258(void);
+void set_global_flag_200__15TObjBoss2TunnelFv(void);
+s32 is_active__15TObjBoss2TunnelFv(void);
+void set_global_flag_800__15TObjBoss2TunnelFv(void);
+void TBoss2DeRolLe__sub_8002F73C(Obj_8002F73C *self, u32 kind);
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_80034258(void);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+extern const f32 TBoss2DeRolLe__data_805D827C;
+extern const f32 TBoss2DeRolLe__data_805D82A0;
+extern const f32 lbl_805D82CC;
+void TBoss2DeRolLe__sub_8002FCE4(Obj_8002FCE4 *self, u32 kind);
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_800341F0(void *);
+void TBoss2DeRolLe__sub_80034C90(void *, s32);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+void set_global_flag_800__15TObjBoss2TunnelFv(void);
+void TBoss2DeRolLe__sub_8002FD9C(DeRolLe_8002FD9C *self, u32 arg1, s32 arg2);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+int play_sound(void* p, int a1);
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+M2C_UNK TBoss2DeRolLe__sub_800342C0(void *);
+void TBoss2DeRolLe__sub_80034C90(void *, s32);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+M2C_UNK TBoss2Mine__sub_80037AEC(s32, void *, s32, s32);
+M2C_UNK TBoss2Mine__sub_800380B8(s32, void *, void *);
+s32 enemy_has_live_target(void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+extern Vec_80030720 TBoss2DeRolLe__data_804FE268[];
+extern const f32 lbl_805D82F4;
+void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -85,6 +154,154 @@ void *get_enemy_entity(int);
 s32 objInBand__FP7GameObjf(void *, f32);
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void *);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
+
+void TBoss2DeRolLe__sub_8002F73C(Obj_8002F73C *self, u32 kind) {
+    switch (kind) {
+    case 4:
+        self->fB8 = 0x10;
+        TBoss2DeRolLe__sub_80034258();
+        self->f3C0 = self->f3C0 | 4;
+        self->f3C0 = self->f3C0 & 0xFFFFFEFF;
+        set_global_flag_200__15TObjBoss2TunnelFv();
+        if (is_active__15TObjBoss2TunnelFv() != 0) {
+            set_global_flag_800__15TObjBoss2TunnelFv();
+        }
+        break;
+    case 0:
+        queue_destruction__7TObjectFv(self);
+        break;
+    case 1:
+        return;
+    case 2:
+        return;
+    case 3:
+        return;
+    case 5:
+        return;
+    case 6:
+        return;
+    case 7:
+        return;
+    case 8:
+        return;
+    case 9:
+        return;
+    }
+}
+
+void TBoss2DeRolLe__sub_8002FCE4(Obj_8002FCE4 *self, u32 kind) {
+    switch (kind) {
+    case 4:
+        self->f3C0 = self->f3C0 | 4;
+        self->f3C0 = self->f3C0 & 0xFFFFFEFF;
+        TBoss2DeRolLe__sub_80034258();
+        self->f5C = 0;
+        self->f6A4 = TBoss2DeRolLe__data_805D827C;
+        return;
+    case 9:
+        if (self->fB8 == 1) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)(self));
+        }
+        break;
+    case 8:
+        if (self->f6A4 < lbl_805D82CC) {
+            TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(self), (s32)(0x1F));
+            return;
+        }
+        break;
+    case 0:
+        self->f6A4 = self->f6A4 - TBoss2DeRolLe__data_805D82A0;
+        break;
+    case 1:
+        return;
+    case 2:
+        return;
+    case 3:
+        return;
+    case 5:
+        return;
+    case 6:
+        return;
+    case 7:
+        return;
+    }
+}
+
+struct Obj_80034034;
+void TBoss2DeRolLe__sub_8002FD9C(DeRolLe_8002FD9C *self, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 4:
+        self->flags &= ~4;
+        self->flags |= 0x100;
+        self->state = 0xE;
+        TBoss2DeRolLe__sub_800341F0(self);
+        self->mode = 3;
+        TBoss2DeRolLe__sub_80034C90(self, self->mode);
+        if (arg2 != 0) {
+            set_global_flag_800__15TObjBoss2TunnelFv();
+        }
+        break;
+    case 2:
+        if (self->state == 1) {
+            TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)((struct Obj_80034034 *)self), (s32)(2));
+        }
+        break;
+    case 9:
+        if (self->state == 1) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)((struct Obj_80034034 *)self));
+        }
+        break;
+    case 0:
+        advance_animation_playback(self);
+        break;
+    }
+}
+
+void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2) {
+    u8 *pos;
+    s32 i;
+    s32 j;
+    switch (arg1) {
+    case 4:
+        self->f3C0 &= ~4;
+        self->f3C0 |= 0x100;
+        self->fB8 = 0xB;
+        self->f654 = 1;
+        TBoss2DeRolLe__sub_80034C90(self, self->f654);
+        break;
+    case 2:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
+            TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)self, 2);
+        }
+        break;
+    case 9:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)self);
+        }
+        break;
+    case 0:
+        advance_animation_playback((void *)(self));
+        if (objInBand__FP7GameObjf(self, lbl_805D82F4) != 0) {
+            pos = self->f4D0;
+            if (arg2 == 0x18) {
+                for (i = 0; i < 5; i++) {
+                    TBoss2Mine__sub_800380B8(self->f630[i], pos, &TBoss2DeRolLe__data_804FE268[i]);
+                }
+            } else if (enemy_has_live_target(self) != 0) {
+                for (j = 0; j < 3; j++) {
+                    TBoss2Mine__sub_80037AEC(self->f644[j], pos, self->f390, j);
+                }
+            }
+            ((int (*)(int, void *))play_sound)(0x4003A303, self->f524);
+        }
+        break;
+    case 6:
+        if (arg2 == 0x19) {
+            TBoss2DeRolLe__sub_800342C0(self);
+        }
+        break;
+    }
+}
 
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1) {
     switch (arg1) {
@@ -173,10 +390,10 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         TBoss2DeRolLe__sub_80030A38((void *) (arg0), (void *) (arg2));
         return;
     case 24:
-        TBoss2DeRolLe__sub_80030720((void *) (arg0), (void *) (arg2), (int) (0x18));
+        TBoss2DeRolLe__sub_80030720((Obj_80030720 *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (0x18)));
         return;
     case 25:
-        TBoss2DeRolLe__sub_80030720((void *) (arg0), (void *) (arg2), (int) (0x19));
+        TBoss2DeRolLe__sub_80030720((Obj_80030720 *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (0x19)));
         return;
     case 26:
         TBoss2DeRolLe__sub_80030588((void *) (arg0), (void *) (arg2));
@@ -185,19 +402,19 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         TBoss2DeRolLe__sub_8002FE60((void *) (arg0), (void *) (arg2));
         return;
     case 28:
-        TBoss2DeRolLe__sub_8002FD9C((void *) (arg0), (void *) (arg2), (int) (0));
+        TBoss2DeRolLe__sub_8002FD9C((DeRolLe_8002FD9C *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (0)));
         return;
     case 29:
-        TBoss2DeRolLe__sub_8002FD9C((void *) (arg0), (void *) (arg2), (int) (1));
+        TBoss2DeRolLe__sub_8002FD9C((DeRolLe_8002FD9C *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (1)));
         return;
     case 30:
-        TBoss2DeRolLe__sub_8002FCE4((void *) (arg0), (void *) (arg2));
+        TBoss2DeRolLe__sub_8002FCE4((Obj_8002FCE4 *)((void *) (arg0)), (u32)((void *) (arg2)));
         return;
     case 31:
         TBoss2DeRolLe__sub_8002F7C4((void *) (arg0), (void *) (arg2));
         return;
     case 32:
-        TBoss2DeRolLe__sub_8002F73C((void *) (arg0), (void *) (arg2));
+        TBoss2DeRolLe__sub_8002F73C((Obj_8002F73C *)((void *) (arg0)), (u32)((void *) (arg2)));
     default:
         return;
     }

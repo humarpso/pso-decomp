@@ -216,7 +216,7 @@ void sound_enable_irq(void);
 void sound_disable_irq(void);
 void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_803AA0C0_lbl_80556E88 lbl_80556E88;
-u16 lookup_sound_bank_index(s32 arg0, s32 arg1);
+u16 lookup_sound_bank_index(u8 arg0, u8 arg1);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
 s32 TLobby__sub_803AA1A0(s32 arg0);
@@ -1071,7 +1071,7 @@ void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 typedef char RecoveredGlobal_803AA0C0_lbl_80556E88_size[sizeof(RecoveredGlobal_803AA0C0_lbl_80556E88) == 0x100 ? 1 : -1];
-u16 lookup_sound_bank_index(s32 arg0, s32 arg1) {
+u16 lookup_sound_bank_index(u8 arg0, u8 arg1) {
     return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
 }
 
@@ -1768,6 +1768,180 @@ void set_sound_program_wait_state(Obj_803B312C *ov, s32 state) {
     o->state = state;
 }
 #undef o
+
+struct Prog_803B25CC;
+struct Ch_803B1E48;
+struct Obj_803B312C;
+struct Rec_803A8D2C;
+struct V_803B1F24;
+
+#pragma pack(push, 4)
+struct Voice_803B2128 {
+    u8 pad0[0x34];
+    u32 macroStart;
+    u32 macroCur;
+    Voice_803B2128 *next;
+    Voice_803B2128 *prev;
+    u8 pad44[0x4C - 0x44];
+    s32 state;
+    u8 pad50[0x8C - 0x50];
+    u8 f8C;
+    u8 f8D;
+    u8 pad8E[0x98 - 0x8E];
+    s64 f98;
+    u8 padA0[0xEC - 0xA0];
+    s32 fEC;
+    s32 fF0;
+    u32 fF4;
+    u8 padF8[0x100 - 0xF8];
+    u16 f100;
+    u16 f102;
+    u8 pad104[0x108 - 0x104];
+    s32 f108;
+    u8 pad10C[0x10E - 0x10C];
+    u16 f10E;
+    u32 f110;
+    u64 flags;
+    u8 pad11C;
+    u8 f11D;
+    u8 pad11E[0x12C - 0x11E];
+    u16 f12C;
+    u8 f12E;
+    u8 f12F;
+    u8 pad130[0x208 - 0x130];
+    u8 f208;
+    u8 f209;
+    u8 f20A;
+    u8 f20B;
+    u8 f20C;
+    u8 f20D;
+    u8 f20E;
+    u8 f20F;
+    u8 f210;
+    u8 pad211[0x3EC - 0x211];
+    u8 f3EC;
+    u8 f3ED;
+    u8 f3EE;
+    u8 pad3EF[0x404 - 0x3EF];
+};
+#pragma pack(pop)
+
+extern "C" {
+void free_sound_voice(Obj_803B312C *o);
+
+u32 start_sound_macro(u16);
+u32 alloc_sound_voice_id(Voice_803B2128 *, u32);
+void TLobby__sub_803B2B60(Voice_803B2128 *, u8);
+u32 allocate_sound_voice(u8, u32, u16, u8);
+void TLobby__sub_803BB4F0(u8, u8, u8);
+void TLobby__sub_803BB8AC(u8, u8);
+void TLobby__sub_803BCEC8(u32);
+
+#define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
+
+u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
+                      u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15) {
+    u32 macro;
+    s32 flag;
+    u16 r;
+    u32 id;
+    Voice_803B2128 *v;
+    u32 vid;
+
+    macro = start_sound_macro(arg0);
+    if (macro != 0) {
+        flag = arg4 & 0x80;
+        if (flag == 0) {
+            r = lookup_sound_bank_index(arg8, arg7);
+            if (r != 0xFFFF) {
+                arg1 = r;
+            }
+        }
+        id = allocate_sound_voice(arg1, arg2, arg3, flag != 0 ? 1 : 0);
+        if (id != 0xFFFFFFFF) {
+            v = (Voice_803B2128 *)((u8 *)lbl_805D73B0 + id * 0x404);
+            unlink_sound_program((Prog_803B25CC *)v);
+            if (v->state != 2) {
+                if (v->state == 0) {
+                    if (v->prev == NULL) {
+                        HEAD = v->next;
+                    } else {
+                        v->prev->next = v->next;
+                    }
+                    if (v->next != NULL) {
+                        v->next->prev = v->prev;
+                    }
+                }
+                dequeue_sound_program_deadline((Ch_803B1E48 *)v, 1);
+                v->state = 2;
+            }
+            v->flags = (v->flags & 0x10) | 2;
+            if (is_sound_hw_voice_active(id) != 0) {
+                v->flags |= 1;
+            }
+            v->f98 = 0;
+            if (flag != 0) {
+                v->f11D = 1;
+                arg4 &= 0x7F;
+                TLobby__sub_803BB4F0(id, 0xFF, 1);
+                TLobby__sub_803BB8AC(id, 0xFF);
+                v->f20A = id;
+                v->f20B = 0xFF;
+                v->f20C = 0;
+            } else {
+                v->f11D = 0;
+                v->f20A = arg7;
+                v->f20B = arg8;
+                v->f20C = arg9;
+            }
+            v->f102 = arg0;
+            v->f100 = arg3;
+            v->f110 = 0x75300000;
+            v->f10E = 0x400;
+            v->macroStart = macro;
+            v->macroCur = macro + arg10 * 8;
+            v->f12F = arg4;
+            v->f12C = arg4;
+            v->f12E = 0;
+            v->f208 = arg5;
+            v->f209 = arg6;
+            v->f20D = arg11;
+            v->f8C = 0;
+            v->f8D = 0;
+            v->fEC = -1;
+            v->fF0 = -1;
+            v->f108 = -1;
+            v->f20E = arg13;
+            v->f20F = arg14;
+            v->f210 = arg15 != 0 ? 0 : 1;
+            v->f3EE = 0;
+            v->f3ED = 0;
+            v->f3EC = 0;
+            v->fF4 = id | ((arg0 << 16) | ((arg4 << 8) & 0xFF00));
+            TLobby__sub_803B2B60(v, arg1);
+            vid = alloc_sound_voice_id(v, arg12);
+            if (vid != 0xFFFFFFFF) {
+                if (v->state != 0) {
+                    dequeue_sound_program_deadline((Ch_803B1E48 *)v, 0);
+                    if ((v->next = HEAD) != NULL) {
+                        HEAD->prev = v;
+                    }
+                    v->prev = NULL;
+                    HEAD = v;
+                    v->state = 0;
+                }
+                return vid;
+            }
+            if (is_sound_hw_voice_active(id) != 0) {
+                TLobby__sub_803BCEC8(id);
+            }
+            free_sound_voice((Obj_803B312C *)v);
+        }
+    }
+    return -1;
+}
+
+}
 
 void TLobby__sub_803B24A0(void) {
     s32 i;

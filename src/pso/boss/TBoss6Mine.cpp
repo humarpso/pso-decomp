@@ -103,6 +103,8 @@ f32 normalize_vector(void *);
 extern const f64 lbl_804766A0[];
 extern const f32 lbl_805DF588;
 void TBoss6Mine__sub_80323FA4(u8 *arg0);
+s32 play_persistent_sound(s32, s32, u32, s16, s32);
+void TBoss6Mine__vt2(u8 *arg0);
 }
 
 extern "C" {
@@ -324,6 +326,20 @@ void TBoss6Mine__vt3(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x38C) = 0;
         M2C_FIELD(arg0, s32 *, 0x380) = 4;
     }
+}
+
+void TBoss6Mine__vt2(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x39C) += 0.33333334f;
+    if (M2C_FIELD(arg0, f32 *, 0x39C) >= 10.0f) {
+        M2C_FIELD(arg0, f32 *, 0x39C) -= 10.0f;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3C) += 0.6944444f;
+    if (M2C_FIELD(arg0, f32 *, 0x3C) >= 75.0f) {
+        M2C_FIELD(arg0, f32 *, 0x3C) = 75.0f;
+        M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x380) = 3;
+    }
+    play_persistent_sound(0x4003B21C, (s32) arg0, (u32) (arg0 + 0x38), 0, 0);
 }
 
 void TBoss6Mine__vt1(void *arg0) {

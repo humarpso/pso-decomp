@@ -96,6 +96,43 @@ struct BreakUp_80096AD8 {
     f32 f50;
 };
 
+struct VBase_18_26a62c { char pad[0x18]; };
+
+struct VObj_18_26a62c : VBase_18_26a62c {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Vec_80097100 { f32 x, y, z; };
+
+struct Motion_80097100 { u8 pad0[4]; u32 count; };
+
+struct MotRef_80097100 { u8 pad0[4]; Motion_80097100 *mot; };
+
+struct Anim_80097100 { u8 pad0[4]; s32 idx; u8 pad8[8]; };
+
+struct Bringer_80097100 : VObj_18_26a62c {
+    u8 pad1C[0x24 - 0x1C];
+    void *texlist;
+    u8 pad28[0x34 - 0x28];
+    s32 f34;
+    u8 pos[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xD8 - 0x64];
+    Anim_80097100 *anims;
+    MotRef_80097100 *mots;
+    u8 padE0[0x354 - 0xE0];
+    f32 animIdx;
+    f32 frame;
+};
+
 extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -176,6 +213,23 @@ extern s32 lbl_805D2998;
 extern const f32 lbl_805D97D0;
 extern const f32 lbl_805D97D4;
 u8 *TBreakUpMdl__ct(u8 *arg0, void *arg1, Model_80096AD8 *arg2, void *arg3, s32 arg4, void *arg5, s32 arg6);
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, void *, int);
+int get_target_info__9TObjEneDDFPv(void*);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+void rotate_matrix_y(s32, s32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+void set_global_param__8TObjFishFi(void *);
+M2C_UNK draw_model_motion(s32, void *, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern Vec_80097100 lbl_8043A0E0;
+extern const f32 lbl_805D97D8;
+extern const f32 lbl_805D97DC;
+extern const f32 TObjEneDf2Bringer__data_805D97E0;
+void TObjEneDf2Bringer__vt104(Bringer_80097100 *self);
 }
 
 extern "C" {
@@ -439,6 +493,40 @@ u8 *TBreakUpMdl__sub_8009705C(u8 *arg0, s32 arg1) {
 }
 
 void copy__11TBreakUpMdlFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
+
+void TObjEneDf2Bringer__vt104(Bringer_80097100 *self) {
+    f32 frame;
+    s32 i;
+    Motion_80097100 *mot;
+    get_target_info__9TObjEneDDFPv((void*)(self));
+    if (self->m8(lbl_805D97D8, lbl_805D97DC) != 0) {
+        Vec_80097100 v = lbl_8043A0E0;
+        update_player_state__9TObjEneDDFPv(self, &v, 0);
+        toggle_particle_effect__10TObjPlayerFv();
+        set_global_param__8TObjFishFi(self->texlist);
+        push_matrix();
+        post_translate_matrix(self->pos);
+        rotate_matrix_y((s32)(0), (s32)(self->f60));
+        i = (s32)self->animIdx;
+        if (i < 0) {
+            i = 0;
+        } else if (i >= 11) {
+            i = 10;
+        }
+        mot = self->mots[self->anims[i].idx].mot;
+        frame = self->frame;
+        if (frame < TObjEneDf2Bringer__data_805D97E0) {
+            frame = TObjEneDf2Bringer__data_805D97E0;
+        } else if (frame > (f32)(mot->count - 1)) {
+            frame = (f32)(mot->count - 1);
+        }
+        set_global_flag__10TObjPlayerFv();
+        draw_model_motion(self->f34, mot, frame);
+        clear_global_state__10TObjPlayerFv();
+        pop_matrix();
+        end_effect_render__13TParticleCtrlFv();
+    }
+}
 
 void TObjEneDf2Bringer__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneDf2Bringer__sub_800994F8(p); } }
 

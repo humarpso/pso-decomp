@@ -221,6 +221,22 @@ typedef struct Player_801F9E9C {
     u8 sub828[4];
 } Player_801F9E9C;
 
+struct Glob_801F97C4 {
+    u8 pad0[0x28];
+    f32 f28;
+    u8 pad2c[0x4];
+    f32 f30;
+    u8 rest[0x44];
+};
+
+struct Glob_801F986C {
+    u8 pad0[0x28];
+    f32 f28;
+    u8 pad2c[0x4];
+    f32 f30;
+    u8 rest[0x44];
+};
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
@@ -420,6 +436,14 @@ extern const f32 lbl_805DC560;
 extern const f32 lbl_805DC570;
 extern const f32 lbl_805DC578;
 void gather_player_markers__13TRaderMapCoreFv(Core_801F9E9C *self);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
+extern s32 TRaderMapCore__data_805D5F3C;
+void pan_vertical__13TRaderMapCoreFv(f32 farg0);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
+extern s32 TRaderMapCore__data_805D5F3C;
+void pan_horizontal__13TRaderMapCoreFv(f32 farg0);
 }
 
 extern "C" {
@@ -608,6 +632,50 @@ void add_zoom_distance__13TRaderMapCoreFf(f32 farg0) {
 #define MAP_801F9C54 ((struct Map_801F9C54 *) TRaderMapCore__data_805D5F28)
 
 typedef char RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08_size[sizeof(RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08) == 0xA00 ? 1 : -1];
+
+void pan_vertical__13TRaderMapCoreFv(f32 farg0) {
+    if (TRaderMapCore__data_805D5F3C == 1 || TRaderMapCore__data_805D5F3C == 2) {
+        Glob_801F97C4 *g = (Glob_801F97C4 *)&TRaderMapCore__data_80513708;
+        g->f30 -= farg0;
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 0xD:
+        case 0xE:
+        case 0x1F:
+        case 0x23:
+            return;
+        default:
+            if (g->f30 < -6000.0f) {
+                g->f30 = -6000.0f;
+            }
+            if (g->f30 > 6000.0f) {
+                g->f30 = 6000.0f;
+            }
+            break;
+        }
+    }
+}
+
+void pan_horizontal__13TRaderMapCoreFv(f32 farg0) {
+    if (TRaderMapCore__data_805D5F3C == 1 || TRaderMapCore__data_805D5F3C == 2) {
+        Glob_801F986C *g = (Glob_801F986C *)&TRaderMapCore__data_80513708;
+        g->f28 -= farg0;
+        switch (get_global_state__14TOKeyMachine01Fv()) {
+        case 0xD:
+        case 0xE:
+        case 0x1F:
+        case 0x23:
+            return;
+        default:
+            if (g->f28 < -6000.0f) {
+                g->f28 = -6000.0f;
+            }
+            if (g->f28 > 6000.0f) {
+                g->f28 = 6000.0f;
+            }
+            break;
+        }
+    }
+}
 
 s32 add_radar_scaled_marker(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f32 scale) {
     Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__data_80513708;

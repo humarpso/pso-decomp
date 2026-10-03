@@ -18,6 +18,8 @@ typedef struct { f32 x, y, z; } Vec_800E0A44;
 
 struct Vec_800E0048 { f32 x, y, z; };
 
+struct Vec_800E0ED0 { f32 x, y, z; };
+
 extern "C" {
 void TObjEnePanarms__sub_800E0930(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -90,6 +92,25 @@ extern const f32 TObjEnePanarms__data_805DA530;
 extern const f32 lbl_805DA534;
 extern const f32 lbl_805DA53C;
 void TObjEnePanarms__sub_800E0048(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32, f32);
+s32 TObjEnePanarms__sub_800DFB44(s32);
+M2C_UNK TObjEnePanarms__sub_800E18B0(void *, void *);
+M2C_UNK TObjEnePanarms__sub_800E1C98(void *, s32);
+s32 check_can_attack__14TObjEnePanarmsFPv();
+f32 horizontal_distance_squared(void *, void *);
+s32 approach_angle_limited(s32, s32, M2C_UNK);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
+extern const f64 TObjEnePanarms__data_8043CDD0;
+extern const float TObjEnePanarms__data_805DA524;
+extern const f32 TObjEnePanarms__data_805DA52C;
+extern const f32 TObjEnePanarms__data_805DA530;
+extern const f32 TObjEnePanarms__data_805DA550;
+extern const f32 lbl_805DA564;
+extern const f32 lbl_805DA570;
+void TObjEnePanarms__sub_800E0ED0(u8 *arg0);
 }
 
 extern "C" {
@@ -389,6 +410,53 @@ void TObjEnePanarms__sub_800E0E88(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3B4) = 0x16;
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
     set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(1));
+}
+
+void TObjEnePanarms__sub_800E0ED0(u8 *arg0) {
+    Vec_800E0ED0 sp8;
+    f32 dist;
+    f32 v;
+    if (((s32 (*)(void *))check_can_attack__14TObjEnePanarmsFPv)(arg0) != 0) {
+        TObjEnePanarms__sub_800E1C98(arg0, 0x10);
+        return;
+    }
+    if (TObjEnePanarms__sub_800DFB44(M2C_FIELD(arg0, s32 *, 0x3A0)) != 0) {
+        TObjEnePanarms__sub_800E1C98(arg0, 2);
+        return;
+    }
+    VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38C);
+    subtract_vector(&sp8, arg0 + 0x38);
+    sp8.y = (*(const f32 *)&TObjEnePanarms__data_805DA524);
+    dist = vector_length(&sp8);
+    if (dist <= TObjEnePanarms__data_805DA52C) {
+        sp8.x = TObjEnePanarms__data_805DA530;
+        sp8.z = (*(const f32 *)&TObjEnePanarms__data_805DA524);
+    } else {
+        normalize_vector(&sp8);
+    }
+    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x37C), s32 *, 0x18) & 0x01C00000) {
+        f32 t = sp8.x;
+        sp8.x = sp8.z;
+        sp8.z = -t;
+    }
+    M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(sp8.x, sp8.z)), 0x208);
+    if (dist > lbl_805DA564) {
+        M2C_FIELD(arg0, f32 *, 0x3B0) = v = M2C_FIELD(arg0, f32 *, 0x3B0) + TObjEnePanarms__data_805DA550;
+        if (v > 0.6f) {
+            M2C_FIELD(arg0, f32 *, 0x3B0) = 0.6f;
+        }
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x3B0) = v = M2C_FIELD(arg0, f32 *, 0x3B0) - TObjEnePanarms__data_805DA550;
+        if (v < 0.3f) {
+            M2C_FIELD(arg0, f32 *, 0x3B0) = 0.3f;
+        }
+    }
+    sp8.x *= M2C_FIELD(arg0, f32 *, 0x3B0);
+    sp8.z *= M2C_FIELD(arg0, f32 *, 0x3B0);
+    TObjEnePanarms__sub_800E18B0(arg0, &sp8);
+    if (horizontal_distance_squared(arg0 + 0x38C, arg0 + 0x38) < lbl_805DA570) {
+        TObjEnePanarms__sub_800E1C98(arg0, 4);
+    }
 }
 
 void TObjEnePanarms__sub_800E1090(u8 *arg0) {

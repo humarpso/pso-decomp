@@ -16,6 +16,11 @@ struct RecoveredGlobal_802EC468_lbl_804FF5E8 {
     u8 remaining[0x24];
 };
 
+typedef s32 M2C_UNK;
+struct Ent_802E88F8 { s32 a; s32 b; };
+
+struct Fish_802E8AD4 { u8 pad[0x628]; u32 flags; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
@@ -31,6 +36,39 @@ s32 TObjFish__sub_802ED4AC(void *, int);
 s32 TObjFish__sub_802ED62C(void *, int);
 extern const f32 lbl_805DEA48;
 void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1);
+s32 advance_animation_playback(void *);
+s32 TObjFish__sub_802E7B40(void *);
+s32 TObjFish__sub_802EC7F0(void *);
+void TObjFish__sub_802E8528(void* o, u32 k);
+s32 advance_animation_playback(void *);
+s32 TObjFish__sub_802E7B94(void *);
+s32 TObjFish__sub_802EC7F0(void *);
+void TObjFish__sub_802E8584(void* o, u32 k);
+s32 advance_animation_playback(void *);
+s32 TObjFish__sub_802EC7F0(void *);
+extern Ent_802E88F8 *lbl_804E3C2C[];
+extern s32 lbl_805D5550;
+void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1);
+s32 advance_animation_playback(void *);
+s32 get_node_count__7TObjectFv(int);
+s32 TObjFish__sub_802EC7F0(void *);
+void TObjFish__sub_802E8990(u8 *arg0, u32 arg1);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 TObjFish__sub_802ECC44(void *);
+void set_flag_0x200__15TObjBoss2TunnelFv(void);
+s32 queue_destruction__7TObjectFv(void *);
+void TObjFish__sub_802E8AD4(Fish_802E8AD4* o, u32 k);
+s32 TObjFish__sub_802EC7F0(void *);
+s32 TObjFish__sub_802ECC44(void *);
+s32 TObjFish__sub_802ED62C(void *, int);
+extern const f32 lbl_805DEA10;
+extern const f32 lbl_805DEA40;
+extern const f32 lbl_805DEA44;
+void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 advance_animation_playback(void *);
+s32 TObjFish__sub_802ED62C(void *, int);
+void TObjFish__sub_802EBE50(void* o, u32 k);
 }
 
 extern "C" {
@@ -47,6 +85,148 @@ M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK spawn_default_particle__8TObjFishFv(s32, M2C_UNK);
+
+void TObjFish__sub_802E8528(void* o, u32 k) {
+    switch (k) {
+    case 0:
+        advance_animation_playback(o);
+        TObjFish__sub_802E7B40(o);
+        TObjFish__sub_802EC7F0(o);
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 4: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
+void TObjFish__sub_802E8584(void* o, u32 k) {
+    switch (k) {
+    case 0:
+        advance_animation_playback(o);
+        TObjFish__sub_802E7B94(o);
+        TObjFish__sub_802EC7F0(o);
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 4: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
+void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
+    s32 temp_r3;
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s32 *, 0x728) = lbl_804E3C2C[lbl_805D5550][M2C_FIELD(arg0, s32 *, 0x6B4)].b * 0x1E;
+        return;
+    case 0:
+        advance_animation_playback(arg0);
+        temp_r3 = M2C_FIELD(arg0, s32 *, 0x728);
+        M2C_FIELD(arg0, s32 *, 0x728) = temp_r3 - 1;
+        if (temp_r3 == 0) {
+            TObjFish__sub_802EC7F0(arg0);
+        }
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
+void TObjFish__sub_802E8990(u8 *arg0, u32 arg1) {
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s32 *, 0x728) = M2C_FIELD(arg0, s16 *, 0xF4);
+        M2C_FIELD(arg0, s16 *, 0xF4) = 1;
+        return;
+    case 0:
+        advance_animation_playback(arg0);
+        if (get_node_count__7TObjectFv(M2C_FIELD(arg0, s32 *, 0x7A4)) == 0) {
+            TObjFish__sub_802EC7F0(arg0);
+        }
+        return;
+    case 5:
+        M2C_FIELD(arg0, s16 *, 0xF4) = M2C_FIELD(arg0, s32 *, 0x728);
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
+void TObjFish__sub_802E8AD4(Fish_802E8AD4* o, u32 k) {
+    switch (k) {
+    case 4:
+        set_field_b8__14TObjEnePanarmsFPvs(o, 0x10);
+        TObjFish__sub_802ECC44(o);
+        o->flags |= 4;
+        o->flags &= 0xFFFFFEFF;
+        set_flag_0x200__15TObjBoss2TunnelFv();
+        return;
+    case 0:
+        queue_destruction__7TObjectFv(o);
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+
+void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1) {
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s32 *, 0x628) = M2C_FIELD(arg0, s32 *, 0x628) | 4;
+        M2C_FIELD(arg0, s32 *, 0x628) = M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFEFF;
+        TObjFish__sub_802ECC44(arg0);
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+        M2C_FIELD(arg0, f32 *, 0x6F0) = lbl_805DEA10;
+        return;
+    case 9:
+        if (M2C_FIELD(arg0, s16 *, 0xB8) == 1) {
+            TObjFish__sub_802EC7F0(arg0);
+        }
+        return;
+    case 8:
+        if (M2C_FIELD(arg0, f32 *, 0x6F0) < lbl_805DEA40) {
+            TObjFish__sub_802ED62C(arg0, 0x1C);
+        }
+        return;
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0x6F0) = M2C_FIELD(arg0, f32 *, 0x6F0) - lbl_805DEA44;
+        return;
+    case 1: return;
+    case 2: return;
+    case 3: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    }
+}
 
 void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1) {
     switch (arg1) {
@@ -77,6 +257,27 @@ void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1) {
             set_effect_target_position__8TObjFishFPvPvPv((void*)((void *) (arg0)), (void*)((int) (0x39906)), (void*)((void *) ((u8 *)(arg0) + 0x50C)));
         }
         break;
+    }
+}
+
+void TObjFish__sub_802EBE50(void* o, u32 k) {
+    switch (k) {
+    case 4:
+        set_field_b8__14TObjEnePanarmsFPvs(o, 1);
+        return;
+    case 2:
+        TObjFish__sub_802ED62C(o, 1);
+        return;
+    case 0:
+        advance_animation_playback(o);
+        return;
+    case 1: return;
+    case 3: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
     }
 }
 

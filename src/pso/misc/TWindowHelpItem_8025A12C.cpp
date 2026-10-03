@@ -67,7 +67,6 @@ void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 int TWindowHelpItem__sub_8025A600(void* p);
 void draw_window_text(void *, void *, s32, s32, f32);
-void draw_number_value__15TWindowHelpItemFv(void *, void *, s32, s32, s32);
 extern char lbl_8044F020[];
 extern const f32 lbl_805DCF70;
 extern const f32 lbl_805DCF74;
@@ -91,6 +90,15 @@ extern const f32 lbl_805DCFBC;
 extern const f32 lbl_805DCFC0;
 extern const f32 lbl_805DCFC4;
 void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
+s32 get_shared_text_buffer();
+u32 calc_text_width(void *);
+void text_builder_reset();
+void TWindowSubStatusDisp__sub_80228F5C(s32);
+void text_builder_append(void *);
+void draw_window_text(void *, void *, s32, s32, f32);
+extern u8 lbl_805DCF68[4];
+extern const f32 lbl_805DCF6C;
+void draw_number_value__15TWindowHelpItemFv(void *entry, f32 *pos, s32 value, s32 color, s32 percent);
 }
 
 extern "C" {
@@ -128,6 +136,18 @@ void update_visible_flags__15TWindowHelpItemFPv(u16 *arg0) {
             set_flag8_and_field20__15TWindowHelpItemFPvi((void *)(arg0), (s32)(0));
         }
     }
+}
+
+void draw_number_value__15TWindowHelpItemFv(void *entry, f32 *pos, s32 value, s32 color, s32 percent) {
+    f32 xy[2];
+    text_builder_reset();
+    TWindowSubStatusDisp__sub_80228F5C(value);
+    if (percent) {
+        text_builder_append(lbl_805DCF68);
+    }
+    xy[0] = pos[0] - (f32)calc_text_width((void *)get_shared_text_buffer());
+    xy[1] = pos[1];
+    draw_window_text(xy, (void *)get_shared_text_buffer(), color, 0, lbl_805DCF6C);
 }
 
 void set_flag_0x10__15TWindowHelpItemFPvi(u16 *arg0, s32 arg1) {
@@ -194,7 +214,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
     draw_window_text(&pos, lbl_805DCF80, -1, 0, lbl_805DCF78);
     pos.x += lbl_805DCF84;
     if (self->flags & 4) {
-        draw_number_value__15TWindowHelpItemFv(self, &pos, self->cur, self->value10, TWindowHelpItem__sub_8025A600((void*)(self)));
+        draw_number_value__15TWindowHelpItemFv((void *)(self), (f32 *)(&pos), (s32)(self->cur), (s32)(self->value10), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
     }
     if (self->flags & 8) {
         draw_window_text(&pos, lbl_8044F020, -1, 0, lbl_805DCF78);
@@ -208,7 +228,7 @@ void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *
         } else {
             color = 0xFFDD8C41;
         }
-        draw_number_value__15TWindowHelpItemFv(self, &pos, self->next, color, TWindowHelpItem__sub_8025A600((void*)(self)));
+        draw_number_value__15TWindowHelpItemFv((void *)(self), (f32 *)(&pos), (s32)(self->next), (s32)(color), (s32)(TWindowHelpItem__sub_8025A600((void*)(self))));
     }
 }
 

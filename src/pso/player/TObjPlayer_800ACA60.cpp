@@ -289,6 +289,52 @@ struct Moja_800AE450 {
     s32 f384;
 };
 
+struct Ang_800AD3D8 { s32 x, y, z; };
+
+struct TgtBase_800AD3D8 { u8 pad[0x18]; };
+
+struct Tgt_800AD3D8 : TgtBase_800AD3D8 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, Hit_800ACFE8, s32, s32, s32);
+    u8 pad1C[0x2FC - 0x1C];
+    Vec_800AE18C pos;
+};
+
+struct MojaInfo_800AD3D8 { u8 pad0[4]; f32 speed; s32 turn; };
+
+struct Moja_800AD3D8 {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0x60 - 0x34];
+    s32 rot_y;
+    u8 pad64[0xB4 - 0x64];
+    u32 anim_state;
+    s16 anim;
+    u8 padBA[0x2A8 - 0xBA];
+    Tgt_800AD3D8 *target;
+    u8 pad2AC[0x2FC - 0x2AC];
+    Vec_800AE18C pos;
+    u8 pad308[0x318 - 0x308];
+    u32 f318;
+    u8 pad31C[0x328 - 0x31C];
+    s16 phase;
+    u8 pad32A[0x338 - 0x32A];
+    u16 target_id;
+    u8 pad33A[2];
+    s16 timer;
+    u8 pad33E[0x350 - 0x33E];
+    MojaInfo_800AD3D8 *info;
+    u8 pad354[0x368 - 0x354];
+    s32 kind;
+    u8 pad36C[0x384 - 0x36C];
+    s32 count;
+};
+
 extern "C" {
 void begin_attack__11TObjEneMojaFPv(Moja_800ADE48 *self);
 s32 update_movement_status__10TObjPlayerFv();
@@ -339,7 +385,6 @@ M2C_UNK update_death_state__11TObjEneMojaFv(void *);
 M2C_UNK update_ground_effect__10TObjPlayerFPv(void *);
 void update_invincibility__10TObjPlayerFPv(void *arg0);
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
-M2C_UNK update_technique_state__11TObjEneMojaFv(void *);
 M2C_UNK update_approach_state__11TObjEneMojaFPv(u8 *arg0);
 struct Moja_800AE450;
 M2C_UNK update_idle_state__11TObjEneMojaFv(void *);
@@ -510,6 +555,60 @@ extern const f32 lbl_805D9C0C;
 extern const f32 lbl_805D9C3C;
 extern const f32 lbl_805D9C40;
 void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self);
+u8 *get_player_by_client_id(u16);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
+u8 *get_enemy_entity(u16);
+M2C_UNK advance_animation_playback();
+s32 select_enemy_destination(void *, Vec_800AE18C *, int);
+M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
+s32 enemy_turn_toward_dest(void *, s32);
+void enemy_set_heading_velocity(void *, s32, f32);
+M2C_UNK move_with_wall_slide(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
+s32 update_angle__10TObjPlayerFPviPv(void *, s32, void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 push_matrix_from(void *);
+M2C_UNK rotate_matrix_y(int, int);
+s32 rotate_vector_by_matrix(int, void *, void *);
+void pop_matrices(s32);
+void vec3_add_to(void *, void *);
+s32 get_field_0c__10TObjPlayerFPv(u32);
+s32 calc_technique_level__11TObjEneMojaFPv(void *);
+void create__9TTecMegidFiiii(void *, void *, void *, s32);
+void create_ex__9TTecMegidFiiii(void *, void *, s32, s32);
+M2C_UNK play_sound_effect(void *, void *, int, int);
+M2C_UNK spawn_particle_effect(void *, int);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+M2C_UNK pop_matrix();
+void *__nw__7TObjectFUl(u32);
+f32 get_pos_x__10TObjPlayerFPv(u32);
+void TTecZonde__sub_8023DA10(void *, s32, void *, void *, s32, s32, f32, f32);
+void create_ex__11TTecGiBartaFPvPvPvPv(void *, void *, s32, s32);
+void create_ex__8TTecFoieFPvPvPvPv(void *, void *, void *, s32);
+void create__8TTecFoieFPvPvPvPv(void *, void *, s32, s32);
+f32 newton_sqrtf(f32);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void spawn_directional_particle(void *, void *, s32);
+void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+extern const f64 lbl_8043B0C8[];
+extern u8 lbl_8058D490[];
+extern s32 lbl_805D5550;
+extern s32 tl_07;
+extern const f32 lbl_805D9BD8;
+extern const f32 lbl_805D9BDC;
+extern const f32 lbl_805D9C08;
+extern const f32 lbl_805D9C10;
+extern const f32 lbl_805D9C14;
+extern const f32 lbl_805D9C18;
+extern const f32 lbl_805D9C1C;
+extern const f32 lbl_805D9C20;
+extern const f32 lbl_805D9C24;
+M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8);
 }
 
 extern "C" {
@@ -673,6 +772,177 @@ void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *arg0) {
 }
 
 #define arg0 ((u8 *)self_800ADAAC)
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+#define self ((Moja_800AD3D8 *)self_800AD3D8)
+M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8) {
+    Vec_800AE18C dir;
+    Vec_800AE18C pos;
+    Ang_800AD3D8 ang;
+    s32 ang2;
+    void *obj;
+    u8 *p;
+    s32 a;
+    u16 id;
+    id = self->target_id;
+    if (id < 0x1000) {
+        p = get_player_by_client_id(id);
+        if (p != NULL && get_field_3e4__10TObjPlayerFPv((int) p) == get_current_floor() &&
+            get_stat_by_key_state__10TObjPlayerFPv(self) == get_stat_by_key_state__10TObjPlayerFPv(p)) {
+            self->target = (Tgt_800AD3D8 *) p;
+        } else {
+            self->target = NULL;
+        }
+    } else if (id < 0x4000) {
+        self->target = (Tgt_800AD3D8 *) get_enemy_entity(id);
+    } else {
+        self->target_id = 0xFFFF;
+        self->target = NULL;
+    }
+    ((M2C_UNK (*)(void *)) advance_animation_playback)(self);
+    switch (self->phase) {
+    case 0:
+    default:
+        if (self->target == NULL) {
+            self->phase = 2;
+            self->count = -1;
+            self->flags &= 0xFFDFFFFF;
+        } else {
+            Vec_800AE18C dest = self->target->pos;
+            if (select_enemy_destination(self, &dest, 1) != 0) {
+                Vec_800AE18C cur = self->pos;
+                copy_position_if_valid__10TObjPlayerFii(self, &cur);
+                a = enemy_turn_toward_dest(self, self->info->turn);
+                enemy_set_heading_velocity(self, self->rot_y, self->info->speed);
+                move_with_wall_slide(self);
+            } else {
+                VecCopy__FP3VecPC3Vec(&dir, &self->target->pos);
+                subtract_vector(&dir, &self->pos);
+                a = update_angle__10TObjPlayerFPviPv(self, self->info->turn, &dir);
+            }
+            if (a < 0x100) {
+                self->phase = 1;
+                self->anim = 4;
+            } else {
+                self->anim = 2;
+            }
+        }
+        break;
+    case 1:
+        if (objInBand__FP7GameObjf(self, lbl_805D9C10) != 0) {
+            pos.x = lbl_805D9BD8;
+            pos.y = lbl_805D9C14;
+            pos.z = lbl_805D9C18;
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(0, self->rot_y);
+            rotate_vector_by_matrix((int)(0), (void *)(&pos), (void *)(&pos));
+            pop_matrices(1);
+            vec3_add_to(&pos, &self->pos);
+            if (self->target != NULL) {
+                VecCopy__FP3VecPC3Vec(&dir, &self->target->pos);
+                subtract_vector(&dir, &self->pos);
+                ang2 = update_angle__10TObjPlayerFPviPv(self, self->info->turn, &dir);
+            } else {
+                ang2 = get_field_0c__10TObjPlayerFPv(self->f318);
+            }
+            if (lbl_805D5550 == 3) {
+                switch (self->kind) {
+                case 1:
+                    if (ang2 < get_field_0c__10TObjPlayerFPv(self->f318) / 2 && self->target != NULL) {
+                        create__9TTecMegidFiiii(self, &pos, &self->target->pos, calc_technique_level__11TObjEneMojaFPv(self));
+                    } else {
+                        create_ex__9TTecMegidFiiii(self, &pos, self->rot_y, calc_technique_level__11TObjEneMojaFPv(self));
+                    }
+                    play_sound_effect((void *) 0x4002A60B, &pos, 0, 0);
+                    break;
+                default:
+                    spawn_particle_effect(&pos, 0xB9);
+                    spawn_particle_effect(&pos, 0xBA);
+                    if (ang2 < get_field_0c__10TObjPlayerFPv(self->f318) / 2) {
+                        if (update_scale__15TObjBoss2TunnelFPv(&dir) < lbl_805D9C1C) {
+                            dir.y = dir.x = lbl_805D9BD8;
+                            dir.z = lbl_805D9BDC;
+                            push_matrix_from(lbl_8058D490);
+                            rotate_matrix_y(0, self->rot_y);
+                            rotate_vector_by_matrix((int)(0), (void *)(&dir), (void *)(&dir));
+                            pop_matrix();
+                        }
+                        if (self->target != NULL) {
+                            Hit_800ACFE8 hit;
+                            hit.a = 3;
+                            hit.b = lbl_805D9C08 * (f32) calc_technique_level__11TObjEneMojaFPv(self) + lbl_805D9C20;
+                            self->target->m21(self, hit, 0, -1, -1);
+                        }
+                    } else {
+                        dir.y = dir.x = lbl_805D9BD8;
+                        dir.z = lbl_805D9BDC;
+                        push_matrix_from(lbl_8058D490);
+                        rotate_matrix_y(0, self->rot_y);
+                        rotate_vector_by_matrix((int)(0), (void *)(&dir), (void *)(&dir));
+                        pop_matrix();
+                    }
+                    obj = __nw__7TObjectFUl(0x260);
+                    if (obj != NULL) {
+                        TTecZonde__sub_8023DA10(obj, tl_07, &pos, &dir, 0x14000000, 20,
+                                                get_pos_x__10TObjPlayerFPv(self->f318), lbl_805D9C24);
+                    }
+                    play_sound_effect((void *) 0x4002A408, &pos, 0, 0);
+                    break;
+                }
+            } else {
+                switch (self->kind) {
+                case 1:
+                    create_ex__11TTecGiBartaFPvPvPvPv(self, &pos, self->rot_y, calc_technique_level__11TObjEneMojaFPv(self));
+                    break;
+                default:
+                    if (ang2 < get_field_0c__10TObjPlayerFPv(self->f318) / 2 && self->target != NULL) {
+                        create_ex__8TTecFoieFPvPvPvPv(self, &pos, &self->target->pos, calc_technique_level__11TObjEneMojaFPv(self));
+                    } else {
+                        create__8TTecFoieFPvPvPvPv(self, &pos, self->rot_y, calc_technique_level__11TObjEneMojaFPv(self));
+                    }
+                    break;
+                }
+                dir.y = dir.x = lbl_805D9BD8;
+                dir.z = lbl_805D9BDC;
+                push_matrix_from(lbl_8058D490);
+                rotate_matrix_y(0, self->rot_y);
+                rotate_vector_by_matrix((int)(0), (void *)(&dir), (void *)(&dir));
+                pop_matrices(1);
+                {
+                    f32 xx = dir.x * dir.x;
+                    f32 yy = dir.y * dir.y;
+                    ang.x = (s32) (lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(dir.z, newton_sqrtf(xx + yy)));
+                }
+                ang.y = 0;
+                ang.z = -(s32) (lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(dir.x, dir.y));
+                spawn_directional_particle(&pos, &ang, 0xCC);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(self, 0x3E405), &pos, 0, 0);
+            }
+        }
+        if (self->anim_state != 4) {
+            self->phase = 2;
+            self->timer = 30;
+        }
+        break;
+    case 2:
+        self->count++;
+        if (self->count >= 2) {
+            self->count = -1;
+            self->flags &= 0xFFDFFFFF;
+        } else {
+            self->phase = 0;
+            self->timer = 0;
+        }
+        break;
+    }
+    apply_actor_gravity(self, 0, lbl_805D9BD8);
+    update_collisions__10TObjPlayerFPv(self);
+}
+#undef self
+#pragma pop
+
 M2C_UNK update_punch_attack__11TObjEneMojaFPv(void *self_800ADAAC) {
     Vec_800ADAAC sp14;
     Vec_800ADAAC sp8;
@@ -1359,7 +1629,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
             update_punch_attack__11TObjEneMojaFPv((void *)((void *) (arg0)));
             break;
         case 5:
-            update_technique_state__11TObjEneMojaFv((void *) (arg0));
+            update_technique_state__11TObjEneMojaFv((void *)((void *) (arg0)));
             break;
         case 6:
             update_attack_jump__11TObjEneMojaFv((Obj_800ACFE8 *) (arg0));

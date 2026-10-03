@@ -625,6 +625,9 @@ void set_sound_voice_mix(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
 void TLobby__sub_803BF500(void *);
 void TLobby__sub_803BF698(void *);
 void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c);
+extern u32 lbl_80557348[];
+extern const f32 lbl_805E0C48;
+u32 TLobby__sub_803BD828(u32 arg0);
 }
 
 extern "C" {
@@ -1199,6 +1202,10 @@ u32 TLobby__sub_803BD800(u8 i) {
 }
 
 void TLobby__sub_803BD824(void) {
+}
+
+u32 TLobby__sub_803BD828(u32 arg0) {
+    return (u32)(lbl_805E0C48 * (f32)arg0 / (f32)lbl_80557348[0]);
 }
 
 void TLobby__sub_803BD884(void *self, void *p) {

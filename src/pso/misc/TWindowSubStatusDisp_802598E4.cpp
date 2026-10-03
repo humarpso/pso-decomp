@@ -14,6 +14,7 @@ struct RecoveredGlobal_80259D3C_lbl_804CF9C8 {
     u8 remaining[0x14];
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32, f32);
 M2C_UNK play_persistent_sound(int, void *, int, int, int);
@@ -30,6 +31,13 @@ u8 *TWindowSubStatusDisp__sub_8025A0A4(u8 *arg0, u8 *arg1, s32 arg2);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 extern M2C_UNK lbl_804CF9C8[];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2);
+u8 get_font_char_advance();
+M2C_UNK map_char_to_font_code(s32);
+extern const f32 lbl_805DCF30;
+extern const f32 lbl_805DCF34;
+extern const f32 lbl_805DCF38;
+extern const f32 lbl_805DCF3C;
+void draw_right_aligned_number(void *arg0);
 }
 
 extern "C" {
@@ -48,6 +56,33 @@ void reset_entry__20TWindowSubStatusDispFPv(void*, int);
     extern unsigned char lbl_804CF9B0[];
     extern const float lbl_805DCF14;
 void* reset_entry__20TWindowSubStatusDispFPvii(void* a0, int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(a0, a2); *(int*)((char*)a0 + 0x4) = (int)lbl_804CF9B0; *(float*)((char*)a0 + 0x14) = lbl_805DCF14; *(unsigned char*)((char*)a0 + 0x1c) = 51; *(unsigned char*)((char*)a0 + 0x1d) = 51; *(int*)((char*)a0 + 0x20) = 0; *(int*)((char*)a0 + 0x24) = 0; *(int*)((char*)a0 + 0x28) = -1; *(int*)((char*)a0 + 0x2c) = -1; *(int*)((char*)a0 + 0x30) = -1; *(int*)((char*)a0 + 0x34) = -1; *(int*)((char*)a0 + 0x18) = 0; return a0; }
+
+void draw_right_aligned_number(void *arg0) {
+    s32 n;
+    n = M2C_FIELD(arg0, s32 *, 0x20);
+    if (M2C_FIELD(arg0, u16 *, 0) & 4) {
+        n /= 10;
+        M2C_FIELD(arg0, f32 *, 0x10) = lbl_805DCF30;
+        M2C_FIELD(arg0, f32 *, 0x14) = lbl_805DCF34;
+        while (n > 0) {
+            n /= 10;
+            M2C_FIELD(arg0, f32 *, 0x10) += lbl_805DCF30;
+        }
+        return;
+    }
+    M2C_FIELD(arg0, f32 *, 0x14) = lbl_805DCF38;
+    if (n <= 0) {
+        map_char_to_font_code(0x30);
+        M2C_FIELD(arg0, f32 *, 0x10) = get_font_char_advance();
+        return;
+    }
+    M2C_FIELD(arg0, f32 *, 0x10) = lbl_805DCF3C;
+    while (n > 0) {
+        map_char_to_font_code((u16)(n % 10) + 0x30);
+        M2C_FIELD(arg0, f32 *, 0x10) += get_font_char_advance();
+        n /= 10;
+    }
+}
 
 void TWindowSubStatusDisp__sub_80259CE0(void) {  }
 

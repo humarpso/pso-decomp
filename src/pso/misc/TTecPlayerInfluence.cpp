@@ -136,6 +136,19 @@ typedef struct Rabarta_80237494
   void **emitters;
 } Rabarta_80237494;
 
+struct Params_802377FC { u8 pad[0x14]; s16 base; s16 per_level; };
+
+struct Scale_802377FC { u8 pad[0x28]; f32 boost; };
+
+struct RaBarta_802377FC {
+    u8 pad[0x78];
+    s16 level;
+    u8 pad7a[0x88 - 0x7a];
+    f32 amount;
+    u8 pad8c[0xac - 0x8c];
+    s16 per_level;
+};
+
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
@@ -179,6 +192,12 @@ extern void *lbl_805D63B0;
 extern const f32 lbl_805DC8C0;
 extern const f32 lbl_805DC8C4;
 void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos);
+s32 is_technique_ready__8TTecCtrlFv();
+void TTecAnti__sub_8022B35C(void *, s32);
+s32 calc_technique_parameters(s32, s32, s32);
+extern Params_802377FC lbl_804CC510;
+extern Scale_802377FC lbl_804CC55C;
+void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self);
 }
 
 extern "C" {
@@ -390,6 +409,20 @@ void TTecRaBarta__vt7(void *arg0) {
         break;
     }
 }
+
+void calc_parameters__11TTecRaBartaFv(RaBarta_802377FC *self) {
+    s32 res = calc_technique_parameters(5, self->level, 0xFFFF);
+    TTecAnti__sub_8022B35C(&self->amount, res);
+    if (self->level >= 0xF && is_technique_ready__8TTecCtrlFv() == 0) {
+        self->amount = lbl_804CC510.base + lbl_804CC510.per_level * self->level;
+        return;
+    }
+    self->amount = self->amount + (f32)(self->per_level * self->level);
+    if (is_technique_ready__8TTecCtrlFv() != 0) {
+        self->amount = self->amount * lbl_804CC55C.boost;
+    }
+}
+
 void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
     s32 found = 0;
     s32 i;
