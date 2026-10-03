@@ -11597,6 +11597,7 @@ pso/misc/TTecCtrl_8022C444.cpp:
 
 pso/player/TObjPlayer_8022C6C4.cpp:
 	.text       start:0x8022C6C4 end:0x8022DBC0
+	.data       start:0x804CC658 end:0x804CC6A4
 
 pso/misc/TTecCtrl.cpp:
 	.text       start:0x8022DBC0 end:0x8022F164

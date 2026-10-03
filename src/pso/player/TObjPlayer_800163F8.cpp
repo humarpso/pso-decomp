@@ -189,6 +189,40 @@ struct Actor_80016454 : Base_80016454 {
     s32 bodyCount;
 };
 
+struct RecoveredGlobal_8001806C_lbl_8058D490;
+struct Vec_8001745C { f32 x, y, z; };
+
+struct Part_8001745C {
+    Vec_8001745C pos;
+    f32 radius;
+    u8 pad10[0x8];
+    u32 flags;
+    u8 pad1C[0x10];
+};
+
+struct Target_8001745C {
+    u8 pad0[0x30];
+    u32 flags30;
+    u8 pad34[0x4];
+    Vec_8001745C pos;
+    u8 pad44[0x1C];
+    s32 rotY;
+    u8 pad64[0x40];
+    Part_8001745C *parts;
+    s32 nparts;
+};
+
+struct Player_8001745C {
+    u8 pad0[0x38];
+    Vec_8001745C pos;
+    u8 pad44[0x1C];
+    s32 rotY;
+    u8 pad64[0x2A8 - 0x64];
+    Target_8001745C *target;
+    u8 pad2AC[0x318 - 0x2AC];
+    u32 f318;
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -350,6 +384,24 @@ void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 get_target_value__10TObjPlayerFPv(void *);
 s32 update_field_318__10TObjPlayerFPv(void *);
 s32 select_melee_contact_body__10TObjPlayerFv(Actor_80016454 *target, Actor_80016454 *source, f32 factor);
+f32 TObjPlayer__sub_800186E8(s32, u32, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 update_field_318__10TObjPlayerFPv(void *);
+f32 get_target_value__10TObjPlayerFPv(void *);
+u16 obj_getField1c(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK angle_difference_abs(s32, s32);
+u8 *find_entity_by_id(u16);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+M2C_UNK vec3_add_to(void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_matrix_y(int, void *);
+void subtract_vector(void *a, void *b);
+s32 push_matrix_from(void *);
+s32 pop_matrix();
+extern const f64 TObjPlayer__data_804340B8;
+extern RecoveredGlobal_8001806C_lbl_8058D490 lbl_8058D490;
+s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p);
 }
 
 extern "C" {
@@ -472,6 +524,60 @@ s32 update_action_timer__10TObjPlayerFPv(u8 *arg0) {
         goto block_7;
     }
 block_7:
+    return 0;
+}
+
+#define VCOPY(d, s) ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)((d), (s))
+s32 is_target_in_attack_range__10TObjPlayerFv(Player_8001745C *p) {
+    Vec_8001745C v;
+    Vec_8001745C base;
+    Vec_8001745C out;
+    Target_8001745C *t;
+    s32 i;
+    s32 ang;
+    f32 range;
+    f32 dist;
+    f32 prod;
+    if (p->target != NULL && p->f318 != 0 &&
+        all_parents_unqueued_for_destruction__7TObjectFv(p->target) != 0 &&
+        find_entity_by_id(obj_getField1c(p->target)) != NULL) {
+        t = p->target;
+        if (!(t->flags30 & 0x800)) {
+            if (t->parts != NULL) {
+                VCOPY(&base, &t->pos);
+                for (i = 0; i < p->target->nparts; i++) {
+                    if (!(p->target->parts[i].flags & 0x02000000)) {
+                        VCOPY(&v, &p->target->parts[i]);
+                        push_matrix_from(&lbl_8058D490);
+                        rotate_matrix_y(0, (void *)p->target->rotY);
+                        rotate_vector_by_matrix(0, &v, &v);
+                        pop_matrix();
+                        vec3_add_to(&v, &base);
+                        subtract_vector(&v, &p->pos);
+                        dist = v.x * v.x + v.z * v.z;
+                        range = (p->target->parts[i].radius + get_target_value__10TObjPlayerFPv(p)) * (p->target->parts[i].radius + get_target_value__10TObjPlayerFPv(p));
+                        ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))));
+                        if (dist < range && ang < update_field_318__10TObjPlayerFPv(p)) {
+                            return 1;
+                        }
+                    }
+                }
+            } else {
+                dist = TObjPlayer__sub_800186E8((s32)p, (u32)t, &out);
+                ang = ((s32)angle_difference_abs(p->rotY, (s32)(TObjPlayer__data_804340B8 * get_ad_end_text_start__10TObjPlayerFv(out.x, out.z))));
+                if (p->target->parts != NULL) {
+                    prod = (p->target->parts->radius + get_target_value__10TObjPlayerFPv(p)) * (p->target->parts->radius + get_target_value__10TObjPlayerFPv(p));
+                } else {
+                    prod = get_target_value__10TObjPlayerFPv(p) * get_target_value__10TObjPlayerFPv(p);
+                }
+                if (dist <= prod && ang <= update_field_318__10TObjPlayerFPv(p)) {
+                    return 1;
+                }
+            }
+        } else {
+            p->target = NULL;
+        }
+    }
     return 0;
 }
 
