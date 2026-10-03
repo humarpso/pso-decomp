@@ -13,6 +13,7 @@ struct TObjPlayer
 
     u32 find_revival_item();
     ActionPalette* select_action_palette(int secondary);
+    s32 add_meseta(s32 amount);
     void request_normal_attack_stage1();
     void show_miss_for_collider(int collider);
 

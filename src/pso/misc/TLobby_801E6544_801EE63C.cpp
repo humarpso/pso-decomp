@@ -33,7 +33,7 @@ M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
 void TLobby__sub_801EE674(s32 arg0);
 M2C_UNK TQuestColCtrl__sub_80195DE0(int, void *);
 void qst_op_del_obj_param(s32 arg0);
-M2C_UNK TObjPlayer__sub_80011160(s32, s32);
+M2C_UNK add_meseta__10TObjPlayerFl(s32, s32);
 u32 get_player_by_client_id(s32);
 extern s32 TLobby__data_80512220[];
 void qst_op_pl_add_meseta(void);
@@ -102,7 +102,7 @@ void update_doors__6TLobbyFv(void);
 int TLobby__sub_803DF1CC(void);
 int TObjDoor__sub_801F3754(void);
 int TObjDoor__sub_801F3760(void);
-M2C_UNK TObjPlayer__sub_80011160(s32, s32);
+M2C_UNK add_meseta__10TObjPlayerFl(s32, s32);
 u32 get_player_by_client_id(s32);
 int TWindowCtrl__sub_8024A4EC(void*);
 int create_alt_timer__11TWindowCtrlFv(void*);
@@ -331,7 +331,7 @@ void notify_battle_ctrl_player__6TLobbyFv(void) {
     temp_r31 = TLobby__data_80512220[0];
     ret = get_player_by_client_id(lbl_805D53A0);
     if (ret != 0U) {
-        TObjPlayer__sub_80011160(ret, temp_r31);
+        add_meseta__10TObjPlayerFl(ret, temp_r31);
     }
 }
 typedef char RecoveredGlobal_801EEFB4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801EEFB4_TLobby__data_80512220) == 0x20 ? 1 : -1];
@@ -341,7 +341,7 @@ void qst_op_pl_add_meseta(void) {
     temp_r31 = M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4);
     temp_r3 = get_player_by_client_id((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_801EEFB4_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0))));
     if (temp_r3 != 0U) {
-        TObjPlayer__sub_80011160((s32)((int) (temp_r3)), (s32)((int) (temp_r31)));
+        add_meseta__10TObjPlayerFl((s32)((int) (temp_r3)), (s32)((int) (temp_r31)));
     }
 }
 

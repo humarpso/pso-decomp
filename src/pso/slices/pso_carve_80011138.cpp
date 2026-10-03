@@ -4,6 +4,13 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#include "pso/player/TObjPlayer.h"
+struct ActorMesetaView
+{
+  u8 padding[0x20];
+  s32 meseta;
+};
+
 extern "C" {
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 }
@@ -24,7 +31,18 @@ s32 try_spend_actor_meseta(u8 *arg0, s32 arg1) {
     M2C_FIELD(temp_r5, s32 *, 0x20) = (s32) (temp_r0 - arg1);
     return 1;
 }
-
-int TObjPlayer__sub_80011160(void) { return 0; }
+s32 TObjPlayer::add_meseta(s32 amount) {
+  TObjPlayer* self = this;
+  s32 limit = 999999;
+  int maximum;
+  ((ActorMesetaView *) self->m_2b0)->meseta += amount;
+  maximum = limit;
+  if (maximum < ((ActorMesetaView *) self->m_2b0)->meseta)
+  {
+    ((ActorMesetaView *) self->m_2b0)->meseta = maximum;
+    return 0;
+  }
+  return 1;
+}
 
 }

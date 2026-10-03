@@ -3235,6 +3235,7 @@ pso/slices/pso_carve_80010b44.cpp
 pso/slices/pso_carve_80010c04.cpp
 pso/slices/pso_carve_80010de8.cpp
 pso/slices/pso_carve_80010ebc.cpp
+pso/slices/pso_carve_80011138.cpp
 pso/slices/pso_carve_800111a8.cpp
 pso/slices/pso_carve_80011350.cpp
 pso/slices/pso_carve_8001489c.cpp
