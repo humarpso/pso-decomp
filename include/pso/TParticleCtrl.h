@@ -6,6 +6,7 @@
 class TParticleCtrl : public TObject {
 public:
     virtual ~TParticleCtrl();
+    virtual void run_task();
 };
 
 #endif

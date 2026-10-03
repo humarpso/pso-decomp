@@ -89,10 +89,6 @@ force_active:
   - TObjPlayer__sub_801BF8CC
   - TObjPlayer__sub_801BFD3C
   - TObjPlayer__sub_801C1A30
-  - TObjPlayer__sub_801D1FA4
-  - TObjPlayer__sub_801D2004
-  - TObjPlayer__sub_801D2EE8
-  - TObjPlayer__sub_801D2F8C
   - TObjPlayer__sub_801D9C34
   - TObjPlayer__sub_802C4648
   - TObjPlayer__sub_80307784
@@ -239,7 +235,6 @@ force_active:
   - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - advance_position__10TTecSlicerFPv
-  - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFPv
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
@@ -286,7 +281,6 @@ force_active:
   - draw_status_window__15TAdMcSelectMcGCFPv
   - draw_value__13TWindowMesetaFPvi
   - emit_deband_support_effect
-  - emit_heavy_attack_particles
   - emit_jellen_support_effect
   - emit_photon_blast_feedback_effects
   - emit_player_model_particle
@@ -412,7 +406,6 @@ force_active:
   - render__8TObjRainFv
   - render__9TAdBackGCFv
   - render_background_status__18TAdGameStartBackGCFPv
-  - request_transition__8TFogCtrlFPvii
   - resetTechniqueContactQuery
   - reset_and_invoke__6TLobbyFv
   - reset_placement_search_ring
@@ -420,7 +413,6 @@ force_active:
   - resolve_active_quest_result__22THunterGuildSeqOfflineFPv
   - resolve_set_row_factory_indices
   - return_to_city_after_defeat
-  - run_idle_state_phase__10TObjPlayerFis
   - run_offline_area_transfer
   - run_offline_game_frame
   - run_offline_transfer_frame
@@ -507,7 +499,6 @@ force_active:
   - set_enable_count__13TOHealGeneralFPvi
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
   - set_player_room_control_flag
-  - set_saved_attack_stage__10TObjPlayerFPvs
   - set_script_entry__13TOHealGeneralFPvi
   - set_stealth_suit_flags__10TObjPlayerFPv
   - set_tev_stage_mode
@@ -519,8 +510,6 @@ force_active:
   - spawn_laser__12TPhotonPillaFPv
   - spawn_line__13TPhotonEstllaFPv
   - spawn_recipe_particles__14TItemEffShieldFPv
-  - step_fade_opacity_decrease
-  - step_fade_opacity_increase
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
