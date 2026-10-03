@@ -56,7 +56,7 @@ f32 get_view_scale__11TCameraCtrlFv();
 Vec2_8024EC34 *TWindowKeyBoardSoft__sub_8024ECDC(s32);
 void TWindowKeyBoardSoft__sub_8024EC34(Vec2_8024EC34 *arg0, s32 arg1);
 s32 get_camera_id__11TCameraCtrlFv();
-Vec2_8024EC34 *fn_8026CB74();
+Vec2_8024EC34 *get_zero_vec2();
 extern Vec2_8024EC34 lbl_8044EC70[];
 extern Vec2_8024EC34 lbl_8044EC80[];
 extern Vec2_8024EC34 lbl_8044EC98[];
@@ -64,7 +64,7 @@ extern const float lbl_805DCC78;
 void TWindowKeyBoardSoft__sub_8024E68C(Ctx_8024E68C *c, f32 *q);
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 extern const float lbl_805DCC94;
-s32 TWindowKeyBoardSoft__sub_8024E8E8(Win_8024E8E8 *w, Box_8024E8E8 *b);
+s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(Win_8024E8E8 *w, Box_8024E8E8 *b);
 s32 is_split_screen();
 f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
@@ -81,7 +81,7 @@ u32 init_text_window_layout(Win_8024EA50 *win, f32 *pos, f32 *size, f32 *scale, 
 
 extern "C" {
 
-void TWindowKeyBoardSoft__sub_8024E84C(void *arg0);
+void shrink_clip_right__19TWindowKeyBoardSoftFPv(void *arg0);
 void animate_scale__19TWindowKeyBoardSoftFPv(void *arg0);
 u32 free_singleton__19TWindowKeyBoardSoftFUis(u32 arg0, s16 arg1);
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
@@ -148,7 +148,7 @@ void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 
 
 extern const f32 lbl_805DCC8C;
 
-void TWindowKeyBoardSoft__sub_8024E84C(void *arg0) {
+void shrink_clip_right__19TWindowKeyBoardSoftFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x18) = (f32) (M2C_FIELD(arg0, f32 *, 0x18) - lbl_805DCC8C);
     M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg0, f32 *, 0x44) - lbl_805DCC8C);
 }
@@ -170,7 +170,7 @@ s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TWindowKeyBoardSoft__sub_8024E8E8(Win_8024E8E8 *w, Box_8024E8E8 *b) {
+s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(Win_8024E8E8 *w, Box_8024E8E8 *b) {
     f32 sx;
     f32 sy;
     f32 d;
@@ -204,7 +204,7 @@ s32 TWindowKeyBoardSoft__sub_8024E8E8(Win_8024E8E8 *w, Box_8024E8E8 *b) {
 #pragma pop
 
 s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1) {
-    if (TWindowKeyBoardSoft__sub_8024E8E8((Win_8024E8E8 *)(arg0), (Box_8024E8E8 *)(arg1)) == 0) {
+    if (clip_textured_quad__19TWindowKeyBoardSoftFPvPv((Win_8024E8E8 *)(arg0), (Box_8024E8E8 *)(arg1)) == 0) {
         return 0;
     }
     apply_context_transform_to_rect((Ctx_8024E6D8 *)(arg0), (f32 *)(arg1));
@@ -297,7 +297,7 @@ Vec2_8024EC34 *TWindowKeyBoardSoft__sub_8024ECDC(s32 i) {
         }
         break;
     }
-    return fn_8026CB74();
+    return get_zero_vec2();
 }
 
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5) {

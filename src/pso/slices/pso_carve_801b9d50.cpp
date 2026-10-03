@@ -51,12 +51,12 @@ u8 get_field_ec__12TOSwitchItemFPv(void *);
 M2C_UNK set_animation__10TObjPlayerFPvs(s32, s32);
 s32 unequip_by_field326__10TObjPlayerFPv(s32);
 M2C_UNK unequip_all_units__10TObjPlayerFi(s32);
-M2C_UNK TObjPlayer__sub_801BF8EC(s32, s8, M2C_UNK);
+M2C_UNK set_equip_slot_entry(s32, s8, M2C_UNK);
 
 void unequip_item__10TObjPlayerFiPv(s32 arg0, void *arg1) {
     VObj_801B9D50 *self = (VObj_801B9D50 *)arg1;
 
-    TObjPlayer__sub_801BF8EC(arg0 + 0xD04, self->m31(), 0);
+    set_equip_slot_entry(arg0 + 0xD04, self->m31(), 0);
     self->m19();
     if ((get_field_ec__12TOSwitchItemFPv(arg1) == 1) && (get_field_ed__10TObjPlayerFPv(arg1) == 1)) {
         unequip_all_units__10TObjPlayerFi(arg0);

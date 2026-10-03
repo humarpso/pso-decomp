@@ -13,14 +13,14 @@ struct TObjPlayer_801AF7E0 : Base_801AF7E0 {
 
 extern "C" {
 s32 TObjPlayer__sub_801AFDB0();
-M2C_UNK fn_801C54F4(void *, s32, s32);
-void TObjPlayer__sub_801AF7E0(TObjPlayer_801AF7E0 *self);
+M2C_UNK refill_trap_counts(void *, s32, s32);
+void refill_traps__10TObjPlayerFPv(TObjPlayer_801AF7E0 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801AF7E0(TObjPlayer_801AF7E0 *self) {
-    fn_801C54F4(self->slot, self->v14(), TObjPlayer__sub_801AFDB0());
+void refill_traps__10TObjPlayerFPv(TObjPlayer_801AF7E0 *self) {
+    refill_trap_counts(self->slot, self->v14(), TObjPlayer__sub_801AFDB0());
 }
 
 }

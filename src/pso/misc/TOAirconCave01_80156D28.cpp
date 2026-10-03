@@ -16,7 +16,7 @@ struct RecoveredGlobal_80156D70_lbl_8058D4C0 {
 
 extern "C" {
 int copy_vec4__13TRaderMapCoreFPvPv(void*, void*);
-void fn_803DC86C(s32, s32, s32, s32);
+void set_color_blend_mode(s32, s32, s32, s32);
 void set_chunk_material_color(void *);
 extern unsigned char lbl_8050BEC0[];
 extern unsigned char lbl_8058D4C0[];
@@ -61,7 +61,7 @@ void TOAirconCave01__sub_80156D70(u8 *arg0) {
     copy_vec4__13TRaderMapCoreFPvPv((void*)(&(*(RecoveredGlobal_80156D70_lbl_8050BEC0 *)&lbl_8050BEC0).value), (void*)(&(*(RecoveredGlobal_80156D70_lbl_8058D4C0 *)&lbl_8058D4C0).value));
     (*(s32 *)&some_id_805c6f74) |= 0x8021;
     set_chunk_material_color(arg0);
-    fn_803DC86C(1, 4, 5, 0);
+    set_color_blend_mode(1, 4, 5, 0);
 }
 
 void *destroy__14TOAirconCave01FPvs(void *arg0, s16 arg1) {

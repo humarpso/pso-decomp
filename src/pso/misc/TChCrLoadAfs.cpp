@@ -54,7 +54,7 @@ int TLobby__sub_803CC4C0(int);
 int TLobby__sub_803CCE9C(int);
 int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 void set_render_rect__10TObjPlayerFPviiii(void *, s32, s32, s32, s32);
-void TObjPlayer__sub_803DA218(void *, void *, s32, s32);
+void set_texture_name(void *, void *, s32, s32);
 s32 TObjPlayer__sub_803DDC50(void *);
 void TLobby__sub_8028BE00(Ld_8028BE00 *arg0);
 }
@@ -271,7 +271,7 @@ void TLobby__sub_8028BE00(Ld_8028BE00 *arg0) {
     }
     for (i = 0; i < arg0->f58; i++) {
         set_render_rect__10TObjPlayerFPviiii(&arg0->rects[i], arg0->bufs[i], 0, 0, 0);
-        TObjPlayer__sub_803DA218(&arg0->f30->ents[i], &arg0->rects[i], 0, 0x40000000);
+        set_texture_name(&arg0->f30->ents[i], &arg0->rects[i], 0, 0x40000000);
     }
     if (TObjPlayer__sub_803DDC50(arg0->f30) != -1) {
         arg0->f1c = 1;

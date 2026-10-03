@@ -91,9 +91,9 @@ extern const f32 lbl_805DF8E4;
 void TLobby__sub_80335E7C(void);
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
-void TLobby__sub_80336008(void);
+void bind_title_texture_list(void);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
-void *TLobby__sub_80335FE8(void);
+void *get_title_texture_list(void);
 }
 
 extern "C" {
@@ -116,7 +116,7 @@ void TLobby__sub_80335E7C(void) {
   begin_effect_render__13TParticleCtrlFv();
   TCameraCtrl__sub_80069024();
   begin_screen_draw((int) 1);
-  TLobby__sub_80336008();
+  bind_title_texture_list();
   set_draw_texture_and_color((int) 1, (int) (-1));
   stack.sp8 = lbl_805DF8C8;
   stack.spC = lbl_805DF8CC;
@@ -156,7 +156,7 @@ void *ct_with_parent__6TLobbyFPvPv(void *arg0, void *arg1) {
 void TLobby__sub_80335FE0(void) {  }
 void TLobby__sub_80335FE4(void) {  }
 
-void *TLobby__sub_80335FE8(void) {
+void *get_title_texture_list(void) {
     return ((char *)&lbl_804EE584);
 }
 
@@ -164,7 +164,7 @@ void* get_record__6TLobbyFi(int a0) {  return (char*)lbl_804EE9A4 + a0 * 32; }
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
-void TLobby__sub_80336008(void) {
+void bind_title_texture_list(void) {
     notify_fish_if_valid__10TObjPlayerFUi((M2C_UNK *)(&lbl_804EE584.value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];

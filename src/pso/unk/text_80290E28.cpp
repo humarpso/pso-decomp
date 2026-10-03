@@ -21,7 +21,7 @@ extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 draw_ui_sprite_scaled(f32, f32, void *, void *, void *);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
-void fn_80290E28(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
+void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK draw_with_camera__6TLobbyFiiif(void *, int, int, f32);
 s32 TCharaMaking__resolve_creation_sprite_table(void *, void *);
@@ -38,7 +38,7 @@ extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void fn_80290E28(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
+void draw_creation_sprite_offset(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     typedef char sp8_offset[(offsetof(Stack_80290E28, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80290E28, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80290E28, sp10) == 0x8) ? 1 : -1];

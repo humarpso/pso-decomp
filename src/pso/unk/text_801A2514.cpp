@@ -10,7 +10,7 @@ extern u16 lbl_805D5CD8;
 void TLobby__sub_801A2514(s32 arg0);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
-void TLobby__sub_801A2528(s32 arg0);
+void advance_object_id_counter(s32 arg0);
 }
 
 extern "C" {
@@ -22,7 +22,7 @@ void TLobby__sub_801A2514(s32 arg0) {
     lbl_805D5CD8 = temp_r0;
 }
 
-void TLobby__sub_801A2528(s32 arg0) {
+void advance_object_id_counter(s32 arg0) {
     u16 temp_r0;
     temp_r0 = lbl_805D5CD4 + arg0;
     lbl_805D5CD4 = temp_r0;

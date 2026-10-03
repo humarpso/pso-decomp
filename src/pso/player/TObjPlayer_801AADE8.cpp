@@ -28,7 +28,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
 extern u8 *lbl_805D5D28;
 extern u32 lbl_805D5D30;
-void TObjPlayer__sub_801AAE20(void);
+void create_estlla_photon_blast_model(void);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 scroll_strip_uvs(void *, s16, int);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
@@ -80,7 +80,7 @@ void destroy_global_buffer__10TObjPlayerFv(void) {
 
     extern const float lbl_805DC158;
 
-void TObjPlayer__sub_801AAE20(void) {
+void create_estlla_photon_blast_model(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);

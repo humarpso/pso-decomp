@@ -906,14 +906,14 @@ void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
 int create_floor_quest_thread(void);
 int TRaderMapCore__sub_801F9630(int);
-int TLobby__sub_802089B0(void);
+int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
 int create_objects__6TLobbyFi(void);
 int attach_objects_by_id__6TLobbyFi(void);
 int TLobby__sub_8020DBCC(void);
-int TSwitch__sub_8022945C(void);
+int init_switch_table(void);
 
-void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); TLobby__sub_802089B0(); TSwitch__sub_8022945C(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
+void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); clear_floor_event_flags(); init_switch_table(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
 
 }
 #endif
@@ -1645,10 +1645,10 @@ int get_object_count__6TLobbyFv(void) {  return TLobby__data_805D610C; }
 extern "C" {
 
 void set_shop_armor_list_flag__6TLobbyFii(int a0, int a1);
-int TLobby__sub_8020ED44(void);
+int generate_armor_shop_stock(void);
 
     extern int lbl_805D615C;
-void set_shop_armor_list_flag__6TLobbyFii(int a0, int a1) { lbl_805D615C = a1; TLobby__sub_8020ED44(); }
+void set_shop_armor_list_flag__6TLobbyFii(int a0, int a1) { lbl_805D615C = a1; generate_armor_shop_stock(); }
 
 }
 #endif
@@ -1961,7 +1961,7 @@ void query_available_size__6TLobbyFv(void);
 void TLobby__sub_803CC030(void);
 void dispatch_packet__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803D4448();
-M2C_UNK TLobby__sub_803D4540();
+M2C_UNK set_sound_stream_volume();
 M2C_UNK TLobby__sub_803D4654();
 M2C_UNK TLobby__sub_803D4704();
 M2C_UNK TLobby__sub_803D4714();
@@ -1975,7 +1975,7 @@ void TLobby__sub_803CBF50(void) {
 }
 
 void trigger_sub_task__6TLobbyFv(void) {
-    TLobby__sub_803D4540();
+    set_sound_stream_volume();
 }
 
 void TLobby__sub_803CBF90(void) {

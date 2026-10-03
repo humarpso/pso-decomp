@@ -13,7 +13,7 @@ extern "C" {
 int TObjBoss2Tunnel__sub_8036EF44(void);
 void TObjBoss2Tunnel__sub_8036EF4C(void);
 void enable_and_trigger__15TObjBoss2TunnelFv(void);
-int TObjBoss2Tunnel__sub_8036EF0C(void*);
+int set_display_copy_filter(void*);
 
     extern int lbl_805D44F8;
 int TObjBoss2Tunnel__sub_8036EF44(void) {  return lbl_805D44F8; }
@@ -22,7 +22,7 @@ int TObjBoss2Tunnel__sub_8036EF44(void) {  return lbl_805D44F8; }
 void TObjBoss2Tunnel__sub_8036EF4C(void) { lbl_805D44F8 = 1; }
 
     extern int lbl_805D44F8;
-void enable_and_trigger__15TObjBoss2TunnelFv(void) { lbl_805D44F8 = 1; TObjBoss2Tunnel__sub_8036EF0C((void*)1); }
+void enable_and_trigger__15TObjBoss2TunnelFv(void) { lbl_805D44F8 = 1; set_display_copy_filter((void*)1); }
 void TAdEp3Exist__vt4(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_8047B8C4, lbl_8047B8CC, (void *)TAdEp3Exist__sub_8036EFBC);
 }

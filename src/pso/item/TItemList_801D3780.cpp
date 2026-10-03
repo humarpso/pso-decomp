@@ -116,7 +116,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void TItemList__sub_801D588C(void *, int);
 void TItemList__sub_801D59A0(void *, int);
 void TItemList__sub_801D5A70(void *);
-void TItemList__sub_801D3A80(u8 *arg0);
+void update_placement_search(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void assign_id_and_init__5TItemFPvii(void *, s32, void *);
 s32 get_item_type_or_default__9TItemListFPv(void *);
@@ -250,7 +250,7 @@ block_5:
     return arg0;
 }
 
-void TItemList__sub_801D3A80(u8 *arg0) {
+void update_placement_search(u8 *arg0) {
     switch (step_placement_search((Search_801D3C38 *)(arg0))) {
     case 0:
         return;

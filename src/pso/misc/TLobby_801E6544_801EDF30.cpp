@@ -54,7 +54,7 @@ void TLobby__sub_801EDF64(s32 arg0);
 
 extern "C" {
 
-int TLobby__sub_801EE028(void* p);
+int qst_op_warp_on(void* p);
 void TLobby__sub_801EE09C(void* p);
 void create_quest_bgm_ctrl__6TLobbyFv(void);
 int forward_801F36E4__6TLobbyFPv(void* p);
@@ -92,7 +92,7 @@ void TLobby__sub_801EDFF4(u8 reg) {
 }
 
 int forward_801F36E4__6TLobbyFPv(void* p) { return TLobby__sub_801F36E4(p); }
-int TLobby__sub_801EE028(void* p) { return set_cleanup_flag__6TLobbyFv(p); }
+int qst_op_warp_on(void* p) { return set_cleanup_flag__6TLobbyFv(p); }
 
 void TLobby__sub_801EE048(void) {
     Pkt_801EE048 pkt;

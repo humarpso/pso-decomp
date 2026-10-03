@@ -11,8 +11,8 @@ s32 is_target_in_facing_cone__10TObjPlayerFPvPv(void *, s32);
 u32 find_entity_by_id(u16);
 s32 get_position_ptr__10TObjPlayerFPv();
 M2C_UNK fn_801C1B88(s32);
-f32 fn_801C1B90(s32, u32);
-u16 fn_801C1B98(s32);
+f32 get_lock_target_distance_sq(s32, u32);
+u16 get_lock_target_id(s32);
 
 extern const f32 lbl_805DC2C0;
 extern const f32 lbl_805DC2C4;
@@ -26,8 +26,8 @@ s32 update_target_lock__10TObjPlayerFPv(void *arg0) {
     if (temp_r3 == 0U) {
         return 0;
     }
-    var_r31 = fn_801C1B98(temp_r3 + 0x510);
-    temp_f31 = fn_801C1B90(M2C_FIELD(arg0, u32 *, 0x424) + 0x510, M2C_FIELD(arg0, u32 *, 0x424));
+    var_r31 = get_lock_target_id(temp_r3 + 0x510);
+    temp_f31 = get_lock_target_distance_sq(M2C_FIELD(arg0, u32 *, 0x424) + 0x510, M2C_FIELD(arg0, u32 *, 0x424));
     fn_801C1B88(M2C_FIELD(arg0, u32 *, 0x424) + 0x510);
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x100000)) {
         if ((u16) var_r31 == 0xFFFF) {

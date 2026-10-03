@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void cleanup_idle_entry__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801D0514(void);
+void exit_idle_state__10TObjPlayerFv(void);
 void update_action__10TObjPlayerFi(s32 arg0);
 void start_animation__10TObjPlayerFPv(void *arg0);
 s32 TFontSmallLobby__sub_801AFEE0();
@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_801AF290(s32);
 u32 resolve_move_collision__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B6024(s32);
 s32 TObjPlayer__sub_801BE2D0(s32);
-int TObjPlayer__sub_801BF964(void*);
+int zero_vec3(void*);
 s32 get_idle_animation__10TObjPlayerFPv(void *);
 s32 run_action_state_phase__10TObjPlayerFisi(void *, s16, s32);
 s32 TObjPlayer__sub_801D1018(s32);
@@ -30,8 +30,8 @@ int set_ring_action__10TObjPlayerFPvi(void*, void*);
 
 int obj_clearFlags30(void*, void*);
 
-void cleanup_idle_entry__10TObjPlayerFPv(void* p) { obj_clearFlags30(p, (void*)3840); TObjPlayer__sub_8011E204(p, (void*)128); set_ring_action__10TObjPlayerFPvi((char*)p + 0x5e0, (void*)0); clear_status_bit6__10TObjPlayerFPv(p); TObjPlayer__sub_8001053C(p); TObjPlayer__sub_801BF964((char*)p + 0x5fc); }
-void TObjPlayer__sub_801D0514(void) {  }
+void cleanup_idle_entry__10TObjPlayerFPv(void* p) { obj_clearFlags30(p, (void*)3840); TObjPlayer__sub_8011E204(p, (void*)128); set_ring_action__10TObjPlayerFPvi((char*)p + 0x5e0, (void*)0); clear_status_bit6__10TObjPlayerFPv(p); TObjPlayer__sub_8001053C(p); zero_vec3((char*)p + 0x5fc); }
+void exit_idle_state__10TObjPlayerFv(void) {  }
 void update_action__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
 

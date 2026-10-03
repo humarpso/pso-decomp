@@ -31,7 +31,7 @@ void TWindowSubStatusDisp__sub_802588AC(u8 *arg0, s32 arg1);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
-void TWindowSubStatusDisp__sub_8025892C(u8 *arg0, s32 arg1);
+void init_no_item_entry__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_802589AC(u8 *arg0, s8 arg1, s8 arg2, u8 arg3, u32 arg4, s32 arg5);
@@ -43,7 +43,7 @@ s32 text_builder_reset();
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
-void TWindowSubStatusDisp__sub_80258CB8(Obj_80258BB8 *o, s32 x);
+void init_status_entry__20TWindowSubStatusDispFPvcUii(Obj_80258BB8 *o, s32 x);
 extern const f32 lbl_805DCF04;
 void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x);
 void select_item_icon__20TWindowSubStatusDispFPviUcUci(void *arg0, s32 arg1, u8 arg2, u8 arg3, s32 arg4);
@@ -296,7 +296,7 @@ void TWindowSubStatusDisp__sub_802588AC(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0xC5);
 }
 
-void TWindowSubStatusDisp__sub_8025892C(u8 *arg0, s32 arg1) {
+void init_no_item_entry__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
     M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
     M2C_FIELD(arg0, s8 *, 0x1D) = 0x33;
@@ -354,7 +354,7 @@ void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg0, s32 *, 0x30);
 }
 void TWindowSubStatusDisp__sub_80258BB8(Obj_80258BB8 *o, s32 x) {
-    TWindowSubStatusDisp__sub_80258CB8(o, x ? 0x14 : 0x15);
+    init_status_entry__20TWindowSubStatusDispFPvcUii(o, x ? 0x14 : 0x15);
     o->f8 = lbl_805DCF04;
 }
 

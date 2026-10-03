@@ -49,7 +49,7 @@ void *__dt__9TObjLightFv(void *arg0, s16 arg1);
 void render__9TObjLightFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-void fn_8020C430(void *, int);
+void mask_object_set_row_flags(void *, int);
 
 void render__9TObjLightFv(void) {  }
 
@@ -58,7 +58,7 @@ extern M2C_UNK __vt__9TObjLight[];
 void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjLight;
-        fn_8020C430(arg0, -3);
+        mask_object_set_row_flags(arg0, -3);
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

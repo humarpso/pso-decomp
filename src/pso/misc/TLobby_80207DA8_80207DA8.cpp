@@ -18,7 +18,7 @@ extern "C" {
 s32 is_online_ready__6TLobbyFv();
 extern RecoveredGlobal_80207E88_lbl_804C8FC0 lbl_804C8FC0;
 extern RecoveredGlobal_80207E88_lbl_804C9270 lbl_804C9270;
-s32 TLobby__sub_80207E88(s32 arg0);
+s32 get_floor_scene_table(s32 arg0);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ int TLobby__sub_80207E48(void* p) { return randomize_adventure_maps(p); }
 int lookup_scene_object__6TLobbyFPv(void* p) { return get_floor_map_selection(p); }
 typedef char RecoveredGlobal_80207E88_lbl_804C8FC0_size[sizeof(RecoveredGlobal_80207E88_lbl_804C8FC0) == 0x120 ? 1 : -1];
 typedef char RecoveredGlobal_80207E88_lbl_804C9270_size[sizeof(RecoveredGlobal_80207E88_lbl_804C9270) == 0x120 ? 1 : -1];
-s32 TLobby__sub_80207E88(s32 arg0) {
+s32 get_floor_scene_table(s32 arg0) {
     if (arg0 > 0x23) {
         return 0;
     }

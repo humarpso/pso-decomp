@@ -70,7 +70,7 @@ s32 TLobby__sub_801E6BB8();
 s8 read_byte_advance__6TLobbyFv();
 void TLobby__sub_801E6C2C(s8);
 void TLobby__sub_801E6C40();
-s32 TLobby__sub_801E6580(s32 arg0, s32 arg1);
+s32 expand_message_substitutions(s32 arg0, s32 arg1);
 void TLobby__sub_801E6868(s32 arg0);
 s32 parse_f_index(s32 a0);
 s32 parse_r_index(char *);
@@ -118,7 +118,7 @@ void capture_chat_sensor__6TLobbyFi(s32 arg0) {
 
 extern M2C_UNK lbl_80449C6C[];
 
-s32 TLobby__sub_801E6580(s32 arg0, s32 arg1) {
+s32 expand_message_substitutions(s32 arg0, s32 arg1) {
     TLobby__sub_801E6C40();
     while (TLobby__sub_801E6BB8() == 0) {
         s8 c = read_byte_advance__6TLobbyFv();

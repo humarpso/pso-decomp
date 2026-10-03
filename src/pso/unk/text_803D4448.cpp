@@ -32,7 +32,7 @@ extern "C" {
 void TLobby__sub_803ABECC(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 lbl_804FA088[];
 extern s32 lbl_804FA470[];
-void TLobby__sub_803D4540(Obj_803D4540 *o, s32 vol);
+void set_sound_stream_volume(Obj_803D4540 *o, s32 vol);
 void TLobby__sub_803ABECC(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 lbl_804FA088[];
 extern s32 lbl_804FA470[];
@@ -82,7 +82,7 @@ void TLobby__sub_803D4448(Obj_803D4540 *o, s32 ch, s32 pan) {
 }
 #pragma pop
 
-void TLobby__sub_803D4540(Obj_803D4540 *o, s32 vol) {
+void set_sound_stream_volume(Obj_803D4540 *o, s32 vol) {
     s32 i;
     if (o == 0) {
         return;

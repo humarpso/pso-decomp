@@ -16,7 +16,7 @@ s32 pop_matrix();
 s32 TBoss7Tentacle__sub_803D9BA0(void *);
 f32 TOHangerMachine01__sub_803D9C00(void *);
 s32 draw_ginja_model(int);
-void fn_801FBA6C(u8 *arg0);
+void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 void render_tick__Fv();
@@ -74,7 +74,7 @@ int is_card_flag_set__19TWindowKeyBoardHardFPv(void* p);
 int test_card_flag__19TWindowKeyBoardHardFii(void*, int);
 
 int is_card_flag_set__19TWindowKeyBoardHardFPv(void* p) { return test_card_flag__19TWindowKeyBoardHardFii(p, 1); }
-void fn_801FBA6C(u8 *arg0) {
+void draw_ginja_box_tree(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r3;
     u8 *var_r30;
@@ -102,7 +102,7 @@ void fn_801FBA6C(u8 *arg0) {
         if (!(temp_r31 & 0x10)) {
             temp_r3 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));
             if (temp_r3 != NULL) {
-                fn_801FBA6C(temp_r3);
+                draw_ginja_box_tree(temp_r3);
             }
         }
         pop_matrix();

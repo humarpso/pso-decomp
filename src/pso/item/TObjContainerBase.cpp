@@ -82,7 +82,7 @@ extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
 void TObjContainerNoItem__vt77(Obj_8018990C *self);
-M2C_UNK fn_801FBA6C(s32);
+M2C_UNK draw_ginja_box_tree(s32);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -216,7 +216,7 @@ void TObjContainerNoItem__vt79(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
-        fn_801FBA6C(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_ginja_box_tree(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
             break;
         }

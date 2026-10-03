@@ -29,7 +29,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_8023C558_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
-void fn_8023C558(u8 *arg0);
+void init_parameters__9TTecZondeFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ typedef struct RecoveredGlobal_8023C558_lbl_804CC510 RecoveredGlobal_8023C558_lb
 typedef struct RecoveredGlobal_8023C558_lbl_804CC55C RecoveredGlobal_8023C558_lbl_804CC55C;
 typedef char RecoveredGlobal_8023C558_lbl_804CC510_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8023C558_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-void fn_8023C558(u8 *arg0) {
+void init_parameters__9TTecZondeFPv(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 6, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
@@ -156,7 +156,7 @@ typedef char RecoveredGlobal_8023CD48___vt__9TTecZonde_size[sizeof(RecoveredGlob
 extern "C" {
 u16 obj_getField1c(void *);
 s32 TObjPlayer__sub_8004433C(s32);
-void TTecAnti__sub_8022B3E8(void *, void *);
+void copy_technique_target_list(void *, void *);
 u8 * TObjPlayer__sub_8023AA4C(void *, s32, void *, s32, s16);
 extern M2C_UNK __vt__9TTecZonde[];
 extern s32 lbl_805D3838;
@@ -359,8 +359,8 @@ u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023CD48___vt__9TTecZonde *)&__vt__9TTecZonde).value;
     TObjPlayer__sub_8004433C((s32) (arg0 + 0x130));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3838;
-    fn_8023C558(arg0);
-    TTecAnti__sub_8022B3E8(arg0 + 0x130, arg3);
+    init_parameters__9TTecZondeFPv(arg0);
+    copy_technique_target_list(arg0 + 0x130, arg3);
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, u16 *, 0xC8) = obj_getField1c(temp_r3);

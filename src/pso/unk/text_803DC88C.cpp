@@ -56,8 +56,8 @@ extern s32 lbl_805D7710;
 extern s32 lbl_805D7774;
 void draw_ginja_motion_node_tree(u8 *arg0);
 void TObjPlayer__sub_803D7B68(void *);
-void TObjPlayer__sub_803DB24C(void *);
-void fn_803DB390(void);
+void init_model_draw_queue(void *);
+void flush_model_draw_queue(void);
 void prepare_ginja_model(void *);
 void draw_ginja_motion_node_tree(u8 *arg0);
 void draw_ginja_model_lists(void);
@@ -105,9 +105,9 @@ void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     TObjPlayer__sub_803D7B68(arg1);
     lbl_805D4698->fn = draw_ginja_model_lists;
     prepare_ginja_model(lbl_805D4698);
-    TObjPlayer__sub_803DB24C((void *) draw_ginja_model_lists);
+    init_model_draw_queue((void *) draw_ginja_model_lists);
     draw_ginja_motion_node_tree((u8 *)(arg0));
-    fn_803DB390();
+    flush_model_draw_queue();
     if (lbl_805D76E4 != NULL) {
         lbl_805D76E4();
     }

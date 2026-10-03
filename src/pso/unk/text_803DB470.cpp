@@ -123,8 +123,8 @@ extern S_803DB560 lbl_8058CD80;
 extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 void set_ginja_material_color(u32 v);
-void TObjPlayer__sub_803DB24C(void *);
-void fn_803DB390(void);
+void init_model_draw_queue(void *);
+void flush_model_draw_queue(void);
 void prepare_ginja_model(void);
 void TObjPlayer__sub_803DC9E4(void *, void *);
 void set_effect_active__10TObjPlayerFv(void);
@@ -147,9 +147,9 @@ s32 TObjPlayer__sub_803DB550(u32 arg0, s32 arg1);
 
 void draw_ginja_object(void *arg0) {
     prepare_ginja_model();
-    TObjPlayer__sub_803DB24C((void *) draw_ginja_model_lists);
+    init_model_draw_queue((void *) draw_ginja_model_lists);
     TObjPlayer__sub_803DC9E4(arg0, (void *) TObjPlayer__sub_803DB4E8);
-    fn_803DB390();
+    flush_model_draw_queue();
     if (lbl_805D76E4 != NULL) {
         lbl_805D76E4();
     }

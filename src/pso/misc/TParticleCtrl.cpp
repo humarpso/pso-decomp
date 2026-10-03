@@ -77,7 +77,7 @@ extern const f32 lbl_805D9478;
 s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
 void TParticleCtrl__sub_80085798(Obj_80085798 *self);
-M2C_UNK fn_803DC86C(int, int, int, int);
+M2C_UNK set_color_blend_mode(int, int, int, int);
 M2C_UNK set_chunk_material_color(void *);
 void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode);
 }
@@ -206,14 +206,14 @@ typedef char RecoveredGlobal_8008655C_lbl_8048E728_size[sizeof(RecoveredGlobal_8
 void apply_particle_model_fade_color(Ctrl_80086418 *self, s32 mode) {
     FCol_80086418 f;
     if (mode != 0) {
-        fn_803DC86C(1, 4, 1, 0);
+        set_color_blend_mode(1, 4, 1, 0);
         Col_80086418 c = self->color;
         f.a = 0.0f;
         f.r = -(1.0f - c.r / 255.0f);
         f.g = -(1.0f - c.g / 255.0f);
         f.b = -(1.0f - c.b / 255.0f);
     } else {
-        fn_803DC86C(1, 4, 5, 0);
+        set_color_blend_mode(1, 4, 5, 0);
         Col_80086418 c = self->color;
         f.a = -(1.0f - c.a / 255.0f);
         f.r = 0.0f;

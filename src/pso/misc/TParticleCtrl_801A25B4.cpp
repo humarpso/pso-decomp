@@ -9,7 +9,7 @@ extern "C" {
 void *destroy_particle__13TParticleCtrlFPvs(void *arg0, s16 arg1);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK fn_8020C430(void *, M2C_UNK);
+M2C_UNK mask_object_set_row_flags(void *, M2C_UNK);
 
 extern M2C_UNK lbl_804B9870[];
 
@@ -22,7 +22,7 @@ void *destroy_particle__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
         if ((u32) M2C_FIELD(obj, u32 *, 0x80) != 0U) {
             temp_r0 = M2C_FIELD(obj, u16 *, 0x1C);
             if ((temp_r0 >= 0x4000U) && (temp_r0 < 0xFFFFU)) {
-                fn_8020C430(obj, -3);
+                mask_object_set_row_flags(obj, -3);
                 M2C_FIELD(obj, u32 *, 0x80) = 0U;
             }
         }

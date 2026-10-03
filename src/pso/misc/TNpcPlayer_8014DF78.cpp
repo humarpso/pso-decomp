@@ -144,7 +144,7 @@ M2C_UNK TNpcPlayer__sub_80152988(s32, Ent_8014F28C *, Ent_8014F28C *);
 s32 TNpcPlayer__sub_8014F28C(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
 M2C_UNK TNpcPlayer__sub_80150A34(void *, M2C_UNK);
 s32 find_inventory_item_id__10TObjPlayerFPvcc(s32, M2C_UNK, M2C_UNK);
-M2C_UNK fn_801B7F4C(s32, s32, void *);
+M2C_UNK try_send_6x27_use_item(s32, s32, void *);
 s32 get_condition__10TNpcPlayerFPv(s32);
 
 extern "C" {
@@ -252,7 +252,7 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
         temp_r3 = find_inventory_item_id__10TObjPlayerFPvcc(M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), s32 *, 0x94), 3, 0);
         if (temp_r3 != -1) {
             temp_r5 = M2C_FIELD(arg0, void **, 0x78);
-            fn_801B7F4C(M2C_FIELD(temp_r5, s32 *, 0x94), temp_r3, temp_r5);
+            try_send_6x27_use_item(M2C_FIELD(temp_r5, s32 *, 0x94), temp_r3, temp_r5);
             M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) | 0x10000);
         }
         break;
@@ -260,7 +260,7 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
         temp_r3_2 = find_inventory_item_id__10TObjPlayerFPvcc(M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), s32 *, 0x94), 3, 1);
         if (temp_r3_2 != -1) {
             temp_r5_2 = M2C_FIELD(arg0, void **, 0x78);
-            fn_801B7F4C(M2C_FIELD(temp_r5_2, s32 *, 0x94), temp_r3_2, temp_r5_2);
+            try_send_6x27_use_item(M2C_FIELD(temp_r5_2, s32 *, 0x94), temp_r3_2, temp_r5_2);
             return;
         }
         break;
@@ -268,7 +268,7 @@ void handle_action__10TNpcPlayerFPvi(void *arg0, s32 arg1) {
         temp_r3_3 = find_inventory_item_id__10TObjPlayerFPvcc(M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), s32 *, 0x94), 3, 6);
         if (temp_r3_3 != -1) {
             temp_r5_3 = M2C_FIELD(arg0, void **, 0x78);
-            fn_801B7F4C(M2C_FIELD(temp_r5_3, s32 *, 0x94), temp_r3_3, temp_r5_3);
+            try_send_6x27_use_item(M2C_FIELD(temp_r5_3, s32 *, 0x94), temp_r3_3, temp_r5_3);
         }
         break;
     }

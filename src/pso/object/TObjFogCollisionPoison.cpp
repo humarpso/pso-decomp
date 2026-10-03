@@ -83,7 +83,7 @@ void TObjFogCollisionPoison__sub_801533BC(void);
 u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0);
 void create__22TObjFogCollisionPoisonFv(void);
 void record_hit__22TObjFogCollisionPoisonFPvii(void *arg0, s32 arg1, s32 arg2);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 s32 TObjFogCollisionSwitch__sub_80153A0C();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -248,7 +248,7 @@ u8 check_switch__22TObjFogCollisionPoisonFPv(void *arg0) {
     s32 temp_r31;
 
     temp_r31 = TObjFogCollisionSwitch__sub_80153A0C();
-    return (u8) (temp_r31 == TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0x8C)));
+    return (u8) (temp_r31 == is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0x8C)));
 }
 
 void TObjFogCollisionPoison__sub_8015346C(void *arg0, s32 arg1) {

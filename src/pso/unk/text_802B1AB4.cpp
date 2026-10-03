@@ -44,7 +44,7 @@ M2C_UNK text_builder_reset();
 s32 get_window_layout_position(int);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
-M2C_UNK TWindowSubShortMail__sub_802A58AC(int, int, int, int, f32);
+M2C_UNK open_yes_no_prompt(int, int, int, int, f32);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, int, int, int);
 extern const f32 lbl_805DE298;
 s32 fn_802B1AB4(u8 *arg0, s32 arg1);
@@ -73,7 +73,7 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
     get_message_10__20TWindowSubStatusDispFPv((int) (0xD6));
     text_builder_append();
     temp_r29 = TWindowMessageYesNo__sub_802A59D8((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0), (int) (0));
-    TWindowSubShortMail__sub_802A58AC((int) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x20))), (int) (TLobby__sub_8001DC24()), (int) (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
+    open_yes_no_prompt((int) (temp_r29), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x20))), (int) (TLobby__sub_8001DC24()), (int) (get_window_layout_position((int) (0x5B))), (f32) (lbl_805DE298));
     free_member__17TWindowSubComCardFPv((int) (temp_r29), (int) (1));
     notify_warp_flag70__19TWindowSubShortMailFPv((int) (temp_r29));
     return temp_r29;

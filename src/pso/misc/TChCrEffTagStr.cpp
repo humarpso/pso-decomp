@@ -14,7 +14,7 @@ struct Stack_8029AEDC {
 extern "C" {
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK fn_80290E28(s32, void *, f32 *, f32, f32, f32, f32, f32);
+M2C_UNK draw_creation_sprite_offset(s32, void *, f32 *, f32, f32, f32, f32, f32);
 extern const f32 lbl_805DDCB8;
 extern const f32 lbl_805DDCBC;
 extern const f32 lbl_805DDCC0;
@@ -51,7 +51,7 @@ void render__14TChCrEffTagStrFv(u8 *arg0) {
     temp_f3 = lbl_805DDCB8 - temp_f2;
     stack.spC = temp_f2 * temp_f2;
     stack.sp8 = (lbl_805DDCBC * temp_f3) + lbl_805DDCB8;
-    fn_80290E28(M2C_FIELD(arg0, s32 *, 0x20), arg0 + 0x28, &stack.sp8, lbl_805DDCC0, temp_f2, temp_f3, lbl_805DDCB8, lbl_805DDCBC);
+    draw_creation_sprite_offset(M2C_FIELD(arg0, s32 *, 0x20), arg0 + 0x28, &stack.sp8, lbl_805DDCC0, temp_f2, temp_f3, lbl_805DDCB8, lbl_805DDCBC);
     restore_saved_depth_alpha_state();
 }
 #pragma pop

@@ -12,7 +12,7 @@ struct RecoveredGlobal_801C6FF8_lbl_804C4008 {
 typedef s32 M2C_UNK;
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0);
-s32 TObjPlayer__sub_801BF3E8(void *);
+s32 has_water_ground_flag(void *);
 int set_action_flag16__10TObjPlayerFPv(void* p);
 int test_flag_8__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C7098(void* p);
@@ -142,7 +142,7 @@ s32 get_contact_surface_type(s32 arg0) {
     if (((s32)TObjPlayer__sub_801C7098((void*)(arg0))) != 0) {
         return 1;
     }
-    if (TObjPlayer__sub_801BF3E8((void *) (arg0)) != 0) {
+    if (has_water_ground_flag((void *) (arg0)) != 0) {
         return 2;
     }
     if (((s32)test_flag_8__10TObjPlayerFPv((void*)((void *) (arg0)))) != 0) {

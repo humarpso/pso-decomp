@@ -70,7 +70,7 @@ s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AF74_lbl_804CE9EC lbl_804CE9EC;
 void has_player_active_menu__11TWindowCtrlFi(s32 arg0);
 extern RecoveredGlobal_8024AEF0_lbl_804CE9F8 lbl_804CE9F8;
-void TWindowCtrl__sub_8024AEF0(s32 arg0);
+void unsuppress_slot__11TWindowCtrlFi(s32 arg0);
 struct Win_8024AF34 { virtual void m0(); };
 typedef void (Win_8024AF34::*Pmf_8024AF34)();
 void TWindowCtrl__sub_8024AF34(void *, Pmf_8024AF34);
@@ -101,7 +101,7 @@ void TWindowCtrl__sub_8024AEAC(s32 arg0) {
     ((void (*)(void *, void *))TWindowCtrl__sub_8024AF34)((void *) (arg0), (void *) (&stack.sp8));
 }
 
-void TWindowCtrl__sub_8024AEF0(s32 arg0) {
+void unsuppress_slot__11TWindowCtrlFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024AEF0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024AEF0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AEF0, sp10) == 0x8) ? 1 : -1];

@@ -8,7 +8,7 @@ extern "C" {
 s32 TLobby__sub_8001DC24();
 M2C_UNK *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 append_text_space();
-s32 TWindowChallengeResult__sub_80228DB4(void *, int);
+s32 append_padded_number(void *, int);
 s32 text_builder_append(void *);
 s32 text_builder_reset();
 s32 set_entry_display_value__20TWindowSubStatusDispFPvi(void *, int);
@@ -51,9 +51,9 @@ void TWindowSubStatusDisp__sub_80244494(s32 arg0, s32 arg1, s32 arg2) {
     text_builder_reset();
     text_builder_append((void *) (TQuestVmDownLoadServer__sub_8006EF6C(0x67)));
     append_text_space();
-    TWindowChallengeResult__sub_80228DB4((void *) (arg1), (int) (2U));
+    append_padded_number((void *) (arg1), (int) (2U));
     text_builder_append((void *) (&lbl_805DCAB8));
-    TWindowChallengeResult__sub_80228DB4((void *) (arg2), (int) (2U));
+    append_padded_number((void *) (arg2), (int) (2U));
     set_entry_display_value__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (TLobby__sub_8001DC24()));
     lbl_805D63E8 = arg1;
 }

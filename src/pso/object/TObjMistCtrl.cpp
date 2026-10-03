@@ -57,7 +57,7 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 M2C_UNK restore_saved_depth_alpha_state();
 int fn_802AF64C(void*);
-M2C_UNK fn_803E29B0(void *, int, int);
+M2C_UNK draw_particle_strip(void *, int, int);
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK set_depth_buffer_settings_1__Fv();
@@ -104,7 +104,7 @@ void render__16TPlayerFootStampFv(u8 *arg0) {
         set_global_param__8TObjFishFi((void *) (lbl_805D6710));
         set_texture_num((int) (M2C_FIELD(arg0, s16 *, 0xBE)));
         set_depth_buffer_settings_1__Fv();
-        fn_803E29B0((void *) (arg0 + 0x1C), (int) (4), (int) (1));
+        draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         restore_saved_depth_alpha_state();
         some_id_805c6f74 = lbl_805D5660;
     }

@@ -15,7 +15,7 @@ M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK fn_8024ACEC(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
-M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK TWindowSubTradeMain__sub_80266200(u32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -53,7 +53,7 @@ void update_challenge_warp_window(void *arg0) {
             }
             TWindowChat__sub_8024AD30(lbl_805D53A0);
             clear_flag__11TWindowCtrlFv();
-            TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+            unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x15C) == 0) {
             M2C_FIELD(arg0, s16 *, 0xDC) = 0;
@@ -66,7 +66,7 @@ void update_challenge_warp_window(void *arg0) {
         }
         TWindowChat__sub_8024AD30(lbl_805D53A0);
         clear_flag__11TWindowCtrlFv();
-        TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+        unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         break;
     }
 }

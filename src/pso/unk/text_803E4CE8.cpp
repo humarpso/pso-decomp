@@ -13,12 +13,12 @@ extern "C" {
 void TCameraCtrl__sub_803D8934(s32, Src_803E4CE8 *, Dst_803E4CE8 *);
 extern const f32 lbl_805E10B0;
 extern const f32 lbl_805E10B4;
-void fn_803E4CE8(Arg_803E4CE8 *arg0);
+void cache_chunk_vertex_colors(Arg_803E4CE8 *arg0);
 }
 
 extern "C" {
 
-void fn_803E4CE8(Arg_803E4CE8 *arg0) {
+void cache_chunk_vertex_colors(Arg_803E4CE8 *arg0) {
     s32 n = arg0->count;
     Src_803E4CE8 *src = arg0->src;
     Dst_803E4CE8 *dst = arg0->dst;

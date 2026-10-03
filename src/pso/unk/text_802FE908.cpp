@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 is_split_screen();
 s32 get_current_floor();
-s32 TLobby__sub_8020C1F0(s32, s32);
+s32 is_room_enemy_set_cleared(s32, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32);
 M2C_UNK create__15TObjLiveMonitorFPv(s32);
@@ -36,7 +36,7 @@ void create_boss8_demo_objects(void) {
     }
     create__15TObjLiveMonitorFPv((*(s32 *)&tl_05));
     spawn_for_each_fish__20TObjLiveMonitorSmallFi((*(s32 *)&tl_05));
-    if ((TLobby__sub_8020C1F0(get_current_floor(), 1) == 0) && ((obj = __nw__7TObjectFUl(0x1C)) != 0)) {
+    if ((is_room_enemy_set_cleared(get_current_floor(), 1) == 0) && ((obj = __nw__7TObjectFUl(0x1C)) != 0)) {
         __ct__17TObjBoss8DemoRoomFv(obj, (*(s32 *)&tl_05));
     }
 }

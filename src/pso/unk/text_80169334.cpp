@@ -74,10 +74,10 @@ s16 obj_getS16_2BA(void *);
 s16 obj_getS16_32E(void *);
 u32 get_recovery_need_flags__10TObjPlayerFPv(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(void *);
-s32 TObjPlayer__sub_801AF734(void *);
+s32 are_traps_full__10TObjPlayerFPv(void *);
 s32 is_valid_slot__17TOHangerMachine01FiUs(void *, u16);
 void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
-void TObjPlayer__sub_801AF7E0(void *);
+void refill_traps__10TObjPlayerFPv(void *);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, u16);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -114,7 +114,7 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
         if (obj_getS16_32C(actor) < get_field_2b8__14TItemProShieldFPv(actor) ||
             obj_getS16_32E(actor) < obj_getS16_2BA(actor) ||
             get_recovery_need_flags__10TObjPlayerFPv(actor) != 0 ||
-            (is_alive_and_ready__10TObjPlayerFi(actor) != 0 && TObjPlayer__sub_801AF734(actor) == 0)) {
+            (is_alive_and_ready__10TObjPlayerFi(actor) != 0 && are_traps_full__10TObjPlayerFPv(actor) == 0)) {
             void *e;
             self->fAC = 1;
             if (is_valid_slot__17TOHangerMachine01FiUs(self, self->fF4) != 0) {
@@ -122,7 +122,7 @@ void find_heal_target__13TOHealGeneralFPv(Ring_80169334 *self) {
                 actor->m48();
             }
             if (is_alive_and_ready__10TObjPlayerFi(actor) != 0) {
-                TObjPlayer__sub_801AF7E0(actor);
+                refill_traps__10TObjPlayerFPv(actor);
             }
             e = spawn_particle_effect_with_flags((u8 *)actor + 0x2FC, 0x1F6, 0x10);
             if (e != 0) {

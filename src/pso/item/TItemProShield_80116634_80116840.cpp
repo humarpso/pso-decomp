@@ -96,7 +96,7 @@ int get_type_id__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_80116620(s32, M2C_UNK);
 s32 find_by_pos__11TMainCursorFiss(M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_current_room__10TObjRoomIdFPv(void *);
-M2C_UNK TObjPlayer__sub_801CCB58(M2C_UNK, M2C_UNK);
+M2C_UNK send_6x33_revive_player(M2C_UNK, M2C_UNK);
 void apply_moon_atomizer(void *arg0);
 void * init__14TItemProShieldFPv(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -174,7 +174,7 @@ void apply_moon_atomizer(void *arg0) {
                 if ((u16) get_type_id__10TObjPlayerFPv() != 0xffffU) {
                     TObjPlayer__sub_80116620(temp_r3 + 0x9C, 0);
                     temp_r31 = get_type_id__10TObjPlayerFPv();
-                    TObjPlayer__sub_801CCB58(obj_getField1c(M2C_FIELD(arg0, void **, 0xF0)), temp_r31);
+                    send_6x33_revive_player(obj_getField1c(M2C_FIELD(arg0, void **, 0xF0)), temp_r31);
                 }
             }
         }

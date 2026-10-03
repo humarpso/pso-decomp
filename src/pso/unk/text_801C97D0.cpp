@@ -18,7 +18,7 @@ M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 s16 ret_801D26AC();
 s32 get_field_4__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2824(void *);
-void TObjPlayer__sub_801C97D0(u8 *arg0);
+void enter_service_hold_action__10TObjPlayerFPv(u8 *arg0);
 s32 obj_isState2_324(int);
 s32 check_flag__10TObjPlayerFPvi(int, int);
 s32 TLobby__sub_800822E8(int, int);
@@ -31,14 +31,14 @@ M2C_UNK set_anim_state__10TObjPlayerFPvs(void *, int);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 M2C_UNK swap_stats_bytes__10TObjPlayerFPv(void *);
 M2C_UNK copy_font_state__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TObjPlayer__sub_801D1768(void *);
+M2C_UNK init_6x52_packet__10TObjPlayerFPv(void *);
 s32 validate_6x52_set_animation_state(void *);
 void handle_6x52_set_animation_state(s32 arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801C97D0(u8 *arg0) {
+void enter_service_hold_action__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0x10;
     run_action_state_phase__10TObjPlayerFisi((void *)(arg0), (int) (M2C_FIELD(arg0, s16 *, 0x326)), (int) (6));
     M2C_FIELD(arg0, s16 *, 0xB8) = TObjPlayer__sub_801D2824((void *) (arg0 + 0x5F0));
@@ -48,7 +48,7 @@ void TObjPlayer__sub_801C97D0(u8 *arg0) {
 void handle_6x52_set_animation_state(s32 arg0) {
     Pkt_801C9838 pkt;
     s32 temp_r3;
-    TObjPlayer__sub_801D1768((void *) (&pkt));
+    init_6x52_packet__10TObjPlayerFPv((void *) (&pkt));
     copy_font_state__10TObjPlayerFPvPv((void *) (&pkt), (void *) (arg0));
     swap_stats_bytes__10TObjPlayerFPv((void *) (&pkt));
     if (validate_6x52_set_animation_state((void *) (&pkt)) != 0) {

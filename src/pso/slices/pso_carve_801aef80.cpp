@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
-M2C_UNK TObjPlayer__sub_803518E0(void *, void *, int);
+M2C_UNK init_pad_binding(void *, void *, int);
 void TObjPlayer__sub_801AEFAC(u8 *arg0);
 s32 obj_getField1c(void *);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
@@ -31,9 +31,9 @@ s32 update_movement_by_screen__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AF868(s32);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 check_flag_800000__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_801BF19C(s32);
+s32 emit_idle_water_effect(s32);
 s32 TObjPlayer__sub_801BF1DC(s32);
-s32 TObjPlayer__sub_801BF3E8(s32);
+s32 has_water_ground_flag(s32);
 int test_flag_2000000__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);
@@ -48,7 +48,7 @@ s32 TObjPlayer__sub_801AEF80(u8 *arg0) {
 
 void TObjPlayer__sub_801AEFAC(u8 *arg0) {
     if (((s32)is_locally_controlled__10TObjPlayerFPv((void*)(arg0))) != 0) {
-        TObjPlayer__sub_803518E0((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) M2C_FIELD(arg0, s32 *, 0x3D0)));
+        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) M2C_FIELD(arg0, s32 *, 0x3D0)));
     }
 }
 

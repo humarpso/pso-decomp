@@ -36,7 +36,7 @@ f32 TObjPlayer__sub_801D2CDC(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 s32 queue_physical_attack_input(s32, s32, s32, s32);
 M2C_UNK begin_player_attack(void *, void *, int, int);
-s32 TObjPlayer__sub_801D3224(void *, void *);
+s32 get_first_target_position__10TObjPlayerFPvPv(void *, void *);
 u32 capture_lockon_targets(void *, void *);
 M2C_UNK apply_speed_scale__10TObjPlayerFif(void *, f32);
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
@@ -85,7 +85,7 @@ void TObjPlayer::request_normal_attack_stage1() {
     s16 temp_r31;
     s32 var_r4;
     if ((reset_volopt_state__10TObjPlayerFv(arg0) != 0) && (capture_lockon_targets((void *) (arg0 + 0x7CC), (void *) (arg0)) != 0U)) {
-        if (TObjPlayer__sub_801D3224((void *) (arg0 + 0x7CC), (void *) (&sp10)) != 0) {
+        if (get_first_target_position__10TObjPlayerFPvPv((void *) (arg0 + 0x7CC), (void *) (&sp10)) != 0) {
             var_r4 = calc_angle_to__10TObjPlayerFPvPv(get_position_ptr__10TObjPlayerFPv(arg0), sp10);
         } else {
             var_r4 = M2C_FIELD(arg0, s32 *, 0x60);

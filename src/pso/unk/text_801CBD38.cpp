@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void TObjPlayer__sub_80312E98(void *, s32);
 extern u8 *lbl_805D5D68;
-void TObjPlayer__sub_801CBD38(s32 arg0);
+void remove_photon_blast_participant(s32 arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CBD38(s32 arg0) {
+void remove_photon_blast_participant(s32 arg0) {
     if ((void *) lbl_805D5D68 != NULL) {
         TObjPlayer__sub_80312E98(lbl_805D5D68, arg0);
     }

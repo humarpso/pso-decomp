@@ -43,7 +43,7 @@ void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
 M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D63C0;
 extern s32 lbl_805D63C4;
-s32 TScene__sub_8023E638(s32 arg0, List_8023E638 *arg1);
+s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1);
 }
 
 extern "C" {
@@ -105,7 +105,7 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     return 0;
 }
 
-s32 TScene__sub_8023E638(s32 arg0, List_8023E638 *arg1) {
+s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1) {
     u8 sp8[8];
     Rec_8023E638 *d;
     s32 i;

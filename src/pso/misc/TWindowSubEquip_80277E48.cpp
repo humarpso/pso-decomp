@@ -14,7 +14,7 @@ void *get_window_layout_position(int);
 M2C_UNK fn_80278460(int);
 M2C_UNK save_and_refresh_cursor__20TShopArmorListWindowFPvPvPv(int, int, int);
 M2C_UNK init_and_setup__13TWindowSubMagFPvPv(int, int);
-s32 TWindowShortListCtrl__sub_80278E48(void *, void *, int);
+s32 create_equip_kind_window(void *, void *, int);
 extern M2C_UNK lbl_8044F920[];
 s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1);
 }
@@ -29,7 +29,7 @@ void __dt__7TObjectFv(void *, int);
 
 s32 TWindowSubEquip__sub_80277E48(u8 *arg0, u32 arg1) {
     s32 temp_r31;
-    temp_r31 = TWindowShortListCtrl__sub_80278E48(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (M2C_FIELD(arg0, s32 *, 0x28)));
+    temp_r31 = create_equip_kind_window(get_window_layout_position(1), (void *) (lbl_8044F920), (int) (M2C_FIELD(arg0, s32 *, 0x28)));
     TWindowSubEquip__sub_80263AF8((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (int) (1));
     set_field_1c__6TLobbyFPvf((int) (temp_r31));
     ensure_status_display__20TWindowSubStatusDispFPvi((int) (temp_r31), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x24))));

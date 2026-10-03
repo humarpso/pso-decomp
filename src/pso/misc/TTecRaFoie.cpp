@@ -487,7 +487,7 @@ void TTecRaZonde__sub_80238D10(u8 *arg0);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void TObjPlayer__sub_8004433C(void *);
-void TTecAnti__sub_8022B3E8(void *, void *);
+void copy_technique_target_list(void *, void *);
 extern M2C_UNK __vt__10TTecRaFoie[];
 extern u32 lbl_805D3800;
 u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets, int level);
@@ -735,7 +735,7 @@ u8 *TTecRaFoie__sub_80238BA4(u8 *self, void *source, void *origin, void *targets
     M2C_FIELD(self, u32 *, 0) = lbl_805D3800;
     TTecRaFoie__sub_802380F4(self);
     M2C_FIELD(self, s32 *, 0x148) = 0;
-    TTecAnti__sub_8022B3E8(self + 0xEC, targets);
+    copy_technique_target_list(self + 0xEC, targets);
     if (M2C_FIELD(self, void **, 0x1C) != NULL) {
         M2C_FIELD(self, u16 *, 0xB4) = obj_getField1c(M2C_FIELD(self, void **, 0x1C));
     }

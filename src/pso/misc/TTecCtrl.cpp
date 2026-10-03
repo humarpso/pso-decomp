@@ -32,7 +32,7 @@ extern RecoveredGlobal_8022F068_lbl_804CC934 lbl_804CC934;
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u8 *TLobby__sub_80020004(u8 *, s32, void *, s32, s32, s32);
 void **load_gvm_texture_file(void *);
-void TScene__sub_8023E638(void *, void *);
+void bind_gvm_texture_list(void *, void *);
 void TTecZondeEff__sub_8023DBB4(void);
 void load_technique_resources(void);
 }
@@ -103,7 +103,7 @@ void load_technique_resources(void) {
     }
     lbl_805D63AC = p;
     lbl_805D63B0 = load_gvm_texture_file(lbl_8044D088);
-    TScene__sub_8023E638(lbl_8044D094, ((u8 *)&lbl_804CC934));
+    bind_gvm_texture_list(lbl_8044D094, ((u8 *)&lbl_804CC934));
     TTecZondeEff__sub_8023DBB4();
 }
 

@@ -69,7 +69,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803E2224();
-M2C_UNK TObjPlayer__sub_803E224C();
+M2C_UNK load_context_texture_obj();
 void TLobby__sub_803E2EE4(s32 arg0);
 void TObjPlayer__sub_803E4354(void *);
 void TObjPlayer__sub_803E44D4(void *);
@@ -191,7 +191,7 @@ void TLobby__sub_803E2EE4(s32 arg0) {
     } else {
         setup_render__10TObjPlayerFv();
     }
-    TObjPlayer__sub_803E224C();
+    load_context_texture_obj();
 }
 
 #pragma push

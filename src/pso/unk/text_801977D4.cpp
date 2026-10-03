@@ -32,7 +32,7 @@ struct Rain_801977D4 {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TBoss4Zako__sub_803D8910(void *, void *);
-void fn_80197904(struct Rain_80197904 *self);
+void update_drops__8TObjRainFPv(struct Rain_80197904 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
 void reset_transform_state__10TObjPlayerFv(void);
@@ -77,7 +77,7 @@ void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
     reset_transform_state__10TObjPlayerFv();
 }
 
-void fn_80197904(struct Rain_80197904 *self) {
+void update_drops__8TObjRainFPv(struct Rain_80197904 *self) {
     s32 active = 0;
     struct Drop_80197904 *drop = self->drops;
     u32 i;

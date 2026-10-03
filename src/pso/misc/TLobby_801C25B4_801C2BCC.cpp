@@ -55,7 +55,7 @@ M2C_UNK TOMineTrap__sub_8016FCC4();
 u32 get_player_by_client_id(s32);
 M2C_UNK close_and_play_effect__6TLobbyFii(u16, M2C_UNK);
 M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK fn_801C5454(s32);
+M2C_UNK clear_trap_counts(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
 M2C_UNK obj_set_flag_20000();
@@ -128,7 +128,7 @@ void init__6TLobbyFPv(void *arg0) {
     do {
         temp_r3_2 = get_player_by_client_id(var_r31);
         if (temp_r3_2 != 0U) {
-            fn_801C5454(temp_r3_2 + 0x7C4);
+            clear_trap_counts(temp_r3_2 + 0x7C4);
         }
         var_r31 += 1;
     } while (var_r31 < 4);

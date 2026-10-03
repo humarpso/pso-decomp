@@ -25,7 +25,7 @@ M2C_UNK invoke_callback__6TLobbyFv();
 M2C_UNK TLobby__sub_800FD6F8(void *, int);
 M2C_UNK TObjLight__sub_80133A04(void *, int);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
-M2C_UNK TLobby__sub_801E2F44(int, int, int);
+M2C_UNK set_copy_clear_color_argb(int, int, int);
 M2C_UNK create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK TWindowCtrlMain__ct(u32);
 extern V3_8013F6C4 lbl_8043F138;
@@ -243,7 +243,7 @@ void TLogo__sub_8013F6C4(void) {
     s32 i;
     u32 p;
 
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     for (i = 0; i < 0x80; i++) {
     }

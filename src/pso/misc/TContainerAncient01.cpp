@@ -331,7 +331,7 @@ struct Ido_8018C18C {
     f32 ec;
     u8 f0[4];
 };
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 f32 xyz_distance(void *, void *);
 s32 push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
@@ -365,7 +365,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
     old = self->e0 & 0xF;
     self->e4 = TObjContainerIdo__data_805DBD64;
     for (i = 0; i < self->dc; i++) {
-        if (TODoorAncient08__sub_80229220((u16)self->ids[i]) == 1) {
+        if (is_current_floor_switch_set((u16)self->ids[i]) == 1) {
             self->e0 |= 1 << i;
             self->e4 += self->e8;
         } else {

@@ -35,7 +35,7 @@ void text_builder_reset();
 u8 *TTecCtrl__sub_8022DBC4(u16, u8, s32);
 s32 TWindowHelpItem__sub_802434B8(u16, s32);
 void get_help_text_string(s32);
-void fn_80263A20(s32, s32);
+void toggle_help_window_on_button(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 extern s32 lbl_805D5544;
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
@@ -193,7 +193,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
     u8 *pl;
     s32 lvl;
-    fn_80263A20(self->lobby, self->player);
+    toggle_help_window_on_button(self->lobby, self->player);
     if (ev == NULL) {
         return;
     }

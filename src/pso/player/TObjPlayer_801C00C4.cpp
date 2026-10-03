@@ -10,7 +10,7 @@ struct O_801C010C { u8 pad[0x5c]; u8 arr[1]; };
 struct O_801C0124 { u8 pad[0x48]; u8 arr[1]; };
 
 extern "C" {
-u8 TObjPlayer__sub_801C00E4(s32 arg0);
+u8 is_action_id_none(s32 arg0);
 u8 TObjPlayer__sub_801C010C(O_801C010C *self, s16 i);
 u8 TObjPlayer__sub_801C0124(O_801C0124 *self, s16 i);
 }
@@ -29,7 +29,7 @@ int forward_801C210C__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801C210C
 
     extern int lbl_805D6688;
 
-u8 TObjPlayer__sub_801C00E4(s32 arg0) {
+u8 is_action_id_none(s32 arg0) {
     return (u8) (arg0 == -1);
 }
 

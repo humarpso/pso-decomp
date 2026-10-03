@@ -132,7 +132,7 @@ s32 TLobby__sub_801A3E8C();
 s32 TObjPlayer__sub_801B4CE4(void *, void *);
 s32 TObjPlayer__sub_801B4FD8(void *);
 Ply_80136A8C *create_remote_player_object(void *);
-u8 *TObjPlayer__sub_801BDEF8(s32, s32, void *);
+u8 *create_player_object(s32, s32, void *);
 void TLobby__sub_801DB554(void *);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 char *strncpy(char *, const char *, u32);
@@ -262,14 +262,14 @@ void TLobby__sub_80136A8C(void) {
     Hdr_80136A8C hdr;
     Ply_80136A8C *q;
     if (TLobby__sub_801A3E8C() != 0) {
-        p = (Ply_80136A8C *)TObjPlayer__sub_801BDEF8(lbl_805D53A0, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
+        p = (Ply_80136A8C *)create_player_object(lbl_805D53A0, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
         copy_header_struct__6TLobbyFPvPv((u8 *)p + 0xDAC, (u8 *)(*(void * *)&TLobby__data_805D5580) + 0x1900);
         p->m6();
         strncpy(TLobby__data_8050AAE8[lbl_805D53A0], p->m10(), 0x10);
         TLobby__sub_8013A170(lbl_8043EE48, lbl_805D53A0);
         TLobby__sub_801DB554((*(void * *)&TLobby__data_805D5580));
         TLobby__data_805D5594 = 0xF;
-        p = (Ply_80136A8C *)TObjPlayer__sub_801BDEF8(1 - lbl_805D53A0, 4, get_char_index__23TAdSinglePlyChrSelectGCFUi(0));
+        p = (Ply_80136A8C *)create_player_object(1 - lbl_805D53A0, 4, get_char_index__23TAdSinglePlyChrSelectGCFUi(0));
         if (p != NULL) {
             TObjPlayer__sub_801B4FD8(&hdr);
             TObjPlayer__sub_801B4CE4(p, &hdr);
@@ -283,7 +283,7 @@ void TLobby__sub_80136A8C(void) {
             }
         }
     } else if (lbl_805D53A0 == TLobby__data_805D53AC) {
-        p = (Ply_80136A8C *)TObjPlayer__sub_801BDEF8(lbl_805D53A0, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
+        p = (Ply_80136A8C *)create_player_object(lbl_805D53A0, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
         copy_header_struct__6TLobbyFPvPv((u8 *)p + 0xDAC, (u8 *)(*(void * *)&TLobby__data_805D5580) + 0x1900);
         p->m6();
         strncpy(TLobby__data_8050AAE8[lbl_805D53A0], p->m10(), 0x10);

@@ -23,7 +23,7 @@ extern "C" {
 void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void *p);
 void send_60_update__19TWindowSubTradeMainFPv(void *p);
 void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0);
 }
 
@@ -34,7 +34,7 @@ void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
-M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK close__17TWindowSubComCardFPv(void *);
@@ -60,7 +60,7 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0) {
     }
     TWindowChat__sub_8024AD30(lbl_805D53A0);
     clear_flag__11TWindowCtrlFv();
-    TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+    unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
 }
 
 void TObjCityMainWarp__sub_80186CC8(Obj_80186CC8 *self, u16 value) {
@@ -98,7 +98,7 @@ void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0) {
         arg0->fE0 = 1;
         break;
     case 1:
-        if (arg0->f16C >= 0 && TODoorAncient08__sub_80229220((u16)arg0->f16C) == 1) {
+        if (arg0->f16C >= 0 && is_current_floor_switch_set((u16)arg0->f16C) == 1) {
             arg0->fDC = 0;
         }
         break;

@@ -191,7 +191,7 @@ extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
 extern void *tl_05;
 void TObjContainerEnemy__vt77(Obj_8018990C *self);
-void fn_801FBA6C(s32);
+void draw_ginja_box_tree(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C(void);
@@ -352,7 +352,7 @@ void TObjContainerEnemy__vt79(CE_80189614 *self) {
         TOHangerMachine01__sub_803D9C00(self->f38);
         rotate_matrix_y(0, self->f60);
         scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
-        fn_801FBA6C(self->f34);
+        draw_ginja_box_tree(self->f34);
         pop_matrix();
         break;
     case 1:

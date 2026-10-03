@@ -21,13 +21,13 @@ typedef s32 (Win_8024B098::*Pmf_8024B098)();
 s32 TWindowCtrl__sub_8024B098(void *, Pmf_8024B098);
 Win_8024B098 *get_window__11TWindowCtrlFi(void *self);
 extern RecoveredGlobal_8024B054_lbl_804CE9C8 lbl_804CE9C8;
-void TWindowCtrl__sub_8024B054(s32 arg0);
+void is_slot_visible__11TWindowCtrlFi(s32 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8024B054_lbl_804CE9C8_size[sizeof(RecoveredGlobal_8024B054_lbl_804CE9C8) == 0xC ? 1 : -1];
-void TWindowCtrl__sub_8024B054(s32 arg0) {
+void is_slot_visible__11TWindowCtrlFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_8024B054, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024B054, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024B054, sp10) == 0x8) ? 1 : -1];

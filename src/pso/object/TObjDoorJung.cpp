@@ -58,7 +58,7 @@ extern s32 lbl_805D333C;
 u8 *TObjDoorJung__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(M2C_UNK, M2C_UNK, M2C_UNK);
 void set_indexed_flags(void *, int, int);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void TObjDoorJung__vt12(Jung_8018F808 *arg0);
 struct Node_8018F4AC;
 Node_8018F4AC *get_bml_model(void *, int);
@@ -165,7 +165,7 @@ void render__12TObjDoorJungFv(u8 *arg0) {
             PPCSync();
         }
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xD4); i++) {
-            if (TODoorAncient08__sub_80229220((u16)(M2C_FIELD(arg0, s32 *, 0xC8) + i)) == 1) {
+            if (is_current_floor_switch_set((u16)(M2C_FIELD(arg0, s32 *, 0xC8) + i)) == 1) {
                 if (lbl_805D5BE8 >= 0) {
                     free_children__12TObjDoorJungFPvPv(lbl_8050DC98[i], lbl_805D5BE8);
                 }
@@ -196,7 +196,7 @@ void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
     s32 ok = 1;
     s32 i = 0;
     while (i < arg0->fD4) {
-        s32 t = TODoorAncient08__sub_80229220((u16)(arg0->fC8 + i)) - 1;
+        s32 t = is_current_floor_switch_set((u16)(arg0->fC8 + i)) - 1;
         i++;
         ok = (t == 0) ? (ok & 1) : 0;
     }

@@ -47,14 +47,14 @@ void init_6x3E_packet__10TNpcPlayerFPv(void *);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801AFF50(void *);
 void TObjPlayer__sub_801AFF80(void *);
-void TObjPlayer__sub_801D094C(Player_801D094C *arg0);
+void send_6x3E_stop_at_position__10TObjPlayerFPv(Player_801D094C *arg0);
 }
 
 extern "C" {
 
 void update_position_from_target__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D09F4(void);
-void TObjPlayer__sub_801D09F8(void);
+void complete_idle_state__10TObjPlayerFv(void);
 
 void send_idle_return_event__10TObjPlayerFPvPvs(void *arg0, void *arg1, s16 arg2) {
     Msg_801D08B0 m;
@@ -71,7 +71,7 @@ void send_idle_return_event__10TObjPlayerFPvPvs(void *arg0, void *arg1, s16 arg2
         TObjPlayer__sub_801C18E0(&m);
     }
 }
-void TObjPlayer__sub_801D094C(Player_801D094C *arg0) {
+void send_6x3E_stop_at_position__10TObjPlayerFPv(Player_801D094C *arg0) {
     Msg_801D094C m;
     s32 t;
     if ((arg0 == NULL) || (obj_isState2_324() == 0)) {

@@ -27,7 +27,7 @@ s32 obj_isState2_324();
 s32 get_player_by_client_id(int);
 void init_6x3A_packet__15TFontSmallLobbyFPv(void *);
 void draw_and_send__15TFontSmallLobbyFPv(void *);
-void TFontSmallLobby__sub_801D5FC0(u16 *arg0);
+void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
 M2C_UNK TFontSmallLobby__sub_801C01BC(void *);
@@ -105,7 +105,7 @@ void handle_6x3A_clear_photon_blast_ready_flag(s32 arg0) {
     }
 }
 
-void TFontSmallLobby__sub_801D5FC0(u16 *arg0) {
+void send_6x3A_clear_photon_blast_ready_flag(u16 *arg0) {
     struct Pkt_801D5FC0 pkt;
     if (((u8 *)get_player_by_client_id((int)(*arg0))) == NULL || obj_isState2_324() == 0) {
         init_6x3A_packet__15TFontSmallLobbyFPv(&pkt);

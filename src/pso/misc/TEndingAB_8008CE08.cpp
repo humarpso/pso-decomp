@@ -18,7 +18,7 @@ extern s32 lbl_805D2958;
 extern s32 TEndingAB__data_805D4F10;
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
 s32 fn_8001A988(void);
-void TScene__sub_8023E638(void *, void *);
+void bind_gvm_texture_list(void *, void *);
 extern u8 lbl_8043988C[];
 extern u8 lbl_804398A4[];
 extern u8 lbl_804398B8[];
@@ -76,24 +76,24 @@ void TScene__sub_8008CF50(void) {
     if (fn_8001A988() != 0) {
         t = base + 0x2B8;
         (*(u8 * *)&lbl_805D4F14) = t;
-        TScene__sub_8023E638(lbl_8043988C, t);
+        bind_gvm_texture_list(lbl_8043988C, t);
     } else {
         switch (lbl_805D5550) {
         case 0:
         case 1:
             t = base + 0xA8;
             (*(u8 * *)&lbl_805D4F14) = t;
-            TScene__sub_8023E638(lbl_804398A4, t);
+            bind_gvm_texture_list(lbl_804398A4, t);
             break;
         case 2:
             t = base + 0x158;
             (*(u8 * *)&lbl_805D4F14) = t;
-            TScene__sub_8023E638(lbl_804398B8, t);
+            bind_gvm_texture_list(lbl_804398B8, t);
             break;
         case 3:
             t = base + 0x208;
             (*(u8 * *)&lbl_805D4F14) = t;
-            TScene__sub_8023E638(lbl_804398CC, t);
+            bind_gvm_texture_list(lbl_804398CC, t);
             break;
         }
     }

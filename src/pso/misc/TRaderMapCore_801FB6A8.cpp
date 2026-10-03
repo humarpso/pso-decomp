@@ -26,8 +26,8 @@ void TRaderMapCore__sub_801F9474(s32, u8 *);
 void TRaderMapCore__sub_801FB904(void);
 int get_status__6TSceneFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-Ent_801FB798 *TLobby__sub_80207E88(s32);
-void TScene__sub_8023E638(char *, u8 *);
+Ent_801FB798 *get_floor_scene_table(s32);
+void bind_gvm_texture_list(char *, u8 *);
 extern const char lbl_8044A7B0[];
 extern s32 lbl_805D49B4;
 extern u8 *TRaderMapCore__data_805D5F28;
@@ -37,7 +37,7 @@ extern s32 lbl_805D5F38;
 extern s32 TRaderMapCore__data_805D5F44;
 extern const char lbl_805DC5AC[2];
 extern const char lbl_805DC5B0[3];
-void TRaderMapCore__sub_801FB798(void);
+void load_map_resources__13TRaderMapCoreFv(void);
 }
 
 extern "C" {
@@ -85,19 +85,19 @@ void TRaderMapCore__sub_801FB71C(void) {
     TRaderMapCore__data_805D5F44 = 0;
 }
 
-void TRaderMapCore__sub_801FB798(void) {
+void load_map_resources__13TRaderMapCoreFv(void) {
     char buf[32];
     Ent_801FB798 *e;
     s32 status;
     s32 state;
     state = get_global_state__14TOKeyMachine01Fv();
     status = get_status__6TSceneFv();
-    e = TLobby__sub_80207E88(state);
+    e = get_floor_scene_table(state);
     TLobby__sub_801317E4(buf, e[status].name, lbl_8044A7B0);
     TRaderMapCore__data_805D5F28 = create_named_object(buf);
     if (TRaderMapCore__data_805D5F28 != NULL && *(u32 *)(TRaderMapCore__data_805D5F28 + 4) != 0) {
         TLobby__sub_801317E4(buf, e[status].name, lbl_805DC5AC);
-        TScene__sub_8023E638(buf, *(u8 **)(TRaderMapCore__data_805D5F28 + 4));
+        bind_gvm_texture_list(buf, *(u8 **)(TRaderMapCore__data_805D5F28 + 4));
     }
     copy_name(lbl_805DC5B0);
     lbl_805D49B4 = 0;

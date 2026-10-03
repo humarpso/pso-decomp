@@ -145,7 +145,7 @@ s16 obj_getField1c(void *);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK publish_actor_light_scalars(u16, f32, f32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(void *, s32);
-M2C_UNK TObjPlayer__sub_801D2DB4(void *);
+M2C_UNK request_heavy_attack_particles__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK construct_actor_light_task(void *, f32 *, f32 *, int, void *, f32, s32);
@@ -219,7 +219,7 @@ void start_attack_preparation__10TObjPlayerFPv(u8 *arg0) {
     case 1:
         *(s16 *)(arg0 + 0x328) = 1;
         set_state_flags__10TObjPlayerFPvUi(arg0, 0x80);
-        TObjPlayer__sub_801D2DB4(arg0 + 0x384);
+        request_heavy_attack_particles__10TObjPlayerFPv(arg0 + 0x384);
         lbl_8050BEE0[1] = lbl_8050BEE0[0] = 0.0f;
         lbl_8050BFE0[0] = lbl_8050BEE0[2] = 1.0f;
         lbl_8050BFE0[2] = lbl_8050BFE0[1] = lbl_805DC3A8;

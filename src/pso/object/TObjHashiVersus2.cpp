@@ -24,7 +24,7 @@ s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801913F8_lbl_804B7D24 lbl_804B7D24;
 extern M2C_UNK __vt__16TObjHashiVersus2[];
 extern s32 lbl_805D3380;
@@ -93,7 +93,7 @@ u8 *TObjHashiVersus2__ct(u8 *arg0, s32 arg1, s32 _w2) {
     TObjHashiBase__ct(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801913F8___vt__16TObjHashiVersus2 *)&__vt__16TObjHashiVersus2).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3380;
-    if (TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 0) {
+    if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 0) {
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x68));
     }
     M2C_FIELD(arg0, f32 *, 0xD0) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);

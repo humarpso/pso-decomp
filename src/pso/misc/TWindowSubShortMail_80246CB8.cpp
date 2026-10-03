@@ -26,7 +26,7 @@ s32 fn_80246CD0(void) {
 
 extern u16 lbl_805D63FC;
 
-s32 fn_80246CDC(void) {
+s32 is_guild_card_receive_active(void) {
     return ((u16) lbl_805D63FC >> 1U) & 1;
 }
 

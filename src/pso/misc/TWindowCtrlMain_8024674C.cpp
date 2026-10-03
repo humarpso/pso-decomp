@@ -13,7 +13,7 @@ M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
 s32 is_trade_active();
 s32 is_active__19TWindowSubShortMailFv();
 s32 fn_80246CD0();
-s32 fn_80246CDC();
+s32 is_guild_card_receive_active();
 void TWindowSubStatusDisp__sub_80246980(s32 arg0);
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
 M2C_UNK TLobby__sub_8001EE48(void *);
@@ -116,7 +116,7 @@ void TWindowSubStatusDisp__sub_80246980(s32 arg0) {
     temp_r26 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (2));
     temp_r25 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (1));
     temp_r24 = get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (0));
-    if (fn_80246CDC() != 0) {
+    if (is_guild_card_receive_active() != 0) {
         if (temp_r31 != 0U) {
             clear_visible_flag__20TWindowSubStatusDispFPv((int) (temp_r31));
         }

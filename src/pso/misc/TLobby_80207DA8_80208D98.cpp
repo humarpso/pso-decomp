@@ -22,7 +22,7 @@ void TLobby__sub_801317E4(Buf_80208E8C *, void *, void *);
 s32 update_lobby_scene__6TSceneFPv(Buf_80208E8C *);
 s32 heap_alloc__5THeapFUl(s32, s32);
 void read_disc_file(Buf_80208E8C *, void *);
-M2C_UNK TLobby__sub_80208904(s32);
+M2C_UNK bswap_floor_event_set(s32);
 s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 void heap_free__5THeapFPv(void *, void *);
 extern M2C_UNK lbl_805139F8[];
@@ -33,7 +33,7 @@ void TLobby__sub_80208E30(void);
 extern "C" {
 
 s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_80208904(s32);
+M2C_UNK bswap_floor_event_set(s32);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 s32 heap_alloc__5THeapFUl(s32, s32);
 
@@ -55,7 +55,7 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 != 0) {
         move_data__6TLobbyFv(temp_r3, arg1, arg2);
         *((s32 *)((s8 *)lbl_805139F8 + temp_r29)) = temp_r3;
-        TLobby__sub_80208904(arg0);
+        bswap_floor_event_set(arg0);
         return 1;
     }
     return 0;
@@ -88,7 +88,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
         if (p != 0) {
             read_disc_file(&buf, p);
             ((void * *)&lbl_805139F8)[floor] = p;
-            TLobby__sub_80208904(floor);
+            bswap_floor_event_set(floor);
             return 1;
         }
     }

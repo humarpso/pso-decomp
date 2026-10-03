@@ -101,7 +101,7 @@ void show_active_window__11TWindowCtrlFPv(void *arg0);
 int TWindowCtrlMain__sub_8024D7C0(void*);
 int TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
-void TWindowCtrlMain__sub_8024D8A8(void* p);
+void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p);
 s32 TWindowMainMenu__sub_8024E3D4(void *);
 s32 TWindowMainMenu__sub_8024E3E0(void *);
 s32 get_window_layout_position(M2C_UNK);

@@ -116,7 +116,7 @@ extern "C" {
 void create_help_window__6TLobbyFv(void);
 void send_data__6TLobbyFv(void);
 s32 TWindowHelpItem__ct(s32, s32, s32);
-s32 TWindowShortListCtrl__sub_80278E48(s32, M2C_UNK *, s32);
+s32 create_equip_kind_window(s32, M2C_UNK *, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK clear_quest_vm_flag__6TLobbyFv();
 M2C_UNK free_luker_object__6TLobbyFv(void);
@@ -133,7 +133,7 @@ extern s32 TLobby__data_805D5EC0;
 void create_help_window__6TLobbyFv(void) {
     s32 var_r31;
 
-    TLobby__data_805D5EBC = TWindowShortListCtrl__sub_80278E48(get_window_layout_position(3), lbl_80449B2C, lbl_805D53A0);
+    TLobby__data_805D5EBC = create_equip_kind_window(get_window_layout_position(3), lbl_80449B2C, lbl_805D53A0);
     save_and_close__20TShopArmorListWindowFPv();
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {

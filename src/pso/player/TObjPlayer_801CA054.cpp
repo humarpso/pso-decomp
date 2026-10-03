@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void init_subobject__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_801BF964(s32);
+M2C_UNK zero_vec3(s32);
 M2C_UNK set_pos_z__10TObjPlayerFPvf(s32, f32);
 M2C_UNK update_action_render__10TObjPlayerFPv(s32);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(s32, M2C_UNK, M2C_UNK);
@@ -19,7 +19,7 @@ void init_subobject__10TObjPlayerFi(s32 arg0) {
     if (arg0 != 0) {
         run_action_state_phase__10TObjPlayerFisi(arg0, 0xF, 0);
         update_action_render__10TObjPlayerFPv(arg0);
-        TObjPlayer__sub_801BF964(arg0 + 0x5FC);
+        zero_vec3(arg0 + 0x5FC);
         TObjPlayer__sub_801C58CC(arg0 + 0x5FC, arg0);
         set_pos_z__10TObjPlayerFPvf(arg0 + 0x5FC, TObjPlayer__data_805DC360);
     }

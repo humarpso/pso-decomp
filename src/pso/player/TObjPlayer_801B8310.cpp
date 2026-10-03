@@ -60,7 +60,7 @@ u32 TObjPlayer__sub_801B8E68(int, int);
 s32 get_player_by_client_id(int);
 M2C_UNK TObjPlayer__sub_801BE9A8(int);
 M2C_UNK set_flag_20000__10TObjPlayerFi(int);
-M2C_UNK TObjPlayer__sub_801BF8EC(void *, void *, int);
+M2C_UNK set_equip_slot_entry(void *, void *, int);
 M2C_UNK bswap_cmd_item_data__10TObjPlayerFi(void *);
 M2C_UNK copy__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK init_pkt_6x2B__10TObjPlayerFPv(void *);
@@ -102,7 +102,7 @@ void handle_6x2B_create_inventory_item(s32 arg0) {
             TItemData__sub_8010CCB0(pkt.item);
             item = lookup_inventory_item__10TObjPlayerFPv((M2C_UNK *)pkt.item);
             if ((item != NULL) && (TObjPlayer__sub_801B8E68(player, (int)item) != 0U) && (kind == 2) && (pkt.f19 != 0) && (get_slot_value__10TObjPlayerFPvi((void *)(player + 0xD04), (void *)(((VObj_18 *)item)->m31())) == 0U)) {
-                TObjPlayer__sub_801BF8EC((void *)(player + 0xD04), (void *)(((VObj_18 *)item)->m31()), (int)item);
+                set_equip_slot_entry((void *)(player + 0xD04), (void *)(((VObj_18 *)item)->m31()), (int)item);
                 set_flag_20000__10TObjPlayerFi(player);
                 ((VObj_18 *)item)->m18();
                 TObjPlayer__sub_801BE9A8(player);

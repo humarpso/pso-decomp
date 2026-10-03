@@ -16,7 +16,7 @@ void TObjPlayer__sub_801BEC78(O_801BEC78 *p);
 
 extern "C" {
 
-s32 TObjPlayer__sub_801BEC90(void* p);
+s32 get_entrance_id__10TObjPlayerFPv(void* p);
 int is_mounted__15TPlyPhotonChairFPv(void* p);
 int TFontSmallLobby__sub_801C0228(void*);
 int TObjPlayer__sub_8011E204(void*, int);
@@ -37,7 +37,7 @@ void set_control_role__10TObjPlayerFPvi(void* p, s32 v);
 u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);
-void TObjPlayer__sub_801BEB5C(void* p);
+void reset_entrance_id__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEB68(void* p);
 u8 TObjPlayer__sub_801BEB8C(void* p);
 u8 TObjPlayer__sub_801BEBB8(void* p);
@@ -106,6 +106,6 @@ void TObjPlayer__sub_801BEC78(O_801BEC78 *p) {
     p->b = 0;
 }
 
-s32 TObjPlayer__sub_801BEC90(void* p) { return *(s32*)((char*)p + 0x3c8); }
+s32 get_entrance_id__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x3c8); }
 
 }

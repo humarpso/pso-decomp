@@ -44,7 +44,7 @@ extern const f32 lbl_805DF1F8;
 extern const f32 lbl_805DF1FC;
 extern const f32 lbl_805DF200;
 extern const f32 lbl_805DF204;
-void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1);
+void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1);
 s32 get_window_layout_position(int);
 M2C_UNK TWindowSimpleStatus__ct(void *, int, void *, void *);
 extern M2C_UNK __vt__18TWindowPartyStatus[];
@@ -76,7 +76,7 @@ void draw__18TWindowPartyStatusFPv(void* p) { fn_8026F8CC(p); update_status_entr
 }
 extern "C" {
 
-void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
+void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_8030C0C4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8030C0C4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8030C0C4, sp10) == 0x8) ? 1 : -1];
@@ -116,7 +116,7 @@ void TWindowPartyStatus__sub_8030C0C4(u8 *arg0, u8 *arg1) {
 void render__18TWindowPartyStatusFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowPartyStatus__sub_8030C0C4((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
+    draw_background__18TWindowPartyStatusFPvPv((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

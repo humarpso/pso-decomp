@@ -7,12 +7,12 @@ extern "C" {
 s32 find_item_by_id(s32);
 u32 test_item_flags__10TObjPlayerFPvUi(s32, s32);
 u16 get_id__13TItemProArmorFPv(s32);
-s32 fn_802530D0(void *arg0);
+s32 is_item_already_equipped__15TWindowHelpItemFPv(void *arg0);
 }
 
 extern "C" {
 
-s32 fn_802530D0(void *arg0) {
+s32 is_item_already_equipped__15TWindowHelpItemFPv(void *arg0) {
     s32 temp_r3;
     s32 field;
     u32 diff;

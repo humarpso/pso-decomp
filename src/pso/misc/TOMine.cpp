@@ -105,14 +105,14 @@ M2C_UNK TOMineTrap__sub_80170CF4(void *);
 M2C_UNK TOMineTrap__sub_80170DD8(void *);
 int draw_ginja_object(void*);
 M2C_UNK submit_cursor_candidate(void *, int);
-int TObjPlayer__sub_801B4AC8(void*);
+int submit_target_to_player_cursor(void*);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 int set_global_param__8TObjFishFi(void*);
 
-int get_player_state__6TOMineFPv(void* p) { return TObjPlayer__sub_801B4AC8(p); }
+int get_player_state__6TOMineFPv(void* p) { return submit_target_to_player_cursor(p); }
 
 typedef struct RecoveredFields_80170F0C_arg0 RecoveredFields_80170F0C_arg0;
 int TOMine__sub_80170F0C(u8 *arg0) {

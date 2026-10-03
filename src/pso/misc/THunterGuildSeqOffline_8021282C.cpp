@@ -78,7 +78,7 @@ s32 TQuestThread__sub_801F5C50(s32);
 void TWindow__close(void *);
 s32 TWindowSubComCard__sub_80265BF8(void *);
 extern RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
-void THunterGuildSeqOffline__sub_802128B0(u8 *arg0);
+void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 List_80212B88 *TQuestListOffline__ct(void *, s32, Seq_80212B88 *, s32);
 void *__nw__7TObjectFUl(u32);
@@ -148,7 +148,7 @@ void request_close__22THunterGuildSeqOfflineFv(void) {
 }
 
 typedef char RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_802128B0_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
-void THunterGuildSeqOffline__sub_802128B0(u8 *arg0) {
+void handle_cancel_choice__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     s32 temp_r3_2;
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));

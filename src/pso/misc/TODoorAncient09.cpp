@@ -70,7 +70,7 @@ struct Door_80160BA8 {
 extern "C" {
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_80160838(void *, void *);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void TODoorAncient09__vt12(u8 *arg0);
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -100,7 +100,7 @@ extern const f32 lbl_805DB48C;
 void TODoorAncient09__vt13(u8 *arg0);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
@@ -217,7 +217,7 @@ void TODoorAncient09__vt12(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
         return;
     case 2:
-        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
+        if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
             TODoorAncient09__sub_80160968((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             M2C_FIELD(arg0, s32 *, 0xD8) = 1;
@@ -227,7 +227,7 @@ void TODoorAncient09__vt12(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD8) = 0;
         return;
     case 3:
-        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
+        if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 1) && (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0xD4))) == 1)) {
             TODoorAncient09__sub_80160968((void *)((void *) (arg0)));
             M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 1);
             if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (TLobby__sub_80156A80((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
@@ -258,12 +258,12 @@ void TODoorAncient09__sub_80160BA8(Door_80160BA8 *self) {
     pairs[0][1] = root->x2c->x2c->x30;
     pairs[1][0] = root->x2c->x30;
     pairs[1][1] = root->x2c->x30->x30;
-    if (TODoorAncient08__sub_80229220((u16)self->xC8) != 0 || (self->xD0 & 1)) {
+    if (is_current_floor_switch_set((u16)self->xC8) != 0 || (self->xD0 & 1)) {
         f = 1;
     }
     on[0] = f;
     g = 0;
-    if (TODoorAncient08__sub_80229220(self->xD4) != 0 || (self->xD0 & 1)) {
+    if (is_current_floor_switch_set(self->xD4) != 0 || (self->xD0 & 1)) {
         g = 1;
     }
     on[1] = g;

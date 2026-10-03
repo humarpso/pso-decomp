@@ -135,7 +135,7 @@ extern RecoveredGlobal_801897A4_lbl_804B63BC lbl_804B63BC;
 extern M2C_UNK __vt__18TObjContainerEnemy[];
 extern s32 lbl_805D32F0;
 u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
-void fn_801FBA6C(s32);
+void draw_ginja_box_tree(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void TObjPlayer__sub_803D9B2C();
@@ -281,7 +281,7 @@ void TObjContainerItem__vt79(struct Box_80189A50 *self) {
             TOHangerMachine01__sub_803D9C00(self->pos);
             rotate_matrix_y(0, self->rot);
             scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
-            fn_801FBA6C(self->model);
+            draw_ginja_box_tree(self->model);
             pop_matrix();
             break;
         case 1:

@@ -15,7 +15,7 @@ s32 check_flag_100__10TObjPlayerFPv();
 s32 get_player_by_client_id(s32);
 extern u8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
-void TWindowShortListCtrl__sub_802473C8(Win_802473C8 *arg0);
+void handle_dpad_shortcuts__11TWindowChatFPv(Win_802473C8 *arg0);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ void open_input__11TWindowChatFPv(void *arg0) {
         TWindowChat__sub_8024792C(arg0);
     }
 }
-void TWindowShortListCtrl__sub_802473C8(Win_802473C8 *arg0) {
+void handle_dpad_shortcuts__11TWindowChatFPv(Win_802473C8 *arg0) {
     void *pad;
     if (arg0->flags & 8) {
         return;

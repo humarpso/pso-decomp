@@ -45,10 +45,10 @@ void *__ct__15TChCrCharSelectFv(void *arg0) {
 
 extern "C" {
 
-int TChCrCharSelect__sub_802937D4(int a0);
+int get_char_select_class_id(int a0);
 
     extern int lbl_80464E98[];
-int TChCrCharSelect__sub_802937D4(int a0) {  return lbl_80464E98[a0]; }
+int get_char_select_class_id(int a0) {  return lbl_80464E98[a0]; }
 
 }
 #endif
@@ -62,7 +62,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0);
-M2C_UNK TChCrCharSelect__sub_802937D4(void *);
+M2C_UNK get_char_select_class_id(void *);
 s32 get_class_appearance_preset();
 M2C_UNK create__12TCharaMakingFPvPv(void *, int);
 M2C_UNK copy_player_visual_record(int, int);
@@ -80,7 +80,7 @@ void tick_and_apply_selection__15TChCrCharSelectFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = temp_r0;
     if (temp_r0 <= 0) {
         temp_r31 = (unsigned char *) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF)) + 0x370);
-        TChCrCharSelect__sub_802937D4((void *) (TChCrCharSelect__data_805D3CB8));
+        get_char_select_class_id((void *) (TChCrCharSelect__data_805D3CB8));
         copy_player_visual_record((int) (temp_r31), (int) (get_class_appearance_preset()));
         M2C_FIELD(temp_r31, s8 *, 0x30) = -1;
         M2C_FIELD(temp_r31, s8 *, 0) = 0;

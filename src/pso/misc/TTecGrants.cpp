@@ -98,9 +98,9 @@ extern s32 tl_07;
 void run_task__10TTecGrantsFv(u8 *arg0);
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
-s32 TTecAnti__sub_8022B3E8(void *, void *);
+s32 copy_technique_target_list(void *, void *);
 s32 fn_8022C10C(void *, void *, void *, void *);
-s32 fn_80232830(void *);
+s32 init_parameters__10TTecGrantsFPv(void *);
 extern M2C_UNK __vt__10TTecGrants[];
 extern s32 lbl_805D37D0;
 u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -187,8 +187,8 @@ u8 *TTecGrants__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233350___vt__10TTecGrants *)&__vt__10TTecGrants).value;
     TObjPlayer__sub_8004433C((void *) (arg0 + 0xEC));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D37D0;
-    fn_80232830((void *) (arg0));
-    TTecAnti__sub_8022B3E8((void *) (arg0 + 0xEC), (void *) (arg3));
+    init_parameters__10TTecGrantsFPv((void *) (arg0));
+    copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0x148) = 0;
     temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
     if (temp_r3 != 0U) {

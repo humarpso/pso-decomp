@@ -14,7 +14,7 @@ void TLobby__sub_802263A8(s32 arg0);
 extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
 extern s32 lbl_805D62B0;
-void TLobby__sub_80227D14(s32 idx);
+void release_sound_with_fade(s32 idx);
 void TLobby__sub_80226294(s32 idx);
 }
 
@@ -42,7 +42,7 @@ void update_technique_slot__10TTecRaFoieFi(s32 arg0) {
 
 void TLobby__sub_80226294(s32 idx) {
     if (lbl_805D62B0 != 0 && idx >= 0 && idx < 0x28) {
-        TLobby__sub_80227D14(idx);
+        release_sound_with_fade(idx);
         lbl_805145F0[idx].flags &= lbl_805DC748;
         lbl_805145F0[idx].f18 = 0;
         lbl_805145F0[idx].f8 = 0;

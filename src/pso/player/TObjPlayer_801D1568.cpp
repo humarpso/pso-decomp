@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801D1658(void* a0);
-void TObjPlayer__sub_801D1768(u8 *arg0);
+void init_6x52_packet__10TObjPlayerFPv(u8 *arg0);
 void broadcast_lobby_display__10TObjPlayerFPv(void* p);
 void bswap_fields__10TObjPlayerFPv(void* p);
 void* copy_font_state__10TObjPlayerFPvPv(void* p, void* a1);
@@ -49,7 +49,7 @@ void send_name__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLo
 void swap_stats_bytes__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 void* copy_font_state__10TObjPlayerFPvPv(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(short*)((char*)p + 0x4) = *(short*)((char*)a1 + 0x4); *(short*)((char*)p + 0x6) = *(short*)((char*)a1 + 0x6); *(void**)((char*)p + 0x8) = *(void**)((char*)a1 + 0x8); return p; }
 
-void TObjPlayer__sub_801D1768(u8 *arg0) {
+void init_6x52_packet__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s32 *, 8) = 0;

@@ -58,7 +58,7 @@ void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void save_position__17TWindowSubComCardFPv(void *p);
 void TWindowDD__sub_802466E0(void *, void *, s16, s32);
 void set_help_mode__14TWindowComCardFPvi(void *, s32);
-s32 fn_8026CB74();
+s32 get_zero_vec2();
 extern s32 lbl_804CE950[];
 extern const f32 lbl_805DCBD0;
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
@@ -117,7 +117,7 @@ void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *parent, Vec2_80249ED8 *ofs, s32 col, s32 mode, s32 arg5) {
-    TWindowDD__sub_802466E0(o, lbl_804CE950, arg5, fn_8026CB74());
+    TWindowDD__sub_802466E0(o, lbl_804CE950, arg5, get_zero_vec2());
     o->vtbl = (s32 *)lbl_804CE964;
     o->parent = parent;
     o->ofs.x = ofs->x;

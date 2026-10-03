@@ -6,7 +6,7 @@ void clear_active_flag__13TParticleCtrlFPv(void*);
 void enable__13TParticleCtrlFPv(void*);
 f32 horizontal_distance_squared(const f32*, const f32*);
 u8* get_player_by_client_id(void*);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 extern u8* lbl_805D4DF0;
 extern void* lbl_805D53A0;
 extern const f32 lbl_805DBA00;
@@ -15,11 +15,11 @@ extern const f32 lbl_805DBA00;
 void TOSwitchAttackSub::run_task() {
     f32 playerDistance;
     u8* player;
-    if (TODoorAncient08__sub_80229220(stopSwitchId) == 1) {
+    if (is_current_floor_switch_set(stopSwitchId) == 1) {
         queue_destruction__7TObjectFv(this);
         return;
     }
-    if (TODoorAncient08__sub_80229220(requiredSwitchId) == 0) {
+    if (is_current_floor_switch_set(requiredSwitchId) == 0) {
         queue_destruction__7TObjectFv(this);
         return;
     }

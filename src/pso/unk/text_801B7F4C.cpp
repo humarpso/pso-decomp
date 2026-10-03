@@ -21,7 +21,7 @@ M2C_UNK TObjPlayer__sub_801C0E5C(void *);
 u32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
 void *get_owner_if_alive__10TObjPlayerFPv();
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 fn_801B7F4C(void *arg0, s32 arg1);
+s32 try_send_6x27_use_item(void *arg0, s32 arg1);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK bind_saved_inventory_equipment__10TObjPlayerFPvPvi(void *, M2C_UNK *, s32);
 M2C_UNK create_inventory__10TObjPlayerFPv(void *);
@@ -37,7 +37,7 @@ void fn_801B80C0(void *arg0, Ent_801B80C0 *arg1, s32 arg2);
 extern "C" {
 
 struct S801B7F4C { s8 b[2]; s16 h; s32 w; };
-s32 fn_801B7F4C(void *arg0, s32 arg1) {
+s32 try_send_6x27_use_item(void *arg0, s32 arg1) {
     struct S801B7F4C sp8;
     void *temp;
     if (TFontSmallLobby__sub_801AFEE0() != 0) {

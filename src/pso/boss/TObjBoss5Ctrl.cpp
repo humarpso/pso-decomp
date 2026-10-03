@@ -15,7 +15,7 @@ void *TObjBoss5Ctrl__ct(void *arg0);
 s32 rand();
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 s32 get_current_floor(f32, f32, f32);
-s32 TLobby__sub_8020C1F0(M2C_UNK, s32);
+s32 is_room_enemy_set_cleared(M2C_UNK, s32);
 u32 create__19TObjBoss5FloorStoneFv();
 u32 create__19TObjBoss5FloorGrassFv();
 u32 TObjBoss5PillarDemo__sub_8028AC8C();
@@ -61,7 +61,7 @@ void *TObjBoss5Ctrl__ct(void *arg0) {
     temp_f2 = lbl_805D8F18 * temp_f3;
     M2C_FIELD(arg0, s16 *, 0x2C) = (s16) (lbl_805D8F14 * temp_f2 + lbl_805D8F10);
     temp_r3 = get_current_floor(lbl_805D8F14, temp_f2, temp_f3);
-    if (TLobby__sub_8020C1F0(temp_r3, 1) == 0) {
+    if (is_room_enemy_set_cleared(temp_r3, 1) == 0) {
         if (is_split_screen() == 0) {
             if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
                 M2C_FIELD(arg0, u32 *, 0x1C) = create__19TObjBoss5FloorGrassFv();

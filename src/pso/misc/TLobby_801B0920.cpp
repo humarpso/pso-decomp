@@ -44,7 +44,7 @@ void recover_full__10TObjPlayerFPv(Pl_801B0B88 *);
 void TObjPlayer__sub_801B6488(Pl_801B0B88 *, s32);
 void unequip_item__10TObjPlayerFiPv(Pl_801B0B88 *, s32);
 VObj_801B09A4 *get_player_by_client_id(s32);
-void TObjPlayer__sub_801BEE18(Pl_801B0B88 *, s32);
+void set_meseta__10TObjPlayerFPvi(Pl_801B0B88 *, s32);
 void TObjPlayer__sub_801BEE24(Pl_801B0B88 *, s32);
 void TObjPlayer__sub_801BEE2C(Pl_801B0B88 *, s32);
 void fn_801C19E0(void *, s32);
@@ -261,7 +261,7 @@ void TLobby__sub_801B0B88(void) {
             TObjPlayer__sub_801C1B10(p->f424);
         }
         if (TLobby__sub_801D6FFC(q) != 0) {
-            TObjPlayer__sub_801BEE18(p, 0);
+            set_meseta__10TObjPlayerFPvi(p, 0);
         }
         if (TLobby__sub_801D6FC8(q) == 1) {
             fn_801C5420(p->f7C8, TObjPlayer__sub_801D6D28(q));

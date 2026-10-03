@@ -35,7 +35,7 @@ s32 get_idle_animation__10TObjPlayerFPv(u8 *arg0);
 s32 reset_and_flag__10TObjPlayerFPv(void *);
 s32 update_walk_movement__10TObjPlayerFPv(void *);
 s32 set_attack_state__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801D00B0(void *);
+s32 send_6x40_walk_to_position__10TObjPlayerFPv(void *);
 s32 handle_ring_hit__10TObjPlayerFi(void *);
 s32 check_ring_action__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801D023C(void *);
@@ -64,7 +64,7 @@ void run_walk_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
         handle_ring_hit__10TObjPlayerFi((void *) arg0);
         return;
       case 5:
-        TObjPlayer__sub_801D00B0((void *) arg0);
+        send_6x40_walk_to_position__10TObjPlayerFPv((void *) arg0);
         return;
       case 0:
         set_attack_state__10TObjPlayerFPv((void *) arg0);

@@ -44,7 +44,7 @@ extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80446184;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B8F60;
 extern u32 lbl_805D5C68;
 extern u32 lbl_805D5C6C;
-void TObjTank__sub_8019A9B8(void);
+void load_globals__8TObjTankFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -154,7 +154,7 @@ void free_globals__8TObjTankFv(void) {
 }
 typedef char RecoveredGlobal_8019A9B8_lbl_80446184_size[sizeof(RecoveredGlobal_8019A9B8_lbl_80446184) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8019A9B8_lbl_804B8F60_size[sizeof(RecoveredGlobal_8019A9B8_lbl_804B8F60) == 0x10 ? 1 : -1];
-void TObjTank__sub_8019A9B8(void) {
+void load_globals__8TObjTankFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -82,7 +82,7 @@ u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 void mark_selected__6TLobbyFv(void);
 void handle_select_confirm__6TLobbyFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
+M2C_UNK send_6x25_equip_item(s32, s32, M2C_UNK);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFPv(s32);
 M2C_UNK fn_801B849C(s32, void *);
@@ -284,7 +284,7 @@ void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
         temp_r3 = get_player_by_client_id(arg0);
         if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)) || ((is_script_controlled__10TObjPlayerFPv(temp_r3) == 1) && ((s32) lbl_805D53A0 == (s32) TLobby__data_805D53AC)))) {
             fn_801B849C(temp_r3, arg1);
-            TObjPlayer__sub_801BA0F0(temp_r3, M2C_FIELD(arg1, s32 *, 0xC), 0);
+            send_6x25_equip_item(temp_r3, M2C_FIELD(arg1, s32 *, 0xC), 0);
         }
     }
 }

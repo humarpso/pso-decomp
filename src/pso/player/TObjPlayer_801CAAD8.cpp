@@ -2,9 +2,9 @@
 
 extern "C" {
 
-int TObjPlayer__sub_801CAAD8(void* p);
+int exit_fall_reaction__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_8001053C(void*);
 
-int TObjPlayer__sub_801CAAD8(void* p) { return TObjPlayer__sub_8001053C(p); }
+int exit_fall_reaction__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_8001053C(p); }
 
 }

@@ -103,7 +103,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
 extern u8 *lbl_805D5D28;
 extern u32 lbl_805D5D38;
-void TObjPlayer__sub_801AB640(void);
+void create_farlla_photon_blast_model(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 spawn_particle_effect(void *, int);
@@ -205,7 +205,7 @@ void destroy_buffers__10TObjPlayerFv(void) {
 
     extern const float lbl_805DC188;
 
-void TObjPlayer__sub_801AB640(void) {
+void create_farlla_photon_blast_model(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);

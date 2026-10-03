@@ -36,7 +36,7 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK set_field_1c__6TLobbyFPvf(int);
 M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(int);
 f32 TWindowSubEquip__sub_80263AF8(int, int);
-s32 fn_8026652C(int, int, int, int);
+s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);
 s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0);
 extern s16 *lbl_804D2E20[];
@@ -120,7 +120,7 @@ s32 TWindowSubTechnique__sub_80286E0C(u8 *arg0) {
   s32 temp_r31;
   s32 temp_r31_2;
   temp_r31_2 = (0, get_message_10__20TWindowSubStatusDispFPv((int) 0x30));
-  temp_r31 = fn_8026652C((int) get_window_layout_position((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  temp_r31 = create_titled_window_menu((int) get_window_layout_position((int) 0x13), (int) 5, (int) temp_r31_2, (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   TWindowSubEquip__sub_80263AF8((int) (*((s32 *) (((s8 *) arg0) + 0x30))), (int) 1);
   set_field_1c__6TLobbyFPvf((int) temp_r31);
   set_flag70_bit100__17TWindowOptionCtrlFPv((int) temp_r31);

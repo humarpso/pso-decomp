@@ -100,7 +100,7 @@ extern M2C_UNK __vt__19TODoorFourLightBase[];
 extern s32 lbl_805D3D60;
 Door_802A0994 *TODoorFourLightBase__ct(Door_802A0994 *arg0, void *arg1, s32 arg2);
 s32 end_effect_render__13TParticleCtrlFv();
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void TODoorFourLightBase__sub_802A0578(u8 *arg0, u8 *arg1);
 s32 rotate_matrix_y(int, int);
 s32 TObjPlayer__sub_803D9B2C();
@@ -110,7 +110,7 @@ void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
 M2C_UNK TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_8015D5D4(void *);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void TODoorFourLightBase__vt12(u8 *arg0);
 void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self);
 s32 rotate_matrix_y(int, int);
@@ -173,7 +173,7 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
         s32 found = 0;
         s32 i;
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xF8); i++) {
-            if (((u8 (*)(u16))TODoorAncient08__sub_80229220)(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+            if (((u8 (*)(u16))is_current_floor_switch_set)(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
                 found = 1;
             }
         }
@@ -193,7 +193,7 @@ void TODoorFourLightBase__vt12(u8 *arg0) {
         }
         found = 0;
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0xF8); i++) {
-            if (((u8 (*)(u16))TODoorAncient08__sub_80229220)(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+            if (((u8 (*)(u16))is_current_floor_switch_set)(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
                 found = 1;
             }
         }
@@ -271,7 +271,7 @@ void TODoorFourLightBase__sub_802A0670(Door_802A0670 *self) {
     }
     if (!(self->fD0 & 1)) {
         for (i = 0; i < self->fF8; i++) {
-            if (TODoorAncient08__sub_80229220((u16)(self->fC8 + i)) == 1) {
+            if (is_current_floor_switch_set((u16)(self->fC8 + i)) == 1) {
                 if (self->a[i] != NULL) {
                     *self->a[i] |= 0x100000;
                 }

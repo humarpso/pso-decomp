@@ -24,7 +24,7 @@ s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 s32 has_player_active_menu__11TWindowCtrlFi(u16);
-s32 TWindowCtrl__sub_8024B054(u16);
+s32 is_slot_visible__11TWindowCtrlFi(u16);
 M2C_UNK get_window_layout_position(M2C_UNK);
 void __ct__7TObjectFP7TObject(void *);
 int check_flag__10TObjPlayerFPvi(void*, int);
@@ -47,7 +47,7 @@ s32 check_can_open__16TObjBagWarnWin4PFv(void * _w0) {
         }
     }
     for (var_r31 = 0; var_r31 < 4; var_r31++) {
-        if ((get_player_by_client_id(var_r31) != 0U) && (TWindowCtrl__sub_8024B054(obj_getField1c()) != 0)) {
+        if ((get_player_by_client_id(var_r31) != 0U) && (is_slot_visible__11TWindowCtrlFi(obj_getField1c()) != 0)) {
             return 0;
         }
     }

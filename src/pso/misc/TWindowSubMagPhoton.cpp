@@ -44,7 +44,7 @@ extern RecoveredGlobal_8027C56C_lbl_8050E208 lbl_8050E208;
 void run_task__19TWindowSubMagPhotonFv(u8 *arg0);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
-M2C_UNK fn_8027C188(void *, int);
+M2C_UNK init_photon_blast_entries__19TWindowSubMagPhotonFPv(void *, int);
 s32 TWindowDD__sub_802466E0(void *, void *, void *, void *);
 extern RecoveredGlobal_8027C6B4_lbl_804D17E8 lbl_804D17E8;
 extern M2C_UNK __vt__19TWindowSubMagPhoton[];
@@ -54,8 +54,8 @@ M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_player_input_active(int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_8027C56C_lbl_8050E208 lbl_8050E208;
-void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0);
-void fn_8027C13C(void *, void *);
+void update_selection_input__19TWindowSubMagPhotonFPv(u8 *arg0);
+void get_cursor_origin__19TWindowSubMagPhotonFPvPv(void *, void *);
 void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(void *, void *, int, f32);
 extern const f32 lbl_805DD680;
 M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1);
@@ -97,7 +97,7 @@ M2C_UNK TWindowSubQuestBoard__sub_8027CF50(s32, s32);
 void __dl__7TObjectFPv(void *);
 M2C_UNK clear_card_window_flags__20TWindowSubQuestBoardFii(s32, s32);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
-s32 fn_8026652C(s32, M2C_UNK, s32, s32);
+s32 create_titled_window_menu(s32, M2C_UNK, s32, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 is_split_screen();
@@ -125,7 +125,7 @@ void play_open_sound__19TWindowSubMagPhotonFPv(void *arg0) {
 extern M2C_UNK __vt__19TWindowSubMagPhoton[];
 
 typedef char RecoveredGlobal_8027C2D0_lbl_8050E208_size[sizeof(RecoveredGlobal_8027C2D0_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0) {
+void update_selection_input__19TWindowSubMagPhotonFPv(u8 *arg0) {
     u8 temp_r3;
     u8 temp_r3_2;
     u8 *temp_r30;
@@ -157,7 +157,7 @@ void TWindowSubMagPhoton__sub_8027C2D0(u8 *arg0) {
 
 M2C_UNK TWindowSubMagPhoton__sub_8027C4C8(void *arg0, int arg1) {
     u8 sp8[16];
-    fn_8027C13C(arg0, sp8);
+    get_cursor_origin__19TWindowSubMagPhotonFPvPv(arg0, sp8);
     ((void (*)(f32, void *, void *, int))draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif)(lbl_805DD680, (void *)arg1, sp8, ((Win_8027C4C8 *)arg0)->f62);
 }
 
@@ -175,7 +175,7 @@ void run_task__19TWindowSubMagPhotonFv(u8 *arg0) {
     u8 *temp_r31_2;
     temp_r31 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
     if (get_active_flag__13TWindowSubMagFPv((void *)((void *) (arg0))) == 0) {
-        TWindowSubMagPhoton__sub_8027C2D0((u8 *)((void *) (arg0)));
+        update_selection_input__19TWindowSubMagPhotonFPv((u8 *)((void *) (arg0)));
         temp_r31_2 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31_2), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
             play_open_sound__19TWindowSubMagPhotonFPv((void *) (arg0));
@@ -215,7 +215,7 @@ u8 *TWindowSubMagPhoton__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     M2C_FIELD(arg0, s8 *, 0x61) = 1;
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x62);
     M2C_FIELD(arg0, s16 *, 0x62) = (s16) (temp_r4 + 1);
-    fn_8027C188((void *) (arg0), (int) (temp_r4));
+    init_photon_blast_entries__19TWindowSubMagPhotonFPv((void *) (arg0), (int) (temp_r4));
     return arg0;
 }
 
@@ -322,7 +322,7 @@ s32 TWindowSubStatusDisp__sub_8027C884(u8 *arg0, s32 arg1) {
 s32 create_option_menu_window(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026652C(get_window_layout_position(0x15), 6, get_message_10__20TWindowSubStatusDispFPv(0x2A), M2C_FIELD(arg0, s32 *, 0x20));
+    temp_r31 = create_titled_window_menu(get_window_layout_position(0x15), 6, get_message_10__20TWindowSubStatusDispFPv(0x2A), M2C_FIELD(arg0, s32 *, 0x20));
     if (is_split_screen() == 0) {
         forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x66), 6, 0);
     }

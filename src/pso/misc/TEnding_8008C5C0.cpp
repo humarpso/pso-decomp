@@ -14,7 +14,7 @@ void clear_resource_load_tasks(void);
 void TLobby__sub_800FD6F8(void *, int);
 void init_map_lights(void *);
 void TKeyBoardControl__sub_801A66B8(void);
-void TLobby__sub_801E2F44(int, int, int);
+void set_copy_clear_color_argb(int, int, int);
 int render_tick__Fv(void);
 void create_quad_sprites__13TParticleCtrlFv(void);
 void TObjBgmColCtrl__sub_802274B8(void *);
@@ -42,7 +42,7 @@ void set_flag_and_advance__7TEndingFv() {
 int TEnding__sub_8008C5E8() {
     void *p;
     TCameraCtrl__sub_803D6688(lbl_805D9570, lbl_805D9574);
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     init_map_lights(lbl_804A6F34);
     p = __nw__7TObjectFUl(0x1D4);

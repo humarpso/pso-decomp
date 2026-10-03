@@ -31,7 +31,7 @@ M2C_UNK TObjPlayer__sub_80018990(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
 f32 get_tp_class_factor__10TObjPlayerFPv();
 f32 TObjPlayer__sub_801D9440(s32);
 s32 is_alive_and_ready__10TObjPlayerFi(Plr_801B6A5C *);
-void TObjPlayer__sub_801AF7E0(Plr_801B6A5C *);
+void refill_traps__10TObjPlayerFPv(Plr_801B6A5C *);
 s32 reset_volopt_state__10TObjPlayerFv(Plr_801B6A5C *);
 void TObjPlayer__sub_801B6964(Plr_801B6A5C *, void *);
 void copy_fields__10TObjPlayerFPvPv(Pkt_801B6A5C *, void *);
@@ -190,7 +190,7 @@ void handle_6x30_change_player_level(void *arg0) {
     p->a2 = p->a;
     p->b2 = p->b;
     if (is_alive_and_ready__10TObjPlayerFi(p) != 0) {
-        TObjPlayer__sub_801AF7E0(p);
+        refill_traps__10TObjPlayerFPv(p);
     }
     if (check_flag_4__10TObjPlayerFPv(p) == 0) {
         if (pkt.kind == 1) {

@@ -152,9 +152,9 @@ extern u32 TLobby__data_80512220[];
 extern RecoveredGlobal_801EDA70_TLobby__data_80512360 TLobby__data_80512360;
 extern RecoveredGlobal_801EDB4C_lbl_80449AAC lbl_80449AA4;
 void TLobby__sub_801EDB94(void);
-void TLobby__sub_801F3C70(s16, s32, s32, s32, s32);
+void set_quest_floor_designation_ex(s16, s32, s32, s32, s32);
 extern int* TLobby__data_805D5E78;
-void TLobby__sub_801EDD7C(u32 first);
+void qst_op_map_designate_ex(u32 first);
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 extern Tbl_801EDC98 lbl_80449A40;
 extern u32 TLobby__data_80512220[];
@@ -338,14 +338,14 @@ void TLobby__sub_801EDD44(int _w0, int _w1) {
     }
 }
 
-void TLobby__sub_801EDD7C(u32 first) {
+void qst_op_map_designate_ex(u32 first) {
     u32 i = first;
     s32 a = (*(s32 **)&TLobby__data_805D5E78)[(u8)i++];
     s32 b = (*(s32 **)&TLobby__data_805D5E78)[(u8)i++];
     s16 c = (*(s32 **)&TLobby__data_805D5E78)[(u8)i++];
     s32 d = (*(s32 **)&TLobby__data_805D5E78)[(u8)i++];
     s32 e = (*(s32 **)&TLobby__data_805D5E78)[(u8)i];
-    TLobby__sub_801F3C70(c, a, b, d, e);
+    set_quest_floor_designation_ex(c, a, b, d, e);
 }
 
 int TLobby__sub_801EDDDC(void) { return set_mode__13TRaderMapCoreFi((void*)(0)); }

@@ -17,12 +17,12 @@ void draw_card_icon__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 void render_selected_entry__17TWindowSubComCardFPvi(void *arg0, s32 arg1);
 int create_yes_no_window(void*, int, int, int);
 M2C_UNK TWindowSubComCard__sub_8024503C(s32, u16 *, s32);
-int fn_8026652C(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
+int create_titled_window_menu(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 int init_shop_judgment_window(void* p);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 
 void draw_card_icon__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
-    fn_8026652C((void*)(arg0), (void*)(arg1), (void*)(arg2), (void*)(4));
+    create_titled_window_menu((void*)(arg0), (void*)(arg1), (void*)(arg2), (void*)(4));
 }
 
 void TWindowSubComCard__sub_802665C0(u8 *arg0, u8 *arg1) {

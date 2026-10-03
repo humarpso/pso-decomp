@@ -229,7 +229,7 @@ void notify_fish_if_valid__10TObjPlayerFUi(u32);
 void TObjPlayer__sub_803D9B2C();
 s32 pop_matrix();
 s32 draw_ginja_object(void *);
-void fn_803DC86C(s32, s32, s32, s32);
+void set_color_blend_mode(s32, s32, s32, s32);
 void draw_model_motion(void *, void *, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -438,7 +438,7 @@ void TItemMagSub__vt3(TItemMagSub_80114F0C *self) {
             set_global_state__16TObjEneRe7BeruraFi(0);
         } else {
             some_id_805c6f74 |= 0x8011;
-            fn_803DC86C(1, 4, 5, 0);
+            set_color_blend_mode(1, 4, 5, 0);
             TObjPlayer__sub_801415BC();
             draw_ginja_object(self->model);
             some_id_805c6f74 &= ~0x8011;

@@ -12,7 +12,7 @@ void update_timer_state__10TObjPlayerFPv(void *arg0);
 void update_timer_action__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK init__14TObjEnePanarmsFPvPv(void *, s32);
-M2C_UNK TObjPlayer__sub_801AF7E0(u32);
+M2C_UNK refill_traps__10TObjPlayerFPv(u32);
 s32 get_idle_animation__10TObjPlayerFPv();
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, M2C_UNK, M2C_UNK);
@@ -47,7 +47,7 @@ void update_lobby_display__10TObjPlayerFUi(u32 arg0) {
     if (test_flags_any(arg0 + 0x858, 4) != 0) {
         send_code_49_1__10TObjPlayerFi(arg0);
         if (is_alive_and_ready__10TObjPlayerFi(arg0) != 0) {
-            TObjPlayer__sub_801AF7E0(arg0);
+            refill_traps__10TObjPlayerFPv(arg0);
         }
     } else {
         TObjPlayer__sub_801B4430(arg0);

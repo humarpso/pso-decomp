@@ -10,7 +10,7 @@ typedef f32 Mtx_803DB270[3][4];
 extern "C" {
 extern u8 lbl_8058CD48[];
 extern S_803DB24C lbl_8058CD70;
-void TObjPlayer__sub_803DB24C(s32 x);
+void init_model_draw_queue(s32 x);
 void PSMTXConcat(void *, void *, void *);
 void PSMTXTranspose(void *, void *);
 void PSMTXInverse(void *, void *);
@@ -18,7 +18,7 @@ void PSMTXTrans(void *, f32, f32, f32);
 void PSMTXScale(void *, f32, f32, f32);
 void GXLoadPosMtxImm(void *, u32);
 void GXLoadNrmMtxImm(void *, u32);
-void fn_803DB3C4(s32);
+void draw_queued_models(s32);
 extern Mtx_803DB270 lbl_8058CB68[];
 extern S_803DB24C lbl_8058CD70;
 extern void *lbl_805D7774;
@@ -41,7 +41,7 @@ s32 TObjPlayer__sub_803DB244(void) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DB24C(s32 x) {
+void init_model_draw_queue(s32 x) {
     lbl_8058CD70.a = lbl_8058CD48;
     lbl_8058CD70.b = 0;
     lbl_8058CD70.c = x;
@@ -64,7 +64,7 @@ void queue_model_draw_matrix(s32 arg0, void *mtx) {
     }
     ((s32 *)lbl_8058CD70.a)[lbl_8058CD70.b] = arg0;
     if ((u32)++lbl_8058CD70.b == 10) {
-        fn_803DB3C4(10);
+        draw_queued_models(10);
         lbl_8058CD70.b = 0;
     }
 }

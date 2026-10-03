@@ -151,7 +151,7 @@ void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
 s32 fn_8018E258(TObjDoor*,s32,f32);
 void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
 void update_state__8TObjDoorFPv(TObjDoor* door);
@@ -170,7 +170,7 @@ void clear_player_status_flag__10TObjPlayerFPviUi(TObjDoor*,s32,u32);
 void set_indexed_flags(TObjDoor*,s32,u32);
 s32 fn_8018E258(TObjDoor*,s32,f32);
 void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 extern DoorMotionHeader* TObjDoor__data_8050DC78[];
 extern s32 TObjDoor__data_805D5BC8;
 extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
@@ -360,7 +360,7 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
     f32 target[3],position[3];
     switch(door->state) {
     case 0:
-        if(TODoorAncient08__sub_80229220((u16)door->switchId)==1) {
+        if(is_current_floor_switch_set((u16)door->switchId)==1) {
             if(TObjDoor__data_805D5BC8==0)door->accentFrame=TObjDoor__data_805DBDC4;
             if(door->cameraMode==0)door->state=2;
             else door->state=1;

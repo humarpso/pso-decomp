@@ -12,8 +12,8 @@ extern char *lbl_805D6338;
 extern char lbl_80515BC8[];
 void append_text_space(void);
 extern char *lbl_805D6338;
-void TWindowChallengeResult__sub_80228DB4(s32 v, u8 n);
-void TWindowChallengeResult__sub_80228DB4(s32 v, u8 n);
+void append_padded_number(s32 v, u8 n);
+void append_padded_number(s32 v, u8 n);
 M2C_UNK text_builder_append(void *);
 extern M2C_UNK lbl_8044CB60[];
 extern M2C_UNK lbl_805DC790;
@@ -30,13 +30,13 @@ void TWindowSubStatusDisp__sub_80228CC0(u32 arg0) {
         text_builder_append(lbl_8044CB60);
         return;
     }
-    TWindowChallengeResult__sub_80228DB4(h, 2);
+    append_padded_number(h, 2);
     text_builder_append(&lbl_805DC790);
     u32 m = rem / 60U;
     rem = rem % 60U;
-    TWindowChallengeResult__sub_80228DB4(m, 2);
+    append_padded_number(m, 2);
     text_builder_append(&lbl_805DC794);
-    TWindowChallengeResult__sub_80228DB4(rem, 2);
+    append_padded_number(rem, 2);
 }
 
 void TWindowSubStatusDisp__sub_80228D4C(void) {
@@ -51,7 +51,7 @@ void append_text_space(void) {
         *lbl_805D6338 = 0;
     }
 }
-void TWindowChallengeResult__sub_80228DB4(s32 v, u8 n) {
+void append_padded_number(s32 v, u8 n) {
     char buf[16];
     u32 i;
     if (v == 0) {

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern u32 lbl_805D66B0;
-u16 TEffIndirectCtrl__sub_802A9478(u8 arg0, s32 arg1);
+u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 void read_disc_file(void *, void *);
 s16 TEffIndirectCtrl__sub_802A920C(u8, u8, s32);
 void *xmalloc__FUl(u32);
@@ -14,7 +14,7 @@ void *memset(void *, s32, u32);
 extern void *lbl_805D3E24;
 extern u32 lbl_805D66A8;
 extern u32 lbl_805D66B0;
-void TEffIndirectCtrl__sub_802A94A4(void);
+void load_indirect_info(void);
 }
 
 extern "C" {
@@ -39,14 +39,14 @@ void free_buffers__16TEffIndirectCtrlFv(void) {
     }
 }
 
-u16 TEffIndirectCtrl__sub_802A9478(u8 arg0, s32 arg1) {
+u16 get_indirect_tile_coord(u8 arg0, s32 arg1) {
     if ((u32) lbl_805D66B0 != 0U) {
         return M2C_FIELD((lbl_805D66B0 + ((arg0 + ((arg1 << 6) & 0x3FC0)) * 2)), u16 *, 0);
     }
     return 0U;
 }
 
-void TEffIndirectCtrl__sub_802A94A4(void) {
+void load_indirect_info(void) {
     s32 i;
     s32 j;
     lbl_805D66A8 = (u32)xmalloc__FUl(0x200);

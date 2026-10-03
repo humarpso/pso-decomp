@@ -99,7 +99,7 @@ s32 fn_8022F42C(void *);
 int init_params__10TTecDebandFPv(void* p);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
-void TTecAnti__sub_8022B3E8(void *, void *, s32);
+void copy_technique_target_list(void *, void *, s32);
 extern M2C_UNK __vt__10TTecDeband[];
 extern s32 lbl_805D37A8;
 extern const f32 lbl_805DC7F0;
@@ -220,7 +220,7 @@ s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 g = lbl_805D37A8;
     M2C_FIELD(arg0, s32 *, 0) = g;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
-    TTecAnti__sub_8022B3E8((void *) (arg0 + 0xE0), (void *) arg3, g);
+    copy_technique_target_list((void *) (arg0 + 0xE0), (void *) arg3, g);
     update_effect_params__10TTecDebandFPv(arg0);
     temp_r3 = M2C_FIELD(arg0, u8 **, 0xDC);
     if (temp_r3 != NULL) {

@@ -60,7 +60,7 @@ void update_com_card_window__6TLobbyFv(void);
 void update_player_window__6TLobbyFv(void);
 u32 get_player_by_client_id(s32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
-M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 s32 TWindowSubComCard__sub_80265BF8(void*);
 M2C_UNK clear_lobby_flag__10TObjPlayerFPv();
 M2C_UNK close_all_windows__6TLobbyFv();
@@ -185,7 +185,7 @@ void update_player_window__6TLobbyFv(void) {
     if (get_player_by_client_id(lbl_805D53A0) != 0U) {
         clear_lobby_flag__10TObjPlayerFPv();
     }
-    TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+    unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
 }
 
 extern s32 lbl_805D53A0;

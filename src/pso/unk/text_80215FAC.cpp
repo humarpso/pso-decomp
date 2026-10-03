@@ -79,7 +79,7 @@ void show_message__17TMedicalCenterMesFPvii(void *, s32, s32);
 void close__17TMedicalCenterMesFPv(void *);
 void create_message_window__17TMedicalCenterMesFPviii(void *, s32, void *, s32);
 void TWindowCtrl__sub_8024AEAC(u16);
-void TWindowCtrl__sub_8024AEF0(u16);
+void unsuppress_slot__11TWindowCtrlFi(u16);
 s32 get_window_layout_position(s32);
 extern Pair_802160B4 lbl_8044BD94[];
 extern Map_802160B4 lbl_8050E208[];
@@ -157,7 +157,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
         }
         close__17TMedicalCenterMesFPv(self->sub);
         if (self->f22c != NULL) {
-            TWindowCtrl__sub_8024AEF0((u16)(s32)obj_getField1c(self->f22c));
+            unsuppress_slot__11TWindowCtrlFi((u16)(s32)obj_getField1c(self->f22c));
         }
         TShopGenerator__sub_8021E14C((s32)obj_getField1c(self->f22c));
         queue_destruction__7TObjectFv(self);

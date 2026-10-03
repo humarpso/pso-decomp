@@ -49,7 +49,7 @@ M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
-s32 fn_8026652C(int, int, int, int);
+s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubItem__sub_80279E68(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -58,7 +58,7 @@ M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265E60(int, f32);
-s32 fn_8026652C(int, int, int, int);
+s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
@@ -122,7 +122,7 @@ void set_flag60_bit10__14TWindowSubItemFPv(void* p);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 void *find_item_by_id(s32);
 M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
-M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
+M2C_UNK send_6x25_equip_item(s32, s32, M2C_UNK);
 s32 is_boss_area();
 s32 get_player_by_client_id(s32);
 int TShopArmorListWindow__sub_80266CF8(void*);
@@ -140,7 +140,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK close_sub_window__10TObjPlayerFPv();
 M2C_UNK create__18TWindowInputNumberFPvi(s32, s32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, s32);
-M2C_UNK fn_801B7F4C(s32, s32);
+M2C_UNK try_send_6x27_use_item(s32, s32);
 s32 create_sub_item_list_window(s32, M2C_UNK *, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, s32);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
@@ -209,7 +209,7 @@ void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
         case 3:
             break;
         case 0:
-            fn_801B7F4C(temp_r3, arg1);
+            try_send_6x27_use_item(temp_r3, arg1);
             M2C_FIELD(arg0, s8 *, 0x1C) = 0x16;
             break;
         case 1:
@@ -217,7 +217,7 @@ void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2) {
                 t = get_field_d8__10TObjPlayerFPv();
                 send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, t);
             }
-            TObjPlayer__sub_801BA0F0(temp_r3, arg1, 0);
+            send_6x25_equip_item(temp_r3, arg1, 0);
             M2C_FIELD(arg0, s8 *, 0x1C) = 0x16;
             break;
         case 2:
@@ -333,7 +333,7 @@ s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
 
 s32 TWindowSubItem__sub_80279E68(u8 *arg0) {
     s32 temp_r31;
-    temp_r31 = fn_8026652C(((int)get_window_layout_position((M2C_UNK)((int) (6)))), (int) (2), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x27))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
+    temp_r31 = create_titled_window_menu(((int)get_window_layout_position((M2C_UNK)((int) (6)))), (int) (2), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x27))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x5D)))), (M2C_UNK)((int) (6)), (s32)((int) (0)));
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)((int) (temp_r31)), (s32)((int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x5E)))), (M2C_UNK)((int) (6)), (s32)((int) (1)));
     TWindowSubEquip__sub_80263AF8((s32)((int) (M2C_FIELD(arg0, s32 *, 0x2C))), (M2C_UNK)((int) (2)));
@@ -346,7 +346,7 @@ s32 TWindowSubItem__sub_80279E68(u8 *arg0) {
 
 s32 TWindowSubItem__sub_80279F28(u8 *arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = fn_8026652C(((int)get_window_layout_position((M2C_UNK)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x26))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
+    temp_r31 = create_titled_window_menu(((int)get_window_layout_position((M2C_UNK)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x26))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
     if (arg1 == -0xFF) {
         dispatch_warp_status__14TWindowSubItemFii((s32)((void *) (arg0)), (s32)((int) (temp_r31)));
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {

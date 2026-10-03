@@ -8,12 +8,12 @@ s32 TObjPlayer__sub_801C90F8();
 s32 check_state_dead__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C9128();
 s32 TObjPlayer__sub_801C912C();
-void TObjPlayer__sub_801C9130(s32 arg0, s16 arg1);
+void run_warp_action_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801C9130(s32 arg0, s16 arg1) {
+void run_warp_action_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   s32 new_var;
   {
     new_var = arg0;

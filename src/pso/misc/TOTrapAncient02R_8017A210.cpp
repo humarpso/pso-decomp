@@ -50,7 +50,7 @@ void calc_attach_pos__10TObjPlayerFPv(void *);
 f32 horizontal_distance_squared(void *, void *);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 s32 get_player_by_client_id(u32);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TOTrapAncient02R__vt77(Obj_8017A8B0 *self);
 s32 spawn_particle_effect(void *, int);
 s32 TObjPlayer__sub_80154954(void *, void *);
@@ -88,7 +88,7 @@ void calc_trap_count__16TOTrapAncient02RFPv(void *arg0) {
 void TOTrapAncient02R__vt77(Obj_8017A8B0 *self) {
     clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
     calc_attach_pos__10TObjPlayerFPv(self);
-    if (self->switchId == -1 || TODoorAncient08__sub_80229220(self->switchId) == 1) {
+    if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
         self->idx = find_nearest_visible_player(self, 0, self->range);
         if (self->idx != 0xFFFF) {
             self->target = (u8 *)get_player_by_client_id(self->idx);

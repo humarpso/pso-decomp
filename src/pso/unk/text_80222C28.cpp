@@ -22,7 +22,7 @@ extern s32 **lbl_805D6258;
 s32 get_shop_text(s32 arg0);
 extern s32 lbl_805D36F0;
 extern s32 **lbl_805D6258;
-s32 TLobby__sub_80222C28(s32 arg0, s32 arg1);
+s32 get_quest_list_text(s32 arg0, s32 arg1);
 s32 get_game_play_mode();
 extern RecoveredGlobal_80222C54_lbl_8044C330 lbl_8044C330;
 extern s32 lbl_805D36F0;
@@ -37,7 +37,7 @@ s32 TLobby__sub_80222CBC(s32 arg0);
 
 extern "C" {
 
-s32 TLobby__sub_80222C28(s32 arg0, s32 arg1) {
+s32 get_quest_list_text(s32 arg0, s32 arg1) {
     if ((s32 *) (*(s32 * *)&lbl_805D6258) != NULL) {
         return M2C_FIELD((M2C_FIELD((M2C_FIELD((*(s32 * *)&lbl_805D6258), s32 *, 0) + (arg0 * 4)), s32 *, 0) + (arg1 * 4)), s32 *, 0);
     }

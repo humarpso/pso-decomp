@@ -86,7 +86,7 @@ M2C_UNK THunterGuildSeqOffline__sub_80213430();
 M2C_UNK TLobby__sub_80103F68();
 M2C_UNK TObjCityMainWarp__sub_80186634();
 M2C_UNK TRaderMapCore__sub_801F9540();
-M2C_UNK TSwitch__sub_8022942C();
+M2C_UNK clear_switch_table();
 M2C_UNK apply_all_players__9TTecLukerFv();
 int clear_counter__6TLobbyFv(void);
 M2C_UNK clear_quest_state__6TLobbyFv();
@@ -381,14 +381,14 @@ s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 int TKeyBoardControl__sub_801A66B8(void);
-M2C_UNK TLobby__sub_801E2F44(int, int, int);
+M2C_UNK set_copy_clear_color_argb(int, int, int);
 M2C_UNK render_tick__Fv();
 M2C_UNK TGameProtocol__ct(void *, void *);
 M2C_UNK create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK TLobby__sub_801F3774();
 int init__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
-M2C_UNK TLobby__sub_80203470(int);
+M2C_UNK set_current_floor_area(int);
 M2C_UNK TLobby__sub_80207F10();
 M2C_UNK TLobby__sub_8020A6B0(int);
 M2C_UNK TLobby__sub_8020B118();
@@ -512,7 +512,7 @@ void TLobby__sub_801A400C(void* _w0) {
 
 void free_objects__6TLobbyFv(void) {
     TRaderMapCore__sub_801F9540();
-    TSwitch__sub_8022942C();
+    clear_switch_table();
     apply_all_players__9TTecLukerFv();
     TLobby__sub_80103F68();
     enable_all_battle_ctrl__10TNpcPlayerFv();
@@ -836,7 +836,7 @@ void TLobby__sub_801A49B0(void) {
     void *p;
     TLobby__data_805D5CEC = 0;
     TLobby__data_805D5E24 = 0;
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     update__16TKeyBoardControlFv();
     TLobby__sub_801F3774();
     TKeyBoardControl__sub_801A66B8();
@@ -905,7 +905,7 @@ void TLobby__sub_801A49B0(void) {
         } else {
             init_range__6TLobbyFPvi(lbl_80515BA0, 0xF);
             set_value__6TLobbyFPvi((void*)(lbl_80515BA0), (s32)(0));
-            TLobby__sub_80203470(0xF);
+            set_current_floor_area(0xF);
             set_scene__6TSceneFi(0);
         }
         TLobby__sub_802286C4(lbl_80515BA0);

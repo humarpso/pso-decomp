@@ -33,7 +33,7 @@ s32 get_card_status_bits__20TWindowShortListCtrlFv();
 s32 TObjPlayer__sub_801AFD8C(void *);
 VObj_18_7b3651 *get_player_by_client_id(s32);
 void append_text_space(void);
-void TWindowChallengeResult__sub_80228DB4(s32, s32);
+void append_padded_number(s32, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
 void text_builder_reset(void);
@@ -91,7 +91,7 @@ s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
         text_builder_append(name);
         append_text_space();
         text_builder_append(lbl_8049CA40[idx]);
-        TWindowChallengeResult__sub_80228DB4(lvl + 1, 3);
+        append_padded_number(lvl + 1, 3);
         break;
     case 2:
         if ((s8)info[0x33] < 2) {

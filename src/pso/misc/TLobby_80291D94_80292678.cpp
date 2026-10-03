@@ -40,7 +40,7 @@ void __ct__12TPlyCharDataFv(void *);
 void clear_header_struct__10TObjPlayerFPv(void *);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 Pl_80292730 *get_player_by_client_id(s32);
-Pl_80292730 *TObjPlayer__sub_801BDEF8(s32, s32, void *);
+Pl_80292730 *create_player_object(s32, s32, void *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D9B38(void *, int);
 void begin_action_state__10TObjPlayerFPv(void *);
@@ -120,7 +120,7 @@ void TLobby__sub_80292730(s32 arg0) {
             copy_player_visual_record(&cd.info, &info);
             begin_action_state__10TObjPlayerFPv(&cd);
             send_command__10TNpcPlayerFiciiPv(info.cls, tbl->f4, tbl->f8, tbl->f0, &cd);
-            p = TObjPlayer__sub_801BDEF8(i, map, &cd);
+            p = create_player_object(i, map, &cd);
             if (p == NULL) {
                 __dt__12TPlyCharDataFv(&cd, -1);
                 return;

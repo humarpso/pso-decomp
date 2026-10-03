@@ -275,7 +275,7 @@ void __dt__18TPlyJoinLobbyEntryFv(void *, s32);
 void TLobby__sub_8013A170(const char *fmt, ...);
 void TLobby__sub_8013AA64(void *, void *);
 s32 get_player_by_client_id(void *);
-u8 *TObjPlayer__sub_801BDEF8(s32, s32, void *);
+u8 *create_player_object(s32, s32, void *);
 char *strncpy(char *, const char *, u32);
 extern char lbl_8043EE58[];
 extern char lbl_8043EF14[];
@@ -799,7 +799,7 @@ void TLobby__sub_80136080(s32 arg0, s32 arg1) {
         TLobby__sub_8013A170(TLobby__data_8043EF38, e.client_id);
     }
     strncpy(TLobby__data_8050AAE8[e.client_id], e.name, 0x10);
-    plr = TObjPlayer__sub_801BDEF8(e.client_id, 4, e.char_data);
+    plr = create_player_object(e.client_id, 4, e.char_data);
     copy_header_struct__6TLobbyFPvPv(plr + 0xDAC, &e);
     ((Plr_80136080 *)plr)->m6();
     TLobby__sub_8013A170(lbl_8043EE58, e.client_id);

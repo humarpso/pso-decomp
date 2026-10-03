@@ -24,10 +24,10 @@ struct Ctx_8026B148 {
 };
 
 extern "C" {
-s32 fn_8026B0C4(int, void *);
+s32 create_quest_message_window_at(int, void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
-void fn_8026B118(void);
+void create_quest_message_window(void);
 Ctx_8026B148 *TWindowSubStatusDisp__sub_80244364(void *);
 void TWindowSubComCard__sub_80245808(void *, void *);
 void TWindowSubComCard__sub_80245F98(void *, void *);
@@ -39,8 +39,8 @@ void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w);
 extern "C" {
 
 typedef char RecoveredGlobal_8026B118_lbl_8044F464_size[sizeof(RecoveredGlobal_8026B118_lbl_8044F464) == 0xC ? 1 : -1];
-void fn_8026B118(void) {
-    fn_8026B0C4((int) (get_window_layout_position((int) (0xAD))), (void *) (&lbl_8044F464.value));
+void create_quest_message_window(void) {
+    create_quest_message_window_at((int) (get_window_layout_position((int) (0xAD))), (void *) (&lbl_8044F464.value));
 }
 void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w) {
     Ctx_8026B148 *c;

@@ -27,7 +27,7 @@ s32 fn_803519FC(s32 *arg0, s32 arg1);
 int fn_80351A14(u8 *arg0, s32 arg1);
 s32 reset_state_block__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_803518E0_lbl_8050E208 lbl_8050E208;
-void TObjPlayer__sub_803518E0(u8 *arg0, s16 arg1, s16 arg2);
+void init_pad_binding(u8 *arg0, s16 arg1, s16 arg2);
 s32 reset_state_block__10TObjPlayerFPv(void *);
 P_80351974 *TObjPlayer__sub_80351974(P_80351974 *arg0);
 }
@@ -78,7 +78,7 @@ s32 check_action_usable__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 }
 
 typedef char RecoveredGlobal_803518E0_lbl_8050E208_size[sizeof(RecoveredGlobal_803518E0_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void TObjPlayer__sub_803518E0(u8 *arg0, s16 arg1, s16 arg2) {
+void init_pad_binding(u8 *arg0, s16 arg1, s16 arg2) {
     M2C_FIELD(arg0, s16 *, 0) = arg1;
     M2C_FIELD(arg0, s16 *, 2) = arg2;
     M2C_FIELD(arg0, s32 *, 4) = -1;

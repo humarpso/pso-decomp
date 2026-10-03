@@ -133,7 +133,7 @@ extern s32 lbl_805D3464;
 extern const f32 lbl_805DBFE4;
 u8 *TObjMapWarpForest__ct(u8 *arg0);
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
-s32 TLobby__sub_80207770(s32);
+s32 get_floor_map_terrain(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK mark_area_change_pending();
 M2C_UNK send_6x21_inter_level_warp(void *, void *);
@@ -229,7 +229,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 typedef char RecoveredGlobal_8019CA24_lbl_80515BA0_size[sizeof(RecoveredGlobal_8019CA24_lbl_80515BA0) == 0x28 ? 1 : -1];
 void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
-    set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (int) (TLobby__sub_80207770(M2C_FIELD(arg0, s32 *, 0xBC))));
+    set_area__6TLobbyFPvi((void *) (&lbl_80515BA0.value), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (int) (get_floor_map_terrain(M2C_FIELD(arg0, s32 *, 0xBC))));
     mark_area_change_pending();
     get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
     TNpcPlayer__sub_8034E7A0();

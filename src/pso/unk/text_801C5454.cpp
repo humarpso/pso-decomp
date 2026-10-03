@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void fn_801C5454(s8 *arg0) {
+void clear_trap_counts(s8 *arg0) {
     s32 var_ctr;
 
     for (var_ctr = 4; var_ctr != 0; var_ctr -= 1) {

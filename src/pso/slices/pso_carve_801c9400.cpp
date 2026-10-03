@@ -21,7 +21,7 @@ s32 obj_isState2_324(void *);
 s32 obj_getS16_32C(void * a0);
 s32 obj_getField1c(void * a0);
 s32 is_active__8TItemMagFPv();
-void TObjPlayer__sub_801A5AC8(void *, s32);
+void init_stick_escape_detector(void *, s32);
 void TObjPlayer__sub_801C0708(void *);
 void TObjPlayer__sub_801C0734(void *);
 void set_type_53__10TObjPlayerFPv(void *);
@@ -46,7 +46,7 @@ void TObjPlayer__sub_801C9400(u8 *arg0) {
     MsgA_801C9400 a;
     MsgB_801C9400 b;
     if (is_active__8TItemMagFPv() == 0) {
-        TObjPlayer__sub_801A5AC8(arg0 + 0x64C, TObjPlayer__sub_801D2878(arg0 + 0x550));
+        init_stick_escape_detector(arg0 + 0x64C, TObjPlayer__sub_801D2878(arg0 + 0x550));
     }
     if ((arg0 == NULL) || (obj_isState2_324(arg0) == 0)) {
         set_type_53__10TObjPlayerFPv(&a);

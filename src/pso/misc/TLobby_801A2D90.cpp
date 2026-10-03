@@ -11,7 +11,7 @@ struct Ctrl_801A2E00 : Base_801A2E00 { virtual void v0(int); };
 
 extern "C" {
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
-M2C_UNK TObjPlayer__sub_801BDEF8(s32, s32, u32);
+M2C_UNK create_player_object(s32, s32, u32);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 is_split_screen();
 extern s32 lbl_805D53A0;
@@ -28,7 +28,7 @@ M2C_UNK reset_door_state__6TLobbyFv();
 M2C_UNK TObjCityMainWarp__sub_80186634();
 M2C_UNK reset_instance__8TObjDoorFv();
 M2C_UNK TRaderMapCore__sub_801F9540();
-M2C_UNK TSwitch__sub_8022942C();
+M2C_UNK clear_switch_table();
 M2C_UNK apply_all_players__9TTecLukerFv();
 void enable_all_battle_ctrl__10TNpcPlayerFv();
 M2C_UNK queue_destruction__7TObjectFv(u32);
@@ -89,7 +89,7 @@ void apply_char_to_players__6TLobbyFv(void) {
             if (TAdMultiPlyChrSelectGC__sub_802C64D0(var_r31) != 0) {
                 temp_r3 = get_char_index__23TAdSinglePlyChrSelectGCFUi(var_r31);
                 if (temp_r3 != 0U) {
-                    TObjPlayer__sub_801BDEF8(var_r31, lbl_805D53A8 + var_r31, temp_r3);
+                    create_player_object(var_r31, lbl_805D53A8 + var_r31, temp_r3);
                 }
             }
             var_r31 += 1;
@@ -98,12 +98,12 @@ void apply_char_to_players__6TLobbyFv(void) {
     }
     temp_r3_2 = get_char_index__23TAdSinglePlyChrSelectGCFUi(lbl_805D53A0);
     if (temp_r3_2 != 0U) {
-        TObjPlayer__sub_801BDEF8(0, lbl_805D53A8, temp_r3_2);
+        create_player_object(0, lbl_805D53A8, temp_r3_2);
     }
 }
 void reset_quest_state__6TLobbyFv(void) {
     TRaderMapCore__sub_801F9540();
-    TSwitch__sub_8022942C();
+    clear_switch_table();
     apply_all_players__9TTecLukerFv();
     TLobby__sub_8011AFB8();
     TLobby__sub_80103F68();

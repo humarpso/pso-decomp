@@ -7,7 +7,7 @@ s32 obj_isState2_324();
 s16 obj_getField1c(void *);
 void reset_action_state__10TObjPlayerFPv(void *);
 void handle_recv_state__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801CB27C(u8 *arg0);
+void send_6x4B_hurt_reaction__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -18,7 +18,7 @@ void do_action_19_5_if_flag30__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801CB2F0(void);
 void TObjPlayer__sub_801CB360(void);
 
-void TObjPlayer__sub_801CB27C(u8 *arg0) {
+void send_6x4B_hurt_reaction__10TObjPlayerFPv(u8 *arg0) {
     struct Pkt_801CB27C pkt;
     if (arg0 == NULL || obj_isState2_324() == 0) {
         reset_action_state__10TObjPlayerFPv(&pkt);

@@ -34,7 +34,7 @@ u8 * TWindowSnapShot__sub_802A5F24(void *);
 s32 start_capture__15TWindowSnapShotFPvi(void *, s32);
 extern int lbl_805D3E10;
 extern void *lbl_805D6690;
-s32 TWindowSnapShot__sub_802A7E28(void);
+s32 load_player_motion_data(void);
 M2C_UNK TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 u8 *draw_default_entry__9TWindowDDFi();
@@ -89,7 +89,7 @@ void free_shared_instance__15TWindowSnapShotFv(void) {
     lbl_805D6690 = NULL;
 }
 
-s32 TWindowSnapShot__sub_802A7E28(void) {
+s32 load_player_motion_data(void) {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) (*(u8 * *)&lbl_805D6690) != NULL) {

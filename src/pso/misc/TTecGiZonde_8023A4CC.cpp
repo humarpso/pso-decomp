@@ -71,13 +71,13 @@ s32 TObjPlayer__sub_801422A8(void *, void *, void *);
 extern const f32 lbl_805DC918;
 extern const f32 lbl_805DC91C;
 extern const f32 lbl_805DC920;
-void TObjPlayer__sub_8023A510(RecoveredFields_8023A510_arg0 *arg0);
+void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_8023A70C(void* p);
-void TTecBarta__sub_8023A674(void* p);
+void move_ground_technique_projectile(void* p);
 void advance_lifetime_or_destroy(void *arg0);
 void render__11TTecGiZondeFv(void);
 
@@ -110,7 +110,7 @@ typedef char RecoveredFields_8023A510_temp_r3_2_4_offset[offsetof(RecoveredField
 typedef char RecoveredFields_8023A510_temp_r6_C_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_C) == 0xC ? 1 : -1];
 typedef char RecoveredFields_8023A510_temp_r6_10_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_10) == 0x10 ? 1 : -1];
 typedef char RecoveredFields_8023A510_temp_r6_14_offset[offsetof(RecoveredFields_8023A510_temp_r6, field_14) == 0x14 ? 1 : -1];
-void TObjPlayer__sub_8023A510(RecoveredFields_8023A510_arg0 *arg0) {
+void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8023A510, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8023A510, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8023A510, sp10) == 0x8) ? 1 : -1];
@@ -164,7 +164,7 @@ void TObjPlayer__sub_8023A510(RecoveredFields_8023A510_arg0 *arg0) {
 }
 #pragma pop
 
-void TTecBarta__sub_8023A674(void* p) { TObjPlayer__sub_8023A510((RecoveredFields_8023A510_arg0 *)(p)); }
+void move_ground_technique_projectile(void* p) { step_ground_technique_projectile((RecoveredFields_8023A510_arg0 *)(p)); }
 
 #pragma push
 #pragma fp_contract on

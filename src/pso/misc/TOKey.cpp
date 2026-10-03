@@ -121,7 +121,7 @@ void init_key__5TOKeyFPv(u8 *arg0);
 void init_switch_id__5TOKeyFPv(void *arg0);
 void update_lock_state__5TOKeyFPv(void *arg0);
 int TLobby__send_and_handle_60(void*);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TOKeyAncient01__vt23(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -142,7 +142,7 @@ void update_lock_state__5TOKeyFPv(void *arg0) {
     u8 temp_r3;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
-        temp_r3 = TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xC8));
+        temp_r3 = is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xC8));
         if (temp_r3 == 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
         }

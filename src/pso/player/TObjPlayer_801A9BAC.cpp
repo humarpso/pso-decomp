@@ -20,7 +20,7 @@ void update_target__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_801A92B0(void *);
 M2C_UNK TObjPlayer__sub_801A9870(void *);
 s32 get_player_by_client_id(u16);
-M2C_UNK TObjPlayer__sub_801A72C8(s32, s32, M2C_UNK);
+M2C_UNK queue_deferred_photon_blast_support(s32, s32, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
@@ -40,7 +40,7 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
                 for (var_r27 = 0; var_r27 < 4; var_r27++) {
                     inner = self->arr60[var_r27];
                     if ((u32) inner < 4U) {
-                        TObjPlayer__sub_801A72C8(inner, self->arr50[var_r28], 1);
+                        queue_deferred_photon_blast_support(inner, self->arr50[var_r28], 1);
                     }
                 }
             }

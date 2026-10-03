@@ -16,7 +16,7 @@ s32 create_window_menu(s32, s32, s32);
 int confirm_selection__11TWindowMenuFPv(void*);
 int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
 void run_task__19TWindowMessageYesNoFv(void* p);
-int TWindowSubShortMail__sub_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
+int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2);
 void update_card_slot__17TWindowSubComCardFPv(void* p);
 void notify_trade_main__17TWindowSubComCardFPv(void* p);
@@ -29,6 +29,6 @@ int set_selected_index__17TWindowSubComCardFPvs(void*);
 int clear_trade_flag__19TWindowSubTradeMainFPv(void*);
 int queue_destruction__7TObjectFv(void*);
 
-void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2) { TWindowSubShortMail__sub_802A58AC(p, (void*)0, a1, a2); }
+void forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(void* p, void* a1, void* a2) { open_yes_no_prompt(p, (void*)0, a1, a2); }
 
 }

@@ -57,7 +57,7 @@ u8 TObjPlayer__sub_801BEB3C(void* p);
 u8 TObjPlayer__sub_801BEB44(void* p);
 u8 TObjPlayer__sub_801BEB4C(void* p);
 void set_play_time__10TObjPlayerFPvi(void* p, s32 v);
-void TObjPlayer__sub_801BEB5C(void* p);
+void reset_entrance_id__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801BEB68(void* p);
 u8 TObjPlayer__sub_801BEB8C(void* p);
 int query_field374__10TObjPlayerFPv(void* p);

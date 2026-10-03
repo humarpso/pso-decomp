@@ -144,7 +144,7 @@ void copy_pos__11TNowLoadingFPvPv(TechniqueParticleEmitter *, Vec_8022BA98 *);
 TechniqueHitRecipient *find_entity_by_id(u16);
 void dispatch_all_technique_contacts(TTecBarta *);
 void advance_lifetime_or_destroy(TTecBarta *);
-void TTecBarta__sub_8023A674(TTecBarta *);
+void move_ground_technique_projectile(TTecBarta *);
 extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
@@ -161,7 +161,7 @@ extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
 extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7A0;
-void TTecBarta__sub_8022B540(void *arg);
+void create_particle_emitters__9TTecBartaFPv(void *arg);
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 u16 obj_getField1c(void *);
 s32 get_type__10TObjPlayerFPv(void *);
@@ -224,7 +224,7 @@ typedef struct RecoveredGlobal_8022B6FC_lbl_804CC55C RecoveredGlobal_8022B6FC_lb
 typedef char RecoveredGlobal_8022B6FC_lbl_804CC510_size[((sizeof(RecoveredGlobal_8022B6FC_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8022B6FC_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8022B6FC_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 
-void TTecBarta__sub_8022B540(void *arg) {
+void create_particle_emitters__9TTecBartaFPv(void *arg) {
 #define self ((TTecBarta *)arg)
     s32 angles[3];
     s32 reverse[3];
@@ -360,7 +360,7 @@ void run_task__9TTecBartaFv(TTecBarta *self) {
             attach_particle_model(e, get_bml_model(lbl_805D63AC, 5), lbl_805D63B0, 0, 0, lbl_805DC7A0);
         }
     }
-    TTecBarta__sub_8023A674(self);
+    move_ground_technique_projectile(self);
     advance_lifetime_or_destroy(self);
     dispatch_all_technique_contacts(self);
 }
@@ -378,7 +378,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
         self->slots[i] = 0xFFFF;
     }
     self->f174 = 0;
-    TTecBarta__sub_8022B540((void *)(self));
+    create_particle_emitters__9TTecBartaFPv((void *)(self));
     update_technique_by_state__9TTecBartaFPv((u8 *)self);
     if (self->owner) {
         self->fc8 = ((s16)obj_getField1c(self->owner));
@@ -398,7 +398,7 @@ u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, voi
     M2C_FIELD(arg0, s32 *, 0x174) = 0;
     M2C_FIELD(arg0, s32 *, 0x114) = 0x40003;
     M2C_FIELD(arg0, f32 *, 0x24) = M2C_FIELD(arg0, f32 *, 0x24) + lbl_805DC7A8;
-    TTecBarta__sub_8022B540((void *)(arg0));
+    create_particle_emitters__9TTecBartaFPv((void *)(arg0));
     update_technique_by_state__9TTecBartaFPv((u8 *)(arg0));
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));

@@ -21,7 +21,7 @@ s16 obj_getField1c(void *);
 s16 get_sub_value__8TItemMagFi(void *);
 void TObjPlayer__sub_801D1D88(struct PbPacket37_801CC194 *);
 void update_and_send4__10TObjPlayerFPv(struct PbPacket37_801CC194 *);
-void TObjPlayer__sub_801CC194(void *self);
+void send_6x37_photon_blast__10TObjPlayerFPv(void *self);
 s32 reset_volopt_state__10TObjPlayerFv(int);
 u8 *get_player_by_client_id(u16);
 s32 check_flag_4__10TObjPlayerFPv();
@@ -52,7 +52,7 @@ void handle_6x37_photon_blast(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801CC194(void *self) {
+void send_6x37_photon_blast__10TObjPlayerFPv(void *self) {
     struct PbPacket37_801CC194 packet;
     if (self == NULL || obj_isState2_324(self) == 0) {
         TObjPlayer__sub_801D1D88(&packet);

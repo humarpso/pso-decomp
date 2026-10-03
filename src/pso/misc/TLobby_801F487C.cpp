@@ -1,10 +1,10 @@
 #include "types.h"
 
 extern "C" {
-s32 TLobby__sub_801F45FC(s32);
+s32 clear_story_flag(s32);
 extern s32 lbl_80449D48[];
 void TLobby__sub_801F48B0(void);
-s32 TLobby__sub_801F45FC(s32);
+s32 clear_story_flag(s32);
 void reset_camera_if_fullscreen__6TLobbyFPv(void* p);
 extern s32 lbl_80449D48[];
 void TLobby__sub_801F48FC(void);
@@ -25,14 +25,14 @@ void reset_camera_if_fullscreen__6TLobbyFPv(void* p) { if (is_not_split_screen__
 void TLobby__sub_801F48B0(void) {
     s32 i;
     for (i = 0; lbl_80449D48[i] != -1; i++) {
-        TLobby__sub_801F45FC(lbl_80449D48[i]);
+        clear_story_flag(lbl_80449D48[i]);
     }
 }
 
 void TLobby__sub_801F48FC(void) {
     s32 i;
     for (i = 0; lbl_80449D48[i] != -1; i++) {
-        TLobby__sub_801F45FC(lbl_80449D48[i]);
+        clear_story_flag(lbl_80449D48[i]);
     }
     ((void (*)(void))reset_camera_if_fullscreen__6TLobbyFPv)();
 }

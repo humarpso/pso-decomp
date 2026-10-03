@@ -153,7 +153,7 @@ M2C_UNK TObjPlayer__sub_801B1A84(void *);
 M2C_UNK fn_801B802C(void *);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
-M2C_UNK TLobby__sub_80207644();
+M2C_UNK backup_story_select__6TLobbyFv();
 M2C_UNK TLobby__sub_80207E48();
 M2C_UNK get_team_state__6TLobbyFPv();
 M2C_UNK TLobby__sub_8020901C();
@@ -293,7 +293,7 @@ void TLobby__sub_801A3014(void) {
     reset_quest_state__6TLobbyFv();
     delete_all_task_children__9TMainTaskFv(&main_task);
     TLobby__sub_80228754(&lbl_80515BA0);
-    TLobby__sub_80207644();
+    backup_story_select__6TLobbyFv();
     update__16TKeyBoardControlFv();
     get_team_state__6TLobbyFPv();
     TLobby__sub_8020DC78();

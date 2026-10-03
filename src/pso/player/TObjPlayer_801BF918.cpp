@@ -5,9 +5,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TObjPlayer__sub_801BF964(void* a0);
+void zero_vec3(void* a0);
     extern const float TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801BF964(void* a0);
+void zero_vec3(void* a0);
 u8 TObjPlayer__sub_801BF918(u8 *arg0);
 }
 
@@ -62,6 +62,6 @@ s32 get_lock_timer__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 void TObjPlayer__sub_801BF954(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 s32 TObjPlayer__sub_801BF95C(void* p) { return *(s32*)((char*)p + 0x0); }
 
-void TObjPlayer__sub_801BF964(void* a0) { *(float*)((char*)a0 + 0x0) = TObjPlayer__data_805DC278; *(float*)((char*)a0 + 0x4) = TObjPlayer__data_805DC278; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC278; }
+void zero_vec3(void* a0) { *(float*)((char*)a0 + 0x0) = TObjPlayer__data_805DC278; *(float*)((char*)a0 + 0x4) = TObjPlayer__data_805DC278; *(float*)((char*)a0 + 0x8) = TObjPlayer__data_805DC278; }
 
 }

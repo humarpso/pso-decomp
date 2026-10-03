@@ -49,7 +49,7 @@ void copy_header_struct__6TLobbyFPvPv(void *, void *);
 void copy_player_visual_record(Chr_80071BC0 *, void *);
 void clear_header_struct__10TObjPlayerFPv(Hdr_80071BC0 *);
 Plr_80071BC0 *get_player_by_client_id(s32);
-Plr_80071BC0 *TObjPlayer__sub_801BDEF8(s32, s32, TPlyCharData *);
+Plr_80071BC0 *create_player_object(s32, s32, TPlyCharData *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
 void TObjPlayer__sub_801D9B38(void *, s32);
 void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
@@ -124,9 +124,9 @@ void TObjPlayer__sub_80071BC0(s32 arg0) {
                 begin_action_state__10TObjPlayerFPv(&cd);
                 send_command__10TNpcPlayerFiciiPv(chr.f31, t->b, t->c, t->a, &cd);
                 if (i == lbl_805D53A0) {
-                    p = TObjPlayer__sub_801BDEF8(i, 0, &cd);
+                    p = create_player_object(i, 0, &cd);
                 } else {
-                    p = TObjPlayer__sub_801BDEF8(i, 4, &cd);
+                    p = create_player_object(i, 4, &cd);
                 }
                 if (p == NULL) {
                     return;

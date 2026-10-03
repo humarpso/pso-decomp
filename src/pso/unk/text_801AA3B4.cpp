@@ -24,7 +24,7 @@ extern u8 lbl_804C343C[];
 extern u8 lbl_804C344C[];
 extern u32 lbl_8050E880[];
 extern u32 lbl_805D5D28;
-void TObjPlayer__sub_801AA480(void);
+void load_photon_blast_resources(void);
 }
 
 extern "C" {
@@ -52,7 +52,7 @@ void TObjPlayer__sub_801AA424(void) {
         lbl_8050E890[i].state = 0;
     }
 }
-void TObjPlayer__sub_801AA480(void) {
+void load_photon_blast_resources(void) {
     u8 *p;
     s32 i;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

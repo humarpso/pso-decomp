@@ -118,7 +118,7 @@ struct Cfg_801F0970 { s32 i; s32 b; f32 c; };
 struct Vec3_801F0970 { f32 x, y, z; };
 
 extern "C" {
-s32 TLobby__sub_8020C1F0(int, int, void *);
+s32 is_room_enemy_set_cleared(int, int, void *);
 void qst_op_if_zone_clear(s32 arg0, s32 arg1);
 void qst_op_nop_42_stack_push(s32 arg0);
 void qst_op_jmpi_le(s32 arg0, s32 arg1, s32 arg2);
@@ -153,7 +153,7 @@ void qst_op_subi(s32 arg0, s32 arg1);
 void qst_op_add(s32 arg0, s32 arg1);
 s32 get_story_flag(void *);
 void qst_op_gget(u16 arg0, s32 arg1);
-M2C_UNK TLobby__sub_801F45FC(void *);
+M2C_UNK clear_story_flag(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(void *);
 void qst_op_glet(u16 arg0, s32 arg1);
 void qst_op_xori(s32 arg0, s32 arg1);
@@ -198,7 +198,7 @@ s32 request_active_window_close();
 s32 close_window_if_active(void *);
 s32 set_flag_bit2__11TWindowCtrlFv();
 s32 dispatch_message_window_text(int, int, int);
-u32 fn_8026B118();
+u32 create_quest_message_window();
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 lbl_805D53A0;
 extern u8 *TLobby__data_805D5E7C;
@@ -322,7 +322,7 @@ extern int TLobby__data_805D5E98;
 extern s32 lbl_805D5EA0;
 void qst_op_message(void);
 extern int* TLobby__data_805D5E78;
-void TLobby__sub_8020C9C8(s32 a, s16 b, s16 c, s32 d);
+void unhide_room_set_objects(s32 a, s16 b, s16 c, s32 d);
 void qst_op_unhide_obj(s32 arg0);
 }
 
@@ -359,7 +359,7 @@ int TNpcPlayer__sub_8034E430(void*);
 int TObjHashiVersus2__sub_801912A4(void*);
 int TObjHashiVersus2__sub_801912B0(void*);
 M2C_UNK enable_action_input__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_801B3620();
+M2C_UNK disable_action_input__10TObjPlayerFPv();
 s32 get_player_by_client_id(s32);
 M2C_UNK TWindow__close(void*);
 M2C_UNK action_enable_if_present__10TObjPlayerFPv(s32);
@@ -399,7 +399,7 @@ void qst_op_unhide_obj(s32 arg0) {
     s32 v0 = TLobby__data_805D5E78[(u8)arg0];
     s32 v1 = TLobby__data_805D5E78[(u8)++arg0];
     s32 v2 = TLobby__data_805D5E78[(u8)++arg0];
-    TLobby__sub_8020C9C8(v0, (s16)v1, (s16)v2, arg0);
+    unhide_room_set_objects(v0, (s16)v1, (s16)v2, arg0);
 }
 
 void qst_op_chk_ene_num(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_8020C118(); }
@@ -407,7 +407,7 @@ void qst_op_chk_ene_num(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = T
 extern s32 lbl_805D53A0;
 
 void qst_op_if_zone_clear(s32 arg0, s32 arg1) {
-    if (TLobby__sub_8020C1F0((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC))), (int) ((s16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, (((arg1 + 1) * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78))) != 0) {
+    if (is_room_enemy_set_cleared((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC))), (int) ((s16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, (((arg1 + 1) * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78))) != 0) {
         M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
         return;
     }
@@ -431,7 +431,7 @@ void qst_op_p_action_disable(void) {
 
     temp_r3 = get_player_by_client_id(lbl_805D53A0);
     if (temp_r3 != 0) {
-        TObjPlayer__sub_801B3620();
+        disable_action_input__10TObjPlayerFPv();
         release_attached_resource__10TObjPlayerFPv(temp_r3);
     }
 }
@@ -610,7 +610,7 @@ void qst_op_window_msg(void) {
     if ((u32) (*(u32 *)&TLobby__data_805D5E7C) != 0U) {
         TWindow__close((void*)((int) ((*(u32 *)&TLobby__data_805D5E7C))));
     }
-    temp_r3 = fn_8026B118();
+    temp_r3 = create_quest_message_window();
     (*(u32 *)&TLobby__data_805D5E7C) = temp_r3;
     dispatch_message_window_text((int) (temp_r3), (int) (temp_r31), (int) (3));
     (*(s32 *)&TLobby__data_805D5E98) = 4;
@@ -1001,7 +1001,7 @@ void qst_op_glet(u16 arg0, s32 arg1) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs((void *) (arg0));
         return;
     }
-    TLobby__sub_801F45FC((void *) (arg0));
+    clear_story_flag((void *) (arg0));
 }
 
 }

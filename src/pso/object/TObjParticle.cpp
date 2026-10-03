@@ -59,7 +59,7 @@ M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
 M2C_UNK copy_vec3__11TBoss4Type2FPvPv(u32, void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 f32 xyz_distance_squared(void *, s32);
-void fn_8020C430(void *, int);
+void mask_object_set_row_flags(void *, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 void queue_destruction__7TObjectFv(void *);
 
@@ -103,7 +103,7 @@ void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjParticle;
         if (M2C_FIELD(arg0, void **, 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(M2C_FIELD(arg0, void **, 0x90))); M2C_FIELD(arg0, M2C_UNK *, 0x90) = 0; }
-        fn_8020C430(arg0, -3);
+        mask_object_set_row_flags(arg0, -3);
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

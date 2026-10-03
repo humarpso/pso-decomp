@@ -30,7 +30,7 @@ struct Item_801EE77C;
 
 extern "C" {
 M2C_UNK TWindowCtrl__sub_8024A4B0(int, void *);
-void TLobby__sub_801EE674(s32 arg0);
+void qst_op_winset_time(s32 arg0);
 M2C_UNK TQuestColCtrl__sub_80195DE0(int, void *);
 void qst_op_del_obj_param(s32 arg0);
 M2C_UNK add_meseta__10TObjPlayerFl(s32, s32);
@@ -93,7 +93,7 @@ void qst_op_item_delete(u32 src, u32 dst);
 
 extern "C" {
 
-int TLobby__sub_801EE6A0(void* p);
+int qst_op_winend_time(void* p);
 int create_alt_timer__6TLobbyFPv(void* p);
 void notify_battle_ctrl_player__6TLobbyFv(void);
 void open_door__6TLobbyFv(void);
@@ -112,11 +112,11 @@ int reset_instance__8TObjDoorFv(void);
     extern int* TLobby__data_805D5E78;
 void set_table_entry__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_803DF1CC(); }
 
-void TLobby__sub_801EE674(s32 arg0) {
+void qst_op_winset_time(s32 arg0) {
     TWindowCtrl__sub_8024A4B0((int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
 }
 
-int TLobby__sub_801EE6A0(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
+int qst_op_winend_time(void* p) { return TWindowCtrl__sub_8024A4EC(p); }
 int create_alt_timer__6TLobbyFPv(void* p) { return create_alt_timer__11TWindowCtrlFv(p); }
 void open_door__6TLobbyFv(void) { reset_door_state__6TLobbyFv(); reset_instance__8TObjDoorFv(); }
 void update_doors__6TLobbyFv(void) { TObjDoor__sub_801F3760(); TObjDoor__sub_801F3754(); }

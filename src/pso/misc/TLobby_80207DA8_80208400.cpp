@@ -26,7 +26,7 @@ void init_packet_67_04__6TLobbyFPv(void *);
 void set_destroy_event__6TLobbyFi(int, int);
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D6084;
-void TLobby__sub_802084B0(s32 arg0);
+void send_6x67_wave_trigger_event(s32 arg0);
 s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
@@ -35,7 +35,7 @@ void send_6x05_wave_set_switch(s16 arg0);
 s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
-void TLobby__sub_8020851C(s32 arg0);
+void send_6x05_wave_clear_switch(s32 arg0);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ void load_item_data__6TLobbyFv(void) {
 
     extern int lbl_805D6080;
 void relink_objects__6TLobbyFv(void) { link_matching_objects__6TLobbyFss(); lbl_805D6080 = 1; }
-void TLobby__sub_802084B0(s32 arg0) {
+void send_6x67_wave_trigger_event(s32 arg0) {
     Pkt_802084B0 pkt;
     s32 t = lbl_805D6084;
     lbl_805D6084 = t + 1;
@@ -93,7 +93,7 @@ void TLobby__sub_802084B0(s32 arg0) {
     byteswap_and_send__6TLobbyFi(&pkt);
 }
 
-void TLobby__sub_8020851C(s32 arg0) {
+void send_6x05_wave_clear_switch(s32 arg0) {
     Pkt_8020851C pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.b = 0;

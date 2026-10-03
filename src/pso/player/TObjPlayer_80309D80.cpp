@@ -53,14 +53,14 @@ s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
 s32 create_oneshot_particle_emitter(s32, s32, s32, s32);
 M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 u32 find_entity_by_id(s32);
-s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2);
+s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2);
 s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
-void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1);
-void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1);
-void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2);
-void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1);
-s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2);
+void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2);
+void emit_sand_step_particles(s32 arg0, s32 arg1);
+void emit_water_step_particles(s32 arg0, s32 arg1);
+void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2);
+void emit_idle_water_splash(s32 arg0, s32 arg1);
+s32 emit_player_particle(void* p, void* a1, void* a2);
 s32 get_instance__13TParticleCtrlFv();
 s32 TParticleCtrl__sub_80086884(s32);
 void attach_particle_model(s32, s32, s32, s32, s32, f32);
@@ -139,21 +139,21 @@ Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o) {
 
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii((s32)(p), (s32)(a1), (s32)(431)); }
 
-void TObjPlayer__sub_80309F30(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_8030A150((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
+void emit_idle_water_splash(s32 arg0, s32 arg1) {
+    emit_player_sprite_particle((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
     emit_player_model_particle((s32)((M2C_UNK)((void *) (arg0))), (s32)((M2C_UNK)((void *) (arg1))), (s32)((M2C_UNK)((int) (0xA6))), (s32)((s32)((int) (2))));
 }
 
-void TObjPlayer__sub_80309F78(s32 arg0, s32 arg1) {
+void emit_sand_step_particles(s32 arg0, s32 arg1) {
     emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x23D), (s32)(2));
     emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x23F), (s32)(0));
-    TObjPlayer__sub_8030A2CC((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x23E)));
+    emit_player_particle((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x23E)));
 }
 
-void TObjPlayer__sub_80309FD4(s32 arg0, s32 arg1) {
+void emit_water_step_particles(s32 arg0, s32 arg1) {
     emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x237), (s32)(2));
     emit_player_model_particle((s32)(arg0), (s32)(arg1), (s32)(0x239), (s32)(0));
-    TObjPlayer__sub_8030A2CC((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x238)));
+    emit_player_particle((void*)((void *) (arg0)), (void*)((void *) (arg1)), (void*)((int) (0x238)));
 }
 
 void TObjPlayer__sub_8030A030(void *arg0, void *arg1) {
@@ -187,12 +187,12 @@ void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p) { TPlyFollowParticleCt
 
 typedef struct Stack_8030A1E4 Stack_8030A1E4;
 
-void TObjPlayer__sub_8030A150(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2) {
     spawn_particle_effect_with_flags((s32)((void *) (arg1)), (s32)((void *) (arg2)), (M2C_UNK)((int) (0x2000)));
 }
 
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
-  s32 emitter = TObjPlayer__sub_8030A2CC((void*)(owner), (void*)(position), (void*)(entry));
+  s32 emitter = emit_player_particle((void*)(owner), (void*)(position), (void*)(entry));
   if (emitter)
   {
     attach_particle_model(emitter, TParticleCtrl__sub_80086884(model), get_instance__13TParticleCtrlFv(), 0, 1, lbl_805DF134);
@@ -200,7 +200,7 @@ s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {
   return emitter;
 }
 
-s32 TObjPlayer__sub_8030A1E4(unsigned long long arg1, s32 arg2) {
+s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2) {
   Stack_8030A1E4 stack;
   s32 temp_r3;
   u8 *temp_r3_2;
@@ -235,7 +235,7 @@ s32 check_hit_by_id__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     return temp_r3;
 }
 
-s32 TObjPlayer__sub_8030A2CC(void* p, void* a1, void* a2) { return spawn_particle_effect(a1, a2); }
+s32 emit_player_particle(void* p, void* a1, void* a2) { return spawn_particle_effect(a1, a2); }
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0) {
     void *temp_r3;
     temp_r3 = get_player_by_client_id((u16) get_lifetime__22TPlyFollowParticleCtrlFPv());

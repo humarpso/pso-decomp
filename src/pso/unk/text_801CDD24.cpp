@@ -6,7 +6,7 @@ s32 enter_attack_stage3__10TObjPlayerFPv(void *);
 s32 send_attack_stage3_request__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CDC68();
 s32 finish_attack_stage3__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CDD00();
+s32 check_attack_stage3_input__10TObjPlayerFv();
 s32 try_apply_status_action_1__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CDD24(s32 arg0, s16 arg1);
 }
@@ -21,7 +21,7 @@ void TObjPlayer__sub_801CDD24(s32 arg0, s16 arg1) {
         try_apply_status_action_1__10TObjPlayerFPv((void *) arg0);
         return;
       case 2:
-        TObjPlayer__sub_801CDD00();
+        check_attack_stage3_input__10TObjPlayerFv();
         return;
       case 3:
         finish_attack_stage3__10TObjPlayerFPv((void *) arg0);

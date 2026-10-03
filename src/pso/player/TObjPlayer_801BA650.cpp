@@ -8,12 +8,12 @@ extern "C" {
 
 void set_action_state__10TObjPlayerFPvss(void *arg0, s16 arg1, s16 arg2);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
-s32 TObjPlayer__sub_801C00E4(s32);
+s32 is_action_id_none(s32);
 
 void set_action_state__10TObjPlayerFPvss(void *arg0, s16 arg1, s16 arg2) {
     M2C_FIELD(arg0, s16 *, 0x32A) = (s16) M2C_FIELD(arg0, s16 *, 0x326);
     M2C_FIELD(arg0, s16 *, 0x326) = arg1;
-    if (TObjPlayer__sub_801C00E4(arg2) == 0) {
+    if (is_action_id_none(arg2) == 0) {
         M2C_FIELD(arg0, s16 *, 0xB8) = arg2;
     }
     M2C_FIELD(arg0, s32 *, 0x320) = (s32) (1 << arg1);

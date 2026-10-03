@@ -119,7 +119,7 @@ s32 is_rare_item__9TItemDataFPv(Item_8021587C *);
 u8 get_entry_field16__9TItemDataFv(Item_8021587C *);
 s32 pop_byte__6TLobbyFPv(void *);
 void TLobby__sub_8020EEFC(void *, s32);
-void TLobby__sub_8020F00C(void *, u8);
+void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
 u8 TLobby__sub_802156A0(s8 x);
 extern s8 lbl_8044BD30[];
@@ -132,7 +132,7 @@ u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8);
 u8 TObjPlayer__sub_8010494C(u8);
 s32 pop_byte__6TLobbyFPv(void *);
 void TLobby__sub_8020EEFC(void *, s32);
-void TLobby__sub_8020F00C(void *, u8);
+void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
 u8 TLobby__sub_802156E0(s8 x);
 extern s8 lbl_8044BD30[];
@@ -143,7 +143,7 @@ extern s32 lbl_805D6238;
 void TLobby__sub_8021599C(Obj_8021599C *obj);
 s32 pop_byte__6TLobbyFPv(void *);
 void TLobby__sub_8020EEFC(void *, s32);
-void TLobby__sub_8020F00C(void *, u8);
+void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
 u8 TLobby__sub_802156E0(s8 x);
 extern s8 lbl_8044BD30[];
@@ -418,7 +418,7 @@ void TLobby__sub_80215720(Obj_80215720 *arg0) {
             n = e->n1;
         }
         while (n-- != 0) {
-            TLobby__sub_8020F00C(&ctr, e->id);
+            push_shop_pool_entry(&ctr, e->id);
         }
         e++;
     }
@@ -464,7 +464,7 @@ void TLobby__sub_8021587C(Item_8021587C *item) {
                 c = e->n1;
             }
             while (c-- != 0) {
-                TLobby__sub_8020F00C(buf, e->id);
+                push_shop_pool_entry(buf, e->id);
             }
             e++;
         }
@@ -502,7 +502,7 @@ void TLobby__sub_8021599C(Obj_8021599C *obj) {
             c = e->n1;
         }
         while (c-- != 0) {
-            TLobby__sub_8020F00C(buf, e->id);
+            push_shop_pool_entry(buf, e->id);
         }
         e++;
     }

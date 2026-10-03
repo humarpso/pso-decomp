@@ -62,7 +62,7 @@ void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1);
 void *create__17TOSymbolchatColliFPv(void *arg0);
 void free_rock__17TOSymbolchatColliFv(void);
 s32 get_state__17TOSymbolchatColliFPv(void *arg0);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -71,13 +71,13 @@ M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 int free__11TOBoss4RockFUi(void*);
 
 s32 get_state__17TOSymbolchatColliFPv(void *arg0) {
-    if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0x37C)) == 1) {
+    if (is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0x37C)) == 1) {
         return 3;
     }
-    if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0x37A)) == 1) {
+    if (is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0x37A)) == 1) {
         return 2;
     }
-    return (u32) __cntlzw(1 - TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0x378))) >> 5;
+    return (u32) __cntlzw(1 - is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0x378))) >> 5;
 }
 
 extern void *tl_05;

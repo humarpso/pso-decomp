@@ -111,7 +111,7 @@ s32 is_split_screen();
 s32 get_current_floor();
 M2C_UNK reset_floats__15TObjBoss2TunnelFPv(void *);
 M2C_UNK reset_floats__15TObjBoss2TunnelFi(void *);
-s32 TLobby__sub_8020C1F0(s32, int);
+s32 is_room_enemy_set_cleared(s32, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
 u32 __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK TObjBoss7RaftSplash__ct(void *, void *, void *, void *, void *);
@@ -393,7 +393,7 @@ void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent) {
         lbl_805D696C = 1;
         lbl_805D6970 = 1;
     }
-    if (TLobby__sub_8020C1F0(get_current_floor(), 1) == 0) {
+    if (is_room_enemy_set_cleared(get_current_floor(), 1) == 0) {
         TObjBoss2Tunnel__sub_802F2150(arg0);
         p = __nw__7TObjectFUl(0xD8);
         if (p != 0) {

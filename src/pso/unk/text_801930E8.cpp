@@ -32,7 +32,7 @@ M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 extern void *lbl_805D5C28;
 void TObjLazerFence4__sub_801932E4(u8 *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DBE68;
 extern const f32 lbl_805DBE6C;
 void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
@@ -137,7 +137,7 @@ void TObjLazerFence4__sub_801932E4(u8 *arg0) {
 }
 
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0) {
-    if (TODoorAncient08__sub_80229220((u16)(M2C_FIELD(arg0, u16 *, 0xBA))) == 0) {
+    if (is_current_floor_switch_set((u16)(M2C_FIELD(arg0, u16 *, 0xBA))) == 0) {
         set_indexed_flags(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xAC) = 0;
     }
@@ -151,7 +151,7 @@ void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0) {
     if (arg0->fB0 > (f32)(u32)(arg0->fC4->f4 - 1)) {
         arg0->fB0 = lbl_805DBE6C;
     }
-    if (TODoorAncient08__sub_80229220(arg0->fBA) == 1) {
+    if (is_current_floor_switch_set(arg0->fBA) == 1) {
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);
         arg0->fAC = 1;
     }

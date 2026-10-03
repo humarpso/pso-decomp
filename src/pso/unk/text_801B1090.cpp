@@ -10,7 +10,7 @@ struct pkt_801B1674 {
 };
 
 extern "C" {
-void fn_801B1050(u8 *arg0);
+void clear_stealth_suit_flags__10TObjPlayerFPv(u8 *arg0);
 s32 disable_stealth_suit_effect__15TFontSmallLobbyFi(s32 arg0, void *arg1);
 u32 get_player_by_client_id(int);
 void TFontSmallLobby__sub_801C01BC(void *);
@@ -32,7 +32,7 @@ void handle_6x7B_disable_stealth_suit_effect(void *arg0) {
     if (validate_6x7B_disable_stealth_suit_effect(&pkt) != 0) {
         u8 *p = (u8 *) get_player_by_client_id(pkt.player_id);
         if (p != NULL) {
-            fn_801B1050(p);
+            clear_stealth_suit_flags__10TObjPlayerFPv(p);
         }
     }
 }

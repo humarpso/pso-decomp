@@ -11,7 +11,7 @@ M2C_UNK get_item_field_6__10TObjPlayerFPv();
 M2C_UNK send_attack_target_packet__10TObjPlayerFUi(void *);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK get_anim_field_c__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801D2D94(void *);
+M2C_UNK increment_strike_counter__10TObjPlayerFPv(void *);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, s32);
 s32 test_flags_any(s32, s32);
 M2C_UNK TObjPlayer__sub_80124C78(void *);
@@ -27,7 +27,7 @@ void update_anim_action__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_801D9078(arg0);
         if (objInBand__FP7GameObjf(arg0) != 0) {
             send_attack_target_packet__10TObjPlayerFUi(arg0);
-            TObjPlayer__sub_801D2D94(arg0 + 0x7CC);
+            increment_strike_counter__10TObjPlayerFPv(arg0 + 0x7CC);
             apply_anim_action__10TObjPlayerFPvi(arg0 + 0x7CC, arg0);
         }
     } else {

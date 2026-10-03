@@ -77,7 +77,7 @@ void run_task__15TOAttackableColFv(u8 *arg0);
 M2C_UNK TLobby__sub_80156A80(void *, void *, int);
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_parent__7TObjectFP7TObject(int, int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
@@ -250,7 +250,7 @@ f32 TOAttackableCol__sub_80157728(u8 *arg0, s32 arg1) {
   if (var_r30 != 0)
   {
     temp_r0 = *((s32 *) (((s8 *) arg0) + 0x34C));
-    if (((temp_r0 >= 0) && (temp_r0 < 0x100)) && (TODoorAncient08__sub_80229220((int) ((u16) temp_r0)) == 0))
+    if (((temp_r0 >= 0) && (temp_r0 < 0x100)) && (is_current_floor_switch_set((int) ((u16) temp_r0)) == 0))
     {
       return lbl_805DB2C8;
     }
@@ -309,7 +309,7 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0_2;
 
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x34C);
-    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (TODoorAncient08__sub_80229220((u16) temp_r0) == 1)) && ((submit_cursor_candidate(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)))) {
+    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
         M2C_FIELD(arg0, s32 *, 0x33C) = 0;
         TOAttackableCol__sub_801575AC((void *)((void *)(arg0)), (u16)((s32)(1)));
     }

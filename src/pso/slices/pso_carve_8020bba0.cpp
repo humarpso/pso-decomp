@@ -13,12 +13,12 @@ void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
 int create_floor_quest_thread(void);
 int TRaderMapCore__sub_801F9630(int);
-int TLobby__sub_802089B0(void);
+int clear_floor_event_flags(void);
 int init_sub_objects__6TLobbyFv(void);
 int create_objects__6TLobbyFi(void);
 int attach_objects_by_id__6TLobbyFi(void);
 int TLobby__sub_8020DBCC(void);
-int TSwitch__sub_8022945C(void);
+int init_switch_table(void);
 
 void TLobby__sub_8020BBA0(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1) {
     Obj_8020BBA0 *p = arg0->child;

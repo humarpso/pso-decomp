@@ -6,12 +6,12 @@ s32 get_instance__6TLobbyFv(void);
 s32 get_story_flag(s32);
 extern Pair_80219F64 lbl_8044BF58[];
 extern Pair_80219F64 lbl_8044C028[];
-s32 TLobby__sub_80219F64(void);
+s32 are_all_story_quests_complete(void);
 }
 
 extern "C" {
 
-s32 TLobby__sub_80219F64(void) {
+s32 are_all_story_quests_complete(void) {
     s32 n;
     s32 i;
     s32 r = get_instance__6TLobbyFv();

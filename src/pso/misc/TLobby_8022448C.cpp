@@ -121,7 +121,7 @@ s32 TLobby__sub_80224B7C(C14_80224B7C *item, s32 tbl);
 s8 TLobby__sub_8010540C(s32);
 s32 pop_byte__6TLobbyFPv(void *);
 void TLobby__sub_8020EEFC(void *, s32);
-void TLobby__sub_8020F00C(void *, u8);
+void push_shop_pool_entry(void *, u8);
 void reset_counter_64__6TLobbyFPv(void *);
 s32 TLobby__sub_80224840(s32 arg0);
 extern u32 lbl_805D6268;
@@ -452,7 +452,7 @@ void TLobby__sub_80224F7C(Obj_80224F7C *obj) {
     while (i++ < 3) {
         n = e[idx].n;
         while (n != 0) {
-            TLobby__sub_8020F00C(buf, e[idx].id);
+            push_shop_pool_entry(buf, e[idx].id);
             n--;
         }
         idx++;

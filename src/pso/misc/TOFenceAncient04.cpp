@@ -144,7 +144,7 @@ void TOFenceAncient04__sub_8016775C(void);
 M2C_UNK advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *);
 M2C_UNK fn_801682E4(void *, int);
 M2C_UNK fn_80168488(void *);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 extern const f32 lbl_805DB650;
 extern const f32 lbl_805DB654;
 extern s32 lbl_805DB658;
@@ -274,7 +274,7 @@ void TOHangceilingCave01KeyQuick__vt78(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
     switch (temp_r0) {
     case 3:
-        if ((TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) && (M2C_FIELD(arg0, f32 *, 0xC0) <= M2C_FIELD(arg0, f32 *, 0xC4))) {
+        if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) && (M2C_FIELD(arg0, f32 *, 0xC0) <= M2C_FIELD(arg0, f32 *, 0xC4))) {
             fn_801682E4((void *) (arg0), (int) (2));
         }
         advance_wrap_offset__25TOHangceilingCave01NormalFPv((void *) (arg0));
@@ -291,7 +291,7 @@ void TOHangceilingCave01KeyQuick__vt78(u8 *arg0) {
         }
         break;
     case 2:
-        if (TODoorAncient08__sub_80229220((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) {
+        if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) {
             if (lbl_805DB650 != M2C_FIELD(arg0, f32 *, 0xC0)) {
                 advance_wrap_offset__25TOHangceilingCave01NormalFPv((void *) (arg0));
             }

@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 test_flag_2000000__10TObjPlayerFPv();
-int TObjPlayer__sub_801B40D0(void *, int);
+int update_foot_stamp__10TObjPlayerFPvi(void *, int);
 void enable_foot_stamp__10TObjPlayerFii(void *, void *);
 void clear_foot_stamp__10TObjPlayerFii(void *, void *);
-M2C_UNK TObjPlayer__sub_801BF250(void *);
-M2C_UNK TObjPlayer__sub_801BF288(void *);
-M2C_UNK TObjPlayer__sub_801BF2C0(void *);
+M2C_UNK emit_sand_footstep_effect(void *);
+M2C_UNK emit_water_footstep_effect(void *);
+M2C_UNK emit_grass_footstep_effect(void *);
 s32 TObjPlayer__sub_801BF548(void *);
 s32 get_contact_surface_type(void *);
 void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1);
@@ -60,7 +60,7 @@ s32 classify_action_state__10TObjPlayerFv(void) {
     }
 }
 
-int TObjPlayer__sub_801B40D0(void *arg0, int arg1) {
+int update_foot_stamp__10TObjPlayerFPvi(void *arg0, int arg1) {
     if (arg1 == 1) {
         clear_foot_stamp__10TObjPlayerFii((u8 *)arg0 + 0x384, arg0);
     } else if (arg1 == 2) {
@@ -82,20 +82,20 @@ void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1) {
         temp_r3_2 = get_contact_surface_type((void *) (arg0 + 0x360));
         switch (temp_r3_2) {
         case 1:
-            TObjPlayer__sub_801BF2C0((void *) (arg0 + 0x384));
+            emit_grass_footstep_effect((void *) (arg0 + 0x384));
             return;
         case 2:
-            TObjPlayer__sub_801BF288((void *) (arg0 + 0x384));
+            emit_water_footstep_effect((void *) (arg0 + 0x384));
             return;
         case 3:
-            TObjPlayer__sub_801BF250((void *) (arg0 + 0x384));
+            emit_sand_footstep_effect((void *) (arg0 + 0x384));
             return;
         case 4:
-            ((M2C_UNK)TObjPlayer__sub_801B40D0((void *)((void *) (arg0)), (int)((int) (temp_r3))));
+            ((M2C_UNK)update_foot_stamp__10TObjPlayerFPvi((void *)((void *) (arg0)), (int)((int) (temp_r3))));
             return;
         case 0:
             if (TObjPlayer__sub_801BF548((void *) (arg0 + 0x360)) != 0) {
-                TObjPlayer__sub_801B40D0((void *)((void *) (arg0)), (int)((int) (temp_r3)));
+                update_foot_stamp__10TObjPlayerFPvi((void *)((void *) (arg0)), (int)((int) (temp_r3)));
             }
             break;
         }

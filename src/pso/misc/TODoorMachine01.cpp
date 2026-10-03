@@ -67,7 +67,7 @@ extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB508;
 u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void fn_8015D5D4(void *);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TODoorMachine01__vt12(Door_80162A70 *self);
 }
 
@@ -136,7 +136,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
     case 2:
         self->fD0 &= ~0xF0000;
         if (self->fD8 == 1) {
-            if (TODoorAncient08__sub_80229220(self->fC8) == 1) {
+            if (is_current_floor_switch_set(self->fC8) == 1) {
                 self->fD4 = 4;
                 self->fD0 |= 0xF0000;
             } else {
@@ -145,7 +145,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
         } else {
             self->fD4 = 4 - self->fD8;
             for (i = 0; i < self->fD8; i++) {
-                if (TODoorAncient08__sub_80229220(self->fC8 + i) == 1) {
+                if (is_current_floor_switch_set(self->fC8 + i) == 1) {
                     self->fD4++;
                 }
             }
@@ -162,7 +162,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
         break;
     case 3:
         if (self->fD8 == 1) {
-            if (TODoorAncient08__sub_80229220(self->fC8) == 1) {
+            if (is_current_floor_switch_set(self->fC8) == 1) {
                 self->fD4 = 4;
                 self->fD0 |= 0xF0000;
             } else {
@@ -171,7 +171,7 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
         } else {
             self->fD4 = 4 - self->fD8;
             for (k = 0; k < self->fD8; k++) {
-                if (TODoorAncient08__sub_80229220(self->fC8 + k) == 1) {
+                if (is_current_floor_switch_set(self->fC8 + k) == 1) {
                     self->fD4++;
                     self->fD0 |= 1 << (k + 16);
                 }

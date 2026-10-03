@@ -48,7 +48,7 @@ s32 clear_resource_load_tasks();
 void TLobby__sub_800FD6F8(void *, s32);
 void TObjLight__sub_80133A04(void *, s32);
 void TKeyBoardControl__sub_801A66B8(void);
-void TLobby__sub_801E2F44(s32, s32, s32);
+void set_copy_clear_color_argb(s32, s32, s32);
 void create_quad_sprites__13TParticleCtrlFv(void);
 void load_floor_sound_bank(s32);
 void *__nw__7TObjectFUl(u32);
@@ -93,7 +93,7 @@ void TObjLight__sub_8023F22C(void) {
     f32 c;
     void *p;
     TCameraCtrl__sub_803D6688(lbl_805DC9B8, lbl_805DC9B8);
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     for (i = 0; i < 0x80; i++) {
     }
     TKeyBoardControl__sub_801A66B8();

@@ -25,13 +25,13 @@ struct RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8 {
 
 extern "C" {
 extern RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
-void THunterGuildSeqOffline__sub_801F3728(s32 arg0);
+void set_quest_cancel_callback(s32 arg0);
 extern RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
-void THunterGuildSeqOffline__sub_801F3738(s32 arg0);
+void set_quest_success_callback(s32 arg0);
 extern RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
 void THunterGuildSeqOffline__sub_801F3748(s32 arg0);
 extern RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8 THunterGuildSeqOffline__data_80513DC8;
-void THunterGuildSeqOffline__sub_801F3718(s32 arg0);
+void set_quest_exit_callback(s32 arg0);
 }
 
 extern "C" {
@@ -39,15 +39,15 @@ extern "C" {
 typedef char RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3728_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
-void THunterGuildSeqOffline__sub_801F3718(s32 arg0) {
+void set_quest_exit_callback(s32 arg0) {
     M2C_FIELD(&(*(RecoveredGlobal_801F3718_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 0xC) = arg0;
 }
 
-void THunterGuildSeqOffline__sub_801F3728(s32 arg0) {
+void set_quest_cancel_callback(s32 arg0) {
     M2C_FIELD(&THunterGuildSeqOffline__data_80513DC8.value, s32 *, 8) = arg0;
 }
 typedef char RecoveredGlobal_801F3738_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3738_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];
-void THunterGuildSeqOffline__sub_801F3738(s32 arg0) {
+void set_quest_success_callback(s32 arg0) {
     M2C_FIELD(&(*(RecoveredGlobal_801F3738_THunterGuildSeqOffline__data_80513DC8 *)&THunterGuildSeqOffline__data_80513DC8).value, s32 *, 4) = arg0;
 }
 typedef char RecoveredGlobal_801F3748_THunterGuildSeqOffline__data_80513DC8_size[sizeof(RecoveredGlobal_801F3748_THunterGuildSeqOffline__data_80513DC8) == 0x10 ? 1 : -1];

@@ -160,7 +160,7 @@ M2C_UNK TBoss6Type1__sub_803D9370(s32, s32);
 M2C_UNK TNpcPlayer__sub_803D97B4(s32);
 f32 horizontal_distance_squared(s32, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-s32 fn_8023B454(s32, s32, s32, s32, s32);
+s32 get_next_captured_target(s32, s32, s32, s32, s32);
 M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
 extern f32 lbl_805DC958;
 void update__10TTecSlicerFi(s32 arg0);
@@ -182,7 +182,7 @@ M2C_UNK queue_destruction__7TObjectFv(s32);
 extern M2C_UNK __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-void TTecSlicer__sub_8023B6BC(u8 *arg0);
+void advance_position__10TTecSlicerFPv(u8 *arg0);
 int has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_remain_count__10TTecSlicerFPv(void *);
 s32 TObjPlayer__sub_803D9B2C(void);
@@ -198,7 +198,7 @@ extern const f32 lbl_805DC954;
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
-void TTecSlicer__sub_8023B5D8(u8 *arg0);
+void deliver_target_hit__10TTecSlicerFPv(u8 *arg0);
 u32 query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -258,7 +258,7 @@ M2C_UNK queue_destruction__7TObjectFv(s32);
 
 void reset_fields_1e__10TTecSlicerFPv(void* p) { *(u8*)((char*)p + 0x1e) = 0; *(u8*)((char*)p + 0x1f) = 0; }
 
-void TTecSlicer__sub_8023B5D8(u8 *arg0) {
+void deliver_target_hit__10TTecSlicerFPv(u8 *arg0) {
     f32 dist;
     f32 range;
     s32 temp_r3;
@@ -284,7 +284,7 @@ void destroy_on_collision__10TTecSlicerFi(s32 arg0, s32 _w1) {
 
 #pragma push
 #pragma fp_contract on
-void TTecSlicer__sub_8023B6BC(u8 *arg0) {
+void advance_position__10TTecSlicerFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x44), (s32)(arg0 + 0x38));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((M2C_FIELD(arg0, f32 *, 0x90) * M2C_FIELD(arg0, f32 *, 0xB4)) + M2C_FIELD(arg0, f32 *, 0x38));
     M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x94) * M2C_FIELD(arg0, f32 *, 0xB4)) + M2C_FIELD(arg0, f32 *, 0x3C));
@@ -333,8 +333,8 @@ void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
 
 void update__10TTecSlicerFi(s32 arg0) {
     if (horizontal_distance_squared(arg0 + 0x38, arg0 + 0xA8) < lbl_805DC958) {
-        TTecSlicer__sub_8023B5D8((u8 *)(arg0));
-        if (fn_8023B454(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
+        deliver_target_hit__10TTecSlicerFPv((u8 *)(arg0));
+        if (get_next_captured_target(arg0 + 0xC8, arg0 + 0xA8, arg0 + 0xC4, arg0 + 0xC6, arg0 + 0xBC) == 0) {
             set_flags__10TObjPlayerFPvUi(arg0 + 0xC0, 1);
         } else {
             VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0xA8);
@@ -418,7 +418,7 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     if (test_flags_any(arg0 + 0xC0, 1) == 0) {
         update__10TTecSlicerFi((s32)(arg0));
     }
-    TTecSlicer__sub_8023B6BC((u8 *)(arg0));
+    advance_position__10TTecSlicerFPv((u8 *)(arg0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x124) != 0U) {
         copy_position__15TEffStarLight2DFPv(M2C_FIELD(arg0, void **, 0x124), arg0 + 0x38);
     }

@@ -40,7 +40,7 @@ void render__17TWindowMainMenu4PFv(void);
 void run_task__17TWindowMainMenu4PFv(void* p);
 void TWindowMainMenu__ct(void *);
 int TWindowMainMenu__sub_80263FE0(void*);
-int TWindowMainMenu__sub_802647CC(void*);
+int handle_menu_selection__15TWindowMainMenuFPv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__15TWindowMainMenuFv(void *, int);
 int close_active_submenu__15TWindowMainMenuFPv(void*);
@@ -71,7 +71,7 @@ void TWindowMainMenu4P__vt4(u8 *arg0) {
 }
 
 void render__17TWindowMainMenu4PFv(void) {  }
-void run_task__17TWindowMainMenu4PFv(void* p) { TWindowMainMenu__sub_802647CC(p); TWindowMainMenu__sub_80263FE0(p); }
+void run_task__17TWindowMainMenu4PFv(void* p) { handle_menu_selection__15TWindowMainMenuFPv(p); TWindowMainMenu__sub_80263FE0(p); }
 
 extern M2C_UNK __vt__17TWindowMainMenu4P[];
 

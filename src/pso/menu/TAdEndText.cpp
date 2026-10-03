@@ -105,7 +105,7 @@ extern char lbl_804347C0[];
 extern u32 TAdEndText__data_805D49F4;
 extern u32 TAdEndText__data_805D49F8;
 extern s32 TAdEndText__data_805D49F0;
-void TScene__sub_8023E638(const char *name, void *data);
+void bind_gvm_texture_list(const char *name, void *data);
 void *create_named_object(const char *name);
 void TAdEndText__sub_8001B370(void);
 M2C_UNK TAdEndText__sub_8001A998(s32, f32, f32, f32);
@@ -348,7 +348,7 @@ typedef char RecoveredGlobal_8001B3BC_lbl_804F5800_size[sizeof(RecoveredGlobal_8
 
 void TAdEndText__sub_8001B370(void) {
     TAdEndText__data_805D49F4 = (u32)lbl_8048098C;
-    TScene__sub_8023E638(lbl_804347B0, lbl_8048098C);
+    bind_gvm_texture_list(lbl_804347B0, lbl_8048098C);
     TAdEndText__data_805D49F8 = (u32)create_named_object(lbl_804347C0);
     TAdEndText__data_805D49F0 = 0;
 }

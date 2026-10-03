@@ -48,7 +48,7 @@ void update_render_state__10TObjPlayerFv(void) {
 
 #pragma push
 #pragma use_lmw_stmw off
-void TObjPlayer__sub_803E549C(s16 *p, Vtx_803E549C *verts, u32 flags, s32 big) {
+void draw_chunk_color_tex_strips(s16 *p, Vtx_803E549C *verts, u32 flags, s32 big) {
     s32 draw;
     u32 count;
     s32 extra;

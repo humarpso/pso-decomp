@@ -30,12 +30,12 @@ Set_8020C9C8 *get_object_count__6TLobbyFPv(s32);
 s32 get_obj_table_entry__6TLobbyFi(s32);
 Obj_8020C9C8 *create_set_object_from_row(Set_8020C9C8 *);
 extern u8 *TLobby__data_805D6140;
-s32 TLobby__sub_8020C9C8(s32 arg0, s32 arg1, s32 arg2);
+s32 unhide_room_set_objects(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-s32 TLobby__sub_8020C9C8(s32 arg0, s32 arg1, s32 arg2) {
+s32 unhide_room_set_objects(s32 arg0, s32 arg1, s32 arg2) {
     s32 n;
     s32 count;
     s32 local;

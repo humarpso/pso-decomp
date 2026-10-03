@@ -7,12 +7,12 @@ extern "C" {
 u8 * TWindowSubEquipKind__ct(void *, M2C_UNK, s16);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
-u8 *TWindowShortListCtrl__sub_80278E48(s32 arg0, s32 arg1, s16 arg2);
+u8 *create_equip_kind_window(s32 arg0, s32 arg1, s16 arg2);
 }
 
 extern "C" {
 
-u8 *TWindowShortListCtrl__sub_80278E48(s32 arg0, s32 arg1, s16 arg2) {
+u8 *create_equip_kind_window(s32 arg0, s32 arg1, s16 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
     TShopJudgmentItemWindow__sub_80267F9C((void *) (arg1), (int) (0x1F));

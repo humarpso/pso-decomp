@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_8021F0A4(void);
+void reset_shop_stock_and_params(void);
 M2C_UNK TLobby__sub_8020ECA8();
 M2C_UNK TLobby__sub_8022559C();
 s32 get_task_id__14TFontSmallTaskFPv(M2C_UNK *);
@@ -18,7 +18,7 @@ extern s32 lbl_805D6238;
 extern s32 lbl_805D6240;
 extern s32 lbl_805D6244;
 
-void TLobby__sub_8021F0A4(void) {
+void reset_shop_stock_and_params(void) {
     s32 temp_r3;
 
     TLobby__sub_8022559C();

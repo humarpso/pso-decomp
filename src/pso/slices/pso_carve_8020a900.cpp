@@ -8,9 +8,9 @@ extern "C" {
 
 M2C_UNK copy_name(M2C_UNK *);
 M2C_UNK TLobby__sub_801A2514(u16);
-M2C_UNK TLobby__sub_801A2528(u16);
-M2C_UNK TLobby__sub_8020A768(s32, s32);
-M2C_UNK TLobby__sub_8020A834(s32, s32);
+M2C_UNK advance_object_id_counter(u16);
+M2C_UNK load_enemy_set_file(s32, s32);
+M2C_UNK load_object_set_file(s32, s32);
 M2C_UNK free_data_60F0__6TLobbyFv();
 s32 init_handle__6TLobbyFi(M2C_UNK);
 extern s32 lbl_805D60D8;
@@ -35,9 +35,9 @@ void load_map_set_data(s32 arg0, s32 arg1) {
     copy_name(&lbl_805DC620);
     TLobby__data_805D6134 = 0;
     if (init_handle__6TLobbyFi(0x8000) != 0) {
-        TLobby__sub_8020A834(arg0, arg1);
-        TLobby__sub_8020A768(arg0, arg1);
-        TLobby__sub_801A2528((u16) TLobby__data_805D60E8);
+        load_object_set_file(arg0, arg1);
+        load_enemy_set_file(arg0, arg1);
+        advance_object_id_counter((u16) TLobby__data_805D60E8);
         TLobby__data_805D6148 = TLobby__data_805D60E0;
         TLobby__sub_801A2514((u16) TLobby__data_805D60EC);
         TLobby__data_805D614C = TLobby__data_805D60E4;

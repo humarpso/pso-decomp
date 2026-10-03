@@ -17,7 +17,7 @@ void TLobby__sub_8020B374(s32, Ent_8020A768 *, s32);
 extern u8 lbl_8044BBA8[];
 extern Ent_8020A768 *TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
-s32 TLobby__sub_8020A768(s32 arg0, s32 arg1);
+s32 load_enemy_set_file(s32 arg0, s32 arg1);
 s32 read_disc_file(Name_8020A768 *, void *);
 void TLobby__sub_801317E4(Name_8020A768 *, s32, const void *);
 s32 get_player_floor__6TLobbyFi(s32);
@@ -27,12 +27,12 @@ void TLobby__sub_8020B3E4(s32, Ent_8020A834 *, s32);
 extern u8 lbl_8044BBB0[];
 extern Ent_8020A768 *TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
-s32 TLobby__sub_8020A834(s32 arg0, s32 arg1);
+s32 load_object_set_file(s32 arg0, s32 arg1);
 }
 
 extern "C" {
 
-s32 TLobby__sub_8020A768(s32 arg0, s32 arg1) {
+s32 load_enemy_set_file(s32 arg0, s32 arg1) {
     Name_8020A768 name;
     s32 size;
     Ent_8020A768 *p;
@@ -58,7 +58,7 @@ s32 TLobby__sub_8020A768(s32 arg0, s32 arg1) {
     TLobby__sub_8020B374(arg0, TLobby__data_805D60F0, size);
     return 1;
 }
-s32 TLobby__sub_8020A834(s32 arg0, s32 arg1) {
+s32 load_object_set_file(s32 arg0, s32 arg1) {
     Name_8020A834 name;
     s32 size;
     Ent_8020A834 *p;

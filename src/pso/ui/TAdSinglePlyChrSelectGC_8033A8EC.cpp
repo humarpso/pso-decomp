@@ -160,7 +160,7 @@ M2C_UNK TLobby__sub_800FD6F8(void *, int);
 M2C_UNK TObjLight__sub_80133A04(void *, int);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_801E2F44(int, int, int);
+M2C_UNK set_copy_clear_color_argb(int, int, int);
 M2C_UNK render_tick__Fv();
 M2C_UNK set_and_notify__6TLobbyFi(int);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(void *);
@@ -501,7 +501,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B2AC(void) {
 struct RecoveredGlobal_8033B264_lbl_804EF728;
 void TAdSinglePlyChrSelectGC__sub_8033B39C(void) {
     u32 p;
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     TLobby__sub_800FD6F8(&lbl_804EF728, 0x30);
     TObjLight__sub_80133A04(lbl_804A6F34, 4);

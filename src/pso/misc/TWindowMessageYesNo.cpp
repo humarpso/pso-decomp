@@ -21,7 +21,7 @@ s32 TWindowSubComCard__sub_80244888(void *);
 s32 TWindowSubComCard__sub_80265BF8(s32);
 s32 TWindowSubComCard__sub_80265CFC(s32, f32);
 int TWindowSubComCard__sub_802A57FC(void* a0 = 0);
-int TWindowSubShortMail__sub_802A58AC(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
+int open_yes_no_prompt(void* a0 = 0, void* a1 = 0, void* a2 = 0, void* a3 = 0);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);

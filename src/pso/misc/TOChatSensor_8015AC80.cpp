@@ -23,7 +23,7 @@ struct Packet_8015AD54 {
 
 extern "C" {
 void check_player_proximity__12TOChatSensorFPv(u8 *arg0);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 void run_task__12TOChatSensorFv(u8 *arg0);
 f32 newton_sqrtf(f32);
@@ -181,7 +181,7 @@ void run_task__12TOChatSensorFv(u8 *arg0) {
             break;
         }
     } else {
-        if (TODoorAncient08__sub_80229220((int) (M2C_FIELD(arg0, u16 *, 0x94))) == 0) {
+        if (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0x94))) == 0) {
             check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
             return;
         }

@@ -4,7 +4,7 @@
 
 extern "C" {
 s32 get_hold_effect_size_by_type__6TLobbyFv();
-s32 TObjPlayer__sub_801C00E4(s16);
+s32 is_action_id_none(s16);
 s32 is_in_view__17TObjEneHoldEffectFPv(s32);
 s32 fn_800FD7C0(void *);
 
@@ -12,7 +12,7 @@ s32 validate_6xAB(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    if (((TObjPlayer__sub_801C00E4(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
+    if (((is_action_id_none(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
         return 0;
     }
     return 1;
@@ -22,7 +22,7 @@ s32 validate_6x58_lobby_animation(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    if (((TObjPlayer__sub_801C00E4(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
+    if (((is_action_id_none(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
         return 0;
     }
     return 1;
@@ -57,7 +57,7 @@ s32 validate_6x52_set_animation_state(G_ClientIDHeader *packet) {
     if (validate_subcommand_client(packet) == 0) {
         return 0;
     }
-    if (((TObjPlayer__sub_801C00E4(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
+    if (((is_action_id_none(M2C_FIELD(packet, s16 *, 4)) == 0) && (M2C_FIELD(packet, s16 *, 4) < 0)) || (M2C_FIELD(packet, s16 *, 4) >= get_hold_effect_size_by_type__6TLobbyFv())) {
         return 0;
     }
     return 1;

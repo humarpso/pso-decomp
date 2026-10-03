@@ -26,7 +26,7 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK
 s32 get_player_by_client_id(int);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 int TWindowCtrl__sub_8024AEAC(void*);
-M2C_UNK TWindowCtrl__sub_8024AEF0(int);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(int);
 M2C_UNK set_selected_index__17TWindowSubComCardFPvs(u32, M2C_UNK);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
@@ -88,7 +88,7 @@ void send_giveup_to_all_players__6TLobbyFv(void) {
         if ((temp_r3 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {
             send_code_45_1__10TObjPlayerFi(temp_r3);
         }
-        TWindowCtrl__sub_8024AEF0(var_r31);
+        unsuppress_slot__11TWindowCtrlFi(var_r31);
         TLobby__sub_8024AC20(var_r31);
         var_r31 += 1;
     } while (var_r31 < 4);

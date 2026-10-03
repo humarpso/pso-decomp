@@ -148,7 +148,7 @@ s32 TObjPlayer__sub_803D9B2C();
 s32 TOHangerMachine01__sub_803D9C00(void *);
 s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
-void fn_801FBA6C(void);
+void draw_ginja_box_tree(void);
 s32 pop_matrix();
 extern void *lbl_805D5B88;
 extern s32 lbl_805D5B8C;
@@ -429,7 +429,7 @@ void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
             TOHangerMachine01__sub_803D9C00(self->pos);
             rotate_matrix_y(0, self->id);
             dispatch_fish_event__6TLobbyFPv((void *)2);
-            fn_801FBA6C();
+            draw_ginja_box_tree();
             pop_matrix();
             break;
         case 1:

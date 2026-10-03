@@ -74,7 +74,7 @@ M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 M2C_UNK TWindowSubComCard__sub_80265C30(int);
 M2C_UNK TWindowSubComCard__sub_80265F60(int);
-void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1);
+void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1);
 void *TObjWarpBase__ct(void *, void *, void *);
 int push_matrix_from(void *);
 void TOHangerMachine01__sub_803D9C00(void *);
@@ -139,7 +139,7 @@ extern M2C_UNK __vt__11TObjMapWarp[];
 
 #pragma push
 #pragma opt_common_subs off
-void TObjMapWarp__sub_8019D5AC(s32 arg0, s32 arg1) {
+void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {

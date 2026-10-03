@@ -29,7 +29,7 @@ extern M2C_UNK __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void TObjRaderIcon__sub_801F9914(void *, u32, u16, s32, s32, f32);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
 extern const f32 lbl_805DBF08;
 void TObjRaderIcon__sub_80197200(u8 *arg0);
@@ -65,7 +65,7 @@ void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
     case 0:
         all = 1;
         for (i = 0; i < arg0->f94; i++) {
-            if (TODoorAncient08__sub_80229220(arg0->f98 + i) == 0) {
+            if (is_current_floor_switch_set(arg0->f98 + i) == 0) {
                 all = 0;
             }
         }

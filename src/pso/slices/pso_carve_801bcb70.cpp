@@ -19,7 +19,7 @@ M2C_UNK get_field_0x374__10TObjPlayerFPv(void *, void *);
 s32 TObjPlayer__sub_801BEC3C(void *);
 M2C_UNK TObjPlayer__sub_801BEE24(void *, int);
 M2C_UNK TObjPlayer__sub_801BEE2C(void *, int);
-void TObjPlayer__sub_801BCB70(u8 *arg0, u8 *arg1);
+void load_char_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -43,7 +43,7 @@ int can_cast_technique__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCC50(void);
 int check_technique_castable__10TObjPlayerFi(void*);
 
-void TObjPlayer__sub_801BCB70(u8 *arg0, u8 *arg1) {
+void load_char_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     TObjPlayer__sub_801BEE2C((void *) (arg0), (int) (M2C_FIELD(arg1, s16 *, 0x24)));
     TObjPlayer__sub_801BEE24((void *) (arg0), (int) (M2C_FIELD(arg1, s16 *, 0x26)));
     get_field_0x374__10TObjPlayerFPv((void *) (arg0), (void *) (TObjPlayer__sub_801BEC3C((void *) (arg1))));

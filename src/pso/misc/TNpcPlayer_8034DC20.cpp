@@ -43,7 +43,7 @@ struct RecoveredGlobal_8034DC24_lbl_804F07C8;
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE10_lbl_80478C70 lbl_80478C70;
-u8 *TNpcPlayer__sub_8034DE10(void);
+u8 *get_party_position(void);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE70_lbl_80478C50 lbl_80478C50;
 u8 *TNpcPlayer__sub_8034DE70(void);
@@ -52,7 +52,7 @@ extern RecoveredGlobal_8034DEA0_TNpcPlayer__data_804ABC90 TNpcPlayer__data_804AB
 void TNpcPlayer__sub_8034DEA0(s32 arg0, s32 arg1);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C88;
-s32 TNpcPlayer__sub_8034DDE0(void);
+s32 get_party_yaw(void);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80478C68;
 s32 TNpcPlayer__sub_8034DE40(void);
@@ -149,11 +149,11 @@ u8 *TNpcPlayer__sub_8034DD14(u8 *self, void *parent) {
     return self;
 }
 
-s32 TNpcPlayer__sub_8034DDE0(void) {
+s32 get_party_yaw(void) {
     return M2C_FIELD(&lbl_80478C88.value, M2C_UNK *, (get_instance__6TLobbyFv() * 4));
 }
 
-u8 *TNpcPlayer__sub_8034DE10(void) {
+u8 *get_party_position(void) {
     return (u8 *)&lbl_80478C70.value + (get_instance__6TLobbyFv() * 0xC);
 }
 typedef char RecoveredGlobal_8034DE70_lbl_80478C50_size[sizeof(RecoveredGlobal_8034DE70_lbl_80478C50) == 0x18 ? 1 : -1];

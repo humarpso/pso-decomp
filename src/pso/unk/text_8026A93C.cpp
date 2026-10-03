@@ -14,8 +14,8 @@ M2C_UNK append_text_space();
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
 M2C_UNK *get_active_photon_object__17TWindowMessageLogFv(u16);
-M2C_UNK fn_8026A62C(u32, s32);
-M2C_UNK TLobby__sub_8026A7B0(M2C_UNK *);
+M2C_UNK append_line__17TWindowMessageLogFPvi(u32, s32);
+M2C_UNK cache_last_chat_line(M2C_UNK *);
 M2C_UNK chat_log_add_line();
 u32 get_field44__11TWindowCtrlFv();
 extern s32 lbl_805D53A0;
@@ -29,7 +29,7 @@ void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
     s32 temp_r30;
     M2C_UNK *temp_r31;
     if ((s32) arg0 == (s32) lbl_805D53A0) {
-        TLobby__sub_8026A7B0(arg1);
+        cache_last_chat_line(arg1);
     }
     temp_r31 = get_active_photon_object__17TWindowMessageLogFv(arg0);
     text_builder_reset();
@@ -45,7 +45,7 @@ void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
     {
         u32 tmp_ad = get_field44__11TWindowCtrlFv();
         if (tmp_ad != 0U) {
-            fn_8026A62C(tmp_ad, (s32) arg1);
+            append_line__17TWindowMessageLogFPvi(tmp_ad, (s32) arg1);
         }
     }
 }

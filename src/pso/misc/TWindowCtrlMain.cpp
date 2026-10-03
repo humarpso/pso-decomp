@@ -78,7 +78,7 @@ extern "C" {
 
 void TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
-void TWindowCtrlMain__sub_8024D8A8(void* p);
+void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
 s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0);
 void render__15TWindowCtrlMainFv(void* p);
@@ -250,7 +250,7 @@ bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {
 }
 
 void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) send_and_handle__6TLobbyFPvii(m); }
-void TWindowCtrlMain__sub_8024D8A8(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) spawn_action_palette_slot_light(m); }
+void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x34); if (m) spawn_action_palette_slot_light(m); }
 void update_field28__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) open_submenu__15TWindowSubEquipFii(m); }
 void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFPvs(m); }
 s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0) {

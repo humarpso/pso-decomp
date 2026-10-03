@@ -333,12 +333,12 @@ void set_handler__6TLobbyFi(int a0);
 M2C_UNK TLobby__sub_80070BE8(M2C_UNK);
 M2C_UNK TLobby__sub_80070C50();
 M2C_UNK TLobby__sub_801036CC();
-M2C_UNK TLobby__sub_802089B0();
+M2C_UNK clear_floor_event_flags();
 M2C_UNK TLobby__sub_8020DBCC();
 M2C_UNK TLobby__sub_80291EAC(M2C_UNK);
 M2C_UNK TLobby__sub_80291FC0();
 M2C_UNK TRaderMapCore__sub_801F9540();
-M2C_UNK TSwitch__sub_8022945C();
+M2C_UNK init_switch_table();
 M2C_UNK __ct__16TPlyGuildCardTagFv(s32);
 M2C_UNK clear_buffer__12TQuestThreadFPv(u32);
 M2C_UNK draw_if_ready2__6TLobbyFv();
@@ -547,8 +547,8 @@ void TLobby__sub_801EA8E8(void) {
     fn_801F57B4(tl_00);
     init_sub_objects__6TLobbyFv();
     TLobby__sub_8020DBCC();
-    TLobby__sub_802089B0();
-    TSwitch__sub_8022945C();
+    clear_floor_event_flags();
+    init_switch_table();
     TRaderMapCore__sub_801F9540();
     if (is_split_screen() == 1) {
         TLobby__sub_80291FC0();
@@ -1075,7 +1075,7 @@ void TLobby__sub_801EC43C(void);
 extern RecoveredGlobal_801EA274_TLobby__data_80512360 TLobby__data_80512360;
 extern RecoveredGlobal_801EC90C_lbl_80449AFC lbl_80449B08;
 void TLobby__sub_801EC664(void);
-u8 TSwitch__sub_802291F4(int, int);
+u8 is_floor_switch_set(int, int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED25C(s32 arg0);
 extern s16 lbl_80511CB0[];
@@ -1085,7 +1085,7 @@ void TLobby__sub_801EC624(void);
 extern E_801EB484 TLobby__data_80511C80[];
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EB484(u8 src, u8 dst);
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 extern int* TLobby__data_805D5E78;
 void TLobby__sub_801ED2B0(s32 arg0);
 void finalize_and_send_60__6TLobbyFPv(void* p);
@@ -1108,7 +1108,7 @@ void TLobby__sub_801EC720(u8 i);
 void mark_area_change_pending();
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void send_6x21_inter_level_warp(int, void *);
-s32 TLobby__sub_80207770(int);
+s32 get_floor_map_terrain(int);
 void set_area__6TLobbyFPvi(void *, int, int);
 void TNpcPlayer__sub_8034E7A0();
 extern u8 lbl_80515BA0[];
@@ -1810,14 +1810,14 @@ void TLobby__sub_801ED25C(s32 arg0) {
     var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 4));
     var_r4 = (s32) (s16) M2C_FIELD(var_r4, M2C_UNK *, var_r31);
     var_r3 = (u8 *)((void *) (u16) var_r3);
-    var_r4 = (s32) TSwitch__sub_802291F4((int) (var_r3), (int) (var_r4));
+    var_r4 = (s32) is_floor_switch_set((int) (var_r3), (int) (var_r4));
     var_r3 = (u8 *)((*(s32 *)&TLobby__data_805D5E78) + var_r31);
     M2C_FIELD(var_r3, s32 *, 8) = var_r4;
 }
 #pragma pop
 
 void TLobby__sub_801ED2B0(s32 arg0) {
-    TLobby__data_805D5E78[(u8)arg0 + 1] = TODoorAncient08__sub_80229220((u16)TLobby__data_805D5E78[(u8)arg0]);
+    TLobby__data_805D5E78[(u8)arg0 + 1] = is_current_floor_switch_set((u16)TLobby__data_805D5E78[(u8)arg0]);
 }
 
 void TLobby__sub_801ED300(void) {
@@ -1865,7 +1865,7 @@ void TLobby__sub_801ED400(s32 arg0, s32 arg1) {
 void TLobby__sub_801ED468(s32 a, s32 b) {
     u32 r = get_player_by_client_id((*(s32 * *)&TLobby__data_805D5E78)[(u8)a], b);
     if (r != 0 && lbl_805D53A0 == (*(s32 * *)&TLobby__data_805D5E78)[(u8)a]) {
-        set_area__6TLobbyFPvi(lbl_80515BA0, (*(s32 * *)&TLobby__data_805D5E78)[(u8)b], TLobby__sub_80207770((*(s32 * *)&TLobby__data_805D5E78)[(u8)b]));
+        set_area__6TLobbyFPvi(lbl_80515BA0, (*(s32 * *)&TLobby__data_805D5E78)[(u8)b], get_floor_map_terrain((*(s32 * *)&TLobby__data_805D5E78)[(u8)b]));
         mark_area_change_pending();
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
         TNpcPlayer__sub_8034E7A0();

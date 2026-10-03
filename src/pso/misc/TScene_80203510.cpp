@@ -81,7 +81,7 @@ extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern f32 TScene__data_805D5FE4;
 void TScene__sub_8020430C(void);
 SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
-SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 TScene__sub_802040D4(void *arg0, Obj_802040D4 *o, f32 f0, f32 f1);
 extern const f32 lbl_805DC5DC;
 extern const f32 lbl_805DC5E0;
@@ -163,7 +163,7 @@ extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
-SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 s32 TScene__sub_80205D24(void*,SceneMaterialCycle*);
 
 f32 get_random_float__8TObjFishFv(f32);
@@ -216,7 +216,7 @@ void TScene__sub_80203640(void* task) {
         for(s32 i=0;i<room->animatedCount;++i) {
             SceneMaterialAnimated* object=&room->animated[i];
             if(object->flags&(0x20000|0x04000000))continue;
-            SceneMaterialNode* node=TScene__sub_80203304(task,object);
+            SceneMaterialNode* node=resolve_indirect_object_record(task,object);
             if(object->flags&0x20) {
                 SceneMaterialUv* uv=object->uv;uv->u+=uv->du;uv->v+=uv->dv;
                 if(uv->u>=lbl_805DC5D4||uv->v>=lbl_805DC5D4) {
@@ -319,7 +319,7 @@ void TScene__sub_802041F4(void *task, SceneMaterialSection *room) {
     }
     for (anim = room->animated, i = 0; i < room->animatedCount; i++, anim++) {
         if (anim->node != NULL) {
-            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)TScene__sub_80203304((void*)(task), (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
+            if (TScene__sub_802040D4(task, (Obj_802040D4 *)((SceneMaterialNode *)resolve_indirect_object_record((void*)(task), (SceneMaterialAnimated*)(anim))), lbl_805DC5DC, lbl_805DC5E0) != 0) {
                 anim->flags |= 0x10000;
             } else {
                 anim->flags &= ~0x10000;

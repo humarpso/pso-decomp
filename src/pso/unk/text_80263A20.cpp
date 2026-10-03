@@ -16,13 +16,13 @@ s32 window_request_show(void *);
 s32 TWindowSubAreaMapDisp__sub_80246948(void *);
 s32 is_player_input_active(void *);
 extern RecoveredGlobal_80263A20_lbl_8050E208 lbl_8050E208;
-void fn_80263A20(u32 arg0, s32 arg1);
+void toggle_help_window_on_button(u32 arg0, s32 arg1);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80263A20_lbl_8050E208_size[sizeof(RecoveredGlobal_80263A20_lbl_8050E208) == 0x1B0 ? 1 : -1];
-void fn_80263A20(u32 arg0, s32 arg1) {
+void toggle_help_window_on_button(u32 arg0, s32 arg1) {
     if ((is_split_screen() != 0) && (arg0 != 0U) && (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + (is_player_input_active((void *) (arg1)) * 0x50) + 0x20), (int) (0x400)) != 0)) {
         if (TWindowSubAreaMapDisp__sub_80246948((void *) (arg0)) != 0) {
             window_request_show((void *) (arg0));

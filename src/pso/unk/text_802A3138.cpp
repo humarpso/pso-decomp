@@ -26,7 +26,7 @@ s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 draw_ui_sprite_shaded(f32, f32, f32, void *, void *, void *);
 extern const f32 lbl_805DDF18;
 extern const f32 lbl_805DDF1C;
-void fn_802A3138(u8 *arg0);
+void draw_class_illustration__17TChCrTagPlGraphicFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ typedef char RecoveredFields_802A3138_arg0_20_offset[offsetof(RecoveredFields_80
 typedef char RecoveredFields_802A3138_arg0_3C_offset[offsetof(RecoveredFields_802A3138_arg0, field_3C) == 0x3C ? 1 : -1];
 typedef char RecoveredFields_802A3138_arg0_40_offset[offsetof(RecoveredFields_802A3138_arg0, field_40) == 0x40 ? 1 : -1];
 typedef char RecoveredFields_802A3138_arg0_44_offset[offsetof(RecoveredFields_802A3138_arg0, field_44) == 0x44 ? 1 : -1];
-void fn_802A3138(u8 *arg0) {
+void draw_class_illustration__17TChCrTagPlGraphicFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_802A3138, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802A3138, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_802A3138, sp10) == 0x8) ? 1 : -1];

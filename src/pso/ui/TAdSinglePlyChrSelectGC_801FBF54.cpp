@@ -102,7 +102,7 @@ s32 TLobby__sub_80146D68(s32);
 void fn_801A5338(Card_80201354 *);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
-void fn_801F498C();
+void clear_all_story_flags();
 Card_80201354 *get_card_window__17TWindowSubComCardFUi(u32);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
 void TAdSinglePlyChrSelectGC__sub_80211584(void *);
@@ -267,7 +267,7 @@ s32 init_fresh_character_card(void) {
     card->f14 = 1;
     memcpy(card->f18, TLobby__sub_80146D68(0), 0x1C);
     memcpy(card->f34, TLobby__sub_80146D50(0), 0x10);
-    fn_801F498C();
+    clear_all_story_flags();
     card->f248 = 0;
     card->f24C = 0;
     for (i = 0; i < 200; i++) {

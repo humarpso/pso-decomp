@@ -25,7 +25,7 @@ M2C_UNK set_camera_mode__10TObjPlayerFi(int);
 M2C_UNK reset_motion_fields__10TObjPlayerFPv();
 s32 is_single_screen__10TObjPlayerFv();
 s32 is_alive_and_ready__10TObjPlayerFi(void *);
-M2C_UNK TObjPlayer__sub_801AF7E0(void *);
+M2C_UNK refill_traps__10TObjPlayerFPv(void *);
 s32 is_key_machine_ready__10TObjPlayerFv();
 M2C_UNK send_field_state__10TObjPlayerFi(void *);
 M2C_UNK send_6x24_teleport_player(u16, s32, s32);
@@ -49,7 +49,7 @@ M2C_UNK TObjPlayer__sub_801BD3A4(void *);
 s32 check_camera_mode__10TObjPlayerFv();
 M2C_UNK set_battle_flag__10TObjPlayerFPvi(void *, int);
 s32 get_anim_id__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801BEE18(void *, int);
+M2C_UNK set_meseta__10TObjPlayerFPvi(void *, int);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801D8D14(void *);
 s32 get_hospital_position__10TObjPlayerFPv(void *);
@@ -109,7 +109,7 @@ void TObjPlayer__vt6(s32 arg0) {
             send_code_49_1__10TObjPlayerFi((void *) (arg0));
         } else {
             if (is_single_screen__10TObjPlayerFv() == 0) {
-                TObjPlayer__sub_801BEE18((void *) (arg0), (int) (0));
+                set_meseta__10TObjPlayerFPvi((void *) (arg0), (int) (0));
             }
             send_6x24_teleport_player(obj_getField1c((void *) (arg0)), get_hospital_position__10TObjPlayerFPv((void *) (arg0)), TObjPlayer__sub_801D8D14((void *) (arg0)));
             set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800));
@@ -124,7 +124,7 @@ void TObjPlayer__vt6(s32 arg0) {
         send_code_49_1__10TObjPlayerFi((void *) (arg0));
         send_code50_packet__10TObjPlayerFi((void *) (arg0));
         if (is_alive_and_ready__10TObjPlayerFi((void *) (arg0)) != 0) {
-            TObjPlayer__sub_801AF7E0((void *) (arg0));
+            refill_traps__10TObjPlayerFPv((void *) (arg0));
         }
         temp_r3 = get_anim_id__10TObjPlayerFPv((void *) (arg0));
         switch (temp_r3) {
@@ -133,7 +133,7 @@ void TObjPlayer__vt6(s32 arg0) {
         case 0:
             set_camera_mode__10TObjPlayerFi((int) (2));
             send_field_state__10TObjPlayerFi((void *) (arg0));
-            TObjPlayer__sub_801BEE18((void *) (arg0), (int) (0));
+            set_meseta__10TObjPlayerFPvi((void *) (arg0), (int) (0));
             {
                 void *m = __nw__7TObjectFUl(0x234);
                 if (m != 0) {

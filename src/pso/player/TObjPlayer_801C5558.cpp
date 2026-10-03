@@ -14,7 +14,7 @@ extern "C" {
 s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2);
 u8 clamp_char_at__10TObjPlayerFPvi(s8 *arg0, s32 arg1);
 s32 init_partial__10TObjPlayerFi(s32 arg0);
-M2C_UNK fn_801C5454();
+M2C_UNK clear_trap_counts();
 
 s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
     s32 temp_r4;
@@ -117,7 +117,7 @@ void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2) {
 }
 
 s32 init_partial__10TObjPlayerFi(s32 arg0) {
-    fn_801C5454();
+    clear_trap_counts();
     return arg0;
 }
 

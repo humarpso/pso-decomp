@@ -8,12 +8,12 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 find_entity_by_id(int);
 extern const f32 lbl_805DC844;
-void fn_80232AA4(u8 *arg0);
+void grants_flash_update(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_80232AA4(u8 *arg0) {
+void grants_flash_update(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x1C)));
     if (temp_r3 != 0) {

@@ -64,7 +64,7 @@ s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 TTecAnti__sub_8022B35C(void *, void *);
-s32 TTecAnti__sub_8022B3E8(void *, void *);
+s32 copy_technique_target_list(void *, void *);
 s32 fn_8022BE64(void *, void *, void *);
 s32 fn_8022C10C(void *, void *, void *, void *);
 extern RecoveredGlobal_8023A094_lbl_804CC1CC lbl_804CC1CC;
@@ -207,7 +207,7 @@ u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3818;
     TTecAnti__sub_8022B35C((void *) (arg0 + 0x88), (void *) ((u8 *)&lbl_804CC1CC.value + 0x2EC));
     fn_8022BE64((void *) (arg0), (void *) (arg0 + 0x88), (void *) (arg4));
-    TTecAnti__sub_8022B3E8((void *) (arg0 + 0xEC), (void *) (arg3));
+    copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
     play_sound_effect((int) (0x4002A812), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
     if (temp_r3 != 0U) {

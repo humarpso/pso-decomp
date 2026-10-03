@@ -56,7 +56,7 @@ M2C_UNK obj_clearFlags30(void *, int);
 M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8011E204(void *, int);
 s32 is_final_phase__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_801CBD38();
+M2C_UNK remove_photon_blast_participant();
 M2C_UNK update_photon_blast_state__10TObjPlayerFv();
 M2C_UNK reset_photon_blast_gauge(void *);
 void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
@@ -64,7 +64,7 @@ s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 TLobby__sub_800822E8(void *, s32);
 Player_801CC6B8 *get_player_by_client_id(s32);
-void fn_801C1F14(void *, s32);
+void set_photon_blast_kind(void *, s32);
 void apply_photon_blast__10TObjPlayerFii(u16, s32);
 void copy_tech_params__10TObjPlayerFPvPv(u32 *, u32 *);
 void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
@@ -112,7 +112,7 @@ void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     reset_photon_blast_gauge((void *) (arg0 + 0x4AC));
     if (is_final_phase__10TObjPlayerFv() != 0) {
         obj_getField1c((void *) (arg0));
-        TObjPlayer__sub_801CBD38();
+        remove_photon_blast_participant();
     } else {
         update_photon_blast_state__10TObjPlayerFv();
     }
@@ -235,7 +235,7 @@ void handle_6x49_execute_photon_blast(void *arg0) {
                 u32 *src;
                 start_photon_blast_action__10TObjPlayerFPv(p->pb);
                 apply_photon_blast__10TObjPlayerFii(m.id, m.kind);
-                fn_801C1F14(p->pb, m.kind);
+                set_photon_blast_kind(p->pb, m.kind);
                 count = m.count;
                 set_section_index__15TFontSmallLobbyFPvs(p->pb, count);
                 set_float_param__10TObjPlayerFis(p, m.param);

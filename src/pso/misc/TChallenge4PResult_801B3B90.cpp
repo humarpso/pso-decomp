@@ -41,7 +41,7 @@ void set_technique_id__10TObjPlayerFPvs(void *, s16);
 s32 can_use_camera_field__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801B3A18(void *, s16);
 s32 check_conditions__10TObjPlayerFi(void *, s16);
-void fn_801C1F14(void *, s16);
+void set_photon_blast_kind(void *, s16);
 s32 is_player_valid_target__10TObjPlayerFi(s32);
 void TObjPlayer__sub_80354BE4(s32);
 extern const f32 lbl_805DC290;
@@ -153,7 +153,7 @@ s32 execute_palette_action__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2)
         break;
     case 5:
         if (check_conditions__10TObjPlayerFi(arg0, act) != 0) {
-            fn_801C1F14(self + 0x4AC, act);
+            set_photon_blast_kind(self + 0x4AC, act);
             run_action_state_phase__10TObjPlayerFisi(arg0, 9, 5);
             return 1;
         }

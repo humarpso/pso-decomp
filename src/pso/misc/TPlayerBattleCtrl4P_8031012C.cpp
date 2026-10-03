@@ -222,9 +222,9 @@ void TPlayerBattleCtrl4P__vt28(void);
 void TPlayerBattleCtrl4P__vt29(void);
 M2C_UNK TWindowChat__sub_8024AD30(u16);
 M2C_UNK TWindowCtrl__sub_8024AEAC(u32);
-M2C_UNK TWindowCtrl__sub_8024AEF0(u16);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
-M2C_UNK fn_801C5454(s32);
+M2C_UNK clear_trap_counts(s32);
 M2C_UNK fn_801F57B4(s32);
 M2C_UNK fn_8020910C(s32);
 M2C_UNK fn_8024ACEC(u32);
@@ -546,7 +546,7 @@ void send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *arg0, s32 arg1, s3
     if (temp_r30 != 0) {
         TWindowChat__sub_8024AD30(temp_r31);
         clear_flag__11TWindowCtrlFv();
-        TWindowCtrl__sub_8024AEF0(temp_r31);
+        unsuppress_slot__11TWindowCtrlFi(temp_r31);
     }
 }
 
@@ -692,7 +692,7 @@ void update__19TPlayerBattleCtrl4PFv(void) {
     do {
         temp_r3 = get_player_by_client_id((s32)(var_r31_2));
         if (temp_r3 != 0U) {
-            fn_801C5454(temp_r3 + 0x7C4);
+            clear_trap_counts(temp_r3 + 0x7C4);
         }
         var_r31_2 += 1;
     } while (var_r31_2 < 4);

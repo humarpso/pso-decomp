@@ -168,7 +168,7 @@ s32 obj_getField1c(void *);
 s32 TObjPlayer__sub_8004433C(void *);
 s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-void TTecAnti__sub_8022B3E8(void *, void *);
+void copy_technique_target_list(void *, void *);
 void fn_8022C10C(void *, void *, void *, void *);
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 extern M2C_UNK __vt__9TTecJelin[];
@@ -261,7 +261,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     TObjPlayer__sub_8004433C(self->sub);
     self->f0 = lbl_805D37D8;
     self->fec = 1;
-    TTecAnti__sub_8022B3E8(self->sub, _w3);
+    copy_technique_target_list(self->sub, _w3);
     init_tech_params__9TTecJelinFPv((u8 *)self);
     VecCopy__FP3VecPC3Vec((Vec_80233958 *)&self->pos, (Vec_80233958 *)_w2);
     if (self->holder != 0) {

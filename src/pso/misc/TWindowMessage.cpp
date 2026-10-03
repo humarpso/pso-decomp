@@ -24,9 +24,9 @@ void draw__14TWindowMessageFPv(u8 *arg0);
 M2C_UNK update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window__15TWindowAdditionFPvs(void *, int);
-M2C_UNK fn_802695A8(void *);
-M2C_UNK fn_80269664(void *);
-M2C_UNK fn_802697B4(void *);
+M2C_UNK advance_reveal_cursor__14TWindowMessageFPv(void *);
+M2C_UNK update_line_timers__14TWindowMessageFPv(void *);
+M2C_UNK retire_scrolled_lines__14TWindowMessageFPv(void *);
 M2C_UNK update_scroll__14TWindowMessageFPv(void *);
 void free__11TOBoss4RockFUi(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
@@ -44,9 +44,9 @@ void draw__14TWindowMessageFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
     update_scroll__14TWindowMessageFPv(arg0);
-    fn_802697B4(arg0);
-    fn_80269664(arg0);
-    fn_802695A8(arg0);
+    retire_scrolled_lines__14TWindowMessageFPv(arg0);
+    update_line_timers__14TWindowMessageFPv(arg0);
+    advance_reveal_cursor__14TWindowMessageFPv(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TObjPlayer__sub_801BF8EC(s32 arg0, s32 arg1, s32 arg2);
+void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2);
 void TObjPlayer__sub_801BF8F8(s32 *p);
 }
 
@@ -48,7 +48,7 @@ void set_state__10TObjPlayerFPvs(void* p, s16 v);
 int test_flag_16__10TObjPlayerFPv(void* p);
 int update_main_cursor__10TObjPlayerFPv(void* p);
 
-void TObjPlayer__sub_801BF8EC(s32 arg0, s32 arg1, s32 arg2) {
+void set_equip_slot_entry(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK *, (arg1 * 4)) = arg2;
 }
 

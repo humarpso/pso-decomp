@@ -49,7 +49,7 @@ s32 TLobby__sub_8030A770();
 s32 get_game_play_mode();
 u32 get_player_by_client_id(s32);
 s32 has_player_active_menu__11TWindowCtrlFi(u16);
-s32 TWindowCtrl__sub_8024B054(u16);
+s32 is_slot_visible__11TWindowCtrlFi(u16);
 int check_flag__10TObjPlayerFPvi(void*, int);
 u32 get_card_window__17TWindowSubComCardFUi(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -309,7 +309,7 @@ extern "C" {
 void init_all_slots__11TWindowCtrlFv(void);
 void init_all_slots2__11TWindowCtrlFv(void);
 int TWindowCtrl__sub_8024AEAC(s32);
-int TWindowCtrl__sub_8024AEF0(s32);
+int unsuppress_slot__11TWindowCtrlFi(s32);
 
 void init_all_slots__11TWindowCtrlFv(void) {
     s32 var_r31;
@@ -326,7 +326,7 @@ void init_all_slots2__11TWindowCtrlFv(void) {
 
     var_r31 = 0;
     do {
-        TWindowCtrl__sub_8024AEF0(var_r31);
+        unsuppress_slot__11TWindowCtrlFi(var_r31);
         var_r31 += 1;
     } while (var_r31 < 0xC);
 }
@@ -574,14 +574,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void dispatch_to_child__11TWindowCtrlFiPv(s32 arg0, void *arg1);
-M2C_UNK TWindowCtrlMain__sub_8024D8A8(u32, void*);
+M2C_UNK spawn_palette_slot_light__15TWindowCtrlMainFPv(u32, void*);
 
 extern u32* TWindowCtrl__data_805D63F8;
 
 void dispatch_to_child__11TWindowCtrlFiPv(s32 arg0, void *arg1) {
     u32* p = TWindowCtrl__data_805D63F8;
     if (p != 0 && p[arg0 + 18] != 0U) {
-        TWindowCtrlMain__sub_8024D8A8(p[arg0 + 18], arg1);
+        spawn_palette_slot_light__15TWindowCtrlMainFPv(p[arg0 + 18], arg1);
     }
 }
 
@@ -603,7 +603,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_active__13TRaderMapCoreFv();
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024B000(void *, s32);
-s32 TWindowCtrl__sub_8024B054(s32);
+s32 is_slot_visible__11TWindowCtrlFi(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32, M2C_UNK *);
 M2C_UNK TWindowSubTradeMain__sub_80244A4C(u32);
 s32 is_split_screen();
@@ -615,7 +615,7 @@ extern s32 lbl_805D53A0;
 
 void TWindowCtrl__sub_8024B9C0(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        if (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) {
+        if (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x30));
             return;
         }
@@ -627,7 +627,7 @@ extern s32 lbl_805D53A0;
 
 void update_trade_window__11TWindowCtrlFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-        if ((TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) != 0) || ((is_split_screen() != 0) && (is_active__13TRaderMapCoreFv() == 0))) {
+        if ((is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) != 0) || ((is_split_screen() != 0) && (is_active__13TRaderMapCoreFv() == 0))) {
             TWindowSubTradeMain__sub_80244A4C(M2C_FIELD(arg0, u32 *, 0x34));
             return;
         }
@@ -639,7 +639,7 @@ extern u8 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 
 void handle_controller__11TWindowCtrlFi(s32 arg0) {
-    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (TWindowCtrl__sub_8024B054(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
+    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(lbl_805D53A0)) == 0) && (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(lbl_805D53A0), (M2C_UNK *)lbl_8050E208) != 0)) {
         advance_card_status__15TWindowCtrlMainFi(lbl_805D53A0);
     }
 }
@@ -657,7 +657,7 @@ extern "C" {
 
 void update_trade_request_window__11TWindowCtrlFPv(void *arg0);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
-s32 TWindowCtrl__sub_8024B054(s32);
+s32 is_slot_visible__11TWindowCtrlFi(s32);
 void *TWindowTradeRequest__ct(void *, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 s32 is_trade_active();
@@ -669,7 +669,7 @@ extern s32 lbl_805D53A0;
 void update_trade_request_window__11TWindowCtrlFPv(void *arg0) {
     void *var_r0;
 
-    if ((is_trade_active() == 0) || (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) || (((u32) M2C_FIELD(arg0, void **, 0x38) != 0U) && (TWindowCtrl__sub_8024701C(M2C_FIELD(arg0, void **, 0x38)) != 0))) {
+    if ((is_trade_active() == 0) || (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0) || (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) || (((u32) M2C_FIELD(arg0, void **, 0x38) != 0U) && (TWindowCtrl__sub_8024701C(M2C_FIELD(arg0, void **, 0x38)) != 0))) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x40));
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
@@ -698,7 +698,7 @@ void update_window_visibility__11TWindowCtrlFPv(u8 *arg0);
 u32 get_player_by_client_id(s32);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 TWindowCtrl__sub_8024AFB8(void *, s32);
-s32 TWindowCtrl__sub_8024B054(s32);
+s32 is_slot_visible__11TWindowCtrlFi(s32);
 s32 get_display_flag__11TWindowCtrlFv();
 s32 chat_accept_submission(void *);
 s32 get_current_target_id__10TObjPlayerFv();
@@ -725,7 +725,7 @@ void update_window_visibility__11TWindowCtrlFPv(u8 *arg0) {
             return;
         }
         temp_r31 = get_current_target_id__10TObjPlayerFv();
-        if ((get_display_flag__11TWindowCtrlFv() != 0) || (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024B054(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024AFB8(arg0, lbl_805D53A0) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) lbl_805D53A0))) {
+        if ((get_display_flag__11TWindowCtrlFv() != 0) || (has_player_active_menu__11TWindowCtrlFi(lbl_805D53A0) != 0) || (is_slot_visible__11TWindowCtrlFi(lbl_805D53A0) != 0) || (TWindowCtrl__sub_8024AFB8(arg0, lbl_805D53A0) != 0) || (((u16)temp_r31 != 0xffffU) && ((s32)(u16)temp_r31 != (s32) lbl_805D53A0))) {
             update__11TWindowChatFPv(M2C_FIELD(arg0, u32 *, 0x38));
             return;
         }
@@ -1048,7 +1048,7 @@ s32 TWindowMainMenu__sub_8024E3E0(void *);
 int TWindowCtrlMain__sub_8024D838(void);
 void TWindowCtrlMain__sub_8024D85C(void* p);
 void update_child_2c__15TWindowCtrlMainFPv(void* p);
-void TWindowCtrlMain__sub_8024D8A8(void* p);
+void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p);
 void update_field28__15TWindowCtrlMainFPv(void* p);
 void free_member__15TWindowCtrlMainFPv(void* p);
 int spawn_action_palette_slot_light(void*);

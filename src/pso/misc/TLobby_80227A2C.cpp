@@ -63,7 +63,7 @@ extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
 void TLobby__sub_80228754(u8 *arg0);
 s32 lookup_scene_object__6TLobbyFPv(s32, void *);
 M2C_UNK set_scene__6TSceneFi(int);
-M2C_UNK TLobby__sub_80203470(int);
+M2C_UNK set_current_floor_area(int);
 extern RecoveredGlobal_80228634_lbl_804CBE98 lbl_804CBE98;
 void TLobby__sub_802286C4(u8 *arg0);
 M2C_UNK TLobby__sub_802401C8(void *);
@@ -77,7 +77,7 @@ extern unsigned char lbl_80514F64[];
 void TLobby__sub_8022809C(void);
 M2C_UNK TLobby__sub_800F8FB8();
 int render_tick__Fv(void);
-s32 TLobby__sub_80227F54();
+s32 is_sound_enabled();
 M2C_UNK TLobby__sub_8024034C(void *);
 M2C_UNK validate_and_set_selection__6TLobbyFPvi(void *, int);
 M2C_UNK TLobby__sub_803382E4();
@@ -123,7 +123,7 @@ void *construct__6TLobbyFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
 s32 init_range_zero__6TLobbyFPv(void* arg0);
 void refresh_render_state__6TLobbyFv(void);
 void set_area__6TLobbyFPvi(void *arg0, s32 arg1);
-s32 TLobby__sub_80207770(s32);
+s32 get_floor_map_terrain(s32);
 int TLobby__sub_80227B48(float);
 int TLobby__sub_802405B0(void*, void*);
 void __ct__7TObjectFP7TObject(void *);
@@ -185,7 +185,7 @@ void TLobby__sub_802280C4(void) {
         TLobby__sub_800F8FB8();
         TLobby__sub_803CB81C();
         render_tick__Fv();
-    } while (TLobby__sub_80227F54() == 0);
+    } while (is_sound_enabled() == 0);
 }
 
 void TLobby__sub_80228118(void) {
@@ -200,7 +200,7 @@ void clear_ready_flag_unless_locked__6TLobbyFPv(void *arg0) {
 
 void set_area__6TLobbyFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xC) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x18) = TLobby__sub_80207770(M2C_FIELD(arg0, s32 *, 0xC));
+    M2C_FIELD(arg0, s32 *, 0x18) = get_floor_map_terrain(M2C_FIELD(arg0, s32 *, 0xC));
 }
 
 #pragma push
@@ -271,7 +271,7 @@ void TLobby__sub_802286C4(u8 *arg0) {
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
     var_r3 = M2C_FIELD(arg0, s32 *, 4);
-    TLobby__sub_80203470((int) (var_r3));
+    set_current_floor_area((int) (var_r3));
     var_r3 = M2C_FIELD(var_r31, s32 *, 0x10);
     set_scene__6TSceneFi((int) (var_r3));
     var_r3 = M2C_FIELD(var_r31, s32 *, 4);

@@ -8,7 +8,7 @@ extern "C" {
 
 void update_band_state__10TObjPlayerFPv(u8 *arg0);
 void update_target_approach__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TObjPlayer__sub_801CC194(void *);
+M2C_UNK send_6x37_photon_blast__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CC9E4(void);
 M2C_UNK set_action_flag_40__10TObjPlayerFPv(void *);
 M2C_UNK get_dist__10TObjPlayerFPv(void *);
@@ -47,7 +47,7 @@ void update_target_approach__10TObjPlayerFPv(u8 *arg0) {
         if (objInBand__FP7GameObjf((void *) (arg0)) != 0) {
             M2C_FIELD(arg0, s16 *, 0x328) = 3;
             set_action_flag_40__10TObjPlayerFPv((void *) (arg0));
-            TObjPlayer__sub_801CC194((void *) (arg0));
+            send_6x37_photon_blast__10TObjPlayerFPv((void *) (arg0));
         }
     }
 }

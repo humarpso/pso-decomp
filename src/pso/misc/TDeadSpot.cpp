@@ -94,7 +94,7 @@ void __dt__9TDeadSpotFv(void *, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 M2C_UNK setup_alpha_test_render_state(M2C_UNK);
 M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK fn_803E29B0(void *, M2C_UNK, M2C_UNK);
+M2C_UNK draw_particle_strip(void *, M2C_UNK, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -272,7 +272,7 @@ void render__9TDeadSpotFv(u8 *arg0) {
         setup_alpha_test_render_state(0x8F);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB8));
         set_texture_num(M2C_FIELD(arg0, s32 *, 0xBC));
-        fn_803E29B0(arg0 + 0x1C, 4, 1);
+        draw_particle_strip(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();
         some_id_805c6f74 = lbl_805D5660;
     }

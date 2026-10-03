@@ -87,7 +87,7 @@ void register_entity_by_id(void *);
 void TObjAreaWarp__ct(void *);
 void init_warp_params__17TObjWarpBossMultiFPv(void* a0);
 void update__17TObjWarpBossMultiFPv(void *arg0);
-s32 TLobby__sub_8020765C(void);
+s32 get_boss_warp_destination(void);
 void *init__13TAdVIConfigGCFPvf(void *, void *, f32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 extern M2C_UNK __vt__17TObjWarpBossMulti[];
@@ -235,7 +235,7 @@ Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2) 
     TObjAreaWarp__ct(self);
     self->vt18 = ((s32 *)&__vt__17TObjWarpBossMulti);
     self->f0 = lbl_805D348C;
-    self->fBC = TLobby__sub_8020765C();
+    self->fBC = get_boss_warp_destination();
     self->fA4 = 0;
     register_entity_by_id(self);
     update__17TObjWarpBossMultiFPv(self);

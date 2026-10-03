@@ -87,7 +87,7 @@ void create_quad_sprites__13TParticleCtrlFv(void)
     } while (index < 0x6C);
 }
 
-void TParticleCtrl__sub_801E54F0(void) {
+void init_particle_sprite_atlas(void) {
     f32 (*p)[4];
     s32 y;
     s32 x;

@@ -10,7 +10,7 @@ s32 can_guard__10TObjPlayerFPv(u8 *arg0);
 s32 TObjPlayer__sub_801CB5FC();
 s32 apply_velocity_if_ready__10TObjPlayerFi(void *);
 s32 start_action_c__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CB748(void *);
+s32 send_6x50_switch_interaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CB7A4();
 s32 update_if_flag_set__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CB7D4();
@@ -37,7 +37,7 @@ void TObjPlayer__sub_801CB7F8(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CB7A4();
         return;
       case 5:
-        TObjPlayer__sub_801CB748((void *) arg0);
+        send_6x50_switch_interaction__10TObjPlayerFPv((void *) arg0);
         return;
       case 0:
         start_action_c__10TObjPlayerFPv((void *) arg0);

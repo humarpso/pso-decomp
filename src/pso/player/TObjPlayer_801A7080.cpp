@@ -43,8 +43,8 @@ void clear_photon_blast_hits(void);
 
 extern "C" {
 
-void TObjPlayer__sub_801A72C8(void);
-void TObjPlayer__sub_801A72EC(void);
+void queue_deferred_photon_blast_support(void);
+void queue_photon_blast_support(void);
 void reset_state_block__10TObjPlayerFPv(void* a0);
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2);
 extern u32 lbl_805D5D20;
@@ -123,13 +123,13 @@ void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
     }
 }
 
-void TObjPlayer__sub_801A72C8(void) {
+void queue_deferred_photon_blast_support(void) {
     ((M2C_UNK (*)(f32))queue_deferred_photon_blast_hit)(lbl_805DC0D4);
 }
 
 extern const f32 lbl_805DC0D4;
 
-void TObjPlayer__sub_801A72EC(void) {
+void queue_photon_blast_support(void) {
     ((M2C_UNK (*)(f32))queue_photon_blast_hit)(lbl_805DC0D4);
 }
 typedef char RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];

@@ -24,7 +24,7 @@ void submit_cursor_candidate(void *self);
 void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
 s32 get_selected_entry__11TMainCursorFPv(void *c);
 void *get_player_by_client_id(u32);
-void TObjPlayer__sub_801B4AC8(void *target, s32 id);
+void submit_target_to_player_cursor(void *target, s32 id);
 }
 
 extern "C" {
@@ -141,7 +141,7 @@ void submit_cursor_candidate(void *self) {
     }
 }
 
-void TObjPlayer__sub_801B4AC8(void *target, s32 id) {
+void submit_target_to_player_cursor(void *target, s32 id) {
     s32 i;
     Player_801B4AC8 *player;
     Slot_801B4AC8 *entry;

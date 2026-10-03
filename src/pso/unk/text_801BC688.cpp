@@ -20,7 +20,7 @@ M2C_UNK set_input_mode__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_flag_400000__10TObjPlayerFi(void *);
 M2C_UNK set_floor__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_floor_index__10TObjPlayerFPvi(void *, int);
-M2C_UNK TObjPlayer__sub_801BEB5C(void *);
+M2C_UNK reset_entrance_id__10TObjPlayerFPv(void *);
 M2C_UNK set_vec3_const__10TObjPlayerFPv(void *);
 M2C_UNK fn_801C19F4(void *);
 u8 *heap_alloc__10TObjPlayerFPv(M2C_UNK);
@@ -70,7 +70,7 @@ void init_action_provider__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 0;
     M2C_FIELD(arg0, s32 *, 0x36C) = 0;
     M2C_FIELD(arg0, s32 *, 0x370) = 0;
-    TObjPlayer__sub_801BEB5C((void *) (arg0));
+    reset_entrance_id__10TObjPlayerFPv((void *) (arg0));
     set_vec3_const__10TObjPlayerFPv((void *) (arg0 + 0x66C));
     M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, s32 *, 0x334) = 0;

@@ -94,7 +94,7 @@ s32 get_player_count__10TObjPlayerFv();
 s32 TCameraCtrl__sub_8006B368();
 s32 TLobby__sub_801C2614();
 s32 get_global_state__14TOKeyMachine01Fv();
-u8 *TLobby__sub_8020CFEC(void *, void *);
+u8 *call_area_set_factory(void *, void *);
 s32 is_within_camera_distance(void *arg0, void *arg1, f32 farg0);
 extern Ent_8020D5AC *TLobby__data_804C1ED8[];
 extern s32 TLobby__data_805D611C;
@@ -209,7 +209,7 @@ void spawn_decorations_in_range(void *arg0) {
             && is_within_camera_distance(arg0, p->data, tbl[p->id].range) == 1) {
             p->s8 = 0xFFFF;
             p->s4 = -1;
-            obj = TLobby__sub_8020CFEC(arg0, p);
+            obj = call_area_set_factory(arg0, p);
             if (obj != NULL) {
                 p->obj = obj;
                 M2C_FIELD(obj, s16 *, 0x28) = p->sC;

@@ -74,7 +74,7 @@ extern void *tl_07;
 extern s32 lbl_805D63AC;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC854;
-void fn_80232C50(Ctl_80232C50 *arg0);
+void grants_presentation_update(Ctl_80232C50 *arg0);
 }
 
 extern "C" {
@@ -105,7 +105,7 @@ Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C
     return self;
 }
 
-void fn_80232C50(Ctl_80232C50 *arg0) {
+void grants_presentation_update(Ctl_80232C50 *arg0) {
     u32 i;
     s32 dir;
     u8 *obj;

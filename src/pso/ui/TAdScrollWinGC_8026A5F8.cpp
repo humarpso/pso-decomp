@@ -14,7 +14,7 @@ extern "C" {
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 int send_and_handle__6TLobbyFPvii(void *, int, int);
 M2C_UNK TWindowMessageLog__sub_8026A494(void *);
-void fn_8026A62C(u8 *arg0, s32 arg1);
+void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
@@ -22,7 +22,7 @@ M2C_UNK strncpy(int, void *, int);
 extern s32 lbl_805D5544;
 extern s32 lbl_805D6460;
 extern u8 *lbl_805D6464;
-void TLobby__sub_8026A7B0(u32 arg0);
+void cache_last_chat_line(u32 arg0);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 s32 TLobby__sub_803DE7BC(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
@@ -49,7 +49,7 @@ void advance_scroll__14TAdScrollWinGCFPvf(void* p, f32 v) { *(f32*)((char*)p + 0
 
 void fn_8026A61C(void* p, f32 v) { *(f32*)((char*)p + 0x94) += v; }
 
-void fn_8026A62C(u8 *arg0, s32 arg1) {
+void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1) {
     send_and_handle__6TLobbyFPvii(arg0, arg1, 0x502);
     TWindowMessageLog__sub_8026A494((void *) (arg0));
 }
@@ -101,7 +101,7 @@ s32 chat_text_lacks_language_tag(const char *text) {
     return 1;
 }
 
-void TLobby__sub_8026A7B0(u32 arg0) {
+void cache_last_chat_line(u32 arg0) {
     s32 temp_r31;
     s32 var_r30;
     u8 *var_r3;

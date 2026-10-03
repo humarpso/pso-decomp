@@ -45,7 +45,7 @@ u16 obj_getField1c(void *obj);
 s32 check_switch_available__6TLobbyFPvi(void);
 void init_command__10TObjPlayerFPv(void *);
 void bswap_body_dwords5_and_send__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801BA0F0(void *arg0, s32 arg1, s32 arg2);
+void send_6x25_equip_item(void *arg0, s32 arg1, s32 arg2);
 Player_801BA060 *get_player_by_client_id(u16);
 void bswap_body_dwords5__10TObjPlayerFPv(void *);
 void copy_pair_fields4__10TObjPlayerFPvPv(void *, void *);
@@ -59,7 +59,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 s32 is_state_ec1_ed3__10TObjPlayerFPv(void *);
 s16 unequip_by_field326__10TObjPlayerFPv(void *);
 void unequip_item__10TObjPlayerFiPv(void *, void *);
-void TObjPlayer__sub_801BF8EC(void *, s32, void *);
+void set_equip_slot_entry(void *, s32, void *);
 void *get_slot_value__10TObjPlayerFPvi(void *, s32);
 void equip_item_to_slot__10TObjPlayerFPvPvi(void *self, void *item, s32 slot);
 }
@@ -90,11 +90,11 @@ void equip_item_to_slot__10TObjPlayerFPvPvi(void *self, void *item, s32 slot) {
     }
     cur = get_slot_value__10TObjPlayerFPvi(p->slots, slot);
     if (cur == NULL) {
-        TObjPlayer__sub_801BF8EC(p->slots, slot, item);
+        set_equip_slot_entry(p->slots, slot, item);
         ((VObj_801B9F40 *)item)->m18();
     } else if (cur != item) {
         unequip_item__10TObjPlayerFiPv(self, cur);
-        TObjPlayer__sub_801BF8EC(p->slots, slot, item);
+        set_equip_slot_entry(p->slots, slot, item);
         ((VObj_801B9F40 *)item)->m18();
     }
     if (TLobby__sub_800822E8(self, 2) != 0) {
@@ -117,7 +117,7 @@ void handle_6x25_equip_item(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801BA0F0(void *arg0, s32 arg1, s32 arg2) {
+void send_6x25_equip_item(void *arg0, s32 arg1, s32 arg2) {
     L_801BA0F0 sp8;
     if (check_switch_available__6TLobbyFPvi() != 0 && (arg0 == 0 || obj_isState2_324(arg0) == 0)) {
         init_command__10TObjPlayerFPv(&sp8);

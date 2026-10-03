@@ -43,7 +43,7 @@ extern void* TScene__data_805D6004;
 s32 TScene__sub_80205D24(void *task, Cyc_80205D24 *c);
 s32 TScene__sub_80205DE4(void *task, Uv_80205DE4 *uv);
 SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
-SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 void* alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void* init_buffers__6TSceneFPvii(void*,SceneMaterialNode*,u16);
 }
@@ -205,7 +205,7 @@ extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
-SceneMaterialNode* TScene__sub_80203304(void*,SceneMaterialAnimated*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
 
 void* alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void* init_buffers__6TSceneFPvii(void*,SceneMaterialNode*,u16);
@@ -253,7 +253,7 @@ void TScene::initialize_fmt2_materials() {
                 if (TScene__sub_80205DE4(task, (Uv_80205DE4 *)&def2) == 1) {
                     uv2->id = def2.id; uv2->texture = def2.texture;
                     uv2->u = def2.u; uv2->v = def2.v; uv2->du = def2.du; uv2->dv = def2.dv;
-                    SceneMaterialNode *node2 = TScene__sub_80203304(task, anim);
+                    SceneMaterialNode *node2 = resolve_indirect_object_record(task, anim);
                     void *buffer2 = alloc__23TAdSinglePlyChrSelectGCFPv(20);
                     if (buffer2) buffer2 = init_buffers__6TSceneFPvii(buffer2, node2, uv2->texture);
                     uv2->buffer = buffer2;

@@ -143,10 +143,10 @@ void set_battle_flag__10TObjPlayerFPvi(void *, int);
 void set_arrival_override_pos(s16, s32, s32);
 s32 TObjPlayer__sub_801D8C9C(void *);
 s32 TObjPlayer__sub_801D8CCC(void *);
-s32 TLobby__sub_80207770(int);
+s32 get_floor_map_terrain(int);
 void set_area__6TLobbyFPvi(void *, int, int);
-s32 TNpcPlayer__sub_8034DDE0();
-s32 TNpcPlayer__sub_8034DE10();
+s32 get_party_yaw();
+s32 get_party_position();
 void apply_to_players__10TNpcPlayerFiPvi(void *, s32, s32);
 extern u8 lbl_80515BA0[];
 void send_code_13_3__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -276,13 +276,13 @@ int fn_801B309C(void* p) { return recover_full__10TObjPlayerFPv(p); }
 
 #pragma scheduling on
 void TObjPlayer__sub_801B30BC(void *player) {
-    set_area__6TLobbyFPvi(lbl_80515BA0, 0, TLobby__sub_80207770(0));
+    set_area__6TLobbyFPvi(lbl_80515BA0, 0, get_floor_map_terrain(0));
     mark_area_change_pending();
     set_arrival_override_pos(obj_getField1c((s32) player), TObjPlayer__sub_801D8C9C(player), TObjPlayer__sub_801D8CCC(player));
     set_state_flags__10TObjPlayerFPvUi(player, 0x800);
     set_battle_flag__10TObjPlayerFPvi(player, 1);
     send_6x21_inter_level_warp(player, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
-    apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0), TNpcPlayer__sub_8034DE10(), TNpcPlayer__sub_8034DDE0());
+    apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0), get_party_position(), get_party_yaw());
 }
 
 }

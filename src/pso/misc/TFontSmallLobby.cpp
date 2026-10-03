@@ -12,8 +12,8 @@ struct pkt_801B1674 {
 extern "C" {
 void set_state_flags__10TObjPlayerFPvUi(void *, u32);
 void set_indexed_flags(void *, s32, s32);
-void TFontSmallLobby__sub_801B117C(u8 *arg0);
-void TFontSmallLobby__sub_801B117C(u8 *arg0);
+void set_stealth_suit_flags__10TObjPlayerFPv(u8 *arg0);
+void set_stealth_suit_flags__10TObjPlayerFPv(u8 *arg0);
 s32 TFontSmallLobby__sub_801B1224(s32 arg0, void *arg1);
 u32 get_player_by_client_id(int);
 void TFontSmallLobby__sub_801C01BC(void *);
@@ -45,7 +45,7 @@ void draw_small_label__15TFontSmallLobbyFi(s32 arg0) {
     }
 }
 
-void TFontSmallLobby__sub_801B117C(u8 *arg0) {
+void set_stealth_suit_flags__10TObjPlayerFPv(u8 *arg0) {
     set_state_flags__10TObjPlayerFPvUi(arg0, 0x800000U);
     set_indexed_flags(arg0, 0, 0x08000000);
 }
@@ -58,7 +58,7 @@ void handle_6x7A_enable_stealth_suit_effect(void *arg0) {
     if (validate_6x7A_enable_stealth_suit_effect(&pkt) != 0) {
         u8 *p = (u8 *) get_player_by_client_id(pkt.player_id);
         if (p != NULL) {
-            TFontSmallLobby__sub_801B117C(p);
+            set_stealth_suit_flags__10TObjPlayerFPv(p);
         }
     }
 }

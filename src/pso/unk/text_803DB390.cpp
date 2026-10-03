@@ -3,8 +3,8 @@ struct S_803DB390 { void *a; void *b; s32 c; };
 
 extern "C" {
 extern S_803DB390 lbl_8058CD70;
-void fn_803DB3C4(void *p);
-void fn_803DB390(void);
+void draw_queued_models(void *p);
+void flush_model_draw_queue(void);
 typedef f32 Mtx_803DB3C4[3][4];
 void GXSetCurrentMtx(u32);
 void GXLoadTexMtxImm(Mtx_803DB3C4 *, u32, s32);
@@ -17,16 +17,16 @@ extern "C" {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void fn_803DB390(void) {
+void flush_model_draw_queue(void) {
     if (lbl_8058CD70.b) {
-        fn_803DB3C4(lbl_8058CD70.b);
+        draw_queued_models(lbl_8058CD70.b);
     }
 }
 #pragma pop
 
 #pragma push
 #pragma use_lmw_stmw off
-void fn_803DB3C4(void *p) {
+void draw_queued_models(void *p) {
     u32 i;
 
     for (i = 0; i < (u32)p; i++) {

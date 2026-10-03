@@ -36,7 +36,7 @@ extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E4;
 void add_photon_blast_chain_charge(u8 *arg0, f32 farg0);
 int update_field_40__15TFontSmallLobbyFPv(void *);
-M2C_UNK TFontSmallLobby__sub_801D5FC0();
+M2C_UNK send_6x3A_clear_photon_blast_ready_flag();
 extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E4;
@@ -84,7 +84,7 @@ s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0) {
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0x3C));
   if (temp_f1 < lbl_805DC3DC)
   {
-    TFontSmallLobby__sub_801D5FC0();
+    send_6x3A_clear_photon_blast_ready_flag();
   }
   else
     if (temp_f1 < lbl_805DC3E4)

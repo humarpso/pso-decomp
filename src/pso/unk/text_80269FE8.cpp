@@ -4,12 +4,12 @@ s32 __nw__7TObjectFUl(int);
 u8 *TLobby__sub_80269CB4();
 s32 TLobby__sub_80269DA4(void *, int);
 s32 TWindowMessageInfomation__ct(int, void *, void *);
-s32 fn_80269FE8(s32 arg0, s32 arg1, s32 arg2);
+s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
-s32 fn_80269FE8(s32 arg0, s32 arg1, s32 arg2) {
+s32 create_message_information_window(s32 arg0, s32 arg1, s32 arg2) {
   s32 temp_r3_2;
   u8 *temp_r3;
   s32 phi_r4;

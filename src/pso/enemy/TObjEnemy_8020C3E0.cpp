@@ -51,7 +51,7 @@ s32 fn_8020C408(void *arg0, s32 arg1) {
     return 0;
 }
 
-s32 fn_8020C430(void *arg0, s32 arg1) {
+s32 mask_object_set_row_flags(void *arg0, s32 arg1) {
     void *temp_r5;
 
     temp_r5 = M2C_FIELD(arg0, void **, 0x80);

@@ -141,7 +141,7 @@ s32 set_service_counter_camera(void *, int);
 M2C_UNK TShopSequence__sub_80223600(void *, int, void *);
 extern const f32 lbl_805DC650;
 extern const f32 lbl_805DC654;
-void THunterGuildSeqOffline__sub_802130AC(u8 *arg0);
+void open_greeting__22THunterGuildSeqOfflineFPv(u8 *arg0);
 s32 queue_destruction__7TObjectFv(int);
 s32 close_message_window__13TShopSequenceFPv(void *);
 s32 __dt__13TShopSequenceFv(void *, int);
@@ -182,11 +182,11 @@ extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGui
 void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 void THunterGuildSeqOffline__sub_80213430(void* _w0);
-void THunterGuildSeqOffline__sub_802130AC(u8 *arg0);
+void open_greeting__22THunterGuildSeqOfflineFPv(u8 *arg0);
 void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0);
 void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
 void open_quest_list__22THunterGuildSeqOfflineFPv(void *arg0);
-void THunterGuildSeqOffline__sub_802128B0(void *arg0);
+void handle_cancel_choice__22THunterGuildSeqOfflineFPv(void *arg0);
 void handle_select__22THunterGuildSeqOfflineFPv(void *arg0);
 void handle_window_input__22THunterGuildSeqOfflineFPv(void *arg0);
 void handle_click__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -290,7 +290,7 @@ void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     }
 }
 
-void THunterGuildSeqOffline__sub_802130AC(u8 *arg0) {
+void open_greeting__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_802130AC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802130AC, spC) == 0x4) ? 1 : -1];
     Stack_802130AC stack;
@@ -309,12 +309,12 @@ extern s32 THunterGuildSeqOffline__data_80513DC8[];
 void THunterGuildSeqOffline__vt9(Guild_8021317C *self) {
     switch (self->phase) {
     case 0: self->begin(); break;
-    case 1: THunterGuildSeqOffline__sub_802130AC((u8 *)self); break;
+    case 1: open_greeting__22THunterGuildSeqOfflineFPv((u8 *)self); break;
     case 2: resolve_active_quest_result__22THunterGuildSeqOfflineFPv((u8 *)self); break;
     case 3: open_judgment_window__22THunterGuildSeqOfflineFPv(self); break;
     case 4: open_quest_list__22THunterGuildSeqOfflineFPv(self); break;
     case 5: self->finish(); break;
-    case 6: THunterGuildSeqOffline__sub_802128B0(self); break;
+    case 6: handle_cancel_choice__22THunterGuildSeqOfflineFPv(self); break;
     case 7: handle_select__22THunterGuildSeqOfflineFPv(self); break;
     case 8: handle_window_input__22THunterGuildSeqOfflineFPv(self); break;
     case 9: handle_click__22THunterGuildSeqOfflineFPv(self); break;

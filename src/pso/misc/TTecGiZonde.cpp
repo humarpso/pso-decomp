@@ -37,8 +37,8 @@ s16 obj_getField1c(void *);
 M2C_UNK TObjPlayer__sub_8004433C(void *);
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-M2C_UNK TTecAnti__sub_8022B3E8(void *, void *);
-M2C_UNK fn_80231AF0(void *);
+M2C_UNK copy_technique_target_list(void *, void *);
+M2C_UNK init_parameters__11TTecGiZondeFPv(void *);
 M2C_UNK TObjPlayer__sub_8023AA4C(void *, void *, void *, s32);
 extern M2C_UNK __vt__11TTecGiZonde[];
 extern s32 lbl_805D37C8;
@@ -110,8 +110,8 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TTecGiZonde;
     TObjPlayer__sub_8004433C(arg0 + 0x130);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D37C8;
-    fn_80231AF0(arg0);
-    TTecAnti__sub_8022B3E8(arg0 + 0x130, arg3);
+    init_parameters__11TTecGiZondeFPv(arg0);
+    copy_technique_target_list(arg0 + 0x130, arg3);
     switch (M2C_FIELD(arg0, s16 *, 0xC6)) {
     case 0:
         if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {

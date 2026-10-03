@@ -13,7 +13,7 @@ s32 read_packet_byte__6TLobbyFv();
 extern struct Ent_A lbl_804C69D8[];
 void qst_getargs_801F26A8(s32 arg0);
 void qst_op_gclear(u16 arg0);
-M2C_UNK TLobby__sub_801F45FC(s32);
+M2C_UNK clear_story_flag(s32);
     extern int lbl_805D53A0;
 void qst_op_gclear(u16 arg0);
 void qst_op_gset(u16 arg0);
@@ -45,14 +45,14 @@ void qst_op_nop(void);
 void qst_op_ret(void);
 void qst_op_sync(void);
 s32 TLobby__sub_801F2BCC();
-M2C_UNK TLobby__sub_801F45FC(s32);
+M2C_UNK clear_story_flag(s32);
 s32 get_story_flag(s32);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 
 void qst_op_grev(s32 arg0) {
     u16 v = arg0;
     if (get_story_flag(v) != 0) {
-        TLobby__sub_801F45FC(v);
+        clear_story_flag(v);
         return;
     }
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(v);
@@ -64,7 +64,7 @@ void qst_op_grev(s32 arg0) {
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 void qst_op_gclear(u16 arg0) {
-    TLobby__sub_801F45FC((s32)((void *) (arg0)));
+    clear_story_flag((s32)((void *) (arg0)));
 }
 
 #include "types.h"

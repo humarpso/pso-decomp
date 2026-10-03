@@ -58,7 +58,7 @@ extern "C" {
 void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjHashiBaseFv(void *arg0, s16 arg1);
 void handle_6x78(void *arg0);
-u8 TODoorAncient08__sub_80229220(u16, f32);
+u8 is_current_floor_switch_set(u16, f32);
 void __dl__7TObjectFPv(void *);
 M2C_UNK bswap_6x78__11TObjInfoColFPv();
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -147,7 +147,7 @@ void TObjHashiBase::update() {
     s32 index;
     switch (phase) {
     case 0:
-        if (((u8 (*)(u16))TODoorAncient08__sub_80229220)((u16)switchId) != 0) {
+        if (((u8 (*)(u16))is_current_floor_switch_set)((u16)switchId) != 0) {
             phase=1;
             return;
         }
@@ -199,7 +199,7 @@ void *TObjHashiBase__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DBE24;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBE28;
-    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xC8), lbl_805DBE24) == 1) {
+    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xC8), lbl_805DBE24) == 1) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 2;
         M2C_FIELD(arg0, f32 *, 0xCC) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
         M2C_FIELD(arg0, f32 *, 0xD0) = (f32) lbl_805DBE34;

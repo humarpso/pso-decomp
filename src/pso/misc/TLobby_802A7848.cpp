@@ -55,7 +55,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 s32 write_packet_header__6TLobbyFPviiUi(s32, s32, s32, M2C_UNK);
 s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void TLobby__sub_802A7AE4(void* p, void* q);
+void copy_motion_pair(void* p, void* q);
 int TLobby__sub_802A7B8C(void);
 int TLobby__sub_802A7B94(void);
 int TLobby__sub_802A7B9C(void);
@@ -101,7 +101,7 @@ extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7B50(u8 *arg0);
 s32 *TItemDrop__sub_800F9448(s32, s32);
 s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-void TLobby__sub_802A7AE4(void* p, void* q);
+void copy_motion_pair(void* p, void* q);
 s32 get_param__6TLobbyFPv(void* p);
 s32 get_field_04__6TLobbyFPv(void* p);
 void TLobby__sub_802A7BC8(void* p);
@@ -177,14 +177,14 @@ s32 TLobby__sub_802A7994(VObj_802A7994 *self, s32 arg1, s32 arg2, s32 arg3) {
         if (pkt != 0) {
             drop = TItemDrop__sub_800F9448(self->m0(arg1, i), pkt);
         }
-        TLobby__sub_802A7AE4(dst, *(void **)drop);
+        copy_motion_pair(dst, *(void **)drop);
         slots++;
         dst += 8;
     }
     return 1;
 }
 
-void TLobby__sub_802A7AE4(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
+void copy_motion_pair(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
 
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {

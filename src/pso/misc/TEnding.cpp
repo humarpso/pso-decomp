@@ -11,7 +11,7 @@ void destroy_keyboard_objects();
 void init__22THunterGuildSeqOfflineFPvPvPv(void *, TObject *, void *);
 void TLobby__sub_8022743C();
 void cleanup_game_objects__9TMainTaskFv();
-void TLobby__sub_80203470(s32);
+void set_current_floor_area(s32);
 s32 TKeyBoardControl__sub_8000F828();
 void __ct__10TEndingPicFv(void *, TObject *);
 void __ct__9TEndingABFv(void *, TObject *);
@@ -72,7 +72,7 @@ TEnding::TEnding() : TObject(tl_window) {
     m_name = lbl_805D2950;
     TEnding__sub_8008C9F8();
     cleanup_game_objects__9TMainTaskFv();
-    TLobby__sub_80203470(1);
+    set_current_floor_area(1);
     switch (TKeyBoardControl__sub_8000F828()) {
     case 0: timing_rate = 30; break;
     case 1: timing_rate = 25; break;

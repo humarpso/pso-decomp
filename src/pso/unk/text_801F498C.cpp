@@ -11,13 +11,13 @@ struct RecoveredGlobal_801F498C_lbl_805127F8 {
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_801F498C_lbl_805127F8 lbl_805127F8;
-void fn_801F498C(void);
+void clear_all_story_flags(void);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801F498C_lbl_805127F8_size[sizeof(RecoveredGlobal_801F498C_lbl_805127F8) == 0x200 ? 1 : -1];
-void fn_801F498C(void) {
+void clear_all_story_flags(void) {
     memset((void *) (&lbl_805127F8.value), (int) (0), (int) (0x200));
 }
 

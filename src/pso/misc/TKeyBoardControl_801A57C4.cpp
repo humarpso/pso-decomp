@@ -33,7 +33,7 @@ s32 TKeyBoardControl__sub_801A5998(s32 arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_801A5AC8(void *arg0, void *arg1);
+void init_stick_escape_detector(void *arg0, void *arg1);
 s32 check_and_read__16TKeyBoardControlFi(s32 arg0);
 s32 check_input_angle__16TKeyBoardControlFPv(void *arg0);
 s32 check_reset_button__16TKeyBoardControlFv(void);
@@ -149,7 +149,7 @@ s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
 
 extern s32 lbl_805D53A4;
 
-void TObjPlayer__sub_801A5AC8(void *arg0, void *arg1) {
+void init_stick_escape_detector(void *arg0, void *arg1) {
     if (arg1 != NULL) {
         M2C_FIELD(arg0, void **, 8) = arg1;
         M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 8), s32 *, 0x1C);

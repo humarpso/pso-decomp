@@ -34,7 +34,7 @@ extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D614C;
 s32 TLobby__sub_8020AF0C(void);
 s32 is_area_transfer_pending();
-M2C_UNK TLobby__sub_801A2528(int);
+M2C_UNK advance_object_id_counter(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK TLobby__sub_8020B308();
 extern s32 TLobby__data_805D60E0;
@@ -150,7 +150,7 @@ loop_1:
 block_6:
     var_r31 += 1;
     if (var_r31 >= 0x12) {
-        TLobby__sub_801A2528((int) ((u16) TLobby__data_805D60E8));
+        advance_object_id_counter((int) ((u16) TLobby__data_805D60E8));
         TLobby__data_805D6148 = TLobby__data_805D60E0;
         TLobby__sub_8020B308();
         return 1;

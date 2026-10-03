@@ -17,7 +17,7 @@ u8 * construct_player_instance__10TObjPlayerFPvisiPv(void *, M2C_UNK, s16, s32, 
 M2C_UNK TItem__sub_80101CEC(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_03;
-u8 *TObjPlayer__sub_801BDEF8(s16 arg0, s32 arg1, u8 *arg2);
+u8 *create_player_object(s16 arg0, s32 arg1, u8 *arg2);
 M2C_UNK copy_header_struct__6TLobbyFPvPv(void *, void *);
 u8 * construct_player_instance__10TObjPlayerFPvisiPv(void *, M2C_UNK, s16, s32, void *);
 s32 get_sub_obj__10TObjPlayerFPv(void *);
@@ -42,7 +42,7 @@ u8 *TObjPlayer__sub_801BDE60(s32 arg0, s32 arg1) {
     return p;
 }
 
-u8 *TObjPlayer__sub_801BDEF8(s16 arg0, s32 arg1, u8 *arg2) {
+u8 *create_player_object(s16 arg0, s32 arg1, u8 *arg2) {
     u8 *temp_r3;
     u8 *var_r0;
     TItem__sub_80101CEC((void *) (arg2));

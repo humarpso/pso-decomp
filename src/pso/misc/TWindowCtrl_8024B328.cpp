@@ -24,7 +24,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void TWindowFukidasi__sub_8025010C(void *);
 extern u32 TWindowCtrl__data_805D63F8;
-void TWindowCtrl__sub_8024B3B4(u16 arg0);
+void complete_actor_speech_balloons(u16 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 s32 TWindowFukidasi__sub_802501B0(void *);
@@ -47,7 +47,7 @@ void TWindowCtrl__sub_8024B328(u16 arg0) {
     }
 }
 
-void TWindowCtrl__sub_8024B3B4(u16 arg0) {
+void complete_actor_speech_balloons(u16 arg0) {
     u32 i;
     void *w;
     if (TWindowCtrl__data_805D63F8 != 0) {

@@ -12,7 +12,7 @@ s32 get_field_d8__10TObjPlayerFPv(u32);
 u32 find_item_by_id(s32);
 u32 test_item_flags__10TObjPlayerFPvUi(s32, s32);
 M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
-M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, s32);
+M2C_UNK send_6x25_equip_item(s32, s32, s32);
 u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
 
 void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -36,7 +36,7 @@ void assign_shortcut__20TWindowShortListCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
             temp_r0 = get_field_d8__10TObjPlayerFPv(temp_r31);
             send_6x26_unequip_item__10TObjPlayerFPvPv(temp_r3, temp_r0);
         }
-        TObjPlayer__sub_801BA0F0(temp_r3, arg1, arg0);
+        send_6x25_equip_item(temp_r3, arg1, arg0);
     }
 }
 

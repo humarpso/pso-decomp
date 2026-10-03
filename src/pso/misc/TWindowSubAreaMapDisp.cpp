@@ -40,7 +40,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 measure_string_len__20TWindowSubStatusDispFPv(int);
 s32 append_text_space();
-s32 TWindowChallengeResult__sub_80228DB4(int, int);
+s32 append_padded_number(int, int);
 s32 text_builder_append(int);
 s32 text_builder_reset();
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
@@ -258,7 +258,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         text_builder_reset();
         text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
         append_text_space();
-        TWindowChallengeResult__sub_80228DB4((int) (fn_80271E40()), (int) (2U));
+        append_padded_number((int) (fn_80271E40()), (int) (2U));
         var_r30 = (u8 *)(TLobby__sub_8001DC24());
     } else {
         var_r30 = (u8 *)(TObjLuker__sub_801329B0(get_global_state__14TOKeyMachine01Fv()));

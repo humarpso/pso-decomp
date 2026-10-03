@@ -46,7 +46,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(int);
 s32 TObjPlayer__sub_8024ABDC(void *);
 s32 check_action_usable__10TObjPlayerFPvi(void *, int);
 extern s32 lbl_805D39B8;
-void TObjPlayer__sub_801CA988(u8 *arg0);
+void check_reopen_return_city_window__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK get_field_2d4__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -256,7 +256,7 @@ void request_revival_if_not_dead__10TObjPlayerFPv(u8 *arg0) {
         run_action_state_phase__10TObjPlayerFisi((void *) (arg0), (int) (0x12), (int) (5));
     }
 }
-void TObjPlayer__sub_801CA988(u8 *arg0) {
+void check_reopen_return_city_window__10TObjPlayerFPv(u8 *arg0) {
   unsigned short new_var;
   u32 temp_r3;
   new_var = (s32) obj_getField1c((void *) arg0);

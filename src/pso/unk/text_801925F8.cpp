@@ -27,7 +27,7 @@ void render__19TObjLazerFenceExtraFv(void *arg0);
 void render_lazer_fence_model(void *arg0);
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
 void TObjLazerFenceExtra__sub_801926D0(TObjLazerFenceExtra_801926D0 *self);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TOHangerMachine01__sub_803D9C00(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
@@ -76,14 +76,14 @@ void TObjLazerFenceExtra__sub_801926D0(TObjLazerFenceExtra_801926D0 *self) {
     if ((f32)(self->motion->frames - 1) < self->frame) {
         self->frame = lbl_805DBE58;
     }
-    if (TODoorAncient08__sub_80229220((u16)self->switchId) == 1) {
+    if (is_current_floor_switch_set((u16)self->switchId) == 1) {
         clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
         self->state = 1;
     }
 }
 
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0) {
-    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
+    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
         set_indexed_flags(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }
@@ -316,7 +316,7 @@ struct TObjLazerFenceNorm_80192CCC {
 
 extern "C" {
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DBE58;
 extern const f32 lbl_805DBE64;
 void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self);
@@ -327,7 +327,7 @@ extern "C" {
 void draw_model__18TObjLazerFenceNormFPv(void *arg0);
 void render__18TObjLazerFenceNormFv(void *arg0);
 void reset_by_door__18TObjLazerFenceNormFPv(void *arg0);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TOHangerMachine01__sub_803D9C00(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
@@ -371,14 +371,14 @@ void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self) {
     if ((f32)(self->motion->frames - 1) < self->frame) {
         self->frame = lbl_805DBE58;
     }
-    if (TODoorAncient08__sub_80229220((u16)self->switchId) == 1) {
+    if (is_current_floor_switch_set((u16)self->switchId) == 1) {
         clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
         self->state = 1;
     }
 }
 
 void reset_by_door__18TObjLazerFenceNormFPv(void *arg0) {
-    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
+    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
         set_indexed_flags(arg0, 0, 1);
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }

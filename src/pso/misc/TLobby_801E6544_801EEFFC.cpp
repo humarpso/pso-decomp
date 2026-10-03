@@ -157,10 +157,10 @@ struct RecoveredGlobal_801EF4F4_TLobby__data_80512220 {
 
 extern "C" {
 void qst_op_set_qt_cancel(u16 arg0);
-int THunterGuildSeqOffline__sub_801F3728(void*);
+int set_quest_cancel_callback(void*);
 void qst_op_set_qt_cancel(u16 arg0);
 void qst_op_set_qt_success(u16 arg0);
-int THunterGuildSeqOffline__sub_801F3738(void*);
+int set_quest_success_callback(void*);
 void qst_op_set_qt_success(u16 arg0);
 void qst_op_set_qt_failure(u16 arg0);
 int THunterGuildSeqOffline__sub_801F3748(void*);
@@ -211,29 +211,29 @@ int qst_op_clr_qt_cancel(void);
 int qst_op_clr_qt_failure(void);
 int qst_op_clr_qt_success(void);
 void qst_op_p_return_guild(void);
-int THunterGuildSeqOffline__sub_801F3728(void*);
-int THunterGuildSeqOffline__sub_801F3738(void*);
+int set_quest_cancel_callback(void*);
+int set_quest_success_callback(void*);
 int THunterGuildSeqOffline__sub_801F3748(void*);
 int TObjCityMainWarp__sub_80186634(void*);
 M2C_UNK TObjPlayer__sub_801B30BC(u32, M2C_UNK);
 u32 get_player_by_client_id(s32);
 
-int qst_op_clr_qt_cancel(void) { return THunterGuildSeqOffline__sub_801F3728((void*)(-1)); }
-int qst_op_clr_qt_success(void) { return THunterGuildSeqOffline__sub_801F3738((void*)(-1)); }
+int qst_op_clr_qt_cancel(void) { return set_quest_cancel_callback((void*)(-1)); }
+int qst_op_clr_qt_success(void) { return set_quest_success_callback((void*)(-1)); }
 int qst_op_clr_qt_failure(void) { return THunterGuildSeqOffline__sub_801F3748((void*)(-1)); }
 
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 void qst_op_set_qt_cancel(u16 arg0) {
-    THunterGuildSeqOffline__sub_801F3728((void *) (arg0));
+    set_quest_cancel_callback((void *) (arg0));
 }
 
 #include "types.h"
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 void qst_op_set_qt_success(u16 arg0) {
-    THunterGuildSeqOffline__sub_801F3738((void *) (arg0));
+    set_quest_success_callback((void *) (arg0));
 }
 
 #include "types.h"

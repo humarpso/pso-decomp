@@ -9,7 +9,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
 extern u8 *lbl_805D5D28;
 extern u32 lbl_805D5D40;
-void TObjPlayer__sub_801AC110(void);
+void create_golla_photon_blast_model(void);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ void destroy_static_buffer_pair__10TObjPlayerFv(void) {
     }
     lbl_805D5D40 = 0U;
 }
-void TObjPlayer__sub_801AC110(void) {
+void create_golla_photon_blast_model(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);

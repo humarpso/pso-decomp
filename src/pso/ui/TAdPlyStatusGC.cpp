@@ -118,7 +118,7 @@ u8 *get_entry__23TAdSinglePlyChrSelectGCFi(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FE800(s32);
 Save_8033F6A8 *get_card_window__17TWindowSubComCardFUi(u32);
 u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
-u32 TWindowComCard__sub_80249C28(int);
+u32 get_class_name_text(int);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 s32 get_card_instance__22TAdMultiPlyChrSelectGCFv();
 int sprintf(char *, const char *, ...);
@@ -198,7 +198,7 @@ void TAdPlyStatusGC__sub_8033F6A8(char *buf) {
         if (flags & 2) {
             sprintf(buf, lbl_805DFAE8, get_localized_text_entry(0x26, 0));
         } else {
-            sprintf(buf, lbl_805DFAE8, TWindowComCard__sub_80249C28(card.f31));
+            sprintf(buf, lbl_805DFAE8, get_class_name_text(card.f31));
         }
         if (flags & 1) {
             sprintf(buf + 0x10, lbl_805DFAE8, get_localized_text_entry(0x26, 0));

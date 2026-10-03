@@ -41,7 +41,7 @@ M2C_UNK TObjPlayer__sub_80052390();
 M2C_UNK TObjPlayer__sub_803D9B2C();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK fn_803DC86C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_color_blend_mode(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
@@ -53,7 +53,7 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
     if (lbl_805D8A30 != temp_f1) {
         if (temp_f1 < lbl_805D8A34) {
             TObjPlayer__sub_80052390();
-            fn_803DC86C(1, 4, 5, 0);
+            set_color_blend_mode(1, 4, 5, 0);
         }
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);

@@ -20,7 +20,7 @@ struct ItemData_801B7CEC {
 extern "C" {
 s32 get_field_d8__10TObjPlayerFPv();
 void init__9TItemDataFv(void *);
-u32 TObjPlayer__sub_801D4DE8(int, void *);
+u32 find_first_inventory_entry__10TObjPlayerFPvi(int, void *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 find_inventory_item_id__10TObjPlayerFPvcc(u8 *arg0, s8 arg1, s8 arg2);
 s32 get_field_d8__10TObjPlayerFPv();
@@ -51,7 +51,7 @@ s32 find_inventory_item_id__10TObjPlayerFPvcc(u8 *arg0, s8 arg1, s8 arg2) {
     init__9TItemDataFv(&item);
     item.kind = arg1;
     item.group = arg2;
-    if (TObjPlayer__sub_801D4DE8(M2C_FIELD(arg0, s32 *, 0xD00), &item) == 0U) {
+    if (find_first_inventory_entry__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xD00), &item) == 0U) {
         return -1;
     }
     if (get_owner_if_alive__10TObjPlayerFPv() == 0U) {

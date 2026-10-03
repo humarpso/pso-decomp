@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void chat_dispatch_accepted_result(s32 *arg0);
 M2C_UNK set_field22__11TWindowCtrlFv();
-s32 TWindowCtrl__sub_8024A26C();
+s32 is_submit_cooldown_clear__11TWindowCtrlFv();
 s32 chat_accept_submission(s32 arg0);
 }
 
@@ -38,7 +38,7 @@ void chat_dispatch_accepted_result(s32 *arg0) {
     }
 }
 s32 chat_accept_submission(s32 arg0) {
-    if (TWindowCtrl__sub_8024A26C() == 0) {
+    if (is_submit_cooldown_clear__11TWindowCtrlFv() == 0) {
         return 0;
     }
     set_field22__11TWindowCtrlFv();

@@ -18,7 +18,7 @@ void refresh_status_display__9TWindowDDFv(void *);
 s32 get_kbd_ptr__14TWindowComCardFPv(void *);
 s8 TWindowComCard__sub_80249C18(void *);
 s8 TWindowComCard__sub_80249C20(void *);
-s32 TWindowComCard__sub_80249C28(int);
+s32 get_class_name_text(int);
 void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern s32 lbl_804CE8E4[];
@@ -55,7 +55,7 @@ void fn_802497A8(Win_802497A8 *arg0, void *arg1) {
     if (n > 0xC) {
         n = 0xC;
     }
-    set_default_status__17TWindowDuelResultFPvi(t8, TWindowComCard__sub_80249C28(n));
+    set_default_status__17TWindowDuelResultFPvi(t8, get_class_name_text(n));
     n = TWindowComCard__sub_80249C18(arg1);
     if (n > 0xA) {
         n = 0xA;

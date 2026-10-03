@@ -40,7 +40,7 @@ extern "C" {
 s32 get_current_floor();
 extern Fn_80208BD8 lbl_804C9428[];
 void activate_triggered_floor_events(void);
-s32 TLobby__sub_80208C78(s32 idx, s32 id);
+s32 activate_first_floor_event(s32 idx, s32 id);
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 extern u8 *lbl_805D6094;
@@ -52,7 +52,7 @@ s32 set_floor_event_flags(s32 arg0, s32 arg1, s32 arg2);
 void bswap_16__FPUs(void *);
 void bswap_32__FPUl(void *);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
-void TLobby__sub_80208904(s32 idx);
+void bswap_floor_event_set(s32 idx);
 void bswap_16__FPUs(void *);
 s32 TLobby__sub_80208A04(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
@@ -62,7 +62,7 @@ s32 TLobby__sub_80208A04(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 TLobby__sub_80208AD8(s16 *arg0);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
-void TLobby__sub_802089B0(void);
+void clear_floor_event_flags(void);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ extern "C" {
 void TLobby__sub_80208884(void* a0);
 void set_destroy_event__6TLobbyFi(int a0);
 void spawn_destroy_event__6TLobbyFPv(void *arg0);
-void TLobby__sub_80208900(void);
+void create_empty_floor_event(void);
 s32 get_destroy_event_obj__6TLobbyFv();
 M2C_UNK TNpcPlayer__sub_8034E5A8(s16);
 M2C_UNK TSetEvtDestroy__ct(void *, s32, void *);
@@ -98,10 +98,10 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0) {
     set_destroy_event__6TLobbyFi(-1);
 }
 
-void TLobby__sub_80208900(void) {  }
+void create_empty_floor_event(void) {  }
 typedef char RecoveredGlobal_80208D28_lbl_805139F8_size[sizeof(RecoveredGlobal_80208D28_lbl_805139F8) == 0x48 ? 1 : -1];
 
-void TLobby__sub_80208904(s32 idx) {
+void bswap_floor_event_set(s32 idx) {
     Rec_80208904 *r = ((Rec_80208904 **)&lbl_805139F8)[idx];
     s32 n;
     s32 i;
@@ -124,7 +124,7 @@ void TLobby__sub_80208904(s32 idx) {
     }
 }
 
-void TLobby__sub_802089B0(void) {
+void clear_floor_event_flags(void) {
     Grp_802089B0 **t;
     Grp_802089B0 *g;
     s32 i;
@@ -250,7 +250,7 @@ void activate_triggered_floor_events(void) {
     }
 }
 
-s32 TLobby__sub_80208C78(s32 idx, s32 id) {
+s32 activate_first_floor_event(s32 idx, s32 id) {
     Grp_80208BD8 *g = ((Grp_80208BD8 **)&lbl_805139F8)[idx];
     Rec_80208BD8 *r;
     s32 i;

@@ -140,7 +140,7 @@ M2C_UNK TLobby__sub_8014797C();
 M2C_UNK TKeyBoardControl__sub_801A6854();
 M2C_UNK load_ply_level_tbl();
 M2C_UNK TAdPlayerLoadGC__sub_801E13C4();
-M2C_UNK TParticleCtrl__sub_801E54F0();
+M2C_UNK init_particle_sprite_atlas();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802019F8();
 M2C_UNK reset_story_select__6TLobbyFv();
 M2C_UNK TLobby__sub_8020E3C0();
@@ -453,7 +453,7 @@ void init_game_systems(void) {
     TLobby__sub_8025EAD4();
     TCharaMaking__sub_8028E6B4();
     fn_80082AA8();
-    TParticleCtrl__sub_801E54F0();
+    init_particle_sprite_atlas();
     init_particle_buffer__13TParticleCtrlFv();
     GXSetPixelFmt((int) (1), (int) (0));
     fn_8007F8D0();

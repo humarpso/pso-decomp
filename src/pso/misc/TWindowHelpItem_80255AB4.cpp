@@ -70,7 +70,7 @@ void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 fn_80244994(void *);
-M2C_UNK fn_80263A20(void *, s16);
+M2C_UNK toggle_help_window_on_button(void *, s16);
 M2C_UNK decay_page_arrow_offset(s32);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
 s16 get_item_type__20TWindowSubStatusDispFPv(void* p);
@@ -130,7 +130,7 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
     update_fade__17TWindowSubComCardFPv(arg0);
     update_window_entry_list(arg0, arg0 + 0x24);
     if (!(M2C_FIELD(arg0, u8 *, 0x60) & 8)) {
-        fn_80263A20(arg0, M2C_FIELD(arg0, s16 *, 0x20));
+        toggle_help_window_on_button(arg0, M2C_FIELD(arg0, s16 *, 0x20));
     }
 }
 

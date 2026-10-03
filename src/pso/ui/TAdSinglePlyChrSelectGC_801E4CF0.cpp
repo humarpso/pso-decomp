@@ -11,7 +11,7 @@ void *destroy_and_free__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
 void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 M2C_UNK TLobby__sub_801E47C4(void *);
 M2C_UNK TLobby__sub_803DA16C(s32);
-M2C_UNK TObjPlayer__sub_803DA218(void *, void *, int, int);
+M2C_UNK set_texture_name(void *, void *, int, int);
 M2C_UNK __dl__FPv(void *);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
@@ -57,7 +57,7 @@ void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(u8 *arg0, u8 *arg1, s32 
     M2C_FIELD(M2C_FIELD(arg0, void **, 0x3C), void **, 0) = (void *) (arg0 + 0xC);
     M2C_FIELD(M2C_FIELD(arg0, void **, 0x3C), s32 *, 4) = 1;
     set_render_rect__10TObjPlayerFPviiii((void *) (arg0 + 0x18), (int) (M2C_FIELD(arg0, s32 *, 0x44) + 0x20), (int) (5), (int) (M2C_FIELD(arg0, s32 *, 4)), (int) (M2C_FIELD(arg0, s32 *, 0)));
-    TObjPlayer__sub_803DA218((void *) (arg0 + 0xC), (void *) (arg0 + 0x18), (int) (M2C_FIELD(arg0, s32 *, 8)), (int) (0x40800000));
+    set_texture_name((void *) (arg0 + 0xC), (void *) (arg0 + 0x18), (int) (M2C_FIELD(arg0, s32 *, 8)), (int) (0x40800000));
     TLobby__sub_801E47C4((void *) (M2C_FIELD(arg0, void **, 0x3C)));
 }
 

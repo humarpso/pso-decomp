@@ -207,7 +207,7 @@ void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void bswap_6x94_inter_level_warp(void *);
 void *get_player_by_client_id(s32);
 void send_6x21_inter_level_warp(void *, void *);
-s32 TLobby__sub_80207770(s32);
+s32 get_floor_map_terrain(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
 void TWindowCtrl__sub_8024AEAC(s32);
 void TNpcPlayer__sub_8034E7A0();
@@ -237,7 +237,7 @@ void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
 void *get_player_by_client_id(s32);
 void send_6x21_inter_level_warp(void *, void *);
-s32 TLobby__sub_80207770(s32);
+s32 get_floor_map_terrain(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
 void TNpcPlayer__sub_8034E7A0();
 extern u8 lbl_80515BA0[];
@@ -473,7 +473,7 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     s32 i;
     void *p;
-    set_area__6TLobbyFPvi(lbl_80515BA0, arg0->fBC, TLobby__sub_80207770(arg0->fBC));
+    set_area__6TLobbyFPvi(lbl_80515BA0, arg0->fBC, get_floor_map_terrain(arg0->fBC));
     mark_area_change_pending();
     if (arg1 != 0 && arg0->fC4 > 1) {
         TObjAreaWarpQuest__sub_8019DCD8(arg1, arg0->fC4);
@@ -746,7 +746,7 @@ void TObjAreaWarp__sub_8019C924(Obj_8019C924 *self) {
 void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
     bswap_6x94_inter_level_warp(arg0);
     if (arg0->f4 != get_current_floor()) {
-        set_area__6TLobbyFPvi(lbl_80515BA0, arg0->f4, TLobby__sub_80207770(arg0->f4));
+        set_area__6TLobbyFPvi(lbl_80515BA0, arg0->f4, get_floor_map_terrain(arg0->f4));
         mark_area_change_pending();
         TWindowCtrl__sub_8024AEAC(lbl_805D53A0);
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);

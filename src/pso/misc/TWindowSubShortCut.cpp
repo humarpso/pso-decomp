@@ -23,7 +23,7 @@ extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 get_window_layout_position(s32 a0);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
-M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
+M2C_UNK open_yes_no_prompt(s32, s32, s32, s32, f32);
 s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DD6C0;
 s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0);
@@ -78,7 +78,7 @@ M2C_UNK TWindowSubComCard__sub_80265C30(s32);
 M2C_UNK TWindowSubComCard__sub_80265E60(s32, f32);
 s32 get_window_layout_position(s32 a0 = 0);
 s32 TWindowSubShortCutList__sub_8027E3B4(s32 a0 = 0, s32 a1 = 0);
-M2C_UNK TWindowSubShortMail__sub_802A58AC(s32, s32, s32, s32, f32);
+M2C_UNK open_yes_no_prompt(s32, s32, s32, s32, f32);
 void TWindow__close(void *);
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -102,7 +102,7 @@ s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0) {
     s32 temp_r29;
 
     temp_r29 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
-    TWindowSubShortMail__sub_802A58AC(temp_r29, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0x3e), get_window_layout_position((s32)(0x76)), lbl_805DD6C0);
+    open_yes_no_prompt(temp_r29, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0x3e), get_window_layout_position((s32)(0x76)), lbl_805DD6C0);
     free_member__17TWindowSubComCardFPv(temp_r29, 1);
     notify_warp_flag70__19TWindowSubShortMailFPv(temp_r29);
     return temp_r29;
@@ -113,7 +113,7 @@ extern const f32 lbl_805DD6C0;
 typedef s32 M2C_UNK;
 s32 TWindowSubShortCut__sub_8027DBB8(Win_8027DBB8 *arg0) {
     s32 r = TWindowMessageYesNo__sub_802A59D8(arg0, arg0->f20, 0, 0);
-    TWindowSubShortMail__sub_802A58AC((s32)(r), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20))), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x3D))), (s32)(get_window_layout_position(0x75)), lbl_805DD6C0);
+    open_yes_no_prompt((s32)(r), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x20))), (s32)(get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0x3D))), (s32)(get_window_layout_position(0x75)), lbl_805DD6C0);
     notify_warp_flag70__19TWindowSubShortMailFPv((s32)(r));
     return r;
 }

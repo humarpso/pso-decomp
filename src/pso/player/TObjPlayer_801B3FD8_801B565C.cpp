@@ -63,10 +63,10 @@ s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_flag_400_set__10TObjPlayerFPv();
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
-s32 TWindowActionPalette__sub_801C1C80(s32, s32);
+s32 is_action_channel_active(s32, s32);
 s32 TObjPlayer__sub_801B5920(s32 arg0, s32 arg1);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
-s32 TWindowActionPalette__sub_801C1C80(s32, s32);
+s32 is_action_channel_active(s32, s32);
 void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1);
 s32 refresh_effect__10TObjPlayerFi(s32 arg0);
 M2C_UNK update_party_cursors__10TObjPlayerFii(s32, s32);
@@ -198,14 +198,14 @@ s32 TObjPlayer__sub_801B5920(s32 arg0, s32 arg1) {
         goto block_5;
     }
 block_5:
-    return TWindowActionPalette__sub_801C1C80(refresh_effect__10TObjPlayerFi(arg0), arg1);
+    return is_action_channel_active(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
 #pragma pop
 
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1) {
-    TWindowActionPalette__sub_801C1C80(refresh_effect__10TObjPlayerFi(arg0), arg1);
+    is_action_channel_active(refresh_effect__10TObjPlayerFi(arg0), arg1);
 }
 #pragma pop
 

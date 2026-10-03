@@ -35,7 +35,7 @@ void reset_model__10TNpcPlayerFPv(void *);
 void reset_move_state__10TNpcPlayerFPv(void *cmd);
 s32 update_aim_target__10TObjPlayerFPv();
 void calc_movement_target__10TObjPlayerFPviPvPv(void *, s32, void *, void *);
-void TObjPlayer__sub_801CF824(Npc_801CF824 *arg0);
+void send_6x42_run_to_position__10TObjPlayerFPv(Npc_801CF824 *arg0);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ void handle_6x42_move_to_position(void *pkt) {
         }
     }
 }
-void TObjPlayer__sub_801CF824(Npc_801CF824 *arg0) {
+void send_6x42_run_to_position__10TObjPlayerFPv(Npc_801CF824 *arg0) {
     Msg_801CF824 m;
     if (update_aim_target__10TObjPlayerFPv() != 0) {
         calc_movement_target__10TObjPlayerFPviPvPv(arg0, arg0->f3f0, &arg0->x, &arg0->z);

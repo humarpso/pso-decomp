@@ -108,7 +108,7 @@ extern "C" {
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
-s32 fn_8022ACB4(void *);
+s32 play_anti_cast_sound(void *);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void *);
 void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1);
@@ -118,7 +118,7 @@ extern RecoveredGlobal_8022B288_lbl_804CC1CC lbl_804CC1CC;
 extern s32 lbl_805D3790;
 extern const f32 lbl_805DC798;
 u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s);
+S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s);
 void VecCopy__FP3VecPC3Vec(Vec_8022AE10 *, const Vec_8022AE10 *);
 void *create_timed_particle_emitter_with_flags(Vec_8022AE10 *, s32, s32, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
@@ -297,7 +297,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TObjPlayer__sub_8004433C((void *) (arg0 + 0xE0));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3790;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
-    TTecAnti__sub_8022B3E8((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
+    copy_technique_target_list((S_8022B3E8 *)((void *)((void *) (arg0 + 0xE0))), (S_8022B3E8 *)((void *)((void *) (arg3))));
     TTecAnti__sub_8022B35C((u8 *)((void *) (arg0 + 0x74)), (u8 *)((void *) ((u8 *)&lbl_804CC1CC.value + 0x2C0)));
     TTecAnti__sub_8022AD94((void *)((void *) (arg0)));
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xDC));
@@ -309,7 +309,7 @@ u8 *TTecAnti__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         M2C_FIELD(arg0, s16 *, 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
-        fn_8022ACB4((void *) (arg0));
+        play_anti_cast_sound((void *) (arg0));
         TTecAnti__sub_8022AD74((void*)((void *) (arg0)));
     }
     return arg0;
@@ -335,7 +335,7 @@ void TTecAnti__sub_8022B35C(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0x2A) = (s16) M2C_FIELD(arg1, s16 *, 0x2A);
 }
 
-S_8022B3E8 *TTecAnti__sub_8022B3E8(S_8022B3E8 *d, S_8022B3E8 *s) {
+S_8022B3E8 *copy_technique_target_list(S_8022B3E8 *d, S_8022B3E8 *s) {
     d->f0 = s->f0;
     d->sub = s->sub;
     return d;

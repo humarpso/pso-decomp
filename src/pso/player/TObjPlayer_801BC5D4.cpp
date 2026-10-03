@@ -9,7 +9,7 @@ extern "C" {
 void reset_state__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK TObjPlayer__sub_801BF690(void *);
-M2C_UNK TObjPlayer__sub_801BF964(void *);
+M2C_UNK zero_vec3(void *);
 M2C_UNK init_tag__10TObjPlayerFPv(void *);
 M2C_UNK reset_counter_field4__10TObjPlayerFPv(void *);
 M2C_UNK set_vec4_const__10TObjPlayerFPv(void *);
@@ -39,7 +39,7 @@ void reset_state__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x310) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, f32 *, 0x30C) = (f32) TObjPlayer__data_805DC278;
     M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjPlayer__data_805DC278;
-    TObjPlayer__sub_801BF964(arg0 + 0x5FC);
+    zero_vec3(arg0 + 0x5FC);
 }
 
 }

@@ -241,10 +241,10 @@ void fn_801C19F4(void* p);
 void fn_801C19F4(void* p);
 s32 fn_801C1B88(void* p);
 s32 fn_801C1B88(void* p);
-f32 fn_801C1B90(void* p);
-f32 fn_801C1B90(void* p);
-u16 fn_801C1B98(void* p);
-u16 fn_801C1B98(void* p);
+f32 get_lock_target_distance_sq(void* p);
+f32 get_lock_target_distance_sq(void* p);
+u16 get_lock_target_id(void* p);
+u16 get_lock_target_id(void* p);
 s32 fn_801C1BA0(void* p);
 s32 fn_801C1BA0(void* p);
 void* fn_801C1E44(void* p);
@@ -318,8 +318,8 @@ void TKeyBoardControl__sub_8000F984(void);
 void mark_area_change_pending(void);
 void TKeyBoardControl__sub_8000F9A4(void);
 void fn_801C1EF4(void* p);
-void fn_801C1F14(void* p, s16 v);
-void fn_801C1F14(void* p, s16 v);
+void set_photon_blast_kind(void* p, s16 v);
+void set_photon_blast_kind(void* p, s16 v);
 void fn_801C1F1C(void* p);
 void fn_801C1F1C(void* p);
 void fn_801C1E98(void* p);
@@ -337,7 +337,7 @@ void TWindowActionPalette__sub_801C1CFC(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
 void TWindowActionPalette__sub_801C1D3C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TWindowActionPalette__sub_801C1C30(s32 arg0, s32 arg1, s32 arg2);
-void TWindowActionPalette__sub_801C1C80(s32 *arg0, s32 arg1);
+void is_action_channel_active(s32 *arg0, s32 arg1);
 void TWindowActionPalette__sub_801C1DB8(s32 *arg0, s32 arg1);
 void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1);
 s32 test_item_flags__10TObjPlayerFPvUi(void *, s32);
@@ -454,9 +454,9 @@ int TObjPlayer__sub_801C1B60(void* p) { return clear_flags__11TAdRicoRingFPvUi((
 
 s32 fn_801C1B88(void* p) { return *(s32*)((char*)p + 0x0); }
 
-f32 fn_801C1B90(void* p) { return *(f32*)((char*)p + 0x8); }
+f32 get_lock_target_distance_sq(void* p) { return *(f32*)((char*)p + 0x8); }
 
-u16 fn_801C1B98(void* p) { return *(u16*)((char*)p + 0x4); }
+u16 get_lock_target_id(void* p) { return *(u16*)((char*)p + 0x4); }
 
 s32 fn_801C1BA0(void* p) { return *(s32*)((char*)p + 0x24); }
 
@@ -486,7 +486,7 @@ void *TWindowActionPalette__sub_801C1C68(O_801C1C68 *self, s32 i) {
     return self->b;
 }
 
-void TWindowActionPalette__sub_801C1C80(s32 *arg0, s32 arg1) {
+void is_action_channel_active(s32 *arg0, s32 arg1) {
     TWindowActionPalette__sub_801C1C30((s32) arg0, *arg0, arg1);
 }
 
@@ -561,7 +561,7 @@ void fn_801C1EE8(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 
 void fn_801C1EF4(void* p) { fn_801C1EE8((void*)(p)); }
 
-void fn_801C1F14(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
+void set_photon_blast_kind(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 
 void fn_801C1F1C(void* p) { fn_801C1F40((s32 *)((char*)p + 0x4c)); }
 

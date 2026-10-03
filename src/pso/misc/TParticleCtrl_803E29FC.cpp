@@ -16,7 +16,7 @@ extern "C" {
 M2C_UNK load_camera_view_matrix();
 M2C_UNK setup_render__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803E2224();
-M2C_UNK TObjPlayer__sub_803E224C();
+M2C_UNK load_context_texture_obj();
 void TParticleCtrl__sub_803E2B68(s32 arg0);
 M2C_UNK GXBegin(int, int, u16);
 void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n);
@@ -75,7 +75,7 @@ void TParticleCtrl__sub_803E2B68(s32 arg0) {
     } else {
         setup_render__10TObjPlayerFv();
     }
-    TObjPlayer__sub_803E224C();
+    load_context_texture_obj();
 }
 
 }

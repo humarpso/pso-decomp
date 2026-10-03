@@ -160,7 +160,7 @@ void decode_params__14TOTrapChainSawFPv(void *arg0);
 void update_active_flag__14TOTrapChainSawFPv(void *arg0);
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 void update_sweep__14TOTrapChainSawFPv(void *arg0);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 s32 TOTrapAncient02R__sub_80154D78(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -268,7 +268,7 @@ void update_sweep__14TOTrapChainSawFPv(void *arg0) {
 void update_active_flag__14TOTrapChainSawFPv(void *arg0) {
     ((VObj_802C96EC_802C9040 *) arg0)->m22();
     ((VObj_802C96EC_802C9040 *) arg0)->m15();
-    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
+    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 1;
         return;
     }
@@ -292,7 +292,7 @@ void decode_params__14TOTrapChainSawFPv(void *arg0) {
         }
     }
     M2C_FIELD(arg0, s32 *, 0xE8) = var_r0;
-    if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
+    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xE8)) == 1) {
         M2C_FIELD(arg0, s32 *, 0xF0) = 1;
     } else {
         M2C_FIELD(arg0, s32 *, 0xF0) = 0;

@@ -29,7 +29,7 @@ extern RecoveredGlobal_802A1180_main_task main_task;
 extern s8 lbl_805D6638;
 void update_movie_phase(void);
 extern s8 lbl_805D6638;
-void TKeyBoardControl__sub_802A12C0(void);
+void set_movie_finished_flag(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern M2C_UNK lbl_804DCB64[];
@@ -45,7 +45,7 @@ M2C_UNK init_fresh_character_card();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
-M2C_UNK TLobby__sub_801E2F44(M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK create_opening_movie_sequence();
 M2C_UNK free_keyboard_soft_resources__6TLobbyFv();
@@ -89,7 +89,7 @@ void update_movie_phase(void) {
 }
 
 void update_menu_scene__16TKeyBoardControlFv(void) {
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     TKeyBoardControl__sub_8000F90C(2);
     switch ((s8) lbl_805D6639) {
@@ -113,7 +113,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
 
 void TKeyBoardControl__sub_802A12B8(void) {  }
 void TKeyBoardControl__sub_802A12BC(void) {  }
-void TKeyBoardControl__sub_802A12C0(void) { (*(unsigned char *)&lbl_805D6638) = 1; }
+void set_movie_finished_flag(void) { (*(unsigned char *)&lbl_805D6638) = 1; }
 void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DCB64;

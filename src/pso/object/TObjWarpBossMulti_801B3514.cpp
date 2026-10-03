@@ -8,7 +8,7 @@ extern "C" {
 
 s32 get_field_d8__10TObjPlayerFPv();
 s32 init__9TItemDataFv(s8 *);
-s32 fn_801B7F4C(void *, s32);
+s32 try_send_6x27_use_item(void *, s32);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(s32, s8 *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();

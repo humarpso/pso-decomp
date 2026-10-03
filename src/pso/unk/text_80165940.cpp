@@ -22,7 +22,7 @@ typedef struct Key_80165940 {
 } Key_80165940;
 
 extern "C" {
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 u32 get_global_state__14TOKeyMachine01Fv(void);
 void *get_bml_model(void *, s32);
 extern void *lbl_805D5A10;
@@ -40,7 +40,7 @@ void fn_80165940(Key_80165940 *self) {
     self->fD0 = 0;
     self->f98 = self->f84;
     if (self->f98 < 0x100) {
-        self->f9A = TODoorAncient08__sub_80229220(self->f98);
+        self->f9A = is_current_floor_switch_set(self->f98);
     } else {
         self->f98 = 0xFFFF;
         self->f9A = 1;

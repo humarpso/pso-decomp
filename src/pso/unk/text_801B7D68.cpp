@@ -16,7 +16,7 @@ s32 obj_isState2_324(void *);
 s32 obj_getField1c(void *);
 void TObjPlayer__sub_801C0D7C(void *);
 void TObjPlayer__sub_801C0D9C(void *);
-void fn_801B7E14(void *arg0, s32 arg1, s32 arg2);
+void send_6x28_feed_mag(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK feed_item_to_mag(s32, s32);
 u8 *get_player_by_client_id(u16);
 M2C_UNK bswap_body_dwords2__10TObjPlayerFi(void *);
@@ -52,7 +52,7 @@ void handle_6x28_feed_mag(s32 arg0) {
     }
 }
 
-void fn_801B7E14(void *arg0, s32 arg1, s32 arg2) {
+void send_6x28_feed_mag(void *arg0, s32 arg1, s32 arg2) {
     L_801B7E14 sp8;
     if (arg0 == 0 || obj_isState2_324(arg0) == 0) {
         TObjPlayer__sub_801C0D7C(&sp8);

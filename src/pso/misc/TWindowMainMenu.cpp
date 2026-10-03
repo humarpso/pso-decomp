@@ -62,7 +62,7 @@ M2C_UNK get_window_layout_position(int);
 M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
 M2C_UNK TWindowMainMenu__sub_802ADD38(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
-void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1);
+void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void init_parts__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(u32);
@@ -86,7 +86,7 @@ s32 TWindowMainMenu__sub_802ADAAC(u32);
 s16 TWindowMainMenu__sub_802ADB00(u32);
 s32 is_flag_set__15TWindowMainMenuFPv(u32);
 s32 get_menu_flag__15TWindowMainMenuFPv(u32);
-void TWindowMainMenu__sub_802647CC(Menu_802647CC *arg0);
+void handle_menu_selection__15TWindowMainMenuFPv(Menu_802647CC *arg0);
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(void *, s16 *, s32 *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
 M2C_UNK get_window_layout_position(int);
@@ -145,7 +145,7 @@ void refresh_submenu__15TWindowMainMenuFPvPv(void* p, void* a1) { if (*(unsigned
 
 void close__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { TWindow__close(*(void**)((char*)p + 0x1c)); *(int*)((char*)p + 0x1c) = 0; } }
 
-void TWindowMainMenu__sub_80264674(u8 *arg0, s16 arg1) {
+void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
     u32 temp_r31;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         M2C_FIELD(arg0, u32 *, 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
@@ -186,7 +186,7 @@ void TWindowMainMenu__sub_802646E4(u8 *arg0, Ent_802646E4 *arg1) {
     update_description_text__15TWindowMainMenuFPvi(arg0, d);
 }
 
-void TWindowMainMenu__sub_802647CC(Menu_802647CC *arg0) {
+void handle_menu_selection__15TWindowMainMenuFPv(Menu_802647CC *arg0) {
     s32 id;
     u32 node;
     void *e;

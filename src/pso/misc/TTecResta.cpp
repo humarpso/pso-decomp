@@ -157,7 +157,7 @@ void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1);
 s32 obj_getField1c(int);
 s32 TObjPlayer__sub_8004433C(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
-s32 TTecAnti__sub_8022B3E8(void *, void *);
+s32 copy_technique_target_list(void *, void *);
 s32 fn_802393D0(void *);
 int init_cast__9TTecRestaFPv(void* p);
 void init_parameters__9TTecRestaFPv(u8 *arg0);
@@ -382,7 +382,7 @@ void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) 
     TObjPlayer__sub_8004433C((u8 *)arg0 + 0xE0);
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3810;
     M2C_FIELD(arg0, s32 *, 0x13C) = 1;
-    TTecAnti__sub_8022B3E8((u8 *)arg0 + 0xE0, arg3);
+    copy_technique_target_list((u8 *)arg0 + 0xE0, arg3);
     init_parameters__9TTecRestaFPv((u8 *)arg0);
     p = M2C_FIELD(arg0, u8 **, 0xDC);
     if (p != NULL) {

@@ -212,26 +212,26 @@ extern M2C_UNK lbl_80514F64[];
 void TLobby__sub_80227CE8(u8 *arg0);
 M2C_UNK is_ready__6TLobbyFPv(M2C_UNK *);
 extern M2C_UNK lbl_80514F64[];
-void TLobby__sub_80227F54(void);
-s32 TLobby__sub_80227B18(u32 x);
-s32 TLobby__sub_80227B18(u32 x);
-void TLobby__sub_80227F54(void);
+void is_sound_enabled(void);
+s32 is_special_sound_id(u32 x);
+s32 is_special_sound_id(u32 x);
+void is_sound_enabled(void);
 M2C_UNK TLobby__sub_8023F780(s32, f32);
 s32 TLobby__sub_8023F944(s32, s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-s32 TLobby__sub_80227B18(u32 x);
-void TLobby__sub_80227F54(void);
+s32 is_special_sound_id(u32 x);
+void is_sound_enabled(void);
 M2C_UNK TLobby__sub_8023F780(s32, f32);
 s32 TLobby__sub_8023FA8C(s32, s32, s32, s32);
 extern const f32 lbl_805DC768;
-s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
 
 int TLobby__sub_80227AF8(void* p);
-int TLobby__sub_80227D14(void* p);
+int release_sound_with_fade(void* p);
 int TLobby__sub_80227D38(void);
 void handle_6xB2_play_sound_from_player(void *arg0);
 s32 is_camera_state_active__6TLobbyFv(void);
@@ -254,7 +254,7 @@ extern s32 lbl_805D53A0;
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 
-s32 TLobby__sub_80227B18(u32 x) {
+s32 is_special_sound_id(u32 x) {
     s32 lo = x & 0xffff;
     s32 hi = x >> 16;
     if (hi == 2 && (lo == 0x27 || lo == 0x2f)) {
@@ -345,7 +345,7 @@ typedef char RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628_size[sizeof(Rec
 typedef char RecoveredGlobal_80069D04_camera_controller_registry_size[sizeof(RecoveredGlobal_80069D04_camera_controller_registry) == 0x68 ? 1 : -1];
 typedef char RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
 
-int TLobby__sub_80227D14(void* p) { return TLobby__sub_8023F8B0(p, 64); }
+int release_sound_with_fade(void* p) { return TLobby__sub_8023F8B0(p, 64); }
 int TLobby__sub_80227D38(void) { return TLobby__sub_8023FF64((void*)(0)); }
 
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -382,9 +382,9 @@ s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
         flags |= 0x10;
     }
     m = arg0 & 0xBFFF00FF;
-    if (((s32 (*)(void))TLobby__sub_80227F54)() == 1) {
+    if (((s32 (*)(void))is_sound_enabled)() == 1) {
         h = TLobby__sub_8023F944(m, arg1, arg2, r, flags);
-        if (TLobby__sub_80227B18(m) != 0) {
+        if (is_special_sound_id(m) != 0) {
             TLobby__sub_8023F780(h, lbl_805DC768);
         }
         return h;
@@ -392,7 +392,7 @@ s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     return -1;
 }
 
-s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 r;
     s32 m;
     s32 flags;
@@ -426,9 +426,9 @@ s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         flags |= 0x10;
     }
     m = arg0 & 0xBFFF00FF;
-    if (((s32 (*)(void))TLobby__sub_80227F54)() == 1) {
+    if (((s32 (*)(void))is_sound_enabled)() == 1) {
         h = TLobby__sub_8023FA8C(m, arg1, r, flags);
-        if (TLobby__sub_80227B18(m) != 0) {
+        if (is_special_sound_id(m) != 0) {
             TLobby__sub_8023F780(h, lbl_805DC768);
         }
         return h;
@@ -436,7 +436,7 @@ s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     return -1;
 }
 
-void TLobby__sub_80227F54(void) {
+void is_sound_enabled(void) {
     is_ready__6TLobbyFPv((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&lbl_80514F64).value));
 }
 

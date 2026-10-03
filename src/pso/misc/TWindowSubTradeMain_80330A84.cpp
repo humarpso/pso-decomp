@@ -76,7 +76,7 @@ s32 TLobby__sub_802D29AC();
 s32 TWindowHelpItem__ct(s32, s32, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
-s32 TWindowShortListCtrl__sub_80278E48(M2C_UNK, M2C_UNK *, s32);
+s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
 s32 get_window_layout_position(s32);
 M2C_UNK TWindowSubComCard__sub_802A5628(u32, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
@@ -285,7 +285,7 @@ extern M2C_UNK lbl_80477494[];
 s32 create_list__19TWindowSubTradeMainFPv(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = TWindowShortListCtrl__sub_80278E48(get_window_layout_position((s32)(0x64)), lbl_80477494, M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r31 = create_equip_kind_window(get_window_layout_position((s32)(0x64)), lbl_80477494, M2C_FIELD(arg0, s32 *, 0x28));
     ensure_status_display__20TWindowSubStatusDispFPvi(temp_r31, get_message_10__20TWindowSubStatusDispFPv((s32)(0x24)));
     refresh_item_list__19TWindowSubTradeMainFPvPv((u32)(temp_r31), (s32)(TLobby__sub_802D298C()));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 2);

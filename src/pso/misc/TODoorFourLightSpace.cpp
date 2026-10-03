@@ -54,7 +54,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void TObjPlayer__sub_80154954(void *, void *);
 s32 TLobby__sub_80156A80(void *, void *, s32);
 void fn_8015D5D4(void *);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TODoorFourLightSpace__vt12(u8 *arg0);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -64,7 +64,7 @@ M2C_UNK get_instance__12TBoss8DragonFv();
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void draw_ginja_model(s32);
 M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0);
 }
@@ -148,7 +148,7 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
     case 2:
         fail = 0;
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x88); i++) {
-            if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+            if (is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
                 fail = 1;
             }
         }
@@ -165,7 +165,7 @@ void TODoorFourLightSpace__vt12(u8 *arg0) {
             s32 j;
             bad = 0;
             for (j = 0; j < M2C_FIELD(arg0, s32 *, 0x88); j++) {
-                if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + j) == 0) {
+                if (is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0xC8) + j) == 0) {
                     bad = 1;
                 }
             }
@@ -202,7 +202,7 @@ M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0) {
     if (!(M2C_FIELD(self, s32 *, 0xD0) & 1)) {
         s32 j;
         for (j = 0; j < M2C_FIELD(self, s32 *, 0x88); j++) {
-            if (TODoorAncient08__sub_80229220(M2C_FIELD(self, s32 *, 0xC8) + j) == 1) {
+            if (is_current_floor_switch_set(M2C_FIELD(self, s32 *, 0xC8) + j) == 1) {
                 flags[j] = 1;
             } else {
                 flags[j] = 0;
@@ -339,7 +339,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 
 extern "C" {
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TODoorFourLightRuins__vt12(u8 *arg0);
 }
 
@@ -422,7 +422,7 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
     case 2:
         off = 0;
         for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x88); i++) {
-            if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
+            if (is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0xC8) + i) == 0) {
                 off = 1;
             }
         }
@@ -439,7 +439,7 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
         }
         off2 = 0;
         for (j = 0; j < M2C_FIELD(arg0, s32 *, 0x88); j++) {
-            if (TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0xC8) + j) == 0) {
+            if (is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0xC8) + j) == 0) {
                 off2 = 1;
             }
         }

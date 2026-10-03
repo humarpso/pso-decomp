@@ -64,15 +64,15 @@ extern const f32 lbl_805DD21C;
 void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
-void fn_802695A8(Msg_802695A8 *arg0);
+void advance_reveal_cursor__14TWindowMessageFPv(Msg_802695A8 *arg0);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
-void fn_802697B4(Q_802697B4 *w);
+void retire_scrolled_lines__14TWindowMessageFPv(Q_802697B4 *w);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
 extern const f32 lbl_805DD220;
-void fn_80269664(Q_80269664 *arg0);
+void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1) {
     set_default_status__17TWindowDuelResultFPvi(arg1, 0);
 }
 
-void fn_802695A8(Msg_802695A8 *arg0) {
+void advance_reveal_cursor__14TWindowMessageFPv(Msg_802695A8 *arg0) {
     u16 *e;
     s32 t;
     e = ((u16 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg0->cur));
@@ -116,7 +116,7 @@ void fn_802695A8(Msg_802695A8 *arg0) {
     }
 }
 
-void fn_80269664(Q_80269664 *arg0) {
+void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0) {
     Ent_80269664 *e;
     u32 i;
     Meta_80269664 *m;
@@ -150,7 +150,7 @@ void fn_80269664(Q_80269664 *arg0) {
     }
 }
 
-void fn_802697B4(Q_802697B4 *w) {
+void retire_scrolled_lines__14TWindowMessageFPv(Q_802697B4 *w) {
     u8 *e;
     Meta_802697B4 *m;
     e = get_array_entry__20TWindowSubStatusDispFPvi(w, w->oldest);

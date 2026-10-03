@@ -124,7 +124,7 @@ void run_task__13TOHealGeneralFv(void *arg0);
 s32 update_active_state__13TOHealGeneralFPv(void *arg0);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
 M2C_UNK TOHangerMachine01__sub_80169168(void *);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
@@ -349,7 +349,7 @@ s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
         }
         break;
     case 2:
-        if (TODoorAncient08__sub_80229220((u16) M2C_FIELD(arg0, s32 *, 0xD0)) == 1) {
+        if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xD0)) == 1) {
             M2C_FIELD(arg0, s32 *, 0xCC) = 1;
         } else {
             M2C_FIELD(arg0, s32 *, 0xCC) = 0;

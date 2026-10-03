@@ -41,7 +41,7 @@ s32 TWindowSubStatusDisp__sub_80228F5C(void *);
 s32 text_builder_append(int);
 s32 text_builder_reset();
 s32 get_help_text_string(int);
-s32 fn_80263A20(int, int);
+s32 toggle_help_window_on_button(int, int);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
 extern M2C_UNK lbl_805DD83C;
@@ -97,7 +97,7 @@ void TWindow__close(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-s32 fn_8026652C(s32, M2C_UNK, s32, s32);
+s32 create_titled_window_menu(s32, M2C_UNK, s32, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
@@ -109,7 +109,7 @@ extern const f32 lbl_805DD838;
 s32 open_menu__19TWindowSubTechniqueFPv(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026652C(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFPv(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
+    temp_r31 = create_titled_window_menu(get_window_layout_position(0x12), 5, get_message_10__20TWindowSubStatusDispFPv(0x2F), M2C_FIELD(arg0, s32 *, 0x28));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x30), 0);
     set_field_1c__6TLobbyFPvf(temp_r31);
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
@@ -130,7 +130,7 @@ void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1) {
   s32 var_r29;
   s32 var_r30;
   var_r29 = arg1;
-  fn_80263A20((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
+  toggle_help_window_on_button((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   temp_r3 = get_player_by_client_id((int) (*((s32 *) (((s8 *) arg0) + 0x28))));
   if (temp_r3 != 0)
   {

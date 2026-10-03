@@ -46,7 +46,7 @@ struct VObj_801E4B68_801E4874 : Base_801E4B68_801E4874 {
     virtual void m0();
 };
 
-void fn_801E4B68(void *arg0);
+void update_texture_wave_image(void *arg0);
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
 M2C_UNK bswap_16__FPUs(void *);
@@ -157,7 +157,7 @@ s32 TLanguage__sub_801E4B40(void) {
     return lo;
 }
 
-void fn_801E4B68(void *arg0) {
+void update_texture_wave_image(void *arg0) {
     if ((is_split_screen() == 0) || (get_camera_no__11TCameraCtrlFv() == 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x3C));
         ((VObj_801E4B68_801E4874 *)arg0)->m0();

@@ -20,14 +20,14 @@ void TLobby__sub_8020EACC(s32);
 extern RecoveredGlobal_8020ED44_lbl_80513D58 lbl_80513D58;
 extern RecoveredGlobal_8020ED44_lbl_80513D68 lbl_80513D68;
 extern u32 lbl_805D6158;
-void TLobby__sub_8020ED44(s32 arg0);
+void generate_armor_shop_stock(s32 arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_8020ED44_lbl_80513D58_size[sizeof(RecoveredGlobal_8020ED44_lbl_80513D58) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_8020ED44_lbl_80513D68_size[sizeof(RecoveredGlobal_8020ED44_lbl_80513D68) == 0x10 ? 1 : -1];
-void TLobby__sub_8020ED44(s32 arg0) {
+void generate_armor_shop_stock(s32 arg0) {
     s32 temp_r7;
     if ((u32) lbl_805D6158 != 0U) {
         temp_r7 = arg0 * 4;

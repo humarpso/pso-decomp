@@ -70,7 +70,7 @@ M2C_UNK build_6x7D_set_battle_mode_data(void *);
 void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
 u32 get_player_by_client_id(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
-M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 extern s32 lbl_805D53A0;
@@ -346,7 +346,7 @@ void handle_battle_result__6TLobbyFii(int arg0, s32 arg1) {
     if (arg1 != 0) {
         TWindowChat__sub_8024AD30(lbl_805D53A0);
         clear_flag__11TWindowCtrlFv();
-        TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+        unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
     }
 }
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1) {

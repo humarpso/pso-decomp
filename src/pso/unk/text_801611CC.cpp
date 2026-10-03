@@ -84,7 +84,7 @@ void init__17TOBarrierEnergy01FPv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
 void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src);
 void fn_8015D5D4(u8 *arg0);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 }
 
 extern "C" {
@@ -220,7 +220,7 @@ void TODoorCave01__vt12(u8 *arg0) {
         d->flags &= 0xFFF0FFFF;
         d->count = 4 - d->num;
         for (i = 0; i < d->num; i++) {
-            if (TODoorAncient08__sub_80229220(d->base + i) == 1) {
+            if (is_current_floor_switch_set(d->base + i) == 1) {
                 d->count++;
             }
         }
@@ -242,7 +242,7 @@ void TODoorCave01__vt12(u8 *arg0) {
         d->flags &= 0xFFF0FFFF;
         d->count = 4 - d->num;
         for (i = 0; i < d->num; i++) {
-            if (TODoorAncient08__sub_80229220(d->base + i) == 1) {
+            if (is_current_floor_switch_set(d->base + i) == 1) {
                 d->count++;
             }
         }

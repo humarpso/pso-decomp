@@ -115,7 +115,7 @@ void render__23TObjSeabedSuisoBrakableFv(void *arg0);
 void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p);
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 M2C_UNK TORockCave__sub_80175134(void *);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
@@ -315,7 +315,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) > 0) {
         var_r30 = 0;
         while (var_r30 < (s32) M2C_FIELD(arg0, s32 *, 0xCC)) {
-            if (TODoorAncient08__sub_80229220((u16) (M2C_FIELD(arg0, s32 *, 0xD0) + var_r30)) == 0) {
+            if (is_current_floor_switch_set((u16) (M2C_FIELD(arg0, s32 *, 0xD0) + var_r30)) == 0) {
                 var_r31 = 0;
             }
             var_r30 += 1;
@@ -392,7 +392,7 @@ struct VObj : Base18 { virtual M2C_UNK m0(); virtual M2C_UNK m1(); virtual M2C_U
 
 extern "C" {
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_801FBA6C(s32);
+M2C_UNK draw_ginja_box_tree(s32);
 void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -435,7 +435,7 @@ void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0) {
         if (p != NULL) {
             draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xD4), p, M2C_FIELD(arg0, f32 *, 0xB0));
         } else {
-            fn_801FBA6C(M2C_FIELD(arg0, s32 *, 0xD4));
+            draw_ginja_box_tree(M2C_FIELD(arg0, s32 *, 0xD4));
         }
         pop_matrix();
         ((M2C_UNK (*)(M2C_UNK))set_npc_enemy_param)(0);

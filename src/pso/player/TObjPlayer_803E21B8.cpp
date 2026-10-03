@@ -60,7 +60,7 @@ M2C_UNK GXSetTevColorIn(int, int, int, int, int);
 M2C_UNK GXSetTevColorOp(int, int, int, int, int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK GXSetNumTevStages(void *);
-void TObjPlayer__sub_803E256C(s32 arg0);
+void set_tev_stage_mode(s32 arg0);
 s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E24E0(void);
 s32 apply_cached_blend_mode(s32 arg0);
@@ -79,7 +79,7 @@ void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32)
 void GXLoadTexObj(TexObj_803E224C *, s32);
 extern TexObj_803E224C lbl_8058DBB0;
 extern Ctx_803E224C *lbl_805D774C;
-void TObjPlayer__sub_803E224C(void);
+void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
 M2C_UNK TObjPlayer__sub_803E20B0();
 void TObjPlayer__sub_803E21B8(void);
@@ -95,7 +95,7 @@ M2C_UNK TObjPlayer__sub_803E20B0();
 void setup_render__10TObjPlayerFv(void);
 void TObjPlayer__sub_803E2224(void);
 void TObjPlayer__sub_803E2248(void);
-void TObjPlayer__sub_803E224C(void);
+void load_context_texture_obj(void);
 extern const f32 lbl_805E1078;
 void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode);
 }
@@ -132,7 +132,7 @@ void TObjPlayer__sub_803E2248(void) {
 
 }
 
-void TObjPlayer__sub_803E224C(void) {
+void load_context_texture_obj(void) {
     Ctx_803E224C *ctx = lbl_805D774C;
     TexHdr_803E224C *hdr = ctx->hdr;
     u32 flags = hdr->flags;
@@ -185,7 +185,7 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     GXSetVtxAttrFmt((int) (4), (int) (0xB), (int) (1), (int) (5), (int) (0));
     GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
     TObjPlayer__sub_803E2468((int)((int) (1)));
-    TObjPlayer__sub_803E256C((s32)((int) (1)));
+    set_tev_stage_mode((s32)((int) (1)));
     TObjPlayer__sub_803E2664();
 }
 
@@ -220,7 +220,7 @@ void TObjPlayer__sub_803E2528(void) {
 #pragma push
 #pragma peephole off
 #pragma scheduling off
-void TObjPlayer__sub_803E256C(s32 arg0) {
+void set_tev_stage_mode(s32 arg0) {
     s32 temp_r31 = arg0;
     GXSetNumTevStages((void *) ((u8) temp_r31));
     switch (temp_r31) {
@@ -306,7 +306,7 @@ void TObjPlayer__sub_803E2810(Vtx_803E2810 *v, s32 n, s32 mode) {
     } else {
         setup_render__10TObjPlayerFv();
     }
-    TObjPlayer__sub_803E224C();
+    load_context_texture_obj();
     GXBegin(0x98, 4, n);
     for (; n > 0; n--) {
         inv = lbl_805E1078 / v->w;

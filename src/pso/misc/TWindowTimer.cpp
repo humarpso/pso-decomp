@@ -31,14 +31,14 @@ extern const f32 lbl_805DD890;
 void TWindowTimer__sub_80287DD8(M2C_UNK arg0, s32 arg1);
 void save_position__17TWindowSubComCardFPv(void *);
 u8 * TWindowDD__sub_802466E0(void *, void *, s16, void *);
-u8 * fn_8026CB74(void);
+u8 * get_zero_vec2(void);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
 extern M2C_UNK __vt__12TWindowTimer[];
 extern s32 lbl_805D3AD8;
 u8 *TWindowTimer__ct(u8 *arg0);
 s32 TLobby__sub_8001DC24();
-M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
+M2C_UNK append_padded_number(s32, M2C_UNK);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
@@ -58,7 +58,7 @@ s32 create_alt__12TWindowTimerFv(void);
 void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 s32 TLobby__sub_8001DC24();
-M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
+M2C_UNK append_padded_number(s32, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK text_builder_append(M2C_UNK *);
 M2C_UNK text_builder_reset();
@@ -68,7 +68,7 @@ s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, s32);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 fn_80246CD0();
-s32 fn_80246CDC();
+s32 is_guild_card_receive_active();
 M2C_UNK fn_80287AD8(s32);
 M2C_UNK fn_80287B60(s32);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -80,7 +80,7 @@ void update_chat_parts__12TWindowTimerFPv(u8 *arg0) {
 
     if (M2C_FIELD(arg0, s32 *, 0x60) & 1) {
         var_r3 = get_window_layout_position(0xA9);
-    } else if ((is_active__19TWindowSubShortMailFv() != 0) || (fn_80246CD0() != 0) || (fn_80246CDC() != 0)) {
+    } else if ((is_active__19TWindowSubShortMailFv() != 0) || (fn_80246CD0() != 0) || (is_guild_card_receive_active() != 0)) {
         var_r3 = get_window_layout_position(0xA8);
     } else {
         var_r3 = get_window_layout_position(0x22);
@@ -97,9 +97,9 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     text_builder_reset();
     text_builder_append(&lbl_805DD884);
-    TWindowChallengeResult__sub_80228DB4(arg1, 3);
+    append_padded_number(arg1, 3);
     text_builder_append(lbl_8044FCE0);
-    TWindowChallengeResult__sub_80228DB4(arg2, 3);
+    append_padded_number(arg2, 3);
     TWindowSubStatusDisp__sub_8025AC50(temp_r31, TLobby__sub_8001DC24(), 0x20);
     reset_float_field__15TWindowHelpItemFPv(temp_r31);
 }
@@ -115,13 +115,13 @@ void set_time__12TWindowTimerFPvUi(void *self, u32 secs) {
     if (hours > 9) {
         text_builder_append((M2C_UNK *)(lbl_8044FCE8));
     } else {
-        TWindowChallengeResult__sub_80228DB4((s32)(hours), (M2C_UNK)(1));
+        append_padded_number((s32)(hours), (M2C_UNK)(1));
         text_builder_append((M2C_UNK *)(&lbl_805DD888));
         mins = secs / 60;
         secs %= 60;
-        TWindowChallengeResult__sub_80228DB4((s32)(mins), (M2C_UNK)(2));
+        append_padded_number((s32)(mins), (M2C_UNK)(2));
         text_builder_append((M2C_UNK *)(&lbl_805DD88C));
-        TWindowChallengeResult__sub_80228DB4((s32)(secs), (M2C_UNK)(2));
+        append_padded_number((s32)(secs), (M2C_UNK)(2));
     }
     TWindowSubStatusDisp__sub_8025AC50((s32)(entry), (s32)(TLobby__sub_8001DC24()), (M2C_UNK)(0x20));
     reset_float_field__15TWindowHelpItemFPv(entry);
@@ -187,7 +187,7 @@ void *__dt__12TWindowTimerFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80287FBC_lbl_804D2E74_size[sizeof(RecoveredGlobal_80287FBC_lbl_804D2E74) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(RecoveredGlobal_80287FBC___vt__12TWindowTimer) == 0x18 ? 1 : -1];
 u8 *TWindowTimer__ct(u8 *arg0) {
-    TWindowDD__sub_802466E0(arg0, &lbl_804D2E74.value, 4, fn_8026CB74());
+    TWindowDD__sub_802466E0(arg0, &lbl_804D2E74.value, 4, get_zero_vec2());
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD8;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;

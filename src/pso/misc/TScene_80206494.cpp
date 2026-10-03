@@ -62,8 +62,8 @@ void TScene__sub_802065F0(s32);
 void TScene__sub_80206658(s32);
 void TScene__sub_802066BC(s32 arg0);
 s32 get_floor_map_selection(s32, void *);
-Ent_802066BC *TLobby__sub_80207E88(s32);
-void TScene__sub_8023E638(M2C_UNK *, u32);
+Ent_802066BC *get_floor_scene_table(s32);
+void bind_gvm_texture_list(M2C_UNK *, u32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK TLobby__sub_803DA16C(u32);
 extern M2C_UNK lbl_8044A97C[];
@@ -91,8 +91,8 @@ void TScene__sub_80206B4C(s32);
 void TScene__sub_80206D3C(s32);
 void TScene__sub_80206DB8(s32);
 s32 get_floor_map_selection(s32, void *);
-Ent_802066BC *TLobby__sub_80207E88(s32);
-void TScene__sub_8023E638(M2C_UNK *, u32);
+Ent_802066BC *get_floor_scene_table(s32);
+void bind_gvm_texture_list(M2C_UNK *, u32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern M2C_UNK lbl_8044A97C[];
 extern M2C_UNK lbl_8044A984[];
@@ -271,7 +271,7 @@ void TScene__sub_8020681C(void) {
         M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14) = 0;
     }
     if (get_floor_map_selection(lbl_805D5FC0, &res) == 1) {
-        tbl = TLobby__sub_80207E88(res.table);
+        tbl = get_floor_scene_table(res.table);
         lbl_805D5FC8 = res.index;
         ent = tbl[res.index].idx;
     }
@@ -287,7 +287,7 @@ void TScene__sub_8020681C(void) {
         if (found <= 0) {
             TLobby__sub_801317E4(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A984);
         }
-        TScene__sub_8023E638(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
+        bind_gvm_texture_list(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
     }
     TScene__sub_802065F0(ent);
     TScene__sub_80206658(ent);
@@ -488,7 +488,7 @@ void TScene__sub_80207038(void) {
     lbl_805D602C = 0;
     TScene__data_805D5FE8 = -1;
     if (get_floor_map_selection(lbl_805D5FC0, &res) == 1) {
-        tbl = TLobby__sub_80207E88(res.table);
+        tbl = get_floor_scene_table(res.table);
         lbl_805D5FC8 = res.index;
         ent = tbl[res.index].idx;
     }
@@ -503,7 +503,7 @@ void TScene__sub_80207038(void) {
         if (found <= 0) {
             TLobby__sub_801317E4(path, (s32)tbl[lbl_805D5FC8].name, lbl_8044A984);
         }
-        TScene__sub_8023E638(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
+        bind_gvm_texture_list(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
     }
     load_scene_data__6TSceneFi(ent);
     TScene__sub_80206D3C(ent);

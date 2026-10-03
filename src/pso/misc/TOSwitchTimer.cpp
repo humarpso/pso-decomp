@@ -58,7 +58,7 @@ void *create__13TOSwitchTimerFPv(void *arg0);
 void run_task__13TOSwitchTimerFv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TOChatSensor__sub_801781D8(void *);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
 
@@ -81,7 +81,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x90);
     switch (temp_r0) {
     case 0:
-        temp_r3 = TODoorAncient08__sub_80229220(M2C_FIELD(arg0, u16 *, 0xA8));
+        temp_r3 = is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0xA8));
         if ((s32) M2C_FIELD(arg0, u8 *, 0xB0) != (s32) temp_r3) {
             M2C_FIELD(arg0, u8 *, 0xB0) = temp_r3;
             if (temp_r3 == 1) {

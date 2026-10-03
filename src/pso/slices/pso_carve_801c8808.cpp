@@ -13,7 +13,7 @@ M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, int);
 M2C_UNK set_flag_20000__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801BF690(void *);
-M2C_UNK TObjPlayer__sub_801BF964(void *);
+M2C_UNK zero_vec3(void *);
 s16 ret_801D26AC();
 void draw_and_send_field1c__10TObjPlayerFi(s32 arg0);
 s32 obj_isState2_324();

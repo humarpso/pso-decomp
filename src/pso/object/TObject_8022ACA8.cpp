@@ -9,7 +9,7 @@ struct Obj_8022ACB4 { u8 pad[0xA6]; s16 state; };
 extern "C" {
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-void fn_8022ACB4(Obj_8022ACB4 *arg0);
+void play_anti_cast_sound(Obj_8022ACB4 *arg0);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ int queue_destruction__8TTecAntiFPv(void* p);
 s32 get_flag_9__7TObjectFv(void *arg0) {
     return M2C_FIELD(arg0, u16 *, 4) & 0x200;
 }
-void fn_8022ACB4(Obj_8022ACB4 *arg0) {
+void play_anti_cast_sound(Obj_8022ACB4 *arg0) {
     s32 r;
     switch (arg0->state) {
     case 0:

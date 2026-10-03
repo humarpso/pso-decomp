@@ -75,7 +75,7 @@ void clear_resource_load_tasks();
 void create__16TItemReverseTechFv(void);
 void init_map_lights(void *);
 void TKeyBoardControl__sub_801A66B8();
-void TLobby__sub_801E2F44(s32, s32, s32);
+void set_copy_clear_color_argb(s32, s32, s32);
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
 void * __nw__7TObjectFUl(M2C_UNK);
@@ -217,7 +217,7 @@ void TItemReverseTech__sub_8011A43C(void) {
     void (*fn)();
     void *cam;
     TCameraCtrl__sub_803D6688((*(const f32 *)&lbl_805DAC4C), lbl_805DAC50);
-    TLobby__sub_801E2F44(0, 0, 0);
+    set_copy_clear_color_argb(0, 0, 0);
     TKeyBoardControl__sub_801A66B8();
     clear_resource_load_tasks();
     e = ((Ent_8011A43C *)&lbl_804A03A8);

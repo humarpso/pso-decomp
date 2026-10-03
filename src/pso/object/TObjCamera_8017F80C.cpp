@@ -120,7 +120,7 @@ void TObjPlayer__sub_803D9B2C();
 void pop_matrix();
 void TOHangerMachine01__sub_803D9C00(void *);
 void draw_ginja_object(int);
-void fn_803DC86C(int, int, int, int, s32, s32);
+void set_color_blend_mode(int, int, int, int, s32, s32);
 void set_chunk_material_color(void *);
 extern Color_8017FCD0 lbl_80443AFC;
 extern u8 lbl_804A7418[];
@@ -297,7 +297,7 @@ void TObjChip__vt10(u8 *arg0) {
         lbl_805D5664 = lbl_805D7784;
         lbl_805D5668 = lbl_805D7780;
         some_id_805c6f74 |= 0x8011;
-        fn_803DC86C(1, 4, 5, 0, lbl_805D7780, lbl_805D7784);
+        set_color_blend_mode(1, 4, 5, 0, lbl_805D7780, lbl_805D7784);
         for (i = 0; i < *(s32 *)(arg0 + 0x54); i++, p++) {
             Color_8017FCD0 c = lbl_80443AFC;
             c.a = p->x30;

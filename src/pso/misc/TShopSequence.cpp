@@ -44,7 +44,7 @@ s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024AEAC(u16);
-s32 TWindowCtrl__sub_8024AEF0(u16);
+s32 unsuppress_slot__11TWindowCtrlFi(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
 M2C_UNK close__17TMedicalCenterMesFPv(void *);
 int display_message__22TQuestVmDownLoadServerFPvii(void*);
@@ -106,7 +106,7 @@ void close_window__13TShopSequenceFPv(void *arg0) {
     s32 var_r31;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        TWindowCtrl__sub_8024AEF0(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
+        unsuppress_slot__11TWindowCtrlFi(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
         if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {

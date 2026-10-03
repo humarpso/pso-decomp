@@ -7,14 +7,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_display__20TWindowSubSymbolChatFi(s32 arg0);
-s32 fn_8026CB74();
+s32 get_zero_vec2();
 M2C_UNK create_callback__22TAdEnterSerialAccessGCFPvPvPv(s32, s32, s32);
 
 void update_display__20TWindowSubSymbolChatFi(s32 arg0) {
     s32 temp_r31;
 
-    temp_r31 = fn_8026CB74();
-    create_callback__22TAdEnterSerialAccessGCFPvPvPv(fn_8026CB74(), temp_r31, arg0);
+    temp_r31 = get_zero_vec2();
+    create_callback__22TAdEnterSerialAccessGCFPvPvPv(get_zero_vec2(), temp_r31, arg0);
 }
 
 }

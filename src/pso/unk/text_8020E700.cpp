@@ -43,7 +43,7 @@ extern s32 lbl_805D6240;
 void reset_counter_64__6TLobbyFPv(Ctr_8020E934 *);
 s32 TLobby__sub_8020E5E0(s32);
 s32 get_lobby_group__6TLobbyFi(s32);
-void TLobby__sub_8020F00C(Ctr_8020E934 *, u8);
+void push_shop_pool_entry(Ctr_8020E934 *, u8);
 void TLobby__sub_8020EEFC(Ctr_8020E934 *, s32);
 s32 pop_byte__6TLobbyFPv(Ctr_8020E934 *);
 void init__9TItemDataFv(Item_8020E934 *);
@@ -82,7 +82,7 @@ void TLobby__sub_8020E934(s32 arg0) {
     i = 0;
     while (i++ < cnt) {
         for (k = p[1]; k != 0; k--) {
-            TLobby__sub_8020F00C(&ctr, p[0]);
+            push_shop_pool_entry(&ctr, p[0]);
         }
         p += 2;
     }

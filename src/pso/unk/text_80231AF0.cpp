@@ -29,7 +29,7 @@ s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_8023C558_lbl_804CC510 lbl_804CC510;
 extern RecoveredGlobal_8023C558_lbl_804CC55C lbl_804CC55C;
-void fn_80231AF0(u8 *arg0);
+void init_parameters__11TTecGiZondeFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ typedef struct RecoveredGlobal_8023C558_lbl_804CC510 RecoveredGlobal_8023C558_lb
 typedef struct RecoveredGlobal_8023C558_lbl_804CC55C RecoveredGlobal_8023C558_lbl_804CC55C;
 typedef char RecoveredGlobal_8023C558_lbl_804CC510_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_8023C558_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
-void fn_80231AF0(u8 *arg0) {
+void init_parameters__11TTecGiZondeFPv(u8 *arg0) {
   s32 new_var;
   new_var = TTecCtrl__sub_8022DBC4((int) 0x7, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);

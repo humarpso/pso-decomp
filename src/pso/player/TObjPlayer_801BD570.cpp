@@ -19,7 +19,7 @@ void init_action_provider__10TObjPlayerFPv(void *);
 void init_battle__10TObjPlayerFi(void *, void *);
 void init_session_technique_caps__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801BCAB0(void *, void *);
-void TObjPlayer__sub_801BCB70(void *, void *);
+void load_char_data__10TObjPlayerFPvPv(void *, void *);
 void init_player_data__10TObjPlayerFPv(void *, void *);
 void is_flag_set_550__10TObjPlayerFPv(void *, void *);
 void init_data_table_ptr__10TObjPlayerFPv(void *);
@@ -157,7 +157,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_from_data__10TObjPlayerFPvPv(arg0, arg2);
     setup_control_role__10TObjPlayerFPvi(arg0, 4);
     TObjPlayer__sub_801BD384(arg0, (void *)((char *)arg2 + 200));
-    TObjPlayer__sub_801BCB70(arg0, arg2);
+    load_char_data__10TObjPlayerFPvPv(arg0, arg2);
     update_position__10TObjPlayerFPvi(arg0, arg2);
     TObjPlayer__sub_801BBC2C(arg0, arg2);
     TObjPlayer__sub_801BD240(arg0, arg2);

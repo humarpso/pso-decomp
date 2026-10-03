@@ -36,7 +36,7 @@ s32 obj_isState2_324();
 u8 *get_player_by_client_id(u16);
 void TObjPlayer__sub_801D209C(void *);
 void send_coords__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801CCB58(s32 arg0, s16 arg1);
+void send_6x33_revive_player(s32 arg0, s16 arg1);
 void TObjPlayer__sub_8004433C(void *);
 void *get_position_ptr__10TObjPlayerFPv(void *);
 u8 *get_player_by_client_id(u16);
@@ -114,7 +114,7 @@ void handle_6x33_revive_player(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801CCB58(s32 arg0, s16 arg1) {
+void send_6x33_revive_player(s32 arg0, s16 arg1) {
     struct Pkt_801CCB58 pkt;
     if (get_player_by_client_id(arg0) == NULL || obj_isState2_324() == 0) {
         TObjPlayer__sub_801D209C(&pkt);

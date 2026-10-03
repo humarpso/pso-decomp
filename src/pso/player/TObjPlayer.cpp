@@ -73,23 +73,23 @@ void TObjPlayer__sub_801BEF60(void* p, s32 v);
 void TObjPlayer__sub_801BEF60(void* p, s32 v);
 void TObjPlayer__sub_801BEF68(void* p);
 void TObjPlayer__sub_801BEF68(void* p);
-int TObjPlayer__sub_801BF014(void* p, int a1);
-int TObjPlayer__sub_8030A1E4(void*, int, int);
-int TObjPlayer__sub_801BF014(void* p, int a1);
-int TObjPlayer__sub_801BF060(void* p, int a1);
+int emit_zalure_support_effect(void* p, int a1);
+int create_attached_oneshot_emitter(void*, int, int);
+int emit_zalure_support_effect(void* p, int a1);
+int emit_deband_support_effect(void* p, int a1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
-int TObjPlayer__sub_801BF060(void* p, int a1);
+int emit_deband_support_effect(void* p, int a1);
 void TObjPlayer__sub_801BF084(void* p);
 void TObjPlayer__sub_801BF084(void* p);
 void TObjPlayer__sub_801BF110(void* p);
 void TObjPlayer__sub_801BF110(void* p);
-void* TObjPlayer__sub_801BF1D4(void* p);
-void* TObjPlayer__sub_801BF1D4(void* p);
+void* get_surface_contact_point(void* p);
+void* get_surface_contact_point(void* p);
 int TObjPlayer__sub_801BF204(void* p, int a1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 int TObjPlayer__sub_801BF204(void* p, int a1);
 int TObjPlayer__sub_801BF2F8(void* p, int a1);
-int TObjPlayer__sub_8030A2CC(void*, int, int);
+int emit_player_particle(void*, int, int);
 int TObjPlayer__sub_801BF2F8(void* p, int a1);
 void* TObjPlayer__sub_801BF31C(void* p);
 void* TObjPlayer__sub_801BF31C(void* p);
@@ -99,34 +99,34 @@ int TObjPlayer__sub_801BF3A0(void* p);
 int TObjPlayer__sub_801BF3C4(void* p);
 int VecCopy__FP3VecPC3Vec(void*);
 int TObjPlayer__sub_801BF3C4(void* p);
-int TObjPlayer__sub_801BF3E8(void* p);
+int has_water_ground_flag(void* p);
 int test_flags_any(void*, int);
-int TObjPlayer__sub_801BF3E8(void* p);
+int has_water_ground_flag(void* p);
 void TObjPlayer__sub_801BF40C(void* p, u8 v);
 void TObjPlayer__sub_801BF40C(void* p, u8 v);
-void TObjPlayer__sub_801BEE18(u8 *arg0, s32 arg1);
+void set_meseta__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF488(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF4A0(s32 *arg0, s32 arg1);
 int TObjPlayer__sub_801BF2F8(void* p, int a1);
 void* TObjPlayer__sub_801BF31C(void* p);
-void TObjPlayer__sub_801BF2C0(s32 arg0);
-void* TObjPlayer__sub_801BF1D4(void* p);
-M2C_UNK TObjPlayer__sub_80309FD4(void *, int);
-void TObjPlayer__sub_801BF288(s32 arg0);
-void* TObjPlayer__sub_801BF1D4(void* p);
-M2C_UNK TObjPlayer__sub_80309F78(void *, int);
-void TObjPlayer__sub_801BF250(s32 arg0);
-void* TObjPlayer__sub_801BF1D4(void* p);
-M2C_UNK TObjPlayer__sub_80309F30(void *, int);
-void TObjPlayer__sub_801BF19C(s32 arg0);
+void emit_grass_footstep_effect(s32 arg0);
+void* get_surface_contact_point(void* p);
+M2C_UNK emit_water_step_particles(void *, int);
+void emit_water_footstep_effect(s32 arg0);
+void* get_surface_contact_point(void* p);
+M2C_UNK emit_sand_step_particles(void *, int);
+void emit_sand_footstep_effect(s32 arg0);
+void* get_surface_contact_point(void* p);
+M2C_UNK emit_idle_water_splash(void *, int);
+void emit_idle_water_effect(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_801BEEEC(u8 *arg0, u8 *arg1);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
-int TObjPlayer__sub_801BF014(void* p, int a1);
+int emit_zalure_support_effect(void* p, int a1);
 int TObjPlayer__sub_801BEFEC(u16 *arg0);
-int TObjPlayer__sub_801BF060(void* p, int a1);
+int emit_deband_support_effect(void* p, int a1);
 int TObjPlayer__sub_801BF038(u16 *arg0);
 int TObjPlayer__sub_801BF204(void* p, int a1);
 int TObjPlayer__sub_801BF1DC(u16 *arg0);
@@ -138,11 +138,11 @@ s32 obj_getField1c(int);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
 void prepare_heavy_attack_particles(u8 *arg0);
 s32 obj_getField1c(int);
-int TObjPlayer__sub_8030A1E4(void*, int, int);
-void TObjPlayer__sub_801BF0A8(u8 *arg0);
+int create_attached_oneshot_emitter(void*, int, int);
+void emit_jellen_support_effect(u8 *arg0);
 s32 obj_getField1c(int);
 int check_hit_by_id__10TObjPlayerFiii(void*, int, int);
-void TObjPlayer__sub_801BF134(u8 *arg0);
+void emit_shifta_support_effect(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801BF414_lbl_804C3FA8 lbl_804C3FA8;
 u8 *TObjPlayer__sub_801BF414(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3);
@@ -229,7 +229,7 @@ void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
 
 void set_position__10TObjPlayerFPvfff(void* p, f32 a, f32 b, f32 c) { *(f32*)((char*)p + 0x38) = a; *(f32*)((char*)p + 0x3c) = b; *(f32*)((char*)p + 0x40) = c; }
 
-void TObjPlayer__sub_801BEE18(u8 *arg0, s32 arg1) {
+void set_meseta__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x20) = arg1;
 }
 
@@ -293,33 +293,33 @@ void prepare_heavy_attack_particles(u8 *arg0) {
 }
 #pragma pop
 
-int TObjPlayer__sub_801BEFEC(u16 *arg0) { return TObjPlayer__sub_801BF014((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
+int TObjPlayer__sub_801BEFEC(u16 *arg0) { return emit_zalure_support_effect((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
 
-int TObjPlayer__sub_801BF014(void* p, int a1) { return TObjPlayer__sub_8030A1E4(p, a1, 508); }
+int emit_zalure_support_effect(void* p, int a1) { return create_attached_oneshot_emitter(p, a1, 508); }
 
-int TObjPlayer__sub_801BF038(u16 *arg0) { return TObjPlayer__sub_801BF060((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
+int TObjPlayer__sub_801BF038(u16 *arg0) { return emit_deband_support_effect((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
 
-int TObjPlayer__sub_801BF060(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii(p, a1, 508); }
+int emit_deband_support_effect(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii(p, a1, 508); }
 
-void TObjPlayer__sub_801BF084(void* p) { TObjPlayer__sub_801BF0A8((u8 *)((char*)p + 0x4)); }
+void TObjPlayer__sub_801BF084(void* p) { emit_jellen_support_effect((u8 *)((char*)p + 0x4)); }
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801BF0A8(u8 *arg0) {
+void emit_jellen_support_effect(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) {
-        TObjPlayer__sub_8030A1E4((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
+        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) {
-        TObjPlayer__sub_8030A1E4((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x1C)));
+        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x1C)));
     }
 }
 #pragma pop
 
-void TObjPlayer__sub_801BF110(void* p) { TObjPlayer__sub_801BF134((u8 *)((char*)p + 0x4)); }
+void TObjPlayer__sub_801BF110(void* p) { emit_shifta_support_effect((u8 *)((char*)p + 0x4)); }
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801BF134(u8 *arg0) {
+void emit_shifta_support_effect(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) {
         check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
     }
@@ -329,11 +329,11 @@ void TObjPlayer__sub_801BF134(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_801BF19C(s32 arg0) {
-    TObjPlayer__sub_80309F30((void *) (arg0 + 4), (int) (TObjPlayer__sub_801BF1D4((void*)arg0)));
+void emit_idle_water_effect(s32 arg0) {
+    emit_idle_water_splash((void *) (arg0 + 4), (int) (get_surface_contact_point((void*)arg0)));
 }
 
-void* TObjPlayer__sub_801BF1D4(void* p) { return (char*)p + 0x24; }
+void* get_surface_contact_point(void* p) { return (char*)p + 0x24; }
 
 int TObjPlayer__sub_801BF1DC(u16 *arg0) { return TObjPlayer__sub_801BF204((void*)((s8 *)arg0 + 4), (int)(*arg0)); }
 
@@ -343,19 +343,19 @@ void TObjPlayer__sub_801BF228(u16 *arg0) {
     check_hit_by_id_431__10TObjPlayerFPvi((s8 *)arg0 + 4, *arg0);
 }
 
-void TObjPlayer__sub_801BF250(s32 arg0) {
-    TObjPlayer__sub_80309F78((void *) (arg0 + 4), (int) (TObjPlayer__sub_801BF1D4((void*)arg0)));
+void emit_sand_footstep_effect(s32 arg0) {
+    emit_sand_step_particles((void *) (arg0 + 4), (int) (get_surface_contact_point((void*)arg0)));
 }
 
-void TObjPlayer__sub_801BF288(s32 arg0) {
-    TObjPlayer__sub_80309FD4((void *) (arg0 + 4), (int) (TObjPlayer__sub_801BF1D4((void*)arg0)));
+void emit_water_footstep_effect(s32 arg0) {
+    emit_water_step_particles((void *) (arg0 + 4), (int) (get_surface_contact_point((void*)arg0)));
 }
 
-void TObjPlayer__sub_801BF2C0(s32 arg0) {
+void emit_grass_footstep_effect(s32 arg0) {
     TObjPlayer__sub_801BF2F8((void*)((void *) (arg0 + 4)), (int)((int) (TObjPlayer__sub_801BF31C((void*)arg0))));
 }
 
-int TObjPlayer__sub_801BF2F8(void* p, int a1) { return TObjPlayer__sub_8030A2CC(p, a1, 570); }
+int TObjPlayer__sub_801BF2F8(void* p, int a1) { return emit_player_particle(p, a1, 570); }
 
 void* TObjPlayer__sub_801BF31C(void* p) { return (char*)p + 0x18; }
 
@@ -373,7 +373,7 @@ int TObjPlayer__sub_801BF3A0(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 
 
 int TObjPlayer__sub_801BF3C4(void* p) { return VecCopy__FP3VecPC3Vec((char*)p + 0x18); }
 
-int TObjPlayer__sub_801BF3E8(void* p) { return test_flags_any(p, 4); }
+int has_water_ground_flag(void* p) { return test_flags_any(p, 4); }
 
 void TObjPlayer__sub_801BF40C(void* p, u8 v) { *(u8*)((char*)p + 0x1c) = v; }
 

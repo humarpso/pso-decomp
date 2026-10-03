@@ -6,7 +6,7 @@ struct Ent_8020CFEC { s32 a; Fn_8020CFEC fn; s32 b; s32 c; };
 struct Msg_8020CFEC { s16 id; s16 pad; u8 data[1]; };
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Ent_8020CFEC *TLobby__data_804C1ED8[];
-s32 TLobby__sub_8020CFEC(s32 arg0, Msg_8020CFEC *arg1) {
+s32 call_area_set_factory(s32 arg0, Msg_8020CFEC *arg1) {
     Fn_8020CFEC f = TLobby__data_804C1ED8[get_global_state__14TOKeyMachine01Fv()][arg1->id].fn;
     if (f != 0) {
         return f(arg1->data);

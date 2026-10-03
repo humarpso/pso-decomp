@@ -11,7 +11,7 @@ s32 TFontSmallLobby__sub_801AFEE0();
 u32 TLockOnCursor__ct(u32, void *, s32);
 int TLockOnCursor__sub_8013DAB0(void*);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801AF7E0(void *);
+M2C_UNK refill_traps__10TObjPlayerFPv(void *);
 M2C_UNK deactivate_body_collision__10TObjPlayerFPv(void *);
 int enable_action_input__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_801BBB70(void);
@@ -51,7 +51,7 @@ void setup_fresh_player_state__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
         set_flag_10000__10TObjPlayerFPv((void *) (arg0));
     }
     if (is_alive_and_ready__10TObjPlayerFi((void *) (arg0)) != 0) {
-        TObjPlayer__sub_801AF7E0((void *) (arg0));
+        refill_traps__10TObjPlayerFPv((void *) (arg0));
     }
     set_play_time__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(arg1, u8 *, 3)));
     TObjPlayer__sub_801BF93C((void *) (arg0 + 0x5B0), (void *) (obj_getField1c((void *) (arg0))));

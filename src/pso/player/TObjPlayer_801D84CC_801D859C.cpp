@@ -40,7 +40,7 @@ M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, M2C_UNK);
 u32 TObjPlayer__sub_801B8E68(s32, void *);
 M2C_UNK equip_item_to_slot__10TObjPlayerFPvPvi(s32, void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BE9A8(s32);
-M2C_UNK TObjPlayer__sub_801BF8EC(s32, s8, M2C_UNK);
+M2C_UNK set_equip_slot_entry(s32, s8, M2C_UNK);
 s32 get_field_d8__10TObjPlayerFPv();
 u32 get_slot_value__10TObjPlayerFPvi(s32, s8);
 void *lookup_inventory_item__10TObjPlayerFPv(void *);
@@ -61,7 +61,7 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
         s32 val_ext = (s32)val;
         if (get_slot_value__10TObjPlayerFPvi(arg0 + 0xD04, val_ext) != 0U) {
             TObjPlayer__sub_801B8DE8(arg0, get_field_d8__10TObjPlayerFPv(), 1);
-            TObjPlayer__sub_801BF8EC(arg0 + 0xD04, val_ext, 0);
+            set_equip_slot_entry(arg0 + 0xD04, val_ext, 0);
         }
         if (TObjPlayer__sub_801B8E68(arg0, temp_r3) != 0U) {
             set_flag_20000__10TObjPlayerFi(arg0);

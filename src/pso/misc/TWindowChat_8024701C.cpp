@@ -20,7 +20,7 @@ M2C_UNK set_input_active__11TWindowChatFPv(void *);
 s32 is_mode_bit6__11TWindowChatFPv(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C974(int, void *);
 M2C_UNK TWindowChat__sub_8025CB70(int);
-s32 TWindowChat__sub_802471AC(u8 *arg0);
+s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0);
 int forward_card_at_1c__11TWindowChatFPv(void *);
 int get_subcard_field1c__11TWindowChatFPv(void *);
 int TWindowChat__sub_80247DAC(void *);
@@ -103,7 +103,7 @@ s32 TWindowChat__sub_80247128(u8 *arg0) {
     return 1;
 }
 
-s32 TWindowChat__sub_802471AC(u8 *arg0) {
+s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0) {
     u32 kb = M2C_FIELD(arg0, u32 *, 0x20);
     if (kb == 0U) {
         return 0;

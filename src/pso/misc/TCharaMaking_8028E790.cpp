@@ -30,7 +30,7 @@ f32 TBoss8Dragon__sub_803D64C0(s32);
 f32 TBoss8Dragon__sub_803D64DC(s32);
 extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__data_80506320;
 extern const f32 lbl_805DD938;
-void TCharaMaking__sub_8028E794(u8 *arg0);
+void update_light_direction__12TCharaMakingFPv(u8 *arg0);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
@@ -63,7 +63,7 @@ extern s32 lbl_805D6524;
 extern s32 lbl_805D652C;
 
 typedef char RecoveredGlobal_8028E794_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_8028E794_TObjLight__data_80506320) == 0x50 ? 1 : -1];
-void TCharaMaking__sub_8028E794(u8 *arg0) {
+void update_light_direction__12TCharaMakingFPv(u8 *arg0) {
     f32 temp_f31;
     M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 4) = (f32) (lbl_805DD938 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x1C)));
     temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x1C));
@@ -136,7 +136,7 @@ u8 *TCharaMaking__ct(u8 *arg0, s32 arg1) {
     lbl_805D6524 = create__14TObjCMMainMenuFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x1C) = 0x1555;
     M2C_FIELD(arg0, s32 *, 0x20) = 0x9000;
-    TCharaMaking__sub_8028E794((u8 *)((void *) (arg0)));
+    update_light_direction__12TCharaMakingFPv((u8 *)((void *) (arg0)));
     return arg0;
 }
 

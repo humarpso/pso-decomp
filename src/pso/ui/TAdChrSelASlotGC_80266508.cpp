@@ -8,7 +8,7 @@ extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int create_window_menu(void* a0, void* a1, void* a2);
 s32 TWindowSubStatusDisp__sub_802880BC(s32, s32, s32);
-s32 fn_8026652C(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -21,7 +21,7 @@ int init_shop_judgment_window(void* p);
 void check_room_seq_4__16TAdChrSelASlotGCFii(s32 arg0, s32 arg1) {
     create_window_menu((void*)(arg0), (void*)(arg1), (void*)(4));
 }
-s32 fn_8026652C(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 create_titled_window_menu(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     s32 temp_r3;
     s32 var_r0;

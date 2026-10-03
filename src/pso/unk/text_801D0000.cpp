@@ -43,7 +43,7 @@ void TNpcPlayer__sub_80152E74(void *cmd);
 s32 TObjPlayer__sub_801BFFA0(void *);
 s32 update_combat_stats__10TObjPlayerFPv();
 void calc_movement_target__10TObjPlayerFPviPvPv(void *, s32, void *, void *);
-void TObjPlayer__sub_801D00B0(Npc_801D00B0 *arg0);
+void send_6x40_walk_to_position__10TObjPlayerFPv(Npc_801D00B0 *arg0);
 }
 
 extern "C" {
@@ -64,7 +64,7 @@ void handle_6x40_walk_to_position(void *pkt) {
         }
     }
 }
-void TObjPlayer__sub_801D00B0(Npc_801D00B0 *arg0) {
+void send_6x40_walk_to_position__10TObjPlayerFPv(Npc_801D00B0 *arg0) {
     Msg_801D00B0 m;
     if (update_combat_stats__10TObjPlayerFPv() != 0) {
         calc_movement_target__10TObjPlayerFPviPvPv(arg0, arg0->f3f0, &arg0->x, &arg0->z);

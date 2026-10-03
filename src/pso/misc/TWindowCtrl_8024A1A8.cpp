@@ -91,7 +91,7 @@ void TWindowCtrl__sub_8024A1CC(s32 arg0);
 extern void *TWindowCtrl__data_805D63F8;
 bool TWindowCtrl__sub_8024A1A8(void);
 extern void *TWindowCtrl__data_805D63F8;
-bool TWindowCtrl__sub_8024A26C(void);
+bool is_submit_cooldown_clear__11TWindowCtrlFv(void);
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBE0;
 f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
@@ -192,7 +192,7 @@ void TWindowCtrl__sub_8024A228(s32 arg0) {
     TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
 }
 
-bool TWindowCtrl__sub_8024A26C(void) {
+bool is_submit_cooldown_clear__11TWindowCtrlFv(void) {
     if ((void *) (*(u8 * *)&TWindowCtrl__data_805D63F8) == NULL) {
         return 0;
     }

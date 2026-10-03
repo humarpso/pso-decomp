@@ -27,7 +27,7 @@ M2C_UNK TWindowMainMenu__sub_80263DBC(void *);
 u32 get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 M2C_UNK call_if_split_screen(u32, s32);
-M2C_UNK fn_80263A20(s32, s32);
+M2C_UNK toggle_help_window_on_button(s32, s32);
 int queue_destruction__7TObjectFv(void*);
 s32 select_main_menu_item_10(s32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
@@ -108,7 +108,7 @@ s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) 
 }
 
 void TWindowMainMenu__sub_80263FE0(void *arg0) {
-    fn_80263A20(M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x54));
+    toggle_help_window_on_button(M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x54));
 }
 
 void close_child_window__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x24) != 0) { TWindow__close(*(void**)((char*)p + 0x24)); *(int*)((char*)p + 0x24) = 0; } }

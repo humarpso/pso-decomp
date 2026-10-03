@@ -8,13 +8,13 @@ typedef s32 M2C_UNK;
 extern "C" {
 s32 read_disc_file(s32, u8 *);
 M2C_UNK TObjPlayer__sub_802A841C();
-M2C_UNK TEffIndirectCtrl__sub_802A94A4();
+M2C_UNK load_indirect_info();
 u8 *xmalloc__FUl(u32);
 M2C_UNK xfree__FPv(s32);
 void *memcpy(void *, const void *, u32);
 extern M2C_UNK TEffIndirectCtrl__data_80540AF0[];
 extern s32 lbl_805D3E20;
-void TEffIndirectCtrl__sub_802A92E8(void);
+void load_indirect_dat(void);
 }
 
 extern "C" {
@@ -47,7 +47,7 @@ void free_all__16TEffIndirectCtrlFv(void) {
         var_r31 += 1;
     } while (var_r28 < 8);
 }
-void TEffIndirectCtrl__sub_802A92E8(void) {
+void load_indirect_dat(void) {
     s32 i;
     s32 fail;
     s32 j;
@@ -83,7 +83,7 @@ void TEffIndirectCtrl__sub_802A92E8(void) {
             if (buf != NULL) {
                 xfree__FPv((s32)buf);
             }
-            TEffIndirectCtrl__sub_802A94A4();
+            load_indirect_info();
             TObjPlayer__sub_802A841C();
         }
     }

@@ -46,7 +46,7 @@ M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK push_matrix_from();
 M2C_UNK pop_matrix();
-M2C_UNK fn_803DC86C(int, int, int, int);
+M2C_UNK set_color_blend_mode(int, int, int, int);
 M2C_UNK draw_chunk_object(int);
 M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
@@ -99,7 +99,7 @@ s32 draw_weapon_model(void *arg0) {
             TObjPlayer__sub_80364028();
             if (is_flag_400__10TObjPlayerFPv((void *) (arg0)) != 0) {
                 some_id_805c6f74 |= 0x8011;
-                fn_803DC86C((int) (1), (int) (4), (int) (5), (int) (0));
+                set_color_blend_mode((int) (1), (int) (4), (int) (5), (int) (0));
                 TObjPlayer__sub_801415BC();
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x17C) == 0U) {
                     if (test_flags_1b8__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800000)) != 0U) {

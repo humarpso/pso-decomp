@@ -124,7 +124,7 @@ s32 is_flag_20000_set__10TObjPlayerFv(void *);
 M2C_UNK apply_feed_delta__8TItemMagFPv(void *);
 M2C_UNK TItemMag__sub_80113EDC(void *, int, int, int);
 M2C_UNK init_feed_timer__8TItemMagFPv(void *);
-M2C_UNK TFontSmallLobby__sub_801D5FC0(void *);
+M2C_UNK send_6x3A_clear_photon_blast_ready_flag(void *);
 M2C_UNK TItemMag__sub_801D7964(void *);
 void TItemMag__vt43(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -395,7 +395,7 @@ void TItemMag__vt43(u8 *arg0) {
     if (is_flag_20000_set__10TObjPlayerFv((void *) (*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
     {
       init_feed_timer__8TItemMagFPv((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
-      TFontSmallLobby__sub_801D5FC0((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
+      send_6x3A_clear_photon_blast_ready_flag((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
     }
   }
   apply_feed_delta__8TItemMagFPv((void *) arg0);

@@ -48,7 +48,7 @@ void TQuestListOnline__sub_80217714(void *, s32);
 s32 init__16TQuestListOnlineFv();
 void clear_flag3_all_tasks__9TMainTaskFv(TMainTask *);
 s32 TWindow__close(int);
-s32 TWindowCtrl__sub_8024AEF0(void *);
+s32 unsuppress_slot__11TWindowCtrlFi(void *);
 extern unsigned char TQuestListOnline__data_80513DE8[];
 extern unsigned char TQuestListOnline__data_80513E24[];
 extern s32 lbl_805D53A0;
@@ -86,7 +86,7 @@ void TLobby__sub_80214F80(Pkt_80214F80 *p);
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 TWindow__close(int);
-s32 TWindowCtrl__sub_8024AEF0(void *);
+s32 unsuppress_slot__11TWindowCtrlFi(void *);
 extern s32 lbl_8050E208[];
 extern s32 lbl_805D53A0;
 extern u32 TQuestListOnline__data_805D61A4;
@@ -100,7 +100,7 @@ void THunterGuildSeqOnlineTask::run_task() {
             TWindowShortListCtrl__check_controller_button((int)p, 2) != 0) {
             TWindow__close((int)TQuestListOnline__data_805D61A4);
             TQuestListOnline__data_805D61A4 = 0;
-            TWindowCtrl__sub_8024AEF0((void *)lbl_805D53A0);
+            unsuppress_slot__11TWindowCtrlFi((void *)lbl_805D53A0);
         }
     }
 }
@@ -194,7 +194,7 @@ void TQuestListOnline__sub_80214E08(void) {
         }
         evt2_random_enemies_mode = m;
         TKeyBoardControl__sub_8000F950();
-        TWindowCtrl__sub_8024AEF0((void *)lbl_805D53A0);
+        unsuppress_slot__11TWindowCtrlFi((void *)lbl_805D53A0);
     } else {
         clear_counter__6TLobbyFv();
         evt2_random_enemies_mode = 0;
@@ -234,7 +234,7 @@ void TQuestListOnline__sub_80214E08(void) {
             activate_body_collision__10TObjPlayerFPv(p);
         }
     }
-    TWindowCtrl__sub_8024AEF0((void *)lbl_805D53A0);
+    unsuppress_slot__11TWindowCtrlFi((void *)lbl_805D53A0);
 }
 void TLobby__sub_80214F80(Pkt_80214F80 *p) {
     int *flag;

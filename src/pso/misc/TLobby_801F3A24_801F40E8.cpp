@@ -9,8 +9,8 @@ extern "C" {
 s32 handle_msg_type1__6TLobbyFi(s32 arg0);
 void setup_quest_list__6TLobbyFv(void);
 M2C_UNK TLobby__sub_801A2514(u16);
-M2C_UNK TLobby__sub_801A2528(u16);
-M2C_UNK TLobby__sub_801F3AD8(void *, s32);
+M2C_UNK advance_object_id_counter(u16);
+M2C_UNK convert_quest_object_rows(void *, s32);
 M2C_UNK TLobby__sub_8020AA94(void *, u32, s32);
 M2C_UNK TLobby__sub_8020B2DC();
 M2C_UNK TLobby__sub_8020B308(s32);
@@ -47,7 +47,7 @@ loop_1:
         bswap_32__FPUl(&sp8);
         if ((sp14 == 1) && (spC == arg0)) {
             temp_r31 = var_r31 + 0x10;
-            TLobby__sub_801F3AD8(temp_r31, sp8);
+            convert_quest_object_rows(temp_r31, sp8);
             TLobby__sub_8020AA94(temp_r31, (u32) sp8 / 68U, get_player_floor__6TLobbyFi(spC));
             TLobby__sub_8020B3E4(spC, temp_r31, sp8);
             return 1;
@@ -97,7 +97,7 @@ void setup_quest_list__6TLobbyFv(void) {
         refresh_quest_list__6TLobbyFi();
         break;
     }
-    TLobby__sub_801A2528((u16) TLobby__data_805D60E8);
+    advance_object_id_counter((u16) TLobby__data_805D60E8);
     TLobby__sub_801A2514((u16) TLobby__data_805D60EC);
     TLobby__data_805D6148 = TLobby__data_805D60E0;
     TLobby__data_805D614C = TLobby__data_805D60E4;

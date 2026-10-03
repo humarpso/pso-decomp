@@ -8,7 +8,7 @@ struct Tag_802A1E8C {
 };
 
 extern "C" {
-s32 TChCrCharSelect__sub_802937D4();
+s32 get_char_select_class_id();
 s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
 void get_instance__15TChCrCharSelectFv();
@@ -46,7 +46,7 @@ void TChCrTagInformation__sub_802A1E8C(Tag_802A1E8C *arg0) {
         break;
     default:
         get_instance__15TChCrCharSelectFv();
-        fn_80309890(arg0, TChCrCharSelect__sub_802937D4() + 3);
+        fn_80309890(arg0, get_char_select_class_id() + 3);
         break;
     }
 }

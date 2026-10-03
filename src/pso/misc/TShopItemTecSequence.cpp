@@ -129,7 +129,7 @@ u8 *TShopItemTecSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 handle_select__20TShopItemTecSequenceFPv(void *arg0);
 s32 close_if_done__20TShopItemTecSequenceFPv(void *arg0);
-s32 TShopItemTecSequence__sub_802202BC(u8 *arg0);
+s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopItemTecSequence__vt9(u8 *arg0);
 extern RecoveredGlobal_802203E4_TShopItemTecSequence__data_80513EE0 TShopItemTecSequence__data_80513EE0;
@@ -166,7 +166,7 @@ int TWindowSubComCard__sub_80265F60(void *);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void* p, int a1, int a2, int a3);
 int create_window_menu(void* a0, void* a1, void* a2);
 s32 get_window_layout_position(int, f32);
-void TShopItemTecSequence__sub_80220110(Seq_80220110 *self);
+void update_buy_sell_choice__20TShopItemTecSequenceFPv(Seq_80220110 *self);
 }
 
 extern "C" {
@@ -261,7 +261,7 @@ void TShopItemTecSequence__sub_802200A8(S_802200A8 *self) {
     set_field_20__12TQuestListVMFPvi(self, 5);
 }
 
-void TShopItemTecSequence__sub_80220110(Seq_80220110 *self) {
+void update_buy_sell_choice__20TShopItemTecSequenceFPv(Seq_80220110 *self) {
     s32 r;
     if (self->win == NULL) {
         u16 id = obj_getField1c(self->x24);
@@ -297,7 +297,7 @@ void TShopItemTecSequence__sub_80220110(Seq_80220110 *self) {
     }
 }
 
-s32 TShopItemTecSequence__sub_802202BC(u8 *arg0) {
+s32 open_greeting__20TShopItemTecSequenceFPv(u8 *arg0) {
   Stack_802202BC stack;
   stack.sp8 = lbl_805DC700;
   stack.spC = lbl_805DC704;
@@ -320,10 +320,10 @@ void TShopItemTecSequence__vt9(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
         return;
     case 1:
-        TShopItemTecSequence__sub_802202BC((u8 *)((void *) (arg0)));
+        open_greeting__20TShopItemTecSequenceFPv((u8 *)((void *) (arg0)));
         return;
     case 2:
-        TShopItemTecSequence__sub_80220110((Seq_80220110 *)((void *) (arg0)));
+        update_buy_sell_choice__20TShopItemTecSequenceFPv((Seq_80220110 *)((void *) (arg0)));
         return;
     case 3:
         TShopItemTecSequence__sub_802200A8((S_802200A8 *)((void *) (arg0)));

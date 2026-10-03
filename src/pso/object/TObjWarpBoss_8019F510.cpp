@@ -49,7 +49,7 @@ void queue_destruction__7TObjectFv(void *);
 void register_entity_by_id(void *);
 void TObjAreaWarp__ct(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TLobby__sub_8020765C(void);
+s32 get_boss_warp_destination(void);
 extern M2C_UNK __vt__12TObjWarpBoss[];
 extern s32 lbl_805D3488;
 extern const f32 lbl_805DC000;
@@ -98,7 +98,7 @@ Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2) {
     self->f0 = lbl_805D3488;
     self->fC4 = lbl_805DC000;
     self->fAC = lbl_805DC018;
-    self->fBC = TLobby__sub_8020765C();
+    self->fBC = get_boss_warp_destination();
     self->fA4 = 0;
     register_entity_by_id(self);
     self->f164 = 0;

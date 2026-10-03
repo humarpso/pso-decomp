@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 * find_item_by_id(s32);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
-void fn_80253630(u8 *arg0);
+void refresh_copied_items__15TWindowHelpItemFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void fn_80253630(u8 *arg0) {
+void refresh_copied_items__15TWindowHelpItemFPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_3;
     u8 *temp_r3_2;

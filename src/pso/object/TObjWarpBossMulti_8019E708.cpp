@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u8 TODoorAncient08__sub_80229220(int);
+u8 is_current_floor_switch_set(int);
 void TObjWarpBossMulti__sub_8019E798(u8 *arg0);
 }
 
@@ -18,7 +18,7 @@ u32 TObjWarpBossMulti__sub_8019E570(f32);
 s32 get_player_by_client_id(s32);
 M2C_UNK TWindowChat__sub_8024AD30(s32);
 M2C_UNK TWindowCtrl__sub_8024AEAC(s32);
-M2C_UNK TWindowCtrl__sub_8024AEF0(s32);
+M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
 M2C_UNK TWindowSubComCard__sub_80265C30(u32);
 M2C_UNK TWindowSubComCard__sub_80265F60(u32);
 M2C_UNK get_window_layout_position(M2C_UNK);
@@ -69,7 +69,7 @@ void TObjWarpBossMulti__sub_8019E798(u8 *arg0) {
         return;
     case 1:
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x16C);
-        if ((temp_r0_2 >= 0) && (TODoorAncient08__sub_80229220((int) ((u16) temp_r0_2)) == 1)) {
+        if ((temp_r0_2 >= 0) && (is_current_floor_switch_set((int) ((u16) temp_r0_2)) == 1)) {
             M2C_FIELD(arg0, s16 *, 0xDC) = 0;
         }
         return;
@@ -108,7 +108,7 @@ void warp_boss_handle_window(void *arg0) {
             }
             TWindowChat__sub_8024AD30(lbl_805D53A0);
             clear_flag__11TWindowCtrlFv();
-            TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+            unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         }
         if ((s32) M2C_FIELD(arg0, s32 *, 0x15C) == 0) {
             M2C_FIELD(arg0, s16 *, 0xDC) = 0;
@@ -121,7 +121,7 @@ void warp_boss_handle_window(void *arg0) {
         }
         TWindowChat__sub_8024AD30(lbl_805D53A0);
         clear_flag__11TWindowCtrlFv();
-        TWindowCtrl__sub_8024AEF0(lbl_805D53A0);
+        unsuppress_slot__11TWindowCtrlFi(lbl_805D53A0);
         break;
     }
 }

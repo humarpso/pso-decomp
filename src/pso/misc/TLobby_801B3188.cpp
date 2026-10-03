@@ -66,7 +66,7 @@ s32 decrement_timer__10TObjPlayerFPv(void *);
 u8 get_clamped_level__6TLobbyFPv(void *);
 s16 TLobby__sub_801D6F60(void *);
 u8 TLobby__sub_801D7100(void *);
-s32 TLobby__sub_80207770(int);
+s32 get_floor_map_terrain(int);
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0(M2C_UNK);
 extern u8 lbl_8050EA40[];
@@ -143,7 +143,7 @@ void complete_deferred_player_death(void) {
                 return;
             }
             TObjPlayer__sub_801B31D8((s32)p);
-            set_area__6TLobbyFPvi(&lbl_80515BA0, 0, TLobby__sub_80207770(0));
+            set_area__6TLobbyFPvi(&lbl_80515BA0, 0, get_floor_map_terrain(0));
             mark_area_change_pending();
             TNpcPlayer__sub_8034E7A0(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0));
             return;

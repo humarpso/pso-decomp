@@ -79,7 +79,7 @@ extern "C" {
 s32 calc_scaled_value__10TObjPlayerFii(void *, int);
 s32 handle_palette_button_input__10TObjPlayerFPv(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801C00E4(int);
+s32 is_action_id_none(int);
 s16 TObjPlayer__sub_801C7AE8(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, int, int);
 s32 get_target_field_1c__10TObjPlayerFPv(void *);
@@ -97,7 +97,7 @@ void check_idle_movement_request__10TObjPlayerFPv(u8 *arg0) {
     temp_r31 = get_target_field_1c__10TObjPlayerFPv((void *) (arg0 + 0x550));
     if ((handle_palette_button_input__10TObjPlayerFPv((void *) (arg0)) == 0) || (check_flag_48__10TObjPlayerFPv((void *) (arg0)) == 0)) {
         M2C_FIELD(arg0, s16 *, 0x3C0) = TObjPlayer__sub_801C7AE8((void *) (arg0));
-        if (TObjPlayer__sub_801C00E4((int) (M2C_FIELD(arg0, s16 *, 0x3C0))) == 0) {
+        if (is_action_id_none((int) (M2C_FIELD(arg0, s16 *, 0x3C0))) == 0) {
             if (M2C_FIELD(arg0, s16 *, 0x3C0) == (*(VObj_8_684c72 **)(arg0 + 0x380))->m65() ||
                 M2C_FIELD(arg0, s16 *, 0x3C0) == (*(VObj_8_684c72 **)(arg0 + 0x380))->m66()) {
                 run_action_state_phase__10TObjPlayerFisi((void *) (arg0), (int) (0x18), (int) (5));

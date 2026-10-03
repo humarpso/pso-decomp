@@ -21,7 +21,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_8022675C *, Vec_8022675C *);
 s32 fn_802264B8(int, int);
 int TLobby__sub_80227AF8(void *p);
-s32 TLobby__sub_80227E5C(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 play_packed_sound_once(u32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 extern SndEnt_8022675C lbl_805145F0[40];
 extern s32 lbl_805D370C;
@@ -121,7 +121,7 @@ s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags) {
         }
     }
     if (idx < 0) {
-        idx = TLobby__sub_80227E5C(id, (s32)src, a2, flags);
+        idx = play_packed_sound_once(id, (s32)src, a2, flags);
     }
     if (idx >= 0) {
         if (src != NULL) {

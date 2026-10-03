@@ -15,7 +15,7 @@ s32 fn_80244994(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_window_entry_list(void *, void *);
-M2C_UNK fn_802697B4(f32);
+M2C_UNK retire_scrolled_lines__14TWindowMessageFPv(f32);
 void run_task__20TWindowMessageScrollFv(u8 *arg0);
 s32 TWindowMessageQuest__ct(void *, void *);
 extern M2C_UNK __vt__20TWindowMessageScroll[];
@@ -41,7 +41,7 @@ void run_task__20TWindowMessageScrollFv(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x6C);
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x94));
-    fn_802697B4((f32) (temp_f1));
+    retire_scrolled_lines__14TWindowMessageFPv((f32) (temp_f1));
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

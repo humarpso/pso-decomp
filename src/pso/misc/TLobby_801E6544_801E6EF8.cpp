@@ -62,7 +62,7 @@ void TLobby__sub_801E7058(u8 a0);
 
 extern "C" {
 
-void TLobby__sub_801E6F78(int a0);
+void qst_op_arg_pushs(int a0);
 void create_chat_sensor_capture__6TLobbyFv(void);
 int create_instance__19TOChatSensorCaptureFPv(void*);
 
@@ -84,7 +84,7 @@ void TLobby__sub_801E6F40(void) {
     fn_801D9FA0((int) (TLobby__data_805D5580), (int) ((*(u16 *)&TLobby__data_805D5ECC)), (int) ((*(u16 *)&TLobby__data_805D5EC8)), (int) ((*(u16 *)&TLobby__data_805D5ECA)), (void *) (&(*(RecoveredGlobal_801E6F40_TLobby__data_80512220 *)&TLobby__data_80512220).value));
 }
 
-void TLobby__sub_801E6F78(int a0) { int old = TLobby__data_805D5EA4; TLobby__data_805D5EA4 = old + 1; TLobby__data_80512220[old] = a0; }
+void qst_op_arg_pushs(int a0) { int old = TLobby__data_805D5EA4; TLobby__data_805D5EA4 = old + 1; TLobby__data_80512220[old] = a0; }
 typedef struct RecoveredGlobal_801E7084_TLobby__data_80512220 RecoveredGlobal_801E7084_TLobby__data_80512220;
 typedef char RecoveredGlobal_801E7084_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7084_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
 
@@ -104,7 +104,7 @@ void TLobby__sub_801E7014(u8 a0) {
     TLobby__data_80512220[TLobby__data_805D5EA4++] = a0;
 }
 
-void TLobby__sub_801E7038(int a0)
+void qst_op_arg_pushl(int a0)
 {
   unsigned long new_var3;
   int new_var;

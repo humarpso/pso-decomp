@@ -40,7 +40,7 @@ s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
 s32 check_collision__16TObjFogCollisionFPvUs(void *, u16);
 s32 TObjFogCollision__sub_80153F68(void *self);
 s32 TObjFogCollision__sub_80153F70(void *self);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void run_task__22TObjFogCollisionSwitchFv(void *arg0);
 }
 
@@ -153,7 +153,7 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
     u16 i;
     if (TObjFogCollision__sub_80153F70(arg0) == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
         st = TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0);
-        if (st == TODoorAncient08__sub_80229220(M2C_FIELD(arg0, s32 *, 0x8C))) {
+        if (st == is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0x8C))) {
             for (i = 0; i != 4; i++) {
                 if (check_collision__16TObjFogCollisionFPvUs(arg0, i) != 0) {
                     record_fog_collision_hit(i, M2C_FIELD(arg0, s32 *, 0x84), M2C_FIELD(arg0, s32 *, 0x88) == 0);

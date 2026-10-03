@@ -178,7 +178,7 @@ void TObjPlayer__sub_801B96BC(s32, Stats_802541E0 *, s32);
 void TObjPlayer__sub_801B9954(s32, Stats_802541E0 *, u32);
 s32 get_player_by_client_id(s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-s32 fn_802530D0(void *);
+s32 is_item_already_equipped__15TWindowHelpItemFPv(void *);
 s16 get_item_type__20TWindowSubStatusDispFPv(s32);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(s32);
 s16 get_stat__20TWindowSubStatusDispFPv(s32);
@@ -272,7 +272,7 @@ void TWindowHelpItem__sub_802541E0(void *arg0) {
         set_flag4_and_field1c__15TWindowHelpItemFPvi(d, get_field_2F8__20TWindowSubStatusDispFPv(pl));
         set_flag4_and_field1c__15TWindowHelpItemFPvi(e, get_item_type__20TWindowSubStatusDispFPv(pl));
         if (self->item != 0) {
-            if (fn_802530D0(self) != 0) {
+            if (is_item_already_equipped__15TWindowHelpItemFPv(self) != 0) {
                 TObjPlayer__sub_801B96BC(pl, &st, self->itemId);
             } else {
                 TObjPlayer__sub_801B9954(pl, &st, self->item);

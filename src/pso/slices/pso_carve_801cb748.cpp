@@ -12,7 +12,7 @@ s32 obj_isState2_324();
 s16 obj_getField1c(void *);
 M2C_UNK TObjPlayer__sub_801D1C70(Ctx_801CB748 *);
 M2C_UNK sync_players__10TObjPlayerFPv(Ctx_801CB748 *);
-void TObjPlayer__sub_801CB748(u8 *arg0);
+void send_6x50_switch_interaction__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -23,7 +23,7 @@ void TObjPlayer__sub_801CB7D4(void);
 int TObjPlayer__sub_801CB7D8(void* p);
 int try_apply_status_action__10TObjPlayerFi(void*);
 
-void TObjPlayer__sub_801CB748(u8 *arg0) {
+void send_6x50_switch_interaction__10TObjPlayerFPv(u8 *arg0) {
     Ctx_801CB748 ctx;
     if ((arg0 == NULL) || (obj_isState2_324() == 0)) {
         TObjPlayer__sub_801D1C70(&ctx);

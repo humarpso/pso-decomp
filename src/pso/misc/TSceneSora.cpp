@@ -50,7 +50,7 @@ extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 TSceneSora__data_805D6050;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
 void TLobby__sub_80141038(void *, s32, s32);
-s32 TLobby__sub_80207770(s32);
+s32 get_floor_map_terrain(s32);
 void randomize_adventure_maps(void);
 extern RecoveredGlobal_802075F8_lbl_80515BA0 lbl_80515BA0;
 extern s32 lbl_805D2CD8;
@@ -87,7 +87,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 update_lobby_scene__6TSceneFPv(void *);
 M2C_UNK TLobby__sub_801317E4(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
-Ent_80207478 *TLobby__sub_80207E88(s32);
+Ent_80207478 *get_floor_scene_table(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK TLobby__sub_803CCE9C(void *);
 void *TLobby__sub_803CD3A8(char *, int);
@@ -213,7 +213,7 @@ void TSceneSora__sub_80207478(void) {
     lbl_805D6058 = 0;
     if (lookup_scene_object__6TLobbyFPv(get_current_floor(), &ref) != 0) {
         ok = 0;
-        tbl = TLobby__sub_80207E88(ref.id);
+        tbl = get_floor_scene_table(ref.id);
         TLobby__sub_801317E4(name1, tbl[ref.idx].name, lbl_8044A9D0);
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             TLobby__sub_801317E4(name2, tbl[ref.idx].name, lbl_8044A9D8);
@@ -253,7 +253,7 @@ typedef char RecoveredGlobal_802075F8_lbl_80515BA0_size[sizeof(RecoveredGlobal_8
 void TLobby__sub_802075F8(void) {
     randomize_adventure_maps();
     if ((s32) lbl_805D2CD8 != -1) {
-        TLobby__sub_80141038(&lbl_80515BA0.value, lbl_805D2CD8, TLobby__sub_80207770(lbl_805D2CD8));
+        TLobby__sub_80141038(&lbl_80515BA0.value, lbl_805D2CD8, get_floor_map_terrain(lbl_805D2CD8));
         lbl_805D2CD8 = -1;
     }
 }

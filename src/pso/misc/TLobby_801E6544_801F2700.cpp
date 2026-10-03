@@ -26,7 +26,7 @@ M2C_UNK read_be_u16(void *);
 void qst_getargs_801F2910(s32 arg0);
 extern u8 lbl_8051238C[];
 void append_string_to_buffer(void*);
-void TLobby__sub_801F2748(s32 arg0);
+void qst_getargs_cstring(s32 arg0);
 void qst_getargs_801F27A0(s32 op);
 void qst_getargs_801F2828(s32 op);
 extern struct Entry804C69D8 lbl_804C69D8[];
@@ -55,7 +55,7 @@ void qst_getargs_801F2700(s32 arg0) {
     temp_r31 = temp_r3->handler;
     temp_r31(read_be_u16(temp_r3));
 }
-void TLobby__sub_801F2748(s32 arg0) {
+void qst_getargs_cstring(s32 arg0) {
     Entry804C69D8_801F2748 *e = (Entry804C69D8_801F2748 *)&lbl_804C69D8;
     e += arg0;
     void (*fn)(void*) = e->handler;

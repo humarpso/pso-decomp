@@ -79,7 +79,7 @@ void *__dt__18TORockCaveBrakableFv(void *arg0, s16 arg1);
 void spawn_break_effect__18TORockCaveBrakableFPv(u8 *arg0);
 void update_break_state__18TORockCaveBrakableFPv(void *arg0);
 int play_sound_effect(void*, void*, void*, void*);
-u8 TODoorAncient08__sub_80229220(u16);
+u8 is_current_floor_switch_set(u16);
 void TORockCave__ct(void *);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 void __dl__7TObjectFPv(void *);
@@ -140,7 +140,7 @@ void update_break_state__18TORockCaveBrakableFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     case 0:
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xB8);
-        if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (TODoorAncient08__sub_80229220((u16) temp_r0_2) == 1)) {
+        if ((temp_r0_2 >= 0) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)) {
             M2C_FIELD(arg0, s32 *, 0xB4) = 1;
             ((VObj_80174EA0_80174CC0 *)arg0)->m15();
             ((VObj_80174EA0_80174CC0 *)arg0)->m14();
