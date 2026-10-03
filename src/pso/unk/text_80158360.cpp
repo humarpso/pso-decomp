@@ -1,1 +1,32 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+u8 *get_player_data__10TObjPlayerFi(int);
+u16 obj_getField1c(void *);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 horizontal_distance_squared(void *, void *);
+extern s32 lbl_805D586C;
+s32 TODragonfly__sub_80158360(u8 *self, f32 radius);
+}
 
+extern "C" {
+
+s32 TODragonfly__sub_80158360(u8 *self, f32 radius) {
+    u16 slot;
+    u8 *player;
+    for (slot = 0; (s32) slot < lbl_805D586C; slot++) {
+        player = get_player_data__10TObjPlayerFi(slot);
+        if (player != NULL && obj_getField1c(player) < 0x1000) {
+            if (get_field_3e4__10TObjPlayerFPv(player) == get_current_floor() && horizontal_distance_squared(self + 0x38, player + 0x38) < radius) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+}

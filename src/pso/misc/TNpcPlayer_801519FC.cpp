@@ -94,6 +94,23 @@ extern s32 lbl_805D2E74;
 extern const f32 TNpcPlayer__data_805DB1F0;
 Npc_80152168 *TNpcPlayer__ct(Npc_80152168 *self, s32 a, s32 b, s16 kind, s32 arg4, void *parent);
 Npc_80152330 *TNpcPlayer__sub_80152330(Npc_80152330 *self, s32 a, s32 b, s16 kind, void *parent);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_inactive__10TObjPlayerFPv(void *);
+M2C_UNK TNpcPlayer__sub_8014E090(void *, int);
+M2C_UNK request_chatter__10TNpcPlayerFPvUi(void *, int);
+s32 TNpcPlayer__sub_8014F7F0(void *);
+M2C_UNK partner_observe_surroundings(void *);
+M2C_UNK update_condition_flags__10TNpcPlayerFPv(void *);
+M2C_UNK init_state__10TNpcPlayerFPv(void *);
+M2C_UNK TNpcPlayer__sub_80150EC4(void *);
+s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
+M2C_UNK TNpcPlayer__sub_80151AB4(void *);
+void reset_partner_counter(s32 arg0, s32 arg1);
+void increment_partner_counter(s32 arg0, s32 arg1);
+s32 TNpcPlayer__sub_80152950(void *, int, int);
+s32 TNpcPlayer__sub_801529E0(void *, int, int);
+u16 get_action_flags__10TNpcPlayerFPv(void *);
+void run_task__10TNpcPlayerFv(u8 *arg0);
 }
 
 struct Obj_801528A8 { u8 pad[0x5c]; u8 arr[1]; };
@@ -170,6 +187,47 @@ s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
         TNpcPlayer__sub_8014E090((void *) (arg0), (int) (0));
     }
     return 0;
+}
+
+void run_task__10TNpcPlayerFv(u8 *arg0) {
+    u8 *owner;
+    owner = M2C_FIELD(arg0, u8 **, 0x74);
+    if (owner == NULL || (void *) M2C_FIELD(arg0, u8 **, 0x78) == NULL) {
+        return;
+    }
+    {
+        {
+        if (TNpcPlayer__sub_8014F7F0((void *) (owner)) != 0) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+            return;
+        }
+        if (TNpcPlayer__sub_8014F7F0((void *) (M2C_FIELD(arg0, u8 **, 0x78))) != 0) {
+            queue_destruction__7TObjectFv((void *) (arg0));
+            return;
+        }
+        if ((is_inactive__10TObjPlayerFPv((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94))) != 0) && (((void *) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94) == NULL) || (get_action_flags__10TNpcPlayerFPv((void *) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94)) != 0xFFFF))) {
+            init_state__10TNpcPlayerFPv((void *) (arg0));
+            if (!(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x74), void **, 0x94), s32 *, 0x30) & 0x800)) {
+                if (M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x78), void **, 0x94), s32 *, 0x30) & 0x800) {
+                    if (TNpcPlayer__sub_801529E0((void *) (arg0 + 0x5C), (int) (3), (int) (0x400)) != 0) {
+                        request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (5));
+                    } else if (TNpcPlayer__sub_80152950((void *) (arg0 + 0x5C), (int) (3), (int) (0)) != 0) {
+                        request_chatter__10TNpcPlayerFPvUi((void *) (arg0), (int) (4));
+                    }
+                    increment_partner_counter((s32) (arg0 + 0x5C), 3);
+                    TNpcPlayer__sub_8014E090((void *) (arg0), (int) (0));
+                } else {
+                    reset_partner_counter((s32) (arg0 + 0x5C), 3);
+                    update_condition_flags__10TNpcPlayerFPv((void *) (arg0));
+                    partner_observe_surroundings((void *) (arg0));
+                    TNpcPlayer__sub_80151AB4((void *) (arg0));
+                    update_follow_target__10TNpcPlayerFPv(arg0);
+                }
+                TNpcPlayer__sub_80150EC4((void *) (arg0));
+            }
+        }
+        }
+    }
 }
 
 u8 *__dt__10TNpcPlayerFv(u8 *arg0, s16 arg1) {

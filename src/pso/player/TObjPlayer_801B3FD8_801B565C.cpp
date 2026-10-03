@@ -56,6 +56,8 @@ struct Obj_801B5EA4 : Pad_801B5EA4 {
     Vec_801B5EA4 vel;
 };
 
+struct P_801B5FB0 { u8 pad[0x308]; f32 a; f32 pad30c; f32 b; };
+
 extern "C" {
 s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_flag_400_set__10TObjPlayerFPv();
@@ -101,6 +103,11 @@ s32 is_outside_movement_hold__10TObjPlayerFPvPv(void *, f32 *);
 u32 TObjPlayer__sub_801B7298(void *);
 s32 TObjPlayer__sub_801BE8F4(void *, M2C_UNK, M2C_UNK);
 s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0);
+extern const f32 TObjPlayer__data_805DC278;
+extern const f32 TObjPlayer__data_805DC28C;
+extern const f32 lbl_805DC298;
+extern const f32 lbl_805DC29C;
+void TObjPlayer__sub_801B5FB0(P_801B5FB0 *p);
 }
 
 extern "C" {
@@ -324,6 +331,19 @@ s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0) {
         return 3;
     }
     return 0;
+}
+
+void TObjPlayer__sub_801B5FB0(P_801B5FB0 *p) {
+    if (p->a < lbl_805DC298 && p->a > lbl_805DC29C) {
+        p->a = TObjPlayer__data_805DC278;
+    } else {
+        p->a *= TObjPlayer__data_805DC28C;
+    }
+    if (p->b < lbl_805DC298 && p->b > lbl_805DC29C) {
+        p->b = TObjPlayer__data_805DC278;
+    } else {
+        p->b *= TObjPlayer__data_805DC28C;
+    }
 }
 
 void TObjPlayer__sub_801B6024(u8 *arg0) {

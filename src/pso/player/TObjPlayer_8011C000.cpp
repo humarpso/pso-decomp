@@ -122,6 +122,10 @@ void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern void *item_pmt_tbl;
 void play_shield_sound_cue(Obj_8011C59C *arg0);
+void *get_item_pmt_record__10TObjPlayerFii(u8, u8);
+void *TObjPlayer__sub_8011CD48(u8, u8);
+extern void *item_pmt_tbl;
+s32 TObjPlayer__sub_8011C4AC(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -247,6 +251,36 @@ void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1) {
         generate_drop_item__9TItemDropFPviPv((*(u32 *)&item_mgr), temp_r4, arg1);
     }
 }
+
+s32 TObjPlayer__sub_8011C4AC(s32 arg0, s32 arg1, s32 arg2) {
+    s32 idx;
+    u8 *rec;
+    idx = 0;
+    switch ((u8) arg0) {
+    case 0:
+        rec = (u8 *)get_item_pmt_record__10TObjPlayerFii(arg1, arg2);
+        if (rec != NULL) {
+            idx = rec[0x1A];
+        }
+        break;
+    case 1:
+        switch ((u8) arg1) {
+        case 1:
+        case 2:
+            rec = (u8 *)TObjPlayer__sub_8011CD48(arg1, arg2);
+            if (rec != NULL) {
+                idx = rec[0x18];
+            }
+            break;
+        }
+        break;
+    }
+    if (idx > 0) {
+        return M2C_FIELD(item_pmt_tbl, s32 *, 0x38) + (idx * 6);
+    }
+    return M2C_FIELD(item_pmt_tbl, s32 *, 0x38);
+}
+
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
     if ((arg0 & 0x3F) && !(arg0 & 0x80)) {
         return get_item_star_count((s32)(arg0 + 0x1CB));

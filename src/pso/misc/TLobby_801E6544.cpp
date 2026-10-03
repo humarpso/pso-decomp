@@ -321,6 +321,9 @@ extern s32 lbl_805D53A0;
 extern int TLobby__data_805D5E98;
 extern s32 lbl_805D5EA0;
 void qst_op_message(void);
+extern int* TLobby__data_805D5E78;
+void TLobby__sub_8020C9C8(s32 a, s16 b, s16 c, s32 d);
+void qst_op_unhide_obj(s32 arg0);
 }
 
 extern "C" {
@@ -390,6 +393,13 @@ void qst_op_unhide_ene(s32 arg0) {
     s32 v1 = TLobby__data_805D5E78[(u8)++arg0];
     s32 v2 = TLobby__data_805D5E78[(u8)++arg0];
     TLobby__sub_8020C73C(v0, (s16)v1, (s16)v2, arg0);
+}
+
+void qst_op_unhide_obj(s32 arg0) {
+    s32 v0 = TLobby__data_805D5E78[(u8)arg0];
+    s32 v1 = TLobby__data_805D5E78[(u8)++arg0];
+    s32 v2 = TLobby__data_805D5E78[(u8)++arg0];
+    TLobby__sub_8020C9C8(v0, (s16)v1, (s16)v2, arg0);
 }
 
 void qst_op_chk_ene_num(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = TLobby__sub_8020C118(); }

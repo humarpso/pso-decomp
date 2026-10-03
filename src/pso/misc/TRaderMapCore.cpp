@@ -128,6 +128,19 @@ struct Vec_801F9B8C { f32 x, y, z; };
 
 struct Dot_801F9B8C { f32 x, z, w; s16 c; s16 type; s32 color; };
 
+struct Vec_801F9D84 { f32 x, y, z; };
+
+struct Model_801F9D84 { u8 pad[8]; Vec_801F9D84 a; Vec_801F9D84 b; };
+
+struct ModelRef_801F9D84 { void *p0; Model_801F9D84 *m; };
+
+struct Region_801F9D84 {
+    s16 id; s16 flags; f32 x, y, z;
+    u32 angles[3]; f32 fade, radius; ModelRef_801F9D84 *model;
+};
+
+struct Map_801F9D84 { Region_801F9D84 *regions; void *textures; s32 count; };
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK TCameraCtrl__sub_80069024();
@@ -222,6 +235,16 @@ extern s32 TRaderMapCore__data_805D5F30;
 extern const f32 TRaderMapCore__data_805DC534;
 extern const f32 lbl_805DC564;
 s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3);
+f32 xz_distance_squared(void *, void *);
+extern RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08 TRaderMapCore__data_80512D08;
+extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
+extern s32 TRaderMapCore__data_805D5F30;
+extern const f32 lbl_805DC564;
+s32 TRaderMapCore__sub_801F99EC(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f32 scale);
+f32 xz_distance_squared(void *, void *);
+extern u32 TRaderMapCore__data_805D5F28;
+extern const f32 TRaderMapCore__data_805DC568;
+void TRaderMapCore__sub_801F9D84(M2C_UNK arg0, M2C_UNK arg1, void *arg2);
 }
 
 extern "C" {
@@ -392,6 +415,33 @@ void TRaderMapCore__sub_801F9720(f32 farg0) {
 #define MAP_801F9C54 ((struct Map_801F9C54 *) TRaderMapCore__data_805D5F28)
 
 typedef char RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08_size[sizeof(RecoveredGlobal_801F9B8C_TRaderMapCore__data_80512D08) == 0xA00 ? 1 : -1];
+
+s32 TRaderMapCore__sub_801F99EC(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3, f32 scale) {
+    Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__data_80513708;
+    Vec_801F9B8C v;
+    u8 pad[0x10];
+    Dot_801F9B8C *d;
+    if (TRaderMapCore__data_805D5F30 > 0x7F) {
+        return 0;
+    }
+    if (!(arg3 & 1)) {
+        v.x = cam->x;
+        v.z = cam->z;
+        if (xz_distance_squared(arg0, &v) > lbl_805DC564) {
+            return 0;
+        }
+    }
+    ((Dot_801F9B8C *)&TRaderMapCore__data_80512D08)[TRaderMapCore__data_805D5F30].x = arg0->x;
+    d = &((Dot_801F9B8C *)&TRaderMapCore__data_80512D08)[TRaderMapCore__data_805D5F30];
+    d->z = arg0->z;
+    d->w = scale;
+    d->color = arg1;
+    d->type = arg2;
+    d->c = 0;
+    TRaderMapCore__data_805D5F30++;
+    return 1;
+}
+
 s32 minimap_render_dot(Vec_801F9B8C *arg0, s32 arg1, s16 arg2, s32 arg3) {
     Vec_801F9B8C *cam = (Vec_801F9B8C *)&TRaderMapCore__data_80513708;
     Vec_801F9B8C v;
@@ -446,6 +496,33 @@ s32 TRaderMapCore__sub_801F9CB8(s16 id) {
         }
     }
     return 0;
+}
+
+#define MAP_801F9D84 ((Map_801F9D84 *) TRaderMapCore__data_805D5F28)
+void TRaderMapCore__sub_801F9D84(M2C_UNK arg0, M2C_UNK arg1, void *arg2) {
+    Vec_801F9D84 v;
+    Region_801F9D84 *r;
+    s32 i;
+    if (MAP_801F9D84 != NULL) {
+        r = MAP_801F9D84->regions;
+        for (i = 0; i < MAP_801F9D84->count; i++, r++) {
+            if (!(r->flags & 2) && (r->flags & 1)) {
+                if (r->flags & 4) {
+                    v.x = r->x + r->model->m->b.x;
+                    v.y = r->y + r->model->m->b.y;
+                    v.z = r->z + r->model->m->b.z;
+                } else {
+                    v.x = r->x + r->model->m->a.x;
+                    v.y = r->y + r->model->m->a.y;
+                    v.z = r->z + r->model->m->a.z;
+                }
+                if (xz_distance_squared(&v, arg2) < r->radius * r->radius) {
+                    r->flags &= ~1;
+                    r->fade = TRaderMapCore__data_805DC568;
+                }
+            }
+        }
+    }
 }
 
 void copy_transform__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(u32*)((char*)p + 0x18) = *(u32*)((char*)q + 0x18); *(u32*)((char*)p + 0x1c) = *(u32*)((char*)q + 0x1c); *(f32*)((char*)p + 0x20) = *(f32*)((char*)q + 0x20); *(f32*)((char*)p + 0x24) = *(f32*)((char*)q + 0x24); }
