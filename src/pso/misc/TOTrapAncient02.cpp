@@ -3,22 +3,75 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-#define CAT2(a, b) a##b
-#define CAT(a, b) CAT2(a, b)
-#define PADV virtual void CAT(pv, __LINE__)();
+
+extern "C" {
+
+struct Obj_8017A8B0 {
+    u8 pad[0x38];
+    f32 pos[3];
+    u8 pad44[0x2A8 - 0x44];
+    u8 *target;
+    u8 pad2ac[0x326 - 0x2AC];
+    s16 state;
+    u8 pad328[0x334 - 0x328];
+    f32 range;
+    u8 pad338[0x33C - 0x338];
+    u16 idx;
+    u8 pad33e[0x364 - 0x33E];
+    s32 switchId;
+};
+
+struct Vec_8017A988 { f32 x, y, z; };
+
+struct VBase_8017A988 { u8 pad[0x18]; };
+
+struct Obj_8017A988 : VBase_8017A988 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(s16 *, s32);
+    u16 id;
+    u8 pad1e[0x38 - 0x1E];
+    Vec_8017A988 pos;
+    u8 pad44[0x80 - 0x44];
+    u32 x80;
+    u8 pad84[0x326 - 0x84];
+    s16 state;
+    u8 pad328[0x344 - 0x328];
+    f32 x344;
+    f32 x348;
+    u8 pad34c[0x368 - 0x34C];
+    s32 timer;
+};
+
+struct VBase_8017AB30 { char pad[0x18]; };
+
+struct VObj_8017AB30 : VBase_8017AB30 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5(void *);
+};
+
 struct Base_B_8017AC98 { char pad[0x18]; };
+
 struct V_B_8017AC98 : Base_B_8017AC98 {
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
-    PADV
+    virtual void pv15();
+    virtual void pv16();
+    virtual void pv17();
+    virtual void pv18();
+    virtual void pv19();
+    virtual void pv20();
+    virtual void pv21();
+    virtual void pv22();
     virtual s32 m8(f32, f32);
 };
+
 struct Base_8017B84C_8017AC98 { char pad[0x18]; };
+
 struct VObj_8017B84C_8017AC98 : Base_8017B84C_8017AC98 {
     virtual void m0();
     virtual void m1();
@@ -123,77 +176,284 @@ struct Trap_8017ADC4 {
     s32 timer;
 };
 
-extern "C" {
-u32 get_global_state__14TOKeyMachine01Fv();
-void play_persistent_sound(int, void *, void *, int, int);
-void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
-extern s32 lbl_805D53A4;
-extern s32 lbl_805D5ADC;
-extern u32 lbl_805D5AE0;
-extern s32 lbl_805D5AE4;
-void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
-void *get_bml_model(void *, int);
-void *load_resource_from_descriptor(void *, int, char *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
-u32 get_global_state__14TOKeyMachine01Fv();
-extern char lbl_804B4AD8[];
-extern u32 TOTrapAncient02__data_805D5AD8;
-extern s32 lbl_805D5ADC;
-extern u32 lbl_805D5AE0;
-extern s32 lbl_805D5AE4;
-void TOTrapAncient02__sub_8017B4EC(void);
+struct Base_8017B6D8 { char pad[0x18]; };
+
+struct V_8017B6D8 : Base_8017B6D8 {
+    virtual void pv8();
+    virtual void pv9();
+    virtual void pv10();
+    virtual void pv11();
+    virtual void pv12();
+    virtual void init(void *);
+};
+
+struct Trap_8017B6D8 {
+    u32 id;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x30 - 0x28];
+    u32 flags;
+    void *f34;
+    u8 pad38[0x64 - 0x38];
+    s32 f64;
+    f32 f68;
+    u8 pad6C[0x84 - 0x6C];
+    s32 f84;
+    u8 pad88[0x326 - 0x88];
+    s16 mode;
+    s16 state;
+    u8 pad32A[0x334 - 0x32A];
+    f32 range;
+    f32 dist;
+    u16 player;
+    u8 pad33E[0x344 - 0x33E];
+    f32 h344;
+    f32 h348;
+    s32 f34C;
+    s32 reset;
+    s32 timer;
+    s32 f358;
+};
+
+u16 find_nearest_visible_player(void *, int, f32);
+void calc_attach_pos__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 void obj_setFlags30(void *, u32);
+s32 is_split_screen();
+s32 get_state_flag__9TMainTaskFv();
+void * get_bml_model(void *, int);
+void TLobby__sub_8001FE7C(void*, int);
+void * load_resource_from_descriptor(void *, int, char *, int, int, int);
 void fn_8002AE64(void *);
 s32 check_player_flag1__6TLobbyFPv();
+void * alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
+M2C_UNK setup_particle_tev(int);
+M2C_UNK TOTrapAncient02__sub_800837D4(int);
+s32 spawn_particle_effect(void *, int);
+M2C_UNK init_position_vectors__10TObjPlayerFi(void *);
 void TObjPlayer__sub_800A7798(void *, f32);
-void submit_cursor_candidate(void *, s32);
-void send_code_45_1__10TObjPlayerFi(s32);
-s32 get_player_by_client_id(s32);
-extern s32 lbl_805D53A0;
-extern const f32 lbl_805DBA78;
-extern const f32 lbl_805DBA80;
-void TOTrapAncient02__vt80(Trap_8017ADC4 *self);
-}
-
-extern "C" {
-
-void TOTrapAncient02R__vt78(void *arg0);
+u8 * count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
+M2C_UNK func_80141618__Fv();
+M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+f32 horizontal_distance_squared(void *, void *);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
+s32 send_object_state_update(void *, void *);
+M2C_UNK unregister_object_by_id(M2C_UNK *);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void refresh_collision_body_centers(void *);
+M2C_UNK free_collision_body_parts(void *);
+void init_collision_body_parts(void *, void *, s32);
+s32 access_object_saved_state(void *, void *, int);
+M2C_UNK __dt__6TOTrapFv(void *, M2C_UNK);
+void * TOTrap__ct(void *, void *, void *);
+void calc_trap_count__16TOTrapAncient02RFPv(void *arg0);
+void TOTrapAncient02R__vt77(Obj_8017A8B0 *self);
+f32 TOTrapAncient02R__vt20(Obj_8017A988 *self);
+void * create__16TOTrapAncient02RFPv(void *arg0);
+void * __dt__16TOTrapAncient02RFv(void *arg0, s16 arg1);
+void * TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2);
 void TOTrapAncient02__vt84(void);
 void TOTrapAncient02__vt86(void);
-void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
-void *create__15TOTrapAncient02FPv(void *arg0);
-void destroy_instance__15TOTrapAncient02Fv(void);
+void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
+void TOTrapAncient02__vt80(Trap_8017ADC4 *self);
+void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0);
 void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0);
 void draw_model__15TOTrapAncient02FPv(void *arg0);
-void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0);
-void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_model(int);
-void *TOTrapAncient02__ct(void *, void *, void *);
-M2C_UNK TOTrapAncient02__sub_800837D4(int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
+void * create__15TOTrapAncient02FPv(void *arg0);
+void destroy_instance__15TOTrapAncient02Fv(void);
+void TOTrapAncient02__sub_8017B4EC(void);
+void * __dt__15TOTrapAncient02Fv(void *arg0, s16 arg1);
+void * TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2);
+void TOTrapAncient02R__vt78(void *arg0);
+M2C_UNK fn_8017B908(void *);
+M2C_UNK fn_8017B950(void *);
+M2C_UNK fn_8017B984(void *);
+void submit_cursor_candidate(void *, s32);
+void send_code_45_1__10TObjPlayerFi(s32);
+s32 get_player_by_client_id(u32);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+u32 get_global_state__14TOKeyMachine01Fv();
+void play_persistent_sound(int, void *, void *, int, int);
+u8 is_current_floor_switch_set(u16);
+void __dl__7TObjectFPv(void *);
+void * __nw__7TObjectFUl(int);
+void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
+s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__6TOTrapFv(void *, M2C_UNK);
-void *__nw__7TObjectFUl(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
-s32 dispatch_input_to_instance__18TAdEnterPasswordGCFi(void *);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK func_80141618__Fv();
-s32 get_state_flag__9TMainTaskFv();
-s32 is_split_screen();
-M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK setup_particle_tev(int);
+M2C_UNK draw_ginja_model(int);
+
+extern u32 TOTrapAncient02__data_805D5AD8;
+extern M2C_UNK __vt__15TOTrapAncient02[];
+extern M2C_UNK __vt__16TOTrapAncient02R[];
+extern char lbl_804B4AD8[];
+extern u8 lbl_804B4B20[];
+extern u32 lbl_805D31B4;
+extern s32 lbl_805D31B8;
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D53A4;
+extern s32 lbl_805D5550;
+extern s32 lbl_805D5ADC;
+extern u32 lbl_805D5AE0;
+extern s32 lbl_805D5AE4;
+extern const f32 lbl_805DBA78;
+extern const f32 lbl_805DBA7C;
+extern const f32 lbl_805DBA80;
+extern const f32 lbl_805DBA94;
+extern const f32 lbl_805DBA9C;
+extern const f32 lbl_805DBAA0;
+extern const f32 lbl_805DBAA4;
+extern void *tl_05;
+
+#pragma push
+#pragma fp_contract on
+void calc_trap_count__16TOTrapAncient02RFPv(void *arg0) {
+    s32 temp_r4;
+
+    M2C_FIELD(arg0, s32 *, 0x360) = (s32) (M2C_FIELD(arg0, f32 *, 0x70) + ((lbl_805DBA7C * (f32) lbl_805D5550) + lbl_805DBA78));
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x360);
+    if (temp_r4 < 0) {
+        M2C_FIELD(arg0, s32 *, 0x360) = 0;
+        return;
+    }
+    if ((s32) lbl_805D5550 == 3) {
+        if (temp_r4 > 0x1D) {
+            M2C_FIELD(arg0, s32 *, 0x360) = 0x1D;
+        }
+    } else if (temp_r4 > 0xE) {
+        M2C_FIELD(arg0, s32 *, 0x360) = 0xE;
+    }
+}
+extern int fold_flush_0;
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TOTrapAncient02R__vt77(Obj_8017A8B0 *self) {
+    clear_player_status_flag__10TObjPlayerFPviUi(self, 0, 1);
+    calc_attach_pos__10TObjPlayerFPv(self);
+    if (self->switchId == -1 || is_current_floor_switch_set(self->switchId) == 1) {
+        self->idx = find_nearest_visible_player(self, 0, self->range);
+        if (self->idx != 0xFFFF) {
+            self->target = (u8 *)get_player_by_client_id(self->idx);
+            if (self->target != NULL) {
+                if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
+                    self->state = 2;
+                }
+            } else {
+                self->idx = 0xFFFF;
+                self->target = NULL;
+            }
+        } else {
+            self->target = NULL;
+        }
+    }
+}
+extern int fold_flush_1;
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+f32 TOTrapAncient02R__vt20(Obj_8017A988 *self) {
+    s16 msg;
+    if (self->id >= 0x4000 && self->x80 != 0) {
+        Vec_8017A988 v = self->pos;
+        v.y += self->x344 + self->x348;
+        spawn_particle_effect(&v, 0x1D0);
+        spawn_particle_effect(&v, 1);
+        if (--self->timer <= 0) {
+            self->timer = 0;
+            if (access_object_saved_state(self, &msg, 1) != 0) {
+                self->state = 4;
+                msg = self->state;
+                send_object_state_update(self, &msg);
+                access_object_saved_state(self, &msg, 0);
+                self->m4(&msg, 1);
+            }
+        }
+    }
+    return lbl_805DBA80;
+}
+extern int fold_flush_2;
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void *create__16TOTrapAncient02RFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x36C);
+    if (o != NULL) {
+        o = TOTrapAncient02R__ct(o, tl_05, arg0);
+    }
+    return o;
+}
+extern int fold_flush_3;
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void *__dt__16TOTrapAncient02RFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOTrapAncient02R;
+        ((void (*)(void *, int))__dt__15TOTrapAncient02Fv)(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+extern int fold_flush_4;
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#pragma fp_contract on
+void *TOTrapAncient02R__ct(void *arg0, void *arg1, void *arg2) {
+    ((M2C_UNK (*)(void *, void *))TOTrapAncient02__ct)(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOTrapAncient02R;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31B8;
+    ((VObj_8017AB30 *)arg0)->m5(arg2);
+    init_position_vectors__10TObjPlayerFi(arg0);
+    calc_attach_pos__10TObjPlayerFPv(arg0);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(void * *)&TOTrapAncient02__data_805D5AD8), void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(void * *)&TOTrapAncient02__data_805D5AD8), void **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s16 *, 0x328) = 0;
+    M2C_FIELD(arg0, f32 *, 0x334) = lbl_805DBAA0 * M2C_FIELD(arg0, f32 *, 0x68) + lbl_805DBA9C;
+    M2C_FIELD(arg0, f32 *, 0x338) = M2C_FIELD(arg0, f32 *, 0x334);
+    M2C_FIELD(arg0, s32 *, 0x350) = (s32) (lbl_805DBA9C + (f32) M2C_FIELD(arg0, s32 *, 0x84));
+    if (M2C_FIELD(arg0, s32 *, 0x350) < 0) {
+        M2C_FIELD(arg0, s32 *, 0x350) = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0x354) = M2C_FIELD(arg0, s32 *, 0x350);
+    fn_8017B984(arg0);
+    fn_8017B950(arg0);
+    calc_trap_count__16TOTrapAncient02RFPv(arg0);
+    fn_8017B908(arg0);
+    M2C_FIELD(arg0, u16 *, 0x33C) = 0xFFFF;
+    M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+    M2C_FIELD(arg0, f32 *, 0x348) = lbl_805DBA80;
+    M2C_FIELD(arg0, f32 *, 0x344) = lbl_805DBA80;
+    M2C_FIELD(arg0, s32 *, 0x34C) = 0;
+    if (M2C_FIELD(arg0, s32 *, 0x64) > 0) {
+        M2C_FIELD(arg0, s32 *, 0x358) = 1;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x358) = 0;
+    }
+    return arg0;
+}
+extern int fold_flush_5;
+#pragma pop
 
 void TOTrapAncient02__vt84(void) {  }
+
 void TOTrapAncient02__vt86(void) {  }
 
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self) {
@@ -272,7 +532,7 @@ void TOTrapAncient02__vt80(Trap_8017ADC4 *self) {
                 self->state = 3;
                 self->timer = self->reset;
                 if (self->target != NULL && lbl_805D53A0 == obj_getField1c(self->target)) {
-                    p = get_player_by_client_id(lbl_805D53A0);
+                    p = ((s32 (*)(s32))get_player_by_client_id)(lbl_805D53A0);
                     if (p != 0 && check_player_flag1__6TLobbyFPv() != 0) {
                         send_code_45_1__10TObjPlayerFi(p);
                     }
@@ -388,9 +648,6 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0) {
     pop_matrix();
 }
 
-extern const f32 lbl_805DBA94;
-extern const f32 lbl_805DBAA4;
-
 void draw_model__15TOTrapAncient02FPv(void *arg0) {
     if (get_state_flag__9TMainTaskFv() != 1) {
         M2C_FIELD(arg0, s32 *, 0x340) = ((V_B_8017AC98 *) arg0)->m8(lbl_805DBAA4, lbl_805DBA94);
@@ -406,8 +663,6 @@ void draw_model__15TOTrapAncient02FPv(void *arg0) {
     }
 }
 
-extern void *tl_05;
-
 void *create__15TOTrapAncient02FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x35C);
     if (o != NULL) {
@@ -416,16 +671,12 @@ void *create__15TOTrapAncient02FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOTrapAncient02__data_805D5AD8;
-
 void destroy_instance__15TOTrapAncient02Fv(void) {
     if ((u32) TOTrapAncient02__data_805D5AD8 != 0U) {
         TLobby__sub_8001FE7C((void*)TOTrapAncient02__data_805D5AD8, 1);
         TOTrapAncient02__data_805D5AD8 = 0U;
     }
 }
-
-extern M2C_UNK __vt__15TOTrapAncient02[];
 
 void TOTrapAncient02__sub_8017B4EC(void) {
     char *base = lbl_804B4AD8;
@@ -480,11 +731,49 @@ void *__dt__15TOTrapAncient02Fv(void *arg0, s16 arg1) {
         free_collision_body_parts(arg0);
         __dt__6TOTrapFv(arg0, 0);
         if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
+            ((M2C_UNK (*)(void *))__dl__7TObjectFPv)(arg0);
         }
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+void *TOTrapAncient02__ct(void *arg0, void *arg1, void *arg2) {
+    TOTrap__ct(((Trap_8017B6D8 *)arg0), arg1, arg2);
+    ((Trap_8017B6D8 *)arg0)->vt = (void *)__vt__15TOTrapAncient02;
+    ((Trap_8017B6D8 *)arg0)->id = lbl_805D31B4;
+    ((V_8017B6D8 *)((Trap_8017B6D8 *)arg0))->init(arg2);
+    ((void (*)(void *))init_position_vectors__10TObjPlayerFi)(((Trap_8017B6D8 *)arg0));
+    calc_attach_pos__10TObjPlayerFPv(((Trap_8017B6D8 *)arg0));
+    ((Trap_8017B6D8 *)arg0)->f34 = *(void **)(*(u8 **)(TOTrapAncient02__data_805D5AD8 + 0x42C) + 8);
+    ((Trap_8017B6D8 *)arg0)->f24 = *(s32 *)(*(u8 **)(TOTrapAncient02__data_805D5AD8 + 0x42C) + 0xC);
+    ((Trap_8017B6D8 *)arg0)->mode = 0;
+    ((Trap_8017B6D8 *)arg0)->state = 0;
+    ((Trap_8017B6D8 *)arg0)->range = lbl_805DBAA0 * ((Trap_8017B6D8 *)arg0)->f68 + lbl_805DBA9C;
+    ((Trap_8017B6D8 *)arg0)->dist = ((Trap_8017B6D8 *)arg0)->range;
+    ((Trap_8017B6D8 *)arg0)->reset = lbl_805DBA9C + (f32)((Trap_8017B6D8 *)arg0)->f84;
+    if (((Trap_8017B6D8 *)arg0)->reset < 0) {
+        ((Trap_8017B6D8 *)arg0)->reset = 0;
+    }
+    ((Trap_8017B6D8 *)arg0)->timer = ((Trap_8017B6D8 *)arg0)->reset;
+    ((Trap_8017B6D8 *)arg0)->player = 0xFFFF;
+    init_collision_body_parts(((Trap_8017B6D8 *)arg0), lbl_804B4B20, 1);
+    refresh_collision_body_centers(((Trap_8017B6D8 *)arg0));
+    ((Trap_8017B6D8 *)arg0)->flags |= 0x60000000;
+    reset_photon_effect__10TObjPlayerFPv(((Trap_8017B6D8 *)arg0));
+    ((Trap_8017B6D8 *)arg0)->h348 = lbl_805DBA80;
+    ((Trap_8017B6D8 *)arg0)->h344 = lbl_805DBA80;
+    ((Trap_8017B6D8 *)arg0)->f34C = 0;
+    if (((Trap_8017B6D8 *)arg0)->f64 > 0) {
+        ((Trap_8017B6D8 *)arg0)->f358 = 1;
+    } else {
+        ((Trap_8017B6D8 *)arg0)->f358 = 0;
+    }
+    return ((Trap_8017B6D8 *)arg0);
+}
+extern int fold_flush_6;
+#pragma pop
 
 void TOTrapAncient02R__vt78(void *arg0) {
     struct VObj_8017B84C_8017AC98 *o = (struct VObj_8017B84C_8017AC98 *)arg0;

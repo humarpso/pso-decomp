@@ -1,5 +1,3 @@
-#pragma push
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -7,38 +5,134 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
-extern const f32 lbl_805DD388;
-extern const f32 lbl_805DD38C;
-void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0);
-s16 get_field_2b8__14TItemProShieldFPv(int);
-void *get_player_by_client_id();
-void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK get_width__11TWindowCtrlFPv();
-M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
-void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
-extern const f32 lbl_805DD390;
-extern const f32 lbl_805DD394;
-s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0);
-}
-
-extern "C" {
-
-void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
-s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
-void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
-void *get_player_by_client_id();
-M2C_UNK get_width__11TWindowCtrlFPv();
-M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
-void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-s16 obj_getS16_2BA(void *);
 
 struct VtBase4_8026f71c_more_8026f8cc_0 { void *vtable; };
+
 struct VObj3_8026f71c_more_8026f8cc_0 : VtBase4_8026f71c_more_8026f8cc_0 { virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); };
 
+struct Base_8026F77C_more_8026f8cc_0 { char pad[0x18]; };
+
+struct VObj_8026F77C_more_8026f8cc_0 : Base_8026F77C_more_8026f8cc_0 {
+    virtual void m0();virtual void m1();virtual void m2();virtual void m3();
+    virtual void m4();virtual void m5();virtual void m6();virtual void m7();
+    virtual void m8();virtual void m9();virtual void m10();virtual void m11();
+    virtual void m12();virtual void m13();
+    virtual int m14();
+};
+
+struct VObj_8026ff0c;
+
+struct VObj_8026ff0c {
+    char pad[0x18];
+    virtual M2C_UNK m0();
+    virtual M2C_UNK m1();
+    virtual M2C_UNK m2();
+    virtual M2C_UNK m3();
+    virtual M2C_UNK m4();
+    virtual M2C_UNK m5();
+    virtual M2C_UNK m6();
+    virtual M2C_UNK m7();
+    virtual M2C_UNK m8();
+    virtual M2C_UNK m9();
+    virtual M2C_UNK m10();
+    virtual M2C_UNK m11();
+    virtual M2C_UNK m12();
+    virtual M2C_UNK m13();
+    virtual M2C_UNK m14();
+    virtual M2C_UNK m15();
+    virtual M2C_UNK m16();
+    virtual M2C_UNK m17();
+    virtual M2C_UNK m18();
+    virtual M2C_UNK m19();
+    virtual M2C_UNK m20();
+    virtual M2C_UNK m21();
+    virtual M2C_UNK m22();
+    virtual M2C_UNK m23();
+    virtual M2C_UNK m24();
+    virtual M2C_UNK m25();
+    virtual M2C_UNK m26();
+    virtual M2C_UNK m27();
+    virtual M2C_UNK m28();
+    virtual M2C_UNK m29();
+    virtual M2C_UNK m30();
+    virtual M2C_UNK m31();
+};
+
+struct Slots_80270060 { s32 type[4]; u32 id[4]; };
+
+struct Vec2_80270394 { f32 x; f32 y; };
+
+struct Rect_80270394 { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f32 v1; };
+
+s16 obj_getS16_2BA(void *);
+s16 get_field_2b8__14TItemProShieldFPv(int);
+s32 is_inactive__10TObjPlayerFPv(void *);
+s32 get_sub_value__8TItemMagFi();
+s32 get_photon_blast_chain(Slots_80270060 *);
+void * get_player_by_client_id();
+s32 TLobby__sub_801C19D0(void *);
+u8 get_rule_field_a__6TLobbyFPv(void *);
+s32 get_global_state__14TOKeyMachine01Fv();
+void * get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(void *);
+M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
+u32 get_field_20__17TWindowSubComCardFPv(void *);
+M2C_UNK TWindowSubComCard__sub_802452DC(s32);
+M2C_UNK TWindowSubComCard__sub_80245320(Rect_80270394 *, u8 *);
+M2C_UNK TWindowSubComCard__sub_802454E4(s32);
+s32 TWindowSubComCard__sub_80245558(u8 *, Vec2_80270394 *, Vec2_80270394 *);
+M2C_UNK get_width__11TWindowCtrlFPv();
+M2C_UNK apply_context_transform_to_rect(u8 *, Rect_80270394 *);
+M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
+M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
+M2C_UNK set_sprite_uv_from_pixels(s32, f32, f32);
+void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0);
+void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
+void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
+s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
+s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0);
+void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0);
+void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1);
+void fn_80270014(u8 *arg0);
+M2C_UNK update_photon_blast_player_marker(s32 arg0, s32 arg1);
+M2C_UNK draw_photon_blast_gauge_ring(u8 *, u8 *, void *, f32, f32);
+s32 rand(void);
+s32 strcmp(s32, s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK begin_screen_draw(s32);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK draw_textured_quad_at_depth(Rect_80270394 *, f32);
+M2C_UNK set_draw_texture_and_color(s32, s32);
+
+extern M2C_UNK lbl_8044F5E4[];
+extern M2C_UNK lbl_8050EA40[];
+extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD388;
 extern const f32 lbl_805DD38C;
+extern const f32 lbl_805DD390;
+extern const f32 lbl_805DD394;
+extern const f32 lbl_805DD398;
+extern const f32 lbl_805DD3A0;
+extern const f32 lbl_805DD3A4;
+extern const f32 lbl_805DD3A8;
+extern const f32 lbl_805DD3AC;
+extern const f32 lbl_805DD3B0;
+extern const f32 lbl_805DD3B4;
+extern const f32 lbl_805DD3B8;
+extern const f32 lbl_805DD3BC;
+extern const f32 lbl_805DD3C0;
+extern const f32 lbl_805DD3C4;
+extern const f32 lbl_805DD3DC;
+extern const f32 lbl_805DD3E0;
+extern const f32 lbl_805DD3E4;
+extern const f32 lbl_805DD3E8;
+extern const f32 lbl_805DD3EC;
+extern const f32 lbl_805DD3F0;
+extern const f32 lbl_805DD3F4;
+extern const f32 lbl_805DD3F8;
+extern const f32 lbl_805DD3FC;
 
 void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0) {
     u8 *temp_r3;
@@ -60,15 +154,6 @@ void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0) {
     start_text_color_transition(temp_r3, 0xFF00FF15, lbl_805DD38C);
 }
 
-struct Base_8026F77C_more_8026f8cc_0 { char pad[0x18]; };
-struct VObj_8026F77C_more_8026f8cc_0 : Base_8026F77C_more_8026f8cc_0 {
-    virtual void m0();virtual void m1();virtual void m2();virtual void m3();
-    virtual void m4();virtual void m5();virtual void m6();virtual void m7();
-    virtual void m8();virtual void m9();virtual void m10();virtual void m11();
-    virtual void m12();virtual void m13();
-    virtual int m14();
-};
-
 void update_status_entry__20TWindowSubStatusDispFi(s32 arg0) {
     void *temp_r31;
     VObj_8026F77C_more_8026f8cc_0 *temp_r3;
@@ -80,10 +165,6 @@ void update_status_entry__20TWindowSubStatusDispFi(s32 arg0) {
         M2C_FIELD(temp_r31, s32 *, 0x20) = temp_r3->m14() + 1;
     }
 }
-
-extern M2C_UNK lbl_8044F608;
-extern const f32 lbl_805DD390;
-extern const f32 lbl_805DD394;
 
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     M2C_UNK var_r4;
@@ -110,6 +191,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     start_text_color_transition(temp_r30, var_r4, lbl_805DD394);
     return var_r31;
 }
+
 s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 var_r30;
     s32 var_r4;
@@ -138,38 +220,8 @@ s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
     return var_r30;
 }
 
-}
-
-#pragma pop
-
-#pragma push
-
-extern "C" {
-
-}
-
-#pragma pop
-
-extern "C" {
-#define get_array_entry__20TWindowSubStatusDispFPvi ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)
-void update_status_entry__20TWindowSubStatusDispFi(s32);
-s32 update_hp_gauge__20TWindowSubStatusDispFi(s32);
-#define update_hp_entry__20TWindowSubStatusDispFPv ((s32 (*)(void *))update_hp_entry__20TWindowSubStatusDispFPv)
-void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0);
-}
-
-extern "C" {
-
 #pragma push
 #pragma fp_contract on
-
-s32 rand(void);
-f32 sin_table_lookup(s32);
-f32 cos_table_lookup(s32);
-extern const f32 lbl_805DD3A0;
-extern const f32 lbl_805DD3A4;
-extern const f32 lbl_805DD3A8;
-
 void fn_8026FDC0(u8 *arg0) {
     s32 ang;
     f32 dist;
@@ -182,18 +234,157 @@ void fn_8026FDC0(u8 *arg0) {
         *(f32 *)(arg0 + 0x44) += dist * sin_table_lookup(ang);
     }
 }
+extern int fold_flush_0;
 #pragma pop
+
 void update_hp_tp_level__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
-    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
-    M2C_FIELD(temp_r31, s32 *, 0x2C) = update_hp_entry__20TWindowSubStatusDispFPv((void *) (arg0));
-    temp_r31_2 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
+    temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 6);
+    M2C_FIELD(temp_r31, s32 *, 0x2C) = ((s32 (*)(void *))update_hp_entry__20TWindowSubStatusDispFPv)((void *) (arg0));
+    temp_r31_2 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 7);
     M2C_FIELD(temp_r31_2, s32 *, 0x2C) = update_hp_gauge__20TWindowSubStatusDispFi((s32) arg0);
     update_status_entry__20TWindowSubStatusDispFi((s32) arg0);
 }
 
+void update_for_player_index__13TWindowLockOnFPvi(u8 *arg0, s32 arg1) {
+    s32 temp_r31;
+    struct VObj_8026ff0c *temp_r30;
+    u8 *temp_r29;
+
+    temp_r30 = ((VObj_8026ff0c * (*)(s32))get_player_by_client_id)(arg1);
+    if (temp_r30 == NULL) {
+        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        return;
+    }
+    temp_r29 = (u8 *)temp_r30 + 0x85C;
+    if (temp_r29 == NULL) {
+        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        return;
+    }
+    temp_r31 = temp_r30->m10();
+    if (temp_r31 == 0) {
+        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        return;
+    }
+    if (is_inactive__10TObjPlayerFPv(temp_r30) == 0) {
+        set_flag0_bit2__15TWindowHelpItemFPv(arg0);
+        return;
+    }
+    clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
+    if ((get_field_20__17TWindowSubComCardFPv(arg0) == 0U) || (strcmp(get_field_20__17TWindowSubComCardFPv(arg0), temp_r31) != 0)) {
+        set_text_entry_string(arg0, temp_r31, 0x20);
+    }
+    if (temp_r30->m31() != 0) {
+        M2C_FIELD(arg0, s32 *, 0x24) = 0xFFFF0000;
+        return;
+    }
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r29, s32 *, 0x18);
 }
 
-#undef get_array_entry__20TWindowSubStatusDispFPvi
-#undef update_hp_entry__20TWindowSubStatusDispFPv
+void fn_80270014(u8 *arg0) {
+    s32 temp_r31;
+    temp_r31 = ((s32 (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 1);
+    ((void (*)(void *, s32))update_for_player_index__13TWindowLockOnFPvi)((void *) temp_r31, ((s32 (*)(void *))get_width__11TWindowCtrlFPv)((void *) (arg0)));
+}
+
+M2C_UNK update_photon_blast_player_marker(s32 arg0, s32 arg1) {
+    Slots_80270060 s;
+    s32 type;
+    u32 key;
+    s32 r;
+    s32 i;
+    u8 *p;
+    key = arg1;
+    type = -1;
+    if (key != 0xFFFF) {
+        r = get_photon_blast_chain(&s);
+        if (r == 1 || r == 2) {
+            s32 t;
+            for (i = 0; (t = s.type[i]) != -1; i++) {
+                if (s.id[i] == key) {
+                    break;
+                }
+            }
+            type = t;
+        }
+        switch (type) {
+        case 5:
+            set_sprite_uv_from_pixels(arg0, lbl_805DD388, lbl_805DD3AC);
+            break;
+        case 4:
+            set_sprite_uv_from_pixels(arg0, lbl_805DD3B0, lbl_805DD3AC);
+            break;
+        case 3:
+            set_sprite_uv_from_pixels(arg0, lbl_805DD3B4, lbl_805DD3AC);
+            break;
+        case 1:
+            set_sprite_uv_from_pixels(arg0, lbl_805DD3B8, lbl_805DD3AC);
+            break;
+        case 2:
+            set_sprite_uv_from_pixels(arg0, lbl_805DD3BC, lbl_805DD3AC);
+            break;
+        case 0:
+            set_sprite_uv_from_pixels(arg0, lbl_805DD3C0, lbl_805DD3AC);
+            break;
+        default:
+            if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1 && (p = ((u8 * (*)(u32))get_player_by_client_id)(key)) != 0) {
+                key = TLobby__sub_801C19D0(p + 0x828) - 1;
+            }
+            set_sprite_uv_from_pixels(arg0, lbl_805DD3B0 * key, lbl_805DD3C4);
+            break;
+        }
+    }
+}
+
+void update_status_help_item(s32 arg0) {
+    s32 var_r31;
+
+    var_r31 = get_width__11TWindowCtrlFPv();
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
+        var_r31 = 0;
+    }
+    update_photon_blast_player_marker((s32)(((s32 (*)(s32, M2C_UNK))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0)), (s32)(var_r31));
+}
+
+void draw_background__19TWindowSimpleStatusFv(u8 *arg0, u8 *arg1) {
+    Rect_80270394 r;
+    Vec2_80270394 pos;
+    Vec2_80270394 size;
+    f32 scale;
+    f32 f;
+
+    get_width__11TWindowCtrlFPv();
+    if (((u32 (*)(void))get_player_by_client_id)() != 0) {
+        f = get_sub_value__8TItemMagFi();
+    } else {
+        f = lbl_805DD388;
+    }
+    draw_photon_blast_gauge_ring(arg0, arg1, lbl_8044F5E4, f, lbl_805DD3DC);
+    pos.x = lbl_805DD3E0 + M2C_FIELD(arg1, f32 *, 0x10);
+    pos.y = lbl_805DD398 + M2C_FIELD(arg1, f32 *, 0x14);
+    size.x = lbl_805DD3E4;
+    size.y = lbl_805DD3E8;
+    scale = lbl_805DD3EC / M2C_FIELD(arg0, f32 *, 0x54);
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_draw_texture_and_color(0xB, M2C_FIELD(arg1, s32 *, 0x34));
+    r.x0 = pos.x;
+    r.y0 = pos.y;
+    r.x1 = r.x0 + size.x;
+    r.y1 = r.y0 + size.y;
+    r.u0 = lbl_805DD3F0;
+    r.v0 = lbl_805DD3F4;
+    r.u1 = lbl_805DD3F8;
+    r.v1 = lbl_805DD3FC;
+    apply_context_transform_to_rect(arg1, &r);
+    draw_textured_quad_at_depth(&r, scale);
+    get_player__20TWindowSubStatusDispFv();
+    if (TWindowSubComCard__sub_80245558(arg1, &pos, &size) != 0) {
+        TWindowSubComCard__sub_802454E4(0xB);
+        TWindowSubComCard__sub_80245320(&r, arg1);
+        TWindowSubComCard__sub_802452DC(0xB);
+    }
+}
+
+}
