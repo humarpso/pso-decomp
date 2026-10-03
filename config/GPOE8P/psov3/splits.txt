@@ -8011,7 +8011,7 @@ pso/player/TObjPlayer_801AF1B8.cpp:
 pso/slices/pso_carve_801af290.cpp:
 	.text       start:0x801AF290 end:0x801AF2F0
 
-pso/misc/TFontSmallLobby.cpp:
+pso/player/TObjPlayer_801AF2F0.cpp:
 	.text       start:0x801AF2F0 end:0x801BC140
 	.rodata     start:0x80446F48 end:0x80446F50
 	.data       start:0x804C3CFC end:0x804C3E38
