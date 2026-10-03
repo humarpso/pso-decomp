@@ -162,7 +162,6 @@ force_active:
   - __dt__14TChCrEffTagStrFv
   - __dt__14TEnemyTaskListFv
   - __dt__14TItemEffShieldFv
-  - __dt__14TObjWarpStringFv
   - __dt__14TSetEvtDestroyFv
   - __dt__14TSlicerHistoryFv
   - __dt__14TWindowCtrlSubFv
@@ -248,6 +247,7 @@ force_active:
   - bswap_enemy_set_row_fields
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
+  - build_sell_list__24TShopEquipmentSellWindowFPv
   - capture_attachment__17TObjEneBm3FlyNestFv
   - chat_dispatch_accepted_result
   - chat_log_remove_line
@@ -255,7 +255,6 @@ force_active:
   - check_any_player_in_range__12TObjRaderColFPv
   - check_local_player_in_range__12TObjRaderColFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
-  - clamp_hp_value__10TObjPlayerFPvPv
   - construct_cane_weapon
   - construct_dagger_weapon
   - construct_handgun_weapon
@@ -302,7 +301,6 @@ force_active:
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_placement_obstruction
   - find_support_technique_contact
-  - fn_80010F4C
   - fn_8007F560
   - fn_8010EFE8
   - fn_8016AD3C
@@ -326,6 +324,7 @@ force_active:
   - freeze_shell_grow
   - freeze_shell_hold
   - gTRKMsgBufs
+  - get_floor_surface_type__10TObjPlayerFPv
   - get_floor_switch_flag
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_surface_contact_point
@@ -334,11 +333,14 @@ force_active:
   - handle_equip_offer__24TShopEquipmentListWindowFv
   - handle_grid_navigation__22TWindowSubCustomSelectFPv
   - handle_selection__24TShopEquipmentListWindowFv
+  - handle_selection__24TShopEquipmentSellWindowFv
+  - handle_sell_confirm__24TShopEquipmentSellWindowFv
   - has_serial_input__22TAdEnterSerialAccessGCFv
   - hook__15TItemEffBringerFv
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - init_gx_lighting_defaults
+  - init_inventory_items__10TObjPlayerFi
   - init_launch_angles__10TTecSlicerFPvPvi
   - init_object__23TAdSinglePlyChrSelectGCFPvPv
   - init_parameters__9TTecBartaFPv
@@ -359,6 +361,7 @@ force_active:
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - load_item_pmt
+  - lookup_attack_marker
   - open_buy_window__22TShopEquipmentSequenceFPv
   - open_equip_kind_list__15TWindowSubEquipFPvUi
   - open_greeting__20TShopItemTecSequenceFPv
@@ -451,7 +454,6 @@ force_active:
   - run_task__14TBoss6EffHyouiFv
   - run_task__14TChCrEffTagStrFv
   - run_task__14TEnemyTaskListFv
-  - run_task__14TObjWarpStringFv
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
@@ -510,6 +512,7 @@ force_active:
   - set_stealth_suit_flags__10TObjPlayerFPv
   - set_tev_stage_mode
   - setup_state_helper__10TObjPlayerFPv
+  - shuffle_shop_pool
   - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range
   - spawn_effect__10TObjPlayerFiUiii

@@ -5,6 +5,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK init_xyz_limits__10TObjPlayerFv();
+M2C_UNK reset_line_width();
+M2C_UNK set_line_width(s32);
+void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
+f32 TWindowSubComCard__sub_803D6438(f32);
+extern u16 lbl_805D63F4;
+extern s16 lbl_805D63F6;
+void draw_window_scanlines(u8 *arg0, u8 *arg1);
+}
+
+extern "C" {
 
 struct Base_8010B054_8010A710_card_0 { char pad[0x18]; };
 
@@ -400,6 +412,40 @@ void draw_message_frame_row(u8 *a, Quad_802455CC *q, Rect_802455CC *r) {
         rem -= lbl_805DCAFC;
         q->x0 = q->x0 + lbl_805DCAFC;
     }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void draw_window_scanlines(u8 *arg0, u8 *arg1) {
+    s32 n1;
+    s32 i;
+    s32 n2;
+    f32 step;
+    f32 y;
+    switch (lbl_805D63F4) {
+    case 0:
+    case 1:
+        return;
+    }
+    n1 = TWindowSubComCard__sub_803D6438((12.0f + M2C_FIELD(arg0, f32 *, 0x44)) / 4.0f);
+    n2 = TWindowSubComCard__sub_803D6438((M2C_FIELD(arg0, f32 *, 0x4C) - 24.0f) / 4.0f);
+    y = ((5.0f * ((f32)lbl_805D63F6 - 0.2f * (f32)n1) - 100.0f) - 12.0f) - M2C_FIELD(arg0, f32 *, 0x40);
+    if (y <= 0.0f) {
+        return;
+    }
+    if (y - (f32)n2 >= M2C_FIELD(arg0, f32 *, 0x48) - 24.0f) {
+        return;
+    }
+    set_line_width(12.0f * M2C_FIELD(arg1, f32 *, 0x2C));
+    init_xyz_limits__10TObjPlayerFv();
+    step = 1.0f;
+    for (i = 0; i < n2; i++) {
+        TWindowSubComCard__sub_80245A10(arg0, i, arg1, y);
+        y -= step;
+    }
+    reset_transform_state__10TObjPlayerFv();
+    reset_line_width();
 }
 #pragma pop
 

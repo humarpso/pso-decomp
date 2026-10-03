@@ -209,6 +209,86 @@ struct Moja_800AE7F4 {
     s32 f384;
 };
 
+struct Vec_800AF080 { f32 x, y, z; };
+
+struct FadeBase_800AF080 { u8 pad[0x14]; };
+
+struct Fade_800AF080 : FadeBase_800AF080 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void m6(); virtual void m7();
+    u32 f18;
+};
+
+struct Body_800AF080 { u8 pad[0x39C]; Fade_800AF080 fades[4]; };
+
+struct EneBase_800AF080 { u8 pad[0x18]; };
+
+struct Ene_800AF080 : EneBase_800AF080 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual void v8(); virtual s32 m9(f32, f32, f32);
+};
+
+struct Vec_800AE450 { f32 x, y, z; };
+
+struct Hit_800AE450 {
+    s32 type; s32 power; s32 c; f32 fpow;
+    Hit_800AE450(f32 f) { type = 0; fpow = f; power = *(s32 *)&fpow; c = 0; }
+};
+
+struct VBase_800AE450 { char pad[0x18]; };
+
+struct VObj_800AE450 : VBase_800AE450 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, const Hit_800AE450 &, s32, s32, s32);
+    virtual void m22();
+    virtual void m23(void *);
+};
+
+struct Col_800AE450 { u8 pad[0x18]; u32 flags; };
+
+struct Turn_800AE450 { u8 pad[8]; s32 step; };
+
+struct Moja_800AE450 {
+    u8 pad0[0x30];
+    u32 flags;
+    u8 pad34[0x38 - 0x34];
+    Vec_800AE450 pos;
+    u8 pad44[0x50 - 0x44];
+    Vec_800AE450 home;
+    u8 pad5C[0x60 - 0x5C];
+    s32 angle;
+    u8 pad64[0xA4 - 0x64];
+    Col_800AE450 *collision;
+    u8 padA8[0xB4 - 0xA8];
+    u32 fB4;
+    s16 fB8;
+    u8 padBA[0xC8 - 0xBA];
+    f32 fC8;
+    u8 padCC[0x290 - 0xCC];
+    Vec_800AE450 from;
+    Vec_800AE450 dest;
+    u8 pad2A8[0x2FC - 0x2A8];
+    Vec_800AE450 center;
+    Vec_800AE450 vel;
+    u8 pad314[0x328 - 0x314];
+    s16 phase;
+    u8 pad32A[0x33C - 0x32A];
+    s16 f33C;
+    u8 pad33E[0x350 - 0x33E];
+    Turn_800AE450 *turn;
+    u8 pad354[0x374 - 0x354];
+    s32 f374;
+    f32 speed;
+    u8 pad37C[0x384 - 0x37C];
+    s32 f384;
+};
+
 extern "C" {
 void begin_attack__11TObjEneMojaFPv(Moja_800ADE48 *self);
 s32 update_movement_status__10TObjPlayerFv();
@@ -261,7 +341,7 @@ void update_invincibility__10TObjPlayerFPv(void *arg0);
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
 M2C_UNK update_technique_state__11TObjEneMojaFv(void *);
 M2C_UNK update_approach_state__11TObjEneMojaFPv(u8 *arg0);
-M2C_UNK update_appearance_drop__11TObjEneMojaFv(void *);
+struct Moja_800AE450;
 M2C_UNK update_idle_state__11TObjEneMojaFv(void *);
 u8 *get_enemy_entity(u16);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -364,6 +444,72 @@ extern const f32 lbl_805D9C40;
 extern const f32 lbl_805D9C44;
 extern const f32 lbl_805D9C48;
 void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self);
+M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, f32 *, M2C_UNK, f32);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 check_demo_mode__10TObjPlayerFv();
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK update_obstruction_fade(void *, s32, s32, s32);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK restore_scene_lighting(s32, s32);
+M2C_UNK select_actor_lighting(void *);
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK draw_chunk_object(s32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D9BD8;
+extern const f32 lbl_805D9BDC;
+extern const f32 lbl_805D9BF0;
+extern const f32 lbl_805D9C50;
+extern const f32 lbl_805D9C54;
+extern const f32 lbl_805D9C58;
+void render__11TObjEneMojaFv(u8 *arg0);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK calc_velocity_toward_destination(void *, Vec_800ACFE8, Vec_800ACFE8, f32);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_is_hit_receivable();
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 obj_getField1c(void *);
+s32 is_split_screen();
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 newton_sqrtf(f32);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
+M2C_UNK spawn_particle_effect(void *, int);
+void *copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+f32 horizontal_distance_squared(int, void *);
+s32 approach_angle_limited(s32, s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback();
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
+M2C_UNK play_sound_effect(void *, void *, int, int);
+M2C_UNK subtract_vector(void *, void *);
+extern const f64 lbl_8043B0C8[];
+extern Vec_800AE450 lbl_8050BEE0;
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D5868;
+extern const f32 lbl_805D9BD8;
+extern const f32 lbl_805D9C00;
+extern const f32 lbl_805D9C04;
+extern const f32 lbl_805D9C08;
+extern const f32 lbl_805D9C0C;
+extern const f32 lbl_805D9C3C;
+extern const f32 lbl_805D9C40;
+void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self);
 }
 
 extern "C" {
@@ -795,6 +941,88 @@ void enter_state_3__10TObjPlayerFPv(void *arg0) {
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(1)
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+void update_appearance_drop__11TObjEneMojaFv(Moja_800AE450 *self) {
+    f32 ticks;
+    f32 dist;
+    VObj_800AE450 *p;
+    s32 i;
+    self->flags |= 0x06000000;
+    self->collision->flags &= ~1;
+    ((M2C_UNK (*)(void *))advance_animation_playback)(self);
+    switch (self->phase) {
+    case 0:
+    default:
+        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &self->home);
+        subtract_vector(&lbl_8050BEE0, &self->pos);
+        self->angle = approach_angle_limited(self->angle,
+            (s32)(lbl_8043B0C8[0] * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z)),
+            self->turn->step);
+        if (self->angle >= self->turn->step) {
+            return;
+        }
+        self->fB8 = 5;
+        if (objInBand__FP7GameObjf(self, lbl_805D9C00) == 0) {
+            return;
+        }
+        VecCopy__FP3VecPC3Vec(&self->dest, &self->home);
+        VecCopy__FP3VecPC3Vec(&self->from, &self->pos);
+        self->speed = newton_sqrtf(lbl_8050BEE0.x * lbl_8050BEE0.x + lbl_8050BEE0.z * lbl_8050BEE0.z);
+        ticks = lbl_805D9C04 / self->fC8;
+        self->speed = self->speed / ticks;
+        ((M2C_UNK (*)(void *, Vec_800AE450, Vec_800AE450, f32))calc_velocity_toward_destination)(self, self->from, self->dest, self->speed);
+        self->vel.y = lbl_8050BEE0.y / ticks;
+        self->phase = 1;
+        break;
+    case 1:
+        self->pos.x += self->vel.x;
+        self->pos.y += self->vel.y;
+        self->pos.z += self->vel.z;
+        if (objInBand__FP7GameObjf(self, lbl_805D9C08) == 0) {
+            return;
+        }
+        self->phase = 2;
+        for (i = 0; i < lbl_805D5868; i++) {
+            p = (VObj_800AE450 *)get_player_data__10TObjPlayerFi(i);
+            if (p == NULL) {
+                break;
+            }
+            if ((u16)obj_getField1c(p) >= 0x1000) {
+                break;
+            }
+            if (((s32 (*)(void *))obj_is_hit_receivable)(p) != 0) {
+                dist = horizontal_distance_squared((int)((u8 *)p + 0x2FC), &self->center);
+                if (dist <= lbl_805D9C3C) {
+                    p->m21(self, Hit_800AE450(lbl_805D9C40), 0, -1, -1);
+                    p->m23(self);
+                }
+                if (dist <= lbl_805D9C0C && !is_split_screen() && lbl_805D53A0 == (u16)obj_getField1c(p)) {
+                    set_shake_preset__11TCameraCtrlFi((int)(0));
+                }
+            }
+        }
+        spawn_particle_effect(&self->pos, 0xCB);
+        spawn_particle_effect(&self->pos, 0xF0);
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(self, 0x3AD03), &self->pos, 0, 0);
+        play_effect_if_v2__10TObjPlayerFi(-0x300);
+        break;
+    case 2:
+        apply_actor_gravity(self, 0, lbl_805D9BD8);
+        if (self->fB4 != 4) {
+            self->flags &= 0xF9DFFFFF;
+            self->collision->flags |= 1;
+            self->f384 = -1;
+            self->f33C = 0;
+            self->f374 = 0;
+        }
+        break;
+    }
+}
+#pragma pop
+
 void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self) {
     Vec_800AE7F4 off;
     Vec_800AE7F4 tmp;
@@ -1009,6 +1237,82 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
         M2C_FIELD(arg0, u8 **, 0x2A8) = NULL;
     }
 }
+
+void render__11TObjEneMojaFv(u8 *arg0) {
+    Vec_800AF080 pos;
+    Fade_800AF080 *fade;
+    s32 cam;
+    s32 vis;
+    s32 draw;
+    s32 id;
+    cam = 0;
+    if (is_split_screen() != 0) {
+        cam = get_camera_mode__11TCameraCtrlFv();
+    }
+    vis = ((Ene_800AF080 *)arg0)->m9(lbl_805D9C50, lbl_805D9C54, lbl_805D9BF0);
+    if (vis == 0) {
+        return;
+    }
+    select_actor_lighting(arg0);
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+    id = some_id_805c6f74;
+    fade = &((Body_800AF080 *)arg0)->fades[cam];
+    lbl_805D5660 = id;
+    lbl_805D5664 = lbl_805D7784;
+    lbl_805D5668 = lbl_805D7780;
+    some_id_805c6f74 = id | 1;
+    update_obstruction_fade(fade, lbl_805D7780, lbl_805D7784, id);
+    draw = 1;
+    if (updateFromCamera__15RenderFadeStateFPCf(fade, arg0 + 0x38) == 1) {
+        fade->m6();
+        if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+            draw = 0;
+        } else {
+            some_id_805c6f74 &= ~1;
+        }
+    }
+    if (draw != 0) {
+        set_global_flag__10TObjPlayerFv();
+        push_matrix();
+        translate_matrix(0, lbl_805D9BD8, M2C_FIELD(arg0, f32 *, 0x38C), lbl_805D9BD8);
+        post_translate_matrix(arg0 + 0x38);
+        rotate_matrix_y((int)(0), (int)(M2C_FIELD(arg0, s32 *, 0x60)));
+        if (check_demo_mode__10TObjPlayerFv() == 1) {
+            draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
+        } else {
+            toggle_particle_effect__10TObjPlayerFv();
+            if (vis == 1) {
+                draw__16TObjEneRe7BeruraFPv(arg0);
+            } else {
+                render_world_model__10TObjPlayerFPv(arg0);
+            }
+            end_effect_render__13TParticleCtrlFv();
+        }
+        pop_matrix();
+        clear_global_state__10TObjPlayerFv();
+    }
+    some_id_805c6f74 &= ~1;
+    if (updateFromCamera__15RenderFadeStateFPCf(fade, arg0 + 0x38) == 1) {
+        fade->m7();
+    }
+    lbl_805D7784 = lbl_805D5664;
+    lbl_805D7780 = lbl_805D5668;
+    some_id_805c6f74 = lbl_805D5660;
+    restore_scene_lighting(lbl_805D5668, lbl_805D5664);
+    switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+    case 0:
+    case 1:
+    case 9:
+        break;
+    default:
+        pos.x = lbl_805D9C58;
+        pos.y = lbl_805D9BDC;
+        pos.z = lbl_805D9C58;
+        render_with_position_override__10TObjPlayerFPvPvi(arg0, &pos.x, 0, lbl_805D9C58);
+        break;
+    }
+}
+
 void run_task__11TObjEneMojaFPv(u8 *arg0) {
     f32 temp_f1;
     s16 temp_r0;
@@ -1046,7 +1350,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
             update_appearance_jump__11TObjEneMojaFv((Moja_800AE7F4 *)((void *) (arg0)));
             break;
         case 2:
-            update_appearance_drop__11TObjEneMojaFv((void *) (arg0));
+            update_appearance_drop__11TObjEneMojaFv((Moja_800AE450 *)((Moja_800AE450 *) (arg0)));
             break;
         case 3:
             update_approach_state__11TObjEneMojaFPv((u8 *)((void *) (arg0)));

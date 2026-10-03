@@ -103,6 +103,40 @@ struct Obj_8002DF7C {
     s32 idx;
 };
 
+typedef s32 M2C_UNK;
+typedef struct Obj_8002CD8C {
+    s32 unk0;
+    u8 pad4[0x14];
+    void *vtbl;
+    u8 pad1C[0xC];
+    u8 pos[0xC];
+    f32 unk34;
+    f32 unk38;
+    s32 unk3C;
+    s32 unk40;
+    s32 unk44;
+    s32 unk48;
+    s32 unk4C;
+} Obj_8002CD8C;
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_state__12TBoss8DragonFv(void);
+f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
+s32 check_v2_mode__9TObjEneDDFv(void);
+void __ct__7TObjectFP7TObject(void *, void *);
+s32 rand(void);
+extern M2C_UNK lbl_80482048[];
+extern s32 lbl_805D269C;
+extern const f32 lbl_805D8180;
+extern const f32 lbl_805D8184;
+extern const f32 lbl_805D8188;
+extern const f32 lbl_805D818C;
+extern const f32 lbl_805D8190;
+extern const f32 lbl_805D8194;
+void *TBoss8Dragon__sub_8002CD8C(void *arg0_, void *arg1, int arg2);
+}
+
 extern "C" {
 
 extern M2C_UNK lbl_80482048[];
@@ -177,7 +211,6 @@ void set_chunk_material_color(void *);
 void update_dragon_trail_piece(Trail_8002CC48 *self);
 s32 get_state__12TBoss8DragonFv(void);
 void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1);
-void *TBoss8Dragon__sub_8002CD8C(void *, void *, int);
 void render_dragon_trail(Obj_8002CE78 *arg0);
 void update_dragon_trail(Trail_8002CFB8 *self);
 s32 is_dragon_trail_damaging(u8 *arg0);
@@ -237,6 +270,32 @@ void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma fp_contract on
+#define arg0 ((Obj_8002CD8C *)arg0_)
+void *TBoss8Dragon__sub_8002CD8C(void *arg0_, void *arg1, int arg2) {
+    f32 r;
+    f32 t;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    arg0->vtbl = lbl_80482048;
+    arg0->unk0 = lbl_805D269C;
+    VecCopy__FP3VecPC3Vec(arg0->pos, ((void *(*)(void *))get_state__12TBoss8DragonFv)(arg0));
+    arg0->unk34 = lbl_805D8180;
+    r = (f32)rand();
+    t = lbl_805D818C * r;
+    arg0->unk38 = (f32) -((lbl_805D8188 * t) + lbl_805D8184);
+    arg0->unk3C = (s32)((f32 (*)(f32, f32, f32, f32, f32))lerp__9TDeadSpotFff)(lbl_805D8190, lbl_805D8194, lbl_805D8188, t, r);
+    arg0->unk40 = 0;
+    arg0->unk44 = 0;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        arg0->unk48 = 1;
+    } else {
+        arg0->unk48 = 0;
+    }
+    arg0->unk4C = arg2;
+    return arg0;
+}
+#undef arg0
 
 void render_dragon_trail(Obj_8002CE78 *arg0) {
     Ent_8002CE78 *p;
@@ -306,12 +365,12 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
                 if (self->f3C != 0) {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        TBoss8Dragon__sub_8002CD8C(o, self->f10, 0);
+                        TBoss8Dragon__sub_8002CD8C((void *)(o), (void *)(self->f10), (int)(0));
                     }
                 } else {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        TBoss8Dragon__sub_8002CD8C(o, self->f10, 0x1E);
+                        TBoss8Dragon__sub_8002CD8C((void *)(o), (void *)(self->f10), (int)(0x1E));
                     }
                 }
             }
@@ -378,7 +437,7 @@ void spawn_child_object__12TBoss8DragonFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x30) = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        TBoss8Dragon__sub_8002CD8C(o, M2C_FIELD(arg0, void **, 0x10), 30);
+        TBoss8Dragon__sub_8002CD8C((void *)(o), (void *)(M2C_FIELD(arg0, void **, 0x10)), (int)(30));
     }
     M2C_FIELD(arg0, u32 *, 0x3C) = 0;
 }

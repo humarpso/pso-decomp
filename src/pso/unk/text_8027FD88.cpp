@@ -50,6 +50,16 @@ struct VObj_80280FD0 : VBase_80280FD0 {
     virtual s32 m10();
 };
 
+typedef struct Stats_80280B1C {
+    s16 v[12];
+} Stats_80280B1C;
+
+typedef struct Entry_80280B1C {
+    u8 pad0[0x1C];
+    s32 color;
+    s32 value;
+} Entry_80280B1C;
+
 extern "C" {
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
@@ -97,6 +107,19 @@ M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
 extern M2C_UNK TWindowSubStatusDisp__data_804D1AE8[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 void TWindowSubStatusDisp__vt0(u8 *arg0);
+s16 get_model_animation_id__10TObjPlayerFPv(int);
+s16 get_ata__10TObjPlayerFPv(int);
+Q_80280F14 *get_quest_id__12TQuestListVMFPv();
+s16 get_field_2c8__10TObjPlayerFPv(int);
+s16 TObjPlayer__sub_800A776C(int);
+s32 clear_fields__20TWindowSubStatusDispFPv(void *);
+s16 get_hp__10TObjPlayerFPv(int);
+s32 build_player_class_stat_template(int, void *);
+s32 build_player_equipment_requirement_stats(int, void *);
+s32 get_player_by_client_id(s16);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+s16 get_value__20TWindowSubStatusDispFPv(int);
+void TWindowSubStatusDisp__vt12(u8 *arg0);
 }
 
 extern "C" {
@@ -210,6 +233,49 @@ void TWindowSubStatusDisp__vt2(u8 *arg0) {
     set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x8C)), (M2C_UNK)(0x20));
     temp_r30 = ((s32)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0x18));
     set_text_entry_string((void *)(temp_r30), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x8D)), (M2C_UNK)(0x20));
+}
+
+void TWindowSubStatusDisp__vt12(u8 *arg0) {
+    Stats_80280B1C cur;
+    Stats_80280B1C req;
+    Entry_80280B1C *e2;
+    s32 pl;
+    Entry_80280B1C *e;
+    u8 *q;
+    clear_fields__20TWindowSubStatusDispFPv(&cur);
+    clear_fields__20TWindowSubStatusDispFPv(&req);
+    pl = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
+    if (pl != 0) {
+        e2 = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(2));
+        e2->value = TObjPlayer__sub_800A776C(pl) + (get_field_2c8__10TObjPlayerFPv(pl) + get_model_animation_id__10TObjPlayerFPv(pl));
+        e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(8));
+        e->value = get_value__20TWindowSubStatusDispFPv(pl);
+        e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0x14));
+        e->value = get_ata__10TObjPlayerFPv(pl);
+        e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0x1A));
+        e->value = get_hp__10TObjPlayerFPv(pl);
+        q = ((u8 *(*)(s32))get_quest_id__12TQuestListVMFPv)(pl);
+        if (q != NULL) {
+            e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0xE));
+            e->value = *(s16 *)(q + 2);
+            e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0x20));
+            e->value = *(s16 *)(q + 0xC);
+        }
+    }
+    if (build_player_equipment_requirement_stats(pl, &cur) != 0) {
+        build_player_class_stat_template(pl, &req);
+#define ROW(idx, k) \
+        e = (Entry_80280B1C *)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(idx)); \
+        e->value = cur.v[k]; \
+        if (req.v[k] <= cur.v[k]) { e->color = -0x100; } else { e->color = -1; }
+        ROW(4, 0)
+        ROW(0xA, 1)
+        ROW(0x16, 3)
+        ROW(0x1C, 4)
+        ROW(0x10, 2)
+        ROW(0x22, 5)
+#undef ROW
+    }
 }
 
 void TWindowSubStatusDisp__vt1(u8 *arg0) {

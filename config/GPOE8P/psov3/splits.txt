@@ -7764,6 +7764,8 @@ pso/unk/text_80193524.cpp:
 
 pso/object/TObjLight.cpp:
 	.text       start:0x80193FE4 end:0x80194670
+	.rodata     start:0x80445D50 end:0x80445D68
+	.sdata2     start:0x805DBE98 end:0x805DBEB4
 
 pso/object/TObjMapCsn.cpp:
 	.text       start:0x80194670 end:0x80194AEC
@@ -11669,6 +11671,7 @@ pso/misc/TWindowArea.cpp:
 pso/misc/TWindowSubComCard_80244774.cpp:
 	.text       start:0x80244774 end:0x8024662C
 	.rodata     start:0x8044E678 end:0x8044E688
+	.sdata2     start:0x805DCAC8 end:0x805DCB48
 
 pso/misc/TWindowDD_8024662C.cpp:
 	.text       start:0x8024662C end:0x8024674C
@@ -12183,7 +12186,7 @@ pso/misc/TWindowSubStatusDisp_802598E4.cpp:
 
 pso/misc/TWindowHelpItem_8025A12C.cpp:
 	.text       start:0x8025A12C end:0x8025AD38
-	.rodata     start:0x8044F048 end:0x8044F050
+	.rodata     start:0x8044F048 end:0x8044F058
 
 pso/misc/TWindowDuelResult_8025AD38.cpp:
 	.text       start:0x8025AD38 end:0x8025AD5C
@@ -12513,6 +12516,7 @@ pso/unk/text_8026C664.cpp:
 
 pso/unk/text_8026C7AC.cpp:
 	.text       start:0x8026C7AC end:0x8026C9C8
+	.rodata     start:0x8044F4C0 end:0x8044F4C8
 
 pso/unk/text_8026C9C8.cpp:
 	.text       start:0x8026C9C8 end:0x8026C9DC
@@ -12588,6 +12592,7 @@ pso/unk/text_80270014.cpp:
 
 pso/unk/text_80270060.cpp:
 	.text       start:0x80270060 end:0x80270514
+	.rodata     start:0x8044F610 end:0x8044F618
 
 pso/misc/TWindowSimpleStatus.cpp:
 	.text       start:0x80270514 end:0x80270748
@@ -13278,6 +13283,7 @@ pso/object/TObjCMHairMenu.cpp:
 pso/object/TObjCMAssignMenu.cpp:
 	.text       start:0x80296560 end:0x802972BC
 	.rodata     start:0x80465140 end:0x80465148
+	.sdata2     start:0x805DDA6C end:0x805DDB80
 
 pso/object/TObjCMMainMenu_802972BC.cpp:
 	.text       start:0x802972BC end:0x802981BC

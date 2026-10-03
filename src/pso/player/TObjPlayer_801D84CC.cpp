@@ -152,6 +152,10 @@ typedef struct Player_801D88C8 {
     void *motion;
 } Player_801D88C8;
 
+typedef struct Rec_801D8F0C { f32 a, b, c; } Rec_801D8F0C;
+
+typedef struct Rec_801D8F60 { f32 a, b, c; } Rec_801D8F60;
+
 extern "C" {
 s8 TObjPlayer__sub_801AFDBC(s8);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -270,6 +274,20 @@ extern u8 *TObjPlayer__data_805D5D80;
 extern int lbl_805D5E08;
 extern const float lbl_805DC3F8;
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
+s32 classify_action_state__10TObjPlayerFv(void *);
+int get_floor_surface_type__10TObjPlayerFPv(void* p);
+int get_instance_count__14TBoss4DarkFalzFv(void);
+s32 get_global_state__14TOKeyMachine01Fv();
+extern s32 (*lbl_804C4974[])[5];
+s32 get_footstep_floor_index__10TObjPlayerFv(void *arg0);
+s16 get_handle_value__10TObjPlayerFPv(void *);
+int has_valid_handle__10TObjPlayerFPv(void *);
+extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
+f32 get_photon_blast_complete_threshold__10TObjPlayerFv(void *arg0);
+s16 get_handle_value__10TObjPlayerFPv(void *);
+int has_valid_handle__10TObjPlayerFPv(void *);
+extern RecoveredGlobal_801D8FB4_lbl_804C495C lbl_804C495C;
+f32 get_photon_blast_upper_bound__10TObjPlayerFv(void *arg0);
 }
 
 extern "C" {
@@ -485,6 +503,29 @@ typedef char RecoveredGlobal_801D9004_lbl_80447970_size[sizeof(RecoveredGlobal_8
 
 typedef struct RecoveredGlobal_801D8FB4_lbl_804C495C RecoveredGlobal_801D8FB4_lbl_804C495C;
 typedef char RecoveredGlobal_801D8FB4_lbl_804C495C_size[((sizeof(RecoveredGlobal_801D8FB4_lbl_804C495C)) == 0x18) ? (1) : (-1)];
+
+s32 get_footstep_floor_index__10TObjPlayerFv(void *arg0) {
+    s32 floor;
+    s32 (*table)[5];
+    floor = get_global_state__14TOKeyMachine01Fv();
+    table = lbl_804C4974[classify_action_state__10TObjPlayerFv(arg0)];
+    if (floor == 0xE && get_instance_count__14TBoss4DarkFalzFv() == 0) {
+        floor = 1;
+    }
+    {
+        s32 surf = get_floor_surface_type__10TObjPlayerFPv(arg0);
+        return table[floor][surf];
+    }
+}
+
+f32 get_photon_blast_complete_threshold__10TObjPlayerFv(void *arg0) {
+  return ((Rec_801D8F0C * *)&lbl_804C495C)[has_valid_handle__10TObjPlayerFPv(arg0)][get_handle_value__10TObjPlayerFPv(arg0)].c;
+}
+
+f32 get_photon_blast_upper_bound__10TObjPlayerFv(void *arg0) {
+  return ((Rec_801D8F60 * *)&lbl_804C495C)[has_valid_handle__10TObjPlayerFPv(arg0)][get_handle_value__10TObjPlayerFPv(arg0)].b;
+}
+
 f32 get_photon_blast_hold_frame__10TObjPlayerFi(s32 arg0) {
   s32 temp_r31;
   s32 *new_var;

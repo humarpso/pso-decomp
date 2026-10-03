@@ -30,6 +30,10 @@ typedef struct Pal_80244108 {
     f32 f74;
 } Pal_80244108;
 
+struct Rect_80243B6C { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
+
+struct Ctx_80243B6C { f32 x; f32 y; u8 pad8[0x34 - 0x8]; s32 tex; };
+
 extern "C" {
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 void set_sprite_uv_from_pixels(void*,float,float);
@@ -82,10 +86,47 @@ extern const f32 lbl_805DCA48;
 extern const f32 lbl_805DCAA0;
 extern const f32 lbl_805DCAA4;
 Pal_80244108 *TWindowActionPalette__ct(Pal_80244108 *self, s16 slot);
+s32 is_split_screen();
+f32 TWindowSubComCard__sub_80244784(void *);
+s32 TWindowSubComCard__sub_802452DC(int);
+s32 TWindowSubComCard__sub_80245320(void *, void *);
+s32 TWindowSubComCard__sub_802454E4(int);
+s32 TWindowSubComCard__sub_80245558(void *, void *, void *);
+s32 apply_context_transform_to_rect(void *, void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, int);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCA24;
+extern const f32 lbl_805DCA34;
+extern const f32 lbl_805DCA48;
+extern const f32 lbl_805DCA4C;
+extern const f32 lbl_805DCA50;
+extern const f32 lbl_805DCA54;
+extern const f32 lbl_805DCA58;
+extern const f32 lbl_805DCA5C;
+extern const f32 lbl_805DCA60;
+extern const f32 lbl_805DCA64;
+extern const f32 lbl_805DCA68;
+extern const f32 lbl_805DCA6C;
+extern const f32 lbl_805DCA70;
+extern const f32 lbl_805DCA74;
+extern const f32 lbl_805DCA78;
+extern const f32 lbl_805DCA7C;
+extern const f32 lbl_805DCA80;
+extern const f32 lbl_805DCA84;
+extern const f32 lbl_805DCA88;
+extern const f32 lbl_805DCA8C;
+extern const f32 lbl_805DCA90;
+extern const f32 lbl_805DCA94;
+extern const f32 lbl_805DCA98;
+extern const f32 lbl_805DCA9C;
+void draw_frame__20TWindowActionPaletteFv(void *self, int arg1);
 }
 
 extern "C" {
-void draw_frame__20TWindowActionPaletteFv(void *, int);
 s32 setup_window_draw_context(void *, void *);
 void draw_visible_window_entries(void *, void *, int);
 u8 *destroy_window_base__9TWindowDDFPvs(void *, s16);
@@ -98,7 +139,7 @@ extern u32 __vt__20TWindowActionPalette[6];
 void TWindowActionPalette::render() {
     s32 context = setup_window_draw_context(this, &scale);
     draw_visible_window_entries(this, &children, context);
-    draw_frame__20TWindowActionPaletteFv(this, context);
+    draw_frame__20TWindowActionPaletteFv((void *)(this), (int)(context));
 }
 
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {
@@ -133,6 +174,71 @@ void update_slot_sprites__20TWindowActionPaletteFv(void *arg0, int idx, int mode
 }
 
 #define SELF ((TWindowActionPalette *)arg0)
+
+#pragma push
+#pragma fp_contract on
+void draw_frame__20TWindowActionPaletteFv(void *self, int arg1) {
+    Rect_80243B6C r1;
+    Rect_80243B6C r2;
+    Rect_80243B6C r4;
+    Rect_80243B6C r3;
+    Ctx_80243B6C *ctx = (Ctx_80243B6C *)arg1;
+    f32 scale;
+    f32 depth;
+    scale = TWindowSubComCard__sub_80244784(self);
+    depth = lbl_805DCA48 / M2C_FIELD(self, f32 *, 0x54);
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi((void *)lbl_805D63F0);
+    set_draw_texture_and_color(2, ctx->tex);
+    if (is_split_screen() == 0) {
+        r1.x0 = lbl_805DCA4C - lbl_805DCA50 * scale;
+        r1.y0 = lbl_805DCA54 - lbl_805DCA58 * scale;
+        r1.x1 = lbl_805DCA50 + r1.x0;
+        r1.y1 = lbl_805DCA5C + r1.y0;
+        r1.u0 = lbl_805DCA24;
+        r1.v0 = lbl_805DCA60;
+        r1.u1 = lbl_805DCA64;
+        r1.v1 = lbl_805DCA68;
+        draw_textured_quad_at_depth(&r1, depth);
+    }
+    r2.x0 = lbl_805DCA6C + ctx->x;
+    r2.y0 = ctx->y;
+    r2.x1 = lbl_805DCA70 + r2.x0;
+    r2.y1 = lbl_805DCA74 + r2.y0;
+    r2.u0 = lbl_805DCA24;
+    r2.v0 = lbl_805DCA78;
+    r2.u1 = lbl_805DCA7C;
+    r2.v1 = lbl_805DCA80;
+    apply_context_transform_to_rect(ctx, &r2);
+    draw_textured_quad_at_depth(&r2, depth);
+    r3.x0 = lbl_805DCA84 + ctx->x;
+    r3.y0 = lbl_805DCA88 + ctx->y;
+    r3.x1 = lbl_805DCA70 + r3.x0;
+    r3.y1 = lbl_805DCA74 + r3.y0;
+    r3.u0 = lbl_805DCA8C;
+    r3.v0 = lbl_805DCA78;
+    r3.u1 = lbl_805DCA90;
+    r3.v1 = lbl_805DCA80;
+    apply_context_transform_to_rect(ctx, &r3);
+    draw_textured_quad_at_depth(&r3, depth);
+    r4.x0 = ctx->x;
+    r4.y0 = ctx->y;
+    r4.x1 = lbl_805DCA34 + r4.x0;
+    r4.y1 = lbl_805DCA94 + r4.y0;
+    r4.v0 = r4.u0 = lbl_805DCA24;
+    r4.u1 = lbl_805DCA98;
+    r4.v1 = lbl_805DCA9C;
+    apply_context_transform_to_rect(ctx, &r4);
+    draw_textured_quad_at_depth(&r4, depth);
+    get_player__20TWindowSubStatusDispFv();
+    if (TWindowSubComCard__sub_80245558(ctx, (u8 *)ctx + 0x10, (u8 *)ctx + 0x18) != 0) {
+        TWindowSubComCard__sub_802454E4(2);
+        TWindowSubComCard__sub_80245320(&r4, ctx);
+        TWindowSubComCard__sub_802452DC(2);
+    }
+}
+#pragma pop
+
 void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     s32 player;
     s32 effect;

@@ -85,6 +85,30 @@ struct Ent_80263370 { u16 flags; u8 pad2[6]; f32 y; u8 padc[4]; f32 w; u8 pad14[
 
 struct Ent2_80263370 { u16 flags; u8 pad2[0xE]; s32 grade; };
 
+typedef struct Ent_80262E90 {
+    u8 pad0[0x32C];
+    s16 f32c;
+    s16 f32e;
+} Ent_80262E90;
+
+typedef struct Gauge_80262E90 {
+    u8 pad0[0x20];
+    f32 cur;
+    f32 max;
+} Gauge_80262E90;
+
+extern "C" {
+u32 obj_getArrWord_254(Ent_80262E90 *, s32);
+s16 obj_getS16_2BA(Ent_80262E90 *);
+s16 get_field_2b8__14TItemProShieldFPv(Ent_80262E90 *);
+s32 find_entity_by_id(u16);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
+void set_flag0_bit2__15TWindowHelpItemFPv(Gauge_80262E90 *);
+void set_help_mode__14TWindowComCardFPvi(s32, s32);
+s32 get_status_effect_icon_index(u32);
+void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self);
+}
+
 extern "C" {
 extern const f32 lbl_805DD12C;
 
@@ -203,6 +227,38 @@ bool TWindowLockOn__sub_80262DC4(s32 arg0) {
         return get_target_id__13TWindowLockOnFPv((void *) (arg0)) != 0;
     }
     return obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x80000000))) != 0;
+}
+
+void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self) {
+    s32 i;
+    Ent_80262E90 *ent;
+    s32 mode;
+    Gauge_80262E90 *g;
+    if (*(u16 *)(self + 0x60) == 0xFFFF) {
+        return;
+    }
+    ent = (Ent_80262E90 *)find_entity_by_id(*(u16 *)(self + 0x60));
+    if (ent == NULL) {
+        return;
+    }
+    i = 0;
+    do {
+        mode = get_status_effect_icon_index(obj_getArrWord_254(ent, i));
+        set_help_mode__14TWindowComCardFPvi(get_array_entry__20TWindowSubStatusDispFPvi(self, i + 3), mode);
+        i++;
+    } while (i < 4);
+    {
+        g = (Gauge_80262E90 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 7);
+        g->cur = get_field_2b8__14TItemProShieldFPv(ent);
+        g->max = ent->f32c;
+        set_flag0_bit2__15TWindowHelpItemFPv(g);
+    }
+    {
+        g = (Gauge_80262E90 *)get_array_entry__20TWindowSubStatusDispFPvi(self, 8);
+        g->cur = obj_getS16_2BA(ent);
+        g->max = ent->f32e;
+        set_flag0_bit2__15TWindowHelpItemFPv(g);
+    }
 }
 
 void refresh_ground_item__13TWindowLockOnFv(void) {  }

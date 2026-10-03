@@ -38,6 +38,15 @@ typedef struct Win_8025A354 {
 
 typedef struct Vec2_8025A354 { f32 x, y; } Vec2_8025A354;
 
+struct Msg_8025A9C0 {
+    u16 flags;
+    u8 pad2[0x10 - 2];
+    f32 width;
+    f32 height;
+    u8 pad18[0x20 - 0x18];
+    s8 *text;
+};
+
 extern "C" {
 extern const f32 lbl_805DCF90;
 f32 get_item_star_row_width(u8 *arg0);
@@ -68,6 +77,20 @@ extern char lbl_805DCF80[4];
 extern const f32 lbl_805DCF84;
 extern const f32 lbl_805DCF88;
 void render_summary_row__15TWindowHelpItemFv(Item_8025A354 *self, Win_8025A354 *w);
+u8 get_small_font_glyph_width(u8);
+s32 TWindowSubStatusDisp__sub_800FC248(u8);
+s8 *parse_text_control_codes(s8 *, s32 *, s32);
+u8 get_font_char_advance(u16);
+u16 map_char_to_font_code(u16);
+extern s32 lbl_805D5544;
+extern const f32 lbl_805DCFAC;
+extern const f32 lbl_805DCFB0;
+extern const f32 lbl_805DCFB4;
+extern const f32 lbl_805DCFB8;
+extern const f32 lbl_805DCFBC;
+extern const f32 lbl_805DCFC0;
+extern const f32 lbl_805DCFC4;
+void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw);
 }
 
 extern "C" {
@@ -268,6 +291,100 @@ u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
 void reset_float_field__15TWindowHelpItemFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DCFA8;
 }
+
+#pragma push
+#pragma fp_contract on
+void measure_message_text_width(Msg_8025A9C0 *msg, f32 maxw) {
+    s32 sjis;
+    f32 adv;
+    f32 lineh;
+    f32 maxx;
+    f32 y;
+    f32 x;
+    f32 limit;
+    s8 *p;
+    s32 small;
+    s32 c;
+    s8 ch;
+    u8 w;
+    if (msg->text == NULL || *msg->text == 0) {
+        msg->width = lbl_805DCFAC;
+        msg->height = lbl_805DCFAC;
+        return;
+    }
+    if (msg->flags & 0x40) {
+        limit = lbl_805DCFB0;
+    } else {
+        limit = maxw;
+    }
+    sjis = (u32)__cntlzw(lbl_805D5544) >> 5;
+    small = (msg->flags >> 2) & 1;
+    if (small) {
+        lineh = lbl_805DCFB8;
+        adv = lbl_805DCFB4;
+        y = lineh;
+    } else {
+        adv = lbl_805DCFBC;
+        lineh = lbl_805DCFC0;
+        y = adv;
+    }
+    maxx = lbl_805DCFAC;
+    p = msg->text;
+    x = maxx;
+    while (*p != 0) {
+        p = parse_text_control_codes(p, &sjis, 0);
+        ch = *p;
+        if (ch == 0) {
+            continue;
+        }
+        c = ch & 0xFF;
+        p++;
+        if (c == 0xA) {
+            if (msg->flags & 0x80) {
+                x += adv * lbl_805DCFC4;
+            } else {
+                if (x > maxx) {
+                    maxx = x;
+                }
+                y += lineh;
+                x = lbl_805DCFAC;
+            }
+        } else if (c == 0x20) {
+            x += adv * lbl_805DCFC4;
+        } else {
+            if (sjis != 0 && ((c & 0xE0) == 0x80 || (c & 0xE0) == 0xE0)) {
+                c = ((c << 8) & 0xFF00) | *(u8 *)p;
+                p++;
+            }
+            if (small) {
+                w = get_small_font_glyph_width(TWindowSubStatusDisp__sub_800FC248(c));
+            } else {
+                w = get_font_char_advance(((u16 (*)(s32))map_char_to_font_code)(c));
+            }
+            if (x + (f32)w > limit) {
+                if (x > maxx) {
+                    maxx = x;
+                }
+                x = lbl_805DCFAC;
+                y += lineh;
+            }
+            x += (f32)w;
+        }
+    }
+    if (x <= lbl_805DCFAC) {
+        y -= lineh;
+    }
+    if (x > maxx) {
+        maxx = x;
+    }
+    if (maxx > maxw) {
+        maxx = maxw;
+    }
+    msg->width = maxx;
+    msg->height = y;
+}
+#pragma pop
+
 #pragma push
 #pragma opt_common_subs off
 void set_text_entry_string(u8 *arg0, u32 arg1, s32 arg2) {

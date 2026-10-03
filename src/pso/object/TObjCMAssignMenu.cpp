@@ -62,6 +62,49 @@ struct Menu_80297128 {
 
 struct Row_80297128 { s16 v[0x16]; };
 
+struct V2_80296744 {
+    f32 x;
+    f32 y;
+};
+
+struct Menu_80296744 {
+    u8 pad[0x30];
+    s32 total;
+    u8 pad34[0x40 - 0x34];
+    f32 timer;
+    s32 per;
+    u8 pad48[4];
+    s32 pages;
+    u8 pad50[0x58 - 0x50];
+    f32 scroll;
+};
+
+struct V2_80296928 {
+    f32 x;
+    f32 y;
+};
+
+struct Owner_80296928 {
+    u8 pad[0x34];
+    u32 flags;
+};
+
+struct Menu_80296928 {
+    u8 pad0[0x1C];
+    Owner_80296928 *owner;
+    u8 pad20[4];
+    s32 state;
+    u8 pad28[0x38 - 0x28];
+    s32 frame;
+    u8 pad3C[4];
+    f32 timer;
+    s32 level;
+    s32 page;
+    s32 pages;
+    s32 count;
+    s32 cursor;
+};
+
 extern "C" {
 void draw_ui_sprite(s32, void *, f32, f32);
 extern s32 lbl_8046507C[];
@@ -91,6 +134,38 @@ extern Chara_80297128 *lbl_805D6520;
 extern Row_80297128 lbl_804D8E20[];
 extern const f32 lbl_805DDA90;
 void *__ct__16TObjCMAssignMenuFv(void *arg0, void *parent, void *kind);
+void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
+extern u8 lbl_80465050[];
+extern u8 lbl_80465058[];
+extern const f32 lbl_805DDA70;
+extern const f32 lbl_805DDA78;
+extern const f32 lbl_805DDA98;
+extern const f32 TObjCMAssignMenu__data_805DDB20;
+extern const f32 lbl_805DDB50;
+extern const f32 lbl_805DDB54;
+extern const f32 lbl_805DDB58;
+extern const f32 lbl_805DDB5C;
+extern const f32 lbl_805DDB60;
+extern const f32 lbl_805DDB64;
+extern const f32 lbl_805DDB68;
+extern const f32 lbl_805DDB6C;
+extern const f32 lbl_805DDB70;
+extern const f32 lbl_805DDB74;
+extern const f32 lbl_805DDB78;
+void render_assign_slots__16TObjCMAssignMenuFv(Menu_80296744 *self);
+void render_assign_slots__16TObjCMAssignMenuFv(Menu_80296744 *self);
+void TObjCMAssignMenu__sub_80296560(Menu_80296560 *self);
+void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self);
+f32 sin_table_lookup(s32);
+f32 get_random_float__8TObjFishFv(f32);
+void fn_802910A4(s32, void *, void *, f32);
+void draw_ui_sprite(s32, void *, f32, f32);
+void draw_ui_sprite_scaled(s32, void *, void *, f32, f32);
+extern s32 lbl_805D6558;
+extern f32 lbl_80465020[];
+extern u8 lbl_80465048[];
+extern u8 lbl_804DBCC8[];
+void render__16TObjCMAssignMenuFv(Menu_80296928 *self);
 }
 
 extern "C" {
@@ -156,6 +231,154 @@ void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self) {
             }
             if (idx < 7) draw_ui_sprite(*(s32 *)((u8 *)lbl_80465060 + off), &pos, lbl_805DDA94, a);
         }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void render_assign_slots__16TObjCMAssignMenuFv(Menu_80296744 *self) {
+    f32 zero;
+    f32 a;
+    f32 step;
+    f32 d;
+    f32 t;
+    s32 i;
+    s32 n;
+    s32 j;
+    V2_80296744 pos;
+    if (self->pages == 1) return;
+    t = self->timer;
+    a = t * (t * (lbl_805DDB50 * t));
+    if (a <= lbl_805DDB54) return;
+    zero = 0.0f;
+    for (i = 0; i < self->pages; i++) {
+        n = self->per;
+        d = (f32)i - self->scroll;
+        if (i == self->pages - 1) {
+            n = self->total - i * self->per;
+        }
+        if (zero == d) continue;
+        if (d < zero) {
+            t = lbl_805DDA70 - d;
+            pos.x = lbl_805DDB5C * t + lbl_805DDB58;
+            pos.y = lbl_805DDB64 * t + lbl_805DDB60;
+        } else if (d > zero) {
+            t = lbl_805DDA70 + d;
+            pos.x = lbl_805DDB68 * t + lbl_805DDA78;
+            pos.y = lbl_805DDB6C * t + lbl_805DDA98;
+        }
+        step = TObjCMAssignMenu__data_805DDB20;
+        for (j = 0; j < n; j++) {
+            draw_ui_sprite_scaled(0x1F, &pos, lbl_80465050, lbl_805DDB70, a);
+            pos.x += step;
+        }
+        pos.x += lbl_805DDB74;
+        pos.y += lbl_805DDB78;
+        draw_ui_sprite_scaled(i + 0x14, &pos, lbl_80465058, lbl_805DDB70, a);
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_loop_invariants off
+void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
+    V2_80296928 pos;
+    V2_80296928 scl;
+    V2_80296928 pos2;
+    V2_80296928 pos3;
+    f32 pulse;
+    f32 base;
+    f32 alpha;
+    f32 w;
+    f32 t;
+    f32 a;
+    f32 step;
+    s32 idx;
+    s32 i;
+    s32 sprite;
+    render_assign_slots__16TObjCMAssignMenuFv((Menu_80296744 *)(self));
+    pulse = 0.25f * sin_table_lookup(self->frame << 10) + 1.0f;
+    if (pulse > 1.0f) {
+        pulse = 1.0f;
+    }
+    idx = self->level - 1;
+    if (idx < 0) {
+        idx = 0;
+    } else if (idx >= 10) {
+        idx = 9;
+    }
+    base = lbl_80465020[idx];
+    if (!(self->timer <= 0.33f)) {
+        if (self->timer >= 0.66f) {
+            t = 1.0f;
+        } else {
+            t = (self->timer - 0.33f) / 0.33f;
+        }
+        scl.y = 1.0f;
+        pos.y = 146.0f;
+        w = t * (base - 75.0f) + 75.0f;
+        pos.x = 75.0f;
+        pos.x = 9.0f * sin_table_lookup(self->frame << 10) + pos.x;
+        scl.x = (w - pos.x) / 48.0f;
+        fn_802910A4(8, &pos, &scl, -2.75f);
+        pos.x = w;
+        scl.x = 1.0f;
+        fn_802910A4(9, &pos, &scl, -2.75f);
+    }
+    if (!(self->timer <= 0.0f)) {
+        draw_ui_sprite(0, lbl_804DBCC8, -2.4375f,
+                       self->timer >= 0.33f ? 1.0f : self->timer / 0.33f);
+    }
+    if (!(self->timer <= 0.66f)) {
+        a = (self->timer - 0.66f) / 0.33999997f;
+        pos2.x = 103.0f;
+        pos2.y = 150.0f;
+        step = 17.0f;
+        alpha = a * a;
+        for (i = 0; i < self->count; i++) {
+            f32 s = alpha;
+            sprite = 0x1F;
+            if (i == self->cursor) {
+                sprite = 0x20;
+                if (lbl_805D6558 != 2) {
+                    s = alpha * (0.2f * get_random_float__8TObjFishFv(sin_table_lookup(self->frame << 12)) + 0.2f);
+                } else {
+                    s = alpha * pulse;
+                }
+            }
+            draw_ui_sprite(sprite, &pos2, -2.4375f, s);
+            pos2.x += step;
+        }
+        if (self->pages > 1) {
+            s32 n = self->page;
+            pos2.x += 6.0f;
+            pos2.y += 20.0f;
+            draw_ui_sprite_scaled(n + 0x14, &pos2, lbl_80465048, -2.4375f, alpha);
+        }
+        w = base - 347.0f;
+        pos3.x = 299.0f + w;
+        pos3.y = 149.0f;
+        draw_ui_sprite(self->cursor + 0x14, &pos3, -2.4375f, alpha * pulse);
+        pos3.x = 305.0f + w;
+        pos3.y = 150.0f;
+        draw_ui_sprite(0x1E, &pos3, -2.4375f, alpha);
+        pos3.x = 324.0f + w;
+        pos3.y = 167.0f;
+        draw_ui_sprite(self->count + 0x13, &pos3, -2.4375f, alpha);
+    }
+    switch (self->state) {
+    case 0:
+        TObjCMAssignMenu__sub_80296648((Menu_80296648 *)(self));
+        break;
+    case 1:
+        if (self->owner->flags & 0x10) {
+            TObjCMAssignMenu__sub_80296648((Menu_80296648 *)(self));
+        } else {
+            TObjCMAssignMenu__sub_80296560((Menu_80296560 *)(self));
+        }
+        break;
     }
 }
 #pragma pop

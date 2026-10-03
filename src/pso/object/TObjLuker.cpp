@@ -60,6 +60,7 @@ struct Ctrl_801A0E38;
 struct Obj_801A0DB4;
 struct Obj_801A0E38;
 struct Obj_801A0CE8;
+struct Obj_801A0C38;
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -120,7 +121,6 @@ void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
-s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 void transfer_to_town__9TObjLukerFv(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
@@ -139,6 +139,16 @@ extern s32 lbl_805D53A0;
 extern s32 tl_07;
 extern const f32 lbl_805DC080;
 void run_task__9TObjLukerFv(u8 *arg0);
+s32 obj_getField1c(int);
+s32 is_split_screen(void);
+f32 horizontal_distance_squared(void *, void *);
+void TObjLuker__sub_801A0C38(Obj_801A0C38 *self, u16 i);
+void TObjLuker__sub_801A0C7C(s32 arg0, s32 arg1);
+void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
+s32 check_flag_100__10TObjPlayerFPv(void *);
+Ctrl_801A0E38 *get_player_by_client_id(u16 id);
+extern s32 lbl_805D53A0;
+s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 }
 
 extern "C" {
@@ -283,6 +293,59 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
     return ret;
 }
 
+#define C38_801A10A0 ((void (*)(void *, int))TObjLuker__sub_801A0C38)
+#define DB4_801A10A0 ((void (*)(void *))TObjLuker__sub_801A0DB4)
+#define PBC_801A10A0 ((u32 (*)(void *))get_player_by_client_id)
+s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
+    u32 p;
+    s32 found;
+    found = 0;
+    if (is_split_screen() != 0) {
+        for (s32 i = 0; i < 4; i++) {
+            p = PBC_801A10A0((void *) (i));
+            if (p != 0U) {
+                if (horizontal_distance_squared((void *) (arg0 + 0x38), (void *) (p + 0x38)) < (farg0 * farg0)) {
+                    found = 1;
+                    if ((p != 0U) && (check_flag_100__10TObjPlayerFPv((void *) (p)) == 0)) {
+                        TObjLuker__sub_801A0C7C(arg0, (int) (obj_getField1c((int) (p))));
+                    }
+                } else {
+                    C38_801A10A0((void *) (arg0), (int) (obj_getField1c((int) (p))));
+                }
+            }
+        }
+        for (s32 i = 0; i < 4; i++) {
+            p = PBC_801A10A0((void *) (i));
+            if ((p != 0U) && (check_flag_100__10TObjPlayerFPv((void *) (p)) == 1)) {
+                C38_801A10A0((void *) (arg0), (int) (obj_getField1c((int) (p))));
+            }
+        }
+    } else {
+        p = PBC_801A10A0((void *) (lbl_805D53A0));
+        if ((p != 0U) && (horizontal_distance_squared((void *) (p + 0x38), (void *) (arg0 + 0x38)) < (farg0 * farg0))) {
+            found = 1;
+        }
+        if (found != 0) {
+            if (p != 0U) {
+                if (check_flag_100__10TObjPlayerFPv((void *) (p)) == 0) {
+                    TObjLuker__sub_801A0C7C(arg0, (int) (obj_getField1c((int) (p))));
+                } else {
+                    C38_801A10A0((void *) (arg0), (int) (obj_getField1c((int) (p))));
+                }
+            }
+            return 1;
+        }
+    }
+    if (is_split_screen() != 0) {
+        if (found != 1) {
+            DB4_801A10A0((void *) (arg0));
+        }
+        return found;
+    }
+    DB4_801A10A0((void *) (arg0));
+    return 0;
+}
+
 void render__9TObjLukerFv(void) {  }
 
 extern void *tl_05;
@@ -323,7 +386,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
             switch (M2C_FIELD(arg0, s16 *, 0xB0)) {
             case 0:
                 sp8 = 0;
-                if (is_player_in_range__9TObjLukerFv((s32) arg0, lbl_805DC080) != 0) {
+                if (is_player_in_range__9TObjLukerFv((s32)((s32) arg0), lbl_805DC080) != 0) {
                     flag = 0;
                     if (is_split_screen() != 0) {
                         if (are_players_gathered_near(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {

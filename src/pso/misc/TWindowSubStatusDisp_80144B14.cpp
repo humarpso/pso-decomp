@@ -77,12 +77,12 @@ extern s32 lbl_8043F390[];
 char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 u32 get_font_char_advance(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
-s32 calc_ci4_tile_offset(u32, u32);
 void DCStoreRange(void *, u32);
 extern u8 *lbl_8050C040[];
 extern u8 *lbl_805D56B0;
 extern u32 lbl_805D56B8;
 void upload_font_glyph(u16 c, void *arg1);
+s32 calc_ci4_tile_offset(u32 arg0, u32 arg1);
 }
 
 extern "C" {
@@ -209,6 +209,15 @@ extern u8 lbl_805D56C0;
 extern const f32 lbl_805DB194;
 
 #define g ((Glyph_80145190 *)arg1)
+
+s32 calc_ci4_tile_offset(u32 arg0, u32 arg1) {
+    s32 tile = (arg0 * 4) & 0x7FFFFFE0;
+    s32 r = tile + ((s32)(arg0 & 6) >> 1);
+    r += (arg1 << 7) & 0x7FFFFC00;
+    r += (s32)((arg1 & 7) << 3) >> 1;
+    return r;
+}
+
 void upload_font_glyph(u16 c, void *arg1) {
     u8 *tex;
     u32 i;
@@ -228,7 +237,7 @@ void upload_font_glyph(u16 c, void *arg1) {
     for (j = 0; j < 0x12; j++) {
         for (i = 0; i < 5; i++) {
             u8 b = *src;
-            u8 *dst = tex + calc_ci4_tile_offset(x + i * 4, y + j);
+            u8 *dst = tex + calc_ci4_tile_offset((u32)(x + i * 4), (u32)(y + j));
             pack_status_flags__20TWindowSubStatusDispFPvUi(dst, b);
             src++;
         }

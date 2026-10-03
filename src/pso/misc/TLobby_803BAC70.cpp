@@ -305,6 +305,38 @@ typedef struct S_803BF408 {
     f32 f1A8;
 } S_803BF408;
 
+struct Src_803BF884 {
+    s32 *dest;
+    s32 *smpBase;
+    s32 *old;
+    u32 posLo;
+    u32 posHi;
+    u32 pitchLo;
+    u32 pitchHi;
+};
+
+struct Work_803BF884 {
+    s32 *lastLeft[3];
+    s32 *lastRight[3];
+    s32 *lastSur[3];
+    u8 currentLast;
+    s32 oldLeft[4];
+    s32 oldRight[4];
+    s32 oldSur[4];
+    u32 currentPosLo;
+    u32 currentPosHi;
+    s32 pitchOffset;
+    u32 pitchOffsetPeriodCount;
+    u32 pitchOffsetPeriod;
+    Src_803BF884 src;
+};
+
+struct Info_803BF884 {
+    s32 *left;
+    s32 *right;
+    s32 *surround;
+};
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -590,6 +622,9 @@ extern SoundStudioMixView lbl_805663D8[];
 extern u16 lbl_8047C420[];
 void apply_sound_mix_curve(u32 p, SoundMixCurveOutput *out, s32 x, s32 a3, bool f7, bool f8, f32 a, f32 b, f32 c);
 void set_sound_voice_mix(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
+void TLobby__sub_803BF500(void *);
+void TLobby__sub_803BF698(void *);
+void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c);
 }
 
 extern "C" {
@@ -1442,7 +1477,9 @@ void init_sound_reverb(Obj_803BE860 *self) {
     self->flag = 0;
     create_sound_reverb_state((SoundReverb*)self, self->a, self->c, self->b, self->d, self->e, self->f);
 }
-extern "C" f32 powf(f32, f32);
+extern "C" {
+f32 powf(f32, f32);
+}
 #pragma push
 #pragma dont_inline off
 static void DLsetdelay(SoundReverbDelay * dl, s32 lag) {
@@ -1536,6 +1573,76 @@ void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF40
             process_sound_reverb_block(arg2, arg3, 2);
             break;
         }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma peephole off
+void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c) {
+    s32 *leftD;
+    s32 *rightD;
+    s32 *surD;
+    s32 *leftS;
+    s32 *rightS;
+    s32 *surS;
+    u32 i;
+    u8 nextCurrentLast;
+    switch (reason) {
+    case 0:
+        nextCurrentLast = (c->currentLast + 1) % 3;
+        leftD = c->lastLeft[nextCurrentLast];
+        rightD = c->lastRight[nextCurrentLast];
+        surD = c->lastSur[nextCurrentLast];
+        leftS = info->left;
+        rightS = info->right;
+        surS = info->surround;
+        for (i = 0; i < 160; i++) {
+            *leftD++ = *leftS++;
+            *rightD++ = *rightS++;
+            *surD++ = *surS++;
+        }
+        c->src.pitchHi = (c->pitchOffset >> 16) + 1;
+        c->src.pitchLo = (c->pitchOffset & 0xFFFF) << 16;
+        if (--c->pitchOffsetPeriodCount == 0) {
+            c->pitchOffsetPeriodCount = c->pitchOffsetPeriod;
+            c->pitchOffset = -c->pitchOffset;
+        }
+        for (i = 0; i < 3; i++) {
+            c->src.posHi = c->currentPosHi;
+            c->src.posLo = c->currentPosLo;
+            switch (i) {
+            case 0:
+                c->src.smpBase = c->lastLeft[0];
+                c->src.dest = info->left;
+                c->src.old = c->oldLeft;
+                break;
+            case 1:
+                c->src.smpBase = c->lastRight[0];
+                c->src.dest = info->right;
+                c->src.old = c->oldRight;
+                break;
+            case 2:
+                c->src.smpBase = c->lastSur[0];
+                c->src.dest = info->surround;
+                c->src.old = c->oldSur;
+                break;
+            }
+            switch (c->src.pitchHi) {
+            case 0:
+                TLobby__sub_803BF500(&c->src);
+                break;
+            case 1:
+                TLobby__sub_803BF698(&c->src);
+                break;
+            }
+        }
+        c->currentPosHi = c->src.posHi % 480;
+        c->currentPosLo = c->src.posLo;
+        c->currentLast = nextCurrentLast;
+        break;
+    case 1:
+        break;
     }
 }
 #pragma pop
