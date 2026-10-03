@@ -1,4 +1,7 @@
+#pragma dont_inline on
 #include "types.h"
+#include "pso/audio/SoundMixVoice.h"
+#include "pso/audio/SoundReverb.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -383,7 +386,7 @@ s32 EXIGetID(void *);
 s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
 s32 OSDisableInterrupts(void);
@@ -392,7 +395,7 @@ s32 OSRestoreInterrupts(s32 level);
 extern s32 lbl_805D7508;
 extern u16 lbl_805D7504;
 void TLobby__sub_803BE700(void);
-void create_sound_reverb_state(Obj_803BE860 *self, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f);
+s32 create_sound_reverb_state(SoundReverb *self, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f);
 void TLobby__sub_803BE860(Obj_803BE860 *self);
 s32 OSEnableInterrupts(void);
 void TLobby__sub_803BE790(void);
@@ -455,10 +458,10 @@ void TLobby__sub_803BE508(void);
 extern s32 lbl_805D748C;
 extern s8 lbl_805D74B8; void TLobby__sub_803B8910(Slot_803BD138 *s, s32 x);
 void TLobby__sub_803BD138(s32 i, s32 x);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803B8A14(Rec_803BD62C *r, void *p);
 void TLobby__sub_803BD62C(u8 i, void *p);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803B8ABC(Rec_803BD660 *r, u32 x);
 void TLobby__sub_803BD660(u8 i, u32 x);
 extern u8 lbl_8056E098[][16];
@@ -521,7 +524,7 @@ s32 OSGetTick();
 extern s32 lbl_805D74FC;
 u32 TLobby__sub_803BE688(void);
 extern RecoveredCallback_d26337a2813d lbl_805D74BC;
-void TLobby__sub_803BE7B0(void);
+f32* TLobby__sub_803BE7B0(s32 bytes);
 extern RecoveredCallback_d26337a2813d lbl_805D74BC;
 void TLobby__sub_803BE7D8(s32 arg0);
 void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2);
@@ -582,6 +585,11 @@ void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *ar
 void TLobby__sub_803BED6C(void *, void *, f32, f32);
 void process_sound_reverb_block(void *, void *, int);
 void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
+extern s32 lbl_805D748C;
+extern SoundStudioMixView lbl_805663D8[];
+extern u16 lbl_8047C420[];
+void apply_sound_mix_curve(u32 p, SoundMixCurveOutput *out, s32 x, s32 a3, bool f7, bool f8, f32 a, f32 b, f32 c);
+void set_sound_voice_mix(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
 }
 
 extern "C" {
@@ -1022,6 +1030,53 @@ void TLobby__sub_803BD26C(s32 i, u8 mode) {
     (*(Slot_803BD26C **)&lbl_805D748C)[i].ff0 &= 0x7FFFFFFF;
 }
 
+void set_sound_voice_mix(s32 voice, u32 volumeCurve, u32 pan, s32 surroundPan, f32 direct, f32 auxiliaryA, f32 auxiliaryB) {
+    SoundMixVoice *state = (*(SoundMixVoice **)&lbl_805D748C) + voice;
+    SoundMixCurveOutput out[3];
+    s32 left, right, surround;
+    if (direct >= 1.0f) direct = 1.0f;
+    if (auxiliaryA >= 1.0f) auxiliaryA = 1.0f;
+    if (auxiliaryB >= 1.0f) auxiliaryB = 1.0f;
+    apply_sound_mix_curve(volumeCurve, out, pan, surroundPan, (state->flags & 0x80000000) != 0,
+        lbl_805663D8[state->studio].mode == 1, direct, auxiliaryA, auxiliaryB);
+    left = 32767.0f * out[0].left;
+    right = 32767.0f * out[0].right;
+    surround = 32767.0f * out[0].surround;
+    if (state->dirty[0] == 0xFF || state->coefficients[0].left != (u16)left || state->coefficients[0].right != (u16)right || state->coefficients[0].surround != (u16)surround) {
+        state->coefficients[0].left = left;
+        state->coefficients[0].right = right;
+        state->coefficients[0].surround = surround;
+        state->changed |= 1;
+        state->dirty[0] = 0;
+    }
+    left = 32767.0f * out[1].left;
+    right = 32767.0f * out[1].right;
+    surround = 32767.0f * out[1].surround;
+    if (state->dirty[1] == 0xFF || state->coefficients[1].left != (u16)left || state->coefficients[1].right != (u16)right || state->coefficients[1].surround != (u16)surround) {
+        state->coefficients[1].left = left;
+        state->coefficients[1].right = right;
+        state->coefficients[1].surround = surround;
+        state->changed |= 2;
+        state->dirty[1] = 0;
+    }
+    left = 32767.0f * out[2].left;
+    right = 32767.0f * out[2].right;
+    surround = 32767.0f * out[2].surround;
+    if (state->dirty[2] == 0xFF || state->coefficients[2].left != (u16)left || state->coefficients[2].right != (u16)right || state->coefficients[2].surround != (u16)surround) {
+        state->coefficients[2].left = left;
+        state->coefficients[2].right = right;
+        state->coefficients[2].surround = surround;
+        state->changed |= 4;
+        state->dirty[2] = 0;
+    }
+    if (state->flags & 0x80000000) {
+        u16 *t = &lbl_8047C420[(u8)(pan >> 16)];
+        state->leftDelay = *t;
+        state->rightDelay = 0x20 - *t;
+        state->changed |= 0x200;
+    }
+}
+
 void TLobby__sub_803BD598(s32 arg0) {
     TLobby__sub_803B89B4((void *) (lbl_805D748C + (arg0 * 0xF4)));
 }
@@ -1031,7 +1086,7 @@ void TLobby__sub_803BD598(s32 arg0) {
 typedef char RecoveredGlobal_803BD5C4_lbl_805663D8_size[sizeof(RecoveredGlobal_803BD5C4_lbl_805663D8) == 0x6E0 ? 1 : -1];
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)&lbl_805663D8.value + (arg0 * 0xBC);
+    temp_r3 = (u8 *)&lbl_805663D8 + (arg0 * 0xBC);
     M2C_FIELD(temp_r3, s32 *, 0xAC) = arg1;
     M2C_FIELD(temp_r3, s32 *, 0xB4) = arg2;
     M2C_FIELD(temp_r3, s32 *, 0xB0) = arg3;
@@ -1364,8 +1419,8 @@ void TLobby__sub_803BE790(void) {
     OSEnableInterrupts();
 }
 
-void TLobby__sub_803BE7B0(void) {
-    lbl_805D74BC();
+f32* TLobby__sub_803BE7B0(s32 bytes) {
+    return ((f32* (*)(s32))lbl_805D74BC)(bytes);
 }
 
 void TLobby__sub_803BE7D8(s32 arg0) {
@@ -1385,8 +1440,82 @@ void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2) {
 
 void TLobby__sub_803BE860(Obj_803BE860 *self) {
     self->flag = 0;
-    create_sound_reverb_state(self, self->a, self->c, self->b, self->d, self->e, self->f);
+    create_sound_reverb_state((SoundReverb*)self, self->a, self->c, self->b, self->d, self->e, self->f);
 }
+extern "C" f32 powf(f32, f32);
+#pragma push
+#pragma dont_inline off
+static void DLsetdelay(SoundReverbDelay * dl, s32 lag) {
+    dl->readOffset = dl->writeOffset - (lag * 4);
+    while (dl->readOffset < 0) {
+        dl->readOffset += dl->byteLength;
+    }
+}
+
+static void DLcreate(SoundReverbDelay * dl, s32 max_byteLength) {
+    dl->byteLength = (max_byteLength * 4);
+    dl->samples = TLobby__sub_803BE7B0( max_byteLength << 2);
+    memset(dl->samples, 0, max_byteLength << 2);
+    dl->last = 0.0f;
+    DLsetdelay(dl, max_byteLength >> 1);
+    dl->writeOffset = 0;
+    dl->readOffset = 0;
+}
+
+s32 create_sound_reverb_state(SoundReverb * rv, float coloration, float time, float mix, float damping, float preDelay, float crossTalk) {
+    u8 i;
+    u8 k;
+    extern s32 lbl_804F9360[];
+
+    if ((coloration < 0.0f ) || (coloration > 1.0f )
+     || (time       < 0.01f) || (time       > 10.0f)
+     || (mix        < 0.0f ) || (mix        > 1.0f )
+     || (crossTalk  < 0.0f ) || (crossTalk  > 1.0f )
+     || (damping    < 0.0f ) || (damping    > 1.0f )
+     || (preDelay   < 0.0f ) || (preDelay   > 0.1f )) {
+        return 0;
+    }
+    memset(rv, 0, 0x1C4);
+    for(k = 0; k < 3; k++) {
+        for(i = 0; i < 3; i++) {
+            DLcreate(&rv->comb[i + (k * 3)], lbl_804F9360[i] + 2);
+            DLsetdelay(&rv->comb[i + (k * 3)], lbl_804F9360[i]);
+            rv->feedback[i + (k * 3)] = powf(10.0f, (lbl_804F9360[i] * -3) / (32000.0f * time));
+        }
+        for(i = 0; i < 2; i++) {
+            DLcreate(&rv->allPass[i + (k * 3)], lbl_804F9360[i + 3] + 2);
+            DLsetdelay(&rv->allPass[i + (k * 3)], lbl_804F9360[i + 3]);
+        }
+        DLcreate(&rv->allPass[2 + (k * 3)], lbl_804F9360[k + 5] + 2);
+        DLsetdelay(&rv->allPass[2 + (k * 3)], lbl_804F9360[k + 5]);
+        rv->lowPassLast[k] = 0.0f;
+    }
+    rv->coloration = coloration;
+    rv->mix = mix;
+    rv->crossTalk = crossTalk;
+    rv->damping = damping;
+    if (rv->damping < 0.05f) {
+        rv->damping = 0.05f;
+    }
+    rv->damping = (1.0f - (0.05f + (0.8f * rv->damping)));
+    if (0.0f != preDelay) {
+        rv->preDelayFrames = (32000.0f * preDelay);
+        for(i = 0; i < 3; i++) {
+            rv->preDelay[i] = TLobby__sub_803BE7B0( rv->preDelayFrames * 4);
+            memset(rv->preDelay[i], 0, rv->preDelayFrames * 4);
+            rv->preDelayCurrent[i] = rv->preDelay[i];
+        }
+    } else {
+        rv->preDelayFrames = 0;
+        for(i = 0; i < 3; i++) {
+            rv->preDelayCurrent[i] = 0;
+            rv->preDelay[i] = 0;
+        }
+    }
+    return 1;
+}
+
+#pragma pop
 #pragma push
 #pragma peephole off
 void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
