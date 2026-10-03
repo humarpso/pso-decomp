@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-void TWindowSubComCard__sub_80245F98(void *arg0, s32 arg1);
+void draw_window_frame(void *arg0, s32 arg1);
 extern M2C_UNK __vt__15TWindowQuantity[];
 void fn_80246CE8(s32 arg0);
 }
@@ -16,7 +16,7 @@ extern "C" {
 void fn_80246CE8(s32 arg0) {
     s32 temp_r3;
     temp_r3 = TWindowSubComCard__sub_80244C0C((void *)(arg0), (void *) (arg0 + 0x60));
-    TWindowSubComCard__sub_80245F98((void *)((void *) (arg0)), (s32)((int) (temp_r3)));
+    draw_window_frame((void *)((void *) (arg0)), (s32)((int) (temp_r3)));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

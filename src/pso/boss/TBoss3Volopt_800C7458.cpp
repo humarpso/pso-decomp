@@ -26,7 +26,7 @@ s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 extern RecoveredGlobal_800C7698_lbl_8058D490 lbl_8058D490;
 void TBoss3Volopt__sub_800C7698(u8 *arg0);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
@@ -83,7 +83,7 @@ void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2) {
 
 void TBoss3Volopt__sub_800C7698(u8 *arg0) {
     push_matrix_from((void *) (&lbl_8058D490.value));
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     pop_matrix();

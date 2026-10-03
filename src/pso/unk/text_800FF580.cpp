@@ -46,14 +46,14 @@ struct Obj_800FF788 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 Vec_800FF8CC *alloc__22TQuestVmDownLoadServerFPv(s32);
-void TBoss4Zako__sub_803D8910(Vec_800FF8CC *, Vec_800FF8CC *);
+void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
 void fn_800FF8CC(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 arg);
 void VecCopy__FP3VecPC3Vec(Vec_800FF8CC *, const Vec_800FF8CC *);
 void fn_800FF580(void *, void *, f32);
-void TBoss4Zako__sub_803D8910(Vec_800FF8CC *, Vec_800FF8CC *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(Vec_800FF8CC *, Vec_800FF8CC *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
 void fn_800FF788(Obj_800FF788 *self, void *mtx);
@@ -73,24 +73,24 @@ void fn_800FF788(Obj_800FF788 *self, void *mtx) {
     src = self->srcs;
     p = self->out;
     while (seg->n >= 2) {
-        len = TBoss6Kakusan__sub_803D8BD8(&seg->dir);
+        len = vector_length(&seg->dir);
         VecCopy__FP3VecPC3Vec((Vec_800FF8CC *)p, (Vec_800FF8CC *)&src->v);
         p++;
         n = seg->n - 1;
         while (n > 0) {
-            TBoss4Zako__sub_803D8910((Vec_800FF8CC *)p, (Vec_800FF8CC *)mtx);
-            TBoss6Type1__sub_803D9370(p, p - 1);
-            if (zero == TBoss6Kakusan__sub_803D8BD8(p)) {
+            vec3_add_to((Vec_800FF8CC *)p, (Vec_800FF8CC *)mtx);
+            subtract_vector(p, p - 1);
+            if (zero == vector_length(p)) {
                 p->x = zero;
                 p->y = lbl_805DAA5C;
                 p->z = zero;
             } else {
-                TNpcPlayer__sub_803D97B4(p);
+                normalize_vector(p);
             }
             p->x *= len;
             p->y *= len;
             p->z *= len;
-            TBoss4Zako__sub_803D8910((Vec_800FF8CC *)p, (Vec_800FF8CC *)(p - 1));
+            vec3_add_to((Vec_800FF8CC *)p, (Vec_800FF8CC *)(p - 1));
             if (self->flag != 0) {
                 fn_800FF580(self, p, len);
             }
@@ -125,7 +125,7 @@ void fn_800FF8CC(Self_800FF8CC *self, Src_800FF8CC *src, Pos_800FF8CC *pos, s32 
         Vec_800FF8CC v = p->v;
         for (n = s->count; n > 0; n--, out++) {
             VecCopy__FP3VecPC3Vec(out, &v);
-            TBoss4Zako__sub_803D8910(&v, &s->rot);
+            vec3_add_to(&v, &s->rot);
         }
     }
 }

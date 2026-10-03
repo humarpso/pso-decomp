@@ -26,8 +26,8 @@ s32 query_teammate_state__9TObjEneDDFPv(void *);
 void copy_pos_620__11TBoss6Type2Fii(s32, Vec_8036A6B0 *);
 u8 *get_player_by_client_id(s32);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
-void TBoss6Type1__sub_803D9370(Vec_8036A6B0 *, Vec_8036A6B0 *);
-void TBoss4Zako__sub_803D8910(Vec_8036A6B0 *, Vec_8036A6B0 *);
+void subtract_vector(Vec_8036A6B0 *, Vec_8036A6B0 *);
+void vec3_add_to(Vec_8036A6B0 *, Vec_8036A6B0 *);
 extern const f32 lbl_805E0370;
 extern const f32 lbl_805E0374;
 extern const f32 lbl_805E0378;
@@ -60,12 +60,12 @@ void TBoss6EffFlowSoul::run_task() {
         VecCopy__FP3VecPC3Vec(&self->pos, &target);
     } else {
         VecCopy__FP3VecPC3Vec(&d, &target);
-        TBoss6Type1__sub_803D9370(&d, &self->pos);
+        subtract_vector(&d, &self->pos);
         k = lbl_805E0378 / remain;
         d.x *= k;
         d.y *= k;
         d.z *= k;
-        TBoss4Zako__sub_803D8910(&self->pos, &d);
+        vec3_add_to(&self->pos, &d);
     }
     if (self->f20 != NULL) {
         copy_pos__11TNowLoadingFPvPv(self->f20, &self->pos);

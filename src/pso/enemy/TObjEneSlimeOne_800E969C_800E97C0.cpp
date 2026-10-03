@@ -33,12 +33,12 @@ int TObjEneSlimeOne__sub_800EC7F4(void*, void*);
 s32 project_actor_to_ground(void *, void *, int);
 Tgt_800E984C *get_player_by_client_id(s32);
 s32 play_sound_effect(int, void *, int, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern const f32 lbl_805DA66C;
 extern const float lbl_805DA67C;
 extern const f32 lbl_805DA6AC;
@@ -85,21 +85,21 @@ void TObjEneSlimeOne__sub_800E984C(Self_800E984C *self) {
     VecCopy__FP3VecPC3Vec(&self->dest, &t->pos);
     r = lbl_805DA6AC * calc_boss4_scale__10TObjPlayerFi(self) + lbl_805DA710;
     ang = lbl_805DA714 * calc_boss4_scale__10TObjPlayerFi(self);
-    self->dest.x = r * TBoss8Dragon__sub_803D64C0(ang) + self->dest.x;
-    self->dest.z = r * TBoss8Dragon__sub_803D64DC(ang) + self->dest.z;
+    self->dest.x = r * sin_table_lookup(ang) + self->dest.x;
+    self->dest.z = r * cos_table_lookup(ang) + self->dest.z;
     Vec_800E984C dir = self->dest;
-    TBoss6Type1__sub_803D9370(&dir, &self->pos);
-    len = TBoss6Kakusan__sub_803D8BD8(&dir);
+    subtract_vector(&dir, &self->pos);
+    len = vector_length(&dir);
     if (lbl_805DA6B4 == len) {
         TObjEneSlimeOne__sub_800EAE78(self, 5);
         return;
     }
     n = len / lbl_805DA66C;
-    if (TBoss6Kakusan__sub_803D8BD8(&dir) <= lbl_805DA718) {
+    if (vector_length(&dir) <= lbl_805DA718) {
         dir.x = (*(const f32 *)&lbl_805DA67C);
         dir.z = dir.y = lbl_805DA6B4;
     } else {
-        TNpcPlayer__sub_803D97B4(&dir);
+        normalize_vector(&dir);
     }
     dir.x *= lbl_805DA66C;
     dir.y *= lbl_805DA66C;
@@ -113,7 +113,7 @@ void TObjEneSlimeOne__sub_800E984C(Self_800E984C *self) {
             return;
         }
         n--;
-        TBoss4Zako__sub_803D8910(&pos, &dir);
+        vec3_add_to(&pos, &dir);
     }
     self->f390 = 0x5A;
     TObjEneSlimeOne__sub_800EC7F4((void*)((void *)self->f388), (void*)((void *)0));

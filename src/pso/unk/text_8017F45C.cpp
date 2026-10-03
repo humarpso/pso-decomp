@@ -26,7 +26,7 @@ struct Obj_8017F550 { u8 pad0[0x38]; u8 pos[0x28]; s32 f60; u8 pad1[0x88]; Rec_8
 
 extern "C" {
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017F45C_lbl_804B5830 lbl_804B5830;
 extern s32 lbl_805D5B10;
@@ -35,7 +35,7 @@ void fn_8017F52C(O_8017F52C *self);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 void fn_8017F4AC(Self_8017F4AC *self);
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
 void rotate_matrix_y(int, s32);
 void push_matrix_from(void *);
@@ -53,7 +53,7 @@ void fn_8017F45C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B5830.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B5830.value, 0, 0, 0));
     }
     lbl_805D5B10 = var_r0;
 }
@@ -83,7 +83,7 @@ void fn_8017F550(Obj_8017F550 *arg0) {
         rotate_matrix_y(0, arg0->f60);
         TCameraCtrl__sub_803D8934(0, &arg0->recs[i], &arg0->recs[i]);
         pop_matrix();
-        TBoss4Zako__sub_803D8910(&arg0->recs[i], arg0->pos);
+        vec3_add_to(&arg0->recs[i], arg0->pos);
         arg0->recs[i].f14 = 0;
     }
 }

@@ -573,7 +573,7 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
 void *__nw__7TObjectFUl(int);
-f32 TBoss8Dragon__sub_803D64C0(int);
+f32 sin_table_lookup(int);
 extern const f32 lbl_805D9D04;
 extern const f32 lbl_805D9D18;
 extern const f32 lbl_805D9D44;
@@ -594,8 +594,8 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 s32 play_sound_effect(void *, void *, int, int);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D04;
 extern const f32 lbl_805D9D10;
@@ -696,8 +696,8 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
         } else if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805D9D3C)) != 0) {
             temp_r31 = M2C_FIELD(arg0, s32 *, 0x60) - 0x4000;
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-            stack.sp8 += lbl_805D9D40 * TBoss8Dragon__sub_803D64C0((int) (temp_r31));
-            stack.sp10 += lbl_805D9D40 * TBoss8Dragon__sub_803D64DC((int) (temp_r31));
+            stack.sp8 += lbl_805D9D40 * sin_table_lookup((int) (temp_r31));
+            stack.sp10 += lbl_805D9D40 * cos_table_lookup((int) (temp_r31));
             spawn_particle_effect((void *) (&stack.sp8), (int) (0xF0));
         }
         M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) (M2C_FIELD(arg0, f32 *, 0x4B0) + lbl_805D9D2C);
@@ -870,7 +870,7 @@ void TObjEneBm3FlyNest__sub_800B36F8(u8 *arg0, s32 arg1) {
                     }
                 }
             }
-            M2C_FIELD(arg0, f32 *, 0x4B0) = M2C_FIELD(arg0, f32 *, 0x4B0) - ((lbl_805D9D4C * (lbl_805D9D18 + TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x4D4)))) + lbl_805D9D48);
+            M2C_FIELD(arg0, f32 *, 0x4B0) = M2C_FIELD(arg0, f32 *, 0x4B0) - ((lbl_805D9D4C * (lbl_805D9D18 + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x4D4)))) + lbl_805D9D48);
             M2C_FIELD(arg0, s32 *, 0x4D4) += 0x700;
             if (M2C_FIELD(arg0, f32 *, 0x4B0) < lbl_805D9D50 && M2C_FIELD(arg0, s16 *, 0xB8) != 9) {
                 M2C_FIELD(arg0, s16 *, 0xB8) = 9;

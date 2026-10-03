@@ -183,7 +183,7 @@ void calc_range__9TTecZaruaFPv(u8 *arg0);
 void create_instance__9TTecZaruaFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void render__9TTecZaruaFv(void);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
-s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
+s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -194,7 +194,7 @@ void calc_range__9TTecZaruaFPv(u8 *arg0) {
     s32 ret;
     struct { s32 v; } tmp;
 
-    ret = TTecCtrl__sub_8022DBC4(0xC, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
+    ret = calc_technique_parameters(0xC, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
     tmp.v = ret;
     TTecAnti__sub_8022B35C(arg0 + 0x88, tmp.v);
     M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));

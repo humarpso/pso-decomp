@@ -117,7 +117,7 @@ extern s32 lbl_805D53A0;
 void TOTrapAncient01__sub_8017940C(u8 *arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 extern RecoveredGlobal_80179E34_lbl_804B4834 lbl_804B4834;
@@ -235,7 +235,7 @@ void TOTrapAncient01__sub_80179E34(void) {
   new_var = 0;
   if (temp_r31 != new_var)
   {
-    var_r0 = (long) TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B4834.value, 0, 0, 0);
+    var_r0 = (long) load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B4834.value, 0, 0, 0);
   }
   (*(u8 * *)&TOTrapAncient01__data_805D5AD0) = (unsigned char *) ((void *) var_r0);
   temp_r31 = TObjFish__sub_8001EDB0((void *) var_r0, 3);

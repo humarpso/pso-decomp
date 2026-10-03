@@ -35,7 +35,7 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 extern RecoveredGlobal_80270C98_lbl_8050E208 lbl_8050E208;
 void TWindowSoundBalance__sub_80270ACC(u8 *arg0);
 State_80270DCC *get_global_state__23TAdSinglePlyChrSelectGCFv();
-u32 TWindowSubStatusDisp__sub_80144D68();
+u32 calc_text_width();
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK get_field_20__17TWindowSubComCardFPv();
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, s32, s32);
@@ -69,7 +69,7 @@ void *__dt__19TWindowSoundBalanceFv(void *arg0, s16 arg1);
 void play_open_sound__19TWindowSoundBalanceFPv(void *arg0);
 void render__19TWindowSoundBalanceFv(s32 arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80245F98(s32, void *);
+M2C_UNK draw_window_frame(s32, void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 M2C_UNK apply_balance__19TWindowSoundBalanceFPvPv(s32, void *, f32, f32);
@@ -111,7 +111,7 @@ void render__19TWindowSoundBalanceFv(s32 arg0) {
     void *temp_r3;
 
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     temp_f2 = M2C_FIELD(temp_r3, f32 *, 0x10);
     M2C_FIELD(temp_r3, f32 *, 0x10) = (f32) (temp_f2 + lbl_805DD40C);
@@ -165,11 +165,11 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 0x64) = 1;
     e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     get_field_20__17TWindowSubComCardFPv();
-    M2C_FIELD(e, f32 *, 8) = lbl_805DD414 - lbl_805DD418 * TWindowSubStatusDisp__sub_80144D68();
+    M2C_FIELD(e, f32 *, 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
     refresh_status_display__9TWindowDDFv(e);
     e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
     get_field_20__17TWindowSubComCardFPv();
-    M2C_FIELD(e, f32 *, 8) = lbl_805DD414 - lbl_805DD418 * TWindowSubStatusDisp__sub_80144D68();
+    M2C_FIELD(e, f32 *, 8) = lbl_805DD414 - lbl_805DD418 * calc_text_width();
     refresh_status_display__9TWindowDDFv(e);
     st = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (st == 0) {

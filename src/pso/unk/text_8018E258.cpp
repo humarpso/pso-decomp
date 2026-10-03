@@ -12,7 +12,7 @@ s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
 
-s32 fn_8018E258(TObjDoor* arg0, s32 arg1, f32 farg0) {
+s32 check_player_door_proximity(TObjDoor* arg0, s32 arg1, f32 farg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     s32 temp_r3;

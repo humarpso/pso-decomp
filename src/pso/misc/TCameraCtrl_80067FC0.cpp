@@ -75,8 +75,8 @@ void TCameraCtrl__sub_801E317C(s32, void *);
 void TCameraCtrl__sub_801E32D8(f32, f32);
 void GXSetScissorBoxOffset(s32, s32);
 void set_camera_look_at(void *, void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void normalize_vector(void *);
 extern Vec_8006835C lbl_804FF5E8;
 extern Flags_8006835C TCameraCtrl__data_804FF628;
 extern Scissor_8006835C TCameraCtrl__data_804FF634;
@@ -101,10 +101,10 @@ Vec_8006835C *get_position_ptr__10TObjPlayerFPv(void *);
 Vec_8006835C *get_target_ptr__11TCameraCtrlFPv(void *);
 Hit_8006809C *csnVector(void *, void *, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
-M2C_UNK TObjPlayer__sub_803D89C0(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+M2C_UNK vec3_dot(void *, void *);
+f32 vector_length(void *);
 M2C_UNK rotate_matrix_y(int, s32);
-void TNpcPlayer__sub_803D97B4(void *);
+void normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
 extern const Vec_8006835C lbl_80438168;
@@ -174,7 +174,7 @@ s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self) {
     d.x = pos->x - tgt->x;
     d.y = pos->y - tgt->y;
     d.z = pos->z - tgt->z;
-    len = TBoss6Kakusan__sub_803D8BD8(&d);
+    len = vector_length(&d);
     if (len < TCameraCtrl__data_805D8F80) {
         Vec_8006835C v1 = lbl_80438168;
         Vec_8006835C v2 = lbl_80438174;
@@ -187,7 +187,7 @@ s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self) {
         rotate_matrix_y(0, self->obj->angle);
         TCameraCtrl__sub_803D8934(0, &v2, &v2);
         TCameraCtrl__sub_803D9858(1);
-        TObjPlayer__sub_803D89C0(&v1, &v2);
+        vec3_dot(&v1, &v2);
         if (get_random_float__8TObjFishFv() > lbl_805D8F88) {
             dist = TCameraCtrl__data_805D8F84;
         } else {
@@ -210,8 +210,8 @@ s32 TCameraCtrl__sub_8006809C(Cam_8006809C *self) {
     dir.x = a->x - b->x;
     dir.y = a->y - b->y;
     dir.z = a->z - b->z;
-    if (TCameraCtrl__data_805D8F84 != TBoss6Kakusan__sub_803D8BD8(&dir)) {
-        TNpcPlayer__sub_803D97B4(&dir);
+    if (TCameraCtrl__data_805D8F84 != vector_length(&dir)) {
+        normalize_vector(&dir);
     }
     probe.x = dist * dir.x + self->obj->x;
     probe.z = dist * dir.z + self->obj->z;
@@ -242,8 +242,8 @@ void TCameraCtrl__sub_8006835C(void) {
     d.x = lbl_805D4DF0->target.x - lbl_805D4DF0->pos.x;
     d.y = lbl_805D4DF0->target.y - lbl_805D4DF0->pos.y;
     d.z = lbl_805D4DF0->target.z - lbl_805D4DF0->pos.z;
-    if (TCameraCtrl__data_805D8F84 == TBoss6Kakusan__sub_803D8BD8(&d)) {
-        TNpcPlayer__sub_803D97B4(&d);
+    if (TCameraCtrl__data_805D8F84 == vector_length(&d)) {
+        normalize_vector(&d);
         lbl_805D4DF0->target.x = lbl_805D4DF0->pos.x;
         lbl_805D4DF0->target.y = lbl_805D4DF0->pos.y;
         lbl_805D4DF0->target.z = TCameraCtrl__data_805D8F80 + lbl_805D4DF0->pos.z;

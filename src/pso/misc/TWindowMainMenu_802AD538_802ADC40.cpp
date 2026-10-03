@@ -115,7 +115,7 @@ void update_scaled_position__15TWindowMainMenuFi(s32 arg0);
 extern const f32 lbl_805DE158;
 extern f32 lbl_805DE1A8;
 void TWindowMainMenu__sub_802AE380(void *arg0);
-void TWindowMainMenu__sub_802AD538(void *, void *);
+void draw_item_labels__15TWindowMainMenuFv(void *, void *);
 void TWindowMainMenu__sub_802ADED4(s32 arg0, u8 *arg1);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void TWindowMainMenu__sub_802AE44C(u8 *arg0);
@@ -181,7 +181,7 @@ void TWindowMainMenu__sub_802ADED4(s32 arg0, u8 *arg1) {
     var_r30 = (u8 *)(arg0 + 0x10C);
     var_r31 = 0;
     do {
-        TWindowMainMenu__sub_802AD538(var_r30, arg1);
+        draw_item_labels__15TWindowMainMenuFv(var_r30, arg1);
         var_r31 += 1;
         var_r30 -= 0x18;
     } while (var_r31 < 8);

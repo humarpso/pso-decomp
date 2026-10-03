@@ -101,12 +101,12 @@ struct RecoveredGlobal_8014BDFC___vt__16TObjNpcMaleDwarf {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BD54_lbl_804AA3F0 lbl_804AA3F0;
 extern u32 TObjNpcMaleDwarf__data_805D57E8;
 void TObjNpcMaleDwarf__sub_8014BD54(void);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BF2C_lbl_804AA580 lbl_804AA580;
 extern u32 TObjNpcMaleFat__data_805D57F0;
@@ -150,7 +150,7 @@ void TObjNpcMaleDwarf__sub_8014BD54(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AA3F0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AA3F0.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcMaleDwarf__data_805D57E8) = var_r0;
 }
@@ -209,7 +209,7 @@ void TObjNpcMaleFat__sub_8014BF2C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AA580.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AA580.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcMaleFat__data_805D57F0) = var_r0;
 }

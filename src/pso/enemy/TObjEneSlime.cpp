@@ -113,9 +113,9 @@ M2C_UNK set_cull_back__8TObjFishFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv();
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *, void *);
+M2C_UNK post_translate_matrix(void *, void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK draw_chunk_object();
 M2C_UNK func_803e11e8__FUl(int);
@@ -173,9 +173,9 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
         temp_r30 = (M2C_FIELD(arg0, s32 *, 0x36C) * 4) & 4;
         TObjEneBm5GibonU__sub_803D853C((int) (0x130020), lbl_8043D298, (int) (M2C_FIELD(((u8 *)(lbl_80496360) + temp_r30), s32 *, 0)));
         toggle_particle_effect__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         temp_r30_2 = M2C_FIELD(((u8 *)(lbl_80496368) + temp_r30), s32 *, 0);
-        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38), (void *) (lbl_80496368));
+        post_translate_matrix((void *) ((u8 *)(arg0) + 0x38), (void *) (lbl_80496368));
         TObjFish__sub_8001EDB0((void *) (lbl_805D52B0), (int) (temp_r30_2));
         set_global_param__8TObjFishFi();
         if (temp_r31 != 0) {

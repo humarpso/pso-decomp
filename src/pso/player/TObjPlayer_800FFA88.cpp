@@ -10,7 +10,7 @@ struct Self_800FFB38 {
 };
 
 extern "C" {
-f32 TBoss8Dragon__sub_803D64C0(s32, f32, f32);
+f32 sin_table_lookup(s32, f32, f32);
 extern const f32 lbl_805DAA68;
 extern const f32 lbl_805DAA6C;
 extern const f32 lbl_805DAA70;
@@ -43,7 +43,7 @@ s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     }
     temp_f2 = temp_f1 - lbl_805DAA6C;
     temp_f31 = temp_f2 / lbl_805DAA70;
-    M2C_FIELD(arg1, f32 *, 0) = (lbl_805DAA74 * temp_f31) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x28) + (s32) (lbl_805DAA78 * temp_f31), lbl_805DAA70, temp_f2) + M2C_FIELD(arg1, f32 *, 0);
+    M2C_FIELD(arg1, f32 *, 0) = (lbl_805DAA74 * temp_f31) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x28) + (s32) (lbl_805DAA78 * temp_f31), lbl_805DAA70, temp_f2) + M2C_FIELD(arg1, f32 *, 0);
     return 1;
 }
 #pragma pop

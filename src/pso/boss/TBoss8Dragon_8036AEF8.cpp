@@ -36,8 +36,8 @@ extern const f32 lbl_805E039C;
 extern const f32 lbl_805E03A0;
 void TBoss8Dragon__sub_8036B088(void);
 void TLobby__sub_8036B1AC(Obj_8036B1AC *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 void DVDConvertEntrynumToPath(f32 *q);
 void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b);
 }
@@ -75,8 +75,8 @@ void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b) {
     f32 c;
     f32 s2;
     f32 c2;
-    s = 128.0f * TBoss8Dragon__sub_803D64C0(a);
-    c = 128.0f * TBoss8Dragon__sub_803D64DC(a);
+    s = 128.0f * sin_table_lookup(a);
+    c = 128.0f * cos_table_lookup(a);
     q[0] = (o[0] - 0.5f * (c * p[0])) + 0.5f * (s * p[1]);
     q[1] = (o[1] - 0.5f * (s * p[0])) - 0.5f * (c * p[1]);
     q[3] = c * p[0];
@@ -84,8 +84,8 @@ void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b) {
     q[5] = -s * p[1];
     q[6] = c * p[1];
     q[2] = 0.5f;
-    s2 = 128.0f * TBoss8Dragon__sub_803D64C0(b);
-    c2 = 128.0f * TBoss8Dragon__sub_803D64DC(b);
+    s2 = 128.0f * sin_table_lookup(b);
+    c2 = 128.0f * cos_table_lookup(b);
     q[8] = (0.5f * s2 + (156.0f - 0.5f * c2)) / 256.0f;
     q[9] = ((156.0f - 0.5f * s2) - 0.5f * c2) / 256.0f;
     q[10] = c2 / 256.0f;

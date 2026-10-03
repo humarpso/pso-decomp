@@ -13,7 +13,7 @@ typedef struct Node_800D97E8 {
 extern "C" {
 void TObjPlayer__sub_803D7CA4(Node_800D97E8 *);
 void TCameraCtrl__sub_803D8934(int, void *, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern Vec_800D97E8 lbl_80500F80;
 extern Vec_800D97E8 *lbl_805D5230;
@@ -29,7 +29,7 @@ extern "C" {
 s32 fn_800D97E8(s32 arg0, Node_800D97E8 *node, s32 idx) {
     u32 flags;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D7CA4(node);
         flags = node->flags;
         while (idx == lbl_805D523C[lbl_805D5238]) {

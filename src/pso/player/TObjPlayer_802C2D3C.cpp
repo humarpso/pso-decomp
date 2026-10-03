@@ -8,13 +8,13 @@ extern "C" {
 
 void draw_model_parts__10TObjPlayerFPv(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -28,10 +28,10 @@ void draw_model_parts__10TObjPlayerFPv(u8 *arg0) {
         draw_line_strip__10TObjPlayerFPviif(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), lbl_805DE4FC);
     }
     set_global_param__8TObjFishFi(lbl_805D679C);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+    push_matrix();
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-    TOHangerMachine01__sub_803D9C00(arg0 + 0xAC);
+    post_translate_matrix(arg0 + 0xAC);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xB8));
     rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0xC0));
     set_global_flag__10TObjPlayerFv();

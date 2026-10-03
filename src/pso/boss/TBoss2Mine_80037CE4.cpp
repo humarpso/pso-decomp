@@ -47,7 +47,7 @@ f32 newton_sqrtf(s32, f32, f32, f32);
 void update_move_flag__10TBoss2MineFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_80435AF8;
 extern const f32 TBoss2Mine__data_805D84C8;
 extern const float TBoss2Mine__data_805D84D4;
@@ -133,7 +133,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
         ((VObj_80037EE0 *)arg0)->m93();
         M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) & 0xFFFFFFF8);
         VecCopy__FP3VecPC3Vec(arg0 + 0x39C, arg0 + 0x390);
-        TBoss6Type1__sub_803D9370(arg0 + 0x39C, arg0 + 0x2FC);
+        subtract_vector(arg0 + 0x39C, arg0 + 0x2FC);
         M2C_FIELD(arg0, f32 *, 0x3DC) = clamp_velocity__15TObjBoss2TunnelFPv(arg0 + 0x39C);
         temp_r3 = (s32) (lbl_80435AF8 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x39C), M2C_FIELD(arg0, f32 *, 0x3A4)));
         M2C_FIELD(arg0, s32 *, 0x60) = temp_r3;

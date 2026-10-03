@@ -10,11 +10,11 @@ void handle_tentacle_state_2__10TObjPlayerFPv(void* p);
 void update_orga_flow_shot__10TObjPlayerFi(s32 arg0);
 void approach_value_field200__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_80126F3C(void);
-int TBoss7Tentacle__sub_803D9BA0(void*);
+int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 
-void handle_tentacle_state_2__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 2) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
+void handle_tentacle_state_2__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 2) { scale_current_matrix((char*)p + 0x1f8); } }
 
 extern const f32 lbl_805DADA0;
 extern const f32 lbl_805DADA4;

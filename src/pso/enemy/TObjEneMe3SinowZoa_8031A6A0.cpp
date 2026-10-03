@@ -86,8 +86,8 @@ struct VObj_18_bd3b49 : VBase_18_bd3b49 {
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 f32 get_random_float__8TObjFishFv(f32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 M2C_UNK transition_enemy_state(void *, int);
 extern const f32 TObjEneMe3SinowZoa__data_805DF320;
 extern const f32 lbl_805DF350;
@@ -174,9 +174,9 @@ block_4:
     if (M2C_FIELD(arg0, f32 *, 0x3AC) > lbl_805DF350) {
         return 0;
     }
-    temp_f31_2 = M2C_FIELD(arg0, f32 *, 0x3A8) * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    temp_f31 = (M2C_FIELD(arg0, f32 *, 0x3A0) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60))) + temp_f31_2;
-    return (temp_f31 < TBoss8Dragon__sub_803D64DC(0x1E00)) == 0;
+    temp_f31_2 = M2C_FIELD(arg0, f32 *, 0x3A8) * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    temp_f31 = (M2C_FIELD(arg0, f32 *, 0x3A0) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60))) + temp_f31_2;
+    return (temp_f31 < cos_table_lookup(0x1E00)) == 0;
 }
 #pragma pop
 

@@ -103,9 +103,9 @@ void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_chunk_object(s32);
 extern s32 lbl_805D4D38;
@@ -134,7 +134,7 @@ void play_sound_effect(s32, void *, s32, s32);
 void *__nw__7TObjectFUl(u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 void push_matrix_from(void *);
 void pop_matrix();
 extern Pair_8004A1CC lbl_80436734[];
@@ -172,12 +172,12 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
     if (arg0->m8(lbl_805D88B8, lbl_805D88BC) != 0) {
         TObjLight__sub_80134194(arg0);
         toggle_particle_effect__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(&arg0->f38);
+        push_matrix();
+        post_translate_matrix(&arg0->f38);
         set_global_param__8TObjFishFi(lbl_805D4D40);
         draw_chunk_object(lbl_805D4D38);
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
         set_global_param__8TObjFishFi(lbl_805D4D44);
         draw_chunk_object(lbl_805D4D3C);
@@ -185,7 +185,7 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
         TObjLight__sub_80134098();
         end_effect_render__13TParticleCtrlFv();
         s = lbl_805D88C4 * (TObjVoloptPillar__data_805D88C8 - arg0->f3c) + lbl_805D88C0;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, arg0->f38, lbl_805D88CC, arg0->f40);
         rotate_matrix_y(0, arg0->f60);
         rotate_matrix_x(0, -0x4000);
@@ -238,7 +238,7 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
                             push_matrix_from(lbl_8058D490);
                             {
                                 Vec_8004A1CC v = bp->pos;
-                                TBoss6Type1__sub_803D9370(&v, lbl_804FEE68);
+                                subtract_vector(&v, lbl_804FEE68);
                                 ang = lbl_80436798[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
                                 {
                                     Vec_8004A1CC w = lbl_8043673C[0];

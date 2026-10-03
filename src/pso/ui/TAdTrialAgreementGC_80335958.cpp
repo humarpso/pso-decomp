@@ -63,7 +63,7 @@ extern RecoveredGlobal_80335A58_lbl_8050E208 lbl_8050E208;
 extern RecoveredGlobal_80335A58_lbl_8050E3B8 lbl_8050E3B8;
 extern const f32 lbl_805DF8B4;
 void TAdTrialAgreementGC__sub_80335A58(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK play_sound_effect(int, int, int, int);
@@ -101,7 +101,7 @@ void update_title_prompt__19TAdTrialAgreementGCFPv(u8 *arg0) {
     play_sound_effect((int) 0x52D01, (int) 0, (int) 0, (int) 0);
     *((s32 *) (((s8 *) arg0) + 0x24)) = 1;
   }
-  new_var = lbl_805DF8B4 + TBoss8Dragon__sub_803D64C0((s32) (lbl_805DF8B8 * ((f32) (((*((s32 *) (((s8 *) arg0) + 0x38))) % 120) * 3))));
+  new_var = lbl_805DF8B4 + sin_table_lookup((s32) (lbl_805DF8B8 * ((f32) (((*((s32 *) (((s8 *) arg0) + 0x38))) % 120) * 3))));
   *((f32 *) (((s8 *) arg0) + 0x28)) = (f32) (new_var * lbl_805DF8BC);
 }
 

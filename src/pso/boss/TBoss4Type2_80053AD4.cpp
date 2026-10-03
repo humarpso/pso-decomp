@@ -114,12 +114,12 @@ extern const f32 lbl_805D8B58;
 extern const f32 lbl_805D8B5C;
 extern const f32 lbl_805D8B60;
 void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TBoss6Type1__sub_803D9370(Vec_80053D4C *, Vec_80053D4C *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void subtract_vector(Vec_80053D4C *, Vec_80053D4C *);
 void fn_80053D4C(Obj_80053D4C *arg0);
 void TBoss4Type2__sub_800542B0(Boss_800542B0 *arg0, s32 arg1);
-int TObjPlayer__sub_803D9B2C(void);
+int push_matrix(void);
 int pop_matrix(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 int rotate_matrix_y(void *, void *);
@@ -129,8 +129,8 @@ void TCameraCtrl__sub_803D8934(int, void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *);
 Vec_80053E40 *get_position_ptr__10TObjPlayerFPv(void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 f32 xyz_distance(void *, void *);
 void TBoss4DarkFalz__sub_8004C220(void *, void *);
@@ -151,7 +151,7 @@ void TBoss4Type2__sub_80054530(u8 *arg0, s32 arg1);
 extern u8 *lbl_8048615C[];
 u8 *TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in);
 s32 TObjFish__sub_8001ED9C(s32, s32);
 M2C_UNK TObjFish__sub_8001EDB0(s32, s32);
@@ -184,12 +184,12 @@ extern const f32 lbl_805D8B80;
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 cos_table_lookup(s32);
 
 void render_and_update_effects__10TObjPlayerFPv(void* p);
 void render_effects__10TObjPlayerFPv(void* p);
 void snapshot_position__10TObjPlayerFPv(u8 *arg0);
-int TOHangerMachine01__sub_803D9C00(void*);
+int post_translate_matrix(void*);
 int TObjPlayer__sub_800531C8(void*);
 int end_effect_render__13TParticleCtrlFv(void);
 int toggle_particle_effect__10TObjPlayerFv(void*);
@@ -265,9 +265,9 @@ void fn_80053D4C(Obj_80053D4C *arg0) {
     for (i = 0; i < 3; i++, q++) {
         Vec_80053D4C v = arg0->spots[i].pos;
         VecCopy__FP3VecPC3Vec(&q->local, &v);
-        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
-        s = TBoss8Dragon__sub_803D64C0(-arg0->angle);
-        c = TBoss8Dragon__sub_803D64DC(-arg0->angle);
+        subtract_vector(&v, &arg0->pos);
+        s = sin_table_lookup(-arg0->angle);
+        c = cos_table_lookup(-arg0->angle);
         Vec_80053D4C t = v;
         v.x = c * t.x + s * t.z;
         v.z = -s * t.x + c * t.z;
@@ -285,7 +285,7 @@ void TObjPlayer__sub_80053E40(Obj_80053E40 *o) {
     u8 *pl;
     s32 j;
 
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
     set_position_vec3__10TObjPlayerFPvPv(0, &o->pos);
     rotate_matrix_y(0, o->x60);
@@ -311,18 +311,18 @@ void TObjPlayer__sub_80053E40(Obj_80053E40 *o) {
                 d.x = d.x - pts[j].x;
                 d.y = lbl_805D8B20;
                 d.z = d.z - pts[j].z;
-                dist = TBoss6Kakusan__sub_803D8BD8(&d);
+                dist = vector_length(&d);
                 if (!(dist > r)) {
                     if (lbl_805D8B20 == dist) {
                         VecCopy__FP3VecPC3Vec(&d, &pos);
                         d.y = lbl_805D8B20;
-                        if (lbl_805D8B20 == TBoss6Kakusan__sub_803D8BD8(&d)) {
+                        if (lbl_805D8B20 == vector_length(&d)) {
                             d.y = lbl_805D8B20;
                             d.x = lbl_805D8B18;
                             d.z = lbl_805D8B20;
                         }
                     }
-                    TNpcPlayer__sub_803D97B4(&d);
+                    normalize_vector(&d);
                     {
                         f32 s = lbl_805D8B08 + r;
                         d.x *= s;
@@ -338,8 +338,8 @@ void TObjPlayer__sub_80053E40(Obj_80053E40 *o) {
                             break;
                         }
                         q.y = lbl_805D8B20;
-                        m = TBoss6Kakusan__sub_803D8BD8(&q) - lbl_805D8B70;
-                        TNpcPlayer__sub_803D97B4(&q);
+                        m = vector_length(&q) - lbl_805D8B70;
+                        normalize_vector(&q);
                         q.x *= m;
                         q.z *= m;
                     }
@@ -361,7 +361,7 @@ extern const f32 lbl_805D8B60;
 extern const f32 lbl_805D8B74;
 
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0) {
-    return lbl_805D8B60 * (lbl_805D8B18 - TBoss8Dragon__sub_803D64DC((s32) (lbl_805D8B74 * farg0)));
+    return lbl_805D8B60 * (lbl_805D8B18 - cos_table_lookup((s32) (lbl_805D8B74 * farg0)));
 }
 
 extern M2C_UNK lbl_80437628;
@@ -373,12 +373,12 @@ typedef char RecoveredGlobal_80054530_lbl_80485EC8_size[sizeof(RecoveredGlobal_8
 
 void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in) {
     V_80054224 v = *in;
-    ((void (*)(void *))TBoss6Type1__sub_803D9370)(&v);
+    ((void (*)(void *))subtract_vector)(&v);
     v.x *= o->f39c;
     v.y *= o->f39c;
     v.z *= o->f39c;
     VecCopy__FP3VecPC3Vec(&o->pos, src);
-    TBoss4Zako__sub_803D8910(&o->pos, &v);
+    vec3_add_to(&o->pos, &v);
 }
 
 void TBoss4Type2__sub_800542B0(Boss_800542B0 *arg0, s32 arg1) {
@@ -490,7 +490,7 @@ void fn_8005455C(u8 *arg0) {
 }
 #pragma pop
 
-void render_effects__10TObjPlayerFPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); TObjPlayer__sub_803D9B2C(); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); ((int (*)(void*))TObjFish__sub_800543A4)(p); pop_matrix(); end_effect_render__13TParticleCtrlFv(); }
+void render_effects__10TObjPlayerFPv(void* p) { toggle_particle_effect__10TObjPlayerFv(p); push_matrix(); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); ((int (*)(void*))TObjFish__sub_800543A4)(p); pop_matrix(); end_effect_render__13TParticleCtrlFv(); }
 
 extern const f32 lbl_805D8B24;
 

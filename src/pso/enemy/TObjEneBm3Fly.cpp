@@ -128,8 +128,8 @@ void TObjEneBm3Fly__vt86(u8 *arg0);
 M2C_UNK get_field_0c__10TObjPlayerFPv(int);
 f32 get_pos_x__10TObjPlayerFPv(int);
 f32 get_random_float__8TObjFishFv(f32);
-f32 TBoss8Dragon__sub_803D64DC();
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 cos_table_lookup();
+f32 vec3_dot(void *, void *);
 extern s32 TObjEneBm3Fly__data_805D50E4;
 extern f32 TObjEneBm3Fly__data_805D9C88;
 extern f32 TObjEneBm3Fly__data_805D9CC8;
@@ -141,7 +141,7 @@ extern const f32 lbl_805D9CD8;
 void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
 s32 has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(void *, u16);
 M2C_UNK enemy_set_target_id(void *, u16);
-s32 TObjEneDD__sub_800BB484(void *, Cand_800B1684 *, f32);
+s32 collect_enemy_target_candidates(void *, Cand_800B1684 *, f32);
 M2C_UNK transition_enemy_state(void *, int);
 void *find_entity_by_id(u16);
 extern const f32 lbl_805D9CDC;
@@ -192,7 +192,7 @@ void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s) {
         transition_enemy_state(s, 3);
         return;
     }
-    count = TObjEneDD__sub_800BB484(s, players, lbl_805D9CDC);
+    count = collect_enemy_target_candidates(s, players, lbl_805D9CDC);
     for (i = 0; i < count; i++) {
         id = players[i].id;
         if (id != s->f38C && has_free_attack_slot__17TObjEneBm3FlyNestFPvUs(nest, id) != 0) {
@@ -208,9 +208,9 @@ void choose_attack__13TObjEneBm3FlyFPv(Fly_800B1684 *s) {
 s32 TObjEneBm3Fly__sub_800B177C(u8 *arg0) {
     f32 temp_f31;
     if ((M2C_FIELD(arg0, f32 *, 0x3AC) < (TObjEneBm3Fly__data_805D9CC8 + get_pos_x__10TObjPlayerFPv((int) (TObjEneBm3Fly__data_805D50E4)))) && (get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x398))) < TObjEneBm3Fly__data_805D9C88)) {
-        temp_f31 = TObjPlayer__sub_803D89C0((void *) (arg0 + 0x430), (void *) (arg0 + 0x3A0));
+        temp_f31 = vec3_dot((void *) (arg0 + 0x430), (void *) (arg0 + 0x3A0));
         get_field_0c__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x318)));
-        if (temp_f31 >= TBoss8Dragon__sub_803D64DC()) {
+        if (temp_f31 >= cos_table_lookup()) {
             return 1;
         }
     }

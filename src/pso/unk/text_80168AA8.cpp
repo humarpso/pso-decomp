@@ -8,7 +8,7 @@ extern "C" {
 struct Buf_80168AA8 { s32 a; s32 b; s32 c; };
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-void *TLobby__sub_80020004(void *, int, void *, int, int, int);
+void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 Buf_80168AA8 *alloc_buffer__11TOBoss4RockFPv(u32);
 s32 load_gvm_texture_file(void *);
@@ -34,7 +34,7 @@ void fn_80168AA8(void) {
     case 20:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != 0) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B2164, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B2164, 0, 0, 0);
         }
         lbl_805D59D0 = p;
         lbl_805D59D4 = alloc_buffer__11TOBoss4RockFPv(0xC);
@@ -49,7 +49,7 @@ void fn_80168AA8(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != 0) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B2144, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B2144, 0, 0, 0);
         }
         lbl_805D59D0 = p;
         lbl_805D59D4 = alloc_buffer__11TOBoss4RockFPv(0xC);

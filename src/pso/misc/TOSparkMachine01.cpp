@@ -71,7 +71,7 @@ struct Obj_801771F4 : VBase_801771F4 {
 extern "C" {
 extern const f32 TOSparkMachine01__data_805DB9EC;
 void run_task__16TOSparkMachine01Fv(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80177330_lbl_804B43F0 lbl_804B43F0;
 extern u32 TOSparkMachine01__data_805D5AC0;
@@ -93,9 +93,9 @@ void TOSparkMachine01__sub_80177088(void *arg0, s32 i);
 void begin_effect_render__13TParticleCtrlFv(void *);
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(int);
 void draw_ginja_model(int);
 void render__16TOSparkMachine01Fv(Obj_801771F4 *self);
@@ -152,8 +152,8 @@ void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
     s32 i;
     Res_801771F4 *r;
     if (self->m8(self->unka8, self->unkac) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(self->m38);
+        push_matrix();
+        post_translate_matrix(self->m38);
         rotate_matrix_y(0, self->unk60);
         set_global_param__8TObjFishFi(self->unk24);
         r = self->res;
@@ -162,8 +162,8 @@ void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {
         for (i = 0; i < 4; i++) {
             switch (self->on[i]) {
             case 1:
-                TObjPlayer__sub_803D9B2C();
-                TOHangerMachine01__sub_803D9C00(n->m);
+                push_matrix();
+                post_translate_matrix(n->m);
                 draw_ginja_model(n->f4);
                 pop_matrix();
                 break;
@@ -200,7 +200,7 @@ void TOSparkMachine01__sub_80177330(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B43F0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B43F0.value, 0, 0, 0));
     }
     (*(s32 *)&TOSparkMachine01__data_805D5AC0) = var_r0;
 }

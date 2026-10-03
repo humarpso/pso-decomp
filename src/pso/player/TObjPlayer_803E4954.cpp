@@ -40,13 +40,13 @@ void TObjPlayer__sub_803E44D4();
 void TObjPlayer__sub_803E4D8C(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
 s32 TObjPlayer__sub_803D76B4(int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
 s32 draw_object_tree_recursive(void *arg);
 s32 TObjPlayer__sub_803D7CA4(int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 extern A_803E4BDC *lbl_805D4698;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
@@ -90,7 +90,7 @@ s32 draw_object_tree_recursive(void *arg) {
     struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;
     u32 t;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D76B4((int) arg0);
         if (lbl_805D7810 != NULL) {
             lbl_805D7810(arg0);
@@ -146,7 +146,7 @@ void traverse_animated_node_tree(void *arg) {
     struct Node_803E49FC *arg0 = (struct Node_803E49FC *)arg;
     u32 t;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D7CA4((int) arg0);
         if (lbl_805D7810 != NULL) {
             lbl_805D7810(arg0);

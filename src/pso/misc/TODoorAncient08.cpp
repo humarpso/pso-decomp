@@ -107,7 +107,7 @@ s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK fn_8015FC40(void *, void *);
 u8 is_current_floor_switch_set(int);
 void TODoorAncient08__vt12(u8 *arg0);
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -149,9 +149,9 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(int);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 int draw_ginja_model(void *);
 extern void *TODoorAncient08__data_805D594C;
@@ -175,12 +175,12 @@ void *create__15TODoorAncient08FPv(void *arg0);
 void free_objects__15TODoorAncient08Fv(void);
 void render__15TODoorAncient08Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -324,10 +324,10 @@ void TODoorAncient08__sub_80160000(Door_80160000 *self) {
         g = 1;
     }
     on[3] = g;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_param__8TObjFishFi(((s32 *)TODoorAncient08__data_805D594C)[1]);
-    TOHangerMachine01__sub_803D9C00(self->pos);
-    TOHangerMachine01__sub_803D9C00(root->pos);
+    post_translate_matrix(self->pos);
+    post_translate_matrix(root->pos);
     rotate_matrix_y((M2C_UNK)(0), (s32)(self->x60));
     draw_ginja_model(root->model);
     draw_ginja_model(root->x2c->model);
@@ -338,13 +338,13 @@ void TODoorAncient08__sub_80160000(Door_80160000 *self) {
         } else {
             set_global_param__8TObjFishFi(((s32 *)TODoorAncient08__data_805D594C)[1]);
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         pp = pairs[i];
-        TOHangerMachine01__sub_803D9C00(pp[0]->pos);
+        post_translate_matrix(pp[0]->pos);
         draw_ginja_model(pp[0]->model);
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(pp[1]->pos);
+        push_matrix();
+        post_translate_matrix(pp[1]->pos);
         draw_ginja_model(pp[1]->model);
         pop_matrix();
     }
@@ -360,16 +360,16 @@ void render__15TODoorAncient08Fv(u8 *arg0) {
         switch (temp_r0) {
         case 1:
         case 3:
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
             pop_matrix();
             return;
         case 2:
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
             draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4) - lbl_805DB474);
@@ -486,7 +486,7 @@ void TODoorAncient08__sub_801605B0(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B10D8.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B10D8.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5948) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));

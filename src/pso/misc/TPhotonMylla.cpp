@@ -107,7 +107,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK queue_photon_blast_hit(int, int, int, f32);
 M2C_UNK begin_photon_summon_camera(void *, int);
 M2C_UNK update_photon_blast_attachments(void *);
-M2C_UNK TObjPlayer__sub_801A7748(void *, int);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
 M2C_UNK update_state__10TSceneSoraFPv(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK, f32);
 extern const f32 lbl_805DC1FC;
@@ -128,7 +128,7 @@ s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
 s32 set_current_scene__6TSceneFi(int);
@@ -154,7 +154,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
 M2C_UNK begin_photon_summon_camera(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
-M2C_UNK TObjPlayer__sub_801A7748(void *, int);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
 u8 * TPhotonMagicSquare__ct(void *, M2C_UNK, s32, s32, s32, f32);
 void TPhotonMylla__sub_801AD4A8(void* a0);
@@ -210,7 +210,7 @@ void render__12TPhotonMyllaFv(Self_801AD4C0 *self) {
     if (self->started != 0) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = some_id_805c6f74;
@@ -270,7 +270,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
         begin_photon_summon_camera((void *) (arg0), (int) (3));
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
-        TObjPlayer__sub_801A7748((void *) (arg0), (int) (5));
+        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (5));
     }
     ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_194 = (s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8;
     update_state__10TSceneSoraFPv((void *) (arg0));
@@ -414,7 +414,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
         if (o != NULL) {
             TPhotonMagicSquare__ct(o, (M2C_UNK)self, 5, (s32)&v, 0xAA, lbl_805DC200);
         }
-        TObjPlayer__sub_801A7748(self, 5);
+        spawn_photon_blast_attachment_effects(self, 5);
         play_cue_stream_file(lbl_80446E80);
     } else {
         spawn_photon_blast_opening_effects(5, F_801AD970(self, u16, 0x17C));

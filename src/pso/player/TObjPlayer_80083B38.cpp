@@ -134,8 +134,8 @@ M2C_UNK GXSetProjection(void *, int);
 M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetScissor(int, int, int, int);
 f32 TCameraCtrl__sub_803D8D00(void *);
-void TNpcPlayer__sub_803D97B4(void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+void normalize_vector(void *);
+M2C_UNK push_matrix();
 M2C_UNK set_ginja_draw_flags(int);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF31C(int, int);
@@ -239,7 +239,7 @@ void camera_stuff__Fv(void) {
     d.y = VIEW->target.y - VIEW->pos.y;
     d.z = VIEW->target.z - VIEW->pos.z;
     if (lbl_805D93D0 != TCameraCtrl__sub_803D8D00(&d)) {
-        TNpcPlayer__sub_803D97B4(&d);
+        normalize_vector(&d);
         LIGHT.x = VIEW->pos.x + lbl_805D9438 * (lbl_805D93C8 * d.x);
         LIGHT.y = VIEW->pos.y;
         LIGHT.z = VIEW->pos.z + lbl_805D9438 * (lbl_805D93C8 * d.z);
@@ -248,7 +248,7 @@ void camera_stuff__Fv(void) {
         LIGHT.y = lbl_805D93D0;
         LIGHT.z = lbl_805D93D0;
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     GXSetViewport(lbl_805D93D0, lbl_805D93D0, lbl_805D93C8, lbl_805D93C8, lbl_805D93D0, lbl_805D93D8);
     GXSetScissor(1, 1, 0xFE, 0xFE);
     t = lbl_805D941C;

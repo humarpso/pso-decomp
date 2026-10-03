@@ -14,7 +14,7 @@ struct S_802CAAF0 {
 
 extern "C" {
 extern const f32 TObjEneMe1GiGue__data_805DE660;
-f32 TObjPlayer__sub_8001311C(void *, s32, V_802CAAF0, s32, s32, s32);
+f32 receive_direct_attack__10TObjPlayerFv(void *, s32, V_802CAAF0, s32, s32, s32);
 M2C_UNK show_miss_popup(void *, void *);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, M2C_UNK);
 f32 TObjEneMe1GiGue__sub_802CAAF0(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s32 arg3);
@@ -24,8 +24,8 @@ extern "C" {
 
 f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0);
 f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0);
-f32 TObjPlayer__sub_80011824();
-f32 TObjPlayer__sub_80014108();
+f32 receive_weapon_special_attack__10TObjPlayerFv();
+f32 receive_physical_attack__10TObjPlayerFv();
 M2C_UNK show_miss_popup(void *, void *);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, M2C_UNK);
 
@@ -39,7 +39,7 @@ f32 calc_attack_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
         show_miss_popup(arg0, arg0 + 0x2FC);
         set_state__15TObjEneMe1GiGueFPvi(arg0, 0xA);
     } else {
-        var_f31 = TObjPlayer__sub_80011824();
+        var_f31 = receive_weapon_special_attack__10TObjPlayerFv();
     }
     return var_f31;
 }
@@ -52,7 +52,7 @@ f32 TObjEneMe1GiGue__sub_802CAAF0(S_802CAAF0 *arg0, s32 arg1, V_802CAAF0 arg2, s
         show_miss_popup(arg0, arg0->f2FC);
         set_state__15TObjEneMe1GiGueFPvi((void *)(arg0), (M2C_UNK)(10));
     } else {
-        r = TObjPlayer__sub_8001311C(arg0, arg1, arg2, arg3, -1, -1);
+        r = receive_direct_attack__10TObjPlayerFv(arg0, arg1, arg2, arg3, -1, -1);
     }
     return r;
 }
@@ -65,7 +65,7 @@ f32 get_target_range__15TObjEneMe1GiGueFPv(u8 *arg0) {
         show_miss_popup(arg0, arg0 + 0x2FC);
         set_state__15TObjEneMe1GiGueFPvi(arg0, 0xA);
     } else {
-        var_f31 = TObjPlayer__sub_80014108();
+        var_f31 = receive_physical_attack__10TObjPlayerFv();
     }
     return var_f31;
 }

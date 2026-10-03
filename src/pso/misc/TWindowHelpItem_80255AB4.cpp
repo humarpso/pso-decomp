@@ -44,7 +44,7 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *dst, void *src);
 void save_position__17TWindowSubComCardFPv(void *self);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32 size);
 void *init__21TWindowSubComCardListFPviii(void *p, s32 a, s32 b, s32 c);
-M2C_UNK TWindowHelpItem__sub_80255440(void *);
+M2C_UNK dispatch_item_help__15TWindowHelpItemFv(void *);
 void call_if_split_screen(void *self, s32 idx);
 THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx);
 }
@@ -59,10 +59,10 @@ void update_cursor_selection__15TWindowHelpItemFPv(void *arg0);
 void update_display__15TWindowHelpItemFPv(u8 *arg0);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 M2C_UNK TWindowHelpItem__sub_802553F8(void *);
-M2C_UNK TWindowHelpItem__sub_80255440(void *);
+M2C_UNK dispatch_item_help__15TWindowHelpItemFv(void *);
 s32 handle_list_page_flip_input(s32);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_8026C800(int, int);
@@ -104,7 +104,7 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     u8 temp_r3_2;
 
     temp_r3 = TWindowSubComCard__sub_80244C0C((void *) (arg0), (void *) (arg0 + 0xA8));
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r3_2 = M2C_FIELD(arg0, u8 *, 0x60);
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2)) {
@@ -119,7 +119,7 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
     if ((M2C_FIELD(arg0, u8 *, 0x60) & 1) && (fn_80244994(arg0) != 0) && !(M2C_FIELD(arg0, s32 *, 0x2C) & 4)) {
         if (!(M2C_FIELD(arg0, u8 *, 0x60) & 4)) {
             if (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x64)) != 0) {
-                TWindowHelpItem__sub_80255440(arg0);
+                dispatch_item_help__15TWindowHelpItemFv(arg0);
             }
         } else {
             decay_page_arrow_offset(M2C_FIELD(arg0, s32 *, 0x64));
@@ -170,7 +170,7 @@ THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx) {
     self->vb0 = lbl_8047B9F8;
     self->fa8 = lbl_805DCE10;
     self->fac = lbl_805DCE10;
-    TWindowHelpItem__sub_80255440(self);
+    dispatch_item_help__15TWindowHelpItemFv(self);
     call_if_split_screen(self, self->idx20);
     return self;
 }

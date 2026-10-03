@@ -38,8 +38,8 @@ s32 load_player_motion_data(void);
 M2C_UNK TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 u8 *draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_8024FD8C(void *, s32, M2C_UNK, M2C_UNK, f32);
+M2C_UNK draw_window_frame(void *, void *);
+M2C_UNK draw_window_text(void *, s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, void *);
 extern const f32 lbl_805DE018;
 extern const f32 lbl_805DE01C;
@@ -126,7 +126,7 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
     Stack_802A7F00 stack;
     u8 *temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     if (!(M2C_FIELD(arg0, u8 *, 0x60) & 2)) {
         if ((s32) M2C_FIELD(temp_r3, s32 *, 0x30) > 0) {
@@ -135,7 +135,7 @@ void render__15TWindowSnapShotFv(u8 *arg0) {
             TObjBoss2Tunnel__sub_8007CAE8(&stack.sp8, lbl_805DE018);
         }
     } else {
-        TWindowSubStatusDisp__sub_8024FD8C(temp_r3 + 0x10, get_localized_text_entry(0x24, 7), -1, 0, lbl_805DE01C);
+        draw_window_text(temp_r3 + 0x10, get_localized_text_entry(0x24, 7), -1, 0, lbl_805DE01C);
     }
 }
 

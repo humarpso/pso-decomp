@@ -36,7 +36,7 @@ extern s32 lbl_805D339C;
 extern u32 lbl_805D5C20;
 u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u8 lbl_804B7ED8[];
 extern u32 lbl_805D5C20;
 extern s32 lbl_805D5C24;
@@ -56,11 +56,11 @@ void render__9TKomorebiFv(u8 *arg0);
 void run_task__9TKomorebiFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK draw_ginja_object(void *);
 M2C_UNK rotate_matrix_yxz(M2C_UNK, s32, s32, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -86,9 +86,9 @@ void render__9TKomorebiFv(u8 *arg0) {
             scroll_ginja_mesh_uvs(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4), 0, (s32) M2C_FIELD(arg0, f32 *, 0x68), 0, 1);
             lbl_805D5C24 = lbl_805D53A4;
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_yxz(0, M2C_FIELD(arg0, s32 *, 0x5C), M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x64));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x70);
         scale_matrix(0, temp_f1, M2C_FIELD(arg0, f32 *, 0x6C), temp_f1);
@@ -149,7 +149,7 @@ void free_static__9TKomorebiFv(void) {
 void load_resources__9TKomorebiFv(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
-        p = TLobby__sub_80020004(p, 1, lbl_804B7ED8, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, lbl_804B7ED8, 0, 0, 0);
     }
     lbl_805D5C20 = (u32)p;
     lbl_805D5C24 = 0;

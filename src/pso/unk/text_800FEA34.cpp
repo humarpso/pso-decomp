@@ -8,7 +8,7 @@ extern "C" {
 void fn_800FED0C(u8 *arg0);
 void fn_800FEBBC(u8 *arg0, s32 arg1);
 void fn_800FEC40(u8 *arg0, u8 *arg1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 void fn_800FEA34(void *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
@@ -23,7 +23,7 @@ void fn_800FEA34(void *arg0, void *arg1, s32 arg2, s32 arg3) {
             return;
         }
         if (k == M2C_FIELD(arg0, s32 *, 0x88)) {
-            t = (f32) arg3 * TBoss8Dragon__sub_803D64C0(arg2);
+            t = (f32) arg3 * sin_table_lookup(arg2);
             M2C_FIELD(arg1, s32 *, 0x14) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), s32 *, 0) + (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x8C), f32 *, 4) * t);
             M2C_FIELD(arg1, s32 *, 0x18) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), s32 *, 4) + (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x8C), f32 *, 8) * t);
             M2C_FIELD(arg1, s32 *, 0x1C) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), s32 *, 8) + (s32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x8C), f32 *, 0xC) * t);

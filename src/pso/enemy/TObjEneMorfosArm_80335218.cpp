@@ -37,9 +37,9 @@ extern "C" {
 
 void *__dt__16TObjEneMorfosArmFv(void *arg0, s16 arg1);
 void render__16TObjEneMorfosArmFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__10TObjMotionFv(void *, int);
@@ -55,8 +55,8 @@ void render__16TObjEneMorfosArmFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
     toggle_particle_effect__10TObjPlayerFv();

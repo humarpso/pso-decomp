@@ -19,7 +19,7 @@ extern RecoveredGlobal_8028EC24_lbl_8051C07C lbl_8051C07C;
 void TObjCMMainMenu__sub_8028EC24(void);
 extern RecoveredGlobal_8028EBCC_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
 s32 TObjCMMainMenu__sub_8028EBCC(u8 *arg0);
-void *TLobby__sub_80020004(void *, M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *load_resource_from_descriptor(void *, M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_800693F4();
 M2C_UNK TCameraCtrl__sub_8006A35C();
 M2C_UNK TCameraCtrl__sub_8006A5EC(M2C_UNK);
@@ -92,7 +92,7 @@ void init_creation_menu_scene(void) {
     }
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 1, lbl_804D3900, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, lbl_804D3900, 0, 0, 0);
     }
     lbl_805D6528 = p;
     if (p != NULL) {

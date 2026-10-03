@@ -172,7 +172,7 @@ s16 get_field_2__9TTecLukerFPv(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 get_current_floor(void);
 void restore_floor_telepipes(void);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 extern const f32 lbl_805DC85C;
 extern const f32 lbl_805DC860;
 s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
@@ -425,7 +425,7 @@ s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unu
         d.x = r->pos.x - p->x;
         d.y = lbl_805DC85C;
         d.z = r->pos.z - p->z;
-        if (TBoss6Kakusan__sub_803D8BD8(&d) < lbl_805DC860) {
+        if (vector_length(&d) < lbl_805DC860) {
             return 0;
         }
     }

@@ -40,7 +40,7 @@ struct Stack_8022BF8C_more_8022be64_1 {
 };
 
 extern "C" {
-f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+f32 vector_length(void *, f32);
 void TTecLuker__sub_8022BF8C(u8 *arg0);
 }
 
@@ -48,7 +48,7 @@ extern "C" {
 
 void TTecLuker__sub_8022C008(u8 *arg0);
 void tick_lifetime__9TTecLukerFPv(void *arg0);
-M2C_UNK TEffStarLightChild__sub_80141FBC(int, void *, int, f32);
+M2C_UNK approach_vector_fixed_distance(int, void *, int, f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern const f64 lbl_8044CDF0;
@@ -86,7 +86,7 @@ void TTecLuker__sub_8022BF8C(u8 *arg0) {
     stack.spC = M2C_FIELD(arg0, f32 *, 0x24) - M2C_FIELD(arg0, f32 *, 0x80);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x28);
     stack.sp10 = temp_f1 - M2C_FIELD(arg0, f32 *, 0x84);
-    if (TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (f32) (temp_f1)) <= M2C_FIELD(arg0, f32 *, 0x64)) {
+    if (vector_length((void *) (&stack.sp8), (f32) (temp_f1)) <= M2C_FIELD(arg0, f32 *, 0x64)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) (M2C_FIELD(arg0, s32 *, 0x6C) + 1);
     }
 }
@@ -95,7 +95,7 @@ void TTecLuker__sub_8022C008(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = (long) (arg0 + 0x20);
-    TEffStarLightChild__sub_80141FBC((int) (temp_r3), (void *) (arg0 + 0x7C), (int) (temp_r3), (f32) (M2C_FIELD(arg0, f32 *, 0x64)));
+    approach_vector_fixed_distance((int) (temp_r3), (void *) (arg0 + 0x7C), (int) (temp_r3), (f32) (M2C_FIELD(arg0, f32 *, 0x64)));
 }
 
 }

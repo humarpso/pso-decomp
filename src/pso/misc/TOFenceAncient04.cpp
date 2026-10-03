@@ -131,7 +131,7 @@ extern const f32 lbl_805DB644;
 extern const f32 lbl_805DB648;
 u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-Big_8016775C *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+Big_8016775C *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 Buf_8016775C *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804416A8[];
@@ -219,7 +219,7 @@ extern M2C_UNK __vt__16TOFenceAncient04[];
 void TOFenceAncient04__sub_8016775C(void) {
     Big_8016775C *v = (Big_8016775C *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
-        v = TLobby__sub_80020004(v, 1, lbl_804B1F70, 0, 0, 0);
+        v = load_resource_from_descriptor(v, 1, lbl_804B1F70, 0, 0, 0);
     }
     (*(Big_8016775C * *)&lbl_805D59C8) = v;
     (*(Buf_8016775C * *)&lbl_805D59CC) = alloc_buffer__11TOBoss4RockFPv(0x10);

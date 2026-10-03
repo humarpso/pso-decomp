@@ -29,10 +29,10 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TBoss7Tentacle__sub_803D9BA0(void *);
-s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_color(void *);
 s32 draw_model_motion(int, int, f32);
@@ -49,11 +49,11 @@ extern "C" {
 
 void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
     begin_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(&self->vB8);
+    push_matrix();
+    post_translate_matrix(&self->vB8);
     rotate_matrix_y(0, self->f60);
     set_global_param__8TObjFishFi(self->f24);
-    TBoss7Tentacle__sub_803D9BA0(&self->v68);
+    scale_current_matrix(&self->v68);
     Color_801ACE1C saved = self->color;
     if ((self->fB0 % self->fCC) == 0) {
         self->color.r = lbl_805DC1E0;

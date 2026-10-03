@@ -95,7 +95,7 @@ bool is_submit_cooldown_clear__11TWindowCtrlFv(void);
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBE0;
 f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
-void TWindowFukidasi__sub_802501F4(void *, s32);
+void rearm_balloon__15TWindowFukidasiFv(void *, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
@@ -451,7 +451,7 @@ void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player,
             if (b != 0 && all_parents_unqueued_for_destruction__7TObjectFv(b) != 0 &&
                 (u16)player == get_flags__11TWindowCtrlFPv(b) &&
                 check_card_match_enabled__15TWindowFukidasiFPvi(b, text) != 0) {
-                TWindowFukidasi__sub_802501F4(b, flags);
+                rearm_balloon__15TWindowFukidasiFv(b, flags);
                 return 0;
             }
         }

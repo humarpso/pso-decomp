@@ -15,8 +15,8 @@ int TObjPlayer__sub_8001053C(void*);
 s32 check_player_flag1__6TLobbyFPv(void *);
 s32 is_inactive__10TObjPlayerFPv();
 int TObjEnePanarms__sub_800E2DE4(void*, void*);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32, f32, f32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32, f32, f32);
 
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC3B0;
@@ -28,10 +28,10 @@ s32 update_aim_target__10TObjPlayerFPv(void *arg0) {
     if (is_inactive__10TObjPlayerFPv() == 0) {
         return 0;
     }
-    temp_f1 = lbl_805DC3B0 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x3F0));
+    temp_f1 = lbl_805DC3B0 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x3F0));
     M2C_FIELD(arg0, f32 *, 0x308) = temp_f1;
     M2C_FIELD(arg0, f32 *, 0x30C) = (f32) TObjPlayer__data_805DC36C;
-    M2C_FIELD(arg0, f32 *, 0x310) = (f32) (lbl_805DC3B0 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x3F0), temp_f1, lbl_805DC3B0));
+    M2C_FIELD(arg0, f32 *, 0x310) = (f32) (lbl_805DC3B0 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x3F0), temp_f1, lbl_805DC3B0));
     if (check_actor_blocking_move__10TObjPlayerFPv(arg0) != 0) {
         TObjPlayer__sub_8001053C((void*)(arg0));
         return 0;

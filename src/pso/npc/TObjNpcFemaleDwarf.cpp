@@ -98,7 +98,7 @@ struct RecoveredGlobal_8014A238___vt__18TObjNpcFemaleDwarf {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014A368_lbl_804A8C70 lbl_804A8C70;
 extern u32 TObjNpcFemaleFat__data_805D5778;
@@ -180,7 +180,7 @@ void TObjNpcFemaleFat__sub_8014A368(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804A8C70.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8C70.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcFemaleFat__data_805D5778) = var_r0;
 }

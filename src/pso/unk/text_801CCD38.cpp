@@ -11,7 +11,7 @@ s32 obj_isState2_324(void *obj);
 s16 get_or_init_field_4__10TObjPlayerFPv(void *techs);
 s32 obj_getField1c(void *obj);
 u8 TObjPlayer__sub_801D96CC(void *techs);
-Rec_801CCEDC *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
+Rec_801CCEDC *calc_technique_parameters(s32 tech, s32 level, s32 id);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 v, void *a, void *b);
 void TObjPlayer__sub_801D2178(void *pkt);
 void send_swapped_header__10TObjPlayerFPv(void *pkt);
@@ -29,7 +29,7 @@ void pay_tp_and_send_6x48_cast__10TObjPlayerFPv(Player_801CCEDC *self) {
             Pkt_801CCEDC pkt;
             self->f328 = 4;
             tech = get_or_init_field_4__10TObjPlayerFPv(self->techs);
-            self->tp -= TTecCtrl__sub_8022DBC4(tech, TObjPlayer__sub_801D96CC(self->techs), obj_getField1c(self))->cost;
+            self->tp -= calc_technique_parameters(tech, TObjPlayer__sub_801D96CC(self->techs), obj_getField1c(self))->cost;
             if (self->tp < 0) {
                 self->tp = 0;
             }

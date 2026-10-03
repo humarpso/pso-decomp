@@ -24,8 +24,8 @@ extern const f32 TBoss6PlotFalz__data_805DE098;
 extern const f32 TBoss6PlotFalz__data_805DE09C;
 void TBoss6PlotFalz__sub_802AB568(u8 *arg0, s32 arg1, f32 farg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
 extern RecoveredGlobal_802AB684_lbl_8047059C lbl_8047059C;
 extern const f32 TBoss6PlotFalz__data_805DE098;
 void TBoss6PlotFalz__sub_802AB684(s32 arg0);
@@ -90,9 +90,9 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_802AB684, spC) == 0x4) ? 1 : -1];
     Stack_802AB684 stack;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0));
-    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (&lbl_8047059C.value));
+    subtract_vector((void *) (&stack.sp8), (void *) (&lbl_8047059C.value));
     stack.spC = TBoss6PlotFalz__data_805DE098;
-    TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8));
+    vector_length((void *) (&stack.sp8));
 }
 
 }

@@ -168,7 +168,7 @@ s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, M2C_UNK);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 void TObjNpcNgcBase__sub_8035925C(void);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Rec_803592B8 lbl_804F1688[];
@@ -579,7 +579,7 @@ void TObjNpcNgcBase__sub_803592B8(void) {
         while (p->idx != -1) {
             obj = (void *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
             if (obj != NULL) {
-                obj = TLobby__sub_80020004(obj, 1, p->data, 0, 0, 0);
+                obj = load_resource_from_descriptor(obj, 1, p->data, 0, 0, 0);
             }
             ((void **)&TObjNpcNgcBase__data_805439A8)[p->idx] = obj;
             p++;

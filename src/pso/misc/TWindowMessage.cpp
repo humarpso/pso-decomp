@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 void *construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
@@ -35,7 +35,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 void render__14TWindowMessageFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

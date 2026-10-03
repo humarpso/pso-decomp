@@ -132,10 +132,10 @@ M2C_UNK fn_80052420(u16, s32);
 u32 spawn_particle_effect(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(u32, u32);
 Ply_80059ABC *get_player_by_client_id(u16);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK vec3_add_to(void *, void *);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
 f32 xyz_distance(void *, void *);
 extern const f32 lbl_805D8C64;
 extern const f32 lbl_805D8C68;
@@ -253,11 +253,11 @@ void TBoss4Type3__sub_80059618(O_80059618 *o) {
     Vec_80059618 tgt = o->f480;
     Vec_80059618 dir;
     VecCopy__FP3VecPC3Vec(&dir, &tgt);
-    TBoss6Type1__sub_803D9370(&dir, &pos);
-    if (TBoss6Kakusan__sub_803D8BD8(&dir) <= lbl_805D8C64) {
+    subtract_vector(&dir, &pos);
+    if (vector_length(&dir) <= lbl_805D8C64) {
         return;
     }
-    TNpcPlayer__sub_803D97B4(&dir);
+    normalize_vector(&dir);
     dir.x *= lbl_805D8C68;
     dir.y *= lbl_805D8C68;
     dir.z *= lbl_805D8C68;
@@ -266,7 +266,7 @@ void TBoss4Type3__sub_80059618(O_80059618 *o) {
         if (e != 0) {
             set_flags__11TBoss4Type2FPvUi(e, 0x40);
         }
-        TBoss4Zako__sub_803D8910(&pos, &dir);
+        vec3_add_to(&pos, &dir);
         if (xyz_distance(&pos, &tgt) <= lbl_805D8C6C) {
             break;
         }

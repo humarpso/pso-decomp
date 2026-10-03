@@ -17,9 +17,9 @@ s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 draw_model_motion(void *, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
@@ -90,9 +90,9 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
     queue_destruction__7TObjectFv((void*)((void *) arg0));
     return;
   }
-  TObjPlayer__sub_803D9B2C();
+  push_matrix();
   begin_effect_render__13TParticleCtrlFv();
-  TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x6C));
+  post_translate_matrix((void *) (arg0 + 0x6C));
   temp_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0xA4)));
   rotate_matrix_y((int) 0, temp_r31);
   rotate_matrix_x((int) 0, (int) (*((s32 *) (((s8 *) arg0) + 0xA0))));

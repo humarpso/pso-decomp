@@ -32,8 +32,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 P_8033FF78 *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFPv(void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
 extern const f32 lbl_805DFB10;
 void fn_8033FF78(O_8033FF78 *arg0);
@@ -60,9 +60,9 @@ void fn_8033FF78(O_8033FF78 *arg0) {
         p = get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFPv(p) != 0) {
             VecCopy__FP3VecPC3Vec(&v, &arg0->pos);
-            TBoss6Type1__sub_803D9370(&v, &p->pos);
+            subtract_vector(&v, &p->pos);
             v.y = y;
-            if (TBoss6Kakusan__sub_803D8BD8(&v) <= lim) {
+            if (vector_length(&v) <= lim) {
                 arg0->f24 = 1;
                 return;
             }

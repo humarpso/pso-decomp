@@ -48,10 +48,10 @@ void TOTrapChainSawEdge__vt23(void *arg0);
 void *TObjTradeCollision__create(void *arg0);
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void render__18TObjTradeCollisionFv(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(void *, void *, f32);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -123,9 +123,9 @@ void TOTrapChainSawEdge__vt14(void *arg0) {
 
 void TOTrapChainSawEdge__vt23(void *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
+    push_matrix();
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
     draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));

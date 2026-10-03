@@ -389,9 +389,9 @@ s32 spawn_dead_spot_here__10TObjPlayerFii(void *, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DE70C;
 extern const f32 lbl_805DE710;
 extern const f32 lbl_805DE714;
@@ -567,11 +567,11 @@ void TObjEneBm9Mericarol__sub_802CF1B4(u8 *arg0, s32 arg1) {
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) arg0) != 0)
       {
         *((s32 *) (((s8 *) arg0) + 0x490)) = 1;
-        temp_f1 = lbl_805DE710 * TBoss8Dragon__sub_803D64C0((int) (*((s32 *) (((s8 *) arg0) + 0x60))));
+        temp_f1 = lbl_805DE710 * sin_table_lookup((int) (*((s32 *) (((s8 *) arg0) + 0x60))));
         stack.spC = lbl_805DE70C;
         stack.sp8 = temp_f1;
-        stack.sp10 = lbl_805DE710 * TBoss8Dragon__sub_803D64DC((int) (*((s32 *) (((s8 *) arg0) + 0x60))));
-        TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+        stack.sp10 = lbl_805DE710 * cos_table_lookup((int) (*((s32 *) (((s8 *) arg0) + 0x60))));
+        vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         spawn_dead_spot_here__10TObjPlayerFii((void *) (&stack.sp8), (int) 0x32);
         spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) 0x46);
       }

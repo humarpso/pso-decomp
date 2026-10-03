@@ -40,9 +40,9 @@ extern "C" {
 void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
@@ -86,9 +86,9 @@ void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
     if (alpha < 1.0f) {
         TObjPlayer__sub_80052390(alpha);
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_flag__10TObjPlayerFv();
-    TOHangerMachine01__sub_803D9C00(arg0->fe8);
+    post_translate_matrix(arg0->fe8);
     rotate_matrix_y(0, arg0->ff4);
     for (i = 0; i < 2; i++) {
         set_global_param__8TObjFishFi(arg0->recs[i].b);

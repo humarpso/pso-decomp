@@ -74,15 +74,15 @@ struct VObjHang_80095EA0 {
 
 void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void render__21TObjEneRe7BeruraPunchFv(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TObjEneRe7BeruraPunch__sub_80096300(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 u8 *find_entity_by_id(u16);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
@@ -113,8 +113,8 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         }
         TObjEneDD__sub_800B9D94(arg0 + 0x38, arg0 + 0xE8, 0, 0);
         toggle_particle_effect__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         translate_matrix(0, lbl_805D9794, M2C_FIELD(arg0, f32 *, 0xCC), lbl_805D9794);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0xF4);
@@ -223,9 +223,9 @@ void launch__21TObjEneRe7BeruraPunchFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     } else {
         M2C_FIELD(arg0, s32 *, 0x60) = 0;
     }
-    M2C_FIELD(arg0, f32 *, 0xBC) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    M2C_FIELD(arg0, f32 *, 0xBC) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805D9794;
-    M2C_FIELD(arg0, f32 *, 0xC4) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+    M2C_FIELD(arg0, f32 *, 0xC4) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805D97B4;
     reset__21TObjEneRe7BeruraPunchFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0xB4) = 1;

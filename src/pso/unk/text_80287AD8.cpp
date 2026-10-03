@@ -22,13 +22,13 @@ struct Wn_80287AD8 { u8 pad[0x60]; u32 f60; };
 extern "C" {
 extern const f32 lbl_805DD880;
 void fn_80287BE8(Obj_80287BE8 *o);
-u32 TWindowSubStatusDisp__sub_80144D68(char *);
+u32 calc_text_width(char *);
 TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 extern char lbl_8044FCD8[];
 extern const f32 lbl_805DD878;
 extern const f32 lbl_805DD87C;
 void fn_80287B60(TWindowTimer_80287B60 *self);
-u32 TWindowSubStatusDisp__sub_80144D68(char *);
+u32 calc_text_width(char *);
 TimerChild_80287B60 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 extern u8 lbl_8044FCC8[];
 extern const f32 lbl_805DD878;
@@ -44,7 +44,7 @@ void fn_80287AD8(Wn_80287AD8 *arg0) {
     f32 temp_f31;
     En_80287AD8 *e;
     arg0->f60 |= 1;
-    temp_f31 = (f32)TWindowSubStatusDisp__sub_80144D68((char *)(lbl_8044FCC8));
+    temp_f31 = (f32)calc_text_width((char *)(lbl_8044FCC8));
     e = ((En_80287AD8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));
     e->f8 = -(lbl_805DD87C * temp_f31 - lbl_805DD878);
 }
@@ -56,7 +56,7 @@ void fn_80287B60(TWindowTimer_80287B60 *self) {
     f32 width;
     TimerChild_80287B60 *child;
     self->flags &= ~1;
-    width = (f32)TWindowSubStatusDisp__sub_80144D68(lbl_8044FCD8);
+    width = (f32)calc_text_width(lbl_8044FCD8);
     child = get_array_entry__20TWindowSubStatusDispFPvi(self, 0);
     child->x = lbl_805DD878 - lbl_805DD87C * width;
 }

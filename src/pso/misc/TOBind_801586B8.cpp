@@ -29,7 +29,7 @@ struct RecoveredGlobal_80158890___vt__6TOBind {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801587D8_lbl_804AFC44 lbl_804AFC44;
 extern u32 TOBind__data_805D58A0;
@@ -73,13 +73,13 @@ void *create__6TOBindFPv(void *arg0);
 void free_static_model__6TOBindFv(void);
 void render__6TOBindFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -90,8 +90,8 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void render__6TOBindFv(u8 *arg0) {
     if (((BindObj_801586B8*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xD4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
@@ -130,7 +130,7 @@ void TOBind__sub_801587D8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFC44.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFC44.value, 0, 0, 0));
     }
     (*(s32 *)&TOBind__data_805D58A0) = var_r0;
 }

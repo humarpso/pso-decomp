@@ -56,8 +56,8 @@ s32 pop_matrix();
 extern RecoveredGlobal_80067E30_lbl_8058D490 lbl_8058D490;
 extern const f32 lbl_805D8F74;
 void TCameraCtrl__sub_80067E30(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0);
 }
 
@@ -100,10 +100,10 @@ void TCameraCtrl__sub_80067D20(Obj_80067D20 *arg0) {
         arg0->pitch += sx * 3;
         arg0->yaw += sy * 3;
     }
-    r = arg0->dist * TBoss8Dragon__sub_803D64DC(arg0->yaw);
-    arg0->eye.x = r * TBoss8Dragon__sub_803D64C0(arg0->pitch) + arg0->at.x;
-    arg0->eye.y = arg0->at.y - arg0->dist * TBoss8Dragon__sub_803D64C0(arg0->yaw);
-    arg0->eye.z = r * TBoss8Dragon__sub_803D64DC(arg0->pitch) + arg0->at.z;
+    r = arg0->dist * cos_table_lookup(arg0->yaw);
+    arg0->eye.x = r * sin_table_lookup(arg0->pitch) + arg0->at.x;
+    arg0->eye.y = arg0->at.y - arg0->dist * sin_table_lookup(arg0->yaw);
+    arg0->eye.z = r * cos_table_lookup(arg0->pitch) + arg0->at.z;
 }
 #pragma pop
 

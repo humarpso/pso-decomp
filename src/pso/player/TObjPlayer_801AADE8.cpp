@@ -37,7 +37,7 @@ s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
 s32 set_global_param__8TObjFishFi(int);
@@ -113,7 +113,7 @@ void render__13TPhotonFarllaFPv(Self_801AAF00 *self) {
         scroll_strip_uvs(lbl_805D5D38, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         TObjPlayer__sub_801A7638(self);

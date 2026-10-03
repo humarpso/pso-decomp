@@ -111,7 +111,7 @@ s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 begin_photon_summon_camera(void *, int);
 s32 update_photon_blast_attachments(void *);
-s32 TObjPlayer__sub_801A7748(void *, int);
+s32 spawn_photon_blast_attachment_effects(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 TPhotonMagicSquare__ct(int, void *, int, void *, int, f32);
 s32 play_persistent_sound(int, void *, int, int, int);
@@ -128,9 +128,9 @@ s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
@@ -153,10 +153,10 @@ s32 rotate_matrix_y(int, int);
 void TPhotonConcentrate__ct(void *, void *, void *, int);
 u32 __cvt_fp2unsigned(f32);
 int rand(void);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(int);
 extern const Packet_801AB6A0 lbl_80446D68;
@@ -172,13 +172,13 @@ s32 rotate_matrix_y(int, int);
 void init_all_slots__10TObjPlayerFv(void);
 void mark_enemy_body_contacts(void *);
 Target_801AB868 *get_battle_param__10TObjPlayerFi(s32);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 f32 TCameraCtrl__sub_803D8D00(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void normalize_vector(void *);
 void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void TCameraCtrl__sub_803D9858(int);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 vec3_dot(void *, void *);
 u16 obj_getField1c(void *);
 void queue_photon_blast_hit(u32, int, int, f32);
 extern u8 lbl_8058D490[];
@@ -244,13 +244,13 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
         rotate_vector_by_matrix(0, &local, &rotated);
         TCameraCtrl__sub_803D9858(1);
         VecCopy__FP3VecPC3Vec(&target, &self->pos);
-        TBoss4Zako__sub_803D8910(&target, &rotated);
+        vec3_add_to(&target, &rotated);
     } else {
         VecCopy__FP3VecPC3Vec(&target, self->f1a8 + 0x2FC);
     }
     Vec_801AB6A0 direction = target;
-    TBoss6Type1__sub_803D9370(&direction, &self->f1ac);
-    TNpcPlayer__sub_803D97B4(&direction);
+    subtract_vector(&direction, &self->f1ac);
+    normalize_vector(&direction);
     random = lbl_805DC198 * (f32)rand();
     angle = __cvt_fp2unsigned(lbl_805DC194 * random + lbl_805DC190);
     Packet_801AB6A0 packet = lbl_80446D68;
@@ -290,9 +290,9 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                     Vec_801AB868 selected_delta = self->f1a8->pos;
                     Owner_801AB868 *owner;
                     f32 selected_distance;
-                    TBoss6Type1__sub_803D9370(&selected_delta, &self->pos);
+                    subtract_vector(&selected_delta, &self->pos);
                     Vec_801AB868 candidate_delta = candidate->pos;
-                    TBoss6Type1__sub_803D9370(&candidate_delta, &self->pos);
+                    subtract_vector(&candidate_delta, &self->pos);
                     selected_distance = TCameraCtrl__sub_803D8D00(&selected_delta);
                     if (TCameraCtrl__sub_803D8D00(&candidate_delta) < selected_distance) {
                         self->f1a8 = candidate;
@@ -303,9 +303,9 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                     Vec_801AB868 left;
                     Vec_801AB868 right;
                     if (owner != NULL) {
-                        TBoss6Type1__sub_803D9370(&direction, &owner->pos);
+                        subtract_vector(&direction, &owner->pos);
                     }
-                    TNpcPlayer__sub_803D97B4(&direction);
+                    normalize_vector(&direction);
                     forward.y = forward.x = lbl_805DC188;
                     forward.z = lbl_805DC190;
                     push_matrix_from(lbl_8058D490);
@@ -320,10 +320,10 @@ void collect_hit_targets__12TPhotonGollaFPv(void *arg0) {
                     }
                     rotate_vector_by_matrix(0, &forward, &right);
                     TCameraCtrl__sub_803D9858(1);
-                    TObjPlayer__sub_803D89C0(&direction, &left);
-                    TObjPlayer__sub_803D89C0(&direction, &right);
-                    if (!(TObjPlayer__sub_803D89C0(&direction, &left) > lbl_805DC19C) ||
-                        !(TObjPlayer__sub_803D89C0(&direction, &right) > lbl_805DC19C)) {
+                    vec3_dot(&direction, &left);
+                    vec3_dot(&direction, &right);
+                    if (!(vec3_dot(&direction, &left) > lbl_805DC19C) ||
+                        !(vec3_dot(&direction, &right) > lbl_805DC19C)) {
                         self->f1a8 = NULL;
                     }
                 } else {
@@ -345,8 +345,8 @@ void render__12TPhotonGollaFPv(Self_801ABAA0 *self) {
         scroll_strip_uvs(lbl_805D5D40, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(&self->pos);
+        push_matrix();
+        post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
         TObjPlayer__sub_801A7638(self);
         lbl_805D5660 = some_id_805c6f74;
@@ -394,7 +394,7 @@ void run_task__12TPhotonGollaFPv(u8 *arg0) {
         begin_photon_summon_camera((void *) (arg0), (int) (5));
         M2C_FIELD(arg0, s32 *, 0x1C8) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
-        TObjPlayer__sub_801A7748((void *) (arg0), (int) (2));
+        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (2));
     }
     M2C_FIELD(arg0, s16 *, 0x1B8) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));

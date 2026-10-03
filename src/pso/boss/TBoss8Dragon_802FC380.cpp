@@ -24,8 +24,8 @@ void TBoss8Dragon__sub_802FC500(u8 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi();
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 f32 rand_range__9TObjEneDDFff(void *, f32, f32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DED64;
 extern const f32 TBoss8Dragon__data_805DEDB0;
@@ -67,9 +67,9 @@ s32 TBoss8Dragon__sub_802FC580(Obj_802FC580 *obj, f32 *out) {
         r = obj->vals[i];
     }
     ang = i * 0x1555;
-    out[0] = r * TBoss8Dragon__sub_803D64C0(ang);
+    out[0] = r * sin_table_lookup(ang);
     out[1] = TBoss8Dragon__data_805DED50;
-    out[2] = r * TBoss8Dragon__sub_803D64DC(ang);
+    out[2] = r * cos_table_lookup(ang);
     return 1;
 }
 

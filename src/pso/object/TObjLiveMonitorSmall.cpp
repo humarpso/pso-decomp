@@ -14,7 +14,7 @@ M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
 M2C_UNK update_camera__15TObjLiveMonitorFPv(int);
 s32 get_table_entry__18TObjLiveCameraCtrlFi(s32);
 s32 TObjLiveMonitor__sub_8030C050(s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw_ginja_model(void *);
 int TObjPlayer__sub_8030B208(void *arg0);
@@ -109,7 +109,7 @@ int TObjPlayer__sub_8030B208(void *arg0) {
         return M2C_FIELD(arg0, s32 *, 0x24);
     }
     free_children__12TObjDoorJungFPvPv((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)), var_r4);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)));
     return pop_matrix();
 }

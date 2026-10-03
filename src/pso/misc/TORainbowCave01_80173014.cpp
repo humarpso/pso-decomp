@@ -52,7 +52,7 @@ extern const f32 lbl_805DB940;
 extern const f32 lbl_805DB944;
 extern const f32 lbl_805DB948;
 extern const f32 lbl_805DB94C;
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80173330_lbl_804B3A18 lbl_804B3A18;
 extern u32 TORainbowCave01__data_805D5A70;
@@ -70,10 +70,10 @@ s32 check_demo_mode__10TObjPlayerFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TBoss7Tentacle__sub_803D9BA0(void *);
-void TOHangerMachine01__sub_803D9C00(void *);
+void scale_current_matrix(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_ginja_object(s32);
 void set_chunk_material_color(void *);
@@ -138,10 +138,10 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
             c.a = self->fCC;
         }
         set_chunk_material_color(&c);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(self->pos38);
+        push_matrix();
+        post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
-        TBoss7Tentacle__sub_803D9BA0(self->fD4);
+        scale_current_matrix(self->fD4);
         draw_ginja_object(self->f34);
         pop_matrix();
         set_chunk_material_color(lbl_804A7418);
@@ -194,7 +194,7 @@ void TORainbowCave01__sub_80173330(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B3A18.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B3A18.value, 0, 0, 0));
     }
     (*(s32 *)&TORainbowCave01__data_805D5A70) = var_r0;
 }

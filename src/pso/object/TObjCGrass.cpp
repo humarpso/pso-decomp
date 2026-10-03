@@ -43,7 +43,7 @@ void render__10TObjCGrassFv(Obj_800B8B08 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *csnVectorUnder(void *, void *, int);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 extern s32 lbl_805D53A4;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
@@ -67,7 +67,7 @@ struct Stack_800B8DC4 {
     s32 sp10;
     s32 sp14;
 };
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(M2C_UNK *, M2C_UNK *);
@@ -127,7 +127,7 @@ void run_task__10TObjCGrassFv(u8 *arg0) {
         VecCopy__FP3VecPC3Vec(&a, &self->recs[i].pos);
         VecCopy__FP3VecPC3Vec(&b, &self->recs[i].v2);
         VecCopy__FP3VecPC3Vec(&self->f44, &a);
-        TBoss4Zako__sub_803D8910(&a, &b);
+        vec3_add_to(&a, &b);
         if (i == lbl_805D53A4 % self->count) {
             hit = (Hit_800B8BB4 *)csnVectorUnder(&a, self->f10C, 1);
             if (hit != NULL) {
@@ -177,7 +177,7 @@ void TObjCGrass__sub_800B8DC4(void) {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_80492500.value, 0, 0, 0));
+            var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_80492500.value, 0, 0, 0));
         }
         lbl_805D5130 = (u32) var_r0;
     }

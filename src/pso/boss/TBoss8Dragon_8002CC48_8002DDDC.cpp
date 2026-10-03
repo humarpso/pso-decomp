@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32, f32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv();
 M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *, f32);
 
@@ -31,8 +31,8 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1) 
         M2C_FIELD(arg0, f32 *, 8) = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
-        var_f31 = farg1 * (lbl_805D81F4 + TBoss8Dragon__sub_803D64DC(temp_r31, lbl_805D81F8));
-        temp_f1_2 = TBoss8Dragon__sub_803D64C0(temp_r31);
+        var_f31 = farg1 * (lbl_805D81F4 + cos_table_lookup(temp_r31, lbl_805D81F8));
+        temp_f1_2 = sin_table_lookup(temp_r31);
         temp_f2 = M2C_FIELD(arg0, f32 *, 0) * temp_f1_2;
         M2C_FIELD(arg0, f32 *, 0) = temp_f2;
         M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805D81F4;

@@ -48,9 +48,9 @@ void TBoss8Dragon__sub_802F3CA0(u8 *arg0, s8 arg1);
 void TObjLight__sub_801337F8(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, Anim_802F3D6C *, f32);
 void set_global_flag__10TObjPlayerFv(void);
@@ -63,7 +63,7 @@ extern const f32 TBoss8Dragon__data_805DED58;
 extern const f32 lbl_805DED5C;
 extern const f32 TBoss8Dragon__data_805DED60;
 void TBoss8Dragon__sub_802F3D6C(u8 *arg0);
-f32 TObjPlayer__sub_8001311C(void *, void *, Pair_802F3D18 *, s32, s32, s32);
+f32 receive_direct_attack__10TObjPlayerFv(void *, void *, Pair_802F3D18 *, s32, s32, s32);
 extern const f32 TBoss8Dragon__data_805DED50;
 f32 TBoss8Dragon__sub_802F3D18(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y, s32 z);
 }
@@ -100,7 +100,7 @@ f32 TBoss8Dragon__sub_802F3D18(void *a, void *b, Pair_802F3D18 *p, s32 x, s32 y,
         return TBoss8Dragon__data_805DED50;
     }
     Pair_802F3D18 t = *p;
-    return TObjPlayer__sub_8001311C(a, b, &t, x, y, z);
+    return receive_direct_attack__10TObjPlayerFv(a, b, &t, x, y, z);
 }
 
 void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
@@ -109,10 +109,10 @@ void TBoss8Dragon__sub_802F3D6C(u8 *arg0) {
     Anim_802F3D6C *anim;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DED54, TBoss8Dragon__data_805DED58) != 0) {
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         scale_matrix(0, lbl_805DED5C, TBoss8Dragon__data_805DED60, lbl_805DED5C);
         pop_matrix();
         scale_matrix(0, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60);

@@ -7,8 +7,8 @@ f32   newton_sqrtf(f32);
 f64   get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void  notify_fish_if_valid__10TObjPlayerFUi(void*);
 void  begin_effect_render__13TParticleCtrlFv(void);
-void  TObjPlayer__sub_803D9B2C(void);
-void  TOHangerMachine01__sub_803D9C00(Vec*);
+void  push_matrix(void);
+void  post_translate_matrix(Vec*);
 void  TObjPlayer__sub_803D99F8(void*, s32);
 void  draw_ginja_object(void*);
 void  pop_matrix(void);
@@ -23,8 +23,8 @@ void TItemShootModel::render() {
         if (this->m_58 != NULL) {
             notify_fish_if_valid__10TObjPlayerFUi(this->m_5C);
             begin_effect_render__13TParticleCtrlFv();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(&this->m_pos);
+            push_matrix();
+            post_translate_matrix(&this->m_pos);
             TObjPlayer__sub_803D99F8(&this->m_28, 1);
             TObjPlayer__sub_803D99F8(&this->m_60, 1);
             draw_ginja_object(this->m_58);

@@ -185,7 +185,7 @@ s32 get_player_by_client_id(u32);
 void TObjEneDf2Bringer__sub_80098DEC(u8 *arg0);
 M2C_UNK rotate_xz_pair_by_angle(f32 *, f32 *, s32, f32, f32);
 M2C_UNK spawn_particle_effect(f32 *, M2C_UNK);
-M2C_UNK TBoss4Zako__sub_803D8910(f32 *, void *);
+M2C_UNK vec3_add_to(f32 *, void *);
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
 extern const f32 TObjEneDf2Bringer__data_805D9808;
 extern const f32 lbl_805D9830;
@@ -466,7 +466,7 @@ void TObjEneDf2Bringer__sub_800991E0(u8 *arg0) {
     stack.spC = TObjEneDf2Bringer__data_805D97E0;
     stack.sp10 = TObjEneDf2Bringer__data_805D9808;
     rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, M2C_FIELD(arg0, s32 *, 0x60), TObjEneDf2Bringer__data_805D97E0, lbl_805D9830);
-    TBoss4Zako__sub_803D8910(&stack.sp8, arg0 + 0x38);
+    vec3_add_to(&stack.sp8, arg0 + 0x38);
     spawn_particle_effect(&stack.sp8, 0xF3);
 }
 void TObjEneDf2Bringer__sub_800993E8(Bringer_800993E8 *obj) {

@@ -21,7 +21,7 @@ void TLobby__sub_800F957C(u32 arg0);
 
 extern "C" {
 
-s32 TItemDrop__sub_800F9C00(void *);
+s32 apply_rel_relocations(void *);
 void *construct__9TItemDropFPv(void *);
 s32 read_disc_file(void *, void *);
 void *destroy__9TItemDropFPvs(void *arg0, s16 arg1);
@@ -72,7 +72,7 @@ s32 TItemDrop__sub_800F9448(s32 arg0, s32 arg1) {
     if (arg1 > 0) {
         d.a = arg0;
         d.b = arg1;
-        return finish_800F9448(&d, TItemDrop__sub_800F9C00(&d));
+        return finish_800F9448(&d, apply_rel_relocations(&d));
     }
     return finish_800F9448(&d, 0);
 }
@@ -85,7 +85,7 @@ s32 load_relocatable_file(s32 arg0, s32 arg1) {
     if (n > 0) {
         d.b = n;
         d.a = arg1;
-        return finish_800F9448(&d, TItemDrop__sub_800F9C00(&d));
+        return finish_800F9448(&d, apply_rel_relocations(&d));
     }
     return finish_800F9448(&d, 0);
 }

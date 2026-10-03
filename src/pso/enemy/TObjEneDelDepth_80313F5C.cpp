@@ -33,7 +33,7 @@ extern const f32 TObjEneDelDepth__data_805DF298;
 extern const f32 lbl_805DF2A0;
 void TObjEneDelDepth__sub_80314500(u8 *arg0);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern const RecoveredGlobal_80314D1C_lbl_80475D6C lbl_80475D6C;
 extern const RecoveredGlobal_80314D1C_lbl_80475D78 lbl_80475D78;
 extern const float TObjEneDelDepth__data_805DF258;
@@ -51,10 +51,10 @@ u16 find_nearest_visible_player(void *, int, f32);
 int set_draw_mode__15TObjEneDelDepthFPvi(void*, void*);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vector_length(void *);
+M2C_UNK normalize_vector(void *);
 extern const float TObjEneDelDepth__data_805DF258;
 extern const float TObjEneDelDepth__data_805DF260;
 extern const f32 TObjEneDelDepth__data_805DF26C;
@@ -67,7 +67,7 @@ void TObjEneDelDepth__sub_80314C10(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern const RecoveredGlobal_80314D1C_lbl_80475D6C lbl_80475D6C;
 extern const RecoveredGlobal_80314D1C_lbl_80475D78 lbl_80475D78;
 extern const f32 lbl_805DF250;
@@ -186,13 +186,13 @@ void TObjEneDelDepth__sub_80314C10(u8 *arg0) {
         return;
     }
     temp_r31 = (s32) (lbl_805DF2B0 * calc_boss4_scale__10TObjPlayerFi(arg0));
-    M2C_FIELD(arg0, f32 *, 0x3B0) += TObjEneDelDepth__data_805DF270 * TBoss8Dragon__sub_803D64C0(temp_r31);
-    M2C_FIELD(arg0, f32 *, 0x3B8) += TObjEneDelDepth__data_805DF270 * TBoss8Dragon__sub_803D64DC(temp_r31);
-    if (TBoss6Kakusan__sub_803D8BD8(arg0 + 0x3B0) <= lbl_805DF288) {
+    M2C_FIELD(arg0, f32 *, 0x3B0) += TObjEneDelDepth__data_805DF270 * sin_table_lookup(temp_r31);
+    M2C_FIELD(arg0, f32 *, 0x3B8) += TObjEneDelDepth__data_805DF270 * cos_table_lookup(temp_r31);
+    if (vector_length(arg0 + 0x3B0) <= lbl_805DF288) {
         TObjEneDelDepth__sub_803154A8(arg0, 2);
         return;
     }
-    TNpcPlayer__sub_803D97B4(arg0 + 0x3B0);
+    normalize_vector(arg0 + 0x3B0);
     temp_f1 = (lbl_805DF2B8 * calc_boss4_scale__10TObjPlayerFi(arg0)) + lbl_805DF2B4;
     M2C_FIELD(arg0, f32 *, 0x38C) = temp_f1;
     M2C_FIELD(arg0, f32 *, 0x398) = (*(const f32 *)&TObjEneDelDepth__data_805DF260);
@@ -216,7 +216,7 @@ void TObjEneDelDepth__sub_80314D1C(u8 *arg0) {
     if (temp_f1 > lbl_805DF2C0) {
         var_f31 = ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1) / lbl_805DF2BC;
     }
-    temp_f1_2 = var_f31 * (lbl_805DF2C4 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x384) << 0xA));
+    temp_f1_2 = var_f31 * (lbl_805DF2C4 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x384) << 0xA));
     M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A0) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) + temp_f1_2));
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A8) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1_2));
     M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) + 1);
@@ -253,7 +253,7 @@ void TObjEneDelDepth__sub_80314EC4(u8 *arg0) {
     if (temp_f1 > lbl_805DF2C0) {
         var_f31 = ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1) / lbl_805DF2BC;
     }
-    temp_f1_2 = var_f31 * (lbl_805DF250 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x384) << 0xC));
+    temp_f1_2 = var_f31 * (lbl_805DF250 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x384) << 0xC));
     M2C_FIELD(arg0, f32 *, 0x3A0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A0) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) + temp_f1_2));
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x3A8) * ((*(const f32 *)&TObjEneDelDepth__data_805DF260) - temp_f1_2));
     M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) + 1);

@@ -104,12 +104,12 @@ void init_warp_params__17TObjWarpBossMultiFPv(void* a0);
 void render__17TObjWarpBossMultiFv(u8 *arg0);
 void update__17TObjWarpBossMultiFPv(void *arg0);
 void update_warp_boss_visibility(void *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
@@ -193,8 +193,8 @@ void render__17TObjWarpBossMultiFv(u8 *arg0) {
     }
     if (((TObjWarpBossMulti_8019DD34*)arg0)->m8(lbl_805DC00C, lbl_805DC010) != 0) {
 block_4:
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xE8));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0xD4));

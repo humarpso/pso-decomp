@@ -40,7 +40,7 @@ extern "C" {
 void render__17TObjVoloptShutterFv(void *arg0);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -107,10 +107,10 @@ void TObjVoloptShutter__sub_8004A6B4(u8 *arg0) {
 void render__17TObjVoloptShutterFv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
     set_global_param__8TObjFishFi(lbl_805D4D50);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     some_id_805c6f74 &= 0xFFFFFBFF;
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x30));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
     TObjPlayer__sub_803E4684(lbl_805D4D4C);
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x28), TObjVoloptShutter__data_805D88F4);

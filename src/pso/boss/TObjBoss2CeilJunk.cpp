@@ -98,9 +98,9 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK set_chunk_material_override_pair(int, int);
@@ -155,9 +155,9 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
     set_chunk_material_override_pair(0xFF00, 0x800);
     TObjPlayer__sub_803E38FC(0x2500);
   }
-  TObjPlayer__sub_803D9B2C();
+  push_matrix();
   set_global_param__8TObjFishFi(lbl_805D4BEC);
-  TOHangerMachine01__sub_803D9C00(self->pos);
+  post_translate_matrix(self->pos);
   rotate_matrix_y(0, self->f60);
   rotate_matrix_x(0, self->f5C);
   draw_ginja_object(lbl_805D4BE8->mdls[lbl_80435BC0[self->fAC]].f8);

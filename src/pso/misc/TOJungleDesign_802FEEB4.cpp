@@ -52,12 +52,12 @@ extern "C" {
 
 void *__dt__14TOJungleDesignFv(void *arg0, s16 arg1);
 void render__14TOJungleDesignFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_yxz(int, int, int, int);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -69,8 +69,8 @@ extern const f32 lbl_805DEF24;
 void render__14TOJungleDesignFv(u8 *arg0) {
     if (((JDVObj_802feeb4 *)arg0)->m8(lbl_805DEF20, lbl_805DEF24) == 1) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_yxz((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
         draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
         pop_matrix();

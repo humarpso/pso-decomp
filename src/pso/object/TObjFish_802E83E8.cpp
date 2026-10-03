@@ -41,7 +41,7 @@ void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
 void spawn_via_trap__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2);
 void update_projectile_spawns__8TObjFishFPv(u8 *arg0);
 int play_sound_effect(void*, void*, void*, void*);
-M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
+M2C_UNK vec3_add_to(int, void *);
 s32 play_persistent_sound(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0, s32 a4 = 0);
 M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
@@ -98,7 +98,7 @@ void update_projectile_spawns__8TObjFishFPv(u8 *arg0) {
     project_sound_origin_from_camera((void *) (arg0 + 0x4C4), (void *) (arg0 + 0x518), (f32) (lbl_805DEB68));
     temp_r31 = arg0 + 0x524;
     VecCopy__FP3VecPC3Vec((int) (temp_r31), (void *) (arg0 + 0x518));
-    TBoss4Zako__sub_803D8910((int) (temp_r31), (void *) (arg0 + 0x518));
+    vec3_add_to((int) (temp_r31), (void *) (arg0 + 0x518));
     M2C_FIELD(temp_r31, f32 *, 0) = (f32) (M2C_FIELD(temp_r31, f32 *, 0) * lbl_805DEA14);
     M2C_FIELD(temp_r31, f32 *, 4) = (f32) (M2C_FIELD(temp_r31, f32 *, 4) * lbl_805DEA14);
     M2C_FIELD(temp_r31, f32 *, 8) = (f32) (M2C_FIELD(temp_r31, f32 *, 8) * lbl_805DEA14);

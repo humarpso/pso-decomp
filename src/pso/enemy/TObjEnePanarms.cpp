@@ -120,8 +120,8 @@ s32 spawn_particle_effect(void *, int);
 extern const f32 TObjEnePanarms__data_805DA544;
 void TObjEnePanarms__sub_800E15B4(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern Vec_800E1A44 lbl_8043CD60[];
 extern s32 lbl_8043CD78[];
 void TObjEnePanarms__sub_800E1A44(u8 *arg0);
@@ -138,10 +138,10 @@ u32 csnLookAt(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 update_collisions__10TObjPlayerFPv(void *);
 s32 project_actor_to_ground(void *, void *, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-s32 TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+s32 vec3_add_to(void *, void *);
+f32 vector_length(void *);
 extern const float TObjEnePanarms__data_805DA524;
 extern const f32 lbl_805DA584;
 extern const f32 lbl_805DA588;
@@ -224,17 +224,17 @@ s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1) {
     f32 nx;
     *(M2CCopy_800E18B0 *)&dir = *(M2CCopy_800E18B0 *)arg1;
     dir.y = (*(const f32 *)&TObjEnePanarms__data_805DA524);
-    if ((*(const f32 *)&TObjEnePanarms__data_805DA524) == TBoss6Kakusan__sub_803D8BD8(&dir)) {
+    if ((*(const f32 *)&TObjEnePanarms__data_805DA524) == vector_length(&dir)) {
         return 0;
     }
     VecCopy__FP3VecPC3Vec(&t, arg0 + 0x38);
-    TBoss4Zako__sub_803D8910(&t, arg1);
+    vec3_add_to(&t, arg1);
     if (horizontal_distance_squared(&t, arg0 + 0x50) > lbl_805DA584) {
         return 0;
     }
     for (i = 1; i < 16; i++) {
         VecCopy__FP3VecPC3Vec(&p, arg0 + 0x38);
-        TBoss4Zako__sub_803D8910(&p, &dir);
+        vec3_add_to(&p, &dir);
         p.y += lbl_805DA588;
         if (project_actor_to_ground(arg0, &p, 0) != 0 && csnLookAt(arg0 + 0x38, &p) == 0) {
             VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
@@ -246,8 +246,8 @@ s32 TObjEnePanarms__sub_800E18B0(u8 *arg0, Vec_800E18B0 *arg1) {
         if (i & 1) {
             ang *= -1;
         }
-        s = TBoss8Dragon__sub_803D64C0(ang);
-        c = TBoss8Dragon__sub_803D64DC(ang);
+        s = sin_table_lookup(ang);
+        c = cos_table_lookup(ang);
         nx = c * dir.x - s * dir.z;
         dir.x = nx;
         dir.z = s * nx + c * dir.z;
@@ -265,8 +265,8 @@ void TObjEnePanarms__sub_800E1A44(u8 *arg0) {
     f32 c;
     x = lbl_8043CD60[M2C_FIELD(arg0, s32 *, 0x380)].x;
     z = lbl_8043CD60[M2C_FIELD(arg0, s32 *, 0x380)].z;
-    s = TBoss8Dragon__sub_803D64C0(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
-    c = TBoss8Dragon__sub_803D64DC(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    s = sin_table_lookup(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    c = cos_table_lookup(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
     VecCopy__FP3VecPC3Vec(arg0 + 0x38C, M2C_FIELD(arg0, u8 **, 0x39C) + 0x38);
     M2C_FIELD(arg0, f32 *, 0x38C) += x * c + z * s;
     M2C_FIELD(arg0, f32 *, 0x394) += -x * s + z * c;
@@ -289,8 +289,8 @@ void TObjEnePanarms__sub_800E1B78(u8 *arg0, u8 *arg1, s32 *arg2) {
 
     x = lbl_8043CD40[M2C_FIELD(arg0, s32 *, 0x380)].x;
     z = lbl_8043CD40[M2C_FIELD(arg0, s32 *, 0x380)].z;
-    s = TBoss8Dragon__sub_803D64C0(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
-    c = TBoss8Dragon__sub_803D64DC(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    s = sin_table_lookup(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
+    c = cos_table_lookup(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60));
     VecCopy__FP3VecPC3Vec(arg1, M2C_FIELD(arg0, u8 **, 0x39C) + 0x38);
     M2C_FIELD(arg1, f32 *, 0) += x * c + z * s;
     M2C_FIELD(arg1, f32 *, 8) += -x * s + z * c;

@@ -30,8 +30,8 @@ u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4,
 void queue_destruction__7TObjectFv(void *);
 void spawn_directional_particle(void *, void *, s32);
 s32 rand();
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805D8838;
 extern const f32 lbl_805D883C;
 extern const f32 lbl_805D8840;
@@ -88,8 +88,8 @@ void TBoss3Volopt__sub_80048674(u8 *arg0) {
         ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand()));
         v = *(Raw_80048674 *)(arg0 + 0x2C);
         d = M2C_FIELD(arg0, f32 *, 0x44) * (lbl_805D8840 * (f32)rand());
-        M2C_FIELD(&v, f32 *, 0) += d * TBoss8Dragon__sub_803D64DC(ang);
-        M2C_FIELD(&v, f32 *, 8) += d * TBoss8Dragon__sub_803D64C0(ang);
+        M2C_FIELD(&v, f32 *, 0) += d * cos_table_lookup(ang);
+        M2C_FIELD(&v, f32 *, 8) += d * sin_table_lookup(ang);
         spawn_directional_particle(&v, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x1C));
         M2C_FIELD(arg0, f32 *, 0x28) -= lbl_805D8844;
     }

@@ -60,7 +60,7 @@ void rotate_matrix_y(int, s32);
 void rotate_matrix_z(int, s32);
 void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern const f32 TObjPlayer__data_805DC294;
 extern const f32 lbl_805DC2C8;
@@ -102,7 +102,7 @@ void draw_projected_shadow__10TObjPlayerFPvPvi(VObj_801BAB78 *self, f32 *pos, s3
     s32 a;
     s32 b;
     self->m63(1, &v);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     direction_to_rotation_xz(self->f248, &a, &b);
     translate_matrix(0, v.x, lbl_805DC2C8 + self->f3c, v.z);
     rotate_matrix_z(0, b);

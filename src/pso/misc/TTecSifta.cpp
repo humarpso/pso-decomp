@@ -115,7 +115,7 @@ void render__9TTecSiftaFv(void);
 void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 void TObjPlayer__sub_8023AC84(void);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
-s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
+s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -151,7 +151,7 @@ void play_sifta_cast_sound(Obj_8023ACA8 *arg0) {
 
 void update_effect_params__9TTecSiftaFPv(u8 *arg0) {
     s32 res;
-    res = TTecCtrl__sub_8022DBC4(0xD, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
+    res = calc_technique_parameters(0xD, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
     TTecAnti__sub_8022B35C(arg0 + 0x74, res);
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) (M2C_FIELD(arg0, s16 *, 0x98) * M2C_FIELD(arg0, s16 *, 0xA4));
 }

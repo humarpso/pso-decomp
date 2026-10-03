@@ -34,8 +34,8 @@ struct Obj_8006BB1C {
 extern "C" {
 E_8006BAC8 *TCameraCtrl__sub_8006BAC8(O_8006BAC8 *self, s32 i);
 E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern Pad_8006BB1C lbl_8050E208;
 extern const f32 lbl_805D9008;
 void TCameraCtrl__sub_8006BB1C(Obj_8006BB1C *arg0);
@@ -100,10 +100,10 @@ void TCameraCtrl__sub_8006BB1C(Obj_8006BB1C *arg0) {
     }
     arg0->pitch += sx * 3;
     arg0->yaw += sy * 3;
-    r = arg0->dist * TBoss8Dragon__sub_803D64DC(arg0->yaw);
-    arg0->eye.x = r * TBoss8Dragon__sub_803D64C0(arg0->pitch) + arg0->at.x;
-    arg0->eye.y = arg0->at.y - arg0->dist * TBoss8Dragon__sub_803D64C0(arg0->yaw);
-    arg0->eye.z = r * TBoss8Dragon__sub_803D64DC(arg0->pitch) + arg0->at.z;
+    r = arg0->dist * cos_table_lookup(arg0->yaw);
+    arg0->eye.x = r * sin_table_lookup(arg0->pitch) + arg0->at.x;
+    arg0->eye.y = arg0->at.y - arg0->dist * sin_table_lookup(arg0->yaw);
+    arg0->eye.z = r * cos_table_lookup(arg0->pitch) + arg0->at.z;
 }
 #pragma pop
 
@@ -219,8 +219,8 @@ typedef char ScriptedCameraTargetOffset[(offsetof(ScriptedCameraState, target_or
 typedef char ScriptedCameraYawOffset[(offsetof(ScriptedCameraState, angles) + offsetof(CameraAngles, yaw) == 0x88) ? 1 : -1];
 typedef char ScriptedCameraPlaybackOffset[(offsetof(ScriptedCameraState, playback) == 0x98) ? 1 : -1];
 extern "C" {
-f32 TBoss6Kakusan__sub_803D8BD8(const Vec*);
-void TEffStarLightChild__sub_80141FBC(const Vec*, const Vec*, Vec*, f32);
+f32 vector_length(const Vec*);
+void approach_vector_fixed_distance(const Vec*, const Vec*, Vec*, f32);
 extern const f64 lbl_804383D8;
 extern const f32 lbl_805D9020;
 
@@ -305,14 +305,14 @@ BOOL approach_camera_vector(Vec *current, Vec *target, f32 rate) {
     delta.x = current->x - target->x;
     delta.y = current->y - target->y;
     delta.z = current->z - target->z;
-    f32 distance = TBoss6Kakusan__sub_803D8BD8(&delta);
+    f32 distance = vector_length(&delta);
     base_step = lbl_805D9018 * distance;
     f32 step = base_step * rate;
     if (distance > step) {
         if (step >= lbl_804383D8) {
             step = lbl_805D9020;
         }
-        TEffStarLightChild__sub_80141FBC(current, target, current, step);
+        approach_vector_fixed_distance(current, target, current, step);
         return FALSE;
     }
     target->x = current->x;
@@ -471,7 +471,7 @@ struct Stack_8006C28C {
 void TObjPlayer__sub_803D6960(void *, Motion_8006C28C *, void **, f32);
 void set_active_player__10TObjPlayerFi(int);
 f32 TCameraCtrl__sub_803D8D00(Vec_8006C28C *);
-void TNpcPlayer__sub_803D97B4(Vec_8006C28C *);
+void normalize_vector(Vec_8006C28C *);
 void push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 void TCameraCtrl__sub_803D8934(int, Vec_8006C28C *, Vec_8006C28C *);
@@ -501,7 +501,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
             tmp.z = st.v.z;
             f32 m = TCameraCtrl__sub_803D8D00(&tmp);
             if (m != lbl_805D9028) {
-                TNpcPlayer__sub_803D97B4(&tmp);
+                normalize_vector(&tmp);
             }
             s->position.x = -(lbl_805D902C * tmp.x - st.p.x);
             s->position.y = st.p.y;
@@ -525,7 +525,7 @@ void update_scripted_camera(Cam_8006C28C *s) {
         v2.y = st.v.y;
         v2.z = st.v.z;
         if (TCameraCtrl__sub_803D8D00(&v2) != lbl_805D9028) {
-            TNpcPlayer__sub_803D97B4(&v2);
+            normalize_vector(&v2);
         }
         push_matrix_from(lbl_8058D490);
         rotate_matrix_y(0, s->yaw);

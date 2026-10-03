@@ -55,7 +55,7 @@ extern s32 tl_05;
 extern const f32 lbl_805DB380;
 extern const f32 lbl_805DB384;
 u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A734_lbl_804AFF00 lbl_804AFF00;
 extern u8 *TOCapsuleMachine01__data_805D58C0;
@@ -85,12 +85,12 @@ void render__18TOCapsuleMachine01Fv(u8 *arg0);
 void run_task__18TOCapsuleMachine01Fv(void);
 M2C_UNK PPCSync();
 M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -111,8 +111,8 @@ void run_task__18TOCapsuleMachine01Fv(void) {
 
 void render__18TOCapsuleMachine01Fv(u8 *arg0) {
     if (((VObj_8015A5E8 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
@@ -150,7 +150,7 @@ void TOCapsuleMachine01__sub_8015A734(void) {
   var_r4 = temp_r3;
   if (var_r4 != 0)
   {
-    var_r4 = (long) TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFF00.value, 0, 0, 0);
+    var_r4 = (long) load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFF00.value, 0, 0, 0);
   }
   TOCapsuleMachine01__data_805D58C0 = (unsigned char *) ((void *) var_r4);
   new_var = (void **) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) ((RecoveredFields_8015A734_var_r4 *) var_r4)->field_42C) + 8)))) + 0x2C)))) + 0x30);

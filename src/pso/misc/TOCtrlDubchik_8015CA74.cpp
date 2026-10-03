@@ -234,7 +234,7 @@ M2C_UNK TLobby__sub_800F6510(void *, void *);
 s32 TLobby__sub_8002AFD4(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void TOCtrlDubchik__sub_8015CB4C(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 lbl_804B0A10;
 extern u32 TOCtrlDubchik__data_805D58F0;
@@ -249,7 +249,7 @@ extern const f32 TOCtrlDubchik__data_805DB3B8;
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
 s32 try_start_action__10TObjPlayerFPvii(void *, void *, void *);
 s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2);
-s32 TObjPlayer__sub_800162E0(void *, void *, void *, f32);
+s32 roll_physical_accuracy__10TObjPlayerFv(void *, void *, void *, f32);
 s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -267,7 +267,7 @@ extern const f32 lbl_805DB3BC;
 extern const f32 lbl_805DB3C8;
 u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 extern const f32 TOCtrlDubchik__data_805DB3B4;
@@ -284,7 +284,7 @@ M2C_UNK apply_actor_gravity(void *, void *, f32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern s32 lbl_805D29F8;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -328,7 +328,7 @@ void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
-s32 TObjPlayer__sub_80016454();
+s32 select_melee_contact_body__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
@@ -402,7 +402,7 @@ void update_spin__13TOCtrlDubchikFPv(u8 *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
     temp_f1 = (f32) temp_r4;
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x380)));
+    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x380)));
     apply_actor_gravity(arg0, arg0 + 0x390, M2C_FIELD(arg0, f32 *, 0x37C));
     M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) + 0x147);
 }
@@ -417,7 +417,7 @@ void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
   s8 *new_var3;
   *((s32 *) (((s8 *) arg0) + 0x380)) = (s32) (((f32) (*((s32 *) (((s8 *) arg0) + 0x380)))) + TOCtrlDubchik__data_805DB3B4);
   new_var3 = ((s8 *) arg0) + 0x380;
-  *((f32 *) (((s8 *) arg0) + 0x37C)) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0((s32)(*((s32 *) new_var3))));
+  *((f32 *) (((s8 *) arg0) + 0x37C)) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)(*((s32 *) new_var3))));
   new_var = &(*((f32 *) (((s8 *) arg0) + 0x37C)));
   apply_actor_gravity(arg0, arg0 + 0x390, *new_var);
   new_var4 = *((f32 *) (((s8 *) arg0) + 0x388));
@@ -441,7 +441,7 @@ void TOCtrlDubchik__sub_8015CDCC(u8 *arg0) {
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
     temp_f1 = (f32) temp_r4;
     M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0x380)))));
+    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (M2C_FIELD(arg0, s32 *, 0x380)))));
     apply_actor_gravity((void *) (arg0), (void *) (arg0 + 0x390), (f32) (M2C_FIELD(arg0, f32 *, 0x37C)));
     M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) + TOCtrlDubchik__data_805DB3B0);
     if (TOCtrlDubchik__data_805DB3AC < M2C_FIELD(arg0, f32 *, 0x384)) {
@@ -455,7 +455,7 @@ void TOCtrlDubchik__sub_8015CE80(u8 *arg0) {
     s32 i;
     u8 *p;
     *(s32 *)(arg0 + 0x380) = (f32)*(s32 *)(arg0 + 0x380) + TOCtrlDubchik__data_805DB3B4;
-    *(f32 *)(arg0 + 0x37C) = lbl_805DB3BC + TBoss8Dragon__sub_803D64C0(*(s32 *)(arg0 + 0x380));
+    *(f32 *)(arg0 + 0x37C) = lbl_805DB3BC + sin_table_lookup(*(s32 *)(arg0 + 0x380));
     apply_actor_gravity(arg0, arg0 + 0x390, *(f32 *)(arg0 + 0x37C));
     for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
         p = get_player_data__10TObjPlayerFi(i);
@@ -532,7 +532,7 @@ void TOCtrlDubchik__sub_8015D314(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B0A10.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B0A10.value, 0, 0, 0));
     }
     (*(s32 *)&TOCtrlDubchik__data_805D58F0) = var_r0;
 }
@@ -581,7 +581,7 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 
 s32 TOCtrlDubchik__vt18(void *arg0) {
     if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
-        return TObjPlayer__sub_80016454();
+        return select_melee_contact_body__10TObjPlayerFv();
     }
     return 0;
 }
@@ -595,7 +595,7 @@ s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2) {
 
 s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
-        return TObjPlayer__sub_800162E0((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
+        return roll_physical_accuracy__10TObjPlayerFv((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
     }
     return 0;
 }

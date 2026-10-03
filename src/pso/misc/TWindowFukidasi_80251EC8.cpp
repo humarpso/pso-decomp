@@ -69,9 +69,9 @@ f32 get_view_scale__11TCameraCtrlFv();
 View_80252764 *TWindowSubStatusDisp__sub_80244364(void *);
 void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void refresh_rect_placement__15TWindowFukidasiFPv(void *);
-s32 TWindowFukidasi__sub_802511E4(Fuki_80250F70 *, f32 *, f32 *);
-void TWindowFukidasi__sub_80251594(void *);
-void TWindowFukidasi__sub_80251EC8(void *, View_80252764 *, u32);
+s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *, f32 *, f32 *);
+void follow_anchor__15TWindowFukidasiFv(void *);
+void draw_name_plate__15TWindowFukidasiFv(void *, View_80252764 *, u32);
 int is_active__15TWindowFukidasiFPv(void *);
 void TWindowSubStatusDisp__sub_80257BC0(void *, void *, View_80252764 *);
 extern const f32 TWindowFukidasi__data_805DCD0C;
@@ -84,10 +84,10 @@ extern const f32 lbl_805DCDC0;
 void render__15TWindowFukidasiFPv(Fuki_80252764 *b);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void TObjCMHairMenu__sub_801E35C4(Prim_802521E8 *, s32, s32, f32);
-s32 TWindowFukidasi__sub_802511E4(Fuki_80250F70 *, f32 *, f32 *);
+s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *, f32 *, f32 *);
 s32 fn_80252CB0(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 f32 xyz_distance(void *, void *);
 extern const f64 TWindowFukidasi__data_8044ED70;
 extern u8 *lbl_805D4DF0;
@@ -95,7 +95,7 @@ extern const f32 TWindowFukidasi__data_805DCD08;
 extern const f32 lbl_805DCD78;
 extern const f32 lbl_805DCD90;
 void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 color, f32 *off, f32 depth);
-void TWindowFukidasi__sub_802523CC(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32);
+void draw_body_row__15TWindowFukidasiFv(struct Fukidasi_80252558 *, struct Slice_80252558 *, struct DrawCtx_80252558 *, f32, f32, f32, f32);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
@@ -121,13 +121,13 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
     f32 y0;
     s32 angle;
     if (fn_80252CB0(b) != 0) {
-        TWindowFukidasi__sub_802511E4((Fuki_80250F70 *)b, pos, scr);
+        project_anchor__15TWindowFukidasiFv((Fuki_80250F70 *)b, pos, scr);
         cx = b->center[0];
         cy = b->center[1];
         angle = TWindowFukidasi__data_8044ED70 * get_ad_end_text_start__10TObjPlayerFv(cy - scr[1], cx - scr[0]);
         s = TWindowFukidasi__data_805DCD08 / xyz_distance(lbl_805D4DF0 + 0x178, pos);
-        x0 = s * TBoss8Dragon__sub_803D64DC(angle) + scr[0];
-        y0 = s * TBoss8Dragon__sub_803D64C0(angle) + scr[1];
+        x0 = s * cos_table_lookup(angle) + scr[0];
+        y0 = s * sin_table_lookup(angle) + scr[1];
         prim.verts = verts;
         prim.flags = 0;
         prim.colors = colors;
@@ -135,10 +135,10 @@ void draw_tail__15TWindowFukidasiFPvPvUiPvf(Fuki_802521E8 *b, void *view, u32 co
         colors[2] = colors[1] = colors[0] = (color << 8) | (color >> 24);
         verts[0] = x0;
         verts[1] = y0;
-        verts[2] = off[0] + (b->tail * (lbl_805DCD78 * TBoss8Dragon__sub_803D64DC(angle + 0x4000)) + cx);
-        verts[3] = off[1] + (b->tail * (lbl_805DCD78 * TBoss8Dragon__sub_803D64C0(angle + 0x4000)) + cy);
-        verts[4] = off[0] + (b->tail * (lbl_805DCD78 * TBoss8Dragon__sub_803D64DC(angle - 0x4000)) + cx);
-        verts[5] = off[1] + (b->tail * (lbl_805DCD78 * TBoss8Dragon__sub_803D64C0(angle - 0x4000)) + cy);
+        verts[2] = off[0] + (b->tail * (lbl_805DCD78 * cos_table_lookup(angle + 0x4000)) + cx);
+        verts[3] = off[1] + (b->tail * (lbl_805DCD78 * sin_table_lookup(angle + 0x4000)) + cy);
+        verts[4] = off[0] + (b->tail * (lbl_805DCD78 * cos_table_lookup(angle - 0x4000)) + cx);
+        verts[5] = off[1] + (b->tail * (lbl_805DCD78 * sin_table_lookup(angle - 0x4000)) + cy);
         TObjCMHairMenu__sub_801E35C4(&prim, 3, 2, lbl_805DCD90 + b->f54);
     }
 }
@@ -181,12 +181,12 @@ void TWindowFukidasi__sub_80252558(struct Fukidasi_80252558 *b, struct DrawCtx_8
     s.vh = capY * lbl_805DCDA4;
     s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
     s.rowHeight *= ctx->scale[1];
-    TWindowFukidasi__sub_802523CC(b, &s, ctx, offset[0], 0.0f, width, capY);
+    draw_body_row__15TWindowFukidasiFv(b, &s, ctx, offset[0], 0.0f, width, capY);
     s.y = (b->size[1] + (b->position[1] + offset[1])) - capY;
     s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
     t = lbl_805DCDB0 - capY;
     s.v = t * lbl_805DCDA4;
-    TWindowFukidasi__sub_802523CC(b, &s, ctx, offset[0], b->size[1] - capY, width, capY);
+    draw_body_row__15TWindowFukidasiFv(b, &s, ctx, offset[0], b->size[1] - capY, width, capY);
     d = b->size[1] - lbl_805DCD98;
     mid = d * ctx->scale[1];
     if (mid >= TWindowFukidasi__data_805DCD30) {
@@ -195,7 +195,7 @@ void TWindowFukidasi__sub_80252558(struct Fukidasi_80252558 *b, struct DrawCtx_8
         s.y = ctx->pivot[1] + ctx->scale[1] * (s.y - ctx->pivot[1]);
         s.v = lbl_805DCDB4;
         s.rowHeight = mid;
-        TWindowFukidasi__sub_802523CC(b, &s, ctx, offset[0], lbl_805DCD94, width, d);
+        draw_body_row__15TWindowFukidasiFv(b, &s, ctx, offset[0], lbl_805DCD94, width, d);
     }
     get_player__20TWindowSubStatusDispFv();
 }
@@ -208,7 +208,7 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     View_80252764 *v;
     switch (b->phase) {
     case 0:
-        TWindowFukidasi__sub_802511E4((Fuki_80250F70 *)b, NULL, b->head);
+        project_anchor__15TWindowFukidasiFv((Fuki_80250F70 *)b, NULL, b->head);
         place_rect_at_head_or_slot__15TWindowFukidasiFPv((Fuki_802504C0 *)b);
         b->center[0] = TWindowFukidasi__data_805DCD0C * b->anchor[0] + b->rect[0];
         b->center[1] = TWindowFukidasi__data_805DCD0C * b->anchor[1] + b->rect[1];
@@ -229,7 +229,7 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     case 9:
         break;
     }
-    TWindowFukidasi__sub_80251594(b);
+    follow_anchor__15TWindowFukidasiFv(b);
     v = TWindowSubStatusDisp__sub_80244364(b);
     v->sx /= get_view_scale__11TCameraCtrlFv();
     v->sy /= get_fov__11TCameraCtrlFv();
@@ -243,7 +243,7 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     draw_tail__15TWindowFukidasiFPvPvUiPvf((Fuki_802521E8 *)((Fuki_802521E8 *)b), (void *)(v), (u32)(b->color), (f32 *)(off), lbl_805DCD90 + b->f54);
     if (is_active__15TWindowFukidasiFPv(b) != 0) {
         TWindowSubStatusDisp__sub_80257BC0(b, b->f24, v);
-        TWindowFukidasi__sub_80251EC8(b, v, b->color);
+        draw_name_plate__15TWindowFukidasiFv(b, v, b->color);
     }
 }
 #pragma pop

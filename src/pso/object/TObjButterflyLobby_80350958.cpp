@@ -15,13 +15,13 @@ extern "C" {
 void init_params__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFv(void *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK draw_ginja_model_with_motion(int, void *, f32);
 s32 TObjFish__sub_8001ED9C(void *, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand();
@@ -32,8 +32,8 @@ extern s32 lbl_805D6EB8;
 void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     f32 temp_f1;
 
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (-0x2000));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 3) {

@@ -22,7 +22,7 @@ struct RecoveredGlobal_8017DE94___vt__14TOWreckAncient {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017DDA8_lbl_804B53D0 lbl_804B53D0;
 extern RecoveredGlobal_8017DDA8_lbl_804B5408 lbl_804B5408;
@@ -47,12 +47,12 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 void draw_model__14TOWreckAncientFPv(u8 *arg0);
 void free_statics__14TOWreckAncientFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -61,8 +61,8 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 void draw_model__14TOWreckAncientFPv(u8 *arg0) {
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
     if (self->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
@@ -94,13 +94,13 @@ void TOWreckAncient__sub_8017DDA8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B53D0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B53D0.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5AF8) = var_r0;
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = (long) (TLobby__sub_80020004((void *) temp_r3_2, 1, &lbl_804B5408.value, 0, 0, 0));
+        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B5408.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5AFC) = var_r0_2;
 }

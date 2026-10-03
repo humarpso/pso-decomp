@@ -11,7 +11,7 @@ s32 TLobby__sub_800822E8(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8011E204(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AFF0C(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_801B5BCC(void *);
+M2C_UNK select_contextual_pickup_action__10TObjPlayerFv(void *);
 s32 check_flag_4__10TObjPlayerFPv(void *);
 M2C_UNK set_flag_400000__10TObjPlayerFi(void *);
 s32 check_flag_48__10TObjPlayerFPv(void *);
@@ -30,7 +30,7 @@ void handle_state2_transitions__10TObjPlayerFPv(u8 *arg0) {
         if ((get_main_phase() != 0xE) && ((s32) lbl_805D55C0 != 0)) {
             goto call3;
         }
-        TObjPlayer__sub_801B5BCC(arg0);
+        select_contextual_pickup_action__10TObjPlayerFv(arg0);
         run_action_state_phase__10TObjPlayerFisi(arg0, M2C_FIELD(arg0, s16 *, 0x326), 7);
         if (check_flag_48__10TObjPlayerFPv(arg0) != 0) {
             break;

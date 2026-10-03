@@ -131,7 +131,7 @@ M2C_UNK TBoss6PlotFalz__sub_802AB14C(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AB1C8(void *);
 M2C_UNK set_visible_flag__14TBoss6PlotFalzFPv(void *);
 void run_task__14TBoss6PlotFalzFv(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK TBoss6Tube__sub_802B1760();
 M2C_UNK fn_802E52AC();
@@ -171,7 +171,7 @@ s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 s32 TLobby__sub_8002AFD4(void *, void *, int);
 M2C_UNK TBoss4DarkFalz__sub_8004B4F0(void *, void *);
-M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK initialize__9TObjEnemyFPv();
 M2C_UNK register_entity_by_id(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AAC98(void *);
@@ -325,7 +325,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     temp_r30 = register_boss__6TLobbyFPv((int) (0x2C));
     temp_r29 = dispatch_shared_handler_b__6TLobbyFPv((int) (0x2C));
     temp_r6 = register_object__6TLobbyFPv((int) (0x2C));
-    TObjPlayer__sub_800F7478((void *) (arg0), (int) (temp_r30), (int) (temp_r29), (int) (temp_r6));
+    bind_enemy_combat_stats((void *) (arg0), (int) (temp_r30), (int) (temp_r29), (int) (temp_r6));
     register_entity_by_id((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
     set_visible_flag__14TBoss6PlotFalzFPv((void *) (arg0));
@@ -359,7 +359,7 @@ void TBoss6PlotFalz__sub_802ACBE4(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804DE200.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804DE200.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D66E8) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {

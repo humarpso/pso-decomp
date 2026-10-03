@@ -14,7 +14,7 @@ u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1);
 M2C_UNK set_technique_level_entry(s32, s16, s32);
-M2C_UNK fn_801D9870(s32, s16);
+M2C_UNK get_cast_technique_level(s32, s16);
 s32 is_invalid_slot__10TObjPlayerFUc();
 s32 is_valid_technique_id__10TObjPlayerFs(s16);
 s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
@@ -88,7 +88,7 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
 
     var_r31 = 0;
     do {
-        fn_801D9870(arg0, (s16) var_r31);
+        get_cast_technique_level(arg0, (s16) var_r31);
         if (is_invalid_slot__10TObjPlayerFUc() == 0) {
             set_technique_level_entry(arg0, (s16) var_r31, arg1);
         }
@@ -99,7 +99,7 @@ void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1) {
 void TObjPlayer__sub_801D97C8(void *p, s32 add) {
     s32 i = 0;
     do {
-        s32 v = ((s32 (*)(void *, s16))fn_801D9870)(p, i);
+        s32 v = ((s32 (*)(void *, s16))get_cast_technique_level)(p, i);
         if (((s32 (*)(s32))is_invalid_slot__10TObjPlayerFUc)(v) == 0) {
             v += add;
             v = clamp_to_max__10TObjPlayerFiUcUc(p, v, ((s32 (*)(void *, s16))get_effective_technique_level__10TObjPlayerFPvs)(p, i));

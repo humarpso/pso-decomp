@@ -26,7 +26,7 @@ struct Ent_80283FA8 { u8 pad[0x2c]; s32 f2c; };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
@@ -118,7 +118,7 @@ void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = draw_default_entry__9TWindowDDFi();
     TWindowSubSymbolChatFaceType__sub_80283FA8((Win_80283FA8 *)((void *) (arg0)));
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r31));
+    draw_window_frame((void *) (arg0), (int) (temp_r31));
     TWindowSubSymbolChatFaceType__sub_80283F38((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r31)));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x68)), (int) (temp_r31));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r31));

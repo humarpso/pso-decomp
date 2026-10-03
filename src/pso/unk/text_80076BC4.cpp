@@ -23,7 +23,7 @@ int TWindowKeyBoardSoft__sub_80076E2C(s32 arg0);
 
 extern "C" {
 
-s32 TLobby__sub_80076BC8(void *);
+s32 submit_chat_text(void *);
 s32 TWindowDD__sub_80348C78(void *);
 void TWindowShortListCtrl__sub_80076D1C(void);
 s32 TWindowSubSymbolChat__sub_80076F88(void *);

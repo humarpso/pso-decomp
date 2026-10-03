@@ -40,7 +40,7 @@ extern s32 lbl_805D5060;
 extern const f32 lbl_805D9A14;
 void TObjPlayer__sub_800A6BE0(void);
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 subtract_vector(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
@@ -196,7 +196,7 @@ void TObjPlayer__sub_800A64E8(u8 *arg0) {
 void TObjPlayer__sub_800A6B14(Obj_800A6B14 *self) {
     Vec_800A6B14 d;
     VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
-    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    subtract_vector(&d, &self->pos);
     step_angle_clamped__10TObjPlayerFPvi(self,
         TBoss4Type2__sub_80141FA8(self->angle, (s32)(lbl_8043A8D0 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
 }

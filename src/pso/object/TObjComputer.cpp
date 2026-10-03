@@ -144,8 +144,8 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 set_global_param__8TObjFishFi(s32);
-s32 TObjPlayer__sub_803D9B2C();
-s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 push_matrix();
+s32 post_translate_matrix(void *);
 s32 rotate_matrix_y(s32, s32);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 void draw_ginja_box_tree(void);
@@ -173,7 +173,7 @@ extern u32 TObjComputer__data_805D5B68;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCEC;
 void *TObjComputer__ct(void *arg0, void *parent, void *row);
-void *TLobby__sub_80020004(void *, int, void *, int, int, int);
+void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 load_gvm_texture_file(char *);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -191,9 +191,9 @@ M2C_UNK scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 M2C_UNK PPCSync();
 s32 rotate_matrix_y(s32, s32);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, u32);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(void *);
 extern u32 lbl_805D53A4;
@@ -241,8 +241,8 @@ M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
         return;
     }
     set_global_param__8TObjFishFi(lbl_805D5B6C);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(self->pos38);
+    push_matrix();
+    post_translate_matrix(self->pos38);
     rotate_matrix_y(0, self->yaw60);
     if (TObjComputer__data_805DBCD8[self->kind88] == 1) {
         u32 tick = lbl_805D53A4;
@@ -253,7 +253,7 @@ M2C_UNK TObjComputer__sub_8018807C(void *arg0) {
             f32 time = self->time_c0;
             self->time_c0 = time - (f32)(s32)time;
         }
-        TOHangerMachine01__sub_803D9C00(self->model->pos8);
+        post_translate_matrix(self->model->pos8);
         TObjPlayer__sub_803D99F8(self->model->angles14, self->model->flags0 & 0x20);
         draw_ginja_object(self->model);
         if (self->model->sub2c != NULL) {
@@ -324,7 +324,7 @@ void TObjComputer__sub_80188358(void) {
     case 34: case 35:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B6244, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B6244, 0, 0, 0);
         }
         TObjComputer__data_805D5B68 = (u32) p;
         lbl_805D5B6C = load_gvm_texture_file(lbl_80444B60);
@@ -333,7 +333,7 @@ void TObjComputer__sub_80188358(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B6204, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B6204, 0, 0, 0);
         }
         TObjComputer__data_805D5B68 = (u32) p;
         lbl_805D5B6C = load_gvm_texture_file(lbl_80444B78);
@@ -425,8 +425,8 @@ void TObjContainerAbeEnemy__vt79(Obj_80188884 *self) {
         switch (self->state) {
         case 0:
             set_global_param__8TObjFishFi(lbl_805D5B8C);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(self->pos);
+            push_matrix();
+            post_translate_matrix(self->pos);
             rotate_matrix_y(0, self->id);
             dispatch_fish_event__6TLobbyFPv((void *)2);
             draw_ginja_box_tree();

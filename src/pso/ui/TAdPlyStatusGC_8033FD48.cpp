@@ -11,9 +11,9 @@ struct RecoveredGlobal_8033FDB0_lbl_80478430
 };
 
 extern "C" {
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_model_motion(int, int, f32);
 s32 set_global_flag__10TObjPlayerFv();
@@ -53,9 +53,9 @@ void TObjPlayer__sub_8033FDB0(s32 arg0) {
   s32 var_r31;
   u8 *temp_r30;
   s32 var_r29;
-  TObjPlayer__sub_803D9B2C();
+  push_matrix();
   set_global_flag__10TObjPlayerFv();
-  TOHangerMachine01__sub_803D9C00((void *) (&lbl_80478430.value));
+  post_translate_matrix((void *) (&lbl_80478430.value));
   var_r29 = 0;
   var_r31 = 0;
   do

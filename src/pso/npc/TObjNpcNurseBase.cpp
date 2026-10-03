@@ -98,7 +98,7 @@ struct RecoveredGlobal_8014D4C4___vt__16TObjNpcNurseBase {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014D41C_lbl_804AB658 lbl_804AB658;
 extern u32 TObjNpcNurseBase__data_805D5840;
@@ -141,7 +141,7 @@ void load_shared_data__16TObjNpcNurseBaseFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AB658.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AB658.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcNurseBase__data_805D5840) = var_r0;
 }

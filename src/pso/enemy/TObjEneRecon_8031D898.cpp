@@ -33,15 +33,15 @@ extern "C" {
 M2C_UNK get_field_0c__10TObjPlayerFPv(int);
 f32 get_pos_x__10TObjPlayerFPv(int);
 f32 get_random_float__8TObjFishFv(f32);
-f32 TBoss8Dragon__sub_803D64DC();
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 cos_table_lookup();
+f32 vec3_dot(void *, void *);
 extern s32 TObjEneRecon__data_805D6AF4;
 extern const f32 lbl_805DF3CC;
 extern f32 TObjEneRecon__data_805DF3D4;
 s32 TObjEneRecon__sub_8031DA90(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void enemy_set_target_id(void *, u16);
-s32 TObjEneDD__sub_800BB484(void *, void *, f32);
+s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
 s32 TObjEneRecon__sub_8031F0F0(void *, u16);
@@ -49,7 +49,7 @@ extern const f32 lbl_805DF420;
 void TObjEneRecon__sub_8031D898(Recon_8031D898 *o);
 void queue_destruction__7TObjectFv(void *);
 void enemy_set_target_id(void *, u16);
-s32 TObjEneDD__sub_800BB484(void *, void *, f32);
+s32 collect_enemy_target_candidates(void *, void *, f32);
 void transition_enemy_state(void *, s32);
 void *find_entity_by_id(u16);
 s32 TObjEneRecon__sub_8031F0F0(void *, u16);
@@ -75,7 +75,7 @@ void TObjEneRecon__sub_8031D898(Recon_8031D898 *o) {
         transition_enemy_state(o, 3);
         return;
     }
-    n = TObjEneDD__sub_800BB484(o, hits, lbl_805DF420);
+    n = collect_enemy_target_candidates(o, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
         if (id != o->target && TObjEneRecon__sub_8031F0F0(p, id) != 0) {
@@ -105,7 +105,7 @@ void TObjEneRecon__sub_8031D994(Recon_8031D994 *o) {
         transition_enemy_state(o, 2);
         return;
     }
-    n = TObjEneDD__sub_800BB484(o, hits, lbl_805DF420);
+    n = collect_enemy_target_candidates(o, hits, lbl_805DF420);
     for (i = 0; i < n; i++) {
         id = hits[i].id;
         if (id != o->target && TObjEneRecon__sub_8031F0F0(p, id) != 0) {
@@ -122,9 +122,9 @@ void TObjEneRecon__sub_8031D994(Recon_8031D994 *o) {
 s32 TObjEneRecon__sub_8031DA90(u8 *arg0) {
     f32 temp_f31;
     if ((M2C_FIELD(arg0, f32 *, 0x3AC) < (TObjEneRecon__data_805DF3D4 + get_pos_x__10TObjPlayerFPv((int) (TObjEneRecon__data_805D6AF4)))) && (get_random_float__8TObjFishFv((f32) (M2C_FIELD(arg0, f32 *, 0x448) - M2C_FIELD(arg0, f32 *, 0x398))) < lbl_805DF3CC)) {
-        temp_f31 = TObjPlayer__sub_803D89C0((void *) (arg0 + 0x44C), (void *) (arg0 + 0x3A0));
+        temp_f31 = vec3_dot((void *) (arg0 + 0x44C), (void *) (arg0 + 0x3A0));
         get_field_0c__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x318)));
-        if (temp_f31 >= TBoss8Dragon__sub_803D64DC()) {
+        if (temp_f31 >= cos_table_lookup()) {
             return 1;
         }
     }

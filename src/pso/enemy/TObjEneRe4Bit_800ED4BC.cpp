@@ -232,8 +232,8 @@ void copy_pos__13TObjEneRe4BitFPv(void* p);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void vec3_add_to(void *, void *);
+void subtract_vector(void *, void *);
 extern const f32 lbl_805DA77C;
 extern const f32 lbl_805DA780;
 void TObjEneRe4Bit__sub_800ED4BC(Obj_800ED4BC *arg0);
@@ -266,12 +266,12 @@ void TObjEneRe4Bit__sub_800ED4BC(Obj_800ED4BC *arg0) {
     f32 s;
     VecCopy__FP3VecPC3Vec((void*)(&sp), (void*)(arg0->f3C0));
     sp.y = sp.y + arg0->f3D8;
-    TBoss6Type1__sub_803D9370(&sp, &arg0->v2FC);
+    subtract_vector(&sp, &arg0->v2FC);
     s = lbl_805DA77C * update_scale__15TObjBoss2TunnelFPv(&sp);
     arg0->v3F8.x = lbl_805DA780 * (sp.x * s + arg0->v3F8.x);
     arg0->v3F8.y = lbl_805DA780 * (sp.y * s + arg0->v3F8.y);
     arg0->v3F8.z = lbl_805DA780 * (sp.z * s + arg0->v3F8.z);
-    TBoss4Zako__sub_803D8910(&arg0->v2FC, &arg0->v3F8);
+    vec3_add_to(&arg0->v2FC, &arg0->v3F8);
     arg0->f38 = arg0->v2FC.x;
     arg0->f40 = arg0->v2FC.z;
 }

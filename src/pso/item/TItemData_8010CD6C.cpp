@@ -112,18 +112,18 @@ s16 get_field6_bswap__9TItemDataFPv(void *arg0);
 s16 get_technique_level__9TItemDataFPv(void *arg0);
 void lookup_item_def__9TItemDataFPv(void *arg0);
 M2C_UNK TItemData__sub_8010B908(void *, s32, s32, s32, s32, s32);
-M2C_UNK TItemData__sub_8010BD24(void *, s32, s32, s32, s32, s32);
+M2C_UNK add_mag_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 M2C_UNK TItemData__sub_8010BEC4(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_shield_stat_contribution__9TItemDataFPviiPv(void *, s32, s32, s32, s32, s32);
 M2C_UNK add_armor_stat_contribution__9TItemDataFPviiPv(void *, s32, s32, s32, s32, s32);
-M2C_UNK TItemData__sub_8010C320(void *, s32, s32, s32, s32, s32);
+M2C_UNK add_weapon_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 s32 TItemData__sub_8010C52C();
 M2C_UNK TItemData__sub_8010C5DC(void *, s32);
 void TItemData__sub_8010CCB0(void);
 void TItemData__sub_8010CCB4(void);
 s32 get_item_description_text(s32);
 s32 get_player_by_client_id(s32);
-void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
+void *calc_technique_parameters(u8, u8, s32);
 M2C_UNK apply_bonuses(void *, s32, s32, s32, s32, s32);
 int bswap_16__FPUs(void*);
 s32 is_item_stackable(u8, u8);
@@ -177,7 +177,7 @@ s16 get_technique_level__9TItemDataFPv(void *arg0) {
     void *temp_r3;
 
     if (((u8) M2C_FIELD(arg0, u8 *, 0) == 3) && ((u8) M2C_FIELD(arg0, u8 *, 1) == 2)) {
-        temp_r3 = TTecCtrl__sub_8022DBC4(M2C_FIELD(arg0, u8 *, 4), M2C_FIELD(arg0, u8 *, 2), 0xFFFF);
+        temp_r3 = calc_technique_parameters(M2C_FIELD(arg0, u8 *, 4), M2C_FIELD(arg0, u8 *, 2), 0xFFFF);
         if (temp_r3 != NULL) {
             return M2C_FIELD(temp_r3, s16 *, 0x14);
         }
@@ -495,7 +495,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
         temp_r0 = M2C_FIELD(arg0, u8 *, 0);
         switch ((s32) temp_r0) {
         case 0:
-            TItemData__sub_8010C320(arg0, arg1, arg2, arg3, arg4, arg5);
+            add_weapon_stat_bonuses__9TItemDataFv(arg0, arg1, arg2, arg3, arg4, arg5);
             break;
         case 1:
             temp_r0_2 = M2C_FIELD(arg0, u8 *, 1);
@@ -512,7 +512,7 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
             }
             break;
         case 2:
-            TItemData__sub_8010BD24(arg0, arg1, arg2, arg3, arg4, arg5);
+            add_mag_stat_bonuses__9TItemDataFv(arg0, arg1, arg2, arg3, arg4, arg5);
             break;
         }
         apply_bonuses(arg0, arg1, arg2, arg3, arg4, arg5);

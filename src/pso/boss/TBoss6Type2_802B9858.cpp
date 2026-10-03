@@ -11,9 +11,9 @@ M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 M2C_UNK TBoss6Type2__sub_802B9EE4(void *);
 M2C_UNK TBoss6Type2__sub_802B9F0C();
 M2C_UNK TBoss6Type2__sub_802BCAB8(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
@@ -27,8 +27,8 @@ void render_body_effects__11TBoss6Type2FPv(u8 *arg0) {
 
     TBoss6Type2__sub_802B9F0C();
     toggle_particle_effect__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     var_r31 = 0;
     if ((TBoss6Type2__data_805DE410 == M2C_FIELD(arg0, f32 *, 0x41C)) || (TBoss6Type2__data_805DE40C == M2C_FIELD(arg0, f32 *, 0x41C))) {

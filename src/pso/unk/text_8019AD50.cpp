@@ -7,7 +7,7 @@ struct RecoveredGlobal_8019AD50_lbl_804B8FF8 { M2C_UNK value; u8 remaining[0xC];
 typedef char RecoveredGlobal_8019AD50_lbl_804B8FF8_size[sizeof(RecoveredGlobal_8019AD50_lbl_804B8FF8) == 0x10 ? 1 : -1];
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8019AD50_lbl_804B8FF8 lbl_804B8FF8;
 extern s32 lbl_805D5C74;
@@ -22,7 +22,7 @@ void fn_8019AD50(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B8FF8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B8FF8.value, 0, 0, 0));
     }
     lbl_805D5C74 = var_r0;
 }

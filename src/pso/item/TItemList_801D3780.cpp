@@ -107,7 +107,7 @@ s32 get_game_mode__6TLobbyFv(void);
 Actor_801D3E20 *get_player_data__10TObjPlayerFi(s32 i);
 f32 horizontal_distance_squared(void *, void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void *TObjPlayer__sub_80155C54(Body_801D3E20, Body_801D3E20);
+void *refresh_actor_body_spheres(Body_801D3E20, Body_801D3E20);
 extern const f32 lbl_805DC3D0;
 void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
@@ -141,8 +141,8 @@ s32 reset_placement_search_ring(void *arg0);
 s32 check_player_action_allowed(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern Shape_801D3C38 lbl_804C43E8;
 extern Body_801D3E20 lbl_804C4414;
 extern const f32 lbl_805DC3C8;
@@ -320,9 +320,9 @@ s32 step_placement_search(Search_801D3C38 *s) {
         s->ring++;
         reset_placement_search_ring(s);
     }
-    s->candidate.x = s->radius * TBoss8Dragon__sub_803D64C0(s->angle) + s->origin.x;
+    s->candidate.x = s->radius * sin_table_lookup(s->angle) + s->origin.x;
     s->candidate.y = s->origin.y;
-    s->candidate.z = s->radius * TBoss8Dragon__sub_803D64DC(s->angle) + s->origin.z;
+    s->candidate.z = s->radius * cos_table_lookup(s->angle) + s->origin.z;
     g = csnVecterUnder(&s->candidate, 0x41);
     if (g == NULL) {
         s->angle += s->step;
@@ -360,7 +360,7 @@ void *find_placement_obstruction(void *self, Body_801D3E20 *s) {
                 b.count = a->count;
                 VecCopy__FP3VecPC3Vec(&b.position, &a->pos);
                 b.facing = a->facing;
-                r = TObjPlayer__sub_80155C54(*s, b);
+                r = refresh_actor_body_spheres(*s, b);
                 if (r != 0) {
                     return r;
                 }

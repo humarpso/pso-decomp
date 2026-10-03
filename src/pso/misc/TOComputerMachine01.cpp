@@ -58,9 +58,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scroll_ginja_mesh_uvs(int, int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
@@ -85,7 +85,7 @@ extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMac
 extern s32 TOComputerMachine01__data_805D58E4;
 extern u8 *TOComputerMachine01__data_805D58E0;
 void TOComputerMachine01__sub_8015B4E4(void);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern M2C_UNK lbl_804AFFE8[];
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__data_8050DB50;
@@ -119,8 +119,8 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__data_8050DB50.value, s32 *, 0xC)), (int) (0), (int) (-1), (int) (7), (int) (1));
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
@@ -165,7 +165,7 @@ void TOComputerMachine01__sub_8015B544(void) {
     Node_8015B544 *n;
     o = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (o != NULL) {
-        o = TLobby__sub_80020004(o, 1, lbl_804AFFE8, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, lbl_804AFFE8, 0, 0, 0);
     }
     TOComputerMachine01__data_805D58E0 = o;
     n = ((Obj_8015B544 *)o)->model->res->head;

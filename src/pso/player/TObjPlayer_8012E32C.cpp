@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
@@ -15,7 +15,7 @@ u8 *query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK get_entity_id__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
 void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
@@ -28,8 +28,8 @@ void notify_joined_game_entity__10TObjPlayerFPv(u8 *arg0) {
         if (temp_r31 != 0U) {
             get_entity_id__10TObjPlayerFPv();
             notify_fish_if_valid__10TObjPlayerFUi();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x2C);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x2C);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x3C));
             rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x38));
             rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x40));

@@ -53,10 +53,10 @@ extern int lbl_805D4D78;
 void TObjDFTenchuFuru__sub_80051A18(void);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 f32 TObjPlayer__sub_803D99F8(void *, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TBoss7Tentacle__sub_803D9BA0(void *);
-f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 scale_current_matrix(void *);
+f32 post_translate_matrix(void *);
 extern RecoveredGlobal_80051AD0_lbl_804858B4 lbl_804858B4;
 extern RecoveredGlobal_80051AD0_lbl_804FF228 lbl_804FF228;
 extern RecoveredGlobal_80051AD0_lbl_804FF234 lbl_804FF234;
@@ -165,10 +165,10 @@ void TObjDFTenchuFuru__sub_80051AD0(u8 *arg0) {
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
     do {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (var_r31 + 8));
+        push_matrix();
+        post_translate_matrix((void *) (var_r31 + 8));
         TObjPlayer__sub_803D99F8((void *) (var_r31 + 0x14), (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
-        TBoss7Tentacle__sub_803D9BA0((void *) (var_r31 + 0x20));
+        scale_current_matrix((void *) (var_r31 + 0x20));
         switch ((s32) (*(s32 *)&lbl_805D4D78)) {
         case 0x3B:
             TCameraCtrl__sub_803D8934((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF228.value));

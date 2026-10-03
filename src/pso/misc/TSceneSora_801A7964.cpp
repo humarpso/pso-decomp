@@ -25,7 +25,7 @@ extern "C" {
 
 void enter_scene__10TSceneSoraFi(s32 arg0);
 void update_if_active__10TSceneSoraFPv(void *arg0);
-M2C_UNK TCameraCtrl__sub_801A7B14();
+M2C_UNK setup_photon_blast_camera();
 M2C_UNK TObjPlayer__sub_800D8A60();
 M2C_UNK TObjPlayer__sub_800D8A6C();
 M2C_UNK allow_rendering__7TObjectFv(void *);
@@ -51,7 +51,7 @@ void update_if_active__10TSceneSoraFPv(void *arg0) {
 extern void *tl_05;
 
 void enter_scene__10TSceneSoraFi(s32 arg0) {
-    TCameraCtrl__sub_801A7B14();
+    setup_photon_blast_camera();
     reset_state__10TSceneSoraFv((s32)(arg0));
     apply_all_default__8TFogCtrlFv(arg0);
     TObjPlayer__sub_800D8A60();

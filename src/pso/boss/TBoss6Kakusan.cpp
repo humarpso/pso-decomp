@@ -21,14 +21,14 @@ u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 extern M2C_UNK __vt__13TBoss6Kakusan[];
 extern s32 lbl_805D4160;
 extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF53C;
 u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg0);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 lbl_805DF52C;
 extern const f32 lbl_805DF530;
@@ -45,10 +45,10 @@ u32 get_player_by_client_id(s32);
 s32 is_active__14TBoss6PlotFalzFPv();
 void TBoss6Kakusan__sub_80322438(u8 *arg0);
 int TBoss6Kakusan__sub_8032263C(void);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 extern s32 lbl_805D6C28;
 extern u8 lbl_805D6C2C;
 extern s32 lbl_805D6C30;
@@ -77,7 +77,7 @@ s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0) {
     }
     V3_80322644 v = arg0->pos;
     v.y = TBoss6Kakusan__data_805DF518;
-    return TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805DF534;
+    return vector_length(&v) > lbl_805DF534;
 }
 
 void render__13TBoss6KakusanFv(void) {  }
@@ -103,23 +103,23 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         lbl_805D6C34 = 1;
     }
     if (M2C_FIELD(arg0, s32 *, 0x2C) >= lbl_805D6C28 && M2C_FIELD(arg0, s32 *, 0x2C) <= lbl_805D6C30) {
-        speed = TBoss6Kakusan__sub_803D8BD8(arg0 + 0x3C);
+        speed = vector_length(arg0 + 0x3C);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
             pl = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x20));
             if (is_active__14TBoss6PlotFalzFPv() != 0) {
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
                 v.y += lbl_805DF538;
-                TBoss6Type1__sub_803D9370(&v, arg0 + 0x30);
-                if (!(TBoss6Kakusan__sub_803D8BD8(&v) <= TBoss6Kakusan__data_805DF51C)) {
-                    TNpcPlayer__sub_803D97B4(&v);
+                subtract_vector(&v, arg0 + 0x30);
+                if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
+                    normalize_vector(&v);
                     v.x *= M2C_FIELD(arg0, f32 *, 0x28);
                     v.y *= M2C_FIELD(arg0, f32 *, 0x28);
                     v.z *= M2C_FIELD(arg0, f32 *, 0x28);
                     VecCopy__FP3VecPC3Vec(&w, arg0 + 0x3C);
-                    TNpcPlayer__sub_803D97B4(&w);
-                    TBoss4Zako__sub_803D8910(&v, &w);
-                    if (!(TBoss6Kakusan__sub_803D8BD8(&v) <= TBoss6Kakusan__data_805DF51C)) {
-                        TNpcPlayer__sub_803D97B4(&v);
+                    normalize_vector(&w);
+                    vec3_add_to(&v, &w);
+                    if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
+                        normalize_vector(&v);
                         v.x *= speed;
                         v.y *= speed;
                         v.z *= speed;
@@ -129,11 +129,11 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
             }
         }
     }
-    TBoss4Zako__sub_803D8910(arg0 + 0x30, arg0 + 0x3C);
+    vec3_add_to(arg0 + 0x30, arg0 + 0x3C);
     if (M2C_FIELD(arg0, void **, 0x54) != NULL) {
         copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x54), arg0 + 0x30);
         VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
-        TBoss6Type1__sub_803D9370(&a, arg0 + 0x48);
+        subtract_vector(&a, arg0 + 0x48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
         copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0x54), &b);
@@ -172,7 +172,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
         M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DF53C;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3C), (void *) (arg3));
-    if (TBoss6Kakusan__sub_803D8BD8((void *) (arg0 + 0x3C)) <= TBoss6Kakusan__data_805DF51C) {
+    if (vector_length((void *) (arg0 + 0x3C)) <= TBoss6Kakusan__data_805DF51C) {
         M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DF53C;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x30), (void *) (arg2));

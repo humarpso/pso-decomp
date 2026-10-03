@@ -480,8 +480,8 @@ void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern u8 lbl_80475DF0[];
 extern s32 TObjEneMe3SinowZoa__data_805D6AE0;
 extern const f32 lbl_805DF300;
@@ -500,8 +500,8 @@ M2C_UNK transition_enemy_state(void *, int);
 void advance_animation_playback(void *);
 M2C_UNK TObjEneMe3SinowZoa__sub_80316840(void *);
 s32 TObjEneMe3SinowZoa__sub_8031A820(f32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern f32 *TObjEneMe3SinowZoa__data_80542FD4[];
 extern const f32 TObjEneMe3SinowZoa__data_805DF31C;
 extern const f32 TObjEneMe3SinowZoa__data_805DF324;
@@ -552,8 +552,8 @@ void TObjEneMe3SinowZoa__sub_80317F90(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x3CC) |= 2;
                 create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneMe3SinowZoa__data_805D6AE0, lbl_80475DF0, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x60));
                 VecCopy__FP3VecPC3Vec(&p, arg0 + 0x38);
-                p.x += TObjEneMe3SinowZoa__data_805DF320 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
-                p.z += TObjEneMe3SinowZoa__data_805DF320 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+                p.x += TObjEneMe3SinowZoa__data_805DF320 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+                p.z += TObjEneMe3SinowZoa__data_805DF320 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
                 trigger_dell_biter_events__10TObjPlayerFPv(&p);
                 play_sound_effect(0x4003AD2E, arg0 + 0x38, 0, 0);
             }
@@ -603,9 +603,9 @@ void TObjEneMe3SinowZoa__sub_8031955C(u8 *arg0, s32 arg1) {
             enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             TObjEneMe3SinowZoa__sub_80316840((void *) (arg0));
-            temp_f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * TBoss8Dragon__sub_803D64DC((s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
-            M2C_FIELD(arg0, f32 *, 0x444) = (f32) ((M2C_FIELD(arg0, f32 *, 0x3A0) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))))) + temp_f31);
-            if (M2C_FIELD(arg0, f32 *, 0x444) < TBoss8Dragon__sub_803D64DC((s32)((int) (0x1000)))) {
+            temp_f31 = M2C_FIELD(arg0, f32 *, 0x3A8) * cos_table_lookup((s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
+            M2C_FIELD(arg0, f32 *, 0x444) = (f32) ((M2C_FIELD(arg0, f32 *, 0x3A0) * sin_table_lookup((s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))))) + temp_f31);
+            if (M2C_FIELD(arg0, f32 *, 0x444) < cos_table_lookup((s32)((int) (0x1000)))) {
                 update_angle__14TObjEneEpsilonFPvi((void *) (arg0), (int) (0x500));
                 ((VObj_18_e66632 *)(arg0))->m100();
             } else {

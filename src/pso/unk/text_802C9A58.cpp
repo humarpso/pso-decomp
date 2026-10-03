@@ -2,7 +2,7 @@
 
 extern "C" {
 s32 get_bml_model(void *, int);
-void *TLobby__sub_80020004(void *, int, void *, int, int, int);
+void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, int);
 extern u8 lbl_804E0C00[];
@@ -30,7 +30,7 @@ void TObjSeabedSuisoBrakable__sub_802C9A58(void) {
     s32 h;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 5, lbl_804E0C00, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, lbl_804E0C00, 0, 0, 0);
     }
     lbl_805D6808 = p;
     for (i = 0; i < 5; i++) {

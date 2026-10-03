@@ -32,11 +32,11 @@ extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void TBoss4Zako__vt3(u8 *arg0);
 Pl_8005CBA4 *get_player_by_client_id(s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void normalize_vector(void *);
 extern const f32 lbl_805D8D0C;
 extern const f32 lbl_805D8D14;
 void TBoss4Zako__vt2(u8 *p);
@@ -86,8 +86,8 @@ void TBoss4Zako__vt2(u8 *p) {
     }
     V_8005CBA4 t = pl->pos;
     ang = o->f1c << 0xD;
-    t.x = lbl_805D8D0C * TBoss8Dragon__sub_803D64C0(ang) + t.x;
-    t.z = lbl_805D8D0C * TBoss8Dragon__sub_803D64DC(ang) + t.z;
+    t.x = lbl_805D8D0C * sin_table_lookup(ang) + t.x;
+    t.z = lbl_805D8D0C * cos_table_lookup(ang) + t.z;
     if (o->pos.x < t.x) {
         o->vel.x += lbl_805D8D14;
     } else {
@@ -98,14 +98,14 @@ void TBoss4Zako__vt2(u8 *p) {
     } else {
         o->vel.z -= lbl_805D8D14;
     }
-    o->f398 = TBoss6Kakusan__sub_803D8BD8(&o->vel);
+    o->f398 = vector_length(&o->vel);
     if (o->f398 > o->f39c) {
-        TNpcPlayer__sub_803D97B4(&o->vel);
+        normalize_vector(&o->vel);
         o->vel.x *= o->f39c;
         o->vel.z *= o->f39c;
         o->f398 = o->f39c;
     }
-    TBoss4Zako__sub_803D8910(&o->pos, &o->vel);
+    vec3_add_to(&o->pos, &o->vel);
     if (--o->f3a4 < 0) {
         o->f3a4 = 0x3C;
         o->f374 = 1;

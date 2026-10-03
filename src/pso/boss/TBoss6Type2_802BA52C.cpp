@@ -8,7 +8,7 @@ extern "C" {
 
 void cache_fish_params__11TBoss6Type2FPv(void *arg0);
 void update_zako__11TBoss6Type2FPv(void* p);
-int TBoss4Zako__sub_803D8910(void*, void*);
+int vec3_add_to(void*, void*);
 M2C_UNK TBoss6Type2__sub_802BA158();
 int TBoss6Type2__sub_802BAB80(void*);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
@@ -22,6 +22,6 @@ void cache_fish_params__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x56C) = get_bml_model(M2C_FIELD(arg0, s32 *, 0x3FC), 0xA);
 }
 
-void update_zako__11TBoss6Type2FPv(void* p) { TBoss4Zako__sub_803D8910((char*)p + 0x38, (char*)p + 0x524); TBoss6Type2__sub_802BAB80(p); }
+void update_zako__11TBoss6Type2FPv(void* p) { vec3_add_to((char*)p + 0x38, (char*)p + 0x524); TBoss6Type2__sub_802BAB80(p); }
 
 }

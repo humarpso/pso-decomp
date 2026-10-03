@@ -150,14 +150,14 @@ void TWindowChoiceSetting__sub_80268A6C(u8 *arg0) {
 extern "C" {
 
 void draw_setting__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowSubComCard__sub_8024503C(s32, u16 *, s32);
+M2C_UNK draw_selection_bar(s32, u16 *, s32);
 
 void draw_setting__20TWindowChoiceSettingFPvi(void *arg0, s32 arg1) {
     u16 *temp_r3;
 
     temp_r3 = ((u16 * (*)(void *, s16))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, M2C_FIELD(arg0, s16 *, 0x74));
     if (*temp_r3 & 1) {
-        TWindowSubComCard__sub_8024503C(arg1, temp_r3, ((s32 (*)(void *))is_open__17TWindowSubComCardFPv)(arg0));
+        draw_selection_bar(arg1, temp_r3, ((s32 (*)(void *))is_open__17TWindowSubComCardFPv)(arg0));
     }
 }
 
@@ -246,7 +246,7 @@ extern "C" {
 
 void TWindowSubStatusDisp__sub_80268C80(u8 *arg0);
 void *destroy_children__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
@@ -260,7 +260,7 @@ void TWindowSubStatusDisp__sub_80268C80(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     ((M2C_UNK (*)(void *, s32))draw_setting__20TWindowChoiceSettingFPvi)(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {

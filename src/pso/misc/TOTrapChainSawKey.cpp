@@ -59,12 +59,12 @@ void TOTrapChainSawDamage__vt24(void* p);
 int TOTrapChainSawKey__vt13(void* p);
 void *__dt__17TOTrapChainSawKeyFv(void *arg0, s16 arg1);
 void *create__17TOTrapChainSawKeyFPv(void *arg0);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(void *, void *, f32);
 void TObjEneGibbles__sub_80156720(void *);
 void TObjPlayer__sub_80154A00(void *);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void __dt__14TOTrapChainSawFv(void *, int);
@@ -148,9 +148,9 @@ void TOTrapChainSawDamage__vt12(void) {
 
 void TOTrapChainSawDamage__vt23(void *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
+    push_matrix();
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
     draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));

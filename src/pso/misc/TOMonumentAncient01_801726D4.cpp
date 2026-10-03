@@ -35,7 +35,7 @@ s32 TLobby__sub_80156A80(void *, void *, int);
 M2C_UNK start_camera_pan__10TObjPlayerFPvs(int, int, void *);
 s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80172758_lbl_804B38E0 lbl_804B38E0;
 extern u32 TOMonumentAncient01__data_805D5A60;
@@ -99,7 +99,7 @@ void TOMonumentAncient01__sub_80172758(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B38E0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B38E0.value, 0, 0, 0));
     }
     (*(s32 *)&TOMonumentAncient01__data_805D5A60) = var_r0;
 }

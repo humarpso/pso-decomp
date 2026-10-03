@@ -162,9 +162,9 @@ s32 TObjPlayer__sub_800D9290(void *, int);
 s32 advance_animation_playback(void *);
 s32 play_effect_if_v2__10TObjPlayerFi(int);
 s32 play_sound_effect(void *, void *, int, int);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FC4;
 extern const f32 lbl_805D9FC8;
@@ -231,11 +231,11 @@ void fn_800C2AC4(u8 *arg0, int arg1) {
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) arg0) != 0)
       {
         ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_410 = 1;
-        temp_f1 = lbl_805D9FC4 * TBoss8Dragon__sub_803D64C0((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);
+        temp_f1 = lbl_805D9FC4 * sin_table_lookup((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);
         stack.spC = lbl_805D9FAC;
         stack.sp8 = temp_f1;
-        stack.sp10 = lbl_805D9FC4 * TBoss8Dragon__sub_803D64DC((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);
-        TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 - -0x38));
+        stack.sp10 = lbl_805D9FC4 * cos_table_lookup((int) ((RecoveredFields_800C2AC4_arg0 *) arg0)->field_60);
+        vec3_add_to((void *) (&stack.sp8), (void *) (arg0 - -0x38));
         if (get_flag_11__16TObjEneRe2FlowerFPv((void *) arg0) != 0)
         {
           apply_effect_variant_a__10TObjPlayerFii((void *) (&stack.sp8), (int) 0x32);

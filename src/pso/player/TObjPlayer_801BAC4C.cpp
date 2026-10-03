@@ -37,7 +37,7 @@ s32 TObjPlayer__sub_801C5B68(void *);
 s32 scale_matrix(int, f32, f32, f32);
 s32 set_position_vec3__10TObjPlayerFPvPv(int, void *);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 set_some_id__FUl(int);
@@ -114,7 +114,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     typedef char spC_offset[(offsetof(Stack_801BAD60, spC) == 0x4) ? 1 : -1];
     Stack_801BAD60 stack;
     u8 *temp_r3;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     stack.spC += M2C_FIELD(arg0, f32 *, 0x5FC);
     set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&stack.sp8));

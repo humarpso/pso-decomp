@@ -48,8 +48,8 @@ struct Tomb_80075B5C { u8 pad[0xCC]; s32 rt_index; u8 pad2[0x1A0 - 0xD0]; char t
 
 extern "C" {
 void TObjTombstone__sub_80075D68(O_80075D68 *self);
-void TBoss6Type1__sub_803D9370(Vec_8007598C *, Vec_8007598C *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_8007598C *);
+void subtract_vector(Vec_8007598C *, Vec_8007598C *);
+f32 vector_length(Vec_8007598C *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D91A8;
 extern const f32 TObjTombstone__data_805D9174;
@@ -119,9 +119,9 @@ f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1) {
         return lbl_805D91A8;
     }
     Vec_8007598C v = self->pos;
-    TBoss6Type1__sub_803D9370(&v, &p->pos);
+    subtract_vector(&v, &p->pos);
     v.y = TObjTombstone__data_805D9174;
-    return TBoss6Kakusan__sub_803D8BD8(&v);
+    return vector_length(&v);
 }
 
 void TObjTombstone__sub_80075A00(Tomb_80075A00 *self) {

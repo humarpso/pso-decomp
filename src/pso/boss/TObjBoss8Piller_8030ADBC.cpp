@@ -16,12 +16,12 @@ void run_task__15TObjBoss8PillerFv(u8 *arg0);
 extern "C" {
 
 void render__15TObjBoss8PillerFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 s32 is_split_screen();
@@ -39,8 +39,8 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
             var_r31 = M2C_FIELD(M2C_FIELD(TObjBoss8Piller__data_805D6A78, void **, 0x42C), s32 *, 8);
         }
         set_global_param__8TObjFishFi((void *) (M2C_FIELD(M2C_FIELD(TObjBoss8Piller__data_805D6A78, void **, 0x42C), s32 *, 0xC)));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x1C));
         scale_matrix((int) (0), (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));
         draw_model_motion((int) (var_r31), (int) (M2C_FIELD(arg0, s32 *, 0x2C)), (f32) (M2C_FIELD(arg0, f32 *, 0x28)));
         pop_matrix();

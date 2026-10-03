@@ -7,8 +7,8 @@ struct O_8015C9D4 { u8 pad[0x2FC]; V3_8015C9D4 pos; u8 pad308[0x326 - 0x308]; s1
 struct A_8015C9D4 { u8 pad[0x1C]; V3_8015C9D4 pos; };
 
 extern "C" {
-f32 TObjPlayer__sub_80014108(void *, void *, f32);
-s32 TObjPlayer__sub_80016454(f32);
+f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
+s32 select_melee_contact_body__10TObjPlayerFv(f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void create_font__13TOCtrlDubchikFiiii(void *, int, int, void *);
 extern char lbl_80440984[];
@@ -38,8 +38,8 @@ void TOCtrlDubchik__sub_8015C9D0(void) {  }
 f32 TOCtrlDubchik__vt22(O_8015C9D4 *arg0, void *arg1, A_8015C9D4 *arg2) {
     V3_8015C9D4 sp8;
     if (arg0->f326 != 0) {
-        if (TObjPlayer__sub_80016454(TOCtrlDubchik__data_805DB3AC) != 0) {
-            return TObjPlayer__sub_80014108(arg0, arg1, TOCtrlDubchik__data_805DB3AC);
+        if (select_melee_contact_body__10TObjPlayerFv(TOCtrlDubchik__data_805DB3AC) != 0) {
+            return receive_physical_attack__10TObjPlayerFv(arg0, arg1, TOCtrlDubchik__data_805DB3AC);
         }
         if (arg2 != NULL) {
             VecCopy__FP3VecPC3Vec(&sp8, &arg2->pos);

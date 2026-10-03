@@ -73,7 +73,7 @@ Obj_800A4C4C *get_player_data__10TObjPlayerFi(s32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TLobby__sub_800822E8(void *, int);
 s32 angle_difference_abs(s32, s32);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043A8D0[];
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D9A24;
@@ -81,8 +81,8 @@ s32 TObjPlayer__sub_800A4C4C(Obj_800A4C4C *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK TObjPlayer__sub_800A7798(void *, f32);
-M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043A8D0[];
 extern s32 *lbl_805D5044;
 extern f32 *lbl_805D504C;
@@ -161,7 +161,7 @@ s32 TObjPlayer__sub_800A4C4C(Obj_800A4C4C *self) {
                 continue;
             }
             VecCopy__FP3VecPC3Vec(&v, &self->pos);
-            TBoss6Type1__sub_803D9370(&v, &p->pos);
+            subtract_vector(&v, &p->pos);
             if (angle_difference_abs(p->f60, (s32)(lbl_8043A8D0[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA) {
                 self->f38C = p;
                 self->f374 |= 0x20;
@@ -178,7 +178,7 @@ void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self) {
     case 0:
     default:
         VecCopy__FP3VecPC3Vec(&v, &self->target->pos);
-        TBoss6Type1__sub_803D9370(&v, &self->pos);
+        subtract_vector(&v, &self->pos);
         f32 a = get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
         self->f326 = 4;
         if ((s32)(lbl_8043A8D0[0] * a) < 0x10) {
@@ -201,7 +201,7 @@ void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self) {
         self->fB8 = 4;
         break;
     }
-    TObjPlayer__sub_800F7478(self, 0, lbl_805D5044[self->mode], 0);
+    bind_enemy_combat_stats(self, 0, lbl_805D5044[self->mode], 0);
     self->sub->flags |= 1;
     self->f30 &= 0xF9FBFFFF;
     self->f30 |= 0x200000;

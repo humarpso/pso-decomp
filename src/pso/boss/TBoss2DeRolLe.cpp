@@ -74,7 +74,7 @@ void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2);
 void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
 int play_sound_effect(void*, int, int, int);
-M2C_UNK TBoss4Zako__sub_803D8910(int, void *);
+M2C_UNK vec3_add_to(int, void *);
 s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
@@ -231,7 +231,7 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
     project_sound_origin_from_camera((void *) (arg0 + 0x4D0), (void *) (arg0 + 0x524), (f32) (TBoss2DeRolLe__data_805D8280));
     temp_r31 = arg0 + 0x530;
     VecCopy__FP3VecPC3Vec((int) (temp_r31), (void *) (arg0 + 0x524));
-    TBoss4Zako__sub_803D8910((int) (temp_r31), (void *) (arg0 + 0x524));
+    vec3_add_to((int) (temp_r31), (void *) (arg0 + 0x524));
     M2C_FIELD(temp_r31, f32 *, 0) = (f32) (M2C_FIELD(temp_r31, f32 *, 0) * TBoss2DeRolLe__data_805D8288);
     M2C_FIELD(temp_r31, f32 *, 4) = (f32) (M2C_FIELD(temp_r31, f32 *, 4) * TBoss2DeRolLe__data_805D8288);
     M2C_FIELD(temp_r31, f32 *, 8) = (f32) (M2C_FIELD(temp_r31, f32 *, 8) * TBoss2DeRolLe__data_805D8288);

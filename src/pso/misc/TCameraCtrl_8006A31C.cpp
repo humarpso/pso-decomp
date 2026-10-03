@@ -128,9 +128,9 @@ M2C_UNK TCameraCtrl__sub_800698C8(void *, int);
 M2C_UNK TCameraCtrl__sub_80069A6C(void *);
 M2C_UNK update_position__11TCameraCtrlFPv(void *);
 M2C_UNK TCameraCtrl__sub_80069BD8(void *);
-M2C_UNK TCameraCtrl__sub_8006A6C4(void *);
+M2C_UNK update_shake__11TCameraCtrlFv(void *);
 s32 get_camera_no__11TCameraCtrlFv();
-M2C_UNK TCameraCtrl__sub_803D676C(int, f32, f32, f32);
+M2C_UNK set_perspective_projection_from_fov(int, f32, f32, f32);
 extern RecoveredGlobal_8006A788_camera_controller_registry camera_controller_registry;
 extern s8 TCameraCtrl__data_804FF628[];
 extern const f32 TCameraCtrl__data_805D8FAC;
@@ -398,9 +398,9 @@ void update_active_controller__11TCameraCtrlFPv(u8 *arg0) {
       {
         TCameraCtrl__sub_800698C8((void *) arg0, (int) temp_r30);
       }
-      TCameraCtrl__sub_8006A6C4((void *) arg0);
+      update_shake__11TCameraCtrlFv((void *) arg0);
     }
-    TCameraCtrl__sub_803D676C((int) (*((s32 *) (((s8 *) arg0) + 0x19C))), (f32) TCameraCtrl__data_805D8FDC, (f32) TCameraCtrl__data_805D8FAC, (f32) TCameraCtrl__data_805D8FE0);
+    set_perspective_projection_from_fov((int) (*((s32 *) (((s8 *) arg0) + 0x19C))), (f32) TCameraCtrl__data_805D8FDC, (f32) TCameraCtrl__data_805D8FAC, (f32) TCameraCtrl__data_805D8FE0);
     PSO_VCALL_VObj_18_9639c7_m9(temp_r30);
     if (is_split_screen() == 0)
     {

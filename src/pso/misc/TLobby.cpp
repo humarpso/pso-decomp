@@ -2836,7 +2836,7 @@ extern "C" {
 
 void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(int);
-void TItemDrop__sub_800F9C00(void *);
+void apply_rel_relocations(void *);
 void *ct_object__9TItemDropFPv(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
@@ -2855,7 +2855,7 @@ void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(o, void **, 0x0) = o->f_28;
     M2C_FIELD(o, void **, 0x1C) = arg1;
     M2C_FIELD(o, void **, 0x20) = arg2;
-    TItemDrop__sub_800F9C00(o);
+    apply_rel_relocations(o);
 }
 
 }

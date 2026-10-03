@@ -105,7 +105,7 @@ struct Tec_8022BD74 {
 };
 
 extern "C" {
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_8022B6FC_lbl_804CC510 lbl_804CC510;
@@ -263,7 +263,7 @@ void create_particle_emitters__9TTecBartaFPv(void *arg) {
 
 void init_parameters__9TTecBartaFPv(u8 *arg0) {
   int new_var;
-  new_var = (int) TTecCtrl__sub_8022DBC4((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
+  new_var = (int) calc_technique_parameters((int) 3, (int) (*((s16 *) (((s8 *) arg0) + 0xC4))), (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), new_var);
   if ((((s16) (*((s16 *) (((s8 *) arg0) + 0xC4)))) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {

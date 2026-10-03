@@ -37,9 +37,9 @@ void TShopKeepItemWindow__sub_80221B34(void *arg0);
 s32 close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0);
 s32 close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0);
 s32 close__19TShopKeepItemWindowFPv(void *arg0);
-s32 TShopKeepItemWindow__sub_802219A0(void *);
+s32 handle_deposit_confirm__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__sub_80221B34(void *arg0);
-s32 TShopKeepItemWindow__sub_80221C38(void *);
+s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
 s32 TShopKeepItemWindow__sub_80221F08(void *);
 void TShopKeepItemWindow__vt9(u8 *arg0);
 void memset(void *, int, int);
@@ -153,10 +153,10 @@ void TShopKeepItemWindow__vt9(u8 *arg0) {
         TShopKeepItemWindow__sub_80221F08((void *) (arg0));
         return;
     case 1:
-        TShopKeepItemWindow__sub_80221C38((void *) (arg0));
+        handle_deposit_list_select__19TShopKeepItemWindowFv((void *) (arg0));
         return;
     case 2:
-        TShopKeepItemWindow__sub_802219A0((void *) (arg0));
+        handle_deposit_confirm__19TShopKeepItemWindowFv((void *) (arg0));
         return;
     case 3:
         close__19TShopKeepItemWindowFPv((void *) (arg0));

@@ -27,7 +27,7 @@ u8 get_entry_field16__9TItemDataFv(void);
 s32 get_item_use_result__9TItemDataFPv(u8 *arg0);
 int register_drop__9TItemDataFPv(void* p);
 void *lookup_item_pmt_record();
-void *TTecCtrl__sub_8022DBC4(u8, u8, s32);
+void *calc_technique_parameters(u8, u8, s32);
 s32 bswap_16__FPUs(s16 *);
 s32 is_item_stackable(u8, u8);
 s32 lookup_item_def__9TItemDataFPv();

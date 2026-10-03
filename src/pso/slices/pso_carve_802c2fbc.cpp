@@ -9,9 +9,9 @@ extern "C" {
 M2C_UNK TObjMapWarp__sub_80141CB0(M2C_UNK *, M2C_UNK *, M2C_UNK, M2C_UNK);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, M2C_UNK *, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern const f32 lbl_805DE4F8;
 
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -25,8 +25,8 @@ void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0
         clamp_value_to_max__10TObjPlayerFPviPvif(arg0, arg1, arg2, sp14, var_f31);
         var_f31 += farg0;
         temp_r30 = clamp_value_to_max__10TObjPlayerFPviPvif(arg0, arg1, arg2, sp8, var_f31);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         TObjMapWarp__sub_80141CB0(sp14, sp8, 0xF0F0F0FF, 0xF0F0F0FF);
         pop_matrix();

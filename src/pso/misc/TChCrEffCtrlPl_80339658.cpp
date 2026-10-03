@@ -41,7 +41,7 @@ extern u8 __vt__14TChCrEffCtrlPl[];
 extern s32 lbl_805D4270;
 extern const f32 lbl_805DFA08;
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern const f32 lbl_80477C78[];
 extern const f32 lbl_805DF9F4;
 extern const f32 lbl_805DF9FC;
@@ -90,7 +90,7 @@ void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self) {
     self->f30 = self->f2c;
     if (lbl_805DF9F4 == self->f2c) {
         s = lbl_805DF9F4;
-        v = TBoss8Dragon__sub_803D64C0(self->f34);
+        v = sin_table_lookup(self->f34);
         if ((self->f34 & 0x20000) && v > lbl_805DFA04) {
             s -= v - lbl_805DFA04;
         }

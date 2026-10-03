@@ -106,7 +106,7 @@ void *create__15TORockJungleM01FPv(void *arg0);
 void run_task__15TORockJungleM01Fv(void* p);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 void TObjEneGibbles__sub_80156720(void *);
-int TObjPlayer__sub_800D7BB0(void*);
+int update_obstruction_fade(void*);
 void TObjPlayer__sub_800D7C58(void *, int);
 void TObjPlayer__sub_80154A00(void *);
 void __dl__7TObjectFPv(void *);
@@ -116,7 +116,7 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_cull_none__8TObjFishFv();
 int update_break_state__18TORockCaveBrakableFPv(void*);
 
-void run_task__15TORockJungleM01Fv(void* p) { TObjPlayer__sub_800D7BB0((char*)p + 0xbc); update_break_state__18TORockCaveBrakableFPv(p); }
+void run_task__15TORockJungleM01Fv(void* p) { update_obstruction_fade((char*)p + 0xbc); update_break_state__18TORockCaveBrakableFPv(p); }
 
 void TORockJungleM01__vt16(s32 arg0) {
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);

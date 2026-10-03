@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -48,7 +48,7 @@ void TLobby__sub_8018A28C(void) {
     case 31:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B63AC, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B63AC, 0, 0, 0);
         }
         lbl_805D5B88 = (u32)p;
         lbl_805D5B8C = load_gvm_texture_file(lbl_80444F30);
@@ -57,7 +57,7 @@ void TLobby__sub_8018A28C(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B636C, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B636C, 0, 0, 0);
         }
         lbl_805D5B88 = (u32)p;
         lbl_805D5B8C = load_gvm_texture_file(lbl_80444F48);

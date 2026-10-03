@@ -269,9 +269,9 @@ s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 s32 set_global_flag__10TObjPlayerFv();
@@ -293,9 +293,9 @@ s32 check_demo_mode__10TObjPlayerFv();
 void TObjPlayer__sub_800BFF54(void *);
 void set_boss4_state__10TObjPlayerFPv(void *arg0);
 M2C_UNK apply_move_friction__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_800C0318(void *);
-M2C_UNK TObjPlayer__sub_800C08A0(void *);
-M2C_UNK TObjPlayer__sub_800C0E30(void *);
+M2C_UNK update_hurt__12TObjEneLappyFv(void *);
+M2C_UNK update_moving__12TObjEneLappyFv(void *);
+M2C_UNK update_idle_state__12TObjEneLappyFv(void *);
 M2C_UNK fn_800C20C0();
 u8 *find_active_entity_by_id(u16);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -320,7 +320,7 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, M2C_UNK);
 s32 obj_getField1c(void *);
 f32 xz_distance_squared(void *, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern M2C_UNK lbl_8043BA08[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -332,10 +332,10 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, s32);
 M2C_UNK project_actor_to_ground(void *, void *, M2C_UNK);
-s32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(s32, void *, void *);
 s32 rotate_matrix_y(int, int);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 s32 push_matrix_from(void *);
 s32 TCameraCtrl__sub_803D9858(s32);
 extern f32 lbl_8058D490[3][4];
@@ -370,8 +370,8 @@ s32 TObjPlayer__sub_800BFC58(s32 arg0);
 void clear_flags_60__10TObjPlayerFPv(u8 *arg0);
 void set_flag_and_notify__10TObjPlayerFPv(void *arg0);
 s32 try_clear_flags_60__10TObjPlayerFi(s32 arg0);
-s32 TObjPlayer__sub_80016D78();
-s32 TObjPlayer__sub_80016FF8();
+s32 update_movement_status__10TObjPlayerFv();
+s32 update_action_hold_status__10TObjPlayerFv();
 M2C_UNK project_actor_to_ground(void *, void *, M2C_UNK);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK send_entity_set_flags__6TLobbyFPv();
@@ -388,7 +388,7 @@ void clear_flags_60__10TObjPlayerFPv(u8 *arg0) {
 }
 
 s32 try_clear_flags_60__10TObjPlayerFi(s32 arg0) {
-    if (TObjPlayer__sub_80016D78() != 0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
         clear_flags_60__10TObjPlayerFPv((u8 *)(arg0));
         return 1;
     }
@@ -396,7 +396,7 @@ s32 try_clear_flags_60__10TObjPlayerFi(s32 arg0) {
 }
 
 s32 TObjPlayer__sub_800BFC58(s32 arg0) {
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         clear_flags_60__10TObjPlayerFPv((u8 *)(arg0));
         return 1;
     }
@@ -434,7 +434,7 @@ s32 TObjEneLappy::advance_flee_step() {
     s32 var_r29;
     VecCopy__FP3VecPC3Vec(&arg0->previous_position, &arg0->position);
     VecCopy__FP3VecPC3Vec(&sp20, &arg0->center);
-    TBoss4Zako__sub_803D8910(&sp20, &arg0->velocity);
+    vec3_add_to(&sp20, &arg0->velocity);
     if (arg0->has_update_cadence(0x1E) != 0) {
         if (csnVector(&arg0->center, &sp20, -1) != 0U) {
             return 0;
@@ -456,11 +456,11 @@ loop_7:
             TCameraCtrl__sub_803D9858(1);
         }
         VecCopy__FP3VecPC3Vec(&sp8, &arg0->position);
-        TBoss4Zako__sub_803D8910(&sp8, &sp14);
+        vec3_add_to(&sp8, &sp14);
         if (((s32)project_actor_to_ground((void *)(arg0), (void *)(&sp8), (M2C_UNK)(0))) == 1) {
             VecCopy__FP3VecPC3Vec(&arg0->position, &sp8);
             VecCopy__FP3VecPC3Vec(&arg0->velocity, &arg0->position);
-            TBoss6Type1__sub_803D9370(&arg0->velocity, &arg0->previous_position);
+            subtract_vector(&arg0->velocity, &arg0->previous_position);
             return 1;
         }
         var_r29 += 1;
@@ -473,7 +473,7 @@ loop_7:
     if (((s32)project_actor_to_ground((void *)(arg0), (void *)(&sp20), (M2C_UNK)(0))) == 1) {
         VecCopy__FP3VecPC3Vec(&arg0->position, &sp20);
         VecCopy__FP3VecPC3Vec(&arg0->velocity, &arg0->position);
-        TBoss6Type1__sub_803D9370(&arg0->velocity, &arg0->previous_position);
+        subtract_vector(&arg0->velocity, &arg0->previous_position);
         return 1;
     }
     return 0;
@@ -500,8 +500,8 @@ void TObjPlayer__sub_800BFF58(u8 *arg0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             TObjLight__sub_80134194((void *) (arg0));
             toggle_particle_effect__10TObjPlayerFv();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             if (M2C_FIELD(arg0, s16 *, 0x374) & 0x400) {
                 scale_matrix((int) (0), (f32) (lbl_805D9F38), (f32) (lbl_805D9F3C), (f32) (lbl_805D9F38));
@@ -802,7 +802,7 @@ void TObjPlayer__sub_800C1224(u8 *arg0) {
                     f32 xx;
                     f32 zz;
                     VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
-                    TBoss6Type1__sub_803D9370(&v, arg0 + 0x2FC);
+                    subtract_vector(&v, arg0 + 0x2FC);
                     xx = v.x * v.x;
                     zz = v.z * v.z;
                     d = xx + zz;
@@ -853,10 +853,10 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
     temp_r0 = ((RecoveredFields_800C1478_arg0 *)arg0)->field_326;
     switch (temp_r0) {
     case 0:
-        TObjPlayer__sub_800C0E30((void *) (arg0));
+        update_idle_state__12TObjEneLappyFv((void *) (arg0));
         break;
     case 1:
-        TObjPlayer__sub_800C08A0((void *) (arg0));
+        update_moving__12TObjEneLappyFv((void *) (arg0));
         break;
     case 2:
         TObjPlayer__sub_800C0588((u8 *)((void *) (arg0)));
@@ -865,7 +865,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
         update_invuln_timer__10TObjPlayerFPv((u8 *)((void *) (arg0)));
         break;
     case 4:
-        TObjPlayer__sub_800C0318((void *) (arg0));
+        update_hurt__12TObjEneLappyFv((void *) (arg0));
         break;
     case 5:
         apply_move_friction__10TObjPlayerFPv((void *) (arg0));

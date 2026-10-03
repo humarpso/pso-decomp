@@ -104,9 +104,9 @@ extern const f32 lbl_805DB528;
 u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 fn_801582C4(void *, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
@@ -117,7 +117,7 @@ extern s32 *lbl_805D597C;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB524;
 void render__15TODoorMachine02Fv(Door_80163408 *arg0);
-void *TLobby__sub_80020004(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *load_resource_from_descriptor(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 void *alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 s32 load_gvm_texture_file(void *);
@@ -188,14 +188,14 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
     s32 flag;
     Node_80163408 *n;
     if (((VObj_80163408 *)arg0)->m8(arg0->fC0, arg0->fC4) != 0 && fn_801582C4(arg0, lbl_805DB524) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0->f38);
+        push_matrix();
+        post_translate_matrix(arg0->f38);
         rotate_matrix_y(0, arg0->f60);
         flag = arg0->fD0 & 1;
         set_global_param__8TObjFishFi(lbl_805D597C[arg0->fD0 & 1]);
         if (arg0->fAC == 0) {
             n = arg0->model->root;
-            TOHangerMachine01__sub_803D9C00(n->f8);
+            post_translate_matrix(n->f8);
             draw_ginja_model(n->f4);
             if (flag != 1) {
                 s32 id = some_id_805c6f74;
@@ -203,14 +203,14 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
                 some_id_805c6f74 = id | 0x10;
                 set_chunk_material_color(arg0->fD4);
             }
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             n = n->next2C;
-            TOHangerMachine01__sub_803D9C00(n->f8);
+            post_translate_matrix(n->f8);
             draw_ginja_model(n->f4);
             pop_matrix();
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             n = n->next30;
-            TOHangerMachine01__sub_803D9C00(n->f8);
+            post_translate_matrix(n->f8);
             draw_ginja_model(n->f4);
             pop_matrix();
             if (flag != 1) {
@@ -218,7 +218,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
                 some_id_805c6f74 = lbl_805D5660;
             }
             n = arg0->model->root->next30;
-            TOHangerMachine01__sub_803D9C00(n->f8);
+            post_translate_matrix(n->f8);
             draw_ginja_model(n->f4);
         } else {
             draw_ginja_model_with_motion(arg0->model, arg0->fBC, arg0->fB0);
@@ -260,14 +260,14 @@ void TODoorMachine02__sub_80163610(void) {
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = TLobby__sub_80020004(o, 1, lbl_804B16B8, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, lbl_804B16B8, 0, 0, 0);
         }
         lbl_805D5978 = (u32)o;
         lbl_805D597C[0] = load_gvm_texture_file(lbl_80440FD8);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = TLobby__sub_80020004(o, 1, lbl_804B1698, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, lbl_804B1698, 0, 0, 0);
         }
         lbl_805D5978 = (u32)o;
         lbl_805D597C[0] = load_gvm_texture_file(lbl_80440FF0);

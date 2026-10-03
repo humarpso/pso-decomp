@@ -57,9 +57,9 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 extern s32 lbl_805D6C60;
 extern const f32 lbl_805DF620;
@@ -97,8 +97,8 @@ void render__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
     if (((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DF628, lbl_805DF62C, lbl_805DF624) != 0) {
 block_6:
         if (toggle_flag_9__10TObjPlayerFPv((void *) (arg0)) == 0) {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             end_effect_render__13TParticleCtrlFv();

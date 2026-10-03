@@ -18,7 +18,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
 M2C_UNK draw_ginja_object(int);
 s32 is_in_camera_range__18TObjBoss7TunnelColFPv(void *);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 s32 set_global_param__8TObjFishFi(int);
 extern u8 *lbl_805D6950;
@@ -43,7 +43,7 @@ void fn_802F1D1C(u8 *arg0) {
         var_r3 = (u8 *)(lbl_805D6954);
         set_global_param__8TObjFishFi((int) (var_r3));
         begin_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         var_r4 = (u8 *)(var_r30 + 0x48);
         var_r3 = (u8 *)(NULL);
         TObjPlayer__sub_803D9730((int) (0), (int) (var_r4));

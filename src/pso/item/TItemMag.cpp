@@ -78,7 +78,7 @@ void update_feed__8TItemMagFPv(void *arg0);
 void update_feed_timer__8TItemMagFPv(void *arg0);
 u8 TItemMagSub__sub_8011455C(void *);
 M2C_UNK apply_natural_evolution__8TItemMagFPv(void *);
-M2C_UNK TItemMag__sub_80112FB4();
+M2C_UNK update_protection__8TItemMagFv();
 M2C_UNK TItemMag__sub_801140F4(void *, int);
 M2C_UNK TItemMag__sub_80114198(void *, int);
 M2C_UNK TItemMag__sub_8011423C(void *, int);
@@ -266,7 +266,7 @@ void apply_feed_delta__8TItemMagFPv(u8 *arg0) {
 
 void update_feed_timer__8TItemMagFPv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1CC) == 0) {
-        TItemMag__sub_80112FB4();
+        update_protection__8TItemMagFv();
     }
     transfer_energy__8TItemMagFPv((void *)(arg0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {

@@ -55,7 +55,7 @@ struct Model_80159F78 {
 struct Obj_80159F78 { u8 pad0[0xCC]; f32 val[8]; };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A108_lbl_804AFDF8 lbl_804AFDF8;
 extern u32 TOCakeshopCave01__data_805D58B0;
@@ -83,9 +83,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 extern const f32 TOCakeshopCave01__data_805DB360;
@@ -139,19 +139,19 @@ void render__16TOCakeshopCave01Fv(u8 *arg0) {
     Model_80159F78 *m;
     s32 i;
     if (((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         m = M2C_FIELD(arg0, Model_80159F78 **, 0x34);
-        TOHangerMachine01__sub_803D9C00(m->m8);
+        post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
         m = m->child;
         begin_effect_render__13TParticleCtrlFv();
         for (i = 0; i < 8; i++) {
             if (((Obj_80159F78 *)arg0)->val[i] < TOCakeshopCave01__data_805DB360) {
-                TObjPlayer__sub_803D9B2C();
-                TOHangerMachine01__sub_803D9C00(m->m8);
+                push_matrix();
+                post_translate_matrix(m->m8);
                 scale_matrix(0, lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], lbl_805DB368 - ((Obj_80159F78 *)arg0)->val[i], TOCakeshopCave01__data_805DB360);
                 draw_ginja_model(m->m4);
                 pop_matrix();
@@ -188,7 +188,7 @@ void TOCakeshopCave01__sub_8015A108(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFDF8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFDF8.value, 0, 0, 0));
     }
     (*(s32 *)&TOCakeshopCave01__data_805D58B0) = var_r0;
 }

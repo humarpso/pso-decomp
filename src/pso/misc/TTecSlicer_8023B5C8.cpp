@@ -156,8 +156,8 @@ struct Slicer_8023BBB4 {
 };
 
 extern "C" {
-M2C_UNK TBoss6Type1__sub_803D9370(s32, s32);
-M2C_UNK TNpcPlayer__sub_803D97B4(s32);
+M2C_UNK subtract_vector(s32, s32);
+M2C_UNK normalize_vector(s32);
 f32 horizontal_distance_squared(s32, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 s32 get_next_captured_target(s32, s32, s32, s32, s32);
@@ -185,7 +185,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void advance_position__10TTecSlicerFPv(u8 *arg0);
 int has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_remain_count__10TTecSlicerFPv(void *);
-s32 TObjPlayer__sub_803D9B2C(void);
+s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 lbl_8044DC20;
 void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
@@ -207,10 +207,10 @@ M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-s32 TObjPlayer__sub_803D9B2C(void);
+s32 push_matrix(void);
 s32 pop_matrix(void);
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(u32);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
@@ -238,10 +238,10 @@ void fn_8023B590(void *, s32, s32);
 void reset_fields_1e__10TTecSlicerFPv(void* p);
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
 void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vector_length(void *);
+M2C_UNK normalize_vector(s32);
 extern M2C_UNK __vt__10TTecSlicer[];
 extern s32 lbl_805D3828;
 extern s32 tl_05;
@@ -318,7 +318,7 @@ void TTecSlicer__sub_8023B770(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
   var_r29 = arg0;
   var_r30 = (M2C_UNK *) arg1;
   var_r31 = arg2;
-  TObjPlayer__sub_803D9B2C();
+  push_matrix();
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_60 = var_r31;
   var_r3 = (M2C_UNK *) var_r29;
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_5C = -0x4000;
@@ -338,9 +338,9 @@ void update__10TTecSlicerFi(s32 arg0) {
             set_flags__10TObjPlayerFPvUi(arg0 + 0xC0, 1);
         } else {
             VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0xA8);
-            TBoss6Type1__sub_803D9370(arg0 + 0x90, arg0 + 0x38);
+            subtract_vector(arg0 + 0x90, arg0 + 0x38);
         }
-        TNpcPlayer__sub_803D97B4(arg0 + 0x90);
+        normalize_vector(arg0 + 0x90);
     }
 }
 
@@ -381,12 +381,12 @@ void render__10TTecSlicerFv(u8 *arg0) {
     if (M2C_FIELD(arg0, u32 *, 0x24) != 0U && M2C_FIELD(arg0, u32 *, 0x110) != 0U) {
         notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x24));
         begin_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x64));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
-        TBoss7Tentacle__sub_803D9BA0(arg0 + 0x68);
+        scale_current_matrix(arg0 + 0x68);
         draw_ginja_object(M2C_FIELD(arg0, u32 *, 0x110));
         set_chunk_material_color(lbl_804A7418);
         end_effect_render__13TParticleCtrlFv();
@@ -473,11 +473,11 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     copy_vec4__13TRaderMapCoreFPvPv(self->color, init->color);
     self->f138 = init->f2c;
     self->f13c = 1;
-    self->dir.x = TBoss8Dragon__sub_803D64C0(arg4);
+    self->dir.x = sin_table_lookup(arg4);
     self->dir.y = lbl_805DC950;
-    self->dir.z = TBoss8Dragon__sub_803D64DC(arg4);
-    if (lbl_805DC950 != TBoss6Kakusan__sub_803D8BD8(&self->dir)) {
-        TNpcPlayer__sub_803D97B4((s32)&self->dir);
+    self->dir.z = cos_table_lookup(arg4);
+    if (lbl_805DC950 != vector_length(&self->dir)) {
+        normalize_vector((s32)&self->dir);
     }
     self->f10c = (s32)arg2;
     self->f108 = find_item_by_id(self->f118);

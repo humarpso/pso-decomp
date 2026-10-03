@@ -39,7 +39,7 @@ M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_effect_state__10TObjPlayerFi(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
@@ -78,8 +78,8 @@ void TScene__sub_8029F5EC();
 void TObjPlayer__sub_8029F5F8(s32);
 f32 TCameraCtrl__sub_803D8D00(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
-void TNpcPlayer__sub_803D97B4(Vec_8029EFFC *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+void normalize_vector(Vec_8029EFFC *);
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern Vec_8029EFFC lbl_80465E08;
 extern u8 main_task[];
@@ -123,7 +123,7 @@ void TObjPlayer__sub_8029EEAC(s32 arg0, s32 arg1, s32 arg2) {
     if (((u32) lbl_805D4DF0 != 0U) && ((u32) lbl_805D65F0 != 0U)) {
         calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
         if (arg2 & 0x80) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             temp_f31 = (f32) (lbl_80465E18 * calc_camera_fov_degrees());
             if (TCameraCtrl__sub_800689F4() != 0) {
                 C_MTXLightPerspective((void *) (&sp10), (f32) (temp_f31), (f32) (lbl_805DDDA0), (f32) (lbl_805DDDA4), (f32) (lbl_805DDDA8), (f32) (lbl_805DDDA4 - spC), (f32) (lbl_805DDDA4 - sp8));
@@ -190,7 +190,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
                     c3.scale.x = lbl_805DDD8C;
                     c3.scale.y = lbl_805DDD90;
                     c3.scale.z = c3.scale.x;
-                    TObjPlayer__sub_803D9B2C();
+                    push_matrix();
                     reflect_matrix_in_plane(0, &c3);
                     render_object_layers__9TMainTaskFi(main_task, 3);
                     pop_matrix();
@@ -204,7 +204,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
             c2.scale.x = lbl_805DDD8C;
             c2.scale.y = lbl_805DDD90;
             c2.scale.z = c2.scale.x;
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             reflect_matrix_in_plane(0, &c2);
             render_object_layers__9TMainTaskFi(main_task, 4);
             pop_matrix();
@@ -218,7 +218,7 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
         c1.scale.x = lbl_805DDD8C;
         c1.scale.y = lbl_805DDD90;
         c1.scale.z = c1.scale.x;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         reflect_matrix_in_plane(0, &c1);
         render_object_layers__9TMainTaskFi(main_task, 5);
         pop_matrix();
@@ -247,10 +247,10 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
         }
         if (k != TCameraCtrl__sub_803D8D00(&v)) {
             Vec_8029EFFC tmp;
-            TNpcPlayer__sub_803D97B4(&v);
+            normalize_vector(&v);
             TSceneSora__sub_8029F584(&v);
-            TObjPlayer__sub_803D9B2C();
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
+            push_matrix();
             VecCopy__FP3VecPC3Vec(&tmp, &p->pos2FC);
             r = fn_8029EC3C(&tmp, 0x4000);
             if (r == 1) {

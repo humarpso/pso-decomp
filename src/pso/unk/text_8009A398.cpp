@@ -12,7 +12,7 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern RecoveredGlobal_8009A398_lbl_8048FE64 lbl_8048FE64;
 extern s32 lbl_805D29AC;
 extern const f32 lbl_805D9860;
@@ -30,7 +30,7 @@ u8 *fn_8009A398(u8 *arg0, M2C_UNK arg1, u8 *arg2, u8 *arg3) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x34), (void *) (arg3));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x40), (void *) (arg0 + 0x34));
-    TBoss6Type1__sub_803D9370((void *) (arg0 + 0x40), (void *) (arg0 + 0x28));
+    subtract_vector((void *) (arg0 + 0x40), (void *) (arg0 + 0x28));
     M2C_FIELD(arg0, f32 *, 0x4C) = update_scale__15TObjBoss2TunnelFPv((void *) (arg0 + 0x40));
     M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805D9860;
     return arg0;

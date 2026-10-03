@@ -19,7 +19,7 @@ s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 struct RecoveredGlobal_800DC028_lbl_8043C8D4 {
@@ -61,7 +61,7 @@ void TLobby__sub_800DC028(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_80494B4C.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_80494B4C.value, 0, 0, 0));
     }
     lbl_805D5258 = (u32) var_r0;
     lbl_805D5248 = register_boss__6TLobbyFPv((int) (0x1A));

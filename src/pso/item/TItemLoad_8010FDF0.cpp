@@ -30,7 +30,7 @@ void alloc_work_buffer__9TItemLoadFv(void);
 void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2);
 void request_load__9TItemLoadFPvi(void *arg0, s32 arg1);
 M2C_UNK TItemBuff__ct();
-s32 TItemDrop__sub_800F9C00(M2C_UNK *);
+s32 apply_rel_relocations(M2C_UNK *);
 s32 read_disc_file(u32, s32);
 M2C_UNK TLobby__sub_803CCB5C(s32, s32, s32, void *);
 M2C_UNK __dl__FPv(s32 *);
@@ -70,7 +70,7 @@ void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2) {
             construct__9TItemDropFPv((M2C_UNK *)&sp8);
             sp8.field1c = M2C_FIELD(arg0, u32 *, 0);
             sp8.field20 = temp_r31;
-            M2C_FIELD(arg0, s32 *, 4) = TItemDrop__sub_800F9C00((M2C_UNK *)&sp8);
+            M2C_FIELD(arg0, s32 *, 4) = apply_rel_relocations((M2C_UNK *)&sp8);
             destroy__9TItemDropFPvs((M2C_UNK *)&sp8, -1);
         }
         TItemBuff__ct();

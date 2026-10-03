@@ -76,17 +76,17 @@ f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TObjPlayer__sub_803D7CA4(int);
 M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, int, int);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 s32 TBreakUpMdl__sub_80096D94(u8 *arg0, u8 *arg1, s32 arg2);
 s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2);
 void TObjPlayer__sub_803D7B68(s32, f32);
@@ -115,9 +115,9 @@ void *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805D97CC;
 void TBreakUpMdl__sub_80096EBC(Brk_80096EBC *arg0, void *arg1);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void draw_ginja_model(s32);
 void set_chunk_material_override_pair(u32, u32);
@@ -164,8 +164,8 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
     }
     for (i = 0; i < self->count; i++) {
         part = &self->parts[i];
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(part->pos);
+        push_matrix();
+        post_translate_matrix(part->pos);
         TObjPlayer__sub_803D99F8(part->rot, 0);
         if (self->model->is_chunk != 0) {
             draw_ginja_model(self->model->chunks[i].model);
@@ -235,7 +235,7 @@ s32 TBreakUpMdl__sub_80096CE0(u8 *arg0, u8 *arg1, s32 arg2) {
     var_r28 = (u8 *)(arg1);
     var_r29 = arg2;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D7CA4((int) (var_r28));
         temp_r30 = M2C_FIELD(var_r28, s32 *, 0);
         if (!(temp_r30 & 8)) {
@@ -268,10 +268,10 @@ s32 TBreakUpMdl__sub_80096D94(u8 *arg0, u8 *arg1, s32 arg2) {
     var_r28 = (u8 *)(arg1);
     var_r29 = arg2;
     do {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (var_r28 + 8));
+        push_matrix();
+        post_translate_matrix((void *) (var_r28 + 8));
         TObjPlayer__sub_803D99F8((void *) (var_r28 + 0x14), (int) (0));
-        TBoss7Tentacle__sub_803D9BA0((void *) (var_r28 + 0x20));
+        scale_current_matrix((void *) (var_r28 + 0x20));
         temp_r30 = M2C_FIELD(var_r28, s32 *, 0);
         if (!(temp_r30 & 8)) {
             temp_r31 = (u8 *)(M2C_FIELD(arg0, s32 *, 4) + (var_r29 * 0x1C));

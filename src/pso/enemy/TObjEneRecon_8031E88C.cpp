@@ -26,9 +26,9 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(void *);
 extern char lbl_804763D4[];
@@ -69,8 +69,8 @@ void TObjEneRecon__sub_8031E88C(u8 *arg0) {
     }
     if (((VObj_18_26a62c *)(arg0))->m8(TObjEneRecon__data_805DF438, lbl_805DF43C) != 0) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x3DC);
         switch (temp_r0_2) {
@@ -87,8 +87,8 @@ void TObjEneRecon__sub_8031E88C(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     draw_chunk_object((void *) (lbl_805D28B8));
     pop_matrix();

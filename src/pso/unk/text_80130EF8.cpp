@@ -12,8 +12,8 @@ void fn_80130EF8(u8 *arg0);
 extern const f32 lbl_805DB03C;
 void fn_80130F24(u8 *arg0);
 void TObjPlayer__sub_8012E284(s32, u32, s32, u32, u32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DB03C;
 extern const f32 lbl_805DB040;
@@ -75,9 +75,9 @@ void fn_80130F50(u8 *arg0) {
     case 3:
         M2C_FIELD(arg0, s32 *, 0x208) = 1;
         temp_r31 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) - 0x4000;
-        buffer_14[0] = TBoss8Dragon__sub_803D64C0(temp_r31);
+        buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = lbl_805DB03C;
-        buffer_14[2] = TBoss8Dragon__sub_803D64DC(temp_r31);
+        buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
         buffer_8[1] = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
         buffer_8[2] = 0;

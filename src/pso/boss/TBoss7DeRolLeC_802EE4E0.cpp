@@ -32,7 +32,7 @@ void TLobby__sub_800FD6A0(s32, u32);
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern u8 *lbl_805D6918;
 void TBoss7DeRolLeC__sub_802EE4E0(void);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void TLobby__sub_800FD6F8(void *, int);
 u8 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
@@ -84,7 +84,7 @@ void TObjPlayer__sub_802EE574(void) {
     u8 *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 1, lbl_804E3D1C, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, lbl_804E3D1C, 0, 0, 0);
     }
     lbl_805D6918 = p;
     lbl_805D691C = 0;

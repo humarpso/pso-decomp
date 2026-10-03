@@ -5,11 +5,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 void TObjPlayer__sub_802E0580(void *, int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from();
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1);
@@ -44,8 +44,8 @@ void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
 
 void draw_model_with_arg__10TObjPlayerFPvPv(void* p, void* a1) { *(void**)((char*)p + 0x34) = a1; set_motion_interpolation_flag(p); draw_model_with_callback__10TObjPlayerFPv(p); }
 void update_chara_making__10TObjPlayerFPv(u8 *arg0) {
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     get_status_sub__14TAdPlyStatusGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x170)));
     set_global_param__8TObjFishFi();

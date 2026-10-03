@@ -31,7 +31,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 M2C_UNK begin_photon_summon_camera(void *, int);
 M2C_UNK spawn_photon_blast_opening_effects(int, int);
-M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801AA6F8(void *, int);
 M2C_UNK construct_photon_magic_square_normal(void *, void *, int, void *, int);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
@@ -114,7 +114,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
         if (p != NULL) {
             construct_photon_magic_square_normal(p, arg0, 1, &pos, 0x78);
         }
-        TObjPlayer__sub_801A7748(arg0, 1);
+        spawn_photon_blast_attachment_effects(arg0, 1);
         play_cue_stream_file(lbl_80446D10);
     } else {
         spawn_photon_blast_opening_effects(1, M2C_FIELD(arg0, u16 *, 0x17C));

@@ -16,7 +16,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 extern "C" {
 u8 *TODragonfly__ct(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 s32 rand(void);
 extern M2C_UNK __vt__17TODragonflyCave01[];
 extern s32 lbl_805D2F9C;
@@ -64,7 +64,7 @@ void release_static_instance__17TODragonflyCave01Fv(void) {
     }
 }
 
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern u8 lbl_804B1880[];
@@ -77,7 +77,7 @@ void TODragonflyCave01__sub_80164494(void) {
     default:
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = TLobby__sub_80020004(o, 1, lbl_804B1880, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, lbl_804B1880, 0, 0, 0);
         }
         TODragonflyCave01__data_805D5990 = (u32)o;
         break;
@@ -86,7 +86,7 @@ void TODragonflyCave01__sub_80164494(void) {
     case 0x16:
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = TLobby__sub_80020004(o, 1, lbl_804B18A0, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, lbl_804B18A0, 0, 0, 0);
         }
         TODragonflyCave01__data_805D5990 = (u32)o;
         break;
@@ -108,7 +108,7 @@ void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1) {
 
 #pragma push
 #pragma fp_contract on
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__17TODragonflyCave01[];
 extern s32 lbl_805D2F9C;
 extern const f32 lbl_805DB560;
@@ -179,10 +179,10 @@ f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_camera_distance__10TObjPlayerFi(void *);
 s32 rand(void);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 subtract_vector(void *, void *);
 s32 push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern const f64 lbl_804411B0;
@@ -197,7 +197,7 @@ s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 init_map_object_base(void *, int);
 s32 rand(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__11TODragonfly[];
 extern s32 lbl_805D2F98;
 extern s32 tl_05;
@@ -211,13 +211,13 @@ extern const f32 lbl_805DB580;
 extern const f32 lbl_805DB594;
 u8 *TODragonfly__ct(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB584;
 void TODragonfly__sub_8016492C(Self_8016492C *self);
 f32 horizontal_distance_squared(void *, void *);
 s32 is_any_player_within_radius_xz(s32, f32);
 s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DB578;
 extern const f32 lbl_805DB584;
 extern const f32 lbl_805DB590;
@@ -243,12 +243,12 @@ void TODragonfly__sub_80164760(void);
 void *__dt__11TODragonflyFv(void *arg0, s16 arg1);
 void draw_model__11TODragonflyFPv(u8 *arg0);
 void update__11TODragonflyFPv(void *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+f32 sin_table_lookup(s32);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -275,7 +275,7 @@ u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
     M2C_FIELD(arg0, s32 *, 0xF8) = (s32)(lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / M2C_FIELD(arg0, f32 *, 0xF4))));
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32)(lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32)rand())));
     M2C_FIELD(arg0, f32 *, 0xEC) = lbl_805DB56C * (f32)M2C_FIELD(arg0, s32 *, 0x88) + lbl_805DB560;
-    M2C_FIELD(arg0, f32 *, 0xF0) = M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC));
+    M2C_FIELD(arg0, f32 *, 0xF0) = M2C_FIELD(arg0, f32 *, 0xEC) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xFC));
     return arg0;
 }
 #pragma pop
@@ -296,9 +296,9 @@ s32 TODragonfly__sub_80164764(u8 *arg0, f32 farg0) {
     rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(&lbl_8050BFA0.value, s32 *, 4))));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BEE0.value), (void *) (&lbl_8050BEE0.value));
     pop_matrix();
-    TBoss4Zako__sub_803D8910((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
+    vec3_add_to((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x50));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (&lbl_8050BEE0.value));
-    TBoss6Type1__sub_803D9370((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
+    subtract_vector((void *) (&lbl_8050BEE0.value), (void *) (arg0 + 0x38));
     if (check_camera_distance__10TObjPlayerFi((void *) (&lbl_8050BEE0.value)) == 1) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 1;
         M2C_FIELD(arg0, s32 *, 0xCC) = 0;
@@ -316,7 +316,7 @@ void TODragonfly__sub_8016492C(Self_8016492C *self) {
     if (d < (lbl_805DB584 + self->radius) * (lbl_805DB584 + self->radius)) {
         self->state = 2;
     } else {
-        TBoss4Zako__sub_803D8910(self->pos, self->vec);
+        vec3_add_to(self->pos, self->vec);
     }
 }
 
@@ -355,7 +355,7 @@ void TODragonfly__sub_80164A90(O_80164A90 *arg0) {
             arg0->st = 0;
             return;
         }
-        TBoss4Zako__sub_803D8910(arg0->pos, arg0->e0);
+        vec3_add_to(arg0->pos, arg0->e0);
     }
 }
 
@@ -381,9 +381,9 @@ void TODragonfly__sub_80164B34(s32 arg0) {
 
 void draw_model__11TODragonflyFPv(u8 *arg0) {
     if (((VObj_80164c34_80164760 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, lbl_805DB580, M2C_FIELD(arg0, f32 *, 0xF0), lbl_805DB580);
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
@@ -395,7 +395,7 @@ void update__11TODragonflyFPv(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) + M2C_FIELD(arg0, s32 *, 0xF8));
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC)));
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xFC)));
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((DfV_80164cc4_80164760 *)arg0)->vf12();
         return;
@@ -446,7 +446,7 @@ u8 *TODragonfly__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xF8) = (s32) (lbl_805DB570 * (lbl_805DB574 / (lbl_805DB578 / M2C_FIELD(arg0, f32 *, 0xF4))));
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DB570 * (lbl_805DB574 * (lbl_805DB57C * (f32) rand())));
     M2C_FIELD(arg0, f32 *, 0xEC) = (f32) ((lbl_805DB56C * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DB560);
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0xFC)))));
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * sin_table_lookup((s32)((int) (M2C_FIELD(arg0, s32 *, 0xFC)))));
     return arg0;
 }
 #pragma pop

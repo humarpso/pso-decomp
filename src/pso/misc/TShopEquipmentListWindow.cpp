@@ -108,7 +108,7 @@ s32 handle_select__24TShopEquipmentListWindowFPv(void *arg0);
 s32 TShopEquipmentListWindow__sub_8021C160(void *);
 void TShopEquipmentListWindow__vt9(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
-s32 TWindowHelpItem__sub_80104FCC(void *, Rec_8021C33C *, u32 *);
+s32 check_equip_requirements(void *, Rec_8021C33C *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021C33C *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 check_purchase_eligibility__24TShopEquipmentListWindowFPv(Win_8021C33C *w);
@@ -243,7 +243,7 @@ s32 check_purchase_eligibility__24TShopEquipmentListWindowFPv(Win_8021C33C *w) {
     if (can_inventory_accept_item__10TObjPlayerFPvPv(w->player, r) == 0) {
         return 1;
     }
-    if (TWindowHelpItem__sub_80104FCC(w->player, r, &res) == 0) {
+    if (check_equip_requirements(w->player, r, &res) == 0) {
         return (res & 1) ? 2 : 3;
     }
     w->flag = 1;

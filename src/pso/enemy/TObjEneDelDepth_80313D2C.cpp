@@ -16,7 +16,7 @@ M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern V3_80313E34 lbl_80475DB0;
@@ -75,7 +75,7 @@ void TObjEneDelDepth__sub_80313E34(u8 *arg0) {
     if ((temp_r0 <= 0) && (temp_r0 == 0)) {
         set_global_flag__10TObjPlayerFv();
         push_matrix_from((void *) (lbl_8058D490));
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DF284));
         pop_matrix();

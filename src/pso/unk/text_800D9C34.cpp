@@ -130,7 +130,7 @@ s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
 f32 TObjPlayer__sub_8013153C(void *, s32);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, Vec_800D9C7C *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 s32 push_matrix_from(u32);
@@ -145,7 +145,7 @@ void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1);
 s16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_difference_abs(s32, s32);
-void TBoss6Type1__sub_803D9370(Vec_800D9FC4 *, Vec_800D9FC4 *);
+void subtract_vector(Vec_800D9FC4 *, Vec_800D9FC4 *);
 extern const f64 lbl_8043C900[];
 extern const f32 lbl_805DA400;
 void TObjPlayer__sub_800D9FC4(void *self, void *p);
@@ -154,11 +154,11 @@ void TObjPlayer__sub_800D9FC4(void *self, void *p);
 extern "C" {
 
 s32 TObjPlayer__sub_800D9C34(s32 arg0);
-s32 TObjPlayer__sub_80016FF8();
+s32 update_action_hold_status__10TObjPlayerFv();
 M2C_UNK fn_800D9BBC(s32);
 
 s32 TObjPlayer__sub_800D9C34(s32 arg0) {
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         fn_800D9BBC(arg0);
         return 1;
     }
@@ -186,7 +186,7 @@ void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
         bias = lbl_805DA3FC;
         for (; i < 3; i++) {
             TCameraCtrl__sub_803D8934(0, &v, arg0 + 0x390);
-            TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+            vec3_add_to(arg0 + 0x390, arg0 + 0x2FC);
             h = csnVector(arg0 + 0x2FC, arg0 + 0x390, -1);
             if (h == NULL) {
                 pop_matrix();
@@ -208,7 +208,7 @@ void TObjPlayer__sub_800D9C7C(u8 *arg0, f32 *arg1) {
         v2.x = bestv;
         rotate_matrix_y(0, best);
         TCameraCtrl__sub_803D8934(0, &v2, arg0 + 0x390);
-        TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+        vec3_add_to(arg0 + 0x390, arg0 + 0x2FC);
         pop_matrix();
     }
 }
@@ -255,7 +255,7 @@ void TObjPlayer__sub_800D9FC4(void *self, void *p) {
   if ((((((Obj_800D9FC4 *) self)->count < 12) && (p != 0)) && (p != self)) && (!(((Obj_800D9FC4 *) p)->flags & 0x6000800)))
   {
     Vec_800D9FC4 v = ((Obj_800D9FC4 *) p)->pos;
-    TBoss6Type1__sub_803D9370(&v, &((Obj_800D9FC4 *) self)->pos);
+    subtract_vector(&v, &((Obj_800D9FC4 *) self)->pos);
     if (!(((v.x * v.x) + (v.z * v.z)) > lbl_805DA400))
     {
       new_var = v.x;

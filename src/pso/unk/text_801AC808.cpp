@@ -34,7 +34,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
 M2C_UNK begin_photon_summon_camera(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
-M2C_UNK TObjPlayer__sub_801A7748(void *, int);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
 void TObjPlayer__sub_801AC444(void *, u8);
 void construct_photon_magic_square_normal(void *, void *, s32, void *, s32);
@@ -115,7 +115,7 @@ void *TPhotonLeilla__ct(Leilla_801AC808 *self, Pkt_801AC808 *pkt) {
         if (o != NULL) {
             construct_photon_magic_square_normal(o, self, 4, &v, 0x78);
         }
-        TObjPlayer__sub_801A7748(self, 4);
+        spawn_photon_blast_attachment_effects(self, 4);
         play_cue_stream_file(lbl_80446DF8);
     } else {
         spawn_photon_blast_opening_effects(4, F_801AC808(self, u16, 0x17C));

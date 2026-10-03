@@ -102,9 +102,9 @@ s32 TNpcPlayer__sub_8014F7F0(void *);
 M2C_UNK partner_observe_surroundings(void *);
 M2C_UNK update_condition_flags__10TNpcPlayerFPv(void *);
 M2C_UNK init_state__10TNpcPlayerFPv(void *);
-M2C_UNK TNpcPlayer__sub_80150EC4(void *);
+M2C_UNK deliver_partner_action__10TNpcPlayerFv(void *);
 s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
-M2C_UNK TNpcPlayer__sub_80151AB4(void *);
+M2C_UNK decide_action__10TNpcPlayerFv(void *);
 void reset_partner_counter(s32 arg0, s32 arg1);
 void increment_partner_counter(s32 arg0, s32 arg1);
 s32 is_partner_counter_reached(void *, int, int);
@@ -146,7 +146,7 @@ s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0);
 M2C_UNK TNpcPlayer__sub_8014E090(void *, int);
 s32 TNpcPlayer__sub_8014FF5C(void *);
 s32 TNpcPlayer__sub_801500F4();
-M2C_UNK TNpcPlayer__sub_801501A0(void *);
+M2C_UNK select_path_waypoint__10TNpcPlayerFv(void *);
 s32 TNpcPlayer__sub_80152978(void* p);
 void TNpcPlayer__sub_80152A30(void);
 int TNpcPlayer__sub_80152A78(void* a0 = 0);
@@ -172,7 +172,7 @@ int update_players__6TLobbyFi(void*);
 
 s32 update_follow_target__10TNpcPlayerFPv(u8 *arg0) {
     if (TNpcPlayer__sub_801500F4() != 0) {
-        TNpcPlayer__sub_801501A0((void *) (arg0));
+        select_path_waypoint__10TNpcPlayerFv((void *) (arg0));
         if (TNpcPlayer__sub_8014FF5C((void *) (arg0)) != 0) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xAC), (void *) (arg0 + 0xD0));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 2U) {
@@ -220,10 +220,10 @@ void run_task__10TNpcPlayerFv(u8 *arg0) {
                     reset_partner_counter((s32) (arg0 + 0x5C), 3);
                     update_condition_flags__10TNpcPlayerFPv((void *) (arg0));
                     partner_observe_surroundings((void *) (arg0));
-                    TNpcPlayer__sub_80151AB4((void *) (arg0));
+                    decide_action__10TNpcPlayerFv((void *) (arg0));
                     update_follow_target__10TNpcPlayerFPv(arg0);
                 }
-                TNpcPlayer__sub_80150EC4((void *) (arg0));
+                deliver_partner_action__10TNpcPlayerFv((void *) (arg0));
             }
         }
         }

@@ -89,10 +89,10 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 void render__15TObjBoss1CraterFv(u8 *arg0);
 void TBoss8Dragon__sub_800BC5A0(void *, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
@@ -104,9 +104,9 @@ extern s32 lbl_805D4B54;
 extern s32 some_id_805c6f74;
 
 void render__15TObjBoss1CraterFv(u8 *arg0) {
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     some_id_805c6f74 |= 0x01000000;
     draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));

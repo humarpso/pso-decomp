@@ -127,8 +127,8 @@ extern const f32 lbl_805DB210;
 s32 partner_probe_obstacles(View_8014F140 *view);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVector(s32, s32, M2C_UNK);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
-void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
+f32 vector_length(Vec_8014E3B0 *);
+void normalize_vector(Vec_8014E3B0 *);
 extern const f32 TNpcPlayer__data_805DB1F0;
 extern const f32 TNpcPlayer__data_805DB1F4;
 s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out);
@@ -149,9 +149,9 @@ s32 get_condition__10TNpcPlayerFPv(s32);
 
 extern "C" {
 void TCameraCtrl__sub_803D8934(s32, Vec_8014E3B0 *, Vec_8014E3B0 *);
-f32 TObjPlayer__sub_803D89C0(Vec_8014E3B0 *, Vec_8014E3B0 *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
-void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
+f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 vector_length(Vec_8014E3B0 *);
+void normalize_vector(Vec_8014E3B0 *);
 void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out);
 }
 
@@ -170,9 +170,9 @@ typedef struct Self_8014EE98 {
 typedef struct Line_8014EE98 { Vec_8014E3B0 p; Vec_8014E3B0 d; } Line_8014EE98;
 
 extern "C" {
-f32 TObjPlayer__sub_803D89C0(Vec_8014E3B0 *, Vec_8014E3B0 *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_8014E3B0 *);
-void TNpcPlayer__sub_803D97B4(Vec_8014E3B0 *);
+f32 vec3_dot(Vec_8014E3B0 *, Vec_8014E3B0 *);
+f32 vector_length(Vec_8014E3B0 *);
+void normalize_vector(Vec_8014E3B0 *);
 void TNpcPlayer__sub_803E18C0(void *, Line_8014EE98 *, Vec_8014E3B0 *);
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 }
@@ -341,8 +341,8 @@ s32 partner_clip_path_point(void *self, f32 *from, f32 *to, f32 *out) {
         dir.x = to[0] - from[0];
         dir.y = TNpcPlayer__data_805DB1F0;
         dir.z = to[2] - from[2];
-        if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&dir)) {
-            TNpcPlayer__sub_803D97B4(&dir);
+        if (TNpcPlayer__data_805DB1F0 != vector_length(&dir)) {
+            normalize_vector(&dir);
         }
         VecCopy__FP3VecPC3Vec(out, M2C_FIELD(contact, s32 *, 4));
         out[0] = -((TNpcPlayer__data_805DB1F4 * dir.x) - out[0]);
@@ -365,8 +365,8 @@ void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *
     dir.x = -d->x;
     dir.y = TNpcPlayer__data_805DB1F0;
     dir.z = -d->z;
-    if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&dir)) {
-        TNpcPlayer__sub_803D97B4(&dir);
+    if (TNpcPlayer__data_805DB1F0 != vector_length(&dir)) {
+        normalize_vector(&dir);
     }
     VecCopy__FP3VecPC3Vec(&save, (int)&dir);
     push_matrix_from(lbl_8058D490);
@@ -380,10 +380,10 @@ void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *
     diff.x = to->x - from->x;
     diff.y = TNpcPlayer__data_805DB1F0;
     diff.z = to->z - from->z;
-    if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&diff)) {
-        TNpcPlayer__sub_803D97B4(&diff);
+    if (TNpcPlayer__data_805DB1F0 != vector_length(&diff)) {
+        normalize_vector(&diff);
     }
-    if (TObjPlayer__sub_803D89C0(&diff, &a) > TNpcPlayer__data_805DB1F0) {
+    if (vec3_dot(&diff, &a) > TNpcPlayer__data_805DB1F0) {
         VecCopy__FP3VecPC3Vec(&dir, (int)&b);
     } else {
         VecCopy__FP3VecPC3Vec(&dir, (int)&a);
@@ -415,14 +415,14 @@ s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E
     dir.x = to->x - from->x;
     dir.y = TNpcPlayer__data_805DB1F0;
     dir.z = to->z - from->z;
-    len = TBoss6Kakusan__sub_803D8BD8(&dir);
+    len = vector_length(&dir);
     if (TNpcPlayer__data_805DB1F0 != len) {
-        TNpcPlayer__sub_803D97B4(&dir);
+        normalize_vector(&dir);
     }
     perp.x = d->z;
     perp.y = TNpcPlayer__data_805DB1F0;
     perp.z = -d->x;
-    if (TObjPlayer__sub_803D89C0(&dir, &perp) < TNpcPlayer__data_805DB1F0) {
+    if (vec3_dot(&dir, &perp) < TNpcPlayer__data_805DB1F0) {
         perp.x = -perp.x;
         perp.z = -perp.z;
     }
@@ -449,8 +449,8 @@ s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E
     v.x = self->f74->obj->pos.x - hit.x;
     v.z = self->f74->obj->pos.z - hit.z;
     v.y = TNpcPlayer__data_805DB1F0;
-    if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8(&v)) {
-        TNpcPlayer__sub_803D97B4(&v);
+    if (TNpcPlayer__data_805DB1F0 != vector_length(&v)) {
+        normalize_vector(&v);
     }
     out2->x = TNpcPlayer__data_805DB20C * perp.x + hit.x;
     out2->z = TNpcPlayer__data_805DB20C * perp.z + hit.z;

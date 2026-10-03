@@ -55,7 +55,7 @@ struct Obj_8005C218 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CE4;
@@ -77,8 +77,8 @@ u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_instance__14TBoss4DarkFalzFv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CF4;
 extern const f32 lbl_805D8CF8;
@@ -86,8 +86,8 @@ extern const f32 lbl_805D8CFC;
 void TBoss4Zako__sub_8005C368(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void enter_state_3__11TBoss4BishiFPv(void* p);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC4;
 void TBoss4Bishi__vt1(Obj_8005BB5C *self);
@@ -95,9 +95,9 @@ u16 find_nearest_visible_player(void *, M2C_UNK, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4Zako__ct(s32, s32, s32);
 s32 get_player_by_client_id(u32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern V2_8005BF68 __vt__11TBoss4Bishi[];
 extern M2C_UNK lbl_80487460[];
 extern s32 lbl_805D27F0;
@@ -109,10 +109,10 @@ s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TBoss4Uro__sub_8005C6E4(void *);
 s32 get_player_by_client_id(u32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vector_length(void *);
+void normalize_vector(void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CE8;
 extern const f32 lbl_805D8CEC;
@@ -138,7 +138,7 @@ s32 create__11TBoss4BishiFi(s32 arg0);
 void enter_state_3__11TBoss4BishiFPv(void* p);
 void try_enter_state_3__11TBoss4BishiFPv(void* p);
 int TBoss4Uro__sub_8005D6D4(void*);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 s32 TObjControl__ct(s32, s32);
 int distribute_experience(void*);
 void __dl__7TObjectFPv(void *);
@@ -171,10 +171,10 @@ void TBoss4Bishi__vt2(u8 *arg0) {
 
 void TBoss4Bishi__vt1(Obj_8005BB5C *self) {
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
-    TBoss4Zako__sub_803D8910(&self->pos, (u8 *)self + 0x38C);
+    vec3_add_to(&self->pos, (u8 *)self + 0x38C);
     V_8005BB5C v = self->pos;
     v.y = lbl_805D8CBC;
-    if (--self->f37c < 0 || TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805D8CC4) {
+    if (--self->f37c < 0 || vector_length(&v) > lbl_805D8CC4) {
         enter_state_3__11TBoss4BishiFPv((void*)(self));
     }
 }
@@ -232,13 +232,13 @@ s32 TBoss4Bishi__ct(s32 arg0, s32 arg1, s32 arg2) {
         o->vel.x += __vt__11TBoss4Bishi[id].x;
         o->vel.z += __vt__11TBoss4Bishi[id].z;
     }
-    TBoss6Type1__sub_803D9370(&o->vel, &o->pos);
+    subtract_vector(&o->vel, &o->pos);
     o->vel.y = lbl_805D8CBC;
-    if (lbl_805D8CBC == TBoss6Kakusan__sub_803D8BD8(&o->vel)) {
+    if (lbl_805D8CBC == vector_length(&o->vel)) {
         o->vel.x = lbl_805D8CE0;
         o->vel.z = lbl_805D8CBC;
     } else {
-        TNpcPlayer__sub_803D97B4(&o->vel);
+        normalize_vector(&o->vel);
     }
     o->f398 = o->f3a0;
     o->vel.x *= o->f398;
@@ -272,7 +272,7 @@ void TBoss4Zako__vt6(u8 *arg0) {
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x390);
     M2C_FIELD(arg0, f32 *, 0x390) = (f32) (temp_f1 + lbl_805D8CE4);
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x44)), (void *)((void *) (arg0 + 0x38)));
-    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (arg0 + 0x38C));
+    vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0x38C));
     if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC8) {
         M2C_FIELD(arg0, f32 *, 0x390) = (f32) lbl_805D8CBC;
         M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8CC8;
@@ -309,8 +309,8 @@ void TBoss4Zako__sub_8005C218(void *p) {
         }
     }
     ang = o->f1c << 0xD;
-    tx = lbl_805D8CE8 * TBoss8Dragon__sub_803D64C0(ang) + o->home.x;
-    tz = lbl_805D8CE8 * TBoss8Dragon__sub_803D64DC(ang) + o->home.z;
+    tx = lbl_805D8CE8 * sin_table_lookup(ang) + o->home.x;
+    tz = lbl_805D8CE8 * cos_table_lookup(ang) + o->home.z;
     o->vel.y = lbl_805D8CBC;
     if (o->pos.x < tx) {
         o->vel.x += lbl_805D8CEC;
@@ -323,10 +323,10 @@ void TBoss4Zako__sub_8005C218(void *p) {
         o->vel.z -= lbl_805D8CEC;
     }
     TBoss4Uro__sub_8005C6E4(o);
-    o->f398 = TBoss6Kakusan__sub_803D8BD8(&o->vel);
+    o->f398 = vector_length(&o->vel);
     if (o->f398 > o->f3a0) {
         o->f398 += lbl_805D8CF0;
-        TNpcPlayer__sub_803D97B4(&o->vel);
+        normalize_vector(&o->vel);
         o->vel.x *= o->f398;
         o->vel.z *= o->f398;
     }
@@ -351,8 +351,8 @@ void TBoss4Zako__sub_8005C368(u8 *arg0) {
                 temp_r31 = (s32) (lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(arg0));
                 VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x3C4), (void *)(get_position_ptr__10TObjPlayerFPv(temp_r3)));
                 M2C_FIELD(arg0, f32 *, 0x3C8) = (f32) lbl_805D8CBC;
-                M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) ((lbl_805D8CFC * TBoss8Dragon__sub_803D64C0(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3C4));
-                M2C_FIELD(arg0, f32 *, 0x3CC) = (f32) ((lbl_805D8CFC * TBoss8Dragon__sub_803D64DC(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3CC));
+                M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) ((lbl_805D8CFC * sin_table_lookup(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3C4));
+                M2C_FIELD(arg0, f32 *, 0x3CC) = (f32) ((lbl_805D8CFC * cos_table_lookup(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3CC));
             }
         }
     }
@@ -364,7 +364,7 @@ void TBoss4Zako__vt4(void *arg0) {
     TBoss4Zako__sub_8005C368((u8 *)(arg0));
     TBoss4Zako__sub_8005C218((void *)(arg0));
     VecCopy__FP3VecPC3Vec((void *)((void *)((char *)arg0 + 68)), (void *)(self->f_38));
-    TBoss4Zako__sub_803D8910(self->f_38, (void *)((char *)arg0 + 908));
+    vec3_add_to(self->f_38, (void *)((char *)arg0 + 908));
 }
 
 }

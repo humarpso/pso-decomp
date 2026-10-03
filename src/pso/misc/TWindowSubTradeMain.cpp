@@ -52,9 +52,9 @@ void update_player_state__9TObjEneDDFPv(void *, V3_803323D8 *, int);
 void toggle_particle_effect__10TObjPlayerFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-int TOHangerMachine01__sub_803D9C00(void *);
+int post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(int);
 s32 draw_model_motion(int, Anim_803323D8 *, f32);
 s32 set_global_flag__10TObjPlayerFv(void);
@@ -94,8 +94,8 @@ void TObjEneMorfos__vt104(O_803323D8 *arg0) {
         }
         toggle_particle_effect__10TObjPlayerFv();
         set_global_param__8TObjFishFi(arg0->f24);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((u8 *)arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix((u8 *)arg0 + 0x38);
         rotate_matrix_y(0, arg0->f60);
         idx = (s32)arg0->f354;
         if (idx < 0) {

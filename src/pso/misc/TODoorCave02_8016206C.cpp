@@ -49,7 +49,7 @@ extern u32 lbl_805D5960;
 extern const f32 lbl_805DB4B8;
 extern const f32 lbl_805DB4C8;
 u8 *TODoorCave02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -113,14 +113,14 @@ void TODoorCave02__sub_8016211C(void) {
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = TLobby__sub_80020004(o, 1, lbl_804B1478, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, lbl_804B1478, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
         TODoorCave02__data_805D5964[0] = load_gvm_texture_file(lbl_80440E24);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = TLobby__sub_80020004(o, 1, lbl_804B1458, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, lbl_804B1458, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
         TODoorCave02__data_805D5964[0] = load_gvm_texture_file(lbl_80440E3C);

@@ -38,8 +38,8 @@ typedef struct P_802C86D4 {
 
 extern "C" {
 void set_global_param__8TObjFishFi(void *);
-void TObjPlayer__sub_803D9B2C(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void push_matrix(void);
+void post_translate_matrix(void *);
 void rotate_matrix_y(int, void *);
 void set_npc_enemy_param(void *);
 void TObjPlayer__sub_801E2DE4(void *, void *, f32);
@@ -111,9 +111,9 @@ void TOTrapChainSawKey__vt15(void* p) { if (*(int*)((char*)p + 0xf0) != 1) { TOT
 
 void TOTrapChainSawKey__vt23(void *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
+    push_matrix();
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
     set_npc_enemy_param(((M2C_UNK *)TParticleCtrl__sub_802C8464));

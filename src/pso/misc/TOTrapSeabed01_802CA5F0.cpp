@@ -50,7 +50,7 @@ extern const f32 lbl_805DE640;
 extern const f32 TOTrapSeabed01__data_805DE644;
 u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 get_bml_model(int, int);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 u32 load_gvm_texture_file(void *);
@@ -116,7 +116,7 @@ void free_static_resources__14TOTrapSeabed01Fv(void) {
 void TOTrapSeabed01__sub_802CA820(void) {
     void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
-        p = TLobby__sub_80020004(p, 5, lbl_804E0FA8, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, lbl_804E0FA8, 0, 0, 0);
     }
     TOTrapSeabed01__data_805D6810 = (u32)p;
     TOTrapSeabed01__data_805D6814 = load_gvm_texture_file(lbl_804720E8);

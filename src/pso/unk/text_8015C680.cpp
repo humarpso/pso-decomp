@@ -14,7 +14,7 @@ extern "C" {
 extern const f32 lbl_805DB398;
 extern const f32 lbl_805DB39C;
 f32 TObjPlayer__sub_8015C88C(Obj_8015C88C *self);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 u32 *alloc_buffer__11TOBoss4RockFPv(u32);
 u32 load_gvm_texture_file(void *);
@@ -50,7 +50,7 @@ void TLanguage__sub_8015C680(void) {
         (state == 0x10 || state == 0x15 || state == 0x16 || state == 0x21)) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, tbl + 0x50, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, tbl + 0x50, 0, 0, 0);
         }
         lbl_805D58E8 = p;
         lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
@@ -61,7 +61,7 @@ void TLanguage__sub_8015C680(void) {
                (state == 0x11 || state == 0x13 || state == 0x14 || state == 0x20)) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, tbl + 0x30, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, tbl + 0x30, 0, 0, 0);
         }
         lbl_805D58E8 = p;
         lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
@@ -71,7 +71,7 @@ void TLanguage__sub_8015C680(void) {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, tbl + 0x10, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, tbl + 0x10, 0, 0, 0);
         }
         lbl_805D58E8 = p;
         lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);

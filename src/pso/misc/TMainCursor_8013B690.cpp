@@ -45,10 +45,10 @@ s8 fn_8013F24C(void *, s32);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 s32 can_perform_physical_action__10TObjPlayerFi(void *);
-u8 fn_801D9870(void *, s32);
+u8 get_cast_technique_level(void *, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
-u8 *TTecCtrl__sub_8022DBC4(s32, s32, s32);
+u8 *calc_technique_parameters(s32, s32, s32);
 void TMainCursor__sub_8013B70C(u8 *self);
 }
 
@@ -128,7 +128,7 @@ void TMainCursor__sub_8013B70C(u8 *self) {
         }
         return;
     case 3:
-        if (is_invalid_slot__10TObjPlayerFUc(fn_801D9870((u8 *)t + 0x428, TMainCursor__sub_8013E338(self + 0x60))) != 0) {
+        if (is_invalid_slot__10TObjPlayerFUc(get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(self + 0x60))) != 0) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
@@ -144,8 +144,8 @@ void TMainCursor__sub_8013B70C(u8 *self) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
-        if (t->f32E - *(s16 *)(TTecCtrl__sub_8022DBC4(TMainCursor__sub_8013E338(self + 0x60),
-                                                      fn_801D9870((u8 *)t + 0x428, TMainCursor__sub_8013E338(self + 0x60)),
+        if (t->f32E - *(s16 *)(calc_technique_parameters(TMainCursor__sub_8013E338(self + 0x60),
+                                                      get_cast_technique_level((u8 *)t + 0x428, TMainCursor__sub_8013E338(self + 0x60)),
                                                       obj_getField1c(t)) + 0x10) < 0) {
             update_target_sub__11TMainCursorFPv(self);
             return;

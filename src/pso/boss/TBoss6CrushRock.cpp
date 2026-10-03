@@ -32,8 +32,8 @@ u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__nw__7TObjectFUl(int);
 void *create__15TBoss6CrushPtclFPv(void *arg0);
 s32 is_falz_alive__15TBoss6CrushRockFv(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 tl_02;
 extern const f32 lbl_805E00D8;
 extern const f32 lbl_805E00DC;
@@ -102,9 +102,9 @@ void TBoss6Rock__sub_8035A460(Vec_8035A460 *self, s32 kind) {
         for (j = 0; j < n; j++) {
             Vec_8035A460 p = *self;
             s32 angle = (s32)(lbl_805E00D0 * (lbl_805E00CC * (f32)rand()));
-            p.x += radius * TBoss8Dragon__sub_803D64C0(angle);
+            p.x += radius * sin_table_lookup(angle);
             p.y += lbl_805E00E0 * (lbl_805E00CC * (f32)rand());
-            p.z += radius * TBoss8Dragon__sub_803D64DC(angle);
+            p.z += radius * cos_table_lookup(angle);
             u8 *o = (u8 *)__nw__7TObjectFUl(0x54);
             if (o != NULL) {
                 ((u8 *(*)(u8 *, s32, Vec_8035A460 *, s32))__ct__15TBoss6CrushRockFv)(o, tl_02, &p, base + j);

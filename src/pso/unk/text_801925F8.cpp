@@ -28,10 +28,10 @@ void render_lazer_fence_model(void *arg0);
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0);
 void TObjLazerFenceExtra__sub_801926D0(TObjLazerFenceExtra_801926D0 *self);
 u8 is_current_floor_switch_set(u16);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 M2C_UNK fn_80192554(void *);
 void set_global_param__8TObjFishFi(void *);
@@ -41,8 +41,8 @@ extern void *lbl_805D5C28;
 
 void render_lazer_fence_model(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     draw_ginja_object(M2C_FIELD(arg0, void **, 0xBC));
     pop_matrix();
@@ -264,7 +264,7 @@ extern "C" {
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(s32, int);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
 extern u16 lbl_80445B7C[];
 void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0);
@@ -278,8 +278,8 @@ void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0) {
         free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);
     }
     set_global_param__8TObjFishFi(lbl_805D5C28);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0->f38);
+    push_matrix();
+    post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, (void *)arg0->f60);
     draw_ginja_object((void *)arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();
@@ -328,10 +328,10 @@ void draw_model__18TObjLazerFenceNormFPv(void *arg0);
 void render__18TObjLazerFenceNormFv(void *arg0);
 void reset_by_door__18TObjLazerFenceNormFPv(void *arg0);
 u8 is_current_floor_switch_set(u16);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 void set_global_param__8TObjFishFi(void *);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
@@ -340,8 +340,8 @@ extern void *lbl_805D5C28;
 
 void draw_model__18TObjLazerFenceNormFPv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     draw_ginja_object(M2C_FIELD(arg0, void **, 0xBC));
     pop_matrix();

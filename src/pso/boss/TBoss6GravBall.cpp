@@ -29,9 +29,9 @@ s32 get_game_mode__6TLobbyFv();
 s32 is_state_1f__14TBoss6PlotFalzFUi();
 void TBoss6GravBall__sub_80323348(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern u8 lbl_80476684[];
 extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF570;
@@ -44,17 +44,17 @@ s32 TBoss6GravBall__sub_803237A0(Obj_803237A0 *arg0);
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int TBoss6GravBall__sub_803231D0(void*, void*);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void vec3_add_to(void *, void *);
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
 extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF554;
@@ -65,17 +65,17 @@ void TBoss6GravBall__sub_803233AC(u8 *self);
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 void VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int TBoss6GravBall__sub_803231D0(void*, void*);
 M2C_UNK TBoss6GravBall__sub_80323278(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void vec3_add_to(void *, void *);
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
 extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 TBoss6GravBall__data_805DF558;
@@ -124,25 +124,25 @@ void TBoss6GravBall__sub_803233AC(u8 *self) {
         }
         flag = 0;
         VecCopy__FP3VecPC3Vec(&v, self + 0xC8);
-        TBoss6Type1__sub_803D9370(&v, &pl->pos);
+        subtract_vector(&v, &pl->pos);
         v.y = TBoss6GravBall__data_805DF550;
-        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        d = vector_length(&v);
         if (d > lbl_805DF554) {
             TBoss6GravBall__sub_803231D0(self, (void *)id);
             continue;
         }
         if (d <= TBoss6GravBall__data_805DF558) {
             s32 a = obj_getField1c(pl) << 14;
-            v.x = lbl_805DF55C * TBoss8Dragon__sub_803D64C0(a) + v.x;
-            v.z = lbl_805DF55C * TBoss8Dragon__sub_803D64DC(a) + v.z;
+            v.x = lbl_805DF55C * sin_table_lookup(a) + v.x;
+            v.z = lbl_805DF55C * cos_table_lookup(a) + v.z;
             flag = 1;
         } else {
             f32 s = lbl_805DF560 + d;
-            TNpcPlayer__sub_803D97B4(&v);
+            normalize_vector(&v);
             v.x *= s;
             v.z *= s;
         }
-        TBoss4Zako__sub_803D8910(&v, &pl->pos);
+        vec3_add_to(&v, &pl->pos);
         project_actor_to_ground(self, &v, 0);
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
@@ -176,12 +176,12 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
         VecCopy__FP3VecPC3Vec(&v, self + 0xC8);
         {
             s32 a = obj_getField1c(pl) << 14;
-            v.x = lbl_805DF55C * TBoss8Dragon__sub_803D64C0(a) + v.x;
-            v.z = lbl_805DF55C * TBoss8Dragon__sub_803D64DC(a) + v.z;
+            v.x = lbl_805DF55C * sin_table_lookup(a) + v.x;
+            v.z = lbl_805DF55C * cos_table_lookup(a) + v.z;
         }
-        TBoss6Type1__sub_803D9370(&v, &pl->pos);
+        subtract_vector(&v, &pl->pos);
         v.y = TBoss6GravBall__data_805DF550;
-        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        d = vector_length(&v);
         if (d > TBoss6GravBall__data_805DF558) {
             f32 s;
             if (*(u32 *)(self + 0xC0) & 1) {
@@ -192,12 +192,12 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
             if (s < lbl_805DF568) {
                 s = lbl_805DF568;
             }
-            TNpcPlayer__sub_803D97B4(&v);
+            normalize_vector(&v);
             flag = 0;
             v.x *= s;
             v.z *= s;
         }
-        TBoss4Zako__sub_803D8910(&v, &pl->pos);
+        vec3_add_to(&v, &pl->pos);
         project_actor_to_ground(self, &v, 0);
         TBoss6PlotFalz__sub_802AC724(pl, &v);
         if (flag != 0) {
@@ -211,11 +211,11 @@ void TBoss6GravBall__sub_80323544(u8 *self) {
 void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0) {
     Vec_803236F8 v = arg0->pos;
     v.y = TBoss6GravBall__data_805DF550;
-    if (TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805DF570) {
-        TNpcPlayer__sub_803D97B4(&v);
+    if (vector_length(&v) > lbl_805DF570) {
+        normalize_vector(&v);
         v.x = v.x * lbl_805DF570;
         v.z = v.z * lbl_805DF570;
-        TBoss6Type1__sub_803D9370(&arg0->pos, &v);
+        subtract_vector(&arg0->pos, &v);
     } else {
         VecCopy__FP3VecPC3Vec(&arg0->pos, lbl_80476684);
     }

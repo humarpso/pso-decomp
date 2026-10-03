@@ -32,13 +32,13 @@ int TObjEneDelDepthBomb__sub_80313268(void);
 s32 TObjPlayer__sub_80019038(void *);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_depth_radius__19TObjEneDelDepthBombFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern M2C_UNK __vt__19TObjEneDelDepthBomb[];
 extern s32 lbl_805D411C;
 u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 int TObjEneDelDepthBomb__sub_80313268(void);
 s32 create__11TTecRaBartaFPvPvPvPv(s32, void *, void *, s32);
@@ -75,7 +75,7 @@ void run_task__19TObjEneDelDepthBombFv(Bomb_803133BC *o) {
     s32 done = 0;
     f32 t;
     o->f338 += lbl_805DF264;
-    TBoss4Zako__sub_803D8910(&o->pos, o->f334);
+    vec3_add_to(&o->pos, o->f334);
     if (++o->cnt > 0x14F) {
         done = 1;
     }
@@ -137,8 +137,8 @@ u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4
     M2C_FIELD(arg0, s32 *, 0x348) = arg2;
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x10), s32 *, 0x60);
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x38), (void *) (arg3));
-    temp_f30 = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    temp_f31 = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    temp_f30 = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    temp_f31 = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, f32 *, 0x354) = get_depth_radius__19TObjEneDelDepthBombFPv((void *) (M2C_FIELD(arg0, u8 **, 0x10)));
     M2C_FIELD(arg0, f32 *, 0x334) = (f32) (M2C_FIELD(arg0, f32 *, 0x354) * temp_f30);
     M2C_FIELD(arg0, f32 *, 0x338) = 0.0f;
@@ -261,7 +261,7 @@ void init_move__15TObjEneDelDepthFPv(void *arg0);
 void start_attack_motion__15TObjEneDelDepthFPv(u8 *arg0);
 void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 M2C_UNK TObjEneDelDepth__sub_803154A8(void *, int);
 int TObjEneDelDepth__sub_80316488(void*, void*);
 u16 find_nearest_visible_player(void *, void *, f32);
@@ -323,7 +323,7 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
     o->f3D8 += lbl_805DF274;
     do {
         VecCopy__FP3VecPC3Vec(&a, &o->pos);
-        TBoss4Zako__sub_803D8910(&a, &o->f3D4);
+        vec3_add_to(&a, &o->f3D4);
         VecCopy__FP3VecPC3Vec(&b, &a);
         b.y += k + get_random_float__8TObjFishFv(o->f3D8);
         if (project_actor_to_ground(o, &b, 0) != 0) {
@@ -334,8 +334,8 @@ void TObjEneDelDepth__sub_80313740(Ene_80313740 *o) {
             }
             break;
         }
-        s = TBoss8Dragon__sub_803D64C0(0x4000);
-        co = TBoss8Dragon__sub_803D64DC(0x4000);
+        s = sin_table_lookup(0x4000);
+        co = cos_table_lookup(0x4000);
         tries--;
         o->f3D4 = co * o->f3D4 + s * o->f3DC;
         o->f3DC = -s * o->f3D4 + co * o->f3DC;
@@ -439,7 +439,7 @@ void update_ai_state__15TObjEneDelDepthFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x384) = temp_r0;
         if (temp_r0 <= 0) {
             temp_r3 = find_nearest_visible_player((void *) (arg0), (void *) (&sp8), (f32) (TObjEneDelDepth__data_805DF280));
-            if ((temp_r3 != 0xFFFF) && (TBoss6Kakusan__sub_803D8BD8((void *) (&sp8)) > TObjEneDelDepth__data_805DF270)) {
+            if ((temp_r3 != 0xFFFF) && (vector_length((void *) (&sp8)) > TObjEneDelDepth__data_805DF270)) {
                 TObjEneDelDepth__sub_803154A8((void *) (arg0), (int) (4));
                 return;
             }

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 load_gvm_texture_file(void *);
 M2C_UNK reset_state__10TBoss6TubeFv();
@@ -55,7 +55,7 @@ void TBoss6Tube__sub_802B1760(void) {
     reset_state__10TBoss6TubeFv();
     r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = TLobby__sub_80020004(r, 5, lbl_804DE888, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, lbl_804DE888, 0, 0, 0);
     }
     lbl_805D6718 = r;
     lbl_805D671C = load_gvm_texture_file(lbl_80470A68);

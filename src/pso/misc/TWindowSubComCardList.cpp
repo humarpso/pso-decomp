@@ -26,13 +26,13 @@ s32 TLobby__sub_8001DC24();
 void TItemData__sub_80076E84(u16);
 s32 weapon_has_extra_attack();
 u8 *get_player_by_client_id(s32);
-u8 fn_801D9870(void *, s16);
+u8 get_cast_technique_level(void *, s16);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s16);
 void append_text_space();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
 void text_builder_reset();
-u8 *TTecCtrl__sub_8022DBC4(u16, u8, s32);
+u8 *calc_technique_parameters(u16, u8, s32);
 s32 TWindowHelpItem__sub_802434B8(u16, s32);
 void get_help_text_string(s32);
 void toggle_help_window_on_button(s32, s32);
@@ -84,7 +84,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0);
 void run_task__21TWindowSubComCardListFv(void *arg0);
 s32 handle_list_page_flip_input(s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_8026C800(s32, s32);
@@ -102,7 +102,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);
     fn_802752D8(arg0, temp_r3);
@@ -224,7 +224,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         TItemData__sub_80076E84(ev->id);
         text_builder_append();
         if (ev->id != 0x11 && ev->id != 0xE) {
-            lvl = fn_801D9870(pl + 0x428, ev->id);
+            lvl = get_cast_technique_level(pl + 0x428, ev->id);
             if (lbl_805D5544 != 0) {
                 append_text_space();
             }
@@ -234,7 +234,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         }
         get_help_text_string(0x2E);
         text_builder_append();
-        TWindowSubStatusDisp__sub_80228F5C(*(s16 *)(TTecCtrl__sub_8022DBC4(ev->id, lvl, 0xFFFF) + 0x10));
+        TWindowSubStatusDisp__sub_80228F5C(*(s16 *)(calc_technique_parameters(ev->id, lvl, 0xFFFF) + 0x10));
         get_help_text_string(ev->id);
         text_builder_append();
         break;

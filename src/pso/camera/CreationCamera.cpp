@@ -31,7 +31,7 @@ extern const f32 lbl_805DD978;
 extern const f32 lbl_805DD99C;
 extern const f32 lbl_805DD9A0;
 void begin_creation_review_camera(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 cos_table_lookup(s32);
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD96C,lbl_805DD978,lbl_805DD998;
 void advance_creation_review_camera(CreationCameraFields* camera);
@@ -100,7 +100,7 @@ typedef char RecoveredGlobal_802916D4_lbl_804DAA18_size[sizeof(RecoveredGlobal_8
 #pragma fp_contract on
 void advance_creation_review_camera(CreationCameraFields* camera) {
  if(--camera->ticks<=0) {camera->ticks=0;lbl_805D6570=3;return;}
- const f32 weight=lbl_805DD96C*(lbl_805DD978+TBoss8Dragon__sub_803D64DC((camera->ticks<<15)/120));
+ const f32 weight=lbl_805DD96C*(lbl_805DD978+cos_table_lookup((camera->ticks<<15)/120));
  const f32 start=camera->startDistance;
  camera->distance=weight*(lbl_805DD998-start)+start;
 }

@@ -64,7 +64,7 @@ M2C_UNK TObjLight__sub_800827E0(void *, void *, f32);
 s32 TObjLight__sub_801344A4(void *, void *, int);
 M2C_UNK publish_actor_light_scalars(int, f32, f32);
 M2C_UNK TObjLight__sub_801345F8(int, void *, void *);
-M2C_UNK TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
+M2C_UNK approach_vector_fixed_distance(void *, void *, void *, f32);
 u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__data_80506320;
 extern const f32 lbl_805DC890;
@@ -102,7 +102,7 @@ void update_actor_light_task(Light_80235C44 *arg0) {
         inten1 = frac * (arg0->intensity - TObjLight__data_80506320.f1c) + TObjLight__data_80506320.f1c;
         publish_actor_light_scalars((u16) obj_getField1c(arg0->source), inten1, amb1);
         copy_vec4__13TRaderMapCoreFPvPv(&unused, &baseColor);
-        TEffStarLightChild__sub_80141FBC(&arg0->direction, &arg0->desired, &arg0->direction, arg0->step);
+        approach_vector_fixed_distance(&arg0->direction, &arg0->desired, &arg0->direction, arg0->step);
         TObjLight__sub_800827E0(&unused, &arg0->color, lbl_805DC894);
     } else {
         f32 amb2;
@@ -111,7 +111,7 @@ void update_actor_light_task(Light_80235C44 *arg0) {
         amb2 = frac * (TObjLight__data_80506320.f20 - arg0->peak) + arg0->peak;
         inten2 = frac * (TObjLight__data_80506320.f1c - arg0->intensity) + arg0->intensity;
         publish_actor_light_scalars((u16) obj_getField1c(arg0->source), inten2, amb2);
-        TEffStarLightChild__sub_80141FBC(&arg0->direction, &baseDir, &arg0->direction, arg0->step);
+        approach_vector_fixed_distance(&arg0->direction, &baseDir, &arg0->direction, arg0->step);
         TObjLight__sub_800827E0(&arg0->color, &baseColor, lbl_805DC894);
     }
     TObjLight__sub_801345F8((u16) obj_getField1c(arg0->source), &arg0->direction, &arg0->color);

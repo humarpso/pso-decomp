@@ -43,7 +43,7 @@ extern s32 lbl_805D4450;
 extern const f32 lbl_805E01CC;
 extern const f32 lbl_805E01D4;
 u8 *__ct__9TBoss6DPBFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-f32 TObjPlayer__sub_8001311C(void *, s32, Msg_8035DD18, void *, s32, s32);
+f32 receive_direct_attack__10TObjPlayerFv(void *, s32, Msg_8035DD18, void *, s32, s32);
 s32 try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, void *, int);
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5);
@@ -128,7 +128,7 @@ f32 TObjEneEpsilonGuard__vt20(s32 arg0) {
 }
 f32 TObjEneEpsilonGuard__vt21(s32 arg0, s32 arg1, Msg_8035DD18 *msg, void *arg3, s32 arg4, s32 arg5) {
     if (msg->type == 0x14) {
-        return TObjPlayer__sub_8001311C((void *)arg0, arg1, *msg, arg3, arg4, arg5);
+        return receive_direct_attack__10TObjPlayerFv((void *)arg0, arg1, *msg, arg3, arg4, arg5);
     }
     try_apply_damage__19TObjEneEpsilonGuardFPvUii((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));
     return TObjEneEpsilonGuard__data_805E01D8;

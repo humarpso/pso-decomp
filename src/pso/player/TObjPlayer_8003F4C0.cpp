@@ -312,12 +312,12 @@ extern s32 lbl_805D53A0;
 extern const f32 lbl_805D86D8;
 void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -722,9 +722,9 @@ void update_grabbed_state__10TObjPlayerFPv(void *arg0) {
 void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((Fn80040464VObj_80040464_8003F4C0*)arg0)->m8(lbl_805D86E8, lbl_805D86EC) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         some_id_805c6f74 &= 0xFFFFFBFF;
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         if (M2C_FIELD(arg0, s32 *, 0x388) & 0x10000) {
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x398));

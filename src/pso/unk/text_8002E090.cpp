@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 extern const f32 lbl_805D8204;
 extern const f32 lbl_805D8208;
 extern const f32 lbl_805D820C;
@@ -30,7 +30,7 @@ void fn_8002E090(u8 *arg0) {
             queue_destruction__7TObjectFv(arg0);
         }
     }
-    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
+    vec3_add_to((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x20);
     if (temp_f2 < lbl_805D8208) {
         M2C_FIELD(arg0, f32 *, 0x20) = (f32) (temp_f2 * lbl_805D820C);

@@ -33,7 +33,7 @@ struct Stack_801B7998 {
 struct P_801B7B58 { u8 pad[0xD00]; void *fD00; };
 
 extern "C" {
-f32 TObjPlayer__sub_803D89C0();
+f32 vec3_dot();
 void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *csnVectorUnder(f32 *, void *, M2C_UNK, void *, f32);
@@ -59,8 +59,8 @@ s32 can_destroy_with_parents__10TObjPlayerFUi(u32 arg0);
 void close_sub_window__10TObjPlayerFPv(void *arg0);
 void handle_6x98(void);
 void handle_6x99(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32, f32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32, f32);
 s32 TLobby__sub_800822E8(s32, s32);
 s32 TObjPlayer__sub_801D4368(void * a0 = 0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -78,17 +78,17 @@ void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0) {
     s32 temp_r31;
 
     temp_r31 = (s32) (lbl_80446F68 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 8)));
-    temp_f1 = farg0 * TBoss8Dragon__sub_803D64C0(temp_r31);
+    temp_f1 = farg0 * sin_table_lookup(temp_r31);
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * TBoss8Dragon__sub_803D64DC(temp_r31, temp_f1));
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * cos_table_lookup(temp_r31, temp_f1));
 }
 
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2) {
     f32 temp_f2;
-    temp_f2 = -TObjPlayer__sub_803D89C0();
+    temp_f2 = -vec3_dot();
     M2C_FIELD(arg2, f32 *, 0) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 0)) + M2C_FIELD(arg0, f32 *, 0));
     M2C_FIELD(arg2, f32 *, 4) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 4)) + M2C_FIELD(arg0, f32 *, 4));
     M2C_FIELD(arg2, f32 *, 8) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 8)) + M2C_FIELD(arg0, f32 *, 8));

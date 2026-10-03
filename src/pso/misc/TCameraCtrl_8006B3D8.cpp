@@ -94,8 +94,8 @@ u8 *TCameraCtrl__sub_8006B588(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TCameraCtrl__sub_8006CD78(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void normalize_vector(void *);
 f32 xyz_distance(void *, void *);
 extern M2C_UNK lbl_80488AF0[];
 extern const f32 lbl_805D8FFC;
@@ -103,7 +103,7 @@ M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg
 void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
 void TCameraCtrl__sub_8006CD78(void *, void *);
-void TEffStarLightChild__sub_80141FBC(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
+void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
 extern u32 lbl_805D4DF0;
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
 }
@@ -221,7 +221,7 @@ void create__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
 extern M2C_UNK lbl_80488AF0[];
 
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
-    TEffStarLightChild__sub_80141FBC(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
+    approach_vector_fixed_distance(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
     if (TCameraCtrl__sub_8006BADC() == 1) {
         TCameraCtrl__sub_8006CD78((void *)(lbl_805D4DF0 + 0x178), &arg0->v34);
     }
@@ -264,8 +264,8 @@ M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg
     d.x = arg0->pos.x - VIEW_8006B798->pos.x;
     d.y = arg0->pos.y - VIEW_8006B798->pos.y;
     d.z = arg0->pos.z - VIEW_8006B798->pos.z;
-    if (lbl_805D8FFC != TBoss6Kakusan__sub_803D8BD8(&d)) {
-        TNpcPlayer__sub_803D97B4(&d);
+    if (lbl_805D8FFC != vector_length(&d)) {
+        normalize_vector(&d);
     }
     arg0->pos.x = d.x * dist + VIEW_8006B798->pos.x;
     arg0->pos.y = d.y * dist + VIEW_8006B798->pos.y;

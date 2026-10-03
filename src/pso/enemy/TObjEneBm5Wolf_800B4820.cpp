@@ -625,7 +625,7 @@ struct Node_800B4D88 { s32 f0; Node_800B4D88 *next; };
 struct List_800B4D88 { Node_800B4D88 *head; u8 pad[8]; };
 
 extern "C" {
-void TObjEneBm5Wolf__sub_800B7D44(void *);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
 s32 enemy_validate_retained_target(void *);
 void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
@@ -653,7 +653,7 @@ void sleeping_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 s32 spawn_particle_effect(s32, s32);
 void play_proximity_effect__14TObjEneBm5WolfFi(s32);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
-void TObjEneBm5Wolf__sub_800B7D44(void *);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void enemy_copy_target_destination(void *);
@@ -679,7 +679,7 @@ void play_footsteps__14TObjEneBm5WolfFPv(void *actor);
 s32 play_variant_sound__14TObjEneBm5WolfFPv(void *);
 void set_state_by_timer__14TObjEneBm5WolfFi(void *actor);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
-void TObjEneBm5Wolf__sub_800B7D44(void *);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
 M2C_UNK advance_pose_turn__14TObjEneBm5WolfFPvi(void *, s32);
 s32 TObjEneBm5Wolf__sub_800B8A9C(void *actor, s32 max);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
@@ -688,8 +688,8 @@ f32 rand_range__9TObjEneDDFff(void *actor, f32 low, f32 high);
 int has_move_failures__9TObjEneDDFPvi(void *, s32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK advance_animation_playback(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32 angle);
-f32 TBoss8Dragon__sub_803D64DC(s32 angle);
+f32 sin_table_lookup(s32 angle);
+f32 cos_table_lookup(s32 angle);
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 extern const f32 TObjEneBm5Wolf__data_805D9D84;
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
@@ -721,8 +721,8 @@ void alerted_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void standing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void roaming_state__14TObjEneBm5WolfFi(u8 *arg0, s32 arg1);
 void chasing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
-void TObjEneBm5Wolf__sub_800B5D4C(u8 *arg0, s32 arg1);
-void TObjEneBm5Wolf__sub_800B5924(u8 *arg0, s32 arg1);
+void circling_state__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1);
+void update_lunge__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1);
 void action__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg);
 void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event);
@@ -751,7 +751,7 @@ f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 angle, f32 speed);
 s32 is_vec_xz_cross_negative(void *, void *);
 void play_footsteps__14TObjEneBm5WolfFPv(void *actor);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
-void TObjEneBm5Wolf__sub_800B7D44(void *);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
 s32 enemy_has_live_target(void *);
 void enemy_turn_and_move_on_ground(void *, s32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
@@ -760,8 +760,8 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 approach_angle_limited(int, int, int);
 M2C_UNK advance_animation_playback(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32 angle);
-f32 TBoss8Dragon__sub_803D64DC(s32 angle);
+f32 sin_table_lookup(s32 angle);
+f32 cos_table_lookup(s32 angle);
 extern const f32 TObjEneBm5Wolf__data_805D9DAC;
 extern const f32 lbl_805D9DC4;
 extern const f32 TObjEneBm5Wolf__data_805D9DC8;
@@ -771,7 +771,7 @@ void TObjEneBm5Wolf__sub_800B56CC(u8 *arg0, s32 arg1);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 s32 play_variant_sound__14TObjEneBm5WolfFPv(void *);
 void set_attack_flag__14TObjEneBm5WolfFPv(void *);
-void TObjEneBm5Wolf__sub_800B7D44(void *);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
 void *play_sound__14TObjEneBm5WolfFPv(void *);
 s32 TObjEneBm5Wolf__sub_800B8AF8();
 s32 enemy_validate_retained_target(void *);
@@ -802,9 +802,9 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void advance_spawn_timer__14TObjEneBm5WolfFv(void);
@@ -835,8 +835,8 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 s32 approach_angle_limited(int, int, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32 angle);
-f32 TBoss8Dragon__sub_803D64DC(s32 angle);
+f32 sin_table_lookup(s32 angle);
+f32 cos_table_lookup(s32 angle);
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 extern const f32 TObjEneBm5Wolf__data_805D9D8C;
 extern const f32 lbl_805D9DB8;
@@ -848,7 +848,7 @@ s32 spawn_particle_effect(s32, s32);
 void play_proximity_effect__14TObjEneBm5WolfFi(s32);
 void calc_rotated_vector__14TObjEneBm5WolfFPviPvPv(void *, s32, void *, void *);
 void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
-void TObjEneBm5Wolf__sub_800B7D44(void *);
+void turn_pose_to_target__14TObjEneBm5WolfFv(void *);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void enemy_copy_target_destination(void *);
 void update_velocity__9TObjEneDDFPv(void *);
@@ -891,7 +891,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK play_sound_effect(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 extern List_800B4D88 TObjEneBm5Wolf__data_80500B78;
 extern const f32 TObjEneBm5Wolf__data_805D9D74;
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
@@ -903,7 +903,7 @@ extern const f32 lbl_805D9D9C;
 extern const f32 lbl_805D9DA0;
 extern const f32 TObjEneBm5Wolf__data_805D9DA4;
 extern const f32 TObjEneBm5Wolf__data_805D9DA8;
-void TObjEneBm5Wolf__sub_800B4D88(u8 *arg0, s32 arg1);
+void update_dying_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -993,8 +993,8 @@ void render__14TObjEneBm5WolfFPv(u8 *arg0) {
         if (var_r31 != 0) {
             if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0x10) {
                 direction_to_rotation_xz(arg0 + 0x248, &rot.x, &rot.z);
-                TObjPlayer__sub_803D9B2C();
-                TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+                push_matrix();
+                post_translate_matrix(arg0 + 0x38);
                 translate_matrix(0, TObjEneBm5Wolf__data_805D9D78, TObjEneBm5Wolf__data_805D9D84, TObjEneBm5Wolf__data_805D9D78);
                 rotate_matrix_z(0, rot.z);
                 rotate_matrix_x(0, rot.x);
@@ -1007,8 +1007,8 @@ void render__14TObjEneBm5WolfFPv(u8 *arg0) {
             }
             update_secondary_light__9TObjEneDDFPv(arg0);
             set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             translate_matrix(0, TObjEneBm5Wolf__data_805D9D78, TObjEneBm5Wolf__data_805D9D78, TObjEneBm5Wolf__data_805D9D7C);
             if (M2C_FIELD(arg0, s32 *, 0x408) & 4) {
@@ -1052,7 +1052,7 @@ void TObjEneBm5Wolf__sub_800B4D4C(void *self, s32 msg) {
 }
 
 #define F(T, o) M2C_FIELD(arg0, T *, o)
-void TObjEneBm5Wolf__sub_800B4D88(u8 *arg0, s32 arg1) {
+void update_dying_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     s32 *tgt;
     Node_800B4D88 *n;
     u8 *e;
@@ -1109,7 +1109,7 @@ void TObjEneBm5Wolf__sub_800B4D88(u8 *arg0, s32 arg1) {
                     pos.z = TObjEneBm5Wolf__data_805D9D7C;
                 }
                 rotate_xz_pair_by_angle(&pos.x, &pos.z, F(s32, 0x60));
-                TBoss4Zako__sub_803D8910(&pos, arg0 + 0x38);
+                vec3_add_to(&pos, arg0 + 0x38);
                 spawn_dead_spot_type2__10TObjPlayerFii(&pos, 0x32);
                 spawn_effect_at_ground__10TObjPlayerFPvi(&pos, 0x46);
             }
@@ -1276,8 +1276,8 @@ void repositioning_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
             if (M2C_FIELD(arg0, s32 *, 0x420) > 8) {
                 M2C_FIELD(arg0, s32 *, 0x41C) = 2;
             }
-            dx = lbl_805D9DB8 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x42C));
-            dz = lbl_805D9DB8 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x42C));
+            dx = lbl_805D9DB8 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x42C));
+            dz = lbl_805D9DB8 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x42C));
             M2C_FIELD(M2C_FIELD(arg0, void **, 0x410), f32 *, 0x38) = M2C_FIELD(arg0, f32 *, 0x38) + dx;
             M2C_FIELD(M2C_FIELD(arg0, void **, 0x410), f32 *, 0x3C) = M2C_FIELD(arg0, f32 *, 0x3C);
             M2C_FIELD(M2C_FIELD(arg0, void **, 0x410), f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x40) + dz;
@@ -1293,9 +1293,9 @@ void repositioning_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
                     if (csnVectorUnder(&v, arg0 + 0x120, 0x15) != 0U) {
                         M2C_FIELD(arg0, s32 *, 0x41C) = 1;
                         M2C_FIELD(arg0, s16 *, 0xB8) = 0x12;
-                        M2C_FIELD(arg0, f32 *, 0x3A0) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x42C));
+                        M2C_FIELD(arg0, f32 *, 0x3A0) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x42C));
                         M2C_FIELD(arg0, f32 *, 0x3A4) = TObjEneBm5Wolf__data_805D9D78;
-                        M2C_FIELD(arg0, f32 *, 0x3A8) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x42C));
+                        M2C_FIELD(arg0, f32 *, 0x3A8) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x42C));
                     }
                 }
             }
@@ -1336,8 +1336,8 @@ void TObjEneBm5Wolf__sub_800B56CC(u8 *arg0, s32 arg1) {
             Vec_800B56CC a;
             Vec_800B56CC d;
             u8 *t;
-            a.x = TBoss8Dragon__sub_803D64C0((s32)(M2C_FIELD(arg0, s32 *, 0x60)));
-            a.z = TBoss8Dragon__sub_803D64DC((s32)(M2C_FIELD(arg0, s32 *, 0x60)));
+            a.x = sin_table_lookup((s32)(M2C_FIELD(arg0, s32 *, 0x60)));
+            a.z = cos_table_lookup((s32)(M2C_FIELD(arg0, s32 *, 0x60)));
             t = M2C_FIELD(arg0, u8 **, 0x390);
             d.x = M2C_FIELD(t, f32 *, 0x38) - M2C_FIELD(arg0, f32 *, 0x38);
             d.z = M2C_FIELD(t, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x40);
@@ -1368,13 +1368,13 @@ void TObjEneBm5Wolf__sub_800B56CC(u8 *arg0, s32 arg1) {
         if (update_death_check__14TObjEneEpsilonFPv((void *) (arg0)) != 0) {
             play_footsteps__14TObjEneBm5WolfFPv((void *) (arg0));
             M2C_FIELD(arg0, s32 *, 0x42C) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x42C), M2C_FIELD(arg0, s32 *, 0x430), 0x100);
-            M2C_FIELD(arg0, f32 *, 0x394) = TObjEneBm5Wolf__data_805D9DC8 * TBoss8Dragon__sub_803D64C0((s32)(M2C_FIELD(arg0, s32 *, 0x42C))) + home->x;
-            M2C_FIELD(arg0, f32 *, 0x39C) = TObjEneBm5Wolf__data_805D9DC8 * TBoss8Dragon__sub_803D64DC((s32)(M2C_FIELD(arg0, s32 *, 0x42C))) + home->z;
+            M2C_FIELD(arg0, f32 *, 0x394) = TObjEneBm5Wolf__data_805D9DC8 * sin_table_lookup((s32)(M2C_FIELD(arg0, s32 *, 0x42C))) + home->x;
+            M2C_FIELD(arg0, f32 *, 0x39C) = TObjEneBm5Wolf__data_805D9DC8 * cos_table_lookup((s32)(M2C_FIELD(arg0, s32 *, 0x42C))) + home->z;
             update_velocity__9TObjEneDDFPv((void *) (arg0));
             approach_target__14TObjEneBm5WolfFPvf((void *) (arg0), lbl_805D9DCC);
             M2C_FIELD(arg0, f32 *, 0xC8) = TObjEneBm5Wolf__data_805D9DD0 * M2C_FIELD(arg0, f32 *, 0x404);
             enemy_turn_and_move_on_ground((void *) (arg0), 0x500, M2C_FIELD(arg0, f32 *, 0x404));
-            TObjEneBm5Wolf__sub_800B7D44((void *) (arg0));
+            turn_pose_to_target__14TObjEneBm5WolfFv((void *) (arg0));
             ((VObj_18_4225ac *)(arg0))->m87();
         }
         break;
@@ -1441,7 +1441,7 @@ void flanking_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, f32 *, 0xC8) = TObjEneBm5Wolf__data_805D9DAC * M2C_FIELD(arg0, f32 *, 0x404);
                 move_with_wall_slide_on_ground__9TObjEneDDFPvfff(arg0, dst->x, dst->z, M2C_FIELD(arg0, f32 *, 0x404));
             }
-            TObjEneBm5Wolf__sub_800B7D44(arg0);
+            turn_pose_to_target__14TObjEneBm5WolfFv(arg0);
             ((VObj_18_4225ac *)(arg0))->m87();
         }
         break;
@@ -1497,7 +1497,7 @@ void chasing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
                 temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x404);
                 enemy_turn_and_move_on_ground(arg0, (s32) (lbl_805D9E10 * temp_f1_2), temp_f1_2);
             }
-            TObjEneBm5Wolf__sub_800B7D44(arg0);
+            turn_pose_to_target__14TObjEneBm5WolfFv(arg0);
             ((VObj_18_4225ac *)(arg0))->m87();
         }
         break;
@@ -1527,8 +1527,8 @@ void TObjEneBm5Wolf::roaming_state(int event) {
         this->nearTarget = 0;
         temp_r30 = (s32) (lbl_805D9E14 * calc_boss4_scale__10TObjPlayerFi((s32)(this)));
         temp_f31 = lbl_805D9E18 * calc_boss4_scale__10TObjPlayerFi((s32)(this));
-        this->destination[0] = (f32) ((temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r30)) + this->groupAnchor[0]);
-        this->destination[2] = (f32) ((temp_f31 * TBoss8Dragon__sub_803D64DC(temp_r30)) + this->groupAnchor[2]);
+        this->destination[0] = (f32) ((temp_f31 * sin_table_lookup(temp_r30)) + this->groupAnchor[0]);
+        this->destination[2] = (f32) ((temp_f31 * cos_table_lookup(temp_r30)) + this->groupAnchor[2]);
         this->desiredSpeed = (f32) ((lbl_805D9DF8 * calc_boss4_scale__10TObjPlayerFi((s32)(this))) + TObjEneBm5Wolf__data_805D9D84);
         this->currentSpeed = (f32) TObjEneBm5Wolf__data_805D9D78;
         this->stoppingDistance = (f32) (TObjEneBm5Wolf__data_805D9DBC + calc_scaled_value__15TObjBoss2TunnelFif(0x200, this->desiredSpeed));
@@ -1551,7 +1551,7 @@ void TObjEneBm5Wolf::roaming_state(int event) {
             if (square < lbl_805D9E1C) {
                 this->nearTarget = 1;
             }
-            TObjEneBm5Wolf__sub_800B7D44(this);
+            turn_pose_to_target__14TObjEneBm5WolfFv(this);
         } else {
             advance_pose_turn__14TObjEneBm5WolfFPvi(this, this->facing);
         }
@@ -1654,7 +1654,7 @@ void howling_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
         }
         if (enemy_validate_retained_target((void *) (arg0)) != 0) {
             if (M2C_FIELD(arg0, s16 *, 0xB8) == 0x10) {
-                TObjEneBm5Wolf__sub_800B7D44((void *) (arg0));
+                turn_pose_to_target__14TObjEneBm5WolfFv((void *) (arg0));
             } else {
                 M2C_FIELD(arg0, s32 *, 0x3E4) = 0;
             }
@@ -1691,7 +1691,7 @@ void standing_state__14TObjEneBm5WolfFPvi(u8 *arg0, s32 arg1) {
     {
       enemy_copy_target_destination(arg0);
       update_velocity__9TObjEneDDFPv(arg0);
-      TObjEneBm5Wolf__sub_800B7D44(arg0);
+      turn_pose_to_target__14TObjEneBm5WolfFv(arg0);
     }
     else
     {
@@ -1804,8 +1804,8 @@ void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1) {
         enemy_clear_target(o);
         o->f3E4 = 0;
         VecCopy__FP3VecPC3Vec(home, &o->pos);
-        o->pos.x -= lbl_805D9E3C * TBoss8Dragon__sub_803D64C0(o->angle);
-        o->pos.z -= lbl_805D9E3C * TBoss8Dragon__sub_803D64DC(o->angle);
+        o->pos.x -= lbl_805D9E3C * sin_table_lookup(o->angle);
+        o->pos.z -= lbl_805D9E3C * cos_table_lookup(o->angle);
         o->f434 = lbl_805D9E40;
         o->f40C = TObjEneBm5Wolf__data_805D9D78;
         o->f438 = o->pos.y;
@@ -1839,8 +1839,8 @@ void appearing_state__14TObjEneBm5WolfFPvi(Obj_800B7018 *o, s32 arg1) {
             } else {
                 o->f434 *= TObjEneBm5Wolf__data_805D9DA4;
             }
-            o->pos.x += o->f434 * TBoss8Dragon__sub_803D64C0(o->angle);
-            o->pos.z += o->f434 * TBoss8Dragon__sub_803D64DC(o->angle);
+            o->pos.x += o->f434 * sin_table_lookup(o->angle);
+            o->pos.z += o->f434 * cos_table_lookup(o->angle);
         }
         ((VObj_18_7b3d65 *)o)->m100();
         ((VObj_18_7b3d65 *)o)->m86();
@@ -1917,10 +1917,10 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         flanking_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 10:
-        TObjEneBm5Wolf__sub_800B5D4C(arg0, event);
+        circling_state__14TObjEneBm5WolfFv(arg0, event);
         break;
     case 11:
-        TObjEneBm5Wolf__sub_800B5924(arg0, event);
+        update_lunge__14TObjEneBm5WolfFv(arg0, event);
         break;
     case 12:
         TObjEneBm5Wolf__sub_800B56CC((u8 *)(arg0), (s32)(event));
@@ -1935,7 +1935,7 @@ void dispatch_state__14TObjEneBm5WolfFPvUii(u8 *arg0, u32 state, s32 event) {
         hurt_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 16:
-        TObjEneBm5Wolf__sub_800B4D88((u8 *)(arg0), (s32)(event));
+        update_dying_state__14TObjEneBm5WolfFPvi((u8 *)(arg0), (s32)(event));
         break;
     case 17:
         TObjEneBm5Wolf__sub_800B4D4C(arg0, event);

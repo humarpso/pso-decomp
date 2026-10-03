@@ -24,7 +24,7 @@ s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
 s32 begin_photon_summon_camera(void *, int);
 s32 update_photon_blast_attachments(void *);
-s32 TObjPlayer__sub_801A7748(void *, int);
+s32 spawn_photon_blast_attachment_effects(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 update_all_slots__10TObjPlayerFPv(void *);
 s32 construct_photon_magic_square_normal(int, void *, int, void *, int);
@@ -78,7 +78,7 @@ void run_task__13TPhotonFarllaFPv(u8 *arg0) {
         begin_photon_summon_camera((void *) (arg0), (int) (1));
         M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
-        TObjPlayer__sub_801A7748((void *) (arg0), (int) (0));
+        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (0));
     }
     M2C_FIELD(arg0, s16 *, 0x194) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));

@@ -292,7 +292,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 register_attack__5TItemFPv(void *arg0);
-M2C_UNK TItemData__sub_8010E59C(M2C_UNK *, s32);
+M2C_UNK format_item_name__9TItemDataFv(M2C_UNK *, s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, M2C_UNK *);
 s32 TItemAttacker__sub_80103548(M2C_UNK);
 
@@ -302,7 +302,7 @@ s32 register_attack__5TItemFPv(void *arg0) {
 
     copy_to_item_data__5TItemFPvPv(arg0, sp8);
     temp_r3 = TItemAttacker__sub_80103548(0);
-    TItemData__sub_8010E59C(sp8, temp_r3);
+    format_item_name__9TItemDataFv(sp8, temp_r3);
     return temp_r3;
 }
 
@@ -430,7 +430,7 @@ void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2);
 M2C_UNK set_mode__5TItemFPvc(s32, M2C_UNK);
 M2C_UNK TItem__sub_80101FEC(void *, s32, s32);
 M2C_UNK send_field_state_if_active__10TObjPlayerFii(s32, M2C_UNK);
-u32 TObjPlayer__sub_801B8E68(u32, s32);
+u32 pickup_item__10TObjPlayerFv(u32, s32);
 s32 get_current_floor();
 M2C_UNK spawn_particle_effect(s32, M2C_UNK);
 s32 get_field_d8__10TObjPlayerFPv();
@@ -454,7 +454,7 @@ void send_field_state__5TItemFisi(s32 arg0, s16 arg1, s32 arg2) {
 
 void handle_pickup__5TItemFiiUi(s32 arg0, s32 arg1, u32 arg2) {
     TLobby__sub_8011AA44(arg1, get_field_d8__10TObjPlayerFPv());
-    if ((arg2 != 0U) && (TObjPlayer__sub_801B8E68(arg2, arg0) != 0U)) {
+    if ((arg2 != 0U) && (pickup_item__10TObjPlayerFv(arg2, arg0) != 0U)) {
         set_mode__5TItemFPvc(arg0, 1);
         set_flag8__6TLobbyFPv(arg0);
     }

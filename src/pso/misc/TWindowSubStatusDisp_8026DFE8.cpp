@@ -17,9 +17,9 @@ struct RecoveredGlobal_8026E168_lbl_804D0948 {
 
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80267714(void *, int, int, int);
+M2C_UNK draw_item_list_capacity(void *, int, int, int);
 M2C_UNK draw_selected_list_entry(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(void *, int, void *);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(void *, int);
@@ -51,14 +51,14 @@ void TWindowSubStatusDisp__sub_8026DFE8(u8 *arg0) {
     s32 n;
     void *p;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {
         draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
     }
     n = M2C_FIELD(arg0, s32 *, 0x88);
     if (n > 0) {
-        TWindowSubStatusDisp__sub_80267714((void *) (arg0), (int) (temp_r3), (int) (M2C_FIELD(arg0, s16 *, 0x72)), n);
+        draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (M2C_FIELD(arg0, s16 *, 0x72)), n);
     }
     p = M2C_FIELD(arg0, void **, 0x80);
     if (p != NULL) {

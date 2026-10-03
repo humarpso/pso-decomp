@@ -12,8 +12,8 @@ struct Stack_800E9238 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 vec3_add_to(void *, void *);
+f32 subtract_vector(void *, void *);
 extern const f32 lbl_805DA6FC;
 void fn_800E9238(s32 arg0);
 }
@@ -26,11 +26,11 @@ void fn_800E9238(s32 arg0) {
     typedef char sp10_offset[(offsetof(Stack_800E9238, sp10) == 0x8) ? 1 : -1];
     Stack_800E9238 stack;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg0 + 0x374));
+    subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x374));
     stack.sp8 *= lbl_805DA6FC;
     stack.spC *= lbl_805DA6FC;
     stack.sp10 *= lbl_805DA6FC;
-    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x374), (void *) (&stack.sp8));
+    vec3_add_to((void *) (arg0 + 0x374), (void *) (&stack.sp8));
 }
 
 }

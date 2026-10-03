@@ -10,7 +10,7 @@ struct Ch_802F1960 { u8 pad[0x44]; f32 f; };
 struct Obj_802F1960 { u8 pad0[0x14]; Ch_802F1960 *child; };
 
 extern "C" {
-s32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 vec3_add_to(void *, void *);
 s32 set_parent__7TObjectFP7TObject(void *, void *);
 extern void *lbl_805D6960;
 void fn_802F190C(Obj_8003B1FC *self, void *arg);
@@ -24,7 +24,7 @@ extern "C" {
 void fn_802F190C(Obj_8003B1FC *self, void *arg) {
     Obj_8003B1FC *c;
     while ((c = self->child) != 0) {
-        TBoss4Zako__sub_803D8910(c->xf, arg);
+        vec3_add_to(c->xf, arg);
         set_parent__7TObjectFP7TObject(c, lbl_805D6960);
     }
 }

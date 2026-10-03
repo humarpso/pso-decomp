@@ -26,7 +26,7 @@ extern s32 lbl_805D5644;
 extern s32 TLockOnCursor__data_805D5648;
 void TLockOnCursor__sub_8013DBF4(void);
 s32 get_bml_model(void *, s32);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8013DC38_lbl_804A7140 lbl_804A7140;
 extern u8 *lbl_805D5640;
@@ -154,7 +154,7 @@ void TLockOnCursor__sub_8013DC38(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804A7140.value, 0, 0, 0));
+            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804A7140.value, 0, 0, 0));
         }
         lbl_805D5640 = (unsigned char *) ((void *) var_r0);
         if ((u32) var_r0 != 0U) {

@@ -115,9 +115,9 @@ extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
@@ -283,22 +283,22 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
     if ((u32) lbl_805D58E8 != 0U) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31 + 8));
             draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
             temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31_2 + 8));
             draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
             pop_matrix();
             temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31_3 + 8));
             begin_effect_render__13TParticleCtrlFv();
             draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
             end_effect_render__13TParticleCtrlFv();

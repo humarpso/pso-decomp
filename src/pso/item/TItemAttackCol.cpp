@@ -168,11 +168,11 @@ void run_task__14TItemAttackColFv(u8 *arg0);
 u8 get_field_ed__10TObjPlayerFPv(int);
 u32 find_item_by_id(int);
 u8 get_slot_count__14TItemProShieldFPv(int);
-s32 TObjPlayer__sub_8011C620(void *);
+s32 play_weapon_hit_sound(void *);
 s32 reset_status_block__10TObjPlayerFPv(void *);
 s32 apply_camera_shake__10TObjPlayerFiii(int, int, int);
 u8 *get_player_by_client_id(s32);
-f32 TObjPlayer__sub_801CBF08(int, int);
+f32 calc_photon_blast_charge__10TObjPlayerFv(int, int);
 extern const f32 lbl_805DE914;
 extern const f32 lbl_805DE928;
 s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1);
@@ -195,7 +195,7 @@ void *__dt__14TItemAttackColFv(void *arg0, s16 arg1);
 void add_to_active_list__14TItemAttackColFPv(void* a0);
 void create__14TItemAttackColFPvPv(void *arg0, void *arg1);
 void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
-M2C_UNK TBoss4Zako__sub_803D8910(M2C_UNK *, s32);
+M2C_UNK vec3_add_to(M2C_UNK *, s32);
 void *TItemAttackCol__ct(void *, void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(M2C_UNK *, s32);
 void __dl__7TObjectFPv(void *);
@@ -241,7 +241,7 @@ void TItemAttackCol__vt5(s32 arg0) {
     M2C_UNK sp8;
 
     VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0xD0);
-    TBoss4Zako__sub_803D8910(&sp8, arg0 + 0x24);
+    vec3_add_to(&sp8, arg0 + 0x24);
     TItemAttackCol__sub_802E3D8C((u8 *)(arg0), (void *)(&sp8));
 }
 
@@ -378,7 +378,7 @@ s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
             break;
         }
         temp_r31_2 = (s32) var_f31;
-        TObjPlayer__sub_801CBF08((int) (temp_r29), (int) (temp_r31_2));
+        calc_photon_blast_charge__10TObjPlayerFv((int) (temp_r29), (int) (temp_r31_2));
         ((VObj_18_f2ea1e *)(temp_r29))->m73();
         apply_camera_shake__10TObjPlayerFiii((int) (temp_r29), (int) (temp_r30), (int) (temp_r31_2));
         reset_status_block__10TObjPlayerFPv((void *) (&stack.sp8));
@@ -387,7 +387,7 @@ s32 TObjPlayer__sub_802E456C(u8 *arg0, u8 *arg1) {
         stack.spC = (u8 *)(temp_r29);
         stack.sp14 = (u8 *)(temp_r30);
         stack.sp18 = M2C_FIELD(arg1, s32 *, 4);
-        TObjPlayer__sub_8011C620((void *) (&stack.sp8));
+        play_weapon_hit_sound((void *) (&stack.sp8));
         return 1;
     }
     return 0;

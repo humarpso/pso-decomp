@@ -8,14 +8,14 @@ extern "C" {
 
 void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *, f32);
+M2C_UNK post_translate_matrix(void *, f32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, void *);
 M2C_UNK TObjPlayer__sub_800F09E8(int);
 s32 project_actor_to_ground(void *, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 
@@ -32,10 +32,10 @@ void update_linked_effect__14TObjEnePanarmsFPv(u8 *arg0) {
 
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3A4), (void *) (arg0 + 0x3E0));
     if (project_actor_to_ground((void *) (arg0), (void *) (arg0 + 0x3A4), (void *) (&sp10)) != 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3A8);
         M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) (temp_f1 + lbl_805DA58C);
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x3A4), (f32) (temp_f1));
+        post_translate_matrix((void *) (arg0 + 0x3A4), (f32) (temp_f1));
         direction_to_rotation_xz((void *) (&sp10), (void *) (&spC), (void *) (&sp8));
         rotate_matrix_z((int) (0), (int) (sp8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));

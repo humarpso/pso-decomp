@@ -42,7 +42,7 @@ extern "C" {
 void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1);
 void refresh_with_default_list__20TWindowSubStatusDispFii(s32 a, s32 b);
 void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
@@ -73,7 +73,7 @@ void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {

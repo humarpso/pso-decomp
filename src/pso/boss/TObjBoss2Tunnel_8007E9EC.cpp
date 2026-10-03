@@ -9,7 +9,7 @@ extern "C" {
 f32 update_scale__15TObjBoss2TunnelFPv(void *arg0);
 s32 TCameraCtrl__sub_8006B370();
 f32 TCameraCtrl__sub_803D8D00();
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 normalize_vector(void *);
 
 extern f32 TObjBoss2Tunnel__data_805D9234;
 
@@ -19,7 +19,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *arg0) {
 
     var_f31 = TObjBoss2Tunnel__data_805D9234;
     if (TObjBoss2Tunnel__data_805D9234 != TCameraCtrl__sub_803D8D00()) {
-        var_f31 = TNpcPlayer__sub_803D97B4(arg0);
+        var_f31 = normalize_vector(arg0);
         if (TCameraCtrl__sub_8006B370() != 0) {
             M2C_FIELD(arg0, f32 *, 0) = var_f31 = TObjBoss2Tunnel__data_805D9234;
             M2C_FIELD(arg0, f32 *, 4) = var_f31;

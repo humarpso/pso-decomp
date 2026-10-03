@@ -48,16 +48,16 @@ void TBoss6PlotFalz__sub_802AC008(f32, f32);
 void TBoss6Type1__sub_802B81A4(void *);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(Vec_802B4898 *);
+void post_translate_matrix(Vec_802B4898 *);
 void TBoss6Type1__sub_802B4898(Boss_802B4898 *o);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create__10TObjMapCsnFi(void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(s32);
 M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
 extern u8 lbl_80471020[];
 extern u8 lbl_8047102C[];
@@ -169,10 +169,10 @@ void TBoss6Type1__sub_802B3BEC(u8 *arg0) {
 
 void TBoss6Type1__sub_802B4898(Boss_802B4898 *o) {
     toggle_particle_effect__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     Vec_802B4898 v = o->pos;
     v.y = v.y + o->f4E8;
-    TOHangerMachine01__sub_803D9C00(&v);
+    post_translate_matrix(&v);
     rotate_matrix_y(0, o->f60);
     rotate_matrix_x(0, o->f5C);
     TBoss6PlotFalz__sub_802AC008(o->f4D4, o->f4D8);
@@ -189,7 +189,7 @@ void TBoss6Type1__sub_802B49A4(u8 *arg0) {
     Params_802B49A4 prm;
     Vec_802B49A4 tmp;
     VecCopy__FP3VecPC3Vec(&prm.pos, arg0 + 0x38);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     rotate_vector_by_matrix(0, lbl_80471020, &tmp);

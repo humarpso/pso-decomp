@@ -26,11 +26,11 @@ extern "C" {
 
 void *create__16TObjRainbowLobbyFPv(void *arg0);
 void render__16TObjRainbowLobbyFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2);
 void *__nw__7TObjectFUl(int);
@@ -39,7 +39,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
 void free_static_data__16TObjRainbowLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80350808_lbl_804F0DF0 lbl_804F0DF0;
 extern u32 TObjRainbowLobby__data_805D6EB0;
@@ -58,8 +58,8 @@ void render__16TObjRainbowLobbyFv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
@@ -123,7 +123,7 @@ void TObjRainbowLobby__sub_80350808(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804F0DF0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804F0DF0.value, 0, 0, 0));
     }
     (*(s32 *)&TObjRainbowLobby__data_805D6EB0) = var_r0;
 }

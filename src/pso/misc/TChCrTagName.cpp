@@ -87,7 +87,7 @@ extern const f32 lbl_805DDE98;
 extern const f32 lbl_805DDE9C;
 extern const f32 lbl_805DDEA0;
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805DDE28;
 extern const f32 lbl_805DDE70;
 extern const f32 lbl_805DDE74;
@@ -136,7 +136,7 @@ extern const f32 lbl_805DDE60;
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
 extern const f32 lbl_805DDE28;
 extern const f32 lbl_805DDE2C;
@@ -205,7 +205,7 @@ int TChCrTagName__sub_802A208C(void *p) {
     alpha = t2;
     id = self->f20 + 0x4B;
     if (self->m4() != 0) {
-        alpha = lbl_805DDE38 * TBoss8Dragon__sub_803D64C0(self->f44 << 9) + t2;
+        alpha = lbl_805DDE38 * sin_table_lookup(self->f44 << 9) + t2;
         if (alpha < 0.0f) {
             alpha = 0.0f;
         } else if (alpha > lbl_805DDE28) {
@@ -336,7 +336,7 @@ void TChCrTagName__sub_802A26E0(u8 *arg0) {
     {
       temp_f3 = *((f32 *) (((s8 *) arg0) + 0x3C));
       temp_f1 = (temp_f2 - temp_f3) / (temp_f1 - temp_f3);
-      var_f4 = lbl_805DDE7C * (lbl_805DDE28 - TBoss8Dragon__sub_803D64DC((s32) (lbl_805DDE80 * temp_f1)));
+      var_f4 = lbl_805DDE7C * (lbl_805DDE28 - cos_table_lookup((s32) (lbl_805DDE80 * temp_f1)));
     }
   }
   *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x48))) + ((lbl_805DDE88 * var_f4) + lbl_805DDE84));

@@ -171,7 +171,7 @@ struct TItemData
 
 extern "C" {
 u8 *lookup_inventory_item__10TObjPlayerFPv(s32);
-u32 TObjPlayer__sub_801B8E68(int, int);
+u32 pickup_item__10TObjPlayerFv(int, int);
 s32 get_player_by_client_id(void *);
 void TItem__sub_801007B4(s32 arg0, s32 arg1);
 s16 clamp_field_32E__10TObjPlayerFPv(void *);
@@ -281,7 +281,7 @@ void TItem__sub_801007B4(s32 arg0, s32 arg1) {
     temp_r3 = get_player_by_client_id((void *) (u16)arg0);
     if (temp_r3 != 0) {
         temp_r3_2 = lookup_inventory_item__10TObjPlayerFPv(arg1);
-        if ((temp_r3_2 != NULL) && (TObjPlayer__sub_801B8E68((int) (temp_r3), (int) (temp_r3_2)) == 0U)) {
+        if ((temp_r3_2 != NULL) && (pickup_item__10TObjPlayerFv((int) (temp_r3), (int) (temp_r3_2)) == 0U)) {
             ((VObj_18 *)(temp_r3_2))->m27();
         }
     }

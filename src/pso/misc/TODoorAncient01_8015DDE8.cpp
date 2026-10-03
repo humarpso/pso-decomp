@@ -89,16 +89,16 @@ s32 fn_801582C4(void *, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern void *TODoorAncient01__data_805D5904;
 extern const f32 lbl_805DB3E8;
 void render__15TODoorAncient01Fv(u8 *arg0);
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -169,28 +169,28 @@ void render__15TODoorAncient01Fv(u8 *arg0) {
     u8 *temp_r31_3;
     u8 *temp_r31_4;
     if ((((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB3E8)) != 0)) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&TODoorAncient01__data_805D5904), M2C_UNK *, ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4))));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+            post_translate_matrix((void *) (temp_r31 + 8));
             draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
             temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31_2 + 8));
             draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
             pop_matrix();
             begin_effect_render__13TParticleCtrlFv();
             temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x30);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31_3 + 8));
             draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
             pop_matrix();
             temp_r31_4 = M2C_FIELD(temp_r31_3, u8 **, 0x30);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31_4 + 8));
             draw_ginja_model((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
             pop_matrix();
             end_effect_render__13TParticleCtrlFv();
@@ -237,7 +237,7 @@ void TODoorAncient01__sub_8015E09C(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B0D58.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B0D58.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5900) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));

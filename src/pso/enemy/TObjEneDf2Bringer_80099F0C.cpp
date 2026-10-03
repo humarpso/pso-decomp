@@ -56,7 +56,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 void create_timed_particle_emitter(void *, s32, s32, s32);
 void TObjEneDf2Bringer__sub_8009A11C(void* p);
 void update_enemy_collision_flags__10TObjPlayerFPv(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern u8 lbl_8043A164[];
 extern s32 lbl_8043A16C[];
 extern const f32 lbl_805D9850;
@@ -71,8 +71,8 @@ extern "C" {
 void TObjEneDf2Bringer__sub_8009A11C(void* p);
 void *TObjEneDf2Bringer__sub_8009A1BC(void *arg0, s16 arg1);
 void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
@@ -99,7 +99,7 @@ void TObjEneDf2Bringer__sub_80099F0C(Bringer_80099F0C *self) {
     if (res != 0) {
         VecCopy__FP3VecPC3Vec(&v, *(void **)((u8 *)res + 4));
         VecCopy__FP3VecPC3Vec(&d, &self->pos);
-        TBoss6Type1__sub_803D9370(&d, &v);
+        subtract_vector(&d, &v);
         step = update_scale__15TObjBoss2TunnelFPv(&d);
         hit = 1;
     }
@@ -139,9 +139,9 @@ extern const f32 lbl_805D9860;
 void setup_dir_shot__17TObjEneDf2BringerFPvPvif(u8 *arg0, const void *arg1, s32 arg2, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), arg1);
     M2C_FIELD(arg0, s32 *, 0x60) = arg2;
-    M2C_FIELD(arg0, f32 *, 0xB8) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0xB8) = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, f32 *, 0xBC) = (f32) lbl_805D9860;
-    M2C_FIELD(arg0, f32 *, 0xC0) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0xC0) = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, s32 *, 0xB0) = 1;
     fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0xC4)));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805D9860;

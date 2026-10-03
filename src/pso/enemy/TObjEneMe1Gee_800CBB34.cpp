@@ -53,7 +53,7 @@ typedef struct Gee_800CBB34 {
 extern "C" {
 f32 newton_sqrtf(f32);
 void TBoss2DeRolLe__sub_800B98D8(void *, void *);
-s32 TObjEneDD__sub_800BB484(void *, Rec_800CBB34 *);
+s32 collect_enemy_target_candidates(void *, Rec_800CBB34 *);
 Obj_800CBB34 *find_entity_by_id(u16);
 void *get_player_by_client_id(u16);
 extern const f32 lbl_805DA110;
@@ -70,7 +70,7 @@ s32 TObjEneMe1Gee__sub_800CBB34(Gee_800CBB34 *arg0, f32 *out) {
     s32 i;
     found = 0;
     *out = lbl_805DA110;
-    n = TObjEneDD__sub_800BB484(arg0, recs);
+    n = collect_enemy_target_candidates(arg0, recs);
     for (i = 0; i < n; i++) {
         p = get_player_by_client_id(recs[i].id);
         if (p != arg0->target) {

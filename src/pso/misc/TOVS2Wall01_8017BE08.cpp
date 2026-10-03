@@ -51,12 +51,12 @@ void release__11TOVS2Wall01FPv(void* p);
 int interact_player_neg1__11TOVS2Wall01FPv(void* p);
 void run_task__11TOVS2Wall01Fv(u8 *arg0);
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
-M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK update_obstruction_fade(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_object(int);
 extern s32 lbl_805D5660;
@@ -126,7 +126,7 @@ void run_task__11TOVS2Wall01Fv(u8 *arg0) {
 
 void render__11TOVS2Wall01Fv(u8 *arg0) {
     s32 var_r31;
-    TObjPlayer__sub_800D7BB0((void *) (arg0 + 0x340));
+    update_obstruction_fade((void *) (arg0 + 0x340));
     M2C_FIELD(arg0, s32 *, 0x35C) = ((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0x334), M2C_FIELD(arg0, f32 *, 0x338));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x35C) == 1) {
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -140,8 +140,8 @@ void render__11TOVS2Wall01Fv(u8 *arg0) {
             lbl_805D5668 = lbl_805D7780;
             ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m6(lbl_805D7784, some_id_805c6f74);
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));

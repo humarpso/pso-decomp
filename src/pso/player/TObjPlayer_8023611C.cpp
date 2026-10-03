@@ -153,7 +153,7 @@ s32 get_game_mode__6TLobbyFv();
 s32 get_lobby_flag__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 void* get_pos_ptr__10TObjPlayerFPv(void* p);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_enemy_contacts(void *self, s32 arg);
@@ -170,7 +170,7 @@ u16 obj_getField1c(void *);
 s32 get_lobby_flag__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 void* get_pos_ptr__10TObjPlayerFPv(void* p);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_player_contacts(void *self, s32 arg);
@@ -389,7 +389,7 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     d.y = pos.y - pp[1];
     d.z = pos.z - pp[2];
     {
-        f32 len = TBoss6Kakusan__sub_803D8BD8(&d);
+        f32 len = vector_length(&d);
         s->proxy->a4->f10 = s->f12c;
         s->proxy->a4->fC = lbl_805DC890 * len;
     }
@@ -448,7 +448,7 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
     d.y = pos.y - pp[1];
     d.z = pos.z - pp[2];
     {
-        f32 len = TBoss6Kakusan__sub_803D8BD8(&d);
+        f32 len = vector_length(&d);
         s->proxy->a4->f10 = s->f12c;
         s->proxy->a4->fC = lbl_8044D8D0[0] * len;
     }

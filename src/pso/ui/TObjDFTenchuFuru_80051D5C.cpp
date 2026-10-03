@@ -13,9 +13,9 @@ M2C_UNK TObjPlayer__sub_80052390(f32);
 u8 *get_player_by_client_id(s32);
 M2C_UNK clear_flag_bit0__12TCharaMakingFv();
 M2C_UNK enable_making__12TCharaMakingFv();
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
+M2C_UNK post_translate_matrix(M2C_UNK *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(u32);
 extern M2C_UNK lbl_804FF228[];
@@ -32,16 +32,16 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
         set_global_param__8TObjFishFi(arg0);
         draw_chunk_object(arg3);
         if (arg6 != 0U) {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(lbl_804FF234);
+            push_matrix();
+            post_translate_matrix(lbl_804FF234);
             set_global_param__8TObjFishFi(arg2);
             draw_chunk_object(arg6);
             pop_matrix();
         }
         if (arg4 != 0U) {
             enable_making__12TCharaMakingFv();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(lbl_804FF228);
+            push_matrix();
+            post_translate_matrix(lbl_804FF228);
             set_global_param__8TObjFishFi(arg1);
             draw_chunk_object(arg4);
             pop_matrix();
@@ -52,8 +52,8 @@ void boss6type2_draw_models(s32 arg0, s32 arg1, s32 arg2, u32 arg3, u32 arg4, u3
         }
         if (arg5 != 0U) {
             enable_making__12TCharaMakingFv();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(lbl_804FF228);
+            push_matrix();
+            post_translate_matrix(lbl_804FF228);
             set_global_param__8TObjFishFi(arg1);
             TCharaMaking__draw_colored_hair(farg0, (s32)arg5, (CharacterAppearanceFields *)arg7, 0);
             pop_matrix();
@@ -96,16 +96,16 @@ void TObjPlayer__sub_80051E9C(s32 arg0, f32 farg0) {
     set_global_param__8TObjFishFi(cf4);
     draw_chunk_object(m34);
     if (m8b4 != 0U) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(lbl_804FF234);
+        push_matrix();
+        post_translate_matrix(lbl_804FF234);
         set_global_param__8TObjFishFi(b88);
         draw_chunk_object(m8b4);
         pop_matrix();
     }
     if (m8b0 != 0U) {
         enable_making__12TCharaMakingFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(lbl_804FF228);
+        push_matrix();
+        post_translate_matrix(lbl_804FF228);
         set_global_param__8TObjFishFi(a1c);
         draw_chunk_object(m8b0);
         pop_matrix();
@@ -116,8 +116,8 @@ void TObjPlayer__sub_80051E9C(s32 arg0, f32 farg0) {
     }
     if (m8ac != 0U) {
         enable_making__12TCharaMakingFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(lbl_804FF228);
+        push_matrix();
+        post_translate_matrix(lbl_804FF228);
         set_global_param__8TObjFishFi(a1c);
         TCharaMaking__draw_colored_hair(farg0, (s32)m8ac, (CharacterAppearanceFields *)(p + 0x85C), 0);
         pop_matrix();

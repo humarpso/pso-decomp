@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 init_flags_vec4__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801C8D88(void *);
+s32 update_warp_relocation__10TObjPlayerFv(void *);
 s32 set_dead_state__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C9084(void *);
 s32 TObjPlayer__sub_801C90F8();
@@ -38,7 +38,7 @@ void run_warp_action_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
         set_dead_state__10TObjPlayerFPv((void *) arg0);
         return;
       case 1:
-        TObjPlayer__sub_801C8D88((void *) new_var);
+        update_warp_relocation__10TObjPlayerFv((void *) new_var);
         return;
       case 6:
         init_flags_vec4__10TObjPlayerFPv((void *) arg0);

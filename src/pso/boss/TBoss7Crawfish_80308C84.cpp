@@ -17,9 +17,9 @@ extern "C" {
 u16 find_nearest_visible_player(void *, void *, f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK TBoss7Crawfish__sub_80308F8C(void *, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void normalize_vector(void *);
 extern const f64 lbl_804755B0[];
 extern const f32 lbl_805DF0D0;
 extern const f32 TBoss7Crawfish__data_805DF0D8;
@@ -63,14 +63,14 @@ void TBoss7Crawfish__sub_80308D1C(Craw_80308D1C *o) {
     u16 r = find_nearest_visible_player(o, &o->vx, lbl_805DF0D0);
     f32 s = TBoss7Crawfish__data_805DF0DC + *o->speed;
     if (r != 0xFFFF) {
-        TNpcPlayer__sub_803D97B4(&o->vx);
+        normalize_vector(&o->vx);
         o->vx *= s;
         o->vy *= s;
         o->vz *= s;
     } else {
-        o->vx = s * TBoss8Dragon__sub_803D64C0(o->angle);
+        o->vx = s * sin_table_lookup(o->angle);
         o->vy = TBoss7Crawfish__data_805DF0D8;
-        o->vz = s * TBoss8Dragon__sub_803D64DC(o->angle);
+        o->vz = s * cos_table_lookup(o->angle);
     }
     o->angle = lbl_804755B0[0] * get_ad_end_text_start__10TObjPlayerFv(o->vx, o->vz);
     TBoss7Crawfish__sub_80308F8C((void *)(o), (int)(2));

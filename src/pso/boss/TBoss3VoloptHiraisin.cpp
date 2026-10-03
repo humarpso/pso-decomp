@@ -280,7 +280,7 @@ u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
 extern s32 TBoss3VoloptHiraisin__data_805D4C80;
 void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
-void TObjPlayer__sub_80018990(void *, s32, s32, s32, f32, f32);
+void recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
 int VecCopy__FP3VecPC3Vec(s32, s32);
 void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
 void obj_setFlags30(void *, u32);
@@ -400,7 +400,7 @@ void TBoss3VoloptHiraisin__sub_800418C8(Hira_800418C8 *self) {
     init_collision_body_parts(self, prm->unk88, 1);
     self->unk368 = 0;
     self->unk350 = prm->unk6C;
-    TObjPlayer__sub_80018990(self, lbl_805D4C70, lbl_805D4C74, lbl_805D4C78, lbl_805D8728, lbl_805D8728);
+    recalc_combat_stats__10TObjPlayerFv(self, lbl_805D4C70, lbl_805D4C74, lbl_805D4C78, lbl_805D8728, lbl_805D8728);
     self->unkB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->unkB8);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->unkB8);

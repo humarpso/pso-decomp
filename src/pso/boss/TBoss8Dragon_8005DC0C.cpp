@@ -37,7 +37,7 @@ s32 TBoss8Dragon__sub_8005E1E8(void *, void *, f32);
 void TCameraCtrl__sub_80069094(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 u8 *find_entity_by_id();
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern s32 lbl_80437E94[];
 extern u8 lbl_804FF5CC[];
 extern u8 lbl_804FF5D8[];
@@ -59,9 +59,9 @@ M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
 M2C_UNK set_chunk_material_override_pair(int, int);
@@ -100,7 +100,7 @@ s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0) {
     VecCopy__FP3VecPC3Vec(&cam, lbl_805D4DF0 + 0x178);
     cam.y = lbl_805D8D5C;
     VecCopy__FP3VecPC3Vec(&dir, pl + 0x38);
-    TBoss6Type1__sub_803D9370(&dir, &cam);
+    subtract_vector(&dir, &cam);
     dir.y = lbl_805D8D5C;
     len = clamp_velocity__15TObjBoss2TunnelFPv(&dir);
     VecCopy__FP3VecPC3Vec(lbl_804FF5CC, &cam);
@@ -128,8 +128,8 @@ void TBoss8Dragon__sub_8005DD68(u8 *arg0, s32 arg1) {
     if (isFading__15RenderFadeStateCFv((int) (temp_r31)) != 0) {
         ((VObj_14 *)(temp_r31))->m6();
     }
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));

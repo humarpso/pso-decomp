@@ -8,7 +8,7 @@ extern "C" {
 
 void apply_photon_blast__10TObjPlayerFii(s32 arg0, s32 arg1);
 void update_active_instance__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_801A8868(s32, s32);
+M2C_UNK admit_photon_blast_sequence(s32, s32);
 s32 reset_volopt_state__10TObjPlayerFv();
 s32 TObjPlayer__sub_801CBD98(s32);
 M2C_UNK release_photon_blast_requests(u32);
@@ -32,7 +32,7 @@ void update_active_instance__10TObjPlayerFi(s32 arg0) {
             return;
         }
         release_photon_blast_requests(lbl_805D5D68);
-        TObjPlayer__sub_801A8868(TObjPlayer__sub_801CBD98(0), arg0);
+        admit_photon_blast_sequence(TObjPlayer__sub_801CBD98(0), arg0);
     }
 }
 

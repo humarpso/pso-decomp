@@ -126,7 +126,7 @@ s32 can_pickup_item__10TObjPlayerFPvPv();
 int get_item_record__23TShopJudgmentItemWindowFPv(void* p);
 int TObjPlayer__sub_801B8DE8(void*);
 
-int fn_801B855C(void) { return 0; }
+int try_add_sale_meseta__10TObjPlayerFv(void) { return 0; }
 s32 try_buy_item(s32 arg0, void *arg1) {
     if (can_pickup_item__10TObjPlayerFPvPv() == 0) {
         return 1;

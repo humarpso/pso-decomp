@@ -39,9 +39,9 @@ struct VObj_18_ac8580 : VBase_18_ac8580 {
 
 extern "C" {
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 M2C_UNK draw_chunk_object(void *);
@@ -159,8 +159,8 @@ void run_script_object_task(u8 *arg0) {
 void fn_80169E30(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {

@@ -346,7 +346,7 @@ u16 obj_getField1c(void *);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
 f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern const f32 TOMineTrap__data_805DB868;
 extern const f32 lbl_805DB884;
 extern const f32 lbl_805DB888;
@@ -356,10 +356,10 @@ void calc_attach_pos__10TObjPlayerFPv(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 int refresh_collision_body_centers(void*);
 s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 f32 TCameraCtrl__sub_803D8D00(void *);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 extern const f64 lbl_80442200;
 extern const f32 lbl_805DB870;
 extern const f32 lbl_805DB884;
@@ -721,14 +721,14 @@ void TOMineTrap__sub_80170AC8(u8 *arg0) {
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
   VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) ((*((u8 **) (((s8 *) arg0) + 0x2A8))) + 0x38));
   stack.spC = *((f32 *) (((s8 *) arg0) + 0x3C));
-  TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+  subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38));
   if (lbl_805DB870 < TCameraCtrl__sub_803D8D00((void *) (&stack.sp8)))
   {
-    TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+    normalize_vector((void *) (&stack.sp8));
     stack.sp8 *= lbl_805DB870;
     stack.sp10 *= lbl_805DB870;
   }
-  TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+  vec3_add_to((void *) (arg0 + 0x38), (void *) (&stack.sp8));
   update_enemy_collision_flags__10TObjPlayerFPv((void *) arg0);
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x48));
   *((f32 *) (((s8 *) arg0) + 0x3C)) = (f32) ((lbl_805DB884 * ((lbl_805DB888 + (*((f32 *) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x2A8)))) + 0x3C)))) - temp_f2)) + temp_f2);
@@ -776,7 +776,7 @@ void TOMineTrap__sub_80170CF4(u8 *arg0) {
         }
     } else {
         M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x800);
-        M2C_FIELD(arg0, f32 *, 0x338) = (f32) (M2C_FIELD(arg0, f32 *, 0x338) + TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x5C)));
+        M2C_FIELD(arg0, f32 *, 0x338) = (f32) (M2C_FIELD(arg0, f32 *, 0x338) + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x5C)));
     }
 }
 #pragma pop

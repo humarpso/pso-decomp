@@ -89,7 +89,7 @@ struct Foie_8022FC94
 };
 
 extern "C" {
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 s32 TTecCtrl__sub_8022EF78(int);
@@ -182,7 +182,7 @@ void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
 
 void init_projectile_params__8TTecFoieFPv(u8 *arg0) {
   s32 new_var;
-  new_var = TTecCtrl__sub_8022DBC4((int) 0, (int) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4, (int) 0xFFFF);
+  new_var = calc_technique_parameters((int) 0, (int) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_8022FE84_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {

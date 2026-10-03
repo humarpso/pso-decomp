@@ -45,8 +45,8 @@ void get_wing_position__26TBoss5GryphonLightningWingFii(void *, void *);
 void copy_position__12TBoss8DragonFii(void *, void *);
 void update_wing_segments(void *);
 s32 rand(void);
-void TBoss4Zako__sub_803D8910(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void vec3_add_to(void *, void *);
+void subtract_vector(void *, void *);
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DF63C;
 extern const f32 lbl_805DF640;
@@ -120,7 +120,7 @@ void fn_80326074(Wing_80326074 *self) {
     }
     copy_position__12TBoss8DragonFii(self, &q);
     VecCopy__FP3VecPC3Vec(&d, &p);
-    TBoss6Type1__sub_803D9370(&d, &q);
+    subtract_vector(&d, &q);
     len = ((f32 (*)(void *))update_scale__15TObjBoss2TunnelFPv)(&d) / (f32)(self->n - 1);
     d.x *= len;
     d.y *= len;
@@ -128,7 +128,7 @@ void fn_80326074(Wing_80326074 *self) {
     VecCopy__FP3VecPC3Vec(&p, &q);
     for (i = 0; i < self->n; i++) {
         VecCopy__FP3VecPC3Vec(&self->segs[i].pos, &p);
-        TBoss4Zako__sub_803D8910(&p, &d);
+        vec3_add_to(&p, &d);
     }
     r = lbl_805DF648 * (lbl_805DF64C * (f32)rand()) + lbl_805DF644;
     for (i = 1; i < self->n - 1; i++) {

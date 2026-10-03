@@ -20,7 +20,7 @@ extern "C" {
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
@@ -37,10 +37,10 @@ extern "C" {
 void *create__12TODoorCave01FPv(void *arg0);
 void render__12TODoorCave01Fv(u8 *arg0);
 void *TODoorCave01__ct(void *, void *, void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 fn_801582C4(void *, f32);
@@ -54,7 +54,7 @@ M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2) {
     u8 *temp_r31;
     u8 *temp_r31_2;
     set_global_param__8TObjFishFi((int) (M2C_FIELD(TODoorCave01__data_805D595C, M2C_UNK *, (arg2 * 4))));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 8)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0xC)), (f32) (M2C_FIELD(((u8 *) p1), f32 *, 0x10)));
     draw_ginja_model((int) (M2C_FIELD(((u8 *) p1), s32 *, 4)));
     temp_r31 = M2C_FIELD(((u8 *) p1), u8 **, 0x2C);
@@ -65,11 +65,11 @@ M2C_UNK TODoorCave01__sub_80161804(void *p0, int p1, int arg2) {
         set_chunk_material_color((void *) (((s32) p0) + 0xDC), (int) (temp_r4));
     }
     begin_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
     draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
     temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
     pop_matrix();
@@ -87,8 +87,8 @@ void render__12TODoorCave01Fv(u8 *arg0) {
     s32 var_r29;
 
     if ((((VObj_801618fc *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB4A4)) != 0)) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             var_r29 = 0;

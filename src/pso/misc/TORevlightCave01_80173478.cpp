@@ -26,12 +26,12 @@ struct TORevlightCave01_80173478 : TORevlightCave01Base_80173478 {
 };
 
 void render__16TORevlightCave01Fv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(s32);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -48,8 +48,8 @@ void run_task__16TORevlightCave01Fv(u8 *arg0) {
 
 void render__16TORevlightCave01Fv(u8 *arg0) {
     if (((TORevlightCave01_80173478*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x64));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));

@@ -77,7 +77,7 @@ s32 push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TCameraCtrl__sub_803D9858(int);
-f32 TObjPlayer__sub_803D89C0(Vec_801A1A60 *, Vec_801A1A60 *);
+f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 extern Vec_801A1A60 lbl_8044688C[];
 extern u8 lbl_8058D490[];
 extern const f32 lbl_805DC090;
@@ -180,7 +180,7 @@ void TObjRoomId::run_task() {
         d.x = p->pos[0] - o->pos.x;
         d.y = lbl_805DC094;
         d.z = p->pos[2] - o->pos.z;
-        if (TObjPlayer__sub_803D89C0(&d, &o->normal) > lbl_805DC094) {
+        if (vec3_dot(&d, &o->normal) > lbl_805DC094) {
             if (o->mode == 0x10000) {
                 M2C_FIELD(p, s16 *, 0x28) = (s16)o->room_pos;
                 TObjRoomId__sub_801A1D94(p);

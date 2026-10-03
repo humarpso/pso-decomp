@@ -95,12 +95,12 @@ void TObjPlayer__sub_801C0C04(void *);
 s32 validate_6x2E_set_or_clear_player_flags(void *);
 void handle_6x2E_set_or_clear_player_flags(void *arg0);
 s32 test_player_overlap_with_players(Obj_801B5DDC *, Obj_801B5DDC *, Vec_801B5DDC *, Hit_801B5DDC *);
-f32 TObjPlayer__sub_803D89C0(Vec_801B5DDC *, Vec_801B5DDC *);
+f32 vec3_dot(Vec_801B5DDC *, Vec_801B5DDC *);
 extern const f32 TObjPlayer__data_805DC278;
 s32 check_actor_blocking_move__10TObjPlayerFPv(Obj_801B5DDC *self);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 s32 is_outside_movement_hold__10TObjPlayerFPvPv(void *, f32 *);
-u32 TObjPlayer__sub_801B7298(void *);
+u32 apply_wall_response__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801BE8F4(void *, M2C_UNK, M2C_UNK);
 s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0);
 extern const f32 TObjPlayer__data_805DC278;
@@ -302,7 +302,7 @@ s32 check_actor_blocking_move__10TObjPlayerFPv(Obj_801B5DDC *self) {
         diff.x = pos.x - hit.pos.x;
         diff.y = TObjPlayer__data_805DC278;
         diff.z = pos.z - hit.pos.z;
-        if (TObjPlayer__sub_803D89C0(&diff, &self->f308) < TObjPlayer__data_805DC278) {
+        if (vec3_dot(&diff, &self->f308) < TObjPlayer__data_805DC278) {
             return 1;
         }
     }
@@ -318,7 +318,7 @@ s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0) {
         TObjPlayer__sub_8001053C(arg0);
         return 1;
     }
-    if (TObjPlayer__sub_801B7298(arg0) != 0U) {
+    if (apply_wall_response__10TObjPlayerFv(arg0) != 0U) {
         TObjPlayer__sub_8001053C(arg0);
         return 2;
     }

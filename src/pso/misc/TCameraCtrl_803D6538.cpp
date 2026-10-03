@@ -161,14 +161,14 @@ extern u8 *lbl_805D76BC;
 void set_motion_row_stride(s32 n);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
-void TBoss7Tentacle__sub_803D9BA0(void *);
-void TOHangerMachine01__sub_803D9C00(void *);
+void scale_current_matrix(void *);
+void post_translate_matrix(void *);
 void TObjPlayer__sub_803D7CA4(void *arg0);
 s32 TBoss8Dragon__sub_803D7504(void *, void *, void *, void *, void *);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
-void TBoss7Tentacle__sub_803D9BA0(void *);
-void TOHangerMachine01__sub_803D9C00(void *);
+void scale_current_matrix(void *);
+void post_translate_matrix(void *);
 void TObjPlayer__sub_803D76B4(void *arg0);
 void TCameraCtrl__sub_803D65F8(u8 *);
 void set_camera_look_at(u8* eye, u8* target, u8* up);
@@ -526,7 +526,7 @@ void TObjPlayer__sub_803D76B4(void *arg0) {
     struct Quat_803D7CA4 quat;
     s32 kind;
     kind = TBoss8Dragon__sub_803D7504(arg0, &trans, &rot, &scale, &quat);
-    TOHangerMachine01__sub_803D9C00(&trans);
+    post_translate_matrix(&trans);
     switch (kind) {
     case 0:
         TObjPlayer__sub_803D99F8(&rot, 0);
@@ -538,7 +538,7 @@ void TObjPlayer__sub_803D76B4(void *arg0) {
         TObjPlayer__sub_803D98E4(&quat);
         break;
     }
-    TBoss7Tentacle__sub_803D9BA0(&scale);
+    scale_current_matrix(&scale);
 }
 #pragma pop
 
@@ -719,7 +719,7 @@ void TObjPlayer__sub_803D7CA4(void *arg0) {
     struct Quat_803D7CA4 quat;
     s32 kind;
     kind = sample_motion_node_transform((void *)(arg0), (void *)(&trans), (void *)(&rot), (void *)(&scale), (void *)(&quat));
-    TOHangerMachine01__sub_803D9C00(&trans);
+    post_translate_matrix(&trans);
     switch (kind) {
     case 0:
         TObjPlayer__sub_803D99F8(&rot, 0);
@@ -731,7 +731,7 @@ void TObjPlayer__sub_803D7CA4(void *arg0) {
         TObjPlayer__sub_803D98E4(&quat);
         break;
     }
-    TBoss7Tentacle__sub_803D9BA0(&scale);
+    scale_current_matrix(&scale);
 }
 
 #define G_803D7D30 ((Smp_803D7D30 *)lbl_805D76BC)

@@ -11,7 +11,7 @@ struct Res_8018BB64 { u8 pad[0x430]; s32 x430; };
 extern "C" {
 s32 TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TContainerAncient01__sub_8020335C();
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, s32, s32, Param_8018BB64 *, f32, f32);
@@ -57,7 +57,7 @@ void TContainerAncient01__sub_8018BB64(void) {
     if (TContainerAncient01__sub_8020335C() != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B6DB0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B6DB0, 0, 0, 0);
         }
         lbl_8050DC68[0] = 0x230;
         TContainerAncient01__data_805D5B90 = (u32)p;
@@ -65,7 +65,7 @@ void TContainerAncient01__sub_8018BB64(void) {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804B6D88, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804B6D88, 0, 0, 0);
         }
         lbl_8050DC68[0] = 0x45;
         TContainerAncient01__data_805D5B90 = (u32)p;

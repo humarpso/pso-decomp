@@ -30,8 +30,8 @@ void TBoss8Dragon__sub_8005E52C(Obj_8005E52C *self);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805D8D8C;
 void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self);
 }
@@ -43,9 +43,9 @@ extern "C" {
 void TBoss8Dragon__sub_8005E39C(Obj_8005E39C *self) {
     Vec_8005E39C pos;
     IVec_8005E39C rot;
-    pos.x = lbl_805D8D8C * TBoss8Dragon__sub_803D64C0(self->ang) + self->pos.x;
+    pos.x = lbl_805D8D8C * sin_table_lookup(self->ang) + self->pos.x;
     pos.y = self->pos.y;
-    pos.z = lbl_805D8D8C * TBoss8Dragon__sub_803D64DC(self->ang) + self->pos.z;
+    pos.z = lbl_805D8D8C * cos_table_lookup(self->ang) + self->pos.z;
     rot.x = 0;
     rot.y = self->ang;
     rot.x = 0x4000;

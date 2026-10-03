@@ -64,7 +64,7 @@ extern "C" {
 void fn_801A753C(u8 *arg0, u8 *arg1);
 void VecCopy__FP3VecPC3Vec(Vec_801A73B0 *, const Vec_801A73B0 *);
 void TCameraCtrl__sub_80069D04(struct PbCameraParams_801A73B0 *);
-void TEffStarLightChild__sub_80141FBC(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
+void approach_vector_fixed_distance(Vec_801A73B0 *, Vec_801A73B0 *, Vec_801A73B0 *, f32);
 extern const f32 lbl_805DC0D8;
 extern const f32 lbl_805DC0DC;
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self);
@@ -90,8 +90,8 @@ extern "C" {
 
 void update_photon_blast_camera_pose(struct PbCamera_801A73B0 *self) {
     struct PbCameraParams_801A73B0 parameters;
-    TEffStarLightChild__sub_80141FBC(&self->position, &self->destination_position, &self->position, lbl_805DC0D8);
-    TEffStarLightChild__sub_80141FBC(&self->target, &self->destination_target, &self->target, lbl_805DC0DC);
+    approach_vector_fixed_distance(&self->position, &self->destination_position, &self->position, lbl_805DC0D8);
+    approach_vector_fixed_distance(&self->target, &self->destination_target, &self->target, lbl_805DC0DC);
     VecCopy__FP3VecPC3Vec(&parameters.position, &self->position);
     VecCopy__FP3VecPC3Vec(&parameters.target, &self->target);
     parameters.projection = 0x4222;

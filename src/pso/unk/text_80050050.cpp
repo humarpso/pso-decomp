@@ -15,9 +15,9 @@ M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D8A20;
 extern const f32 lbl_805D8A24;
 void fn_800500DC(u8 *arg0);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
@@ -36,9 +36,9 @@ void fn_80050050(u8 *arg0) {
   unsigned int temp_r4;
   u8 *temp_r30;
   int var_r29;
-  TObjPlayer__sub_803D9B2C();
+  push_matrix();
   set_global_flag__10TObjPlayerFv();
-  TOHangerMachine01__sub_803D9C00((void *) (&lbl_80485864.value));
+  post_translate_matrix((void *) (&lbl_80485864.value));
   var_r29 = 0;
   var_r31 = 0;
   do

@@ -133,7 +133,7 @@ extern u32 lbl_805D5AE0;
 extern s32 lbl_805D5AE4;
 void TOTrapAncient02__sub_8017ACA0(Obj_8017ACA0 *self);
 void *get_bml_model(void *, int);
-void *TLobby__sub_80020004(void *, int, char *, int, int, int);
+void *load_resource_from_descriptor(void *, int, char *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
 u32 get_global_state__14TOKeyMachine01Fv();
@@ -169,7 +169,7 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0);
 void draw_model__15TOTrapAncient02FPv(void *arg0);
 void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 void *TOTrapAncient02__ct(void *, void *, void *);
 M2C_UNK TOTrapAncient02__sub_800837D4(int);
@@ -177,7 +177,7 @@ M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__6TOTrapFv(void *, M2C_UNK);
@@ -311,8 +311,8 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31_3;
     u8 *temp_r31_4;
 
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x344)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
@@ -321,7 +321,7 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     TOTrapAncient02__sub_800837D4((int) (0x38E));
     draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x348)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
     setup_particle_tev((int) (0));
@@ -330,18 +330,18 @@ void render_particle_chain__15TOTrapAncient02FPv(u8 *arg0) {
     draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
     begin_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x2C));
-    TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+    post_translate_matrix((void *) (temp_r31_3 + 8));
     setup_particle_tev((int) (1));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
     TOTrapAncient02__sub_800837D4((int) (0x38E));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
     disable_if_single_screen__13TParticleCtrlFv();
     pop_matrix();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_4 = (unsigned char *) (M2C_FIELD(temp_r31_3, void **, 0x30));
-    TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
+    post_translate_matrix((void *) (temp_r31_4 + 8));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
     setup_particle_tev((int) (0));
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
@@ -360,26 +360,26 @@ void draw_effect_chain__15TOTrapAncient02FPv(u8 *arg0) {
     u8 *temp_r31_3;
     u8 *temp_r31_4;
 
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31, f32 *, 8)), (f32) (M2C_FIELD(temp_r31, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x344)), (f32) (M2C_FIELD(temp_r31, f32 *, 0x10)));
     draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
     translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x348)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
     begin_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x2C));
-    TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+    post_translate_matrix((void *) (temp_r31_3 + 8));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
     pop_matrix();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_4 = (unsigned char *) (M2C_FIELD(temp_r31_3, void **, 0x30));
-    TOHangerMachine01__sub_803D9C00((void *) (temp_r31_4 + 8));
+    post_translate_matrix((void *) (temp_r31_4 + 8));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34C)));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_4, s32 *, 4)));
     pop_matrix();
@@ -435,7 +435,7 @@ void TOTrapAncient02__sub_8017B4EC(void) {
     case 0x14:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = TLobby__sub_80020004(obj, 1, base + 0x20, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 1, base + 0x20, 0, 0, 0);
         }
         TOTrapAncient02__data_805D5AD8 = (u32) obj;
         lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(obj, 0), 2) + 4);
@@ -453,7 +453,7 @@ void TOTrapAncient02__sub_8017B4EC(void) {
     case 0x23:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = TLobby__sub_80020004(obj, 1, base + 0x38, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 1, base + 0x38, 0, 0, 0);
         }
         TOTrapAncient02__data_805D5AD8 = (u32) obj;
         lbl_805D5AE0 = *(u32 *)(count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(obj, 0), 2) + 4);
@@ -463,7 +463,7 @@ void TOTrapAncient02__sub_8017B4EC(void) {
     default:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = TLobby__sub_80020004(obj, 1, base + 8, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 1, base + 8, 0, 0, 0);
         }
         TOTrapAncient02__data_805D5AD8 = (u32) obj;
         lbl_805D5AE0 = *(u32 *)(*(u8 **)(*(u8 **)(*(u8 **)(*(u8 **)((u8 *)obj + 0x42C) + 8) + 0x2C) + 0x2C) + 4);

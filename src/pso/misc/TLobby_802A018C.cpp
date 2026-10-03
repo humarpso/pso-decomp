@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -58,7 +58,7 @@ void TLanguage__sub_802A0204(void) {
     case 28:
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
         if (var_r0 != 0) {
-            var_r0 = TLobby__sub_80020004(var_r0, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
+            var_r0 = load_resource_from_descriptor(var_r0, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
         }
         lbl_805D6600 = var_r0;
         lbl_805D6604 = load_gvm_texture_file((void *) (lbl_80466118));
@@ -67,7 +67,7 @@ void TLanguage__sub_802A0204(void) {
     case 29:
         var_r0_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
         if (var_r0_2 != 0) {
-            var_r0_2 = TLobby__sub_80020004(var_r0_2, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
+            var_r0_2 = load_resource_from_descriptor(var_r0_2, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
         }
         lbl_805D6600 = var_r0_2;
         lbl_805D6604 = load_gvm_texture_file((void *) (lbl_80466150));

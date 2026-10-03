@@ -38,11 +38,11 @@ void TObjCity_Season_ValentineHeart__sub_801845F8(M2C_UNK arg0);
 void *TObjCity_Season_XmasTree__create(void *arg0);
 void *dt__24TObjCity_Season_XmasTreeFPvs(void *arg0, s16 arg1);
 void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK TObjCity_Season_EasterEgg__sub_80184A08(M2C_UNK, M2C_UNK, f32);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -101,8 +101,8 @@ void render_tree__24TObjCity_Season_XmasTreeFPv(u8 *arg0) {
     temp_r3 = get_anim_frame__25TObjCity_Season_EasterEggFPv((void *)(arg0));
     if ((temp_r3 != NULL) && (((VObj_8018455c_80184408*)arg0)->m8(lbl_805DBC44, lbl_805DBC40) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(lbl_8050DC50, s32 *, 4));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw_model_motion(M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x42C), s32 *, 0x28), M2C_FIELD(M2C_FIELD(temp_r3, void **, 0x430), s32 *, 0x14), M2C_FIELD(arg0, f32 *, 0xB0));
         pop_matrix();

@@ -183,7 +183,7 @@ void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 void render__9TTecJelinFv(void);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
-s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
+s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -192,7 +192,7 @@ extern const f64 lbl_8044D658;
 
 void init_tech_params__9TTecJelinFPv(u8 *arg0) {
     s32 res;
-    res = TTecCtrl__sub_8022DBC4(0xB, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
+    res = calc_technique_parameters(0xB, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
     TTecAnti__sub_8022B35C(arg0 + 0x88, res);
     M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));
 }

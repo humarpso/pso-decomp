@@ -58,8 +58,8 @@ u32 csnVector(void *, void *, int);
 M2C_UNK TObjPlayer__sub_80142170(void *, void *, void *);
 u8 *get_player_by_client_id(s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *, int);
+M2C_UNK vec3_add_to(void *, void *);
+M2C_UNK subtract_vector(void *, void *, int);
 extern const f32 lbl_805D8890;
 void TObjPlayer__sub_800496D8(u8 *arg0);
 extern s32 lbl_805D4D1C;
@@ -112,12 +112,12 @@ void TObjPlayer__sub_80049A0C(void* p);
 u8 check_flag__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void draw_obj_model(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -175,13 +175,13 @@ void TObjPlayer__sub_800496D8(u8 *arg0) {
     stack.sp8 = temp_r5;
     stack.spC = new_var;
     stack.sp10 = *((s32 *) (((s8 *) temp_r3) + 0x304));
-    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg0 + 0x38), (int) temp_r5);
+    subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38), (int) temp_r5);
     scale_velocity__19TObjGyaranzoMissileFPvf(&stack.sp8, TObjPlayer__sub_800499FC((s32)((int) 1)));
-    TBoss4Zako__sub_803D8910((void *) (arg0 + 0xB4), (void *) (&stack.sp8));
+    vec3_add_to((void *) (arg0 + 0xB4), (void *) (&stack.sp8));
     scale_velocity__19TObjGyaranzoMissileFPvf(arg0 + 0xB4, TObjPlayer__sub_800499FC((s32)((int) 0)));
   }
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-  TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
+  vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xB4));
   TObjPlayer__sub_80142170((void *) (arg0 + 0xB4), (void *) (arg0 + 0x60), (void *) (arg0 + 0x64));
   *((s32 *) (((s8 *) arg0) + 0x64)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x64))) - 0x4000);
   temp_r3_2 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0xD4)));
@@ -289,8 +289,8 @@ void TBoss3Volopt__sub_80049A1C(u8 *arg0) {
 
 void draw_obj_model(u8 *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB0));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+    push_matrix();
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     some_id_805c6f74 &= 0xFFFFFBFF;

@@ -8,10 +8,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 arg0, void *arg1);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
+M2C_UNK vec3_add_to(void *, s32);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-f32 TBoss8Dragon__sub_803D64C0(s32, f32);
-f32 TBoss8Dragon__sub_803D64DC(s32, f32);
+f32 sin_table_lookup(s32, f32);
+f32 cos_table_lookup(s32, f32);
 s32 get_random_scaled__9TObjEneDDFv();
 
 extern const f32 lbl_805D9898;
@@ -26,11 +26,11 @@ void calc_move_vector__17TObjEneMe1CanadinFiPv(s32 arg0, void *arg1) {
     temp_r31 = get_random_scaled__9TObjEneDDFv();
     f32 fv = calc_boss4_scale__10TObjPlayerFi(arg0);
     temp_f31 = (lbl_805D98D0 * fv) + lbl_805D989C;
-    temp_f1 = temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r31, fv);
+    temp_f1 = temp_f31 * sin_table_lookup(temp_r31, fv);
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) lbl_805D9898;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC(temp_r31, temp_f1));
-    TBoss4Zako__sub_803D8910(arg1, arg0 + 0x38);
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * cos_table_lookup(temp_r31, temp_f1));
+    vec3_add_to(arg1, arg0 + 0x38);
 }
 
 }

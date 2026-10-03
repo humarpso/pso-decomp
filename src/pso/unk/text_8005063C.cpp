@@ -29,9 +29,9 @@ extern const f32 lbl_805D8A5C;
 void fn_8005076C(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_8005063C *);
-void TBoss6Type1__sub_803D9370(Vec_8005063C *, Vec_8005063C *);
-void TNpcPlayer__sub_803D97B4(Vec_8005063C *);
+f32 vector_length(Vec_8005063C *);
+void subtract_vector(Vec_8005063C *, Vec_8005063C *);
+void normalize_vector(Vec_8005063C *);
 f32 xyz_distance(Vec_8005063C *, Vec_8005063C *);
 extern const f32 lbl_805D8A34;
 extern const f32 lbl_805D8A48;
@@ -49,14 +49,14 @@ void fn_8005063C(Obj_8005063C *arg0) {
     f32 k;
     f32 inv;
     VecCopy__FP3VecPC3Vec(&d, &arg0->f36c);
-    TBoss6Type1__sub_803D9370(&d, &arg0->f2fc);
-    if (TBoss6Kakusan__sub_803D8BD8(&d) <= lbl_805D8A48 ||
-        TBoss6Kakusan__sub_803D8BD8(&arg0->dir) <= lbl_805D8A48) {
+    subtract_vector(&d, &arg0->f2fc);
+    if (vector_length(&d) <= lbl_805D8A48 ||
+        vector_length(&arg0->dir) <= lbl_805D8A48) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TNpcPlayer__sub_803D97B4(&d);
-    TNpcPlayer__sub_803D97B4(&arg0->dir);
+    normalize_vector(&d);
+    normalize_vector(&arg0->dir);
     k = lbl_805D8A50 * arg0->f364 + lbl_805D8A4C;
     Vec_8005063C prev = arg0->dir;
     inv = lbl_805D8A34 - k;

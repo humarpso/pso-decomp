@@ -5,17 +5,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
 s32 TCameraCtrl__sub_80069258();
 M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
 M2C_UNK TCameraCtrl__sub_803D976C(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2);
 s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0);
 extern const f32 TObjBoss2Tunnel__data_805D9234;
@@ -33,9 +33,9 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0);
 s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1);
 void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2);
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
-int TBoss4Zako__sub_803D8910(void*, void*);
+int vec3_add_to(void*, void*);
 void *csnVecterUnder(void *, M2C_UNK, f32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
 s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1) {
@@ -87,7 +87,7 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     return 0;
 }
 
-void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(p), (f32 *)((char*)p + 0x8), (s32)(_w2)); TBoss4Zako__sub_803D8910(p, a1); }
+void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2) { rotate_xz_pair_by_angle((f32 *)(p), (f32 *)((char*)p + 0x8), (s32)(_w2)); vec3_add_to(p, a1); }
 
 s16 TObjBoss2Tunnel__sub_8007E5A0(s32 arg0, s32 cur, s32 target, s32 step, s32 limit) {
     target = TBoss4Type2__sub_80141FA8(arg0, target);
@@ -147,7 +147,7 @@ s32 TObjBoss2Tunnel__sub_8007E6C4(u8 *arg0) {
 }
 
 f32 calc_scaled_value__15TObjBoss2TunnelFif(s32 arg0, f32 farg0) {
-    return (TObjBoss2Tunnel__data_805D926C * farg0) / TBoss8Dragon__sub_803D64C0(arg0 / 2);
+    return (TObjBoss2Tunnel__data_805D926C * farg0) / sin_table_lookup(arg0 / 2);
 }
 #pragma push
 #pragma fp_contract on
@@ -156,8 +156,8 @@ void rotate_vec_xz(void *arg0, void *arg1, s32 arg2) {
     f32 temp_f1;
     f32 temp_f31;
     f32 temp_f3;
-    temp_f31 = TBoss8Dragon__sub_803D64DC(arg2);
-    temp_f1 = TBoss8Dragon__sub_803D64C0(arg2);
+    temp_f31 = cos_table_lookup(arg2);
+    temp_f1 = sin_table_lookup(arg2);
     temp_f0 = M2C_FIELD(arg0, f32 *, 0);
     temp_f3 = M2C_FIELD(arg0, f32 *, 8);
     M2C_FIELD(arg1, f32 *, 8) = (f32) ((temp_f31 * temp_f3) - (temp_f1 * temp_f0));
@@ -172,8 +172,8 @@ void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2) {
     f32 temp_f1;
     f32 temp_f31;
     f32 temp_f3;
-    temp_f31 = TBoss8Dragon__sub_803D64DC(arg2);
-    temp_f1 = TBoss8Dragon__sub_803D64C0(arg2);
+    temp_f31 = cos_table_lookup(arg2);
+    temp_f1 = sin_table_lookup(arg2);
     temp_f0 = *arg0;
     temp_f3 = *arg1;
     *arg1 = (temp_f31 * temp_f3) - (temp_f1 * temp_f0);
@@ -191,7 +191,7 @@ bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
 #pragma push
 #pragma fp_contract on
 void TObjBoss2Tunnel__sub_8007E884(s32 arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TCameraCtrl__sub_803D976C(0, TCameraCtrl__sub_80069258());
     TCameraCtrl__sub_803D8934(0, arg1, arg2);
     pop_matrix();

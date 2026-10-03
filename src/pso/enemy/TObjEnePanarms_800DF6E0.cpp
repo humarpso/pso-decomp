@@ -18,7 +18,7 @@ void init__14TObjEnePanarmsFPvPv(void* p, void* a1);
 s32 TObjControl__ct(s32, s32);
 s32 TObjEnePanarms__ct(s32, s32, s32);
 int TObjEnePanarms__sub_800DFBC4(void* p);
-int TObjPlayer__sub_80143198(void*, void*);
+int apply_animation_transition(void*, void*);
 s32 __nw__7TObjectFUl(M2C_UNK);
 int fn_8002AE64(void*);
 int fn_800660B8(void*);
@@ -40,7 +40,7 @@ s32 create__14TObjEnePanarmsFi(s32 arg0) {
     return var_r31;
 }
 
-void init__14TObjEnePanarmsFPvPv(void* p, void* a1) { fn_800660B8(p); TObjPlayer__sub_80143198(p, a1); fn_8002AE64(p); }
+void init__14TObjEnePanarmsFPvPv(void* p, void* a1) { fn_800660B8(p); apply_animation_transition(p, a1); fn_8002AE64(p); }
 
 s32 TObjEnePanarms__sub_800DFB44(O_800DFB44 *self) {
     return self->state == 7 || self->state == 8;

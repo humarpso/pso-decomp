@@ -26,8 +26,8 @@ extern const f32 lbl_805D91B4;
 extern const f32 lbl_805D91B8;
 void TObjTombstone__sub_80076190(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+void subtract_vector(void *, void *);
+f32 vector_length(void *);
 s32 check_all_players_active__13TObjTombstoneFv(void *);
 u8 *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
@@ -80,9 +80,9 @@ s32 TObjTombstone__sub_80076098(void *arg0) {
         player = get_player_by_client_id(i);
         if (player != NULL) {
             VecCopy__FP3VecPC3Vec(&d, player + 0x38);
-            TBoss6Type1__sub_803D9370(&d, &self->pos);
+            subtract_vector(&d, &self->pos);
             d.y = TObjTombstone__data_805D9174;
-            len = TBoss6Kakusan__sub_803D8BD8(&d);
+            len = vector_length(&d);
             if (best > len) {
                 best = len;
             }

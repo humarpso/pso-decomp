@@ -8,7 +8,7 @@ struct W_802AE864 { u8 pad[0x124]; void *a[8]; };
 
 extern "C" {
 M2C_UNK TWindowMainMenu__sub_802ADED4(void *, int);
-M2C_UNK TWindowMainMenu__sub_802ADF20(void *, int);
+M2C_UNK draw_frame__19TWindowMenuMainMenuFv(void *, int);
 s32 TWindowMainMenu__sub_802AE2B0();
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK TWindowDD__sub_802466E0(void *, void *, int, int);
@@ -35,7 +35,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 void render__19TWindowMenuMainMenuFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = TWindowMainMenu__sub_802AE2B0();
-    TWindowMainMenu__sub_802ADF20((void *) (arg0), (int) (temp_r3));
+    draw_frame__19TWindowMenuMainMenuFv((void *) (arg0), (int) (temp_r3));
     TWindowMainMenu__sub_802ADED4((void *) (arg0), (int) (temp_r3));
 }
 

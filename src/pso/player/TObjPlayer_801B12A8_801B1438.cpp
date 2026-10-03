@@ -11,11 +11,11 @@ s32 get_position_ptr__10TObjPlayerFPv(void *);
 M2C_UNK draw_model_with_callback__10TObjPlayerFPviif(void *, s32, s32, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
 void draw__10TObjPlayerFPvf(void *arg0, f32 farg0) {
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_position_vec3__10TObjPlayerFPvPv(0, get_position_ptr__10TObjPlayerFPv(arg0));
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     draw_model_with_callback__10TObjPlayerFPviif(arg0, M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, s32 *, 0xE0), farg0);

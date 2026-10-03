@@ -114,7 +114,7 @@ void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p);
 void set_position_vec3__10TObjPlayerFPvPv(int, void *);
 void rotate_matrix_y(int, u32);
 void push_matrix_from();
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
 void set_global_param__8TObjFishFi(void *);
 extern Pair_802907E4 lbl_80540888[];
@@ -290,7 +290,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
     }
     {
         lbl_805D6534 = 1;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x38);
         rotate_matrix_y(0, lbl_805D6538);
         set_global_param__8TObjFishFi((u8 *)lbl_805D6540 + 0x460);

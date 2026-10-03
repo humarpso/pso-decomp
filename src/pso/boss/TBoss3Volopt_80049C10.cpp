@@ -78,8 +78,8 @@ void check_enemy_body_collisions(void *);
 void check_object_collisions__10TObjPlayerFPv(void *);
 Tgt_80049C10 *get_player_by_client_id(s32);
 void play_persistent_sound(s32, void *, void *, s32, s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void vec3_add_to(void *, void *);
+void subtract_vector(void *, void *);
 extern s32 lbl_805D4D30;
 extern const f32 lbl_805D88A4;
 extern const f32 lbl_805D88A8;
@@ -101,13 +101,13 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
     t = get_player_by_client_id(self->fcc);
     if (t != NULL) {
         Vec_80049C10 d = t->pos;
-        TBoss6Type1__sub_803D9370(&d, &self->pos);
+        subtract_vector(&d, &self->pos);
         scale_velocity__19TObjGyaranzoMissileFPvf(&d, TBoss3Volopt__sub_8004812C(1));
-        TBoss4Zako__sub_803D8910(&self->vel, &d);
+        vec3_add_to(&self->vel, &d);
         scale_velocity__19TObjGyaranzoMissileFPvf(&self->vel, TBoss3Volopt__sub_8004812C(0));
     }
     VecCopy__FP3VecPC3Vec(&self->prev, &self->pos);
-    TBoss4Zako__sub_803D8910(&self->pos, &self->vel);
+    vec3_add_to(&self->pos, &self->vel);
     TObjPlayer__sub_801422A8(&self->vel, &self->f5c, &self->f60);
     if (self->fe0 != NULL) {
         Vec_80049C10 n = self->vel;
@@ -118,7 +118,7 @@ void TBoss3Volopt__sub_80049C10(Self_80049C10 *self) {
         self->fec -= 0x4000;
         copy_vec3__11TBoss4Type2FPvPv(self->fe0, self->fe4);
         scale_velocity__19TObjGyaranzoMissileFPvf(&n, lbl_805D88A4);
-        TBoss4Zako__sub_803D8910(&n, &self->pos);
+        vec3_add_to(&n, &self->pos);
         copy_pos__11TNowLoadingFPvPv(self->fe0, &n);
     }
     if (csnVector(&self->prev, &self->pos, -1) != 0) {

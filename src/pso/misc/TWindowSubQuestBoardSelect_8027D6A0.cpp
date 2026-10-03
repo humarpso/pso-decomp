@@ -16,7 +16,7 @@ struct Win_8027D6A0 { u8 pad0[0x61]; s8 f61; };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK TWindowSubQuestBoardSelect__sub_8027D444(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
@@ -81,7 +81,7 @@ s32 TWindowSubQuestBoardSelect__sub_8027D6A0(void *arg0) {
 void render__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (temp_r3));
     TWindowSubQuestBoardSelect__sub_8027D444((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));

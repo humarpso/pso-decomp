@@ -39,7 +39,7 @@ u8 *construct_text_entry(u8 *arg0, u8 *arg1, s32 arg2);
 extern const f32 lbl_805DCFA8;
 void advance_text_entry_reveal(u8 *arg0);
 s32 TWindowSubStatusDisp__sub_8024FBB0(void *, void *, s32, f32);
-s32 TWindowSubStatusDisp__sub_8024FD8C(void *, void *, s32, s32, f32);
+s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, u8, s32, f32, f32);
 extern const f32 lbl_805DCFB0;
 extern const f32 lbl_805DCFC8;
@@ -112,7 +112,7 @@ void TWindowSubStatusDisp__sub_8025AD5C(Win_8025AD5C *arg0, Ref_8025AD5C *arg1) 
     if (arg0->flags & 4) {
         r = TWindowSubStatusDisp__sub_8024FBB0(&pt, arg0->text, arg0->i24, len);
     } else {
-        r = TWindowSubStatusDisp__sub_8024FD8C(&pt, arg0->text, arg0->i24, (arg0->flags >> 9) & 1, len);
+        r = draw_window_text(&pt, arg0->text, arg0->i24, (arg0->flags >> 9) & 1, len);
     }
     if (r != 0) {
         arg0->flags |= 0x10;

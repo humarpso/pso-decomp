@@ -51,9 +51,9 @@ extern const f32 lbl_805D81E0;
 void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
 void TBoss8Dragon__sub_8002D4C0(Obj_8002D4C0 *self);
 void translate_matrix(s32, f32, f32, f32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void set_chunk_material_override_pair(s32, s32, s32, s32);
 void draw_chunk_object(void *);
@@ -117,8 +117,8 @@ void TBoss8Dragon__sub_8002CE78(Obj_8002CE78 *arg0) {
         for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
             *p->dst = p->base + p->ofs;
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *)lbl_805D4B7C);
+        push_matrix();
+        post_translate_matrix((void *)lbl_805D4B7C);
         translate_matrix(0, lbl_805D8198, arg0->unk34, lbl_805D8198);
         if (arg0->unk38 != 0) {
             lbl_805D5660 = some_id_805c6f74;

@@ -389,7 +389,7 @@ void *create__11TBoss4Type2Fi(void *);
 void TBoss4DarkFalz__sub_8004CB28(S_8004CB28 *o);
 void create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *, Vec_8004C940 *, s32, s32);
 s32 TLobby__sub_8022743C();
-void TNpcPlayer__sub_803D97B4(Vec_8004C940 *);
+void normalize_vector(Vec_8004C940 *);
 extern s32 lbl_805D5550;
 extern const f32 lbl_805D8948;
 extern const f32 lbl_805D894C;
@@ -433,7 +433,7 @@ void TBoss4DarkFalz__sub_8004C940(Obj_8004C940 *arg0) {
     if ((u32)TBoss4DarkFalz__data_805D4D60 != 0) {
         VecCopy__FP3VecPC3Vec(&v, (void *)VecCopy__FP3VecPC3Vec(&arg0->pos, (Vec_8004C940 *)(TBoss4DarkFalz__data_805D4D60 + 0x38)));
         v.y = lbl_805D8948;
-        TNpcPlayer__sub_803D97B4(&v);
+        normalize_vector(&v);
         arg0->pos.x -= lbl_805D894C * v.x;
         arg0->pos.z -= lbl_805D894C * v.z;
         arg0->pos.y = lbl_805D8948;

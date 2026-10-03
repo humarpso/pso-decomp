@@ -59,7 +59,7 @@ extern u8 lbl_804456C8[];
 extern const f32 lbl_805DBE08;
 void TObjDoorKey__vt24(Key_8018FD9C *arg0);
 s32 get_bml_model(s32, int);
-s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
+s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804456D8[];
@@ -76,9 +76,9 @@ void free_children__12TObjDoorJungFPvPv(void *, int);
 void scroll_ginja_mesh_uvs(void *, int, int, int, int);
 void PPCSync();
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(int);
 void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
@@ -95,9 +95,9 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(int);
 void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
@@ -196,8 +196,8 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
         TObjDoorKey__data_805D5C04 = lbl_805D53A4;
     }
     set_global_param__8TObjFishFi(TObjDoorKey__data_805D5BFC);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0->f38);
+    push_matrix();
+    post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__data_8050DCA8[0]);
     begin_effect_render__13TParticleCtrlFv();
@@ -218,8 +218,8 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
 M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
     Key_8018FCD8 *arg0 = (Key_8018FCD8 *)arg;
     set_global_param__8TObjFishFi(TObjDoorKey__data_805D5BFC);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0->f38);
+    push_matrix();
+    post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__data_8050DCA8[0]);
     begin_effect_render__13TParticleCtrlFv();
@@ -362,7 +362,7 @@ extern void *tl_05;
 void load_resources__11TObjDoorKeyFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = TLobby__sub_80020004(r, 5, lbl_804B7920, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, lbl_804B7920, 0, 0, 0);
     }
     (*(s32 *)&lbl_805D5BF8) = r;
     TObjDoorKey__data_805D5BFC = load_gvm_texture_file(lbl_804456D8);

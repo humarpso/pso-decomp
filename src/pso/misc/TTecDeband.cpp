@@ -115,7 +115,7 @@ int init_params__10TTecDebandFPv(void* p);
 void render__10TTecDebandFv(void);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
 M2C_UNK TTecAnti__sub_8022B35C(void *, s32);
-s32 TTecCtrl__sub_8022DBC4(M2C_UNK, s16, M2C_UNK);
+s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
@@ -127,7 +127,7 @@ extern const f64 lbl_8044D0B0;
 
 void update_effect_params__10TTecDebandFPv(u8 *arg0) {
     s32 res;
-    res = TTecCtrl__sub_8022DBC4(0xA, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
+    res = calc_technique_parameters(0xA, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
     TTecAnti__sub_8022B35C(arg0 + 0x74, res);
     M2C_FIELD(arg0, f32 *, 0x74) = (f32) (M2C_FIELD(arg0, s16 *, 0x98) * M2C_FIELD(arg0, s16 *, 0xA4));
 }

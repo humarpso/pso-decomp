@@ -22,9 +22,9 @@ struct VObj_18_ca64a0 : VBase_18_ca64a0 {
 extern "C" {
 s32 fn_801582C4(void *, f32);
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 s32 draw_model_motion(int, int, f32);
@@ -56,8 +56,8 @@ void render__5TOKeyFv(u8 *arg0) {
     temp_f2 = M2C_FIELD(arg0, f32 *, 0xC0);
     temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DB2E8 * temp_f2, temp_f2, M2C_FIELD(arg0, f32 *, 0xC4));
     if ((temp_r3 != 0) && (fn_801582C4((void *) (arg0), (f32) (lbl_805DB2EC)) != 0)) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r4 = M2C_FIELD(arg0, u32 *, 0xBC);

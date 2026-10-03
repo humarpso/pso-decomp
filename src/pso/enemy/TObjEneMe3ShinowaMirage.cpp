@@ -355,8 +355,8 @@ void set_field_378__9TObjEneDDFPvi(void *, s32);
 int transition_enemy_state(void*, int);
 void TObjEneMe3ShinowaReal__sub_800E45D4(void *);
 M2C_UNK advance_animation_playback(void *, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805DA5C8;
 extern const f32 TObjEneMe3ShinowaReal__data_805DA5CC;
 extern const f32 lbl_805DA5D0;
@@ -562,9 +562,9 @@ void TObjEneMe3ShinowaReal__vt114(u8 *arg0, s32 arg1) {
                     }
                 } else {
                     VecCopy__FP3VecPC3Vec(&stack.sp8, (u8 *)(arg0) + 0x38);
-                    stack.sp8 += TObjEneMe3ShinowaReal__data_805DA5CC * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+                    stack.sp8 += TObjEneMe3ShinowaReal__data_805DA5CC * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
                     stack.spC += lbl_805DA5D0;
-                    stack.sp10 += TObjEneMe3ShinowaReal__data_805DA5CC * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+                    stack.sp10 += TObjEneMe3ShinowaReal__data_805DA5CC * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
                     copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, u8 **, 0x424), &stack.sp8);
                 }
             }

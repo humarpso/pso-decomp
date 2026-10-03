@@ -76,7 +76,7 @@ typedef struct Obj_802E72DC {
 } Obj_802E72DC;
 
 extern "C" {
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DE9CC;
 extern const f32 lbl_805DE9D0;
 extern const f32 lbl_805DE9E8;
@@ -97,7 +97,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-f32 TBoss6Type1__sub_803D9370(Vec_802E7888 *, Vec_802E7888 *);
+f32 subtract_vector(Vec_802E7888 *, Vec_802E7888 *);
 extern const f64 lbl_80473FA8[];
 void TObjFish__sub_802E7888(Obj_802E7888 *o);
 M2C_UNK TObjLight__sub_801337F8(s32);
@@ -107,9 +107,9 @@ M2C_UNK rotate_matrix_z(int, s32);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, s32);
 M2C_UNK TObjPlayer__sub_803D9730(int, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(Col_802E6CB0 *);
 M2C_UNK TObjPlayer__sub_803E38FC(int);
@@ -128,7 +128,7 @@ M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D9730(int, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern M2C_UNK lbl_804E3BA8[];
 extern const f32 lbl_805DE9C8;
@@ -142,10 +142,10 @@ M2C_UNK TObjLight__sub_801337F8(s32);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
 M2C_UNK draw_effect__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(Vec_802E708C *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(Vec_802E708C *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(Col_802E6CB0 *);
 M2C_UNK TObjPlayer__sub_803E38FC(int);
@@ -167,7 +167,7 @@ void alloc_breakup_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 void *init_zeroed_object__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_802E7640(void *);
 u8 *queue_boss_effect__10TObjPlayerFPv(s32);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 extern s32 lbl_80472C68[];
 extern M2C_UNK lbl_804E3BC0[];
 extern const f32 lbl_805DE9C8;
@@ -213,10 +213,10 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
     node = M2C_FIELD(fx, Node_802E6CB0 **, 0x2C);
     part = M2C_FIELD(arg0, Part_802E6CB0 **, 0x28);
     draw_effect__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     for (i = 0; i < M2C_FIELD(arg0, s32 *, 0x24); i++) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(part);
+        push_matrix();
+        post_translate_matrix(part);
         rotate_matrix_z(0, part->f20);
         rotate_matrix_x(0, part->f18);
         translate_matrix(0, -M2C_FIELD(arg0, f32 *, 0x30), -M2C_FIELD(arg0, f32 *, 0x34), -M2C_FIELD(arg0, f32 *, 0x38));
@@ -265,7 +265,7 @@ u8 *TObjPlayer__sub_802E6F10(u8 *arg0, void *arg1, s32 arg2) {
     alloc_breakup_model__10TObjPlayerFPvi(arg0, ((s32)queue_boss_effect__10TObjPlayerFPv(2)));
     M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
     part = M2C_FIELD(arg0, Part_802E6F10 **, 0x28);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
     TObjPlayer__sub_803D9730(0, M2C_FIELD(arg0, s32 *, 0x2C));
     M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).z = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).y = M2C_FIELD(arg0, Vec_802E6F10 *, 0x30).x = lbl_805DE9CC;
@@ -302,10 +302,10 @@ void TObjPlayer__sub_802E708C(u8 *arg0) {
     part = M2C_FIELD(arg0, Part_802E708C **, 0x28);
     draw_effect__10TObjPlayerFv();
     for (node = node->child; node != NULL; node = node->next) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(part);
+        push_matrix();
+        post_translate_matrix(part);
         TObjPlayer__sub_803D99F8(part->rot, 0);
-        TBoss7Tentacle__sub_803D9BA0(&s);
+        scale_current_matrix(&s);
         switch (part->type) {
         case 0:
         case 1:
@@ -358,7 +358,7 @@ Obj_802E72DC *TObjPlayer__sub_802E72DC(Obj_802E72DC *arg0, M2C_UNK arg1, Vec_802
         p = arg0->pieces;
         for (i = 0; i < arg0->count; i++, p++) {
             VecCopy__FP3VecPC3Vec(&p->pos, arg2);
-            TBoss4Zako__sub_803D8910(&p->pos, &arg0->tbl->items[i].a);
+            vec3_add_to(&p->pos, &arg0->tbl->items[i].a);
             q = &p->rot;
             VecCopy__FP3VecPC3Vec(q, &arg0->tbl->items[i].b);
             q->y = lerp__9TDeadSpotFff(lbl_805DE9D4, lbl_805DE9D8);
@@ -442,7 +442,7 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805DE9E8);
-        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        vec3_add_to((void *) (arg0), (void *) (arg0 + 0xC));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x10);
         if (temp_f1 < lbl_805DE9CC) {
             temp_f2 = M2C_FIELD(arg0, f32 *, 4);
@@ -463,7 +463,7 @@ s32 TObjPlayer__sub_802E76C8(u8 *arg0) {
         break;
     case 2:
         M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805DE9E8);
-        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        vec3_add_to((void *) (arg0), (void *) (arg0 + 0xC));
         M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) - lbl_805DE9EC);
         if (M2C_FIELD(arg0, f32 *, 0x24) < lbl_805DE9CC) {
             M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DE9CC;
@@ -487,7 +487,7 @@ void TObjFish__sub_802E7888(Obj_802E7888 *o) {
     if (o->f7B0 != 0) {
         Vec_802E7888 d = o->pos;
         Ang_802E7888 ang;
-        TBoss6Type1__sub_803D9370(&d, &o->v7C0);
+        subtract_vector(&d, &o->v7C0);
         ang.x = -(s32)(lbl_80473FA8[0] * get_ad_end_text_start__10TObjPlayerFv(d.y, newton_sqrtf(d.x * d.x + d.z * d.z))) - 0x4000;
         ang.y = (s32)(lbl_80473FA8[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z));
         ang.z = 0;

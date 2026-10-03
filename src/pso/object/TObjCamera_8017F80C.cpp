@@ -78,7 +78,7 @@ struct Cam_8017FA9C { u8 pad[0xCC]; void *arr[8]; };
 struct Copy_8017FA9C { u32 w[5]; };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017FC78_lbl_804B5888 lbl_804B5888;
 extern u32 TObjCamera__data_805D5B18;
@@ -89,9 +89,9 @@ void TObjFish__sub_8001EDB0(u32, int);
 s32 get_bml_model(u32, int);
 void copy_position__15TEffStarLight2DFPv(void *, Vec_8017F80C *);
 void rotate_matrix_y(int, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi();
 void set_npc_enemy_param(void *);
 void draw_ginja_model_with_motion(s32, s32, f32);
@@ -116,9 +116,9 @@ extern const f32 lbl_805DBB6C;
 void run_task__10TObjCameraFv(Obj_8017F910 *self);
 void rotate_matrix_yxz(int, int, int, int);
 void scale_matrix(int, f32, f32, f32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
 void set_chunk_material_color(void *);
@@ -163,8 +163,8 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
     if (self->m8(lbl_805DBB60, lbl_805DBB64) != 0) {
         TObjFish__sub_8001EDB0(TObjCamera__data_805D5B18, 0);
         set_global_param__8TObjFishFi();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(&self->pos);
+        push_matrix();
+        post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->x60);
         TObjCamera__data_805D5B1C = 0;
         set_npc_enemy_param((void *)TObjCamera__sub_8017F624);
@@ -284,7 +284,7 @@ void TObjCamera__sub_8017FC78(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B5888.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B5888.value, 0, 0, 0));
     }
     (*(s32 *)&TObjCamera__data_805D5B18) = var_r0;
 }
@@ -302,8 +302,8 @@ void TObjChip__vt10(u8 *arg0) {
             Color_8017FCD0 c = lbl_80443AFC;
             c.a = p->x30;
             set_chunk_material_color(&c);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(p);
+            push_matrix();
+            post_translate_matrix(p);
             rotate_matrix_yxz(0, p->x18, p->x1c, p->x20);
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             draw_ginja_object(*(s32 *)(arg0 + 0x64));
@@ -315,8 +315,8 @@ void TObjChip__vt10(u8 *arg0) {
         lbl_805D7780 = lbl_805D5668;
     } else {
         for (j = 0; j < *(s32 *)(arg0 + 0x54); j++, p++) {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(p);
+            push_matrix();
+            post_translate_matrix(p);
             rotate_matrix_yxz(0, p->x18, p->x1c, p->x20);
             scale_matrix(0, *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60), *(f32 *)(arg0 + 0x60));
             draw_ginja_object(*(s32 *)(arg0 + 0x64));

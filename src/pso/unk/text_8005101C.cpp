@@ -10,8 +10,8 @@ struct RecoveredGlobal_8005101C___vt__11TObjDFJisin {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern RecoveredGlobal_8005101C___vt__11TObjDFJisin __vt__11TObjDFJisin;
 extern s32 lbl_805D27C4;
 extern const f32 lbl_805D8A30;
@@ -28,9 +28,9 @@ u8 *TObjDFJisin__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__11TObjDFJisin.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27C4;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (lbl_805D8AA0 * TBoss8Dragon__sub_803D64C0(arg2));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (lbl_805D8AA0 * sin_table_lookup(arg2));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D8A30;
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (lbl_805D8AA8 * TBoss8Dragon__sub_803D64DC(arg2));
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (lbl_805D8AA8 * cos_table_lookup(arg2));
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D8AA4;
     return arg0;
 }

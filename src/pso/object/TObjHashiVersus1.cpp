@@ -18,7 +18,7 @@ struct RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8019153C_lbl_804B7C78 lbl_804B7C78;
 extern u32 TObjHashiVersus1__data_805D5C14;
@@ -75,7 +75,7 @@ void TObjHashiVersus1__sub_8019153C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B7C78.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B7C78.value, 0, 0, 0));
     }
     (*(s32 *)&TObjHashiVersus1__data_805D5C14) = var_r0;
 }

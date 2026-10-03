@@ -71,7 +71,7 @@ extern "C" {
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 updateFromCamera__15RenderFadeStateFPCf(int, void *);
-M2C_UNK TObjPlayer__sub_800D7BB0(int, int);
+M2C_UNK update_obstruction_fade(int, int);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK update_linked_effect__14TObjEnePanarmsFPv(void *);
 void draw__14TObjEnePanarmsFPv(void* p);
@@ -91,9 +91,9 @@ void update_prev_position__10TObjPlayerFPv(void *);
 void advance_animation_playback(void *);
 void submit_cursor_candidate(void *, s32);
 void minimap_render_dot(void *, s32, s32, s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
 extern const f64 TObjEnePanarms__data_8043CDD0[];
 extern Ent_800E2200 lbl_8049575C[];
 extern const f32 lbl_805DA598;
@@ -104,16 +104,16 @@ extern const f32 lbl_805DA59C;
 extern "C" {
 
 void draw__14TObjEnePanarmsFPv(void* p);
-int TOHangerMachine01__sub_803D9C00(void*);
+int post_translate_matrix(void*);
 int draw__16TObjEneRe7BeruraFPv(void*);
 int clear_render_callback__8TObjFishFv(void*);
 int TObjFish__sub_800E3074(void*);
 int rotate_matrix_y(void*, void*);
-int TObjPlayer__sub_803D9B2C(void*);
+int push_matrix(void*);
 int pop_matrix(void);
 int set_global_param__8TObjFishFi(void*);
 
-void draw__14TObjEnePanarmsFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x3dc)); draw__16TObjEneRe7BeruraFPv(p); clear_render_callback__8TObjFishFv(*(void**)((char*)p + 0x3dc)); pop_matrix(); }
+void draw__14TObjEnePanarmsFPv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0x24)); TObjFish__sub_800E3074(*(void**)((char*)p + 0x3dc)); draw__16TObjEneRe7BeruraFPv(p); clear_render_callback__8TObjFishFv(*(void**)((char*)p + 0x3dc)); pop_matrix(); }
 void TObjEnePanarms__sub_800E20D0(u8 *arg0) {
     s32 temp_r4;
     s32 var_r31;
@@ -134,7 +134,7 @@ void TObjEnePanarms__sub_800E20D0(u8 *arg0) {
     lbl_805D5660 = temp_r4;
     some_id_805c6f74 = temp_r4 | 0x01000000 | 1;
     temp_r31 = &((Obj_800E20D0 *) arg0)->fades[var_r31];
-    TObjPlayer__sub_800D7BB0((int) (temp_r31), (int) (temp_r4));
+    update_obstruction_fade((int) (temp_r31), (int) (temp_r4));
     if (updateFromCamera__15RenderFadeStateFPCf((int) (temp_r31), (void *) (arg0 + 0x2FC)) != 0) {
         temp_r31->m6();
         var_r30 = 1;
@@ -165,7 +165,7 @@ void TObjEnePanarms__sub_800E2200(Panarms_800E2200 *self) {
     self->diff.y = TObjEnePanarms__data_805DA524;
     self->diff.z = self->target->z - self->z;
     self->angle = TObjEnePanarms__data_8043CDD0[0] * get_ad_end_text_start__10TObjPlayerFv(self->diff.x, self->diff.z);
-    self->dist = TBoss6Kakusan__sub_803D8BD8(&self->diff);
+    self->dist = vector_length(&self->diff);
     self->counter++;
     fn = lbl_8049575C[self->state].fn;
     if (fn == 0) {
@@ -192,20 +192,20 @@ void TObjEnePanarms__sub_800E2200(Panarms_800E2200 *self) {
         case 1:
             s = self->fC0 / lbl_805DA598;
             TObjEnePanarms__sub_800E1B78(self, &a, 0, self->fC0);
-            TBoss6Type1__sub_803D9370(&a, &self->pos);
+            subtract_vector(&a, &self->pos);
             a.x *= s;
             a.z *= s;
-            TBoss4Zako__sub_803D8910(&a, &self->pos);
+            vec3_add_to(&a, &self->pos);
             minimap_render_dot(&a, -0x5DB4, 1, 0);
             break;
         case 5:
             {
             s = self->fC0 / lbl_805DA59C;
             Vec_800E2200 b = self->pos;
-            TBoss6Type1__sub_803D9370(&b, &self->f38C);
+            subtract_vector(&b, &self->f38C);
             b.x *= s;
             b.z *= s;
-            TBoss4Zako__sub_803D8910(&b, &self->f38C);
+            vec3_add_to(&b, &self->f38C);
             minimap_render_dot(&b, -0x5DB4, 1, 0);
             }
             break;

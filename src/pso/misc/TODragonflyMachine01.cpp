@@ -30,7 +30,7 @@ struct RecoveredGlobal_80165538___vt__20TODragonflyMachine01 {
 extern "C" {
 u8 * TODragonfly__ct(void *);
 s32 rand(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__20TODragonflyMachine01[];
 extern s32 lbl_805D2FA0;
 extern u32 TODragonflyMachine01__data_805D5998;
@@ -53,7 +53,7 @@ void run_task__20TODragonflyMachine01Fv(void *arg0);
 void unload_static_data__20TODragonflyMachine01Fv(void);
 void update_timer__20TODragonflyMachine01Fv(void);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
 M2C_UNK TODragonfly__sub_8016492C(void *);
@@ -82,7 +82,7 @@ void run_task__20TODragonflyMachine01Fv(void *arg0) {
     s32 temp_r0;
 
     M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) + M2C_FIELD(arg0, s32 *, 0xF8));
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xFC)));
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xFC)));
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((DfV_801651B0 *)arg0)->vf12();
         return;
@@ -158,7 +158,7 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
     ((Fields_arg0*)arg0)->field_F8 = (int) (lbl_805DB5C4 * (lbl_805DB5C8 / (lbl_805DB5CC / ((Fields_arg0*)arg0)->field_F4)));
     ((Fields_arg0*)arg0)->field_FC = (int) (lbl_805DB5C4 * (lbl_805DB5C8 * (lbl_805DB598 * (f32) rand())));
     ((Fields_arg0*)arg0)->field_EC = (f32) ((lbl_805DB5C0 * (f32) ((Fields_arg0*)arg0)->field_88) + lbl_805DB5B8);
-    ((Fields_arg0*)arg0)->field_F0 = (f32) (((Fields_arg0*)arg0)->field_EC * TBoss8Dragon__sub_803D64C0(((Fields_arg0*)arg0)->field_FC));
+    ((Fields_arg0*)arg0)->field_F0 = (f32) (((Fields_arg0*)arg0)->field_EC * sin_table_lookup(((Fields_arg0*)arg0)->field_FC));
     ((Fields_arg0*)arg0)->field_100 = 0;
     ((Fields_arg0*)arg0)->field_102 = 0;
     ((Fields_arg0*)arg0)->field_104 = 0;

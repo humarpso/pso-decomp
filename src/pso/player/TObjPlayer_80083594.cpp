@@ -20,7 +20,7 @@ f64 calc_camera_fov_degrees();
 M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E1D1C(int);
 M2C_UNK TObjPlayer__sub_803E1D54(int);
@@ -36,7 +36,7 @@ s32 TCameraCtrl__sub_800689F4();
 M2C_UNK calc_projection_screen_offset(void *, void *);
 M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E1D1C(int);
 M2C_UNK TObjPlayer__sub_803E1D54(int);
@@ -104,7 +104,7 @@ void load_projected_texture_matrix(f32 farg0) {
     f32 temp_f31;
     if (is_split_screen() == 0) {
         calc_projection_screen_offset((void *) (&stack.spC), (void *) (&stack.sp8));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         temp_f31 = (f32) (lbl_80439358 * calc_camera_fov_degrees());
         if (TCameraCtrl__sub_800689F4() != 0) {
             C_MTXLightPerspective((void *) (&stack.sp10), (f32) (temp_f31), (f32) (farg0), (f32) (lbl_805D93DC), (f32) (lbl_805D9414), (f32) (lbl_805D93DC - stack.spC), (f32) (lbl_805D93DC - stack.sp8));
@@ -125,7 +125,7 @@ void TOTrapAncient02__sub_800837D4(s32 arg0) {
     f32 temp_f31;
     if (is_split_screen() == 0) {
         calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         rotate_matrix_y((int) (0), (void *) (arg0));
         temp_f31 = (f32) (lbl_80439358 * calc_camera_fov_degrees());
         if (TCameraCtrl__sub_800689F4() != 0) {

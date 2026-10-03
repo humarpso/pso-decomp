@@ -28,7 +28,7 @@ struct Anim_80143504 {
 extern "C" {
 void TObjEnePanarms__sub_800E2DE4(void *, int);
 u32 TObjPlayer__sub_80142BB4(void *, s16);
-void TObjPlayer__sub_80143198(void *, s16);
+void apply_animation_transition(void *, s16);
 s32 TBoss1Dragon__sub_80143960(void *, int);
 extern const f32 lbl_805DB168;
 extern const f32 lbl_805DB16C;
@@ -81,7 +81,7 @@ void advance_animation_playback(Anim_80143504 *a) {
         if (a->frame >= a->end) {
             a->frame -= a->speed;
         }
-        TObjPlayer__sub_80143198(a, a->cur);
+        apply_animation_transition(a, a->cur);
     }
     switch (a->mode) {
     case 1:
@@ -98,7 +98,7 @@ void advance_animation_playback(Anim_80143504 *a) {
                 a->frame -= a->end;
             } else {
                 a->cur = a->tbl[a->cur].next;
-                TObjPlayer__sub_80143198(a, a->cur);
+                apply_animation_transition(a, a->cur);
                 a->flags |= 0x800;
             }
         }

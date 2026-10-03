@@ -46,7 +46,7 @@ struct ClassAppearance
 extern "C" {
 extern struct ClassAppearance lbl_804D8E20[19];
 s32 get_display_index__12TCharaMakingFPv(struct Appearance *);
-void TCharaMaking__sub_8028E4CC(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
+void build_appearance_texture_names__12TCharaMakingFv(void *, struct Appearance *, struct ClassAppearance *, struct TextureList *);
 void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2, struct Appearance *arg3);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 }
@@ -240,7 +240,7 @@ void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2
     temp_r6 = temp_r3[arg3->hair];
     if (temp_r6 != 0)
     {
-      TCharaMaking__sub_8028E4CC(arg0, arg3, temp_r28, temp_r6);
+      build_appearance_texture_names__12TCharaMakingFv(arg0, arg3, temp_r28, temp_r6);
       *arg0 = 1;
     }
   }
@@ -251,11 +251,11 @@ void TCharaMaking__bind_appearance_texture_lists(s32 *arg0, s32 *arg1, s32 *arg2
     temp_r6_2 = temp_r3_2[arg3->head];
     if (temp_r6_2 != 0)
     {
-      TCharaMaking__sub_8028E4CC(arg1, arg3, temp_r28, temp_r6_2);
+      build_appearance_texture_names__12TCharaMakingFv(arg1, arg3, temp_r28, temp_r6_2);
       *arg1 = 1;
     }
   }
-  TCharaMaking__sub_8028E4CC(arg2, arg3, temp_r28, temp_r28->bodyTextures);
+  build_appearance_texture_names__12TCharaMakingFv(arg2, arg3, temp_r28, temp_r28->bodyTextures);
   *arg2 = 1;
 }
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0) {

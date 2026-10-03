@@ -72,11 +72,11 @@ f32 TItemProUnit__sub_8011901C(void *);
 void set_evp__12TItemProUnitFPvf(void *, f32);
 void TItemProUnit__vt14(Self_80118A78 *self);
 u8 get_technique_learn_limit(u8, u8);
-u8 fn_801D9870(void *, s16);
+u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
 void TItemProUnit__vt46(Unit_80118AD4 *self);
 void set_evp__12TItemProUnitFPvf(void *, f32);
-u8 fn_801D9870(void *, s16);
+u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern const f32 TItemProUnit__data_805DABF8;
@@ -139,7 +139,7 @@ void TItemProUnit__vt47(u8 *arg0) {
     }
     var_r30 = 0;
     do {
-        set_technique_level_entry((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30, (u8) (fn_801D9870((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
+        set_technique_level_entry((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30, (u8) (get_cast_technique_level((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
         var_r30 += 1;
     } while (var_r30 != 0x13);
     memset(arg0 + 0x192, 0, 0x26);
@@ -175,7 +175,7 @@ void TItemProUnit__vt46(Unit_80118AD4 *self) {
             if (i == 14 || i == 17) {
                 continue;
             }
-            v = fn_801D9870(self->owner->f428, i);
+            v = get_cast_technique_level(self->owner->f428, i);
             if (v != 0xFF) {
                 cap = get_technique_learn_limit(self->owner->f88d, (u8)i);
                 base = self->f190;

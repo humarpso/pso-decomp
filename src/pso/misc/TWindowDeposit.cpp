@@ -25,7 +25,7 @@ f32 get_base_y__20TWindowSubStatusDispFf(f32);
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
-u32 TWindowSubStatusDisp__sub_80144D68(int);
+u32 calc_text_width(int);
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0, s32 a1);
 s32 save_position__17TWindowSubComCardFPv(void *);
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
@@ -103,7 +103,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   *((M2C_UNK **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D38E8;
   temp_r3 = TQuestVmDownLoadServer__sub_8006EF6C((int) 2);
-  temp_r3_2 = TWindowSubStatusDisp__sub_80144D68((int) temp_r3);
+  temp_r3_2 = calc_text_width((int) temp_r3);
   spC = temp_r3_2;
   sp8 = 0x43300000;
   temp_f31 = (f32) temp_r3_2;

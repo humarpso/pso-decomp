@@ -34,9 +34,9 @@ struct O_8035740C { u8 pad0[0xC4]; V4_8035740C v[10]; };
 
 extern "C" {
 u8 * fn_802E4A4C(void *, M2C_UNK, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 normalize_vector(void *);
 extern M2C_UNK __vt__20TItemEffOrgaFlowShot[];
 extern s32 lbl_805D43B0;
 extern const f32 lbl_805E0038;
@@ -296,17 +296,17 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, f32 *, 0x18C) = (f32) lbl_805E0040;
     M2C_FIELD(arg0, f32 *, 0x194) = (f32) lbl_805E003C;
     M2C_FIELD(arg0, s32 *, 0x19C) = 0x14;
-    M2C_FIELD(arg0, f32 *, 0x17C) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x188));
+    M2C_FIELD(arg0, f32 *, 0x17C) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x188));
     M2C_FIELD(arg0, f32 *, 0x180) = (f32) lbl_805E003C;
-    M2C_FIELD(arg0, f32 *, 0x184) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x188));
+    M2C_FIELD(arg0, f32 *, 0x184) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x188));
     M2C_FIELD(arg0, f32 *, 0x164) = (f32) (M2C_FIELD(arg2, f32 *, 0x2C) - M2C_FIELD(arg2, f32 *, 0x38));
     M2C_FIELD(arg0, f32 *, 0x168) = (f32) (M2C_FIELD(arg2, f32 *, 0x30) - M2C_FIELD(arg2, f32 *, 0x3C));
     M2C_FIELD(arg0, f32 *, 0x16C) = (f32) (M2C_FIELD(arg2, f32 *, 0x34) - M2C_FIELD(arg2, f32 *, 0x40));
-    M2C_FIELD(arg0, f32 *, 0x198) = (f32) (lbl_805E0044 * TNpcPlayer__sub_803D97B4(arg0 + 0x164));
+    M2C_FIELD(arg0, f32 *, 0x198) = (f32) (lbl_805E0044 * normalize_vector(arg0 + 0x164));
     M2C_FIELD(arg0, f32 *, 0x170) = (f32) (M2C_FIELD(arg2, f32 *, 0x5C) - M2C_FIELD(arg2, f32 *, 0x50));
     M2C_FIELD(arg0, f32 *, 0x174) = (f32) (M2C_FIELD(arg2, f32 *, 0x60) - M2C_FIELD(arg2, f32 *, 0x54));
     M2C_FIELD(arg0, f32 *, 0x178) = (f32) (M2C_FIELD(arg2, f32 *, 0x64) - M2C_FIELD(arg2, f32 *, 0x58));
-    TNpcPlayer__sub_803D97B4(arg0 + 0x170);
+    normalize_vector(arg0 + 0x170);
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) M2C_FIELD(arg2, f32 *, 0x38);
     M2C_FIELD(arg0, f32 *, 0xF8) = (f32) M2C_FIELD(arg2, f32 *, 0x3C);
     M2C_FIELD(arg0, f32 *, 0xFC) = (f32) M2C_FIELD(arg2, f32 *, 0x40);

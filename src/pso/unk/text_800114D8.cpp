@@ -34,7 +34,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Player_800115C4 *get_player_data__10TObjPlayerFi(s32);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(Player_800115C4 *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern Vec_800115C4 lbl_80434074;
 extern s32 lbl_805D586C;
 u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0);
@@ -42,7 +42,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_isState2_324();
 s32 obj_testFlags30(void *, int);
 M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f32 TObjPlayer__data_805D7D24;
 extern const f32 TObjPlayer__data_805D7D80;
 void apply_knockback_from_attacker(u8 *arg0, u8 *arg1);
@@ -62,7 +62,7 @@ u16 find_nearest_visible_player(u8 *arg0, Vec_800115C4 *arg1, f32 farg0) {
         if (player != NULL && player->id < 0x1000 && !(player->flags & 0x02000800)) {
             if (get_field_3e4__10TObjPlayerFPv(player) == get_current_floor()) {
                 VecCopy__FP3VecPC3Vec(&diff, &player->pos);
-                TBoss6Type1__sub_803D9370(&diff, arg0 + 0x2FC);
+                subtract_vector(&diff, arg0 + 0x2FC);
                 dist = (diff.x * diff.x) + (diff.z * diff.z);
                 if (dist < best && check_path_obstructed(arg0, &player->pos) == 0) {
                     best = dist;
@@ -115,7 +115,7 @@ void apply_knockback_from_attacker(u8 *arg0, u8 *arg1) {
     f32 scale;
     if (obj_isState2_324() != 1 && obj_testFlags30(arg0, 0x04000000) == 0) {
     VecCopy__FP3VecPC3Vec(&diff, arg1 + 0x38);
-    TBoss6Type1__sub_803D9370(&diff, arg0 + 0x38);
+    subtract_vector(&diff, arg0 + 0x38);
     if ((diff.x * diff.x) + (diff.z * diff.z) < TObjPlayer__data_805D7D80) {
         M2C_FIELD(arg0, f32 *, 0x308) = TObjPlayer__data_805D7D24;
         M2C_FIELD(arg0, f32 *, 0x310) = TObjPlayer__data_805D7D24;

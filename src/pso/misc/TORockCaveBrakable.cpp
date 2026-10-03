@@ -36,7 +36,7 @@ s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 void TObjChip__sub_80180BD4(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, s32);
 void push_matrix_from(void *);
@@ -110,7 +110,7 @@ void TORockCaveBrakable__sub_80174CFC(u8 *arg0) {
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);
-        TBoss4Zako__sub_803D8910(&init.b[0xC], &v);
+        vec3_add_to(&init.b[0xC], &v);
         M2C_FIELD(&init, s32 *, 0x40) = get_bml_model(lbl_805D5A84, i);
         M2C_FIELD(&init, s32 *, 0x44) = TObjFish__sub_8001EDB0(lbl_805D5A84, i);
         p = __nw__7TObjectFUl(0x234);

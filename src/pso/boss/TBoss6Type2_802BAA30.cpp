@@ -77,7 +77,7 @@ void update_segments__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BC050(Obj_802BC050 *o);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, int);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 normalize_vector(void *);
 extern const f32 TBoss6Type2__data_805DE410;
 extern const f32 TBoss6Type2__data_805DE434;
 extern const f32 lbl_805DE450;
@@ -91,10 +91,10 @@ s32 get_game_mode__6TLobbyFv();
 s32 project_actor_to_ground(void *, void *, int);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 void TBoss6PlotFalz__sub_802AC724(void *, void *);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vec3_add_to(void *, void *);
+f32 vector_length(void *, f32);
+f32 subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
 extern const f32 lbl_805DE428;
@@ -150,7 +150,7 @@ s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self) {
     t = lbl_805DE454;
     {
         Vec_802BAB80 d = p;
-        TNpcPlayer__sub_803D97B4(&d);
+        normalize_vector(&d);
         for (; t > TBoss6Type2__data_805DE410; t += lbl_805DE458) {
             p.x = t * d.x + lbl_805DE450;
             p.y = TBoss6Type2__data_805DE434 + self->pos.y;
@@ -264,22 +264,22 @@ s32 TBoss6Type2__sub_802BB920(void *self, void *target, f32 range) {
             continue;
         }
         VecCopy__FP3VecPC3Vec(&dir, pl + 0x38);
-        TBoss6Type1__sub_803D9370(&dir, target);
+        subtract_vector(&dir, target);
         dir.y = TBoss6Type2__data_805DE410;
-        dist = ((f32 (*)(void *))TBoss6Kakusan__sub_803D8BD8)(&dir);
+        dist = ((f32 (*)(void *))vector_length)(&dir);
         if (dist >= range) {
             continue;
         }
         if (dist <= TBoss6Type2__data_805DE490) {
             dir.x = TBoss6Type2__data_805DE40C;
         }
-        TNpcPlayer__sub_803D97B4(&dir);
+        normalize_vector(&dir);
         for (t = range; t > lbl_805DE428; t -= lbl_805DE428) {
             off.x = dir.x * t;
             off.y = TBoss6Type2__data_805DE434;
             off.z = dir.z * t;
             VecCopy__FP3VecPC3Vec(&pos, target);
-            TBoss4Zako__sub_803D8910(&pos, &off);
+            vec3_add_to(&pos, &off);
             if (project_actor_to_ground(self, &pos, 0) != 0) {
                 TBoss6PlotFalz__sub_802AC724(pl, &pos);
                 break;

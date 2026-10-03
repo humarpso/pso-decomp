@@ -25,11 +25,11 @@ extern "C" {
 
 void *create_variant__8TObjFishFPv(void *arg0);
 void render_effect__8TObjFishFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_model_motion(int, int, f32);
 M2C_UNK TObjFish__sub_800E3074(int);
 void *TObjFish__sub_8033DA94(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -55,9 +55,9 @@ void TObjFish__sub_8033DCA8(void) {
 
 void render_effect__8TObjFishFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x50) >= 0x1AC) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_flag__10TObjPlayerFv();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x58));
+        post_translate_matrix((void *) (arg0 + 0x58));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x44)));
         TObjFish__sub_800E3074((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
         draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x40)), (int) (M2C_FIELD(arg0, s32 *, 0x48)), (f32) (M2C_FIELD(arg0, f32 *, 0x4C)));

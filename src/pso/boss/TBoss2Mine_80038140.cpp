@@ -202,9 +202,9 @@ void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
 void translate_matrix(s32, f32, f32, f32);
 void rotate_matrix_x(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void set_chunk_material_color(void *);
 void draw_chunk_object(void *);
@@ -288,8 +288,8 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
     TBoss2Mine__sub_80038908(self);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(&self->pos);
+    push_matrix();
+    post_translate_matrix(&self->pos);
     translate_matrix(0, TBoss2Mine__data_805D84D4, self->f300 - self->pos.y, TBoss2Mine__data_805D84D4);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, self->f5C);
@@ -309,9 +309,9 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     }
     pop_matrix();
     if (self->f326 == 3) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         f32 s = lbl_805D850C * self->f3AC;
-        TOHangerMachine01__sub_803D9C00(&self->pos);
+        post_translate_matrix(&self->pos);
         scale_matrix(0, s, TBoss2Mine__data_805D84D8, s);
         draw_chunk_object(lbl_805D28BC);
         pop_matrix();

@@ -54,9 +54,9 @@ u8 *TObjCity_Season_21_21__ct(u8 *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_80184054_lbl_8050DC38 lbl_8050DC38;
 void fn_80184054(u8 *arg0);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(void *);
 extern RecoveredGlobal_80184054_lbl_8050DC38 lbl_8050DC38;
@@ -94,8 +94,8 @@ void TLobby__sub_80183FC0(u8 *arg0) {
     temp_r31 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80183FC0_lbl_8050DC38 *)&lbl_8050DC38).value, u8 **, 0xC));
     if ((temp_r31 != NULL) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC68) != 0)) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 0xC)));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(temp_r31, u8 **, 0x42C), s32 *, 8)));
         pop_matrix();

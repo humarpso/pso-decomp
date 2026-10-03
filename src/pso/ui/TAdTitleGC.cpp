@@ -43,7 +43,7 @@ struct Title_802A0C84 {
 };
 
 extern "C" {
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 extern const f32 lbl_805DDDD0;
 extern const f32 lbl_805DDDD4;
 void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2);
@@ -120,7 +120,7 @@ block_5:
 #pragma push
 #pragma fp_contract on
 void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2) {
-    M2C_FIELD(arg1, f32 *, 0) = (f32) (lbl_805DDDD0 - (f32) TWindowSubStatusDisp__sub_80144D68((void *) (arg2)));
+    M2C_FIELD(arg1, f32 *, 0) = (f32) (lbl_805DDDD0 - (f32) calc_text_width((void *) (arg2)));
     M2C_FIELD(arg1, f32 *, 4) = (f32) lbl_805DDDD4;
 }
 #pragma pop

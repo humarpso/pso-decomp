@@ -152,7 +152,7 @@ void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
 int is_feed_empty__8TItemMagFPv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 extern const f32 TItemMag__data_805DABA8;
 void TItemMag__vt25(Self_801134CC *self);
@@ -160,7 +160,7 @@ s32 bind_loaded_resources__14TItemEquipBaseFPv(void *);
 int TItemMag__sub_80110F04(void*);
 void feed_by_item_flags__8TItemMagFPvc(void *, s8);
 void TItemMag__sub_8011271C(void *);
-s8 TItemMag__sub_80112720(void *);
+s8 collect_support_events__8TItemMagFv(void *);
 void update_feed_timer__8TItemMagFPv(void *);
 void feed_if_over_90__8TItemMagFPv(void *);
 void feed_if_over_45__8TItemMagFPv(void *);
@@ -178,7 +178,7 @@ void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
 int is_feed_empty__8TItemMagFPv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 void TObjPlayer__sub_80364198();
 f32 get_mag_scale__10TObjPlayerFPv(void *);
@@ -267,7 +267,7 @@ void TItemMag__vt14(Self_80113310 *self) {
     if (self->f18C & 0x20) {
         return;
     }
-    events = TItemMag__sub_80112720(self);
+    events = collect_support_events__8TItemMagFv(self);
     if (get_status_flag__8TItemMagFPv((void*)(self)) != 0) {
         if (reset_key_machine_state__10TObjPlayerFv() != 0) {
             feed_by_item_flags__8TItemMagFPvc(self, events);
@@ -321,7 +321,7 @@ void TItemMag__vt25(Self_801134CC *self) {
     if (self->owner != NULL && obj_testFlags30((void *)(self), (M2C_UNK)(0x08000000)) == 0 && get_flag_40__8TItemMagFPv(self) == 0) {
     scaled = check_state_flag_1__8TItemMagFPv(self->owner->stats);
     scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     for (i = 0; i != 2; i++) {
         if (self->subs[i] != NULL && is_feed_empty__8TItemMagFPv((void*)(self->subs[i])) != 0) {
             child = self->subs[i];
@@ -346,7 +346,7 @@ void TItemMag__vt24(Self_801135E0 *self) {
     if (self->owner != NULL && obj_testFlags30((void *)(self), (M2C_UNK)(0x08000000)) == 0 && get_flag_40__8TItemMagFPv(self) == 0) {
     scaled = check_state_flag_1__8TItemMagFPv(self->owner->stats);
     scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_80364198();
     TObjPlayer__sub_80364028(get_mag_scale__10TObjPlayerFPv(self));
     for (i = 0; i != 2; i++) {

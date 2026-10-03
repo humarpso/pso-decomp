@@ -142,7 +142,7 @@ s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 u8 *csnVector(void *, void *, s32);
 f32 TObjPlayer__sub_8013153C(void *, s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void TCameraCtrl__sub_803D8934(int, Vec_802CAD98 *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 s32 push_matrix_from(u32);
@@ -157,7 +157,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1);
 s16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_difference_abs(s32, s32);
-void TBoss6Type1__sub_803D9370(Vec_802CB170 *, Vec_802CB170 *);
+void subtract_vector(Vec_802CB170 *, Vec_802CB170 *);
 extern const f64 TObjEneMe1GiGue__data_80472298;
 void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t);
 }
@@ -168,7 +168,7 @@ s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
 s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
 int get_barrier_count__15TObjEneMe1GiGueFv(void);
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
-s32 TObjPlayer__sub_80016FF8();
+s32 update_action_hold_status__10TObjPlayerFv();
 s32 *csnVectorUnder(s32, s32, M2C_UNK, s32);
 s32 get_field_0c__10TObjPlayerFPv(s32);
 f32 get_pos_x__10TObjPlayerFPv(s32);
@@ -205,7 +205,7 @@ void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0) {
 #pragma pop
 
 s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0) {
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         TObjEneMe1GiGue__sub_802CACD8((u8 *)(arg0));
         return 1;
     }
@@ -229,7 +229,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
     rotate_matrix_y(0, ang);
     for (i = 0; i < 3; i++) {
         TCameraCtrl__sub_803D8934(0, &v, arg0 + 0x390);
-        TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+        vec3_add_to(arg0 + 0x390, arg0 + 0x2FC);
         hit = csnVector(arg0 + 0x2FC, arg0 + 0x390, -1);
         if (hit == NULL) {
             pop_matrix();
@@ -249,7 +249,7 @@ void TObjEneMe1GiGue__sub_802CAD98(u8 *arg0, Vec_802CAD98 *arg1) {
     w.x = best;
     rotate_matrix_y(0, bestAng);
     TCameraCtrl__sub_803D8934(0, &w, arg0 + 0x390);
-    TBoss4Zako__sub_803D8910(arg0 + 0x390, arg0 + 0x2FC);
+    vec3_add_to(arg0 + 0x390, arg0 + 0x2FC);
     pop_matrix();
 }
 #pragma pop
@@ -302,7 +302,7 @@ void TObjEneMe1GiGue__sub_802CB170(Gi_802CB170 *self, Tgt_802CB170 *t) {
   if ((((self->count < 12) && (t != 0)) && (((void *) t) != ((void *) self))) && (!(t->flags & 0x06000800)))
   {
     Vec_802CB170 v = t->pos;
-    TBoss6Type1__sub_803D9370(&v, &self->pos);
+    subtract_vector(&v, &self->pos);
     if (!(((v.x * v.x) + (v.z * v.z)) > (self->range * self->range)))
     {
       new_var = (-((s32) (((const f64 *)&TObjEneMe1GiGue__data_80472298)[0] * get_ad_end_text_start__10TObjPlayerFv(v.z, v.x)))) + 0x4000;

@@ -6,9 +6,9 @@ void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(s32, int);
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_ginja_object(s32);
 void draw_ginja_model_with_motion(s32, s32, f32);
@@ -25,8 +25,8 @@ void fn_80192554(Obj_80192554 *arg0) {
         free_children__12TObjDoorJungFPvPv(arg0->fC8[i], lbl_80445B7C[arg0->fAC]);
     }
     set_global_param__8TObjFishFi(lbl_805D5C28);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0->f38);
+    push_matrix();
+    post_translate_matrix(arg0->f38);
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object(arg0->fBC);
     begin_effect_render__13TParticleCtrlFv();

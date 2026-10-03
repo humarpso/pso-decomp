@@ -153,7 +153,7 @@ static inline int collisionNormalEquals(CollisionPoint a,CollisionPoint b) {
 static inline CollisionPoint collisionNormalize(CollisionPoint p) {
     return collisionScale(p,lbl_805E1018/collisionRoot(collisionDot(p,p)));
 }
-s32 TObjPlayer__sub_803E112C(CollisionPoint* box,CollisionSphere* sphere) {
+s32 test_box_sphere_contact(CollisionPoint* box,CollisionSphere* sphere) {
     CollisionPoint lo=box[0],hi=box[0];
     for(int i=1;i<8;++i) {
         if(box[i].x<lo.x)lo.x=box[i].x;if(box[i].y<lo.y)lo.y=box[i].y;if(box[i].z<lo.z)lo.z=box[i].z;

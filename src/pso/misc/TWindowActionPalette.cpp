@@ -33,7 +33,7 @@ void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 s32 set_help_text__15TWindowHelpItemFii(void *, int);
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
 s32 TWindowActionPalette__sub_80243968(void *, int, int, int);
-s32 TWindowActionPalette__sub_80243A5C(void *, int, int, u16);
+s32 update_slot_sprites__20TWindowActionPaletteFv(void *, int, int, u16);
 s32 update_fade__17TWindowSubComCardFPv(void *);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_player_input_active(int);
@@ -97,18 +97,18 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     v = TObjPlayer__sub_801B5A88(player, 0, 0, 0);
     if (v == 0) {
         v = TWindowActionPalette__sub_801C1DB8(effect, 1);
-        TWindowActionPalette__sub_80243A5C(arg0, 0, TWindowActionPalette__sub_801C1E1C(effect, 1), v);
+        update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, TWindowActionPalette__sub_801C1E1C(effect, 1), v);
     } else {
-        TWindowActionPalette__sub_80243A5C(arg0, 0, 7, v);
+        update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, 7, v);
     }
     if (TObjPlayer__sub_80354D5C((u16)M2C_FIELD(arg0, s16 *, 0x20)) != 0 && TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {
         TWindowActionPalette__sub_80243968(arg0, 1, 7, 7);
     } else {
         v = TWindowActionPalette__sub_801C1DB8(effect, 2);
-        TWindowActionPalette__sub_80243A5C(arg0, 1, TWindowActionPalette__sub_801C1E1C(effect, 2), v);
+        update_slot_sprites__20TWindowActionPaletteFv(arg0, 1, TWindowActionPalette__sub_801C1E1C(effect, 2), v);
     }
     v = TWindowActionPalette__sub_801C1DB8(effect, 3);
-    TWindowActionPalette__sub_80243A5C(arg0, 2, TWindowActionPalette__sub_801C1E1C(effect, 3), v);
+    update_slot_sprites__20TWindowActionPaletteFv(arg0, 2, TWindowActionPalette__sub_801C1E1C(effect, 3), v);
     target = get_current_target_id__10TObjPlayerFv();
     if (target == 0xFFFF || target == M2C_FIELD(arg0, s16 *, 0x20) || get_sub_value__8TItemMagFi(player) <= 0) {
         if (TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {

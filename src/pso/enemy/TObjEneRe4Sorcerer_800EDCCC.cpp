@@ -419,7 +419,7 @@ M2C_UNK create__11TTecGiZondeFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__10TTecGrantsFPvPvPvPv(void *, void *, void *, s32);
 M2C_UNK create__9TTecMegidFiiii(void *, void *, void *, s32);
 M2C_UNK create_ex__10TTecRaFoieFPvPvPvPv(void *, void *, void *, s32);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 TObjEneRe4Sorcerer__data_8043D408;
 extern u8 *lbl_805D52DC;
 s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0);
@@ -808,7 +808,7 @@ s32 TObjEneRe4Sorcerer__sub_800EF354(u8 *arg0) {
             create__9TTecMegidFiiii(arg0, src, M2C_FIELD(arg0, u8 **, 0x390) + 0x38, clamp_frame_index__9TObjEneDDFi(M2C_FIELD(lbl_805D52DC, s32 *, 0x1C)));
         } else {
             VecCopy__FP3VecPC3Vec(&v, M2C_FIELD(arg0, u8 **, 0x390) + 0x38);
-            TBoss6Type1__sub_803D9370(&v, src);
+            subtract_vector(&v, src);
             frame = clamp_frame_index__9TObjEneDDFi(M2C_FIELD(lbl_805D52DC, s32 *, 0x1C));
             create_ex__11TTecGiBartaFPvPvPvPv(arg0, src, (s32)(TObjEneRe4Sorcerer__data_8043D408 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)), frame);
         }

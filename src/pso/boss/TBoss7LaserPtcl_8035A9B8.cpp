@@ -13,7 +13,7 @@ void TBoss7LaserPtcl__sub_8035AA58(u8 *arg0, u8 *arg1, u8 *arg2);
 extern "C" {
 
 void init_laser__15TBoss7LaserPtclFPv(u8 *arg0);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 M2C_UNK TBoss7LaserPtcl__sub_8035AA98();
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
@@ -25,7 +25,7 @@ extern const f32 lbl_805E00F4;
 
 void init_laser__15TBoss7LaserPtclFPv(u8 *arg0) {
     TBoss7LaserPtcl__sub_8035AA98();
-    TBoss6Type1__sub_803D9370((void *) (arg0 + 0x2C), (void *) (arg0 + 0x20));
+    subtract_vector((void *) (arg0 + 0x2C), (void *) (arg0 + 0x20));
     clamp_velocity__15TObjBoss2TunnelFPv((void *) (arg0 + 0x2C));
     M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805E00F4;
     M2C_FIELD(arg0, s32 *, 0x54) = (s32) (lbl_804796D8 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x2C)), (f32) (M2C_FIELD(arg0, f32 *, 0x34))));

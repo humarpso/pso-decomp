@@ -31,7 +31,7 @@ struct Rain_801977D4 {
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void update_drops__8TObjRainFPv(struct Rain_80197904 *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
@@ -40,8 +40,8 @@ void init_xyz_limits__10TObjPlayerFv(void);
 void TObjPlayer__sub_801E341C(void *, int, int);
 void fn_801E3518(void);
 void fn_801E3524(int);
-void TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+void subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 extern u8 *lbl_804B8998[];
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DBF10;
@@ -63,11 +63,11 @@ void draw_streaks__8TObjRainFPv(struct Rain_801977D4 *self) {
             struct Vec_801977D4 pos = drop->position;
             if (xz_distance_squared(lbl_805D4DF0 + 0x178, &pos) < lbl_805DBF10) {
                 struct Vec_801977D4 dir = drop->velocity;
-                TNpcPlayer__sub_803D97B4(&dir);
+                normalize_vector(&dir);
                 dir.x *= lbl_805DBF14;
                 dir.y *= lbl_805DBF14;
                 dir.z *= lbl_805DBF14;
-                TBoss6Type1__sub_803D9370(&pos, &drop->velocity);
+                subtract_vector(&pos, &drop->velocity);
                 VecCopy__FP3VecPC3Vec(lbl_804B8998[0] + 0xC, &pos);
                 TObjPlayer__sub_801E341C(lbl_804B8998, 1, 5);
             }
@@ -83,7 +83,7 @@ void update_drops__8TObjRainFPv(struct Rain_80197904 *self) {
     u32 i;
     for (i = 0; i < self->count; drop++, i++) {
         if (drop->active != 0) {
-            TBoss4Zako__sub_803D8910(&drop->position, &drop->velocity);
+            vec3_add_to(&drop->position, &drop->velocity);
             if (drop->position.y < drop->floor_y) {
                 drop->active = 0;
             } else {

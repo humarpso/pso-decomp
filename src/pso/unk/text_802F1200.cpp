@@ -10,9 +10,9 @@ struct RecoveredGlobal_802F1200_lbl_805419E0 {
 
 extern "C" {
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(int);
+M2C_UNK post_translate_matrix(int);
 M2C_UNK TObjPlayer__sub_803DF578(int, int, int);
 extern RecoveredGlobal_802F1200_lbl_805419E0 lbl_805419E0;
 void fn_802F1200(M2C_UNK *arg0, s32 arg1);
@@ -30,9 +30,9 @@ void fn_802F1200(M2C_UNK *arg0, s32 arg1) {
     var_r30 = (M2C_UNK *)(arg0);
     var_r31 = arg1;
     end_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     var_r3 = (M2C_UNK *)(var_r30);
-    TOHangerMachine01__sub_803D9C00((int) (var_r3));
+    post_translate_matrix((int) (var_r3));
     var_r5 = var_r31 * 0x60;
     var_r3 = (M2C_UNK *)(&lbl_805419E0.value);
     var_r4 = 6;

@@ -72,7 +72,7 @@ s32 spawn_particle_effect(void *, s32);
 void init_all_slots__10TObjPlayerFv(void);
 void mark_enemy_body_contacts(void *);
 void queue_photon_blast_hit(s32, s32, s32, f32);
-void TBoss4Zako__sub_803D8910(Vec_801ACD14 *, Vec_801ACD14 *);
+void vec3_add_to(Vec_801ACD14 *, Vec_801ACD14 *);
 extern const f32 lbl_805DC1D8;
 void run_task__11TPhotonLineFv(Line_801ACB14 *self);
 }
@@ -97,7 +97,7 @@ void run_task__11TPhotonLineFv(Line_801ACB14 *self) {
     s32 i;
     u8 *p;
     s32 j;
-    TBoss4Zako__sub_803D8910(&v, &self->vel);
+    vec3_add_to(&v, &self->vel);
     VecCopy__FP3VecPC3Vec(&self->f2FC, &self->pos);
     self->f2FC.y += lbl_805DC1D8;
     v.y += lbl_805DC1D8;

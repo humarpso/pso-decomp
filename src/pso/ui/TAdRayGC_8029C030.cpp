@@ -52,10 +52,10 @@ extern "C" {
 
 void TAdRayGC__sub_8029C054(u8 *arg0);
 int TORockJungleL01__sub_8029C030(void* p);
-int TObjPlayer__sub_800D7BB0(void*);
+int update_obstruction_fade(void*);
 M2C_UNK set_cull_none__8TObjFishFv();
 
-int TORockJungleL01__sub_8029C030(void* p) { return TObjPlayer__sub_800D7BB0((char*)p + 0xb4); }
+int TORockJungleL01__sub_8029C030(void* p) { return update_obstruction_fade((char*)p + 0xb4); }
 
 void TAdRayGC__sub_8029C054(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 0) {

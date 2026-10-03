@@ -23,7 +23,7 @@ void set_position__15TWindowQuantityFPvi(void *arg0, s32 arg1);
 void render__15TWindowQuantityFv(s32 arg0);
 s32 get_camera_id__11TCameraCtrlFv(void);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-u32 TWindowSubStatusDisp__sub_80144D68(void);
+u32 calc_text_width(void);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void save_position__17TWindowSubComCardFPv(void *);
 void TWindowDD__sub_802466E0(void *, void *, s16, s32);
@@ -91,7 +91,7 @@ void *TWindowQuantity__ct(void *arg0, void *arg1) {
     self->vt = ((void * *)&__vt__15TWindowQuantity);
     self->f0 = lbl_805D39B0;
     id = TQuestVmDownLoadServer__sub_8006EF6C(1);
-    n = (f32)TWindowSubStatusDisp__sub_80144D68();
+    n = (f32)calc_text_width();
     self->f60 = TWindowSubStatusDisp__sub_802877A4(lbl_805DD2D0 + (lbl_805DD2D4 + n));
     e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     e1 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);

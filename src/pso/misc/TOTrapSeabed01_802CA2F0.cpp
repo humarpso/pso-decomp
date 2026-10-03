@@ -18,10 +18,10 @@ s32 disable_if_single_screen__13TParticleCtrlFv();
 s32 setup_particle_tev(int);
 s32 TOTrapAncient02__sub_800837D4(int);
 f32 TObjPlayer__sub_803D99F8(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-s32 TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+s32 scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 draw_ginja_model(int);
 extern s32 TOTrapSeabed01__data_805D6814;
@@ -40,11 +40,11 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0);
 void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0);
 M2C_UNK PPCSync();
 M2C_UNK scroll_ginja_mesh_uvs(int, int, int, void *, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 void TOTrapSeabed01__vt82(void);
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -74,8 +74,8 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
         lbl_805D681C = lbl_805D53A4;
     }
     set_npc_enemy_param((void *) (trigger_by_id__14TOTrapSeabed01FUi));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int)((int) (0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
     set_depth_buffer_settings_3__Fv();
     set_depth_buffer_settings_id__FUl((int)((int) (1)));
@@ -102,15 +102,15 @@ void TOTrapSeabed01__sub_802CA3EC(u8 *arg0, u8 *arg1) {
     var_r30 = (u8 *)(arg1);
     do {
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         if (!(temp_r31 & 1)) {
-            TOHangerMachine01__sub_803D9C00((void *) (var_r30 + 8));
+            post_translate_matrix((void *) (var_r30 + 8));
         }
         if (!(temp_r31 & 2)) {
             TObjPlayer__sub_803D99F8((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
-            TBoss7Tentacle__sub_803D9BA0((void *) (var_r30 + 0x20));
+            scale_current_matrix((void *) (var_r30 + 0x20));
         }
         if (!(temp_r31 & 8)) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x34C) != 0) {
@@ -140,8 +140,8 @@ void draw__14TOTrapSeabed01FPv(u8 *arg0) {
         set_depth_buffer_settings_id__FUl((int)(1));
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi((void *)(TOTrapSeabed01__data_805D6814));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y((int)(0), (int)(M2C_FIELD(arg0, s32 *, 0x60)));
         TOTrapSeabed01__sub_802CA3EC((u8 *)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();

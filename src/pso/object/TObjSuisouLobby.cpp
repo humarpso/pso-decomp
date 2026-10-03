@@ -32,7 +32,7 @@ struct Self_80369ED4 {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_80369DF0_lbl_804F33E0 lbl_804F33E0;
@@ -53,9 +53,9 @@ void TObjSuisouLobby__sub_80369D68(void);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern Vec_80369ED4 lbl_8047A3D0[];
 extern Vec_80369ED4 lbl_8047A3DC[];
 extern M2C_UNK __vt__15TObjSuisouLobby[];
@@ -76,11 +76,11 @@ void destroy_instance__15TObjSuisouLobbyFv(void);
 void render__15TObjSuisouLobbyFv(u8 *arg0);
 void update_particle__15TObjSuisouLobbyFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -102,8 +102,8 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, u32 *, 0x24)));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
@@ -195,7 +195,7 @@ void TObjSuisouLobby__sub_80369DF0(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F33E0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F33E0.value, 0, 0, 0));
     }
     (*(s32 *)&TObjSuisouLobby__data_805D6FF0) = var_r0;
     lbl_805D6FF4 = get_lobby_type__6TLobbyFv();
@@ -223,9 +223,9 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     ((VObj_80369ED4 *)arg0)->m5(arg2);
     {
         Vec_80369ED4 v = lbl_8047A3D0[0];
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D8CD4(0);
-        TOHangerMachine01__sub_803D9C00(self->x38);
+        post_translate_matrix(self->x38);
         rotate_matrix_y(0, self->x60);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         self->p1 = (void *)create_particle_emitter(&v, 0x222);
@@ -236,9 +236,9 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     }
     {
         Vec_80369ED4 v = lbl_8047A3DC[0];
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D8CD4(0);
-        TOHangerMachine01__sub_803D9C00(self->x38);
+        post_translate_matrix(self->x38);
         rotate_matrix_y(0, self->x60);
         TCameraCtrl__sub_803D8934(0, &v, &v);
         self->p2 = (void *)create_particle_emitter(&v, 0x222);

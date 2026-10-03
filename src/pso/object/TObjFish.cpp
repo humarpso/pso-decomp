@@ -19,7 +19,7 @@ extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 extern u8 lbl_804DC640[];
 extern u32 TObjFish__data_805D65E8;
 extern s32 TObjFish__data_805D65EC;
@@ -109,7 +109,7 @@ void TObjFish__sub_8029E5E8(void) {
         TObjFish__data_805D65EC = 1;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, base + 0x50, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, base + 0x50, 0, 0, 0);
         }
         TObjFish__data_805D65E8 = (u32)p;
         break;
@@ -118,7 +118,7 @@ void TObjFish__sub_8029E5E8(void) {
         TObjFish__data_805D65EC = 2;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, base + 0x80, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, base + 0x80, 0, 0, 0);
         }
         TObjFish__data_805D65E8 = (u32)p;
         break;
@@ -126,7 +126,7 @@ void TObjFish__sub_8029E5E8(void) {
         TObjFish__data_805D65EC = 3;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, base + 0xB0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, base + 0xB0, 0, 0, 0);
         }
         TObjFish__data_805D65E8 = (u32)p;
         break;
@@ -134,7 +134,7 @@ void TObjFish__sub_8029E5E8(void) {
         TObjFish__data_805D65EC = 4;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, base + 0xE0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, base + 0xE0, 0, 0, 0);
         }
         TObjFish__data_805D65E8 = (u32)p;
         break;
@@ -143,7 +143,7 @@ void TObjFish__sub_8029E5E8(void) {
         TObjFish__data_805D65EC = 0;
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, base + 0x20, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, base + 0x20, 0, 0, 0);
         }
         TObjFish__data_805D65E8 = (u32)p;
         break;

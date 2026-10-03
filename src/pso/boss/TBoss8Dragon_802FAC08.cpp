@@ -142,7 +142,7 @@ s32 is_health_low__12TBoss8DragonFPv(void *);
 extern s32 lbl_805D53A0;
 extern const f32 TBoss8Dragon__data_805DED50;
 void TBoss8Dragon__sub_802FAC78(u8 *arg0);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 vec3_dot(void *, void *);
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 lbl_805DEEB4;
 f32 TBoss8Dragon__sub_802FAC08(Obj_802FAC08 *o, f32 a, f32 b, f32 s);
@@ -268,7 +268,7 @@ f32 TBoss8Dragon__sub_802FAC08(Obj_802FAC08 *o, f32 a, f32 b, f32 s) {
     v.x = a * s + o->x;
     v.y = TBoss8Dragon__data_805DED50;
     v.z = b * s + o->z;
-    if (TObjPlayer__sub_803D89C0(&v, &v) > lbl_805DEEB4) {
+    if (vec3_dot(&v, &v) > lbl_805DEEB4) {
         s = TBoss8Dragon__data_805DED50;
     }
     return s;

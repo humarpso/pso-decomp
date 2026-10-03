@@ -8,9 +8,9 @@ extern "C" {
 
 void TObjPlayer__sub_8012D8E4(void *arg0);
 void setup_item_render__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
+M2C_UNK scale_current_matrix(void *);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 get_player_list__10TObjPlayerFv();
@@ -39,7 +39,7 @@ void setup_item_render__10TObjPlayerFPv(u8 *arg0) {
             rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x1F8));
             return;
         case 2:
-            TBoss7Tentacle__sub_803D9BA0(arg0 + 0x1FC);
+            scale_current_matrix(arg0 + 0x1FC);
             return;
         }
         break;
@@ -47,7 +47,7 @@ void setup_item_render__10TObjPlayerFPv(u8 *arg0) {
         temp_r3_3 = get_player_list__10TObjPlayerFv();
         switch (temp_r3_3) {
         case 4:
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x1FC);
+            post_translate_matrix(arg0 + 0x1FC);
             return;
         case 2:
             rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));

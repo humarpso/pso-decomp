@@ -85,9 +85,9 @@ void TObjContainerNoItem__vt77(Obj_8018990C *self);
 M2C_UNK draw_ginja_box_tree(s32);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
@@ -212,8 +212,8 @@ void TObjContainerNoItem__vt79(u8 *arg0) {
             break;
         case 0:
         set_global_param__8TObjFishFi(lbl_805D5B7C);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
         draw_ginja_box_tree(M2C_FIELD(arg0, s32 *, 0x34));

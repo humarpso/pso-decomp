@@ -33,9 +33,9 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 
 extern "C" {
 void TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 s32 set_chunk_material_color(void *);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
@@ -49,7 +49,7 @@ extern const f32 lbl_805DB7C8;
 struct RecoveredGlobal_8016E8A8___vt__8TOKurage { M2C_UNK value; u8 remaining[0x38]; };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8016E800_lbl_804B2E6C lbl_804B2E6C;
 extern u32 TOKurage__data_805D5A38;
@@ -136,8 +136,8 @@ void init__8TOKurageFPv(u8 *arg0) {
 
 void render__8TOKurageFv(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)(arg0 + 0xC0), *(f32 *)(arg0 + 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         TBoss7Tentacle__sub_803D8A6C(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
@@ -194,7 +194,7 @@ void TOKurage__sub_8016E800(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2E6C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2E6C.value, 0, 0, 0));
     }
     (*(s32 *)&TOKurage__data_805D5A38) = var_r0;
 }

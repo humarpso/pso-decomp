@@ -51,7 +51,7 @@ struct RecoveredGlobal_80144FCC_lbl_804A74F0
 };
 
 extern "C" {
-void TWindowSubStatusDisp__sub_80145190(u16, void *);
+void upload_font_glyph(u16, void *);
 extern u8 lbl_805D56C0;
 s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
@@ -199,7 +199,7 @@ s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
         return 0;
     }
     if (temp_r7 != (u8) (lbl_805D56C0 - 1)) {
-        TWindowSubStatusDisp__sub_80145190(arg0, arg1);
+        upload_font_glyph(arg0, arg1);
         return 1;
     }
     if ((void *) *arg2 == NULL) {

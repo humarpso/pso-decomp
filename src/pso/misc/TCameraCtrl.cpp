@@ -90,7 +90,7 @@ M2C_UNK *TCameraCtrl__sub_8006B324(void);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix_from(void *);
-f32 TObjPlayer__sub_803D9990(void *, void *);
+f32 rotate_vector_by_current_matrix(void *, void *);
 s32 pop_matrix();
 extern RecoveredGlobal_8006ABAC_lbl_804381A4 lbl_804381A4;
 extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
@@ -101,7 +101,7 @@ void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix_from(void *);
-f32 TObjPlayer__sub_803D9990(void *, void *);
+f32 rotate_vector_by_current_matrix(void *, void *);
 s32 pop_matrix();
 extern RecoveredGlobal_8006AC70_lbl_8043818C lbl_8043818C;
 extern RecoveredGlobal_8006AC70_lbl_80438198 lbl_80438198;
@@ -165,11 +165,11 @@ void TCameraCtrl__sub_8006ABAC(M2C_UNK arg0, s32 arg1, s32 arg2) {
     stack.sp10 = M2C_FIELD(&lbl_804381B0.value, s32 *, 8);
     push_matrix_from((void *) (&lbl_8058D490.value));
     rotate_matrix_y((int) (0), (void *) (arg2));
-    TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
+    rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
     pop_matrix();
     push_matrix_from((void *) (&lbl_8058D490.value));
     rotate_matrix_x((int) (0), (void *) (arg1));
-    TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&lbl_804FF61C.value));
+    rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&lbl_804FF61C.value));
     pop_matrix();
 }
 #pragma pop
@@ -197,11 +197,11 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0) {
     stack.sp10 = M2C_FIELD(&lbl_80438198.value, s32 *, 8);
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_y((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x194))));
-    TObjPlayer__sub_803D9990((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
+    rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
     pop_matrix();
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&lbl_8058D490).value));
     rotate_matrix_x((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x190))));
-    TObjPlayer__sub_803D9990((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&lbl_804FF61C).value));
+    rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&lbl_804FF61C).value));
     pop_matrix();
 }
 #pragma pop

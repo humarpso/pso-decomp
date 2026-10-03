@@ -58,7 +58,7 @@ int TObjBoss1Floor__sub_8002CB78(void);
 int TObjBoss1Rock__sub_8002E3CC(void);
 int TObjBoss1Rock__sub_8002E3D0(void);
 M2C_UNK render_projected_shadow_receiver(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK apply_single_screen_state__6TSceneFv();
 s32 check_v2_mode__9TObjEneDDFv();
@@ -92,7 +92,7 @@ void render__14TObjBoss1FloorFv(void) {
         lbl_805D5660 = temp_r3;
         some_id_805c6f74 = temp_r3 | 0x400;
         end_effect_render__13TParticleCtrlFv((int) (temp_r3));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         some_id_805c6f74 = 1;
         set_depth_buffer_settings_id__FUl((int) (3));
         draw_if_all_ready__10TObjPlayerFv();

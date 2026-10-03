@@ -44,7 +44,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *csnVecterUnder(s32, M2C_UNK);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
 f32 xz_distance_squared(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern P_80337500 lbl_80477B70[];
 extern const f32 lbl_805D6D30;
 extern const f32 lbl_805D6D34;
@@ -55,8 +55,8 @@ s16 obj_getField1c(void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 void TObjPlayer__sub_801569F4(void *, s32);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern M2C_UNK lbl_804EF130[];
 extern s32 tl_06;
 extern const f32 lbl_805D6D30;
@@ -72,7 +72,7 @@ s32 find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2);
 s32 TObjEneMorfos__sub_803375F0(M2C_UNK arg0, s32 arg1);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D6D30;
 extern const f32 lbl_805DF98C;
@@ -91,7 +91,7 @@ extern M2C_UNK lbl_804EF130[];
 
 void TObjEneMorfos__sub_80337500(O_80337500 *arg0, V_80337500 *arg1, V_80337500 *arg2) {
     Vec_80337500 v = arg0->pos;
-    TBoss6Type1__sub_803D9370(&v, arg0->b8);
+    subtract_vector(&v, arg0->b8);
     if (arg1 != 0 && arg1 != arg2 && !(*(s32 *)((u8 *)arg1 + 0x30) & 0x04000A00)) {
         if (!(xz_distance_squared(&v, (u8 *)arg1 + 0x2FC) > (lbl_805DF988 * lbl_805D6D30) * (lbl_805DF988 * lbl_805D6D30))) {
             P_80337500 tmp = lbl_80477B70[0];
@@ -119,7 +119,7 @@ void TObjEneMorfos__sub_80337644(O_80337644 *arg0) {
     s32 i;
     u8 *p;
     Vec_80337644 v = arg0->pos;
-    TBoss4Zako__sub_803D8910(&arg0->pos, &arg0->vel);
+    vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->fE0 != 0) {
         copy_pos__11TNowLoadingFPvPv(arg0->fE0, &arg0->pos);
     }
@@ -172,9 +172,9 @@ O_80337824 *TObjEneMorfos__sub_80337824(O_80337824 *arg0, Vec_80337824 *arg1, s3
     a.x = 0;
     a.y = arg2 - 0x4000;
     a.z = 0x4000;
-    arg0->vel.x = lbl_805D6D30 * TBoss8Dragon__sub_803D64C0(arg2);
+    arg0->vel.x = lbl_805D6D30 * sin_table_lookup(arg2);
     arg0->vel.y = lbl_805DF994;
-    arg0->vel.z = lbl_805D6D30 * TBoss8Dragon__sub_803D64DC(arg2);
+    arg0->vel.z = lbl_805D6D30 * cos_table_lookup(arg2);
     arg0->fE0 = spawn_particle_effect_with_rotation(arg1, &a, 0x213, 2);
     VecCopy__FP3VecPC3Vec((void *)(&arg0->pos2), (int)(&arg0->pos));
     TObjEneMorfos__sub_803375F0((M2C_UNK)(arg0), (s32)(&arg0->pos2));

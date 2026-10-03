@@ -34,7 +34,7 @@ extern "C" {
 s32 get_actor_section_id(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 void *find_unique_combination_target(void *, u8 *);
-s32 TWindowHelpItem__sub_80104FCC(void *, void *, int);
+s32 check_equip_requirements(void *, void *, int);
 void initialize_mag_data__9TItemDataFPv(void *);
 void TItemData__sub_8010D614(void *, void *);
 void init__9TItemDataFv(void *);
@@ -115,7 +115,7 @@ s32 find_eligible_combination_recipe(s32 arg0, u8 *arg1) {
         d2.b[0] = rec->b6;
         d2.b[1] = rec->b7;
         d2.b[2] = rec->b8;
-        if (TWindowHelpItem__sub_80104FCC(o, &d2, 0) == 0) {
+        if (check_equip_requirements(o, &d2, 0) == 0) {
             return 0;
         }
     }

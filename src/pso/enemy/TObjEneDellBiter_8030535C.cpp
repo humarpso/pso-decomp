@@ -406,7 +406,7 @@ s32 get_player_by_client_id(u32);
 void TObjEneDellBiter__sub_803055C8(u8 *arg0);
 M2C_UNK rotate_xz_pair_by_angle(void *, void *, int, f32, f32);
 M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 extern const f32 TObjEneDellBiter__data_805DEFF4;
 extern const f32 lbl_805DF004;
 extern const f32 lbl_805DF024;
@@ -684,7 +684,7 @@ void TObjEneDellBiter__sub_80305B60(u8 *arg0) {
     stack.spC = TObjEneDellBiter__data_805DEFF4;
     stack.sp10 = lbl_805DF004;
     rotate_xz_pair_by_angle((void *) (&stack.sp8), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (f32) (TObjEneDellBiter__data_805DEFF4), (f32) (lbl_805DF024));
-    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     if (TObjEneDellBiter__sub_803059BC((void *)((void *) (arg0)), (void *)((void *) (&stack.sp8))) == 0) {
         spawn_particle_effect((void *) (&stack.sp8), (int) (0xF3));
     }

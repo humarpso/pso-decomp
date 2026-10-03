@@ -62,9 +62,9 @@ void TObjEneDD__sub_800B9D94(Vec_80183AF0 *, Vec_80183AF0 *, s32, Vec_80183AF0 *
 s32 TObjCity_Season_SonicAdv2__sub_80183C38(void *arg0);
 Res_80183AF0 *get_anim_frame__25TObjCity_Season_EasterEggFPv(void *);
 void rotate_matrix_y(int, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, s32, f32);
 extern s32 lbl_8050DC50[];
@@ -100,8 +100,8 @@ void fn_80183AF0(Obj_80183AF0 *self) {
     if (res != NULL && self->m8(lbl_805DBC44, lbl_805DBC4C) != 0) {
         set_global_param__8TObjFishFi(lbl_8050DC50[5]);
         idx = TObjCity_Season_SonicAdv2__sub_80183C38(self);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(&self->pos);
+        push_matrix();
+        post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->x60);
         draw_model_motion(res->a[idx].v, res->b[idx].v, self->xb0);
         pop_matrix();

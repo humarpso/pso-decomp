@@ -126,8 +126,8 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK TObjEneRecon__sub_8031C190(void *);
 M2C_UNK update_position_from_offsets__12TObjEneReconFPv(void *);
 s32 is_anim_6__12TObjEneReconFPv(int);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern const f32 lbl_805DF400;
 extern const f32 lbl_805DF424;
 extern const f32 lbl_805DF428;
@@ -229,8 +229,8 @@ void run_task__12TObjEneReconFv(u8 *arg0) {
                 if (check_v2_mode__9TObjEneDDFv() != 0) {
                     var_f30 *= lbl_805DF400;
                 }
-                temp_f31 = var_f30 * TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
-                temp_f2 = var_f30 * -TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+                temp_f31 = var_f30 * cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+                temp_f2 = var_f30 * -sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
                 M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x478), f32 *, 0x60) = (f32) (M2C_FIELD(arg0, f32 *, 0x2FC) + temp_f31);
                 M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x478), f32 *, 0x64) = (f32) (lbl_805DF424 + M2C_FIELD(arg0, f32 *, 0x300));
                 M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x478), f32 *, 0x68) = (f32) (M2C_FIELD(arg0, f32 *, 0x304) + temp_f2);

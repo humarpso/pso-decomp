@@ -10,9 +10,9 @@ typedef char RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList_size[sizeof(Rec
 
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
-M2C_UNK TWindowSubStatusDisp__sub_80267714(void *, int, int, int);
+M2C_UNK draw_item_list_capacity(void *, int, int, int);
 M2C_UNK draw_selected_list_entry(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(void *, int, void *);
 M2C_UNK fn_8027ACF8(void *, int);
@@ -56,11 +56,11 @@ u8 *create_sub_item_list_window(s32 arg0, s32 arg1, s16 arg2) {
 void render__18TWindowSubItemListFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     draw_selected_list_entry((void *) (arg0), (int) (temp_r3));
     fn_8027ACF8((void *) (arg0), (int) (temp_r3));
-    TWindowSubStatusDisp__sub_80267714((void *) (arg0), (int) (temp_r3), (int) (M2C_FIELD(arg0, s32 *, 0x8C)), (int) (0x1E));
+    draw_item_list_capacity((void *) (arg0), (int) (temp_r3), (int) (M2C_FIELD(arg0, s32 *, 0x8C)), (int) (0x1E));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, void **, 0x80), (int) (temp_r3));
     }

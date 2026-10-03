@@ -16,7 +16,7 @@ struct RecoveredGlobal_80249BA8___vt__14TWindowComCard {
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__14TWindowComCardFv(s32 arg0);
@@ -136,7 +136,7 @@ s32 TWindowSubComCard__sub_80249A48(s32 arg0) {
 void render__14TWindowComCardFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

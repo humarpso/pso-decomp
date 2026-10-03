@@ -57,7 +57,7 @@ extern const f32 lbl_805DDD1C;
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 extern u32 lbl_805D65D4;
 s32 TORockJungleS01__sub_8029CAE8(s32 a);
-void *TLobby__sub_80020004(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *load_resource_from_descriptor(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -180,7 +180,7 @@ void TORockJungleS01__sub_8029CB90(void) {
     void *o;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = TLobby__sub_80020004(o, 1, lbl_804DC390, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, lbl_804DC390, 0, 0, 0);
     }
     lbl_805D65D0 = (u32)o;
     switch (get_global_state__14TOKeyMachine01Fv()) {

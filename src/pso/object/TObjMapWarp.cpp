@@ -77,7 +77,7 @@ M2C_UNK TWindowSubComCard__sub_80265F60(int);
 void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1);
 void *TObjWarpBase__ct(void *, void *, void *);
 int push_matrix_from(void *);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void rotate_matrix_y(void *, s32);
 void TCameraCtrl__sub_803D8934(void *, void *, void *);
 void pop_matrix();
@@ -203,7 +203,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
     self->type = lbl_805D3460;
     for (i = 0; i < 4; i++) {
         push_matrix_from(lbl_8058D490);
-        TOHangerMachine01__sub_803D9C00(self->destination);
+        post_translate_matrix(self->destination);
         rotate_matrix_y(0, self->sourceYaw);
         TCameraCtrl__sub_803D8934(0, &lbl_804B910C[i], &self->destinations[i]);
         pop_matrix();

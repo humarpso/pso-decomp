@@ -11,10 +11,10 @@ extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 f32 TObjPlayer__sub_803D99F8(void *, void *);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TBoss7Tentacle__sub_803D9BA0(void *);
-f32 TOHangerMachine01__sub_803D9C00(void *);
+s32 scale_current_matrix(void *);
+f32 post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 void draw_ginja_box_tree(u8 *arg0);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
@@ -81,15 +81,15 @@ void draw_ginja_box_tree(u8 *arg0) {
     var_r30 = (u8 *)(arg0);
     do {
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         if (!(temp_r31 & 1)) {
-            TOHangerMachine01__sub_803D9C00((void *) (var_r30 + 8));
+            post_translate_matrix((void *) (var_r30 + 8));
         }
         if (!(temp_r31 & 2)) {
             TObjPlayer__sub_803D99F8((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
-            TBoss7Tentacle__sub_803D9BA0((void *) (var_r30 + 0x20));
+            scale_current_matrix((void *) (var_r30 + 0x20));
         }
         if (!(temp_r31 & 0x100000)) {
             end_effect_render__13TParticleCtrlFv();

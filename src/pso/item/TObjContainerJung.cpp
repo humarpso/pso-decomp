@@ -40,7 +40,7 @@ u8 * get_bml_model(void *, int);
 extern s32 TObjContainerJung__data_805D5BA0;
 u8 *TObjContainerJung__sub_8018D3C0(s32 arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D47C_lbl_804B7134 lbl_804B7134;
 extern s32 TObjContainerJung__data_805D5BA0;
@@ -59,9 +59,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object();
 extern s32 TObjContainerJung__data_805D5BA0;
@@ -123,7 +123,7 @@ void TObjContainerJung__sub_8018D47C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B7134.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B7134.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjContainerJung__data_805D5BA0) = (unsigned char *) ((void *) var_r0);
     TObjContainerJung__data_805D5BA4 = TObjFish__sub_8001EDB0((void *) var_r0, 0);
@@ -152,8 +152,8 @@ void TObjContainerJung__vt79(u8 *arg0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             set_global_param__8TObjFishFi(TObjContainerJung__data_805D5BA4);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
             get_bml_model(*(u8 **)&TObjContainerJung__data_805D5BA0, 0);

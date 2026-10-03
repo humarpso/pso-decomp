@@ -41,10 +41,10 @@ VObj_801B91F0 *get_owner_if_alive__10TObjPlayerFPv();
 s32 copy_and_register_item_data__11TItemObjectFPv(VObj_801B91F0 *);
 s32 get_item_type_or_default__9TItemListFPv(u8 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(Player_801B91F0 *self, u8 *item);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-f32 TObjPlayer__sub_803D89C0(Vec_801B92EC *, Vec_801B92EC *);
+f32 vec3_dot(Vec_801B92EC *, Vec_801B92EC *);
 extern const Vec_801B92EC lbl_80446F2C;
 extern const f32 TObjPlayer__data_805DC278;
 extern const f32 TObjPlayer__data_805DC2BC;
@@ -86,17 +86,17 @@ bool is_target_in_facing_cone__10TObjPlayerFPvPv(Obj_801B92EC *self, Vec_801B92E
     f32 x;
     f32 z;
     f32 dot;
-    fwd.x = TBoss8Dragon__sub_803D64C0(self->angle);
+    fwd.x = sin_table_lookup(self->angle);
     fwd.y = TObjPlayer__data_805DC278;
-    fwd.z = TBoss8Dragon__sub_803D64DC(self->angle);
-    x = TObjPlayer__data_805DC2BC * TBoss8Dragon__sub_803D64C0(self->angle + 0x8000) + self->pos.x;
-    z = TObjPlayer__data_805DC2BC * TBoss8Dragon__sub_803D64DC(self->angle + 0x8000) + self->pos.z;
+    fwd.z = cos_table_lookup(self->angle);
+    x = TObjPlayer__data_805DC2BC * sin_table_lookup(self->angle + 0x8000) + self->pos.x;
+    z = TObjPlayer__data_805DC2BC * cos_table_lookup(self->angle + 0x8000) + self->pos.z;
     to.x = target->x - x;
     to.y = TObjPlayer__data_805DC278;
     to.z = target->z - z;
     update_scale__15TObjBoss2TunnelFPv(&to);
-    dot = TObjPlayer__sub_803D89C0(&fwd, &to);
-    return !(dot < TBoss8Dragon__sub_803D64DC(0x1555));
+    dot = vec3_dot(&fwd, &to);
+    return !(dot < cos_table_lookup(0x1555));
 }
 #pragma pop
 

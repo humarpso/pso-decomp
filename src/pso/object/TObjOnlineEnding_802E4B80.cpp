@@ -53,15 +53,15 @@ extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
 void TObjOnlineEnding__sub_802E4E44(Obj_802E4E44 *arg0);
 M2C_UNK TObjPlayer__sub_80051BE0(int, int, f32, f32);
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_model_motion(int, int, f32);
 extern f32 lbl_804E3A38[];
@@ -131,8 +131,8 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
         lbl_805D68F8 = 1;
     }
     begin_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
+    push_matrix();
+    post_translate_matrix(lbl_804E3A38);
     scale_matrix(0, lbl_805D3F94, lbl_805DE934, lbl_805DE934);
     set_global_param__8TObjFishFi(arg0->f94);
     draw_model_motion(arg0->f90, arg0->f98, arg0->f150);
@@ -149,14 +149,14 @@ void TObjOnlineEnding__sub_802E4C70(Obj_802E4C70 *arg0) {
             }
             {
                 u8 *name = e->name;
-                u32 w = TWindowSubStatusDisp__sub_80144D68(name);
+                u32 w = calc_text_width(name);
                 V2_802E4C70 v = lbl_804E3A44[i];
                 v.x -= (f32)(w >> 1);
                 render_status_line__15TAdSubPlyItemGCFPvi(name, -1, v.x, v.y, lbl_805DE940);
             }
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(lbl_804E3A38);
-            TOHangerMachine01__sub_803D9C00(e->f18);
+            push_matrix();
+            post_translate_matrix(lbl_804E3A38);
+            post_translate_matrix(e->f18);
             rotate_matrix_y(0, e->f1C);
             scale_matrix(0, e->f20, e->f20, e->f20);
             TObjPlayer__sub_80051BE0(e->id, e->f24, lbl_805DE944, lbl_805DE934);

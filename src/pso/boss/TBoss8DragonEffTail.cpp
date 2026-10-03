@@ -69,7 +69,7 @@ void fn_802FE48C(void);
 void free_statics__19TBoss8DragonEffTailFv(void);
 int get_state__19TBoss8DragonEffTailFPv(void* p);
 void render__19TBoss8DragonEffTailFv(void);
-M2C_UNK TBoss4Zako__sub_803D8910(s32, s32, s32);
+M2C_UNK vec3_add_to(s32, s32, s32);
 void TBoss8Dragon__sub_800BC5A0(void *, int);
 M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
 M2C_UNK TLobby__sub_803DA16C(void*);
@@ -82,7 +82,7 @@ void fn_802FE48C(void) {  }
 void render__19TBoss8DragonEffTailFv(void) {  }
 
 void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
-    TBoss4Zako__sub_803D8910(arg1 + 0x308, arg0 + 0xC0, arg0);
+    vec3_add_to(arg1 + 0x308, arg0 + 0xC0, arg0);
 }
 
 void TBoss8DragonEffTail__vt20(u8 *arg0, u8 *arg1) {

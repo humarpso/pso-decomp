@@ -87,7 +87,7 @@ void TObjPlayer__sub_800DC4B4(Src_800DC4B4 *arg0, Obj_800DC4B4 *obj, void *attac
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 void *find_entity_by_id(u16);
 s32 is_valid_and_active__10TObjPlayerFUi();
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 extern const f32 lbl_805D525C;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -101,8 +101,8 @@ s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 TObjPlayer__sub_800DC5F4(M2C_UNK arg0, s32 arg1);
 f32 TObjPlayer__sub_8013153C(void *, void *);
 M2C_UNK TObjPlayer__sub_801569F4(void *, int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043C918[];
 extern M2C_UNK lbl_80494E10[];
 extern const f32 lbl_805D525C;
@@ -190,7 +190,7 @@ void TObjPlayer__sub_800DC648(Me_800DC648 *arg0) {
     s32 i;
     void *pl;
     Vec_800DC648 old = arg0->pos;
-    TBoss4Zako__sub_803D8910(&arg0->pos, &arg0->vel);
+    vec3_add_to(&arg0->pos, &arg0->vel);
     if (arg0->link0 != NULL) {
         copy_pos__11TNowLoadingFPvPv(arg0->link0, &arg0->pos);
     }
@@ -246,8 +246,8 @@ u8 *TObjPlayer__sub_800DC83C(u8 *arg0, Vec_800DC83C *arg1, Vec_800DC83C *arg2, s
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, (int)arg1);
     M2C_FIELD(arg0, f32 *, 0xDC) = lbl_805DA47C;
     VecCopy__FP3VecPC3Vec(arg0 + 0xB8, (int)arg2);
-    TBoss6Type1__sub_803D9370(arg0 + 0xB8, arg1);
-    s = lbl_805D525C / TBoss6Kakusan__sub_803D8BD8(arg0 + 0xB8);
+    subtract_vector(arg0 + 0xB8, arg1);
+    s = lbl_805D525C / vector_length(arg0 + 0xB8);
     M2C_FIELD(arg0, f32 *, 0xB8) *= s;
     M2C_FIELD(arg0, f32 *, 0xBC) *= s;
     M2C_FIELD(arg0, f32 *, 0xC0) *= s;

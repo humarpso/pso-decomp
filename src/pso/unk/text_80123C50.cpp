@@ -45,7 +45,7 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_80123C50(s32 arg0);
 s32 get_player_list__10TObjPlayerFv(void);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *, int);
+M2C_UNK scale_current_matrix(void *, int);
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
 void TObjPlayer__sub_80123CA8(u8 *arg0);
@@ -84,12 +84,12 @@ void TObjPlayer__sub_80123CA8(u8 *arg0) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();
         temp_r4 = M2C_FIELD(arg0, s32 *, 0x1F8);
-        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), (int) (temp_r4));
+        scale_current_matrix((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), (int) (temp_r4));
         return;
     case 4:
         play_particle_effect_once__10TObjPlayerFv();
         temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x1F8);
-        TBoss7Tentacle__sub_803D9BA0((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), (int) (temp_r4_2));
+        scale_current_matrix((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), (int) (temp_r4_2));
         return;
     case 7:
         play_particle_effect_once__10TObjPlayerFv();

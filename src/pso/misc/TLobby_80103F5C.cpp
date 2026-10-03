@@ -66,9 +66,9 @@ void TLobby__sub_80104350(void);
 void set_boss_buf_entry__6TLobbyFii(int a0, int a1);
 extern int* lbl_805D54E8;
 int TLobby__sub_80104384(int a0);
-s32 TItemData__sub_8010C8B4();
+s32 get_item_icon_index();
 s32 get_item_data__6TLobbyFUi(u32 arg0);
-M2C_UNK TItemData__sub_8010E59C(u32, s32);
+M2C_UNK format_item_name__9TItemDataFv(u32, s32);
 void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1);
     extern int lbl_805D5448;
 void mark_selected__6TLobbyFv(void);
@@ -199,13 +199,13 @@ void set_boss_buf_entry__6TLobbyFii(int a0, int a1) { lbl_805D54E8[(unsigned sho
 int TLobby__sub_80104384(int a0) {  return lbl_805D54E8[(unsigned short)(a0)]; }
 s32 get_item_data__6TLobbyFUi(u32 arg0) {
     if (arg0 != 0U) {
-        return TItemData__sub_8010C8B4();
+        return get_item_icon_index();
     }
     return 0;
 }
 void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1) {
     if (arg1 != 0U) {
-        TItemData__sub_8010E59C(arg1, arg0);
+        format_item_name__9TItemDataFv(arg1, arg0);
     }
 }
 void mark_selected__6TLobbyFv(void) { lbl_805D5448 = 1; }

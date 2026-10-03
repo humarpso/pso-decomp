@@ -395,9 +395,9 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK draw_ginja_box_tree(s32);
 void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK draw_ginja_model_with_motion(s32, void *, f32);
 void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0);
@@ -428,8 +428,8 @@ void TObjSeabedSuisoBrakable__sub_802A6AA4(u8 *arg0) {
         update_state__23TObjSeabedSuisoBrakableFPv(arg0);
         ((M2C_UNK (*)(M2C_UNK))get_instance__23TObjSeabedSuisoBrakableFv)(0);
         set_global_param__8TObjFishFi();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         p = M2C_FIELD(arg0, void **, 0xBC);
         if (p != NULL) {

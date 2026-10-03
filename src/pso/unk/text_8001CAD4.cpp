@@ -35,7 +35,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 TObjPlayer__sub_801422A8(void *, void *, void *);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
@@ -75,7 +75,7 @@ void fn_8001CAD4(u8 *arg0) {
         rotate_matrix_x((int) (0), (int) (stack.sp8));
         rotate_vector_by_matrix((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
         TCameraCtrl__sub_803D9858((int) (1));
-        TBoss4Zako__sub_803D8910((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
+        vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
         copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (void *) (arg0 + 0x2C));
     }
 }

@@ -239,7 +239,7 @@ struct Obj_802351B4
 };
 
 extern "C" {
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80235348_lbl_804CC510 lbl_804CC510;
@@ -409,7 +409,7 @@ void TTecMegid__sub_802351B4(void *arg0) {
 
 void init_parameters__9TTecMegidFPv(u8 *arg0) {
   s32 new_var;
-  new_var = TTecCtrl__sub_8022DBC4((int) 0x12, (int) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4, (int) 0xFFFF);
+  new_var = calc_technique_parameters((int) 0x12, (int) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_80235348_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {

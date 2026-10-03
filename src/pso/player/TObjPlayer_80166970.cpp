@@ -22,14 +22,14 @@ struct VObj18_80166970 : VBase18_80166970 {
 void *destroy__16TOFenceAncient01FPvs(void *arg0, s16 arg1);
 void *init_fields__16TOFenceAncient01FPv(void *arg0);
 void on_zone_exit__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -40,20 +40,20 @@ void on_zone_exit__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r31;
 
     if (((VObj18_80166970 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == 0) {
             draw_ginja_model_with_motion((void *) (M2C_FIELD(arg0, void **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         } else {
             temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+            push_matrix();
+            post_translate_matrix((void *) (temp_r31 + 8));
             rotate_matrix_z((int) (0), (int) (M2C_FIELD(temp_r31, s32 *, 0x1C)));
             rotate_matrix_x((int) (0), (int) (M2C_FIELD(temp_r31, s32 *, 0x14)));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(temp_r31, s32 *, 0x18)));
-            TBoss7Tentacle__sub_803D9BA0((void *) (temp_r31 + 0x20));
+            scale_current_matrix((void *) (temp_r31 + 0x20));
             draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
             pop_matrix();
         }

@@ -65,8 +65,8 @@ M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern void *lbl_805D4DF0;
 extern const f32 lbl_805DE060;
 void render__12TBGLightningFv(s32 arg0);
@@ -189,9 +189,9 @@ void render__12TBGLightningFv(s32 arg0) {
     s32 temp_r31;
     if (get_state_flag__9TMainTaskFv() != 0) {
         temp_r31 = M2C_FIELD(lbl_805D4DF0, s32 *, 0x194) + 0x4000;
-        stack.sp8 = TBoss8Dragon__sub_803D64C0(temp_r31);
+        stack.sp8 = sin_table_lookup(temp_r31);
         stack.spC = lbl_805DE060;
-        stack.sp10 = TBoss8Dragon__sub_803D64DC(temp_r31);
+        stack.sp10 = cos_table_lookup(temp_r31);
         begin_effect_render__13TParticleCtrlFv();
         init_xyz_limits__10TObjPlayerFv();
         ((M2C_UNK (*)(s32, f32 *))fn_802A9F48)(arg0, &stack.sp8);

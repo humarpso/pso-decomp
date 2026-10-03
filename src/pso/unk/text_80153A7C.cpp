@@ -46,9 +46,9 @@ int TObjFogCollision__sub_80153F70(void);
 void TObjFogCollision__sub_80153D2C(u8 *arg0);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
@@ -130,9 +130,9 @@ void TObjFogCollision__sub_80153B64(u8 *arg0) {
             set_chunk_material_color(&c3);
             break;
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         s = lbl_805DB264 * M2C_FIELD(arg0, f32 *, 0x68);
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         scale_matrix(0, s, lbl_805DB258, s);
         draw_chunk_object(lbl_805D28BC);
         pop_matrix();

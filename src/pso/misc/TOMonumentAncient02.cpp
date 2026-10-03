@@ -84,7 +84,7 @@ extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB934;
 extern const f32 lbl_805DB938;
 u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_804B3960[];
@@ -92,9 +92,9 @@ extern u32 TOMonumentAncient02__data_805D5A68;
 void load_resources__19TOMonumentAncient02Fv(void);
 s32 rand(void);
 int rotate_matrix_y(int, int);
-int TObjPlayer__sub_803D9B2C();
+int push_matrix();
 int pop_matrix();
-int TOHangerMachine01__sub_803D9C00(void *);
+int post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(int);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
@@ -166,17 +166,17 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
     Node_80172AE0 *n;
     self->fEC = self->m8(self->fC0, self->fC4);
     if (self->fEC == 1) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         if (self->fC8 == 1) {
             self->f68 = lbl_805DB920 * (lbl_805DB924 * (f32)rand()) - lbl_805DB928;
             self->f70 = lbl_805DB920 * (lbl_805DB924 * (f32)rand()) - lbl_805DB928;
-            TOHangerMachine01__sub_803D9C00(&self->f68);
+            post_translate_matrix(&self->f68);
         }
-        TOHangerMachine01__sub_803D9C00(self->pos38);
+        post_translate_matrix(self->pos38);
         rotate_matrix_y(0, self->f60);
         set_global_param__8TObjFishFi(self->f24);
         m = self->model;
-        TOHangerMachine01__sub_803D9C00(m->mtx);
+        post_translate_matrix(m->mtx);
         draw_ginja_model(m->f4);
         if (self->fC8 == 1) {
             if (self->fCC != 0) {
@@ -193,7 +193,7 @@ void render__19TOMonumentAncient02Fv(Mon_80172AE0 *self) {
                 }
             }
             n = m->child;
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             translate_matrix(0, n->x, n->y, n->z);
             begin_effect_render__13TParticleCtrlFv();
             lbl_805D5660 = some_id_805c6f74;
@@ -236,21 +236,21 @@ void load_resources__19TOMonumentAncient02Fv(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, tbl + 0x8, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, tbl + 0x8, 0, 0, 0);
         }
         TOMonumentAncient02__data_805D5A68 = (u32)p;
         break;
     case 4:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, tbl + 0x20, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, tbl + 0x20, 0, 0, 0);
         }
         TOMonumentAncient02__data_805D5A68 = (u32)p;
         break;
     case 7:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, tbl + 0x38, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, tbl + 0x38, 0, 0, 0);
         }
         TOMonumentAncient02__data_805D5A68 = (u32)p;
         break;

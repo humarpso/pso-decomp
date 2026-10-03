@@ -86,8 +86,8 @@ void rotate_matrix_z(int, s32);
 void rotate_vector_by_matrix(int, Vec_800FCD40 *, Vec_800FCD40 *);
 void pop_matrix(void);
 s32 is_boss_area(void);
-f32 TObjPlayer__sub_803D89C0(Vec_800FCD40 *, Vec_800FCD40 *);
-void TObjPlayer__sub_803D9B2C(void);
+f32 vec3_dot(Vec_800FCD40 *, Vec_800FCD40 *);
+void push_matrix(void);
 void TParticleCtrl__sub_803D8D1C(int, f32 *, f32 *);
 s32 is_split_screen(void);
 s32 get_screen_height__11TCameraCtrlFv(void);
@@ -158,10 +158,10 @@ void TFontSmallTask::render() {
             return;
         }
     }
-    if (TObjPlayer__sub_803D89C0(&forward, &diff) <= lbl_805DAA0C) {
+    if (vec3_dot(&forward, &diff) <= lbl_805DAA0C) {
         return;
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TParticleCtrl__sub_803D8D1C(0, position, screen);
     pop_matrix();
     if (is_split_screen() != 0) {

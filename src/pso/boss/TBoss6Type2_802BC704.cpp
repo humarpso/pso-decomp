@@ -143,12 +143,12 @@ s32 VecCopy__FP3VecPC3Vec(s32 a0, s32 a1);
 M2C_UNK get_player_by_client_id(int);
 s32 TBoss6Type2__sub_802B9938(void *, void *, void *);
 s32 rand(void);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 vec3_add_to(void *, void *);
+f32 vector_length(void *);
+f32 subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 f32 xyz_distance(void *, void *);
 extern RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C TBoss6Type2__data_8047105C;
 extern const f32 TBoss6Type2__data_805DE40C;
@@ -213,7 +213,7 @@ void TBoss6Type2__sub_802BDD6C(void *, s32, M2C_UNK *);
 extern Tb_802BD014 lbl_804E00DC[];
 void TBoss6Type2__sub_802BCC54(void *, int);
 s32 TObjControl__ct(s32, s32);
-f32 TObjPlayer__sub_80014108(void *, u32, f32);
+f32 receive_physical_attack__10TObjPlayerFv(void *, u32, f32);
 u8 *get_attribute_entry__10TObjPlayerFPvi(u32, s32);
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 get_phase__11TBoss6Type2FPv();
@@ -443,7 +443,7 @@ f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0) {
         }
     }
     if (var_r31 != 0) {
-        return TObjPlayer__sub_80014108(arg0, arg1, farg0);
+        return receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
     }
     TBoss6Type2__sub_802BA078(arg0);
     TBoss6Type2__sub_802B9B20(arg0);
@@ -548,30 +548,30 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
         M2C_FIELD(arg0, u16 *, 0x466) = 0xFFFFU;
         temp_r29 = (s32) ((lbl_805DE4C8 * -((TBoss6Type2__data_805DE468 * (f32) rand()) - lbl_805DE414)) + (f32) M2C_FIELD(arg0, s32 *, 0x60));
         VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (arg0 + 0x38)));
-        stack.sp18 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64C0((int) (temp_r29));
-        stack.sp20 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64DC((int) (temp_r29));
+        stack.sp18 += TBoss6Type2__data_805DE45C * sin_table_lookup((int) (temp_r29));
+        stack.sp20 += TBoss6Type2__data_805DE45C * cos_table_lookup((int) (temp_r29));
         if (xyz_distance((void *) (arg0 + 0x38), (void *) (&TBoss6Type2__data_8047105C.value)) > lbl_805DE4CC) {
             temp_r29_2 = (s32) (lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32) rand()));
             VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (&TBoss6Type2__data_8047105C.value)));
-            stack.sp18 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64C0((int) (temp_r29_2));
-            stack.sp20 += TBoss6Type2__data_805DE45C * TBoss8Dragon__sub_803D64DC((int) (temp_r29_2));
+            stack.sp18 += TBoss6Type2__data_805DE45C * sin_table_lookup((int) (temp_r29_2));
+            stack.sp20 += TBoss6Type2__data_805DE45C * cos_table_lookup((int) (temp_r29_2));
         }
     }
     stack.sp1C = TBoss6Type2__data_805DE410;
     VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.spC)), (s32)((void *) (&stack.sp18)));
-    TBoss6Type1__sub_803D9370((void *) (&stack.spC), (void *) (arg0 + 0x38));
+    subtract_vector((void *) (&stack.spC), (void *) (arg0 + 0x38));
     stack.sp10 = TBoss6Type2__data_805DE410;
-    temp_f1 = TBoss6Kakusan__sub_803D8BD8((void *) (&stack.spC));
+    temp_f1 = vector_length((void *) (&stack.spC));
     if (temp_f1 < TBoss6Type2__data_805DE41C) {
         if (temp_f1 <= TBoss6Type2__data_805DE490) {
             stack.sp18 = TBoss6Type2__data_805DE40C;
         } else {
-            TNpcPlayer__sub_803D97B4((void *) (&stack.spC));
+            normalize_vector((void *) (&stack.spC));
         }
         stack.spC *= TBoss6Type2__data_805DE41C;
         stack.sp14 *= TBoss6Type2__data_805DE41C;
         VecCopy__FP3VecPC3Vec((s32)((void *) (&stack.sp18)), (s32)((void *) (&stack.spC)));
-        TBoss4Zako__sub_803D8910((void *) (&stack.sp18), (void *) (arg0 + 0x38));
+        vec3_add_to((void *) (&stack.sp18), (void *) (arg0 + 0x38));
     }
     TBoss6Type2__sub_802B9938((void *) (&stack.sp18), (void *) (&stack.sp9), (void *) (&stack.sp8));
     M2C_FIELD(arg1, u8 *, 0) = stack.sp9;

@@ -16,9 +16,9 @@ typedef struct Obj_80050EB4 {
 void queue_destruction__7TObjectFv(void *);
 void fn_80050D74(void *, Vec_80050EB4 *);
 void fn_80050E64(void *, Vec_80050EB4 *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_80050EB4 *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vector_length(Vec_80050EB4 *);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A94;
 extern const f32 lbl_805D8A98;
@@ -43,9 +43,9 @@ void TObjDFJisin::run_task() {
     v.y = lbl_805D8A30;
     max = lbl_805D8A9C;
     for (ang = 0; ang < 0x10000; ang += step) {
-        v.x = arg0->radius * TBoss8Dragon__sub_803D64C0(ang) + arg0->cx;
-        v.z = arg0->radius * TBoss8Dragon__sub_803D64DC(ang) + arg0->cz;
-        if (!(TBoss6Kakusan__sub_803D8BD8(&v) > max)) {
+        v.x = arg0->radius * sin_table_lookup(ang) + arg0->cx;
+        v.z = arg0->radius * cos_table_lookup(ang) + arg0->cz;
+        if (!(vector_length(&v) > max)) {
             fn_80050E64(arg0, &v);
             fn_80050D74(arg0, &v);
             count++;

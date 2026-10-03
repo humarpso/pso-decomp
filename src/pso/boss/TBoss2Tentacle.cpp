@@ -39,9 +39,9 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_803D9730(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK draw_model_motion(void *, int, f32);
@@ -88,7 +88,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     u8 *temp_r8;
     set_global_flag__10TObjPlayerFv();
     set_global_param__8TObjFishFi((void *) (lbl_805D4BD8));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
     switch (temp_r0) {
     case 0:
@@ -111,7 +111,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
         draw_chunk_object((void *) (lbl_805D4BD0));
         break;
     case 3:
-        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x140));
+        post_translate_matrix((void *) ((u8 *)(arg0) + 0x140));
         scale_matrix((int) (0), (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));

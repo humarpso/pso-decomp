@@ -43,8 +43,8 @@ f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 create_particle_emitter(void *, int);
 s32 get_attack_target__15TObjEneSlimeOneFPv(s32);
 s32 initialize__9TObjEnemyFPv(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 lbl_804966EC[];
 extern M2C_UNK __vt__21TObjEneSlimeWaterBomb[];
 extern s32 lbl_805D2AE0;
@@ -53,7 +53,7 @@ extern const f32 lbl_805DA6D8;
 extern const f32 lbl_805DA6E0;
 extern const f32 lbl_805DA6E4;
 void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -71,9 +71,9 @@ M2C_UNK direction_to_rotation_xz(void *, s32 *, s32 *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
-int TObjPlayer__sub_803D9B2C(void*);
+int push_matrix(void*);
 int pop_matrix(void);
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(Vec_800E8C6C *);
+M2C_UNK scale_current_matrix(Vec_800E8C6C *);
 extern const f32 lbl_805DA670;
 extern const f32 lbl_805DA67C;
 extern const f32 lbl_805DA6B4;
@@ -81,19 +81,19 @@ extern const f32 lbl_805DA6C8;
 extern const f32 lbl_805DA6CC;
 void render__21TObjEneSlimeWaterBombFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
+void subtract_vector(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 void init_render_globals__10TObjPlayerFv(void);
 void TObjPlayer__sub_800EBE74(f32, f32, f32, f32);
 void set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 M2C_UNK rotate_matrix_y(int, int);
-int TObjPlayer__sub_803D9B2C(void*);
+int push_matrix(void*);
 int pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 void draw_chunk_object(s32);
 extern const f64 lbl_8043D280;
@@ -128,7 +128,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     s32 sp8;
     f32 d;
     f32 k;
-    TObjPlayer__sub_803D9B2C(arg0);
+    push_matrix(arg0);
     translate_matrix(0, M2C_FIELD(arg0, f32 *, 0x38), lbl_805DA670 + M2C_FIELD(arg0, f32 *, 0x380), M2C_FIELD(arg0, f32 *, 0x40));
     direction_to_rotation_xz(arg0 + 0x248, &spC, &sp8);
     rotate_matrix_z(0, sp8);
@@ -142,7 +142,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
     k = lbl_805DA6CC * (lbl_805DA67C - d / lbl_805DA6C8) + lbl_805DA670;
     v.x = v.y = k;
     v.z = lbl_805DA67C;
-    TBoss7Tentacle__sub_803D9BA0(&v);
+    scale_current_matrix(&v);
     TObjPlayer__sub_800F09E8(0);
     pop_matrix();
 }
@@ -151,7 +151,7 @@ void render__21TObjEneSlimeWaterBombFv(u8 *arg0) {
 void run_task__21TObjEneSlimeWaterBombFv(Bomb_800E8D4C *arg0) {
     s32 die = 0;
     arg0->vel.y += lbl_805DA6D0;
-    TBoss4Zako__sub_803D8910(&arg0->pos, &arg0->vel);
+    vec3_add_to(&arg0->pos, &arg0->vel);
     if (++arg0->timer > 0x14F) {
         die = 1;
     }
@@ -219,8 +219,8 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x38C) = arg2;
     M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x10), s32 *, 0x60);
     VecCopy__FP3VecPC3Vec((u8 *) arg0 + 0x38, M2C_FIELD(arg0, u8 **, 0x10) + 0x38);
-    s = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
-    c = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+    s = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    c = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0x38) += lbl_805DA6E0 * s;
     M2C_FIELD(arg0, f32 *, 0x3C) += lbl_805DA6E4;
     M2C_FIELD(arg0, f32 *, 0x40) += lbl_805DA6E0 * c;
@@ -248,17 +248,17 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
     s32 w0;
     s = lbl_805DA678 * self->f3A0;
     Vec_800E9090 a = self->pos;
-    TBoss6Type1__sub_803D9370(&a, &self->vel);
+    subtract_vector(&a, &self->vel);
     a.x *= lbl_805DA678;
     a.y *= lbl_805DA678;
     a.z *= lbl_805DA678;
     VecCopy__FP3VecPC3Vec(&c, &self->vel);
-    TBoss4Zako__sub_803D8910(&c, &a);
+    vec3_add_to(&c, &a);
     c.y += lbl_805DA6E8;
     ang = lbl_8043D280 * get_ad_end_text_start__10TObjPlayerFv(a.x, a.z);
     b.x = lbl_805DA6EC;
     b.y = lbl_805DA6F0;
-    b.z = lbl_805DA6EC * TBoss6Kakusan__sub_803D8BD8(&a) / lbl_805DA6F4;
+    b.z = lbl_805DA6EC * vector_length(&a) / lbl_805DA6F4;
     if (b.x > b.z) {
         b.x = b.z;
     }
@@ -266,8 +266,8 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
         return;
     }
     TObjPlayer__sub_800EBE74(s, lbl_805DA6F8, lbl_805DA6B4, lbl_805DA67C);
-    ((void (*)(void))TObjPlayer__sub_803D9B2C)();
-    TOHangerMachine01__sub_803D9C00(&c);
+    ((void (*)(void))push_matrix)();
+    post_translate_matrix(&c);
     rotate_matrix_y(0, ang);
     set_monitor_position_vec3__10TObjPlayerFPvPv(0, &b);
     t = lbl_804966E4[self->f3F4];

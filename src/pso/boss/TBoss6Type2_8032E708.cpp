@@ -127,10 +127,10 @@ typedef struct Vec_8032F690 { f32 x; f32 y; f32 z; } Vec_8032F690;
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
-f32 TBoss4Zako__sub_803D8910(void *, int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TBoss6Type1__sub_803D9370(void *, int);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vec3_add_to(void *, int);
+f32 vector_length(void *);
+f32 subtract_vector(void *, int);
+f32 normalize_vector(void *);
 extern const f32 lbl_805DF7F0;
 extern const f32 lbl_805DF7F4;
 extern const f32 lbl_805DF7F8;
@@ -204,14 +204,14 @@ s32 TBoss6Type2__sub_8032EAB8(void *arg0, s32 arg1);
 s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_state__11TBoss6Type2FPv(int);
 void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s32 arg3);
-f32 TBoss4Zako__sub_803D8910(void *, int);
+f32 vec3_add_to(void *, int);
 extern const f32 lbl_805DF83C;
 void TBoss6Type2__sub_8032F5FC(O_8032F5FC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 TBoss5GryphonLightningWing__sub_80324CEC(f32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+f32 normalize_vector(void *);
 extern const f64 lbl_80477458[];
 extern const f32 lbl_805DF7F8;
 extern const f32 lbl_805DF808;
@@ -229,25 +229,25 @@ void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1);
 void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss6Type2__sub_802BD2D0(void *, void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TBoss6Type1__sub_803D9370(void *, int);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+f32 subtract_vector(void *, int);
+f32 normalize_vector(void *);
 void TBoss6Type2__sub_8032EBB4(O_8032EBB4 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_difference_abs(s32, s32);
 u8 *get_player_by_client_id(s32);
-f32 TBoss8Dragon__sub_803D64C0(void *);
-f32 TBoss8Dragon__sub_803D64DC(void *);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
 f32 xyz_distance(void *, void *);
 extern const f64 lbl_80477458[];
 s32 TBoss6Type2__sub_8032F034(O_8032F034 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_pos_59c__11TBoss6Type2Fii(void *, void *);
-f32 TBoss4Zako__sub_803D8910(void *, int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TBoss6Type1__sub_803D9370(void *, int);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vec3_add_to(void *, int);
+f32 vector_length(void *);
+f32 subtract_vector(void *, int);
+f32 normalize_vector(void *);
 extern const f32 lbl_805DF7F4;
 extern const f32 lbl_805DF7F8;
 extern const f32 lbl_805DF800;
@@ -260,9 +260,9 @@ s32 get_state__11TBoss6Type2FPv(int);
 s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
 s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3);
-f32 TBoss8Dragon__sub_803D64C0(void *);
-f32 TBoss8Dragon__sub_803D64DC(void *);
-f32 TBoss6Type1__sub_803D9370(void *, int);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
+f32 subtract_vector(void *, int);
 extern const f32 lbl_805DF7F4;
 extern const f32 lbl_805DF800;
 extern const f32 lbl_805DF840;
@@ -282,8 +282,8 @@ void set_anim_frame__11TBoss6Type2FPvi(void* p, s32 v);
 void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2);
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
 M2C_UNK TBoss6Type2__sub_8032F418(void *);
-f32 TBoss8Dragon__sub_803D64C0(void *);
-f32 TBoss8Dragon__sub_803D64DC(void *);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
 s32 TLobby__sub_800C6C10();
 f32 get_random_float__8TObjFishFv(f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(u32);
@@ -423,19 +423,19 @@ void TBoss6Type2__sub_8032EAE4(u8 *arg0) {
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0x37C)))) != 0U)
   {
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38));
-    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
-    temp_f1 = TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8));
+    subtract_vector((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
+    temp_f1 = vector_length((void *) (&stack.sp8));
     if (!(temp_f1 >= lbl_805DF7F0))
     {
       if (temp_f1 <= lbl_805DF7F8)
       {
         stack.sp8 = apply_direction_sign__11TBoss6Type2FPvf((void *) arg0, (f32) lbl_805DF7F4);
       }
-      TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+      normalize_vector((void *) (&stack.sp8));
       stack.sp8 *= lbl_805DF7F0;
       stack.spC = lbl_805DF7FC;
       stack.sp10 *= lbl_805DF7F0;
-      TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
+      vec3_add_to((void *) (&stack.sp8), (int) ((*((u32 *) (((s8 *) arg0) + 0x37C))) + 0x38));
       VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     }
   }
@@ -451,26 +451,26 @@ void TBoss6Type2__sub_8032EBB4(O_8032EBB4 *arg0) {
         TBoss6Type2__sub_802BD2D0(arg0->p378, &pts[0], &pts[1]);
         for (i = 0; i < 2; i++) {
             VecCopy__FP3VecPC3Vec(&v, &pts[i]);
-            ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&v, &arg0->pos);
+            ((f32 (*)(void *, void *))subtract_vector)(&v, &arg0->pos);
             if (v.y < 0.0f || v.y > 50.0f) {
                 continue;
             }
             v.y = 0.0f;
-            len = TBoss6Kakusan__sub_803D8BD8(&v);
+            len = vector_length(&v);
             if (len > 50.0f) {
                 continue;
             }
             if (len <= 0.00001f) {
                 v.x = 1.0f;
             }
-            TNpcPlayer__sub_803D97B4(&v);
+            normalize_vector(&v);
             f = 50.0f - len;
             if (f > 1.0f) {
                 f *= 0.25f;
             }
             v.x *= f;
             v.z *= f;
-            ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&arg0->pos, &v);
+            ((f32 (*)(void *, void *))subtract_vector)(&arg0->pos, &v);
         }
     }
 }
@@ -487,41 +487,41 @@ void TBoss6Type2__sub_8032ECE0(u8 *arg0) {
     }
     copy_pos_59c__11TBoss6Type2Fii(M2C_FIELD(arg0, void **, 0x378), &a);
     VecCopy__FP3VecPC3Vec(&b, arg0 + 0x38);
-    ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&b, &a);
-    len = TBoss6Kakusan__sub_803D8BD8(&b);
+    ((f32 (*)(void *, void *))subtract_vector)(&b, &a);
+    len = vector_length(&b);
     if (len >= lbl_805DF800) {
         return;
     }
     if (len <= lbl_805DF7F8) {
         b.x = lbl_805DF7F4;
     }
-    TNpcPlayer__sub_803D97B4(&b);
+    normalize_vector(&b);
     b.x *= lbl_805DF800;
     b.y *= lbl_805DF800;
     b.z *= lbl_805DF800;
-    ((f32 (*)(void *, void *))TBoss4Zako__sub_803D8910)(&b, &a);
+    ((f32 (*)(void *, void *))vec3_add_to)(&b, &a);
     VecCopy__FP3VecPC3Vec(&c, arg0 + 0x38);
-    ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&c, arg0 + 0x44);
-    dist = TBoss6Kakusan__sub_803D8BD8(&c);
+    ((f32 (*)(void *, void *))subtract_vector)(&c, arg0 + 0x44);
+    dist = vector_length(&c);
     VecCopy__FP3VecPC3Vec(&d, &b);
-    ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&d, arg0 + 0x44);
-    len = TBoss6Kakusan__sub_803D8BD8(&d);
+    ((f32 (*)(void *, void *))subtract_vector)(&d, arg0 + 0x44);
+    len = vector_length(&d);
     if (dist <= lbl_805DF7F8 || len <= lbl_805DF7F8) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, &b);
         return;
     }
-    TNpcPlayer__sub_803D97B4(&c);
-    TNpcPlayer__sub_803D97B4(&d);
-    ((f32 (*)(void *, void *))TBoss4Zako__sub_803D8910)(&d, &c);
-    if (TBoss6Kakusan__sub_803D8BD8(&d) <= lbl_805DF7F8) {
+    normalize_vector(&c);
+    normalize_vector(&d);
+    ((f32 (*)(void *, void *))vec3_add_to)(&d, &c);
+    if (vector_length(&d) <= lbl_805DF7F8) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, &b);
         return;
     }
-    TNpcPlayer__sub_803D97B4(&d);
+    normalize_vector(&d);
     d.x *= dist;
     d.y *= dist;
     d.z *= dist;
-    ((f32 (*)(void *, void *))TBoss4Zako__sub_803D8910)(&d, arg0 + 0x44);
+    ((f32 (*)(void *, void *))vec3_add_to)(&d, arg0 + 0x44);
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, &d);
 }
 
@@ -529,11 +529,11 @@ void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s
     f32 temp_f31;
     f32 temp_f30;
 
-    temp_f31 = -TBoss8Dragon__sub_803D64C0((void *) (arg3));
+    temp_f31 = -sin_table_lookup((void *) (arg3));
     temp_f30 = lbl_805DF7F4 - get_random_float__8TObjFishFv((f32) (temp_f31));
-    M2C_FIELD(arg1, f32 *, 0) = (f32) (temp_f30 * TBoss8Dragon__sub_803D64C0((void *) (arg2)));
+    M2C_FIELD(arg1, f32 *, 0) = (f32) (temp_f30 * sin_table_lookup((void *) (arg2)));
     M2C_FIELD(arg1, f32 *, 4) = temp_f31;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f30 * TBoss8Dragon__sub_803D64DC((void *) (arg2)));
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f30 * cos_table_lookup((void *) (arg2)));
 }
 
 extern const f32 lbl_805DF7F4;
@@ -547,10 +547,10 @@ typedef struct RecoveredFields_8032F174_arg0 RecoveredFields_8032F174_arg0;
 s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3) {
     Vec_8032EF34 v;
     VecCopy__FP3VecPC3Vec(&v, arg3);
-    if (TBoss6Kakusan__sub_803D8BD8(&v) <= lbl_805DF7F8) {
+    if (vector_length(&v) <= lbl_805DF7F8) {
         return 0;
     }
-    TNpcPlayer__sub_803D97B4(&v);
+    normalize_vector(&v);
     if (v.y < lbl_805DF808) {
         *arg1 = 0;
         *arg2 = 0x7FFF;
@@ -587,9 +587,9 @@ s32 TBoss6Type2__sub_8032F034(O_8032F034 *arg0) {
     }
     V3_8032F034 c;
     VecCopy__FP3VecPC3Vec(&c, &b);
-    c.x += 90.0f * TBoss8Dragon__sub_803D64C0((void *)arg0->f60);
+    c.x += 90.0f * sin_table_lookup((void *)arg0->f60);
     c.y = 0.0f;
-    c.z += 90.0f * TBoss8Dragon__sub_803D64DC((void *)arg0->f60);
+    c.z += 90.0f * cos_table_lookup((void *)arg0->f60);
     if (xyz_distance(&c, &a) <= 100.0f) {
         return 1;
     }
@@ -692,7 +692,7 @@ void TBoss6Type2__sub_8032F5FC(O_8032F5FC *arg0) {
     v.x = v.x * k;
     v.y = v.y * k;
     v.z = v.z * k;
-    TBoss4Zako__sub_803D8910(&arg0->pos, (int)&v);
+    vec3_add_to(&arg0->pos, (int)&v);
 }
 
 #pragma push
@@ -719,8 +719,8 @@ void TBoss6Type2__sub_8032F690(u8 *arg0) {
             ang = (s32)(lbl_805DF840 * apply_direction_sign__11TBoss6Type2FPvf(arg0, lbl_805DF7F4) + (f32)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x378), s32 *, 0x60));
             t = M2C_FIELD(arg0, u8 **, 0x378);
             VecCopy__FP3VecPC3Vec(&v, t + 0x38);
-            v.x += lbl_805DF800 * ((f32 (*)(s32))TBoss8Dragon__sub_803D64C0)(ang);
-            v.z += lbl_805DF800 * ((f32 (*)(s32))TBoss8Dragon__sub_803D64DC)(ang);
+            v.x += lbl_805DF800 * ((f32 (*)(s32))sin_table_lookup)(ang);
+            v.z += lbl_805DF800 * ((f32 (*)(s32))cos_table_lookup)(ang);
         }
         v.y = lbl_805DF844;
     } else {
@@ -730,7 +730,7 @@ void TBoss6Type2__sub_8032F690(u8 *arg0) {
     if (project_actor_to_ground(arg0, &v, 0) != 0) {
         v.y += lbl_805DF844;
     }
-    ((f32 (*)(void *, void *))TBoss6Type1__sub_803D9370)(&v, arg0 + 0x38);
+    ((f32 (*)(void *, void *))subtract_vector)(&v, arg0 + 0x38);
     turn = 0x1B4;
     if (get_state__11TBoss6Type2FPv(M2C_FIELD(arg0, s32 *, 0x378)) == 0xE) {
         turn = 0x6D0;

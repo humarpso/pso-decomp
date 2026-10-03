@@ -99,8 +99,8 @@ M2C_UNK load_list_texture(int, int, int, int);
 extern s32 lbl_805D77EC;
 void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
-void TObjPlayer__sub_803D7FE0(const FloatColor*,ByteColor*);
-void TObjPlayer__sub_803D8008(const ByteColor*,FloatColor*);
+void convert_color_f32_to_u8(const FloatColor*,ByteColor*);
+void convert_color_u8_to_f32(const ByteColor*,FloatColor*);
 extern FloatColor lbl_8058D4C0;
 extern const ByteColor lbl_805E1090;
 extern s32 some_id_805c6f74,lbl_805D7788;
@@ -122,7 +122,7 @@ extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
 void TObjPlayer__sub_803D9884(u8 *, u8 *);
-void TObjPlayer__sub_803D9990(u8 *, u8 *);
+void rotate_vector_by_current_matrix(u8 *, u8 *);
 void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
 void GXBegin(int, int, u16);
 extern const f32 lbl_805E1088;
@@ -218,7 +218,7 @@ void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0) {
     u8 *dst = arg0->dst;
     while (n-- > 0) {
         TObjPlayer__sub_803D9884(src, dst);
-        TObjPlayer__sub_803D9990(src + 0xC, dst + 0xC);
+        rotate_vector_by_current_matrix(src + 0xC, dst + 0xC);
         f32 t = *(f32 *)(src + 0x18);
         src += 0x1C;
         *(s32 *)(dst + 0x18) = __cvt_fp2unsigned(t);
@@ -282,15 +282,15 @@ void submit_chunk_material_color(u8 type, s16* data) {
         color.g=(gb>>8)&255;
         color.b=(u8)gb;
         if ((u32)(some_id_805c6f74&0x10)!=0U) {
-            TObjPlayer__sub_803D7FE0(&lbl_8058D4C0,&converted);
+            convert_color_f32_to_u8(&lbl_8058D4C0,&converted);
             GXSetChanMatColor(4,converted);
         } else if ((u32)(some_id_805c6f74&0x20)!=0U) {
-            TObjPlayer__sub_803D8008(&color,&add);
+            convert_color_u8_to_f32(&color,&add);
             add.a+=lbl_8058D4C0.a;
             add.r+=lbl_8058D4C0.r;
             add.g+=lbl_8058D4C0.g;
             add.b+=lbl_8058D4C0.b;
-            TObjPlayer__sub_803D7FE0(&add,&convertedAdd);
+            convert_color_f32_to_u8(&add,&convertedAdd);
             GXSetChanMatColor(4,convertedAdd);
         } else GXSetChanMatColor(4,color);
     }

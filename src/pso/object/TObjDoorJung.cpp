@@ -68,9 +68,9 @@ void free_children__12TObjDoorJungFPvPv(s32, u16);
 void offset_position__6TSceneFPvii(void *, int, int);
 void PPCSync();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object(void *);
 extern s32 lbl_8050DC98[];
@@ -115,7 +115,7 @@ void run_task__12TObjDoorJungFv(u8 *arg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s16);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
-M2C_UNK TRaderMapCore__sub_801F9AC4(void *, M2C_UNK, u16, M2C_UNK, M2C_UNK);
+M2C_UNK minimap_render_gate(void *, M2C_UNK, u16, M2C_UNK, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
@@ -179,8 +179,8 @@ void render__12TObjDoorJungFv(u8 *arg0) {
             }
         }
         set_global_param__8TObjFishFi((void *)lbl_805D5BD4);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw_ginja_object(get_bml_model(TObjDoorJung__data_805D5BD0, 0));
         begin_effect_render__13TParticleCtrlFv();
@@ -217,10 +217,10 @@ void run_task__12TObjDoorJungFv(u8 *arg0) {
         ((VObj_8018F458 *)arg0)->m12();
     }
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFF00FF00, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
         return;
     }
-    TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFFFF0000, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+    minimap_render_gate(arg0 + 0x38, 0xFFFF0000, (u16) M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
 }
 
 extern M2C_UNK __vt__12TObjDoorJung[];

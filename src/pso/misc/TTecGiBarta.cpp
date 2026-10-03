@@ -102,7 +102,7 @@ struct Obj_80230CFC {
 };
 
 extern "C" {
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_802308A0_lbl_804CC510 lbl_804CC510;
@@ -119,7 +119,7 @@ extern void *__vt__11TTecGiBarta[];
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
-void TObjFish__sub_802304A0(void *);
+void create_particles__11TTecGiBartaFv(void *);
 void TTecGiBarta__sub_802308A0(u8 *arg0);
 void construct_aimed_technique_projectile();
 extern void *__vt__11TTecGiBarta[];
@@ -128,7 +128,7 @@ extern const f32 lbl_805DC80C;
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 u16 obj_getField1c(void *);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
-void TObjFish__sub_802304A0(void *);
+void create_particles__11TTecGiBartaFv(void *);
 void TTecGiBarta__sub_802308A0(u8 *arg0);
 void TObjPlayer__sub_8023AA4C();
 extern void *__vt__11TTecGiBarta[];
@@ -196,7 +196,7 @@ typedef char RecoveredGlobal_802308A0_lbl_804CC510_size[((sizeof(RecoveredGlobal
 typedef char RecoveredGlobal_802308A0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802308A0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 void TTecGiBarta__sub_802308A0(u8 *arg0) {
   s32 new_var;
-  new_var = TTecCtrl__sub_8022DBC4((int) 4, (int) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4, (int) 0xFFFF);
+  new_var = calc_technique_parameters((int) 4, (int) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_802308A0_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
@@ -291,7 +291,7 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
     if (self->owner) {
         self->fc8 = ((s16)obj_getField1c(self->owner));
     }
-    TObjFish__sub_802304A0(self);
+    create_particles__11TTecGiBartaFv(self);
     update_technique_by_phase__11TTecGiBartaFPv((u8 *)self);
     return self;
 }
@@ -309,7 +309,7 @@ u8 *TTecGiBarta__sub_80230CFC(u8 *arg0, void * _w1, void * _w2, void * _w3, void
     if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
         M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
     }
-    TObjFish__sub_802304A0(arg0);
+    create_particles__11TTecGiBartaFv(arg0);
     update_technique_by_phase__11TTecGiBartaFPv(arg0);
     return arg0;
 }

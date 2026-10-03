@@ -250,8 +250,8 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 TLobby__sub_80184C54();
 u32 __nw__7TObjectFUl(int);
 s32 rand();
-f32 TObjPlayer__sub_803D89C0(void *, void *);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 vec3_dot(void *, void *);
+f32 subtract_vector(void *, void *);
 extern RecoveredGlobal_80183604_lbl_804FF5E8 lbl_804FF5E8;
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DBC1C;
@@ -303,8 +303,8 @@ void fn_80183604(u8 *arg0) {
     if (((s32) (*((s32 *) (((s8 *) arg0) + 0x90)))) < 0)
     {
       VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (arg0 + 0x38));
-      TBoss6Type1__sub_803D9370((void *) (&stack.sp14), (void *) (lbl_805D4DF0 + 0x178));
-      if ((update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp14)) < lbl_805DBC3C) && (TObjPlayer__sub_803D89C0((void *) (&stack.sp14), (void *) (((u8 *) (&lbl_804FF5E8.value)) + 0xC)) > lbl_805DBC1C))
+      subtract_vector((void *) (&stack.sp14), (void *) (lbl_805D4DF0 + 0x178));
+      if ((update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp14)) < lbl_805DBC3C) && (vec3_dot((void *) (&stack.sp14), (void *) (((u8 *) (&lbl_804FF5E8.value)) + 0xC)) > lbl_805DBC1C))
       {
         temp_f30 = rand_signed_unit();
         temp_f30 = (*((f32 *) (((s8 *) arg0) + 0x68))) * temp_f30;

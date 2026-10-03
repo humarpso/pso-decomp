@@ -11,8 +11,8 @@ int TObjEnePanarms__sub_800E1C98(void*, int);
 void TObjEnePanarms__sub_800E1E74(Obj_800E1E74 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int TObjEnePanarms__sub_800E1C98(void*, int);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 lbl_8049591C[];
 extern const f32 lbl_805DA588;
 void TObjEnePanarms__sub_800E1ED0(u8 *arg0);
@@ -51,8 +51,8 @@ void TObjEnePanarms__sub_800E1ED0(u8 *arg0) {
         if (st == 0) {
             M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x39C), s32 *, 0x60) + lbl_8049591C[M2C_FIELD(arg0, s32 *, 0x380)];
             VecCopy__FP3VecPC3Vec(arg0 + 0x38, M2C_FIELD(arg0, u8 **, 0x39C) + 0x38);
-            M2C_FIELD(arg0, f32 *, 0x38) += lbl_805DA588 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
-            M2C_FIELD(arg0, f32 *, 0x40) += lbl_805DA588 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+            M2C_FIELD(arg0, f32 *, 0x38) += lbl_805DA588 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+            M2C_FIELD(arg0, f32 *, 0x40) += lbl_805DA588 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
             VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
         }
         TObjEnePanarms__sub_800E1C98(arg0, 7);

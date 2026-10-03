@@ -123,9 +123,9 @@ u32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern s32 lbl_805D5084;
 extern s32 lbl_805D5088;
 extern const f32 lbl_805D9AA4;
@@ -136,7 +136,7 @@ s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 check_v2_mode__9TObjEneDDFv();
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
-M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK update_obstruction_fade(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK TObjLight__sub_80134098();
 M2C_UNK TObjLight__sub_80134194(void *);
@@ -146,9 +146,9 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_8023DEE0(int, int, int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(void *);
 extern s32 lbl_80500988[];
@@ -277,9 +277,9 @@ void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o) {
     if (e == 0) {
         return;
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
-    TOHangerMachine01__sub_803D9C00(&o->pos);
+    post_translate_matrix(&o->pos);
     rotate_matrix_y(0, o->f60);
     TObjPlayer__sub_803D8960(0, e, &a, 2);
     pop_matrix();
@@ -366,13 +366,13 @@ void TObjPlayer__sub_800A7CA4(Player_800A7CA4 *self) {
     }
     fading = 0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        TObjPlayer__sub_800D7BB0(&self->fades[mode]);
+        update_obstruction_fade(&self->fades[mode]);
         fading = updateFromCamera__15RenderFadeStateFPCf(&self->fades[mode], self->cam);
     }
     TObjLight__sub_80134194(self);
     set_global_param__8TObjFishFi(self->f24);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(self->pos);
+    push_matrix();
+    post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         draw_chunk_object(self->f34);

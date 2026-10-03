@@ -18,7 +18,7 @@ void fn_801A0520(void);
 s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 Node_801A0578 *get_bml_model(void *, s32);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 TObjDoorJung__sub_8023DBEC(s32, void *);
 extern char lbl_80446718[];
@@ -54,7 +54,7 @@ void fn_801A0578(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 5, lbl_804B963C, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, lbl_804B963C, 0, 0, 0);
     }
     lbl_805D5CA8 = p;
     lbl_805D5CAC = TObjFish__sub_8001ED9C(p, 0);

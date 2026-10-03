@@ -17,8 +17,8 @@ typedef struct SA9_801a9bac {
 
 void update_and_destroy__10TObjPlayerFPv(u8 *arg0);
 void update_target__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_801A92B0(void *);
-M2C_UNK TObjPlayer__sub_801A9870(void *);
+M2C_UNK deliver_photon_blast_results_delayed(void *);
+M2C_UNK step_photon_blast_sequence(void *);
 s32 get_player_by_client_id(u16);
 M2C_UNK queue_deferred_photon_blast_support(s32, s32, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -45,7 +45,7 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
                 }
             }
         }
-        TObjPlayer__sub_801A92B0(arg0);
+        deliver_photon_blast_results_delayed(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -53,7 +53,7 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
 void update_target__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x3C));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
-        TObjPlayer__sub_801A9870(arg0);
+        step_photon_blast_sequence(arg0);
         return;
     }
     update_and_destroy__10TObjPlayerFPv((u8 *)(arg0));

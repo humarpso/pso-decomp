@@ -72,9 +72,9 @@ extern s32 tl_06;
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_chunk_material_override_pair(u32, u32);
 M2C_UNK set_chunk_material_color(void *);
@@ -92,7 +92,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void TTecZondeEff__sub_800A39A8(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern Entry_800A4064 *lbl_80500970[];
 extern s32 lbl_805D5038;
 extern const f32 lbl_805D99F8;
@@ -124,8 +124,8 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     set_chunk_material_override_pair(0xFFFF00FF, 0x800);
     set_global_param__8TObjFishFi(lbl_805D5034);
     set_chunk_material_color(o->color50);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(o->mtx1C);
+    push_matrix();
+    post_translate_matrix(o->mtx1C);
     s = o->f40 * o->scale;
     scale_matrix(0, s, s, s);
     draw_chunk_object(lbl_805D5030);
@@ -192,7 +192,7 @@ void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
         TTecZondeEff__sub_800A39A8(self);
         lbl_805D5038 = *lbl_80500970[0][self->type].inner->p;
         for (i = 0; i < self->count; i++) {
-            self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * TBoss8Dragon__sub_803D64C0(self->timer * 0x1800) + lbl_805D9A04);
+            self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(self->timer * 0x1800) + lbl_805D9A04);
         }
         for (i = 0; i < self->count; i++) {
             f32 s = self->scale[i];

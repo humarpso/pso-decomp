@@ -10,11 +10,11 @@ extern const f32 TBoss4Type2__data_805D8BAC;
 void TBoss4Type2__vt19(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
 extern const f64 TBoss4Type2__data_80437750;
 extern const f32 lbl_805D8BA0;
 extern const f32 TBoss4Type2__data_805D8BAC;
@@ -102,9 +102,9 @@ void TBoss4Type2__vt13(u8 *arg0) {
   s32 temp_r31;
   s32 var_r31;
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3F8), (void *) (arg0 + 0x3B4));
-  TBoss6Type1__sub_803D9370((void *) (arg0 + 0x3F8), (void *) (arg0 + 0x38));
+  subtract_vector((void *) (arg0 + 0x3F8), (void *) (arg0 + 0x38));
   *((f32 *) (((s8 *) arg0) + 0x3FC)) = (f32) TBoss4Type2__data_805D8BAC;
-  if (TBoss6Kakusan__sub_803D8BD8((void *) (arg0 + 0x3F8)) <= lbl_805D8BA0)
+  if (vector_length((void *) (arg0 + 0x3F8)) <= lbl_805D8BA0)
   {
     *((f32 *) (((s8 *) arg0) + 0x3F8)) = (f32) TBoss4Type2__data_805D8BD8;
     *((f32 *) (((s8 *) arg0) + 0x3FC)) = (f32) TBoss4Type2__data_805D8BAC;
@@ -112,7 +112,7 @@ void TBoss4Type2__vt13(u8 *arg0) {
   }
   else
   {
-    TNpcPlayer__sub_803D97B4((void *) (arg0 + 0x3F8));
+    normalize_vector((void *) (arg0 + 0x3F8));
   }
   var_r31 = (s32) (TBoss4Type2__data_80437750 * get_ad_end_text_start__10TObjPlayerFv((f32) (*((f32 *) (((s8 *) arg0) + 0x3F8))), (f32) (*((f32 *) (((s8 *) arg0) + 0x400)))));
   temp_r31 = var_r31;
@@ -125,12 +125,12 @@ void TBoss4Type2__vt13(u8 *arg0) {
     var_r31 = 0x4000;
     var_r31 = temp_r31 - var_r31;
   }
-  *((f32 *) (((s8 *) arg0) + 0x404)) = TBoss8Dragon__sub_803D64C0((int) var_r31);
-  *((f32 *) (((s8 *) arg0) + 0x40C)) = TBoss8Dragon__sub_803D64DC((int) var_r31);
+  *((f32 *) (((s8 *) arg0) + 0x404)) = sin_table_lookup((int) var_r31);
+  *((f32 *) (((s8 *) arg0) + 0x40C)) = cos_table_lookup((int) var_r31);
   *((f32 *) (((s8 *) arg0) + 0x408)) = (f32) TBoss4Type2__data_805D8BAC;
   VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x410), (void *) (arg0 + 0x38));
   *((f32 *) (((s8 *) arg0) + 0x414)) = (f32) TBoss4Type2__data_805D8BAC;
-  TNpcPlayer__sub_803D97B4((void *) (arg0 + 0x410));
+  normalize_vector((void *) (arg0 + 0x410));
   *((f32 *) (((s8 *) arg0) + 0x410)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x410))) * lbl_805D8BD0);
   *((f32 *) (((s8 *) arg0) + 0x418)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x418))) * lbl_805D8BD0);
   *((s32 *) (((s8 *) arg0) + 0x398)) = 0x96;

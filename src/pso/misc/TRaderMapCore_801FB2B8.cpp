@@ -33,7 +33,7 @@ u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
 extern "C" {
 
 void advance_scroll__13TRaderMapCoreFPv(void *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 
 extern const f32 TRaderMapCore__data_805DC534;
 extern const f32 lbl_805DC59C;
@@ -41,7 +41,7 @@ extern const f32 lbl_805DC5A0;
 
 void advance_scroll__13TRaderMapCoreFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x198) = (s32) (M2C_FIELD(arg0, s32 *, 0x198) + 0x888);
-    M2C_FIELD(arg0, f32 *, 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x198)));
+    M2C_FIELD(arg0, f32 *, 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x198)));
 }
 void run_task__13TRaderMapCoreFv(u8 *arg0) {
     s32 temp_r3;

@@ -56,7 +56,7 @@ struct VObj_80166814 : VBase_80166814 {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80166614_lbl_804B1AA0 lbl_804B1AA0;
 extern u32 lbl_805D59A8;
@@ -90,10 +90,10 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void);
 void explode__18TOExplosiveMachineFPv(u8 *arg0);
 void update__18TOExplosiveMachineFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -101,8 +101,8 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 void explode__18TOExplosiveMachineFPv(u8 *arg0) {
     VObj1_80166568 *self = (VObj1_80166568 *)arg0;
     if (self->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
@@ -127,7 +127,7 @@ void TOExplosiveMachine__sub_80166614(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B1AA0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B1AA0.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D59A8) = var_r0;
 }

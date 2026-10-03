@@ -28,8 +28,8 @@ u16 obj_getField1c(void *);
 s32 TWindowCtrl__sub_8024A228(s32);
 s32 TMainCursor__sub_8013F244(void *);
 s32 fn_8013F24C(void *, s32);
-s32 TObjPlayer__sub_801D7DA4(void *, u8, u8);
-bool TObjPlayer__sub_801D8044(TObjPlayer_801D8044 *self, u8 kind, u8 arg);
+s32 is_palette_entry_displayable__10TObjPlayerFv(void *, u8, u8);
+bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 kind, u8 arg);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void TObjPlayer__sub_801D7D4C(Obj_801D7D4C *arg0) {
         i++;
     } while (i < 4);
 }
-bool TObjPlayer__sub_801D8044(TObjPlayer_801D8044 *self, u8 kind, u8 arg) {
+bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 kind, u8 arg) {
     TItemData_801D8044 item;
     u32 w;
     switch (kind) {
@@ -200,7 +200,7 @@ bool TObjPlayer__sub_801D8044(TObjPlayer_801D8044 *self, u8 kind, u8 arg) {
     case 7:
         return 1;
     }
-    return TObjPlayer__sub_801D7DA4(self, kind, arg) != 0;
+    return is_palette_entry_displayable__10TObjPlayerFv(self, kind, arg) != 0;
 }
 
 }

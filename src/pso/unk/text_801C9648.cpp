@@ -2,7 +2,7 @@
 extern "C" {
 s32 reset_lobby_state__10TObjPlayerFPv(void *);
 s32 try_use_mag__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801C9274(void *);
+s32 enter_freeze_action__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C9400(void *);
 s32 TObjPlayer__sub_801C94B8(void *);
 s32 update_gated_action__10TObjPlayerFPv(void *);
@@ -33,7 +33,7 @@ void TObjPlayer__sub_801C9648(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801C9400((void *) arg0);
         return;
       case 0:
-        TObjPlayer__sub_801C9274((void *) arg0);
+        enter_freeze_action__10TObjPlayerFv((void *) arg0);
         return;
       case 1:
         try_use_mag__10TObjPlayerFPv((void *) arg0);

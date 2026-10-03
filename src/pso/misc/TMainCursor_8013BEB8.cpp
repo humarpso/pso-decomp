@@ -18,17 +18,17 @@ extern "C" {
 u8 * csnVector(s32, s32, s32);
 void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2);
 void update_scale__15TObjBoss2TunnelFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vec3_dot(void *, void *);
 extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0E0;
 s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 void update_scale__15TObjBoss2TunnelFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vec3_dot(void *, void *);
 extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0E0;
@@ -55,7 +55,7 @@ M2C_UNK set_flag_bit__11TMainCursorFPviUs(void *, int, int);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-s32 TMainCursor__sub_8013C288(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
+s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best);
 }
 
 extern "C" {
@@ -111,13 +111,13 @@ s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 ran
             b.z = a.z;
             update_scale__15TObjBoss2TunnelFPv(&a);
             update_scale__15TObjBoss2TunnelFPv(&b);
-            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+            if (vec3_dot(&a, &b) < range) {
                 return 0;
             }
         } else {
-            x = dist * TBoss8Dragon__sub_803D64C0(yaw + 0x8000) + p->x;
+            x = dist * sin_table_lookup(yaw + 0x8000) + p->x;
             y = p->y;
-            z = dist * TBoss8Dragon__sub_803D64DC(yaw + 0x8000) + p->z;
+            z = dist * cos_table_lookup(yaw + 0x8000) + p->z;
             a.x = q->x - x;
             a.y = TMainCursor__data_805DB0C0;
             a.z = q->z - z;
@@ -126,7 +126,7 @@ s32 TMainCursor__sub_8013BF0C(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 ran
             b.z = a.z;
             update_scale__15TObjBoss2TunnelFPv(&a);
             update_scale__15TObjBoss2TunnelFPv(&b);
-            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+            if (vec3_dot(&a, &b) < range) {
                 return 0;
             }
         }
@@ -143,32 +143,32 @@ s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw
     f32 x;
     f32 z;
     if (lbl_805DB0E0 < range && range < TMainCursor__data_805DB0CC) {
-        a.x = TBoss8Dragon__sub_803D64C0(yaw);
+        a.x = sin_table_lookup(yaw);
         a.y = TMainCursor__data_805DB0C0;
-        a.z = TBoss8Dragon__sub_803D64DC(yaw);
+        a.z = cos_table_lookup(yaw);
         if (TMainCursor__data_805DB0C0 == dist) {
             b.x = q->x - p->x;
             b.y = TMainCursor__data_805DB0C0;
             b.z = q->z - p->z;
             update_scale__15TObjBoss2TunnelFPv(&b);
-            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+            if (vec3_dot(&a, &b) < range) {
                 return 0;
             }
         } else {
-            x = dist * TBoss8Dragon__sub_803D64C0(yaw + 0x8000) + p->x;
-            z = dist * TBoss8Dragon__sub_803D64DC(yaw + 0x8000) + p->z;
+            x = dist * sin_table_lookup(yaw + 0x8000) + p->x;
+            z = dist * cos_table_lookup(yaw + 0x8000) + p->z;
             b.x = q->x - x;
             b.y = TMainCursor__data_805DB0C0;
             b.z = q->z - z;
             update_scale__15TObjBoss2TunnelFPv(&b);
-            if (TObjPlayer__sub_803D89C0(&a, &b) < range) {
+            if (vec3_dot(&a, &b) < range) {
                 return 0;
             }
             lbl_8050BEE0.x = q->x - r->x;
             lbl_8050BEE0.y = TMainCursor__data_805DB0C0;
             lbl_8050BEE0.z = q->z - r->z;
             update_scale__15TObjBoss2TunnelFPv(&lbl_8050BEE0);
-            if (TObjPlayer__sub_803D89C0(&a, &lbl_8050BEE0) < TMainCursor__data_805DB0C0) {
+            if (vec3_dot(&a, &lbl_8050BEE0) < TMainCursor__data_805DB0C0) {
                 return 0;
             }
         }
@@ -181,7 +181,7 @@ void TMainCursor__sub_8013C260(M2C_UNK arg0, s32 arg1, s32 arg2) {
     csnVector(arg2, arg1, 0x28A0);
 }
 
-s32 TMainCursor__sub_8013C288(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best) {
+s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 *target, Best_8013C288 *best) {
     f32 dist;
     s32 slot;
     s32 found;

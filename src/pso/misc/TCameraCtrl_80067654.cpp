@@ -19,8 +19,8 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TCameraCtrl__sub_8003CFF4();
-f32 TBoss6Kakusan__sub_803D8BD8(void *, int, f32, f32);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *, int, f32, f32);
+M2C_UNK normalize_vector(void *);
 extern const f32 lbl_805D8F28;
 extern const f32 lbl_805D8F2C;
 extern const f32 lbl_805D8F30;
@@ -80,8 +80,8 @@ void TCameraCtrl__sub_800676A0(u8 *arg0) {
             temp_f1 = temp_f2 - M2C_FIELD(temp_r3, f32 *, 8);
             stack.spC = lbl_805D8F2C;
             stack.sp10 = temp_f1;
-            if (lbl_805D8F2C != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (int) (temp_r4), (f32) (temp_f1), (f32) (temp_f2))) {
-                TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+            if (lbl_805D8F2C != vector_length((void *) (&stack.sp8), (int) (temp_r4), (f32) (temp_f1), (f32) (temp_f2))) {
+                normalize_vector((void *) (&stack.sp8));
                 M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((lbl_805D8F30 * stack.sp8) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x38));
                 M2C_FIELD(arg0, f32 *, 0x40) = (f32) (lbl_805D8F34 + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x3C));
                 M2C_FIELD(arg0, f32 *, 0x44) = (f32) ((lbl_805D8F30 * stack.sp10) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), f32 *, 0x40));

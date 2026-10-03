@@ -50,7 +50,7 @@ struct RecoveredFields_8008213C_temp_r3 {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80082080_lbl_8048E194 lbl_8048E194;
 extern u32 lbl_805D4ED0;
@@ -103,7 +103,7 @@ void TLobby__sub_80082080(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_8048E194.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_8048E194.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D4ED0) = var_r0;
 }

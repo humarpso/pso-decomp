@@ -74,7 +74,7 @@ void TObjEneGibbles__sub_802DA96C(u8 *arg0);
 extern u32 TObjEneGibbles__data_805D68B8;
 void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 subtract_vector(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 void clamp_angle__14TObjEneGibblesFPvi(void *arg0, s32 arg1);
@@ -86,15 +86,15 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TLobby__sub_800822E8(void *, int);
 s32 angle_difference_abs(s32, s32);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 subtract_vector(void *, void *);
 extern const f64 TObjEneGibbles__data_80472798;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DE824;
 s32 TObjEneGibbles__sub_802D8828(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+f32 subtract_vector(void *, void *);
 extern const f64 TObjEneGibbles__data_80472798;
 extern u32 TObjEneGibbles__data_805D68AC;
 void TObjEneGibbles__sub_802D9D64(u8 *arg0);
@@ -193,7 +193,7 @@ s32 TObjEneGibbles__sub_802D8828(u8 *arg0) {
                 && angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA
                 && TLobby__sub_800822E8(pl, 0xE0) != 0) {
                 VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (arg0 + 0x2FC));
-                TBoss6Type1__sub_803D9370(&v, pl + 0x2FC);
+                subtract_vector(&v, pl + 0x2FC);
                 if (angle_difference_abs(M2C_FIELD(pl, s32 *, 0x60), (s32) (TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x2AAA) {
                     M2C_FIELD(arg0, u8 **, 0x3B0) = pl;
                     M2C_FIELD(arg0, s32 *, 0x374) |= 0x20;
@@ -211,7 +211,7 @@ void TObjEneGibbles__sub_802D9D64(u8 *arg0) {
     case 0:
     default: {
         VecCopy__FP3VecPC3Vec((Vec_800A6B14 *) &v, (Vec_800A6B14 *) (M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC));
-        TBoss6Type1__sub_803D9370(&v, arg0 + 0x2FC);
+        subtract_vector(&v, arg0 + 0x2FC);
         f64 t = get_ad_end_text_start__10TObjPlayerFv(v.x, v.z);
         M2C_FIELD(arg0, s16 *, 0x326) = 4;
         if ((s32) (TObjEneGibbles__data_80472798 * t) < 0x10) {
@@ -235,7 +235,7 @@ void TObjEneGibbles__sub_802D9D64(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x374) = (s32) (M2C_FIELD(arg0, s32 *, 0x374) & 0xFFFFFF7F);
         break;
     }
-    TObjPlayer__sub_800F7478(arg0, 0, ((s32 *) TObjEneGibbles__data_805D68AC)[M2C_FIELD(arg0, s16 *, 0x37C)], 0);
+    bind_enemy_combat_stats(arg0, 0, ((s32 *) TObjEneGibbles__data_805D68AC)[M2C_FIELD(arg0, s16 *, 0x37C)], 0);
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) |= 1;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xF9FBFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x200000);
@@ -501,7 +501,7 @@ void TObjEneGibbles__sub_802DAAC8(u8 *arg0) {
 void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self) {
     Vec_800A6B14 d;
     VecCopy__FP3VecPC3Vec(&d, &self->target->pos);
-    TBoss6Type1__sub_803D9370(&d, &self->pos);
+    subtract_vector(&d, &self->pos);
     clamp_angle__14TObjEneGibblesFPvi(self,
         TBoss4Type2__sub_80141FA8(self->angle, (s32)(TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z))));
 }

@@ -98,7 +98,7 @@ struct RecoveredGlobal_802FED58___vt__12TObjNpcHosa2 {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802FECB0_lbl_804E63D8 lbl_804E63D8;
 extern u32 TObjNpcHosa2__data_805D69D8;
@@ -139,7 +139,7 @@ void TObjNpcHosa2__sub_802FECB0(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804E63D8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804E63D8.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcHosa2__data_805D69D8) = var_r0;
 }

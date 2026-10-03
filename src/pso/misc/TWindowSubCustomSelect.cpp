@@ -35,7 +35,7 @@ struct Stack_80277368
 
 extern "C" {
 s32 TWindowSubStatusDisp__sub_80244364();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(int, int, void *);
 M2C_UNK TWindowSubCustomSelect__sub_802776D0(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
@@ -195,7 +195,7 @@ void TWindowSubCustomSelect__sub_80277638(u8 *arg0, u8 *arg1) {
 void render__22TWindowSubCustomSelectFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubCustomSelect__sub_802776D0((void *) (arg0), (int) (temp_r3));
     TWindowSubCustomSelect__sub_80277638((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x7C)), (int) (temp_r3));

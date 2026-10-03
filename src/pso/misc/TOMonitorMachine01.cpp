@@ -67,9 +67,9 @@ extern const f32 lbl_805DB904;
 extern const f32 lbl_805DB908;
 void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self);
 int rotate_matrix_y(int, int);
-int TObjPlayer__sub_803D9B2C();
+int push_matrix();
 int pop_matrix();
-int TOHangerMachine01__sub_803D9C00(void *);
+int post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(int);
 int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
@@ -139,47 +139,47 @@ void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
 void render__18TOMonitorMachine01Fv(Mon_80172220 *self) {
     Node_80172220 *n;
     if (self->m8(self->fC0, self->fC4) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((u8 *)self + 0x38);
+        push_matrix();
+        post_translate_matrix((u8 *)self + 0x38);
         rotate_matrix_y(0, self->f60);
         set_global_param__8TObjFishFi(self->f24);
         n = self->model->root;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, -self->fCC, 0.0f, 0.0f);
         draw_ginja_model(n->f4);
         pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
         n = n->next;
         if (self->f84 == 2) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
             draw_ginja_model(n->f4);
             pop_matrix();
         }
         n = n->next;
         if (self->f84 == 1) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
             draw_ginja_model(n->f4);
             pop_matrix();
         }
         end_effect_render__13TParticleCtrlFv();
         n = n->next;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, self->fCC, TOMonitorMachine01__data_805DB8F8, TOMonitorMachine01__data_805DB8F8);
         draw_ginja_model(n->f4);
         pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
         n = n->next;
         if (self->f84 == 0) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
             draw_ginja_model(n->f4);
             pop_matrix();
         }
         n = n->next;
         if (self->f84 == 3) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             scale_matrix(0, self->fD0, self->fD0, lbl_805DB8F0);
             draw_ginja_model(n->f4);
             pop_matrix();

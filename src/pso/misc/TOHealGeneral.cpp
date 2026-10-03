@@ -71,7 +71,7 @@ struct Heal_80169858 {
 
 extern "C" {
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern RecoveredGlobal_80169710_lbl_804B2748 lbl_804B2748;
@@ -127,12 +127,12 @@ void TLobby__sub_8001FE7C(void*, int);
 u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
 M2C_UNK TOHangerMachine01__sub_80169168(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK find_heal_target__13TOHealGeneralFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -167,20 +167,20 @@ void render__13TOHealGeneralFv(u8 *arg0) {
     u8 *temp_r31_3;
 
     if (((VObj_801695a8_80169520 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
-        TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+        post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
-        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+        post_translate_matrix((void *) (temp_r31_2 + 8));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xCC)));
         draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
         translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_3, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0xD0)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0x10)));
         rotate_matrix_y((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0xCC)));
@@ -238,7 +238,7 @@ void load_resources__13TOHealGeneralFv(void) {
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
-      var_r0 = (long) TLobby__sub_80020004((void *) temp_r3_2, 1, &lbl_804B2760.value, 0, 0, 0);
+      var_r0 = (long) load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B2760.value, 0, 0, 0);
     }
     (*(s32 *)&TOHealGeneral__data_805D59F0) = var_r0;
     return;
@@ -248,7 +248,7 @@ void load_resources__13TOHealGeneralFv(void) {
   var_r0_2 = temp_r3_3;
   if (var_r0_2 != 0)
   {
-    var_r0_2 = (long) TLobby__sub_80020004((void *) temp_r3_3, 1, &lbl_804B2748.value, 0, 0, 0);
+    var_r0_2 = (long) load_resource_from_descriptor((void *) temp_r3_3, 1, &lbl_804B2748.value, 0, 0, 0);
   }
   (*(s32 *)&TOHealGeneral__data_805D59F0) = var_r0_2;
 }

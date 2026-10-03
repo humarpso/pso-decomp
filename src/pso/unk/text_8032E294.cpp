@@ -22,7 +22,7 @@ struct Eff_8032E34C {
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_8032DF74(int);
-M2C_UNK TNpcPlayer__sub_803D97B4(int, int);
+M2C_UNK normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
 void TItemWpnCardEffect__ct(u8 *arg0);
@@ -56,7 +56,7 @@ void TItemWpnCardEffect__ct(u8 *arg0) {
   *((s32 *) (((s8 *) var_r31) + 0x24)) = 0;
   *((s32 *) (((s8 *) var_r31) + 0x54)) = 0;
   *((s32 *) (((s8 *) var_r31) + 0x5C)) = 0;
-  TNpcPlayer__sub_803D97B4((int) var_r3, (int) var_r4);
+  normalize_vector((int) var_r3, (int) var_r4);
   if (((u16) (*((u16 *) (((s8 *) var_r31) + 0x34)))) != ((-1U) & 0xFFFFu))
   {
     var_r3 = (u8 *) (*((u8 **) (((s8 *) var_r31) + 0x28)));

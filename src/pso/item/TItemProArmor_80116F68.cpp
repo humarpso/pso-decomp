@@ -118,7 +118,7 @@ s16 calc_scaled_offset__13TItemProArmorFv(void);
 int get_stat_value__13TItemProArmorFPv(void* p);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte();
-M2C_UNK TObjPlayer__sub_8022D27C(M2C_UNK, M2C_UNK, s32);
+M2C_UNK launch_technique__10TObjPlayerFv(M2C_UNK, M2C_UNK, s32);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 int obj_getS16_2BA(void*);
@@ -186,7 +186,7 @@ u8 *create_technique_disk_item(u8 *arg0) {
 }
 
 void apply_telepipe(void *arg0) {
-    TObjPlayer__sub_8022D27C(0xE, 0, M2C_FIELD(arg0, s32 *, 0xF0));
+    launch_technique__10TObjPlayerFv(0xE, 0, M2C_FIELD(arg0, s32 *, 0xF0));
 }
 
 extern M2C_UNK lbl_8049FD48[];

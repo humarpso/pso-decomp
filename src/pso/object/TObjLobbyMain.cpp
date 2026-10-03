@@ -30,7 +30,7 @@ struct RecoveredGlobal_80352940___vt__13TObjLobbyMain {
 
 extern "C" {
 s32 get_bml_model(void *, s32);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 lbl_804F0F24;
@@ -132,7 +132,7 @@ void TObjLobbyMain__sub_803527F0(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F0F24.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F0F24.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjLobbyMain__data_805D6EC8) = (unsigned char *) ((void *) var_r0);
     lbl_805D6ECC = get_lobby_type__6TLobbyFv();

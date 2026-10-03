@@ -75,13 +75,13 @@ s32 TObjLight__sub_80134098();
 s32 TObjLight__sub_80134194(void *);
 s32 draw__16TObjEneRe7BeruraFPv(void *);
 s32 end_effect_render__13TParticleCtrlFv();
-f32 TBoss8Dragon__sub_803D64C0(int);
+f32 sin_table_lookup(int);
 s32 scale_matrix(int, f32, f32, f32);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 extern s32 TBoss3VoloptHiraisin__data_805D4C80;
@@ -229,13 +229,13 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         some_id_805c6f74 |= 0x01000000;
         TObjLight__sub_80134194((void *) (arg0));
         toggle_particle_effect__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         some_id_805c6f74 &= 0xFFFFFBFF;
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        post_translate_matrix((void *) (arg0 + 0x38));
         if ((u32) ((RecoveredFields_800413C8_arg0 *)arg0)->field_B4 == 8U) {
             translate_matrix((int) (0), (f32) (lbl_805D8720), (f32) (lbl_805D8724), (f32) (lbl_805D8720));
         }
-        translate_matrix((int) (0), (f32) (lbl_805D8720), (f32) (TBoss8Dragon__sub_803D64C0((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) (lbl_805D8720));
+        translate_matrix((int) (0), (f32) (lbl_805D8720), (f32) (sin_table_lookup((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38C))), (f32) (lbl_805D8720));
         rotate_matrix_y((int) (0), (int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_60));
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             draw_chunk_object((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_34));
@@ -247,7 +247,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         some_id_805c6f74 = lbl_805D5660;
         if (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C < lbl_805D8708) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             temp_f31 = -((lbl_805D872C * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - lbl_805D8710)) - lbl_805D8728);
             translate_matrix((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) (lbl_805D8730), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
             scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));

@@ -26,7 +26,7 @@ M2C_UNK TBoss4DarkFalz__sub_8004BAC4(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 query_teammate_state__9TObjEneDDFPv();
 void run_task__14TBoss4DarkFalzFv(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK fn_802E52AC();
 M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
@@ -186,7 +186,7 @@ void TBoss4DarkFalz__sub_8004C0D4(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_80484D74.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_80484D74.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D4D58) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {

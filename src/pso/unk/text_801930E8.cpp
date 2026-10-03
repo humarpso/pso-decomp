@@ -23,9 +23,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK free_children__12TObjDoorJungFPvPv(s32, u16);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
@@ -48,10 +48,10 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1);
 void draw__15TObjLazerFence4FPv(void *arg0);
 void render__15TObjLazerFence4Fv(void *arg0);
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility(void *, f32, f32);
@@ -102,8 +102,8 @@ void TObjLazerFence4__sub_80193188(Fence_80193188 *arg0) {
 
 void draw__15TObjLazerFence4FPv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D5C28);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     draw_ginja_object(M2C_FIELD(arg0, void **, 0xC0));
     pop_matrix();
@@ -125,8 +125,8 @@ void TObjLazerFence4__sub_801932E4(u8 *arg0) {
   }
   while (var_r30 < 0xC);
   set_global_param__8TObjFishFi((void *)((*(s32 *)&lbl_805D5C28)));
-  TObjPlayer__sub_803D9B2C();
-  TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+  push_matrix();
+  post_translate_matrix(arg0 + 0x38);
   rotate_matrix_y((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));
   draw_ginja_object((void *)(*((s32 *) (((s8 *) arg0) + 0xC0))));
   begin_effect_render__13TParticleCtrlFv();

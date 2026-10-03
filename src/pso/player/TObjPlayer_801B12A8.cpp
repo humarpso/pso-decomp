@@ -282,9 +282,9 @@ M2C_UNK TFontSmallLobby__sub_801C0228();
 s32 TObjPlayer__sub_800166DC(s32);
 s32 TObjPlayer__sub_80016944(s32);
 s32 TObjPlayer__sub_80016C54(s32);
-s32 TObjPlayer__sub_80016D78(s32);
-s32 TObjPlayer__sub_80016FF8(s32);
-s32 TObjPlayer__sub_800171A0(s32);
+s32 update_movement_status__10TObjPlayerFv(s32);
+s32 update_action_hold_status__10TObjPlayerFv(s32);
+s32 update_poison_status__10TObjPlayerFv(s32);
 s32 TObjPlayer__sub_801AFF0C();
 s32 check_flag_4__10TObjPlayerFPv();
 M2C_UNK check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
@@ -528,7 +528,7 @@ s32 TObjPlayer__vt37(s32 arg0) {
     if ((reset_volopt_state__10TObjPlayerFv() == 0) || (test_flag_2000000__10TObjPlayerFPv(arg0) != 0)) {
         return 0;
     }
-    return TObjPlayer__sub_80016D78(arg0);
+    return update_movement_status__10TObjPlayerFv(arg0);
 }
 
 s32 TObjPlayer__vt36(s32 arg0) {
@@ -549,14 +549,14 @@ s32 TObjPlayer__vt34(s32 arg0) {
     if ((reset_volopt_state__10TObjPlayerFv() == 0) || (test_flag_2000000__10TObjPlayerFPv(arg0) != 0)) {
         return 0;
     }
-    return TObjPlayer__sub_80016FF8(arg0);
+    return update_action_hold_status__10TObjPlayerFv(arg0);
 }
 
 s32 TObjPlayer__vt33(s32 arg0) {
     if ((reset_volopt_state__10TObjPlayerFv() == 0) || (test_flag_2000000__10TObjPlayerFPv(arg0) != 0)) {
         return 0;
     }
-    return TObjPlayer__sub_800171A0(arg0);
+    return update_poison_status__10TObjPlayerFv(arg0);
 }
 
 s32 check_flag30_bit20__10TObjPlayerFi(s32 arg0) {

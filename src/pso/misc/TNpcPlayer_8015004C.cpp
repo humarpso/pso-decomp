@@ -87,7 +87,7 @@ void TNpcPlayer__sub_80152D04(void *);
 void set_state__10TNpcPlayerFPvs(void *, s16);
 void set_type__10TNpcPlayerFPvs(void *, u16);
 s32 try_camera_action__10TObjPlayerFii(void *, s32);
-s8 fn_801D9870(void *, s16);
+s8 get_cast_technique_level(void *, s16);
 void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind);
 u8 *find_active_entity_by_id(int);
 Tgt_801518A4 *TNpcPlayer__sub_80152A30(void *);
@@ -121,8 +121,8 @@ s32 get_action_state__10TNpcPlayerFPv(void *);
 extern const f64 lbl_8043FFD8;
 void partner_observe_surroundings(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *, int, f32, f32);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *, int, f32, f32);
+M2C_UNK normalize_vector(void *);
 extern const f32 TNpcPlayer__data_805DB1F0;
 s32 TNpcPlayer__sub_801515E0(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *, int);
@@ -315,11 +315,11 @@ void TNpcPlayer__sub_80150A34(Npc_80150A34 *self, s32 kind) {
             if (kind == 15) {
                 self->flags |= 0x10000;
             }
-            m.e = fn_801D9870(actor + 0x428, kind);
+            m.e = get_cast_technique_level(actor + 0x428, kind);
             set_type__10TNpcPlayerFPvs(m.sub, ((s32 (*)(void *))get_npc_type__10TNpcPlayerFPv)(self->p74));
             set_state__10TNpcPlayerFPvs(m.sub, 0);
         } else {
-            m.e = fn_801D9870(actor + 0x428, kind);
+            m.e = get_cast_technique_level(actor + 0x428, kind);
             set_type__10TNpcPlayerFPvs(m.sub, ((s32 (*)(void *))get_npc_state__10TNpcPlayerFPv)(self->p78));
             set_state__10TNpcPlayerFPvs(m.sub, TNpcPlayer__sub_801528DC(self->p78));
         }
@@ -371,8 +371,8 @@ s32 TNpcPlayer__sub_801515E0(u8 *arg0) {
                 temp_f1 = temp_f2 - M2C_FIELD(temp_r4, f32 *, 0x40);
                 stack.spC = TNpcPlayer__data_805DB1F0;
                 stack.sp10 = temp_f1;
-                if (TNpcPlayer__data_805DB1F0 != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (int) (temp_r4), (f32) (temp_f1), (f32) (temp_f2))) {
-                    TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+                if (TNpcPlayer__data_805DB1F0 != vector_length((void *) (&stack.sp8), (int) (temp_r4), (f32) (temp_f1), (f32) (temp_f2))) {
+                    normalize_vector((void *) (&stack.sp8));
                 }
                 M2C_FIELD(arg0, f32 *, 0xDC) = (f32) -((M2C_FIELD(arg0, f32 *, 0x54) * stack.sp8) - M2C_FIELD(arg0, f32 *, 0xDC));
                 M2C_FIELD(arg0, f32 *, 0xE4) = (f32) -((M2C_FIELD(arg0, f32 *, 0x54) * stack.sp10) - M2C_FIELD(arg0, f32 *, 0xE4));

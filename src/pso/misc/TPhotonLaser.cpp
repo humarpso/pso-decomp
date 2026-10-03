@@ -61,7 +61,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void spawn_particle_effect(void *, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void *find_entity_by_id(u16);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -104,9 +104,9 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     rotate_matrix_y(0, (s32)(lbl_805DC1BC * (f32)o->f36C));
     rotate_vector_by_matrix(0, &in, &out);
     TCameraCtrl__sub_803D9858(1);
-    TBoss4Zako__sub_803D8910(&o->f340, &out);
+    vec3_add_to(&o->f340, &out);
     o->f36C += 0x24;
-    TBoss4Zako__sub_803D8910(&o->f340, &o->f34C);
+    vec3_add_to(&o->f340, &o->f34C);
     if (o->f364 != 0) {
         copy_pos__11TNowLoadingFPvPv(o->f364, &o->f340);
     }

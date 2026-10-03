@@ -125,7 +125,7 @@ extern M2C_UNK __vt__9TTecResta[];
 extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
 u8 *TTecResta__sub_80239C48(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-f32 *TTecCtrl__sub_8022DBC4(M2C_UNK, s32, M2C_UNK);
+f32 *calc_technique_parameters(M2C_UNK, s32, M2C_UNK);
 s32 is_technique_ready__8TTecCtrlFv(int);
 extern RecoveredGlobal_802394B0_lbl_804CC55C lbl_804CC55C;
 f32 TTecResta__sub_802394B0(s32 arg0);
@@ -194,7 +194,7 @@ typedef char RecoveredGlobal_802394B0_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 f32 TTecResta__sub_802394B0(s32 arg0) {
   f32 *temp_r3;
   f32 var_f31;
-  temp_r3 = (f32 *) TTecCtrl__sub_8022DBC4(0xF, arg0, 0xFFFF);
+  temp_r3 = (f32 *) calc_technique_parameters(0xF, arg0, 0xFFFF);
   var_f31 = *((f32 *) (((s8 *) temp_r3) + 0));
   var_f31 = var_f31 + ((f32) (arg0 * 5));
   if (is_technique_ready__8TTecCtrlFv((int) temp_r3) != 0)
@@ -206,7 +206,7 @@ f32 TTecResta__sub_802394B0(s32 arg0) {
 
 void init_parameters__9TTecRestaFPv(u8 *arg0) {
   int new_var;
-  new_var = (int) TTecCtrl__sub_8022DBC4((int) 0xF, (int) (*((s16 *) (((s8 *) arg0) + 0xA4))), (int) 0xFFFF);
+  new_var = (int) calc_technique_parameters((int) 0xF, (int) (*((s16 *) (((s8 *) arg0) + 0xA4))), (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0x74), new_var);
   *((f32 *) (((s8 *) arg0) + 0x74)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x74))) + ((f32) ((*((s16 *) (((s8 *) arg0) + 0x98))) * (*((s16 *) (((s8 *) arg0) + 0xA4))))));
   if (((s32 (*)(void))is_technique_ready__8TTecCtrlFv)() != 0)

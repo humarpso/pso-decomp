@@ -37,9 +37,9 @@ extern "C" {
 u8 *get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lbl_804B8DAC;
@@ -59,7 +59,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 void translate_matrix(int, f32, f32, f32);
 void rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
 void set_texture_num(int);
@@ -107,7 +107,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
         set_global_param__8TObjFishFi((int) lbl_8050DD24);
         set_texture_num(0);
         begin_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, *(f32 *)(arg0 + 0x38), *(f32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x40));
         rotate_matrix_z(0, *(s32 *)(arg0 + 0x64));
         rotate_matrix_x(0, *(s32 *)(arg0 + 0x5C));
@@ -172,18 +172,18 @@ void TObjPlayer__sub_801982D4(u8 *arg0) {
         } else {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, s32 *, 0x20)));
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x1C));
         draw_ginja_model((void *) (M2C_FIELD(temp_r3, s32 *, 4)));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), s32 *, 4)));
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
         rotate_matrix_y((int) (0), (int) (0x8000));
         draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), s32 *, 4)));
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         rotate_matrix_z((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0x38)));
         draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x2C), void **, 0x30), void **, 0x30), s32 *, 4)));
         pop_matrix();

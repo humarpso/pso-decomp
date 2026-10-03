@@ -44,9 +44,9 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_instance__14TBoss4DarkFalzFv();
 s32 get_position_ptr__10TObjPlayerFPv();
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+f32 subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CDC;
 extern const f32 lbl_805D8CE0;
@@ -54,8 +54,8 @@ extern const f32 lbl_805D8D00;
 void TBoss4Uro__sub_8005C6E4(Obj_8005C6E4 *arg0);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 TBoss4Zako__ct(s32, s32, s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+f32 normalize_vector(void *);
 extern M2C_UNK __vt__9TBoss4Uro[];
 extern s32 lbl_805D27EC;
 extern const f32 lbl_805D8CBC;
@@ -92,14 +92,14 @@ void TBoss4Uro__sub_8005C6E4(Obj_8005C6E4 *arg0) {
     }
     VecCopy__FP3VecPC3Vec(&target, (void *)get_position_ptr__10TObjPlayerFPv());
     VecCopy__FP3VecPC3Vec(&d, &arg0->pos);
-    TBoss6Type1__sub_803D9370(&d, &target);
+    subtract_vector(&d, &target);
     d.y = lbl_805D8CBC;
-    len = TBoss6Kakusan__sub_803D8BD8(&d);
+    len = vector_length(&d);
     if (len >= lbl_805D8CDC) {
         return;
     }
     if (len > lbl_805D8D00) {
-        TNpcPlayer__sub_803D97B4(&d);
+        normalize_vector(&d);
     } else {
         d.x = lbl_805D8CE0;
         d.z = lbl_805D8CBC;
@@ -136,11 +136,11 @@ s32 TBoss4Uro__ct(s32 a0, s32 a1, s32 a2) {
     o->dir.x = -o->pos.x;
     o->dir.y = lbl_805D8CBC;
     o->dir.z = -o->pos.z;
-    if (TBoss6Kakusan__sub_803D8BD8(&o->dir) < lbl_805D8D00) {
+    if (vector_length(&o->dir) < lbl_805D8D00) {
         o->dir.x = lbl_805D8CE0;
         o->dir.z = lbl_805D8CBC;
     }
-    TNpcPlayer__sub_803D97B4(&o->dir);
+    normalize_vector(&o->dir);
     o->f398 = lbl_805D8D08 * calc_boss4_scale__10TObjPlayerFi(o) + lbl_805D8D04;
     o->dir.x = o->dir.x * o->f398;
     o->dir.z = o->dir.z * o->f398;

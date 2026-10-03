@@ -92,7 +92,7 @@ void TObjPlayer__sub_803E5458(s32 arg0);
 extern u8 *lbl_805D4698;
 void TObjPlayer__sub_803E4D8C(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
 void TObjPlayer__sub_803D7CA4(Node_803E4E20 *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 void TObjPlayer__sub_803E53BC(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
@@ -134,7 +134,7 @@ void TObjPlayer__sub_803E4E20(s32 arg0) {
     n = (Node_803E4E20 *)arg0;
     ctx = (Ctx_803E4E20 *)lbl_805D4698;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D7CA4(n);
         if (!(n->flags & 0x80)) {
             obj = n->obj;

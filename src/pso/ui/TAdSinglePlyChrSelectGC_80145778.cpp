@@ -25,12 +25,12 @@ void free_resources__23TAdSinglePlyChrSelectGCFv(void);
 extern "C" {
 
 void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *arg0, f32 arg1, f32 arg2);
-M2C_UNK TWindowSubStatusDisp__sub_8014556C(void *, s32, s32, f32, f32, f32);
+M2C_UNK draw_menu_font_string(void *, s32, s32, f32, f32, f32);
 
 extern const f32 lbl_805DB1A8;
 
 void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *arg0, f32 arg1, f32 arg2) {
-    TWindowSubStatusDisp__sub_8014556C(arg0, -1, 0, arg1, arg2, lbl_805DB1A8);
+    draw_menu_font_string(arg0, -1, 0, arg1, arg2, lbl_805DB1A8);
 }
 #pragma push
 #pragma fp_contract on

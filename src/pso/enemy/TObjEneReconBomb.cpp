@@ -8,8 +8,8 @@ extern "C" {
 
 u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 s32 TObjEneRecon__sub_8031C274(int);
 f32 TObjEneRecon__sub_8031C2BC(int);
 f32 TObjEneRecon__sub_8031C2C8(int);
@@ -54,8 +54,8 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x10));
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r5, s32 *, 0x60);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg3), (int) (temp_r5));
-    temp_f31 = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    temp_f1 = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    temp_f31 = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    temp_f1 = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, f32 *, 0x33C) = (f32) (M2C_FIELD(arg0, f32 *, 0x354) * temp_f31);
     M2C_FIELD(arg0, f32 *, 0x340) = (f32) lbl_805DF3A4;
     M2C_FIELD(arg0, f32 *, 0x344) = (f32) (M2C_FIELD(arg0, f32 *, 0x354) * temp_f1);

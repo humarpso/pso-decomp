@@ -13,8 +13,8 @@ s32 calc_product__12TBoss8DragonFiiii(void *, void *, int, int);
 void TBoss8Dragon__sub_8005EB6C(s32 arg0, u8 *arg1, s32 arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss8Dragon__sub_8005E9E8(void *, void *, int);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern const f64 lbl_80437EB0;
 void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2);
 f32 TBoss8Dragon__sub_8005EA5C(int, f32, f32);
@@ -54,8 +54,8 @@ void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2) {
     case 0:
         temp_r31 = (s32) (lbl_80437EB0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40))));
         temp_f31 = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 1);
-        M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64C0((int) (temp_r31)));
-        M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC((int) (temp_r31)));
+        M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f31 * sin_table_lookup((int) (temp_r31)));
+        M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * cos_table_lookup((int) (temp_r31)));
         break;
     case 1:
         M2C_FIELD(arg1, f32 *, 4) = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 1);

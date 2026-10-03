@@ -24,11 +24,11 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void disallow_rendering__7TObjectFv(void *);
 void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 void TObjPlayer__sub_803D89E8(s32);
-void TBoss6Type1__sub_803D9370(Vec*, Vec*);
+void subtract_vector(Vec*, Vec*);
 void TObjPlayer__sub_803D9884(void *, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern const f64 lbl_8043E188[];
 extern void *__vt__15TItemEffBringer[];
@@ -44,7 +44,7 @@ extern "C" {
 void spawn_particle_effect(Vec*, int);
 }
 extern "C" {
-void TBoss6Type1__sub_803D9370(Vec*, Vec*);
+void subtract_vector(Vec*, Vec*);
 }
 extern "C" {
 void request_destroy__11TBoss4Type2FUi(s32);
@@ -54,7 +54,7 @@ void TItemEffBringer::hook() {
     Vec work = this->m_pos;
     for (int i = 0; i != this->m_particle_count; i++) {
         spawn_particle_effect(&work, 0x9C);
-        TBoss6Type1__sub_803D9370(&work, &this->m_84);
+        subtract_vector(&work, &this->m_84);
     }
 }
 
@@ -89,14 +89,14 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     __ct__10TItemShootFPvPC3VecPC3Vecf(self, arg1, (s32)src, arg3, farg0);
     self->vt = __vt__15TItemEffBringer;
     self->f0 = lbl_805D2B90;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     z.x = z.y = z.z = lbl_805DAB10;
     TObjPlayer__sub_803D89E8(0);
     TObjPlayer__sub_803D9884(&z, &out);
     VecCopy__FP3VecPC3Vec(&w, src);
-    TBoss6Type1__sub_803D9370((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
+    subtract_vector((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
     pop_matrix();
-    r = TBoss8Dragon__sub_803D64C0(self->f2C - (s32)(lbl_8043E188[0] * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)));
+    r = sin_table_lookup(self->f2C - (s32)(lbl_8043E188[0] * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)));
     if (r < lbl_805DAB10) {
         r *= lbl_805DAB14;
     }

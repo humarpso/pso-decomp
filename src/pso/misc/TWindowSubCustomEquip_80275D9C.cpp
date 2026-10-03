@@ -13,7 +13,7 @@ extern "C" {
 void set_entry_state__20TWindowSubStatusDispFPvc(void *p, char c);
 void TWindowSubCustomEquip__sub_80275DB4(Obj_80275DB4 *o);
 void *get_player_by_client_id(s32);
-s32 TObjPlayer__sub_801D8044(void *, u8, u8);
+s32 can_use_palette_action__10TObjPlayerFPvUcUc(void *, u8, u8);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowHelpItem__sub_80243544(u8 *, u8 *, s32, s32, s32);
 void TWindowHelpItem__sub_80243630(u8 *, s32, s32);
@@ -113,7 +113,7 @@ void TWindowSubCustomEquip__sub_80275FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3)
     if (pl != NULL) {
         a = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F738[arg1]);
         b = get_array_entry__20TWindowSubStatusDispFPvi(arg0, lbl_8044F740[arg1]);
-        if (TObjPlayer__sub_801D8044(pl, arg2, arg3) != 0) {
+        if (can_use_palette_action__10TObjPlayerFPvUcUc(pl, arg2, arg3) != 0) {
             *(s32 *)(a + 0x2C) = -1;
         } else {
             *(s32 *)(a + 0x2C) = 0xFF404040;

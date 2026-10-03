@@ -67,7 +67,7 @@ void copy_fog_entry(u8 *arg0, u8 *arg1);
 void *get_entry__8TFogCtrlFi(int a0);
 extern const f32 TFogCtrl__data_805DA948;
 void TFogCtrl__sub_800FB424(Ctrl_800FB424 *self, s32 i, s32 entry);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern s32 lbl_805D53A4;
 extern const f32 TFogCtrl__data_805DA948;
 extern const f32 TFogCtrl__data_805DA94C;
@@ -93,15 +93,15 @@ void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx) {
     self->start = row->start;
     self->width = TFogCtrl__data_805DA94C;
     if (TFogCtrl__data_805DA948 != row->end_amplitude) {
-        t = row->end_amplitude * TBoss8Dragon__sub_803D64C0((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[2])));
+        t = row->end_amplitude * sin_table_lookup((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[2])));
         self->end += t;
     }
     if (TFogCtrl__data_805DA948 != row->start_amplitude) {
-        t = row->start_amplitude * TBoss8Dragon__sub_803D64C0((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[4])));
+        t = row->start_amplitude * sin_table_lookup((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[4])));
         self->start += t;
     }
     if (TFogCtrl__data_805DA948 != row->width) {
-        self->width = (f32)row->phases[6] * TBoss8Dragon__sub_803D64C0((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed))) + row->width;
+        self->width = (f32)row->phases[6] * sin_table_lookup((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed))) + row->width;
     }
     self->dirty |= 1;
 }

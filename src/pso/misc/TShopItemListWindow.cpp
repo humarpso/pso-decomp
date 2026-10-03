@@ -97,7 +97,7 @@ u8 *TShopItemListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 TShopItemListWindow__sub_8021F1A4(void *);
-s32 TShopItemListWindow__sub_8021F4B4(void *);
+s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
 s32 handle_confirm__19TShopItemListWindowFPv(void *arg0);
 s32 update__19TShopItemListWindowFPv(void *arg0);
 s32 TShopItemListWindow__sub_8021F9EC(void *);
@@ -262,7 +262,7 @@ void TShopItemListWindow__vt9(u8 *arg0) {
         handle_confirm__19TShopItemListWindowFPv((void *) (arg0));
         return;
     case 7:
-        TShopItemListWindow__sub_8021F4B4((void *) (arg0));
+        prepare_tool_purchase__19TShopItemListWindowFv((void *) (arg0));
     default:
         return;
     }

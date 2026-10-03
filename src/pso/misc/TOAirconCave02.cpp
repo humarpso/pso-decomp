@@ -22,10 +22,10 @@ struct VObj570D4_801570d4 : VBase570D4_801570d4 {
 void *create__14TOAirconCave02FPv(void *arg0);
 void render__14TOAirconCave02Fv(u8 *arg0);
 void *TOAirconCave02__ct(void *, void *, void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 M2C_UNK set_global_param__8TObjFishFi(int);
@@ -39,8 +39,8 @@ void render__14TOAirconCave02Fv(u8 *arg0) {
     temp_r4 = (unsigned char *) (M2C_FIELD(TOAirconCave02__data_805D5888, void **, 0x42C));
     temp_r31 = M2C_FIELD(temp_r4, s32 *, 8);
     if (((VObj570D4_801570d4 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         draw_ginja_object((int) (temp_r31));

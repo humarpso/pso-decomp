@@ -31,14 +31,14 @@ void cache_result_805D6660__13TObjEneMe1GeeFv(void);
 extern "C" {
 
 void draw_model__13TObjEneMe1GeeFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
 M2C_UNK get_bml_model(void *, int);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -50,9 +50,9 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     begin_effect_render__13TParticleCtrlFv();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x6C));
+    post_translate_matrix((void *) (arg0 + 0x6C));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA4)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA0)));
     TObjFish__sub_8001EDB0((void *) (lbl_805D6660), (int) (1));

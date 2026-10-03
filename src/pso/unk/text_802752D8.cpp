@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void TWindowSubComCard__sub_8024503C(void *, void *, s32);
+void draw_selection_bar(void *, void *, s32);
 volatile char get_type__20TWindowSubStatusDispFPv(void *);
 s16 get_selected_index__20TWindowShortListCtrlFPv(void *);
 extern s32 lbl_805D53A4;
@@ -23,7 +23,7 @@ void fn_802752D8(u8 *arg0, u8 *arg1) {
       temp_r3 = (u16 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, (s32) temp_r0);
       if ((*temp_r3) & 1)
       {
-        TWindowSubComCard__sub_8024503C(arg1, temp_r3, 1);
+        draw_selection_bar(arg1, temp_r3, 1);
       }
     }
   }

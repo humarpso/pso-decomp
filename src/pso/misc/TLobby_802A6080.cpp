@@ -26,9 +26,9 @@ struct O_802A60CC {
 extern "C" {
 void rotate_matrix_yxz(s32, s32, s32, s32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_object(s32);
 void TObjSuisoChip__vt10(O_802A60CC *arg0);
 }
@@ -66,12 +66,12 @@ void TObjSuisoChip__vt10(O_802A60CC *arg0) {
     s32 i;
     if (arg0->f244 != 1) {
         p = arg0->chips;
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0->f234);
+        push_matrix();
+        post_translate_matrix(arg0->f234);
         rotate_matrix_y(0, arg0->f240);
         for (i = 0; i < arg0->f54; i++, p++) {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(p);
+            push_matrix();
+            post_translate_matrix(p);
             rotate_matrix_yxz(0, p->f18, p->f1c, p->f20);
             draw_ginja_object(arg0->f64);
             pop_matrix();

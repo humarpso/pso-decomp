@@ -86,7 +86,7 @@ void TObjPlayer__sub_803DC3BC(Arr_803DC3BC *arg0);
 extern S_803DB560 lbl_8058CD80;
 extern s32 some_id_805c6f74;
 GinjaMaterialCache *invalidate_ginja_inherited_state();
-s32 TObjPlayer__sub_803DBE1C(GinjaDrawRecord *);
+s32 apply_ginja_material_params(GinjaDrawRecord *);
 s32 GXCallDisplayList(void *, u32);
 extern s32 lbl_805D7704, lbl_805D7708, lbl_805D7788;
 s32 draw_ginja_model_lists(GinjaModel *model);
@@ -115,8 +115,8 @@ extern s32 lbl_805D7774;
 extern s32 some_id_805c6f74;
 M2C_UNK TObjPlayer__sub_803DC76C(int arg0);
 void GXSetChanMatColor(s32, C_803DB9A0);
-void TObjPlayer__sub_803D7FE0(const F_803DB9A0 *, C_803DB9A0 *);
-void TObjPlayer__sub_803D8008(const C_803DB9A0 *, F_803DB9A0 *);
+void convert_color_f32_to_u8(const F_803DB9A0 *, C_803DB9A0 *);
+void convert_color_u8_to_f32(const C_803DB9A0 *, F_803DB9A0 *);
 extern F_803DB9A0 lbl_8058D4C0;
 extern const C_803DB9A0 lbl_805E0F68;
 extern S_803DB560 lbl_8058CD80;
@@ -228,15 +228,15 @@ void set_ginja_material_color(u32 v) {
     if ((u32) (lbl_805D7788 & 2) != 0U) {
         GXSetChanMatColor(4, fallback);
     } else if ((u32) (some_id_805c6f74 & 0x10) != 0U) {
-        TObjPlayer__sub_803D7FE0(&lbl_8058D4C0, &converted);
+        convert_color_f32_to_u8(&lbl_8058D4C0, &converted);
         GXSetChanMatColor(4, converted);
     } else if ((u32) (some_id_805c6f74 & 0x20) != 0U) {
-        TObjPlayer__sub_803D8008(mat, &add);
+        convert_color_u8_to_f32(mat, &add);
         add.r += lbl_8058D4C0.r;
         add.g += lbl_8058D4C0.g;
         add.b += lbl_8058D4C0.b;
         add.a += lbl_8058D4C0.a;
-        TObjPlayer__sub_803D7FE0(&add, &convertedAdd);
+        convert_color_f32_to_u8(&add, &convertedAdd);
         GXSetChanMatColor(4, convertedAdd);
     } else {
         GXSetChanMatColor(4, *mat);
@@ -375,7 +375,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
     primary = model->primary;
     for (; primaryCount > 0; primaryCount--, primary++) {
       lbl_805D7704 &= ~4;
-      result = TObjPlayer__sub_803DBE1C(primary);
+      result = apply_ginja_material_params(primary);
       if ((((u32)(lbl_805D7704 & 8)) != 0U) ||
           (((u32)(lbl_805D7704 & 4)) == 0U)) {
         result = GXCallDisplayList(primary->display_list,
@@ -394,7 +394,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
       secondary = model->secondary;
       for (; secondaryCount > 0; secondaryCount--, secondary++) {
         lbl_805D7704 &= ~4;
-        TObjPlayer__sub_803DBE1C(secondary);
+        apply_ginja_material_params(secondary);
         if ((((u32)(lbl_805D7704 & 8)) != 0U) ||
             (((u32)(lbl_805D7704 & 4)) == 0U)) {
           GXCallDisplayList(secondary->display_list,

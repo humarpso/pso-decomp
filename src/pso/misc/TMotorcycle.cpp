@@ -33,9 +33,9 @@ M2C_UNK get_bml_model(void *, int);
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 M2C_UNK rotate_matrix_yxz(int, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 extern u32 lbl_805D5C40;
 extern u32 lbl_805D5C44;
@@ -43,7 +43,7 @@ extern const f32 lbl_805DBED0;
 extern const f32 lbl_805DBED4;
 void render__11TMotorcycleFv(u8 *arg0);
 M2C_UNK get_bml_model(void *, int);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, void *, void *, f32, f32);
@@ -85,8 +85,8 @@ void render__11TMotorcycleFv(u8 *arg0) {
         set_depth_buffer_settings_id__FUl((int) (3));
         if ((u32) lbl_805D5C44 != 0U) {
             set_global_param__8TObjFishFi((s32) lbl_805D5C44);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_yxz((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
             get_bml_model((void *) ((*(s32 *)&lbl_805D5C40)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
             draw_ginja_object();
@@ -131,7 +131,7 @@ void load_resources__11TMotorcycleFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B8564.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B8564.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5C40) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&lbl_805D5C44) = load_gvm_texture_file((s32) &lbl_80445E18.value);

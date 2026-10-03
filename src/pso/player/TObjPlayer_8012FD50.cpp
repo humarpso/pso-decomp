@@ -8,13 +8,13 @@ extern "C" {
 
 void handle_tentacle_state_2_dup__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_8012FD8C(void *arg0);
-int TBoss7Tentacle__sub_803D9BA0(void*);
+int scale_current_matrix(void*);
 s32 get_id__13TItemProArmorFPv(void *);
 int get_player_list__10TObjPlayerFv(void*);
 s32 alloc__13TItemProArmorFi(M2C_UNK);
 M2C_UNK construct_timer_event__10TObjPlayerFPv(s32, u32, s32, M2C_UNK);
 
-void handle_tentacle_state_2_dup__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 2) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
+void handle_tentacle_state_2_dup__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 2) { scale_current_matrix((char*)p + 0x1f8); } }
 
 void TObjPlayer__sub_8012FD8C(void *arg0) {
     s32 temp_r3;

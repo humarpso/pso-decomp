@@ -10,7 +10,7 @@ void update_effect_sequence__10TObjPlayerFv(void);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
 M2C_UNK TObjPlayer__sub_803D8960(M2C_UNK, s32, s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
 extern s32 lbl_805D5178;
@@ -23,7 +23,7 @@ void update_effect_sequence__10TObjPlayerFv(void) {
         rotate_matrix_y(0, lbl_805D517C);
         break;
     case 14:
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
         TObjPlayer__sub_803D8960(0, lbl_805D5180, lbl_805D5180, 2);
         pop_matrix();

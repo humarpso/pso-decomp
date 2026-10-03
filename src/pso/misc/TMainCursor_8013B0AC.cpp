@@ -16,7 +16,7 @@ struct Pl_8013B0F0 {
 extern "C" {
 s32 get_main_phase();
 M2C_UNK init_slots__11TMainCursorFPv(Cur_8013B0F0 *);
-M2C_UNK TMainCursor__sub_8013C924(Cur_8013B0F0 *);
+M2C_UNK bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
 s32 TMainCursor__sub_8013E03C(void *);
 M2C_UNK set_target_index__11TMainCursorFPvs(void *, int);
 M2C_UNK update_cursor_pos__11TMainCursorFPv(void *);
@@ -52,7 +52,7 @@ void run_cursor_reset_task(s32 arg0) {
     update_cursor_pos__11TMainCursorFPv(cur->pos);
     set_target_index__11TMainCursorFPvs(cur->target, 0xFFFF);
     init_slots__11TMainCursorFPv(cur);
-    TMainCursor__sub_8013C924(cur);
+    bind_action_channels__11TMainCursorFv(cur);
     if (get_main_phase() == 0xF) {
         for (i = 0; i < 12; i++) {
             Pl_8013B0F0 *p = lbl_8050EA10[i];

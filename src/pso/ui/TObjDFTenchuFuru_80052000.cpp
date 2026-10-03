@@ -17,8 +17,8 @@ typedef struct Obj_80052090 {
 } Obj_80052090;
 
 extern "C" {
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_80052090 *);
-void TBoss6Type1__sub_803D9370(Vec_80052090 *, Vec_80052090 *);
+f32 vector_length(Vec_80052090 *);
+void subtract_vector(Vec_80052090 *, Vec_80052090 *);
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
@@ -34,11 +34,11 @@ void run_task__14TObjDFUsoTowerFv(Obj_80052090 *arg0);
 extern "C" {
 
 void render__14TObjDFUsoTowerFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390();
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK set_color_blend_mode(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -55,8 +55,8 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
             TObjPlayer__sub_80052390();
             set_color_blend_mode(1, 4, 5, 0);
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();
@@ -72,9 +72,9 @@ void run_task__14TObjDFUsoTowerFv(Obj_80052090 *arg0) {
     switch (arg0->state) {
     case 0: {
         Vec_80052090 v = *(Vec_80052090 *)(lbl_805D4DF0 + 0x178);
-        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        subtract_vector(&v, &arg0->pos);
         v.y = lbl_805D8A30;
-        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        d = vector_length(&v);
         if (d <= lbl_805D8AC4) {
             r = lbl_805D8A30;
         } else if (d >= lbl_805D8AC8) {

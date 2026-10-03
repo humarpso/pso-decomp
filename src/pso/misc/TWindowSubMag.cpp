@@ -39,7 +39,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
 M2C_UNK TItemData__sub_8010D614(s32, M2C_UNK *);
 s32 TItemMag__sub_801143E8(M2C_UNK *, s32);
-s32 TWindowSubStatusDisp__sub_80144D68();
+s32 calc_text_width();
 M2C_UNK append_text_space();
 M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
@@ -177,7 +177,7 @@ void *TWindowSubMag__sub_8027B424(u8 *arg0) {
     get_message_10__20TWindowSubStatusDispFPv(0x4C);
     text_builder_append();
     TLobby__sub_8001DC24();
-    n = TWindowSubStatusDisp__sub_80144D68();
+    n = calc_text_width();
     if (get_camera_id__11TCameraCtrlFv() > 2) {
         scale = 0.85f;
     } else {

@@ -18,10 +18,10 @@ struct Player_801B4AC8 { u8 pad[0x424]; Cursor_801B4AC8 *cursor; };
 
 extern "C" {
 s32 get_selected_entry__11TMainCursorFPv(void *c);
-void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
+void try_add_target_candidate__11TMainCursorFPvPvPvPv(void *c, void *self, void *owner, void *p);
 extern Owner_801B4A18 *lbl_8050EA10[];
 void submit_cursor_candidate(void *self);
-void TMainCursor__sub_8013C288(void *c, void *self, void *owner, void *p);
+void try_add_target_candidate__11TMainCursorFPvPvPvPv(void *c, void *self, void *owner, void *p);
 s32 get_selected_entry__11TMainCursorFPv(void *c);
 void *get_player_by_client_id(u32);
 void submit_target_to_player_cursor(void *target, s32 id);
@@ -34,8 +34,8 @@ s32 is_target_valid__10TObjPlayerFPv(void *arg0);
 void update_facing_vector__10TObjPlayerFPv(u8 *arg0);
 void update_subsystems__10TObjPlayerFi(s32 arg0);
 void update_target__10TObjPlayerFi(s32 arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 s32 TLobby__sub_800822E8(void *, M2C_UNK);
 s32 is_locally_controlled__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_801B21AC(s32);
@@ -133,7 +133,7 @@ void submit_cursor_candidate(void *self) {
                 for (j = 0; j < 4; j++) {
                     Cursor_801B4A18 *c = &o->menu->cursors[j];
                     if (get_selected_entry__11TMainCursorFPv(c) != 0) {
-                        TMainCursor__sub_8013C288(c, self, o, (u8 *)o->menu + 0x510);
+                        try_add_target_candidate__11TMainCursorFPvPvPvPv(c, self, o, (u8 *)o->menu + 0x510);
                     }
                 }
             }
@@ -153,16 +153,16 @@ void submit_target_to_player_cursor(void *target, s32 id) {
         for (i = 0; i < 4; i++) {
             entry = &player->cursor->slots[i];
             if (get_selected_entry__11TMainCursorFPv(entry) != 0) {
-                TMainCursor__sub_8013C288(entry, target, player, &player->cursor->f510);
+                try_add_target_candidate__11TMainCursorFPvPvPvPv(entry, target, player, &player->cursor->f510);
             }
         }
     }
 }
 
 void update_facing_vector__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x404) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
+    M2C_FIELD(arg0, f32 *, 0x404) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     M2C_FIELD(arg0, f32 *, 0x408) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x40C) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+    M2C_FIELD(arg0, f32 *, 0x40C) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
     update_ground_contact__10TObjPlayerFi(arg0);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x424) != 0U) {
         reset_slots__11TMainCursorFi(M2C_FIELD(arg0, void **, 0x424));

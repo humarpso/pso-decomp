@@ -40,7 +40,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK queue_photon_blast_hit(int, int, int, f32);
 M2C_UNK begin_photon_summon_camera(void *, int);
 M2C_UNK update_photon_blast_attachments(void *);
-M2C_UNK TObjPlayer__sub_801A7748(void *, int);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
 M2C_UNK update_state__10TSceneSoraFPv(void *);
 u8 *__nw__7TObjectFUl(M2C_UNK, f32);
 extern const f64 lbl_80446DE8;
@@ -58,7 +58,7 @@ s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 s32 translate_matrix(int, f32, f32, f32);
 s32 set_global_param__8TObjFishFi(int);
@@ -85,7 +85,7 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         scroll_strip_uvs(lbl_805D5D48, self->f14C, 0);
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = some_id_805c6f74;
@@ -137,7 +137,7 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
         begin_photon_summon_camera((void *) (arg0), (int) (2));
         M2C_FIELD(arg0, s32 *, 0x1AC) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
-        TObjPlayer__sub_801A7748((void *) (arg0), (int) (4));
+        spawn_photon_blast_attachment_effects((void *) (arg0), (int) (4));
     }
     M2C_FIELD(arg0, s16 *, 0x190) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));

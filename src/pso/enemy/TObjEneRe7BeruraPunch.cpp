@@ -48,9 +48,9 @@ void TObjEneRe7BeruraPunch__sub_80095FAC(void *);
 void TObjEneRe7BeruraPunch__sub_80096030(void *);
 u32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void vec3_add_to(void *, void *);
 extern const f32 lbl_805D97B0;
 extern const f32 lbl_805D97BC;
 extern const f32 lbl_805D97C0;
@@ -153,8 +153,8 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         ang.x = 0;
         ang.y = M2C_FIELD(arg0, s32 *, 0x60) + 0x4000;
         ang.z = -0x4000;
-        s = -TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60));
-        c = -TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        s = -sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+        c = -cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
         if (M2C_FIELD(arg0, void **, 0xD0) == NULL) {
             M2C_FIELD(arg0, void **, 0xD0) = create_particle_emitter(arg0 + 0x38, 0xDD);
             if (M2C_FIELD(arg0, void **, 0xD0) != NULL) {
@@ -165,7 +165,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
             v.x = lbl_805D97BC * s;
             v.y = lbl_805D97B0;
             v.z = lbl_805D97BC * c;
-            TBoss4Zako__sub_803D8910(&v, arg0 + 0xDC);
+            vec3_add_to(&v, arg0 + 0xDC);
             copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0xD0), &v);
             copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0xD0), &ang);
         }
@@ -179,7 +179,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
             v.x = lbl_805D97C0 * s;
             v.y = lbl_805D97C4;
             v.z = lbl_805D97C0 * c;
-            TBoss4Zako__sub_803D8910(&v, arg0 + 0xDC);
+            vec3_add_to(&v, arg0 + 0xDC);
             copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0xD4), &v);
             copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0xD4), &ang);
         }

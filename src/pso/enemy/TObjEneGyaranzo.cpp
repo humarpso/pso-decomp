@@ -60,7 +60,7 @@ s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 s32 TObjFish__sub_8001ED9C(u32, int);
-u32 TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 VObj_800D3BA0_800D3B38 *TBreakUpMdl__sub_80096FD8(void *, s32, s32, f32);
 s32 check_v2_mode__9TObjEneDDFv(void);
@@ -93,7 +93,7 @@ void TLobby__sub_800D3C04(void) {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = (void *)TLobby__sub_80020004(p, 5, lbl_8049414C, 0, 0, 0);
+            p = (void *)load_resource_from_descriptor(p, 5, lbl_8049414C, 0, 0, 0);
         }
         lbl_805D51FC = (u32)p;
     }

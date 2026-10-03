@@ -122,7 +122,7 @@ s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
 
 u16 obj_getArrU16_FC(void *, int);
 s32 is_split_screen();
-void TObjPlayer__sub_800F6BF0(void *, u16);
+void award_enemy_experience(void *, u16);
 s32 get_attack_credit_slot_count(void *);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -170,7 +170,7 @@ void distribute_experience(TObjPlayer_800F6B68 *self) {
     s32 i;
     u16 id;
     if (is_split_screen() == 0) {
-        TObjPlayer__sub_800F6BF0(self, self->attacker_id);
+        award_enemy_experience(self, self->attacker_id);
     } else {
         count = get_attack_credit_slot_count(self);
         for (i = 0; i < count; i++) {
@@ -178,7 +178,7 @@ void distribute_experience(TObjPlayer_800F6B68 *self) {
             if (id == 0xFFFF) {
                 break;
             }
-            TObjPlayer__sub_800F6BF0(self, id);
+            award_enemy_experience(self, id);
         }
     }
 }

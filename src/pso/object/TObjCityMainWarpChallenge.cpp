@@ -44,7 +44,7 @@ extern "C" {
 void *__dt__25TObjCityMainWarpChallengeFv(void *arg0, s16 arg1);
 void render__25TObjCityMainWarpChallengeFv(u8 *arg0);
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK TObjCityMainWarp__sub_80186DA0();
 M2C_UNK TObjCityMainWarp__sub_8018709C();
@@ -52,7 +52,7 @@ M2C_UNK TObjCityMainWarp__sub_801871D0();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__12TObjAreaWarpFv(void *, M2C_UNK);
@@ -118,8 +118,8 @@ void render__25TObjCityMainWarpChallengeFv(u8 *arg0) {
     if (((CityMainWarpChalVObj_80187824*)arg0)->m8(lbl_805DBCBC, lbl_805DBCC0) != 0) {
 block_4:
         set_global_param__8TObjFishFi(lbl_805D5B2C);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw_ginja_object(M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 0xC8));
         begin_effect_render__13TParticleCtrlFv();

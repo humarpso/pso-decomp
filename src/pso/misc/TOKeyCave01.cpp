@@ -76,7 +76,7 @@ s32 TOKey__sub_8016A310(void *);
 s32 TOKeyCol__vt13(u8 *arg0);
 M2C_UNK TOKeyCave01__sub_8016BF08(void *, int);
 void run_task__11TOKeyCave01Fv(u8 *arg0);
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -112,9 +112,9 @@ void TOKeyCol__sub_8016C79C(Self_8016C79C *self, s32 flags);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 int set_chunk_material_color(void *);
@@ -183,11 +183,11 @@ void render__11TOKeyCave01Fv(u8 *arg0) {
     u8 *temp_r31_3;
     if (((VObj_8016C280 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
         set_global_param__8TObjFishFi((int) TOKeyCave01__data_805D5A1C[M2C_FIELD(arg0, s32 *, 0xD4)]);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
-        TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+        post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
             temp_r4 = some_id_805c6f74;
@@ -197,20 +197,20 @@ void render__11TOKeyCave01Fv(u8 *arg0) {
         }
         begin_effect_render__13TParticleCtrlFv();
         temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         switch ((s32) lbl_805D5A20) {
         case 0:
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x68));
+            post_translate_matrix((void *) (arg0 + 0x68));
             break;
         case 1:
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xFC)));
             break;
         }
-        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+        post_translate_matrix((void *) (temp_r31_2 + 8));
         draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
         temp_r31_3 = M2C_FIELD(temp_r31_2, u8 **, 0x2C);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (temp_r31_3 + 8));
+        push_matrix();
+        post_translate_matrix((void *) (temp_r31_3 + 8));
         draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
         pop_matrix();
         pop_matrix();
@@ -261,7 +261,7 @@ void TOKeyCave01__sub_8016C474(void) {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B2BD0.value, 0, 0, 0));
+            var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B2BD0.value, 0, 0, 0));
         }
         (*(u8 * *)&lbl_805D5A18) = var_r0;
         (*(u8 * *)&TOKeyCave01__data_805D5A1C) = alloc_buffer__11TOBoss4RockFPv(8);
@@ -273,7 +273,7 @@ void TOKeyCave01__sub_8016C474(void) {
     temp_r3_2 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0_2 = (u8 *)(temp_r3_2);
     if (var_r0_2 != NULL) {
-        var_r0_2 = (u8 *)(TLobby__sub_80020004(temp_r3_2, 1, &lbl_804B2BB8.value, 0, 0, 0));
+        var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &lbl_804B2BB8.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5A18) = var_r0_2;
     (*(u8 * *)&TOKeyCave01__data_805D5A1C) = alloc_buffer__11TOBoss4RockFPv(8);

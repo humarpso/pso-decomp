@@ -36,7 +36,7 @@ u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 void freeze_shell_update(void *arg0);
 s32 create_timed_particle_emitter(void *, int, int, int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -64,10 +64,10 @@ s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 u32 find_active_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 s32 rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 s32 pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK draw_ginja_object(int);
 M2C_UNK set_chunk_material_override_pair(int, int);
@@ -131,7 +131,7 @@ void freeze_shell_grow(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60) * 2));
         rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
-        TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+        vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
         create_timed_particle_emitter((void *) (&stack.sp8), (int) (0x12D), (int) (0), (int) (0xA));
     }
 }
@@ -182,10 +182,10 @@ void TObjPlayer__sub_80081EA4(u8 *arg0) {
     if (ok != 0) {
         TObjFish__sub_8001EDB0((s32)((void *)lbl_805D4ED0), (M2C_UNK)(1));
         set_global_param__8TObjFishFi();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TBoss7Tentacle__sub_803D9BA0(arg0 + 0x68);
+        scale_current_matrix(arg0 + 0x68);
         switch (M2C_FIELD(arg0, s32 *, 0x334)) {
         case 0:
         case 1:

@@ -25,8 +25,8 @@ typedef struct {
 } Disp_8027831C;
 
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
-u32 TWindowSubStatusDisp__sub_80144D68(void);
-void TWindowSubStatusDisp__sub_8024FD8C(V2_8027831C *, s32, u32, s32, f32);
+u32 calc_text_width(void);
+void draw_window_text(V2_8027831C *, s32, u32, s32, f32);
 void set_text_draw_params(Win_8027831C *, s32, s32, f32, f32);
 f32 TWindowSubStatusDisp__sub_80287570(s32);
 void TWindowSubStatusDisp__sub_80287580(Win_8027831C *, V2_8027831C *, u8, f32);
@@ -78,8 +78,8 @@ void TWindowSubStatusDisp__sub_8027831C(Disp_8027831C *self, Win_8027831C *win) 
         pos.y += lbl_805DD608;
         set_text_draw_params(win, 0, 0, lbl_805DD60C / (lbl_805DD610 + win->f38), lbl_805DD614);
         msg = get_message_10__20TWindowSubStatusDispFPv(lbl_8044F93C[self->f88]);
-        pos.x -= lbl_805DD618 * (f32)TWindowSubStatusDisp__sub_80144D68();
-        TWindowSubStatusDisp__sub_8024FD8C(&pos, msg, 0xFF000000, 0, lbl_805DD614);
+        pos.x -= lbl_805DD618 * (f32)calc_text_width();
+        draw_window_text(&pos, msg, 0xFF000000, 0, lbl_805DD614);
     }
 }
 #pragma pop

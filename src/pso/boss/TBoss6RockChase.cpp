@@ -64,18 +64,18 @@ extern "C" {
 
 void *__dt__15TBoss6RockChaseFv(void *arg0, s16 arg1);
 void render__15TBoss6RockChaseFv(void* p);
-int TOHangerMachine01__sub_803D9C00(void*);
+int post_translate_matrix(void*);
 int rotate_matrix_z(void*, void*);
 int draw_ginja_object(void*);
 int rotate_matrix_x(void*, void*);
 int rotate_matrix_y(void*, void*);
-int TObjPlayer__sub_803D9B2C(void*);
+int push_matrix(void*);
 int pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 int set_global_param__8TObjFishFi(void*);
 
-void render__15TBoss6RockChaseFv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); draw_ginja_object(*(void**)((char*)p + 0xc0)); pop_matrix(); }
+void render__15TBoss6RockChaseFv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x60)); rotate_matrix_x((void*)0, *(void**)((char*)p + 0x5c)); rotate_matrix_z((void*)0, *(void**)((char*)p + 0x64)); set_global_param__8TObjFishFi(*(void**)((char*)p + 0xc4)); draw_ginja_object(*(void**)((char*)p + 0xc0)); pop_matrix(); }
 
 extern M2C_UNK __vt__15TBoss6RockChase[];
 

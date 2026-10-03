@@ -34,7 +34,7 @@ u8 is_current_floor_switch_set(int);
 void update_door_switch_state(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
-M2C_UNK TRaderMapCore__sub_801F9AC4(void *, u32, u16, s32, s32);
+M2C_UNK minimap_render_gate(void *, u32, u16, s32, s32);
 extern s32 lbl_805D58F8;
 void run_switch_door_task(u8 *arg0);
 }
@@ -97,9 +97,9 @@ void run_switch_door_task(u8 *arg0) {
         break;
     }
     if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFF00FF00, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
     } else {
-        TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFFFF0000, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
     }
 }
 

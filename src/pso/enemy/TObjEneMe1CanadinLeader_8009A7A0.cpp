@@ -339,9 +339,9 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rotate_xz_pair_by_angle(void *, void *, int);
 s32 is_vec_xz_cross_negative(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 subtract_vector(void *, void *);
 extern M2C_UNK lbl_8048FE94[];
 extern s32 lbl_805D29A8;
 extern const f32 lbl_805D9860;
@@ -370,9 +370,9 @@ f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E334(void *);
 M2C_UNK TObjEneMe1CanadinLeader__sub_8009E350(void *);
 void *create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-void TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+void vec3_add_to(void *, void *);
 extern const f32 lbl_805D9894;
 extern const f32 lbl_805D9898;
 void TObjEneMe1CanadinLeader__vt105(Leader_8009B43C *self);
@@ -455,11 +455,11 @@ u8 *TObjEneMe1CanadinLeader__sub_8009AA64(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3
     M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg3 + 0x38));
-    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (arg2 + 0x38));
+    subtract_vector((void *) (&stack.sp8), (void *) (arg2 + 0x38));
     stack.spC = lbl_805D9860;
-    M2C_FIELD(arg0, f32 *, 0x20) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg2, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x20) = sin_table_lookup((int) (M2C_FIELD(arg2, s32 *, 0x60)));
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D9860;
-    M2C_FIELD(arg0, f32 *, 0x28) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg2, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x28) = cos_table_lookup((int) (M2C_FIELD(arg2, s32 *, 0x60)));
     if (is_vec_xz_cross_negative((void *) (arg0 + 0x20), (void *) (&stack.sp8)) != 0) {
         rotate_xz_pair_by_angle((void *) (arg0 + 0x20), (void *) (arg0 + 0x28), (int) (-0x1800));
     } else {
@@ -652,20 +652,20 @@ void TObjEneMe1CanadinLeader__vt105(Leader_8009B43C *self) {
     id = (self->f1C + 1) & 0xFFFF;
     sub = self->f2C + 1;
     for (i = 0; i < n; i++) {
-        v.x = lbl_805D9894 * TBoss8Dragon__sub_803D64C0(angle);
+        v.x = lbl_805D9894 * sin_table_lookup(angle);
         v.y = lbl_805D9898;
-        v.z = lbl_805D9894 * TBoss8Dragon__sub_803D64DC(angle);
-        TBoss4Zako__sub_803D8910(&v, &self->pos);
+        v.z = lbl_805D9894 * cos_table_lookup(angle);
+        vec3_add_to(&v, &self->pos);
         angle += 0x10000 / self->max;
         self->ids[i] = create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(self, &v, (void *)id++, (void *)sub++);
         TObjEneMe1CanadinLeader__sub_8009E334(self->ids[i]);
         self->count++;
     }
     for (j = n; j < self->max; j++) {
-        v.x = lbl_805D9894 * TBoss8Dragon__sub_803D64C0(angle);
+        v.x = lbl_805D9894 * sin_table_lookup(angle);
         v.y = lbl_805D9898;
-        v.z = lbl_805D9894 * TBoss8Dragon__sub_803D64DC(angle);
-        TBoss4Zako__sub_803D8910(&v, &self->pos);
+        v.z = lbl_805D9894 * cos_table_lookup(angle);
+        vec3_add_to(&v, &self->pos);
         angle += 0x10000 / self->max;
         self->ids[j] = create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(self, &v, (void *)id++, (void *)sub++);
         TObjEneMe1CanadinLeader__sub_8009E350(self->ids[j]);

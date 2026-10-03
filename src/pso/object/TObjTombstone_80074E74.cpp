@@ -56,8 +56,8 @@ extern RecoveredGlobal_80074FAC_lbl_8043878C lbl_8043878C;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__data_8048D250;
 void TObjTombstone__sub_80074FAC(void);
 u32 get_player_by_client_id(int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
 extern V_80075070 lbl_804FF938[];
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D9170;
@@ -70,15 +70,15 @@ f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 vec3_dot(void *, void *);
 void TParticleCtrl__sub_803D8D1C(s32, void *, void *);
 void rotate_vector_by_matrix(s32, void *, void *);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_z(s32, s32);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 void rotate_matrix_x(s32, s32);
 void push_matrix_from(void *);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
 extern V_800751BC lbl_80438780;
 extern u8 lbl_8058D490[];
@@ -137,9 +137,9 @@ s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0) {
     for (i = 0; i < 4; i++) {
         if (i != arg0->fac && lbl_805D9170 != lbl_804FF938[i].y) {
             V_80075070 v = lbl_804FF938[i];
-            TBoss6Type1__sub_803D9370(&v, ppos);
+            subtract_vector(&v, ppos);
             v.y = TObjTombstone__data_805D9174;
-            d = TBoss6Kakusan__sub_803D8BD8(&v);
+            d = vector_length(&v);
             if (best > d) {
                 best = d;
             }
@@ -149,9 +149,9 @@ s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0) {
         return 0;
     }
     V_80075070 w = arg0->pos;
-    TBoss6Type1__sub_803D9370(&w, ppos);
+    subtract_vector(&w, ppos);
     w.y = TObjTombstone__data_805D9174;
-    d = TBoss6Kakusan__sub_803D8BD8(&w);
+    d = vector_length(&w);
     if (d < best || (d == best && arg0->fac == lbl_805D53A0)) {
         return 0;
     }
@@ -168,11 +168,11 @@ s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2) {
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
     VecCopy__FP3VecPC3Vec(&d, arg2);
-    TBoss6Type1__sub_803D9370(&d, &lbl_805D4DF0->pos);
-    if (TObjPlayer__sub_803D89C0(&v, &d) <= TObjTombstone__data_805D9174) {
+    subtract_vector(&d, &lbl_805D4DF0->pos);
+    if (vec3_dot(&v, &d) <= TObjTombstone__data_805D9174) {
         return 0;
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TParticleCtrl__sub_803D8D1C(0, arg2, arg1);
     pop_matrix();
     if (is_split_screen() != 0) {

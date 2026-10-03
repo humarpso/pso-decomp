@@ -286,7 +286,7 @@ void TLobby__sub_8001FE7C(void*, int);
 void *TObjEneBm5GibonU__ct(void *, void *, void *);
 int transition_enemy_state(void*, void*);
 s32 TObjPlayer__sub_80016C54();
-s32 TObjPlayer__sub_80016D78();
+s32 update_movement_status__10TObjPlayerFv();
 int __dl__FPv();
 void *__nw__7TObjectFUl(int);
 s16 obj_getField1c(s32);
@@ -515,7 +515,7 @@ void TObjEneBm5GibonU__sub_800D1D80(u8 *arg0) {
 }
 
 s32 check_and_update__16TObjEneBm5GibonUFi(s32 arg0) {
-    if (TObjPlayer__sub_80016D78() != 0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
         TObjEneBm5GibonU__sub_800D1D80((u8 *)((void*)((void*)(arg0))));
         return 1;
     }

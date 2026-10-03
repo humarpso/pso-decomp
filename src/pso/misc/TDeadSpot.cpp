@@ -48,9 +48,9 @@ struct Obj_800D80E4 { u8 pad0[0x18]; void *vt; E_800D80E4 e[4]; V3_800D80E4 base
 extern "C" {
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
 void TDeadSpot__sub_800D7E94(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -60,9 +60,9 @@ u8 *TDeadSpot__sub_800D7F60(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805DA380;
 void TDeadSpot__sub_800D7CF4(u8 *arg0);
 u32 __cvt_fp2unsigned(f32);
@@ -112,11 +112,11 @@ void TDeadSpot__sub_800D7CF4(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r3;
     temp_r3 = calc_random_scaled__10TObjPlayerFv();
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x28) * TBoss8Dragon__sub_803D64C0((int) (temp_r3));
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x28) * sin_table_lookup((int) (temp_r3));
     stack.spC = lbl_805DA380;
     stack.sp8 = temp_f1;
-    stack.sp10 = M2C_FIELD(arg0, f32 *, 0x28) * TBoss8Dragon__sub_803D64DC((int) (temp_r3));
-    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
+    stack.sp10 = M2C_FIELD(arg0, f32 *, 0x28) * cos_table_lookup((int) (temp_r3));
+    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
     adjust_to_ground__15TObjBoss2TunnelFiPv((void *) (&stack.sp8), (void *) (&stack.sp8));
     copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x34)), (void *) (&stack.sp8));
 }
@@ -163,11 +163,11 @@ void TDeadSpot__sub_800D7E94(u8 *arg0) {
   f32 temp_f1;
   s32 temp_r3;
   temp_r3 = calc_random_scaled__10TObjPlayerFv();
-  temp_f1 = (*((f32 *) (((s8 *) arg0) + 0x28))) * TBoss8Dragon__sub_803D64C0((int) (temp_r3 & 0xFFFFFFFFu));
+  temp_f1 = (*((f32 *) (((s8 *) arg0) + 0x28))) * sin_table_lookup((int) (temp_r3 & 0xFFFFFFFFu));
   stack.spC = lbl_805DA380;
   stack.sp8 = temp_f1;
-  stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x28))) * TBoss8Dragon__sub_803D64DC((int) temp_r3);
-  TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
+  stack.sp10 = (*((f32 *) (((s8 *) arg0) + 0x28))) * cos_table_lookup((int) temp_r3);
+  vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
   copy_pos__11TNowLoadingFPvPv((int) (*((s32 *) (((s8 *) arg0) + 0x34))), (void *) (&stack.sp8));
 }
 

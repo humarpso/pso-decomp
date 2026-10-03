@@ -17,7 +17,7 @@ extern "C" {
 s32 TLobby__sub_8020B970(s32, void *, u32);
 extern RecoveredGlobal_8020B3E4_TLobby__data_80513C80 TLobby__data_80513C80;
 s32 TLobby__sub_8020B3E4(s32 arg0, u8 *arg1, u32 arg2);
-s32 TLobby__sub_8020B7C4(s32, void *, u32);
+s32 init_quest_floor_enemies(s32, void *, u32);
 extern RecoveredGlobal_8020B374_TLobby__data_80513CC8 TLobby__data_80513CC8;
 s32 TLobby__sub_8020B374(s32 arg0, u8 *arg1, u32 arg2);
 }
@@ -28,7 +28,7 @@ typedef char RecoveredGlobal_8020B3E4_TLobby__data_80513C80_size[sizeof(Recovere
 
 typedef char RecoveredGlobal_8020B374_TLobby__data_80513CC8_size[sizeof(RecoveredGlobal_8020B374_TLobby__data_80513CC8) == 0x90 ? 1 : -1];
 s32 TLobby__sub_8020B374(s32 arg0, u8 *arg1, u32 arg2) {
-    if (TLobby__sub_8020B7C4(arg0, arg1, arg2) == 1) {
+    if (init_quest_floor_enemies(arg0, arg1, arg2) == 1) {
         M2C_FIELD(&TLobby__data_80513CC8.value, M2C_UNK *, (arg0 * 4)) = arg2 / 72U;
         return 1;
     }

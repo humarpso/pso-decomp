@@ -58,8 +58,8 @@ s32 enemy_set_heading_velocity(void *, f32, s32);
 s32 enemy_turn_toward_dest(void *, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 TObjEneMe1GiGue__data_805DE678;
 extern const f32 TObjEneMe1GiGue__data_805DE680;
 extern const f32 lbl_805DE684;
@@ -165,8 +165,8 @@ void TObjEneMe1GiGue__sub_802CB8F0(Obj_802CB8F0 *o, Vec_802CB8F0 *c, f32 r) {
         f32 a = lbl_805DE688 * calc_boss4_scale__10TObjPlayerFi(o);
         s32 k = (s32)(lbl_805DE684 * a);
         f32 d = lbl_805DE68C * (r * (TObjEneMe1GiGue__data_805DE678 + calc_boss4_scale__10TObjPlayerFi(o)));
-        o->v390.x = d * TBoss8Dragon__sub_803D64DC(k) + c->x;
-        o->v390.z = d * TBoss8Dragon__sub_803D64C0(k) + c->z;
+        o->v390.x = d * cos_table_lookup(k) + c->x;
+        o->v390.z = d * sin_table_lookup(k) + c->z;
     }
     VecCopy__FP3VecPC3Vec(&o->v29C, &o->v390);
     enemy_turn_toward_dest(o, o->f350->f8);

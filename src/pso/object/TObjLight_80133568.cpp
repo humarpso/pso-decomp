@@ -177,8 +177,8 @@ void TObjLight__sub_80134724(s32 arg0, s32 arg1);
 u8 * TObjLight__sub_80133980(u8 *arg0, int);
 void * init__9TObjLightFPv(void *arg0, int);
 u32 __nw__7TObjectFUl(int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+f32 normalize_vector(void *);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern s32 tl_02;
 extern const float TObjLight__data_805DB088;
@@ -187,8 +187,8 @@ s32 TObjLight__sub_80133718(int, int);
 u8 *TObjLight__sub_80133980(u8 *arg0, int _w1);
 void *init__9TObjLightFPv(void *arg0, int _w1);
 u32 __nw__7TObjectFUl(int);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+f32 normalize_vector(void *);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
 extern s32 tl_02;
 extern const float TObjLight__data_805DB088;
@@ -228,9 +228,9 @@ void TObjLight__sub_80133924(void * _w0);
 void TObjLight__sub_8013397C(void * _w0);
 void GXInitLightSpot(void *, s32, f32);
 void GXInitLightDistAttn(void *, s32, f32, f32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 normalize_vector(void *);
 void TObjLight__sub_803DF31C(s32, s32);
 M2C_UNK TObjLight__sub_803DF528(M2C_UNK);
 extern RecoveredGlobal_801336E0_TObjLight__data_80506320 TObjLight__data_80506320;
@@ -354,9 +354,9 @@ void apply_environment_light(s32 arg0) {
     v.x = G_80133800.dir.x;
     v.y = G_80133800.dir.y;
     v.z = G_80133800.dir.z;
-    f32 m = TBoss6Kakusan__sub_803D8BD8(&v);
+    f32 m = vector_length(&v);
     if (m != (*(const f32 *)&TObjLight__data_805DB088)) {
-        TNpcPlayer__sub_803D97B4(&v);
+        normalize_vector(&v);
     }
     G_80133800.dir.x = v.x;
     G_80133800.dir.y = v.y;
@@ -416,8 +416,8 @@ void TObjLight__sub_80133A04(u8 *arg0) {
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0);
     stack.spC = M2C_FIELD(arg0, f32 *, 4);
     stack.sp10 = M2C_FIELD(arg0, f32 *, 8);
-    if ((*(const f32 *)&TObjLight__data_805DB088) != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8))) {
-        TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+    if ((*(const f32 *)&TObjLight__data_805DB088) != vector_length((void *) (&stack.sp8))) {
+        normalize_vector((void *) (&stack.sp8));
     }
     M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0) = stack.sp8;
     M2C_FIELD(&(*(RecoveredGlobal_80133A04_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 4) = stack.spC;
@@ -455,8 +455,8 @@ void init_map_lights(u8 *arg0) {
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0);
     stack.spC = M2C_FIELD(arg0, f32 *, 4);
     stack.sp10 = M2C_FIELD(arg0, f32 *, 8);
-    if ((*(const f32 *)&TObjLight__data_805DB088) != TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8))) {
-        TNpcPlayer__sub_803D97B4((void *) (&stack.sp8));
+    if ((*(const f32 *)&TObjLight__data_805DB088) != vector_length((void *) (&stack.sp8))) {
+        normalize_vector((void *) (&stack.sp8));
     }
     M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 0) = stack.sp8;
     M2C_FIELD(&(*(RecoveredGlobal_80133B10_TObjLight__data_80506320 *)&TObjLight__data_80506320).value, f32 *, 4) = stack.spC;

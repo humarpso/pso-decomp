@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef s32 M2C_UNK;
 extern "C" {
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
@@ -27,12 +27,12 @@ extern "C" {
 
 void release_subobjects__10TObjPlayerFPv(u8 *arg0);
 void update_both__10TObjPlayerFPv(void* p);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
@@ -45,9 +45,9 @@ extern const f32 lbl_805D8A08;
 void release_subobjects__10TObjPlayerFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE4) >= 0xB4) {
         TObjPlayer__sub_80052390(lbl_805D8A08);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_flag__10TObjPlayerFv();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0xD4);
+        post_translate_matrix(arg0 + 0xD4);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE0));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xCC));
         TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x108));
@@ -75,9 +75,9 @@ int TObjPlayer__sub_8004FB24(void *p) {
     if (alpha < 1.0f) {
         TObjPlayer__sub_80052390(alpha);
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_flag__10TObjPlayerFv();
-    TOHangerMachine01__sub_803D9C00(arg0 + 0xD4);
+    post_translate_matrix(arg0 + 0xD4);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE0));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xA8));
     TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xEC));

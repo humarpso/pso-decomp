@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
+M2C_UNK scale_current_matrix(void *);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_z(int, int);
 s32 get_player_list__10TObjPlayerFv();
 
@@ -28,13 +28,13 @@ void update_area_effect_objects__10TObjPlayerFPv(u8 *arg0) {
         temp_r3_2 = get_player_list__10TObjPlayerFv();
         switch (temp_r3_2) {
         case 1:
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x208));
+            post_translate_matrix((void *) (arg0 + 0x208));
             return;
         case 2:
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x214));
+            post_translate_matrix((void *) (arg0 + 0x214));
             return;
         case 3:
-            TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x1FC));
+            scale_current_matrix((void *) (arg0 + 0x1FC));
             break;
         }
         break;

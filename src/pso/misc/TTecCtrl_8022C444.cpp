@@ -27,7 +27,7 @@ f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFiii(void *, s32, s16);
 void *get_player_by_client_id(u16);
 extern const f32 lbl_805DC7D8;
-M2C_UNK TTecCtrl__sub_8022DBC4();
+M2C_UNK calc_technique_parameters();
 
 void TTecCtrl__sub_8022C444(void) {  }
 void TTecCtrl__sub_8022C448(void) {  }
@@ -39,7 +39,7 @@ extern f32 lbl_805DC7D4;
 s32 classify_distance_band__8TTecCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
 
-    TTecCtrl__sub_8022DBC4();
+    calc_technique_parameters();
     if ((arg1 == 0) || (arg1 == 1)) {
         return 0;
     }

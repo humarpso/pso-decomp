@@ -12,7 +12,7 @@ typedef char RecoveredGlobal_8029CD0C_lbl_804DC534_size[sizeof(RecoveredGlobal_8
 
 extern "C" {
 s32 get_bml_model(void *, s32);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
@@ -65,7 +65,7 @@ void TOGrassJungle__sub_8029CD0C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804DC534.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804DC534.value, 0, 0, 0));
     }
     (*(u8 * *)&TOGrassJungle__data_805D65D8) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TOGrassJungle__data_805D65DC) = load_gvm_texture_file((s32) &lbl_8046598C.value);

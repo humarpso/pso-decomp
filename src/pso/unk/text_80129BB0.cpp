@@ -16,8 +16,8 @@ struct Ang_80129BB0 { s32 x, y, z; };
 extern "C" {
 void approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 void TObjPlayer__sub_8012E284(s32, void *, s32, void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DAE48;
 extern const f32 lbl_805DAE50;
@@ -37,9 +37,9 @@ void TObjPlayer__sub_80129BB0(Self_80129BB0 *self) {
         if (lbl_805DAE54 == self->f1FC) {
             self->state = 2;
             ang = self->owner->f60 + 0x4000;
-            v.x = TBoss8Dragon__sub_803D64C0(ang);
+            v.x = sin_table_lookup(ang);
             v.y = lbl_805DAE48;
-            v.z = TBoss8Dragon__sub_803D64DC(ang);
+            v.z = cos_table_lookup(ang);
             a.x = 0x4000;
             a.y = self->owner->f60;
             a.z = 0;

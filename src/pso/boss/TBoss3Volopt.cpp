@@ -152,7 +152,7 @@ extern u16 lbl_805D271C;
 extern int lbl_805D4C14;
 S_8003EF38 *__dt__12TBoss3VoloptFv(S_8003EF38 *o, s16 flag);
 s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void cache_volopt_resource_ptrs(void);
 void init_models__20TBoss3VoloptHiraisinFv(void);
 void TBoss3VoloptMonitor__sub_80042408(void);
@@ -390,13 +390,13 @@ void TBoss3Volopt__sub_8003EE10(void) {
     if (v2 != 0) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_80483760, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_80483760, 0, 0, 0);
         }
         lbl_805D4C10 = (u32)p;
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 5, lbl_804836A0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, lbl_804836A0, 0, 0, 0);
         }
         lbl_805D4C10 = (u32)p;
     }

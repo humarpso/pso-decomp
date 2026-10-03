@@ -64,7 +64,7 @@ s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFPvUiUi(void *, M2C_UNK, s32);
 s32 is_boss_area();
 s32 get_player_by_client_id(s16);
-s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
+s32 check_equip_requirements(s32, s32, s32 *);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 u8 calc_display_grade__5TItemFPv(void *);
 u8 calc_display_grade__9TItemDataFPv(s32);
@@ -166,7 +166,7 @@ void update_item_colors__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1) {
     }
     temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 2));
     if (temp_r3 != 0) {
-        temp_r29 = TWindowHelpItem__sub_80104FCC(temp_r3, arg1, &sp8);
+        temp_r29 = check_equip_requirements(temp_r3, arg1, &sp8);
         temp_r30 = check_item_flags__9TItemDataFPv(arg1);
         if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0x33) {
             if ((temp_r30 == 0) && (is_rare_item__9TItemDataFPv(arg1) != 0)) {

@@ -10,10 +10,10 @@ s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
 void TWindowSubStatusDisp__sub_80259814(void *p);
 void reset_transform_state__10TObjPlayerFv();
 void init_xyz_limits__10TObjPlayerFv();
-u32 TWindowSubStatusDisp__sub_80144D68(s32);
+u32 calc_text_width(s32);
 s32 get_field24__11TWindowCtrlFv();
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
-void TWindowSubStatusDisp__sub_8024FD8C(void *, s32, s32, s32, f32);
+void draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 void TWindowSubStatusDisp__sub_8025941C(s32, u8 *, s32, s32, f32);
 extern const f32 lbl_805DCF14;
@@ -132,7 +132,7 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       if (new_var->flags & 0x400)
       {
         pos.x = (lbl_805DCF2C * win->width) + win->x;
-        pos.x = -((lbl_805DCF2C * ((f32) TWindowSubStatusDisp__sub_80144D68(new_var->label))) - pos.x);
+        pos.x = -((lbl_805DCF2C * ((f32) calc_text_width(new_var->label))) - pos.x);
       }
       if (row->flags & 0x800)
       {
@@ -144,15 +144,15 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       }
       if (new_var->flags & 0x1000)
       {
-        TWindowSubStatusDisp__sub_8024FD8C(&pos, row->label, style, 0, lbl_805DCF28);
+        draw_window_text(&pos, row->label, style, 0, lbl_805DCF28);
       }
       else
       {
-        TWindowSubStatusDisp__sub_8024FD8C(&pos, new_var->label, style, 1, lbl_805DCF28);
+        draw_window_text(&pos, new_var->label, style, 1, lbl_805DCF28);
       }
-      f32 width = (f32) TWindowSubStatusDisp__sub_80144D68(new_var->suffix);
+      f32 width = (f32) calc_text_width(new_var->suffix);
       pos.x = (win->x + win->width) - width;
-      TWindowSubStatusDisp__sub_8024FD8C(&pos, row->suffix, new_var->suffix_style, 1, lbl_805DCF28);
+      draw_window_text(&pos, row->suffix, new_var->suffix_style, 1, lbl_805DCF28);
     }
   }
 }

@@ -53,7 +53,7 @@ extern const f32 lbl_805DB630;
 extern const f32 lbl_805DB634;
 extern const f32 lbl_805DB638;
 u8 *TOFenceAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-O_801673C4 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+O_801673C4 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 O_801673C4 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 Arr_801673C4 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -129,7 +129,7 @@ void TOFenceAncient03__sub_801673C4(void) {
     Arr_801673C4 *r;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = TLobby__sub_80020004(o, 1, lbl_804B1DA8, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, lbl_804B1DA8, 0, 0, 0);
     }
     (*(O_801673C4 * *)&TOFenceAncient03__data_805D59C0) = o;
     r = alloc_buffer__11TOBoss4RockFPv(0x10);

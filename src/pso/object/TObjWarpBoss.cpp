@@ -29,11 +29,11 @@ struct VObj2_8019f358_8019F22C : Base2_8019f358_8019F22C { virtual void m0(); vi
 
 void render__12TObjWarpBossFv(u8 *arg0);
 void update__12TObjWarpBossFPv(void *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(u32, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK TObjWarpBossMulti__sub_8019E798(void *);
 M2C_UNK TObjWarpBossMulti__sub_8019EB94(void *);
@@ -101,8 +101,8 @@ void render__12TObjWarpBossFv(u8 *arg0) {
     }
     if (((VObj2_8019f358_8019F22C*)arg0)->m8(lbl_805DC00C, lbl_805DC010) != 0) {
 block_4:
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(lbl_805D5CA0);
         draw_ginja_object(lbl_805D5C8C);

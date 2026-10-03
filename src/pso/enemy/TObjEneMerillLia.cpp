@@ -271,7 +271,7 @@ s32 play_sound_effect(void *, void *, int, int);
 void TObjEneMerillLia__sub_800D501C(s32 arg0);
 s32 spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 s32 TObjPlayer__sub_800D92BC(void *, int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -305,9 +305,9 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 s32 rotate_matrix_y(int, int);
 s32 translate_matrix(int, f32, f32, f32);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 s32 set_global_flag__10TObjPlayerFv();
@@ -373,7 +373,7 @@ M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 extern Vec_800D57C8 lbl_8043C6D0;
 extern RecoveredGlobal_800D5060_lbl_8058D490 lbl_8058D490;
 extern u32 TObjEneMerillLia__data_805D521C;
@@ -463,7 +463,7 @@ void TObjEneMerillLia__sub_800D5060(u8 *arg0) {
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
-    TBoss4Zako__sub_803D8910((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+    vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x38));
     spawn_ground_effect__10TObjPlayerFPvi((void *) (&stack.sp8), (int) (0x23));
     TObjPlayer__sub_800D92BC((void *) (&stack.sp8), (int) (0xF));
 }
@@ -690,7 +690,7 @@ M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p) {
         if (objInBand__FP7GameObjf((void *) (arg0), lbl_805DA30C) != 0) {
             advance_animation_playback((void *) (arg0));
             push_matrix_from((void *) (&lbl_8058D490));
-            TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
+            post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             render_anim_model__10TObjPlayerFPvf((void *) (arg0), lbl_805DA30C);
             pop_matrix();
@@ -826,9 +826,9 @@ void TObjEneMerillLia__sub_800D6810(u8 *arg0) {
     lbl_805D5660 = some_id_805c6f74;
     TObjLight__sub_80134194((void *) arg0);
     set_global_param__8TObjFishFi((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     translate_matrix((int) 0, (f32) TObjEneMerillLia__data_805DA300, (f32) ((RecoveredFields_800D6810_arg0 *) arg0)->field_380, (f32) TObjEneMerillLia__data_805DA300);
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) 0, (int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_60);
     if (check_demo_mode__10TObjPlayerFv() == 1)
     {

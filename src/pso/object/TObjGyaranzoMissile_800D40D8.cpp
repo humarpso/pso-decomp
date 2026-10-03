@@ -114,11 +114,11 @@ void TObjGyaranzoMissile__sub_800D40DC(void);
 int TObjGyaranzoMissile__sub_800D40E0(void);
 void TObjGyaranzoMissile__sub_800D40E8(void);
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
@@ -195,8 +195,8 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
 
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+    push_matrix();
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xBC));
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0xC0));
     some_id_805c6f74 &= 0xFFFFFBFF;

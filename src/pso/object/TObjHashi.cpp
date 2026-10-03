@@ -18,7 +18,7 @@ struct RecoveredGlobal_801917E8___vt__9TObjHashi {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80191730_lbl_804B7C60 lbl_804B7C60;
 extern u32 TObjHashi__data_805D5C10;
@@ -74,7 +74,7 @@ void TObjHashi__sub_80191730(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B7C60.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B7C60.value, 0, 0, 0));
     }
     (*(s32 *)&TObjHashi__data_805D5C10) = var_r0;
 }

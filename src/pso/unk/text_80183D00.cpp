@@ -33,9 +33,9 @@ void fn_80183E08(u8 *arg0);
 M2C_UNK scroll_strip_uvs(void *, int, int);
 u8 *get_anim_frame__25TObjCity_Season_EasterEggFPv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK draw_model_motion(void *, void *, f32);
@@ -68,8 +68,8 @@ void fn_80183D4C(u8 *arg0) {
         if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBC44, lbl_805DBC60) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_8050DC50.value, s32 *, 0x10)));
             scroll_strip_uvs((void *) (lbl_805D5B34), (int) (0), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 0x18)));
             draw_model_motion((void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x42C), s32 *, 8)), (void *) (M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0x430), s32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));

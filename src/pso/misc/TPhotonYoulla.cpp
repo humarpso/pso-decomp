@@ -29,9 +29,9 @@ s32 TObjPlayer__sub_801A7638(void *);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TOHangerMachine01__sub_803D9C00(void *);
+s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 set_current_scene__6TSceneFi(int);
 s32 set_chunk_material_override_pair(int, int);
@@ -56,7 +56,7 @@ u8 * photon_base_ct(void *);
 void TObjPlayer__sub_801AE72C(void *, u8);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_photon_blast_opening_effects(int, int);
-M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, M2C_UNK);
 extern u8 lbl_804C3B48[];
 extern M2C_UNK __vt__13TPhotonYoulla[];
 extern s32 lbl_805D3528;
@@ -75,7 +75,7 @@ s32 TLobby__sub_800822E8(s32, s32);
 s32 get_game_play_mode();
 int is_locally_controlled__10TObjPlayerFPv(void*);
 M2C_UNK update_photon_blast_attachments(void *);
-M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
+M2C_UNK spawn_photon_blast_attachment_effects(void *, M2C_UNK);
 s32 TObjPlayer__sub_801AF868(s32);
 int TObjPlayer__sub_801BEF60(void*, void*);
 int TObjPlayer__sub_801BEF68(void*);
@@ -114,8 +114,8 @@ void render__13TPhotonYoullaFv(Self_801AE744 *self) {
     if (self->started != 0) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(&self->pos);
+        push_matrix();
+        post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->f60);
         lbl_805D5660 = some_id_805c6f74;
         copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
@@ -147,7 +147,7 @@ void run_task__13TPhotonYoullaFv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
     }
     if ((lbl_805DC264 == (f32) M2C_FIELD(arg0, s32 *, 0x1A4)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1)) {
-        TObjPlayer__sub_801A7748(arg0, 6);
+        spawn_photon_blast_attachment_effects(arg0, 6);
         M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
     }
@@ -215,7 +215,7 @@ u8 *TPhotonYoulla__ct(u8 *arg0, u8 *arg1) {
         M2C_FIELD(arg0, s32 *, 0x198) = 1;
         M2C_FIELD(arg0, s16 *, 0x194) = 0;
         M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
-        TObjPlayer__sub_801A7748(arg0, 6);
+        spawn_photon_blast_attachment_effects(arg0, 6);
     } else {
         spawn_photon_blast_opening_effects((int) (6), (int) (M2C_FIELD(arg0, u16 *, 0x17C)));
     }

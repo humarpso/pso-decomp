@@ -49,7 +49,7 @@ void *get_item_ptr__10TObjPlayerFPvi(void *, s32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TObjPlayer__sub_803D89E8(s32);
 void TObjPlayer__sub_803D9730(s32, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern u8 lbl_8049DD20[];
 void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self);
@@ -67,13 +67,13 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
     PosSrc_800FEEA4 *ps;
     PosDst_800FEEA4 *pd;
     if (self->rot_dst != NULL) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D89E8(0);
         rs = self->rot_src;
         rd = self->rot_dst;
         while (rs->bone >= 0) {
             rd->angle = rs->angle;
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, rs->bone));
             TCameraCtrl__sub_803D8934(0, rs->data, rd->data);
             pop_matrix();
@@ -82,13 +82,13 @@ void TObjPlayer__sub_800FEEA4(Self_800FEEA4 *self) {
         }
         pop_matrix();
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D89E8(0);
     ps = self->pos_src;
     pd = self->pos_dst;
     while (ps->bone >= 0) {
         pd->val = self->model->base + ps->ofs;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D9730(0, get_item_ptr__10TObjPlayerFPvi(self->model, ps->bone));
         TCameraCtrl__sub_803D8934(0, ps->data, pd->data);
         pop_matrix();

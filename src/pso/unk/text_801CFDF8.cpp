@@ -32,8 +32,8 @@ void emit_footstep_effect__10TObjPlayerFiff(void *, f32, f32);
 void play_footstep_sound__10TObjPlayerFi(void *, f32, f32);
 void *resolve_move_collision__10TObjPlayerFPv(void *);
 f32 TObjPlayer__sub_801BF814(void *p);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 TObjPlayer__data_805DC360;
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 lbl_805DC394;
@@ -49,9 +49,9 @@ void update_walk_movement__10TObjPlayerFPv(Plr_801CFDF8 *self) {
     self->target_rot = calc_angle_to__10TObjPlayerFPvPv(get_position_ptr__10TObjPlayerFPv(self), &self->tx);
     self->rot = TObjPlayer__sub_80142344(self->rot, self->target_rot);
     ang = lerp_angle_half__10TObjPlayerFUsUs(self->rot, self->target_rot);
-    self->vx = TObjPlayer__sub_801BF814(self->motion) * TBoss8Dragon__sub_803D64C0(ang);
+    self->vx = TObjPlayer__sub_801BF814(self->motion) * sin_table_lookup(ang);
     self->vy = TObjPlayer__data_805DC36C;
-    self->vz = TObjPlayer__sub_801BF814(self->motion) * TBoss8Dragon__sub_803D64DC(ang);
+    self->vz = TObjPlayer__sub_801BF814(self->motion) * cos_table_lookup(ang);
     dist = (self->tx - self->x) * (self->tx - self->x) + (self->tz - self->z) * (self->tz - self->z);
     if ((lbl_805DC3B4 * TObjPlayer__sub_801BF814(self->motion)) * (lbl_805DC3B4 * TObjPlayer__sub_801BF814(self->motion)) > dist) {
         set_flags__10TObjPlayerFPvUi(self->flags, 4);

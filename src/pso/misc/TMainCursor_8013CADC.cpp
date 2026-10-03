@@ -57,7 +57,7 @@ M2C_UNK offset_point_toward_camera(void *, void *, f32);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object();
@@ -129,10 +129,10 @@ M2C_UNK TMainCursor__sub_8013E9A0(Cursor_8013CDE4 *);
 void TMainCursor__sub_8013E9C0(void *, s32);
 M2C_UNK TMainCursor__sub_8013E9E0(Cursor_8013CDE4 *, u8);
 Tech_8013CDE4 *get_photon_blast_entry__10TObjPlayerFi(s16);
-s32 fn_801D9870(void *, s32);
-Tech_8013CDE4 *TTecCtrl__sub_8022DBC4(s16, u8, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+s32 get_cast_technique_level(void *, s32);
+Tech_8013CDE4 *calc_technique_parameters(s16, u8, s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern f32 lbl_8050BF60[3];
 extern const f32 TMainCursor__data_805DB0C0;
 extern const f32 lbl_805DB0E4;
@@ -239,9 +239,9 @@ void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     cur->f3c = (t)->fc;                                           \
     cur->f28 = (t)->f8 + cur->f3c;                                \
     cur->f34 = (t)->f18;                                          \
-    cur->f2c = TBoss8Dragon__sub_803D64DC(cur->f34);              \
+    cur->f2c = cos_table_lookup(cur->f34);              \
     cur->f38 = (t)->f1c;                                          \
-    cur->f30 = TBoss8Dragon__sub_803D64DC(cur->f38);
+    cur->f30 = cos_table_lookup(cur->f38);
 void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id) {
     Cursor_8013CDE4 *cur;
     Tech_8013CDE4 *tech;
@@ -271,14 +271,14 @@ void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id)
             cur->f28 = lbl_805DB0E4;
             cur->f34 = 0x8000;
             cur->f38 = 0x8000;
-            cur->f2c = TBoss8Dragon__sub_803D64DC(cur->f34);
-            cur->f30 = TBoss8Dragon__sub_803D64DC(cur->f38);
+            cur->f2c = cos_table_lookup(cur->f34);
+            cur->f30 = cos_table_lookup(cur->f38);
         }
         break;
     case 4:
         switch ((s16)id) {
         case 10:
-            tech = TTecCtrl__sub_8022DBC4(0xF, 0xE, obj_getField1c(player));
+            tech = calc_technique_parameters(0xF, 0xE, obj_getField1c(player));
             TMainCursor__sub_8013E9A0(cur);
             TECH_8013CDE4(tech)
             set_type__11TMainCursorFPvi(cur, tech->f22);
@@ -286,7 +286,7 @@ void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id)
             set_display_flags__11TMainCursorFiii(self, (s32)player, C_8013CDE4);
             break;
         case 9:
-            tech = TTecCtrl__sub_8022DBC4(0x11, 0xE, obj_getField1c(player));
+            tech = calc_technique_parameters(0x11, 0xE, obj_getField1c(player));
             TMainCursor__sub_8013E9A0(cur);
             TECH_8013CDE4(tech)
             set_type__11TMainCursorFPvi(cur, tech->f22);
@@ -306,15 +306,15 @@ void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id)
         cur->f28 = wpn->f0 + cur->f3c;
         cur->f34 = wpn->f8;
         cur->f38 = wpn->fc;
-        cur->f2c = TBoss8Dragon__sub_803D64DC(cur->f34);
-        cur->f30 = TBoss8Dragon__sub_803D64DC(cur->f38);
+        cur->f2c = cos_table_lookup(cur->f34);
+        cur->f30 = cos_table_lookup(cur->f38);
         set_type__11TMainCursorFPvi(cur, wpn->f10);
         break;
     case 3: {
         s32 f1c = obj_getField1c(player);
-        u8 lvl = fn_801D9870(player + 0x428, id);
+        u8 lvl = get_cast_technique_level(player + 0x428, id);
         sid = id;
-        tech = TTecCtrl__sub_8022DBC4(sid, lvl, f1c);
+        tech = calc_technique_parameters(sid, lvl, f1c);
         TMainCursor__sub_8013E9A0(cur);
         TECH_8013CDE4(tech)
         set_type__11TMainCursorFPvi(cur, tech->f22);
@@ -340,9 +340,9 @@ void TMainCursor__sub_8013CDE4(s32 self, u8 *player, s32 slot, s32 kind, s32 id)
             set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0);
             set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x60000000);
             set_flags__11TMainCursorFPvi(C_8013CDE4, 0x40800);
-            lbl_8050BF60[0] = lbl_805DB0E8 * TBoss8Dragon__sub_803D64C0(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x2FC);
+            lbl_8050BF60[0] = lbl_805DB0E8 * sin_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x2FC);
             lbl_8050BF60[1] = *(f32 *)(player + 0x300);
-            lbl_8050BF60[2] = lbl_805DB0E8 * TBoss8Dragon__sub_803D64DC(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x304);
+            lbl_8050BF60[2] = lbl_805DB0E8 * cos_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x304);
             VecCopy__FP3VecPC3Vec(cur->pos, lbl_8050BF60);
             break;
         case 10:
@@ -523,12 +523,12 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
             if (temp_r3_2 != -1) {
                 set_global_param__8TObjFishFi((void *) (&lbl_8048E5A0));
                 temp_f31 = M2C_FIELD(arg1, f32 *, 0xC);
-                TObjPlayer__sub_803D9B2C();
+                push_matrix();
                 offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
                 set_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (&sp8));
                 rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
                 begin_effect_render__13TParticleCtrlFv();
-                TObjPlayer__sub_803D9B2C();
+                push_matrix();
                 translate_matrix((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));
                 update_parts2__15TPlyPhotonChairFPv((void *) (arg0 + 0x48));
                 play_sound_with_arg__15TPlyPhotonChairFPvPv((void *) (arg0 + 0x48), (void *) ((u8 *)&lbl_804A7164.value + 0x50));

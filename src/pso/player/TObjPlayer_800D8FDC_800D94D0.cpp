@@ -11,7 +11,7 @@ extern u32 lbl_805D5228;
 extern s32 lbl_805D522C;
 extern u8 lbl_80494A48[];
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void load_corpse_mark_resource(void);
 }
 
@@ -37,7 +37,7 @@ extern s32 some_id_805c6f74;
 void load_corpse_mark_resource(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
-        p = TLobby__sub_80020004(p, 1, lbl_80494A48, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, lbl_80494A48, 0, 0, 0);
     }
     lbl_805D5228 = (u32)p;
     lbl_805D522C = 1;

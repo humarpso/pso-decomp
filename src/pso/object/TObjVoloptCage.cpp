@@ -119,7 +119,7 @@ s32 get_player_by_client_id(int);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
-void TObjPlayer__sub_80018990(void *, s32, int, int, f32, f32);
+void recalc_combat_stats__10TObjPlayerFv(void *, s32, int, int, f32, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void reset_photon_effect__12TBoss3VoloptFPv(void *);
@@ -242,7 +242,7 @@ Obj_80049430 *TObjVoloptCage__ct(Obj_80049430 *arg0, Obj_80049430 *arg1, u16 arg
     reset_photon_effect__12TBoss3VoloptFPv(arg0);
     set_param__12TObjEneLappyFPvi(arg0, 0x2E);
     arg0->f3c = lbl_805D8884;
-    TObjPlayer__sub_80018990(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
+    recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4D18, 0, 0, lbl_805D8888, lbl_805D8888);
     arg0->flags |= 0x40000 | 0x8000;
     arg0->flags &= ~0xA00;
     arg0->f374 = 7;

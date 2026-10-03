@@ -66,8 +66,8 @@ int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
 void refresh_lobby_state__10TObjPlayerFPv();
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 lbl_8049592C[];
 extern s8 lbl_805D5289;
 extern const float TObjEnePanarms__data_805DA524;
@@ -81,8 +81,8 @@ M2C_UNK TObjEnePanarms__sub_800E1C98(void *, s32);
 s32 is_phase_12__14TObjEnePanarmsFPv(s32);
 s32 check_can_attack__14TObjEnePanarmsFPv();
 s32 approach_angle_limited(s32, s32, M2C_UNK);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+M2C_UNK normalize_vector(void *);
 extern const f64 TObjEnePanarms__data_8043CDD0;
 extern const float TObjEnePanarms__data_805DA524;
 extern const f32 TObjEnePanarms__data_805DA52C;
@@ -160,11 +160,11 @@ void TObjEnePanarms__sub_800E0048(u8 *arg0) {
         return;
     }
     VecCopy__FP3VecPC3Vec(&v, arg0 + 0x3C8);
-    if (TBoss6Kakusan__sub_803D8BD8(&v) <= TObjEnePanarms__data_805DA52C) {
+    if (vector_length(&v) <= TObjEnePanarms__data_805DA52C) {
         v.x = TObjEnePanarms__data_805DA530;
         v.z = TObjEnePanarms__data_805DA524;
     } else {
-        TNpcPlayer__sub_803D97B4(&v);
+        normalize_vector(&v);
     }
     M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(v.x, v.z)), 0x888);
     if (M2C_FIELD(arg0, s32 *, 0x3B4) < 0x87) {
@@ -325,7 +325,7 @@ void TObjEnePanarms__sub_800E0A44(u8 *arg0) {
     var_r30 = 7;
     M2C_FIELD(arg0, s32 *, 0xB0) &= ~1;
     if (find_nearest_visible_player(arg0, &v, TObjEnePanarms__data_805DA560) != 0xFFFF) {
-        if (v.x * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)) + v.z * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60)) < TObjEnePanarms__data_805DA524) {
+        if (v.x * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)) + v.z * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)) < TObjEnePanarms__data_805DA524) {
             var_r30 = 6;
         }
     }

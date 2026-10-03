@@ -54,7 +54,7 @@ extern const f32 lbl_805DB234;
 s32 TNpcPlayer__sub_8014FF5C(u8 *arg0);
 u8 *get_position_ptr__10TObjPlayerFPv(s32);
 u8 *get_target_ptr__11TCameraCtrlFPv(s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+f32 vector_length(void *, f32);
 extern const f32 lbl_805DB230;
 s32 partner_view_check_moved(u8 *arg0);
 s16 obj_getS16_32E(void *);
@@ -304,7 +304,7 @@ s32 partner_view_check_moved(u8 *arg0) {
     stack.spC = M2C_FIELD(temp_r3, f32 *, 4) - M2C_FIELD(temp_r31, f32 *, 4);
     temp_f1 = M2C_FIELD(temp_r3, f32 *, 8);
     stack.sp10 = temp_f1 - M2C_FIELD(temp_r31, f32 *, 8);
-    if (TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8), (f32) (temp_f1)) > lbl_805DB230) {
+    if (vector_length((void *) (&stack.sp8), (f32) (temp_f1)) > lbl_805DB230) {
         M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (M2C_FIELD(arg0, s32 *, 0x8C) | 1);
         return 1;
     }

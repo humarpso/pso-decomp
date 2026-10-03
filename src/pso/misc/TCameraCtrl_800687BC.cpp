@@ -355,7 +355,7 @@ s32 is_split_screen();
 s32 get_camera_no__11TCameraCtrlFv();
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 void TCameraCtrl__sub_803D976C(u32, u32);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 TCameraCtrl__data_804FF6D0;
 extern RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 TCameraCtrl__data_804FF700;
@@ -485,8 +485,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 s32 is_split_screen();
 u8 *csnVector(void *, void *, u32);
 s32 get_camera_no__11TCameraCtrlFv();
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void normalize_vector(void *);
 extern f32 TCameraCtrl__data_805D8FA8;
 void TCameraCtrl__sub_800696D0(View_800696D0 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
@@ -710,7 +710,7 @@ typedef char RecoveredGlobal_800691C8_main_task_size[sizeof(RecoveredGlobal_8006
 typedef char RecoveredGlobal_80069148_TCameraCtrl__data_804FF6D0_size[sizeof(RecoveredGlobal_80069148_TCameraCtrl__data_804FF6D0) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_80069148_TCameraCtrl__data_804FF700_size[sizeof(RecoveredGlobal_80069148_TCameraCtrl__data_804FF700) == 0xC0 ? 1 : -1];
 void TCameraCtrl__sub_80069148(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     if (is_split_screen() != 0) {
         TCameraCtrl__sub_803D976C((u32)((int) (0)), (u32)((void *) ((u8 *)&(*(RecoveredGlobal_80069148_TCameraCtrl__data_804FF700 *)&TCameraCtrl__data_804FF700).value + (get_camera_no__11TCameraCtrlFv() * 0x30))));
     } else {
@@ -950,8 +950,8 @@ void TCameraCtrl__sub_800696D0(View_800696D0 *self) {
             d.y = self->eye.y - self->look.y;
             d.z = self->eye.z - self->look.z;
         }
-        if (TCameraCtrl__data_805D8FA8 != TBoss6Kakusan__sub_803D8BD8(&d)) {
-            TNpcPlayer__sub_803D97B4(&d);
+        if (TCameraCtrl__data_805D8FA8 != vector_length(&d)) {
+            normalize_vector(&d);
         }
         if (is_split_screen() != 0) {
             n = get_camera_no__11TCameraCtrlFv();

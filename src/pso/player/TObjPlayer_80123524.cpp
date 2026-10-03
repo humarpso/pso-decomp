@@ -11,7 +11,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0);
 void try_spawn_cane_effect__10TObjPlayerFi(s32 arg0);
 void update_pulse__10TObjPlayerFPv(void *arg0);
 s32 get_flag_40__8TItemMagFPv();
-M2C_UNK TOHangerMachine01__sub_803D9C00(Sp8Type_80123524 *);
+M2C_UNK post_translate_matrix(Sp8Type_80123524 *);
 M2C_UNK draw_ginja_object(void *);
 M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
 M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
@@ -23,7 +23,7 @@ M2C_UNK TObjPlayer__sub_80364028();
 M2C_UNK TObjPlayer__sub_8036414C();
 M2C_UNK TObjPlayer__sub_80364198();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
 extern s32 some_id_805c6f74;
@@ -60,8 +60,8 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
         temp_r6 = M2C_FIELD(arg0, s32 *, 0x1F8);
         M2C_FIELD(temp_r29, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r29, s32 *, 0x18) - temp_r6);
         if (draw_icon__10TObjPlayerFPvii(arg0, 1, &sp8, temp_r6) != 0) {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(&sp8);
+            push_matrix();
+            post_translate_matrix(&sp8);
             rotate_matrix_y(0, M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60));
             draw_ginja_object(temp_r31);
             pop_matrix();

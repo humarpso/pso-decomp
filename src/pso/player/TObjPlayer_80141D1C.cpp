@@ -19,8 +19,8 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 extern const f64 lbl_8043F2C0;
 void TObjPlayer__sub_801422A8(u8 *arg0, s32 *arg1, s32 *arg2);
-f32 TBoss8Dragon__sub_803D64C0();
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup();
+f32 cos_table_lookup(s32);
 void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0);
 f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
 u16 TObjPlayer__sub_80142344(s32 a0, s32 b0);
@@ -46,9 +46,9 @@ s32 is_in_range__10TObjPlayerFf(f32 farg0);
 u16 lerp_angle_half__10TObjPlayerFUsUs(u16 arg0, u16 arg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void vsub(void *arg0, void *arg1, void *arg2);
-f32 TBoss8Dragon__sub_803D64C0();
+f32 sin_table_lookup();
 f32 TCameraCtrl__sub_803D8D00();
-M2C_UNK TNpcPlayer__sub_803D97B4(s32);
+M2C_UNK normalize_vector(s32);
 int abs__4cXyzCFv(int, int);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 
@@ -58,7 +58,7 @@ s32 check_camera_distance__10TObjPlayerFi(s32 arg0) {
     if (TCameraCtrl__sub_803D8D00() < lbl_805DB158) {
         return 0;
     }
-    TNpcPlayer__sub_803D97B4(arg0);
+    normalize_vector(arg0);
     return 1;
 }
 
@@ -67,10 +67,10 @@ extern const f32 lbl_805DB150;
 void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
 
-    temp_f1 = farg0 * TBoss8Dragon__sub_803D64C0();
+    temp_f1 = farg0 * sin_table_lookup();
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) lbl_805DB150;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * TBoss8Dragon__sub_803D64DC(arg0));
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * cos_table_lookup(arg0));
 }
 
 extern const f64 lbl_8043F2C0;
@@ -78,9 +78,9 @@ extern const f64 lbl_8043F2C0;
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_80141DCC(s32 arg0, void *arg1, void *arg2, f32 farg0) {
-    M2C_FIELD(arg2, f32 *, 0) = (f32) ((farg0 * TBoss8Dragon__sub_803D64C0()) + M2C_FIELD(arg1, f32 *, 0));
+    M2C_FIELD(arg2, f32 *, 0) = (f32) ((farg0 * sin_table_lookup()) + M2C_FIELD(arg1, f32 *, 0));
     M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg2, f32 *, 8) = (f32) ((farg0 * TBoss8Dragon__sub_803D64DC((s32)(arg0))) + M2C_FIELD(arg1, f32 *, 8));
+    M2C_FIELD(arg2, f32 *, 8) = (f32) ((farg0 * cos_table_lookup((s32)(arg0))) + M2C_FIELD(arg1, f32 *, 8));
 }
 #pragma pop
 

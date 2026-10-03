@@ -42,7 +42,7 @@ f32 update_scale__15TObjBoss2TunnelFPv(void *);
 void TTecZondeEff__sub_8023D4A8(void *);
 void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
 void TBoss8Dragon__sub_8034D500(void *, void *, s32, void *, f32);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 extern const f32 lbl_805DF5E8;
@@ -56,8 +56,8 @@ void TBoss5GryphonLightningEff__sub_80325064(void* p);
 void render__25TBoss5GryphonLightningEffFv(void *arg0);
 s32 TBoss5GryphonLightningEff__sub_80325070(void *, void *);
 M2C_UNK set_chunk_material_color(void *);
-M2C_UNK TTecZondeEff__sub_8023CED4(void *, void *, void *, void *, void *);
-M2C_UNK TTecZondeEff__sub_8023D128(void *, void *, void *, void *);
+M2C_UNK build_lightning_strip(void *, void *, void *, void *, void *);
+M2C_UNK project_lightning_points(void *, void *, void *, void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -85,11 +85,11 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
     init_xyz_limits__10TObjPlayerFv();
-    TTecZondeEff__sub_8023D128(arg0, sp70, sp3C, sp8);
-    TTecZondeEff__sub_8023CED4(arg0, sp10C, sp70, sp3C, sp8);
+    project_lightning_points(arg0, sp70, sp3C, sp8);
+    build_lightning_strip(arg0, sp10C, sp70, sp3C, sp8);
     draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, TBoss5GryphonLightningEff__sub_80325070(arg0, sp10C), 1);
     if ((u8) M2C_FIELD(arg0, u8 *, 0x260) == 1) {
-        TTecZondeEff__sub_8023CED4(arg0, sp10C, sp70, sp8, sp3C);
+        build_lightning_strip(arg0, sp10C, sp70, sp8, sp3C);
         draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, TBoss5GryphonLightningEff__sub_80325070(arg0, sp10C), 1);
     }
     reset_transform_state__10TObjPlayerFv();
@@ -119,7 +119,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     self->f25c = 0;
     TBoss8Dragon__sub_8034D500(a, b, 0, &self->v1c, x0);
     TBoss8Dragon__sub_8034D500(a, b, 0, &self->v28, x1);
-    TBoss6Type1__sub_803D9370(&self->v28, &self->v1c);
+    subtract_vector(&self->v28, &self->v1c);
     self->f34 = update_scale__15TObjBoss2TunnelFPv(&self->v28);
     self->n = self->f34 * lbl_805DF5FC;
     self->n = self->n + 1;
@@ -137,7 +137,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     self->f34 = lbl_805DF5E8;
     for (i = 0; (f32)i < denom; i++) {
         VecCopy__FP3VecPC3Vec(&v, &self->pts[i]);
-        TBoss6Type1__sub_803D9370(&v, &self->pts[i + 1]);
+        subtract_vector(&v, &self->pts[i + 1]);
         self->f34 += update_scale__15TObjBoss2TunnelFPv(&v);
     }
     TTecZondeEff__sub_8023D4A8(self);

@@ -23,7 +23,7 @@ extern "C" {
 s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 s32 TObjEneRecon__sub_8029EA4C(M2C_UNK *, M2C_UNK);
 M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 u32 get_player_by_client_id(u32);
 s32 is_state_active__14TOKeyMachine01Fv();
 s32 fn_8029E7BC(s32, M2C_UNK *);
@@ -54,7 +54,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
         var_r3 = 1;
     }
     if (var_r3 != 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         reflect_matrix_in_plane(0, sp8);
     }
     return var_r3;
@@ -218,11 +218,11 @@ struct VObj800AFB60_8031bd64 : VBase800AFB60_8031bd64 {
 extern "C" {
 
 void TObjEneRecon__vt104(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
@@ -236,8 +236,8 @@ void TObjEneRecon__vt104(u8 *arg0) {
     if (((VObj800AFB60_8031bd64 *) arg0)->m8(lbl_805DF3BC, TObjEneRecon__data_805DF3C0) != 0) {
         update_player_state__9TObjEneDDFPv(arg0, 0, 0);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
@@ -264,7 +264,7 @@ s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK restore_render_scissor(int);
@@ -275,7 +275,7 @@ s32 render_model_if_visible__12TObjEneReconFPv(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
         if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x41C)) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x448)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
@@ -302,7 +302,7 @@ void advance_intro_stage__12TObjEneReconFv(void);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK TCameraCtrl__sub_803D8934(M2C_UNK, s32, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
 extern s32 lbl_805D6B08;
@@ -311,7 +311,7 @@ extern s32 lbl_805D6B0C;
 void advance_intro_stage__12TObjEneReconFv(void) {
     switch ((s32) lbl_805D6B08) {
     case 0:
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
         TCameraCtrl__sub_803D8934(0, lbl_805D6B0C, lbl_805D6B0C);
         pop_matrix();
@@ -899,11 +899,11 @@ extern "C" {
 
 s32 render_trap_model_if_visible__12TObjEneReconFPv(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK restore_render_scissor(int);
@@ -914,8 +914,8 @@ s32 render_trap_model_if_visible__12TObjEneReconFPv(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
         if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x3E4)) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             pop_matrix();

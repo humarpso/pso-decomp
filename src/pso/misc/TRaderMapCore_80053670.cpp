@@ -19,8 +19,8 @@ O_80053914 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TBoss4Type3__sub_8005254C(u16);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 f32 xyz_distance(Vec_80053914 *, Vec_80053914 *);
 extern const f64 lbl_80437630;
 extern s32 lbl_805D586C;
@@ -81,9 +81,9 @@ void TRaderMapCore__sub_80053914(O_80053914 *self, Vec_80053914 *out) {
     b = (s32)(lbl_805D8B54 * calc_boss4_scale__10TObjPlayerFi(self));
     ang = b + a1;
     ang -= 0x6000;
-    out->x = s * TBoss8Dragon__sub_803D64C0(ang);
+    out->x = s * sin_table_lookup(ang);
     out->y = lbl_805D8B20;
-    out->z = s * TBoss8Dragon__sub_803D64DC(ang);
+    out->z = s * cos_table_lookup(ang);
 }
 #pragma pop
 

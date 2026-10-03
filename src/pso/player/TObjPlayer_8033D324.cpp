@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK reset_fish_globals__8TObjFishFv();
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
+M2C_UNK post_translate_matrix(M2C_UNK *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
@@ -20,9 +20,9 @@ extern const f32 lbl_805DFA78;
 void TObjPlayer__sub_8033D380(void *arg0);
 M2C_UNK reset_fish_globals__8TObjFishFv();
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
+M2C_UNK post_translate_matrix(M2C_UNK *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
@@ -40,10 +40,10 @@ void draw_mesh_group__10TObjPlayerFPv(void *arg0);
 void update_all__10TObjPlayerFPv(void* p);
 void update_hp_gauge_fade__10TObjPlayerFPv(void *arg0);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
-M2C_UNK TOHangerMachine01__sub_803D9C00(M2C_UNK *);
+M2C_UNK post_translate_matrix(M2C_UNK *);
 M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK TObjFish__sub_800E3074(u32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK clear_render_callback__8TObjFishFv(u32);
@@ -54,9 +54,9 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 extern M2C_UNK lbl_80477F2C[];
 
 void draw_mesh_group__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_flag__10TObjPlayerFv();
-    TOHangerMachine01__sub_803D9C00(lbl_80477F2C);
+    post_translate_matrix(lbl_80477F2C);
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xD8));
     draw_model_motion(M2C_FIELD(arg0, s32 *, 0xD4), M2C_FIELD(arg0, s32 *, 0xDC), M2C_FIELD(arg0, f32 *, 0xE0));
     clear_global_state__10TObjPlayerFv();
@@ -87,12 +87,12 @@ void TObjPlayer__sub_8033D380(void *arg0) {
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xCC));
         set_global_flag__10TObjPlayerFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((M2C_UNK *)((u8 *)arg0 + 0x4C));
+        push_matrix();
+        post_translate_matrix((M2C_UNK *)((u8 *)arg0 + 0x4C));
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0xC8), M2C_FIELD(arg0, s32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xE4));
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((M2C_UNK *)((u8 *)arg0 + 0x58));
+        push_matrix();
+        post_translate_matrix((M2C_UNK *)((u8 *)arg0 + 0x58));
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0xC8), M2C_FIELD(arg0, s32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xE4));
         pop_matrix();
         clear_global_state__10TObjPlayerFv();
@@ -119,9 +119,9 @@ void update_hp_gauge_fade__10TObjPlayerFPv(void *arg0) {
         if (var_f31 < lbl_805DFA74) {
             TBoss6PlotFalz__sub_802ABF44(var_f31);
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_flag__10TObjPlayerFv();
-        TOHangerMachine01__sub_803D9C00(lbl_80477F2C);
+        post_translate_matrix(lbl_80477F2C);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC0));
         TObjFish__sub_800E3074(M2C_FIELD(arg0, u32 *, 0x7C));
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xC4), M2C_FIELD(arg0, f32 *, 0xE0));
@@ -152,9 +152,9 @@ void TObjPlayer__sub_8033D590(void *arg0) {
         if (var_f31 < lbl_805DFA74) {
             TBoss6PlotFalz__sub_802ABF44(var_f31);
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_flag__10TObjPlayerFv();
-        TOHangerMachine01__sub_803D9C00(lbl_80477F2C);
+        post_translate_matrix(lbl_80477F2C);
         var_r29 = 0;
         var_r31 = 0;
         do {

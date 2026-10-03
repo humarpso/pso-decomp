@@ -98,7 +98,7 @@ struct RecoveredGlobal_802894A8___vt__13TObjNpcKenkyu {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80289400_lbl_804D3190 lbl_804D3190;
 extern u32 TObjNpcKenkyu__data_805D64B8;
@@ -143,7 +143,7 @@ void TObjNpcKenkyu__sub_80289400(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804D3190.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804D3190.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcKenkyu__data_805D64B8) = var_r0;
 }

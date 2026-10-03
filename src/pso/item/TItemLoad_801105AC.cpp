@@ -10,7 +10,7 @@ struct VObj_801105AC : Base_801105AC {
 
 typedef s32 M2C_UNK;
 extern "C" {
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void TItemLoad__sub_8010F5A0();
 void alloc_work_buffer__9TItemLoadFv();
@@ -82,7 +82,7 @@ void TItemLoad__sub_8011063C(void) {
     TItemLoad__sub_8010F5A0();
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 5, lbl_8049F3E4, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, lbl_8049F3E4, 0, 0, 0);
     }
     TItemLoad__data_805D5480 = (s32)p;
     p = __nw__7TObjectFUl(0x1C);

@@ -105,9 +105,9 @@ void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
 s32 get_flag_40__8TItemMagFPv(void *);
 void draw_weapon_model(void);
 void rotate_matrix_x(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_ginja_object(s32);
 void TObjPlayer__sub_802D56F0(u8 *arg0);
 void TObjPlayer__sub_8011EB84(void *, void *, s32, s32);
@@ -170,8 +170,8 @@ void TObjPlayer__sub_802D56F0(u8 *arg0) {
         n = *(s16 *)(arg0 + 0x24A);
         p = ((S_802D56F0 *)arg0)->e;
         while (n != 0) {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(p++);
+            push_matrix();
+            post_translate_matrix(p++);
             rotate_matrix_x(0, -0x4000);
             draw_ginja_object(((S_802D56F0 *)arg0)->fF4);
             pop_matrix();

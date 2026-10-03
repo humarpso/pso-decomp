@@ -182,7 +182,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 extern Vec_800AFBF0 lbl_8043B10C;
@@ -323,12 +323,12 @@ void handle_message__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK TBoss8Dragon__sub_800BB7D8(void *, M2C_UNK, f32);
 M2C_UNK TBoss8Dragon__sub_800BB7DC(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK remove_child__17TObjEneBm3FlyNestFPvPv(u32, void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 u32 find_entity_by_id(u16);
 M2C_UNK clear_global_flag_400__9TObjEneDDFv();
@@ -355,8 +355,8 @@ void TObjEneBm3Fly__vt104(u8 *arg0) {
     if (((VObj800AFB60_800AFB28 *) arg0)->m8(lbl_805D9C68, TObjEneBm3Fly__data_805D9C6C) != 0) {
         update_player_state__9TObjEneDDFPv(arg0, 0, 0);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
@@ -389,7 +389,7 @@ void render__13TObjEneBm3FlyFv(VObj_800AFBF0 *o) {
         }
         update_secondary_light__9TObjEneDDFPv(o);
         set_global_param__8TObjFishFi(M2C_FIELD(o, s32 *, 0x24));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, M2C_FIELD(o, f32 *, 0x38), M2C_FIELD(o, f32 *, 0x42C), M2C_FIELD(o, f32 *, 0x40));
         rotate_matrix_y(0, M2C_FIELD(o, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();

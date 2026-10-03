@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_or_destroy__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(s32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -18,7 +18,7 @@ void update_or_destroy__10TObjPlayerFPv(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TBoss4Zako__sub_803D8910(arg0 + 0x2C, arg0 + 0x20);
+    vec3_add_to(arg0 + 0x2C, arg0 + 0x20);
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + lbl_805DAF70);
 }
 

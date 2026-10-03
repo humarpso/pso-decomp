@@ -20,7 +20,7 @@ extern const f32 lbl_805DC120;
 extern const f32 lbl_805DC124;
 extern const f32 lbl_805DC128;
 extern const f32 lbl_805DC12C;
-f32 TObjPlayer__sub_801A826C(u8 *arg0, s32 arg1, f32 farg0);
+f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
 }
 #pragma push
 #pragma fp_contract on
-f32 TObjPlayer__sub_801A826C(u8 *arg0, s32 arg1, f32 farg0) {
+f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0) {
     f32 var_f30;
     void *mag;
     var_f30 = lbl_805DC110;

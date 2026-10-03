@@ -38,8 +38,8 @@ void call_36A90_with_1__11TBoss2JointFPv(void *);
 void *__ct__15TBoss2PhotonPadFv(void *, void *, Vec_800344A4 *, Vec_800344A4 *, s32);
 void play_sound_effect(s32, Vec_800344A4 *, s32, s32);
 void *__nw__7TObjectFUl(u32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D832C;
 void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
@@ -97,9 +97,9 @@ void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2) {
     s32 ang;
     void *p;
     ang = 0x3800 - idx * 0x33;
-    v.x = TBoss8Dragon__sub_803D64C0(ang);
+    v.x = sin_table_lookup(ang);
     v.y = TBoss2DeRolLe__data_805D827C;
-    v.z = TBoss8Dragon__sub_803D64DC(ang);
+    v.z = cos_table_lookup(ang);
     if (self->mode == 2) {
         v.x *= TBoss2DeRolLe__data_805D832C;
     }

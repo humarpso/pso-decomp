@@ -73,7 +73,7 @@ extern s32 lbl_805D53A0;
 void TWindowTimer__sub_8019A098(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void rotate_vec_xz(void *, void *, s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *, f32);
+f32 vector_length(void *, f32);
 extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
 extern M2C_UNK lbl_8050DDAC[];
 extern const f32 lbl_805DBF58;
@@ -88,7 +88,7 @@ s32 fn_8019978C(void *, void *, void *);
 void update_best_time__12TWindowTimerFPv(void *arg0);
 void TWindowTimer__sub_8019A104(void *, u16);
 void open__11TWindowCtrlFiii(s32, void *, int);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 extern u8 lbl_8044613C[];
 extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
 extern s32 lbl_805D53A0;
@@ -146,7 +146,7 @@ void TWindowTimer__sub_80199F14(Timer_80199F14 *self) {
     }
     VecCopy__FP3VecPC3Vec(&q, &self->pos);
     self->vel.y += self->f33c;
-    TBoss4Zako__sub_803D8910(&self->pos, &self->vel);
+    vec3_add_to(&self->pos, &self->vel);
     for (;;) {
         if (i++ >= 3 || fn_8019978C(self, &q, &self->vel) == 0) {
             break;
@@ -187,7 +187,7 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
     arg0->f344 = lbl_805DBF58;
     arg0->f348 = arg0->f394;
     arg0->f34C = arg0->f390;
-    arg0->f3A0 = TBoss6Kakusan__sub_803D8BD8(&arg0->f344, lbl_805DBF98);
+    arg0->f3A0 = vector_length(&arg0->f344, lbl_805DBF98);
     rotate_vec_xz(&arg0->f344, &arg0->f344, arg1);
     arg0->f334 = arg1;
     VecCopy__FP3VecPC3Vec(arg0->f50, &arg0->f344);

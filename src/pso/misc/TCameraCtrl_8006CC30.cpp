@@ -373,7 +373,7 @@ u8 * csnVector(void *, void *, u32);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 f32 TCameraCtrl__sub_803D8D00(FollowVector *);
 void rotate_matrix_y(s32, s32);
-void TNpcPlayer__sub_803D97B4(FollowVector *);
+void normalize_vector(FollowVector *);
 void push_matrix_from(void *);
 void TCameraCtrl__sub_803D9858(s32);
 extern FollowVector lbl_80438534;
@@ -902,7 +902,7 @@ void reset_follow_camera_after_warp(Cam_8006DD78 *arg0, const Tgt_8006DD78 *arg1
             d.y = arg0->position.y - arg0->target.y;
             d.z = arg0->position.z - arg0->target.z;
             if (TCameraCtrl__data_805D905C != TCameraCtrl__sub_803D8D00(&d)) {
-                TNpcPlayer__sub_803D97B4(&d);
+                normalize_vector(&d);
             }
             arg0->position.x = hit->point->x - d.x;
             arg0->position.y = hit->point->y - d.y;

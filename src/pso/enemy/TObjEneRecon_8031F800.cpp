@@ -37,8 +37,8 @@ u32 create__12TObjEneReconFPvPvPvPvPv(void *, u16, s32, Vec_8031F8C4 *, Vec_8031
 s32 TObjEneRecon__sub_8031EDF8(void *);
 s32 TObjEneRecobox__sub_8032013C(s32, s32, s32);
 Vec_8031F8C4 *get_field_38_ptr__12TObjEneReconFPv(void *, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern Vec_8031F8C4 lbl_804762E4;
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF454;
@@ -100,8 +100,8 @@ void TObjEneRecon__sub_8031F8C4(Recon_8031F8C4 *o) {
         dir.y = lbl_805DF454;
         break;
     case 2:
-        dir.x = lbl_805DF458 * TBoss8Dragon__sub_803D64C0(o->f60);
-        dir.z = lbl_805DF458 * TBoss8Dragon__sub_803D64DC(o->f60);
+        dir.x = lbl_805DF458 * sin_table_lookup(o->f60);
+        dir.z = lbl_805DF458 * cos_table_lookup(o->f60);
         break;
     }
     id = TObjEneRecon__sub_8031EDF8(o);

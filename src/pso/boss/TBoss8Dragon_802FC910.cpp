@@ -14,14 +14,14 @@ extern "C" {
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 extern const f32 TBoss8Dragon__data_805DED50;
 void TBoss8Dragon__sub_802FC9D8(u8 *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805DEEDC;
 void TBoss8Dragon__sub_802FC978(u8 *arg0, f32 *arg1, f32 *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *, f32, f32);
 void TBoss8Dragon__sub_802FC978(u8 *arg0, f32 *arg1, f32 *arg2);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern const f32 TBoss8Dragon__data_805DEE9C;
 s32 TBoss8Dragon__sub_802FC910(Boss_802FC910 *o);
 }
@@ -33,15 +33,15 @@ s32 TBoss8Dragon__sub_802FC910(Boss_802FC910 *o) {
     V_802FC910 a;
     TBoss8Dragon__sub_802FC978((u8 *)o, s.b, (f32 *)&s.c);
     VecCopy__FP3VecPC3Vec(&a, &o->pos);
-    TBoss6Type1__sub_803D9370(&a, s.b);
+    subtract_vector(&a, s.b);
     return ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)(&a) <= TBoss8Dragon__data_805DEE9C;
 }
 
 #pragma push
 #pragma fp_contract on
 void TBoss8Dragon__sub_802FC978(u8 *arg0, f32 *arg1, f32 *arg2) {
-    *arg1 = (lbl_805DEEDC * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x38);
-    *arg2 = (lbl_805DEEDC * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x40);
+    *arg1 = (lbl_805DEEDC * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x38);
+    *arg2 = (lbl_805DEEDC * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60))) + M2C_FIELD(arg0, f32 *, 0x40);
 }
 #pragma pop
 

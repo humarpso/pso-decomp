@@ -43,9 +43,9 @@ void sync_player_globals__10TObjPlayerFv(void);
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(int);
 void draw_chunk_object(int);
 extern RecoveredGlobal_8030ABF4_lbl_80541E58 lbl_80541E58;
@@ -141,10 +141,10 @@ void TObjPlayer__sub_8030A9B0() {
         }
         t = d / lbl_805DF144;
         k = lbl_805DF148 - t * (t * t);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         v = *(Raw_8030A9B0 *)e;
         M2C_FIELD(&v, f32 *, 4) = lbl_805DF13C;
-        TOHangerMachine01__sub_803D9C00(&v);
+        post_translate_matrix(&v);
         rotate_matrix_y(0, e->f10 + rot);
         col.a = lbl_805DF14C;
         col.b = lbl_805DF14C;
@@ -170,8 +170,8 @@ void TObjPlayer__sub_8030AB48(void) {
     TObjPlayer__sub_80052390(lbl_805DF148);
     set_global_param__8TObjFishFi(lbl_805D6A68);
     for (i = 0; i < t->count; i++, p++) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(p);
+        push_matrix();
+        post_translate_matrix(p);
         rotate_matrix_y(0, p->f10);
         rotate_matrix_x(0, p->f0c);
         draw_chunk_object(r31);

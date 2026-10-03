@@ -56,10 +56,10 @@ s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__data_80513ED0;
 u8 TShopGenerator__sub_8021E110(s32 arg0);
 f32 xyz_distance_squared(void *, void *);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
+f32 vec3_dot(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
-f32 TNpcPlayer__sub_803D97B4(void *);
+f32 normalize_vector(void *);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_8021DC30_lbl_8044C140 lbl_8044C140;
@@ -147,8 +147,8 @@ bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 
     stack.sp14 = M2C_FIELD(arg0, f32 *, 0x38) - M2C_FIELD(arg1, f32 *, 0x38);
     stack.sp18 = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg1, f32 *, 0x3C);
     stack.sp1C = M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg1, f32 *, 0x40);
-    TNpcPlayer__sub_803D97B4((void *) (&stack.sp14));
-    return (TObjPlayer__sub_803D89C0((void *) (&stack.sp8), (void *) (&stack.sp14)) > lbl_805DC6E8) == 0;
+    normalize_vector((void *) (&stack.sp14));
+    return (vec3_dot((void *) (&stack.sp8), (void *) (&stack.sp14)) > lbl_805DC6E8) == 0;
 }
 #pragma pop
 

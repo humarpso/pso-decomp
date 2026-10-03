@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-s32 TItemDrop__sub_800F9C00(void *);
+s32 apply_rel_relocations(void *);
 u8 *ct_object__9TItemDropFPv(u8 *, M2C_UNK *);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFPv();
@@ -30,7 +30,7 @@ s32 create_named_object(s32 arg0) {
         M2C_FIELD(var_r30, void **, 0) = (void *) (var_r30 + 0x28);
         M2C_FIELD(var_r30, s32 *, 0x1C) = set_stream_and_load_file__6TLobbyFi(arg0);
         M2C_FIELD(var_r30, s32 *, 0x20) = temp_r3;
-        return TItemDrop__sub_800F9C00(var_r30);
+        return apply_rel_relocations(var_r30);
     }
     return 0;
 }

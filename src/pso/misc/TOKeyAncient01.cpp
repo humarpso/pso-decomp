@@ -79,9 +79,9 @@ void TOKeyAncient01__vt15(u8 *arg0);
 M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK rotate_matrix_z(int, void *);
 M2C_UNK rotate_matrix_x(int, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
@@ -109,7 +109,7 @@ extern const f32 lbl_805DB6F4;
 extern const f32 lbl_805DB6F8;
 u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-Big_8016AF84 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+Big_8016AF84 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 Buf_8016AF84 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804419B8[];
@@ -148,15 +148,15 @@ void TOKeyAncient01__vt23(void) {  }
 
 void render__14TOKeyAncient01Fv(u8 *arg0) {
     if (((VObj18*)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (void *) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
             draw_ginja_model_with_motion((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         } else {
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (M2C_FIELD(arg0, u8 **, 0x34) + 8));
+            push_matrix();
+            post_translate_matrix((void *) (M2C_FIELD(arg0, u8 **, 0x34) + 8));
             rotate_matrix_z((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x1C)));
             rotate_matrix_x((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x14)));
             rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x18)));
@@ -219,7 +219,7 @@ void TOKeyAncient01__sub_8016AEFC(void) {
 void TOKeyAncient01__sub_8016AF84(void) {
     Big_8016AF84 *v = (Big_8016AF84 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
-        v = TLobby__sub_80020004(v, 1, lbl_804B29C0, 0, 0, 0);
+        v = load_resource_from_descriptor(v, 1, lbl_804B29C0, 0, 0, 0);
     }
     (*(Big_8016AF84 * *)&TOKeyAncient01__data_805D59F8) = v;
     (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC) = alloc_buffer__11TOBoss4RockFPv(0x10);

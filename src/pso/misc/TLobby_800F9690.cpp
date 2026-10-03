@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
-s32 TLobby__sub_800F979C(char *arg0, s32 *arg1);
+s32 load_encrypted_text_archive(char *arg0, s32 *arg1);
 s32 alloc_named_object(s32, s32, s32, s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_8043D9FC[];
@@ -67,9 +67,9 @@ s32 TWindowKeyBoardSoft__sub_800F98F0(s32 arg0) {
     s32 b;
     s32 r;
     sprintf(buf, lbl_8043D9FC, arg0);
-    a = TLobby__sub_800F979C(buf, &sp8);
+    a = load_encrypted_text_archive(buf, &sp8);
     sprintf(buf, lbl_8043DA04, arg0);
-    b = TLobby__sub_800F979C(buf, &sp8);
+    b = load_encrypted_text_archive(buf, &sp8);
     r = alloc_named_object(arg0, a, sp8, b);
     safe_free__23TAdSinglePlyChrSelectGCFUi((void *)b);
     return r;

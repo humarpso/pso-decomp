@@ -47,10 +47,10 @@ s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);
 s32 begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 f32 TObjPlayer__sub_803D99F8(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-s32 TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+s32 scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 s32 draw_ginja_model(int);
 void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -82,13 +82,13 @@ void* fn_80365320(int a0);
 int fn_80365334(int a0);
 void render__18TObjLaboDesignBaseFPv(u8 *arg0);
 void run_task__18TObjLaboDesignBaseFv(void);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 void TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 void TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -180,15 +180,15 @@ void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1) {
         } else {
             end_effect_render__13TParticleCtrlFv();
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         if (!(temp_r31 & 1)) {
-            TOHangerMachine01__sub_803D9C00((void *) (var_r30 + 8));
+            post_translate_matrix((void *) (var_r30 + 8));
         }
         if (!(temp_r31 & 2)) {
             TObjPlayer__sub_803D99F8((void *) (var_r30 + 0x14), (void *) (temp_r31 & 0x20));
         }
         if (!(temp_r31 & 4)) {
-            TBoss7Tentacle__sub_803D9BA0((void *) (var_r30 + 0x20));
+            scale_current_matrix((void *) (var_r30 + 0x20));
         }
         if (!(temp_r31 & 8)) {
             draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
@@ -207,8 +207,8 @@ void TObjLaboDesignBase__sub_80364F18(s32 arg0, u8 *arg1) {
 void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     TObjFish__sub_8001EDB0((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0));
     set_global_param__8TObjFishFi();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     TObjLaboDesignBase__sub_80364F18((s32)((void *) (arg0)), (u8 *)((int) (get_bml_model((int) (M2C_FIELD(arg0, s32 *, 0xAC)), (int) (0)))));
     pop_matrix();

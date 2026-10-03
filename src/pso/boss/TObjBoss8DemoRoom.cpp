@@ -14,7 +14,7 @@ u32 TBoss8Dragon__sub_802F3348(M2C_UNK);
 s32 TBoss8Dragon__sub_802FCCBC();
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK TObjPlayer__sub_8023DEE0(s32, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK queue_destruction__7TObjectFv(s32);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -24,7 +24,7 @@ extern void *TObjBoss8DemoRoom__data_805D7010;
 
 void render__17TObjBoss8DemoRoomFv(void) {
     set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 0xC));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     draw_chunk_object(M2C_FIELD(M2C_FIELD(TObjBoss8DemoRoom__data_805D7010, void **, 0x42C), s32 *, 8));
     reset_transform_state__10TObjPlayerFv();
     pop_matrix();

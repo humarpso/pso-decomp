@@ -41,7 +41,7 @@ struct RecoveredGlobal_8015A4D0___vt__18TOCapsuleAncient01 {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A418_lbl_804AFE78 lbl_804AFE78;
 extern u32 TOCapsuleAncient01__data_805D58B8;
@@ -73,13 +73,13 @@ void *create__18TOCapsuleAncient01FPv(void *arg0);
 void destroy_static_instance__18TOCapsuleAncient01Fv(void);
 void render__18TOCapsuleAncient01Fv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -94,8 +94,8 @@ void render__18TOCapsuleAncient01Fv(u8 *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj_8015a2b8 *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
@@ -104,7 +104,7 @@ void render__18TOCapsuleAncient01Fv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
             begin_effect_render__13TParticleCtrlFv();
             temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_2, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r31_2, f32 *, 0x10)));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xE4)));
             draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
@@ -142,7 +142,7 @@ void TOCapsuleAncient01__sub_8015A418(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AFE78.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFE78.value, 0, 0, 0));
     }
     (*(s32 *)&TOCapsuleAncient01__data_805D58B8) = var_r0;
 }

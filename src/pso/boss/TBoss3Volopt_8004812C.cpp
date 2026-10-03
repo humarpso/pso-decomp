@@ -43,12 +43,12 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
 void TObjPlayer__sub_801E341C(void *, s32, s32);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void TCameraCtrl__sub_803D8934(s32, void *, void *);
 void TObjPlayer__sub_803D8CD4(s32);
 void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern Vec_80048260 lbl_804366B8;
 extern Color_80048260 lbl_80484828[];
@@ -98,7 +98,7 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
     VecCopy__FP3VecPC3Vec(&lbl_804FF1B8[0], self->pos);
     dst = &lbl_804FF1B8[1];
     VecCopy__FP3VecPC3Vec(dst, self->dir);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
     {
         Vec_80048260 v = lbl_804366B8;
@@ -106,7 +106,7 @@ void TObjPlayer__sub_80048260(Obj_80048260 *self) {
         rotate_matrix_x(0, self->rotY);
         rotate_matrix_y(0, self->rotZ);
         TCameraCtrl__sub_803D8934(0, &v, &v);
-        TBoss4Zako__sub_803D8910(dst, &v);
+        vec3_add_to(dst, &v);
     }
     pop_matrix();
     init_xyz_limits__10TObjPlayerFv();

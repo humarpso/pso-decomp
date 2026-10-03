@@ -13,8 +13,8 @@ s32 create_particle_emitter(s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern RecoveredGlobal_80051430___vt__13TObjDFRecBall __vt__13TObjDFRecBall;
 extern s32 lbl_805D27BC;
 extern const f32 lbl_805D8A30;
@@ -47,10 +47,10 @@ struct Ball_8005123C {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 f32 xyz_distance(void *, void *);
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
@@ -76,15 +76,15 @@ void TObjDFRecBall::run_task() {
         o->speed = 9.0f;
     }
     VecCopy__FP3VecPC3Vec(&d, &o->target);
-    TBoss6Type1__sub_803D9370(&d, &o->pos);
-    if (TBoss6Kakusan__sub_803D8BD8(&d) > lbl_805D8A48) {
-        TNpcPlayer__sub_803D97B4(&d);
+    subtract_vector(&d, &o->pos);
+    if (vector_length(&d) > lbl_805D8A48) {
+        normalize_vector(&d);
     } else {
         d.x = lbl_805D8A34;
         d.z = d.y = lbl_805D8A30;
     }
-    if (TBoss6Kakusan__sub_803D8BD8(&o->vel) > lbl_805D8A48) {
-        TNpcPlayer__sub_803D97B4(&o->vel);
+    if (vector_length(&o->vel) > lbl_805D8A48) {
+        normalize_vector(&o->vel);
     } else {
         o->vel.x = lbl_805D8A34;
         o->vel.y = lbl_805D8A30;
@@ -93,7 +93,7 @@ void TObjDFRecBall::run_task() {
     o->vel.x = o->speed * (lbl_805D8AB4 * o->vel.x + lbl_805D8AB8 * d.x);
     o->vel.y = o->speed * (lbl_805D8AB4 * o->vel.y + lbl_805D8AB8 * d.y);
     o->vel.z = o->speed * (lbl_805D8AB4 * o->vel.z + lbl_805D8AB8 * d.z);
-    TBoss4Zako__sub_803D8910(&o->pos, &o->vel);
+    vec3_add_to(&o->pos, &o->vel);
     copy_pos__11TNowLoadingFPvPv(o->model, &o->pos);
     if (xyz_distance(&o->pos, &o->target) <= o->speed) {
         queue_destruction__7TObjectFv(o);
@@ -125,9 +125,9 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
     temp_r31 = (s32) (lbl_805D8ABC * (lbl_805D8A6C * (f32) rand()));
-    M2C_FIELD(arg0, f32 *, 0x34) = TBoss8Dragon__sub_803D64C0(temp_r31);
+    M2C_FIELD(arg0, f32 *, 0x34) = sin_table_lookup(temp_r31);
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D8A30;
-    M2C_FIELD(arg0, f32 *, 0x3C) = TBoss8Dragon__sub_803D64DC(temp_r31);
+    M2C_FIELD(arg0, f32 *, 0x3C) = cos_table_lookup(temp_r31);
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D8A34;
     M2C_FIELD(arg0, s32 *, 0x48) = 0x96;
     temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0xAF));

@@ -26,7 +26,7 @@ s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 void TObjChip__sub_80180BD4(void *, s32, Param_8017D448 *);
 void *__nw__7TObjectFUl(u32);
-void TBoss4Zako__sub_803D8910(Vec_8017D448 *, Vec_8017D448 *);
+void vec3_add_to(Vec_8017D448 *, Vec_8017D448 *);
 void rotate_vector_by_matrix(int, Vec_8017D448 *, Vec_8017D448 *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
@@ -61,7 +61,7 @@ void TOWreckAncientBrakable__sub_8017D448(u8 *arg0) {
         rotate_vector_by_matrix(0, &tmp, &tmp);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&p.pos, (Vec_8017D448 *)(arg0 + 0x38));
-        TBoss4Zako__sub_803D8910(&p.pos, &tmp);
+        vec3_add_to(&p.pos, &tmp);
         p.f40 = get_bml_model(lbl_805D5AFC, i);
         p.f44 = TObjFish__sub_8001EDB0(lbl_805D5AFC, i);
         obj = __nw__7TObjectFUl(0x234);

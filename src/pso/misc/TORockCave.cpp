@@ -25,13 +25,13 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_object(int);
 void TORockCave__sub_80175134(u8 *arg0);
-u32 TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_804B3AB8[];
@@ -59,8 +59,8 @@ extern u32 lbl_805D5A84;
 void TORockCave__sub_80175134(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
         ((VObj_18 *)(arg0))->m12();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
@@ -87,7 +87,7 @@ extern M2C_UNK __vt__10TORockCave[];
         void *p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);                   \
         u32 r = (u32)p;                                                         \
         if (p != 0) {                                                           \
-            r = TLobby__sub_80020004(p, 1, tbl + (off), 0, 0, 0);               \
+            r = load_resource_from_descriptor(p, 1, tbl + (off), 0, 0, 0);               \
         }                                                                       \
         dst = r;                                                                \
     }

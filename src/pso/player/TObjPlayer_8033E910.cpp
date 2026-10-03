@@ -35,7 +35,7 @@ M2C_UNK PSMTXConcat(void *, void *, void *);
 M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 int set_global_effect_state__10TObjPlayerFi(void*);
 int TObjPlayer__sub_803DC83C(void*);
@@ -62,9 +62,9 @@ void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 void TObjPlayer__sub_8033E988(void);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
@@ -94,7 +94,7 @@ void TObjPlayer__sub_8033E988(void) {
     f32 sp8;
     f32 temp_f31;
     if ((u32) lbl_805D4DF0 != 0U) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         calc_projection_screen_offset((void *) (&spC), (void *) (&sp8));
         temp_f31 = (f32) (lbl_804783B0 * calc_camera_fov_degrees());
         if (TCameraCtrl__sub_800689F4() != 0) {
@@ -141,8 +141,8 @@ void TObjPlayer__sub_8033EB4C(O_8033EB4C *self) {
         set_current_scene__6TSceneFi(self->items[i].scene);
         set_depth_buffer_settings_1__Fv();
         set_depth_buffer_settings_id__FUl(3);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(self->items[i].a);
+        push_matrix();
+        post_translate_matrix(self->items[i].a);
         TObjPlayer__sub_803D99F8(self->items[i].b, 1);
         TParticleCtrl__sub_80328090(self->items[i].obj, 1, 1);
         ((void (*)(void *))init_particle_effect__10TObjPlayerFv)(self);

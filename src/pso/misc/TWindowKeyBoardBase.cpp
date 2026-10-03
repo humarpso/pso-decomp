@@ -40,7 +40,7 @@ void render__19TWindowKeyBoardBaseFv(void *arg0);
 void run_task__19TWindowKeyBoardBaseFv(void* p);
 s32 TWindowChat__sub_8025CB10(void *);
 s32 TWindowKeyBoardHard__sub_8025EB68();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
 void __dl__7TObjectFPv(void *);
 void destroy__19TWindowKeyBoardBaseFPvs(void *, int);
@@ -56,7 +56,7 @@ void render__19TWindowKeyBoardBaseFv(void *arg0) {
     if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(arg0) != 0) || (M2C_FIELD(arg0, u16 *, 0x62) & 2))) {
         temp_r31 = draw_default_entry__9TWindowDDFi(arg0);
         if (M2C_FIELD(arg0, u16 *, 0x62) & 2) {
-            TWindowSubComCard__sub_80245F98(arg0, temp_r31);
+            draw_window_frame(arg0, temp_r31);
         }
         TWindowSubStatusDisp__sub_8025E6DC(arg0, temp_r31);
     }

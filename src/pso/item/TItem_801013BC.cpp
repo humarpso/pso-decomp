@@ -9,10 +9,10 @@ struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 extern "C" {
 M2C_UNK TObjPlayer__sub_803D898C(void *);
 M2C_UNK TObjPlayer__sub_803D99F8(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 extern M2C_UNK (*lbl_805D53F8)(s32);
 extern M2C_UNK (*lbl_805D53FC)(void *);
 extern u8 *lbl_805D5404;
@@ -43,7 +43,7 @@ void update_item_data__5TItemFPv(void *arg0);
 s32 TItemAttacker__sub_80103548(M2C_UNK);
 void TItemData__sub_8010CC68(void *);
 void is_rare_item__9TItemDataFPv(void *);
-M2C_UNK TItemData__sub_8010E59C(M2C_UNK *, s32);
+M2C_UNK format_item_name__9TItemDataFv(M2C_UNK *, s32);
 int TItem__sub_80101B20(void*);
 s32 TLobby__sub_80103AD4();
 void calc_display_grade__9TItemDataFPv(void *);
@@ -139,7 +139,7 @@ s32 register_attack__5TItemFPv(void *arg0) {
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(sp8));
     temp_r3 = TItemAttacker__sub_80103548(0);
-    TItemData__sub_8010E59C(sp8, temp_r3);
+    format_item_name__9TItemDataFv(sp8, temp_r3);
     return temp_r3;
 }
 
@@ -156,7 +156,7 @@ void draw_model_node_tree(u8 *arg0) {
     do {
         temp_r30 = M2C_FIELD(var_r31, s32 *, 0);
         if ((u32) (temp_r30 & 7) == 7) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             if (lbl_805D5404 != NULL) {
                 TObjPlayer__sub_803D898C(lbl_805D5404);
                 lbl_805D5404 += 0x30;
@@ -172,15 +172,15 @@ void draw_model_node_tree(u8 *arg0) {
             }
             pop_matrix();
         } else {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             if (!(temp_r30 & 1)) {
-                TOHangerMachine01__sub_803D9C00((void *) (var_r31 + 8));
+                post_translate_matrix((void *) (var_r31 + 8));
             }
             if (!(temp_r30 & 2)) {
                 TObjPlayer__sub_803D99F8((void *) (var_r31 + 0x14), (void *) (temp_r30 & 0x20));
             }
             if (!(temp_r30 & 4)) {
-                TBoss7Tentacle__sub_803D9BA0((void *) (var_r31 + 0x20));
+                scale_current_matrix((void *) (var_r31 + 0x20));
             }
             if (((M2C_UNK (*)(void *)) lbl_805D53FC) != NULL) {
                 lbl_805D53FC(var_r31);

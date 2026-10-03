@@ -90,16 +90,16 @@ u8 TBoss6Rock__sub_80353DC4(s32 arg0);
 void TBoss6Rock__sub_80353EA4(s32 i);
 u8 *TBoss6Rock__sub_80354148(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
 extern u8 TBoss6Rock__data_805437F8[];
 extern const f32 TBoss6Rock__data_805DFF50;
 void TBoss6Rock__sub_80353B7C(Vec_80353B7C *arg0, f32 r);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern u8 TBoss6Rock__data_805437F8[];
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 TBoss6Rock__data_805DFF5C;
@@ -109,10 +109,10 @@ s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r);
 s32 TBoss6Rock__sub_80353E10(s32 arg0);
 u8 *TBoss6Rock__sub_80354148(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern u8 TBoss6Rock__data_805437F8[];
 extern u8 *TBoss6Rock__data_805D6EF8;
 extern const f32 TBoss6Rock__data_805DFF50;
@@ -134,12 +134,12 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0);
 void set_target__10TBoss6RockFPviiiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
 M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
@@ -167,8 +167,8 @@ extern const f32 TBoss6Rock__data_805DFF4C;
 
 void render_if_active__10TBoss6RockFPv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x20));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x20));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
@@ -251,19 +251,19 @@ s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR) {
     a.y = TBoss6Rock__data_805DFF50;
     VecCopy__FP3VecPC3Vec(&b, &((Vec_80353A14 *)TBoss6Rock__data_805437F8)[arg0]);
     VecCopy__FP3VecPC3Vec(&c, &b);
-    TBoss6Type1__sub_803D9370(&c, &a);
-    d = TBoss6Kakusan__sub_803D8BD8(&c);
+    subtract_vector(&c, &a);
+    d = vector_length(&c);
     if (d <= lbl_805DFF54) {
         return 0;
     }
     if (d > lbl_805DFF58) {
         d = lbl_805DFF58;
     }
-    TNpcPlayer__sub_803D97B4(&c);
+    normalize_vector(&c);
     s = r - r * (1.0f - (d - 100.0f) / 100.0f);
     c.x *= s;
     c.z *= s;
-    TBoss4Zako__sub_803D8910(&c, &b);
+    vec3_add_to(&c, &b);
     VecCopy__FP3VecPC3Vec(out, &c);
     *outR = r;
     return 1;
@@ -279,9 +279,9 @@ void TBoss6Rock__sub_80353B7C(Vec_80353B7C *arg0, f32 r) {
         if (p != NULL && ((s32 (*)(s32))TBoss6Rock__sub_80353DC4)(i) != 0 && !(arg0->y > r + p->f8)) {
             f32 lim = r + p->f4;
             VecCopy__FP3VecPC3Vec(&v, &((Vec_80353B7C *)TBoss6Rock__data_805437F8)[i]);
-            TBoss6Type1__sub_803D9370(&v, arg0);
+            subtract_vector(&v, arg0);
             v.y = TBoss6Rock__data_805DFF50;
-            if (TBoss6Kakusan__sub_803D8BD8(&v) <= lim) {
+            if (vector_length(&v) <= lim) {
                 TBoss6Rock__sub_80353EA4(i);
             }
         }
@@ -298,17 +298,17 @@ s32 TBoss6Rock__sub_80353C60(Vec_80353C60 *arg0, f32 r) {
     for (i = 0; i < 0x20; i++) {
         f32 d;
         VecCopy__FP3VecPC3Vec(&v, arg0);
-        TBoss6Type1__sub_803D9370(&v, &((Vec_80353C60 *)TBoss6Rock__data_805437F8)[i]);
+        subtract_vector(&v, &((Vec_80353C60 *)TBoss6Rock__data_805437F8)[i]);
         v.y = y;
-        d = TBoss6Kakusan__sub_803D8BD8(&v);
+        d = vector_length(&v);
         if (!(d >= lim)) {
             if (d <= lbl_805DFF64) {
                 v.x = TBoss6Rock__data_805DFF5C;
             }
-            TNpcPlayer__sub_803D97B4(&v);
+            normalize_vector(&v);
             v.x *= lim;
             v.z *= lim;
-            TBoss4Zako__sub_803D8910(arg0, &v);
+            vec3_add_to(arg0, &v);
             hit = 1;
         }
     }

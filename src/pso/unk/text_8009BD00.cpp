@@ -13,7 +13,7 @@ M2C_UNK get_camera_ctrl__9TObjEneDDFPv(void *, int);
 M2C_UNK update_camera_sequence__9TObjEneDDFPv();
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, int);
 M2C_UNK rotate_vector_by_matrix(int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern RecoveredGlobal_8009BD00_lbl_80500960 lbl_80500960;
 extern u32 lbl_805D4FD4;
@@ -32,7 +32,7 @@ void fn_8009BD00(void) {
     switch (lbl_805D4FD4) {
     case 2:
     case 3:
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         update_camera_sequence__9TObjEneDDFPv();
         temp_r5 = lbl_805D4FD8;
         lbl_805D4FD8 = temp_r5 + 0xC;

@@ -22,10 +22,10 @@ struct TObjVoloptCageVObj_8004912C : TObjVoloptCageBase_8004912C {
 void init_break_model__14TObjVoloptCageFv(void);
 void render__14TObjVoloptCageFv(u8 *arg0);
 s32 TBreakUpMdl__sub_8009705C(s32, s32);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK, void *);
 s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
@@ -62,9 +62,9 @@ extern const f32 lbl_805D8880;
 void render__14TObjVoloptCageFv(u8 *arg0) {
     if (((TObjVoloptCageVObj_8004912C *)arg0)->m8(lbl_805D887C, lbl_805D8880) != 0) {
         set_global_param__8TObjFishFi(TObjVoloptCage__data_805D4D28);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         some_id_805c6f74 &= 0xFFFFFBFF;
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw_chunk_object(lbl_805D4D24);
         pop_matrix();

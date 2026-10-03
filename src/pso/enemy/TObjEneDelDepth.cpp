@@ -258,9 +258,9 @@ M2C_UNK TObjEneDelDepth__sub_80315D34();
 M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern Vec_803155D4 lbl_80475DA4[];
 extern const f32 TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF260;
@@ -279,7 +279,7 @@ M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
 M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
-M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 s32 init_collision_body_parts(void *, void *, int);
 u8 *get_data__15TObjEneDelDepthFv();
@@ -295,9 +295,9 @@ M2C_UNK restore_render_scissor(int);
 M2C_UNK TObjEneDelDepth__sub_803162A8(s32);
 M2C_UNK set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 M2C_UNK rotate_matrix_y(int, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern u8 main_task[];
 s32 TObjEneDelDepth__sub_8031551C(void *arg0);
 }
@@ -336,10 +336,10 @@ s32 TObjEneDelDepth__sub_8031551C(void *arg0) {
     Dep_8031551C *o = (Dep_8031551C *)arg0;
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x20) {
         if (TObjEneRecon__sub_8029E960(o->f3E4) != 0) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             Vec_8031551C v = o->pos;
             v.y += o->f39C;
-            TOHangerMachine01__sub_803D9C00(&v);
+            post_translate_matrix(&v);
             rotate_matrix_y(0, o->f60);
             set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
             TObjEneDelDepth__sub_803162A8(o->f37C);
@@ -369,10 +369,10 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
         TObjEneDelDepth__sub_80315D34();
     }
     toggle_particle_effect__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     Vec_803155D4 v = o->pos;
     v.y += o->f39C;
-    TOHangerMachine01__sub_803D9C00(&v);
+    post_translate_matrix(&v);
     rotate_matrix_y(0, o->f60);
     set_monitor_position_vec3__10TObjPlayerFPvPv(0, o->f3A0);
     TObjEneDelDepth__sub_803162A8(o->f37C);
@@ -430,7 +430,7 @@ void TObjEneDelDepth__sub_803158B0(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x30C) = (f32) TObjEneDelDepth__data_805DF258;
     M2C_FIELD(arg0, f32 *, 0x308) = (f32) TObjEneDelDepth__data_805DF258;
     M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
-    TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(0x30), dispatch_shared_handler_b__6TLobbyFPv(0x30), register_object__6TLobbyFPv(0x30));
+    bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFPv(0x30), dispatch_shared_handler_b__6TLobbyFPv(0x30), register_object__6TLobbyFPv(0x30));
     M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
     reset_photon_effect__12TBoss3VoloptFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x350) = 0;

@@ -185,8 +185,8 @@ s32 spawn_particle_effect(Vec_80048CDC *, s32);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(void *, void *, s32, void *, s32);
 void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 s32 rand(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern u8 lbl_804848FC[];
 extern struct VObj_800490E8_80048F40 *lbl_805D4D20;
 extern s32 TObjVoloptCage__data_805D4D28;
@@ -321,9 +321,9 @@ void TObjVoloptCage__sub_80048CDC(u8 *arg0) {
     case 1:
         if (M2C_FIELD(arg0, s16 *, 0x33C) & 1) {
             idx = (s32)(lbl_805D8860 * (lbl_805D8864 * (lbl_805D8868 * (f32)rand())));
-            v.x = lbl_805D886C * TBoss8Dragon__sub_803D64DC(idx) + M2C_FIELD(arg0, f32 *, 0x2FC);
+            v.x = lbl_805D886C * cos_table_lookup(idx) + M2C_FIELD(arg0, f32 *, 0x2FC);
             v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + M2C_FIELD(arg0, f32 *, 0x300);
-            v.z = lbl_805D886C * TBoss8Dragon__sub_803D64C0(idx) + M2C_FIELD(arg0, f32 *, 0x304);
+            v.z = lbl_805D886C * sin_table_lookup(idx) + M2C_FIELD(arg0, f32 *, 0x304);
             spawn_particle_effect(&v, 0xFB);
         }
         if ((M2C_FIELD(arg0, s16 *, 0x33C) -= 1) <= 0) {

@@ -124,8 +124,8 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void create__10TBoss4ZakoFi(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern u8 lbl_80484D84[];
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
 extern s32 lbl_805D5550;
@@ -142,8 +142,8 @@ void save_position__14TBoss4DarkFalzFi(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
 void reset_cameras_to_actor(void *, s32);
 void TObjPlayer__sub_801B0FF4(void *p);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern Vec_8004B7DC lbl_804371C8;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D892C;
@@ -157,8 +157,8 @@ void save_position__14TBoss4DarkFalzFi(void *);
 void TBoss4DarkFalz__sub_8004C220(void *, Vec_8004B7DC *);
 void reset_cameras_to_actor(void *, s32);
 void TObjPlayer__sub_801B0FF4(void *p);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern Vec_8004B8F8 lbl_804371BC;
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D8928;
@@ -331,8 +331,8 @@ void TBoss4DarkFalz__sub_8004B3BC(u8 *arg0) {
                 return;
             }
             VecCopy__FP3VecPC3Vec(&p.pos, lbl_80484D84);
-            p.pos.x += r * TBoss8Dragon__sub_803D64C0(ang);
-            p.pos.z += r * TBoss8Dragon__sub_803D64DC(ang);
+            p.pos.x += r * sin_table_lookup(ang);
+            p.pos.z += r * cos_table_lookup(ang);
             create__10TBoss4ZakoFi(&p);
             ang += step;
         }
@@ -397,8 +397,8 @@ void TBoss4DarkFalz__sub_8004B7DC(void *arg0) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && get_field_3e0__12TBoss3VoloptFPv(p) == 0xE) {
             Vec_8004B7DC v = base;
-            v.x += lbl_805D892C * TBoss8Dragon__sub_803D64C0(ang);
-            v.z += lbl_805D892C * TBoss8Dragon__sub_803D64DC(ang);
+            v.x += lbl_805D892C * sin_table_lookup(ang);
+            v.z += lbl_805D892C * cos_table_lookup(ang);
             TBoss4DarkFalz__sub_8004C220(p, &v);
             save_position__14TBoss4DarkFalzFi(p);
             get_hit_data__14TBoss4DarkFalzFPv(p)->f4 = ang + 0x8000;
@@ -424,8 +424,8 @@ void TBoss4DarkFalz__sub_8004B8F8(void *arg0) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p != NULL && get_field_3e0__12TBoss3VoloptFPv(p) == 0xE) {
             Vec_8004B8F8 v = base;
-            v.x += lbl_805D8928 * TBoss8Dragon__sub_803D64C0(ang);
-            v.z += lbl_805D8928 * TBoss8Dragon__sub_803D64DC(ang);
+            v.x += lbl_805D8928 * sin_table_lookup(ang);
+            v.z += lbl_805D8928 * cos_table_lookup(ang);
             TBoss4DarkFalz__sub_8004C220((void *)(p), (Vec_8004B7DC *)(&v));
             save_position__14TBoss4DarkFalzFi(p);
             ((Hit_8004B8F8 *)get_hit_data__14TBoss4DarkFalzFPv(p))->f4 = 0x8000;

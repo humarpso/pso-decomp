@@ -14,7 +14,7 @@ M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjPlayer__sub_800F09E8(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
 extern const f32 lbl_805D7D40;
@@ -24,7 +24,7 @@ void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 a
     s32 spC;
     s32 sp8;
 
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     direction_to_rotation_xz((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (lbl_805D7D40 + M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
     rotate_matrix_z((int) (0), (int) (sp8));

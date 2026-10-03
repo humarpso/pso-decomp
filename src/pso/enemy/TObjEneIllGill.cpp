@@ -138,7 +138,7 @@ extern const f32 lbl_805E02E0;
 extern const f32 lbl_805E02E4;
 void TObjEneIllGill__sub_803665B4(u8 *arg0);
 s32 project_actor_to_ground(void *, void *, int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
@@ -147,10 +147,10 @@ extern RecoveredGlobal_80367DC8_lbl_8050BF00 lbl_8050BF00;
 extern RecoveredGlobal_80367DC8_lbl_8058D490 lbl_8058D490;
 extern const f32 TObjEneIllGill__data_805E02BC;
 void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_80016D78(void *);
+s32 update_movement_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
 s32 TObjEneIllGill__vt37(u8 *arg0);
-s32 TObjPlayer__sub_80016FF8(void *);
+s32 update_action_hold_status__10TObjPlayerFv(void *);
 int obj_clearFlags30(void*, int);
 s32 TObjEneIllGill__vt34(u8 *arg0);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
@@ -174,7 +174,7 @@ f32 TObjPlayer__sub_80017804(void *, Vec_80367860, f32);
 M2C_UNK obj_setFlags30(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
@@ -210,7 +210,7 @@ s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(s32);
 s32 get_enemy_entity(u16);
 s32 get_player_by_client_id(u16);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern Vec_80367FDC lbl_8047A328;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -458,7 +458,7 @@ void TObjEneIllGill__sub_80367860(u8 *arg0) {
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_vector_by_matrix(0, &v, &v);
     TCameraCtrl__sub_803D9858(1);
-    TBoss4Zako__sub_803D8910(&v, arg0 + 0x50);
+    vec3_add_to(&v, arg0 + 0x50);
     M2C_FIELD(arg0, f32 *, 0x300) += TObjEneIllGill__data_805E02DC;
     d = TObjPlayer__sub_80017804(arg0, v, lbl_805E02B8 * M2C_FIELD(arg0, f32 **, 0x350)[1]);
     r = M2C_FIELD(arg0, f32 **, 0x350);
@@ -536,13 +536,13 @@ void TObjEneIllGill__sub_80367DC8(u8 *arg0, s32 arg1) {
     rotate_matrix_y((int) (0), (void *) (arg1));
     rotate_vector_by_matrix((int) (0), (void *) (&lbl_8050BF00.value), (void *) (&lbl_8050BF00.value));
     TCameraCtrl__sub_803D9858((int) (1));
-    TBoss4Zako__sub_803D8910((void *) (&lbl_8050BF00.value), (void *) (arg0 + 0x38));
+    vec3_add_to((void *) (&lbl_8050BF00.value), (void *) (arg0 + 0x38));
     project_actor_to_ground((void *) (arg0), (void *) (&lbl_8050BF00.value), (int) (0));
 }
 
 typedef struct RecoveredFields_80367EFC_arg0 RecoveredFields_80367EFC_arg0;
 s32 TObjEneIllGill__vt37(u8 *arg0) {
-  if (TObjPlayer__sub_80016D78((void *) arg0) != 0)
+  if (update_movement_status__10TObjPlayerFv((void *) arg0) != 0)
   {
     if (((RecoveredFields_80367EFC_arg0 *) arg0)->field_326 != 0)
     {
@@ -564,7 +564,7 @@ s32 TObjEneIllGill__vt37(u8 *arg0) {
 
 typedef struct RecoveredFields_80367F6C_arg0 RecoveredFields_80367F6C_arg0;
 s32 TObjEneIllGill__vt34(u8 *arg0) {
-  if (0 != TObjPlayer__sub_80016FF8((void *) arg0))
+  if (0 != update_action_hold_status__10TObjPlayerFv((void *) arg0))
   {
     if (((RecoveredFields_80367F6C_arg0 *) arg0)->field_326 != 0)
     {
@@ -616,7 +616,7 @@ void TObjEneIllGill__vt26(Gill_80367FDC *self) {
                 if (id == self->f1C) continue;
                 if (M2C_FIELD(pl, s32 *, 0x30) & 0x02000800) continue;
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x2FC);
-                TBoss6Type1__sub_803D9370(&v, (u8 *)self + 0x2FC);
+                subtract_vector(&v, (u8 *)self + 0x2FC);
                 d = v.x * v.x + v.z * v.z;
                 if (d < bestDist && check_path_obstructed(self, pl + 0x2FC) == 0) {
                     best = id;

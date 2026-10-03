@@ -6,7 +6,7 @@ struct Inner_8035B788 { u8 pad[8]; s32 x8; s32 xc; };
 struct Obj_8035B788 { u8 pad[0x42C]; Inner_8035B788 *x42c; s32 x430; };
 
 extern "C" {
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Rec_8035B788 lbl_804798CC;
@@ -23,7 +23,7 @@ extern "C" {
 void fn_8035B788(void) {
     Obj_8035B788 *o = (Obj_8035B788 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = (Obj_8035B788 *)TLobby__sub_80020004(o, 1, lbl_804F1D5C, 0, 0, 0);
+        o = (Obj_8035B788 *)load_resource_from_descriptor(o, 1, lbl_804F1D5C, 0, 0, 0);
     }
     lbl_805D6F50 = o;
     {

@@ -85,8 +85,8 @@ void TBoss6PlotFalz__sub_802AC2D8(Obj_8004AA80 *arg0, Rec_8004AA80 *arg1, s32 ar
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *get_player_data__10TObjPlayerFi(s32 i);
 M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 f32 xyz_distance(void *, void *);
 extern u8 lbl_8047059C[];
 extern u8 lbl_804705B4[];
@@ -185,8 +185,8 @@ void TBoss6PlotFalz__sub_802AC3E8(void) {
             && !(xyz_distance(lbl_804705B4, &p->pos) > lbl_805DE0CC)
             && !(xyz_distance(lbl_8047059C, &p->pos) <= lbl_805DE0D0)) {
             VecCopy__FP3VecPC3Vec(&v, &p->pos);
-            TBoss6Type1__sub_803D9370(&v, lbl_804705B4);
-            TBoss4Zako__sub_803D8910(&v, lbl_8047059C);
+            subtract_vector(&v, lbl_804705B4);
+            vec3_add_to(&v, lbl_8047059C);
             v.y = lbl_805DE0D4;
             VecCopy__FP3VecPC3Vec(&p->pos, &v);
             refresh_collision_body_centers(p);

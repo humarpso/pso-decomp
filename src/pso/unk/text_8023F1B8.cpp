@@ -53,8 +53,8 @@ void create_quad_sprites__13TParticleCtrlFv(void);
 void load_floor_sound_bank(s32);
 void *__nw__7TObjectFUl(u32);
 void TWindowCtrlMain__ct(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 void TCameraCtrl__sub_803D6688(f32, f32);
 extern Vec_8023F22C lbl_8044DCE8;
 extern Vec_8023F22C lbl_8044DCF4;
@@ -117,10 +117,10 @@ void TObjLight__sub_8023F22C(void) {
     clear_callback_and_reset_keyboard__6TLobbyFv();
     init_heap__13TParticleCtrlFPv(0x100000);
     TObjLight__sub_80133A04(lbl_804A6F34, 4);
-    TObjLight__data_80506320.y = lbl_805DC9BC * TBoss8Dragon__sub_803D64C0(0x1555);
-    c = TBoss8Dragon__sub_803D64DC(0x1555);
-    TObjLight__data_80506320.x = c * TBoss8Dragon__sub_803D64C0(0x9000);
-    TObjLight__data_80506320.z = c * TBoss8Dragon__sub_803D64DC(0x9000);
+    TObjLight__data_80506320.y = lbl_805DC9BC * sin_table_lookup(0x1555);
+    c = cos_table_lookup(0x1555);
+    TObjLight__data_80506320.x = c * sin_table_lookup(0x9000);
+    TObjLight__data_80506320.z = c * cos_table_lookup(0x9000);
     p = __nw__7TObjectFUl(0x1d4);
     if (p != NULL) {
         TCameraCtrl__ct(p, tl_camera);

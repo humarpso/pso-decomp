@@ -63,8 +63,8 @@ struct Pl2_80130974 : Pl_80130974 { u8 pad[0x1F8-0x1C]; s32 f1f8; u8 pad2[0xC]; 
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_8012E1E8(int, void *, void *, void *, void *, int);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern s32 tl_05;
 extern const f32 lbl_805DB014;
 void TObjPlayer__sub_80130A30(u8 *arg0, s32 arg1, s32 arg2);
@@ -130,9 +130,9 @@ void TObjPlayer__sub_80130A30(u8 *arg0, s32 arg1, s32 arg2) {
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
     if (temp_r3 != NULL) {
         temp_r31 = M2C_FIELD(temp_r3, s32 *, 0x60) - arg2;
-        buffer_14[0] = TBoss8Dragon__sub_803D64C0((int) (temp_r31));
+        buffer_14[0] = sin_table_lookup((int) (temp_r31));
         buffer_14[1] = lbl_805DB014;
-        buffer_14[2] = TBoss8Dragon__sub_803D64DC((int) (temp_r31));
+        buffer_14[2] = cos_table_lookup((int) (temp_r31));
         buffer_8[0] = 0x4000;
         temp_r8 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
         buffer_8[1] = temp_r8;

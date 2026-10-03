@@ -21,9 +21,9 @@ M2C_UNK TObjPlayer__sub_80052390(f32);
 M2C_UNK clear_render_callback__8TObjFishFv(s32);
 M2C_UNK TObjFish__sub_800E3074(s32);
 M2C_UNK rotate_matrix_y(s32, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK func_803e11e8__FUl(u32);
 M2C_UNK func_803e11f0__Fv();
@@ -78,9 +78,9 @@ void TObjPlayer__sub_8004ED28(u8 *arg0) {
     if (a < 1.0f) {
         TObjPlayer__sub_80052390(a);
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_flag__10TObjPlayerFv();
-    TOHangerMachine01__sub_803D9C00(arg0 + 0xA0);
+    post_translate_matrix(arg0 + 0xA0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xAC));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x98));
     TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xB8));

@@ -355,7 +355,7 @@ void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt83(void *arg0);
 s32 TObjEneDD__vt81(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 load_enemy_bml_resource(u8 *arg0);
 void transition_enemy_state(V_800BBA18 *self, s16 state);
@@ -448,7 +448,7 @@ s32 load_enemy_bml_resource(u8 *arg0) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, arg0, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, arg0, 0, 0, 0));
     }
     return var_r0;
 }

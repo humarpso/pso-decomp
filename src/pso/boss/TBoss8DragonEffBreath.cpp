@@ -32,7 +32,7 @@ extern "C" {
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
 void render__21TBoss8DragonEffBreathFv(void);
 void run_task__21TBoss8DragonEffBreathFv(u8 *arg0);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 void TBoss8Dragon__sub_800BC5A0(void *, int);
 M2C_UNK TBoss8Dragon__sub_802FB290(u32, void *, int, int);
 void __dl__7TObjectFPv(void *);
@@ -49,7 +49,7 @@ void run_task__21TBoss8DragonEffBreathFv(u8 *arg0) {
     f32 temp_f1;
     u32 ent;
 
-    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
+    vec3_add_to((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
     if (temp_f1 < lbl_805DEEF0) {
         queue_destruction__7TObjectFv((void *) (arg0));

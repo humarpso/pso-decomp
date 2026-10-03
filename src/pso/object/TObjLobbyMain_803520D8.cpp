@@ -39,9 +39,9 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void TCameraCtrl__sub_803D8934(int, Vec3_80352240 *, Vec3_80352240 *);
 void TObjPlayer__sub_803D8CD4(int);
 void rotate_matrix_y(int, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 extern Vec3_80352240 lbl_804790D0[];
 extern Vec3_80352240 lbl_804790DC[];
 void TObjLobbyMain__sub_80352240(u8 *arg0);
@@ -49,9 +49,9 @@ s32 TObjFish__sub_8001ED9C(void *, s32);
 s32 get_bml_model(void *, s32);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
@@ -157,9 +157,9 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
     if (*(void **)(arg0 + 0xD8) != NULL) {
         Vec3_80352240 v = lbl_804790D0[0];
         set_param_ptr__11TBoss4Type2FPvi(*(void **)(arg0 + 0xD8), 0x222);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D8CD4(0);
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TCameraCtrl__sub_803D8934(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xD8), &v);
@@ -168,9 +168,9 @@ void TObjLobbyMain__sub_80352240(u8 *arg0) {
     if (*(void **)(arg0 + 0xDC) != NULL) {
         Vec3_80352240 v = lbl_804790DC[0];
         set_param_ptr__11TBoss4Type2FPvi(*(void **)(arg0 + 0xDC), 0x222);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D8CD4(0);
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
         TCameraCtrl__sub_803D8934(0, &v, &v);
         copy_pos__11TNowLoadingFPvPv(*(void **)(arg0 + 0xDC), &v);
@@ -219,8 +219,8 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
     s16 idx;
     s32 r;
     if (lbl_805D6ECC != NULL && ((Obj_8035240C *)arg0)->v8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (M2C_FIELD(arg0, s32 *, 0xC8) != 2) {
             scale_matrix(0, M2C_FIELD(arg0, f32 *, 0xD4), TObjLobbyMain__data_805DFEE0, M2C_FIELD(arg0, f32 *, 0xD4));

@@ -55,7 +55,7 @@ M2C_UNK TObjPlayer__sub_800D93C4(f32 *, M2C_UNK);
 M2C_UNK advance_animation_playback();
 M2C_UNK play_sound_effect(int, void *, int, int);
 int TObjEneGibbles__sub_802D7F94(void *, int);
-M2C_UNK TBoss4Zako__sub_803D8910(f32 *, void *);
+M2C_UNK vec3_add_to(f32 *, void *);
 extern const f32 lbl_805DE7E0;
 extern const f32 TObjEneGibbles__data_805DE7E4;
 extern const f32 lbl_805DE810;
@@ -86,7 +86,7 @@ s32 set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern RecoveredGlobal_802D7ED4_lbl_80472780 lbl_80472780;
@@ -245,7 +245,7 @@ void TObjEneGibbles__sub_802D7ED4(u8 *arg0, s32 arg1, s32 arg2) {
     Stack_802D7ED4 stack;
     set_global_flag__10TObjPlayerFv();
     push_matrix_from((void *) (&lbl_8058D490.value));
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     set_monitor_position_vec3__10TObjPlayerFPvPv((int) (0), (void *) (arg0 + 0x68));
     set_global_flag__10TObjPlayerFv();
@@ -331,7 +331,7 @@ void TObjEneGibbles__sub_802D8140(u8 *arg0) {
       stack.spC = TObjEneGibbles__data_805DE7E4;
       stack.sp10 = lbl_805DE810;
       rotate_xz_pair_by_angle(&stack.sp8, &stack.sp10, *((s32 *) (((s8 *) arg0) + 0x60)), TObjEneGibbles__data_805DE7E4);
-      TBoss4Zako__sub_803D8910(&stack.sp8, arg0 + 0x38);
+      vec3_add_to(&stack.sp8, arg0 + 0x38);
       TObjPlayer__sub_800D93C4(&stack.sp8, 0xA);
       spawn_effect_at_ground__10TObjPlayerFPvi(&stack.sp8, 0x46);
     }

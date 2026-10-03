@@ -39,7 +39,7 @@ M2C_UNK TCameraCtrl__sub_80069024();
 M2C_UNK TKeyBoardControl__sub_8000F7FC();
 M2C_UNK TObjPlayer__sub_803D7CA4(void *);
 M2C_UNK TObjPlayer__sub_803D85D8(s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -53,7 +53,7 @@ void render_tree__10TObjPlayerFPv(void *arg0) {
 
     var_r31 = arg0;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D7CA4(var_r31);
         if (((M2C_UNK (*)(void *)) lbl_805D7810) != NULL) {
             lbl_805D7810(var_r31);

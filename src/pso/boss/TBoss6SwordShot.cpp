@@ -68,8 +68,8 @@ void spawn_particle_effect(void *, int);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 f32 xyz_distance(void *, void *);
 extern u8 lbl_80479388[];
 extern const f32 lbl_805DFFF0;
@@ -86,10 +86,10 @@ M2C_UNK TBoss6Rock__sub_80353E5C(s32);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK vec3_add_to(void *, void *);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
 extern const f64 lbl_804793B0;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805E0004;
@@ -104,8 +104,8 @@ s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
 u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_804793B0;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFEC;
@@ -158,9 +158,9 @@ void fn_803561C4(u8 *arg0) {
         pl = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (((s32 (*)(void *))is_active__14TBoss6PlotFalzFPv)(pl) != 0) {
             VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
-            TBoss6Type1__sub_803D9370(&v, arg0 + 0x20);
+            subtract_vector(&v, arg0 + 0x20);
             v.y = lbl_805DFFE8;
-            if (!(TBoss6Kakusan__sub_803D8BD8(&v) > M2C_FIELD(arg0, f32 *, 0x2C))) {
+            if (!(vector_length(&v) > M2C_FIELD(arg0, f32 *, 0x2C))) {
                 s32 r = TBoss6PlotFalz__sub_802AB5B4(M2C_FIELD(arg0, s32 *, 0x34), lbl_805DFFEC);
                 Pair_803561C4 pr;
                 pr.a = 0;
@@ -308,8 +308,8 @@ s32 TBoss6SwordWave__sub_803564F4(void *arg0) {
         s32 seg = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(o->x30, ang);
         if (((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356C80)(o->x30, seg) != 0) {
             Vec_803564F4 v = o->pos;
-            v.x += o->radius * TBoss8Dragon__sub_803D64C0(ang);
-            v.z += o->radius * TBoss8Dragon__sub_803D64DC(ang);
+            v.x += o->radius * sin_table_lookup(ang);
+            v.z += o->radius * cos_table_lookup(ang);
             if (!(xyz_distance(&v, lbl_80479388) > lbl_805E0008)) {
                 spawn_particle_effect_with_flags(&v, 0x212, 0x40);
                 if (get_rotation_timer__11TBoss6Type2FPv(o->owner) == 0) {
@@ -339,9 +339,9 @@ M2C_UNK TBoss6SwordWave__sub_8035663C(void *a) {
         pl = get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFPv() != 0) {
             VecCopy__FP3VecPC3Vec(&dir, (u8 *)pl + 0x38);
-            TBoss6Type1__sub_803D9370(&dir, arg0 + 0x20);
+            subtract_vector(&dir, arg0 + 0x20);
             dir.y = lbl_805DFFE8;
-            d = TBoss6Kakusan__sub_803D8BD8(&dir);
+            d = vector_length(&dir);
             if (d < M2C_FIELD(arg0, f32 *, 0x50) || d > M2C_FIELD(arg0, f32 *, 0x54)) {
                 continue;
             }
@@ -383,9 +383,9 @@ M2C_UNK TBoss6SwordWave__sub_803567D0(void *a) {
             continue;
         }
         VecCopy__FP3VecPC3Vec(&d, &pt);
-        TBoss6Type1__sub_803D9370(&d, arg0 + 0x20);
+        subtract_vector(&d, arg0 + 0x20);
         d.y = lbl_805DFFE8;
-        dist = TBoss6Kakusan__sub_803D8BD8(&d);
+        dist = vector_length(&d);
         if (dist < M2C_FIELD(arg0, f32 *, 0x50) || dist > M2C_FIELD(arg0, f32 *, 0x54)) {
             continue;
         }
@@ -402,13 +402,13 @@ M2C_UNK TBoss6SwordWave__sub_803567D0(void *a) {
         n.x = -d.z;
         n.y = lbl_805DFFE8;
         n.z = d.x;
-        TNpcPlayer__sub_803D97B4(&n);
+        normalize_vector(&n);
         n.x *= scale;
         n.z *= scale;
         VecCopy__FP3VecPC3Vec(&va, &pt);
-        TBoss4Zako__sub_803D8910(&va, &n);
+        vec3_add_to(&va, &n);
         VecCopy__FP3VecPC3Vec(&vb, &pt);
-        TBoss6Type1__sub_803D9370(&vb, &n);
+        subtract_vector(&vb, &n);
         a1 = (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(va.x - M2C_FIELD(arg0, f32 *, 0x20), va.z - M2C_FIELD(arg0, f32 *, 0x28)));
         a2 = (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(vb.x - M2C_FIELD(arg0, f32 *, 0x20), vb.z - M2C_FIELD(arg0, f32 *, 0x28)));
         lo = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30, a1);

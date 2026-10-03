@@ -8,7 +8,7 @@ extern "C" {
 
 void approach_field200_cap__10TObjPlayerFPv(void *arg0);
 void update_1f8_if_ready__10TObjPlayerFPv(void* p);
-int TBoss7Tentacle__sub_803D9BA0(void*);
+int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 
 extern const f32 lbl_805DAD14;
@@ -26,6 +26,6 @@ void approach_field200_cap__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void update_1f8_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 0) { TBoss7Tentacle__sub_803D9BA0((char*)p + 0x1f8); } }
+void update_1f8_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 0) { scale_current_matrix((char*)p + 0x1f8); } }
 
 }

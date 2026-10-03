@@ -46,11 +46,11 @@ void TOKeyJungleMain__vt20(s32 arg0);
 void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1);
 void render__13TOGrassJungleFv(u8 *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK get_bml_model(s32, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -65,8 +65,8 @@ extern const f32 lbl_805DDD34;
 void render__13TOGrassJungleFv(u8 *arg0) {
     if (((VObj_8029CD90 *)arg0)->m8(lbl_805DDD30, lbl_805DDD34) == 1) {
         set_global_param__8TObjFishFi(TOGrassJungle__data_805D65DC);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         get_bml_model(TOGrassJungle__data_805D65D8, M2C_FIELD(arg0, s32 *, 0x90));
         draw_ginja_object();

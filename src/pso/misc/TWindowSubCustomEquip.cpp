@@ -19,14 +19,14 @@ struct Vec2_8027654C { f32 x; f32 y; };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK TWindowSubCustomEquip__sub_80275F90(void *, int);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__21TWindowSubCustomEquipFv(u8 *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern f32 lbl_805D6470;
 extern u8 lbl_805D6474;
 extern f32 lbl_805D6478;
@@ -181,13 +181,13 @@ void TWindowSubCustomEquip__sub_80276A38(u8 *arg0, s32 arg1, s32 arg2) {
         lbl_805D647C = 1;
         lbl_805D6478 = lbl_805DD588;
     }
-    temp_f30 = TBoss8Dragon__sub_803D64C0(arg1);
-    temp_f31 = TBoss8Dragon__sub_803D64DC(arg1);
+    temp_f30 = sin_table_lookup(arg1);
+    temp_f31 = cos_table_lookup(arg1);
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, arg2));
     M2C_FIELD(temp_r3, f32 *, 8) = (f32) ((lbl_805D6470 * temp_f31) + lbl_805DD58C);
     M2C_FIELD(temp_r3, f32 *, 0xC) = (f32) ((lbl_805D6478 * temp_f30) + lbl_805DD590);
     if ((arg1 - 0x7200) & 0x8000) {
-        temp_f1 = (lbl_805DD598 * TBoss8Dragon__sub_803D64DC(arg1 + 0xFFFF4E00)) + lbl_805DD594;
+        temp_f1 = (lbl_805DD598 * cos_table_lookup(arg1 + 0xFFFF4E00)) + lbl_805DD594;
         M2C_FIELD(temp_r3, f32 *, 0x18) = (f32) lbl_805DD578;
         temp_r4 = (s32) (lbl_805DD59C * temp_f1);
         M2C_FIELD(temp_r3, s32 *, 0x2C) = (s32) ((u8) temp_r4 | (((temp_r4 << 0x10) & 0xFF0000) | 0xFF000000 | ((temp_r4 << 8) & 0xFF00)));
@@ -296,7 +296,7 @@ void handle_cursor_input__21TWindowSubCustomEquipFPv(u8 *arg0) {
 void render__21TWindowSubCustomEquipFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     TWindowSubCustomEquip__sub_80275F90((void *) (arg0), (int) (temp_r3));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C)), (int) (temp_r3));

@@ -104,19 +104,19 @@ extern "C" {
 s32 test_player_overlap_with_players(void *arg0, Obj_801559D0 *self, CollisionVector_80155FBC *pos, void *out);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
-M2C_UNK TObjPlayer__sub_803D9990(void *, void *);
+M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 extern f32 lbl_8058D490[12];
 void refresh_collision_body_centers(Obj_80154E3C *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * TObjPlayer__sub_80155028(s32 arg0, s32 arg1);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
-M2C_UNK TObjPlayer__sub_803D9990(void *, void *);
+M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 extern f32 lbl_8058D490[12];
 s32 build_collision_box_corners(M2C_UNK arg0, s32 arg1, Box_80154EF8 *box, u32 out);
@@ -177,12 +177,12 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
-M2C_UNK TObjPlayer__sub_803D9990(void *, void *);
+M2C_UNK rotate_vector_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 extern const f64 lbl_804400F0;
 extern f32 lbl_8058D490[12];
@@ -194,7 +194,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 find_or_alloc_slot__10TObjPlayerFUi(u32 arg0);
-void* TObjPlayer__sub_80155C54(CollisionBody_80155FBC, CollisionBody_80155FBC);
+void* refresh_actor_body_spheres(CollisionBody_80155FBC, CollisionBody_80155FBC);
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 extern const f32 TObjPlayer__data_805DB270;
 f32 TObjPlayer__sub_801547E0(Obj_801547E0 *self, s32 i);
@@ -223,7 +223,7 @@ s32 check_flag_pair__10TObjPlayerFii(s32 arg0, s32 arg1);
 void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit);
 void check_enemy_body_collisions(void *arg0);
 s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 TObjPlayer__sub_80155294(u8 *arg0, M2C_UNK arg1, s32 arg2);
+s32 resolve_player_box_contact(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 TObjPlayer__sub_801557BC(u8 *arg0, u32 arg1, u8 *arg2);
 u32 check_actor_body_contact(Obj_80156268 *, Obj_80156268 *, f32);
 extern s32 TObjPlayer__data_8050D460[];
@@ -554,8 +554,8 @@ void refresh_collision_body_centers(Obj_80154E3C *arg0) {
         rotate_matrix_y(0, arg0->f60);
         for (i = 0; i < n; i++) {
             VecCopy__FP3VecPC3Vec(&sp8, &arg0->ents[i]);
-            TObjPlayer__sub_803D9990(&sp8, &sp8);
-            TBoss4Zako__sub_803D8910(&sp8, &arg0->pos);
+            rotate_vector_by_current_matrix(&sp8, &sp8);
+            vec3_add_to(&sp8, &arg0->pos);
             VecCopy__FP3VecPC3Vec(&arg0->ents[i].v, &sp8);
         }
         pop_matrix();
@@ -602,8 +602,8 @@ s32 build_collision_box_corners(M2C_UNK arg0, s32 arg1, Box_80154EF8 *box, u32 o
     push_matrix_from(lbl_8058D490);
     rotate_matrix_y(0, arg1);
     for (i = 0; i < 8; i++) {
-        TObjPlayer__sub_803D9990(&c[i], &c[i]);
-        TBoss4Zako__sub_803D8910(&c[i], &pos);
+        rotate_vector_by_current_matrix(&c[i], &c[i]);
+        vec3_add_to(&c[i], &pos);
     }
     pop_matrix();
     if (out != 0) {
@@ -648,7 +648,7 @@ s32 resolve_actor_sphere_contact(u8 *arg0, M2C_UNK arg1, s32 arg2) {
         return 0;
     }
     VecCopy__FP3VecPC3Vec((void *) (&displacement), (void *) (arg2 + 0x1C));
-    TBoss6Type1__sub_803D9370((void *) (&displacement), (void *) (arg0 + 0x44));
+    subtract_vector((void *) (&displacement), (void *) (arg0 + 0x44));
     temp_r3 = TBoss4Type2__sub_80141FA8((s32) (lbl_804400F0 * get_ad_end_text_start__10TObjPlayerFv(displacement.x, displacement.z)), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     if ((s32) temp_r3 < 0x4000) {
         tangentScale = lbl_805DB280;
@@ -664,15 +664,15 @@ block_7:
     if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
         push_matrix_from((void *) (&lbl_8058D490));
         rotate_matrix_y((int) (0), (int) (var_r31));
-        TObjPlayer__sub_803D9990((void *) (&displacement), (void *) (&displacement));
+        rotate_vector_by_current_matrix((void *) (&displacement), (void *) (&displacement));
         pop_matrix();
         if (lbl_805DB284 < ((displacement.x * displacement.x) + (displacement.z * displacement.z))) {
             displacement.y = TObjPlayer__data_805DB270;
-            TNpcPlayer__sub_803D97B4((void *) (&displacement));
+            normalize_vector((void *) (&displacement));
             temp_f1 = displacement.x * tangentScale;
             displacement.x = temp_f1;
             displacement.z *= tangentScale;
-            TBoss4Zako__sub_803D8910((void *) (&displacement), (void *) (arg0 + 0x44));
+            vec3_add_to((void *) (&displacement), (void *) (arg0 + 0x44));
             if (project_actor_to_ground((Obj_80156844 *)((void *) (arg0)), (Vec_80156844 *)((void *) (&displacement)), (Vec_80156844 *)((int) (0))) != 0) {
                 VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (&displacement));
                 return 1;
@@ -692,7 +692,7 @@ s32 TObjPlayer__sub_801557BC(u8 *arg0, u32 arg1, u8 *arg2) {
         case 0:
             return resolve_actor_sphere_contact(arg0, arg1, (s32)arg2);
         default:
-            return TObjPlayer__sub_80155294(arg0, arg1, (s32)arg2);
+            return resolve_player_box_contact(arg0, arg1, (s32)arg2);
         }
     }
     return 0;
@@ -764,7 +764,7 @@ s32 test_player_overlap_with_players(void *arg0, Obj_801559D0 *self, CollisionVe
                 b.count = o->a8;
                 VecCopy__FP3VecPC3Vec(&b.position, &o->pos);
                 b.facing = o->f60;
-                r = TObjPlayer__sub_80155C54(a, b);
+                r = refresh_actor_body_spheres(a, b);
                 if (r != 0) {
                     if (out != 0) {
                         fn_8002B630((Part_80156780 *)out, (Part_80156780 *)r);
@@ -796,7 +796,7 @@ s32 test_player_body_overlap_at(M2C_UNK arg0, u8 *self, void *pos) {
                 destination.count = *(s32 *)(other + 0xA8);
                 VecCopy__FP3VecPC3Vec(&destination.position, other + 0x38);
                 destination.facing = *(s32 *)(other + 0x60);
-                if (TObjPlayer__sub_80155C54(source, destination) != 0) {
+                if (refresh_actor_body_spheres(source, destination) != 0) {
                     return 1;
                 }
             }
@@ -820,7 +820,7 @@ void* find_actor_body_contact(u8* arg0, u8* arg1, f32 limit) {
             destination.count=*(s32*)(arg1+0xA8);
             VecCopy__FP3VecPC3Vec((void *)(&destination.position), (void *)(arg1+0x38));
             destination.facing=*(s32*)(arg1+0x60);
-            result=TObjPlayer__sub_80155C54(source,destination);
+            result=refresh_actor_body_spheres(source,destination);
             if (result) {find_or_alloc_slot__10TObjPlayerFUi((u32)(arg1));return result;}
         }
     }
@@ -877,7 +877,7 @@ u32 check_actor_body_contact(Obj_80156268 *self, Obj_80156268 *o, f32 range) {
             b.count = o->a8;
             VecCopy__FP3VecPC3Vec(&b.position, &o->pos);
             b.facing = o->f60;
-            hit = (u8 *)TObjPlayer__sub_80155C54(a, b);
+            hit = (u8 *)refresh_actor_body_spheres(a, b);
             if (hit != 0) {
                 find_or_alloc_slot__10TObjPlayerFUi((u32)o);
                 *(u32 *)(hit + 0x18) |= 0x04000000;

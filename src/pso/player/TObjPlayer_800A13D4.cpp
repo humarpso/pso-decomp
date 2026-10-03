@@ -94,9 +94,9 @@ M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjPlayer__sub_800A17B4(u8 *arg0);
 int TObjPlayer__sub_800A1808(void* p);
-M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
+M2C_UNK post_translate_matrix(s32);
 M2C_UNK draw_chunk_object(s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 obj_testFlags30(s32, s32);
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -136,7 +136,7 @@ extern u32 lbl_805D500C;
 void set_fields_24_34_from_global__10TObjPlayerFPvPv(void* a0, void* a1);
 void clear_counter__10TObjPlayerFPv(void* p);
 void set_cancel_flag__10TObjPlayerFPv(void* p);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -171,7 +171,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(s32);
+M2C_UNK post_translate_matrix(s32);
 extern Vec_800A159C lbl_8043A6A4;
 extern Vec_800A159C lbl_804907BC[];
 extern u8 lbl_8058D490[];
@@ -206,7 +206,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 extern const f64 lbl_8043A6C0[];
 extern const f32 lbl_805D9984;
 void TObjPlayer__sub_800A1D70(u8 *arg0);
@@ -220,8 +220,8 @@ M2C_UNK scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
 f32 TObjPlayer__sub_8013153C(void *, int);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043A6F8[];
 extern M2C_UNK lbl_80490998[];
 extern M2C_UNK lbl_804909C4[];
@@ -332,7 +332,7 @@ void TObjPlayer__sub_800A159C(Obj_800A159C *o) {
     v = o->f390;
     o->f390 = (v < lbl_805D9984) ? lbl_805D9984 : ((v < lbl_805D9990) ? v : lbl_805D9990);
     push_matrix_from(lbl_8058D490);
-    TOHangerMachine01__sub_803D9C00((s32)&o->pos);
+    post_translate_matrix((s32)&o->pos);
     rotate_matrix_z(0, o->f64);
     rotate_matrix_y(0, o->f60);
     Vec_800A159C t = lbl_8043A6A4;
@@ -380,8 +380,8 @@ void render_shadow__10TObjPlayerFi(s32 arg0) {
         } else {
             set_global_param__8TObjFishFi(lbl_805D5018);
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x3B4);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x3B4);
         draw_chunk_object(lbl_805D501C);
         pop_matrix();
     }
@@ -402,7 +402,7 @@ void TObjPlayer__sub_800A1D70(u8 *arg0) {
         } else {
             M2C_FIELD(arg0, s16 *, 0xB8) = 5;
         }
-        temp_f31 = TBoss6Kakusan__sub_803D8BD8((void *) (arg0 + 0x308));
+        temp_f31 = vector_length((void *) (arg0 + 0x308));
         temp_f1 = TObjPlayer__sub_800A3200((int) (2));
         if (temp_f31 > temp_f1) {
             M2C_FIELD(arg0, f32 *, 0x308) = (f32) ((M2C_FIELD(arg0, f32 *, 0x308) * temp_f1) / temp_f31);
@@ -570,7 +570,7 @@ s32 TObjPlayer__sub_800A3290(Obj_800A3290 *self, s32 id) {
 void update_projectile_lifetime__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg0 + 0x38));
-    TBoss4Zako__sub_803D8910((void *) (arg0 + 0x38), (void *) (arg0 + 0xAC));
+    vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0xAC));
     {
         void *p = (void *) M2C_FIELD(arg0, void **, 0xD0);
         if (p != NULL) {
@@ -618,7 +618,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s16 *, 0x28) = M2C_FIELD(arg1, s16 *, 0x28);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xAC), (void *) (arg3));
-    TBoss6Type1__sub_803D9370((void *) (arg0 + 0xAC), (void *) (arg2));
+    subtract_vector((void *) (arg0 + 0xAC), (void *) (arg2));
     M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805D99D8;
     scale_velocity__19TObjGyaranzoMissileFPvf((void *) (arg0 + 0xAC), lbl_805D5008);
     M2C_FIELD(arg0, s32 *, 0xB8) = 0;
@@ -628,7 +628,7 @@ u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     {
     Vec_800A34E8 v = *(Vec_800A34E8 *)(arg0 + 0xAC);
     scale_velocity__19TObjGyaranzoMissileFPvf((void *) (&v), lbl_805D99DC);
-    TBoss4Zako__sub_803D8910((void *) (&v), (void *) (arg0 + 0x38));
+    vec3_add_to((void *) (&v), (void *) (arg0 + 0x38));
     temp_r3 = csnVector(arg0 + 0x38, &v, -1);
     }
     if (temp_r3 != NULL) {

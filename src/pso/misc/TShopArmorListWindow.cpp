@@ -82,7 +82,7 @@ s32 TShopArmorListWindow__sub_8021AB4C(void *);
 s32 TShopArmorListWindow__sub_8021AE18(void *);
 void TShopArmorListWindow__vt9(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
-s32 TWindowHelpItem__sub_80104FCC(void *, Rec_8021AD24 *, u32 *);
+s32 check_equip_requirements(void *, Rec_8021AD24 *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021AD24 *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w);
@@ -190,7 +190,7 @@ s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w) {
     if (can_inventory_accept_item__10TObjPlayerFPvPv(w->player, r) == 0) {
         return 1;
     }
-    if (TWindowHelpItem__sub_80104FCC(w->player, r, &res) == 0) {
+    if (check_equip_requirements(w->player, r, &res) == 0) {
         return (res & 1) ? 2 : 3;
     }
     if (w->recs[i].kind == 1 && w->recs[i].sub == 3) {

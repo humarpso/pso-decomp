@@ -56,7 +56,7 @@ void *TObjPlayer__sub_8030790C(void *arg0, s16 arg1);
 void disable_keyboard_control__10TObjPlayerFv(void);
 void play_action_23_with_temp_state__10TObjPlayerFPv(u8 *arg0);
 void update_invincible_blink__10TObjPlayerFPv(void *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
 M2C_UNK draw_weapon_model();
@@ -91,7 +91,7 @@ void update_invincible_blink__10TObjPlayerFPv(void *arg0) {
         }
     } else {
         M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) + 0xB6);
-        M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (lbl_805DF0A8 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x200)));
+        M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (lbl_805DF0A8 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x200)));
     }
 }
 

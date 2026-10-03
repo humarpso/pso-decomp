@@ -9,10 +9,10 @@ extern "C" {
 void *__dt__14TPhotonRainbowFv(void *arg0, s16 arg1);
 void render__14TPhotonRainbowFv(u8 *arg0);
 void run_task__14TPhotonRainbowFv(void *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -28,16 +28,16 @@ void render__14TPhotonRainbowFv(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(lbl_805D4DF0, f32 *, 0x180);
     }
     begin_effect_render__13TParticleCtrlFv();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg0, s32 *, 0x90);
-    TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, (s32) M2C_FIELD(arg0, s32 *, 0x60) / 2);
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
     draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x98));
     pop_matrix();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg0, s32 *, 0x94);
-    TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, 0x10000 - M2C_FIELD(arg0, s32 *, 0x60));
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
     draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x9C));

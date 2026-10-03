@@ -10,7 +10,7 @@ typedef struct Obj_802E79B0 {
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 extern const f32 lbl_805DEA14;
 void fn_802E79B0(Obj_802E79B0 *arg0);
 }
@@ -23,13 +23,13 @@ void fn_802E79B0(Obj_802E79B0 *arg0) {
     s32 i;
     out = arg0->out;
     VecCopy__FP3VecPC3Vec(&v, &arg0->pts[0]);
-    TBoss4Zako__sub_803D8910(&v, &arg0->pts[9]);
+    vec3_add_to(&v, &arg0->pts[9]);
     v.x *= lbl_805DEA14;
     v.y *= lbl_805DEA14;
     v.z *= lbl_805DEA14;
     VecCopy__FP3VecPC3Vec(&out[0], &v);
     VecCopy__FP3VecPC3Vec(&v, &arg0->pts[9]);
-    TBoss4Zako__sub_803D8910(&v, &arg0->pts[11]);
+    vec3_add_to(&v, &arg0->pts[11]);
     v.x *= lbl_805DEA14;
     v.y *= lbl_805DEA14;
     v.z *= lbl_805DEA14;
@@ -37,7 +37,7 @@ void fn_802E79B0(Obj_802E79B0 *arg0) {
     out += 2;
     for (i = 0; i < 8; i++, out++) {
         VecCopy__FP3VecPC3Vec(&v, &arg0->pts[i + 11]);
-        TBoss4Zako__sub_803D8910(&v, &arg0->pts[i + 12]);
+        vec3_add_to(&v, &arg0->pts[i + 12]);
         v.x *= lbl_805DEA14;
         v.y *= lbl_805DEA14;
         v.z *= lbl_805DEA14;

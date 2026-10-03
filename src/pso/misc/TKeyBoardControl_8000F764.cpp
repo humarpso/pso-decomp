@@ -134,7 +134,7 @@ M2C_UNK init_download_state__6TLobbyFv();
 M2C_UNK TObjTailsTailsMove__sub_800FFE10();
 M2C_UNK reset_input__16TKeyBoardControlFi(void *);
 M2C_UNK TObjPlayer__sub_801416AC();
-M2C_UNK fn_80145804();
+M2C_UNK load_menu_font();
 M2C_UNK init_keyboard_buffer__6TLobbyFv();
 M2C_UNK TLobby__sub_8014797C();
 M2C_UNK TKeyBoardControl__sub_801A6854();
@@ -440,7 +440,7 @@ void init_game_systems(void) {
     TLobby__sub_8007EB70();
     TLobby__sub_8022780C();
     init_download_state__6TLobbyFv();
-    fn_80145804();
+    load_menu_font();
     TLobby__sub_8033843C();
     TCharaMaking__sub_8028E790();
     TAdSinglePlyChrSelectGC__sub_802019F8();

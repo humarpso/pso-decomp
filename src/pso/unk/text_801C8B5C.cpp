@@ -19,7 +19,7 @@ typedef struct Player_801C8B5C {
 extern "C" {
 s32 start_action_21__10TObjPlayerFPv(void *);
 s32 init_flags_vec4__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801C8D88(void *);
+s32 update_warp_relocation__10TObjPlayerFv(void *);
 s32 TObjPlayer__sub_801C90F8();
 s32 check_state_dead__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C9128();
@@ -101,7 +101,7 @@ void TObjPlayer__sub_801C8C50(s32 arg0, s16 arg1) {
         start_action_21__10TObjPlayerFPv((void *) arg0);
         return;
       case 1:
-        TObjPlayer__sub_801C8D88((void *) arg0);
+        update_warp_relocation__10TObjPlayerFv((void *) arg0);
         return;
       case 6:
         init_flags_vec4__10TObjPlayerFPv((void *) arg0);

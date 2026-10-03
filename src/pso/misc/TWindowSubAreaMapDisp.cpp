@@ -95,7 +95,7 @@ struct Vec2_80271A6C {
     f32 y;
 };
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
-void TWindowSubStatusDisp__sub_8024FD8C(void *, s32, s32, s32, f32);
+void draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 extern const f32 lbl_805DD4DC;
 extern const f32 lbl_805DD4E0;
@@ -103,7 +103,7 @@ extern const f32 lbl_805DD4E4;
 extern const f32 lbl_805DD4E8;
 extern const f32 lbl_805DD4EC;
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 void render__21TWindowSubAreaMapDispFv(void *arg0);
 
@@ -200,16 +200,16 @@ void TWindowSubStatusDisp__sub_80271A6C(M2C_UNK arg0, u8 *arg1) {
     set_text_draw_params(arg1, 0, 0, scale, lbl_805DD4DC);
     pos.x = lbl_805DD4E0 + *(f32 *)(arg1 + 0x3C);
     pos.y = lbl_805DD4E4 + *(f32 *)(arg1 + 0x40);
-    TWindowSubStatusDisp__sub_8024FD8C(&pos, get_message_10__20TWindowSubStatusDispFPv(0x11B), color, 0, lbl_805DD4E8);
+    draw_window_text(&pos, get_message_10__20TWindowSubStatusDispFPv(0x11B), color, 0, lbl_805DD4E8);
     pos.y = lbl_805DD4EC + *(f32 *)(arg1 + 0x40);
-    TWindowSubStatusDisp__sub_8024FD8C(&pos, get_message_10__20TWindowSubStatusDispFPv(0x11C), color, 0, lbl_805DD4E8);
+    draw_window_text(&pos, get_message_10__20TWindowSubStatusDispFPv(0x11C), color, 0, lbl_805DD4E8);
 }
 
 void render__21TWindowSubAreaMapDispFv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x70), temp_r3);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
         ((M2C_UNK (*)(void *, s32))TWindowSubStatusDisp__sub_80271A6C)(arg0, temp_r3);

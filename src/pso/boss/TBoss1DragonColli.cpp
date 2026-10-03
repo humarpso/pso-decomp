@@ -106,13 +106,13 @@ void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2);
 void TBoss1DragonDemo__sub_8002B68C(void);
 void TBoss1DragonDemo__sub_8002B690(void);
 int TCameraCtrl__sub_803D8934(void*, void*, void*);
-int TOHangerMachine01__sub_803D9C00(void*);
+int post_translate_matrix(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 int refresh_collision_body_centers(void*);
 int TObjPlayer__sub_803D8CD4(void*);
 int rotate_matrix_y(void*, void*);
-int TObjPlayer__sub_803D9B2C(void*);
+int push_matrix(void*);
 int pop_matrix(void);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
@@ -166,7 +166,7 @@ void TBoss1DragonColli__sub_8002B358(void) {  }
 
 void TBoss1DragonColli__sub_8002B35C(void* p) { TBoss1DragonColli__sub_8002B3F4((O_8002B3F4 *)((void*)(p))); }
 
-void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { TObjPlayer__sub_803D9B2C(p); TObjPlayer__sub_803D8CD4((void*)0); TOHangerMachine01__sub_803D9C00(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); TBoss1DragonColli__sub_8002B42C((O_8002B42C *)((void*)(p))); }
+void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2) { push_matrix(p); TObjPlayer__sub_803D8CD4((void*)0); post_translate_matrix(a1); rotate_matrix_y((void*)0, a2); TCameraCtrl__sub_803D8934((void*)0, (char*)p + 0xac, (char*)p + 0x38); pop_matrix(); *(void**)((char*)p + 0x60) = a2; refresh_collision_body_centers(p); TBoss1DragonColli__sub_8002B42C((O_8002B42C *)((void*)(p))); }
 
 void TBoss1DragonColli__sub_8002B3F4(O_8002B3F4 *self) {
     s32 i;

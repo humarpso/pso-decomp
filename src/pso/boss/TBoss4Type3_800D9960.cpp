@@ -38,7 +38,7 @@ Trail_800D9ABC *TBoss4Type3__sub_800D9ABC(Trail_800D9ABC *arg0, s32 segs, f32 st
 void fn_800D97E8(void *, s32, M2C_UNK);
 void TObjPlayer__sub_803D7B68(s32, f32);
 void TObjPlayer__sub_803D8CD4(M2C_UNK);
-void TObjPlayer__sub_803D9B2C(Vec_800D9994 *);
+void push_matrix(Vec_800D9994 *);
 void pop_matrix();
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -76,7 +76,7 @@ void TBoss4Type3__sub_800D9994(Arg_800D9994 *arg0, s32 arg1, s32 arg2, s32 arg3,
     lbl_805D5234 = arg0->b;
     lbl_805D523C = arg3;
     lbl_805D5240 = arg4;
-    TObjPlayer__sub_803D9B2C(&lbl_80500F80);
+    push_matrix(&lbl_80500F80);
     f = arg0->start;
     for (i = 0; i < arg0->count; i++) {
         lbl_805D5238 = 0;

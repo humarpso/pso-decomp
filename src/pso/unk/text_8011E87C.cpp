@@ -33,7 +33,7 @@ void TItemEffectWeapon__sub_803634A4(void *, Vec_8011E87C *, Vec_8011E87C *);
 extern u8 main_task[];
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 s32 obj_testFlags30(void *, M2C_UNK);
-u32 TObjPlayer__sub_8011EA10(void *);
+u32 pack_weapon_trail_color(void *);
 M2C_UNK TObjPlayer__sub_80121228(void *, M2C_UNK);
 void *__ct__17TItemEffectWeaponFv(void *, u32, u32);
 void *alloc__13TItemProArmorFi(M2C_UNK);
@@ -59,7 +59,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
 void create_weapon_trail_effects(Pl_8011E950 *arg0) {
     u32 flags;
     s32 i;
-    flags = TObjPlayer__sub_8011EA10(arg0) & 0x8FFFFFFF;
+    flags = pack_weapon_trail_color(arg0) & 0x8FFFFFFF;
     if (arg0->x174 != 0U) {
         for (i = 0; i != 4; i++) {
             if (arg0->kind[i] != -1) {

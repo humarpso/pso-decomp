@@ -17,7 +17,7 @@ typedef char RecoveredGlobal_80067AB0_lbl_80438150_size[sizeof(RecoveredGlobal_8
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TCameraCtrl__sub_8006809C(void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 vector_length(void *);
 extern RecoveredGlobal_80067AB0_lbl_80438150 lbl_80438150;
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805D8F38;
@@ -36,7 +36,7 @@ void *__dt_deleting_2__11TCameraCtrlFPvs(void *arg0, s16 arg1);
 void init_state__11TCameraCtrlFPv(void *arg0);
 void set_target__11TCameraCtrlFPvUi(void *arg0, u32 arg1);
 M2C_UNK TCameraCtrl__sub_8006786C(void *);
-M2C_UNK TCameraCtrl__sub_8006E310(void *);
+M2C_UNK update_follow_camera__11TCameraCtrlFv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void deleting_dtor__11TCameraCtrlFPvs(void *, int);
@@ -61,7 +61,7 @@ void TCameraCtrl__sub_80067AB0(u8 *arg0) {
     stack.sp8 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x184) - M2C_FIELD(arg0, f32 *, 0x48);
     stack.spC = M2C_FIELD(lbl_805D4DF0, f32 *, 0x188) - M2C_FIELD(arg0, f32 *, 0x4C);
     stack.sp10 = M2C_FIELD(lbl_805D4DF0, f32 *, 0x18C) - M2C_FIELD(arg0, f32 *, 0x50);
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) ((lbl_805D8F54 * TBoss6Kakusan__sub_803D8BD8((void *) (&stack.sp8))) / lbl_805D8F4C);
+    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) ((lbl_805D8F54 * vector_length((void *) (&stack.sp8))) / lbl_805D8F4C);
     if (TCameraCtrl__sub_8006809C((void *) (arg0)) != 0) {
         M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) | 1);
     } else {
@@ -86,7 +86,7 @@ extern u8 lbl_8050E208[];
 void init_state__11TCameraCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0x15;
     if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208 + 0x20, 0x10000) != 0) {
-        TCameraCtrl__sub_8006E310(arg0);
+        update_follow_camera__11TCameraCtrlFv(arg0);
     } else {
         TCameraCtrl__sub_8006786C(arg0);
     }

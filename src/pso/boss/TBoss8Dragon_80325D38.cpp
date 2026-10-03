@@ -9,8 +9,8 @@ typedef struct Vec_80325D58 { f32 x; f32 y; f32 z; } Vec_80325D58;
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 newton_sqrtf(f32);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vec3_dot(void *, void *);
+void normalize_vector(void *);
 extern const f32 lbl_805DF630;
 extern const f32 lbl_805DF634;
 s32 TObjPlayer__sub_80325D58(void *arg0, Vec_80325D58 *from, Vec_80325D58 *dir, Vec_80325D58 *to, f32 dist);
@@ -44,15 +44,15 @@ s32 TObjPlayer__sub_80325D58(void *arg0, Vec_80325D58 *from, Vec_80325D58 *dir, 
     d.x = to->x - from->x;
     d.y = to->y - from->y;
     d.z = to->z - from->z;
-    t = TObjPlayer__sub_803D89C0(dir, &d);
+    t = vec3_dot(dir, &d);
     if (lbl_805DF630 > t) {
         VecCopy__FP3VecPC3Vec(to, from);
         return 1;
     }
     if (lbl_805DF634 != t) {
         VecCopy__FP3VecPC3Vec(&n, &d);
-        TNpcPlayer__sub_803D97B4(&n);
-        if (lbl_805DF634 != TObjPlayer__sub_803D89C0(dir, &n)) {
+        normalize_vector(&n);
+        if (lbl_805DF634 != vec3_dot(dir, &n)) {
             STEP_80325D58()
         }
         STEP_80325D58()

@@ -148,8 +148,8 @@ extern "C" {
 void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 void update_walk_animation__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1);
 M2C_UNK advance_animation_playback();
-f32 TBoss8Dragon__sub_803D64C0(s32, f32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32, f32);
+f32 cos_table_lookup(s32);
 M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 
 extern const f32 lbl_805D98A8;
@@ -162,8 +162,8 @@ void update_by_state__17TObjEneMe1CanadinFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x3EC));
-        M2C_FIELD(arg0, f32 *, 0x484) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60), temp_f1);
-        M2C_FIELD(arg0, f32 *, 0x488) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0x484) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60), temp_f1);
+        M2C_FIELD(arg0, f32 *, 0x488) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
         return;
     case 0:
         advance_animation_playback();

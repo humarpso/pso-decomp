@@ -401,7 +401,7 @@ void TBoss8Dragon__sub_80064E3C(u8 *arg0);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
 s32 transition_enemy_state(void *, int);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 subtract_vector(void *, void *);
 void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1);
 M2C_UNK TBoss1Dragon__sub_80027A80(void *, void *);
 M2C_UNK TBoss8Dragon__sub_80064C94(void *, void *);
@@ -902,7 +902,7 @@ void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self) {
 void TBoss8Dragon__sub_80064B08(u8 *arg0, u8 *arg1) {
     s16 temp_r4;
     VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x484)), (void*)((void *) (arg1 + 4)));
-    TBoss6Type1__sub_803D9370((void *) (arg0 + 0x484), (void *) (arg0 + 0x38));
+    subtract_vector((void *) (arg0 + 0x484), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
     TBoss8Dragon__sub_80064B90((u8 *)((void *) (arg0 + 0x494)), (u8 *)((void *) (arg1 + 0x14)));
     M2C_FIELD(arg0, s16 **, 0x4BC) = (s16 *) (arg0 + 0x494);

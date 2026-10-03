@@ -97,8 +97,8 @@ void TEndingPic__sub_8008D5AC(void);
 int TEnding__sub_8008D5B8(void);
 s32 TObjEneBalClaw__vt34(s32 arg0);
 s32 TObjEneBalClaw__vt37(s32 arg0);
-s32 TObjPlayer__sub_80016D78();
-s32 TObjPlayer__sub_80016FF8();
+s32 update_movement_status__10TObjPlayerFv();
+s32 update_action_hold_status__10TObjPlayerFv();
 
     extern int TEndingAB__data_805D4F10;
 void TEndingAB__sub_8008D5A0(void) { TEndingAB__data_805D4F10 = 1; }
@@ -117,7 +117,7 @@ void TObjEneBalClaw__sub_8008D5C0(u8 *arg0) {
 }
 
 s32 TObjEneBalClaw__vt37(s32 arg0) {
-    if (TObjPlayer__sub_80016D78() != 0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
         TObjEneBalClaw__sub_8008D5C0((u8 *)(arg0));
         return 1;
     }
@@ -125,7 +125,7 @@ s32 TObjEneBalClaw__vt37(s32 arg0) {
 }
 
 s32 TObjEneBalClaw__vt34(s32 arg0) {
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         TObjEneBalClaw__sub_8008D5C0((u8 *)(arg0));
         return 1;
     }

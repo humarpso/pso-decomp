@@ -33,9 +33,9 @@ void clear_render_callback__8TObjFishFv(int);
 void TObjFish__sub_800E3074(int);
 void reset_fish_globals__8TObjFishFv();
 void TBoss6PlotFalz__sub_802ABF44(f32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -43,9 +43,9 @@ void clear_render_callback__8TObjFishFv(int);
 void TObjFish__sub_800E3074(int);
 void reset_fish_globals__8TObjFishFv();
 void TBoss6PlotFalz__sub_802ABF44(f32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void);
 void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
@@ -62,10 +62,10 @@ s32 TObjFish__sub_800E3124(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *get_fish_count__8TObjFishFv(void);
 s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern u8 lbl_804780A0[];
 extern u8 lbl_804780C4[];
 extern u8 lbl_804780E4[];
@@ -113,9 +113,9 @@ void TObjFish__sub_8033DD4C(void *p) {
         if (f < 1.0f) {
             TBoss6PlotFalz__sub_802ABF44(f);
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_flag__10TObjPlayerFv();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x58);
+        post_translate_matrix(arg0 + 0x58);
         ((void (*)(int)) set_global_param__8TObjFishFi)(*(s32 *)(arg0 + 0x38));
         TObjFish__sub_800E3074(*(s32 *)(arg0 + 0x80));
         draw_model_motion(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0x3C), *(f32 *)(arg0 + 0x4C));
@@ -148,9 +148,9 @@ void TObjFish__sub_8033DE60(void *p) {
         if (f < 1.0f) {
             TBoss6PlotFalz__sub_802ABF44(f);
         }
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_flag__10TObjPlayerFv();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x58);
+        post_translate_matrix(arg0 + 0x58);
         ((void (*)(int)) set_global_param__8TObjFishFi)(*(s32 *)(arg0 + 0x2C));
         TObjFish__sub_800E3074(*(s32 *)(arg0 + 0x70));
         draw_model_motion(*(s32 *)(arg0 + 0x28), *(s32 *)(arg0 + 0x30), *(f32 *)(arg0 + 0x4C));
@@ -215,14 +215,14 @@ void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2) {
     M2C_FIELD(arg0, void **, 0x54) = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0x58, lbl_804780A0);
     VecCopy__FP3VecPC3Vec(&v, arg2);
-    TBoss6Type1__sub_803D9370(&v, lbl_804780A0);
+    subtract_vector(&v, lbl_804780A0);
     v.y = lbl_805DFA98;
-    if (TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805DFAB8) {
-        TNpcPlayer__sub_803D97B4(&v);
+    if (vector_length(&v) > lbl_805DFAB8) {
+        normalize_vector(&v);
         v.x *= lbl_805DFAB8;
         v.z *= lbl_805DFAB8;
     }
-    TBoss4Zako__sub_803D8910(arg0 + 0x58, &v);
+    vec3_add_to(arg0 + 0x58, &v);
     void *count = get_fish_count__8TObjFishFv();
     M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model(count, 4);
     M2C_FIELD(arg0, s32 *, 0x20) = TObjFish__sub_8001EDB0(count, 4);

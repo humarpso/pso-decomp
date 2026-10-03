@@ -97,10 +97,10 @@ struct VObj_18_247a8e : VBase_18_247a8e {
 
 extern "C" {
 void TObjPlayer__sub_800ADE48(Moja_800ADE48 *self);
-s32 TObjPlayer__sub_80016D78();
+s32 update_movement_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 TObjPlayer__sub_800AED14(void *arg0);
-s32 TObjPlayer__sub_80016FF8();
+s32 update_action_hold_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 s32 TObjPlayer__sub_800AEDB4(void *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
@@ -131,7 +131,7 @@ s32 get_field_3e4__10TObjPlayerFPv(int);
 u32 csnVector(void *, void *, int);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(u16);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern M2C_UNK lbl_8043B0B4[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -141,15 +141,15 @@ s32 get_field_3e4__10TObjPlayerFPv(int);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_800ACA0C(void *);
-M2C_UNK TObjPlayer__sub_800ACB58(void *);
+M2C_UNK update_death_state__11TObjEneMojaFv(void *);
 M2C_UNK update_ground_effect__10TObjPlayerFPv(void *);
 void update_invincibility__10TObjPlayerFPv(void *arg0);
-M2C_UNK TObjPlayer__sub_800ACFE8(void *);
-M2C_UNK TObjPlayer__sub_800AD3D8(void *);
+M2C_UNK update_attack_jump__11TObjEneMojaFv(void *);
+M2C_UNK update_technique_state__11TObjEneMojaFv(void *);
 M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0);
 M2C_UNK TObjPlayer__sub_800AE450(void *);
-M2C_UNK TObjPlayer__sub_800AE7F4(void *);
-M2C_UNK TObjPlayer__sub_800AEBB8(void *);
+M2C_UNK update_appearance_jump__11TObjEneMojaFv(void *);
+M2C_UNK update_idle_state__11TObjEneMojaFv(void *);
 u8 *get_enemy_entity(u16);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -187,9 +187,9 @@ M2C_UNK play_sound_effect(void *, void *, int, int);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern u8 **lbl_805D50D4;
 extern void *lbl_805D50DC;
 extern s32 lbl_805D586C;
@@ -200,7 +200,7 @@ extern const f32 lbl_805D9BEC;
 extern const f32 lbl_805D9C04;
 extern const f32 lbl_805D9C28;
 extern const f32 lbl_805D9C2C;
-M2C_UNK TObjPlayer__sub_800ADAAC(void *self_800ADAAC);
+M2C_UNK update_punch_attack__11TObjEneMojaFPv(void *self_800ADAAC);
 }
 
 extern "C" {
@@ -288,7 +288,7 @@ void update_down_state__10TObjPlayerFPv(void *arg0) {
 }
 
 #define arg0 ((u8 *)self_800ADAAC)
-M2C_UNK TObjPlayer__sub_800ADAAC(void *self_800ADAAC) {
+M2C_UNK update_punch_attack__11TObjEneMojaFPv(void *self_800ADAAC) {
     Vec_800ADAAC sp14;
     Vec_800ADAAC sp8;
     f32 temp_f1;
@@ -331,9 +331,9 @@ M2C_UNK TObjPlayer__sub_800ADAAC(void *self_800ADAAC) {
         if ((lbl_805D9C28 <= *(f32 *)(arg0 + 0xC0)) && (*(f32 *)(arg0 + 0xC0) <= lbl_805D9C2C)) {
             e = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D50DC);
             if (e != 0) {
-                TObjPlayer__sub_803D9B2C();
+                push_matrix();
                 TObjPlayer__sub_803D8CD4(0);
-                TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+                post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
                 TObjPlayer__sub_803D8960(0, e, &sp8, 2);
                 pop_matrix();
@@ -581,7 +581,7 @@ void update_meseta_anim_state__10TObjPlayerFPv(void *arg0) {
 }
 s32 TObjPlayer__sub_800AED14(void *arg0) {
     void *temp_r3;
-    if (TObjPlayer__sub_80016D78() != 0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
         case 1:
@@ -603,7 +603,7 @@ s32 TObjPlayer__sub_800AED14(void *arg0) {
 }
 s32 TObjPlayer__sub_800AEDB4(void *arg0) {
     void *temp_r3;
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
         case 1:
@@ -648,7 +648,7 @@ void acquire_target__11TObjEneMojaFPv(u8 *arg0) {
                     f32 xx;
                     f32 zz;
                     VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
-                    TBoss6Type1__sub_803D9370(&v, arg0 + 0x2FC);
+                    subtract_vector(&v, arg0 + 0x2FC);
                     xx = v.x * v.x;
                     zz = v.z * v.z;
                     d = xx + zz;
@@ -713,10 +713,10 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
     {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
-            TObjPlayer__sub_800AEBB8((void *) (arg0));
+            update_idle_state__11TObjEneMojaFv((void *) (arg0));
             break;
         case 1:
-            TObjPlayer__sub_800AE7F4((void *) (arg0));
+            update_appearance_jump__11TObjEneMojaFv((void *) (arg0));
             break;
         case 2:
             TObjPlayer__sub_800AE450((void *) (arg0));
@@ -725,13 +725,13 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
             TObjPlayer__sub_800AE18C((u8 *)((void *) (arg0)));
             break;
         case 4:
-            TObjPlayer__sub_800ADAAC((void *)((void *) (arg0)));
+            update_punch_attack__11TObjEneMojaFPv((void *)((void *) (arg0)));
             break;
         case 5:
-            TObjPlayer__sub_800AD3D8((void *) (arg0));
+            update_technique_state__11TObjEneMojaFv((void *) (arg0));
             break;
         case 6:
-            TObjPlayer__sub_800ACFE8((void *) (arg0));
+            update_attack_jump__11TObjEneMojaFv((void *) (arg0));
             break;
         case 7:
             update_invincibility__10TObjPlayerFPv((void *) (arg0));
@@ -740,7 +740,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
             update_ground_effect__10TObjPlayerFPv((void *) (arg0));
             break;
         case 9:
-            TObjPlayer__sub_800ACB58((void *) (arg0));
+            update_death_state__11TObjEneMojaFv((void *) (arg0));
             break;
         }
     }

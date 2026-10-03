@@ -149,7 +149,7 @@ void TObjPlayer__sub_800BC1F0(u8 *arg0);
 extern const f32 lbl_805D9EB4;
 void TObjPlayer__sub_800BC394(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
-void TBoss6Type1__sub_803D9370(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
+void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
 void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s);
 s32 obj_isState2_324(void *);
@@ -233,7 +233,7 @@ void area_attack_receive_direct(Actor_800BBF08 *src, Actor_800BBF08 *dst, f32 *r
 void area_attack_apply_recoil(Obj_800BBFD0 *a, Obj_800BBFD0 *b, f32 s) {
     Vec_800BBFD0 v;
     VecCopy__FP3VecPC3Vec(&v, &b->pos);
-    TBoss6Type1__sub_803D9370(&v, &a->pos);
+    subtract_vector(&v, &a->pos);
     clamp_velocity__15TObjBoss2TunnelFPv(&v);
     b->f308 = v.x * s + b->f308;
     b->f310 = v.z * s + b->f310;

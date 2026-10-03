@@ -24,7 +24,7 @@ M2C_UNK TObjEneMe1GiGue__sub_802CD054(void *);
 M2C_UNK TObjEneMe1GiGue__sub_802CD2EC(void *);
 M2C_UNK TObjEneMe1GiGue__sub_802CE4E8();
 M2C_UNK TObjPlayer__sub_800C6A18(void *);
-M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK update_obstruction_fade(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
@@ -86,7 +86,7 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
         temp_r3_4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
         M2C_FIELD(temp_r3_4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3_4, s32 *, 0x18) | 2);
     }
-    TObjPlayer__sub_800D7BB0((void *) (arg0 + 0x418));
+    update_obstruction_fade((void *) (arg0 + 0x418));
     if (xz_distance_squared((void *) (arg0 + 0x38), (void *) (arg0 + 0x44)) > lbl_805DE6BC) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0x44));
     }

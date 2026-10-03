@@ -56,8 +56,8 @@ extern f32 lbl_805DB06C;
 f32 scale_velocity__19TObjGyaranzoMissileFPvf(void *arg0, f32 farg0);
 void TObjPlayer__sub_8013153C(u8 *arg0, u8 *arg1);
 void TObjPlayer__sub_8012E284(s32, u32, s32, u32, u32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern s32 tl_05;
 extern const f32 lbl_805DB050;
 extern const float lbl_805DB054;
@@ -74,7 +74,7 @@ void TObjGyaranzoMissile__sub_80131488(Obj_80131488 *self);
 extern "C" {
 
 void TObjGyaranzoMissile__sub_801311D8(void* p);
-int TOHangerMachine01__sub_803D9C00(void*);
+int post_translate_matrix(void*);
 int TObjPlayer__sub_80120D50(void);
 int get_player_list__10TObjPlayerFv(void*);
 
@@ -109,7 +109,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-void TObjGyaranzoMissile__sub_801311D8(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { TOHangerMachine01__sub_803D9C00((char*)p + 0x1fc); } }
+void TObjGyaranzoMissile__sub_801311D8(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { post_translate_matrix((char*)p + 0x1fc); } }
 
 #pragma push
 #pragma opt_common_subs off
@@ -139,9 +139,9 @@ void TObjGyaranzoMissile__sub_80131214(u8 *arg0) {
     case 3:
         M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
         temp_r31 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) - 0x4000;
-        buffer_14[0] = TBoss8Dragon__sub_803D64C0(temp_r31);
+        buffer_14[0] = sin_table_lookup(temp_r31);
         buffer_14[1] = lbl_805DB05C;
-        buffer_14[2] = TBoss8Dragon__sub_803D64DC(temp_r31);
+        buffer_14[2] = cos_table_lookup(temp_r31);
         buffer_8[0] = 0x4000;
         buffer_8[1] = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
         buffer_8[2] = 0;

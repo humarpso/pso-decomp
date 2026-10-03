@@ -51,7 +51,7 @@ void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1);
 void create__11TTecGiZondeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void run_task__11TTecGiZondeFv(void *arg0);
 u32 find_entity_by_id(u16);
-s32 TTecGiZonde__sub_80231C58(void *);
+s32 find_chain_targets__11TTecGiZondeFv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, int);
@@ -99,7 +99,7 @@ void run_task__11TTecGiZondeFv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (TTecGiZonde__sub_80231C58(arg0) == 1) {
+    if (find_chain_targets__11TTecGiZondeFv(arg0) == 1) {
         TTecGiZonde__sub_80232598((GChain_80232598 *)(arg0));
     }
     queue_destruction__7TObjectFv(arg0);

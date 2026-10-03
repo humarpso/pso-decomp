@@ -49,7 +49,7 @@ struct VObj_801763E4 : Base_801763E4 {
 };
 
 extern "C" {
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -62,9 +62,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 extern s32 *TOSensorGeneral01__data_805D5AA4;
@@ -137,8 +137,8 @@ extern void *tl_05;
 void render__17TOSensorGeneral01Fv(u8 *arg0) {
     Node_801760A8 *n;
     if (((VObj_801760A8 *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         n = M2C_FIELD(arg0, Node_801760A8 **, 0x34);
         translate_matrix(0, n->x, n->y, n->z);
@@ -159,7 +159,7 @@ void render__17TOSensorGeneral01Fv(u8 *arg0) {
         draw_ginja_model(n->model);
         end_effect_render__13TParticleCtrlFv();
         n = n->next;
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, n->x, n->y, n->z);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE8));
         set_global_param__8TObjFishFi(TOSensorGeneral01__data_805D5AA4[1]);
@@ -205,7 +205,7 @@ void TOSensorGeneral01__sub_80176308(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B4278.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B4278.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5AA0) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));

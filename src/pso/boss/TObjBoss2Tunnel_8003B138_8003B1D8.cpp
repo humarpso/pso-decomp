@@ -9,7 +9,7 @@ struct Obj_8003B250 { u8 pad0[0x14]; Child_8003B250 *child; };
 struct Obj_8003B1FC { u8 pad[0x14]; Obj_8003B1FC *child; u8 pad2[0x3c - 0x18]; u8 xf[0xC]; };
 
 extern "C" {
-s32 TBoss4Zako__sub_803D8910(void *, void *);
+s32 vec3_add_to(void *, void *);
 s32 set_parent__7TObjectFP7TObject(void *, void *);
 extern void *lbl_805D4BF8;
 void TObjBoss2Tunnel__sub_8003B1FC(Obj_8003B1FC *self, void *arg);
@@ -28,7 +28,7 @@ void TObjBoss2Tunnel__sub_8003B1D8(void) {
 void TObjBoss2Tunnel__sub_8003B1FC(Obj_8003B1FC *self, void *arg) {
     Obj_8003B1FC *c;
     while ((c = self->child) != 0) {
-        TBoss4Zako__sub_803D8910(c->xf, arg);
+        vec3_add_to(c->xf, arg);
         set_parent__7TObjectFP7TObject(c, lbl_805D4BF8);
     }
 }

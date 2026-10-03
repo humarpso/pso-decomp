@@ -57,7 +57,7 @@ struct VObj_801710E4 : VBase_801710E4 {
 struct Obj_80171278 { s32 f00; u8 pad0[0x14]; u32 vptr; u8 pad1[0x14]; u32 flags30; u8 pad2[0x30C]; s32 f340; u8 pad3[8]; f32 f34C; f32 f350; s32 f354; f32 f358; u16 f35C; u8 pad4[2]; f32 f360; f32 f364; f32 f368; f32 f36C; s32 f370; };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801711D0_lbl_804B2F2C lbl_804B2F2C;
 extern u32 lbl_805D5A50;
@@ -71,9 +71,9 @@ void free_parts__6TOMineFPv(void* p);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
@@ -181,8 +181,8 @@ extern u32 lbl_805D5A50;
 void TOMine__sub_801710E4(VObj_801710E4 *arg0) {
     s32 t;
     if (M2C_FIELD(arg0, s16 *, 0x326) == 3 && arg0->m8(lbl_805DB854, lbl_805DB858) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((u8 *) arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix((u8 *) arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x370));
         free_parts__6TOMineFPv((void*)(arg0));
         begin_effect_render__13TParticleCtrlFv();
@@ -213,7 +213,7 @@ void TOMine__sub_801711D0(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2F2C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2F2C.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5A50) = var_r0;
 }

@@ -655,7 +655,7 @@ extern Vec_803606A0 lbl_80479D10;
 extern const f64 lbl_80479E90[];
 extern u8 lbl_8058D490[];
 extern u8 *lbl_805D5678;
-f32 TObjPlayer__sub_80014108(void *, void *, f32);
+f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 extern const f32 lbl_805E0208;
 f32 TObjEneEpsilonGuard__sub_8035F720(u8 *arg0, u8 *arg1, f32 farg0);
@@ -664,13 +664,13 @@ M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D6FA0;
 void TObjEneEpsilonGuard__sub_803601D0(void);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK draw_chunk_object();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -762,7 +762,7 @@ extern Tbl_8035FFA8 lbl_80479D1C[];
 extern void *lbl_805D6F8C;
 extern const f32 lbl_805E0210;
 void TObjEneEpsilonGuard__sub_8035FFA8(void *arg0);
-f32 TObjPlayer__sub_80011824(void *, void *, void *);
+f32 receive_weapon_special_attack__10TObjPlayerFv(void *, void *, void *);
 void try_apply_damage__19TObjEneEpsilonGuardFPvUii(void *, u32, s32);
 s32 show_miss_popup(void *, void *);
 s16 obj_getS16_118(void *);
@@ -833,7 +833,7 @@ f32 TObjEneEpsilonGuard__sub_8035F5C8(Self_8035F5C8 *o, void *src, Hit_8035F5C8 
             return lbl_805E0208;
         }
         if (obj_getS16_116(src) != TObjEneEpsilonGuard__sub_8035F8A8((W_8035F8A8 *)o)) {
-            return TObjPlayer__sub_80011824(o, src, hit);
+            return receive_weapon_special_attack__10TObjPlayerFv(o, src, hit);
         }
     }
     try_apply_damage__19TObjEneEpsilonGuardFPvUii(o, (u32)o->x2FC, 0);
@@ -844,7 +844,7 @@ f32 TObjEneEpsilonGuard__sub_8035F720(u8 *arg0, u8 *arg1, f32 farg0) {
     s32 temp_r5;
     temp_r5 = M2C_FIELD(arg0, s32 *, 0x438);
     if (!(temp_r5 & 2) && !(temp_r5 & 0x40)) {
-        return TObjPlayer__sub_80014108(arg0, arg1, farg0);
+        return receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
     }
     try_apply_damage__19TObjEneEpsilonGuardFPvUii(arg0, (u32) (arg0 + 0x2FC), 0);
     return lbl_805E0208;
@@ -1022,8 +1022,8 @@ void TObjEneEpsilonGuard__sub_803601D0(void) {  }
 void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f1;
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         translate_matrix((int) (0), (f32) (lbl_805E0208), (f32) (lbl_805E0214), (f32) (lbl_805E0208));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x4F8);
@@ -1056,7 +1056,7 @@ void TObjEneEpsilonGuard__sub_803606A0(Obj_803606A0 *g6, s32 i) {
         i = 3;
     }
     push_matrix_from(lbl_8058D490);
-    TOHangerMachine01__sub_803D9C00(&g6->pos);
+    post_translate_matrix(&g6->pos);
     rotate_matrix_y(0, g6->x60);
     set_global_flag__10TObjPlayerFv();
     render_anim_model__10TObjPlayerFPvf(g6, g6->xC0);

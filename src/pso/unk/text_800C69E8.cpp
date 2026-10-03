@@ -16,7 +16,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void *csnVector(void *, void *, s32);
 f32 TObjPlayer__sub_8013153C(void *, s32);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix_from(void *);
@@ -80,7 +80,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
         rotate_matrix_y(0, ang);
         for (i = 0; i < 3; i++) {
             TCameraCtrl__sub_803D8934(0, &sp14, self + 0x29C);
-            TBoss4Zako__sub_803D8910(self + 0x29C, &sp20);
+            vec3_add_to(self + 0x29C, &sp20);
             p = csnVector(&sp20, self + 0x29C, -1);
             if (p == NULL) {
                 pop_matrix();
@@ -103,7 +103,7 @@ void TObjPlayer__sub_800C6A48(u8 *self, f32 *dir, f32 a, f32 b) {
         rotate_matrix_y(0, bestAng);
         TCameraCtrl__sub_803D8934(0, &sp8, self + 0x29C);
     }
-    TBoss4Zako__sub_803D8910(self + 0x29C, &sp20);
+    vec3_add_to(self + 0x29C, &sp20);
     pop_matrix();
 }
 

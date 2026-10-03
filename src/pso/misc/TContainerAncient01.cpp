@@ -256,11 +256,11 @@ struct VMem_8018C06C {
 void *create__16TObjContainerIdoFPv(void *arg0);
 u8 *TObjContainerIdo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void render__16TObjContainerIdoFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -288,15 +288,15 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
                 set_global_param__8TObjFishFi(temp);
             }
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0xC0);
+        push_matrix();
+        post_translate_matrix(arg0 + 0xC0);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         ((M2C_UNK (*)(s32, M2C_UNK))get_bml_model)(lbl_805D5B98, 0);
         draw_ginja_object();
         pop_matrix();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         ((M2C_UNK (*)(s32, M2C_UNK))get_bml_model)(lbl_805D5B98, 1);
@@ -339,7 +339,7 @@ void play_persistent_sound(s32, void *, void *, s32, s32);
 void play_sound_effect(s32, void *, s32, s32);
 s32 rand();
 void spawn_particle_effect(void *, int);
-int TObjPlayer__sub_800D7BB0(void*);
+int update_obstruction_fade(void*);
 extern const Vec3_8018C18C lbl_80445110;
 extern const Vec3_8018C18C lbl_8044511C;
 extern u8 lbl_8058D490[];
@@ -431,7 +431,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             b.y = lbl_805DBD84;
             b.z = lbl_805DBD88 * (lbl_805DBD74 * (f32)rand()) - lbl_805DBD8C;
             push_matrix_from(lbl_8058D490);
-            TOHangerMachine01__sub_803D9C00(&self->pos);
+            post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->f60);
             rotate_matrix_x(0, self->f5c);
             TCameraCtrl__sub_803D8934(0, &a, &out);
@@ -441,7 +441,7 @@ void run_task__16TObjContainerIdoFv(Ido_8018C18C *self) {
             pop_matrix();
         }
     }
-    TObjPlayer__sub_800D7BB0(self->f0);
+    update_obstruction_fade(self->f0);
 }
 #pragma pop
 
@@ -528,7 +528,7 @@ M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerJungEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 extern u32 lbl_805D5B98;
 extern u32 lbl_805D5B9C;
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80445130;
@@ -600,7 +600,7 @@ void TObjContainerIdo__sub_8018C6E8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B70A4.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B70A4.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5B98) = var_r0;
     (*(u8 * *)&lbl_805D5B9C) = load_gvm_texture_file((s32) &lbl_80445130.value);
@@ -783,8 +783,8 @@ void TObjContainerJungEnemy__vt79(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         ((M2C_UNK (*)(s32))draw_ginja_object)(M2C_FIELD(arg0, s32 *, 0x368));

@@ -44,7 +44,7 @@ void TCameraCtrl__sub_80069094(s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern s32 lbl_80474AF4[];
 extern u8 lbl_80541E30[];
 extern u8 lbl_80541E3C[];
@@ -68,10 +68,10 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_current_scene__6TSceneFi(int);
 M2C_UNK set_chunk_material_override_pair(int, int);
@@ -117,7 +117,7 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(&sp14, lbl_805D4DF0 + 0x178);
     sp14.y = TBoss8Dragon__data_805DED50;
     VecCopy__FP3VecPC3Vec(&sp8, temp_r3 + 0x38);
-    TBoss6Type1__sub_803D9370(&sp8, &sp14);
+    subtract_vector(&sp8, &sp14);
     sp8.y = TBoss8Dragon__data_805DED50;
     temp_f31 = clamp_velocity__15TObjBoss2TunnelFPv(&sp8);
     VecCopy__FP3VecPC3Vec(lbl_80541E30, &sp14);
@@ -153,12 +153,12 @@ void TBoss8Dragon__sub_802F4114(u8 *arg0, s32 arg1, s32 arg2) {
         if (isFading__15RenderFadeStateCFv((int) (temp_r31)) != 0) {
             ((VObj_14_681f8e *)(temp_r31))->m6();
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg1));
+        push_matrix();
+        post_translate_matrix((void *) (arg1));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
         rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
-        TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x68));
+        scale_current_matrix((void *) (arg0 + 0x68));
         toggle_particle_effect__10TObjPlayerFv();
         if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x80) {
             fn_801414B0((int) (3), (int) (3), (int) (3), (int) (3));

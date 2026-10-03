@@ -132,15 +132,15 @@ typedef struct Obj_800A12C0 {
 extern "C" {
 s32 TObjPlayer__sub_800A1010(s32 arg0);
 void TObjPlayer__sub_800A100C(s32 = 0);
-s32 TObjPlayer__sub_80016D78();
+s32 update_movement_status__10TObjPlayerFv();
     extern int TEndingAB__data_805D4F10;
     extern int TEndingPic__data_805D6EE0;
     extern int lbl_805D4F08;
 s32 TObjPlayer__sub_800A1010(s32 arg0);
 s32 TObjPlayer__sub_800A1058(s32 arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
-s32 TObjPlayer__sub_80016FF8();
-s32 TObjPlayer__sub_80016FF8();
+s32 update_action_hold_status__10TObjPlayerFv();
+s32 update_action_hold_status__10TObjPlayerFv();
 s32 TObjPlayer__sub_800A1058(s32 arg0);
 f32 TObjPlayer__sub_800A3200(int);
 extern f32 lbl_805D5008;
@@ -205,14 +205,14 @@ void fn_800A0FDC(u8 *arg0) {
 void TObjPlayer__sub_800A100C(s32 _w0) {  }
 
 s32 TObjPlayer__sub_800A1010(s32 arg0) {
-    if (TObjPlayer__sub_80016D78() != 0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
         TObjPlayer__sub_800A100C((s32)(arg0));
         return 1;
     }
     return 0;
 }
 s32 TObjPlayer__sub_800A1058(s32 arg0) {
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         TObjPlayer__sub_800A100C(arg0);
         return 1;
     }

@@ -193,9 +193,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_chunk_object(int, void *);
@@ -484,8 +484,8 @@ void TObjPlayer__sub_80180D18(u8 *arg0) {
     u8 *temp_r3;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBBA0, lbl_805DBBA4) != 0) {
         end_effect_render__13TParticleCtrlFv();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) != 0) {
             rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));

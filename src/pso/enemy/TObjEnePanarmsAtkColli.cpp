@@ -102,10 +102,10 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_800E32C0(Obj_800E32C0 *arg0, V_800E32C0 *arg1);
 u32 get_enemy_entity(u16);
 void fn_800E322C(void *p, void *t);
-void TBoss4Zako__sub_803D8910(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
-void TNpcPlayer__sub_803D97B4(void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
 extern const f32 lbl_805DA5A4;
 }
 
@@ -176,12 +176,12 @@ void fn_800E3428(Obj_800E3428 *self) {
 
     lim = self->f378 * self->f378;
     VecCopy__FP3VecPC3Vec(&d, &self->dir);
-    TBoss6Type1__sub_803D9370(&d, &self->pos);
-    len = TBoss6Kakusan__sub_803D8BD8(&d);
+    subtract_vector(&d, &self->pos);
+    len = vector_length(&d);
     if (0.0f == len) {
         d.x = lbl_805DA5A4;
     }
-    TNpcPlayer__sub_803D97B4(&d);
+    normalize_vector(&d);
     d.x *= self->f378;
     d.z *= self->f378;
     for (i = 0; i < lbl_805D586C; i++) {
@@ -194,7 +194,7 @@ void fn_800E3428(Obj_800E3428 *self) {
                     break;
                 }
                 dist += self->f378;
-                TBoss4Zako__sub_803D8910(&v, &d);
+                vec3_add_to(&v, &d);
             }
         }
     }
@@ -204,7 +204,7 @@ void fn_800E3428(Obj_800E3428 *self) {
     for (dist2 = 0.0f; dist2 < len; ) {
         fn_800E322C(self, &w);
         dist2 += self->f378;
-        TBoss4Zako__sub_803D8910(&w, &d);
+        vec3_add_to(&w, &d);
     }
     }
 }
@@ -521,7 +521,7 @@ void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0) {
         return;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
-    TBoss4Zako__sub_803D8910(arg0 + 0x38, arg0 + 0x308);
+    vec3_add_to(arg0 + 0x38, arg0 + 0x308);
     M2C_FIELD(arg0, f32 *, 0x378) = (f32) (M2C_FIELD(arg0, f32 *, 0x378) + M2C_FIELD(arg0, f32 *, 0x37C));
     temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x374);
     switch (temp_r0_2) {
@@ -581,10 +581,10 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
         self->f38C = 0.0f;
     }
     self->scale.y = lbl_805DA5A0;
-    if (lbl_805DA5A0 == TBoss6Kakusan__sub_803D8BD8(&self->scale)) {
+    if (lbl_805DA5A0 == vector_length(&self->scale)) {
         self->scale.x = lbl_805DA5A4;
     }
-    TNpcPlayer__sub_803D97B4(&self->scale);
+    normalize_vector(&self->scale);
     switch (self->type) {
     case 0:
         play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003BC2B), &self->pos, 0, 0);

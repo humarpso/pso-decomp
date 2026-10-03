@@ -24,7 +24,7 @@ struct RecoveredFields_8023C558_arg0
 };
 
 extern "C" {
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_8023C558_lbl_804CC510 lbl_804CC510;
@@ -41,7 +41,7 @@ typedef char RecoveredGlobal_8023C558_lbl_804CC510_size[((sizeof(RecoveredGlobal
 typedef char RecoveredGlobal_8023C558_lbl_804CC55C_size[((sizeof(RecoveredGlobal_8023C558_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 void init_parameters__9TTecZondeFPv(u8 *arg0) {
   s32 new_var;
-  new_var = TTecCtrl__sub_8022DBC4((int) 6, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
+  new_var = calc_technique_parameters((int) 6, (int) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0xCC), (int) new_var);
   if ((((s16) ((RecoveredFields_8023C558_arg0 *) arg0)->field_C4) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
@@ -198,8 +198,8 @@ s32 is_valid_and_active__10TObjPlayerFUi(void *);
 u8 *TTecGiZonde__sub_8023CE54(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4);
 u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 s32 rand();
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 vector_length(void *);
+void normalize_vector(void *);
 extern u8 *tl_07;
 extern const f32 lbl_805DC968;
 extern const f32 lbl_805DC96C;
@@ -246,9 +246,9 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
             s->b[1] = t->y - s->a[1];
             pb = s->b;
             s->b[2] = t->z - s->a[2];
-            s->len = TBoss6Kakusan__sub_803D8BD8(pb);
+            s->len = vector_length(pb);
             if (lbl_805DC978 != s->len) {
-                TNpcPlayer__sub_803D97B4(pb);
+                normalize_vector(pb);
             }
         }
         scale = lbl_805DC97C;

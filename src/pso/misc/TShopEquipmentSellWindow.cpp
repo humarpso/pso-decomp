@@ -110,7 +110,7 @@ void *create_cost_window(u16);
 void get_item_count__24TShopEquipmentSellWindowFPv(void *, s32);
 int set_field_20__12TQuestListVMFPvi(void *, int);
 extern const f32 lbl_805DC6D8;
-void TShopEquipmentSellWindow__sub_8021CF04(Win_8021CF04 *self);
+void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self);
 }
 
 extern "C" {
@@ -203,7 +203,7 @@ s32 close__24TShopEquipmentSellWindowFPv(void *arg0) {
 
 extern M2C_UNK __vt__24TShopEquipmentSellWindow[];
 
-void TShopEquipmentSellWindow__sub_8021CF04(Win_8021CF04 *self) {
+void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
     u32 ids[32];
     s32 n;
     s32 i;
@@ -298,7 +298,7 @@ void TShopEquipmentSellWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TShopEquipmentSellWindow__sub_8021CF04((Win_8021CF04 *)((void *) (arg0)));
+        build_sell_list__24TShopEquipmentSellWindowFPv((Win_8021CF04 *)((void *) (arg0)));
         return;
     case 1:
         TShopEquipmentSellWindow__sub_8021CC44((void *) (arg0));

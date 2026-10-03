@@ -287,13 +287,13 @@ struct Vec_802D1880 { f32 x, y, z; };
 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 is_alive__9TObjEneDDFPv(s32);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
@@ -303,8 +303,8 @@ s16 obj_getField1c(void *);
 s32 check_v2_mode__9TObjEneDDFv();
 M2C_UNK fn_800BC4C8(void *, void *, void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_802D1880 *);
-M2C_UNK TNpcPlayer__sub_803D97B4(Vec_802D1880 *);
+f32 vector_length(Vec_802D1880 *);
+M2C_UNK normalize_vector(Vec_802D1880 *);
 extern M2C_UNK lbl_804E18A8[];
 extern s32 lbl_805D3F30;
 extern const f32 lbl_805DE764;
@@ -393,8 +393,8 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
     d.x = arg3->x - arg2->x;
     d.y = lbl_805DE774 + (arg3->y - arg2->y);
     d.z = arg3->z - arg2->z;
-    if (lbl_805DE770 != TBoss6Kakusan__sub_803D8BD8(&d)) {
-        TNpcPlayer__sub_803D97B4(&d);
+    if (lbl_805DE770 != vector_length(&d)) {
+        normalize_vector(&d);
     }
     M2C_FIELD(arg0, f32 *, 0xC0) = d.x * farg1;
     k = lbl_805DE764 + farg1;
@@ -426,7 +426,7 @@ void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o) {
         VecCopy__FP3VecPC3Vec(&a, &o->target->pos);
         a.y += lbl_805DE778;
         VecCopy__FP3VecPC3Vec(&b, lbl_805D4DF0 + 0x178);
-        TBoss6Type1__sub_803D9370(&b, &a);
+        subtract_vector(&b, &a);
         update_scale__15TObjBoss2TunnelFPv(&b);
         a.x = lbl_805DE77C * b.x + a.x;
         a.y = lbl_805DE77C * b.y + a.y;

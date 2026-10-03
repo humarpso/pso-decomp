@@ -28,7 +28,7 @@ M2C_UNK send_photon_blast_targets_packet(void *);
 u8 *TObjPlayer__sub_801D2AB0(void *, M2C_UNK);
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *);
 s16 get_valid_index__15TFontSmallLobbyFPv(void *);
-M2C_UNK TObjPlayer__sub_8022CDE8(void *, void *);
+M2C_UNK capture_technique_targets__10TObjPlayerFv(void *, void *);
 void prepare_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 }
 
@@ -42,7 +42,7 @@ void prepare_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     s32 *dst;
     if (reset_volopt_state__10TObjPlayerFv() != 0) {
         set_type__10TObjPlayerFPvi(arg0 + 0x644, 0x708);
-        TObjPlayer__sub_8022CDE8((void *)get_valid_index__15TFontSmallLobbyFPv(arg0 + 0x4AC), arg0);
+        capture_technique_targets__10TObjPlayerFv((void *)get_valid_index__15TFontSmallLobbyFPv(arg0 + 0x4AC), arg0);
         if (M2C_FIELD(arg0, u32 *, 0x424) != 0U) {
             u8 *e = TObjPlayer__sub_801D2AB0(arg0 + 0x4AC, 0);
             set_cursor_pos__11TMainCursorFiUsi(M2C_FIELD(arg0, u32 *, 0x424), M2C_FIELD(e, u16 *, 0), M2C_FIELD(e, s16 *, 2));

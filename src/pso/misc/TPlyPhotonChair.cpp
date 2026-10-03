@@ -127,7 +127,7 @@ void set_state_ready__15TPlyPhotonChairFPv(void* p);
 extern const f32 lbl_805E0128;
 extern const float lbl_805E012C;
 void run_task__15TPlyPhotonChairFv(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 lbl_804F1CB8;
 extern u32 TPlyPhotonChair__data_805D6F40;
@@ -167,10 +167,10 @@ u32 get_player_by_client_id(int);
 u16 TPlyPhotonChair__sub_8035B530(void* p);
 void render__15TPlyPhotonChairFPvPv(void* p, void* a1);
 int rotate_matrix_y(int, int);
-int TObjPlayer__sub_803D9B2C();
+int push_matrix();
 int pop_matrix();
-int TBoss7Tentacle__sub_803D9BA0(void *);
-int TOHangerMachine01__sub_803D9C00(void *);
+int scale_current_matrix(void *);
+int post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(int);
 extern const f32 lbl_805E0124;
 void render__15TPlyPhotonChairFv(Chair_8035B058 *self);
@@ -222,10 +222,10 @@ void render__15TPlyPhotonChairFv(Chair_8035B058 *self) {
         if (is_inactive__10TObjPlayerFPv(pl) != 0) {
             update_parts2__15TPlyPhotonChairFPv(self->parts);
             set_global_param__8TObjFishFi(self->x24);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(&self->pos);
+            push_matrix();
+            post_translate_matrix(&self->pos);
             rotate_matrix_y(0, self->x60);
-            TBoss7Tentacle__sub_803D9BA0(self->x68);
+            scale_current_matrix(self->x68);
             if (get_state_flag__9TMainTaskFv() != 0) {
                 play_sound_with_arg__15TPlyPhotonChairFPvPv(self->parts, &q);
                 self->a.s1();
@@ -283,7 +283,7 @@ s32 TPlyPhotonChair__sub_8035B2DC(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F1CB8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F1CB8.value, 0, 0, 0));
     }
     (*(u8 * *)&TPlyPhotonChair__data_805D6F40) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {

@@ -129,10 +129,10 @@ s32 get_player_by_client_id(s32);
 M2C_UNK create__9TTecMegidFiiii(void *, Vec_80058848 *, u8 *, s32);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(s32, s32);
 s32 rand();
-M2C_UNK TBoss4Zako__sub_803D8910(Vec_80058848 *, u8 *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_80058848 *);
-M2C_UNK TBoss6Type1__sub_803D9370(Vec_80058848 *, u8 *);
-M2C_UNK TNpcPlayer__sub_803D97B4(Vec_80058848 *);
+M2C_UNK vec3_add_to(Vec_80058848 *, u8 *);
+f32 vector_length(Vec_80058848 *);
+M2C_UNK subtract_vector(Vec_80058848 *, u8 *);
+M2C_UNK normalize_vector(Vec_80058848 *);
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 TBoss4Type3__data_805D8C40;
 extern const f32 lbl_805D8C44;
@@ -169,9 +169,9 @@ M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TCameraCtrl__sub_803D8934(int, void *, void *);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 extern const f32 TBoss4Type3__data_805D8C34;
 extern const f32 lbl_805D8C54;
 extern const f32 lbl_805D8C58;
@@ -237,17 +237,17 @@ void TBoss4Type3__vt36(O_80058848 *o) {
             if (TBoss4Type3__sub_8005254C(i) != 0) {
                 Vec_80058848 v = o->pos;
                 p += 0x2FC;
-                TBoss6Type1__sub_803D9370(&v, (u8 *)p);
-                if (TBoss4Type3__data_805D8C40 == TBoss6Kakusan__sub_803D8BD8(&v)) {
+                subtract_vector(&v, (u8 *)p);
+                if (TBoss4Type3__data_805D8C40 == vector_length(&v)) {
                     v.y = TBoss4Type3__data_805D8C34;
                 } else {
-                    TNpcPlayer__sub_803D97B4(&v);
+                    normalize_vector(&v);
                 }
                 s = lbl_805D8C48 * (lbl_805D8C4C * (f32)rand()) + lbl_805D8C44;
                 v.x *= s;
                 v.y *= s;
                 v.z *= s;
-                TBoss4Zako__sub_803D8910(&v, (u8 *)p);
+                vec3_add_to(&v, (u8 *)p);
                 create__9TTecMegidFiiii(o, &v, (u8 *)p, r30);
             }
         }
@@ -500,9 +500,9 @@ void TBoss4Type3__vt9(O_800590F4 *o) {
     u8 *e = lookup_entry_by_value__10TObjPlayerFPvf(o->f51c[idx]);
     if (e != 0)
     {
-      TObjPlayer__sub_803D9B2C();
+      push_matrix();
       TObjPlayer__sub_803D8CD4(0);
-      TOHangerMachine01__sub_803D9C00(o->f38);
+      post_translate_matrix(o->f38);
       rotate_matrix_y(0, o->f60);
       TCameraCtrl__sub_803D8934(0, e, &a);
       pb = (0, (s32) (&b));

@@ -31,7 +31,7 @@ void clear_30_slots__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_802C457C(void *, s16, s8);
 s8 *get_action_data__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_802C3720(S_802C3720 *arg0);
-void TObjPlayer__sub_801B67D4(void *, s32, Stats_802C38B4 *);
+void apply_class_level_growth(void *, s32, Stats_802C38B4 *);
 void copy_stats__10TObjPlayerFPvPv(Stats_802C38B4 *, void *);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 s32 get_current_state_field__10TObjPlayerFv(void *, s32);
@@ -106,7 +106,7 @@ void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level) {
     level = clamp_index_to_max__10TObjPlayerFi(level);
     copy_stats__10TObjPlayerFPvPv(&st, get_class_base_stats(cls));
     if (level != 0) {
-        TObjPlayer__sub_801B67D4(cls, level, &st);
+        apply_class_level_growth(cls, level, &st);
     }
     c->stats.atp = st.atp;
     c->stats.mst = st.mst;

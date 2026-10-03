@@ -66,7 +66,7 @@ s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 TWindowSubStatusDisp__sub_8025AC50(void *, void *, s32);
 void TWindowHelpItem__vt2(u8 *arg0);
 s32 TLobby__sub_8001DC24();
-void TWindowHelpItem__sub_80104FCC(int, void *, void *);
+void check_equip_requirements(int, void *, void *);
 s16 get_technique_level__9TItemDataFPv(void *);
 void format_item_description(void *);
 s32 get_player_by_client_id(int);
@@ -159,7 +159,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
         e4 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
         e5 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 5);
         e6 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
-        TWindowHelpItem__sub_80104FCC(temp_r3, *(void **)(arg0 + 0x68), &sp8);
+        check_equip_requirements(temp_r3, *(void **)(arg0 + 0x68), &sp8);
         if (sp8 & 1) {
             TWindowHelpItem__sub_8025B08C(e1, TWindowHelpItem__data_805DCDE4, lbl_805DCDE8);
             set_flag0_bit2__15TWindowHelpItemFPv(e2);

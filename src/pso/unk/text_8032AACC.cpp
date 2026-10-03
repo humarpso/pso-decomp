@@ -19,7 +19,7 @@ struct Arg_8032AC24 { f32 x, y; u8 pad[8]; };
 
 extern "C" {
 char *realloc_buffer__17TWindowSubComCardFPv(void *);
-s32 TWindowSubStatusDisp__sub_80144D68(void *);
+s32 calc_text_width(void *);
 void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *, f32, f32);
 void free__11TOBoss4RockFUi(char *);
 void fn_8025DE10(s32, Pos_8032AACC *);
@@ -72,7 +72,7 @@ void fn_8032AACC(s32 arg0) {
             *q++ = '*';
         }
         buf[len] = 0;
-        len = TWindowSubStatusDisp__sub_80144D68(lbl_805DF774);
+        len = calc_text_width(lbl_805DF774);
         render_status_disp__23TAdSinglePlyChrSelectGCFPvff(buf, lbl_80477220[0], lbl_80477220[1]);
         Pos_8032AACC p2;
         p2.x = lbl_80477220[0] + (f32) (len * get_field20_state__22TAdEnterSerialAccessGCFPv(lbl_805D6CA0));

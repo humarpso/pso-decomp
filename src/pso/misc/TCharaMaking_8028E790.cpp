@@ -26,8 +26,8 @@ extern RecoveredGlobal_8028E9A4___vt__12TCharaMaking __vt__12TCharaMaking;
 extern s32 lbl_805D3B6C;
 extern s32 lbl_805D6524;
 u8 *TCharaMaking__ct(u8 *arg0, s32 arg1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern RecoveredGlobal_8028E794_TObjLight__data_80506320 TObjLight__data_80506320;
 extern const f32 lbl_805DD938;
 void update_light_direction__12TCharaMakingFPv(u8 *arg0);
@@ -65,10 +65,10 @@ extern s32 lbl_805D652C;
 typedef char RecoveredGlobal_8028E794_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_8028E794_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 void update_light_direction__12TCharaMakingFPv(u8 *arg0) {
     f32 temp_f31;
-    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 4) = (f32) (lbl_805DD938 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x1C)));
-    temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x1C));
-    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 0) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x20)));
-    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 8) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x20)));
+    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 4) = (f32) (lbl_805DD938 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x1C)));
+    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x1C));
+    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 0) = (f32) (temp_f31 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x20)));
+    M2C_FIELD(&TObjLight__data_80506320.value, f32 *, 8) = (f32) (temp_f31 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x20)));
 }
 
 s32 update_main_menu__12TCharaMakingFi(s32 arg0) {

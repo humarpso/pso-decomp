@@ -755,9 +755,9 @@ extern const f32 lbl_805DF8A4;
 void TObjEneMorfos__sub_8033471C(u8 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 s32 TObjPlayer__sub_803E4684(void *);
 extern M2C_UNK main_task[];
@@ -791,24 +791,24 @@ u32 csnLookAt(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void enemy_set_target_id(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
-void TBoss6Type1__sub_803D9370(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+void subtract_vector(void *, void *);
 extern const f32 TObjEneMorfos__data_805DF86C;
 extern const f32 TObjEneMorfos__data_805DF874;
 s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0);
 s32 get_mode__11TCameraCtrlFPv(void *);
 M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
-M2C_UNK TObjPlayer__sub_800D7BB0(void *);
+M2C_UNK update_obstruction_fade(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *, int);
 void TObjEneMorfos__sub_80332B7C(void);
@@ -827,13 +827,13 @@ s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0);
 void set_hover_target_position__13TObjEneMorfosFPv(u8 *arg0);
 void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK enemy_copy_target_destination(void *);
 s32 TObjEneMorfos__sub_803344F0();
 s32 TObjEneRecon__sub_8029E960(void *);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -860,8 +860,8 @@ typedef char RecoveredFields_803326CC_arg0_3C0_offset[offsetof(RecoveredFields_8
 void TObjEneMorfos__sub_803326CC(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv((void *) (&(*(RecoveredGlobal_803326CC_main_task *)&main_task).value)) & 0x200) {
         set_global_param__8TObjFishFi((int)((void *) (M2C_FIELD(((RecoveredFields_803326CC_TObjEneMorfos__data_805D6D14 *)(*(u8 * *)&TObjEneMorfos__data_805D6D14))->field_42C, s32 *, 0x2C))));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x498));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x498));
         rotate_matrix_y((int) (0), (int) (((RecoveredFields_803326CC_arg0 *)arg0)->field_60));
         if (((RecoveredFields_803326CC_arg0 *)arg0)->field_3C0 & 2) {
             if (((VObj_14_fddec9 *)((u8 *)(arg0) + (1032)))->m8() != 0) {
@@ -881,8 +881,8 @@ s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0) {
     if (get_mode__11TCameraCtrlFPv((void *) (main_task)) & 0x20) {
         if (TObjEneRecon__sub_8029E960((void *) (arg0 + 0x3C8)) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+            push_matrix();
+            post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             draw__16TObjEneRe7BeruraFPv((void *) (arg0));
             pop_matrix();
@@ -906,12 +906,12 @@ void TObjEneMorfos__sub_803329E4(Self_803329E4 *self, s32 idx, s32 mode) {
     s32 vis;
     Part_803329E4 *part;
     part = &self->parts[idx];
-    TObjPlayer__sub_800D7BB0(part);
+    update_obstruction_fade(part);
     vis = updateFromCamera__15RenderFadeStateFPCf(part, self->cam);
     set_global_param__8TObjFishFi(self->f24);
     toggle_particle_effect__10TObjPlayerFv();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(self->pos);
+    push_matrix();
+    post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);
     TObjEneMorfos__data_805D6D18 = 0;
     TObjEneMorfos__data_805D6D1C = (s32)self->f498;
@@ -1262,9 +1262,9 @@ s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0) {
     f32 best;
     best = TObjEneMorfos__data_805DF874;
     id = 0xFFFF;
-    cosLim = TBoss8Dragon__sub_803D64DC(0xAAA);
-    dx = TBoss8Dragon__sub_803D64C0(arg0->f60);
-    dz = TBoss8Dragon__sub_803D64DC(arg0->f60);
+    cosLim = cos_table_lookup(0xAAA);
+    dx = sin_table_lookup(arg0->f60);
+    dz = cos_table_lookup(arg0->f60);
     n = get_game_mode__6TLobbyFv();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
@@ -1272,7 +1272,7 @@ s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0) {
             continue;
         }
         VecCopy__FP3VecPC3Vec(&v, p + 0x38);
-        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        subtract_vector(&v, &arg0->pos);
         v.y = TObjEneMorfos__data_805DF874;
         d = clamp_velocity__15TObjBoss2TunnelFPv(&v);
         if (d < TObjEneMorfos__data_805DF86C && d > best && dx * v.x + dz * v.z > cosLim &&

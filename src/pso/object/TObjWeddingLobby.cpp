@@ -40,9 +40,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
@@ -50,7 +50,7 @@ extern u32 TObjWeddingLobby__data_805D6F60;
 extern u32 lbl_805D6F64;
 extern const f32 TObjWeddingLobby__data_805E0158;
 void render__16TObjWeddingLobbyFv(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_8035BEB8_lbl_804F1DF4 lbl_804F1DF4;
@@ -94,8 +94,8 @@ void render__16TObjWeddingLobbyFv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) lbl_805D6F64 != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi((void *) (lbl_805D6F64));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
@@ -175,7 +175,7 @@ void TObjWeddingLobby__sub_8035BEB8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804F1DF4.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F1DF4.value, 0, 0, 0));
     }
     (*(s32 *)&TObjWeddingLobby__data_805D6F60) = var_r0;
     (*(s32 *)&lbl_805D6F64) = get_lobby_type__6TLobbyFv();

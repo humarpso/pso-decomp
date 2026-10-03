@@ -166,8 +166,8 @@ void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void update_angle__14TObjEneEpsilonFPvi(void *arg0, s32 arg1);
 s32 update_death_check__14TObjEneEpsilonFPv(void *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 s32 is_player_entity_id(u16);
 M2C_UNK calc_wall_clamped_destination(void *, s32, f32, f32, f32);
 M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
@@ -208,8 +208,8 @@ void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
-    temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    calc_wall_clamped_destination(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    calc_wall_clamped_destination(arg0, arg1, sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -218,8 +218,8 @@ void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
-    temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    calc_wall_slide_destination(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    calc_wall_slide_destination(arg0, arg1, sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -228,8 +228,8 @@ void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
-    temp_f31 = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
-    calc_shot_position__9TObjEneDDFPvPvfff(arg0, arg1, TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    calc_shot_position__9TObjEneDDFPvPvfff(arg0, arg1, sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
 }
 
 extern const f64 lbl_8043B698;

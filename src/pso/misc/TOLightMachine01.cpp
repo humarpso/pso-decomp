@@ -29,7 +29,7 @@ struct RecoveredGlobal_8016EC04___vt__16TOLightMachine01 { M2C_UNK value; u8 rem
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 lbl_804B2EC4;
 extern u32 TOLightMachine01__data_805D5A40;
@@ -40,7 +40,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 TPhotonMagicSquare__sub_801A2640(void *, int);
 s32 rand();
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__16TOLightMachine01[];
 extern s32 lbl_805D306C;
 extern u32 TOLightMachine01__data_805D5A40;
@@ -63,14 +63,14 @@ void *create__16TOLightMachine01FPv(void *arg0);
 void destroy_instance__16TOLightMachine01Fv(void);
 void render__16TOLightMachine01Fv(u8 *arg0);
 void run_task__16TOLightMachine01Fv(void *arg0);
-f32 TBoss8Dragon__sub_803D64C0(s32);
+f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(s32);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -81,7 +81,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 void run_task__16TOLightMachine01Fv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (M2C_FIELD(arg0, s32 *, 0xA8) + M2C_FIELD(arg0, s32 *, 0xA4));
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0xA8)));
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xA8)));
     M2C_FIELD(arg0, s32 *, 0xAC) = (s32) (M2C_FIELD(arg0, s32 *, 0xAC) + M2C_FIELD(arg0, s32 *, 0x8C));
 }
 
@@ -91,12 +91,12 @@ extern const f32 lbl_805DB828;
 
 void render__16TOLightMachine01Fv(u8 *arg0) {
     if (((VObj_8016E9F4_8016E998 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_model(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4));
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         translate_matrix(0, lbl_805DB828, M2C_FIELD(arg0, f32 *, 0x9C), lbl_805DB828);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xAC));
         draw_ginja_model(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), s32 *, 4));
@@ -134,7 +134,7 @@ void TOLightMachine01__sub_8016EB3C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804B2EC4.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2EC4.value, 0, 0, 0));
     }
     (*(u8 * *)&TOLightMachine01__data_805D5A40) = (unsigned char *) ((void *) var_r0);
     lbl_805D5A44 = get_bml_model((void *) var_r0, 0);
@@ -167,7 +167,7 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xA4) = (s32) (lbl_805DB838 * (lbl_805DB83C / (lbl_805DB840 / M2C_FIELD(arg0, f32 *, 0xA0))));
     M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (lbl_805DB838 * (lbl_805DB83C * (lbl_805DB844 * (f32) rand())));
     M2C_FIELD(arg0, f32 *, 0x98) = (f32) ((lbl_805DB834 * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DB848);
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * TBoss8Dragon__sub_803D64C0((s32)((int) (M2C_FIELD(arg0, s32 *, 0xA8)))));
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x98) * sin_table_lookup((s32)((int) (M2C_FIELD(arg0, s32 *, 0xA8)))));
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;
     return arg0;
 }

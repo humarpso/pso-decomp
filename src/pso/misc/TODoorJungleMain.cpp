@@ -215,7 +215,7 @@ struct Ids_8029B428 {
 extern "C" {
 extern u32 TODoorJungleMain__data_805D65B8;
 extern u32 lbl_805D65BC;
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
@@ -241,9 +241,9 @@ extern const f32 lbl_805DDCF0;
 u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *get_bml_model(u32, int);
 M2C_UNK rotate_matrix_y(int, int);
-int TObjPlayer__sub_803D9B2C(void *);
+int push_matrix(void *);
 int pop_matrix(void);
-int TOHangerMachine01__sub_803D9C00(void *);
+int post_translate_matrix(void *);
 void *set_global_param__8TObjFishFi(void *);
 int draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
@@ -296,7 +296,7 @@ extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 lbl_805D5550;
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
-M2C_UNK TRaderMapCore__sub_801F9AC4(void *, u32, u16, s32, s32);
+M2C_UNK minimap_render_gate(void *, u32, u16, s32, s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK TCameraCtrl__sub_803D8934(void *, void *, void *);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(void *, void *);
@@ -344,7 +344,7 @@ void TODoorJungleMain__sub_8029B3C8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 0x1, &lbl_804DC004.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &lbl_804DC004.value, 0, 0, 0));
     }
     (*(s32 *)&TODoorJungleMain__data_805D65B8) = var_r0;
     (*(u8 * *)&lbl_805D65BC) = load_gvm_texture_file((s32) &lbl_80465418.value);
@@ -354,8 +354,8 @@ void render__16TODoorJungleMainFv(Door_8029B428 *self) {
     Ids_8029B428 ids = lbl_80465400;
     s32 i;
     if (self->m8(self->fc0, self->fc4) == 1) {
-        TObjPlayer__sub_803D9B2C(set_global_param__8TObjFishFi((void *)lbl_805D65BC));
-        TOHangerMachine01__sub_803D9C00(self->xf);
+        push_matrix(set_global_param__8TObjFishFi((void *)lbl_805D65BC));
+        post_translate_matrix(self->xf);
         rotate_matrix_y(0, self->f60);
         if (self->flags & 1) {
             draw_ginja_model_with_motion(get_bml_model(TODoorJungleMain__data_805D65B8, 3), self->fbc, self->fb4);
@@ -439,9 +439,9 @@ void run_task__16TODoorJungleMainFv(u8 *arg0) {
                 spawn_particle_effect_with_flags(&b, 0x229, 0x800);
             }
         }
-        TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFF00FF00, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFF00FF00, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
     } else {
-        TRaderMapCore__sub_801F9AC4(arg0 + 0x38, 0xFFFF0000, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
+        minimap_render_gate(arg0 + 0x38, 0xFFFF0000, M2C_FIELD(arg0, s32 *, 0x60), 0, 0);
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
     }
 }

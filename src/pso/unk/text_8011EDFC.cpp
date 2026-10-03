@@ -117,10 +117,10 @@ u16 get_uid__10TObjPlayerFPv(void *);
 void *TObjPlayer__sub_80121248(void *, s32);
 s32 TObjPlayer__sub_8012125C(void *);
 Obj_8011F474 *resolve_hittable_target(s32, s32);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
-f32 TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK subtract_vector(void *, void *);
+f32 normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK TObjPlayer__sub_803D9884(void *, void *);
 M2C_UNK pop_matrix();
@@ -166,12 +166,12 @@ s32 TObjPlayer__sub_8011F108(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
                 if (var_r29 != NULL) {
                     temp_r22_2 = (u8 *)&M2C_FIELD(var_r29, Rec_8011F108 **, 0xA4)[TObjPlayer__sub_80121238(temp_r22)];
                     VecCopy__FP3VecPC3Vec((void *) (&endpoint.x), (void *) &((Rec_8011F108 *)temp_r22_2)->pos);
-                    TBoss6Type1__sub_803D9370((void *) (&endpoint.x), (void *) (arg1));
-                    temp_f3 = TNpcPlayer__sub_803D97B4((void *) (&endpoint.x)) - M2C_FIELD(temp_r22_2, f32 *, 0xC);
+                    subtract_vector((void *) (&endpoint.x), (void *) (arg1));
+                    temp_f3 = normalize_vector((void *) (&endpoint.x)) - M2C_FIELD(temp_r22_2, f32 *, 0xC);
                     endpoint.x *= temp_f3;
                     endpoint.y *= temp_f3;
                     endpoint.z *= temp_f3;
-                    TBoss4Zako__sub_803D8910((void *) (&endpoint.x), (void *) (arg1));
+                    vec3_add_to((void *) (&endpoint.x), (void *) (arg1));
                     var_r23 = 1;
                 }
             }
@@ -185,7 +185,7 @@ s32 TObjPlayer__sub_8011F108(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
                 rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) + arg3));
                 TObjPlayer__sub_803D9884((void *) (&fallback.x), (void *) (&endpoint.x));
                 pop_matrix();
-                TBoss4Zako__sub_803D8910((void *) (&endpoint.x), (void *) (arg1));
+                vec3_add_to((void *) (&endpoint.x), (void *) (arg1));
             }
             temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
             ShotVector rayOrigin = *(ShotVector *)(temp_r7 + 0x2FC);

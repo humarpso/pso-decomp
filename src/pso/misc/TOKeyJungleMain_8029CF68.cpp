@@ -101,14 +101,14 @@ struct RecoveredGlobal_8029D438___vt__15TOKeyJungleMain {
 };
 
 extern "C" {
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -134,7 +134,7 @@ s32 TLevelSelect__sub_801F441C(s32, s32);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 lbl_805D5550;
 void TOKeyJungleMain__vt12(u8 *arg0);
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8029CFEC_lbl_804DC590 lbl_804DC590;
 extern u32 TOKeyJungleMain__data_805D65E0;
@@ -187,7 +187,7 @@ void TOKeyJungleMain__sub_8029CFEC(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804DC590.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804DC590.value, 0, 0, 0));
     }
     (*(s32 *)&TOKeyJungleMain__data_805D65E0) = var_r0;
 }
@@ -198,8 +198,8 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
         case 0:
             TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             set_global_param__8TObjFishFi();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             get_bml_model((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             draw_ginja_object();
@@ -208,8 +208,8 @@ void render__15TOKeyJungleMainFv(u8 *arg0) {
         case 1:
             TObjFish__sub_8001EDB0((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1);
             set_global_param__8TObjFishFi();
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             draw_ginja_model_with_motion(get_bml_model((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), TObjFish__sub_8001ED9C((*(s32 *)&TOKeyJungleMain__data_805D65E0), 1), M2C_FIELD(arg0, f32 *, 0xE8));
             begin_effect_render__13TParticleCtrlFv();

@@ -65,7 +65,7 @@ void TObjPlayer__sub_8002EBCC(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
 void TObjPlayer__sub_8002E974(u8 *arg0);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D822C;
 extern const f32 lbl_805D8230;
 extern const f32 lbl_805D8250;
@@ -80,7 +80,7 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0);
 void scale_matrix(int, f32, f32, f32);
 void TObjPlayer__sub_803D8CD4(int);
 void rotate_vector_by_matrix(int, void *, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern const f32 lbl_805D822C;
 extern const f32 lbl_805D824C;
@@ -88,7 +88,7 @@ void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n);
 void scale_matrix(int, f32, f32, f32);
 void TObjPlayer__sub_803D8CD4(int);
 void rotate_vector_by_matrix(int, void *, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 extern const f32 lbl_805D8260;
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n);
@@ -97,7 +97,7 @@ f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit(void);
 void *init_base__10TObjPlayerFPv(void *arg0);
 s32 calc_random_scaled__10TObjPlayerFv(void);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 extern M2C_UNK lbl_804820A8[];
 extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
 extern const f32 lbl_805D8228;
@@ -198,7 +198,7 @@ Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002E
     arg0->vtbl = lbl_804820A8;
     for (i = 0, p = arg0->parts; i < 19; i++, p++) {
         VecCopy__FP3VecPC3Vec(&p->pos, arg2);
-        TBoss4Zako__sub_803D8910(&p->pos, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].a);
+        vec3_add_to(&p->pos, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].a);
         v = &p->vel;
         VecCopy__FP3VecPC3Vec(v, &(*(Src_8002EA64 **)((u8 *)lbl_805D4B88 + 4))[i].b);
         v->y = lerp__9TDeadSpotFff(lbl_805D8234, lbl_805D8238);
@@ -260,7 +260,7 @@ extern const f32 lbl_805D8248;
 
 void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n) {
     s32 i;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
     scale_matrix(0, lbl_805D824C, lbl_805D822C, lbl_805D824C);
     for (i = 0; i < n; i++) {
@@ -271,7 +271,7 @@ void TObjPlayer__sub_8002ECC4(Obj_8002ECC4 *self, s32 n) {
 
 void TObjPlayer__sub_8002ED48(Obj_8002ED48 *self, s32 n) {
     s32 i;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
     scale_matrix(0, lbl_805D8260, lbl_805D8260, lbl_805D8260);
     for (i = 0; i < n; i++) {
@@ -297,7 +297,7 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805D8250);
-        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        vec3_add_to((void *) (arg0), (void *) (arg0 + 0xC));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x10);
         if (temp_f1 < lbl_805D822C) {
             temp_f2 = M2C_FIELD(arg0, f32 *, 4);
@@ -318,7 +318,7 @@ s32 TObjPlayer__sub_8002EDCC(u8 *arg0) {
         break;
     case 2:
         M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - lbl_805D8250);
-        TBoss4Zako__sub_803D8910((void *) (arg0), (void *) (arg0 + 0xC));
+        vec3_add_to((void *) (arg0), (void *) (arg0 + 0xC));
         M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) - lbl_805D8254);
         if (M2C_FIELD(arg0, f32 *, 0x24) < lbl_805D822C) {
             M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D822C;

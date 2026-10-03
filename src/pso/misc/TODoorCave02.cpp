@@ -15,9 +15,9 @@ extern const f32 lbl_805DB4C0;
 void TODoorCave02__vt13(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
@@ -46,10 +46,10 @@ void TODoorCave02__vt18(void);
 void render__12TODoorCave02Fv(u8 *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 s32 is_any_player_within_radius_xz(void *, f32);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model_with_motion(void *, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 s32 fn_801582C4(void *, f32);
@@ -104,22 +104,22 @@ M2C_UNK TODoorCave02__sub_80161EE0(void *arg0_, void *arg1_) {
     s32 temp_r4;
     u8 *temp_r31;
     u8 *temp_r31_2;
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg1 + 8));
+    push_matrix();
+    post_translate_matrix((void *) (arg1 + 8));
     draw_ginja_model((int) (M2C_FIELD(arg1, s32 *, 4)));
     begin_effect_render__13TParticleCtrlFv();
     temp_r4 = some_id_805c6f74;
     lbl_805D5660 = temp_r4;
     some_id_805c6f74 = temp_r4 | 0x10;
     set_chunk_material_color((void *) (arg0 + 0xD4));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31 = M2C_FIELD(arg1, u8 **, 0x2C);
-    TOHangerMachine01__sub_803D9C00((void *) (temp_r31 + 8));
+    post_translate_matrix((void *) (temp_r31 + 8));
     draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
     pop_matrix();
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x30);
-    TOHangerMachine01__sub_803D9C00((void *) (temp_r31_2 + 8));
+    post_translate_matrix((void *) (temp_r31_2 + 8));
     draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
     pop_matrix();
     set_chunk_material_color(lbl_804A7418);
@@ -130,8 +130,8 @@ M2C_UNK TODoorCave02__sub_80161EE0(void *arg0_, void *arg1_) {
 
 void render__12TODoorCave02Fv(u8 *arg0) {
     if ((((VObj_80161D38 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) && (fn_801582C4(arg0, lbl_805DB4C4) != 0)) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             set_global_param__8TObjFishFi(*(s32 *)(TODoorCave02__data_805D5964 + ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4)));

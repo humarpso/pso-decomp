@@ -59,9 +59,9 @@ extern "C" {
 void sync_player_globals__10TObjPlayerFv();
 void TObjPlayer__sub_80052390(f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
@@ -75,9 +75,9 @@ void TObjPlayer__sub_80052390(f32);
 Outer_8004E068 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
 void TObjEneRe4Sorcerer__sub_801E3F1C(f32, f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
@@ -174,9 +174,9 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   }
   some_id_805c6f74 |= 0x20000;
   TObjEneRe4Sorcerer__sub_801E3F1C(lbl_805D8990, self->f118);
-  TObjPlayer__sub_803D9B2C();
+  push_matrix();
   set_global_flag__10TObjPlayerFv();
-  TOHangerMachine01__sub_803D9C00(self->f100);
+  post_translate_matrix(self->f100);
   rotate_matrix_y(0, self->f10C);
   for (j = 0; j < 2; j++)
   {
@@ -207,9 +207,9 @@ void TObjPlayer__sub_8004E2C8(Obj_8004E2C8 *arg0) {
     if (alpha < 1.0f) {
         TObjPlayer__sub_80052390(alpha);
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_flag__10TObjPlayerFv();
-    TOHangerMachine01__sub_803D9C00(arg0->f100);
+    post_translate_matrix(arg0->f100);
     rotate_matrix_y(0, arg0->f10c);
     max = lbl_805D89A0;
     for (i = 0; i < 6; i++) {

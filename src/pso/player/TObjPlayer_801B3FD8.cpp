@@ -230,7 +230,7 @@ void clear_lobby_flag__10TObjPlayerFPv(void *arg0);
 void *copy_fields__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void init_effect_5f0__10TObjPlayerFPv(u8 *arg0);
 void update_position_history__10TObjPlayerFPv(u8 *arg0);
-int TBoss6Kakusan__sub_803D8BD8(void*);
+int vector_length(void*);
 M2C_UNK TFontSmallLobby__sub_801C0228();
 M2C_UNK TObjPlayer__sub_801BEA38(void *, s32, f32, f32);
 s32 get_idle_animation__10TObjPlayerFPv(void *);
@@ -435,6 +435,6 @@ void get_hand_joint_position__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     ((VObj_18 *)(arg0))->m63(M2C_FIELD(TObjPlayer__sub_801D8DCC(), s32 *, 0x10), arg1);
 }
 
-void calc_move__10TObjPlayerFPvPvPv(void* p, void* a1, void* a2) { TBoss6Kakusan__sub_803D8BD8(p); calc_move_velocity__10TObjPlayerFPvPvf(a1, a2); }
+void calc_move__10TObjPlayerFPvPvPv(void* p, void* a1, void* a2) { vector_length(p); calc_move_velocity__10TObjPlayerFPvPvf(a1, a2); }
 
 }

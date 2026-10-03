@@ -58,9 +58,9 @@ void TParticleCtrl__sub_803D8D1C(int, void *, void *);
 extern u8 __vt__15TEffStarLight2D[];
 extern u32 lbl_805D292C;
 M2C_UNK queue_destruction__7TObjectFv(void *);
-f32 TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+f32 approach_vector_fixed_distance(void *, void *, void *, f32);
+f32 vector_length(void *);
+M2C_UNK normalize_vector(void *);
 f32 newton_sqrtf(f32);
 extern void *__vt__18TEffStarLightChild[];
 extern s32 lbl_805D2928;
@@ -144,10 +144,10 @@ void run_task__18TEffStarLightChildFv(Star_80085424 *self) {
     b.z = 0.0f;
     b.x = self->x1;
     b.y = self->y1;
-    TEffStarLightChild__sub_80141FBC(&a, &c, &a, self->angle);
+    approach_vector_fixed_distance(&a, &c, &a, self->angle);
     self->x0 = a.x;
     self->y0 = a.y;
-    TEffStarLightChild__sub_80141FBC(&b, &c, &b, self->angle);
+    approach_vector_fixed_distance(&b, &c, &b, self->angle);
     self->x1 = b.x;
     self->y1 = b.y;
     if (self->x0 >= -100.0f && self->x0 <= 740.0f) {
@@ -185,8 +185,8 @@ Star_800855F8 *__ct__18TEffStarLightChildFv(Star_800855F8 *self, Pt_800855F8 *a,
     d.x = b->x - a->x;
     d.y = b->y - a->y;
     d.z = 0.0f;
-    if (0.0f != TBoss6Kakusan__sub_803D8BD8(&d)) {
-        TNpcPlayer__sub_803D97B4(&d);
+    if (0.0f != vector_length(&d)) {
+        normalize_vector(&d);
     } else {
         d.x = 0.0f;
         d.y = 0.0f;

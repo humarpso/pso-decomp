@@ -63,9 +63,9 @@ extern s32 lbl_805D41B8;
 extern s32 tl_clipout;
 Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1);
 void *get_localized_text_entry(int, u32);
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
-void TWindowSubComCard__sub_80245F98();
+void draw_window_frame();
 extern const f32 lbl_805DF700;
 extern const f32 lbl_805DF704;
 extern const f32 lbl_805DF708;
@@ -95,9 +95,9 @@ void TAdAgreementBaseGC__sub_803296C4(void *self) {
 void TAdAgreementBaseGC__sub_803296E8(void) {
     Pos_803296E8 pos[2];
     u32 i;
-    TWindowSubComCard__sub_80245F98();
+    draw_window_frame();
     for (i = 0; i < 2; i++) {
-        pos[i].x = lbl_805DF700 - (f32) (TWindowSubStatusDisp__sub_80144D68(get_localized_text_entry(0x1B, i)) >> 1);
+        pos[i].x = lbl_805DF700 - (f32) (calc_text_width(get_localized_text_entry(0x1B, i)) >> 1);
         pos[i].y = lbl_805DF708 * (f32) i + lbl_805DF704;
         render_status_line__15TAdSubPlyItemGCFPvi(get_localized_text_entry(0x1B, i), -1, pos[i].x, pos[i].y, lbl_805DF70C);
     }

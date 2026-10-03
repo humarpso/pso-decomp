@@ -95,7 +95,7 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
 struct Vec_8030920C { f32 x, y, z; };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030946C_lbl_804E7370 lbl_804E7370;
 extern u32 TBoss7Crawfish__data_805D6A60;
@@ -112,7 +112,7 @@ M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
 M2C_UNK fn_8002B630(void *, void *);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
-M2C_UNK TObjPlayer__sub_800F7478(void *, int, int, int);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK initialize__9TObjEnemyFPv();
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -243,12 +243,12 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     if (TBoss7Crawfish__sub_80308AA8((void *) (arg0)) != 0) {
         set_param__12TObjEneLappyFPvi((void *) (arg0), (int) (0x4A));
-        TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(8), dispatch_shared_handler_b__6TLobbyFPv(8), register_object__6TLobbyFPv(8));
+        bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFPv(8), dispatch_shared_handler_b__6TLobbyFPv(8), register_object__6TLobbyFPv(8));
         M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (8));
         M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TBoss7Crawfish__data_805D6A60), (int) (0));
     } else {
         set_param__12TObjEneLappyFPvi((void *) (arg0), (int) (0x4B));
-        TObjPlayer__sub_800F7478((void *) (arg0), register_boss__6TLobbyFPv(9), dispatch_shared_handler_b__6TLobbyFPv(9), register_object__6TLobbyFPv(9));
+        bind_enemy_combat_stats((void *) (arg0), register_boss__6TLobbyFPv(9), dispatch_shared_handler_b__6TLobbyFPv(9), register_object__6TLobbyFPv(9));
         M2C_FIELD(arg0, s32 *, 0x3A0) = dispatch_shared_handler_a__6TLobbyFPv((int) (9));
         M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TBoss7Crawfish__data_805D6A60), (int) (1));
     }
@@ -286,7 +286,7 @@ void TBoss7Crawfish__sub_8030946C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804E7370.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E7370.value, 0, 0, 0));
     }
     (*(s32 *)&TBoss7Crawfish__data_805D6A60) = var_r0;
 }

@@ -43,7 +43,7 @@ struct Win_802845EC { u8 pad[0x10]; f32 x; f32 y; u8 pad2[0x38 - 0x18]; f32 scal
 
 extern "C" {
 void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, int);
+M2C_UNK draw_window_frame(void *, int);
 s32 draw_default_entry__9TWindowDDFi();
 extern M2C_UNK __vt__19TWindowMenuMainMenu[];
 void render__24TWindowSubSymbolChatHelpFv(s32 arg0);
@@ -305,7 +305,7 @@ void TWindowSubSymbolChatHelp__sub_80284A28(u8 *arg0) {
 void render__24TWindowSubSymbolChatHelpFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80245F98((void *) (arg0), (int) (temp_r3));
+    draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_help_entries__24TWindowSubSymbolChatHelpFPvPv((void *)((void *) (arg0)), (void *)((int) (temp_r3)));
 }
 

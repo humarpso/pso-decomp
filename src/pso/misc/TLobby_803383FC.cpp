@@ -41,7 +41,7 @@ extern s32 lbl_805D63F0;
 extern s32 lbl_805D6D58;
 extern int lbl_805D6D5C;
 void TLobby__sub_80338534(void);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 cos_table_lookup(s32);
 extern A_80338608 lbl_804EF224[];
 extern B_80338608 lbl_804EF1E4[];
 extern s32 lbl_805D6D58;
@@ -154,7 +154,7 @@ void TLobby__sub_80338608(s32 arg0) {
     s32 i;
     B_80338608 *b;
     A_80338608 *a;
-    f32 s = lbl_805DF9A4 + TBoss8Dragon__sub_803D64DC(lbl_805D6D60);
+    f32 s = lbl_805DF9A4 + cos_table_lookup(lbl_805D6D60);
     t = s * lbl_805DF9A8 + lbl_805DF9A0;
     lbl_805D6D60 += 0xCCC;
     c0 = ((u32)(lbl_805DF9B4 * t) << 24) | 0xFFFFFF;

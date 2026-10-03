@@ -17,9 +17,9 @@ extern "C" {
 M2C_UNK get_bml_model(void *, int);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object();
 extern RecoveredGlobal_80198960_lbl_804B8DAC lbl_804B8DAC;
@@ -40,8 +40,8 @@ void fn_80198960(u8 *arg0) {
         } else {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lbl_804B8DAC.value, u32 *, 0x14)));
         }
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x1C));
+        push_matrix();
+        post_translate_matrix((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
         scale_matrix((int) (0), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
         get_bml_model((void *) (lbl_805D5C60), (int) (4));

@@ -100,7 +100,7 @@ M2C_UNK advance_animation_playback(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
-f32 TBoss4Zako__sub_803D8910(void *, void *);
+f32 vec3_add_to(void *, void *);
 s32 rotate_vector_by_matrix(int, void *, void *);
 M2C_UNK rotate_matrix_y(int, s32);
 s32 push_matrix_from(void *);
@@ -119,7 +119,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 u8 *get_enemy_entity(u16);
 u8 *get_player_by_client_id(u16);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern M2C_UNK lbl_8043B790[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -128,7 +128,7 @@ s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-u8 *TLobby__sub_80020004(void *, int, void *, int, int, int);
+u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(void *, void *);
@@ -192,8 +192,8 @@ M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void *TObjControl__ct(void *, void *);
 void *TObjGrass__ct(void *, void *, void *);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-s32 TObjPlayer__sub_80016D78();
-s32 TObjPlayer__sub_80016FF8();
+s32 update_movement_status__10TObjPlayerFv();
+s32 update_action_hold_status__10TObjPlayerFv();
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
@@ -335,7 +335,7 @@ M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o) {
     rotate_matrix_y(0, o->f60);
     rotate_vector_by_matrix(0, &v, &v);
     TCameraCtrl__sub_803D9858(1);
-    TBoss4Zako__sub_803D8910(&v, o->mtx50);
+    vec3_add_to(&v, o->mtx50);
     d = TObjPlayer__sub_80017804(o, v, TObjGrass__data_805D9ED8 * o->range->hi);
     lo2 = o->range->lo * o->range->lo;
     hi2 = o->range->hi * o->range->hi;
@@ -394,7 +394,7 @@ void TObjGrass__vt56(Obj_800BEE2C *self) {
 }
 
 s32 TObjGrass__vt37(void *arg0) {
-    if (TObjPlayer__sub_80016D78() != 0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             M2C_FIELD(arg0, s32 *, 0x3AC) = 0;
@@ -408,7 +408,7 @@ s32 TObjGrass__vt37(void *arg0) {
 }
 
 s32 TObjGrass__vt34(void *arg0) {
-    if (TObjPlayer__sub_80016FF8() != 0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
             M2C_FIELD(arg0, s32 *, 0x3AC) = 0;
@@ -453,7 +453,7 @@ void TObjGrass__vt26(u8 *arg0) {
                     f32 xx;
                     f32 zz;
                     VecCopy__FP3VecPC3Vec(&v, p + 0x2FC);
-                    TBoss6Type1__sub_803D9370(&v, arg0 + 0x2FC);
+                    subtract_vector(&v, arg0 + 0x2FC);
                     xx = v.x * v.x;
                     zz = v.z * v.z;
                     d = xx + zz;
@@ -605,7 +605,7 @@ void TObjGrass__sub_800BF66C(void) {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = TLobby__sub_80020004(p, 1, lbl_80492954, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, lbl_80492954, 0, 0, 0);
         }
         TObjGrass__data_805D5154 = (u32) p;
     }

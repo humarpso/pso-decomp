@@ -187,7 +187,7 @@ extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 lbl_8043A2A0;
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
 f32 newton_sqrtf(f32);
 void TBoss2DeRolLe__sub_800B98D8(void *, u32);
-s32 TObjEneDD__sub_800BB484(void *, Entry_8009E860 *);
+s32 collect_enemy_target_candidates(void *, Entry_8009E860 *);
 void *find_entity_by_id(u16);
 u32 get_player_by_client_id(u16);
 extern const f32 lbl_805D98F4;
@@ -303,7 +303,7 @@ s32 TObjEneMe1Canadin__sub_8009E860(Canadin_8009E860 *self, f32 *out, f32 _w2) {
     s32 i;
     found = 0;
     *out = lbl_805D98F4;
-    count = TObjEneDD__sub_800BB484(self, list);
+    count = collect_enemy_target_candidates(self, list);
     for (i = 0; i < count; i++) {
         id = get_player_by_client_id(list[i].id);
         if (id != self->owner) {

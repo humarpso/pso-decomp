@@ -49,7 +49,7 @@ s32 GXSetZMode(int, int, int);
 s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 set_camera_look_at(void *, void *, void *);
-s32 TCameraCtrl__sub_803D676C(int, f32, f32, f32);
+s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 extern RecoveredGlobal_800830B0_lbl_80439348 lbl_80439348;
 extern RecoveredGlobal_800830B0_main_task main_task;
 extern u8 *lbl_805D4DF0;
@@ -137,7 +137,7 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
         stack.sp20 = M2C_FIELD(&lbl_80439348.value, s32 *, 0);
         stack.sp24 = M2C_FIELD(&lbl_80439348.value, s32 *, 4);
         stack.sp28 = M2C_FIELD(&lbl_80439348.value, s32 *, 8);
-        TCameraCtrl__sub_803D676C((int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
+        set_perspective_projection_from_fov((int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
         set_camera_look_at((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (void *) (&stack.sp20));
         if ((void *) lbl_805D4DF0 != NULL) {
             stack.sp14 = M2C_FIELD(arg0, f32 *, 0x2C) - M2C_FIELD(arg0, f32 *, 0x20);

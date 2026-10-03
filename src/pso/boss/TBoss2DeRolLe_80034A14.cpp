@@ -169,16 +169,16 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 void TBoss2DeRolLe__sub_80034C90(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-f32 TBoss6Type1__sub_803D9370(void *, void *);
+f32 subtract_vector(void *, void *);
 extern RecoveredGlobal_80034C90_lbl_8043567C lbl_8043567C;
 void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_803D7B68(int, f32);
 s32 TObjPlayer__sub_803D7CA4(int);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 s32 TObjPlayer__sub_803D8CD4(int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-s32 TBoss7Tentacle__sub_803D9BA0(void *);
+s32 scale_current_matrix(void *);
 extern const RecoveredGlobal_80034AC8_lbl_804359CC lbl_804359CC;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1);
@@ -262,12 +262,12 @@ void TBoss2DeRolLe__sub_80034AC8(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg1, f32 *, 0) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
     M2C_FIELD(arg1, f32 *, 4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
     M2C_FIELD(arg1, f32 *, 8) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4((int) (0));
     stack.sp8 = M2C_FIELD(&lbl_804359CC.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_804359CC.value, s32 *, 4);
     stack.sp10 = M2C_FIELD(&lbl_804359CC.value, s32 *, 8);
-    TBoss7Tentacle__sub_803D9BA0((void *) (&stack.sp8));
+    scale_current_matrix((void *) (&stack.sp8));
     TObjPlayer__sub_803D7B68((int) (M2C_FIELD(arg0, s32 *, 0xF8)), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     TObjPlayer__sub_803D7CA4((int) (M2C_FIELD(arg0, s32 *, 0x34)));
     TCameraCtrl__sub_803D8934((int) (0), (void *) (arg1), (void *) (arg1));
@@ -311,7 +311,7 @@ typedef char RecoveredFields_80034C2C_arg0_3AC_offset[offsetof(RecoveredFields_8
 void TBoss2DeRolLe__sub_80034C2C(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x394)), (s32)((void *) ((u8 *)&(*(RecoveredGlobal_80034C2C_lbl_8043567C *)&lbl_8043567C).value + (arg1 * 0xC))));
     VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x3A0)), (s32)((void *) (arg0 + 0x394)));
-    TBoss6Type1__sub_803D9370((void *) (arg0 + 0x3A0), (void *) (arg0 + 0x38));
+    subtract_vector((void *) (arg0 + 0x3A0), (void *) (arg0 + 0x38));
     ((RecoveredFields_80034C2C_arg0 *)arg0)->field_3AC = clamp_velocity__15TObjBoss2TunnelFPv((void *) (arg0 + 0x3A0));
 }
 #pragma pop

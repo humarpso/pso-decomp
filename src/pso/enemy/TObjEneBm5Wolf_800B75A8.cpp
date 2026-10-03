@@ -52,8 +52,8 @@ int get_flag_bit0__14TObjEneBm5WolfFPv(void* p);
 s32 enemy_copy_target_destination(void *);
 s32 update_velocity__9TObjEneDDFPv(void *);
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern const f64 TObjEneBm5Wolf__data_8043B5B0;
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 extern const f32 TObjEneBm5Wolf__data_805D9DBC;
@@ -67,8 +67,8 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f64, f64);
 s32 is_vec_xz_cross_negative(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(int);
-f32 TBoss8Dragon__sub_803D64DC(int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 extern const f64 TObjEneBm5Wolf__data_8043B5B0;
 extern const f32 TObjEneBm5Wolf__data_805D9D78;
 s32 TObjEneBm5Wolf__sub_800B78F8(Wolf_800B78F8 *s, s32 *heading);
@@ -123,9 +123,9 @@ s32 TObjEneBm5Wolf__sub_800B75B4(u8 *arg0) {
         update_velocity__9TObjEneDDFPv((void *) (arg0));
         return (s32) (TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv((f64) M2C_FIELD(arg0, f32 *, 0x3A0), (f64) M2C_FIELD(arg0, f32 *, 0x3A8)));
     }
-    M2C_FIELD(arg0, f32 *, 0x3A0) = TBoss8Dragon__sub_803D64C0((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x3A0) = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     M2C_FIELD(arg0, f32 *, 0x3A4) = (f32) TObjEneBm5Wolf__data_805D9D78;
-    M2C_FIELD(arg0, f32 *, 0x3A8) = TBoss8Dragon__sub_803D64DC((int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    M2C_FIELD(arg0, f32 *, 0x3A8) = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x394)), (void *)((void *) (arg0 + 0x38)));
     M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((TObjEneBm5Wolf__data_805D9DF0 * M2C_FIELD(arg0, f32 *, 0x3A0)) + M2C_FIELD(arg0, f32 *, 0x394));
     M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((TObjEneBm5Wolf__data_805D9DF0 * M2C_FIELD(arg0, f32 *, 0x3A8)) + M2C_FIELD(arg0, f32 *, 0x39C));
@@ -201,8 +201,8 @@ s32 TObjEneBm5Wolf__sub_800B78F8(Wolf_800B78F8 *s, s32 *heading) {
     v.y = TObjEneBm5Wolf__data_805D9D78;
     if (TObjEneBm5Wolf__data_805D9D78 != clamp_velocity__15TObjBoss2TunnelFPv(&v)) {
         *heading = (s32)(TObjEneBm5Wolf__data_8043B5B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z));
-        side.x = TBoss8Dragon__sub_803D64C0(s->facing);
-        side.z = TBoss8Dragon__sub_803D64DC(s->facing);
+        side.x = sin_table_lookup(s->facing);
+        side.z = cos_table_lookup(s->facing);
         if (is_vec_xz_cross_negative(&side, &v) != 0) {
             ret = 0;
             *heading += 0x4000;

@@ -16,7 +16,7 @@ struct State_80260020 { u8 pad0[0xB4]; s32 flags; };
 struct Win_80260020 { u8 pad0[0x70]; State_80260020 *state; };
 
 extern "C" {
-s32 TWindowSubStatusDisp__sub_8024FD8C(void *, void *, s32, s32, f32);
+s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 extern M2C_UNK lbl_8044F0CC[];
 extern M2C_UNK lbl_8044F0D4[];
@@ -51,19 +51,19 @@ void TWindowKeyBoardHard__sub_80260020(Win_80260020 *self, Ctx_80260020 *ctx) {
         set_text_draw_params(ctx, 0, 0, inv, lbl_805DD06C);
         flags = self->state->flags;
         if (!(flags & 1)) {
-            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0CC, -1, 0, lbl_805DD070);
+            draw_window_text(&pt, lbl_8044F0CC, -1, 0, lbl_805DD070);
         } else if (flags & 2) {
-            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0D4, -1, 0, lbl_805DD070);
+            draw_window_text(&pt, lbl_8044F0D4, -1, 0, lbl_805DD070);
         } else if (flags & 4) {
             if (flags & 8) {
-                TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0DC, -1, 0, lbl_805DD070);
+                draw_window_text(&pt, lbl_8044F0DC, -1, 0, lbl_805DD070);
             } else {
-                TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0EC, -1, 0, lbl_805DD070);
+                draw_window_text(&pt, lbl_8044F0EC, -1, 0, lbl_805DD070);
             }
         } else if (flags & 8) {
-            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F0FC, -1, 0, lbl_805DD070);
+            draw_window_text(&pt, lbl_8044F0FC, -1, 0, lbl_805DD070);
         } else {
-            TWindowSubStatusDisp__sub_8024FD8C(&pt, lbl_8044F104, -1, 0, lbl_805DD070);
+            draw_window_text(&pt, lbl_8044F104, -1, 0, lbl_805DD070);
         }
     }
 }

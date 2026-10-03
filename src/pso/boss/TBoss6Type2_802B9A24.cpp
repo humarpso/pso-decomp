@@ -88,14 +88,14 @@ void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
 u8 *get_player_by_client_id(u32);
 s32 TBoss6Rock__sub_80353A14(int, Vec_802B9A68 *, f32 *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_802B9A68 *);
-void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
+f32 vector_length(Vec_802B9A68 *);
+void subtract_vector(Vec_802B9A68 *, Vec_802B9A68 *);
 extern const f32 TBoss6Type2__data_805DE410;
 s32 TBoss6Type2__sub_802B9A68(s32 id);
 void VecCopy__FP3VecPC3Vec(Vec_802B9A68 *, Vec_802B9A68 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 approach_angle_limited(s32, s32, s32);
-void TBoss6Type1__sub_803D9370(Vec_802B9A68 *, Vec_802B9A68 *);
+void subtract_vector(Vec_802B9A68 *, Vec_802B9A68 *);
 extern const f64 TBoss6Type2__data_804713C0;
 void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
@@ -160,9 +160,9 @@ s32 TBoss6Type2__sub_802B9A68(s32 id) {
     do {
         if (TBoss6Rock__sub_80353A14(i, &a, &r) != 0) {
             VecCopy__FP3VecPC3Vec(&b, &p->pos);
-            TBoss6Type1__sub_803D9370(&b, &a);
+            subtract_vector(&b, &a);
             b.y = k;
-            if (TBoss6Kakusan__sub_803D8BD8(&b) <= r) {
+            if (vector_length(&b) <= r) {
                 return 1;
             }
         }
@@ -333,7 +333,7 @@ void TBoss6Type2__sub_802B9F3C(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1) {
         ang = 0;
     } else {
         VecCopy__FP3VecPC3Vec(&v, arg1);
-        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        subtract_vector(&v, &arg0->pos);
         ang = (s16)((s32)(TBoss6Type2__data_804713C0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) - arg0->f60);
     }
     if (ang < -0x2800 || ang > 0x2800) {

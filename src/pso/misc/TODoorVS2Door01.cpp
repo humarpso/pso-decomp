@@ -50,7 +50,7 @@ struct RecoveredGlobal_80164340___vt__15TODoorVS2Door01 {
 extern "C" {
 extern const f32 lbl_805DB550;
 void TODoorVS2Door01__vt14(u8 *arg0);
-u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
@@ -192,7 +192,7 @@ void TODoorVS2Door01__sub_80164254(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TLobby__sub_80020004(temp_r3, 1, &lbl_804B17E0.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B17E0.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5988) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));

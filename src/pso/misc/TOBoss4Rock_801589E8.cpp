@@ -40,9 +40,9 @@ extern "C" {
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_object(int);
 void render__11TOBoss4RockFv(Rock_80158DCC *self);
@@ -61,12 +61,12 @@ void *__nw__7TObjectFUl(int);
 void render__11TOBoss4RockFv(Rock_80158DCC *self) {
     s32 i;
     if (self->m8(self->f90, self->f94) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(&self->pos);
+        push_matrix();
+        post_translate_matrix(&self->pos);
         for (i = 0; i < self->count; i++) {
             set_global_param__8TObjFishFi(self->params[i]);
-            TObjPlayer__sub_803D9B2C();
-            TOHangerMachine01__sub_803D9C00(&self->positions[i]);
+            push_matrix();
+            post_translate_matrix(&self->positions[i]);
             rotate_matrix_z(0, self->rots[i].z);
             rotate_matrix_x(0, self->rots[i].x);
             rotate_matrix_y(0, self->rots[i].y);

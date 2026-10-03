@@ -17,9 +17,9 @@ s32 fn_801582C4(void *, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
@@ -53,8 +53,8 @@ extern const f32 lbl_805DB420;
 void render__15TODoorAncient05Fv(u8 *arg0) {
     VObj1 *self = (VObj1 *)arg0;
     if ((self->m8(lbl_805DB410, lbl_805DB414) != 0) && (fn_801582C4(arg0, lbl_805DB418) != 0)) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         if (((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) && (lbl_805DB41C != M2C_FIELD(arg0, f32 *, 0xB0))) {

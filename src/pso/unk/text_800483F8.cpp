@@ -41,8 +41,8 @@ void fn_80048560(u8 *arg0);
 void TObjPlayer__sub_801422A8(Vec_800483F8 *, s32 *, s32 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_800483F8 *);
-void TBoss6Type1__sub_803D9370(Vec_800483F8 *, Vec_800483F8 *);
+f32 vector_length(Vec_800483F8 *);
+void subtract_vector(Vec_800483F8 *, Vec_800483F8 *);
 extern M2C_UNK lbl_80484840[];
 extern void *tl_05;
 extern const f32 lbl_805D8828;
@@ -66,8 +66,8 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
     self->f24 = m;
     {
         Vec_800483F8 d = *to;
-        TBoss6Type1__sub_803D9370(&d, from);
-        self->f40 = lbl_805D8828 * TBoss6Kakusan__sub_803D8BD8(&d);
+        subtract_vector(&d, from);
+        self->f40 = lbl_805D8828 * vector_length(&d);
         TObjPlayer__sub_801422A8(&d, &self->f28, &self->f2c);
     }
     self->f2c -= n * 0x71c + (s32)(lbl_805D882C * (lbl_805D8830 * (f32)rand()));

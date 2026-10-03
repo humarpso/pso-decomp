@@ -117,7 +117,7 @@ void TObjContainerJungEx__vt78(void *arg0);
 void TObjContainerJungEx__vt79(u8 *arg0);
 void *__dt__19TObjContainerJungExFv(void *arg0, s16 arg1);
 void *create__19TObjContainerJungExFPv(void *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK draw_ginja_object();
 M2C_UNK TObjContainerJungEx__sub_8018D900(M2C_UNK);
@@ -126,7 +126,7 @@ M2C_UNK TObjEneGibbles__sub_80156720(void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -171,8 +171,8 @@ void TObjContainerJungEx__vt79(u8 *arg0) {
     case 0:
         TObjContainerJungEx__sub_8018D900(0);
         set_global_param__8TObjFishFi();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
         TObjContainerJungEx__sub_8018D93C(0);

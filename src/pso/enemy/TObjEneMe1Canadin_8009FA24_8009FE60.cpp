@@ -37,7 +37,7 @@ void TObjEneMe1Canadin__sub_8009FFD8(s32 arg0);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern M2C_UNK lbl_80490428[];
 extern s32 lbl_805D29C0;
 extern const f32 lbl_805D993C;
@@ -72,7 +72,7 @@ Obj_8009FEB8 *TObjEneMe1Canadin__sub_8009FEB8(Obj_8009FEB8 *self, void *parent, 
     VecCopy__FP3VecPC3Vec(&self->start, from);
     VecCopy__FP3VecPC3Vec(&self->end, to);
     VecCopy__FP3VecPC3Vec(&self->dir, &self->end);
-    TBoss6Type1__sub_803D9370(&self->dir, &self->start);
+    subtract_vector(&self->dir, &self->start);
     self->dir.y = lbl_805D993C;
     self->dist = clamp_velocity__15TObjBoss2TunnelFPv(&self->dir);
     if (self->dist > lbl_805D9948) {

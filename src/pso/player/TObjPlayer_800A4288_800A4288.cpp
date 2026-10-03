@@ -30,14 +30,14 @@ void reset_effect_count__10TObjPlayerFv(void);
 void start_boss4_pose__10TObjPlayerFPv(void *arg0);
 void update_entry_motion__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK advance_animation_playback();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK TObjPlayer__sub_803D8960(int, int, void *, int);
 M2C_UNK TObjPlayer__sub_803D8CD4(int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
@@ -67,9 +67,9 @@ void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0) {
 
     temp_r3 = lookup_entry_by_value__10TObjPlayerFPvf((void *) (lbl_805D5064), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
     if (temp_r3 != 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D8CD4((int) (0));
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+        post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         TObjPlayer__sub_803D8960((int) (0), (int) (temp_r3), (void *) (&sp8), (int) (2));
         pop_matrix();

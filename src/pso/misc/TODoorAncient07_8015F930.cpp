@@ -50,7 +50,7 @@ extern void *TODoorAncient07__data_805D593C;
 extern const f32 lbl_805DB458;
 extern const f32 lbl_805DB468;
 u8 *TODoorAncient07__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void TBoss1Dragon__sub_8002ACE0(void *, void *);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
@@ -109,7 +109,7 @@ void TODoorAncient07__sub_8015F9B8(void) {
     u8 *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 1, lbl_804B1038, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, lbl_804B1038, 0, 0, 0);
     }
     G5918 = p;
     G591C = alloc_buffer__11TOBoss4RockFPv(8);

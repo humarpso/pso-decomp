@@ -19,7 +19,7 @@ void run_with_callback__10TObjPlayerFPvi(void* a0, int a1);
 void run_with_transform_context__10TObjPlayerFiii(int a0, int a1, int a2);
 int draw_ginja_object(void*);
 int draw_model_node_tree(void*);
-M2C_UNK TWindowHelpItem__sub_80104FCC(s32, void *, s32 *);
+M2C_UNK check_equip_requirements(s32, void *, s32 *);
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, void *);
 M2C_UNK init__9TItemDataFv(void *);
 int reset_transform_state__10TObjPlayerFv(void);
@@ -60,7 +60,7 @@ void get_item_info__10TObjPlayerFiiPv(s32 arg0, s32 arg1, s16 *arg2) {
 
     init__9TItemDataFv(spC);
     copy_to_item_data__5TItemFPvPv(arg0, spC);
-    TWindowHelpItem__sub_80104FCC(arg1, spC, &sp8);
+    check_equip_requirements(arg1, spC, &sp8);
     if (arg2 != NULL) {
         *arg2 = (s16) sp8;
     }

@@ -16,8 +16,8 @@ void TObjEneDelDepth__vt59(u8 *arg0);
 int TObjEneDelDepth__sub_803154A8(void*, void*);
 void TObjEneDelDepth__vt60(u8 *arg0);
 s32 project_actor_to_ground(void *, Vec_80315380 *, s32);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 TObjEneDelDepth__data_805DF268;
 extern const f32 TObjEneDelDepth__data_805DF270;
 extern const f32 TObjEneDelDepth__data_805DF298;
@@ -105,9 +105,9 @@ void set_draw_mode__15TObjEneDelDepthFPvi(void *arg0, s32 arg1) {
 #pragma fp_contract on
 s32 TObjEneDelDepth__sub_80315380(Obj_80315380 *arg0) {
     Vec_80315380 v = arg0->pos;
-    v.x = TObjEneDelDepth__data_805DF270 * TBoss8Dragon__sub_803D64DC(arg0->x60) + v.x;
+    v.x = TObjEneDelDepth__data_805DF270 * cos_table_lookup(arg0->x60) + v.x;
     v.y = v.y + TObjEneDelDepth__data_805DF268;
-    v.x = TObjEneDelDepth__data_805DF270 * TBoss8Dragon__sub_803D64C0(arg0->x60) + v.x;
+    v.x = TObjEneDelDepth__data_805DF270 * sin_table_lookup(arg0->x60) + v.x;
     if (project_actor_to_ground(arg0, &v, 0) != 0) {
         arg0->pos.y += TObjEneDelDepth__data_805DF298 * (v.y - arg0->pos.y);
         return 1;

@@ -60,9 +60,9 @@ M2C_UNK TObjPlayer__sub_801417E8();
 M2C_UNK TObjPlayer__sub_80141820(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_chunk_object(int);
 extern Vec_800C20D0 lbl_8043BBC0[];
@@ -146,8 +146,8 @@ void TObjPlayer__sub_800C20D0(Obj_800C20D0 *o) {
         o->model->mat->f14 = o->model->mat->f2C;
     }
     set_global_param__8TObjFishFi(o->model);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(&o->pos);
+    push_matrix();
+    post_translate_matrix(&o->pos);
     rotate_matrix_y(0, o->f60);
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();

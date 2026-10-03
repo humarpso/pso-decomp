@@ -164,8 +164,8 @@ extern "C" {
 #pragma fp_contract on
 
 s32 rand(void);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 extern const f32 lbl_805DD3A0;
 extern const f32 lbl_805DD3A4;
 extern const f32 lbl_805DD3A8;
@@ -178,8 +178,8 @@ void fn_8026FDC0(u8 *arg0) {
         (*(u32 *)(arg0 + 0x60))--;
         ang = (s32)(lbl_805DD3A0 * (lbl_805DD3A4 * (f32)rand()));
         dist = lbl_805DD3A8 * (lbl_805DD3A4 * (f32)rand());
-        *(f32 *)(arg0 + 0x40) += dist * TBoss8Dragon__sub_803D64DC(ang);
-        *(f32 *)(arg0 + 0x44) += dist * TBoss8Dragon__sub_803D64C0(ang);
+        *(f32 *)(arg0 + 0x40) += dist * cos_table_lookup(ang);
+        *(f32 *)(arg0 + 0x44) += dist * sin_table_lookup(ang);
     }
 }
 #pragma pop

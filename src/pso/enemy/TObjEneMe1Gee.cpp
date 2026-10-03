@@ -215,8 +215,8 @@ extern "C" {
 void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
 M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK advance_animation_playback();
-f32 TBoss8Dragon__sub_803D64C0(s32, f32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32, f32);
+f32 cos_table_lookup(s32);
 
 extern const f32 lbl_805DA0C4;
 
@@ -228,8 +228,8 @@ void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
         M2C_FIELD(arg0, f32 *, 0x3F8) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x3EC));
-        M2C_FIELD(arg0, f32 *, 0x448) = TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x60), temp_f1);
-        M2C_FIELD(arg0, f32 *, 0x44C) = TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x60));
+        M2C_FIELD(arg0, f32 *, 0x448) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60), temp_f1);
+        M2C_FIELD(arg0, f32 *, 0x44C) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
         return;
     case 0:
         advance_animation_playback();
@@ -1574,10 +1574,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
+M2C_UNK vec3_add_to(void *, s32);
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
-f32 TBoss8Dragon__sub_803D64C0(s32, f32);
-f32 TBoss8Dragon__sub_803D64DC(s32, f32);
+f32 sin_table_lookup(s32, f32);
+f32 cos_table_lookup(s32, f32);
 s32 get_random_scaled__9TObjEneDDFv();
 
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
@@ -1592,11 +1592,11 @@ void calc_position__13TObjEneMe1GeeFiPv(s32 arg0, void *arg1) {
     temp_r31 = get_random_scaled__9TObjEneDDFv();
     f32 fv = calc_boss4_scale__10TObjPlayerFi(arg0);
     temp_f31 = (TObjEneMe1Gee__data_805DA0E8 * fv) + lbl_805DA0B8;
-    temp_f1 = temp_f31 * TBoss8Dragon__sub_803D64C0(temp_r31, fv);
+    temp_f1 = temp_f31 * sin_table_lookup(temp_r31, fv);
     M2C_FIELD(arg1, f32 *, 0) = temp_f1;
     M2C_FIELD(arg1, f32 *, 4) = (f32) TObjEneMe1Gee__data_805DA0B4;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * TBoss8Dragon__sub_803D64DC(temp_r31, temp_f1));
-    TBoss4Zako__sub_803D8910(arg1, arg0 + 0x38);
+    M2C_FIELD(arg1, f32 *, 8) = (f32) (temp_f31 * cos_table_lookup(temp_r31, temp_f1));
+    vec3_add_to(arg1, arg0 + 0x38);
 }
 
 }
@@ -1946,14 +1946,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw_model__13TObjEneMe1GeeFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
 M2C_UNK get_bml_model(void *, int);
 M2C_UNK set_global_param__8TObjFishFi();
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -1966,9 +1966,9 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
         queue_destruction__7TObjectFv();
         return;
     }
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     begin_effect_render__13TParticleCtrlFv();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x6C));
+    post_translate_matrix((void *) (arg0 + 0x6C));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA4)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xA0)));
     TObjFish__sub_8001EDB0((void *) (lbl_805D6660), (int) (1));

@@ -65,11 +65,11 @@ void init_effect__11TBoss4Type3FPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int, void *);
 s32 TBoss4Type3__ct(s32, s32, s32);
 void TBoss4Type3__sub_8005A438(void *);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 s32 TObjControl__ct(s32, s32);
 void TObjPlayer__sub_80051E9C(int, f32);
 void rotate_matrix_y(int, void *);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -129,13 +129,13 @@ void TBoss4Type3__sub_8005A6A4(u8 *arg0) {
 
 void draw__11TBoss4Type3FPv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv(arg0);
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 56));
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TBoss4Type3__sub_8005A438(arg0);
     pop_matrix();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *)((char *)arg0 + 1152));
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 1152));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     TObjPlayer__sub_80051E9C(M2C_FIELD(arg0, u16 *, 0x3BA), M2C_FIELD(arg0, f32 *, 0x3C8));
     pop_matrix();

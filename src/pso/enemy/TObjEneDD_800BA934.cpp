@@ -23,9 +23,9 @@ struct Col_800BAA2C { u8 pad0[0x1C]; V3_800BAA2C pos; u8 pad28[4]; };
 struct Obj_800BAA2C { u8 pad0[0x38]; f32 x; f32 y; f32 z; u8 pad44[0x60 - 0x44]; s32 rot; u8 pad64[0xA4 - 0x64]; Col_800BAA2C *cols; s32 count; };
 
 extern "C" {
-int TObjPlayer__sub_803D9B2C(void);
+int push_matrix(void);
 int TObjPlayer__sub_803D8CD4(void *);
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 int rotate_matrix_y(void *, void *);
 int set_global_flag__10TObjPlayerFv(void);
 int TCameraCtrl__sub_803D8934(void *, void *, void *);
@@ -34,18 +34,18 @@ int pop_matrix(void);
 void TObjEneDD__sub_800BA934(Obj_800BA934 *self);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
-void TBoss6Type1__sub_803D9370(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
+void subtract_vector(Vec_800BAAE4 *a, Vec_800BAAE4 *b);
 void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
-void TBoss4Zako__sub_803D8910(Vec_800BA9BC *a, Vec_800BA9BC *b);
+void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
 void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 int TCameraCtrl__sub_803D8934(void *, void *, void *);
 int TObjPlayer__sub_803D8CD4(void *);
 int rotate_matrix_y(void *, void *);
 void translate_matrix(int, f32, f32, f32);
-int TObjPlayer__sub_803D9B2C(void);
+int push_matrix(void);
 int pop_matrix(void);
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1);
 }
@@ -60,9 +60,9 @@ int init_collision_body_parts(void*);
 
 void TObjEneDD__sub_800BA934(Obj_800BA934 *self) {
     s32 i;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4(0);
-    TOHangerMachine01__sub_803D9C00(self->f38);
+    post_translate_matrix(self->f38);
     rotate_matrix_y(0, self->f60);
     set_global_flag__10TObjPlayerFv();
     for (i = 0; i < self->count; i++) {
@@ -78,12 +78,12 @@ void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
     p = &self->parts[i].b;
     VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(p), (const Vec_800BAAE4 *)(v));
     rotate_xz_pair_by_angle(&p->x, &p->z, self->angle);
-    TBoss4Zako__sub_803D8910(p, &self->pos);
+    vec3_add_to(p, &self->pos);
 }
 
 void update_local_colliders_from_world(Obj_800BAA2C *arg0, V3_800BAA2C *arg1) {
     s32 i;
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     TObjPlayer__sub_803D8CD4((void *)(0));
     rotate_matrix_y((void *)(0), (void *)(-arg0->rot));
     translate_matrix(0, -arg0->x, -arg0->y, -arg0->z);
@@ -100,7 +100,7 @@ void TObjEneDD__sub_800BAAE4(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s32 i) {
     VecCopy__FP3VecPC3Vec(&self->parts[i].b, v);
     p = &self->parts[i].a;
     VecCopy__FP3VecPC3Vec(p, v);
-    TBoss6Type1__sub_803D9370(p, &self->pos);
+    subtract_vector(p, &self->pos);
     rotate_xz_pair_by_angle(&p->x, &p->z, -self->angle);
 }
 

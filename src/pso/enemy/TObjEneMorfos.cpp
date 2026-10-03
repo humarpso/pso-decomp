@@ -164,15 +164,15 @@ s32 angle_difference_abs(s32, s32);
 Pl_8033496C *get_player_by_client_id(s32);
 s32 TObjEneMorfos__sub_80334884(u8 *arg0);
 s32 TObjEneMorfos__sub_803348F0(u8 *arg0);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern const f64 TObjEneMorfos__data_80477610;
 void TObjEneMorfos__vt60(Obj_8033496C *arg0);
-f32 TObjPlayer__sub_80014108(void *, void *, f32);
+f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void spawn_particle_effect(void *, int);
 s32 angle_difference_abs(s32, s32);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 extern const f64 TObjEneMorfos__data_80477610;
 extern const f32 TObjEneMorfos__data_805DF874;
 f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0);
@@ -245,7 +245,7 @@ void TObjEneMorfos__vt60(Obj_8033496C *arg0) {
     pl = get_player_by_client_id(arg0->f2D4);
     if (pl != 0) {
         VecCopy__FP3VecPC3Vec(&v, &pl->pos);
-        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        subtract_vector(&v, &arg0->pos);
         d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
     } else {
         d = 0;
@@ -268,7 +268,7 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
     s32 d;
     if (arg1 != 0) {
         VecCopy__FP3VecPC3Vec(&v, &arg1->pos);
-        TBoss6Type1__sub_803D9370(&v, &arg0->pos);
+        subtract_vector(&v, &arg0->pos);
         d = angle_difference_abs(arg0->f60, (s32)(TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
     } else {
         d = 0;
@@ -280,10 +280,10 @@ f32 TObjEneMorfos__vt20(Obj_80334A4C *arg0, Obj_80334A4C *arg1, f32 farg0) {
         } else {
             arg0->f3C0 &= ~0x10;
             arg0->f3C0 |= 0x20;
-            ret = TObjPlayer__sub_80014108(arg0, arg1, farg0);
+            ret = receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
         }
     } else {
-        ret = TObjPlayer__sub_80014108(arg0, arg1, farg0);
+        ret = receive_physical_attack__10TObjPlayerFv(arg0, arg1, farg0);
     }
     return ret;
 }

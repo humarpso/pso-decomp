@@ -41,7 +41,7 @@ typedef struct UV_80287580 {
 } UV_80287580;
 
 extern "C" {
-M2C_UNK TWindowSubStatusDisp__sub_8024FD8C(void *, int, int, int, f32);
+M2C_UNK draw_window_text(void *, int, int, int, f32);
 M2C_UNK set_text_draw_params(void *, int, int, f32, f32, f32, f32, f32, f32);
 extern f32 lbl_805DD840;
 extern const f32 lbl_805DD844;
@@ -56,7 +56,7 @@ extern const f32 lbl_805DD864;
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0);
 void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1);
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(void *);
 extern const f32 lbl_805DD864;
 extern const f32 lbl_805DD874;
@@ -209,7 +209,7 @@ void TWindowSubStatusDisp__sub_802878B8(u8 *arg0, u8 *arg1) {
     stack.spC = lbl_805DD86C + (temp_f4 + (*((f32 *) (((s8 *) arg0) + 8))));
     set_text_draw_params((void *) arg1, (int) 0, (int) 1, (f32) (lbl_805DD844 / (lbl_805DD870 + (*((f32 *) (((s8 *) arg1) + 0x38))))), (f32) lbl_805DD874, (f32) lbl_805DD844, (f32) temp_f4, (f32) lbl_805DD86C, (f32) lbl_805DD868);
     new_var = *((f32 *) (((s8 *) arg0) + 0x1C));
-    TWindowSubStatusDisp__sub_8024FD8C((void *) (&stack.sp8), (int) (*((s32 *) (((s8 *) arg0) + 0))), (int) (*((s32 *) (((s8 *) arg0) + 0x14))), (int) 1, (f32) new_var);
+    draw_window_text((void *) (&stack.sp8), (int) (*((s32 *) (((s8 *) arg0) + 0))), (int) (*((s32 *) (((s8 *) arg0) + 0x14))), (int) 1, (f32) new_var);
   }
 }
 
@@ -229,7 +229,7 @@ s32 deleting_destructor__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
 u8 *TWindowSubStatusDisp__sub_80287A00(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4) {
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TWindowSubStatusDisp__sub_80144D68((void *) (arg2));
+    M2C_FIELD(arg0, f32 *, 0x10) = (f32) calc_text_width((void *) (arg2));
     M2C_FIELD(arg0, f32 *, 0xC) = TWindowSubStatusDisp__sub_802877A4(M2C_FIELD(arg0, f32 *, 0x10));
     M2C_FIELD(arg0, s32 *, 0) = arg2;
     M2C_FIELD(arg0, s8 *, 0x19) = 0;

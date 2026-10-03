@@ -101,7 +101,7 @@ extern const f32 lbl_805DC8D8;
 extern const f32 lbl_805DC8DC;
 extern const f32 lbl_805DC8E0;
 void update_rafoie_explosion(u8 *arg0);
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 extern RecoveredGlobal_80230D9C_lbl_804CC510 lbl_804CC510;
@@ -119,9 +119,9 @@ void set_indirect_tev__6TSceneFii(void *, s32);
 void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
@@ -141,10 +141,10 @@ void *__nw__7TObjectFUl(int);
 void construct_area_technique_base(void *, void *, void *, void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
 u8 *TTecZonde__sub_8023DA10(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
-void TNpcPlayer__sub_803D97B4(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vector_length(void *);
+void normalize_vector(void *);
 extern void *__vt__11TTecRaZonde[];
 extern u32 lbl_805D3808;
 extern s32 tl_07;
@@ -170,7 +170,7 @@ typedef char RecoveredGlobal_80230D9C_lbl_804CC510_size[((sizeof(RecoveredGlobal
 typedef char RecoveredGlobal_80230D9C_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80230D9C_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 void TTecRaFoie__sub_802380F4(u8 *arg0) {
   int new_var;
- new_var = (int) TTecCtrl__sub_8022DBC4((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { TTecAnti__sub_8022B35C((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
+ new_var = (int) calc_technique_parameters((int) 0x2, (int) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78, (int) 0xFFFF); do { TTecAnti__sub_8022B35C((void *) (arg0 + ((0, 0x88))), new_var); if ((((s16) ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0)) { ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0x8))) + ((*((s16 *) (((s8 *) (&lbl_804CC510.value)) + 0xa))) * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)); return; } } while (0);
   ((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 = (f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_88 + ((f32) (((RecoveredFields_80230D9C_arg0 *) arg0)->field_AC * ((RecoveredFields_80230D9C_arg0 *) arg0)->field_78)));
   if (is_technique_ready__8TTecCtrlFv())
   {
@@ -209,8 +209,8 @@ void render_rafoie_explosion(RaFoie_802381F8 *o) {
         y = lbl_805DC8D4 * y;
         z = lbl_805DC8D4 * z;
     }
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(o->m28);
+    push_matrix();
+    post_translate_matrix(o->m28);
     scale_matrix(0, x, y, z);
     rotate_matrix_y(0, *(s32 *)(lbl_805D4DF0 + 0x194));
     set_global_param__8TObjFishFi(lbl_805D63B0);
@@ -480,7 +480,7 @@ extern const f32 lbl_805DC8E4;
 extern const f32 lbl_805DC8E8;
 extern const f32 lbl_805DC8EC;
 u8 *TTecRaFoie__sub_802385EC(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
-s32 TTecCtrl__sub_8022DBC4(int, int, int);
+s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
 void TTecRaZonde__sub_80238D10(u8 *arg0);
@@ -758,7 +758,7 @@ void TTecRaZonde__vt6(struct Self_80238C6C *self) {
 
 void TTecRaZonde__sub_80238D10(u8 *arg0) {
   s32 new_var;
-  new_var = TTecCtrl__sub_8022DBC4((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);
+  new_var = calc_technique_parameters((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);
   TTecAnti__sub_8022B35C((void *) (arg0 + 0x88), (int) new_var);
   if ((((s16) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78) >= 0xF) && (is_technique_ready__8TTecCtrlFv() == 0))
   {
@@ -913,9 +913,9 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
         }
         r += step;
         ang += 0x2AAA;
-        self->pts[i].x = r * TBoss8Dragon__sub_803D64DC(ang) + self->pos.x;
+        self->pts[i].x = r * cos_table_lookup(ang) + self->pos.x;
         self->pts[i].y = self->pos.y;
-        self->pts[i].z = r * TBoss8Dragon__sub_803D64C0(ang) + self->pos.z;
+        self->pts[i].z = r * sin_table_lookup(ang) + self->pos.z;
     }
     for (j = 0; j < 7; j++) {
         VecCopy__FP3VecPC3Vec(&a, &self->pts[j]);
@@ -923,9 +923,9 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
         b.x = b.x - a.x;
         b.y = b.y - a.y;
         b.z = b.z - a.z;
-        len = TBoss6Kakusan__sub_803D8BD8(&b);
+        len = vector_length(&b);
         if (lbl_805DC8F4 != len) {
-            TNpcPlayer__sub_803D97B4(&b);
+            normalize_vector(&b);
         }
         {
             u8 *o = (u8 *)__nw__7TObjectFUl(0x260);

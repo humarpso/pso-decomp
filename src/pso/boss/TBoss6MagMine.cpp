@@ -24,8 +24,8 @@ s32 get_game_mode__6TLobbyFv(void);
 void play_sound_effect(int, Vec_80368C14 *, int, int);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 void TBoss6MagMine__sub_80368AB8(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_80368C14 *);
-void TBoss6Type1__sub_803D9370(Vec_80368C14 *, void *);
+f32 vector_length(Vec_80368C14 *);
+void subtract_vector(Vec_80368C14 *, void *);
 extern f32 TBoss6MagMine__data_805E0314;
 extern const f32 lbl_805E031C;
 void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o);
@@ -47,7 +47,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0);
 s32 TBoss6MagMine__ct(s32, s32, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
-int TOHangerMachine01__sub_803D9C00(void*);
+int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
 s32 TObjControl__ct(s32, s32);
 void TObjEneGibbles__sub_80156720(void *);
@@ -56,7 +56,7 @@ s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
 s32 get_bml_model(s32, M2C_UNK);
 int rotate_matrix_y(void*, void*);
-int TObjPlayer__sub_803D9B2C(void*);
+int push_matrix(void*);
 int pop_matrix(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
@@ -102,7 +102,7 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void init__13TBoss6MagMineFPv(void* p) { TObjPlayer__sub_803D9B2C(p); TOHangerMachine01__sub_803D9C00((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); pop_matrix(); }
+void init__13TBoss6MagMineFPv(void* p) { push_matrix(p); post_translate_matrix((char*)p + 0x38); rotate_matrix_y((void*)0, *(void**)((char*)p + 0x3ac)); update_linked_state__13TBoss6MagMineFPv((void *)(p)); pop_matrix(); }
 
 void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
     s32 n = get_game_mode__6TLobbyFv();
@@ -111,9 +111,9 @@ void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o) {
         u8 *pl = (u8 *)get_player_data__10TObjPlayerFi(i);
         if (is_active__14TBoss6PlotFalzFPv(pl) != 0 && is_locally_controlled__10TObjPlayerFPv(pl) != 0) {
             Vec_80368C14 v = o->pos;
-            TBoss6Type1__sub_803D9370(&v, pl + 0x38);
+            subtract_vector(&v, pl + 0x38);
             v.y = TBoss6MagMine__data_805E0314;
-            if (!(TBoss6Kakusan__sub_803D8BD8(&v) > lbl_805E031C)) {
+            if (!(vector_length(&v) > lbl_805E031C)) {
                 TBoss6MagMine__sub_80368AB8(o, pl);
             }
         }

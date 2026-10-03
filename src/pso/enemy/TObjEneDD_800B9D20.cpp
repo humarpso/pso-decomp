@@ -25,14 +25,14 @@ M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
 void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3);
-int TObjPlayer__sub_800F7478(void*);
+int bind_enemy_combat_stats(void*);
 void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self);
 }
 
@@ -51,7 +51,7 @@ int TCameraCtrl__sub_800691C8(void*);
 int TLobby__sub_800C6C10(void*);
 int TObjLight__sub_80134098(void*);
 int TObjLight__sub_80134194(void*);
-int TObjPlayer__sub_800F7478(void*);
+int bind_enemy_combat_stats(void*);
 s32 get_main_phase();
 int is_any_teammate_in_state__10TObjPlayerFv(void*);
 int query_teammate_state__9TObjEneDDFPv(void* p);
@@ -74,14 +74,14 @@ int update_player_state__9TObjEneDDFPv(void* p) { return render_with_position_ov
 void TObjEneDD__sub_800B9D94(s32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     Stack_800B9D94 stack;
     direction_to_rotation_xz((void *) (arg1), (void *) (&stack.sp8), (void *) (&stack.sp10));
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0));
+    push_matrix();
+    post_translate_matrix((void *) (arg0));
     translate_matrix((int) (0), (f32) (TObjEneDD__data_805D9E8C), (f32) (lbl_805D9E90), (f32) (TObjEneDD__data_805D9E8C));
     rotate_matrix_z((int) (0), (int) (stack.sp10));
     rotate_matrix_x((int) (0), (int) (stack.sp8));
     rotate_matrix_y((int) (0), (void *) (arg2));
     if (arg3 != 0U) {
-        TBoss7Tentacle__sub_803D9BA0((void *) (arg3));
+        scale_current_matrix((void *) (arg3));
     }
     rotate_matrix_x((int) (0), (int) (-0x4000));
     TObjPlayer__sub_800F09E8((int) (0));
@@ -96,14 +96,14 @@ void reload_stats_keep_hp_tp__9TObjEneDDFPv(Obj_800B9E84 *self) {
     s16 c = self->c;
     s16 b = self->b;
     s16 d = self->d;
-    TObjPlayer__sub_800F7478((void*)(self));
+    bind_enemy_combat_stats((void*)(self));
     self->a = a;
     self->c = c;
     self->b = b;
     self->d = d;
 }
 
-void reset_hp__9TObjEneDDFPv(void* p) { TObjPlayer__sub_800F7478(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
+void reset_hp__9TObjEneDDFPv(void* p) { bind_enemy_combat_stats(p); *(short*)((char*)p + 0x33e) = *(short*)((char*)p + 0x32c); }
 int get_camera_ctrl__9TObjEneDDFPv(void* p) { return TCameraCtrl__sub_80069148(p); }
 int update_camera_sequence__9TObjEneDDFPv(void* p) { return TCameraCtrl__sub_800691C8(p); }
 int initialize_enemy_state__9TObjEneDDFPv(void* p) { return set_param__12TObjEneLappyFPvi(p); }

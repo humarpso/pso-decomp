@@ -53,7 +53,7 @@ struct VObj_80181AE8 : Base_80181AE8 {
 extern "C" {
 extern s32 lbl_805D5B28;
 extern u32 lbl_805D5B2C;
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80443F04;
@@ -62,11 +62,11 @@ void load_city_common_resources(void);
 int is_phase_e__9TObjEneDDFPv(void*);
 void run_action_14_if_ready__6TLobbyFPv(void* p);
 M2C_UNK get_city_common_model(M2C_UNK);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern u32 lbl_805D5B2C;
 extern const f32 lbl_805DBBE0;
@@ -103,7 +103,7 @@ void load_city_common_resources(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B59EC.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B59EC.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5B28) = var_r0;
     (*(u8 * *)&lbl_805D5B2C) = load_gvm_texture_file((s32) &lbl_80443F04.value);
@@ -112,8 +112,8 @@ void run_action_14_if_ready__6TLobbyFPv(void* p) { if (is_phase_e__9TObjEneDDFPv
 void process_lobby_action_14__6TLobbyFPv(u8 *arg0) {
     if (((VObj_80181AE8 *)arg0)->m8(lbl_805DBBE0, lbl_805DBBE4) != 0) {
         set_global_param__8TObjFishFi((*(s32 *)&lbl_805D5B2C));
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         get_city_common_model(0xE);
         draw_ginja_object();

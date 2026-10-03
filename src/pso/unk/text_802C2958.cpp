@@ -45,7 +45,7 @@ extern s32 lbl_805D679C;
 extern const f32 lbl_805DE51C;
 extern const f32 lbl_805DE520;
 Obj_802C2958 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-Obj_802C2958 *TLobby__sub_80020004(Obj_802C2958 *, s32, void *, s32, s32, s32);
+Obj_802C2958 *load_resource_from_descriptor(Obj_802C2958 *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
 s32 get_bml_model(void *, s32, s32, s32, s32, void *);
 void spawn_npc_enemy__6TLobbyFsiiiff(s32, s32, s32, void *, f32, f32);
@@ -54,7 +54,7 @@ void VecCopy__FP3VecPC3Vec(Vec_802C2C48 *, Vec_802C2C48 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void direction_to_rotation_xz(Vec_802C2C48 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C2C48 *, f32);
-f32 TBoss6Type1__sub_803D9370(Vec_802C2C48 *, Vec_802C2C48 *);
+f32 subtract_vector(Vec_802C2C48 *, Vec_802C2C48 *);
 extern Entry_802C2C48 lbl_804717D4[];
 extern const f64 lbl_80471960[];
 extern const f32 lbl_805DE4F8;
@@ -63,7 +63,7 @@ void VecCopy__FP3VecPC3Vec(Vec_802C2C48 *, Vec_802C2C48 *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 void direction_to_rotation_xz(Vec_802C2C48 *, s32 *, s32 *);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *, s32, s32, Vec_802C2C48 *, f32);
-f32 TBoss6Type1__sub_803D9370(Vec_802C2C48 *, Vec_802C2C48 *);
+f32 subtract_vector(Vec_802C2C48 *, Vec_802C2C48 *);
 s32 approach_angle_limited(s32, s32, s32);
 s32 TBoss4Type2__sub_80141FA8(s32, s32);
 extern Entry_802C2C48 lbl_804717D4[];
@@ -76,7 +76,7 @@ extern "C" {
 void TObjPlayer__sub_802C2958(void) {
     Obj_802C2958 *o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != 0) {
-        o = TLobby__sub_80020004(o, 5, lbl_804E07C4, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 5, lbl_804E07C4, 0, 0, 0);
     }
     lbl_805D6798 = o;
     lbl_805D679C = load_gvm_texture_file(lbl_804719B8);
@@ -98,7 +98,7 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
     VecCopy__FP3VecPC3Vec(&self->vAC, &a);
     r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, self->fA4 + lbl_804717D4[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
-    TBoss6Type1__sub_803D9370(&d, &a);
+    subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &tmp, &tmp2);
     self->fBC = approach_angle_limited(self->fBC, tmp, lbl_804717D4[self->fC8].e);
     old = self->fB8;
@@ -156,7 +156,7 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
     VecCopy__FP3VecPC3Vec(&self->vAC, &a);
     r = clamp_value_to_max__10TObjPlayerFPviPvif(self, self->f98, self->fA0, &b, lbl_804717D4[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
-    TBoss6Type1__sub_803D9370(&d, &a);
+    subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &self->fBC, &tmp);
     self->fB8 = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
     return r;

@@ -15,7 +15,7 @@ struct Clock_802E11D4 { u8 pad0[0x1C]; s32 visible; Pt_802E11D4 pos; };
 
 extern "C" {
 char *get_localized_text_entry(s32, s32);
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 u32 TWindowSubStatusDisp__sub_80144E9C(void *);
 void render_status_disp__23TAdSinglePlyChrSelectGCFPvff(void *, f32, f32);
 void getDateStamp__FP9DateStamp(void *);
@@ -88,7 +88,7 @@ void TAdSinglePlyChrSelectGC__sub_802E11D4(Clock_802E11D4 *self) {
     if (self->visible != 0) {
         Pt_802E11D4 pos = self->pos;
         s = get_localized_text_entry(0x1C, 0xC);
-        render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s, -(lbl_805DE8E8 * (f32)TWindowSubStatusDisp__sub_80144D68(s) - pos.x), pos.y);
+        render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s, -(lbl_805DE8E8 * (f32)calc_text_width(s) - pos.x), pos.y);
         pos.y += lbl_805DE8EC;
         getDateStamp__FP9DateStamp(&date);
         wd = date.wday + 13;
@@ -96,7 +96,7 @@ void TAdSinglePlyChrSelectGC__sub_802E11D4(Clock_802E11D4 *self) {
         case 0:
             sprintf(buf, lbl_8047294C, date.year, date.month, date.day, get_localized_text_entry(0x1C, wd));
             s = buf;
-            w = lbl_805DE8F0 * (f32)TWindowSubStatusDisp__sub_80144D68(s);
+            w = lbl_805DE8F0 * (f32)calc_text_width(s);
             break;
         default:
             sprintf(buf, lbl_8047295C, date.month, date.day, date.year, get_localized_text_entry(0x1C, wd));
@@ -107,7 +107,7 @@ void TAdSinglePlyChrSelectGC__sub_802E11D4(Clock_802E11D4 *self) {
         render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s, pos.x + w, pos.y);
         pos.y += lbl_805DE8F4;
         sprintf(buf, lbl_8047296C, date.hour, date.min, date.sec);
-        render_status_disp__23TAdSinglePlyChrSelectGCFPvff(buf, -(lbl_805DE8E8 * (f32)TWindowSubStatusDisp__sub_80144D68(buf) - pos.x), pos.y);
+        render_status_disp__23TAdSinglePlyChrSelectGCFPvff(buf, -(lbl_805DE8E8 * (f32)calc_text_width(buf) - pos.x), pos.y);
     }
 }
 #pragma pop

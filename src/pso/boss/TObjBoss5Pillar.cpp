@@ -44,10 +44,10 @@ extern "C" {
 
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 void render__15TObjBoss5PillarFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK TObjBoss5PillarDemo__sub_8028ADB0(int);
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -60,9 +60,9 @@ extern s32 lbl_805D4DDC;
 
 void render__15TObjBoss5PillarFPv(u8 *arg0) {
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_param__8TObjFishFi((void *) (lbl_805D4DDC));
-        TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x2C));
+        post_translate_matrix((void *) (arg0 + 0x2C));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 3) {
             fn_8028ADDC((int) (M2C_FIELD(arg0, s32 *, 0x48)));
             draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x38)), (int) (M2C_FIELD(arg0, s32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x20)));

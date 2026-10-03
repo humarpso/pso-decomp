@@ -63,9 +63,9 @@ void set_cull_back__8TObjFishFv(void);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 TCameraCtrl__sub_803D8934(int, void *, void *);
 void rotate_matrix_y(int, int);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void);
 void draw_ginja_object(void);
 extern u32 lbl_805D5C70;
@@ -97,7 +97,7 @@ void fn_8019B09C(void);
 int run_task__11TObjTuitateFv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
 void TObjEneGibbles__sub_80156720(void *);
-int TObjPlayer__sub_800D7BB0(void*);
+int update_obstruction_fade(void*);
 void TObjPlayer__sub_800D7C58(void *, int);
 void TObjPlayer__sub_80154A00(void *);
 void __dl__7TObjectFPv(void *);
@@ -129,8 +129,8 @@ void render__11TObjTuitateFv(Obj_8019ADA0 *self) {
     }
     TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C70), 0);
     set_global_param__8TObjFishFi();
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+    push_matrix();
+    post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
     get_bml_model((*(s32 *)&lbl_805D5C70), 0);
     draw_ginja_object();
@@ -141,7 +141,7 @@ void render__11TObjTuitateFv(Obj_8019ADA0 *self) {
     set_cull_none__8TObjFishFv();
 }
 
-int run_task__11TObjTuitateFv(void* p) { return TObjPlayer__sub_800D7BB0((char*)p + 0xac); }
+int run_task__11TObjTuitateFv(void* p) { return update_obstruction_fade((char*)p + 0xac); }
 
 extern M2C_UNK __vt__11TObjTuitate[];
 

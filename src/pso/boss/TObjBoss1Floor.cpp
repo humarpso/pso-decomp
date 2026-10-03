@@ -14,7 +14,7 @@ M2C_UNK TBoss8Dragon__sub_8002D4C0(void *);
 M2C_UNK TObjBoss1Floor__ct(void*, s32);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void* __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK set_chunk_material_override_pair(int, int, void *, void *);
@@ -45,7 +45,7 @@ extern s32 some_id_805c6f74;
 void render_boss_effect_object(u8 *arg0) {
     set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
     TBoss8Dragon__sub_8002D4C0((void *) (arg0 + 0x28));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x28)), (f32) (M2C_FIELD(arg0, f32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x48) != 0) {
         lbl_805D5660 = some_id_805c6f74;

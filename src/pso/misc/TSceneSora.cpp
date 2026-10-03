@@ -70,7 +70,7 @@ M2C_UNK draw_ginja_object(int);
 M2C_UNK draw_ginja_model_with_motion(int, int, f32);
 s32 TObjFish__sub_8001EDB0(int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -118,7 +118,7 @@ void render__10TSceneSoraFv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));
         set_global_param__8TObjFishFi();
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
             draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (f32) (M2C_FIELD(arg0, f32 *, 0xA0)));

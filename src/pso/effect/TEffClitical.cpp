@@ -37,8 +37,8 @@ struct RecoveredGlobal_800823E0_lbl_80438EC8 {
 };
 
 extern "C" {
-f32 TEffStarLightChild__sub_80141FBC(void *, void *, void *, f32);
-f32 TBoss6Kakusan__sub_803D8BD8(void *);
+f32 approach_vector_fixed_distance(void *, void *, void *, f32);
+f32 vector_length(void *);
 void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 fn_8008271C(void *, void *, f32);
@@ -59,9 +59,9 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv(int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(int);
@@ -104,9 +104,9 @@ void render__12TEffCliticalFv(u8 *arg0) {
     begin_effect_render__13TParticleCtrlFv((int) (temp_r3));
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x2C));
     fn_800829E0((void *) (&sp8));
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
-    TOHangerMachine01__sub_803D9C00((void *) ((u8 *)(arg0) + 0x20));
+    post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(lbl_805D4DF0, s32 *, 0x194)));
     scale_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
     draw_chunk_object((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
@@ -217,9 +217,9 @@ void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0) {
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);
     stack.spC = M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4);
     stack.sp10 = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
-    temp_f1 = TBoss6Kakusan__sub_803D8BD8(&stack.sp8);
+    temp_f1 = vector_length(&stack.sp8);
     if (temp_f1 > farg0) {
-        TEffStarLightChild__sub_80141FBC(arg0, arg1, arg0, temp_f1 * farg0);
+        approach_vector_fixed_distance(arg0, arg1, arg0, temp_f1 * farg0);
     }
 }
 

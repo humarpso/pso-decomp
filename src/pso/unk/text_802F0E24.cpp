@@ -10,7 +10,7 @@ extern u32 lbl_80541928[];
 extern void *lbl_805D6950;
 extern void *lbl_805D6954;
 void fn_802F0E24(void);
-void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK init_heap__13TParticleCtrlFPv(M2C_UNK);
 M2C_UNK TLobby__sub_801E468C(void *, void *);
@@ -40,7 +40,7 @@ void fn_802F0E94(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = TLobby__sub_80020004(p, 5, lbl_804E48C4, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, lbl_804E48C4, 0, 0, 0);
     }
     lbl_805D6950 = p;
     lbl_805D6954 = *(void **)(((struct Obj_802F0E94 *)p)->f42c + 0xC);

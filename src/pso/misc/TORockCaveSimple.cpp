@@ -15,11 +15,11 @@ extern "C" {
 void *TORockCaveSimple__ct(void *arg0);
 void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1);
 void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 void TORockCave__ct(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__10TORockCaveFv(void *, int);
@@ -28,8 +28,8 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 void play_trigger_effect__16TORockCaveSimpleFPv(u8 *arg0) {
     VObj1_80175024 *self = (VObj1_80175024 *)arg0;
     if (self->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));

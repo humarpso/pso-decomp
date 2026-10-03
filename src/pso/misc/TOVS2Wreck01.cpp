@@ -23,11 +23,11 @@ void *TOVS2Wreck01__create(void *arg0);
 void *TOVS2Wreck01__ct(void *arg0, void *arg1);
 void *__dt__12TOVS2Wreck01Fv(void *arg0, s16 arg1);
 void check_collision_effect(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 void TOVS2Wall01__sub_8017C8EC(void *, void *, int);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -68,8 +68,8 @@ void *TOVS2Wreck01__ct(void *arg0, void *arg1) {
 void check_collision_effect(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xCC) = ((VObj_8017C640 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) == 1) {
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));

@@ -49,8 +49,8 @@ void init_collision_body_parts(void *, void *, int);
 void *TObjPlayer__sub_801569F4(void *, void *);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-f32 TBoss6Kakusan__sub_803D8BD8(Vec_802A47C8 *);
-void TNpcPlayer__sub_803D97B4(Vec_802A47C8 *);
+f32 vector_length(Vec_802A47C8 *);
+void normalize_vector(Vec_802A47C8 *);
 extern const f64 lbl_80466688[];
 extern M2C_UNK __vt__12TNeedleShoot[];
 extern u32 lbl_805D3DD8;
@@ -119,8 +119,8 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     self->dir.x = dx;
     self->dir.y = dy;
     self->dir.z = dz;
-    if (lbl_805DDF74 != TBoss6Kakusan__sub_803D8BD8(&self->dir)) {
-        TNpcPlayer__sub_803D97B4(&self->dir);
+    if (lbl_805DDF74 != vector_length(&self->dir)) {
+        normalize_vector(&self->dir);
     }
     self->f3c = lbl_805DDF74;
     self->f40 = lbl_805DDF74;

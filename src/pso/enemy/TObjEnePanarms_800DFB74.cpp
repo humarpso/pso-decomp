@@ -14,7 +14,7 @@ int TObjEnePanarms__sub_800DFB74(u8 *arg0);
 extern "C" {
 
 int TObjEnePanarms__sub_800DFBC4(void* p);
-int TObjPlayer__sub_80143198(void*, void*);
+int apply_animation_transition(void*, void*);
 int fn_8002AE64(void*);
 int fn_800660B8(void*);
 int get_state_flag__14TObjEnePanarmsFPv(void* p);

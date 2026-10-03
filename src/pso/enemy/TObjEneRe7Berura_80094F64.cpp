@@ -41,7 +41,7 @@ void TObjPlayer__sub_803D9324(int, void *);
 void translate_matrix(s32, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
 M2C_UNK push_matrix_from(void *, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 extern M2C_UNK lbl_8058D490[];
 extern s32 lbl_805D4F90;
@@ -60,9 +60,9 @@ u32 csnLookAt(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 M2C_UNK enemy_set_target_id(void *, u16);
 s32 is_alive__9TObjEneDDFPv(void *);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+M2C_UNK subtract_vector(void *, void *);
 extern const f32 TObjEneRe7Berura__data_805D9724;
 extern const f32 TObjEneRe7Berura__data_805D972C;
 s32 TObjEneRe7Berura__sub_800951AC(Berura_800951AC *self);
@@ -74,7 +74,7 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1);
 void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_803D9730(M2C_UNK, s32);
 M2C_UNK push_matrix_from(void *, int, int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK TObjPlayer__sub_803E4684(s32);
 
@@ -87,7 +87,7 @@ void draw_node_tree__16TObjEneRe7BeruraFPv(void *arg0) {
 
     var_r30 = arg0;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         temp_r4 = TObjEneRe7Berura__data_805D4F98;
         TObjEneRe7Berura__data_805D4F98 = temp_r4 + 0x30;
         TObjPlayer__sub_803D9730(0, temp_r4);
@@ -132,7 +132,7 @@ M2C_UNK TObjEneRe7Berura__sub_8009503C(void *arg0, int idx) {
     Mtx_8009503C m;
     u32 flags;
     do {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         TObjPlayer__sub_803D7CA4((int)node);
         flags = node->flags;
         if (idx == lbl_805D4F90) {
@@ -182,15 +182,15 @@ s32 TObjEneRe7Berura__sub_800951AC(Berura_800951AC *self) {
     f32 best;
     best = TObjEneRe7Berura__data_805D972C;
     id = 0xFFFF;
-    limit = TBoss8Dragon__sub_803D64DC(0xAAA);
-    s = TBoss8Dragon__sub_803D64C0(self->angle);
-    c = TBoss8Dragon__sub_803D64DC(self->angle);
+    limit = cos_table_lookup(0xAAA);
+    s = sin_table_lookup(self->angle);
+    c = cos_table_lookup(self->angle);
     n = get_game_mode__6TLobbyFv();
     for (i = 0; i < n; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (is_alive__9TObjEneDDFPv(p) != 0) {
             VecCopy__FP3VecPC3Vec(&v, &p->pos38);
-            TBoss6Type1__sub_803D9370(&v, &self->pos);
+            subtract_vector(&v, &self->pos);
             v.y = TObjEneRe7Berura__data_805D972C;
             d = clamp_velocity__15TObjBoss2TunnelFPv(&v);
             if (d < TObjEneRe7Berura__data_805D9724 && d > best &&

@@ -152,15 +152,15 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_with_direction(void *, void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-f32 TBoss8Dragon__sub_803D64C0(void *);
-f32 TBoss8Dragon__sub_803D64DC(void *);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
 extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
 extern M2C_UNK lbl_804F166C[];
 extern const f32 lbl_805E0068;
 extern const f32 lbl_805E0070;
 u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
-f32 TBoss8Dragon__sub_803D64C0(void *);
-f32 TBoss8Dragon__sub_803D64DC(void *);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
 void TObjPlayer__sub_80357EFC(u8 *arg0);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 u32 get_player_list__10TObjPlayerFv();
@@ -245,7 +245,7 @@ M2C_UNK create_timed_particle_emitter_with_flags(s32, M2C_UNK, M2C_UNK, M2C_UNK,
 int TObjPlayer__sub_80115BC0(void*, int, int);
 void TObjPlayer__sub_80120D50(void *);
 M2C_UNK TObjPlayer__sub_802E451C();
-M2C_UNK TObjPlayer__sub_80357B2C(s32, M2C_UNK);
+M2C_UNK spawn_scattered_lightning_strikes(s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -332,9 +332,9 @@ u8 *TObjPlayer__sub_80357AD4(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 void TObjPlayer__sub_80357EFC(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * TBoss8Dragon__sub_803D64C0((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x1C));
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * sin_table_lookup((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x1C));
     M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * TBoss8Dragon__sub_803D64DC((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x24));
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x40) * cos_table_lookup((void *)(M2C_FIELD(arg0, s32 *, 0x44)))) + M2C_FIELD(arg0, f32 *, 0x24));
 }
 #pragma pop
 
@@ -384,9 +384,9 @@ u8 *TObjPlayer__sub_80358048(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80358048_lbl_804F166C *)&lbl_804F166C).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg2));
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) ((lbl_805E0068 * TBoss8Dragon__sub_803D64C0((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 0));
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) ((lbl_805E0068 * sin_table_lookup((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 0));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg2, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((lbl_805E0068 * TBoss8Dragon__sub_803D64DC((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 8));
+    M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((lbl_805E0068 * cos_table_lookup((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 8));
     M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805E0070;
     M2C_FIELD(arg0, s32 *, 0x44) = (s32) (arg3 - 0x4000);
     M2C_FIELD(arg0, s32 *, 0x48) = 0xA;
@@ -541,7 +541,7 @@ void dispatch_attack_event__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
     if (arg3 == 1) {
-        TObjPlayer__sub_80357B2C(arg2, 4);
+        spawn_scattered_lightning_strikes(arg2, 4);
     }
 }
 
@@ -550,7 +550,7 @@ void dispatch_by_type__10TObjPlayerFiPvii(s32 arg0, void *arg1, s32 arg2, s32 ar
         spawn_particle_effect((M2C_UNK *)(arg0 + 0x2FC), (M2C_UNK)(0xA0));
     }
     if (arg3 == 1) {
-        TObjPlayer__sub_80357B2C(arg2, 4);
+        spawn_scattered_lightning_strikes(arg2, 4);
     }
 }
 

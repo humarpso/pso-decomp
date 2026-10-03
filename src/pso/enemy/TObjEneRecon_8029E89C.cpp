@@ -26,7 +26,7 @@ extern const f32 lbl_805DDD94;
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
 s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
 M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 extern u16 lbl_805D65F8;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
@@ -40,7 +40,7 @@ void restore_render_scissor(s32 arg0);
 void update_particle_if_active__12TObjEneReconFv(void);
 M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 u32 get_player_by_client_id(u32);
 s32 fn_8029E7BC(s32, M2C_UNK *);
@@ -74,7 +74,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
         var_r3 = 1;
     }
     if (var_r3 != 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         reflect_matrix_in_plane(0, sp8);
     }
     return var_r3;
@@ -105,7 +105,7 @@ s32 TObjEneRecon__sub_8029E960(u8 *arg0) {
     stack.sp1C = stack.sp14;
     temp_r3 = TObjEneRecon__sub_8029EA4C(arg0, 1);
     if (temp_r3 != 0) {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         reflect_matrix_in_plane(0, (M2C_UNK *)&stack.sp8);
     }
     return temp_r3;

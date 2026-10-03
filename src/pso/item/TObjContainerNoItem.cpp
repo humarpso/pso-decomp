@@ -194,9 +194,9 @@ void TObjContainerEnemy__vt77(Obj_8018990C *self);
 void draw_ginja_box_tree(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 extern u32 lbl_805D5B78;
 extern s32 lbl_805D5B7C;
@@ -348,8 +348,8 @@ void TObjContainerEnemy__vt79(CE_80189614 *self) {
     switch (self->mode) {
     case 0:
         set_global_param__8TObjFishFi(lbl_805D5B7C);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(self->f38);
+        push_matrix();
+        post_translate_matrix(self->f38);
         rotate_matrix_y(0, self->f60);
         scale_matrix(0, lbl_805DBCFC, lbl_805DBCFC, lbl_805DBCFC);
         draw_ginja_box_tree(self->f34);

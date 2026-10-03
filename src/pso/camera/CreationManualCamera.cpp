@@ -8,7 +8,7 @@ extern "C" {
 f32 get_ratio__16TObjCMProportionFv(void),TObjCMProportion__sub_80298FF4(void);
 void TObjCMProportion__sub_8029903C(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
-f32 TBoss8Dragon__sub_803D64C0(s32),TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32),cos_table_lookup(s32);
 extern CharacterAppearanceFields *lbl_805D6520;
 extern s32 lbl_805D6570;
 extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9BC,lbl_805DD9C0;
@@ -66,8 +66,8 @@ void advance_creation_manual_camera(CreationCameraFields *arg0) {
   TObjCMProportion__sub_8029903C(&sp10, &spC);
   if (lbl_805DD974 != spC)
   {
-    arg0->yaw = (s32) (((lbl_805DD9BC * spC) * TBoss8Dragon__sub_803D64C0(sp10)) + ((f32) arg0->yaw));
-    new_var = (s32) (((lbl_805DD9BC * spC) * TBoss8Dragon__sub_803D64DC(sp10)) + ((f32) arg0->pitch));
+    arg0->yaw = (s32) (((lbl_805DD9BC * spC) * sin_table_lookup(sp10)) + ((f32) arg0->yaw));
+    new_var = (s32) (((lbl_805DD9BC * spC) * cos_table_lookup(sp10)) + ((f32) arg0->pitch));
     var_r4 = -0x2BBC;
     arg0->pitch = new_var;
     if ((((void *) lbl_805D6520) != 0) && ((((s32) lbl_805D6520->classId) == 0xA) || (lbl_805D6520->classFlags & 2)))

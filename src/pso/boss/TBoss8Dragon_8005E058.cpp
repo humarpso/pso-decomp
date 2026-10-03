@@ -47,8 +47,8 @@ void TBoss8Dragon__sub_8005E17C(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *);
 f32 newton_sqrtf(f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
-f32 TObjPlayer__sub_803D89C0(void *, void *);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+f32 vec3_dot(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern RecoveredGlobal_8005E1E8_lbl_804FF5CC lbl_804FF5CC;
 extern RecoveredGlobal_8005E1E8_lbl_804FF5D8 lbl_804FF5D8;
 extern const f32 lbl_805D4DC0;
@@ -61,9 +61,9 @@ void scale_matrix(int, f32, f32, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_z(int, int);
 void rotate_matrix_x(int, int);
-void TObjPlayer__sub_803D9B2C(void);
+void push_matrix(void);
 void pop_matrix(void);
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
 void set_global_state__16TObjEneRe7BeruraFi(void *);
@@ -95,9 +95,9 @@ void TBoss8Dragon__sub_8005E0C0(Obj_8005E0C0 *self) {
     lbl_805D4DB4 = (s32)self->f3c0;
     lbl_805D4DB8 = self->f4c0;
     set_global_state__16TObjEneRe7BeruraFi((void *)TBoss8Dragon__sub_8005E17C);
-    TObjPlayer__sub_803D9B2C();
+    push_matrix();
     set_global_flag__10TObjPlayerFv();
-    TOHangerMachine01__sub_803D9C00((u8 *)self + 0x38);
+    post_translate_matrix((u8 *)self + 0x38);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, self->f5c);
     rotate_matrix_z(0, self->f64);
@@ -131,11 +131,11 @@ s32 TBoss8Dragon__sub_8005E1E8(f32 farg0) {
     f32 temp_f31;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8));
     stack.spC = lbl_805D8D5C;
-    TBoss6Type1__sub_803D9370((void *) (&stack.sp8), (void *) (&lbl_804FF5CC.value));
+    subtract_vector((void *) (&stack.sp8), (void *) (&lbl_804FF5CC.value));
     temp_f1 = clamp_velocity__15TObjBoss2TunnelFPv((void *) (&stack.sp8));
     if ((temp_f1 + farg0) < lbl_805D4DC0) {
         temp_f31 = temp_f1 * (lbl_805D8D88 / newton_sqrtf((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
-        if (TObjPlayer__sub_803D89C0((void *) (&stack.sp8), (void *) (&lbl_804FF5D8.value)) >= temp_f31) {
+        if (vec3_dot((void *) (&stack.sp8), (void *) (&lbl_804FF5D8.value)) >= temp_f31) {
             return 1;
         }
     }

@@ -17,7 +17,7 @@ struct RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030B048_lbl_804E7688 lbl_804E7688;
 extern u32 TObjBoss8Piller__data_805D6A78;
@@ -67,7 +67,7 @@ void TObjBoss8Piller__sub_8030B048(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804E7688.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E7688.value, 0, 0, 0));
     }
     (*(s32 *)&TObjBoss8Piller__data_805D6A78) = var_r0;
 }

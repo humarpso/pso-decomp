@@ -37,7 +37,7 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1);
 int TBoss4DarkFalz__sub_8004C220(void*);
 s32 TLobby__sub_8011AF58();
 M2C_UNK TObjPlayer__sub_801B8DE8(s32, s32, M2C_UNK);
-u32 TObjPlayer__sub_801B8E68(s32, void *);
+u32 pickup_item__10TObjPlayerFv(s32, void *);
 M2C_UNK equip_item_to_slot__10TObjPlayerFPvPvi(s32, void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BE9A8(s32);
 M2C_UNK set_equip_slot_entry(s32, s8, M2C_UNK);
@@ -63,7 +63,7 @@ void process_trade_target__10TObjPlayerFiPv(s32 arg0, void *arg1) {
             TObjPlayer__sub_801B8DE8(arg0, get_field_d8__10TObjPlayerFPv(), 1);
             set_equip_slot_entry(arg0 + 0xD04, val_ext, 0);
         }
-        if (TObjPlayer__sub_801B8E68(arg0, temp_r3) != 0U) {
+        if (pickup_item__10TObjPlayerFv(arg0, temp_r3) != 0U) {
             set_flag_20000__10TObjPlayerFi(arg0);
             equip_item_to_slot__10TObjPlayerFPvPvi(arg0, temp_r3, 0);
             TObjPlayer__sub_801BE9A8(arg0);

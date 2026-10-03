@@ -45,7 +45,7 @@ extern "C" {
 
 void *__dt__25TWindowSubSymbolChatPartsFv(void *arg0, s16 arg1);
 void render__25TWindowSubSymbolChatPartsFv(u8 *arg0);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_8026D790(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
@@ -63,7 +63,7 @@ void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
     u8 temp_r0;
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     temp_r0 = M2C_FIELD(arg0, u8 *, 0x71);
     switch ((s8) temp_r0) {
     case 0:

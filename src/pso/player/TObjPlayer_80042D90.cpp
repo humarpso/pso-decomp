@@ -42,8 +42,8 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2);
 Obj_80042DE8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void);
 void scale_velocity__19TObjGyaranzoMissileFPvf(Vec_80042DE8 *, f32);
-void TBoss4Zako__sub_803D8910(Vec_80042DE8 *, Vec_80042DE8 *);
-void TBoss6Type1__sub_803D9370(Vec_80042DE8 *, Vec_80042DE8 *);
+void vec3_add_to(Vec_80042DE8 *, Vec_80042DE8 *);
+void subtract_vector(Vec_80042DE8 *, Vec_80042DE8 *);
 extern s32 lbl_805D586C;
 extern const f32 lbl_805D8760;
 extern const f32 lbl_805D8764;
@@ -78,11 +78,11 @@ void TObjPlayer__sub_80042DE8(Obj_80042DE8 *self) {
         }
         {
             Vec_80042DE8 v = pl->pos;
-            TBoss6Type1__sub_803D9370(&v, &self->pos);
+            subtract_vector(&v, &self->pos);
             if (v.x * v.x + v.z * v.z <= r2) {
                 v.y = lbl_805D8764;
                 scale_velocity__19TObjGyaranzoMissileFPvf(&v, lbl_805D8768);
-                TBoss4Zako__sub_803D8910(&pl->pos, &v);
+                vec3_add_to(&pl->pos, &v);
             }
         }
     }

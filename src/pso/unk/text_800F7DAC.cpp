@@ -3,7 +3,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-u32 TAdEp3Exist__sub_8036F5B0(int, int, int, int);
+u32 prs_decompress(int, int, int, int);
 M2C_UNK destroy_ep3_exist__6TLobbyFis(int, int);
 u32 reset_counters__6TLobbyFPv();
 u32 TLobby__sub_800F7DAC(s32 arg0, s32 arg1);
@@ -40,7 +40,7 @@ u32 TLobby__sub_800F7DAC(s32 arg0, s32 arg1) {
     var_r4 = var_r29;
     var_r5 = var_r28;
     var_r6 = 0;
-    var_r30_2 = TAdEp3Exist__sub_8036F5B0((int) var_r3, (int) var_r4, (int) var_r5, (int) 0);
+    var_r30_2 = prs_decompress((int) var_r3, (int) var_r4, (int) var_r5, (int) 0);
     phi_r30 = var_r30_2;
   }
   if (var_r31 != 0U)

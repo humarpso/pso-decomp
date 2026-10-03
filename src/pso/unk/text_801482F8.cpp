@@ -300,7 +300,7 @@ void enemy_turn_toward_dest(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 void update_collisions__10TObjPlayerFPv(void *);
-void TBoss4Zako__sub_803D8910(void *, void *);
+void vec3_add_to(void *, void *);
 void rotate_vector_by_matrix(int, void *, void *);
 void rotate_matrix_y(int, int);
 void push_matrix_from(void *);
@@ -335,12 +335,12 @@ void *__ct__12TQuestThreadFv(void *, u32, s32);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
 extern const f64 lbl_8043F550[];
 extern s32 lbl_805D53A0;
 extern u32 lbl_805D5EE8;
 extern u32 lbl_805D5EEC;
-void TCameraCtrl__sub_8014854C(u8 *arg0);
+void update_conversation__11TObjNpcBaseFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -378,7 +378,7 @@ void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
 }
 
 #define F(T, o) M2C_FIELD(arg0, T *, o)
-void TCameraCtrl__sub_8014854C(u8 *arg0) {
+void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
     Pkt_8014854C pkt1;
     Pkt_8014854C pkt2;
     Vec_8014854C d;
@@ -391,7 +391,7 @@ void TCameraCtrl__sub_8014854C(u8 *arg0) {
     switch (F(s16, 0x328)) {
     case 0:
         VecCopy__FP3VecPC3Vec(&d, F(u8 *, 0x2A8) + 0x38);
-        TBoss6Type1__sub_803D9370(&d, arg0 + 0x38);
+        subtract_vector(&d, arg0 + 0x38);
         ang = lbl_8043F550[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z);
         switch (F(s32, 0x3AC)) {
         case 0x3E9:
@@ -528,7 +528,7 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
         pop_matrix();
         v.x = v.x * M2C_FIELD(arg0, f32 *, 0x354);
         v.z = v.z * M2C_FIELD(arg0, f32 *, 0x354);
-        TBoss4Zako__sub_803D8910(&v, arg0 + 0x50);
+        vec3_add_to(&v, arg0 + 0x50);
         if (lbl_805DB1D4 < horizontal_distance_squared(&v, arg0 + 0x38)) {
             Vec_801489B8 d = v;
             select_enemy_destination(arg0, &d, 0);

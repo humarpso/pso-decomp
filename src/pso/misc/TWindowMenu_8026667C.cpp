@@ -30,7 +30,7 @@ void *__dt__11TWindowMenuFv(void *arg0, s16 arg1);
 void copy_position__11TWindowMenuFPvPv(void* p, void* q);
 s32 is_locked__11TWindowMenuFPvi(void *arg0, s32 arg1);
 void render__11TWindowMenuFv(u8 *arg0);
-M2C_UNK TWindowSubComCard__sub_80245F98(void *, s32);
+M2C_UNK draw_window_frame(void *, s32);
 M2C_UNK TWindowSubComCard__sub_802665C0(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
@@ -49,7 +49,7 @@ void render__11TWindowMenuFv(u8 *arg0) {
     s32 temp_r3;
 
     temp_r3 = TWindowSubStatusDisp__sub_80244364();
-    TWindowSubComCard__sub_80245F98(arg0, temp_r3);
+    draw_window_frame(arg0, temp_r3);
     TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
     if (!(M2C_FIELD(arg0, u16 *, 0x70) & 0x80)) {
         render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);

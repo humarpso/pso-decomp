@@ -108,7 +108,7 @@ extern M2C_UNK lbl_80434D54[];
 extern s32 lbl_805D4ACC;
 s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
-s32 TLobby__sub_8001FBEC(void *, u32, s32, s32);
+s32 bind_bml_model(void *, u32, s32, s32);
 s32 set_stream_state__6TLobbyFi(s32, s32);
 s32 TLobby__sub_800FD944(s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
@@ -146,7 +146,7 @@ void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
 M2C_UNK TItemDrop__sub_800FE2D8();
 M2C_UNK TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
-s32 TLobby__sub_803DE328(s32, s32, s32);
+s32 load_nj_chunk_model_resource(s32, s32, s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 int xfree__FPv(void*);
 
@@ -167,7 +167,7 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
         M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) + temp_r4);
         return temp_r31;
     }
-    return TLobby__sub_803DE328(arg1, arg2, arg3);
+    return load_nj_chunk_model_resource(arg1, arg2, arg3);
 }
 
 void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2) {
@@ -343,7 +343,7 @@ s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
         debug_print__6TLobbyFii(lbl_80434D94, size - 0x40000);
     }
     set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
-    TLobby__sub_8001FBEC(arg0, size, arg2, lbl_805D4ACC);
+    bind_bml_model(arg0, size, arg2, lbl_805D4ACC);
     if (arg0->entries[arg2].texture != NULL) {
         TLobby__sub_8001F018((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
     }

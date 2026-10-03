@@ -32,10 +32,10 @@ struct Pad_802870C4 { u8 pad[0x20]; u8 m20[0x30]; };
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubTechnique__sub_8028753C(s32 arg0);
-u8 *TTecCtrl__sub_8022DBC4(s16, u8, M2C_UNK);
+u8 *calc_technique_parameters(s16, u8, M2C_UNK);
 M2C_UNK *TLobby__sub_8001DC24();
 s32 get_player_by_client_id(int);
-s32 fn_801D9870(void *, int);
+s32 get_cast_technique_level(void *, int);
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *, int);
 s32 TWindowSubStatusDisp__sub_80228F5C(void *);
 s32 text_builder_append(int);
@@ -150,12 +150,12 @@ void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1) {
       text_builder_reset();
       if ((((s16) var_r29) != 0x11) && (((s16) var_r29) != 0xE))
       {
-        var_r30 = fn_801D9870((void *) (temp_r3 + 0x428), (int) var_r29);
+        var_r30 = get_cast_technique_level((void *) (temp_r3 + 0x428), (int) var_r29);
         text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) 0x13)));
         TWindowSubStatusDisp__sub_80228F5C((void *) (((u8) var_r30) + 1));
       }
       text_builder_append((int) get_help_text_string((int) 0x2E));
-      TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) TTecCtrl__sub_8022DBC4((s16) var_r29, (u8) var_r30, 0xFFFF)) + 0x10)))));
+      TWindowSubStatusDisp__sub_80228F5C((void *) ((s32) (*((s16 *) (((s8 *) calc_technique_parameters((s16) var_r29, (u8) var_r30, 0xFFFF)) + 0x10)))));
       text_builder_append((int) TWindowSubTechnique__sub_8028753C((s32)((int) ((s32) ((s16) var_r29)))));
       send_and_handle__6TLobbyFPvii((int) (*((s32 *) (((s8 *) arg0) + 0x3C))), (void *) TLobby__sub_8001DC24(), (int) 0x82);
     }

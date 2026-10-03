@@ -9,7 +9,7 @@ s32 TObjNewFloorWin__sub_8007410C(void);
 s32 TWindowSubComCard__sub_80244774(void);
 M2C_UNK TWindowSubStatusDisp__sub_80244494(int, int, int);
 void fn_8024450C(s32 arg0);
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowArea__ct();
 M2C_UNK fn_802449E0(int);
@@ -18,7 +18,7 @@ M2C_UNK set_entry_display_value__20TWindowSubStatusDispFPvi(int, void *);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
 s32 fn_80244554(s32 arg0);
-u32 TWindowSubStatusDisp__sub_80144D68(void *);
+u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 void fn_8024450C(s32 arg0);
 s32 TWindowArea__ct();
@@ -57,7 +57,7 @@ s32 fn_80244554(s32 arg0) {
     set_entry_display_value__20TWindowSubStatusDispFPvi((int) (var_r30), (void *) (arg0));
     fn_802449E0((int) (var_r30));
     temp_r31 = (u8 *)(fn_8026D504(var_r30));
-    M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) TWindowSubStatusDisp__sub_80144D68((void *) (arg0))) - lbl_805DCABC);
+    M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((void *) (arg0))) - lbl_805DCABC);
     return var_r30;
 }
 #pragma pop
@@ -74,7 +74,7 @@ s32 fn_802445EC(void) {
     fn_802449E0(var_r30);
     fn_8024450C(var_r30);
     temp_r31 = fn_8026D504(var_r30);
-    M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) TWindowSubStatusDisp__sub_80144D68(get_field_20__17TWindowSubComCardFPv(temp_r31))) - lbl_805DCABC);
+    M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width(get_field_20__17TWindowSubComCardFPv(temp_r31))) - lbl_805DCABC);
     return var_r30;
 }
 #pragma pop

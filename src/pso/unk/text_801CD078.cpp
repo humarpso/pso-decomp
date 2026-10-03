@@ -74,8 +74,8 @@ s32 is_camera_mode_active__10TObjPlayerFv();
 s32 validate_and_clear_slot__10TObjPlayerFPv(void *techs, s16 tech);
 s32 reset_volopt_state__10TObjPlayerFv(void *obj);
 s32 obj_getField1c(void *obj);
-u8 fn_801D9870(void *techs, s16 tech);
-Rec_801CD078 *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
+u8 get_cast_technique_level(void *techs, s16 tech);
+Rec_801CD078 *calc_technique_parameters(s32 tech, s32 level, s32 id);
 s32 can_start_technique__10TObjPlayerFPvi(Player_801CD078 *self, s32 tech);
 void run_action_state_phase__10TObjPlayerFisi(void *obj, s16 a, s32 b);
 TechData_801CD424 *get_technique_data__10TObjPlayerFPv(void *techs);
@@ -109,8 +109,8 @@ TechData_801CD424 *get_technique_data__10TObjPlayerFPv(void *techs);
 s16 get_section_clamped__10TObjPlayerFPv(void *techs);
 s16 get_or_init_field_4__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(u8, u8 *, u8 *);
-u8 fn_801D9870(void *techs, s16 tech);
-void TObjPlayer__sub_8022CDE8(s32, void *);
+u8 get_cast_technique_level(void *techs, s16 tech);
+void capture_technique_targets__10TObjPlayerFv(s32, void *);
 void request_technique_cast__10TObjPlayerFPv(Player_801CD72C *self);
 M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 s32 obj_isState2_324(void *obj);
@@ -133,8 +133,8 @@ M2C_UNK TObjPlayer__sub_801D2CC4(void *, f32);
 u8 *TObjPlayer__sub_801D8DCC(void *);
 s16 get_or_init_field_4__10TObjPlayerFPv(void *);
 u8 TObjPlayer__sub_801D96CC(void *);
-M2C_UNK TObjLight__sub_8022C738(s16, void *);
-Rec_801CD078 *TTecCtrl__sub_8022DBC4(s32 tech, s32 level, s32 id);
+M2C_UNK create_technique_charge_light(s16, void *);
+Rec_801CD078 *calc_technique_parameters(s32 tech, s32 level, s32 id);
 extern const f32 TObjPlayer__data_805DC36C;
 extern const f32 TObjPlayer__data_805DC39C;
 extern const f32 lbl_805DC3A0;
@@ -162,7 +162,7 @@ s32 can_start_technique__10TObjPlayerFPvi(Player_801CD078 *self, s32 tech) {
         reset_volopt_state__10TObjPlayerFv(self) == 0) {
         return 0;
     }
-    return self->tp - TTecCtrl__sub_8022DBC4(tech, fn_801D9870(self->techs, tech), obj_getField1c(self))->cost >= 0 ? 1 : 0;
+    return self->tp - calc_technique_parameters(tech, get_cast_technique_level(self->techs, tech), obj_getField1c(self))->cost >= 0 ? 1 : 0;
 }
 
 void exit_technique_cast__10TObjPlayerFPv(Player_801CD188 *self) {
@@ -190,8 +190,8 @@ void update_technique_cast__10TObjPlayerFPv(u8 *arg0) {
     case 0:
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
         set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x80));
-        TObjLight__sub_8022C738((s16) (get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428))), (void *) (arg0));
-        set_technique_state__10TObjPlayerFPvi((void *) (arg0 + 0x428), (int) (M2C_FIELD(TTecCtrl__sub_8022DBC4(get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428)), TObjPlayer__sub_801D96CC((void *) (arg0 + 0x428)), obj_getField1c((void *) (arg0))), s16 *, 0x12)));
+        create_technique_charge_light((s16) (get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428))), (void *) (arg0));
+        set_technique_state__10TObjPlayerFPvi((void *) (arg0 + 0x428), (int) (M2C_FIELD(calc_technique_parameters(get_or_init_field_4__10TObjPlayerFPv((void *) (arg0 + 0x428)), TObjPlayer__sub_801D96CC((void *) (arg0 + 0x428)), obj_getField1c((void *) (arg0))), s16 *, 0x12)));
         TObjPlayer__sub_801D2CC4((void *) (arg0 + 0x428), (f32) (lbl_805DC3A0));
         break;
     case 1:
@@ -291,13 +291,13 @@ void request_technique_cast__10TObjPlayerFPv(Player_801CD72C *self) {
     s32 count;
     TechData_801CD424 *src;
     u32 *dst;
-    TObjPlayer__sub_8022CDE8(get_or_init_field_4__10TObjPlayerFPv(self->techs), self);
+    capture_technique_targets__10TObjPlayerFv(get_or_init_field_4__10TObjPlayerFPv(self->techs), self);
     if (self->cursor != NULL) {
         td = get_technique_data__10TObjPlayerFPv(self->techs);
         set_cursor_pos__11TMainCursorFiUsi(self->cursor, td->target, td->node);
     }
     tech = get_or_init_field_4__10TObjPlayerFPv(self->techs);
-    split_capped_value__10TObjPlayerFUcPvPv(fn_801D9870(self->techs, tech), &hi, &lo);
+    split_capped_value__10TObjPlayerFUcPvPv(get_cast_technique_level(self->techs, tech), &hi, &lo);
     if (self == NULL || obj_isState2_324(self) == 0) {
         TObjPlayer__sub_801D22AC(&m1);
         m1.id = obj_getField1c(self);

@@ -163,9 +163,9 @@ void TObjPlayer__sub_802D5E8C(u8 *arg0);
 s32 check_boss2tunnel_field_f4__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 s32 rotate_matrix_x(int, int);
-s32 TObjPlayer__sub_803D9B2C();
+s32 push_matrix();
 s32 pop_matrix();
-f32 TOHangerMachine01__sub_803D9C00(void *);
+f32 post_translate_matrix(void *);
 extern RecoveredGlobal_80362FB4_lbl_80479FC8 lbl_80472590;
 void TObjPlayer__sub_802D5DE0(u8 *arg0);
 }
@@ -241,14 +241,14 @@ void TObjPlayer__sub_802D5DE0(u8 *arg0) {
         stack.sp8 = M2C_FIELD(&lbl_80472590.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_80472590.value, s32 *, 4);
         stack.sp10 = M2C_FIELD(&lbl_80472590.value, s32 *, 8);
-        TOHangerMachine01__sub_803D9C00((void *) (&stack.sp8));
+        post_translate_matrix((void *) (&stack.sp8));
         rotate_matrix_x((int) (0), (int) (0x18E3));
         if (M2C_FIELD(arg0, s32 *, 0x1f8) & 1) {
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             rotate_matrix_x((int) (0), (int) (0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
             pop_matrix();
-            TObjPlayer__sub_803D9B2C();
+            push_matrix();
             rotate_matrix_x((int) (0), (int) (-0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
             pop_matrix();

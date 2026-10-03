@@ -121,7 +121,7 @@ void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
 s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
 s32 TObjLuker__sub_801A10A0(s32 arg0, f32 farg0);
-void TObjLuker__sub_801A1260(u8 *arg0);
+void transfer_to_town__9TObjLukerFv(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
@@ -357,7 +357,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                 }
                 break;
             case 2:
-                TObjLuker__sub_801A1260(arg0);
+                transfer_to_town__9TObjLukerFv(arg0);
                 queue_destruction__7TObjectFv(arg0);
                 break;
             }

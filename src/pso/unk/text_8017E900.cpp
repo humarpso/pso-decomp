@@ -3,8 +3,8 @@ typedef s32 M2C_UNK;
 struct Self_8017E900 { u8 pad[0x38]; u8 pos[0x60 - 0x38]; s32 f60; u8 pad64[0xA8 - 0x64]; f32 fa8; };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_803D9B2C();
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK push_matrix();
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 s32 TObjFish__sub_8001ED9C(void *, s32);
@@ -18,8 +18,8 @@ void draw_model__10TButterflyFPv(Self_8017E900 *self);
 extern "C" {
 
 void draw_model__10TButterflyFPv(Self_8017E900 *self) {
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00(self->pos);
+    push_matrix();
+    post_translate_matrix(self->pos);
     rotate_matrix_y(0, self->f60);
     rotate_matrix_x(0, -0x2000);
     draw_ginja_model_with_motion(get_bml_model(lbl_805D5B10, 0), TObjFish__sub_8001ED9C(lbl_805D5B10, 0), self->fa8);

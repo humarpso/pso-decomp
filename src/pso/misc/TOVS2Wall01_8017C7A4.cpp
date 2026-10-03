@@ -58,7 +58,7 @@ u8 *TOVS2Wall01__sub_8017C8EC(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 s32 TObjFish__sub_8001EDB0(int, void *);
 u8 *get_bml_model(s32, s32);
-s32 TLobby__sub_80020004(int, int, void *, int, int, int);
+s32 load_resource_from_descriptor(int, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 extern RecoveredGlobal_8017C7DC_lbl_804B4EBC lbl_804B4EBC;
 extern u32 TOVS2Wall01__data_805D5AE8;
@@ -111,7 +111,7 @@ void TOVS2Wall01__sub_8017C7DC(void) {
   var_r0 = temp_r3;
   if (var_r0 != 0)
   {
-    var_r0 = TLobby__sub_80020004((int) temp_r3, (int) 1, (void *) (&lbl_804B4EBC.value), (int) 0, (int) 0, (int) 0);
+    var_r0 = load_resource_from_descriptor((int) temp_r3, (int) 1, (void *) (&lbl_804B4EBC.value), (int) 0, (int) 0, (int) 0);
   }
   (*(s32 *)&TOVS2Wall01__data_805D5AE8) = var_r0;
   ;

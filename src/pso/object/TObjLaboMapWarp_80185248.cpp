@@ -48,14 +48,14 @@ struct VObj_80185248 : Base_80185248 {
 
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
 void render__15TObjLaboMapWarpFv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 s32 TObjFish__sub_8001ED9C(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
 M2C_UNK get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -71,8 +71,8 @@ void render__15TObjLaboMapWarpFv(u8 *arg0) {
     if (((VObj_80185248 *)arg0)->m8(lbl_805DBC80, lbl_805DBC84) != 0) {
         TObjFish__sub_8001EDB0(TObjLaboMapWarp__data_805D5B58, 1);
         set_global_param__8TObjFishFi();
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (is_field88_zero__15TObjLaboMapWarpFPv((void*)(arg0)) != 0) {
             get_bml_model(TObjLaboMapWarp__data_805D5B58, 1);

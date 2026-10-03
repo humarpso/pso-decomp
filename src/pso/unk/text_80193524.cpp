@@ -110,7 +110,7 @@ M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
-M2C_UNK TLazerFenceSw__sub_801936E0(void *);
+M2C_UNK draw_laser_beam__13TLazerFenceSwFv(void *);
 M2C_UNK set_current_scene__6TSceneFi(int);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
@@ -240,10 +240,10 @@ void render__13TLazerFenceSwFv(u8 *arg0) {
             if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
                 if (fn_80156C38((void *) (arg0 + 0xF0)) != 0) {
                     ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m6();
-                    TLazerFenceSw__sub_801936E0((void *) (arg0));
+                    draw_laser_beam__13TLazerFenceSwFv((void *) (arg0));
                     ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m7();
                 } else {
-                    TLazerFenceSw__sub_801936E0((void *) (arg0));
+                    draw_laser_beam__13TLazerFenceSwFv((void *) (arg0));
                 }
             }
             set_current_scene__6TSceneFi((int) (0x8F));

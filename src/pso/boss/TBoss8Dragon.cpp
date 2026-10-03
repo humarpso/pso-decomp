@@ -220,8 +220,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1);
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32, f32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv();
 M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *, f32);
 
@@ -244,8 +244,8 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1) 
         M2C_FIELD(arg0, f32 *, 8) = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
-        var_f31 = farg1 * (lbl_805D81F4 + TBoss8Dragon__sub_803D64DC(temp_r31, lbl_805D81F8));
-        temp_f1_2 = TBoss8Dragon__sub_803D64C0(temp_r31);
+        var_f31 = farg1 * (lbl_805D81F4 + cos_table_lookup(temp_r31, lbl_805D81F8));
+        temp_f1_2 = sin_table_lookup(temp_r31);
         temp_f2 = M2C_FIELD(arg0, f32 *, 0) * temp_f1_2;
         M2C_FIELD(arg0, f32 *, 0) = temp_f2;
         M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805D81F4;
@@ -330,12 +330,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void render_model__12TBoss8DragonFPv(u8 *arg0);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *, int);
 
@@ -346,8 +346,8 @@ void render_model__12TBoss8DragonFPv(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r4;
 
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
@@ -1449,12 +1449,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void draw__12TBoss8DragonFPv(u8 *arg0);
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK rotate_matrix_z(int, int);
 M2C_UNK rotate_matrix_x(int, int);
 M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *, int);
 
@@ -1464,12 +1464,12 @@ void draw__12TBoss8DragonFPv(u8 *arg0) {
     s32 temp_r31;
     u8 *temp_r4;
 
-    TObjPlayer__sub_803D9B2C();
-    TOHangerMachine01__sub_803D9C00((void *) (arg0 + 0x38));
+    push_matrix();
+    post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
-    TBoss7Tentacle__sub_803D9BA0((void *) (arg0 + 0x68));
+    scale_current_matrix((void *) (arg0 + 0x68));
     temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);
     temp_r4 = (unsigned char *) (M2C_FIELD(TBoss8Dragon__data_805D6988, void **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(temp_r4, s32 *, 0x28);
@@ -1505,7 +1505,7 @@ extern "C" {
 
 void copy_vectors__12TBoss8DragonFPv(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TBoss6Type1__sub_803D9370(void *, void *);
+void subtract_vector(void *, void *);
 
 struct VOff_802F4480_arg0 { char pad_0[0x410]; char f_410[1]; char pad_411[0xB]; char f_41C[1]; };
 
@@ -1513,7 +1513,7 @@ void copy_vectors__12TBoss8DragonFPv(void *arg0) {
     struct VOff_802F4480_arg0 *self = (struct VOff_802F4480_arg0 *)arg0;
     VecCopy__FP3VecPC3Vec(self->f_410, (void *)((char *)arg0 + 1004));
     VecCopy__FP3VecPC3Vec(self->f_41C, (void *)((char *)arg0 + 1016));
-    TBoss6Type1__sub_803D9370(self->f_41C, self->f_410);
+    subtract_vector(self->f_41C, self->f_410);
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 1064), (void *)((char *)arg0 + 1028));
 }
 
@@ -1626,8 +1626,8 @@ s32 mask_flags__12TBoss8DragonFiii(s32 arg1, s32 arg2, s32 arg3);
 s32 TBoss8Dragon__sub_802FC88C(void *);
 u32 get_player_by_client_id(s32);
 s32 check_flag_100__10TObjPlayerFPv();
-f32 TBoss8Dragon__sub_803D64C0(s32);
-f32 TBoss8Dragon__sub_803D64DC(s32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
 
 extern s32 lbl_805D53A0;
 
@@ -1644,8 +1644,8 @@ s32 mask_flags__12TBoss8DragonFiii(s32 arg1, s32 arg2, s32 arg3) {
 extern f32 lbl_805DEEB0;
 
 void calc_velocity_from_angle__12TBoss8DragonFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DEEB0 * TBoss8Dragon__sub_803D64C0(M2C_FIELD(arg0, s32 *, 0x758)));
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (lbl_805DEEB0 * TBoss8Dragon__sub_803D64DC(M2C_FIELD(arg0, s32 *, 0x758)));
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DEEB0 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x758)));
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (lbl_805DEEB0 * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x758)));
 }
 
 u8 check_attack_ready__12TBoss8DragonFPv(void *arg0) {

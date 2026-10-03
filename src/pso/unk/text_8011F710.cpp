@@ -106,11 +106,11 @@ s32 obj_getField1c(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
 s8 TObjPlayer__sub_80102C30();
 s8 get_slot_count__14TItemProShieldFPv(void *);
-M2C_UNK TObjPlayer__sub_8011C620(void *);
+M2C_UNK play_weapon_hit_sound(void *);
 M2C_UNK reset_status_block__10TObjPlayerFPv(void *);
 f32 get_attack_accuracy_scale(void *);
 M2C_UNK apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
-M2C_UNK TObjPlayer__sub_801CBF08(void *, int);
+M2C_UNK calc_photon_blast_charge__10TObjPlayerFv(void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
@@ -205,7 +205,7 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 a
                     M2C_FIELD(arg0, M2C_UNK (**)(s32, void *, s32, s32), 0x1F4)(tl_05, arg0, obj_getField1c((void *) (arg2)), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
-                TObjPlayer__sub_801CBF08((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (temp_r31_2));
+                calc_photon_blast_charge__10TObjPlayerFv((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (temp_r31_2));
                 temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
                 apply_camera_shake__10TObjPlayerFiii((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (void *) (arg2), (int) (temp_r31_2));
@@ -215,7 +215,7 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 a
                 stack.spC = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
                 stack.sp14 = (u8 *)(arg2);
                 stack.sp18 = arg4;
-                TObjPlayer__sub_8011C620((void *) (&stack.sp8));
+                play_weapon_hit_sound((void *) (&stack.sp8));
             }
         }
     }

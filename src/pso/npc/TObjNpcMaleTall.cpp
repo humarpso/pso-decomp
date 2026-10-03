@@ -98,7 +98,7 @@ struct RecoveredGlobal_8014C55C___vt__15TObjNpcMaleTall {
 };
 
 extern "C" {
-u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
+u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014C4B4_lbl_804AAA30 lbl_804AAA30;
 extern u32 TObjNpcMaleTall__data_805D5808;
@@ -138,7 +138,7 @@ void TObjNpcMaleTall__sub_8014C4B4(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 1, &lbl_804AAA30.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AAA30.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcMaleTall__data_805D5808) = var_r0;
 }

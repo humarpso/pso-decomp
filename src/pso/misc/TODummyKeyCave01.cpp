@@ -45,10 +45,10 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
 M2C_UNK rotate_matrix_y(s32, s32);
-M2C_UNK TObjPlayer__sub_803D9B2C();
+M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
-M2C_UNK TBoss7Tentacle__sub_803D9BA0(void *);
-M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_model(s32);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
@@ -78,10 +78,10 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
     if (((VObj_80165B50 *)arg0)->m8(lbl_805DB5D0, lbl_805DB5D4) != 0 && *(void **)(arg0 + 0x34) != NULL &&
         (v = *(u32 *)(arg0 + 0x24)) != 0) {
         notify_fish_if_valid__10TObjPlayerFUi(v);
-        TObjPlayer__sub_803D9B2C();
-        TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
         TBoss7Tentacle__sub_803D8A6C(0, *(s32 *)(arg0 + 0x5C), *(s32 *)(arg0 + 0x60), *(s32 *)(arg0 + 0x64));
-        TBoss7Tentacle__sub_803D9BA0(arg0 + 0x68);
+        scale_current_matrix(arg0 + 0x68);
         node = *(u8 **)(arg0 + 0x34);
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
@@ -95,12 +95,12 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         if (*(s32 *)(arg0 + 0xD0) != 0) {
             rotate_matrix_y(0, *(s32 *)(arg0 + 0xCC));
         } else {
-            TOHangerMachine01__sub_803D9C00(arg0 + 0xAC);
+            post_translate_matrix(arg0 + 0xAC);
         }
-        TOHangerMachine01__sub_803D9C00(node + 8);
+        post_translate_matrix(node + 8);
         draw_ginja_model(*(s32 *)(node + 4));
         node = *(u8 **)(node + 0x2C);
-        TOHangerMachine01__sub_803D9C00(node + 8);
+        post_translate_matrix(node + 8);
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
             set_chunk_material_color(lbl_804A7418);

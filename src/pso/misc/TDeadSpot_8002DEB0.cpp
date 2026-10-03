@@ -28,9 +28,9 @@ extern const f32 lbl_805D818C;
 f32 rand_signed_unit(void);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
-void TObjPlayer__sub_803D9B2C();
+void push_matrix();
 void pop_matrix();
-void TOHangerMachine01__sub_803D9C00(void *);
+void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(void *);
@@ -63,9 +63,9 @@ void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {
         some_id_805c6f74 = lbl_805D5660 | 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         set_chunk_material_color(&self->color);
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_param__8TObjFishFi(lbl_805D4B54);
-        TOHangerMachine01__sub_803D9C00(self->pos);
+        post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
         draw_chunk_object(lbl_805D4B50->ents[self->idx].id);
@@ -73,9 +73,9 @@ void TObjPlayer__sub_8002DF7C(Obj_8002DF7C *self) {
         set_chunk_material_override_pair(0xFF00, 0);
         some_id_805c6f74 = lbl_805D5660;
     } else {
-        TObjPlayer__sub_803D9B2C();
+        push_matrix();
         set_global_param__8TObjFishFi(lbl_805D4B54);
-        TOHangerMachine01__sub_803D9C00(self->pos);
+        post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
         draw_chunk_object(lbl_805D4B50->ents[self->idx].id);

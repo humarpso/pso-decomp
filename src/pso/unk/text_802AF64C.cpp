@@ -12,10 +12,10 @@ struct Cam_802AF64C { u8 pad[0x178]; Vec_802AF64C v178; u8 pad2[0x190 - 0x184]; 
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, void *);
+M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK TBoss7Tentacle__sub_803D8A6C(s32, s32, s32, s32);
 M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
-M2C_UNK TNpcPlayer__sub_803D97B4(void *);
+M2C_UNK normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
 M2C_UNK pop_matrix();
 extern Vec_802AF64C lbl_804707E8;
@@ -33,11 +33,11 @@ void fn_802AF64C(Obj_802AF64C *arg0) {
     TBoss7Tentacle__sub_803D8A6C(0, lbl_805D4DF0->a, lbl_805D4DF0->b, lbl_805D4DF0->c);
     rotate_vector_by_matrix(0, &v, &v);
     pop_matrix();
-    TNpcPlayer__sub_803D97B4(&v);
+    normalize_vector(&v);
     v.x *= lbl_805DE1F0;
     v.y *= lbl_805DE1F0;
     v.z *= lbl_805DE1F0;
-    TBoss4Zako__sub_803D8910(&v, &lbl_805D4DF0->v178);
+    vec3_add_to(&v, &lbl_805D4DF0->v178);
     VecCopy__FP3VecPC3Vec(&arg0->pos, &v);
     if (arg0->x90 != NULL) {
         copy_pos__11TNowLoadingFPvPv(arg0->x90, &arg0->pos);

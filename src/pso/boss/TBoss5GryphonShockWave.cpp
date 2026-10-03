@@ -17,8 +17,8 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
 void TBoss8Dragon__sub_80066A4C(void);
 void *__dt__22TBoss5GryphonShockWaveFv(void *arg0, s16 arg1);
 void render__22TBoss5GryphonShockWaveFv(void);
-M2C_UNK TBoss4Zako__sub_803D8910(void *, s32);
-M2C_UNK TBoss6Type1__sub_803D9370(void *, void *);
+M2C_UNK vec3_add_to(void *, s32);
+M2C_UNK subtract_vector(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -55,7 +55,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2818;
     VecCopy__FP3VecPC3Vec(arg0 + 0x40, arg3);
     VecCopy__FP3VecPC3Vec(arg0 + 0x50, arg3);
-    TBoss4Zako__sub_803D8910(arg0 + 0x50, arg5);
+    vec3_add_to(arg0 + 0x50, arg5);
     VecCopy__FP3VecPC3Vec(arg0 + 0x60, arg4);
     M2C_FIELD(arg0, f32 *, 0x64) = (f32) lbl_805D8EEC;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg0 + 0x40);
@@ -63,7 +63,7 @@ u8 *TBoss5GryphonShockWave__ct(u8 *arg0, u8 *arg1_parent, s32 arg2, u8 *arg3, u8
     M2C_FIELD(arg0, s32 *, 0x38) = arg2;
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x2C);
-    TBoss6Type1__sub_803D9370(sp8, arg4);
+    subtract_vector(sp8, arg4);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (lbl_805D8EF0 * update_scale__15TObjBoss2TunnelFPv(sp8));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x24) < 0x1E) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0x1E;

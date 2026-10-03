@@ -22,7 +22,7 @@ extern s32 lbl_805D6440;
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 u8 get_small_font_glyph_width(s32);
 s32 TWindowSubStatusDisp__sub_800FC248(s32);
-void TWindowSubStatusDisp__sub_800FC24C(s32, void *);
+void calc_plain_glyph_quad(s32, void *);
 void build_small_font_glyph_quad(s32, void *);
 void render_forward__20TWindowSubStatusDispFPv();
 void apply_context_transform_to_rect(s32, void *);
@@ -79,7 +79,7 @@ s32 TWindowSubStatusDisp__sub_8024FBB0(f32 *pos, const char *s, u32 color, f32 w
             q.x = x;
             q.y = y;
             if (lbl_805D6440 != 0) {
-                TWindowSubStatusDisp__sub_800FC24C(glyph, &q);
+                calc_plain_glyph_quad(glyph, &q);
             } else {
                 build_small_font_glyph_quad(glyph, &q);
             }
