@@ -36,6 +36,15 @@ struct Item_8010663C { u8 type; u8 sub; u8 pad2[0xE]; u32 id; };
 
 struct Tbl_8010663C { u8 pad[0x18]; s32 f18; u8 *chance; u8 *kind; };
 
+typedef s32 M2C_UNK;
+
+struct Tbl_80106FC8 {
+    u8 pad[0x28];
+    s32 levels;
+    s8 *kinds;
+    s32 types;
+};
+
 extern "C" {
 M2C_UNK clear_item_if_player_picked_up__9TItemDropFPvPv(void *, void *);
 M2C_UNK apply_drop_restrictions(void *, void *);
@@ -44,7 +53,6 @@ void handle_type3__9TItemDropFPvPv(void* p, void* a1);
 void apply_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 M2C_UNK TItemDrop__sub_80106D0C(s32, void *);
 void set_flag__9TItemDropFPvPv(void *arg0, void *arg1);
-M2C_UNK TItemDrop__sub_80106FC8(void *, void *, void *);
 s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2);
 void init_rare_item_data__9TItemDropFPvPv(void *arg0, void *arg1);
 void handle_type3__9TItemDropFPvPv(void* p, void* a1);
@@ -126,6 +134,17 @@ u16 TItemDrop__sub_801075B4(void *, s32, s32, s32, s32);
 M2C_UNK init__9TItemDataFv(void *);
 extern void *TItemDrop__data_805D5460;
 void select_enemy_drop__9TItemDropFPviiPv(u8 *self, s32 area, s32 idx, Item_8010663C *item);
+void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item);
+s32 TItemDrop__sub_80106A90(s32 arg0, s32 arg1, u8 *arg2);
+u8 TItemDrop__sub_80107790(s32 rng, s32 base, s32 off, s32 count, s32 stride);
+M2C_UNK init__9TItemDataFv(void *);
+extern void *TItemDrop__data_805D5460;
+void TItemDrop__sub_80106818(s32 arg0, s32 arg1, u8 *arg2);
+void TItemDrop__sub_80106F4C(void *self, Obj_80106F4C *o);
+u8 TItemDrop__sub_801076CC(s32 rng, s32 base, s32 off, M2C_UNK count, M2C_UNK stride);
+u8 TItemDrop__sub_80107790(s32 rng, s32 base, s32 off, s32 count, s32 stride);
+extern void *TItemDrop__data_805D5460;
+void TItemDrop__sub_80106FC8(s32 rng, Obj_80106F4C *item, s32 idx);
 }
 
 extern "C" {
@@ -261,6 +280,42 @@ void select_enemy_drop__9TItemDropFPviiPv(u8 *self, s32 area, s32 idx, Item_8010
     if (item->type != 4) {
         generate_drop_item__9TItemDropFPviPv(self, idx, (u8 *)item);
     }
+}
+
+void TItemDrop__sub_80106818(s32 arg0, s32 arg1, u8 *arg2) {
+    if (arg2 == NULL) {
+        return;
+    }
+    init__9TItemDataFv(arg2);
+    if (TItemDrop__sub_80106A90(arg0, arg1, arg2) != 0) {
+        return;
+    }
+    switch (TItemDrop__sub_80107790(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x50), arg1, 7, 0xA)) {
+    case 0:
+        arg2[0] = 0;
+        break;
+    case 1:
+        arg2[0] = 1;
+        arg2[1] = 1;
+        break;
+    case 2:
+        arg2[0] = 1;
+        arg2[1] = 2;
+        break;
+    case 3:
+        arg2[0] = 1;
+        arg2[1] = 3;
+        break;
+    case 4:
+        arg2[0] = 3;
+        break;
+    case 5:
+        arg2[0] = 4;
+        break;
+    default:
+        return;
+    }
+    generate_drop_item__9TItemDropFPviPv((u8 *)arg0, arg1, arg2);
 }
 
 void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item) {
@@ -412,6 +467,21 @@ struct Tbl_801070A4 {
     s32 types;
 };
 
+void TItemDrop__sub_80106FC8(s32 rng, Obj_80106F4C *item, s32 idx) {
+    s32 i;
+    if (item->pad[0] == 0) {
+        for (i = 0; i != 3; i++) {
+            item->e[i].type = TItemDrop__sub_80107790(rng, ((Tbl_80106FC8 *)TItemDrop__data_805D5460)->types, idx, 6, 10);
+            item->e[i].level = (s8)TItemDrop__sub_801076CC(rng, ((Tbl_80106FC8 *)TItemDrop__data_805D5460)->levels, 5, 0x17, 6) * 5 - 10;
+            if (item->e[i].type == 5) {
+                item->e[i].level = (s8)item->e[i].level / 5;
+                item->e[i].level = item->e[i].level * 5;
+            }
+        }
+        TItemDrop__sub_80106F4C((void *)rng, item);
+    }
+}
+
 void TItemDrop__sub_801070A4(s32 rng, Obj_80106F4C *item, s32 idx) {
     s32 i;
     s32 kind[1];
@@ -481,7 +551,7 @@ s32 TItemDrop__sub_80107460(s32 arg0, u8 *arg1, u8 *arg2) {
                 switch ((s32) temp_r0) {
                 case 0:
                     tmp = TItemDrop__sub_801065F8((u8 *)((void *) (arg0)), (M2C_UNK)((int) (0xA)), (u32)((int) (7)));
-                    TItemDrop__sub_80106FC8((void *) (arg0), (void *) (arg2), (void *) (tmp));
+                    TItemDrop__sub_80106FC8((s32)((void *) (arg0)), (Obj_80106F4C *)((void *) (arg2)), (s32)((void *) (tmp)));
                     set_flag__9TItemDropFPvPv((void *) (arg0), (void *) (arg2));
                     break;
                 case 1:

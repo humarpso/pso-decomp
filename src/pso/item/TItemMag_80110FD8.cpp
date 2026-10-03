@@ -8,6 +8,14 @@ struct TItemMag_80111140 { u8 pad[0x1bd]; u8 a[4]; u8 b[4]; };
 
 struct TItemMag_80111758 { u8 pad[0x1a8]; void *subs[2]; };
 
+struct TItemMag_801112B8 {
+    u8 pad0[0x18C];
+    s32 f18C;
+    u8 pad190[0x1A8 - 0x190];
+    u8 *objs[2];
+    s8 *types[2];
+};
+
 extern "C" {
 M2C_UNK try_add_action__8TItemMagFii(void *, int);
 M2C_UNK apply_form_change__8TItemMagFPv(void *);
@@ -21,12 +29,13 @@ void TItemMag__sub_80111140(TItemMag_80111140 *self, void *a, void *b);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 void set_flag_4__9TObjLukerFPv(void *);
 void TItemMag__sub_80111758(TItemMag_80111758 *self, s32 on);
+void set_type__8TItemMagFPvi(u8 *arg0, s32 arg1);
+void TItemMag__sub_801112B8(TItemMag_801112B8 *self);
 }
 
 extern "C" {
 
 int TItemMag__sub_801112B0(void);
-int TItemMag__sub_801112B8(void);
 s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1);
 s32 rand();
 
@@ -136,7 +145,24 @@ void TItemMag__sub_80111188(u8 *arg0, u8 arg1) {
 
 int TItemMag__sub_801112B0(void) { return 0; }
 
-int TItemMag__sub_801112B8(void) { return 0; }
+void TItemMag__sub_801112B8(TItemMag_801112B8 *self) {
+    s32 i;
+    u8 *o;
+    s16 lv;
+    for (i = 0; i != 2; i++) {
+        o = self->objs[i];
+        if (o != NULL) {
+            lv = self->f18C & 0xF;
+            if (lv > 0 && lv < 6) {
+                set_type__8TItemMagFPvi(o, self->types[i][lv - 1]);
+            } else if (lv >= 6 && lv < 8) {
+                set_type__8TItemMagFPvi(o, self->types[i][5]);
+            } else if (lv == 8) {
+                set_type__8TItemMagFPvi(o, self->types[i][3]);
+            }
+        }
+    }
+}
 
 void TItemMag__sub_80111758(TItemMag_80111758 *self, s32 on) {
     s32 i;

@@ -92,6 +92,10 @@ extern f32 TItemData__data_805DAB70;
 extern f32 TItemData__data_805DAB78;
 extern const f32 lbl_805DAB7C;
 f32 get_armor_set_multiplier__9TItemDataFPvPv(u8 *arg0, u8 *arg1);
+s16 get_field6_bswap__9TItemDataFPv(void *arg0);
+s16 get_bswap16_field8__9TItemDataFPv(void *arg0);
+s16 getS16_06__9TItemDataFPv(void *arg0);
+s32 TItemData__sub_8010CEF4(TItemData_8010E344 *item);
 }
 
 extern "C" {
@@ -177,6 +181,47 @@ s16 get_technique_level__9TItemDataFPv(void *arg0) {
         if (temp_r3 != NULL) {
             return M2C_FIELD(temp_r3, s16 *, 0x14);
         }
+    }
+    return 0;
+}
+
+s32 TItemData__sub_8010CEF4(TItemData_8010E344 *item) {
+    s32 i;
+    switch (item->data[0]) {
+    case 0:
+        for (i = 0; i < 3; i++) {
+            if (item->stats[i].a != 0) {
+                return 1;
+            }
+        }
+        break;
+    case 1:
+        switch (item->data[1]) {
+        case 1:
+            if (item->data[5] != 0) {
+                return 1;
+            }
+        case 2:
+            if (getS16_06__9TItemDataFPv(item) > 0 || get_bswap16_field8__9TItemDataFPv(item) > 0) {
+                return 1;
+            }
+            break;
+        case 3:
+            if (((s16 (*)(void))get_field6_bswap__9TItemDataFPv)() > 0) {
+                return 1;
+            }
+            break;
+        }
+        break;
+    case 2:
+        switch (item->data[1]) {
+        case 0x1D:
+        case 0x21:
+        case 0x22:
+        case 0x27:
+            return 1;
+        }
+        break;
     }
     return 0;
 }

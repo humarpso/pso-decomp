@@ -138,6 +138,16 @@ typedef struct TItemMagSub_80114F0C {
     f32 animation_frame;
 } TItemMagSub_80114F0C;
 
+struct Feed_80114AB4 { u8 data[8]; };
+
+struct TItemMagSub_80114AB4 {
+    u8 pad0[0x6C];
+    s32 idx;
+    s32 ids[(0xB8 - 0x70) / 4];
+    u8 colorB8[0xCC - 0xB8];
+    Feed_80114AB4 feeds[2];
+};
+
 extern "C" {
 s32 obj_isState7_324(void *);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
@@ -156,7 +166,6 @@ extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
 s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1);
 extern void *TItemMagSub__data_805D54B8;
 extern s32 TItemMagSub__data_805D54BC;
-void TItemMagSub__sub_80114AB4(void *a, void *b);
 void TItemMagSub__sub_80114C40(void *arg);
 void TItemMagSub__sub_80114CD8(Vec_80114CD8 *target, Vec_80114CD8 *cur, f32 *t);
 void TItemMagSub__sub_80115334(void *);
@@ -247,6 +256,26 @@ void TItemMagSub__sub_80115334(void *);
 extern const f32 TItemMagSub__data_805DABC8;
 extern const f32 TItemMagSub__data_805DABD8;
 void TItemMagSub__vt1(u8 *arg0);
+void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+M2C_UNK set_flags64__8TItemMagFPvUi(void *, int);
+u32 test_feed_flags__11TItemMagSubFPvUi(void *, u32);
+s32 is_level_maxed__11TItemMagSubFPv(Feed_80114AB4 *);
+M2C_UNK clear_flags64__11TItemMagSubFPvUi(void *, M2C_UNK);
+s32 fn_80115948(Feed_80114AB4 *);
+s32 fn_80115954(Feed_80114AB4 *);
+s32 calc_scaled_value__11TItemMagSubFPv(Feed_80114AB4 *);
+s32 TItemMagSub__sub_801159A4(Feed_80114AB4 *);
+s32 TItemMagSub__sub_801159B0(Feed_80114AB4 *);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+void end_effect_render__13TParticleCtrlFv();
+M2C_UNK rotate_matrix_y(int, void *);
+M2C_UNK rotate_matrix_z(int, int);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK set_chunk_material_color(void *);
+extern f32 lbl_8058D4C0[4], lbl_8050BEC0[4];
+extern s32 TItemMagSub__data_805D54BC;
+extern u32 some_id_805c6f74, lbl_805D5660;
+void TItemMagSub__sub_80114AB4(TItemMagSub_80114AB4 *self, void * _w1);
 }
 
 extern "C" {
@@ -281,9 +310,42 @@ void reset_stats__11TItemMagSubFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) TItemMagSub__data_805DABC8;
 }
 
+void TItemMagSub__sub_80114AB4(TItemMagSub_80114AB4 *self, void * _w1) {
+    s32 i;
+    Feed_80114AB4 *f;
+    for (i = 0; i != 2; i++) {
+        f = &self->feeds[i];
+        if (is_level_maxed__11TItemMagSubFPv(f) == 0 && TItemMagSub__data_805D54BC == TItemMagSub__sub_801159B0(f)) {
+            if (TItemMagSub__sub_801159A4(f) != 0) {
+                rotate_matrix_x(0, calc_scaled_value__11TItemMagSubFPv(f));
+            } else if (fn_80115954(f) != 0) {
+                rotate_matrix_y(0, (void *)calc_scaled_value__11TItemMagSubFPv(f));
+            } else if (fn_80115948(f) != 0) {
+                rotate_matrix_z(0, calc_scaled_value__11TItemMagSubFPv(f));
+            }
+        }
+    }
+    if (TItemMagSub__data_805D54BC == self->ids[self->idx]) {
+        if (test_feed_flags__11TItemMagSubFPvUi(self, 0x20) == 0) {
+            some_id_805c6f74 |= 0x10;
+            set_chunk_material_color(self->colorB8);
+            begin_effect_render__13TParticleCtrlFv();
+            set_flags64__8TItemMagFPvUi(self, 0x20);
+        }
+        if (self->idx != 2) {
+            self->idx++;
+        }
+    } else if (test_feed_flags__11TItemMagSubFPvUi(self, 0x20) != 0) {
+        end_effect_render__13TParticleCtrlFv();
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+        some_id_805c6f74 = lbl_805D5660;
+        clear_flags64__11TItemMagSubFPvUi(self, 0x20);
+    }
+}
+
 void TItemMagSub__sub_80114C40(void *arg) {
     if (TItemMagSub__data_805D54B8 != 0) {
-        TItemMagSub__sub_80114AB4(TItemMagSub__data_805D54B8, arg);
+        TItemMagSub__sub_80114AB4((TItemMagSub_80114AB4 *)(TItemMagSub__data_805D54B8), (void *)(arg));
         TItemMagSub__data_805D54BC++;
     }
 }
