@@ -108,6 +108,19 @@ extern const f32 TObjPlayer__data_805DC28C;
 extern const f32 lbl_805DC298;
 extern const f32 lbl_805DC29C;
 void TObjPlayer__sub_801B5FB0(P_801B5FB0 *p);
+s32 get_position_ptr__10TObjPlayerFPv(s32);
+s32 TLobby__sub_800822E8(void *, M2C_UNK);
+u16 get_id__11TMainCursorFPv(s32);
+s32 fn_8013F264(s32);
+s32 find_entity_by_id(u16);
+s32 is_flag_400_set__10TObjPlayerFPv();
+M2C_UNK get_field_340__18TChallenge4PResultFPv(void *, M2C_UNK);
+int check_flag_100__10TObjPlayerFPv(void* p);
+void TObjPlayer__sub_801B5A44(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+s32 can_pickup_item_by_id__10TObjPlayerFii(void *, s32);
+M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 check_action_usable__10TObjPlayerFPvi(void *, M2C_UNK);
+void select_contextual_pickup_action__10TObjPlayerFv(u8 *arg0);
 }
 
 extern "C" {
@@ -269,6 +282,51 @@ s32 refresh_effect__10TObjPlayerFi(s32 arg0) {
         return fn_801C1E48(arg0 + 0x500);
     }
     return fn_801C1E44(arg0 + 0x500);
+}
+
+#define FLAG400_801B5BCC(p) (((s32 (*)(void *))is_flag_400_set__10TObjPlayerFPv)(p))
+void select_contextual_pickup_action__10TObjPlayerFv(u8 *arg0) {
+    s32 type;
+    s32 cursor;
+    s32 ent;
+    u32 obj;
+    obj = M2C_FIELD(arg0, u32 *, 0x424);
+    if (obj != 0U) {
+        cursor = obj + 0x4F8;
+        type = 0;
+        if (get_id__11TMainCursorFPv(cursor) != 0xFFFF) {
+            ent = find_entity_by_id(get_id__11TMainCursorFPv(cursor));
+            if (ent != 0) {
+                type = fn_8013F264(ent);
+                if (type != 0) {
+                    switch (type) {
+                    case 4:
+                        if (TLobby__sub_800822E8(arg0, 0xE0) != 0) {
+                            type = 0;
+                        } else {
+                            s32 item = find_entity_by_id(get_id__11TMainCursorFPv(cursor));
+                            if (can_pickup_item_by_id__10TObjPlayerFii(arg0, item) != 0) {
+                                if (FLAG400_801B5BCC(arg0) != 0) {
+                                    get_field_340__18TChallenge4PResultFPv(arg0, 1);
+                                }
+                            } else {
+                                type = 0;
+                                if (check_flag_100__10TObjPlayerFPv(arg0) == 0 && check_action_usable__10TObjPlayerFPvi(arg0 + 0x550, 4) != 0) {
+                                    play_sound_effect(0x3816, get_position_ptr__10TObjPlayerFPv(ent), 0, 1);
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+        if (type == 0 && FLAG400_801B5BCC(arg0) != 0) {
+            type = 2;
+        }
+        ((void (*)(void *, s32, s32, s32, u16))TObjPlayer__sub_801B5A44)(arg0, 0, 0, 0, type);
+        ((void (*)(void *, s32, s32, s32, u16))TObjPlayer__sub_801B5A44)(arg0, 0, 1, 0, type);
+    }
 }
 
 void update_ground_contact__10TObjPlayerFi(s32 arg0) {

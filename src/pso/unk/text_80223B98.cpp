@@ -34,6 +34,20 @@ struct Ent_80223EE0 { u8 kind; u8 a; u8 b; };
 
 struct Obj_80223EE0 { u8 pad[2]; s8 lv; };
 
+struct RecoveredGlobal_80224404_lbl_80513F20;
+struct Obj_80223EE0;
+struct Ent_8022403C { u8 id; u8 n; };
+
+struct Tbl_8022403C { u8 pad[8]; Ent_8022403C *base; u8 count; };
+
+struct Ctr_8022403C { u8 buf[0x74]; };
+
+struct Ent_80224190 { u8 id; u8 n; };
+
+struct Tbl_80224190 { Ent_80224190 *base; u8 count; };
+
+struct Ctr_80224190 { u8 buf[0x74]; };
+
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
 void TLobby__sub_80224404(s32 arg0, s32 arg1, s32 arg2);
@@ -56,6 +70,37 @@ s32 rand();
 extern Tbl_802242F8 **lbl_805D6260;
 extern s32 lbl_805D6264;
 void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1);
+s32 fn_80223B98(s32 arg0);
+s32 TLobby__sub_80223D48(s32 arg0);
+void reset_counter_64__6TLobbyFPv(void *);
+void push_shop_pool_entry(void *, u8);
+void TLobby__sub_8020EEFC(void *, s32);
+s32 pop_byte__6TLobbyFPv(void *);
+void init__9TItemDataFv(void *);
+void copy_item_data__6TLobbyFPvPv(void *, void *);
+void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1);
+s32 TLobby__sub_80223DD8(Item_802242F8 *, s32);
+extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
+extern s32 lbl_80513EF0[];
+extern s32 lbl_8044C418[];
+extern Tbl_802242F8 **lbl_805D6260;
+extern s32 lbl_805D6264;
+void generate_shop_technique_pool(s32 arg0);
+s32 fn_80223C28(s32 arg0);
+s32 TLobby__sub_80223D48(s32 arg0);
+void reset_counter_64__6TLobbyFPv(void *);
+void push_shop_pool_entry(void *, u8);
+void TLobby__sub_8020EEFC(void *, s32);
+s32 pop_byte__6TLobbyFPv(void *);
+void init__9TItemDataFv(void *);
+void copy_item_data__6TLobbyFPvPv(void *, void *);
+s32 TLobby__sub_80223E64(Item_802242F8 *, s32);
+extern RecoveredGlobal_80224404_lbl_80513F20 lbl_80513F20;
+extern s32 lbl_80513EF0[];
+extern Pair_802242F8 lbl_8044C398[];
+extern Tbl_802242F8 **lbl_805D6260;
+extern s32 lbl_805D6264;
+void generate_shop_rare_tool_pool(s32 arg0);
 }
 
 extern "C" {
@@ -195,6 +240,103 @@ void TLobby__sub_80223EE0(Obj_80223EE0 *arg0, s32 arg1) {
         arg0->lv = v;
         break;
     }
+    }
+}
+
+void generate_shop_technique_pool(s32 arg0) {
+    Item_802242F8 it;
+    Ctr_8022403C ctr;
+    Ent_8022403C *e;
+    s32 n;
+    Item_802242F8 *arr;
+    Tbl_8022403C *t;
+    s32 i;
+    s32 c;
+    u8 k;
+    arr = ((Item_802242F8 **)&lbl_80513F20)[arg0];
+    n = fn_80223B98(lbl_805D6264);
+    if (n > 0) {
+        reset_counter_64__6TLobbyFPv(&ctr);
+        i = TLobby__sub_80223D48(lbl_805D6264);
+        t = ((Tbl_8022403C **)lbl_805D6260)[1];
+        e = &t->base[i * t->count];
+        c = 0;
+        while (c++ < t->count) {
+            k = e->n;
+            while (k-- != 0) {
+                push_shop_pool_entry(&ctr, e->id);
+            }
+            e++;
+        }
+        TLobby__sub_8020EEFC(&ctr, 5);
+        i = 0;
+        while (i < n) {
+            s32 b = pop_byte__6TLobbyFPv(&ctr);
+            if (b != -1) {
+                init__9TItemDataFv(&it);
+                it.b[0] = 3;
+                it.b[1] = 2;
+                it.b[4] = lbl_8044C418[b];
+                TLobby__sub_80223EE0((Obj_80223EE0 *)&it, b);
+                if (TLobby__sub_80223DD8(&it, arg0) == 1) {
+                    copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
+                    i++;
+                }
+            }
+        }
+    }
+}
+
+void generate_shop_rare_tool_pool(s32 arg0) {
+    Item_802242F8 it;
+    Ctr_80224190 ctr;
+    Tbl_80224190 *t;
+    s32 j;
+    Item_802242F8 *arr;
+    s32 n;
+    Ent_80224190 *e;
+    s32 orig;
+    s32 i;
+    s32 b;
+    s32 c;
+    u8 k;
+    arr = ((Item_802242F8 **)&lbl_80513F20)[arg0];
+    n = fn_80223C28(lbl_805D6264);
+    if (n > 0) {
+        reset_counter_64__6TLobbyFPv(&ctr);
+        i = TLobby__sub_80223D48(lbl_805D6264);
+        t = ((Tbl_80224190 **)lbl_805D6260)[1];
+        e = &t->base[i * t->count];
+        c = 0;
+        while (c++ < t->count) {
+            k = e->n;
+            while (k-- != 0) {
+                push_shop_pool_entry(&ctr, e->id);
+            }
+            e++;
+        }
+        TLobby__sub_8020EEFC(&ctr, 8);
+        {
+            orig = n;
+            j = 0;
+            while (n > j) {
+                b = pop_byte__6TLobbyFPv(&ctr);
+                if (b == 0xF) {
+                    if (orig == n) {
+                        n--;
+                    }
+                } else if (b != -1) {
+                    init__9TItemDataFv(&it);
+                    it.b[0] = 3;
+                    it.b[1] = lbl_8044C398[b].a;
+                    it.b[2] = lbl_8044C398[b].b;
+                    if (TLobby__sub_80223E64(&it, arg0) == 1) {
+                        copy_item_data__6TLobbyFPvPv(&arr[lbl_80513EF0[arg0]++], &it);
+                        j++;
+                    }
+                }
+            }
+        }
     }
 }
 

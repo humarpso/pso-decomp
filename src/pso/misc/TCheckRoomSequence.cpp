@@ -106,6 +106,11 @@ struct Win_8020F8C0 { u8 pad[0x394]; void *cb0; void *cb1; };
 
 struct Vec2_80210198 { f32 x; f32 y; };
 
+struct Seq_80210754 {
+    s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[8]; s32 f24; s32 f28; s32 f2c; s32 f30;
+    s32 f34, f38, f3c, f40, f44, f48;
+};
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
@@ -319,6 +324,14 @@ s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC634;
 extern const f32 lbl_805DC638;
 void open_bank__18TCheckRoomSequenceFv(u8 *arg0);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+u8 *TShopSequence__ct(u8 *arg0);
+int TShopWindowBase__sub_8022397C(void*);
+extern u8 __vt__18TCheckRoomSequence[];
+extern s32 TCheckRoomSequence__data_80513DB8[];
+extern s32 lbl_805D3640;
+extern s32 TCheckRoomSequence__data_805D616C;
+void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_);
 }
 
 extern "C" {
@@ -839,6 +852,28 @@ void open_bank__18TCheckRoomSequenceFv(u8 *arg0) {
 #pragma pop
 
 void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); TShopWindowBase__sub_8022397C(p); TCheckRoomSequence__sub_80211210(); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
+
+#define self ((Seq_80210754 *)arg0)
+void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_) {
+    s32 arg2 = arg2_;
+    TShopSequence__ct((u8 *)arg0);
+    self->vt = __vt__18TCheckRoomSequence;
+    self->f0 = lbl_805D3640;
+    self->f24 = arg2;
+    self->f34 = 0;
+    self->f38 = 0;
+    self->f3c = 0;
+    self->f40 = 0;
+    self->f44 = 0;
+    self->f48 = 0;
+    self->f2c = 0;
+    set_field_20__12TQuestListVMFPvi(arg0, 0);
+    TCheckRoomSequence__data_805D616C = (s32)arg0;
+    self->f30 = 0;
+    TCheckRoomSequence__data_80513DB8[TShopWindowBase__sub_8022397C(arg0)] = 1;
+    return arg0;
+}
+#undef self
 
 #pragma push
 #pragma optimization_level 1
