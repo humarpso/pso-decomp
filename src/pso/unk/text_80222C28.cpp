@@ -19,7 +19,7 @@ struct RecoveredGlobal_80222CBC_lbl_8044C308
 extern "C" {
 extern s32 lbl_805D36F0;
 extern s32 **lbl_805D6258;
-s32 TLobby__sub_80222CFC(s32 arg0);
+s32 get_shop_text(s32 arg0);
 extern s32 lbl_805D36F0;
 extern s32 **lbl_805D6258;
 s32 TLobby__sub_80222C28(s32 arg0, s32 arg1);
@@ -66,7 +66,7 @@ s32 TLobby__sub_80222CBC(s32 arg0) {
   return lbl_805D36F0;
 }
 
-s32 TLobby__sub_80222CFC(s32 arg0) {
+s32 get_shop_text(s32 arg0) {
     if ((s32 **) lbl_805D6258 != NULL) {
         return M2C_FIELD(**lbl_805D6258, M2C_UNK *, (arg0 * 4));
     }

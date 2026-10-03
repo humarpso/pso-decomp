@@ -114,7 +114,7 @@ extern s32 lbl_805D53A0;
 extern s8 lbl_805D6279;
 extern int lbl_805D62B0;
 extern const f32 lbl_805DC74C;
-void TLobby__sub_802269B4(void);
+void update_sound_request_slots(void);
 }
 
 extern "C" {
@@ -124,7 +124,7 @@ int TLobby__sub_8022644C(void);
 
 void update_lobby_subsystems__6TLobbyFv(void) { TLobby__sub_8022644C(); TLobby__sub_80227248(); }
 
-void TLobby__sub_802269B4(void) {
+void update_sound_request_slots(void) {
     s32 i;
     s32 r;
     u32 p;

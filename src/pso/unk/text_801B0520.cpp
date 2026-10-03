@@ -26,13 +26,13 @@ void *TLobby__sub_8001DC24();
 int TLobby__sub_801C19D0(void*);
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK init_all__11TWindowCtrlFPvPv(void *, M2C_UNK);
 
 extern M2C_UNK lbl_805DC27C;
 
 void draw_status_line(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2, s32 arg3) {
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append(arg1);
     text_builder_append(arg2);
     text_builder_append(&lbl_805DC27C);

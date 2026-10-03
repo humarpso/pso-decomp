@@ -94,7 +94,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
 s32 get_child_field1c__15TShopWindowBaseFPv(void *);
 s32 fn_8026934C(s32);
-s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
+s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC680;
 extern const f32 lbl_805DC684;
@@ -195,7 +195,7 @@ void TJudgmentSequence__sub_80215DA0(u8 *arg0) {
   PSO_VCALL_VObj_18_4a2792_m6(arg0, 1, 1);
   *((s32 *) (((s8 *) arg0) + 0x2C)) = fn_8026934C(((s32) get_child_field1c__15TShopWindowBaseFPv(arg0)) & 0xFFFF);
   set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));
-  *((s32 *) (((s8 *) arg0) + 0x30)) = THunterGuildSeqOffline__sub_8022350C((void *) arg0, (int) 2);
+  *((s32 *) (((s8 *) arg0) + 0x30)) = set_service_counter_camera((void *) arg0, (int) 2);
 }
 
 void TJudgmentSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }

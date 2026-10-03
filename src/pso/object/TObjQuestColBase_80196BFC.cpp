@@ -87,7 +87,7 @@ struct RecoveredFields_80196DB4_arg0
 
 extern "C" {
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void TObjQuestColBase__sub_80196CC8(u8 *arg0);
+void run_task__16TObjQuestColBaseFPv(u8 *arg0);
 u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
@@ -135,7 +135,7 @@ void TObjQuestColBase__sub_80196C60(u8 *arg0) {
 }
 
 void TObjQuestColBase__sub_80196CC4(void) {  }
-void TObjQuestColBase__sub_80196CC8(u8 *arg0) {
+void run_task__16TObjQuestColBaseFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB8));
     if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0)) {

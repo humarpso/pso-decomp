@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void *create_named_object(const char *name);
-void *TLanguage__sub_801E4874(const char *name);
+void *load_gvm_texture_file(const char *name);
 extern u32 TObjNpcNFM00__data_805D5810;
 extern u32 TObjNpcNFM00__data_805D5814;
 extern char lbl_8043FD20[];
@@ -91,7 +91,7 @@ void free_resources__12TObjNpcNFM00Fv(void) {
 }
 void TObjNpcNFM00__sub_8014C940(void) {
     TObjNpcNFM00__data_805D5810 = (u32)create_named_object(lbl_8043FD20);
-    TObjNpcNFM00__data_805D5814 = (u32)TLanguage__sub_801E4874(lbl_8043FD34);
+    TObjNpcNFM00__data_805D5814 = (u32)load_gvm_texture_file(lbl_8043FD34);
 }
 
 }

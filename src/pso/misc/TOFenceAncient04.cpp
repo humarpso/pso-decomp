@@ -133,7 +133,7 @@ u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 Big_8016775C *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 Buf_8016775C *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern u8 lbl_804416A8[];
 extern u8 lbl_804416C0[];
 extern u8 lbl_804416D8[];
@@ -224,9 +224,9 @@ void TOFenceAncient04__sub_8016775C(void) {
     (*(Big_8016775C * *)&lbl_805D59C8) = v;
     (*(Buf_8016775C * *)&lbl_805D59CC) = alloc_buffer__11TOBoss4RockFPv(0x10);
     (*(Buf_8016775C * *)&lbl_805D59CC)->a = (*(Big_8016775C * *)&lbl_805D59C8)->p->f0C;
-    (*(Buf_8016775C * *)&lbl_805D59CC)->b = TLanguage__sub_801E4874(lbl_804416A8);
-    (*(Buf_8016775C * *)&lbl_805D59CC)->c = TLanguage__sub_801E4874(lbl_804416C0);
-    (*(Buf_8016775C * *)&lbl_805D59CC)->d = TLanguage__sub_801E4874(lbl_804416D8);
+    (*(Buf_8016775C * *)&lbl_805D59CC)->b = load_gvm_texture_file(lbl_804416A8);
+    (*(Buf_8016775C * *)&lbl_805D59CC)->c = load_gvm_texture_file(lbl_804416C0);
+    (*(Buf_8016775C * *)&lbl_805D59CC)->d = load_gvm_texture_file(lbl_804416D8);
 }
 
 void *__dt__16TOFenceAncient04Fv(void *arg0, s16 arg1) {

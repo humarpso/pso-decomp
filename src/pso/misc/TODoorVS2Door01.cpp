@@ -53,7 +53,7 @@ void TODoorVS2Door01__vt14(u8 *arg0);
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
 extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B17E0;
 extern u32 lbl_805D5988;
@@ -198,7 +198,7 @@ void TODoorVS2Door01__sub_80164254(void) {
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
     TODoorVS2Door01__data_805D598C = temp_r3_2;
     M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5988), u8 **, 0x42C), s32 *, 0xC);
-    *TODoorVS2Door01__data_805D598C = TLanguage__sub_801E4874((void *) (&lbl_804410E0.value));
+    *TODoorVS2Door01__data_805D598C = load_gvm_texture_file((void *) (&lbl_804410E0.value));
 }
 
 void *__dt__15TODoorVS2Door01Fv(void *arg0, s16 arg1) {

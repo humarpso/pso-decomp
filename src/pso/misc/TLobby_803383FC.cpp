@@ -59,7 +59,7 @@ extern "C" {
 void TWindowSubStatusDisp__sub_803386F0(void);
 void handle_flag2_request__6TLobbyFv(void);
 void load_info_icon(void);
-int TLanguage__sub_801E4874(void*);
+int load_gvm_texture_file(void*);
 M2C_UNK TLobby__sub_803DA16C(M2C_UNK *);
 int free_if_valid__10TObjPlayerFi(void*);
 
@@ -182,6 +182,6 @@ void TWindowSubStatusDisp__sub_803386F0(void) { free_if_valid__10TObjPlayerFi((v
 
     extern unsigned char lbl_80477BD4[];
     extern int lbl_805D6D5C;
-void load_info_icon(void) { lbl_805D6D5C = TLanguage__sub_801E4874(lbl_80477BD4); }
+void load_info_icon(void) { lbl_805D6D5C = load_gvm_texture_file(lbl_80477BD4); }
 
 }

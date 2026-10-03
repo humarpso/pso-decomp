@@ -65,7 +65,7 @@ s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 s32 render_tick__Fv();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK func_803DCDFC__Fv();
 extern V3_8013F5E8 lbl_8043F150;
 extern V3_8013F5E8 lbl_8043F15C;
@@ -229,7 +229,7 @@ void TLogo__sub_8013F5E8(void) {
     main_task.render();
     main_task.render_screen_overlay();
     TLobby__sub_800FA464();
-    TLobby__sub_802269B4();
+    update_sound_request_slots();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();
     }

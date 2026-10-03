@@ -24,7 +24,7 @@ extern "C" {
 int check_flag_100__10TObjPlayerFPv(void *);
 f32 xz_distance_squared(void *, void *);
 u32 get_player_by_client_id(u16);
-u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0);
+u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0);
 void TObjPlayer__sub_801569F4(Warp_8019DAC0 *, void *, void *);
 void *TTecLuker__sub_80233D18(void *, void *, Warp_8019DAC0 *, s32);
 void *__nw__7TObjectFUl(u32);
@@ -73,7 +73,7 @@ void TObjWarpBase__vt12(void *arg0) {
 
 extern M2C_UNK __vt__12TObjWarpBase[];
 
-u8 *TObjWarpBase__sub_8019D9CC(s32 arg0, short arg1, f32 farg0) {
+u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
   u8 *temp_r3;
   temp_r3 = (u8 *) ((u8 *)get_player_by_client_id(arg1));
   if ((temp_r3 != 0) && (xz_distance_squared((void *) (arg0 + 0x38), (void *) (temp_r3 + 0x38)) < (farg0 * farg0)))

@@ -149,7 +149,7 @@ void TObjContainerItem__vt79(struct Box_80189A50 *self);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK TObjChip__sub_80180BD4(void *, void *, void *);
-M2C_UNK TBoss3Volopt__sub_80189CC0(void *);
+M2C_UNK play_container_break_sound(void *);
 s32 get_container_param(int);
 void *__nw__7TObjectFUl(int);
 extern s32 lbl_805D5B7C;
@@ -268,7 +268,7 @@ void TObjContainerItem__vt77(Obj_8018990C *self) {
         if (o != NULL) {
             TObjChip__sub_80180BD4(o, tl_05, &b);
         }
-        TBoss3Volopt__sub_80189CC0(self);
+        play_container_break_sound(self);
     }
 }
 

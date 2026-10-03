@@ -67,8 +67,8 @@ void TWindowFukidasi__sub_8025291C(u8 *arg0);
 f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 View_80252764 *TWindowSubStatusDisp__sub_80244364(void *);
-void TWindowFukidasi__sub_802504C0(Fuki_802504C0 *);
-void TWindowFukidasi__sub_80251028(void *);
+void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *);
+void refresh_rect_placement__15TWindowFukidasiFPv(void *);
 s32 TWindowFukidasi__sub_802511E4(Fuki_80250F70 *, f32 *, f32 *);
 void TWindowFukidasi__sub_80251594(void *);
 void TWindowFukidasi__sub_80251EC8(void *, View_80252764 *, u32);
@@ -209,22 +209,22 @@ void render__15TWindowFukidasiFPv(Fuki_80252764 *b) {
     switch (b->phase) {
     case 0:
         TWindowFukidasi__sub_802511E4((Fuki_80250F70 *)b, NULL, b->head);
-        TWindowFukidasi__sub_802504C0((Fuki_802504C0 *)b);
+        place_rect_at_head_or_slot__15TWindowFukidasiFPv((Fuki_802504C0 *)b);
         b->center[0] = TWindowFukidasi__data_805DCD0C * b->anchor[0] + b->rect[0];
         b->center[1] = TWindowFukidasi__data_805DCD0C * b->anchor[1] + b->rect[1];
         b->phase = 1;
         break;
     case 2:
-        TWindowFukidasi__sub_80251028(b);
+        refresh_rect_placement__15TWindowFukidasiFPv(b);
         break;
     case 4:
-        TWindowFukidasi__sub_80251028(b);
+        refresh_rect_placement__15TWindowFukidasiFPv(b);
         break;
     case 6:
-        TWindowFukidasi__sub_80251028(b);
+        refresh_rect_placement__15TWindowFukidasiFPv(b);
         break;
     case 8:
-        TWindowFukidasi__sub_802504C0((Fuki_802504C0 *)b);
+        place_rect_at_head_or_slot__15TWindowFukidasiFPv((Fuki_802504C0 *)b);
         break;
     case 9:
         break;

@@ -18,12 +18,12 @@ void reset_ending_state__14TBoss6PlotFalzFPv(void* p);
 M2C_UNK TBoss6PlotFalz__sub_802AB490(void *);
 M2C_UNK TBoss6PlotFalz__sub_802AC678();
 int TBoss6PlotFalz__sub_802AC6D0(void*);
-int TLanguage__sub_801E4874(void*);
+int load_gvm_texture_file(void*);
 int create__16TObjOnlineEndingFPv(void*);
 
     extern unsigned char lbl_80470908[];
     extern int lbl_805D6710;
-void load_player_footstamp(void) { lbl_805D6710 = TLanguage__sub_801E4874(lbl_80470908); }
+void load_player_footstamp(void) { lbl_805D6710 = load_gvm_texture_file(lbl_80470908); }
 
 void TPlayerFootStamp__sub_802B0204(Obj_802B0204 *self, s32 v) {
     if (v < 0 || v > 1) {

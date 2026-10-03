@@ -36,7 +36,7 @@ void load_gvm_texture_archive(u32, u8 *);
 extern u8 lbl_8044981C[];
 extern u8 lbl_8044983C[];
 extern s32 lbl_805D5E58;
-u8 *TLanguage__sub_801E4874(s32 arg0);
+u8 *load_gvm_texture_file(s32 arg0);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D5E58;
 
-u8 *TLanguage__sub_801E4874(s32 arg0) {
+u8 *load_gvm_texture_file(s32 arg0) {
     s32 count;
     s32 i;
     u8 *res;

@@ -4,12 +4,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-s32 fn_80222DE8(u8 *p);
+s32 is_single_purchase_shop_item(u8 *p);
 }
 
 extern "C" {
 
-s32 fn_80222DE8(u8 *p) {
+s32 is_single_purchase_shop_item(u8 *p) {
     if (p[0] == 3) {
         switch (p[1]) {
         case 2:

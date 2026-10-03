@@ -39,7 +39,7 @@ extern const f32 lbl_805DBFA4;
 void render__8TObjTankFv(u8 *arg0);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80446184;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B8F60;
 extern u32 lbl_805D5C68;
@@ -163,7 +163,7 @@ void TObjTank__sub_8019A9B8(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B8F60.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5C68) = var_r0;
-    (*(u8 * *)&lbl_805D5C6C) = TLanguage__sub_801E4874((s32) &lbl_80446184.value);
+    (*(u8 * *)&lbl_805D5C6C) = load_gvm_texture_file((s32) &lbl_80446184.value);
 }
 
 }

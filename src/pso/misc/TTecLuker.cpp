@@ -125,7 +125,7 @@ void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
 void TTecLuker__sub_80233E3C(u16 arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(s32);
-void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TTecLuker__sub_80234F90(void* p);
 void TTecLuker__sub_80235028(void* p);
@@ -134,7 +134,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804CC990[];
-u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2);
+u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_setFlags30(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -171,7 +171,7 @@ void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
 s16 get_field_2__9TTecLukerFPv(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 get_current_floor(void);
-void TTecLuker__sub_80233F8C(void);
+void restore_floor_telepipes(void);
 f32 TBoss6Kakusan__sub_803D8BD8(void *);
 extern const f32 lbl_805DC85C;
 extern const f32 lbl_805DC860;
@@ -183,11 +183,11 @@ s32 get_current_floor(void);
 void *TTecLuker__sub_8023453C(void *self, Vec_802347B4 *pos, u16 id, s32 res);
 u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4DarkFalz__sub_8004C220(void *c, Vec_802347B4 *pos);
-void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void TTecLuker__sub_802340E4(u8 *arg0);
 extern s32 tl_07;
 extern s32 tl_05;
-void TTecLuker__sub_802347B4(Pipe_802347B4 *s);
+void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void __dl__7TObjectFPv(void *);
@@ -197,7 +197,7 @@ Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1);
 void TTecLuker__sub_80234FC4(void *arg0);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
+void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 s32 TTecLuker__sub_8023402C(Rec_8023402C *r, s16 floor, Vec_8023402C *p, u16 unused);
 s32 is_split_screen();
 u8 *find_entity_by_id(u16);
@@ -279,7 +279,7 @@ void *destroy__9TTecLukerFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TTecLuker__sub_80233B9C(u8 *arg0, s32 arg1, s32 arg2) {
+u8 *construct_resta_charge_sound(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80233B9C_lbl_804CC990 *)&lbl_804CC990).value;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
@@ -399,7 +399,7 @@ Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading) {
 }
 
 typedef s32 (*GetField2_80233F8C)(void *);
-void TTecLuker__sub_80233F8C(void) {
+void restore_floor_telepipes(void) {
     s32 area = get_global_state__14TOKeyMachine01Fv();
     s32 i;
     if (area == 15 || area == 0 || area == 18) {
@@ -459,7 +459,7 @@ void TTecLuker__sub_802340E4(u8 *arg0) {
     TTecLuker__sub_80234F90((void*)((void *) (&stack.sp8)));
 }
 
-void TTecLuker__sub_80234148(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
+void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
     u8 *temp_r3;
     M2C_FIELD(arg0, u16 *, 0) = arg1;
     M2C_FIELD(arg0, s16 *, 2) = arg2;
@@ -493,7 +493,7 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
     if (TTecLuker__sub_8023402C(rec, pkt->rec.floor, &pkt->rec.pos, pkt->rec.owner) == 0) {
         return;
     }
-    TTecLuker__sub_80234148((u8 *)rec, pkt->rec.owner, pkt->rec.floor, (u8 *)&pkt->rec.pos, pkt->rec.section);
+    write_telepipe_record((u8 *)rec, pkt->rec.owner, pkt->rec.floor, (u8 *)&pkt->rec.pos, pkt->rec.section);
     if (is_split_screen() == 0 && pkt->rec.owner == lbl_805D53A0) {
         return;
     }
@@ -543,7 +543,7 @@ void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
 extern void* __vt__9TTecLuker[];
 
 typedef void (*Write_802347B4)(u8 *, s32, s16, u8 *, s32);
-void TTecLuker__sub_802347B4(Pipe_802347B4 *s) {
+void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
     u16 id = obj_getField1c(s->player);
     void *v = __nw__7TObjectFUl(0x44);
     if (v != 0) {
@@ -564,7 +564,7 @@ void TTecLuker__sub_802347B4(Pipe_802347B4 *s) {
         s16 h;
         s->floor = get_current_floor();
         h = get_stat_by_key_state__10TObjPlayerFPv(s->player);
-        ((Write_802347B4)TTecLuker__sub_80234148)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
+        ((Write_802347B4)write_telepipe_record)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
         TTecLuker__sub_802340E4(s->player + 0x830);
     }
 }

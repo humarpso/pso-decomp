@@ -341,7 +341,7 @@ void TWindowActionPalette__sub_801C1C80(s32 *arg0, s32 arg1);
 void TWindowActionPalette__sub_801C1DB8(s32 *arg0, s32 arg1);
 void TWindowActionPalette__sub_801C1E1C(s32 *arg0, s32 arg1);
 s32 test_item_flags__10TObjPlayerFPvUi(void *, s32);
-u8 TObjPlayer__sub_801C1A70(u8 *arg0);
+u8 is_item_equipped(u8 *arg0);
 u8 get_type__11TMainCursorFPv(void *);
 u8 *TWindowActionPalette__sub_801C1DE0(s32 arg0, s32 arg1, s32 arg2);
 u8 get_enabled__11TMainCursorFPv(void *);
@@ -430,7 +430,7 @@ void *TObjPlayer__sub_801C1A40(void *arg0) {
     return arg0;
 }
 
-u8 TObjPlayer__sub_801C1A70(u8 *arg0) {
+u8 is_item_equipped(u8 *arg0) {
   unsigned int var_r31;
   var_r31 = 0;
   if ((test_item_flags__10TObjPlayerFPvUi(arg0, 4) != 0U) && (test_item_flags__10TObjPlayerFPvUi(arg0, 8) != 0U))

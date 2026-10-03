@@ -44,7 +44,7 @@ s32 TLobby__sub_8020AFA4(void);
 s32 TLobby__sub_800F9DF4(void *, Rec_8020AD40 *);
 void debug_print__6TLobbyFii(void *, ...);
 void TLobby__sub_801317E4(void *, s32, void *);
-void TLobby__sub_802081AC(Rec_8020AD40 *);
+void swap_object_row_endian(Rec_8020AD40 *);
 void TLobby__sub_8020AA94(Rec_8020AD40 *, s32, s32);
 void TLobby__sub_8020B3E4(s32, Rec_8020AD40 *, s32);
 s32 TLobby__sub_8030A7B0();
@@ -105,7 +105,7 @@ s32 load_area_object_set(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     r = TLobby__data_805D60F0;
     n = len / sizeof(Rec_8020AD40);
     for (i = 0; i < n; i++, r++) {
-        TLobby__sub_802081AC(r);
+        swap_object_row_endian(r);
         r->f2 = 0;
     }
     TLobby__sub_8020AA94(TLobby__data_805D60F0, n, arg1);

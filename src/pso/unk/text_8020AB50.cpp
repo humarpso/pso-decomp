@@ -11,7 +11,7 @@ s32 TLobby__sub_800F9DF4(void *, void *);
 void debug_print__6TLobbyFii(const char *, ...);
 M2C_UNK TLobby__sub_801317E4(void *, s32, void *);
 M2C_UNK TLobby__sub_802080C0(void *);
-M2C_UNK TLobby__sub_8020A9C4(void *, u32, s32);
+M2C_UNK reserve_enemy_set_actor_ids(void *, u32, s32);
 M2C_UNK TLobby__sub_8020B374(s32, void *, s32);
 s32 TLobby__sub_8030A7B0();
 extern char lbl_8044BBA8[];
@@ -74,7 +74,7 @@ s32 TLobby__sub_8020AB50(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         TLobby__sub_802080C0(p);
         *(s16 *)(p + 2) = 0;
     }
-    TLobby__sub_8020A9C4(TLobby__data_805D60F0, count, arg1);
+    reserve_enemy_set_actor_ids(TLobby__data_805D60F0, count, arg1);
     TLobby__sub_8020B374(arg0, TLobby__data_805D60F0, size);
     return 1;
 }

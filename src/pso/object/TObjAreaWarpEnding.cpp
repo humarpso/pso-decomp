@@ -206,7 +206,7 @@ s32 get_current_floor();
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void bswap_6x94_inter_level_warp(void *);
 void *get_player_by_client_id(s32);
-void TTecLuker__sub_801BAB1C(void *, void *);
+void send_6x21_inter_level_warp(void *, void *);
 s32 TLobby__sub_80207770(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
 void TWindowCtrl__sub_8024AEAC(s32);
@@ -236,7 +236,7 @@ s32 get_action_flags__10TNpcPlayerFPv(void *);
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
 void TObjAreaWarpQuest__sub_8019DCD8(void *, s32);
 void *get_player_by_client_id(s32);
-void TTecLuker__sub_801BAB1C(void *, void *);
+void send_6x21_inter_level_warp(void *, void *);
 s32 TLobby__sub_80207770(s32);
 void set_area__6TLobbyFPvi(void *, int, int);
 void TNpcPlayer__sub_8034E7A0();
@@ -488,7 +488,7 @@ void TObjAreaWarpQuest__vt17(Warp_8019C05C *arg0, void *arg1) {
     }
     get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
     TNpcPlayer__sub_8034E7A0();
-    TTecLuker__sub_801BAB1C(arg1, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+    send_6x21_inter_level_warp(arg1, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
 }
 
 void TObjAreaWarpQuest__vt18(Obj_8019C144 *self) {
@@ -753,7 +753,7 @@ void handle_6x94_inter_level_warp(Pkt_8019C988 *arg0) {
         TNpcPlayer__sub_8034E7A0();
         void *p = get_player_by_client_id(lbl_805D53A0);
         if (p != 0) {
-            TTecLuker__sub_801BAB1C(p, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+            send_6x21_inter_level_warp(p, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
         }
     }
 }

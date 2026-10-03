@@ -32,7 +32,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 f32 query_extended_state__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80128A70(void);
 void TObjPlayer__sub_801295FC(void *);
-s16 TObjPlayer__sub_801D2EA8(void *);
+s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *create__10TTecSlicerFPUs(void *);
 void TObjPlayer__sub_801295E0(void);
@@ -54,7 +54,7 @@ void TObjPlayer__sub_801293FC(Self_801293FC *self) {
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
-    tec.f12 = TObjPlayer__sub_801D2EA8((u8 *)self->owner + 0x7CC);
+    tec.f12 = get_validated_attack_stage((u8 *)self->owner + 0x7CC);
     tec.f14 = query_extended_state__10TObjPlayerFPv(self->owner);
     tec.f18 = lbl_805DAE18;
     tec.f1C = lbl_805DAE1C;

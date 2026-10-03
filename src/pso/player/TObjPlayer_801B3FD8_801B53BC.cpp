@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void play_effect__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TObjPlayer__sub_801B5328(s32, s32, s32, s32, f32);
+M2C_UNK send_6x2C_impose_hold(s32, s32, s32, s32, f32);
 s32 get_position_ptr__10TObjPlayerFPv();
 
 extern f32 TObjPlayer__data_805DC278;
 
 void play_effect__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
-    TObjPlayer__sub_801B5328(arg0, get_position_ptr__10TObjPlayerFPv(), arg1, arg2, TObjPlayer__data_805DC278);
+    send_6x2C_impose_hold(arg0, get_position_ptr__10TObjPlayerFPv(), arg1, arg2, TObjPlayer__data_805DC278);
 }
 
 }

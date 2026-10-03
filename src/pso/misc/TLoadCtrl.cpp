@@ -60,7 +60,7 @@ M2C_UNK TCameraCtrl__sub_80069C94(void *, void *);
 M2C_UNK TCameraCtrl__sub_80069E7C(int);
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 s32 __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
 M2C_UNK TAdLoadQuestGC__ct(s32, void *);
@@ -142,7 +142,7 @@ void run_task__9TLoadCtrlFv(Obj_8001C620 *self) {
             controller_stuff__Fv();
             TKeyBoardControl__sub_801A5EC4();
         }
-        TLobby__sub_802269B4();
+        update_sound_request_slots();
         Vec_8001C620 a = lbl_804349D8;
         Vec_8001C620 b = lbl_804349E4;
         TCameraCtrl__sub_80069E7C(9);

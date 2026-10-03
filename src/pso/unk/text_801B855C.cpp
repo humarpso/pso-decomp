@@ -113,7 +113,7 @@ VObj_801B8AF8 *get_owner_if_alive__10TObjPlayerFPv();
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
 void play_sound_effect(s32, s32, s32, s32);
-void TObjPlayer__sub_801B8AF8(u8 *arg0, s32 arg1, s32 arg2);
+void request_item_drop__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -209,7 +209,7 @@ void TObjPlayer__sub_801B8A80(u8 *arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer__sub_801B8AF8(u8 *arg0, s32 arg1, s32 arg2) {
+void request_item_drop__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     Item_801B8AF8 item;
     VObj_801B8AF8 *owner;
     s32 id;

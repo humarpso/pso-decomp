@@ -26,7 +26,7 @@ void update_sub_status_disp__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8001DC24();
 void *find_item_by_id(s32);
 M2C_UNK text_builder_append();
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK fn_80330A40(s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 s32 is_trade_active();
@@ -41,7 +41,7 @@ void update_sub_status_disp__6TLobbyFi(s32 arg0) {
         get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF0));
         return;
     }
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     refresh_player_status__6TLobbyFv(arg0);
     get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEF));
     text_builder_append();
@@ -60,7 +60,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         if (arg0 == (s32) lbl_805D53A0) {
             return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF4));
         }
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         refresh_player_status__6TLobbyFv(arg0);
         get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xEA));
         text_builder_append();
@@ -70,7 +70,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         if (temp_r3 == NULL) {
             return 0;
         }
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         if (arg0 == (s32) lbl_805D53A0) {
             get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF3));
             text_builder_append();
@@ -88,7 +88,7 @@ s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         if (arg0 == (s32) lbl_805D53A0) {
             return get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xF2));
         }
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         refresh_player_status__6TLobbyFv(arg0);
         get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)(0xE7));
         text_builder_append();

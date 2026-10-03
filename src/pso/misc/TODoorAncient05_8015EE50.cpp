@@ -54,7 +54,7 @@ u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void TBoss1Dragon__sub_8002ACE0(void *, void *);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern u8 lbl_80440B10[];
 extern u8 lbl_804B1038[];
 extern void *lbl_805D5918;
@@ -114,7 +114,7 @@ void TODoorAncient05__sub_8015EECC(void) {
     buf = alloc_buffer__11TOBoss4RockFPv(8);
     G591C = buf;
     buf[0] = *(s32 *)(NODE(G5918, 0x42C) + 0xC);
-    G591C[1] = TLanguage__sub_801E4874(lbl_80440B10);
+    G591C[1] = load_gvm_texture_file(lbl_80440B10);
     G5920 = (u8 *)alloc_buffer__11TOBoss4RockFPv(0xA8);
     if (G5918 != NULL && G5920 != NULL) {
         TBoss1Dragon__sub_8002ACE0(G5920, NODE(NODE(G5918, 0x42C), 8));

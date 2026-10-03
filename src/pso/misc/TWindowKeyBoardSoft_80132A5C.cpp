@@ -23,7 +23,7 @@ s32 TLobby__sub_8001EEFC(void *);
 M2C_UNK begin_render__20TWindowSubStatusDispFv();
 M2C_UNK decode_font_data__9TLanguageFPvPvii(void *, void *, int, int);
 M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
-struct Outer_80132A5C *TLanguage__sub_801E4874(void *);
+struct Outer_80132A5C *load_gvm_texture_file(void *);
 M2C_UNK TLanguage__sub_803DAF70(int, int);
 extern M2C_UNK lbl_8043EAE8[];
 extern M2C_UNK lbl_8043EAF4[];
@@ -87,35 +87,35 @@ void TLanguage__ct(s32 arg0) {
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB24), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB34), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EB50), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = TLanguage__sub_801E4874((void *) (lbl_8043EB68));
+        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EB68));
         break;
     case 2:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB7C), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EBA8), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = TLanguage__sub_801E4874((void *) (lbl_8043EBDC));
+        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EBDC));
         break;
     case 3:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EBF0), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC0C), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = TLanguage__sub_801E4874((void *) (lbl_8043EC28));
+        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EC28));
         break;
     case 4:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC3C), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC58), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = TLanguage__sub_801E4874((void *) (lbl_8043EC74));
+        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043EC74));
         break;
     default:
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EC88), (void *) (&sp8), (int) (0x49));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043EB98), (void *) (&sp8), (int) (2));
         draw_string__9TLanguageFPvPvi((void *) (lbl_8043ECA4), (void *) (&sp8), (int) (3));
         decode_font_data__9TLanguageFPvPvii((void *) (lbl_8043EBC4), (void *) (&sp8), (int) (0x4B), (int) (0x4C));
-        lbl_805D5540 = TLanguage__sub_801E4874((void *) (lbl_8043ECC0));
+        lbl_805D5540 = load_gvm_texture_file((void *) (lbl_8043ECC0));
         break;
     }
     begin_render__20TWindowSubStatusDispFv();

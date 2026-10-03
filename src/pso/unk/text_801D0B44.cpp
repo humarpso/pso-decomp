@@ -18,7 +18,7 @@ void TObjPlayer__sub_801CF3E0(s32, s32);
 void TObjPlayer__sub_801CE19C(s32, s32);
 void TObjPlayer__sub_801CDD24(s32, s32);
 void TObjPlayer__sub_801CD928(s32, s32);
-void TObjPlayer__sub_801CCA08(s32, s32);
+void dispatch_photon_blast_action__10TObjPlayerFis(s32, s32);
 void TObjPlayer__sub_801CBC14(s32, s32);
 void TObjPlayer__sub_801CB580(s32, s32);
 void TObjPlayer__sub_801CB7F8(s32, s32);
@@ -98,7 +98,7 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         TObjPlayer__sub_801CD928(arg0, arg2);
         break;
     case 9:
-        TObjPlayer__sub_801CCA08(arg0, arg2);
+        dispatch_photon_blast_action__10TObjPlayerFis(arg0, arg2);
         break;
     case 10:
         TObjPlayer__sub_801CBC14(arg0, arg2);

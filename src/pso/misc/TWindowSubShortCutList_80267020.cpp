@@ -10,7 +10,7 @@ s32 get_localized_text_entry(M2C_UNK, s32);
 u32 get_player_by_client_id(s16);
 s32 fn_801C5404(s32);
 s8 clamp_char_at__10TObjPlayerFPvi(s32, s32);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 reset_key_machine_state__10TObjPlayerFv();
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 M2C_UNK setup_stat_line__20TWindowSubStatusDispFPviii(u16 *, s32, s32, s32);
@@ -31,7 +31,7 @@ void add_battle_stat_entry(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
             if (var_r31 > 0) {
                 temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72));
                 setup_stat_line__20TWindowSubStatusDispFPviii(temp_r30, get_localized_text_entry(0x10, arg1 + 0x13), var_r31, arg2);
-                if ((arg3 != 0) && ((reset_key_machine_state__10TObjPlayerFv() == 0) || (TObjPlayer__sub_80203418() != 0))) {
+                if ((arg3 != 0) && ((reset_key_machine_state__10TObjPlayerFv() == 0) || (is_boss_area() != 0))) {
                     *temp_r30 |= 0x80;
                 }
                 M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);

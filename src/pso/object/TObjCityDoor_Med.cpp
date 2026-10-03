@@ -56,8 +56,8 @@ struct VObj_80181ff4 : Base_80181ff4 {
 
 void TObjCityDoor_Med__sub_8018208C(void *arg0);
 void render_lobby_door__10TObjPlayerFPv(u8 *arg0);
-s32 TLobby__sub_801819CC(M2C_UNK);
-M2C_UNK TLobby__sub_801819E4(M2C_UNK);
+s32 get_city_common_motion(M2C_UNK);
+M2C_UNK get_city_common_model(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 M2C_UNK draw_ginja_model_with_motion(M2C_UNK, s32, f32);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
@@ -76,7 +76,7 @@ void render_lobby_door__10TObjPlayerFPv(u8 *arg0) {
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         translate_matrix(0, 0.0f, 0.0f, lbl_805DBBF4);
-        draw_ginja_model_with_motion(TLobby__sub_801819E4(0x14), TLobby__sub_801819CC(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
+        draw_ginja_model_with_motion(get_city_common_model(0x14), get_city_common_motion(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
         pop_matrix();
     }
 }
@@ -103,7 +103,7 @@ s32 TLobby__sub_80182E60();
 s32 TLobby__sub_8030A7B0();
 void *TObjCityDoor_Med__ct(void *, void *, void *);
 u8 *TObjPlayer__sub_80182D8C(u8 *, M2C_UNK, s32, u8 *);
-s32 TLobby__sub_801819CC(M2C_UNK);
+s32 get_city_common_motion(M2C_UNK);
 void *TObjPlayer__sub_80182D24(void *, s16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -136,7 +136,7 @@ extern u8 lbl_80443FA0[]; extern s32 lbl_805D325C;
 void *TObjCityDoor_Med__ct(void *o, void *parent, void *set) {
  TObjPlayer__sub_80182D8C((u8*)o,(s32)parent,(s32)set,lbl_80443FA0);
  *(M2C_UNK **)((u8 *)o + 0x18)=lbl_804B5A38;*(s32 *)((u8 *)o + 0)=lbl_805D325C;
- *(f32 *)((u8 *)o + 0xB0)=(f32)(*(u32 *)((u8 *)TLobby__sub_801819CC(11) + 4)-1);
+ *(f32 *)((u8 *)o + 0xB0)=(f32)(*(u32 *)((u8 *)get_city_common_motion(11) + 4)-1);
  return o;
 }
 
@@ -218,15 +218,15 @@ void fn_80182234(void* o);
 
 extern "C" {
 
-s32 TLobby__sub_801819CC(M2C_UNK);M2C_UNK TLobby__sub_801819E4(M2C_UNK);
+s32 get_city_common_motion(M2C_UNK);M2C_UNK get_city_common_model(M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(s32);M2C_UNK TObjPlayer__sub_803D9B2C();M2C_UNK pop_matrix();
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 void fn_80182234(void* o) {
  if(((CityDoorProbe*)o)->visible()!=0) {
   set_global_param__8TObjFishFi(lbl_805D5B2C);TObjPlayer__sub_803D9B2C();
   TOHangerMachine01__sub_803D9C00((u8*)o+0x38);rotate_matrix_y(0,F(o,s32,0x60));
-  draw_ginja_model_with_motion(TLobby__sub_801819E4(9),TLobby__sub_801819CC(8),F(o,f32,0xB4));
-  draw_ginja_model_with_motion(TLobby__sub_801819E4(10),TLobby__sub_801819CC(9),F(o,f32,0xB4));
+  draw_ginja_model_with_motion(get_city_common_model(9),get_city_common_motion(8),F(o,f32,0xB4));
+  draw_ginja_model_with_motion(get_city_common_model(10),get_city_common_motion(9),F(o,f32,0xB4));
   pop_matrix();
  }
 }
@@ -299,7 +299,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 *TObjPlayer__sub_80182D8C(u8 *, M2C_UNK, s32, u8 *);
 u8 *TObjCityDoor_Shop__ct(u8 *arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_801819CC(M2C_UNK);
+s32 get_city_common_motion(M2C_UNK);
 }
 #define FOLD_F(o,t,p) (*(t*)((u8*)(o)+(p)))
 struct Base_80182600_8018245C { char pad[0x18]; };
@@ -357,8 +357,8 @@ void TObjCityDoor_Guild__sub_80182600(void *arg0);
 void *TObjCityDoor_Warp__create(void *arg0);
 void *dt__17TObjCityDoor_WarpFPvs(void *arg0, s16 arg1);
 void teardown_door__17TObjCityDoor_WarpFPv(u8 *arg0);
-s32 TLobby__sub_801819CC(M2C_UNK);
-M2C_UNK TLobby__sub_801819E4(M2C_UNK);
+s32 get_city_common_motion(M2C_UNK);
+M2C_UNK get_city_common_model(M2C_UNK);
 M2C_UNK TOHangerMachine01__sub_803D9C00(void *);
 void *TObjCityDoor_Warp__ct(void *, void *, void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
@@ -397,7 +397,7 @@ extern u8 lbl_80443F84[]; extern s32 lbl_805D3258;
 void *TObjCityDoor_Warp__ct(void *o, void *parent, void *set) {
  TObjPlayer__sub_80182D8C((u8*)o,(s32)parent,(s32)set,lbl_80443F84);
  FOLD_F(o,s32*,0x18)=lbl_804B5A94;FOLD_F(o,s32,0)=lbl_805D3258;
- FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(TLobby__sub_801819CC(8),u32,4)-1);
+ FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(get_city_common_motion(8),u32,4)-1);
  return o;
 }
 
@@ -410,7 +410,7 @@ void teardown_door__17TObjCityDoor_WarpFPv(u8 *arg0) {
         TObjPlayer__sub_803D9B2C();
         TOHangerMachine01__sub_803D9C00(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        draw_ginja_model_with_motion(TLobby__sub_801819E4(0x15), TLobby__sub_801819CC(0xC), M2C_FIELD(arg0, f32 *, 0xB4));
+        draw_ginja_model_with_motion(get_city_common_model(0x15), get_city_common_motion(0xC), M2C_FIELD(arg0, f32 *, 0xB4));
         pop_matrix();
     }
 }
@@ -499,7 +499,7 @@ extern u8 lbl_80443F68[]; extern s32 lbl_805D3254;
 void *TObjCityDoor_Guild__ct(void *o, void *parent, void *set) {
  TObjPlayer__sub_80182D8C((u8*)o,(s32)parent,(s32)set,lbl_80443F68);
  FOLD_F(o,s32*,0x18)=lbl_804B5AF0;FOLD_F(o,s32,0)=lbl_805D3254;
- FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(TLobby__sub_801819CC(12),u32,4)-1);
+ FOLD_F(o,f32,0xB0)=(f32)(FOLD_F(get_city_common_motion(12),u32,4)-1);
  return o;
 }
 
@@ -712,7 +712,7 @@ extern RecoveredGlobal_80182D8C_lbl_80443F20 lbl_80443F20;
 extern M2C_UNK lbl_804B5BA8[];
 u8 *TObjPlayer__sub_80182D8C(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3);
 void city_door_tick_opening(void* o);
-void TObjPlayer__sub_80182ABC(void* o);
+void city_door_tick_closing(void* o);
 }
 
 extern "C" {
@@ -796,7 +796,7 @@ void check_ground_or_fall__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80182ABC(void* o) {
+void city_door_tick_closing(void* o) {
  CityDoorFields* door = (CityDoorFields*)o;
  if (((CityDoorProbe3*)o)->m12(door->parameters->openingDistanceSquared) != 0) {
   door->phase = 1;

@@ -12,13 +12,13 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80235BDC_lbl_804CCA90 lbl_804CCA90;
-u8 *fn_80235BDC(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4);
+u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80235BDC_lbl_804CCA90_size[sizeof(RecoveredGlobal_80235BDC_lbl_804CCA90) == 0x18 ? 1 : -1];
-u8 *fn_80235BDC(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4) {
+u8 *construct_delayed_point_sound(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3, u8 *arg4) {
     __ct__7TObjectFP7TObject(arg0, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804CCA90.value;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;

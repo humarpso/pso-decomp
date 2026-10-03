@@ -27,12 +27,12 @@ s32 get_width__11TWindowCtrlFPv(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DCC14;
-void TWindowCtrl__sub_8024BE80(Ctrl_8024BE80 *self);
+void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self);
 }
 
 extern "C" {
 
-void TWindowCtrl__sub_8024BE80(Ctrl_8024BE80 *self) {
+void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024BE80 *self) {
     f32 y;
     u32 i;
     void *pl;

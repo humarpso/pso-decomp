@@ -38,7 +38,7 @@ void update_unlock_flags__16TObjCityMainWarpFv(void);
 s32 get_story_flag(M2C_UNK);
 extern s32 TObjCityMainWarp__data_805D5B50;
 extern s32 TObjCityMainWarp__data_805D5B54;
-void TObjCityMainWarp__sub_801868A8(s32 arg0);
+void update_main_warp_visible_mask(s32 arg0);
 }
 
 extern "C" {
@@ -83,7 +83,7 @@ void update_unlock_flags__16TObjCityMainWarpFv(void) {
 
 extern s32 TObjCityMainWarp__data_805D5B50;
 
-void TObjCityMainWarp__sub_801868A8(s32 arg0) {
+void update_main_warp_visible_mask(s32 arg0) {
     s32 b;
     s32 c;
     s32 a;
@@ -149,7 +149,7 @@ s32 TObjCityMainWarp__sub_80186A3C(s32 floor) {
 }
 
 void TObjCityMainWarp__sub_80186AB8(void) {  }
-void reset__16TObjCityMainWarpFv(void) { TObjCityMainWarp__sub_80186634(); TObjCityMainWarp__sub_801868A8((s32)(0)); }
+void reset__16TObjCityMainWarpFv(void) { TObjCityMainWarp__sub_80186634(); update_main_warp_visible_mask((s32)(0)); }
 void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
 
 typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];

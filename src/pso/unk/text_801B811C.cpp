@@ -53,7 +53,7 @@ u8 *TPlyItem__ct(void *, void *);
 u8 *__ct__9TItemListFv(void *, void *);
 u8 *__nw__7TObjectFUl(s32);
 u8 *__ct__7TObjectFP7TObject(void *, void *);
-void TObjPlayer__sub_801B826C(u8 *arg0);
+void create_inventory__10TObjPlayerFPv(u8 *arg0);
 void TKeyBoardControl__sub_801AFCF4(u8 *, s32);
 void equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s16 TObjPlayer__sub_801C2114(void);
@@ -88,7 +88,7 @@ void bind_saved_inventory_equipment__10TObjPlayerFPvPvi(u8 *p, u8 *records, s32 
     }
 }
 
-void TObjPlayer__sub_801B826C(u8 *arg0) {
+void create_inventory__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r3_3;

@@ -46,7 +46,7 @@ s32 get_current_floor();
 s32 TLobby__sub_8020B1E4(s32, s32, s32, s32);
 Set_8020C73C *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
-Obj_8020C73C *TLobby__sub_8020CCF4(Set_8020C73C *);
+Obj_8020C73C *construct_enemy_from_set_row(Set_8020C73C *);
 extern u8 *TLobby__data_805D6144;
 s32 TLobby__sub_8020C73C(s32 arg0, s32 arg1, s32 arg2);
 }
@@ -77,7 +77,7 @@ s32 TLobby__sub_8020C73C(s32 arg0, s32 arg1, s32 arg2) {
         if (set->x != (s16)arg1) continue;
         if (set->z != (s16)arg2) continue;
         if (local != 0) {
-            obj = TLobby__sub_8020CCF4(set);
+            obj = construct_enemy_from_set_row(set);
             if (obj != NULL) {
                 set->obj = obj;
                 set->flags |= 2;

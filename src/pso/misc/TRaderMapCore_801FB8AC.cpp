@@ -43,7 +43,7 @@ extern u32 lbl_805D5F48;
 extern u32 TRaderMapCore__data_805D5F4C;
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_8044A7B8;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804C8864;
 void TRaderMapCore__sub_801FB904(void);
@@ -83,7 +83,7 @@ void TRaderMapCore__sub_801FB904(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804C8864.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5F48) = var_r0;
-    (*(u8 * *)&TRaderMapCore__data_805D5F4C) = TLanguage__sub_801E4874((s32) &lbl_8044A7B8.value);
+    (*(u8 * *)&TRaderMapCore__data_805D5F4C) = load_gvm_texture_file((s32) &lbl_8044A7B8.value);
 }
 
 }

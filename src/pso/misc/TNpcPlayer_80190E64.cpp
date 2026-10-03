@@ -82,9 +82,9 @@ void TLobby__sub_80190FD8(void);
 u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1);
 void queue_destruction_if_dead__10TNpcPlayerFPv(void* p);
 s32 TNpcPlayer__sub_80152674(s32);
-M2C_UNK TObjPlayer__sub_801B1FA4(u16, void *, s32);
+M2C_UNK send_6x24_teleport_player(u16, void *, s32);
 u8 *TObjPlayer__sub_801BDEF8(u16, M2C_UNK, s32);
-M2C_UNK TObjPlayer__sub_801CA0B4();
+M2C_UNK queue_player_injured_pose();
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK fn_8019127C(void *);
@@ -103,10 +103,10 @@ u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
         if (temp_r3 != NULL) {
             M2C_FIELD(temp_r3, s16 *, 0x324) = 6;
             if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 1) {
-                TObjPlayer__sub_801CA0B4();
+                queue_player_injured_pose();
                 fn_8019127C(temp_r3);
             }
-            TObjPlayer__sub_801B1FA4(M2C_FIELD(arg0, u16 *, 0x30), arg0 + 0x1C, M2C_FIELD(arg0, s32 *, 0x28));
+            send_6x24_teleport_player(M2C_FIELD(arg0, u16 *, 0x30), arg0 + 0x1C, M2C_FIELD(arg0, s32 *, 0x28));
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

@@ -9,7 +9,7 @@ s32 obj_testFlags30(s32, s32);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 s32 run_action_state_phase__10TObjPlayerFisi(s32, s32, s32);
-void TObjPlayer__sub_801CBB14(u8 *arg0);
+void complete_guard_reaction__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -27,7 +27,7 @@ int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801CBB10(void);
 void TObjPlayer__sub_801CBB80(void);
 
-void TObjPlayer__sub_801CBB14(u8 *arg0) {
+void complete_guard_reaction__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         if (obj_testFlags30((s32)(arg0), (s32)((int) (0x800))) != 0) {
             clear_flags__11TAdRicoRingFPvUi((void *) (arg0 + 0x858), (int) (1));

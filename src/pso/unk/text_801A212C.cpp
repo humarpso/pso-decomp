@@ -33,7 +33,7 @@ f32 TObjPlayer__sub_803D9884(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
-s16 fn_801A212C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
+s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ typedef char RecoveredGlobal_801A2340_lbl_804FF610_size[sizeof(RecoveredGlobal_8
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma fp_contract on
-s16 fn_801A212C(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
+s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     Stack_801A2340 stack;
     f32 z;
     if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {

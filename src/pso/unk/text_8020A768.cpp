@@ -12,7 +12,7 @@ s32 TLobby__sub_800F9DF4(Name_8020A768 *, void *);
 void TLobby__sub_801317E4(Name_8020A768 *, s32, const void *);
 s32 get_player_floor__6TLobbyFi(s32);
 void TLobby__sub_802080C0(Ent_8020A768 *);
-void TLobby__sub_8020A9C4(Ent_8020A768 *, s32, s32);
+void reserve_enemy_set_actor_ids(Ent_8020A768 *, s32, s32);
 void TLobby__sub_8020B374(s32, Ent_8020A768 *, s32);
 extern u8 lbl_8044BBA8[];
 extern Ent_8020A768 *TLobby__data_805D60F0;
@@ -21,7 +21,7 @@ s32 TLobby__sub_8020A768(s32 arg0, s32 arg1);
 s32 TLobby__sub_800F9DF4(Name_8020A768 *, void *);
 void TLobby__sub_801317E4(Name_8020A768 *, s32, const void *);
 s32 get_player_floor__6TLobbyFi(s32);
-void TLobby__sub_802081AC(Ent_8020A834 *);
+void swap_object_row_endian(Ent_8020A834 *);
 void TLobby__sub_8020AA94(Ent_8020A834 *, s32, s32);
 void TLobby__sub_8020B3E4(s32, Ent_8020A834 *, s32);
 extern u8 lbl_8044BBB0[];
@@ -54,7 +54,7 @@ s32 TLobby__sub_8020A768(s32 arg0, s32 arg1) {
         p->b = 0;
     }
     floor = get_player_floor__6TLobbyFi(arg0);
-    TLobby__sub_8020A9C4(TLobby__data_805D60F0, n, floor);
+    reserve_enemy_set_actor_ids(TLobby__data_805D60F0, n, floor);
     TLobby__sub_8020B374(arg0, TLobby__data_805D60F0, size);
     return 1;
 }
@@ -76,7 +76,7 @@ s32 TLobby__sub_8020A834(s32 arg0, s32 arg1) {
     p = (*(Ent_8020A834 * *)&TLobby__data_805D60F0);
     n = size / sizeof(Ent_8020A834);
     for (i = 0; i < n; i++, p++) {
-        TLobby__sub_802081AC(p);
+        swap_object_row_endian(p);
         p->b = 0;
     }
     floor = get_player_floor__6TLobbyFi(arg0);

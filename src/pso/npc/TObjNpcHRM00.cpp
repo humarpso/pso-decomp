@@ -104,7 +104,7 @@ extern u32 TObjNpcHRM00__data_805D57C0;
 extern u32 TObjNpcHRM00__data_805D57C4;
 u8 *TObjNpcHRM00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
-void *TLanguage__sub_801E4874(const char *name);
+void *load_gvm_texture_file(const char *name);
 extern u32 TObjNpcHRM00__data_805D57C0;
 extern u32 TObjNpcHRM00__data_805D57C4;
 extern char lbl_8043FAE0[];
@@ -145,7 +145,7 @@ extern M2C_UNK __vt__12TObjNpcHRM00[];
 
 void TObjNpcHRM00__sub_8014B334(void) {
     TObjNpcHRM00__data_805D57C0 = (u32)create_named_object(lbl_8043FAE0);
-    TObjNpcHRM00__data_805D57C4 = (u32)TLanguage__sub_801E4874(lbl_8043FAF4);
+    TObjNpcHRM00__data_805D57C4 = (u32)load_gvm_texture_file(lbl_8043FAF4);
 }
 
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1) {

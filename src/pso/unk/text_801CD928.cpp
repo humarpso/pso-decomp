@@ -1,6 +1,6 @@
 #include "types.h"
 extern "C" {
-s32 TObjPlayer__sub_801CD188(void *);
+s32 exit_technique_cast__10TObjPlayerFPv(void *);
 s32 update_technique_cast__10TObjPlayerFPv(void *);
 s32 enter_technique_cast__10TObjPlayerFPv(void *);
 s32 request_technique_cast__10TObjPlayerFPv(void *);
@@ -39,7 +39,7 @@ void TObjPlayer__sub_801CD928(s32 arg0, s16 arg1) {
         update_technique_cast__10TObjPlayerFPv((void *) arg0);
         return;
       case 6:
-        TObjPlayer__sub_801CD188((void *) arg0);
+        exit_technique_cast__10TObjPlayerFPv((void *) arg0);
         break;
     }
   }

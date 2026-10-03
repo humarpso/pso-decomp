@@ -28,7 +28,7 @@ typedef struct Obj_801D650C {
 extern "C" {
 M2C_UNK TFontSmallLobby__sub_801D60B4();
 extern const f32 lbl_805DC3DC;
-void TFontSmallLobby__sub_801D63DC(u8 *arg0, f32 farg0);
+void add_photon_blast_charge(u8 *arg0, f32 farg0);
 M2C_UNK TFontSmallLobby__sub_801D60B4();
 int update_ready__15TFontSmallLobbyFPv(void*);
 M2C_UNK TFontSmallLobby__sub_801D677C(void *);
@@ -47,7 +47,7 @@ void clear_photon_blast_state__10TObjPlayerFPv(void *);
 void set_section_index__15TFontSmallLobbyFPvs(void *, s16);
 void reset_fields__15TFontSmallLobbyFPv(void *);
 void TFontSmallLobby__sub_801D67C8(void);
-void TFontSmallLobby__sub_801D6498(struct Lobby_801D6498 *s);
+void reset_photon_blast_gauge(struct Lobby_801D6498 *s);
 void clear_id__10TObjPlayerFPv(void *);
 void TFontSmallLobby__sub_80152F28(void *);
 void reset_fields__15TFontSmallLobbyFPv(void *);
@@ -113,7 +113,7 @@ void TFontSmallLobby__sub_801D6350(u8 *arg0, f32 farg0) {
     }
 }
 
-void TFontSmallLobby__sub_801D63DC(u8 *arg0, f32 farg0) {
+void add_photon_blast_charge(u8 *arg0, f32 farg0) {
     f32 temp_f0;
     temp_f0 = M2C_FIELD(arg0, f32 *, 0x3C);
     if (temp_f0 < lbl_805DC3DC) {
@@ -132,7 +132,7 @@ void send_photon_blast_ready__15TFontSmallLobbyFv(void) {
 }
 
 void update_if_ready__15TFontSmallLobbyFPv(void* p) { if (TFontSmallLobby__sub_801D67AC(p) != 0) { update_ready__15TFontSmallLobbyFPv((void*)(p)); } }
-void TFontSmallLobby__sub_801D6498(struct Lobby_801D6498 *s) {
+void reset_photon_blast_gauge(struct Lobby_801D6498 *s) {
     s32 i;
     TFontSmallLobby__sub_801D67C8();
     set_section_index__15TFontSmallLobbyFPvs(s, 0);

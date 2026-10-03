@@ -36,7 +36,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK TRaderMapCore__sub_801F9AC4(void *, u32, u16, s32, s32);
 extern s32 lbl_805D58F8;
-void fn_8015DBC4(u8 *arg0);
+void run_switch_door_task(u8 *arg0);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ void fn_8015DAE4(u8 *arg0) {
         break;
     }
 }
-void fn_8015DBC4(u8 *arg0) {
+void run_switch_door_task(u8 *arg0) {
     s32 temp_r0;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((VObj_18 *)(arg0))->m18();

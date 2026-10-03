@@ -19,7 +19,7 @@ void TWindowSubComCard__sub_80272340(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8001DC24();
 Rec_80272290 *get_com_count__17TWindowSubComCardFv();
 void text_builder_append(void *);
-void TWindowSubStatusDisp__sub_802290E0();
+void text_builder_reset();
 void TLobby__sub_8024220C(int, int);
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 s32 TWindowSubComCard__sub_80275228();
@@ -65,7 +65,7 @@ void TWindowSubComCard__sub_80272290(u8 *arg0, s32 arg1) {
         temp_r31 = cnt[arg1].f4;
         TLobby__sub_8024220C((int)temp_r31, arg1 * 0xD4);
         temp_r30 = TWindowSubComCard__sub_80275228();
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         text_builder_append((void *)(temp_r31 + 0x14));
         text_builder_append(get_name__17TWindowSubComCardFPv(temp_r30));
         text_builder_append(&lbl_805DD4F8);

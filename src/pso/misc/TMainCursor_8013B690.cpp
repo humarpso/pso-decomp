@@ -44,7 +44,7 @@ s8 TMainCursor__sub_8013F244(void);
 s8 fn_8013F24C(void *, s32);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CEC1C(void *);
+s32 can_perform_physical_action__10TObjPlayerFi(void *);
 u8 fn_801D9870(void *, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
 s32 reset_key_machine_state__10TObjPlayerFv(void);
@@ -122,7 +122,7 @@ void TMainCursor__sub_8013B70C(u8 *self) {
     case 1:
         return;
     case 2:
-        if (TObjPlayer__sub_801CEC1C(t) == 0) {
+        if (can_perform_physical_action__10TObjPlayerFi(t) == 0) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }

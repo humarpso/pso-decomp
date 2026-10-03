@@ -208,7 +208,7 @@ s32 is_camera_ctrl_active__6TLobbyFv();
 extern s32 TCheckRoomSequence__data_805D6164;
 extern s32 TCheckRoomSequence__data_805D6168;
 extern const f32 lbl_805DC630;
-void TCheckRoomSequence__sub_8020F478(Seq_8020F478 *self);
+void begin_meseta_withdrawal__18TCheckRoomSequenceFPv(Seq_8020F478 *self);
 s32 obj_getPtr2B0_20(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 int TKeyBoardControl__sub_801A66B8(void *);
@@ -223,13 +223,13 @@ s32 is_camera_ctrl_active__6TLobbyFv();
 extern s32 TCheckRoomSequence__data_805D6164;
 extern s32 TCheckRoomSequence__data_805D6168;
 extern const f32 lbl_805DC630;
-void TCheckRoomSequence__sub_8020F730(Seq_8020F730 *self);
+void begin_meseta_deposit__18TCheckRoomSequenceFPv(Seq_8020F730 *self);
 extern Rec_80211034 *lbl_80513D88[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
 u8 TCheckRoomSequence__sub_802108B0(s32 i);
 s32 get_item_use_result__9TItemDataFPv(void *);
 s32 get_item_def__18TCheckRoomSequenceFUi(void *);
-s32 TCheckRoomSequence__sub_80210A04(Item_80210A04 *item, s32 slot);
+s32 get_bank_deposit_capacity_for_item(Item_80210A04 *item, s32 slot);
 extern Rec_80211034 *lbl_80513D88[];
 extern s32 lbl_80513D98[];
 u8 TCheckRoomSequence__sub_80211574(u8 *arg0);
@@ -237,7 +237,7 @@ u8 TCheckRoomSequence__sub_802108B0(s32 i);
 s32 TCheckRoomSequence__sub_80210B34(u8 *, s32, s32);
 void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
 M2C_UNK TCheckRoomSequence__sub_8021118C(int);
-s32 TCheckRoomSequence__sub_802110B4(u8 *item, s32 arg1, s32 slot);
+s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot);
 }
 
 extern "C" {
@@ -394,7 +394,7 @@ void TCheckRoomSequence__sub_8020F348(u8 *arg0) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_8020F478(Seq_8020F478 *self) {
+void begin_meseta_withdrawal__18TCheckRoomSequenceFPv(Seq_8020F478 *self) {
     s16 id;
     void *w;
     s32 count;
@@ -463,7 +463,7 @@ void TCheckRoomSequence__sub_8020F600(u8 *arg0) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_8020F730(Seq_8020F730 *self) {
+void begin_meseta_deposit__18TCheckRoomSequenceFPv(Seq_8020F730 *self) {
     s16 id;
     s32 meseta;
     void *w;
@@ -586,7 +586,7 @@ void TCheckRoomSequence__sub_80210904(s32 slot) {
 
 #pragma push
 #pragma optimization_level 1
-s32 TCheckRoomSequence__sub_80210A04(Item_80210A04 *item, s32 slot) {
+s32 get_bank_deposit_capacity_for_item(Item_80210A04 *item, s32 slot) {
     Item_80210A04 *recs = (Item_80210A04 *)lbl_80513D88[slot];
     s32 i;
     if (item->b0 != 3) {
@@ -645,7 +645,7 @@ s32 TCheckRoomSequence__sub_80211034(s32 idx, void *data, s32 slot) {
 
 #pragma push
 #pragma optimization_level 1
-s32 TCheckRoomSequence__sub_802110B4(u8 *item, s32 arg1, s32 slot) {
+s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot) {
     Rec_80211034 *recs = lbl_80513D88[slot];
     s32 i;
     if (TCheckRoomSequence__sub_80210B34(item, arg1, slot) != 0) {

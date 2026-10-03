@@ -52,7 +52,7 @@ extern "C" {
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
 extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B4278;
 extern u32 lbl_805D5AA0;
@@ -211,7 +211,7 @@ void TOSensorGeneral01__sub_80176308(void) {
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
     TOSensorGeneral01__data_805D5AA4 = temp_r3_2;
     M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5AA0), u8 **, 0x42C), s32 *, 0xC);
-    *TOSensorGeneral01__data_805D5AA4 = TLanguage__sub_801E4874((void *) (&lbl_80442A80.value));
+    *TOSensorGeneral01__data_805D5AA4 = load_gvm_texture_file((void *) (&lbl_80442A80.value));
 }
 
 void *__dt__17TOSensorGeneral01Fv(void *arg0, s16 arg1) {

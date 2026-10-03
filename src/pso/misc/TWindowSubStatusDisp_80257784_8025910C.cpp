@@ -17,7 +17,7 @@ void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 a
 s32 TItemData__sub_8010C52C(void *);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK select_item_icon__20TWindowSubStatusDispFPviUcUci(void *, s32, u8, u8, s32);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK forward_message__6TLobbyFiUi(s32, void *);
@@ -37,7 +37,7 @@ void set_ground_item__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 a
     forward_message__6TLobbyFiUi(TLobby__sub_8001DC24(), arg1);
     M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(M2C_FIELD(arg1, s32 *, 0x10));
         M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
     }

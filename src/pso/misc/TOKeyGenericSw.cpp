@@ -70,7 +70,7 @@ void TOKeyGenericSw__sub_8016CC8C(void);
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 s32 TContainerAncient01__sub_8020335C(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_80441D04[];
@@ -193,7 +193,7 @@ void TOKeyGenericSw__sub_8016CD28(void) {
         TOKeyGenericSw__data_805D5A28 = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
         TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[0]->area, s32 *, 0xC);
         TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[1]->area, s32 *, 0xC);
-        TOKeyGenericSw__data_805D5A28[2] = TLanguage__sub_801E4874(lbl_80441D04);
+        TOKeyGenericSw__data_805D5A28[2] = load_gvm_texture_file(lbl_80441D04);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
@@ -208,7 +208,7 @@ void TOKeyGenericSw__sub_8016CD28(void) {
         TOKeyGenericSw__data_805D5A28 = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
         TOKeyGenericSw__data_805D5A28[0] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[0]->area, s32 *, 0xC);
         TOKeyGenericSw__data_805D5A28[1] = M2C_FIELD(TOKeyGenericSw__data_8050DB60[1]->area, s32 *, 0xC);
-        TOKeyGenericSw__data_805D5A28[2] = TLanguage__sub_801E4874(lbl_80441D24);
+        TOKeyGenericSw__data_805D5A28[2] = load_gvm_texture_file(lbl_80441D24);
     }
 }
 

@@ -16,7 +16,7 @@ s32 TObjPlayer__sub_801BF3E8(void *);
 int set_action_flag16__10TObjPlayerFPv(void* p);
 int test_flag_8__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801C7098(void* p);
-s32 TObjPlayer__sub_801C6E40(s32 arg0);
+s32 get_contact_surface_type(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6FF8_lbl_804C4008 lbl_804C4008;
 u8 *TObjPlayer__sub_801C6FF8(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
@@ -138,7 +138,7 @@ void heap_alloc__10TObjPlayerFPv(void* a0) { heap_alloc__5THeapFUl((void*)(obj_h
 
 extern M2C_UNK __vt__13TForceOperate[];
 
-s32 TObjPlayer__sub_801C6E40(s32 arg0) {
+s32 get_contact_surface_type(s32 arg0) {
     if (((s32)TObjPlayer__sub_801C7098((void*)(arg0))) != 0) {
         return 1;
     }

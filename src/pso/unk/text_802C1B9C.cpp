@@ -49,7 +49,7 @@ struct Obj_802C1BFC {
 extern "C" {
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_802C1B9C_lbl_80471990 lbl_80471990;
 extern RecoveredGlobal_802C1B9C_lbl_804E081C lbl_804E081C;
 extern s32 lbl_805D67A8;
@@ -89,7 +89,7 @@ void TObjPlayer__sub_802C1B9C(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804E081C.value, 0, 0, 0));
     }
     lbl_805D67A8 = var_r0;
-    lbl_805D67AC = TLanguage__sub_801E4874((s32) &lbl_80471990.value);
+    lbl_805D67AC = load_gvm_texture_file((s32) &lbl_80471990.value);
 }
 
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {

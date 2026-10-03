@@ -19,7 +19,7 @@ s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK render__9TMainTaskFv(void *);
@@ -41,7 +41,7 @@ extern "C" {
 void TKeyBoardControl__sub_802A12B8(void);
 void TKeyBoardControl__sub_802A12BC(void);
 void update_menu_scene__16TKeyBoardControlFv(void);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80201354();
+M2C_UNK init_fresh_character_card();
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_801A66B8();
@@ -73,7 +73,7 @@ void TKeyBoardControl__sub_802A1180(void) {
     var_r3 = (M2C_UNK *)(&main_task.value);
     render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
     TLobby__sub_800FA464();
-    TLobby__sub_802269B4();
+    update_sound_request_slots();
     noop__23TAdSinglePlyChrSelectGCFv();
     if ((s32) (*(u8 *)&lbl_805D6638) == 1) {
         TKeyBoardControl__sub_8000F9B0();
@@ -99,7 +99,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
         break;
     case 1:
         update_keyboard_menu__6TLobbyFv();
-        TAdSinglePlyChrSelectGC__sub_80201354();
+        init_fresh_character_card();
         free_keyboard_soft_resources__6TLobbyFv();
         TKeyBoardControl__sub_8000F91C(5);
         break;

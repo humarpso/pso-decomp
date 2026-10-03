@@ -175,7 +175,7 @@ extern const f32 lbl_805DBCEC;
 void *TObjComputer__ct(void *arg0, void *parent, void *row);
 void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-s32 TLanguage__sub_801E4874(char *);
+s32 load_gvm_texture_file(char *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern char lbl_80444B60[];
 extern char lbl_80444B78[];
@@ -327,7 +327,7 @@ void TObjComputer__sub_80188358(void) {
             p = TLobby__sub_80020004(p, 5, lbl_804B6244, 0, 0, 0);
         }
         TObjComputer__data_805D5B68 = (u32) p;
-        lbl_805D5B6C = TLanguage__sub_801E4874(lbl_80444B60);
+        lbl_805D5B6C = load_gvm_texture_file(lbl_80444B60);
         lbl_805D5B70 = 0;
         break;
     default:
@@ -336,7 +336,7 @@ void TObjComputer__sub_80188358(void) {
             p = TLobby__sub_80020004(p, 5, lbl_804B6204, 0, 0, 0);
         }
         TObjComputer__data_805D5B68 = (u32) p;
-        lbl_805D5B6C = TLanguage__sub_801E4874(lbl_80444B78);
+        lbl_805D5B6C = load_gvm_texture_file(lbl_80444B78);
         lbl_805D5B70 = 1;
         break;
     }

@@ -9,7 +9,7 @@ extern "C" {
 s32 TLobby__sub_8001DC24();
 u8 *get_message_10__20TWindowSubStatusDispFPv(s32);
 s32 text_builder_append(void *);
-s32 TWindowSubStatusDisp__sub_802290E0();
+s32 text_builder_reset();
 u8 *get_sub_disp_ptr__20TWindowSubStatusDispFPv(s32);
 s32 clear_visible_flag__20TWindowSubStatusDispFPv(int);
 s32 set_flag0_bit2__15TWindowHelpItemFPv(int);
@@ -71,20 +71,20 @@ void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1) {
     temp_r28 = M2C_FIELD(temp_r3, s32 *, 0x1C);
     temp_r27 = M2C_FIELD(temp_r3, s32 *, 0x18);
     temp_r26 = M2C_FIELD(temp_r3, s32 *, 0x20);
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append((void *) (&lbl_805DD898));
     text_builder_append((void *) (get_sub_disp_ptr__20TWindowSubStatusDispFPv(arg1)));
     TWindowSubStatusDisp__sub_8025AC50((int) (temp_r31), (int) (TLobby__sub_8001DC24()), (int) (0x60));
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append((void *) (&lbl_805DD898));
     text_builder_append((void *) (get_name__17TWindowSubComCardFPv(arg1)));
     TWindowSubStatusDisp__sub_8025AC50((int) (temp_r30), (int) (TLobby__sub_8001DC24()), (int) (0x60));
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append((void *) (&lbl_805DD898));
     text_builder_append((void *) (TWindowSubComCard__sub_8027523C(arg1)));
     TWindowSubStatusDisp__sub_8025AC50((int) (temp_r29), (int) (TLobby__sub_8001DC24()), (int) (0x60));
     if ((s8) *get_card_data_ptr__17TWindowSubComCardFPv(arg1) != 0) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         text_builder_append((void *) (&lbl_805DD898));
         text_builder_append((void *) (get_card_data_ptr__17TWindowSubComCardFPv(arg1)));
         TWindowSubStatusDisp__sub_8025AC50((int) (temp_r28), (int) (TLobby__sub_8001DC24()), (int) (0x60));
@@ -96,7 +96,7 @@ void TWindowSubStatusDisp__sub_80288104(u8 *arg0, s32 arg1) {
     }
     temp_r31_2 = (u8 *)(get_sub_disp_ptr__20TWindowSubStatusDispFPv(arg1));
     if (strcmp((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)), (int) (temp_r31_2)) != 0) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         text_builder_append((void *) (get_sub_obj__17TWindowSubComCardFPv(arg1)));
         text_builder_append((void *) (get_message_10__20TWindowSubStatusDispFPv(0x45)));
         TWindowSubStatusDisp__sub_8025AC50((int) (temp_r26), (int) (TLobby__sub_8001DC24()), (int) (0x60));

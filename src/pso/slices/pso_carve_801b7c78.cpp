@@ -22,7 +22,7 @@ s32 get_field_d8__10TObjPlayerFPv();
 void init__9TItemDataFv(void *);
 u32 TObjPlayer__sub_801D4DE8(int, void *);
 u32 get_owner_if_alive__10TObjPlayerFPv();
-s32 fn_801B7C78(u8 *arg0, s8 arg1, s8 arg2);
+s32 find_inventory_item_id__10TObjPlayerFPvcc(u8 *arg0, s8 arg1, s8 arg2);
 s32 get_field_d8__10TObjPlayerFPv();
 void init__9TItemDataFv(void *);
 u32 set_mode_and_refresh_object__10TObjPlayerFPvi(int, void *);
@@ -46,7 +46,7 @@ void handle_6x99(void) {  }
 
 void handle_6x98(void) {  }
 
-s32 fn_801B7C78(u8 *arg0, s8 arg1, s8 arg2) {
+s32 find_inventory_item_id__10TObjPlayerFPvcc(u8 *arg0, s8 arg1, s8 arg2) {
     struct ItemData_801B7C78 item;
     init__9TItemDataFv(&item);
     item.kind = arg1;

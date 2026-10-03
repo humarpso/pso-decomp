@@ -24,7 +24,7 @@ M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 fn_801B7F4C(void *arg0, s32 arg1);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 M2C_UNK bind_saved_inventory_equipment__10TObjPlayerFPvPvi(void *, M2C_UNK *, s32);
-M2C_UNK TObjPlayer__sub_801B826C(void *);
+M2C_UNK create_inventory__10TObjPlayerFPv(void *);
 s32 query_state_if_present__10TObjPlayerFPv(void *, M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801BE890(s32 *);
 M2C_UNK destroy_subobjects__10TObjPlayerFPvi(u32, void *);
@@ -71,7 +71,7 @@ void fn_801B802C(void *arg0) {
         destroy_subobjects__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xD00), arg0);
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xD00));
         M2C_FIELD(arg0, u32 *, 0xD00) = 0U;
-        TObjPlayer__sub_801B826C(arg0);
+        create_inventory__10TObjPlayerFPv(arg0);
         fn_801B80C0((void *)(arg0), (Ent_801B80C0 *)((Ent_801B80C0 *)b.ents), (s32)(b.n));
         bind_saved_inventory_equipment__10TObjPlayerFPvPvi(arg0, (M2C_UNK *)b.ents, b.n);
     }

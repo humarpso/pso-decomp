@@ -24,7 +24,7 @@ void run_task__17TWindowCtrlPlayerFv(void* p);
 int TWindowCtrl__sub_8024DAAC(void*);
 int TWindowCtrl__sub_8024DAC4(void*);
 int TWindowCtrl__sub_8024DCE8(void*);
-int TWindowCtrl__sub_8024DE60(void* a0 = 0);
+int update_target_info_window__11TWindowCtrlFPv(void* a0 = 0);
 int TWindowCtrl__sub_8024DF5C(void* a0 = 0);
 int TWindowCtrl__sub_8024DFF4(void* a0 = 0);
 void TWindow__close(void *);

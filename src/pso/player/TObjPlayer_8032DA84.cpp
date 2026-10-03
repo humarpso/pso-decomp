@@ -55,7 +55,7 @@ void fire_projectiles__10TObjPlayerFPv(void *arg0);
 M2C_UNK TObjPlayer__sub_8011EB84(void *, M2C_UNK *, s32, M2C_UNK);
 s32 get_attack_stage__11TItemWeaponFPv(void *);
 void TObjPlayer__sub_80120D50(void *);
-s16 TObjPlayer__sub_801D2EA8(s32);
+s16 get_validated_attack_stage(s32);
 void __dl__7TObjectFPv(void *);
 void destroy__18TItemWpnCardEffectFPvs(void *, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
@@ -71,7 +71,7 @@ void fire_projectiles__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
 
     draw_icon__10TObjPlayerFPvii(arg0, 4, &sp8);
-    if (TObjPlayer__sub_801D2EA8(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 2) {
+    if (get_validated_attack_stage(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 2) {
         TObjPlayer__sub_8011EB84(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0xF4), 0);
         TObjPlayer__sub_8011EB84(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0xF4), 0x1555);
         TObjPlayer__sub_8011EB84(arg0, &sp8, M2C_FIELD(arg0, s32 *, 0xF4), -0x1555);

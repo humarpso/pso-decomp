@@ -62,7 +62,7 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8D8;
 extern const f32 lbl_805DC8DC;
 extern const f32 lbl_805DC8E0;
-void TTecRaFoie__sub_80238388(u8 *arg0);
+void update_rafoie_explosion(u8 *arg0);
 s32 TTecCtrl__sub_8022DBC4(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
@@ -94,7 +94,7 @@ extern void *lbl_805D63B0;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC8D0;
 extern const f32 lbl_805DC8D4;
-void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o);
+void render_rafoie_explosion(RaFoie_802381F8 *o);
 }
 
 extern "C" {
@@ -118,7 +118,7 @@ void TTecRaFoie__sub_802380F4(u8 *arg0) {
   }
 }
 
-void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o) {
+void render_rafoie_explosion(RaFoie_802381F8 *o) {
     f32 x;
     f32 y;
     f32 z;
@@ -168,7 +168,7 @@ void TTecRaFoie__sub_802381F8(RaFoie_802381F8 *o) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-void TTecRaFoie__sub_80238388(u8 *arg0) {
+void update_rafoie_explosion(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80238388, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80238388, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80238388, sp10) == 0x8) ? 1 : -1];

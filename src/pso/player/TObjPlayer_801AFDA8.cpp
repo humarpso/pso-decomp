@@ -66,7 +66,7 @@ u8 is_key_machine_ready__10TObjPlayerFv(void);
 u8 is_volopt_phase_final__10TObjPlayerFv(void);
 s32 TOMineTrap__sub_801D6A44(s32, s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 check_technique_flag__10TObjPlayerFPv(s32);
 s32 get_field_3e0__12TBoss3VoloptFPv();
 s32 get_map_id__13TRaderMapCoreFPv(void* p);
@@ -91,7 +91,7 @@ s8 TObjPlayer__sub_801AFDBC(s8 arg0) {
 s32 check_technique_castable__10TObjPlayerFi(s32 arg0) {
     s32 temp_r3;
 
-    if ((is_technique_ready__8TTecCtrlFv() != 0) || (is_camera_mode_active__10TObjPlayerFv() != 0) || (TObjPlayer__sub_80203418() != 0)) {
+    if ((is_technique_ready__8TTecCtrlFv() != 0) || (is_camera_mode_active__10TObjPlayerFv() != 0) || (is_boss_area() != 0)) {
         check_technique_flag__10TObjPlayerFPv(arg0);
         return 0;
     }

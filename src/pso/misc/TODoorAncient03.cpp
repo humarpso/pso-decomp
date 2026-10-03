@@ -101,7 +101,7 @@ void render__15TODoorAncient03Fv(u8 *arg0);
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440A64;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B0DF8;
 extern u32 lbl_805D5908;
@@ -246,7 +246,7 @@ void TODoorAncient03__sub_8015E548(void) {
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
     (*(s32 * *)&TODoorAncient03__data_805D590C) = temp_r3_2;
     *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5908), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD((*(s32 * *)&TODoorAncient03__data_805D590C), s32 *, 4) = TLanguage__sub_801E4874((void *) (&lbl_80440A64.value));
+    M2C_FIELD((*(s32 * *)&TODoorAncient03__data_805D590C), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80440A64.value));
 }
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];

@@ -26,12 +26,12 @@ extern "C" {
 s32 exit_photon_blast_action__10TObjPlayerFPv(void *);
 s32 update_photon_blast_action__10TObjPlayerFPv(void *);
 s32 enter_photon_blast_action__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_801CC7F8(void *);
+s32 prepare_photon_blast_action__10TObjPlayerFPv(void *);
 s32 update_band_state__10TObjPlayerFPv(void *);
 s32 update_target_approach__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CC9E4();
 s32 try_apply_status_action_default__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801CCA08(s32 arg0, s16 arg1);
+void dispatch_photon_blast_action__10TObjPlayerFis(s32 arg0, s16 arg1);
 s32 obj_isState2_324();
 u8 *get_player_by_client_id(u16);
 void TObjPlayer__sub_801D209C(void *);
@@ -53,7 +53,7 @@ void handle_6x33_revive_player(void *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_801CCA08(s32 arg0, s16 arg1) {
+void dispatch_photon_blast_action__10TObjPlayerFis(s32 arg0, s16 arg1) {
   s32 *new_var;
   {
     switch (arg1)
@@ -75,7 +75,7 @@ void TObjPlayer__sub_801CCA08(s32 arg0, s16 arg1) {
         update_band_state__10TObjPlayerFPv((void *) arg0);
         return;
       case 5:
-        TObjPlayer__sub_801CC7F8((void *) (*(new_var = &arg0)));
+        prepare_photon_blast_action__10TObjPlayerFPv((void *) (*(new_var = &arg0)));
         return;
       case 0:
         enter_photon_blast_action__10TObjPlayerFPv((void *) arg0);

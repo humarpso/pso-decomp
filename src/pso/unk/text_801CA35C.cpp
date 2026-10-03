@@ -74,7 +74,7 @@ void TObjPlayer__sub_801BF964(void *);
 M2C_UNK TObjPlayer__sub_801C58CC(void *, void *);
 M2C_UNK update_action_render__10TObjPlayerFPv(void *);
 s32 __nw__7TObjectFUl(int);
-void TObjPlayer__sub_801B3274();
+void complete_deferred_player_death();
 extern s32 tl_particlemodel;
 void TObjPlayer__sub_801CA35C(u8 *arg0);
 }
@@ -89,7 +89,7 @@ void TObjPlayer__sub_801CA35C(u8 *arg0) {
     if (is_locally_controlled__10TObjPlayerFPv((void *) (arg0)) != 0) {
         var_r31 = __nw__7TObjectFUl((int) (0x2C));
         if (var_r31 != 0) {
-            var_r31 = init_entry_fields__6TLobbyFPviii((int) (var_r31), (int) (tl_particlemodel), (void *) (&TObjPlayer__sub_801B3274), (void *) (obj_getField1c((void *) (arg0))));
+            var_r31 = init_entry_fields__6TLobbyFPviii((int) (var_r31), (int) (tl_particlemodel), (void *) (&complete_deferred_player_death), (void *) (obj_getField1c((void *) (arg0))));
         }
         M2C_FIELD(arg0, s32 *, 0x548) = var_r31;
     }

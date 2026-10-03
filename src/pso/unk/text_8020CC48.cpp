@@ -27,12 +27,12 @@ extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 void TLobby__sub_8020CCD0(SpawnFactory_8020CC48 *out, SpawnFactory_8020CC48 *entry);
 extern SpawnFactory_8020CC48 *lbl_80498E98[];
-s32 TLobby__sub_8020CC48(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out);
+s32 find_enemy_factory_entry(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out);
 }
 
 extern "C" {
 
-s32 TLobby__sub_8020CC48(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out) {
+s32 find_enemy_factory_entry(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out) {
     s32 index = 0;
     SpawnFactory_8020CC48 *table = lbl_80498E98[get_global_state__14TOKeyMachine01Fv()];
     SpawnFactory_8020CC48 *entry = table;

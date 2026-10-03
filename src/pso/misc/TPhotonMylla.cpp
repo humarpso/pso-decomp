@@ -105,7 +105,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK queue_photon_blast_hit(int, int, int, f32);
-M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
+M2C_UNK begin_photon_summon_camera(void *, int);
 M2C_UNK update_photon_blast_attachments(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, int);
 M2C_UNK update_state__10TSceneSoraFPv(void *);
@@ -152,7 +152,7 @@ void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
-M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
+M2C_UNK begin_photon_summon_camera(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
 M2C_UNK TObjPlayer__sub_801A7748(void *, int);
 void photon_base_ct(void *);
@@ -267,7 +267,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
         }
     }
     if ((lbl_805DC204 == (f32) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4) && ((s16) ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_B8 == 1)) {
-        TCameraCtrl__sub_801A7310((void *) (arg0), (int) (3));
+        begin_photon_summon_camera((void *) (arg0), (int) (3));
         ((RecoveredFields_801AD5D8_arg0 *)arg0)->field_1A4 = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
         TObjPlayer__sub_801A7748((void *) (arg0), (int) (5));
@@ -401,7 +401,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     F_801AD970(self, f32, 0x150) = pkt->f20;
     if (F_801AD970(self, s32, 0x198) == 0) {
         set_field_b8__14TObjEnePanarmsFPvs(self, 0);
-        TCameraCtrl__sub_801A7310(self, 3);
+        begin_photon_summon_camera(self, 3);
         F_801AD970(self, s32, 0x198) = 1;
         F_801AD970(self, s16, 0x194) = 0;
         F_801AD970(self, s32, 0x1A0) = 1;

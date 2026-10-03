@@ -77,7 +77,7 @@ void *create_timed_particle_emitter(void *owner, s32 idx, s32 b, s32 c);
 extern M2C_UNK lbl_804CCC28[];
 extern Entry_80239E44 lbl_804CCBF8[];
 extern const f32 lbl_805DC910;
-Obj_80239E44 *TTecReverser__sub_80239E44(Obj_80239E44 *self, Player_80239E44 *player, void *parent);
+Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239E44 *player, void *parent);
 void TObjEneBm5GibonU__sub_803D853C(s32 id, const char *fmt, ...);
 extern char lbl_8044DBB0[];
 extern char lbl_8044DBBC[];
@@ -140,7 +140,7 @@ void update__12TTecReverserFPv(u8 *arg0) {
 }
 
 typedef s32 M2C_UNK;
-Obj_80239E44 *TTecReverser__sub_80239E44(Obj_80239E44 *self, Player_80239E44 *player, void *parent) {
+Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239E44 *player, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vtable = lbl_804CCC28;

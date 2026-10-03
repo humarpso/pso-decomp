@@ -22,12 +22,12 @@ s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
-s32 TCameraCtrl__sub_801A7310(void *, int);
+s32 begin_photon_summon_camera(void *, int);
 s32 update_photon_blast_attachments(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
 s32 update_all_slots__10TObjPlayerFPv(void *);
-s32 TPhotonMagicSquare__sub_801AD218(int, void *, int, void *, int);
+s32 construct_photon_magic_square_normal(int, void *, int, void *, int);
 s32 play_persistent_sound(int, void *, int, int, int);
 u32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805DC15C;
@@ -71,11 +71,11 @@ void fn_801AB018(u8 *arg0) {
         }
         temp_r3_2 = __nw__7TObjectFUl((int) (0xD0));
         if (temp_r3_2 != 0U) {
-            TPhotonMagicSquare__sub_801AD218((int) (temp_r3_2), (void *) (arg0), (int) (0), (void *) (&stack.sp20), (int) (0x78));
+            construct_photon_magic_square_normal((int) (temp_r3_2), (void *) (arg0), (int) (0), (void *) (&stack.sp20), (int) (0x78));
         }
     }
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 0x64) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1)) {
-        TCameraCtrl__sub_801A7310((void *) (arg0), (int) (1));
+        begin_photon_summon_camera((void *) (arg0), (int) (1));
         M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
         TObjPlayer__sub_801A7748((void *) (arg0), (int) (0));

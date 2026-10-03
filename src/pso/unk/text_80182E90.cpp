@@ -33,7 +33,7 @@ extern const f32 lbl_805DBC0C;
 extern const f32 lbl_805DBC10;
 extern const f32 lbl_805DBC14;
 void fn_80182F2C(u8 *arg0);
-M2C_UNK TLobby__sub_801819E4(int);
+M2C_UNK get_city_common_model(int);
 M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK translate_matrix(int, f32, f32, f32);
 M2C_UNK TObjPlayer__sub_803D9B2C();
@@ -72,7 +72,7 @@ void fn_80182E90(u8 *arg0) {
     translate_matrix((int) 0, (f32) lbl_805DBC00, (f32) ((RecoveredFields_80182E90_arg0 *) arg0)->field_9C, (f32) lbl_805DBC00);
     new_var2 = arg0;
     rotate_matrix_y((int) 0, (int) ((RecoveredFields_80182E90_arg0 *) new_var2)->field_60);
-    TLobby__sub_801819E4((int) 8);
+    get_city_common_model((int) 8);
     draw_ginja_object();
     pop_matrix();
   }

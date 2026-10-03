@@ -57,7 +57,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 O_80166C40 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 O_80166C40 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 Arr_80166C40 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern char lbl_80441498[];
 extern char lbl_804414B0[];
 extern char lbl_804414C8[];
@@ -132,9 +132,9 @@ void TOFenceAncient01__sub_80166C40(void) {
     r = alloc_buffer__11TOBoss4RockFPv(0x10);
     (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4) = r;
     r->a = (*(O_80166C40 * *)&TOFenceAncient01__data_805D59B0)->sub->c;
-    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->b = TLanguage__sub_801E4874(lbl_80441498);
-    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->c = TLanguage__sub_801E4874(lbl_804414B0);
-    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->d = TLanguage__sub_801E4874(lbl_804414C8);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->b = load_gvm_texture_file(lbl_80441498);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->c = load_gvm_texture_file(lbl_804414B0);
+    (*(Arr_80166C40 * *)&TOFenceAncient01__data_805D59B4)->d = load_gvm_texture_file(lbl_804414C8);
 }
 
 void *__dt__16TOFenceAncient01Fv(void *arg0, s16 arg1) {

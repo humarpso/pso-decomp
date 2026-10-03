@@ -9,7 +9,7 @@ extern "C" {
 s32 obj_testFlags30(s32, s32);
 s32 is_camera_ready__10TObjPlayerFv();
 s32 is_ready__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 reset_key_machine_state__10TObjPlayerFv();
 u32 TObjPlayer__sub_801C6D40(s32 a0 = 0, s32 a1 = 0);
 s32 TObjPlayer__sub_801BF40C(u32 a0 = 0, s32 a1 = 0);
@@ -43,7 +43,7 @@ u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
 }
 int TObjPlayer__sub_801AF694(void* p) { return fn_801C543C((char*)p + 0x7c4); }
 s32 is_action_available__10TObjPlayerFi(s32 arg0) {
-    if ((reset_key_machine_state__10TObjPlayerFv() == 0) || (TObjPlayer__sub_80203418() != 0)) {
+    if ((reset_key_machine_state__10TObjPlayerFv() == 0) || (is_boss_area() != 0)) {
         return 0;
     }
     if (is_camera_ready__10TObjPlayerFv() != 0) {

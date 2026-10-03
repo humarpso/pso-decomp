@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_801CA48C(u8 *arg0);
+void update_death_pose__10TObjPlayerFPv(u8 *arg0);
 s32 TBoss1Dragon__sub_80143960(void *, M2C_UNK);
 u32 resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_801C5954(void *);
@@ -16,7 +16,7 @@ M2C_UNK apply_velocity__10TObjPlayerFPv(void *);
 
 extern const f32 lbl_805DC37C;
 
-void TObjPlayer__sub_801CA48C(u8 *arg0) {
+void update_death_pose__10TObjPlayerFPv(u8 *arg0) {
     if ((TBoss1Dragon__sub_80143960(arg0, 0x20) != 0) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == (s16) M2C_FIELD(arg0, s16 *, 0xBA))) {
         TObjPlayer__sub_801CA35C(arg0);
     }

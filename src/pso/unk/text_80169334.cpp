@@ -76,7 +76,7 @@ u32 get_recovery_need_flags__10TObjPlayerFPv(void *);
 s32 is_alive_and_ready__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801AF734(void *);
 s32 is_valid_slot__17TOHangerMachine01FiUs(void *, u16);
-void TObjPlayer__sub_801B5328(void *, void *, s32, s32, f32);
+void send_6x2C_impose_hold(void *, void *, s32, s32, f32);
 void TObjPlayer__sub_801AF7E0(void *);
 void *spawn_particle_effect_with_flags(void *, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, u16);
@@ -118,7 +118,7 @@ void TObjPlayer__sub_80169334(Ring_80169334 *self) {
             void *e;
             self->fAC = 1;
             if (is_valid_slot__17TOHangerMachine01FiUs(self, self->fF4) != 0) {
-                TObjPlayer__sub_801B5328(actor, self->pos, 0x3C, 0, r);
+                send_6x2C_impose_hold(actor, self->pos, 0x3C, 0, r);
                 actor->m48();
             }
             if (is_alive_and_ready__10TObjPlayerFi(actor) != 0) {

@@ -34,7 +34,7 @@ M2C_UNK queue_destruction__7TObjectFv(u32);
 s32 is_visible__17TWindowSubComCardFPv(u32);
 M2C_UNK send_room_change__6TLobbyFi(s32);
 s32 is_idle__6TLobbyFv();
-u32 TObjWarpBase__sub_8019D9CC(void *, u16, f32);
+u32 find_warp_player_in_range(void *, u16, f32);
 void TObjWarpLobby__sub_801A0760(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag__11TWindowCtrlFv();
@@ -103,7 +103,7 @@ void run_task__13TObjWarpLobbyFv(VO_801A0894 *arg0) {
         M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DC06C;
     }
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) + lbl_805DC070);
-    if ((TObjWarpBase__sub_8019D9CC(arg0, (u16) lbl_805D53A0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) && (arg0->m14() != 0)) {
+    if ((find_warp_player_in_range(arg0, (u16) lbl_805D53A0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0U) && (arg0->m14() != 0)) {
         if (((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) && (is_idle__6TLobbyFv() != 0)) {
             TObjWarpLobby__sub_801A0760(arg0);
         }

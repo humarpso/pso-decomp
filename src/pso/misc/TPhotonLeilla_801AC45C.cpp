@@ -32,13 +32,13 @@ struct Self_801AC45C {
 extern "C" {
 u16 obj_getField1c(void *);
 u8 * find_entity_by_id(u16);
-u8 * TPhotonMagicSquare__sub_801AD218(void *, M2C_UNK, s32, s32, s32);
+u8 * construct_photon_magic_square_normal(void *, M2C_UNK, s32, s32, s32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 M2C_UNK advance_animation_playback(void *);
 M2C_UNK queue_photon_blast_hit(int, int, int, f32);
-M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
+M2C_UNK begin_photon_summon_camera(void *, int);
 M2C_UNK update_photon_blast_attachments(void *);
 M2C_UNK TObjPlayer__sub_801A7748(void *, int);
 M2C_UNK update_state__10TSceneSoraFPv(void *);
@@ -130,11 +130,11 @@ void run_task__13TPhotonLeillaFv(u8 *arg0) {
         stack.spC = temp_f1 + lbl_805DC1C4;
         temp_r3_2 = (u8 *)(__nw__7TObjectFUl(0xD0, temp_f1));
         if (temp_r3_2 != NULL) {
-            TPhotonMagicSquare__sub_801AD218(temp_r3_2, (s32) arg0, 4, (s32) &stack.sp8, 0x78);
+            construct_photon_magic_square_normal(temp_r3_2, (s32) arg0, 4, (s32) &stack.sp8, 0x78);
         }
     }
     if ((lbl_805DC1C8 == (f32) M2C_FIELD(arg0, s32 *, 0x1AC)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1)) {
-        TCameraCtrl__sub_801A7310((void *) (arg0), (int) (2));
+        begin_photon_summon_camera((void *) (arg0), (int) (2));
         M2C_FIELD(arg0, s32 *, 0x1AC) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
         TObjPlayer__sub_801A7748((void *) (arg0), (int) (4));

@@ -17,7 +17,7 @@ extern "C" {
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 void TWindowHelpItem__sub_8025B08C(void*,float,float);
 extern float lbl_8044E604[][2];
-void TWindowActionPalette__sub_8024391C(TWindowActionPalette* self,unsigned short state);
+void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
 s32 is_split_screen();
 s32 fn_8002AE08(s32);
 s32 get_sub_value__8TItemMagFi(int);
@@ -31,7 +31,7 @@ s32 TWindowActionPalette__sub_801C1E1C(int, int);
 u16 get_current_target_id__10TObjPlayerFv();
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 s32 set_help_text__15TWindowHelpItemFii(void *, int);
-void TWindowActionPalette__sub_8024391C(TWindowActionPalette* self,unsigned short state);
+void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state);
 s32 TWindowActionPalette__sub_80243968(void *, int, int, int);
 s32 TWindowActionPalette__sub_80243A5C(void *, int, int, u16);
 s32 update_fade__17TWindowSubComCardFPv(void *);
@@ -60,7 +60,7 @@ void TWindowActionPalette::render() {
     TWindowActionPalette__sub_80243B6C(this, context);
 }
 
-void TWindowActionPalette__sub_8024391C(TWindowActionPalette* self,unsigned short state) {
+void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {
     void* sprite=get_array_entry__20TWindowSubStatusDispFPvi(self,1);
     TWindowHelpItem__sub_8025B08C(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
 }
@@ -113,15 +113,15 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     if (target == 0xFFFF || target == M2C_FIELD(arg0, s16 *, 0x20) || get_sub_value__8TItemMagFi(player) <= 0) {
         if (TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {
             if (is_split_screen() != 0) {
-                TWindowActionPalette__sub_8024391C(SELF, 3);
+                set_bank_panel_art__20TWindowActionPaletteFPvi(SELF, 3);
             } else {
-                TWindowActionPalette__sub_8024391C(SELF, 0);
+                set_bank_panel_art__20TWindowActionPaletteFPvi(SELF, 0);
             }
         } else {
-            TWindowActionPalette__sub_8024391C(SELF, 1);
+            set_bank_panel_art__20TWindowActionPaletteFPvi(SELF, 1);
         }
     } else {
-        TWindowActionPalette__sub_8024391C(SELF, 2);
+        set_bank_panel_art__20TWindowActionPaletteFPvi(SELF, 2);
     }
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);

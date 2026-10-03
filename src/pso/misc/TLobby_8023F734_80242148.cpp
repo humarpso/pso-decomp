@@ -20,7 +20,7 @@ char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
 char *TLobby__sub_8001DC24();
 void TWindowSubStatusDisp__sub_80228D4C();
 void text_builder_append(char *);
-void TWindowSubStatusDisp__sub_802290E0();
+void text_builder_reset();
 char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
 char *TLobby__sub_802424D8(char *list);
 }
@@ -74,7 +74,7 @@ char *TLobby__sub_802424D8(char *list) {
     char *d;
     s32 i;
     s32 count;
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     s = list;
     count = 1;
     while (*s != '\0') {

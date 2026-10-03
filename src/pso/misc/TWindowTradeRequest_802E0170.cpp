@@ -54,7 +54,7 @@ char get_trade_mode__6TLobbyFv(void);
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK reset_equip_slots__10TObjPlayerFPv();
 M2C_UNK text_builder_append();
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK TObjPlayer__sub_8024ABDC(void *);
 M2C_UNK fn_8024AC64(void *);
@@ -112,7 +112,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
   temp_r31 = ((s32)get_player_by_client_id((void *)((u32) get_trade_mode__6TLobbyFv())));
-  TWindowSubStatusDisp__sub_802290E0();
+  text_builder_reset();
   new_var = (u32) temp_r31;
   if (new_var)
   {

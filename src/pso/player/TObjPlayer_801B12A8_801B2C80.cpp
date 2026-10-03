@@ -137,7 +137,7 @@ void TKeyBoardControl__sub_8000F998();
 s16 obj_getField1c(s32);
 void set_state_flags__10TObjPlayerFPvUi(void *, u32);
 void *get_dest_area__17TObjAreaWarpQuestFPv(void *);
-void TTecLuker__sub_801BAB1C(void *, void *);
+void send_6x21_inter_level_warp(void *, void *);
 void set_battle_flag__10TObjPlayerFPvi(void *, int);
 void TObjPlayer__sub_801C5F84(s16, s32, s32);
 s32 TObjPlayer__sub_801D8C9C(void *);
@@ -280,7 +280,7 @@ void TObjPlayer__sub_801B30BC(void *player) {
     TObjPlayer__sub_801C5F84(obj_getField1c((s32) player), TObjPlayer__sub_801D8C9C(player), TObjPlayer__sub_801D8CCC(player));
     set_state_flags__10TObjPlayerFPvUi(player, 0x800);
     set_battle_flag__10TObjPlayerFPvi(player, 1);
-    TTecLuker__sub_801BAB1C(player, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+    send_6x21_inter_level_warp(player, get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
     apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0), TNpcPlayer__sub_8034DE10(), TNpcPlayer__sub_8034DDE0());
 }
 

@@ -136,7 +136,7 @@ s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
 s32 TLobby__sub_80207770(s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 M2C_UNK TKeyBoardControl__sub_8000F998();
-M2C_UNK TTecLuker__sub_801BAB1C(void *, void *);
+M2C_UNK send_6x21_inter_level_warp(void *, void *);
 M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0();
 extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
@@ -171,7 +171,7 @@ void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 test_player_body_overlap_at(void *, void *, Vec_8019D250 *);
 s32 can_warp__11TObjMapWarpFiUs(void *, u16);
-void *TObjWarpBase__sub_8019D9CC(void *, u16, f32);
+void *find_warp_player_in_range(void *, u16, f32);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 is_target_valid__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C8CCC(u16, Vec_8019D250 *, s32);
@@ -183,7 +183,7 @@ u16 obj_getField1c(void *);
 s32 is_split_screen();
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
-void *TObjWarpBase__sub_8019D9CC(void *, u16, f32);
+void *find_warp_player_in_range(void *, u16, f32);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 void TWindow__close(void *);
 s32 find_active_player__12TObjAreaWarpFPv(void *);
@@ -233,7 +233,7 @@ void TObjAreaWarp__sub_8019CA24(u8 *arg0, s32 arg1) {
     TKeyBoardControl__sub_8000F998();
     get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value);
     TNpcPlayer__sub_8034E7A0();
-    TTecLuker__sub_801BAB1C((void *) (arg1), (void *) (get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value)));
+    send_6x21_inter_level_warp((void *) (arg1), (void *) (get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0.value)));
     play_sound_effect(0x40003205, 0U, 0, 0);
 }
 
@@ -262,7 +262,7 @@ void TObjAreaWarp__sub_8019CAB0(VObj_8019CAB0 *self) {
                 }
             }
             for (i = 0; i < 4; i++) {
-                t = TObjWarpBase__sub_8019D9CC(self, i, d->fAC);
+                t = find_warp_player_in_range(self, i, d->fAC);
                 if (t != NULL) {
                     found = 1;
                     if (d->fC0 != NULL) {
@@ -280,7 +280,7 @@ void TObjAreaWarp__sub_8019CAB0(VObj_8019CAB0 *self) {
                 self->m12();
             }
         } else {
-            void *t2 = TObjWarpBase__sub_8019D9CC(self, lbl_805D53A0, d->fAC);
+            void *t2 = find_warp_player_in_range(self, lbl_805D53A0, d->fAC);
             if (t2 != NULL) {
                 self->m13(lbl_805D53A0);
                 if (self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {
@@ -446,7 +446,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
                     clear_flag4_bit4__22TQuestVmDownLoadServerFPv(d->win[i]);
                     allow_rendering__7TObjectFv(d->win[i]);
                 }
-                t = TObjWarpBase__sub_8019D9CC(self, i, d->fAC);
+                t = find_warp_player_in_range(self, i, d->fAC);
                 if (t != NULL) {
                     self->m13(obj_getField1c(t));
                     if (is_target_valid__10TObjPlayerFPv(t) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t)) != 0) {
@@ -475,7 +475,7 @@ void process_player_warps__11TObjMapWarpFPv(VObj_8019D250 *self) {
             clear_flag4_bit4__22TQuestVmDownLoadServerFPv(d->fB0);
             allow_rendering__7TObjectFv(d->fB0);
         }
-        t2 = TObjWarpBase__sub_8019D9CC(self, lbl_805D53A0, d->fAC);
+        t2 = find_warp_player_in_range(self, lbl_805D53A0, d->fAC);
         if (t2 != NULL) {
             self->m13(lbl_805D53A0);
             if (is_target_valid__10TObjPlayerFPv(t2) != 0 && self->m16(get_map_id__13TRaderMapCoreFPv(t2)) != 0) {

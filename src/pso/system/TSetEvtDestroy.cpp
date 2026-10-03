@@ -4,7 +4,7 @@ extern "C" void queue_destruction__7TObjectFv(void*);
 
 extern "C" {
 s32 has_undefeated_entry__14TEnemyTaskListFPv(void*);
-s32 TLobby__sub_8020881C();
+s32 run_wave_event_actions();
 void TLobby__sub_80208884(void*);
 s32 spawn_matching_objects__6TLobbyFssi(s32, s32, void*);
 void TNpcPlayer__sub_8034E508(s32);
@@ -34,7 +34,7 @@ void TSetEvtDestroy::run_task() {
         if (!(m_1c[2] & 8)) {
             m_1c[2] |= 8;
             TLobby__sub_80208884(m_event_context);
-            if (TLobby__sub_8020881C() == 0) {
+            if (run_wave_event_actions() == 0) {
                 TNpcPlayer__sub_8034E508(m_1c[4]);
             }
         }

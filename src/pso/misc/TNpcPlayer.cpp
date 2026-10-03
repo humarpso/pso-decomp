@@ -94,7 +94,7 @@ s32 TNpcPlayer__sub_8014F424(void *, s32, s32, s32);
 s32 TNpcPlayer__sub_8014F57C(void *, s32);
 M2C_UNK TObjEneGibbles__sub_80156720(u32);
 M2C_UNK __dl__FPv(void *);
-s32 fn_801B7C78(s32, M2C_UNK, M2C_UNK);
+s32 find_inventory_item_id__10TObjPlayerFPvcc(s32, M2C_UNK, M2C_UNK);
 M2C_UNK queue_destruction__7TObjectFv(u32);
 s32 try_camera_action__10TObjPlayerFii(s32, M2C_UNK);
 
@@ -258,7 +258,7 @@ s32 check_and_set_reached__10TNpcPlayerFPv(void *arg0) {
 s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     switch (arg1) {
     case 0:
-        if ((arg2 != 0) && (fn_801B7C78(M2C_FIELD(arg0, s32 *, 0x94), 3, 0) != -1)) {
+        if ((arg2 != 0) && (find_inventory_item_id__10TObjPlayerFPvcc(M2C_FIELD(arg0, s32 *, 0x94), 3, 0) != -1)) {
             M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x20);
             return 1;
         }
@@ -267,7 +267,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         }
         break;
     case 1:
-        if (fn_801B7C78(M2C_FIELD(arg0, s32 *, 0x94), 3, 1) != -1) {
+        if (find_inventory_item_id__10TObjPlayerFPvcc(M2C_FIELD(arg0, s32 *, 0x94), 3, 1) != -1) {
             M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x20);
             return 1;
         }
@@ -278,7 +278,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         }
         break;
     case 3:
-        if (fn_801B7C78(M2C_FIELD(arg0, s32 *, 0x94), 3, 6) != -1) {
+        if (find_inventory_item_id__10TObjPlayerFPvcc(M2C_FIELD(arg0, s32 *, 0x94), 3, 6) != -1) {
             M2C_FIELD(arg0, s32 *, 0x90) = (s32) (M2C_FIELD(arg0, s32 *, 0x90) | 0x20);
             return 1;
         }

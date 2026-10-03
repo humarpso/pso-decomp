@@ -12,7 +12,7 @@ struct Stack_800F0B4C
 };
 
 extern "C" {
-int TLanguage__sub_801E4874(void*);
+int load_gvm_texture_file(void*);
     extern unsigned char lbl_8043D438[];
 extern u32 lbl_805D52F8;
 void load_ha_u032_kage(void);
@@ -52,7 +52,7 @@ void destroy_resources__16TObjEneMe3StelthFv(void) {
         lbl_805D52F8 = 0U;
     }
 }
-void load_ha_u032_kage(void) { (*(int *)&lbl_805D52F8) = TLanguage__sub_801E4874(lbl_8043D438); }
+void load_ha_u032_kage(void) { (*(int *)&lbl_805D52F8) = load_gvm_texture_file(lbl_8043D438); }
 s32 TObjEneMe3Stelth__sub_800F0B4C(s32 arg0, s32 arg1) {
   Stack_800F0B4C stack;
   s32 temp_r31;

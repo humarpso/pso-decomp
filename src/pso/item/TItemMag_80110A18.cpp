@@ -20,7 +20,7 @@ u8 get_slot_count__14TItemProShieldFPv();
 void TItemMag__sub_80113EDC(s32, s16, s8);
 s32 TItemMag__sub_801143E8(void *, s32);
 void TItemMag__sub_801D7964(s32);
-void fn_801D79DC(u8 *arg0, s32 arg1);
+void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
 void register_photon_blasts__8TItemMagFPv(u8 *arg0);
 }
 
@@ -162,7 +162,7 @@ void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
         temp_r3 = TItemMag__sub_801143E8(arg0 + 0x198, var_r30);
         if (temp_r3 != -1) {
             TItemMag__sub_80113EDC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x4AC, (s16) temp_r3, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFPv)(arg0));
-            fn_801D79DC(M2C_FIELD(arg0, u8 **, 0xF0) + 0x500, (s16) temp_r3);
+            assign_photon_blast_palette_slot(M2C_FIELD(arg0, u8 **, 0xF0) + 0x500, (s16) temp_r3);
         }
         var_r30 += 1;
     } while (var_r30 != 3);

@@ -146,7 +146,7 @@ s32 obj_getField1c(void *);
 s32 is_split_screen();
 void set_target__11TCameraCtrlFPvUi(Ctrl_8006A410 *, void *);
 Views_8006A410 *TCameraCtrl__sub_8006B324(void);
-s32 TObjPlayer__sub_80203418(void);
+s32 is_boss_area(void);
 extern RecoveredGlobal_8006A788_camera_controller_registry camera_controller_registry;
 extern s8 TCameraCtrl__data_804FF628[];
 extern u8 *lbl_805D4DF0;
@@ -221,7 +221,7 @@ void reset_cameras_to_actor(void *actor) {
     if (is_split_screen() != 0)
     {
       *((s32 *) (((s8 *) TCameraCtrl__data_804FF628) + 8)) |= 0x800;
-      if (TObjPlayer__sub_80203418() == 0)
+      if (is_boss_area() == 0)
       {
         *((s32 *) (((s8 *) TCameraCtrl__data_804FF628) + 8)) |= 0x1000;
         *((s32 *) (((s8 *) TCameraCtrl__data_804FF628) + 8)) |= 0x2000;

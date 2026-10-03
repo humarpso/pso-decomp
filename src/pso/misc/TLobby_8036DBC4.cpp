@@ -9,7 +9,7 @@ s32 get_camera_id__11TCameraCtrlFv();
 s32 TLobby__sub_8001EEFC(void *);
 void draw_string__9TLanguageFPvPvi(void *, void *, int);
 void TLobby__sub_8001EE48(void *);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 void set_global_param__8TObjFishFi();
 void TLanguage__sub_803DAF70(int, int);
 extern u8 lbl_8047AD08[];
@@ -41,7 +41,7 @@ void TBGMulti__ct(void) {
         sp8[0] = TLobby__sub_8001EEFC(lbl_8047AD08);
         draw_string__9TLanguageFPvPvi(lbl_8047AD14, sp8, 0x4D);
         TLobby__sub_8001EE48(lbl_8047AD08);
-        (*(s32 *)&lbl_805D7018) = TLanguage__sub_801E4874(lbl_8047AD20);
+        (*(s32 *)&lbl_805D7018) = load_gvm_texture_file(lbl_8047AD20);
         set_global_param__8TObjFishFi();
         TLanguage__sub_803DAF70(0, 0x4D);
     }

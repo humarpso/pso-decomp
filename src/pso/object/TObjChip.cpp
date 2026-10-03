@@ -188,7 +188,7 @@ extern const f32 lbl_805DBB94;
 extern const f32 lbl_805DBB98;
 u8 *TObjChip__sub_80180BD4(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK scroll_strip_uvs(int, s16, int);
-M2C_UNK TLobby__sub_801819E4(int);
+M2C_UNK get_city_common_model(int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK rotate_matrix_y(int, int);
@@ -224,12 +224,12 @@ int rand(void);
 extern const f32 TObjChip__data_805DBB84;
 extern const f32 lbl_805DBB88;
 extern const f32 lbl_805DBB8C;
-s32 TObjChip__sub_80180614(u8 *arg0);
+s32 init_chips__8TObjChipFPv(u8 *arg0);
 extern const f32 lbl_805DBB78;
 extern const f32 lbl_805DBB7C;
 extern const f32 lbl_805DBB80;
 extern const f32 TObjChip__data_805DBB84;
-void TObjChip__sub_8018019C(u8 *arg0);
+void tick_chips__8TObjChipFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -259,7 +259,7 @@ void TObjChip__sub_80180134(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjChip__sub_8018019C(u8 *arg0) {
+void tick_chips__8TObjChipFPv(u8 *arg0) {
     Task_8018019C *t = (Task_8018019C *)arg0;
     s32 active;
     Chip_8018019C *c;
@@ -338,7 +338,7 @@ s32 TObjChip__sub_801803C0(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjChip__sub_80180614(u8 *arg0) {
+s32 init_chips__8TObjChipFPv(u8 *arg0) {
     Task_80180614 *t = (Task_80180614 *)arg0;
     Chip_80180614 *c;
     s32 i;
@@ -491,10 +491,10 @@ void TObjPlayer__sub_80180D18(u8 *arg0) {
             rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
         }
         set_global_param__8TObjFishFi((int) (lbl_805D5B2C));
-        TLobby__sub_801819E4((int) (M2C_FIELD(((u8 *)(lbl_80443B2C) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
+        get_city_common_model((int) (M2C_FIELD(((u8 *)(lbl_80443B2C) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
         ((void (*)()) draw_chunk_object)();
         begin_effect_render__13TParticleCtrlFv();
-        TLobby__sub_801819E4((int) (M2C_FIELD(((u8 *)(lbl_80443B40) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
+        get_city_common_model((int) (M2C_FIELD(((u8 *)(lbl_80443B40) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
         draw_ginja_object();
         if ((void *) lbl_805D5B20 != NULL) {
             temp_r3 = (u8 *)(M2C_FIELD(lbl_805D5B24, u8 **, 0));

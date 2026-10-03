@@ -52,7 +52,7 @@ s32 get_player_floor__6TLobbyFi(s32);
 s32 validate_6x21_inter_level_warp(void *);
 void handle_6x21_inter_level_warp(void *arg0);
 void TObjPlayer__sub_801C18AC(Msg_801BAB1C *m);
-void TTecLuker__sub_801BAB1C(void *obj, s32 value);
+void send_6x21_inter_level_warp(void *obj, s32 value);
 void TObjPlayer__sub_800F09E8(s32);
 void direction_to_rotation_xz(void *, void *, void *);
 void scale_matrix(int, f32, f32, f32);
@@ -88,7 +88,7 @@ void handle_6x21_inter_level_warp(void *arg0) {
     }
 }
 
-void TTecLuker__sub_801BAB1C(void *obj, s32 value) {
+void send_6x21_inter_level_warp(void *obj, s32 value) {
     if (obj == 0 || obj_isState2_324(obj) == 0) {
         Msg_801BAB1C m;
         TObjPlayer__sub_801C1890(&m);

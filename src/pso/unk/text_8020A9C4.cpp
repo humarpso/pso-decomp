@@ -22,10 +22,10 @@ struct Rec_8020AA94 {
 };
 
 extern "C" {
-s32 TLobby__sub_8020BFE4(s32, SpawnRecord_8020A9C4 *);
+s32 get_enemy_factory_child_count(s32, SpawnRecord_8020A9C4 *);
 extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60EC;
-void TLobby__sub_8020A9C4(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2);
+void reserve_enemy_set_actor_ids(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_8020C030(void *, Rec_8020AA94 *);
 extern s32 TLobby__data_805D60E0;
 extern s32 TLobby__data_805D60E8;
@@ -34,7 +34,7 @@ void TLobby__sub_8020AA94(Rec_8020AA94 *arg0, s32 arg1, void *arg2);
 
 extern "C" {
 
-void TLobby__sub_8020A9C4(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2) {
+void reserve_enemy_set_actor_ids(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2) {
     SpawnRecord_8020A9C4 *r;
     s32 i;
     s32 n;
@@ -46,7 +46,7 @@ void TLobby__sub_8020A9C4(SpawnRecord_8020A9C4 *arg0, s32 arg1, s32 arg2) {
             TLobby__data_805D60E4 += r->children;
             TLobby__data_805D60EC += r->children;
         } else {
-            n = TLobby__sub_8020BFE4(arg2, r);
+            n = get_enemy_factory_child_count(arg2, r);
             if (n > 0) {
                 TLobby__data_805D60E4 += n;
                 TLobby__data_805D60EC += n;

@@ -39,7 +39,7 @@ extern "C" {
 
 void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
-s32 TObjPlayer__sub_801C1A70();
+s32 is_item_equipped();
 void *get_owner_if_alive__10TObjPlayerFPv(s32);
 M2C_UNK queue_destruction__7TObjectFv(s32);
 
@@ -49,7 +49,7 @@ void remove_equipped_item__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
 
     temp_r3 = get_owner_if_alive__10TObjPlayerFPv(arg2);
     if (temp_r3 != NULL) {
-        if (TObjPlayer__sub_801C1A70() != 0) {
+        if (is_item_equipped() != 0) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
         }
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);

@@ -39,7 +39,7 @@ extern s32 TLobby__data_80512220[];
 void qst_op_pl_add_meseta(void);
 extern int* TLobby__data_805D5E78;
 void set_quest_floor_designation(s16, s32, s32, s32);
-void TLobby__sub_801EE728(u32 first);
+void qst_op_map_designate(u32 first);
 u32 get_player_by_client_id(s32);
 void init__9TItemDataFv(Item_801EE77C *);
 void *set_mode_and_refresh_object__10TObjPlayerFPvi(void *, Item_801EE77C *);
@@ -124,7 +124,7 @@ void update_doors__6TLobbyFv(void) { TObjDoor__sub_801F3760(); TObjDoor__sub_801
 extern s32 TLobby__data_80512220[];
 extern s32 lbl_805D53A0;
 
-void TLobby__sub_801EE728(u32 first) {
+void qst_op_map_designate(u32 first) {
     u32 i = first;
     s32 floor = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i++];
     s16 mode = (*(s32 * *)&TLobby__data_805D5E78)[(u8)i++];

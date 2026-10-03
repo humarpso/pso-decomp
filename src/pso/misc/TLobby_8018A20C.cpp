@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-u32 TLanguage__sub_801E4874(void *);
+u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern u8 lbl_80444F30[];
 extern u8 lbl_80444F48[];
@@ -51,7 +51,7 @@ void TLobby__sub_8018A28C(void) {
             p = TLobby__sub_80020004(p, 5, lbl_804B63AC, 0, 0, 0);
         }
         lbl_805D5B88 = (u32)p;
-        lbl_805D5B8C = TLanguage__sub_801E4874(lbl_80444F30);
+        lbl_805D5B8C = load_gvm_texture_file(lbl_80444F30);
         break;
     case 30:
     default:
@@ -60,7 +60,7 @@ void TLobby__sub_8018A28C(void) {
             p = TLobby__sub_80020004(p, 5, lbl_804B636C, 0, 0, 0);
         }
         lbl_805D5B88 = (u32)p;
-        lbl_805D5B8C = TLanguage__sub_801E4874(lbl_80444F48);
+        lbl_805D5B8C = load_gvm_texture_file(lbl_80444F48);
         break;
     }
 }

@@ -24,7 +24,7 @@ s32 item_identity_matches(M2C_UNK *, s32);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DFC;
-void *TObjPlayer__sub_801D563C(ItemNode_801D563C *root);
+void *find_matching_inventory_item_node(ItemNode_801D563C *root);
 s32 has_flag_128__10TObjPlayerFPv();
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
@@ -124,7 +124,7 @@ void count_items_recursive__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void *TObjPlayer__sub_801D563C(ItemNode_801D563C *root) {
+void *find_matching_inventory_item_node(ItemNode_801D563C *root) {
     s32 data[8];
     ItemNode_801D563C *node;
     void *found;
@@ -139,7 +139,7 @@ void *TObjPlayer__sub_801D563C(ItemNode_801D563C *root) {
                 }
             }
         }
-        found = TObjPlayer__sub_801D563C(node);
+        found = find_matching_inventory_item_node(node);
         if (found != NULL) {
             return found;
         }

@@ -64,7 +64,7 @@ int TScene__sub_8029F3E8(void);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 get_random_float__8TObjFishFv(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 get_global_state__14TOKeyMachine01Fv();
 void render_task_layer_02__9TMainTaskFv(void *);
 void render_object_layers__9TMainTaskFi(void *, s32);
@@ -175,12 +175,12 @@ void TSceneSora__sub_8029EFFC(Sora_8029EFFC *o) {
         off.y += lbl_805DDDB0;
         hit = fn_8029E7BC(&off, &o->pos24);
     }
-    if (TObjPlayer__sub_80203418() != 0) {
+    if (is_boss_area() != 0) {
         hit = 1;
     }
     if (hit != 0 || lbl_805D65FA != 0) {
         lbl_805D65FA = 0;
-        if (TObjPlayer__sub_80203418() != 0) {
+        if (is_boss_area() != 0) {
             if (p != NULL) {
                 render_object_layers__9TMainTaskFi(main_task, 2);
                 if (get_global_state__14TOKeyMachine01Fv() == 0x20) {

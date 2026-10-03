@@ -51,7 +51,7 @@ s32 is_locally_controlled__10TObjPlayerFPv();
 s32 obj_testFlags30(s32, s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801D2B08(s32, s32);
-void TFontSmallLobby__sub_801D63DC(s32, f32);
+void add_photon_blast_charge(s32, f32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TObjPlayer__vt73(s32 arg0, f32 farg0);
 u32 get_player_by_client_id(u32);
@@ -65,7 +65,7 @@ s32 TObjPlayer__sub_801AFF0C(void *);
 void TObjPlayer__sub_801D0F70(void *);
 void run_action_state_phase__10TObjPlayerFisi(void *, s32, s32);
 extern void *lbl_8050EA10[];
-void TObjPlayer__sub_801CC010(s16 arg0, u16 *arg1);
+void freeze_players_for_photon_blast(s16 arg0, u16 *arg1);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ void TObjPlayer__vt73(s32 arg0, f32 farg0) {
         reset_key_machine_state__10TObjPlayerFv() == 0) {
         return;
     }
-    TFontSmallLobby__sub_801D63DC(arg0 + 0x4AC, farg0);
+    add_photon_blast_charge(arg0 + 0x4AC, farg0);
 }
 
 void TObjPlayer__sub_801CBF7C(void) {
@@ -106,7 +106,7 @@ void TObjPlayer__sub_801CBFA4(u16 *p) {
         }
     }
 }
-void TObjPlayer__sub_801CC010(s16 arg0, u16 *arg1) {
+void freeze_players_for_photon_blast(s16 arg0, u16 *arg1) {
     s32 i;
     void *obj;
     void **tbl;

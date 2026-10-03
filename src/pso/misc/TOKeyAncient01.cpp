@@ -111,7 +111,7 @@ u8 *TOKeyAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 Big_8016AF84 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 Buf_8016AF84 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern u8 lbl_804419B8[];
 extern u8 lbl_804419D0[];
 extern u8 lbl_804419E8[];
@@ -224,9 +224,9 @@ void TOKeyAncient01__sub_8016AF84(void) {
     (*(Big_8016AF84 * *)&TOKeyAncient01__data_805D59F8) = v;
     (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC) = alloc_buffer__11TOBoss4RockFPv(0x10);
     (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->a = (*(Big_8016AF84 * *)&TOKeyAncient01__data_805D59F8)->p->f0C;
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->b = TLanguage__sub_801E4874(lbl_804419B8);
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->c = TLanguage__sub_801E4874(lbl_804419D0);
-    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->d = TLanguage__sub_801E4874(lbl_804419E8);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->b = load_gvm_texture_file(lbl_804419B8);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->c = load_gvm_texture_file(lbl_804419D0);
+    (*(Buf_8016AF84 * *)&TOKeyAncient01__data_805D59FC)->d = load_gvm_texture_file(lbl_804419E8);
 }
 
 void *__dt__14TOKeyAncient01Fv(void *arg0, s16 arg1) {

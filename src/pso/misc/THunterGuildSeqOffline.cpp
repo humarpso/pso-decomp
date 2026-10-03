@@ -137,7 +137,7 @@ struct V_A_80213474 : Base_A_80213474 {
 extern "C" {
 s32 get_window_layout_position(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
+s32 set_service_counter_camera(void *, int);
 M2C_UNK TShopSequence__sub_80223600(void *, int, void *);
 extern const f32 lbl_805DC650;
 extern const f32 lbl_805DC654;
@@ -160,7 +160,7 @@ s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 extern u8 *lbl_805D5EE8;
-void THunterGuildSeqOffline__sub_80212F34(u8 *arg0);
+void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0);
 s32 TShopSequence__ct(void *);
 s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGuildSeqOffline;
@@ -183,7 +183,7 @@ void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__data_80513DC8[];
 void THunterGuildSeqOffline__sub_80213430(void* _w0);
 void THunterGuildSeqOffline__sub_802130AC(u8 *arg0);
-void THunterGuildSeqOffline__sub_80212F34(u8 *arg0);
+void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0);
 void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
 void THunterGuildSeqOffline__sub_80212B88(void *arg0);
 void THunterGuildSeqOffline__sub_802128B0(void *arg0);
@@ -262,7 +262,7 @@ void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0) {
     }
 }
 
-void THunterGuildSeqOffline__sub_80212F34(u8 *arg0) {
+void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     if ((((VObj_18_b54460 *)(arg0))->m8() != 0) && ((TShopWindowBase__sub_80223A48(arg0) != 0) || (TShopWindowBase__sub_802239EC(arg0) != 0))) {
         if (TCameraCtrl__sub_8006B368() == 1) {
             if (TQuestThread__sub_801F5EAC(lbl_805D5EE8, 0xFF) == 1) {
@@ -298,7 +298,7 @@ void THunterGuildSeqOffline__sub_802130AC(u8 *arg0) {
     stack.spC = lbl_805DC654;
     TShopSequence__sub_80223600((void *) (arg0), (int) (((u8 *)get_window_layout_position(0x2C))), (void *) (&stack.sp8));
     ((VObj_18_97738d *)(arg0))->m7(1, 1);
-    M2C_FIELD(arg0, s32 *, 0x30) = THunterGuildSeqOffline__sub_8022350C((void *) (arg0), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0x30) = set_service_counter_camera((void *) (arg0), (int) (1));
     set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (void*)((int) (2)));
 }
 
@@ -310,7 +310,7 @@ void THunterGuildSeqOffline__vt9(Guild_8021317C *self) {
     switch (self->phase) {
     case 0: self->begin(); break;
     case 1: THunterGuildSeqOffline__sub_802130AC((u8 *)self); break;
-    case 2: THunterGuildSeqOffline__sub_80212F34((u8 *)self); break;
+    case 2: resolve_active_quest_result__22THunterGuildSeqOfflineFPv((u8 *)self); break;
     case 3: open_judgment_window__22THunterGuildSeqOfflineFPv(self); break;
     case 4: THunterGuildSeqOffline__sub_80212B88(self); break;
     case 5: self->finish(); break;

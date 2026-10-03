@@ -111,7 +111,7 @@ s32 obj_getPtr2B0_20(void *);
 s32 TWindowHelpItem__sub_80104FCC(void *, Rec_8021C33C *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021C33C *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
-s32 TShopEquipmentListWindow__sub_8021C33C(Win_8021C33C *w);
+s32 check_purchase_eligibility__24TShopEquipmentListWindowFPv(Win_8021C33C *w);
 s32 obj_getField1c(s32);
 M2C_UNK copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 get_item_price_if_valid__24TShopEquipmentSellWindowFUi(void *);
@@ -119,7 +119,7 @@ s32 clear_selected_and_update_entry__14TWindowSubItemFPv(s32);
 M2C_UNK TLobby__sub_80225550(void *, int, s32);
 M2C_UNK set_position__6TLobbyFPvff(void *, f32, f32);
 int TShopEquipmentListWindow__sub_8021C85C(int a0);
-s32 TLobby__sub_80222CFC(s32);
+s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_8022397C(void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
@@ -135,7 +135,7 @@ M2C_UNK get_item_count__24TShopEquipmentSellWindowFPv(void *a, s32 b);
 void *create_cost_window(u16);
 s32 is_camera_ctrl_active__6TLobbyFv();
 extern const f32 lbl_805DC6D0;
-void TShopEquipmentListWindow__sub_8021C408(void *p);
+void create_buy_list_windows__24TShopEquipmentListWindowFPv(void *p);
 }
 
 extern "C" {
@@ -146,7 +146,7 @@ void TShopEquipmentListWindow__vt5(void *arg0);
 void *__dt__24TShopEquipmentListWindowFv(void *arg0, s16 arg1);
 void update_list__24TShopEquipmentListWindowFPvPv(void *arg0, void *arg1);
 u32 TCheckRoomSequence__sub_802664A8(s32, s32, u16);
-s32 TLobby__sub_80222CFC(s32);
+s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 TWindowSubComCard__sub_80265C30(u32);
@@ -195,8 +195,8 @@ s32 open_menu_window__24TShopEquipmentListWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
         temp_r31 = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, u32 *, 0x2C) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x2B), 2, temp_r31);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TLobby__sub_80222CFC(4), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), TLobby__sub_80222CFC(5), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_shop_text(4), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x2C), get_shop_text(5), 6, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x2C));
         TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x2C));
         set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x2C));
@@ -227,7 +227,7 @@ s32 handle_select__24TShopEquipmentListWindowFPv(void *arg0) {
 
 extern M2C_UNK __vt__24TShopEquipmentListWindow[];
 
-s32 TShopEquipmentListWindow__sub_8021C33C(Win_8021C33C *w) {
+s32 check_purchase_eligibility__24TShopEquipmentListWindowFPv(Win_8021C33C *w) {
     u32 res;
     s32 i;
     Rec_8021C33C *r;
@@ -253,7 +253,7 @@ s32 TShopEquipmentListWindow__sub_8021C33C(Win_8021C33C *w) {
 #pragma push
 #pragma opt_common_subs off
 #define W ((Win_8021C408 *)p)
-void TShopEquipmentListWindow__sub_8021C408(void *p) {
+void create_buy_list_windows__24TShopEquipmentListWindowFPv(void *p) {
     Rec_8021C408 tmp;
     u16 id;
     void *o;
@@ -275,7 +275,7 @@ void TShopEquipmentListWindow__sub_8021C408(void *p) {
         }
     }
     if (W->list == NULL) {
-        W->list = TShopJudgmentItemWindow__sub_8026DF00(TLobby__sub_80222CFC(0x26), W->count, obj_getField1c(W->player));
+        W->list = TShopJudgmentItemWindow__sub_8026DF00(get_shop_text(0x26), W->count, obj_getField1c(W->player));
     } else {
         save_cursor_selection__20TShopArmorListWindowFPv(W->list);
         TShopArmorListWindow__sub_80266DB0(W->list);
@@ -320,7 +320,7 @@ void TShopEquipmentListWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TShopEquipmentListWindow__sub_8021C408((void *)((void *) (arg0)));
+        create_buy_list_windows__24TShopEquipmentListWindowFPv((void *)((void *) (arg0)));
         set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (1)));
         return;
     case 1:

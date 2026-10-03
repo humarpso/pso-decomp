@@ -12,7 +12,7 @@ s16 get_action_animation__10TObjPlayerFPv();
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 int run_action_state_phase__10TObjPlayerFisi(void*, void*, void*);
 s32 get_getup_protection_ticks__10TObjPlayerFPv();
-void TObjPlayer__sub_801CAEB0(u8 *arg0);
+void complete_fall_reaction__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -23,7 +23,7 @@ void check_and_trigger_19_5__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801CAEAC(void);
 void TObjPlayer__sub_801CAF6C(void);
 
-void TObjPlayer__sub_801CAEB0(u8 *arg0) {
+void complete_fall_reaction__10TObjPlayerFPv(u8 *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0x328);
     switch (temp_r0) {

@@ -134,7 +134,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 TAdPlayerLoadGC__sub_801E1E38(int);
 M2C_UNK render_tick__Fv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK render__9TMainTaskFv(void *);
@@ -172,7 +172,7 @@ s32 TAdPlayerLoadGC__sub_801E1B50(int);
 s32 TAdPlayerLoadGC__sub_801E1E38(int);
 M2C_UNK render_tick__Fv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK render__9TMainTaskFv(void *);
@@ -217,7 +217,7 @@ M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK run_tl_camera_tasks__9TMainTaskFv(void *);
@@ -267,9 +267,9 @@ M2C_UNK TObjPlayer__sub_801B1C8C();
 void *get_player_by_client_id(s32);
 M2C_UNK render_tick__Fv();
 M2C_UNK create_quad_sprites__13TParticleCtrlFv();
-M2C_UNK TLobby__sub_801F3DEC();
+M2C_UNK clear_quest_floor_designations();
 M2C_UNK setup_quest_list__6TLobbyFv();
-M2C_UNK TQuestThread__sub_801F5B5C();
+M2C_UNK create_floor_quest_thread();
 void *__ct__12TQuestThreadFv(void *, u32, M2C_UNK);
 M2C_UNK TQuestThread__sub_801F5DA8();
 M2C_UNK TQuestThread__sub_801F60DC();
@@ -295,7 +295,7 @@ extern RecoveredGlobal_801A4820_main_task main_task;
 extern s32 TLobby__data_805D53AC;
 extern u32 lbl_805D5EE8;
 extern void *tl_03;
-M2C_UNK TLobby__sub_801A4268(void);
+M2C_UNK start_quest_mission(void);
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK get_current_floor();
@@ -323,7 +323,7 @@ M2C_UNK TObjPlayer__sub_801B1C8C();
 void *get_player_by_client_id(s32);
 M2C_UNK render_tick__Fv();
 M2C_UNK create_quad_sprites__13TParticleCtrlFv();
-M2C_UNK TQuestThread__sub_801F5B5C();
+M2C_UNK create_floor_quest_thread();
 void *__ct__12TQuestThreadFv(void *, u32, M2C_UNK);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF5E4(M2C_UNK);
 M2C_UNK TLobby__sub_80207E24(void *, M2C_UNK);
@@ -347,7 +347,7 @@ extern s32 TLobby__data_805D53AC;
 extern int TLobby__data_805D5CEC;
 extern u32 lbl_805D5EEC;
 extern void *tl_03;
-M2C_UNK TLobby__sub_801A441C(void);
+M2C_UNK change_floor_reload_area(void);
 M2C_UNK update__16TKeyBoardControlFv();
 M2C_UNK TKeyBoardControl__sub_8000F90C(int);
 int TKeyBoardControl__sub_8000F91C(int);
@@ -392,7 +392,7 @@ M2C_UNK TLobby__sub_80203470(int);
 M2C_UNK TLobby__sub_80207F10();
 M2C_UNK TLobby__sub_8020A6B0(int);
 M2C_UNK TLobby__sub_8020B118();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK TLobby__sub_802286C4(void *);
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
@@ -502,7 +502,7 @@ void TLobby__sub_801A400C(void* _w0) {
         render__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
         render_screen_overlay__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A400C_main_task *)&main_task).value));
         TLobby__sub_800FA464();
-        TLobby__sub_802269B4();
+        update_sound_request_slots();
         TAdSinglePlyChrSelectGC__sub_80201650();
         noop__23TAdSinglePlyChrSelectGCFv();
     }
@@ -534,7 +534,7 @@ typedef char RecoveredGlobal_801A4610_lbl_804C2240_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801A4610_lbl_80515BA0_size[sizeof(RecoveredGlobal_801A4610_lbl_80515BA0) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_801A4610_main_task_size[sizeof(RecoveredGlobal_801A4610_main_task) == 0x34 ? 1 : -1];
 
-M2C_UNK TLobby__sub_801A4268(void) {
+M2C_UNK start_quest_mission(void) {
     u8 tmp[0x1C];
     s32 i;
     s32 j;
@@ -569,7 +569,7 @@ M2C_UNK TLobby__sub_801A4268(void) {
     create_quad_sprites__13TParticleCtrlFv();
     TLoadCtrl__sub_8001C978(1);
     TQuestThread__sub_801F60DC();
-    TLobby__sub_801F3DEC();
+    clear_quest_floor_designations();
     if (lbl_805D5EE8 != 0) {
         q = (VObj_18_801A4268 *) __nw__7TObjectFUl(0x194);
         if (q != NULL) {
@@ -596,11 +596,11 @@ M2C_UNK TLobby__sub_801A4268(void) {
     }
     TLobby__sub_80137928();
     TObjPlayer__sub_801B1BA4();
-    TQuestThread__sub_801F5B5C();
+    create_floor_quest_thread();
     __dt__7TObjectFv(tmp, -1);
 }
 
-M2C_UNK TLobby__sub_801A441C(void) {
+M2C_UNK change_floor_reload_area(void) {
     u8 tmp[0x1C];
     s32 i;
     s32 j;
@@ -658,7 +658,7 @@ M2C_UNK TLobby__sub_801A441C(void) {
     }
     TObjPlayer__sub_801B1BA4();
     TLobby__sub_80137928();
-    TQuestThread__sub_801F5B5C();
+    create_floor_quest_thread();
     if (r != 0) {
         TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
     }
@@ -732,7 +732,7 @@ void TLobby__sub_801A46D8(void) {
     render__9TMainTaskFv((void *) (&main_task.value));
     render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
     TLobby__sub_800FA464();
-    TLobby__sub_802269B4();
+    update_sound_request_slots();
     TAdSinglePlyChrSelectGC__sub_80201650();
     noop__23TAdSinglePlyChrSelectGCFv();
     TObjBoss2Tunnel__sub_8007D1D0();
@@ -756,7 +756,7 @@ void TLobby__sub_801A46D8(void) {
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
-        TLobby__sub_801A441C();
+        change_floor_reload_area();
         TKeyBoardControl__sub_8000F9A4();
     }
     if (TKeyBoardControl__sub_8000F968() != 0) {
@@ -781,7 +781,7 @@ void TLobby__sub_801A4820(void) {
     render__9TMainTaskFv((void *) (&main_task.value));
     render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
     TLobby__sub_800FA464();
-    TLobby__sub_802269B4();
+    update_sound_request_slots();
     TAdSinglePlyChrSelectGC__sub_80201650();
     noop__23TAdSinglePlyChrSelectGCFv();
     TObjBoss2Tunnel__sub_8007D1D0();
@@ -799,11 +799,11 @@ void TLobby__sub_801A4820(void) {
     }
     update_periodic_tick__6TLobbyFv();
     if (get_input__16TKeyBoardControlFv() != 0) {
-        TLobby__sub_801A4268();
+        start_quest_mission();
         TKeyBoardControl__sub_8000F95C();
     }
     if (get_key_state__16TKeyBoardControlFv() != 0) {
-        TLobby__sub_801A441C();
+        change_floor_reload_area();
         TKeyBoardControl__sub_8000F9A4();
     }
     if (TKeyBoardControl__sub_8000F968() != 0) {
@@ -874,7 +874,7 @@ void TLobby__sub_801A49B0(void) {
         render__9TMainTaskFv(&main_task.value);
         render_screen_overlay__9TMainTaskFv(&main_task.value);
         TLobby__sub_800FA464();
-        TLobby__sub_802269B4();
+        update_sound_request_slots();
         TAdSinglePlyChrSelectGC__sub_80201650();
         if (func_801A5E54__Fv() != 0) {
             break;

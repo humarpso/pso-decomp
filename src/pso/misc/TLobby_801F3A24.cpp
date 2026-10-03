@@ -15,7 +15,7 @@ struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_801F3DEC_TLobby__data_805127D0 TLobby__data_805127D0;
-void TLobby__sub_801F3DEC(void);
+void clear_quest_floor_designations(void);
 s32 add_player__6TLobbyFiii(s32, s32, s32);
 M2C_UNK bswap_32__FPUl(void *);
 extern int TLobby__data_805D5EE0;
@@ -104,7 +104,7 @@ void set_quest_floor_designation(s16 mode, s32 floor, s32 terrain, s32 unused) {
     }
 }
 
-void TLobby__sub_801F3DEC(void) {
+void clear_quest_floor_designations(void) {
     memset((void *) (&TLobby__data_805127D0.value), (int) (0), (int) (0x24));
 }
 

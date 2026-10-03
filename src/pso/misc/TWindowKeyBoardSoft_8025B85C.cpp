@@ -81,7 +81,7 @@ void TWindowKeyBoardSoft__vt8(u8 *arg0);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowKeyBoardSoft__sub_80080798(void *, s32);
 M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK *TWindowCtrl__sub_8024B7D4(s32);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
@@ -585,7 +585,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
     }
     temp_r3 = TWindowCtrl__sub_8024B7D4(arg1);
     if (temp_r3 != NULL) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x70);
         if (temp_r3_2 != 0U) {
             if (temp_r3_2 == (u32) M2C_FIELD(arg0, u32 *, 0x7C)) {

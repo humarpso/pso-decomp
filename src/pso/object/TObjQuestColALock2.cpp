@@ -72,7 +72,7 @@ M2C_UNK TObjPlayer__sub_80154A00(M2C_UNK *);
 M2C_UNK TObjPlayer__sub_801B35AC(s32);
 M2C_UNK TObjPlayer__sub_801B35E4(s32);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
-s32 TObjPlayer__sub_801B5874(s32);
+s32 is_quest_interaction_blocked__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -135,7 +135,7 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
             TObjPlayer__sub_801B35AC(temp_r3);
             return 0;
         }
-        if (TObjPlayer__sub_801B5874(temp_r3) != 0) {
+        if (is_quest_interaction_blocked__10TObjPlayerFPv(temp_r3) != 0) {
             TObjPlayer__sub_801B35AC(temp_r3);
             return 0;
         }

@@ -25,7 +25,7 @@ void show_sub_status_window(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2);
 M2C_UNK TLobby__sub_8001DC24();
 s32 TObjPlayer__sub_801AFFD0(void *);
 M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 M2C_UNK draw_status_line(s32, s32, s32, s32);
 M2C_UNK init_all__11TWindowCtrlFPvPv(M2C_UNK, M2C_UNK);
@@ -48,7 +48,7 @@ void draw_player_status(s32 arg0, void *arg1, s32 arg2) {
 extern M2C_UNK lbl_805DC27C;
 
 void show_sub_status_window(void *arg0, M2C_UNK *arg1, M2C_UNK *arg2) {
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append(arg1);
     text_builder_append(arg2);
     text_builder_append(&lbl_805DC27C);

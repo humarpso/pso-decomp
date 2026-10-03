@@ -36,7 +36,7 @@ void TWindowSubStatusDisp__sub_80228D80(void);
 void TWindowChallengeResult__sub_80228DB4(s32, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
-void TWindowSubStatusDisp__sub_802290E0(void);
+void text_builder_reset(void);
 extern char *lbl_8049CA40[];
 extern Ent_800FC968 lbl_80509D5C[];
 extern char lbl_805DA9F4[4];
@@ -82,7 +82,7 @@ s32 TWindowSubStatusDisp__sub_800FC968(s32 arg0) {
     name = p->m10();
     idx = TObjPlayer__sub_801AFD8C(p);
     lvl = p->m14();
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     switch (mode) {
     case 0:
         text_builder_append(name);

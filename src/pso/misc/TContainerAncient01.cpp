@@ -530,7 +530,7 @@ extern u32 lbl_805D5B98;
 extern u32 lbl_805D5B9C;
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80445130;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B70A4;
 void TObjContainerIdo__sub_8018C6E8(void);
@@ -603,7 +603,7 @@ void TObjContainerIdo__sub_8018C6E8(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804B70A4.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5B98) = var_r0;
-    (*(u8 * *)&lbl_805D5B9C) = TLanguage__sub_801E4874((s32) &lbl_80445130.value);
+    (*(u8 * *)&lbl_805D5B9C) = load_gvm_texture_file((s32) &lbl_80445130.value);
 }
 
 void *__dt__16TObjContainerIdoFv(void *arg0, s16 arg1) {
@@ -700,7 +700,7 @@ struct Obj_8018C9F0 {
 
 void spawn_particle_effect_with_flags(void *, int, int);
 void TObjChip__sub_80180BD4(void *, void *, void *);
-void TBoss3Volopt__sub_80189CC0(void *);
+void play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018C9F0 lbl_80445398;
 extern Spawn_8018C9F0 lbl_804453E4;
@@ -747,7 +747,7 @@ void TObjContainerJungEnemy__vt77(Obj_8018C9F0 *self) {
         if (o != 0) {
             TObjChip__sub_80180BD4(o, tl_05, &b);
         }
-        TBoss3Volopt__sub_80189CC0(self);
+        play_container_break_sound(self);
     }
 }
 

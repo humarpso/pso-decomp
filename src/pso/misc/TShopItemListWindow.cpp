@@ -115,7 +115,7 @@ s32 TShopItemListWindow__sub_8021F798(void *p);
 s32 obj_getPtr2B0_20(s32);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(s32, void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
-s32 TShopItemListWindow__sub_8021F964(void *arg0);
+s32 check_purchase_eligibility__19TShopItemListWindowFPv(void *arg0);
 }
 
 extern "C" {
@@ -195,7 +195,7 @@ s32 TShopItemListWindow__sub_8021F798(void *p) {
     }
     if (TShopWindowBase__sub_80223A48(W) != 0) {
         play_sound_effect(0x52D01, 0, 0, 0);
-        switch (TShopItemListWindow__sub_8021F964((void *)(W))) {
+        switch (check_purchase_eligibility__19TShopItemListWindowFPv((void *)(W))) {
         case 0:
             W->base.m4(0xF, 1);
             set_field_20__12TQuestListVMFPvi(W, 5);
@@ -214,7 +214,7 @@ s32 TShopItemListWindow__sub_8021F798(void *p) {
 }
 #undef W
 
-s32 TShopItemListWindow__sub_8021F964(void *arg0) {
+s32 check_purchase_eligibility__19TShopItemListWindowFPv(void *arg0) {
     Win_8021F964 *self = (Win_8021F964 *)arg0;
     s32 sel;
     s32 meseta;

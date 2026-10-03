@@ -1,6 +1,6 @@
 extern "C" {
-    int TLanguage__sub_801E4874(void*);
+    int load_gvm_texture_file(void*);
     extern unsigned char lbl_8046FCA0[];
     extern int lbl_805D66D0;
-void load_bg_lightning(void) { lbl_805D66D0 = TLanguage__sub_801E4874(lbl_8046FCA0); }
+void load_bg_lightning(void) { lbl_805D66D0 = load_gvm_texture_file(lbl_8046FCA0); }
 }

@@ -44,7 +44,7 @@ void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c);
 void update_message__18TWindowMessagePageFPv(void *arg0);
 s32 TLobby__sub_8001DC24();
 u32 TWindowSubStatusDisp__sub_80228F84(u32);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 void __dl__7TObjectFPv(void *);
 void __dt__14TWindowMessageFv(void *, int);
 int render__14TWindowMessageFv(void*);
@@ -59,7 +59,7 @@ s32 is_ready__18TWindowMessagePageFPv(void *arg0) {
 
 void update_message__18TWindowMessagePageFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         M2C_FIELD(arg0, u32 *, 0x94) = TWindowSubStatusDisp__sub_80228F84(M2C_FIELD(arg0, u32 *, 0x94));
         send_and_handle__6TLobbyFPvii(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x90));
     }

@@ -29,12 +29,12 @@ u8 *TObjPlayer__sub_801D2AB0(void *, M2C_UNK);
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *);
 s16 get_valid_index__15TFontSmallLobbyFPv(void *);
 M2C_UNK TObjPlayer__sub_8022CDE8(void *, void *);
-void TObjPlayer__sub_801CC7F8(u8 *arg0);
+void prepare_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_801CC7F8(u8 *arg0) {
+void prepare_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     Pkt_801CC7F8 pkt;
     s32 i;
     s16 n;

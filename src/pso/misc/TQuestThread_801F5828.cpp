@@ -37,7 +37,7 @@ s32 get_current_floor(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
 extern u32 lbl_805D5EE8;
-u8 *TQuestThread__sub_801F5B5C(void);
+u8 *create_floor_quest_thread(void);
 int memset(void*, void*, void*);
 extern RecoveredGlobal_801F5E7C_lbl_805129F8 lbl_805129F8;
 void TQuestThread__sub_801F5E7C(void);
@@ -71,7 +71,7 @@ M2C_UNK set_parent__7TObjectFP7TObject(u32, s32);
 extern u32 lbl_805D5EE8;
 extern s32 tl_00;
 
-u8 *TQuestThread__sub_801F5B5C(void) {
+u8 *create_floor_quest_thread(void) {
     s32 temp_r30;
     u8 *temp_r3;
     u8 *var_r0;

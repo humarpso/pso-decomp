@@ -56,14 +56,14 @@ s32 update_lobby_scene__6TSceneFPv(char *);
 void TLobby__sub_800F9DF4(char *, void *);
 void TLobby__sub_801317E4(char *, s32, char *);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
-void TLobby__sub_802081AC(void *);
+void swap_object_row_endian(void *);
 s32 is_online_ready__6TLobbyFv();
 extern char lbl_8044BC24[];
 extern char lbl_8044BC2C[];
 extern Map_8020D9A0 *TLobby__data_805D6068;
 extern u32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
-s32 TLobby__sub_8020D9A0(s32 map, s32 grp, s32 room);
+s32 load_map_decoration_rows(s32 map, s32 grp, s32 room);
 }
 
 extern "C" {
@@ -101,7 +101,7 @@ void TLobby__sub_8020D94C(void) {
     }
 }
 
-s32 TLobby__sub_8020D9A0(s32 map, s32 grp, s32 room) {
+s32 load_map_decoration_rows(s32 map, s32 grp, s32 room) {
     Room_8020D9A0 *r;
     s32 i;
     s32 size;
@@ -128,7 +128,7 @@ s32 TLobby__sub_8020D9A0(s32 map, s32 grp, s32 room) {
     }
     TLobby__sub_800F9DF4(path, (void *)TLobby__data_805D611C);
     for (i = 0; i < TLobby__data_805D6120; i++) {
-        TLobby__sub_802081AC(&((Rec_8020D9A0 *)TLobby__data_805D611C)[i]);
+        swap_object_row_endian(&((Rec_8020D9A0 *)TLobby__data_805D611C)[i]);
         ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f2 = 0;
         ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f8 = 0xFFFF;
         ((Rec_8020D9A0 *)TLobby__data_805D611C)[i].f4 = -1;
@@ -163,7 +163,7 @@ void TLobby__sub_8020DB44(void) {
     r = get_current_floor();
     TLobby__data_805D60FC = r;
     if (lookup_scene_object__6TLobbyFPv(r, &v) != 0) {
-        TLobby__sub_8020D9A0((s32)(v.a), (s32)(v.b), (s32)(v.c));
+        load_map_decoration_rows((s32)(v.a), (s32)(v.b), (s32)(v.c));
         return;
     }
     lbl_805D60F8 = -1;

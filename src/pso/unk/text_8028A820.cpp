@@ -2,7 +2,7 @@
 extern "C" {
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
-void *TLanguage__sub_801E4874(void *);
+void *load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_80450C50[];
 extern u8 lbl_80450C6C[];
@@ -27,7 +27,7 @@ void fn_8028A820(void) {
             p = TLobby__sub_80020004(p, 5, lbl_804D34D0, 0, 0, 0);
         }
         lbl_805D64C8 = p;
-        lbl_805D64CC = TLanguage__sub_801E4874(lbl_80450C50);
+        lbl_805D64CC = load_gvm_texture_file(lbl_80450C50);
         break;
     case 0x15:
     case 0x16:
@@ -36,7 +36,7 @@ void fn_8028A820(void) {
             p = TLobby__sub_80020004(p, 5, lbl_804D34F0, 0, 0, 0);
         }
         lbl_805D64C8 = p;
-        lbl_805D64CC = TLanguage__sub_801E4874(lbl_80450C6C);
+        lbl_805D64CC = load_gvm_texture_file(lbl_80450C6C);
         break;
     }
 }

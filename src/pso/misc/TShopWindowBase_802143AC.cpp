@@ -72,7 +72,7 @@ void create_judgment_item_window__15TShopWindowBaseFPv(void *arg0);
 void restore_shop_and_init_quest_state(void *arg0);
 void update__15TShopWindowBaseFPv(void *arg0);
 void update_confirm_input__15TShopWindowBaseFPv(void *arg0);
-s32 THunterGuildSeqOffline__sub_8022350C(void *, M2C_UNK);
+s32 set_service_counter_camera(void *, M2C_UNK);
 s32 create_yes_no_window(s32, u16, s32, s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -156,7 +156,7 @@ void THunterGuildSeqOffline__sub_8021488C(u8 *arg0) {
 
 void restore_shop_and_init_quest_state(void *arg0) {
     restore_player_state__13TShopSequenceFPv();
-    M2C_FIELD(arg0, s32 *, 0x2C) = THunterGuildSeqOffline__sub_8022350C(arg0, 1);
+    M2C_FIELD(arg0, s32 *, 0x2C) = set_service_counter_camera(arg0, 1);
     set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(1));
 }
 

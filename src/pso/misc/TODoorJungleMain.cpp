@@ -217,7 +217,7 @@ extern u32 TODoorJungleMain__data_805D65B8;
 extern u32 lbl_805D65BC;
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80465418;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804DC004;
 void TODoorJungleMain__sub_8029B3C8(void);
@@ -347,7 +347,7 @@ void TODoorJungleMain__sub_8029B3C8(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 0x1, &lbl_804DC004.value, 0, 0, 0));
     }
     (*(s32 *)&TODoorJungleMain__data_805D65B8) = var_r0;
-    (*(u8 * *)&lbl_805D65BC) = TLanguage__sub_801E4874((s32) &lbl_80465418.value);
+    (*(u8 * *)&lbl_805D65BC) = load_gvm_texture_file((s32) &lbl_80465418.value);
 }
 
 void render__16TODoorJungleMainFv(Door_8029B428 *self) {

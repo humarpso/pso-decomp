@@ -68,7 +68,7 @@ s32 spawn_particle_effect(void *, s32);
 u8 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 Obj_80232B7C *fn_80232B7C(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
-M2C_UNK TOSwitchAttack__sub_80235A8C(void *, void *, int, int, int, void *);
+M2C_UNK construct_timed_sound_voice(void *, void *, int, int, int, void *);
 extern SGrp_80232C50 lbl_8044D56C[];
 extern void *tl_07;
 extern s32 lbl_805D63AC;
@@ -149,7 +149,7 @@ void fn_80232C50(Ctl_80232C50 *arg0) {
         }
         p = __nw__7TObjectFUl(0x28);
         if (p != 0) {
-            TOSwitchAttack__sub_80235A8C(p, arg0->f30, 0xF, 0x4002A60D, dir, tl_07);
+            construct_timed_sound_voice(p, arg0->f30, 0xF, 0x4002A60D, dir, tl_07);
         }
         queue_destruction__7TObjectFv(arg0);
     }

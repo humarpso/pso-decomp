@@ -85,7 +85,7 @@ s32 obj_getPtr2B0_20(void *);
 s32 TWindowHelpItem__sub_80104FCC(void *, Rec_8021AD24 *, u32 *);
 s32 can_inventory_accept_item__10TObjPlayerFPvPv(void *, Rec_8021AD24 *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
-s32 TShopArmorListWindow__sub_8021AD24(Win_8021AD24 *w);
+s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void TShopArmorListWindow__vt5(void *arg0);
 void *__dt__20TShopArmorListWindowFv(void *arg0, s16 arg1);
 void update_selection__20TShopArmorListWindowFPvPv(void *arg0, void *arg1);
 u32 TCheckRoomSequence__sub_802664A8(s32, s32, u16);
-s32 TLobby__sub_80222CFC(s32);
+s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
 s32 TWindowSubComCard__sub_80265C30(u32);
@@ -144,8 +144,8 @@ s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
         temp_r31 = obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24));
         M2C_FIELD(arg0, u32 *, 0x30) = TCheckRoomSequence__sub_802664A8(get_window_layout_position(0x2B), 2, temp_r31);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), TLobby__sub_80222CFC(4), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), TLobby__sub_80222CFC(5), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(4), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0x30), get_shop_text(5), 6, 1);
         TWindowSubComCard__sub_80265F60(M2C_FIELD(arg0, u32 *, 0x30));
         TWindowSubComCard__sub_80265C30(M2C_FIELD(arg0, u32 *, 0x30));
         set_ready_flag__18TCheckRoomSequenceFPv(M2C_FIELD(arg0, u32 *, 0x30));
@@ -174,7 +174,7 @@ s32 handle_select__20TShopArmorListWindowFPv(void *arg0) {
 
 extern M2C_UNK __vt__20TShopArmorListWindow[];
 
-s32 TShopArmorListWindow__sub_8021AD24(Win_8021AD24 *w) {
+s32 check_purchase_eligibility__20TShopArmorListWindowFPv(Win_8021AD24 *w) {
     u32 res;
     s32 i;
     Rec_8021AD24 *r;

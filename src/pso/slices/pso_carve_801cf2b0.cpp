@@ -18,7 +18,7 @@ s16 get_idle_animation__10TObjPlayerFPv(void *);
 void run_action_state_phase__10TObjPlayerFisi(void *, s16, s32);
 void clear_status_bit6__10TObjPlayerFPv(void *);
 void *get_anim_field_c__10TObjPlayerFPv(void *);
-s16 TObjPlayer__sub_801D2EA8(void *);
+s16 get_validated_attack_stage(void *);
 void TObjPlayer__sub_801CF2B0(Player_801CF2B0 *self);
 }
 
@@ -37,7 +37,7 @@ void TObjPlayer__sub_801CF2B0(Player_801CF2B0 *self) {
         }
     } else if ((self->flags & 0x10) &&
                TObjPlayer__sub_8001BEF8(get_anim_field_c__10TObjPlayerFPv(self->act), 1) != 0) {
-        switch (TObjPlayer__sub_801D2EA8(self->act)) {
+        switch (get_validated_attack_stage(self->act)) {
         case 0:
             self->state = 4;
             clear_status_bit6__10TObjPlayerFPv(self);

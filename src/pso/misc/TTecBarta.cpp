@@ -134,7 +134,7 @@ void TObjPlayer__sub_8023AA4C();
 extern TechniqueContactVtable __vt__9TTecBarta;
 extern s32 lbl_805D3798;
 extern const f32 lbl_805DC7A8;
-u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
+u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
 extern TechniqueEmitterSourceTable TTecBarta__data_8044CD98[];
 s32 get_bml_model(s32, s32);
@@ -293,7 +293,7 @@ void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     void *o;
     o = __nw__7TObjectFUl(0x178);
     if (o != NULL) {
-        TTecBarta__sub_8022BCB8((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
+        construct_tec_barta_facing((u8 *)(o), (void *)(arg0), (void *)(arg1), (void *)(arg2), (void *)(arg3));
     }
 }
 
@@ -386,7 +386,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
     return self;
 }
 
-u8 *TTecBarta__sub_8022BCB8(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
+u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
     TObjPlayer__sub_8023AA4C();
     M2C_FIELD(arg0, void **, 0x18) = ((u8 *)&__vt__9TTecBarta);

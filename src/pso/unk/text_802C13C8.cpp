@@ -75,7 +75,7 @@ extern u32 lbl_805D67B0;
 extern u32 lbl_805D67B4;
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80471978;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E0848;
 void TObjPlayer__sub_802C13C8(void);
@@ -115,7 +115,7 @@ void TObjPlayer__sub_802C13C8(void) {
         var_r0 = (long) (TLobby__sub_80020004((void *) temp_r3, 5, &lbl_804E0848.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D67B0) = var_r0;
-    (*(u8 * *)&lbl_805D67B4) = TLanguage__sub_801E4874((s32) &lbl_80471978.value);
+    (*(u8 * *)&lbl_805D67B4) = load_gvm_texture_file((s32) &lbl_80471978.value);
 }
 
 s32 TObjPlayer__sub_802C1428(Obj_802C1428 *self) {

@@ -111,7 +111,7 @@ void *TObjPlayer__sub_80155C54(Body_801D3E20, Body_801D3E20);
 extern const f32 lbl_805DC3D0;
 void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
-s32 TItemList__sub_801D3F3C(void *arg0);
+s32 reset_placement_search_ring(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void TItemList__sub_801D588C(void *, int);
 void TItemList__sub_801D59A0(void *, int);
@@ -130,14 +130,14 @@ s32 TItemList__sub_801D58DC(void *);
 u8 *TItemList__sub_801D58E4(void *);
 void TItemList__sub_801D591C(void *);
 void TItemList__sub_801D59A0(void *, int);
-void TItemList__sub_801D3780(u8 *arg0);
+void run_item_drop_search_task(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 Ground_801D3C38 *csnVecterUnder(Vec_801D3E20 *, s32);
 M2C_UNK disconnect_protocol__6TLobbyFv();
 void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s);
-s32 TItemList__sub_801D3F3C(void *arg0);
+s32 reset_placement_search_ring(void *arg0);
 s32 check_player_action_allowed(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 TAdPlayerLoadGC__sub_801E1E38(s32);
@@ -165,7 +165,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_07;
 
-void TItemList__sub_801D3780(u8 *arg0) {
+void run_item_drop_search_task(u8 *arg0) {
     Req_801D3780 *r;
     void *player;
     switch (step_placement_search((Search_801D3C38 *)(arg0))) {
@@ -233,7 +233,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&lbl_804C4468).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *) (arg0), (int) (1));
-    TItemList__sub_801D3F3C((void *)((void *) (arg0)));
+    reset_placement_search_ring((void *)((void *) (arg0)));
     if (check_player_action_allowed() != 0) {
         temp_r3 = (u8 *)(TItemList__sub_801D58E4(arg0));
         if (fn_801D4270(M2C_FIELD(temp_r3, s32 *, 4)) != 0) {
@@ -297,7 +297,7 @@ u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&lbl_804C4480).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *)(arg0), (int)(0U));
-    TItemList__sub_801D3F3C((void *)(arg0));
+    reset_placement_search_ring((void *)(arg0));
     return arg0;
 }
 
@@ -313,12 +313,12 @@ s32 step_placement_search(Search_801D3C38 *s) {
     }
     if (s->ring > 5) {
         s->ring = 1;
-        TItemList__sub_801D3F3C(s);
+        reset_placement_search_ring(s);
         return 2;
     }
     if (s->sample >= s->count) {
         s->ring++;
-        TItemList__sub_801D3F3C(s);
+        reset_placement_search_ring(s);
     }
     s->candidate.x = s->radius * TBoss8Dragon__sub_803D64C0(s->angle) + s->origin.x;
     s->candidate.y = s->origin.y;
@@ -370,7 +370,7 @@ void *TItemList__sub_801D3E20(void *self, Body_801D3E20 *s) {
     return 0;
 }
 
-s32 TItemList__sub_801D3F3C(void *arg0) {
+s32 reset_placement_search_ring(void *arg0) {
     Search_801D3F3C *s = (Search_801D3F3C *)arg0;
     s->sample = 0;
     if (s->ring == 0) {

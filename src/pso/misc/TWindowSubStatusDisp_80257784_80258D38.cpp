@@ -93,7 +93,7 @@ s32 TObjPlayer__sub_801C1AC8(void *);
 s32 check_flag_400__20TWindowSubStatusDispFv(void *);
 s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK update_stat_line_if_positive__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK update_item_icon_colors__20TWindowSubStatusDispFPvPv(void *, void *);
 M2C_UNK select_item_icon__20TWindowSubStatusDispFPviUcUci(void *, s32, s32, s32, s32);
@@ -128,7 +128,7 @@ void update_from_player__20TWindowSubStatusDispFPvPvii(void *arg0, void *arg1, s
     select_item_icon__20TWindowSubStatusDispFPviUcUci(arg0, temp_r29, get_field_ec__12TOSwitchItemFPv(arg1), get_field_ed__10TObjPlayerFPv(arg1), check_flag_400__20TWindowSubStatusDispFv(arg1));
     M2C_FIELD(arg0, s32 *, 0x20) = TWindowSubStatusDisp__sub_80259268(arg0, ((V_A_80258e2c *) arg1)->m10(), M2C_FIELD(arg0, s32 *, 0x20), 8, 1);
     if (get_camera_id__11TCameraCtrlFv() <= 2) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         TWindowSubStatusDisp__sub_80228F5C(arg2);
         M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268(arg0, TLobby__sub_8001DC24(), M2C_FIELD(arg0, s32 *, 0x24), 0x10, 1);
     }

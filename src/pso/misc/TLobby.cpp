@@ -904,7 +904,7 @@ extern "C" {
 
 void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
-int TQuestThread__sub_801F5B5C(void);
+int create_floor_quest_thread(void);
 int TRaderMapCore__sub_801F9630(int);
 int TLobby__sub_802089B0(void);
 int init_sub_objects__6TLobbyFv(void);
@@ -913,7 +913,7 @@ int attach_objects_by_id__6TLobbyFi(void);
 int TLobby__sub_8020DBCC(void);
 int TSwitch__sub_8022945C(void);
 
-void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); TLobby__sub_802089B0(); TSwitch__sub_8022945C(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); TQuestThread__sub_801F5B5C(); }
+void init_scene_objects__6TLobbyFv(void) { init_sub_objects__6TLobbyFv(); TLobby__sub_8020DBCC(); TLobby__sub_802089B0(); TSwitch__sub_8022945C(); TRaderMapCore__sub_801F9630(1); get_current_floor(); attach_objects_by_id__6TLobbyFi(); get_current_floor(); create_objects__6TLobbyFi(); create_floor_quest_thread(); }
 
 }
 #endif
@@ -950,7 +950,7 @@ struct VObj : VBase {
 extern "C" {
 
 s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2);
-u8 *TLobby__sub_8020CCF4(void *);
+u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
 M2C_UNK TLobby__sub_8020E484(s32, void *);
@@ -976,7 +976,7 @@ s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2) {
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xE) == arg1)) {
-            temp_r3_2 = TLobby__sub_8020CCF4(var_r29);
+            temp_r3_2 = construct_enemy_from_set_row(var_r29);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(var_r29, void **, 0x44) = temp_r3_2;
                 M2C_FIELD(var_r29, s16 *, 2) = (s16) (M2C_FIELD(var_r29, s16 *, 2) | 2);
@@ -1033,7 +1033,7 @@ struct VObj : VBase {
 extern "C" {
 
 s32 link_matching_objects__6TLobbyFss(s16 arg0, s16 arg1);
-u8 *TLobby__sub_8020CCF4(void *);
+u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
 
@@ -1058,7 +1058,7 @@ s32 link_matching_objects__6TLobbyFss(s16 arg0, s16 arg1) {
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
         temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xE) == arg1)) {
-            temp_r3_2 = TLobby__sub_8020CCF4(var_r29);
+            temp_r3_2 = construct_enemy_from_set_row(var_r29);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(var_r29, void **, 0x44) = temp_r3_2;
                 M2C_FIELD(var_r29, s16 *, 2) = (s16) (M2C_FIELD(var_r29, s16 *, 2) | 2);
@@ -1255,7 +1255,7 @@ struct VObj : VBase {
 extern "C" {
 
 void create_objects__6TLobbyFi(s32 arg0);
-u8 *TLobby__sub_8020CCF4(void *);
+u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv();
 s32 get_object_type__6TLobbyFi(s32);
 
@@ -1274,7 +1274,7 @@ void create_objects__6TLobbyFi(s32 arg0) {
     for (i = 0; i < count; i++, ptr += 0x48) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (M2C_FIELD(ptr, s16 *, 0) != -1) && ((temp_r3 & 1) || (M2C_FIELD(ptr, s16 *, 0xE) == 0))) {
-            temp_r3_2 = TLobby__sub_8020CCF4(ptr);
+            temp_r3_2 = construct_enemy_from_set_row(ptr);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(ptr, void **, 0x44) = temp_r3_2;
                 M2C_FIELD(ptr, s16 *, 2) = (s16) (M2C_FIELD(ptr, s16 *, 2) | 2);
@@ -1387,7 +1387,7 @@ struct CE4C_VObj_8020ce4c : CE4C_VBase_8020ce4c {
 extern "C" {
 
 void assign_display_objects__6TLobbyFPvi(u8 *arg0, s32 arg1);
-u8 *TLobby__sub_8020CCF4(void *);
+u8 *construct_enemy_from_set_row(void *);
 
 extern s32 TLobby__data_805D6144;
 
@@ -1402,7 +1402,7 @@ void assign_display_objects__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     for (i = 0; i < arg1; i++, ptr += 0x48) {
         temp_r3 = M2C_FIELD(ptr, s16 *, 2);
         if (!(temp_r3 & 8) && !(temp_r3 & 2) && (M2C_FIELD(ptr, s16 *, 0) != -1) && ((temp_r3 & 1) || (M2C_FIELD(ptr, s16 *, 0xE) == 0))) {
-            temp_r3_2 = TLobby__sub_8020CCF4(ptr);
+            temp_r3_2 = construct_enemy_from_set_row(ptr);
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(ptr, void **, 0x44) = temp_r3_2;
                 M2C_FIELD(ptr, s16 *, 2) = (s16) (M2C_FIELD(ptr, s16 *, 2) | 2);

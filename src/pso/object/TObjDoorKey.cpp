@@ -61,7 +61,7 @@ void TObjDoorKey__vt24(Key_8018FD9C *arg0);
 s32 get_bml_model(s32, int);
 s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern u8 lbl_804456D8[];
 extern u8 lbl_804B7920[];
 extern s32 TObjDoorKey__data_8050DCA8[];
@@ -107,7 +107,7 @@ extern s32 TObjDoorKey__data_8050DCA8[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__data_805D5BFC;
 extern s32 some_id_805c6f74;
-M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg);
+M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_sound_effect(int, void *, int, int);
 void TObjDoorKey__vt16(u8 *arg0);
@@ -138,7 +138,7 @@ void free_key__11TObjDoorKeyFv(void);
 void render__11TObjDoorKeyFv(void *arg0);
 void run_task__11TObjDoorKeyFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-int TOKey__sub_8016A960(void*);
+int update_armed_switch__5TOKeyFPv(void*);
 M2C_UNK TObjEneGibbles__sub_80156720(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
 M2C_UNK TObjPlayer__sub_80154A00(void *);
@@ -179,7 +179,7 @@ void render__11TObjDoorKeyFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
         switch (temp_r0) {
         case 0:
-            TObjDoorKey__sub_8018FCD8((void *)(arg0));
+            draw_inactive_badge__11TObjDoorKeyFPv((void *)(arg0));
             return;
         case 1:
             draw_active_beam__11TObjDoorKeyFPv((void *)(arg0));
@@ -215,7 +215,7 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     pop_matrix();
 }
 
-M2C_UNK TObjDoorKey__sub_8018FCD8(void *arg) {
+M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
     Key_8018FCD8 *arg0 = (Key_8018FCD8 *)arg;
     set_global_param__8TObjFishFi(TObjDoorKey__data_805D5BFC);
     TObjPlayer__sub_803D9B2C();
@@ -280,7 +280,7 @@ void TObjDoorKey__vt14(u8 *arg0) {
 }
 
 int TObjDoorKey__vt15(void* p) { return submit_cursor_candidate(p, -1); }
-int TObjDoorKey__vt22(void* p) { return TOKey__sub_8016A960(p); }
+int TObjDoorKey__vt22(void* p) { return update_armed_switch__5TOKeyFPv(p); }
 
 void run_task__11TObjDoorKeyFv(void *arg0) {
     struct VObj_8018FF74_8018FAEC *o = (struct VObj_8018FF74_8018FAEC *)arg0;
@@ -365,7 +365,7 @@ void TObjDoorKey__sub_801901C8(void) {
         r = TLobby__sub_80020004(r, 5, lbl_804B7920, 0, 0, 0);
     }
     (*(s32 *)&lbl_805D5BF8) = r;
-    TObjDoorKey__data_805D5BFC = TLanguage__sub_801E4874(lbl_804456D8);
+    TObjDoorKey__data_805D5BFC = load_gvm_texture_file(lbl_804456D8);
     TObjDoorKey__data_8050DCA8[0] = get_bml_model((*(s32 *)&lbl_805D5BF8), 1);
     TObjDoorKey__data_8050DCA8[1] = get_bml_model((*(s32 *)&lbl_805D5BF8), 2);
     s32 t = get_bml_model((*(s32 *)&lbl_805D5BF8), 0);

@@ -16,7 +16,7 @@ s32 apply_velocity_if_free__10TObjPlayerFi(void *);
 s32 start_use_item_action__10TObjPlayerFPv(void *);
 s32 send_object_id_packet__10TObjPlayerFi(void *);
 s32 TObjPlayer__sub_801CBB10();
-s32 TObjPlayer__sub_801CBB14(void *);
+s32 complete_guard_reaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CBB80();
 s32 select_hit_action__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801CBC14(s32 arg0, s16 arg1);
@@ -35,7 +35,7 @@ void TObjPlayer__sub_801CBC14(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CBB80();
         return;
       case 3:
-        TObjPlayer__sub_801CBB14((void *) arg0);
+        complete_guard_reaction__10TObjPlayerFPv((void *) arg0);
         return;
       case 8:
         TObjPlayer__sub_801CBB10();

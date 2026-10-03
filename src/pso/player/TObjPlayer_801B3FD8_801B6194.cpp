@@ -28,7 +28,7 @@ struct Plr_801B6A5C {
 
 extern "C" {
 M2C_UNK TObjPlayer__sub_80018990(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
-f32 TObjPlayer__sub_801D93F8();
+f32 get_tp_class_factor__10TObjPlayerFPv();
 f32 TObjPlayer__sub_801D9440(s32);
 s32 is_alive_and_ready__10TObjPlayerFi(Plr_801B6A5C *);
 void TObjPlayer__sub_801AF7E0(Plr_801B6A5C *);
@@ -76,7 +76,7 @@ M2C_UNK TObjPlayer__sub_80018990(s32, M2C_UNK, M2C_UNK, M2C_UNK, f32, f32);
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 TObjPlayer__sub_801D921C(void *, s32);
 s16 *TObjPlayer__sub_801D93C4();
-f32 TObjPlayer__sub_801D93F8();
+f32 get_tp_class_factor__10TObjPlayerFPv();
 f32 TObjPlayer__sub_801D9440(s32);
 M2C_UNK clamp_field_32E__10TObjPlayerFPv(s32);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
@@ -133,7 +133,7 @@ void TObjPlayer__vt71(s32 arg0) {
     f32 temp_f31;
     f32 temp_f1;
 
-    temp_f31 = TObjPlayer__sub_801D93F8();
+    temp_f31 = get_tp_class_factor__10TObjPlayerFPv();
     temp_f1 = TObjPlayer__sub_801D9440(arg0);
     TObjPlayer__sub_80018990(arg0, 0, 0, 0, temp_f1, temp_f31);
     clamp_value__10TObjPlayerFPv(arg0);
@@ -185,7 +185,7 @@ void handle_6x30_change_player_level(void *arg0) {
     p->stats->st[4] = pkt.st[4];
     p->stats->st[5] = pkt.st[5];
     p->stats->exp = pkt.exp;
-    f = ((f32 (*)(Plr_801B6A5C *))TObjPlayer__sub_801D93F8)(p);
+    f = ((f32 (*)(Plr_801B6A5C *))get_tp_class_factor__10TObjPlayerFPv)(p);
     TObjPlayer__sub_80018990((s32)p, (M2C_UNK)p->stats, 0, 0, TObjPlayer__sub_801D9440((s32)p), f);
     p->a2 = p->a;
     p->b2 = p->b;

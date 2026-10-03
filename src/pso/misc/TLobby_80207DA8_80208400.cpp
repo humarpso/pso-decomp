@@ -31,7 +31,7 @@ s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
 extern s32 lbl_805D6088;
-void TLobby__sub_8020857C(s16 arg0);
+void send_6x05_wave_set_switch(s16 arg0);
 s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
@@ -104,7 +104,7 @@ void TLobby__sub_8020851C(s32 arg0) {
     finalize_and_send_60__6TLobbyFPv(&pkt);
 }
 
-void TLobby__sub_8020857C(s16 arg0) {
+void send_6x05_wave_set_switch(s16 arg0) {
     Pkt_8020857C pkt;
     init_6x05_switch_changed__6TLobbyFPv(&pkt);
     pkt.a = 0xFFFF;

@@ -22,7 +22,7 @@ struct Obj_801A9CB8 {
 
 extern "C" {
 extern struct Rec_801AA17C lbl_8050E890[];
-s32 TObjPlayer__sub_801AA17C(struct Rec_801AA17C *output, s32 player);
+s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player);
 void __dt__7TObjectFv(void *, int);
 void TCameraCtrl__sub_80069D7C(void);
 void restore_player_cameras(void);
@@ -36,12 +36,12 @@ void TLobby__sub_8024AC20(s32);
 extern u8 lbl_804C349C[];
 extern struct Rec_801AA17C lbl_8050E890[];
 extern s32 lbl_805D53A0;
-Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag);
+Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag);
 }
 
 extern "C" {
 
-Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag) {
+Obj_801A9CB8 *destroy_photon_blast_sequence(Obj_801A9CB8 *self, s16 flag) {
     s32 i;
     s32 j;
     if (self != NULL) {
@@ -77,7 +77,7 @@ Obj_801A9CB8 *TObjPlayer__sub_801A9CB8(Obj_801A9CB8 *self, s16 flag) {
     return self;
 }
 
-s32 TObjPlayer__sub_801AA17C(struct Rec_801AA17C *output, s32 player) {
+s32 get_photon_blast_chain(struct Rec_801AA17C *output, s32 player) {
     s32 i;
     if (lbl_8050E890[player].state == 0) {
         return 0;

@@ -10,14 +10,14 @@ void init_from_source__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 s32 TObjPlayer__sub_801C2114();
 M2C_UNK TKeyBoardControl__sub_801AFCF4(void *, s16);
 M2C_UNK bind_saved_inventory_equipment__10TObjPlayerFPvPvi(void *, void *, s32);
-M2C_UNK TObjPlayer__sub_801B826C();
+M2C_UNK create_inventory__10TObjPlayerFPv();
 
 u16 obj_getField1c(void *);
 extern s32 lbl_805D5D84;
 
 void init_from_source__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0xD00) = 0;
-    TObjPlayer__sub_801B826C();
+    create_inventory__10TObjPlayerFPv();
     TKeyBoardControl__sub_801AFCF4(arg0, (s16) TObjPlayer__sub_801C2114());
     bind_saved_inventory_equipment__10TObjPlayerFPvPvi(arg0, arg1 + 0x140, M2C_FIELD(arg1, s32 *, 0x13C));
     M2C_FIELD(arg0, s32 *, 0xDB4) = (s32) (lbl_805D5D84 + (obj_getField1c(arg0) * 0x600));

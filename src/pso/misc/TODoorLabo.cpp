@@ -64,7 +64,7 @@ extern const f32 lbl_805DDDC0;
 Self_8029F7E0 *TODoorLaboNormal__ct(Self_8029F7E0 *self);
 s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern u8 lbl_80466040[];
 extern u8 lbl_8046605C[];
 extern u8 lbl_804DC854[];
@@ -168,8 +168,8 @@ void TODoorLabo__sub_8029F97C(void) {
         r = TLobby__sub_80020004(r, 5, lbl_804DC854, 0, 0, 0);
     }
     (*(s32 *)&lbl_805D6624) = r;
-    (*(s32 *)&lbl_805D6628) = TLanguage__sub_801E4874(lbl_80466040);
-    (*(s32 *)&lbl_805D662C) = TLanguage__sub_801E4874(lbl_8046605C);
+    (*(s32 *)&lbl_805D6628) = load_gvm_texture_file(lbl_80466040);
+    (*(s32 *)&lbl_805D662C) = load_gvm_texture_file(lbl_8046605C);
 }
 
 void TODoorLabo__sub_8029F9EC(void *arg0) {
@@ -271,7 +271,7 @@ void free_all_resources__23TAdSinglePlyChrSelectGCFv(void) {
 extern "C" {
 s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern u8 lbl_80466074[];
 extern u8 lbl_80466090[];
 extern u8 lbl_804DC834[];
@@ -289,8 +289,8 @@ void fn_8029FC88(void) {
         r = TLobby__sub_80020004(r, 5, lbl_804DC834, 0, 0, 0);
     }
     lbl_805D6618 = r;
-    lbl_805D661C = TLanguage__sub_801E4874(lbl_80466074);
-    lbl_805D6620 = TLanguage__sub_801E4874(lbl_80466090);
+    lbl_805D661C = load_gvm_texture_file(lbl_80466074);
+    lbl_805D6620 = load_gvm_texture_file(lbl_80466090);
 }
 
 }
@@ -410,7 +410,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern M2C_UNK lbl_804660AC[];
 extern M2C_UNK lbl_804660C8[];
@@ -458,8 +458,8 @@ void TLanguage__sub_8029FF0C(void) {
             var_r0 = TLobby__sub_80020004(var_r0, (int) (5), (void *) (lbl_804DC810), (int) (0), (int) (0), (int) (0));
         }
         lbl_805D660C = var_r0;
-        lbl_805D6610 = TLanguage__sub_801E4874((void *) (lbl_804660AC));
-        lbl_805D6614 = TLanguage__sub_801E4874((void *) (lbl_804660C8));
+        lbl_805D6610 = load_gvm_texture_file((void *) (lbl_804660AC));
+        lbl_805D6614 = load_gvm_texture_file((void *) (lbl_804660C8));
         return;
     case 29:
         var_r0_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
@@ -467,8 +467,8 @@ void TLanguage__sub_8029FF0C(void) {
             var_r0_2 = TLobby__sub_80020004(var_r0_2, (int) (5), (void *) (lbl_804DC810), (int) (0), (int) (0), (int) (0));
         }
         lbl_805D660C = var_r0_2;
-        lbl_805D6610 = TLanguage__sub_801E4874((void *) (lbl_804660DC));
-        lbl_805D6614 = TLanguage__sub_801E4874((void *) (lbl_804660FC));
+        lbl_805D6610 = load_gvm_texture_file((void *) (lbl_804660DC));
+        lbl_805D6614 = load_gvm_texture_file((void *) (lbl_804660FC));
         return;
     }
 }

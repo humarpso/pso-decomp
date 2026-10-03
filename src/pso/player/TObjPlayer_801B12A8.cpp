@@ -202,7 +202,7 @@ s32 obj_isState2_324();
 u32 get_player_by_client_id(s32);
 void init_cmd_6x24__10TObjPlayerFPv(void *);
 void send_lobby_update__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading);
+void send_6x24_teleport_player(u16 slot, void *pos, s32 heading);
 s32 obj_isState2_324();
 s16 obj_getField1c(void *);
 void *update_battle_controller__10TObjPlayerFv();
@@ -410,7 +410,7 @@ void handle_6x24_teleport_player(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801B1FA4(u16 slot, void *pos, s32 heading) {
+void send_6x24_teleport_player(u16 slot, void *pos, s32 heading) {
     struct pkt_801B1FA4 pkt;
     init_cmd_6x24__10TObjPlayerFPv(&pkt);
     if (get_player_by_client_id(slot) != 0U && obj_isState2_324() == 0) {

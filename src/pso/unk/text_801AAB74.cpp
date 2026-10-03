@@ -29,11 +29,11 @@ void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-M2C_UNK TCameraCtrl__sub_801A7310(void *, int);
+M2C_UNK begin_photon_summon_camera(void *, int);
 M2C_UNK spawn_photon_blast_opening_effects(int, int);
 M2C_UNK TObjPlayer__sub_801A7748(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801AA6F8(void *, int);
-M2C_UNK TPhotonMagicSquare__sub_801AD218(void *, void *, int, void *, int);
+M2C_UNK construct_photon_magic_square_normal(void *, void *, int, void *, int);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_cue_stream_file(void *);
@@ -100,7 +100,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0x150) = M2C_FIELD(arg1, f32 *, 0x20);
     if (M2C_FIELD(arg0, s32 *, 0x194) == 0) {
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
-        TCameraCtrl__sub_801A7310(arg0, 0);
+        begin_photon_summon_camera(arg0, 0);
         M2C_FIELD(arg0, s32 *, 0x194) = 1;
         M2C_FIELD(arg0, s16 *, 0x190) = 0;
         M2C_FIELD(arg0, s32 *, 0x19C) = 1;
@@ -112,7 +112,7 @@ u8 *TPhotonEstlla__ct(u8 *arg0, u8 *arg1) {
         }
         p = __nw__7TObjectFUl(0xD0);
         if (p != NULL) {
-            TPhotonMagicSquare__sub_801AD218(p, arg0, 1, &pos, 0x78);
+            construct_photon_magic_square_normal(p, arg0, 1, &pos, 0x78);
         }
         TObjPlayer__sub_801A7748(arg0, 1);
         play_cue_stream_file(lbl_80446D10);

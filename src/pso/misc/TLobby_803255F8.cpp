@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-    int TLanguage__sub_801E4874(void*);
+    int load_gvm_texture_file(void*);
     extern unsigned char lbl_804766F0[];
 extern u32 lbl_805D6C50;
 void load_f512_inazuma(void);
@@ -26,6 +26,6 @@ void free_char_select_singleton__6TLobbyFv(void) {
         lbl_805D6C50 = 0U;
     }
 }
-void load_f512_inazuma(void) { (*(int *)&lbl_805D6C50) = TLanguage__sub_801E4874(lbl_804766F0); }
+void load_f512_inazuma(void) { (*(int *)&lbl_805D6C50) = load_gvm_texture_file(lbl_804766F0); }
 
 }

@@ -56,7 +56,7 @@ s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int TLobby__sub_801D5004(void*);
 int TLobby__sub_801D50E0(void*);
 M2C_UNK try_spend_actor_meseta(s32, s32);
-s32 TObjPlayer__sub_801C1A70(void *);
+s32 is_item_equipped(void *);
 int TObjPlayer__sub_801D52A8(void*);
 void *get_owner_if_alive__10TObjPlayerFPv(s32);
 M2C_UNK queue_destruction__7TObjectFv(s32);
@@ -73,7 +73,7 @@ void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3)
             temp_r3->m35(arg3);
             return;
         }
-        if (TObjPlayer__sub_801C1A70(temp_r3) != 0) {
+        if (is_item_equipped(temp_r3) != 0) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
         }
         temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);

@@ -139,7 +139,7 @@ void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 s32 is_script_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(int);
 Obj_8022AE10 *TTecAnti__sub_8022AE10(Obj_8022AE10 *self, const Vec_8022AE10 *body, const Vec_8022AE10 *ground, s32 actor, void *parent);
-int fn_80235BDC(void *, void *, int, int, void *);
+int construct_delayed_point_sound(void *, void *, int, int, void *);
 int show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, int);
 extern void *tl_07;
 void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl);
@@ -233,7 +233,7 @@ void TTecAnti__vt5(Anti_8022AEF8 *self, Player_8022AEF8 *pl) {
     if (self->xAC != 0) {
         o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            fn_80235BDC(o, pl->x2FC, 0xF, 0x4002AD11, tl_07);
+            construct_delayed_point_sound(o, pl->x2FC, 0xF, 0x4002AD11, tl_07);
         }
     }
 }

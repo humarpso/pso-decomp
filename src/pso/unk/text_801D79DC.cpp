@@ -7,12 +7,12 @@ extern "C" {
 void TWindowActionPalette__sub_801C1CA8(void *, s32, s32, s32, u16);
 u16 TWindowActionPalette__sub_801C1DE0(void *, s32, s32);
 extern Tbl_801D79DC lbl_80447178;
-void fn_801D79DC(u8 *arg0, s32 arg1);
+void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void fn_801D79DC(u8 *arg0, s32 arg1) {
+void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1) {
     Tbl_801D79DC t = lbl_80447178;
     s32 id;
     s32 i;

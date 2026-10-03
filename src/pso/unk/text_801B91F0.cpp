@@ -48,7 +48,7 @@ f32 TObjPlayer__sub_803D89C0(Vec_801B92EC *, Vec_801B92EC *);
 extern const Vec_801B92EC lbl_80446F2C;
 extern const f32 TObjPlayer__data_805DC278;
 extern const f32 TObjPlayer__data_805DC2BC;
-bool TObjPlayer__sub_801B92EC(Obj_801B92EC *self, Vec_801B92EC *target);
+bool is_target_in_facing_cone__10TObjPlayerFPvPv(Obj_801B92EC *self, Vec_801B92EC *target);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ s32 can_inventory_accept_item__10TObjPlayerFPvPv(Player_801B91F0 *self, u8 *item
 }
 #pragma push
 #pragma fp_contract on
-bool TObjPlayer__sub_801B92EC(Obj_801B92EC *self, Vec_801B92EC *target) {
+bool is_target_in_facing_cone__10TObjPlayerFPvPv(Obj_801B92EC *self, Vec_801B92EC *target) {
     Vec_801B92EC to;
     Vec_801B92EC fwd = lbl_80446F2C;
     f32 x;

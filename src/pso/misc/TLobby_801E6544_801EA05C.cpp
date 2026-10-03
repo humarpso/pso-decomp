@@ -1107,7 +1107,7 @@ extern int* TLobby__data_805D5E78;
 void TLobby__sub_801EC720(u8 i);
 void TKeyBoardControl__sub_8000F998();
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
-void TTecLuker__sub_801BAB1C(int, void *);
+void send_6x21_inter_level_warp(int, void *);
 s32 TLobby__sub_80207770(int);
 void set_area__6TLobbyFPvi(void *, int, int);
 void TNpcPlayer__sub_8034E7A0();
@@ -1869,7 +1869,7 @@ void TLobby__sub_801ED468(s32 a, s32 b) {
         TKeyBoardControl__sub_8000F998();
         get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0);
         TNpcPlayer__sub_8034E7A0();
-        TTecLuker__sub_801BAB1C(r, (void *)get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+        send_6x21_inter_level_warp(r, (void *)get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
     }
 }
 

@@ -30,15 +30,15 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
 extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
-void TCameraCtrl__sub_801A7310(u8 *arg0, s8 arg1);
+void begin_photon_summon_camera(u8 *arg0, s8 arg1);
 extern struct Ent_801A70C8 lbl_8050E700[32];
 extern s32 lbl_805D5D1C;
 extern const f32 lbl_805DC0D0;
-void TObjPlayer__sub_801A70C8(void);
+void clear_deferred_photon_blast_hits(void);
 extern struct Ent_801A710C lbl_8050E580[32];
 extern s32 lbl_805D5D14;
 extern const f32 lbl_805DC0D0;
-void TObjPlayer__sub_801A710C(void);
+void clear_photon_blast_hits(void);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ void reset_state_block__10TObjPlayerFPv(void* a0) { *(int*)((char*)a0 + 0x0) = 0
 
 extern const f32 lbl_805DC0D4;
 
-void TObjPlayer__sub_801A70C8(void) {
+void clear_deferred_photon_blast_hits(void) {
     s32 i;
     lbl_805D5D1C = 0;
     for (i = 0; i < 32; i++) {
@@ -67,7 +67,7 @@ void TObjPlayer__sub_801A70C8(void) {
     }
 }
 
-void TObjPlayer__sub_801A710C(void) {
+void clear_photon_blast_hits(void) {
     s32 i;
     lbl_805D5D14 = 0;
     for (i = 0; i < 32; i++) {
@@ -133,7 +133,7 @@ void TObjPlayer__sub_801A72EC(void) {
     ((M2C_UNK (*)(f32))queue_photon_blast_hit)(lbl_805DC0D4);
 }
 typedef char RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
-void TCameraCtrl__sub_801A7310(u8 *arg0, s8 arg1) {
+void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_801A7310, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_801A7310, sp9) == 0x1) ? 1 : -1];
     typedef char spA_offset[(offsetof(Stack_801A7310, spA) == 0x2) ? 1 : -1];

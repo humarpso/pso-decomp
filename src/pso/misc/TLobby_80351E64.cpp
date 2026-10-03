@@ -20,7 +20,7 @@ M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 extern int lbl_805D6EC4;
 void TLobby__sub_8035202C(void);
-int TLanguage__sub_801E4874(void*);
+int load_gvm_texture_file(void*);
     extern unsigned char lbl_80478E20[];
 extern int lbl_805D6EC4;
 void load_obj_lobby_main(void);
@@ -118,7 +118,7 @@ void TLobby__sub_8035202C(void) {
         (*(u32 *)&lbl_805D6EC4) = 0U;
     }
 }
-void load_obj_lobby_main(void) { lbl_805D6EC4 = TLanguage__sub_801E4874(lbl_80478E20); }
+void load_obj_lobby_main(void) { lbl_805D6EC4 = load_gvm_texture_file(lbl_80478E20); }
 s32 fn_80352094(void) {
     s32 r = TLobby__sub_80351DFC();
     switch (r) {

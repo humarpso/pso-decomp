@@ -32,7 +32,7 @@ extern "C" {
 u16 obj_getField1c(void *);
 M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK get_dest_area__17TObjAreaWarpQuestFPv(void *);
-M2C_UNK TTecLuker__sub_801BAB1C(s32, int);
+M2C_UNK send_6x21_inter_level_warp(s32, int);
 int set_battle_flag__10TObjPlayerFPvi(void*, int);
 M2C_UNK TObjPlayer__sub_801C5F84(u16, int, int);
 s32 TObjPlayer__sub_801D8D14(void *);
@@ -71,7 +71,7 @@ M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TNpcPlayer__sub_8034E7A0(M2C_UNK);
 extern u8 lbl_8050EA40[];
 extern ReturnLobby lbl_80515BA0;
-void TObjPlayer__sub_801B3274(void);
+void complete_deferred_player_death(void);
 }
 
 extern "C" {
@@ -88,7 +88,7 @@ void handle_6x34(void) {  }
 void TObjPlayer__sub_801B31D8(s32 arg0) {
     s32 temp_r30;
     s32 temp_r31;
-    TTecLuker__sub_801BAB1C(arg0, 0);
+    send_6x21_inter_level_warp(arg0, 0);
     temp_r31 = get_hospital_position__10TObjPlayerFPv((void *) (arg0));
     temp_r30 = TObjPlayer__sub_801D8D14((void *) (arg0));
     TObjPlayer__sub_801C5F84(obj_getField1c((void *)arg0), temp_r30, temp_r31);
@@ -98,7 +98,7 @@ void TObjPlayer__sub_801B31D8(s32 arg0) {
     temp_r31 = TNpcPlayer__sub_8034DE70();
     apply_to_players__10TNpcPlayerFiPvi(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0), temp_r31, temp_r30);
 }
-void TObjPlayer__sub_801B3274(void) {
+void complete_deferred_player_death(void) {
     u8 lvl;
     s16 aim;
     u16 room;

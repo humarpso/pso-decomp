@@ -58,7 +58,7 @@ M2C_UNK TObjPlayer__sub_8011E204(void *, int);
 s32 is_final_phase__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801CBD38();
 M2C_UNK update_photon_blast_state__10TObjPlayerFv();
-M2C_UNK TFontSmallLobby__sub_801D6498(void *);
+M2C_UNK reset_photon_blast_gauge(void *);
 void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0);
 s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
@@ -109,7 +109,7 @@ void exit_photon_blast_action__10TObjPlayerFPv(u8 *arg0) {
     if (temp_r4 != NULL) {
         M2C_FIELD(temp_r4, u16 *, 0x508) = 0xFFFF;
     }
-    TFontSmallLobby__sub_801D6498((void *) (arg0 + 0x4AC));
+    reset_photon_blast_gauge((void *) (arg0 + 0x4AC));
     if (is_final_phase__10TObjPlayerFv() != 0) {
         obj_getField1c((void *) (arg0));
         TObjPlayer__sub_801CBD38();

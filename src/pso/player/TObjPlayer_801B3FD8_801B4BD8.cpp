@@ -146,7 +146,7 @@ void TObjPlayer__sub_801B4C34(s32 arg0);
 s32 check_player_flag1__6TLobbyFPv();
 f32 TObjPlayer__sub_801BF6B0(void *, f32, f32, f32);
 f32 *TObjPlayer__sub_801BF6B8(void *);
-s32 TObjPlayer__sub_801B50C0(u8 *self, f32 *pos);
+s32 is_outside_movement_hold__10TObjPlayerFPvPv(u8 *self, f32 *pos);
 void TObjPlayer__sub_8011E204(u8 *, int);
 s32 draw_small_font__10TObjPlayerFi(s32 arg0, void *arg1);
 s32 get_player_by_client_id(s32);
@@ -158,7 +158,7 @@ s32 obj_isState2_324();
 s16 obj_getField1c(s32);
 void TObjPlayer__sub_801C0B24(void *);
 void bswap_and_send_packet__10TObjPlayerFi(void *);
-void TObjPlayer__sub_801B5328(s32 arg0, struct Vec_801B5328 *pos, s16 arg2, s16 arg3, f32 radius);
+void send_6x2C_impose_hold(s32 arg0, struct Vec_801B5328 *pos, s16 arg2, s16 arg3, f32 radius);
 void init_forward__10TObjPlayerFPv(void *);
 void clear_header_struct__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BE890(void *);
@@ -370,7 +370,7 @@ Obj_801B4FD8 *TObjPlayer__sub_801B4FD8(Obj_801B4FD8 *self) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjPlayer__sub_801B50C0(u8 *self, f32 *pos) {
+s32 is_outside_movement_hold__10TObjPlayerFPvPv(u8 *self, f32 *pos) {
     f32 *center;
     f32 x, y, z;
     f32 dx, dz;
@@ -438,7 +438,7 @@ void handle_6x2C_impose_hold(s32 arg0) {
     }
 }
 
-void TObjPlayer__sub_801B5328(s32 arg0, struct Vec_801B5328 *pos, s16 arg2, s16 arg3, f32 radius) {
+void send_6x2C_impose_hold(s32 arg0, struct Vec_801B5328 *pos, s16 arg2, s16 arg3, f32 radius) {
     struct Pkt_801B5328 pkt;
     if (arg0 == 0 || obj_isState2_324() == 0) {
         TObjPlayer__sub_801C0B24(&pkt);

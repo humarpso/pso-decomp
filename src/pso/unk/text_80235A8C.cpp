@@ -11,12 +11,12 @@ s32 update_technique_slot__10TTecRaFoieFi(int, void *, int);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80235A8C_lbl_804CCA78 lbl_804CCA78;
-u8 *TOSwitchAttack__sub_80235A8C(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5);
+u8 *construct_timed_sound_voice(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5);
 }
 
 extern "C" {
 
-u8 *TOSwitchAttack__sub_80235A8C(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5) {
+u8 *construct_timed_sound_voice(u8 *arg0, s32 arg1, s16 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg5));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804CCA78.value;

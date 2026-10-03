@@ -9,7 +9,7 @@ s32 obj_testFlags30(void *, int);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK update_position_from_target__10TObjPlayerFPv(void *);
 int run_action_state_phase__10TObjPlayerFisi(void*, void*, void*);
-void TObjPlayer__sub_801CB2F4(u8 *arg0);
+void complete_hurt_reaction__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -20,7 +20,7 @@ void do_action_19_5_if_flag30__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801CB2F0(void);
 void TObjPlayer__sub_801CB360(void);
 
-void TObjPlayer__sub_801CB2F4(u8 *arg0) {
+void complete_hurt_reaction__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
         if (obj_testFlags30(arg0, (int) (0x800)) != 0) {
             clear_flags__11TAdRicoRingFPvUi((void *) (arg0 + 0x858), (int) (1));

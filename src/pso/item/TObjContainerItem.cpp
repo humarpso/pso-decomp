@@ -26,7 +26,7 @@ extern s32 lbl_805D32EC;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(int, void *, int, int);
-void TBoss3Volopt__sub_80189CC0(s32 arg0);
+void play_container_break_sound(s32 arg0);
 }
 
 extern "C" {
@@ -102,7 +102,7 @@ u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1) {
     request_box_item_drop(arg1, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x360), arg0);
 }
-void TBoss3Volopt__sub_80189CC0(s32 arg0) {
+void play_container_break_sound(s32 arg0) {
     u32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     switch (temp_r3) {

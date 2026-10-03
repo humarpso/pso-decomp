@@ -13,7 +13,7 @@ M2C_UNK TLobby__sub_8001DC24();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK refresh_player_status__6TLobbyFv(int);
 M2C_UNK text_builder_append();
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 M2C_UNK reset__6TLobbyFi();
 M2C_UNK TLobby__sub_802D30E8(int);
@@ -115,7 +115,7 @@ void TLobby__sub_802D36E0(void *arg0) {
         TLobby__data_805D688B = 3;
         return;
     case 3:
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         refresh_player_status__6TLobbyFv(TLobby__data_805D688A);
         get_message_10__20TWindowSubStatusDispFPv(0xD8);
         text_builder_append();

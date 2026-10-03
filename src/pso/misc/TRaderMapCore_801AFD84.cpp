@@ -11,7 +11,7 @@ s32 TObjPlayer__sub_801AFD8C(u8 *arg0);
 extern "C" {
 
 s32 get_map_id__13TRaderMapCoreFPv(void* p);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 check_technique_flag__10TObjPlayerFPv(s32);
 s32 get_field_3e0__12TBoss3VoloptFPv();
 s32 get_global_state__14TOKeyMachine01Fv();

@@ -8,7 +8,7 @@ extern "C" {
 
 s32 check_mode_action__10TObjPlayerFii(s32 arg0, s32 arg1);
 u32 get_item_field_6__10TObjPlayerFPv();
-s32 TObjPlayer__sub_801CEC1C(s32);
+s32 can_perform_physical_action__10TObjPlayerFi(s32);
 s32 weapon_has_extra_attack();
 
 s32 check_mode_action__10TObjPlayerFii(s32 arg0, s32 arg1) {
@@ -22,7 +22,7 @@ s32 check_mode_action__10TObjPlayerFii(s32 arg0, s32 arg1) {
         return 0;
     }
 block_5:
-    return TObjPlayer__sub_801CEC1C(arg0);
+    return can_perform_physical_action__10TObjPlayerFi(arg0);
 }
 
 }

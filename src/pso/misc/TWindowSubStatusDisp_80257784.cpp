@@ -39,7 +39,7 @@ s32 TLobby__sub_8001DC24();
 s32 get_download_server__20TWindowSubStatusDispFv();
 s32 TWindowSubStatusDisp__sub_80228F5C(void *);
 s32 text_builder_append(int);
-s32 TWindowSubStatusDisp__sub_802290E0();
+s32 text_builder_reset();
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
 extern const f32 lbl_805DCF08;
 void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2);
@@ -62,7 +62,7 @@ u32 TItemData__sub_8010D028(s32, M2C_UNK, s32);
 s32 is_rare_item__9TItemDataFPv(s32);
 s32 TItem__sub_801013E8(void *);
 s32 get_usable_action_flags__5TItemFPvUiUi(void *, M2C_UNK, s32);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 get_player_by_client_id(s16);
 s32 TWindowHelpItem__sub_80104FCC(s32, s32, s32 *);
 s32 TWindowSubStatusDisp__sub_80259268(void *, s32, s32, s32, s32);
@@ -322,7 +322,7 @@ void TWindowSubStatusDisp__sub_80258A28(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 8) = (f32) lbl_805DCF08;
     M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
     M2C_FIELD(arg0, s8 *, 0x1D) = 9;
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C((void *) (arg1));
     text_builder_append((int) (get_download_server__20TWindowSubStatusDispFv()));
     M2C_FIELD(arg0, s32 *, 0x24) = TWindowSubStatusDisp__sub_80259268((void *)((void *) (arg0)), (s32)((int) (TLobby__sub_8001DC24())), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))), (s32)((int) (0x10)), (s32)((int) (1)));
@@ -342,7 +342,7 @@ void setup_stat_line__20TWindowSubStatusDispFPviii(void *arg0, s32 arg1, s32 arg
         M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
         M2C_FIELD(arg0, s32 *, 0x2C) = 0xFFAAAAAA;
         M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0xC5);
-    } else if ((reset_key_machine_state__10TObjPlayerFv() == 0) || (TObjPlayer__sub_80203418() != 0)) {
+    } else if ((reset_key_machine_state__10TObjPlayerFv() == 0) || (is_boss_area() != 0)) {
         M2C_FIELD(arg0, s32 *, 0x30) = 0xFF909090;
         M2C_FIELD(arg0, s32 *, 0x2C) = 0xFFAAAAAA;
         M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 0x45);

@@ -97,7 +97,7 @@ struct VObj_8016AA20 : VBase_8016AA20 {
 };
 
 extern "C" {
-void TOKey__sub_8016A960(u8 *arg0);
+void update_armed_switch__5TOKeyFPv(u8 *arg0);
 void TOKey__sub_8016AAE0(u8 *arg0);
 void set_global_count__12TObjNpcEnemyFi(s32);
 void TObjEneBm5GibonU__sub_803D853C(s32, const char *, ...);
@@ -152,7 +152,7 @@ void update_lock_state__5TOKeyFPv(void *arg0) {
     }
 }
 
-void TOKey__sub_8016A960(u8 *arg0) {
+void update_armed_switch__5TOKeyFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     ((VObj_18 *)(arg0))->m12();

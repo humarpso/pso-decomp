@@ -51,7 +51,7 @@ s32 fn_800FCCF4(void* p);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
 M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 s32 __nw__7TObjectFUl(M2C_UNK);
 s32 set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
 
@@ -85,7 +85,7 @@ void rotate_matrix_x(int, s32);
 void rotate_matrix_z(int, s32);
 void rotate_vector_by_matrix(int, Vec_800FCD40 *, Vec_800FCD40 *);
 void pop_matrix(void);
-s32 TObjPlayer__sub_80203418(void);
+s32 is_boss_area(void);
 f32 TObjPlayer__sub_803D89C0(Vec_800FCD40 *, Vec_800FCD40 *);
 void TObjPlayer__sub_803D9B2C(void);
 void TParticleCtrl__sub_803D8D1C(int, f32 *, f32 *);
@@ -150,7 +150,7 @@ void TFontSmallTask::render() {
     diff.x = position[0] - *(f32 *)(lbl_805D4DF0 + 0x178);
     diff.y = position[1] - *(f32 *)(lbl_805D4DF0 + 0x17C);
     diff.z = position[2] - *(f32 *)(lbl_805D4DF0 + 0x180);
-    if (TObjPlayer__sub_80203418() == 0) {
+    if (is_boss_area() == 0) {
         f32 xx = diff.x * diff.x;
         f32 yy = diff.y * diff.y;
         f32 zz = diff.z * diff.z;
@@ -237,7 +237,7 @@ extern "C" {
 s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6) {
     s32 var_r31;
 
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append(arg4);
     if (arg5 >= 0) {
         text_builder_append(&lbl_805DAA34);
@@ -255,7 +255,7 @@ extern M2C_UNK lbl_805DAA34;
 s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5) {
     s32 var_r31;
 
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append(arg4);
     if (arg5 >= 0) {
         text_builder_append(&lbl_805DAA34);
@@ -284,13 +284,13 @@ extern "C" {
 s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 s32 __nw__7TObjectFUl(M2C_UNK);
 
 s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     TWindowSubStatusDisp__sub_80228F5C(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
@@ -311,13 +311,13 @@ extern "C" {
 s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 
 s32 TLobby__sub_8001DC24();
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 s32 __nw__7TObjectFUl(M2C_UNK);
 
 s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     ((M2C_UNK (*)(s32))text_builder_append)(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {

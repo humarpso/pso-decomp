@@ -55,7 +55,7 @@ void run_task__14TOKeyMachine01Fv(u8 *arg0);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
 extern RecoveredGlobal_8016D714_lbl_804B2DD8 lbl_804B2DD8;
 extern u32 lbl_805D5A30;
@@ -201,7 +201,7 @@ void TOKeyMachine01__sub_8016D714(void) {
     }
     (*(u8 * *)&lbl_805D5A30) = (unsigned char *) ((void *) var_r0);
     (*(s32 *)&TOKeyMachine01__data_805D5A34) = alloc_buffer__11TOBoss4RockFPv((void *)8);
-    M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), u8 **, 0) = TLanguage__sub_801E4874((s32) &lbl_80441E24.value);
+    M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), u8 **, 0) = load_gvm_texture_file((s32) &lbl_80441E24.value);
     M2C_FIELD((*(s32 *)&TOKeyMachine01__data_805D5A34), s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A30), u8 **, 0x42C), s32 *, 0xC);
 }
 

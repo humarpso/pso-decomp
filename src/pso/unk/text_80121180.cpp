@@ -19,7 +19,7 @@ struct RecoveredGlobal_80121180_lbl_804C43C0 {
 };
 
 extern "C" {
-s16 TObjPlayer__sub_801D2EA8();
+s16 get_validated_attack_stage();
 extern RecoveredGlobal_80121198_lbl_804C43CC lbl_804C43CC;
 extern RecoveredGlobal_80121198_lbl_804C43D8 lbl_804C43D8;
 f32 get_attack_accuracy_scale(s16 *arg0);
@@ -38,7 +38,7 @@ f32 get_attack_damage_scale(s16 *arg0) {
 }
 
 f32 get_attack_accuracy_scale(s16 *arg0) {
-    return M2C_FIELD(((u8 *)(&lbl_804C43CC.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&lbl_804C43D8.value) + (TObjPlayer__sub_801D2EA8() * 4)), f32 *, 0);
+    return M2C_FIELD(((u8 *)(&lbl_804C43CC.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&lbl_804C43D8.value) + (get_validated_attack_stage() * 4)), f32 *, 0);
 }
 
 }

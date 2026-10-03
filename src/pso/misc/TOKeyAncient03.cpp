@@ -109,7 +109,7 @@ void TOKeyCave01__vt16(s32 arg0);
 u8 *TLobby__sub_80020004(void *, s32, M2C_UNK *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80441ACC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B2B30;
 extern u32 lbl_805D5A10;
@@ -304,7 +304,7 @@ void TOKeyAncient03__sub_8016BC84(void) {
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
     (*(s32 * *)&TOKeyAncient03__data_805D5A14) = temp_r3_2;
     *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A10), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD((*(s32 * *)&TOKeyAncient03__data_805D5A14), s32 *, 4) = TLanguage__sub_801E4874((void *) (&lbl_80441ACC.value));
+    M2C_FIELD((*(s32 * *)&TOKeyAncient03__data_805D5A14), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80441ACC.value));
 }
 
 void *__dt__14TOKeyAncient03Fv(void *arg0, s16 arg1) {

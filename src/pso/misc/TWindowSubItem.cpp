@@ -123,7 +123,7 @@ s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 void *find_item_by_id(s32);
 M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 M2C_UNK TObjPlayer__sub_801BA0F0(s32, s32, M2C_UNK);
-s32 TObjPlayer__sub_80203418();
+s32 is_boss_area();
 s32 get_player_by_client_id(s32);
 int TShopArmorListWindow__sub_80266CF8(void*);
 int TShopArmorListWindow__sub_80266DB0(void*);
@@ -299,7 +299,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
 
     temp_r3 = (u32)__cntlzw(4 - (arg3 & 0xF)) >> 5;
     temp_r31 = temp_r3 + 4;
-    if ((reset_key_machine_state__10TObjPlayerFv(temp_r3) == 0) || (TObjPlayer__sub_80203418() != 0)) {
+    if ((reset_key_machine_state__10TObjPlayerFv(temp_r3) == 0) || (is_boss_area() != 0)) {
         draw_text_gray__17TWindowSubComCardFiiii((s32)(arg2), (s32)(get_localized_text_entry(0x10, 0xF)), (M2C_UNK)(6), (s32)(temp_r31));
         return;
     }

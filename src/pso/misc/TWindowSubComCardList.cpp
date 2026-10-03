@@ -31,10 +31,10 @@ s32 validate_and_clear_slot__10TObjPlayerFPv(void *, s16);
 void TWindowSubStatusDisp__sub_80228D80();
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
-void TWindowSubStatusDisp__sub_802290E0();
+void text_builder_reset();
 u8 *TTecCtrl__sub_8022DBC4(u16, u8, s32);
 s32 TWindowHelpItem__sub_802434B8(u16, s32);
-void TWindowHelpItem__sub_80255DC8(s32);
+void get_help_text_string(s32);
 void fn_80263A20(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 extern s32 lbl_805D5544;
@@ -206,7 +206,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
     }
     self->kind = ev->kind;
     self->id = ev->id;
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     switch (ev->kind) {
     case 0:
         break;
@@ -214,7 +214,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         if (ev->id == 2 && (get_item_field_6__10TObjPlayerFPv(pl) == 0 || weapon_has_extra_attack() != 1)) {
             break;
         }
-        TWindowHelpItem__sub_80255DC8(ev->id + 0x13);
+        get_help_text_string(ev->id + 0x13);
         text_builder_append();
         break;
     case 3:
@@ -228,21 +228,21 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
             if (lbl_805D5544 != 0) {
                 TWindowSubStatusDisp__sub_80228D80();
             }
-            TWindowHelpItem__sub_80255DC8(0x2D);
+            get_help_text_string(0x2D);
             text_builder_append();
             TWindowSubStatusDisp__sub_80228F5C(lvl + 1);
         }
-        TWindowHelpItem__sub_80255DC8(0x2E);
+        get_help_text_string(0x2E);
         text_builder_append();
         TWindowSubStatusDisp__sub_80228F5C(*(s16 *)(TTecCtrl__sub_8022DBC4(ev->id, lvl, 0xFFFF) + 0x10));
-        TWindowHelpItem__sub_80255DC8(ev->id);
+        get_help_text_string(ev->id);
         text_builder_append();
         break;
     case 4:
         if (TWindowHelpItem__sub_802434B8(ev->id, self->player) == -1) {
             break;
         }
-        TWindowHelpItem__sub_80255DC8(ev->id + 0x16);
+        get_help_text_string(ev->id + 0x16);
         text_builder_append();
         break;
     case 7:

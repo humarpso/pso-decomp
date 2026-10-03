@@ -13,7 +13,7 @@ s32 TWindowSubComCard__sub_8007B6F4(void *);
 s32 get_stat_table_entry__9TObjLukerFi(int);
 s32 get_com_card_list__6TLobbyFPv(void *);
 void TWindowSubStatusDisp__sub_80228F5C(int);
-void TWindowSubStatusDisp__sub_802290E0();
+void text_builder_reset();
 void refresh_status_display__9TWindowDDFv(void *);
 s32 get_kbd_ptr__14TWindowComCardFPv(void *);
 s8 TWindowComCard__sub_80249C18(void *);
@@ -66,7 +66,7 @@ void fn_802497A8(Win_802497A8 *arg0, void *arg1) {
         if (id == 0) {
             t4->flags |= 2;
         } else {
-            TWindowSubStatusDisp__sub_802290E0();
+            text_builder_reset();
             TWindowSubStatusDisp__sub_80228F5C(id);
             TWindowSubStatusDisp__sub_8025AC50(t4, (void *)TLobby__sub_8001DC24(), 0x20);
             refresh_status_display__9TWindowDDFv(t4);

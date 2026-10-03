@@ -40,7 +40,7 @@ s32 TLobby__sub_8001DC24();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u8 *get_player_by_client_id(s32);
 M2C_UNK text_builder_append();
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 s32 get_window_layout_position(int);
 M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
 M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
@@ -51,7 +51,7 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1);
 s32 TLobby__sub_8001DC24();
 u8 *get_player_by_client_id(s32);
 M2C_UNK text_builder_append();
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
 s32 TLobby__sub_80269CC0(s32, void *, int, int);
 s32 get_window_layout_position(int);
@@ -65,7 +65,7 @@ s32 fn_802B1AB4(u8 *arg0, s32 arg1) {
     s32 temp_r29;
     u8 *temp_r29_2;
     temp_r29_2 = (u8 *)(get_player_by_client_id(arg1));
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     if (temp_r29_2 != NULL) {
         ((VObj_18_f23ffb *)(temp_r29_2))->m10();
         text_builder_append();
@@ -82,7 +82,7 @@ s32 fn_802B1B80(u8 *arg0, s32 arg1, s32 arg2) {
     s32 r;
     VObj_802B1B80 *p;
     p = (VObj_802B1B80 *)get_player_by_client_id(arg1);
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     if (p != NULL) {
         ((M2C_UNK (*)(M2C_UNK))text_builder_append)(p->m10());
     }

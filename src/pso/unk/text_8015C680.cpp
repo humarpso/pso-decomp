@@ -17,7 +17,7 @@ f32 TObjPlayer__sub_8015C88C(Obj_8015C88C *self);
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 u32 *alloc_buffer__11TOBoss4RockFPv(u32);
-u32 TLanguage__sub_801E4874(void *);
+u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_8044083C[];
 extern char lbl_80440850[];
@@ -54,9 +54,9 @@ void TLanguage__sub_8015C680(void) {
         }
         lbl_805D58E8 = p;
         lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D58EC[0] = TLanguage__sub_801E4874(lbl_8044083C);
-        lbl_805D58EC[1] = TLanguage__sub_801E4874(lbl_80440850);
-        lbl_805D58EC[2] = TLanguage__sub_801E4874(lbl_8044086C);
+        lbl_805D58EC[0] = load_gvm_texture_file(lbl_8044083C);
+        lbl_805D58EC[1] = load_gvm_texture_file(lbl_80440850);
+        lbl_805D58EC[2] = load_gvm_texture_file(lbl_8044086C);
     } else if (enable_v2_features == 1 &&
                (state == 0x11 || state == 0x13 || state == 0x14 || state == 0x20)) {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
@@ -65,9 +65,9 @@ void TLanguage__sub_8015C680(void) {
         }
         lbl_805D58E8 = p;
         lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D58EC[0] = TLanguage__sub_801E4874(lbl_80440888);
-        lbl_805D58EC[1] = TLanguage__sub_801E4874(lbl_804408A4);
-        lbl_805D58EC[2] = TLanguage__sub_801E4874(lbl_804408C4);
+        lbl_805D58EC[0] = load_gvm_texture_file(lbl_80440888);
+        lbl_805D58EC[1] = load_gvm_texture_file(lbl_804408A4);
+        lbl_805D58EC[2] = load_gvm_texture_file(lbl_804408C4);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
@@ -75,9 +75,9 @@ void TLanguage__sub_8015C680(void) {
         }
         lbl_805D58E8 = p;
         lbl_805D58EC = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D58EC[0] = TLanguage__sub_801E4874(lbl_804408E4);
-        lbl_805D58EC[1] = TLanguage__sub_801E4874(lbl_80440900);
-        lbl_805D58EC[2] = TLanguage__sub_801E4874(lbl_80440920);
+        lbl_805D58EC[0] = load_gvm_texture_file(lbl_804408E4);
+        lbl_805D58EC[1] = load_gvm_texture_file(lbl_80440900);
+        lbl_805D58EC[2] = load_gvm_texture_file(lbl_80440920);
     }
 }
 

@@ -40,7 +40,7 @@ u8 *TWindowTimer__ct(u8 *arg0);
 s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
 M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 M2C_UNK reset_float_field__15TWindowHelpItemFPv(s32);
@@ -61,7 +61,7 @@ s32 TLobby__sub_8001DC24();
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK TWindowSubStatusDisp__sub_8025AC50(s32, s32, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 s32 __nw__7TObjectFUl(M2C_UNK);
@@ -95,7 +95,7 @@ void draw__12TWindowTimerFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
 
     temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append(&lbl_805DD884);
     TWindowChallengeResult__sub_80228DB4(arg1, 3);
     text_builder_append(lbl_8044FCE0);
@@ -109,7 +109,7 @@ void TWindowTimer__sub_80287D20(void *self, u32 secs) {
     u32 hours;
     u32 mins;
     entry = get_array_entry__20TWindowSubStatusDispFPvi((void *)(self), (M2C_UNK)(0));
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     hours = secs / 3600;
     secs %= 3600;
     if (hours > 9) {

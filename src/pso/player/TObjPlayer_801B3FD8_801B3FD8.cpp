@@ -13,7 +13,7 @@ M2C_UNK TObjPlayer__sub_801BF250(void *);
 M2C_UNK TObjPlayer__sub_801BF288(void *);
 M2C_UNK TObjPlayer__sub_801BF2C0(void *);
 s32 TObjPlayer__sub_801BF548(void *);
-s32 TObjPlayer__sub_801C6E40(void *);
+s32 get_contact_surface_type(void *);
 void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 test_ordered_anim_markers__10TObjPlayerFPvff(u8 *arg0, f32 farg0, f32 farg1);
@@ -79,7 +79,7 @@ void emit_footstep_effect__10TObjPlayerFiff(s32 arg0, f32 farg0, f32 farg1) {
     s32 temp_r3;
     s32 temp_r3_2;
     if ((test_flag_2000000__10TObjPlayerFPv() == 0) && (temp_r3 = ((s32)test_ordered_anim_markers__10TObjPlayerFPvff((u8 *)((void *)((void *) (arg0))), (f32) (farg0), (f32) (farg1))), ((temp_r3 == 0) == 0))) {
-        temp_r3_2 = TObjPlayer__sub_801C6E40((void *) (arg0 + 0x360));
+        temp_r3_2 = get_contact_surface_type((void *) (arg0 + 0x360));
         switch (temp_r3_2) {
         case 1:
             TObjPlayer__sub_801BF2C0((void *) (arg0 + 0x384));

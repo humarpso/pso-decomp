@@ -79,7 +79,7 @@ s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
 extern RecoveredGlobal_8016B5A4_lbl_804B2A7C lbl_804B2A7C;
 extern u32 lbl_805D5A00;
@@ -267,7 +267,7 @@ void TOKeyAncient02__sub_8016B5A4(void) {
     (*(u8 * *)&lbl_805D5A00) = (unsigned char *) ((void *) var_r0);
     (*(s32 *)&lbl_805D5A08) = alloc_buffer__11TOBoss4RockFPv((void *)8);
     M2C_FIELD((*(s32 *)&lbl_805D5A08), s32 *, 0) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5A00), 0);
-    M2C_FIELD((*(s32 *)&lbl_805D5A08), u8 **, 4) = TLanguage__sub_801E4874((s32) &lbl_80441A74.value);
+    M2C_FIELD((*(s32 *)&lbl_805D5A08), u8 **, 4) = load_gvm_texture_file((s32) &lbl_80441A74.value);
     lbl_805D5A04 = get_bml_model((*(u8 * *)&lbl_805D5A00), 0);
 }
 

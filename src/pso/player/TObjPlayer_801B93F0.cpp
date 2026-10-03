@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 s32 update_target_lock__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_801B92EC(void *, s32);
+s32 is_target_in_facing_cone__10TObjPlayerFPvPv(void *, s32);
 u32 find_entity_by_id(u16);
 s32 get_position_ptr__10TObjPlayerFPv();
 M2C_UNK fn_801C1B88(s32);
@@ -39,7 +39,7 @@ s32 update_target_lock__10TObjPlayerFPv(void *arg0) {
         if (!(temp_f31 < lbl_805DC2C0)) {
             goto block_17;
         }
-        if (TObjPlayer__sub_801B92EC(arg0, get_position_ptr__10TObjPlayerFPv()) == 0) {
+        if (is_target_in_facing_cone__10TObjPlayerFPvPv(arg0, get_position_ptr__10TObjPlayerFPv()) == 0) {
             goto block_17;
         }
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x100000);
@@ -55,7 +55,7 @@ s32 update_target_lock__10TObjPlayerFPv(void *arg0) {
     if (temp_f31 > lbl_805DC2C4) {
         goto clear_and_return;
     }
-    if (TObjPlayer__sub_801B92EC(arg0, get_position_ptr__10TObjPlayerFPv()) != 0) {
+    if (is_target_in_facing_cone__10TObjPlayerFPvPv(arg0, get_position_ptr__10TObjPlayerFPv()) != 0) {
         goto block_17;
     }
 clear_and_return:

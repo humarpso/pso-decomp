@@ -42,7 +42,7 @@ s32 measure_string_len__20TWindowSubStatusDispFPv(int);
 s32 TWindowSubStatusDisp__sub_80228D80();
 s32 TWindowChallengeResult__sub_80228DB4(int, int);
 s32 text_builder_append(int);
-s32 TWindowSubStatusDisp__sub_802290E0();
+s32 text_builder_reset();
 s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 s32 fn_80271E40();
@@ -255,7 +255,7 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A08;
     if (TLobby__sub_8030A7B0() == 1) {
-        TWindowSubStatusDisp__sub_802290E0();
+        text_builder_reset();
         text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
         TWindowSubStatusDisp__sub_80228D80();
         TWindowChallengeResult__sub_80228DB4((int) (fn_80271E40()), (int) (2U));

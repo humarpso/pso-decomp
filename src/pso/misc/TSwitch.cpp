@@ -30,7 +30,7 @@ extern u8 TSwitch__data_80515CC8[18][32];
 M2C_UNK memcpy(void *, void *, void *);
 u32 copy_switch_table(void* destination);
 extern u8 TSwitch__data_80515CC8[18][32];
-s32 TSwitch__sub_80229164(u32 id, s16 floor);
+s32 get_floor_switch_flag(u32 id, s16 floor);
 extern u8 TSwitch__data_80515CC8[18][32];
 void clear_floor_switch_flag(u32 id, s16 floor);
 extern u8 TSwitch__data_80515CC8[18][32];
@@ -56,7 +56,7 @@ u32 copy_switch_table(void* destination) {
     return 0x240;
 }
 
-s32 TSwitch__sub_80229164(u32 id, s16 floor) {
+s32 get_floor_switch_flag(u32 id, s16 floor) {
     u8 *row;
     s32 idx;
     s32 bit;
@@ -77,7 +77,7 @@ s32 TSwitch__sub_80229164(u32 id, s16 floor) {
 }
 
 u8 TSwitch__sub_802291F4(u32 id, s16 floor) {
-    return (u8) (TSwitch__sub_80229164((u32)(id), floor) != 0);
+    return (u8) (get_floor_switch_flag((u32)(id), floor) != 0);
 }
 
 extern M2C_UNK __vt__7TSwitch[];

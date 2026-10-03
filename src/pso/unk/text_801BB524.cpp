@@ -28,7 +28,7 @@ s32 is_alive_and_ready__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801AF7E0(void *);
 s32 is_key_machine_ready__10TObjPlayerFv();
 M2C_UNK send_field_state__10TObjPlayerFi(void *);
-M2C_UNK TObjPlayer__sub_801B1FA4(u16, s32, s32);
+M2C_UNK send_6x24_teleport_player(u16, s32, s32);
 M2C_UNK send_code50_packet__10TObjPlayerFi(void *);
 M2C_UNK send_code_49_1__10TObjPlayerFi(void *);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
@@ -111,7 +111,7 @@ void TObjPlayer__vt6(s32 arg0) {
             if (is_single_screen__10TObjPlayerFv() == 0) {
                 TObjPlayer__sub_801BEE18((void *) (arg0), (int) (0));
             }
-            TObjPlayer__sub_801B1FA4(obj_getField1c((void *) (arg0)), get_hospital_position__10TObjPlayerFPv((void *) (arg0)), TObjPlayer__sub_801D8D14((void *) (arg0)));
+            send_6x24_teleport_player(obj_getField1c((void *) (arg0)), get_hospital_position__10TObjPlayerFPv((void *) (arg0)), TObjPlayer__sub_801D8D14((void *) (arg0)));
             set_state_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x800));
             set_battle_flag__10TObjPlayerFPvi((void *) (arg0), (int) (0));
         }

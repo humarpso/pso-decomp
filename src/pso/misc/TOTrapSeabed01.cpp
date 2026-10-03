@@ -151,7 +151,7 @@ void TOTrapSeabed01__vt80(u8 *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 f32 TObjPlayer__sub_8017A1A4(int, int);
-M2C_UNK TObjPlayer__sub_801B5328(int, void *, int, int, f32);
+M2C_UNK send_6x2C_impose_hold(int, void *, int, int, f32);
 u32 get_player_by_client_id(u32);
 M2C_UNK fn_802C9C18(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -271,9 +271,9 @@ void TOTrapSeabed01__sub_802CA038(u8 *arg0) {
         temp_f0 = M2C_FIELD(arg0, f32 *, 0x338);
         if (temp_f31 < (temp_f0 * temp_f0)) {
             if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-                TObjPlayer__sub_801B5328((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
+                send_6x2C_impose_hold((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
             } else if ((s32) M2C_FIELD(arg0, u16 *, 0x33C) == (s32) lbl_805D53A0) {
-                TObjPlayer__sub_801B5328((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
+                send_6x2C_impose_hold((int) (temp_r3), (void *) (arg0 + 0x38), (int) (-1), (int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x338)));
             }
             fn_802C9C18((void *) (arg0), (int) (0));
             return;

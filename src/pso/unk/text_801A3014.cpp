@@ -97,7 +97,7 @@ M2C_UNK render__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK render_shadows__9TMainTaskFv(void *);
 extern RecoveredGlobal_801A3540_main_task main_task;
-void TLobby__sub_801A3770(void);
+void run_single_view_frame(void);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
@@ -112,7 +112,7 @@ void TObjCityMainWarp__sub_801865B4(s32);
 void TKeyBoardControl__sub_801A66B8();
 M2C_UNK render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
-void TQuestThread__sub_801F5B5C();
+void create_floor_quest_thread();
 void __ct__12TQuestThreadFv(void *, u32, int);
 void TLobby__sub_802286C4(void *);
 void TLobby__sub_80228754(void *);
@@ -144,7 +144,7 @@ M2C_UNK TLobby__sub_800F8B20();
 void TLobby__sub_800FA260();
 void create_map_csn_ctrl__6TLobbyFv();
 M2C_UNK TLobby__sub_80141038(void *, int, int);
-M2C_UNK TObjCityMainWarp__sub_801868A8(int);
+M2C_UNK update_main_warp_visible_mask(int);
 M2C_UNK init_limits__6TLobbyFv();
 M2C_UNK TLobby__sub_801A2E00();
 M2C_UNK reset_quest_state__6TLobbyFv();
@@ -188,9 +188,9 @@ M2C_UNK init_limits__6TLobbyFv();
 M2C_UNK TObjPlayer__sub_801BDCF8();
 M2C_UNK TObjPlayer__sub_801BDC98();
 M2C_UNK set_enemy_mode_flag__6TLobbyFv();
-M2C_UNK TLobby__sub_801F3DEC();
+M2C_UNK clear_quest_floor_designations();
 M2C_UNK setup_quest_list__6TLobbyFv();
-void TQuestThread__sub_801F5B5C();
+void create_floor_quest_thread();
 void __ct__12TQuestThreadFv(void *, u32, int);
 M2C_UNK TQuestThread__sub_801F5DA8();
 M2C_UNK TQuestThread__sub_801F60DC();
@@ -236,14 +236,14 @@ M2C_UNK TLobby__sub_800FA464();
 M2C_UNK shutdown_keyboard_control__6TLobbyFv();
 void TLobby__sub_801A3014(void);
 void run_offline_area_transfer(void);
-void TLobby__sub_801A3770(void);
+void run_single_view_frame(void);
 M2C_UNK TLobby__sub_801A37D0();
 s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80201650();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK func_803DCDFC__Fv();
 extern char lbl_804468F8[];
 extern char lbl_80446908[];
@@ -327,7 +327,7 @@ void TLobby__sub_801A3014(void) {
         }
     }
     TLobby__sub_8001DC30();
-    TObjCityMainWarp__sub_801868A8(0);
+    update_main_warp_visible_mask(0);
     __dt__7TObjectFv(&holder, -1);
 }
 
@@ -373,7 +373,7 @@ void TLobby__sub_801A31D8(void) {
     }
     TLoadCtrl__sub_8001C978(1);
     TQuestThread__sub_801F60DC();
-    TLobby__sub_801F3DEC();
+    clear_quest_floor_designations();
     {
         void *t = __nw__7TObjectFUl(0x194);
         if (t != NULL) {
@@ -404,7 +404,7 @@ void TLobby__sub_801A31D8(void) {
             TObjPlayer__sub_801B1A84(fn_801B309C);
         }
     }
-    TQuestThread__sub_801F5B5C();
+    create_floor_quest_thread();
     __dt__7TObjectFv(&holder, -1);
 }
 
@@ -444,7 +444,7 @@ void run_offline_area_transfer(void) {
             ((VObj_801A33DC *)p)->m6();
         }
     }
-    TQuestThread__sub_801F5B5C();
+    create_floor_quest_thread();
     if (lbl_805D5EEC != 0) {
         p = __nw__7TObjectFUl(0x194);
         if (p != NULL) {
@@ -484,10 +484,10 @@ void run_offline_game_frame(void) {
     if (is_split_screen() != 0) {
         TLobby__sub_801A37D0();
     } else {
-        TLobby__sub_801A3770();
+        run_single_view_frame();
     }
     TLobby__sub_800FA464();
-    TLobby__sub_802269B4();
+    update_sound_request_slots();
     TAdSinglePlyChrSelectGC__sub_80201650();
     TObjBoss2Tunnel__sub_8007D1D0();
     if (func_801A5E54__Fv() != 0) {
@@ -507,7 +507,7 @@ void run_offline_game_frame(void) {
     render_tick__Fv();
 }
 
-void TLobby__sub_801A3770(void) {
+void run_single_view_frame(void) {
     some_empty_func__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&main_task).value));
     set_mode__11TCameraCtrlFi((int) (0));
     run_task__9TMainTaskFv((void *) (&(*(RecoveredGlobal_801A3770_main_task *)&main_task).value));

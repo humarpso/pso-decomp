@@ -49,7 +49,7 @@ s32 get_bml_model(void *, s32);
 u8 * TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
-u8 * TLanguage__sub_801E4874(s32);
+u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
 extern RecoveredGlobal_80158078_lbl_804AFB24 lbl_804AFB24;
 extern u32 lbl_805D5890;
@@ -117,7 +117,7 @@ void TOBarrierEnergy01__sub_80158078(void) {
     (*(u8 * *)&lbl_805D5890) = (unsigned char *) ((void *) var_r0);
     lbl_805D5898 = get_bml_model((void *) var_r0, 0);
     (*(s32 *)&TOBarrierEnergy01__data_805D5894) = alloc_buffer__11TOBoss4RockFPv((void *)0xC);
-    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__data_805D5894), u8 **, 0) = TLanguage__sub_801E4874((s32) &lbl_80440200.value);
+    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__data_805D5894), u8 **, 0) = load_gvm_texture_file((s32) &lbl_80440200.value);
     M2C_FIELD((*(s32 *)&TOBarrierEnergy01__data_805D5894), s32 *, 4) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5890), 1);
     M2C_FIELD((*(s32 *)&TOBarrierEnergy01__data_805D5894), s32 *, 8) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5890), 0);
 }

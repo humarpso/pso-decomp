@@ -231,7 +231,7 @@ u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 f32 horizontal_distance_squared(void *, void *);
-void TObjPlayer__sub_801B5328(void *, void *, s32, int, f32);
+void send_6x2C_impose_hold(void *, void *, s32, int, f32);
 s32 get_player_by_client_id(u32);
 void TOTrap__vt79(Obj_80178CF8 *self);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
@@ -334,7 +334,7 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
             if (horizontal_distance_squared(self->target + 0x38, self->pos) < self->range * self->range) {
                 self->state = 3;
                 if (is_locally_controlled__10TObjPlayerFPv((int)pl) != 0) {
-                    ((void (*)(f32, void *, void *, s32, int))TObjPlayer__sub_801B5328)(self->range, pl, self->pos, self->x84, 0);
+                    ((void (*)(f32, void *, void *, s32, int))send_6x2C_impose_hold)(self->range, pl, self->pos, self->x84, 0);
                 }
             } else {
                 self->idx = 0xFFFF;

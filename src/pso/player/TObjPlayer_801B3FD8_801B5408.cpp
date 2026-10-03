@@ -19,7 +19,7 @@ void apply_input_mode__10TObjPlayerFi(s32 arg0);
 s32 get_clamped_index__10TObjPlayerFPv(void *arg0);
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1);
 void set_move_mode__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_801B5328(s32, s32, s32, M2C_UNK, f32);
+M2C_UNK send_6x2C_impose_hold(s32, s32, s32, M2C_UNK, f32);
 s32 get_position_ptr__10TObjPlayerFPv();
 M2C_UNK set_input_mode__10TObjPlayerFPvi(s32, M2C_UNK);
 M2C_UNK set_move_mode__10TObjPlayerFPvi(s32, M2C_UNK);
@@ -27,7 +27,7 @@ M2C_UNK set_move_mode__10TObjPlayerFPvi(s32, M2C_UNK);
 extern f32 TObjPlayer__data_805DC278;
 
 void play_effect_default__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    TObjPlayer__sub_801B5328(arg0, get_position_ptr__10TObjPlayerFPv(), arg1, 0, TObjPlayer__data_805DC278);
+    send_6x2C_impose_hold(arg0, get_position_ptr__10TObjPlayerFPv(), arg1, 0, TObjPlayer__data_805DC278);
 }
 
 void TObjPlayer__sub_801B5450(u8 *arg0) {

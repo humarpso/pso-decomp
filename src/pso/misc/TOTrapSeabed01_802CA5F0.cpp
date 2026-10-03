@@ -53,7 +53,7 @@ s32 get_bml_model(int, int);
 void *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
-u32 TLanguage__sub_801E4874(void *);
+u32 load_gvm_texture_file(void *);
 s32 TObjDoorJung__sub_8023DBEC(u32, void *);
 extern u8 lbl_804720E8[];
 extern u8 lbl_80472100[];
@@ -119,7 +119,7 @@ void TOTrapSeabed01__sub_802CA820(void) {
         p = TLobby__sub_80020004(p, 5, lbl_804E0FA8, 0, 0, 0);
     }
     TOTrapSeabed01__data_805D6810 = (u32)p;
-    TOTrapSeabed01__data_805D6814 = TLanguage__sub_801E4874(lbl_804720E8);
+    TOTrapSeabed01__data_805D6814 = load_gvm_texture_file(lbl_804720E8);
     s32 n = count_linked_switches__23TObjSeabedSuisoBrakableFUii(get_bml_model(TOTrapSeabed01__data_805D6810, 0), 5);
     u32 t = TOTrapSeabed01__data_805D6814;
     lbl_805D6818 = n;

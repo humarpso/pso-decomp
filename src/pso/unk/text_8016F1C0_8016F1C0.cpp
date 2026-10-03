@@ -28,7 +28,7 @@ s32 get_trap_type__10TOMineTrapFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
 VO_8016F320 *get_player_by_client_id(u16);
 void text_builder_append(const char *);
-void TWindowSubStatusDisp__sub_802290E0(void);
+void text_builder_reset(void);
 void init_all__11TWindowCtrlFPvPv(void *, s32);
 extern const char lbl_804421F0[];
 extern const char lbl_805DB860[4];
@@ -95,7 +95,7 @@ s32 TOMineTrap__sub_8016F320(s32 arg0, u32 arg1) {
         if (p != NULL) {
             name = p->m10();
             if (name != NULL) {
-                TWindowSubStatusDisp__sub_802290E0();
+                text_builder_reset();
                 text_builder_append(lbl_805DB860);
                 text_builder_append(name);
                 text_builder_append(lbl_804421F0);

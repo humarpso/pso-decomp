@@ -11,7 +11,7 @@ s32 get_bml_model(void *, int);
 void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 Buf_80168AA8 *alloc_buffer__11TOBoss4RockFPv(u32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_80441858[];
 extern u8 lbl_80441874[];
@@ -53,8 +53,8 @@ void fn_80168AA8(void) {
         }
         lbl_805D59D0 = p;
         lbl_805D59D4 = alloc_buffer__11TOBoss4RockFPv(0xC);
-        lbl_805D59D4->a = TLanguage__sub_801E4874(lbl_80441858);
-        lbl_805D59D4->b = TLanguage__sub_801E4874(lbl_80441874);
+        lbl_805D59D4->a = load_gvm_texture_file(lbl_80441858);
+        lbl_805D59D4->b = load_gvm_texture_file(lbl_80441874);
         lbl_805D59D4->c = TObjFish__sub_8001EDB0(lbl_805D59D0, 1);
         lbl_805D59DC = get_bml_model(lbl_805D59D0, 2);
         lbl_805D59E0 = 1;

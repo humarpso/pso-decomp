@@ -11,7 +11,7 @@ extern "C" {
 
 void init_scene_objects__6TLobbyFv(void);
 int get_current_floor(void);
-int TQuestThread__sub_801F5B5C(void);
+int create_floor_quest_thread(void);
 int TRaderMapCore__sub_801F9630(int);
 int TLobby__sub_802089B0(void);
 int init_sub_objects__6TLobbyFv(void);

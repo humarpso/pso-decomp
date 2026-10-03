@@ -115,7 +115,7 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
 unsigned short get_child_field1c__15TShopWindowBaseFPv(void *);
 s32 fn_8026934C(s32);
-s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
+s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC6C8;
 extern const f32 lbl_805DC6CC;
@@ -168,7 +168,7 @@ s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
-s32 TLobby__sub_80222CFC(s32);
+s32 get_shop_text(s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
 M2C_UNK set_position_xy(void *, f32, f32);
 M2C_UNK TWindow__close(void *);
@@ -216,8 +216,8 @@ void TShopEquipmentGearSequence__sub_8021B518(void *self) {
     if (arg0->win == NULL) {
         id = obj_getField1c(arg0->f24);
         arg0->win = TCheckRoomSequence__sub_802664A8(((s32 (*)(int)) get_window_layout_position)(0x2B), 2, id);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, TLobby__sub_80222CFC(4), 6, 0);
-        forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, TLobby__sub_80222CFC(6), 6, 1);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(4), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(arg0->win, get_shop_text(6), 6, 1);
         TWindowSubComCard__sub_80265F60(arg0->win);
         TWindowSubComCard__sub_80265C30(arg0->win);
         set_ready_flag__18TCheckRoomSequenceFPv(arg0->win);
@@ -255,7 +255,7 @@ s32 TShopEquipmentGearSequence__sub_8021B6A8(u8 *arg0) {
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x2b, 1);
   *((s32 *) (((s8 *) arg0) + 0x30)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
   set_field_20__12TQuestListVMFPvi(arg0, 2);
-  *((s32 *) (((s8 *) arg0) + 0x34)) = THunterGuildSeqOffline__sub_8022350C((void *) arg0, (int) 0x4);
+  *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0x4);
 }
 typedef char RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence_size[sizeof(RecoveredGlobal_8021B7D0___vt__26TShopEquipmentGearSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0_size[sizeof(RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0) == 0x10 ? 1 : -1];

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TLobby__sub_80020004(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-u32 TLanguage__sub_801E4874(void *);
+u32 load_gvm_texture_file(void *);
 M2C_UNK reset_state__10TBoss6TubeFv();
 extern u8 lbl_80470A68[];
 extern u8 lbl_804DE888[];
@@ -58,7 +58,7 @@ void TBoss6Tube__sub_802B1760(void) {
         r = TLobby__sub_80020004(r, 5, lbl_804DE888, 0, 0, 0);
     }
     lbl_805D6718 = r;
-    lbl_805D671C = TLanguage__sub_801E4874(lbl_80470A68);
+    lbl_805D671C = load_gvm_texture_file(lbl_80470A68);
     if (lbl_805D6718 != 0 && lbl_805D671C != 0) {
         return;
     }

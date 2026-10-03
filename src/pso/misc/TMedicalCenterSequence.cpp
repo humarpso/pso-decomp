@@ -106,7 +106,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 u32 TShopSequence__sub_80223600(void *, s32, s32);
 s32 get_child_field1c__15TShopWindowBaseFPv(void *);
 s32 fn_8026934C(unsigned short);
-s32 THunterGuildSeqOffline__sub_8022350C(void *, int);
+s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC688;
 extern const f32 lbl_805DC68C;
@@ -248,7 +248,7 @@ M2C_UNK TMedicalCenterSequence__sub_80216830(u8 *arg0) {
   PSO_VCALL_VObj_18_a93f07_m4(arg0, 0x1F, 1);
   *((s32 *) (((s8 *) arg0) + 0x2C)) = fn_8026934C((s32) get_child_field1c__15TShopWindowBaseFPv(arg0));
   set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(2));
-  *((s32 *) (((s8 *) arg0) + 0x34)) = THunterGuildSeqOffline__sub_8022350C((void *) arg0, (int) 0);
+  *((s32 *) (((s8 *) arg0) + 0x34)) = set_service_counter_camera((void *) arg0, (int) 0);
 }
 
 void TMedicalCenterSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }

@@ -51,7 +51,7 @@ s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
 int get_instance__15TObjEneSlimeOneFv(void);
 s32 is_reached_target_depth__15TObjEneSlimeOneFPv(void *arg0);
 int is_timer_active__15TObjEneSlimeOneFPv(void* p);
-int TObjPlayer__sub_801D2EA8(void*);
+int get_validated_attack_stage(void*);
 int __dl__FPv();
 
 s32 get_attack_target__15TObjEneSlimeOneFPv(void* p) { return *(s32*)((char*)p + 0x3f4); }
@@ -84,7 +84,7 @@ int TObjEneSlimeOne__sub_800EC428(u8 *arg0, s32 arg1, f32 farg0) {
 
 void TObjEneSlimeOne__sub_800EC470(void* p) { *(s32*)((char*)p + 0x3f0) = 0; }
 
-int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p) { return TObjPlayer__sub_801D2EA8((char*)p + 0x7cc); }
+int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p) { return get_validated_attack_stage((char*)p + 0x7cc); }
 
 extern f32 lbl_805D52B8;
 extern u8 lbl_805D52BC;

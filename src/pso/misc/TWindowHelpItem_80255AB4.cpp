@@ -33,7 +33,7 @@ struct THelp_80255CCC {
 
 extern "C" {
 extern u8 *lbl_805D553C;
-s32 TWindowHelpItem__sub_80255DC8(s32 arg0);
+s32 get_help_text_string(s32 arg0);
 extern void *__vt__15TWindowHelpItem[];
 extern M2C_UNK lbl_804CF8B0[];
 extern u32 lbl_805D3910;
@@ -175,7 +175,7 @@ THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx) {
     return self;
 }
 
-s32 TWindowHelpItem__sub_80255DC8(s32 arg0) {
+s32 get_help_text_string(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(lbl_805D553C, s32 *, 0x18), M2C_UNK *, (arg0 * 4));
 }
 

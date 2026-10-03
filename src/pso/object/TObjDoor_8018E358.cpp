@@ -115,7 +115,7 @@ extern s32 some_id_805c6f74;
 M2C_UNK TObjDoor__sub_8018E5F4(Door_8018E5F4 *arg0);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *TLobby__sub_80020004(void *, s32, void *, s32, s32, s32);
-s32 TLanguage__sub_801E4874(void *);
+s32 load_gvm_texture_file(void *);
 s32 get_bml_model(s32, s32);
 s32 TObjFish__sub_8001ED9C(s32, s32);
 extern u8 lbl_804B763C[];
@@ -142,7 +142,7 @@ extern DoorMotionHeader* TObjDoor__data_8050DC78[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoor__data_805D5BC0;
 extern s32 some_id_805c6f74;
-M2C_UNK TObjDoor__sub_8018E74C(Door_8018E74C *arg0);
+M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void TCameraCtrl__sub_80069C94(f32*,f32*);
 void restore_player_cameras();
@@ -154,7 +154,7 @@ void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 TODoorAncient08__sub_80229220(u16);
 extern s32 TObjDoor__data_805D5BC8;
 extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
-void TObjDoor__sub_8018EC84(TObjDoor* door);
+void update_state__8TObjDoorFPv(TObjDoor* door);
 }
 
 extern "C" {
@@ -273,10 +273,10 @@ void update_timer__8TObjDoorFPv(void *arg0) {
         TObjDoor__sub_8018E5F4((Door_8018E5F4 *)(arg0));
         return;
     }
-    TObjDoor__sub_8018E74C((Door_8018E74C *)(arg0));
+    draw_locked__8TObjDoorFPv((Door_8018E74C *)(arg0));
 }
 
-M2C_UNK TObjDoor__sub_8018E74C(Door_8018E74C *arg0) {
+M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__data_805D5BC0);
     TObjPlayer__sub_803D9B2C();
     TOHangerMachine01__sub_803D9C00(arg0->f38);
@@ -356,7 +356,7 @@ s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1) {
 }
 #pragma pop
 
-void TObjDoor__sub_8018EC84(TObjDoor* door) {
+void update_state__8TObjDoorFPv(TObjDoor* door) {
     f32 target[3],position[3];
     switch(door->state) {
     case 0:
@@ -440,7 +440,7 @@ void TObjDoor__sub_8018F30C(void) {
         p = (s32)TLobby__sub_80020004((void *)p, 5, lbl_804B763C, 0, 0, 0);
     }
     lbl_805D5BC4 = p;
-    TObjDoor__data_805D5BC0 = TLanguage__sub_801E4874(lbl_80445588);
+    TObjDoor__data_805D5BC0 = load_gvm_texture_file(lbl_80445588);
     ((s32 *)&TObjDoor__data_8050DC80)[0] = get_bml_model(lbl_805D5BC4, 4);
     ((s32 *)&TObjDoor__data_8050DC80)[1] = get_bml_model(lbl_805D5BC4, 3);
     ((s32 *)&TObjDoor__data_8050DC80)[2] = get_bml_model(lbl_805D5BC4, 0);

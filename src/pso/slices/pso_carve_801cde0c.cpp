@@ -17,7 +17,7 @@ f32 TObjPlayer__sub_801D2CDC(void *);
 s32 TObjPlayer__sub_801D2F0C(void *);
 u8 TObjPlayer__sub_801D2F4C(void *);
 M2C_UNK begin_player_attack(void *, void *, int, int);
-void TObjPlayer__sub_801CDE0C(u8 *arg0);
+void enter_attack_stage2__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -28,7 +28,7 @@ M2C_UNK clear_status_bit6__10TObjPlayerFPv(void *);
 int TObjPlayer__sub_801CDDEC(void* p);
 int update_action_state__10TObjPlayerFPv(void*);
 
-void TObjPlayer__sub_801CDE0C(u8 *arg0) {
+void enter_attack_stage2__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 6;
     run_action_state_phase__10TObjPlayerFisi(arg0, (int) (M2C_FIELD(arg0, s16 *, 0x326)), (int) (6));
     set_action_type__10TObjPlayerFPvs((void *) (arg0 + 0x7CC), (void *) (TObjPlayer__sub_801D2F0C((void *) (arg0 + 0x7CC))));

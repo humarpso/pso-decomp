@@ -59,7 +59,7 @@ s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, 
 M2C_UNK place_on_ground__5TItemFPvsPvi(void *, s16, s32, M2C_UNK);
 s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
-s32 TObjPlayer__sub_801C1A70(void *);
+s32 is_item_equipped(void *);
 s32 start_inventory_update__10TObjPlayerFPvi(void *, s32);
 int TObjPlayer__sub_801D51A0(void*);
 int count_owned_items__10TObjPlayerFPv(void*);
@@ -94,7 +94,7 @@ s32 update_inventory_item__10TObjPlayerFPviiiii(void *arg0, s32 arg1, s32 arg2, 
         ((V_A_801d48f8 *) temp_r3_2)->m35(arg4);
         return 1;
     }
-    if (TObjPlayer__sub_801C1A70(temp_r3_2) != 0) {
+    if (is_item_equipped(temp_r3_2) != 0) {
         unequip_item__10TObjPlayerFiPv(arg1, temp_r3_2);
     }
     M2C_FIELD(temp_r3_2, s16 *, 0x28) = get_stat_by_key_state__10TObjPlayerFPv(arg1);

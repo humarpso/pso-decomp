@@ -180,7 +180,7 @@ void *TLobby__sub_80020004(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 TLobby__sub_800F9DF4(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-u32 TLanguage__sub_801E4874(void *);
+u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
@@ -548,7 +548,7 @@ void TParticleCtrl__sub_8008869C(void) {
         p = TLobby__sub_80020004(p, 1, lbl_8048E768, 0, 0, 0);
     }
     TParticleCtrl__data_805D4F00 = (u32)p;
-    TParticleCtrl__data_805D4F04 = TLanguage__sub_801E4874(lbl_804394D4);
+    TParticleCtrl__data_805D4F04 = load_gvm_texture_file(lbl_804394D4);
 }
 
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5) {

@@ -179,7 +179,7 @@ extern const f32 TPhotonMagicSquare__data_805DC1E4;
 extern const f32 TPhotonMagicSquare__data_805DC1EC;
 extern const f32 TPhotonMagicSquare__data_805DC1F0;
 extern const f32 lbl_805DC1F4;
-u8 *TPhotonMagicSquare__sub_801AD218(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_entity_by_id(void *);
@@ -239,7 +239,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4,
     M2C_FIELD(arg0, s32 *, 0xCC) = 0xFFFFFF;
     return arg0;
 }
-u8 *TPhotonMagicSquare__sub_801AD218(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
     TPhotonMagicSquare__sub_801A2640((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801AD218___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;

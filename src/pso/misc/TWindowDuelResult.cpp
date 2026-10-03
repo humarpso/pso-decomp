@@ -64,7 +64,7 @@ u8 TLobby__sub_801D7064(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void TWindowSubStatusDisp__sub_80228F5C(s32);
 s32 text_builder_append(s32);
-void TWindowSubStatusDisp__sub_802290E0(void);
+void text_builder_reset(void);
 void refresh_status_display__9TWindowDDFv(void *);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
 void TWindowSubStatusDisp__sub_8025AC50(void *, void *, int);
@@ -169,7 +169,7 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
                 set_default_status__17TWindowDuelResultFPvi(a, get_localized_text_entry(0x10, e->rank + 6));
             }
             TWindowSubStatusDisp__sub_8025AC50(c, p + 0x85C, 0x20);
-            TWindowSubStatusDisp__sub_802290E0();
+            text_builder_reset();
             TWindowSubStatusDisp__sub_80228F5C(e->value);
             TWindowSubStatusDisp__sub_8025AC50(d, (void *)TLobby__sub_8001DC24(text_builder_append(get_localized_text_entry(0x10, 0xD))), 0x20);
             refresh_status_display__9TWindowDDFv(d);

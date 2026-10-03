@@ -96,7 +96,7 @@ void enter_technique_cast__10TObjPlayerFPv(Player_801CD424 *self);
 void TObjPlayer__sub_8011E204(void *obj, s32 v);
 void obj_clearFlags30(void *obj, u32 flags);
 void clear_status_bit6__10TObjPlayerFPv(void *obj);
-void TObjPlayer__sub_801CD188(Player_801CD188 *self);
+void exit_technique_cast__10TObjPlayerFPv(Player_801CD188 *self);
 s32 obj_isState2_324(void *obj);
 s32 obj_getField1c(void *obj);
 void set_cursor_pos__11TMainCursorFiUsi(void *, u16, s16);
@@ -165,7 +165,7 @@ s32 can_start_technique__10TObjPlayerFPvi(Player_801CD078 *self, s32 tech) {
     return self->tp - TTecCtrl__sub_8022DBC4(tech, fn_801D9870(self->techs, tech), obj_getField1c(self))->cost >= 0 ? 1 : 0;
 }
 
-void TObjPlayer__sub_801CD188(Player_801CD188 *self) {
+void exit_technique_cast__10TObjPlayerFPv(Player_801CD188 *self) {
     self->flags &= ~0x40;
     TObjPlayer__sub_8011E204(self, 0x80);
     obj_clearFlags30(self, 0x400000);

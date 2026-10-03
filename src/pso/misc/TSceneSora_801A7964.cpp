@@ -15,7 +15,7 @@ extern u32 TSceneSora__data_805D6050;
 void reset_state__10TSceneSoraFv(s32 _w0);
 u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
-M2C_UNK fn_801A73B0(f32);
+M2C_UNK update_photon_blast_camera_pose(f32);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern f32 lbl_805DC0D4;
 void update_state__10TSceneSoraFPv(void *arg0);
@@ -76,7 +76,7 @@ void update_state__10TSceneSoraFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xFC);
     switch (temp_r0) {
     case 0:
-        fn_801A73B0(lbl_805DC0D4);
+        update_photon_blast_camera_pose(lbl_805DC0D4);
         return;
     case 1:
         if ((M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) || (TCameraCtrl__sub_8006A5DC() != 5)) {

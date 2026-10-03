@@ -109,7 +109,7 @@ s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 spawn_particle_effect(void *, int);
 s32 advance_animation_playback(void *);
 s32 find_entity_by_id(int);
-s32 TCameraCtrl__sub_801A7310(void *, int);
+s32 begin_photon_summon_camera(void *, int);
 s32 update_photon_blast_attachments(void *);
 s32 TObjPlayer__sub_801A7748(void *, int);
 s32 update_state__10TSceneSoraFPv(void *);
@@ -391,7 +391,7 @@ void TObjPlayer__sub_801ABBAC(u8 *arg0) {
         }
     }
     if ((lbl_805DC1A8 == (f32) M2C_FIELD(arg0, s32 *, 0x1C8)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1)) {
-        TCameraCtrl__sub_801A7310((void *) (arg0), (int) (5));
+        begin_photon_summon_camera((void *) (arg0), (int) (5));
         M2C_FIELD(arg0, s32 *, 0x1C8) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
         TObjPlayer__sub_801A7748((void *) (arg0), (int) (2));

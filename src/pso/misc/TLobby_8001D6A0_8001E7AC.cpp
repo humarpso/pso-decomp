@@ -9,7 +9,7 @@ extern "C" {
 void close_result_windows__6TLobbyFv(void);
 f32 calc_result_offset__6TLobbyFv(void);
 M2C_UNK TWindowChallengeResult__sub_80228DB4(s32, M2C_UNK);
-M2C_UNK TWindowSubStatusDisp__sub_802290E0();
+M2C_UNK text_builder_reset();
 M2C_UNK TLobby__sub_8001DC24();
 u32 fn_800FC0D8();
 M2C_UNK text_builder_append(M2C_UNK *);
@@ -21,7 +21,7 @@ extern M2C_UNK lbl_805D7ED8;
 extern M2C_UNK lbl_805D7EDC;
 
 void close_result_windows__6TLobbyFv(void) {
-    TWindowSubStatusDisp__sub_802290E0();
+    text_builder_reset();
     text_builder_append(TLobby__data_8050AAAC);
     text_builder_append(&lbl_805D7ED8);
     TWindowChallengeResult__sub_80228DB4(TLobby__data_805D55AC, 2);

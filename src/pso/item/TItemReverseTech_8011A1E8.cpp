@@ -40,7 +40,7 @@ s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
 M2C_UNK render_tick__Fv();
-M2C_UNK TLobby__sub_802269B4();
+M2C_UNK update_sound_request_slots();
 M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
 M2C_UNK some_empty_func__9TMainTaskFv(void *);
 M2C_UNK render__9TMainTaskFv(void *);
@@ -173,7 +173,7 @@ void TItemReverseTech__sub_8011A350(void) {
     var_r3 = (M2C_UNK *)(&main_task.value);
     render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
     TLobby__sub_800FA464();
-    TLobby__sub_802269B4();
+    update_sound_request_slots();
     noop__23TAdSinglePlyChrSelectGCFv();
     if (func_801A5E54__Fv() != 0) {
         TKeyBoardControl__sub_8000F92C();

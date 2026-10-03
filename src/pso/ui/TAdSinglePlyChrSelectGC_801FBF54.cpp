@@ -113,7 +113,7 @@ void begin_action_from_char_select__10TObjPlayerFv();
 void *memcpy(void *, s32, s32);
 M2C_UNK memset(M2C_UNK, s32, s32);
 extern M2C_UNK lbl_80513904[];
-s32 TAdSinglePlyChrSelectGC__sub_80201354(void);
+s32 init_fresh_character_card(void);
 }
 
 extern "C" {
@@ -248,7 +248,7 @@ void TAdSinglePlyChrSelectGC__sub_802012AC(void) {
   DateToSeconds__FP9DateStampPi((M2C_UNK *)((void *) (&sp10)), (s32 *)((void *) (lbl_805D5F6C + 0x118)));
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_80201354(void) {
+s32 init_fresh_character_card(void) {
     void *chr;
     Card_80201354 *card;
     s32 i;
@@ -363,7 +363,7 @@ typedef char RecoveredGlobal_80201970_lbl_805137F8_size[sizeof(RecoveredGlobal_8
 void TAdSinglePlyChrSelectGC__sub_80201650(void) {
     switch (lbl_805D5F78) {
     case 2:
-        TAdSinglePlyChrSelectGC__sub_80201354();
+        init_fresh_character_card();
         lbl_805D5F78 = 4;
         break;
     case 3:

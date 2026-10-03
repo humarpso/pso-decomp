@@ -26,7 +26,7 @@ void destroy_subobjects__10TObjPlayerFPvi(void* a0, int a1);
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1);
 void start_inventory_update__10TObjPlayerFPvi(void* a0, int a1);
 int TObjPlayer__sub_801D55A4(void*);
-int TObjPlayer__sub_801D563C(void*);
+int find_matching_inventory_item_node(void*);
 int TObjPlayer__sub_801D56D0(void*);
 int queue_destruction__7TObjectFv(void*);
 int run_tasks__7TObjectFv(void*);
@@ -35,7 +35,7 @@ int run_tasks__7TObjectFv(void*);
 void TObjPlayer__sub_801D4DE8(void* a0, int a1) { lbl_805D5DFC = a1; TObjPlayer__sub_801D55A4((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
     extern int lbl_805D5DFC;
-void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DFC = a1; TObjPlayer__sub_801D563C((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DFC = a1; find_matching_inventory_item_node((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
     extern int lbl_805D5DE0;
     extern int lbl_805D5DF0;

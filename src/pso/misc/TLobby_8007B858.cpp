@@ -53,7 +53,7 @@ s32 is_scene_ready__6TLobbyFv();
 M2C_UNK TLobby__sub_80208BD8();
 M2C_UNK cleanup_game_objects__9TMainTaskFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TTecLuker__sub_80233F8C();
+M2C_UNK restore_floor_telepipes();
 M2C_UNK TWindowCtrlMain__ct();
 M2C_UNK TWindowCtrl__ct(u32, s32);
 M2C_UNK __ct__7TSwitchFv(u32, s32);
@@ -125,7 +125,7 @@ void create_tasks__6TLobbyFv(void) {
         TCineCtrl__ct(tmp, tl_00);
     }
     create__13TRaderMapCoreFv();
-    TTecLuker__sub_80233F8C();
+    restore_floor_telepipes();
     tmp = __nw__7TObjectFUl(0x20);
     if (tmp != 0U) {
         TNpcPlayer__sub_8034DD14(tmp, tl_06);

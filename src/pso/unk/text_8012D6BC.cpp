@@ -41,7 +41,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 f32 query_extended_state__10TObjPlayerFPv(void *);
 struct SlicerState_801295FC;
 void TObjPlayer__sub_801295FC(SlicerState_801295FC *s);
-s16 TObjPlayer__sub_801D2EA8(void *);
+s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *create__10TTecSlicerFPUs(void *);
 void TObjPlayer__sub_8012D8E4(void);
@@ -69,7 +69,7 @@ void TObjPlayer__sub_8012D708(Self_8012D708 *self) {
     tec.f4 = self->f24;
     tec.f8 = self->f188;
     tec.f10 = TObjPlayer__sub_801D2F4C((u8 *)self->owner + 0x7CC);
-    tec.f12 = TObjPlayer__sub_801D2EA8((u8 *)self->owner + 0x7CC);
+    tec.f12 = get_validated_attack_stage((u8 *)self->owner + 0x7CC);
     tec.f14 = query_extended_state__10TObjPlayerFPv(self->owner);
     tec.f18 = lbl_805DAF28;
     tec.f1C = lbl_805DAF2C;

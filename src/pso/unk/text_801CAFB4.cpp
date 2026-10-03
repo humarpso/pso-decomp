@@ -5,7 +5,7 @@ s32 update_fall_reaction__10TObjPlayerFPv(void *);
 s32 start_action_0e__10TObjPlayerFPv(void *);
 s32 begin_fall_reaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CAEAC();
-s32 TObjPlayer__sub_801CAEB0(void *);
+s32 complete_fall_reaction__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801CAF6C();
 s32 check_and_trigger_19_5__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801CAFB4(s32 arg0, s16 arg1);
@@ -25,7 +25,7 @@ void TObjPlayer__sub_801CAFB4(s32 arg0, s16 arg1) {
         TObjPlayer__sub_801CAF6C();
         return;
       case 3:
-        TObjPlayer__sub_801CAEB0(new_var = (void *) arg0);
+        complete_fall_reaction__10TObjPlayerFPv(new_var = (void *) arg0);
         return;
       case 8:
         TObjPlayer__sub_801CAEAC();

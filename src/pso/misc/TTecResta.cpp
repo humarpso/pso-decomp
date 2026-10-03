@@ -149,7 +149,7 @@ void *spawn_particle_effect_with_flags(void *, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(void *, s32);
 s32 is_script_controlled__10TObjPlayerFPv(void *);
 void *__nw__7TObjectFUl(int);
-void fn_80235BDC(void *, void *, s32, s32, s32);
+void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 Resta_8023967C *TTecResta__sub_8023967C(Resta_8023967C *self, Vec_8023967C *pos, s32 owner, void *parent);
 void show_party_effect__11TWindowCtrlFPvPvPv(s32, s32, s32);
 extern s32 tl_07;
@@ -166,7 +166,7 @@ extern s32 lbl_805D3810;
 extern const f32 TTecResta__data_805DC908;
 void *TTecResta__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void *__nw__7TObjectFUl(int);
-void fn_80235BDC(void *, void *, s32, s32, s32);
+void construct_delayed_point_sound(void *, void *, s32, s32, s32);
 extern s32 tl_07;
 void TTecReverser__vt4(Obj_80239CF4 *arg0, VObj_18_9c98dd *arg1);
 }
@@ -320,7 +320,7 @@ void TTecResta__vt5(Obj_8023985C *arg0, VObj_8023985C *arg1) {
     if (arg0->active != 0) {
         void *o = __nw__7TObjectFUl(0x30);
         if (o != NULL) {
-            fn_80235BDC(o, (u8 *)arg1 + 0x2FC, 0x14, 0x4002A80F, tl_07);
+            construct_delayed_point_sound(o, (u8 *)arg1 + 0x2FC, 0x14, 0x4002A80F, tl_07);
         }
     }
 }
@@ -431,7 +431,7 @@ void TTecReverser__vt4(Obj_80239CF4 *arg0, VObj_18_9c98dd *arg1) {
     arg1->m21(arg0->source, &c, 0, -1, -1);
     void *o = __nw__7TObjectFUl(0x30);
     if (o != NULL) {
-        fn_80235BDC(o, (u8 *)arg1 + 0x38, 0x2D, 0x4002AD13, tl_07);
+        construct_delayed_point_sound(o, (u8 *)arg1 + 0x38, 0x2D, 0x4002AD13, tl_07);
     }
 }
 

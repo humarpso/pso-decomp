@@ -85,7 +85,7 @@ u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BE918(void *, s32, M2C_UNK *, M2C_UNK *);
 void TObjPlayer__sub_801B6024(u8 *arg0);
 s32 TObjPlayer__sub_801B5AC4(s32 arg0, s32 arg1);
-s32 TObjPlayer__sub_801B5874(u8 *arg0);
+s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0);
 Player_801B6110 *get_player_by_client_id(s32);
 void bswap_body_dwords__10TObjPlayerFi(void *);
 void copy_pair_fields__10TObjPlayerFPvPv(void *, void *);
@@ -97,7 +97,7 @@ f32 TObjPlayer__sub_803D89C0(Vec_801B5DDC *, Vec_801B5DDC *);
 extern const f32 TObjPlayer__data_805DC278;
 s32 check_actor_blocking_move__10TObjPlayerFPv(Obj_801B5DDC *self);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
-s32 TObjPlayer__sub_801B50C0(void *, f32 *);
+s32 is_outside_movement_hold__10TObjPlayerFPvPv(void *, f32 *);
 u32 TObjPlayer__sub_801B7298(void *);
 s32 TObjPlayer__sub_801BE8F4(void *, M2C_UNK, M2C_UNK);
 s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0);
@@ -157,7 +157,7 @@ void action_enable_if_present__10TObjPlayerFPv(void* p) { void* m = *(void**)((c
 
 int TObjPlayer__sub_801B57E8(void) { return 0; }
 
-s32 TObjPlayer__sub_801B5874(u8 *arg0) {
+s32 is_quest_interaction_blocked__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, u32 *, 0x424) == 0U) {
         return 0;
     }
@@ -319,7 +319,7 @@ s32 resolve_move_collision__10TObjPlayerFPv(Obj_801B5EA4 *arg0) {
         TObjPlayer__sub_8001053C(arg0);
         return 4;
     }
-    if (TObjPlayer__sub_801B50C0(arg0, &p.x) != 0) {
+    if (is_outside_movement_hold__10TObjPlayerFPvPv(arg0, &p.x) != 0) {
         TObjPlayer__sub_8001053C(arg0);
         return 3;
     }

@@ -18,7 +18,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void TLobby__sub_802081AC(void *arg0);
+void swap_object_row_endian(void *arg0);
 void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
 void TLobby__sub_802080C0(void*);
 void TLobby__sub_801F3A80(u8* arg0, u32 arg1);
@@ -74,7 +74,7 @@ void TLobby__sub_801F3AD8(struct QuestObjRow_801F3AD8 *rows, u32 byte_size) {
     u32 count = byte_size / 68;
     u32 i;
     for (i = 0; i < count; ++i, p++) {
-        TLobby__sub_802081AC(p);
+        swap_object_row_endian(p);
         p->flags = 0;
     }
 }

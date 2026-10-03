@@ -149,7 +149,7 @@ extern const f32 lbl_805E0260;
 void TObjPlayer__sub_80362DE8(void *arg0, Obj_80362DE8 *arg1);
 s32 spawn_particle_effect(void *, s32);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
-s16 TObjPlayer__sub_801D2EA8(void *);
+s16 get_validated_attack_stage(void *);
 extern s32 lbl_804A2B50[];
 void TObjPlayer__sub_80362C80(T_80362C80 *arg0);
 }
@@ -230,7 +230,7 @@ typedef struct VObj_18_c22f9c VObj_18_c22f9c;
 void TObjPlayer__sub_80362C80(T_80362C80 *arg0) {
   u8 sp8[0x10];
   s32 n;
-  arg0->obj->m63(lbl_804A2B50[(has_valid_handle__10TObjPlayerFPv(arg0->obj) * 3) + TObjPlayer__sub_801D2EA8(((u8 *) arg0->obj) + 0x7CC)], sp8);
+  arg0->obj->m63(lbl_804A2B50[(has_valid_handle__10TObjPlayerFPv(arg0->obj) * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
   spawn_particle_effect(sp8, 0x1D0);
 }
 

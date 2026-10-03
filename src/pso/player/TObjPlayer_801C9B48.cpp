@@ -12,7 +12,7 @@ void init_action__10TObjPlayerFPv(u8 *arg0);
 void *resolve_move_collision__10TObjPlayerFPv(void *);
 M2C_UNK run_action_state_phase__10TObjPlayerFisi(void *, s16, M2C_UNK);
 M2C_UNK clear_status_bit6__10TObjPlayerFPv();
-M2C_UNK TTecReverser__sub_80239E44(void *, void *, s32);
+M2C_UNK construct_revival_particle_effect(void *, void *, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK TObjPlayer__sub_8000FF4C(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
@@ -56,7 +56,7 @@ void init_action__10TObjPlayerFPv(u8 *arg0) {
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
         void *new_obj = (void *)(size_t)__nw__7TObjectFUl(0x38);
         if (new_obj != 0U) {
-            TTecReverser__sub_80239E44(new_obj, arg0, tl_07);
+            construct_revival_particle_effect(new_obj, arg0, tl_07);
         }
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x548) != 0U) {

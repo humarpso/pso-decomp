@@ -160,7 +160,7 @@ void TObjPlayer__sub_801295FC(SlicerLaunchData_8012D9C8 *);
 u16 obj_getField1c(void *);
 u32 get_field_d8__10TObjPlayerFPv(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
-s16 TObjPlayer__sub_801D2EA8(void *);
+s16 get_validated_attack_stage(void *);
 f32 query_extended_state__10TObjPlayerFPv(void *);
 void get_weapon_color__11TItemWeaponFPv(f32 *, void *);
 void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
@@ -293,7 +293,7 @@ void TObjPlayer__sub_8034F268(u8 *weapon) {
     launch.textures = M2C_FIELD(weapon, void **, 0x24);
     launch.model = M2C_FIELD(weapon, void **, 0x188);
     launch.kind = TObjPlayer__sub_801D2F4C(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
-    launch.stage = TObjPlayer__sub_801D2EA8(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
+    launch.stage = get_validated_attack_stage(M2C_FIELD(weapon, u8 **, 0xF0) + 0x7CC);
     launch.multiplier = query_extended_state__10TObjPlayerFPv(M2C_FIELD(weapon, u8 **, 0xF0));
     get_weapon_color__11TItemWeaponFPv(tmp, weapon);
     copy_vec4__13TRaderMapCoreFPvPv(launch.color, tmp);

@@ -33,7 +33,7 @@ extern "C" {
 s32 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *, int);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-s32 TObjPlayer__sub_801C1A70(void *, int);
+s32 is_item_equipped(void *, int);
 void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
 s8 TObjPlayer__sub_80102C30(void *);
@@ -170,7 +170,7 @@ void TObjPlayer__sub_801D45B0(s32 *arg0, s32 arg1) {
     }
     temp_r3 = get_slot_count__14TItemProShieldFPv((void *) (arg1));
     *arg0 |= temp_r3;
-    if (TObjPlayer__sub_801C1A70((void *) (arg1), (int) (temp_r3)) == 0) {
+    if (is_item_equipped((void *) (arg1), (int) (temp_r3)) == 0) {
         *arg0 |= 0x10000;
     }
 }

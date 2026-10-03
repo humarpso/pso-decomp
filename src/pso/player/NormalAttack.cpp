@@ -23,7 +23,7 @@ void handle_6x43_attack(void *src);
 
 extern "C" {
 
-void TObjPlayer__sub_801CF080(u8 *arg0);
+void enter_attack_stage1__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK TNpcPlayer__sub_80152C28(void *);
 M2C_UNK TObjPlayer__sub_8001053C(void *);
 M2C_UNK TObjPlayer__sub_801CE3EC(void *);
@@ -50,7 +50,7 @@ M2C_UNK set_action_state__10TObjPlayerFPvss(void *, int, void *);
 int try_apply_status_action__10TObjPlayerFi(void*);
 M2C_UNK update_lobby__10TNpcPlayerFPv(void *);
 
-void TObjPlayer__sub_801CF080(u8 *arg0) {
+void enter_attack_stage1__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x33C) = 5;
     run_action_state_phase__10TObjPlayerFisi((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0x326)), (int) (6));
     TObjPlayer__sub_8001053C((void *) (arg0));

@@ -104,7 +104,7 @@ extern s32 *TObjNpcNFM01__data_805D5818;
 extern s32 TObjNpcNFM01__data_805D581C;
 u8 *TObjNpcNFM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
-void *TLanguage__sub_801E4874(const char *name);
+void *load_gvm_texture_file(const char *name);
 extern u32 TObjNpcNFW00__data_805D5820;
 extern u32 TObjNpcNFW00__data_805D5824;
 extern char lbl_8043FD90[];
@@ -184,7 +184,7 @@ void free_resources__12TObjNpcNFW00Fv(void) {
 }
 void TObjNpcNFW00__sub_8014CCE8(void) {
     TObjNpcNFW00__data_805D5820 = (u32)create_named_object(lbl_8043FD90);
-    TObjNpcNFW00__data_805D5824 = (u32)TLanguage__sub_801E4874(lbl_8043FDA4);
+    TObjNpcNFW00__data_805D5824 = (u32)load_gvm_texture_file(lbl_8043FDA4);
 }
 
 }

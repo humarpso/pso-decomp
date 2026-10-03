@@ -35,7 +35,7 @@ void TObjPlayer__sub_801B67D4(void *, s32, Stats_802C38B4 *);
 void copy_stats__10TObjPlayerFPvPv(Stats_802C38B4 *, void *);
 s32 clamp_index_to_max__10TObjPlayerFi(s32);
 s32 get_current_state_field__10TObjPlayerFv(void *, s32);
-void *TObjPlayer__sub_801D935C(void *);
+void *get_class_base_stats(void *);
 void set_field_157__10TObjPlayerFPvUc(void *, u8);
 void set_byte_13b__10TObjPlayerFPvUc(void *, u8);
 void set_action_flags__10TObjPlayerFPvUc(void *, u8);
@@ -104,7 +104,7 @@ void setup_effect_slots__10TObjPlayerFii(s32 arg0, s32 arg1) {
 void TObjPlayer__sub_802C38B4(void *cls, Char_802C38B4 *c, s32 level) {
     Stats_802C38B4 st;
     level = clamp_index_to_max__10TObjPlayerFi(level);
-    copy_stats__10TObjPlayerFPvPv(&st, TObjPlayer__sub_801D935C(cls));
+    copy_stats__10TObjPlayerFPvPv(&st, get_class_base_stats(cls));
     if (level != 0) {
         TObjPlayer__sub_801B67D4(cls, level, &st);
     }

@@ -9,7 +9,7 @@ extern "C" {
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv();
-s32 TObjPlayer__sub_801AA17C(void *, s32);
+s32 get_photon_blast_chain(void *, s32);
 u32 get_player_by_client_id(s32);
 
 s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
@@ -20,7 +20,7 @@ s32 is_any_teammate_in_state__10TObjPlayerFv(void) {
     temp_r31 = get_current_floor();
     var_r30 = 0;
 loop_1:
-    if ((get_player_by_client_id(var_r30) != 0U) && (temp_r31 == get_field_3e4__10TObjPlayerFPv()) && (TObjPlayer__sub_801AA17C(&sp8, var_r30) == 2)) {
+    if ((get_player_by_client_id(var_r30) != 0U) && (temp_r31 == get_field_3e4__10TObjPlayerFPv()) && (get_photon_blast_chain(&sp8, var_r30) == 2)) {
         return 1;
     }
     var_r30 += 1;

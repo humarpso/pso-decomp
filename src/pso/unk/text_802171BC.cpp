@@ -18,7 +18,7 @@ void TLobby__sub_80216CF8(QuestList_802171BC *);
 void handle_confirm_dialog(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 
-void fn_802171BC(QuestList_802171BC *self) {
+void dispatch_list_state__17TQuestListOfflineFPv(QuestList_802171BC *self) {
     switch (self->state) {
     case 0:
         init_quest_list_window__17TQuestListOfflineFPv(self);

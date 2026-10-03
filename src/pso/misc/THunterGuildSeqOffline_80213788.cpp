@@ -138,7 +138,7 @@ void reset_random_enemies_mode(void);
 void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0);
 void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
 void update_shop_close__22THunterGuildSeqOfflineFPv(void *arg0);
-s32 THunterGuildSeqOffline__sub_8022350C(void *, M2C_UNK);
+s32 set_service_counter_camera(void *, M2C_UNK);
 int TKeyBoardControl__sub_8000F950(void);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -203,7 +203,7 @@ void THunterGuildSeqOffline__sub_80213B18(u8 *arg0) {
 
 void restore_and_init_quest_list__22THunterGuildSeqOfflineFPv(void *arg0) {
     restore_player_state__13TShopSequenceFPv();
-    M2C_FIELD(arg0, s32 *, 0x2C) = THunterGuildSeqOffline__sub_8022350C(arg0, 1);
+    M2C_FIELD(arg0, s32 *, 0x2C) = set_service_counter_camera(arg0, 1);
     set_field_20__12TQuestListVMFPvi(arg0, 1);
 }
 
