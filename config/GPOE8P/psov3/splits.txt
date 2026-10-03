@@ -1602,7 +1602,7 @@ pso/network/TTcpSocket.cpp:
 pso/network/TSocket.cpp:
 	.text       start:0x80078C6C end:0x800790F0
 
-pso/unk/text_800790F0.cpp:
+pso/map/CsnQuery.cpp:
 	.text       start:0x800790F0 end:0x8007A5D8
 
 pso/object/TObjButterflyLobby_8007A5D8.cpp:

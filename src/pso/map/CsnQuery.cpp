@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/map/CsnQuery.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -102,7 +103,6 @@ M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
 void TObjPlayer__sub_8007911C(void);
 void TObjPlayer__sub_80079120(s32 _w0);
 s32 evaluate_ground_triangles(s32, s32, u32 *);
-u32 select_ground_query_groups(s32, s32);
 extern M2C_UNK lbl_80500140[];
 extern u32 lbl_804FFD40[];
 extern s32 lbl_804389E8[];
@@ -165,6 +165,10 @@ extern const f32 lbl_805D91F0;
 extern const f32 lbl_805D91FC;
 extern const f32 lbl_805D9208;
 extern const f32 lbl_805D920C;
+void get_map_count__10TObjMapCsnFv();
+CsnGroup **get_data_ptr__10TObjMapCsnFPv();
+extern u32 lbl_804FFD40[];
+CsnGroup *select_ground_query_groups(CsnVector *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -391,6 +395,47 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
 #undef DIR
 #undef VERTS
 
+#pragma fp_contract on
+CsnGroup *select_ground_query_groups(CsnVector *origin, u32 mask) {
+  f32 dx;
+  f32 dz;
+  f32 r;
+  int capacityReached;
+  s32 count = 0;
+  CsnGroup **input;
+  CsnGroup *group;
+  float zSquared;
+  CsnGroup **output;
+  float zDelta;
+  get_map_count__10TObjMapCsnFv();
+  input = get_data_ptr__10TObjMapCsnFPv();
+  output = ((CsnGroup * *)&lbl_804FFD40);
+  while ((group = *(input++)) != 0)
+  {
+    if (group->flags & mask)
+    {
+      zDelta = group->center.z - origin->z;
+      dz = zDelta;
+      r = group->radius;
+      r = r * r;
+      dx = group->center.x - origin->x;
+      zSquared = dz * dz;
+      if (((dx * dx) + zSquared) <= r)
+      {
+        count++;
+        capacityReached = count >= 0x100;
+        if (capacityReached)
+        {
+          break;
+        }
+        *(output++) = group;
+      }
+    }
+  }
+  *output = 0;
+  return ((CsnGroup * *)&lbl_804FFD40)[0];
+}
+
 void TObjPlayer__sub_8007A0E4(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, u16 *, 4) = (u16) M2C_FIELD(arg1, u16 *, 4);
@@ -470,7 +515,7 @@ s32 *csnVecterUnder(s32 arg0, s32 arg1) {
     TObjPlayer__sub_8007911C();
     TObjPlayer__sub_80079120(arg0);
     var_r31 = ((s32 *)&lbl_80500140);
-    if (select_ground_query_groups(arg0, arg1) == 0U) {
+    if (((u32)select_ground_query_groups((CsnVector *)(arg0), (u32)(arg1))) == 0U) {
         var_r31 = 0;
     } else if (evaluate_ground_triangles(arg0, arg1, lbl_804FFD40) == 0) {
         var_r31 = 0;
