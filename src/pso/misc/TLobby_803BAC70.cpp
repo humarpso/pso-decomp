@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/audio/SoundMixVoice.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -383,7 +384,7 @@ s32 EXIGetID(void *);
 s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u8 TLobby__sub_803BC774(u8 arg0);
 s32 OSDisableInterrupts(void);
@@ -455,10 +456,10 @@ void TLobby__sub_803BE508(void);
 extern s32 lbl_805D748C;
 extern s8 lbl_805D74B8; void TLobby__sub_803B8910(Slot_803BD138 *s, s32 x);
 void TLobby__sub_803BD138(s32 i, s32 x);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803B8A14(Rec_803BD62C *r, void *p);
 void TLobby__sub_803BD62C(u8 i, void *p);
-extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
+extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803B8ABC(Rec_803BD660 *r, u32 x);
 void TLobby__sub_803BD660(u8 i, u32 x);
 extern u8 lbl_8056E098[][16];
@@ -582,6 +583,11 @@ void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *ar
 void TLobby__sub_803BED6C(void *, void *, f32, f32);
 void process_sound_reverb_block(void *, void *, int);
 void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
+extern s32 lbl_805D748C;
+extern SoundStudioMixView lbl_805663D8[];
+extern u16 lbl_8047C420[];
+void apply_sound_mix_curve(u32 p, SoundMixCurveOutput *out, s32 x, s32 a3, bool f7, bool f8, f32 a, f32 b, f32 c);
+void set_sound_voice_mix(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
 }
 
 extern "C" {
@@ -1022,6 +1028,53 @@ void TLobby__sub_803BD26C(s32 i, u8 mode) {
     (*(Slot_803BD26C **)&lbl_805D748C)[i].ff0 &= 0x7FFFFFFF;
 }
 
+void set_sound_voice_mix(s32 voice, u32 volumeCurve, u32 pan, s32 surroundPan, f32 direct, f32 auxiliaryA, f32 auxiliaryB) {
+    SoundMixVoice *state = (*(SoundMixVoice **)&lbl_805D748C) + voice;
+    SoundMixCurveOutput out[3];
+    s32 left, right, surround;
+    if (direct >= 1.0f) direct = 1.0f;
+    if (auxiliaryA >= 1.0f) auxiliaryA = 1.0f;
+    if (auxiliaryB >= 1.0f) auxiliaryB = 1.0f;
+    apply_sound_mix_curve(volumeCurve, out, pan, surroundPan, (state->flags & 0x80000000) != 0,
+        lbl_805663D8[state->studio].mode == 1, direct, auxiliaryA, auxiliaryB);
+    left = 32767.0f * out[0].left;
+    right = 32767.0f * out[0].right;
+    surround = 32767.0f * out[0].surround;
+    if (state->dirty[0] == 0xFF || state->coefficients[0].left != (u16)left || state->coefficients[0].right != (u16)right || state->coefficients[0].surround != (u16)surround) {
+        state->coefficients[0].left = left;
+        state->coefficients[0].right = right;
+        state->coefficients[0].surround = surround;
+        state->changed |= 1;
+        state->dirty[0] = 0;
+    }
+    left = 32767.0f * out[1].left;
+    right = 32767.0f * out[1].right;
+    surround = 32767.0f * out[1].surround;
+    if (state->dirty[1] == 0xFF || state->coefficients[1].left != (u16)left || state->coefficients[1].right != (u16)right || state->coefficients[1].surround != (u16)surround) {
+        state->coefficients[1].left = left;
+        state->coefficients[1].right = right;
+        state->coefficients[1].surround = surround;
+        state->changed |= 2;
+        state->dirty[1] = 0;
+    }
+    left = 32767.0f * out[2].left;
+    right = 32767.0f * out[2].right;
+    surround = 32767.0f * out[2].surround;
+    if (state->dirty[2] == 0xFF || state->coefficients[2].left != (u16)left || state->coefficients[2].right != (u16)right || state->coefficients[2].surround != (u16)surround) {
+        state->coefficients[2].left = left;
+        state->coefficients[2].right = right;
+        state->coefficients[2].surround = surround;
+        state->changed |= 4;
+        state->dirty[2] = 0;
+    }
+    if (state->flags & 0x80000000) {
+        u16 *t = &lbl_8047C420[(u8)(pan >> 16)];
+        state->leftDelay = *t;
+        state->rightDelay = 0x20 - *t;
+        state->changed |= 0x200;
+    }
+}
+
 void TLobby__sub_803BD598(s32 arg0) {
     TLobby__sub_803B89B4((void *) (lbl_805D748C + (arg0 * 0xF4)));
 }
@@ -1031,7 +1084,7 @@ void TLobby__sub_803BD598(s32 arg0) {
 typedef char RecoveredGlobal_803BD5C4_lbl_805663D8_size[sizeof(RecoveredGlobal_803BD5C4_lbl_805663D8) == 0x6E0 ? 1 : -1];
 void TLobby__sub_803BD5C4(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)&lbl_805663D8.value + (arg0 * 0xBC);
+    temp_r3 = (u8 *)&lbl_805663D8 + (arg0 * 0xBC);
     M2C_FIELD(temp_r3, s32 *, 0xAC) = arg1;
     M2C_FIELD(temp_r3, s32 *, 0xB4) = arg2;
     M2C_FIELD(temp_r3, s32 *, 0xB0) = arg3;
