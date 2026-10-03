@@ -8,6 +8,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Quad_802AD1CC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
+
+struct Light_802AD1CC { u8 pad0[0x1C]; f32 x; f32 y; };
+
 extern "C" {
 s32 __cvt_fp2unsigned(f32);
 extern const f32 lbl_805DE0E0;
@@ -30,7 +34,6 @@ void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 TWindowCtrlMain__sub_8024CE44(void);
 void TWindowEffectLight__sub_802AD040(void *, f32);
-void draw_outline_quad__18TWindowEffectLightFv(void *, s32);
 s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
@@ -47,9 +50,45 @@ M2C_UNK TWindowKeyBoardSoft__sub_8024EC34(void *, s32);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
+s32 get_camera_id__11TCameraCtrlFv();
+f32 TWindowEffectLight__sub_802ACF9C(u8 *arg0);
+void TWindowEffectLight__sub_802ACFE0(u8 *arg0);
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, int);
+extern const f32 TWindowEffectLight__data_805DE0E4;
+extern const f32 lbl_805DE10C;
+extern const f32 lbl_805DE110;
+extern const f32 lbl_805DE114;
+extern const f32 lbl_805DE118;
+extern const f32 lbl_805DE11C;
+extern const f32 lbl_805DE120;
+extern const f32 lbl_805DE124;
+void draw_outline_quad__18TWindowEffectLightFv(Light_802AD1CC *self, s32 color);
 }
 
 extern "C" {
+
+void draw_outline_quad__18TWindowEffectLightFv(Light_802AD1CC *self, s32 color) {
+    Quad_802AD1CC q;
+    f32 s;
+    f32 w;
+    f32 h;
+    color |= ((s32 (*)(u8 *))TWindowEffectLight__sub_802ACFE0)((u8 *)self);
+    s = TWindowEffectLight__sub_802ACF9C((u8 *)self);
+    if (get_camera_id__11TCameraCtrlFv() <= 2 && get_camera_id__11TCameraCtrlFv() == 2) {
+        s *= lbl_805DE10C;
+    }
+    set_draw_texture_and_color(2, color);
+    q.x0 = self->x - lbl_805DE110 * s;
+    q.y0 = self->y - lbl_805DE114 * s;
+    q.x1 = self->x + lbl_805DE110 * s;
+    q.y1 = self->y + lbl_805DE114 * s;
+    q.u0 = lbl_805DE118;
+    q.v0 = lbl_805DE11C;
+    q.u1 = lbl_805DE120;
+    q.v1 = lbl_805DE124;
+    draw_textured_quad_at_depth(&q, TWindowEffectLight__data_805DE0E4);
+}
 
 u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
     __ct__7TObjectFP7TObject(self, tl_window);
@@ -100,13 +139,13 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
       switch (temp_r0)
       {
         case 0:
-          draw_outline_quad__18TWindowEffectLightFv(arg0, 0xAA0E);
+          draw_outline_quad__18TWindowEffectLightFv((Light_802AD1CC *)(arg0), (s32)(0xAA0E));
           break;
         case 1:
-          draw_outline_quad__18TWindowEffectLightFv(arg0, 0xFF2417);
+          draw_outline_quad__18TWindowEffectLightFv((Light_802AD1CC *)(arg0), (s32)(0xFF2417));
           break;
         case 2:
-          draw_outline_quad__18TWindowEffectLightFv(arg0, 0xFFFFFF);
+          draw_outline_quad__18TWindowEffectLightFv((Light_802AD1CC *)(arg0), (s32)(0xFFFFFF));
           break;
         case 3:
           TWindowEffectLight__sub_802AD040(arg0, lbl_805DE0F4);

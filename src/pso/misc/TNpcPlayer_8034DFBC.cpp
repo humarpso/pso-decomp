@@ -73,6 +73,22 @@ struct Player_8034E24C {
 };
 
 typedef s32 M2C_UNK;
+
+struct Base_8034E814 { u8 pad[0x18]; };
+
+class Obj_8034E814 : public Base_8034E814 {
+public:
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+};
+
+struct Pkt_8034E814 { u8 pad0[4]; u16 client; u16 target; s16 cmd; s16 state; };
+
 extern "C" {
     extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E420(void);
@@ -173,6 +189,20 @@ void open__11TWindowCtrlFiii(s32, void *, s32);
 extern E_8034E02C lbl_804F0280[];
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034E508(s32 arg0);
+s32 obj_isState3_324();
+void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
+void TNpcPlayer__sub_80152330(void *, u16, u16, s16, s32);
+s32 TNpcPlayer__sub_80152484(s16);
+M2C_UNK notify_field1c__10TObjPlayerFi();
+s32 get_player_by_client_id(s32);
+Obj_8034E814 *create_player_object(u16, s32, s32);
+void *__nw__7TObjectFUl(u32);
+void set_npc_ctrl_state__10TNpcPlayerFPvi(void* p, s32 v);
+void set_npc_control_flag__10TNpcPlayerFPvs(void* p, s16 v);
+void byteswap_header__10TNpcPlayerFPv(void* p);
+extern s32 lbl_805D53A0;
+extern s32 tl_00;
+void handle_6x69_npc_control(Pkt_8034E814 *pkt);
 }
 
 extern "C" {
@@ -364,6 +394,89 @@ void TNpcPlayer__sub_8034E7A0(s32 arg0) {
         }
     }
 }
+
+#define SETFLAG_8034E814 ((void (*)(void *, u16))set_npc_control_flag__10TNpcPlayerFPvs)
+#define ISSTATE3_8034E814 ((s32 (*)(void *))obj_isState3_324)
+#define NOTIFY_8034E814 ((void (*)(void *))notify_field1c__10TObjPlayerFi)
+void handle_6x69_npc_control(Pkt_8034E814 *pkt) {
+    u16 client;
+    Obj_8034E814 *p;
+    void *o;
+    s32 i;
+    byteswap_header__10TNpcPlayerFPv((void*)(pkt));
+    client = pkt->client;
+    if (client == 0xFFFF) {
+        return;
+    }
+    switch (pkt->cmd) {
+    case 0:
+        if (pkt->target == lbl_805D53A0) {
+            return;
+        }
+        if (pkt->target == 0xFFFF) {
+            return;
+        }
+        if (client == lbl_805D53A0) {
+            p = create_player_object(pkt->target, 5, TNpcPlayer__sub_80152484(pkt->state));
+            if (p == NULL) {
+                return;
+            }
+            p->m6();
+            SETFLAG_8034E814(p, (u16)lbl_805D53A0);
+            set_npc_ctrl_state__10TNpcPlayerFPvi((void*)(p), (s32)(pkt->state));
+            o = __nw__7TObjectFUl(0xE8);
+            if (o != NULL) {
+                TNpcPlayer__sub_80152330(o, (u16)lbl_805D53A0, pkt->target, pkt->state, tl_00);
+            }
+        } else {
+            p = create_player_object(pkt->target, 4, TNpcPlayer__sub_80152484(pkt->state));
+            if (p != NULL) {
+                p->m6();
+            }
+        }
+        break;
+    case 1:
+        p = (Obj_8034E814 *)get_player_by_client_id(client);
+        if (p != NULL && ISSTATE3_8034E814(p) != 0) {
+            SETFLAG_8034E814(p, 0xFFFF);
+        }
+        break;
+    case 2:
+        for (i = 0; i < 4; i++) {
+            p = (Obj_8034E814 *)get_player_by_client_id(i);
+            if (p != NULL && ISSTATE3_8034E814(p) != 0) {
+                SETFLAG_8034E814(p, pkt->client);
+            }
+        }
+        break;
+    case 3:
+        if (pkt->target == 0xFFFF) {
+            return;
+        }
+        if (client == lbl_805D53A0) {
+            p = create_player_object(pkt->target, 5, TNpcPlayer__sub_80152484(pkt->state));
+            if (p == NULL) {
+                return;
+            }
+            NOTIFY_8034E814(p);
+            p->m6();
+            SETFLAG_8034E814(p, (u16)lbl_805D53A0);
+            set_npc_ctrl_state__10TNpcPlayerFPvi((void*)(p), (s32)(pkt->state));
+            o = __nw__7TObjectFUl(0xE8);
+            if (o != NULL) {
+                TNpcPlayer__ct(o, (u16)lbl_805D53A0, pkt->target, pkt->state, 1, tl_00);
+            }
+        } else {
+            p = create_player_object(pkt->target, 4, TNpcPlayer__sub_80152484(pkt->state));
+            if (p != NULL) {
+                p->m6();
+                NOTIFY_8034E814(p);
+            }
+        }
+        break;
+    }
+}
+
 void TNpcPlayer__sub_8034EA80(s16 arg0) {
     Stack_8034EA80 stack;
     build_6x69_npc_control((void*)(&stack.sp8));

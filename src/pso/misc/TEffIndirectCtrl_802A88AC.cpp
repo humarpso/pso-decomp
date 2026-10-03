@@ -20,6 +20,9 @@ s32 TEffIndirectCtrl__sub_802A9234(u8 arg0);
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
 s32 TEffIndirectCtrl__sub_802A925C(u8 arg0);
 u32 TEffIndirectCtrl__sub_802A920C(u32 x, u32 y, u32 w);
+f32 sin_table_lookup(s32);
+u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
+s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 }
 
 extern "C" {
@@ -29,7 +32,6 @@ void copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *arg0, s32 arg1);
 void render__16TEffIndirectCtrlFv(void);
 s32 DCFlushRange(s32, s32);
 s32 deform_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
-s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 void TLobby__sub_803DA16C(void *);
 void __dl__7TObjectFPv(void *);
 void __dl__FPv(void *);
@@ -58,6 +60,34 @@ void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
+
+#pragma push
+#pragma fp_contract on
+s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5) {
+    s32 off;
+    s32 x;
+    s32 i;
+    s32 v;
+    s16 row;
+    s32 y;
+    for (y = 0; y < 64; y++) {
+        row = (s32)((f32)(u8)arg2 * sin_table_lookup((s32)(182.04445f * (f32)(u32)(arg4 + y * arg5))));
+        for (x = 0; x < 64; x++) {
+            off = (s32)((f32)(u8)arg1 * sin_table_lookup((s32)(182.04445f * (f32)(u32)(arg3 + x * arg5))) + (f32)row);
+            i = ((s32 (*)(u8, u8, s32))get_indirect_tile_coord)(x, y, 0x40);
+            v = ((u8 *)arg0)[i];
+            v += off;
+            if ((s16)v >= 0xFF) {
+                v = 0xFE;
+            }
+            if ((s16)v <= 0) {
+                v = 0;
+            }
+            ((u8 *)arg0)[i] = v;
+        }
+    }
+}
+#pragma pop
 
 u32 TEffIndirectCtrl__sub_802A920C(u32 x, u32 y, u32 w) {
     u32 r = (((x >> 3) & 0x1F) << 5) + (x & 7);

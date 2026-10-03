@@ -19,6 +19,13 @@ typedef struct {
 
 struct O_8033612C { u8 pad[0x1C]; void *f1c; void *f20; void *f24; u8 pad2[0x3C - 0x28]; u32 flags; void *h[3]; };
 
+struct RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 {
+    M2C_UNK value;
+    u8 remaining[0xAC];
+};
+
+struct Obj_80336340 { u8 pad[0x40]; void *objs[3]; };
+
 extern "C" {
 int TKeyBoardControl__sub_8000F9CC(void*);
     extern int lbl_805D6D44;
@@ -83,6 +90,21 @@ extern const f32 lbl_805DF900;
 extern const f32 lbl_805DF904;
 extern const f32 lbl_805DF908;
 
+void TKeyBoardControl__sub_8000F90C(int);
+int TKeyBoardControl__sub_8000F9CC(void*);
+M2C_UNK queue_destruction__7TObjectFv(void*);
+void set_flag_4__9TObjLukerFPv(void *);
+s32 TKeyBoardControl__sub_80132368(void *);
+s32 TKeyBoardControl__sub_801A57D0();
+s32 TAdPlayerLoadGC__sub_801E1E38(int);
+M2C_UNK TWindowOptionCtrl__sub_802273B4(int);
+M2C_UNK TAdMultiChgGameModeGC__sub_8023E834();
+M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
+M2C_UNK set_opening_movie_purpose(int);
+s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
+M2C_UNK TLobby__sub_803362A4(void *);
+extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
+void TKeyBoardControl__sub_80336340(Obj_80336340 *arg0);
 }
 
 extern "C" {
@@ -144,6 +166,39 @@ void request_change_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 2; set_mode_chan
 void enter_game_mode_change__6TLobbyFv(void) { lbl_805D6D44 = 1; set_game_mode_state__21TAdMultiChgGameModeGCFv(); }
 void enter_chg_game_mode__6TLobbyFv(void) { lbl_805D6D44 = 0; set_mode_0x15__21TAdMultiChgGameModeGCFv(); }
 void TLobby__sub_8033633C(void) {  }
+
+typedef char RecoveredGlobal_80336340_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_80336340_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
+void TKeyBoardControl__sub_80336340(Obj_80336340 *arg0) {
+    s32 var_r28;
+    TAdMultiChgGameModeGC__sub_8023E834();
+    if (TAdPlayerLoadGC__sub_801E1E38((int) (0)) == 0) {
+        for (var_r28 = 0; var_r28 != 3; var_r28++) {
+            if (arg0->objs[var_r28] != NULL) {
+                queue_destruction__7TObjectFv(arg0->objs[var_r28]);
+                arg0->objs[var_r28] = NULL;
+            }
+        }
+        request_scene_change__21TAdMultiChgGameModeGCFv();
+        return;
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x34) < (s32) M2C_FIELD(arg0, s32 *, 0x38)) {
+        if ((TKeyBoardControl__sub_80132368((void *) (&TKeyBoardControl__data_80506270.value)) != 0) || (TKeyBoardControl__sub_801A57D0() != 0)) {
+            M2C_FIELD(arg0, s32 *, 0x34) = 0;
+        }
+        TLobby__sub_803362A4((void *) (arg0));
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == (s32) M2C_FIELD(arg0, s32 *, 0x34)) {
+        set_flag_4__9TObjLukerFPv(M2C_FIELD(arg0, void **, 0x24));
+        TWindowOptionCtrl__sub_802273B4((int) (0x1E));
+    }
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x38) < (s32) M2C_FIELD(arg0, s32 *, 0x34)) && (start_offline_seq__23TAdSinglePlyChrSelectGCFPv((void *) (arg0)) != 0)) {
+        TKeyBoardControl__sub_8000F90C((int) (2));
+        set_opening_movie_purpose((int) (0));
+        TKeyBoardControl__sub_8000F9CC((void *) (3));
+    }
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) (M2C_FIELD(arg0, s32 *, 0x34) + 1);
+}
+
 void TLobby__sub_8033645C(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { queue_destruction__7TObjectFv((void*)((void*)(*(void**)((char*)p + 0x2c)))); *(int*)((char*)p + 0x2c) = 0; } }
 void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
