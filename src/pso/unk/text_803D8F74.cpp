@@ -8,7 +8,7 @@ struct Matrix34 { f32 elements[3][4]; };
 struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 
 extern "C" {
-M2C_UNK fn_803D9650(int, f32, f32, f32);
+M2C_UNK matrix_apply_translation(int, f32, f32, f32);
 extern u32 lbl_805D7774;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 M2C_UNK PSMTXCopy(int, int);
@@ -199,7 +199,7 @@ void translate_matrix(u32 arg0, f32 x, f32 y, f32 z) {
         var_r3_2 = lbl_805D7774;
         phi_r3 = var_r3_2;
     }
-    fn_803D9650((int) (phi_r3), x, y, z);
+    matrix_apply_translation((int) (phi_r3), x, y, z);
 }
 #pragma pop
 

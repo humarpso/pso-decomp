@@ -99,7 +99,7 @@ s32 is_split_screen();
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 void TKeyBoardControl__sub_801A5C4C(void);
-void TKeyBoardControl__sub_801A6510(void);
+void bind_controller_devices(void);
 void fn_801A6A5C(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void fn_801A6AF4(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 M2C_UNK update_button_hold_counters(int);
@@ -279,7 +279,7 @@ void controller_stuff__Fv(void) {
     f32 gy;
     f32 m;
     if (lbl_805D34C8 != 0) {
-        TKeyBoardControl__sub_801A6510();
+        bind_controller_devices();
         for (k = 0; k < 2; k++) {
             if (k == 0) {
                 pad = ((Set_801A5F1C *)&lbl_8050E208)->pads;

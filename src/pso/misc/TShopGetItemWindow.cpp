@@ -81,7 +81,7 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 close__18TShopGetItemWindowFPv(void *arg0);
 void TShopGetItemWindow__sub_8021E5D8(u8 *arg0);
 void TShopGetItemWindow__sub_8021E76C(void *arg0);
-s32 TShopGetItemWindow__sub_8021EA48(void *);
+s32 rebuild_item_list__18TShopGetItemWindowFv(void *);
 void TShopGetItemWindow__vt9(u8 *arg0);
 s32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -272,7 +272,7 @@ void TShopGetItemWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TShopGetItemWindow__sub_8021EA48((void *) (arg0));
+        rebuild_item_list__18TShopGetItemWindowFv((void *) (arg0));
         return;
     case 1:
         handle_withdraw_list_input__18TShopGetItemWindowFPv((void *)((void *) (arg0)));

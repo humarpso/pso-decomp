@@ -18,7 +18,7 @@ struct RecoveredGlobal_80083914_lbl_8048E5D0 {
 };
 
 extern "C" {
-f32 TObjPlayer__sub_803E1C40(f32, f32, f32);
+f32 translate_current_matrix_ps(f32, f32, f32);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 s32 is_split_screen();
@@ -30,10 +30,10 @@ f32 TObjPlayer__sub_803D99F8(void *, int);
 s32 pop_matrix();
 M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
 M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
-f32 TObjPlayer__sub_803E1CC4(int);
+f32 rotate_current_matrix_x_ps(int);
 s32 TObjPlayer__sub_803E1D1C(int);
 s32 TObjPlayer__sub_803E1D54(int);
-s32 TObjPlayer__sub_803E1F98();
+s32 push_identity_matrix_ps();
 extern RecoveredGlobal_80083914_lbl_8048E5D0 lbl_8048E5D0;
 extern s32 lbl_805D7774;
 extern s32 some_id_805c6f74;
@@ -81,11 +81,11 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
     typedef char sp10_offset[(offsetof(Stack_80083914, sp10) == 0x8) ? 1 : -1];
     Stack_80083914 stack;
     if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0)) {
-        TObjPlayer__sub_803E1F98();
-        TObjPlayer__sub_803E1C40(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
-        TObjPlayer__sub_803E1CC4((int) (0x3800));
-        TObjPlayer__sub_803E1C40(-M2C_FIELD(&lbl_8048E5D0.value, f32 *, 0), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 4), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 8));
-        TObjPlayer__sub_803E1C40(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
+        push_identity_matrix_ps();
+        translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
+        rotate_current_matrix_x_ps((int) (0x3800));
+        translate_current_matrix_ps(-M2C_FIELD(&lbl_8048E5D0.value, f32 *, 0), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 4), -M2C_FIELD(&lbl_8048E5D0.value, f32 *, 8));
+        translate_current_matrix_ps(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
         TObjPlayer__sub_803D99F8((void *) (arg1), (int) (1));
         stack.sp8 = lbl_805D93DC;
         C_MTXLightFrustum((void *) (&stack.sp10), (f32) (-lbl_805D941C), (f32) (lbl_805D941C), (f32) (lbl_805D9420), (f32) (-lbl_805D9420), (f32) (lbl_805D9424), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));

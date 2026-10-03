@@ -14,12 +14,12 @@ u32 get_usable_action_flags__5TItemFPvUiUi(void *, int, int);
 u8 *find_item_by_id(int);
 u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(int, void *);
-void TLobby__sub_80266E34(void *);
+void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, int);
 void fn_802788A8(Wn_802788A8 *arg0);
 u8 *find_item_by_id(int);
-void TLobby__sub_80266E34(void *);
+void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, int);
 void push_status_disp_entry(void *, s32, s32);
 void add_inventory_item__20TWindowSubStatusDispFPviii(void *, u8 *, s32, u32);
@@ -57,7 +57,7 @@ void fn_802787F0(Wn_802787F0 *arg0, Ent_802787F0 *arg1) {
         if (arg0->f72 <= 0) {
             add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
         }
-        TLobby__sub_80266E34(arg0);
+        calc_list_content_extent(arg0);
     }
 }
 
@@ -79,7 +79,7 @@ void fn_802788A8(Wn_802788A8 *arg0) {
         if (arg0->f72 <= 0) {
             add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
         }
-        TLobby__sub_80266E34(arg0);
+        calc_list_content_extent(arg0);
     }
 }
 

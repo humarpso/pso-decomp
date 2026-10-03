@@ -15,7 +15,7 @@ u8 *get_title_texture_list(void);
 void TAdBackGC__sub_8001C5A0(void *,s32,s32,f32);
 void render_logo_with_default(void *,s32,s32,f32);
 void draw_title_background_pulse(void *,f32,s32);
-void TBoss8Dragon__sub_80336A6C(void *,f32,s32);
+void draw_title_rings(void *,f32,s32);
 void TCameraCtrl__sub_80068EF0(void);
 void TCameraCtrl__sub_80069024(void);
 void begin_effect_render__13TParticleCtrlFv(void);
@@ -58,7 +58,7 @@ void draw_title_background_layers(u8 *arg0) {
         render_logo_with_default(get_title_texture_list(), 0xD, -1, lbl_805DF968);
         draw_title_background_pulse(arg0, lbl_805DF96C, M2C_FIELD(arg0, s32 *, 0x20));
         TAdBackGC__sub_8001C5A0(get_title_texture_list(), 3, -1, lbl_805DF970);
-        TBoss8Dragon__sub_80336A6C(arg0, lbl_805DF974, M2C_FIELD(arg0, s32 *, 0x20));
+        draw_title_rings(arg0, lbl_805DF974, M2C_FIELD(arg0, s32 *, 0x20));
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();
     }

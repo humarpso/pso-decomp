@@ -78,7 +78,7 @@ void TLobby__sub_8022809C(void);
 M2C_UNK TLobby__sub_800F8FB8();
 int render_tick__Fv(void);
 s32 is_sound_enabled();
-M2C_UNK TLobby__sub_8024034C(void *);
+M2C_UNK init_sound_aux_effects(void *);
 M2C_UNK validate_and_set_selection__6TLobbyFPvi(void *, int);
 M2C_UNK TLobby__sub_803382E4();
 M2C_UNK TLobby__sub_803CB81C();
@@ -178,7 +178,7 @@ void TLobby__sub_8022809C(void) {
 
 typedef char RecoveredGlobal_802280C4_lbl_80514F64_size[sizeof(RecoveredGlobal_802280C4_lbl_80514F64) == 0xC3C ? 1 : -1];
 void TLobby__sub_802280C4(void) {
-    TLobby__sub_8024034C((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value));
+    init_sound_aux_effects((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value));
     validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value), (int) (0));
     do {
         TLobby__sub_803382E4();

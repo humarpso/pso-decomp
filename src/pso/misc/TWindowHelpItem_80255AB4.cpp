@@ -65,7 +65,7 @@ s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 M2C_UNK update_window_entry_list(void *, void *);
-M2C_UNK TWindowSubStatusDisp__sub_8026C800(int, int);
+M2C_UNK draw_list_page_indicator(int, int);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -108,7 +108,7 @@ void TWindowHelpItem__sub_80255B20(u8 *arg0) {
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r3_2 = M2C_FIELD(arg0, u8 *, 0x60);
     if ((temp_r3_2 & 1) && (temp_r3_2 & 2)) {
-        TWindowSubStatusDisp__sub_8026C800((int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (temp_r3));
+        draw_list_page_indicator((int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (temp_r3));
     }
 }
 

@@ -40,7 +40,7 @@ s32 close__19TShopKeepItemWindowFPv(void *arg0);
 s32 handle_deposit_confirm__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__sub_80221B34(void *arg0);
 s32 handle_deposit_list_select__19TShopKeepItemWindowFv(void *);
-s32 TShopKeepItemWindow__sub_80221F08(void *);
+s32 rebuild_item_list__19TShopKeepItemWindowFv(void *);
 void TShopKeepItemWindow__vt9(u8 *arg0);
 void memset(void *, int, int);
 int sprintf(char *, const char *, ...);
@@ -150,7 +150,7 @@ void TShopKeepItemWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TShopKeepItemWindow__sub_80221F08((void *) (arg0));
+        rebuild_item_list__19TShopKeepItemWindowFv((void *) (arg0));
         return;
     case 1:
         handle_deposit_list_select__19TShopKeepItemWindowFv((void *) (arg0));

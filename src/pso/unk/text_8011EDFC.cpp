@@ -122,7 +122,7 @@ M2C_UNK rotate_matrix_y(int, void *);
 M2C_UNK subtract_vector(void *, void *);
 f32 normalize_vector(void *);
 M2C_UNK push_matrix_from(void *);
-M2C_UNK TObjPlayer__sub_803D9884(void *, void *);
+M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 f32 xyz_distance(void *, void *);
 extern M2C_UNK lbl_8058D490[];
@@ -183,7 +183,7 @@ s32 TObjPlayer__sub_8011F108(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
                 fallback.x = lbl_805DAC98;
                 fallback.z = M2C_FIELD(temp_r3_2, f32 *, 0);
                 rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) + arg3));
-                TObjPlayer__sub_803D9884((void *) (&fallback.x), (void *) (&endpoint.x));
+                transform_point_by_current_matrix((void *) (&fallback.x), (void *) (&endpoint.x));
                 pop_matrix();
                 vec3_add_to((void *) (&endpoint.x), (void *) (arg1));
             }

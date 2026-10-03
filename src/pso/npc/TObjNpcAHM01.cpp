@@ -98,7 +98,7 @@ extern "C" {
 M2C_UNK play_sound_effect(int, void *, int, int);
 void TObjNpcAHM01__vt88(s32 arg0);
 s32 init_position_vectors__10TObjPlayerFi(void *);
-s32 fn_80148274(void *);
+s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__12TObjNpcAHM01[];
 extern s32 lbl_805D2D08;
@@ -171,7 +171,7 @@ u8 *TObjNpcAHM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcAHM01__data_805D5720);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (*(s32 *)&TObjNpcAHM01__data_805D5724);
-    fn_80148274((void *) (arg0));
+    setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
 

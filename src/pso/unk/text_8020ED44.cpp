@@ -14,9 +14,9 @@ struct RecoveredGlobal_8020ED44_lbl_80513D68 {
 };
 
 extern "C" {
-void TLobby__sub_8020E800(s32);
+void generate_shop_unit_pool(s32);
 void TLobby__sub_8020E934(s32);
-void TLobby__sub_8020EACC(s32);
+void generate_shop_armor_pool(s32);
 extern RecoveredGlobal_8020ED44_lbl_80513D58 lbl_80513D58;
 extern RecoveredGlobal_8020ED44_lbl_80513D68 lbl_80513D68;
 extern u32 lbl_805D6158;
@@ -34,9 +34,9 @@ void generate_armor_shop_stock(s32 arg0) {
         if ((s32) M2C_FIELD(&lbl_80513D58.value, M2C_UNK *, temp_r7) == 0) {
             M2C_FIELD(&lbl_80513D58.value, M2C_UNK *, temp_r7) = 1;
             M2C_FIELD(&lbl_80513D68.value, M2C_UNK *, temp_r7) = 0;
-            TLobby__sub_8020EACC(arg0);
+            generate_shop_armor_pool(arg0);
             TLobby__sub_8020E934(arg0);
-            TLobby__sub_8020E800(arg0);
+            generate_shop_unit_pool(arg0);
         }
     }
 }

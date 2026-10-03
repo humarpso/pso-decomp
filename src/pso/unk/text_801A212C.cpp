@@ -21,7 +21,7 @@ extern "C" {
 s32 get_state_flag__9TMainTaskFv();
 s32 TObjPlayer__sub_80083CEC(f32, void *);
 s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
-f32 TObjPlayer__sub_803D9884(void *, void *);
+f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
@@ -29,7 +29,7 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1);
 s32 get_state_flag__9TMainTaskFv();
 s32 TObjPlayer__sub_80083CEC(f32, void *);
 s32 TParticleCtrl__sub_803D8D1C(int, void *, void *);
-f32 TObjPlayer__sub_803D9884(void *, void *);
+f32 transform_point_by_current_matrix(void *, void *);
 extern RecoveredGlobal_801A2340_lbl_804FF610 lbl_804FF610;
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC09C;
@@ -62,7 +62,7 @@ s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    TObjPlayer__sub_803D9884((void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
     z = stack.sp18;
     if (z > lbl_805DC098) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 0;
@@ -117,7 +117,7 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
         return M2C_FIELD(arg0, s16 *, 0x1E);
     }
-    TObjPlayer__sub_803D9884((void *) (arg0 + 0x38), (void *) (&stack.sp10));
+    transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
     if (stack.sp18 > lbl_805DC098) {
         M2C_FIELD(arg0, s16 *, 0x1E) = 0;
         return 0;

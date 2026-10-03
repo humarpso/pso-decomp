@@ -149,12 +149,12 @@ extern s32 lbl_805D36A8;
 u8 *TShopEquipmentListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-s32 TShopEquipmentListWindow__sub_8021BA1C(void *);
+s32 handle_equip_offer__24TShopEquipmentListWindowFv(void *);
 s32 open_menu_window__24TShopEquipmentListWindowFPv(void *arg0);
 int get_list_item8__24TShopEquipmentListWindowFPv(void* p);
 s32 handle_confirm__24TShopEquipmentListWindowFPv(void *arg0);
 s32 handle_select__24TShopEquipmentListWindowFPv(void *arg0);
-s32 TShopEquipmentListWindow__sub_8021C160(void *);
+s32 handle_selection__24TShopEquipmentListWindowFv(void *);
 void TShopEquipmentListWindow__vt9(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
 s32 check_equip_requirements(void *, Rec_8021C33C *, u32 *);
@@ -176,7 +176,7 @@ void *TWindowHelpItem__ct(void *, s32, u16);
 M2C_UNK TShopArmorListWindow__sub_80266CF8(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
-M2C_UNK TLobby__sub_80266E34(void *);
+M2C_UNK calc_list_content_extent(void *);
 M2C_UNK add_ground_item__20TWindowSubStatusDispFPvii(void *, void *, s32);
 s32 get_window_layout_position(s32);
 void *create_item_list_window(s32, s32, u16);
@@ -205,7 +205,7 @@ s32 TWindowSubComCard__sub_80265BF8(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
 extern const s32 lbl_805D53A0;
-void TShopEquipmentListWindow__sub_8021BC18(Win_8021BC18 *w);
+void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w);
 }
 
 extern "C" {
@@ -258,7 +258,7 @@ void update_list__24TShopEquipmentListWindowFPvPv(void *arg0, void *arg1) {
     }
 }
 
-void TShopEquipmentListWindow__sub_8021BC18(Win_8021BC18 *w) {
+void handle_buy_confirm__24TShopEquipmentListWindowFPv(Win_8021BC18 *w) {
     s32 r;
     if (w->card != NULL && is_visible__17TWindowSubComCardFPv(w->card) != 0) {
         r = TWindowSubComCard__sub_80265BF8(w->card);
@@ -422,7 +422,7 @@ void create_buy_list_windows__24TShopEquipmentListWindowFPv(void *p) {
                 add_ground_item__20TWindowSubStatusDispFPvii(W->list, e + 0x50, k);
             }
         }
-        TLobby__sub_80266E34(W->list);
+        calc_list_content_extent(W->list);
         clear_selected_and_update_entry__14TWindowSubItemFPv((s32)W->list);
         TShopArmorListWindow__sub_80266CF8(W->list);
     }
@@ -459,10 +459,10 @@ void TShopEquipmentListWindow__vt9(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (1)));
         return;
     case 1:
-        TShopEquipmentListWindow__sub_8021C160((void *) (arg0));
+        handle_selection__24TShopEquipmentListWindowFv((void *) (arg0));
         return;
     case 2:
-        TShopEquipmentListWindow__sub_8021BA1C((void *) (arg0));
+        handle_equip_offer__24TShopEquipmentListWindowFv((void *) (arg0));
         return;
     case 5:
         handle_select__24TShopEquipmentListWindowFPv((void *) (arg0));
@@ -477,7 +477,7 @@ void TShopEquipmentListWindow__vt9(u8 *arg0) {
         open_menu_window__24TShopEquipmentListWindowFPv((void *) (arg0));
         return;
     case 9:
-        TShopEquipmentListWindow__sub_8021BC18((Win_8021BC18 *)((void *) (arg0)));
+        handle_buy_confirm__24TShopEquipmentListWindowFPv((Win_8021BC18 *)((void *) (arg0)));
         return;
     case 3:
     case 10:

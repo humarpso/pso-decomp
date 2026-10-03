@@ -59,7 +59,7 @@ void handle_type3__9TItemDropFPvPv(void* p, void* a1);
 s8 roll_technique_level__9TItemDropFv(s32, s32, u8, s32, M2C_UNK);
 u8 TItemDrop__sub_801076CC(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK init__9TItemDataFv(void *);
-M2C_UNK TObjPlayer__sub_8011C234(u8, void *);
+M2C_UNK find_tool_pmt_base_id(u8, void *);
 extern void *TItemDrop__data_805D5460;
 void generate_tool_drop__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
@@ -519,7 +519,7 @@ void generate_tool_drop__9TItemDropFiiPv(s32 arg0, s32 arg1, void *arg2) {
         var_r3 = 0x73;
         break;
     }
-    TObjPlayer__sub_8011C234(var_r3, arg2);
+    find_tool_pmt_base_id(var_r3, arg2);
     if ((u8) M2C_FIELD(arg2, u8 *, 1) == 2) {
         M2C_FIELD(arg2, u8 *, 4) = ((u8)TItemDrop__sub_80107790((s32)(arg0), (s32)(M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x40)), (s32)(arg1), (s32)(0x13), (s32)(0xA)));
         M2C_FIELD(arg2, s8 *, 2) = roll_technique_level__9TItemDropFv(arg0, M2C_FIELD(TItemDrop__data_805D5460, s32 *, 0x44), M2C_FIELD(arg2, u8 *, 4), arg1, 0xA);

@@ -44,7 +44,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0);
 }
 
 extern "C" {
-void TWindowActionPalette__sub_80243B6C(void *, int);
+void draw_frame__20TWindowActionPaletteFv(void *, int);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 void TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 u8 *destroy_window_base__9TWindowDDFPvs(void *, s16);
@@ -57,7 +57,7 @@ extern u32 __vt__20TWindowActionPalette[6];
 void TWindowActionPalette::render() {
     s32 context = TWindowSubComCard__sub_80244C0C(this, &scale);
     TWindowSubStatusDisp__sub_80257BC0(this, &children, context);
-    TWindowActionPalette__sub_80243B6C(this, context);
+    draw_frame__20TWindowActionPaletteFv(this, context);
 }
 
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {

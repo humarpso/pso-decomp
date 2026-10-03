@@ -17,7 +17,7 @@ s32 refresh_status_display__9TWindowDDFv(int);
 s32 init_flags__15TWindowFukidasiFPvi(void *, void *);
 s32 clear_flag__15TWindowFukidasiFPv(void *);
 s32 TWindowSubStatusDisp__sub_80257CB8(void *);
-s32 TWindowSubStatusDisp__sub_8025A9C0(int, f32);
+s32 measure_message_text_width(int, f32);
 s32 TWindowSubStatusDisp__sub_8025AC50(int, void *, int);
 extern RecoveredGlobal_80251BA0_lbl_804CF080 lbl_804CF080;
 extern const f32 lbl_805DCCEC;
@@ -58,7 +58,7 @@ void set_text__15TWindowFukidasiFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   }
   else
   {
-    TWindowSubStatusDisp__sub_8025A9C0((int) temp_r3, (f32) lbl_805DCD50);
+    measure_message_text_width((int) temp_r3, (f32) lbl_805DCD50);
   }
   if (arg2 & 0x80)
   {

@@ -9,7 +9,7 @@ u8 *alloc_buffer__11TOBoss4RockFPv(u32 size);
 void clamp_difficulty__6TLobbyFi(s32 arg0);
 M2C_UNK get_instance__6TLobbyFv();
 M2C_UNK set_difficulty__6TLobbyFi();
-M2C_UNK TLobby__sub_8001DC30();
+M2C_UNK load_battle_param_entry();
 extern u32 TLobby__data_805D4AA0;
 extern s32 TLobby__data_805D4AA4;
 extern s32 TLobby__data_805D4AA8;
@@ -28,7 +28,7 @@ void clamp_difficulty__6TLobbyFi(s32 arg0);
 void free_boss4_rock__6TLobbyFv(void);
 void swap_endian__6TLobbyFPv(void* p);
 void update_difficulty__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8001DC30();
+M2C_UNK load_battle_param_entry();
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 void free__11TOBoss4RockFUi(void*);
@@ -68,7 +68,7 @@ void update_difficulty__6TLobbyFv(void) {
     get_instance__6TLobbyFv();
     set_difficulty__6TLobbyFi();
     if (((s32) TLobby__data_805D4AB4 != temp_r31) || ((s32) TLobby__data_805D4AB8 != temp_r30)) {
-        TLobby__sub_8001DC30();
+        load_battle_param_entry();
     }
 }
 
@@ -103,7 +103,7 @@ void alloc_battle_param_tables(void) {
     clamp_difficulty__6TLobbyFi(lbl_805D5550);
     get_instance__6TLobbyFv();
     set_difficulty__6TLobbyFi();
-    TLobby__sub_8001DC30();
+    load_battle_param_entry();
     TLobby__data_805D4ABC = 0;
 }
 

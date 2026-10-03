@@ -47,7 +47,7 @@ M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80268048();
-M2C_UNK TWindowSubStatusDisp__sub_8026C800(s32, s32);
+M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
@@ -114,7 +114,7 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
-        TWindowSubStatusDisp__sub_8026C800(M2C_FIELD(arg0, u32 *, 0x88), temp_r3);
+        draw_list_page_indicator(M2C_FIELD(arg0, u32 *, 0x88), temp_r3);
     }
 }
 

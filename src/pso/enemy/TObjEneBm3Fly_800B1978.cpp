@@ -234,7 +234,7 @@ u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *
 s32 handle_message__13TObjEneBm3FlyFPvi(void *, void *);
 s32 state_death_fall__13TObjEneBm3FlyFPvi(void *, void *);
 s32 action__13TObjEneBm3FlyFPvi(void *, void *);
-s32 TObjEneBm3Fly__sub_800B012C(void *, void *);
+s32 update_recoil_state__13TObjEneBm3FlyFv(void *, void *);
 s32 TObjEneBm3Fly__sub_800B02C8(void *, void *);
 s32 TObjEneBm3Fly__sub_800B044C(void *, void *);
 s32 execute_action__13TObjEneBm3FlyFPvi(void *, void *);
@@ -485,7 +485,7 @@ void TObjEneBm3Fly__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneBm3Fly__sub_800B044C((void *) (arg0), (void *) (arg2));
         return;
     case 6:
-        TObjEneBm3Fly__sub_800B012C((void *) (arg0), (void *) (arg2));
+        update_recoil_state__13TObjEneBm3FlyFv((void *) (arg0), (void *) (arg2));
         return;
     case 8:
         state_death_fall__13TObjEneBm3FlyFPvi((void *) (arg0), (void *) (arg2));

@@ -127,7 +127,7 @@ void offset_position__6TSceneFPvii(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
-void TScene__sub_80203640(void *task);
+void tick_material_fmt2__6TSceneFPv(void *task);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 SceneMaterialNode* TScene__sub_80203324(void*,SceneMaterialStatic*);
@@ -138,7 +138,7 @@ void scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
-void TScene__sub_80203A64(void *task);
+void tick_material_fmt1__6TSceneFPv(void *task);
 }
 
 extern "C" {
@@ -205,7 +205,7 @@ SceneMaterialSection *find_scene_room_by_id(s32 id) {
     return NULL;
 }
 
-void TScene__sub_80203640(void *task) {
+void tick_material_fmt2__6TSceneFPv(void *task) {
     SceneMaterialSection *room;
     s32 section;
     SceneMaterialStatic *object;
@@ -304,7 +304,7 @@ void TScene__sub_80203640(void *task) {
     PPCSync();
 }
 
-void TScene__sub_80203A64(void *task) {
+void tick_material_fmt1__6TSceneFPv(void *task) {
     SceneMaterialSection *room;
     s32 section;
     SceneMaterialStatic *object;

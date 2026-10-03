@@ -11,7 +11,7 @@ struct RecoveredGlobal_80040D70_lbl_8043636C { M2C_UNK value; u8 remaining[0x9];
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *get_player_by_client_id(s32);
-M2C_UNK TLobby__sub_80226E44(int);
+M2C_UNK init_music_sequencer(int);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D86F8;
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
@@ -64,7 +64,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id(lbl_805D53A0));
     if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, f32 *, 0x40) >= lbl_805D86F8)) {
-        TLobby__sub_80226E44((int) (3));
+        init_music_sequencer((int) (3));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

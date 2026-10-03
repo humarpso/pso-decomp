@@ -9,7 +9,7 @@ struct O_80092724 { u8 pad0[0x18]; void *vptr; u8 pad1c[0x38c]; void *objs[2]; }
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void TObjPlayer__sub_800F6EB0(void *);
+void unlink_enemy_group_relations(void *);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -93,7 +93,7 @@ O_80092724 *TObjPlayer__sub_80092724(O_80092724 *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        TObjPlayer__sub_800F6EB0(arg0);
+        unlink_enemy_group_relations(arg0);
         TObjEneGibbles__sub_80156720(arg0);
         __destroy_arr((u8 *)arg0 + 0x3B0, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800C68FC(arg0, 0);

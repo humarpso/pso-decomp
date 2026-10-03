@@ -8,7 +8,7 @@ struct Vec_803D8D1C { f32 x, y, z; };
 
 extern "C" {
 f32 TCameraCtrl__sub_803D8D00(u8 *arg0);
-f32 TObjPlayer__sub_803D8CA8(void *);
+f32 matrix_identity(void *);
 extern u8 *lbl_805D7774;
 void TObjPlayer__sub_803D8CD4(u8 *arg0);
 M2C_UNK PSMTXMultVecSR(int);
@@ -44,7 +44,7 @@ void TObjPlayer__sub_803D8CD4(u8 *arg0) {
     if (var_r3 == NULL) {
         var_r3 = (u8 *)(lbl_805D7774);
     }
-    TObjPlayer__sub_803D8CA8(var_r3);
+    matrix_identity(var_r3);
 }
 #pragma pop
 

@@ -115,13 +115,13 @@ extern s32 lbl_805D77F8;
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
 void TObjPlayer__sub_803E4354(void *);
 void TObjPlayer__sub_803E44D4(void *);
-void TObjPlayer__sub_803E2F78(void *, void (*)(void *));
+void transform_chunk_object_tree(void *, void (*)(void *));
 void TObjPlayer__sub_803E4468(void);
 void draw_chunk_object(void *arg0);
 extern s32 lbl_805D7774;
 void TObjPlayer__sub_803E2F28(struct Mtx_803DC994 *src);
 s32 __cvt_fp2unsigned(f32);
-void TObjPlayer__sub_803D9884(u8 *, u8 *);
+void transform_point_by_current_matrix(u8 *, u8 *);
 void rotate_vector_by_current_matrix(u8 *, u8 *);
 void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0);
 void GXBegin(int, int, u16);
@@ -217,7 +217,7 @@ void TObjPlayer__sub_803E34B0(Hdr_803E34B0 *arg0) {
     u8 *src = arg0->src;
     u8 *dst = arg0->dst;
     while (n-- > 0) {
-        TObjPlayer__sub_803D9884(src, dst);
+        transform_point_by_current_matrix(src, dst);
         rotate_vector_by_current_matrix(src + 0xC, dst + 0xC);
         f32 t = *(f32 *)(src + 0x18);
         src += 0x1C;
@@ -412,7 +412,7 @@ void TObjPlayer__sub_803E4684(void *arg0) {
 #pragma scheduling off
 void draw_chunk_object(void *arg0) {
     TObjPlayer__sub_803E4354(arg0);
-    TObjPlayer__sub_803E2F78(arg0, TObjPlayer__sub_803E44D4);
+    transform_chunk_object_tree(arg0, TObjPlayer__sub_803E44D4);
     TObjPlayer__sub_803E4468();
 }
 #pragma pop

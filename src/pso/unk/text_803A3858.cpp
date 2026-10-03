@@ -159,7 +159,7 @@ void TLobby__sub_803BD660(u8);
 void TLobby__sub_803AA77C(u8 arg0);
 extern s32 lbl_805D73AC;
 void TLobby__sub_803AB574(s8 *arg0, s8 *arg1);
-s32 TLobby__sub_803B3F2C(void *);
+s32 transition_sound_envelope(void *);
 void TLobby__sub_803B41A0(u8 *arg0);
 M2C_UNK DCFlushRangeNoSync(void *, int);
 M2C_UNK memset(void *, int, int);
@@ -177,7 +177,7 @@ extern s8 lbl_805D74B0;
 extern s8 lbl_805D74B1;
 extern s8 lbl_805D74B2;
 void TLobby__sub_803BAB10(s32 arg0);
-s32 TLobby__sub_803A8B0C(void *, int, int);
+s32 schedule_sound_voice_update(void *, int, int);
 void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6);
 extern RecoveredGlobal_803A98F0_lbl_80556F88 lbl_80556F88;
 extern s32 lbl_805D73A8;
@@ -191,21 +191,21 @@ Node_803B2598 *TLobby__sub_803B2598(u32 key);
 extern u8 lbl_805D7380;
 extern Rec_803A9944 lbl_8055755C[];
 void TLobby__sub_803A9944(u8 i, u8 v);
-extern u32 TLobby__sub_803B2A30(u32 id);
+extern u32 find_sound_voice_by_id(u32 id);
 u32 TLobby__sub_803AA2B8(u32 id);
 extern Program_803B1DA4 *lbl_805D7420;
 void TLobby__sub_803B1DA4(Program_803B1DA4 *self);
-extern s32 TLobby__sub_803B41C8(struct Envelope_803B431C *e, u32 duration);
+extern s32 release_sound_envelope(struct Envelope_803B431C *e, u32 duration);
 s32 TLobby__sub_803B431C(struct Envelope_803B431C *e);
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
-s32 *TLobby__sub_803BC9A8(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
+s32 *search_sound_sample_directory(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
 extern Req_803AE60C lbl_805D73F8;
 extern u8 lbl_8055A470[];
 extern u16 lbl_805D73D2;
 extern s32 *lbl_805D7400;
 s32 TLobby__sub_803AE60C(s16 arg0);
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
-s32 *TLobby__sub_803BC9A8(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
+s32 *search_sound_sample_directory(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
 extern Req_803AE60C lbl_805D7404;
 extern u8 lbl_8055E470[];
 extern u16 lbl_805D73D4;
@@ -225,7 +225,7 @@ s32 TLobby__sub_803A6F18(Obj_803A6F18 *arg0);
 void TLobby__sub_803A8CC0(void *arg0);
 void TLobby__sub_803B89B4(Ent_803B89B4 *arg0);
 u32 TLobby__sub_803ABB10(u32 arg0, u32 arg1);
-s32 *TLobby__sub_803BC9A8(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
+s32 *search_sound_sample_directory(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
 s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1);
 extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D6;
@@ -258,7 +258,7 @@ Se_803A9144 *TLobby__sub_803AE76C(s16);
 s32 TLobby__sub_803A9144(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 extern u8 lbl_805D7380;
 extern Rec_803A8D2C *lbl_805D73B0;
-extern u32 TLobby__sub_803B2A30(u32 id);
+extern u32 find_sound_voice_by_id(u32 id);
 void TLobby__sub_803B1BA4(Rec_803A9454 *);
 s32 TLobby__sub_803A9454(int id);
 extern Rec_803A8D2C *lbl_805D73B0;
@@ -383,7 +383,7 @@ extern u8 lbl_805D7446;
 extern u8 lbl_805D7447;
 extern u8 lbl_805D7448;
 extern u8 lbl_805D7449;
-u32 TLobby__sub_803B4360(void *, void *, void *);
+u32 advance_sound_envelope(void *, void *, void *);
 void TLobby__sub_803B4CF8(u16, void *, void *, void *);
 void TLobby__sub_803B4CF8(u16, void *, void *, void *);
 struct Ent_803B5DB0 {
@@ -834,12 +834,12 @@ void TLobby__sub_803A897C(s32 arg0) {
 }
 
 void TLobby__sub_803A8CC0(void *arg0) {
-    TLobby__sub_803A8B0C(arg0, 0, 0);
-    TLobby__sub_803A8B0C(arg0, 1, 0);
+    schedule_sound_voice_update(arg0, 0, 0);
+    schedule_sound_voice_update(arg0, 1, 0);
 }
 
 void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
-    TLobby__sub_803A8B0C((void *) (arg0), (int) (2), (int) (0));
+    schedule_sound_voice_update((void *) (arg0), (int) (2), (int) (0));
 }
 
 void TLobby__sub_803A8D2C(Node_803A8D2C **list, void (*cb)(u8)) {
@@ -903,7 +903,7 @@ s32 TLobby__sub_803A9454(int id) {
     s32 found = 0;
     u32 cur;
     if (lbl_805D7380 != 0) {
-        cur = TLobby__sub_803B2A30(id);
+        cur = find_sound_voice_by_id(id);
         while (cur != 0xFFFFFFFF) {
             idx = cur;
             if (cur == (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].id) {
@@ -997,7 +997,7 @@ s32 TLobby__sub_803AA1A0(s32 arg0) {
 }
 
 u32 TLobby__sub_803AA2B8(u32 id) {
-    if (TLobby__sub_803B2A30(id) != 0xFFFFFFFF) return id;
+    if (find_sound_voice_by_id(id) != 0xFFFFFFFF) return id;
     return 0xFFFFFFFF;
 }
 
@@ -1184,7 +1184,7 @@ s32 TLobby__sub_803AE4D4(s16 id, Sample_803AE4D4 *s) {
     base = lbl_80559E70;
     *(s16 *)(base + 0xA600) = id;
     for (i = 0; i < lbl_805D73D0; i++) {
-        if ((lbl_805D73F0 = (Row_803AE4D4 *)TLobby__sub_803BC9A8((Req_803AE60C *)(base + 0xA600), (void *)((Reg_803AE4D4 *)base)[i].rows, ((Reg_803AE4D4 *)base)[i].count, 0x20, (s32 (*)(u8 *, u8 *))TLobby__sub_803AE4C4)) != 0 &&
+        if ((lbl_805D73F0 = (Row_803AE4D4 *)search_sound_sample_directory((Req_803AE60C *)(base + 0xA600), (void *)((Reg_803AE4D4 *)base)[i].rows, ((Reg_803AE4D4 *)base)[i].count, 0x20, (s32 (*)(u8 *, u8 *))TLobby__sub_803AE4C4)) != 0 &&
             lbl_805D73F0->ref != 0xFFFF) {
             lbl_805D73F4 = (Part_803AE4D4 *)&lbl_805D73F0->key;
             s->key = lbl_805D73F4->key;
@@ -1209,7 +1209,7 @@ s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1) {
 
 s32 TLobby__sub_803AE60C(s16 arg0) {
     lbl_805D73F8.f4 = arg0;
-    if ((lbl_805D7400 = TLobby__sub_803BC9A8(&lbl_805D73F8, lbl_8055A470, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
+    if ((lbl_805D7400 = search_sound_sample_directory(&lbl_805D73F8, lbl_8055A470, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
         return *lbl_805D7400;
     }
     return 0;
@@ -1217,7 +1217,7 @@ s32 TLobby__sub_803AE60C(s16 arg0) {
 
 s32 TLobby__sub_803AE66C(s16 arg0) {
     lbl_805D7404.f4 = arg0;
-    if ((lbl_805D740C = TLobby__sub_803BC9A8(&lbl_805D7404, lbl_8055E470, lbl_805D73D4, 8, TLobby__sub_803AE5FC)) != NULL) {
+    if ((lbl_805D740C = search_sound_sample_directory(&lbl_805D7404, lbl_8055E470, lbl_805D73D4, 8, TLobby__sub_803AE5FC)) != NULL) {
         return *lbl_805D740C;
     }
     return 0;
@@ -1229,7 +1229,7 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1) {
 
 s32 TLobby__sub_803AE6DC(s16 arg0, u16 *arg1) {
     ((Req_803AE6DC *)(lbl_80559E70 + 0xA620))->f4 = arg0;
-    if ((lbl_805D7410 = (Res_803AE6DC *)TLobby__sub_803BC9A8((Req_803AE60C *)((Req_803AE6DC *)(lbl_80559E70 + 0xA620)), (void *)(lbl_80559E70 + 0x4E00), (u16)(lbl_805D73D6), (s32)(0xC), (s32 (*)(u8 *, u8 *))(TLobby__sub_803AE6CC))) != 0) {
+    if ((lbl_805D7410 = (Res_803AE6DC *)search_sound_sample_directory((Req_803AE60C *)((Req_803AE6DC *)(lbl_80559E70 + 0xA620)), (void *)(lbl_80559E70 + 0x4E00), (u16)(lbl_805D73D6), (s32)(0xC), (s32 (*)(u8 *, u8 *))(TLobby__sub_803AE6CC))) != 0) {
         *arg1 = lbl_805D7410->h6;
         return lbl_805D7410->f0;
     }
@@ -1249,7 +1249,7 @@ Se_803A9144 *TLobby__sub_803AE76C(s16 arg0) {
     i = 0;
     b->k.key = arg0;
     for (; i < lbl_805D73DA; i++) {
-        r = TLobby__sub_803BC9A8((Req_803AE60C *)&b->k, ((Grp_803AE76C *)(lbl_80559E70 + 0xA200))[i].base, ((Grp_803AE76C *)(lbl_80559E70 + 0xA200))[i].n, 10,
+        r = search_sound_sample_directory((Req_803AE60C *)&b->k, ((Grp_803AE76C *)(lbl_80559E70 + 0xA200))[i].base, ((Grp_803AE76C *)(lbl_80559E70 + 0xA200))[i].n, 10,
                                  (s32 (*)(u8 *, u8 *))TLobby__sub_803AE75C);
         if (r != NULL) {
             return (Se_803A9144 *)r;
@@ -1789,14 +1789,14 @@ u32 TLobby__sub_803B3ED8(s32 arg0) {
 void TLobby__sub_803B41A0(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; };
     ((Fields_arg0*)arg0)->field_1 = 0;
-    TLobby__sub_803B3F2C(arg0);
+    transition_sound_envelope(arg0);
 }
 
 s32 TLobby__sub_803B431C(struct Envelope_803B431C *e) {
     switch (e->mode) {
     case 0:
     case 1:
-        return TLobby__sub_803B41C8(e, e->release);
+        return release_sound_envelope(e, e->release);
     default:
         return 0;
     }
@@ -1806,7 +1806,7 @@ s32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2) {
     u8 i;
 
     for (i = 0; i < 15; i++) {
-        if (TLobby__sub_803B4360(arg0, arg1, arg2) != 0) {
+        if (advance_sound_envelope(arg0, arg1, arg2) != 0) {
             return 1;
         }
     }

@@ -331,7 +331,7 @@ void TLobby__sub_80135FFC(void);
 extern "C" {
 typedef struct { s32 a; s32 b; } Pair_80135E7C;
 typedef struct { u8 pad0[5]; u8 kind; u8 pad6[6]; u8 name[0x8C]; } Ent_80135E7C;
-void TLobby__sub_80266E34(void *);
+void calc_list_content_extent(void *);
 void add_list_entry__6TLobbyFPviii(void *, int, void *, int);
 void *open_default__23TShopJudgmentItemWindowFi(void *);
 extern Pair_80135E7C lbl_8043EE18[];
@@ -756,7 +756,7 @@ void TLobby__sub_80135E7C(s32 arg0, Ent_80135E7C *arg1) {
             break;
         }
     }
-    TLobby__sub_80266E34(TLobby__data_805D55D0);
+    calc_list_content_extent(TLobby__data_805D55D0);
     if (TLobby__data_805D55CC != 0) {
         queue_destruction__7TObjectFv(TLobby__data_805D55CC);
         TLobby__data_805D55CC = 0;

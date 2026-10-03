@@ -46,7 +46,7 @@ extern M2C_UNK lbl_80540B10[];
 void TObjPlayer__sub_802A83F4(void);
 s32 DCFlushRange(s32, s32);
 s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
-void TEffIndirectCtrl__sub_802A8FD8(s32, s32, s32, s32, s32);
+void deform_indirect_texture_scroll(s32, s32, s32, s32, s32);
 s32 TEffIndirectCtrl__sub_802A9234(u8);
 void TEffIndirectCtrl__sub_802A8728(Ctrl_802A8728 *self);
 void GXSetIndTexMtx(s32, f32 (*)[3], s32);
@@ -80,8 +80,8 @@ void eff_indirect_update_and_flush(void *arg0);
 void play_particle_at_active_slot__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void update_eff_indirect(void *arg0);
 s32 DCFlushRange(s32, s32);
-s32 TEffIndirectCtrl__sub_802A8CC0(s32, s32, s32, s32, s32, u8);
-s32 TEffIndirectCtrl__sub_802A8E4C(s32, s32, s32, s32, s32, u8);
+s32 deform_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
+s32 update_indirect_texture_wave(s32, s32, s32, s32, s32, u8);
 s32 TEffIndirectCtrl__sub_802A9234(u8);
 s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
 s8 find_indirect_effect_ctrl();
@@ -173,18 +173,18 @@ void TEffIndirectCtrl__sub_802A8728(Ctrl_802A8728 *self) {
     copy_and_flush_texture__16TEffIndirectCtrlFPvi(self, TEffIndirectCtrl__sub_802A9234(self->index));
     rate = (s32) self->rate;
     self->phase = self->phase + (s8) self->recipe[3];
-    TEffIndirectCtrl__sub_802A8FD8(self->buf, self->amp, self->period, rate, self->phase);
+    deform_indirect_texture_scroll(self->buf, self->amp, self->period, rate, self->phase);
     DCFlushRange(self->buf, 0x1000);
 }
 
 void update_eff_indirect(void *arg0) {
     copy_and_flush_texture__16TEffIndirectCtrlFPvi(arg0, TEffIndirectCtrl__sub_802A9234(M2C_FIELD(arg0, u8 *, 0x24)));
-    TEffIndirectCtrl__sub_802A8CC0(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
+    deform_indirect_texture_wave(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
     DCFlushRange(M2C_FIELD(arg0, s32 *, 0x1C), 0x1000);
 }
 void eff_indirect_update_and_flush(void *arg0) {
     copy_and_flush_texture__16TEffIndirectCtrlFPvi(arg0, TEffIndirectCtrl__sub_802A9234(M2C_FIELD(arg0, u8 *, 0x24)));
-    TEffIndirectCtrl__sub_802A8E4C(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
+    update_indirect_texture_wave(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
     DCFlushRange(M2C_FIELD(arg0, s32 *, 0x1C), 0x1000);
 }
 

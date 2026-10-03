@@ -57,7 +57,7 @@ void load_creation_shape_rel(W_80290250 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
 s32 TAdSinglePlyChrSelectGC__sub_8028F210();
 void TCharaMaking__sub_8028E3A0();
-void *TAdSinglePlyChrSelectGC__sub_8028FB74(void *, s32 *);
+void *map_shape_region_samples(void *, s32 *);
 s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q);
@@ -75,7 +75,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028EF90(s32 arg0);
 void advance_animation_playback(s32);
 s32 query_state__12TCharaMakingFv(void);
 void TAdSinglePlyChrSelectGC__sub_8028ED54(void);
-void TAdSinglePlyChrSelectGC__sub_8028F2A0(void *);
+void blend_creation_proportion_shapes(void *);
 extern Pair_802907E4 lbl_80540888[];
 extern Pair_802907E4 lbl_805408D8[];
 extern Pair_802907E4 lbl_80540928[];
@@ -109,7 +109,7 @@ void end_effect_render__13TParticleCtrlFv();
 void setup_from_data__12TCharaMakingFii(u32, u32);
 void clear_flag_bit0__12TCharaMakingFv();
 void enable_making__12TCharaMakingFv();
-s32 TAdSinglePlyChrSelectGC__sub_8028FCA8(void *);
+s32 scan_creation_resources(void *);
 void draw_player_model__23TAdSinglePlyChrSelectGCFPv(void* p);
 void set_position_vec3__10TObjPlayerFPvPv(int, void *);
 void rotate_matrix_y(int, u32);
@@ -237,7 +237,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FAEC(void *arg0, s32 *arg1) {
     s32 x;
     s32 i;
     TCharaMaking__sub_8028E3A0();
-    TAdSinglePlyChrSelectGC__sub_8028FB74(((void *)TAdSinglePlyChrSelectGC__sub_8028FBCC((u8 *)(arg0))), arg1);
+    map_shape_region_samples(((void *)TAdSinglePlyChrSelectGC__sub_8028FBCC((u8 *)(arg0))), arg1);
     for (i = 0; i < 2; i++) {
         for (j = 2; j > i; j--) {
             x = arg1[j];
@@ -284,7 +284,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028FBCC(u8 *arg0) {
 void TAdSinglePlyChrSelectGC__sub_8028FD90(u8 *arg0) {
     u32 v;
     begin_effect_render__13TParticleCtrlFv();
-    if (TAdSinglePlyChrSelectGC__sub_8028FCA8(arg0) == 0) {
+    if (scan_creation_resources(arg0) == 0) {
         lbl_805D6534 = 0;
         return;
     }
@@ -359,7 +359,7 @@ void TAdSinglePlyChrSelectGC__sub_8028FFC0(s32 arg0) {
         break;
     }
     }
-    TAdSinglePlyChrSelectGC__sub_8028F2A0(&((CharacterAppearanceFields *)lbl_805D6520)->width);
+    blend_creation_proportion_shapes(&((CharacterAppearanceFields *)lbl_805D6520)->width);
     advance_animation_playback(arg0);
 }
 

@@ -97,7 +97,7 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 u32 TLobby__sub_801E38A0(void *, s32 *, s32 *, s32, s32);
 s32 fn_8028D490(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFPv(void *);
-void TAdSinglePlyChrSelectGC__sub_8028F2A0(void *);
+void blend_creation_proportion_shapes(void *);
 void TAdSinglePlyChrSelectGC__sub_802902CC(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028C9B0(void *arg0);
 u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
@@ -185,7 +185,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_8028C9B0(void *arg0) {
         s.z[i] = bufs[i + 3];
     }
     TAdSinglePlyChrSelectGC__sub_802902CC(&s);
-    TAdSinglePlyChrSelectGC__sub_8028F2A0(self->f38 + 0x48);
+    blend_creation_proportion_shapes(self->f38 + 0x48);
     for (j = 0; j < 6; j++) safe_free__23TAdSinglePlyChrSelectGCFUi(bufs[j]);
 }
 

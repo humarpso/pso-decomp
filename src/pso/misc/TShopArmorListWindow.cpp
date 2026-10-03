@@ -72,13 +72,13 @@ extern s32 lbl_805D3698;
 u8 *TShopArmorListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-s32 TShopArmorListWindow__sub_8021A43C(void *);
-s32 TShopArmorListWindow__sub_8021A634(void *);
+s32 handle_equip_offer__20TShopArmorListWindowFv(void *);
+s32 handle_buy_confirm__20TShopArmorListWindowFv(void *);
 s32 open_menu_window__20TShopArmorListWindowFPv(void *arg0);
 int TShopArmorListWindow__sub_8021AA08(void* p);
 s32 update__20TShopArmorListWindowFPv(void *arg0);
 s32 handle_select__20TShopArmorListWindowFPv(void *arg0);
-s32 TShopArmorListWindow__sub_8021AB4C(void *);
+s32 handle_selection__20TShopArmorListWindowFv(void *);
 s32 TShopArmorListWindow__sub_8021AE18(void *);
 void TShopArmorListWindow__vt9(u8 *arg0);
 s32 obj_getPtr2B0_20(void *);
@@ -211,10 +211,10 @@ void TShopArmorListWindow__vt9(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (int)((int) (1)));
         return;
     case 1:
-        TShopArmorListWindow__sub_8021AB4C((void *) (arg0));
+        handle_selection__20TShopArmorListWindowFv((void *) (arg0));
         return;
     case 2:
-        TShopArmorListWindow__sub_8021A43C((void *) (arg0));
+        handle_equip_offer__20TShopArmorListWindowFv((void *) (arg0));
         return;
     case 3:
     case 10:
@@ -237,7 +237,7 @@ void TShopArmorListWindow__vt9(u8 *arg0) {
         open_menu_window__20TShopArmorListWindowFPv((void *) (arg0));
         return;
     case 9:
-        TShopArmorListWindow__sub_8021A634((void *) (arg0));
+        handle_buy_confirm__20TShopArmorListWindowFv((void *) (arg0));
     default:
         return;
     }

@@ -78,10 +78,10 @@ struct Win_8021CF04 : WinBase_8021CF04 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 update__24TShopEquipmentSellWindowFPv(void *arg0);
-s32 TShopEquipmentSellWindow__sub_8021C968(void *);
+s32 handle_sell_confirm__24TShopEquipmentSellWindowFv(void *);
 void handle_input_window_result__24TShopEquipmentSellWindowFPv(void *arg0);
 s32 close__24TShopEquipmentSellWindowFPv(void *arg0);
-s32 TShopEquipmentSellWindow__sub_8021CC44(void *);
+s32 handle_selection__24TShopEquipmentSellWindowFv(void *);
 void TShopEquipmentSellWindow__vt9(u8 *arg0);
 int count_matching_items__10TObjPlayerFPvi(void *a0, u32 *a1);
 s32 get_item_data_value__24TShopEquipmentSellWindowFUi(u32 arg0);
@@ -90,7 +90,7 @@ int TShopArmorListWindow__sub_80266DB0(void *);
 s32 get_shop_text(M2C_UNK);
 void *create_item_list_window(s32, s32, u16);
 void add_item__24TShopEquipmentSellWindowFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TLobby__sub_80266E34(void *);
+void calc_list_content_extent(void *);
 void TWindowSubStatusDisp__sub_80267AA8(void *, s16);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 void *__nw__7TObjectFUl(u32);
@@ -237,7 +237,7 @@ void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
         for (i = 0; i < self->count; i++) {
             add_item__24TShopEquipmentSellWindowFPviii(self->list_win, self->entries[i].id, self->entries[i].price, i);
         }
-        TLobby__sub_80266E34(self->list_win);
+        calc_list_content_extent(self->list_win);
     } else {
         TShopArmorListWindow__sub_80266DB0(self->list_win);
         for (i = 0; i < self->count; i++) {
@@ -246,7 +246,7 @@ void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
         if (self->cursor > self->count - 1) {
             self->cursor = self->count - 1;
         }
-        TLobby__sub_80266E34(self->list_win);
+        calc_list_content_extent(self->list_win);
         TWindowSubStatusDisp__sub_80267AA8(self->list_win, self->cursor);
         clear_selected_and_update_entry__14TWindowSubItemFPv(self->list_win);
     }
@@ -301,10 +301,10 @@ void TShopEquipmentSellWindow__vt9(u8 *arg0) {
         build_sell_list__24TShopEquipmentSellWindowFPv((Win_8021CF04 *)((void *) (arg0)));
         return;
     case 1:
-        TShopEquipmentSellWindow__sub_8021CC44((void *) (arg0));
+        handle_selection__24TShopEquipmentSellWindowFv((void *) (arg0));
         return;
     case 2:
-        TShopEquipmentSellWindow__sub_8021C968((void *) (arg0));
+        handle_sell_confirm__24TShopEquipmentSellWindowFv((void *) (arg0));
         return;
     case 3:
         handle_input_window_result__24TShopEquipmentSellWindowFPv((void *) (arg0));

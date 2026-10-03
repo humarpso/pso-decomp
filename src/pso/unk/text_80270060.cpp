@@ -9,7 +9,7 @@ extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_array_entry__20TWindowSubStatusDispFPvi(s32, M2C_UNK);
 s32 get_width__11TWindowCtrlFPv();
-M2C_UNK TWindowHelpItem__sub_80270060(s32, s32);
+M2C_UNK update_photon_blast_player_marker(s32, s32);
 
 void update_status_help_item(s32 arg0) {
     s32 var_r31;
@@ -18,7 +18,7 @@ void update_status_help_item(s32 arg0) {
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         var_r31 = 0;
     }
-    TWindowHelpItem__sub_80270060(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), var_r31);
+    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), var_r31);
 }
 
 }

@@ -147,7 +147,7 @@ void update_invincibility__10TObjPlayerFPv(void *arg0);
 M2C_UNK update_attack_jump__11TObjEneMojaFv(void *);
 M2C_UNK update_technique_state__11TObjEneMojaFv(void *);
 M2C_UNK TObjPlayer__sub_800AE18C(u8 *arg0);
-M2C_UNK TObjPlayer__sub_800AE450(void *);
+M2C_UNK update_appearance_drop__11TObjEneMojaFv(void *);
 M2C_UNK update_appearance_jump__11TObjEneMojaFv(void *);
 M2C_UNK update_idle_state__11TObjEneMojaFv(void *);
 u8 *get_enemy_entity(u16);
@@ -719,7 +719,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
             update_appearance_jump__11TObjEneMojaFv((void *) (arg0));
             break;
         case 2:
-            TObjPlayer__sub_800AE450((void *) (arg0));
+            update_appearance_drop__11TObjEneMojaFv((void *) (arg0));
             break;
         case 3:
             TObjPlayer__sub_800AE18C((u8 *)((void *) (arg0)));

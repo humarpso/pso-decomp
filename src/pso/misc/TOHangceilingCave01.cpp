@@ -142,7 +142,7 @@ M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK fn_80168398(void *);
 f32 xz_distance_squared(void *, void *);
-M2C_UNK TObjPlayer__sub_803D9884(void *, void *);
+M2C_UNK transform_point_by_current_matrix(void *, void *);
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DB664;
 extern const f32 lbl_805DB698;
@@ -212,7 +212,7 @@ bool TOHangceilingCave01__sub_801688C0(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB69C, lbl_805DB664) == 0) {
         return 0;
     }
-    TObjPlayer__sub_803D9884((void *) (arg0 + 0x38), (void *) sp8);
+    transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) sp8);
     return (sp8[2] > lbl_805DB6A0) == 0;
 }
 

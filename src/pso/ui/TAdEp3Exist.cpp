@@ -23,7 +23,7 @@ void render__11TAdEp3ExistFv(void);
 extern "C" {
 
 int TAdEp3Exist__sub_8036F0AC(void* p);
-int TAdEp3Exist__sub_8036F4DC(void);
+int prs_read_control_bit(void);
 void TAdEp3Exist__sub_8036F5A4(void* p);
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1);
 void close_window__11TAdEp3ExistFPv(void* p);
@@ -72,7 +72,7 @@ void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TAdEp3Exist__sub_8036F4DC(void) { return 0; }
+int prs_read_control_bit(void) { return 0; }
 
 s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1) {
     if ((arg0 != 0) && (arg1 > 0)) {

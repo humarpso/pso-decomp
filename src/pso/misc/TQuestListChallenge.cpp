@@ -105,7 +105,7 @@ struct QLC_80288FDC {
 
 s32 obj_getField1c(s32);
 s32 TLobby__sub_80222C54(s32);
-void TLobby__sub_80266E34(u32);
+void calc_list_content_extent(u32);
 void add_list_entry__6TLobbyFPviii(u32, s32, s32, s32);
 s32 create_item_list_window(s32, s32, s32);
 void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0);
@@ -247,7 +247,7 @@ void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0) {
             e = ((s32 (*)(s32, s32))get_quest_list_text)(arg0->f50, arg0->entries[i].id);
             add_list_entry__6TLobbyFPviii(arg0->list, 0x2C, e, i);
         }
-        TLobby__sub_80266E34(arg0->list);
+        calc_list_content_extent(arg0->list);
         set_field_20__12TQuestListVMFPvi(arg0, 1);
     }
 }

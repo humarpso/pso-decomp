@@ -96,11 +96,11 @@ extern s32 lbl_805D36D0;
 u8 *TShopItemListWindow__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
-s32 TShopItemListWindow__sub_8021F1A4(void *);
+s32 handle_amount_confirm__19TShopItemListWindowFv(void *);
 s32 prepare_tool_purchase__19TShopItemListWindowFv(void *);
 s32 handle_confirm__19TShopItemListWindowFPv(void *arg0);
 s32 update__19TShopItemListWindowFPv(void *arg0);
-s32 TShopItemListWindow__sub_8021F9EC(void *);
+s32 build_item_list__19TShopItemListWindowFv(void *);
 void TShopItemListWindow__vt9(u8 *arg0);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 count_items_by_id__10TObjPlayerFPvi(s32, void *);
@@ -238,14 +238,14 @@ void TShopItemListWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        TShopItemListWindow__sub_8021F9EC((void *) (arg0));
+        build_item_list__19TShopItemListWindowFv((void *) (arg0));
         set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (1)));
         return;
     case 1:
         TShopItemListWindow__sub_8021F798((void *)((void *) (arg0)));
         return;
     case 2:
-        TShopItemListWindow__sub_8021F1A4((void *) (arg0));
+        handle_amount_confirm__19TShopItemListWindowFv((void *) (arg0));
         return;
     case 3:
     case 8:

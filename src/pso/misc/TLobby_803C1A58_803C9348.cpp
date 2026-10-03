@@ -178,7 +178,7 @@ M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
 M2C_UNK DVDReadAbsAsyncPrio(int);
 void TLobby__sub_803C9CBC(u8 *arg0);
-M2C_UNK TLobby__sub_803C4A7C(void *, void *, void *, void *);
+M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
 void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
 M2C_UNK TLobby__sub_803C57C8(void *);
@@ -901,7 +901,7 @@ void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2) {
 #pragma push
 #pragma fp_contract on
 void TLobby__sub_803CB594(s32 arg0, void *arg1, s32 arg2) {
-    TLobby__sub_803C4A7C((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
+    calc_adx_predictor_coeffs((void *) (arg2), arg1, (void *) (arg0 + 0x30), (void *) (arg0 + 0x32));
 }
 #pragma pop
 
@@ -923,7 +923,7 @@ Ch_803CB5C4 *TLobby__sub_803CB5C4(void) {
     c->id = i;
     c->f8 = 0;
     c->fC = 0;
-    TLobby__sub_803C4A7C((void *)500, (void *)44100, &c->c0, &c->c1);
+    calc_adx_predictor_coeffs((void *)500, (void *)44100, &c->c0, &c->c1);
     memset(c->f28, 0, 8);
     return c;
 }

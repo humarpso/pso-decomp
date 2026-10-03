@@ -33,7 +33,7 @@ s32 play_sound_effect(s32 id, Vec_8022675C *src, s32 a2, s32 flags);
 extern "C" {
 
 s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1);
-s32 TLobby__sub_80226918();
+s32 check_sound_admission_range();
 
 s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
     s32 var_r3;
@@ -41,7 +41,7 @@ s32 check_trigger_flag__15TOTrapAncient01Fii(s32 arg0, s32 arg1) {
     if (arg1 & 0x2000) {
         var_r3 = 0;
     } else {
-        var_r3 = TLobby__sub_80226918();
+        var_r3 = check_sound_admission_range();
     }
     if (var_r3 == -0x100) {
         return 0;

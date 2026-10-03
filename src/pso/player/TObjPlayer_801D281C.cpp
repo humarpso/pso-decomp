@@ -194,7 +194,7 @@ f32 get_attack_recovery_count__10TObjPlayerFi(void *);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
-int fn_801D7BF4(void*);
+int is_pb_palette_bank_empty(void*);
 int set_action_palette_mode__10TObjPlayerFPv(void*);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 
@@ -263,7 +263,7 @@ int start_photon_blast_action__10TObjPlayerFPv(void* p) { return set_flags__10TO
 f32 get_dist__10TObjPlayerFPv(void* p) { return *(f32*)((char*)p + 0x10); }
 void* get_element__10TObjPlayerFPvi(void* a0, int a1) {  return (char*)a0 + a1 * 24; }
 
-int is_alt_photon_blast_bank_empty__10TObjPlayerFPv(void* p) { return fn_801D7BF4((char*)p + 0x24); }
+int is_alt_photon_blast_bank_empty__10TObjPlayerFPv(void* p) { return is_pb_palette_bank_empty((char*)p + 0x24); }
 
 void TObjPlayer__sub_801D2B2C(Obj_801D2B2C *arg0) {
     s32 i;

@@ -8,7 +8,7 @@ void *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *initialize_mag_data__9TItemDataFPv(void *p);
 void TItemData__sub_8010D614(void *src, void *dst);
 s32 TItemMag__sub_801143E8(void *mag, s32 slot);
-void TWindowHelpItem__sub_80243630(void *e, s32 a, u16 b);
+void draw_action_palette_icon(void *e, s32 a, u16 b);
 extern s8 lbl_805DD678[3];
 void init_photon_blast_entries__19TWindowSubMagPhotonFPv(Win_8027C188 *w);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
@@ -34,9 +34,9 @@ void init_photon_blast_entries__19TWindowSubMagPhotonFPv(Win_8027C188 *w) {
         w->pb[lbl_805DD678[i]] = blast;
         void *e = get_array_entry__20TWindowSubStatusDispFPvi(w, i + 1);
         if (blast != -1) {
-            TWindowHelpItem__sub_80243630(e, 5, blast);
+            draw_action_palette_icon(e, 5, blast);
         } else {
-            TWindowHelpItem__sub_80243630(e, 0, 0);
+            draw_action_palette_icon(e, 0, 0);
         }
     }
 }

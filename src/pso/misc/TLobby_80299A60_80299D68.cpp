@@ -15,7 +15,7 @@ M2C_UNK init_area_lights();
 M2C_UNK TLobby__sub_801403B4(M2C_UNK);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 u32 __nw__7TObjectFUl(M2C_UNK);
@@ -44,7 +44,7 @@ s32 initialize_boss_scene(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_804651C8);
     } else {
-        TLobby__sub_80226E44(6);
+        init_music_sequencer(6);
     }
     if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();

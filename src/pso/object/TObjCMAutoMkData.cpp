@@ -10,10 +10,10 @@ void *create__16TObjCMAutoMkDataFPv(void *arg0);
 void render__16TObjCMAutoMkDataFv(void *arg0);
 void *TObjCMAutoMkData__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK fn_80290D1C(f32);
+M2C_UNK draw_creation_ruler_lines(f32);
 
 void render__16TObjCMAutoMkDataFv(void *arg0) {
-    fn_80290D1C(M2C_FIELD(arg0, f32 *, 0x38));
+    draw_creation_ruler_lines(M2C_FIELD(arg0, f32 *, 0x38));
 }
 
 void *create__16TObjCMAutoMkDataFPv(void *arg0) {

@@ -10,7 +10,7 @@ struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20;
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK TWindowSubComCard__sub_80270394(void *, int);
+M2C_UNK draw_background__19TWindowSimpleStatusFv(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int);
 extern M2C_UNK __vt__14TWindowMessage[];
 void render__19TWindowSimpleStatusFv(s32 arg0);
@@ -46,7 +46,7 @@ extern "C" {
 void render__19TWindowSimpleStatusFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
-    TWindowSubComCard__sub_80270394((void *) (arg0), (int) (temp_r3));
+    draw_background__19TWindowSimpleStatusFv((void *) (arg0), (int) (temp_r3));
     TWindowSubStatusDisp__sub_80257BC0((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
 

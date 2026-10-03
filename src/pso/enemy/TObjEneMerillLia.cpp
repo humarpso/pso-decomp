@@ -415,7 +415,7 @@ void *TObjControl__ct(void *, void *);
 void TObjEneGibbles__sub_80156720(void *);
 void *TObjEneMerillLia__ct(void *, void *, void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void TObjPlayer__sub_800F6EB0(void *);
+void unlink_enemy_group_relations(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -1037,7 +1037,7 @@ extern M2C_UNK lbl_80494728[];
 void *__dt__16TObjEneMerillLiaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494728;
-        TObjPlayer__sub_800F6EB0(arg0);
+        unlink_enemy_group_relations(arg0);
         TObjEneGibbles__sub_80156720(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3A8, -1);
         TObjPlayer__sub_800C68FC(arg0, 0);

@@ -89,8 +89,8 @@ void dispatch_receive_update__6TLobbyFv(void);
 void set_global_805D7520__6TLobbyFi(s32 arg0);
 void set_params__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK TLobby__sub_803C0AD8();
-M2C_UNK TLobby__sub_803C4C78();
-M2C_UNK TLobby__sub_803C4F14();
+M2C_UNK decode_adx_stereo_downmix();
+M2C_UNK decode_adx_stereo();
 M2C_UNK TLobby__sub_803C8610();
 M2C_UNK TLobby__sub_803CC134();
 M2C_UNK TLobby__sub_803CC884();
@@ -260,10 +260,10 @@ extern s32 lbl_805D7520;
 
 void dispatch_receive_update__6TLobbyFv(void) {
     if ((s32) lbl_805D7520 == 0) {
-        TLobby__sub_803C4F14();
+        decode_adx_stereo();
         return;
     }
-    TLobby__sub_803C4C78();
+    decode_adx_stereo_downmix();
 }
 
 extern s32 lbl_805D7528;

@@ -46,7 +46,7 @@ s32 obj_getField1c(int);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 TLobby__sub_80222C54(int);
 M2C_UNK TShopArmorListWindow__sub_80266DB0(u32);
-M2C_UNK TLobby__sub_80266E34(u32);
+M2C_UNK calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, int);
 s32 get_window_layout_position(int);
@@ -142,7 +142,7 @@ void TQuestListOnline__sub_80217F88(u8 *arg0) {
                     break;
                 }
             }
-            TLobby__sub_80266E34(M2C_FIELD(arg0, u32 *, 0x38));
+            calc_list_content_extent(M2C_FIELD(arg0, u32 *, 0x38));
         }
         if (M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
             Stack_80217EC4 sp8 = lbl_8044BED4[0];

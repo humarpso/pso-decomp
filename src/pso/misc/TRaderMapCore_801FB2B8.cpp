@@ -14,8 +14,8 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 get_player_by_client_id(int);
 M2C_UNK TRaderMapCore__sub_801F9D84(void *, int, void *);
-M2C_UNK TRaderMapCore__sub_801F9E9C(void *);
-M2C_UNK TRaderMapCore__sub_801FA46C(void *, void *);
+M2C_UNK gather_player_markers__13TRaderMapCoreFv(void *);
+M2C_UNK update_follow_projection__13TRaderMapCoreFv(void *, void *);
 M2C_UNK TRaderMapCore__sub_801FAF24();
 M2C_UNK update_target__13TRaderMapCoreFPv(void *);
 void advance_scroll__13TRaderMapCoreFPv(void *arg0);
@@ -64,11 +64,11 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
             TRaderMapCore__sub_801FAF24();
             break;
         }
-        TRaderMapCore__sub_801F9E9C((void *) (arg0));
+        gather_player_markers__13TRaderMapCoreFv((void *) (arg0));
         if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((u32) M2C_FIELD(arg0, u32 *, 0x184) != 0U)) {
             M2C_FIELD(arg0, s32 *, 0x134) = (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x184));
         }
-        TRaderMapCore__sub_801FA46C((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
+        update_follow_projection__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__data_805D5F3C));
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
             var_r31 = 0;
             do {

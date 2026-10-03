@@ -14,7 +14,7 @@ typedef struct O_800A846C {
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void TObjPlayer__sub_800C68FC(void *, int);
-void TObjPlayer__sub_800F6EB0(void *);
+void unlink_enemy_group_relations(void *);
 void TObjEneGibbles__sub_80156720(void *);
 void __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
@@ -99,7 +99,7 @@ O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
                 arg0->objs[i] = NULL;
             }
         }
-        TObjPlayer__sub_800F6EB0(arg0);
+        unlink_enemy_group_relations(arg0);
         TObjEneGibbles__sub_80156720(arg0);
         __destroy_arr((u8 *)arg0 + 0x3CC, TObjPlayer__sub_800D7C58, 0x1C, 4);
         TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A8, -1);

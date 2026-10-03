@@ -22,7 +22,7 @@ s8 clamp_char_at__10TObjPlayerFPvi(u32, s32);
 s32 get_help_value__15TWindowHelpItemFv(void);
 void clear_visible_flag__20TWindowSubStatusDispFPv(void *);
 void set_flag0_bit2__15TWindowHelpItemFPv(void *);
-void TWindowSubStatusDisp__sub_8025995C(void *);
+void draw_right_aligned_number(void *);
 extern const f32 lbl_805DCA28;
 extern const f32 lbl_805DCA2C;
 extern const f32 lbl_805DCA30;
@@ -34,7 +34,7 @@ extern "C" {
 void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
 s32 get_help_value__15TWindowHelpItemFv(void);
 void *find_item_by_id();
-s32 TWindowHelpItem__sub_802434B8();
+s32 get_palette_consumable_count();
 M2C_UNK TWindowHelpItem__sub_8025B08C(s32, f32, f32);
 s32 test_card_flag_2__12TBoss8DragonFPv(s32);
 
@@ -53,7 +53,7 @@ void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1) {
 s32 get_help_value__15TWindowHelpItemFv(void) {
     struct VObj_80243464 *o;
 
-    if (TWindowHelpItem__sub_802434B8() == -1) {
+    if (get_palette_consumable_count() == -1) {
         return 0;
     }
     o = (struct VObj_80243464 *)find_item_by_id();
@@ -88,7 +88,7 @@ void TWindowHelpItem__sub_80243544(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32 a
     clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x1C) = M2C_FIELD(arg1, s32 *, 0x2C);
     M2C_FIELD(arg0, s32 *, 0x20) = v;
-    TWindowSubStatusDisp__sub_8025995C(arg0);
+    draw_right_aligned_number(arg0);
     M2C_FIELD(arg0, f32 *, 8) = lbl_805DCA2C * M2C_FIELD(arg0, f32 *, 0x10) + (M2C_FIELD(arg1, f32 *, 8) - lbl_805DCA28);
     M2C_FIELD(arg0, f32 *, 0xC) = M2C_FIELD(arg1, f32 *, 0xC) - lbl_805DCA30;
 }

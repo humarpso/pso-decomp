@@ -47,7 +47,7 @@ extern "C" {
 s32 TObjPlayer__sub_803D8960(int, void *, void *, int);
 s32 TObjPlayer__sub_803D898C(void *);
 f32 subtract_vector(void *, void *);
-f32 TObjPlayer__sub_803D9884(void *, void *);
+f32 transform_point_by_current_matrix(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredGlobal_802E8274_lbl_80472CB0 lbl_80472CB0;
@@ -193,19 +193,19 @@ void TObjPlayer__sub_802E8274(void) {
         stack.sp20 = lbl_805DEA10;
         stack.sp24 = lbl_805DEA10;
         stack.sp28 = lbl_805DEA10;
-        TObjPlayer__sub_803D9884((void *) (&stack.sp20), (void *) (lbl_805D6944));
+        transform_point_by_current_matrix((void *) (&stack.sp20), (void *) (lbl_805D6944));
     }
     if ((s32) lbl_805D691C == 0x71) {
         stack.sp14 = lbl_805DEA10;
         stack.sp18 = lbl_805DEA10;
         stack.sp1C = lbl_805DEA10;
-        TObjPlayer__sub_803D9884((void *) (&stack.sp14), (void *) (lbl_805D6944 + 0xC));
+        transform_point_by_current_matrix((void *) (&stack.sp14), (void *) (lbl_805D6944 + 0xC));
     }
     if ((s32) lbl_805D691C == (s32) M2C_FIELD(&lbl_80472CB0.value, M2C_UNK *, (lbl_805D6920 * 4))) {
         stack.sp8 = lbl_805DEA10;
         stack.spC = lbl_805DEA10;
         stack.sp10 = lbl_805DEA10;
-        TObjPlayer__sub_803D9884((void *) (&stack.sp8), (void *) (lbl_805D6928));
+        transform_point_by_current_matrix((void *) (&stack.sp8), (void *) (lbl_805D6928));
         lbl_805D6920 += 1;
         lbl_805D6928 += 0xC;
     }

@@ -180,7 +180,7 @@ void *__nw__7TObjectFUl(int);
 s32 obj_getField1c(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_current_floor(void);
-void *TTecLuker__sub_8023453C(void *self, Vec_802347B4 *pos, u16 id, s32 res);
+void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u16 id, s32 res);
 u8 *TTecLuker__sub_80233D18(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4DarkFalz__sub_8004C220(void *c, Vec_802347B4 *pos);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
@@ -577,7 +577,7 @@ void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
     u16 id = obj_getField1c(s->player);
     void *v = __nw__7TObjectFUl(0x44);
     if (v != 0) {
-        v = TTecLuker__sub_8023453C(v, &s->pos, id, tl_07);
+        v = create_telepipe_visual(v, &s->pos, id, tl_07);
     }
     s->visual = v;
     s->phase = 1;

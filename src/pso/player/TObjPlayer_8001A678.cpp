@@ -51,7 +51,7 @@ void TCameraCtrl__sub_80069E7C(int);
 extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
 int TObjPlayer__sub_8001A77C(void *p);
-M2C_UNK TObjLight__sub_801345F8(int, void *, void *);
+M2C_UNK publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 lbl_80434478[];
 extern Light_8001A6A8 lbl_804344CC[];
 extern s8 lbl_805D49E4;
@@ -99,7 +99,7 @@ int TObjPlayer__sub_8001A6A8(void *p) {
     c.g = lbl_80434478[lbl_805D49E4].g / 255.0f;
     c.b = lbl_80434478[lbl_805D49E4].b / 255.0f;
     c.a = lbl_80434478[lbl_805D49E4].a / 255.0f;
-    return TObjLight__sub_801345F8(0, &lbl_804344CC[lbl_805D49E4], &c);
+    return publish_light_direction_color(0, &lbl_804344CC[lbl_805D49E4], &c);
 }
 
 int TObjPlayer__sub_8001A77C(void *p) {

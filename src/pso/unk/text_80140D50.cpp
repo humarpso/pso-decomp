@@ -37,7 +37,7 @@ void init_area_lights();
 void TLobby__sub_801403B4(int);
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(u16);
 s32 get_global_state__14TOKeyMachine01Fv();
-void TLobby__sub_80226E44(int);
+void init_music_sequencer(int);
 void TObjBgmColCtrl__sub_802274B8(void *);
 void load_floor_sound_bank();
 extern char lbl_8043F260[];
@@ -67,7 +67,7 @@ s32 fn_80140D50(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F260);
     } else if (get_instance__6TLobbyFv() == 1) {
-        TLobby__sub_80226E44(7);
+        init_music_sequencer(7);
     }
     return 1;
 }

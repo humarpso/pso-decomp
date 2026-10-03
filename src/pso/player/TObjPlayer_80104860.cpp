@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TObjPlayer__sub_80104A94(void *, void *, s32);
+s32 compare_item_data_masked(void *, void *, s32);
 s32 item_identity_matches(u8 *arg0, u8 *arg1);
 M2C_UNK get_weapon_special_type_amount(u8, s16 *, s16 *);
 u8 TObjPlayer__sub_8010494C(u8 arg0);
@@ -83,24 +83,24 @@ s32 item_identity_matches(u8 *arg0, u8 *arg1) {
     {
       case 0:
         var_r5 = 0x41;
-        return TObjPlayer__sub_80104A94(arg0, arg1, 0x41);
+        return compare_item_data_masked(arg0, arg1, 0x41);
       case 1:
         var_r5 = 1;
-        return TObjPlayer__sub_80104A94(arg0, arg1, 1);
+        return compare_item_data_masked(arg0, arg1, 1);
       case 2:
         var_r5 = 0;
-        return TObjPlayer__sub_80104A94(arg0, arg1, 0);
+        return compare_item_data_masked(arg0, arg1, 0);
       case 3:
         if (var_r6 == 2)
       {
         var_r5 = 0x41;
-        return TObjPlayer__sub_80104A94(arg0, arg1, 0x41);
+        return compare_item_data_masked(arg0, arg1, 0x41);
       }
         var_r5 = 1;
-        return TObjPlayer__sub_80104A94(arg0, arg1, 1);
+        return compare_item_data_masked(arg0, arg1, 1);
       case 4:
         var_r5 = 0;
-        return TObjPlayer__sub_80104A94(arg0, arg1, 0);
+        return compare_item_data_masked(arg0, arg1, 0);
     }
   }
   else

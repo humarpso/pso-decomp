@@ -100,7 +100,7 @@ extern const f32 lbl_805DC8C8;
 void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
-void TTecRaBarta__sub_802377FC(void *);
+void calc_parameters__11TTecRaBartaFv(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
 extern u32 lbl_805D37F8;
 void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *level);
@@ -135,7 +135,7 @@ extern struct Profile_80237A94 lbl_8044D9F8[];
 void VecCopy__FP3VecPC3Vec(Vec_80237DAC *, const Vec_80237DAC *);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
-void TTecRaBarta__sub_802377FC(void *);
+void calc_parameters__11TTecRaBartaFv(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
 extern u32 lbl_805D37F8;
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
@@ -221,7 +221,7 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
     construct_area_technique_base(self_, source, origin, pos, level);
     self->vt = __vt__11TTecRaBarta;
     self->f0 = lbl_805D37F8;
-    TTecRaBarta__sub_802377FC(self);
+    calc_parameters__11TTecRaBartaFv(self);
     self->ff0 = 1;
     ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->pos, ((VecCopyFn_80237BD8)VecCopy__FP3VecPC3Vec)(self->src_pos, pos));
     if (self->holder != 0) {
@@ -247,7 +247,7 @@ void *TTecRaBarta__sub_80237CCC(void *self, void *source, void *origin, void *le
     M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TTecRaBarta;
     M2C_FIELD(self, u32 *, 0) = lbl_805D37F8;
     M2C_FIELD(self, s32 *, 0xF0) = 0;
-    TTecRaBarta__sub_802377FC(self);
+    calc_parameters__11TTecRaBartaFv(self);
     if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
         M2C_FIELD(M2C_FIELD(M2C_FIELD(self, u8 **, 0xE8), u8 **, 0xA4), f32 *, 0xC) = M2C_FIELD(self, f32 *, 0x90);
     }

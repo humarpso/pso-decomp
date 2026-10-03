@@ -159,7 +159,7 @@ void TItemMagSub__sub_80114E4C(u8 *arg0);
 s32 is_mag_active__11TItemMagSubFPv(int);
 void TItemMagSub__sub_80114E4C(u8 *arg0);
 s32 push_matrix_from(void *);
-f32 TObjPlayer__sub_803D9884(void *, void *);
+f32 transform_point_by_current_matrix(void *, void *);
 s32 pop_matrix();
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 lbl_8043E5A8;
 extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
@@ -212,7 +212,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 s32 calc_feed_level__11TItemMagSubFPv(void *arg0);
 M2C_UNK rotate_matrix_y(int, void *);
 s32 push_matrix_from(void *);
-f32 TObjPlayer__sub_803D9884(void *, void *);
+f32 transform_point_by_current_matrix(void *, void *);
 s32 pop_matrix();
 void vec3_add_to(void *, void *);
 extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
@@ -378,7 +378,7 @@ s32 TItemMagSub__sub_80114DB8(u8 *arg0, u32 arg1) {
         stack.sp8 = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 0);
         stack.spC = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 4);
         stack.sp10 = M2C_FIELD(&lbl_8043E5A8.value, s32 *, 8);
-        TObjPlayer__sub_803D9884((void *) (&stack.sp8), (void *) (arg1));
+        transform_point_by_current_matrix((void *) (&stack.sp8), (void *) (arg1));
         pop_matrix();
         return 1;
     }
@@ -525,7 +525,7 @@ void TItemMagSub__sub_801151E0(MagSub_801151E0 *self) {
     rotate_matrix_y(0, (void *)(calc_feed_level__11TItemMagSubFPv(self) + 0x8000));
     Vec_801151E0 in = lbl_8043E59C[0];
     Vec_801151E0 out;
-    TObjPlayer__sub_803D9884(&in, &out);
+    transform_point_by_current_matrix(&in, &out);
     vec3_add_to(&self->posA0, &out);
     pop_matrix();
 }

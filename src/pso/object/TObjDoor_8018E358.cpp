@@ -316,7 +316,7 @@ void TObjDoor__sub_8018E894(u8 *arg0) {
 #pragma pop
 
 void TObjDoor__sub_8018E8BC(void) {  }
-void TObjDoor__sub_8018E8C0(TObjDoor* door) {
+void draw_closed_glow__8TObjDoorFPv(TObjDoor* door) {
     door->frame+=lbl_805DBDC8;
     if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1))door->frame=TObjDoor__data_805DBDC4;
     door->glow+=lbl_805DBDC0;

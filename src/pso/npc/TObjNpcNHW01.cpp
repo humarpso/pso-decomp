@@ -96,7 +96,7 @@ struct RecoveredGlobal_8014D2F8___vt__12TObjNpcNHW01 {
 
 extern "C" {
 s32 init_position_vectors__10TObjPlayerFi(void *);
-s32 fn_80148274(void *);
+s32 setup_common__11TObjNpcBaseFv(void *);
 s32 TObjNpcFemaleBase__sub_80149CE0(void *);
 extern M2C_UNK __vt__12TObjNpcNHW01[];
 extern s32 lbl_805D2E48;
@@ -170,7 +170,7 @@ u8 *TObjNpcNHW01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcNHW01__data_805D5838);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (*(s32 *)&TObjNpcNHW01__data_805D583C);
-    fn_80148274((void *) (arg0));
+    setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
 

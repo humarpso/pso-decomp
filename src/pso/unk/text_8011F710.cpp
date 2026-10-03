@@ -132,7 +132,7 @@ void spawn_effect__11TBoss4Type3Fsss(s16,s16,s16);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void*);
 void set_status_flags__10TObjPlayerFPvUi(void*,u32);
 void draw_status_icon__10TObjPlayerFPvi(void*,WeaponVector*);
-void TObjPlayer__sub_8011EB84(void*,WeaponVector*,s32,s32);
+void fire_shot_at_target__11TItemWeaponFv(void*,WeaponVector*,s32,s32);
 void update_active_game_effect__10TObjPlayerFPv(void*);
 
 s32 refresh_owner_stats__5TItemFPv(Obj_8011F710 *arg0);
@@ -244,7 +244,7 @@ void TItemWeapon::dispatch_attack_marker() {
         if(!test_flags_1b8__10TObjPlayerFPvUi(self,2)) {
             if(test_flags_1b8__10TObjPlayerFPvUi(self,0x8000)) {
                 draw_status_icon__10TObjPlayerFPvi(self,&gun_point);
-                TObjPlayer__sub_8011EB84(self,&gun_point,self->projectile,0);
+                fire_shot_at_target__11TItemWeaponFv(self,&gun_point,self->projectile,0);
                 return;
             }
             if(test_flags_1b8__10TObjPlayerFPvUi(self,0x20000)) {

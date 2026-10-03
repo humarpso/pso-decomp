@@ -164,7 +164,7 @@ void TObjPlayer__sub_803D99F8(void *, int);
 void scale_current_matrix(void *);
 void post_translate_matrix(void *);
 void TObjPlayer__sub_803D7CA4(void *arg0);
-s32 TBoss8Dragon__sub_803D7504(void *, void *, void *, void *, void *);
+s32 blend_motion_poses(void *, void *, void *, void *, void *);
 void TObjPlayer__sub_803D98E4(void *);
 void TObjPlayer__sub_803D99F8(void *, int);
 void scale_current_matrix(void *);
@@ -525,7 +525,7 @@ void TObjPlayer__sub_803D76B4(void *arg0) {
     struct Angles_803D7CA4 rot;
     struct Quat_803D7CA4 quat;
     s32 kind;
-    kind = TBoss8Dragon__sub_803D7504(arg0, &trans, &rot, &scale, &quat);
+    kind = blend_motion_poses(arg0, &trans, &rot, &scale, &quat);
     post_translate_matrix(&trans);
     switch (kind) {
     case 0:

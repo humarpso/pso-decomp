@@ -121,7 +121,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void assign_id_and_init__5TItemFPvii(void *, s32, void *);
 s32 get_item_type_or_default__9TItemListFPv(void *);
 void send_code_45_1__10TObjPlayerFi(void *);
-void TObjPlayer__sub_801B8870(void *, s32, void *, s32);
+void send_6x2A_drop_item__10TObjPlayerFv(void *, s32, void *, s32);
 void TObjPlayer__sub_801B8DE8(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
@@ -188,7 +188,7 @@ void run_item_drop_search_task(u8 *arg0) {
                     send_code_45_1__10TObjPlayerFi(player);
                 }
             } else {
-                TObjPlayer__sub_801B8870(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFPv(r->item));
+                send_6x2A_drop_item__10TObjPlayerFv(player, r->source, get_ptr_0x44__9TItemListFPv(arg0), get_item_type_or_default__9TItemListFPv(r->item));
                 send_code_45_1__10TObjPlayerFi(player);
             }
         }

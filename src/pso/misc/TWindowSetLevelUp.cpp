@@ -12,7 +12,7 @@ struct M2CCopy_16 { u8 bytes[0x16]; };
 #pragma auto_inline on
 #pragma dont_inline off
 extern "C" {
-M2C_UNK TWindowSubStatusDisp__sub_8026DA44();
+M2C_UNK update_stat_messages__17TWindowSetLevelUpFv();
 void TWindowSetLevelUp__sub_8026DDE0(s32 arg0, s32 arg1);
 }
 
@@ -38,7 +38,7 @@ void run_task__17TWindowSetLevelUpFv(u8 *arg0) {
     temp_r5 = M2C_FIELD(arg0, s16 *, 0x1E);
     M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (temp_r5 - 1);
     if (temp_r5 <= 0) {
-        TWindowSubStatusDisp__sub_8026DA44();
+        update_stat_messages__17TWindowSetLevelUpFv();
     }
 }
 

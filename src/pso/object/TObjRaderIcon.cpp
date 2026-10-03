@@ -28,7 +28,7 @@ s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void TObjRaderIcon__sub_801F9914(void *, u32, u16, s32, s32, f32);
+void submit_radar_marker__13TObjRaderIconFv(void *, u32, u16, s32, s32, f32);
 u8 is_current_floor_switch_set(u16);
 void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
 extern const f32 lbl_805DBF08;
@@ -70,13 +70,13 @@ void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
             }
         }
         if (all == 1) {
-            TObjRaderIcon__sub_801F9914(arg0->pos, 0xFF00FF00, arg0->f60, 0, 0, arg0->f9C);
+            submit_radar_marker__13TObjRaderIconFv(arg0->pos, 0xFF00FF00, arg0->f60, 0, 0, arg0->f9C);
         } else {
-            TObjRaderIcon__sub_801F9914(arg0->pos, 0xFFFF0000, arg0->f60, 0, 0, arg0->f9C);
+            submit_radar_marker__13TObjRaderIconFv(arg0->pos, 0xFFFF0000, arg0->f60, 0, 0, arg0->f9C);
         }
         break;
     case 1:
-        TObjRaderIcon__sub_801F9914(arg0->pos, arg0->fA0, arg0->f60, 0, 0, arg0->f9C);
+        submit_radar_marker__13TObjRaderIconFv(arg0->pos, arg0->fA0, arg0->f60, 0, 0, arg0->f9C);
         break;
     }
 }

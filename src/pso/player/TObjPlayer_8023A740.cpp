@@ -37,7 +37,7 @@ void TObjEneGibbles__sub_80156720(void *);
 int TTecSifta__sub_8023AC88(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 
 extern M2C_UNK lbl_804CCC68[];
 

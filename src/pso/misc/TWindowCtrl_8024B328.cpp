@@ -22,12 +22,12 @@ extern u32 TWindowCtrl__data_805D63F8;
 void TWindowCtrl__sub_8024B328(u16 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
-void TWindowFukidasi__sub_8025010C(void *);
+void complete_speech_balloon(void *);
 extern u32 TWindowCtrl__data_805D63F8;
 void complete_actor_speech_balloons(u16 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
-s32 TWindowFukidasi__sub_802501B0(void *);
+s32 is_speech_balloon_ready(void *);
 extern u32 TWindowCtrl__data_805D63F8;
 s32 is_actor_speech_balloon_done(u16 arg0);
 }
@@ -54,7 +54,7 @@ void complete_actor_speech_balloons(u16 arg0) {
         for (i = 0; i < 4; i++) {
             w = ((Ctrl_8024B3B4 *)TWindowCtrl__data_805D63F8)->win[i];
             if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFPv(w)) {
-                TWindowFukidasi__sub_8025010C(w);
+                complete_speech_balloon(w);
             }
         }
     }
@@ -68,7 +68,7 @@ s32 is_actor_speech_balloon_done(u16 arg0) {
     }
     for (i = 0; i < 4; i++) {
         w = ((Ctrl_8024B440 *)TWindowCtrl__data_805D63F8)->win[i];
-        if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFPv(w) && TWindowFukidasi__sub_802501B0(w) == 0) {
+        if (w != NULL && all_parents_unqueued_for_destruction__7TObjectFv(w) != 0 && arg0 == get_flags__11TWindowCtrlFPv(w) && is_speech_balloon_ready(w) == 0) {
             return 0;
         }
     }

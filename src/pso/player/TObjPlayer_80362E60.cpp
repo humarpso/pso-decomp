@@ -90,7 +90,7 @@ int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK draw_weapon_model(void *);
 void TObjPlayer__sub_80363060(u8 *arg0);
 s16 get_validated_attack_stage(void *);
-M2C_UNK TObjPlayer__sub_8011EB84(void *, void *, int, int);
+M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position);
 void TObjPlayer__sub_80362EF8(u8 *arg0);
 void * enter_state_804F27E0__10TObjPlayerFPv(void *, M2C_UNK, void *);
@@ -144,11 +144,11 @@ void TObjPlayer__sub_80362EF8(u8 *arg0) {
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
     ((VObj_18_f1aa6a *)(temp_r3))->m63(0x30, &sp8);
     if (get_validated_attack_stage(M2C_FIELD(arg0, u8 **, 0xF0) + 0x7CC) == 2) {
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0x1555));
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (-0x1555));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0x1555));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (-0x1555));
     } else {
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
     }
     create_cane_if_ready__10TObjPlayerFi((s32)((void *) (arg0)), (void *)((void *) (&sp8)));
 }

@@ -33,7 +33,7 @@ f32 TObjPlayer__sub_801D9440(s32);
 s32 is_alive_and_ready__10TObjPlayerFi(Plr_801B6A5C *);
 void refill_traps__10TObjPlayerFPv(Plr_801B6A5C *);
 s32 reset_volopt_state__10TObjPlayerFv(Plr_801B6A5C *);
-void TObjPlayer__sub_801B6964(Plr_801B6A5C *, void *);
+void spawn_level_change_feedback__10TObjPlayerFv(Plr_801B6A5C *, void *);
 void copy_fields__10TObjPlayerFPvPv(Pkt_801B6A5C *, void *);
 Plr_801B6A5C *get_player_by_client_id(u16);
 s32 check_flag_4__10TObjPlayerFPv(Plr_801B6A5C *);
@@ -194,9 +194,9 @@ void handle_6x30_change_player_level(void *arg0) {
     }
     if (check_flag_4__10TObjPlayerFPv(p) == 0) {
         if (pkt.kind == 1) {
-            TObjPlayer__sub_801B6964(p, lbl_80446F50);
+            spawn_level_change_feedback__10TObjPlayerFv(p, lbl_80446F50);
         } else {
-            TObjPlayer__sub_801B6964(p, lbl_80446F5C);
+            spawn_level_change_feedback__10TObjPlayerFv(p, lbl_80446F5C);
         }
     }
 }

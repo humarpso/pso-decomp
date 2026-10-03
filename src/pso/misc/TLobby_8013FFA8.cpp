@@ -32,7 +32,7 @@ struct Light_80140514 {
 };
 
 extern "C" {
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -48,7 +48,7 @@ int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 void update_floor_state__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -124,7 +124,7 @@ int update_current_floor__6TLobbyFv(void);
 void run_floor_update__6TLobbyFv(void);
 s32 TCameraCtrl__sub_8006B368();
 void TLobby__sub_801403B4(M2C_UNK);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -143,7 +143,7 @@ int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 void update_floor_and_windows__6TLobbyFv(void);
 void TLobby__sub_801403B4(M2C_UNK _w0);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -160,7 +160,7 @@ int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 void update_scene__6TLobbyFv(void);
 void TLobby__sub_801403B4(M2C_UNK _w0);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -204,7 +204,7 @@ int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 void update_floor_objects__6TLobbyFv(void);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -227,7 +227,7 @@ M2C_UNK init_area_lights();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK create__12TObjRainCtrlFv();
 s32 is_split_screen();
@@ -263,7 +263,7 @@ int update_current_floor__6TLobbyFv(void);
 void update_floor_alt__6TLobbyFv(void);
 s32 TCameraCtrl__sub_8006B368();
 void TLobby__sub_801403B4(M2C_UNK _w0);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -282,7 +282,7 @@ int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 void update_floor_b__6TLobbyFv(void);
 void TLobby__sub_801403B4(M2C_UNK _w0);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK init_area_lights();
@@ -350,7 +350,7 @@ s32 ship_scene_update(void);
 void update_floor__6TLobbyFv(void);
 void update_floor_a__6TLobbyFv(void);
 int TLobby__sub_8007BA20(void);
-M2C_UNK TLobby__sub_80226E44(M2C_UNK);
+M2C_UNK init_music_sequencer(M2C_UNK);
 int TLobby__sub_8022743C(void);
 M2C_UNK load_floor_sound_bank();
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
@@ -380,7 +380,7 @@ s32 ship_scene_update(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F188);
     } else {
-        TLobby__sub_80226E44(3);
+        init_music_sequencer(3);
     }
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x30);
     return 1;
@@ -398,7 +398,7 @@ s32 init_ship_scene(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F198);
     } else {
-        TLobby__sub_80226E44(3);
+        init_music_sequencer(3);
     }
     return 1;
 }
@@ -414,7 +414,7 @@ s32 load_scene_ship_b(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F1A8);
     } else {
-        TLobby__sub_80226E44(3);
+        init_music_sequencer(3);
     }
     return 1;
 }
@@ -581,7 +581,7 @@ s32 init_cave_b_stage(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F1E8);
     } else {
-        TLobby__sub_80226E44(1);
+        init_music_sequencer(1);
     }
     if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x1E);
@@ -601,7 +601,7 @@ s32 load_scene_cave_b(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F1F8);
     } else {
-        TLobby__sub_80226E44(1);
+        init_music_sequencer(1);
     }
     return 1;
 }
@@ -618,7 +618,7 @@ s32 init_stage_cave_b(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F208);
     } else {
-        TLobby__sub_80226E44(1);
+        init_music_sequencer(1);
     }
     return 1;
 }
@@ -670,7 +670,7 @@ s32 init_stage_forest_b(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F218);
     } else {
-        TLobby__sub_80226E44(0);
+        init_music_sequencer(0);
     }
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x14);
     return 1;
@@ -689,7 +689,7 @@ s32 init_forest_b(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F228);
     } else {
-        TLobby__sub_80226E44(0);
+        init_music_sequencer(0);
     }
     return 1;
 }
@@ -733,7 +733,7 @@ s32 init_machine_scene(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F238);
     } else {
-        TLobby__sub_80226E44(2);
+        init_music_sequencer(2);
     }
     if ((get_main_phase() != 0xE) || (TCameraCtrl__sub_8006B368() == 0)) {
         dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x28);
@@ -753,7 +753,7 @@ s32 init_machine_b_scene(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8(lbl_8043F248);
     } else {
-        TLobby__sub_80226E44(2);
+        init_music_sequencer(2);
     }
     return 1;
 }

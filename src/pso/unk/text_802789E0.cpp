@@ -4,7 +4,7 @@ u32 get_usable_action_flags__5TItemFPvUiUi(void *, s32, s32);
 void *find_item_by_id(u32);
 u8 *get_player_by_client_id(s16);
 u32 run_and_get_result__10TObjPlayerFPvi(void *, u32 *);
-void TLobby__sub_80266E34(void *);
+void calc_list_content_extent(void *);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void add_list_entry__23TShopJudgmentItemWindowFPvii(void *, void *, u32);
 void fn_802789E0(u8 *arg0);
@@ -30,7 +30,7 @@ void fn_802789E0(u8 *arg0) {
         if (*(s16 *)(arg0 + 0x72) <= 0) {
             add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
         }
-        TLobby__sub_80266E34(arg0);
+        calc_list_content_extent(arg0);
     }
 }
 

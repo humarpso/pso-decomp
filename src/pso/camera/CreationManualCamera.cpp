@@ -6,7 +6,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #include "pso/misc/CharacterAppearance.h"
 extern "C" {
 f32 get_ratio__16TObjCMProportionFv(void),TObjCMProportion__sub_80298FF4(void);
-void TObjCMProportion__sub_8029903C(void*,void*);
+void get_creation_pad_stick(void*,void*);
 s32 TObjCMProportion__sub_8029914C(s32);
 f32 sin_table_lookup(s32),cos_table_lookup(s32);
 extern CharacterAppearanceFields *lbl_805D6520;
@@ -63,7 +63,7 @@ void advance_creation_manual_camera(CreationCameraFields *arg0) {
     }
   }
 
-  TObjCMProportion__sub_8029903C(&sp10, &spC);
+  get_creation_pad_stick(&sp10, &spC);
   if (lbl_805DD974 != spC)
   {
     arg0->yaw = (s32) (((lbl_805DD9BC * spC) * sin_table_lookup(sp10)) + ((f32) arg0->yaw));
@@ -107,7 +107,7 @@ void advance_creation_manual_camera(CreationCameraFields *arg0) {
   {
     arg0->distance = (f32) lbl_805DD9B8;
   }
-  TObjCMProportion__sub_8029903C(0, &sp8);
+  get_creation_pad_stick(0, &sp8);
   if ((sp8 > lbl_805DD974) || (TObjCMProportion__sub_8029914C(0x300F0) != 0))
   {
     arg0->ticks = 0;

@@ -13,7 +13,7 @@ s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK init_area_lights();
 void dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
-void TLobby__sub_80226E44(s32);
+void init_music_sequencer(s32);
 M2C_UNK TObjBgmColCtrl__sub_802274B8(M2C_UNK *);
 M2C_UNK load_floor_sound_bank();
 void create_mist_ctrl__6TLobbyFPvPv(void *, void *);
@@ -139,7 +139,7 @@ s32 TLobby__sub_80299C7C(void) {
     if (is_split_screen() != 0) {
         TObjBgmColCtrl__sub_802274B8((M2C_UNK *)(lbl_804651C0));
     } else {
-        TLobby__sub_80226E44(5);
+        init_music_sequencer(5);
     }
     if ((is_not_split_screen__13TRaderMapCoreFv() == 0) && (((s32)get_global_state__14TOKeyMachine01Fv()) == 0x17)) {
         create_mist_ctrl__6TLobbyFPvPv(tl_05, NULL);

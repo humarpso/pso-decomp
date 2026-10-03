@@ -129,7 +129,7 @@ M2C_UNK TFogCtrl__sub_800FBA54(M2C_UNK);
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
-int fn_800FC0F8(void*);
+int calc_small_font_text_width(void*);
 M2C_UNK fn_803E1FC8(M2C_UNK);
 M2C_UNK fn_803E1FFC(f32, f32);
 M2C_UNK fn_803E2070();
@@ -340,6 +340,6 @@ void TLobby__sub_800FBFD8(void *color, const char *s, f32 x, f32 y, f32 scale) {
     get_player__20TWindowSubStatusDispFv();
 }
 
-int fn_800FC0D8(void* p) { return fn_800FC0F8(p); }
+int fn_800FC0D8(void* p) { return calc_small_font_text_width(p); }
 
 }

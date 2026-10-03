@@ -9,7 +9,7 @@ struct RecoveredGlobal_80181278_lbl_804B5908 {
 };
 
 extern "C" {
-s32 fn_80181074(void *);
+s32 update_path_motion__18TObjCityAirCar_CarFv(void *);
 u8 * TPhotonMagicSquare__sub_801A2640(void *);
 extern RecoveredGlobal_80181278_lbl_804B5908 lbl_804B5908;
 extern s32 lbl_805D324C;
@@ -31,7 +31,7 @@ u8 *fn_80181278(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0) {
     M2C_FIELD(arg0, s32 *, 0xA0) = 0;
     M2C_FIELD(arg0, s32 *, 0xA4) = 0;
     M2C_FIELD(arg0, s32 *, 0xA8) = 0;
-    fn_80181074(arg0);
+    update_path_motion__18TObjCityAirCar_CarFv(arg0);
     M2C_FIELD(arg0, s32 *, 0x64) = 0;
     return arg0;
 }

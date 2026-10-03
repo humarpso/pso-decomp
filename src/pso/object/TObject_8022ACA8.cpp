@@ -17,7 +17,7 @@ extern "C" {
 s32 get_flag_9__7TObjectFv(void *arg0);
 int TTecAnti__sub_8022AD74(void* p);
 void TTecAnti__sub_8022AD94(void);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 int queue_destruction__7TObjectFv(void*);
 int queue_destruction__8TTecAntiFPv(void* p);
 

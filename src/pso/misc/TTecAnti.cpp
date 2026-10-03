@@ -157,10 +157,10 @@ void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 int queue_destruction__7TObjectFv(void*);
 
-int TTecAnti__sub_8022AD74(void* p) { return fn_80236EE8(p); }
+int TTecAnti__sub_8022AD74(void* p) { return spawn_support_tec_range_effect(p); }
 void TTecAnti__sub_8022AD94(void * _w0) {  }
 int queue_destruction__8TTecAntiFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 

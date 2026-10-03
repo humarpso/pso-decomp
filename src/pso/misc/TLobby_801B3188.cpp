@@ -41,7 +41,7 @@ s32 TNpcPlayer__sub_8034DE40();
 s32 TNpcPlayer__sub_8034DE70();
 M2C_UNK apply_to_players__10TNpcPlayerFiPvi(s32, int, int);
 extern ReturnLobby lbl_80515BA0;
-void TObjPlayer__sub_801B31D8(s32 arg0);
+void prepare_hospital_return__10TObjPlayerFi(s32 arg0);
 s32 get_main_phase();
 M2C_UNK mark_area_change_pending();
 M2C_UNK get_field_2d4__10TObjPlayerFPv(void *);
@@ -53,7 +53,7 @@ M2C_UNK TObjPlayer__sub_801AF554(void *, u8);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 try_pickup_item__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801B30BC(void *, int);
-void TObjPlayer__sub_801B31D8(s32 arg0);
+void prepare_hospital_return__10TObjPlayerFi(s32 arg0);
 M2C_UNK create_return_city_window__10TObjPlayerFPv(void *);
 M2C_UNK update_aim_angle__10TObjPlayerFPvi(void *, int);
 VObj_801B3274 *get_player_by_client_id(M2C_UNK);
@@ -85,7 +85,7 @@ int set_battle_flag__10TObjPlayerFPvi(void*, int);
 int player_flag_1__6TLobbyFPv(void* p) { return set_battle_flag__10TObjPlayerFPvi(p, 1); }
 int check_player_state_flag_2__6TLobbyFPv(void* p) { return test_flags_any((char*)p + 0x858, 2); }
 void handle_6x34(void) {  }
-void TObjPlayer__sub_801B31D8(s32 arg0) {
+void prepare_hospital_return__10TObjPlayerFi(s32 arg0) {
     s32 temp_r30;
     s32 temp_r31;
     send_6x21_inter_level_warp(arg0, 0);
@@ -142,7 +142,7 @@ void complete_deferred_player_death(void) {
                 TObjPlayer__sub_801B30BC(p, 0);
                 return;
             }
-            TObjPlayer__sub_801B31D8((s32)p);
+            prepare_hospital_return__10TObjPlayerFi((s32)p);
             set_area__6TLobbyFPvi(&lbl_80515BA0, 0, get_floor_map_terrain(0));
             mark_area_change_pending();
             TNpcPlayer__sub_8034E7A0(get_dest_area__17TObjAreaWarpQuestFPv(&lbl_80515BA0));

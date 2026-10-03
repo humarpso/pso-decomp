@@ -33,7 +33,7 @@ void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append();
 void text_builder_reset();
 u8 *calc_technique_parameters(u16, u8, s32);
-s32 TWindowHelpItem__sub_802434B8(u16, s32);
+s32 get_palette_consumable_count(u16, s32);
 void get_help_text_string(s32);
 void toggle_help_window_on_button(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
@@ -87,7 +87,7 @@ M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 M2C_UNK draw_window_frame(void *, s32);
 s32 TWindowSubStatusDisp__sub_80244364();
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_8026C800(s32, s32);
+M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TWindowMenuFv(void *, int);
 void delete_if_allocated(void *, int);
@@ -110,7 +110,7 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
         forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88), temp_r3);
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0x8C) != 0U) {
-        TWindowSubStatusDisp__sub_8026C800(M2C_FIELD(arg0, s32 *, 0x8C), temp_r3);
+        draw_list_page_indicator(M2C_FIELD(arg0, s32 *, 0x8C), temp_r3);
     }
 }
 
@@ -239,7 +239,7 @@ void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev) {
         text_builder_append();
         break;
     case 4:
-        if (TWindowHelpItem__sub_802434B8(ev->id, self->player) == -1) {
+        if (get_palette_consumable_count(ev->id, self->player) == -1) {
             break;
         }
         get_help_text_string(ev->id + 0x16);

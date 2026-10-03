@@ -36,7 +36,7 @@ struct Msg_80269A0C {
 extern "C" {
 Entry_80269A0C *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
-void TWindowSubStatusDisp__sub_8025A9C0(void *, f32);
+void measure_message_text_width(void *, f32);
 void TWindowSubStatusDisp__sub_8025AC50(void *, s32, s32);
 void scroll_up_line__14TWindowMessageFPvPv(void *, void *);
 extern const f32 lbl_805DD218;
@@ -101,7 +101,7 @@ s32 append_message_window_line(Msg_80269A0C *self, s32 text, s32 flags, s32 arg3
     if (self->f2C & 0x80) {
         y -= lbl_805DD23C;
     }
-    TWindowSubStatusDisp__sub_8025A9C0(e, y);
+    measure_message_text_width(e, y);
     if (flags & 0x200) {
         e->f8 = y - e->f10;
     } else {

@@ -184,10 +184,10 @@ void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 M2C_UNK queue_destruction__7TObjectFv();
 
-int init_cast__9TTecRestaFPv(void* p) { return fn_80236EE8(p); }
+int init_cast__9TTecRestaFPv(void* p) { return spawn_support_tec_range_effect(p); }
 
 typedef struct RecoveredGlobal_802394B0_lbl_804CC55C RecoveredGlobal_802394B0_lbl_804CC55C;
 typedef char RecoveredGlobal_802394B0_lbl_804CC55C_size[((sizeof(RecoveredGlobal_802394B0_lbl_804CC55C)) == 0x98) ? (1) : (-1)];

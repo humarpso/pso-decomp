@@ -94,7 +94,7 @@ struct Self_80239070 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 approach_position_if_far(void *, void *, f32);
-s32 fn_80082764(void *, void *, f32);
+s32 approach_alpha_clamped(void *, void *, f32);
 extern RecoveredGlobal_80238388_lbl_8044DAF0 lbl_8044DAF0;
 extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8D8;
@@ -262,7 +262,7 @@ void update_rafoie_explosion(u8 *arg0) {
     } else {
         approach_position_if_far((void *) (arg0 + 0x34), (void *) (&stack.sp18), (f32) (lbl_805DC8DC));
     }
-    fn_80082764((void *) (arg0 + 0x48), (void *) (&stack.sp8), (f32) (lbl_805DC8E0));
+    approach_alpha_clamped((void *) (arg0 + 0x48), (void *) (&stack.sp8), (f32) (lbl_805DC8E0));
 }
 #pragma pop
 
@@ -812,7 +812,7 @@ extern "C" {
 void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2);
 void render__11TTecRaZondeFv(void);
 void *__nw__7TObjectFUl(int);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 int init_cast__9TTecRestaFPv(void* p);
 
 void create__11TTecRaZondeFPvPvPv(void *arg0, void *arg1, void *arg2) {

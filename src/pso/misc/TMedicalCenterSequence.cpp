@@ -126,9 +126,9 @@ extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCe
 extern s32 lbl_805D3678;
 u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
-M2C_UNK TMedicalCenterSequence__sub_802164A4();
-M2C_UNK TMedicalCenterSequence__sub_80216540();
-M2C_UNK TMedicalCenterSequence__sub_8021658C();
+M2C_UNK show_fee_prompt__22TMedicalCenterSequenceFv();
+M2C_UNK show_already_healthy__22TMedicalCenterSequenceFv();
+M2C_UNK show_declined__22TMedicalCenterSequenceFv();
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
@@ -269,10 +269,10 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
         handle_confirm__22TMedicalCenterSequenceFPv((void *)(arg0));
         return;
     case 6:
-        TMedicalCenterSequence__sub_80216540();
+        show_already_healthy__22TMedicalCenterSequenceFv();
         return;
     case 7:
-        TMedicalCenterSequence__sub_802164A4();
+        show_fee_prompt__22TMedicalCenterSequenceFv();
         return;
     case 3:
         handle_window_result__22TMedicalCenterSequenceFPv((void *)(arg0));
@@ -281,7 +281,7 @@ void TMedicalCenterSequence__vt9(u8 *arg0) {
         exec_heal__22TMedicalCenterSequenceFPv((void *)(arg0));
         return;
     case 5:
-        TMedicalCenterSequence__sub_8021658C();
+        show_declined__22TMedicalCenterSequenceFv();
         return;
     case 8:
         handle_window_input__22TMedicalCenterSequenceFPv((void *)(arg0));

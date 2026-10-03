@@ -45,7 +45,7 @@ void TWindowSubComCard__sub_80265A38(u8 *arg0);
 u32 TWindowSubComCard__sub_80265BF8(Obj_80265BF8 *o);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
-void TWindowSubStatusDisp__sub_8025A9C0(Ent_80265C30 *e, f32 x);
+void measure_message_text_width(Ent_80265C30 *e, f32 x);
 extern const f32 lbl_805DD15C;
 extern const f32 lbl_805DD160;
 extern const f32 lbl_805DD148;
@@ -78,7 +78,7 @@ void TWindowSubComCard__sub_80266078(u8 *arg0);
 Ent_80265C30 *get_array_entry__20TWindowSubStatusDispFPvi(void *w, s32 i);
 void *get_field_20__17TWindowSubComCardFPv(void *e);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
-void TWindowSubStatusDisp__sub_8025A9C0(Ent_80265C30 *e, f32 x);
+void measure_message_text_width(Ent_80265C30 *e, f32 x);
 extern const f64 lbl_8044F330;
 extern const f32 lbl_805DD150;
 extern const f32 lbl_805DD154;
@@ -151,7 +151,7 @@ void TWindowSubComCard__sub_80265C30(Win_80265C30 *self) {
     for (i = 0; i < self->count; i++) {
         Ent_80265C30 *e = get_array_entry__20TWindowSubStatusDispFPvi(self, i);
         if (get_field_20__17TWindowSubComCardFPv(e) != 0) {
-            TWindowSubStatusDisp__sub_8025A9C0(e, left);
+            measure_message_text_width(e, left);
             if (e->h > lbl_805DD168) {
                 e->x = lbl_805DD150;
             } else {
@@ -170,7 +170,7 @@ void TWindowSubComCard__sub_80265CFC(u8 *arg0, f32 farg0) {
     for (i = 0; i < *(s16 *)(arg0 + 0x76); i++) {
         e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, i);
         if (get_field_20__17TWindowSubComCardFPv(e) != 0 && !(e->h <= lbl_8044F330)) {
-            TWindowSubStatusDisp__sub_8025A9C0(e, farg0);
+            measure_message_text_width(e, farg0);
             h += lbl_805DD16C + e->h;
         }
     }

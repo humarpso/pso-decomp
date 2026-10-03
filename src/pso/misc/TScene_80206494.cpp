@@ -88,7 +88,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0);
 void load_map_texture_archive__6TSceneFi(s32 arg0);
 void load_scene_data__6TSceneFi(s32 arg0);
 void TScene__sub_80206B4C(s32);
-void TScene__sub_80206D3C(s32);
+void load_supplementary_t_rel__6TSceneFv(s32);
 void TScene__sub_80206DB8(s32);
 s32 get_floor_map_selection(s32, void *);
 Ent_802066BC *get_floor_scene_table(s32);
@@ -506,7 +506,7 @@ void TScene__sub_80207038(void) {
         bind_gvm_texture_list(path, M2C_FIELD(TScene__data_805D5FCC, u32 *, 0x14));
     }
     load_scene_data__6TSceneFi(ent);
-    TScene__sub_80206D3C(ent);
+    load_supplementary_t_rel__6TSceneFv(ent);
     load_map_texture_archive__6TSceneFi(ent);
     TScene__sub_80206B4C(ent);
     load_file_to_buffer__6TSceneFi(ent);

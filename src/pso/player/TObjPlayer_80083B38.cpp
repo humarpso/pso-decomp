@@ -140,9 +140,9 @@ M2C_UNK set_ginja_draw_flags(int);
 M2C_UNK TObjLight__sub_803DF268(f32, f32, f32);
 M2C_UNK TObjLight__sub_803DF31C(int, int);
 M2C_UNK TObjLight__sub_803DF528(int);
-void TObjPlayer__sub_803E1C40(f32, f32, f32);
-void TObjPlayer__sub_803E1CC4(s32);
-void TObjPlayer__sub_803E1F98();
+void translate_current_matrix_ps(f32, f32, f32);
+void rotate_current_matrix_x_ps(s32);
+void push_identity_matrix_ps();
 extern RecoveredGlobal_80083CEC_lbl_8048E5D0 lbl_8048E5D0;
 extern u32 lbl_805D4DF0;
 extern const f32 lbl_805D93C8;
@@ -258,10 +258,10 @@ void camera_stuff__Fv(void) {
     TObjLight__sub_803DF268(lbl_805D93D8, lbl_805D93D8, lbl_805D93D8);
     TObjLight__sub_803DF31C(0, 0);
     TObjLight__sub_803DF528(0);
-    TObjPlayer__sub_803E1F98();
-    TObjPlayer__sub_803E1C40(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
-    TObjPlayer__sub_803E1CC4(0x3800);
-    TObjPlayer__sub_803E1C40(-LIGHT.x, -LIGHT.y, -LIGHT.z);
+    push_identity_matrix_ps();
+    translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
+    rotate_current_matrix_x_ps(0x3800);
+    translate_current_matrix_ps(-LIGHT.x, -LIGHT.y, -LIGHT.z);
     set_ginja_draw_flags(2);
 }
 #pragma pop

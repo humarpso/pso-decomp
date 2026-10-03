@@ -28,7 +28,7 @@ s32 classify_action_state__10TObjPlayerFv(void);
 int forward_1BF500_at_63c__10TObjPlayerFPv(void* p);
 s32 set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 s8 TObjPlayer__sub_801AFDB0();
-s32 TObjPlayer__sub_801D8E90(s32);
+s32 get_footstep_floor_index__10TObjPlayerFv(s32);
 s32 check_camera_mode__10TObjPlayerFv();
 int clear_flag0_bit1__10TObjPlayerFPv(void*);
 int clear_target_lock__10TObjPlayerFPv(void*);

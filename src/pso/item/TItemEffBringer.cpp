@@ -27,7 +27,7 @@ void *__ct__10TItemShootFPvPC3VecPC3Vecf(void *, u32, s32, s32, f32);
 f32 sin_table_lookup(s32);
 void TObjPlayer__sub_803D89E8(s32);
 void subtract_vector(Vec*, Vec*);
-void TObjPlayer__sub_803D9884(void *, void *);
+void transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
 void pop_matrix(void);
 extern const f64 lbl_8043E188[];
@@ -92,7 +92,7 @@ void *__ct__15TItemEffBringerFv(Bringer_8010834C *self, u32 arg1, Vec_8010834C *
     push_matrix();
     z.x = z.y = z.z = lbl_805DAB10;
     TObjPlayer__sub_803D89E8(0);
-    TObjPlayer__sub_803D9884(&z, &out);
+    transform_point_by_current_matrix(&z, &out);
     VecCopy__FP3VecPC3Vec(&w, src);
     subtract_vector((Vec*)((Vec *)&w), (Vec*)((Vec *)&out));
     pop_matrix();

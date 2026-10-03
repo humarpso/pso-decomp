@@ -135,7 +135,7 @@ M2C_UNK update__16TKeyBoardControlFv();
 void *get_player_data__10TObjPlayerFi(s32);
 void cleanup_scene__9TLoadCtrlFv();
 void start_loading__9TLoadCtrlFUi(int);
-M2C_UNK TLobby__sub_8001DC30();
+M2C_UNK load_battle_param_entry();
 s32 get_game_mode__6TLobbyFv();
 M2C_UNK reset_keyboard_state__6TLobbyFv();
 s32 is_area_transfer_pending();
@@ -237,7 +237,7 @@ M2C_UNK shutdown_keyboard_control__6TLobbyFv();
 void TLobby__sub_801A3014(void);
 void run_offline_area_transfer(void);
 void run_single_view_frame(void);
-M2C_UNK TLobby__sub_801A37D0();
+M2C_UNK run_split_screen_frame();
 s8 func_801A5E54__Fv();
 M2C_UNK TKeyBoardControl__sub_801A5EC4();
 M2C_UNK controller_stuff__Fv();
@@ -256,7 +256,7 @@ extern "C" {
 
 void TLobby__sub_801A3988(void);
 s32 TCameraCtrl__sub_8006B368();
-M2C_UNK TLobby__sub_801A3698();
+M2C_UNK run_offline_transfer_frame();
 
 typedef char RecoveredGlobal_801A3540_lbl_804C1F68_size[sizeof(RecoveredGlobal_801A3540_lbl_804C1F68) == 0x180 ? 1 : -1];
 typedef char RecoveredGlobal_801A3540_lbl_80515BA0_size[sizeof(RecoveredGlobal_801A3540_lbl_80515BA0) == 0x28 ? 1 : -1];
@@ -305,7 +305,7 @@ void TLobby__sub_801A3014(void) {
     init_limits__6TLobbyFv();
     TLobby__sub_8020B118();
     TLobby__sub_8020901C();
-    TLobby__sub_8001DC30();
+    load_battle_param_entry();
     TLobby__sub_80141038(&lbl_80515BA0, 0, 0);
     TLobby__sub_802286C4(&lbl_80515BA0);
     cleanup_scene__9TLoadCtrlFv();
@@ -326,7 +326,7 @@ void TLobby__sub_801A3014(void) {
             TObjPlayer__sub_801B1A84(fn_801B309C);
         }
     }
-    TLobby__sub_8001DC30();
+    load_battle_param_entry();
     update_main_warp_visible_mask(0);
     __dt__7TObjectFv(&holder, -1);
 }
@@ -482,7 +482,7 @@ void run_offline_game_frame(void) {
     TLobby__sub_8007EB20(lbl_804468F8, TLobby__data_805D614C * 0xC);
     TLobby__sub_8007EB20(lbl_80446908, TLobby__data_805D6148 * 4);
     if (is_split_screen() != 0) {
-        TLobby__sub_801A37D0();
+        run_split_screen_frame();
     } else {
         run_single_view_frame();
     }
@@ -521,7 +521,7 @@ void TLobby__sub_801A3988(void) {
         run_offline_game_frame();
         return;
     }
-    TLobby__sub_801A3698();
+    run_offline_transfer_frame();
 }
 
 }

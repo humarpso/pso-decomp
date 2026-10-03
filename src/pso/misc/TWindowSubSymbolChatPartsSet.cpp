@@ -56,7 +56,7 @@ void handle_cancel__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 void handle_decide__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80245808(void *, int);
+M2C_UNK draw_quest_message_frame(void *, int);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, int, f32);
 M2C_UNK TWindowSubSymbolChatPartsSet__sub_80286120(void *, int);
 void __dl__7TObjectFPv(void *);
@@ -133,7 +133,7 @@ void render__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
         M2C_FIELD(temp_r3, f32 *, 0x28) = (f32) ((f32) M2C_FIELD(arg0, s32 *, 0x5C) / lbl_805DD820);
         M2C_FIELD(temp_r3, f32 *, 0x2C) = (f32) M2C_FIELD(temp_r3, f32 *, 0x28);
     }
-    TWindowSubComCard__sub_80245808((void *) (arg0), (int) (temp_r3));
+    draw_quest_message_frame((void *) (arg0), (int) (temp_r3));
     M2C_FIELD(temp_r3, f32 *, 0x10) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x10) + M2C_FIELD(arg0, f32 *, 0x8C));
     M2C_FIELD(temp_r3, f32 *, 0x14) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x14) + M2C_FIELD(arg0, f32 *, 0x90));
     M2C_FIELD(temp_r3, f32 *, 0x28) = (f32) (M2C_FIELD(temp_r3, f32 *, 0x28) * M2C_FIELD(arg0, f32 *, 0x94));

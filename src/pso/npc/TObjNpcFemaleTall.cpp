@@ -96,7 +96,7 @@ struct RecoveredGlobal_8014A998___vt__17TObjNpcFemaleTall {
 
 extern "C" {
 s32 init_position_vectors__10TObjPlayerFi(void *);
-s32 fn_80148274(void *);
+s32 setup_common__11TObjNpcBaseFv(void *);
 s32 TObjNpcFemaleBase__sub_80149CE0(void *);
 extern M2C_UNK __vt__17TObjNpcFemaleTall[];
 extern s32 lbl_805D2DA4;
@@ -133,7 +133,7 @@ u8 *TObjNpcFemaleTall__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleTall__data_805D5790, u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TObjNpcFemaleTall__data_805D5790, u8 **, 0x42C), s32 *, 0xC);
-    fn_80148274((void *) (arg0));
+    setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
 

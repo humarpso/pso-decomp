@@ -22,7 +22,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 int init_params__10TTecDebandFPv(void* p);
 
 extern M2C_UNK lbl_804CC74C[];

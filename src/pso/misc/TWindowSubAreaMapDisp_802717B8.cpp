@@ -8,7 +8,7 @@ extern "C" {
 
 void update_visibility__21TWindowSubAreaMapDispFPv(void *arg0);
 M2C_UNK TRaderMapCore__sub_801F9144();
-M2C_UNK TRaderMapCore__sub_801F9770();
+M2C_UNK open_free_map_view__13TRaderMapCoreFv();
 M2C_UNK clear__13TRaderMapCoreFv();
 M2C_UNK clear_active_flag__11TWindowCtrlFv();
 s32 TWindowSubAreaMapDisp__sub_80246948();
@@ -25,7 +25,7 @@ void update_visibility__21TWindowSubAreaMapDispFPv(void *arg0) {
         }
     } else if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2) && (TWindowSubAreaMapDisp__sub_80246948() == 0)) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 1;
-        TRaderMapCore__sub_801F9770();
+        open_free_map_view__13TRaderMapCoreFv();
         TRaderMapCore__sub_801F9144();
         set_flag_bit0__11TWindowCtrlFv();
         {

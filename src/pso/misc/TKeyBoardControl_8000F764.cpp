@@ -215,7 +215,7 @@ int TAdWarningBaseGC__sub_8032D188(void);
 int TFogCtrl__sub_800FAD08(void*);
 int TLobby__sub_80147978(void);
 int TLobby__sub_8020E3BC(void);
-M2C_UNK TLobby__sub_80226FA0();
+M2C_UNK update_music_sequencer();
 int TLobby__sub_80227794(void);
 M2C_UNK TLobby__sub_80228074();
 int TLobby__sub_8022809C(void);
@@ -255,7 +255,7 @@ void run_tasks__16TKeyBoardControlFv(void) {
     TObjPlayer__sub_80083FB0();
     TLobby__sub_80228074();
     if ((s32) lbl_805D62B0 != 0) {
-        TLobby__sub_80226FA0();
+        update_music_sequencer();
     }
     run_tasks__7TObjectFv(lbl_80515F70);
 }

@@ -392,7 +392,7 @@ s32 OSRestoreInterrupts(s32 level);
 extern s32 lbl_805D7508;
 extern u16 lbl_805D7504;
 void TLobby__sub_803BE700(void);
-void TLobby__sub_803BE8A0(Obj_803BE860 *self, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f);
+void create_sound_reverb_state(Obj_803BE860 *self, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f);
 void TLobby__sub_803BE860(Obj_803BE860 *self);
 s32 OSEnableInterrupts(void);
 void TLobby__sub_803BE790(void);
@@ -475,29 +475,29 @@ extern u8 lbl_8056BD18[][0x86];
 extern M2C_UNK lbl_80567958[];
 extern M2C_UNK lbl_805679D8[];
 u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC000(Lob_803BC000 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC048(Lob_803BC048 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC090(Lob_803BC090 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC120(Lob_803BC120 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC168(Lob_803BC168 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC240(Lob_803BC240 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC288(Lob_803BC288 *arg0);
-u16 TLobby__sub_803BBB30(void *, void *, int, int);
+u16 calc_sound_controller_value(void *, void *, int, int);
 u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0);
 extern s16 lbl_804F7168[];
 s16 TLobby__sub_803BC93C(s32 arg0);
@@ -512,7 +512,7 @@ void TLobby__sub_803BD19C(s32 i, u16 v);
 M2C_UNK PPCSync();
 u32 DSPCheckMailToDSP();
 M2C_UNK DSPSendMailToDSP(void *);
-M2C_UNK TLobby__sub_803B5EAC(void *, int);
+M2C_UNK update_sound_dsp_voices(void *, int);
 extern u16 lbl_805D7474;
 extern s32 lbl_805D7478;
 extern s32 lbl_805D74F0;
@@ -580,8 +580,8 @@ extern Obj_803BDCB8 lbl_8056E158;
 extern Obj_803BDCB8 lbl_8056E3DC;
 void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
 void TLobby__sub_803BED6C(void *, void *, f32, f32);
-void TLobby__sub_803BEEFC(void *, void *, int);
-void TLobby__sub_803BF408(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
+void process_sound_reverb_block(void *, void *, int);
+void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
 }
 
 extern "C" {
@@ -678,7 +678,7 @@ u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~1;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x218, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x218, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC000(Lob_803BC000 *arg0) {
@@ -686,7 +686,7 @@ u16 TLobby__sub_803BC000(Lob_803BC000 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~2;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x23C, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x23C, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC048(Lob_803BC048 *arg0) {
@@ -694,7 +694,7 @@ u16 TLobby__sub_803BC048(Lob_803BC048 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~4;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x260, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x260, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC090(Lob_803BC090 *arg0) {
@@ -702,7 +702,7 @@ u16 TLobby__sub_803BC090(Lob_803BC090 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~8;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x284, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x284, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0) {
@@ -710,7 +710,7 @@ u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x10;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x2A8, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x2A8, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC120(Lob_803BC120 *arg0) {
@@ -718,7 +718,7 @@ u16 TLobby__sub_803BC120(Lob_803BC120 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x20;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x2CC, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x2CC, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC168(Lob_803BC168 *arg0) {
@@ -726,7 +726,7 @@ u16 TLobby__sub_803BC168(Lob_803BC168 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x40;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x2F0, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x2F0, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0) {
@@ -734,7 +734,7 @@ u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x100;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x338, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x338, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0) {
@@ -742,7 +742,7 @@ u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x200;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x35C, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x35C, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC240(Lob_803BC240 *arg0) {
@@ -750,7 +750,7 @@ u16 TLobby__sub_803BC240(Lob_803BC240 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x400;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x380, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x380, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC288(Lob_803BC288 *arg0) {
@@ -758,7 +758,7 @@ u16 TLobby__sub_803BC288(Lob_803BC288 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x800;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x3A4, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x3A4, arg0->b121, arg0->b122);
 }
 
 u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0) {
@@ -766,7 +766,7 @@ u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0) {
         return arg0->v;
     }
     arg0->flags = arg0->flags & ~0x1000;
-    return TLobby__sub_803BBB30(arg0, (u8 *)arg0 + 0x3C8, arg0->b121, arg0->b122);
+    return calc_sound_controller_value(arg0, (u8 *)arg0 + 0x3C8, arg0->b121, arg0->b122);
 }
 
 #pragma push
@@ -1320,7 +1320,7 @@ Rec_803BE528 *TLobby__sub_803BE528(void) {
 
 void TLobby__sub_803BE614(s32 arg0) {
     s32 temp_r31;
-    TLobby__sub_803B5EAC((void *) (arg0), (int) (TLobby__sub_803BE688()));
+    update_sound_dsp_voices((void *) (arg0), (int) (TLobby__sub_803BE688()));
     temp_r31 = lbl_805D7478;
     lbl_805D74F0 = 0;
     PPCSync();
@@ -1376,7 +1376,7 @@ void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2) {
     switch ((s32) arg0) {
     case 0:
         if ((u8) M2C_FIELD(arg2, u8 *, 0x1C4) == 0) {
-            TLobby__sub_803BF408((void *)((int) (M2C_FIELD(arg1, s32 *, 0))), (void *)((int) (M2C_FIELD(arg1, s32 *, 4))), (void *)((int) (M2C_FIELD(arg1, s32 *, 8))), (S_803BF408 *)((void *) (arg2)));
+            process_sound_reverb_callback((void *)((int) (M2C_FIELD(arg1, s32 *, 0))), (void *)((int) (M2C_FIELD(arg1, s32 *, 4))), (void *)((int) (M2C_FIELD(arg1, s32 *, 8))), (S_803BF408 *)((void *) (arg2)));
         }
     case 1:
         return;
@@ -1385,11 +1385,11 @@ void TLobby__sub_803BE804(u8 arg0, u8 *arg1, u8 *arg2) {
 
 void TLobby__sub_803BE860(Obj_803BE860 *self) {
     self->flag = 0;
-    TLobby__sub_803BE8A0(self, self->a, self->c, self->b, self->d, self->e, self->f);
+    create_sound_reverb_state(self, self->a, self->c, self->b, self->d, self->e, self->f);
 }
 #pragma push
 #pragma peephole off
-void TLobby__sub_803BF408(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
+void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
     u8 i;
     for (i = 0; i < 3; i++) {
         switch (i) {
@@ -1398,13 +1398,13 @@ void TLobby__sub_803BF408(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) 
                 f32 t = 0.5f * arg3->f1A8;
                 TLobby__sub_803BED6C(arg0, arg1, t, 1.0f - t);
             }
-            TLobby__sub_803BEEFC(arg0, arg3, 0);
+            process_sound_reverb_block(arg0, arg3, 0);
             break;
         case 1:
-            TLobby__sub_803BEEFC(arg1, arg3, 1);
+            process_sound_reverb_block(arg1, arg3, 1);
             break;
         case 2:
-            TLobby__sub_803BEEFC(arg2, arg3, 2);
+            process_sound_reverb_block(arg2, arg3, 2);
             break;
         }
     }

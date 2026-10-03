@@ -173,7 +173,7 @@ void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
 void try_close__6TLobbyFPv(void* p);
 M2C_UNK TLobby__sub_800F957C(u32);
 int TLobby__sub_802244B0(void);
-int TLobby__sub_8022525C(void);
+int generate_shop_weapon_stock(void);
 int TLobby__sub_80225A08(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
@@ -505,7 +505,7 @@ void TLobby__sub_80225064(Item_80225064 *it) {
 }
 #pragma pop
 
-void TLobby__sub_80225238(int a0, int a1) { lbl_805D626C = a1; TLobby__sub_8022525C(); }
+void TLobby__sub_80225238(int a0, int a1) { lbl_805D626C = a1; generate_shop_weapon_stock(); }
 
 typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8022559C_lbl_80513F50) == 0x10 ? 1 : -1];
 

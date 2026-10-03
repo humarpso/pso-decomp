@@ -402,7 +402,7 @@ s32 get_game_mode__6TLobbyFv();
 s32 get_actor_section_id(void *);
 void TLobby__sub_800FD614(struct Out_800FD614 *out, s32 arg1);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
-u32 fn_800FC0F8(char *);
+u32 calc_small_font_text_width(char *);
 void *get_instance__15TWindowCtrlMainFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
@@ -439,7 +439,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
     ((void (*)(void *))disallow_rendering__7TObjectFv)(self);
     strncpy(self->text, text, 0xF);
     self->text[0xF] = 0;
-    self->width = fn_800FC0F8(self->text);
+    self->width = calc_small_font_text_width(self->text);
     self->ofs_x -= lbl_805DAA20 * self->width * ((f32 (*)(void *))TFontSmallTask__sub_800FCCFC)(self);
     return self;
 }

@@ -47,7 +47,7 @@ void push_shop_pool_entry(Ctr_8020E934 *, u8);
 void TLobby__sub_8020EEFC(Ctr_8020E934 *, s32);
 s32 pop_byte__6TLobbyFPv(Ctr_8020E934 *);
 void init__9TItemDataFv(Item_8020E934 *);
-s32 TLobby__sub_8020E788(Item_8020E934 *, s32);
+s32 is_duplicate_shop_shield_or_unit(Item_8020E934 *, s32);
 void copy_item_data__6TLobbyFPvPv(Item_8020E934 *, Item_8020E934 *);
 void TLobby__sub_8020E934(s32 arg0);
 }
@@ -108,7 +108,7 @@ void TLobby__sub_8020E934(s32 arg0) {
         } else {
             item.b[2] = b;
         }
-        if (TLobby__sub_8020E788(&item, arg0) == 1) {
+        if (is_duplicate_shop_shield_or_unit(&item, arg0) == 1) {
             copy_item_data__6TLobbyFPvPv(&dst[counts[arg0]++], &item);
             j++;
         }

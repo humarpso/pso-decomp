@@ -13,7 +13,7 @@ void alloc_scene_buffer__18TObjButterflyLobbyFv(void);
 void TObjPlayer__sub_80079118(const char *);
 void TObjPlayer__sub_8007911C(void *, void *, u32);
 s32 TObjPlayer__sub_8007970C(void *, void *, u32, void *);
-u32 TObjPlayer__sub_8007A138(void *, void *, u32);
+u32 query_collision_segment_groups(void *, void *, u32);
 extern char lbl_804389FC[];
 extern u8 lbl_804FFD40[];
 extern Hit_8007A5D8 lbl_80500140;
@@ -31,7 +31,7 @@ Hit_8007A5D8 *csnVector(void *from, void *to, u32 mask) {
     Hit_8007A5D8 *hit;
     TObjPlayer__sub_8007911C(from, to, mask);
     hit = &lbl_80500140;
-    if (TObjPlayer__sub_8007A138(from, to, mask) == 0) {
+    if (query_collision_segment_groups(from, to, mask) == 0) {
         hit = 0;
     } else if (TObjPlayer__sub_8007970C(from, to, mask, lbl_804FFD40) == 0) {
         hit = 0;

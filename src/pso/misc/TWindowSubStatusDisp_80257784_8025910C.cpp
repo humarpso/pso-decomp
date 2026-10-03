@@ -15,7 +15,7 @@ s32 get_field24__11TWindowCtrlFv();
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
 void draw_window_text(void *, s32, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
-void TWindowSubStatusDisp__sub_8025941C(s32, u8 *, s32, s32, f32);
+void draw_item_list_icon(s32, u8 *, s32, s32, f32);
 extern const f32 lbl_805DCF14;
 extern const f32 lbl_805DCF20;
 extern const f32 lbl_805DCF24;
@@ -96,11 +96,11 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
       depth = lbl_805DCF20 / (lbl_805DCF24 + win->depth);
       if (row->flags & 0x200)
       {
-        TWindowSubStatusDisp__sub_8025941C((s32) win, (u8 *) (&pos), row->status_icon, -1, depth);
+        draw_item_list_icon((s32) win, (u8 *) (&pos), row->status_icon, -1, depth);
         pos.x += lbl_805DCF14;
-        TWindowSubStatusDisp__sub_8025941C((s32) win, (u8 *) (&pos), row->category_icon, -1, depth);
+        draw_item_list_icon((s32) win, (u8 *) (&pos), row->category_icon, -1, depth);
         pos.x += lbl_805DCF14;
-        TWindowSubStatusDisp__sub_8025941C((s32) win, (u8 *) (&pos), (u8) row->status_style, -1, depth);
+        draw_item_list_icon((s32) win, (u8 *) (&pos), (u8) row->status_style, -1, depth);
         pos.x += lbl_805DCF14;
       }
       else
@@ -109,15 +109,15 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
         if (row->flags & 0x100)
         {
           pos.x += lbl_805DCF14;
-          TWindowSubStatusDisp__sub_8025941C((s32) win, (u8 *) (&pos), row->status_icon, row->status_style, depth);
+          draw_item_list_icon((s32) win, (u8 *) (&pos), row->status_icon, row->status_style, depth);
         }
         else
         {
-          TWindowSubStatusDisp__sub_8025941C((s32) win, (u8 *) (&pos), row->status_icon, row->status_style, depth);
+          draw_item_list_icon((s32) win, (u8 *) (&pos), row->status_icon, row->status_style, depth);
           pos.x += lbl_805DCF14;
         }
         reset_transform_state__10TObjPlayerFv();
-        TWindowSubStatusDisp__sub_8025941C((s32) win, (u8 *) (&pos), row->category_icon, row->category_style, depth);
+        draw_item_list_icon((s32) win, (u8 *) (&pos), row->category_icon, row->category_style, depth);
         pos.x += lbl_805DCF14;
       }
       new_var = row;

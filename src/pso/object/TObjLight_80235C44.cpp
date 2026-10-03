@@ -63,7 +63,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK TObjLight__sub_800827E0(void *, void *, f32);
 s32 TObjLight__sub_801344A4(void *, void *, int);
 M2C_UNK publish_actor_light_scalars(int, f32, f32);
-M2C_UNK TObjLight__sub_801345F8(int, void *, void *);
+M2C_UNK publish_light_direction_color(int, void *, void *);
 M2C_UNK approach_vector_fixed_distance(void *, void *, void *, f32);
 u32 get_player_by_client_id(int);
 extern Base_80235C44 TObjLight__data_80506320;
@@ -114,7 +114,7 @@ void update_actor_light_task(Light_80235C44 *arg0) {
         approach_vector_fixed_distance(&arg0->direction, &baseDir, &arg0->direction, arg0->step);
         TObjLight__sub_800827E0(&arg0->color, &baseColor, lbl_805DC894);
     }
-    TObjLight__sub_801345F8((u16) obj_getField1c(arg0->source), &arg0->direction, &arg0->color);
+    publish_light_direction_color((u16) obj_getField1c(arg0->source), &arg0->direction, &arg0->color);
     arg0->age++;
     if (arg0->duration < arg0->age) {
         queue_destruction__7TObjectFv(arg0);

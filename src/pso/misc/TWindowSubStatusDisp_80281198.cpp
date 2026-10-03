@@ -12,15 +12,15 @@ M2C_UNK update_window_entry_list(void *, void *);
 M2C_UNK TWindowSubStatusDisp__sub_80257CB8(void *);
 M2C_UNK fn_8026C7AC(int, int);
 s32 handle_list_page_flip_input(int);
-M2C_UNK TWindowSubStatusDisp__sub_80281198(void *);
-M2C_UNK TWindowSubStatusDisp__sub_802813B4(void *);
+M2C_UNK dispatch_page_update__20TWindowSubStatusDispFv(void *);
+M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
 extern M2C_UNK lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void TWindowDD__sub_802466E0(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFPviii(void *, int, int, s32);
 s32 get_window_layout_position(int);
-M2C_UNK TWindowSubStatusDisp__sub_802813B4(void *);
+M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
 extern u8 __vt__20TWindowSubStatusDisp[];
 extern M2C_UNK lbl_804D2B30[];
 extern s32 lbl_805D3AA0;
@@ -36,7 +36,7 @@ u32 get_player_by_client_id(s16);
 s32 TWindowSubComCard__sub_80244C0C(void *, void *);
 M2C_UNK draw_window_frame(void *, s32);
 M2C_UNK TWindowSubStatusDisp__sub_80257BC0(void *, void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_8026C800(s32, s32);
+M2C_UNK draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -48,7 +48,7 @@ void update_status__20TWindowSubStatusDispFPv(u8 *arg0) {
         temp_r3 = TWindowSubComCard__sub_80244C0C(arg0, arg0 + 0x6C);
         draw_window_frame(arg0, temp_r3);
         TWindowSubStatusDisp__sub_80257BC0(arg0, arg0 + 0x24, temp_r3);
-        TWindowSubStatusDisp__sub_8026C800(M2C_FIELD(arg0, s32 *, 0x68), temp_r3);
+        draw_list_page_indicator(M2C_FIELD(arg0, s32 *, 0x68), temp_r3);
     }
 }
 
@@ -69,9 +69,9 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
       fn_8026C7AC((int) (*((s32 *) (((s8 *) arg0) + 0x68))), (int) ((s8) (*((u8 *) (((s8 *) (((u8 *) (&lbl_805DD6F4)) + (*((s16 *) (((s8 *) arg0) + 0x60))))) + 0)))));
     }
     TWindowSubStatusDisp__sub_80257CB8((void *) (((u8 *) arg0) + 0x24));
-    TWindowSubStatusDisp__sub_802813B4((void *) arg0);
+    dispatch_page_init__20TWindowSubStatusDispFv((void *) arg0);
   }
-  TWindowSubStatusDisp__sub_80281198((void *) arg0);
+  dispatch_page_update__20TWindowSubStatusDispFv((void *) arg0);
   initialize_subwindow__9TWindowDDFPv((void *) arg0);
   update_window_entry_list((void *) arg0, (void *) (((u8 *) arg0) + 0x24));
 }
@@ -102,7 +102,7 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
         w = init__21TWindowSubComCardListFPviii(w, 0, 3, arg1);
     }
     arg0->f68 = w;
-    TWindowSubStatusDisp__sub_802813B4(arg0);
+    dispatch_page_init__20TWindowSubStatusDispFv(arg0);
     return arg0;
 }
 

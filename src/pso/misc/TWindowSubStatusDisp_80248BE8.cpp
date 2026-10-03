@@ -29,7 +29,7 @@ s32 update_window_entry_list(void *, void *);
 s32 set_flag4__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor_next__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor__20TWindowSubStatusDispFPv(void *);
-s32 TWindowSubStatusDisp__sub_80267C94(void *);
+s32 center_list_selection(void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_80248CF4_lbl_8050E208 lbl_8050E208;
@@ -121,7 +121,7 @@ void TWindowSubStatusDisp__sub_80248CF4(u8 *arg0) {
             set_flag4__20TWindowSubStatusDispFPv((void *) (arg0));
         }
     }
-    TWindowSubStatusDisp__sub_80267C94((void *) (arg0));
+    center_list_selection((void *) (arg0));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCBA8) {
         temp_r3 = M2C_FIELD(arg0, u32 *, 0x80);
         if (temp_r3 != 0U) {

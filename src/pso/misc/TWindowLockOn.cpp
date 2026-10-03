@@ -38,7 +38,7 @@ struct Ent2_80263370 { u16 flags; u8 pad2[0xE]; s32 grade; };
 
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
-void TWindowHelpItem__sub_80270060(s32, u32);
+void update_photon_blast_player_marker(s32, u32);
 void TWindowLockOn__sub_80262FDC(u8 *arg0);
 s32 obj_isState3_324(void *);
 s32 obj_testFlags30(s32, M2C_UNK);
@@ -54,7 +54,7 @@ void run_task__13TWindowLockOnFv(Win_8026385C *w);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void TWindowSubStatusDisp__sub_80257D44(void *, void *, int);
 void init_item_row__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
-void TWindowSubStatusDisp__sub_8025930C(void *);
+void calc_row_width__20TWindowSubStatusDispFv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 u8 calc_display_grade__5TItemFPv(void *);
 f32 TWindowHelpItem__sub_8025A60C(void *);
@@ -107,7 +107,7 @@ bool TWindowLockOn__sub_80262DC4(s32 arg0) {
 void TWindowLockOn__sub_80262FD8(void) {  }
 
 void TWindowLockOn__sub_80262FDC(u8 *arg0) {
-    TWindowHelpItem__sub_80270060(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
+    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
 }
 
 #pragma push
@@ -122,7 +122,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     arg0->cb = lbl_804D0288;
     e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);
-    TWindowSubStatusDisp__sub_8025930C(e);
+    calc_row_width__20TWindowSubStatusDispFv(e);
     e->y = lbl_805DD114;
     if (e->kind != 0x33) {
         e->y += lbl_805DD118;

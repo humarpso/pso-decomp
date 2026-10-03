@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void refresh_status_display__9TWindowDDFv(void);
-M2C_UNK TWindowSubStatusDisp__sub_8025A9C0(f32);
+M2C_UNK measure_message_text_width(f32);
 
 extern const f32 lbl_805DCB70;
 
 void refresh_status_display__9TWindowDDFv(void) {
-    TWindowSubStatusDisp__sub_8025A9C0(lbl_805DCB70);
+    measure_message_text_width(lbl_805DCB70);
 }
 
 }

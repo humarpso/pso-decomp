@@ -29,7 +29,7 @@ s32 fn_80100CC8(Pl_8011E87C *);
 s32 is_flag_400__10TObjPlayerFPv(void *);
 void draw_icon__10TObjPlayerFPvii(void *, s32, Vec_8011E87C *);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
-void TItemEffectWeapon__sub_803634A4(void *, Vec_8011E87C *, Vec_8011E87C *);
+void push_trail_interpolated__17TItemEffectWeaponFv(void *, Vec_8011E87C *, Vec_8011E87C *);
 extern u8 main_task[];
 void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot);
 s32 obj_testFlags30(void *, M2C_UNK);
@@ -52,7 +52,7 @@ void update_trail_slot__11TItemWeaponFPvi(Pl_8011E87C *self, s32 slot) {
         if (self->trails[slot] != NULL) {
             draw_icon__10TObjPlayerFPvii(self, self->iconA[slot], &a);
             draw_icon__10TObjPlayerFPvii(self, self->iconB[slot], &b);
-            TItemEffectWeapon__sub_803634A4(self->trails[slot], &a, &b);
+            push_trail_interpolated__17TItemEffectWeaponFv(self->trails[slot], &a, &b);
         }
     }
 }

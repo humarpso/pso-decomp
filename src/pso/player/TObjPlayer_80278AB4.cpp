@@ -9,7 +9,7 @@ extern "C" {
 void build_shop_item_list__10TObjPlayerFPv(u8 *arg0);
 u32 get_usable_action_flags__5TItemFPvUiUi(s32, M2C_UNK, M2C_UNK);
 s32 find_item_by_id(s32);
-M2C_UNK TLobby__sub_80266E34(void *);
+M2C_UNK calc_list_content_extent(void *);
 u8 get_field_ec__12TOSwitchItemFPv();
 s32 get_field_d8__10TObjPlayerFPv();
 s32 get_item_info__10TObjPlayerFiiPv(s32, void *, M2C_UNK *);
@@ -47,7 +47,7 @@ void build_shop_item_list__10TObjPlayerFPv(u8 *arg0) {
         if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
             add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
         }
-        TLobby__sub_80266E34(arg0);
+        calc_list_content_extent(arg0);
     }
 }
 

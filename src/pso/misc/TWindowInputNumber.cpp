@@ -15,7 +15,7 @@ void update__18TWindowInputNumberFPv(void *arg0);
 void update_value__18TWindowInputNumberFPv(void *arg0);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowHelpItem__sub_80255DDC(void* p);
-M2C_UNK TWindowInputNumber__sub_802561E8(void *);
+M2C_UNK align_digits__18TWindowInputNumberFv(void *);
 M2C_UNK TWindowInputNumber__sub_802562F0(void *);
 s16 get_field_2F8__20TWindowSubStatusDispFPv(void* p);
 s16 get_item_type__20TWindowSubStatusDispFPv(void* p);
@@ -58,7 +58,7 @@ void update__18TWindowInputNumberFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) M2C_FIELD(arg0, s32 *, 0x68);
     }
     TWindowInputNumber__sub_802562F0(arg0);
-    TWindowInputNumber__sub_802561E8(arg0);
+    align_digits__18TWindowInputNumberFv(arg0);
 }
 
 extern M2C_UNK lbl_8044EE0C[];
@@ -70,7 +70,7 @@ void update_value__18TWindowInputNumberFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x6C) = (s32) M2C_FIELD(arg0, s32 *, 0x64);
     }
     TWindowInputNumber__sub_802562F0(arg0);
-    TWindowInputNumber__sub_802561E8(arg0);
+    align_digits__18TWindowInputNumberFv(arg0);
 }
 
 void handle_decrement__18TWindowInputNumberFPv(void *arg0) {
@@ -102,7 +102,7 @@ void move_cursor_next__18TWindowInputNumberFPv(void *arg0) {
 void set_value__18TWindowInputNumberFPvf(void *arg0, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x38) = farg0;
     save_position__17TWindowSubComCardFPv();
-    TWindowInputNumber__sub_802561E8(arg0);
+    align_digits__18TWindowInputNumberFv(arg0);
 }
 
 }

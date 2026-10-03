@@ -110,7 +110,7 @@ void pop_matrix(void);
 void post_translate_matrix(void *);
 void draw_ginja_object(s32);
 void TObjPlayer__sub_802D56F0(u8 *arg0);
-void TObjPlayer__sub_8011EB84(void *, void *, s32, s32);
+void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
 void TObjPlayer__sub_802D564C(Pl_802D564C *arg0);
 }
 
@@ -153,7 +153,7 @@ void TObjPlayer__sub_802D564C(Pl_802D564C *arg0) {
     v = arg0->f250 - arg0->f0F0->f60;
     step = 0x10000 / cnt;
     while (n != 0) {
-        TObjPlayer__sub_8011EB84(arg0, p++, arg0->f0F4, v);
+        fire_shot_at_target__11TItemWeaponFv(arg0, p++, arg0->f0F4, v);
         v += step;
         n--;
     }

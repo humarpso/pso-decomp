@@ -29,7 +29,7 @@ s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026B118_lbl_8044F464 lbl_8044F464;
 void create_quest_message_window(void);
 Ctx_8026B148 *TWindowSubStatusDisp__sub_80244364(void *);
-void TWindowSubComCard__sub_80245808(void *, void *);
+void draw_quest_message_frame(void *, void *);
 void draw_window_frame(void *, void *);
 void TWindowSubStatusDisp__sub_80257BC0(void *, void *, void *);
 extern const f32 lbl_805DD260;
@@ -51,7 +51,7 @@ void TWindowMessageQuest__sub_8026B148(Win_8026B148 *w) {
             c->scaleX = (f32)w->opening / lbl_805DD260;
             c->scaleY = c->scaleX;
         }
-        TWindowSubComCard__sub_80245808(w, c);
+        draw_quest_message_frame(w, c);
         break;
     case 1:
         draw_window_frame(w, c);

@@ -9,7 +9,7 @@ int test_ordered_anim_markers__10TObjPlayerFPvff(void);
 
 s8 TObjPlayer__sub_801AFDB0();
 s32 send_field_state_if_active__10TObjPlayerFii(s32, s32);
-s32 TObjPlayer__sub_801D8E90(s32);
+s32 get_footstep_floor_index__10TObjPlayerFv(s32);
 s32 set_hp_clamped__10TObjPlayerFPvs(void *, s16);
 s32 obj_isState3_324(void *);
 s32 set_facing__10TObjPlayerFPvs(void *, s16);
@@ -27,7 +27,7 @@ int clear_target_lock__10TObjPlayerFPv(void*);
 
 void play_footstep_sound__10TObjPlayerFi(s32 arg0) {
     if (test_ordered_anim_markers__10TObjPlayerFPvff() != 0) {
-        send_field_state_if_active__10TObjPlayerFii(arg0, TObjPlayer__sub_801D8E90(arg0));
+        send_field_state_if_active__10TObjPlayerFii(arg0, get_footstep_floor_index__10TObjPlayerFv(arg0));
     }
 }
 void update_rotation__10TObjPlayerFPv(void *arg0) {

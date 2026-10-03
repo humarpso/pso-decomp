@@ -42,7 +42,7 @@ f32 vector_length(void *);
 void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0);
 s32 queue_destruction__7TObjectFv(void *);
 s32 fn_8008271C(void *, void *, f32);
-s32 fn_80082764(void *, void *, f32);
+s32 approach_alpha_clamped(void *, void *, f32);
 s32 spawn_particle_effect(void *, int);
 extern RecoveredGlobal_800823E0_lbl_80438EB8 lbl_80438EB8;
 extern RecoveredGlobal_800823E0_lbl_80438EC8 lbl_80438EC8;
@@ -167,7 +167,7 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x74) = 1;
         break;
     }
-    if (fn_80082764((void *) (arg0 + 0x2C), (void *) (&stack.sp20), (f32) (lbl_805D2900)) != 0) {
+    if (approach_alpha_clamped((void *) (arg0 + 0x2C), (void *) (&stack.sp20), (f32) (lbl_805D2900)) != 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }

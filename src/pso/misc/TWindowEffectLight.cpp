@@ -30,7 +30,7 @@ void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 TWindowCtrlMain__sub_8024CE44(void);
 void TWindowEffectLight__sub_802AD040(void *, f32);
-void TWindowEffectLight__sub_802AD1CC(void *, s32);
+void draw_outline_quad__18TWindowEffectLightFv(void *, s32);
 s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
@@ -100,13 +100,13 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
       switch (temp_r0)
       {
         case 0:
-          TWindowEffectLight__sub_802AD1CC(arg0, 0xAA0E);
+          draw_outline_quad__18TWindowEffectLightFv(arg0, 0xAA0E);
           break;
         case 1:
-          TWindowEffectLight__sub_802AD1CC(arg0, 0xFF2417);
+          draw_outline_quad__18TWindowEffectLightFv(arg0, 0xFF2417);
           break;
         case 2:
-          TWindowEffectLight__sub_802AD1CC(arg0, 0xFFFFFF);
+          draw_outline_quad__18TWindowEffectLightFv(arg0, 0xFFFFFF);
           break;
         case 3:
           TWindowEffectLight__sub_802AD040(arg0, lbl_805DE0F4);

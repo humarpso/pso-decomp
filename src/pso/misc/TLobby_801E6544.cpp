@@ -209,7 +209,7 @@ M2C_UNK free_luker_object__6TLobbyFv();
 M2C_UNK TNpcPlayer__sub_8034ED58(int, int);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_npc_crt(void);
-void TNpcPlayer__sub_8034E198(u16, u16);
+void quest_player_face_actor(u16, u16);
 extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
 void qst_op_p_look_at(void);
 void send_code_45_to_player__10TNpcPlayerFi(u16);
@@ -483,7 +483,7 @@ block_7:
 
 typedef char RecoveredGlobal_801F053C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F053C_TLobby__data_80512220) == 0x20 ? 1 : -1];
 void qst_op_p_look_at(void) {
-    TNpcPlayer__sub_8034E198((u16) M2C_FIELD(&(*(RecoveredGlobal_801F053C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0), (u16) M2C_FIELD(&(*(RecoveredGlobal_801F053C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4));
+    quest_player_face_actor((u16) M2C_FIELD(&(*(RecoveredGlobal_801F053C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0), (u16) M2C_FIELD(&(*(RecoveredGlobal_801F053C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4));
 }
 
 typedef char RecoveredGlobal_801F0ADC_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F0ADC_TLobby__data_80512220) == 0x20 ? 1 : -1];

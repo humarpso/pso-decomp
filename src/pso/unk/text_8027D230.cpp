@@ -10,7 +10,7 @@ struct RecoveredGlobal_8027D230_lbl_805129F8 {
 
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
-void TWindowSubStatusDisp__sub_8025A9C0(void *, f32);
+void measure_message_text_width(void *, f32);
 void TWindowSubStatusDisp__sub_8025AC50(void *, u32, s32);
 extern RecoveredGlobal_8027D230_lbl_805129F8 lbl_805129F8;
 extern const f32 lbl_805DD690;
@@ -27,7 +27,7 @@ void fn_8027D230(u8 *arg0) {
     temp_r31 = (u8 *)&lbl_805129F8.value + ((s8) M2C_FIELD(arg0, u8 *, 0x61) * 0x24);
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1));
     TWindowSubStatusDisp__sub_8025AC50(temp_r3, (u32) temp_r31, 0);
-    TWindowSubStatusDisp__sub_8025A9C0(temp_r3, lbl_805DD690);
+    measure_message_text_width(temp_r3, lbl_805DD690);
     M2C_FIELD(temp_r3, f32 *, 8) = (f32) (lbl_805DD694 - M2C_FIELD(temp_r3, f32 *, 0x10));
 }
 

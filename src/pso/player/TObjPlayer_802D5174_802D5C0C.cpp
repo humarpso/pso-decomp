@@ -154,7 +154,7 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_8011EB84(void *, void *, int, int);
+M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 s16 get_validated_attack_stage(void *);
 void TObjPlayer__sub_802D5D18(u8 *arg0);
 int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
@@ -222,11 +222,11 @@ void TObjPlayer__sub_802D5D18(u8 *arg0) {
     temp_r3 = M2C_FIELD(arg0, u8 **, 0xF0);
     ((VObj_18 *)(temp_r3))->m63(0x30, &sp8);
     if (get_validated_attack_stage((void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x7CC)) == 2) {
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0x1555));
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (-0x1555));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0x1555));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (-0x1555));
     } else {
-        TObjPlayer__sub_8011EB84((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
     }
     ((VObj_18 *)(arg0))->m60(&sp8);
 }

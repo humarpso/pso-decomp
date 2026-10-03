@@ -119,9 +119,9 @@ s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
-int fn_80236EE8(void*);
+int spawn_support_tec_range_effect(void*);
 
-int init_params__10TTecDebandFPv(void* p) { return fn_80236EE8(p); }
+int init_params__10TTecDebandFPv(void* p) { return spawn_support_tec_range_effect(p); }
 
 extern const f64 lbl_8044D0B0;
 

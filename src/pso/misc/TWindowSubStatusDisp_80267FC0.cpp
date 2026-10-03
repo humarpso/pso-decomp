@@ -25,7 +25,7 @@ s32 set_flag4__20TWindowSubStatusDispFPv(void *);
 s32 handle_open__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor_next__20TWindowSubStatusDispFPv(void *);
 s32 move_cursor__20TWindowSubStatusDispFPv(void *);
-s32 TWindowSubStatusDisp__sub_80267C94(void *);
+s32 center_list_selection(void *);
 s32 TWindowSubStatusDisp__sub_80267D14(void *);
 s32 TWindowSubStatusDisp__sub_80267D80(void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
@@ -115,7 +115,7 @@ void TWindowSubStatusDisp__sub_80268048(u8 *arg0) {
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     TWindowSubStatusDisp__sub_80267D80((void *) (arg0));
     TWindowSubStatusDisp__sub_80244238((void *) (arg0));
-    TWindowSubStatusDisp__sub_80267C94((void *) (arg0));
+    center_list_selection((void *) (arg0));
     TWindowSubStatusDisp__sub_80267D14((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }

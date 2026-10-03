@@ -151,7 +151,7 @@ extern const f32 lbl_805DAD70;
 void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_8011EB84(void *, void *, s32, s32);
+void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
 void draw_status_icon__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_801261BC(Pl_801261BC *arg0);
 }
@@ -186,10 +186,10 @@ void TObjPlayer__sub_801261BC(Pl_801261BC *arg0) {
     arg0->f1fc = 0;
     p = buf;
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
-        TObjPlayer__sub_8011EB84(arg0, p, arg0->f188, 0);
+        fire_shot_at_target__11TItemWeaponFv(arg0, p, arg0->f188, 0);
     } else if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
         arg0->f1fc = 1;
-        TObjPlayer__sub_8011EB84(arg0, p, arg0->f188, 0);
+        fire_shot_at_target__11TItemWeaponFv(arg0, p, arg0->f188, 0);
     } else {
         arg0->m49(p, 0, 0, 1);
     }

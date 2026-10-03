@@ -147,7 +147,7 @@ s32 check_equip_requirements(s32, M2C_UNK, M2C_UNK *);
 u8 *lookup_item_pmt_record(s32);
 s32 get_player_by_client_id(s16);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
-M2C_UNK TWindowHelpItem__sub_802549B0(void *);
+M2C_UNK update_stat_comparison__15TWindowHelpItemFv(void *);
 void TWindowHelpItem__sub_80254C30(u8 *arg0);
 u8 * find_item_by_id(s32);
 s32 copy_to_item_data__5TItemFPvPv(void *, void *);
@@ -379,7 +379,7 @@ void TWindowHelpItem__sub_80254C30(u8 *arg0) {
     temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20))));
     if (temp_r3 != NULL) {
         if (get_quest_id__12TQuestListVMFPv() != 0U) {
-            TWindowHelpItem__sub_802549B0((void *) (arg0));
+            update_stat_comparison__15TWindowHelpItemFv((void *) (arg0));
             temp_r30 = (u8 *)(((u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xA)));
             temp_r31 = (u8 *)(lookup_item_pmt_record(M2C_FIELD(arg0, s32 *, 0x68)));
             if (check_equip_requirements((s32)((s32)((int) (temp_r3))), (M2C_UNK)((s32)((int) (M2C_FIELD(arg0, s32 *, 0x68)))), (M2C_UNK *)((M2C_UNK *)((void *) (&sp8)))) == 0) {

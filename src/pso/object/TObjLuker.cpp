@@ -120,7 +120,7 @@ void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
 s32 TObjLuker__sub_801A0F34(void *arg0, s32 *arg1, f32 range);
-s32 TObjLuker__sub_801A10A0(s32 arg0, f32 farg0);
+s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 void transfer_to_town__9TObjLukerFv(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
@@ -130,7 +130,7 @@ M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, u32, s16, s32);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
-void *TTecLuker__sub_8023453C(void *, void *, int, int);
+void *create_telepipe_visual(void *, void *, int, int);
 M2C_UNK offset_point_toward_camera(void *, void *, f32);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
@@ -314,7 +314,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
             if (M2C_FIELD(arg0, s32 *, 0xB4) != 0 && M2C_FIELD(arg0, void **, 0xA4) == NULL) {
                 o = __nw__7TObjectFUl(0x44);
                 if (o != NULL) {
-                    o = TTecLuker__sub_8023453C(o, arg0 + 0x38, M2C_FIELD(arg0, u16 *, 0xA8), tl_07);
+                    o = create_telepipe_visual(o, arg0 + 0x38, M2C_FIELD(arg0, u16 *, 0xA8), tl_07);
                 }
                 M2C_FIELD(arg0, void **, 0xA4) = o;
                 M2C_FIELD(arg0, s32 *, 0xB4) = 0;
@@ -323,7 +323,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
             switch (M2C_FIELD(arg0, s16 *, 0xB0)) {
             case 0:
                 sp8 = 0;
-                if (TObjLuker__sub_801A10A0((s32) arg0, lbl_805DC080) != 0) {
+                if (is_player_in_range__9TObjLukerFv((s32) arg0, lbl_805DC080) != 0) {
                     flag = 0;
                     if (is_split_screen() != 0) {
                         if (TObjLuker__sub_801A0F34(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {
