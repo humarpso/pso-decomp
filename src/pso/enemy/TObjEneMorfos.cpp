@@ -135,6 +135,26 @@ extern const f32 TObjEneMorfos__data_805DF874;
 extern const f32 lbl_805DF87C;
 extern const f32 lbl_805DF890;
 void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
+void spawn_particle_effect(void *, int);
+s32 enemy_has_live_target(void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 play_sound_effect(s32, u32, s16, s32);
+s32 TObjEneMorfos__sub_803344F0();
+s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2);
+u8 * TObjEneMorfos__sub_80337824(void *, void *, s32, s32);
+M2C_UNK enemy_copy_target_destination(void *);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+M2C_UNK advance_animation_playback(void *);
+void * __nw__7TObjectFUl(int);
+extern const f64 TObjEneMorfos__data_80477610;
+extern int TObjEneMorfos__data_805D6D10;
+extern const f32 TObjEneMorfos__data_805DF884;
+extern const f32 lbl_805DF88C;
+void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1183,7 +1203,6 @@ void TObjEneMorfos__sub_80332DBC(u8 *arg0, s32 arg1);
 void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
 void TObjEneMorfos__sub_80332FD4(u8 *, s32);
 void TObjEneMorfos__sub_80333290(u8 *, s32);
-void TObjEneMorfos__sub_80333690(u8 *, s32);
 void TObjEneMorfos__sub_80333E48(u8 *arg0, s32 arg1);
 void TObjEneMorfos__sub_80334030(u8 *arg0, s32 arg1);
 void state_appear__13TObjEneMorfosFPvi(void *arg0, s32 arg1);
@@ -1253,6 +1272,10 @@ extern const f32 lbl_805DF8A0;
 extern const f32 lbl_805DF8A4;
 extern M2C_UNK main_task[];
 extern void *tl_04;
+
+extern "C" {
+s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0);
+}
 
 extern "C" {
 s32 TObjEneMorfos__sub_80334588(O_80334588 *arg0);
@@ -1500,6 +1523,115 @@ void state_patrol__13TObjEneMorfosFPvi(void *arg0, s32 arg1) {
 }
 
 struct O_80334588;
+
+void TObjEneMorfos__sub_80333690(u8 *arg0, s32 arg1) {
+    s32 temp_r0;
+    u8 *temp_r3;
+    switch (arg1) {
+    case 4:
+        ((VObj_18_8bca97 *)(arg0))->m94();
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFF8);
+        set_field_378__9TObjEneDDFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (6)));
+        if (enemy_has_live_target(arg0) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (u16) ((s32) (TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))) + 0x8000);
+            M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
+            M2C_FIELD(arg0, s32 *, 0x4B4) = 0;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+            play_sound_effect(0x4003A528, (u32) (arg0 + 0x38), 0, 0);
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0x4B0) = 6;
+        return;
+    case 3:
+        if (((s32) M2C_FIELD(arg0, s32 *, 0x4B0) == 6) && (((s32 (*)(void *))TObjEneMorfos__sub_803344F0)(arg0) == 0)) {
+            transition_enemy_state((void *)((void *) (arg0)), (M2C_UNK)((int) (4)));
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        ((M2C_UNK (*)(void))advance_animation_playback)();
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x4B0);
+        switch (temp_r0) {
+        case 0:
+            if (approach_value__13TObjEneMorfosFPvii(arg0, M2C_FIELD(arg0, s32 *, 0x4BC), M2C_FIELD((*(u8 * *)&TObjEneMorfos__data_805D6D10), s32 *, 0x1C)) != 0) {
+                M2C_FIELD(arg0, s32 *, 0x4B0) = 1;
+                M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+                spawn_particle_effect((void *) (arg0 + 0x498), 0x212);
+            }
+            break;
+        case 1:
+            if (objInBand__FP7GameObjf(arg0, TObjEneMorfos__data_805DF884) != 0) {
+                M2C_FIELD(arg0, s32 *, 0x4B0) = 2;
+            }
+            break;
+        case 2:
+            if (objInBand__FP7GameObjf(arg0, lbl_805DF88C) != 0) {
+                play_sound_effect(0x4003AD24, (u32) (arg0 + 0x38), 0, 0);
+                temp_r3 = (u8 *)(__nw__7TObjectFUl(0xFC));
+                if (temp_r3 != NULL) {
+                    TObjEneMorfos__sub_80337824(temp_r3, arg0 + 0x498, (s32) (u16) (M2C_FIELD(arg0, s32 *, 0x4BC) + 0x8000), (s32) arg0);
+                }
+                M2C_FIELD(arg0, s32 *, 0x4B0) = 3;
+            }
+            break;
+        case 3:
+            if (((s32 (*)(void *))get_flag_b4__21TObjEneMe3ShinowaRealFPv)(arg0) != 0) {
+                M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+                M2C_FIELD(arg0, s32 *, 0x4B4) = (s32) (M2C_FIELD(arg0, s32 *, 0x4B4) + 1);
+                if (enemy_has_live_target(arg0) != 0) {
+                    if ((s32) M2C_FIELD(arg0, s32 *, 0x4B4) >= 2) {
+                        M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+                        M2C_FIELD(arg0, s32 *, 0x4B0) = 5;
+                    } else {
+                        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+                        M2C_FIELD(arg0, s32 *, 0x4B0) = 4;
+                        M2C_FIELD(arg0, s32 *, 0x4B8) = 0;
+                    }
+                } else if (TObjEneMorfos__sub_80334588((O_80334588 *)arg0) != 0) {
+                    enemy_copy_target_destination((void *) (arg0));
+                    update_velocity__9TObjEneDDFPv((void *) (arg0));
+                    if ((s32) M2C_FIELD(arg0, s32 *, 0x4B4) >= 2) {
+                        M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8)));
+                        M2C_FIELD(arg0, s32 *, 0x4B0) = 5;
+                        play_sound_effect(0x4003A528, (u32) (arg0 + 0x38), 0, 0);
+                    } else {
+                        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+                        M2C_FIELD(arg0, s32 *, 0x4B0) = 4;
+                        M2C_FIELD(arg0, s32 *, 0x4B8) = 0;
+                    }
+                } else {
+                    M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (u16) (M2C_FIELD(arg0, s32 *, 0x4BC) + 0x8000);
+                    M2C_FIELD(arg0, s32 *, 0x4B0) = 5;
+                }
+            }
+            break;
+        case 4:
+            M2C_FIELD(arg0, s32 *, 0x4B8) = (s32) (M2C_FIELD(arg0, s32 *, 0x4B8) + 1);
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x4B8) >= (s32) M2C_FIELD((*(u8 * *)&TObjEneMorfos__data_805D6D10), s32 *, 0x20)) {
+                if (enemy_has_live_target(arg0) != 0) {
+                    enemy_copy_target_destination((void *) (arg0));
+                    update_velocity__9TObjEneDDFPv((void *) (arg0));
+                    M2C_FIELD(arg0, s32 *, 0x4BC) = (s32) (u16) ((s32) (TObjEneMorfos__data_80477610 * get_ad_end_text_start__10TObjPlayerFv(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))) + 0x8000);
+                    M2C_FIELD(arg0, s32 *, 0x4B0) = 0;
+                    play_sound_effect(0x4003A528, (u32) (arg0 + 0x38), 0, 0);
+                } else {
+                    M2C_FIELD(arg0, s32 *, 0x4B0) = 6;
+                }
+            }
+            break;
+        case 5:
+            if (approach_value__13TObjEneMorfosFPvii(arg0, M2C_FIELD(arg0, s32 *, 0x4BC), M2C_FIELD((*(u8 * *)&TObjEneMorfos__data_805D6D10), s32 *, 0x1C)) != 0) {
+                M2C_FIELD(arg0, s32 *, 0x4B0) = 6;
+            }
+            break;
+        }
+        ((VObj_18_8bca97 *)(arg0))->m100();
+        ((VObj_18_8bca97 *)(arg0))->m87();
+        break;
+    }
+}
+
 void TObjEneMorfos__sub_80333AD0(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     switch (arg1) {
@@ -1774,7 +1906,7 @@ void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2) {
     case 7: TObjEneMorfos__sub_80333E48(arg0, arg2); break;
     case 4: TObjEneMorfos__sub_80333AD0((u8 *)(arg0), (s32)(arg2)); break;
     case 5: TObjEneMorfos__sub_80332FD4(arg0, arg2); break;
-    case 6: TObjEneMorfos__sub_80333690(arg0, arg2); break;
+    case 6: TObjEneMorfos__sub_80333690((u8 *)(arg0), (s32)(arg2)); break;
     case 9: TObjEneMorfos__sub_80333290(arg0, arg2); break;
     case 8: state_patrol__13TObjEneMorfosFPvi(arg0, arg2); break;
     case 10: TObjEneMorfos__sub_80332DBC(arg0, arg2); break;
