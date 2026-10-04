@@ -47,6 +47,58 @@ typedef struct S_803C0628 {
     s32 f40;
 } S_803C0628;
 
+struct Snd_803C0F98 {
+    u8 pad0[4];
+    s32 state;
+    s32 lobby;
+    u8 pad0C[2];
+    s8 channels;
+    u8 pad0F[0x50 - 0x0F];
+    u8 *src;
+    s32 max;
+    u8 pad58[0x64 - 0x58];
+    s16 *dst;
+    s32 size;
+    s32 rofs;
+    s32 pos;
+    s32 avail;
+    s32 unk78;
+    u8 pad7C[0x88 - 0x7C];
+    void (*get)(s32, s32 *, s32 *, s32 *);
+    s32 getCtx;
+    void (*put)(s32, s32, s32);
+    s32 putCtx;
+    u8 pad98[0xA0 - 0x98];
+    s32 count;
+    s32 bytes;
+};
+
+struct Snd_803C0BE8 {
+    u8 pad0[4];
+    s32 state;
+    s32 lobby;
+    u8 pad0C[2];
+    s8 channels;
+    u8 pad0F[0x50 - 0x0F];
+    u8 *src;
+    s32 max;
+    u8 pad58[0x64 - 0x58];
+    s16 *dst;
+    s32 size;
+    s32 rofs;
+    s32 pos;
+    s32 avail;
+    s32 unk78;
+    u8 pad7C[0x88 - 0x7C];
+    void (*get)(s32, s32 *, s32 *, s32 *);
+    s32 getCtx;
+    void (*put)(s32, s32, s32);
+    s32 putCtx;
+    u8 pad98[0xA0 - 0x98];
+    s32 count;
+    s32 bytes;
+};
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void hwSetTimeOffset(s8 arg0);
@@ -121,8 +173,6 @@ M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C406C(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void TLobby__sub_803C0B08(void);
-s32 EXIGetID(void *);
-s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
@@ -137,6 +187,10 @@ M2C_UNK TLobby__sub_803C3B38(int);
 s32 get_field_0x3c__6TLobbyFPv(int);
 s32 TLobby__sub_803D2638(int);
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
+s32 get_client_count__6TLobbyFPv(int);
+void TLobby__sub_803C0F98(Snd_803C0F98 *arg0);
+s32 get_client_count__6TLobbyFPv(int);
+void EXIGetID(Snd_803C0BE8 *arg0);
 }
 
 extern "C" {
@@ -279,11 +333,11 @@ void TLobby__sub_803C0B3C(u8 *arg0) {
     s16 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xAA);
     if (temp_r0 == 2) {
-        EXIGetID((void *) (arg0));
+        EXIGetID((Snd_803C0BE8 *)((void *) (arg0)));
         return;
     }
     if (temp_r0 == 1) {
-        TLobby__sub_803C0F98((void *) (arg0));
+        TLobby__sub_803C0F98((Snd_803C0F98 *)((void *) (arg0)));
         return;
     }
     if (temp_r0 == 0) {
@@ -295,6 +349,80 @@ s32 TLobby__sub_803C0B88(u8 *arg0) {
         return 1;
     }
     return 0;
+}
+
+void EXIGetID(Snd_803C0BE8 *arg0) {
+    u8 *src = arg0->src;
+    s16 *l;
+    s16 *r;
+    s32 i;
+    s32 n;
+    if (arg0->state == 1 && get_client_count__6TLobbyFPv(arg0->lobby) == 0) {
+        arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
+        n = arg0->size - arg0->pos;
+        if (n > arg0->avail) {
+            n = arg0->avail;
+        }
+        if (n > arg0->max) {
+            n = arg0->max;
+        }
+        l = arg0->dst + arg0->pos;
+        if (arg0->channels == 2) {
+            r = arg0->dst + (arg0->rofs + arg0->pos);
+            for (i = 0; i < n; i++) {
+                l[i] = src[i * 4] | (src[i * 4 + 2] << 8);
+                r[i] = src[i * 4 + 1] | (src[i * 4 + 3] << 8);
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                l[i] = src[i * 2] | (src[i * 2 + 1] << 8);
+            }
+        }
+        arg0->count = n;
+        arg0->bytes = arg0->channels * (n * 2);
+        arg0->state = 2;
+    }
+    if (arg0->state == 2) {
+        arg0->put(arg0->putCtx, arg0->bytes, arg0->count);
+        arg0->state = 3;
+    }
+}
+
+void TLobby__sub_803C0F98(Snd_803C0F98 *arg0) {
+    u8 *src = arg0->src;
+    s16 *l;
+    s16 *r;
+    s32 i;
+    s32 n;
+    if (arg0->state == 1 && get_client_count__6TLobbyFPv(arg0->lobby) == 0) {
+        arg0->get(arg0->getCtx, &arg0->pos, &arg0->avail, &arg0->unk78);
+        n = arg0->size - arg0->pos;
+        if (n > arg0->avail) {
+            n = arg0->avail;
+        }
+        if (n > arg0->max) {
+            n = arg0->max;
+        }
+        l = arg0->dst + arg0->pos;
+        if (arg0->channels == 2) {
+            r = arg0->dst + (arg0->rofs + arg0->pos);
+            for (i = 0; i < n; i++) {
+                l[i] = (u8)(src[i * 2] - 0x80) << 8;
+                r[i] = (u8)(src[i * 2 + 1] - 0x80) << 8;
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                l[i] = (u8)(src[i] - 0x80) << 8;
+            }
+        }
+        arg0->count = n;
+        arg0->bytes = n * arg0->channels;
+        arg0->state = 2;
+    }
+    if (arg0->state == 2) {
+        arg0->put(arg0->putCtx, arg0->bytes, arg0->count);
+        arg0->state = 3;
+    }
 }
 
 typedef char RecoveredGlobal_803C0B08_lbl_80570AC0_size[sizeof(RecoveredGlobal_803C0B08_lbl_80570AC0) == 0x9C0 ? 1 : -1];

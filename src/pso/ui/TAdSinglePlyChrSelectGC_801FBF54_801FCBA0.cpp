@@ -51,6 +51,13 @@ struct A_801FD8B8 { u8 p0[4]; u32 f4; u32 f8; u8 pC[8]; u32 f14; };
 
 struct C_801FD8B8 { u8 p[0x11564]; s32 f11564; };
 
+struct Obj_801FCD04;
+struct Obj_801FCD3C;
+struct Ent_801FCD04;
+struct Ent_801FD668;
+struct A_801FD8B8;
+struct C_801FD8B8;
+struct RecoveredGlobal_801FDA4C_lbl_804C88C0;
 extern "C" {
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(u8 *arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
@@ -128,6 +135,48 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi();
 extern Ent_801FD668 *lbl_805D5F58;
 extern u32 lbl_805D5F6C;
 s32 TAdPlayerLoadGC__sub_801FD770(void);
+s32 get_main_phase();
+u8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv(void);
+s32 get_instance__15TAdPlayerLoadGCFv();
+int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+void disconnect_protocol__6TLobbyFv();
+s32 is_technique_ready__8TTecCtrlFv();
+s32 TAdPlayerLoadGC__sub_801E1944(s32, void *, u32, s32);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TAdPlayerLoadGC__sub_801E1E38(s32);
+s32 TAdPlayerLoadGC__sub_801E2048(s32, M2C_UNK *);
+void render_tick__Fv();
+void register_callback__23TAdSinglePlyChrSelectGCFis(s32, s32);
+s32 TAdSinglePlyChrSelectGC__sub_801FC900(s32);
+Ent_801FCD04 *TAdSinglePlyChrSelectGC__sub_801FCD04(Obj_801FCD04 *self);
+s32 *TAdSinglePlyChrSelectGC__sub_801FCD3C(Obj_801FCD3C *self);
+void TAdSinglePlyChrSelectGC__sub_801FCD74(void);
+s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(A_801FD8B8 *a, A_801FD8B8 *b, C_801FD8B8 *c, C_801FD8B8 *d);
+s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
+void TAdSinglePlyChrSelectGC__sub_80200560(s32);
+void TAdSinglePlyChrSelectGC__sub_80200778(Ent_801FD668 *);
+void TAdSinglePlyChrSelectGC__sub_80200A44(s32);
+void TAdSinglePlyChrSelectGC__sub_802010E8();
+void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
+s32 get_field_118__22TAdEnterSerialAccessGCFv();
+s32 get_card_window__17TWindowSubComCardFUi(u32);
+void set_global_flags__23TAdSinglePlyChrSelectGCFi(s32);
+s32 get_instance__23TAdSinglePlyChrSelectGCFv();
+void init_slots__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK memcpy(void *, void *, int);
+M2C_UNK memset(int, int, int);
+extern RecoveredGlobal_801FDA4C_lbl_804C88C0 lbl_804C88C0;
+extern s32 lbl_80513910[];
+extern s32 lbl_805D55C0;
+extern Ent_801FD668 *lbl_805D5F58;
+extern u8 *lbl_805D5F60;
+extern u32 lbl_805D5F64;
+extern s32 lbl_805D5F78;
+extern s32 lbl_805D5F7C;
+extern s32 lbl_805D5F84;
+s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void);
 }
 
 extern "C" {
@@ -252,6 +301,122 @@ s32 TAdSinglePlyChrSelectGC__sub_801FCE2C(s32 arg0) {
         return 1;
     }
     return 0;
+}
+
+s32 TAdSinglePlyChrSelectGC__sub_801FCE6C(void) {
+    s32 cw;
+    s32 ret;
+    u32 obj;
+    u32 buf;
+    if (get_main_phase() == 0xE || lbl_805D55C0 == 1 || is_technique_ready__8TTecCtrlFv() == 0) {
+        return 0xFFFF0000;
+    }
+    init_slots__23TAdSinglePlyChrSelectGCFv();
+    ret = 0xFFFF0000;
+    if (lbl_805D5F60 != NULL && lbl_805D5F64 != 0 && lbl_805D5F58 != NULL) {
+        lbl_805D5F7C = ((s8 (*)(void))get_chr_select_state__23TAdSinglePlyChrSelectGCFv)();
+        if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
+            disconnect_protocol__6TLobbyFv();
+            return 0xFFFF0000;
+        }
+        while (TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C) != 0) {
+            if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
+                disconnect_protocol__6TLobbyFv();
+                return 0xFFFF0000;
+            }
+            TAdSinglePlyChrSelectGC__sub_801FCD74();
+            render_tick__Fv();
+        }
+        if ((obj = TAdPlayerLoadGC__sub_801E2048(lbl_805D5F7C, (M2C_UNK *)&lbl_804C88C0)) != 0) {
+            disconnect_protocol__6TLobbyFv();
+            return obj;
+        }
+        obj = lbl_805D5F84 << 13;
+        buf = alloc__22TQuestVmDownLoadServerFPv(obj);
+        memset(buf, 0, obj);
+        while (TAdPlayerLoadGC__sub_801E1944(lbl_805D5F7C, &lbl_804C88C0, buf, lbl_805D5F84) != 0) {
+            if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
+                if (buf != 0) {
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                }
+                disconnect_protocol__6TLobbyFv();
+                return 0xFFFF0000;
+            }
+            TAdSinglePlyChrSelectGC__sub_801FCD74();
+            render_tick__Fv();
+        }
+        while (TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C) != 0) {
+            if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
+                if (buf != 0) {
+                    safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+                }
+                disconnect_protocol__6TLobbyFv();
+                return 0xFFFF0000;
+            }
+            TAdSinglePlyChrSelectGC__sub_801FCD74();
+            render_tick__Fv();
+        }
+        lbl_80513910[0] = lbl_80513910[1] = get_field_118__22TAdEnterSerialAccessGCFv();
+        obj = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x1156C);
+        if (obj != 0) {
+            obj = TAdSinglePlyChrSelectGC__sub_801FC900(obj);
+        }
+        memset(obj, 0, 0x1156C);
+        memcpy((void *)obj, (void *)(buf + 0x2048), 0x1156C);
+        TAdSinglePlyChrSelectGC__sub_80200560(obj);
+        ret = TAdSinglePlyChrSelectGC__sub_801FD8B8(
+            (A_801FD8B8 *)TAdSinglePlyChrSelectGC__sub_801FCD3C((Obj_801FCD3C *)obj),
+            (A_801FD8B8 *)get_card_window__17TWindowSubComCardFUi(0xFFFF),
+            (C_801FD8B8 *)obj,
+            (C_801FD8B8 *)get_instance__23TAdSinglePlyChrSelectGCFv());
+        if (ret != 7) {
+            if (buf != 0) {
+                safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+            }
+            if (obj != 0) {
+                register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
+            }
+            disconnect_protocol__6TLobbyFv();
+            return ret;
+        }
+        memcpy(TAdSinglePlyChrSelectGC__sub_801FCD04((Obj_801FCD04 *)lbl_805D5F58),
+               TAdSinglePlyChrSelectGC__sub_801FCD04((Obj_801FCD04 *)obj), 0x41C);
+        if (buf != 0) {
+            safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
+        }
+        if (obj != 0) {
+            register_callback__23TAdSinglePlyChrSelectGCFis(obj, 1);
+        }
+        if (get_instance__15TAdPlayerLoadGCFv() == 0 && (ret = TAdPlayerLoadGC__sub_801E1B50(lbl_805D5F7C)) == 0) {
+            TAdSinglePlyChrSelectGC__sub_802010E8();
+            set_global_flags__23TAdSinglePlyChrSelectGCFi(1);
+            memcpy(TAdSinglePlyChrSelectGC__sub_801FCD3C((Obj_801FCD3C *)lbl_805D5F58), (void *)lbl_805D5F64, 0x2370);
+            lbl_80513910[0] = lbl_80513910[1] = get_field_118__22TAdEnterSerialAccessGCFv();
+            TAdSinglePlyChrSelectGC__sub_80200778(lbl_805D5F58);
+            TAdSinglePlyChrSelectGC__sub_80200A44(1);
+            while (TAdSinglePlyChrSelectGC__sub_801FDA4C() != 0) {
+                run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
+                if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
+                    disconnect_protocol__6TLobbyFv();
+                    return 0xFFFF0000;
+                }
+                TAdSinglePlyChrSelectGC__sub_801FCD74();
+                render_tick__Fv();
+            }
+            lbl_805D5F78 = 6;
+            while (get_instance__15TAdPlayerLoadGCFv() != 0) {
+                run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
+                if (TAdPlayerLoadGC__sub_801E1E38(lbl_805D5F7C) != 1) {
+                    disconnect_protocol__6TLobbyFv();
+                    return 0xFFFF0000;
+                }
+                TAdSinglePlyChrSelectGC__sub_801FCD74();
+                render_tick__Fv();
+            }
+            return 7;
+        }
+    }
+    return ret;
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_801FD668(void) {

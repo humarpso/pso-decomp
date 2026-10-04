@@ -79,6 +79,35 @@ struct VObj_8008DE9C : VBase_8008DE9C {
     virtual s32 m16(); virtual s32 m17(s32);
 };
 
+struct Obj_8008E098;
+struct P_8008E310 {
+    u8 pad0[0x38];
+    f32 pos[3];
+    u8 pad44[0xB8 - 0x44];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 fC0;
+    u8 padC4[0x2FC - 0xC4];
+    u8 f2FC[0x32C - 0x2FC];
+    s16 f32C;
+    u8 pad32E[0x33C - 0x32E];
+    s16 f33C;
+    u8 pad33E[0x37C - 0x33E];
+    s32 state;
+    u8 pad380[4];
+    s32 timer;
+    u32 flags;
+    u8 pad38C[0x3C4 - 0x38C];
+    s32 ids[4];
+    s32 f3D4;
+    s16 count;
+    u8 pad3DA[2];
+    u32 emit1;
+    u32 emit2;
+};
+
+struct E_8008E310 { u8 pad[0x3C0]; f32 f3C0; };
+
 extern "C" {
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
@@ -130,6 +159,27 @@ extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9624;
 extern const f32 lbl_805D9628;
 void TObjPlayer__sub_8008DE9C(Obj_8008DE9C *self);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+s16 obj_getS16_32C(void *);
+void queue_destruction__7TObjectFv(u32);
+void spawn_particle_effect(void *, s32);
+u32 create_particle_emitter(void *, s32);
+void copy_pos__11TNowLoadingFPvPv(u32, void *);
+void clear_active_flag__13TParticleCtrlFPv(u32);
+void enable__13TParticleCtrlFPv(u32);
+int reset_enemy_state__10TObjPlayerFPv(void* p);
+s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
+void TObjPlayer__sub_8008E934(void *, s32);
+int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
+void TObjEneBalClawClaw__sub_800907DC(void *);
+void clear_flag__18TObjEneBalClawClawFPv(void *);
+M2C_UNK advance_animation_playback(void *);
+u32 find_entity_by_id(u16);
+s32 play_sound_effect(int, void *, int, int);
+extern const f32 lbl_805D9620;
+extern const f32 lbl_805D9634;
+extern const f32 lbl_805D9638;
+void TObjPlayer__sub_8008E310(P_8008E310 *arg0);
 }
 
 extern "C" {
@@ -288,6 +338,124 @@ void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s
     matrix_mult_vec(0, out, out);
     vec3_add_to(out, &self->pos);
     pop_matrix();
+}
+
+void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
+    s32 all;
+    s32 cnt;
+    E_8008E310 *e;
+    f32 lim;
+    switch (arg0->state) {
+    case 0:
+        if (get_flag_0x388_b24__10TObjPlayerFPv(arg0) != 0) {
+            reset_enemy_state__10TObjPlayerFPv(arg0);
+            return;
+        }
+        arg0->f3D4 = 0;
+        if (TObjPlayer__sub_8008E098((Obj_8008E098 *)arg0) == 0) {
+            reset_enemy_state__10TObjPlayerFPv(arg0);
+            return;
+        }
+        arg0->flags |= 1;
+        arg0->flags &= ~0x04020000;
+        arg0->timer = 0x258;
+        arg0->state = 1;
+        arg0->fB8 = 5;
+        arg0->emit1 = create_particle_emitter(arg0->f2FC, 0x128);
+        break;
+    case 1:
+        copy_pos__11TNowLoadingFPvPv(arg0->emit1, arg0->f2FC);
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
+        all = 1;
+        cnt = 0;
+        lim = lbl_805D9634;
+        for (s32 i = 0; i < arg0->count; i++) {
+            e = (E_8008E310 *)find_entity_by_id(arg0->ids[i]);
+            if (e != NULL) {
+                cnt++;
+                if (e->f3C0 > lim) {
+                    all = 0;
+                }
+            } else {
+                arg0->ids[i] = 0xFFFF;
+            }
+        }
+        if (--arg0->timer <= 0 || cnt == 0) {
+            arg0->flags &= ~1;
+            reset_enemy_state__10TObjPlayerFPv(arg0);
+            return;
+        }
+        if (all == 1) {
+            for (s32 i = 0; i < arg0->count; i++) {
+                E_8008E310 *e2 = (E_8008E310 *)find_entity_by_id(arg0->ids[i]);
+                if (e2 != NULL) {
+                    TObjEneBalClawClaw__sub_800907DC(e2);
+                    arg0->f32C += obj_getS16_32C(e2);
+                }
+            }
+            arg0->emit2 = create_particle_emitter(arg0->f2FC, 0x12A);
+            enable__13TParticleCtrlFPv(arg0->emit2);
+            arg0->fB8 = 0xB;
+            arg0->flags |= 0x04000000;
+            arg0->state = 2;
+        }
+        break;
+    case 2:
+        copy_pos__11TNowLoadingFPvPv(arg0->emit1, arg0->f2FC);
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
+        if (arg0->fC0 < lbl_805D9638) {
+            enable__13TParticleCtrlFPv(arg0->emit2);
+        } else {
+            clear_active_flag__13TParticleCtrlFPv(arg0->emit2);
+            copy_pos__11TNowLoadingFPvPv(arg0->emit2, arg0->f2FC);
+        }
+        if (arg0->fB8 != 0xB) {
+            queue_destruction__7TObjectFv(arg0->emit1);
+            arg0->emit1 = 0;
+            spawn_particle_effect(arg0->f2FC, 0x129);
+            TObjPlayer__sub_8008E934(arg0, 1);
+            advance_animation_playback(arg0);
+            arg0->flags &= ~0x04000000;
+            arg0->f33C = 0x1E;
+            arg0->state = 3;
+            play_sound_effect(0x4003AD30, arg0->pos, 0, 0);
+        }
+        break;
+    case 3:
+        copy_pos__11TNowLoadingFPvPv(arg0->emit2, arg0->f2FC);
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
+        if (--arg0->f33C <= 0) {
+            arg0->flags &= ~1;
+            reset_enemy_state__10TObjPlayerFPv(arg0);
+        }
+        break;
+    case -1:
+        if (arg0->flags & 0x04000000) {
+            TObjPlayer__sub_8008E934(arg0, 1);
+            advance_animation_playback(arg0);
+        }
+        if (get_flag_0x388_b24__10TObjPlayerFPv(arg0) == 0) {
+            for (s32 i = 0; i < arg0->count; i++) {
+                e = (E_8008E310 *)find_entity_by_id(arg0->ids[i]);
+                if (e != NULL) {
+                    clear_flag__18TObjEneBalClawClawFPv(e);
+                }
+            }
+        }
+        arg0->flags |= 0x20000;
+        if (arg0->emit1 != 0) {
+            queue_destruction__7TObjectFv(arg0->emit1);
+            arg0->emit1 = 0;
+        }
+        if (arg0->emit2 != 0) {
+            queue_destruction__7TObjectFv(arg0->emit2);
+            arg0->emit2 = 0;
+        }
+        break;
+    }
 }
 
 void TObjPlayer__sub_8008E708(void *self) {

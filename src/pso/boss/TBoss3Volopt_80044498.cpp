@@ -4,6 +4,76 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_b5cc36 { char pad[0x18]; };
+struct VObj_18_b5cc36 : VBase_18_b5cc36 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual M2C_UNK m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual M2C_UNK m63(s16, void *);
+};
+
+struct Vec_80046260 { f32 x, y, z; };
+
 #include "pso/misc/RenderFadeState.h"
 struct Base_800475A0_80044498 { char pad[0x18]; };
 
@@ -716,6 +786,13 @@ extern const f32 TBoss3Volopt__data_805D87E4;
 extern const f32 TBoss3Volopt__data_805D87E8;
 extern const f32 lbl_805D87EC;
 extern const f32 lbl_805D87F0;
+s32 get_main_phase();
+M2C_UNK TBoss3Volopt__sub_80049E9C(void *, void *, Vec_80046260 *, s32, u16);
+s32 approach_angle_limited(s32, s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+extern s16 lbl_8048441C[];
+extern const f32 TBoss3Volopt__data_805D87A8;
+extern const f32 lbl_805D8810;
 void TBoss3Volopt__sub_80045B54(void *arg0_);
 }
 
@@ -1260,6 +1337,103 @@ void TBoss3Volopt__sub_80045DC4(u8 *arg0) {
     }
 }
 #pragma pop
+
+#define arg0 ((u8 *)arg0_)
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define VO ((VObj_18_b5cc36 *)(arg0))
+
+void TBoss3Volopt__sub_80046260(void *arg0_) {
+    s32 n;
+    s32 i;
+
+    if (F(s32, 0x388) & 0x80000) {
+        F(s32, 0x374) = 0;
+    }
+    F(u32, 0x2A8) = get_player_by_client_id(F(u16, 0x338));
+    switch (F(s32, 0x37C)) {
+    case 0:
+        F(s16, 0x33C) = 0x3C;
+        F(s16, 0x396) = 0;
+        F(s32, 0x37C) = 1;
+    case 1:
+        if (F(u8 *, 0x2A8) != NULL) {
+            Vec_80046260 v = *(Vec_80046260 *)(F(u8 *, 0x2A8) + 0x38);
+            subtract_vector(&v, arg0 + 0x38);
+            F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), (s32)(TBoss3Volopt__data_804366B0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) + 0x8000, 0x566);
+        }
+        if (--F(s16, 0x33C) <= 0) {
+            F(s16, 0xB8) = 7;
+            advance_animation_playback(arg0);
+            F(s32, 0x37C) = 2;
+        }
+        TBoss3Volopt__sub_8004512C((Obj_8004512C *)arg0);
+        break;
+    case 2:
+        advance_animation_playback(arg0);
+        if (objInBand__FP7GameObjf(arg0, TBoss3Volopt__data_805D87A8) != 0) {
+            play_sound_effect(0x4003A811, (u32)(arg0 + 0x38), 0, 0);
+        }
+        if (F(f32, 0xC0) >= lbl_805D8810) {
+            F(s16, 0x33C) = 0xA;
+            F(s32, 0x37C) = 3;
+        }
+        break;
+    case 3:
+        if (--F(s16, 0x33C) <= 0) {
+            F(s32, 0x37C) = 4;
+        }
+        break;
+    case 4: {
+        Vec_80046260 pos;
+        s16 cnt;
+        F(s16, 0x396)++;
+        TBoss3Volopt__sub_800C7698(arg0);
+        TBoss3Volopt__sub_8004550C((Volopt_8004550C *)arg0);
+        for (i = 0; i < (cnt = F(s16, 0x394)); i++) {
+            void *o;
+            VO->m63(lbl_8048441C[i], &pos);
+            o = __nw__7TObjectFUl(0xF0);
+            if (o != NULL) {
+                TBoss3Volopt__sub_80049E9C(o, arg0, &pos, F(s32, 0x60) + 0x8000, ((u16 *)arg0)[i + 0x1C6]);
+            }
+        }
+        if (cnt > 0) {
+            play_sound_effect(0x4003AD13, (u32)(arg0 + 0x38), 0, 0);
+        }
+        F(s16, 0x33C) = 0xF;
+        F(s32, 0x37C) = 5;
+    }
+    case 5:
+        if (--F(s16, 0x33C) <= 0) {
+            s32 ph = get_main_phase();
+            n = 4;
+            if (ph == 0xF) {
+                n = 2;
+            }
+            if (F(s16, 0x396) < n) {
+                F(s32, 0x37C) = 4;
+            } else {
+                F(s32, 0x37C) = 6;
+                play_sound_effect(0x4003A312, (u32)(arg0 + 0x38), 0, 0);
+            }
+        }
+        break;
+    case 6:
+        advance_animation_playback(arg0);
+        if (objInBand__FP7GameObjf(arg0, lbl_805D87C8) != 0) {
+            play_sound_effect(0x4003A312, (u32)(arg0 + 0x38), 0, 0);
+        }
+        if (F(u32, 0xB4) != 4) {
+            VO->m56();
+        }
+        break;
+    case -1:
+        break;
+    }
+}
+#undef arg0
+#undef F
+#undef VO
 
 void check_and_notify__12TBoss3VoloptFv(s32 _w0) {
     if (find_entity_by_id(TBoss3Volopt__data_805D2710) != 0U) {

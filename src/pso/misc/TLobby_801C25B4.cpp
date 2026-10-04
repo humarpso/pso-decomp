@@ -64,6 +64,21 @@ struct Lobby_801C484C {
     s32 timer60;
 };
 
+struct Cfg_801C3D50 {
+    u8 b[0xC];
+    s8 c;
+    u8 arr[4];
+    u8 d11;
+    s8 lvl;
+    u8 d13;
+    u8 pad14[4];
+    s32 vol;
+    s32 v1c;
+    s32 v20;
+    s32 v24;
+    s16 v28;
+};
+
 extern "C" {
 void handle_6x7E(void);
 extern void *TLobby__data_805D5D98;
@@ -147,6 +162,51 @@ void TLobby__sub_801C2898(Lobby_801C484C *, s32);
 void TLobby__sub_801C29F0(Lobby_801C484C *);
 void TLobby__sub_801C343C(Lobby_801C484C *);
 void TLobby__sub_801C484C(Lobby_801C484C *self);
+s32 get_game_mode__6TLobbyFv();
+M2C_UNK TLobby__sub_801B0B88();
+u32 get_player_by_client_id(u16);
+s32 update_battle_controller__10TObjPlayerFv();
+M2C_UNK fn_801C19D8(void *, int);
+M2C_UNK set_pos_z__6TLobbyFPvf(void *, f32);
+M2C_UNK set_scale__6TLobbyFPvf(void *, f32);
+M2C_UNK set_level__10TObjPlayerFPvi(void *, int);
+M2C_UNK fn_801D6D8C(void *, int, int);
+M2C_UNK set_volume__6TLobbyFPvUc(void *, int);
+M2C_UNK set_validated_field_0x11__6TLobbyFPvUc(void *, int);
+M2C_UNK set_clamped_index__6TLobbyFPvs(void *, int);
+M2C_UNK set_clamped_value_1c__6TLobbyFPvi(void *, int);
+M2C_UNK fn_801D726C(void *, int);
+M2C_UNK fn_801D72B0(void *, int);
+M2C_UNK set_field_0xE__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_d__6TLobbyFPvUc(void *, int);
+M2C_UNK set_clamped_field_c__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_b__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_a__6TLobbyFPvUc(void *, int);
+M2C_UNK set_byte9_clamped__6TLobbyFPvUc(void *, int);
+M2C_UNK set_difficulty__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field7_clamped__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_0x6__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_5__6TLobbyFPvUc(void *, int);
+M2C_UNK set_clamped_field_4__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_3__6TLobbyFPvUc(void *, int);
+M2C_UNK set_field_2__6TLobbyFPvUc(void *, int);
+M2C_UNK set_validated_field_0x1__6TLobbyFPvUc(void *, int);
+M2C_UNK set_section_id__6TLobbyFPvUc(void *, int);
+M2C_UNK reset_settings_to_default__6TLobbyFPv(void *);
+extern u32 lbl_8050EA10[];
+extern M2C_UNK lbl_8050EA40[];
+extern s32 lbl_80511CC8[];
+extern const f32 lbl_805D3538;
+extern const f32 lbl_805D353C;
+extern const f32 lbl_805D3540;
+extern const f32 lbl_805D3544;
+extern const f32 lbl_805D3548;
+extern const f32 lbl_805D354C;
+extern const f32 lbl_805D3550;
+extern s32 TLobby__data_805D5DA0;
+extern const f32 lbl_805D5DC4;
+extern const f32 lbl_805D5DC8;
+void TLobby__sub_801C3D50(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -363,6 +423,77 @@ void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2) {
     stack.sp14 = arg2;
     send_set_battle_mode_data__6TLobbyFPv(&stack.sp8);
 }
+
+#define CFG (*(Cfg_801C3D50 **)&TLobby__data_805D5DA0)
+void TLobby__sub_801C3D50(M2C_UNK arg0, s32 arg1) {
+    reset_settings_to_default__6TLobbyFPv((void *) (lbl_8050EA40));
+    if (arg1 != 0) {
+        s32 flag;
+        set_validated_field_0x1__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[0]);
+        set_field_2__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[1]);
+        set_field_3__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[2]);
+        set_clamped_field_4__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[3]);
+        set_field_5__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[4]);
+        set_field_0x6__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[5]);
+        set_field7_clamped__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[6]);
+        set_difficulty__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[7]);
+        set_byte9_clamped__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[8]);
+        set_field_b__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[0xA]);
+        set_clamped_field_c__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->b[0xB]);
+        fn_801D72B0((void *) (lbl_8050EA40), CFG->c);
+        for (s32 i = 0; i < 4; i++) {
+            fn_801D6D8C((void *) (lbl_8050EA40), CFG->b[i + 0xD], i);
+        }
+        set_field_d__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->d11);
+        set_level__10TObjPlayerFPvi((void *) (lbl_8050EA40), CFG->lvl);
+        set_field_0xE__6TLobbyFPvUc((void *) (lbl_8050EA40), CFG->d13);
+        set_volume__6TLobbyFPvUc((void *) (lbl_8050EA40), (u8) CFG->vol);
+        set_validated_field_0x11__6TLobbyFPvUc((void *) (lbl_8050EA40), (u8) CFG->v1c);
+        set_clamped_index__6TLobbyFPvs((void *) (lbl_8050EA40), (s16) CFG->v20);
+        set_clamped_value_1c__6TLobbyFPvi((void *) (lbl_8050EA40), CFG->v24);
+        fn_801D726C((void *) (lbl_8050EA40), (u8) CFG->v28);
+        flag = 0;
+        if ((s32) CFG->b[9] == 1 && get_game_mode__6TLobbyFv() == 4) {
+            s32 toggle = 1;
+            for (s32 i = 0; i < 4; i++) {
+                u32 p = ((u32 (*)(s32))get_player_by_client_id)(i);
+                if (p != 0U) {
+                    toggle = 1 - toggle;
+                    s32 v = 2;
+                    if (toggle != 0) {
+                        v = 1;
+                    }
+                    lbl_80511CC8[i] = v;
+                    fn_801C19D8((void *) (p + 0x828), lbl_80511CC8[i]);
+                } else {
+                    lbl_80511CC8[i] = -1;
+                }
+            }
+            flag = 1;
+        }
+        set_field_a__6TLobbyFPvUc((void *) (lbl_8050EA40), (u8) (flag != 0));
+        for (s32 i = 0; i < 4; i++) {
+            u32 p = lbl_8050EA10[i];
+            if (p != 0U) {
+                set_scale__6TLobbyFPvf((void *) (p + 0x78C), lbl_805D3538);
+                set_pos_z__6TLobbyFPvf((void *) (p + 0x78C), lbl_805D3548);
+                set_scale__6TLobbyFPvf((void *) (p + 0x77C), lbl_805D353C);
+                set_pos_z__6TLobbyFPvf((void *) (p + 0x77C), lbl_805D5DC4);
+                set_scale__6TLobbyFPvf((void *) (p + 0x75C), lbl_805D3540);
+                set_pos_z__6TLobbyFPvf((void *) (p + 0x75C), lbl_805D354C);
+                set_scale__6TLobbyFPvf((void *) (p + 0x76C), lbl_805D3544);
+                set_pos_z__6TLobbyFPvf((void *) (p + 0x76C), lbl_805D3550);
+                set_scale__6TLobbyFPvf((void *) (p + 0x79C), lbl_805D5DC8);
+                set_pos_z__6TLobbyFPvf((void *) (p + 0x79C), lbl_805D5DC8);
+            }
+        }
+        set_section_id__6TLobbyFPvUc((void *) (lbl_8050EA40), 1);
+    }
+    if (((u32 (*)(void))update_battle_controller__10TObjPlayerFv)() != 0U) {
+        TLobby__sub_801B0B88();
+    }
+}
+
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1) {
     if (get_player_by_client_id(arg0) != 0U) {
         send_code_45_1__10TObjPlayerFi();

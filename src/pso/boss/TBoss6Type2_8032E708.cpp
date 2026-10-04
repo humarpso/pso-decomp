@@ -140,6 +140,22 @@ typedef struct Vec_8032F690 { f32 x; f32 y; f32 z; } Vec_8032F690;
 
 typedef struct Vec_8032F418 { f32 x; f32 y; f32 z; } Vec_8032F418;
 
+typedef s32 M2C_UNK;
+struct Vec_8032EF34;
+struct V3_8032F824 { f32 x; f32 y; f32 z; };
+
+struct O_8032F824 {
+    u8 pad[0x38];
+    V3_8032F824 pos;
+    u8 pad2[0x5C - 0x44];
+    s32 f5c;
+    s32 f60;
+    u8 pad3[0x378 - 0x64];
+    void *p378;
+    u8 pad4[0x384 - 0x37C];
+    s32 f384;
+};
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -299,6 +315,30 @@ extern const f32 lbl_805DF830;
 extern const f32 lbl_805DF834;
 extern const f32 lbl_805DF838;
 void TBoss6Type2__sub_8032F418(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 approach_angle_limited(s32, s32, s32);
+s32 project_actor_to_ground(void *, void *, s32);
+void TBoss6Type2__sub_802BD378(void *, s32, void *, void *);
+s32 TBoss6Type2__sub_8032EA34(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void compute_random_dir_vec__11TBoss6Type2FiPvii(s32 arg0, u8 *arg1, s32 arg2, s32 arg3);
+s32 TBoss6Type2__sub_8032EF34(void *arg0, s32 *arg1, s32 *arg2, Vec_8032EF34 *arg3);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
+f32 vec3_add_to(void *, int);
+f32 vector_length(void *);
+f32 subtract_vector(void *, int);
+f32 normalize_vector(void *);
+extern const f64 lbl_80477458[];
+extern const f32 lbl_805DF7FC;
+extern const f32 lbl_805DF800;
+extern const f32 lbl_805DF804;
+extern const f32 lbl_805DF814;
+extern const f32 lbl_805DF838;
+extern const f32 lbl_805DF844;
+extern const f32 lbl_805DF848;
+extern const f32 lbl_805DF84C;
+s32 TBoss6Type2__sub_8032F824(O_8032F824 *o);
 }
 
 extern "C" {
@@ -791,6 +831,89 @@ void TBoss6Type2__sub_8032F690(u8 *arg0) {
     TBoss6Type2__sub_8032EF34((void *)(arg0), (s32 *)(&a), (s32 *)(&b), (Vec_8032EF34 *)((struct Vec_8032EF34 *)&v));
     M2C_FIELD(arg0, s32 *, 0x60) = TBoss6Type2__sub_8032EA34(arg0, M2C_FIELD(arg0, s32 *, 0x60), a, turn);
     M2C_FIELD(arg0, s32 *, 0x5C) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x5C), b, 0x1B4);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss6Type2__sub_8032F824(O_8032F824 *o) {
+    V3_8032F824 tgt;
+    V3_8032F824 d;
+    V3_8032F824 h;
+    V3_8032F824 a;
+    V3_8032F824 r;
+    s32 t;
+    s32 rx;
+    s32 ry;
+    f32 len;
+    if (o->p378 == 0) {
+        return 0;
+    }
+    TBoss6Type2__sub_802BD378(o->p378, o->f384, &tgt, &t);
+    tgt.y = tgt.y + lbl_805DF848;
+    VecCopy__FP3VecPC3Vec(&d, &tgt);
+    subtract_vector(&d, (int)&o->pos);
+    if (!(vector_length(&d) > lbl_805DF844)) {
+        d.x *= lbl_805DF804;
+        d.y *= lbl_805DF804;
+        d.z *= lbl_805DF804;
+        if (vector_length(&d) > lbl_805DF84C) {
+            normalize_vector(&d);
+            d.x *= lbl_805DF84C;
+            d.y *= lbl_805DF84C;
+            d.z *= lbl_805DF84C;
+        }
+        vec3_add_to(&o->pos, (int)&d);
+        o->f60 = TBoss6Type2__sub_8032EA34(o, o->f60, t, 0x5B0);
+        o->f5c = approach_angle_limited(o->f5c, 0, 0x5B0);
+        return 1;
+    }
+    VecCopy__FP3VecPC3Vec(&h, &d);
+    h.y = lbl_805DF7FC;
+    len = vector_length(&h);
+    if (!(len < lbl_805DF814)) {
+        f32 dy;
+        o->f60 = TBoss6Type2__sub_8032EA34(o, o->f60, (s32)(lbl_80477458[0] * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)), 0x5B0);
+        o->f5c = approach_angle_limited(o->f5c, 0, 0x5B0);
+        VecCopy__FP3VecPC3Vec(&a, &o->pos);
+        a.x += lbl_805DF84C * sin_table_lookup((void *)o->f60);
+        a.z += lbl_805DF84C * cos_table_lookup((void *)o->f60);
+        if (project_actor_to_ground(o, &a, 0) == 0) {
+            o->pos.x = a.x;
+            o->pos.z = a.z;
+            return 0;
+        }
+        a.y += lbl_805DF800;
+        o->pos.x = a.x;
+        o->pos.z = a.z;
+        dy = 0.25f * (a.y - o->pos.y);
+        if (dy < -4.4444447f) {
+            dy = -4.4444447f;
+        } else if (dy > 4.4444447f) {
+            dy = 4.4444447f;
+        }
+        o->pos.y += dy;
+        return 0;
+    }
+    if (len < lbl_805DF838) {
+        s32 ang;
+        o->f60 = TBoss6Type2__sub_8032EA34(o, o->f60, t, 0x5B0);
+        ang = 0x7FFF;
+        if (tgt.y > o->pos.y) {
+            ang *= -1;
+        }
+        o->f5c = approach_angle_limited(o->f5c, ang, 0x5B0);
+    } else {
+        TBoss6Type2__sub_8032EF34(o, &rx, &ry, (Vec_8032EF34 *)&d);
+        o->f60 = TBoss6Type2__sub_8032EA34(o, o->f60, rx, 0x5B0);
+        o->f5c = approach_angle_limited(o->f5c, ry, 0x5B0);
+    }
+    compute_random_dir_vec__11TBoss6Type2FiPvii((s32)o, (u8 *)&r, o->f60, o->f5c);
+    r.x *= lbl_805DF84C;
+    r.y *= lbl_805DF84C;
+    r.z *= lbl_805DF84C;
+    vec3_add_to(&o->pos, (int)&r);
+    return 0;
 }
 #pragma pop
 

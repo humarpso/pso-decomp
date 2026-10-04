@@ -39,13 +39,31 @@ struct View_800751BC {
     s32 f198;
 };
 
+typedef s32 M2C_UNK;
+struct V_800753DC { f32 x, y, z; };
+
+struct P_800753DC { f32 x, y; };
+
+struct Off_800753DC { s16 x, y; };
+
+struct Obj_800753DC {
+    u8 pad0[0x38];
+    V_800753DC pos;
+    u8 pad44[0xB4 - 0x44];
+    f32 scale;
+    f32 alphaA;
+    f32 alphaB;
+    u8 padC0[0x110 - 0xC0];
+    char names[6][0x30];
+    s32 timer;
+};
+
 extern "C" {
 u16 TCameraCtrl__sub_80068958();
-M2C_UNK TObjTombstone__sub_800753DC(void *);
 M2C_UNK get_camera_no__11TCameraCtrlFv();
 u32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
-extern f32 TObjTombstone__data_805D9174;
+extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D9178;
 extern f32 TObjTombstone__data_805D917C;
 extern const f32 lbl_805D9180;
@@ -61,7 +79,7 @@ void subtract_vector(void *, void *);
 extern V_80075070 lbl_804FF938[];
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805D9170;
-extern f32 TObjTombstone__data_805D9174;
+extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D917C;
 s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -83,8 +101,23 @@ void pop_matrix();
 extern V_800751BC lbl_80438780;
 extern u8 lbl_8058D490[];
 extern View_800751BC *lbl_805D4DF0;
-extern f32 TObjTombstone__data_805D9174;
+extern const f32 TObjTombstone__data_805D9174;
 s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 TObjTombstone__sub_800751BC(void *arg0, f32 *arg1, void *arg2);
+u32 calc_text_width(const char *);
+u32 TWindowSubStatusDisp__sub_80144C6C(const char *);
+void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
+f32 sin_table_lookup(s32);
+u32 strlen(const char *);
+extern Off_800753DC lbl_8048D2F0[];
+extern const f32 TObjTombstone__data_805D9174;
+extern const f32 lbl_805D9180;
+extern const f32 lbl_805D9188;
+extern const f32 lbl_805D918C;
+extern const f32 lbl_805D9190;
+extern const f32 lbl_805D91A0;
+M2C_UNK TObjTombstone__sub_800753DC(void *arg0_);
 }
 
 extern "C" {
@@ -198,8 +231,64 @@ void TObjTombstone__sub_80075340(u8 *arg0) {
         } else {
             M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
         }
-        TObjTombstone__sub_800753DC((void *) (arg0));
+        TObjTombstone__sub_800753DC((void *)((void *) (arg0)));
     }
 }
+#pragma push
+#pragma fp_contract on
+#define self ((Obj_800753DC *)arg0_)
+M2C_UNK TObjTombstone__sub_800753DC(void *arg0_) {
+    u32 c2;
+    u32 c1;
+    P_800753DC screen;
+    V_800753DC pos;
+    f32 m;
+    f32 a;
+    f32 b;
+    u32 alpha;
+    if (TObjTombstone__data_805D9174 == self->scale) return;
+    VecCopy__FP3VecPC3Vec(&pos, &self->pos);
+    pos.y += lbl_805D9188;
+    if (TObjTombstone__sub_800751BC(self, (f32 *)&screen, &pos) == 0) return;
+    m = TObjTombstone__data_805D9174;
+    for (s32 i = 0; i < 6; i++) {
+        f32 w = calc_text_width(self->names[i]);
+        if (m < w) m = w;
+    }
+    m *= lbl_805D918C;
+    if (screen.x - m < TObjTombstone__data_805D9174 || screen.x + m > lbl_805D9190) {
+        if ((self->alphaA += -0.16666667f) < 0.0f) self->alphaA = 0.0f;
+        if ((self->alphaB += -0.016666668f) < 0.0f) self->alphaB = 0.0f;
+    } else {
+        if ((self->alphaA += 0.16666667f) > 1.0f) self->alphaA = 1.0f;
+        if ((self->alphaB += 0.16666667f) > 1.0f) self->alphaB = 1.0f;
+    }
+    a = self->scale * self->alphaA;
+    b = self->scale * self->alphaB;
+    alpha = (s32)(lbl_805D9180 * sin_table_lookup(self->timer << 8)) + 200;
+    c1 = (u32)(alpha * a) << 24;
+    c2 = ((u32)(alpha * b) << 24) | 0xFFFFFF;
+    for (s32 i = 0; i < 6; i++) {
+        char *name;
+        P_800753DC p = screen;
+        name = self->names[i];
+        if (strlen(name) != 0) {
+            p.x -= lbl_805D918C * TWindowSubStatusDisp__sub_80144C6C(name);
+            if (a > TObjTombstone__data_805D9174) {
+                s32 j;
+                for (j = 0; j < 8; j++) {
+                    Off_800753DC o = lbl_8048D2F0[j];
+                    draw_menu_font_string(name, c1, 1, p.x + o.x, p.y + o.y, lbl_805D918C);
+                }
+            }
+            if (b > TObjTombstone__data_805D9174) {
+                draw_menu_font_string(name, c2, 1, p.x, p.y, lbl_805D918C);
+            }
+            screen.y += lbl_805D91A0;
+        }
+    }
+}
+#undef self
+#pragma pop
 
 }

@@ -75,6 +75,9 @@ struct Ctx_803E4E20 {
     void (*draw)(s32 *);
 };
 
+typedef s32 M2C_UNK;
+struct Key_803E500C { u32 frame; f32 *data; };
+
 extern "C" {
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
@@ -98,6 +101,10 @@ void TObjPlayer__sub_803E53BC(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
 extern u8 *lbl_805D4698;
 void TObjPlayer__sub_803E4E20(s32 arg0);
+void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
+extern u32 *lbl_805D7778;
+extern const f32 lbl_805E10B8;
+void TObjPlayer__sub_803E500C(void *motA, s32 keyA, void *motB, s32 keyB, f32 t, u32 *src, u32 **out);
 }
 
 extern "C" {
@@ -157,6 +164,127 @@ void TObjPlayer__sub_803E4E20(s32 arg0) {
         n = n->next;
     } while (n != NULL);
 }
+
+#pragma push
+#pragma use_lmw_stmw off
+void TObjPlayer__sub_803E500C(void *motA, s32 keyA, void *motB, s32 keyB, f32 t, u32 *src, u32 **out) {
+    f32 *a0;
+    f32 *a1;
+    f32 *b0;
+    f32 *b1;
+    f32 wa;
+    f32 wb;
+    f32 fa;
+    Key_803E500C *ka0;
+    Key_803E500C *ka1;
+    f32 fb;
+    Key_803E500C *kb0;
+    Key_803E500C *kb1;
+    u32 *s;
+    u32 hdr;
+    u32 *p;
+    u32 *d;
+    u32 n;
+    s32 count;
+    s32 pos;
+    s32 rot;
+    s32 c0;
+    s32 c1;
+    s32 i;
+    if (motA != 0) {
+        find_motion_key_interval(motA, 8, keyA, t, &ka0, &ka1, &fa);
+        wa = lbl_805E10B8 - fa;
+        a0 = ka0->data;
+        b0 = ka1->data;
+    }
+    if (motB != 0) {
+        find_motion_key_interval(motB, 8, keyB, t, &kb0, &kb1, &fb);
+        wb = lbl_805E10B8 - fb;
+        a1 = kb0->data;
+        b1 = kb1->data;
+    }
+    p = src;
+    *out = d = lbl_805D7778;
+    for (;;) {
+        hdr = p[0];
+        if ((u8)hdr == 0xFF) {
+            *d = hdr;
+            return;
+        }
+        n = hdr >> 16;
+        count = p[1] >> 16;
+        switch ((u8)hdr) {
+        case 34:
+            pos = 1; rot = 0; c0 = 0; c1 = 0;
+            break;
+        case 35:
+            pos = 1; rot = 0; c0 = 1; c1 = 0;
+            break;
+        case 36:
+            pos = 1; rot = 0; c0 = 0; c1 = 1;
+            break;
+        case 41:
+            pos = 1; rot = 1; c0 = 0; c1 = 0;
+            break;
+        case 42:
+            pos = 1; rot = 1; c0 = 1; c1 = 0;
+            break;
+        case 43:
+            pos = 1; rot = 1; c0 = 0; c1 = 1;
+            break;
+        case 44:
+            pos = 1; rot = 1; c0 = 0; c1 = 1;
+            break;
+        default:
+            pos = 0; rot = 0; c0 = 0; c1 = 0;
+            break;
+        }
+        d[0] = hdr;
+        d[1] = p[1];
+        s = p + 2;
+        d += 2;
+        for (i = 0; i < count; i++) {
+            if (pos != 0) {
+                if (motA != 0) {
+                    ((f32 *)d)[0] = a0[0] * wa + b0[0] * fa;
+                    ((f32 *)d)[1] = a0[1] * wa + b0[1] * fa;
+                    ((f32 *)d)[2] = a0[2] * wa + b0[2] * fa;
+                    a0 += 3;
+                    b0 += 3;
+                } else {
+                    ((f32 *)d)[0] = ((f32 *)s)[0];
+                    ((f32 *)d)[1] = ((f32 *)s)[1];
+                    ((f32 *)d)[2] = ((f32 *)s)[2];
+                }
+                d += 3;
+                s += 3;
+            }
+            if (rot != 0) {
+                if (motB != 0) {
+                    ((f32 *)d)[0] = a1[0] * wb + b1[0] * fb;
+                    ((f32 *)d)[1] = a1[1] * wb + b1[1] * fb;
+                    ((f32 *)d)[2] = a1[2] * wb + b1[2] * fb;
+                    a1 += 3;
+                    b1 += 3;
+                } else {
+                    ((f32 *)d)[0] = ((f32 *)s)[0];
+                    ((f32 *)d)[1] = ((f32 *)s)[1];
+                    ((f32 *)d)[2] = ((f32 *)s)[2];
+                }
+                d += 3;
+                s += 3;
+            }
+            if (c0 != 0) {
+                *d++ = *s++;
+            }
+            if (c1 != 0) {
+                *d++ = *s++;
+            }
+        }
+        p += n + 1;
+    }
+}
+#pragma pop
 
 void TObjPlayer__sub_803E5378(s32 n) {
     s32 w = n * 4;

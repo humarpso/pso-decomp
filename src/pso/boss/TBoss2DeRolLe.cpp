@@ -29,6 +29,32 @@ struct Self_800310F8 {
     s32 life;
 };
 
+struct DR_800327C8 {
+    u8 pad0[0x38];
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad44[0xB8 - 0x44];
+    s16 fB8;
+    u8 padBA[0x3C0 - 0xBA];
+    u32 flags;
+    u8 pad3C4[0x654 - 0x3C4];
+    s32 mode;
+    s32 sub;
+    u8 pad65C[0x67C - 0x65C];
+    f32 ampX;
+    u8 pad680[0x69C - 0x680];
+    f32 ampZ;
+    u8 pad6A0[0x6E0 - 0x6A0];
+    s32 done;
+    s32 kind;
+    u8 pad6E8[0x6FC - 0x6E8];
+    f32 baseX;
+    f32 baseZ;
+    f32 scaleX;
+    f32 scaleZ;
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
@@ -48,6 +74,20 @@ extern u8 *TBoss2DeRolLe__data_805D4BA0;
 extern const f32 lbl_805D8340;
 extern const f32 lbl_805D8344;
 void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2);
+void TBoss2DeRolLe__sub_800338BC(void);
+s32 TBoss2DeRolLe__sub_80034574(void *);
+M2C_UNK init_wave_params__13TBoss2DeRolLeFPv(void *);
+s32 update_state__13TBoss2DeRolLeFPv(void *);
+M2C_UNK init_move_params__13TBoss2DeRolLeFPv(void *);
+s32 TBoss2DeRolLe__sub_80034800(void *);
+M2C_UNK init_movement__13TBoss2DeRolLeFPv(void *);
+s32 TBoss2DeRolLe__sub_80034960(void *);
+M2C_UNK init_head_params__13TBoss2DeRolLeFPv(void *);
+void TBoss2DeRolLe__sub_80034C90(void *, s32);
+void advance_animation_playback(void *);
+extern const f32 TBoss2DeRolLe__data_805D82BC;
+extern const f32 TBoss2DeRolLe__data_805D832C;
+void TBoss2DeRolLe__sub_800327C8(void *arg0, void *arg1, int arg2, int arg3);
 }
 
 extern "C" {
@@ -193,7 +233,6 @@ void TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
 s32 TBoss2DeRolLe__sub_800313F8(void *, void *, int);
 s32 TBoss2DeRolLe__sub_80031AD4(void *, void *);
 s32 TBoss2DeRolLe__sub_800320B4(void *, void *, int, int);
-s32 TBoss2DeRolLe__sub_800327C8(void *, void *, int, int);
 s32 TBoss2DeRolLe__sub_80032B28(void *, void *);
 s32 TBoss2DeRolLe__sub_80032E38(void *, void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
@@ -273,6 +312,12 @@ extern const f32 lbl_805D82F8;
 extern "C" {
 void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+}
+
+extern "C" {
+void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 }
 
@@ -740,6 +785,141 @@ void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2) {
 }
 #undef self
 
+#pragma push
+#pragma fp_contract on
+#define o ((DR_800327C8 *)arg0)
+void TBoss2DeRolLe__sub_800327C8(void *arg0, void *arg1, int arg2, int arg3) {
+    s32 r;
+    switch ((u32)arg1) {
+    case 4:
+        o->fB8 = 1;
+        ((void (*)(void *))TBoss2DeRolLe__sub_800341F0)(o);
+        o->flags &= ~4;
+        o->flags |= 0x100;
+        o->mode = arg2;
+        o->sub = arg3;
+        TBoss2DeRolLe__sub_80034C90(o, o->mode);
+        o->done = 0;
+        o->baseX = o->x;
+        o->baseZ = o->z;
+        switch (o->mode) {
+        case 0:
+            o->scaleX = TBoss2DeRolLe__data_805D82BC;
+            switch (o->sub) {
+            case 2:
+                break;
+            case 1:
+                o->kind = 1;
+                break;
+            case 3:
+                o->kind = 3;
+                break;
+            }
+            break;
+        case 1:
+            o->kind = 2;
+            switch (o->sub) {
+            case 1:
+                break;
+            case 2:
+                o->scaleX = TBoss2DeRolLe__data_805D82BC;
+                break;
+            case 0:
+                o->scaleX = TBoss2DeRolLe__data_805D832C;
+                break;
+            }
+            break;
+        case 2:
+            o->scaleX = TBoss2DeRolLe__data_805D832C;
+            switch (o->sub) {
+            case 2:
+                break;
+            case 1:
+                o->kind = 1;
+                break;
+            case 3:
+                o->kind = 3;
+                break;
+            }
+            break;
+        case 3:
+            o->kind = 0;
+            switch (o->sub) {
+            case 1:
+                break;
+            case 2:
+                o->scaleX = TBoss2DeRolLe__data_805D82BC;
+                break;
+            case 0:
+                o->scaleX = TBoss2DeRolLe__data_805D832C;
+                break;
+            }
+            break;
+        }
+        switch (o->kind) {
+        case 0:
+            init_wave_params__13TBoss2DeRolLeFPv(o);
+            o->scaleZ = TBoss2DeRolLe__data_805D82BC;
+            break;
+        case 1:
+            init_head_params__13TBoss2DeRolLeFPv(o);
+            o->scaleZ = TBoss2DeRolLe__data_805D82BC;
+            break;
+        case 2:
+            init_movement__13TBoss2DeRolLeFPv(o);
+            o->scaleZ = TBoss2DeRolLe__data_805D832C;
+            break;
+        case 3:
+            init_move_params__13TBoss2DeRolLeFPv(o);
+            o->scaleZ = TBoss2DeRolLe__data_805D832C;
+            break;
+        }
+        break;
+    case 2:
+        if (o->done == 1) {
+            TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)o, 2);
+        }
+        break;
+    case 9:
+        if (o->done == 1) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)o);
+        }
+        break;
+    case 0:
+        ((void (*)(void))advance_animation_playback)();
+        ((void (*)(void *))TBoss2DeRolLe__sub_800338BC)(o);
+        r = 0;
+        switch (o->kind) {
+        case 0:
+            r = TBoss2DeRolLe__sub_80034574(o);
+            break;
+        case 1:
+            r = TBoss2DeRolLe__sub_80034960(o);
+            o->z = o->baseZ + o->ampZ;
+            break;
+        case 2:
+            r = TBoss2DeRolLe__sub_80034800(o);
+            o->z = o->baseZ - o->ampZ;
+            break;
+        case 3:
+            r = update_state__13TBoss2DeRolLeFPv(o);
+            o->z = o->baseZ - o->ampZ;
+            break;
+        }
+        if (r != 0) {
+            o->done = 1;
+        }
+        o->x = o->ampX * o->scaleX + o->baseX;
+        o->z = o->ampZ * o->scaleZ + o->baseZ;
+        break;
+    case 5:
+        o->mode = o->sub;
+        break;
+    }
+}
+#undef o
+#pragma pop
+
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1) {
     switch (arg1) {
     case 4: self->f_B8 = 1; return;
@@ -767,37 +947,37 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         TBoss2DeRolLe__sub_80032B28((void *) (arg0), (void *) (arg2));
         return;
     case 3:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (0), (int) (1));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (0)), (int)((int) (1)));
         return;
     case 4:
         TBoss2DeRolLe__sub_800320B4((void *) (arg0), (void *) (arg2), (int) (0), (int) (2));
         return;
     case 5:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (0), (int) (3));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (0)), (int)((int) (3)));
         return;
     case 6:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (1), (int) (2));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (1)), (int)((int) (2)));
         return;
     case 8:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (1), (int) (0));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (1)), (int)((int) (0)));
         return;
     case 9:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (2), (int) (3));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (2)), (int)((int) (3)));
         return;
     case 10:
         TBoss2DeRolLe__sub_800320B4((void *) (arg0), (void *) (arg2), (int) (2), (int) (0));
         return;
     case 11:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (2), (int) (1));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (2)), (int)((int) (1)));
         return;
     case 12:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (3), (int) (0));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (3)), (int)((int) (0)));
         return;
     case 13:
         TBoss2DeRolLe__sub_80031AD4((void *) (arg0), (void *) (arg2));
         return;
     case 14:
-        TBoss2DeRolLe__sub_800327C8((void *) (arg0), (void *) (arg2), (int) (3), (int) (2));
+        TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (3)), (int)((int) (2)));
         return;
     case 18:
         TBoss2DeRolLe__sub_800313F8((void *) (arg0), (void *) (arg2), (int) (0));

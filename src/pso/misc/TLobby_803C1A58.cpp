@@ -4,6 +4,46 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Strm_803C8678;
+struct StrmVt_803C8678 {
+    void *pad[6];
+    void (*read)(Strm_803C8678 *, s32, s32, void *);
+    void (*release)(Strm_803C8678 *, s32, void *);
+    void (*submit)(Strm_803C8678 *, s32, void *);
+    s32 (*avail)(Strm_803C8678 *, s32);
+};
+struct Strm_803C8678 { StrmVt_803C8678 *vt; };
+struct Pair_803C8678 { u32 a, b; };
+struct S_803C8678 {
+    u8 f0;
+    s8 state;
+    s8 busy;
+    s8 retry;
+    Strm_803C8678 *strm;
+    u32 h;
+    s32 fC;
+    s32 base;
+    s32 size;
+    s32 f18;
+    s32 f1C;
+    s32 nread;
+    s32 buf;
+    s32 f28;
+    s32 f2C;
+    s32 end;
+    s32 total;
+    void (*cb)(s32);
+    s32 cbarg;
+};
+
+extern "C" {
+s32 TLobby__sub_803CEEB8(u32);
+s32 TLobby__sub_803CF058(u32, s32, s32);
+M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
+extern s32 lbl_805D7554;
+extern s32 lbl_805D7558;
+}
+
 struct RecoveredGlobal_803C90B0_lbl_80575140 {
     M2C_UNK value;
     u8 remaining[0x9FC];
@@ -490,6 +530,93 @@ s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1) {
     *arg1 = var_r4 - ((Fields_arg0*)arg0)->field_C;
     return 1;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 pos_803C8678(S_803C8678 *s) {
+    if (s->h != 0) {
+        return TLobby__sub_803CF1A8(s->h) - s->base;
+    }
+    return 0;
+}
+
+void TLobby__sub_803C8678(S_803C8678 *s) {
+    Pair_803C8678 a;
+    Pair_803C8678 b;
+    Strm_803C8678 *st = s->strm;
+    s32 n;
+    s32 m;
+    s32 r;
+
+    if (s->busy == 1) {
+        r = TLobby__sub_803CEEB8(s->h);
+        if (r == 1) {
+            n = s->nread << 11;
+            TLobby__sub_803D3130(&s->buf, n, &a, &b);
+            st->vt->submit(st, 1, &a);
+            st->vt->release(st, 0, &b);
+            if (s->end == pos_803C8678(s) && s->cb != NULL) {
+                s->cb(s->cbarg);
+            }
+            s->total += n;
+            s->busy = 0;
+            if (pos_803C8678(s) >= (s->size + 0x7FF) / 2048) {
+                s->state = 3;
+            }
+            s->retry = 0;
+        } else if (r == 3) {
+            st->vt->release(st, 0, &s->buf);
+            if (lbl_805D7554 >= 0) {
+                if (s->retry >= lbl_805D7554) {
+                    s->state = 4;
+                } else {
+                    s->retry++;
+                }
+            }
+            s->busy = 0;
+        }
+    }
+    if (s->busy == 0) {
+        if (st == NULL || st->vt == NULL) {
+            lbl_805D7558++;
+            return;
+        }
+        if (st->vt->avail(st, 1) < s->f1C) {
+            s32 e;
+            s32 c;
+            st->vt->read(st, 0, s->f18, &s->buf);
+            e = s->end;
+            n = s->f28 / 2048;
+            m = e - pos_803C8678(s);
+            if (n < m) {
+                m = n;
+            }
+            c = s->f2C;
+            if (m < c) {
+                c = m;
+            }
+            if (c == 0) {
+                st->vt->release(st, 0, &s->buf);
+                return;
+            }
+            s->nread = TLobby__sub_803CF058(s->h, c, s->buf);
+            if (s->nread <= 0) {
+                st->vt->release(st, 0, &s->buf);
+                if (TLobby__sub_803CEEB8(s->h) == 3 && lbl_805D7554 >= 0) {
+                    if (s->retry >= lbl_805D7554) {
+                        s->state = 4;
+                    } else {
+                        s->retry++;
+                    }
+                }
+            } else {
+                s->busy = 1;
+            }
+        }
+    }
+}
+#pragma pop
 
 void set_scroll_position__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 >= 0) {

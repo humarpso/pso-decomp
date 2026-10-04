@@ -59,6 +59,16 @@ struct Vec_800A5BBC { f32 x, y, z; };
 
 struct Vec_800A5DC4 { f32 x, y, z; };
 
+struct VBase18_800A4D9C { char pad[0x18]; };
+
+struct VObj18_800A4D9C : VBase18_800A4D9C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(void *, void *);
+};
+
 extern "C" {
 M2C_UNK apply_actor_gravity(void *, int, f32);
 M2C_UNK TObjPlayer__sub_800A0554(void *);
@@ -113,6 +123,44 @@ extern f32 *lbl_805D504C;
 extern const f32 lbl_805D9A14;
 extern const f32 lbl_805D9A78;
 void TObjPlayer__sub_800A5DC4(u8 *arg0);
+M2C_UNK apply_actor_gravity(void *, int, f32);
+M2C_UNK move_with_wall_slide(void *);
+M2C_UNK enemy_set_heading_velocity(void *, s32, f32);
+M2C_UNK calc_velocity_toward_destination(void *, Vec_800A5DC4, Vec_800A5DC4, f32);
+s32 select_enemy_destination(void *, Vec_800A5DC4 *, int);
+M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800A5DC4 *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 newton_sqrtf(f32);
+M2C_UNK spawn_particle_effect(void *, int);
+M2C_UNK TObjPlayer__sub_800A5960(void *);
+M2C_UNK step_angle_clamped__10TObjPlayerFPvi(void *, int);
+s32 lookup_entry_by_value__10TObjPlayerFPvf(void *, f32);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+u8 *get_enemy_entity(u16);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *, int);
+M2C_UNK check_enemy_body_collisions(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+u8 *get_player_by_client_id(u16);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
+M2C_UNK TObjPlayer__sub_803D8960(int, s32, void *, int);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+extern void *lbl_805D5068;
+extern const f32 lbl_805D9A14;
+extern const f32 lbl_805D9A28;
+extern const f32 lbl_805D9A2C;
+extern const f32 lbl_805D9A30;
+extern const f32 lbl_805D9A34;
+extern const f32 lbl_805D9A38;
+void TObjPlayer__sub_800A4D9C(u8 *arg0);
 }
 
 extern "C" {
@@ -171,6 +219,112 @@ s32 TObjPlayer__sub_800A4C4C(Obj_800A4C4C *self) {
     }
     return 0;
 }
+
+#define F(T, o) (*(T *)(arg0 + (o)))
+void TObjPlayer__sub_800A4D9C(u8 *arg0) {
+    u8 m50[0xC];
+    u8 m44[0xC];
+    Vec_800A5DC4 d;
+    u8 *p;
+    s32 floor;
+    s32 e;
+    u16 id;
+    id = F(u16, 0x338);
+    if (id < 0x1000) {
+        p = get_player_by_client_id(id);
+        if (p != NULL && get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+            F(u8 *, 0x2A8) = p;
+        } else {
+            F(u8 *, 0x2A8) = NULL;
+        }
+    } else if (id < 0x4000) {
+        F(u8 *, 0x2A8) = get_enemy_entity(id);
+    } else {
+        F(u16, 0x338) = 0xFFFF;
+        F(u8 *, 0x2A8) = NULL;
+    }
+    F(u32, 0x30) |= 0x06000000;
+    {
+        u32 *anim = F(u32 *, 0xA4);
+        anim[6] &= ~1;
+        advance_animation_playback(arg0, (int)anim);
+    }
+    step_angle_clamped__10TObjPlayerFPvi(arg0, 0);
+    switch (F(s16, 0x328)) {
+    case 0:
+        if (!(F(u32, 0x30) & 0x800000)) {
+            apply_actor_gravity(arg0, 0, lbl_805D9A14);
+        }
+        if (objInBand__FP7GameObjf(arg0, lbl_805D9A28) != 0) {
+            u8 *t = F(u8 *, 0x2A8);
+            if (t == NULL) {
+                goto fail;
+            }
+            {
+                Vec_800A5DC4 dest = *(Vec_800A5DC4 *)(t + 0x2FC);
+                if (select_enemy_destination(arg0, &dest, 1) == 0) {
+                    goto fail;
+                }
+            }
+            F(s16, 0x328) = 1;
+            {
+                Vec_800A5DC4 pos = F(Vec_800A5DC4, 0x2FC);
+                copy_position_if_valid__10TObjPlayerFii(arg0, &pos);
+            }
+            VecCopy__FP3VecPC3Vec(&d, arg0 + 0x29C);
+            subtract_vector(&d, arg0 + 0x2FC);
+            {
+                f32 dist = newton_sqrtf(d.x * d.x + d.z * d.z);
+                dist -= lbl_805D9A2C;
+                calc_velocity_toward_destination(arg0, F(Vec_800A5DC4, 0x290), F(Vec_800A5DC4, 0x29C), lbl_805D9A30 * dist);
+            }
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD03), arg0 + 0x38, 0, 0);
+            goto done;
+        fail:
+            F(s16, 0x328) = 2;
+        done:
+            spawn_particle_effect(arg0 + 0x38, 0xF3);
+        }
+        break;
+    case 1:
+        move_with_wall_slide(arg0);
+        if (lbl_805D9A28 <= F(f32, 0xC0) && F(f32, 0xC0) <= lbl_805D9A34) {
+            if ((e = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D5068, F(f32, 0xC0))) != 0) {
+                push_matrix();
+                TObjPlayer__sub_803D8CD4(0);
+                post_translate_matrix(arg0 + 0x38);
+                rotate_matrix_y(0, F(s32, 0x60));
+                TObjPlayer__sub_803D8960(0, e, m44, 2);
+                pop_matrix();
+                if (F(VObj18_800A4D9C *, 0x3C4) != NULL) {
+                    F(VObj18_800A4D9C *, 0x3C4)->m4(m44, m50);
+                }
+            }
+        }
+        if (objInBand__FP7GameObjf(arg0, lbl_805D9A38) != 0) {
+            check_object_collisions__10TObjPlayerFPv(arg0);
+            check_enemy_body_collisions(arg0);
+            F(s16, 0x328) = 2;
+            TObjPlayer__sub_800A5960(arg0);
+            spawn_particle_effect(arg0 + 0x38, 0xF3);
+            play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD04), arg0 + 0x38, 0, 0);
+            F(u32, 0x374) &= ~0x10;
+        }
+        break;
+    case 2:
+        if (!(F(u32, 0x30) & 0x800000)) {
+            apply_actor_gravity(arg0, 0, lbl_805D9A14);
+        }
+        if (F(u32, 0xB4) != 4) {
+            ((M2C_UNK (*)(f32, void *, s32))enemy_set_heading_velocity)(lbl_805D9A14, arg0, F(s32, 0x60));
+            F(u32, 0x30) &= 0xF9DFFFFF;
+            F(u32 *, 0xA4)[6] |= 1;
+        }
+        break;
+    }
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+}
+#undef F
 
 void TObjPlayer__sub_800A5A68(Obj_800A5A68 *self) {
     Vec_800A5A68 v;

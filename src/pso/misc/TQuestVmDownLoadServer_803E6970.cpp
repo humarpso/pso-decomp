@@ -430,11 +430,9 @@ s32 TQuestVmDownLoadServer__sub_803E9A24(u8 arg0);
 s32 TQuestVmDownLoadServer__sub_803E7098(void *, int);
 s32 TQuestVmDownLoadServer__sub_803EC69C(int);
 extern RecoveredGlobal_803EDB20_lbl_8047F8B8 lbl_8047F8B8;
-bool TQuestVmDownLoadServer__sub_803E7018(s32 arg0);
 s32 TQuestVmDownLoadServer__sub_803E7098(void *, int);
 s32 TQuestVmDownLoadServer__sub_803EC69C(int);
 extern RecoveredGlobal_803EDB20_lbl_8047F8B8 lbl_8047F8B8;
-bool TQuestVmDownLoadServer__sub_803E6F98(s32 arg0);
 s32 TQuestVmDownLoadServer__sub_803F0BE0(void * _w0, void * _w1);
 extern RecoveredGlobal_803E8710_lbl_8058DE08 lbl_8058DE08;
 extern RecoveredGlobal_803E8084_lbl_80590AC4 lbl_80590AC4;
@@ -778,6 +776,111 @@ void TQuestVmDownLoadServer__sub_803E6ACC(s32 arg0) {
         lbl_805D78DC = 0x23;
         lbl_805D7848 = 1;
     }
+}
+
+struct Ent_803E6B70 { u16 ch; u16 pad; s32 len; };
+void TQuestVmDownLoadServer__sub_803E6B70(u8 *dst, s32 start, s32 count, s32 mode) {
+    s32 TQuestVmDownLoadServer__sub_803E6F98(u16 arg0);
+    s32 TQuestVmDownLoadServer__sub_803E7018(u16 arg0);
+    Ent_803E6B70 *e;
+    Ent_803E6B70 *end;
+    u16 c;
+    u16 prev;
+    s32 i;
+    s32 last;
+    u16 *p;
+
+    if (mode >= 5) {
+        s32 j;
+        e = (Ent_803E6B70 *)&lbl_805A0498;
+        i = 0;
+        j = 0;
+        while (j < start) {
+            i += e->len;
+            j++;
+            e++;
+        }
+        last = i;
+        j = 0;
+        while (j < count) {
+            last += e->len;
+            j++;
+            e++;
+        }
+        p = (u16 *)&lbl_805A05D0 + i;
+        for (; i < last; i++) {
+            if (mode == 5) {
+                u16 k = TQuestVmDownLoadServer__sub_803EC5F8(TQuestVmDownLoadServer__sub_803E721C(*p++ | 0x100));
+                dst[0] = k >> 8;
+                dst[1] = k;
+                dst += 2;
+            } else if (mode == 6) {
+                *dst++ = *p++;
+            }
+        }
+        *dst = 0;
+        return;
+    }
+    e = (Ent_803E6B70 *)&lbl_805A0498 + start;
+    end = e + count;
+    prev = 0;
+    for (; e < end; e++) {
+        c = e->ch;
+        if (mode == 1) {
+            if (!(c & 0xFF00)) {
+                if (c == 0xDE && TQuestVmDownLoadServer__sub_803E7018(prev) != 0) {
+                    dst -= 2;
+                    if (prev == 0x2426) {
+                        c = 0x2474;
+                    } else {
+                        c = prev + 1;
+                    }
+                } else if (c == 0xDF && TQuestVmDownLoadServer__sub_803E6F98(prev) != 0) {
+                    dst -= 2;
+                    c = prev + 2;
+                } else {
+                    c = TQuestVmDownLoadServer__sub_803E721C(c);
+                }
+            }
+            if ((c & 0xFF00) == 0x2500) {
+                c &= 0x24FF;
+            }
+        } else if (mode == 2) {
+            if (!(c & 0xFF00)) {
+                if (c == 0xDE && TQuestVmDownLoadServer__sub_803E7018(prev) != 0) {
+                    dst -= 2;
+                    if (prev == 0x2526) {
+                        c = 0x2574;
+                    } else {
+                        c = prev + 1;
+                    }
+                } else if (c == 0xDF && TQuestVmDownLoadServer__sub_803E6F98(prev) != 0) {
+                    dst -= 2;
+                    c = prev + 2;
+                } else {
+                    c = TQuestVmDownLoadServer__sub_803E721C(c | 0x100);
+                }
+            }
+            if ((c & 0xFF00) == 0x2400) {
+                c |= 0x2500;
+            }
+        } else if (mode == 3) {
+            dst += TQuestVmDownLoadServer__sub_803E7098(dst, c);
+            continue;
+        } else if (mode == 4) {
+            if (!(c & 0xFF00)) {
+                c = TQuestVmDownLoadServer__sub_803E721C(c | 0x100);
+            }
+        }
+        prev = c;
+        if (c & 0xFF00) {
+            u16 k = TQuestVmDownLoadServer__sub_803EC5F8(c);
+            *dst++ = k >> 8;
+            c = k;
+        }
+        *dst++ = c;
+    }
+    *dst = 0;
 }
 
 #pragma push

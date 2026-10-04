@@ -397,6 +397,12 @@ struct Vec_80062BA0 { f32 x, y, z; };
 
 struct Cam_80062BA0 { s8 a; s8 b; s16 c; f32 d; f32 e; };
 
+struct Part_80064F50 { u8 pad0[4]; f32 f4; u8 pad8[4]; f32 fC; u8 pad10[8]; u32 flags; u8 pad1C[4]; f32 f20; u8 pad24[4]; f32 f28; };
+
+struct Cfg_80064F50 { u8 pad[0x18]; s32 i18; s32 i1C; s32 i20; s32 i24; };
+
+struct Obj_80064F50 { u8 pad0[0xA4]; Part_80064F50 *parts; u8 padA8[0x4C0 - 0xA8]; u32 flags4C0; u8 pad4C4[0x4E4 - 0x4C4]; s32 mode4E4; u8 pos4E8[4]; };
+
 extern "C" {
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void queue_destruction__7TObjectFv(void *);
@@ -505,6 +511,13 @@ extern const f32 lbl_805D8E80;
 extern const f32 lbl_805D8E84;
 extern const f32 lbl_805D8E88;
 void TBoss8Dragon__sub_80062BA0(u8 *arg0, u32 arg1);
+M2C_UNK set_collider_contact_low(void *);
+M2C_UNK set_collider_contact_high(void *);
+M2C_UNK update_local_colliders_from_world(void *, void *);
+extern const f32 lbl_805D8E10;
+extern const f32 lbl_805D8E84;
+extern const f32 lbl_805D8EAC;
+void TObjEneDD__sub_80064F50(Obj_80064F50 *arg0);
 }
 
 extern "C" {
@@ -1699,6 +1712,10 @@ extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
 
 extern "C" {
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
+}
+
+extern "C" {
+extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
 }
 
 s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
@@ -4160,6 +4177,70 @@ extern int fold_flush_37;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+#define CFG M2C_FIELD(&lbl_804FF5B4.value, Cfg_80064F50 **, 8)
+void TObjEneDD__sub_80064F50(Obj_80064F50 *arg0) {
+    if (arg0->flags4C0 & 0x80) {
+        for (s32 i = 0; i < 10; i++) {
+            arg0->parts[i].flags &= ~1;
+        }
+        return;
+    }
+    update_local_colliders_from_world(arg0, arg0->pos4E8);
+    {
+        f32 lim = lbl_805D8EAC;
+        s32 i;
+        for (i = 0; i < 10; i++) {
+            Part_80064F50 *p;
+            arg0->parts[i].flags |= 1;
+            p = &arg0->parts[i];
+            if (p->f4 + p->f20 >= lim) {
+                set_collider_contact_high(p);
+            } else {
+                set_collider_contact_low(p);
+            }
+        }
+    }
+    if (arg0->mode4E4 == 2) {
+        arg0->parts[0].flags |= 0x300;
+        arg0->parts[1].flags |= 0x300;
+        arg0->parts[2].flags |= 0x300;
+        arg0->parts[3].flags |= 0x300;
+        arg0->parts[2].flags |= 0x300;
+        arg0->parts[6].flags &= ~1;
+        arg0->parts[7].flags &= ~1;
+        arg0->parts[8].flags &= ~1;
+        arg0->parts[9].flags &= ~1;
+        arg0->parts[0].fC = lbl_805D8E84;
+        set_collider_contact_low(&arg0->parts[0]);
+        set_collider_contact_low(&arg0->parts[1]);
+        set_collider_contact_low(&arg0->parts[2]);
+        set_collider_contact_low(&arg0->parts[3]);
+        set_collider_contact_low(&arg0->parts[2]);
+    } else {
+        arg0->parts[0].flags &= ~0x300;
+        arg0->parts[1].flags &= ~0x300;
+        arg0->parts[2].flags &= ~0x300;
+        arg0->parts[3].flags &= ~0x300;
+        arg0->parts[2].flags &= ~0x300;
+        arg0->parts[6].flags |= 1;
+        arg0->parts[7].flags |= 1;
+        arg0->parts[8].flags |= 1;
+        arg0->parts[9].flags |= 1;
+        arg0->parts[0].fC = lbl_805D8E10;
+    }
+    arg0->parts[0].f28 = CFG->i20;
+    arg0->parts[1].f28 = CFG->i1C;
+    arg0->parts[2].f28 = CFG->i1C;
+    arg0->parts[3].f28 = CFG->i1C;
+    arg0->parts[4].f28 = CFG->i1C;
+    arg0->parts[5].f28 = CFG->i18;
+    arg0->parts[6].f28 = CFG->i24;
+    arg0->parts[7].f28 = CFG->i24;
+    arg0->parts[8].f28 = CFG->i24;
+    arg0->parts[9].f28 = CFG->i24;
+}
+
 void shift_position_history__12TBoss8DragonFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec((void*)(arg0 + 0x2FC), (void*)(arg0 + 0x3C0));
     VecCopy__FP3VecPC3Vec((void*)(arg0 + 0x74), (void*)(arg0 + 0x2FC));

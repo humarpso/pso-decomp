@@ -50,6 +50,33 @@ struct VObj_800A6C54_b : VBase_800A6C54_b {
 
 struct Vec_800A6C54 { f32 x, y, z; };
 
+struct VBase_800A677C { char pad[0x18]; };
+
+struct VObj_800A677C : VBase_800A677C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(); virtual void m6(); virtual void m7(); virtual void m8(); virtual void m9();
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16();
+    virtual s32 m17(s32);
+};
+
+struct Obj_800A677C : VObj_800A677C {
+    u16 f1C;
+    u8 pad1E[0x30 - 0x1E];
+    u32 f30;
+    u8 pad34[0x2A8 - 0x34];
+    u8 *target;
+    u8 pad2AC[0x2FC - 0x2AC];
+    Vec_800A6B14 pos;
+    u8 pad308[0x338 - 0x308];
+    u16 f338;
+    u8 pad33A[0x350 - 0x33A];
+    f32 *range;
+    u8 pad354[0x374 - 0x354];
+    u32 f374;
+    u32 f378;
+};
+
 extern "C" {
 M2C_UNK TObjBoss2Tunnel__sub_8007E884(void *, void *, void *);
 M2C_UNK rotate_matrix_x(int, void *);
@@ -127,6 +154,22 @@ extern const f32 lbl_805D9A80;
 extern const f32 lbl_805D9A8C;
 extern const f32 lbl_805D9A90;
 void TObjPlayer__sub_800A6C54(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
+f32 subtract_vector(void *, void *);
+s32 check_path_obstructed(void *, void *);
+u8 *get_player_data__10TObjPlayerFi(s32);
+s32 obj_testFlags30(void *, int);
+s32 obj_getField1c(void *);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+u8 *get_player_by_client_id(u16);
+u8 *get_enemy_entity(u16);
+extern M2C_UNK lbl_8043A8B0[];
+extern M2C_UNK lbl_8043A8BC[];
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+extern const f32 lbl_805D9A24;
+void TObjPlayer__sub_800A677C(Obj_800A677C *self);
 }
 
 extern "C" {
@@ -248,6 +291,120 @@ void TObjPlayer__sub_800A64E8(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x374) = (s32) (M2C_FIELD(arg0, s32 *, 0x374) & 0xFFFF0000);
         M2C_FIELD(arg0, s32 *, 0x374) = (s32) (M2C_FIELD(arg0, s32 *, 0x374) | 0x40);
         break;
+    }
+}
+
+#define P_800A677C(p) ((Obj_800A677C *)(p))
+void TObjPlayer__sub_800A677C(Obj_800A677C *self) {
+    if (self->f374 & 0x40) {
+        self->f338 = 0xFFFF;
+        self->target = NULL;
+        return;
+    }
+    if (self->m17(0x1E) == 0) {
+        return;
+    }
+    if (obj_testFlags30(self, 0x10) != 0) {
+        s32 best_id;
+        s32 i;
+        u8 *p;
+        s32 id;
+        f32 best;
+        f32 d;
+        u16 tid;
+        i = 0;
+        best_id = 0xFFFF;
+        Vec_800A6B14 v = *(Vec_800A6B14 *)lbl_8043A8B0;
+        best = *self->range * *self->range;
+        for (; i < lbl_805D586C + lbl_805D5870; i++) {
+            p = get_player_data__10TObjPlayerFi(i);
+            if (p != NULL && p != (u8 *)self) {
+                id = obj_getField1c(p);
+                if ((u16)id < 0x4000 && (u16)id != self->f1C && !(P_800A677C(p)->f30 & 0x02000800)) {
+                    VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(p + 0x2FC));
+                    subtract_vector(&v, &self->pos);
+                    d = v.x * v.x + v.z * v.z;
+                    if (d < best && check_path_obstructed(self, p + 0x2FC) != 1) {
+                        best_id = id;
+                        best = d;
+                    }
+                }
+            }
+        }
+        self->f338 = best_id;
+        tid = self->f338;
+        if (tid < 0x1000U) {
+            u8 *q = get_player_by_client_id(tid);
+            if (q != NULL) {
+                if (get_field_3e4__10TObjPlayerFPv((int)q) == get_current_floor()) {
+                    self->target = q;
+                    return;
+                }
+            }
+            self->target = NULL;
+            return;
+        }
+        if (tid < 0x4000U) {
+            self->target = get_enemy_entity(tid);
+        }
+        return;
+    }
+    {
+        s32 best_id2;
+        s32 best_id;
+        u8 *p;
+        u8 *best_p2;
+        u8 *best_p;
+        s32 i;
+        f32 best2;
+        f32 best;
+        f32 d;
+        Vec_800A6B14 v = *(Vec_800A6B14 *)lbl_8043A8BC;
+        best_id = 0xFFFF;
+        best_p2 = NULL;
+        best_id2 = best_id;
+        best_p = NULL;
+        i = 0;
+        best = *self->range * *self->range;
+        best2 = best;
+        for (; i < lbl_805D586C; i++) {
+            p = get_player_data__10TObjPlayerFi(i);
+            if (p == NULL) continue;
+            if ((u16)obj_getField1c(p) >= 0x1000) continue;
+            if (get_field_3e4__10TObjPlayerFPv((int)p) != get_current_floor()) continue;
+            if (P_800A677C(p)->f30 & 0x02000800) continue;
+            VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(p + 0x2FC));
+            subtract_vector(&v, &self->pos);
+            d = v.x * v.x + v.z * v.z;
+            if ((*(u32 *)(p + 0x890) & self->f378) && d < best &&
+                check_path_obstructed(self, p + 0x2FC) != 1) {
+                best_id = obj_getField1c(p);
+                best = d;
+                best_p = p;
+            }
+            if (d < best2 && check_path_obstructed(self, p + 0x2FC) != 1) {
+                best_id2 = obj_getField1c(p);
+                best2 = d;
+                best_p2 = p;
+            }
+        }
+        if (best2 < lbl_805D9A24 && best_p2 != NULL) {
+            self->f338 = best_id2;
+            self->target = best_p2;
+            return;
+        }
+        if (best_p != NULL) {
+            self->f338 = best_id;
+            self->target = best_p;
+            return;
+        }
+        if (best_p2 != NULL) {
+            self->f338 = best_id2;
+            self->target = best_p2;
+            return;
+        }
+        self->f338 = 0xFFFF;
+        self->target = NULL;
     }
 }
 

@@ -186,6 +186,75 @@ struct Gee_800C8950 {
     s32 maxCount; s32 count; void *children[8];
 };
 
+typedef s32 M2C_UNK;
+struct Vec_800C96B4;
+struct VBase_800C9A94 { char pad[0x18]; };
+
+struct VObj_800C9A94 : VBase_800C9A94 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
+    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
+    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
+    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
+    virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
+    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83();
+    virtual void m84(); virtual void m85(); virtual void m86(); virtual void m87();
+    virtual void m88(); virtual void m89(); virtual void m90(); virtual void m91();
+    virtual void m92(); virtual void m93(); virtual void m94(); virtual void m95();
+    virtual void m96(); virtual void m97(); virtual void m98(); virtual void m99();
+    virtual void m100(); virtual void m101(); virtual void m102(); virtual void m103();
+    virtual void m104(); virtual void m105(); virtual s32 m106();
+};
+
+struct Vec_800C9A94 { f32 x, y, z; };
+
+struct Gee_800C9A94 {
+    u8 pad0[0x38];
+    Vec_800C9A94 pos38;
+    u8 pad44[0x60 - 0x44];
+    s32 angle;
+    u8 pad64[0xB8 - 0x64];
+    s16 fB8;
+    u8 padBA[0x2FC - 0xBA];
+    u8 snd[0x394 - 0x2FC];
+    Vec_800C9A94 base;
+    Vec_800C9A94 vel;
+    f32 f3AC;
+    u8 pad3B0[0x3C8 - 0x3B0];
+    u32 flags;
+    u8 pad3CC[0x3E8 - 0x3CC];
+    f32 f3E8;
+    u8 pad3EC[0x3F4 - 0x3EC];
+    f32 f3F4;
+    f32 f3F8;
+    u8 pad3FC[0x408 - 0x3FC];
+    s32 f408;
+    u8 pad40C[0x434 - 0x40C];
+    s32 mode;
+    s32 timer;
+    s32 count;
+    u8 pad440[4];
+    s32 rot;
+    f32 f448;
+    f32 dist;
+    f32 ddist;
+    Vec_800C9A94 dir;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800C96B4 *);
@@ -210,6 +279,32 @@ M2C_UNK vec3_add_to(void *, s32);
 extern const f32 lbl_805DA0B0;
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
 void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 rotate_xz_pair_by_angle(void *, void *, int);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800C96B4 *);
+int enemy_copy_target_destination(void*);
+s32 update_linked_position__14TObjEneEpsilonFPv(void *, f32);
+int update_velocity__9TObjEneDDFPv(void*);
+f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
+M2C_UNK TObjEneDD__sub_800BABCC(void *, f32, f32, f32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1);
+s32 check_death_trigger__13TObjEneMe1GeeFPv(void *arg0);
+void TObjEneMe1Gee__sub_800CBC04(u8 *arg0);
+void TObjEneMe1Gee__sub_800CBC1C(u8 *arg0);
+void update_angle__13TObjEneMe1GeeFPv(void *arg0);
+void update_animation_frame__13TObjEneMe1GeeFPv(void *arg0);
+M2C_UNK advance_animation_playback();
+s32 play_sound_effect(s32, u32, s16, s32);
+f32 subtract_vector(void *, void *);
+extern const f64 lbl_8043BF28;
+extern const f32 TObjEneMe1Gee__data_805DA0A8;
+extern const f32 TObjEneMe1Gee__data_805DA0B4;
+extern const f32 lbl_805DA0F0;
+extern const f32 lbl_805DA0F4;
+extern const f32 lbl_805DA0F8;
+extern const f32 lbl_805DA0FC;
+void TObjEneMe1Gee__sub_800C9A94(void *arg0, s32 arg1);
 }
 
 struct VBase_18_800C8EB4 { char pad[0x18]; };
@@ -2180,7 +2275,6 @@ void TObjEneMe1Gee__vt110(u8 *arg0, s32 arg1);
 void state_return_home__13TObjEneMe1GeeFPvi(VObj *arg0, s32 arg1);
 void TObjEneMe1Gee__sub_800C9580(u8 *arg0, s32 arg1);
 void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1);
-void TObjEneMe1Gee__sub_800C9A94(void *, s32);
 void TObjEneMe1Gee__sub_800C9DF8(void *, s32);
 void TObjEneMe1Gee__sub_800CA454(void *, s32);
 void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1);
@@ -2840,6 +2934,103 @@ void run_task__13TObjEneMe1GeeFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+#define o ((Gee_800C9A94 *)arg0)
+void TObjEneMe1Gee__sub_800C9A94(void *arg0, s32 arg1) {
+    Vec_800C9A94 *dir = &o->dir;
+    switch (arg1) {
+    case 4:
+        o->fB8 = 0;
+        set_field_378__9TObjEneDDFPvi(o, 9);
+        o->flags &= 0xFFBFFFFF;
+        ((VObj_800C9A94 *)o)->m94();
+        o->f408 = 0;
+        o->mode = 1;
+        TObjEneMe1Gee__sub_800CBC1C((u8 *)o);
+        o->timer = 0;
+        o->count = 0;
+        o->rot = 0;
+        o->f448 = TObjEneMe1Gee__data_805DA0B4;
+        o->dist = TObjEneMe1Gee__data_805DA0B4;
+        o->ddist = TObjEneMe1Gee__data_805DA0B4;
+        dir->x = TObjEneMe1Gee__data_805DA0B4;
+        dir->y = TObjEneMe1Gee__data_805DA0B4;
+        dir->z = TObjEneMe1Gee__data_805DA0B4;
+        break;
+    case 3:
+        if (((VObj_800C9A94 *)o)->m106() == 0 && check_death_trigger__13TObjEneMe1GeeFPv(o) == 0 && o->count >= 4) {
+            ((VObj_800C9A94 *)o)->m103();
+        }
+        break;
+    case 0:
+        advance_animation_playback();
+        if (update_linked_position__14TObjEneEpsilonFPv(o, TObjEneMe1Gee__data_805DA0A8) != 0) {
+            switch (o->mode) {
+            case 1: {
+                if (o->timer == 0) {
+                    f32 t;
+                    enemy_copy_target_destination(o);
+                    update_velocity__9TObjEneDDFPv(o);
+                    t = lbl_805DA0F0 * calc_elapsed_scaled__9TObjEneDDFv(o);
+                    if (t >= TObjEneMe1Gee__data_805DA0B4) {
+                        t += lbl_805DA0F4;
+                    } else {
+                        t -= lbl_805DA0F4;
+                    }
+                    t *= lbl_805DA0F8;
+                    o->rot = t;
+                    dir->x = -o->vel.x;
+                    dir->z = -o->vel.z;
+                    o->f448 = lbl_805DA0F8 * (o->f3E8 - o->f3F4);
+                    o->ddist = lbl_805DA0F8 * (lbl_805DA0FC - o->f3AC);
+                    o->dist = o->f3AC;
+                    play_sound_effect(handle_message__13TObjEneMe1GeeFii((s32)o, 0x3AD13), (u32)o->snd, 0, 0);
+                }
+                o->timer++;
+                if (o->timer >= 8) {
+                    o->count++;
+                    o->mode = 0;
+                    TObjEneMe1Gee__sub_800CBC04((u8 *)o);
+                }
+                o->f3F8 += o->f448;
+                rotate_xz_pair_by_angle(&dir->x, &dir->z, o->rot);
+                {
+                    Vec_800C9A94 v;
+                    f32 c;
+                    o->dist += o->ddist;
+                    v.x = dir->x * o->dist + o->base.x;
+                    v.z = dir->z * o->dist + o->base.z;
+                    subtract_vector(&v, &o->pos38);
+                    c = clamp_velocity__15TObjBoss2TunnelFPv((Vec_800C96B4 *)&v);
+                    TObjEneDD__sub_800BABCC(o, v.x, v.z, c);
+                }
+                o->angle = (s32)(lbl_8043BF28 * get_ad_end_text_start__10TObjPlayerFv(dir->x, dir->z)) + 0x8000;
+                break;
+            }
+            case 0:
+                enemy_copy_target_destination(o);
+                update_velocity__9TObjEneDDFPv(o);
+                update_angle__13TObjEneMe1GeeFPv(o);
+                update_animation_frame__13TObjEneMe1GeeFPv(o);
+                o->timer++;
+                if (o->timer > 30) {
+                    o->timer = 0;
+                    o->mode = 1;
+                }
+                break;
+            }
+            ((VObj_800C9A94 *)o)->m87();
+        }
+        break;
+    case 5:
+        TObjEneMe1Gee__sub_800CBC04((u8 *)o);
+        break;
+    }
+}
+#undef o
+#pragma pop
+
 void state_attack__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
@@ -3196,7 +3387,7 @@ void TObjEneMe1Gee__vt85(Ene_800CB3A4 *arg0, u32 arg1, s32 arg2) {
         TObjEneMe1Gee__sub_800C9DF8(arg0, arg2);
         break;
     case 9:
-        TObjEneMe1Gee__sub_800C9A94(arg0, arg2);
+        TObjEneMe1Gee__sub_800C9A94((void *)(arg0), (s32)(arg2));
         break;
     case 10:
         ((void (*)(void *, s32))run_task__13TObjEneMe1GeeFPvi)(arg0, arg2);

@@ -13,6 +13,17 @@ struct IllGillVObj_80367984_8036690C : IllGillBase_80367984_8036690C {
     virtual M2C_UNK m5();
 };
 
+struct Vec_80367270 { f32 x, y, z; };
+extern "C" {
+f32 TObjPlayer__sub_800186E8(void *, void *, Vec_80367270 *);
+f32 get_pos_x__10TObjPlayerFPv(int);
+s32 check_player_flag1__6TLobbyFPv(void *);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+extern const f64 lbl_8047A358[];
+extern s32 lbl_804F2F6C[];
+extern int enable_v2_features;
+}
+
 struct RecoveredGlobal_80367DC8_lbl_8050BF00 {
     M2C_UNK value;
     u8 remaining[0x1C];
@@ -732,6 +743,70 @@ void TObjEneIllGill__vt58(Gill_803671A4 *o) {
     o->flags |= 0x200000;
     o->flags &= ~0x40000;
 }
+
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+
+s32 TObjEneIllGill__vt28(u8 *arg0) {
+    Vec_80367270 v;
+    f32 dist;
+    s32 ang;
+    f32 rad;
+    u16 id;
+    u8 *pl;
+
+    if (F(u8 *, 0x2A8) != NULL && F(u32, 0x318) != 0 && !(M2C_FIELD(F(u8 *, 0x2A8), s32 *, 0x30) & 0x02000800)) {
+        if (obj_testFlags30(arg0, 0x2000) != 0) {
+            F(s32, 0x394) = 3;
+            bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+            return 1;
+        }
+        dist = TObjPlayer__sub_800186E8(arg0, F(u8 *, 0x2A8), &v);
+        ang = angle_difference_abs(F(s32, 0x60), (s32)(TObjEneIllGill__data_8047A348 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+        pl = F(u8 *, 0x2A8);
+        if (M2C_FIELD(pl, u8 **, 0xA4) != NULL) {
+            rad = M2C_FIELD(M2C_FIELD(pl, u8 **, 0xA4), f32 *, 0xC) - lbl_8047A358[0];
+        } else {
+            rad = TObjEneIllGill__data_805E02D8;
+        }
+        id = obj_getField1c(pl);
+        if (id < 0x1000) {
+            s32 i;
+            pl = F(u8 *, 0x2A8);
+            if (check_player_flag1__6TLobbyFPv(pl) == 1 || (enable_v2_features == 1 && obj_testFlags30(pl, 0x20) != 0)) {
+                F(s32, 0x318) = lbl_804F2F6C[0];
+                if (dist <= (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) * (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) &&
+                    ang <= get_field_0c__10TObjPlayerFPv(F(s32, 0x318))) {
+                    F(s32, 0x394) = 0;
+                    bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+                    return 1;
+                }
+                return 0;
+            }
+            for (i = 0; i < 4; i++) {
+                f32 r2;
+                s32 m;
+                F(s32, 0x318) = lbl_804F2F6C[i];
+                r2 = (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) * (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318)));
+                m = get_field_0c__10TObjPlayerFPv(F(s32, 0x318));
+                if (dist <= r2 && ang <= m) {
+                    F(s32, 0x394) = i;
+                    bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+                    return 1;
+                }
+            }
+        } else if (id < 0x4000) {
+            F(s32, 0x318) = lbl_804F2F6C[0];
+            if (dist <= (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) * (rad + get_pos_x__10TObjPlayerFPv(F(s32, 0x318))) &&
+                ang <= get_field_0c__10TObjPlayerFPv(F(s32, 0x318))) {
+                F(s32, 0x394) = 0;
+                bind_enemy_combat_stats(arg0, 0, lbl_804F2F6C[F(s32, 0x394)], 0);
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+#undef F
 
 #define arg0 ((u8 *)arg0_)
 void TObjEneIllGill__sub_80367588(void *arg0_) {

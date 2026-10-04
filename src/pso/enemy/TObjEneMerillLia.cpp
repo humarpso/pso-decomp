@@ -253,6 +253,54 @@ struct Stack_800D4D74 {
     f32 sp10;
 };
 
+typedef s32 M2C_UNK;
+struct Vec_800D6110 { f32 x, y, z; };
+
+struct VBase_18_800D6110 { char pad[0x18]; };
+
+struct VObj_18_800D6110 : VBase_18_800D6110 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16();
+    virtual s32 m17(s32);
+    virtual void m18(); virtual void m19(); virtual void m20(); virtual void m21();
+    virtual void m22(); virtual void m23(); virtual void m24(); virtual void m25();
+    virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
+    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33();
+    virtual void m34(); virtual void m35(); virtual void m36(); virtual void m37();
+    virtual void m38(); virtual void m39(); virtual void m40(); virtual void m41();
+    virtual void m42(); virtual void m43(); virtual void m44(); virtual void m45();
+    virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
+    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53();
+    virtual void m54(); virtual void m55(); virtual void m56(); virtual void m57();
+    virtual void m58(); virtual void m59(); virtual void m60(); virtual void m61();
+    virtual void m62(); virtual void m63(); virtual void m64(); virtual void m65();
+    virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69();
+    virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73();
+    virtual void m74(); virtual void m75(); virtual void m76(); virtual void m77();
+    virtual void m78(); virtual void m79(); virtual void m80(); virtual void m81();
+    virtual void m82(); virtual void m83(); virtual void m84(); virtual void m85();
+    virtual void m86(); virtual void m87(); virtual void m88(); virtual void m89();
+    virtual void m90(); virtual void m91(); virtual void m92(); virtual void m93();
+    virtual void m94(); virtual void m95(); virtual void m96();
+    virtual void m97();
+};
+
+struct Pl_800D6110 { u8 pad0[0x38]; Vec_800D6110 pos; u8 pad44[0x2FC - 0x44]; Vec_800D6110 p2fc; };
+
+struct Model_800D6110 { u8 pad0[0xC]; f32 radius; u8 pad10[8]; u32 flags; };
+
+struct Obj_800D6110 : VObj_18_800D6110 {
+    u8 pad1C[0x38 - 0x1C]; Vec_800D6110 pos; u8 pad44[0xA4 - 0x44]; Model_800D6110 *model;
+    u8 padA8[0xB8 - 0xA8]; s16 fb8; u8 padBA[0x2A8 - 0xBA]; Pl_800D6110 *f2a8;
+    u8 pad2ac[0x308 - 0x2AC]; u8 ang308[0x326 - 0x308]; s16 f326; s16 f328;
+    u8 pad32a[0x338 - 0x32A]; u16 f338; u8 pad33a[0x350 - 0x33A]; f32 *f350;
+    u8 pad354[0x374 - 0x354]; s16 f374; u8 pad376[0x398 - 0x376]; f32 f398;
+    u8 pad39c[0x3D4 - 0x39C]; f32 f3d4;
+};
+
 extern "C" {
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
@@ -424,6 +472,27 @@ extern const f32 TObjEneMerillLia__data_805DA2F4;
 extern const f32 lbl_805DA2F8;
 extern const f32 lbl_805DA2FC;
 void TObjEneMerillLia__sub_800D4D74(u8 *arg0);
+s16 find_nearest_visible_player(void *, s32, f32);
+f32 enemy_backstep_from_point(void *, void *, f32);
+void update_angle__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
+M2C_UNK obj_clearFlags30(void *, M2C_UNK);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+u32 csnVector(void *, void *, s32);
+void TObjEneMerillLia__sub_800D4D74(u8 *arg0);
+void TObjEneMerillLia__sub_800D5480(u8 *arg0);
+f32 xz_distance_squared(void *, void *);
+s32 advance_animation_playback(void *);
+M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+Pl_800D5614 *get_player_by_client_id(s32);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+f32 normalize_vector(void *);
+extern const f32 TObjEneMerillLia__data_805DA300;
+extern const f32 lbl_805DA314;
+extern const f32 lbl_805DA318;
+void TObjEneMerillLia__sub_800D6110(Obj_800D6110 *arg0);
 }
 
 extern "C" {
@@ -804,6 +873,102 @@ M2C_UNK TObjEneMerillLia__sub_800D57C8(void *p) {
     minimap_render_dot((void *) ((u8 *)(arg0) + 0x38), -0x5DB4, 1, 0);
 }
 #undef arg0
+
+#pragma push
+#pragma fp_contract on
+void TObjEneMerillLia__sub_800D6110(Obj_800D6110 *arg0) {
+    Vec_800D6110 save;
+    Vec_800D6110 to;
+    Vec_800D6110 d;
+    f32 dist;
+    advance_animation_playback(arg0);
+    switch (arg0->f328) {
+    case 0:
+        arg0->f328 = 1;
+        arg0->m97();
+        break;
+    case 1:
+        if (arg0->f2a8 != NULL) {
+            TObjEneMerillLia__sub_800D4D74((u8 *)arg0);
+            save.x = arg0->pos.x;
+            save.y = arg0->pos.y;
+            save.z = arg0->pos.z;
+            if (arg0->f3d4 <= TObjEneMerillLia__data_805DA300) {
+                Vec_800D6110 a = arg0->f2a8->p2fc;
+                dist = enemy_backstep_from_point(arg0, &a, arg0->f398);
+            } else {
+                Vec_800D6110 b = arg0->f2a8->p2fc;
+                dist = enemy_backstep_from_point(arg0, &b, arg0->f3d4);
+            }
+            update_angle__10TObjPlayerFPviPv(arg0, ((s32 *)arg0->f350)[2], arg0->ang308);
+            arg0->f374--;
+            if (dist < (arg0->f398 + arg0->model->radius) * (arg0->f398 + arg0->model->radius) || arg0->f374 < 0) {
+                arg0->f328 = 2;
+                arg0->f374 = 0;
+            }
+            update_collisions__10TObjPlayerFPv(arg0);
+            update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+            if (arg0->model->flags & 0x380000) {
+                arg0->f328 = 2;
+                arg0->f374 = 0;
+                break;
+            }
+            d.x = arg0->pos.x - save.x;
+            d.y = arg0->pos.y - save.y;
+            d.z = arg0->pos.z - save.z;
+            normalize_vector(&d);
+            to.x = lbl_805DA314 * d.x + arg0->pos.x;
+            to.y = lbl_805DA314 * d.y + arg0->pos.y;
+            to.z = lbl_805DA314 * d.z + arg0->pos.z;
+            if (csnVector(&save, &to, 0x88E0) != 0) {
+                arg0->f328 = 2;
+                arg0->f374 = 0;
+            }
+            break;
+        }
+        if (arg0->m17(0x1E) != 0) {
+            arg0->f338 = find_nearest_visible_player(arg0, 0, *arg0->f350);
+        }
+        if (arg0->f338 < 0x1000) {
+            Pl_800D5614 *p = get_player_by_client_id(arg0->f338);
+            if (p != NULL && get_field_3e4__10TObjPlayerFPv(p) == get_current_floor()) {
+                arg0->f2a8 = (Pl_800D6110 *)p;
+                break;
+            }
+            arg0->f2a8 = NULL;
+            TObjEneMerillLia__sub_800D5480((u8 *)arg0);
+            break;
+        }
+        arg0->f2a8 = NULL;
+        TObjEneMerillLia__sub_800D5480((u8 *)arg0);
+        break;
+    case 2:
+        obj_clearFlags30(arg0, 0x1000);
+        if (arg0->m17(0x1E) != 0) {
+            arg0->f338 = find_nearest_visible_player(arg0, 0, *arg0->f350);
+        }
+        if (arg0->f338 < 0x1000) {
+            Pl_800D5614 *p = get_player_by_client_id(arg0->f338);
+            if (p != NULL && get_field_3e4__10TObjPlayerFPv(p) == get_current_floor() &&
+                xz_distance_squared(p->pos, &arg0->pos) < lbl_805DA318) {
+                arg0->f326 = 1;
+                arg0->f328 = 0;
+                arg0->fb8 = 0xA;
+                obj_clearFlags30(arg0, 0x4040000);
+                clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0xA000000);
+                break;
+            }
+            TObjEneMerillLia__sub_800D5480((u8 *)arg0);
+        } else {
+            TObjEneMerillLia__sub_800D5480((u8 *)arg0);
+        }
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+    update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+    minimap_render_dot(&arg0->pos, -0x5DB4, 1, 0);
+}
+#pragma pop
 
 void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0) {
     switch (arg0->sub) {

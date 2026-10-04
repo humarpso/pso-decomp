@@ -114,6 +114,23 @@ struct S_80362C80
   s32 v;
 };
 
+typedef s32 M2C_UNK;
+struct Leaf_803627DC { u8 pad[4]; s32 v; };
+
+struct Node_803627DC {
+    u8 pad0[4];
+    Leaf_803627DC *leaf;
+    u8 pad8[0x2C - 8];
+    Node_803627DC *child;
+    Node_803627DC *next;
+};
+
+struct Model_803627DC { u8 pad[8]; s32 f8; s32 fC; };
+
+struct Res_803627DC { u8 pad[0x42C]; Model_803627DC *f42c; s32 f430; };
+
+struct Quad_803627DC { s32 a, b, c, d; };
+
 extern "C" {
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
@@ -152,6 +169,35 @@ s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
 extern s32 lbl_804A2B50[];
 void TObjPlayer__sub_80362C80(T_80362C80 *arg0);
+s32 dispatch_shared_handler_a__6TLobbyFPv(int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+Node_803627DC *get_bml_model(void *, int);
+u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+u8 *TBreakUpMdl__sub_8009705C(void *, void *);
+M2C_UNK TObjPlayer__sub_800F0928(void *);
+s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern Quad_803627DC lbl_80479FAC;
+extern u8 lbl_804F251C[];
+extern f32 lbl_80543A18[3];
+extern s32 lbl_80543A24[9];
+extern s32 lbl_805D6F68;
+extern s32 lbl_805D6F6C;
+extern s32 lbl_805D6F70;
+extern s32 TObjEneEpsilonGuard__data_805D6F74;
+extern s32 lbl_805D6F80;
+extern s32 lbl_805D6F84;
+extern s32 lbl_805D6F88;
+extern s32 lbl_805D6F8C;
+extern u8 *lbl_805D6FA0;
+extern u8 *lbl_805D6FA4;
+extern u8 *lbl_805D6FA8;
+extern const f32 lbl_805E0248;
+extern const f32 lbl_805E024C;
+extern const f32 lbl_805E0250;
+void TObjEneEpsilonGuard__sub_803627DC(void);
 }
 
 extern "C" {
@@ -192,6 +238,52 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
 }
 
 typedef char RecoveredGlobal_80362B48___vt__14TObjEneEpsilon_size[sizeof(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon) == 0x1A4 ? 1 : -1];
+
+void TObjEneEpsilonGuard__sub_803627DC(void) {
+    u8 *p;
+    lbl_80543A18[0] = lbl_805E0248;
+    lbl_80543A18[1] = lbl_805E0248;
+    lbl_80543A18[2] = lbl_805E0248;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (p != NULL) {
+        p = load_resource_from_descriptor(p, 1, lbl_804F251C, 0, 0, 0);
+    }
+    lbl_805D6FA0 = p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    if (p != NULL) {
+        p = TBreakUpMdl__sub_8009705C(p, get_bml_model(lbl_805D6FA0, 5));
+    }
+    lbl_805D6FA4 = p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    if (p != NULL) {
+        p = TBreakUpMdl__sub_8009705C(p, get_bml_model(lbl_805D6FA0, 6));
+    }
+    lbl_805D6FA8 = p;
+    lbl_805D6F80 = register_boss__6TLobbyFPv(0x23);
+    lbl_805D6F84 = dispatch_shared_handler_b__6TLobbyFPv(0x23);
+    lbl_805D6F88 = register_object__6TLobbyFPv(0x23);
+    lbl_805D6F8C = dispatch_shared_handler_a__6TLobbyFPv(0x23);
+    lbl_805D6F68 = register_boss__6TLobbyFPv(0x24);
+    lbl_805D6F6C = dispatch_shared_handler_b__6TLobbyFPv(0x24);
+    lbl_805D6F70 = register_object__6TLobbyFPv(0x24);
+    TObjEneEpsilonGuard__data_805D6F74 = dispatch_shared_handler_a__6TLobbyFPv(0x24);
+    lbl_80543A24[0] = get_bml_model(lbl_805D6FA0, 0)->child->leaf->v;
+    lbl_80543A24[1] = get_bml_model(lbl_805D6FA0, 0)->child->next->child->child->next->child->child->next->next->child->leaf->v;
+    lbl_80543A24[2] = get_bml_model(lbl_805D6FA0, 0)->child->next->child->child->next->child->child->next->next->next->child->leaf->v;
+    lbl_80543A24[3] = get_bml_model(lbl_805D6FA0, 0)->child->next->child->child->next->child->child->next->next->next->next->child->leaf->v;
+    lbl_80543A24[4] = get_bml_model(lbl_805D6FA0, 0)->child->next->child->child->next->child->child->next->next->next->next->next->child->leaf->v;
+    lbl_80543A24[5] = get_bml_model(lbl_805D6FA0, 1)->child->leaf->v;
+    lbl_80543A24[6] = get_bml_model(lbl_805D6FA0, 2)->child->leaf->v;
+    lbl_80543A24[8] = get_bml_model(lbl_805D6FA0, 3)->leaf->v;
+    lbl_80543A24[7] = get_bml_model(lbl_805D6FA0, 4)->leaf->v;
+    TObjPlayer__sub_800F0928(lbl_80543A24);
+    {
+        Quad_803627DC q = lbl_80479FAC;
+        q.a = ((Res_803627DC *)lbl_805D6FA0)->f430;
+        spawn_npc_enemy__6TLobbyFsiiiff(0x4E, ((Res_803627DC *)lbl_805D6FA0)->f42c->f8, ((Res_803627DC *)lbl_805D6FA0)->f42c->fC, &q, lbl_805E024C, lbl_805E0250);
+    }
+}
+
 u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;

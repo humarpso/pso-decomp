@@ -23,6 +23,12 @@ s32 vec3_add_to(void *, void *);
 M2C_UNK subtract_vector(void *, void *);
 extern const f32 TObjEnePanarms__data_805DA530;
 void TObjEnePanarms__sub_800E0D1C(u8 *arg0);
+s32 TObjEnePanarms__sub_800E1774(void *);
+extern f32 lbl_8043CD98[];
+extern const f32 lbl_805DA54C;
+extern const f32 lbl_805DA574;
+extern const f32 lbl_805DA578;
+extern const f32 lbl_805DA57C;
 }
 
 extern "C" {
@@ -989,6 +995,102 @@ void TObjEnePanarms__sub_800E1090(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFE);
     set_field_b8__14TObjEnePanarmsFPvs((void*)(arg0), (int)(1));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEnePanarms__sub_800E10D0(u8 *arg0) {
+    Vec_800E0A44 v;
+    Vec_800E0A44 a;
+    f32 scale;
+    s32 idx;
+    f32 max;
+    s32 angle;
+    s32 ok;
+    s32 t;
+    u8 *p;
+    u8 *e;
+    f32 w;
+
+    t = M2C_FIELD(arg0, s32 *, 0x3B4) - 1;
+    M2C_FIELD(arg0, s32 *, 0x3B4) = t;
+    if (t > 0) {
+        return;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x3B4) == 0) {
+        M2C_FIELD(arg0, s32 *, 0xB0) &= ~1;
+        set_field_b8__14TObjEnePanarmsFPvs(arg0, 1);
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x380) == 1 && ((s32 (*)(s32))is_phase_12__14TObjEnePanarmsFPv)(M2C_FIELD(arg0, s32 *, 0x3A0)) != 0) {
+        if (M2C_FIELD(arg0, f32 *, 0x3D8) < lbl_805DA574) {
+            TObjEnePanarms__sub_800E1C98(arg0, 0xA);
+            return;
+        }
+        TObjEnePanarms__sub_800E1C98(arg0, 0xD);
+        return;
+    }
+    idx = find_nearest_visible_player(arg0, &v, TObjEnePanarms__data_805DA560);
+    ok = 0;
+    if (idx != 0xFFFF) {
+        angle = (s32)(TObjEnePanarms__data_8043CDD0 * ((f64 (*)(f32, f32))get_ad_end_text_start__10TObjPlayerFv)(v.x, v.z));
+        if (angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), angle) < 0x208) {
+            ok = 1;
+        }
+    }
+    if (ok != 0) {
+        M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), angle, 0x208);
+        scale = lbl_805DA578;
+        p = get_player_by_client_id(idx);
+        if (p != NULL) {
+            if (M2C_FIELD(arg0, s32 *, 0x380) == 1) {
+                scale *= lbl_805DA54C;
+            }
+            VecCopy__FP3VecPC3Vec(&a, p + 0x38);
+            a.x += scale * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+            a.z -= scale * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+            subtract_vector(&a, arg0 + 0x38);
+            a.y = TObjEnePanarms__data_805DA524;
+            if (vector_length(&a) <= TObjEnePanarms__data_805DA52C) {
+                a.x = a.z = TObjEnePanarms__data_805DA524;
+            } else {
+                normalize_vector(&a);
+            }
+        }
+    } else {
+        if (M2C_FIELD(arg0, s32 *, 0x380) == 0) {
+            M2C_FIELD(arg0, s32 *, 0x60) -= 0x208;
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x60) += 0x208;
+        }
+        a.x = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+        a.z = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+        a.y = TObjEnePanarms__data_805DA524;
+    }
+    max = lbl_8043CD98[M2C_FIELD(arg0, s32 *, 0x380)];
+    M2C_FIELD(arg0, f32 *, 0x3B0) = w = M2C_FIELD(arg0, f32 *, 0x3B0) + TObjEnePanarms__data_805DA550;
+    if (w > max) {
+        M2C_FIELD(arg0, f32 *, 0x3B0) = max;
+    }
+    a.x *= M2C_FIELD(arg0, f32 *, 0x3B0);
+    a.z *= M2C_FIELD(arg0, f32 *, 0x3B0);
+    ((M2C_UNK (*)(void *, void *))TObjEnePanarms__sub_800E18B0)(arg0, &a);
+    if (((s32 (*)(void *))is_below_half_hp__14TObjEnePanarmsFPv)(arg0) != 0) {
+        TObjEnePanarms__sub_800E1C98(arg0, 0xC);
+        return;
+    }
+    if (((s32 (*)(void *))check_can_attack__14TObjEnePanarmsFPv)(arg0) != 0) {
+        TObjEnePanarms__sub_800E1C98(arg0, 0x10);
+        return;
+    }
+    if (TObjEnePanarms__sub_800E1774(arg0) != 0) {
+        e = find_entity_by_id(M2C_FIELD(arg0, s32 *, 0x3B8));
+        if (e != NULL && horizontal_distance_squared(e + 0x38, arg0 + 0x38) < lbl_805DA57C) {
+            TObjEnePanarms__sub_800E1C98(arg0, 0xA);
+            return;
+        }
+        TObjEnePanarms__sub_800E1C98(arg0, 9);
+    }
+}
+#pragma pop
 
 void start_action__14TObjEnePanarmsFPv(void *arg0) {
     void *temp_r4;

@@ -522,6 +522,17 @@ s32 is_split_screen();
 u8 *csnVector(void *, void *, u32);
 s32 get_camera_no__11TCameraCtrlFv();
 void clamp_to_target_obstruction__11TCameraCtrlFPv(View_800698C8 *self);
+void TCameraCtrl__sub_80068A68(void);
+s32 set_target__11TCameraCtrlFii(int, int);
+s32 set_target_coords__11TCameraCtrlFii(int, int);
+s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
+s32 GXSetScissor(int, int, int, int);
+s32 GXSetScissorBoxOffset(int, int);
+extern s16 TCameraCtrl__data_805D2838;
+extern s16 TCameraCtrl__data_805D283A;
+extern s16 TCameraCtrl__data_805D4DFA;
+extern s16 TCameraCtrl__data_805D4DFC;
+void TCameraCtrl__sub_80068B34(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -658,6 +669,54 @@ void TCameraCtrl__sub_80068A68(void) {
     GXSetScissor((int) ((s32) TCameraCtrl__data_805D4DFA), (int) ((s32) TCameraCtrl__data_805D4DFC), (int) ((s32) TCameraCtrl__data_805D2838), (int) ((s32) TCameraCtrl__data_805D283A));
     GXSetScissorBoxOffset((int) (0), (int) (0));
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void quad_80068B34(s32 i) {
+    set_target_coords__11TCameraCtrlFii((s32)(320.0f * (f32)(i % 2)), (s32)(240.0f * (f32)(i / 2)));
+    set_target__11TCameraCtrlFii(0x140, 0xF0);
+}
+inline void viewport_80068B34(void) {
+    GXSetViewport(TCameraCtrl__data_805D4DFA, TCameraCtrl__data_805D4DFC, TCameraCtrl__data_805D2838, TCameraCtrl__data_805D283A, 0.0f, 1.0f);
+    GXSetScissor(TCameraCtrl__data_805D4DFA, TCameraCtrl__data_805D4DFC, TCameraCtrl__data_805D2838, TCameraCtrl__data_805D283A);
+}
+void TCameraCtrl__sub_80068B34(s32 arg0, s32 arg1) {
+    switch (arg0) {
+    case 1:
+        TCameraCtrl__sub_80068A68();
+        break;
+    case 2:
+        set_target_coords__11TCameraCtrlFii(0, 0);
+        set_target__11TCameraCtrlFii(0x280, 0xF0);
+        GXSetViewport(0.0f, 0.0f, 640.0f, 480.0f, 0.0f, 1.0f);
+        if (arg1 == 0) {
+            GXSetScissor(0, 0x6A, 0x280, 0xF0);
+            GXSetScissorBoxOffset(0, 0x6A);
+        } else {
+            GXSetScissor(0, 0x74, 0x280, 0xF0);
+            GXSetScissorBoxOffset(0, -0x7C);
+        }
+        break;
+    case 3:
+        if (arg1 != 2) {
+            quad_80068B34(arg1);
+        } else {
+            set_target_coords__11TCameraCtrlFii(0xA0, 0xF0);
+            set_target__11TCameraCtrlFii(0x140, 0xF0);
+        }
+        viewport_80068B34();
+        break;
+    case 4:
+        quad_80068B34(arg1);
+        viewport_80068B34();
+        break;
+    default:
+        TCameraCtrl__sub_80068A68();
+        break;
+    }
+}
+#pragma pop
 
 f32 get_fov__11TCameraCtrlFv(void) {
     if (is_split_screen() != 0) {
