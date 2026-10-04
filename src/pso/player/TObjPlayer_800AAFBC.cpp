@@ -114,6 +114,10 @@ typedef struct Obj_800AB0EC {
 
 struct Vec_800AB4F4 { f32 x, y, z; };
 
+struct Vec_800AB7A0 { f32 x, y, z; };
+
+struct Arr_800AB7A0 { u8 pad[0x3D4]; Vec_800AB7A0 arr[4]; };
+
 extern "C" {
 void obj_setFlags30(void *, u32);
 void TObjPlayer__sub_800AB034(u8 *arg0);
@@ -232,6 +236,30 @@ extern const f32 lbl_805D9B80;
 extern const f32 lbl_805D9B84;
 extern const f32 lbl_805D9B88;
 void TObjPlayer__sub_800AB4F4(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s16 obj_getField1c(void *);
+u8 *csnLookAt(void *, Vec_800AB7A0 *);
+M2C_UNK clear_counter__10TObjPlayerFPv(void *);
+u32 TObjPlayer__sub_800A4204(void *, void *, void *, void *, int);
+f32 TObjPlayer__sub_8013153C(void *, int);
+s32 collect_and_count__12TBoss3VoloptFUii(void *, int);
+M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
+void *__nw__7TObjectFUl(int);
+M2C_UNK vec3_add_to(void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+s32 push_matrix_from(void *);
+M2C_UNK pop_matrix();
+extern M2C_UNK lbl_8043AD00[];
+extern M2C_UNK lbl_80491478[];
+extern RecoveredGlobal_800ABA9C_lbl_8058D490 lbl_8058D490;
+extern void *lbl_805D5090;
+extern void *tl_06;
+extern const f32 lbl_805D9B7C;
+extern const f32 lbl_805D9B8C;
+extern const f32 lbl_805D9B90;
+extern const f32 lbl_805D9B94;
+u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -473,6 +501,49 @@ void *destroy_with_particle_cleanup__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
+    Vec_800AB7A0 v;
+    Vec_800AB7A0 out;
+    void *obj;
+    u8 *temp_r3;
+    s32 t;
+    TObjPlayer__sub_801569F4(arg0, tl_06);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80491478;
+    M2C_FIELD(arg0, s16 *, 0xAC) = arg1;
+    M2C_FIELD(arg0, s16 *, 0xD4) = obj_getField1c((void *) (arg2));
+    M2C_FIELD(arg0, s16 *, 0xAE) = 0;
+    t = lbl_8043AD00[arg1];
+    M2C_FIELD(arg0, s32 *, 0xD8) = arg3;
+    M2C_FIELD(arg0, s32 *, 0xC8) = collect_and_count__12TBoss3VoloptFUii((void *) (M2C_FIELD(M2C_FIELD(lbl_805D5090, u8 **, 0x42C), s32 *, 0x18)), t);
+    M2C_FIELD(arg0, Vec_800AB7A0 **, 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xF0), (void *) VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (arg4)));
+    M2C_FIELD(arg0, f32 *, 0xE8) = lbl_805D9B8C + M2C_FIELD(arg2, f32 *, 0x3C);
+    ((s32 (*)(void *, f32)) push_matrix_from)((void *) &lbl_8058D490, lbl_805D9B8C);
+    v.x = v.y = lbl_805D9B7C;
+    v.z = lbl_805D9B90;
+    rotate_matrix_y(0, M2C_FIELD(arg2, s32 *, 0x60) + ((arg1 - 1) << 0xD));
+    rotate_vector_by_matrix(0, &v, arg0 + 0xB0);
+    v.z = M2C_FIELD(arg0, f32 *, 0xEC) = lbl_805D9B94;
+    rotate_vector_by_matrix(0, &v, &out);
+    vec3_add_to(&out, arg0 + 0xF0);
+    temp_r3 = csnLookAt(arg0 + 0xF0, &out);
+    if (temp_r3 != NULL) {
+        M2C_FIELD(arg0, f32 *, 0xEC) = (10.0f > TObjPlayer__sub_8013153C(arg0 + 0xF0, M2C_FIELD(temp_r3, s32 *, 4)) - 5.0f) ? 10.0f : TObjPlayer__sub_8013153C(arg0 + 0xF0, M2C_FIELD(temp_r3, s32 *, 4)) - 5.0f;
+    }
+    pop_matrix();
+    M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805D9B7C;
+    obj = __nw__7TObjectFUl(0x348);
+    if (obj != NULL) {
+        obj = (void *) TObjPlayer__sub_800A4204(obj, arg0, M2C_FIELD(arg0, void **, 0xCC), arg0 + 0xF0, 0x10);
+    }
+    M2C_FIELD(arg0, void **, 0xD0) = obj;
+    if (M2C_FIELD(arg0, void **, 0xD0) != NULL) {
+        clear_counter__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0xD0));
+    }
+    return arg0;
+}
+
 void TObjPlayer__sub_800AB970(void) {  }
 
 void TObjPlayer__sub_800AB974(s32 arg0) {

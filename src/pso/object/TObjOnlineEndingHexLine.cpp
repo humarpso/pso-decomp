@@ -11,6 +11,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Param_802E5CB0 { f32 a; f32 b; s32 c; f32 d; };
 typedef char Param_802E5CB0_size[sizeof(Param_802E5CB0) == 0x10 ? 1 : -1];
 
+struct V2_802E55B8 { f32 x, y; };
+
+struct P2_802E55B8 { s16 x, y; };
+
+struct Hex_802E55B8 { u8 pad[0x1C]; P2_802E55B8 pts[32]; };
+
+struct Desc_802E55B8 { V2_802E55B8 *pts; u32 *cols; s32 z; s32 n; };
+
 extern "C" {
 void TObjOnlineEndingHexLine__sub_802E530C(void *);
 extern Param_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8;
@@ -21,6 +29,11 @@ f32 get_random_float__8TObjFishFv(f32);
 s32 angle_difference_abs(int, int);
 extern const f32 lbl_805DE968;
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
+M2C_UNK fn_801E3330(Desc_802E55B8 *, s32, s32, f32);
+M2C_UNK TObjOnlineEndingHexLine__sub_802E5B0C(V2_802E55B8 *, P2_802E55B8 *);
+extern Param_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8;
+extern const f32 lbl_805DE964;
+void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
 }
 
 extern "C" {
@@ -34,6 +47,48 @@ void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
 }
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_loop_invariants off
+void render__23TObjOnlineEndingHexLineFv(u8 *arg0) {
+    V2_802E55B8 q1;
+    V2_802E55B8 q0;
+    V2_802E55B8 p1;
+    V2_802E55B8 p0;
+    Desc_802E55B8 d;
+    u32 cols[32];
+    V2_802E55B8 pts[32];
+    V2_802E55B8 *pq1 = &q1;
+    V2_802E55B8 *pp1 = &p1;
+    s32 n;
+    s32 i;
+    s32 last;
+    n = (s32) TObjOnlineEndingHexLine__data_804E3AA8.d;
+    last = n - 1;
+    for (i = 0; i < n; i++) {
+        if (i == 0) {
+            TObjOnlineEndingHexLine__sub_802E5B0C(&q0, &((Hex_802E55B8 *) arg0)->pts[0]);
+            TObjOnlineEndingHexLine__sub_802E5B0C(pq1, &((Hex_802E55B8 *) arg0)->pts[1]);
+            pts[0].x = M2C_FIELD(arg0, f32 *, 0x9C) * (q0.x - q1.x) + q1.x;
+            pts[0].y = M2C_FIELD(arg0, f32 *, 0x9C) * (q0.y - q1.y) + q1.y;
+        } else if (i == last) {
+            TObjOnlineEndingHexLine__sub_802E5B0C(&p0, &((Hex_802E55B8 *) arg0)->pts[last - 1]);
+            TObjOnlineEndingHexLine__sub_802E5B0C(pp1, &((Hex_802E55B8 *) arg0)->pts[last]);
+            pts[last].x = M2C_FIELD(arg0, f32 *, 0x9C) * (p0.x - p1.x) + p1.x;
+            pts[last].y = M2C_FIELD(arg0, f32 *, 0x9C) * (p0.y - p1.y) + p1.y;
+        } else {
+            TObjOnlineEndingHexLine__sub_802E5B0C(&pts[i], &((Hex_802E55B8 *) arg0)->pts[i]);
+        }
+        cols[i] = 0x20FFFFFF;
+    }
+    d.pts = pts;
+    d.cols = cols;
+    d.z = 0;
+    d.n = n;
+    fn_801E3330(&d, n, 0x15, lbl_805DE964);
+}
+#pragma pop
 
 void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (M2C_FIELD(arg0, f32 *, 0x9C) + TObjOnlineEndingHexLine__data_804E3AA8.a);

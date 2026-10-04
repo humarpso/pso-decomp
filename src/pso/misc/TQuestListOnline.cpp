@@ -28,6 +28,19 @@ struct VObj_18_80217F88 : VBase_18_80217F88 {
     virtual s32 m8();
 };
 
+struct VBase_18_802178E4 { char pad[0x18]; };
+
+struct VObj_18_802178E4 : VBase_18_802178E4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7(s32, s32);
+};
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -55,6 +68,20 @@ u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__data_805D6190;
 void TQuestListOnline__sub_80217F88(u8 *arg0);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+M2C_UNK send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+s32 THunterGuildSeqOffline__sub_80212120();
+M2C_UNK close_windows__16TQuestListOnlineFPv(void *, int);
+M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(void *);
+M2C_UNK TWindow__close(void *);
+s32 get_selected_menu_value(void *);
+extern void *TLobby__data_805D5580;
+extern u8 lbl_805DC6A0;
+void TQuestListOnline__sub_802178E4(u8 *arg0);
 }
 
 extern "C" {
@@ -79,6 +106,80 @@ void invoke_callback_30_and_queue_destruction__16TQuestListOnlineFPv(void *arg0)
 
 extern M2C_UNK lbl_8044BEB0[];
 extern s32 TQuestListOnline__data_805D61E4;
+
+void TQuestListOnline__sub_802178E4(u8 *arg0) {
+    s32 v;
+    s32 n;
+    if (M2C_FIELD(arg0, void **, 0x44) != NULL && is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x44)) != 0) {
+        v = get_selected_menu_value(M2C_FIELD(arg0, void **, 0x44));
+        if (v == 0) {
+            if (THunterGuildSeqOffline__sub_80212120() == 1) {
+                if (M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C) != NULL) {
+                    M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C)->m7(0x14, 1);
+                }
+                send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__data_805D5580, arg0 + 0x4C, 0, &lbl_805DC6A0, &lbl_805DC6A0);
+                queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x44));
+                M2C_FIELD(arg0, void **, 0x44) = NULL;
+                if (M2C_FIELD(arg0, void **, 0x40) != NULL) {
+                    queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x40));
+                    M2C_FIELD(arg0, void **, 0x40) = NULL;
+                }
+                if (M2C_FIELD(arg0, void **, 0x3C) != NULL) {
+                    queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x3C));
+                    M2C_FIELD(arg0, void **, 0x3C) = NULL;
+                }
+                if (M2C_FIELD(arg0, void **, 0x38) != NULL) {
+                    queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x38));
+                    M2C_FIELD(arg0, void **, 0x38) = NULL;
+                }
+                set_field_20__12TQuestListVMFPvi((void*)(arg0), (int)(0xC));
+                return;
+            }
+            if (M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C) != NULL) {
+                M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C)->m7(0x10, 1);
+            }
+            clear_flag_and_release__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x44));
+            return;
+        }
+        if (v == 1) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x44));
+            M2C_FIELD(arg0, void **, 0x44) = NULL;
+            if (M2C_FIELD(arg0, void **, 0x40) != NULL) {
+                TWindow__close(M2C_FIELD(arg0, void **, 0x40));
+                M2C_FIELD(arg0, void **, 0x40) = NULL;
+            }
+            if (M2C_FIELD(arg0, void **, 0x38) != NULL) {
+                clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x38));
+            }
+            n = M2C_FIELD(arg0, s32 *, 0x68);
+            M2C_FIELD(arg0, s32 *, 0x68) = n - 1;
+            close_windows__16TQuestListOnlineFPv(arg0, n);
+            if (M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C) != NULL) {
+                M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C)->m7(0x19, 1);
+            }
+            set_field_20__12TQuestListVMFPvi((void*)(arg0), (int)(1));
+            return;
+        }
+    }
+    if (M2C_FIELD(arg0, void **, 0x44) != NULL && get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x44)) != 0) {
+        TWindow__close(M2C_FIELD(arg0, void **, 0x44));
+        M2C_FIELD(arg0, void **, 0x44) = NULL;
+        if (M2C_FIELD(arg0, void **, 0x40) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x40));
+            M2C_FIELD(arg0, void **, 0x40) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x38) != NULL) {
+            clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x38));
+        }
+        n = M2C_FIELD(arg0, s32 *, 0x68);
+        M2C_FIELD(arg0, s32 *, 0x68) = n - 1;
+        close_windows__16TQuestListOnlineFPv(arg0, n);
+        if (M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C) != NULL) {
+            M2C_FIELD(arg0, VObj_18_802178E4 **, 0x6C)->m7(0x19, 1);
+        }
+        set_field_20__12TQuestListVMFPvi((void*)(arg0), (int)(1));
+    }
+}
 
 void request_quest_list__16TQuestListOnlineFi(s32 arg0) {
     if (TLobby__sub_8001EEF4() != 0) {

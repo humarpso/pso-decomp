@@ -4,6 +4,50 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct VBase_18_8019FB8C { char pad[0x18]; };
+
+struct VObj_18_8019FB8C : VBase_18_8019FB8C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+extern "C" {
+s32 get_bml_model(s32, s32);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK free_children__12TObjDoorJungFPvPv(s32, u16);
+M2C_UNK scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
+M2C_UNK PPCSync();
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+int set_global_param__8TObjFishFi(void*);
+M2C_UNK draw_ginja_object(s32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
+extern s32 lbl_8050DDC8[];
+extern s32 lbl_805D53A4;
+extern s32 lbl_805D5CA8;
+extern void *lbl_805D5CAC;
+extern int lbl_805D5CB0;
+extern s32 lbl_805D5CB4;
+extern s32 lbl_805D5CB8;
+extern s32 lbl_805D5CBC;
+extern s32 lbl_805D5CC0;
+extern s32 lbl_805D5CC4;
+extern const f32 lbl_805DC040;
+extern const f32 lbl_805DC044;
+void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0);
+}
+
 extern "C" {
 
 struct VObjBase_801A0070 { char pad[0x18]; };
@@ -128,6 +172,44 @@ extern const f32 lbl_805DC04C;
 extern const f32 lbl_805DC050;
 extern const f32 lbl_805DC054;
 extern void *tl_05;
+
+void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
+    s32 i;
+    if (arg0->m8(lbl_805DC040, lbl_805DC044) != 0) {
+        if (lbl_805D53A4 != lbl_805D5CB4) {
+            lbl_805D5CB4 = lbl_805D53A4;
+            if (lbl_805D5CC4 >= 0) {
+                scroll_ginja_mesh_uvs(lbl_805D5CB8, 0, 5, lbl_805D5CC4, 1);
+            }
+            PPCSync();
+        }
+        switch (M2C_FIELD(arg0, s32 *, 0x8C)) {
+        case 0:
+            if (lbl_805D5CBC >= 0) {
+                for (i = 0; i < 6; i++) {
+                    free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CBC);
+                }
+            }
+            break;
+        case 1:
+            if (lbl_805D5CC0 >= 0) {
+                for (i = 0; i < 6; i++) {
+                    free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CC0);
+                }
+            }
+            break;
+        }
+        set_global_param__8TObjFishFi((void *)lbl_805D5CB0);
+        push_matrix();
+        post_translate_matrix((u8 *)arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        draw_ginja_object(get_bml_model(lbl_805D5CA8, 0));
+        begin_effect_render__13TParticleCtrlFv();
+        draw_ginja_model_with_motion(get_bml_model(lbl_805D5CA8, 1), *(s32 *)&lbl_805D5CAC, M2C_FIELD(arg0, f32 *, 0xC4));
+        end_effect_render__13TParticleCtrlFv();
+        pop_matrix();
+    }
+}
 
 s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;

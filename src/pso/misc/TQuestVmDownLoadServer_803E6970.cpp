@@ -327,6 +327,16 @@ struct Buf_803E82AC {
 
 struct Ent_803E9DE0 { u8 a; u8 b; u8 off; u8 d; };
 
+struct Msg_803E9190 {
+    char *name;
+    s16 len;
+    u8 pad6;
+    u8 x7;
+    u8 x8;
+    u8 pad9[3];
+    u8 *text;
+};
+
 extern "C" {
 extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
 void TQuestVmDownLoadServer__sub_803EE2E4(void);
@@ -679,6 +689,8 @@ extern u8 lbl_8047F0F8[];
 extern s32 lbl_805D7888;
 Ent_803E9DE0 *TQuestVmDownLoadServer__sub_803E9DE0(u8 *arg0, s32 arg1, s32 *arg2);
 s32 TQuestVmDownLoadServer__sub_803ED50C(u8 arg0, u8 arg1, u8 arg2, s32 arg3);
+char *strncpy(char *, const char *, u32);
+void TQuestVmDownLoadServer__sub_803E9190(u8 *arg0, s32 arg1, Msg_803E9190 *arg2, u8 arg3);
 }
 
 extern "C" {
@@ -1569,6 +1581,41 @@ void TQuestVmDownLoadServer__sub_803E90A8(u8 *arg0, s32 arg1, Msg_803E90A8 *arg2
         }
         *p++ = *s++;
     }
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(2)
+inline s32 IsSjisLead_803E9190(u8 c) {
+    if ((c >= 0x80 && c <= 0x9F) || (c >= 0xE0 && c <= 0xFC)) {
+        return 1;
+    }
+    return 0;
+}
+inline void CopyText_803E9190(u8 *s, u8 *p) {
+    while (*s != 0) {
+        if (IsSjisLead_803E9190(*s)) {
+            *p++ = *s++;
+        } else {
+            *p++ = 0xFF;
+        }
+        *p++ = *s++;
+    }
+}
+void TQuestVmDownLoadServer__sub_803E9190(u8 *arg0, s32 arg1, Msg_803E9190 *arg2, u8 arg3) {
+    u8 unused[8];
+    *arg0++ = arg1 % 256;
+    *arg0++ = arg1 / 256;
+    *arg0++ = arg2->len;
+    strncpy((char *)arg0, arg2->name, arg2->len);
+    arg0 += arg2->len;
+    *arg0++ = arg2->x7;
+    *arg0++ = arg3;
+    if (arg2->x8 != 0 || arg2->x7 >= 0x2D) {
+        *arg0++ = arg2->x8;
+    }
+    CopyText_803E9190(arg2->text, arg0);
 }
 #pragma pop
 

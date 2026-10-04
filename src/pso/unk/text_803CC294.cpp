@@ -44,6 +44,20 @@ struct Slot_803CD16C {
     s32 f18; s32 f1c; s32 f20; u8 pad_24[8]; s32 f2c; s32 f30; u8 pad_34[0x138 - 0x34];
 };
 
+struct LogHdr_803CD3A8 { u8 pad[0x2]; u16 seq; };
+
+struct VObj_803CC980;
+struct LogHdr_803CC980 { u8 pad[0xA]; u16 seq; };
+
+struct VT_803CC980 { void *a; void *b; void *c; void (*fn)(VObj_803CC980 *); };
+
+struct VObj_803CC980 { VT_803CC980 *vt; };
+
+struct Snd_803CC980 {
+    u8 f0; s8 state; s8 f2; u8 f3; u32 f4; VObj_803CC980 *f8; u8 pad_c[0x14 - 0xC];
+    s32 f14; u8 pad_18[0x20 - 0x18]; s32 f20; s32 f24; s32 f28;
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_803C57C8(void *);
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
@@ -88,6 +102,32 @@ extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C lbl_8057CBD0[];
 extern s32 lbl_805D75E0;
 Slot_803CD16C *TLobby__sub_803CD16C(s32 arg0, s32 arg1);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803C57C8(void *);
+s32 get_field_14__6TLobbyFPv(u32);
+u32 TLobby__sub_803C8CDC(u32, s32, s32);
+M2C_UNK TLobby__sub_803CCE9C(Slot_803CD16C *);
+extern M2C_UNK lbl_8047CBA4[];
+extern M2C_UNK lbl_8047CBD8[];
+extern LogHdr_803CD16C lbl_8057B7B0;
+extern LogEnt_803CD16C lbl_8057B7D0[];
+extern Slot_803CD16C lbl_8057CBD0[];
+extern s32 lbl_805D75E0;
+Slot_803CD16C *TLobby__sub_803CD3A8(u32 arg0, s32 arg1);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803C57C8(void *);
+M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
+M2C_UNK TLobby__sub_803C89C4(u32);
+M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
+extern M2C_UNK lbl_8047C9B0[];
+extern M2C_UNK lbl_8047C9D4[];
+extern LogHdr_803CD16C lbl_8057B7B0;
+extern LogEnt_803CD16C lbl_8057B7D0[];
+extern s32 lbl_805D75E0;
+extern s32 lbl_805D75E4;
+s32 TLobby__sub_803CC980(Snd_803CC980 *arg0);
 }
 
 extern "C" {
@@ -177,6 +217,70 @@ s32 TLobby__sub_803CC53C(u8 *arg0) {
     return M2C_FIELD(arg0, s32 *, 0xC);
 }
 typedef char RecoveredGlobal_803CCB5C_lbl_8047CA28_size[sizeof(RecoveredGlobal_803CCB5C_lbl_8047CA28) == 0x154 ? 1 : -1];
+
+#pragma push
+#pragma inline_depth(4)
+#pragma dont_inline off
+s32 TLobby__sub_803CC980(Snd_803CC980 *arg0) {
+    s32 sp8;
+    {
+        LogEnt_803CD16C *e;
+        s32 i = lbl_805D75E0 % 256;
+        u16 seq;
+        e = &lbl_8057B7D0[i];
+        lbl_805D75E0 = i;
+        seq = ++((LogHdr_803CC980 *)&lbl_8057B7B0)->seq;
+        e->type = 5;
+        e->phase = 0;
+        e->seq = seq;
+        e->a = (s32)arg0;
+        e->b = -1;
+        e->c = -1;
+        lbl_805D75E0 = i + 1;
+    }
+    if (arg0 == NULL) {
+        TLobby__sub_803C57C8(lbl_8047C9B0);
+        return -3;
+    }
+    if (arg0->state == 1) {
+        return arg0->f14;
+    }
+    if (arg0->state == 3) {
+        arg0->state = 1;
+        return arg0->f14;
+    }
+    if (arg0->f4 == 0) {
+        TLobby__sub_803C57C8(lbl_8047C9D4);
+        return -1;
+    }
+    init_once__6TLobbyFv();
+    TLobby__sub_803C89C4(arg0->f4);
+    TLobby__sub_803C85AC(arg0->f4, &sp8);
+    arg0->f20 = sp8;
+    if (arg0->f8 != NULL && arg0->f2 == 0) {
+        if (lbl_805D75E4 == 1) {
+            invalidate_cache__6TLobbyFv(arg0->f24, arg0->f28);
+        }
+        arg0->f8->vt->fn(arg0->f8);
+        arg0->f8 = NULL;
+    }
+    arg0->state = 1;
+    release_ref__6TLobbyFv();
+    {
+        s32 i = lbl_805D75E0 % 256;
+        LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+        e->type = 5;
+        e->phase = 1;
+        e->seq = ((LogHdr_803CC980 *)&lbl_8057B7B0)->seq;
+        e->a = (s32)arg0;
+        e->b = -1;
+        e->c = -1;
+        lbl_805D75E0 = i + 1;
+    }
+    return arg0->f14;
+}
+#pragma pop
+
 s32 TLobby__sub_803CCB5C(M2C_UNK arg0, M2C_UNK arg1, s32 arg2) {
     if (arg2 & 0x1F) {
         TLobby__sub_803C57C8((void *) (&lbl_8047CA28.value));
@@ -282,6 +386,96 @@ Slot_803CD16C *TLobby__sub_803CD16C(s32 arg0, s32 arg1) {
         e->type = 2;
         e->phase = 1;
         e->seq = lbl_8057B7B0.seq;
+        e->a = arg0;
+        e->b = arg1;
+        e->c = -1;
+        lbl_805D75E0 = i + 1;
+    }
+    return s;
+}
+#pragma pop
+
+#pragma push
+#pragma inline_depth(4)
+#pragma dont_inline off
+inline Slot_803CD16C *find_803CD3A8(void) {
+    Slot_803CD16C *r = NULL;
+    s32 i;
+    for (i = 0; i < 16; i++) {
+        if (lbl_8057CBD0[i].used == 0) {
+            r = &lbl_8057CBD0[i];
+            break;
+        }
+    }
+    return r;
+}
+inline Slot_803CD16C *alloc_803CD3A8(void) {
+    Slot_803CD16C *s = find_803CD3A8();
+    if (s == NULL) {
+        return NULL;
+    }
+    s->f1 = 1;
+    s->f4 = 0;
+    s->f18 = 0;
+    s->f1c = 0;
+    s->f20 = 0;
+    s->f2c = 0x200;
+    s->f2 = 0;
+    s->f8 = 0;
+    s->used = 1;
+    return s;
+}
+inline s32 open_803CD3A8(Slot_803CD16C *s, u32 arg0, s32 arg1) {
+    u32 h;
+    s32 sz;
+    if (arg0 == 0) {
+        TLobby__sub_803C57C8(lbl_8047CBA4);
+        return -1;
+    }
+    h = TLobby__sub_803C8CDC(arg0, arg1, 0);
+    if (h == 0) {
+        TLobby__sub_803C57C8(lbl_8047CBD8);
+        return -1;
+    }
+    s->f4 = h;
+    sz = get_field_14__6TLobbyFPv(h);
+    s->fc = (sz + 0x7FF) / 2048;
+    s->f10 = sz;
+    return 0;
+}
+Slot_803CD16C *TLobby__sub_803CD3A8(u32 arg0, s32 arg1) {
+    Slot_803CD16C *s;
+    {
+        LogEnt_803CD16C *e;
+        s32 i = lbl_805D75E0 % 256;
+        u16 seq;
+        e = &lbl_8057B7D0[i];
+        lbl_805D75E0 = i;
+        seq = ((LogHdr_803CD3A8 *)&lbl_8057B7B0)->seq + 1;
+        e->type = 1;
+        e->phase = 0;
+        e->seq = seq;
+        e->a = arg0;
+        e->b = arg1;
+        ((LogHdr_803CD3A8 *)&lbl_8057B7B0)->seq = seq;
+        e->c = -1;
+        lbl_805D75E0 = i + 1;
+    }
+    init_once__6TLobbyFv();
+    s = alloc_803CD3A8();
+    if (s != NULL) {
+        if (open_803CD3A8(s, arg0, arg1) < 0) {
+            TLobby__sub_803CCE9C(s);
+            s = NULL;
+        }
+    }
+    release_ref__6TLobbyFv();
+    {
+        s32 i = lbl_805D75E0 % 256;
+        LogEnt_803CD16C *e = &lbl_8057B7D0[lbl_805D75E0 = i];
+        e->type = 1;
+        e->phase = 1;
+        e->seq = ((LogHdr_803CD3A8 *)&lbl_8057B7B0)->seq;
         e->a = arg0;
         e->b = arg1;
         e->c = -1;
