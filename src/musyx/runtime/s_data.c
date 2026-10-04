@@ -54,17 +54,17 @@ typedef struct FX_DATA_803B50E8 {
 extern "C" {
 extern s16 lbl_805D7450;
 extern u8 lbl_805D7380;
-void *TLobby__sub_803BD824(void *samples);
-u32 TLobby__sub_803AD654(void *sdir, void *smp_data);
-void TLobby__sub_803B4F5C(u16 *p, void *a, void *b, void *c);
-s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
-void TLobby__sub_803BD9C0(void);
-u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, void *pool);
+void *hwTransAddr(void *samples);
+u32 dataInsertSDir(void *sdir, void *smp_data);
+void ScanIDList(u16 *p, void *a, void *b, void *c);
+s32 dataInsertFX(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
+void hwSyncSampleMem(void);
+u32 sndPushGroup(void *prj_data, u16 gid, void *samples, void *sdir, void *pool);
 }
 
 extern "C" {
 
-void TLobby__sub_803B4CEC(void) {
+void dataInitStack(void) {
     lbl_805D7450 = 0;
 }
 
@@ -110,61 +110,61 @@ static inline MEM_DATA_803B4CF8 *GetLayerAddr_803B4CF8(u16 id, POOL_DATA_803B4CF
     return GetPoolAddr_803B4CF8(id, (MEM_DATA_803B4CF8 *)((u8 *)pool + pool->layerOff));
 }
 
-void TLobby__sub_803B4CF8(u16 id, void *data, u8 dataType, u32 remove) {
+void InsertData(u16 id, void *data, u8 dataType, u32 remove) {
     MEM_DATA_803B4CF8 *m;
 
     switch (dataType) {
     case 0:
         if (!remove) {
             if ((m = GetMacroAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
-                TLobby__sub_803ADE74(id, &m->data.cmd);
+                dataInsertMacro(id, &m->data.cmd);
             } else {
-                TLobby__sub_803ADE74(id, NULL);
+                dataInsertMacro(id, NULL);
             }
         } else {
-            TLobby__sub_803AE184(id);
+            dataRemoveMacro(id);
         }
         break;
     case 2: {
         id |= 0x4000;
         if (!remove) {
             if ((m = GetKeymapAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
-                TLobby__sub_803ACB50(id, &m->data.map);
+                dataInsertKeymap(id, &m->data.map);
             } else {
-                TLobby__sub_803ACB50(id, NULL);
+                dataInsertKeymap(id, NULL);
             }
         } else {
-            TLobby__sub_803ACD40(id);
+            dataRemoveKeymap(id);
         }
     } break;
     case 3: {
         id |= 0x8000;
         if (!remove) {
             if ((m = GetLayerAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
-                TLobby__sub_803ACEC4(id, &m->data.layer.entry, m->data.layer.num);
+                dataInsertLayer(id, &m->data.layer.entry, m->data.layer.num);
             } else {
-                TLobby__sub_803ACEC4(id, NULL, 0);
+                dataInsertLayer(id, NULL, 0);
             }
         } else {
-            TLobby__sub_803AD10C(id);
+            dataRemoveLayer(id);
         }
     } break;
     case 4:
         if (!remove) {
             if ((m = GetCurveAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
-                TLobby__sub_803AD2D8(id, &m->data.tab);
+                dataInsertCurve(id, &m->data.tab);
             } else {
-                TLobby__sub_803AD2D8(id, NULL);
+                dataInsertCurve(id, NULL);
             }
         } else {
-            TLobby__sub_803AD4D0(id);
+            dataRemoveCurve(id);
         }
         break;
     case 1:
         if (!remove) {
-            TLobby__sub_803ADA80(id);
+            dataAddSampleReference(id);
         } else {
-            TLobby__sub_803ADB58(id);
+            dataRemoveSampleReference(id);
         }
         break;
     }
@@ -172,25 +172,25 @@ void TLobby__sub_803B4CF8(u16 id, void *data, u8 dataType, u32 remove) {
 
 #pragma pop
 
-void TLobby__sub_803B4F5C(u16 *p, void *a, void *b, void *c) {
-    void TLobby__sub_803B4CF8(u16, void *, void *, void *);
+void ScanIDList(u16 *p, void *a, void *b, void *c) {
+    void InsertData(u16, void *, void *, void *);
     u16 i;
     u16 v;
 
     while ((v = *p) != 0xFFFF) {
         if (v & 0x8000) {
             for (i = v & 0x3FFF; i <= p[1]; i++) {
-                TLobby__sub_803B4CF8(i, a, b, c);
+                InsertData(i, a, b, c);
             }
             p += 2;
         } else {
-            TLobby__sub_803B4CF8(*p++, a, b, c);
+            InsertData(*p++, a, b, c);
         }
     }
 }
 
-void TLobby__sub_803B4FF8(u16 *start, void *a, void *b, void *c) {
-    void TLobby__sub_803B4CF8(u16, void *, void *, void *);
+void ScanIDListReverse(u16 *start, void *a, void *b, void *c) {
+    void InsertData(u16, void *, void *, void *);
     s16 i;
     u16 *p;
 
@@ -206,15 +206,15 @@ void TLobby__sub_803B4FF8(u16 *start, void *a, void *b, void *c) {
         if (p != start) {
             if (p[-1] & 0x8000) {
                 for (i = *p; i >= (s16)(p[-1] & 0x3FFF); i--) {
-                    TLobby__sub_803B4CF8(i, a, b, c);
+                    InsertData(i, a, b, c);
                 }
                 p -= 2;
             } else {
-                TLobby__sub_803B4CF8(*p, a, b, c);
+                InsertData(*p, a, b, c);
                 p--;
             }
         } else {
-            TLobby__sub_803B4CF8(*p, a, b, c);
+            InsertData(*p, a, b, c);
             p--;
         }
     }
@@ -230,17 +230,17 @@ struct Rec_803ADBF0;
 #pragma dont_inline off
 #pragma inline_depth(4)
 static inline void InsertSamples_803B50E8(u16 *ref, void *samples, void *sdir) {
-    samples = TLobby__sub_803BD824(samples);
-    if (TLobby__sub_803AD654(sdir, samples)) {
-        TLobby__sub_803B4F5C(ref, sdir, (void *)1, (void *)0);
+    samples = hwTransAddr(samples);
+    if (dataInsertSDir(sdir, samples)) {
+        ScanIDList(ref, sdir, (void *)1, (void *)0);
     }
 }
-static inline void InsertMacros_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)0, (void *)0); }
-static inline void InsertCurves_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)4, (void *)0); }
-static inline void InsertKeymaps_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)2, (void *)0); }
-static inline void InsertLayers_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)3, (void *)0); }
-static inline void InsertFXTab_803B50E8(u16 gid, FX_DATA_803B50E8 *fd) { TLobby__sub_803ADBF0(gid, (Rec_803ADBF0 *)fd->fx, fd->num); }
-u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, void *pool) {
+static inline void InsertMacros_803B50E8(u16 *ref, void *pool) { ScanIDList(ref, pool, (void *)0, (void *)0); }
+static inline void InsertCurves_803B50E8(u16 *ref, void *pool) { ScanIDList(ref, pool, (void *)4, (void *)0); }
+static inline void InsertKeymaps_803B50E8(u16 *ref, void *pool) { ScanIDList(ref, pool, (void *)2, (void *)0); }
+static inline void InsertLayers_803B50E8(u16 *ref, void *pool) { ScanIDList(ref, pool, (void *)3, (void *)0); }
+static inline void InsertFXTab_803B50E8(u16 gid, FX_DATA_803B50E8 *fd) { dataInsertFX(gid, (Rec_803ADBF0 *)fd->fx, fd->num); }
+u32 sndPushGroup(void *prj_data, u16 gid, void *samples, void *sdir, void *pool) {
     GROUP_DATA_803B50E8 *g;
     if (sndActive && sp < 128) {
         g = (GROUP_DATA_803B50E8 *)prj_data;
@@ -257,7 +257,7 @@ u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, voi
                 if (g->type == 1) {
                     InsertFXTab_803B50E8(gid, (FX_DATA_803B50E8 *)((u8 *)prj_data + g->data.song.normpageOff));
                 }
-                TLobby__sub_803BD9C0();
+                hwSyncSampleMem();
                 ++sp;
                 return 1;
             }
@@ -268,24 +268,24 @@ u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, voi
 }
 #pragma pop
 
-s32 TLobby__sub_803AD7C0(void *sdir);
+s32 dataRemoveSDir(void *sdir);
 #pragma push
 #pragma opt_common_subs on
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-static inline void RemoveMacros_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)0, (void *)1); }
-static inline void RemoveCurves_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)4, (void *)1); }
-static inline void RemoveKeymaps_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)2, (void *)1); }
-static inline void RemoveLayers_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)3, (void *)1); }
+static inline void RemoveMacros_803B5258(u16 *ref) { ScanIDList(ref, NULL, (void *)0, (void *)1); }
+static inline void RemoveCurves_803B5258(u16 *ref) { ScanIDList(ref, NULL, (void *)4, (void *)1); }
+static inline void RemoveKeymaps_803B5258(u16 *ref) { ScanIDList(ref, NULL, (void *)2, (void *)1); }
+static inline void RemoveLayers_803B5258(u16 *ref) { ScanIDList(ref, NULL, (void *)3, (void *)1); }
 static inline void RemoveSamples_803B5258(u16 *ref, void *sdir) {
-    TLobby__sub_803B4FF8(ref, NULL, (void *)1, (void *)1);
-    TLobby__sub_803AD7C0(sdir);
+    ScanIDListReverse(ref, NULL, (void *)1, (void *)1);
+    dataRemoveSDir(sdir);
 }
-static inline void RemoveFXTab_803B5258(u16 gid) { TLobby__sub_803ADD18(gid); }
+static inline void RemoveFXTab_803B5258(u16 gid) { dataRemoveFX(gid); }
 
-u32 TLobby__sub_803B5258(void) {
+u32 sndPopGroup(void) {
     GROUP_DATA_803B50E8 *g;
     void *sdir;
     void *prj;
@@ -294,17 +294,17 @@ u32 TLobby__sub_803B5258(void) {
     g = gs[--sp].gAddr;
     prj = gs[sp].prjAddr;
     sdir = gs[sp].sdirAddr;
-    sound_disable_irq();
+    hwDisableIrq();
 
     if (g->type == 1) {
         fd = (FX_DATA_803B50E8 *)((u8 *)prj + g->data.song.normpageOff);
-        TLobby__sub_803BA228((Ent_803BA228 *)fd->fx, fd->num);
+        s3dKillEmitterByFXID((Ent_803BA228 *)fd->fx, fd->num);
     } else {
-        TLobby__sub_803A4D4C(g->id);
+        seqKillInstancesByGroupID(g->id);
     }
 
-    TLobby__sub_803B3858((u16 *)((u8 *)prj + g->macroOff));
-    sound_enable_irq();
+    synthKillVoicesByMacroReferences((u16 *)((u8 *)prj + g->macroOff));
+    hwEnableIrq();
     RemoveSamples_803B5258((u16 *)((u8 *)prj + g->sampleOff), sdir);
     RemoveMacros_803B5258((u16 *)((u8 *)prj + g->macroOff));
     RemoveCurves_803B5258((u16 *)((u8 *)prj + g->curveOff));
@@ -318,8 +318,8 @@ u32 TLobby__sub_803B5258(void) {
 
 #pragma pop
 
-s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
-    s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);
+s32 seqPlaySong(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
+    s32 seqStartPlay(u8 *, u8 *, u16 *, s32, s32, s32, u16);
     Ent_803B5398 *tbl = (Ent_803B5398 *)gs;
     Ent_803B5398 *e;
     s32 i;
@@ -344,11 +344,11 @@ s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
             while ((c = *q) != 0xFFFF) {
                 if (c == sub) {
                     if (locked) {
-                        r = TLobby__sub_803A3D8C(p1, p2, q, a2, a3, a5, id);
+                        r = seqStartPlay(p1, p2, q, a2, a3, a5, id);
                     } else {
-                        sound_disable_irq();
-                        r = TLobby__sub_803A3D8C(p1, p2, q, a2, a3, a5, id);
-                        sound_enable_irq();
+                        hwDisableIrq();
+                        r = seqStartPlay(p1, p2, q, a2, a3, a5, id);
+                        hwEnableIrq();
                     }
                     return r;
                 }
@@ -364,8 +364,8 @@ s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
     return -1;
 }
 
-void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    TLobby__sub_803B5398(arg0, arg1, arg2, arg3, 0U, arg4);
+void sndSeqPlayEx(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4) {
+    seqPlaySong(arg0, arg1, arg2, arg3, 0U, arg4);
 }
 
 s16 lbl_805D7450;

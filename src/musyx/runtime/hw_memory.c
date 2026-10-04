@@ -9,11 +9,11 @@
 #define OSCachedToPhysical(caddr) ((u32)((u8 *)(caddr) - 0x80000000))
 extern "C" {
 
-f32* TLobby__sub_803BE7B0(s32 bytes) {
+f32* salMalloc(s32 bytes) {
     return (f32 *)lbl_805D74BC.malloc(bytes);
 }
 
-void TLobby__sub_803BE7D8(s32 arg0) {
+void salFree(s32 arg0) {
     lbl_805D74BC.free((void *)arg0);
 }
 

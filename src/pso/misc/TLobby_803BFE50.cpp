@@ -49,29 +49,29 @@ typedef struct S_803C0628 {
 
 extern "C" {
 extern s8 lbl_805D74B8;
-void set_global_flag__6TLobbyFc(s8 arg0);
+void hwSetTimeOffset(s8 arg0);
 extern s8 lbl_805D74B8;
-u8 TLobby__sub_803BCCD8(void);
+u8 hwGetTimeOffset(void);
 extern s32 lbl_805D7490;
-void set_global_7490__6TLobbyFi(s32 arg0);
+void hwSetMesgCallback(s32 arg0);
 extern M2C_UNK lbl_805D4638;
 extern s32 lbl_805D748C;
-void TLobby__sub_803BD214(s32 arg0, s32 arg1);
+void hwSetSRCType(s32 arg0, s32 arg1);
 extern s32 lbl_805D748C;
 extern M2C_UNK lbl_805D4640;
-void TLobby__sub_803BD240(s32 arg0, s32 arg1);
-void TLobby__sub_803BD824(void);
-void TLobby__sub_803BD9E0(void);
+void hwSetPolyPhaseFilter(s32 arg0, s32 arg1);
+void hwTransAddr(void);
+void hwFrameDone(void);
 extern s32 lbl_805D747C;
-void TLobby__sub_803BD9F8(void);
+void hwDisableHRTF(void);
 extern s32 lbl_805D748C;
-s32 get_slot_value__6TLobbyFi(s32 arg0);
+s32 hwGetVirtualSampleID(s32 arg0);
 extern s32 lbl_805D74CC;
-void TLobby__sub_803BE000(s32 arg0, s32 arg1);
+void aramRemoveData(s32 arg0, s32 arg1);
 void TLobby__sub_803BE0DC(void);
 extern s32 lbl_805D74F0;
 extern s32 lbl_805D7500;
-void TLobby__sub_803BE3C4(void);
+void dspInitCallback(void);
 s32 get_offset_58__6TLobbyFi(s32 arg0);
 M2C_UNK get_field_34__6TLobbyFPv(int);
 void TLobby__sub_803BFE58(u8 *arg0);
@@ -126,8 +126,8 @@ s32 TLobby__sub_803C0F98(void *);
 s32 TLobby__sub_803C133C(void *);
 void TLobby__sub_803C0B3C(u8 *arg0);
 extern RecoveredGlobal_803BD5C4_lbl_805663D8 lbl_805663D8;
-void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-u8 TLobby__sub_803BC774(u8 arg0);
+void hwSetAUXProcessingCallbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 inpTranslateExCtrl(u8 arg0);
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self);
 s32 memcmp(void *, void *, int);
 extern s32 lbl_805E0CB0;
@@ -141,9 +141,9 @@ void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
 
 extern "C" {
 
-void shift_left_8__6TLobbyFPv(s32 *arg0);
-u32 shift_right_8__6TLobbyFUi(u32 arg0);
-void transform_vec3__6TLobbyFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+void sndConvertMs(s32 *arg0);
+u32 sndConvert2Ms(u32 arg0);
+void salApplyMatrix(u8 *arg0, u8 *arg1, u8 *arg2);
 
 s32 get_offset_58__6TLobbyFi(s32 arg0) {
     return arg0 + 0x58;

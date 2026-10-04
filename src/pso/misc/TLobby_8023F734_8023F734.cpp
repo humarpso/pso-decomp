@@ -52,7 +52,7 @@ f32 get_field_2a4__6TLobbyFPv(void* p);
 void set_clamped_field27c__6TLobbyFPvf(void *arg0, f32 farg0);
 void set_menu_index__6TLobbyFPvi(void* p, s32 v);
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1);
-s32 set_sound_output_mode(s32);
+s32 sndOutputMode(s32);
 
 s32 advance_rng__6TLobbyFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2AC) = (s32) ((M2C_FIELD(arg0, s32 *, 0x2AC) * 0x10DCD) + 1);
@@ -80,15 +80,15 @@ void set_menu_index__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x280) = v
 void set_mode__6TLobbyFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 0:
-        set_sound_output_mode(0);
+        sndOutputMode(0);
         M2C_FIELD(arg0, s32 *, 0x2A0) = arg1;
         return;
     case 1:
-        set_sound_output_mode(1);
+        sndOutputMode(1);
         M2C_FIELD(arg0, s32 *, 0x2A0) = arg1;
         return;
     case 2:
-        set_sound_output_mode(2);
+        sndOutputMode(2);
         M2C_FIELD(arg0, s32 *, 0x2A0) = arg1;
         return;
     }

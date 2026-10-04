@@ -29,15 +29,15 @@ struct Obj_803D4654 {
 };
 
 extern "C" {
-void apply_sound_volume_mix(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
+void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 lbl_804FA088[];
 extern s32 lbl_804FA470[];
 void set_sound_stream_volume(Obj_803D4540 *o, s32 vol);
-void apply_sound_volume_mix(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
+void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
 extern u8 lbl_804FA088[];
 extern s32 lbl_804FA470[];
 void TLobby__sub_803D4448(Obj_803D4540 *o, s32 ch, s32 pan);
-void TLobby__sub_803AC268(s32, s32);
+void sndStreamFrq(s32, s32);
 void TLobby__sub_803D4654(Obj_803D4654 *o, s32 rate);
 }
 
@@ -75,7 +75,7 @@ void TLobby__sub_803D4448(Obj_803D4540 *o, s32 ch, s32 pan) {
     if (stat_803D4448(o) != 1) {
         return;
     }
-    apply_sound_volume_mix(o->h[ch], lbl_804FA088[-o->vol2], lbl_804FA470[o->pan[ch] + 15],
+    sndStreamMixParameterEx(o->h[ch], lbl_804FA088[-o->vol2], lbl_804FA470[o->pan[ch] + 15],
                          0x7F - o->x70,
                          (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x68]) >> 7,
                          (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x6c]) >> 7);
@@ -98,7 +98,7 @@ void set_sound_stream_volume(Obj_803D4540 *o, s32 vol) {
         return;
     }
     for (i = 0; i < o->nch; i++) {
-        apply_sound_volume_mix(o->h[i], lbl_804FA088[-o->vol2], lbl_804FA470[o->pan[i] + 15],
+        sndStreamMixParameterEx(o->h[i], lbl_804FA088[-o->vol2], lbl_804FA470[o->pan[i] + 15],
                              0x7F - o->x70,
                              (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x68]) >> 7,
                              (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x6c]) >> 7);
@@ -114,9 +114,9 @@ void TLobby__sub_803D4654(Obj_803D4654 *o, s32 rate) {
     o->rate = rate;
     for (i = 0; i < o->nch; i++) {
         if (o->mode == 1) {
-            TLobby__sub_803AC268(o->h[i], (o->rate * 0x464 + 0x464) / 1125);
+            sndStreamFrq(o->h[i], (o->rate * 0x464 + 0x464) / 1125);
         } else {
-            TLobby__sub_803AC268(o->h[i], o->rate);
+            sndStreamFrq(o->h[i], o->rate);
         }
     }
 }

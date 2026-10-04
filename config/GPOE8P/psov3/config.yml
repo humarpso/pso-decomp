@@ -23,20 +23,45 @@ force_active:
   - AISetStreamPlayState
   - AISetStreamVolLeft
   - AISetStreamVolRight
+  - AddRunningEmitter
+  - AddStartingEmitter
+  - AllocateNote
   - CARDCheckExAsync
+  - CalcEmitter
+  - CheckDoorStatus
+  - CheckRoomStatus
   - DCEnable
   - DMAErrorHandler
   - DVDGetCurrentDir
   - Dolphin_DVDCancelAsync
   - Dolphin_GXFlush
   - EXIClearInterrupts
+  - EmitterShutdown
   - GXInitFifoLimits
   - GXInitFifoPtrs
   - GXSetTevIndirect
+  - GenerateNextTrackEvent
+  - GetPublicId
+  - GetStreamValue
+  - HandleEvent
+  - HandleMasterTrack
+  - HandleNotes
+  - HandleTrackEvents
   - ICEnable
+  - InitTrackEvents
+  - InitTrackEventsSection
+  - InsertData
+  - InsertGlobalEvent
+  - KeyOffNotes
   - L2GlobalInvalidate
   - PADSetSamplingCallback
   - PSMTXRotTrig
+  - ResetNotes
+  - ScanIDList
+  - ScanIDListReverse
+  - SetFXParameters
+  - StartContinousEmitters
+  - StartPause
   - TAdMultiChgGameModeGC__sub_8036E49C
   - TAdRayGC__sub_8029BCB4
   - TAdSinglePlyChrSelectGC__sub_80133530
@@ -105,6 +130,8 @@ force_active:
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
   - TypeAndStatusCallback
+  - UpdateRoomDistances
+  - _GetInputValue
   - __ARQCallbackHack
   - __ARQInterruptServiceRoutine
   - __ARQServiceQueueLo
@@ -235,7 +262,6 @@ force_active:
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
   - build_sell_list__24TShopEquipmentSellWindowFPv
-  - calc_sound_controller_value
   - chat_dispatch_accepted_result
   - chat_log_remove_line
   - chat_text_lacks_language_tag
@@ -273,6 +299,8 @@ force_active:
   - draw_palette_cells__22TWindowSubCustomSelectFv
   - draw_status_window__15TAdMcSelectMcGCFPv
   - draw_value__13TWindowMesetaFPvi
+  - dspInitCallback
+  - dspResumeCallback
   - emit_deband_support_effect
   - emit_jellen_support_effect
   - emit_photon_blast_feedback_effects
@@ -320,8 +348,12 @@ force_active:
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
   - handle_sell_confirm__24TShopEquipmentSellWindowFv
+  - handle_withdraw_confirm__18TShopGetItemWindowFPv
+  - handle_withdraw_list_input__18TShopGetItemWindowFPv
   - has_serial_input__22TAdEnterSerialAccessGCFv
   - hook__15TItemEffBringerFv
+  - hwSetITDMode
+  - hwSetTimeOffset
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - init_gx_lighting_defaults
@@ -337,6 +369,7 @@ force_active:
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - initialize_player_data__10TObjPlayerFPv
+  - inpTranslateExCtrl
   - invoke_callback__10TItemTimerFPv
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
@@ -367,6 +400,7 @@ force_active:
   - prepare_heavy_attack_particles
   - queue_deferred_photon_blast_hit
   - read_stream_u8
+  - rebuild_item_list__18TShopGetItemWindowFv
   - refresh_label__11TChCrEffTagFPv
   - remove_duplicate_bindings__21TWindowSubCustomEquipFPvPv
   - render__10TAdADXlogoFv
@@ -492,7 +526,12 @@ force_active:
   - run_task__9TEffGuardFv
   - run_task__9TEndingABFv
   - run_task__9TSaveChCrFv
+  - salCallback
+  - salChangeADSRState
+  - salGetStartDelay
   - send_partner_attack_stage_request
+  - seqCrossFade
+  - seqFreeKeyOffNote
   - set_code_43_6__10TObjPlayerFPv
   - set_enable_count__13TOHealGeneralFPvi
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
@@ -501,6 +540,7 @@ force_active:
   - set_tev_stage_mode
   - setup_state_helper__10TObjPlayerFPv
   - shuffle_shop_pool
+  - snd_handle_irq
   - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range
   - spawn_effect__10TObjPlayerFiUiii
@@ -510,7 +550,6 @@ force_active:
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
-  - transition_sound_envelope
   - traverse_animated_node_tree
   - update_and_destroy__10TObjPlayerFPv
   - update_backdrop_transition__17TWindowMainMenu1PFPv
@@ -532,6 +571,7 @@ force_active:
   - update_trails__11TItemWeaponFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_when_camera_active__13TObjWarnChimeFPv
+  - vsUpdateBuffer
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data
 # addresses. dtk would emit a relocation and export the target symbol.

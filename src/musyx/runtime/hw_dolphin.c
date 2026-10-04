@@ -33,7 +33,7 @@ static inline void callUserCallback_803BE320(void) {
     salLogicActive = 0;
 }
 
-void TLobby__sub_803BE320(void) {
+void salCallback(void) {
     salAIBufferIndex = (salAIBufferIndex + 1) % 4;
     AIInitDMA(OSCachedToPhysical(salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
     salLastTick = OSGetTick();
@@ -45,12 +45,12 @@ void TLobby__sub_803BE320(void) {
     }
 }
 
-void TLobby__sub_803BE3C4(void) {
+void dspInitCallback(void) {
     lbl_805D74F0 = 1;
     lbl_805D7500 = 1;
 }
 
-void TLobby__sub_803BE3D4(void) {
+void dspResumeCallback(void) {
     u8 _[8];
 
     salDspIsDone = 1;
@@ -60,8 +60,8 @@ void TLobby__sub_803BE3D4(void) {
     }
 }
 
-u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq) {
-    if ((salAIBufferBase = (Rec_803BE528 *)TLobby__sub_803BE7B0(0x280 * 4)) != 0) {
+u32 salInitAi(void (*callback)(void), u32 unk, u32 *outFreq) {
+    if ((salAIBufferBase = (Rec_803BE528 *)salMalloc(0x280 * 4)) != 0) {
         memset(salAIBufferBase, 0, 0x280 * 4);
         DCFlushRange(salAIBufferBase, 0x280 * 4);
         salAIBufferIndex = 1;
@@ -69,7 +69,7 @@ u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq) {
         salDspIsDone = 1;
         salLogicActive = 0;
         userCallback = callback;
-        AIRegisterDMACallback(TLobby__sub_803BE320);
+        AIRegisterDMACallback(salCallback);
         AIInitDMA(OSCachedToPhysical(salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
         lbl_80557348[1] = 0x20;
         *outFreq = 32000;
@@ -80,11 +80,11 @@ u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq) {
 }
 #pragma pop
 
-void TLobby__sub_803BE508(void) {
+void salStartAi(void) {
     AIStartDMA();
 }
 
-Rec_803BE528 *TLobby__sub_803BE528(void) {
+Rec_803BE528 *salAiGetDest(void) {
     return &lbl_805D74EC[(u8)((lbl_805D750C + 2) % 4)];
 }
 
@@ -124,7 +124,7 @@ static u16 dram_image_803BE554[4096] __attribute__((aligned(32)));
 #define dspSlaveLength lbl_805D4648
 #define salDspInitIsDone (*(volatile u32 *)&lbl_805D7500)
 
-u32 TLobby__sub_803BE554(u32 flags) {
+u32 salInitDsp(u32 flags) {
     dsp_task.iram_mmem_addr = (u16 *)dspSlave;
     dsp_task.iram_length = dspSlaveLength;
     dsp_task.iram_addr = 0;
@@ -133,18 +133,18 @@ u32 TLobby__sub_803BE554(u32 flags) {
     dsp_task.dram_addr = 0;
     dsp_task.dsp_init_vector = 0x10;
     dsp_task.dsp_resume_vector = 0x30;
-    dsp_task.init_cb = (void (*)(void *))TLobby__sub_803BE3C4;
-    dsp_task.res_cb = (void (*)(void *))TLobby__sub_803BE3D4;
+    dsp_task.init_cb = (void (*)(void *))dspInitCallback;
+    dsp_task.res_cb = (void (*)(void *))dspResumeCallback;
     dsp_task.done_cb = 0;
     dsp_task.req_cb = 0;
     dsp_task.priority = 0;
     DSPInit();
     DSPAddTask(&dsp_task);
     salDspInitIsDone = 0;
-    sound_enable_irq();
+    hwEnableIrq();
     while (!salDspInitIsDone)
         ;
-    sound_disable_irq();
+    hwDisableIrq();
     return 1;
 }
 
@@ -154,9 +154,9 @@ u32 TLobby__sub_803BE554(u32 flags) {
 #undef dspSlaveLength
 #undef salDspInitIsDone
 
-void TLobby__sub_803BE614(s32 arg0) {
+void salCtrlDsp(s32 arg0) {
     s32 temp_r31;
-    update_sound_dsp_voices((void *) (arg0), (int) (TLobby__sub_803BE688()));
+    salBuildCommandList((void *) (arg0), (int) (salGetStartDelay()));
     temp_r31 = lbl_805D7478;
     lbl_805D74F0 = 0;
     PPCSync();
@@ -168,35 +168,35 @@ void TLobby__sub_803BE614(s32 arg0) {
     } while (DSPCheckMailToDSP() != 0U);
 }
 
-u32 TLobby__sub_803BE688(void) {
+u32 salGetStartDelay(void) {
     return (u32)((OSGetTick() - lbl_805D74FC) * 8) / (*(u32 *)0x800000F8 / 4 / 125000);
 }
 
 #pragma push
 #pragma scheduling off
-void TLobby__sub_803BE6D4(void) {
+void hwInitIrq(void) {
     lbl_805D7508 = OSDisableInterrupts();
     lbl_805D7504 = 1;
 }
 #pragma pop
 
-void sound_enable_irq(void) {
+void hwEnableIrq(void) {
     if (--lbl_805D7504 == 0) {
         OSRestoreInterrupts(lbl_805D7508);
     }
 }
 
-void sound_disable_irq(void) {
+void hwDisableIrq(void) {
     if (lbl_805D7504++ == 0) {
         lbl_805D7508 = OSDisableInterrupts();
     }
 }
 
-void TLobby__sub_803BE770(void) {
+void hwIRQEnterCritical(void) {
     OSDisableInterrupts();
 }
 
-void TLobby__sub_803BE790(void) {
+void hwIRQLeaveCritical(void) {
     OSEnableInterrupts();
 }
 

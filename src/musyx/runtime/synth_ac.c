@@ -57,11 +57,11 @@ f32 lbl_804F6558[128] = {
     0.0009765625f, 0.00092220306f, 0.000869751f, 0.0008211136f, 0.0007753372f, 0.0007314682f, 0.0006904602f, 0.00065135956f,
 };
 
-s32 calc_sound_pitch_semitone_up(s32 current) {
+s32 sndPitchUpOne(s32 current) {
     return (s32)(1.0594631f * (f32)(u16)current);
 }
 
-u32 calc_sound_base_pitch(u8 note, u32 r) {
+u32 sndGetPitch(u8 note, u32 r) {
     u32 base;
     f32 v;
     if (r == 0xFFFFFFFF) {

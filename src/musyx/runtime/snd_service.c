@@ -76,12 +76,12 @@ s16 lbl_804F7168[1024] = {
     4094, 4094, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095, 4095,
 };
 
-u16 TLobby__sub_803BC91C(void) {
+u16 sndRand(void) {
     lbl_805D4630 = lbl_805D4630 * 0xA8351D63;
     return lbl_805D4630 >> 6;
 }
 
-s16 TLobby__sub_803BC93C(s32 arg0) {
+s16 sndSin(s32 arg0) {
     s16 *tbl = lbl_804F7168;
     u32 t = arg0 & 0xFFF;
     if (t < 0x400U) {
@@ -96,7 +96,7 @@ s16 TLobby__sub_803BC93C(s32 arg0) {
     return -tbl[0x3FF - (t & 0x3FF)];
 }
 
-void *search_sound_sample_directory(void *key, void *base, s32 num, s32 len, s32 (*cmp)(void *, void *)) {
+void *sndBSearch(void *key, void *base, s32 num, s32 len, s32 (*cmp)(void *, void *)) {
     long l;
     long r;
     long m;
@@ -119,15 +119,15 @@ void *search_sound_sample_directory(void *key, void *base, s32 num, s32 len, s32
     return 0;
 }
 
-void shift_left_8__6TLobbyFPv(s32 *arg0) {
+void sndConvertMs(s32 *arg0) {
     *arg0 <<= 8;
 }
 
-void TLobby__sub_803BCA50(u32 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, u32 *, 0) = (u32) (((u32) (M2C_FIELD(arg0, u32 *, 0) << 0x10) / TLobby__sub_803A6F18((void *) (arg1))) * 0x3E8) >> 5U;
+void sndConvertTicks(u32 *arg0, s32 arg1) {
+    M2C_FIELD(arg0, u32 *, 0) = (u32) (((u32) (M2C_FIELD(arg0, u32 *, 0) << 0x10) / synthGetTicksPerSecond((void *) (arg1))) * 0x3E8) >> 5U;
 }
 
-u32 shift_right_8__6TLobbyFUi(u32 arg0) {
+u32 sndConvert2Ms(u32 arg0) {
     return arg0 >> 8U;
 }
 

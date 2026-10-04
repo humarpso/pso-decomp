@@ -84,10 +84,10 @@ extern "C" {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-s32 TLobby__sub_803ACB50(u16 cid, void *keymapdata) {
+s32 dataInsertKeymap(u16 cid, void *keymapdata) {
     long i;
     long j;
-    sound_disable_irq();
+    hwDisableIrq();
 
     for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id < cid; ++i)
         ;
@@ -99,25 +99,25 @@ s32 TLobby__sub_803ACB50(u16 cid, void *keymapdata) {
                     dataKeymapTab[j + 1] = dataKeymapTab[j];
                 ++dataKeymapNum;
             } else {
-                sound_enable_irq();
+                hwEnableIrq();
                 return 0;
             }
         } else {
             dataKeymapTab[i].refCount++;
-            sound_enable_irq();
+            hwEnableIrq();
             return 0;
         }
     } else if (dataKeymapNum < 256) {
         ++dataKeymapNum;
     } else {
-        sound_enable_irq();
+        hwEnableIrq();
         return 0;
     }
 
     dataKeymapTab[i].id = cid;
     dataKeymapTab[i].data = keymapdata;
     dataKeymapTab[i].refCount = 1;
-    sound_enable_irq();
+    hwEnableIrq();
     return 1;
 }
 
@@ -128,11 +128,11 @@ s32 TLobby__sub_803ACB50(u16 cid, void *keymapdata) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803ACD40(u16 sid) {
+s32 dataRemoveKeymap(u16 sid) {
     long i;
     long j;
 
-    sound_disable_irq();
+    hwDisableIrq();
     for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id != sid; ++i)
         ;
 
@@ -142,11 +142,11 @@ s32 TLobby__sub_803ACD40(u16 sid) {
         }
 
         --dataKeymapNum;
-        sound_enable_irq();
+        hwEnableIrq();
         return 1;
     }
 
-    sound_enable_irq();
+    hwEnableIrq();
     return 0;
 }
 
@@ -157,11 +157,11 @@ s32 TLobby__sub_803ACD40(u16 sid) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803ACEC4(u16 cid, void *layerdata, u16 size) {
+s32 dataInsertLayer(u16 cid, void *layerdata, u16 size) {
     long i;
     long j;
 
-    sound_disable_irq();
+    hwDisableIrq();
 
     for (i = 0; i < dataLayerNum && dataLayerTab[i].id < cid; ++i)
         ;
@@ -173,18 +173,18 @@ s32 TLobby__sub_803ACEC4(u16 cid, void *layerdata, u16 size) {
                     dataLayerTab[j + 1] = dataLayerTab[j];
                 ++dataLayerNum;
             } else {
-                sound_enable_irq();
+                hwEnableIrq();
                 return 0;
             }
         } else {
             dataLayerTab[i].refCount++;
-            sound_enable_irq();
+            hwEnableIrq();
             return 0;
         }
     } else if (dataLayerNum < 256) {
         ++dataLayerNum;
     } else {
-        sound_enable_irq();
+        hwEnableIrq();
         return 0;
     }
 
@@ -192,7 +192,7 @@ s32 TLobby__sub_803ACEC4(u16 cid, void *layerdata, u16 size) {
     dataLayerTab[i].data = layerdata;
     dataLayerTab[i].num = size;
     dataLayerTab[i].refCount = 1;
-    sound_enable_irq();
+    hwEnableIrq();
     return 1;
 }
 
@@ -203,11 +203,11 @@ s32 TLobby__sub_803ACEC4(u16 cid, void *layerdata, u16 size) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803AD10C(u16 sid) {
+s32 dataRemoveLayer(u16 sid) {
     long i;
     long j;
 
-    sound_disable_irq();
+    hwDisableIrq();
     for (i = 0; i < dataLayerNum && dataLayerTab[i].id != sid; ++i)
         ;
 
@@ -217,11 +217,11 @@ s32 TLobby__sub_803AD10C(u16 sid) {
         }
 
         --dataLayerNum;
-        sound_enable_irq();
+        hwEnableIrq();
         return 1;
     }
 
-    sound_enable_irq();
+    hwEnableIrq();
     return 0;
 }
 
@@ -233,11 +233,11 @@ s32 TLobby__sub_803AD10C(u16 sid) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-s32 TLobby__sub_803AD2D8(u16 cid, void *curvedata) {
+s32 dataInsertCurve(u16 cid, void *curvedata) {
     long i;
     long j;
 
-    sound_disable_irq();
+    hwDisableIrq();
 
     for (i = 0; i < dataCurveNum && dataCurveTab[i].id < cid; ++i)
         ;
@@ -249,25 +249,25 @@ s32 TLobby__sub_803AD2D8(u16 cid, void *curvedata) {
                     dataCurveTab[j + 1] = dataCurveTab[j];
                 ++dataCurveNum;
             } else {
-                sound_enable_irq();
+                hwEnableIrq();
                 return 0;
             }
         } else {
-            sound_enable_irq();
+            hwEnableIrq();
             dataCurveTab[i].refCount++;
             return 0;
         }
     } else if (dataCurveNum < 2048) {
         ++dataCurveNum;
     } else {
-        sound_enable_irq();
+        hwEnableIrq();
         return 0;
     }
 
     dataCurveTab[i].id = cid;
     dataCurveTab[i].data = curvedata;
     dataCurveTab[i].refCount = 1;
-    sound_enable_irq();
+    hwEnableIrq();
     return 1;
 }
 
@@ -278,11 +278,11 @@ s32 TLobby__sub_803AD2D8(u16 cid, void *curvedata) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803AD4D0(u16 sid) {
+s32 dataRemoveCurve(u16 sid) {
     long i;
     long j;
 
-    sound_disable_irq();
+    hwDisableIrq();
     for (i = 0; i < dataCurveNum && dataCurveTab[i].id != sid; ++i)
         ;
 
@@ -292,11 +292,11 @@ s32 TLobby__sub_803AD4D0(u16 sid) {
         }
 
         --dataCurveNum;
-        sound_enable_irq();
+        hwEnableIrq();
         return 1;
     }
 
-    sound_enable_irq();
+    hwEnableIrq();
     return 0;
 }
 
@@ -308,7 +308,7 @@ s32 TLobby__sub_803AD4D0(u16 sid) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-s32 TLobby__sub_803AD654(SDIR_DATA_D *sdir, void *smp_data) {
+s32 dataInsertSDir(SDIR_DATA_D *sdir, void *smp_data) {
     s32 i;
     SDIR_DATA_D *s;
     u16 n;
@@ -324,7 +324,7 @@ s32 TLobby__sub_803AD654(SDIR_DATA_D *sdir, void *smp_data) {
             for (s = sdir; s->id != 0xffff; ++s) {
                 ++n;
             }
-            sound_disable_irq();
+            hwDisableIrq();
             for (j = 0; j < n; ++j) {
                 for (i = 0; i < dataSmpSDirNum; ++i) {
                     for (k = 0; k < dataSmpSDirs[i].numSmp; ++k) {
@@ -344,7 +344,7 @@ s32 TLobby__sub_803AD654(SDIR_DATA_D *sdir, void *smp_data) {
             dataSmpSDirs[dataSmpSDirNum].numSmp = n;
             dataSmpSDirs[dataSmpSDirNum].base = smp_data;
             ++dataSmpSDirNum;
-            sound_enable_irq();
+            hwEnableIrq();
             return 1;
         } else {
             return 0;
@@ -362,7 +362,7 @@ s32 TLobby__sub_803AD654(SDIR_DATA_D *sdir, void *smp_data) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-s32 TLobby__sub_803AD7C0(SDIR_DATA_D *sdir) {
+s32 dataRemoveSDir(SDIR_DATA_D *sdir) {
     long i;
     long j;
     long index;
@@ -373,7 +373,7 @@ s32 TLobby__sub_803AD7C0(SDIR_DATA_D *sdir) {
     }
 
     if (index != dataSmpSDirNum) {
-        sound_disable_irq();
+        hwDisableIrq();
 
         for (data = sdir; data->id != 0xFFFF; ++data) {
             if (data->ref_cnt != 0xFFFF && data->ref_cnt != 0)
@@ -411,11 +411,11 @@ s32 TLobby__sub_803AD7C0(SDIR_DATA_D *sdir) {
             }
 
             --dataSmpSDirNum;
-            sound_enable_irq();
+            hwEnableIrq();
             return 1;
         }
 
-        sound_enable_irq();
+        hwEnableIrq();
     }
     return 0;
 }
@@ -428,7 +428,7 @@ s32 TLobby__sub_803AD7C0(SDIR_DATA_D *sdir) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-s32 TLobby__sub_803ADA80(u16 sid) {
+s32 dataAddSampleReference(u16 sid) {
     u32 i;
     Hdr_803ADA80 *header;
     SDIR_DATA_D *data;
@@ -449,7 +449,7 @@ done:
     if (sdir->ref_cnt == 0) {
         sdir->addr = (void *)((u32)sdir->offset + (u32)dataSmpSDirs[i].base);
         header = (Hdr_803ADA80 *)&sdir->header;
-        TLobby__sub_803BD8A8(&header, &sdir->addr);
+        hwSaveSample(&header, &sdir->addr);
     }
 
     ++sdir->ref_cnt;
@@ -458,7 +458,7 @@ done:
 
 #pragma pop
 
-s32 TLobby__sub_803ADB58(u16 id) {
+s32 dataRemoveSampleReference(u16 id) {
     u32 i;
 
     for (i = 0; i < lbl_805D73D0; i++) {
@@ -468,7 +468,7 @@ s32 TLobby__sub_803ADB58(u16 id) {
             if (v == id && e->ref != 0xFFFF) {
                 e->ref--;
                 if (e->ref == 0) {
-                    TLobby__sub_803BD93C(&e->fc, e->f8);
+                    hwRemoveSample(&e->fc, e->f8);
                 }
                 return 1;
             }
@@ -482,7 +482,7 @@ s32 TLobby__sub_803ADB58(u16 id) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803ADBF0(u16 gid, Rec_803ADBF0 *fx, u16 fxNum) {
+s32 dataInsertFX(u16 gid, Rec_803ADBF0 *fx, u16 fxNum) {
     long i;
 
     for (i = 0; i < dataFXGroupNum && gid != dataFXGroups[i].gid; ++i) {
@@ -490,7 +490,7 @@ s32 TLobby__sub_803ADBF0(u16 gid, Rec_803ADBF0 *fx, u16 fxNum) {
 
     if (i == dataFXGroupNum) {
         if (dataFXGroupNum < 128) {
-            sound_disable_irq();
+            hwDisableIrq();
             dataFXGroups[dataFXGroupNum].gid = gid;
             dataFXGroups[dataFXGroupNum].fxNum = fxNum;
             dataFXGroups[dataFXGroupNum].fxTab = fx;
@@ -500,7 +500,7 @@ s32 TLobby__sub_803ADBF0(u16 gid, Rec_803ADBF0 *fx, u16 fxNum) {
             }
 
             dataFXGroupNum++;
-            sound_enable_irq();
+            hwEnableIrq();
             return 1;
         }
     }
@@ -514,7 +514,7 @@ s32 TLobby__sub_803ADBF0(u16 gid, Rec_803ADBF0 *fx, u16 fxNum) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803ADD18(u16 gid) {
+s32 dataRemoveFX(u16 gid) {
     long i;
     long j;
 
@@ -522,13 +522,13 @@ s32 TLobby__sub_803ADD18(u16 gid) {
     }
 
     if (i != dataFXGroupNum) {
-        sound_disable_irq();
+        hwDisableIrq();
         for (j = i + 1; j < dataFXGroupNum; j++) {
             dataFXGroups[j - 1] = dataFXGroups[j];
         }
 
         --dataFXGroupNum;
-        sound_enable_irq();
+        hwEnableIrq();
         return 1;
     }
     return 0;
@@ -542,12 +542,12 @@ s32 TLobby__sub_803ADD18(u16 gid) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-s32 TLobby__sub_803AE184(u16 mid) {
+s32 dataRemoveMacro(u16 mid) {
     s32 main;
     s32 base;
     s32 i;
 
-    sound_disable_irq();
+    hwDisableIrq();
     main = (mid >> 6) & 0x3fff;
 
     if (dataMacMainTab[main].num != 0) {
@@ -573,13 +573,13 @@ s32 TLobby__sub_803AE184(u16 mid) {
         }
     }
 
-    sound_enable_irq();
+    hwEnableIrq();
     return 0;
 }
 
 #pragma pop
 
-s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1) {
+s32 maccmp(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
 
@@ -593,14 +593,14 @@ extern s32 *lbl_805D73EC;
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-u32 start_sound_macro(u16 mid) {
+u32 dataGetMacro(u16 mid) {
     lbl_805D73E0 = (mid >> 6) & 0x3fff;
 
     if (dataMacMainTab[lbl_805D73E0].num != 0) {
         lbl_805D73DC = dataMacMainTab[lbl_805D73E0].subTabIndex;
         lbl_805D73E4.f4 = mid;
-        if ((lbl_805D73EC = search_sound_sample_directory(&lbl_805D73E4, &dataMacSubTabmem[lbl_805D73DC], dataMacMainTab[lbl_805D73E0].num,
-                                                          sizeof(MAC_SUBTAB_D), TLobby__sub_803AE420)) != NULL) {
+        if ((lbl_805D73EC = sndBSearch(&lbl_805D73E4, &dataMacSubTabmem[lbl_805D73DC], dataMacMainTab[lbl_805D73E0].num,
+                                                          sizeof(MAC_SUBTAB_D), maccmp)) != NULL) {
             return *lbl_805D73EC;
         }
     }
@@ -610,7 +610,7 @@ u32 start_sound_macro(u16 mid) {
 
 #pragma pop
 
-s32 compare_sound_sample_id(u16 *arg0, u16 *arg1) {
+s32 smpcmp(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
@@ -621,15 +621,15 @@ s32 compare_sound_sample_id(u16 *arg0, u16 *arg1) {
 #pragma inline_depth(4)
 #define dgs_result (*(SDIR_DATA_D **)&lbl_805D73F0)
 #define dgs_sheader (*(SAMPLE_HEADER_D **)&lbl_805D73F4)
-s32 find_sound_sample(s16 sid, Sample_803AE4D4 *newsmp) {
+s32 dataGetSample(s16 sid, Sample_803AE4D4 *newsmp) {
     static SDIR_DATA_D key;
     long i;
 
     key.id = sid;
 
     for (i = 0; i < dataSmpSDirNum; ++i) {
-        if ((dgs_result = (SDIR_DATA_D *)search_sound_sample_directory((Req_803AE60C *)&key, dataSmpSDirs[i].data, dataSmpSDirs[i].numSmp, sizeof(SDIR_DATA_D),
-                                                                       (s32 (*)(u8 *, u8 *))compare_sound_sample_id)) != NULL) {
+        if ((dgs_result = (SDIR_DATA_D *)sndBSearch((Req_803AE60C *)&key, dataSmpSDirs[i].data, dataSmpSDirs[i].numSmp, sizeof(SDIR_DATA_D),
+                                                                       (s32 (*)(u8 *, u8 *))smpcmp)) != NULL) {
             if (dgs_result->ref_cnt != 0xFFFF) {
                 dgs_sheader = &dgs_result->header;
                 newsmp->key = dgs_sheader->info;
@@ -655,27 +655,27 @@ s32 find_sound_sample(s16 sid, Sample_803AE4D4 *newsmp) {
 
 #pragma pop
 
-s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1) {
+s32 curvecmp(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
 
-s32 TLobby__sub_803AE60C(s16 arg0) {
+s32 dataGetCurve(s16 arg0) {
     lbl_805D73F8.f4 = arg0;
-    if ((lbl_805D7400 = search_sound_sample_directory(&lbl_805D73F8, dataCurveTab, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
+    if ((lbl_805D7400 = sndBSearch(&lbl_805D73F8, dataCurveTab, lbl_805D73D2, 8, curvecmp)) != NULL) {
         return *lbl_805D7400;
     }
     return 0;
 }
 
-s32 TLobby__sub_803AE66C(s16 arg0) {
+s32 dataGetKeymap(s16 arg0) {
     lbl_805D7404.f4 = arg0;
-    if ((lbl_805D740C = search_sound_sample_directory(&lbl_805D7404, dataKeymapTab, lbl_805D73D4, 8, TLobby__sub_803AE5FC)) != NULL) {
+    if ((lbl_805D740C = sndBSearch(&lbl_805D7404, dataKeymapTab, lbl_805D73D4, 8, curvecmp)) != NULL) {
         return *lbl_805D740C;
     }
     return 0;
 }
 
-s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1) {
+s32 layercmp(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
 
@@ -684,12 +684,12 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_803AE6DC(s16 cid, u16 *n) {
+s32 dataGetLayer(s16 cid, u16 *n) {
     static LAYER_TAB_D key;
 
     key.id = cid;
-    if ((lbl_805D7410 = (Res_803AE6DC *)search_sound_sample_directory((Req_803AE60C *)&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB_D),
-                                                                      (s32 (*)(u8 *, u8 *))TLobby__sub_803AE6CC)) != NULL) {
+    if ((lbl_805D7410 = (Res_803AE6DC *)sndBSearch((Req_803AE60C *)&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB_D),
+                                                                      (s32 (*)(u8 *, u8 *))layercmp)) != NULL) {
         *n = lbl_805D7410->h6;
         return lbl_805D7410->f0;
     }
@@ -698,7 +698,7 @@ s32 TLobby__sub_803AE6DC(s16 cid, u16 *n) {
 
 #pragma pop
 
-s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1) {
+s32 fxcmp(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
@@ -717,15 +717,15 @@ typedef struct FX_TAB_D {
     u8 key;
     u8 vGroup;
 } FX_TAB_D;
-Se_803A9144 *find_sound_fx_record(s16 fid) {
+Se_803A9144 *dataGetFX(s16 fid) {
     static FX_TAB_D key;
     Se_803A9144 *ret;
     long i;
 
     key.id = fid;
     for (i = 0; i < dataFXGroupNum; ++i) {
-        if ((ret = (Se_803A9144 *)search_sound_sample_directory((Req_803AE60C *)&key, dataFXGroups[i].fxTab, dataFXGroups[i].fxNum, sizeof(FX_TAB_D),
-                                                                (s32 (*)(u8 *, u8 *))TLobby__sub_803AE75C))) {
+        if ((ret = (Se_803A9144 *)sndBSearch((Req_803AE60C *)&key, dataFXGroups[i].fxTab, dataFXGroups[i].fxNum, sizeof(FX_TAB_D),
+                                                                (s32 (*)(u8 *, u8 *))fxcmp))) {
             return ret;
         }
     }
@@ -735,7 +735,7 @@ Se_803A9144 *find_sound_fx_record(s16 fid) {
 
 #pragma pop
 
-void TLobby__sub_803AE814(void *arg0, void *arg1) {
+void dataInit(void *arg0, void *arg1) {
     s32 i;
 
     lbl_805D73D0 = 0;
@@ -748,7 +748,7 @@ void TLobby__sub_803AE814(void *arg0, void *arg1) {
         ((Slot_803AE814 *)dataMacMainTab)[i].count = 0;
         ((Slot_803AE814 *)dataMacMainTab)[i].start = 0;
     }
-    TLobby__sub_803BD884(arg0, arg1);
+    hwInitSampleMem(arg0, arg1);
 }
 
 }

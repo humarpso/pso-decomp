@@ -20,7 +20,7 @@ static void DLsetdelay(SoundReverbDelay * dl, s32 lag) {
 
 static void DLcreate(SoundReverbDelay * dl, s32 max_byteLength) {
     dl->byteLength = (max_byteLength * 4);
-    dl->samples = TLobby__sub_803BE7B0( max_byteLength << 2);
+    dl->samples = salMalloc( max_byteLength << 2);
     memset(dl->samples, 0, max_byteLength << 2);
     dl->last = 0.0f;
     DLsetdelay(dl, max_byteLength >> 1);
@@ -28,7 +28,7 @@ static void DLcreate(SoundReverbDelay * dl, s32 max_byteLength) {
     dl->readOffset = 0;
 }
 
-s32 create_sound_reverb_state(SoundReverb * rv, float coloration, float time, float mix, float damping, float preDelay, float crossTalk) {
+s32 ReverbHICreate(SoundReverb * rv, float coloration, float time, float mix, float damping, float preDelay, float crossTalk) {
     u8 i;
     u8 k;
     extern s32 lbl_804F9360[];
@@ -67,7 +67,7 @@ s32 create_sound_reverb_state(SoundReverb * rv, float coloration, float time, fl
     if (0.0f != preDelay) {
         rv->preDelayFrames = (32000.0f * preDelay);
         for(i = 0; i < 3; i++) {
-            rv->preDelay[i] = TLobby__sub_803BE7B0( rv->preDelayFrames * 4);
+            rv->preDelay[i] = salMalloc( rv->preDelayFrames * 4);
             memset(rv->preDelay[i], 0, rv->preDelayFrames * 4);
             rv->preDelayCurrent[i] = rv->preDelay[i];
         }
@@ -84,22 +84,22 @@ s32 create_sound_reverb_state(SoundReverb * rv, float coloration, float time, fl
 #pragma pop
 #pragma push
 #pragma peephole off
-void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
+void ReverbHICallback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
     u8 i;
     for (i = 0; i < 3; i++) {
         switch (i) {
         case 0:
             if (0.0f != arg3->f1A8) {
                 f32 t = 0.5f * arg3->f1A8;
-                TLobby__sub_803BED6C(arg0, arg1, t, 1.0f - t);
+                DoCrossTalk(arg0, arg1, t, 1.0f - t);
             }
-            process_sound_reverb_block(arg0, arg3, 0);
+            HandleReverb(arg0, arg3, 0);
             break;
         case 1:
-            process_sound_reverb_block(arg1, arg3, 1);
+            HandleReverb(arg1, arg3, 1);
             break;
         case 2:
-            process_sound_reverb_block(arg2, arg3, 2);
+            HandleReverb(arg2, arg3, 2);
             break;
         }
     }

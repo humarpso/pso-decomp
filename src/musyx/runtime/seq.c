@@ -1,10 +1,10 @@
-#define TLobby__sub_803A5078 TLobby__sub_803A5078_header_view
+#define seqVolume TLobby__sub_803A5078_header_view
 #include "musyx/runtime/musyx_runtime_a.h"
-#undef TLobby__sub_803A5078
+#undef seqVolume
 
 extern "C" {
 
-void TLobby__sub_803A3858(Owner_803A3C24 *o) {
+void ResetNotes(Owner_803A3C24 *o) {
     u32 i;
     Node_803A3C24 *p;
     Node_803A3C24 *q;
@@ -35,7 +35,7 @@ void TLobby__sub_803A3858(Owner_803A3C24 *o) {
     }
 }
 
-Node_803A3C24 *TLobby__sub_803A3934(s32 key, u8 ch) {
+Node_803A3C24 *AllocateNote(s32 key, u8 ch) {
     Node_803A3C24 *n = lbl_805D7364;
     Node_803A3C24 *cur;
     Node_803A3C24 *prev;
@@ -72,7 +72,7 @@ Node_803A3C24 *TLobby__sub_803A3934(s32 key, u8 ch) {
     return n;
 }
 
-s32 TLobby__sub_803A3A28(void) {
+s32 HandleNotes(void) {
     Node_803A3C24 *n;
     u32 i;
     s32 r;
@@ -82,7 +82,7 @@ s32 TLobby__sub_803A3A28(void) {
             continue;
         }
         while (n->key <= ((Tbl_803A3A28 *)lbl_805D7360)->ch[n->ch].lim[i].v) {
-            key_off_sound_fx(n->f8);
+            synthSendKeyOff(n->f8);
             if ((lbl_805D7360->lists[i] = n->next) != NULL) {
                 lbl_805D7360->lists[i]->prev = NULL;
             }
@@ -103,7 +103,7 @@ s32 TLobby__sub_803A3A28(void) {
     return r;
 }
 
-void TLobby__sub_803A3B54(void) {
+void KeyOffNotes(void) {
     Node_803A3C24 *n;
     Node_803A3C24 *next;
     u32 i;
@@ -111,7 +111,7 @@ void TLobby__sub_803A3B54(void) {
     for (i = 0; i < 2; i++) {
         for (n = lbl_805D7360->lists[i]; n != NULL; n = next) {
             next = n->next;
-            key_off_sound_fx(n->f8);
+            synthSendKeyOff(n->f8);
             if ((lbl_805D7360->lists[i] = n->next) != NULL) {
                 lbl_805D7360->lists[i]->prev = NULL;
             }
@@ -123,7 +123,7 @@ void TLobby__sub_803A3B54(void) {
     }
 }
 
-void TLobby__sub_803A3C24(Node_803A3C24 *arg0) {
+void seqFreeKeyOffNote(Node_803A3C24 *arg0) {
     if (arg0->next != 0) {
         arg0->next->prev = arg0->prev;
     }
@@ -140,7 +140,7 @@ void TLobby__sub_803A3C24(Node_803A3C24 *arg0) {
 }
 #pragma push
 #pragma opt_common_subs on
-u32 TLobby__sub_803A3C84(u32 seqId) {
+u32 GetPublicId(u32 seqId) {
     u32 pub_id;
     SeqInst_803A3C84 *si;
 
@@ -169,7 +169,7 @@ u32 TLobby__sub_803A3C84(u32 seqId) {
 
 #pragma push
 #pragma opt_common_subs on
-u32 TLobby__sub_803A3D20(u32 seqId) {
+u32 seqGetPrivateId(u32 seqId) {
     SeqInst_803A3D20 *si;
     for (si = (*(SeqInst_803A3D20 * *)&lbl_805D737C); si != NULL; si = si->next) {
         if (si->publicId == (seqId & ~0x80000000)) {
@@ -230,15 +230,15 @@ static inline void BuildTransTab_803A3D8C(u8 *tab, PAGE_803A49C8 *page) {
     }
 }
 
-u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803A3D8C *midiSetup, u32 *song,
+u32 seqStartPlay(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803A3D8C *midiSetup, u32 *song,
                          SND_PLAYPARA_SEQ *para, u8 studio, u16 sgid) {
     extern u16 lbl_80556E88[8][16];
-    void TLobby__sub_803A94E0(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId);
-    void TLobby__sub_803A9944(u8 i, u8 v);
-    void TLobby__sub_803BB4F0(u8, u8, u8);
-    void TLobby__sub_803BB8AC(u8, u8);
-    void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
-    void TLobby__sub_803A61F8(void);
+    void synthVolume(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId);
+    void synthSetMusicVolumeType(u8 i, u8 v);
+    void inpResetMidiCtrl(u8, u8, u8);
+    void inpResetChannelDefaults(u8, u8);
+    void inpSetMidiCtrl(u8 ctrl, u8 channel, u8 set, u8 value);
+    void InitTrackEvents(void);
     ARR_803A49C8 *arr;
     u32 *tracktab;
     s32 i;
@@ -285,7 +285,7 @@ u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803
             nseq->section[i].speed = 256;
         }
 
-        TLobby__sub_803A94E0(0x7F, 0, nseq->defVGroup, 0, 0xFFFFFFFF);
+        synthVolume(0x7F, 0, nseq->defVGroup, 0, 0xFFFFFFFF);
     } else {
         if (para->flags & 1) {
             nseq->trackMute[0] = para->trackMute[0];
@@ -308,15 +308,15 @@ u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803
         if (para->flags & 8) {
             for (i = 0; i < para->numSeqVolDef; ++i) {
                 nseq->trackVolGroup[para->seqVolDef[i].track] = para->seqVolDef[i].volGroup;
-                TLobby__sub_803A9944(para->seqVolDef[i].volGroup, 0);
+                synthSetMusicVolumeType(para->seqVolDef[i].volGroup, 0);
             }
         }
 
         if (para->flags & 4) {
-            TLobby__sub_803A94E0(para->volume.target, para->volume.time, nseq->defVGroup, 0, 0xFFFFFFFF);
+            synthVolume(para->volume.target, para->volume.time, nseq->defVGroup, 0, 0xFFFFFFFF);
 
             for (i = 0; i < para->numFaded; ++i) {
-                TLobby__sub_803A94E0(para->volume.target, para->volume.time, para->faded[i], 0, 0xFFFFFFFF);
+                synthVolume(para->volume.target, para->volume.time, para->faded[i], 0, 0xFFFFFFFF);
             }
         }
     }
@@ -336,7 +336,7 @@ u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803
 
     for (i = 0; i < 16; ++i) {
         nseq->section[i].bpm = bpm;
-        TLobby__sub_803A6ED0(bpm >> 10, seqId, i);
+        synthSetBpm(bpm >> 10, seqId, i);
 
         if (arr->mTrack != 0) {
             nseq->section[i].mTrack.base = (MTRACK_DATA_803A49C8 *)ARR_GET_803A3D8C(arr, arr->mTrack);
@@ -365,21 +365,21 @@ u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803
     nseq->noteKeyOff = NULL;
 
     for (i = 0; i < 16; ++i) {
-        TLobby__sub_803BB4F0(i, seqId, 1);
+        inpResetMidiCtrl(i, seqId, 1);
     }
     for (i = 0; i < 16; ++i) {
         nseq->prgState[i].macId = 0xffff;
     }
     for (i = 0; i < 16; ++i) {
-        TLobby__sub_803BB8AC(i, seqId);
+        inpResetChannelDefaults(i, seqId);
     }
     if (midiSetup != NULL) {
         for (i = 0; i < 16; ++i) {
             DoPrgChange_803A3D8C(nseq, midiSetup->channel[i].program, i);
-            TLobby__sub_803BADF8(7, i, seqId, midiSetup->channel[i].volume);
-            TLobby__sub_803BADF8(10, i, seqId, midiSetup->channel[i].panning);
-            TLobby__sub_803BADF8(0x5B, i, seqId, midiSetup->channel[i].reverb);
-            TLobby__sub_803BADF8(0x5D, i, seqId, midiSetup->channel[i].chorus);
+            inpSetMidiCtrl(7, i, seqId, midiSetup->channel[i].volume);
+            inpSetMidiCtrl(10, i, seqId, midiSetup->channel[i].panning);
+            inpSetMidiCtrl(0x5B, i, seqId, midiSetup->channel[i].reverb);
+            inpSetMidiCtrl(0x5D, i, seqId, midiSetup->channel[i].chorus);
         }
     }
     for (i = 0; i < 16; ++i) {
@@ -395,21 +395,21 @@ u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803
     nseq->keyOffCheck = 0;
 
     if (para != NULL && (para->flags & 0x10) != 0) {
-        TLobby__sub_803A4964((Node_803A4964 *)nseq);
+        StartPause((Node_803A4964 *)nseq);
     }
 
     oldCSeq = SEQ_CUR;
     SEQ_CUR = nseq;
-    TLobby__sub_803A61F8();
+    InitTrackEvents();
     SEQ_CUR = oldCSeq;
-    seqId = TLobby__sub_803A3C84(seqId);
+    seqId = GetPublicId(seqId);
     return seqId;
 }
 #pragma pop
 
 #pragma push
 #pragma opt_common_subs on
-void TLobby__sub_803A487C(u8 secIndex) {
+void HandleMasterTrack(u8 secIndex) {
     SEQ_SECTION_803A487C *section;
     section = &(*(SEQ_INSTANCE_803A487C * *)&lbl_805D7360)->section[secIndex];
     if (section->mTrack.base != NULL) {
@@ -418,9 +418,9 @@ void TLobby__sub_803A487C(u8 secIndex) {
                 break;
             }
             if (((*(SEQ_INSTANCE_803A487C * *)&lbl_805D7360)->arrbase->info & 0x40000000) != 0) {
-                TLobby__sub_803A6ED0((section->bpm = section->mTrack.addr->bpm) >> 10, lbl_805D7368, secIndex);
+                synthSetBpm((section->bpm = section->mTrack.addr->bpm) >> 10, lbl_805D7368, secIndex);
             } else {
-                TLobby__sub_803A6ED0(section->mTrack.addr->bpm, lbl_805D7368, secIndex);
+                synthSetBpm(section->mTrack.addr->bpm, lbl_805D7368, secIndex);
                 section->bpm = section->mTrack.addr->bpm << 10;
             }
             ++section->mTrack.addr;
@@ -429,7 +429,7 @@ void TLobby__sub_803A487C(u8 secIndex) {
 }
 #pragma pop
 
-void TLobby__sub_803A4964(Node_803A4964 *arg0) {
+void StartPause(Node_803A4964 *arg0) {
     if (arg0->prev != 0) {
         arg0->prev->next = arg0->next;
     } else {
@@ -484,14 +484,14 @@ static inline void KillNotes_803A49C8(SEQ_INSTANCE_803A49C8 *seq) {
     u32 i;
     for (i = 0; i < 2; ++i) {
         for (n = seq->noteUsed[i]; n != NULL; n = n->next) {
-            TLobby__sub_803B3748(n->id);
+            voiceKillSound(n->id);
         }
     }
     for (n = seq->noteKeyOff; n != NULL; n = n->next) {
-        TLobby__sub_803B3748(n->id);
+        voiceKillSound(n->id);
     }
 }
-void TLobby__sub_803A49C8(s32 seqId) {
+void seqPause(s32 seqId) {
     SEQ_INSTANCE_803A49C8 *si;
     seqId = seqGetPrivateId_803A49C8(seqId);
     if (seqId == 0xFFFFFFFF) {
@@ -502,7 +502,7 @@ void TLobby__sub_803A49C8(s32 seqId) {
         if (si->state == 1) {
             StartPause_803A49C8(si);
             KillNotes_803A49C8(si);
-            TLobby__sub_803A3858((Owner_803A3C24 *)si);
+            ResetNotes((Owner_803A3C24 *)si);
         }
     } else {
         si = &((SEQ_INSTANCE_803A49C8 *)&lbl_8054AB48)[seqId & ~0x80000000];
@@ -594,15 +594,15 @@ static inline void KillNotes_803A4B7C(SEQ_INSTANCE_803A4B7C *seq) {
     u32 i;
     for (i = 0; i < 2; ++i) {
         for (n = seq->noteUsed[i]; n != NULL; n = n->next) {
-            TLobby__sub_803B3748(n->id);
+            voiceKillSound(n->id);
         }
     }
     for (n = seq->noteKeyOff; n != NULL; n = n->next) {
-        TLobby__sub_803B3748(n->id);
+        voiceKillSound(n->id);
     }
 }
 
-void TLobby__sub_803A4B7C(s32 seqId) {
+void seqStop(s32 seqId) {
     SEQ_INSTANCE_803A4B7C *si;
 
     if ((seqId = seqGetPrivateId_803A4B7C(seqId)) == 0xFFFFFFFF) {
@@ -619,7 +619,7 @@ void TLobby__sub_803A4B7C(s32 seqId) {
                 SEQ_RUN_803A4B7C = si->next;
             }
             KillNotes_803A4B7C(&seqInstance_803A4B7C[seqId]);
-            TLobby__sub_803A3858((Owner_803A3C24 *)&seqInstance_803A4B7C[seqId]);
+            ResetNotes((Owner_803A3C24 *)&seqInstance_803A4B7C[seqId]);
             break;
         case 2:
             if (si->prev != NULL) {
@@ -649,21 +649,21 @@ void TLobby__sub_803A4B7C(s32 seqId) {
 }
 #pragma pop
 
-void TLobby__sub_803A4D4C(u16 sgid) {
+void seqKillInstancesByGroupID(u16 sgid) {
     SeqInst_803A4D4C *si;
     for (si = (*(SeqInst_803A4D4C * *)&lbl_805D737C); si != NULL; si = si->next) {
         if (si->groupID == sgid) {
-            TLobby__sub_803A4B7C(si->publicId);
+            seqStop(si->publicId);
         }
     }
     for (si = (*(SeqInst_803A4D4C * *)&lbl_805D7378); si != NULL; si = si->next) {
         if (si->groupID == sgid) {
-            TLobby__sub_803A4B7C(si->publicId);
+            seqStop(si->publicId);
         }
     }
 }
 
-void TLobby__sub_803A4DDC(u32 id, s16 v) {
+void seqSpeed(u32 id, s16 v) {
     u8 *base = lbl_80549748;
     Node_803A4964 *n;
     u32 key = id & 0x7FFFFFFF;
@@ -714,7 +714,7 @@ found:
 #pragma dont_inline off
 #pragma inline_depth(4)
 #pragma opt_common_subs on
-void TLobby__sub_803A4EB8(s32 seqId) {
+void seqContinue(s32 seqId) {
     SEQ_INSTANCE_803A4B7C *si;
 
     seqId = seqGetPrivateId_803A4B7C(seqId);
@@ -765,7 +765,7 @@ static inline u32 seqGetPrivateId_803A4FC4(u32 seqId) {
     return 0xFFFFFFFF;
 }
 
-void TLobby__sub_803A4FC4(s32 seqId, s32 mask1, s32 mask2) {
+void seqMute(s32 seqId, s32 mask1, s32 mask2) {
     SeqBss_803A4FC4 *bss = (SeqBss_803A4FC4 *)lbl_80549748;
     seqId = seqGetPrivateId_803A4FC4(seqId);
     if (seqId == 0xFFFFFFFF) {
@@ -852,7 +852,7 @@ static inline u32 seqGetPrivateId_803A5078(u32 seqId) {
     return 0xFFFFFFFF;
 }
 
-void TLobby__sub_803A5078(u8 volume, u16 time, u32 seqId, u8 mode) {
+void seqVolume(u8 volume, u16 time, u32 seqId, u8 mode) {
     u32 i;
     u32 pub_id;
 
@@ -863,10 +863,10 @@ void TLobby__sub_803A5078(u8 volume, u16 time, u32 seqId, u8 mode) {
     }
 
     if ((seqId & 0x80000000) == 0) {
-        TLobby__sub_803A94E0(volume, time, seqInstance_803A5078[seqId].defVGroup, mode, pub_id);
+        synthVolume(volume, time, seqInstance_803A5078[seqId].defVGroup, mode, pub_id);
         for (i = 0; i < 64; ++i) {
             if (seqInstance_803A5078[seqId].trackVolGroup[i] != seqInstance_803A5078[seqId].defVGroup) {
-                TLobby__sub_803A94E0(volume, time, seqInstance_803A5078[seqId].trackVolGroup[i], 0, 0xFFFFFFFF);
+                synthVolume(volume, time, seqInstance_803A5078[seqId].trackVolGroup[i], 0, 0xFFFFFFFF);
             }
         }
     } else {
@@ -912,7 +912,7 @@ static inline u32 seqGetPrivateId_X5214(u32 seqId) {
 static inline void seqSpeed_X5214(SeqBss_803A4FC4 *bss, u32 seqId, u16 speed) {
     u32 i;
 
-    seqId = TLobby__sub_803A3D20(seqId);
+    seqId = seqGetPrivateId(seqId);
     if ((seqId & 0x80000000) == 0) {
         for (i = 0; i < 16; ++i) {
             bss->seqInstance[seqId].section[i].speed = speed;
@@ -925,7 +925,7 @@ static inline void seqSpeed_X5214(SeqBss_803A4FC4 *bss, u32 seqId, u16 speed) {
 }
 
 static inline void seqMute_X5214(SeqBss_803A4FC4 *bss, u32 seqId, u32 mask1, u32 mask2) {
-    seqId = TLobby__sub_803A3D20(seqId);
+    seqId = seqGetPrivateId(seqId);
     if (seqId == 0xFFFFFFFF) {
         return;
     }
@@ -941,16 +941,16 @@ static inline void seqMute_X5214(SeqBss_803A4FC4 *bss, u32 seqId, u32 mask1, u32
     }
 }
 
-void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_call) {
-    void TLobby__sub_803A5078(u8 volume, u16 time, u32 seqId, u8 mode);
-    void TLobby__sub_803AA058(u8 volume, u16 time, u32 seqId, u8 mode);
-    void TLobby__sub_803A4EB8(s32 arg0);
-    u32 TLobby__sub_803A3D20(u32 seqId);
-    void TLobby__sub_803A9FC8(s32 arg0);
-    void TLobby__sub_803AA000(s32 arg0, s32 arg1, s32 arg2);
-    void TLobby__sub_803A9F80(u32 seqId, u16 speed);
-    u32 TLobby__sub_803B5398(u16 sgid, u16 sid, void *arrfile, SND_PLAYPARA_SEQ *para, u8 irq_call, u8 studio);
-    u32 TLobby__sub_803B54D8(u16 sgid, u16 sid, void *arrfile, SND_PLAYPARA_SEQ *para, u8 studio);
+void seqCrossFade(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_call) {
+    void seqVolume(u8 volume, u16 time, u32 seqId, u8 mode);
+    void sndSeqVolume(u8 volume, u16 time, u32 seqId, u8 mode);
+    void seqContinue(s32 arg0);
+    u32 seqGetPrivateId(u32 seqId);
+    void sndSeqContinue(s32 arg0);
+    void sndSeqMute(s32 arg0, s32 arg1, s32 arg2);
+    void sndSeqSpeed(u32 seqId, u16 speed);
+    u32 seqPlaySong(u16 sgid, u16 sid, void *arrfile, SND_PLAYPARA_SEQ *para, u8 irq_call, u8 studio);
+    u32 sndSeqPlayEx(u16 sgid, u16 sid, void *arrfile, SND_PLAYPARA_SEQ *para, u8 studio);
     SND_PLAYPARA_SEQ pp;
     u32 seqId;
     u16 time;
@@ -970,19 +970,19 @@ void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_cal
     if (irq_call) {
         time = ci->time1 < 5 ? 5 : ci->time1;
         if ((ci->flags & 1) != 0) {
-            TLobby__sub_803A5078(0, time, ci->seqId1, 2);
+            seqVolume(0, time, ci->seqId1, 2);
         } else if ((ci->flags & 0x40) != 0) {
-            TLobby__sub_803A5078(0, time, ci->seqId1, 3);
+            seqVolume(0, time, ci->seqId1, 3);
         } else {
-            TLobby__sub_803A5078(0, time, ci->seqId1, 1);
+            seqVolume(0, time, ci->seqId1, 1);
         }
     } else {
         if ((ci->flags & 1) != 0) {
-            TLobby__sub_803AA058(0, ci->time1, ci->seqId1, 2);
+            sndSeqVolume(0, ci->time1, ci->seqId1, 2);
         } else if ((ci->flags & 0x40) != 0) {
-            TLobby__sub_803AA058(0, ci->time1, ci->seqId1, 3);
+            sndSeqVolume(0, ci->time1, ci->seqId1, 3);
         } else {
-            TLobby__sub_803AA058(0, ci->time1, ci->seqId1, 1);
+            sndSeqVolume(0, ci->time1, ci->seqId1, 1);
         }
     }
 
@@ -993,8 +993,8 @@ void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_cal
     if ((ci->flags & 2) != 0) {
         if (seqGetPrivateId_X5214(ci->seqId2) != 0xFFFFFFFF) {
             if (irq_call) {
-                TLobby__sub_803A4EB8(ci->seqId2);
-                TLobby__sub_803A5078(ci->vol2, ci->time2, ci->seqId2, 0);
+                seqContinue(ci->seqId2);
+                seqVolume(ci->vol2, ci->time2, ci->seqId2, 0);
                 if ((ci->flags & 0x10) != 0) {
                     seqMute_X5214(bss, ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
                 }
@@ -1002,13 +1002,13 @@ void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_cal
                     seqSpeed_X5214(bss, ci->seqId2, ci->speed2);
                 }
             } else {
-                TLobby__sub_803A9FC8(ci->seqId2);
-                TLobby__sub_803AA058(ci->vol2, ci->time2, ci->seqId2, 0);
+                sndSeqContinue(ci->seqId2);
+                sndSeqVolume(ci->vol2, ci->time2, ci->seqId2, 0);
                 if ((ci->flags & 0x10) != 0) {
-                    TLobby__sub_803AA000(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
+                    sndSeqMute(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
                 }
                 if ((ci->flags & 0x20) != 0) {
-                    TLobby__sub_803A9F80(ci->seqId2, ci->speed2);
+                    sndSeqSpeed(ci->seqId2, ci->speed2);
                 }
             }
             *new_seqId = ci->seqId2;
@@ -1033,16 +1033,16 @@ void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_cal
         pp.volume.target = ci->vol2;
         pp.numFaded = 0;
         if (irq_call != 0) {
-            if ((*new_seqId = TLobby__sub_803B5398(ci->gid2, ci->sid2, ci->arr2, &pp, 1, ci->studio2)) !=
+            if ((*new_seqId = seqPlaySong(ci->gid2, ci->sid2, ci->arr2, &pp, 1, ci->studio2)) !=
                     0xFFFFFFFF &&
                 (ci->flags & 0x80) != 0) {
                 seqMute_X5214(bss, *new_seqId, 0, 0);
             }
         } else {
-            if ((*new_seqId = TLobby__sub_803B54D8(ci->gid2, ci->sid2, ci->arr2, &pp, ci->studio2)) !=
+            if ((*new_seqId = sndSeqPlayEx(ci->gid2, ci->sid2, ci->arr2, &pp, ci->studio2)) !=
                     0xFFFFFFFF &&
                 (ci->flags & 0x80) != 0) {
-                TLobby__sub_803AA000(*new_seqId, 0, 0);
+                sndSeqMute(*new_seqId, 0, 0);
             }
         }
     }
@@ -1051,7 +1051,7 @@ void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_cal
 
 #pragma push
 #pragma opt_common_subs on
-u8 *TLobby__sub_803A5748(u8 *stream, u16 *deltaTime, s16 *deltaData) {
+u8 *GetStreamValue(u8 *stream, u16 *deltaTime, s16 *deltaData) {
     u8 b1;
     u8 b2;
     s16 v;
@@ -1092,7 +1092,7 @@ u8 *TLobby__sub_803A5748(u8 *stream, u16 *deltaTime, s16 *deltaData) {
 
 #pragma push
 #pragma opt_common_subs on
-Node_803A5A04 *TLobby__sub_803A57EC(u8 trackId) {
+Node_803A5A04 *GenerateNextTrackEvent(u8 trackId) {
     TRACK_803A49C8 *track;
     CPAT_803A49C8 *pattern;
     SEQ_EVENT_803A49C8 *ev;
@@ -1192,7 +1192,7 @@ Node_803A5A04 *TLobby__sub_803A57EC(u8 trackId) {
 }
 #pragma pop
 
-void TLobby__sub_803A5A04(List_803A5A04 *arg0, Node_803A5A04 *arg1) {
+void InsertGlobalEvent(List_803A5A04 *arg0, Node_803A5A04 *arg1) {
     Node_803A5A04 *p = arg0->head;
     Node_803A5A04 *q = 0;
     while (p != 0) {
@@ -1230,7 +1230,7 @@ void TLobby__sub_803A5A04(List_803A5A04 *arg0, Node_803A5A04 *arg1) {
 static inline void InitStream_803A5A78(SEQ_STREAM_803A6364 *stream, u32 streamDataOffset) {
     u16 delta;
     if (streamDataOffset != 0) {
-        if ((stream->nextAddr = TLobby__sub_803A5748((u8 *)ARR_GET_803A5A78(CSEQ_5A78->arrbase, streamDataOffset), &delta,
+        if ((stream->nextAddr = GetStreamValue((u8 *)ARR_GET_803A5A78(CSEQ_5A78->arrbase, streamDataOffset), &delta,
                                                      &stream->nextDelta)) != NULL) {
             stream->nextTime = delta;
         } else {
@@ -1245,7 +1245,7 @@ static inline u16 HandleStream_803A5A78(SEQ_STREAM_803A6364 *stream) {
     u16 delta;
     stream->value += stream->nextDelta;
     if (stream->nextAddr != NULL) {
-        if ((stream->nextAddr = TLobby__sub_803A5748(stream->nextAddr, &delta, &stream->nextDelta)) != NULL) {
+        if ((stream->nextAddr = GetStreamValue(stream->nextAddr, &delta, &stream->nextDelta)) != NULL) {
             stream->nextTime += delta;
         } else {
             stream->nextTime = 0x7fffffff;
@@ -1294,8 +1294,8 @@ static inline void FreeNote_803A5A78(NOTE_803A6364 *n) {
     NOTEFREE_5A78 = n;
 }
 
-SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex, u32 *loopFlag) {
-    u32 TLobby__sub_803A7880(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet,
+SEQ_EVENT_803A6364 *HandleEvent(SEQ_EVENT_803A6364 *event, u8 secIndex, u32 *loopFlag) {
+    u32 synthStartSound(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet,
                              u8 section, u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd);
     SeqBss_803A5A78 *bss = (SeqBss_803A5A78 *)lbl_80549748;
     CPAT_803A6364 *pa;
@@ -1329,7 +1329,7 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
             DoPrgChange_803A5A78(bss, CSEQ_5A78, tEntry->prgChange, pattern->midi);
         }
         if (tEntry->velocity != 0xff) {
-            TLobby__sub_803BADF8(7, pattern->midi, lbl_805D7368, tEntry->velocity);
+            inpSetMidiCtrl(7, pattern->midi, lbl_805D7368, tEntry->velocity);
         }
         break;
 
@@ -1346,7 +1346,7 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
                 DoPrgChange_803A5A78(bss, CSEQ_5A78, key & 0x7f, midi);
                 break;
             case 1:
-                TLobby__sub_803BADF8(0x82, midi, lbl_805D7368, key & 0x7f);
+                inpSetMidiCtrl(0x82, midi, lbl_805D7368, key & 0x7f);
                 break;
             default:
                 if ((velocity & 0x80) != 0x80) {
@@ -1355,7 +1355,7 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
                 switch (velocity & 0x7f) {
                 case 0x68:
                     if (CSEQ_5A78->syncActive) {
-                        TLobby__sub_803A5214((SND_CROSSFADE_803A49C8 *)&CSEQ_5A78->syncCrossInfo, CSEQ_5A78->syncSeqIdPtr, 1);
+                        seqCrossFade((SND_CROSSFADE_803A49C8 *)&CSEQ_5A78->syncCrossInfo, CSEQ_5A78->syncSeqIdPtr, 1);
                         CSEQ_5A78->syncActive = 0;
                     }
                     break;
@@ -1366,13 +1366,13 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
                     bss->seqMIDIPriority[lbl_805D7368][midi] = (key & 0x7f) + 0x80;
                     break;
                 case 0x79:
-                    TLobby__sub_803BB4F0(midi, lbl_805D7368, 0);
+                    inpResetMidiCtrl(midi, lbl_805D7368, 0);
                     break;
                 case 0x7b:
-                    TLobby__sub_803A3B54();
+                    KeyOffNotes();
                     break;
                 default:
-                    TLobby__sub_803BADF8(velocity & 0x7f, midi, lbl_805D7368, key & 0x7f);
+                    inpSetMidiCtrl(velocity & 0x7f, midi, lbl_805D7368, key & 0x7f);
                     break;
                 }
             }
@@ -1387,8 +1387,8 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
                 velocity += pa->patternInfo->velocityAdd;
                 velocity = velocity > 0x7f ? 0x7f : velocity < 0 ? 0 : velocity;
 
-                if ((note = (NOTE_803A6364 *)TLobby__sub_803A3934(event->time + pe->length, secIndex)) != NULL) {
-                    if ((note->id = TLobby__sub_803A7880(
+                if ((note = (NOTE_803A6364 *)AllocateNote(event->time + pe->length, secIndex)) != NULL) {
+                    if ((note->id = synthStartSound(
                              macId, CSEQ_5A78->prgState[midi].priority, CSEQ_5A78->prgState[midi].maxVoices,
                              key, velocity, 64, midi, lbl_805D7368, secIndex, 0, event->trackId,
                              CSEQ_5A78->trackVolGroup[event->trackId], lbl_805D736C ? -1 : 0,
@@ -1402,12 +1402,12 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
 
     case 2:
         pa = event->info.pattern.base;
-        TLobby__sub_803BB3C8(0x80, pa->midi, lbl_805D7368, HandleStream_803A5A78(&pa->pitchBend));
+        inpSetMidiCtrl14(0x80, pa->midi, lbl_805D7368, HandleStream_803A5A78(&pa->pitchBend));
         break;
 
     case 1:
         pa = event->info.pattern.base;
-        TLobby__sub_803BB3C8(1, pa->midi, lbl_805D7368, HandleStream_803A5A78(&pa->modulation));
+        inpSetMidiCtrl14(1, pa->midi, lbl_805D7368, HandleStream_803A5A78(&pa->modulation));
         break;
 
     case 3:
@@ -1415,50 +1415,50 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
         return NULL;
     }
 
-    return (SEQ_EVENT_803A6364 *)TLobby__sub_803A57EC(event->trackId);
+    return (SEQ_EVENT_803A6364 *)GenerateNextTrackEvent(event->trackId);
 }
 #pragma pop
 #undef CSEQ_5A78
 #undef NOTEFREE_5A78
 
-void TLobby__sub_803A61F8(void) {
+void InitTrackEvents(void) {
     u32 i;
     Node_803A5A04 *n;
 
     if (((Owner_803A61F8 *)lbl_805D7360)->map == NULL) {
         for (i = 0; i < 0x40; i++) {
-            n = TLobby__sub_803A57EC(i);
+            n = GenerateNextTrackEvent(i);
             if (n != NULL) {
-                TLobby__sub_803A5A04(&((Owner_803A61F8 *)lbl_805D7360)->chans[0], n);
+                InsertGlobalEvent(&((Owner_803A61F8 *)lbl_805D7360)->chans[0], n);
             }
         }
     } else {
         for (i = 0; i < 0x40; i++) {
-            n = TLobby__sub_803A57EC(i);
+            n = GenerateNextTrackEvent(i);
             if (n != NULL) {
-                TLobby__sub_803A5A04(&((Owner_803A61F8 *)lbl_805D7360)->chans[((Owner_803A61F8 *)lbl_805D7360)->map[i]], n);
+                InsertGlobalEvent(&((Owner_803A61F8 *)lbl_805D7360)->chans[((Owner_803A61F8 *)lbl_805D7360)->map[i]], n);
             }
         }
     }
 }
 
-void TLobby__sub_803A62A0(u8 ch) {
+void InitTrackEventsSection(u8 ch) {
     u32 i;
     Node_803A5A04 *n;
 
     if (((Owner_803A61F8 *)lbl_805D7360)->map == NULL) {
         for (i = 0; i < 0x40; i++) {
-            n = TLobby__sub_803A57EC(i);
+            n = GenerateNextTrackEvent(i);
             if (n != NULL) {
-                TLobby__sub_803A5A04(&((Owner_803A61F8 *)lbl_805D7360)->chans[0], n);
+                InsertGlobalEvent(&((Owner_803A61F8 *)lbl_805D7360)->chans[0], n);
             }
         }
     } else {
         for (i = 0; i < 0x40; i++) {
             if (ch == ((Owner_803A61F8 *)lbl_805D7360)->map[i]) {
-                n = TLobby__sub_803A57EC(i);
+                n = GenerateNextTrackEvent(i);
                 if (n != NULL) {
-                    TLobby__sub_803A5A04(&((Owner_803A61F8 *)lbl_805D7360)->chans[ch], n);
+                    InsertGlobalEvent(&((Owner_803A61F8 *)lbl_805D7360)->chans[ch], n);
                 }
             }
         }
@@ -1490,7 +1490,7 @@ static inline void RewindMTrack_803A6364(u8 secIndex, u32 deltaTime) {
         return;
     }
     (*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section[secIndex].mTrack.addr = (*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section[secIndex].mTrack.base;
-    TLobby__sub_803A487C(secIndex);
+    HandleMasterTrack(secIndex);
     SetTickDelta_803A6364((*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section + secIndex, deltaTime);
 }
 static inline u32 GetNextEventTime_803A6364(SEQ_SECTION_803A6364 *section) {
@@ -1507,7 +1507,7 @@ static inline SEQ_EVENT_803A6364 *GetGlobalEvent_803A6364(SEQ_SECTION_803A6364 *
     }
     return ev;
 }
-u32 TLobby__sub_803A6364(u8 secIndex, u32 deltaTime) {
+u32 HandleTrackEvents(u8 secIndex, u32 deltaTime) {
     SEQ_EVENT_803A6364 *ev;
     u32 loopFlag;
     SEQ_SECTION_803A6364 *section;
@@ -1525,11 +1525,11 @@ u32 TLobby__sub_803A6364(u8 secIndex, u32 deltaTime) {
             section->time[section->timeIndex].low = section->time[section->timeIndex ^ 1].low;
             RewindMTrack_803A6364(secIndex, deltaTime);
             section->loopCnt += 1;
-            TLobby__sub_803A62A0(secIndex);
+            InitTrackEventsSection(secIndex);
             continue;
         }
-        if ((ev = TLobby__sub_803A5A78(ev, secIndex, &loopFlag)) != NULL) {
-            TLobby__sub_803A5A04((List_803A5A04 *)(section), (Node_803A5A04 *)(ev));
+        if ((ev = HandleEvent(ev, secIndex, &loopFlag)) != NULL) {
+            InsertGlobalEvent((List_803A5A04 *)(section), (Node_803A5A04 *)(ev));
         }
     }
     return 1;
@@ -1612,9 +1612,9 @@ static inline void HandleMasterTrack_803A65D8(u8 secIndex) {
             }
 
             if ((SEQ_CUR_803A65D8->arrbase->info & 0x40000000) != 0) {
-                TLobby__sub_803A6ED0((section->bpm = section->mTrack.addr->bpm) >> 10, lbl_805D7368, secIndex);
+                synthSetBpm((section->bpm = section->mTrack.addr->bpm) >> 10, lbl_805D7368, secIndex);
             } else {
-                TLobby__sub_803A6ED0(section->mTrack.addr->bpm, lbl_805D7368, secIndex);
+                synthSetBpm(section->mTrack.addr->bpm, lbl_805D7368, secIndex);
                 section->bpm = section->mTrack.addr->bpm << 10;
             }
 
@@ -1630,8 +1630,8 @@ static inline void HandleKeyOffNotes_803A65D8(void) {
         n = SEQ_CUR_803A65D8->noteKeyOff;
         while (n != NULL) {
             nn = n->next;
-            if (n->id != 0xFFFFFFFF && TLobby__sub_803AA2B8(n->id) == 0xFFFFFFFF) {
-                TLobby__sub_803A3C24((Node_803A3C24 *)n);
+            if (n->id != 0xFFFFFFFF && sndFXCheck(n->id) == 0xFFFFFFFF) {
+                seqFreeKeyOffNote((Node_803A3C24 *)n);
             }
             n = nn;
         }
@@ -1640,7 +1640,7 @@ static inline void HandleKeyOffNotes_803A65D8(void) {
     SEQ_CUR_803A65D8->keyOffCheck = (SEQ_CUR_803A65D8->keyOffCheck + 1) % 5;
 }
 
-void TLobby__sub_803A65D8(u32 deltaTime) {
+void seqHandle(u32 deltaTime) {
     u32 x;
     u32 i;
     u32 j;
@@ -1659,13 +1659,13 @@ void TLobby__sub_803A65D8(u32 deltaTime) {
         nextSi = si->next;
         SEQ_CUR_803A65D8 = si;
         lbl_805D7368 = si->index;
-        lbl_805D736C = TLobby__sub_803A98F0(si->defVGroup);
+        lbl_805D736C = synthIsFadeOutActive(si->defVGroup);
 
         if (SEQ_CUR_803A65D8->trackSectionTab == NULL) {
             HandleMasterTrack_803A65D8(0);
             SetTickDelta_803A65D8(SEQ_CUR_803A65D8->section, deltaTime);
-            eventsActive = TLobby__sub_803A6364(0, deltaTime);
-            notesActive = TLobby__sub_803A3A28();
+            eventsActive = HandleTrackEvents(0, deltaTime);
+            notesActive = HandleNotes();
             HandleKeyOffNotes_803A65D8();
 
             for (i = 0; i < 2; ++i) {
@@ -1679,9 +1679,9 @@ void TLobby__sub_803A65D8(u32 deltaTime) {
             for (i = 0; i < 16; ++i) {
                 HandleMasterTrack_803A65D8(i);
                 SetTickDelta_803A65D8(&SEQ_CUR_803A65D8->section[i], deltaTime);
-                eventsActive |= TLobby__sub_803A6364(i, deltaTime);
+                eventsActive |= HandleTrackEvents(i, deltaTime);
             }
-            notesActive = TLobby__sub_803A3A28();
+            notesActive = HandleNotes();
             HandleKeyOffNotes_803A65D8();
 
             for (i = 0; i < 16; ++i) {
@@ -1703,7 +1703,7 @@ void TLobby__sub_803A65D8(u32 deltaTime) {
             if (nextSi != NULL) {
                 nextSi->prev = si->prev;
             }
-            TLobby__sub_803A3858((Owner_803A3C24 *)si);
+            ResetNotes((Owner_803A3C24 *)si);
             si->state = 0;
             si->prev = NULL;
             if ((si->next = SEQ_FREE_803A65D8) != NULL) {
@@ -1745,7 +1745,7 @@ static inline void ClearNotes_803A6CA0(void) {
 
 static inline void InitPublicIds_803A6CA0(void) { lbl_805D7370 = 0; }
 
-void TLobby__sub_803A6CA0(void) {
+void seqInit(void) {
     u32 i;
     u32 j;
 

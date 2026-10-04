@@ -19,12 +19,12 @@
 #define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
 extern "C" {
 
-u32 TLobby__sub_803B3ED8(s32 arg0) {
+u32 adsrConvertTimeCents(s32 arg0) {
     return (u32)(1000.0f * powf(2.0f, 1.27156579e-08f * (f32)arg0, 1.27156579e-08f));
 }
 
 #define arg0 ((u8 *)a0)
-s32 transition_sound_envelope(void *a0) {
+s32 salChangeADSRState(void *a0) {
     s32 var_r0;
     s32 var_r5;
     u32 temp_r4_3;
@@ -120,16 +120,16 @@ s32 transition_sound_envelope(void *a0) {
 }
 #undef arg0
 
-void start_sound_envelope(u8 *arg0) {
+void adsrSetup(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; };
     ((Fields_arg0*)arg0)->field_1 = 0;
-    transition_sound_envelope((void *)(arg0));
+    salChangeADSRState((void *)(arg0));
 }
 #define dspScale2IndexTab lbl_804F68DC
 #pragma push
 #pragma opt_common_subs on
 
-u32 release_sound_envelope(ADSR_VARS_803B41C8 *adsr, u32 rtime) {
+u32 adsrStartRelease(ADSR_VARS_803B41C8 *adsr, u32 rtime) {
     switch (adsr->mode) {
     case 0:
         adsr->state = 4;
@@ -164,11 +164,11 @@ u32 release_sound_envelope(ADSR_VARS_803B41C8 *adsr, u32 rtime) {
 #pragma pop
 #undef dspScale2IndexTab
 
-s32 key_off_sound_envelope(struct Envelope_803B431C *e) {
+s32 adsrRelease(struct Envelope_803B431C *e) {
     switch (e->mode) {
     case 0:
     case 1:
-        return release_sound_envelope((ADSR_VARS_803B41C8 *)e, e->release);
+        return adsrStartRelease((ADSR_VARS_803B41C8 *)e, e->release);
     default:
         return 0;
     }
@@ -177,7 +177,7 @@ s32 key_off_sound_envelope(struct Envelope_803B431C *e) {
 #define e ((Env_803B4360 *)arg0)
 #define out ((u16 *)arg1)
 #define dlt ((u16 *)arg2)
-u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2) {
+u32 adsrHandle(void *arg0, void *arg1, void *arg2) {
     s32 ret = 0;
     s32 old;
     s32 d;
@@ -194,7 +194,7 @@ u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2) {
                 *dlt = -(-e->step >> 21);
             }
             if (--e->remaining == 0) {
-                ret = transition_sound_envelope(arg0);
+                ret = salChangeADSRState(arg0);
             }
         } else {
             *out = e->level >> 16;
@@ -222,7 +222,7 @@ u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2) {
                 *dlt = -(-d >> 21);
             }
             if (--e->remaining == 0) {
-                ret = transition_sound_envelope(arg0);
+                ret = salChangeADSRState(arg0);
             }
         } else {
             *out = e->level >> 16;
@@ -236,11 +236,11 @@ u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2) {
 #undef out
 #undef dlt
 
-u32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2) {
+u32 adsrHandleLowPrecision(void *arg0, void *arg1, void *arg2) {
     u8 i;
 
     for (i = 0; i < 15; i++) {
-        if (advance_sound_envelope((void *)(arg0), (void *)(arg1), (void *)(arg2)) != 0) {
+        if (adsrHandle((void *)(arg0), (void *)(arg1), (void *)(arg2)) != 0) {
             return 1;
         }
     }

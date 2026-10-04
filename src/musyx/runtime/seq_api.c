@@ -9,30 +9,30 @@
 #define ARR_GET_803A6364(arr, offset) ((void *)(offset + (u32)arr))
 extern "C" {
 
-void TLobby__sub_803A9F80(s32 arg0, s16 arg1) {
-    sound_disable_irq();
-    TLobby__sub_803A4DDC(arg0, arg1);
-    sound_enable_irq();
+void sndSeqSpeed(s32 arg0, s16 arg1) {
+    hwDisableIrq();
+    seqSpeed(arg0, arg1);
+    hwEnableIrq();
 }
 
-void TLobby__sub_803A9FC8(s32 arg0) {
-    sound_disable_irq();
-    TLobby__sub_803A4EB8((s32)(arg0));
-    sound_enable_irq();
+void sndSeqContinue(s32 arg0) {
+    hwDisableIrq();
+    seqContinue((s32)(arg0));
+    hwEnableIrq();
 }
 
-void TLobby__sub_803AA000(s32 arg0, s32 arg1, s32 arg2) {
-    sound_disable_irq();
-    TLobby__sub_803A4FC4(arg0, arg1, arg2);
-    sound_enable_irq();
+void sndSeqMute(s32 arg0, s32 arg1, s32 arg2) {
+    hwDisableIrq();
+    seqMute(arg0, arg1, arg2);
+    hwEnableIrq();
 }
 
-void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    sound_disable_irq();
-    TLobby__sub_803A5078(arg0, arg1, arg2, arg3);
-    sound_enable_irq();
+void sndSeqVolume(s8 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    hwDisableIrq();
+    seqVolume(arg0, arg1, arg2, arg3);
+    hwEnableIrq();
 }
-u16 lookup_sound_bank_index(u8 arg0, u8 arg1) {
+u16 seqGetMIDIPriority(u8 arg0, u8 arg1) {
     extern RecoveredGlobal_803AA0C0_lbl_80556E88 lbl_80556E88;
     return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
 }

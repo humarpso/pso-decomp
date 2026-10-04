@@ -38,7 +38,7 @@ extern "C" {
 s32 TLobby__sub_80240310(u8 *arg0);
 M2C_UNK TLobby__sub_8023FF38();
 M2C_UNK TLobby__sub_8023FF64(int);
-M2C_UNK TLobby__sub_803B5258();
+M2C_UNK sndPopGroup();
 void xfree__FPv(void *);
 s32 TLobby__sub_802405B0(void *p, s32 arg1);
 s32 OSGetTick();
@@ -105,7 +105,7 @@ s32 TLobby__sub_802405B0(void *p, s32 arg1) {
             if (idx < 4) {
                 break;
             }
-            TLobby__sub_803B5258();
+            sndPopGroup();
             if (M->slots[idx].buf[3] != NULL) {
                 xfree__FPv(M->slots[idx].buf[3]);
                 M->slots[idx].buf[3] = NULL;
@@ -128,7 +128,7 @@ s32 TLobby__sub_802405B0(void *p, s32 arg1) {
     } else {
         while ((n = M->depth) > 0) {
             idx = M->stack[n];
-            TLobby__sub_803B5258();
+            sndPopGroup();
             if (M->slots[idx].buf[3] != NULL) {
                 xfree__FPv(M->slots[idx].buf[3]);
                 M->slots[idx].buf[3] = NULL;

@@ -28,13 +28,12 @@ extern "C" {
 #define dspVoice lbl_805D748C
 #define dspITDBuffer lbl_805D7488
 #define dspHrtfHistoryBuffer (*(void **)&lbl_805D7480)
-#define salMalloc TLobby__sub_803BE7B0
 
 #pragma push
 #pragma opt_common_subs on
 #pragma bool off
 
-u32 TLobby__sub_803B5500(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
+u32 salInitDspCtrl(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
     u32 i;
     u32 j;
     u32 itdPtr;
@@ -42,7 +41,7 @@ u32 TLobby__sub_803B5500(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
     salNumVoices = numVoices;
     salMaxStudioNum = numStudios;
 
-    dspARAMZeroBuffer = TLobby__sub_803BDEF0();
+    dspARAMZeroBuffer = aramGetZeroBuffer();
     if ((dspCmdList = (u16 *)salMalloc(1024 * sizeof(u16)))) {
         if ((dspSurround = (s32 *)salMalloc(160 * sizeof(s32)))) {
             memset(dspSurround, 0, 160 * sizeof(s32));
@@ -102,12 +101,12 @@ u32 TLobby__sub_803B5500(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
                         dspStudio[i].hostDPopSum.lB = dspStudio[i].hostDPopSum.rB = dspStudio[i].hostDPopSum.sB = 0;
                         DCFlushRangeNoSync(dspStudio[i].spb, 0x36);
                     }
-                    TLobby__sub_803B58DC(0, 1, defaultStudioDPL2 != 0 ? 1 : 0);
+                    salActivateStudio(0, 1, defaultStudioDPL2 != 0 ? 1 : 0);
                     if (!(dspHrtfHistoryBuffer = salMalloc(0x100))) {
                         return 0;
                     }
 
-                    TLobby__sub_803B58A4();
+                    salInitHRTFBuffer();
                     return 1;
                 }
             }
@@ -120,7 +119,7 @@ u32 TLobby__sub_803B5500(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
 #pragma pop
 #undef dspStudio
 
-void TLobby__sub_803B58A4(void) {
+void salInitHRTFBuffer(void) {
     memset((void *) (lbl_805D7480), (int) (0), (int) (0x100));
     DCFlushRangeNoSync((void *) (lbl_805D7480), (int) (0x100));
 }
@@ -130,7 +129,7 @@ void TLobby__sub_803B58A4(void) {
 #pragma opt_common_subs on
 #pragma bool off
 
-void TLobby__sub_803B58DC(u8 studio, u32 isMaster, u32 type) {
+void salActivateStudio(u8 studio, u32 isMaster, u32 type) {
     memset(dspStudio[studio].main[0], 0, 0x3c00);
     DCFlushRangeNoSync(dspStudio[studio].main[0], 0x3c00);
     memset(dspStudio[studio].spb, 0, 0x36);
@@ -157,7 +156,7 @@ void TLobby__sub_803B58DC(u8 studio, u32 isMaster, u32 type) {
 #pragma pop
 #undef dspStudio
 
-void TLobby__sub_803B59E4(u8 i) {
+void salDeactivateStudio(u8 i) {
     lbl_805663D8[i].f50 = 0;
 }
 
@@ -165,7 +164,7 @@ void TLobby__sub_803B59E4(u8 i) {
 #pragma opt_common_subs on
 #pragma bool off
 
-u32 TLobby__sub_803B5A04(u16 *dsp_vol, u16 *dsp_delta, u16 *last_vol, u16 targetVol,
+u32 salCheckVolErrorAndResetDelta(u16 *dsp_vol, u16 *dsp_delta, u16 *last_vol, u16 targetVol,
                          u16 *resetFlags, u16 resetMask) {
     s16 d;
     s16 x;
@@ -215,7 +214,7 @@ static inline void AddDpop_803B5AF8(s32 *sum, s16 delta) {
     *sum = (*sum > 0x7fffff) ? 0x7fffff : (*sum < -0x7fffff ? -0x7fffff : *sum);
 }
 
-void TLobby__sub_803B5AF8(DSPstudioinfo_803B5AF8 *stp, DSPvoice_803B5AF8 *dsp_vptr) {
+void HandleDepopVoice(DSPstudioinfo_803B5AF8 *stp, DSPvoice_803B5AF8 *dsp_vptr) {
     _PB_803B5AF8 *pb;
     dsp_vptr->postBreak = 0;
     dsp_vptr->pb->state = 0;
@@ -249,7 +248,7 @@ void TLobby__sub_803B5AF8(DSPstudioinfo_803B5AF8 *stp, DSPvoice_803B5AF8 *dsp_vp
 
 #pragma pop
 
-void TLobby__sub_803B5DB0(Ent_803B5DB0 **v, s32 left, s32 right) {
+void SortVoices(Ent_803B5DB0 **v, s32 left, s32 right) {
     Ent_803B5DB0 **pm;
     s32 i;
     s32 last;
@@ -280,11 +279,11 @@ void TLobby__sub_803B5DB0(Ent_803B5DB0 **v, s32 left, s32 right) {
     t = *pl;
     *pl = *pm;
     *pm = t;
-    TLobby__sub_803B5DB0(v, left, last - 1);
-    TLobby__sub_803B5DB0(v, last + 1, right);
+    SortVoices(v, left, last - 1);
+    SortVoices(v, last + 1, right);
 }
 
-s32 TLobby__sub_803B88CC(u8 *arg0, s32 arg1) {
+s32 salSynthSendMessage(u8 *arg0, s32 arg1) {
     struct Fields_arg0 { u8 pad_0[24]; s32 field_18; };
     if (((s32 (*)(s32, s32)) lbl_805D7490) == NULL) {
         return 0;
@@ -293,9 +292,9 @@ s32 TLobby__sub_803B88CC(u8 *arg0, s32 arg1) {
 }
 #pragma push
 #pragma opt_common_subs on
-void TLobby__sub_803B8910(Ent_803B8910 *dsp_vptr, u8 studio) {
+void salActivateVoice(Ent_803B8910 *dsp_vptr, u8 studio) {
     if (dsp_vptr->active != 0) {
-        TLobby__sub_803B89B4((Ent_803B89B4 *)dsp_vptr);
+        salDeactivateVoice((Ent_803B89B4 *)dsp_vptr);
         dsp_vptr->flags |= 0x20;
     }
     dsp_vptr->fED = 0;
@@ -310,7 +309,7 @@ void TLobby__sub_803B8910(Ent_803B8910 *dsp_vptr, u8 studio) {
 }
 #pragma pop
 
-void TLobby__sub_803B89B4(Ent_803B89B4 *arg0) {
+void salDeactivateVoice(Ent_803B89B4 *arg0) {
     if (arg0->active != 0) {
         if (arg0->prev != 0) {
             arg0->prev->next = arg0->next;
@@ -326,7 +325,7 @@ void TLobby__sub_803B89B4(Ent_803B89B4 *arg0) {
 
 #pragma push
 #pragma opt_common_subs on
-s32 TLobby__sub_803B8A14(Obj_803B8A14 *stp, Src_803B8A14 *desc) {
+s32 salAddStudioInput(Obj_803B8A14 *stp, Src_803B8A14 *desc) {
     if (stp->numInputs < 7) {
         stp->in[stp->numInputs].studio = desc->srcStudio;
         stp->in[stp->numInputs].vol = ((u16)desc->vol << 8) | ((u16)desc->vol << 1);
@@ -340,7 +339,7 @@ s32 TLobby__sub_803B8A14(Obj_803B8A14 *stp, Src_803B8A14 *desc) {
 }
 #pragma pop
 
-s32 TLobby__sub_803B8ABC(Obj_803B8ABC *arg0, u32 arg1) {
+s32 salRemoveStudioInput(Obj_803B8ABC *arg0, u32 arg1) {
     s32 i;
 
     for (i = 0; i < arg0->count; i++) {
@@ -355,7 +354,7 @@ s32 TLobby__sub_803B8ABC(Obj_803B8ABC *arg0, u32 arg1) {
     return 0;
 }
 
-void process_sound_aux_callbacks(void) {
+void salHandleAuxProcessing(void) {
     s32 bufs[3];
     u8 i;
     Voice_803B8B40 *v;

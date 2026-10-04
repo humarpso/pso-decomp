@@ -49,7 +49,7 @@ extern u16 lbl_805D7444;
 #define voiceListRoot lbl_805D7449
 extern "C" {
 
-void TLobby__sub_803B24A0(void) {
+void vidInit(void) {
     s32 i;
     Node_803B24A0 *n;
     Node_803B24A0 *prev;
@@ -70,7 +70,7 @@ void TLobby__sub_803B24A0(void) {
     prev->next = NULL;
 }
 
-Node_803B2598 *TLobby__sub_803B2598(u32 key) {
+Node_803B2598 *get_vidlist(u32 key) {
     Node_803B2598 *n;
     for (n = lbl_805D743C; n != 0; n = n->next) {
         if (n->key == key) {
@@ -83,9 +83,9 @@ Node_803B2598 *TLobby__sub_803B2598(u32 key) {
     return 0;
 }
 
-void unlink_sound_program(Prog_803B25CC *p) {
+void vidRemoveVoiceReferences(Prog_803B25CC *p) {
     if (p->id != 0xFFFFFFFF) {
-        TLobby__sub_803B3B80((Obj_803B3B80 *)p);
+        voiceResetLastStarted((Obj_803B3B80 *)p);
         if (p->prevId != 0xFFFFFFFF) {
             VOICES_803B25CC[(u8)p->prevId].nextId = p->nextId;
             if (p->nextId != 0xFFFFFFFF) {
@@ -121,7 +121,7 @@ void unlink_sound_program(Prog_803B25CC *p) {
     }
 }
 
-s32 TLobby__sub_803B2920(u8 *arg0) {
+s32 vidMakeRoot(u8 *arg0) {
     M2C_FIELD(arg0, void **, 0xFC) = (void *) M2C_FIELD(arg0, void **, 0xF8);
     return M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 8);
 }
@@ -143,7 +143,7 @@ static inline u32 get_newvid_SV(void) {
     return vid;
 }
 
-u32 alloc_sound_voice_id(SYNTH_VOICE_SV *svoice, u32 isMaster) {
+u32 vidMakeNew(SYNTH_VOICE_SV *svoice, u32 isMaster) {
     u32 vid;
     VID_LIST_SV *nvl;
     VID_LIST_SV *lvl;
@@ -211,7 +211,7 @@ inline Node_803B2A30 *find_node_803B2A30(u32 id) {
     }
     return 0;
 }
-u32 find_sound_voice_by_id(u32 arg0) {
+u32 vidGetInternalId(u32 arg0) {
     if (arg0 != 0xFFFFFFFF) {
         Node_803B2A30 *p = find_node_803B2A30(arg0);
         if (p != 0) {
@@ -224,7 +224,7 @@ u32 find_sound_voice_by_id(u32 arg0) {
 
 #pragma push
 #pragma opt_common_subs on
-void TLobby__sub_803B2A80(Obj_803B312C *svoice) {
+void voiceRemovePriority(Obj_803B312C *svoice) {
     SYNTH_VOICELIST_V *vps;
     SYNTH_ROOTLIST_V *rps;
 
@@ -260,12 +260,12 @@ void TLobby__sub_803B2A80(Obj_803B312C *svoice) {
 
 #pragma pop
 
-extern "C" void set_sound_hw_voice_priority(s32 i, s32 v);
-#define set_sound_hw_voice_priority_V set_sound_hw_voice_priority
+extern "C" void hwSetPriority(s32 i, s32 v);
+#define set_sound_hw_voice_priority_V hwSetPriority
 #pragma push
 #pragma opt_common_subs on
 
-void TLobby__sub_803B2B60(Voice_803B2128 *svoice, u8 prio) {
+void voiceSetPriority(Voice_803B2128 *svoice, u8 prio) {
     u32 v;
     u16 li;
     SYNTH_VOICELIST_V *vps;
@@ -277,7 +277,7 @@ void TLobby__sub_803B2B60(Voice_803B2128 *svoice, u8 prio) {
             return;
         }
 
-        TLobby__sub_803B2A80((Obj_803B312C *)svoice);
+        voiceRemovePriority((Obj_803B312C *)svoice);
     }
 
     vps->user = 1;
@@ -321,12 +321,12 @@ void TLobby__sub_803B2B60(Voice_803B2128 *svoice, u8 prio) {
 
 #pragma push
 #pragma pool_data off
-void free_sound_voice(Obj_803B312C *o) {
+void voiceFree(Obj_803B312C *o) {
     u8 idx;
     Slot_803B312C *e;
 
-    set_sound_program_wait_state(o, 2);
-    TLobby__sub_803B2A80(o);
+    macMakeInactive(o, 2);
+    voiceRemovePriority(o);
     o->f34 = 0;
     o->grp = 0;
     idx = o->id;
@@ -388,7 +388,7 @@ static inline void voiceInitFreeList_803B3210(void) {
     voiceListInsert = lbl_80557348.count - 1;
 }
 
-void TLobby__sub_803B3210(void) {
+void synthInitAllocationAids(void) {
     voiceInitFreeList_803B3210();
     voiceInitPrioSort_803B3210();
     voiceFxRunning = 0;
@@ -402,23 +402,23 @@ void TLobby__sub_803B3210(void) {
 #pragma push
 #pragma opt_common_subs on
 
-u32 TLobby__sub_803B3540(u8 prio) {
+u32 voiceBlock(u8 prio) {
     u32 voice;
 
-    if ((voice = allocate_sound_voice(prio, 0xFF, 0xFFFF, 1)) != 0xFFFFFFFF) {
+    if ((voice = voiceAllocate(prio, 0xFF, 0xFFFF, 1)) != 0xFFFFFFFF) {
         svVoice[voice].block = 1;
         svVoice[voice].fxFlag = 1;
 
-        unlink_sound_program((Prog_803B25CC *)&svVoice[voice]);
+        vidRemoveVoiceReferences((Prog_803B25CC *)&svVoice[voice]);
         svVoice[voice].id = voice | 0xFFFFFF00;
 
-        if (is_sound_hw_voice_active(voice)) {
-            TLobby__sub_803BCEC8(voice);
+        if (hwIsActive(voice)) {
+            hwBreak(voice);
         }
 
-        set_sound_program_wait_state((Obj_803B312C *)&svVoice[voice], 2);
+        macMakeInactive((Obj_803B312C *)&svVoice[voice], 2);
         svVoice[voice].addr = NULL;
-        TLobby__sub_803B2B60((Voice_803B2128 *)&svVoice[voice], prio);
+        voiceSetPriority((Voice_803B2128 *)&svVoice[voice], prio);
     }
 
     return voice;
@@ -429,17 +429,17 @@ u32 TLobby__sub_803B3540(u8 prio) {
 #pragma push
 #pragma opt_common_subs on
 
-void TLobby__sub_803B3628(s32 voice) {
+void voiceUnblock(s32 voice) {
     if (voice == 0xFFFFFFFF) {
         return;
     }
 
-    if (is_sound_hw_voice_active(voice)) {
-        TLobby__sub_803BCEC8(voice);
+    if (hwIsActive(voice)) {
+        hwBreak(voice);
     }
 
     svVoice[voice].id = voice;
-    free_sound_voice((Obj_803B312C *)&svVoice[voice]);
+    voiceFree((Obj_803B312C *)&svVoice[voice]);
     svVoice[voice].block = 0;
 }
 
@@ -448,20 +448,20 @@ void TLobby__sub_803B3628(s32 voice) {
 #pragma push
 #pragma opt_common_subs on
 
-void TLobby__sub_803B36A8(u32 vi) {
+void voiceKill(u32 vi) {
     SYNTH_VOICE_SV *sv = &svVoice[vi];
     if (sv->addr != NULL) {
-        unlink_sound_program((Prog_803B25CC *)sv);
+        vidRemoveVoiceReferences((Prog_803B25CC *)sv);
         sv->cFlags &= ~3;
         sv->age = 0;
-        free_sound_voice((Obj_803B312C *)sv);
+        voiceFree((Obj_803B312C *)sv);
     }
 
     if (sv->block != 0) {
-        TLobby__sub_803AB0E4(vi);
+        streamKill(vi);
     }
 
-    TLobby__sub_803BCEC8(vi);
+    hwBreak(vi);
 }
 
 #pragma pop
@@ -475,7 +475,7 @@ static inline u32 vidGetInternalId_803B3748(u32 vid) {
     Node_803B2598 *vl;
 
     if (vid != 0xffffffff) {
-        if ((vl = TLobby__sub_803B2598(vid)) != NULL) {
+        if ((vl = get_vidlist(vid)) != NULL) {
             return ((u32 *)vl)[3];
         }
     }
@@ -486,20 +486,20 @@ static inline u32 vidGetInternalId_803B3748(u32 vid) {
 static inline void voiceKill_803B3748(u32 vi) {
     SYNTH_VOICE_SV *sv = &svVoice[vi];
     if (sv->addr != NULL) {
-        unlink_sound_program((Prog_803B25CC *)sv);
+        vidRemoveVoiceReferences((Prog_803B25CC *)sv);
         sv->cFlags &= ~3;
         sv->age = 0;
-        free_sound_voice((Obj_803B312C *)sv);
+        voiceFree((Obj_803B312C *)sv);
     }
 
     if (sv->block != 0) {
-        TLobby__sub_803AB0E4(vi);
+        streamKill(vi);
     }
 
-    TLobby__sub_803BCEC8(vi);
+    hwBreak(vi);
 }
 
-s32 TLobby__sub_803B3748(u32 voiceid) {
+s32 voiceKillSound(u32 voiceid) {
     s32 ret = -1;
     u32 next_voiceid;
     u32 i;
@@ -527,20 +527,20 @@ s32 TLobby__sub_803B3748(u32 voiceid) {
 static inline void voiceKill_803B3858(u32 vi) {
     SYNTH_VOICE_SV *sv = &svVoice[vi];
     if (sv->addr != NULL) {
-        unlink_sound_program((Prog_803B25CC *)sv);
+        vidRemoveVoiceReferences((Prog_803B25CC *)sv);
         sv->cFlags &= ~3;
         sv->age = 0;
-        free_sound_voice((Obj_803B312C *)sv);
+        voiceFree((Obj_803B312C *)sv);
     }
 
     if (sv->block != 0) {
-        TLobby__sub_803AB0E4(vi);
+        streamKill(vi);
     }
 
-    TLobby__sub_803BCEC8(vi);
+    hwBreak(vi);
 }
 
-void TLobby__sub_803B3858(u16 *ref) {
+void synthKillVoicesByMacroReferences(u16 *ref) {
     u32 i;
     u16 id;
 
@@ -580,7 +580,7 @@ void TLobby__sub_803B3858(u16 *ref) {
 
 #pragma push
 #pragma pool_data off
-s32 TLobby__sub_803B3AA8(Obj_803B3AA8 *arg0) {
+s32 voiceIsLastStarted(Obj_803B3AA8 *arg0) {
     u32 id = arg0->id;
     if (id != 0xFFFFFFFF) {
         u8 a = arg0->b121;
@@ -599,7 +599,7 @@ s32 TLobby__sub_803B3AA8(Obj_803B3AA8 *arg0) {
     return 0;
 }
 
-void TLobby__sub_803B3B24(Obj_803B3B24 *arg0) {
+void voiceSetLastStarted(Obj_803B3B24 *arg0) {
     u32 id = arg0->id;
     if (id != 0xFFFFFFFF) {
         u8 a = arg0->b121;
@@ -615,7 +615,7 @@ void TLobby__sub_803B3B24(Obj_803B3B24 *arg0) {
     }
 }
 
-void TLobby__sub_803B3B80(Obj_803B3B80 *arg0) {
+void voiceResetLastStarted(Obj_803B3B80 *arg0) {
     u32 id = arg0->id;
     if (id != 0xFFFFFFFF) {
         u8 a = arg0->b121;
@@ -637,7 +637,7 @@ void TLobby__sub_803B3B80(Obj_803B3B80 *arg0) {
 #pragma push
 #pragma opt_common_subs on
 
-void TLobby__sub_803B3BFC(void) {
+void voiceInitLastStarted(void) {
     u32 i;
     u32 j;
 

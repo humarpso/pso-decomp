@@ -45,15 +45,15 @@ struct Rec_803A8D2C {
 extern Rec_803A8D2C *lbl_805D73B0;
 #define synthVoice lbl_805D73B0
 
-u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
-void TLobby__sub_803BD0C8(s32 i, s32 a, s32 b);
-u16 TLobby__sub_803BD110(s32 i);
-u8 TLobby__sub_803BD0FC(s32 i);
-u32 TLobby__sub_803BD0E8(s32 i);
-u32 TLobby__sub_803BD694(s32 arg0);
-s32 get_slot_value__6TLobbyFi(u8);
-u32 TLobby__sub_803BDA2C(s32 i);
-void TLobby__sub_803BCEC8(u32);
+u32 aramGetStreamBufferAddress(u8 i, u32 *out);
+void hwSetVirtualSampleLoopBuffer(s32 i, s32 a, s32 b);
+u16 hwGetSampleID(s32 i);
+u8 hwGetSampleType(s32 i);
+u32 hwGetVirtualSampleState(s32 i);
+u32 hwGetPos(s32 arg0);
+s32 hwGetVirtualSampleID(u8);
+u32 hwVoiceInStartup(s32 i);
+void hwBreak(u32);
 
 static VS vs;
 
@@ -63,7 +63,7 @@ static VS vs;
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-void TLobby__sub_803B4584(void) {
+void vsInit(void) {
     u32 i;
     vs.numBuffers = 0;
     for (i = 0; i < 64; i++) {
@@ -117,7 +117,7 @@ static inline void vsFreeBuffer_803B46A4(u8 bufferIndex) {
     vs.voices[vs.streamBuffer[bufferIndex].voice] = 0xFF;
 }
 
-u32 TLobby__sub_803B46A4(u8 voice) {
+u32 vsSampleStartNotify(u8 voice) {
     u8 sb;
     u8 i;
     u32 addr;
@@ -130,19 +130,19 @@ u32 TLobby__sub_803B46A4(u8 voice) {
 
     sb = vs.voices[voice] = vsAllocateBuffer_803B46A4();
     if (sb != 0xFF) {
-        addr = TLobby__sub_803BE1EC(vs.voices[voice], 0);
-        TLobby__sub_803BD0C8(voice, addr, vs.bufferLength);
-        vs.streamBuffer[sb].info.smpID = TLobby__sub_803BD110(voice);
+        addr = aramGetStreamBufferAddress(vs.voices[voice], 0);
+        hwSetVirtualSampleLoopBuffer(voice, addr, vs.bufferLength);
+        vs.streamBuffer[sb].info.smpID = hwGetSampleID(voice);
         vs.streamBuffer[sb].info.instID = vsNewInstanceID_803B46A4();
-        vs.streamBuffer[sb].smpType = TLobby__sub_803BD0FC(voice);
+        vs.streamBuffer[sb].smpType = hwGetSampleType(voice);
         vs.streamBuffer[sb].voice = voice;
         if (vs.callback != NULL) {
             vs.callback(0, &vs.streamBuffer[sb].info);
             return (vs.streamBuffer[sb].info.instID << 8) | voice;
         }
-        TLobby__sub_803BD0C8(voice, 0, 0);
+        hwSetVirtualSampleLoopBuffer(voice, 0, 0);
     } else {
-        TLobby__sub_803BD0C8(voice, 0, 0);
+        hwSetVirtualSampleLoopBuffer(voice, 0, 0);
     }
 
     return 0xFFFFFFFF;
@@ -161,7 +161,7 @@ static inline void vsFreeBuffer_803B488C(u8 bufferIndex) {
     vs.voices[vs.streamBuffer[bufferIndex].voice] = 0xFF;
 }
 
-void TLobby__sub_803B488C(u32 pubID) {
+void vsSampleEndNotify(u32 pubID) {
     u8 sb;
     u8 voice;
 
@@ -187,7 +187,7 @@ void TLobby__sub_803B488C(u32 pubID) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 
-void TLobby__sub_803B4938(VS_BUFFER *sb, u32 cpos) {
+void vsUpdateBuffer(VS_BUFFER *sb, u32 cpos) {
     u32 len;
     if (sb->last == cpos) {
         return;
@@ -249,7 +249,7 @@ void TLobby__sub_803B4938(VS_BUFFER *sb, u32 cpos) {
 
 #pragma bool off
 
-void TLobby__sub_803B4B28(void) {
+void vsSampleUpdates(void) {
     u32 i;
     u32 cpos;
     u32 realCPos;
@@ -261,9 +261,9 @@ void TLobby__sub_803B4B28(void) {
     }
 
     for (i = 0; i < 64; ++i) {
-        if (vs.voices[i] != 0xFF && TLobby__sub_803BD0E8(i) != 0) {
+        if (vs.voices[i] != 0xFF && hwGetVirtualSampleState(i) != 0) {
             sb = &vs.streamBuffer[vs.voices[i]];
-            realCPos = TLobby__sub_803BD694(i);
+            realCPos = hwGetPos(i);
             if (sb->smpType == 5) {
                 cpos = (realCPos / 14) * 14;
             } else {
@@ -272,11 +272,11 @@ void TLobby__sub_803B4B28(void) {
 
             switch (sb->state) {
             case 1:
-                TLobby__sub_803B4938(sb, cpos);
+                vsUpdateBuffer(sb, cpos);
                 break;
             case 2:
-                if (((sb->info.instID << 8) | sb->voice) == (u32)get_slot_value__6TLobbyFi(sb->voice)) {
-                    TLobby__sub_803B4938(sb, cpos);
+                if (((sb->info.instID << 8) | sb->voice) == (u32)hwGetVirtualSampleID(sb->voice)) {
+                    vsUpdateBuffer(sb, cpos);
 
                     if (realCPos >= sb->finalLast) {
                         sb->finalGoodSamples -= (realCPos - sb->finalLast);
@@ -287,8 +287,8 @@ void TLobby__sub_803B4B28(void) {
                     sb->finalLast = realCPos;
                     nextSamples = (synthVoice[sb->voice].curPitch * 160 + 0xFFF) / 4096;
                     if ((s32)nextSamples > (s32)sb->finalGoodSamples) {
-                        if (!TLobby__sub_803BDA2C(sb->voice)) {
-                            TLobby__sub_803BCEC8(sb->voice);
+                        if (!hwVoiceInStartup(sb->voice)) {
+                            hwBreak(sb->voice);
                         }
 
                         sb->state = 0;

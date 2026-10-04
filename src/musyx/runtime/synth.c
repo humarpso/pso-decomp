@@ -38,14 +38,14 @@ s64 lbl_805D73C0;
 #define synthInfo (*(SynthInfo_SV *)&lbl_80557348)
 #define synthMasterFader lbl_8055755C
 
-void TLobby__sub_803A6ED0(s32 arg0, u8 arg1, u8 arg2) {
+void synthSetBpm(s32 arg0, u8 arg1, u8 arg2) {
     if (arg1 == 0xFF) {
         arg1 = 8;
     }
     synthTicksPerSecond[arg1][arg2] = (u32)((arg0 << 3) * 0x600) / 240;
 }
 
-s32 TLobby__sub_803A6F18(Obj_803A6F18 *arg0) {
+s32 synthGetTicksPerSecond(Obj_803A6F18 *arg0) {
     u32 r = arg0->b122;
     if (r == 0xFF) {
         r = 8;
@@ -53,7 +53,7 @@ s32 TLobby__sub_803A6F18(Obj_803A6F18 *arg0) {
     return synthTicksPerSecond[r][arg0->b123];
 }
 
-void TLobby__sub_803A6F4C(Obj_803A6F4C *arg0) {
+void synthInitPortamento(Obj_803A6F4C *arg0) {
     u64 fl = *(u64 *)&arg0->fh;
     if ((fl & 0x20000) == 0) {
         if (arg0->b131 == 1) {
@@ -71,9 +71,9 @@ void TLobby__sub_803A6F4C(Obj_803A6F4C *arg0) {
 
 #pragma push
 #pragma opt_common_subs on
-u32 TLobby__sub_803A6FC4(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejected) {
-    void TLobby__sub_803BBAA8(u8 midi, u8 midiSet, u8 key);
-    u32 alloc_sound_voice_id(SYNTH_VOICE_SV *svoice, u32 isMaster);
+u32 do_voice_portamento(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejected) {
+    void inpSetMidiLastNote(u8 midi, u8 midiSet, u8 key);
+    u32 vidMakeNew(SYNTH_VOICE_SV *svoice, u32 isMaster);
     u32 i;
     u32 vid;
     u32 id;
@@ -91,7 +91,7 @@ u32 TLobby__sub_803A6FC4(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejecte
             if ((sv->cFlags & 2) != 0) {
                 legatoVoiceIsStarting = 1;
             }
-            if ((sv->cFlags & 0x10) != 0 && (sv->cFlags & 0x10000000008) != 0x8 && is_sound_hw_voice_active(i)) {
+            if ((sv->cFlags & 0x10) != 0 && (sv->cFlags & 0x10000000008) != 0x8 && hwIsActive(i)) {
                 if (vid == 0xFFFFFFFF && (sv->cFlags & 0x20002) == 0x20002) {
                     *rejected = 1;
                     return 0xFFFFFFFF;
@@ -104,17 +104,17 @@ u32 TLobby__sub_803A6FC4(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejecte
                 sv->curDetune = 0;
                 sv->portTime = 0;
                 sv->cFlags |= 0x20000;
-                unlink_sound_program((Prog_803B25CC *)&SV_VOICES[i]);
+                vidRemoveVoiceReferences((Prog_803B25CC *)&SV_VOICES[i]);
                 if (vid == 0xFFFFFFFF) {
                     sv->child = 0xFFFFFFFF;
                     sv->parent = 0xFFFFFFFF;
-                    vid = alloc_sound_voice_id(&SV_VOICES[i], isMaster);
+                    vid = vidMakeNew(&SV_VOICES[i], isMaster);
                     id = sv->id;
                 } else {
                     SV_VOICES[id & 0xff].child = sv->id;
                     sv->parent = id;
                     id = sv->id;
-                    alloc_sound_voice_id(&SV_VOICES[i], 0);
+                    vidMakeNew(&SV_VOICES[i], 0);
                 }
             }
         }
@@ -123,8 +123,8 @@ u32 TLobby__sub_803A6FC4(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejecte
     }
 
     if (vid != 0xFFFFFFFF) {
-        TLobby__sub_803B3B24((Obj_803B3B24 *)last_sv);
-        TLobby__sub_803BBAA8(last_sv->midi, last_sv->midiSet, last_sv->curNote);
+        voiceSetLastStarted((Obj_803B3B24 *)last_sv);
+        inpSetMidiLastNote(last_sv->midi, last_sv->midiSet, last_sv->curNote);
         *rejected = 0;
     } else {
         *rejected = legatoVoiceIsStarting;
@@ -141,22 +141,22 @@ u32 TLobby__sub_803A6FC4(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejecte
 static inline u32 check_portamento_SV(u8 key, u8 midi, u8 midiSet, u32 newVID, u32 *vid) {
     u32 rejected;
 
-    if (TLobby__sub_803BB5E4(65, midi, midiSet) > 8064) {
-        *vid = TLobby__sub_803A6FC4(key & 0x7f, midi, midiSet, newVID, &rejected);
+    if (inpGetMidiCtrl(65, midi, midiSet) > 8064) {
+        *vid = do_voice_portamento(key & 0x7f, midi, midiSet, newVID, &rejected);
         return (u32)__cntlzw(rejected) >> 5;
     }
     *vid = 0xFFFFFFFF;
     return 1;
 }
 
-u32 TLobby__sub_803A724C(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+u32 StartLayer(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
                          u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd) {
-    LAYER_SV *TLobby__sub_803AE6DC(u16 layerID, u16 *n);
-    u32 start_sound_voice(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+    LAYER_SV *dataGetLayer(u16 layerID, u16 *n);
+    u32 macStart(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
                           u8 midiSet, u8 section, u16 step, u16 trackid, u8 new_vid, u8 vGroup, u8 studio, u32 itd);
-    u32 TLobby__sub_803A7620(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+    u32 StartKeymap(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
                              u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd);
-    u32 TLobby__sub_803B2920(SYNTH_VOICE_SV *svoice);
+    u32 vidMakeRoot(SYNTH_VOICE_SV *svoice);
     u16 n;
     u32 vid;
     u32 new_id;
@@ -168,7 +168,7 @@ u32 TLobby__sub_803A724C(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 ke
     u8 mKey;
 
     vid = 0xFFFFFFFF;
-    if ((l = TLobby__sub_803AE6DC(layerID, &n)) == NULL) {
+    if ((l = dataGetLayer(layerID, &n)) == NULL) {
         goto end;
     }
 
@@ -207,15 +207,15 @@ u32 TLobby__sub_803A724C(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 ke
 
         switch (l->id & 0xC000) {
         case 0:
-            new_id = start_sound_voice(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
+            new_id = macStart(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
                                        section, step, trackid, 0, vGroup, studio, itd);
             break;
         case 0x4000:
-            new_id = TLobby__sub_803A7620(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
+            new_id = StartKeymap(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
                                           section, step, trackid, 0, vGroup, studio, itd);
             break;
         case 0x8000:
-            new_id = TLobby__sub_803A724C(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
+            new_id = StartLayer(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
                                           section, step, trackid, 0, vGroup, studio, itd);
             break;
         }
@@ -224,7 +224,7 @@ u32 TLobby__sub_803A724C(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 ke
         apply_new_id:
             if (vid == 0xFFFFFFFF) {
                 if (vidFlag != 0) {
-                    vid = TLobby__sub_803B2920(&SV_VOICES[new_id & 0xff]);
+                    vid = vidMakeRoot(&SV_VOICES[new_id & 0xff]);
                 } else {
                     vid = new_id;
                 }
@@ -291,9 +291,9 @@ static inline u32 convert_cents_SV(SYNTH_VOICE_SV *svoice, u32 ccents) {
     u32 curDetune;
     u32 cpitch;
 
-    cpitch = calc_sound_base_pitch(ccents / 65536, svoice->sInfo) * 65536;
+    cpitch = sndGetPitch(ccents / 65536, svoice->sInfo) * 65536;
     if ((curDetune = ccents & 0xffff) != 0) {
-        cpitch += curDetune * ((calc_sound_pitch_semitone_up(cpitch / 65536) & 0xffff) - (cpitch / 65536));
+        cpitch += curDetune * ((sndPitchUpOne(cpitch / 65536) & 0xffff) - (cpitch / 65536));
     }
     return cpitch;
 }
@@ -307,7 +307,7 @@ static inline void UpdateTimeMIDICtrl_SV(SYNTH_VOICE_SV *sv) {
     sv->midiDirtyFlags = 0x1fff;
 }
 
-void update_sound_voice_pitch(u32 i) {
+void LowPrecisionHandler(u32 i) {
     u32 j;
     s32 pbend;
     u32 ccents;
@@ -324,7 +324,7 @@ void update_sound_voice_pitch(u32 i) {
     s32 voff;
 
     sv = &SV_VOICES[i];
-    if (!is_sound_hw_voice_active(i) && sv->addr == NULL) {
+    if (!hwIsActive(i) && sv->addr == NULL) {
         goto end;
     }
 
@@ -336,7 +336,7 @@ void update_sound_voice_pitch(u32 i) {
         }
         sv->lfo[j].time += lowDeltaTime;
         sv->lfo[j].value =
-            TLobby__sub_803BC93C((sv->lfo[j].time % sv->lfo[j].period * 16) / (sv->lfo[j].period / 256));
+            sndSin((sv->lfo[j].time % sv->lfo[j].period * 16) / (sv->lfo[j].period / 256));
         if (sv->lfo[j].value != sv->lfo[j].lastValue) {
             sv->lfo[j].lastValue = sv->lfo[j].value;
             if (sv->lfoUsedByInput[j]) {
@@ -348,7 +348,7 @@ void update_sound_voice_pitch(u32 i) {
 
     if ((sv->cFlags & 0x2000) != 0) {
         sv->vibCurTime += lowDeltaTime;
-        sv->vibCurOffset = TLobby__sub_803BC93C((sv->vibCurTime % sv->vibPeriod * 16) / (sv->vibPeriod / 256));
+        sv->vibCurOffset = sndSin((sv->vibCurTime % sv->vibPeriod * 16) / (sv->vibPeriod / 256));
     }
 
     if (sv->sweepNum[0] | sv->sweepNum[1]) {
@@ -385,14 +385,14 @@ void update_sound_voice_pitch(u32 i) {
     }
 
     if ((sv->cFlags & 0x20000000000) != 0 &&
-        TLobby__sub_803B4500(&sv->pitchADSR, &adsr_start, &adsr_delta)) {
+        adsrHandleLowPrecision(&sv->pitchADSR, &adsr_start, &adsr_delta)) {
         sv->cFlags &= ~0x20000000000;
     }
 
     ccents = sv->curNote * 65536 + (sv->curDetune * 65536) / 100;
     if ((sv->cFlags & 0x10030) != 0) {
         if (sv->midi != 0xff) {
-            pbend = TLobby__sub_803BC090(sv);
+            pbend = inpGetPitchBend(sv);
             sv->pbLast = pbend;
             goto pbend_adjust;
         }
@@ -410,7 +410,7 @@ void update_sound_voice_pitch(u32 i) {
     }
 
     if ((sv->cFlags & 0x2000) != 0) {
-        Modulation = TLobby__sub_803BC120(sv);
+        Modulation = inpGetModulation(sv);
         vrange = sv->vibKeyRange * 256 + (sv->vibCentRange * 256) / 100;
         if (sv->vibModAddScale != 0) {
             vrange += (sv->vibModAddScale * ((Modulation >> 7) & 0x1ff)) >> 7;
@@ -424,7 +424,7 @@ void update_sound_voice_pitch(u32 i) {
     }
 
     if (sv->midi != 0xff) {
-        portamento = TLobby__sub_803BB5E4(65, sv->midi, sv->midiSet);
+        portamento = inpGetMidiCtrl(65, sv->midi, sv->midiSet);
         if (portamento != sv->portLastCtrlState || (sv->cFlags & 0x21000) == 0x20000) {
             if (portamento <= 0x1f80) {
                 sv->cFlags &= ~0x400;
@@ -446,34 +446,34 @@ void update_sound_voice_pitch(u32 i) {
 
     cpitch = convert_cents_SV(sv, ccents);
     cpitch += sv->sweepOff[0] + sv->sweepOff[1];
-    cpitch = ((cpitch >> 16) * TLobby__sub_803BC0D8(sv)) >> 13;
+    cpitch = ((cpitch >> 16) * inpGetDoppler(sv)) >> 13;
     sv->curPitch = cpitch;
 
-    TLobby__sub_803BD19C(i, cpitch);
-    schedule_sound_voice_update(sv, 0, 0xf00);
+    hwSetPitch(i, cpitch);
+    synthAddJob(sv, 0, 0xf00);
 
 end:
     UpdateTimeMIDICtrl_SV(sv);
 }
 #pragma pop
 
-u16 TLobby__sub_803BC2D0(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BC000(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BC048(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BBFB8(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BC1F8(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BC1B0(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BC288(SYNTH_VOICE_SV *svoice);
-u16 TLobby__sub_803BC240(SYNTH_VOICE_SV *svoice);
-void set_sound_hw_voice_priority(u32 v, u32 prio);
-u8 TLobby__sub_803BCCD8(void);
+u16 inpGetTremolo(SYNTH_VOICE_SV *svoice);
+u16 inpGetPanning(SYNTH_VOICE_SV *svoice);
+u16 inpGetSurPanning(SYNTH_VOICE_SV *svoice);
+u16 inpGetVolume(SYNTH_VOICE_SV *svoice);
+u16 inpGetReverb(SYNTH_VOICE_SV *svoice);
+u16 inpGetPreAuxA(SYNTH_VOICE_SV *svoice);
+u16 inpGetPostAuxB(SYNTH_VOICE_SV *svoice);
+u16 inpGetPreAuxB(SYNTH_VOICE_SV *svoice);
+void hwSetPriority(u32 v, u32 prio);
+u8 hwGetTimeOffset(void);
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
 #pragma opt_common_subs on
 #pragma bool off
 
-void update_sound_voice_mix(u32 i) {
+void ZeroOffsetHandler(u32 i) {
     SYNTH_VOICE_SV *sv;
     u32 lowDeltaTime;
     u16 Modulation;
@@ -491,7 +491,7 @@ void update_sound_voice_mix(u32 i) {
     f32 postVol;
 
     sv = &SV_VOICES[i];
-    if (!is_sound_hw_voice_active(i) && sv->addr == NULL) {
+    if (!hwIsActive(i) && sv->addr == NULL) {
         goto end;
     }
 
@@ -534,8 +534,8 @@ void update_sound_voice_mix(u32 i) {
     voiceVol = (f32)sv->volume * (1.f / (8192.f * 1016.f));
 
     if ((sv->treScale | sv->treModAddScale) != 0) {
-        Modulation = TLobby__sub_803BC120(sv);
-        lfo = (f32)(8192 - ((8192 - ((s16)TLobby__sub_803BC2D0(sv) - 8192)) >> 1)) * (1.f / 8192.f);
+        Modulation = inpGetModulation(sv);
+        lfo = (f32)(8192 - ((8192 - ((s16)inpGetTremolo(sv) - 8192)) >> 1)) * (1.f / 8192.f);
         mscale = 1.f - (f32)Modulation * (4096 - sv->treModAddScale) * 1.490207e-08f;
         scale = (f32)sv->treScale * mscale * (1.f / 4096.f);
         if (sv->treCurScale < scale) {
@@ -554,11 +554,11 @@ void update_sound_voice_mix(u32 i) {
     if ((lbl_805D73AC & 1) == 0) {
         if ((sv->cFlags & 0x200000000000) != 0 || (sv->midiDirtyFlags & 0x6) != 0) {
             sv->cFlags &= ~0x200000000000;
-            pan = sv->panning[0] + (TLobby__sub_803BC000(sv) - 8192) * 0x200;
+            pan = sv->panning[0] + (inpGetPanning(sv) - 8192) * 0x200;
             sv->lastPan = CLAMP_INV_SV(pan, 0, 0x7f0000);
 
             if ((lbl_805D73AC & 2) != 0) {
-                if ((sv->lastSPan = sv->panning[1] + TLobby__sub_803BC048(sv) * 512) > 0x7f0000) {
+                if ((sv->lastSPan = sv->panning[1] + inpGetSurPanning(sv) * 512) > 0x7f0000) {
                     sv->lastSPan = 0x7f0000;
                 }
             } else {
@@ -578,43 +578,43 @@ void update_sound_voice_mix(u32 i) {
 
     if (volUpdate || (sv->midiDirtyFlags & 0xf01) != 0) {
         preVol = voiceVol;
-        postVol = voiceVol * vol * (f32)TLobby__sub_803BBFB8(sv) * (1.f / 16383.f);
+        postVol = voiceVol * vol * (f32)inpGetVolume(sv) * (1.f / 16383.f);
         auxa = ((f32)sv->revVolOffset * (1.f / 127.f)) +
-               ((preVol * (f32)TLobby__sub_803BC1B0(sv) * (1.f / 16383.f)) +
-                ((f32)sv->revVolScale * (postVol * (f32)TLobby__sub_803BC1F8(sv) * (1.f / 16383.f)) * (1.f / 127.f)));
-        auxb = (preVol * (f32)TLobby__sub_803BC240(sv) * (1.f / 16383.f)) +
-               (postVol * (f32)TLobby__sub_803BC288(sv) * (1.f / 16383.f));
+               ((preVol * (f32)inpGetPreAuxA(sv) * (1.f / 16383.f)) +
+                ((f32)sv->revVolScale * (postVol * (f32)inpGetReverb(sv) * (1.f / 16383.f)) * (1.f / 127.f)));
+        auxb = (preVol * (f32)inpGetPreAuxB(sv) * (1.f / 16383.f)) +
+               (postVol * (f32)inpGetPostAuxB(sv) * (1.f / 16383.f));
         sv->curOutputVolume = (u16)(postVol * 32767.f);
-        set_sound_voice_mix(i, sv->volTable, sv->lastPan, sv->lastSPan, postVol, auxa, auxb);
+        hwSetVolume(i, sv->volTable, sv->lastPan, sv->lastSPan, postVol, auxa, auxb);
     }
     if (sv->age != 0) {
         if ((s32)(sv->age -= sv->ageSpeed * lowDeltaTime) < 0) {
             sv->age = 0;
         }
-        set_sound_hw_voice_priority(i, sv->prio << 24 | sv->age >> 15);
+        hwSetPriority(i, sv->prio << 24 | sv->age >> 15);
     }
 
-    schedule_sound_voice_update(sv, 1, (5 - TLobby__sub_803BCCD8()) * 256);
+    synthAddJob(sv, 1, (5 - hwGetTimeOffset()) * 256);
 
 end:
     UpdateTimeMIDICtrl_SV(sv);
 }
 #pragma pop
 
-void TLobby__sub_803A897C(s32 arg0) {
+void EventHandler(s32 arg0) {
     Ch_803A897C *o = (Ch_803A897C *)&lbl_805D73B0[arg0];
 
-    if (is_sound_hw_voice_active(arg0) != 0 || o->f34 != 0) {
-        TLobby__sub_803B1C98((Voice_803B1C98 *)o, (u32)(0x1F80 - TLobby__sub_803BC168(o)) >> 31);
+    if (hwIsActive(arg0) != 0 || o->f34 != 0) {
+        macSetPedalState((Voice_803B1C98 *)o, (u32)(0x1F80 - inpGetPedal(o)) >> 31);
         if ((o->flags & 0x20) != 0) {
             o->flags &= ~0x20ULL;
             o->flags |= 0x10;
-            TLobby__sub_803BD138(arg0, o->f11F);
+            hwStart(arg0, o->f11F);
         }
         if ((o->flags & 0x10000000090ULL) == 0x90) {
             o->flags &= ~0x90ULL;
-            key_off_sound_hw_voice(arg0);
-            if ((o->flags & 0x20000000000ULL) != 0 && (u32)key_off_sound_envelope((struct Envelope_803B431C *)o->env) != 0) {
+            hwKeyOff(arg0);
+            if ((o->flags & 0x20000000000ULL) != 0 && (u32)adsrRelease((struct Envelope_803B431C *)o->env) != 0) {
                 o->flags &= ~0x20000000000ULL;
             }
         }
@@ -626,7 +626,7 @@ void TLobby__sub_803A897C(s32 arg0) {
 }
 #pragma push
 #pragma opt_common_subs on
-void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime) {
+void synthAddJob(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime) {
     SYNTH_QUEUE_SV *newJq;
     SYNTH_QUEUE_SV **root;
     u8 jobTabIndex;
@@ -690,23 +690,23 @@ void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaT
 }
 #pragma pop
 
-void reset_sound_voice_schedule(Obj_803A8C5C* voice) {
+void synthStartSynthJobHandling(Obj_803A8C5C* voice) {
     voice->p24 = lbl_805D73C0;
     voice->p2C = lbl_805D73C0;
-    schedule_sound_voice_update((SYNTH_VOICE_SV *)voice, 0, 0);
-    schedule_sound_voice_update((SYNTH_VOICE_SV *)voice, 1, 0);
+    synthAddJob((SYNTH_VOICE_SV *)voice, 0, 0);
+    synthAddJob((SYNTH_VOICE_SV *)voice, 1, 0);
 }
 
-void TLobby__sub_803A8CC0(void *arg0) {
-    schedule_sound_voice_update((SYNTH_VOICE_SV *)arg0, 0, 0);
-    schedule_sound_voice_update((SYNTH_VOICE_SV *)arg0, 1, 0);
+void synthForceLowPrecisionUpdate(void *arg0) {
+    synthAddJob((SYNTH_VOICE_SV *)arg0, 0, 0);
+    synthAddJob((SYNTH_VOICE_SV *)arg0, 1, 0);
 }
 
-void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
-    schedule_sound_voice_update((SYNTH_VOICE_SV *) (arg0), (int) (2), (int) (0));
+void synthKeyStateUpdate(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
+    synthAddJob((SYNTH_VOICE_SV *) (arg0), (int) (2), (int) (0));
 }
 
-void TLobby__sub_803A8D2C(Node_803A8D2C **list, void (*cb)(u8)) {
+void HandleJobQueue(Node_803A8D2C **list, void (*cb)(u8)) {
     Node_803A8D2C *n;
     Node_803A8D2C *next;
     for (n = *list; n != NULL; n = next) {
@@ -719,27 +719,27 @@ void TLobby__sub_803A8D2C(Node_803A8D2C **list, void (*cb)(u8)) {
     *list = NULL;
 }
 
-void TLobby__sub_803A8DC0(u8 *arg0) {
+void HandleFaderTermination(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[40]; s32 field_28; u8 field_2C; };
     u8 temp_r0;
     temp_r0 = ((Fields_arg0*)arg0)->field_2C;
     switch ((s32) temp_r0) {
     case 1:
-        TLobby__sub_803A4B7C(((Fields_arg0*)arg0)->field_28);
+        seqStop(((Fields_arg0*)arg0)->field_28);
         return;
     case 2:
-        TLobby__sub_803A49C8((s32)(((Fields_arg0*)arg0)->field_28));
+        seqPause((s32)(((Fields_arg0*)arg0)->field_28));
         return;
     case 3:
-        TLobby__sub_803A4FC4(((Fields_arg0*)arg0)->field_28, 0, 0);
+        seqMute(((Fields_arg0*)arg0)->field_28, 0, 0);
         return;
     }
 }
 
 typedef struct SND_AUX_INFO_SV { union { struct { s32 *left; s32 *right; s32 *surround; } bufferUpdate; struct { u16 para[4]; } parameterUpdate; } data; } SND_AUX_INFO_SV;
-u16 TLobby__sub_803BC318(u8 studio, u8 index, u8 midi, u8 midiSet);
-u16 TLobby__sub_803BC3D4(u8 studio, u8 index, u8 midi, u8 midiSet);
-void TLobby__sub_803BD9E0(void);
+u16 inpGetAuxA(u8 studio, u8 index, u8 midi, u8 midiSet);
+u16 inpGetAuxB(u8 studio, u8 index, u8 midi, u8 midiSet);
+void hwFrameDone(void);
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -748,27 +748,27 @@ void TLobby__sub_803BD9E0(void);
 
 static inline void HandleVoices_SV(void) {
     SYNTH_JOBTAB_SV *jTab = &synthJobTable[lbl_805D7381];
-    TLobby__sub_803A8D2C((Node_803A8D2C **)&jTab->lowPrecision, (void (*)(u8))update_sound_voice_pitch);
-    TLobby__sub_803A8D2C((Node_803A8D2C **)&jTab->event, (void (*)(u8))TLobby__sub_803A897C);
-    TLobby__sub_803A8D2C((Node_803A8D2C **)&jTab->zeroOffset, (void (*)(u8))update_sound_voice_mix);
+    HandleJobQueue((Node_803A8D2C **)&jTab->lowPrecision, (void (*)(u8))LowPrecisionHandler);
+    HandleJobQueue((Node_803A8D2C **)&jTab->event, (void (*)(u8))EventHandler);
+    HandleJobQueue((Node_803A8D2C **)&jTab->zeroOffset, (void (*)(u8))ZeroOffsetHandler);
     lbl_805D7381 = (lbl_805D7381 + 1) & 0x1f;
 }
 
 static inline void HandleFaderTermination_SV(SYNTHMasterFader_SV *smf) {
     switch (smf->seqMode) {
     case 1:
-        TLobby__sub_803A4B7C(smf->seqId);
+        seqStop(smf->seqId);
         break;
     case 2:
-        TLobby__sub_803A49C8(smf->seqId);
+        seqPause(smf->seqId);
         break;
     case 3:
-        TLobby__sub_803A4FC4(smf->seqId, 0, 0);
+        seqMute(smf->seqId, 0, 0);
         break;
     }
 }
 
-void TLobby__sub_803A8E2C(u32 deltaTime) {
+void synthHandle(u32 deltaTime) {
     u32 i;
     u32 s;
     SYNTHMasterFader_SV *smf;
@@ -778,10 +778,10 @@ void TLobby__sub_803A8E2C(u32 deltaTime) {
         return;
     }
 
-    TLobby__sub_803B19AC(deltaTime);
+    macHandle(deltaTime);
     HandleVoices_SV();
 
-    if (TLobby__sub_803BCCD8() == 0) {
+    if (hwGetTimeOffset() == 0) {
         if ((lbl_805D73A8 | lbl_805D73A4) != 0) {
             for (i = 0, smf = synthMasterFader, testFlag = 1; i < 32; testFlag <<= 1, ++i, ++smf) {
                 if ((lbl_805D73A8 & testFlag) != 0) {
@@ -811,7 +811,7 @@ void TLobby__sub_803A8E2C(u32 deltaTime) {
             if (lbl_805D739C[s] != 0xff) {
                 SND_AUX_INFO_SV info;
                 for (i = 0; i < 4; ++i) {
-                    info.data.parameterUpdate.para[i] = TLobby__sub_803BC318(s, i, lbl_805D739C[s], lbl_805D7394[s]);
+                    info.data.parameterUpdate.para[i] = inpGetAuxA(s, i, lbl_805D739C[s], lbl_805D7394[s]);
                 }
                 ((SND_AUX_CALLBACK_SV)lbl_80557BBC[s])(1, &info, (void *)lbl_80557B9C[s]);
             }
@@ -819,21 +819,21 @@ void TLobby__sub_803A8E2C(u32 deltaTime) {
             if (lbl_805D738C[s] != 0xff) {
                 SND_AUX_INFO_SV info;
                 for (i = 0; i < 4; ++i) {
-                    info.data.parameterUpdate.para[i] = TLobby__sub_803BC3D4(s, i, lbl_805D738C[s], lbl_805D7384[s]);
+                    info.data.parameterUpdate.para[i] = inpGetAuxB(s, i, lbl_805D738C[s], lbl_805D7384[s]);
                 }
                 ((SND_AUX_CALLBACK_SV)lbl_80557BFC[s])(1, &info, (void *)lbl_80557BDC[s]);
             }
         }
     }
 
-    TLobby__sub_803BD9E0();
+    hwFrameDone();
     lbl_805D73C0 += deltaTime;
 }
 #pragma pop
 
-s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
+s32 synthFXStart(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
     s32 ret = -1;
-    Se_803A9144 *p = find_sound_fx_record(arg0);
+    Se_803A9144 *p = dataGetFX(arg0);
     if (p != NULL) {
         if (arg1 == 0xFF) {
             arg1 = p->b6;
@@ -841,7 +841,7 @@ s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
         if (arg2 == 0xFF) {
             arg2 = p->b7;
         }
-        ret = TLobby__sub_803A7880(p->id, p->b5, p->b4, p->b8 | 0x80, arg1, arg2, 0xFF, 0xFF,
+        ret = synthStartSound(p->id, p->b5, p->b4, p->b8 | 0x80, arg1, arg2, 0xFF, 0xFF,
                                    0, 0, 0xFF, p->b9, 0, arg3, arg4);
     }
     return ret;
@@ -849,21 +849,21 @@ s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
 
 #pragma push
 #pragma opt_common_subs on
-s32 TLobby__sub_803A9200(u32 vid, u8 ctrl, u8 value) {
-    void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
+s32 synthFXSetCtrl(u32 vid, u8 ctrl, u8 value) {
+    void inpSetMidiCtrl(u8 ctrl, u8 channel, u8 set, u8 value);
     u32 i;
     u32 ret;
 
     ret = 0;
-    vid = find_sound_voice_by_id(vid);
+    vid = vidGetInternalId(vid);
 
     while (vid != 0xFFFFFFFF) {
         i = vid & 0xff;
         if (vid == SV_VOICES[i].id) {
             if ((SV_VOICES[i].cFlags & 0x2) != 0) {
-                TLobby__sub_803BADF8(ctrl, i, SV_VOICES[i].setup.midiSet, value);
+                inpSetMidiCtrl(ctrl, i, SV_VOICES[i].setup.midiSet, value);
             } else {
-                TLobby__sub_803BADF8(ctrl, i, SV_VOICES[i].midiSet, value);
+                inpSetMidiCtrl(ctrl, i, SV_VOICES[i].midiSet, value);
             }
 
             vid = SV_VOICES[i].child;
@@ -879,21 +879,21 @@ s32 TLobby__sub_803A9200(u32 vid, u8 ctrl, u8 value) {
 
 #pragma push
 #pragma opt_common_subs on
-s32 TLobby__sub_803A92E8(u32 vid, u8 ctrl, u16 value) {
-    void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value);
+s32 synthFXSetCtrl14(u32 vid, u8 ctrl, u16 value) {
+    void inpSetMidiCtrl14(u8 ctrl, u8 channel, u8 set, u16 value);
     u32 i;
     u32 ret;
 
     ret = 0;
-    vid = find_sound_voice_by_id(vid);
+    vid = vidGetInternalId(vid);
 
     while (vid != 0xFFFFFFFF) {
         i = vid & 0xff;
         if (vid == SV_VOICES[i].id) {
             if ((SV_VOICES[i].cFlags & 0x2) != 0) {
-                TLobby__sub_803BB3C8(ctrl, i, SV_VOICES[i].setup.midiSet, value);
+                inpSetMidiCtrl14(ctrl, i, SV_VOICES[i].setup.midiSet, value);
             } else {
-                TLobby__sub_803BB3C8(ctrl, i, SV_VOICES[i].midiSet, value);
+                inpSetMidiCtrl14(ctrl, i, SV_VOICES[i].midiSet, value);
             }
 
             vid = SV_VOICES[i].child;
@@ -907,24 +907,24 @@ s32 TLobby__sub_803A92E8(u32 vid, u8 ctrl, u16 value) {
 }
 #pragma pop
 
-void TLobby__sub_803A93D0(u8 *arg0, u8 *arg1) {
-    TLobby__sub_803BB98C(7U, arg0, arg1);
-    TLobby__sub_803BB98C(0xAU, arg0, arg1);
-    TLobby__sub_803BB98C(0x5BU, arg0, arg1);
-    TLobby__sub_803BB98C(0x80U, arg0, arg1);
-    TLobby__sub_803BB98C(0x84U, arg0, arg1);
+void synthFXCloneMidiSetup(u8 *arg0, u8 *arg1) {
+    inpFXCopyCtrl(7U, arg0, arg1);
+    inpFXCopyCtrl(0xAU, arg0, arg1);
+    inpFXCopyCtrl(0x5BU, arg0, arg1);
+    inpFXCopyCtrl(0x80U, arg0, arg1);
+    inpFXCopyCtrl(0x84U, arg0, arg1);
 }
 
-s32 key_off_sound_fx(int id) {
+s32 synthSendKeyOff(int id) {
     u8 idx;
     s32 found = 0;
     u32 cur;
     if (lbl_805D7380 != 0) {
-        cur = find_sound_voice_by_id((u32)(id));
+        cur = vidGetInternalId((u32)(id));
         while (cur != 0xFFFFFFFF) {
             idx = cur;
             if (cur == (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].id) {
-                key_off_sound_program(&(*(Rec_803A9454 * *)&lbl_805D73B0)[idx]);
+                macSetExternalKeyoff(&(*(Rec_803A9454 * *)&lbl_805D73B0)[idx]);
                 found = 1;
             }
             cur = (*(Rec_803A9454 * *)&lbl_805D73B0)[idx].next;
@@ -949,19 +949,19 @@ static inline void SetupFader_803A94E0(SYNTHMasterFader_SV *smf, u8 volume, u32 
     } else {
         smf->volume = smf->target = (f32)volume * (1.f / 127.f);
         if (smf->seqId != 0xFFFFFFFF) {
-            TLobby__sub_803A8DC0((u8 *)smf);
+            HandleFaderTermination((u8 *)smf);
         }
     }
 }
 
-void TLobby__sub_803A94E0(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
+void synthVolume(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
     u32 ltime;
     u32 i;
     u8 type;
     SYNTHMasterFader_SV *smf;
 
     if ((ltime = time) != 0) {
-        shift_left_8__6TLobbyFPv(&ltime);
+        sndConvertMs(&ltime);
     }
 
     switch (vGroup) {
@@ -1018,7 +1018,7 @@ void TLobby__sub_803A94E0(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId)
 
 #pragma push
 #pragma opt_common_subs on
-s32 TLobby__sub_803A98F0(u8 arg0) {
+s32 synthIsFadeOutActive(u8 arg0) {
     if (synthMasterFader[arg0].type != 4 && (lbl_805D73A8 & (1 << arg0)) &&
         synthMasterFader[arg0].start > synthMasterFader[arg0].target) {
         return 1;
@@ -1027,40 +1027,40 @@ s32 TLobby__sub_803A98F0(u8 arg0) {
 }
 #pragma pop
 
-void TLobby__sub_803A9944(u8 i, u8 v) {
+void synthSetMusicVolumeType(u8 i, u8 v) {
     if (lbl_805D7380 != 0) {
         synthMasterFader[i].type = v;
     }
 }
 
-s32 TLobby__sub_803A996C(s32 op, u32 idx) {
-    void TLobby__sub_803B36A8(u8);
+s32 synthHWMessageHandler(s32 op, u32 idx) {
+    void voiceKill(u8);
     s32 ret = 0;
     switch (op) {
     case 0:
         if ((*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx].busy == 0) {
-            TLobby__sub_803B488C(get_slot_value__6TLobbyFi(idx));
+            vsSampleEndNotify(hwGetVirtualSampleID(idx));
             if (idx == (*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx].id) {
-                TLobby__sub_803B1AF4(&(*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx]);
+                macSampleEndNotify(&(*(Rec_803A996C * *)&lbl_805D73B0)[(u8)idx]);
             }
         }
         break;
     case 1:
-        TLobby__sub_803B36A8(idx);
+        voiceKill(idx);
         break;
     case 2:
-        ret = TLobby__sub_803B46A4(idx);
+        ret = vsSampleStartNotify(idx);
         break;
     case 3:
-        TLobby__sub_803B488C(get_slot_value__6TLobbyFi(idx));
+        vsSampleEndNotify(hwGetVirtualSampleID(idx));
         break;
     }
     return ret;
 }
 
-void init_sound_controller_mappings(u8 *arg0);
-void TLobby__sub_803B3210(void);
-void set_global_7490__6TLobbyFi(s32 arg0);
+void inpInit(u8 *arg0);
+void synthInitAllocationAids(void);
+void hwSetMesgCallback(s32 arg0);
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -1085,7 +1085,7 @@ static inline void synthInitJobQueue_SV(void) {
     lbl_805D7381 = 0;
 }
 
-void TLobby__sub_803A9A3C(u32 mixFrq, u32 numVoices) {
+void synthInit(u32 mixFrq, u32 numVoices) {
     u32 i;
 
     lbl_805D73C0 = 0;
@@ -1094,7 +1094,7 @@ void TLobby__sub_803A9A3C(u32 mixFrq, u32 numVoices) {
     lbl_805D73AC = 0;
     lbl_805D73B4 = NULL;
 
-    SV_VOICES_L = (SYNTH_VOICE_SV *)TLobby__sub_803BE7B0(numVoices * sizeof(SYNTH_VOICE_SV));
+    SV_VOICES_L = (SYNTH_VOICE_SV *)salMalloc(numVoices * sizeof(SYNTH_VOICE_SV));
     memset(lbl_805D73B0, 0, numVoices * sizeof(SYNTH_VOICE_SV));
 
     for (i = 0; i < numVoices; ++i) {
@@ -1150,7 +1150,7 @@ void TLobby__sub_803A9A3C(u32 mixFrq, u32 numVoices) {
 
     synthMasterFader[21].volume = 1.f;
     synthMasterFader[22].volume = 1.f;
-    init_sound_controller_mappings(0);
+    inpInit(0);
 
     for (i = 0; i < 8; ++i) {
         lbl_80557BBC[i] = NULL;
@@ -1161,17 +1161,17 @@ void TLobby__sub_803A9A3C(u32 mixFrq, u32 numVoices) {
         lbl_80557C1C[i].b0 = 0;
     }
 
-    TLobby__sub_803B2438();
-    TLobby__sub_803B24A0();
-    TLobby__sub_803B3210();
+    macInit();
+    vidInit();
+    synthInitAllocationAids();
 
     for (i = 0; i < 16; ++i) {
         lbl_80557C2C[i] = 0;
     }
 
-    TLobby__sub_803B3BFC();
+    voiceInitLastStarted();
     synthInitJobQueue_SV();
-    set_global_7490__6TLobbyFi((s32)TLobby__sub_803A996C);
+    hwSetMesgCallback((s32)synthHWMessageHandler);
 }
 #pragma pop
 

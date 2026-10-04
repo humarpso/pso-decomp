@@ -11,7 +11,7 @@ extern "C" {
 
 #pragma push
 #pragma peephole off
-void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c) {
+void sndAuxCallbackChorus(u8 reason, Info_803BF884 *info, Work_803BF884 *c) {
     s32 *leftD;
     s32 *rightD;
     s32 *surD;
@@ -62,10 +62,10 @@ void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c) {
             }
             switch (c->src.pitchHi) {
             case 0:
-                TLobby__sub_803BF500(&c->src);
+                do_src1(&c->src);
                 break;
             case 1:
-                TLobby__sub_803BF698(&c->src);
+                do_src2(&c->src);
                 break;
             }
         }
@@ -95,13 +95,13 @@ static inline u32 sndAuxCallbackUpdateSettingsChorus_803BFBF0(AuxChorus_803BFBF0
     return 1;
 }
 
-u32 init_sound_aux_effect(AuxChorus_803BFBF0 *chorus) {
+u32 sndAuxCallbackPrepareChorus(AuxChorus_803BFBF0 *chorus) {
     u32 i;
     s32 *lastLeft;
     s32 *lastRight;
     s32 *lastSur;
 
-    chorus->work.lastLeft[0] = (s32 *)TLobby__sub_803BE7B0(0x1680);
+    chorus->work.lastLeft[0] = (s32 *)salMalloc(0x1680);
 
     if (chorus->work.lastLeft[0] != 0) {
         chorus->work.lastRight[0] = chorus->work.lastLeft[0] + 0x1e0;

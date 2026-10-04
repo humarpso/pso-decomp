@@ -25,7 +25,6 @@
 #define dspVoice lbl_805D748C
 #define dspITDBuffer lbl_805D7488
 #define dspHrtfHistoryBuffer (*(void **)&lbl_805D7480)
-#define salMalloc TLobby__sub_803BE7B0
 #define s3dCallCnt (*(u8 *)&lbl_805D7498)
 #define s3dEmitterRoot (*(Emitter_S3D **)&lbl_805D749C)
 #define s3dListenerRoot (*(Listener_S3D **)&lbl_805D74A0)
@@ -54,18 +53,18 @@ extern "C" {
 static inline s32 DoInit_803BAB54(u32 mixFrq, u32 aramSize, u32 numVoices, u32 flags) {
     u32 ret;
     ret = 0;
-    TLobby__sub_803B4CEC();
-    TLobby__sub_803AE814(0, (void *)aramSize);
-    TLobby__sub_803A6CA0();
+    dataInitStack();
+    dataInit(0, (void *)aramSize);
+    seqInit();
     synthIdleWaitActive = 0;
-    TLobby__sub_803A9A3C(mixFrq, numVoices);
-    TLobby__sub_803AA79C();
-    TLobby__sub_803B4584();
-    TLobby__sub_803BAB10(flags);
+    synthInit(mixFrq, numVoices);
+    streamInit();
+    vsInit();
+    s3dInit(flags);
     sndActive = 1;
     return ret;
 }
-s32 TLobby__sub_803BAB54(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize) {
+s32 sndInit(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize) {
     s32 ret;
     u32 frq;
     ret = 0;
@@ -83,7 +82,7 @@ s32 TLobby__sub_803BAB54(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32
     synthInfo.maxMusic = music;
     synthInfo.maxSFX = sfx;
     frq = 32000;
-    if ((ret = TLobby__sub_803BCC0C(&frq, synthInfo.voiceNum, synthInfo.studioNum, flags)) == 0) {
+    if ((ret = hwInit(&frq, synthInfo.voiceNum, synthInfo.studioNum, flags)) == 0) {
         ret = DoInit_803BAB54(32000, aramSize, synthInfo.voiceNum, flags);
     }
     return ret;

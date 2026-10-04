@@ -25,7 +25,6 @@
 #define dspVoice lbl_805D748C
 #define dspITDBuffer lbl_805D7488
 #define dspHrtfHistoryBuffer (*(void **)&lbl_805D7480)
-#define salMalloc TLobby__sub_803BE7B0
 extern "C" {
 
 s8 lbl_805D7498;
@@ -46,7 +45,7 @@ u8 lbl_805D74B5;
 #pragma inline_depth(4)
 #pragma auto_inline on
 #pragma opt_common_subs on
-void TLobby__sub_803B9438(void) {
+void UpdateRoomDistances(void) {
     Vec_803B9438 d;
     B_803B9438 *r;
     A_803B9438 *li;
@@ -86,7 +85,7 @@ void TLobby__sub_803B9438(void) {
 #pragma inline_depth(4)
 #pragma auto_inline on
 #pragma opt_common_subs on
-void TLobby__sub_803B94FC(void) {
+void CheckRoomStatus(void) {
     Listener_S3D *li;
     Emitter_S3D *em;
     Room_S3D *r;
@@ -100,7 +99,7 @@ void TLobby__sub_803B94FC(void) {
     u32 mask;
     u8 has_listener;
 
-    TLobby__sub_803B9438();
+    UpdateRoomDistances();
 
     for (li_num = 0, li = s3dListenerRoot; li != 0; li = li->next, ++li_num)
         ;
@@ -150,7 +149,7 @@ void TLobby__sub_803B94FC(void) {
                     if (has_listener || maxDis > distance) {
                         for (em = s3dEmitterRoot; em != 0; em = em->next) {
                             if (em->room == max_room) {
-                                key_off_sound_fx(em->vid);
+                                synthSendKeyOff(em->vid);
                                 em->flags |= 0x80000;
                                 em->vid = -1;
                             }
@@ -160,7 +159,7 @@ void TLobby__sub_803B94FC(void) {
                             max_room->deActivateReverb(max_room->studio);
                         }
 
-                        TLobby__sub_803AA66C(max_room->studio);
+                        synthDeactivateStudio(max_room->studio);
                         room->studio = max_room->studio;
                         max_room->studio = 0xff;
                         max_room->flags = 0;
@@ -172,9 +171,9 @@ void TLobby__sub_803B94FC(void) {
                 room->curMVol = has_listener ? 0x7f0000 : 0;
 
                 if (room->curMVol * 1.2014794e-07f >= 0.5) {
-                    TLobby__sub_803AA5BC(room->studio, 1, 0);
+                    synthActivateStudio(room->studio, 1, 0);
                 } else {
-                    TLobby__sub_803AA5BC(room->studio, 0, 0);
+                    synthActivateStudio(room->studio, 0, 0);
                 }
 
                 if (room->activateReverb != 0) {
@@ -189,9 +188,9 @@ void TLobby__sub_803B94FC(void) {
                     }
 
                     if (room->curMVol * 1.2014794e-07f >= 0.5) {
-                        TLobby__sub_803AA5BC(room->studio, 1, 0);
+                        synthActivateStudio(room->studio, 1, 0);
                     } else {
-                        TLobby__sub_803AA5BC(room->studio, 0, 0);
+                        synthActivateStudio(room->studio, 0, 0);
                     }
                 }
 
@@ -202,9 +201,9 @@ void TLobby__sub_803B94FC(void) {
                         room->flags &= ~0x40000000;
                     }
                     if (room->curMVol * 1.2014794e-07f >= 0.5) {
-                        TLobby__sub_803AA5BC(room->studio, 1, 0);
+                        synthActivateStudio(room->studio, 1, 0);
                     } else {
-                        TLobby__sub_803AA5BC(room->studio, 0, 0);
+                        synthActivateStudio(room->studio, 0, 0);
                     }
                 }
             }
@@ -228,7 +227,7 @@ static inline void CalcDoorParameters_S3D(Door_S3D *door) {
     door->input.vol = v * 127.f;
 }
 
-void TLobby__sub_803B98D8(void) {
+void CheckDoorStatus(void) {
     Door_S3D *door;
 
     for (door = s3dDoorRoot; door != 0; door = door->next) {
@@ -238,10 +237,10 @@ void TLobby__sub_803B98D8(void) {
                     CalcDoorParameters_S3D(door);
                     if (door->flags & 1) {
                         door->input.srcStudio = door->b->studio;
-                        TLobby__sub_803AA75C(door->a->studio, &door->input);
+                        synthAddStudioInput(door->a->studio, &door->input);
                     } else {
                         door->input.srcStudio = door->a->studio;
-                        TLobby__sub_803AA75C(door->b->studio, &door->input);
+                        synthAddStudioInput(door->b->studio, &door->input);
                     }
 
                     door->flags |= 0x80000000;
@@ -250,7 +249,7 @@ void TLobby__sub_803B98D8(void) {
         } else if (door->a->studio == 0xFF || door->b->studio == 0xFF) {
             if ((door->a->studio != 0xFF && door->a->studio == door->destStudio) ||
                 (door->b->studio != 0xFF && door->b->studio == door->destStudio)) {
-                TLobby__sub_803AA77C(door->destStudio, &door->input);
+                synthRemoveStudioInput(door->destStudio, &door->input);
             }
 
             door->flags &= ~0x80000000;
@@ -281,7 +280,7 @@ static inline f32 sqrtf_S3D(f32 x) {
     return x;
 }
 
-void TLobby__sub_803B9AB4(Emitter_S3D *em, f32 *vol, f32 *doppler, f32 *xPan, f32 *yPan, f32 *zPan) {
+void CalcEmitter(Emitter_S3D *em, f32 *vol, f32 *doppler, f32 *xPan, f32 *yPan, f32 *zPan) {
     Listener_S3D *li;
     FVec_S3D d;
     FVec_S3D v;
@@ -344,7 +343,7 @@ void TLobby__sub_803B9AB4(Emitter_S3D *em, f32 *vol, f32 *doppler, f32 *xPan, f3
             }
 
             if (distance != 0.f) {
-                transform_vec3__6TLobbyFPvPvPv(&li->mat, &em->pos, &p);
+                salApplyMatrix(&li->mat, &em->pos, &p);
 
                 if (p.z <= 0.f) {
                     pan.z += -li->surroundDisFront < p.z ? -p.z / li->surroundDisFront : 1.f;
@@ -353,7 +352,7 @@ void TLobby__sub_803B9AB4(Emitter_S3D *em, f32 *vol, f32 *doppler, f32 *xPan, f3
                 }
 
                 if (p.x != 0.f || p.y != 0.f || p.z != 0.f) {
-                    TLobby__sub_803BAD1C(&p);
+                    salNormalizeVector(&p);
                 }
 
                 pan.x += p.x;
@@ -389,36 +388,36 @@ static inline u16 clip3FFF_S3D(u32 v) {
     return v;
 }
 
-void TLobby__sub_803B9F98(Emitter_S3D *const em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler) {
+void SetFXParameters(Emitter_S3D *const em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler) {
     u32 vid;
     u8 i;
     Param_S3D *pPtr;
 
     vid = em->vid;
     if ((em->flags & 0x100000) != 0) {
-        TLobby__sub_803A9200(vid, 7, clip127_S3D((em->fade * vol) * 127.f));
+        synthFXSetCtrl(vid, 7, clip127_S3D((em->fade * vol) * 127.f));
     } else {
-        TLobby__sub_803A9200(vid, 7, clip127_S3D(vol * 127.f));
+        synthFXSetCtrl(vid, 7, clip127_S3D(vol * 127.f));
     }
 
-    TLobby__sub_803A9200(vid, 10, clip127_S3D((1.f + xPan) * 64.f));
-    TLobby__sub_803A9200(vid, 131, clip127_S3D((1.f - zPan) * 64.f));
-    TLobby__sub_803A92E8(vid, 132, clip3FFF_S3D(doppler * 8192.0f));
+    synthFXSetCtrl(vid, 10, clip127_S3D((1.f + xPan) * 64.f));
+    synthFXSetCtrl(vid, 131, clip127_S3D((1.f - zPan) * 64.f));
+    synthFXSetCtrl14(vid, 132, clip3FFF_S3D(doppler * 8192.0f));
 
     if (em->paraInfo != 0) {
         pPtr = em->paraInfo->paraArray;
         for (i = 0; i < em->paraInfo->numPara; ++pPtr, ++i) {
             if (pPtr->ctrl < 0x40 || pPtr->ctrl == 0x80 || pPtr->ctrl == 0x84) {
-                TLobby__sub_803A92E8(vid, pPtr->ctrl, (pPtr->paraData).value14);
+                synthFXSetCtrl14(vid, pPtr->ctrl, (pPtr->paraData).value14);
             } else {
-                TLobby__sub_803A9200(vid, pPtr->ctrl, (pPtr->paraData).value7);
+                synthFXSetCtrl(vid, pPtr->ctrl, (pPtr->paraData).value7);
             }
         }
     }
 }
 #pragma pop
 
-void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0) {
+void EmitterShutdown(Node_803BA1B8 *arg0) {
     if (arg0->next != 0) {
         arg0->next->prev = arg0->prev;
     }
@@ -429,11 +428,11 @@ void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0) {
     }
     arg0->f10 = (u16)arg0->f10;
     if (arg0->id != 0xFFFFFFFF) {
-        key_off_sound_fx((int)(arg0->id));
+        synthSendKeyOff((int)(arg0->id));
     }
 }
 
-void TLobby__sub_803BA228(Ent_803BA228 *arg0, u32 arg1) {
+void s3dKillEmitterByFXID(Ent_803BA228 *arg0, u32 arg1) {
     Node_803BA228 *n;
     Node_803BA228 *next;
     u32 i;
@@ -443,11 +442,11 @@ void TLobby__sub_803BA228(Ent_803BA228 *arg0, u32 arg1) {
         for (i = 0; i < arg1; i++) {
             if (n->id == arg0[i].id) {
                 if (lbl_805D7380 != 0) {
-                    sound_disable_irq();
+                    hwDisableIrq();
                     if (n->f10 & 0x10000) {
-                        TLobby__sub_803BA1B8((Node_803BA1B8 *)n);
+                        EmitterShutdown((Node_803BA1B8 *)n);
                     }
-                    sound_enable_irq();
+                    hwEnableIrq();
                 }
                 break;
             }
@@ -473,7 +472,7 @@ Emitter_S3D em_80567908_S3D;
 #pragma inline_depth(4)
 #pragma auto_inline on
 #pragma opt_common_subs on
-void TLobby__sub_803BA2D8(Emitter_S3D *em, f32 vol) {
+void AddRunningEmitter(Emitter_S3D *em, f32 vol) {
     s32 i;
     RunList_S3D *rl;
     RunList_S3D *lrl;
@@ -519,7 +518,7 @@ void TLobby__sub_803BA2D8(Emitter_S3D *em, f32 vol) {
 #pragma inline_depth(4)
 #pragma auto_inline on
 #pragma opt_common_subs on
-u32 TLobby__sub_803BA3EC(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 pitch) {
+u32 AddStartingEmitter(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 pitch) {
     s32 i;
     StartList_S3D *sl;
 
@@ -575,8 +574,8 @@ u32 TLobby__sub_803BA3EC(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan,
 #pragma auto_inline on
 #pragma opt_common_subs on
 #pragma bool off
-void TLobby__sub_803BA51C(void) {
-    s32 synth_start_fx(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
+void StartContinousEmitters(void) {
+    s32 synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
     s32 i;
     StartList_S3D *sl;
     Emitter_S3D *em;
@@ -604,7 +603,7 @@ void TLobby__sub_803BA51C(void) {
             if (em->room != 0 && em->room->studio == 0xFF) {
                 goto set_flags;
             }
-            if ((em->vid = synth_start_fx(em->fxid, 127, 64, em->room != 0 ? em->room->studio : em->studio,
+            if ((em->vid = synthFXStart(em->fxid, 127, 64, em->room != 0 ? em->room->studio : em->studio,
                                           (em->flags & 0x10) != 0)) == -1) {
             set_flags:
                 if (!(em->flags & 0x2)) {
@@ -618,7 +617,7 @@ void TLobby__sub_803BA51C(void) {
                 } else {
                     em->fade = 1.f;
                 }
-                TLobby__sub_803B9F98(em, sl->vol, sl->xPan, sl->yPan, sl->zPan, sl->pitch);
+                SetFXParameters(em, sl->vol, sl->xPan, sl->yPan, sl->zPan, sl->pitch);
                 em->flags &= ~0x20000;
                 ++startGroup[i].numRunning;
                 if (startGroup[i].running != 0) {
@@ -655,12 +654,12 @@ static inline void EmitterShutdown_S3D(Emitter_S3D *em) {
 
     em->flags &= 0xFFFF;
     if (em->vid != -1) {
-        key_off_sound_fx(em->vid);
+        synthSendKeyOff(em->vid);
     }
 }
 
-void TLobby__sub_803BA744(void) {
-    s32 synth_start_fx(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
+void s3dHandle(void) {
+    s32 synthFXStart(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
     Emitter_S3D *em;
     Emitter_S3D *nem;
     f32 vol;
@@ -683,7 +682,7 @@ void TLobby__sub_803BA744(void) {
             continue;
         }
         if ((em->flags & 0x20001) != 0) {
-            TLobby__sub_803B9AB4(em, &vol, &pitch, &xPan, &yPan, &zPan);
+            CalcEmitter(em, &vol, &pitch, &xPan, &yPan, &zPan);
         }
 
         if (!(em->flags & 0x80000)) {
@@ -698,11 +697,11 @@ void TLobby__sub_803BA744(void) {
                 }
 
                 if (em->flags & 1) {
-                    if (TLobby__sub_803BA3EC(em, vol, xPan, yPan, zPan, pitch)) {
+                    if (AddStartingEmitter(em, vol, xPan, yPan, zPan, pitch)) {
                         continue;
                     }
                 } else if (em->room == 0 || em->room->studio != 0xFF) {
-                    if ((em->vid = synth_start_fx(em->fxid, 127, 64, em->room != 0 ? em->room->studio : em->studio,
+                    if ((em->vid = synthFXStart(em->fxid, 127, 64, em->room != 0 ? em->room->studio : em->studio,
                                                   (em->flags & 0x10) != 0)) == -1) {
                     derp:
                         if (!(em->flags & 2)) {
@@ -715,7 +714,7 @@ void TLobby__sub_803BA744(void) {
                 } else {
                     goto derp;
                 }
-            } else if ((em->vid = TLobby__sub_803AA2B8(em->vid)) == -1) {
+            } else if ((em->vid = sndFXCheck(em->vid)) == -1) {
                 if ((em->flags & 2)) {
                     em->flags |= 0x20000;
                 } else {
@@ -726,10 +725,10 @@ void TLobby__sub_803BA744(void) {
         found_emitter:
             if (em->vid != -1) {
                 if ((em->flags & 1) != 0) {
-                    TLobby__sub_803BA2D8(em, vol);
+                    AddRunningEmitter(em, vol);
                 }
                 if ((vol == 0.f) && ((em->flags & 4) != 0)) {
-                    key_off_sound_fx(em->vid);
+                    synthSendKeyOff(em->vid);
                     em->vid = 0xffffffff;
                     if ((em->flags & 2)) {
                         em->flags |= 0x80000;
@@ -737,7 +736,7 @@ void TLobby__sub_803BA744(void) {
                         em->flags |= 0x40000;
                     }
                 } else {
-                    TLobby__sub_803B9F98(em, vol, xPan, yPan, zPan, pitch);
+                    SetFXParameters(em, vol, xPan, yPan, zPan, pitch);
                 }
             }
             if ((em->flags & 0x100000) != 0) {
@@ -751,13 +750,13 @@ void TLobby__sub_803BA744(void) {
             em->flags |= 0x20000;
         }
     }
-    TLobby__sub_803BA51C();
-    TLobby__sub_803B94FC();
-    TLobby__sub_803B98D8();
+    StartContinousEmitters();
+    CheckRoomStatus();
+    CheckDoorStatus();
 }
 #pragma pop
 
-void TLobby__sub_803BAB10(s32 arg0) {
+void s3dInit(s32 arg0) {
     lbl_805D749C = 0;
     lbl_805D74A0 = 0;
     lbl_805D74A4 = 0;

@@ -1,12 +1,12 @@
-#define TLobby__sub_803A8D04 TLobby__sub_803A8D04_hdr_view
-#define find_sound_sample find_sound_sample_hdr_view
+#define synthKeyStateUpdate TLobby__sub_803A8D04_hdr_view
+#define dataGetSample find_sound_sample_hdr_view
 #include "musyx/runtime/musyx_runtime_a.h"
-#undef TLobby__sub_803A8D04
-#undef find_sound_sample
+#undef synthKeyStateUpdate
+#undef dataGetSample
 extern "C" {
 struct Voice_803AEEF0;
-void TLobby__sub_803A8D04(Voice_803AEEF0 *svoice);
-s32 find_sound_sample(u16 id, Sample_803AE4D4 *s);
+void synthKeyStateUpdate(Voice_803AEEF0 *svoice);
+s32 dataGetSample(u16 id, Sample_803AE4D4 *s);
 }
 
 #define ARR_GET_803A3D8C(arr, offset) ((void *)(offset + (u32)arr))
@@ -22,7 +22,7 @@ extern "C" {
 #define FLAGS (*(u64 *)&o->fh)
 #pragma push
 #pragma bool off
-s32 handle_sound_macro_wait(Obj_803AE8F8 *o, Op_803AE8F8 *op) {
+s32 mcmdWait(Obj_803AE8F8 *o, Op_803AE8F8 *op) {
     u32 v;
     u32 ms;
 
@@ -41,7 +41,7 @@ s32 handle_sound_macro_wait(Obj_803AE8F8 *o, Op_803AE8F8 *op) {
         FLAGS &= ~4ULL;
     }
     if ((op->w0 >> 24) & 1) {
-        if ((FLAGS & 0x20ULL) == 0 && is_sound_hw_voice_active((u8)o->iF4) == 0) {
+        if ((FLAGS & 0x20ULL) == 0 && hwIsActive((u8)o->iF4) == 0) {
             return 0;
         }
         FLAGS |= 0x40000ULL;
@@ -49,13 +49,13 @@ s32 handle_sound_macro_wait(Obj_803AE8F8 *o, Op_803AE8F8 *op) {
         FLAGS &= ~0x40000ULL;
     }
     if ((op->w0 >> 16) & 1) {
-        v = TLobby__sub_803BC91C() % v;
+        v = sndRand() % v;
     }
     if (v != 0xFFFF) {
         if ((ms = ((u8)(op->w4 >> 8) & 1) != 0)) {
-            shift_left_8__6TLobbyFPv(&v);
+            sndConvertMs(&v);
         } else {
-            TLobby__sub_803BCA50(&v, o);
+            sndConvertTicks(&v, o);
         }
         if (ms != 0) {
             if (op->w4 & 1) {
@@ -79,9 +79,9 @@ s32 handle_sound_macro_wait(Obj_803AE8F8 *o, Op_803AE8F8 *op) {
     }
     if (o->deadline != 0) {
         if (o->deadline != (u64)-1) {
-            enqueue_sound_program_deadline((Program_803B1DA4 *)o);
+            TimeQueueAdd((Program_803B1DA4 *)o);
         }
-        set_sound_program_wait_state((Obj_803B312C *)o, 1);
+        macMakeInactive((Obj_803B312C *)o, 1);
         return 1;
     }
 end:
@@ -91,11 +91,11 @@ end:
 #undef FLAGS
 
 #define FLAGS (*(u64 *)&o->fh)
-void TLobby__sub_803AEC00(Obj_803AEC00 *o, Op_803AEC00 *op) {
+void mcmdLoop(Obj_803AEC00 *o, Op_803AEC00 *op) {
     u32 w;
     if (o->cnt == 0) {
         if ((op->w0 >> 16) & 1) {
-            o->cnt = TLobby__sub_803BC91C() % (u16)(op->w4 >> 16);
+            o->cnt = sndRand() % (u16)(op->w4 >> 16);
         } else {
             o->cnt = op->w4 >> 16;
         }
@@ -115,7 +115,7 @@ body:
         o->cnt = 0;
         return;
     }
-    if (((w >> 24) & 1) && (FLAGS & 0x20ULL) == 0 && is_sound_hw_voice_active((u8)o->iF4) == 0) {
+    if (((w >> 24) & 1) && (FLAGS & 0x20ULL) == 0 && hwIsActive((u8)o->iF4) == 0) {
         o->cnt = 0;
         return;
     }
@@ -245,18 +245,18 @@ typedef struct Voice_803AEEF0 {
 } Voice_803AEEF0;
 #pragma pack()
 
-void start_sound_sample_voice(u32 v, u16 smpID, void *newsmp, u32 set_defadsr, u32 prio, u32 callbackUserValue, u32 setSRC, u8 itdMode);
-void TLobby__sub_803AF24C(Voice_803AEEF0 *);
+void hwInitSamplePlayback(u32 v, u16 smpID, void *newsmp, u32 set_defadsr, u32 prio, u32 callbackUserValue, u32 setSRC, u8 itdMode);
+void DoSetPitch(Voice_803AEEF0 *);
 
 #pragma push
 #pragma bool off
 #pragma opt_common_subs on
-void start_sound_macro_sample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
+void mcmdStartSample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
     static Sample_803AE4D4 newsmp;
     u16 smp;
     smp = cstep->para[0] >> 8;
 
-    if (find_sound_sample(smp, &newsmp) != 0) {
+    if (dataGetSample(smp, &newsmp) != 0) {
         return;
     }
     switch ((u8)(cstep->para[0] >> 0x18)) {
@@ -278,17 +278,17 @@ void start_sound_macro_sample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
         newsmp.offset = newsmp.count - 1;
     }
 
-    start_sound_sample_voice(svoice->id & 0xFF, smp, &newsmp, (svoice->cFlags & 0x100) == 0,
+    hwInitSamplePlayback(svoice->id & 0xFF, smp, &newsmp, (svoice->cFlags & 0x100) == 0,
                              ((u32)svoice->prio << 24) | ((u32)svoice->age >> 15), svoice->id,
                              (svoice->cFlags & 0x80000000000) == 0, svoice->itdMode);
 
     svoice->sInfo = newsmp.key;
 
     if (svoice->playFrq != -1) {
-        TLobby__sub_803AF24C(svoice);
+        DoSetPitch(svoice);
     }
     svoice->cFlags |= 0x20;
-    TLobby__sub_803A8D04(svoice);
+    synthKeyStateUpdate(svoice);
 }
 #pragma pop
 
@@ -297,8 +297,8 @@ void start_sound_macro_sample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
 #pragma push
 #pragma bool off
 #pragma opt_common_subs on
-void TLobby__sub_803AED58(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
-    u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
+void mcmdPlayMacro(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
+    u32 macStart(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
     s32 key;
     u32 new_child;
 
@@ -310,7 +310,7 @@ void TLobby__sub_803AED58(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
     }
 
     svoice->block = 1;
-    new_child = start_sound_voice((u16)(cstep->para[0] >> 0x10), (u8)(cstep->para[1] >> 0x10),
+    new_child = macStart((u16)(cstep->para[0] >> 0x10), (u8)(cstep->para[1] >> 0x10),
                                   (u8)(cstep->para[1] >> 0x18), svoice->allocId, key,
                                   (u8)(svoice->volume >> 0x10), (u8)(svoice->panning[0] >> 0x10), svoice->midi,
                                   svoice->midiSet, svoice->section, (u16)cstep->para[1], (u16)svoice->track, 0,
@@ -325,7 +325,7 @@ void TLobby__sub_803AED58(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
         }
         svoice->child = new_child;
         if (svoice->fxFlag != 0) {
-            TLobby__sub_803A93D0((u8 *)&(*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child], (u8 *)svoice);
+            synthFXCloneMidiSetup((u8 *)&(*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child], (u8 *)svoice);
         }
     } else {
         svoice->lastVID = 0xFFFFFFFF;
@@ -333,7 +333,7 @@ void TLobby__sub_803AED58(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
 }
 #pragma pop
 
-void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
+void mcmdVibrato(Obj_803AF0CC *o, Op_803AF0CC *op) {
     u32 v;
     s8 hi;
     s8 lo;
@@ -344,9 +344,9 @@ void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
     }
     v = op->w4 >> 16;
     if ((op->w4 >> 8) & 1) {
-        shift_left_8__6TLobbyFPv(&v);
+        sndConvertMs(&v);
     } else {
-        TLobby__sub_803BCA50(&v, o);
+        sndConvertTicks(&v, o);
     }
     if (v != 0) {
         FLAGS |= 0x2000ULL;
@@ -388,20 +388,20 @@ void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
 #pragma push
 #pragma bool off
 #pragma opt_common_subs on
-void configure_sound_macro_envelope(Voice_803AF3DC *svoice, MSTEP_803AF3DC *cstep) {
+void mcmdSetADSR(Voice_803AF3DC *svoice, MSTEP_803AF3DC *cstep) {
     ADSR_803AF3DC adsr;
     ADSR_803AF3DC *adsr_ptr;
     s32 ascale;
     s32 dscale;
     f32 sScale;
 
-    if ((adsr_ptr = (ADSR_803AF3DC *)TLobby__sub_803AE60C((u16)(cstep->para[0] >> 8))) != 0) {
+    if ((adsr_ptr = (ADSR_803AF3DC *)dataGetCurve((u16)(cstep->para[0] >> 8))) != 0) {
         if (!(u8)(cstep->para[0] >> 24)) {
             adsr.data.linear.atime = adsr_ptr->data.linear.atime >> 8 | adsr_ptr->data.linear.atime << 8;
             adsr.data.linear.dtime = adsr_ptr->data.linear.dtime >> 8 | adsr_ptr->data.linear.dtime << 8;
             adsr.data.linear.slevel = adsr_ptr->data.linear.slevel >> 8 | adsr_ptr->data.linear.slevel << 8;
             adsr.data.linear.rtime = adsr_ptr->data.linear.rtime >> 8 | adsr_ptr->data.linear.rtime << 8;
-            set_sound_hw_voice_envelope(svoice->id & 0xFF, &adsr, 0);
+            hwSetADSR(svoice->id & 0xFF, &adsr, 0);
         } else {
             sScale = lbl_804F6CDC[(u16)(adsr_ptr->data.dls.slevel >> 8 | adsr_ptr->data.dls.slevel << 8) >> 5];
             adsr.data.dls.atime =
@@ -428,7 +428,7 @@ void configure_sound_macro_envelope(Voice_803AF3DC *svoice, MSTEP_803AF3DC *cste
                 adsr.data.dls.dtime += (s32)(0.0078125f * svoice->orgNote * dscale);
             }
 
-            set_sound_hw_voice_envelope(svoice->id & 0xFF, &adsr, 1);
+            hwSetADSR(svoice->id & 0xFF, &adsr, 1);
         }
 
         svoice->cFlags |= 0x100;
@@ -567,22 +567,22 @@ typedef struct ADSR_803AF634 {
         struct { u16 atime; u16 dtime; u16 slevel; u16 rtime; } linear;
     } data;
 } ADSR_803AF634;
-s32 TLobby__sub_803AE60C(s16 arg0);
-u32 TLobby__sub_803B3ED8(s32 arg0);
-void start_sound_envelope(u8 *arg0);
+s32 dataGetCurve(s16 arg0);
+u32 adsrConvertTimeCents(s32 arg0);
+void adsrSetup(u8 *arg0);
 extern u8 lbl_804F68DC[];
 
 #pragma push
 #pragma bool off
 #pragma opt_common_subs on
-void TLobby__sub_803AF634(Voice_803AF634 *svoice, MSTEP_803AF634 *cstep) {
+void mcmdSetPitchADSR(Voice_803AF634 *svoice, MSTEP_803AF634 *cstep) {
     ADSR_803AF634 adsr;
     ADSR_803AF634 *adsr_ptr;
     u32 sl;
     s32 ascale;
     s32 dscale;
 
-    if ((adsr_ptr = (ADSR_803AF634 *)TLobby__sub_803AE60C((u16)(cstep->para[0] >> 8))) == 0) {
+    if ((adsr_ptr = (ADSR_803AF634 *)dataGetCurve((u16)(cstep->para[0] >> 8))) == 0) {
         return;
     }
 
@@ -619,15 +619,15 @@ void TLobby__sub_803AF634(Voice_803AF634 *svoice, MSTEP_803AF634 *cstep) {
 
     svoice->pitchADSR.mode = 1;
     svoice->pitchADSR.data.dls.aMode = 0;
-    svoice->pitchADSR.data.dls.aTime = TLobby__sub_803B3ED8(adsr.data.dls.atime);
-    svoice->pitchADSR.data.dls.dTime = TLobby__sub_803B3ED8(adsr.data.dls.dtime);
+    svoice->pitchADSR.data.dls.aTime = adsrConvertTimeCents(adsr.data.dls.atime);
+    svoice->pitchADSR.data.dls.dTime = adsrConvertTimeCents(adsr.data.dls.dtime);
     if ((sl = (adsr.data.dls.slevel >> 2)) > 0x3ff) {
         sl = 0x3ff;
     }
 
     svoice->pitchADSR.data.dls.sLevel = 193 - lbl_804F68DC[sl];
     svoice->pitchADSR.data.dls.rTime = adsr.data.dls.rtime;
-    start_sound_envelope((u8 *)&svoice->pitchADSR);
+    adsrSetup((u8 *)&svoice->pitchADSR);
     svoice->cFlags |= 0x20000000000;
 }
 #pragma pop
@@ -635,14 +635,14 @@ void TLobby__sub_803AF634(Voice_803AF634 *svoice, MSTEP_803AF634 *cstep) {
 #pragma push
 #pragma bool off
 #pragma opt_common_subs on
-u32 TLobby__sub_803AF954(u32 volume, u16 curve) {
+u32 TranslateVolume(u32 volume, u16 curve) {
     u8 *ptr;
     u32 vlow;
     u32 vhigh;
     s32 d;
 
     if (curve != 0xFFFF) {
-        if ((ptr = (u8 *)TLobby__sub_803AE60C(curve))) {
+        if ((ptr = (u8 *)dataGetCurve(curve))) {
             vhigh = (volume >> 16) & 0xFFFF;
             vlow = volume & 0xFFFF;
 
@@ -671,7 +671,7 @@ static inline u32 TranslateVolume_803AF9D4(u32 volume, u16 curve) {
     s32 d;
 
     if (curve != 0xFFFF) {
-        if ((ptr = (u8 *)TLobby__sub_803AE60C(curve))) {
+        if ((ptr = (u8 *)dataGetCurve(curve))) {
             vhigh = (volume >> 16) & 0xFFFF;
             vlow = volume & 0xFFFF;
 
@@ -687,7 +687,7 @@ static inline u32 TranslateVolume_803AF9D4(u32 volume, u16 curve) {
     return volume;
 }
 
-void TLobby__sub_803AF9D4(Voice_803AF9D4 *svoice, MSTEP_803AF9D4 *cstep, s32 start_vol) {
+void DoEnvelopeCalculation(Voice_803AF9D4 *svoice, MSTEP_803AF9D4 *cstep, s32 start_vol) {
     u32 tvol;
     u32 time;
     s32 mstime;
@@ -696,12 +696,12 @@ void TLobby__sub_803AF9D4(Voice_803AF9D4 *svoice, MSTEP_803AF9D4 *cstep, s32 sta
     time = (u16)(cstep->para[1] >> 16);
 
     if ((u8)(cstep->para[1] >> 8) & 1) {
-        shift_left_8__6TLobbyFPv(&time);
+        sndConvertMs(&time);
     } else {
-        TLobby__sub_803BCA50(&time, svoice);
+        sndConvertTicks(&time, svoice);
     }
 
-    mstime = shift_right_8__6TLobbyFUi(time);
+    mstime = sndConvert2Ms(time);
     if (mstime == 0) {
         mstime = 1;
     }
@@ -732,14 +732,14 @@ void TLobby__sub_803AF9D4(Voice_803AF9D4 *svoice, MSTEP_803AF9D4 *cstep, s32 sta
 static inline u32 mcmdSetKey_803AFB00(Voice_803AFB00 *svoice, MSTEP_803AFB00 *cstep) {
     svoice->curNote = (u8)(cstep->para[0] >> 8) & 0x7f;
     svoice->curDetune = (s8)(cstep->para[0] >> 0x10);
-    if ((u32)TLobby__sub_803B3AA8((Obj_803B3AA8 *)svoice) != 0) {
-        TLobby__sub_803BBAA8(svoice->midi, svoice->midiSet, svoice->curNote & 0xff);
+    if ((u32)voiceIsLastStarted((Obj_803B3AA8 *)svoice) != 0) {
+        inpSetMidiLastNote(svoice->midi, svoice->midiSet, svoice->curNote & 0xff);
     }
     cstep->para[0] = 4;
-    return handle_sound_macro_wait((Obj_803AE8F8 *)svoice, (Op_803AE8F8 *)cstep);
+    return mcmdWait((Obj_803AE8F8 *)svoice, (Op_803AE8F8 *)cstep);
 }
 
-void TLobby__sub_803AFB00(Voice_803AFB00 *svoice, MSTEP_803AFB00 *cstep) {
+void mcmdRandomKey(Voice_803AFB00 *svoice, MSTEP_803AFB00 *cstep) {
     u8 k1;
     u8 k2;
     u8 t;
@@ -764,18 +764,18 @@ void TLobby__sub_803AFB00(Voice_803AFB00 *svoice, MSTEP_803AFB00 *cstep) {
     }
 
     if ((u8)cstep->para[1]) {
-        detune = (TLobby__sub_803BC91C() % 201) - 100;
+        detune = (sndRand() % 201) - 100;
     } else {
         detune = (u8)(cstep->para[0] >> 16);
     }
 
-    cstep->para[0] = ((u8)detune << 16) | 0x19 | ((k1 + (TLobby__sub_803BC91C() % ((k2 - k1) + 1))) * 0x100);
+    cstep->para[0] = ((u8)detune << 16) | 0x19 | ((k1 + (sndRand() % ((k2 - k1) + 1))) * 0x100);
     cstep->para[1] = 0;
     mcmdSetKey_803AFB00(svoice, cstep);
 }
 #pragma pop
 
-void TLobby__sub_803AFCA0(Obj_803AFCA0 *o, s32 ch, Op_803AFCA0 *op, u64 mask, u32 flag) {
+void SelectSource(Obj_803AFCA0 *o, s32 ch, Op_803AFCA0 *op, u64 mask, u32 flag) {
     u8 x;
     u32 w0;
     s32 v;
@@ -793,53 +793,53 @@ void TLobby__sub_803AFCA0(Obj_803AFCA0 *o, s32 ch, Op_803AFCA0 *op, u64 mask, u3
     } else {
         v += ((s8)(op->w4 >> 16) << 8) / 100;
     }
-    TLobby__sub_803BB8F0(ch, w0 >> 8, v, x, (u8)(op->w4 >> 8) != 0);
+    inpAddCtrl(ch, w0 >> 8, v, x, (u8)(op->w4 >> 8) != 0);
     if (flag & 0x80000000) {
-        TLobby__sub_803BADD0(o->b121, o->b122, flag);
+        inpSetGlobalMIDIDirtyFlag(o->b121, o->b122, flag);
     } else {
         o->i214 |= flag;
     }
 }
 
-void TLobby__sub_803AFDD4(Obj_803AFDD4 *o, Op_803AFDD4 *op) {
+void mcmdPortamento(Obj_803AFDD4 *o, Op_803AFDD4 *op) {
     u32 v;
 
     o->b131 = op->w0 >> 16;
     v = op->w4 >> 16;
     if ((op->w4 >> 8) & 1) {
-        shift_left_8__6TLobbyFPv(&v);
+        sndConvertMs(&v);
     } else {
-        TLobby__sub_803BCA50(&v, o);
+        sndConvertTicks(&v, o);
     }
     o->i134 = v;
     switch ((u8)(op->w0 >> 8)) {
     case 0:
         if (o->b121 != 0xFF) {
-            TLobby__sub_803BADF8(0x41, o->b121, o->b122, 0);
+            inpSetMidiCtrl(0x41, o->b121, o->b122, 0);
         }
         FLAGS &= ~0x400ULL;
         break;
     case 1:
         if (o->b121 != 0xFF) {
-            TLobby__sub_803BADF8(0x41, o->b121, o->b122, 0x7F);
+            inpSetMidiCtrl(0x41, o->b121, o->b122, 0x7F);
         }
     on:
         if ((FLAGS & 0x400ULL) == 0) {
-            TLobby__sub_803A6F4C((Obj_803A6F4C *)o);
+            synthInitPortamento((Obj_803A6F4C *)o);
         }
         FLAGS |= 0x400ULL;
         break;
     case 2:
-        if (o->b121 != 0xFF && TLobby__sub_803BB5E4(0x41, o->b121, o->b122) > 0x1F80) {
+        if (o->b121 != 0xFF && inpGetMidiCtrl(0x41, o->b121, o->b122) > 0x1F80) {
             goto on;
         }
         break;
     }
 }
 
-s32 TLobby__sub_803AFF38(Obj_803AFF38 *arg0, u32 arg1, u32 arg2) {
+s32 varGet32(Obj_803AFF38 *arg0, u32 arg1, u32 arg2) {
     if (arg1 != 0) {
-        return TLobby__sub_803BC7E4(arg0, arg2);
+        return inpGetExCtrl(arg0, arg2);
     }
     arg2 = arg2 & 0x1F;
     if (arg2 < 0x10) {
@@ -848,10 +848,10 @@ s32 TLobby__sub_803AFF38(Obj_803AFF38 *arg0, u32 arg1, u32 arg2) {
     return lbl_80557C2C[arg2 - 16];
 }
 
-s16 TLobby__sub_803AFF9C(Obj_803AFF9C *arg0, u32 arg1, u32 arg2) {
+s16 varGet(Obj_803AFF9C *arg0, u32 arg1, u32 arg2) {
     s32 r;
     if (arg1 != 0) {
-        r = (u16)TLobby__sub_803BC7E4(arg0, arg2);
+        r = (u16)inpGetExCtrl(arg0, arg2);
     } else {
         arg2 = arg2 & 0x1F;
         if (arg2 < 0x10) {
@@ -863,9 +863,9 @@ s16 TLobby__sub_803AFF9C(Obj_803AFF9C *arg0, u32 arg1, u32 arg2) {
     return r;
 }
 
-void TLobby__sub_803B0004(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3) {
+void varSet32(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3) {
     if (arg1 != 0) {
-        TLobby__sub_803BC884(arg0, arg2, arg3);
+        inpSetExCtrl(arg0, arg2, arg3);
         return;
     }
     arg2 = arg2 & 0x1F;
@@ -1001,8 +1001,8 @@ typedef struct Voice_803B0068 {
 
 struct Obj_803AFF38;
 struct Obj_803B0004;
-s32 TLobby__sub_803AFF38(Obj_803AFF38 *arg0, u32 arg1, u32 arg2);
-void TLobby__sub_803B0004(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3);
+s32 varGet32(Obj_803AFF38 *arg0, u32 arg1, u32 arg2);
+void varSet32(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3);
 
 #pragma push
 #pragma opt_common_subs on
@@ -1011,14 +1011,14 @@ void TLobby__sub_803B0004(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3);
 #pragma inline_depth(4)
 
 static inline s16 varGet_803B0068(Voice_803B0068 *svoice, u32 ctrl, u8 index) {
-    return TLobby__sub_803AFF38((Obj_803AFF38 *)svoice, ctrl, index);
+    return varGet32((Obj_803AFF38 *)svoice, ctrl, index);
 }
 
 static inline void varSet_803B0068(Voice_803B0068 *svoice, u32 ctrl, u8 index, s16 v) {
-    TLobby__sub_803B0004((Obj_803B0004 *)svoice, ctrl, index, v);
+    varSet32((Obj_803B0004 *)svoice, ctrl, index, v);
 }
 
-void TLobby__sub_803B0068(Voice_803B0068 *svoice, MSTEP_803B0068 *cstep, u8 op) {
+void mcmdVarCalculation(Voice_803B0068 *svoice, MSTEP_803B0068 *cstep, u8 op) {
     s16 s1;
     s16 s2;
     s32 t;
@@ -1067,7 +1067,7 @@ static inline u32 ExecuteTrap_803B0198(Voice_803B0198 *svoice, u8 trapType) {
         svoice->curAddr = svoice->trapEventCurAddr[trapType];
         svoice->addr = svoice->trapEventAddr[trapType];
         svoice->trapEventAddr[trapType] = 0;
-        TLobby__sub_803B1F24(svoice);
+        macMakeActive(svoice);
         return 1;
     }
     return 0;
@@ -1075,7 +1075,7 @@ static inline u32 ExecuteTrap_803B0198(Voice_803B0198 *svoice, u8 trapType) {
 
 static inline u32 macPostMessage_803B0198(u32 vid, s32 mesg) {
     Voice_803B0198 *sv;
-    if ((vid = find_sound_voice_by_id(vid)) != -1 && (sv = &(*(Voice_803B0198 **)&lbl_805D73B0)[vid & 0xFF])->mesgNum < 4) {
+    if ((vid = vidGetInternalId(vid)) != -1 && (sv = &(*(Voice_803B0198 **)&lbl_805D73B0)[vid & 0xFF])->mesgNum < 4) {
         ++sv->mesgNum;
         sv->mesgQueue[sv->mesgWrite] = mesg;
         sv->mesgWrite = (sv->mesgWrite + 1) & 3;
@@ -1085,7 +1085,7 @@ static inline u32 macPostMessage_803B0198(u32 vid, s32 mesg) {
     return 0;
 }
 
-void TLobby__sub_803B0198(Voice_803B0198 *svoice, MSTEP_803B0198 *cstep) {
+void mcmdSendMessage(Voice_803B0198 *svoice, MSTEP_803B0198 *cstep) {
     u8 i;
     s32 mesg;
     u16 macro;
@@ -1118,8 +1118,8 @@ void TLobby__sub_803B0198(Voice_803B0198 *svoice, MSTEP_803B0198 *cstep) {
 #pragma push
 #pragma bool off
 #pragma opt_common_subs on
-void TLobby__sub_803B03CC(Voice_803B03CC *svoice, MSTEP_803B03CC *cstep) {
-    void TLobby__sub_803B36A8(u32 vi);
+void mcmdSetKeyGroup(Voice_803B03CC *svoice, MSTEP_803B03CC *cstep) {
+    void voiceKill(u32 vi);
     u32 i;
     u8 kg;
     u32 kill;
@@ -1133,9 +1133,9 @@ void TLobby__sub_803B03CC(Voice_803B03CC *svoice, MSTEP_803B03CC *cstep) {
             if ((*(Voice_803B03CC **)&lbl_805D73B0)[i].addr != 0 && ((*(Voice_803B03CC **)&lbl_805D73B0)[i].cFlags & 0x2) == 0 &&
                 kg == (*(Voice_803B03CC **)&lbl_805D73B0)[i].keyGroup) {
                 if (!kill) {
-                    key_off_sound_program((Rec_803A9454 *)&(*(Voice_803B03CC **)&lbl_805D73B0)[i]);
+                    macSetExternalKeyoff((Rec_803A9454 *)&(*(Voice_803B03CC **)&lbl_805D73B0)[i]);
                 } else {
-                    TLobby__sub_803B36A8(i);
+                    voiceKill(i);
                 }
             }
         }
@@ -1159,7 +1159,7 @@ static inline u32 ExecuteTrap_803B19AC(SYNTH_VOICE_803B19AC *svoice, u8 trapType
         svoice->curAddr = svoice->trapEventCurAddr[trapType];
         svoice->addr = svoice->trapEventAddr[trapType];
         svoice->trapEventAddr[trapType] = NULL;
-        TLobby__sub_803B1F24(svoice);
+        macMakeActive(svoice);
         return 1;
     }
 
@@ -1174,12 +1174,12 @@ static inline u32 HasHWEventTrap_803B19AC(SYNTH_VOICE_803B19AC *svoice) {
 }
 
 static inline void CheckHWEventTrap_803B19AC(SYNTH_VOICE_803B19AC *svoice) {
-    if ((svoice->cFlags & 0x20) == 0 && !is_sound_hw_voice_active(svoice->id & 0xff)) {
+    if ((svoice->cFlags & 0x20) == 0 && !hwIsActive(svoice->id & 0xff)) {
         ExecuteTrap_803B19AC(svoice, 1);
     }
 }
 
-void TLobby__sub_803B19AC(u32 deltaTime) {
+void macHandle(u32 deltaTime) {
     SYNTH_VOICE_803B19AC *sv;
     SYNTH_VOICE_803B19AC *nextSv;
     u64 w;
@@ -1187,7 +1187,7 @@ void TLobby__sub_803B19AC(u32 deltaTime) {
     for (sv = macTimeQueueRoot; sv != NULL && sv->wait <= macRealTime;) {
         nextSv = sv->nextTimeQueueMacro;
         w = sv->wait;
-        TLobby__sub_803B1F24(sv);
+        macMakeActive(sv);
         sv->waitTime = w;
         sv = nextSv;
     }
@@ -1197,14 +1197,14 @@ void TLobby__sub_803B19AC(u32 deltaTime) {
         if (HasHWEventTrap_803B19AC(sv) != 0) {
             CheckHWEventTrap_803B19AC(sv);
         }
-        dispatch_sound_macro_program(sv);
+        macHandleActive(sv);
     }
     macRealTime += deltaTime;
 }
 
 #pragma pop
 
-void TLobby__sub_803B1AF4(Rec_803A996C *ov) {
+void macSampleEndNotify(Rec_803A996C *ov) {
     u32 done;
 
     if (o->f4c == 1) {
@@ -1212,19 +1212,19 @@ void TLobby__sub_803B1AF4(Rec_803A996C *ov) {
             o->f38 = o->f60;
             o->f34 = o->f54;
             o->f54 = 0;
-            TLobby__sub_803B1F24(o);
+            macMakeActive(o);
             done = 1;
         } else {
             done = 0;
         }
         if (done == 0 && (o->flags & 0x40000) != 0) {
-            TLobby__sub_803B1F24(o);
+            macMakeActive(o);
         }
     }
 }
 #undef o
 
-void key_off_sound_program(Rec_803A9454 *arg0) {
+void macSetExternalKeyoff(Rec_803A9454 *arg0) {
     Ch_803B1BA4 *o = (Ch_803B1BA4 *)arg0;
     u32 done;
 
@@ -1235,13 +1235,13 @@ void key_off_sound_program(Rec_803A9454 *arg0) {
                 o->f38 = o->f5c;
                 o->f34 = o->f50;
                 o->f50 = 0;
-                TLobby__sub_803B1F24(o);
+                macMakeActive(o);
                 done = 1;
             } else {
                 done = 0;
             }
             if (done == 0 && (o->flags & 4) != 0) {
-                TLobby__sub_803B1F24(o);
+                macMakeActive(o);
             }
         } else {
             o->flags |= 0x40000000000ULL;
@@ -1251,7 +1251,7 @@ void key_off_sound_program(Rec_803A9454 *arg0) {
 
 #undef FLAGS
 #define FLAGS (*(u64 *)&v->fh)
-void TLobby__sub_803B1C98(Voice_803B1C98 *v, u32 hold) {
+void macSetPedalState(Voice_803B1C98 *v, u32 hold) {
     u32 started;
 
     if (hold != 0) {
@@ -1263,13 +1263,13 @@ void TLobby__sub_803B1C98(Voice_803B1C98 *v, u32 hold) {
             v->i38 = v->i5C;
             v->i34 = v->i50;
             v->i50 = 0;
-            TLobby__sub_803B1F24(v);
+            macMakeActive(v);
             started = 1;
         } else {
             started = 0;
         }
         if (started == 0 && (FLAGS & 4ULL) != 0) {
-            TLobby__sub_803B1F24(v);
+            macMakeActive(v);
         }
     }
     FLAGS &= ~0x50000000000ULL;
@@ -1277,7 +1277,7 @@ void TLobby__sub_803B1C98(Voice_803B1C98 *v, u32 hold) {
 #undef FLAGS
 #define FLAGS (*(u64 *)&o->fh)
 
-void enqueue_sound_program_deadline(Program_803B1DA4 *self) {
+void TimeQueueAdd(Program_803B1DA4 *self) {
     Program_803B1DA4 *p;
     Program_803B1DA4 *prev;
     p = lbl_805D7420;
@@ -1307,7 +1307,7 @@ void enqueue_sound_program_deadline(Program_803B1DA4 *self) {
     }
 }
 
-void dequeue_sound_program_deadline(Ch_803B1E48 *o, u32 arg1) {
+void UnYieldMacro(Ch_803B1E48 *o, u32 arg1) {
     if (o->f98 != 0) {
         if (o->f98 != -1) {
             if (o->prev == NULL) {
@@ -1320,7 +1320,7 @@ void dequeue_sound_program_deadline(Ch_803B1E48 *o, u32 arg1) {
             }
         }
         if (arg1 == 0) {
-            TLobby__sub_803A8CC0(o);
+            synthForceLowPrecisionUpdate(o);
         }
         o->f98 = 0;
         o->fa0 = lbl_805D7428;
@@ -1331,7 +1331,7 @@ void dequeue_sound_program_deadline(Ch_803B1E48 *o, u32 arg1) {
 #define p1F24 ((V_803B1F24 *)arg0)
 #undef FLAGS
 #define FLAGS (*(u64 *)&p1F24->fh)
-void TLobby__sub_803B1F24(void *arg0) {
+void macMakeActive(void *arg0) {
     if (p1F24->i4C != 0) {
         if (p1F24->deadline != 0) {
             if (p1F24->deadline != 0xFFFFFFFFFFFFFFFFULL) {
@@ -1344,7 +1344,7 @@ void TLobby__sub_803B1F24(void *arg0) {
                     p1F24->next->prev = p1F24->prev;
                 }
             }
-            TLobby__sub_803A8CC0(p1F24);
+            synthForceLowPrecisionUpdate(p1F24);
             p1F24->deadline = 0;
             p1F24->started = lbl_805D7428;
             FLAGS &= ~0x40004ULL;
@@ -1362,7 +1362,7 @@ void TLobby__sub_803B1F24(void *arg0) {
 #define FLAGS (*(u64 *)&o->fh)
 
 #define o ((Ch_803B202C *)ov)
-void set_sound_program_wait_state(Obj_803B312C *ov, s32 state) {
+void macMakeInactive(Obj_803B312C *ov, s32 state) {
     if (o->state == state) {
         return;
     }
@@ -1399,7 +1399,7 @@ void set_sound_program_wait_state(Obj_803B312C *ov, s32 state) {
 
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
 
-u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
+u32 macStart(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
                       u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15) {
     u32 macro;
     s32 flag;
@@ -1408,19 +1408,19 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
     Voice_803B2128 *v;
     u32 vid;
 
-    macro = start_sound_macro(arg0);
+    macro = dataGetMacro(arg0);
     if (macro != 0) {
         flag = arg4 & 0x80;
         if (flag == 0) {
-            r = lookup_sound_bank_index(arg8, arg7);
+            r = seqGetMIDIPriority(arg8, arg7);
             if (r != 0xFFFF) {
                 arg1 = r;
             }
         }
-        id = allocate_sound_voice(arg1, arg2, arg3, flag != 0 ? 1 : 0);
+        id = voiceAllocate(arg1, arg2, arg3, flag != 0 ? 1 : 0);
         if (id != 0xFFFFFFFF) {
             v = (Voice_803B2128 *)((u8 *)lbl_805D73B0 + id * 0x404);
-            unlink_sound_program((Prog_803B25CC *)v);
+            vidRemoveVoiceReferences((Prog_803B25CC *)v);
             if (v->state != 2) {
                 if (v->state == 0) {
                     if (v->prev == NULL) {
@@ -1432,19 +1432,19 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
                         v->next->prev = v->prev;
                     }
                 }
-                dequeue_sound_program_deadline((Ch_803B1E48 *)v, 1);
+                UnYieldMacro((Ch_803B1E48 *)v, 1);
                 v->state = 2;
             }
             v->flags = (v->flags & 0x10) | 2;
-            if (is_sound_hw_voice_active(id) != 0) {
+            if (hwIsActive(id) != 0) {
                 v->flags |= 1;
             }
             v->f98 = 0;
             if (flag != 0) {
                 v->f11D = 1;
                 arg4 &= 0x7F;
-                TLobby__sub_803BB4F0(id, 0xFF, 1);
-                TLobby__sub_803BB8AC(id, 0xFF);
+                inpResetMidiCtrl(id, 0xFF, 1);
+                inpResetChannelDefaults(id, 0xFF);
                 v->f20A = id;
                 v->f20B = 0xFF;
                 v->f20C = 0;
@@ -1478,11 +1478,11 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
             v->f3ED = 0;
             v->f3EC = 0;
             v->fF4 = id | ((arg0 << 16) | ((arg4 << 8) & 0xFF00));
-            TLobby__sub_803B2B60(v, arg1);
-            vid = alloc_sound_voice_id((SYNTH_VOICE_SV *)v, arg12);
+            voiceSetPriority(v, arg1);
+            vid = vidMakeNew((SYNTH_VOICE_SV *)v, arg12);
             if (vid != 0xFFFFFFFF) {
                 if (v->state != 0) {
-                    dequeue_sound_program_deadline((Ch_803B1E48 *)v, 0);
+                    UnYieldMacro((Ch_803B1E48 *)v, 0);
                     if ((v->next = HEAD) != NULL) {
                         HEAD->prev = v;
                     }
@@ -1492,10 +1492,10 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
                 }
                 return vid;
             }
-            if (is_sound_hw_voice_active(id) != 0) {
-                TLobby__sub_803BCEC8(id);
+            if (hwIsActive(id) != 0) {
+                hwBreak(id);
             }
-            free_sound_voice((Obj_803B312C *)v);
+            voiceFree((Obj_803B312C *)v);
         }
     }
     return -1;
@@ -1504,7 +1504,7 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
 #pragma push
 #pragma opt_common_subs on
 #define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
-void TLobby__sub_803B2438(void) {
+void macInit(void) {
     u32 i;
     lbl_805D741C = 0;
     lbl_805D7420 = 0;

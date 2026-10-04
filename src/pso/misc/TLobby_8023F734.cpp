@@ -23,12 +23,12 @@ struct Params_80240B64 {
 
 extern "C" {
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_803AA0E0(int, int, int);
+M2C_UNK sndFXCtrl(int, int, int);
 void send_voice_controller_updates(u8 *arg0);
 int TLobby__sub_80240E8C(void);
 extern const f32 lbl_805DC9E4;
 s32 TLobby__sub_80242058(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-M2C_UNK TLobby__sub_803AA1A0(int);
+M2C_UNK sndFXKeyOff(int);
 s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32);
@@ -42,9 +42,9 @@ void TLobby__sub_80241A0C(void);
 void send_voice_controller_updates(u8 *arg0);
 void clamp_params__6TLobbyFPv(void *arg0);
 void calc_sound_spatial_params(SoundRequestVoice *);
-M2C_UNK TLobby__sub_803AA1A0(int);
-u32 start_sound_fx(u16, u8, u8, u8, Params_80240B64 *);
-u32 TLobby__sub_803AA2B8(u32);
+M2C_UNK sndFXKeyOff(int);
+u32 sndFXStartParaInfo(u16, u8, u8, u8, Params_80240B64 *);
+u32 sndFXCheck(u32);
 extern s8 TLobby__data_805434A8[];
 extern s32 TLobby__data_805D5E24;
 s32 tick_sound_voice(SoundRequestVoice *v);
@@ -106,7 +106,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
         if (!(TLobby__data_805D5E24 & 2) && TLobby__data_805434A8[7] == 0) {
             level = OSDisableInterrupts();
         }
-        v->token = start_sound_fx(v->effect, 0x7F, v->pan, v->studio, &params);
+        v->token = sndFXStartParaInfo(v->effect, 0x7F, v->pan, v->studio, &params);
         send_voice_controller_updates((u8 *)v);
         if (!(TLobby__data_805D5E24 & 2) && TLobby__data_805434A8[7] == 0) {
             OSRestoreInterrupts(level);
@@ -130,7 +130,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
         v->age++;
         fade = v->fade;
         if (fade <= -0x7F) {
-            TLobby__sub_803AA1A0(v->token);
+            sndFXKeyOff(v->token);
             v->state = 0;
             break;
         }
@@ -149,9 +149,9 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
         send_sound_request_reverb((SoundRequestVoice *)(v));
         clamp_params__6TLobbyFPv(v);
         update__6TLobbyFPv(v);
-        if (TLobby__sub_803AA2B8(v->token) == 0xFFFFFFFF) {
+        if (sndFXCheck(v->token) == 0xFFFFFFFF) {
             if ((v->flags & 1) && v->refresh >= 0) {
-                TLobby__sub_803AA1A0(v->token);
+                sndFXKeyOff(v->token);
                 v->previousPan = v->previousSurround = v->previousVolume = 0x88888888;
                 goto start;
             }
@@ -160,7 +160,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
             send_voice_controller_updates((u8 *)v);
             TLobby__sub_802409F0(v);
             if ((v->flags & 1) && v->refresh < 0) {
-                TLobby__sub_803AA1A0(v->token);
+                sndFXKeyOff(v->token);
                 v->state = 0;
             }
         }
@@ -197,7 +197,7 @@ void send_sound_request_reverb(SoundRequestVoice *voice) {
         }
     }
     if (voice->previousReverb != u8(amount))
-        TLobby__sub_803AA0E0(voice->token, 91, amount);
+        sndFXCtrl(voice->token, 91, amount);
 }
 
 void send_voice_controller_updates(u8 *arg0) {
@@ -209,21 +209,21 @@ void send_voice_controller_updates(u8 *arg0) {
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x24);
     if (temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x28)) {
         M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(arg0, s32 *, 0x28);
-        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (7), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x28)));
+        sndFXCtrl((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (7), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x28)));
     }
     temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x2C);
     if (temp_r3_2 != (s32) M2C_FIELD(arg0, s32 *, 0x30)) {
         M2C_FIELD(arg0, s32 *, 0x2C) = M2C_FIELD(arg0, s32 *, 0x30);
-        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0xA), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x30)));
+        sndFXCtrl((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0xA), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x30)));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x10) == 5) {
-        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0x83), (int) (0U));
+        sndFXCtrl((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0x83), (int) (0U));
         return;
     }
     temp_r3_3 = M2C_FIELD(arg0, s32 *, 0x34);
     if (temp_r3_3 != (s32) M2C_FIELD(arg0, s32 *, 0x38)) {
         M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(arg0, s32 *, 0x38);
-        TLobby__sub_803AA0E0((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0x83), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x38)));
+        sndFXCtrl((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (0x83), (int) ((u8) M2C_FIELD(arg0, s32 *, 0x38)));
     }
         break;
     }
@@ -263,7 +263,7 @@ s32 start_voice_fade(struct Voice_80241FD8 *v, s32 step) {
                 v->fade = -step;
             } else {
                 if (step == 0 && v->state == 1) {
-                    TLobby__sub_803AA1A0(v->token);
+                    sndFXKeyOff(v->token);
                 }
                 v->state = 0;
             }

@@ -1625,6 +1625,7 @@ pso/misc/TShopEquipmentSellWindow_803094E8.cpp
 pso/misc/TShopEquipmentSequence.cpp
 pso/misc/TShopEquipmentSequence_8021E2E4.cpp
 pso/misc/TShopGenerator.cpp
+pso/misc/TShopGetItemWindow.cpp
 pso/misc/TShopGetItemWindow_8021EEE4.cpp
 pso/misc/TShopGetItemWindow_8021F074.cpp
 pso/misc/TShopGetItemWindow_8021F0A4.cpp

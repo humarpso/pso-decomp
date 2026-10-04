@@ -23,7 +23,7 @@ static StreamBuffer_803BDCD0 aramStreamBuffers[64];
 #define lbl_8056E3DC (*(Obj_803BDCB8 *)&aramQueueHi)
 #define lbl_8056E660 ((Rec_803BE1EC *)aramStreamBuffers)
 
-void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg) {
+void aramUploadData(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg) {
     Q_803BDAE4 *q;
     s32 lvl;
     q = (u32)dir != 0 ? (Q_803BDAE4 *)&lbl_8056E3DC : (Q_803BDAE4 *)&lbl_8056E158;
@@ -36,7 +36,7 @@ void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *ar
             q->reqs[q->wp].src = src;
             q->reqs[q->wp].dst = dst;
             q->reqs[q->wp].len = len;
-            q->reqs[q->wp].cb = (void *)TLobby__sub_803BDA4C;
+            q->reqs[q->wp].cb = (void *)aramQueueCallback;
             q->reqs[q->wp].f20 = cb;
             q->reqs[q->wp].f24 = arg;
             ARQPostRequest(&q->reqs[q->wp], q->reqs[q->wp].owner, q->reqs[q->wp].type, q->reqs[q->wp].prio,
@@ -50,7 +50,7 @@ void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *ar
     }
 }
 
-void TLobby__sub_803BDCB8(void) {
+void aramSyncTransferQueue(void) {
     while (lbl_8056E158.lo.valid != 0) {
     }
 }
@@ -70,14 +70,14 @@ static inline void aramSyncTransferQueue_803BDCD0(void) {
     }
 }
 
-void TLobby__sub_803BDCD0(u32 length) {
+void aramInit(u32 length) {
     s16 *tmpMem;
     u32 i;
     u32 aramBase;
 
     aramBase = ARGetBaseAddress();
 
-    tmpMem = (s16 *)TLobby__sub_803BE7B0(sizeof(s16) * 640);
+    tmpMem = (s16 *)salMalloc(sizeof(s16) * 640);
 
     for (i = 0; i < 640; ++i) {
         tmpMem[i] = 0;
@@ -85,9 +85,9 @@ void TLobby__sub_803BDCD0(u32 length) {
 
     DCFlushRange(tmpMem, sizeof(s16) * 640);
     aramQueueInit_803BDCD0();
-    TLobby__sub_803BDAE4((u8 *)tmpMem, aramBase, sizeof(s16) * 640, 0, 0, 0);
+    aramUploadData((u8 *)tmpMem, aramBase, sizeof(s16) * 640, 0, 0, 0);
     aramSyncTransferQueue_803BDCD0();
-    TLobby__sub_803BE7D8((s32)tmpMem);
+    salFree((s32)tmpMem);
     lbl_805D74C8 = aramBase + length;
     if (lbl_805D74C8 > ARGetSize()) {
         lbl_805D74C8 = ARGetSize();
@@ -95,15 +95,15 @@ void TLobby__sub_803BDCD0(u32 length) {
 
     *(u32 *)&lbl_805D74CC = aramBase + sizeof(s16) * 640;
     lbl_805D74D4 = 0;
-    TLobby__sub_803BE018();
+    InitStreamBuffers();
 }
 #pragma pop
 
-u32 TLobby__sub_803BDEF0(void) {
+u32 aramGetZeroBuffer(void) {
     return ARGetBaseAddress();
 }
 
-s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
+s32 aramStoreData(u8 *src, u32 size) {
     u32 chunk;
     s32 start;
     u8 *buf;
@@ -112,7 +112,7 @@ s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
     start = lbl_805D74CC;
     if (lbl_805D74D4 == 0) {
         DCFlushRange(src, len);
-        TLobby__sub_803BDAE4((u8 *)(src), (u32)(lbl_805D74CC), (u32)(len), (s32)(0), (void *)(0), (void *)(0));
+        aramUploadData((u8 *)(src), (u32)(lbl_805D74CC), (u32)(len), (s32)(0), (void *)(0), (void *)(0));
         lbl_805D74CC += len;
         return start;
     } else {
@@ -120,7 +120,7 @@ s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
             chunk = len >= lbl_805D74D8 ? lbl_805D74D8 : len;
             buf = lbl_805D74D4(src, chunk);
             DCFlushRange(buf, chunk);
-            TLobby__sub_803BDAE4((u8 *)(buf), (u32)(lbl_805D74CC), (u32)(chunk), (s32)(0), (void *)(0), (void *)(0));
+            aramUploadData((u8 *)(buf), (u32)(lbl_805D74CC), (u32)(chunk), (s32)(0), (void *)(0), (void *)(0));
             len -= chunk;
             src += chunk;
             lbl_805D74CC += chunk;
@@ -129,11 +129,11 @@ s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
     return start;
 }
 
-void TLobby__sub_803BE000(s32 arg0, s32 arg1) {
+void aramRemoveData(s32 arg0, s32 arg1) {
     lbl_805D74CC -= (arg1 + 0x1F) & 0xFFFFFFE0;
 }
 
-void TLobby__sub_803BE018(void) {
+void InitStreamBuffers(void) {
     u32 i;
     *(StreamBuffer_803BDCD0 **)&lbl_805D74DC = 0;
     *(StreamBuffer_803BDCD0 **)&lbl_805D74E0 = 0;
@@ -145,7 +145,7 @@ void TLobby__sub_803BE018(void) {
     *(u32 *)&lbl_805D74D0 = lbl_805D74C8;
 }
 
-void *TLobby__sub_803BE0E0(u32 arg0) {
+void *aramAllocateStreamBuffer(u32 arg0) {
     Rec_803BE1EC *p;
     Rec_803BE1EC *found;
     Rec_803BE1EC *prev;
@@ -196,7 +196,7 @@ void *TLobby__sub_803BE0E0(u32 arg0) {
     return (void *)(u8)(found - lbl_8056E660);
 }
 
-u32 TLobby__sub_803BE1EC(u8 i, u32 *out) {
+u32 aramGetStreamBufferAddress(u8 i, u32 *out) {
     if (out != 0) {
         *out = aramStreamBuffers[i].length;
     }
@@ -210,7 +210,7 @@ u32 TLobby__sub_803BE1EC(u8 i, u32 *out) {
 #define aramUsedStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74DC)
 #define aramFreeStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74E0)
 #define aramIdleStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74E4)
-void TLobby__sub_803BE224(u8 id) {
+void aramFreeStreamBuffer(u8 id) {
     StreamBuffer_803BDCD0 *fSb;
     StreamBuffer_803BDCD0 *sb;
     StreamBuffer_803BDCD0 *lastSb;
