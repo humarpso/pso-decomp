@@ -1,0 +1,904 @@
+#ifndef MUSYX_RUNTIME_B_H
+#define MUSYX_RUNTIME_B_H
+
+#pragma dont_inline on
+#include "types.h"
+#include "pso/audio/SoundMixVoice.h"
+#include "pso/audio/SoundReverb.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_803C0B08_lbl_80570AC0 {
+    M2C_UNK value;
+    u8 remaining[0x9BC];
+};
+
+struct RecoveredGlobal_803C0AD8_lbl_80570AC0 {
+    M2C_UNK value;
+    u8 remaining[0x9BC];
+};
+
+struct RecoveredGlobal_803BD5C4_lbl_805663D8 {
+    M2C_UNK value;
+    u8 remaining[0x6DC];
+};
+
+struct TLobbySlot_803BD214 {
+    u8 pad_0[0x24];
+    s32 flags;
+    u8 pad_28[0xA4];
+    u16 code_cc;
+    u16 code_ce;
+    u8 pad_d0[0x24];
+};
+
+struct Obj_803BE860 {
+    u8 pad[0x1c4];
+    u8 flag;
+    f32 a, b, c, d, e, f;
+};
+
+struct Rec_803BE528 { u8 data[0x280]; };
+
+struct Slot_803BCCE0 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BD110 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BD124 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BD0FC {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BCD08 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BD0C8 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BD0E8 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BD174 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Slot_803BDA2C {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Obj_803BDCB8 { u8 pad[0x281]; volatile u8 busy; };
+
+struct Rec_803BE1EC { u32 f0; u32 f4; u32 f8; u32 fc; };
+
+struct Slot_803BD138 {
+    u8 pad_0[0x1c]; s32 f1c; u32 f20; u32 f24[4]; u8 pad_34[0x70 - 0x34];
+    u16 f70; u8 pad_72[0x90 - 0x72]; u8 f90; u8 pad_91[3]; s32 f94; s32 f98;
+    u8 f9c; u8 pad_9d[3]; u8 fa0; u8 pad_a1[0xd4 - 0xa1]; u8 fd4; u8 pad_d5[0xec - 0xd5];
+    u8 fec; u8 pad_ed[0xf4 - 0xed];
+};
+
+struct Rec_803BD62C { u8 pad[0xBC]; };
+
+struct Rec_803BD660 { u8 pad[0xBC]; };
+
+typedef struct Lob_803BBFB8 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x238 - 0x218];
+    u16 v;
+} Lob_803BBFB8;
+
+typedef struct Lob_803BC000 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x25C - 0x218];
+    u16 v;
+} Lob_803BC000;
+
+typedef struct Lob_803BC048 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x280 - 0x218];
+    u16 v;
+} Lob_803BC048;
+
+typedef struct Lob_803BC090 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x2A4 - 0x218];
+    u16 v;
+} Lob_803BC090;
+
+typedef struct Lob_803BC0D8 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x2C8 - 0x218];
+    u16 v;
+} Lob_803BC0D8;
+
+typedef struct Lob_803BC120 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x2EC - 0x218];
+    u16 v;
+} Lob_803BC120;
+
+typedef struct Lob_803BC168 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x310 - 0x218];
+    u16 v;
+} Lob_803BC168;
+
+typedef struct Lob_803BC1B0 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x358 - 0x218];
+    u16 v;
+} Lob_803BC1B0;
+
+typedef struct Lob_803BC1F8 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x37C - 0x218];
+    u16 v;
+} Lob_803BC1F8;
+
+typedef struct Lob_803BC240 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x3A0 - 0x218];
+    u16 v;
+} Lob_803BC240;
+
+typedef struct Lob_803BC288 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x3C4 - 0x218];
+    u16 v;
+} Lob_803BC288;
+
+typedef struct Lob_803BC2D0 {
+    u8 pad0[0x121];
+    u8 b121;
+    u8 b122;
+    u8 pad123[0x214 - 0x123];
+    s32 flags;
+    u8 pad218[0x3E8 - 0x218];
+    u16 v;
+} Lob_803BC2D0;
+
+struct Slot_803BCEC8 {
+    u8 pad_0[0x24]; u32 f24[0x1f];
+    u8 pad_a0[0xec - 0xa0]; u8 fec; u8 ffd; u8 fee; u8 pad_ef[5];
+};
+
+struct Slot_803BD19C {
+    u8 pad_0[0x24]; u32 f24[4]; u32 f34; u32 f38[0x1f];
+    u8 pad_b4[0xe4 - 0xb4 - 0x0]; u8 fe4; u8 pad_e5[0xf4 - 0xe5];
+};
+
+typedef M2C_UNK (*RecoveredCallback_d26337a2813d)();
+
+struct Cb_803BE7D8 { s32 a; void (*fn)(s32); };
+
+struct Slot_803BD26C {
+    u8 pad_0[0xd0]; s16 fd0; s16 fd2; u8 pad_d4[0xf0 - 0xd4]; u32 ff0;
+};
+
+struct Ent_803BB8F0 { u8 code; u8 flags; u8 pad[2]; s32 val; };
+
+struct Obj_803BB8F0 { Ent_803BB8F0 ents[4]; u8 pad20[2]; u8 count; };
+
+struct Obj_803BC7E4 { u8 pad[0x121]; u8 b121; u8 b122; u8 pad123[0x1C4 - 0x123]; s16 v1c4; u8 pad1c6[0x1D0 - 0x1C6]; s16 v1d0; };
+
+struct Obj_803BC884 { u8 pad[0x121]; u8 b121; u8 b122; };
+
+struct Slot_803BD694 {
+    u8 pad_0[0x20]; u32 f20; u8 pad_24[0x78 - 0x24]; u32 f78; u8 pad_7c[0x90 - 0x7C];
+    u8 f90; u8 pad_91[0xEC - 0x91]; u8 fec; u8 pad_ed[0xF4 - 0xED];
+};
+
+struct Hdr_803BD8A8 { u32 f0; u32 info; };
+
+struct Hdr_803BD93C { u32 f0; u32 info; };
+
+typedef u8 * (*RecoveredCallback_fa840eeea008)(u8 *, u32);
+
+#define SLOTS_803BCD1C (*(Slot_803BCD1C **)&lbl_805D748C)
+struct Blk_803BCD1C { s32 w[8]; };
+
+struct Slot_803BCD1C {
+    u8 pad_0[0x18]; s32 f18; s32 f1c; u8 pad_20[4]; s32 f24[19]; s16 f70; u8 pad_72[2];
+    Blk_803BCD1C f74; u8 pad_94[0xA4 - 0x94]; s8 fa4; u8 pad_a5[0xB8 - 0xA5];
+    s32 fb8; s32 fbc; s16 fc0; u8 pad_c2[2]; s32 fc4; u8 pad_c8[0xE4 - 0xC8];
+    u8 fe4; u8 fe5; u8 fe6; u8 fe7; u8 pad_e8[0xF0 - 0xE8]; s32 ff0;
+};
+
+#define SLOTS_803BCF18 (*(Slot_803BCF18 **)&lbl_805D748C)
+struct Slot_803BCF18 {
+    u8 pad_0[0x24]; s32 f24; u8 pad_28[0xA4 - 0x28]; s8 fa4; u8 pad_a5[0xB8 - 0xA5];
+    s32 fb8; s32 fbc; u16 fc0; u8 pad_c2[2]; s32 fc4; s8 fc8; s8 fc9; s8 fca; u8 pad_cb[0xF4 - 0xCB];
+};
+
+struct ArgA_803BCF18 { u16 f0; u16 f2; u16 f4; u16 f6; };
+
+struct ArgB_803BCF18 { s32 f0; s32 f4; u16 f8; u16 fa; };
+
+struct Req_803BDAE4 {
+    void *next; s32 owner; s32 type; s32 prio; u8 *src; u32 dst; u32 len; void *cb; void *f20; void *f24;
+};
+
+struct Q_803BDAE4 { Req_803BDAE4 reqs[16]; volatile u8 wp; volatile u8 count; };
+
+struct ARQRequest_803BDCD0 {
+    ARQRequest_803BDCD0 *next;
+    u32 owner;
+    u32 type;
+    u32 priority;
+    u32 source;
+    u32 dest;
+    u32 length;
+    void (*callback)(u32);
+};
+
+struct ARAMTransferJob_803BDCD0 {
+    ARQRequest_803BDCD0 arq;
+    void (*callback)(u32);
+    u32 user;
+};
+
+struct ARAMTransferQueue_803BDCD0 {
+    ARAMTransferJob_803BDCD0 queue[16];
+    volatile u8 write;
+    volatile u8 valid;
+};
+
+struct AramQueues_803BDCD0 {
+    ARAMTransferQueue_803BDCD0 lo;
+    ARAMTransferQueue_803BDCD0 hi;
+};
+
+struct StreamBuffer_803BDCD0 {
+    StreamBuffer_803BDCD0 *next;
+    u32 aram;
+    u32 length;
+    u32 allocLength;
+};
+
+typedef struct S_803BF408 {
+    u8 pad0[0x1A8];
+    f32 f1A8;
+} S_803BF408;
+
+struct Src_803BF884 {
+    s32 *dest;
+    s32 *smpBase;
+    s32 *old;
+    u32 posLo;
+    u32 posHi;
+    u32 pitchLo;
+    u32 pitchHi;
+};
+
+struct Work_803BF884 {
+    s32 *lastLeft[3];
+    s32 *lastRight[3];
+    s32 *lastSur[3];
+    u8 currentLast;
+    s32 oldLeft[4];
+    s32 oldRight[4];
+    s32 oldSur[4];
+    u32 currentPosLo;
+    u32 currentPosHi;
+    s32 pitchOffset;
+    u32 pitchOffsetPeriodCount;
+    u32 pitchOffsetPeriod;
+    Src_803BF884 src;
+};
+
+struct Info_803BF884 {
+    s32 *left;
+    s32 *right;
+    s32 *surround;
+};
+
+struct Pair_803BD9E4 { s32 a; s32 b; };
+
+typedef struct Src_803BBB30 {
+    u8 midiCtrl;
+    u8 combine;
+    u8 pad2[2];
+    s32 scale;
+} Src_803BBB30;
+
+typedef struct Inp_803BBB30 {
+    Src_803BBB30 source[4];
+    u16 oldValue;
+    u8 numSource;
+} Inp_803BBB30;
+
+typedef struct Lfo_803BBB30 {
+    u8 pad0[8];
+    s16 value;
+    u8 padA[2];
+} Lfo_803BBB30;
+
+typedef struct Voice_803BBB30 {
+    u8 pad0[0x90];
+    u64 time;
+    u8 pad98[0xA8 - 0x98];
+    u8 timeUsedByInput;
+    u8 padA9[0x12F - 0xA9];
+    u8 b12F;
+    u8 pad130[0x158 - 0x130];
+    u32 w158;
+    u8 pad15C[0x1BC - 0x15C];
+    Lfo_803BBB30 lfo[2];
+    u8 lfoUsedByInput[2];
+} Voice_803BBB30;
+
+struct Vec_803BAD1C { f32 x; f32 y; f32 z; };
+
+extern "C" {
+extern s8 lbl_805D74B8;
+void set_global_flag__6TLobbyFc(s8 arg0);
+extern s8 lbl_805D74B8;
+u8 TLobby__sub_803BCCD8(void);
+extern s32 lbl_805D7490;
+void set_global_7490__6TLobbyFi(s32 arg0);
+extern M2C_UNK lbl_805D4638;
+extern s32 lbl_805D748C;
+void TLobby__sub_803BD214(s32 index, u8 entry);
+extern s32 lbl_805D748C;
+extern M2C_UNK lbl_805D4640;
+void TLobby__sub_803BD240(s32 index, u8 entry);
+void TLobby__sub_803BD26C(s32 i, u8 mode);
+M2C_UNK TLobby__sub_803B89B4(void *);
+void TLobby__sub_803BD598(s32 arg0);
+void TLobby__sub_803BD824(void);
+void TLobby__sub_803BD9E0(void);
+extern s32 lbl_805D747C;
+void TLobby__sub_803BD9F8(void);
+extern s32 lbl_805D748C;
+s32 get_slot_value__6TLobbyFi(s32 arg0);
+extern s32 lbl_805D74CC;
+void TLobby__sub_803BE000(s32 arg0, s32 arg1);
+void TLobby__sub_803BE0DC(void);
+extern s32 lbl_805D74F0;
+extern s32 lbl_805D7500;
+extern void (*lbl_805D74E8)(void);
+extern s32 lbl_805D74F4;
+extern s32 lbl_805D74F8;
+void AIInitDMA(u32 addr, u32 length);
+void AIRegisterDMACallback(void (*)(void));
+void TLobby__sub_803BE320(void);
+void TLobby__sub_803BE3C4(void);
+s32 get_offset_58__6TLobbyFi(s32 arg0);
+M2C_UNK get_field_34__6TLobbyFPv(int);
+void TLobby__sub_803BFE58(u8 *arg0);
+M2C_UNK get_field30__6TLobbyFPv(int);
+void dispatch_field4_event__6TLobbyFPv(u8 *arg0);
+M2C_UNK get_field_2c__6TLobbyFPv(int);
+void send_with_offset4_alt__6TLobbyFPv(u8 *arg0);
+M2C_UNK get_field_28__6TLobbyFPv(int);
+void notify_client__6TLobbyFPv(u8 *arg0);
+M2C_UNK get_slot__6TLobbyFPv(int);
+void TLobby__sub_803BFEE8(u8 *arg0);
+M2C_UNK TLobby__sub_803C3ABC(int);
+void send_packet_by_id__6TLobbyFPv(u8 *arg0);
+M2C_UNK TLobby__sub_803C3AC4(int);
+void notify_field_4_alt__6TLobbyFPv(u8 *arg0);
+M2C_UNK TLobby__sub_803C3ACC(int);
+void send_packet_by_id_2__6TLobbyFPv(u8 *arg0);
+M2C_UNK TLobby__sub_803C3B38(int);
+void send_with_offset4__6TLobbyFPv(u8 *arg0);
+M2C_UNK TLobby__sub_803C3B44(int);
+void notify_field_4__6TLobbyFPv(u8 *arg0);
+M2C_UNK get_field_a8__6TLobbyFPv(int);
+void TLobby__sub_803BFFC0(u8 *arg0);
+void set_field_44__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void set_field_40__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void set_field_3c__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2);
+void set_count__6TLobbyFPvi(u8 *arg0, s32 arg1);
+s32 TLobby__sub_803C0010(u8 *arg0);
+M2C_UNK TLobby__sub_803C39CC(int);
+void reset_flag__6TLobbyFPv(u8 *arg0);
+void TLobby__sub_803C0758(u8 *arg0);
+M2C_UNK TLobby__sub_803C1A00(int);
+void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1);
+M2C_UNK TLobby__sub_803C1A24(int);
+void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void clear_record__6TLobbyFPv(void *);
+void release_ref__6TLobbyFv(void);
+void init_once__6TLobbyFv(void);
+M2C_UNK memset(void *, int, int);
+M2C_UNK memset(void *, int, int);
+void TLobby__sub_803C07F4(u8 *arg0);
+M2C_UNK memset(void *, int, int);
+extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
+void TLobby__sub_803C0AD8(void);
+M2C_UNK memset(void *, int, int);
+void TLobby__sub_803C406C(void);
+extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
+void TLobby__sub_803C0B08(void);
+s32 EXIGetID(void *);
+s32 TLobby__sub_803C0F98(void *);
+s32 TLobby__sub_803C133C(void *);
+void TLobby__sub_803C0B3C(u8 *arg0);
+extern SoundStudioMixView lbl_805663D8[];
+void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 TLobby__sub_803BC774(u8 arg0);
+s32 OSDisableInterrupts(void);
+void TLobby__sub_803BE770(void);
+s32 OSRestoreInterrupts(s32 level);
+extern s32 lbl_805D7508;
+extern u16 lbl_805D7504;
+void sound_enable_irq(void);
+s32 create_sound_reverb_state(SoundReverb *self, f32 a, f32 b, f32 c, f32 d, f32 e, f32 f);
+void init_sound_reverb(Obj_803BE860 *self);
+s32 OSEnableInterrupts(void);
+void TLobby__sub_803BE790(void);
+s32 OSDisableInterrupts(void);
+extern s32 lbl_805D7508;
+extern u16 lbl_805D7504;
+void TLobby__sub_803BE6D4(void);
+extern u8 lbl_805D750C;
+extern Rec_803BE528 *lbl_805D74EC;
+Rec_803BE528 *TLobby__sub_803BE528(void);
+s32 OSDisableInterrupts(void);
+extern s32 lbl_805D7508;
+extern u16 lbl_805D7504;
+void sound_disable_irq(void);
+struct ChannelDefaults_803BADF8 { u8 pbRange; };
+struct SynthVoice_803BADF8 {
+    u8 pad0[0xF4];
+    u32 id;
+    u8 padF8[0x121 - 0xF8];
+    u8 midi;
+    u8 midiSet;
+    u8 pad123[0x1D6 - 0x123];
+    u8 pbLowerKeyRange;
+    u8 pbUpperKeyRange;
+    u8 pad1D8[0x214 - 0x1D8];
+    u32 midiDirtyFlags;
+    u8 pad218[0x404 - 0x218];
+};
+extern SynthVoice_803BADF8 *lbl_805D73B0;
+void TLobby__sub_803A8D04(SynthVoice_803BADF8 *svoice);
+void TLobby__sub_803BB98C(u8 ctrl, SynthVoice_803BADF8 *dvoice, SynthVoice_803BADF8 *svoice);
+#define lbl_80567958 midi_lastNote
+#define lbl_805679D8 fx_lastNote
+#define lbl_80567A18 midi_ctrl
+#define lbl_8056BD18 fx_ctrl
+#define lbl_8056DE98 inpGlobalMIDIDirtyFlags
+#define lbl_8056E098 ((u8 (*)[16])inpChannelDefaults)
+#define lbl_8056E118 ((u8 *)inpFXChannelDefaults)
+u8 *TLobby__sub_803BB870(u8 a, u8 b);
+struct Ent_803BC490 { u8 pad[0x22]; u8 f22; u8 pad23; };
+extern Inp_803BBB30 lbl_80557C6C[8][4];
+extern Inp_803BBB30 lbl_805580EC[8][4];
+extern u32 lbl_804F7120[];
+extern u32 lbl_804F7130[];
+void TLobby__sub_803BADD0(u8 a, u8 b, u32 v);
+extern s32 lbl_805D748C;
+bool is_sound_hw_voice_active(s32 i);
+extern s32 lbl_805D748C;
+u16 TLobby__sub_803BD110(s32 i);
+extern s32 lbl_805D748C;
+void TLobby__sub_803BD124(s32 i, u8 v);
+extern u32 lbl_805D4630;
+u16 TLobby__sub_803BC91C(void);
+extern s32 lbl_805D748C;
+u8 TLobby__sub_803BD0FC(s32 i);
+extern s32 lbl_805D748C;
+void set_sound_hw_voice_priority(s32 i, s32 v);
+extern s32 lbl_805D748C;
+void TLobby__sub_803BD0C8(s32 i, s32 a, s32 b);
+extern s32 lbl_805D748C;
+u8 TLobby__sub_803BD0E8(s32 i);
+extern s32 lbl_805D748C;
+extern s8 lbl_805D74B8;
+void key_off_sound_hw_voice(s32 i);
+void TLobby__sub_803B58DC(u8 i, s32 a, s32 b);
+void TLobby__sub_803BD5EC(u8 i, s32 a, s32 b);
+u32 TLobby__sub_803BD800(u8 i);
+void TLobby__sub_803BD9C0(void);
+void TLobby__sub_803BDCD0(u32 length);
+u32 ARGetSize(void);
+void TLobby__sub_803BE018(void);
+extern u32 lbl_805D74C8;
+void TLobby__sub_803BD884(void *self, void *p);
+void TLobby__sub_803BE224(u8 i);
+void TLobby__sub_803BD7E0(u8 i);
+void TLobby__sub_803B59E4(u8 i);
+void TLobby__sub_803BD60C(u8 i);
+extern s32 lbl_805D748C;
+bool TLobby__sub_803BDA2C(s32 i);
+void *TLobby__sub_803BD7C0(u32 size);
+u32 ARGetBaseAddress(void);
+u32 TLobby__sub_803BDEF0(void);
+extern AramQueues_803BDCD0 lbl_8056E158;
+void TLobby__sub_803BDCB8(void);
+extern Rec_803BE1EC lbl_8056E660[];
+u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
+void AIStartDMA(void);
+void TLobby__sub_803BE508(void);
+extern s32 lbl_805D748C;
+extern s8 lbl_805D74B8; void TLobby__sub_803B8910(Slot_803BD138 *s, s32 x);
+void TLobby__sub_803BD138(s32 i, s32 x);
+extern SoundStudioMixView lbl_805663D8[];
+void TLobby__sub_803B8A14(Rec_803BD62C *r, void *p);
+void TLobby__sub_803BD62C(u8 i, void *p);
+extern SoundStudioMixView lbl_805663D8[];
+void TLobby__sub_803B8ABC(Rec_803BD660 *r, u32 x);
+void TLobby__sub_803BD660(u8 i, u32 x);
+void TLobby__sub_803BB8AC(u8 arg0, u8 arg1);
+void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, u8 arg2);
+void *memcpy(void *dst, const void *src, u32 n);
+extern u8 lbl_8047C310[];
+extern u8 lbl_8047C398[];
+u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1);
+u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0);
+u16 TLobby__sub_803BC000(Lob_803BC000 *arg0);
+u16 TLobby__sub_803BC048(Lob_803BC048 *arg0);
+u16 TLobby__sub_803BC090(Lob_803BC090 *arg0);
+u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0);
+u16 TLobby__sub_803BC120(Lob_803BC120 *arg0);
+u16 TLobby__sub_803BC168(Lob_803BC168 *arg0);
+u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0);
+u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0);
+u16 TLobby__sub_803BC240(Lob_803BC240 *arg0);
+u16 TLobby__sub_803BC288(Lob_803BC288 *arg0);
+u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0);
+extern s16 lbl_804F7168[];
+s16 TLobby__sub_803BC93C(s32 arg0);
+u32 TLobby__sub_803A6F18(void *);
+void TLobby__sub_803BCA50(u32 *arg0, s32 arg1);
+extern s32 lbl_805D748C;
+extern s8 lbl_805D74B8;
+void TLobby__sub_803BCEC8(s32 i);
+extern s32 lbl_805D748C;
+extern s8 lbl_805D74B8;
+void TLobby__sub_803BD19C(s32 i, u16 v);
+M2C_UNK PPCSync();
+u32 DSPCheckMailToDSP();
+M2C_UNK DSPSendMailToDSP(void *);
+M2C_UNK update_sound_dsp_voices(void *, int);
+extern u16 lbl_805D7474;
+extern s32 lbl_805D7478;
+extern s32 lbl_805D74F0;
+void TLobby__sub_803BE614(s32 arg0);
+s32 OSGetTick();
+extern s32 lbl_805D74FC;
+u32 TLobby__sub_803BE688(void);
+extern RecoveredCallback_d26337a2813d lbl_805D74BC;
+f32* TLobby__sub_803BE7B0(s32 bytes);
+extern RecoveredCallback_d26337a2813d lbl_805D74BC;
+void TLobby__sub_803BE7D8(s32 arg0);
+void reverb_aux_callback(u8 arg0, u8 *arg1, u8 *arg2);
+u8 TLobby__sub_803BC774(u8 arg0);
+void TLobby__sub_803BB8F0(Obj_803BB8F0 *arg0, u8 arg1, s32 arg2, u8 arg3, u32 arg4);
+u8 TLobby__sub_803BC774(u8 arg0);
+u16 TLobby__sub_803BB5E4(u8 arg0, u8 arg1, u8 arg2);
+u16 TLobby__sub_803BC7E4(Obj_803BC7E4 *arg0, u8 arg1);
+u8 TLobby__sub_803BC774(u8 arg0);
+void TLobby__sub_803BC884(Obj_803BC884 *arg0, u8 arg1, s16 arg2);
+extern s32 lbl_805D748C;
+u32 TLobby__sub_803BD694(s32 arg0);
+void DCStoreRange(void *addr, u32 nBytes);
+u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
+void TLobby__sub_803BD738(u8 *base, u32 offset, u32 len, u8 i, void *cb, void *arg);
+void TLobby__sub_803BD8A8(Hdr_803BD8A8 **arg0, u32 *arg1);
+void TLobby__sub_803BE000(s32 arg0, s32 arg1);
+void TLobby__sub_803BD93C(Hdr_803BD93C *arg0, u32 arg1);
+void TLobby__sub_803BE6D4(void);
+void sound_enable_irq(void);
+void TLobby__sub_803BE508(void);
+u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq);
+u32 TLobby__sub_803B5500(u8 arg0, u8 arg1, bool arg2);
+u32 TLobby__sub_803BE554(u32 arg0);
+void TLobby__sub_803BCAA0(void);
+extern s32 lbl_805D7490;
+extern u8 lbl_805D74C6;
+extern u8 lbl_805D74C7;
+extern u8 lbl_805D74C5;
+extern u8 lbl_805D7380;
+void TLobby__sub_803A65D8(s32);
+void TLobby__sub_803A8E2C(s32);
+void TLobby__sub_803AA868(void);
+void TLobby__sub_803AB0E0(void);
+void TLobby__sub_803B4B28(void);
+void process_sound_aux_callbacks(void);
+void TLobby__sub_803BA744(void);
+struct Slot_803BCAA0 { u8 pad0[0x24]; u32 changed[5]; u8 pad38[0xF4 - 0x38]; };
+s32 TLobby__sub_803BCC0C(u32 arg0, s32 arg1, s32 arg2, u32 arg3);
+void DCFlushRange(void *addr, u32 nBytes);
+extern s32 lbl_805D74CC;
+extern RecoveredCallback_fa840eeea008 lbl_805D74D4;
+extern u32 lbl_805D74D8;
+s32 TLobby__sub_803BDF10(u8 *src, u32 size);
+extern Rec_803BE1EC lbl_8056E660[];
+extern s32 lbl_805D74CC;
+extern s32 lbl_805D74D0;
+extern Rec_803BE1EC *lbl_805D74DC;
+extern Rec_803BE1EC *lbl_805D74E0;
+extern Rec_803BE1EC *lbl_805D74E4;
+void *TLobby__sub_803BE0E0(u32 arg0);
+void TLobby__sub_803BD214(s32 index, u8 entry);
+void TLobby__sub_803BD240(s32 index, u8 entry);
+void TLobby__sub_803BD26C(s32 i, u8 mode);
+extern s8 lbl_805D74B8;
+void start_sound_sample_voice(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7);
+u16 TLobby__sub_803B3ED8(s32);
+extern u8 lbl_804F68DC[];
+void set_sound_hw_voice_envelope(s32 n, void *arg1, u8 mode);
+s32 OSDisableInterrupts(void);
+s32 OSRestoreInterrupts(s32 level);
+M2C_UNK ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
+void TLobby__sub_803BDA4C(void);
+extern AramQueues_803BDCD0 lbl_8056E158;
+extern Obj_803BDCB8 lbl_8056E3DC;
+void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
+void TLobby__sub_803BED6C(void *, void *, f32, f32);
+void process_sound_reverb_block(void *, void *, int);
+void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
+extern s32 lbl_805D748C;
+extern SoundStudioMixView lbl_805663D8[];
+extern u16 lbl_8047C420[];
+void apply_sound_mix_curve(u32 p, SoundMixCurveOutput *out, s32 x, s32 a3, bool f7, bool f8, f32 a, f32 b, f32 c);
+void set_sound_voice_mix(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
+void TLobby__sub_803BF500(void *);
+void TLobby__sub_803BF698(void *);
+void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c);
+extern u32 lbl_80557348[];
+extern const f32 lbl_805E0C48;
+u32 TLobby__sub_803BD828(u32 arg0);
+extern RecoveredCallback_d26337a2813d lbl_805D74BC;
+void TLobby__sub_803BD9E4(Pair_803BD9E4 *arg0);
+s16 TLobby__sub_803AFF9C(Voice_803BBB30 *, u32, u32);
+u16 TLobby__sub_803BB5E4(u8 arg0, u8 arg1, u8 arg2);
+extern u64 lbl_805D73C0;
+u16 calc_sound_controller_value(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSet);
+void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
+void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value);
+void *search_sound_sample_directory(void *key, void *base, s32 num, s32 len, s32 (*cmp)(void *, void *));
+f32 TLobby__sub_803BAD1C(Vec_803BAD1C *vec);
+}
+
+extern "C" {
+
+void shift_left_8__6TLobbyFPv(s32 *arg0);
+u32 shift_right_8__6TLobbyFUi(u32 arg0);
+void transform_vec3__6TLobbyFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+typedef char RecoveredGlobal_803BD5C4_lbl_805663D8_size[sizeof(RecoveredGlobal_803BD5C4_lbl_805663D8) == 0x6E0 ? 1 : -1];
+extern "C" {
+f32 powf(f32, f32);
+}
+
+typedef struct ChorusSrcInfo_803BFBF0 {
+    s32 *dest;
+    s32 *smpBase;
+    s32 *old;
+    u32 posLo;
+    u32 posHi;
+    u32 pitchLo;
+    u32 pitchHi;
+    u32 trigger;
+    u32 target;
+} ChorusSrcInfo_803BFBF0;
+
+typedef struct ChorusWork_803BFBF0 {
+    s32 *lastLeft[3];
+    s32 *lastRight[3];
+    s32 *lastSur[3];
+    u8 currentLast;
+    s32 oldLeft[4];
+    s32 oldRight[4];
+    s32 oldSur[4];
+    u32 currentPosLo;
+    u32 currentPosHi;
+    s32 pitchOffset;
+    u32 pitchOffsetPeriodCount;
+    u32 pitchOffsetPeriod;
+    ChorusSrcInfo_803BFBF0 src;
+} ChorusWork_803BFBF0;
+
+typedef struct AuxChorus_803BFBF0 {
+    ChorusWork_803BFBF0 work;
+    u32 baseDelay;
+    u32 variation;
+    u32 period;
+} AuxChorus_803BFBF0;
+
+}
+
+extern "C" {
+void transform_vec3__6TLobbyFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+f32 TLobby__sub_803BAD1C(Vec_803BAD1C *vec);
+void TLobby__sub_803BADD0(u8 a, u8 b, u32 v);
+void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
+void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value);
+void TLobby__sub_803BB4F0(u8 arg0, u8 arg1, u32 arg2);
+u16 TLobby__sub_803BB5E4(u8 ctrl, u8 channel, u8 set);
+u8 *TLobby__sub_803BB870(u8 a, u8 b);
+void TLobby__sub_803BB8AC(u8 arg0, u8 arg1);
+void TLobby__sub_803BB8F0(Obj_803BB8F0 *arg0, u8 arg1, s32 arg2, u8 arg3, u32 arg4);
+void TLobby__sub_803BB98C(u8 ctrl, SynthVoice_803BADF8 *dvoice, SynthVoice_803BADF8 *svoice);
+void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, u8 arg2);
+u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1);
+u16 calc_sound_controller_value(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSet);
+u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0);
+u16 TLobby__sub_803BC000(Lob_803BC000 *arg0);
+u16 TLobby__sub_803BC048(Lob_803BC048 *arg0);
+u16 TLobby__sub_803BC090(Lob_803BC090 *arg0);
+u16 TLobby__sub_803BC0D8(Lob_803BC0D8 *arg0);
+u16 TLobby__sub_803BC120(Lob_803BC120 *arg0);
+u16 TLobby__sub_803BC168(Lob_803BC168 *arg0);
+u16 TLobby__sub_803BC1B0(Lob_803BC1B0 *arg0);
+u16 TLobby__sub_803BC1F8(Lob_803BC1F8 *arg0);
+u16 TLobby__sub_803BC240(Lob_803BC240 *arg0);
+u16 TLobby__sub_803BC288(Lob_803BC288 *arg0);
+u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0);
+u16 TLobby__sub_803BC318(u8 studio, u8 index, u8 midi, u8 midiSet);
+u16 TLobby__sub_803BC3D4(u8 studio, u8 index, u8 midi, u8 midiSet);
+void init_sound_controller_mappings(u8 *arg0);
+u8 TLobby__sub_803BC774(u8 arg0);
+u16 TLobby__sub_803BC7E4(Obj_803BC7E4 *arg0, u8 arg1);
+void TLobby__sub_803BC884(Obj_803BC884 *arg0, u8 arg1, s16 arg2);
+u16 TLobby__sub_803BC91C(void);
+s16 TLobby__sub_803BC93C(s32 arg0);
+void *search_sound_sample_directory(void *key, void *base, s32 num, s32 len, s32 (*cmp)(void *, void *));
+void shift_left_8__6TLobbyFPv(s32 *arg0);
+void TLobby__sub_803BCA50(u32 *arg0, s32 arg1);
+u32 shift_right_8__6TLobbyFUi(u32 arg0);
+void TLobby__sub_803BCAA0(void);
+s32 TLobby__sub_803BCC0C(u32 arg0, s32 arg1, s32 arg2, u32 arg3);
+void set_global_flag__6TLobbyFc(s8 arg0);
+u8 TLobby__sub_803BCCD8(void);
+bool is_sound_hw_voice_active(s32 i);
+void set_global_7490__6TLobbyFi(s32 arg0);
+void set_sound_hw_voice_priority(s32 i, s32 v);
+void start_sound_sample_voice(s32 n, s16 arg1, Blk_803BCD1C *arg2, u32 arg3, s32 arg4, s32 arg5, u32 arg6, u8 arg7);
+void TLobby__sub_803BCEC8(s32 i);
+void set_sound_hw_voice_envelope(s32 n, void *arg1, u8 mode);
+void TLobby__sub_803BD0C8(s32 i, s32 a, s32 b);
+u8 TLobby__sub_803BD0E8(s32 i);
+u8 TLobby__sub_803BD0FC(s32 i);
+u16 TLobby__sub_803BD110(s32 i);
+void TLobby__sub_803BD124(s32 i, u8 v);
+void TLobby__sub_803BD138(s32 i, s32 x);
+void key_off_sound_hw_voice(s32 i);
+void TLobby__sub_803BD19C(s32 i, u16 v);
+void TLobby__sub_803BD214(s32 index, u8 entry);
+void TLobby__sub_803BD240(s32 index, u8 entry);
+void TLobby__sub_803BD26C(s32 i, u8 mode);
+void set_sound_voice_mix(s32 voice, u32 volumeCurve, u32 pan, s32 surroundPan, f32 direct, f32 auxiliaryA, f32 auxiliaryB);
+void TLobby__sub_803BD598(s32 arg0);
+void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void TLobby__sub_803BD5EC(u8 i, s32 a, s32 b);
+void TLobby__sub_803BD60C(u8 i);
+void TLobby__sub_803BD62C(u8 i, void *p);
+void TLobby__sub_803BD660(u8 i, u32 x);
+u32 TLobby__sub_803BD694(s32 arg0);
+void TLobby__sub_803BD738(u8 *base, u32 offset, u32 len, u8 i, void *cb, void *arg);
+void *TLobby__sub_803BD7C0(u32 size);
+void TLobby__sub_803BD7E0(u8 i);
+u32 TLobby__sub_803BD800(u8 i);
+void TLobby__sub_803BD824(void);
+u32 TLobby__sub_803BD828(u32 arg0);
+void TLobby__sub_803BD884(void *self, void *p);
+void TLobby__sub_803BD8A8(Hdr_803BD8A8 **arg0, u32 *arg1);
+void TLobby__sub_803BD93C(Hdr_803BD93C *arg0, u32 arg1);
+void TLobby__sub_803BD9C0(void);
+void TLobby__sub_803BD9E0(void);
+void TLobby__sub_803BD9E4(Pair_803BD9E4 *arg0);
+void TLobby__sub_803BD9F8(void);
+s32 get_slot_value__6TLobbyFi(s32 arg0);
+bool TLobby__sub_803BDA2C(s32 i);
+void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
+void TLobby__sub_803BDCB8(void);
+u32 TLobby__sub_803BDEF0(void);
+s32 TLobby__sub_803BDF10(u8 *src, u32 size);
+void TLobby__sub_803BE000(s32 arg0, s32 arg1);
+void TLobby__sub_803BE0DC(void);
+void *TLobby__sub_803BE0E0(u32 arg0);
+u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
+void TLobby__sub_803BE320(void);
+void TLobby__sub_803BE224(u8 id);
+void TLobby__sub_803BE3C4(void);
+void TLobby__sub_803BE3D4(void);
+u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq);
+void TLobby__sub_803BE508(void);
+Rec_803BE528 *TLobby__sub_803BE528(void);
+void TLobby__sub_803BE614(s32 arg0);
+u32 TLobby__sub_803BE688(void);
+void TLobby__sub_803BE6D4(void);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+void TLobby__sub_803BE770(void);
+void TLobby__sub_803BE790(void);
+f32* TLobby__sub_803BE7B0(s32 bytes);
+void TLobby__sub_803BE7D8(s32 arg0);
+void reverb_aux_callback(u8 arg0, u8 *arg1, u8 *arg2);
+void init_sound_reverb(Obj_803BE860 *self);
+s32 create_sound_reverb_state(SoundReverb * rv, float coloration, float time, float mix, float damping, float preDelay, float crossTalk);
+void process_sound_reverb_callback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3);
+void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c);
+u32 init_sound_aux_effect(AuxChorus_803BFBF0 *chorus);
+}
+
+#endif

@@ -15264,21 +15264,191 @@ odenotstub/odenotstub.c:
 odemuexi2/DebuggerDriver.c:
 	.text       start:0x803A2DD8 end:0x803A3858
 
-pso/unk/text_803A3858.cpp:
-	extab       start:0x8000E568 end:0x8000EA38
-	extabindex  start:0x8000EC9C end:0x8000F3D4
-	.text       start:0x803A3858 end:0x803BAC70
+musyx/runtime/seq.c:
+	extab       start:0x8000E568 end:0x8000E5D8
+	extabindex  start:0x8000EC9C end:0x8000ED44
+	.text       start:0x803A3858 end:0x803A6ED0
 	.data       start:0x804F5EC0 end:0x804F5F10
-	.bss        start:0x80566AB8 end:0x80566B08
-	.sdata2     start:0x805E0AE0 end:0x805E0C28
+	.bss        start:0x80549748 end:0x80556F88
+	.sbss       start:0x805D7360 end:0x805D7380
+	.sdata2     start:0x805E0AE0 end:0x805E0AF8
 
-pso/misc/TLobby_803BAC70.cpp:
-	extab       start:0x8000EA38 end:0x8000EC58
-	extabindex  start:0x8000F3D4 end:0x8000F704
-	.text       start:0x803BAC70 end:0x803BFE50
-	.data       start:0x804F7140 end:0x804F7164
-	.bss        start:0x80567958 end:0x80570AC0
-	.sdata2     start:0x805E0C28 end:0x805E0C94
+musyx/runtime/synth.c:
+	extab       start:0x8000E5D8 end:0x8000E680
+	extabindex  start:0x8000ED44 end:0x8000EE40
+	.text       start:0x803A6ED0 end:0x803A9F80
+	.bss        start:0x80556F88 end:0x80558570
+	.sbss       start:0x805D7380 end:0x805D73C8
+	.sdata2     start:0x805E0AF8 end:0x805E0B38
+
+musyx/runtime/seq_api.c:
+	extab       start:0x8000E680 end:0x8000E6A0
+	extabindex  start:0x8000EE40 end:0x8000EE70
+	.text       start:0x803A9F80 end:0x803AA0E0
+
+musyx/runtime/snd_synthapi.c:
+	extab       start:0x8000E6A0 end:0x8000E700
+	extabindex  start:0x8000EE70 end:0x8000EF00
+	.text       start:0x803AA0E0 end:0x803AA79C
+
+musyx/runtime/stream.c:
+	extab       start:0x8000E700 end:0x8000E758
+	extabindex  start:0x8000EF00 end:0x8000EF84
+	.text       start:0x803AA79C end:0x803ACB50
+	.bss        start:0x80558570 end:0x80559E70
+	.sbss       start:0x805D73C8 end:0x805D73D0
+	.sdata2     start:0x805E0B38 end:0x805E0B50
+
+musyx/runtime/synthdata.c:
+	extab       start:0x8000E758 end:0x8000E800
+	extabindex  start:0x8000EF84 end:0x8000F080
+	.text       start:0x803ACB50 end:0x803AE8F8
+	.bss        start:0x80559E70 end:0x805644A8
+	.sbss       start:0x805D73D0 end:0x805D7418
+
+musyx/runtime/synthmacros.c:
+	extab       start:0x8000E800 end:0x8000E8D8
+	extabindex  start:0x8000F080 end:0x8000F1C4
+	.text       start:0x803AE8F8 end:0x803B24A0
+	.data       start:0x804F5F10 end:0x804F6358
+	.bss        start:0x805644A8 end:0x805644C8
+	.sbss       start:0x805D7418 end:0x805D7438
+	.sdata2     start:0x805E0B50 end:0x805E0B78
+
+musyx/runtime/synthvoice.c:
+	extab       start:0x8000E8D8 end:0x8000E918
+	extabindex  start:0x8000F1C4 end:0x8000F224
+	.text       start:0x803B24A0 end:0x803B3DAC
+	.bss        start:0x805644C8 end:0x80565488
+	.sbss       start:0x805D7438 end:0x805D7450
+
+musyx/runtime/synth_ac.c:
+	extab       start:0x8000E918 end:0x8000E920
+	extabindex  start:0x8000F224 end:0x8000F230
+	.text       start:0x803B3DAC end:0x803B3ED8
+	.data       start:0x804F6358 end:0x804F6758
+	.sdata2     start:0x805E0B78 end:0x805E0B90
+
+musyx/runtime/synth_dbtab.c:
+	.data       start:0x804F6758 end:0x804F6EE0
+
+musyx/runtime/synth_adsr.c:
+	extab       start:0x8000E920 end:0x8000E950
+	extabindex  start:0x8000F230 end:0x8000F278
+	.text       start:0x803B3ED8 end:0x803B4584
+	.sdata2     start:0x805E0B90 end:0x805E0BB8
+
+musyx/runtime/synth_vsamples.c:
+	extab       start:0x8000E950 end:0x8000E970
+	extabindex  start:0x8000F278 end:0x8000F2A8
+	.text       start:0x803B4584 end:0x803B4CEC
+	.bss        start:0x80565488 end:0x80565DD8
+
+musyx/runtime/s_data.c:
+	extab       start:0x8000E970 end:0x8000E9A8
+	extabindex  start:0x8000F2A8 end:0x8000F2FC
+	.text       start:0x803B4CEC end:0x803B5500
+	.bss        start:0x80565DD8 end:0x805663D8
+	.sbss       start:0x805D7450 end:0x805D7458
+
+musyx/runtime/hw_dspctrl.c:
+	extab       start:0x8000E9A8 end:0x8000E9E8
+	extabindex  start:0x8000F2FC end:0x8000F35C
+	.text       start:0x803B5500 end:0x803B8CA0
+	.rodata     start:0x8047C2B8 end:0x8047C310
+	.data       start:0x804F6EE0 end:0x804F6EF8
+	.bss        start:0x805663D8 end:0x80566AB8
+	.sbss       start:0x805D7458 end:0x805D7498
+
+musyx/runtime/hw_volconv.c:
+	extab       start:0x8000E9E8 end:0x8000E9F0
+	extabindex  start:0x8000F35C end:0x8000F368
+	.text       start:0x803B8CA0 end:0x803B9438
+	.data       start:0x804F6EF8 end:0x804F7120
+	.sdata2     start:0x805E0BB8 end:0x805E0BE0
+
+musyx/runtime/snd3d.c:
+	extab       start:0x8000E9F0 end:0x8000EA30
+	extabindex  start:0x8000F368 end:0x8000F3C8
+	.text       start:0x803B9438 end:0x803BAB54
+	.bss        start:0x80566AB8 end:0x80567958
+	.sbss       start:0x805D7498 end:0x805D74B8
+	.sdata2     start:0x805E0BE0 end:0x805E0C28
+
+musyx/runtime/snd_init.c:
+	extab       start:0x8000EA30 end:0x8000EA38
+	extabindex  start:0x8000F3C8 end:0x8000F3D4
+	.text       start:0x803BAB54 end:0x803BAC70
+
+musyx/runtime/snd_math.c:
+	.text       start:0x803BAC70 end:0x803BADD0
+	.sdata2     start:0x805E0C28 end:0x805E0C40
+
+musyx/runtime/snd_midictrl.c:
+	extab       start:0x8000EA38 end:0x8000EAE0
+	extabindex  start:0x8000F3D4 end:0x8000F4D0
+	.text       start:0x803BADD0 end:0x803BC91C
+	.rodata     start:0x8047C310 end:0x8047C420
+	.data       start:0x804F7120 end:0x804F7168
+	.bss        start:0x80567958 end:0x8056E158
+
+musyx/runtime/snd_service.c:
+	extab       start:0x8000EAE0 end:0x8000EAF0
+	extabindex  start:0x8000F4D0 end:0x8000F4E8
+	.text       start:0x803BC91C end:0x803BCAA0
+	.data       start:0x804F7168 end:0x804F7980
+	.sdata      start:0x805D4630 end:0x805D4638
+
+musyx/runtime/hardware.c:
+	extab       start:0x8000EAF0 end:0x8000EB90
+	extabindex  start:0x8000F4E8 end:0x8000F5D8
+	.text       start:0x803BCAA0 end:0x803BDA4C
+	.rodata     start:0x8047C420 end:0x8047C520
+	.sdata      start:0x805D4638 end:0x805D4648
+	.sbss       start:0x805D74B8 end:0x805D74C8
+	.sdata2     start:0x805E0C40 end:0x805E0C58
+
+musyx/runtime/dsp_import.c:
+	.data       start:0x804F7980 end:0x804F9360
+	.sdata      start:0x805D4648 end:0x805D4650
+
+musyx/runtime/hw_aramdma.c:
+	extab       start:0x8000EB90 end:0x8000EBB8
+	extabindex  start:0x8000F5D8 end:0x8000F614
+	.text       start:0x803BDA4C end:0x803BE320
+	.bss        start:0x8056E158 end:0x8056EA60
+	.sbss       start:0x805D74C8 end:0x805D74E8
+
+musyx/runtime/hw_dolphin.c:
+	extab       start:0x8000EBB8 end:0x8000EC18
+	extabindex  start:0x8000F614 end:0x8000F6A4
+	.text       start:0x803BE320 end:0x803BE7B0
+	.bss        start:0x8056EA60 end:0x80570AC0
+	.sbss       start:0x805D74E8 end:0x805D7510
+
+musyx/runtime/hw_memory.c:
+	extab       start:0x8000EC18 end:0x8000EC28
+	extabindex  start:0x8000F6A4 end:0x8000F6BC
+	.text       start:0x803BE7B0 end:0x803BE804
+
+musyx/runtime/StdReverb/reverb_fx.c:
+	extab       start:0x8000EC28 end:0x8000EC38
+	extabindex  start:0x8000F6BC end:0x8000F6D4
+	.text       start:0x803BE804 end:0x803BE8A0
+
+musyx/runtime/StdReverb/reverb.c:
+	extab       start:0x8000EC38 end:0x8000EC48
+	extabindex  start:0x8000F6D4 end:0x8000F6EC
+	.text       start:0x803BE8A0 end:0x803BF500
+	.data       start:0x804F9360 end:0x804F9380
+	.sdata2     start:0x805E0C58 end:0x805E0C98
+
+musyx/runtime/Chorus/chorus_fx.c:
+	extab       start:0x8000EC48 end:0x8000EC58
+	extabindex  start:0x8000F6EC end:0x8000F704
+	.text       start:0x803BF500 end:0x803BFE50
+	.data       start:0x804F9380 end:0x804F9B80
+	.sdata2     start:0x805E0C98 end:0x805E0CA0
 
 pso/misc/TLobby_803BFE50.cpp:
 	.text       start:0x803BFE50 end:0x803C1668

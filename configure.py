@@ -50,15 +50,21 @@ if _LINKED_UNITS_FILE.exists():
         if _line:
             _LINKED_UNITS.add(_line)
 
-def _psov3_units_from_splits() -> List[str]:
-    """Unit names (== source paths) of every `pso/` unit in splits.txt."""
+def _psov3_units_from_splits(prefix: str = "pso/") -> List[str]:
+    """Unit names (== source paths) of every `prefix` unit in splits.txt."""
     path = Path(__file__).resolve().parent / "config" / "GPOE8P" / "psov3" / "splits.txt"
     out: List[str] = []
     if path.exists():
         for line in path.read_text().splitlines():
-            if line.startswith("pso/") and line.rstrip().endswith(":"):
+            if line.startswith(prefix) and line.rstrip().endswith(":"):
                 out.append(line.rstrip()[:-1])
     return out
+
+
+def _musyx_options(unit: str, profiles: dict) -> dict:
+    options = object_options(unit, cflags_pso, profiles)
+    options["cflags"] = [*options["cflags"], "-lang=c++"]
+    return options
 
 def NonMatching(name: str, **kwargs: Any) -> Object:
     """An object that does not yet match (work in progress) — unless
@@ -495,6 +501,22 @@ if args.target == "psov3":
                 # adding its splits.txt block; never edit this list by hand.
                 *[NonMatching(_u, **object_options(_u, cflags_pso, _pso_profiles))
                   for _u in _psov3_units_from_splits()],
+            ],
+        },
+        {
+            # MusyX runtime (Factor 5), one unit per original
+            # musyx/runtime/*.c file (evidence for every boundary:
+            # the original object layout). Profiles come from
+            # compiler_profiles.json. The recovered bodies are compiled as C++
+            # with C linkage, as they were in the merged units they came from.
+            "lib": "musyx",
+            "mw_version": "GC/1.2.5n",
+            "cflags": cflags_pso,
+            "progress_category": "game",
+            "src_dir": "src",
+            "objects": [
+                *[NonMatching(_u, **_musyx_options(_u, _pso_profiles))
+                  for _u in _psov3_units_from_splits("musyx/")],
             ],
         },
         DolphinLib(
