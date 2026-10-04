@@ -2459,6 +2459,7 @@ pso/enemy/TObjEneMe3ShinowaReal.cpp:
 pso/enemy/TObjEneMe3Shinowa.cpp:
 	.text       start:0x800E47DC end:0x800E7A70
 	.data       start:0x80495BE0 end:0x80495F3C
+	.sdata2     start:0x805DA628 end:0x805DA634
 
 pso/enemy/TObjEneMe3ShinowaMirage_800E7A70.cpp:
 	.text       start:0x800E7A70 end:0x800E80A4

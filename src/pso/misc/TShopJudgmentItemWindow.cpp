@@ -107,6 +107,41 @@ struct Win_80221440 {
 };
 
 struct VBase_18 { char pad[0x18]; };
+struct VBase_802209D8 { char pad[0x18]; };
+struct VObj_802209D8 : VBase_802209D8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual s8 m31();
+};
 
 extern "C" {
 s32 obj_getPtr2B0_20(int);
@@ -132,7 +167,7 @@ void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
 void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
 void close__23TShopJudgmentItemWindowFPv(void* p);
 M2C_UNK TShopJudgmentItemWindow__sub_8022072C();
-M2C_UNK TShopJudgmentItemWindow__sub_802209D8();
+void TShopJudgmentItemWindow__sub_802209D8(u8 *arg0);
 M2C_UNK TShopJudgmentItemWindow__sub_80220F68();
 void TShopJudgmentItemWindow__vt9(u8 *arg0);
 u16 obj_getField1c(s32);
@@ -166,6 +201,12 @@ s32 create_yes_no_window(M2C_UNK, u16, M2C_UNK, M2C_UNK);
 s32 get_window_layout_position(M2C_UNK);
 extern u8 lbl_8044C1B0[];
 void TShopJudgmentItemWindow__sub_80220CE4(u8 *arg0);
+VObj_802209D8 *find_item_by_id(s32);
+u32 get_equip_field_d04__10TObjPlayerFPv(int, s32);
+s32 get_field_d8__10TObjPlayerFPv(u32);
+M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
+M2C_UNK send_6x25_equip_item(int, int, int);
+M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
 }
 
 extern "C" {
@@ -252,6 +293,86 @@ void update__23TShopJudgmentItemWindowFPv(void *arg0) {
         set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(0));
     }
 }
+
+#define F(o, t) M2C_FIELD(arg0, t *, o)
+
+void TShopJudgmentItemWindow__sub_802209D8(u8 *arg0) {
+    f32 y;
+    s32 sel;
+    s32 id;
+    VObj_802209D8 *item;
+    u32 eq;
+
+    if (((VObj_18 *)(arg0))->m8() != 0) {
+        if (F(0x158, void *) == NULL) {
+            id = obj_getField1c(F(0x24, s32));
+            F(0x158, s32) = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
+            set_selected_index__17TWindowSubComCardFPvs(F(0x158, void *), 0);
+            y = get_scale__15TShopWindowBaseFv(arg0);
+            set_position_xy(F(0x158, s32), get_scale__15TShopWindowBaseFv(arg0), y);
+        }
+        if (F(0x158, void *) != NULL && is_visible__17TWindowSubComCardFPv(F(0x158, void *)) != 0) {
+            sel = get_selected_menu_value(F(0x158, s32));
+            if (sel == 0) {
+                if (F(0x160, void *) != NULL) {
+                    TWindow__close(F(0x160, void *));
+                    F(0x160, void *) = NULL;
+                }
+                if (F(0x154, void *) != NULL) {
+                    TWindow__close(F(0x154, void *));
+                    F(0x154, void *) = NULL;
+                }
+                if (F(0x15C, void *) != NULL) {
+                    TWindow__close(F(0x15C, void *));
+                    F(0x15C, void *) = NULL;
+                }
+                TWindow__close(F(0x158, void *));
+                F(0x158, void *) = NULL;
+                get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
+                F(0x34, s32) = F(0x48, s32);
+                fn_801B849C(F(0x24, s32), arg0 + 0x28);
+                set_judgment_target_flag(arg0, arg0 + 0x28);
+                item = find_item_by_id(F(0x34, s32));
+                if (item != NULL && (eq = get_equip_field_d04__10TObjPlayerFPv(F(0x24, s32), item->m31())) != 0) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv(F(0x24, s32), get_field_d8__10TObjPlayerFPv(eq));
+                }
+                send_6x25_equip_item(F(0x24, s32), F(0x34, s32), 0);
+                ((VObj_18 *)(arg0))->m6(0xB, 1);
+                if (get_shop_value__6TLobbyFv() > 0) {
+                    play_cue_stream_file(lbl_8044C1B0);
+                }
+                set_field_20__12TQuestListVMFPvi(arg0, 0);
+            }
+            if (sel == 1) {
+                TWindow__close(F(0x158, void *));
+                F(0x158, void *) = NULL;
+                get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
+                F(0x34, s32) = F(0x48, s32);
+                fn_801B849C(F(0x24, s32), arg0 + 0x28);
+                set_judgment_target_flag(arg0, arg0 + 0x28);
+                ((VObj_18 *)(arg0))->m6(0xB, 1);
+                if (get_shop_value__6TLobbyFv() > 0) {
+                    play_cue_stream_file(lbl_8044C1B0);
+                }
+                set_field_20__12TQuestListVMFPvi(arg0, 0);
+            }
+        }
+        if (F(0x158, void *) != NULL && get_status_flag__17TWindowSubComCardFPv(F(0x158, void *)) != 0) {
+            TWindow__close(F(0x158, void *));
+            F(0x158, void *) = NULL;
+            get_item_record__23TShopJudgmentItemWindowFPv(F(0x24, s32), F(0x48, s32), 1);
+            F(0x34, s32) = F(0x48, s32);
+            fn_801B849C(F(0x24, s32), arg0 + 0x28);
+            set_judgment_target_flag(arg0, arg0 + 0x28);
+            ((VObj_18 *)(arg0))->m6(0xB, 1);
+            if (get_shop_value__6TLobbyFv() > 0) {
+                play_cue_stream_file(lbl_8044C1B0);
+            }
+            set_field_20__12TQuestListVMFPvi(arg0, 0);
+        }
+    }
+}
+#undef F
 
 void TShopJudgmentItemWindow__sub_80220CE4(u8 *arg0) {
     f32 temp_f31;
@@ -467,7 +588,7 @@ void TShopJudgmentItemWindow__vt9(u8 *arg0) {
         TShopJudgmentItemWindow__sub_8022072C();
         return;
     case 7:
-        TShopJudgmentItemWindow__sub_802209D8();
+        TShopJudgmentItemWindow__sub_802209D8((u8 *)(arg0));
         return;
     case 10:
         invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(arg0);

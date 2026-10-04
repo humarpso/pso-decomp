@@ -4,6 +4,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Obj_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; u8 pad44[0x2A8 - 0x44]; void *f2a8; u8 pad2ac[0x326 - 0x2AC]; s16 f326; s16 f328; u8 pad32a[0x338 - 0x32A]; u16 f338; u8 pad33a[0x350 - 0x33A]; f32 *f350; u8 pad354[0x3D0 - 0x354]; f32 f3d0; };
+struct Pl_800D5614 { u8 pad0[0x38]; u8 pos[0xC]; };
+
 #include <stddef.h>
 struct Stack_800D5060 {
     f32 sp8;
@@ -294,7 +297,11 @@ extern const f32 lbl_805DA338;
 void TObjEneMerillLia__sub_800D69B4(u8 *arg0);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjEneMerillLia__sub_800D5614(void *);
+void TObjEneMerillLia__sub_800D5614(void *);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(void *);
+f32 xz_distance_squared(void *, void *);
+Pl_800D5614 *get_player_by_client_id(s32);
 M2C_UNK TObjEneMerillLia__sub_800D56B4(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -711,6 +718,30 @@ void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0) {
     }
     advance_animation_playback(arg0);
 }
+
+#define arg0 ((Obj_800D5614 *)ov)
+void TObjEneMerillLia__sub_800D5614(void *ov) {
+    Pl_800D5614 *p;
+    s32 v;
+    arg0->f338 = find_nearest_visible_player(arg0, 0, *arg0->f350);
+    if (arg0->f338 < 0x1000) {
+        p = get_player_by_client_id(arg0->f338);
+        if (p != NULL) {
+            s32 w;
+            v = get_current_floor();
+            w = get_field_3e4__10TObjPlayerFPv(p);
+            if (w == v) {
+                if (xz_distance_squared(p->pos, arg0->pos) < arg0->f3d0 * arg0->f3d0) {
+                    arg0->f2a8 = p;
+                    arg0->f326 = 0;
+                    arg0->f328 = 0;
+                }
+            }
+        }
+    }
+    advance_animation_playback(arg0);
+}
+#undef arg0
 
 struct Obj_800D5100;
 struct RecoveredGlobal_800D5060_lbl_8058D490;
