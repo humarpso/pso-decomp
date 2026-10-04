@@ -213,6 +213,16 @@ struct A_803B9438 { A_803B9438 *next; u8 pad4[0xC]; Vec_803B9438 pos; };
 
 struct B_803B9438 { B_803B9438 *next; u8 pad4[8]; Vec_803B9438 pos; f32 distance; u8 studio; };
 
+struct SYNTH_VOICE_803B2438 {
+    u8 pad0[0x34];
+    void *addr;
+    u8 pad38[0x4C - 0x38];
+    u32 macState;
+    u8 pad50[0xAA - 0x50];
+    u16 loop;
+    u8 padAC[0x404 - 0xAC];
+};
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -425,6 +435,10 @@ s32 TLobby__sub_803BAB54(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32
 extern s32 lbl_805D74A0;
 extern s32 lbl_805D74A4;
 void TLobby__sub_803B9438(void);
+extern Rec_803A8D2C *lbl_805D73B0;
+extern Program_803B1DA4 *lbl_805D7420;
+extern u64 lbl_805D7428;
+void TLobby__sub_803B2438(void);
 }
 
 extern "C" {
@@ -599,6 +613,11 @@ extern Cfg_803AA35C lbl_80557348;
 
 extern "C" {
 extern Cfg_803AA35C lbl_80557348;
+}
+
+extern "C" {
+extern Cfg_803AA35C lbl_80557348;
+extern V_803B1F24 *lbl_805D741C;
 }
 
 void TLobby__sub_803A3858(Owner_803A3C24 *o) {
@@ -1992,6 +2011,23 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
 }
 
 }
+
+#pragma push
+#pragma opt_common_subs on
+struct Program_803B1DA4;
+#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+void TLobby__sub_803B2438(void) {
+    u32 i;
+    lbl_805D741C = 0;
+    lbl_805D7420 = 0;
+    lbl_805D7428 = 0;
+    for (i = 0; i < lbl_80557348.count; ++i) {
+        synthVoice[i].addr = 0;
+        synthVoice[i].macState = 2;
+        synthVoice[i].loop = 0;
+    }
+}
+#pragma pop
 
 void TLobby__sub_803B24A0(void) {
     s32 i;
