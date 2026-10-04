@@ -1605,6 +1605,7 @@ pso/misc/TRaderMapCore_801A6CEC.cpp
 pso/misc/TRaderMapCore_801A6CEC_801A6CEC.cpp
 pso/misc/TRaderMapCore_801A6CEC_801A6D10.cpp
 pso/misc/TRaderMapCore_801F3710.cpp
+pso/misc/TRaderMapCore_801FB2B8.cpp
 pso/misc/TRaderMapCore_801FB6A8.cpp
 pso/misc/TRaderMapCore_801FB8AC.cpp
 pso/misc/TRaderMapCore_801FB964.cpp
@@ -3166,6 +3167,7 @@ pso/unk/text_800A0320.cpp
 pso/unk/text_800A0798.cpp
 pso/unk/text_800A0814.cpp
 pso/unk/text_800A0884.cpp
+pso/unk/text_800A0994.cpp
 pso/unk/text_800A73F8.cpp
 pso/unk/text_800A884C.cpp
 pso/unk/text_800A887C.cpp
@@ -3667,6 +3669,7 @@ pso/unk/text_80235A20.cpp
 pso/unk/text_80235A8C.cpp
 pso/unk/text_80235BDC.cpp
 pso/unk/text_8023601C.cpp
+pso/unk/text_80236EE8.cpp
 pso/unk/text_8023A434.cpp
 pso/unk/text_8023B454.cpp
 pso/unk/text_8023B590.cpp
@@ -3917,6 +3920,7 @@ pso/unk/text_803CE1F4.cpp
 pso/unk/text_803D0F1C.cpp
 pso/unk/text_803D2434.cpp
 pso/unk/text_803D2624.cpp
+pso/unk/text_803D2640.cpp
 pso/unk/text_803D2C84.cpp
 pso/unk/text_803D39F8.cpp
 pso/unk/text_803D43A8.cpp

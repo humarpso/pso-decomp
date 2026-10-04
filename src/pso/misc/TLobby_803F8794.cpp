@@ -5927,6 +5927,55 @@ void TLobby__sub_804162A4(void) {
     }
 }
 
+typedef struct Ent_80416678 { u8 pad0[0xC]; u8 fC; } Ent_80416678;
+s32 TLobby__sub_80416678(u8 *arg0, s32 n, u8 *arg2, s32 arg3, s16 *arg4, s16 arg5) {
+    u8 sp20[8];
+    u8 *h;
+    s16 len;
+    Ent_80416678 *e;
+    void TLobby__sub_80406EB8(void *, s32);
+    u8 *TLobby__sub_80406F0C(void *);
+    void TLobby__sub_80406FD8(void *, void *, s32);
+    Ent_80416678 *TLobby__sub_804182DC(void *, void *, s32, s16);
+
+    while (n >= 8) {
+        h = TLobby__sub_80406F0C(arg0 + 4);
+        if (h[1] == 0) {
+            return -0x10E;
+        }
+        len = h[1] * 8;
+        n -= len;
+        if (n < 0) {
+            return -0x10E;
+        }
+        switch (h[0]) {
+        case 1:
+        case 3:
+        case 5:
+        default:
+            TLobby__sub_80406EB8(arg0 + 4, len);
+            break;
+        case 4:
+            *arg4 = (*arg4 < len) ? *arg4 : len;
+            set_value_and_enable__6TLobbyFPvi(sp20, arg3);
+            TLobby__sub_80406FD8(sp20, arg0 + 4, *arg4);
+            TLobby__sub_80406EB8(arg0 + 4, len);
+            break;
+        case 2: {
+            u8 *p = h + 2;
+            s32 l = len - 2;
+            e = TLobby__sub_804182DC(arg2 + 8, p, l, arg5);
+            if (e != NULL && TLobby__sub_803F9EC4(arg2 + 8, arg2 + 0x18, 0x10) != 0) {
+                e->fC |= 0x80;
+            }
+            TLobby__sub_80406EB8(arg0 + 4, len);
+            break;
+        }
+        }
+    }
+    return 0;
+}
+
 void TLobby__sub_80406EB8(void *);
 u8 *TLobby__sub_80406F0C(void *);
 

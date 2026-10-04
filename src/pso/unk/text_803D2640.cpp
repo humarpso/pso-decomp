@@ -31,6 +31,21 @@ struct Obj_803D2640 {
     s32 cbArg;
 };
 
+struct Obj_803D28D8 {
+    u8 pad[0xC];
+    s32 xc;
+    s32 x10;
+    s32 x14;
+    s32 x18;
+    u8 *base;
+    s32 size;
+    s32 extra;
+    void (*cb)(s32, s32);
+    s32 cbArg;
+};
+
+struct Buf_803D28D8 { u8 *ptr; s32 len; };
+
 extern "C" {
 void TLobby__sub_803D1FD4(void);
 void lock_enter__6TLobbyFv(void);
@@ -41,6 +56,10 @@ bool TLobby__sub_803D2640(Obj_803D2640 *o, s32 mode, s32 n, s32 *out);
 void TLobby__sub_803D1FD4(void);
 void lock_enter__6TLobbyFv(void);
 void TLobby__sub_803D274C(u8 *arg0, s32 arg1, u8 *arg2);
+void TLobby__sub_803D1FD4(void);
+void lock_enter__6TLobbyFv(void);
+void *memcpy(void *, const void *, unsigned long);
+void TLobby__sub_803D28D8(Obj_803D28D8 *o, s32 mode, Buf_803D28D8 *b);
 }
 
 extern "C" {
@@ -114,6 +133,39 @@ void TLobby__sub_803D274C(u8 *arg0, s32 arg1, u8 *arg2) {
         }
         TLobby__sub_803D1FD4();
     }
+
+#define MIN_803D28D8(a, b) ((a) < (b) ? (a) : (b))
+void TLobby__sub_803D28D8(Obj_803D28D8 *o, s32 mode, Buf_803D28D8 *b) {
+    s32 d;
+    s32 n;
+    s32 e;
+    if (b->len <= 0 || b->ptr == 0) {
+        return;
+    }
+    lock_enter__6TLobbyFv();
+    if (mode == 1) {
+        o->xc += b->len;
+        d = b->ptr - o->base;
+        if (d < o->extra) {
+            n = MIN_803D28D8(b->len, o->extra - d);
+            memcpy(o->base + (o->size + d), b->ptr, n);
+        }
+        e = (b->ptr - o->base) + b->len;
+        if (e > o->size) {
+            n = MIN_803D28D8(b->len, e - o->size);
+            memcpy(o->base, o->base + (e - n), n);
+        }
+    } else if (mode == 0) {
+        o->x10 += b->len;
+    } else {
+        b->len = 0;
+        b->ptr = 0;
+        if (o->cb != 0) {
+            o->cb(o->cbArg, -3);
+        }
+    }
+    TLobby__sub_803D1FD4();
+}
 
 void TLobby__sub_803D2A14(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out) {
     lock_enter__6TLobbyFv();

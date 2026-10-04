@@ -629,10 +629,12 @@ pso/unk/text_8004E6D0.cpp:
 
 pso/unk/text_8004EA2C.cpp:
 	.text       start:0x8004EA2C end:0x8004EB20
+	.sdata2     start:0x805D89C4 end:0x805D89D0
 
 pso/object/TObjDFDemo2.cpp:
 	.text       start:0x8004EB20 end:0x8004EF94
 	.rodata     start:0x804373B0 end:0x804373B8
+	.data       start:0x80485678 end:0x8048568C
 	.sdata2     start:0x805D89D0 end:0x805D89DC
 
 pso/unk/text_8004EF94.cpp:
@@ -12125,6 +12127,8 @@ pso/ui/TAdChrSelSlotGC.cpp:
 
 pso/ui/TAdFadeGC.cpp:
 	.text       start:0x802C7C44 end:0x802C7F78
+	.data       start:0x804E0B80 end:0x804E0B98
+	.sdata2     start:0x805DE5E8 end:0x805DE608
 
 pso/object/TObjTradeCollision.cpp:
 	.text       start:0x802C7F78 end:0x802C823C

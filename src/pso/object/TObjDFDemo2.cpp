@@ -31,6 +31,33 @@ M2C_UNK draw_model_motion(s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 void TObjPlayer__sub_8004ED28(u8 *arg0);
+struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
+struct Obj_8004EB78 {
+    s32 vt0;
+    u8 pad4[0x18 - 0x4];
+    void *vt18;
+    u8 pad1c[0x90 - 0x1C];
+    Ent_8004EB78 ent[2];
+    void *a8;
+    u8 pos[0xC];
+    void *b8;
+    s32 bc;
+    f32 c0;
+};
+struct Pose_8004EB78 { s32 a; s32 b; s32 c; };
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_bml_motion(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 get_instance_count__9TBoss4UroFv();
+s32 activate_camera_mode(int);
+void set_scripted_camera_pose(void *, void *, void *);
+void cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+extern Pose_8004EB78 lbl_80437384;
+extern s32 lbl_804867C0[];
+extern s32 lbl_805D2788;
+extern const f32 lbl_805D89CC;
 }
 
 extern "C" {
@@ -42,11 +69,32 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-extern M2C_UNK lbl_8048568C[];
+void TLobby__sub_801A1FD8();
+void TObjPlayer__sub_8004E918();
+void TObjRoomId__sub_801A1E2C();
+void TParticleCtrl__sub_801A2124();
+void apply_object_set_data();
+void classify_actor_view_detail();
+void fn_8004EA2C();
+void render_shadows__7TObjectFv();
+void reset_motion_fields__10TObjPlayerFPv();
+void update_object_view_visibility();
+__declspec(section ".data") void *lbl_80485678[2] = {
+    (void *)0x12, (void *)0x11,
+};
+void *lbl_80485680[3] = {
+    (void *)0x0, (void *)0x0, (void *)0x3f000000,
+};
+void *lbl_8048568C[13] = {
+    (void *)0x0, (void *)0x0, (void *)&TObjDFDemo2__sub_8004EB20, (void *)&fn_8004EA2C,
+    (void *)&TObjPlayer__sub_8004E918, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&TObjRoomId__sub_801A1E2C,
+};
 
 void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048568C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8048568C;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -54,6 +102,44 @@ void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+#define self ((Obj_8004EB78 *)arg0)
+void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    s32 k;
+    s32 cnt;
+    s32 i;
+
+    TPhotonMagicSquare__sub_801A2640(self, arg1);
+    self->vt18 = (u8 *)lbl_8048568C;
+    self->vt0 = lbl_805D2788;
+    VecCopy__FP3VecPC3Vec(self->pos, arg2);
+    self->b8 = arg3;
+    self->a8 = arg4;
+    cnt = get_instance_count__9TBoss4UroFv();
+    for (i = 0; i < 2; i++) {
+        s32 t = lbl_804867C0[i];
+        k = t;
+        ((s32 *)self)[i * 3 + 0x24] = get_bml_model(cnt, t);
+        ((s32 *)self)[i * 3 + 0x25] = TObjFish__sub_8001EDB0(cnt, k);
+        ((s32 *)self)[i * 3 + 0x26] = get_bml_motion(cnt, ((s32 *)lbl_80485678)[i]);
+    }
+    self->c0 = lbl_805D89CC;
+    activate_camera_mode(5);
+    {
+        Pose_8004EB78 p = lbl_80437384;
+        p.b = (s32) self->b8;
+        set_scripted_camera_pose(self->pos, self->pos, &p);
+    }
+    cache_target_and_forward__11TCameraCtrlFii(lbl_80485680, 0x4444);
+    play_sound_effect(0x4003A325, self->pos, 0, 1);
+    self->bc = 0;
+    return self;
+}
+#undef self
+#pragma pop
 
 void * create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;

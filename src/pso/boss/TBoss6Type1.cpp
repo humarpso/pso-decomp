@@ -281,6 +281,19 @@ struct Boss_802B6C30 {
     Vec_802B6C30 b;
 };
 
+struct Anim_802B81A4 { s32 id; f32 t; s32 f8; f32 blend; f32 f10; s32 prevId; f32 prevT; };
+
+struct Boss_802B81A4 {
+    u8 pad0[0x3FC];
+    s32 f3FC;
+    u8 pad400[0x444 - 0x400];
+    Anim_802B81A4 anim[2];
+    u8 pad47C[0x650 - 0x47C];
+    u32 f650[2];
+};
+
+struct Blend_802B81A4 { s32 ids[2]; f32 ts[2]; };
+
 extern "C" {
 struct V3_802B5AD4 { f32 x, y, z; };
 struct Boss_802B5AD4 {
@@ -346,6 +359,18 @@ extern const f32 lbl_805DE378;
 extern const f32 lbl_805DE388;
 extern const f32 lbl_805DE38C;
 void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+void clear_render_callback__8TObjFishFv(u32);
+void TObjFish__sub_800E3074(u32);
+void set_global_param__8TObjFishFi(s32);
+void draw_model_blend_motion(s32, Blend_802B81A4 *, f32);
+void draw_model_motion(s32, s32, f32);
+void set_global_flag__10TObjPlayerFv();
+void clear_global_state__10TObjPlayerFv();
+extern s32 lbl_804DF614[];
+extern const f32 TBoss6Type1__data_805DE2D0;
+void TBoss6Type1__sub_802B81A4(Boss_802B81A4 *arg0);
 }
 
 extern "C" {
@@ -1912,6 +1937,44 @@ void TBoss6Type1__sub_802B7E88(u8 *arg0) {
     if ((f32) M2C_FIELD(arg0, s32 *, 0x4A8) <= TBoss6Type1__data_805DE2D0) {
         M2C_FIELD(arg0, s32 *, 0x4A8) = (s32) M2C_FIELD(&lbl_80470CEC.value, s32 *, 0x2C);
     }
+}
+
+#pragma opt_propagation off
+void TBoss6Type1__sub_802B81A4(Boss_802B81A4 *arg0) {
+    Blend_802B81A4 b;
+    s32 i;
+    s32 id;
+    s32 p;
+    Anim_802B81A4 *a;
+    u32 cb;
+    set_global_flag__10TObjPlayerFv();
+    for (i = 0; i < 2; i++) {
+        {
+            s32 t = lbl_804DF614[i];
+            id = t;
+            p = TObjFish__sub_8001EDB0(arg0->f3FC, t);
+        }
+        id = get_bml_model(arg0->f3FC, id);
+        cb = arg0->f650[i];
+        a = &arg0->anim[i];
+        if (cb != 0) {
+            set_global_param__8TObjFishFi(p);
+            if (TBoss6Type1__data_805DE2D0 == a->blend) {
+                TObjFish__sub_800E3074(cb);
+                draw_model_motion(id, a->id, a->t);
+                clear_render_callback__8TObjFishFv(cb);
+            } else {
+                b.ids[0] = a->prevId;
+                b.ts[0] = a->prevT;
+                b.ids[1] = a->id;
+                b.ts[1] = a->t;
+                TObjFish__sub_800E3074(cb);
+                draw_model_blend_motion(id, &b, a->blend);
+                clear_render_callback__8TObjFishFv(cb);
+            }
+        }
+    }
+    clear_global_state__10TObjPlayerFv();
 }
 
 void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }

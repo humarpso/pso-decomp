@@ -148,6 +148,31 @@ struct RecoveredGlobal_800C44C4_lbl_8049316C {
 };
 typedef char RecoveredGlobal_800C44C4_lbl_8049316C_size[sizeof(RecoveredGlobal_800C44C4_lbl_8049316C) == 0x10 ? 1 : -1];
 
+struct VBase_18_0ab400 { char pad[0x18]; };
+
+struct VObj_18_0ab400 : VBase_18_0ab400 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual M2C_UNK m19(s32, void *, s32);
+};
+
 extern "C" {
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(M2C_UNK *, M2C_UNK *);
@@ -184,6 +209,16 @@ s32 handle_flower_state_change(void *, void *);
 s32 handle_state__9TObjEneDDFPvi(void *, void *);
 s32 dispatch_action__9TObjEneDDFPvi(void *, void *);
 void TObjEneRe2Flower__sub_800C3EA8(s32 arg0, u32 arg1, s32 arg2);
+s32 obj_is_hit_receivable(void *);
+f32 get_random_float__8TObjFishFv(f32);
+s32 get_battle_param__10TObjPlayerFi(s32);
+s32 is_area_attack_target_eligible(M2C_UNK, s32);
+s32 attack_target_history_add(s32, s32);
+M2C_UNK init_all_slots__10TObjPlayerFv();
+M2C_UNK mark_enemy_body_contacts(void *);
+M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
+extern const f32 lbl_805DA000;
+s32 TObjPlayer__sub_800C45AC(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -354,6 +389,48 @@ void TObjPlayer__sub_800C44C4(void) {
     stack.sp8 = M2C_FIELD(lbl_805D5174, s32 *, 0x430);
     temp_r5 = (u8 *)(M2C_FIELD(lbl_805D5174, u8 **, 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (0x37), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9FBC), (f32) (lbl_805D9FAC));
+}
+s32 TObjPlayer__sub_800C45AC(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
+    s32 result;
+    s32 flags;
+    s32 p;
+    s32 i;
+    s32 ok;
+    result = 0;
+    flags = 0;
+    if (M2C_FIELD(arg0, u32 *, 0xAC) == 0) {
+        return 0;
+    }
+    init_all_slots__10TObjPlayerFv();
+    if (M2C_FIELD(arg1, s32 *, 4) & 1) {
+        TObjPlayer__sub_801561C4(arg0, farg0);
+        flags |= 0x80000;
+    }
+    if (M2C_FIELD(arg1, s32 *, 4) & 2) {
+        mark_enemy_body_contacts(arg0);
+        flags |= 0x100000;
+    }
+    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) & flags) {
+        for (i = 0; i < 0x10; i++) {
+            p = get_battle_param__10TObjPlayerFi(i);
+            if (p == 0) {
+                break;
+            }
+            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != M2C_FIELD(arg0, u32 *, 0xAC) &&
+                is_area_attack_target_eligible((s32)arg0, M2C_FIELD(p, s32 *, 0x30)) != 0 &&
+                !(get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(p, f32 *, 0x300)) > lbl_805DA000)) {
+                ok = 1;
+                if (arg3 != 0 && attack_target_history_add((s32)arg3, p) == 0) {
+                    ok = 0;
+                }
+                if (ok != 0) {
+                    ((VObj_18_0ab400 *)(arg0))->m19(p, arg1, arg2);
+                    result = 1;
+                }
+            }
+        }
+    }
+    return result;
 }
 
 }

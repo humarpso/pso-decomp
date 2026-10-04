@@ -610,6 +610,13 @@ struct VObj_80046CB8 : VBase_80046CB8 {
     virtual M2C_UNK m63(s16, void *);
 };
 
+typedef struct Msg_80044CE4 {
+    u8 hdr[4];
+    s16 unk4;
+    s16 vals[3];
+    u8 pad[0xC];
+} Msg_80044CE4;
+
 extern "C" {
 u32 find_entity_by_id(u16);
 M2C_UNK fn_80048C04();
@@ -888,6 +895,12 @@ extern u8 lbl_8058D490[];
 extern const f32 lbl_805D87A4;
 extern const f32 TBoss3Volopt__data_805D87A8;
 void TBoss3Volopt__sub_80046CB8(void *arg0_);
+f32 TBoss3Volopt__sub_8004812C(s32);
+void update_and_send_60__12TBoss3VoloptFPv(void *);
+void TBoss3Volopt__sub_800481B4(void *);
+s32 rand(void);
+extern const f32 lbl_805D87BC;
+void TBoss3Volopt__sub_80044CE4(void);
 }
 
 extern "C" {
@@ -984,6 +997,22 @@ void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self) {
     for (i = 0; i < 3; i++) {
         lbl_804FF030[i] = self->arr[i];
     }
+}
+
+#pragma fp_contract on
+void TBoss3Volopt__sub_80044CE4(void) {
+    Msg_80044CE4 msg;
+    s32 i;
+    f32 base;
+    f32 range;
+    TBoss3Volopt__sub_800481B4(&msg);
+    msg.unk4 = 0;
+    for (i = 0; i < 3; i++) {
+        base = TBoss3Volopt__sub_8004812C(4);
+        range = TBoss3Volopt__sub_8004812C(5);
+        { f32 r = lbl_805D87BC * (f32)rand(); msg.vals[i] = (s16)(r * range + base); }
+    }
+    update_and_send_60__12TBoss3VoloptFPv(&msg);
 }
 
 void TBoss3Volopt__sub_80044DD4(Obj_80044DD4 *self, void *a1, V2_80044DD4 v, void *a3) {
