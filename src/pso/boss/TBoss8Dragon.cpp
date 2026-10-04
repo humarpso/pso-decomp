@@ -167,6 +167,7 @@ void TBoss8Dragon__sub_802FBBFC(u8 *arg0, s32 arg1);
 s32 is_health_low__12TBoss8DragonFPv(void *arg0);
 extern s32 lbl_805D69B4;
 void TBoss8Dragon__sub_802FCDB8(u8 *arg0);
+s32 TBoss8Dragon__sub_802FBFA4(u8 *arg0);
 }
 
 extern "C" {
@@ -4078,6 +4079,25 @@ void TBoss8Dragon__sub_802FBF0C(s32 arg0) {
 void TBoss8Dragon__sub_802FBF40(void *o) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv(o, register_boss__6TLobbyFPv(0x12), ((s32 *)&TBoss8Dragon__data_80541DC8)[TBoss8Dragon__data_804E4C28[0]], register_object__6TLobbyFPv(0x12));
 }
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss8Dragon__sub_802FBFA4(u8 *arg0) {
+    f32 t;
+    M2C_FIELD(arg0, f32 *, 0x670) += 1.0f;
+    t = M2C_FIELD(arg0, f32 *, 0x670);
+    if (t <= 35.0f) {
+        M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(arg0, s32 *, 0x658) + (s32) (t * ((0.5f * M2C_FIELD(arg0, f32 *, 0x65C) * t) + M2C_FIELD(arg0, f32 *, 0x664)));
+        return 0;
+    }
+    if (t <= 60.0f) {
+        t = t - 35.0f;
+        M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(arg0, s32 *, 0x658) + (s32) ((t * ((0.5f * M2C_FIELD(arg0, f32 *, 0x660) * t) + M2C_FIELD(arg0, f32 *, 0x668))) + M2C_FIELD(arg0, f32 *, 0x66C));
+        return 0;
+    }
+    return 1;
+}
+#pragma pop
 
 void check_hit_result__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (angle_diff_s16(arg1, arg2) >= 0) {

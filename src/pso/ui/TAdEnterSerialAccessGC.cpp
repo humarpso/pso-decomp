@@ -129,6 +129,8 @@ typedef struct Rect_803214C4 { f32 x; f32 y; f32 w; f32 h; } Rect_803214C4;
 
 typedef struct Col_803214C4 { u32 v; } Col_803214C4;
 
+struct Pos_80321358 { f32 x, y; };
+
 extern "C" {
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
@@ -252,6 +254,21 @@ extern const f32 lbl_805DF4FC;
 extern const f32 lbl_805DF500;
 extern const f32 lbl_805DF504;
 void TAdEnterSerialAccessGC__sub_803214C4(void);
+s32 realloc_buffer__17TWindowSubComCardFPv(int);
+M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
+s32 free__11TOBoss4RockFUi(int);
+void fn_8025DE10(s32, Pos_80321358 *);
+s32 get_field20_state__22TAdEnterSerialAccessGCFPv(void *arg0);
+int sprintf(char *, const char *, ...);
+void strncpy(s32, s32, s32);
+M2C_UNK memset(void *, int, int);
+extern f32 lbl_80476568[][13];
+extern u32 TAdEnterSerialAccessGC__data_805D6C20;
+extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
+extern char lbl_805DF4E0[4];
+extern const f32 lbl_805DF4E4;
+void TAdEnterSerialAccessGC__sub_80321358(s32 arg0);
 }
 
 extern "C" {
@@ -277,6 +294,36 @@ extern const f32 lbl_805DF4F0;
 
 void render__22TAdEnterSerialAccessGCFv(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
+    }
+}
+
+void TAdEnterSerialAccessGC__sub_80321358(s32 arg0) {
+    char text[0xFF];
+    char buf[8];
+    Pos_80321358 pos;
+    char *p;
+    u32 n;
+    f32 *row;
+    s32 str;
+    u32 i;
+    s32 r;
+    if (TAdEnterSerialAccessGC__data_805D6C20 != 0) {
+        str = realloc_buffer__17TWindowSubComCardFPv(TAdEnterSerialAccessGC__data_805D6C20);
+        memset(text, 0, 0xFF);
+        strncpy((s32) text, str, 0xFF);
+        free__11TOBoss4RockFUi(str);
+        p = text;
+        r = TAdEnterSerialAccessGC__data_805D6C24 == 2 ? 0 : 1;
+        row = lbl_80476568[r];
+        n = r * 2 + 10;
+        for (i = 0; i < n; i++, p++) {
+            memset(buf, 0, 8);
+            sprintf(buf, lbl_805DF4E0, *p);
+            render_status_line__15TAdSubPlyItemGCFPvi(buf, -1, row[i], lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
+        }
+        pos.x = row[get_field20_state__22TAdEnterSerialAccessGCFPv((void *) TAdEnterSerialAccessGC__data_805D6C20)];
+        pos.y = lbl_805DF4E4;
+        fn_8025DE10(arg0, &pos);
     }
 }
 

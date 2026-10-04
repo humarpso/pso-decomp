@@ -216,6 +216,11 @@ s32 TAdSinglePlyChrSelectGC__sub_8042E57C(int);
 s32 TAdSinglePlyChrSelectGC__sub_8042E628(int);
 s32 TAdSinglePlyChrSelectGC__sub_8042E6C4(int);
 s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p);
+s16 TLobby__sub_80427D40(void *, u16, void *);
+s32 TAdSinglePlyChrSelectGC__sub_8042D7E0(void *);
+extern s16 lbl_805D47F0;
+extern s16 lbl_805D7A34;
+s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 }
 
 extern "C" {
@@ -603,6 +608,28 @@ s32 TLobby__sub_803F8090(void) {
 
 s32 TLobby__sub_803F811C(s16 *arg0) {
     *arg0 = 0;
+    return 0;
+}
+
+s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
+    if (lbl_805D7A34 != 0) {
+        if (lbl_805D47F0 < 0) {
+            return 6;
+        }
+        {
+            s16 v = TLobby__sub_80427D40(arg1, arg0, arg2);
+            if (v != lbl_805D47F0) {
+                return 6;
+            }
+        }
+    } else {
+        s32 r = TAdSinglePlyChrSelectGC__sub_8042D7E0(arg1);
+        if (r < 0) {
+            *arg2 = 0;
+        } else {
+            *arg2 = r;
+        }
+    }
     return 0;
 }
 

@@ -21,6 +21,8 @@ struct Nd_802F2348 { u8 pad[0xC]; Nd_802F2348 *next; };
 
 struct Li_802F2348 { u8 pad[0x14]; Nd_802F2348 *head; };
 
+struct Vec_802F25AC { f32 x, y, z; };
+
 extern "C" {
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_802F1FB0(void *, s32, s32, f32, s32);
@@ -59,7 +61,6 @@ extern const f32 lbl_805DECE0;
 extern const f32 lbl_805DECE4;
 void TObjBoss2Tunnel__sub_802F2400(u8 *arg0);
 extern u32 lbl_805D6968;
-M2C_UNK TObjBoss2Tunnel__sub_802F25AC(void *);
 extern M2C_UNK lbl_804E49A0[];
 void init_effect__15TObjBoss2TunnelFPv(void *arg0);
 extern const f32 lbl_805DEC9C;
@@ -131,6 +132,12 @@ extern const f32 lbl_805DECB8;
 extern const f32 lbl_805DED0C;
 extern const f32 lbl_805DED10;
 void *TObjBoss2Tunnel__sub_802F2A2C(void *arg0p, s32 parent);
+f32 rand_signed_unit();
+u32 __nw__7TObjectFUl(M2C_UNK);
+M2C_UNK __ct__13TObjBoss7DustFv(u32, int, void *);
+s32 rand();
+extern s32 tl_05;
+void TObjBoss2Tunnel__sub_802F25AC(u8 *arg0);
 }
 
 extern "C" {
@@ -237,8 +244,28 @@ void init_effect__15TObjBoss2TunnelFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         M2C_FIELD(arg0, s32 *, 0x70) = 0;
     }
-    TObjBoss2Tunnel__sub_802F25AC(arg0);
+    TObjBoss2Tunnel__sub_802F25AC((u8 *)(arg0));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjBoss2Tunnel__sub_802F25AC(u8 *arg0) {
+    Vec_802F25AC v;
+    u32 p;
+    M2C_FIELD(arg0, s32 *, 0x74) = M2C_FIELD(arg0, s32 *, 0x74) - 1;
+    if (M2C_FIELD(arg0, s32 *, 0x74) <= 0) {
+        v.x = 200.0f * rand_signed_unit();
+        v.y = 90.0f * (3.0517578125e-05f * (f32)rand()) + 10.0f;
+        v.z = 600.0f;
+        p = __nw__7TObjectFUl((M2C_UNK)(0x30));
+        if (p != 0U) {
+            __ct__13TObjBoss7DustFv(p, tl_05, &v);
+        }
+        M2C_FIELD(arg0, s32 *, 0x74) = 0x1E;
+    }
+}
+#pragma pop
+
 #pragma push
 #pragma opt_common_subs off
 void TObjBoss2Tunnel__sub_802F2664(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {

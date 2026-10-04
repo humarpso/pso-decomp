@@ -5,6 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Rec_8025D3CC { u8 a; s8 len; };
+
+extern "C" {
+s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
+M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
+void TWindowKeyBoardSoft__sub_8025D3CC(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 struct KbSoft_8025D47C {
@@ -74,7 +82,6 @@ int TWindowKeyBoardSoft__sub_8025D1C8(void*, void*);
 int TWindowKeyBoardSoft__sub_8025D264(void*, void*);
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025D3CC(void *, void *);
 void TWindowKeyBoardSoft__sub_8025D47C(KbSoft_8025D47C *self, char *name, char *text);
 s32 TWindowKeyBoardSoft__sub_8025D544(void *, M2C_UNK *, s8 *);
 void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0);
@@ -127,6 +134,30 @@ void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2) {
 }
 
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); TWindowKeyBoardSoft__sub_8025D264(p, a1); }
+
+typedef s32 M2C_UNK;
+void TWindowKeyBoardSoft__sub_8025D3CC(u8 *arg0, u8 *arg1) {
+    Rec_8025D3CC *rec;
+    s32 idx;
+    s32 n;
+    u8 *p;
+    rec = *(Rec_8025D3CC **)(arg0 + 0xA0);
+    idx = rec->len;
+    p = (u8 *)(idx + (s32)rec);
+    n = ((s32 (*)(void *, u32, s32))strnlen__19TWindowKeyBoardSoftFPvUi)(arg1, 0x100, (s32)rec);
+    p[3] = idx;
+    p[4] = n;
+    p[5] = 1;
+    p += 6;
+    strncpy((M2C_UNK *)p, arg1, n);
+    p += n;
+    *p++ = 0;
+    *(s32 *)(arg0 + 0xB0) = 0x94 - (p - *(u8 **)(arg0 + 0x9C));
+    if (*(s32 *)(arg0 + 0xB0) < 0) {
+        *(u16 *)(arg0 + 0x60) |= 0x10;
+    }
+    *(u32 *)(arg0 + 0xA4) = *(u32 *)(arg0 + 0xA0);
+}
 
 void TWindowKeyBoardSoft__sub_8025D47C(KbSoft_8025D47C *self, char *name, char *text) {
     u8 *p = self->buf;
@@ -209,7 +240,7 @@ void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self) {
         if (i > n) {
             TWindowKeyBoardSoft__sub_803E67D4(name, text);
             ((M2C_UNK (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
-            TWindowKeyBoardSoft__sub_8025D3CC(self, text);
+            TWindowKeyBoardSoft__sub_8025D3CC((u8 *)(self), (u8 *)(text));
             return;
         }
     }
@@ -238,7 +269,7 @@ void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self) {
         if (i > n) {
             TWindowKeyBoardSoft__sub_803E67A0(name, text);
             ((M2C_UNK (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
-            TWindowKeyBoardSoft__sub_8025D3CC(self, text);
+            TWindowKeyBoardSoft__sub_8025D3CC((u8 *)(self), (u8 *)(text));
             return;
         }
     }
