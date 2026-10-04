@@ -77,7 +77,7 @@ extern Voice_Stream *lbl_805D73B0;
 
 void hwEnableIrq(void);
 void hwDisableIrq(void);
-void hwSetVolume(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
+void hwSetVolume(u32 v, u8 table, f32 vol, u32 pan, u32 span, f32 auxa, f32 auxb);
 u32 hwGetStreamPlayBuffer(u8 i);
 void DCInvalidateRange(void *addr, u32 nBytes);
 void hwInitSamplePlayback(u32 v, u16 smpID, void *newsmp, u32 set_defadsr, u32 prio, u32 callbackUserValue, u32 setSRC, u8 itdMode);
@@ -102,22 +102,200 @@ u32 sndStreamActivate(u32 stid);
 void sndStreamDeactivate(u32 stid);
 
 static STREAM_INFO streamInfo[64];
-static u32 nextPublicID;
-static u8 streamCallDelay;
 static u8 streamCallCnt;
+static u8 streamCallDelay;
+static u32 nextPublicID;
 
 #pragma push
 #pragma opt_common_subs on
 void streamInit(void) {
     s32 i;
-    streamCallDelay = 0;
-    streamCallCnt = 3;
+    streamCallCnt = 0;
+    streamCallDelay = 3;
     for (i = 0; i < lbl_80557348.voiceNum; ++i) {
         streamInfo[i].state = 0;
     }
     nextPublicID = 0;
 }
 #pragma pop
+
+#define hwFlushStream4(b, o, l, h) hwFlushStream((u8 *)(b), (o), (l), (h), 0, 0)
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+static void SetHWMix(const STREAM_INFO *si) {
+    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
+}
+
+void streamHandle(void) {
+    u32 i;
+    u32 cpos;
+    u32 len;
+    SAMPLE_INFO newsmp;
+    STREAM_INFO *si;
+    float f;
+
+    if (streamCallCnt != 0) {
+        --streamCallCnt;
+        return;
+    }
+    streamCallCnt = streamCallDelay;
+    si = &streamInfo[0];
+    for (i = 0; i < lbl_80557348.voiceNum; ++i, ++si) {
+        switch (si->state) {
+        case 1:
+            newsmp.info = si->frq | 0x40000000;
+            newsmp.addr = (void *)hwGetStreamPlayBuffer(si->hwStreamHandle);
+            newsmp.offset = 0;
+            newsmp.length = si->size;
+            newsmp.loop = 0;
+            newsmp.loopLength = si->size;
+            si->adpcmInfo.loopPS = si->adpcmInfo.initialPS = *(u8 *)si->buffer;
+            DCInvalidateRange(si->buffer, 1);
+            switch (si->type) {
+            case 0:
+                newsmp.compType = 2;
+                break;
+            case 1:
+                newsmp.extraData = &si->adpcmInfo;
+                newsmp.compType = 4;
+                break;
+            }
+            hwInitSamplePlayback(si->voice, -1, &newsmp, 1, -1, lbl_805D73B0[si->voice].id, 1, 1);
+            f = (si->frq / (float)lbl_80557348.mixFrq);
+            hwSetPitch(si->voice, f * 4096.f);
+            SetHWMix(si);
+            hwStart(si->voice, si->studio);
+            si->state = 2;
+            if (!(si->flags & 0x20000)) {
+                hwFlushStream4(si->buffer, 0, si->bytes, si->hwStreamHandle);
+            }
+            break;
+        case 2: {
+            cpos = hwGetPos(si->voice);
+
+            if (si->type == 1) {
+                cpos = (cpos / 14) * 14;
+            }
+
+            if (si->last != cpos) {
+                if (si->last < cpos) {
+                    switch (si->type) {
+                    case 0: {
+                        if ((len = si->updateFunction(si->buffer + si->last, cpos - si->last, 0, 0, si->user)) != 0 &&
+                            si->state == 2) {
+                            cpos = (si->last + len) % si->size;
+                            if (!(si->flags & 0x20000)) {
+                                if (cpos != 0) {
+                                    hwFlushStream4(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle);
+                                } else {
+                                    hwFlushStream4(si->buffer, si->last * 2, (si->size - si->last) * 2, si->hwStreamHandle);
+                                }
+                            }
+                            si->last = cpos;
+                        }
+                    } break;
+                    case 1: {
+                        u32 off = (si->last / 14) * 8;
+                        if ((len = si->updateFunction((void *)((u32)si->buffer + off), cpos - si->last, 0, 0, si->user)) != 0 &&
+                            si->state == 2) {
+                            cpos = (si->last + len) % si->size;
+                            if (!(si->flags & 0x20000)) {
+                                if (cpos != 0) {
+                                    hwFlushStream4(si->buffer, off, ((cpos + 13) / 14) * 8 - off, si->hwStreamHandle);
+                                } else {
+                                    hwFlushStream4(si->buffer, off, (si->bytes) - off, si->hwStreamHandle);
+                                }
+                            }
+                            si->last = cpos;
+                        }
+                    } break;
+                    }
+                } else if (cpos == 0) {
+                    switch (si->type) {
+                    case 0:
+                        if ((len = si->updateFunction(si->buffer + si->last, si->size - si->last, 0, 0, si->user)) &&
+                            si->state == 2) {
+                            cpos = (si->last + len) % si->size;
+                            if (!(si->flags & 0x20000)) {
+                                if (cpos == 0) {
+                                    hwFlushStream4(si->buffer, si->last * 2, si->bytes - (si->last * 2), si->hwStreamHandle);
+                                } else {
+                                    hwFlushStream4(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle);
+                                }
+                            }
+                            si->last = cpos;
+                        }
+                        break;
+                    case 1: {
+                        u32 off = ((si->last / 14) * 8);
+                        if ((len = si->updateFunction((void *)((u32)si->buffer + off), si->size - si->last, 0, 0, si->user)) &&
+                            si->state == 2) {
+                            cpos = (si->last + len) % si->size;
+                            if (!(si->flags & 0x20000)) {
+                                if (cpos == 0) {
+                                    hwFlushStream4(si->buffer, off, si->bytes - off, si->hwStreamHandle);
+                                } else {
+                                    hwFlushStream4(si->buffer, off, ((cpos + 13) / 14) * 8 - off, si->hwStreamHandle);
+                                }
+                            }
+                            si->last = cpos;
+                        }
+                    } break;
+                    }
+                } else {
+                    switch (si->type) {
+                    case 0:
+                        if ((len = si->updateFunction(si->buffer + si->last, si->size - si->last, si->buffer, cpos, si->user)) &&
+                            si->state == 2) {
+                            cpos = (si->last + len) % si->size;
+                            if (!(si->flags & 0x20000)) {
+                                if (len > si->size - si->last) {
+                                    hwFlushStream4(si->buffer, si->last * 2, (si->bytes - si->last * 2), si->hwStreamHandle);
+                                    hwFlushStream4(si->buffer, 0, cpos * 2, si->hwStreamHandle);
+                                } else if (cpos == 0) {
+                                    hwFlushStream4(si->buffer, si->last * 2, (si->bytes - si->last * 2), si->hwStreamHandle);
+                                } else {
+                                    hwFlushStream4(si->buffer, si->last * 2, (cpos - si->last) * 2, si->hwStreamHandle);
+                                }
+                            }
+                            si->last = cpos;
+                        }
+                        break;
+                    case 1: {
+                        u32 off = (si->last / 14) * 8;
+                        if ((len = si->updateFunction((void *)((u32)si->buffer + off), si->size - si->last, si->buffer, cpos, si->user)) &&
+                            si->state == 2) {
+                            cpos = (si->last + len) % si->size;
+                            if (!(si->flags & 0x20000)) {
+                                if (len > si->size - si->last) {
+                                    hwFlushStream4(si->buffer, off, si->bytes - off, si->hwStreamHandle);
+                                    hwFlushStream4(si->buffer, 0, (cpos / 14) << 3, si->hwStreamHandle);
+                                } else if (cpos == 0) {
+                                    hwFlushStream4(si->buffer, off, si->bytes - off, si->hwStreamHandle);
+                                } else {
+                                    hwFlushStream4(si->buffer, off, ((cpos + 13) / 14) * 8 - off, si->hwStreamHandle);
+                                }
+                            }
+                            si->last = cpos;
+                        }
+                    } break;
+                    }
+                }
+
+                if (si->state == 2 && !(si->flags & 0x20000) && si->type == 1) {
+                    hwSetStreamLoopPS(si->voice, *(u32 *)((u8 *)si->buffer + 0x40000000) >> 24);
+                }
+            }
+        } break;
+        }
+    }
+}
+#pragma pop
+#undef hwFlushStream4
 
 void streamCorrectLoops(void) {
 
@@ -226,7 +404,7 @@ static inline void CheckOutputMode_803AB5A8(u8 *pan, u8 *span) {
 }
 
 static inline void SetHWMix_803AB5A8(const STREAM_INFO *si) {
-    hwSetVolume(si->voice, 0, (si->pan << 16), (si->span << 16), si->vol * (1 / 127.f), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
+    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
 }
 
 void streamOutputModeChanged(void) {
@@ -247,12 +425,200 @@ void streamOutputModeChanged(void) {
 }
 #pragma pop
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline u32 GeneratePublicID_803AB6F0(void) {
+    u32 id;
+    u32 i;
+
+    do {
+        if ((id = nextPublicID++) == -1) {
+            id = nextPublicID;
+            nextPublicID = id + 1;
+        }
+        for (i = 0; i < 64; ++i) {
+            if (streamInfo[i].state != 0 && id == streamInfo[i].stid) {
+                break;
+            }
+        }
+    } while (i != 64);
+
+    return id;
+}
+
+static inline void CheckOutputMode_803AB6F0(u8 *pan, u8 *span) {
+    if (lbl_805D73AC & 1) {
+        *pan = 64;
+        *span = 0;
+    } else if (!(lbl_805D73AC & 2)) {
+        *span = 0;
+    }
+}
+
+static inline void SetupVolumeAndPan_803AB6F0(STREAM_INFO *si, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb) {
+    si->orgPan = pan;
+    si->orgSPan = span;
+    CheckOutputMode_803AB6F0(&pan, &span);
+    si->vol = vol;
+    si->pan = pan;
+    si->span = span;
+    si->auxa = auxa;
+    si->auxb = auxb;
+}
+
+u32 sndStreamAllocEx(u8 prio, void *buffer, u32 samples, u32 frq, u8 vol, u8 pan, u8 span,
+                         u8 auxa, u8 auxb, u8 studio, u32 flags, SND_STREAM_UPDATE_CALLBACK updateFunction,
+                         u32 user, SND_ADPCMSTREAM_INFO *adpcmInfo) {
+    u32 stid;
+    u32 i;
+    u32 bytes;
+    u32 j;
+
+    hwDisableIrq();
+
+    for (i = 0; i < 64; ++i) {
+        if (streamInfo[i].state == 0) {
+            break;
+        }
+    }
+
+    if (i != 64) {
+        stid = GeneratePublicID_803AB6F0();
+        streamInfo[i].stid = stid;
+        streamInfo[i].flags = flags;
+        bytes = sndStreamAllocLength(samples, flags);
+        streamInfo[i].buffer = (s16 *)buffer;
+        streamInfo[i].size = samples;
+        streamInfo[i].bytes = bytes;
+        streamInfo[i].updateFunction = updateFunction;
+        streamInfo[i].voice = -1;
+        if (flags & 1) {
+            if (adpcmInfo != 0) {
+                for (j = 0; j < 8; j++) {
+                    streamInfo[i].adpcmInfo.coefTab[j][0] = adpcmInfo->coefTab[j][0];
+                    streamInfo[i].adpcmInfo.coefTab[j][1] = adpcmInfo->coefTab[j][1];
+                }
+                streamInfo[i].adpcmInfo.numCoef = 8;
+            }
+            streamInfo[i].type = 1;
+        } else {
+            streamInfo[i].type = 0;
+        }
+
+        streamInfo[i].frq = frq;
+        streamInfo[i].studio = studio;
+        streamInfo[i].prio = prio;
+        SetupVolumeAndPan_803AB6F0(&streamInfo[i], vol, pan, span, auxa, auxb);
+        streamInfo[i].user = user;
+        streamInfo[i].nextStreamHandle = -1;
+        streamInfo[i].state = 3;
+        if ((streamInfo[i].hwStreamHandle = hwInitStream(bytes)) != 0xFF) {
+            if (!(flags & 0x10000) && !sndStreamActivate(stid)) {
+                stid = -1;
+            }
+        } else {
+            stid = -1;
+        }
+        if (stid == -1) {
+            streamInfo[i].state = 0;
+        }
+    } else {
+        stid = -1;
+    }
+
+    hwEnableIrq();
+
+    return stid;
+}
+#pragma pop
+
 u32 sndStreamAllocLength(u32 arg0, u32 arg1) {
     if (arg1 & 1) {
         return (((arg0 + 13) / 7 * 4 & ~7) + 31) & ~31;
     }
     return ((arg0 * 2) + 31) & ~31;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline u32 GetPrivateIndex_803ABB54(u32 publicID) {
+    u32 i;
+    for (i = 0; i < 64; ++i) {
+        if (streamInfo[i].state != 0 && publicID == streamInfo[i].stid) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+static inline void CheckOutputMode_803ABB54(u8 *pan, u8 *span) {
+    if (lbl_805D73AC & 1) {
+        *pan = 64;
+        *span = 0;
+    } else if (!(lbl_805D73AC & 2)) {
+        *span = 0;
+    }
+}
+
+static inline void SetupVolumeAndPan_803ABB54(STREAM_INFO *si, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb) {
+    si->orgPan = pan;
+    si->orgSPan = span;
+    CheckOutputMode_803ABB54(&pan, &span);
+    si->vol = vol;
+    si->pan = pan;
+    si->span = span;
+    si->auxa = auxa;
+    si->auxb = auxb;
+}
+
+static inline void SetupVolumeAndPan2_803ABB54(STREAM_INFO *si, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb) {
+    si->orgPan = pan;
+    si->orgSPan = span;
+    CheckOutputMode((s8 *)&pan, (s8 *)&span);
+    si->vol = vol;
+    si->pan = pan;
+    si->span = span;
+    si->auxa = auxa;
+    si->auxb = auxb;
+}
+
+static inline void SetHWMix_803ABB54(const STREAM_INFO *si) {
+    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
+}
+
+static inline void MixParameterInner_803ABB54(u32 stid, u8 vol, u8 pan, u8 span, u8 fxvol) {
+    u32 i;
+    hwDisableIrq();
+    i = GetPrivateIndex(stid);
+    if (i != -1) {
+        SetupVolumeAndPan2_803ABB54(&streamInfo[i], vol, pan, span, fxvol, 0);
+        SetHWMix_803ABB54(&streamInfo[i]);
+        if (streamInfo[i].nextStreamHandle != 0xffffffff) {
+            sndStreamMixParameter(streamInfo[i].nextStreamHandle, vol, pan, span, fxvol);
+        }
+    }
+    hwEnableIrq();
+}
+
+void sndStreamMixParameter(u32 stid, u8 vol, u8 pan, u8 span, u8 fxvol) {
+    u32 i;
+
+    hwDisableIrq();
+    i = GetPrivateIndex_803ABB54(stid);
+    if (i != -1) {
+        SetupVolumeAndPan_803ABB54(&streamInfo[i], vol, pan, span, fxvol, 0);
+        SetHWMix_803ABB54(&streamInfo[i]);
+        if (streamInfo[i].nextStreamHandle != 0xffffffff) {
+            MixParameterInner_803ABB54(streamInfo[i].nextStreamHandle, vol, pan, span, fxvol);
+        }
+    }
+    hwEnableIrq();
+}
+#pragma pop
 
 #pragma push
 #pragma dont_inline off
@@ -300,7 +666,7 @@ static inline void SetupVolumeAndPan2_803ABECC(STREAM_INFO *si, u8 vol, u8 pan, 
 }
 
 static inline void SetHWMix_803ABECC(const STREAM_INFO *si) {
-    hwSetVolume(si->voice, 0, (si->pan << 16), (si->span << 16), si->vol * (1 / 127.f), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
+    hwSetVolume(si->voice, 0, si->vol * (1 / 127.f), (si->pan << 16), (si->span << 16), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
 }
 
 static inline void MixParameterInner_803ABECC(u32 stid, u8 vol, u8 pan, u8 span, u8 auxa, u8 auxb) {
