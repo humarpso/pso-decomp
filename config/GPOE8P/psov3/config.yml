@@ -379,6 +379,7 @@ force_active:
   - invoke_callback__10TItemTimerFPv
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
+  - is_player_in_range__9TObjLukerFv
   - is_player_in_service_range__14TShopGeneratorFPvPvf
   - is_special_sound_id
   - is_target_in_range__11TObjInfoColFf
@@ -556,6 +557,7 @@ force_active:
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
+  - transfer_to_town__9TObjLukerFv
   - traverse_animated_node_tree
   - update_and_destroy__10TObjPlayerFPv
   - update_backdrop_transition__17TWindowMainMenu1PFPv

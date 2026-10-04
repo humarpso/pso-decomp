@@ -2209,6 +2209,7 @@ pso/object/TObjLiveMonitor_8030B574.cpp
 pso/object/TObjLiveMonitor_8030B5E8.cpp
 pso/object/TObjLiveMonitor_8030B7B4.cpp
 pso/object/TObjLobbyMain.cpp
+pso/object/TObjLuker.cpp
 pso/object/TObjLuker_8001A438.cpp
 pso/object/TObjLuker_801329B0.cpp
 pso/object/TObjMapCsn_8007A720.cpp
