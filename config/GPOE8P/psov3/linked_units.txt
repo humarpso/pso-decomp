@@ -90,6 +90,12 @@ mtx/mtx.c
 mtx/mtx44.c
 mtx/mtxvec.c
 mtx/vec.c
+musyx/runtime/StdReverb/reverb_fx.c
+musyx/runtime/hw_memory.c
+musyx/runtime/seq_api.c
+musyx/runtime/snd_init.c
+musyx/runtime/snd_synthapi.c
+musyx/runtime/synth_vsamples.c
 os/OSCache.c
 os/OSContext.c
 os/OSError.c
@@ -888,6 +894,7 @@ pso/misc/TLobby_8006F278_8006F278.cpp
 pso/misc/TLobby_8006F278_8006F9E0.cpp
 pso/misc/TLobby_8006F278_8006FA28.cpp
 pso/misc/TLobby_8006F278_8006FA54.cpp
+pso/misc/TLobby_8006F278_8006FAA8.cpp
 pso/misc/TLobby_80070A00.cpp
 pso/misc/TLobby_80070A00_80070AB0.cpp
 pso/misc/TLobby_80070A00_80070B90.cpp

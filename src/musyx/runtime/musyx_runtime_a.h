@@ -2128,38 +2128,6 @@ typedef struct ADSR_VARS_803B41C8 {
 extern u8 lbl_804F68DC[];
 extern u8 lbl_804F68DC[];
 
-typedef struct SND_VIRTUALSAMPLE_INFO_VS {
-    u16 smpID;
-    u16 instID;
-    union {
-        struct {
-            u32 off1;
-            u32 len1;
-            u32 off2;
-            u32 len2;
-        } update;
-    } data;
-} SND_VIRTUALSAMPLE_INFO_VS;
-typedef struct VS_BUFFER_VS {
-    u8 state;
-    u8 hwId;
-    u8 smpType;
-    u8 voice;
-    u32 last;
-    u32 finalGoodSamples;
-    u32 finalLast;
-    SND_VIRTUALSAMPLE_INFO_VS info;
-} VS_BUFFER_VS;
-typedef struct VS_VS {
-    u8 numBuffers;
-    u32 bufferLength;
-    VS_BUFFER_VS streamBuffer[64];
-    u8 voices[64];
-    u16 nextInstID;
-    u32 (*callback)(u8, const SND_VIRTUALSAMPLE_INFO_VS *);
-} VS_VS;
-extern VS_VS lbl_80565488;
-
 typedef struct LAYER_803B4CF8 {
     u16 id;
     u8 keyLow;

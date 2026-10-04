@@ -17,6 +17,51 @@
 #define vidCurrentId (*(u32 *)&lbl_805D7438)
 #define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
 #define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
+#include "types.h"
+typedef struct GROUP_DATA_803B50E8 {
+    u32 nextOff;
+    u16 id;
+    u16 type;
+    u32 macroOff;
+    u32 sampleOff;
+    u32 curveOff;
+    u32 keymapOff;
+    u32 layerOff;
+    union {
+        struct {
+            u32 tableOff;
+        } fx;
+        struct {
+            u32 normpageOff;
+            u32 drumpageOff;
+            u32 midiSetupOff;
+        } song;
+    } data;
+} GROUP_DATA_803B50E8;
+
+typedef struct GSTACK_803B50E8 {
+    GROUP_DATA_803B50E8 *gAddr;
+    void *sdirAddr;
+    void *prjAddr;
+} GSTACK_803B50E8;
+
+typedef struct FX_DATA_803B50E8 {
+    u16 num;
+    u16 reserverd;
+    u8 fx[1][10];
+} FX_DATA_803B50E8;
+
+extern "C" {
+extern s16 lbl_805D7450;
+extern u8 lbl_805D7380;
+void *TLobby__sub_803BD824(void *samples);
+u32 TLobby__sub_803AD654(void *sdir, void *smp_data);
+void TLobby__sub_803B4F5C(u16 *p, void *a, void *b, void *c);
+s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
+void TLobby__sub_803BD9C0(void);
+u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, void *pool);
+}
+
 extern "C" {
 
 void TLobby__sub_803B4CEC(void) {
@@ -174,6 +219,54 @@ void TLobby__sub_803B4FF8(u16 *start, void *a, void *b, void *c) {
         }
     }
 }
+
+static GSTACK_803B50E8 gs[128];
+#define sp lbl_805D7450
+#define sndActive lbl_805D7380
+struct Rec_803ADBF0;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void InsertSamples_803B50E8(u16 *ref, void *samples, void *sdir) {
+    samples = TLobby__sub_803BD824(samples);
+    if (TLobby__sub_803AD654(sdir, samples)) {
+        TLobby__sub_803B4F5C(ref, sdir, (void *)1, (void *)0);
+    }
+}
+static inline void InsertMacros_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)0, (void *)0); }
+static inline void InsertCurves_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)4, (void *)0); }
+static inline void InsertKeymaps_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)2, (void *)0); }
+static inline void InsertLayers_803B50E8(u16 *ref, void *pool) { TLobby__sub_803B4F5C(ref, pool, (void *)3, (void *)0); }
+static inline void InsertFXTab_803B50E8(u16 gid, FX_DATA_803B50E8 *fd) { TLobby__sub_803ADBF0(gid, (Rec_803ADBF0 *)fd->fx, fd->num); }
+u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, void *pool) {
+    GROUP_DATA_803B50E8 *g;
+    if (sndActive && sp < 128) {
+        g = (GROUP_DATA_803B50E8 *)prj_data;
+        while (g->nextOff != 0xFFFFFFFF) {
+            if (g->id == gid) {
+                gs[sp].gAddr = g;
+                gs[sp].prjAddr = prj_data;
+                gs[sp].sdirAddr = sdir;
+                InsertSamples_803B50E8((u16 *)((u8 *)prj_data + g->sampleOff), samples, sdir);
+                InsertMacros_803B50E8((u16 *)((u8 *)prj_data + g->macroOff), pool);
+                InsertCurves_803B50E8((u16 *)((u8 *)prj_data + g->curveOff), pool);
+                InsertKeymaps_803B50E8((u16 *)((u8 *)prj_data + g->keymapOff), pool);
+                InsertLayers_803B50E8((u16 *)((u8 *)prj_data + g->layerOff), pool);
+                if (g->type == 1) {
+                    InsertFXTab_803B50E8(gid, (FX_DATA_803B50E8 *)((u8 *)prj_data + g->data.song.normpageOff));
+                }
+                TLobby__sub_803BD9C0();
+                ++sp;
+                return 1;
+            }
+            g = (GROUP_DATA_803B50E8 *)((u8 *)prj_data + g->nextOff);
+        }
+    }
+    return 0;
+}
+#pragma pop
 
 s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
     s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);

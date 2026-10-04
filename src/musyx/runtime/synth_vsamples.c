@@ -1,25 +1,61 @@
-#include "musyx/runtime/musyx_runtime_a.h"
+#include "types.h"
 
-#define ARR_GET_803A3D8C(arr, offset) ((void *)(offset + (u32)arr))
-#define SEQ_CUR (*(SEQ_INSTANCE_803A49C8 **)&lbl_805D7360)
-#define SEQ_FREE_LIST ((SEQ_INSTANCE_803A49C8 *)lbl_805D7378)
-#define SEQ_RUN_LIST ((SEQ_INSTANCE_803A49C8 *)lbl_805D737C)
-#define SEQ_RUN_L (*(SEQ_INSTANCE_803A49C8 **)&lbl_805D737C)
-#define ARR_GET_803A5A78(arr, offset) ((void *)(offset + (u32)arr))
-#define ARR_GET_803A6364(arr, offset) ((void *)(offset + (u32)arr))
-#define TBL ((Ent_803ACEC4 *)((u8 *)t + 0x4E00))
-#define macTimeQueueRoot ((SYNTH_VOICE_803B19AC *)lbl_805D7420)
-#define macActiveMacroRoot ((SYNTH_VOICE_803B19AC *)lbl_805D741C)
-#define macRealTime lbl_805D7428
-#define FLAGS (*(u64 *)&o->fh)
-#define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
-#define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
-#define vidCurrentId (*(u32 *)&lbl_805D7438)
-#define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
-#define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
 extern "C" {
 
-#define vs (*vsp)
+typedef struct SND_VIRTUALSAMPLE_INFO {
+    u16 smpID;
+    u16 instID;
+    union {
+        struct {
+            u32 off1;
+            u32 len1;
+            u32 off2;
+            u32 len2;
+        } update;
+    } data;
+} SND_VIRTUALSAMPLE_INFO;
+
+typedef struct VS_BUFFER {
+    u8 state;
+    u8 hwId;
+    u8 smpType;
+    u8 voice;
+    u32 last;
+    u32 finalGoodSamples;
+    u32 finalLast;
+    SND_VIRTUALSAMPLE_INFO info;
+} VS_BUFFER;
+
+typedef struct VS {
+    u8 numBuffers;
+    u32 bufferLength;
+    VS_BUFFER streamBuffer[64];
+    u8 voices[64];
+    u16 nextInstID;
+    u32 (*callback)(u8, const SND_VIRTUALSAMPLE_INFO *);
+} VS;
+
+#pragma pack(push, 4)
+struct Rec_803A8D2C {
+    u8 pad0[0x206];
+    u16 curPitch;
+    u8 pad208[0x404 - 0x208];
+};
+#pragma pack(pop)
+extern Rec_803A8D2C *lbl_805D73B0;
+#define synthVoice lbl_805D73B0
+
+u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
+void TLobby__sub_803BD0C8(s32 i, s32 a, s32 b);
+u16 TLobby__sub_803BD110(s32 i);
+u8 TLobby__sub_803BD0FC(s32 i);
+u32 TLobby__sub_803BD0E8(s32 i);
+u32 TLobby__sub_803BD694(s32 arg0);
+s32 get_slot_value__6TLobbyFi(u8);
+u32 TLobby__sub_803BDA2C(s32 i);
+void TLobby__sub_803BCEC8(u32);
+
+static VS vs;
 
 #pragma push
 #pragma opt_common_subs on
@@ -28,7 +64,6 @@ extern "C" {
 #pragma inline_depth(4)
 
 void TLobby__sub_803B4584(void) {
-    VS_VS *vsp = &lbl_80565488;
     u32 i;
     vs.numBuffers = 0;
     for (i = 0; i < 64; i++) {
@@ -41,6 +76,234 @@ void TLobby__sub_803B4584(void) {
 
 #pragma pop
 
-#undef vs
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline u16 vsNewInstanceID_803B46A4(void) {
+    u8 i;
+    u16 instID;
+    do {
+        instID = vs.nextInstID++;
+        for (i = 0; i < vs.numBuffers; ++i) {
+            if (vs.streamBuffer[i].state != 0 && vs.streamBuffer[i].info.instID == instID) {
+                break;
+            }
+        }
+    } while (i != vs.numBuffers);
+
+    return instID;
+}
+
+static inline u8 vsAllocateBuffer_803B46A4(void) {
+    u8 i;
+
+    for (i = 0; i < vs.numBuffers; ++i) {
+        if (vs.streamBuffer[i].state != 0) {
+            continue;
+        }
+        vs.streamBuffer[i].state = 1;
+        vs.streamBuffer[i].last = 0;
+        return i;
+    }
+
+    return 0xFF;
+}
+
+static inline void vsFreeBuffer_803B46A4(u8 bufferIndex) {
+    vs.streamBuffer[bufferIndex].state = 0;
+    vs.voices[vs.streamBuffer[bufferIndex].voice] = 0xFF;
+}
+
+u32 TLobby__sub_803B46A4(u8 voice) {
+    u8 sb;
+    u8 i;
+    u32 addr;
+
+    for (i = 0; i < vs.numBuffers; ++i) {
+        if (vs.streamBuffer[i].state != 0 && vs.streamBuffer[i].voice == voice) {
+            vsFreeBuffer_803B46A4(i);
+        }
+    }
+
+    sb = vs.voices[voice] = vsAllocateBuffer_803B46A4();
+    if (sb != 0xFF) {
+        addr = TLobby__sub_803BE1EC(vs.voices[voice], 0);
+        TLobby__sub_803BD0C8(voice, addr, vs.bufferLength);
+        vs.streamBuffer[sb].info.smpID = TLobby__sub_803BD110(voice);
+        vs.streamBuffer[sb].info.instID = vsNewInstanceID_803B46A4();
+        vs.streamBuffer[sb].smpType = TLobby__sub_803BD0FC(voice);
+        vs.streamBuffer[sb].voice = voice;
+        if (vs.callback != NULL) {
+            vs.callback(0, &vs.streamBuffer[sb].info);
+            return (vs.streamBuffer[sb].info.instID << 8) | voice;
+        }
+        TLobby__sub_803BD0C8(voice, 0, 0);
+    } else {
+        TLobby__sub_803BD0C8(voice, 0, 0);
+    }
+
+    return 0xFFFFFFFF;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline void vsFreeBuffer_803B488C(u8 bufferIndex) {
+    vs.streamBuffer[bufferIndex].state = 0;
+    vs.voices[vs.streamBuffer[bufferIndex].voice] = 0xFF;
+}
+
+void TLobby__sub_803B488C(u32 pubID) {
+    u8 sb;
+    u8 voice;
+
+    if (pubID != 0xFFFFFFFF) {
+        u8 id = (u8)pubID;
+        sb = vs.voices[id];
+        if (sb != 0xFF) {
+            if (vs.streamBuffer[sb].info.instID == ((pubID >> 8) & 0xFFFF)) {
+                if (vs.callback != NULL) {
+                    vs.callback(2, &vs.streamBuffer[sb].info);
+                }
+                vsFreeBuffer_803B488C(sb);
+            }
+        }
+    }
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+void TLobby__sub_803B4938(VS_BUFFER *sb, u32 cpos) {
+    u32 len;
+    if (sb->last == cpos) {
+        return;
+    }
+    if ((s32)sb->last < cpos) {
+        switch (sb->smpType) {
+        case 5: {
+            u32 off = (sb->last / 14) * 8;
+            sb->info.data.update.off1 = off;
+            sb->info.data.update.len1 = cpos - sb->last;
+            sb->info.data.update.off2 = 0;
+            sb->info.data.update.len2 = 0;
+            if ((len = vs.callback(1, &sb->info)) != 0) {
+                sb->last = (sb->last + len) % vs.bufferLength;
+            }
+        } break;
+        default:
+            break;
+        }
+    } else if (cpos == 0) {
+        switch (sb->smpType) {
+        case 5: {
+            u32 off = (sb->last / 14) * 8;
+            sb->info.data.update.off1 = off;
+            sb->info.data.update.len1 = vs.bufferLength - sb->last;
+            sb->info.data.update.off2 = 0;
+            sb->info.data.update.len2 = 0;
+            if ((len = vs.callback(1, &sb->info)) != 0) {
+                sb->last = (sb->last + len) % vs.bufferLength;
+            }
+        } break;
+        default:
+            break;
+        }
+    } else {
+        switch (sb->smpType) {
+        case 5: {
+            u32 off = (sb->last / 14) * 8;
+            sb->info.data.update.off1 = off;
+            sb->info.data.update.len1 = vs.bufferLength - sb->last;
+            sb->info.data.update.off2 = 0;
+            sb->info.data.update.len2 = cpos;
+            if ((len = vs.callback(1, &sb->info)) != 0) {
+                sb->last = (sb->last + len) % vs.bufferLength;
+            }
+        } break;
+        default:
+            break;
+        }
+    }
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+#pragma bool off
+
+void TLobby__sub_803B4B28(void) {
+    u32 i;
+    u32 cpos;
+    u32 realCPos;
+    VS_BUFFER *sb;
+    u32 nextSamples;
+
+    if (vs.callback == NULL) {
+        return;
+    }
+
+    for (i = 0; i < 64; ++i) {
+        if (vs.voices[i] != 0xFF && TLobby__sub_803BD0E8(i) != 0) {
+            sb = &vs.streamBuffer[vs.voices[i]];
+            realCPos = TLobby__sub_803BD694(i);
+            if (sb->smpType == 5) {
+                cpos = (realCPos / 14) * 14;
+            } else {
+                cpos = realCPos;
+            }
+
+            switch (sb->state) {
+            case 1:
+                TLobby__sub_803B4938(sb, cpos);
+                break;
+            case 2:
+                if (((sb->info.instID << 8) | sb->voice) == (u32)get_slot_value__6TLobbyFi(sb->voice)) {
+                    TLobby__sub_803B4938(sb, cpos);
+
+                    if (realCPos >= sb->finalLast) {
+                        sb->finalGoodSamples -= (realCPos - sb->finalLast);
+                    } else {
+                        sb->finalGoodSamples -= (vs.bufferLength - (sb->finalLast - realCPos));
+                    }
+
+                    sb->finalLast = realCPos;
+                    nextSamples = (synthVoice[sb->voice].curPitch * 160 + 0xFFF) / 4096;
+                    if ((s32)nextSamples > (s32)sb->finalGoodSamples) {
+                        if (!TLobby__sub_803BDA2C(sb->voice)) {
+                            TLobby__sub_803BCEC8(sb->voice);
+                        }
+
+                        sb->state = 0;
+                        vs.voices[sb->voice] = 0xFF;
+                    }
+                } else {
+                    sb->state = 0;
+                    vs.voices[sb->voice] = 0xFF;
+                }
+                break;
+            }
+        }
+    }
+}
+
+#pragma pop
 
 }

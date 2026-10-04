@@ -62,8 +62,14 @@ def _psov3_units_from_splits(prefix: str = "pso/") -> List[str]:
 
 
 def _musyx_options(unit: str, profiles: dict) -> dict:
+    # PSO's MusyX objects carry extab/extabindex for every non-leaf function;
+    # C++ with exceptions on reproduces those tables byte for byte and leaves
+    # .text unchanged.
     options = object_options(unit, cflags_pso, profiles)
-    options["cflags"] = [*options["cflags"], "-lang=c++"]
+    options["cflags"] = [
+        "-Cpp_exceptions on" if f == "-Cpp_exceptions off" else f
+        for f in options["cflags"]
+    ] + ["-lang=c++"]
     return options
 
 def NonMatching(name: str, **kwargs: Any) -> Object:
@@ -507,8 +513,8 @@ if args.target == "psov3":
             # MusyX runtime (Factor 5), one unit per original
             # musyx/runtime/*.c file (evidence for every boundary:
             # the original object layout). Profiles come from
-            # compiler_profiles.json. The recovered bodies are compiled as C++
-            # with C linkage, as they were in the merged units they came from.
+            # compiler_profiles.json. The bodies are compiled as C++ with C
+            # linkage and exceptions on (see _musyx_options).
             "lib": "musyx",
             "mw_version": "GC/1.2.5n",
             "cflags": cflags_pso,
