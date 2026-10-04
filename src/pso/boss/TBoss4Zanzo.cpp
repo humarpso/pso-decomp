@@ -55,10 +55,25 @@ struct Obj_8005A1AC {
     Vec_8005A1AC f4e0;
 };
 
+struct Ply_80059ABC;
+struct Vec_800597A8 { f32 x, y, z; };
+
 extern "C" {
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern u8 lbl_80487150[];
 void TBoss4Type3__sub_8005A1AC(Obj_8005A1AC *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK add_radar_scaled_marker(void *, u32, int, int, f32);
+M2C_UNK vec3_add_to(void *, void *);
+f32 vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
+extern u32 lbl_80487174[];
+extern const f32 TBoss4Type3__data_805D8C40;
+extern const f32 lbl_805D8C68;
+extern const f32 lbl_805D8C70;
+extern const f32 lbl_805D8C74;
+void TBoss4Type3__sub_800597A8(u8 *arg0);
 }
 
 extern "C" {
@@ -685,8 +700,12 @@ extern u8 lbl_805D4D84;
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5550;
 extern s32 lbl_805D586C;
-extern "C" void TBoss4Type2__vt15();
-extern "C" void TBoss4Type2__vt21();
+extern "C" {
+void TBoss4Type2__vt15();
+}
+extern "C" {
+void TBoss4Type2__vt21();
+}
 struct Def_804867C8 { M2C_UNK value; M2C_UNK remaining[39]; };
 void TBoss4Type2__vt9(u8 *arg0);
 
@@ -706,20 +725,48 @@ extern s32 lbl_804376D0[];
 extern u8 lbl_804376D8[];
 extern s32 lbl_805D27D8;
 extern const f32 lbl_805D8C28;
-extern "C" u8 lbl_80437644[];
-extern "C" u8 lbl_8043764C[];
-extern "C" u8 lbl_80437658[];
-extern "C" u8 lbl_80437664[];
-extern "C" u8 lbl_8043766C[];
-extern "C" u8 lbl_80437674[];
-extern "C" u8 lbl_8043767C[];
-extern "C" u8 lbl_80437684[];
-extern "C" u8 lbl_8043768C[];
-extern "C" u8 lbl_80437694[];
-extern "C" u8 lbl_804376A0[];
-extern "C" u8 lbl_804376AC[];
-extern "C" u8 lbl_804376B8[];
-extern "C" u8 lbl_804376C4[];
+extern "C" {
+extern u8 lbl_80437644[];
+}
+extern "C" {
+extern u8 lbl_8043764C[];
+}
+extern "C" {
+extern u8 lbl_80437658[];
+}
+extern "C" {
+extern u8 lbl_80437664[];
+}
+extern "C" {
+extern u8 lbl_8043766C[];
+}
+extern "C" {
+extern u8 lbl_80437674[];
+}
+extern "C" {
+extern u8 lbl_8043767C[];
+}
+extern "C" {
+extern u8 lbl_80437684[];
+}
+extern "C" {
+extern u8 lbl_8043768C[];
+}
+extern "C" {
+extern u8 lbl_80437694[];
+}
+extern "C" {
+extern u8 lbl_804376A0[];
+}
+extern "C" {
+extern u8 lbl_804376AC[];
+}
+extern "C" {
+extern u8 lbl_804376B8[];
+}
+extern "C" {
+extern u8 lbl_804376C4[];
+}
 void *__vt__11TBoss4Type2[111] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__vt0, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss4Type2__vt1, (void *)0x0, (void *)0xffffffff,
@@ -868,6 +915,10 @@ TBoss4Zanzo::~TBoss4Zanzo() {}
 extern "C" {
 #pragma push
 #pragma fp_contract on
+extern "C" {
+Ply_80059ABC * get_player_by_client_id(u16);
+}
+
 void render__11TBoss4ZanzoFv(u8 *arg0) {
     f32 temp_f31;
     f32 temp_f5;
@@ -2190,6 +2241,68 @@ void TBoss4Type3__sub_80059618(O_80059618 *o) {
             break;
         }
     }
+}
+
+void TBoss4Type3__sub_800597A8(u8 *arg0) {
+    s32 c[3];
+    Vec_800597A8 v;
+    u32 col;
+    s32 sh;
+    u8 tgt;
+    u16 id;
+    s32 i;
+    s32 d;
+    Ply_80059ABC *p;
+    f32 f;
+    s32 n;
+    s32 j;
+    col = 0xFFFFA24C;
+    id = M2C_FIELD(arg0, u16 *, 0x3BA);
+    if (id != 0xFFFF) {
+        if (id >= 4) return;
+        col = lbl_80487174[id];
+    }
+    for (i = 0, sh = 0; i < 3; i++, sh += 8) {
+        tgt = col >> sh;
+        c[i] = (u8)(M2C_FIELD(arg0, u32 *, 0x3C4) >> sh);
+        d = tgt - c[i];
+        if (d > 0) {
+            if ((c[i] = c[i] + 0x10) > tgt) c[i] = tgt;
+        } else if (d < 0) {
+            if ((c[i] = c[i] - 0x10) < tgt) c[i] = tgt;
+        }
+    }
+    M2C_FIELD(arg0, u32 *, 0x3C4) = c[0] | ((c[2] << 16) | 0xFF000000 | (c[1] << 8));
+    if (TBoss4Type3__data_805D8C40 == M2C_FIELD(arg0, f32 *, 0x3B0) && (M2C_FIELD(arg0, s32 *, 0x3C0) & 4)) {
+        add_radar_scaled_marker(arg0 + 0x2FC, -1, 1, 1, lbl_805D8C70);
+    } else {
+        add_radar_scaled_marker(arg0 + 0x2FC, M2C_FIELD(arg0, u32 *, 0x3C4), 1, 1, lbl_805D8C70);
+    }
+    if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 1) && M2C_FIELD(arg0, u16 *, 0x3BA) != 0xFFFF) {
+        p = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x3BA));
+        if (p != NULL) {
+            VecCopy__FP3VecPC3Vec(&v, (u8 *)p + 0x38);
+            subtract_vector(&v, arg0 + 0x38);
+            v.y = TBoss4Type3__data_805D8C40;
+            f = vector_length(&v);
+            if (!(f < lbl_805D8C68)) {
+                n = (s32)(f / lbl_805D8C68);
+                if (n > 0xE) n = 0xE;
+                normalize_vector(&v);
+                v.x *= lbl_805D8C68;
+                v.z *= lbl_805D8C68;
+                {
+                Vec_800597A8 w = *(Vec_800597A8 *)(arg0 + 0x38);
+                vec3_add_to(&w, &v);
+                for (j = 0; j < n; j++) {
+                    add_radar_scaled_marker(&w, lbl_80487174[M2C_FIELD(arg0, u16 *, 0x3BA)], 1, 1, lbl_805D8C74);
+                    vec3_add_to(&w, &v);
+                }
+                }
+            }
+        }
+    }
+    M2C_FIELD(arg0, s32 *, 0x3C0)++;
 }
 
 void calc_grid_index__11TBoss4Type3FPv(void *arg0) {

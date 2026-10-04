@@ -4,6 +4,75 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef struct { f32 x, y, z; } Vec_8011EB84;
+struct Atk_8011EB84 {
+    Vec_8011EB84 pos;
+    u8 pad0C[0x10];
+    f32 scale;
+    u8 pad20[4];
+    s32 type;
+    s32 angle;
+    Vec_8011EB84 dir;
+    f32 f38;
+    f32 f3C;
+    u32 flags;
+    void *owner;
+    s32 id;
+    u8 pad4C[0x78 - 0x4C];
+};
+
+struct Base_8011EB84 { u8 pad[0x18]; };
+
+struct Wpn_8011EB84 : Base_8011EB84 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6(); virtual void v7();
+    virtual void v8(); virtual void v9(); virtual void v10(); virtual void v11();
+    virtual void v12(); virtual void v13(); virtual void v14(); virtual void v15();
+    virtual void v16(); virtual void v17(); virtual void v18(); virtual void v19();
+    virtual void v20(); virtual void v21(); virtual void v22(); virtual void v23();
+    virtual void v24(); virtual void v25(); virtual void v26(); virtual void v27();
+    virtual void v28(); virtual void v29(); virtual void v30(); virtual void v31();
+    virtual void v32(); virtual s32 m33(); virtual void v34(); virtual void v35();
+    virtual void v36(); virtual void v37(); virtual void v38(); virtual void v39();
+    virtual void v40(); virtual void v41(); virtual void v42(); virtual void v43();
+    virtual void v44(); virtual void v45(); virtual void v46(); virtual void v47();
+    virtual void v48(); virtual void v49(); virtual void v50(); virtual void v51();
+    virtual void v52(); virtual void v53(); virtual void v54(); virtual void v55();
+    virtual void v56(); virtual void m57(Atk_8011EB84 *);
+};
+
+struct Node_8011EB84 { u8 b[0x2C]; };
+
+struct Skel_8011EB84 { u8 pad[0x1C]; Node_8011EB84 n[1]; };
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 * get_weapon_range_record(void *, s16);
+void restore_action_type__11TItemWeaponFPv(u8 *arg0);
+void remap_extra_attack_type(u8 *arg0);
+void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1);
+void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1);
+s32 is_active_in_game__10TObjPlayerFPv(void *);
+s16 is_status_subsystem_ready__10TObjPlayerFPv(s32);
+void * get_extended_state__10TObjPlayerFPv(void *);
+s16 TObjPlayer__sub_80121238(void *);
+u16 get_uid__10TObjPlayerFPv(void *);
+void * TObjPlayer__sub_80121248(void *, s32);
+s32 TObjPlayer__sub_8012125C(void *);
+u8 *find_entity_by_id(s32);
+void create__14TItemAttackColFPvPv(s32, void *);
+void TObjPlayer__sub_802E449C(void *);
+M2C_UNK rotate_matrix_y(int, void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK push_matrix_from(void *);
+M2C_UNK transform_point_by_current_matrix(void *, void *);
+M2C_UNK pop_matrix();
+extern M2C_UNK lbl_8058D490[];
+extern s32 tl_05;
+extern const f32 lbl_805DAC94;
+void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle);
+}
+
 extern "C" {
 
 struct VBase_8011E2AC { char pad[0x18]; };
@@ -521,6 +590,52 @@ void create_weapon_trail_effects(Pl_8011E950 *arg0) {
 u32 pack_weapon_trail_color(void *arg0) {
     V4_8011EA10 w = get_weapon_color__11TItemWeaponFPv(arg0);
     return (__cvt_fp2unsigned(lbl_805DAC90 * w.a) << 24 | __cvt_fp2unsigned(lbl_805DAC90 * w.b) << 16 | __cvt_fp2unsigned(lbl_805DAC90 * w.c) << 8) | __cvt_fp2unsigned(lbl_805DAC90 * w.d);
+}
+
+void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle) {
+    Vec_8011EB84 v;
+    Atk_8011EB84 atk;
+    f32 *scale;
+    s32 state;
+    s32 item;
+    u8 *ph;
+    u8 *hit;
+    s32 off;
+    if (((s32 (*)())is_active_in_game__10TObjPlayerFPv)() != 0) {
+        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)(M2C_FIELD(arg0, void **, 0xF0)));
+        TObjPlayer__sub_802E449C(&atk);
+        fill_status_info__10TObjPlayerFPvPv(arg0, &atk);
+        VecCopy__FP3VecPC3Vec(&atk, origin);
+        atk.angle = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) + angle;
+        atk.f3C = *scale;
+        atk.f38 = M2C_FIELD(arg0, f32 *, 0x1E4);
+        atk.owner = owner;
+        atk.id = M2C_FIELD(arg0, s32 *, 0x24);
+        ((Wpn_8011EB84 *)arg0)->m57(&atk);
+        remap_extra_attack_type(arg0);
+        hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(arg0, origin);
+        if (hit != NULL) {
+            VecCopy__FP3VecPC3Vec(&atk, M2C_FIELD(hit, void **, 4));
+            atk.flags |= 0x800;
+        } else if ((state = (s32)get_extended_state__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0xF0))) != 0 && TObjPlayer__sub_8012125C((void *)state) > 0) {
+            if ((item = (s32)TObjPlayer__sub_80121248((void *)state, 0)) != 0) {
+                if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFPv)(item))) != NULL && M2C_FIELD(ph, u8 **, 0xA4) != NULL) {
+                    VecCopy__FP3VecPC3Vec(&v, &M2C_FIELD(ph, Skel_8011EB84 **, 0xA4)->n[TObjPlayer__sub_80121238((void *)item)]);
+                    subtract_vector(&v, origin);
+                    push_matrix_from(((s32 *)&lbl_8058D490));
+                    ((void (*)(s32, s32))rotate_matrix_y)(0, angle);
+                    transform_point_by_current_matrix(&v, &atk.dir);
+                    atk.flags |= 1;
+                    pop_matrix();
+                }
+            }
+        }
+        if (atk.type == 2 && ((Wpn_8011EB84 *)arg0)->m33() == 0) {
+            atk.scale *= lbl_805DAC94;
+        }
+        create__14TItemAttackColFPvPv(tl_05, &atk);
+        restore_action_type__11TItemWeaponFPv(arg0);
+    }
 }
 
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1) {
