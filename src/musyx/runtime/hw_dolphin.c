@@ -200,4 +200,15 @@ void TLobby__sub_803BE790(void) {
     OSEnableInterrupts();
 }
 
+void (*lbl_805D74E8)(void);
+Rec_803BE528 *lbl_805D74EC;
+s32 lbl_805D74F0;
+s32 lbl_805D74F4;
+s32 lbl_805D74F8;
+s32 lbl_805D74FC;
+s32 lbl_805D7500;
+u16 lbl_805D7504;
+s32 lbl_805D7508;
+u8 lbl_805D750C;
+
 }

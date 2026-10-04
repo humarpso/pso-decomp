@@ -1771,4 +1771,13 @@ void TLobby__sub_803A6CA0(void) {
 }
 #pragma pop
 
+Owner_803A3C24 *lbl_805D7360;
+Node_803A3C24 *lbl_805D7364;
+u32 lbl_805D7368;
+u8 lbl_805D736C;
+u32 lbl_805D7370;
+SEQ_INSTANCE_803A49C8 *lbl_805D7374;
+Node_803A4964 *lbl_805D7378;
+Node_803A4964 *lbl_805D737C;
+
 }

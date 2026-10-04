@@ -320,7 +320,7 @@ u32 TLobby__sub_803B5258(void) {
 
 s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
     s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);
-    Ent_803B5398 *tbl = lbl_80565DD8;
+    Ent_803B5398 *tbl = (Ent_803B5398 *)gs;
     Ent_803B5398 *e;
     s32 i;
     Desc_803B5398 *d;
@@ -367,5 +367,7 @@ s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
 void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TLobby__sub_803B5398(arg0, arg1, arg2, arg3, 0U, arg4);
 }
+
+s16 lbl_805D7450;
 
 }
