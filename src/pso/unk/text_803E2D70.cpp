@@ -81,6 +81,16 @@ struct Rec_803E3B6C { u8 pad[8]; Sub_803E3B6C *p; };
 
 struct Holder_803E3B6C { Rec_803E3B6C *recs; };
 
+typedef struct Vtx_803E352C { f32 x, y, z, nx, ny, nz; u32 pad[2]; } Vtx_803E352C;
+
+typedef union WGPipe_803E352C {
+    u8 u8;
+    u16 u16;
+    s16 s16;
+    u32 u32;
+    f32 f32;
+} WGPipe_803E352C;
+
 extern "C" {
 M2C_UNK TObjPlayer__sub_803E20B0();
 M2C_UNK setup_render__10TObjPlayerFv();
@@ -186,6 +196,13 @@ extern const u32 lbl_805E1098;
 extern const f32 lbl_805E109C;
 extern const f32 lbl_805E10A0;
 void set_chunk_blend_depth_mode(s32 arg0, s32 arg1);
+void Dolphin_GXSetVtxDesc(int, int);
+void GXClearVtxDesc(void);
+void GXSetVtxAttrFmt(int, int, int, int, u8);
+void GXBegin(int, int, u16);
+void clear_move_state_bits__10TObjPlayerFv(void);
+extern s32 lbl_805D77F8;
+void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large);
 }
 
 extern "C" {
@@ -329,6 +346,78 @@ static inline void GXNormal3f32_803E36C4(f32 x, f32 y, f32 z) {
     (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = y;
     (*(volatile WGPipe_803E36C4 *)0xCC008000).f32 = z;
 }
+
+#pragma push
+#pragma use_lmw_stmw off
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void GXPosition3f32_803E352C(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E352C *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E352C *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E352C *)0xCC008000).f32 = z;
+}
+static inline void GXNormal3f32_803E352C(f32 x, f32 y, f32 z) {
+    (*(volatile WGPipe_803E352C *)0xCC008000).f32 = x;
+    (*(volatile WGPipe_803E352C *)0xCC008000).f32 = y;
+    (*(volatile WGPipe_803E352C *)0xCC008000).f32 = z;
+}
+static inline void GXTexCoord2s16_803E352C(s16 s, s16 t) {
+    (*(volatile WGPipe_803E352C *)0xCC008000).s16 = s;
+    (*(volatile WGPipe_803E352C *)0xCC008000).s16 = t;
+}
+void draw_chunk_textured_strips(s16 *list, Vtx_803E352C *verts, u32 info, s32 large) {
+    s16 s;
+    s16 t;
+    Vtx_803E352C *v;
+    s32 skip;
+    s32 n;
+    s32 draw;
+    u32 count;
+    draw = 1;
+    skip = (info >> 14) & 3;
+    count = info & 0x3FFF;
+    if ((u32)lbl_805D77F8 != 0) {
+        if ((u32)lbl_805D77F8 & 1) {
+            if ((u32)lbl_805D77F8 & 0x200) {
+                clear_move_state_bits__10TObjPlayerFv();
+                draw = 0;
+            }
+        } else if ((u32)lbl_805D77F8 & 2) {
+            if ((u32)lbl_805D77F8 & 0x400) {
+                clear_move_state_bits__10TObjPlayerFv();
+                draw = 0;
+            }
+        }
+    }
+    clear_move_state_bits__10TObjPlayerFv();
+    GXSetVtxAttrFmt(0, 0xD, 1, 3, large ? 0xC : 8);
+    GXClearVtxDesc();
+    Dolphin_GXSetVtxDesc(9, 1);
+    Dolphin_GXSetVtxDesc(0xA, 1);
+    Dolphin_GXSetVtxDesc(0xD, 1);
+    do {
+        n = *list++;
+        if (n < 0) {
+            n = -n;
+        }
+        if (draw) {
+            GXBegin(0x98, 0, n);
+        }
+        do {
+            v = &verts[*list++];
+            s = *list++;
+            t = *list++;
+            if (draw) {
+                GXPosition3f32_803E352C(v->x, v->y, v->z);
+                GXNormal3f32_803E352C(v->nx, v->ny, v->nz);
+                GXTexCoord2s16_803E352C(s, t);
+            }
+            list += skip;
+        } while (--n != 0);
+    } while (--count != 0);
+}
+#pragma pop
+
 void TObjPlayer__sub_803E36C4(s16 *list, Vtx_803E36C4 *verts, u32 info) {
     s32 skip;
     s32 n;
