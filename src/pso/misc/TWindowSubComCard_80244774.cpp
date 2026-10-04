@@ -4,6 +4,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct UV_8024503C { f32 u, v; };
+
+struct UVPair_8024503C { UV_8024503C e[2]; };
+
 extern "C" {
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
@@ -14,6 +19,18 @@ f32 TWindowSubComCard__sub_803D6438(f32);
 extern u16 lbl_805D63F4;
 extern s16 lbl_805D63F6;
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK init_xyz_limits__10TObjPlayerFv();
+void set_global_param__8TObjFishFi(s32);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv();
+M2C_UNK draw_textured_quad_at_depth(void *, f32);
+void set_draw_texture_and_color(s32, s32);
+extern UVPair_8024503C lbl_8044E664;
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCAE4;
+extern const f32 lbl_805DCAE8;
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2);
 }
 
 extern "C" {
@@ -114,6 +131,10 @@ extern const f32 lbl_805DCB18;
 extern const f32 lbl_805DCB1C;
 extern const f32 lbl_805DCB20;
 extern const f32 lbl_805DCB24;
+
+extern "C" {
+s32 try_open__19TWindowKeyBoardSoftFii(void *, Quad_802455CC *);
+}
 
 int TWindowSubComCard__sub_80244774(void) {  return lbl_805D3614; }
 
@@ -351,6 +372,69 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     if (((f32 (*)(int))get_card_window_scale__20TWindowSubStatusDispFi)((int) (M2C_FIELD(arg0, s16 *, 0x20))) <= lbl_805DCAD4) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
+}
+
+void draw_selection_bar(u8 *arg0, u8 *arg1, s32 arg2) {
+    UVPair_8024503C uv = lbl_8044E664;
+    UV_8024503C *p;
+    Quad_802455CC q;
+    f32 x1;
+    f32 x;
+    f32 y;
+    f32 z;
+    f32 t;
+    f32 u;
+    if (M2C_FIELD(arg0, s32 *, 0x30) < 0) {
+        return;
+    }
+    p = &uv.e[0];
+    if (arg2 != 0) {
+        p = &uv.e[1];
+    }
+    y = M2C_FIELD(arg0, f32 *, 0x14) + M2C_FIELD(arg1, f32 *, 0xC);
+    x = M2C_FIELD(arg0, f32 *, 0x10);
+    z = lbl_805DCAE4 / (lbl_805DCAE8 + M2C_FIELD(arg0, f32 *, 0x38));
+    init_xyz_limits__10TObjPlayerFv();
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi(lbl_805D63F0);
+    set_draw_texture_and_color(2, -1);
+    q.x0 = x - 2.0f;
+    q.y0 = y;
+    q.x1 = x1 = (16.0f + x) - 2.0f;
+    q.y1 = y + M2C_FIELD(arg1, f32 *, 0x14);
+    q.u0 = p->u / 256.0f;
+    q.v0 = p->v / 256.0f;
+    q.u1 = (16.0f + p->u) / 256.0f;
+    q.v1 = (18.0f + p->v) / 256.0f;
+    if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
+        draw_textured_quad_at_depth(&q, z);
+    }
+    t = x + M2C_FIELD(arg0, f32 *, 0x18);
+    q.x0 = 2.0f + (t - 16.0f);
+    q.y0 = y;
+    q.x1 = 2.0f + t;
+    q.y1 = y + M2C_FIELD(arg1, f32 *, 0x14);
+    u = 32.0f + p->u;
+    q.u0 = u / 256.0f;
+    q.v0 = p->v / 256.0f;
+    q.u1 = (16.0f + u) / 256.0f;
+    q.v1 = (18.0f + p->v) / 256.0f;
+    if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
+        draw_textured_quad_at_depth(&q, z);
+    }
+    q.x0 = x1;
+    q.y0 = y;
+    q.x1 = 2.0f + ((x + M2C_FIELD(arg0, f32 *, 0x18)) - 16.0f);
+    q.y1 = y + M2C_FIELD(arg1, f32 *, 0x14);
+    q.u0 = (16.0f + p->u) / 256.0f;
+    q.v0 = p->v / 256.0f;
+    q.u1 = (16.0f + (16.0f + p->u)) / 256.0f;
+    q.v1 = (18.0f + p->v) / 256.0f;
+    if (try_open__19TWindowKeyBoardSoftFii(arg0, &q) != 0) {
+        draw_textured_quad_at_depth(&q, z);
+    }
+    get_player__20TWindowSubStatusDispFv();
+    reset_transform_state__10TObjPlayerFv();
 }
 
 #pragma push

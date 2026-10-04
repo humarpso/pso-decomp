@@ -887,6 +887,8 @@ pso/misc/TCameraCtrl_8006C5D8.cpp:
 
 pso/misc/TCameraCtrl_8006C8E4.cpp:
 	.text       start:0x8006C8E4 end:0x8006CC30
+	.rodata     start:0x80438520 end:0x80438528
+	.sdata2     start:0x805D9044 end:0x805D9050
 
 pso/misc/TCameraCtrl_8006CC30.cpp:
 	.text       start:0x8006CC30 end:0x8006E82C
@@ -2226,6 +2228,7 @@ pso/enemy/TObjEneMe1Gee.cpp:
 	.text       start:0x800C8788 end:0x800CC788
 	.rodata     start:0x8043BE90 end:0x8043BE98
 	.data       start:0x80493A7C end:0x80493AC8
+	.sdata2     start:0x805DA0D8 end:0x805DA0E8
 
 pso/enemy/TObjEneMe1Gee_800CC788.cpp:
 	.text       start:0x800CC788 end:0x800CC808
@@ -7014,6 +7017,7 @@ pso/object/TObjLight.cpp:
 
 pso/object/TObjMapCsn.cpp:
 	.text       start:0x80194670 end:0x80194AEC
+	.sdata2     start:0x805DBEC0 end:0x805DBED0
 
 pso/object/TObjMesBase.cpp:
 	.text       start:0x80194AEC end:0x80194F68
@@ -13438,6 +13442,7 @@ pso/ui/TAdMcSelectGC_8032A0A4.cpp:
 
 pso/ui/TAdMcSelectCursorGC.cpp:
 	.text       start:0x8032A1D0 end:0x8032A610
+	.rodata     start:0x80477148 end:0x80477150
 
 pso/ui/TAdMcSelectCursorGC_8032A610.cpp:
 	.text       start:0x8032A610 end:0x8032A6F4

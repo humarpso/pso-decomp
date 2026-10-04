@@ -13,6 +13,17 @@ struct Obj_8032A574 {
 
 struct Alt_8032A574 { u8 pad[0x128]; s32 f128, f12C, f130, f134, f138, f13C; };
 
+struct Rect_8032A2A4 { f32 x0, y0, x1, y1; u8 pad[0x10]; };
+
+struct Self_8032A2A4 {
+    u8 pad0[0x1c];
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    Rect_8032A2A4 rects[8];
+    u32 f128;
+};
+
 extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK __vt__19TAdMcSelectCursorGC[];
@@ -20,6 +31,19 @@ extern s32 lbl_805D41D0;
 extern const f32 lbl_805DF740;
 extern const f32 lbl_805DF744;
 Obj_8032A574 *TAdMcSelectCursorGC__ct(Obj_8032A574 *arg0);
+s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, s32, s32, s32);
+s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
+void play_sound_effect(s32, s32, s32, s32);
+s32 TAdMcSelectCursorGC__sub_8032A6D8(u32);
+u32 get_cursor_type__19TAdMcSelectCursorGCFi(s32);
+extern u8 lbl_8050E208[];
+extern u8 lbl_8050E3B8[];
+extern const f32 lbl_805DF72C;
+extern const f32 lbl_805DF730;
+extern const f32 lbl_805DF734;
+extern const f32 lbl_805DF738;
+extern const f32 lbl_805DF73C;
+void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self);
 }
 
 extern "C" {
@@ -73,6 +97,56 @@ block_5:
 
 extern M2C_UNK __vt__19TAdMcSelectCursorGC[];
 extern u32 lbl_805D6C94;
+
+#pragma fp_contract on
+void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self) {
+    u32 t2;
+    u32 t;
+    u32 t1;
+    s32 i;
+    if (self->f1C == 0) {
+        t = get_cursor_type__19TAdMcSelectCursorGCFi(1 - self->f20);
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(lbl_8050E3B8 + 0x20, 0x80, 6, 1) != 0 ||
+            apply_choice__20TWindowChoiceSettingFiiii(lbl_8050E208 + 0x160, 0x80, 6, 1) != 0) {
+            if (TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
+                self->f20++;
+                if (self->f20 > 1) {
+                    self->f20 = 1;
+                }
+            }
+        } else if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(lbl_8050E3B8 + 0x20, 0x40, 6, 1) != 0 ||
+                    apply_choice__20TWindowChoiceSettingFiiii(lbl_8050E208 + 0x160, 0x40, 6, 1) != 0) &&
+                   TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
+            self->f20--;
+            if (self->f20 < 0) {
+                self->f20 = 0;
+            }
+        }
+    }
+    t1 = get_cursor_type__19TAdMcSelectCursorGCFi(self->f20);
+    t2 = get_cursor_type__19TAdMcSelectCursorGCFi(1 - self->f20);
+    if (t1 != 0 && TAdMcSelectCursorGC__sub_8032A6D8(t1) == 0) {
+        if (t2 != 0 && TAdMcSelectCursorGC__sub_8032A6D8(t2) == 0) {
+            self->f128 = 0;
+        } else {
+            self->f20 = 1 - self->f20;
+        }
+    } else {
+        self->f128 += 0x19;
+        self->f128 = self->f128 > 0xFF ? 0xFF : self->f128;
+    }
+    for (i = 0; i < 8; i++) {
+        self->rects[i].x0 = lbl_805DF730 * self->f20 + lbl_805DF72C;
+        self->rects[i].y0 = lbl_805DF734;
+        self->rects[i].x1 = lbl_805DF738 + self->rects[i].x0;
+        self->rects[i].y1 = lbl_805DF73C;
+    }
+    if (self->f20 != self->f24) {
+        play_sound_effect(0x54100, 0, 0, 0);
+        self->f128 = 0;
+    }
+    self->f24 = self->f20;
+}
 
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
