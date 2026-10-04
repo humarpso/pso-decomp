@@ -352,8 +352,6 @@ char * strncpy(char *, const char *, u32);
 extern u8 TKeyBoardControl__data_80506270[];
 extern char TLobby__data_8043EF38[];
 extern u8 TLobby__data_805011D8[];
-extern char TLobby__data_8050AAAC[];
-extern Row_TLobby__data_8050AAE8 TLobby__data_8050AAE8[];
 extern s32 TLobby__data_805D4E30;
 extern s32 TLobby__data_805D53AC;
 extern u8 *TLobby__data_805D5580;
@@ -397,7 +395,6 @@ extern u8 lbl_8043F004[];
 extern u8 lbl_8043F010[];
 extern char lbl_8043F020[];
 extern RecoveredGlobal_80135198_lbl_804A7008 lbl_804A7008;
-extern s32 lbl_8050ABA8[4];
 extern Row_80135208 lbl_8050ABB8[];
 extern char lbl_8050ADB8[];
 extern RecoveredGlobal_80135974_lbl_805127F8 lbl_805127F8;
@@ -409,6 +406,40 @@ extern Mgr_801361E8 *lbl_805D5E48;
 extern s32 lbl_805D61AC;
 extern const f32 lbl_805DB0A8;
 extern RecoveredGlobal_8013630C_main_task main_task;
+struct VBase_18_9029aa { char pad[0x18]; };
+struct VObj_18_9029aa : VBase_18_9029aa {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual s32 m10();
+};
+
+struct LEntry_801352C0 { u8 hdr[0x20]; u8 body[0x41C]; };
+struct LobbyData_801352C0 {
+    u8 pad0[0xC];
+    LEntry_801352C0 ents[4];
+    u8 pad[0x4088 - 0xC - 4 * 0x43C];
+    char names[12][16];
+    s32 pending[4];
+};
+
+extern char lbl_8043EE68[];
+M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF5E4(int);
+u32 TLobby__data_80506A60[3];
+u32 TLobby__data_80506A6C[3252];
+u32 lbl_80509D3C[8];
+u32 lbl_80509D5C[852];
+char TLobby__data_8050AAAC[0x28];
+u32 lbl_8050AAD4[5];
+Row_TLobby__data_8050AAE8 TLobby__data_8050AAE8[12];
+s32 lbl_8050ABA8[4];
 
 void TLobby__sub_80134E30(void) {
     A_80134E30 a;
@@ -519,6 +550,45 @@ void TLobby__sub_80135208(s32 arg0) {
         *(s16 *)(p + 0x22) = arg0 + 0xFA0;
         s32 v = o->m4();
         TLobby__sub_8013A170(lbl_8043EE30, v, p[0x1C], p[0x1D], p[0x1E], p[0x1F]);
+    }
+}
+
+void handle_6x71_unblock_game_join(void) {
+    LEntry_801352C0 *e;
+    s32 *pend;
+    u8 *p;
+    s32 i;
+
+    if (TLobby__data_805D5CE8 == 0) {
+        p = create_player_object(lbl_805D53A0, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
+        copy_header_struct__6TLobbyFPvPv(p + 0xDAC, (u8 *)TLobby__data_805D5580 + 0x1900);
+        ((VObj_18_9029aa *)p)->m6();
+        {
+            s32 nm = (s32)TLobby__data_8050AAE8;
+            strncpy((char *)(nm + lbl_805D53A0 * 16), (const char *)((VObj_18_9029aa *)p)->m10(), 0x10);
+        }
+        TLobby__sub_8013A170(lbl_8043EE48, lbl_805D53A0);
+        pend = (s32 *)lbl_8050ABA8;
+        for (i = 0; i < 4; i++) {
+            if (pend[i] != 0) {
+                TLobby__sub_80135598(i);
+                if (((void *(*)(s32))get_player_by_client_id)(i) == NULL) {
+                    e = (LEntry_801352C0 *)TLobby__data_80506A6C;
+                    e += i;
+                    p = create_player_object(i, 4, e->body);
+                    copy_header_struct__6TLobbyFPvPv(p + 0xDAC, e);
+                    ((VObj_18_9029aa *)p)->m6();
+                    TLobby__sub_80135208(i);
+                    TLobby__sub_8013A170(lbl_8043EE58, i);
+                } else {
+                    TLobby__sub_8013A170(lbl_8043EE68, i);
+                }
+            }
+            pend[i] = 0;
+        }
+        TLobby__sub_801DB554(TLobby__data_805D5580);
+        TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
+        TLobby__data_805D5594 = 0xF;
     }
 }
 

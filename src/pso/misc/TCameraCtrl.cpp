@@ -109,6 +109,31 @@ extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 lbl_8058D490;
 void TCameraCtrl__sub_8006AC70(u8 *arg0);
+struct V3_8006AD34 { f32 x, y, z; };
+struct C30_8006AD34 { u8 b[0x30]; };
+u8 *get_target__11TCameraCtrlFPv(void *);
+M2C_UNK TCameraCtrl__sub_80069F20(void *);
+M2C_UNK TCameraCtrl__sub_8006A13C(void *);
+M2C_UNK update_active_controller__11TCameraCtrlFPv(void *);
+M2C_UNK update_target_from_state__11TCameraCtrlFPv(void *);
+M2C_UNK render__15TObjBoss2TunnelFPvPv(void *, void *);
+s32 get_camera_no__11TCameraCtrlFv();
+void vector_length(void *);
+f32 vec_squared_length(void *);
+void normalize_vector(void *);
+extern u8 *lbl_805D4DF0;
+extern const f32 TCameraCtrl__data_805D8FA8;
+s32 is_split_screen();
+int TCameraCtrl__sub_8006B370(void);
+f32 lbl_804FF5E8[10];
+RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
+RecoveredGlobal_8006ABAC_lbl_804FF61C lbl_804FF61C;
+u8 TCameraCtrl__data_804FF628[12];
+u32 TCameraCtrl__data_804FF634[18];
+u32 lbl_804FF67C[18];
+u32 TCameraCtrl__data_804FF6C4[3];
+u8 TCameraCtrl__data_804FF6D0[0x30];
+C30_8006AD34 TCameraCtrl__data_804FF700[4];
 }
 
 extern "C" {
@@ -205,6 +230,65 @@ void TCameraCtrl__sub_8006AC70(u8 *arg0) {
     pop_matrix();
 }
 #pragma pop
+
+#define ISNAN(x) (((int (*)(f32))TCameraCtrl__sub_8006B370)(x))
+#define G (lbl_805D4DF0)
+#define GF(o) (*(f32 *)(G + (o)))
+void TCameraCtrl__sub_8006AD34(u8 *arg0) {
+    V3_8006AD34 v;
+    u8 *t;
+    s32 i;
+    s32 off;
+
+    arg0[0x1C] = 1;
+    update_target_from_state__11TCameraCtrlFPv(arg0);
+    TCameraCtrl__sub_8006A13C(arg0);
+    update_active_controller__11TCameraCtrlFPv(arg0);
+    TCameraCtrl__sub_80069F20(arg0);
+    if (G != NULL) {
+        if (ISNAN(GF(0x178)) == 0 && ISNAN(GF(0x17C)) == 0) {
+            ISNAN(GF(0x180));
+        }
+        if (ISNAN(GF(0x178)) == 0 && ISNAN(GF(0x17C)) == 0) {
+            ISNAN(GF(0x180));
+        }
+        if (ISNAN(GF(0x184)) == 0 && ISNAN(GF(0x188)) == 0) {
+            ISNAN(GF(0x18C));
+        }
+    }
+    if (G != NULL) {
+        t = get_target__11TCameraCtrlFPv(arg0);
+        v.x = (((f32 *)t)[0] + GF(0x184)) - GF(0x178);
+        v.y = (((f32 *)t)[1] + GF(0x188)) - GF(0x17C);
+        v.z = (((f32 *)t)[2] + GF(0x18C)) - GF(0x180);
+        lbl_804FF5E8[0] = *(f32 *)(arg0 + 0x178);
+        lbl_804FF5E8[1] = *(f32 *)(arg0 + 0x17C);
+        lbl_804FF5E8[2] = *(f32 *)(arg0 + 0x180);
+        if (TCameraCtrl__data_805D8FA8 != vec_squared_length(&v)) {
+            normalize_vector(&v);
+        }
+        lbl_804FF5E8[3] = v.x;
+        lbl_804FF5E8[4] = v.y;
+        lbl_804FF5E8[5] = v.z;
+        vector_length(&v);
+    }
+    if (is_split_screen() != 0) {
+        if (TCameraCtrl__data_804FF628[0] == 5) {
+            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__data_804FF700[get_camera_no__11TCameraCtrlFv()]);
+            for (i = 1; i < 4; i++) {
+                ((u8 *(*)(C30_8006AD34 &, const C30_8006AD34 &))TCameraCtrl__sub_8006AF74)(TCameraCtrl__data_804FF700[i], TCameraCtrl__data_804FF700[0]);
+            }
+        } else {
+            render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__data_804FF700[get_camera_no__11TCameraCtrlFv()]);
+        }
+    } else {
+        render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, TCameraCtrl__data_804FF6D0);
+    }
+    TCameraCtrl__sub_8006AC70(arg0);
+}
+#undef ISNAN
+#undef G
+#undef GF
 
 u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1) {
     *(M2CCopy_30 *)(arg0) = *(const M2CCopy_30 *)(arg1);

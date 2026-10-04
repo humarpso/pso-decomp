@@ -2089,7 +2089,16 @@ void TObjEneMe1Canadin__vt111(void *arg0);
 int TObjEneMe1Canadin__sub_8009E3E4(void *);
 void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1);
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
-M2C_UNK TObjEneMe1CanadinLeader__sub_8009E504(void *);
+void TObjEneMe1CanadinLeader__sub_8009E504(void *);
+struct Canadin_8009E504 {
+    u8 pad0[0x4A4];
+    f32 f4a4;
+    u8 pad4a8[0x4B8 - 0x4A8];
+    s32 state;
+    s32 tblIdx;
+    s32 timer;
+    s32 pos;
+};
 int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p);
 void noop__17TObjEneMe1CanadinFv(void);
 s32 try_trigger_action__17TObjEneMe1CanadinFPv(void *arg0);
@@ -2240,6 +2249,7 @@ extern const f32 lbl_805D98D4;
 extern const f32 lbl_805D98E4;
 extern const f32 lbl_805D98F4;
 extern const f32 lbl_805D991C;
+extern const f32 lbl_805D9918;
 extern const f32 lbl_805D9920;
 extern const f32 lbl_805D9924;
 extern const f32 lbl_805D9928;
@@ -3527,6 +3537,52 @@ void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x4C0) = 2;
     M2C_FIELD(arg0, s32 *, 0x4C4) = 0;
 }
+
+#define p ((Canadin_8009E504 *)pv)
+void TObjEneMe1CanadinLeader__sub_8009E504(void *pv) {
+    switch (p->state) {
+    case 0:
+        break;
+    case 1:
+        if (p->f4a4 > lbl_805D9898) {
+            p->f4a4 = p->f4a4 - lbl_805D9918;
+        } else {
+            p->f4a4 = lbl_805D9898;
+            p->state = 0;
+        }
+        TObjEneMe1Canadin__sub_8009E3E4(p);
+        break;
+    case 2:
+        if (p->f4a4 < lbl_805D98D4) {
+            p->f4a4 = p->f4a4 + lbl_805D9918;
+        } else {
+            p->f4a4 = lbl_805D98D4;
+            p->state = 0;
+        }
+        TObjEneMe1Canadin__sub_8009E3E4(p);
+        break;
+    case 3:
+        p->timer++;
+        if ((f32)p->timer >= lbl_805D98B0) {
+            p->timer = 0;
+            switch (((s8 **)lbl_8048FFA0)[p->tblIdx][p->pos++]) {
+            case 0x62:
+                p->f4a4 = lbl_805D9898;
+                break;
+            case 0x63:
+                p->state = 0;
+                copy_vec4__13TRaderMapCoreFPvPv(&p->f4a4, (void *)lbl_8043A280);
+                break;
+            case 0x61:
+                p->f4a4 = lbl_805D98D4;
+                break;
+            }
+            TObjEneMe1Canadin__sub_8009E3E4(p);
+        }
+        break;
+    }
+}
+#undef p
 
 int select_and_apply_target__17TObjEneMe1CanadinFPv(void* p) { return select_and_apply_target__14TObjEneEpsilonFPvf(p); }
 

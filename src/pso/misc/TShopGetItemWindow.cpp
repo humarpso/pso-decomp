@@ -48,6 +48,29 @@ struct Win_8021E870 {
     s32 f58;
 };
 
+struct Item_8021EA48 { u8 data[0x14]; };
+
+struct VBase_8021EA48 { char pad[0x18]; };
+
+struct Win_8021EA48 : VBase_8021EA48 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4(s32, s32);
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u32 f28;
+    u32 f2C;
+    u32 f30;
+    u32 f34;
+    Item_8021EA48 item;
+    u8 pad4C[0x50 - 0x4C];
+    s32 f50;
+    s32 f54;
+    s32 f58;
+};
+
 extern "C" {
 s32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -81,7 +104,6 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 close__18TShopGetItemWindowFPv(void *arg0);
 void handle_withdraw_confirm__18TShopGetItemWindowFPv(u8 *arg0);
 void TShopGetItemWindow__sub_8021E76C(void *arg0);
-s32 rebuild_item_list__18TShopGetItemWindowFv(void *);
 void TShopGetItemWindow__vt9(u8 *arg0);
 s32 obj_getField1c(s32);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
@@ -104,6 +126,30 @@ M2C_UNK get_window_layout_position(M2C_UNK);
 s32 is_camera_ctrl_active__6TLobbyFv(void);
 extern const f32 lbl_805DC6F0;
 s32 handle_withdraw_list_input__18TShopGetItemWindowFPv(void *p);
+s32 obj_getField1c(s32);
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+s32 TCheckRoomSequence__sub_80210F78(s32, u8 *, s32 *, s32);
+s32 TCheckRoomSequence__sub_80211034(int, void *, int);
+s32 get_room_table_entry__18TCheckRoomSequenceFi(void);
+void set_position__6TLobbyFPvff(u32, f32, f32);
+s32 TShopWindowBase__sub_8022397C(void *);
+s16 get_cursor_index__18TShopGetItemWindowFPv(u32);
+s32 get_shop_text(s32);
+void *__nw__7TObjectFUl(u32);
+void set_displayed_item_colored__15TWindowHelpItemFPvUi(u32, void *);
+u32 TWindowHelpItem__ct(void *, M2C_UNK, u16);
+void TShopArmorListWindow__sub_80266CF8(u32);
+void save_cursor_selection__20TShopArmorListWindowFPv(u32);
+void TShopArmorListWindow__sub_80266DB0(u32);
+void calc_list_content_extent(u32);
+void add_item_info_entry__20TWindowSubStatusDispFPviii(u32, void *, s32, s32);
+M2C_UNK get_window_layout_position(M2C_UNK);
+void TWindowSetLevelUp__sub_8026DE28(u32, s32);
+u32 create_item_list_window(s32, s32, u16);
+s32 is_camera_ctrl_active__6TLobbyFv(void);
+extern const f32 lbl_805DC6F0;
+void rebuild_item_list__18TShopGetItemWindowFv(void *p);
 }
 
 extern "C" {
@@ -265,6 +311,81 @@ s32 handle_withdraw_list_input__18TShopGetItemWindowFPv(void *p) {
     }
 }
 
+void rebuild_item_list__18TShopGetItemWindowFv(void *p) {
+    u16 id;
+    s32 x;
+    s32 sel;
+    s32 i;
+    void *obj;
+    Win_8021EA48 *arg0 = (Win_8021EA48 *)p;
+    arg0->f54 = 1;
+    x = TShopWindowBase__sub_8022397C(arg0);
+    arg0->f50 = get_room_table_entry__18TCheckRoomSequenceFi();
+    if (arg0->f50 == 0) {
+        arg0->m4(0x3E, 1);
+        set_field_20__12TQuestListVMFPvi(arg0, 6);
+        if (arg0->f28 != 0U) {
+            TShopArmorListWindow__sub_80266DB0(arg0->f28);
+        }
+    } else {
+    if (arg0->f28 == 0U) {
+        Item_8021EA48 item;
+        s32 count;
+        arg0->f28 = create_item_list_window(get_shop_text(0x30), 0xC8, obj_getField1c(arg0->f24));
+        TWindowSetLevelUp__sub_8026DE28(arg0->f28, 0xC8);
+        for (i = 0; i < 0xC8; i++) {
+            if (TCheckRoomSequence__sub_80210F78(i, (u8 *)&item, &count, x) != 0) {
+                if (count > 1) {
+                    add_item_info_entry__20TWindowSubStatusDispFPviii(arg0->f28, &item, i, count);
+                } else {
+                    add_item_info_entry__20TWindowSubStatusDispFPviii(arg0->f28, &item, i, 0);
+                }
+            }
+        }
+        calc_list_content_extent(arg0->f28);
+        sel = get_cursor_index__18TShopGetItemWindowFPv(arg0->f28);
+    } else {
+        Item_8021EA48 item;
+        s32 count;
+        s32 j;
+        save_cursor_selection__20TShopArmorListWindowFPv(arg0->f28);
+        TShopArmorListWindow__sub_80266DB0(arg0->f28);
+        for (j = 0; j < 0xC8; j++) {
+            if (TCheckRoomSequence__sub_80210F78(j, (u8 *)&item, &count, x) != 0) {
+                if (count > 1) {
+                    add_item_info_entry__20TWindowSubStatusDispFPviii(arg0->f28, &item, j, count);
+                } else {
+                    add_item_info_entry__20TWindowSubStatusDispFPviii(arg0->f28, &item, j, 0);
+                }
+            }
+        }
+        TShopArmorListWindow__sub_80266CF8(arg0->f28);
+        calc_list_content_extent(arg0->f28);
+        clear_selected_and_update_entry__14TWindowSubItemFPv((void *)arg0->f28);
+        sel = get_cursor_index__18TShopGetItemWindowFPv(arg0->f28);
+    }
+    if (arg0->f34 == 0U) {
+        if (TCheckRoomSequence__sub_80211034(sel, &arg0->item, x) != 0) {
+            obj = __nw__7TObjectFUl(0xBC);
+            if (obj != NULL) {
+                id = (u16)obj_getField1c(arg0->f24);
+                obj = (void *)TWindowHelpItem__ct(obj, get_window_layout_position(0x27), id);
+            }
+            arg0->f34 = (u32)obj;
+            if (arg0->f34 != 0U && is_camera_ctrl_active__6TLobbyFv() > 2) {
+                set_position__6TLobbyFPvff(arg0->f34, lbl_805DC6F0, lbl_805DC6F0);
+            }
+            set_displayed_item_colored__15TWindowHelpItemFPvUi(arg0->f34, &arg0->item);
+            arg0->f58 = sel;
+        }
+    } else if (TCheckRoomSequence__sub_80211034(sel, &arg0->item, x) != 0) {
+        set_displayed_item_colored__15TWindowHelpItemFPvUi(arg0->f34, &arg0->item);
+        arg0->f58 = sel;
+    }
+    set_field_20__12TQuestListVMFPvi(arg0, 1);
+    }
+}
+
 void TShopGetItemWindow__vt9(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     M2C_UNK (*temp_r12_2)(s32);
@@ -272,7 +393,7 @@ void TShopGetItemWindow__vt9(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
     switch (temp_r0) {
     case 0:
-        rebuild_item_list__18TShopGetItemWindowFv((void *) (arg0));
+        rebuild_item_list__18TShopGetItemWindowFv((void *)((void *) (arg0)));
         return;
     case 1:
         handle_withdraw_list_input__18TShopGetItemWindowFPv((void *)((void *) (arg0)));
