@@ -74,6 +74,17 @@ typedef struct Tbl_80426894 {
 } Tbl_80426894;
 
 extern "C" {
+M2C_UNK OSInitMessageQueue(void *, void *, int);
+M2C_UNK TLobby__sub_803F9B28(void *);
+s16 TLobby__sub_803F9B94(void *, void *);
+M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+void TUdpSocket__sub_80419E64(int, int, void (*)(void));
+s32 TLobby__sub_8042AAA0(void *);
+u8 lbl_805CF240[0xA0];
+u8 lbl_805CF2E0[0xA0];
+u8 lbl_805CF380[0x48];
+extern s32 lbl_805D7BB4;
+extern u32 lbl_805D7BC4;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7BA8;
 void TLobby__sub_804259F0(void);
@@ -506,6 +517,55 @@ s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2) {
     }
     return -1;
 }
+
+#define arg0 ((s32)argp)
+s16 TLobby__sub_804262CC(void *argp) {
+    s16 *var_r30;
+    s16 var_r0;
+    s32 var_r29;
+
+    if ((s32) lbl_805D7BB0 == 1) {
+        return 0;
+    }
+    TUdpSocket__sub_803F9EE4((void *) (arg0), (int) (0), (int) (0x56));
+    if (TLobby__sub_8042AAA0((void *) (lbl_805D7BC8)) != 1) {
+        var_r0 = -1;
+    } else {
+        if ((u32) lbl_805D7BC4 != 0U) {
+            TLobby__sub_8042B560(lbl_805D7BC4);
+        }
+        TLobby__sub_8042B538((void *) (arg0));
+        var_r29 = 0;
+        var_r30 = (s16 *)((u8 *)(arg0 + 6));
+        do {
+            if ((s16) M2C_FIELD(var_r30, s16 *, 0) > 0) {
+                TLobby__sub_8042BC00((void *) ((u8 *)(var_r30) + 2));
+            }
+            var_r29 += 1;
+            var_r30 = (s16 *)((u8 *)((s16 *)((u8 *)(var_r30) + 8)));
+        } while (var_r29 < 6);
+        TLobby__sub_80426190((Obj_80426110 *) (arg0));
+        var_r0 = 0;
+    }
+    if (var_r0 < 0) {
+        return -1;
+    }
+    OSInitMessageQueue(lbl_805CF240, lbl_805CF240 + 0x20, 0x20);
+    OSInitMessageQueue(lbl_805CF2E0, lbl_805CF2E0 + 0x20, 0x20);
+    OSInitMessageQueue(lbl_805CF380, lbl_805CF380 + 0x20, 0xA);
+    if (TLobby__sub_803F9B94((void *) (&TLobby__sub_80425CFC), (void *) (&lbl_805D7BB4)) < 0) {
+        return -1;
+    }
+    TLobby__sub_803F9B28((void *) (lbl_805D7BB4));
+    lbl_805D7BB0 = 1;
+    lbl_805D4828 = -1;
+    lbl_805D7BB8 = 0;
+    lbl_805D7BBC = 1;
+    lbl_805D7BC0 = 1;
+    TUdpSocket__sub_80419E64(0x64, 0, TLobby__sub_80425BD0);
+    return 0;
+}
+#undef arg0
 
 s32 TLobby__sub_80426440(void) {
     return 0;

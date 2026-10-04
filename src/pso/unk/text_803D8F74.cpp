@@ -40,71 +40,52 @@ extern const f32 lbl_805E0F24;
 
 extern "C" {
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline f32 sqrtf_803D8F74(f32 x) {
+    if (x > lbl_805E0F00) {
+        f64 guess = __frsqrte((f64)x);
+        guess = lbl_805E0F08 * guess * (lbl_805E0F10 - guess * guess * x);
+        guess = lbl_805E0F08 * guess * (lbl_805E0F10 - guess * guess * x);
+        guess = lbl_805E0F08 * guess * (lbl_805E0F10 - guess * guess * x);
+        volatile f32 y = (f32)(x * guess);
+        return y;
+    }
+    return x;
+}
+
+static inline f32 acosf_803D8F74(f32 v) {
+    return (f32)acos(v);
+}
+
 void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
 {
-  volatile f32 spC;
-  volatile f32 sp8;
-  f32 temp_f0;
-  f32 temp_f0_2;
-  f32 var_f31;
-  f32 var_f30;
-  f32 temp_f0_6;
-  f64 temp_f0_3;
-  f64 temp_f0_4;
-  f64 temp_f0_5;
-  const ReflectionPlane *new_var;
-  s32 var_r31;
-  f64 temp_f0_7;
-  f64 temp_f0_8;
-  f64 temp_f0_9;
-  s32 var_r30;
-  temp_f0 = arg1->normal[0];
-  temp_f0_2 = arg1->normal[2];
-  var_f31 = (temp_f0 * temp_f0) + (temp_f0_2 * temp_f0_2);
-  if (var_f31 > lbl_805E0F00)
-  {
-    temp_f0_3 = __frsqrte(var_f31);
-    temp_f0_4 = (lbl_805E0F08 * temp_f0_3) * (lbl_805E0F10 - (((f64) var_f31) * (temp_f0_3 * temp_f0_3)));
-    temp_f0_5 = (lbl_805E0F08 * temp_f0_4) * (lbl_805E0F10 - (((f64) var_f31) * (temp_f0_4 * temp_f0_4)));
-    spC = (f32) (((f64) var_f31) * ((lbl_805E0F08 * temp_f0_5) * (lbl_805E0F10 - (((f64) var_f31) * (temp_f0_5 * temp_f0_5)))));
-    var_f31 = spC;
-  }
-  temp_f0_6 = arg1->normal[1];
-  var_f30 = (temp_f0_6 * temp_f0_6) + (var_f31 * var_f31);
-  if (var_f30 > lbl_805E0F00)
-  {
-    temp_f0_7 = __frsqrte(var_f30);
-    temp_f0_8 = (lbl_805E0F08 * temp_f0_7) * (lbl_805E0F10 - (((f64) var_f30) * (temp_f0_7 * temp_f0_7)));
-    temp_f0_9 = (lbl_805E0F08 * temp_f0_8) * (lbl_805E0F10 - (((f64) var_f30) * (temp_f0_8 * temp_f0_8)));
-    sp8 = (f32) (((f64) var_f30) * ((lbl_805E0F08 * temp_f0_9) * (lbl_805E0F10 - (((f64) var_f30) * (temp_f0_9 * temp_f0_9)))));
-    var_f30 = sp8;
-  }
-  if (arg1->normal[1] >= lbl_805E0F00)
-  {
-    var_r31 = -((s32) (lbl_805E0F18 * ((f64) ((f32) acos(var_f31 / var_f30)))));
-  }
-  if (arg1->normal[1] < lbl_805E0F00)
-  {
-    temp_f0_3 = var_f31 / var_f30;
-    var_r31 = (s32) (lbl_805E0F18 * ((f64) ((f32) acos(temp_f0_3))));
-  }
-  new_var = arg1;
-  if (arg1->normal[0] >= lbl_805E0F00)
-  {
-    var_r30 = (s32) (lbl_805E0F18 * ((f64) ((f32) acos(new_var->normal[2] / var_f31))));
-  }
-  if (arg1->normal[0] < lbl_805E0F00)
-  {
-    var_r30 = -((s32) (lbl_805E0F18 * ((f64) ((f32) acos(arg1->normal[2] / var_f31)))));
-  }
-  translate_matrix(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
-  rotate_matrix_y((Matrix34*)arg0, var_r30);
-  rotate_matrix_x(arg0, var_r31);
-  scale_matrix(arg0, lbl_805E0F20, lbl_805E0F20, lbl_805E0F24);
-  rotate_matrix_x(arg0, -var_r31);
-  rotate_matrix_y((Matrix34*)arg0, -var_r30);
-  translate_matrix(arg0, -arg1->origin[0], -arg1->origin[1], -arg1->origin[2]);
+    f32 xz = sqrtf_803D8F74(arg1->normal[0] * arg1->normal[0] + arg1->normal[2] * arg1->normal[2]);
+    f32 len = sqrtf_803D8F74(arg1->normal[1] * arg1->normal[1] + xz * xz);
+    s32 rx;
+    s32 ry;
+    if (arg1->normal[1] >= lbl_805E0F00) {
+        rx = -(s32)(lbl_805E0F18 * acosf_803D8F74(xz / len));
+    }
+    if (arg1->normal[1] < lbl_805E0F00) {
+        rx = (s32)(lbl_805E0F18 * acosf_803D8F74(xz / len));
+    }
+    if (arg1->normal[0] >= lbl_805E0F00) {
+        ry = (s32)(lbl_805E0F18 * acosf_803D8F74(arg1->normal[2] / xz));
+    }
+    if (arg1->normal[0] < lbl_805E0F00) {
+        ry = -(s32)(lbl_805E0F18 * acosf_803D8F74(arg1->normal[2] / xz));
+    }
+    translate_matrix(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
+    rotate_matrix_y((Matrix34*)arg0, ry);
+    rotate_matrix_x(arg0, rx);
+    scale_matrix(arg0, 1.0f, 1.0f, -1.0f);
+    rotate_matrix_x(arg0, -rx);
+    rotate_matrix_y((Matrix34*)arg0, -ry);
+    translate_matrix(arg0, -arg1->origin[0], -arg1->origin[1], -arg1->origin[2]);
 }
+#pragma pop
 
 __declspec(section ".sdata2") extern const f64 lbl_805E0F28;
 void rotate_matrix_y(Matrix34* matrix, s32 angle) {

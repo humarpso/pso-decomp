@@ -96,12 +96,52 @@ struct TTecGiBarta_80230C58 {
     s32 f174;
 };
 
+struct Vec_802304A0 { f32 x, y, z; };
+struct Row_802304A0 { u32 entry; u32 flags; f32 scale; };
+struct Band_802304A0 { Row_802304A0 *rows; u32 count; };
+struct Angles_802304A0 { s32 a[3]; };
+struct Shot_802304A0 {
+    u8 pad0[0x20];
+    Vec_802304A0 pos;
+    u8 pad2C[0x54 - 0x2C];
+    s32 f54;
+    s32 f58;
+    s32 f5C;
+    u8 pad60[0xC6 - 0x60];
+    s16 band;
+    u16 source;
+    u8 padCA[0x130 - 0xCA];
+    void **emitters;
+};
+
 struct Obj_80230CFC {
     u8 pad0[0x134];
     u16 ids[32];
 };
 
 extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void *get_bml_motion(void *, u32);
+void *get_bml_model(void *, u32);
+void attach_particle_model(void *, void *, void *, void *, s32, f32);
+void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+void *create_timed_particle_emitter(void *, s32, s32, s32);
+void *spawn_continuous_particle_with_direction(void *, void *, u32);
+void *spawn_particle_effect(void *, s32);
+void *create_particle_emitter(void *, u32);
+void **alloc_buffer__11TOBoss4RockFPv(u32);
+void matrix_mult_vec(s32, void *, void *);
+void rotate_matrix_y(s32, s32);
+void push_matrix_from(void *);
+void pop_matrices(s32);
+extern Vec_802304A0 lbl_8044D288;
+extern u8 lbl_8058D490[];
+extern void *lbl_805D63AC;
+extern void *lbl_805D63B0;
+extern const f32 lbl_805DC800;
+extern const f32 lbl_805DC804;
+extern const f32 lbl_805DC808;
+
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 TTecAnti__sub_8022B35C(void *, int);
@@ -114,7 +154,6 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 void free__11TOBoss4RockFUi(void **);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
-extern TTecGiBartaData_80230B48 lbl_8044D24C[];
 extern void *__vt__11TTecGiBarta[];
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting);
 u16 obj_getField1c(void *);
@@ -189,6 +228,88 @@ void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0) {
     }
 }
 
+#pragma inline_depth(1)
+#pragma auto_inline on
+#pragma dont_inline off
+}
+struct Raw_802304A0 { u8 b[12]; };
+extern "C" {
+void create_particles__11TTecGiBartaFv(void *arg0) {
+    extern Band_802304A0 lbl_8044D24C[];
+    Shot_802304A0 *shot = (Shot_802304A0 *)arg0;
+    Angles_802304A0 angles;
+    Vec_802304A0 pos;
+    Vec_802304A0 off;
+    Vec_802304A0 p2;
+    Vec_802304A0 v;
+    u32 i;
+    void *emitter;
+    u8 *src;
+    u32 flags;
+
+    angles.a[0] = shot->f54;
+    angles.a[1] = 0;
+    angles.a[2] = shot->f5C;
+    shot->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D24C[shot->band].count * 4);
+    for (i = 0; i < lbl_8044D24C[shot->band].count; i++) {
+        *(Raw_802304A0 *)&pos = *(Raw_802304A0 *)&shot->pos;
+        if (lbl_8044D24C[shot->band].rows[i].flags & 0x800) {
+            pos.y -= lbl_805DC800;
+        }
+        if (lbl_8044D24C[shot->band].rows[i].flags & 2) {
+            emitter = spawn_continuous_particle_with_direction(&pos, &angles, lbl_8044D24C[shot->band].rows[i].entry);
+        } else {
+            *(Raw_802304A0 *)&off = *(Raw_802304A0 *)&lbl_8044D288;
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(0, shot->f58);
+            matrix_mult_vec(0, &off, &off);
+            pop_matrices(1);
+            p2.x = shot->pos.x + off.x;
+            p2.y = shot->pos.y + off.y;
+            p2.z = shot->pos.z + off.z;
+            if (lbl_8044D24C[shot->band].rows[i].flags & 0x800) {
+                p2.y -= lbl_805DC800;
+            }
+            emitter = create_particle_emitter(&p2, lbl_8044D24C[shot->band].rows[i].entry);
+        }
+        if (emitter != NULL) {
+            if (lbl_8044D24C[shot->band].rows[i].flags & 0x40) {
+                set_position_xy__10TObjPlayerFPvff(emitter, lbl_8044D24C[shot->band].rows[i].scale, lbl_8044D24C[shot->band].rows[i].scale);
+            }
+            if (lbl_8044D24C[shot->band].rows[i].flags & 0x20) {
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, (u16)(lbl_8044D24C[shot->band].rows[i].flags >> 16)), lbl_805D63B0, NULL, 0, lbl_805DC804);
+            }
+        }
+        shot->emitters[i] = emitter;
+    }
+    if (shot->band == 5) {
+        VecCopy__FP3VecPC3Vec(&v, &shot->pos);
+        v.y -= lbl_805DC808;
+        spawn_particle_effect(&v, 0x1E0);
+        spawn_particle_effect(&v, 0x1E1);
+        src = (u8 *)find_entity_by_id(shot->source);
+        if (src != NULL) {
+            emitter = spawn_particle_effect(src + 0x38, 0x18B);
+            if (emitter != NULL) {
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 6), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 2), 0, lbl_805DC804);
+            }
+            emitter = create_timed_particle_emitter(src + 0x38, 0x18B, 5, 1);
+            if (emitter != NULL) {
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 7), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 2), 0, lbl_805DC804);
+            }
+            emitter = create_timed_particle_emitter(src + 0x38, 0x18B, 10, 1);
+            if (emitter != NULL) {
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 8), lbl_805D63B0, get_bml_motion(lbl_805D63AC, 2), 0, lbl_805DC804);
+            }
+            emitter = create_timed_particle_emitter(src + 0x38, 0x18F, 20, 1);
+            if (emitter != NULL) {
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, 5), lbl_805D63B0, NULL, 0, lbl_805DC804);
+            }
+        }
+    }
+}
+#pragma auto_inline off
+
 typedef struct RecoveredFields_802308A0_arg0 RecoveredFields_802308A0_arg0;
 typedef struct RecoveredGlobal_802308A0_lbl_804CC510 RecoveredGlobal_802308A0_lbl_804CC510;
 typedef struct RecoveredGlobal_802308A0_lbl_804CC55C RecoveredGlobal_802308A0_lbl_804CC55C;
@@ -252,6 +373,7 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
 }
 
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting) {
+    extern TTecGiBartaData_80230B48 lbl_8044D24C[];
     if (self) {
         self->vtable = __vt__11TTecGiBarta;
         for (u32 i = 0; i < lbl_8044D24C[self->band].count; ++i) {

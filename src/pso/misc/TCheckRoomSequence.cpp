@@ -111,6 +111,42 @@ struct Seq_80210754 {
     s32 f34, f38, f3c, f40, f44, f48;
 };
 
+struct VBase_802102D0 { char pad[0x18]; };
+class TCheckRoomSequence : public VBase_802102D0 {
+public:
+    virtual void v0();
+    virtual void v1();
+    virtual void v2();
+    virtual void v3();
+    virtual void v4();
+    virtual void v5();
+    virtual void v6();
+    virtual void v7();
+    virtual void v8();
+    virtual void vt9();
+    virtual void vt10();
+    virtual void vt11();
+    u8 pad1c[0x20 - 0x1C];
+    s32 state;
+    void open_bank();
+    void handle_root_choice();
+    void handle_deposit_choice();
+    void open_deposit_item_window();
+    void accept_meseta_deposit(void *);
+    void begin_meseta_deposit(void *);
+    void begin_meseta_withdrawal(void *);
+    void sub_8020F2D8();
+    void handle_withdraw_choice();
+    void accept_meseta_withdrawal(void *);
+    void sub_802100FC();
+    void sub_802100F8();
+    void handle_error_ack(void *);
+    void sub_8020F1DC();
+    void set_quest_list_mode_19(void *);
+    void sub_8020F268();
+};
+typedef void (TCheckRoomSequence::*Fn_802102D0)();
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 is_item_record_empty(u8 *arg0);
@@ -852,6 +888,34 @@ void open_bank__18TCheckRoomSequenceFv(u8 *arg0) {
 #pragma pop
 
 void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); TShopWindowBase__sub_8022397C(p); copy_bank_from_card_window(); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
+
+void TCheckRoomSequence__vt9(TCheckRoomSequence *self) {
+    static Fn_802102D0 fns[20] = {
+        (Fn_802102D0)&TCheckRoomSequence::vt10,
+        (Fn_802102D0)&TCheckRoomSequence::open_bank,
+        (Fn_802102D0)&TCheckRoomSequence::handle_root_choice,
+        (Fn_802102D0)&TCheckRoomSequence::handle_deposit_choice,
+        (Fn_802102D0)&TCheckRoomSequence::open_deposit_item_window,
+        (Fn_802102D0)&TCheckRoomSequence::accept_meseta_deposit,
+        (Fn_802102D0)&TCheckRoomSequence::begin_meseta_deposit,
+        (Fn_802102D0)&TCheckRoomSequence::begin_meseta_withdrawal,
+        0,
+        (Fn_802102D0)&TCheckRoomSequence::sub_8020F2D8,
+        (Fn_802102D0)&TCheckRoomSequence::handle_withdraw_choice,
+        (Fn_802102D0)&TCheckRoomSequence::vt11,
+        (Fn_802102D0)&TCheckRoomSequence::accept_meseta_withdrawal,
+        (Fn_802102D0)&TCheckRoomSequence::vt11,
+        (Fn_802102D0)&TCheckRoomSequence::sub_802100FC,
+        (Fn_802102D0)&TCheckRoomSequence::sub_802100F8,
+        (Fn_802102D0)&TCheckRoomSequence::handle_error_ack,
+        (Fn_802102D0)&TCheckRoomSequence::sub_8020F1DC,
+        (Fn_802102D0)&TCheckRoomSequence::set_quest_list_mode_19,
+        (Fn_802102D0)&TCheckRoomSequence::sub_8020F268,
+    };
+    if (fns[self->state]) {
+        (self->*fns[self->state])();
+    }
+}
 
 #define self ((Seq_80210754 *)arg0)
 void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_) {

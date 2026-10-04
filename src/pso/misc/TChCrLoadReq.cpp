@@ -7,6 +7,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8028D360___vt__12TChCrLoadReq { M2C_UNK value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8028D360___vt__12TChCrLoadReq_size[sizeof(RecoveredGlobal_8028D360___vt__12TChCrLoadReq) == 0x18 ? 1 : -1];
 
+class TChCrLoadReq {
+public:
+    u8 pad[0x60];
+    s32 state;
+    s32 timer;
+    void run_task();
+    void a();
+    void b();
+    void c();
+};
+
 struct B_8028D214 { s32 a0; s32 a4; s32 a8; };
 
 struct Rq_8028D214 { u8 pad0[0x38]; void *f38; s32 f3c; s32 f40; s32 *f44; B_8028D214 *f48; u8 pad4c[0xC]; s32 f58; u8 *f5c; s32 f60; s32 f64; u8 pad68[0xC]; s32 w[6]; s32 f8c; };
@@ -14,6 +25,7 @@ struct Rq_8028D214 { u8 pad0[0x38]; void *f38; s32 f3c; s32 f40; s32 *f44; B_802
 extern "C" {
 u16 obj_getField1c(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
+void queue_destruction__7TObjectFv(void *);
 extern M2C_UNK __vt__12TChCrLoadReq[];
 extern void *lbl_805D3B60;
 u8 *TChCrLoadReq__sub_8028D360(u8 *arg0, s32 arg1);
@@ -55,6 +67,19 @@ block_3:
         }
     }
 }
+
+}
+
+void TChCrLoadReq::run_task() {
+    if (--timer <= 0) {
+        queue_destruction__7TObjectFv(this);
+        return;
+    }
+    static void (TChCrLoadReq::*tbl[3])() = { &TChCrLoadReq::a, &TChCrLoadReq::b, &TChCrLoadReq::c };
+    (this->*tbl[state])();
+}
+
+extern "C" {
 
 extern M2C_UNK __vt__12TChCrLoadReq[];
 

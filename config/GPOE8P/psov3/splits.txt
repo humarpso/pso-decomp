@@ -9058,6 +9058,8 @@ pso/misc/TLobby_8020F00C.cpp:
 
 pso/misc/TCheckRoomSequence.cpp:
 	.text       start:0x8020F034 end:0x802115F4
+	.data       start:0x804C9490 end:0x804C9664
+	.sbss       start:0x805D6170 end:0x805D6178
 
 pso/misc/TShopEquipmentSellWindow_802115F4.cpp:
 	.text       start:0x802115F4 end:0x80211608
@@ -11283,6 +11285,8 @@ pso/misc/TChCrCharSelect_802938E4.cpp:
 
 pso/misc/TChCrCharSelect_80293AF4.cpp:
 	.text       start:0x80293AF4 end:0x80293BEC
+	.data       start:0x804DB8A0 end:0x804DB8E8
+	.sbss       start:0x805D6594 end:0x805D6598
 
 pso/misc/TChCrCharSelect_80293BEC.cpp:
 	.text       start:0x80293BEC end:0x80293C20
@@ -12046,6 +12050,8 @@ pso/object/TObjTradeCollision.cpp:
 pso/misc/TOTrapChainSawEdge.cpp:
 	.text       start:0x802C823C end:0x802C9924
 	.rodata     start:0x80471F4C end:0x80471FA8
+	.data       start:0x804E0BD0 end:0x804E0BE8
+	.sbss       start:0x805D680C end:0x805D6810
 
 pso/unk/text_802C9924.cpp:
 	.text       start:0x802C9924 end:0x802C9960
@@ -13674,6 +13680,8 @@ pso/unk/text_80338F3C.cpp:
 pso/ui/TAdEnterPPPPassGC.cpp:
 	.text       start:0x80338F9C end:0x80339658
 	.rodata     start:0x80477C58 end:0x80477C60
+	.data       start:0x804EF500 end:0x804EF598
+	.sbss       start:0x805D6D70 end:0x805D6D78
 
 pso/misc/TChCrEffCtrlPl_80339658.cpp:
 	.text       start:0x80339658 end:0x80339954
@@ -15966,6 +15974,7 @@ pso/unk/text_80421620.cpp:
 
 pso/misc/TLobby_804245DC.cpp:
 	.text       start:0x804245DC end:0x8042E8C4
+	.bss        start:0x805CF240 end:0x805CF2E0
 
 pso/unk/text_8042E8C4.cpp:
 	.text       start:0x8042E8C4 end:0x8042E9FC

@@ -16,6 +16,16 @@ struct RecoveredGlobal_803392F4_lbl_80477C20 {
 };
 
 typedef s32 M2C_UNK;
+struct TAdEnterPPPPassGC_80339378 {
+    virtual void m0();
+    char pad[0x18];
+    s32 state;
+    s32 f20;
+    s32 f24;
+    void s0(); void s1(); void s2(); void s3(); void s4();
+};
+typedef void (TAdEnterPPPPassGC_80339378::*Pmf_80339378)();
+
 struct T_8033954C { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x40 - 0x1C]; s32 f40; };
 
 extern "C" {
@@ -30,7 +40,8 @@ s32 TLobby__sub_8014618C(void);
 void TLobby__sub_80146CB8(s32);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_80339480_lbl_804EF500 lbl_804EF500;
+void fn_8032B318(void *, void *);
+extern u8 lbl_804ED9F0[];
 void TAdEnterPPPPassGC__sub_80339480(s32 arg0);
 s32 TAdEnterSerialAccessGC__sub_802AEBA8(int);
 s32 TLevelSelect__sub_802AEBE4(int, void *);
@@ -207,13 +218,32 @@ void TAdEnterPPPPassGC__sub_803392F4(u8 *arg0) {
     lbl_805D6CA4 = 1;
 }
 
+void *lbl_804EF500[8] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+
+void run_task__17TAdEnterPPPPassGCFv(TAdEnterPPPPassGC_80339378 *self) {
+    fn_8032B318(self, lbl_804ED9F0);
+    self->state = lbl_805D6CA4;
+    static Pmf_80339378 tbl[5] = {
+        &TAdEnterPPPPassGC_80339378::s0, &TAdEnterPPPPassGC_80339378::s1,
+        &TAdEnterPPPPassGC_80339378::s2, &TAdEnterPPPPassGC_80339378::s3,
+        &TAdEnterPPPPassGC_80339378::s4,
+    };
+    (self->*tbl[lbl_805D6CA4])();
+    if (self->state != lbl_805D6CA4) {
+        self->f24 = 0;
+    }
+}
+
 void TAdEnterPPPPassGC__sub_80339480(s32 arg0) {
     if ((TLobby__sub_8014618C() != 0) && (is_state_active__6TLobbyFv() != 0)) {
         TLobby__sub_80146CB8(arg0);
         return;
     }
-    memset((void *) (&lbl_804EF500.value), (int) (0), (int) (0x20));
-    strncpy((s32) &lbl_804EF500.value, arg0, 0x1F);
+    memset((void *) (lbl_804EF500), (int) (0), (int) (0x20));
+    strncpy((s32) lbl_804EF500, arg0, 0x1F);
 }
 
 void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1) {

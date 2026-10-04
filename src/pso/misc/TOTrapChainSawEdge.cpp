@@ -164,6 +164,17 @@ virtual void f38();
     virtual void m25();
 };
 
+struct Base_802C9600 { char pad[0x18]; };
+struct VObj_802C9600 : Base_802C9600 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21();
+};
+typedef void (VObj_802C9600::*Act_802C9600)();
+
 struct Base_802C96EC_802C9040 { char pad[0x18]; };
 
 struct VObj_802C96EC_802C9040 : Base_802C96EC_802C9040 {
@@ -333,7 +344,7 @@ void TOTrapChainSaw__sub_802C9124(S_802C9124 *arg0, void *arg1);
 s32 TOTrapChainSaw__sub_802C9174(S_802C9174 *arg0, void *arg1);
 int TOTrapChainSaw__sub_802C91DC(void *arg0);
 void update_sweep__14TOTrapChainSawFPv(void *arg0);
-M2C_UNK TOTrapChainSaw__sub_802C9600();
+void TOTrapChainSaw__sub_802C9600(u8 *arg0);
 void update_active_flag__14TOTrapChainSawFPv(void *arg0);
 void decode_params__14TOTrapChainSawFPv(void *arg0);
 void * __dt__14TOTrapChainSawFv(void *arg0, s16 arg1);
@@ -363,8 +374,6 @@ extern s32 lbl_80471F28[];
 extern s32 lbl_80471F30[];
 extern char lbl_80471F88[];
 extern u8 lbl_80471FA8[];
-extern Ent_802C8E24 lbl_804E0C10[];
-extern RecoveredGlobal_802C8910_lbl_804E0CC0 lbl_804E0CC0;
 extern u32 lbl_80540B30[5];
 extern u32 lbl_80540B44[5];
 extern s32 lbl_805D3F00;
@@ -383,6 +392,54 @@ extern const f32 lbl_805DE630;
 extern const f32 lbl_805DE634;
 extern const f32 lbl_805DE638;
 extern void *tl_05;
+extern "C" u8 lbl_80471DA0[];
+extern "C" u8 lbl_80471DB8[];
+extern "C" u8 lbl_80471DD0[];
+extern "C" u8 lbl_80471DF0[];
+extern "C" u8 lbl_80471E0C[];
+extern "C" u8 lbl_80471E28[];
+extern "C" u8 lbl_80471E40[];
+extern "C" u8 lbl_80471E58[];
+extern "C" u8 lbl_80471E78[];
+extern "C" u8 lbl_80471E94[];
+extern "C" u8 lbl_80471EB0[];
+void *lbl_804E0BD0[6] = {
+    (void *)&lbl_80471DA0, (void *)&lbl_80471DB8, (void *)&lbl_80471DD0, (void *)&lbl_80471DF0,
+    (void *)&lbl_80471E0C, (void *)0x0,
+};
+void *lbl_804E0BE8[6] = {
+    (void *)&lbl_80471E28, (void *)&lbl_80471E40, (void *)&lbl_80471E58, (void *)&lbl_80471E78,
+    (void *)&lbl_80471E94, (void *)0x0,
+};
+void *lbl_804E0C00[4] = {
+    (void *)&lbl_80471EB0, (void *)&lbl_804E0BD0, (void *)&lbl_804E0BE8, (void *)0x50005,
+};
+void *lbl_804E0C10[44] = {
+    (void *)0xc0a00000, (void *)0x0, (void *)0x0, (void *)0x40400000,
+    (void *)0x0, (void *)0x0, (void *)0x10403, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xc1400000,
+    (void *)0x0, (void *)0x0, (void *)0x40000000, (void *)0x41000000,
+    (void *)0x1, (void *)0x10503, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0xc0a00000, (void *)0x0,
+    (void *)0x0, (void *)0x40400000, (void *)0x0, (void *)0x0,
+    (void *)0x10403, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0xc1a00000, (void *)0x0, (void *)0x0,
+    (void *)0x40000000, (void *)0x41800000, (void *)0x1, (void *)0x10503,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804E0CC0[44] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40400000,
+    (void *)0x0, (void *)0x0, (void *)0x10403, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xc1200000,
+    (void *)0x0, (void *)0x0, (void *)0x40000000, (void *)0x41000000,
+    (void *)0x1, (void *)0x10503, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x40400000, (void *)0x0, (void *)0x0,
+    (void *)0x10403, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0xc1a00000, (void *)0x0, (void *)0x0,
+    (void *)0x40000000, (void *)0x41900000, (void *)0x1, (void *)0x10503,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
 
 void TOTrapChainSawEdge__vt21(void *arg0) {
     s32 temp_r0;
@@ -505,7 +562,7 @@ void TOTrapChainSawKey__vt12(void) {
 }
 
 void TOTrapChainSawKey__vt22(u8 *arg0) {
-    TOTrapChainSaw__sub_802C9600();
+    ((M2C_UNK (*)())TOTrapChainSaw__sub_802C9600)();
     M2C_FIELD(arg0, f32 *, 0x104) = (f32) (M2C_FIELD(arg0, f32 *, 0x104) + M2C_FIELD(arg0, f32 *, 0x108));
     if (M2C_FIELD(arg0, f32 *, 0x104) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x100), s32 *, 4) - 1)) {
         M2C_FIELD(arg0, f32 *, 0x104) = (f32) lbl_805DE618;
@@ -574,7 +631,7 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F08;
     ((VObj_18_373ea7 *)(arg0))->m13();
     ((VObj_18_373ea7 *)(arg0))->m14();
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&lbl_804E0CC0.value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)lbl_804E0CC0)->value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
@@ -635,7 +692,7 @@ void TOTrapChainSawDamage__vt23(void *arg0) {
 #pragma dont_inline off
 #pragma inline_depth(1)
 void TOTrapChainSawDamage__vt22(void *arg0) {
-    TOTrapChainSaw__sub_802C9600();
+    ((M2C_UNK (*)())TOTrapChainSaw__sub_802C9600)();
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 1, 0x100);
         return;
@@ -753,7 +810,7 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     *(s32 *)(((u8 *)arg0) + 0) = lbl_805D3F04;
     ((VObj_802C8E24 *)arg0)->m13();
     ((VObj_802C8E24 *)arg0)->m14();
-    ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &lbl_804E0C10[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
+    ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     *(f32 *)(((u8 *)arg0) + 0x3C) += lbl_805DE624;
@@ -929,6 +986,20 @@ void update_sweep__14TOTrapChainSawFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = 0;
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+void TOTrapChainSaw__sub_802C9600(u8 *arg0) {
+    static Act_802C9600 tbl[2] = { &VObj_802C9600::m20, &VObj_802C9600::m21 };
+    (((VObj_802C9600 *)arg0)->*tbl[M2C_FIELD(arg0, s32 *, 0xF4)])();
+    if (M2C_FIELD(arg0, u8 **, 0xBC) != NULL) {
+        M2C_FIELD(arg0, f32 *, 0xB4) = M2C_FIELD(arg0, f32 *, 0xB4) + M2C_FIELD(arg0, f32 *, 0xB8);
+        if (M2C_FIELD(arg0, f32 *, 0xB4) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), s32 *, 4) - 1)) {
+            M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DE618;
+        }
+    }
+}
+#pragma pop
 
 void update_active_flag__14TOTrapChainSawFPv(void *arg0) {
     ((VObj_802C96EC_802C9040 *) arg0)->m22();
