@@ -1700,7 +1700,7 @@ s32 TLobby__sub_803FD560(s16 i) {
 
 struct N_80405298;
 void TLobby__sub_80405298(N_80405298 *o, s32 v);
-void TLobby__sub_803FDA68(void);
+void TLobby__sub_803FDA68(void *);
 
 void TLobby__sub_803FD694(u8 *arg0) {
     s8 var_r0;
@@ -1810,6 +1810,64 @@ void TLobby__sub_803FD958(u8 *arg0) {
       }
     }
   }
+}
+
+struct Self_803FDA68;
+struct Tbl_803FDA68 {
+    u8 pad[0x14];
+    void (*f14)(Self_803FDA68 *, Tbl_803FDA68 *);
+    u8 pad18[0xC];
+    void (*f24)(Self_803FDA68 *, Tbl_803FDA68 *);
+    void *(*f28)(Self_803FDA68 *, Tbl_803FDA68 *);
+};
+struct Self_803FDA68 {
+    u8 f0; u8 f1; u8 f2; u8 f3; u8 f4; u8 f5; u8 f6; u8 f7;
+    s16 f8; u8 padA[6];
+    u8 f10[0x1C];
+    Tbl_803FDA68 *tbl;
+    void *f30;
+};
+
+void TLobby__sub_803FDA68(void *arg0) {
+    Self_803FDA68 *self = (Self_803FDA68 *)arg0;
+    switch (self->f0) {
+    case 2:
+    case 3:
+    case 4:
+        if (self->f3 != 0) {
+            if (self->f3 > 0) {
+                self->f3--;
+                TLobby__sub_80405328(self->f10);
+                TLobby__sub_803FE6CC(self, 1, 0, self->tbl->f28(self, self->tbl));
+            }
+            if (self->f0 == 3) {
+                self->f0 = 2;
+            }
+        } else {
+            self->f0 = (self->f2 & 0xC0) ? 1 : 0;
+            self->f3 = self->f4;
+            self->f6 = self->f7;
+            self->tbl->f14(self, self->tbl);
+            self->f8 = 1;
+        }
+        break;
+    case 6:
+        if (self->f3 != 0) {
+            if (self->f3 > 0) {
+                self->f3--;
+                TLobby__sub_80405328(self->f10);
+                TLobby__sub_803FE6CC(self, 5, 0, 0);
+            }
+        } else {
+            self->tbl->f24(self, self->tbl);
+            self->f0 = (self->f2 & 0xC0) ? 1 : 0;
+            self->f3 = self->f4;
+            self->f6 = self->f7;
+            self->tbl->f14(self, self->tbl);
+            self->f8 = 1;
+        }
+        break;
+    }
 }
 
 struct V_803FE600;

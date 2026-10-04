@@ -1712,7 +1712,7 @@ extern "C" {
 void TBoss8Dragon__sub_802F6618();
 }
 extern "C" {
-void TBoss8Dragon__sub_802F6708();
+void TBoss8Dragon__sub_802F6708(u8 *arg0, u32 arg1);
 }
 extern "C" {
 void TBoss8Dragon__sub_802F6838();
@@ -2934,6 +2934,149 @@ void TBoss8Dragon__sub_802F645C(u8 *arg0, u32 arg1) {
         break;
     }
 }
+
+struct VBase_18_599a64 { char pad[0x18]; };
+struct VObj_18_599a64 : VBase_18_599a64 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual M2C_UNK m93();
+};
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_802F6708(u8 *arg0, u32 arg1) {
+    f32 temp_f1;
+    f32 temp_f4;
+    extern const f32 TBoss8Dragon__data_805DED60;
+    extern const f32 lbl_805DEDE4;
+
+    switch (arg1) {
+    case 4:
+        ((VObj_18_599a64 *)(arg0))->m93();
+        reset_timer__12TBoss8DragonFPv((void *) (arg0));
+        set_active_flag__12TBoss8DragonFPv((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0xB6);
+        M2C_FIELD(arg0, s32 *, 0x84C) = 0;
+        break;
+    case 2:
+    case 11:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x84C) >= 6) {
+            TBoss8Dragon__sub_802FBBFC(arg0, (int) (0x17));
+        }
+        break;
+    case 9:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x84C) >= 6) {
+            TBoss8Dragon__sub_802FBBFC(arg0, 0x17);
+        }
+        break;
+    case 0:
+        temp_f4 = (f32) M2C_FIELD(arg0, s32 *, 0x84C) / lbl_805DEDE4;
+        temp_f1 = TBoss8Dragon__data_805DED60 * (TBoss8Dragon__data_805DED74 - temp_f4);
+        M2C_FIELD(arg0, f32 *, 0x68) = temp_f1;
+        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (TBoss8Dragon__data_805DED60 * ((TBoss8Dragon__data_805DED8C * temp_f4) + TBoss8Dragon__data_805DED74));
+        M2C_FIELD(arg0, f32 *, 0x70) = temp_f1;
+        M2C_FIELD(arg0, s32 *, 0x84C) = (s32) (M2C_FIELD(arg0, s32 *, 0x84C) + 1);
+        break;
+    case 5:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x74C) != 0) {
+            ((void (*)(void))TBoss8Dragon__sub_802FAC78)();
+        }
+        queue_destruction__7TObjectFv((void *) (arg0));
+        break;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

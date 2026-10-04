@@ -96,7 +96,7 @@ int end_render_forward__20TWindowSubStatusDispFPv(void* p);
 s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
 void reset_gauge__20TWindowSubStatusDispFPv(void* p);
-void *TWindowSubStatusDisp__sub_801452DC();
+void *TWindowSubStatusDisp__sub_801452DC(u16 code);
 int begin_screen_draw(void*);
 int set_draw_texture_and_color(void*, void*);
 int get_player__20TWindowSubStatusDispFv(void*);
@@ -319,10 +319,59 @@ s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
     return 0;
 }
 
+typedef struct Glyph_801452DC { u16 code; u16 data[4]; } Glyph_801452DC;
+extern Glyph_801452DC *lbl_805D56BC;
+void *TWindowSubStatusDisp__sub_801452DC(u16 code) {
+    void *free_slot;
+    Glyph_801452DC *g;
+    Glyph_801452DC *p;
+    Glyph_801452DC *q;
+    u32 i;
+    u32 j;
+
+    free_slot = NULL;
+    g = &lbl_805D56BC[code & 0x7F];
+    if (g->code == code) {
+        return g;
+    }
+    if (g[0x80].code == code) {
+        return &g[0x80];
+    }
+    if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)g, &free_slot) != 0) {
+        return g;
+    }
+    if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)&g[0x80], &free_slot) != 0) {
+        return &g[0x80];
+    }
+    p = &lbl_805D56BC[0x100];
+    for (i = 0; i < 0x1F; i++, p++) {
+        if (p->code == code) {
+            return p;
+        }
+        if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)p, &free_slot) != 0) {
+            return p;
+        }
+    }
+    q = lbl_805D56BC;
+    for (j = 0; j < 0x100; j++, q++) {
+        if (q->code == code) {
+            return q;
+        }
+        if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)q, &free_slot) != 0) {
+            return q;
+        }
+    }
+    if (free_slot == NULL) {
+        return &lbl_805D56BC[0x11F];
+    }
+    upload_font_glyph(code, free_slot);
+    return free_slot;
+}
+
 u8 calc_gauge_scale__20TWindowSubStatusDispFPvPvi(void *arg0, void *arg1, s32 arg2) {
     void *temp_r3;
 
-    temp_r3 = TWindowSubStatusDisp__sub_801452DC();
+    temp_r3 = ((void *(*)(void))TWindowSubStatusDisp__sub_801452DC)();
     M2C_FIELD(temp_r3, u8 *, 3) = (u8) lbl_805D56C0;
     set_draw_texture_and_color((void*)(M2C_FIELD(temp_r3, u8 *, 4)), (void*)(arg2));
     M2C_FIELD(arg1, f32 *, 0x10) = (f32) ((f32) M2C_FIELD(temp_r3, u8 *, 5) * lbl_805DB194);
