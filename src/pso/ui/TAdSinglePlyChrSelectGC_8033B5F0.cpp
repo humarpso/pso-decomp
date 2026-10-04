@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+class Sel_8033B640 {
+public:
+    void s0(); void s1(); void s2(); void s3(); void s4();
+    void s5(); void s6(); void s7(); void s8(); void s9();
+    void s10(); void s11(); void s12(); void s13(); void s14();
+    u8 pad[0x2C];
+    s32 state;
+};
+
+typedef void (Sel_8033B640::*SelFn_8033B640)();
+
 struct RecoveredGlobal_8033B9C4_lbl_80513910 {
     M2C_UNK value;
     u8 remaining[0xC];
@@ -87,6 +98,24 @@ extern "C" {
 }
 extern "C" {
 
+extern "C" void TCameraCtrl__sub_80069318();
+extern "C" void TCameraCtrl__sub_800693F4();
+extern "C" void TCameraCtrl__sub_8006A35C();
+extern "C" void TWindowCtrlMain__sub_8024D690();
+extern "C" void TWindowCtrlMain__sub_8024D838();
+extern "C" void free_global__23TAdSinglePlyChrSelectGCFv();
+extern "C" void free_keyboard_soft_resources__6TLobbyFv();
+extern "C" void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv();
+extern "C" void register_texture_f256_ad_pic_2();
+extern "C" void register_texture_f256_backtext();
+extern "C" void reset__11TCameraCtrlFv();
+extern "C" void update_keyboard_menu__6TLobbyFv();
+void *lbl_804EF728[12] = {
+    (void *)&TCameraCtrl__sub_8006A35C, (void *)&reset__11TCameraCtrlFv, (void *)&TCameraCtrl__sub_800693F4, (void *)&TCameraCtrl__sub_80069318,
+    (void *)&register_texture_f256_ad_pic_2, (void *)&free_global__23TAdSinglePlyChrSelectGCFv, (void *)&register_texture_f256_backtext, (void *)&free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
+    (void *)&TWindowCtrlMain__sub_8024D838, (void *)&TWindowCtrlMain__sub_8024D690, (void *)&update_keyboard_menu__6TLobbyFv, (void *)&free_keyboard_soft_resources__6TLobbyFv,
+};
+
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0x38);
     if ((u32) temp_r3 != 0U) {
@@ -95,6 +124,17 @@ void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x38) = 0U;
         }
     }
+}
+
+void TAdSinglePlyChrSelectGC__sub_8033B640(Sel_8033B640 *arg0) {
+    static SelFn_8033B640 table[15] = {
+        &Sel_8033B640::s0, &Sel_8033B640::s1, &Sel_8033B640::s2,
+        &Sel_8033B640::s3, &Sel_8033B640::s4, &Sel_8033B640::s5,
+        &Sel_8033B640::s6, &Sel_8033B640::s7, &Sel_8033B640::s8,
+        &Sel_8033B640::s9, &Sel_8033B640::s10, &Sel_8033B640::s11,
+        &Sel_8033B640::s12, &Sel_8033B640::s13, &Sel_8033B640::s14,
+    };
+    (arg0->*table[arg0->state])();
 }
 
 void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1) {

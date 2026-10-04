@@ -150,6 +150,45 @@ struct Obj_8018B284 {
     u32 f36C;
 };
 
+struct Vec_8018B030 { f32 x, y, z; };
+struct Coll_8018B030 { f32 x; f32 y; };
+struct Res_8018B030 { u8 pad[0x430]; s32 x430; };
+
+struct VBase_8018B030 { u8 pad[0x18]; };
+struct Obj_8018B030 : VBase_8018B030 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual void m5(void *);
+    u8 pad1c[0x24 - 0x1C];
+    s32 x24;
+    u8 pad28[0x30 - 0x28];
+    u32 flags;
+    s32 x34;
+    Vec_8018B030 pos;
+    u8 pad44[0x74 - 0x44];
+    Vec_8018B030 pos74;
+    u8 pad80[0xB8 - 0x80];
+    s16 anim;
+    u8 padba[0xD8 - 0xBA];
+    void *animTbl;
+    s32 xdc;
+    u8 pade0[0x2FC - 0xE0];
+    Vec_8018B030 pos2fc;
+    u8 pad308[0x326 - 0x308];
+    s16 state;
+};
+
+extern "C" {
+void TObjPlayer__sub_80019038(void *, void *, void *);
+s32 TObjFish__sub_8001EDB0(int, int);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void set_field_d8__10TObjPlayerFPvi(void *, void *);
+void set_animation__10TObjPlayerFPvs(void *, s16);
+void reset_photon_effect__10TObjPlayerFPv(void *);
+void init_collision_body_parts(void *, void *, int);
+extern s32 lbl_805D3304;
+extern const f32 lbl_805DBD5C;
+}
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -180,7 +219,6 @@ s32 access_object_saved_state(void *, void *, int);
 extern f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__sub_8018ABE0(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-extern RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 TContainerAncient01__data_804B6DC0;
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
@@ -287,7 +325,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 void *TContainerAncient01R__create(void *arg0);
 void TContainerAncient01R__sub_8018AF74(void);
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1);
-void *TContainerAncient01R__ct(void *, void *, void *);
+void *TContainerAncient01R__ct(Obj_8018B030 *, void *, void *);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(M2C_UNK *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -295,6 +333,142 @@ void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
     extern const float TContainerAncient01__data_805DBD1C;
+
+extern "C" void TContainerAncient01__sub_8018BE30();
+extern "C" void TContainerAncient01__sub_8018BE68();
+extern "C" void TContainerAncient01__sub_8018BE6C();
+extern "C" void TContainerAncient01__sub_8018BE74();
+extern "C" void TObjPlayer__sub_8000FF3C();
+extern "C" void TObjPlayer__sub_80010A78();
+extern "C" void TObjPlayer__sub_80010A80();
+extern "C" void TObjPlayer__sub_80011010();
+extern "C" void TObjPlayer__sub_800111D8();
+extern "C" void TObjPlayer__sub_80014830();
+extern "C" void TObjPlayer__sub_80014838();
+extern "C" void TObjPlayer__sub_80014840();
+extern "C" void TObjPlayer__sub_80014884();
+extern "C" void TObjPlayer__sub_80014888();
+extern "C" void TObjPlayer__sub_8001488C();
+extern "C" void TObjPlayer__sub_80014890();
+extern "C" void TObjPlayer__sub_80014894();
+extern "C" void TObjPlayer__sub_80014898();
+extern "C" void TObjPlayer__sub_80015884();
+extern "C" void TObjPlayer__sub_80016C54();
+extern "C" void TObjPlayer__sub_800172CC();
+extern "C" void TObjPlayer__sub_80018E6C();
+extern "C" void TObjPlayer__sub_80019568();
+extern "C" void TObjRoomId__sub_801A1E2C();
+extern "C" void add_actor_exp();
+extern "C" void apply_action_hold_status();
+extern "C" void apply_anti_technique__10TObjPlayerFv();
+extern "C" void apply_attack_stat_status__10TObjPlayerFv();
+extern "C" void apply_confusion_status__10TObjPlayerFv();
+extern "C" void apply_defense_stat_status__10TObjPlayerFv();
+extern "C" void apply_movement_ailment__10TObjPlayerFv();
+extern "C" void apply_object_set_data();
+extern "C" void apply_paralysis__10TObjPlayerFv();
+extern "C" void apply_poison_status__10TObjPlayerFv();
+extern "C" void apply_shock_status__10TObjPlayerFv();
+extern "C" void apply_switch_attack__10TObjPlayerFi();
+extern "C" void classify_actor_view_detail();
+extern "C" void clear_all_status_effects();
+extern "C" void clear_harmful_statuses__10TObjPlayerFv();
+extern "C" void cure_paralysis__10TObjPlayerFv();
+extern "C" void cure_poison_ailment();
+extern "C" void enemy_spawn_jellen_effect();
+extern "C" void enemy_spawn_zalure_effect();
+extern "C" void fn_80010EBC();
+extern "C" void fn_80010EC0();
+extern "C" void fn_80010EC4();
+extern "C" void fn_80010EC8();
+extern "C" void get_actor_body_center();
+extern "C" void get_actor_level_index();
+extern "C" void get_pos__10TObjPlayerFii();
+extern "C" void has_flag_0x800__10TObjPlayerFPv();
+extern "C" void is_actor_cadence_frame();
+extern "C" void is_target_in_attack_range__10TObjPlayerFv();
+extern "C" u8 lbl_80444F98[];
+extern "C" u8 lbl_80444FAC[];
+extern "C" u8 lbl_80444FC4[];
+extern "C" u8 lbl_80444FDC[];
+extern "C" u8 lbl_80444FF4[];
+extern "C" u8 lbl_8044500C[];
+extern "C" u8 lbl_80445020[];
+extern "C" u8 lbl_80445034[];
+extern "C" u8 lbl_80445048[];
+extern "C" u8 lbl_8044505C[];
+extern "C" void render_shadows__7TObjectFv();
+extern "C" void reset_actor_action_state();
+extern "C" void reset_pose__10TObjPlayerFPv();
+extern "C" void test_flag30_512__10TObjPlayerFPv();
+extern "C" void test_flag_1000__10TObjPlayerFPv();
+extern "C" void test_flag_256__10TObjPlayerFPv();
+extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void update_action_hold_status__10TObjPlayerFv();
+extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" void update_actor_ground_y();
+extern "C" void update_attack_stat_status();
+extern "C" void update_defense_stat_status();
+extern "C" void update_flag30_timer__10TObjPlayerFPv();
+extern "C" void update_movement_status__10TObjPlayerFv();
+extern "C" void update_object_view_visibility();
+extern "C" void update_poison_status__10TObjPlayerFv();
+extern void *lbl_804B6D70[3];
+extern void *lbl_804B6D7C[3];
+extern void *lbl_804B6D98[3];
+extern void *lbl_804B6DA4[3];
+void *lbl_804B6D70[3] = {
+    (void *)&lbl_80444F98, (void *)&lbl_80444FAC, (void *)0x0,
+};
+void *lbl_804B6D7C[3] = {
+    (void *)&lbl_80444FC4, (void *)&lbl_80444FDC, (void *)0x0,
+};
+void *lbl_804B6D88[4] = {
+    (void *)&lbl_80444FF4, (void *)&lbl_804B6D70, (void *)&lbl_804B6D7C, (void *)0x20002,
+};
+void *lbl_804B6D98[3] = {
+    (void *)&lbl_8044500C, (void *)&lbl_80445020, (void *)0x0,
+};
+void *lbl_804B6DA4[3] = {
+    (void *)&lbl_80445034, (void *)&lbl_80445048, (void *)0x0,
+};
+void *lbl_804B6DB0[4] = {
+    (void *)&lbl_8044505C, (void *)&lbl_804B6D98, (void *)&lbl_804B6DA4, (void *)0x20002,
+};
+void *TContainerAncient01__data_804B6DC0[11] = {
+    (void *)0x0, (void *)0x41000000, (void *)0x0, (void *)0x41200000,
+    (void *)0x41200000, (void *)0x0, (void *)0x38003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804B6DEC[12] = {
+    (void *)0x10000, (void *)0x0, (void *)0x3f800000, (void *)0x1,
+    (void *)0x10000, (void *)0x0, (void *)0x40c00000, (void *)0x1,
+    (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
+};
+void *lbl_804B6E1C[79] = {
+    (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&TContainerAncient01__sub_8018ADAC,
+    (void *)&draw__19TContainerAncient01FPv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
+    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
+    (void *)&TContainerAncient01__sub_8018ACC8, (void *)&TContainerAncient01__sub_8018ACC0, (void *)&TContainerAncient01__sub_8018ABE0, (void *)&check_item_type_range__19TContainerAncient01FPviPv,
+    (void *)&TContainerAncient01__sub_8018BE30, (void *)&TContainerAncient01__sub_8018BE68, (void *)&TContainerAncient01__sub_8018BE6C, (void *)&TContainerAncient01__sub_8018BE74,
+    (void *)&TObjPlayer__sub_80011010, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
+    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
+    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
+    (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
+    (void *)&TObjPlayer__sub_80014890, (void *)&TObjPlayer__sub_8001488C, (void *)&TObjPlayer__sub_80014888, (void *)&TObjPlayer__sub_80014884,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_80010A78, (void *)&fn_80010EC8,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC,
+};
+#define TContainerAncient01__data_804B6DC0 (*(RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 *)TContainerAncient01__data_804B6DC0)
+#define lbl_804B6E1C ((M2C_UNK *)lbl_804B6E1C)
 
 void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     u16 i;
@@ -563,14 +737,12 @@ extern void *tl_05;
 void *TContainerAncient01R__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x374);
     if (o != NULL) {
-        o = TContainerAncient01R__ct(o, tl_05, arg0);
+        o = TContainerAncient01R__ct((Obj_8018B030 *)o, tl_05, arg0);
     }
     return o;
 }
 
 void TContainerAncient01R__sub_8018AF74(void) { TContainerAncient01R__data_805D5B94 = 0; }
-
-extern M2C_UNK lbl_804B6E1C[];
 
 void TContainerAncient01R__sub_8018AF80(void) {
     TContainerAncient01R__data_805D5B94 = TContainerAncient01__sub_8018BE90();
@@ -590,6 +762,36 @@ void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
+    Coll_8018B030 *c;
+
+    TObjPlayer__sub_80019038(self, arg1, arg2);
+    *(void **)((u8 *)self + 0x18) = (void *)lbl_804B6E1C;
+    *(s32 *)self = lbl_805D3304;
+    self->m5(arg2);
+    self->x34 = get_bml_model(TContainerAncient01R__data_805D5B94, 0);
+    self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__data_805D5B94, 0);
+    self->animTbl = (void *)lbl_804B6DEC;
+    set_field_d8__10TObjPlayerFPvi(self, self->animTbl);
+    self->xdc = ((Res_8018B030 *)TContainerAncient01R__data_805D5B94)->x430;
+    self->anim = 0;
+    set_animation__10TObjPlayerFPvs(self, self->anim);
+    set_field_b8__14TObjEnePanarmsFPvs(self, self->anim);
+    self->flags |= 0x60000000;
+    init_collision_body_parts(self, (void *)&TContainerAncient01__data_804B6DC0, 1);
+    reset_photon_effect__10TObjPlayerFPv(self);
+    VecCopy__FP3VecPC3Vec(&self->pos74, &self->pos);
+    c = (Coll_8018B030 *)&TContainerAncient01__data_804B6DC0;
+    self->pos74.y = c->y * lbl_805DBD5C + self->pos74.y;
+    VecCopy__FP3VecPC3Vec(&self->pos2fc, &self->pos74);
+    self->state = 0;
+    TContainerAncient01__sub_8018A9D8((u8 *)self);
+    return self;
+}
+#pragma pop
 
 void TContainerAncient01__vt4(void *arg0, s16 *arg1, s32 arg2);
 void reset_state__19TContainerAncient01FPv(void* a0);

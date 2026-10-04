@@ -29,6 +29,19 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 struct M2CCopy_3C { u8 bytes[0x3C]; };
 
+struct VBase_80365040 { char pad[0x18]; };
+struct TObjLaboDesignBase : VBase_80365040 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+    u8 pad1C[0xB0 - 0x1C];
+    s32 state;
+    f32 xB4;
+    f32 xB8;
+    void render();
+    void render(void *);
+};
+
 struct RecoveredGlobal_80365210___vt__18TObjLaboDesignBase {
     M2C_UNK value;
     u8 remaining[0x34];
@@ -98,6 +111,99 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_global_param__8TObjFishFi();
 
 extern void *tl_05;
+
+extern "C" u8 lbl_8047A0A8[];
+extern "C" u8 lbl_8047A0C4[];
+extern "C" u8 lbl_8047A0DC[];
+extern "C" u8 lbl_8047A0F8[];
+extern "C" u8 lbl_8047A110[];
+extern "C" u8 lbl_8047A124[];
+extern "C" u8 lbl_8047A134[];
+extern "C" u8 lbl_8047A150[];
+extern "C" u8 lbl_8047A16C[];
+extern "C" u8 lbl_8047A188[];
+extern "C" u8 lbl_8047A1A4[];
+extern "C" u8 lbl_8047A1B8[];
+extern "C" u8 lbl_805D4488[];
+extern "C" u8 lbl_805D448C[];
+extern "C" u8 lbl_805D4490[];
+extern "C" u8 lbl_805D4494[];
+extern "C" u8 lbl_805D4498[];
+extern "C" u8 lbl_805D449C[];
+extern void *lbl_804F2B78[2];
+extern void *lbl_804F2B80[4];
+extern void *lbl_804F2B90[2];
+extern void *lbl_804F2B98[4];
+extern void *lbl_804F2BA8[2];
+extern void *lbl_804F2BB0[4];
+extern void *lbl_804F2BC0[2];
+extern void *lbl_804F2BC8[4];
+extern void *lbl_804F2BD8[2];
+extern void *lbl_804F2BE0[4];
+extern void *lbl_804F2BF0[2];
+extern void *lbl_804F2BF8[4];
+__declspec(section ".data") void *lbl_804F2B78[2] = {
+    (void *)&lbl_8047A0A8, (void *)0x0,
+};
+void *lbl_804F2B80[4] = {
+    (void *)&lbl_8047A0C4, (void *)&lbl_804F2B78, (void *)&lbl_805D4488, (void *)0x10000,
+};
+__declspec(section ".data") void *lbl_804F2B90[2] = {
+    (void *)&lbl_8047A0DC, (void *)0x0,
+};
+void *lbl_804F2B98[4] = {
+    (void *)&lbl_8047A0F8, (void *)&lbl_804F2B90, (void *)&lbl_805D448C, (void *)0x10000,
+};
+__declspec(section ".data") void *lbl_804F2BA8[2] = {
+    (void *)&lbl_8047A110, (void *)0x0,
+};
+void *lbl_804F2BB0[4] = {
+    (void *)&lbl_8047A124, (void *)&lbl_804F2BA8, (void *)&lbl_805D4490, (void *)0x10000,
+};
+__declspec(section ".data") void *lbl_804F2BC0[2] = {
+    (void *)&lbl_8047A134, (void *)0x0,
+};
+void *lbl_804F2BC8[4] = {
+    (void *)&lbl_8047A150, (void *)&lbl_804F2BC0, (void *)&lbl_805D4494, (void *)0x10000,
+};
+__declspec(section ".data") void *lbl_804F2BD8[2] = {
+    (void *)&lbl_8047A16C, (void *)0x0,
+};
+void *lbl_804F2BE0[4] = {
+    (void *)&lbl_8047A188, (void *)&lbl_804F2BD8, (void *)&lbl_805D4498, (void *)0x10000,
+};
+__declspec(section ".data") void *lbl_804F2BF0[2] = {
+    (void *)&lbl_8047A1A4, (void *)0x0,
+};
+void *lbl_804F2BF8[4] = {
+    (void *)&lbl_8047A1B8, (void *)&lbl_804F2BF0, (void *)&lbl_805D449C, (void *)0x10000,
+};
+void *lbl_804F2C08[14] = {
+    (void *)0x0, (void *)&lbl_804F2B80, (void *)0x1, (void *)&lbl_804F2B98,
+    (void *)0x2, (void *)&lbl_804F2BB0, (void *)0x3, (void *)&lbl_804F2BC8,
+    (void *)0x4, (void *)&lbl_804F2BE0, (void *)0x5, (void *)&lbl_804F2BF8,
+    (void *)0xffffffff, (void *)0x0,
+};
+void *lbl_804F2C40[66] = {
+    (void *)0x0, (void *)0x41a00000, (void *)0x0, (void *)0x40a00000,
+    (void *)0x41200000, (void *)0x1, (void *)0x10003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x41a00000, (void *)0x0, (void *)0x40a00000, (void *)0x41200000,
+    (void *)0x1, (void *)0x10003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41a00000,
+    (void *)0x0, (void *)0x40a00000, (void *)0x41200000, (void *)0x1,
+    (void *)0x10003, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x41a00000, (void *)0x0,
+    (void *)0x40a00000, (void *)0x41a00000, (void *)0x1, (void *)0x10003,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x41a00000, (void *)0x0, (void *)0x40a00000,
+    (void *)0x41a00000, (void *)0x1, (void *)0x10003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x41a00000, (void *)0x0, (void *)0x41200000, (void *)0x42200000,
+    (void *)0x1, (void *)0x10003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0,
+};
+#define lbl_804F2C40 ((unsigned char *)lbl_804F2C40)
 
 void *create_instance__18TObjLaboDesignBaseFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC0);
@@ -215,6 +321,25 @@ void render__18TObjLaboDesignBaseFPv(u8 *arg0) {
     end_effect_render__13TParticleCtrlFv();
 }
 
+typedef void (TObjLaboDesignBase::*Action_80365040)();
+typedef void (TObjLaboDesignBase::*RenderPv_80365040)(void *);
+
+void TObjLaboDesignBase::render() {
+    static Action_80365040 tbl[8] = {
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+        (Action_80365040)(RenderPv_80365040)&TObjLaboDesignBase::render,
+    };
+    if (m8(xB4, xB8) == 1) {
+        (this->*(tbl[state]))();
+    }
+}
+
 void run_task__18TObjLaboDesignBaseFv(void) {  }
 
 extern M2C_UNK __vt__18TObjLaboDesignBase[];
@@ -232,8 +357,6 @@ void *__dt__18TObjLaboDesignBaseFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-
-    extern unsigned char lbl_804F2C40[];
 
 typedef char RecoveredGlobal_80365210___vt__18TObjLaboDesignBase_size[sizeof(RecoveredGlobal_80365210___vt__18TObjLaboDesignBase) == 0x38 ? 1 : -1];
 u8 *TObjLaboDesignBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
