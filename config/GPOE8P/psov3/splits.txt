@@ -12270,6 +12270,7 @@ pso/ui/TAdPlayerLoadGC.cpp:
 
 pso/ui/TAdSubPlyItemGC_802D6BEC.cpp:
 	.text       start:0x802D6BEC end:0x802D7070
+	.rodata     start:0x804725E8 end:0x804725F0
 
 pso/npc/TObjNpcEnemy_802D7070.cpp:
 	.text       start:0x802D7070 end:0x802D70AC

@@ -13,6 +13,12 @@ struct T2_802BB554;
 struct Obj_802BCD2C;
 struct Tb_802BD0C8 { s32 f0; s32 f4; s32 f8; Fn_802BD014 fn; Fn_802BD014 fn2; Fn_802BD014 fn3; };
 
+struct Ent_802BCEF4 { s32 f0; u8 pad4[4]; f32 f8; u8 padC[8]; s32 f14; u8 pad18[4]; };
+
+struct O_802BCEF4 { u8 pad[0x3FC]; s32 model; u8 pad400[0x498 - 0x400]; Ent_802BCEF4 ents[1]; };
+
+struct Tb_802BCEF4 { u8 pad[8]; s32 v[1]; };
+
 extern "C" {
 s32 get_bml_model(s32, M2C_UNK);
 s32 collect_and_count__12TBoss3VoloptFUii(int, int);
@@ -37,6 +43,13 @@ void update_countdown__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self);
 extern const f32 lbl_805DE4C0;
 void run_task__11TBoss6Type2Fv(u8 *arg0);
+s32 get_bml_motion(int, int);
+void copy_transform__11TBoss6Type2FPvPv(void* p, void* q);
+extern u8 lbl_804712BC[];
+extern u8 lbl_804712E0[];
+extern M2C_UNK TBoss6Type2__data_804DF9D4[];
+extern const s32 TBoss6Type2__data_805DE4B8;
+void TBoss6Type2__sub_802BCEF4(O_802BCEF4 *o);
 }
 
 extern "C" {
@@ -588,6 +601,10 @@ void TBoss6Type2__sub_802B9C80(Boss_802B9C80 *o);
 void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0);
 void TBoss6Type2__sub_802BB554(T2_802BB554 *arg0);
 extern Tb_802BD014 lbl_804E00DC[];
+}
+
+extern "C" {
+Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 }
 
 void render__11TBoss6Type2Fv(void* p) { render_body_effects__11TBoss6Type2FPv(p); draw__11TBoss6Type2FPv(p); }
@@ -1811,6 +1828,23 @@ void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+struct Blk_802BCFD4;
+typedef s32 M2C_UNK;
+void TBoss6Type2__sub_802BCEF4(O_802BCEF4 *o) {
+    s32 i;
+    TBoss6Type2__sub_802BCFD4((Blk_802BCFD4 *)((u8 *)o + 0x490), (Blk_802BCFD4 *)lbl_804712BC);
+    for (i = 0; i < TBoss6Type2__data_805DE4B8; i++) {
+        Ent_802BCEF4 *e = &o->ents[i];
+        s32 r;
+        copy_transform__11TBoss6Type2FPvPv(e, lbl_804712E0);
+        r = get_bml_motion(o->model, ((Tb_802BCEF4 *)TBoss6Type2__data_804DF9D4)->v[i]);
+        e->f14 = r;
+        e->f0 = r;
+        e->f8 = *(f32 *)((u8 *)TBoss6Type2__data_804DF9D4 + 0xC);
+    }
+}
+
 void copy_transform__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 #pragma pop
 

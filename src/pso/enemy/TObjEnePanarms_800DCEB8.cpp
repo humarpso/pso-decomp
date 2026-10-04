@@ -69,6 +69,10 @@ struct Sub_800DD690 { u8 b[0xC]; };
 
 struct Obj_800DD690 { u8 pad0[0xB0]; u32 flags; u8 padb4[0xC0 - 0xB4]; f32 fc0; u8 padc4[0x394 - 0xC4]; u32 items[2]; u8 pad39c[4]; Sub_800DD690 subs[1]; };
 
+struct Sub_800DD8AC { u8 b[0xC]; };
+
+struct Obj_800DD8AC { u8 pad0[0xB0]; u32 flags; u8 padb4[0xC0 - 0xB4]; f32 fc0; u8 padc4[0x394 - 0xC4]; u32 items[2]; u8 pad39c[4]; Sub_800DD8AC subs[1]; };
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
@@ -279,6 +283,12 @@ extern s32 lbl_8043CD04[];
 extern s32 lbl_8043CD0C[];
 extern const f32 TObjEnePanarms__data_805DA4A4;
 void TObjEnePanarms__sub_800DD690(Obj_800DD690 *arg0);
+u32 create_particle_emitter(void *, s32);
+void TObjEnePanarms__sub_800DED30(Obj_800DED30 *arg0, s32 arg1);
+extern s32 lbl_8043CCF4[];
+extern s32 lbl_8043CCFC[];
+extern const f32 TObjEnePanarms__data_805DA4A4;
+void TObjEnePanarms__sub_800DD8AC(Obj_800DD8AC *arg0);
 }
 
 extern "C" {
@@ -577,6 +587,21 @@ void TObjEnePanarms__sub_800DD7F4(u8 *arg0) {
     create__22TObjEnePanarmsAtkColliFPvPvPvPv(arg0, arg0 + 0x3B8, &buffer_8[0], NULL);
     set_field_b8__14TObjEnePanarmsFPvs(arg0, 7);
     M2C_FIELD(arg0, s32 *, 0x388) = 0x5A;
+}
+
+void TObjEnePanarms__sub_800DD8AC(Obj_800DD8AC *arg0) {
+    s32 i;
+    if (arg0->fc0 >= TObjEnePanarms__data_805DA4A4) {
+        for (i = 0; i < 2; i++) {
+            u32 *it = &arg0->items[i];
+            if (*it == 0) {
+                *it = create_particle_emitter(&arg0->subs[lbl_8043CCFC[i]], lbl_8043CCF4[i]);
+            }
+        }
+    }
+    if (arg0->flags & 0x10) {
+        TObjEnePanarms__sub_800DED30((Obj_800DED30 *)arg0, 6);
+    }
 }
 
 void TObjEnePanarms__sub_800DD954(u8 *arg0) {

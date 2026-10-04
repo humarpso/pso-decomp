@@ -48,6 +48,18 @@ void check_object_collisions__10TObjPlayerFPv(void *);
 extern const f32 lbl_805D86B0;
 extern const f32 lbl_805D86D4;
 s32 TObjPlayer__sub_8003FEEC(u8 *arg0);
+f32 cos_table_lookup(s32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK TObjPlayer__sub_803D8CD4(int, f32);
+M2C_UNK rotate_vector_by_matrix(int, int, int);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+extern const f32 lbl_805D86C0;
+extern const f32 lbl_805D86C4;
+extern const f32 lbl_805D86C8;
+extern const f32 lbl_805D86CC;
+extern const f32 lbl_805D86D0;
+void TObjPlayer__sub_8003FCD0(u8 *arg0);
 }
 
 extern "C" {
@@ -563,7 +575,6 @@ void TObjPlayer__sub_8003F81C(u8 *arg0);
 void TObjPlayer__sub_8003F9D4(void *);
 void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self);
-M2C_UNK TObjPlayer__sub_8003FCD0(void *);
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
 void update_state_spin__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8003FFE4(void *arg0);
@@ -957,7 +968,7 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0) {
         advance_animation_playback(arg0);
         M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) - TObjPlayer__sub_80040AE4(0));
         M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) - TObjPlayer__sub_80040AE4(0));
-        TObjPlayer__sub_8003FCD0(arg0);
+        TObjPlayer__sub_8003FCD0((u8 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x398) = calc_spin_value__10TObjPlayerFPv((void *)(arg0));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x394) <= -0x238E) {
             ((VObj_8003f510_8003F4C0*)arg0)->m56();
@@ -1110,6 +1121,29 @@ s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self) {
     return r;
 }
 
+void TObjPlayer__sub_8003FCD0(u8 *arg0) {
+    f32 temp_f1;
+    s32 temp_r3;
+    u8 *temp_r4;
+    temp_r3 = ((u16)M2C_FIELD(arg0, s32 *, 0x390) % 10922) - 0x1555;
+    if (M2C_FIELD(arg0, s32 *, 0x388) & 0x20000) {
+        M2C_FIELD(arg0, f32 *, 0x38C) = (f32) (lbl_805D86C0 / cos_table_lookup(temp_r3));
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D86C4;
+    } else {
+        M2C_FIELD(arg0, f32 *, 0x38C) = (f32) (lbl_805D86C8 / cos_table_lookup(temp_r3));
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D86CC;
+    }
+    push_matrix();
+    temp_f1 = M2C_FIELD(arg0, f32 *, 0x38C);
+    M2C_FIELD(arg0, f32 *, 0x38) = temp_f1;
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D86D0;
+    TObjPlayer__sub_803D8CD4((int) (0), (f32) (temp_f1));
+    rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x390))));
+    temp_r4 = (u8 *)(arg0 + 0x38);
+    rotate_vector_by_matrix((int) (0), (int) (temp_r4), (int) (temp_r4));
+    pop_matrix();
+}
+
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0) {
     return (s32) (lbl_805D86B4 * (f32) ((((s32) (u16) M2C_FIELD(arg0, s32 *, 0x390) / 10922) * 0x3C) + 0x78));
 }
@@ -1129,7 +1163,7 @@ void update_state_spin__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000);
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         M2C_FIELD(arg0, s32 *, 0x5C) = 0;
-        TObjPlayer__sub_8003FCD0(arg0);
+        TObjPlayer__sub_8003FCD0((u8 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x398) = calc_spin_value__10TObjPlayerFPv((void *)((void *)(arg0)));
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(arg0, s32 *, 0x398);
         M2C_FIELD(arg0, s16 *, 0x33C) = 0x5A;
