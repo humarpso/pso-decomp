@@ -109,6 +109,7 @@ force_active:
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjEneRecon__vt85
   - TObjFish__sub_800E2FFC
+  - TObjPlayer__sub_800181DC
   - TObjPlayer__sub_8004055C
   - TObjPlayer__sub_800405D8
   - TObjPlayer__sub_80040ADC
@@ -295,6 +296,7 @@ force_active:
   - check_local_player_in_range__12TObjRaderColFPv
   - check_purchase_eligibility__20TShopArmorListWindowFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
+  - clamp_hp_value__10TObjPlayerFPvPv
   - close_shop_subwindows__7TWindowFPvs
   - construct_cane_weapon
   - construct_dagger_weapon
@@ -348,6 +350,7 @@ force_active:
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_placement_obstruction
   - find_support_technique_contact
+  - fn_80010F4C
   - fn_8007F560
   - fn_8010EFE8
   - fn_8016AD3C
