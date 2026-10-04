@@ -277,6 +277,26 @@ struct Actor_80011824 : Base_80011824 {
     Vec_80011824 pos;
 };
 
+struct VBase_80019038 { u8 pad[0x18]; };
+
+struct Obj_80019038 : VBase_80019038 {
+    virtual void v0(); virtual void v1(); virtual void v2(); virtual void v3();
+    virtual void v4(); virtual void v5(); virtual void v6();
+};
+
+struct Pair_80019038 { u8 a; u8 b; };
+
+struct Elem_80019038 { u8 pad[0xC]; };
+
+struct Layout_80019038 {
+    u8 pad0[0x110];
+    u8 pairs[3][2];
+    s16 f116;
+    s16 f118;
+    u8 pad11a[0x254 - 0x11A];
+    Elem_80019038 elems[5];
+};
+
 extern "C" {
 void TObjPlayer__sub_800101B0(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800192B4(void* a0, int a1);
@@ -408,6 +428,18 @@ extern const f32 TObjPlayer__data_805D7D70;
 extern const f32 TObjPlayer__data_805D7D74;
 extern const f32 lbl_805D7D78;
 f32 receive_weapon_special_attack__10TObjPlayerFv(Actor_80011824 *self, Actor_80011824 *att, Coll_80011824 *coll);
+void clear_s16_arrays__10TObjPlayerFPv(void* p);
+void reset_status_effect_row(u8 *arg0);
+void TObjPlayer__sub_8001951C(void* p);
+void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v);
+s32 register_object__10TObjPlayerFi(s32 arg0);
+void subtractive_rng_seed(void *, u16);
+void init_single_player_chr_select__6TLobbyFPv(void *);
+void TObjMotion__ct(void *, void *);
+void __construct_array(void *, void *, void *, u32, u32);
+void* init_192dc_return_self__10TObjPlayerFPv(void* p);
+extern M2C_UNK lbl_804806E8[];
+Obj_80019038 *TObjPlayer__sub_80019038(Obj_80019038 *self, void *parent);
 }
 
 extern "C" {
@@ -1224,6 +1256,10 @@ s32 subtract_actor_tp(O_800112D4 *self, s32 x);
 u32 obj_testFlags30(ObjFlags* p, u32 mask);
 u16 obj_getField1c(ObjFlags* p);
 void obj_setFlags30(ObjFlags* p, u32 mask);
+}
+
+extern "C" {
+void obj_setField96_1(ObjFlags* p);
 }
 
 void main(void) {
@@ -4622,6 +4658,78 @@ void *destroy_motion_object__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+#pragma push
+#pragma opt_common_subs off
+Obj_80019038 *TObjPlayer__sub_80019038(Obj_80019038 *self, void *parent) {
+    u8 *p = (u8 *)self;
+    Layout_80019038 *l;
+    s32 i;
+    s32 j;
+    TObjMotion__ct(self, parent);
+    M2C_FIELD(self, M2C_UNK **, 0x18) = lbl_804806E8;
+    register_object__10TObjPlayerFi((s32)(p + 0x120));
+    init_single_player_chr_select__6TLobbyFPv(p + 0x160);
+    __construct_array(p + 0x254, (void *)init_192dc_return_self__10TObjPlayerFPv, 0, 0xC, 5);
+    M2C_FIELD(self, u8 **, 0x90) = p + 0x120;
+    M2C_FIELD(self, s16 *, 0x326) = 0;
+    self->v6();
+    M2C_FIELD(self, s32 *, 0x2B0) = 0;
+    M2C_FIELD(self, s32 *, 0x2A8) = 0;
+    M2C_FIELD(self, s32 *, 0x314) = 0;
+    M2C_FIELD(self, s32 *, 0x318) = 0;
+    M2C_FIELD(self, s32 *, 0x31C) = 0;
+    M2C_FIELD(self, s16 *, 0x2BE) = 0;
+    M2C_FIELD(self, s16 *, 0x2BC) = 0;
+    M2C_FIELD(self, s16 *, 0x32E) = 0;
+    M2C_FIELD(self, s16 *, 0x32C) = 0;
+    M2C_FIELD(self, s16 *, 0x2BA) = 0;
+    M2C_FIELD(self, s16 *, 0x2B8) = 0;
+    M2C_FIELD(self, s16 *, 0x11A) = 0;
+    M2C_FIELD(self, s16 *, 0x2C8) = 0;
+    M2C_FIELD(self, s16 *, 0x2C0) = 0;
+    M2C_FIELD(self, s16 *, 0x2CA) = 0;
+    M2C_FIELD(self, s16 *, 0x2C2) = 0;
+    M2C_FIELD(self, s16 *, 0x2CC) = 0;
+    M2C_FIELD(self, s16 *, 0x2C4) = 0;
+    M2C_FIELD(self, s16 *, 0x2CE) = 0;
+    M2C_FIELD(self, s16 *, 0x2C6) = 0;
+    M2C_FIELD(self, s16 *, 0x2D2) = 0;
+    M2C_FIELD(self, s16 *, 0x2D0) = 0;
+    M2C_FIELD(self, s32 *, 0x2E0) = 0;
+    M2C_FIELD(self, s16 *, 0x2F0) = 0;
+    M2C_FIELD(self, s16 *, 0x2EE) = 0;
+    M2C_FIELD(self, s16 *, 0x2EC) = 0;
+    M2C_FIELD(self, s16 *, 0x2EA) = 0;
+    M2C_FIELD(self, s16 *, 0x2E8) = 0;
+    M2C_FIELD(self, s16 *, 0x2FA) = 0;
+    M2C_FIELD(self, s16 *, 0x2F8) = 0;
+    M2C_FIELD(self, s16 *, 0x2F6) = 0;
+    M2C_FIELD(self, s16 *, 0x2F4) = 0;
+    M2C_FIELD(self, s16 *, 0x2F2) = 0;
+    subtractive_rng_seed(p + 0x160, M2C_FIELD(self, u16 *, 0x1C));
+    M2C_FIELD(self, s32 *, 0x2E4) = 0;
+    add_flags_2e4__10TObjPlayerFPvUi(self, 0);
+    M2C_FIELD(self, s16 *, 0x324) = 0;
+    M2C_FIELD(self, u16 *, 0x2D8) = 0xFFFF;
+    l = (Layout_80019038 *)self;
+    for (i = 0; i < 3; i++) {
+        l->pairs[i][0] = 0;
+        l->pairs[i][1] = 0;
+    }
+    for (j = 0; j < 5; j++) {
+        reset_status_effect_row((u8 *)&l->elems[j]);
+    }
+    l->f116 = 0;
+    l->f118 = 0;
+    M2C_FIELD(self, u16 *, 0x2D6) = 0xFFFF;
+    clear_s16_arrays__10TObjPlayerFPv(self);
+    M2C_FIELD(self, s32 *, 0x330) = 0;
+    obj_setField96_1((ObjFlags*)((ObjFlags *)self));
+    TObjPlayer__sub_8001951C(self);
+    return self;
+}
+#pragma pop
 
 void get_pos__10TObjPlayerFii(s32 arg0, s32 arg1) {
     ((M2C_UNK (*)(s32, s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x2FC, arg0);

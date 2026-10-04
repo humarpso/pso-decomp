@@ -147,6 +147,8 @@ public:
 };
 typedef void (TCheckRoomSequence::*Fn_802102D0)();
 
+struct Item_80210E28 { u8 b0, b1, b2, b3, b4; u8 pad5[0x14 - 5]; s16 f14; u8 pad16[2]; };
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 is_item_record_empty(u8 *arg0);
@@ -368,6 +370,13 @@ extern s32 TCheckRoomSequence__data_80513DB8[];
 extern s32 lbl_805D3640;
 extern s32 TCheckRoomSequence__data_805D616C;
 void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_);
+M2C_UNK copy_bank_to_card_window(int);
+void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
+u8 is_item_record_empty(u8 *arg0);
+s32 get_item_def__18TCheckRoomSequenceFUi(void *);
+extern Rec_80211034 *lbl_80513D88[];
+extern s32 lbl_80513D98[];
+void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot);
 }
 
 extern "C" {
@@ -1041,6 +1050,38 @@ s32 bank_debit_meseta(s32 v, s32 i) {
 s32 bank_credit_meseta(s32 v, s32 i) {
     lbl_80513DA8[i] += v;
     return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot) {
+    Item_80210E28 *recs = (Item_80210E28 *)lbl_80513D88[slot];
+    s32 n;
+    if (idx <= 199) {
+        if (recs[idx].b0 != 3) {
+            TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
+            lbl_80513D98[slot]--;
+            copy_bank_to_card_window(slot);
+        } else if (get_item_def__18TCheckRoomSequenceFUi(&recs[idx]) == 0) {
+            TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
+            lbl_80513D98[slot]--;
+            copy_bank_to_card_window(slot);
+        } else if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[idx]) == 0) {
+            n = recs[idx].f14;
+            n -= amount;
+            if (n >= 0) {
+                if (n == 0) {
+                    TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
+                    lbl_80513D98[slot]--;
+                    copy_bank_to_card_window(slot);
+                } else {
+                    recs[idx].f14 = n;
+                    copy_bank_to_card_window(slot);
+                }
+            }
+        }
+    }
 }
 #pragma pop
 
