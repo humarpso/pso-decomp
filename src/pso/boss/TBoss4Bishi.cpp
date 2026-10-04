@@ -53,6 +53,31 @@ struct Obj_8005C218 {
     V_8005C218 home;
 };
 
+struct Vec_8005BC4C { f32 x, y, z; };
+
+struct TBoss4Bishi_8005BC4C {
+    u8 pad0[0x38];
+    Vec_8005BC4C pos;
+    u8 pad44[0x5C - 0x44];
+    s32 f5C;
+    s32 f60;
+    u8 pad64[0x2FC - 0x64];
+    u8 f2FC[0x374 - 0x2FC];
+    s32 f374;
+    void *f378;
+    u8 pad37C[0x3B4 - 0x37C];
+    void *f3B4;
+    s32 f3B8;
+    s32 f3BC;
+    s32 f3C0;
+
+    void act0();
+    void act2();
+    void act3();
+};
+
+typedef void (TBoss4Bishi_8005BC4C::*Act_8005BC4C)();
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void vec3_add_to(void *, void *);
@@ -118,6 +143,22 @@ extern const f32 lbl_805D8CE8;
 extern const f32 lbl_805D8CEC;
 extern const f32 lbl_805D8CF0;
 void TBoss4Zako__sub_8005C218(void *p);
+s32 get_phase__9TBoss4UroFPv(void *);
+void TBoss4Zako__sub_8005C9BC(void *);
+s32 TBoss4Uro__sub_8005D698(void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void update_prev_position__10TObjPlayerFPv(void *);
+void update_collisions__10TObjPlayerFPv(void *);
+void submit_cursor_candidate(void *, s32);
+void minimap_render_dot(void *, s32, s32, s32);
+void TBoss4Zako__sub_8030AC7C(void *, s32, s32);
+extern const f32 lbl_805D8CD0;
+extern const f32 TBoss4Zako__data_805D8CD4;
+extern const f32 lbl_805D8CD8;
+void TBoss4Zako__vt0();
+void TBoss4Zako__vt1();
+void TBoss4Zako__vt2();
+void TBoss4Zako__vt3();
 }
 
 extern "C" {
@@ -194,6 +235,70 @@ void TBoss4Bishi__vt0(u8 *arg0) {
         }
     }
 }
+
+void *__vt__10TBoss4Zako[38] = {
+    (void *)0x0, (void *)0x40f00000, (void *)0x0, (void *)0x40a00000,
+    (void *)0x0, (void *)0x0, (void *)0x807a, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss4Zako__vt0, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss4Zako__vt1, (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Zako__vt2,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Zako__vt3, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0,
+};
+void *lbl_80487380[24] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Zako__vt4, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss4Zako__vt5, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss4Zako__vt6, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+V2_8005BF68 __vt__11TBoss4Bishi[4] = {
+    { -4.0f, -4.0f }, { 4.0f, -4.0f }, { -4.0f, 4.0f }, { 4.0f, 4.0f },
+};
+
+#pragma push
+#pragma fp_contract on
+void TBoss4Zako__sub_8005BC4C(TBoss4Bishi_8005BC4C *self) {
+    if (self->f374 != 3 && get_phase__9TBoss4UroFPv(self->f378) != 8) {
+        enter_state_3__11TBoss4BishiFPv(self);
+        return;
+    }
+    static Act_8005BC4C tbl[5] = {
+        &TBoss4Bishi_8005BC4C::act0, 0, &TBoss4Bishi_8005BC4C::act2, &TBoss4Bishi_8005BC4C::act3, 0,
+    };
+    Act_8005BC4C a = tbl[self->f374];
+    if (a) {
+        (self->*a)();
+        if (self->f374 == 2) {
+            *(f32 *)&self->pos.y = lbl_805D8CD0 * sin_table_lookup(self->f3BC) + self->pos.y;
+            self->f3BC += self->f3C0;
+        }
+        Vec_8005BC4C v = self->pos;
+        if (TBoss4Uro__sub_8005D698(self) != 0) {
+            v.y += TBoss4Zako__data_805D8CD4;
+        } else {
+            v.y += lbl_805D8CD8;
+        }
+        copy_pos__11TNowLoadingFPvPv(self->f3B4, &v);
+        if (TBoss4Uro__sub_8005D698(self) != 0) {
+            self->f60 += 0x1111;
+        }
+        TBoss4Zako__sub_8030AC7C(&self->pos, self->f5C, self->f60);
+        TBoss4Zako__sub_8005C9BC(self);
+        update_prev_position__10TObjPlayerFPv(self);
+        if (TBoss4Uro__sub_8005D698(self) != 0) {
+            update_collisions__10TObjPlayerFPv(self);
+            submit_cursor_candidate(self, -1);
+            minimap_render_dot(self->f2FC, -0x5DB4, 1, 0);
+        }
+        self->f3B8++;
+    }
+}
+#pragma pop
 
 void enter_state_3__11TBoss4BishiFPv(void* p) { if (*(int*)((char*)p + 0x374) != 3) { TBoss4Uro__sub_8005D6D4(*(void**)((char*)p + 0x378)); *(int*)((char*)p + 0x374) = 3; } }
 

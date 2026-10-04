@@ -2160,7 +2160,7 @@ void action__12TBoss1DragonFPvi(void *arg0, s32 arg1);
 void update_wander_state__12TBoss1DragonFPvi(void *arg0, s32 arg1);
 void TBoss1Dragon__sub_80021DE4(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_80021F98(u8 *arg0, u32 arg1);
-s32 TBoss1Dragon__sub_80022158(void *, void *);
+void TBoss1Dragon__sub_80022158(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_8002237C(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_800224A4(u8 *arg0, u32 arg1);
 void TBoss1Dragon__sub_80022740(u8 *arg0, u32 arg1);
@@ -3634,6 +3634,105 @@ void TBoss1Dragon__sub_80021F98(u8 *arg0, u32 arg1) {
         break;
     }
 }
+
+struct Vec_80022158 { f32 x, y, z; };
+struct Ext_80022158 { u8 pad0[0x38]; Vec_80022158 pos; u8 pad44[0x890 - 0x44]; Vec_80022158 home; };
+struct Input_80022158 { u8 pad0[8]; s32 flags; u8 padC[0x1C - 0xC]; s32 angle; u8 pad20[4]; f32 f24; };
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+f32 newton_sqrtf(f32);
+M2C_UNK request_state_change__12TBoss1DragonFPvs(void *, s16);
+void send_state_sync__12TBoss1DragonFPv(struct dragon_80028530 *s);
+void TBoss1Dragon__sub_80028AFC(u8 *arg0);
+M2C_UNK set_field_1c__12TBoss8DragonFPv(int);
+M2C_UNK spawn_child_object__12TBoss8DragonFPv(int);
+f32 horizontal_distance_squared(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+extern const f32 TBoss1Dragon__data_805D7F28;
+extern const f32 TBoss1Dragon__data_805D7F90;
+extern const f32 TBoss1Dragon__data_805D7F98;
+
+#pragma push
+#pragma fp_contract on
+#pragma opt_common_subs off
+#define self ((TBoss1Dragon *)arg0)
+#define ext ((Ext_80022158 *)arg0)
+void TBoss1Dragon__sub_80022158(u8 *arg0, u32 arg1) {
+    f32 dx;
+    f32 dz;
+    Vec_80022158 *home;
+    Input_80022158 *in;
+    extern const u8 TBoss1Dragon__data_80434E80[0xC];
+
+    home = &ext->home;
+    switch (arg1) {
+    case 4:
+        self->animationAction = 0x11;
+        ((VObj_18_2fe63c *)(arg0))->m94();
+        self->setPhase2();
+        TBoss1Dragon__sub_80028AFC(arg0);
+        self->flags = self->flags | 0xC00;
+        self->flags = self->flags & 0xFFFFFC7F;
+        ((VObj_18_2fe63c *)(arg0))->m89();
+        ((VObj_18_2fe63c *)(arg0))->m92();
+        VecCopy__FP3VecPC3Vec((s32)home, (s32)&ext->pos);
+        self->stateStep = 0x64;
+        self->impactAge = 0;
+        home->y = ((const Vec_80022158 *)TBoss1Dragon__data_80434E80)->y;
+        self->fallVelocity = TBoss1Dragon__data_805D7F28;
+        self->rootHeight = TBoss1Dragon__data_805D7F28;
+        ((M2C_UNK (*)(int))set_field_1c__12TBoss8DragonFPv)(M2C_FIELD(arg0, s32 *, 0x6D8));
+        return;
+    case 2:
+    case 11:
+        if (self->impactAge == 1) {
+            request_state_change__12TBoss1DragonFPvs(arg0, 0x1B);
+            return;
+        }
+        if (M2C_FIELD(self, Input_80022158 **, 0x6E4)->flags & 2) {
+            request_state_change__12TBoss1DragonFPvs(arg0, 0x13);
+        }
+    default:
+        return;
+    case 8:
+        self->stateStep = self->stateStep + 1;
+        if (self->stateStep >= 0x1E) {
+            self->stateStep = 0;
+            in = M2C_FIELD(self, Input_80022158 **, 0x6E4);
+            if (in->f24 <= TBoss1Dragon__data_805D7F90) {
+                self->impactAge = 1;
+                return;
+            }
+            M2C_FIELD(arg0, s32 *, 0x60) = in->angle;
+            self->setDestinationX(M2C_FIELD(arg0, s32 *, 0x60));
+            send_state_sync__12TBoss1DragonFPv((struct dragon_80028530 *)arg0);
+            return;
+        }
+        break;
+    case 7:
+        self->copySavedX((int *)(arg0 + 0x60));
+        return;
+    case 6:
+        self->setDestinationX(M2C_FIELD(arg0, s32 *, 0x60));
+        return;
+    case 0:
+        dx = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+        dz = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+        ext->pos.x = dx * TBoss1Dragon__data_805D7F98 + ext->pos.x;
+        ext->pos.z = dz * TBoss1Dragon__data_805D7F98 + ext->pos.z;
+        horizontal_distance_squared(&ext->pos, home);
+        dx = ((f32 (*)(void))newton_sqrtf)();
+        VecCopy__FP3VecPC3Vec((s32)home, (s32)&ext->pos);
+        self->fallVelocity = self->fallVelocity + dx;
+        return;
+    case 5:
+        spawn_child_object__12TBoss8DragonFPv(M2C_FIELD(arg0, s32 *, 0x6D8));
+        break;
+    }
+}
+#undef self
+#undef ext
+#pragma pop
 
 void TBoss1Dragon__sub_8002237C(u8 *arg0, u32 arg1) {
     u8 *temp_r3;
@@ -5953,7 +6052,7 @@ void dispatch_action__12TBoss1DragonFiUii(s32 arg0, u32 arg1, s32 arg2) {
         TBoss1Dragon__sub_8002237C((u8 *)((void *) (arg0)), (u32)((void *) (arg2)));
         return;
     case 28:
-        TBoss1Dragon__sub_80022158((void *) (arg0), (void *) (arg2));
+        TBoss1Dragon__sub_80022158((u8 *)((void *) (arg0)), (u32)((void *) (arg2)));
         return;
     case 29:
         update_appearance_state__12TBoss1DragonFv((Dragon_80021490 *)((void *) (arg0)), (u32)((void *) (arg2)));
