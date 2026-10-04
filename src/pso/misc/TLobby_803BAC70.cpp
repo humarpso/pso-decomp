@@ -300,6 +300,41 @@ struct Req_803BDAE4 {
 
 struct Q_803BDAE4 { Req_803BDAE4 reqs[16]; volatile u8 wp; volatile u8 count; };
 
+struct ARQRequest_803BDCD0 {
+    ARQRequest_803BDCD0 *next;
+    u32 owner;
+    u32 type;
+    u32 priority;
+    u32 source;
+    u32 dest;
+    u32 length;
+    void (*callback)(u32);
+};
+
+struct ARAMTransferJob_803BDCD0 {
+    ARQRequest_803BDCD0 arq;
+    void (*callback)(u32);
+    u32 user;
+};
+
+struct ARAMTransferQueue_803BDCD0 {
+    ARAMTransferJob_803BDCD0 queue[16];
+    volatile u8 write;
+    volatile u8 valid;
+};
+
+struct AramQueues_803BDCD0 {
+    ARAMTransferQueue_803BDCD0 lo;
+    ARAMTransferQueue_803BDCD0 hi;
+};
+
+struct StreamBuffer_803BDCD0 {
+    StreamBuffer_803BDCD0 *next;
+    u32 aram;
+    u32 length;
+    u32 allocLength;
+};
+
 typedef struct S_803BF408 {
     u8 pad0[0x1A8];
     f32 f1A8;
@@ -401,6 +436,12 @@ void TLobby__sub_803BE000(s32 arg0, s32 arg1);
 void TLobby__sub_803BE0DC(void);
 extern s32 lbl_805D74F0;
 extern s32 lbl_805D7500;
+extern void (*lbl_805D74E8)(void);
+extern s32 lbl_805D74F4;
+extern s32 lbl_805D74F8;
+void AIInitDMA(u32 addr, u32 length);
+void AIRegisterDMACallback(void (*)(void));
+void TLobby__sub_803BE320(void);
 void TLobby__sub_803BE3C4(void);
 s32 get_offset_58__6TLobbyFi(s32 arg0);
 M2C_UNK get_field_34__6TLobbyFPv(int);
@@ -479,13 +520,43 @@ s32 OSDisableInterrupts(void);
 extern s32 lbl_805D7508;
 extern u16 lbl_805D7504;
 void sound_disable_irq(void);
-extern u8 lbl_8056E118[];
-extern u8 lbl_8056E098[][16];
+struct ChannelDefaults_803BADF8 { u8 pbRange; };
+struct SynthVoice_803BADF8 {
+    u8 pad0[0xF4];
+    u32 id;
+    u8 padF8[0x121 - 0xF8];
+    u8 midi;
+    u8 midiSet;
+    u8 pad123[0x1D6 - 0x123];
+    u8 pbLowerKeyRange;
+    u8 pbUpperKeyRange;
+    u8 pad1D8[0x214 - 0x1D8];
+    u32 midiDirtyFlags;
+    u8 pad218[0x404 - 0x218];
+};
+extern SynthVoice_803BADF8 *lbl_805D73B0;
+void TLobby__sub_803A8D04(SynthVoice_803BADF8 *svoice);
+void TLobby__sub_803BB98C(u8 ctrl, SynthVoice_803BADF8 *dvoice, SynthVoice_803BADF8 *svoice);
+static u8 midi_lastNote[8][16];
+static u8 fx_lastNote[64];
+static u8 midi_ctrl[8][16][134];
+static u8 fx_ctrl[64][134];
+static u32 inpGlobalMIDIDirtyFlags[8][16];
+static ChannelDefaults_803BADF8 inpChannelDefaults[8][16];
+static ChannelDefaults_803BADF8 inpFXChannelDefaults[64];
+#define lbl_80567958 midi_lastNote
+#define lbl_805679D8 fx_lastNote
+#define lbl_80567A18 midi_ctrl
+#define lbl_8056BD18 fx_ctrl
+#define lbl_8056DE98 inpGlobalMIDIDirtyFlags
+#define lbl_8056E098 ((u8 (*)[16])inpChannelDefaults)
+#define lbl_8056E118 ((u8 *)inpFXChannelDefaults)
 u8 *TLobby__sub_803BB870(u8 a, u8 b);
-extern u32 lbl_8056DE98[][16];
 struct Ent_803BC490 { u8 pad[0x22]; u8 f22; u8 pad23; };
-extern Ent_803BC490 lbl_80557C6C[8][4];
-extern Ent_803BC490 lbl_805580EC[8][4];
+extern Inp_803BBB30 lbl_80557C6C[8][4];
+extern Inp_803BBB30 lbl_805580EC[8][4];
+extern u32 lbl_804F7120[];
+extern u32 lbl_804F7130[];
 void TLobby__sub_803BADD0(u8 a, u8 b, u32 v);
 extern s32 lbl_805D748C;
 bool is_sound_hw_voice_active(s32 i);
@@ -510,7 +581,10 @@ void TLobby__sub_803B58DC(u8 i, s32 a, s32 b);
 void TLobby__sub_803BD5EC(u8 i, s32 a, s32 b);
 u32 TLobby__sub_803BD800(u8 i);
 void TLobby__sub_803BD9C0(void);
-void TLobby__sub_803BDCD0(void *p);
+void TLobby__sub_803BDCD0(u32 length);
+u32 ARGetSize(void);
+void TLobby__sub_803BE018(void);
+extern u32 lbl_805D74C8;
 void TLobby__sub_803BD884(void *self, void *p);
 void TLobby__sub_803BE224(u8 i);
 void TLobby__sub_803BD7E0(u8 i);
@@ -521,7 +595,7 @@ bool TLobby__sub_803BDA2C(s32 i);
 void *TLobby__sub_803BD7C0(u32 size);
 u32 ARGetBaseAddress(void);
 u32 TLobby__sub_803BDEF0(void);
-extern Obj_803BDCB8 lbl_8056E158;
+extern AramQueues_803BDCD0 lbl_8056E158;
 void TLobby__sub_803BDCB8(void);
 extern Rec_803BE1EC lbl_8056E660[];
 u32 TLobby__sub_803BE1EC(u8 i, u32 *out);
@@ -536,19 +610,11 @@ void TLobby__sub_803BD62C(u8 i, void *p);
 extern SoundStudioMixView lbl_805663D8[];
 void TLobby__sub_803B8ABC(Rec_803BD660 *r, u32 x);
 void TLobby__sub_803BD660(u8 i, u32 x);
-extern u8 lbl_8056E098[][16];
-extern u8 lbl_8056E118[];
 void TLobby__sub_803BB8AC(u8 arg0, u8 arg1);
-extern M2C_UNK lbl_80567958[];
-extern M2C_UNK lbl_805679D8[];
 void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, u8 arg2);
 void *memcpy(void *dst, const void *src, u32 n);
 extern u8 lbl_8047C310[];
 extern u8 lbl_8047C398[];
-extern u8 lbl_80567A18[][0x10][0x86];
-extern u8 lbl_8056BD18[][0x86];
-extern M2C_UNK lbl_80567958[];
-extern M2C_UNK lbl_805679D8[];
 u8 TLobby__sub_803BBAEC(u8 arg0, u8 arg1);
 u16 TLobby__sub_803BBFB8(Lob_803BBFB8 *arg0);
 u16 TLobby__sub_803BC000(Lob_803BC000 *arg0);
@@ -606,13 +672,23 @@ void TLobby__sub_803BD93C(Hdr_803BD93C *arg0, u32 arg1);
 void TLobby__sub_803BE6D4(void);
 void sound_enable_irq(void);
 void TLobby__sub_803BE508(void);
-u32 TLobby__sub_803BE43C(void *fn, u32 arg1, u32 arg2);
+u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq);
 u32 TLobby__sub_803B5500(u8 arg0, u8 arg1, bool arg2);
 u32 TLobby__sub_803BE554(u32 arg0);
 void TLobby__sub_803BCAA0(void);
 extern s32 lbl_805D7490;
-extern s8 lbl_805D74C6;
-extern s8 lbl_805D74C7;
+extern u8 lbl_805D74C6;
+extern u8 lbl_805D74C7;
+extern u8 lbl_805D74C5;
+extern u8 lbl_805D7380;
+void TLobby__sub_803A65D8(s32);
+void TLobby__sub_803A8E2C(s32);
+void TLobby__sub_803AA868(void);
+void TLobby__sub_803AB0E0(void);
+void TLobby__sub_803B4B28(void);
+void process_sound_aux_callbacks(void);
+void TLobby__sub_803BA744(void);
+struct Slot_803BCAA0 { u8 pad0[0x24]; u32 changed[5]; u8 pad38[0xF4 - 0x38]; };
 s32 TLobby__sub_803BCC0C(u32 arg0, s32 arg1, s32 arg2, u32 arg3);
 void DCFlushRange(void *addr, u32 nBytes);
 extern s32 lbl_805D74CC;
@@ -638,7 +714,7 @@ s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32 level);
 M2C_UNK ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
 void TLobby__sub_803BDA4C(void);
-extern Obj_803BDCB8 lbl_8056E158;
+extern AramQueues_803BDCD0 lbl_8056E158;
 extern Obj_803BDCB8 lbl_8056E3DC;
 void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);
 void TLobby__sub_803BED6C(void *, void *, f32, f32);
@@ -710,6 +786,148 @@ void TLobby__sub_803BADD0(u8 a, u8 b, u32 v) {
     lbl_8056DE98[b][a] |= v;
 }
 
+#define synthInfo_voiceNum (((u8 *)lbl_80557348)[0x210])
+#define synthVoice lbl_805D73B0
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+static inline void inpSetRPNHi_803BADF8(u8 set, u8 channel, u8 value) {
+    u16 rpn;
+    u32 i;
+    u8 range;
+
+    rpn = (midi_ctrl[set][channel][100]) | (midi_ctrl[set][channel][101] << 8);
+    switch (rpn) {
+    case 0:
+        range = value > 24 ? 24 : value;
+        inpChannelDefaults[set][channel].pbRange = range;
+
+        for (i = 0; i < synthInfo_voiceNum; ++i) {
+            if (set == synthVoice[i].midiSet && channel == synthVoice[i].midi) {
+                synthVoice[i].pbUpperKeyRange = range;
+                synthVoice[i].pbLowerKeyRange = range;
+            }
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+static inline void inpSetRPNLo_803BADF8(u8 set, u8 channel, u8 value) {
+}
+
+static inline void inpSetRPNDec_803BADF8(u8 set, u8 channel) {
+    u16 rpn;
+    u32 i;
+    u8 range;
+
+    rpn = (midi_ctrl[set][channel][100]) | (midi_ctrl[set][channel][101] << 8);
+    switch (rpn) {
+    case 0:
+        range = inpChannelDefaults[set][channel].pbRange;
+        if (range != 0) {
+            --range;
+        }
+        inpChannelDefaults[set][channel].pbRange = range;
+        for (i = 0; i < synthInfo_voiceNum; ++i) {
+            if (set == synthVoice[i].midiSet && channel == synthVoice[i].midi) {
+                synthVoice[i].pbUpperKeyRange = range;
+                synthVoice[i].pbLowerKeyRange = range;
+            }
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+static inline void inpSetRPNInc_803BADF8(u8 set, u8 channel) {
+    u16 rpn;
+    u32 i;
+    u8 range;
+
+    rpn = (midi_ctrl[set][channel][100]) | (midi_ctrl[set][channel][101] << 8);
+    switch (rpn) {
+    case 0:
+        range = inpChannelDefaults[set][channel].pbRange;
+        if (range < 24) {
+            ++range;
+        }
+
+        inpChannelDefaults[set][channel].pbRange = range;
+        for (i = 0; i < synthInfo_voiceNum; ++i) {
+            if (set == synthVoice[i].midiSet && channel == synthVoice[i].midi) {
+                synthVoice[i].pbUpperKeyRange = range;
+                synthVoice[i].pbLowerKeyRange = range;
+            }
+        }
+        break;
+    default:
+        break;
+    }
+}
+
+void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value) {
+    u32 i;
+    if (channel == 0xFF) {
+        return;
+    }
+
+    if (set != 0xFF) {
+        switch (ctrl) {
+        case 6:
+            inpSetRPNHi_803BADF8(set, channel, value);
+            break;
+        case 38:
+            inpSetRPNLo_803BADF8(set, channel, value);
+            break;
+        case 96:
+            inpSetRPNDec_803BADF8(set, channel);
+            break;
+        case 97:
+            inpSetRPNInc_803BADF8(set, channel);
+            break;
+        }
+
+        midi_ctrl[set][channel][ctrl] = (value & 0x7f);
+        for (i = 0; i < synthInfo_voiceNum; ++i) {
+            if (set == synthVoice[i].midiSet && channel == synthVoice[i].midi) {
+                synthVoice[i].midiDirtyFlags = 0x1fff;
+                TLobby__sub_803A8D04(&synthVoice[i]);
+            }
+        }
+        inpGlobalMIDIDirtyFlags[set][channel] = 0xff;
+
+    } else {
+        switch (ctrl) {
+        case 6:
+            inpSetRPNHi_803BADF8(set, channel, value);
+            break;
+        case 38:
+            inpSetRPNLo_803BADF8(set, channel, value);
+            break;
+        case 96:
+            inpSetRPNDec_803BADF8(set, channel);
+            break;
+        case 97:
+            inpSetRPNInc_803BADF8(set, channel);
+            break;
+        }
+
+        fx_ctrl[channel][ctrl] = value & 0x7f;
+        for (i = 0; i < synthInfo_voiceNum; ++i) {
+            if (set == synthVoice[i].midiSet && channel == synthVoice[i].midi) {
+                synthVoice[i].midiDirtyFlags = 0x1fff;
+                TLobby__sub_803A8D04(&synthVoice[i]);
+            }
+        }
+    }
+}
+#pragma pop
+
 void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value) {
     if (channel == 0xFF) {
         return;
@@ -750,6 +968,50 @@ void TLobby__sub_803BB4F0(u8 arg0, u8 arg1, u32 arg2) {
     TLobby__sub_803BBAA8(arg0, arg1, 0xFF);
 }
 
+u16 TLobby__sub_803BB5E4(u8 ctrl, u8 channel, u8 set) {
+
+    if (channel != 0xff) {
+        if (set != 0xff) {
+
+            if (ctrl < 0x40) {
+                return midi_ctrl[set][channel][ctrl & 0x1f] << 7 | midi_ctrl[set][channel][(ctrl & 0x1f) + 0x20];
+            }
+            if (ctrl < 0x46) {
+                return midi_ctrl[set][channel][ctrl] < 0x40 ? 0 : 0x3fff;
+            }
+            if (ctrl >= 0x60 && ctrl < 0x66) {
+                return 0;
+            }
+
+            if ((ctrl == 0x80) || (ctrl == 0x81)) {
+                return midi_ctrl[set][channel][ctrl & 0xfe] << 7 | midi_ctrl[set][channel][(ctrl & 0xfe) + 1];
+            }
+            if ((ctrl == 0x84) || (ctrl == 0x85)) {
+                return midi_ctrl[set][channel][ctrl & 0xfe] << 7 | midi_ctrl[set][channel][(ctrl & 0xfe) + 1];
+            }
+
+            return midi_ctrl[set][channel][ctrl] << 7;
+        }
+        if (ctrl < 0x40) {
+            return fx_ctrl[channel][ctrl & 0x1f] << 7 | fx_ctrl[channel][(ctrl & 0x1f) + 0x20];
+        }
+        if (ctrl < 0x46) {
+            return fx_ctrl[channel][ctrl] < 0x40 ? 0 : 0x3fff;
+        }
+        if (ctrl >= 0x60 && ctrl < 0x66) {
+            return 0;
+        }
+        if ((ctrl == 0x80) || (ctrl == 0x81)) {
+            return fx_ctrl[channel][ctrl & 0xfe] << 7 | fx_ctrl[channel][(ctrl & 0xfe) + 1];
+        }
+        if ((ctrl == 0x84) || (ctrl == 0x85)) {
+            return fx_ctrl[channel][ctrl & 0xfe] << 7 | fx_ctrl[channel][(ctrl & 0xfe) + 1];
+        }
+        return fx_ctrl[channel][ctrl] << 7;
+    }
+    return 0;
+}
+
 u8 *TLobby__sub_803BB870(u8 a, u8 b) {
     if (b == 0xff) {
         return &lbl_8056E118[a];
@@ -783,6 +1045,26 @@ void TLobby__sub_803BB8F0(Obj_803BB8F0 *arg0, u8 arg1, s32 arg2, u8 arg3, u32 ar
         arg0->ents[(u8)n].code = arg1;
         arg0->ents[(u8)n].flags = arg3;
         arg0->ents[(u8)n].val = arg2;
+    }
+}
+
+void TLobby__sub_803BB98C(u8 ctrl, SynthVoice_803BADF8 *dvoice, SynthVoice_803BADF8 *svoice) {
+    u8 di;
+    u8 si;
+    di = dvoice->id;
+    si = svoice->id;
+
+    if (ctrl < 64) {
+        fx_ctrl[di][ctrl & 31] = fx_ctrl[si][ctrl & 31];
+        fx_ctrl[di][(ctrl & 31) + 32] = fx_ctrl[si][(ctrl & 31) + 32];
+    } else if (ctrl == 128 || ctrl == 129) {
+        fx_ctrl[di][ctrl & 254] = fx_ctrl[si][ctrl & 254];
+        fx_ctrl[di][(ctrl & 254) + 1] = fx_ctrl[si][(ctrl & 254) + 1];
+    } else if (ctrl == 132 || ctrl == 133) {
+        fx_ctrl[di][ctrl & 254] = fx_ctrl[si][ctrl & 254];
+        fx_ctrl[di][(ctrl & 254) + 1] = fx_ctrl[si][(ctrl & 254) + 1];
+    } else {
+        fx_ctrl[di][ctrl] = fx_ctrl[si][ctrl];
     }
 }
 
@@ -1037,6 +1319,36 @@ u16 TLobby__sub_803BC2D0(Lob_803BC2D0 *arg0) {
 }
 
 #pragma push
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+static inline u32 inpResetGlobalMIDIDirtyFlag_803BC318(u8 chan, u8 midiSet, u32 flag) {
+    u32 ret;
+    if ((ret = (flag & lbl_8056DE98[midiSet][chan]) != 0) != 0) {
+        lbl_8056DE98[midiSet][chan] &= ~flag;
+    }
+    return ret;
+}
+
+static inline u16 GetGlobalInputValue_803BC318(Inp_803BBB30 *inp, u32 dirtyMask, u8 midi, u8 midiSet) {
+    if (!inpResetGlobalMIDIDirtyFlag_803BC318(midi, midiSet, dirtyMask)) {
+        return inp->oldValue;
+    }
+    return calc_sound_controller_value(0, inp, midi, midiSet);
+}
+
+u16 TLobby__sub_803BC318(u8 studio, u8 index, u8 midi, u8 midiSet) {
+    return GetGlobalInputValue_803BC318(&lbl_805580EC[studio][index], lbl_804F7120[index], midi, midiSet);
+}
+
+u16 TLobby__sub_803BC3D4(u8 studio, u8 index, u8 midi, u8 midiSet) {
+    return GetGlobalInputValue_803BC318(&lbl_80557C6C[studio][index], lbl_804F7130[index], midi, midiSet);
+}
+#pragma pop
+
+#pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
 static inline void reset_dirty_803BC490(void) {
@@ -1106,8 +1418,8 @@ void init_sound_controller_mappings(u8 *arg0) {
     } else {
     for (s = 0; s < 8; ++s) {
         for (i = 0; i < 4; ++i) {
-            lbl_805580EC[s][i].f22 = 0;
-            lbl_80557C6C[s][i].f22 = 0;
+            lbl_805580EC[s][i].numSource = 0;
+            lbl_80557C6C[s][i].numSource = 0;
         }
     }
     reset_dirty_803BC490();
@@ -1219,12 +1531,55 @@ u32 shift_right_8__6TLobbyFUi(u32 arg0) {
     return arg0 >> 8U;
 }
 
+void TLobby__sub_803BCAA0(void) {
+    u8 j;
+    u8 i;
+    u8 v;
+
+    if (lbl_805D7380 == 0) {
+        return;
+    }
+    TLobby__sub_803AB0E0();
+    TLobby__sub_803BE770();
+    TLobby__sub_803BE614((s32)TLobby__sub_803BE528());
+    TLobby__sub_803BE790();
+    TLobby__sub_803BE770();
+    process_sound_aux_callbacks();
+    TLobby__sub_803BE790();
+    TLobby__sub_803BE770();
+    lbl_805D74C7 ^= 1;
+    lbl_805D74C6 = (lbl_805D74C6 + 1) % 3;
+    for (v = 0; v < lbl_805D74C5; ++v) {
+        for (i = 0; i < 5; ++i) {
+            (*(Slot_803BCAA0 **)&lbl_805D748C)[v].changed[i] = 0;
+        }
+    }
+    TLobby__sub_803BE790();
+    for (j = 0; j < 5; ++j) {
+        TLobby__sub_803BE770();
+        set_global_flag__6TLobbyFc(j);
+        TLobby__sub_803A65D8(0x100);
+        TLobby__sub_803A8E2C(0x100);
+        TLobby__sub_803BE790();
+    }
+    TLobby__sub_803BE770();
+    set_global_flag__6TLobbyFc(0);
+    TLobby__sub_803BA744();
+    TLobby__sub_803BE790();
+    TLobby__sub_803BE770();
+    TLobby__sub_803AA868();
+    TLobby__sub_803BE790();
+    TLobby__sub_803BE770();
+    TLobby__sub_803B4B28();
+    TLobby__sub_803BE790();
+}
+
 s32 TLobby__sub_803BCC0C(u32 arg0, s32 arg1, s32 arg2, u32 arg3) {
     TLobby__sub_803BE6D4();
     lbl_805D74C7 = 0;
     lbl_805D74C6 = 0;
     lbl_805D7490 = 0;
-    if (TLobby__sub_803BE43C((void *)TLobby__sub_803BCAA0, arg3, arg0) != 0 &&
+    if (TLobby__sub_803BE43C(TLobby__sub_803BCAA0, arg3, (u32 *)arg0) != 0 &&
         TLobby__sub_803B5500(arg1, arg2, (arg3 & 1) != 0) != 0 &&
         TLobby__sub_803BE554(arg3) != 0) {
         sound_enable_irq();
@@ -1533,7 +1888,7 @@ u32 TLobby__sub_803BD828(u32 arg0) {
 }
 
 void TLobby__sub_803BD884(void *self, void *p) {
-    TLobby__sub_803BDCD0(p);
+    TLobby__sub_803BDCD0((u32)p);
 }
 
 void TLobby__sub_803BD8A8(Hdr_803BD8A8 **arg0, u32 *arg1) {
@@ -1633,7 +1988,7 @@ void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *ar
 }
 
 void TLobby__sub_803BDCB8(void) {
-    while (lbl_8056E158.busy != 0) {
+    while (lbl_8056E158.lo.valid != 0) {
     }
 }
 
@@ -1731,10 +2086,165 @@ u32 TLobby__sub_803BE1EC(u8 i, u32 *out) {
     return lbl_8056E660[i].f4;
 }
 
+#define userCallback lbl_805D74E8
+#define salAIBufferBase lbl_805D74EC
+#define salDspIsDone (*(volatile u32 *)&lbl_805D74F0)
+#define salLogicIsWaiting (*(volatile u32 *)&lbl_805D74F4)
+#define salLogicActive (*(volatile u32 *)&lbl_805D74F8)
+#define salLastTick (*(volatile u32 *)&lbl_805D74FC)
+#define salAIBufferIndex lbl_805D750C
+#define OSCachedToPhysical(caddr) ((u32)((u8 *)(caddr) - 0x80000000))
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+static inline void callUserCallback_803BE320(void) {
+    if (salLogicActive) {
+        return;
+    }
+    salLogicActive = 1;
+    OSEnableInterrupts();
+
+    userCallback();
+    OSDisableInterrupts();
+
+    salLogicActive = 0;
+}
+
+void TLobby__sub_803BE320(void) {
+    salAIBufferIndex = (salAIBufferIndex + 1) % 4;
+    AIInitDMA(OSCachedToPhysical(salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
+    salLastTick = OSGetTick();
+
+    if (salDspIsDone) {
+        callUserCallback_803BE320();
+    } else {
+        salLogicIsWaiting = 1;
+    }
+}
+
+#define aramTop lbl_805D74C8
+#define aramWrite (*(u32 *)&lbl_805D74CC)
+#define aramStream (*(u32 *)&lbl_805D74D0)
+#define aramUploadCallback lbl_805D74D4
+#define aramUsedStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74DC)
+#define aramFreeStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74E0)
+#define aramIdleStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74E4)
+#define aramQueueLo (lbl_8056E158.lo)
+#define aramQueueHi (lbl_8056E158.hi)
+#define aramStreamBuffers ((StreamBuffer_803BDCD0 *)lbl_8056E660)
+void TLobby__sub_803BE224(u8 id) {
+    StreamBuffer_803BDCD0 *fSb;
+    StreamBuffer_803BDCD0 *sb;
+    StreamBuffer_803BDCD0 *lastSb;
+    StreamBuffer_803BDCD0 *nextSb;
+    u32 minAddr;
+
+    fSb = &aramStreamBuffers[id];
+    lastSb = 0;
+    sb = aramUsedStreamBuffers;
+
+    while (sb != 0) {
+        if (sb == fSb) {
+            if (lastSb != 0) {
+                lastSb->next = fSb->next;
+            } else {
+                aramUsedStreamBuffers = fSb->next;
+            }
+            break;
+        } else {
+            lastSb = sb;
+            sb = sb->next;
+        }
+    }
+
+    if (fSb->aram == aramStream) {
+        fSb->next = aramIdleStreamBuffers;
+        aramIdleStreamBuffers = fSb;
+        minAddr = -1;
+        sb = aramUsedStreamBuffers;
+        while (sb != 0) {
+            if (sb->aram <= minAddr) {
+                minAddr = sb->aram;
+            }
+            sb = sb->next;
+        }
+
+        lastSb = 0;
+        sb = aramFreeStreamBuffers;
+        while (sb != 0) {
+            nextSb = sb->next;
+            if (sb->aram < minAddr) {
+                if (lastSb != 0) {
+                    lastSb->next = sb->next;
+                } else {
+                    aramFreeStreamBuffers = sb->next;
+                }
+
+                sb->next = aramIdleStreamBuffers;
+                aramIdleStreamBuffers = sb;
+            }
+            sb = nextSb;
+        }
+
+        aramStream = minAddr != -1 ? minAddr : aramTop;
+        return;
+    }
+    fSb->next = aramFreeStreamBuffers;
+    aramFreeStreamBuffers = fSb;
+}
+#undef aramTop
+#undef aramWrite
+#undef aramStream
+#undef aramUploadCallback
+#undef aramUsedStreamBuffers
+#undef aramFreeStreamBuffers
+#undef aramIdleStreamBuffers
+#undef aramQueueLo
+#undef aramQueueHi
+#undef aramStreamBuffers
+
 void TLobby__sub_803BE3C4(void) {
     lbl_805D74F0 = 1;
     lbl_805D7500 = 1;
 }
+
+void TLobby__sub_803BE3D4(void) {
+    u8 _[8];
+
+    salDspIsDone = 1;
+    if (salLogicIsWaiting) {
+        salLogicIsWaiting = 0;
+        callUserCallback_803BE320();
+    }
+}
+
+u32 TLobby__sub_803BE43C(void (*callback)(void), u32 unk, u32 *outFreq) {
+    if ((salAIBufferBase = (Rec_803BE528 *)TLobby__sub_803BE7B0(0x280 * 4)) != 0) {
+        memset(salAIBufferBase, 0, 0x280 * 4);
+        DCFlushRange(salAIBufferBase, 0x280 * 4);
+        salAIBufferIndex = 1;
+        salLogicIsWaiting = 0;
+        salDspIsDone = 1;
+        salLogicActive = 0;
+        userCallback = callback;
+        AIRegisterDMACallback(TLobby__sub_803BE320);
+        AIInitDMA(OSCachedToPhysical(salAIBufferBase) + (salAIBufferIndex * 0x280), 0x280);
+        lbl_80557348[1] = 0x20;
+        *outFreq = 32000;
+        return 1;
+    }
+
+    return 0;
+}
+#pragma pop
+#undef userCallback
+#undef salAIBufferBase
+#undef salDspIsDone
+#undef salLogicIsWaiting
+#undef salLogicActive
+#undef salLastTick
+#undef salAIBufferIndex
 
 void TLobby__sub_803BE508(void) {
     AIStartDMA();
@@ -1980,6 +2490,96 @@ void TLobby__sub_803BF884(u8 reason, Info_803BF884 *info, Work_803BF884 *c) {
     case 1:
         break;
     }
+}
+#pragma pop
+
+typedef struct ChorusSrcInfo_803BFBF0 {
+    s32 *dest;
+    s32 *smpBase;
+    s32 *old;
+    u32 posLo;
+    u32 posHi;
+    u32 pitchLo;
+    u32 pitchHi;
+    u32 trigger;
+    u32 target;
+} ChorusSrcInfo_803BFBF0;
+
+typedef struct ChorusWork_803BFBF0 {
+    s32 *lastLeft[3];
+    s32 *lastRight[3];
+    s32 *lastSur[3];
+    u8 currentLast;
+    s32 oldLeft[4];
+    s32 oldRight[4];
+    s32 oldSur[4];
+    u32 currentPosLo;
+    u32 currentPosHi;
+    s32 pitchOffset;
+    u32 pitchOffsetPeriodCount;
+    u32 pitchOffsetPeriod;
+    ChorusSrcInfo_803BFBF0 src;
+} ChorusWork_803BFBF0;
+
+typedef struct AuxChorus_803BFBF0 {
+    ChorusWork_803BFBF0 work;
+    u32 baseDelay;
+    u32 variation;
+    u32 period;
+} AuxChorus_803BFBF0;
+
+#pragma push
+#pragma peephole off
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+
+static inline u32 sndAuxCallbackUpdateSettingsChorus_803BFBF0(AuxChorus_803BFBF0 *ch) {
+    ch->work.currentPosHi = 0x140 - ((ch->baseDelay - 5) << 5);
+    ch->work.currentPosLo = 0;
+    ch->work.currentPosHi = (ch->work.currentPosHi + (ch->work.currentLast - 1) * 0xa0) % 0x1e0;
+    ch->work.pitchOffsetPeriod = ((ch->period / 5) + 1) & ~1;
+    ch->work.pitchOffsetPeriodCount = (u32)ch->work.pitchOffsetPeriod >> 1;
+    ch->work.pitchOffset = (ch->variation << 16) / (ch->work.pitchOffsetPeriod * 5);
+    return 1;
+}
+
+u32 init_sound_aux_effect(AuxChorus_803BFBF0 *chorus) {
+    u32 i;
+    s32 *lastLeft;
+    s32 *lastRight;
+    s32 *lastSur;
+
+    chorus->work.lastLeft[0] = (s32 *)TLobby__sub_803BE7B0(0x1680);
+
+    if (chorus->work.lastLeft[0] != 0) {
+        chorus->work.lastRight[0] = chorus->work.lastLeft[0] + 0x1e0;
+        chorus->work.lastSur[0] = chorus->work.lastRight[0] + 0x1e0;
+
+        for (i = 1; i < 3; ++i) {
+            chorus->work.lastLeft[i] = chorus->work.lastLeft[0] + i * 0xa0;
+            chorus->work.lastRight[i] = chorus->work.lastRight[0] + i * 0xa0;
+            chorus->work.lastSur[i] = chorus->work.lastSur[0] + i * 0xa0;
+        }
+
+        lastLeft = chorus->work.lastLeft[0];
+        lastRight = chorus->work.lastRight[0];
+        lastSur = chorus->work.lastSur[0];
+        for (i = 0; i < 0x140; i += 1) {
+            *lastLeft++ = 0;
+            *lastRight++ = 0;
+            *lastSur++ = 0;
+        }
+
+        chorus->work.currentLast = 1;
+        chorus->work.oldLeft[0] = chorus->work.oldLeft[1] = chorus->work.oldLeft[2] = chorus->work.oldLeft[3] = 0;
+        chorus->work.oldRight[0] = chorus->work.oldRight[1] = chorus->work.oldRight[2] = chorus->work.oldRight[3] = 0;
+        chorus->work.oldSur[0] = chorus->work.oldSur[1] = chorus->work.oldSur[2] = chorus->work.oldSur[3] = 0;
+        chorus->work.src.trigger = 480;
+        chorus->work.src.target = 0;
+        return sndAuxCallbackUpdateSettingsChorus_803BFBF0(chorus);
+    }
+    return 0;
 }
 #pragma pop
 
