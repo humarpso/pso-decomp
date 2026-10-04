@@ -107,6 +107,7 @@ pso/boss/TBoss2Mine_80037C8C.cpp
 pso/boss/TBoss2Mine_80037CE4.cpp
 pso/boss/TBoss2Mine_80038140.cpp
 pso/boss/TBoss2Mine_800389E4.cpp
+pso/boss/TBoss2Mine_80038B40.cpp
 pso/boss/TBoss2PhotonBullet_80038DCC.cpp
 pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin.cpp
@@ -385,6 +386,7 @@ pso/enemy/TObjEneMe3SinowZoa_80317788.cpp
 pso/enemy/TObjEneMe3SinowZoa_80317828.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B170.cpp
+pso/enemy/TObjEneMe3Stelth.cpp
 pso/enemy/TObjEneMe3StelthReal.cpp
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp
 pso/enemy/TObjEneMe3Stelth_800F169C.cpp
@@ -447,6 +449,7 @@ pso/enemy/TObjEneRecon_8031DD40.cpp
 pso/enemy/TObjEneRecon_8031DD7C.cpp
 pso/enemy/TObjEneRecon_8031DEF0.cpp
 pso/enemy/TObjEneRecon_8031DFCC.cpp
+pso/enemy/TObjEneRecon_8031DFD0.cpp
 pso/enemy/TObjEneRecon_8031E574.cpp
 pso/enemy/TObjEneRecon_8031E650.cpp
 pso/enemy/TObjEneRecon_8031E69C.cpp
@@ -464,6 +467,7 @@ pso/enemy/TObjEneRecon_8031F800.cpp
 pso/enemy/TObjEneRecon_8031FA64.cpp
 pso/enemy/TObjEneRecon_8031FACC.cpp
 pso/enemy/TObjEneRecon_8031FC2C.cpp
+pso/enemy/TObjEneRecon_8031FCB0.cpp
 pso/enemy/TObjEneRecon_80320350.cpp
 pso/enemy/TObjEneSaver.cpp
 pso/enemy/TObjEneSlime.cpp
@@ -1832,10 +1836,12 @@ pso/misc/TWindowOptionCtrl_8026B9B8.cpp
 pso/misc/TWindowOptionCtrl_8026BA88.cpp
 pso/misc/TWindowOptionCtrl_8026BB68.cpp
 pso/misc/TWindowOptionCtrl_8026BCBC.cpp
+pso/misc/TWindowOptionCtrl_8026BCC0.cpp
 pso/misc/TWindowOptionCtrl_8026C40C.cpp
 pso/misc/TWindowOptionCtrl_8026C52C.cpp
 pso/misc/TWindowOptionCtrl_8026C5D8.cpp
 pso/misc/TWindowOptionCtrl_8026CBA4.cpp
+pso/misc/TWindowOptionCtrl_8034C384.cpp
 pso/misc/TWindowPartyStatus.cpp
 pso/misc/TWindowQuantity.cpp
 pso/misc/TWindowReturnCity.cpp
@@ -2011,6 +2017,7 @@ pso/misc/TWindowTimer_80198814.cpp
 pso/misc/TWindowTimer_80198C84.cpp
 pso/misc/TWindowTradeRequest.cpp
 pso/misc/TWindowUserSort.cpp
+pso/misc/TWindow_80217288.cpp
 pso/misc/item_param.cpp
 pso/misc/item_pmt.cpp
 pso/misc/pso_const_ids.cpp

@@ -69,6 +69,7 @@ force_active:
   - TObjBagWarnWin__sub_8006EC20
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
+  - TObjEneRecon__vt85
   - TObjFish__sub_800E2FFC
   - TObjPlayer__sub_800D9FC4
   - TObjPlayer__sub_800DA1F4
@@ -133,6 +134,7 @@ force_active:
   - __dt__12TItemTexLoadFv
   - __dt__12TLevelSelectFv
   - __dt__12TMemberCheckFv
+  - __dt__12TObjEneReconFv
   - __dt__12TObjRainCtrlFv
   - __dt__13TAdTitleTexGCFv
   - __dt__13TItemAttackerFv
@@ -239,6 +241,7 @@ force_active:
   - check_any_player_in_range__12TObjRaderColFPv
   - check_local_player_in_range__12TObjRaderColFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
+  - close_shop_subwindows__7TWindowFPvs
   - construct_cane_weapon
   - construct_dagger_weapon
   - construct_handgun_weapon
@@ -258,6 +261,7 @@ force_active:
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
   - dispatch_callback
+  - dispatch_list_state__17TQuestListOfflineFPv
   - dispatch_lobby_callback
   - draw_active_beam__11TObjDoorKeyFPv
   - draw_animated_beam__18TObjLazerFenceNormFPv
@@ -340,6 +344,14 @@ force_active:
   - is_target_in_range__11TObjInfoColFf
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
+  - lbl_80497710
+  - lbl_80497718
+  - lbl_80497758
+  - lbl_80497760
+  - lbl_804EC6B0
+  - lbl_804EC6CC
+  - lbl_804EC708
+  - lbl_804EC724
   - load_item_pmt
   - lookup_attack_marker
   - open_buy_window__22TShopEquipmentSequenceFPv
@@ -416,6 +428,7 @@ force_active:
   - run_task__12TItemTexLoadFv
   - run_task__12TLevelSelectFv
   - run_task__12TMemberCheckFv
+  - run_task__12TObjEneReconFv
   - run_task__12TObjRainCtrlFv
   - run_task__13TAdTitleTexGCFv
   - run_task__13TItemAttackerFv
