@@ -5,6 +5,48 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_10 { u8 bytes[0x10]; };
+
+struct M2CCopy_14 { u8 bytes[0x14]; };
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+M2C_UNK fn_8002B094(int);
+u8 *csnVector(M2C_UNK *, void *, M2C_UNK);
+s32 fn_800B91F4(void *);
+M2C_UNK setup_instance__9TObjEneDDFiiPvi(void *, int, void *, int);
+s32 advance_animation_playback(void *);
+u32 __nw__7TObjectFUl(int);
+void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
+void TObjFish__sub_802EC7F0(u8 *arg0);
+void TObjFish__sub_802ECCAC(u8 *self);
+M2C_UNK release_laser_light__15TBoss7LaserPtclFPv(void *, int);
+M2C_UNK free_laser_light__15TBoss7LaserPtclFPv(void *);
+M2C_UNK TBoss7LaserPtcl__sub_802ECE28(void *);
+s32 TObjFish__sub_802ED4AC(void *, int);
+s32 TObjFish__sub_802ED62C(void *, int);
+M2C_UNK TBoss7LaserPtcl__sub_802EEE24(void *, void *);
+u32 TBoss7LaserLight__sub_802EEF10(void *, void *, int, int);
+M2C_UNK fn_8035A8E0(int, void *);
+M2C_UNK calc_world_position__15TBoss7LaserPtclFPvPv(int, int);
+s32 is_state_2__15TBoss7LaserPtclFPv(void *);
+M2C_UNK init_laser__15TBoss7LaserPtclFPv(void *);
+M2C_UNK TBoss7LaserPtcl__sub_8035AA58(void *, void *, void *);
+M2C_UNK TBoss7LaserPtcl__sub_8035AA98(void *);
+u32 TBoss7LaserPtcl__ct(u32, void *, void *, int);
+extern M2C_UNK lbl_80472D90[];
+extern const f32 lbl_805DEA10;
+extern const f32 lbl_805DEA38;
+extern const f32 lbl_805DEA4C;
+void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1);
+}
+
 extern "C" {
 
 struct Stack_802EC468 {
@@ -319,6 +361,10 @@ extern const f32 lbl_805DEA60;
 extern const f32 lbl_805DEA64;
 extern const f32 lbl_805DEB68;
 
+extern "C" {
+void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
+}
+
 void TObjFish__sub_802E8528(void* o, u32 k) {
     switch (k) {
     case 0:
@@ -488,6 +534,185 @@ void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1) {
         advance_animation_playback((void *) (arg0));
         if (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA48)) != 0) {
             set_effect_target_position__8TObjFishFPvPvPv((void*)((void *) (arg0)), (void*)((int) (0x39906)), (void*)((void *) ((u8 *)(arg0) + 0x50C)));
+        }
+        break;
+    }
+}
+
+struct Fish_802ECBDC;
+void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
+    struct CopyStack_802E8FCC { u8 bytes[0x14]; };
+    CopyStack_802E8FCC copy_storage_802E8FCC;
+    struct { f32 v[3]; } sp8;
+    s32 temp_r0;
+    s32 temp_r4_2;
+    u32 var_r0;
+    u32 var_r0_2;
+    u32 var_r0_3;
+    u8 *temp_r30;
+    u8 *temp_r30_2;
+    u8 *temp_r3;
+    u8 *temp_r4;
+    temp_r30 = (u8 *)((void *)((u8 *)(arg0) + 0x76C));
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
+        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x100);
+        TObjFish__sub_802ECBDC((Fish_802ECBDC *)arg0);
+        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xF));
+        M2C_FIELD(arg0, s32 *, 0x6C0) = 3;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
+        fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0x718)));
+        M2C_FIELD(arg0, s32 *, 0x728) = 0;
+        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x730) = 0;
+        M2C_FIELD(arg0, s32 *, 0x73C) = 0;
+        M2C_FIELD(arg0, f32 *, 0x748) = (f32) lbl_805DEA10;
+        M2C_FIELD(arg0, f32 *, 0x76C) = (f32) lbl_805DEA10;
+        M2C_FIELD(temp_r30, f32 *, 4) = (f32) lbl_805DEA10;
+        M2C_FIELD(temp_r30, f32 *, 8) = (f32) lbl_805DEA10;
+        M2C_FIELD(arg0, u32 *, 0x784) = 0U;
+        return;
+    case 2:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x728) == 4) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x724) >= 4) {
+                TObjFish__sub_802ED62C(arg0, 0x19);
+            } else {
+                TObjFish__sub_802ED62C(arg0, 0x18);
+            }
+        }
+        break;
+    case 9:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x728) == 4) {
+            TObjFish__sub_802EC7F0(arg0);
+            return;
+        }
+        break;
+    case 0:
+        ((M2C_UNK)advance_animation_playback(arg0));
+        M2C_FIELD(arg0, s32 *, 0x7A0) = 6;
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x728);
+        switch (temp_r0) {
+        case 0:
+            M2C_FIELD(arg0, s32 *, 0x72C) = (s32) (M2C_FIELD(arg0, s32 *, 0x72C) + 1);
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x72C) >= 0x14) {
+                M2C_FIELD(arg0, s32 *, 0x72C) = 0;
+                M2C_FIELD(arg0, s32 *, 0x728) = 1;
+                fn_8002B094((int) (M2C_FIELD(arg0, s32 *, 0x718)));
+                set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xD));
+                if (fn_800B91F4((void *) (arg0)) != 0) {
+                    VecCopy__FP3VecPC3Vec((int)((int) (temp_r30)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x390) + 0x38)));
+                } else {
+                    M2C_FIELD(arg0, f32 *, 0x76C) = (f32) lbl_805DEA10;
+                    M2C_FIELD(temp_r30, f32 *, 4) = (f32) lbl_805DEA10;
+                    M2C_FIELD(temp_r30, f32 *, 8) = (f32) lbl_805DEA10;
+                }
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
+                    queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x7A8));
+                }
+                var_r0 = __nw__7TObjectFUl((int) (0x58));
+                if (var_r0 != 0U) {
+                    var_r0 = TBoss7LaserPtcl__ct(var_r0, (void *) (arg0), (void *) ((u8 *)(arg0) + 0x4DC), (int) (temp_r30));
+                }
+                M2C_FIELD(arg0, u32 *, 0x7A8) = var_r0;
+                TBoss7LaserPtcl__sub_802ECE28((void *) (arg0));
+                free_laser_light__15TBoss7LaserPtclFPv((void *) (arg0));
+                set_effect_target_position__8TObjFishFPvPvPv((void *) (arg0), (void *) (0x39E0F), (void *) ((u8 *)(arg0) + 0x50C));
+                return;
+            }
+            break;
+        case 1:
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
+                TBoss7LaserPtcl__sub_8035AA58(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
+            }
+            if ((lbl_805DEA38 < M2C_FIELD(arg0, f32 *, 0xC0)) && ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U)) {
+                TBoss7LaserPtcl__sub_8035AA98(M2C_FIELD(arg0, void **, 0x7A8));
+            }
+            TBoss7LaserPtcl__sub_802ECE28((void *) (arg0));
+            if (lbl_805DEA4C <= M2C_FIELD(arg0, f32 *, 0xC0)) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEA4C;
+                M2C_FIELD(arg0, s32 *, 0x728) = 2;
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
+                    init_laser__15TBoss7LaserPtclFPv(M2C_FIELD(arg0, void **, 0x7A8));
+                }
+                set_effect_target_position__8TObjFishFPvPvPv((void *) (arg0), (void *) (0x3A310), (void *) ((u8 *)(arg0) + 0x50C));
+                return;
+            }
+            break;
+        case 2:
+            temp_r30_2 = (u8 *)((void *)((u8 *)(arg0) + 0x778));
+            M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEA4C;
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
+                TBoss7LaserPtcl__sub_8035AA58(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
+                calc_world_position__15TBoss7LaserPtclFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (int) (temp_r30_2));
+                fn_8035A8E0((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (void *) (&sp8));
+            }
+            temp_r3 = (u8 *)(csnVector((M2C_UNK *)&sp8, temp_r30_2, 0x16EF));
+            if (temp_r3 != NULL) {
+                VecCopy__FP3VecPC3Vec((int)((int) (temp_r30_2)), (void *)((int) (M2C_FIELD(temp_r3, s32 *, 4))));
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x71C) == 0U) {
+                    var_r0_2 = __nw__7TObjectFUl((int) (0x124));
+                    if (var_r0_2 != 0U) {
+                        var_r0_2 = TBoss7LaserLight__sub_802EEF10((void *) var_r0_2, (void *) (arg0), (int) (6), (int) (0x208));
+                    }
+                    M2C_FIELD(arg0, u32 *, 0x71C) = var_r0_2;
+                } else {
+                    TBoss7LaserPtcl__sub_802EEE24(M2C_FIELD(arg0, void **, 0x71C), temp_r30_2);
+                }
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x720) == 0U) {
+                    var_r0_3 = __nw__7TObjectFUl((int) (0x124));
+                    if (var_r0_3 != 0U) {
+                        var_r0_3 = TBoss7LaserLight__sub_802EEF10((void *) var_r0_3, (void *) (arg0), (int) (0xF), (int) (0x209));
+                    }
+                    M2C_FIELD(arg0, u32 *, 0x720) = var_r0_3;
+                } else {
+                    TBoss7LaserPtcl__sub_802EEE24(M2C_FIELD(arg0, void **, 0x720), temp_r30_2);
+                }
+            }
+            temp_r4 = (u8 *)((void *)((u8 *)(lbl_80472D90) + -4));
+            *(M2CCopy_14 *)(copy_storage_802E8FCC.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
+            (*(f32 *)(copy_storage_802E8FCC.bytes + 0x4)) = M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x620), f32 *, 0);
+            setup_instance__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r30_2), (void *) ((copy_storage_802E8FCC.bytes)), (int) (M2C_FIELD(arg0, s32 *, 0x718)));
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
+                if (is_state_2__15TBoss7LaserPtclFPv(M2C_FIELD(arg0, void **, 0x7A8)) != 0) {
+                    M2C_FIELD(arg0, s32 *, 0x728) = 3;
+                    return;
+                }
+            } else {
+                M2C_FIELD(arg0, s32 *, 0x728) = 3;
+                return;
+            }
+            break;
+        case 3:
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
+                M2C_FIELD(arg0, s32 *, 0x728) = 4;
+                return;
+            }
+            break;
+        }
+        break;
+    case 6:
+        TObjFish__sub_802ECCAC(arg0);
+        return;
+    case 5:
+        temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x724);
+        M2C_FIELD(arg0, s32 *, 0x724) = (s32) (temp_r4_2 + 1);
+        release_laser_light__15TBoss7LaserPtclFPv(arg0, (int) (temp_r4_2));
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x784) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x784));
+            M2C_FIELD(arg0, u32 *, 0x784) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x71C) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x71C));
+            M2C_FIELD(arg0, u32 *, 0x71C) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x720) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x720));
+            M2C_FIELD(arg0, u32 *, 0x720) = 0U;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x7A8));
+            M2C_FIELD(arg0, u32 *, 0x7A8) = 0U;
         }
         break;
     }
