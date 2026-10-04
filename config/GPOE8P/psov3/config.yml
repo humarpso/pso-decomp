@@ -363,6 +363,7 @@ force_active:
   - get_floor_surface_type__10TObjPlayerFPv
   - get_floor_switch_flag
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
+  - get_state__19TBoss8DragonEffTailFPv
   - get_surface_contact_point
   - get_vidlist
   - handle_buy_confirm__20TShopArmorListWindowFv

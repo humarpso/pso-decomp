@@ -180,6 +180,7 @@ pso/boss/TBoss6CrushPtcl.cpp
 pso/boss/TBoss6CrushRock.cpp
 pso/boss/TBoss6CrushRock_80359FC4.cpp
 pso/boss/TBoss6CrushRock_80359FEC.cpp
+pso/boss/TBoss6DPB.cpp
 pso/boss/TBoss6EffFlowSoul.cpp
 pso/boss/TBoss6EffHyoui.cpp
 pso/boss/TBoss6EmptyWarp.cpp
@@ -227,6 +228,7 @@ pso/boss/TBoss7LaserPtcl_8035AA98.cpp
 pso/boss/TBoss7PhotonBullet.cpp
 pso/boss/TBoss8DragonEffBreath.cpp
 pso/boss/TBoss8DragonEffBullet.cpp
+pso/boss/TBoss8DragonEffTail.cpp
 pso/boss/TBoss8Dragon_8002AE38.cpp
 pso/boss/TBoss8Dragon_8005D6F4.cpp
 pso/boss/TBoss8Dragon_8005D700.cpp
@@ -3071,6 +3073,7 @@ pso/unk/text_800480B0.cpp
 pso/unk/text_80048118.cpp
 pso/unk/text_800483F8.cpp
 pso/unk/text_8004AA04.cpp
+pso/unk/text_8004AB90.cpp
 pso/unk/text_8004DE44.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F5F8.cpp
@@ -3113,6 +3116,7 @@ pso/unk/text_8007B370.cpp
 pso/unk/text_8007F4B8.cpp
 pso/unk/text_8007F574.cpp
 pso/unk/text_8007FA24.cpp
+pso/unk/text_8007FA94.cpp
 pso/unk/text_8008197C.cpp
 pso/unk/text_80081A30.cpp
 pso/unk/text_80081B7C.cpp
@@ -3149,6 +3153,7 @@ pso/unk/text_800B9194.cpp
 pso/unk/text_800B9254.cpp
 pso/unk/text_800BC4C8.cpp
 pso/unk/text_800C2A88.cpp
+pso/unk/text_800C2CE0.cpp
 pso/unk/text_800C3088.cpp
 pso/unk/text_800C3A60.cpp
 pso/unk/text_800C3B80.cpp
