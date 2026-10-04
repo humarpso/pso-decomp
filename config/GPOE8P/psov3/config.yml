@@ -33,6 +33,7 @@ force_active:
   - DCEnable
   - DMAErrorHandler
   - DVDGetCurrentDir
+  - DoCrossTalk
   - Dolphin_DVDCancelAsync
   - Dolphin_GXFlush
   - EXIClearInterrupts
@@ -46,6 +47,7 @@ force_active:
   - HandleEvent
   - HandleMasterTrack
   - HandleNotes
+  - HandleReverb
   - HandleTrackEvents
   - ICEnable
   - InitTrackEvents
@@ -262,6 +264,7 @@ force_active:
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
   - build_sell_list__24TShopEquipmentSellWindowFPv
+  - calc_params__11TTecGiBartaFPv
   - chat_dispatch_accepted_result
   - chat_log_remove_line
   - chat_text_lacks_language_tag
@@ -284,12 +287,15 @@ force_active:
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
   - create_icon__10TObjPlayerFiii
   - create_particle_emitters__9TTecBartaFPv
+  - create_particles__11TTecGiBartaFv
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
   - dispatch_callback
   - dispatch_list_state__17TQuestListOfflineFPv
   - dispatch_lobby_callback
+  - do_src1
+  - do_src2
   - draw_active_beam__11TObjDoorKeyFPv
   - draw_animated_beam__18TObjLazerFenceNormFPv
   - draw_background__18TWindowPartyStatusFPvPv

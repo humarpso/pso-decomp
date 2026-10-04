@@ -11,14 +11,14 @@ extern "C" {
 
 #pragma push
 #pragma dont_inline off
-static void DLsetdelay(SoundReverbDelay * dl, s32 lag) {
+static inline void DLsetdelay(SoundReverbDelay * dl, s32 lag) {
     dl->readOffset = dl->writeOffset - (lag * 4);
     while (dl->readOffset < 0) {
         dl->readOffset += dl->byteLength;
     }
 }
 
-static void DLcreate(SoundReverbDelay * dl, s32 max_byteLength) {
+static inline void DLcreate(SoundReverbDelay * dl, s32 max_byteLength) {
     dl->byteLength = (max_byteLength * 4);
     dl->samples = salMalloc( max_byteLength << 2);
     memset(dl->samples, 0, max_byteLength << 2);
@@ -31,7 +31,7 @@ static void DLcreate(SoundReverbDelay * dl, s32 max_byteLength) {
 s32 ReverbHICreate(SoundReverb * rv, float coloration, float time, float mix, float damping, float preDelay, float crossTalk) {
     u8 i;
     u8 k;
-    extern s32 lbl_804F9360[];
+    static s32 lens[] = {1789, 1999, 2333, 433, 149, 47, 73, 67};
 
     if ((coloration < 0.0f ) || (coloration > 1.0f )
      || (time       < 0.01f) || (time       > 10.0f)
@@ -44,16 +44,16 @@ s32 ReverbHICreate(SoundReverb * rv, float coloration, float time, float mix, fl
     memset(rv, 0, 0x1C4);
     for(k = 0; k < 3; k++) {
         for(i = 0; i < 3; i++) {
-            DLcreate(&rv->comb[i + (k * 3)], lbl_804F9360[i] + 2);
-            DLsetdelay(&rv->comb[i + (k * 3)], lbl_804F9360[i]);
-            rv->feedback[i + (k * 3)] = powf(10.0f, (lbl_804F9360[i] * -3) / (32000.0f * time));
+            DLcreate(&rv->comb[i + (k * 3)], lens[i] + 2);
+            DLsetdelay(&rv->comb[i + (k * 3)], lens[i]);
+            rv->feedback[i + (k * 3)] = powf(10.0f, (lens[i] * -3) / (32000.0f * time));
         }
         for(i = 0; i < 2; i++) {
-            DLcreate(&rv->allPass[i + (k * 3)], lbl_804F9360[i + 3] + 2);
-            DLsetdelay(&rv->allPass[i + (k * 3)], lbl_804F9360[i + 3]);
+            DLcreate(&rv->allPass[i + (k * 3)], lens[i + 3] + 2);
+            DLsetdelay(&rv->allPass[i + (k * 3)], lens[i + 3]);
         }
-        DLcreate(&rv->allPass[2 + (k * 3)], lbl_804F9360[k + 5] + 2);
-        DLsetdelay(&rv->allPass[2 + (k * 3)], lbl_804F9360[k + 5]);
+        DLcreate(&rv->allPass[2 + (k * 3)], lens[k + 5] + 2);
+        DLsetdelay(&rv->allPass[2 + (k * 3)], lens[k + 5]);
         rv->lowPassLast[k] = 0.0f;
     }
     rv->coloration = coloration;
@@ -82,6 +82,19 @@ s32 ReverbHICreate(SoundReverb * rv, float coloration, float time, float mix, fl
 }
 
 #pragma pop
+
+static const float value0_3 = 0.3f;
+static const float value0_6 = 0.6f;
+static const double i2fMagic = 4.503601774854144E15;
+
+asm void DoCrossTalk(void *a, void *b, f32 start, f32 end) {
+#include "orig_asm/musyx/runtime/StdReverb/reverb/DoCrossTalk.inc"
+}
+
+asm void HandleReverb(void *sptr, void *rv, int k) {
+#include "orig_asm/musyx/runtime/StdReverb/reverb/HandleReverb.inc"
+}
+
 #pragma push
 #pragma peephole off
 void ReverbHICallback(void *arg0, void *arg1, void *arg2, S_803BF408 *arg3) {
