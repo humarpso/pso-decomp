@@ -15613,6 +15613,7 @@ pso/misc/TLobby_803CE478.cpp:
 
 pso/unk/text_803CE568.cpp:
 	.text       start:0x803CE568 end:0x803CFE68
+	.bss        start:0x80581A30 end:0x80581EA8
 
 pso/misc/TLobby_803CFE68.cpp:
 	.text       start:0x803CFE68 end:0x803CFEA0

@@ -6,6 +6,19 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 typedef M2C_UNK (*RecoveredCallback_4873a87e26d6)(s32, M2C_UNK *, M2C_UNK);
 
 struct Ent_803CF958 { u32 a; char name[12]; };
+struct Drv_803CFD2C {
+    u8 pad[0x14];
+    void (*close)(s32);
+};
+struct Slot_803CFD2C {
+    Drv_803CFD2C *drv;
+    s32 handle;
+};
+struct Rec_803CFD2C {
+    u8 pad0[4];
+    s8 used;
+    u8 pad5[0xB];
+};
 
 extern "C" {
 extern M2C_UNK lbl_8047D7AC[];
@@ -48,6 +61,9 @@ extern Ent_803CF958 lbl_80581B68[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D75F8;
 extern s32 lbl_805D75FC;
 void TLobby__sub_803CF958(char *arg0);
+void *memset(void *, s32, u32);
+extern s32 lbl_805D7600;
+void SIGetTypeAsync(void);
 }
 
 extern "C" {
@@ -209,6 +225,32 @@ void TLobby__sub_803CF958(char *arg0) {
     }
     if (lbl_805D75F8 != NULL) {
         lbl_805D75F8(lbl_805D75FC, lbl_8047D9FC, 0);
+    }
+}
+
+u32 lbl_80581A30[75];
+s8 lbl_80581B5C[12];
+Ent_803CF958 lbl_80581B68[32];
+u32 lbl_80581D68[80];
+
+void SIGetTypeAsync(void) {
+    Slot_803CFD2C *s;
+    Rec_803CFD2C *r;
+    s32 i;
+
+    if (--lbl_805D7600 == 0) {
+        for (s = (Slot_803CFD2C *)lbl_80581D68, i = 0; i < 40; i++, s++) {
+            if (s->drv != NULL) {
+                s->drv->close(s->handle);
+            }
+            s->drv = NULL;
+            s->handle = 0;
+        }
+        for (i = 0; i < 32; i++) {
+            ((Rec_803CFD2C *)lbl_80581B68)[i].used = 0;
+        }
+        memset(lbl_80581B5C, 0, 9);
+        ((s8 *)lbl_80581B5C)[0] = 0;
     }
 }
 
