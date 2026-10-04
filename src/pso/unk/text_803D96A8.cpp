@@ -16,6 +16,10 @@ struct G_803D9DA8 { u8 pad[8]; s32 f8; };
 
 struct Matrix34 { f32 elements[3][4]; };
 
+struct Ent_803D9E38 { u8 *p; s32 a; s32 b; };
+
+struct Tbl_803D9E38 { u8 pad[8]; Ent_803D9E38 arr[1]; };
+
 extern "C" {
 extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
@@ -55,6 +59,11 @@ void move_data__6TLobbyFv(void *, void *, int);
 void TObjPlayer__sub_803D9C60(u32 *p);
 extern G_803D9DA8 lbl_8058D470;
 u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
+s32 TObjPlayer__sub_803DA5A8(void *, int);
+s32 TObjPlayer__sub_803DA688(int, int);
+M2C_UNK TObjPlayer__sub_803DAD24(int, int);
+extern s32 lbl_805D7768;
+s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
 }
 
 extern "C" {
@@ -226,5 +235,61 @@ s32 TObjPlayer__sub_803D9E04(void) {
     return -1;
 }
 #pragma pop
+
+s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
+    s32 sp8;
+    u32 j;
+    s32 *temp_r4;
+    s32 *temp_r4_2;
+    s32 temp_r0;
+    s32 temp_r3;
+    s32 temp_r3_2;
+    s32 temp_r6;
+    u8 *temp_r29;
+    u8 *temp_r31;
+    temp_r6 = M2C_FIELD(arg0, s32 *, 0);
+    temp_r31 = (u8 *)(temp_r6 + (arg1 * 0xC));
+    temp_r3 = M2C_FIELD(temp_r31, s32 *, 4);
+    if (((u32) (temp_r3 & 0x10000) != 0) && (arg1 != 0)) {
+        M2C_FIELD(arg3, u32 *, 0) = (u32) (M2C_FIELD(temp_r31, s32 *, 8) & 0xFC000000) >> 0x1AU;
+        j = arg1 - 1;
+        temp_r29 = ((Tbl_803D9E38 *)temp_r6)->arr[j].p;
+        M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(M2C_FIELD(temp_r29, s32 **, 0xC), s32 *, 0);
+        temp_r3_2 = TObjPlayer__sub_803DA688((int) (M2C_FIELD(arg2, s32 *, 0)), (int) (M2C_FIELD(arg3, u32 *, 0)));
+        if (temp_r3_2 < 0) {
+            if (TObjPlayer__sub_803DA5A8((void *) (&sp8), (int) (0)) < 0) {
+                return -1;
+            }
+            M2C_FIELD(temp_r31, s32 *, 8) = sp8;
+            M2C_FIELD(sp8, u32 *, 8) = (u32) M2C_FIELD(arg3, u32 *, 0);
+            M2C_FIELD(sp8, s32 **, 0xC) = (s32 *) M2C_FIELD(temp_r29, s32 **, 0xC);
+            M2C_FIELD(sp8, s32 *, 0x10) = 1;
+            temp_r4 = (s32 *)(M2C_FIELD(sp8, s32 **, 0xC));
+            M2C_FIELD(temp_r4, s32 *, 0x24) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x24) + 1);
+            M2C_FIELD(sp8, s32 *, 0x14) = (s32) M2C_FIELD(temp_r29, s32 *, 0x14);
+            TObjPlayer__sub_803DAD24((int) (sp8), (int) (temp_r4));
+            goto block_7;
+        }
+        temp_r0 = lbl_805D7768 + (temp_r3_2 * 0x18);
+        sp8 = temp_r0;
+        M2C_FIELD(temp_r31, s32 *, 8) = temp_r0;
+        temp_r4_2 = (s32 *)(M2C_FIELD(sp8, s32 **, 0xC));
+        M2C_FIELD(temp_r4_2, s32 *, 0x24) = (s32) (M2C_FIELD(temp_r4_2, s32 *, 0x24) + 1);
+        M2C_FIELD(sp8, s32 *, 0x10) = (s32) (M2C_FIELD(sp8, s32 *, 0x10) + 1);
+block_7:
+        return 1;
+    }
+    if ((u32) (temp_r3 & 0x800000) != 0) {
+        M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(temp_r31, s32 *, 8);
+        M2C_FIELD(arg3, u32 *, 0) = -1U;
+    } else if ((u32) (temp_r3 & 0x01000000) != 0) {
+        M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(temp_r31, s32 *, 8) & 0x03FFFFFF;
+        M2C_FIELD(arg3, u32 *, 0) = (u32) (M2C_FIELD(temp_r31, s32 *, 8) & 0xFC000000) >> 0x1AU;
+    } else {
+        M2C_FIELD(arg2, s32 *, 0) = -1;
+        M2C_FIELD(arg3, u32 *, 0) = (u32) (M2C_FIELD(temp_r31, s32 *, 8) & 0xFC000000) >> 0x1AU;
+    }
+    return 0;
+}
 
 }

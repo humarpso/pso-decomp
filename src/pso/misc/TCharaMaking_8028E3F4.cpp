@@ -6,6 +6,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Ent_8028E6B4 { s32 id; u8 pad[4]; void *name; u8 pad2[4]; };
 
+struct TextureList {u8 **entries; s32 count;};
+
+struct Appearance {u8 name[0x30]; u8 section, classId, flags, spare; u32 classFlags; s16 costume,skin,face,head,hair,red,green,blue; float width,height;};
+
+struct ClassAppearance {s16 counts[8]; void **hair; void **caps; void **heads; void *body; struct TextureList **hairTextures; struct TextureList **headTextures; struct TextureList *bodyTextures;};
+
+struct OutputSlot {u8 *name; unsigned int field4,field8;};
+
+struct TextureOutput {int loaded; u8 names[8][32]; struct OutputSlot slots[8]; struct OutputSlot *entries; int count;};
+
 extern "C" {
 s32 is_ready__22TQuestVmDownLoadServerFv(void);
 s32 TLobby__sub_801E3E9C(s32, void *, void *, s32);
@@ -15,6 +25,7 @@ extern void *lbl_804D3910[];
 extern Ent_8028E6B4 lbl_804D88B8[];
 extern u8 lbl_8051BC64[];
 void TCharaMaking__sub_8028E6B4(void);
+void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, Appearance *appearance, ClassAppearance *definition, TextureList *source);
 }
 
 extern "C" {
@@ -47,6 +58,57 @@ s32 get_display_index__12TCharaMakingFPv(void *arg0) {
     }
     return M2C_FIELD(arg0, s8 *, 0x31);
 }
+
+struct TextureOutput;
+unsigned int strlen(u8 *); u8 *strncpy(u8 *,u8 *,unsigned int);
+void build_appearance_texture_names__12TCharaMakingFv(TextureOutput *output, Appearance *appearance, ClassAppearance *definition, TextureList *source) {
+    if (source->count <= 8) {
+        int index;
+        OutputSlot *slot;
+        u8 **entry;
+        u8 *name;
+        slot = output->entries = output->slots;
+        index = 0;
+        output->count = source->count;
+        entry = source->entries;
+        for (; index < source->count; ++index, ++entry, ++slot) {
+            name = output->names[index];
+            strlen(*entry);
+            strncpy(name, *entry, 31);
+            name[31] = 0;
+            if (definition->counts[0] > 0) {
+                char *digit = (char *)&name[6];
+                if (*digit++ != '0' || *digit != '0') {
+                switch ((s8)name[4]) {
+                case 'b': case 't':
+                    { int costume = appearance->costume + 1;
+                    name[6] = costume / 10 + '0';
+                    *digit = costume % 10 + '0'; }
+                    break;
+                }
+            }
+            }
+            if (definition->counts[1] > 0 && name[8] != 'z') {
+                switch ((s8)name[4]) {
+                case 'b': case 'f': case 't': name[8] = appearance->skin + 'a'; break;
+                }
+            }
+            if (definition->counts[2] > 0 && name[7] != '0') {
+                switch (name[4]) {
+                case 'f': name[7] = appearance->face + '1'; break;
+                }
+            }
+            if (name[4] == 'c') {
+                if (appearance->flags & 1 || (s8)appearance->section == -1) name[8] = 'z';
+                else name[8] = appearance->section + 'a';
+            }
+            slot->name = name;
+            slot->field8 = 0;
+            slot->field4 = 0;
+        }
+    }
+}
+
 void TCharaMaking__sub_8028E6B4(void) {
     s32 i;
     if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
