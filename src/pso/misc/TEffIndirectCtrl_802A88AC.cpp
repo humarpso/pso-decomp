@@ -14,6 +14,29 @@ struct RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 {
     u8 remaining[0x1C];
 };
 
+struct P2C_802A8B58 { void *a; s32 b; };
+
+struct Ctrl_802A8B58 {
+    s32 f0;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    u32 f1c;
+    u8 *f20;
+    u8 f24;
+    u8 f25;
+    u8 pad26[2];
+    void *f28;
+    P2C_802A8B58 *f2c;
+    u8 f30[0xC];
+    s32 f3c;
+    s32 f40;
+    s16 f44;
+    s16 f46;
+    f32 f48;
+    f32 f4c;
+    f32 f50;
+};
+
 extern "C" {
 extern RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 TEffIndirectCtrl__data_80540AF0;
 s32 get_indirect_source_pixels(u8 arg0);
@@ -25,6 +48,20 @@ u16 get_indirect_tile_coord(u8 arg0, s32 arg1);
 s32 update_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
 f32 sin_table_lookup(s32);
 void deform_indirect_texture_wave(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, u8 arg5);
+void queue_destruction__7TObjectFv(void *);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+void copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *arg0, s32 arg1);
+s32 get_indirect_source_pixels(u8 arg0);
+s32 get_indirect_source_id(u8 arg0);
+u8 *get_indirect_recipe(u8);
+void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void set_texture_name(void *, void *, void *, s32);
+void load_texture_list(void *);
+extern M2C_UNK __vt__16TEffIndirectCtrl[];
+extern s32 lbl_805D3E28;
+extern const f32 lbl_805DE024;
+Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent);
 }
 
 extern "C" {
@@ -61,6 +98,46 @@ void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
+
+Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent) {
+    u8 *tex;
+    u8 k;
+    __ct__7TObjectFP7TObject(self, parent);
+    self->vt = ((s32 *)&__vt__16TEffIndirectCtrl);
+    self->f0 = lbl_805D3E28;
+    self->f28 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
+    self->f2c = (P2C_802A8B58 *)alloc__23TAdSinglePlyChrSelectGCFPv(8);
+    {
+    void *obj = self;
+    if (self->f2c == NULL || self->f28 == NULL) {
+        queue_destruction__7TObjectFv(obj);
+        return self;
+    }
+    }
+    self->f46 = 0;
+    self->f48 = lbl_805DE024;
+    self->f4c = lbl_805DE024;
+    self->f3c = 0;
+    self->f40 = 0;
+    self->f44 = 0;
+    self->f50 = lbl_805DE024;
+    k = kind;
+    self->f25 = kind;
+    self->f20 = get_indirect_recipe(k);
+    if (self->f20 == NULL) {
+        return self;
+    }
+    self->f24 = self->f20[7];
+    tex = (u8 *)get_indirect_source_id(self->f24) + k * 1000;
+    self->f2c->a = self->f30;
+    self->f2c->b = 1;
+    set_render_rect__10TObjPlayerFPviiii(self->f28, 0, 1, 0x40, 0x40);
+    set_texture_name(self->f30, self->f28, tex, 0x8800000);
+    load_texture_list(self->f2c);
+    self->f1c = *(u32 *)(*(u8 **)(*(u8 **)((u8 *)self->f2c->a + 8) + 0xC) + 0x20);
+    copy_and_flush_texture__16TEffIndirectCtrlFPvi(self, get_indirect_source_pixels(self->f24));
+    return self;
+}
 
 #pragma push
 #pragma fp_contract on
