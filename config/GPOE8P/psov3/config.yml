@@ -100,6 +100,7 @@ force_active:
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
   - TODragonfly__sub_80164764
+  - TOSwitchAttack__sub_80198504
   - TObjBagWarnWin__sub_8006EC20
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
@@ -266,6 +267,7 @@ force_active:
   - advance_animation_state__10TEndingPicFPv
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - advance_position__10TTecSlicerFPv
+  - advance_to_preparation_phase__20TShopArmorListWindowFPv
   - apply_heal_to_target__13TOHealGeneralFPv
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
@@ -281,6 +283,7 @@ force_active:
   - chat_text_lacks_language_tag
   - check_any_player_in_range__12TObjRaderColFPv
   - check_local_player_in_range__12TObjRaderColFPv
+  - check_purchase_eligibility__20TShopArmorListWindowFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
   - close_shop_subwindows__7TWindowFPvs
   - construct_cane_weapon
@@ -362,9 +365,12 @@ force_active:
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_surface_contact_point
   - get_vidlist
+  - handle_buy_confirm__20TShopArmorListWindowFv
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
+  - handle_equip_offer__20TShopArmorListWindowFv
   - handle_equip_offer__24TShopEquipmentListWindowFv
   - handle_grid_navigation__22TWindowSubCustomSelectFPv
+  - handle_selection__20TShopArmorListWindowFv
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
   - handle_sell_confirm__24TShopEquipmentSellWindowFv
@@ -391,6 +397,7 @@ force_active:
   - initialize_player_data__10TObjPlayerFPv
   - inpTranslateExCtrl
   - invoke_callback__10TItemTimerFPv
+  - is_end__12TCharaMakingFv
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
   - is_player_in_range__9TObjLukerFv
@@ -400,6 +407,7 @@ force_active:
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - layercmp
+  - lbl_80494B18
   - lbl_80497710
   - lbl_80497718
   - lbl_80497758
@@ -475,6 +483,7 @@ force_active:
   - render__8TObjRainFv
   - render__9TAdBackGCFv
   - render_background_status__18TAdGameStartBackGCFPv
+  - render_cursor__19TAdMcSelectCursorGCFPv
   - resetTechniqueContactQuery
   - reset_and_invoke__6TLobbyFv
   - reset_placement_search_ring

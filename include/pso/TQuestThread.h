@@ -6,6 +6,7 @@
 class TQuestThread : public TObject {
 public:
     virtual ~TQuestThread();
+    virtual void run_task();
 };
 
 #endif

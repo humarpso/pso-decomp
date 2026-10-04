@@ -11641,6 +11641,7 @@ pso/misc/TWindowSubStatusDisp_802A35B4.cpp:
 pso/ui/TAdSelectTxtSubGC.cpp:
 	.text       start:0x802A3608 end:0x802A3A20
 	.rodata     start:0x804665F0 end:0x804665F8
+	.data       start:0x804DCC98 end:0x804DCCB0
 	.sdata2     start:0x805DDF50 end:0x805DDF54
 
 pso/npc/TObjNpcHosa.cpp:
