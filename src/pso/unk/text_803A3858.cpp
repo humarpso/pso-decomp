@@ -339,6 +339,55 @@ typedef struct SeqInst_803A4D4C {
     u32 publicId;
 } SeqInst_803A4D4C;
 
+typedef struct PAGE_803A6364 { u16 macro; u8 prio; u8 maxVoices; u8 index; u8 reserved; } PAGE_803A6364;
+
+typedef struct ARR_803A6364 { u32 tTab; u32 pTab; u32 tmTab; u32 mTrack; u32 info; u32 loopPoint[16]; u32 tsTab; } ARR_803A6364;
+
+typedef struct TENTRY_803A6364 { u32 time; u8 prgChange; u8 velocity; u8 res[2]; u16 pattern; s8 transpose; s8 velocityAdd; } TENTRY_803A6364;
+
+typedef struct TRACK_803A6364 { TENTRY_803A6364 *base; TENTRY_803A6364 *addr; } TRACK_803A6364;
+
+typedef struct NOTE_803A6364 { struct NOTE_803A6364 *next; struct NOTE_803A6364 *prev; u32 id; s32 endTime; u8 section; u8 timeIndex; u8 reserved[2]; } NOTE_803A6364;
+
+typedef struct NOTE_DATA_803A6364 { u16 time; u8 key; u8 velocity; u16 length; } NOTE_DATA_803A6364;
+
+typedef struct PRG_STATE_803A6364 { u16 macId; u8 priority; u8 maxVoices; } PRG_STATE_803A6364;
+
+typedef struct SEQ_STREAM_803A6364 { u8 *nextAddr; u16 value; s16 nextDelta; u32 nextTime; } SEQ_STREAM_803A6364;
+
+typedef struct CPAT_803A6364 { u32 lTime; u32 baseTime; NOTE_DATA_803A6364 *addr; TENTRY_803A6364 *patternInfo; SEQ_STREAM_803A6364 pitchBend; SEQ_STREAM_803A6364 modulation; u8 midi; } CPAT_803A6364;
+
+typedef struct SEQ_EVENT_803A6364 {
+    struct SEQ_EVENT_803A6364 *next; struct SEQ_EVENT_803A6364 *prev; u32 time;
+    union { TENTRY_803A6364 *trackAddr; struct { NOTE_DATA_803A6364 *addr; CPAT_803A6364 *base; } pattern; } info;
+    u8 type; u8 trackId;
+} SEQ_EVENT_803A6364;
+
+typedef struct MTRACK_DATA_803A6364 { volatile u32 time; u32 bpm; } MTRACK_DATA_803A6364;
+
+typedef struct MTRACK_803A6364 { MTRACK_DATA_803A6364 *base; MTRACK_DATA_803A6364 *addr; } MTRACK_803A6364;
+
+typedef struct TICKS_803A6364 { u32 low; s32 high; } TICKS_803A6364;
+
+typedef struct SEQ_SECTION_803A6364 {
+    MTRACK_803A6364 mTrack; u32 bpm; TICKS_803A6364 tickDelta[2]; SEQ_EVENT_803A6364 *globalEventRoot; TICKS_803A6364 time[2];
+    u8 timeIndex; u16 speed; u16 loopCnt; u8 loopDisable;
+} SEQ_SECTION_803A6364;
+
+typedef struct SND_CROSSFADE_803A6364 {
+    u32 seqId1; u16 time1; u32 seqId2; u16 time2; void *arr2; u16 gid2; u16 sid2; u8 vol2; u8 studio2;
+    u32 trackMute2[2]; u16 speed2; u8 flags;
+} SND_CROSSFADE_803A6364;
+
+typedef struct SEQ_INSTANCE_803A6364 {
+    struct SEQ_INSTANCE_803A6364 *next; struct SEQ_INSTANCE_803A6364 *prev; u8 state; u8 index; u16 groupID; u32 publicId;
+    PAGE_803A6364 *normtab; u8 normTrans[128]; PAGE_803A6364 *drumtab; u8 drumTrans[128];
+    ARR_803A6364 *arrbase; u32 trackMute[2]; TRACK_803A6364 track[64]; u8 trackVolGroup[64]; CPAT_803A6364 pattern[64];
+    NOTE_803A6364 *noteUsed[2]; NOTE_803A6364 *noteKeyOff; PRG_STATE_803A6364 prgState[16]; u8 defVGroup;
+    SND_CROSSFADE_803A6364 syncCrossInfo; u32 *syncSeqIdPtr; u8 syncActive; u8 defStudio; u8 keyOffCheck;
+    SEQ_EVENT_803A6364 event[64]; u8 *trackSectionTab; SEQ_SECTION_803A6364 section[16];
+} SEQ_INSTANCE_803A6364;
+
 extern "C" {
 void TLobby__sub_803A4B7C(s32);
 void TLobby__sub_803A4FC4(s32, s32, s32);
@@ -571,6 +620,13 @@ extern Node_803A4964 *lbl_805D7378;
 extern Node_803A4964 *lbl_805D737C;
 void TLobby__sub_803A4B7C(s32);
 void TLobby__sub_803A4D4C(u16 sgid);
+extern Owner_803A3C24 *lbl_805D7360;
+void TLobby__sub_803A487C(u8 secIndex);
+void TLobby__sub_803A62A0(u8 ch);
+SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex, u32 *loopFlag);
+void TLobby__sub_803A5A04(List_803A5A04 *arg0, Node_803A5A04 *arg1);
+float floorf(float);
+u32 TLobby__sub_803A6364(u8 secIndex, u32 deltaTime);
 }
 
 extern "C" {
@@ -1185,6 +1241,77 @@ void TLobby__sub_803A62A0(u8 ch) {
         }
     }
 }
+
+#define ARR_GET_803A6364(arr, offset) ((void *)(offset + (u32)arr))
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline float fmodf_803A6364(float x, float m) {
+    float a = __fabsf(m);
+    float b = __fabsf(x);
+    if (a > b)
+        return x;
+    else {
+        return x - m * (long long)(x / m);
+    }
+}
+static inline void SetTickDelta_803A6364(SEQ_SECTION_803A6364 *section, u32 deltaTime) {
+    float tickDelta = (float)section->bpm * (float)deltaTime * (1.f / (40960000.f));
+    tickDelta *= section->speed * (1.f / 256.f);
+    section->tickDelta[section->timeIndex].low = fmodf_803A6364(tickDelta * 65536.f, 65536.f);
+    section->tickDelta[section->timeIndex].high = floorf(tickDelta);
+}
+static inline void RewindMTrack_803A6364(u8 secIndex, u32 deltaTime) {
+    if ((*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section[secIndex].mTrack.base == NULL) {
+        return;
+    }
+    (*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section[secIndex].mTrack.addr = (*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section[secIndex].mTrack.base;
+    TLobby__sub_803A487C(secIndex);
+    SetTickDelta_803A6364((*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section + secIndex, deltaTime);
+}
+static inline u32 GetNextEventTime_803A6364(SEQ_SECTION_803A6364 *section) {
+    if (section->globalEventRoot == NULL) {
+        return 0;
+    }
+    return section->globalEventRoot->time;
+}
+static inline SEQ_EVENT_803A6364 *GetGlobalEvent_803A6364(SEQ_SECTION_803A6364 *section) {
+    SEQ_EVENT_803A6364 *ev;
+    ev = section->globalEventRoot;
+    if (ev != NULL && ((section->globalEventRoot = ev->next) != NULL)) {
+        section->globalEventRoot->prev = NULL;
+    }
+    return ev;
+}
+u32 TLobby__sub_803A6364(u8 secIndex, u32 deltaTime) {
+    SEQ_EVENT_803A6364 *ev;
+    u32 loopFlag;
+    SEQ_SECTION_803A6364 *section;
+    u8 unused[4];
+    section = &(*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->section[secIndex];
+    loopFlag = 0;
+    while (GetNextEventTime_803A6364(section) <= section->time[section->timeIndex].high) {
+        if ((ev = GetGlobalEvent_803A6364(section)) == NULL) {
+            if (!loopFlag) {
+                return 0;
+            }
+            loopFlag = 0;
+            section->timeIndex ^= 1;
+            section->time[section->timeIndex].high = (*(SEQ_INSTANCE_803A6364 * *)&lbl_805D7360)->arrbase->loopPoint[secIndex];
+            section->time[section->timeIndex].low = section->time[section->timeIndex ^ 1].low;
+            RewindMTrack_803A6364(secIndex, deltaTime);
+            section->loopCnt += 1;
+            TLobby__sub_803A62A0(secIndex);
+            continue;
+        }
+        if ((ev = TLobby__sub_803A5A78(ev, secIndex, &loopFlag)) != NULL) {
+            TLobby__sub_803A5A04((List_803A5A04 *)(section), (Node_803A5A04 *)(ev));
+        }
+    }
+    return 1;
+}
+#pragma pop
 
 void TLobby__sub_803A6ED0(s32 arg0, u8 arg1, u8 arg2) {
     if (arg1 == 0xFF) {
