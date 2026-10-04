@@ -52,6 +52,23 @@ struct Obj_800A4064 {
     s32 active;
 };
 
+typedef struct Cam_800A3D1C { u8 pad0[8]; f32 cx; f32 cy; u8 pad10[8]; f32 sw; f32 aspect; } Cam_800A3D1C;
+
+struct Vec_800A3D1C { f32 x, y, z; };
+
+struct Vtx_800A3D1C { f32 x, y, z, u, v; u32 color; };
+
+struct Obj_800A3D1C {
+    u8 pad0[0x38];
+    s32 count;
+    u8 pad3C[0x108 - 0x3C];
+    Vec_800A3D1C pts[17];
+    u8 pad1D4[0x32C - 0x1D4];
+    u32 color;
+    u8 pad330[0x10];
+    s32 active;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
@@ -99,6 +116,20 @@ extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;
 extern const f32 lbl_805D9A08;
 void TObjPlayer__sub_800A4064(Obj_800A4064 *self);
+f32 newton_sqrtf(f32);
+void init_xyz_limits__10TObjPlayerFv(void);
+M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, int, s32, int);
+s32 matrix_mult_vec(int, void *, void *);
+M2C_UNK set_chunk_material_color(void *);
+extern u8 lbl_804A7418[];
+extern Cam_800A3D1C lbl_8058D4F8;
+extern s32 lbl_805D5038;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D99F0;
+extern const f32 lbl_805D99FC;
+extern const f32 lbl_805D9A00;
+void TObjPlayer__sub_800A3D1C(Obj_800A3D1C *o);
 }
 
 extern "C" {
@@ -183,6 +214,123 @@ u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) (lbl_805D99EC / (f32) arg2);
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+#pragma fp_contract on
+void TObjPlayer__sub_800A3D1C(Obj_800A3D1C *o) {
+    Vtx_800A3D1C verts[34];
+    Vec_800A3D1C out[17];
+    f32 sa[17];
+    f32 sb[17];
+    Vec_800A3D1C v;
+    f32 sw;
+    f32 sh;
+    f32 cy;
+    f32 cx;
+    f32 one;
+    f32 prevX;
+    f32 prevY;
+    f32 prevZ;
+    f32 curX;
+    f32 curY;
+    f32 dx;
+    f32 dy;
+    f32 vv;
+    f32 u0;
+    f32 w;
+    f32 a;
+    f32 b;
+    f32 inv;
+    f32 nx;
+    f32 ny;
+    u32 color;
+    Vec_800A3D1C *q;
+    Vtx_800A3D1C *p;
+    s32 i;
+    s32 j;
+    if (o->active == 0) {
+        return;
+    }
+    lbl_805D5660 = some_id_805c6f74;
+    some_id_805c6f74 |= 0x10;
+    sw = lbl_8058D4F8.sw;
+    cx = lbl_8058D4F8.cx;
+    cy = lbl_8058D4F8.cy;
+    sh = sw * (lbl_805D9A00 / (lbl_805D9A00 * lbl_8058D4F8.aspect));
+    color = o->color | 0xFFFFFF;
+    for (i = 0; i < o->count; i++) {
+        matrix_mult_vec(0, &o->pts[i], &v);
+        if (v.z >= lbl_805D99F0) {
+            v.z = lbl_805D99F0;
+        }
+        w = lbl_805D99F0 / -v.z;
+        v.y = -v.y;
+        a = sh * w;
+        b = sw * w;
+        out[i].x = v.x * a + cx;
+        sa[i] = a;
+        out[i].y = v.y * b + cy;
+        sb[i] = b;
+        out[i].z = w;
+    }
+    vv = lbl_805D99FC;
+    u0 = vv;
+    p = verts;
+    q = &out[1];
+    prevX = out[0].x;
+    prevY = out[0].y;
+    prevZ = out[0].z;
+    one = lbl_805D99F0;
+    for (j = 0; j < o->count - 1; j++) {
+        curY = q->y;
+        curX = q->x;
+        dy = curY - prevY;
+        dx = curX - prevX;
+        inv = one / newton_sqrtf(dx * dx + dy * dy);
+        dx *= inv;
+        dy *= inv;
+        nx = one * (dy * sa[j]);
+        ny = one * (-dx * sb[j]);
+        p[0].x = prevX + nx;
+        p[0].y = prevY + ny;
+        p[0].z = prevZ;
+        p[0].u = u0;
+        p[0].v = vv;
+        p[0].color = color;
+        p[1].x = prevX - nx;
+        p[1].y = prevY - ny;
+        p[1].z = prevZ;
+        prevZ = q->z;
+        q++;
+        p[1].u = one;
+        p[1].v = vv;
+        vv += one;
+        p[1].color = color;
+        p += 2;
+        prevX = curX;
+        prevY = curY;
+    }
+    nx = lbl_805D99F0 * (dy * sa[o->count - 1]);
+    ny = lbl_805D99F0 * (-dx * sb[o->count - 1]);
+    p[0].x = prevX + nx;
+    p[0].y = prevY + ny;
+    p[0].z = prevZ;
+    p[0].u = lbl_805D99FC;
+    p[0].v = vv;
+    p[0].color = color;
+    p[1].x = prevX - nx;
+    p[1].y = prevY - ny;
+    p[1].z = prevZ;
+    p[1].u = lbl_805D99F0;
+    p[1].v = vv;
+    p[1].color = color;
+    init_xyz_limits__10TObjPlayerFv();
+    draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, lbl_805D5038, 1);
+    set_chunk_material_color(lbl_804A7418);
+    some_id_805c6f74 = lbl_805D5660;
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

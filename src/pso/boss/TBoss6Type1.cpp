@@ -234,6 +234,53 @@ struct Boss_802B7B44 {
 struct Vec_802B57D4;
 struct Player_802B6B34;
 
+struct V3_802B6C30 { s32 x; f32 y; s32 z; };
+
+union Val_802B6C30 { f32 f; s32 i; };
+
+struct Arg_802B6C30 { s32 kind; Val_802B6C30 v; };
+
+struct Base_802B6C30 { u8 pad[0x18]; };
+
+struct Player_802B6C30 : Base_802B6C30 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual void m21(void *, Arg_802B6C30 *, s32, s32, s32);
+    u8 pad1c[0x38 - 0x1C];
+    V3_802B6C30 pos;
+};
+
+struct ArgPair_802B6C30 {
+    Arg_802B6C30 a[2];
+    inline ArgPair_802B6C30(s32 r) {
+        a[0].kind = 0;
+        a[1].kind = 0;
+        a[1].v.f = (f32)r;
+        a[0].v.i = a[1].v.i;
+    }
+};
+
+struct Vec_802B6C30 { f32 x, y, z; };
+
+struct Line_802B6C30 { Vec_802B6C30 p; Vec_802B6C30 d; };
+
+struct Boss_802B6C30 {
+    u8 pad0[0x60];
+    s32 angle;
+    u8 pad64[0x484 - 0x64];
+    s32 f484;
+    u8 pad488[0x4DC - 0x488];
+    f32 f4DC;
+    u8 pad4E0[0x5A8 - 0x4E0];
+    Vec_802B6C30 a;
+    u8 pad5B4[0x5C0 - 0x5B4];
+    Vec_802B6C30 b;
+};
+
 extern "C" {
 struct V3_802B5AD4 { f32 x, y, z; };
 struct Boss_802B5AD4 {
@@ -276,6 +323,29 @@ extern u8 lbl_80470EB8[];
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE3D8;
 void TBoss6Type1__sub_802B8BB4(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f32 vector_length(void *, f32);
+f32 subtract_vector(void *, void *);
+Player_802B6B34 *get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+s32 project_actor_to_ground(void *, void *, s32);
+s32 is_active__14TBoss6PlotFalzFPv();
+s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+void TBoss6PlotFalz__sub_802AC724(void *, void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 vec3_add_to(void *, void *);
+void vec3_cross(void *, void *, void *);
+void normalize_vector(void *);
+f32 project_point_onto_line(void *, void *, void *);
+f32 xyz_distance(void *, void *);
+extern const f32 TBoss6Type1__data_805DE2E0;
+extern const f32 TBoss6Type1__data_805DE310;
+extern const float TBoss6Type1__data_805DE344;
+extern const f32 lbl_805DE378;
+extern const f32 lbl_805DE388;
+extern const f32 lbl_805DE38C;
+void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self);
 }
 
 extern "C" {
@@ -1264,6 +1334,151 @@ void TBoss6Type1__sub_802B6B34(Boss_802B6B34 *arg0) {
         }
     }
 }
+
+#define VLEN(p) ((f32 (*)(void *))vector_length)(p)
+#pragma push
+#pragma fp_contract on
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+void TBoss6Type1__sub_802B6C30(Boss_802B6C30 *self) {
+    s32 n;
+    Vec_802B6C30 *p4;
+    Vec_802B6C30 *p3;
+    Vec_802B6C30 *p2;
+    Vec_802B6C30 *p1;
+    Vec_802B6C30 *pA;
+    Vec_802B6C30 *pB;
+    s32 i;
+    Player_802B6C30 *pl;
+    s32 inside;
+    Vec_802B6C30 *a;
+    Vec_802B6C30 *b;
+    s32 j;
+    f32 prev;
+    f32 t;
+    Vec_802B6C30 pts[5];
+    Line_802B6C30 line;
+    Vec_802B6C30 A;
+    Vec_802B6C30 B;
+    Vec_802B6C30 mid;
+    Vec_802B6C30 off;
+    Vec_802B6C30 e;
+    Vec_802B6C30 f;
+    Vec_802B6C30 c;
+    Vec_802B6C30 m;
+    Vec_802B6C30 d3;
+    Vec_802B6C30 d0;
+    Vec_802B6C30 q2;
+    Vec_802B6C30 q1;
+    if (0.0f == self->f4DC) {
+        return;
+    }
+    n = get_game_mode__6TLobbyFv();
+    b = &self->b;
+    a = &self->a;
+    if (xyz_distance(a, b) < TBoss6Type1__data_805DE344) {
+        return;
+    }
+    VecCopy__FP3VecPC3Vec(&mid, a);
+    vec3_add_to(&mid, b);
+    mid.x *= 0.5f;
+    mid.y *= 0.5f;
+    mid.z *= 0.5f;
+    pA = &A;
+    pB = &B;
+    p4 = &pts[4];
+    p3 = &pts[3];
+    p2 = &pts[2];
+    p1 = &pts[1];
+    A.x = self->f4DC * (a->x - mid.x) + mid.x;
+    A.y = self->f4DC * (a->y - mid.y) + mid.y;
+    A.z = self->f4DC * (a->z - mid.z) + mid.z;
+    B.x = self->f4DC * (b->x - mid.x) + mid.x;
+    B.y = self->f4DC * (b->y - mid.y) + mid.y;
+    B.z = self->f4DC * (b->z - mid.z) + mid.z;
+    for (i = 0; i < n; i++) {
+        pl = ((Player_802B6C30 *)get_player_data__10TObjPlayerFi(i));
+        if (is_active__14TBoss6PlotFalzFPv() == 0) {
+            continue;
+        }
+        inside = 1;
+        VecCopy__FP3VecPC3Vec(&pts[0], (void *)VecCopy__FP3VecPC3Vec(p3, (void *)VecCopy__FP3VecPC3Vec(p4, pA)));
+        VecCopy__FP3VecPC3Vec(p1, (void *)VecCopy__FP3VecPC3Vec(p2, pB));
+        off.x = lbl_805DE388 * sin_table_lookup(self->angle);
+        off.y = 0.0f;
+        off.z = lbl_805DE388 * cos_table_lookup(self->angle);
+        vec3_add_to(p2, &off);
+        vec3_add_to(p3, &off);
+        for (j = 0; j < 4; j++) {
+            VecCopy__FP3VecPC3Vec(&e, &pts[j + 1]);
+            subtract_vector(&e, &pts[j]);
+            e.y = 0.0f;
+            VecCopy__FP3VecPC3Vec(&f, &pl->pos);
+            subtract_vector(&f, &pts[j]);
+            e.y = 0.0f;
+            vec3_cross(&e, &f, &c);
+            if (j > 0 && ((prev < 0.0f && c.y >= 0.0f)
+                          || (prev > 0.0f && c.y <= 0.0f))) {
+                inside = 0;
+                break;
+            }
+            prev = c.y;
+        }
+        if (inside == 0) {
+            continue;
+        }
+        pl->m21(self, ArgPair_802B6C30(TBoss6PlotFalz__sub_802AB5B4(self->f484, TBoss6Type1__data_805DE2E0)).a, 0, -1, -1);
+        VecCopy__FP3VecPC3Vec(&d0, pA);
+        subtract_vector(&d0, pB);
+        d0.y = 0.0f;
+        VecCopy__FP3VecPC3Vec(&d3, &pl->pos);
+        d3.y = 0.0f;
+        line.p.x = 0.5f * (A.x + B.x);
+        line.p.y = 0.0f;
+        line.p.z = 0.5f * (A.z + B.z);
+        line.d.x = -sin_table_lookup(self->angle);
+        line.d.y = 0.0f;
+        line.d.z = -cos_table_lookup(self->angle);
+        t = project_point_onto_line(&d3, &line, NULL);
+        t = 0.5f * VLEN(&d0) - t;
+        if (t <= 0.0f) {
+            continue;
+        }
+        VecCopy__FP3VecPC3Vec(&m, pA);
+        subtract_vector(&m, pB);
+        m.y = 0.0f;
+        if (VLEN(&m) <= TBoss6Type1__data_805DE310) {
+            continue;
+        }
+        normalize_vector(&m);
+        m.x *= t;
+        m.z *= t;
+        VecCopy__FP3VecPC3Vec(&q2, pA);
+        subtract_vector(&q2, &pl->pos);
+        q2.y = 0.0f;
+        VecCopy__FP3VecPC3Vec(&q1, pB);
+        subtract_vector(&q1, &pl->pos);
+        q1.y = 0.0f;
+        t = VLEN(&q1);
+        if (VLEN(&q2) > t) {
+            m.x *= lbl_805DE38C;
+            m.z *= lbl_805DE38C;
+        }
+        vec3_add_to(&m, &pl->pos);
+        if (project_actor_to_ground(self, &m, 0) == 0) {
+            m.y = 0.0f;
+            if (VLEN(&m) <= TBoss6Type1__data_805DE310) {
+                continue;
+            }
+            normalize_vector(&m);
+            m.x *= lbl_805DE378;
+            m.z *= lbl_805DE378;
+        }
+        TBoss6PlotFalz__sub_802AC724(pl, &m);
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on

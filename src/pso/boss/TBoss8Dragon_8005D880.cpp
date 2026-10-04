@@ -703,6 +703,18 @@ extern const f32 lbl_805D8DDC;
 extern const f32 lbl_805D8DE0;
 extern const f32 lbl_805D8DE4;
 void TBoss8Dragon__sub_80060020(Dragon_80060020 *self, u32 arg1);
+void update_target_from_state__12TBoss8DragonFPv(void *arg0);
+s32 rand();
+extern f32 lbl_80437E24[];
+extern f32 lbl_80437E48[];
+extern const f32 lbl_805D8D98;
+extern const f32 lbl_805D8DA0;
+extern const f32 lbl_805D8DA4;
+extern const f32 lbl_805D8DA8;
+extern const f32 lbl_805D8DAC;
+extern const f32 lbl_805D8DB0;
+extern const f32 lbl_805D8DB4;
+void TBoss8Dragon__sub_8005F0B8(u8 *arg0, u32 *arg1);
 }
 
 extern "C" {
@@ -1903,6 +1915,11 @@ extern "C" {
 extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
 }
 
+extern "C" {
+s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
+extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
+}
+
 s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
     Obj_8005D880 *p;
     f32 dx;
@@ -2404,6 +2421,102 @@ extern int fold_flush_7;
 void copy_angle_state__12TBoss8DragonFPvPvPv(void *arg0, void *dst, void *src) {
     M2C_FIELD(dst, s16 *, 0) = (s16) M2C_FIELD(src, s32 *, 0);
     M2C_FIELD(dst, s16 *, 2) = ((s16 (*)(void *, s16, s16))TBoss8Dragon__sub_8005E944)(arg0, M2C_FIELD(src, s16 *, 4), M2C_FIELD(src, s16 *, 6));
+}
+
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define TBL(o) M2C_FIELD(F(u8 *, 0x778), s32 *, o)
+#define LEVEL M2C_FIELD(*(u8 **)(lbl_804FF5B4.remaining + 4), s32 *, 0x28)
+void TBoss8Dragon__sub_8005F0B8(u8 *arg0, u32 *arg1) {
+    f32 r;
+    if (*arg1 != 0x21) {
+        update_target_from_state__12TBoss8DragonFPv(arg0);
+        return;
+    }
+    r = lbl_805D8D98 * (f32)rand();
+    switch (TBoss8Dragon__sub_8005E9D8(arg0, (O_8005E9D8 *)arg1, 0)) {
+    case 0:
+        if (r < lbl_805D8DA0) {
+            F(s32, 0x774) = TBL(8);
+        } else if (r < lbl_805D8DA4) {
+            F(s32, 0x774) = TBL(0xC);
+        } else {
+            F(s32, 0x774) = TBL(0x10);
+        }
+        break;
+    case 1:
+        if ((F(s32, 0x4C0) & 0x200) && LEVEL >= 5) {
+            F(s32, 0x774) = TBL(0x24);
+            F(s32, 0x4C0) &= ~0x200;
+            break;
+        }
+        F(s32, 0x4C0) |= 0x200;
+        if (r < lbl_80437E24[LEVEL]) {
+            F(s32, 0x774) = TBL(0x24);
+            break;
+        }
+        r = (f32)F(s16, 0x32C) / (f32)F(s16, 0x2B8);
+        if (lbl_805D8D98 * (f32)rand() < lbl_80437E48[LEVEL]) {
+            if (lbl_805D8D98 * (f32)rand() < r) {
+                F(s32, 0x774) = TBL(0x1C);
+            } else {
+                F(s32, 0x774) = TBL(0x20);
+            }
+        } else {
+            if (lbl_805D8D98 * (f32)rand() < r) {
+                F(s32, 0x774) = TBL(0x14);
+            } else {
+                F(s32, 0x774) = TBL(0x18);
+            }
+        }
+        break;
+    case 2:
+        if (r < lbl_80437E24[LEVEL]) {
+            F(s32, 0x774) = TBL(0x24);
+        } else {
+            F(s32, 0x774) = TBL(0x28);
+        }
+        break;
+    case 3:
+        if (r < lbl_805D8DA8) {
+            F(s32, 0x774) = TBL(0x2C);
+        } else if (r < lbl_805D8DAC) {
+            F(s32, 0x774) = TBL(0x30);
+        } else if (r < lbl_805D8DA0) {
+            F(s32, 0x774) = TBL(0x34);
+        } else if (r < lbl_805D8DB0) {
+            F(s32, 0x774) = TBL(0x38);
+        } else {
+            F(s32, 0x774) = TBL(0x3C);
+        }
+        break;
+    case 4:
+        if (r < lbl_805D8DB4) {
+            if (LEVEL >= 2) {
+                F(s32, 0x774) = TBL(0x4C);
+            } else {
+                F(s32, 0x774) = TBL(0x40);
+            }
+        } else if (r < lbl_805D8DA0) {
+            if (LEVEL >= 4) {
+                F(s32, 0x774) = TBL(0x50);
+            } else {
+                F(s32, 0x774) = TBL(0x44);
+            }
+        } else {
+            if (LEVEL >= 6) {
+                F(s32, 0x774) = TBL(0x54);
+            } else {
+                F(s32, 0x774) = TBL(0x48);
+            }
+        }
+        break;
+    case 5:
+        F(s32, 0x774) = TBL(0x58);
+        break;
+    case 6:
+        F(s32, 0x774) = TBL(0x10);
+        break;
+    }
 }
 
 void update_target_from_state__12TBoss8DragonFPv(void *arg0) {

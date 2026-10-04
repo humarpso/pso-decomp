@@ -109,6 +109,9 @@ force_active:
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjEneRecon__vt85
   - TObjFish__sub_800E2FFC
+  - TObjPlayer__sub_8004055C
+  - TObjPlayer__sub_800405D8
+  - TObjPlayer__sub_80040ADC
   - TObjPlayer__sub_800D9FC4
   - TObjPlayer__sub_800DA1F4
   - TObjPlayer__sub_80130A30
@@ -213,6 +216,7 @@ force_active:
   - __dt__15TObjNewFloorWinFv
   - __dt__15TObjSoloPlayWinFv
   - __dt__15TPlyOnCountOverFv
+  - __dt__16TAdStorySelectGCFv
   - __dt__16TBoss1DragonDemoFv
   - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TBoss4CheckEmptyFv
@@ -220,6 +224,7 @@ force_active:
   - __dt__16TItemReverseTechFv
   - __dt__16TObjBagWarnWin4PFv
   - __dt__16TObjItemOKWindowFv
+  - __dt__17TAdSelectTxtSubGCFv
   - __dt__17TBoss5GryphonDemoFv
   - __dt__17TBoss6EffFlowSoulFv
   - __dt__17TOSwitchAttackSubFv
@@ -305,12 +310,14 @@ force_active:
   - create__13TItemProArmorFiUi
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
   - create_icon__10TObjPlayerFiii
+  - create_inward_orbit_effect
   - create_particle_emitters__9TTecBartaFPv
   - create_particles__11TTecGiBartaFv
   - curvecmp
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
+  - destroy__16TBoss3VoloptCoreFPvs
   - dispatch_callback
   - dispatch_list_state__17TQuestListOfflineFPv
   - dispatch_lobby_callback
@@ -470,8 +477,10 @@ force_active:
   - render__14TBoss4ZakoDrawFv
   - render__14TChCrEffTagStrFv
   - render__15TAdDrawLineCtrlFv
+  - render__16TAdStorySelectGCFv
   - render__16TBoss1DragonDemoFv
   - render__16TBoss4CheckEmptyFv
+  - render__17TAdSelectTxtSubGCFv
   - render__17TBoss5GryphonDemoFv
   - render__17TObjBoss8DemoRoomFv
   - render__17TObjVoloptShutterFv
@@ -539,12 +548,14 @@ force_active:
   - run_task__15TItemMagGrowEffFv
   - run_task__15TObjDeadListWinFv
   - run_task__15TObjSoloPlayWinFv
+  - run_task__16TAdStorySelectGCFv
   - run_task__16TBoss1DragonDemoFv
   - run_task__16TBoss3VoloptCtrlFv
   - run_task__16TBoss4CheckEmptyFv
   - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TItemReverseTechFv
   - run_task__16TObjBagWarnWin4PFv
+  - run_task__17TAdSelectTxtSubGCFv
   - run_task__17TBoss5GryphonDemoFv
   - run_task__17TBoss6EffFlowSoulFv
   - run_task__17TOSwitchAttackSubFv
@@ -603,9 +614,11 @@ force_active:
   - spawn_laser__12TPhotonPillaFPv
   - spawn_line__13TPhotonEstllaFPv
   - spawn_recipe_particles__14TItemEffShieldFPv
+  - spawn_scattered_lightning_strikes
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
+  - teardown_render_state__10TObjPlayerFPv
   - transfer_to_town__9TObjLukerFv
   - traverse_animated_node_tree
   - update_and_destroy__10TObjPlayerFPv
@@ -615,6 +628,7 @@ force_active:
   - update_buy_sell_choice__22TShopEquipmentSequenceFPv
   - update_buy_sell_choice__26TShopEquipmentGearSequenceFPv
   - update_customize_help_text
+  - update_inward_orbit_point
   - update_letterbox_hide__9TCineCtrlFPv
   - update_letterbox_show__9TCineCtrlFPv
   - update_light_direction__12TCharaMakingFPv

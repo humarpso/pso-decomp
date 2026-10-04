@@ -1,7 +1,5 @@
 #include "pso/TAdStorySelectGC.h"
 
-TAdStorySelectGC::~TAdStorySelectGC() {}
-
 #include "types.h"
 
 struct Obj_802C3288 { u8 pad[0x1C]; s32 f1C; s32 f20; };
@@ -101,6 +99,7 @@ void run_task__16TAdStorySelectGCFv(Obj_802C3288 *self) {
         break;
     }
 }
+TAdStorySelectGC::~TAdStorySelectGC() {}
 Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent) {
     void *p;
     s32 id;

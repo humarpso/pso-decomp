@@ -98,6 +98,43 @@ struct VObj_801C4214 : VBase_801C4214 {
     virtual void m62();
 };
 
+struct VBase_18_26c590 { char pad[0x18]; };
+
+struct VObj_18_26c590 : VBase_18_26c590 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual s32 m10();
+};
+
+struct Pair_801C49B8 { s32 a, b; };
+
+struct Name_801C49B8 { char s[16]; };
+
+struct Lobby_801C49B8 {
+    u8 pad0[0x20];
+    s32 state;
+    s32 next;
+    u8 pad28[4];
+    s32 timer;
+    u8 pad30[0x10];
+    u8 *cfg;
+    s32 timer2;
+    u8 pad48[4];
+    void *window;
+    u8 pad50[0x18];
+    u8 msg[0x80];
+};
+
+struct Cnt_801C49B8 { s32 v[2]; };
+
 extern "C" {
 void handle_6x7E(void);
 extern void *TLobby__data_805D5D98;
@@ -272,6 +309,27 @@ extern s32 TLobby__data_805D53AC;
 extern s32 lbl_805D5DA8;
 extern s32 lbl_805D5DAC;
 void TLobby__sub_801C4214(u8 *arg0);
+M2C_UNK __ct__15TDuelEffectCtrlFP7TObjectUc(void *, void *, int);
+u32 get_player_by_client_id(u16);
+s32 check_all_battle_flags__6TLobbyFv(void *);
+s32 check_all_players_ready__6TLobbyFv(void *);
+void TLobby__sub_801C2C34(void *);
+void TLobby__sub_801C2C70(void);
+u8 get_rule_field_a__6TLobbyFPv(void *);
+u32 __nw__7TObjectFUl(M2C_UNK);
+void TWindow__close(void *);
+void send_and_handle__6TLobbyFPvii(void *, s32, s32);
+void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
+void *get_window_layout_position(s32);
+int sprintf(char *str, const char *format, ...);
+void strncpy(void *, void *, int);
+extern Pair_801C49B8 lbl_80446F94[];
+extern Cnt_801C49B8 lbl_80446F9C[];
+extern M2C_UNK lbl_8050EA40[];
+extern s32 lbl_80511CC8[];
+extern char lbl_80511CD8[];
+extern s32 lbl_805D5DA4;
+void TLobby__sub_801C49B8(Lobby_801C49B8 *self);
 }
 
 extern "C" {
@@ -824,6 +882,96 @@ void TLobby__sub_801C484C(Lobby_801C484C *self) {
         TLobby__sub_801C343C(self);
         break;
     case -1:
+        break;
+    }
+}
+void TLobby__sub_801C49B8(Lobby_801C49B8 *self) {
+    switch (self->state) {
+    case 0:
+        if (self->window == NULL) {
+            Pair_801C49B8 p = lbl_80446F94[0];
+            self->window = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x52), &p, 1);
+        }
+        lbl_805D5DA4 = 0;
+        self->state = 1;
+        break;
+    case 1:
+        send_and_handle__6TLobbyFPvii(self->window, (s32)self->msg, 0x80);
+        self->timer = 0xF0;
+        self->state = 2;
+        break;
+    case 2:
+        if (--self->timer <= 0) {
+            if (get_rule_field_a__6TLobbyFPv(((u8 *)&lbl_8050EA40)) == 1) {
+                self->state = 3;
+            } else {
+                self->state = 5;
+            }
+        }
+        break;
+    case 3: {
+        Cnt_801C49B8 cnt = lbl_80446F9C[0];
+        Name_801C49B8 names[4];
+        s32 i;
+        for (i = 0; i < 4; i++) {
+            names[i].s[0] = 0;
+        }
+        for (i = 0; i < 4; i++) {
+            u8 *pl = (u8 *)((u32 (*)(s32))get_player_by_client_id)(i);
+            if (pl != NULL) {
+                s32 team = lbl_80511CC8[i] != 1 ? 1 : 0;
+                if (cnt.v[team] < 2) {
+                    strncpy(names[team * 2 + cnt.v[team]].s, (void *)((VObj_18_26c590 *)pl)->m10(), 0x10);
+                    cnt.v[team]++;
+                }
+            }
+        }
+        sprintf(lbl_80511CD8, *(char **)(self->cfg + 0x18), names[0].s, names[1].s, names[2].s, names[3].s);
+        send_and_handle__6TLobbyFPvii(self->window, (s32)lbl_80511CD8, 0x80);
+        self->timer = 0xF0;
+        self->state = 4;
+        break;
+    }
+    case 4:
+        if (--self->timer <= 0) {
+            self->state = 5;
+        }
+        break;
+    case 5:
+        self->timer2 = 0x384;
+        self->state = 6;
+    case 6:
+        self->timer2--;
+        if (check_all_battle_flags__6TLobbyFv(self) != 0 || self->timer2 <= 0) {
+            TWindow__close(self->window);
+            self->window = NULL;
+            TLobby__sub_801C2C34(self);
+            self->timer2 = 0x1C2;
+            self->state = 7;
+        }
+        break;
+    case 7:
+        self->timer2--;
+        if (check_all_players_ready__6TLobbyFv(self) != 0 || self->timer2 <= 0) {
+            void *o = (void *)__nw__7TObjectFUl(0x28);
+            if (o != NULL) {
+                __ct__15TDuelEffectCtrlFP7TObjectUc((void *)(o), (void *)(self), (int)(0));
+            }
+            self->timer = 0x96;
+            self->state = 8;
+        }
+        break;
+    case 8:
+        if (--self->timer <= 0) {
+            self->next = 2;
+        }
+        break;
+    case -1:
+        if (self->window != NULL) {
+            TWindow__close(self->window);
+            self->window = NULL;
+        }
+        TLobby__sub_801C2C70();
         break;
     }
 }

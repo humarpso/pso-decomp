@@ -6,6 +6,8 @@
 class TBoss5GryphonLightningEff : public TTecZondeEff {
 public:
     virtual ~TBoss5GryphonLightningEff();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

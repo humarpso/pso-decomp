@@ -6,6 +6,8 @@
 class TAdStorySelectGC : public TObject {
 public:
     virtual ~TAdStorySelectGC();
+    virtual void run_task();
+    virtual void render();
 };
 
 #endif

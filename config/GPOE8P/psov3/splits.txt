@@ -784,7 +784,7 @@ pso/boss/TBoss8Dragon_8005D860.cpp:
 pso/boss/TBoss8Dragon_8005D880.cpp:
 	.text       start:0x8005D880 end:0x80065BC0
 	.rodata     start:0x80437EB8 end:0x80437EC0
-	.data       start:0x80488490 end:0x80488668
+	.data       start:0x80488474 end:0x80488668
 	.sdata2     start:0x805D8D74 end:0x805D8D78
 
 pso/boss/TBoss5Gryphon.cpp:
@@ -7891,7 +7891,7 @@ pso/misc/TLobby_801C25B4_801C2BCC.cpp:
 
 pso/misc/TLobby_801C25B4.cpp:
 	.text       start:0x801C3130 end:0x801C4CE0
-	.data       start:0x804C3EA0 end:0x804C3EE8
+	.data       start:0x804C3EA0 end:0x804C3F10
 
 pso/unk/text_801C4CE0.cpp:
 	.text       start:0x801C4CE0 end:0x801C4D9C
@@ -10997,6 +10997,7 @@ pso/misc/TWindowSubSymbolChat_80281814.cpp:
 
 pso/misc/TWindowSubSymbolChat_8028239C.cpp:
 	.text       start:0x8028239C end:0x802837A8
+	.data       start:0x804D2B68 end:0x804D2C14
 
 pso/misc/TWindowSubSymbolChat.cpp:
 	.text       start:0x802837A8 end:0x802838C4
@@ -12053,6 +12054,7 @@ pso/object/TObjPathObj.cpp:
 
 pso/ui/TAdStorySelectGC_802C3284.cpp:
 	.text       start:0x802C3284 end:0x802C367C
+	.data       start:0x804E0A00 end:0x804E0A18
 
 pso/player/TObjPlayer_802C367C.cpp:
 	.text       start:0x802C367C end:0x802C39F8
@@ -13372,6 +13374,7 @@ pso/unk/text_80324F4C.cpp:
 pso/boss/TBoss5GryphonLightningEff.cpp:
 	.text       start:0x80325064 end:0x803255F8
 	.rodata     start:0x804766E8 end:0x804766F0
+	.data       start:0x804ECD10 end:0x804ECD28
 	.sdata2     start:0x805DF5E8 end:0x805DF5F4
 
 pso/misc/TLobby_803255F8.cpp:

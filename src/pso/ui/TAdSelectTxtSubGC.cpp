@@ -1,7 +1,5 @@
 #include "pso/TAdSelectTxtSubGC.h"
 
-TAdSelectTxtSubGC::~TAdSelectTxtSubGC() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -95,6 +93,7 @@ void run_task__17TAdSelectTxtSubGCFv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
+TAdSelectTxtSubGC::~TAdSelectTxtSubGC() {}
 Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = __vt__17TAdSelectTxtSubGC;

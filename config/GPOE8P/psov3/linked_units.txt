@@ -132,6 +132,7 @@ pso/boss/TBoss2Mine_80038140.cpp
 pso/boss/TBoss2Mine_800389E4.cpp
 pso/boss/TBoss2Mine_80038B40.cpp
 pso/boss/TBoss2PhotonBullet_80038DCC.cpp
+pso/boss/TBoss3VoloptCore.cpp
 pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin.cpp
 pso/boss/TBoss3VoloptHiraisin_8004155C.cpp
@@ -175,6 +176,7 @@ pso/boss/TBoss5GryphonLightning.cpp
 pso/boss/TBoss5GryphonLightningHorn.cpp
 pso/boss/TBoss5GryphonLightningWing.cpp
 pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp
+pso/boss/TBoss5GryphonShockWave.cpp
 pso/boss/TBoss5GryphonTornado.cpp
 pso/boss/TBoss6CrushPtcl.cpp
 pso/boss/TBoss6CrushRock.cpp
@@ -232,6 +234,7 @@ pso/boss/TBoss8DragonEffTail.cpp
 pso/boss/TBoss8Dragon_8002AE38.cpp
 pso/boss/TBoss8Dragon_8005D6F4.cpp
 pso/boss/TBoss8Dragon_8005D700.cpp
+pso/boss/TBoss8Dragon_8005D708.cpp
 pso/boss/TBoss8Dragon_8005D860.cpp
 pso/boss/TBoss8Dragon_80067034.cpp
 pso/boss/TBoss8Dragon_800BB650.cpp
@@ -1354,6 +1357,7 @@ pso/misc/TOChatSensorFolder.cpp
 pso/misc/TOChatSensor_8015AC80.cpp
 pso/misc/TOChatSensor_8015B214.cpp
 pso/misc/TOComputerMachine01.cpp
+pso/misc/TOComputerMachine01_8023DD0C.cpp
 pso/misc/TOContainerAncientEnemy.cpp
 pso/misc/TOContainerAncientEnemyCommon.cpp
 pso/misc/TOContainerAncientEnemyRare.cpp
@@ -2035,6 +2039,7 @@ pso/misc/TWindowSubSymbolChatFaceType.cpp
 pso/misc/TWindowSubSymbolChat_80076F88.cpp
 pso/misc/TWindowSubSymbolChat_8007763C.cpp
 pso/misc/TWindowSubSymbolChat_80281814.cpp
+pso/misc/TWindowSubSymbolChat_8028239C.cpp
 pso/misc/TWindowSubSymbolChat_802838C4.cpp
 pso/misc/TWindowSubSymbolChat_80283954.cpp
 pso/misc/TWindowSubSymbolChat_802839C0.cpp
@@ -2782,6 +2787,7 @@ pso/player/TObjPlayer_8034EFDC.cpp
 pso/player/TObjPlayer_80351748.cpp
 pso/player/TObjPlayer_80354EC8.cpp
 pso/player/TObjPlayer_80355A58.cpp
+pso/player/TObjPlayer_80357734.cpp
 pso/player/TObjPlayer_8035A630.cpp
 pso/player/TObjPlayer_8035A740.cpp
 pso/player/TObjPlayer_8035A778.cpp
@@ -2998,6 +3004,7 @@ pso/ui/TAdSelectCurGC_802AEA38.cpp
 pso/ui/TAdSelectGameModeGC.cpp
 pso/ui/TAdSelectGameModeGC_801A2F7C.cpp
 pso/ui/TAdSelectTxtGC.cpp
+pso/ui/TAdSelectTxtSubGC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8001C5E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8001ED80.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8007B7E4.cpp
@@ -3040,6 +3047,7 @@ pso/ui/TAdSoniclogo.cpp
 pso/ui/TAdSoniclogo_8001C1C4.cpp
 pso/ui/TAdStorySelectGC.cpp
 pso/ui/TAdStorySelectGC_8019DC14.cpp
+pso/ui/TAdStorySelectGC_802C3284.cpp
 pso/ui/TAdSubPlyItemGC.cpp
 pso/ui/TAdTitleTexGC.cpp
 pso/ui/TAdTrialAgreementGC.cpp
@@ -3274,6 +3282,7 @@ pso/unk/text_801241D4.cpp
 pso/unk/text_8012443C.cpp
 pso/unk/text_80124708.cpp
 pso/unk/text_80124BB4.cpp
+pso/unk/text_80124C90.cpp
 pso/unk/text_801250F8.cpp
 pso/unk/text_80125380.cpp
 pso/unk/text_80125428.cpp
@@ -3515,6 +3524,7 @@ pso/unk/text_801A2514.cpp
 pso/unk/text_801A2640.cpp
 pso/unk/text_801A2B38.cpp
 pso/unk/text_801A3014.cpp
+pso/unk/text_801A4D30.cpp
 pso/unk/text_801A5778.cpp
 pso/unk/text_801A69E4.cpp
 pso/unk/text_801A6A28.cpp
@@ -3781,6 +3791,7 @@ pso/unk/text_802C9960.cpp
 pso/unk/text_802C9A58.cpp
 pso/unk/text_802C9C18.cpp
 pso/unk/text_802CE510.cpp
+pso/unk/text_802D14F4.cpp
 pso/unk/text_802D1D48.cpp
 pso/unk/text_802D298C.cpp
 pso/unk/text_802E0784.cpp
