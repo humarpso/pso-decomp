@@ -14,6 +14,39 @@
 #define FLAGS (*(u64 *)&o->fh)
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
 #define synthVoice ((SYNTH_VOICE_803B2438 *)lbl_805D73B0)
+
+typedef struct SYNTH_VOICELIST_V {
+    u8 prev;
+    u8 next;
+    u16 user;
+} SYNTH_VOICELIST_V;
+
+typedef struct SYNTH_ROOTLIST_V {
+    u16 next;
+    u16 prev;
+} SYNTH_ROOTLIST_V;
+
+static VID_LIST_SV vidList[128];
+static u8 synth_last_started[8][16];
+static u8 synth_last_fxstarted[64];
+static SYNTH_VOICELIST_V voicePrioSortVoices[64];
+static u8 voicePrioSortVoicesRoot[256];
+static SYNTH_ROOTLIST_V voicePrioSortRootList[256];
+static SYNTH_VOICELIST_V voiceList[64];
+
+#define lbl_805644C8 ((Node_803B24A0 *)vidList)
+#define lbl_80565388 ((Slot_803B312C *)voiceList)
+#define lbl_80564CC8 synth_last_started
+#define lbl_80564D48 synth_last_fxstarted
+
+extern "C" {
+extern u16 lbl_805D7444;
+}
+#define voicePrioSortRootListRoot lbl_805D7444
+#define voiceMusicRunning lbl_805D7446
+#define voiceFxRunning lbl_805D7447
+#define voiceListInsert lbl_805D7448
+#define voiceListRoot lbl_805D7449
 extern "C" {
 
 void TLobby__sub_803B24A0(void) {
@@ -189,6 +222,105 @@ u32 find_sound_voice_by_id(u32 arg0) {
 }
 #pragma pop
 
+#pragma push
+#pragma opt_common_subs on
+void TLobby__sub_803B2A80(Obj_803B312C *svoice) {
+    SYNTH_VOICELIST_V *vps;
+    SYNTH_ROOTLIST_V *rps;
+
+    vps = &voicePrioSortVoices[svoice->id & 0xFF];
+    if (vps->user != 1) {
+        return;
+    }
+
+    if (vps->prev != 0xFF) {
+        voicePrioSortVoices[vps->prev].next = vps->next;
+    } else {
+        voicePrioSortVoicesRoot[svoice->grp] = vps->next;
+    }
+
+    if (vps->next != 0xFF) {
+        voicePrioSortVoices[vps->next].prev = vps->prev;
+    } else if (vps->prev == 0xFF) {
+        rps = &voicePrioSortRootList[svoice->grp];
+
+        if (rps->prev != 0xFFFF) {
+            voicePrioSortRootList[rps->prev].next = rps->next;
+        } else {
+            lbl_805D7444 = rps->next;
+        }
+
+        if (rps->next != 0xFFFF) {
+            voicePrioSortRootList[rps->next].prev = rps->prev;
+        }
+    }
+
+    vps->user = 0;
+}
+
+#pragma pop
+
+extern "C" void set_sound_hw_voice_priority(s32 i, s32 v);
+#define set_sound_hw_voice_priority_V set_sound_hw_voice_priority
+#pragma push
+#pragma opt_common_subs on
+
+void TLobby__sub_803B2B60(Voice_803B2128 *svoice, u8 prio) {
+    u32 v;
+    u16 li;
+    SYNTH_VOICELIST_V *vps;
+    u16 i;
+    v = svoice->fF4 & 0xFF;
+    vps = &voicePrioSortVoices[v];
+    if (vps->user == 1) {
+        if (svoice->pad10C[0] == prio) {
+            return;
+        }
+
+        TLobby__sub_803B2A80((Obj_803B312C *)svoice);
+    }
+
+    vps->user = 1;
+    vps->prev = 0xff;
+    if ((vps->next = voicePrioSortVoicesRoot[prio]) != 0xFF) {
+        voicePrioSortVoices[voicePrioSortVoicesRoot[prio]].prev = v;
+    } else if (voicePrioSortRootListRoot != 0xFFFF) {
+        if (prio >= voicePrioSortRootListRoot) {
+            for (i = voicePrioSortRootListRoot; i != 0xFFFF; i = voicePrioSortRootList[i].next) {
+                if ((u16)i > prio) {
+                    break;
+                }
+                li = i;
+            }
+
+            voicePrioSortRootList[li].next = (u16)prio;
+            voicePrioSortRootList[prio].prev = li;
+            voicePrioSortRootList[prio].next = i;
+            if (i != 0xFFFF) {
+                voicePrioSortRootList[i].prev = prio;
+            }
+
+        } else {
+            voicePrioSortRootList[prio].next = voicePrioSortRootListRoot;
+            voicePrioSortRootList[prio].prev = 0xFFFF;
+            voicePrioSortRootList[voicePrioSortRootListRoot].prev = prio;
+            voicePrioSortRootListRoot = prio;
+        }
+    } else {
+        voicePrioSortRootList[prio].next = 0xFFFF;
+        voicePrioSortRootList[prio].prev = 0xFFFF;
+        voicePrioSortRootListRoot = prio;
+    }
+
+    voicePrioSortVoicesRoot[prio] = v;
+    svoice->pad10C[0] = prio;
+    set_sound_hw_voice_priority_V(svoice->fF4 & 0xFF, ((u32)prio << 24) | (svoice->f110 >> 15));
+}
+
+#pragma pop
+
+#pragma push
+#pragma pool_data off
 void free_sound_voice(Obj_803B312C *o) {
     u8 idx;
     Slot_803B312C *e;
@@ -219,6 +351,51 @@ void free_sound_voice(Obj_803B312C *o) {
     }
     o->id = -1;
 }
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline void voiceInitPrioSort_803B3210(void) {
+    u32 i;
+
+    for (i = 0; i < lbl_80557348.count; ++i) {
+        voicePrioSortVoices[i].user = 0;
+    }
+
+    for (i = 0; i < 256; ++i) {
+        voicePrioSortVoicesRoot[i] = 0xff;
+    }
+
+    voicePrioSortRootListRoot = 0xffff;
+}
+
+static inline void voiceInitFreeList_803B3210(void) {
+    u32 i;
+
+    for (i = 0; i < lbl_80557348.count; ++i) {
+        voiceList[i].prev = i - 1;
+        voiceList[i].next = i + 1;
+        voiceList[i].user = 1;
+    }
+
+    voiceList[0].prev = 0xff;
+    voiceList[lbl_80557348.count - 1].next = 0xff;
+    voiceListRoot = 0;
+    voiceListInsert = lbl_80557348.count - 1;
+}
+
+void TLobby__sub_803B3210(void) {
+    voiceInitFreeList_803B3210();
+    voiceInitPrioSort_803B3210();
+    voiceFxRunning = 0;
+    voiceMusicRunning = 0;
+}
+
+#pragma pop
 
 #define svVoice (*(SYNTH_VOICE_SV **)&lbl_805D73B0)
 #define svInfo lbl_80557348
@@ -401,6 +578,8 @@ void TLobby__sub_803B3858(u16 *ref) {
 #undef svVoice
 #undef svInfo
 
+#pragma push
+#pragma pool_data off
 s32 TLobby__sub_803B3AA8(Obj_803B3AA8 *arg0) {
     u32 id = arg0->id;
     if (id != 0xFFFFFFFF) {
@@ -454,6 +633,7 @@ void TLobby__sub_803B3B80(Obj_803B3B80 *arg0) {
     }
 }
 
+#pragma pop
 #pragma push
 #pragma opt_common_subs on
 

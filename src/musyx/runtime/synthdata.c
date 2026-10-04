@@ -7,162 +7,438 @@
 #define SEQ_RUN_L (*(SEQ_INSTANCE_803A49C8 **)&lbl_805D737C)
 #define ARR_GET_803A5A78(arr, offset) ((void *)(offset + (u32)arr))
 #define ARR_GET_803A6364(arr, offset) ((void *)(offset + (u32)arr))
+
+typedef struct SAMPLE_HEADER_D {
+    u32 info;
+    u32 length;
+    u32 loopOffset;
+    u32 loopLength;
+} SAMPLE_HEADER_D;
+
+typedef struct SDIR_DATA_D {
+    u16 id;
+    u16 ref_cnt;
+    u32 offset;
+    void *addr;
+    SAMPLE_HEADER_D header;
+    u32 extraData;
+} SDIR_DATA_D;
+
+typedef struct SDIR_TAB_D {
+    SDIR_DATA_D *data;
+    void *base;
+    u16 numSmp;
+    u16 res;
+} SDIR_TAB_D;
+
+typedef struct DATA_TAB_D {
+    void *data;
+    u16 id;
+    u16 refCount;
+} DATA_TAB_D;
+
+typedef struct LAYER_TAB_D {
+    void *data;
+    u16 id;
+    u16 num;
+    u16 refCount;
+    u16 reserved;
+} LAYER_TAB_D;
+
+typedef struct MAC_MAINTAB_D {
+    u16 num;
+    u16 subTabIndex;
+} MAC_MAINTAB_D;
+
+typedef struct MAC_SUBTAB_D {
+    void *data;
+    u16 id;
+    u16 refCount;
+} MAC_SUBTAB_D;
+
+typedef struct FX_GROUP_D {
+    u16 gid;
+    u16 fxNum;
+    void *fxTab;
+} FX_GROUP_D;
+
+static SDIR_TAB_D dataSmpSDirs[128];
+static DATA_TAB_D dataCurveTab[2048];
+static DATA_TAB_D dataKeymapTab[256];
+static LAYER_TAB_D dataLayerTab[256];
+static MAC_MAINTAB_D dataMacMainTab[512];
+static MAC_SUBTAB_D dataMacSubTabmem[2048];
+static FX_GROUP_D dataFXGroups[128];
+
+#define dataSmpSDirNum lbl_805D73D0
+#define dataCurveNum lbl_805D73D2
+#define dataKeymapNum lbl_805D73D4
+#define dataLayerNum lbl_805D73D6
+#define dataMacTotal lbl_805D73D8
+#define dataFXGroupNum lbl_805D73DA
 extern "C" {
 
-s32 TLobby__sub_803ACD40(u16 arg0) {
-    extern u8 lbl_80559E70[];
-    Tbl_803ACD40 *t = (Tbl_803ACD40 *)lbl_80559E70;
-    Ent_803ACD40 *e;
-    s32 i;
-    s32 n;
-    s32 j;
-    sound_disable_irq();
-    n = lbl_805D73D4;
-    e = t->ents;
-    i = 0;
-    while (i < n && arg0 != e->id) {
-        e++;
-        i++;
-    }
-    if (i != n) {
-        if (--t->ents[i].ref == 0) {
-            for (j = i + 1; j < n; j++) {
-                ((Ent_803ACD40 *)((u8 *)t + 0x4600))[j - 1] = ((Ent_803ACD40 *)((u8 *)t + 0x4600))[j];
-            }
-            lbl_805D73D4--;
-            sound_enable_irq();
-            return 1;
-        }
-    }
-    sound_enable_irq();
-    return 0;
-}
-
 #pragma push
-#pragma optimize_for_size off
-#define TBL ((Ent_803ACEC4 *)((u8 *)t + 0x4E00))
-s32 TLobby__sub_803ACEC4(u16 key, void *p, u16 f6) {
-    extern u8 lbl_80559E70[];
-    Tbl_803ACEC4 *t = (Tbl_803ACEC4 *)lbl_80559E70;
-    s32 n;
-    s32 i;
-    Ent_803ACEC4 *e;
-    s32 j;
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+s32 TLobby__sub_803ACB50(u16 cid, void *keymapdata) {
+    long i;
+    long j;
     sound_disable_irq();
-    n = lbl_805D73D6;
-    i = 0;
-    e = t->ents;
-    while (i < n && e->key < key) {
-        e++;
-        i++;
-    }
-    if (i < n) {
-        if (key != t->ents[i].key) {
-            if ((u32)n < 0x100) {
-                for (j = n - 1; j >= i; j--) {
-                    TBL[j + 1] = TBL[j];
-                }
-                lbl_805D73D6++;
+
+    for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id < cid; ++i)
+        ;
+
+    if (i < dataKeymapNum) {
+        if (cid != dataKeymapTab[i].id) {
+            if (dataKeymapNum < 256) {
+                for (j = dataKeymapNum - 1; j >= i; --j)
+                    dataKeymapTab[j + 1] = dataKeymapTab[j];
+                ++dataKeymapNum;
             } else {
                 sound_enable_irq();
                 return 0;
             }
         } else {
-            t->ents[i].count++;
+            dataKeymapTab[i].refCount++;
             sound_enable_irq();
             return 0;
         }
+    } else if (dataKeymapNum < 256) {
+        ++dataKeymapNum;
     } else {
-        if ((u32)n < 0x100) {
-            lbl_805D73D6++;
-        } else {
-            sound_enable_irq();
-            return 0;
-        }
+        sound_enable_irq();
+        return 0;
     }
-    t->ents[i].key = key;
-    t->ents[i].p = p;
-    t->ents[i].f6 = f6;
-    t->ents[i].count = 1;
+
+    dataKeymapTab[i].id = cid;
+    dataKeymapTab[i].data = keymapdata;
+    dataKeymapTab[i].refCount = 1;
     sound_enable_irq();
     return 1;
 }
+
 #pragma pop
 
 #pragma push
-#pragma optimize_for_size off
-s32 TLobby__sub_803AD10C(u16 key) {
-    extern u8 lbl_80559E70[];
-    Tbl_803AD10C *t = (Tbl_803AD10C *)lbl_80559E70;
-    s32 n;
-    s32 i;
-    Ent_803AD10C *e;
-    s32 j;
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803ACD40(u16 sid) {
+    long i;
+    long j;
+
     sound_disable_irq();
-    n = lbl_805D73D6;
-    i = 0;
-    e = t->ents;
-    while (i < n && key != e->key) {
-        e++;
-        i++;
-    }
-    if (i != n) {
-        if (--t->ents[i].count == 0) {
-            for (j = i + 1; j < n; j++) {
-                ((Ent_803AD10C *)((u8 *)t + 0x4E00))[j - 1] = ((Ent_803AD10C *)((u8 *)t + 0x4E00))[j];
-            }
-            lbl_805D73D6--;
-            sound_enable_irq();
-            return 1;
+    for (i = 0; i < dataKeymapNum && dataKeymapTab[i].id != sid; ++i)
+        ;
+
+    if (i != dataKeymapNum && --dataKeymapTab[i].refCount == 0) {
+        for (j = i + 1; j < dataKeymapNum; j++) {
+            dataKeymapTab[j - 1] = dataKeymapTab[j];
         }
+
+        --dataKeymapNum;
+        sound_enable_irq();
+        return 1;
     }
+
     sound_enable_irq();
     return 0;
 }
+
 #pragma pop
 
-s32 TLobby__sub_803AD4D0(u16 arg0) {
-    extern u8 lbl_80559E70[];
-    Tbl_803AD4D0 *t = (Tbl_803AD4D0 *)lbl_80559E70;
-    Ent_803AD4D0 *e;
-    s32 i;
-    s32 n;
-    s32 j;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803ACEC4(u16 cid, void *layerdata, u16 size) {
+    long i;
+    long j;
+
     sound_disable_irq();
-    n = lbl_805D73D2;
-    e = t->ents;
-    i = 0;
-    while (i < n && arg0 != e->id) {
-        e++;
-        i++;
-    }
-    if (i != n) {
-        if (--t->ents[i].ref == 0) {
-            for (j = i + 1; j < n; j++) {
-                ((Ent_803AD4D0 *)((u8 *)t + 0x600))[j - 1] = ((Ent_803AD4D0 *)((u8 *)t + 0x600))[j];
+
+    for (i = 0; i < dataLayerNum && dataLayerTab[i].id < cid; ++i)
+        ;
+
+    if (i < dataLayerNum) {
+        if (cid != dataLayerTab[i].id) {
+            if (dataLayerNum < 256) {
+                for (j = dataLayerNum - 1; j >= i; --j)
+                    dataLayerTab[j + 1] = dataLayerTab[j];
+                ++dataLayerNum;
+            } else {
+                sound_enable_irq();
+                return 0;
             }
-            lbl_805D73D2--;
+        } else {
+            dataLayerTab[i].refCount++;
             sound_enable_irq();
-            return 1;
+            return 0;
         }
+    } else if (dataLayerNum < 256) {
+        ++dataLayerNum;
+    } else {
+        sound_enable_irq();
+        return 0;
     }
+
+    dataLayerTab[i].id = cid;
+    dataLayerTab[i].data = layerdata;
+    dataLayerTab[i].num = size;
+    dataLayerTab[i].refCount = 1;
+    sound_enable_irq();
+    return 1;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803AD10C(u16 sid) {
+    long i;
+    long j;
+
+    sound_disable_irq();
+    for (i = 0; i < dataLayerNum && dataLayerTab[i].id != sid; ++i)
+        ;
+
+    if (i != dataLayerNum && --dataLayerTab[i].refCount == 0) {
+        for (j = i + 1; j < dataLayerNum; j++) {
+            dataLayerTab[j - 1] = dataLayerTab[j];
+        }
+
+        --dataLayerNum;
+        sound_enable_irq();
+        return 1;
+    }
+
     sound_enable_irq();
     return 0;
 }
 
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+s32 TLobby__sub_803AD2D8(u16 cid, void *curvedata) {
+    long i;
+    long j;
+
+    sound_disable_irq();
+
+    for (i = 0; i < dataCurveNum && dataCurveTab[i].id < cid; ++i)
+        ;
+
+    if (i < dataCurveNum) {
+        if (cid != dataCurveTab[i].id) {
+            if (dataCurveNum < 2048) {
+                for (j = dataCurveNum - 1; j >= i; --j)
+                    dataCurveTab[j + 1] = dataCurveTab[j];
+                ++dataCurveNum;
+            } else {
+                sound_enable_irq();
+                return 0;
+            }
+        } else {
+            sound_enable_irq();
+            dataCurveTab[i].refCount++;
+            return 0;
+        }
+    } else if (dataCurveNum < 2048) {
+        ++dataCurveNum;
+    } else {
+        sound_enable_irq();
+        return 0;
+    }
+
+    dataCurveTab[i].id = cid;
+    dataCurveTab[i].data = curvedata;
+    dataCurveTab[i].refCount = 1;
+    sound_enable_irq();
+    return 1;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803AD4D0(u16 sid) {
+    long i;
+    long j;
+
+    sound_disable_irq();
+    for (i = 0; i < dataCurveNum && dataCurveTab[i].id != sid; ++i)
+        ;
+
+    if (i != dataCurveNum && --dataCurveTab[i].refCount == 0) {
+        for (j = i + 1; j < dataCurveNum; j++) {
+            dataCurveTab[j - 1] = dataCurveTab[j];
+        }
+
+        --dataCurveNum;
+        sound_enable_irq();
+        return 1;
+    }
+
+    sound_enable_irq();
+    return 0;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+s32 TLobby__sub_803AD654(SDIR_DATA_D *sdir, void *smp_data) {
+    s32 i;
+    SDIR_DATA_D *s;
+    u16 n;
+    u16 j;
+    u16 k;
+
+    for (i = 0; i < dataSmpSDirNum && dataSmpSDirs[i].data != sdir; ++i)
+        ;
+
+    if (i == dataSmpSDirNum) {
+        if (dataSmpSDirNum < 128) {
+            n = 0;
+            for (s = sdir; s->id != 0xffff; ++s) {
+                ++n;
+            }
+            sound_disable_irq();
+            for (j = 0; j < n; ++j) {
+                for (i = 0; i < dataSmpSDirNum; ++i) {
+                    for (k = 0; k < dataSmpSDirs[i].numSmp; ++k) {
+                        if (sdir[j].id == dataSmpSDirs[i].data[k].id)
+                            goto found_id;
+                    }
+                }
+            found_id:
+                if (i != dataSmpSDirNum) {
+                    sdir[j].ref_cnt = 0xffff;
+                } else {
+                    sdir[j].ref_cnt = 0;
+                }
+            }
+
+            dataSmpSDirs[dataSmpSDirNum].data = sdir;
+            dataSmpSDirs[dataSmpSDirNum].numSmp = n;
+            dataSmpSDirs[dataSmpSDirNum].base = smp_data;
+            ++dataSmpSDirNum;
+            sound_enable_irq();
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+s32 TLobby__sub_803AD7C0(SDIR_DATA_D *sdir) {
+    long i;
+    long j;
+    long index;
+    SDIR_DATA_D *data;
+
+    index = 0;
+    for (; index < dataSmpSDirNum && dataSmpSDirs[index].data != sdir; ++index) {
+    }
+
+    if (index != dataSmpSDirNum) {
+        sound_disable_irq();
+
+        for (data = sdir; data->id != 0xFFFF; ++data) {
+            if (data->ref_cnt != 0xFFFF && data->ref_cnt != 0)
+                break;
+        }
+
+        if (data->id == 0xFFFF) {
+            data = sdir;
+
+            for (data = sdir; data->id != 0xFFFF; ++data) {
+                if (data->ref_cnt != 0xFFFF) {
+                    for (i = 0; i < dataSmpSDirNum; ++i) {
+                        if (dataSmpSDirs[i].data == sdir)
+                            continue;
+                        for (j = 0; j < dataSmpSDirs[i].numSmp; ++j) {
+                            if (data->id == dataSmpSDirs[i].data[j].id && dataSmpSDirs[i].data[j].ref_cnt == 0xFFFF) {
+                                dataSmpSDirs[i].data[j].ref_cnt = 0;
+                                break;
+                            }
+                        }
+
+                        if (j != dataSmpSDirs[i].numSmp) {
+                            break;
+                        }
+                    }
+                }
+            }
+
+            for (data = sdir; data->id != 0xFFFF; ++data) {
+                data->ref_cnt = 0;
+            }
+
+            for (j = index + 1; j < dataSmpSDirNum; ++j) {
+                dataSmpSDirs[j - 1] = dataSmpSDirs[j];
+            }
+
+            --dataSmpSDirNum;
+            sound_enable_irq();
+            return 1;
+        }
+
+        sound_enable_irq();
+    }
+    return 0;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
 s32 TLobby__sub_803ADA80(u16 sid) {
-    extern Tbl_803ADA80 lbl_80559E70[];
     u32 i;
     Hdr_803ADA80 *header;
-    SDir_803ADA80 *data;
-    SDir_803ADA80 *sdir;
+    SDIR_DATA_D *data;
+    SDIR_DATA_D *sdir;
 
-    data = 0;
-    sdir = 0;
-    for (i = 0; i < lbl_805D73D0; ++i) {
-        u16 v;
-        for (data = lbl_80559E70[i].data; (v = data->id) != 0xFFFF; ++data) {
-            if (v == sid && data->ref_cnt != 0xFFFF) {
+    data = NULL;
+    sdir = NULL;
+    for (i = 0; i < dataSmpSDirNum; ++i) {
+        for (data = dataSmpSDirs[i].data; data->id != 0xFFFF; ++data) {
+            if (data->id == sid && data->ref_cnt != 0xFFFF) {
                 sdir = data;
                 goto done;
             }
@@ -171,8 +447,8 @@ s32 TLobby__sub_803ADA80(u16 sid) {
 done:
 
     if (sdir->ref_cnt == 0) {
-        sdir->addr = (void *)((u32)sdir->offset + (u32)lbl_80559E70[i].base);
-        header = &sdir->header;
+        sdir->addr = (void *)((u32)sdir->offset + (u32)dataSmpSDirs[i].base);
+        header = (Hdr_803ADA80 *)&sdir->header;
         TLobby__sub_803BD8A8(&header, &sdir->addr);
     }
 
@@ -180,14 +456,15 @@ done:
     return 1;
 }
 
+#pragma pop
+
 s32 TLobby__sub_803ADB58(u16 id) {
-    extern u8 lbl_80559E70[];
     u32 i;
 
     for (i = 0; i < lbl_805D73D0; i++) {
         Ent_803ADB58 *e;
         u16 v;
-        for (e = ((Tbl_803ADB58 *)lbl_80559E70)[i].list; (v = e->id) != 0xFFFF; e++) {
+        for (e = ((Tbl_803ADB58 *)dataSmpSDirs)[i].list; (v = e->id) != 0xFFFF; e++) {
             if (v == id && e->ref != 0xFFFF) {
                 e->ref--;
                 if (e->ref == 0) {
@@ -200,94 +477,183 @@ s32 TLobby__sub_803ADB58(u16 id) {
     return 0;
 }
 
-s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2) {
-    extern u8 lbl_80559E70[];
-    Tbl_803ADBF0 *t = (Tbl_803ADBF0 *)lbl_80559E70;
-    Ent_803ADBF0 *e;
-    s32 i;
-    u16 n;
-    s32 k;
-    n = lbl_805D73DA;
-    e = t->ents;
-    i = 0;
-    while (i < n && arg0 != e->id) {
-        e++;
-        i++;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803ADBF0(u16 gid, Rec_803ADBF0 *fx, u16 fxNum) {
+    long i;
+
+    for (i = 0; i < dataFXGroupNum && gid != dataFXGroups[i].gid; ++i) {
     }
-    if (i == n && n < 0x80) {
-        sound_disable_irq();
-        k = lbl_805D73DA;
-        t->ents[k].id = arg0;
-        t->ents[k].count = arg2;
-        t->ents[k].data = arg1;
-        k = 0;
-        while (k < arg2) {
-            arg1->f9 = 0x1F;
-            k++;
-            arg1++;
+
+    if (i == dataFXGroupNum) {
+        if (dataFXGroupNum < 128) {
+            sound_disable_irq();
+            dataFXGroups[dataFXGroupNum].gid = gid;
+            dataFXGroups[dataFXGroupNum].fxNum = fxNum;
+            dataFXGroups[dataFXGroupNum].fxTab = fx;
+
+            for (i = 0; i < fxNum; ++i, ++fx) {
+                fx->f9 = 31;
+            }
+
+            dataFXGroupNum++;
+            sound_enable_irq();
+            return 1;
         }
-        lbl_805D73DA++;
+    }
+    return 0;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803ADD18(u16 gid) {
+    long i;
+    long j;
+
+    for (i = 0; i < dataFXGroupNum && gid != dataFXGroups[i].gid; ++i) {
+    }
+
+    if (i != dataFXGroupNum) {
+        sound_disable_irq();
+        for (j = i + 1; j < dataFXGroupNum; j++) {
+            dataFXGroups[j - 1] = dataFXGroups[j];
+        }
+
+        --dataFXGroupNum;
         sound_enable_irq();
         return 1;
     }
     return 0;
 }
 
-s32 TLobby__sub_803ADD18(u16 id) {
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+s32 TLobby__sub_803AE184(u16 mid) {
+    s32 main;
+    s32 base;
     s32 i;
-    s32 j;
-    s32 n;
-    i = 0;
-    n = lbl_805D73DA;
-    while (i < n && id != lbl_80564070[i].id) {
-        i++;
-    }
-    if (i != n) {
+
     sound_disable_irq();
-    for (j = i + 1; j < lbl_805D73DA; j++) {
-        lbl_80564070[j - 1] = lbl_80564070[j];
+    main = (mid >> 6) & 0x3fff;
+
+    if (dataMacMainTab[main].num != 0) {
+        base = dataMacMainTab[main].subTabIndex;
+        for (i = 0; i < dataMacMainTab[main].num && mid != dataMacSubTabmem[base + i].id; ++i) {
+        }
+
+        if (i < dataMacMainTab[main].num) {
+            if (--dataMacSubTabmem[base + i].refCount == 0) {
+                for (i = base + i + 1; i < dataMacTotal; ++i) {
+                    dataMacSubTabmem[i - 1] = dataMacSubTabmem[i];
+                }
+
+                for (i = 0; i < 512; ++i) {
+                    if (dataMacMainTab[i].subTabIndex > base) {
+                        --dataMacMainTab[i].subTabIndex;
+                    }
+                }
+
+                --dataMacMainTab[main].num;
+                --dataMacTotal;
+            }
+        }
     }
-    lbl_805D73DA--;
+
     sound_enable_irq();
-    return 1;
-    }
     return 0;
 }
+
+#pragma pop
 
 s32 TLobby__sub_803AE420(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
 
+extern s32 lbl_805D73DC;
+extern s32 lbl_805D73E0;
+extern Req_803AE60C lbl_805D73E4;
+extern s32 *lbl_805D73EC;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+u32 start_sound_macro(u16 mid) {
+    lbl_805D73E0 = (mid >> 6) & 0x3fff;
+
+    if (dataMacMainTab[lbl_805D73E0].num != 0) {
+        lbl_805D73DC = dataMacMainTab[lbl_805D73E0].subTabIndex;
+        lbl_805D73E4.f4 = mid;
+        if ((lbl_805D73EC = search_sound_sample_directory(&lbl_805D73E4, &dataMacSubTabmem[lbl_805D73DC], dataMacMainTab[lbl_805D73E0].num,
+                                                          sizeof(MAC_SUBTAB_D), TLobby__sub_803AE420)) != NULL) {
+            return *lbl_805D73EC;
+        }
+    }
+
+    return 0;
+}
+
+#pragma pop
+
 s32 compare_sound_sample_id(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
-s32 find_sound_sample(s16 id, Sample_803AE4D4 *s) {
-    extern u8 lbl_80559E70[];
-    u8 *base;
-    s32 i;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+#define dgs_result (*(SDIR_DATA_D **)&lbl_805D73F0)
+#define dgs_sheader (*(SAMPLE_HEADER_D **)&lbl_805D73F4)
+s32 find_sound_sample(s16 sid, Sample_803AE4D4 *newsmp) {
+    static SDIR_DATA_D key;
+    long i;
 
-    base = lbl_80559E70;
-    *(s16 *)(base + 0xA600) = id;
-    for (i = 0; i < lbl_805D73D0; i++) {
-        if ((lbl_805D73F0 = (Row_803AE4D4 *)search_sound_sample_directory((Req_803AE60C *)(base + 0xA600), (void *)((Reg_803AE4D4 *)base)[i].rows, ((Reg_803AE4D4 *)base)[i].count, 0x20, (s32 (*)(u8 *, u8 *))compare_sound_sample_id)) != 0 &&
-            lbl_805D73F0->ref != 0xFFFF) {
-            lbl_805D73F4 = (Part_803AE4D4 *)&lbl_805D73F0->key;
-            s->key = lbl_805D73F4->key;
-            s->addr = lbl_805D73F0->addr;
-            s->offset = 0;
-            s->loopStart = lbl_805D73F4->loopStart;
-            s->count = lbl_805D73F4->fmt & 0xFFFFFF;
-            s->loopLen = lbl_805D73F4->loopLen;
-            s->format = lbl_805D73F4->fmt >> 24;
-            if (lbl_805D73F0->coef != 0) {
-                s->coef = lbl_805D73F0->coef + ((Reg_803AE4D4 *)base)[i].rows;
+    key.id = sid;
+
+    for (i = 0; i < dataSmpSDirNum; ++i) {
+        if ((dgs_result = (SDIR_DATA_D *)search_sound_sample_directory((Req_803AE60C *)&key, dataSmpSDirs[i].data, dataSmpSDirs[i].numSmp, sizeof(SDIR_DATA_D),
+                                                                       (s32 (*)(u8 *, u8 *))compare_sound_sample_id)) != NULL) {
+            if (dgs_result->ref_cnt != 0xFFFF) {
+                dgs_sheader = &dgs_result->header;
+                newsmp->key = dgs_sheader->info;
+                newsmp->addr = (u32)dgs_result->addr;
+                newsmp->offset = 0;
+                newsmp->loopStart = dgs_sheader->loopOffset;
+                newsmp->count = dgs_sheader->length & 0xffffff;
+                newsmp->loopLen = dgs_sheader->loopLength;
+                newsmp->format = dgs_sheader->length >> 24;
+
+                if (dgs_result->extraData) {
+                    newsmp->coef = (u32)&(dataSmpSDirs[i].data)->id + dgs_result->extraData;
+                }
+                return 0;
             }
-            return 0;
         }
     }
+
     return -1;
 }
+#undef dgs_result
+#undef dgs_sheader
+
+#pragma pop
 
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
@@ -295,7 +661,7 @@ s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1) {
 
 s32 TLobby__sub_803AE60C(s16 arg0) {
     lbl_805D73F8.f4 = arg0;
-    if ((lbl_805D7400 = search_sound_sample_directory(&lbl_805D73F8, lbl_8055A470, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
+    if ((lbl_805D7400 = search_sound_sample_directory(&lbl_805D73F8, dataCurveTab, lbl_805D73D2, 8, TLobby__sub_803AE5FC)) != NULL) {
         return *lbl_805D7400;
     }
     return 0;
@@ -303,7 +669,7 @@ s32 TLobby__sub_803AE60C(s16 arg0) {
 
 s32 TLobby__sub_803AE66C(s16 arg0) {
     lbl_805D7404.f4 = arg0;
-    if ((lbl_805D740C = search_sound_sample_directory(&lbl_805D7404, lbl_8055E470, lbl_805D73D4, 8, TLobby__sub_803AE5FC)) != NULL) {
+    if ((lbl_805D740C = search_sound_sample_directory(&lbl_805D7404, dataKeymapTab, lbl_805D73D4, 8, TLobby__sub_803AE5FC)) != NULL) {
         return *lbl_805D740C;
     }
     return 0;
@@ -313,38 +679,61 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1) {
     return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
 }
 
-s32 TLobby__sub_803AE6DC(s16 arg0, u16 *arg1) {
-    extern u8 lbl_80559E70[];
-    ((Req_803AE6DC *)(lbl_80559E70 + 0xA620))->f4 = arg0;
-    if ((lbl_805D7410 = (Res_803AE6DC *)search_sound_sample_directory((Req_803AE60C *)((Req_803AE6DC *)(lbl_80559E70 + 0xA620)), (void *)(lbl_80559E70 + 0x4E00), (u16)(lbl_805D73D6), (s32)(0xC), (s32 (*)(u8 *, u8 *))(TLobby__sub_803AE6CC))) != 0) {
-        *arg1 = lbl_805D7410->h6;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+s32 TLobby__sub_803AE6DC(s16 cid, u16 *n) {
+    static LAYER_TAB_D key;
+
+    key.id = cid;
+    if ((lbl_805D7410 = (Res_803AE6DC *)search_sound_sample_directory((Req_803AE60C *)&key, dataLayerTab, dataLayerNum, sizeof(LAYER_TAB_D),
+                                                                      (s32 (*)(u8 *, u8 *))TLobby__sub_803AE6CC)) != NULL) {
+        *n = lbl_805D7410->h6;
         return lbl_805D7410->f0;
     }
     return 0;
 }
 
+#pragma pop
+
 s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1) {
     return *arg0 - *arg1;
 }
 
-Se_803A9144 *find_sound_fx_record(s16 arg0) {
-    extern u8 lbl_80559E70[];
-    s32 i;
-    Blk_803AE76C *b;
-    s32 *r;
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+typedef struct FX_TAB_D {
+    u16 id;
+    u16 macro;
+    u8 maxVoices;
+    u8 priority;
+    u8 volume;
+    u8 panning;
+    u8 key;
+    u8 vGroup;
+} FX_TAB_D;
+Se_803A9144 *find_sound_fx_record(s16 fid) {
+    static FX_TAB_D key;
+    Se_803A9144 *ret;
+    long i;
 
-    b = (Blk_803AE76C *)lbl_80559E70;
-    i = 0;
-    b->k.key = arg0;
-    for (; i < lbl_805D73DA; i++) {
-        r = search_sound_sample_directory((Req_803AE60C *)&b->k, ((Grp_803AE76C *)(lbl_80559E70 + 0xA200))[i].base, ((Grp_803AE76C *)(lbl_80559E70 + 0xA200))[i].n, 10,
-                                 (s32 (*)(u8 *, u8 *))TLobby__sub_803AE75C);
-        if (r != NULL) {
-            return (Se_803A9144 *)r;
+    key.id = fid;
+    for (i = 0; i < dataFXGroupNum; ++i) {
+        if ((ret = (Se_803A9144 *)search_sound_sample_directory((Req_803AE60C *)&key, dataFXGroups[i].fxTab, dataFXGroups[i].fxNum, sizeof(FX_TAB_D),
+                                                                (s32 (*)(u8 *, u8 *))TLobby__sub_803AE75C))) {
+            return ret;
         }
     }
+
     return NULL;
 }
+
+#pragma pop
 
 void TLobby__sub_803AE814(void *arg0, void *arg1) {
     s32 i;
@@ -356,8 +745,8 @@ void TLobby__sub_803AE814(void *arg0, void *arg1) {
     lbl_805D73DA = 0;
     lbl_805D73D8 = 0;
     for (i = 0; i < 0x200; i++) {
-        lbl_8055F870[i].count = 0;
-        lbl_8055F870[i].start = 0;
+        ((Slot_803AE814 *)dataMacMainTab)[i].count = 0;
+        ((Slot_803AE814 *)dataMacMainTab)[i].start = 0;
     }
     TLobby__sub_803BD884(arg0, arg1);
 }

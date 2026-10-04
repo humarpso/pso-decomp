@@ -10,11 +10,11 @@
 extern "C" {
 
 f32* TLobby__sub_803BE7B0(s32 bytes) {
-    return ((f32* (*)(s32))lbl_805D74BC)(bytes);
+    return (f32 *)lbl_805D74BC.malloc(bytes);
 }
 
 void TLobby__sub_803BE7D8(s32 arg0) {
-    (*(Cb_803BE7D8 *)&lbl_805D74BC).fn(arg0);
+    lbl_805D74BC.free((void *)arg0);
 }
 
 }

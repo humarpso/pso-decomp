@@ -16,6 +16,13 @@
 #define OSCachedToPhysical(caddr) ((u32)((u8 *)(caddr) - 0x80000000))
 extern "C" {
 
+static ARAMTransferQueue_803BDCD0 aramQueueLo;
+static ARAMTransferQueue_803BDCD0 aramQueueHi;
+static StreamBuffer_803BDCD0 aramStreamBuffers[64];
+#define lbl_8056E158 (*(AramQueues_803BDCD0 *)&aramQueueLo)
+#define lbl_8056E3DC (*(Obj_803BDCB8 *)&aramQueueHi)
+#define lbl_8056E660 ((Rec_803BE1EC *)aramStreamBuffers)
+
 void TLobby__sub_803BDAE4(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg) {
     Q_803BDAE4 *q;
     s32 lvl;
@@ -47,6 +54,50 @@ void TLobby__sub_803BDCB8(void) {
     while (lbl_8056E158.lo.valid != 0) {
     }
 }
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline void aramQueueInit_803BDCD0(void) {
+    aramQueueLo.write = aramQueueLo.valid = 0;
+    aramQueueHi.write = aramQueueHi.valid = 0;
+}
+
+static inline void aramSyncTransferQueue_803BDCD0(void) {
+    while (aramQueueLo.valid != 0) {
+    }
+}
+
+void TLobby__sub_803BDCD0(u32 length) {
+    s16 *tmpMem;
+    u32 i;
+    u32 aramBase;
+
+    aramBase = ARGetBaseAddress();
+
+    tmpMem = (s16 *)TLobby__sub_803BE7B0(sizeof(s16) * 640);
+
+    for (i = 0; i < 640; ++i) {
+        tmpMem[i] = 0;
+    }
+
+    DCFlushRange(tmpMem, sizeof(s16) * 640);
+    aramQueueInit_803BDCD0();
+    TLobby__sub_803BDAE4((u8 *)tmpMem, aramBase, sizeof(s16) * 640, 0, 0, 0);
+    aramSyncTransferQueue_803BDCD0();
+    TLobby__sub_803BE7D8((s32)tmpMem);
+    lbl_805D74C8 = aramBase + length;
+    if (lbl_805D74C8 > ARGetSize()) {
+        lbl_805D74C8 = ARGetSize();
+    }
+
+    *(u32 *)&lbl_805D74CC = aramBase + sizeof(s16) * 640;
+    lbl_805D74D4 = 0;
+    TLobby__sub_803BE018();
+}
+#pragma pop
 
 u32 TLobby__sub_803BDEF0(void) {
     return ARGetBaseAddress();
@@ -81,7 +132,17 @@ s32 TLobby__sub_803BDF10(u8 *src, u32 size) {
 void TLobby__sub_803BE000(s32 arg0, s32 arg1) {
     lbl_805D74CC -= (arg1 + 0x1F) & 0xFFFFFFE0;
 }
-void TLobby__sub_803BE0DC(void) {
+
+void TLobby__sub_803BE018(void) {
+    u32 i;
+    *(StreamBuffer_803BDCD0 **)&lbl_805D74DC = 0;
+    *(StreamBuffer_803BDCD0 **)&lbl_805D74E0 = 0;
+    *(StreamBuffer_803BDCD0 **)&lbl_805D74E4 = aramStreamBuffers;
+    for (i = 1; i < 64; ++i) {
+        aramStreamBuffers[i - 1].next = &aramStreamBuffers[i];
+    }
+    aramStreamBuffers[i - 1].next = 0;
+    *(u32 *)&lbl_805D74D0 = lbl_805D74C8;
 }
 
 void *TLobby__sub_803BE0E0(u32 arg0) {
@@ -137,9 +198,9 @@ void *TLobby__sub_803BE0E0(u32 arg0) {
 
 u32 TLobby__sub_803BE1EC(u8 i, u32 *out) {
     if (out != 0) {
-        *out = lbl_8056E660[i].f8;
+        *out = aramStreamBuffers[i].length;
     }
-    return lbl_8056E660[i].f4;
+    return aramStreamBuffers[i].aram;
 }
 
 #define aramTop lbl_805D74C8
@@ -149,9 +210,6 @@ u32 TLobby__sub_803BE1EC(u8 i, u32 *out) {
 #define aramUsedStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74DC)
 #define aramFreeStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74E0)
 #define aramIdleStreamBuffers (*(StreamBuffer_803BDCD0 **)&lbl_805D74E4)
-#define aramQueueLo (lbl_8056E158.lo)
-#define aramQueueHi (lbl_8056E158.hi)
-#define aramStreamBuffers ((StreamBuffer_803BDCD0 *)lbl_8056E660)
 void TLobby__sub_803BE224(u8 id) {
     StreamBuffer_803BDCD0 *fSb;
     StreamBuffer_803BDCD0 *sb;
@@ -219,9 +277,6 @@ void TLobby__sub_803BE224(u8 id) {
 #undef aramUsedStreamBuffers
 #undef aramFreeStreamBuffers
 #undef aramIdleStreamBuffers
-#undef aramQueueLo
-#undef aramQueueHi
-#undef aramStreamBuffers
 #undef userCallback
 #undef salAIBufferBase
 #undef salDspIsDone

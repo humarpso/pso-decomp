@@ -7,6 +7,27 @@
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
 extern "C" {
 
+s8 lbl_805D74B8;
+SND_HOOKS lbl_805D74BC;
+u8 lbl_805D74C4;
+u8 lbl_805D74C5;
+u8 lbl_805D74C6;
+u8 lbl_805D74C7;
+
+u16 lbl_805D4638[3] = {0, 1, 2};
+u16 lbl_805D4640[3] = {0, 1, 2};
+
+const u16 lbl_8047C420[128] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+    1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4,
+    5, 5, 5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10,
+    10, 10, 11, 11, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 16,
+    16, 17, 17, 17, 18, 18, 19, 19, 19, 20, 20, 20, 21, 21, 22, 22,
+    22, 23, 23, 23, 24, 24, 24, 25, 25, 25, 26, 26, 26, 27, 27, 27,
+    28, 28, 28, 28, 29, 29, 29, 29, 29, 30, 30, 30, 30, 30, 31, 31,
+    31, 31, 31, 31, 31, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
+};
+
 void TLobby__sub_803BCAA0(void) {
     u8 j;
     u8 i;
@@ -263,7 +284,7 @@ void set_sound_voice_mix(s32 voice, u32 volumeCurve, u32 pan, s32 surroundPan, f
         state->dirty[2] = 0;
     }
     if (state->flags & 0x80000000) {
-        u16 *t = &lbl_8047C420[(u8)(pan >> 16)];
+        const u16 *t = &lbl_8047C420[(u8)(pan >> 16)];
         state->leftDelay = *t;
         state->rightDelay = 0x20 - *t;
         state->changed |= 0x200;
@@ -359,7 +380,7 @@ void TLobby__sub_803BD824(void) {
 }
 
 u32 TLobby__sub_803BD828(u32 arg0) {
-    return (u32)(lbl_805E0C48 * (f32)arg0 / (f32)lbl_80557348[0]);
+    return (u32)(4096.0f * (f32)arg0 / (f32)lbl_80557348[0]);
 }
 
 void TLobby__sub_803BD884(void *self, void *p) {

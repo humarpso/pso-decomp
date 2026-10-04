@@ -1,4 +1,13 @@
+#define TLobby__sub_803A8D04 TLobby__sub_803A8D04_hdr_view
+#define find_sound_sample find_sound_sample_hdr_view
 #include "musyx/runtime/musyx_runtime_a.h"
+#undef TLobby__sub_803A8D04
+#undef find_sound_sample
+extern "C" {
+struct Voice_803AEEF0;
+void TLobby__sub_803A8D04(Voice_803AEEF0 *svoice);
+s32 find_sound_sample(u16 id, Sample_803AE4D4 *s);
+}
 
 #define ARR_GET_803A3D8C(arr, offset) ((void *)(offset + (u32)arr))
 #define SEQ_CUR (*(SEQ_INSTANCE_803A49C8 **)&lbl_805D7360)
@@ -112,6 +121,176 @@ body:
     }
     o->i38 = o->i34 + ((op->w4 & 0xFFFF) << 3);
 }
+
+#pragma pack(4)
+typedef struct MSTEP_803AEEF0 { u32 para[2]; } MSTEP_803AEEF0;
+typedef struct VIDL_803AEEF0 { struct VIDL_803AEEF0 *next; struct VIDL_803AEEF0 *prev; u32 vid; u32 root; } VIDL_803AEEF0;
+typedef struct LFO_803AEEF0 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AEEF0;
+typedef struct CSRC_803AEEF0 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AEEF0;
+typedef struct CDEST_803AEEF0 { CSRC_803AEEF0 source[4]; u16 oldValue; u8 numSource; } CDEST_803AEEF0;
+typedef struct Voice_803AEEF0 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AEEF0 *addr;
+  MSTEP_803AEEF0 *curAddr;
+  struct Voice_803AEEF0 *nextMacActive;
+  struct Voice_803AEEF0 *prevMacActive;
+  struct Voice_803AEEF0 *nextTimeQueueMacro;
+  struct Voice_803AEEF0 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AEEF0 *trapEventAddr[3];
+  MSTEP_803AEEF0 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AEEF0 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AEEF0 *vidList;
+  VIDL_803AEEF0 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AEEF0 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AEEF0 inpVolume;
+  CDEST_803AEEF0 inpPanning;
+  CDEST_803AEEF0 inpSurroundPanning;
+  CDEST_803AEEF0 inpPitchBend;
+  CDEST_803AEEF0 inpDoppler;
+  CDEST_803AEEF0 inpModulation;
+  CDEST_803AEEF0 inpPedal;
+  CDEST_803AEEF0 inpPortamento;
+  CDEST_803AEEF0 inpPreAuxA;
+  CDEST_803AEEF0 inpReverb;
+  CDEST_803AEEF0 inpPreAuxB;
+  CDEST_803AEEF0 inpPostAuxB;
+  CDEST_803AEEF0 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AEEF0;
+#pragma pack()
+
+void start_sound_sample_voice(u32 v, u16 smpID, void *newsmp, u32 set_defadsr, u32 prio, u32 callbackUserValue, u32 setSRC, u8 itdMode);
+void TLobby__sub_803AF24C(Voice_803AEEF0 *);
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+void start_sound_macro_sample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
+    static Sample_803AE4D4 newsmp;
+    u16 smp;
+    smp = cstep->para[0] >> 8;
+
+    if (find_sound_sample(smp, &newsmp) != 0) {
+        return;
+    }
+    switch ((u8)(cstep->para[0] >> 0x18)) {
+    case 0:
+        newsmp.offset = cstep->para[1];
+        break;
+    case 1:
+        newsmp.offset = ((u8)(0x7f - (svoice->volume >> 0x10)) * (u32)cstep->para[1]) / 0x7f;
+        break;
+    case 2:
+        newsmp.offset = ((u8)((svoice->volume >> 0x10)) * (u32)cstep->para[1]) / 0x7f;
+        break;
+    default:
+        newsmp.offset = 0;
+        break;
+    }
+
+    if (newsmp.offset >= newsmp.count) {
+        newsmp.offset = newsmp.count - 1;
+    }
+
+    start_sound_sample_voice(svoice->id & 0xFF, smp, &newsmp, (svoice->cFlags & 0x100) == 0,
+                             ((u32)svoice->prio << 24) | ((u32)svoice->age >> 15), svoice->id,
+                             (svoice->cFlags & 0x80000000000) == 0, svoice->itdMode);
+
+    svoice->sInfo = newsmp.key;
+
+    if (svoice->playFrq != -1) {
+        TLobby__sub_803AF24C(svoice);
+    }
+    svoice->cFlags |= 0x20;
+    TLobby__sub_803A8D04(svoice);
+}
+#pragma pop
 
 #define FLAGS (*(u64 *)&o->fh)
 
@@ -254,6 +433,202 @@ void configure_sound_macro_envelope(Voice_803AF3DC *svoice, MSTEP_803AF3DC *cste
 
         svoice->cFlags |= 0x100;
     }
+}
+#pragma pop
+
+#pragma pack(4)
+typedef struct MSTEP_803AF634 { u32 para[2]; } MSTEP_803AF634;
+typedef struct VIDL_803AF634 { struct VIDL_803AF634 *next; struct VIDL_803AF634 *prev; u32 vid; u32 root; } VIDL_803AF634;
+typedef struct LFO_803AF634 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AF634;
+typedef struct CSRC_803AF634 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AF634;
+typedef struct CDEST_803AF634 { CSRC_803AF634 source[4]; u16 oldValue; u8 numSource; } CDEST_803AF634;
+typedef struct ADSRV_803AF634 { u8 mode; u8 state; u32 cnt; s32 currentVolume; s32 currentIndex; s32 currentDelta;
+  union { struct { u32 aTime; u32 dTime; u16 sLevel; u32 rTime; u16 cutOff; u8 aMode; } dls; } data; } ADSRV_803AF634;
+typedef struct Voice_803AF634 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AF634 *addr;
+  MSTEP_803AF634 *curAddr;
+  struct Voice_803AF634 *nextMacActive;
+  struct Voice_803AF634 *prevMacActive;
+  struct Voice_803AF634 *nextTimeQueueMacro;
+  struct Voice_803AF634 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AF634 *trapEventAddr[3];
+  MSTEP_803AF634 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AF634 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AF634 *vidList;
+  VIDL_803AF634 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AF634 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  ADSRV_803AF634 pitchADSR;
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AF634 inpVolume;
+  CDEST_803AF634 inpPanning;
+  CDEST_803AF634 inpSurroundPanning;
+  CDEST_803AF634 inpPitchBend;
+  CDEST_803AF634 inpDoppler;
+  CDEST_803AF634 inpModulation;
+  CDEST_803AF634 inpPedal;
+  CDEST_803AF634 inpPortamento;
+  CDEST_803AF634 inpPreAuxA;
+  CDEST_803AF634 inpReverb;
+  CDEST_803AF634 inpPreAuxB;
+  CDEST_803AF634 inpPostAuxB;
+  CDEST_803AF634 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AF634;
+#pragma pack()
+
+typedef struct ADSR_803AF634 {
+    union {
+        struct { s32 atime; s32 dtime; u16 slevel; u16 rtime; s32 ascale; s32 dscale; } dls;
+        struct { u16 atime; u16 dtime; u16 slevel; u16 rtime; } linear;
+    } data;
+} ADSR_803AF634;
+s32 TLobby__sub_803AE60C(s16 arg0);
+u32 TLobby__sub_803B3ED8(s32 arg0);
+void start_sound_envelope(u8 *arg0);
+extern u8 lbl_804F68DC[];
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+void TLobby__sub_803AF634(Voice_803AF634 *svoice, MSTEP_803AF634 *cstep) {
+    ADSR_803AF634 adsr;
+    ADSR_803AF634 *adsr_ptr;
+    u32 sl;
+    s32 ascale;
+    s32 dscale;
+
+    if ((adsr_ptr = (ADSR_803AF634 *)TLobby__sub_803AE60C((u16)(cstep->para[0] >> 8))) == 0) {
+        return;
+    }
+
+    svoice->pitchADSRRange = ((s8)cstep->para[1] << 8);
+
+    if (svoice->pitchADSRRange >= 0) {
+        svoice->pitchADSRRange += ((s16)(s8)(cstep->para[1] >> 8) << 8) / 100;
+    } else {
+        svoice->pitchADSRRange -= ((s16)(s8)(cstep->para[1] >> 8) << 8) / 100;
+    }
+
+    adsr.data.dls.atime =
+        (((u8 *)&adsr_ptr->data.dls.atime)[0] << 0) | (((u8 *)&adsr_ptr->data.dls.atime)[1] << 8) |
+        (((u8 *)&adsr_ptr->data.dls.atime)[2] << 16) | (((u8 *)&adsr_ptr->data.dls.atime)[3] << 24);
+    adsr.data.dls.dtime =
+        (((u8 *)&adsr_ptr->data.dls.dtime)[0] << 0) | (((u8 *)&adsr_ptr->data.dls.dtime)[1] << 8) |
+        (((u8 *)&adsr_ptr->data.dls.dtime)[2] << 16) | (((u8 *)&adsr_ptr->data.dls.dtime)[3] << 24);
+
+    adsr.data.dls.slevel = (adsr_ptr->data.dls.slevel >> 8) | (adsr_ptr->data.dls.slevel << 8);
+    adsr.data.dls.rtime = (adsr_ptr->data.dls.rtime >> 8) | (adsr_ptr->data.dls.rtime << 8);
+    ascale =
+        (((u8 *)&adsr_ptr->data.dls.ascale)[0] << 0) | (((u8 *)&adsr_ptr->data.dls.ascale)[1] << 8) |
+        (((u8 *)&adsr_ptr->data.dls.ascale)[2] << 16) | (((u8 *)&adsr_ptr->data.dls.ascale)[3] << 24);
+    dscale =
+        (((u8 *)&adsr_ptr->data.dls.dscale)[0] << 0) | (((u8 *)&adsr_ptr->data.dls.dscale)[1] << 8) |
+        (((u8 *)&adsr_ptr->data.dls.dscale)[2] << 16) | (((u8 *)&adsr_ptr->data.dls.dscale)[3] << 24);
+
+    if (ascale != 0x80000000) {
+        adsr.data.dls.atime += (s32)((1.1920929e-07f * svoice->orgVolume) * (f32)ascale);
+    }
+    if (dscale != 0x80000000) {
+        adsr.data.dls.dtime += (s32)((0.0078125f * svoice->orgNote) * (f32)dscale);
+    }
+
+    svoice->pitchADSR.mode = 1;
+    svoice->pitchADSR.data.dls.aMode = 0;
+    svoice->pitchADSR.data.dls.aTime = TLobby__sub_803B3ED8(adsr.data.dls.atime);
+    svoice->pitchADSR.data.dls.dTime = TLobby__sub_803B3ED8(adsr.data.dls.dtime);
+    if ((sl = (adsr.data.dls.slevel >> 2)) > 0x3ff) {
+        sl = 0x3ff;
+    }
+
+    svoice->pitchADSR.data.dls.sLevel = 193 - lbl_804F68DC[sl];
+    svoice->pitchADSR.data.dls.rTime = adsr.data.dls.rtime;
+    start_sound_envelope((u8 *)&svoice->pitchADSR);
+    svoice->cFlags |= 0x20000000000;
 }
 #pragma pop
 
@@ -500,6 +875,180 @@ void TLobby__sub_803B0004(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3) {
     }
     lbl_80557C2C[arg2 - 16] = arg3;
 }
+
+#pragma pack(4)
+typedef struct MSTEP_803B0068 { u32 para[2]; } MSTEP_803B0068;
+typedef struct VIDL_803B0068 { struct VIDL_803B0068 *next; struct VIDL_803B0068 *prev; u32 vid; u32 root; } VIDL_803B0068;
+typedef struct LFO_803B0068 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803B0068;
+typedef struct CSRC_803B0068 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803B0068;
+typedef struct CDEST_803B0068 { CSRC_803B0068 source[4]; u16 oldValue; u8 numSource; } CDEST_803B0068;
+typedef struct Voice_803B0068 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803B0068 *addr;
+  MSTEP_803B0068 *curAddr;
+  struct Voice_803B0068 *nextMacActive;
+  struct Voice_803B0068 *prevMacActive;
+  struct Voice_803B0068 *nextTimeQueueMacro;
+  struct Voice_803B0068 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803B0068 *trapEventAddr[3];
+  MSTEP_803B0068 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803B0068 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803B0068 *vidList;
+  VIDL_803B0068 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803B0068 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803B0068 inpVolume;
+  CDEST_803B0068 inpPanning;
+  CDEST_803B0068 inpSurroundPanning;
+  CDEST_803B0068 inpPitchBend;
+  CDEST_803B0068 inpDoppler;
+  CDEST_803B0068 inpModulation;
+  CDEST_803B0068 inpPedal;
+  CDEST_803B0068 inpPortamento;
+  CDEST_803B0068 inpPreAuxA;
+  CDEST_803B0068 inpReverb;
+  CDEST_803B0068 inpPreAuxB;
+  CDEST_803B0068 inpPostAuxB;
+  CDEST_803B0068 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803B0068;
+#pragma pack()
+
+struct Obj_803AFF38;
+struct Obj_803B0004;
+s32 TLobby__sub_803AFF38(Obj_803AFF38 *arg0, u32 arg1, u32 arg2);
+void TLobby__sub_803B0004(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3);
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline s16 varGet_803B0068(Voice_803B0068 *svoice, u32 ctrl, u8 index) {
+    return TLobby__sub_803AFF38((Obj_803AFF38 *)svoice, ctrl, index);
+}
+
+static inline void varSet_803B0068(Voice_803B0068 *svoice, u32 ctrl, u8 index, s16 v) {
+    TLobby__sub_803B0004((Obj_803B0004 *)svoice, ctrl, index, v);
+}
+
+void TLobby__sub_803B0068(Voice_803B0068 *svoice, MSTEP_803B0068 *cstep, u8 op) {
+    s16 s1;
+    s16 s2;
+    s32 t;
+
+    s1 = varGet_803B0068(svoice, (u8)(cstep->para[0] >> 24), cstep->para[1]);
+    if (op == 4) {
+        s2 = cstep->para[1] >> 8;
+    } else {
+        s2 = varGet_803B0068(svoice, (u8)(cstep->para[1] >> 8), cstep->para[1] >> 16);
+    }
+    switch (op) {
+    case 4:
+    case 0:
+        t = (s1 + s2);
+        break;
+    case 1:
+        t = (s1 - s2);
+        break;
+    case 2:
+        t = (s1 * s2);
+        break;
+    case 3:
+        t = s2 != 0 ? (s1 / s2) : 0;
+        break;
+    }
+
+    varSet_803B0068(svoice, (u8)(cstep->para[0] >> 8), (u8)(cstep->para[0] >> 0x10),
+                    (t < -0x8000 ? -0x8000 : t > 0x7FFF ? 0x7FFF : t));
+}
+#pragma pop
 
 #define o ((Rec_803B1AF4 *)ov)
 

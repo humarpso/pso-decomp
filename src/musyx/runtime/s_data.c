@@ -268,6 +268,56 @@ u32 TLobby__sub_803B50E8(void *prj_data, u16 gid, void *samples, void *sdir, voi
 }
 #pragma pop
 
+s32 TLobby__sub_803AD7C0(void *sdir);
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline void RemoveMacros_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)0, (void *)1); }
+static inline void RemoveCurves_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)4, (void *)1); }
+static inline void RemoveKeymaps_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)2, (void *)1); }
+static inline void RemoveLayers_803B5258(u16 *ref) { TLobby__sub_803B4F5C(ref, NULL, (void *)3, (void *)1); }
+static inline void RemoveSamples_803B5258(u16 *ref, void *sdir) {
+    TLobby__sub_803B4FF8(ref, NULL, (void *)1, (void *)1);
+    TLobby__sub_803AD7C0(sdir);
+}
+static inline void RemoveFXTab_803B5258(u16 gid) { TLobby__sub_803ADD18(gid); }
+
+u32 TLobby__sub_803B5258(void) {
+    GROUP_DATA_803B50E8 *g;
+    void *sdir;
+    void *prj;
+    FX_DATA_803B50E8 *fd;
+
+    g = gs[--sp].gAddr;
+    prj = gs[sp].prjAddr;
+    sdir = gs[sp].sdirAddr;
+    sound_disable_irq();
+
+    if (g->type == 1) {
+        fd = (FX_DATA_803B50E8 *)((u8 *)prj + g->data.song.normpageOff);
+        TLobby__sub_803BA228((Ent_803BA228 *)fd->fx, fd->num);
+    } else {
+        TLobby__sub_803A4D4C(g->id);
+    }
+
+    TLobby__sub_803B3858((u16 *)((u8 *)prj + g->macroOff));
+    sound_enable_irq();
+    RemoveSamples_803B5258((u16 *)((u8 *)prj + g->sampleOff), sdir);
+    RemoveMacros_803B5258((u16 *)((u8 *)prj + g->macroOff));
+    RemoveCurves_803B5258((u16 *)((u8 *)prj + g->curveOff));
+    RemoveKeymaps_803B5258((u16 *)((u8 *)prj + g->keymapOff));
+    RemoveLayers_803B5258((u16 *)((u8 *)prj + g->layerOff));
+    if (g->type == 1) {
+        RemoveFXTab_803B5258(g->id);
+    }
+    return 1;
+}
+
+#pragma pop
+
 s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
     s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);
     Ent_803B5398 *tbl = lbl_80565DD8;

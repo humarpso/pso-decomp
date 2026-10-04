@@ -235,6 +235,7 @@ force_active:
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
   - build_sell_list__24TShopEquipmentSellWindowFPv
+  - calc_sound_controller_value
   - chat_dispatch_accepted_result
   - chat_log_remove_line
   - chat_text_lacks_language_tag
@@ -509,6 +510,7 @@ force_active:
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
+  - transition_sound_envelope
   - traverse_animated_node_tree
   - update_and_destroy__10TObjPlayerFPv
   - update_backdrop_transition__17TWindowMainMenu1PFPv
@@ -531,3 +533,8 @@ force_active:
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_when_camera_active__13TObjWarnChimeFPv
 # --- force_active (END) ---
+# False pointers: packed data words whose values happen to land on code/data
+# addresses. dtk would emit a relocation and export the target symbol.
+block_relocations:
+  # 0x8000F513 inside lbl_80499AA0; would export MusyX hardware.c's @eti_8000F50C.
+  - source: 0x8049C198

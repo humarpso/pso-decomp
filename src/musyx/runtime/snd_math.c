@@ -12,7 +12,7 @@ void transform_vec3__6TLobbyFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
 #pragma dont_inline off
 #pragma inline_depth(4)
 #pragma auto_inline on
-inline f32 sqrtf_803BAD1C(f32 x) {
+static inline f32 sqrtf_803BAD1C(f32 x) {
     static const f64 _half = .5;
     static const f64 _three = 3.0;
     volatile f32 y;

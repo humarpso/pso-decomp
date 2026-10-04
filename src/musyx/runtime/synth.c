@@ -9,11 +9,40 @@
 #define ARR_GET_803A6364(arr, offset) ((void *)(offset + (u32)arr))
 extern "C" {
 
+static u32 synthTicksPerSecond[9][16];
+static SYNTH_JOBTAB_SV synthJobTable[32];
+Cfg_803AA35C lbl_80557348;
+SYNTHMasterFader_SV lbl_8055755C[32];
+u8 lbl_80557B5C[64];
+s32 lbl_80557B9C[8];
+void *lbl_80557BBC[8];
+s32 lbl_80557BDC[8];
+void *lbl_80557BFC[8];
+Tbl_803AA1E0 lbl_80557C1C[8];
+s32 lbl_80557C2C[16];
+CTRL_DEST_SV lbl_80557C6C[8][4];
+CTRL_DEST_SV lbl_805580EC[8][4];
+u8 lbl_805D7380;
+u8 lbl_805D7381;
+u8 lbl_805D7384[8];
+u8 lbl_805D738C[8];
+u8 lbl_805D7394[8];
+u8 lbl_805D739C[8];
+u32 lbl_805D73A4;
+u32 lbl_805D73A8;
+s32 lbl_805D73AC;
+Rec_803A8D2C *lbl_805D73B0;
+void (*lbl_805D73B4)(u32, s32);
+u8 lbl_805D73B8;
+s64 lbl_805D73C0;
+#define synthInfo (*(SynthInfo_SV *)&lbl_80557348)
+#define synthMasterFader lbl_8055755C
+
 void TLobby__sub_803A6ED0(s32 arg0, u8 arg1, u8 arg2) {
     if (arg1 == 0xFF) {
         arg1 = 8;
     }
-    ((u32 (*)[16])((u8 *)&lbl_80556F88))[arg1][arg2] = (u32)((arg0 << 3) * 0x600) / 240;
+    synthTicksPerSecond[arg1][arg2] = (u32)((arg0 << 3) * 0x600) / 240;
 }
 
 s32 TLobby__sub_803A6F18(Obj_803A6F18 *arg0) {
@@ -21,7 +50,7 @@ s32 TLobby__sub_803A6F18(Obj_803A6F18 *arg0) {
     if (r == 0xFF) {
         r = 8;
     }
-    return ((u32 (*)[16])((u8 *)&lbl_80556F88))[r][arg0->b123];
+    return synthTicksPerSecond[r][arg0->b123];
 }
 
 void TLobby__sub_803A6F4C(Obj_803A6F4C *arg0) {
@@ -428,6 +457,150 @@ end:
 }
 #pragma pop
 
+u16 TLobby__sub_803BC2D0(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC000(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC048(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BBFB8(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC1F8(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC1B0(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC288(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC240(SYNTH_VOICE_SV *svoice);
+void set_sound_hw_voice_priority(u32 v, u32 prio);
+u8 TLobby__sub_803BCCD8(void);
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+#pragma bool off
+
+void update_sound_voice_mix(u32 i) {
+    SYNTH_VOICE_SV *sv;
+    u32 lowDeltaTime;
+    u16 Modulation;
+    f32 vol;
+    f32 auxa;
+    f32 auxb;
+    f32 f;
+    f32 voiceVol;
+    u32 volUpdate;
+    f32 lfo;
+    f32 scale;
+    f32 mscale;
+    s32 pan;
+    f32 preVol;
+    f32 postVol;
+
+    sv = &SV_VOICES[i];
+    if (!is_sound_hw_voice_active(i) && sv->addr == NULL) {
+        goto end;
+    }
+
+    lowDeltaTime = lbl_805D73C0 - sv->lastZeroCallTime;
+    sv->lastZeroCallTime = lbl_805D73C0;
+
+    if ((sv->cFlags & 0x8000) != 0) {
+        sv->envCurrent += sv->envDelta * (lowDeltaTime >> 8);
+        if (sv->envDelta < 0) {
+            if ((s32)sv->envTarget >= (s32)sv->envCurrent) {
+                sv->envCurrent = sv->envTarget;
+                sv->cFlags &= ~0x8000;
+            }
+        } else if ((s32)sv->envTarget <= (s32)sv->envCurrent) {
+            sv->envCurrent = sv->envTarget;
+            sv->cFlags &= ~0x8000;
+        }
+        sv->volume = sv->envCurrent;
+        volUpdate = 1;
+    } else {
+        volUpdate = (sv->cFlags & 0x100000000000) != 0;
+    }
+
+    sv->cFlags &= ~0x100000000000;
+
+    f = synthMasterFader[sv->vGroup].pauseVol * synthMasterFader[sv->vGroup].volume *
+        synthMasterFader[sv->fxFlag ? 22 : 21].volume;
+
+    if (sv->track != 0xff) {
+        vol = f * (f32)lbl_80557B5C[sv->track] * (1.f / 127.f);
+    } else {
+        vol = f;
+    }
+
+    if (vol != sv->lastVolFaderScale) {
+        sv->lastVolFaderScale = vol;
+        volUpdate = 1;
+    }
+
+    voiceVol = (f32)sv->volume * (1.f / (8192.f * 1016.f));
+
+    if ((sv->treScale | sv->treModAddScale) != 0) {
+        Modulation = TLobby__sub_803BC120(sv);
+        lfo = (f32)(8192 - ((8192 - ((s16)TLobby__sub_803BC2D0(sv) - 8192)) >> 1)) * (1.f / 8192.f);
+        mscale = 1.f - (f32)Modulation * (4096 - sv->treModAddScale) * 1.490207e-08f;
+        scale = (f32)sv->treScale * mscale * (1.f / 4096.f);
+        if (sv->treCurScale < scale) {
+            if ((sv->treCurScale += 0.2f) > scale) {
+                sv->treCurScale = scale;
+            }
+        } else if (sv->treCurScale > scale) {
+            if ((sv->treCurScale -= 0.2f) < scale) {
+                sv->treCurScale = scale;
+            }
+        }
+        voiceVol *= 1.f - lfo * (1.f - sv->treCurScale);
+        volUpdate = 1;
+    }
+
+    if ((lbl_805D73AC & 1) == 0) {
+        if ((sv->cFlags & 0x200000000000) != 0 || (sv->midiDirtyFlags & 0x6) != 0) {
+            sv->cFlags &= ~0x200000000000;
+            pan = sv->panning[0] + (TLobby__sub_803BC000(sv) - 8192) * 0x200;
+            sv->lastPan = CLAMP_INV_SV(pan, 0, 0x7f0000);
+
+            if ((lbl_805D73AC & 2) != 0) {
+                if ((sv->lastSPan = sv->panning[1] + TLobby__sub_803BC048(sv) * 512) > 0x7f0000) {
+                    sv->lastSPan = 0x7f0000;
+                }
+            } else {
+                sv->lastSPan = 0;
+            }
+
+            volUpdate = 1;
+        } else if ((lbl_805D73AC & 2) == 0) {
+            sv->lastSPan = 0;
+        }
+    } else {
+        sv->lastPan = 0x400000;
+        sv->lastSPan = 0;
+        volUpdate |= (sv->cFlags & 0x200000000000) != 0;
+        sv->cFlags &= ~0x200000000000;
+    }
+
+    if (volUpdate || (sv->midiDirtyFlags & 0xf01) != 0) {
+        preVol = voiceVol;
+        postVol = voiceVol * vol * (f32)TLobby__sub_803BBFB8(sv) * (1.f / 16383.f);
+        auxa = ((f32)sv->revVolOffset * (1.f / 127.f)) +
+               ((preVol * (f32)TLobby__sub_803BC1B0(sv) * (1.f / 16383.f)) +
+                ((f32)sv->revVolScale * (postVol * (f32)TLobby__sub_803BC1F8(sv) * (1.f / 16383.f)) * (1.f / 127.f)));
+        auxb = (preVol * (f32)TLobby__sub_803BC240(sv) * (1.f / 16383.f)) +
+               (postVol * (f32)TLobby__sub_803BC288(sv) * (1.f / 16383.f));
+        sv->curOutputVolume = (u16)(postVol * 32767.f);
+        set_sound_voice_mix(i, sv->volTable, sv->lastPan, sv->lastSPan, postVol, auxa, auxb);
+    }
+    if (sv->age != 0) {
+        if ((s32)(sv->age -= sv->ageSpeed * lowDeltaTime) < 0) {
+            sv->age = 0;
+        }
+        set_sound_hw_voice_priority(i, sv->prio << 24 | sv->age >> 15);
+    }
+
+    schedule_sound_voice_update(sv, 1, (5 - TLobby__sub_803BCCD8()) * 256);
+
+end:
+    UpdateTimeMIDICtrl_SV(sv);
+}
+#pragma pop
+
 void TLobby__sub_803A897C(s32 arg0) {
     Ch_803A897C *o = (Ch_803A897C *)&lbl_805D73B0[arg0];
 
@@ -454,14 +627,13 @@ void TLobby__sub_803A897C(s32 arg0) {
 #pragma push
 #pragma opt_common_subs on
 void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime) {
-    SynthBss_SV *bss = (SynthBss_SV *)&lbl_80556F88;
     SYNTH_QUEUE_SV *newJq;
     SYNTH_QUEUE_SV **root;
     u8 jobTabIndex;
     SYNTH_JOBTAB_SV *jobTab;
 
     jobTabIndex = ((deltaTime / 256) + lbl_805D7381) & 0x1f;
-    jobTab = &bss->synthJobTable[jobTabIndex];
+    jobTab = &synthJobTable[jobTabIndex];
 
     switch (jobType) {
     case 0:
@@ -476,7 +648,7 @@ void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaT
             if (newJq->prev != NULL) {
                 newJq->prev->next = newJq->next;
             } else {
-                bss->synthJobTable[newJq->jobTabIndex].lowPrecision = newJq->next;
+                synthJobTable[newJq->jobTabIndex].lowPrecision = newJq->next;
             }
         }
         root = &jobTab->lowPrecision;
@@ -493,7 +665,7 @@ void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaT
             if (newJq->prev != NULL) {
                 newJq->prev->next = newJq->next;
             } else {
-                bss->synthJobTable[newJq->jobTabIndex].zeroOffset = newJq->next;
+                synthJobTable[newJq->jobTabIndex].zeroOffset = newJq->next;
             }
         }
         root = &jobTab->zeroOffset;
@@ -563,6 +735,101 @@ void TLobby__sub_803A8DC0(u8 *arg0) {
         return;
     }
 }
+
+typedef struct SND_AUX_INFO_SV { union { struct { s32 *left; s32 *right; s32 *surround; } bufferUpdate; struct { u16 para[4]; } parameterUpdate; } data; } SND_AUX_INFO_SV;
+u16 TLobby__sub_803BC318(u8 studio, u8 index, u8 midi, u8 midiSet);
+u16 TLobby__sub_803BC3D4(u8 studio, u8 index, u8 midi, u8 midiSet);
+void TLobby__sub_803BD9E0(void);
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+#pragma bool off
+
+static inline void HandleVoices_SV(void) {
+    SYNTH_JOBTAB_SV *jTab = &synthJobTable[lbl_805D7381];
+    TLobby__sub_803A8D2C((Node_803A8D2C **)&jTab->lowPrecision, (void (*)(u8))update_sound_voice_pitch);
+    TLobby__sub_803A8D2C((Node_803A8D2C **)&jTab->event, (void (*)(u8))TLobby__sub_803A897C);
+    TLobby__sub_803A8D2C((Node_803A8D2C **)&jTab->zeroOffset, (void (*)(u8))update_sound_voice_mix);
+    lbl_805D7381 = (lbl_805D7381 + 1) & 0x1f;
+}
+
+static inline void HandleFaderTermination_SV(SYNTHMasterFader_SV *smf) {
+    switch (smf->seqMode) {
+    case 1:
+        TLobby__sub_803A4B7C(smf->seqId);
+        break;
+    case 2:
+        TLobby__sub_803A49C8(smf->seqId);
+        break;
+    case 3:
+        TLobby__sub_803A4FC4(smf->seqId, 0, 0);
+        break;
+    }
+}
+
+void TLobby__sub_803A8E2C(u32 deltaTime) {
+    u32 i;
+    u32 s;
+    SYNTHMasterFader_SV *smf;
+    u32 testFlag;
+
+    if (synthInfo.numSamples == 0) {
+        return;
+    }
+
+    TLobby__sub_803B19AC(deltaTime);
+    HandleVoices_SV();
+
+    if (TLobby__sub_803BCCD8() == 0) {
+        if ((lbl_805D73A8 | lbl_805D73A4) != 0) {
+            for (i = 0, smf = synthMasterFader, testFlag = 1; i < 32; testFlag <<= 1, ++i, ++smf) {
+                if ((lbl_805D73A8 & testFlag) != 0) {
+                    smf->volume = smf->target - smf->time * (smf->target - smf->start);
+                    if ((smf->time -= smf->deltaTime) <= 0.f) {
+                        smf->volume = smf->target;
+                        HandleFaderTermination_SV(smf);
+                        if ((lbl_805D73A8 &= ~testFlag) == 0 && lbl_805D73A4 == 0) {
+                            break;
+                        }
+                    }
+                }
+
+                if ((lbl_805D73A4 & testFlag) != 0) {
+                    smf->pauseVol = smf->pauseTarget - smf->pauseTime * (smf->pauseTarget - smf->pauseStart);
+                    if ((smf->pauseTime -= smf->pauseDeltaTime) <= 0.f) {
+                        smf->pauseVol = smf->pauseTarget;
+                        if ((lbl_805D73A4 &= ~testFlag) == 0 && lbl_805D73A8 == 0) {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        for (s = 0; s < 8; ++s) {
+            if (lbl_805D739C[s] != 0xff) {
+                SND_AUX_INFO_SV info;
+                for (i = 0; i < 4; ++i) {
+                    info.data.parameterUpdate.para[i] = TLobby__sub_803BC318(s, i, lbl_805D739C[s], lbl_805D7394[s]);
+                }
+                ((SND_AUX_CALLBACK_SV)lbl_80557BBC[s])(1, &info, (void *)lbl_80557B9C[s]);
+            }
+
+            if (lbl_805D738C[s] != 0xff) {
+                SND_AUX_INFO_SV info;
+                for (i = 0; i < 4; ++i) {
+                    info.data.parameterUpdate.para[i] = TLobby__sub_803BC3D4(s, i, lbl_805D738C[s], lbl_805D7384[s]);
+                }
+                ((SND_AUX_CALLBACK_SV)lbl_80557BFC[s])(1, &info, (void *)lbl_80557BDC[s]);
+            }
+        }
+    }
+
+    TLobby__sub_803BD9E0();
+    lbl_805D73C0 += deltaTime;
+}
+#pragma pop
 
 s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
     s32 ret = -1;
@@ -666,18 +933,103 @@ s32 key_off_sound_fx(int id) {
     return found;
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+
+static inline void SetupFader_803A94E0(SYNTHMasterFader_SV *smf, u8 volume, u32 time, u8 seqMode, u32 seqId) {
+    smf->seqMode = seqMode;
+    smf->seqId = seqId;
+    if (time != 0) {
+        smf->start = smf->volume;
+        smf->target = (f32)volume * (1.f / 127.f);
+        smf->time = 1.f;
+        smf->deltaTime = 1280.f / (f32)time;
+    } else {
+        smf->volume = smf->target = (f32)volume * (1.f / 127.f);
+        if (smf->seqId != 0xFFFFFFFF) {
+            TLobby__sub_803A8DC0((u8 *)smf);
+        }
+    }
+}
+
+void TLobby__sub_803A94E0(u8 volume, u16 time, u8 vGroup, s8 seqMode, s32 seqId) {
+    u32 ltime;
+    u32 i;
+    u8 type;
+    SYNTHMasterFader_SV *smf;
+
+    if ((ltime = time) != 0) {
+        shift_left_8__6TLobbyFPv(&ltime);
+    }
+
+    switch (vGroup) {
+    case 0xFF:
+        for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+            if (smf->type == 0 || smf->type == 1) {
+                SetupFader_803A94E0(smf, volume, ltime, seqMode, 0xFFFFFFFF);
+                lbl_805D73A8 |= 1 << i;
+            }
+        }
+        return;
+
+    case 0xFC:
+        for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+            if (smf->type == 2 || smf->type == 3) {
+                SetupFader_803A94E0(smf, volume, ltime, seqMode, 0xFFFFFFFF);
+                lbl_805D73A8 |= 1 << i;
+            }
+        }
+        return;
+
+    case 0xFA:
+        type = 2;
+        goto setup_type;
+
+    case 0xFB:
+        type = 3;
+        goto setup_type;
+
+    case 0xFD:
+        type = 0;
+        goto setup_type;
+
+    case 0xFE:
+        type = 1;
+        goto setup_type;
+
+    setup_type:
+        for (smf = synthMasterFader, i = 0; i < 32; ++i, ++smf) {
+            if (smf->type == type) {
+                SetupFader_803A94E0(smf, volume, ltime, seqMode, 0xFFFFFFFF);
+                lbl_805D73A8 |= 1 << i;
+            }
+        }
+        return;
+
+    default:
+        SetupFader_803A94E0(&synthMasterFader[vGroup], volume, ltime, seqMode, seqId);
+        lbl_805D73A8 |= 1 << vGroup;
+        return;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
 s32 TLobby__sub_803A98F0(u8 arg0) {
-    u8 *temp_r4;
-    temp_r4 = (u8 *)&lbl_80556F88.value + (arg0 * 0x30);
-    if (((u8) M2C_FIELD(temp_r4, u8 *, 0x601) != 4) && (lbl_805D73A8 & (1 << arg0)) && (M2C_FIELD(temp_r4, f32 *, 0x5DC) > M2C_FIELD(temp_r4, f32 *, 0x5D8))) {
+    if (synthMasterFader[arg0].type != 4 && (lbl_805D73A8 & (1 << arg0)) &&
+        synthMasterFader[arg0].start > synthMasterFader[arg0].target) {
         return 1;
     }
     return 0;
 }
+#pragma pop
 
 void TLobby__sub_803A9944(u8 i, u8 v) {
     if (lbl_805D7380 != 0) {
-        lbl_8055755C[i].f2d = v;
+        synthMasterFader[i].type = v;
     }
 }
 
@@ -705,5 +1057,122 @@ s32 TLobby__sub_803A996C(s32 op, u32 idx) {
     }
     return ret;
 }
+
+void init_sound_controller_mappings(u8 *arg0);
+void TLobby__sub_803B3210(void);
+void set_global_7490__6TLobbyFi(s32 arg0);
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+
+static inline void synthSetBpm_SV(u32 bpm, u8 set, u8 section) {
+    if (set == 0xFF) {
+        set = 8;
+    }
+    synthTicksPerSecond[set][section] = ((bpm << 3) * 1536) / 240;
+}
+
+static inline void synthInitJobQueue_SV(void) {
+    u8 i;
+
+    for (i = 0; i < 32; ++i) {
+        synthJobTable[i].lowPrecision = NULL;
+        synthJobTable[i].event = NULL;
+        synthJobTable[i].zeroOffset = NULL;
+    }
+
+    lbl_805D7381 = 0;
+}
+
+void TLobby__sub_803A9A3C(u32 mixFrq, u32 numVoices) {
+    u32 i;
+
+    lbl_805D73C0 = 0;
+    synthInfo.mixFrq = mixFrq;
+    synthSetBpm_SV(120, 255, 0);
+    lbl_805D73AC = 0;
+    lbl_805D73B4 = NULL;
+
+    SV_VOICES_L = (SYNTH_VOICE_SV *)TLobby__sub_803BE7B0(numVoices * sizeof(SYNTH_VOICE_SV));
+    memset(lbl_805D73B0, 0, numVoices * sizeof(SYNTH_VOICE_SV));
+
+    for (i = 0; i < numVoices; ++i) {
+        SV_VOICES[i].id = 0xffffffff;
+        SV_VOICES[i].cFlags = 0;
+        SV_VOICES[i].age = 0;
+        SV_VOICES[i].prio = 0;
+        SV_VOICES[i].midi = 0xff;
+        SV_VOICES[i].volume = 0;
+        SV_VOICES[i].volTable = 0;
+        SV_VOICES[i].revVolScale = 128;
+        SV_VOICES[i].revVolOffset = 0;
+        SV_VOICES[i].panning[0] = SV_VOICES[i].panTarget[0] = 0x400000;
+        SV_VOICES[i].panning[1] = SV_VOICES[i].panTarget[1] = 0;
+        SV_VOICES[i].sweepOff[0] = 0;
+        SV_VOICES[i].sweepOff[1] = 0;
+        SV_VOICES[i].sweepNum[0] = 0;
+        SV_VOICES[i].sweepNum[1] = 0;
+        SV_VOICES[i].block = 0;
+        SV_VOICES[i].vGroup = 23;
+        SV_VOICES[i].keyGroup = 0;
+        SV_VOICES[i].itdMode = 1;
+        SV_VOICES[i].lfo[0].period = 0;
+        SV_VOICES[i].lfo[0].value = 0;
+        SV_VOICES[i].lfo[0].lastValue = 0x7fff;
+        SV_VOICES[i].lfo[1].period = 0;
+        SV_VOICES[i].lfo[1].value = 0;
+        SV_VOICES[i].lfo[1].lastValue = 0x7fff;
+        SV_VOICES[i].portTime = 25600;
+        SV_VOICES[i].portType = 0;
+        SV_VOICES[i].studio = 0;
+        SV_VOICES[i].lowPrecisionJob.voice = i;
+        SV_VOICES[i].lowPrecisionJob.jobTabIndex = 0xff;
+        SV_VOICES[i].zeroOffsetJob.voice = i;
+        SV_VOICES[i].zeroOffsetJob.jobTabIndex = 0xff;
+        SV_VOICES[i].eventJob.voice = i;
+        SV_VOICES[i].eventJob.jobTabIndex = 0xff;
+    }
+
+    for (i = 0; i < 32; ++i) {
+        synthMasterFader[i].volume = 0.f;
+        synthMasterFader[i].pauseVol = 1.f;
+        synthMasterFader[i].type = 4;
+    }
+
+    lbl_805D73A8 = 0;
+    lbl_805D73A4 = 0;
+    synthMasterFader[31].type = 1;
+
+    for (i = 0; i < 8; ++i) {
+        synthMasterFader[i + 23].type = 0;
+    }
+
+    synthMasterFader[21].volume = 1.f;
+    synthMasterFader[22].volume = 1.f;
+    init_sound_controller_mappings(0);
+
+    for (i = 0; i < 8; ++i) {
+        lbl_80557BBC[i] = NULL;
+        lbl_805D739C[i] = 0xff;
+        lbl_80557BFC[i] = NULL;
+        lbl_805D738C[i] = 0xff;
+        lbl_80557C1C[i].b1 = 0;
+        lbl_80557C1C[i].b0 = 0;
+    }
+
+    TLobby__sub_803B2438();
+    TLobby__sub_803B24A0();
+    TLobby__sub_803B3210();
+
+    for (i = 0; i < 16; ++i) {
+        lbl_80557C2C[i] = 0;
+    }
+
+    TLobby__sub_803B3BFC();
+    synthInitJobQueue_SV();
+    set_global_7490__6TLobbyFi((s32)TLobby__sub_803A996C);
+}
+#pragma pop
 
 }

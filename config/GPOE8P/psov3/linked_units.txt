@@ -91,10 +91,17 @@ mtx/mtx44.c
 mtx/mtxvec.c
 mtx/vec.c
 musyx/runtime/StdReverb/reverb_fx.c
+musyx/runtime/hardware.c
 musyx/runtime/hw_memory.c
 musyx/runtime/seq_api.c
+musyx/runtime/snd3d.c
 musyx/runtime/snd_init.c
+musyx/runtime/snd_math.c
+musyx/runtime/snd_midictrl.c
+musyx/runtime/snd_service.c
 musyx/runtime/snd_synthapi.c
+musyx/runtime/synth_ac.c
+musyx/runtime/synth_adsr.c
 musyx/runtime/synth_vsamples.c
 os/OSCache.c
 os/OSContext.c

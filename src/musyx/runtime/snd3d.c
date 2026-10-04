@@ -28,6 +28,19 @@
 #define salMalloc TLobby__sub_803BE7B0
 extern "C" {
 
+s8 lbl_805D7498;
+s32 lbl_805D749C;
+s32 lbl_805D74A0;
+s32 lbl_805D74A4;
+s32 lbl_805D74A8;
+s32 lbl_805D74AC;
+s8 lbl_805D74B0;
+s8 lbl_805D74B1;
+s8 lbl_805D74B2;
+u8 lbl_805D74B3;
+u8 lbl_805D74B4;
+u8 lbl_805D74B5;
+
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -253,7 +266,7 @@ void TLobby__sub_803B98D8(void) {
 #pragma inline_depth(4)
 #pragma auto_inline on
 #pragma opt_common_subs on
-inline f32 sqrtf_S3D(f32 x) {
+static inline f32 sqrtf_S3D(f32 x) {
     static const f64 _half = .5;
     static const f64 _three = 3.0;
     volatile f32 y;
@@ -442,10 +455,11 @@ void TLobby__sub_803BA228(Ent_803BA228 *arg0, u32 arg1) {
     }
 }
 
-static Emitter_S3D tmp_em_S3D;
+Emitter_S3D tmp_em_S3D;
 static StartGroup_S3D startGroup_S3D[64];
 static StartList_S3D startListNum_S3D[64];
 static RunList_S3D runList_S3D[64];
+Emitter_S3D em_80567908_S3D;
 
 #define startGroup startGroup_S3D
 #define startListNum startListNum_S3D

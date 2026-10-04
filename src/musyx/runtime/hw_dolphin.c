@@ -88,6 +88,72 @@ Rec_803BE528 *TLobby__sub_803BE528(void) {
     return &lbl_805D74EC[(u8)((lbl_805D750C + 2) % 4)];
 }
 
+typedef struct DSPTaskInfo_803BE554 {
+    u32 state;
+    u32 priority;
+    u32 flags;
+    u16 *iram_mmem_addr;
+    u32 iram_length;
+    u32 iram_addr;
+    u16 *dram_mmem_addr;
+    u32 dram_length;
+    u32 dram_addr;
+    u16 dsp_init_vector;
+    u16 dsp_resume_vector;
+    void (*init_cb)(void *);
+    void (*res_cb)(void *);
+    void (*done_cb)(void *);
+    void (*req_cb)(void *);
+    DSPTaskInfo_803BE554 *next;
+    DSPTaskInfo_803BE554 *prev;
+    s64 t_context;
+    s64 t_task;
+} DSPTaskInfo_803BE554;
+
+void DSPInit(void);
+void DSPAddTask(void *);
+extern u8 lbl_804F7980[];
+extern u16 lbl_805D4648;
+
+static DSPTaskInfo_803BE554 dsp_task_803BE554 __attribute__((aligned(8)));
+static u16 dram_image_803BE554[4096] __attribute__((aligned(32)));
+
+#define dsp_task dsp_task_803BE554
+#define dram_image dram_image_803BE554
+#define dspSlave lbl_804F7980
+#define dspSlaveLength lbl_805D4648
+#define salDspInitIsDone (*(volatile u32 *)&lbl_805D7500)
+
+u32 TLobby__sub_803BE554(u32 flags) {
+    dsp_task.iram_mmem_addr = (u16 *)dspSlave;
+    dsp_task.iram_length = dspSlaveLength;
+    dsp_task.iram_addr = 0;
+    dsp_task.dram_mmem_addr = (u16 *)dram_image;
+    dsp_task.dram_length = 0x2000;
+    dsp_task.dram_addr = 0;
+    dsp_task.dsp_init_vector = 0x10;
+    dsp_task.dsp_resume_vector = 0x30;
+    dsp_task.init_cb = (void (*)(void *))TLobby__sub_803BE3C4;
+    dsp_task.res_cb = (void (*)(void *))TLobby__sub_803BE3D4;
+    dsp_task.done_cb = 0;
+    dsp_task.req_cb = 0;
+    dsp_task.priority = 0;
+    DSPInit();
+    DSPAddTask(&dsp_task);
+    salDspInitIsDone = 0;
+    sound_enable_irq();
+    while (!salDspInitIsDone)
+        ;
+    sound_disable_irq();
+    return 1;
+}
+
+#undef dsp_task
+#undef dram_image
+#undef dspSlave
+#undef dspSlaveLength
+#undef salDspInitIsDone
+
 void TLobby__sub_803BE614(s32 arg0) {
     s32 temp_r31;
     update_sound_dsp_voices((void *) (arg0), (int) (TLobby__sub_803BE688()));

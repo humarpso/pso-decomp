@@ -20,7 +20,7 @@
 extern "C" {
 
 u32 TLobby__sub_803B3ED8(s32 arg0) {
-    return (u32)(lbl_805E0B90 * powf(lbl_805E0B94, lbl_805E0B98 * (f32)arg0, lbl_805E0B98));
+    return (u32)(1000.0f * powf(2.0f, 1.27156579e-08f * (f32)arg0, 1.27156579e-08f));
 }
 
 #define arg0 ((u8 *)a0)
