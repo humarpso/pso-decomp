@@ -51,6 +51,7 @@ force_active:
   - HandleReverb
   - HandleTrackEvents
   - ICEnable
+  - InitStreamBuffers
   - InitTrackEvents
   - InitTrackEventsSection
   - InsertData
@@ -262,6 +263,7 @@ force_active:
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
+  - aramQueueCallback
   - bswap_enemy_set_row_fields
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
@@ -290,6 +292,7 @@ force_active:
   - create_icon__10TObjPlayerFiii
   - create_particle_emitters__9TTecBartaFPv
   - create_particles__11TTecGiBartaFv
+  - curvecmp
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
@@ -345,6 +348,7 @@ force_active:
   - free_item_pmt
   - freeze_shell_grow
   - freeze_shell_hold
+  - fxcmp
   - gTRKMsgBufs
   - get_floor_surface_type__10TObjPlayerFPv
   - get_floor_switch_flag
@@ -388,6 +392,7 @@ force_active:
   - is_target_in_range__11TObjInfoColFf
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
+  - layercmp
   - lbl_80497710
   - lbl_80497718
   - lbl_80497758
@@ -398,6 +403,7 @@ force_active:
   - lbl_804EC724
   - load_item_pmt
   - lookup_attack_marker
+  - maccmp
   - open_buy_window__22TShopEquipmentSequenceFPv
   - open_equip_kind_list__15TWindowSubEquipFPvUi
   - open_greeting__20TShopItemTecSequenceFPv
@@ -553,6 +559,7 @@ force_active:
   - set_tev_stage_mode
   - setup_state_helper__10TObjPlayerFPv
   - shuffle_shop_pool
+  - smpcmp
   - snd_handle_irq
   - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range

@@ -78,6 +78,24 @@ static FX_GROUP_D dataFXGroups[128];
 #define dataFXGroupNum lbl_805D73DA
 extern "C" {
 
+u16 lbl_805D73D0;
+u16 lbl_805D73D2;
+u16 lbl_805D73D4;
+u16 lbl_805D73D6;
+u16 lbl_805D73D8;
+u16 lbl_805D73DA;
+s32 lbl_805D73DC;
+s32 lbl_805D73E0;
+Req_803AE60C lbl_805D73E4;
+s32 *lbl_805D73EC;
+Row_803AE4D4 *lbl_805D73F0;
+Part_803AE4D4 *lbl_805D73F4;
+Req_803AE60C lbl_805D73F8;
+s32 *lbl_805D7400;
+Req_803AE60C lbl_805D7404;
+s32 *lbl_805D740C;
+Res_803AE6DC *lbl_805D7410;
+
 #pragma push
 #pragma opt_common_subs on
 #pragma bool off

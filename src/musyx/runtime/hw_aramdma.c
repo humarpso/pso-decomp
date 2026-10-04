@@ -19,6 +19,15 @@ extern "C" {
 static ARAMTransferQueue_803BDCD0 aramQueueLo;
 static ARAMTransferQueue_803BDCD0 aramQueueHi;
 static StreamBuffer_803BDCD0 aramStreamBuffers[64];
+
+u32 lbl_805D74C8;
+s32 lbl_805D74CC;
+s32 lbl_805D74D0;
+RecoveredCallback_fa840eeea008 lbl_805D74D4;
+u32 lbl_805D74D8;
+Rec_803BE1EC *lbl_805D74DC;
+Rec_803BE1EC *lbl_805D74E0;
+Rec_803BE1EC *lbl_805D74E4;
 #define lbl_8056E158 (*(AramQueues_803BDCD0 *)&aramQueueLo)
 #define lbl_8056E3DC (*(Obj_803BDCB8 *)&aramQueueHi)
 #define lbl_8056E660 ((Rec_803BE1EC *)aramStreamBuffers)
