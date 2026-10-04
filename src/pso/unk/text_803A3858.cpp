@@ -223,8 +223,123 @@ struct SYNTH_VOICE_803B2438 {
     u8 padAC[0x404 - 0xAC];
 };
 
+typedef struct SeqInst_803A3D20 {
+    struct SeqInst_803A3D20 *next;
+    struct SeqInst_803A3D20 *prev;
+    u8 state;
+    u8 index;
+    u16 groupID;
+    u32 publicId;
+} SeqInst_803A3D20;
+
+typedef struct PAGE_803A487C { u16 macro; u8 prio; u8 maxVoices; u8 index; u8 reserved; } PAGE_803A487C;
+
+typedef struct ARR_803A487C { u32 tTab; u32 pTab; u32 tmTab; u32 mTrack; u32 info; u32 loopPoint[16]; u32 tsTab; } ARR_803A487C;
+
+typedef struct TENTRY_803A487C { u32 time; u8 prgChange; u8 velocity; u8 res[2]; u16 pattern; s8 transpose; s8 velocityAdd; } TENTRY_803A487C;
+
+typedef struct TRACK_803A487C { TENTRY_803A487C *base; TENTRY_803A487C *addr; } TRACK_803A487C;
+
+typedef struct NOTE_803A487C { struct NOTE_803A487C *next; struct NOTE_803A487C *prev; u32 id; s32 endTime; u8 section; u8 timeIndex; u8 reserved[2]; } NOTE_803A487C;
+
+typedef struct NOTE_DATA_803A487C { u16 time; u8 key; u8 velocity; u16 length; } NOTE_DATA_803A487C;
+
+typedef struct PRG_STATE_803A487C { u16 macId; u8 priority; u8 maxVoices; } PRG_STATE_803A487C;
+
+typedef struct SEQ_STREAM_803A487C { u8 *nextAddr; u16 value; s16 nextDelta; u32 nextTime; } SEQ_STREAM_803A487C;
+
+typedef struct CPAT_803A487C { u32 lTime; u32 baseTime; NOTE_DATA_803A487C *addr; TENTRY_803A487C *patternInfo; SEQ_STREAM_803A487C pitchBend; SEQ_STREAM_803A487C modulation; u8 midi; } CPAT_803A487C;
+
+typedef struct SEQ_EVENT_803A487C {
+    struct SEQ_EVENT_803A487C *next; struct SEQ_EVENT_803A487C *prev; u32 time;
+    union { TENTRY_803A487C *trackAddr; struct { NOTE_DATA_803A487C *addr; CPAT_803A487C *base; } pattern; } info;
+    u8 type; u8 trackId;
+} SEQ_EVENT_803A487C;
+
+typedef struct MTRACK_DATA_803A487C { volatile u32 time; u32 bpm; } MTRACK_DATA_803A487C;
+
+typedef struct MTRACK_803A487C { MTRACK_DATA_803A487C *base; MTRACK_DATA_803A487C *addr; } MTRACK_803A487C;
+
+typedef struct TICKS_803A487C { u32 low; s32 high; } TICKS_803A487C;
+
+typedef struct SEQ_SECTION_803A487C {
+    MTRACK_803A487C mTrack; u32 bpm; TICKS_803A487C tickDelta[2]; SEQ_EVENT_803A487C *globalEventRoot; TICKS_803A487C time[2];
+    u8 timeIndex; u16 speed; u16 loopCnt; u8 loopDisable;
+} SEQ_SECTION_803A487C;
+
+typedef struct SND_CROSSFADE_803A487C {
+    u32 seqId1; u16 time1; u32 seqId2; u16 time2; void *arr2; u16 gid2; u16 sid2; u8 vol2; u8 studio2;
+    u32 trackMute2[2]; u16 speed2; u8 flags;
+} SND_CROSSFADE_803A487C;
+
+typedef struct SEQ_INSTANCE_803A487C {
+    struct SEQ_INSTANCE_803A487C *next; struct SEQ_INSTANCE_803A487C *prev; u8 state; u8 index; u16 groupID; u32 publicId;
+    PAGE_803A487C *normtab; u8 normTrans[128]; PAGE_803A487C *drumtab; u8 drumTrans[128];
+    ARR_803A487C *arrbase; u32 trackMute[2]; TRACK_803A487C track[64]; u8 trackVolGroup[64]; CPAT_803A487C pattern[64];
+    NOTE_803A487C *noteUsed[2]; NOTE_803A487C *noteKeyOff; PRG_STATE_803A487C prgState[16]; u8 defVGroup;
+    SND_CROSSFADE_803A487C syncCrossInfo; u32 *syncSeqIdPtr; u8 syncActive; u8 defStudio; u8 keyOffCheck;
+    SEQ_EVENT_803A487C event[64]; u8 *trackSectionTab; SEQ_SECTION_803A487C section[16];
+} SEQ_INSTANCE_803A487C;
+
+typedef struct PAGE_803A49C8 { u16 macro; u8 prio; u8 maxVoices; u8 index; u8 reserved; } PAGE_803A49C8;
+
+typedef struct ARR_803A49C8 { u32 tTab; u32 pTab; u32 tmTab; u32 mTrack; u32 info; u32 loopPoint[16]; u32 tsTab; } ARR_803A49C8;
+
+typedef struct TENTRY_803A49C8 { u32 time; u8 prgChange; u8 velocity; u8 res[2]; u16 pattern; s8 transpose; s8 velocityAdd; } TENTRY_803A49C8;
+
+typedef struct TRACK_803A49C8 { TENTRY_803A49C8 *base; TENTRY_803A49C8 *addr; } TRACK_803A49C8;
+
+typedef struct NOTE_803A49C8 { struct NOTE_803A49C8 *next; struct NOTE_803A49C8 *prev; u32 id; s32 endTime; u8 section; u8 timeIndex; u8 reserved[2]; } NOTE_803A49C8;
+
+typedef struct NOTE_DATA_803A49C8 { u16 time; u8 key; u8 velocity; u16 length; } NOTE_DATA_803A49C8;
+
+typedef struct PRG_STATE_803A49C8 { u16 macId; u8 priority; u8 maxVoices; } PRG_STATE_803A49C8;
+
+typedef struct SEQ_STREAM_803A49C8 { u8 *nextAddr; u16 value; s16 nextDelta; u32 nextTime; } SEQ_STREAM_803A49C8;
+
+typedef struct CPAT_803A49C8 { u32 lTime; u32 baseTime; NOTE_DATA_803A49C8 *addr; TENTRY_803A49C8 *patternInfo; SEQ_STREAM_803A49C8 pitchBend; SEQ_STREAM_803A49C8 modulation; u8 midi; } CPAT_803A49C8;
+
+typedef struct SEQ_EVENT_803A49C8 {
+    struct SEQ_EVENT_803A49C8 *next; struct SEQ_EVENT_803A49C8 *prev; u32 time;
+    union { TENTRY_803A49C8 *trackAddr; struct { NOTE_DATA_803A49C8 *addr; CPAT_803A49C8 *base; } pattern; } info;
+    u8 type; u8 trackId;
+} SEQ_EVENT_803A49C8;
+
+typedef struct MTRACK_DATA_803A49C8 { volatile u32 time; u32 bpm; } MTRACK_DATA_803A49C8;
+
+typedef struct MTRACK_803A49C8 { MTRACK_DATA_803A49C8 *base; MTRACK_DATA_803A49C8 *addr; } MTRACK_803A49C8;
+
+typedef struct TICKS_803A49C8 { u32 low; s32 high; } TICKS_803A49C8;
+
+typedef struct SEQ_SECTION_803A49C8 {
+    MTRACK_803A49C8 mTrack; u32 bpm; TICKS_803A49C8 tickDelta[2]; SEQ_EVENT_803A49C8 *globalEventRoot; TICKS_803A49C8 time[2];
+    u8 timeIndex; u16 speed; u16 loopCnt; u8 loopDisable;
+} SEQ_SECTION_803A49C8;
+
+typedef struct SND_CROSSFADE_803A49C8 {
+    u32 seqId1; u16 time1; u32 seqId2; u16 time2; void *arr2; u16 gid2; u16 sid2; u8 vol2; u8 studio2;
+    u32 trackMute2[2]; u16 speed2; u8 flags;
+} SND_CROSSFADE_803A49C8;
+
+typedef struct SEQ_INSTANCE_803A49C8 {
+    struct SEQ_INSTANCE_803A49C8 *next; struct SEQ_INSTANCE_803A49C8 *prev; u8 state; u8 index; u16 groupID; u32 publicId;
+    PAGE_803A49C8 *normtab; u8 normTrans[128]; PAGE_803A49C8 *drumtab; u8 drumTrans[128];
+    ARR_803A49C8 *arrbase; u32 trackMute[2]; TRACK_803A49C8 track[64]; u8 trackVolGroup[64]; CPAT_803A49C8 pattern[64];
+    NOTE_803A49C8 *noteUsed[2]; NOTE_803A49C8 *noteKeyOff; PRG_STATE_803A49C8 prgState[16]; u8 defVGroup;
+    SND_CROSSFADE_803A49C8 syncCrossInfo; u32 *syncSeqIdPtr; u8 syncActive; u8 defStudio; u8 keyOffCheck;
+    SEQ_EVENT_803A49C8 event[64]; u8 *trackSectionTab; SEQ_SECTION_803A49C8 section[16];
+} SEQ_INSTANCE_803A49C8;
+
+typedef struct SeqInst_803A4D4C {
+    struct SeqInst_803A4D4C *next;
+    struct SeqInst_803A4D4C *prev;
+    u8 state;
+    u8 index;
+    u16 groupID;
+    u32 publicId;
+} SeqInst_803A4D4C;
+
 extern "C" {
-void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
 void TLobby__sub_803A4FC4(s32, s32, s32);
 void TLobby__sub_803A8DC0(u8 *arg0);
@@ -439,6 +554,23 @@ extern Rec_803A8D2C *lbl_805D73B0;
 extern Program_803B1DA4 *lbl_805D7420;
 extern u64 lbl_805D7428;
 void TLobby__sub_803B2438(void);
+extern Node_803A4964 *lbl_805D7378;
+extern Node_803A4964 *lbl_805D737C;
+u32 TLobby__sub_803A3D20(u32 seqId);
+extern Owner_803A3C24 *lbl_805D7360;
+extern u32 lbl_805D7368;
+void TLobby__sub_803A6ED0(s32 arg0, u8 arg1, u8 arg2);
+void TLobby__sub_803A487C(u8 secIndex);
+extern Slot_803A4EB8 lbl_8054AB48[];
+extern Node_803A4964 *lbl_805D7378;
+extern Node_803A4964 *lbl_805D737C;
+s32 TLobby__sub_803B3748(u32 id);
+void TLobby__sub_803A3858(Owner_803A3C24 *o);
+void TLobby__sub_803A49C8(s32 seqId);
+extern Node_803A4964 *lbl_805D7378;
+extern Node_803A4964 *lbl_805D737C;
+void TLobby__sub_803A4B7C(s32);
+void TLobby__sub_803A4D4C(u16 sgid);
 }
 
 extern "C" {
@@ -755,6 +887,46 @@ void TLobby__sub_803A3C24(Node_803A3C24 *arg0) {
     lbl_805D7364 = arg0;
 }
 
+#pragma push
+#pragma opt_common_subs on
+u32 TLobby__sub_803A3D20(u32 seqId) {
+    SeqInst_803A3D20 *si;
+    for (si = (*(SeqInst_803A3D20 * *)&lbl_805D737C); si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    for (si = (*(SeqInst_803A3D20 * *)&lbl_805D7378); si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    return 0xFFFFFFFF;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+void TLobby__sub_803A487C(u8 secIndex) {
+    SEQ_SECTION_803A487C *section;
+    section = &(*(SEQ_INSTANCE_803A487C * *)&lbl_805D7360)->section[secIndex];
+    if (section->mTrack.base != NULL) {
+        while (section->mTrack.addr->time != -1) {
+            if (section->mTrack.addr->time > section->time[section->timeIndex].high) {
+                break;
+            }
+            if (((*(SEQ_INSTANCE_803A487C * *)&lbl_805D7360)->arrbase->info & 0x40000000) != 0) {
+                TLobby__sub_803A6ED0((section->bpm = section->mTrack.addr->bpm) >> 10, lbl_805D7368, secIndex);
+            } else {
+                TLobby__sub_803A6ED0(section->mTrack.addr->bpm, lbl_805D7368, secIndex);
+                section->bpm = section->mTrack.addr->bpm << 10;
+            }
+            ++section->mTrack.addr;
+        }
+    }
+}
+#pragma pop
+
 void TLobby__sub_803A4964(Node_803A4964 *arg0) {
     if (arg0->prev != 0) {
         arg0->prev->next = arg0->next;
@@ -770,6 +942,89 @@ void TLobby__sub_803A4964(Node_803A4964 *arg0) {
     arg0->prev = 0;
     lbl_805D7378 = arg0;
     arg0->state = 2;
+}
+
+struct Owner_803A3C24;
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline u32 seqGetPrivateId_803A49C8(u32 seqId) {
+    SEQ_INSTANCE_803A49C8 *si;
+    for (si = (*(SEQ_INSTANCE_803A49C8 * *)&lbl_805D737C); si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    for (si = (*(SEQ_INSTANCE_803A49C8 * *)&lbl_805D7378); si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    return 0xFFFFFFFF;
+}
+static inline void StartPause_803A49C8(SEQ_INSTANCE_803A49C8 *si) {
+    if (si->prev != NULL) {
+        si->prev->next = si->next;
+    } else {
+        (*(SEQ_INSTANCE_803A49C8 * *)&lbl_805D737C) = si->next;
+    }
+    if (si->next != NULL) {
+        si->next->prev = si->prev;
+    }
+    if ((si->next = (*(SEQ_INSTANCE_803A49C8 * *)&lbl_805D7378)) != NULL) {
+        (*(SEQ_INSTANCE_803A49C8 * *)&lbl_805D7378)->prev = si;
+    }
+    si->prev = NULL;
+    (*(SEQ_INSTANCE_803A49C8 * *)&lbl_805D7378) = si;
+    si->state = 2;
+}
+static inline void KillNotes_803A49C8(SEQ_INSTANCE_803A49C8 *seq) {
+    NOTE_803A49C8 *n;
+    u32 i;
+    for (i = 0; i < 2; ++i) {
+        for (n = seq->noteUsed[i]; n != NULL; n = n->next) {
+            TLobby__sub_803B3748(n->id);
+        }
+    }
+    for (n = seq->noteKeyOff; n != NULL; n = n->next) {
+        TLobby__sub_803B3748(n->id);
+    }
+}
+void TLobby__sub_803A49C8(s32 seqId) {
+    SEQ_INSTANCE_803A49C8 *si;
+    seqId = seqGetPrivateId_803A49C8(seqId);
+    if (seqId == 0xFFFFFFFF) {
+        return;
+    }
+    if ((seqId & 0x80000000) == 0) {
+        si = &((SEQ_INSTANCE_803A49C8 *)&lbl_8054AB48)[seqId];
+        if (si->state == 1) {
+            StartPause_803A49C8(si);
+            KillNotes_803A49C8(si);
+            TLobby__sub_803A3858((Owner_803A3C24 *)si);
+        }
+    } else {
+        si = &((SEQ_INSTANCE_803A49C8 *)&lbl_8054AB48)[seqId & ~0x80000000];
+        if (si->state != 0) {
+            si->syncCrossInfo.flags |= 8;
+        }
+    }
+}
+#pragma pop
+
+void TLobby__sub_803A4D4C(u16 sgid) {
+    SeqInst_803A4D4C *si;
+    for (si = (*(SeqInst_803A4D4C * *)&lbl_805D737C); si != NULL; si = si->next) {
+        if (si->groupID == sgid) {
+            TLobby__sub_803A4B7C(si->publicId);
+        }
+    }
+    for (si = (*(SeqInst_803A4D4C * *)&lbl_805D7378); si != NULL; si = si->next) {
+        if (si->groupID == sgid) {
+            TLobby__sub_803A4B7C(si->publicId);
+        }
+    }
 }
 
 void TLobby__sub_803A4DDC(u32 id, s16 v) {
@@ -1024,7 +1279,7 @@ void TLobby__sub_803A8DC0(u8 *arg0) {
         TLobby__sub_803A4B7C(((Fields_arg0*)arg0)->field_28);
         return;
     case 2:
-        TLobby__sub_803A49C8(((Fields_arg0*)arg0)->field_28);
+        TLobby__sub_803A49C8((s32)(((Fields_arg0*)arg0)->field_28));
         return;
     case 3:
         TLobby__sub_803A4FC4(((Fields_arg0*)arg0)->field_28, 0, 0);
