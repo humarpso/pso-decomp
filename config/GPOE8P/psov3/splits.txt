@@ -469,6 +469,7 @@ pso/boss/TBoss3Volopt_80040F7C.cpp:
 
 pso/unk/text_80040FDC.cpp:
 	.text       start:0x80040FDC end:0x800410EC
+	.sdata2     start:0x805D8700 end:0x805D8710
 
 pso/boss/TBoss3VoloptHiraisin_800410EC.cpp:
 	.text       start:0x800410EC end:0x8004155C
@@ -604,6 +605,8 @@ pso/unk/text_8004D9A8.cpp:
 
 pso/unk/text_8004DA7C.cpp:
 	.text       start:0x8004DA7C end:0x8004DE44
+	.data       start:0x80485460 end:0x80485550
+	.sdata2     start:0x805D896C end:0x805D8988
 
 pso/unk/text_8004DE44.cpp:
 	.text       start:0x8004DE44 end:0x8004DEE0
@@ -884,6 +887,7 @@ pso/misc/TCameraCtrl_8006A9F0.cpp:
 
 pso/misc/TCameraCtrl.cpp:
 	.text       start:0x8006AB4C end:0x8006B3D8
+	.data       start:0x80488A58 end:0x80488AC0
 	.bss        start:0x804FF5E8 end:0x804FF610
 
 pso/misc/TCameraCtrl_8006B3D8.cpp:
@@ -1736,6 +1740,7 @@ pso/enemy/TObjEneBalClawClaw_80090DD0.cpp:
 pso/enemy/TObjEneBalClawClaw.cpp:
 	.text       start:0x800914A8 end:0x800922E4
 	.data       start:0x8048F294 end:0x8048F2C8
+	.sdata2     start:0x805D96A0 end:0x805D96D0
 
 pso/enemy/TObjEneBeast.cpp:
 	.text       start:0x800922E4 end:0x80092A7C
@@ -2315,7 +2320,7 @@ pso/object/TObjGyaranzoMissile.cpp:
 pso/enemy/TObjEneMerillLia.cpp:
 	.text       start:0x800D4D70 end:0x800D72A4
 	.rodata     start:0x8043C6E0 end:0x8043C6F8
-	.data       start:0x804948C4 end:0x80494934
+	.data       start:0x804944D0 end:0x80494934
 
 pso/enemy/TObjEneMe3SinowZoa_800D72A4.cpp:
 	.text       start:0x800D72A4 end:0x800D74C4
@@ -6555,6 +6560,7 @@ pso/misc/TOTrap_801792AC.cpp:
 pso/misc/TOTrapAncient01.cpp:
 	.text       start:0x8017939C end:0x8017A20C
 	.rodata     start:0x80442E68 end:0x80442E70
+	.data       start:0x804B4A1C end:0x804B4A78
 	.sdata2     start:0x805DBA48 end:0x805DBA74
 
 pso/misc/TOTrapAncient02R.cpp:
@@ -8794,6 +8800,7 @@ pso/player/TObjPlayer_802034EC.cpp:
 pso/misc/TScene_80203510.cpp:
 	.text       start:0x80203510 end:0x80205A54
 	.rodata     start:0x8044A928 end:0x8044A938
+	.sbss       start:0x805D6034 end:0x805D6050
 	.sdata2     start:0x805DC5D4 end:0x805DC5D8
 
 pso/misc/TScene_80205A54.cpp:
@@ -10417,7 +10424,7 @@ pso/misc/TWindowKeyBoardHard_8026038C.cpp:
 pso/misc/TKeyBoardControl.cpp:
 	.text       start:0x80260450 end:0x8026262C
 	.rodata     start:0x8044F258 end:0x8044F260
-	.sdata2     start:0x805DD078 end:0x805DD094
+	.sdata2     start:0x805DD078 end:0x805DD0C8
 
 pso/misc/TWindowKeyBoardSoft_80261440_8026262C.cpp:
 	.text       start:0x8026262C end:0x802626E8
@@ -11396,8 +11403,9 @@ pso/object/TObjCMName.cpp:
 	.text       start:0x802948F4 end:0x80298F38
 	.ctors      start:0x80433FC0 end:0x80433FC4
 	.rodata     start:0x80465140 end:0x80465150
-	.data       start:0x804DBD30 end:0x804DBD48
-	.sdata2     start:0x805DDA6C end:0x805DDBBC
+	.data       start:0x804DB950 end:0x804DBD48
+	.sbss       start:0x805D65A0 end:0x805D65A8
+	.sdata2     start:0x805DDA6C end:0x805DDC20
 
 pso/misc/TChCrEffCtrlPl.cpp:
 	.text       start:0x80298F38 end:0x80298F8C
@@ -13091,7 +13099,7 @@ pso/player/TObjPlayer_803130BC.cpp:
 
 pso/enemy/TObjEneDelDepthBomb.cpp:
 	.text       start:0x80313268 end:0x80315AD8
-	.rodata     start:0x80475DD8 end:0x80475DE0
+	.rodata     start:0x80475DD8 end:0x80475DE8
 	.sdata2     start:0x805DF250 end:0x805DF268
 
 pso/enemy/TObjEneDelDepth_80315AD8.cpp:
@@ -13128,6 +13136,7 @@ pso/enemy/TObjEneMe3SinowZoa_80317828.cpp:
 pso/enemy/TObjEneMe3SinowZoa.cpp:
 	.text       start:0x8031786C end:0x8031B124
 	.data       start:0x804E87A8 end:0x804E8B88
+	.sdata2     start:0x805DF35C end:0x805DF368
 
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp:
 	.text       start:0x8031B124 end:0x8031B170

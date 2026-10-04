@@ -197,6 +197,50 @@ struct VObj_18_a8c792 : VBase_18_a8c792 {
 
 struct Self_80179F40 { u8 pad[0x358]; u8 arr[4][0x1C]; };
 
+struct VBase_801797D4 { char pad[0x18]; };
+
+struct VObj_801797D4 : VBase_801797D4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20(s32, f32);
+    virtual void m21(void *, void *, s32, s32, s32);
+    virtual void m22();
+    virtual void m23(void *, f32);
+};
+
+struct Ent_801797D4 { u8 pad[0xC]; f32 fC; };
+
+struct Pair_801797D4 { s32 a; s32 b; };
+
+struct Trap_801797D4 : VObj_801797D4 {
+    u8 pad1C[0xA4 - 0x1C];
+    Ent_801797D4 *fA4;
+    u8 padA8[0x2A8 - 0xA8];
+    s32 f2A8;
+    u8 pad2AC[0x344 - 0x2AC];
+    Pair_801797D4 f344;
+    u8 pad34C[0x354 - 0x34C];
+    f32 f354;
+};
+
 extern "C" {
 void TOTrap__sub_80178F54(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
@@ -249,6 +293,21 @@ extern const f32 lbl_805DBA54;
 extern const f32 lbl_805DBA6C;
 extern const f32 lbl_805DBA74;
 void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2);
+void calc_attach_pos__10TObjPlayerFPv(void *);
+void set_indexed_flags(void *, int, int);
+void init_all_slots__10TObjPlayerFv(void);
+void check_object_collisions__10TObjPlayerFPv(void *);
+VObj_801797D4 *get_battle_param__10TObjPlayerFi(s32);
+s32 obj_is_hit_receivable(void *);
+s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
+void submit_cursor_candidate(void *, s32);
+u32 get_global_state__14TOKeyMachine01Fv(void);
+void play_persistent_sound(s32, void *, void *, s32, s32);
+extern s32 lbl_805D3530;
+extern const f32 lbl_805DBA48;
+extern const f32 TOTrapAncient01__data_805DBA4C;
+extern const f32 lbl_805DBA54;
+void TOTrapAncient01__vt80(Trap_801797D4 *self);
 }
 
 extern "C" {
@@ -316,6 +375,87 @@ void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0) {
 void TOTrapAncient01__vt82(void) {  }
 
 extern void *tl_05;
+
+void TOTrapAncient01__vt80(Trap_801797D4 *self) {
+    s32 i;
+    VObj_801797D4 *p;
+    calc_attach_pos__10TObjPlayerFPv(self);
+    self->f354 -= lbl_805DBA48;
+    if (self->f354 < TOTrapAncient01__data_805DBA4C) {
+        self->fA4->fC = lbl_805DBA54;
+        set_indexed_flags(self, 0, 0x100);
+        init_all_slots__10TObjPlayerFv();
+        check_object_collisions__10TObjPlayerFPv(self);
+        for (i = 0; i < 16; i++) {
+            p = get_battle_param__10TObjPlayerFi(i);
+            if (p == 0) {
+                break;
+            }
+            if (obj_is_hit_receivable(p) == 0) {
+                break;
+            }
+            if (check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D3530) == 0) {
+                break;
+            }
+            {
+            Pair_801797D4 v = self->f344;
+            p->m21(self, &v, 0, -1, -1);
+            }
+            if (self->f344.a < 5) {
+                p->m23(self, TOTrapAncient01__data_805DBA4C);
+            }
+        }
+        self->m20(self->f2A8, lbl_805DBA48);
+    }
+    submit_cursor_candidate(self, -1);
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 8:
+    case 9:
+    case 10:
+        play_persistent_sound(0x4004C618, self, (u8 *)self + 0x38, 0, 0);
+        break;
+    case 21:
+    case 22:
+        play_persistent_sound(0x4004C610, self, (u8 *)self + 0x38, 0, 0);
+        break;
+    case 0:
+        return;
+    case 1:
+        break;
+    case 2:
+        return;
+    case 3:
+        break;
+    case 4:
+        return;
+    case 5:
+        break;
+    case 6:
+        return;
+    case 7:
+        break;
+    case 11:
+        break;
+    case 12:
+        return;
+    case 13:
+        break;
+    case 14:
+        return;
+    case 15:
+        break;
+    case 16:
+        return;
+    case 17:
+        break;
+    case 18:
+        return;
+    case 19:
+        break;
+    case 20:
+        return;
+    }
+}
 
 void *create__15TOTrapAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3C8);

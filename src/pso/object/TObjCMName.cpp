@@ -45,6 +45,29 @@ struct Menu_80297B18 {
 
 struct Pair_80297B18 { s32 a, b; };
 
+class Menu_802987AC {
+public:
+    void s0();
+    void s1();
+    void s2();
+    void s3();
+    void s4();
+    void s5();
+    void s6();
+    u8 pad0[0x24];
+    s32 *f24;
+    u8 pad28[4];
+    s32 f2c;
+    u8 pad30[4];
+    s32 f34;
+    u8 pad38[0x4C - 0x38];
+    s32 f4c;
+    void *f50;
+    f32 f54;
+};
+
+typedef void (Menu_802987AC::*MenuFn_802987AC)();
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -84,6 +107,14 @@ extern const f32 lbl_805DDBA4;
 extern const f32 lbl_805DDBA8;
 extern const f32 lbl_805DDBAC;
 void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m);
+M2C_UNK run_tasks__7TObjectFv(void *);
+M2C_UNK request_creation_motion(int);
+s32 TAdSinglePlyChrSelectGC__sub_802905B8();
+M2C_UNK TObjCMMainMenu__sub_80298314(void *);
+M2C_UNK TObjCMMainMenu__sub_802983A0(void *);
+M2C_UNK reset_proportions__15TChCrCharSelectFv();
+M2C_UNK rand();
+extern const f32 lbl_805DDC10;
 }
 
 extern "C" {
@@ -410,12 +441,10 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 
 extern const f32 TObjCMAssignMenu__data_805DDB20;
-extern RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 TObjCMMainMenu__data_804DB9C8;
 extern s32 TObjCMMainMenu__data_805D659C;
 extern const f32 TObjCMMainMenu__data_805DDC00;
 extern M2C_UNK __vt__10TObjCMName[];
 extern u8 __vt__14TObjCMHairMenu[];
-extern Pair_80298B70 __vt__14TObjCMMainMenu[];
 extern void *__vt__16TObjCMAssignMenu[];
 extern M2C_UNK __vt__16TObjCMAutoMkData[];
 extern M2C_UNK __vt__16TObjCMProportion[];
@@ -486,6 +515,60 @@ extern const f32 lbl_805DDBFC;
 extern const f32 lbl_805DDC04;
 extern const f32 lbl_805DDC08;
 extern const f32 lbl_805DDC0C;
+
+extern "C" u8 lbl_805D3CD4[];
+extern void *lbl_804DBA68[8];
+extern void *lbl_804DBA88[6];
+extern void *lbl_804DBAA0[2];
+extern void *lbl_804DBAA8[3];
+extern void *lbl_804DBAB4[5];
+void *TObjCMMainMenu__data_804DB950[30] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0,
+    (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0, (void *)0xffffffff,
+    (void *)&open_hair_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C,
+    (void *)0x0, (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0,
+    (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0, (void *)0xffffffff,
+    (void *)&open_proportion_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff, (void *)&open_name_menu__14TObjCMMainMenuFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&open_auto_mk_menu__14TObjCMMainMenuFPv, (void *)0x0,
+    (void *)0xffffffff, (void *)&confirm_selection__14TObjCMMainMenuFPv,
+};
+void *TObjCMMainMenu__data_804DB9C8[40] = {
+    (void *)0x3, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x1, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x1, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804DBA68[8] = {
+    (void *)0x1, (void *)0x2, (void *)0x3, (void *)0x4,
+    (void *)0x6, (void *)0x7, (void *)0x8, (void *)0x9,
+};
+void *lbl_804DBA88[6] = {
+    (void *)0x0, (void *)0x5, (void *)0x6, (void *)0x7,
+    (void *)0x8, (void *)0x9,
+};
+__declspec(section ".data") void *lbl_804DBAA0[2] = {
+    (void *)0x7, (void *)0x9,
+};
+void *lbl_804DBAA8[3] = {
+    (void *)0x2, (void *)0x3, (void *)0x9,
+};
+void *lbl_804DBAB4[5] = {
+    (void *)0x0, (void *)0x5, (void *)0x9, (void *)0x7,
+    (void *)0x9,
+};
+void *__vt__14TObjCMMainMenu[12] = {
+    (void *)0x8, (void *)&lbl_804DBA68, (void *)0x6, (void *)&lbl_804DBA88,
+    (void *)0x2, (void *)&lbl_804DBAA0, (void *)0x3, (void *)&lbl_804DBAA8,
+    (void *)0x3, (void *)&lbl_804DBAB4, (void *)0x1, (void *)&lbl_805D3CD4,
+};
+#define TObjCMMainMenu__data_804DB9C8 (*(RecoveredGlobal_8029756C_TObjCMMainMenu__data_804DB9C8 *)TObjCMMainMenu__data_804DB9C8)
+#define __vt__14TObjCMMainMenu ((Pair_80298B70 *)__vt__14TObjCMMainMenu)
 
 int TObjCMName__sub_802948F4(void) { return 0; }
 
@@ -1690,6 +1773,75 @@ void TObjCMMainMenu__handle_creation_input(u8 *arg0) {
         }
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void run_task__14TObjCMMainMenuFv(Menu_802987AC *arg0) {
+    f32 sp8;
+
+    reset_proportions__15TChCrCharSelectFv();
+    rand();
+    ((void (*)(void *, int))update_menu_reveal__14TObjCMMainMenuFv)(arg0, arg0->f34++);
+    ((void (*)(void *))update_submenu_fade__14TObjCMMainMenuFv)(arg0);
+    TObjCMMainMenu__sub_802983A0(arg0);
+    static MenuFn_802987AC table[7] = {
+        &Menu_802987AC::s0, &Menu_802987AC::s1, &Menu_802987AC::s2,
+        &Menu_802987AC::s3, &Menu_802987AC::s4, &Menu_802987AC::s5,
+        &Menu_802987AC::s6,
+    };
+    (arg0->*table[TObjCMMainMenu__data_805D659C])();
+    lbl_805D6598 = arg0->f24[arg0->f2c];
+    TObjCMMainMenu__sub_80298314(arg0);
+    ((void (*)(void *))TObjCMMainMenu__sub_80298310)(arg0);
+    switch (TObjCMMainMenu__data_805D659C) {
+    case 4:
+    case 6:
+        if (arg0->f54 > lbl_805DDA90) {
+            f32 v = arg0->f54 + lbl_805DDC10;
+            arg0->f54 = v;
+            if (v < lbl_805DDA90) {
+                arg0->f54 = lbl_805DDA90;
+            }
+        }
+        break;
+    default:
+        if (is_active__23TAdSinglePlyChrSelectGCFv() != 0 && TAdSinglePlyChrSelectGC__sub_802905B8() != 0) {
+            if (arg0->f54 < 1.0f) {
+                f32 step = 0.083333336f;
+                if (arg0->f54 > 0.5833333f) {
+                    step *= -0.8f * ((arg0->f54 - 0.5833333f) / 0.4166667f) + 1.0f;
+                }
+                f32 v = (arg0->f54 += step);
+                if (v > 1.0f) {
+                    arg0->f54 = 1.0f;
+                }
+            }
+        } else {
+            arg0->f54 = lbl_805DDA90;
+        }
+        break;
+    }
+    set_speed__14TObjCMMainMenuFf(lbl_805DDB00 * (lbl_805DDA70 - arg0->f54));
+    ((void (*)(int, f32 *))get_creation_pad_stick)(0, &sp8);
+    if (sp8 > lbl_805DDA90 || TObjCMProportion__sub_8029914C(0xF0) != 0) {
+        if (arg0->f4c > 0) {
+            request_creation_motion(0);
+        }
+        arg0->f4c = 0;
+    } else {
+        arg0->f4c++;
+        if (arg0->f4c == 0x384) {
+            request_creation_motion(1);
+        } else if (arg0->f4c == 0x546) {
+            request_creation_motion(2);
+        } else if (arg0->f4c > 0x546) {
+            arg0->f4c = 0x546;
+        }
+    }
+    run_tasks__7TObjectFv(arg0->f50);
+    ((void (*)(void *))fn_802972C0)(arg0);
+}
+#pragma pop
 
 void *create__14TObjCMMainMenuFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x58);

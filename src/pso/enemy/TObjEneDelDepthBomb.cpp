@@ -57,6 +57,8 @@ struct Obj_80314758 {
     Vec_80314758 dir;
 };
 
+typedef struct Vec_803142DC { f32 x; f32 y; f32 z; } Vec_803142DC;
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_80018780(void *, u16, void *);
@@ -118,6 +120,20 @@ extern const f32 lbl_805DF2A4;
 extern const f32 lbl_805DF2A8;
 extern const f32 lbl_805DF2AC;
 void TObjEneDelDepth__sub_80314758(Obj_80314758 *arg0);
+u16 find_nearest_visible_player(void *, int, f32);
+M2C_UNK TObjPlayer__sub_80018780(void *, u16, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+u8 *get_bml_motion(s32, s32);
+s32 angle_difference_abs(s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
+int TObjEneDelDepth__sub_80316488(void*, void*);
+f32 sin_table_lookup(s32);
+extern const f64 TObjEneDelDepth__data_80475DD0;
+extern u8 *TObjEneDelDepth__data_805D6AC4;
+extern const float TObjEneDelDepth__data_805DF258;
+extern const f32 TObjEneDelDepth__data_805DF298;
+extern const f32 lbl_805DF29C;
+void TObjEneDelDepth__sub_803142DC(u8 *arg0);
 }
 
 extern "C" {
@@ -693,6 +709,10 @@ s32 TObjEneDelDepth__sub_80315380(Obj_80315380 *arg0);
 void TObjEneDelDepth__sub_803154A8(Ene_803154A8 *o, s32 i);
 }
 
+extern "C" {
+void TObjEneDelDepth__sub_803154A8(Ene_803154A8 *o, s32 i);
+}
+
 int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
 
 #pragma push
@@ -1125,6 +1145,52 @@ void init_depth__15TObjEneDelDepthFPv(void *arg0) {
     TObjEneDelDepth__sub_80316488((void*)(M2C_FIELD(arg0, s32 *, 0x37C)), (void*)(0));
     ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(arg0), (void*)(2));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEneDelDepth__sub_803142DC(u8 *arg0) {
+    Vec_803142DC v;
+    Vec_803142DC w;
+    f32 f;
+    s32 lim;
+    u16 id;
+    f = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x394));
+    if (f < TObjEneDelDepth__data_805DF258) {
+        f = TObjEneDelDepth__data_805DF258;
+    }
+    M2C_FIELD(arg0, s32 *, 0x60) = (s32)(f * (f32)M2C_FIELD(arg0, s32 *, 0x3BC) + (f32)M2C_FIELD(arg0, s32 *, 0x60));
+    if (M2C_FIELD(arg0, s32 *, 0x3C4) == 0xFFFF) {
+        id = find_nearest_visible_player(arg0, (int)&v, lbl_805DF29C);
+        if (id != 0xFFFF && angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z))) < 0x1C71) {
+            M2C_FIELD(arg0, s32 *, 0x394) = 0;
+            M2C_FIELD(arg0, s32 *, 0x3C4) = id;
+        }
+    }
+    M2C_FIELD(arg0, s32 *, 0x394) -= 0x600;
+    if (M2C_FIELD(arg0, s32 *, 0x394) <= 0) {
+        u32 n = *(u32 *)(get_bml_motion((*(s32 *)&TObjEneDelDepth__data_805D6AC4), 0xB) + 4);
+        lim = (s32)((f32)n / TObjEneDelDepth__data_805DF298);
+        M2C_FIELD(arg0, s32 *, 0x394) = 0;
+        if (M2C_FIELD(arg0, s32 *, 0x3C4) != 0xFFFF) {
+            w.x = 1.0f;
+            w.y = 0.0f;
+            w.z = 0.0f;
+            TObjPlayer__sub_80018780(arg0, (u16)M2C_FIELD(arg0, s32 *, 0x3C4), &w);
+            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneDelDepth__data_80475DD0 * get_ad_end_text_start__10TObjPlayerFv(w.x, w.z)), 0x280);
+        }
+        if (M2C_FIELD(arg0, s32 *, 0x384) > lim) {
+            TObjEneDelDepth__sub_80316488((void *)M2C_FIELD(arg0, s32 *, 0x37C), (void *)0);
+            M2C_FIELD(arg0, s32 *, 0x384) = lim;
+        } else if (--M2C_FIELD(arg0, s32 *, 0x384) <= 0) {
+            if (M2C_FIELD(arg0, s32 *, 0x3C4) == 0xFFFF) {
+                TObjEneDelDepth__sub_803154A8((Ene_803154A8 *)(arg0), (s32)(5));
+            } else {
+                TObjEneDelDepth__sub_803154A8((Ene_803154A8 *)(arg0), (s32)(8));
+            }
+        }
+    }
+}
+#pragma pop
 
 void TObjEneDelDepth__sub_80314500(u8 *arg0) {
   *((s32 *) (((s8 *) arg0) + 0x3C4)) = 0xFFFF;

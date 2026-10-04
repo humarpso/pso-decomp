@@ -4,6 +4,32 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pkt_804249F0 {
+    u8 f0;
+    u8 f1;
+    u8 f2;
+    u8 pad3;
+    u8 f4[4];
+    u8 pad8[0x10 - 0x8];
+    u32 f10;
+    u8 pad14[0x1C - 0x14];
+    u8 f1C[6];
+    u8 pad22[0xEC - 0x22];
+    u8 opts[4];
+};
+
+struct G_804249F0 {
+    u8 pad0[0x5DC];
+    u8 buf[0xBB8 - 0x5DC];
+    Pkt_804249F0 pkt;
+};
+
+struct Arg_804249F0 {
+    u8 pad0[2];
+    s16 len;
+    void *p;
+};
+
 struct RecoveredGlobal_80428374_lbl_805D0A40 {
     M2C_UNK value;
     u8 remaining[0x5C];
@@ -337,6 +363,13 @@ extern Ent_804253F8 lbl_805C30C0[0x20];
 void TLobby__sub_804253F8(u32 arg0);
 extern Ent_804253F8 lbl_805C30C0[0x20];
 u8 *TLobby__sub_80425870(s32 arg0);
+extern G_804249F0 lbl_805C1E00;
+extern s32 lbl_805D7B0C;
+extern s32 lbl_805D7B10;
+extern u8 lbl_805D7B1C[6];
+extern u32 lbl_805D7B28;
+extern u8 lbl_805D7B4C[4];
+extern u8 lbl_805D7B50[4];
 }
 
 extern "C" {
@@ -437,6 +470,72 @@ s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3) {
     }
     return 0;
 }
+
+#pragma push
+#pragma opt_propagation off
+s32 TLobby__sub_804249F0(s16 arg0, Arg_804249F0 *arg1) {
+    s32 TLobby__sub_80424830(u8 *p, u8 tag, u8 **out);
+    G_804249F0 *g = &lbl_805C1E00;
+    Pkt_804249F0 *pk;
+    u8 *q;
+    u8 *p;
+
+    if (arg0 == 0) {
+        arg1->p = &g->pkt;
+        return 0;
+    }
+    pk = &g->pkt;
+    q = pk->opts;
+    if (pk->f0 != 2 || pk->f1 != 1 || pk->f2 != 6) {
+        return 0;
+    }
+    if (TLobby__sub_803F9EC4(pk->f4, lbl_805D7B50, 4) != 0) {
+        return 0;
+    }
+    if (TLobby__sub_803F9EC4(pk->f1C, lbl_805D7B1C, 6) != 0) {
+        return 0;
+    }
+    if (TLobby__sub_803F9EC4(q, lbl_805D7B4C, 4) != 0) {
+        return 0;
+    }
+    if (lbl_805D7B0C != 2) {
+        return 0;
+    }
+    switch (lbl_805D4820) {
+    case 3:
+        break;
+    case 1:
+        if (lbl_805D7B10 == 0 && TLobby__sub_80424830(q, 0x35, &p) == 1 && *p == 2 &&
+            TLobby__sub_80424830(q, 0x36, &p) == 4) {
+            TLobby__sub_80425288(0xE, 4, p);
+            lbl_805D7B28 = pk->f10;
+            lbl_805D7B10 = 1;
+        }
+        break;
+    case 2:
+        if (lbl_805D7B10 == 0 && TLobby__sub_80424830(q, 0x35, &p) == 1 && *p == 5) {
+            TLobby__sub_803F9F04(g->buf, pk, arg1->len);
+            lbl_805D7B10 = 1;
+        }
+        break;
+    case 4:
+        if (lbl_805D7B10 == 0 && TLobby__sub_80424830(q, 0x35, &p) == 1 && *p == 5 &&
+            lbl_805D7B28 == pk->f10) {
+            TLobby__sub_803F9F04(g->buf, pk, arg1->len);
+            lbl_805D7B10 = 1;
+        }
+        break;
+    case 5:
+        if (lbl_805D7B10 == 0 && TLobby__sub_80424830(q, 0x35, &p) == 1 && *p == 5 &&
+            lbl_805D7B28 == pk->f10) {
+            TLobby__sub_803F9F04(g->buf, pk, arg1->len);
+            lbl_805D7B10 = 1;
+        }
+        break;
+    }
+    return 0;
+}
+#pragma pop
 
 void TLobby__sub_80424CA8(void) {
     TLobby__sub_80419DDC(TLobby__sub_80423298);

@@ -711,6 +711,39 @@ void init_attack_state2__14TObjEnePanarmsFPv(void* a0) {
     set_field_b8__14TObjEnePanarmsFPvs((void*)(a0), (int)(3));
 }
 
+void TObjEnePanarms__sub_800E055C(u8 *arg0) {
+    Vec_800E18B0 v;
+    s32 t;
+    f32 sp;
+
+    t = M2C_FIELD(arg0, s32 *, 0x3B4) - 1;
+    M2C_FIELD(arg0, s32 *, 0x3B4) = t;
+    if (t > 0) {
+        if ((M2C_FIELD(arg0, f32 *, 0x3B0) += -0.075f) < -1.0f) {
+            M2C_FIELD(arg0, f32 *, 0x3B0) = -1.0f;
+        }
+    } else {
+        if ((M2C_FIELD(arg0, f32 *, 0x3B0) += 0.025f) >= 0.0f) {
+            M2C_FIELD(arg0, f32 *, 0x3B0) = 0.0f;
+            TObjEnePanarms__sub_800E1C98(arg0, 2);
+            return;
+        }
+    }
+    v.x = M2C_FIELD(arg0, f32 *, 0x3B0) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    v.z = M2C_FIELD(arg0, f32 *, 0x3B0) * cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
+    v.y = 0.0f;
+    ((void (*)(void *, Vec_800E18B0 *))TObjEnePanarms__sub_800E18B0)(arg0, &v);
+    if (((s32 (*)(void *))is_below_half_hp__14TObjEnePanarmsFPv)(arg0) != 0) {
+        TObjEnePanarms__sub_800E1C98(arg0, 0xC);
+        return;
+    }
+    if (((s32 (*)(void *))check_can_attack__14TObjEnePanarmsFPv)(arg0) != 0) {
+        TObjEnePanarms__sub_800E1C98(arg0, 0x10);
+        return;
+    }
+    TObjEnePanarms__sub_800E15B4(arg0);
+}
+
 void init_action__14TObjEnePanarmsFPv(void* a0) {
     void* t = *(void**)((char*)a0 + 0x37c);
     *(int*)((char*)t + 0x18) = (*(int*)((char*)t + 0x18) | 0x1);

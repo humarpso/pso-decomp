@@ -4,6 +4,22 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct UV_80262038 {
+    f32 u;
+    f32 v;
+};
+
+struct Quad_80262038 {
+    f32 x;
+    f32 y;
+    f32 x2;
+    f32 y2;
+    f32 u;
+    f32 v;
+    f32 u2;
+    f32 v2;
+};
+
 extern "C" {
 
 struct RecoveredGlobal_80260808_lbl_8050E208 {
@@ -91,6 +107,12 @@ extern void *lbl_805D53A0;
 extern s32 lbl_805D5544;
 extern const f32 lbl_805DD084;
 extern const f32 lbl_805DD08C;
+void apply_context_transform_to_rect(void *, void *);
+void draw_textured_quad_at_depth(void *, f32);
+void set_constant_material_color(u32);
+extern UV_80262038 lbl_8044F14C[];
+extern const f32 TWindowKeyBoardSoft__data_805DD090;
+extern const f32 lbl_805DD0C8;
 
 void calc_cursor_step__19TWindowKeyBoardSoftFiPvPv(s32 arg0, s32 *arg1, s32 *arg2) {
     switch ((s32) lbl_805D5544) {
@@ -353,6 +375,65 @@ void TWindowKeyBoardSoft__sub_802615B8(u8 *arg0, s32 arg1, s32 arg2) {
 }
 extern int fold_flush_8;
 #pragma pop
+
+void TWindowKeyBoardSoft__sub_80262038(void *self, f32 *rect, u32 color, s32 idx, f32 x0, f32 y, f32 w, f32 scale) {
+    Quad_80262038 q;
+    f32 v;
+    f32 y2;
+    f32 x2;
+    f32 x3;
+    f32 x4;
+    UV_80262038 *uv;
+
+    v = ((f32 (*)(void *, f32, f32, f32, f32))TWindowKeyBoardSoft__sub_802614DC)(self, x0, y, w, 20.0f);
+    if (v <= TWindowKeyBoardSoft__data_805DD090) {
+        return;
+    }
+    if (v < TWindowKeyBoardSoft__data_805DD078) {
+        color = ((u32)(lbl_805DD0C8 * v) << 24) | (color & 0x00FFFFFF);
+    }
+    x0 += rect[0];
+    y += rect[1];
+    uv = &lbl_8044F14C[idx];
+    set_constant_material_color(color);
+    x2 = 10.0f + x0;
+    y2 = 20.0f + y;
+    q.x = x0;
+    q.y = y;
+    q.x2 = x2;
+    q.y2 = y2;
+    q.u = uv->u / 256.0f;
+    q.v = uv->v / 256.0f;
+    q.u2 = (10.0f + uv->u) / 256.0f;
+    q.v2 = (20.0f + uv->v) / 256.0f;
+    apply_context_transform_to_rect(rect, &q);
+    draw_textured_quad_at_depth(&q, scale);
+    x3 = x0 + w;
+    x4 = x3 - 10.0f;
+    q.x = x4;
+    q.y = y;
+    q.x2 = x3;
+    q.y2 = y2;
+    q.u = (10.0f + uv->u) / 256.0f;
+    q.v = uv->v / 256.0f;
+    q.u2 = (20.0f + uv->u) / 256.0f;
+    q.v2 = (20.0f + uv->v) / 256.0f;
+    apply_context_transform_to_rect(rect, &q);
+    draw_textured_quad_at_depth(&q, scale);
+    if (w <= 20.0f) {
+        return;
+    }
+    q.x = x2;
+    q.y = y;
+    q.x2 = x4;
+    q.y2 = y2;
+    q.u = (10.0f + uv->u) / 256.0f;
+    q.v = uv->v / 256.0f;
+    q.u2 = (10.0f + uv->u) / 256.0f;
+    q.v2 = (20.0f + uv->v) / 256.0f;
+    apply_context_transform_to_rect(rect, &q);
+    draw_textured_quad_at_depth(&q, scale);
+}
 
 void TWindowKeyBoardSoft__sub_802625D4(s32 arg0) {
     s32 temp_r3;

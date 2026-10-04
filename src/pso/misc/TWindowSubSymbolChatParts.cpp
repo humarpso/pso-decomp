@@ -10,9 +10,36 @@ struct Stack_80285274 {
     f32 spC;
 };
 
+struct Win_802857C4 {
+    u8 pad0[0x24];
+    u8 sub[0x76 - 0x24];
+    s16 count;
+    u8 *p78;
+    s32 *p7C;
+    s32 *p80;
+};
+
+struct Rect_802857C4 {
+    u8 pad0[0x14];
+    f32 y;
+    u8 pad18[0x40 - 0x18];
+    f32 top;
+    f32 f44;
+    f32 bottom;
+};
+
 extern "C" {
 void TWindowSubSymbolChatFaceType__sub_80283C84(void *, void *, f32, f32);
 void fn_80285274(u8 *arg0, u8 *arg1);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void TWindowSubSymbolChatPartsSet__sub_80247F68(void *, s16, s32, s32);
+void draw_visible_window_entries(void *, void *, void *);
+extern const f32 lbl_805DD7D4;
+extern const f32 lbl_805DD7D8;
+extern const f32 lbl_805DD7DC;
+extern const f32 lbl_805DD7E8;
+extern const f32 lbl_805DD7F8;
+void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1);
 }
 
 extern "C" {
@@ -117,7 +144,6 @@ void fn_80284FB8(void *);
 void fn_80285054(u8 *arg0);
 M2C_UNK fn_80285314(void *, s32);
 M2C_UNK fn_802855C4(void *, s32);
-M2C_UNK fn_802857C4(void *, s32);
 void update_height__20TWindowSubSymbolChatFPv(void *arg0);
 void open__20TWindowSubSymbolChatFPvi(void *arg0, s32 arg1);
 void render__25TWindowSubSymbolChatPartsFv(u8 *arg0);
@@ -288,6 +314,44 @@ void fn_80285274(u8 *arg0, u8 *arg1) {
 }
 #pragma pop
 
+#pragma push
+#pragma fp_contract on
+void fn_802857C4(Win_802857C4 *arg0, Rect_802857C4 *arg1) {
+    s32 i;
+    s32 j;
+    f32 *e0;
+    s32 row;
+    f32 *e1;
+    f32 y;
+    f32 off;
+    f32 x;
+    f32 h;
+    row = 0;
+    e1 = (f32 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    e0 = (f32 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    h = lbl_805DD7F8;
+    for (i = 0; i < arg0->count; row++) {
+        off = lbl_805DD7D4 * (f32)row;
+        y = arg1->y;
+        y = y + off;
+        if (h + y < arg1->top || y > arg1->bottom) {
+            i += 4;
+        } else {
+            x = lbl_805DD7DC + off;
+            for (j = 0; j < 4; j++, i++) {
+                if (i >= arg0->count) break;
+                e0[2] = lbl_805DD7D4 * (f32)j + lbl_805DD7E8;
+                e0[3] = x;
+                e1[2] = lbl_805DD7D8 + e0[2];
+                e1[3] = lbl_805DD7D8 + e0[3];
+                TWindowSubSymbolChatPartsSet__sub_80247F68(e1, (s16)i, *arg0->p7C, *arg0->p80);
+                draw_visible_window_entries(arg0, arg0->sub, arg1);
+            }
+        }
+    }
+}
+#pragma pop
+
 void update_height__20TWindowSubSymbolChatFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x76) = compute_total_height__20TWindowSubSymbolChatFv();
     ((M2C_UNK (*)(void *))fn_80284C04)((void *)(arg0));
@@ -310,7 +374,7 @@ void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u8 *, 0x71);
     switch ((s8) temp_r0) {
     case 0:
-        fn_802857C4(arg0, temp_r3);
+        fn_802857C4((Win_802857C4 *)(arg0), (Rect_802857C4 *)(temp_r3));
         break;
     case 1:
         fn_802855C4(arg0, temp_r3);

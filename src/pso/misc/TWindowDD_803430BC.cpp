@@ -50,6 +50,18 @@ struct DD_803461CC {
     s16 ids[4];
 };
 
+struct List_803467CC {
+    s16 *items;
+    s32 count;
+};
+
+struct Buf_803467CC {
+    s16 *a;
+    s32 n4;
+    s16 *b;
+    s32 nC;
+};
+
 extern "C" {
 M2C_UNK free_child__9TWindowDDFPv(int);
 M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
@@ -156,6 +168,11 @@ M2C_UNK maybe_scroll__9TWindowDDFPvPv(char *, s32 *);
 M2C_UNK TWindowDD__sub_80348818(s32, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034886C(s32, char *, s32 *);
 s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1);
+List_803467CC *get_element_ptr__9TWindowDDFi(s16);
+List_803467CC *get_entry__9TWindowDDFi(s32, s16);
+extern s32 TWindowDD__data_805D6E08;
+extern u32 TWindowDD__data_805D6E1C;
+void TWindowDD__sub_803467CC(u8 *arg0);
 }
 
 extern "C" {
@@ -1014,6 +1031,62 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
         break;
     }
     return var_r31;
+}
+#define BUF_803467CC ((Buf_803467CC *)TWindowDD__data_805D6E1C)
+void TWindowDD__sub_803467CC(u8 *arg0) {
+    s32 kind;
+    s16 id;
+    List_803467CC *sel;
+    s32 idx;
+    List_803467CC *entry;
+    List_803467CC *extra;
+    s32 n;
+    s16 *a;
+    s16 *b;
+    s32 i;
+    s32 j;
+    switch (TWindowDD__data_805D6E08) {
+    case 0:
+        kind = 0x11;
+        id = 0xE;
+        break;
+    default:
+        kind = 0x12;
+        id = 0xE;
+        break;
+    case 4:
+        kind = 0x12;
+        id = 0xE;
+        break;
+    case 2:
+        kind = 0x12;
+        id = 0xE;
+        break;
+    case 3:
+        kind = 0x12;
+        id = 0xE;
+        break;
+    }
+    sel = NULL;
+    idx = *(s16 *)(arg0 + 0x1C) - 0x7F;
+    entry = get_entry__9TWindowDDFi(kind, *(s16 *)(arg0 + 0x1C));
+    if (entry != NULL && idx >= 0 && idx < entry->count) {
+        sel = get_element_ptr__9TWindowDDFi(entry->items[idx]);
+    }
+    extra = get_element_ptr__9TWindowDDFi(id);
+    n = 0;
+    a = BUF_803467CC->a;
+    b = BUF_803467CC->b;
+    if (sel != NULL) {
+        for (i = 0; i < sel->count && n < 0x20; n++, i++) {
+            a[n] = b[n] = sel->items[i];
+        }
+    }
+    BUF_803467CC->nC = n;
+    for (j = 0; j < extra->count && n < 0x20; j++, n++) {
+        a[n] = extra->items[j];
+    }
+    BUF_803467CC->n4 = n;
 }
 
 }

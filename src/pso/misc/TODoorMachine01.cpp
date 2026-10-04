@@ -46,6 +46,49 @@ typedef struct Door_80162A70 {
     s32 fD8;
 } Door_80162A70;
 
+struct Node_80162D7C {
+    u8 pad0[4];
+    s32 f4;
+    f32 x;
+    f32 y;
+    f32 z;
+    u8 pad14[0x2C - 0x14];
+    Node_80162D7C *child;
+    Node_80162D7C *next;
+};
+
+struct Model_80162D7C { u8 pad[0x2C]; Node_80162D7C *root; };
+
+struct VBase_80162D7C { char pad[0x18]; };
+
+struct VObj_80162D7C : VBase_80162D7C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Door_80162D7C : VObj_80162D7C {
+    u8 pad1C[0x34 - 0x1C];
+    Model_80162D7C *model;
+    u8 pad38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xAC - 0x64];
+    s32 fAC;
+    f32 fB0;
+    u8 padB4[0xBC - 0xB4];
+    s32 fBC;
+    f32 fC0;
+    f32 fC4;
+    u8 padC8[0xD0 - 0xC8];
+    u32 fD0;
+};
+
 extern "C" {
 M2C_UNK set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
@@ -69,6 +112,19 @@ u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void fn_8015D5D4(void *);
 u8 is_current_floor_switch_set(u16);
 void TODoorMachine01__vt12(Door_80162A70 *self);
+s32 fn_801582C4(void *, f32);
+int rotate_matrix_y(int, int);
+int push_matrix();
+int pop_matrix();
+int post_translate_matrix(void *);
+int set_global_param__8TObjFishFi(int);
+int draw_ginja_model(int);
+int draw_ginja_model_with_motion(void *, int, f32);
+void translate_matrix(s32, f32, f32, f32);
+void TODoorMachine01__sub_80162CC0(void *, Node_80162D7C *, s32);
+extern s32 *lbl_805D5974;
+extern const f32 lbl_805DB504;
+void render__15TODoorMachine01Fv(Door_80162D7C *self);
 }
 
 extern "C" {
@@ -185,6 +241,53 @@ void TODoorMachine01__vt12(Door_80162A70 *self) {
     default:
         self->fD0 &= ~0xF0001;
         break;
+    }
+}
+
+void render__15TODoorMachine01Fv(Door_80162D7C *self) {
+    u32 bit;
+    Node_80162D7C *n;
+    u32 fl;
+    if (self->m8(self->fC0, self->fC4) != 0 && fn_801582C4(self, lbl_805DB504) != 0) {
+        push_matrix();
+        post_translate_matrix((u8 *)self + 0x38);
+        rotate_matrix_y(0, self->f60);
+        if (self->fAC == 0) {
+            bit = self->fD0;
+            n = self->model->root;
+            fl = (bit >> 16) & 1;
+            set_global_param__8TObjFishFi(lbl_805D5974[fl]);
+            push_matrix();
+            translate_matrix(0, n->x, n->y, n->z);
+            draw_ginja_model(n->f4);
+            TODoorMachine01__sub_80162CC0(self, n->child, fl);
+            pop_matrix();
+            n = self->model->root->next;
+            fl = (self->fD0 >> 17) & 1;
+            set_global_param__8TObjFishFi(lbl_805D5974[fl]);
+            push_matrix();
+            translate_matrix(0, n->x, n->y, n->z);
+            draw_ginja_model(n->f4);
+            n = n->child;
+            TODoorMachine01__sub_80162CC0(self, n, fl);
+            n = n->next;
+            fl = (self->fD0 >> 18) & 1;
+            set_global_param__8TObjFishFi(lbl_805D5974[fl]);
+            TODoorMachine01__sub_80162CC0(self, n, fl);
+            pop_matrix();
+            n = self->model->root->next->next;
+            fl = (self->fD0 >> 19) & 1;
+            set_global_param__8TObjFishFi(lbl_805D5974[fl]);
+            push_matrix();
+            translate_matrix(0, n->x, n->y, n->z);
+            draw_ginja_model(n->f4);
+            TODoorMachine01__sub_80162CC0(self, n->child, fl);
+            pop_matrix();
+        } else {
+            set_global_param__8TObjFishFi(lbl_805D5974[1]);
+            draw_ginja_model_with_motion(self->model, self->fBC, self->fB0);
+        }
+        pop_matrix();
     }
 }
 

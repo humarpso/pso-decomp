@@ -20,6 +20,24 @@ struct Obj_802370D8 : VObj_18_1a504b {
     void *source;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Vec_80236EE8 { f32 x, y, z; };
+
+struct Arr_80236EE8 { u32 w[3]; };
+
+struct Tec_80236EE8 {
+    u8 pad0[0x8A];
+    s16 type;
+    u8 pad8C[0xA4 - 0x8C];
+    s16 level;
+    u8 padA6[2];
+    u16 slot;
+    u8 padAA[2];
+    s32 active;
+};
+
 extern "C" {
 u16 obj_getField1c(u32);
 void queue_destruction__7TObjectFv(void *);
@@ -27,9 +45,90 @@ s32 is_valid_and_active__10TObjPlayerFUi(u32);
 List_802370D8 *TObjPlayer__sub_80236780(void *, u32);
 List_802370D8 *TObjPlayer__sub_802367AC(void *, u32);
 void deliver_technique_to_party_targets(Obj_802370D8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+u32 spawn_particle_effect(void *, int);
+void set_tint_color__13TParticleCtrlFPvi(u32, s32);
+u8 *get_player_by_client_id(u16);
+u32 classify_distance_band__8TTecCtrlFiii(s16, s16, u16);
+extern s32 lbl_8044D8F8[];
+extern Arr_80236EE8 lbl_8044D908;
+void spawn_support_tec_range_effect(Tec_80236EE8 *self);
 }
 
 extern "C" {
+
+void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
+    s32 kind;
+    Vec_80236EE8 pos;
+    s32 i;
+    u32 band;
+    u8 *pl;
+    s32 j;
+    s32 k;
+    if (self->active == 0) {
+        return;
+    }
+    if (self->slot >= 4) {
+        return;
+    }
+    pl = get_player_by_client_id(self->slot);
+    if (pl == NULL) {
+        return;
+    }
+    {
+        VecCopy__FP3VecPC3Vec(&pos, pl + 0x38);
+        switch (self->type) {
+        case 8:
+            break;
+        case 6:
+            kind = 0xF;
+            break;
+        case 7:
+            kind = 0x10;
+            break;
+        case 9:
+            kind = 0xD;
+            break;
+        case 10:
+            kind = 0xA;
+            break;
+        }
+        band = classify_distance_band__8TTecCtrlFiii(kind, self->level, self->slot);
+        {
+            Arr_80236EE8 fx = lbl_8044D908;
+            fx.w[0] = spawn_particle_effect(&pos, lbl_8044D8F8[band]);
+            if (band == 3) {
+                fx.w[1] = spawn_particle_effect(&pos, 0x1F2);
+                fx.w[2] = spawn_particle_effect(&pos, 0x19D);
+            }
+            switch ((s16)kind) {
+            case 14:
+                break;
+            case 16:
+                for (i = 0; i < 3; i++) {
+                    if (fx.w[i] != 0) {
+                        set_tint_color__13TParticleCtrlFPvi(fx.w[i], 0xFF4DFF99);
+                    }
+                }
+                break;
+            case 13:
+                for (j = 0; j < 3; j++) {
+                    if (fx.w[j] != 0) {
+                        set_tint_color__13TParticleCtrlFPvi(fx.w[j], -0x6667);
+                    }
+                }
+                break;
+            case 10:
+                for (k = 0; k < 3; k++) {
+                    if (fx.w[k] != 0) {
+                        set_tint_color__13TParticleCtrlFPvi(fx.w[k], 0xFF337FFF);
+                    }
+                }
+                break;
+            }
+        }
+    }
+}
 
 void deliver_technique_to_party_targets(Obj_802370D8 *arg0) {
     List_802370D8 *list;

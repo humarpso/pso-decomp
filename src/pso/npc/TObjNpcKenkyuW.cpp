@@ -139,6 +139,21 @@ struct Obj_802A41CC {
     Vec_802A41CC fA0;
 };
 
+struct Vec_802A3FDC { f32 x; f32 y; f32 z; };
+
+struct Pl_802A3FDC {
+    u8 pad0[0x30];
+    u32 flags;
+};
+
+struct Obj_802A3FDC {
+    u8 pad0[0x68];
+    u8 *body;
+    Vec_802A3FDC pos;
+    u8 pad78[0xA0 - 0x78];
+    Vec_802A3FDC fA0;
+};
+
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -185,6 +200,20 @@ Pl_802A41CC *find_entity_by_id(u16);
 extern const f32 lbl_805DDF60;
 extern const f32 lbl_805DDF64;
 TechniqueContactList *TObjPlayer__sub_802A41CC(Obj_802A41CC *self, void *src);
+extern RecoveredGlobal_80236290_lbl_80516150 lbl_80540A38;
+void TObjPlayer__sub_802A3D68();
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+Vec_802A3DE8 *get_shoot_data__12TNeedleShootFPv(void *);
+void vector_length(void *);
+void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+Pl_802A3DE8 *get_player_data__10TObjPlayerFi(s32);
+s32 obj_getField1c(void *);
+TechniqueContactBody *find_actor_body_contact(void *, void *, f32);
+s32 get_lobby_flag__6TLobbyFv(void);
+extern const f32 lbl_805DDF60;
+extern const f32 lbl_805DDF64;
+s32 get_game_mode__6TLobbyFv(void);
+TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src);
 }
 
 extern "C" {
@@ -298,6 +327,51 @@ TechniqueContactList *TObjPlayer__sub_802A3DE8(Obj_802A3DE8 *self, void *src) {
 struct Vec_802A3DE8;
 struct Pl_802A3DE8;
 #define L_802A41CC (*(TechniqueContactList *)&lbl_80540A38)
+
+#define L_802A3FDC (*(TechniqueContactList *)&lbl_80540A38)
+TechniqueContactList *TObjPlayer__sub_802A3FDC(Obj_802A3FDC *self, void *src) {
+    Vec_802A3FDC a;
+    Vec_802A3FDC d;
+    s32 i;
+    Vec_802A3FDC *sd;
+    u32 id;
+    Pl_802A3FDC *p;
+    TechniqueContactBody *r;
+    VecCopy__FP3VecPC3Vec(&a, &self->pos);
+    ((void (*)(void *))TObjPlayer__sub_802A3D68)(self);
+    if (self->body == 0) return &L_802A3FDC;
+    sd = ((Vec_802A3FDC *)get_shoot_data__12TNeedleShootFPv(self));
+    d.x = a.x - sd->x;
+    d.y = a.y - sd->y;
+    d.z = a.z - sd->z;
+    vector_length(&d);
+    a.x = lbl_805DDF60 * (a.x + sd->x);
+    a.y = lbl_805DDF60 * (a.y + sd->y);
+    a.z = lbl_805DDF60 * (a.z + sd->z);
+    VecCopy__FP3VecPC3Vec(self->body + 0x38, &a);
+    copy_xyz__10TObjPlayerFPvPv(self->body + 0x5C, &self->fA0);
+    for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
+        p = ((Pl_802A3FDC *)get_player_data__10TObjPlayerFi(i));
+        if (p == 0) continue;
+        if (p->flags & 0x20000000) {
+            if ((u16)obj_getField1c(p) != (u16)obj_getField1c(src)) {
+                r = find_actor_body_contact(self->body, p, lbl_805DDF64);
+                if (r != 0) {
+                    L_802A3FDC.bodies[L_802A3FDC.count] = r;
+                    L_802A3FDC.actors[L_802A3FDC.count] = (TechniqueContactActor *)p;
+                    if (++L_802A3FDC.count >= 0x10) {
+                        L_802A3FDC.count = 0xF;
+                        break;
+                    }
+                }
+            }
+        } else if ((p->flags & 0x40000000) && !(p->flags & 0x80000000)) {
+            if (find_actor_body_contact(self->body, p, lbl_805DDF64) != 0) return 0;
+        }
+    }
+    return &L_802A3FDC;
+}
+
 TechniqueContactList *TObjPlayer__sub_802A41CC(Obj_802A41CC *self, void *src) {
     Vec_802A41CC a;
     Vec_802A41CC d;
