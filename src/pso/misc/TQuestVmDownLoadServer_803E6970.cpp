@@ -299,6 +299,21 @@ struct N_803EBD38 {
     N_803EBD38 *next;
 };
 
+struct Page_803E840C {
+    s32 page;
+    s32 dirty;
+    Page_803E840C *next;
+    u8 data[0x400];
+};
+
+struct Ent_803E840C { u8 a; u8 b; u16 c; s16 d; s16 e; };
+
+struct Cache_803E840C {
+    u8 name[0x44];
+    Ent_803E840C ents[128];
+    Page_803E840C pages[10];
+};
+
 extern "C" {
 extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
 void TQuestVmDownLoadServer__sub_803EE2E4(void);
@@ -404,7 +419,6 @@ extern s32 lbl_805D78F8;
 extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803E8084(void);
 s32 TQuestVmDownLoadServer__sub_803E82AC(void);
-void TQuestVmDownLoadServer__sub_803E840C(void);
 void __VIRetraceHandler(void);
 s32 TQuestVmDownLoadServer__sub_803E7D58(const u8 *a, const u8 *b, s32 n);
 Node_803EB894 *TQuestVmDownLoadServer__sub_803EB894(Node_803EB894 *p);
@@ -613,6 +627,9 @@ void *TQuestVmDownLoadServer__sub_803ECED0(void);
 void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
 s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0);
 void *TQuestVmDownLoadServer__sub_803EBD38(void *sp, void *a1, s32 a2, void *hp, void *tp);
+extern u8 *lbl_805D7858;
+extern RecoveredGlobal_803E8710_lbl_8058DE08 lbl_8058DE08;
+void TQuestVmDownLoadServer__sub_803E840C(void);
 }
 
 extern "C" {
@@ -1176,6 +1193,27 @@ s32 TQuestVmDownLoadServer__sub_803E8150(void) {
     return Write_803E8150();
 }
 #pragma pop
+
+void TQuestVmDownLoadServer__sub_803E840C(void) {
+    Cache_803E840C *c;
+    Page_803E840C *p;
+    Ent_803E840C *e;
+    u32 i;
+    c = (Cache_803E840C *)&lbl_8058DE08;
+    *(Page_803E840C **)&lbl_805D7858 = p = c->pages;
+    for (; p < &c->pages[9]; p++) {
+        p->page = -1;
+        p->dirty = 0;
+        p->next = p + 1;
+    }
+    p->page = -1;
+    p->dirty = 0;
+    p->next = NULL;
+    e = c->ents;
+    for (i = 0; i < 128; i++) {
+        e[i].a = 0;
+    }
+}
 
 s32 TQuestVmDownLoadServer__sub_803E8624(int arg0) {
     u8 unused[8];

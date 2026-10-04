@@ -11,6 +11,24 @@ s32 TOHangceilingCave01Normal__ct(int, int, void *);
 s32 __nw__7TObjectFUl(int);
 extern s32 tl_05;
 s32 TOHangceilingCave01__create(u8 *arg0);
+s32 check_demo_mode__10TObjPlayerFv();
+bool TOHangceilingCave01__sub_801688C0(u8 *arg0);
+s32 push_matrix(void);
+s32 pop_matrix(void);
+f32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+u8 is_current_floor_switch_set(int);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK draw_ginja_object(void *);
+M2C_UNK draw_ginja_model(void *);
+M2C_UNK draw_ginja_model_with_motion(void *, void *, f32);
+extern void *lbl_805D59D4;
+extern u8 *lbl_805D59DC;
+extern const f32 lbl_805DB674;
+extern const f32 lbl_805DB67C;
+void TOHangceilingCave01__sub_80168644(u8 *arg0);
 }
 
 extern "C" {
@@ -191,6 +209,62 @@ void TOHangceilingCave01__sub_8016863C(void) {  }
 void TOHangceilingCave01__sub_80168640(void) {  }
 
 extern const f32 lbl_805DB694;
+
+void TOHangceilingCave01__sub_80168644(u8 *arg0) {
+    f32 temp_f1;
+    f32 temp_f2;
+    s32 temp_r29;
+    s32 temp_r30;
+    s32 temp_r31;
+    if ((((s32 (*)(u8 *))TOHangceilingCave01__sub_801688C0)(arg0) != 0) || (check_demo_mode__10TObjPlayerFv() == 1)) {
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
+        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+        set_global_param__8TObjFishFi(M2C_FIELD(lbl_805D59D4, s32 *, 8));
+        if (M2C_FIELD(arg0, void **, 0x34) != NULL && M2C_FIELD(arg0, void **, 0xF8) != NULL) {
+            draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0x34), M2C_FIELD(arg0, void **, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+        }
+        if ((void *) lbl_805D59DC != NULL) {
+            begin_effect_render__13TParticleCtrlFv();
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x358) == 0U) {
+                temp_f2 = M2C_FIELD(arg0, f32 *, 0x354);
+                temp_f1 = M2C_FIELD(arg0, f32 *, 0x350);
+                temp_r29 = temp_f2 <= temp_f1;
+                temp_r30 = temp_f2 <= (lbl_805DB674 * temp_f1);
+                temp_r31 = temp_f2 <= (lbl_805DB67C * temp_f1);
+                set_global_param__8TObjFishFi(M2C_FIELD(lbl_805D59D4, s32 *, 4));
+                if (temp_r29 == 1) {
+                    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(lbl_805D59DC, u8 **, 0x2C), s32 *, 4)));
+                }
+                if (temp_r30 == 1) {
+                    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D59DC, u8 **, 0x2C), void **, 0x2C), s32 *, 4)));
+                }
+                if (temp_r31 == 1) {
+                    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D59DC, u8 **, 0x2C), void **, 0x2C), void **, 0x2C), s32 *, 4)));
+                }
+                set_global_param__8TObjFishFi(M2C_FIELD(lbl_805D59D4, s32 *, 0));
+                if (temp_r29 == 0) {
+                    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(lbl_805D59DC, u8 **, 0x2C), s32 *, 4)));
+                }
+                if (temp_r30 == 0) {
+                    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D59DC, u8 **, 0x2C), void **, 0x2C), s32 *, 4)));
+                }
+                if (temp_r31 == 0) {
+                    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(lbl_805D59DC, u8 **, 0x2C), void **, 0x2C), void **, 0x2C), s32 *, 4)));
+                }
+            } else {
+                if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) {
+                    set_global_param__8TObjFishFi(M2C_FIELD(lbl_805D59D4, s32 *, 0));
+                } else {
+                    set_global_param__8TObjFishFi(M2C_FIELD(lbl_805D59D4, s32 *, 4));
+                }
+                draw_ginja_object((void *) (lbl_805D59DC));
+            }
+            end_effect_render__13TParticleCtrlFv();
+        }
+        pop_matrix();
+    }
+}
 
 void check_player_trigger__19TOHangceilingCave01FPv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() == 0) {
