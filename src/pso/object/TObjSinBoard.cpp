@@ -33,6 +33,8 @@ struct Uv_8019806C { u32 w[4]; };
 
 struct Desc_8019806C { Pos_8019806C *pos; Uv_8019806C *uv; s16 *col; s32 count; };
 
+struct Vec_80198504 { f32 x, y, z; };
+
 extern "C" {
 u8 *get_bml_model(s32, M2C_UNK);
 M2C_UNK rotate_matrix_y(int, int);
@@ -69,9 +71,20 @@ extern u8 lbl_8050DD24[];
 extern u32 lbl_805D5C58;
 void render__12TObjSinBoardFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TOSwitchAttack__sub_80198504(void *);
 extern u8 lbl_8050DDAC[];
 void TWindowTimer__sub_8019841C(void *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+M2C_UNK TWindowTimer__sub_80198CF8(void *, void *, s16, s32, s32, s32);
+M2C_UNK play_sound_effect(int, void *, int, int);
+void *__nw__7TObjectFUl(int);
+M2C_UNK construct_timed_sound_voice(void *, void *, int, int, int, s32);
+extern u8 lbl_8050DD58[];
+extern void *tl_05;
+extern s32 tl_06;
+extern const f32 lbl_805DBF40;
+void TOSwitchAttack__sub_80198504(void *self);
 }
 
 extern "C" {
@@ -195,7 +208,7 @@ void TWindowTimer__sub_8019841C(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
         if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x10 : 1)) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
-            TOSwitchAttack__sub_80198504(arg0);
+            TOSwitchAttack__sub_80198504((void *)(arg0));
         } else {
             M2C_FIELD(arg0, s32 *, 0x3C) = 0;
             M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -203,7 +216,7 @@ void TWindowTimer__sub_8019841C(void *arg0) {
     } else {
         if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x20 : 2)) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
-            TOSwitchAttack__sub_80198504(arg0);
+            TOSwitchAttack__sub_80198504((void *)(arg0));
         } else {
             M2C_FIELD(arg0, s32 *, 0x3C) = 0;
             M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -213,6 +226,76 @@ void TWindowTimer__sub_8019841C(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2C) = t + 1;
     if (t >= M2C_FIELD(arg0, s32 *, 0x34)) {
         queue_destruction__7TObjectFv(arg0);
+    }
+}
+void TOSwitchAttack__sub_80198504(void *self) {
+    u8 *arg0 = (u8 *)self;
+    Vec_80198504 v6;
+    Vec_80198504 v2a;
+    Vec_80198504 v2b;
+    Vec_80198504 vda;
+    Vec_80198504 vdb;
+    void *o;
+    if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) == 0) {
+        M2C_FIELD(arg0, s32 *, 0x30)++;
+        if (M2C_FIELD(arg0, s32 *, 0x30) == 1) {
+            o = (void *)__nw__7TObjectFUl(0x58);
+            if (o != NULL) {
+                TWindowTimer__sub_80198CF8(o, arg0 + 0x1C, M2C_FIELD(lbl_8050DD58, s16 *, 0x14), M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x40), tl_06);
+            }
+        }
+    } else if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) == 6) {
+        M2C_FIELD(arg0, s32 *, 0x30)++;
+        if (M2C_FIELD(arg0, s32 *, 0x30) % 5 == 0 && M2C_FIELD(arg0, s32 *, 0x30) <= 0x1E) {
+            VecCopy__FP3VecPC3Vec(&v6, arg0 + 0x1C);
+            v6.y += lbl_805DBF40;
+            spawn_particle_effect_with_flags(&v6, 0x20D, 0x40);
+            play_sound_effect(0x4001A82E, arg0 + 0x1C, 0, 0);
+        }
+    } else if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) == 2) {
+        M2C_FIELD(arg0, s32 *, 0x30)++;
+        if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
+            if (M2C_FIELD(arg0, s32 *, 0x30) == 1) {
+                set_shake_preset__11TCameraCtrlFi(2);
+                VecCopy__FP3VecPC3Vec(&v2a, arg0 + 0x1C);
+                v2a.y += lbl_805DBF40;
+                spawn_particle_effect_with_flags(&v2a, 0x45, 0x40);
+                spawn_particle_effect_with_flags(&v2a, 0x189, 0x40);
+                play_sound_effect(0x4001C112, arg0 + 0x1C, 0, 0);
+            }
+        } else {
+            if (M2C_FIELD(arg0, s32 *, 0x30) == 1) {
+                set_shake_preset__11TCameraCtrlFi(2);
+                VecCopy__FP3VecPC3Vec(&v2b, arg0 + 0x1C);
+                v2b.y += lbl_805DBF40;
+                spawn_particle_effect_with_flags(&v2b, 0x45, 0x40);
+                spawn_particle_effect_with_flags(&v2b, 0x189, 0x40);
+                play_sound_effect(0x4001C112, arg0 + 0x1C, 0, 0);
+            }
+        }
+    } else if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) != 0) {
+        M2C_FIELD(arg0, s32 *, 0x30)++;
+        if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
+            if (M2C_FIELD(arg0, s32 *, 0x30) % 5 == 0 && M2C_FIELD(arg0, s32 *, 0x30) <= 0x32) {
+                VecCopy__FP3VecPC3Vec(&vda, arg0 + 0x1C);
+                vda.y += lbl_805DBF40;
+                spawn_particle_effect_with_flags(&vda, 0x20E, 0x40);
+                o = (void *)__nw__7TObjectFUl(0x28);
+                if (o != NULL) {
+                    construct_timed_sound_voice(o, arg0 + 0x1C, 5, 0x4002A90C, 0, (s32)tl_05);
+                }
+            }
+        } else {
+            if (M2C_FIELD(arg0, s32 *, 0x30) % 5 == 0 && M2C_FIELD(arg0, s32 *, 0x30) <= 0x32) {
+                VecCopy__FP3VecPC3Vec(&vdb, arg0 + 0x1C);
+                vdb.y += lbl_805DBF40;
+                spawn_particle_effect_with_flags(&vdb, 0x20F, 0x40);
+                o = (void *)__nw__7TObjectFUl(0x28);
+                if (o != NULL) {
+                    construct_timed_sound_voice(o, arg0 + 0x1C, 5, 0x4002A90C, 0, (s32)tl_05);
+                }
+            }
+        }
     }
 }
 

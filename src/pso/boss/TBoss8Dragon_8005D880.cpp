@@ -5,6 +5,144 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Fade_800653C4 { char b[0x1C]; };
+
+struct Dragon_800653C4 { char pad[0x580]; Fade_800653C4 fade[4]; };
+
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual s32 m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual M2C_UNK m39();
+    virtual M2C_UNK m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual M2C_UNK m85(s16, M2C_UNK);
+    virtual M2C_UNK m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual void m102();
+    virtual M2C_UNK m103();
+};
+
+extern "C" {
+int VecCopy__FP3VecPC3Vec(void*, void*);
+void queue_destruction__7TObjectFv(void *);
+s32 get_flag_bit6__12TBoss8DragonFPv();
+void advance_motion_timer__12TBoss8DragonFPv(void *arg0);
+void TBoss8Dragon__sub_8005FB90(u8 *arg0);
+void TBoss8Dragon__sub_80064694(s32 arg0);
+void shift_position_history__12TBoss8DragonFi(s32 arg0);
+int check_demo_mode__10TObjPlayerFv(void*);
+M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
+s32 query_teammate_state__9TObjEneDDFPv();
+s32 update_lobby_state__9TObjEneDDFPv(void *);
+s32 is_main_phase_15__9TObjEneDDFv();
+M2C_UNK clear_attack_receipts(void *);
+M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
+M2C_UNK TObjEneDD__sub_800BBA0C(void *);
+M2C_UNK update_obstruction_fade(void *);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
+M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
+M2C_UNK run_tasks__7TObjectFv(void *);
+extern const f32 lbl_805D8D58;
+extern const f32 lbl_805D8DAC;
+void TBoss8Dragon__sub_800653C4(u8 *arg0);
+}
+
 extern "C" {
 
 struct V_8005DC0C { f32 x, y, z; };
@@ -1185,6 +1323,12 @@ extern s32 tl_01;
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
+void TBoss8Dragon__sub_8005F740(O_8005F740 *self);
+void TBoss8Dragon__sub_8005FBC4(Obj_8005FBC4 *arg0);
+void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370_80062BA0 *obj);
+}
+
 s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
     Obj_8005D880 *p;
     f32 dx;
@@ -3462,6 +3606,80 @@ extern int fold_flush_39;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+struct O_8005F740;
+struct Obj_8005FBC4;
+struct VObj_80065370_80062BA0;
+void TBoss8Dragon__sub_800653C4(u8 *arg0) {
+    s32 temp_r31;
+    s32 temp_r31_2;
+    s32 var_r30;
+    s32 var_r31;
+    if (((int (*)())check_demo_mode__10TObjPlayerFv)() != 0) {
+        ((VObj_18 *)(arg0))->m103();
+        return;
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x4C0) & 1) {
+        send_entity_set_flags__6TLobbyFPv((void *) (arg0));
+        queue_destruction__7TObjectFv((void *) (arg0));
+        return;
+    }
+    if (is_main_phase_15__9TObjEneDDFv() != 0) {
+        temp_r31 = M2C_FIELD(arg0, s32 *, 0x4E0);
+        if (update_lobby_state__9TObjEneDDFPv((void *) (arg0)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x4E0) = 0;
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x4E0) != temp_r31) {
+                M2C_FIELD(arg0, s32 *, 0x730) = 1;
+            }
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x4E0) = 1;
+        }
+    }
+    temp_r31_2 = query_teammate_state__9TObjEneDDFPv();
+    ((VObj_18 *)(arg0))->m39();
+    ((VObj_18 *)(arg0))->m40();
+    if (temp_r31_2 == 0) {
+        if (((s32 (*)(void *))get_flag_bit6__12TBoss8DragonFPv)((void *) (arg0)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x800);
+        } else {
+            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFF7FF);
+        }
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x4E0) != 1) {
+            if (((VObj_18 *)(arg0))->m30() != 0) {
+                clear_attack_receipts((void *) (arg0));
+            }
+            update_animation_by_state__12TBoss8DragonFPv((VObj_80065370_80062BA0 *) (arg0));
+            TBoss8Dragon__sub_8005F740((O_8005F740 *) (arg0));
+            ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 8);
+            ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);
+        } else {
+            if (((VObj_18 *)(arg0))->m30() != 0) {
+                clear_attack_receipts((void *) (arg0));
+            }
+            ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);
+        }
+    }
+    TObjEneDD__sub_800BBA0C((void *) (arg0));
+    TBoss8Dragon__sub_8005FBC4((Obj_8005FBC4 *) (arg0));
+    TBoss8Dragon__sub_8005FB90(arg0);
+    advance_motion_timer__12TBoss8DragonFPv((void *) (arg0));
+    ((VObj_18 *)(arg0))->m86();
+    ((void (*)(void *))shift_position_history__12TBoss8DragonFi)(arg0);
+    set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
+    add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805D8D58));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x56C), (void *) (arg0 + 0x2FC));
+    if (temp_r31_2 == 0) {
+        run_tasks__7TObjectFv((void *) (arg0 + 0x4C4));
+    }
+    project_sound_origin_from_camera((void *) (arg0 + 0x38), (void *) (arg0 + 0x560), (f32) (lbl_805D8DAC));
+    for (var_r31 = 0; var_r31 < 4; var_r31++) {
+        update_obstruction_fade(&((Dragon_800653C4 *)arg0)->fade[var_r31]);
+    }
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x4E4) != 0) {
+        ((void (*)(void *))TBoss8Dragon__sub_80064694)(arg0);
+    }
+}
+
 Obj_80065658 *TBoss8Dragon__sub_80065658(Obj_80065658 *o, s16 flag) {
     s32 i;
     if (o != 0) {
