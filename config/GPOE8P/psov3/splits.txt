@@ -12751,7 +12751,7 @@ pso/ui/TAdMultiSelGameModeGC.cpp:
 
 pso/enemy/TObjEneDolmOlm.cpp:
 	.text       start:0x80300CE4 end:0x80302DB0
-	.data       start:0x804E6AC4 end:0x804E6AF4
+	.data       start:0x804E6740 end:0x804E6AF4
 
 pso/enemy/TObjEneRecon_80302DB0.cpp:
 	.text       start:0x80302DB0 end:0x80302DC0
