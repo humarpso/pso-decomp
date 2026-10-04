@@ -38,6 +38,23 @@ struct Vec_80353C60 { f32 x, y, z; };
 
 struct Vec_80353A14 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct E_803546B0 { s32 id; f32 f4; u8 pad8[0xC]; };
+
+struct R_803546B0 {
+    u8 pad0[0x38];
+    u8 f38[0x5C - 0x38];
+    s32 f5C;
+    s32 f60;
+    s32 f64;
+    u8 pad68[0xB4 - 0x68];
+    s32 fB4;
+    u8 padB8[0xC4 - 0xB8];
+    s32 fC4;
+    u8 padC8[0xE4 - 0xC8];
+    u32 fE4;
+};
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -119,6 +136,21 @@ extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
 extern const f32 lbl_805DFF58;
 s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR);
+M2C_UNK get_bml_model(int, int);
+s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK rotate_matrix_z(int, int);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_ginja_object(int);
+extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
+extern int TBoss6Rock__data_805D6EF0;
+extern int TBoss6Rock__data_805D6EF4;
+extern const f32 TBoss6Rock__data_805DFF48;
+void TBoss6Rock__sub_803546B0(R_803546B0 *arg0);
 }
 
 extern "C" {
@@ -474,6 +506,27 @@ void TBoss6Rock__sub_8035461C(void *arg0) {
     *((s32 *) (((s8 *) arg0) + 0xB4)) = (s32) (*((s32 *) (((s8 *) arg0) + 0xB8)));
     *((s32 *) (((s8 *) arg0) + 0xBC)) = (s32) (*((s32 *) (((s8 *) arg0) + 0xC0)));
   }
+}
+void TBoss6Rock__sub_803546B0(R_803546B0 *arg0) {
+    if (arg0->fC4 == 0) {
+        return;
+    }
+    if (arg0->fE4 != 0) {
+        u8 *t = (u8 *)&TBoss6Rock__data_80479258;
+        t = t + arg0->fB4 * 0x14;
+        E_803546B0 *e = (E_803546B0 *)t;
+        if (((s32 (*)(void *, void *, f32))TBoss6PlotFalz__sub_802AB6CC)(arg0->f38, e, e->f4 - TBoss6Rock__data_805DFF48) != 0) {
+            return;
+        }
+    }
+    push_matrix();
+    post_translate_matrix(arg0->f38);
+    rotate_matrix_y(0, arg0->f60);
+    rotate_matrix_x(0, arg0->f5C);
+    rotate_matrix_z(0, arg0->f64);
+    set_global_param__8TObjFishFi((*(s32 *)&TBoss6Rock__data_805D6EF4));
+    draw_ginja_object(get_bml_model((*(s32 *)&TBoss6Rock__data_805D6EF0), ((E_803546B0 *)&TBoss6Rock__data_80479258)[arg0->fB4].id));
+    pop_matrix();
 }
 
 }

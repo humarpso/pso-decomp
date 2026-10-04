@@ -461,6 +461,10 @@ struct H_803F8BA4 {
     u32 g;
 };
 
+struct P_8041D2B8 { s32 a; s32 b; s32 c; s32 d; };
+
+struct O_8041D2B8 { u8 pad0[0x238]; s32 f238; u8 pad23C[0x320 - 0x23C]; s16 n; u8 pad322[0xE]; P_8041D2B8 items[32]; };
+
 extern "C" {
 s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -862,6 +866,7 @@ void TLobby__sub_804217E4(void);
 void TLobby__sub_80421814(void);
 s32 TLobby__sub_80421B3C(s32);
 s32 TLobby__sub_8040BF38(u8 *arg0);
+void TLobby__sub_8041D2B8(O_8041D2B8 *o, s16 idx, s32 a, s32 b);
 }
 
 extern "C" {
@@ -4966,6 +4971,31 @@ s32 TLobby__sub_8041A1D8(void) {
     TLobby__sub_803F8794((void *)&lbl_805C1D48);
     ((G_8041A1D8 *)&lbl_805C1D48)->n = 0;
     return 0;
+}
+
+void TLobby__sub_8041D2B8(O_8041D2B8 *o, s16 idx, s32 a, s32 b) {
+    s16 i;
+    if (idx < 0) {
+        return;
+    }
+    s16 n = o->n;
+    if (idx > n + 1) {
+        return;
+    }
+    if (idx > 0x1F) {
+        return;
+    }
+    if (n >= 0x1F) {
+        o->n = 0x1E;
+    }
+    for (i = o->n; i >= idx; i--) {
+        o->items[i + 1] = o->items[i];
+    }
+    o->items[idx].a = a;
+    o->items[idx].b = b;
+    o->items[idx].c = b;
+    o->items[idx].d = o->f238;
+    o->n++;
 }
 
 s32 TLobby__sub_8041D368(u8 *arg0) {

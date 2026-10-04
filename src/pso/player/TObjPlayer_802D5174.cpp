@@ -95,9 +95,10 @@ struct Pl_802D564C : VBase_802D564C {
     s32 f250;
 };
 
+struct V_802D577C { f32 x, y, z; };
+
 extern "C" {
 M2C_UNK send_6x61_activate_mag_effect(void *, s16);
-M2C_UNK TObjPlayer__sub_802D577C(void *);
 void TObjPlayer__sub_802D5894(void *arg0);
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
@@ -112,6 +113,17 @@ void draw_ginja_object(s32);
 void TObjPlayer__sub_802D56F0(u8 *arg0);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
 void TObjPlayer__sub_802D564C(Pl_802D564C *arg0);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+M2C_UNK TObjPlayer__sub_803D8BFC(int, void *, int);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK transform_point_by_current_matrix(void *, void *);
+void push_matrix(void);
+void pop_matrix(void);
+void post_translate_matrix(void *);
+extern V_802D577C lbl_8047259C;
+extern V_802D577C lbl_804725A8;
+void TObjPlayer__sub_802D577C(void *arg0_);
 }
 
 extern "C" {
@@ -184,6 +196,50 @@ void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x) {
     if (x < 5) self->v = x;
 }
 
+void TObjPlayer__sub_802D577C(void *arg0_) {
+    V_802D577C *pb;
+    V_802D577C *pa;
+    u8 *p;
+    u8 *q;
+    s32 ang2;
+    s16 n;
+    u8 *arg0 = (u8 *) arg0_;
+    s32 ang;
+    s32 step;
+    s32 step2;
+    s32 cnt;
+    n = M2C_FIELD(arg0, s16 *, 0x24A);
+    if (n != 0) {
+        ang = M2C_FIELD(arg0, s32 *, 0x250);
+        cnt = n;
+        p = arg0 + 0x20C;
+        q = M2C_FIELD(arg0, u8 **, 0xF0) + 0x2FC;
+        pa = &lbl_8047259C;
+        pb = &lbl_804725A8;
+        ang2 = 0x31C7;
+        step = 0x10000 / n;
+        step2 = 0x238E / n;
+        while (cnt != 0) {
+            V_802D577C a = *pa;
+            a.z = M2C_FIELD(arg0, f32 *, 0x24C);
+            V_802D577C b = *pb;
+            b.x = cos_table_lookup(ang2);
+            b.y = sin_table_lookup(ang2);
+            push_matrix();
+            TObjPlayer__sub_803D8CD4(0);
+            post_translate_matrix(q);
+            TObjPlayer__sub_803D8BFC(0, &b, ang);
+            transform_point_by_current_matrix(&a, p);
+            pop_matrix();
+            ang += step;
+            ang2 += step2;
+            cnt--;
+            p += 0xC;
+        }
+        M2C_FIELD(arg0, s32 *, 0x250) += 0x38E;
+    }
+}
+
 void TObjPlayer__sub_802D5894(void *arg0) {
     s16 temp_r4;
     s16 temp_r4_2;
@@ -198,7 +254,7 @@ void TObjPlayer__sub_802D5894(void *arg0) {
         }
         M2C_FIELD(arg0, s16 *, 0x248) = 0;
     }
-    TObjPlayer__sub_802D577C(arg0);
+    TObjPlayer__sub_802D577C((void *)(arg0));
 }
 
 }

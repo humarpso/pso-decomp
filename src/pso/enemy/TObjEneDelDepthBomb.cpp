@@ -6,6 +6,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 typedef struct Vec_80313FAC { f32 x; f32 y; f32 z; } Vec_80313FAC;
 
+typedef s32 M2C_UNK;
+struct Ene_803154A8;
+typedef void (Ene_803154A8::*Fn_803154A8)(void);
+struct Ent2_80315720 { Fn_803154A8 f; Fn_803154A8 g; };
+
+struct Ene_80315720 {
+    u8 pad0[0x2FC];
+    u8 pos[0x374 - 0x2FC];
+    s32 idx;
+    u8 pad378[4];
+    s32 f37C;
+    u8 pad380[0x3F0 - 0x380];
+    s32 f3F0;
+};
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_80018780(void *, u16, void *);
@@ -24,6 +39,17 @@ extern const f32 lbl_805DF288;
 extern const f32 lbl_805DF28C;
 extern const f32 lbl_805DF290;
 void TObjEneDelDepth__sub_80313FAC(u8 *arg0);
+s32 check_demo_mode__10TObjPlayerFv();
+void update_prev_position__10TObjPlayerFPv(void *);
+void update_collisions__10TObjPlayerFPv(void *);
+void submit_cursor_candidate(void *, s32);
+void minimap_render_dot(void *, s32, s32, s32);
+void TObjEneDelDepth__sub_80313694(u8 *arg0);
+void TObjEneDelDepth__sub_803152A0(u8 *arg0);
+void TObjEneDelDepth__sub_803152C0(u8 *arg0);
+void TObjEneDelDepth__sub_80315888(u8 *arg0);
+void TObjEneDelDepth__sub_80316364(s32);
+void run_task__15TObjEneDelDepthFv(Ene_80315720 *o);
 }
 
 extern "C" {
@@ -588,6 +614,10 @@ extern u8 main_task[];
 
 extern "C" {
 void TObjEneDelDepth__sub_803154A8(Ene_803154A8 *o, s32 i);
+}
+
+extern "C" {
+extern Ent_803154A8 lbl_804E836C[];
 }
 
 int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
@@ -1356,6 +1386,30 @@ void render__15TObjEneDelDepthFv(Dep_803155D4 *o) {
         Vec_803155D4 s = lbl_80475DA4[0];
         render_with_position_override__10TObjPlayerFPvPvi(o, &s, 0);
     }
+}
+
+void run_task__15TObjEneDelDepthFv(Ene_80315720 *o) {
+    Fn_803154A8 fn;
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        TObjEneDelDepth__sub_80315888((u8 *)o);
+        return;
+    }
+    TObjEneDelDepth__sub_803152C0((u8 *)o);
+    fn = (&lbl_804E836C[o->idx].f)[1];
+    if (fn) {
+    }
+    (((Ene_803154A8 *)o)->*fn)();
+    update_prev_position__10TObjPlayerFPv(o);
+    update_collisions__10TObjPlayerFPv(o);
+    if (o->f3F0 != 0) {
+        submit_cursor_candidate(o, -1);
+    }
+    TObjEneDelDepth__sub_80316364(o->f37C);
+    TObjEneDelDepth__sub_803152A0((u8 *)o);
+    if (o->idx != 0xD) {
+        minimap_render_dot(o->pos, -0x5DB4, 1, 0);
+    }
+    TObjEneDelDepth__sub_80313694((u8 *)o);
 }
 
 void *__dt__15TObjEneDelDepthFv(void *arg0, s16 arg1) {

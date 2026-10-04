@@ -20,6 +20,16 @@ struct E_8028F210 { s32 f0; u8 pad4[0xC]; s32 f10; s32 f14; u8 pad18[0x16C]; s32
 
 struct Pair_802907E4 { u32 a; u32 b; };
 
+struct Opaque_80290088;
+struct Sel_80290088 {
+    u8 pad[0x34];
+    void *model;
+    u8 pad2[0xFC - 0x38];
+    s32 fc;
+    s32 f100;
+    s32 f104;
+};
+
 extern "C" {
 extern const f32 lbl_805DD944;
 extern const f32 lbl_805DD948;
@@ -130,6 +140,22 @@ extern u32 lbl_805D6520;
 extern E_8028F210 *lbl_805D6540;
 extern s32 lbl_805D6558;
 s32 scan_creation_resources(void *arg0);
+s32 fn_8001ED90(s32);
+void blend_creation_proportion_shapes(void *);
+void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
+void ***relocate_data_block_pointers(s32, s32);
+extern Pair_802907E4 lbl_80540888[];
+extern Pair_802907E4 lbl_805408D8[];
+extern Pair_802907E4 lbl_80540928[];
+extern s32 lbl_805D49B4;
+extern u32 lbl_805D6520;
+extern s32 lbl_805D6530;
+extern u32 lbl_805D6544;
+extern u32 lbl_805D6548;
+extern u32 lbl_805D654C;
+extern void ***lbl_805D6550;
+extern s32 lbl_805D6554;
+void TAdSinglePlyChrSelectGC__sub_80290088(Sel_80290088 *arg0);
 }
 
 extern "C" {
@@ -150,252 +176,743 @@ int set_motion_interpolation_flag(void*);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 
-extern "C" void TAdSinglePlyChrSelectGC__sub_80290088();
-extern "C" void TAdSinglePlyChrSelectGC__sub_80290194();
-extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjPlayer__sub_80019568();
-extern "C" void TObjRoomId__sub_801A1E2C();
-extern "C" void TParticleCtrl__sub_801A2124();
-extern "C" void apply_object_set_data();
-extern "C" void classify_actor_view_detail();
-extern "C" u8 lbl_804512A0[];
-extern "C" u8 lbl_804512AC[];
-extern "C" u8 lbl_804512B8[];
-extern "C" u8 lbl_804512C4[];
-extern "C" u8 lbl_804512D0[];
-extern "C" u8 lbl_804512DC[];
-extern "C" u8 lbl_804512E8[];
-extern "C" u8 lbl_804512F4[];
-extern "C" u8 lbl_80451300[];
-extern "C" u8 lbl_8045130C[];
-extern "C" u8 lbl_80451318[];
-extern "C" u8 lbl_80451324[];
-extern "C" u8 lbl_80451330[];
-extern "C" u8 lbl_8045133C[];
-extern "C" u8 lbl_80451348[];
-extern "C" u8 lbl_80451354[];
-extern "C" u8 lbl_80451360[];
-extern "C" u8 lbl_8045136C[];
-extern "C" u8 lbl_80451378[];
-extern "C" u8 lbl_80451384[];
-extern "C" u8 lbl_80451390[];
-extern "C" u8 lbl_8045139C[];
-extern "C" u8 lbl_804513A8[];
-extern "C" u8 lbl_804513B4[];
-extern "C" u8 lbl_804513C0[];
-extern "C" u8 lbl_804513CC[];
-extern "C" u8 lbl_804513D8[];
-extern "C" u8 lbl_804513E4[];
-extern "C" u8 lbl_804513F0[];
-extern "C" u8 lbl_804513FC[];
-extern "C" u8 lbl_80451408[];
-extern "C" u8 lbl_80451414[];
-extern "C" u8 lbl_80451420[];
-extern "C" u8 lbl_8045142C[];
-extern "C" u8 lbl_80451438[];
-extern "C" u8 lbl_80451444[];
-extern "C" u8 lbl_80451450[];
-extern "C" u8 lbl_8045145C[];
-extern "C" u8 lbl_80451468[];
-extern "C" u8 lbl_80451474[];
-extern "C" u8 lbl_80451480[];
-extern "C" u8 lbl_8045148C[];
-extern "C" u8 lbl_80451498[];
-extern "C" u8 lbl_804514A4[];
-extern "C" u8 lbl_804514B0[];
-extern "C" u8 lbl_804514BC[];
-extern "C" u8 lbl_804514C8[];
-extern "C" u8 lbl_804514D4[];
-extern "C" u8 lbl_804514E0[];
-extern "C" u8 lbl_804514EC[];
-extern "C" u8 lbl_804514F8[];
-extern "C" u8 lbl_80451504[];
-extern "C" u8 lbl_80451510[];
-extern "C" u8 lbl_8045151C[];
-extern "C" u8 lbl_80451528[];
-extern "C" u8 lbl_80451534[];
-extern "C" u8 lbl_80451540[];
-extern "C" u8 lbl_8045154C[];
-extern "C" u8 lbl_80451558[];
-extern "C" u8 lbl_80451564[];
-extern "C" u8 lbl_80451570[];
-extern "C" u8 lbl_8045157C[];
-extern "C" u8 lbl_80451588[];
-extern "C" u8 lbl_80451594[];
-extern "C" u8 lbl_804515A0[];
-extern "C" u8 lbl_804515AC[];
-extern "C" u8 lbl_804515B8[];
-extern "C" u8 lbl_804515C4[];
-extern "C" u8 lbl_804515D0[];
-extern "C" u8 lbl_804515DC[];
-extern "C" u8 lbl_804515E8[];
-extern "C" u8 lbl_804515F4[];
-extern "C" u8 lbl_80451600[];
-extern "C" u8 lbl_8045160C[];
-extern "C" u8 lbl_80451618[];
-extern "C" u8 lbl_80451624[];
-extern "C" u8 lbl_80451630[];
-extern "C" u8 lbl_8045163C[];
-extern "C" u8 lbl_80451648[];
-extern "C" u8 lbl_80451654[];
-extern "C" u8 lbl_80451660[];
-extern "C" u8 lbl_8045166C[];
-extern "C" u8 lbl_80451678[];
-extern "C" u8 lbl_80451684[];
-extern "C" u8 lbl_80451690[];
-extern "C" u8 lbl_8045169C[];
-extern "C" u8 lbl_804516A8[];
-extern "C" u8 lbl_804516B4[];
-extern "C" u8 lbl_804516C0[];
-extern "C" u8 lbl_804516CC[];
-extern "C" u8 lbl_804516D8[];
-extern "C" u8 lbl_804516E4[];
-extern "C" u8 lbl_804516F0[];
-extern "C" u8 lbl_804516FC[];
-extern "C" u8 lbl_80451708[];
-extern "C" u8 lbl_80451714[];
-extern "C" u8 lbl_80451720[];
-extern "C" u8 lbl_8045172C[];
-extern "C" u8 lbl_80451738[];
-extern "C" u8 lbl_80451744[];
-extern "C" u8 lbl_80451750[];
-extern "C" u8 lbl_8045175C[];
-extern "C" u8 lbl_80451768[];
-extern "C" u8 lbl_80451774[];
-extern "C" u8 lbl_80451780[];
-extern "C" u8 lbl_8045178C[];
-extern "C" u8 lbl_80451798[];
-extern "C" u8 lbl_804517A4[];
-extern "C" u8 lbl_804517B0[];
-extern "C" u8 lbl_804517BC[];
-extern "C" u8 lbl_804517C8[];
-extern "C" u8 lbl_804517D4[];
-extern "C" u8 lbl_804517E0[];
-extern "C" u8 lbl_804517EC[];
-extern "C" u8 lbl_804517F8[];
-extern "C" u8 lbl_80451804[];
-extern "C" u8 lbl_80451810[];
-extern "C" u8 lbl_8045181C[];
-extern "C" u8 lbl_80451828[];
-extern "C" u8 lbl_80451834[];
-extern "C" u8 lbl_80451840[];
-extern "C" u8 lbl_8045184C[];
-extern "C" u8 lbl_80451858[];
-extern "C" u8 lbl_80451864[];
-extern "C" u8 lbl_80451870[];
-extern "C" u8 lbl_8045187C[];
-extern "C" u8 lbl_80451888[];
-extern "C" u8 lbl_80451894[];
-extern "C" u8 lbl_804518A0[];
-extern "C" u8 lbl_804518AC[];
-extern "C" u8 lbl_804518B8[];
-extern "C" u8 lbl_804518C4[];
-extern "C" u8 lbl_804518D0[];
-extern "C" u8 lbl_804518DC[];
-extern "C" u8 lbl_804518E8[];
-extern "C" u8 lbl_804518F4[];
-extern "C" u8 lbl_80451900[];
-extern "C" u8 lbl_8045190C[];
-extern "C" u8 lbl_80451918[];
-extern "C" u8 lbl_80451924[];
-extern "C" u8 lbl_80451930[];
-extern "C" u8 lbl_8045193C[];
-extern "C" u8 lbl_80451948[];
-extern "C" u8 lbl_80451954[];
-extern "C" u8 lbl_80451960[];
-extern "C" u8 lbl_8045196C[];
-extern "C" u8 lbl_80451978[];
-extern "C" u8 lbl_80451984[];
-extern "C" u8 lbl_80451990[];
-extern "C" u8 lbl_8045199C[];
-extern "C" u8 lbl_804519A8[];
-extern "C" u8 lbl_804519B4[];
-extern "C" u8 lbl_804519C0[];
-extern "C" u8 lbl_804519CC[];
-extern "C" u8 lbl_804519D8[];
-extern "C" u8 lbl_804519E4[];
-extern "C" u8 lbl_804519F0[];
-extern "C" u8 lbl_804519FC[];
-extern "C" u8 lbl_80451A08[];
-extern "C" u8 lbl_80451A14[];
-extern "C" u8 lbl_80451A20[];
-extern "C" u8 lbl_80451A2C[];
-extern "C" u8 lbl_80451A38[];
-extern "C" u8 lbl_80451A44[];
-extern "C" u8 lbl_80451A50[];
-extern "C" u8 lbl_80451A5C[];
-extern "C" u8 lbl_80451A68[];
-extern "C" u8 lbl_80451A74[];
-extern "C" u8 lbl_80451A80[];
-extern "C" u8 lbl_80451A8C[];
-extern "C" u8 lbl_80451A98[];
-extern "C" u8 lbl_80451AA4[];
-extern "C" u8 lbl_80451AB0[];
-extern "C" u8 lbl_80451ABC[];
-extern "C" u8 lbl_80451AC8[];
-extern "C" u8 lbl_80451AD4[];
-extern "C" u8 lbl_80451AE0[];
-extern "C" u8 lbl_80451AEC[];
-extern "C" u8 lbl_80451AF8[];
-extern "C" u8 lbl_80451B04[];
-extern "C" u8 lbl_80451B10[];
-extern "C" u8 lbl_80451B1C[];
-extern "C" u8 lbl_80451B28[];
-extern "C" u8 lbl_80451B34[];
-extern "C" u8 lbl_80451B40[];
-extern "C" u8 lbl_80451B4C[];
-extern "C" u8 lbl_80451B58[];
-extern "C" u8 lbl_80451B64[];
-extern "C" u8 lbl_80451B70[];
-extern "C" u8 lbl_80451B7C[];
-extern "C" u8 lbl_80451B88[];
-extern "C" u8 lbl_80451B94[];
-extern "C" u8 lbl_80451BA0[];
-extern "C" u8 lbl_80451BAC[];
-extern "C" u8 lbl_80451BB8[];
-extern "C" u8 lbl_80451BC4[];
-extern "C" u8 lbl_80451BD0[];
-extern "C" u8 lbl_80451BDC[];
-extern "C" u8 lbl_80451BE8[];
-extern "C" u8 lbl_80451BF4[];
-extern "C" u8 lbl_80451C00[];
-extern "C" u8 lbl_80451C0C[];
-extern "C" u8 lbl_80451C18[];
-extern "C" u8 lbl_80451C24[];
-extern "C" u8 lbl_80451C30[];
-extern "C" u8 lbl_80451C3C[];
-extern "C" u8 lbl_80451C48[];
-extern "C" u8 lbl_80451C54[];
-extern "C" u8 lbl_80451C60[];
-extern "C" u8 lbl_80451C6C[];
-extern "C" u8 lbl_80451C78[];
-extern "C" u8 lbl_80451C84[];
-extern "C" u8 lbl_80451C90[];
-extern "C" u8 lbl_80451C9C[];
-extern "C" u8 lbl_80451CA8[];
-extern "C" u8 lbl_80451CB4[];
-extern "C" u8 lbl_805D3B70[];
-extern "C" u8 lbl_805D3B74[];
-extern "C" u8 lbl_805D3B78[];
-extern "C" u8 lbl_805D3B7C[];
-extern "C" u8 lbl_805D3B80[];
-extern "C" u8 lbl_805D3B84[];
-extern "C" u8 lbl_805D3B88[];
-extern "C" u8 lbl_805D3B8C[];
-extern "C" u8 lbl_805D3B90[];
-extern "C" u8 lbl_805D3B94[];
-extern "C" u8 lbl_805D3B98[];
-extern "C" u8 lbl_805D3B9C[];
-extern "C" u8 lbl_805D3BA0[];
-extern "C" u8 lbl_805D3BA4[];
-extern "C" u8 lbl_805D3BA8[];
-extern "C" u8 lbl_805D3BAC[];
-extern "C" u8 lbl_805D3BB0[];
-extern "C" u8 lbl_805D3BB4[];
-extern "C" u8 lbl_805D3BB8[];
-extern "C" void render_shadows__7TObjectFv();
-extern "C" void reset_movement__10TObjPlayerFPv();
-extern "C" void update_object_view_visibility();
+extern "C" {
+}
+extern "C" {
+void TAdSinglePlyChrSelectGC__sub_80290194();
+}
+extern "C" {
+void TLobby__sub_801A1FD8();
+}
+extern "C" {
+void TObjPlayer__sub_80019568();
+}
+extern "C" {
+void TObjRoomId__sub_801A1E2C();
+}
+extern "C" {
+void TParticleCtrl__sub_801A2124();
+}
+extern "C" {
+void apply_object_set_data();
+}
+extern "C" {
+void classify_actor_view_detail();
+}
+extern "C" {
+extern u8 lbl_804512A0[];
+}
+extern "C" {
+extern u8 lbl_804512AC[];
+}
+extern "C" {
+extern u8 lbl_804512B8[];
+}
+extern "C" {
+extern u8 lbl_804512C4[];
+}
+extern "C" {
+extern u8 lbl_804512D0[];
+}
+extern "C" {
+extern u8 lbl_804512DC[];
+}
+extern "C" {
+extern u8 lbl_804512E8[];
+}
+extern "C" {
+extern u8 lbl_804512F4[];
+}
+extern "C" {
+extern u8 lbl_80451300[];
+}
+extern "C" {
+extern u8 lbl_8045130C[];
+}
+extern "C" {
+extern u8 lbl_80451318[];
+}
+extern "C" {
+extern u8 lbl_80451324[];
+}
+extern "C" {
+extern u8 lbl_80451330[];
+}
+extern "C" {
+extern u8 lbl_8045133C[];
+}
+extern "C" {
+extern u8 lbl_80451348[];
+}
+extern "C" {
+extern u8 lbl_80451354[];
+}
+extern "C" {
+extern u8 lbl_80451360[];
+}
+extern "C" {
+extern u8 lbl_8045136C[];
+}
+extern "C" {
+extern u8 lbl_80451378[];
+}
+extern "C" {
+extern u8 lbl_80451384[];
+}
+extern "C" {
+extern u8 lbl_80451390[];
+}
+extern "C" {
+extern u8 lbl_8045139C[];
+}
+extern "C" {
+extern u8 lbl_804513A8[];
+}
+extern "C" {
+extern u8 lbl_804513B4[];
+}
+extern "C" {
+extern u8 lbl_804513C0[];
+}
+extern "C" {
+extern u8 lbl_804513CC[];
+}
+extern "C" {
+extern u8 lbl_804513D8[];
+}
+extern "C" {
+extern u8 lbl_804513E4[];
+}
+extern "C" {
+extern u8 lbl_804513F0[];
+}
+extern "C" {
+extern u8 lbl_804513FC[];
+}
+extern "C" {
+extern u8 lbl_80451408[];
+}
+extern "C" {
+extern u8 lbl_80451414[];
+}
+extern "C" {
+extern u8 lbl_80451420[];
+}
+extern "C" {
+extern u8 lbl_8045142C[];
+}
+extern "C" {
+extern u8 lbl_80451438[];
+}
+extern "C" {
+extern u8 lbl_80451444[];
+}
+extern "C" {
+extern u8 lbl_80451450[];
+}
+extern "C" {
+extern u8 lbl_8045145C[];
+}
+extern "C" {
+extern u8 lbl_80451468[];
+}
+extern "C" {
+extern u8 lbl_80451474[];
+}
+extern "C" {
+extern u8 lbl_80451480[];
+}
+extern "C" {
+extern u8 lbl_8045148C[];
+}
+extern "C" {
+extern u8 lbl_80451498[];
+}
+extern "C" {
+extern u8 lbl_804514A4[];
+}
+extern "C" {
+extern u8 lbl_804514B0[];
+}
+extern "C" {
+extern u8 lbl_804514BC[];
+}
+extern "C" {
+extern u8 lbl_804514C8[];
+}
+extern "C" {
+extern u8 lbl_804514D4[];
+}
+extern "C" {
+extern u8 lbl_804514E0[];
+}
+extern "C" {
+extern u8 lbl_804514EC[];
+}
+extern "C" {
+extern u8 lbl_804514F8[];
+}
+extern "C" {
+extern u8 lbl_80451504[];
+}
+extern "C" {
+extern u8 lbl_80451510[];
+}
+extern "C" {
+extern u8 lbl_8045151C[];
+}
+extern "C" {
+extern u8 lbl_80451528[];
+}
+extern "C" {
+extern u8 lbl_80451534[];
+}
+extern "C" {
+extern u8 lbl_80451540[];
+}
+extern "C" {
+extern u8 lbl_8045154C[];
+}
+extern "C" {
+extern u8 lbl_80451558[];
+}
+extern "C" {
+extern u8 lbl_80451564[];
+}
+extern "C" {
+extern u8 lbl_80451570[];
+}
+extern "C" {
+extern u8 lbl_8045157C[];
+}
+extern "C" {
+extern u8 lbl_80451588[];
+}
+extern "C" {
+extern u8 lbl_80451594[];
+}
+extern "C" {
+extern u8 lbl_804515A0[];
+}
+extern "C" {
+extern u8 lbl_804515AC[];
+}
+extern "C" {
+extern u8 lbl_804515B8[];
+}
+extern "C" {
+extern u8 lbl_804515C4[];
+}
+extern "C" {
+extern u8 lbl_804515D0[];
+}
+extern "C" {
+extern u8 lbl_804515DC[];
+}
+extern "C" {
+extern u8 lbl_804515E8[];
+}
+extern "C" {
+extern u8 lbl_804515F4[];
+}
+extern "C" {
+extern u8 lbl_80451600[];
+}
+extern "C" {
+extern u8 lbl_8045160C[];
+}
+extern "C" {
+extern u8 lbl_80451618[];
+}
+extern "C" {
+extern u8 lbl_80451624[];
+}
+extern "C" {
+extern u8 lbl_80451630[];
+}
+extern "C" {
+extern u8 lbl_8045163C[];
+}
+extern "C" {
+extern u8 lbl_80451648[];
+}
+extern "C" {
+extern u8 lbl_80451654[];
+}
+extern "C" {
+extern u8 lbl_80451660[];
+}
+extern "C" {
+extern u8 lbl_8045166C[];
+}
+extern "C" {
+extern u8 lbl_80451678[];
+}
+extern "C" {
+extern u8 lbl_80451684[];
+}
+extern "C" {
+extern u8 lbl_80451690[];
+}
+extern "C" {
+extern u8 lbl_8045169C[];
+}
+extern "C" {
+extern u8 lbl_804516A8[];
+}
+extern "C" {
+extern u8 lbl_804516B4[];
+}
+extern "C" {
+extern u8 lbl_804516C0[];
+}
+extern "C" {
+extern u8 lbl_804516CC[];
+}
+extern "C" {
+extern u8 lbl_804516D8[];
+}
+extern "C" {
+extern u8 lbl_804516E4[];
+}
+extern "C" {
+extern u8 lbl_804516F0[];
+}
+extern "C" {
+extern u8 lbl_804516FC[];
+}
+extern "C" {
+extern u8 lbl_80451708[];
+}
+extern "C" {
+extern u8 lbl_80451714[];
+}
+extern "C" {
+extern u8 lbl_80451720[];
+}
+extern "C" {
+extern u8 lbl_8045172C[];
+}
+extern "C" {
+extern u8 lbl_80451738[];
+}
+extern "C" {
+extern u8 lbl_80451744[];
+}
+extern "C" {
+extern u8 lbl_80451750[];
+}
+extern "C" {
+extern u8 lbl_8045175C[];
+}
+extern "C" {
+extern u8 lbl_80451768[];
+}
+extern "C" {
+extern u8 lbl_80451774[];
+}
+extern "C" {
+extern u8 lbl_80451780[];
+}
+extern "C" {
+extern u8 lbl_8045178C[];
+}
+extern "C" {
+extern u8 lbl_80451798[];
+}
+extern "C" {
+extern u8 lbl_804517A4[];
+}
+extern "C" {
+extern u8 lbl_804517B0[];
+}
+extern "C" {
+extern u8 lbl_804517BC[];
+}
+extern "C" {
+extern u8 lbl_804517C8[];
+}
+extern "C" {
+extern u8 lbl_804517D4[];
+}
+extern "C" {
+extern u8 lbl_804517E0[];
+}
+extern "C" {
+extern u8 lbl_804517EC[];
+}
+extern "C" {
+extern u8 lbl_804517F8[];
+}
+extern "C" {
+extern u8 lbl_80451804[];
+}
+extern "C" {
+extern u8 lbl_80451810[];
+}
+extern "C" {
+extern u8 lbl_8045181C[];
+}
+extern "C" {
+extern u8 lbl_80451828[];
+}
+extern "C" {
+extern u8 lbl_80451834[];
+}
+extern "C" {
+extern u8 lbl_80451840[];
+}
+extern "C" {
+extern u8 lbl_8045184C[];
+}
+extern "C" {
+extern u8 lbl_80451858[];
+}
+extern "C" {
+extern u8 lbl_80451864[];
+}
+extern "C" {
+extern u8 lbl_80451870[];
+}
+extern "C" {
+extern u8 lbl_8045187C[];
+}
+extern "C" {
+extern u8 lbl_80451888[];
+}
+extern "C" {
+extern u8 lbl_80451894[];
+}
+extern "C" {
+extern u8 lbl_804518A0[];
+}
+extern "C" {
+extern u8 lbl_804518AC[];
+}
+extern "C" {
+extern u8 lbl_804518B8[];
+}
+extern "C" {
+extern u8 lbl_804518C4[];
+}
+extern "C" {
+extern u8 lbl_804518D0[];
+}
+extern "C" {
+extern u8 lbl_804518DC[];
+}
+extern "C" {
+extern u8 lbl_804518E8[];
+}
+extern "C" {
+extern u8 lbl_804518F4[];
+}
+extern "C" {
+extern u8 lbl_80451900[];
+}
+extern "C" {
+extern u8 lbl_8045190C[];
+}
+extern "C" {
+extern u8 lbl_80451918[];
+}
+extern "C" {
+extern u8 lbl_80451924[];
+}
+extern "C" {
+extern u8 lbl_80451930[];
+}
+extern "C" {
+extern u8 lbl_8045193C[];
+}
+extern "C" {
+extern u8 lbl_80451948[];
+}
+extern "C" {
+extern u8 lbl_80451954[];
+}
+extern "C" {
+extern u8 lbl_80451960[];
+}
+extern "C" {
+extern u8 lbl_8045196C[];
+}
+extern "C" {
+extern u8 lbl_80451978[];
+}
+extern "C" {
+extern u8 lbl_80451984[];
+}
+extern "C" {
+extern u8 lbl_80451990[];
+}
+extern "C" {
+extern u8 lbl_8045199C[];
+}
+extern "C" {
+extern u8 lbl_804519A8[];
+}
+extern "C" {
+extern u8 lbl_804519B4[];
+}
+extern "C" {
+extern u8 lbl_804519C0[];
+}
+extern "C" {
+extern u8 lbl_804519CC[];
+}
+extern "C" {
+extern u8 lbl_804519D8[];
+}
+extern "C" {
+extern u8 lbl_804519E4[];
+}
+extern "C" {
+extern u8 lbl_804519F0[];
+}
+extern "C" {
+extern u8 lbl_804519FC[];
+}
+extern "C" {
+extern u8 lbl_80451A08[];
+}
+extern "C" {
+extern u8 lbl_80451A14[];
+}
+extern "C" {
+extern u8 lbl_80451A20[];
+}
+extern "C" {
+extern u8 lbl_80451A2C[];
+}
+extern "C" {
+extern u8 lbl_80451A38[];
+}
+extern "C" {
+extern u8 lbl_80451A44[];
+}
+extern "C" {
+extern u8 lbl_80451A50[];
+}
+extern "C" {
+extern u8 lbl_80451A5C[];
+}
+extern "C" {
+extern u8 lbl_80451A68[];
+}
+extern "C" {
+extern u8 lbl_80451A74[];
+}
+extern "C" {
+extern u8 lbl_80451A80[];
+}
+extern "C" {
+extern u8 lbl_80451A8C[];
+}
+extern "C" {
+extern u8 lbl_80451A98[];
+}
+extern "C" {
+extern u8 lbl_80451AA4[];
+}
+extern "C" {
+extern u8 lbl_80451AB0[];
+}
+extern "C" {
+extern u8 lbl_80451ABC[];
+}
+extern "C" {
+extern u8 lbl_80451AC8[];
+}
+extern "C" {
+extern u8 lbl_80451AD4[];
+}
+extern "C" {
+extern u8 lbl_80451AE0[];
+}
+extern "C" {
+extern u8 lbl_80451AEC[];
+}
+extern "C" {
+extern u8 lbl_80451AF8[];
+}
+extern "C" {
+extern u8 lbl_80451B04[];
+}
+extern "C" {
+extern u8 lbl_80451B10[];
+}
+extern "C" {
+extern u8 lbl_80451B1C[];
+}
+extern "C" {
+extern u8 lbl_80451B28[];
+}
+extern "C" {
+extern u8 lbl_80451B34[];
+}
+extern "C" {
+extern u8 lbl_80451B40[];
+}
+extern "C" {
+extern u8 lbl_80451B4C[];
+}
+extern "C" {
+extern u8 lbl_80451B58[];
+}
+extern "C" {
+extern u8 lbl_80451B64[];
+}
+extern "C" {
+extern u8 lbl_80451B70[];
+}
+extern "C" {
+extern u8 lbl_80451B7C[];
+}
+extern "C" {
+extern u8 lbl_80451B88[];
+}
+extern "C" {
+extern u8 lbl_80451B94[];
+}
+extern "C" {
+extern u8 lbl_80451BA0[];
+}
+extern "C" {
+extern u8 lbl_80451BAC[];
+}
+extern "C" {
+extern u8 lbl_80451BB8[];
+}
+extern "C" {
+extern u8 lbl_80451BC4[];
+}
+extern "C" {
+extern u8 lbl_80451BD0[];
+}
+extern "C" {
+extern u8 lbl_80451BDC[];
+}
+extern "C" {
+extern u8 lbl_80451BE8[];
+}
+extern "C" {
+extern u8 lbl_80451BF4[];
+}
+extern "C" {
+extern u8 lbl_80451C00[];
+}
+extern "C" {
+extern u8 lbl_80451C0C[];
+}
+extern "C" {
+extern u8 lbl_80451C18[];
+}
+extern "C" {
+extern u8 lbl_80451C24[];
+}
+extern "C" {
+extern u8 lbl_80451C30[];
+}
+extern "C" {
+extern u8 lbl_80451C3C[];
+}
+extern "C" {
+extern u8 lbl_80451C48[];
+}
+extern "C" {
+extern u8 lbl_80451C54[];
+}
+extern "C" {
+extern u8 lbl_80451C60[];
+}
+extern "C" {
+extern u8 lbl_80451C6C[];
+}
+extern "C" {
+extern u8 lbl_80451C78[];
+}
+extern "C" {
+extern u8 lbl_80451C84[];
+}
+extern "C" {
+extern u8 lbl_80451C90[];
+}
+extern "C" {
+extern u8 lbl_80451C9C[];
+}
+extern "C" {
+extern u8 lbl_80451CA8[];
+}
+extern "C" {
+extern u8 lbl_80451CB4[];
+}
+extern "C" {
+extern u8 lbl_805D3B70[];
+}
+extern "C" {
+extern u8 lbl_805D3B74[];
+}
+extern "C" {
+extern u8 lbl_805D3B78[];
+}
+extern "C" {
+extern u8 lbl_805D3B7C[];
+}
+extern "C" {
+extern u8 lbl_805D3B80[];
+}
+extern "C" {
+extern u8 lbl_805D3B84[];
+}
+extern "C" {
+extern u8 lbl_805D3B88[];
+}
+extern "C" {
+extern u8 lbl_805D3B8C[];
+}
+extern "C" {
+extern u8 lbl_805D3B90[];
+}
+extern "C" {
+extern u8 lbl_805D3B94[];
+}
+extern "C" {
+extern u8 lbl_805D3B98[];
+}
+extern "C" {
+extern u8 lbl_805D3B9C[];
+}
+extern "C" {
+extern u8 lbl_805D3BA0[];
+}
+extern "C" {
+extern u8 lbl_805D3BA4[];
+}
+extern "C" {
+extern u8 lbl_805D3BA8[];
+}
+extern "C" {
+extern u8 lbl_805D3BAC[];
+}
+extern "C" {
+extern u8 lbl_805D3BB0[];
+}
+extern "C" {
+extern u8 lbl_805D3BB4[];
+}
+extern "C" {
+extern u8 lbl_805D3BB8[];
+}
+extern "C" {
+void render_shadows__7TObjectFv();
+}
+extern "C" {
+void reset_movement__10TObjPlayerFPv();
+}
+extern "C" {
+void update_object_view_visibility();
+}
 extern void *lbl_804D3A08[14];
 extern void *lbl_804D3A40[4];
 extern void *lbl_804D3A50[13];
@@ -913,6 +1430,36 @@ void TAdSinglePlyChrSelectGC__sub_8028FFC0(s32 arg0) {
     }
     blend_creation_proportion_shapes(&((CharacterAppearanceFields *)lbl_805D6520)->width);
     advance_animation_playback(arg0);
+}
+
+void TAdSinglePlyChrSelectGC__sub_80290088(Sel_80290088 *arg0) {
+    struct Opaque_80290088 *app;
+    CharacterAppearanceFields *raw;
+    s32 hair;
+    s32 head;
+    if (fn_8001ED90(lbl_805D6554) == 0 || arg0->f104 == 0) {
+        return;
+    }
+    update_pair__23TAdSinglePlyChrSelectGCFPv(arg0);
+    raw = (CharacterAppearanceFields *)lbl_805D6520;
+    app = (struct Opaque_80290088 *)raw;
+    hair = raw->hair;
+    if ((s32)lbl_80540888[hair].a == 1) {
+        lbl_805D6544 = lbl_80540888[hair].b;
+    }
+    if ((s32)lbl_805408D8[hair].a == 1) {
+        lbl_805D6548 = lbl_805408D8[hair].b;
+    }
+    head = ((CharacterAppearanceFields *)app)->head;
+    if ((s32)lbl_80540928[head].a == 1) {
+        lbl_805D654C = lbl_80540928[head].b;
+    }
+    lbl_805D6550 = relocate_data_block_pointers(arg0->fc, arg0->f100);
+    TCharaMaking__bind_body_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), (void *)(arg0->model));
+    TCharaMaking__bind_head_shape_nodes((CharacterAppearanceFields *)((CharacterAppearanceFields *)app), (void *)((void *)lbl_805D654C));
+    blend_creation_proportion_shapes(&((CharacterAppearanceFields *)lbl_805D6520)->width);
+    lbl_805D49B4 = 0;
+    lbl_805D6530 = 1;
 }
 
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {

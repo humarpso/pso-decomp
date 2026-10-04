@@ -9,6 +9,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#define M0(x) virtual void m##x();
+struct Base_801AF2F0 { char pad[0x18]; };
+
+struct VObj_801AF2F0 : Base_801AF2F0 {
+    M0(0) M0(1) M0(2) M0(3) M0(4) M0(5) M0(6) M0(7) M0(8) M0(9)
+    M0(10) M0(11) M0(12) M0(13)
+    virtual s32 m14();
+};
+
 extern "C" {
 void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
 s16 get_atp__10TObjPlayerFPv(void *);
@@ -20,6 +29,10 @@ void TObjPlayer__sub_800192B4(void *, int);
 s16 get_s16_2c4__10TObjPlayerFPv(void *);
 void reset_status_effect_row(void *);
 f32 TObjPlayer__sub_800192C4(void *, int);
+s32 TObjPlayer__sub_801BE2D0(void *);
+extern const f64 lbl_80446F38;
+extern const f64 lbl_80446F40;
+s32 TObjPlayer__sub_801AF2F0(void *arg0);
 }
 
 extern "C" {
@@ -3069,6 +3082,20 @@ extern s32 tl_07;
 
 extern "C" {
 void TObjPlayer__sub_801B269C(Pl_801B0B88 *p_);
+}
+
+s32 TObjPlayer__sub_801AF2F0(void *arg0) {
+    s32 var_r31;
+    var_r31 = ((VObj_801AF2F0*)arg0)->m14();
+    if (var_r31 > 0x63) {
+        var_r31 = 0x63;
+    }
+    if (TObjPlayer__sub_801BE2D0(arg0) != 0) {
+        var_r31 *= lbl_80446F38;
+        return 0x5A - var_r31;
+    }
+    var_r31 *= lbl_80446F40;
+    return 0x3C - var_r31;
 }
 
 void update_facing_from_lock__10TObjPlayerFPv(void *arg0) {
