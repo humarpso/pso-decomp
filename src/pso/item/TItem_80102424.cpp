@@ -118,6 +118,13 @@ struct TItem_80102424 : VObj_18_441505 {
     u16 fE4;
 };
 
+class TItem_8010263C {
+public:
+    void state0();
+    void state1();
+    void state2();
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
@@ -161,6 +168,9 @@ extern s32 lbl_805D543C;
 extern const f32 lbl_805DAA9C;
 extern const f32 lbl_805DAAA0;
 void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
+s8 TObjPlayer__sub_80102C30(void *);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+void TItem__sub_8010263C(TItem_8010263C *self);
 }
 
 extern "C" {
@@ -212,6 +222,38 @@ void render__5TItemFPv(u8 *arg0) {
             func_80141618__Fv();
         }
         clear_shadow_flag__10TObjPlayerFPv((void *) (arg0));
+    }
+}
+
+void *lbl_8049E8F8[24] = {
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000,
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000, (void *)0x0,
+    (void *)0x3f800000, (void *)0x3e989899, (void *)0x3e989899, (void *)0x3e989899,
+    (void *)0x3f800000, (void *)0x0, (void *)0x3f32b2b3, (void *)0x3f800000,
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x3ecccccd, (void *)0x3f4ccccd,
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049E958[24] = {
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x0, (void *)0x3ecccccd,
+    (void *)0x3f800000, (void *)0x0, (void *)0x0, (void *)0x3f800000,
+    (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000, (void *)0x0,
+    (void *)0x3f800000, (void *)0x3f66e6e7, (void *)0x3e989899, (void *)0x0,
+    (void *)0x3f800000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x3f800000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+};
+void TItem__sub_8010263C(TItem_8010263C *self) {
+    void (TItem_8010263C::*fn)();
+    if (all_parents_unqueued_for_destruction__7TObjectFv(self) != 0) {
+        static void (TItem_8010263C::*tbl[4])() = {
+            &TItem_8010263C::state0,
+            &TItem_8010263C::state1,
+            &TItem_8010263C::state2,
+            0,
+        };
+        fn = tbl[TObjPlayer__sub_80102C30((void *)(self))];
+        if (fn) {
+            (self->*fn)();
+        }
     }
 }
 

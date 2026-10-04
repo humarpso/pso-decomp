@@ -691,6 +691,7 @@ pso/object/TObjDFDemoF.cpp:
 
 pso/unk/text_800502FC.cpp:
 	.text       start:0x800502FC end:0x8005049C
+	.data       start:0x804858A8 end:0x804858B4
 
 pso/ui/TObjDFYutai.cpp:
 	.text       start:0x8005049C end:0x800505A8
@@ -3130,6 +3131,8 @@ pso/item/TItem_801023A8.cpp:
 pso/item/TItem_80102424.cpp:
 	.text       start:0x80102424 end:0x80102864
 	.rodata     start:0x8043E020 end:0x8043E028
+	.data       start:0x8049E8F8 end:0x8049E958
+	.sbss       start:0x805D540C end:0x805D5410
 
 pso/item/TItem_80102864.cpp:
 	.text       start:0x80102864 end:0x801028D8
@@ -5814,6 +5817,7 @@ pso/npc/TObjNpcBringer.cpp:
 
 pso/unk/text_8014952C.cpp:
 	.text       start:0x8014952C end:0x80149630
+	.data       start:0x804A7EA0 end:0x804A7F18
 
 pso/npc/TObjNpcCloakroomBase.cpp:
 	.text       start:0x80149630 end:0x801498E0
@@ -11616,6 +11620,7 @@ pso/misc/TORockJungleL01.cpp:
 
 pso/unk/text_8029C214.cpp:
 	.text       start:0x8029C214 end:0x8029C320
+	.data       start:0x804DC378 end:0x804DC390
 
 pso/misc/TORockJungleM01.cpp:
 	.text       start:0x8029C320 end:0x8029C7A4
