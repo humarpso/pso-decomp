@@ -28,6 +28,20 @@ struct RecoveredGlobal_803300C8_lbl_80477428 {
     u8 remaining[0x18];
 };
 
+struct Ent_8032FFC0 { s32 a; s32 next; s32 c; f32 d; };
+struct Anim_8032FFC0 { s32 a; u32 count; };
+
+struct O_8032FFC0 {
+    u8 pad[0x3D4];
+    s32 f3d4;
+    s32 mode;
+    Anim_8032FFC0 *anim;
+    f32 t;
+    f32 speed;
+    f32 f3e8;
+    f32 f3ec;
+};
+
 struct RecoveredGlobal_803300C8_lbl_804EDD94 {
     M2C_UNK value;
     u8 remaining[0x4C];
@@ -157,11 +171,11 @@ void TObjFish__sub_8032FE50(void *arg0);
 s32 get_bml_motion(int, int);
 extern RecoveredGlobal_803300C8_lbl_80477404 lbl_80477404;
 extern RecoveredGlobal_803300C8_lbl_80477428 lbl_80477428;
-extern RecoveredGlobal_803300C8_lbl_804EDD94 lbl_804EDD94;
+extern Ent_8032FFC0 lbl_804EDD94[];
 void TBoss6Type2__sub_803300C8(u8 *arg0);
 void copy_state__11TBoss6Type2FPvPv(void* p, void* q);
 s32 get_bml_motion(int, int);
-extern RecoveredGlobal_803300C8_lbl_804EDD94 lbl_804EDD94;
+extern Ent_8032FFC0 lbl_804EDD94[];
 extern const f32 lbl_805DF7FC;
 void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DF7FC;
@@ -932,15 +946,43 @@ void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1) {
     }
 }
 #pragma pop
+void TBoss6Type2__sub_8032FFC0(O_8032FFC0 *arg0) {
+    f32 n;
+    f32 lim;
+
+    n = (f32)arg0->anim->count;
+    arg0->t += arg0->speed;
+    switch (arg0->mode) {
+    case 0:
+        if (arg0->t >= n) {
+            arg0->t -= n;
+        }
+        break;
+    case 1:
+        break;
+    case 2:
+        lim = n - 1.0f;
+        if (arg0->t >= lim) {
+            arg0->t = lim;
+            TBoss6Type2__sub_8032FF24((u8 *)arg0, lbl_804EDD94[arg0->f3d4].next);
+        }
+        break;
+    }
+    if (0.0f != arg0->f3e8) {
+        if ((arg0->f3e8 += arg0->f3ec) >= 1.0f) {
+            arg0->f3e8 = 0.0f;
+        }
+    }
+}
 
 void TBoss6Type2__sub_803300C8(u8 *arg0) {
     s32 temp_r3;
     TBoss6Type2__sub_80330178((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&lbl_80477404.value))));
     copy_state__11TBoss6Type2FPvPv((void*)((void *) (arg0 + 0x3DC)), (void*)((void *) (&lbl_80477428.value)));
-    temp_r3 = get_bml_motion((int) (M2C_FIELD(arg0, s32 *, 0x374)), (int) (M2C_FIELD(&lbl_804EDD94.value, s32 *, 8)));
+    temp_r3 = get_bml_motion((int) (M2C_FIELD(arg0, s32 *, 0x374)), (int) (M2C_FIELD(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)lbl_804EDD94).value, s32 *, 8)));
     M2C_FIELD(arg0, s32 *, 0x3F0) = temp_r3;
     M2C_FIELD(arg0, s32 *, 0x3DC) = temp_r3;
-    M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) M2C_FIELD(&lbl_804EDD94.value, f32 *, 0xC);
+    M2C_FIELD(arg0, f32 *, 0x3E4) = (f32) M2C_FIELD(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)lbl_804EDD94).value, f32 *, 0xC);
 }
 void copy_state__11TBoss6Type2FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 

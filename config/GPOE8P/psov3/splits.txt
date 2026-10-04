@@ -10376,6 +10376,7 @@ pso/misc/TWindowKeyBoardHard_8026038C.cpp:
 pso/misc/TKeyBoardControl.cpp:
 	.text       start:0x80260450 end:0x8026262C
 	.rodata     start:0x8044F258 end:0x8044F260
+	.sdata2     start:0x805DD078 end:0x805DD094
 
 pso/misc/TWindowKeyBoardSoft_80261440_8026262C.cpp:
 	.text       start:0x8026262C end:0x802626E8
@@ -13583,7 +13584,7 @@ pso/player/TObjPlayer_8032E4C8.cpp:
 
 pso/boss/TBoss6Type2_8032E708.cpp:
 	.text       start:0x8032E708 end:0x80330240
-	.rodata     start:0x80477460 end:0x80477468
+	.rodata     start:0x80477460 end:0x80477470
 	.data       start:0x804EDF38 end:0x804EDF90
 	.sdata2     start:0x805DF7F4 end:0x805DF818
 
@@ -15915,6 +15916,7 @@ pso/unk/text_803E2070.cpp:
 
 pso/unk/text_803E20B0.cpp:
 	.text       start:0x803E20B0 end:0x803E21B8
+	.sdata2     start:0x805E1058 end:0x805E1070
 
 pso/player/TObjPlayer_803E21B8.cpp:
 	.text       start:0x803E21B8 end:0x803E29B0

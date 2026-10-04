@@ -76,6 +76,21 @@ typedef struct Hit_8004B8F8 {
     s32 f4;
 } Hit_8004B8F8;
 
+struct Boss_8004B20C {
+    u8 pad0[0x37C];
+    s32 state;
+};
+
+typedef void (Boss_8004B20C::*Act_8004B20C)();
+
+struct Entry_8004B20C {
+    s32 f0;
+    Act_8004B20C enter;
+    Act_8004B20C leave;
+    Act_8004B20C a;
+    Act_8004B20C b;
+};
+
 extern "C" {
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2);
 void fn_803594B4(void *, s32, f32);
@@ -270,6 +285,27 @@ void TBoss4DarkFalz__sub_8004B1BC(Obj_8004B1BC *self, s32 arg) {
     msg.a = arg;
     msg.b = -1;
     swap_and_send__14TBoss4DarkFalzFPv(&msg);
+}
+
+void TBoss4DarkFalz__sub_8004B20C(Boss_8004B20C *arg0, s32 arg1) {
+    if (arg1 < 0 || arg1 >= 16) {
+        return;
+    }
+    if (arg0->state != -1) {
+        u8 *t = (u8 *)&TBoss4DarkFalz__data_80485108.value;
+        t = t + arg0->state * 0x34;
+        Act_8004B20C f = ((Entry_8004B20C *)t)->leave;
+        if (f) {
+            (arg0->*f)();
+        }
+    }
+    arg0->state = arg1;
+    u8 *t2 = (u8 *)&TBoss4DarkFalz__data_80485108.value;
+    t2 = t2 + arg0->state * 0x34;
+    Act_8004B20C g = ((Entry_8004B20C *)t2)->enter;
+    if (g) {
+        (arg0->*g)();
+    }
 }
 
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0) {

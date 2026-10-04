@@ -66,7 +66,8 @@ void TKeyBoardControl__sub_802613A4(void *arg0);
 void release__16TKeyBoardControlFPv(void *arg0);
 void close__19TWindowKeyBoardSoftFPv(void* p);
 s32 TWindowKeyBoardSoft__sub_80261480(u8 *arg0, u8 *arg1, u8 *arg2);
-f32 TWindowKeyBoardSoft__sub_802614DC(void *, f32, f32, f32, f32);
+f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
+f32 TWindowSubComCard__sub_80244818(u8 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_802616BC(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_80261DD8(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_8026227C(void *, int);
@@ -302,7 +303,26 @@ s32 TWindowKeyBoardSoft__sub_80261480(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f5;
     temp_f3 = M2C_FIELD(arg2, f32 *, 4);
     temp_f5 = M2C_FIELD(arg2, f32 *, 0);
-    return TWindowKeyBoardSoft__sub_802614DC(arg0, temp_f5 - M2C_FIELD(arg1, f32 *, 0), temp_f3 - M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg2, f32 *, 8) - temp_f5, M2C_FIELD(arg2, f32 *, 0xC) - temp_f3) >= TWindowKeyBoardSoft__data_805DD078;
+    return TWindowKeyBoardSoft__sub_802614DC(arg0, arg1, temp_f5 - M2C_FIELD(arg1, f32 *, 0), temp_f3 - M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg2, f32 *, 8) - temp_f5, M2C_FIELD(arg2, f32 *, 0xC) - temp_f3) >= TWindowKeyBoardSoft__data_805DD078;
+}
+
+f32 TWindowKeyBoardSoft__sub_802614DC(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
+    f32 t;
+    f32 v;
+
+    t = TWindowSubComCard__sub_80244818(arg0);
+    if (t >= 1.0f) {
+        return 1.0f;
+    }
+    v = (t * (M2C_FIELD(arg1, f32 *, 8) + M2C_FIELD(arg1, f32 *, 0xC))) - (farg0 + farg1);
+    if (v <= 0.0f) {
+        return 0.0f;
+    }
+    v = v / (farg2 + farg3);
+    if (v >= 1.0f) {
+        v = 1.0f;
+    }
+    return v;
 }
 
 #pragma push

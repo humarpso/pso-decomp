@@ -586,9 +586,9 @@ s32 TLobby__sub_80406AE4(void);
 s32 TUdpSocket__sub_80407508(void);
 void TLobby__sub_804073B8(void);
 s32 TLobby__sub_80407C60(s16, s32);
-void TLobby__sub_804073D8(s16 arg0, s32 arg1);
+s32 TLobby__sub_804073D8(s16 arg0, s32 arg1);
 s32 TLobby__sub_80407D98(s16, s32);
-void TLobby__sub_804073F8(s16 arg0, s32 arg1);
+s32 TLobby__sub_804073F8(s16 arg0, s32 arg1);
 s32 TLobby__sub_8040799C(s16, void *, void *);
 void TLobby__sub_804074C8(s16 arg0, u8 *arg1, u8 *arg2);
 s16 TLobby__sub_80407F20(s16, s16, s16, s16, s16, s32, s8, s32);
@@ -2915,12 +2915,12 @@ void TLobby__sub_804073B8(void) {
     TUdpSocket__sub_80407508();
 }
 
-void TLobby__sub_804073D8(s16 arg0, s32 arg1) {
-    TLobby__sub_80407C60(arg0, arg1);
+s32 TLobby__sub_804073D8(s16 arg0, s32 arg1) {
+    return TLobby__sub_80407C60(arg0, arg1);
 }
 
-void TLobby__sub_804073F8(s16 arg0, s32 arg1) {
-    TLobby__sub_80407D98(arg0, arg1);
+s32 TLobby__sub_804073F8(s16 arg0, s32 arg1) {
+    return TLobby__sub_80407D98(arg0, arg1);
 }
 
 typedef struct Ent_80407418 {
@@ -3145,6 +3145,40 @@ s32 TLobby__sub_80408F2C(s16 id, u8 *pkt) {
         b++;
     }
     return -2;
+}
+
+typedef struct Sock_80409130 { s16 f0; u8 pad2[4]; u16 f6; s16 f8; u8 padA[6]; } Sock_80409130;
+
+s32 TLobby__sub_80409130(s16 arg0, s16 arg1, s32 arg2) {
+    s32 h;
+    Sock_80409130 *e;
+
+    if (arg0 < 0 || arg0 >= lbl_805C1AD8.count) {
+        return -0x111;
+    }
+    e = M2C_FIELD(&lbl_805C1AD8, Sock_80409130 **, 0x10);
+    e += arg0;
+    if (e->f0 == 0) {
+        return -2;
+    }
+    switch (e->f6) {
+    case 0x800:
+        h = e->f8;
+        if ((s16)h < 0) {
+            return -2;
+        }
+        if (arg1 == 1) {
+            return TLobby__sub_804073F8(h, arg2);
+        }
+        if (arg1 == 2) {
+            return TLobby__sub_804073D8(h, arg2);
+        }
+        return -2;
+    default:
+        return -2;
+    case 0x86DD:
+        return 0;
+    }
 }
 
 #define TBL_804099B4 (*(Tbl_804099B4 *)&lbl_805D7AF8)

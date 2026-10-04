@@ -93,7 +93,7 @@ struct RecoveredGlobal_802C1B9C_lbl_804E081C {
 
 struct Vec_802C1E34 { f32 x, y, z; };
 
-struct Entry_802C1E34 { s32 a; s32 b; s32 c; f32 d; s32 e; };
+struct Entry_802C1E34 { s32 a; f32 b; f32 c; f32 d; s32 e; };
 
 struct Obj_802C1E34 {
     u8 pad0[0x98];
@@ -146,7 +146,32 @@ typedef struct RecoveredGlobal_802C20E8_lbl_804E0910 RecoveredGlobal_802C20E8_lb
 
 struct Vec_802C2548 { f32 x, y, z; };
 
-struct Entry_802C2548 { s32 a; s32 b; s32 c; f32 d; s32 e; s32 f; };
+struct Entry_802C2548 { s32 a; f32 b; f32 c; f32 d; s32 e; s32 f; };
+
+struct Ent_802C1FD0 { s32 a; f32 b; f32 c; s32 d; s32 e; };
+struct Sub_802C1FD0 { s32 a; u32 n; };
+struct Pl_802C1FD0 {
+    u8 pad0[0x9C];
+    Sub_802C1FD0 *sub;
+    u8 pad4[0xA4 - 0xA0];
+    f32 x;
+    f32 y;
+    u8 padac[0xC8 - 0xAC];
+    s32 idx;
+};
+
+struct Ent_802C26E4 { s32 a; f32 b; f32 c; s32 d; s32 e; s32 f; };
+struct Sub_802C26E4 { s32 a; u32 n; };
+struct Pl_802C26E4 {
+    u8 pad0[0x9C];
+    Sub_802C26E4 *sub;
+    u8 pad4[0xA4 - 0xA0];
+    f32 x;
+    f32 y;
+    u8 padac[0xC8 - 0xAC];
+    s32 idx;
+};
+s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *, Ent_802C26E4 *, f32);
 
 struct Obj_802C2548 {
     u8 pad0[0x98];
@@ -729,6 +754,21 @@ void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0) {
     pop_matrix();
 }
 
+void TObjPlayer__sub_802C1FD0(Pl_802C1FD0 *arg0) {
+    u8 *t = (u8 *)lbl_80471890;
+    t = t + arg0->idx * 0x14;
+    Ent_802C1FD0 *e = (Ent_802C1FD0 *)t;
+    f32 ox = arg0->x;
+    arg0->x = ox + e->b;
+    if (((s32 (*)(Pl_802C1FD0 *, Ent_802C1FD0 *, f32))TObjPlayer__sub_802C1BFC)(arg0, e, ox) == 0) {
+        arg0->x = lbl_805DE4F8;
+    }
+    arg0->y = arg0->y + lbl_80471890[arg0->idx].c;
+    if (arg0->y > (f32)(arg0->sub->n - 1)) {
+        arg0->y = lbl_805DE4F8;
+    }
+}
+
 void *deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0910;
@@ -833,6 +873,20 @@ void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0) {
     rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0xC0));
     draw_model_motion(M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xA8));
     pop_matrix();
+}
+
+void TObjPlayer__sub_802C26E4(Pl_802C26E4 *arg0) {
+    Ent_802C26E4 *e = (Ent_802C26E4 *)lbl_80471848;
+    e += arg0->idx;
+    f32 ox = arg0->x;
+    arg0->x = ox + e->b;
+    if (TObjPlayer__sub_802C22A4(arg0, e, ox) == 0) {
+        arg0->x = lbl_805DE4F8;
+    }
+    arg0->y = arg0->y + lbl_80471848[arg0->idx].c;
+    if (arg0->y > (f32)(arg0->sub->n - 1)) {
+        arg0->y = lbl_805DE4F8;
+    }
 }
 
 void *TObjPlayer__sub_802C27A4(void *arg0, s16 arg1) {
