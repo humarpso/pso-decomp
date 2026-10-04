@@ -5,6 +5,10 @@ struct Rec_801815F8 { s32 a; s32 b; s32 c[2]; };
 
 struct Obj_801815F8 { s32 f00; u8 pad0[0x14]; u8 *vptr; s32 f1C; f32 f20; s32 f24; Rec_801815F8 recs[5]; };
 
+struct Info_80181698 { s32 f0; u32 n; };
+
+struct V3_80181698 { f32 x; f32 y; f32 z; };
+
 extern "C" {
 M2C_UNK destroy_buffer_pair(void *, M2C_UNK);
 extern void *lbl_8050DC08[];
@@ -14,6 +18,13 @@ extern u8 lbl_804B593C[];
 extern s32 lbl_805D3248;
 extern const f32 lbl_805DBBC8;
 Obj_801815F8 *fn_801815F8(Obj_801815F8 *arg0);
+Info_80181698 *get_city_common_motion(s32);
+void *get_city_common_model(s32);
+void bind_motion_context(s32, f32);
+void sample_motion_node_transform(void *, void *, void *, void *, void *);
+extern s32 lbl_80443B18[];
+extern s32 lbl_80443B2C[];
+s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 }
 
 extern "C" {
@@ -43,6 +54,26 @@ Obj_801815F8 *fn_801815F8(Obj_801815F8 *arg0) {
     return arg0;
 }
 #pragma pop
+
+s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
+    V3_80181698 sp24;
+    V3_80181698 sp18;
+    f32 sp8[4];
+    f32 lim;
+    s32 r;
+    Info_80181698 *m = get_city_common_motion(lbl_80443B18[arg0]);
+    u32 n = m->n;
+    r = 1;
+    lim = (f32)(n - 1);
+    if (farg0 > lim) {
+        farg0 = lim;
+        r = 0;
+    }
+    bind_motion_context((s32)m, farg0);
+    void *t = get_city_common_model(lbl_80443B2C[arg0]);
+    sample_motion_node_transform(t, arg1, &sp24, &sp18, &sp8);
+    return r;
+}
 
 void fn_80181750(void) {
     s32 i;

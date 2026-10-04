@@ -26,6 +26,16 @@ struct Strip_801E35C4 {
     s32 count;
 };
 
+struct Vec3_801E3784 { f32 x, y, z; };
+
+struct UV_801E3784 { s16 u, v; };
+
+struct Tris_801E3784 {
+    Vec3_801E3784 *positions;
+    u32 *colors;
+    UV_801E3784 *uvs;
+};
+
 extern "C" {
 void TWindowCtrlMain__sub_801E352C(Ctrl_801E352C *c, s32 n, s32 flags, f32 _w3);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
@@ -62,6 +72,19 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void TObjCMHairMenu__sub_801E3F54(void *, void *);
 void fn_801E3F44(f32, f32);
 void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f32 scale);
+void TObjEneRe4Sorcerer__sub_801E3F20(void);
+void TObjPlayer__sub_801E3F24(u32);
+void TObjPlayer__sub_801E3F30(f32, f32, f32);
+void fn_801E3F44(f32, f32);
+void GXBegin(s32, s32, u16);
+void load_camera_view_matrix(void);
+void setup_opaque_color_draw(void);
+void TObjPlayer__sub_803E21DC(void);
+void setup_render__10TObjPlayerFv(void);
+void setup_blended_textured_draw(void);
+void TObjPlayer__sub_803E2248(void);
+void load_context_texture_obj(void);
+void TObjPlayer__sub_801E3784(Tris_801E3784 *t, s32 n, u32 flags);
 }
 
 extern "C" {
@@ -205,6 +228,41 @@ void TObjCMHairMenu__sub_801E35C4(Strip_801E35C4 *self, s32 count, s32 flags, f3
         }
     }
     TObjEneRe4Sorcerer__sub_801E3F20();
+}
+void TObjPlayer__sub_801E3784(Tris_801E3784 *t, s32 n, u32 flags) {
+    Vec3_801E3784 *p;
+    UV_801E3784 *uv;
+    u32 *c;
+    s32 i;
+    load_camera_view_matrix();
+    if (flags & 8) {
+        if (flags & 4) {
+            setup_blended_textured_draw();
+        } else {
+            setup_render__10TObjPlayerFv();
+        }
+        load_context_texture_obj();
+    } else if (flags & 4) {
+        TObjPlayer__sub_803E21DC();
+    } else {
+        setup_opaque_color_draw();
+    }
+    GXBegin(0xA0, 4, n);
+    c = t->colors;
+    p = t->positions;
+    uv = t->uvs;
+    for (i = 0; i < n; i++) {
+        TObjPlayer__sub_801E3F30(p->x, p->y, p->z);
+        TObjPlayer__sub_801E3F24(*c);
+        if (flags & 8) {
+            fn_801E3F44(uv->u / 255.0f, uv->v / 255.0f);
+            uv++;
+        }
+        p++;
+        c++;
+    }
+    TObjEneRe4Sorcerer__sub_801E3F20();
+    TObjPlayer__sub_803E2248();
 }
 
 }

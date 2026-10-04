@@ -1409,7 +1409,7 @@ pso/misc/TQuestVmDownLoadServer_8007EBDC.cpp:
 pso/unk/text_8007ECF0.cpp:
 	.text       start:0x8007ECF0 end:0x8007F4B8
 	.rodata     start:0x80438AC8 end:0x80438AE0
-	.sdata2     start:0x805D92A8 end:0x805D92B0
+	.sdata2     start:0x805D9298 end:0x805D92C0
 
 pso/unk/text_8007F4B8.cpp:
 	.text       start:0x8007F4B8 end:0x8007F574
@@ -6712,6 +6712,7 @@ pso/unk/text_801815A0.cpp:
 
 pso/unk/text_801815F8.cpp:
 	.text       start:0x801815F8 end:0x801817AC
+	.rodata     start:0x80443BA0 end:0x80443BA8
 
 pso/unk/text_801817AC.cpp:
 	.text       start:0x801817AC end:0x801819FC
@@ -11893,6 +11894,7 @@ pso/misc/TPlayerFootStamp_802B02B0.cpp:
 pso/misc/TPlayerFootStamp_802B03F4.cpp:
 	.text       start:0x802B03F4 end:0x802B0770
 	.rodata     start:0x804709A0 end:0x804709A8
+	.sdata2     start:0x805DE218 end:0x805DE228
 
 pso/misc/TPlayerFootStamp_802B0770.cpp:
 	.text       start:0x802B0770 end:0x802B0808
@@ -13794,6 +13796,7 @@ pso/player/TObjPlayer_8033C7C8.cpp:
 
 pso/object/TObjFish_8033CCC8.cpp:
 	.text       start:0x8033CCC8 end:0x8033D324
+	.sdata2     start:0x805DFA64 end:0x805DFA70
 
 pso/player/TObjPlayer_8033D324.cpp:
 	.text       start:0x8033D324 end:0x8033D6DC
@@ -13915,6 +13918,7 @@ pso/misc/TWindowDD_803471C0.cpp:
 
 pso/misc/TWindowDD_8034725C.cpp:
 	.text       start:0x8034725C end:0x80347F34
+	.sdata2     start:0x805DFCC8 end:0x805DFCD0
 
 pso/misc/TWindowDD_80347F34.cpp:
 	.text       start:0x80347F34 end:0x80348100
@@ -14121,6 +14125,7 @@ pso/object/TObjRainbowLobby.cpp:
 pso/object/TObjButterflyLobby_80350958.cpp:
 	.text       start:0x80350958 end:0x80351530
 	.rodata     start:0x80478DF0 end:0x80478DF8
+	.sdata2     start:0x805DFE40 end:0x805DFE5C
 
 pso/object/TObjButterflyLobby.cpp:
 	.text       start:0x80351530 end:0x803516F8

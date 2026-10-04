@@ -10,6 +10,14 @@ struct ButterflyLobbyVObj_80350958 : ButterflyLobbyBase_80350958 {
     virtual s32 m8(f32, f32);
 };
 
+struct Obj_80350AE4 { u8 pad[0x90]; s32 state; f32 val; };
+
+extern "C" {
+s32 is_connected__6TLobbyFv();
+s32 is_lobby_obj_active__6TLobbyFv();
+void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0);
+}
+
 extern "C" {
 
 void init_params__18TObjButterflyLobbyFPv(u8 *arg0);
@@ -69,6 +77,35 @@ void render__18TObjButterflyLobbyFv(void *arg0) {
     if ((((ButterflyLobbyVObj_80350958*)arg0)->m8(lbl_805DFE4C, lbl_805DFE50) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
         render__18TObjButterflyLobbyFPv((u8 *)(arg0));
+    }
+}
+void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0) {
+    switch (arg0->state) {
+    case 0:
+        if (is_connected__6TLobbyFv() != 0) {
+            arg0->state = 2;
+        }
+        break;
+    case 2:
+        arg0->val += 0.1f;
+        if (arg0->val >= 1.0f) {
+            arg0->val = 1.0f;
+            arg0->state = 3;
+        }
+        break;
+    case 1:
+        arg0->val -= 0.1f;
+        if (arg0->val <= 0.0f) {
+            arg0->val = 0.0f;
+            arg0->state = 0;
+        }
+        break;
+    case 3:
+    default:
+        if (is_lobby_obj_active__6TLobbyFv() != 0) {
+            arg0->state = 1;
+        }
+        break;
     }
 }
 

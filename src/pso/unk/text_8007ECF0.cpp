@@ -4,6 +4,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct E_8007F3F8 { s32 a; f32 f; };
+
+struct O_8007F3F8 { u8 pad[0x40]; s32 count; E_8007F3F8 e[4]; };
+
+extern "C" {
+s32 fn_8007F3F8(O_8007F3F8 *arg0, f32 farg0);
+}
+
 extern "C" {
 
 struct Obj_8007F0E4 {
@@ -19,7 +27,6 @@ struct Obj_8007F0E4 {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjWarpString__sub_8007EE8C(void *arg0, s32 x0, s32 y0, s8 *str);
-s32 fn_8007F3F8(void *, f32);
 s32 fn_8007F4B8(void *, s32, f32);
 s32 calc_text_width(s8 *);
 void TObjWarpString__sub_80145750(s8 *, u32, f32, f32);
@@ -52,7 +59,7 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D929C;
     }
     if (((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) && (fn_8007F4B8(arg0, M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, f32 *, 0x1C)) != 0)) {
-        temp_r3 = fn_8007F3F8(arg0, M2C_FIELD(arg0, f32 *, 0x1C));
+        temp_r3 = fn_8007F3F8((O_8007F3F8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x1C));
         if (temp_r3 >= 0) {
             var_r3 = temp_r3 + (s32) ((lbl_805D92A0 * ((f32) temp_r3 / lbl_805D92A4)) + lbl_805D92A0);
             if (var_r3 > 0x464F) {
@@ -165,6 +172,26 @@ void fn_8007F0E4(Obj_8007F0E4 *self, f32 x, f32 y) {
     if (self->time > 5) {
         self->time--;
     }
+}
+s32 fn_8007F3F8(O_8007F3F8 *arg0, f32 farg0) {
+    f32 sum;
+    f32 df;
+    f32 da;
+    s32 i;
+    if (arg0->count < 9) {
+        return -1;
+    }
+    sum = 0.0f;
+    for (i = 0; i < 3; i++) {
+        da = (f32)(arg0->e[i].a - arg0->e[i + 1].a);
+        df = arg0->e[i].f - arg0->e[i + 1].f;
+        if (da <= 1e-05f || df <= 1e-05f) {
+            return -1;
+        }
+        sum += da / df;
+    }
+    sum /= 3.0f;
+    return (s32)((1.0f - farg0) * sum);
 }
 
 }

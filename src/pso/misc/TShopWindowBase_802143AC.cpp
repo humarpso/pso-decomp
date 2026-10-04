@@ -54,6 +54,20 @@ struct Stack_8021488C {
     f32 spC;
 };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+    virtual s32 m8();
+};
+
 extern "C" {
 s32 is_quest_active();
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
@@ -64,6 +78,16 @@ s32 get_window_layout_position(s32);
 extern const f32 lbl_805DC658;
 extern const f32 lbl_805DC65C;
 void THunterGuildSeqOffline__sub_8021488C(u8 *arg0);
+s32 is_quest_active();
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 create_quest_thread(s32);
+s32 get_register__12TQuestThreadFPvi(void *, int);
+s32 THunterGuildSeqOffline__sub_80212120();
+s32 TShopWindowBase__sub_802239EC(void *);
+s32 TShopWindowBase__sub_80223A48(void *);
+extern s32 THunterGuildSeqOffline__data_80513DC8[];
+extern s32 lbl_805D5EE8;
+void THunterGuildSeqOffline__sub_802145F8(u8 *arg0);
 }
 
 extern "C" {
@@ -131,6 +155,79 @@ block_3:
             ((V_A_80214544_802143AC *) arg0)->m7(0xC, 1);
             M2C_FIELD(arg0, s32 *, 0x34) = 1;
             set_field_20__12TQuestListVMFPvi((void *)(arg0), (s32)(0xC));
+        }
+    }
+}
+
+void THunterGuildSeqOffline__sub_802145F8(u8 *arg0) {
+    s32 temp_r0;
+    s32 temp_r3;
+    if (((VObj_18 *)(arg0))->m8() != 0) {
+        if (TShopWindowBase__sub_80223A48((void *) (arg0)) != 0) {
+            M2C_FIELD(arg0, s32 *, 0x40) = 0;
+        }
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x40) == 0) {
+            temp_r0 = M2C_FIELD(arg0, s32 *, 0x30);
+            switch (temp_r0) {
+            case 3:
+                break;
+            case 0:
+                if (is_quest_active() != 0) {
+                    M2C_FIELD(arg0, s32 *, 0x30) = 2;
+                    return;
+                }
+                temp_r3 = THunterGuildSeqOffline__sub_80212120();
+                switch (temp_r3) {
+                case 1:
+                    M2C_FIELD(arg0, s32 *, 0x30) = 2;
+                    return;
+                case 0:
+                    ((VObj_18 *)(arg0))->m7(0x11, 1);
+                    M2C_FIELD(arg0, s32 *, 0x30) = 1;
+                    return;
+                case 2:
+                    ((VObj_18 *)(arg0))->m7(0xD, 1);
+                    M2C_FIELD(arg0, s32 *, 0x30) = 1;
+                    return;
+                }
+                break;
+            case 1:
+                if (THunterGuildSeqOffline__sub_80212120() == 1) {
+                    M2C_FIELD(arg0, s32 *, 0x30) = 2;
+                }
+                if (TShopWindowBase__sub_802239EC((void *) (arg0)) != 0) {
+                    ((VObj_18 *)(arg0))->m7(0x10, 1);
+                    set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (0xD));
+                    return;
+                }
+                break;
+            case 2:
+                if (is_quest_active() != 0) {
+                    if (get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFF)) != 0) {
+                        ((VObj_18 *)(arg0))->m7(0xB, 1);
+                        if (THunterGuildSeqOffline__data_80513DC8[1] != -1) {
+                            M2C_FIELD(arg0, s32 *, 0x3C) = create_quest_thread(THunterGuildSeqOffline__data_80513DC8[1]);
+                        }
+                        set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (4));
+                        return;
+                    }
+                    if (get_register__12TQuestThreadFPvi((void *) (lbl_805D5EE8), (int) (0xFD)) != 0) {
+                        ((VObj_18 *)(arg0))->m7(0x12, 1);
+                        if (THunterGuildSeqOffline__data_80513DC8[0] != -1) {
+                            M2C_FIELD(arg0, s32 *, 0x3C) = create_quest_thread(THunterGuildSeqOffline__data_80513DC8[0]);
+                        }
+                        set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (5));
+                        return;
+                    }
+                    ((VObj_18 *)(arg0))->m7(2, 1);
+                    set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (6));
+                    return;
+                }
+                ((VObj_18 *)(arg0))->m7(4, 1);
+                M2C_FIELD(arg0, s32 *, 0x30) = 0;
+                set_field_20__12TQuestListVMFPvi((void *) (arg0), (int) (8));
+                break;
+            }
         }
     }
 }

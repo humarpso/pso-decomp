@@ -6,12 +6,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Boss_802B057C { u8 pad[0x3CC]; s32 f3CC; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
 int TBoss6PlotFalz__sub_802AC678(void*);
 extern const f32 lbl_805DE218;
 extern const f32 lbl_805DE21C;
 void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o);
+int TBoss6PlotFalz__sub_802AC4D8(void);
+void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
+s32 TBoss6PlotFalz__sub_802AB2B8(void *, s32);
+void TBoss6PlotFalz__sub_802B06D0(void *arg0);
 }
 
 extern "C" {
@@ -114,16 +119,13 @@ void init_hall_boss_scene(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     M2C_FIELD(arg0, s32 *, 0x3DC) = alloc__8TObjFishFPv(arg0);
 }
-
-extern const f32 lbl_805DE220;
 void TBoss6PlotFalz__sub_802B06D0(void *arg0) {
     f32 f;
     TBoss6PlotFalz__sub_802AC4D8();
     if (M2C_FIELD(arg0, s32 *, 0x3CC) > 0xF7) {
-        f = lbl_805DE220;
-        f *= (f32)(M2C_FIELD(arg0, s32 *, 0x3CC) - 0xF7);
-        if (f > lbl_805DE218) {
-            f = lbl_805DE218;
+        f = (f32)(M2C_FIELD(arg0, s32 *, 0x3CC) - 0xF7) / 8.0f;
+        if (f > 1.0f) {
+            f = 1.0f;
         }
         TBoss6PlotFalz__sub_802AB568(arg0, f, 0);
     }
@@ -131,5 +133,7 @@ void TBoss6PlotFalz__sub_802B06D0(void *arg0) {
         TBoss6PlotFalz__sub_802AB2B8(arg0, 4);
     }
 }
+
+extern const f32 lbl_805DE220;
 
 }
