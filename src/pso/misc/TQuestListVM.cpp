@@ -75,6 +75,13 @@ struct VObj_80218D40 : VBase_18_80218D40 {
 
 struct Pair_80218D40 { s32 a; s32 b; };
 
+typedef s32 M2C_UNK;
+struct Rec_80218E94 { u8 pad[0xB4]; s32 slot; s32 type; };
+
+struct QL_80218E94 { u8 pad[0x28]; Rec_80218E94 recs[48]; };
+
+struct Dl_80218E94 { u8 pad[0x58]; u8 *data; s32 size; };
+
 extern "C" {
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -112,7 +119,6 @@ M2C_UNK TQuestListVM__sub_8021884C(void *);
 void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80218918(void *);
 M2C_UNK TQuestListVM__sub_80218BBC(void *);
-M2C_UNK TQuestListVM__sub_80218E94(void *);
 M2C_UNK TQuestListVM__sub_80219064(void *);
 M2C_UNK quest_vm_load(void *arg0);
 M2C_UNK TQuestListVM__sub_8021916C(void *);
@@ -151,6 +157,22 @@ extern s32 TQuestListVM__data_805D6200;
 extern const f32 lbl_805DC6B8;
 extern const f32 lbl_805DC6BC;
 void TQuestListVM__sub_80218D40(u8 *arg0);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 TAdPlayerLoadGC__sub_801E1538(Dl_80218E94 *, s32);
+s32 poll_download__12TQuestListVMFv(void *);
+void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
+void TQuestVmDownLoadServer__sub_801F8588(u8 *, s32);
+s32 TQuestVmDownLoadServer__sub_801F84B8(u8 *, s32);
+u32 decrypt_quest_data__12TQuestListVMFPviiUi(u8 *, s32, s32, s32);
+void set_selected_entry__12TQuestListVMFPvPv(void *, void *);
+void close_windows__12TQuestListVMFPv(void *arg0);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+extern s32 TQuestListVM__data_805D6200;
+extern s32 TQuestListVM__data_805D6204;
+extern s32 TQuestListVM__data_805D6208;
+extern s32 TQuestListVM__data_805D620C;
+void TQuestListVM__sub_80218E94(void *p);
 }
 
 extern "C" {
@@ -359,6 +381,52 @@ void TQuestListVM__sub_80218D40(u8 *arg0) {
     }
 }
 
+#define arg0 ((u8 *)p)
+void TQuestListVM__sub_80218E94(void *p) {
+    Dl_80218E94 dl;
+    u32 r;
+    u32 win = *(u32 *)(arg0 + 0x2374);
+    if (win != 0U) {
+    u8 *e = arg0 + select_cursor_entry__6TLobbyFPv(win) * 0xBC;
+    if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)(e + 0xDC)) == 0) {
+    switch (TAdPlayerLoadGC__sub_801E1538(&dl, *(s32 *)(arg0 + 0x2388))) {
+    case 0:
+        TQuestVmDownLoadServer__sub_80219ED4(poll_download__12TQuestListVMFv(arg0));
+        TQuestVmDownLoadServer__sub_801F8588(dl.data, dl.size);
+        if (TQuestVmDownLoadServer__sub_801F84B8(dl.data, dl.size) == 0) {
+            *(s32 *)(arg0 + 0x2398) += 2;
+            ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
+            set_selected_entry__12TQuestListVMFPvPv(arg0, (void *)5);
+            close_windows__12TQuestListVMFPv(arg0);
+        } else {
+            r = decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__data_805D6200, TQuestListVM__data_805D6204);
+            if (r != 0) {
+                TQuestListVM__data_805D6208 = TQuestListVM__data_805D6200 + r;
+                TQuestListVM__data_805D620C = TQuestListVM__data_805D6204 - r;
+                set_field_20__12TQuestListVMFPvi(arg0, (void *)0xF);
+            } else {
+                ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
+                set_selected_entry__12TQuestListVMFPvPv(arg0, (void *)5);
+                close_windows__12TQuestListVMFPv(arg0);
+            }
+        }
+        break;
+    case -0xDF:
+        ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
+        close_windows__12TQuestListVMFPv(arg0);
+        set_field_20__12TQuestListVMFPvi(arg0, (void *)5);
+        break;
+    case -0xE0:
+        ((VObj_802186E4_80218570 *)arg0)->m7(0x1A, 1);
+        close_windows__12TQuestListVMFPv(arg0);
+        set_field_20__12TQuestListVMFPvi(arg0, (void *)5);
+        break;
+    }
+    }
+    }
+}
+#undef arg0
+
 M2C_UNK quest_vm_load(void *arg0) {
     if (TLobby__sub_8001EEF4() != 0) {
         M2C_FIELD(arg0, s32 *, 0x2384) = TLobby__sub_8001EEFC(TQuestListVM__data_8044BF20);
@@ -437,7 +505,7 @@ void TQuestListVM__vt9(u8 *arg0) {
         TQuestListVM__sub_80219064((void *) (arg0));
         return;
     case 9:
-        TQuestListVM__sub_80218E94((void *) (arg0));
+        TQuestListVM__sub_80218E94((void *)((void *) (arg0)));
         return;
     case 15:
         TQuestListVM__sub_80218D40((u8 *)((void *) (arg0)));

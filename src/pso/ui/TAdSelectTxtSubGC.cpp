@@ -8,10 +8,48 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Src_802A37A0 {
+    s32 f0;
+    s32 f4;
+    f32 v8[2];
+    s32 f10;
+};
+
+struct Txt_802A37A0 {
+    s32 f0;
+    u8 pad4[0x14];
+    M2C_UNK *vt;
+    s32 f1c;
+    s32 f20;
+    f32 f24, f28, f2c, f30;
+    u8 pad34[0x54 - 0x34];
+    f32 f54, f58, f5c, f60;
+    f32 f64, f68;
+    f32 f6c, f70;
+    f32 f74, f78;
+    s32 f7c;
+    s32 f80;
+    s32 f84;
+};
+
 extern "C" {
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF40;
 void run_task__17TAdSelectTxtSubGCFv(u8 *arg0);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+int TObjNpcHosa__sub_802A39B0(void);
+extern M2C_UNK __vt__17TAdSelectTxtSubGC[];
+extern s32 lbl_805D3DC0;
+extern s32 lbl_805D6648;
+extern const f32 lbl_805DDF3C;
+extern const f32 lbl_805DDF44;
+extern const f32 lbl_805DDF48;
+extern const f32 lbl_805DDF4C;
+extern const f32 lbl_805DDF54;
+extern const f32 lbl_805DDF58;
+Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src);
 }
 
 extern "C" {
@@ -52,6 +90,36 @@ void run_task__17TAdSelectTxtSubGCFv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x4C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x74) * (M2C_FIELD(arg0, f32 *, 0x2C) - temp_f2_3)) + temp_f2_3);
     temp_f2_4 = M2C_FIELD(arg0, f32 *, 0x70);
     M2C_FIELD(arg0, f32 *, 0x50) = (f32) ((M2C_FIELD(arg0, f32 *, 0x78) * (M2C_FIELD(arg0, f32 *, 0x30) - temp_f2_4)) + temp_f2_4);
+}
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_802A37A0 *src) {
+    __ct__7TObjectFP7TObject(arg0, parent);
+    arg0->vt = __vt__17TAdSelectTxtSubGC;
+    arg0->f0 = lbl_805D3DC0;
+    arg0->f7c = src->f0;
+    arg0->f1c = src->f4;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->f64, src->v8);
+    arg0->f80 = src->f10;
+    arg0->f84 = -1;
+    arg0->f74 = lbl_805DDF3C;
+    arg0->f78 = lbl_805DDF3C;
+    lbl_805D6648 = TObjNpcHosa__sub_802A39B0();
+    arg0->f20 = arg0->f7c > 8;
+    arg0->f7c -= (arg0->f7c > 8) ? 9 : 0;
+    arg0->f24 = lbl_805DDF44 * (f32) arg0->f1c + arg0->f64;
+    arg0->f28 = arg0->f68;
+    arg0->f2c = lbl_805DDF44 * (f32) (arg0->f1c + 1) + arg0->f64;
+    arg0->f30 = lbl_805DDF48 + arg0->f68;
+    arg0->f6c = lbl_805DDF4C * (arg0->f2c - arg0->f24) + arg0->f24;
+    arg0->f70 = lbl_805DDF4C * (arg0->f30 - arg0->f28) + arg0->f28;
+    arg0->f54 = (lbl_805DDF44 * (f32) arg0->f1c) / 256.0f;
+    arg0->f58 = (lbl_805DDF54 * (f32) arg0->f7c) / 256.0f;
+    arg0->f5c = (lbl_805DDF44 * (f32) (arg0->f1c + 1) - lbl_805DDF58) / 256.0f;
+    arg0->f60 = (lbl_805DDF54 * (f32) (arg0->f7c + 1) - lbl_805DDF58) / 256.0f;
+    return arg0;
 }
 #pragma pop
 

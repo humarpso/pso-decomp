@@ -62,6 +62,19 @@ struct Gee_800C96B4 : VBase_800C96B4 {
     f32 f44C;
 };
 
+struct Par_800C8950 { u8 pad[0x2c]; s32 x2c; };
+
+struct Vec_800C8950 { f32 x, y, z; };
+
+struct Gee_800C8950 {
+    u8 pad0[0x1c]; u16 x1c; u8 pad1e[0x2c - 0x1e]; s16 x2c;
+    u8 pad2e[0x38 - 0x2e]; Vec_800C8950 pos;
+    u8 pad44[0x60 - 0x44]; s32 angle;
+    u8 pad64[0x42c - 0x64]; Par_800C8950 *par;
+    u8 pad430[0x490 - 0x430];
+    s32 maxCount; s32 count; void *children[8];
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(Vec_800C96B4 *);
@@ -76,6 +89,16 @@ extern const f32 TObjEneMe1Gee__data_805DA0D4;
 extern const f32 lbl_805DA0E0;
 extern const f32 TObjEneMe1Gee__data_805DA0E8;
 void TObjEneMe1Gee__sub_800C96B4(Gee_800C96B4 *o, s32 mode);
+f32 get_status_value_f32__23TObjEneMe1CanadinLeaderFv(f32);
+void TObjEneMe1Gee__sub_800CB5B8(u8 *arg0);
+void TObjEneMe1Gee__sub_800CB5D4(u8 *arg0);
+void *create__13TObjEneMe1GeeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
+f32 sin_table_lookup(s32, f32);
+f32 cos_table_lookup(s32);
+M2C_UNK vec3_add_to(void *, s32);
+extern const f32 lbl_805DA0B0;
+extern const f32 TObjEneMe1Gee__data_805DA0B4;
+void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self);
 }
 
 extern "C" {
@@ -2083,6 +2106,43 @@ s32 TObjEneMe1Gee__sub_800C88D4(Obj_800C88D4 *self) {
         return 1;
     }
     return 0;
+}
+
+void TObjEneMe1Gee__sub_800C8950(Gee_800C8950 *self) {
+    s32 n;
+    s32 i;
+    s32 j;
+    u16 a;
+    s32 b;
+    s32 angle;
+    Vec_800C8950 v;
+    n = (s32)get_status_value_f32__23TObjEneMe1CanadinLeaderFv((f32)self->maxCount / (f32)self->par->x2c);
+    if (n < 1) {
+        n = 1;
+    }
+    a = self->x1c + 1;
+    angle = self->angle;
+    b = self->x2c + 1;
+    for (i = 0; i < n; i++) {
+        v.x = lbl_805DA0B0 * ((f32 (*)(s32))sin_table_lookup)(angle);
+        v.y = TObjEneMe1Gee__data_805DA0B4;
+        v.z = lbl_805DA0B0 * cos_table_lookup(angle);
+        ((void (*)(void *, void *))vec3_add_to)(&v, &self->pos);
+        angle += 0x10000 / self->maxCount;
+        self->children[i] = ((void *(*)(void *, void *, u16, s32))create__13TObjEneMe1GeeFPvPvPvPv)(self, &v, a++, b++);
+        TObjEneMe1Gee__sub_800CB5B8((u8 *)self->children[i]);
+        self->count++;
+    }
+    for (j = n; j < self->maxCount; j++) {
+        v.x = lbl_805DA0B0 * ((f32 (*)(s32))sin_table_lookup)(angle);
+        v.y = TObjEneMe1Gee__data_805DA0B4;
+        v.z = lbl_805DA0B0 * cos_table_lookup(angle);
+        ((void (*)(void *, void *))vec3_add_to)(&v, &self->pos);
+        angle += 0x10000 / self->maxCount;
+        self->children[j] = ((void *(*)(void *, void *, u16, s32))create__13TObjEneMe1GeeFPvPvPvPv)(self, &v, a++, b++);
+        TObjEneMe1Gee__sub_800CB5D4((u8 *)self->children[j]);
+        self->count++;
+    }
 }
 
 void TObjEneMe1Gee__sub_800C8B4C(Obj_800C8B4C *self) {
