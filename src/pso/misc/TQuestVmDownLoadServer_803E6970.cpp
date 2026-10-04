@@ -286,6 +286,19 @@ struct Out_803E9FFC {
     Out_803E9FFC *next;
 };
 
+struct Src_803EBD38 { u16 x0; u16 x2; u8 x4; u8 text[1]; };
+
+struct N_803EBD38 {
+    u8 flags;
+    u8 text[5];
+    u8 x6;
+    u8 x7;
+    s32 x8;
+    u16 xc;
+    u16 xe;
+    N_803EBD38 *next;
+};
+
 extern "C" {
 extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
 void TQuestVmDownLoadServer__sub_803EE2E4(void);
@@ -595,6 +608,11 @@ void TQuestVmDownLoadServer__sub_803ECE5C(Node_803ECE5C *p);
 extern s32 lbl_805D7888;
 extern RecoveredGlobal_803E6ACC_lbl_805A0470 lbl_805A0470;
 void *TQuestVmDownLoadServer__sub_803E9FFC(s32 arg0, s32 arg1, Tok_803E9FFC *t);
+u32 strlen(const char *);
+void *TQuestVmDownLoadServer__sub_803ECED0(void);
+void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
+s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0);
+void *TQuestVmDownLoadServer__sub_803EBD38(void *sp, void *a1, s32 a2, void *hp, void *tp);
 }
 
 extern "C" {
@@ -2010,7 +2028,6 @@ struct N_803EBEFC {
 };
 void *TQuestVmDownLoadServer__sub_803ECED0(void);
 void TQuestVmDownLoadServer__sub_803ECD54(Node_803ECD54 *p);
-void *TQuestVmDownLoadServer__sub_803EBD38(void *sp, void *a1, s32 a2, void *hp, void *tp);
 s32 TQuestVmDownLoadServer__sub_803EEA48(s32 arg0, s32 arg1, void *arg2, s32 *arg3);
 s32 TQuestVmDownLoadServer__sub_803EFE14(s32, u8, u8, void *, s32 *);
 extern s32 lbl_805D78F0;
@@ -2033,6 +2050,77 @@ inline N_803EBEFC *Default_803EBEFC(s32 x) {
     }
     return n;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline s32 Copy_803EBD38(u8 *dst, u8 *src, s32 max) {
+    s32 n = max;
+    u8 *s = src;
+    u8 *d = dst;
+    while (*s != 0 && n > 0) {
+        if (is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(*s)) {
+            if (n <= 1) {
+                break;
+            }
+            *d++ = *s++;
+            n--;
+        }
+        *d++ = *s++;
+        n--;
+    }
+    *d = 0;
+    return max - n;
+}
+#define s ((Src_803EBD38 *)sp)
+#define headp ((N_803EBD38 **)hp)
+#define tailp ((N_803EBD38 **)tp)
+void *TQuestVmDownLoadServer__sub_803EBD38(void *sp, void *a1, s32 a2, void *hp, void *tp) {
+    u8 *text;
+    s32 rem;
+    N_803EBD38 *n;
+    N_803EBD38 *m;
+    s32 c;
+    u8 unused[8];
+    text = s->text;
+    rem = strlen((const char *)text);
+    n = (N_803EBD38 *)TQuestVmDownLoadServer__sub_803ECED0();
+    if (n == NULL) {
+        return NULL;
+    }
+    n->flags = 0;
+    c = Copy_803EBD38(n->text, text, 4);
+    rem -= c;
+    n->x6 = a2;
+    text += c;
+    n->x7 = s->x4;
+    n->x8 = (s32)a1;
+    n->xc = s->x0;
+    n->xe = s->x2;
+    n->next = NULL;
+    *headp = n;
+    while (rem > 0) {
+        m = (N_803EBD38 *)TQuestVmDownLoadServer__sub_803ECED0();
+        if (m == NULL) {
+            TQuestVmDownLoadServer__sub_803ECD54((Node_803ECD54 *)*headp);
+            return NULL;
+        }
+        n->flags |= 1;
+        m->flags = 2;
+        c = Copy_803EBD38(m->text, text, 14);
+        rem -= c;
+        text += c;
+        m->next = NULL;
+        n->next = m;
+        n = m;
+    }
+    *tailp = n;
+    return *headp;
+}
+#undef s
+#undef headp
+#undef tailp
+#pragma pop
 
 N_803EBEFC *TQuestVmDownLoadServer__sub_803EBEFC(Arg_803EBEFC *a) {
     s32 count;
@@ -2069,7 +2157,7 @@ build:
     tail = NULL;
     head = NULL;
     while (count > 0) {
-        if (TQuestVmDownLoadServer__sub_803EBD38(p, t, t->x0, &first, &tl) == NULL) {
+        if (TQuestVmDownLoadServer__sub_803EBD38((void *)(p), (void *)(t), (s32)(t->x0), (void *)(&first), (void *)(&tl)) == NULL) {
             TQuestVmDownLoadServer__sub_803ECD54((Node_803ECD54 *)head);
             return NULL;
         }
@@ -2121,7 +2209,6 @@ extern RecoveredGlobal_803E6ACC_lbl_805A0470 lbl_805A0470;
 extern u8 lbl_80596258[];
 u16 TQuestVmDownLoadServer__sub_803ED0B4(u8 *arg0, u16 arg1);
 void *TQuestVmDownLoadServer__sub_803ECED0(void);
-void *TQuestVmDownLoadServer__sub_803EBD38(void *sp, void *a1, s32 a2, void *hp, void *tp);
 s32 TQuestVmDownLoadServer__sub_803EED0C(s32 arg0, s32 arg1, s32 arg2);
 s32 TQuestVmDownLoadServer__sub_803F0048(s32, u8, u8, void *);
 
@@ -2192,7 +2279,7 @@ def:
         }
     }
 build:
-    e->xc = (N_803EC460 *)TQuestVmDownLoadServer__sub_803EBD38(base + 0xC, t, t->x0, &first, &tl);
+    e->xc = (N_803EC460 *)TQuestVmDownLoadServer__sub_803EBD38((void *)(base + 0xC), (void *)(t), (s32)(t->x0), (void *)(&first), (void *)(&tl));
 }
 #pragma pop
 

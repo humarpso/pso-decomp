@@ -5,6 +5,40 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct TBoss6Type2_802BD014;
+typedef void (TBoss6Type2_802BD014::*Fn_802BD014)();
+struct Boss_802B9C80;
+struct T2_802BB498;
+struct T2_802BB554;
+struct Obj_802BCD2C;
+struct Tb_802BD0C8 { s32 f0; s32 f4; s32 f8; Fn_802BD014 fn; Fn_802BD014 fn2; Fn_802BD014 fn3; };
+
+extern "C" {
+s32 get_bml_model(s32, M2C_UNK);
+s32 collect_and_count__12TBoss3VoloptFUii(int, int);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK submit_cursor_candidate(void *, int);
+M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+M2C_UNK TObjPlayer__sub_8023DEE0(void *, int, int, int);
+M2C_UNK TBoss6PlotFalz__sub_802AC1D8(void *, int, int);
+s32 is_idle__11TBoss6Type1FPv(int);
+void TBoss6Type2__sub_802B9D90(u8 *arg0);
+void TBoss6Type2__sub_802BA3B4(u8 *arg0);
+M2C_UNK TBoss6Type2__sub_802BA6DC();
+void TBoss6Type2__sub_802BA7BC(u8 *o);
+M2C_UNK TBoss6Type2__sub_802BBAB0(void *);
+void update_parts_flags__11TBoss6Type2FPv(void *arg0);
+M2C_UNK TBoss6Type2__sub_802BBE20(void *);
+void advance_position__11TBoss6Type2FPv(u8 *arg0);
+void TBoss6Type2__sub_802BBF54(u8 *arg0);
+M2C_UNK TBoss6Type2__sub_802BC124(void *);
+void update_countdown__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self);
+extern const f32 lbl_805DE4C0;
+void run_task__11TBoss6Type2Fv(u8 *arg0);
+}
+
 extern "C" {
 
 struct Stack_802B9D90
@@ -548,6 +582,13 @@ extern const f32 lbl_805DE4C8;
 extern const f32 lbl_805DE4CC;
 extern const f32 lbl_805DE4D0;
 extern s32 tl_04;
+
+extern "C" {
+void TBoss6Type2__sub_802B9C80(Boss_802B9C80 *o);
+void TBoss6Type2__sub_802BB498(T2_802BB498 *arg0);
+void TBoss6Type2__sub_802BB554(T2_802BB554 *arg0);
+extern Tb_802BD014 lbl_804E00DC[];
+}
 
 void render__11TBoss6Type2Fv(void* p) { render_body_effects__11TBoss6Type2FPv(p); draw__11TBoss6Type2FPv(p); }
 
@@ -1821,6 +1862,54 @@ extern int fold_flush_15;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+#pragma push
+#pragma opt_common_subs off
+void run_task__11TBoss6Type2Fv(u8 *arg0) {
+#define o ((TBoss6Type2_802BD014 *)arg0)
+    Fn_802BD014 fn;
+    TBoss6Type2__sub_802BA6DC();
+    {
+        Tb_802BD0C8 *tbl = (Tb_802BD0C8 *)lbl_804E00DC;
+        fn = tbl[o->a[0]].fn3;
+    }
+    if (fn) {
+        (o->*fn)();
+    }
+    if (is_idle__11TBoss6Type1FPv(M2C_FIELD(arg0, s32 *, 0x3F8)) != 0) {
+        Tb_802BD0C8 *tbl = (Tb_802BD0C8 *)lbl_804E00DC;
+        fn = tbl[o->a[0]].fn2;
+        if (fn) {
+            (o->*fn)();
+        }
+    }
+#undef o
+    TBoss6Type2__sub_802BCD2C((Obj_802BCD2C *) (arg0));
+    advance_position__11TBoss6Type2FPv(arg0);
+    TBoss6Type2__sub_802BBE20((void *) (arg0));
+    update_parts_flags__11TBoss6Type2FPv((void *) (arg0));
+    update_collisions__10TObjPlayerFPv((void *) (arg0));
+    submit_cursor_candidate((void *) (arg0), (int) (-1));
+    add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DE4C0));
+    TBoss6Type2__sub_802BBAB0((void *) (arg0));
+    TBoss6Type2__sub_802BB498((T2_802BB498 *) (arg0));
+    TBoss6Type2__sub_802BC124((void *) (arg0));
+    TBoss6PlotFalz__sub_802AC1D8((void *) (arg0 + 0x768), (int) (8), (int) (0));
+    TObjPlayer__sub_8023DEE0((void *) (M2C_FIELD(M2C_FIELD(collect_and_count__12TBoss3VoloptFUii(get_bml_model((s32)(M2C_FIELD(arg0, s32 *, 0x3FC)), (M2C_UNK)(1)), 1), u8 **, 4), s32 *, 4)), (int) (8), (int) (0), (int) (0));
+    TBoss6Type2__sub_802BB554((T2_802BB554 *) (arg0));
+    TBoss6Type2__sub_802BBF54(arg0);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x418) != 0) {
+        play_persistent_sound((int) (0x4006B00C), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+    }
+    update_countdown__11TBoss6Type2FPv((void *) (arg0));
+    TBoss6Type2__sub_802BA3B4(arg0);
+    TBoss6Type2__sub_802B9D90(arg0);
+    TBoss6Type2__sub_802BA7BC(arg0);
+    TBoss6Type2__sub_802B9C80((Boss_802B9C80 *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x4F8) = (s32) M2C_FIELD(arg0, s16 *, 0x32C);
+}
+#pragma pop
+
 void copy_pos_620__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
     ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)(arg1, arg0 + 0x620);
 }
