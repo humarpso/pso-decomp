@@ -343,6 +343,7 @@ pso/boss/TBoss2Mine_800389E4.cpp:
 
 pso/boss/TBoss2Mine_80038B40.cpp:
 	.text       start:0x80038B40 end:0x80038D0C
+	.data       start:0x80482C88 end:0x80482D04
 
 pso/boss/TBoss2Mine.cpp:
 	.text       start:0x80038D0C end:0x80038DCC
@@ -640,6 +641,7 @@ pso/unk/text_8004EF94.cpp:
 
 pso/unk/text_8004F030.cpp:
 	.text       start:0x8004F030 end:0x8004F1A4
+	.data       start:0x804856C0 end:0x804856EC
 
 pso/object/TObjDFDemo3.cpp:
 	.text       start:0x8004F1A4 end:0x8004F1FC
