@@ -1991,6 +1991,8 @@ pso/player/TObjPlayer_800A7764.cpp:
 
 pso/enemy/TObjEneDimedian.cpp:
 	.text       start:0x800A7FE0 end:0x800A884C
+	.rodata     start:0x8043AA8C end:0x8043AAA4
+	.data       start:0x80490D10 end:0x80490D20
 
 pso/unk/text_800A884C.cpp:
 	.text       start:0x800A884C end:0x800A887C
@@ -7041,6 +7043,7 @@ pso/misc/TLazerFenceSw.cpp:
 pso/misc/TContainerAncient01_8018A584.cpp:
 	.text       start:0x8018A584 end:0x8018B79C
 	.rodata     start:0x804450B0 end:0x804450B8
+	.data       start:0x804B6D70 end:0x804B6D7C
 
 pso/misc/TContainerAncient01_8018B79C.cpp:
 	.text       start:0x8018B79C end:0x8018BAE0
@@ -10013,6 +10016,7 @@ pso/unk/text_80246CE8.cpp:
 
 pso/misc/TWindowChallengeResult.cpp:
 	.text       start:0x80246D3C end:0x80246F8C
+	.data       start:0x804CE1E8 end:0x804CE2B8
 
 pso/misc/TWindowDD_80246F8C.cpp:
 	.text       start:0x80246F8C end:0x80246FB0
@@ -13171,6 +13175,7 @@ pso/enemy/TObjEneDelDepthBomb.cpp:
 
 pso/enemy/TObjEneDelDepth_80315AD8.cpp:
 	.text       start:0x80315AD8 end:0x80315CCC
+	.data       start:0x804E80C0 end:0x804E80D0
 
 pso/enemy/TObjEneDelDepth_80315CCC.cpp:
 	.text       start:0x80315CCC end:0x80316244
@@ -13948,6 +13953,8 @@ pso/ui/TAdSinglePlyChrSelectGC_8033A8EC.cpp:
 
 pso/ui/TAdSinglePlyChrSelectGC_8033B5F0.cpp:
 	.text       start:0x8033B5F0 end:0x8033BAB4
+	.data       start:0x804EF728 end:0x804EF8C0
+	.sbss       start:0x805D6D94 end:0x805D6D98
 
 pso/unk/text_8033BAB4.cpp:
 	.text       start:0x8033BAB4 end:0x8033BB14
@@ -14600,6 +14607,7 @@ pso/enemy/TObjEneEpsilonGuard_8035DD68_8035EDAC.cpp:
 
 pso/enemy/TObjEneEpsilonGuard_8035DD68_8035EF78.cpp:
 	.text       start:0x8035EF78 end:0x8035F5B8
+	.data       start:0x804F2008 end:0x804F2034
 
 pso/enemy/TObjEneEpsilon.cpp:
 	.text       start:0x8035F5B8 end:0x8035F5C8
@@ -14722,6 +14730,8 @@ pso/unk/text_80364C40.cpp:
 
 pso/object/TObjLaboDesignBase.cpp:
 	.text       start:0x80364C98 end:0x80365348
+	.data       start:0x804F2B78 end:0x804F2B80
+	.sbss       start:0x805D6FC8 end:0x805D6FD0
 
 pso/unk/text_80365348.cpp:
 	.text       start:0x80365348 end:0x80365450
