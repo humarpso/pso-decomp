@@ -781,6 +781,18 @@ void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0);
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void TObjEneEpsilonGuard__sub_80361508(W_80361508 *self, s32 arg1);
+void queue_destruction__7TObjectFv(void *);
+u32 create_particle_emitter(void *, int);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void enable__13TParticleCtrlFPv(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+M2C_UNK advance_animation_playback(void *);
+void play_sound_effect(s32, void *, s32, s32);
+s32 TObjEneEpsilonGuard__sub_8035FAA8(void *);
+s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
+void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
+void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1222,6 +1234,91 @@ void TObjEneEpsilonGuard__sub_80360BF8(u8 *arg0, s32 arg1) {
     }
 }
 #pragma pop
+
+struct W_8035FCEC;
+#define F_8036(off, T) M2C_FIELD(arg0, T *, off)
+void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        set_field_378__9TObjEneDDFPvi(arg0, 4);
+        ((VObj_18 *)(arg0))->m94();
+        F_8036(0x438, s32) &= ~0x253;
+        ((void (*)(void *))set_guard_state__19TObjEneEpsilonGuardFPv)(arg0);
+        F_8036(0x4E4, s32) = 0;
+        F_8036(0x4E8, s32) = 0xF;
+        F_8036(0x434, u32) = create_particle_emitter(arg0 + 0x38, 0x225);
+        if (F_8036(0x434, u32) != 0) {
+            enable__13TParticleCtrlFPv(F_8036(0x434, void *));
+        }
+        play_sound_effect(0x4003A64B, arg0 + 0x38, 0, 0);
+        break;
+    case 3:
+        if (F_8036(0x4E4, s32) == 5) {
+            transition_enemy_state(arg0, 6);
+        } else if (F_8036(0x4E4, s32) == 4) {
+            transition_enemy_state(arg0, 4);
+        }
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        switch (F_8036(0x4E4, s32)) {
+        case 0:
+            F_8036(0x4E8, s32)--;
+            if (TObjEneEpsilonGuard__sub_8035FAA8(arg0) == 1) {
+                set_field_378__9TObjEneDDFPvi(arg0, 5);
+                F_8036(0x438, s32) |= 0x40;
+                F_8036(0x4E4, s32) = 1;
+                F_8036(0x4E8, s32) = 0x3C;
+            } else if (F_8036(0x4E8, s32) <= 0) {
+                F_8036(0x4E4, s32) = 4;
+            }
+            if (F_8036(0x434, u32) != 0) {
+                enable__13TParticleCtrlFPv(F_8036(0x434, void *));
+            }
+            break;
+        case 1:
+            F_8036(0x4E8, s32)--;
+            if (TObjEneEpsilonGuard__sub_8035FCEC((W_8035FCEC *)arg0) != 0 || F_8036(0x4E8, s32) <= 0) {
+                F_8036(0x4E4, s32) = 2;
+                F_8036(0x4E8, s32) = 8;
+            }
+            if (F_8036(0x434, u32) != 0) {
+                enable__13TParticleCtrlFPv(F_8036(0x434, void *));
+            }
+            break;
+        case 2:
+            F_8036(0x4E8, s32)--;
+            if (F_8036(0x4E8, s32) <= 0) {
+                F_8036(0x438, s32) |= 2;
+                ((void (*)(void *))set_guard_state__19TObjEneEpsilonGuardFPv)(arg0);
+                F_8036(0x4E4, s32) = 3;
+                F_8036(0x4E8, s32) = 8;
+                play_sound_effect(0x4003A344, arg0 + 0x38, 0, 0);
+            }
+            if (F_8036(0x434, u32) != 0) {
+                copy_pos__11TNowLoadingFPvPv(F_8036(0x434, void *), arg0 + 0x38);
+            }
+            break;
+        case 3:
+            F_8036(0x4E8, s32)--;
+            if (F_8036(0x4E8, s32) <= 0) {
+                F_8036(0x4E4, s32) = 5;
+            }
+            if (F_8036(0x434, u32) != 0) {
+                copy_pos__11TNowLoadingFPvPv(F_8036(0x434, void *), arg0 + 0x38);
+            }
+            break;
+        }
+        ((VObj_18 *)(arg0))->m87();
+        break;
+    case 5:
+        if (F_8036(0x434, u32) != 0) {
+            queue_destruction__7TObjectFv(F_8036(0x434, void *));
+            F_8036(0x434, u32) = 0;
+        }
+        break;
+    }
+}
 
 void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;
