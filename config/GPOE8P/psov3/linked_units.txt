@@ -413,7 +413,6 @@ pso/enemy/TObjEneMe3SinowZoa_8031AC74.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031AEE8.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B170.cpp
-pso/enemy/TObjEneMe3Stelth.cpp
 pso/enemy/TObjEneMe3StelthReal.cpp
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp
 pso/enemy/TObjEneMe3Stelth_800F169C.cpp
@@ -422,20 +421,6 @@ pso/enemy/TObjEneMe3Stelth_800F2240.cpp
 pso/enemy/TObjEneMe3Stelth_800F2A48.cpp
 pso/enemy/TObjEneMe3Stelth_800F2B8C.cpp
 pso/enemy/TObjEneMe3Stelth_800F4424.cpp
-pso/enemy/TObjEneMe3Stelth_800F4598.cpp
-pso/enemy/TObjEneMe3Stelth_800F47D4.cpp
-pso/enemy/TObjEneMe3Stelth_800F4814.cpp
-pso/enemy/TObjEneMe3Stelth_800F4868.cpp
-pso/enemy/TObjEneMe3Stelth_800F4988.cpp
-pso/enemy/TObjEneMe3Stelth_800F4A18.cpp
-pso/enemy/TObjEneMe3Stelth_800F4A1C.cpp
-pso/enemy/TObjEneMe3Stelth_800F4A90.cpp
-pso/enemy/TObjEneMe3Stelth_800F4DE8.cpp
-pso/enemy/TObjEneMe3Stelth_800F4EBC.cpp
-pso/enemy/TObjEneMe3Stelth_800F4F14.cpp
-pso/enemy/TObjEneMe3Stelth_800F4F98.cpp
-pso/enemy/TObjEneMe3Stelth_800F4FCC.cpp
-pso/enemy/TObjEneMe3Stelth_800F5084.cpp
 pso/enemy/TObjEneMe3Stelth_800F52B0.cpp
 pso/enemy/TObjEneMe3Stelth_800F52FC.cpp
 pso/enemy/TObjEneMe3Stelth_800F53C8.cpp
@@ -499,7 +484,6 @@ pso/enemy/TObjEneRecon_8031DD40.cpp
 pso/enemy/TObjEneRecon_8031DD7C.cpp
 pso/enemy/TObjEneRecon_8031DEF0.cpp
 pso/enemy/TObjEneRecon_8031DFCC.cpp
-pso/enemy/TObjEneRecon_8031E2B0.cpp
 pso/enemy/TObjEneRecon_8031E574.cpp
 pso/enemy/TObjEneRecon_8031E650.cpp
 pso/enemy/TObjEneRecon_8031E69C.cpp
@@ -2811,7 +2795,6 @@ pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/slices/pso_carve_800c86e0.cpp
-pso/slices/pso_carve_800f4f18.cpp
 pso/slices/pso_carve_800f58a4.cpp
 pso/slices/pso_carve_800f99d0.cpp
 pso/slices/pso_carve_800f9ae8.cpp

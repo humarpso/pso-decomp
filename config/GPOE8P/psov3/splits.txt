@@ -442,13 +442,10 @@ pso/misc/TCameraCtrl_8003F3EC.cpp:
 pso/boss/TBoss3Volopt_8003F3F8.cpp:
 	.text       start:0x8003F3F8 end:0x8003F4C0
 
-pso/player/TObjPlayer_8003F4C0.cpp:
-	.text       start:0x8003F4C0 end:0x800407E0
-	.rodata     start:0x80436350 end:0x80436358
-	.data       start:0x80483B5C end:0x80483B88
-
 pso/boss/TBoss3VoloptCore.cpp:
-	.text       start:0x800407E0 end:0x80040B28
+	.text       start:0x8003F4C0 end:0x80040B28
+	.rodata     start:0x80436350 end:0x80436358
+	.data       start:0x80483978 end:0x80483B88
 
 pso/player/TObjPlayer_80040B28.cpp:
 	.text       start:0x80040B28 end:0x80040B3C
@@ -2680,57 +2677,9 @@ pso/enemy/TObjEneMe3Stelth_800F2C8C.cpp:
 pso/enemy/TObjEneMe3Stelth_800F4424.cpp:
 	.text       start:0x800F4424 end:0x800F4598
 
-pso/enemy/TObjEneMe3Stelth_800F4598.cpp:
-	.text       start:0x800F4598 end:0x800F47D4
-	.data       start:0x80497A40 end:0x80497A8C
-
-pso/enemy/TObjEneMe3Stelth_800F47D4.cpp:
-	.text       start:0x800F47D4 end:0x800F4814
-
-pso/enemy/TObjEneMe3Stelth_800F4814.cpp:
-	.text       start:0x800F4814 end:0x800F4868
-
-pso/enemy/TObjEneMe3Stelth_800F4868.cpp:
-	.text       start:0x800F4868 end:0x800F4910
-
 pso/enemy/TObjEneMe3Stelth.cpp:
-	.text       start:0x800F4910 end:0x800F4988
-
-pso/enemy/TObjEneMe3Stelth_800F4988.cpp:
-	.text       start:0x800F4988 end:0x800F4A18
-
-pso/enemy/TObjEneMe3Stelth_800F4A18.cpp:
-	.text       start:0x800F4A18 end:0x800F4A1C
-
-pso/enemy/TObjEneMe3Stelth_800F4A1C.cpp:
-	.text       start:0x800F4A1C end:0x800F4A90
-
-pso/enemy/TObjEneMe3Stelth_800F4A90.cpp:
-	.text       start:0x800F4A90 end:0x800F4DE8
-
-pso/enemy/TObjEneMe3Stelth_800F4DE8.cpp:
-	.text       start:0x800F4DE8 end:0x800F4EBC
-
-pso/enemy/TObjEneMe3Stelth_800F4EBC.cpp:
-	.text       start:0x800F4EBC end:0x800F4F14
-
-pso/enemy/TObjEneMe3Stelth_800F4F14.cpp:
-	.text       start:0x800F4F14 end:0x800F4F18
-
-pso/slices/pso_carve_800f4f18.cpp:
-	.text       start:0x800F4F18 end:0x800F4F98
-
-pso/enemy/TObjEneMe3Stelth_800F4F98.cpp:
-	.text       start:0x800F4F98 end:0x800F4FCC
-
-pso/enemy/TObjEneMe3Stelth_800F4FCC.cpp:
-	.text       start:0x800F4FCC end:0x800F5084
-
-pso/enemy/TObjEneMe3Stelth_800F5084.cpp:
-	.text       start:0x800F5084 end:0x800F5124
-
-pso/enemy/TObjEneMe3Stelth_800F5124.cpp:
-	.text       start:0x800F5124 end:0x800F52B0
+	.text       start:0x800F4598 end:0x800F52B0
+	.data       start:0x804976C8 end:0x80497A8C
 
 pso/enemy/TObjEneMe3Stelth_800F52B0.cpp:
 	.text       start:0x800F52B0 end:0x800F52FC
@@ -9379,12 +9328,9 @@ pso/misc/TMedicalCenterSequence.cpp:
 pso/misc/TWindow.cpp:
 	.text       start:0x80216B44 end:0x802171BC
 
-pso/unk/text_802171BC.cpp:
-	.text       start:0x802171BC end:0x80217288
-	.data       start:0x804C9CCC end:0x804C9CE8
-
 pso/misc/TWindow_80217288.cpp:
-	.text       start:0x80217288 end:0x802173F0
+	.text       start:0x802171BC end:0x802173F0
+	.data       start:0x804C9900 end:0x804C9CE8
 
 pso/misc/TLobby_802173F0.cpp:
 	.text       start:0x802173F0 end:0x80217454
@@ -12270,11 +12216,8 @@ pso/enemy/TObjEneMe1GiGue_802CB620.cpp:
 	.text       start:0x802CB620 end:0x802CD054
 
 pso/enemy/TObjEneMe1GiGue_802CD054.cpp:
-	.text       start:0x802CD054 end:0x802CD390
-	.data       start:0x804E14A8 end:0x804E14E4
-
-pso/enemy/TObjEneMe1GiGue_802CD390.cpp:
-	.text       start:0x802CD390 end:0x802CD780
+	.text       start:0x802CD054 end:0x802CD780
+	.data       start:0x804E11C8 end:0x804E14E4
 
 pso/enemy/TObjEneMe1GiGue_802CD780.cpp:
 	.text       start:0x802CD780 end:0x802CE1B0
@@ -13364,14 +13307,8 @@ pso/enemy/TObjEneRecon_8031DFCC.cpp:
 	.text       start:0x8031DFCC end:0x8031DFD0
 
 pso/enemy/TObjEneRecon_8031DFD0.cpp:
-	.text       start:0x8031DFD0 end:0x8031E2B0
-	.data       start:0x804EC644 end:0x804EC668
-
-pso/enemy/TObjEneRecon_8031E2B0.cpp:
-	.text       start:0x8031E2B0 end:0x8031E33C
-
-pso/enemy/TObjEneRecon_8031E33C.cpp:
-	.text       start:0x8031E33C end:0x8031E574
+	.text       start:0x8031DFD0 end:0x8031E574
+	.data       start:0x804EC3F0 end:0x804EC668
 
 pso/enemy/TObjEneRecon_8031E574.cpp:
 	.text       start:0x8031E574 end:0x8031E650
@@ -13435,11 +13372,8 @@ pso/enemy/TObjEneRecon_8031FC2C.cpp:
 	.text       start:0x8031FC2C end:0x8031FCB0
 
 pso/enemy/TObjEneRecon_8031FCB0.cpp:
-	.text       start:0x8031FCB0 end:0x8031FE98
-	.data       start:0x804EC94C end:0x804EC968
-
-pso/unk/text_8031FE98.cpp:
-	.text       start:0x8031FE98 end:0x8032013C
+	.text       start:0x8031FCB0 end:0x8032013C
+	.data       start:0x804EC668 end:0x804EC968
 
 pso/enemy/TObjEneRecobox.cpp:
 	.text       start:0x8032013C end:0x803201D8
