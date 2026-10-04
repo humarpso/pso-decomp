@@ -169,6 +169,28 @@ struct Task_8018019C {
     s32 active;
 };
 
+struct Color_8017FE58 { f32 a; s32 b; s32 c; s32 d; };
+
+struct Chip_8017FE58 {
+    f32 pos[3];
+    u8 padC[0x18 - 0xC];
+    s32 rx, ry, rz;
+    u8 pad24[0x30 - 0x24];
+    f32 alpha;
+    u8 pad34[0x38 - 0x34];
+};
+
+struct Obj_8017FE58 {
+    u8 pad0[0x54];
+    s32 count;
+    u8 pad58[0x60 - 0x58];
+    f32 scale;
+    s32 model;
+    u8 pad68[0x6C - 0x68];
+    s32 flags;
+    Chip_8017FE58 chips[1];
+};
+
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
 void render__8TObjChipFPv(u8 *arg0);
@@ -230,6 +252,24 @@ extern const f32 lbl_805DBB7C;
 extern const f32 lbl_805DBB80;
 extern const f32 TObjChip__data_805DBB84;
 void tick_chips__8TObjChipFPv(u8 *arg0);
+M2C_UNK rotate_matrix_yxz(int, int, int, int);
+M2C_UNK scale_matrix(int, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_chunk_material_override_pair(int, int);
+M2C_UNK set_chunk_material_color(void *);
+M2C_UNK draw_chunk_object(int, void *);
+extern Color_8017FE58 lbl_80443ADC[];
+extern Color_8017FE58 lbl_80443AEC[];
+extern u8 lbl_804A7418[];
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+void TObjChip__sub_8017FE58(Obj_8017FE58 *o);
 }
 
 extern "C" {
@@ -247,6 +287,73 @@ void update__8TObjChipFPv(void *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
+
+void TObjChip__sub_8017FE58(Obj_8017FE58 *o) {
+    Chip_8017FE58 *c = o->chips;
+    if (o->flags & 8) {
+        if (o->flags & 4) {
+            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5664 = lbl_805D7784;
+            lbl_805D5668 = lbl_805D7780;
+            some_id_805c6f74 = some_id_805c6f74 | 0x810;
+            set_chunk_material_override_pair(-1, 0x800);
+            for (s32 i = 0; i < o->count; i++, c++) {
+                Color_8017FE58 col = lbl_80443ADC[0];
+                col.a = c->alpha;
+                set_chunk_material_color(&col);
+                push_matrix();
+                post_translate_matrix(c);
+                rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
+                scale_matrix(0, o->scale, o->scale, o->scale);
+                ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+                pop_matrix();
+                set_chunk_material_color(lbl_804A7418);
+            }
+            some_id_805c6f74 = lbl_805D5660;
+            lbl_805D7784 = lbl_805D5664;
+            lbl_805D7780 = lbl_805D5668;
+        } else {
+            for (s32 i = 0; i < o->count; i++, c++) {
+                push_matrix();
+                post_translate_matrix(c);
+                rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
+                scale_matrix(0, o->scale, o->scale, o->scale);
+                ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+                pop_matrix();
+            }
+        }
+    } else if (o->flags & 4) {
+        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5664 = lbl_805D7784;
+        lbl_805D5668 = lbl_805D7780;
+        some_id_805c6f74 = some_id_805c6f74 | 0x810;
+        set_chunk_material_override_pair(-1, 0x800);
+        for (s32 i = 0; i < o->count; i++, c++) {
+            Color_8017FE58 col = lbl_80443AEC[0];
+            col.a = c->alpha;
+            set_chunk_material_color(&col);
+            push_matrix();
+            post_translate_matrix(c);
+            rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
+            scale_matrix(0, o->scale, o->scale, o->scale);
+            ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+            pop_matrix();
+            set_chunk_material_color(lbl_804A7418);
+        }
+        some_id_805c6f74 = lbl_805D5660;
+        lbl_805D7784 = lbl_805D5664;
+        lbl_805D7780 = lbl_805D5668;
+    } else {
+        for (s32 i = 0; i < o->count; i++, c++) {
+            push_matrix();
+            post_translate_matrix(c);
+            rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
+            scale_matrix(0, o->scale, o->scale, o->scale);
+            ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+            pop_matrix();
+        }
+    }
+}
 
 void render__8TObjChipFPv(u8 *arg0) {
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x68)));

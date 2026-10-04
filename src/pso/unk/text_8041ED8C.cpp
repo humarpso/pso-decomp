@@ -36,6 +36,14 @@ struct Item_80420FC8 { s16 len; u8 pad2[2]; u8 data[8]; };
 
 struct Pkt_80420FC8 { u8 pad0[4]; s32 count; s32 len; Item_80420FC8 items[1]; };
 
+struct P_8041F66C { s32 a; s32 b; };
+
+struct O_8041F66C {
+    u8 pad0[0xD8]; s32 fD8; u8 padDC[4]; u32 fE0; u8 padE4[0xF4 - 0xE4];
+    s32 total; s16 n; s16 fFA; P_8041F66C items[32]; u8 pad1FC[0x228 - 0x1FC]; s32 now;
+    u8 pad22C[0x534 - 0x22C]; u32 f534;
+};
+
 extern "C" {
 M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
@@ -56,11 +64,58 @@ s16 TLobby__sub_8040DB94(void *);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
+void TLobby__sub_8041FE44(O_8041FE44 *o);
+void TLobby__sub_8041F66C(O_8041F66C *o);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80420C5C_lbl_805C1DF0_size[sizeof(RecoveredGlobal_80420C5C_lbl_805C1DF0) == 0x10 ? 1 : -1];
+
+struct O_8041FE44;
+void TLobby__sub_8041F66C(O_8041F66C *o) {
+    s16 i;
+    s16 cnt;
+    s16 j;
+    s32 d;
+    u8 unused[8];
+    if (o->n == -1) {
+        return;
+    }
+    for (i = 0; i <= o->n; i++) {
+        if (o->now - o->items[i].b < 0) {
+            break;
+        }
+    }
+    if (i <= o->n && o->now - o->items[i].a >= 0) {
+        d = o->items[i].b - o->now;
+        o->fE0 += d;
+        if (o->fE0 >= o->f534) {
+            o->fE0 -= o->f534;
+        }
+        cnt = i + 1;
+        o->fD8 += d;
+        o->now = o->items[i].b;
+    } else {
+        cnt = i;
+    }
+    TLobby__sub_8041FE44((O_8041FE44 *)o);
+    if (cnt <= 0) {
+        return;
+    }
+    o->n -= cnt;
+    for (j = 0; j < cnt; j++) {
+        o->total -= o->items[j].b - o->items[j].a;
+    }
+    for (j = 0; j <= o->n; j++) {
+        o->items[j] = o->items[j + cnt];
+    }
+    if (o->n == -1) {
+        o->fFA = -1;
+    } else {
+        o->fFA = 0;
+    }
+}
 
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b) {
     s16 i;

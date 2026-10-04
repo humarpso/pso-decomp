@@ -620,6 +620,70 @@ void TObjGrass__vt58(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
 }
 
+struct Vec_800BE1CC { f32 x, y, z; };
+f32 TObjPlayer__sub_800186E8(void *, void *, Vec_800BE1CC *);
+f32 get_pos_x__10TObjPlayerFPv(int);
+s32 check_player_flag1__6TLobbyFPv(void *);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+#define TBL ((u32 *)TObjGrass__data_805D5144)
+#define T318 M2C_FIELD(arg0, u32 *, 0x318)
+#define IN_RANGE() (dist <= (r + get_pos_x__10TObjPlayerFPv(T318)) * (r + get_pos_x__10TObjPlayerFPv(T318)) && ang <= get_field_0c__10TObjPlayerFPv(T318))
+#define BIND(n) M2C_FIELD(arg0, s16 *, 0x39E) = (n); bind_enemy_combat_stats(arg0, 0, TBL[M2C_FIELD(arg0, s16 *, 0x39E)], 0); return 1;
+
+s32 TObjGrass__vt28(u8 *arg0) {
+    f32 dist;
+    u8 *t;
+    s32 ang;
+    f32 r;
+    u8 *tgt;
+    s32 i;
+    u16 kind;
+    Vec_800BE1CC v;
+
+    tgt = M2C_FIELD(arg0, u8 **, 0x2A8);
+    if (tgt != NULL && T318 != 0 && !(M2C_FIELD(tgt, s32 *, 0x30) & 0x02000800)) {
+    if (obj_testFlags30(arg0, 0x2000) != 0) {
+        BIND(2)
+    }
+    dist = TObjPlayer__sub_800186E8(arg0, M2C_FIELD(arg0, u8 **, 0x2A8), &v);
+    ang = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjGrass__data_8043B7B8 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+    t = M2C_FIELD(arg0, u8 **, 0x2A8);
+    if (M2C_FIELD(t, u8 **, 0xA4) != NULL) {
+        r = M2C_FIELD(M2C_FIELD(t, u8 **, 0xA4), f32 *, 0xC);
+    } else {
+        r = lbl_805D9F00;
+    }
+    kind = obj_getField1c(t);
+    if (kind < 0x1000) {
+        t = M2C_FIELD(arg0, u8 **, 0x2A8);
+        if (check_player_flag1__6TLobbyFPv(t) == 1 || (enable_v2_features == 1 && obj_testFlags30(t, 0x20) != 0)) {
+            T318 = TBL[0];
+            if (IN_RANGE()) {
+                BIND(0)
+            }
+            return 0;
+        }
+        for (i = 0; i < 2; i++) {
+            T318 = TBL[i];
+            if (IN_RANGE()) {
+                BIND(i)
+            }
+        }
+    } else if (kind < 0x4000) {
+        T318 = TBL[0];
+        if (IN_RANGE()) {
+            BIND(0)
+        }
+    }
+    }
+    return 0;
+}
+
+#undef BIND
+#undef IN_RANGE
+#undef T318
+#undef TBL
+
 #define arg0 ((u8 *)arg0_)
 void TObjGrass__sub_800BE4C0(void *arg0_) {
     f32 speed;

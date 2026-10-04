@@ -5,6 +5,51 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Obj_80034034;
+struct Obj_800341F0;
+struct Vec_800310F8 { f32 x, y, z; };
+
+struct Self_800310F8 {
+    u8 pad0[0xB8];
+    s16 fB8;
+    u8 padBA[0x390 - 0xBA];
+    u8 *f390;
+    u8 pad394[0x3C0 - 0x394];
+    s32 flags;
+    u8 pad3C4[0x620 - 0x3C4];
+    void *parts[4];
+    u8 pad630[0x654 - 0x630];
+    s32 dir;
+    u8 pad658[0x6E0 - 0x658];
+    s32 phase;
+    s32 timer;
+    s32 idx;
+    s32 limit;
+    s32 life;
+};
+
+extern "C" {
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+void TBoss2DeRolLe__sub_800342C0(s32 arg0);
+s32 check_v2_mode__9TObjEneDDFv(void);
+void advance_animation_playback(void *);
+void set_move_direction__13TBoss2DeRolLeFPv(void *, s32);
+s32 enemy_has_live_target(void *);
+s32 get_random_scaled__9TObjEneDDFv(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1);
+void TBoss2Tentacle__sub_80039E88(void *, void *, s32);
+s32 TBoss2Tentacle__sub_80039CA0(void *);
+void TBoss2Tentacle__sub_80039E68(void *);
+extern u8 *TBoss2DeRolLe__data_805D4BA0;
+extern const f32 lbl_805D8340;
+extern const f32 lbl_805D8344;
+void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2);
+}
+
 extern "C" {
 
 struct Stack_800339BC {
@@ -144,8 +189,7 @@ void TBoss2DeRolLe__sub_80030588(u8 *arg0, u32 arg1);
 void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80030898(u8 *arg0, u32 arg1, s32 arg2);
 s32 TBoss2DeRolLe__sub_80030A38(void *, void *);
-s32 TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
-s32 TBoss2DeRolLe__sub_800310F8(void *, void *, int);
+void TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
 s32 TBoss2DeRolLe__sub_800313F8(void *, void *, int);
 s32 TBoss2DeRolLe__sub_80031AD4(void *, void *);
 s32 TBoss2DeRolLe__sub_800320B4(void *, void *, int, int);
@@ -225,6 +269,12 @@ extern const f32 lbl_805D82CC;
 extern const f32 lbl_805D82EC;
 extern const f32 lbl_805D82F4;
 extern const f32 lbl_805D82F8;
+
+extern "C" {
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+}
 
 void TBoss2DeRolLe__sub_8002F73C(Obj_8002F73C *self, u32 kind) {
     switch (kind) {
@@ -480,6 +530,216 @@ void TBoss2DeRolLe__sub_80030898(u8 *arg0, u32 arg1, s32 arg2) {
     }
 }
 
+void clear_global_flag_3000__15TObjBoss2TunnelFv(void);
+extern const f32 TBoss2DeRolLe__data_805D82BC;
+extern const f32 TBoss2DeRolLe__data_805D8300;
+extern const f32 TBoss2DeRolLe__data_805D832C;
+extern const f32 TBoss2DeRolLe__data_805D8330;
+extern const f32 TBoss2DeRolLe__data_805D8334;
+extern const f32 lbl_805D8308;
+extern const f32 lbl_805D8338;
+extern const f32 lbl_805D833C;
+#pragma push
+#pragma fp_contract on
+#define arg0 ((u8 *)arg0_)
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+
+void TBoss2DeRolLe__sub_80030DFC(void *arg0_, void *arg1_, int arg2) {
+    switch ((u32)arg1_) {
+    case 4:
+        TBoss2DeRolLe__sub_800341F0((Obj_800341F0 *)arg0);
+        F(s32, 0x3C0) |= 4;
+        F(s32, 0x3C0) &= ~0x100;
+        F(s32, 0x654) = arg2;
+        set_move_direction__13TBoss2DeRolLeFPv(arg0, F(s32, 0x654));
+        if (F(s32, 0x654) == 0) {
+            F(f32, 0x700) = TBoss2DeRolLe__data_805D832C;
+            F(s16, 0xB8) = 9;
+        } else {
+            F(f32, 0x700) = TBoss2DeRolLe__data_805D82BC;
+            F(s16, 0xB8) = 10;
+        }
+        F(s32, 0x6E0) = 0;
+        F(s32, 0x6E4) = 0;
+        F(f32, 0x6FC) = TBoss2DeRolLe__data_805D827C;
+        F(f32, 0x708) = TBoss2DeRolLe__data_805D832C;
+        F(f32, 0x704) = TBoss2DeRolLe__data_805D827C;
+        F(s32, 0x6F4) = 0x500;
+        clear_global_flag_3000__15TObjBoss2TunnelFv();
+        break;
+    case 2:
+        if (F(s32, 0x6E0) == 2) {
+            TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 2);
+        }
+        break;
+    case 9:
+        if (F(s32, 0x6E0) == 2) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)arg0);
+        }
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        switch (F(s32, 0x6E0)) {
+        case 0:
+            F(f32, 0x704) += TBoss2DeRolLe__data_805D8300;
+            F(f32, 0x40) -= F(f32, 0x704);
+            F(f32, 0x6FC) += TBoss2DeRolLe__data_805D8330;
+            F(f32, 0x38) += F(f32, 0x6FC) * F(f32, 0x700);
+            F(f32, 0x708) += TBoss2DeRolLe__data_805D8334;
+            F(f32, 0x6A4) -= F(f32, 0x708);
+            F(s32, 0x6F4) = (s32)((f32)F(s32, 0x6F4) + lbl_805D8338);
+            if ((f32)F(s32, 0x6F4) >= lbl_805D833C) {
+                F(s32, 0x6F4) = 0x4000;
+            }
+            F(s32, 0x64) = (s32)((f32)F(s32, 0x6F4) * -F(f32, 0x700));
+            if (F(s32, 0x6E4) == 0 && F(s32, 0x6F4) >= 0x2200) {
+                F(s32, 0x6E4) = 1;
+                play_sound((void *)0x4003AD12, (int)(arg0 + 0x518));
+            }
+            if (F(f32, 0x6A4) < lbl_805D8308) {
+                F(s32, 0x6E0) = 1;
+                TBoss2DeRolLe__sub_80034C90(arg0, F(s32, 0x654));
+                F(f32, 0x6A4) = lbl_805D8308;
+                F(s16, 0xB8) = 1;
+                F(f32, 0x708) = TBoss2DeRolLe__data_805D827C;
+                F(s32, 0x3C0) &= ~4;
+                F(s32, 0x3C0) |= 0x100;
+            }
+            break;
+        case 1:
+            F(f32, 0x6A4) += 2.0f;
+            if (F(f32, 0x6A4) >= 0.0f) {
+                F(f32, 0x6A4) = 0.0f;
+                F(s32, 0x6E0) = 2;
+            }
+            break;
+        }
+        break;
+    case 5:
+        F(s32, 0x3C0) &= ~4;
+        break;
+    case 1:
+    case 3:
+    case 6:
+    case 7:
+    case 8:
+        break;
+    }
+}
+
+#undef F
+#undef arg0
+#pragma pop
+
+#define self ((Self_800310F8 *)arg0)
+void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2) {
+    Vec_800310F8 v;
+    s32 a;
+    s32 ok;
+    s32 i;
+    switch ((u32)arg1) {
+    case 4:
+        TBoss2DeRolLe__sub_800341F0((Obj_800341F0 *)self);
+        self->flags &= ~4;
+        self->flags &= ~0x100;
+        self->dir = arg2;
+        set_move_direction__13TBoss2DeRolLeFPv(self, self->dir);
+        if (self->dir == 0) {
+            self->fB8 = 9;
+        } else {
+            self->fB8 = 10;
+        }
+        self->phase = 0;
+        self->timer = 0;
+        self->idx = 0;
+        if (check_v2_mode__9TObjEneDDFv() != 0) {
+            self->limit = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x24);
+            self->life = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x28);
+        } else {
+            self->limit = 0xB4;
+            self->life = 0x78;
+        }
+        break;
+    case 2:
+        if (self->phase == 3) {
+            if (self->dir == 0) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)self, 0x16);
+            } else {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)self, 0x17);
+            }
+        }
+        break;
+    case 9:
+        if (self->phase == 3) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)self);
+        }
+        break;
+    case 0:
+        advance_animation_playback(self);
+        switch (self->phase) {
+        case 0:
+            self->timer++;
+            if (self->timer > 0x28) {
+                self->phase = 1;
+                self->timer = 0;
+                self->idx = 0;
+            }
+            break;
+        case 1:
+            self->timer++;
+            if (self->timer >= self->limit) {
+                self->timer = 0;
+                if (enemy_has_live_target(self) != 0) {
+                    VecCopy__FP3VecPC3Vec((int)&v, self->f390 + 0x38);
+                } else {
+                    f32 r = lbl_805D8340 * calc_boss4_scale__10TObjPlayerFi(self);
+                    a = get_random_scaled__9TObjEneDDFv(self);
+                    v.x = r * sin_table_lookup(a);
+                    v.y = lbl_805D8344;
+                    v.z = r * cos_table_lookup(a);
+                    adjust_to_ground__15TObjBoss2TunnelFiPv((s32)&v, &v);
+                }
+                {
+                    Self_800310F8 *o = (Self_800310F8 *)arg0;
+                    TBoss2Tentacle__sub_80039E88(o->parts[o->idx], &v, o->life);
+                }
+                self->idx++;
+                if (self->idx >= 4) {
+                    self->timer = 0;
+                    self->phase = 2;
+                }
+            }
+            break;
+        case 2:
+            ok = 1;
+            self->timer++;
+            for (i = 0; i < 4; i++) {
+                if (TBoss2Tentacle__sub_80039CA0(self->parts[i]) == 0) {
+                    ok = 0;
+                    break;
+                }
+            }
+            if (ok != 0 || self->timer > 0x258) {
+                self->phase = 3;
+            }
+            break;
+        }
+        break;
+    case 6:
+        TBoss2DeRolLe__sub_800342C0((s32)self);
+        break;
+    case 5:
+        {
+            s32 j;
+            for (j = 0; j < 4; j++) {
+                TBoss2Tentacle__sub_80039E68(self->parts[j]);
+            }
+        }
+        break;
+    }
+}
+#undef self
+
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1) {
     switch (arg1) {
     case 4: self->f_B8 = 1; return;
@@ -546,10 +806,10 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         TBoss2DeRolLe__sub_800313F8((void *) (arg0), (void *) (arg2), (int) (2));
         return;
     case 20:
-        TBoss2DeRolLe__sub_800310F8((void *) (arg0), (void *) (arg2), (int) (0));
+        TBoss2DeRolLe__sub_800310F8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (0)));
         return;
     case 21:
-        TBoss2DeRolLe__sub_800310F8((void *) (arg0), (void *) (arg2), (int) (2));
+        TBoss2DeRolLe__sub_800310F8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (2)));
         return;
     case 22:
         TBoss2DeRolLe__sub_80030DFC((void *) (arg0), (void *) (arg2), (int) (0));

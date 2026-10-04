@@ -812,7 +812,8 @@ void *__vt__11TBoss4Type2[111] = {
     (void *)&TBoss4Type2__vt34, (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__vt35,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__vt36,
 };
-void *lbl_8048652C[154] = {
+struct Row_80057598 { void *pad[5]; void *a[3]; void *b[3]; };
+Row_80057598 lbl_8048652C[14] = {
     (void *)&lbl_80437644, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)&lbl_8043764C,
@@ -1576,6 +1577,78 @@ void advance_afterimage__11TBoss4Type2FPv(u8 *arg0) {
 }
 
 void TBoss4Type2__sub_80057578(void* p) { init_hanger__11TBoss4Type2FPv((void*)(p)); }
+
+struct Vec_80057598 { f32 x, y, z; };
+class TBoss4Type2_80057598 { public: u8 pad[0x374]; s32 f374; };
+union MemberAction_80057598 { s32 words[3]; void (TBoss4Type2_80057598::*action)(); };
+
+s32 is_field378_zero__14TBoss4DarkFalzFPv(void *);
+void update_collisions__10TObjPlayerFPv(void *);
+void submit_cursor_candidate(void *, int);
+void TBoss4Type2__sub_8004A98C(void *);
+extern Vec_80057598 lbl_80437720[];
+extern Vec_80057598 lbl_8043772C[];
+extern const f32 lbl_805D8BD4;
+extern const f32 lbl_805D8C08;
+extern const f32 lbl_805D8C1C;
+void TBoss4Type2__sub_80057598(u8 *arg0) {
+    MemberAction_80057598 m;
+
+    if (is_field378_zero__14TBoss4DarkFalzFPv(M2C_FIELD(arg0, void **, 0x38C)) != 0) {
+        m.words[0] = (s32)lbl_8048652C[M2C_FIELD(arg0, s32 *, 0x374)].a[0];
+        m.words[1] = (s32)lbl_8048652C[M2C_FIELD(arg0, s32 *, 0x374)].a[1];
+        m.words[2] = (s32)lbl_8048652C[M2C_FIELD(arg0, s32 *, 0x374)].a[2];
+        if (m.action != 0) {
+            (((TBoss4Type2_80057598 *)arg0)->*(m.action))();
+        }
+    }
+    m.words[0] = (s32)lbl_8048652C[M2C_FIELD(arg0, s32 *, 0x374)].b[0];
+    m.words[1] = (s32)lbl_8048652C[M2C_FIELD(arg0, s32 *, 0x374)].b[1];
+    m.words[2] = (s32)lbl_8048652C[M2C_FIELD(arg0, s32 *, 0x374)].b[2];
+    if (m.action != 0) {
+        (((TBoss4Type2_80057598 *)arg0)->*(m.action))();
+    }
+    TBoss4Type2__sub_800573D8(arg0);
+    advance_afterimage__11TBoss4Type2FPv(arg0);
+    if (TBoss4Type2__data_805D8BAC == M2C_FIELD(arg0, f32 *, 0x3E8)) {
+        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x394), u32 *, 0x18) |= 1;
+        update_collisions__10TObjPlayerFPv(arg0);
+        submit_cursor_candidate(arg0, -1);
+    } else {
+        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x394), u32 *, 0x18) &= ~1;
+    }
+    add_radar_scaled_marker(arg0 + 0x2FC, 0xFFFFA24C, 1, 1, lbl_805D8C1C);
+    if (M2C_FIELD(arg0, s32 *, 0x374) != 2) {
+        Vec_80057598 pos = *(Vec_80057598 *)(arg0 + 0x38);
+        Vec_80057598 dir = *(Vec_80057598 *)(arg0 + 0x38);
+        dir.y = TBoss4Type2__data_805D8BAC;
+        normalize_vector(&dir);
+        dir.x *= lbl_805D8C08;
+        dir.z *= lbl_805D8C08;
+        dir.y = lbl_805D8BD4;
+        vec3_add_to(&pos, &dir);
+        if (M2C_FIELD(arg0, void **, 0x42C) != NULL) {
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x42C), &pos);
+        }
+        if (M2C_FIELD(arg0, void **, 0x430) != NULL) {
+            copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x430), &pos);
+        }
+        TBoss4Type2__sub_8004A98C(arg0 + 0x378);
+    }
+    {
+        Vec_80057598 a = lbl_80437720[0];
+        Vec_80057598 b = lbl_8043772C[0];
+        request_follow_camera_offsets(&a, &b, 0xFFFF);
+    }
+    if ((M2C_FIELD(arg0, f32 *, 0x3C0) += 0.022222223f) >= 1.0f) {
+        M2C_FIELD(arg0, f32 *, 0x3C0) -= 1.0f;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3F0) += -0.06666667f;
+    if (M2C_FIELD(arg0, f32 *, 0x3F0) < 0.0f) {
+        M2C_FIELD(arg0, f32 *, 0x3F0) = 0.0f;
+    }
+    M2C_FIELD(arg0, f32 *, 0x3F4) = (f32)M2C_FIELD(arg0, s16 *, 0x32C) / (f32)M2C_FIELD(arg0, s16 *, 0x33E);
+}
 
 void set_state3_unless_2or3__11TBoss4Type2FPv(void *arg0) {
     s32 temp_r0;

@@ -24,6 +24,31 @@ struct V_802DA7A4 : V_802DA7A4Base {
     virtual s32 m4();
 };
 
+typedef s32 M2C_UNK;
+struct Obj_800A6B14;
+struct Vec_802DA0BC { s32 x, y, z; };
+
+struct FadeBase_802DB200 { char pad[0x14]; };
+
+struct Fade_802DB200 : FadeBase_802DB200 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8();
+    char pad2[4];
+};
+
+struct ObjBase_802DB200 { char pad[0x18]; };
+
+struct Obj_802DB200 : ObjBase_802DB200 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual s32 m9(f32, f32, f32);
+    char pad1[0x3C0 - 0x1C];
+    Fade_802DB200 sub;
+    Fade_802DB200 fades[4];
+};
+
 extern "C" {
 f32 TObjPlayer__sub_800186E8(void *, void *, Vec_802D9EB4 *);
 s32 get_field_0c__10TObjPlayerFPv(void *);
@@ -85,6 +110,58 @@ extern const f32 TObjEneGibbles__data_805DE7F8;
 extern const f32 TObjEneGibbles__data_805DE830;
 extern const f32 lbl_805DE874;
 void TObjEneGibbles__sub_802DA7A4(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi(void *, int);
+M2C_UNK apply_actor_gravity(void *, int, f32);
+M2C_UNK enemy_move_toward(void *, s32, void *, int, f32);
+s32 select_enemy_destination(void *, Vec_802DA0BC *, int);
+M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_802DA0BC *);
+f32 horizontal_distance_squared(int, void *);
+M2C_UNK advance_animation_playback();
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+M2C_UNK check_enemy_body_collisions(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+M2C_UNK submit_cursor_candidate(void *, int);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+void TObjEneGibbles__sub_802D7DAC(s32 arg0);
+extern u8 *TObjEneGibbles__data_805D68B4;
+extern const f32 TObjEneGibbles__data_805DE7E4;
+extern const f32 lbl_805DE860;
+extern const f32 lbl_805DE864;
+void TObjEneGibbles__sub_802DA0BC(u8 *arg0);
+M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, s32);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK update_obstruction_fade(void *);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK restore_scene_lighting();
+M2C_UNK select_actor_lighting(void *);
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 get_global_state__14TOKeyMachine01Fv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+void update_position__14TObjEneGibblesFPv(u8 *arg0);
+s32 set_monitor_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix_from(void *);
+s32 pop_matrix();
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+void update_spawn_timer__14TObjEneGibblesFv(void);
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 TObjEneGibbles__data_805D68BC;
+extern s32 TObjEneGibbles__data_805D68C0;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DE87C;
+extern const f32 lbl_805DE880;
+extern const f32 lbl_805DE884;
+void TObjEneGibbles__sub_802DB200(u8 *arg0);
 }
 
 extern "C" {
@@ -320,7 +397,6 @@ void TObjEneGibbles__sub_802D8984(u8 *);
 void TObjEneGibbles__sub_802D9110(u8 *);
 s32 TObjEneGibbles__sub_802D9A04(void *arg0);
 void TObjEneGibbles__sub_802D9D64(u8 *arg0);
-void TObjEneGibbles__sub_802DA0BC(u8 *);
 void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0);
 void update_spawn_state__14TObjEneGibblesFPv(u8 *arg0);
 void TObjEneGibbles__sub_802DA96C(u8 *arg0);
@@ -382,6 +458,14 @@ extern const f32 lbl_805DE86C;
 extern const f32 lbl_805DE870;
 extern f32 lbl_805DE878;
 extern void *tl_04;
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
+}
+
+extern "C" {
+void TObjEneGibbles__sub_802DB0F4(Obj_800A6B14 *self);
+}
 
 extern "C" {
 void VecCopy__FP3VecPC3Vec(Vec_800A6B14 *dst, const Vec_800A6B14 *src);
@@ -941,6 +1025,81 @@ s32 TObjEneGibbles__sub_802D9EB4(u8 *arg0) {
     return 0;
 }
 
+void TObjEneGibbles__sub_802DA0BC(u8 *arg0) {
+    f32 d;
+    s32 ok;
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), u32 *, 0x18) |= 1;
+    M2C_FIELD(arg0, u32 *, 0x30) &= 0xF9DBFFFF;
+    if (M2C_FIELD(arg0, u8 **, 0x2A8) == NULL) {
+        return;
+    }
+    switch (M2C_FIELD(arg0, s16 *, 0x328)) {
+    case 2:
+        break;
+    case 0: {
+        Vec_802DA0BC v = *(Vec_802DA0BC *)(M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
+        if (select_enemy_destination(arg0, &v, 7) != 0) {
+            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            {
+                Vec_802DA0BC v2 = *(Vec_802DA0BC *)(arg0 + 0x2FC);
+                copy_position_if_valid__10TObjPlayerFii(arg0, &v2);
+            }
+            apply_actor_gravity(arg0, 0, TObjEneGibbles__data_805DE7E4);
+            M2C_FIELD(arg0, f32 *, 0x3A0) = TObjEneGibbles__data_805DE7E4;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0x328) = 0;
+            M2C_FIELD(arg0, s16 *, 0x326) = 0xB;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+            M2C_FIELD(arg0, u32 *, 0x30) &= 0xF99BFFFF;
+        }
+        break;
+    }
+    case 1:
+        {
+            f32 dt = M2C_FIELD(TObjEneGibbles__data_805D68B4, f32 *, 8);
+            M2C_FIELD(arg0, f32 *, 0x3A0) += dt;
+            Vec_802DA0BC v = *(Vec_802DA0BC *)(M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
+            enemy_move_toward(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8), &v, 0, dt);
+        }
+        d = horizontal_distance_squared((int)(arg0 + 0x29C), arg0 + 0x38);
+        {
+            Vec_802DA0BC v = *(Vec_802DA0BC *)(M2C_FIELD(arg0, u8 **, 0x2A8) + 0x2FC);
+            ok = select_enemy_destination(arg0, &v, 1);
+        }
+        if (d >= lbl_805DE860 && ok != 0) {
+            M2C_FIELD(arg0, u32 *, 0x374) |= 0x10;
+        } else if (M2C_FIELD(arg0, f32 *, 0x3A0) >= lbl_805DE864) {
+            M2C_FIELD(arg0, f32 *, 0x3A0) = TObjEneGibbles__data_805DE7E4;
+            if (((f32 (*)(void *))calc_boss4_scale__10TObjPlayerFi)(arg0) < M2C_FIELD(arg0, f32 *, 0x394) && ok != 0) {
+                M2C_FIELD(arg0, u32 *, 0x374) |= 0x10;
+            } else {
+                M2C_FIELD(arg0, u32 *, 0x374) &= ~0x10;
+            }
+        } else {
+            M2C_FIELD(arg0, u32 *, 0x374) &= ~0x10;
+        }
+        {
+            f32 r = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC);
+            if (d < r * r) {
+                M2C_FIELD(arg0, s16 *, 0x328) = 3;
+            }
+        }
+        break;
+    case 3:
+        M2C_FIELD(arg0, u32 *, 0x374) &= ~0x10;
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        break;
+    }
+    TObjEneGibbles__sub_802D7DAC((s32)arg0);
+    ((void (*)(void *))advance_animation_playback)(arg0);
+    TObjEneGibbles__sub_802DB0F4((Obj_800A6B14 *)arg0);
+    check_object_collisions__10TObjPlayerFPv(arg0);
+    check_enemy_body_collisions(arg0);
+    update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    submit_cursor_candidate(arg0, -1);
+}
+
 void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {
     f32 temp_f2;
     f32 temp_f2_2;
@@ -1271,6 +1430,99 @@ void update_spawn_timer__14TObjEneGibblesFv(void) {
     TObjEneGibbles__data_805D68BC += 1;
 }
 
+void TObjEneGibbles__sub_802DB200(u8 *arg0) {
+    Obj_802DB200 *self = (Obj_802DB200 *)arg0;
+    Vec_800A6B14 v;
+    s32 fade;
+    s32 vis;
+    s32 cam;
+    cam = 0;
+    if (is_split_screen() != 0) {
+        cam = get_camera_mode__11TCameraCtrlFv();
+    }
+    if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+        vis = self->m9(600.0f, 600.0f, 30.0f);
+    } else {
+        vis = self->m9(lbl_805DE884, lbl_805DE87C, lbl_805DE880);
+    }
+    if (vis != 0) {
+        update_obstruction_fade(&self->fades[cam]);
+        fade = updateFromCamera__15RenderFadeStateFPCf(&self->fades[cam], arg0 + 0x2FC);
+        select_actor_lighting(arg0);
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+        push_matrix_from(0);
+        VecCopy__FP3VecPC3Vec(&v, (Vec_800A6B14 *)(arg0 + 0x38));
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 2:
+        case 6:
+        case 10:
+            v.y += M2C_FIELD(arg0, f32 *, 0x38C);
+            break;
+        }
+        set_position_vec3__10TObjPlayerFPvPv(0, &v);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        set_monitor_position_vec3__10TObjPlayerFPvPv(0, arg0 + 0x68);
+        TObjEneGibbles__data_805D68BC = 0;
+        TObjEneGibbles__data_805D68C0 = M2C_FIELD(arg0, s32 *, 0x3BC);
+        set_global_state__16TObjEneRe7BeruraFi((void *)update_spawn_timer__14TObjEneGibblesFv);
+        toggle_particle_effect__10TObjPlayerFv();
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+            break;
+        case 1:
+        case 2:
+        case 10:
+            if (self->sub.m8() != 0) {
+                lbl_805D5660 = some_id_805c6f74;
+                lbl_805D5664 = lbl_805D7784;
+                lbl_805D5668 = lbl_805D7780;
+                some_id_805c6f74 |= 1;
+                self->sub.m6();
+                if (toggle_flag_9__10TObjPlayerFPv(arg0) == 0) {
+                    draw__16TObjEneRe7BeruraFPv(arg0);
+                }
+                self->sub.m7();
+                lbl_805D7784 = lbl_805D5664;
+                lbl_805D7780 = lbl_805D5668;
+                some_id_805c6f74 = lbl_805D5660;
+            }
+            break;
+        default:
+            if (fade != 0) {
+                lbl_805D5660 = some_id_805c6f74;
+                lbl_805D5664 = lbl_805D7784;
+                lbl_805D5668 = lbl_805D7780;
+                self->fades[cam].m6();
+                if (toggle_flag_9__10TObjPlayerFPv(arg0) == 0) {
+                    if (vis == 1) {
+                        draw__16TObjEneRe7BeruraFPv(arg0);
+                    } else {
+                        render_world_model__10TObjPlayerFPv(arg0);
+                    }
+                }
+                self->fades[cam].m7();
+                lbl_805D7784 = lbl_805D5664;
+                lbl_805D7780 = lbl_805D5668;
+                some_id_805c6f74 = lbl_805D5660;
+            } else if (vis == 1) {
+                draw__16TObjEneRe7BeruraFPv(arg0);
+            } else {
+                render_world_model__10TObjPlayerFPv(arg0);
+            }
+            break;
+        }
+        end_effect_render__13TParticleCtrlFv();
+        set_global_state__16TObjEneRe7BeruraFi(NULL);
+        pop_matrix();
+        restore_scene_lighting();
+        if (!(M2C_FIELD(arg0, s32 *, 0x374) & 1)) {
+            render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
+        }
+    } else {
+        update_position__14TObjEneGibblesFPv(arg0);
+    }
+}
+
 void TObjEneGibbles__sub_802DB50C(u8 *arg0) {
     s16 temp_r0;
     u8 *temp_r4;
@@ -1290,7 +1542,7 @@ void TObjEneGibbles__sub_802DB50C(u8 *arg0) {
             update_death_sequence__14TObjEneGibblesFPv(arg0);
             break;
         case 3:
-            TObjEneGibbles__sub_802DA0BC(arg0);
+            TObjEneGibbles__sub_802DA0BC((u8 *)(arg0));
             break;
         case 4:
             TObjEneGibbles__sub_802D9110(arg0);

@@ -42,6 +42,22 @@ struct Vec_802CB8F0;
 
 struct Vec_802CBA98 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct Vec_802CCBAC { f32 x, y, z; };
+
+struct Sub_802CCBAC { f32 f0; u8 pad4[4]; s32 f8; };
+
+struct Tgt_802CCBAC { u8 pad0[0x38]; Vec_802CCBAC pos; u8 pad44[0x2FC - 0x44]; Vec_802CCBAC v2FC; };
+
+struct Obj_802CCBAC {
+    u8 pad0[0x30]; u32 f30; u8 pad34[4]; Vec_802CCBAC pos; u8 pad44[0x60 - 0x44];
+    s32 f60; u8 pad64[0xB8 - 0x64]; s16 fB8; u8 padBA[0x29C - 0xBA];
+    Vec_802CCBAC v29C; Tgt_802CCBAC *f2A8; u8 pad2AC[0x350 - 0x2AC];
+    Sub_802CCBAC *f350; u8 pad354[0x37C - 0x354]; s32 f37C; u8 pad380[8]; u32 f388;
+    u8 pad38C[0x3DC - 0x38C]; s32 f3DC; f32 f3E0; f32 f3E4; u8 pad3E8[0x3F8 - 0x3E8];
+    s32 f3F8; u8 pad3FC[0x434 - 0x3FC]; s32 f434; f32 f438; u8 pad43C[0x448 - 0x43C]; s32 f448;
+};
+
 extern "C" {
 void TObjEneMe1GiGue__sub_802CCE50(u8 *arg0);
 M2C_UNK set_state__15TObjEneMe1GiGueFPvi(void *, s32);
@@ -117,6 +133,26 @@ extern const f32 TObjEneMe1GiGue__data_805DE660;
 extern const f32 TObjEneMe1GiGue__data_805DE680;
 extern const f32 lbl_805DE690;
 void TObjEneMe1GiGue__sub_802CBA98(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 move_with_wall_slide(void *);
+s32 enemy_set_heading_velocity(void *, f32, s32);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
+M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+M2C_UNK check_enemy_body_collisions(void *);
+M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
+M2C_UNK enemy_wander_home(void *, s32, f32, f32, f32);
+void subtract_vector(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 angle_difference_abs(s32, s32);
+extern const f64 TObjEneMe1GiGue__data_80472298;
+extern const f32 TObjEneMe1GiGue__data_805DE660;
+extern const f32 TObjEneMe1GiGue__data_805DE67C;
+extern const f32 TObjEneMe1GiGue__data_805DE694;
+void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o);
 }
 
 extern "C" {
@@ -367,6 +403,70 @@ void TObjEneMe1GiGue__sub_802CC45C(u8 *arg0) {
         if (M2C_FIELD(arg0, s16 *, 0xB8) != 3) {
             update_if_active__15TObjEneMe1GiGueFPv(arg0, 0xD);
         }
+        break;
+    }
+}
+
+void TObjEneMe1GiGue__sub_802CCBAC(Obj_802CCBAC *o) {
+    o->f30 &= ~0x01000000;
+    switch (o->f37C) {
+    case 0:
+        o->f388 &= ~0x00040000;
+        TBoss3VoloptMonitor__sub_8004292C();
+        o->fB8 = 1;
+        o->f3DC = 0;
+        if (o->f2A8 != NULL) {
+            VecCopy__FP3VecPC3Vec(&o->v29C, &o->f2A8->v2FC);
+        }
+        o->f37C = 1;
+    case 1:
+        advance_animation_playback(o);
+        apply_actor_gravity(o, 0, TObjEneMe1GiGue__data_805DE660);
+        if (o->f2A8 != NULL) {
+            Vec_802CCBAC d = o->f2A8->pos;
+            subtract_vector(&d, &o->pos);
+            if (d.x * d.x + d.z * d.z <= o->f438 * o->f438 &&
+                angle_difference_abs(-(s32)(TObjEneMe1GiGue__data_80472298 * get_ad_end_text_start__10TObjPlayerFv(d.z, d.x)) + 0x4000, o->f60) < o->f434 / 2) {
+                s32 st;
+                o->f3F8++;
+                if (o->f3F8 > 2) {
+                    o->f3F8 = 0;
+                    st = 0xD;
+                } else {
+                    o->f448 = 0;
+                    st = 9;
+                }
+                update_if_active__15TObjEneMe1GiGueFPv(o, st);
+                break;
+            }
+        }
+        o->f60 += o->f350->f8 / 2;
+        enemy_set_heading_velocity(o, o->f3E4, o->f60);
+        move_with_wall_slide(o);
+        o->f3DC += o->f350->f8 / 2;
+        if (o->f3DC > 0x10000) {
+            o->f3E0 = TObjEneMe1GiGue__data_805DE660;
+            o->f37C = 2;
+        }
+        break;
+    case -1:
+        break;
+    case 2:
+        ((M2C_UNK (*)(f32, f32, f32, void *, s32))enemy_wander_home)(o->f3E4, TObjEneMe1GiGue__data_805DE694, TObjEneMe1GiGue__data_805DE67C, o, o->f350->f8);
+        advance_animation_playback(o);
+        apply_actor_gravity(o, 0, TObjEneMe1GiGue__data_805DE660);
+        o->f3E0 += o->f3E4;
+        if (o->f3E0 > TObjEneMe1GiGue__data_805DE694) {
+            if (find_target_in_range__10TObjPlayerFPvf(o, o->f350->f0) != 0) {
+                o->f3DC = 0;
+                o->f37C = 1;
+            } else {
+                update_if_active__15TObjEneMe1GiGueFPv(o, 0);
+            }
+        }
+        check_object_collisions__10TObjPlayerFPv(o);
+        check_enemy_body_collisions(o);
+        update_enemy_collision_flags__10TObjPlayerFPv(o);
         break;
     }
 }

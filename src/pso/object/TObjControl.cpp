@@ -6,6 +6,30 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Ply_800F7118 {
+    u8 pad0[0x28];
+    s16 f28;
+    u8 pad2A[0x30 - 0x2A];
+    s32 f30;
+    u8 pad34[0x334 - 0x34];
+    s32 f334;
+    u8 pad338[0x340 - 0x338];
+    Ply_800F7118 *f340;
+    Ply_800F7118 *f344;
+    Ply_800F7118 *next;
+    Ply_800F7118 *prev;
+    u8 pad350[0x36C - 0x350];
+    s32 f36C;
+};
+
+extern "C" {
+u8 *get_player_data__10TObjPlayerFi(s32);
+u16 obj_getField1c(void *);
+extern s32 lbl_805D586C;
+extern s32 lbl_805D5870;
+void TObjPlayer__sub_800F7118(Ply_800F7118 *self);
+}
+
 extern "C" {
 
 struct EnemyControlDispatchBase { char pad[0x18]; };
@@ -977,6 +1001,101 @@ s32 TObjEnemy::countChildren() {
 }
 
 extern "C" {
+
+#define FIND_TAIL_800F7118(q) \
+    if (self->next == NULL && tail == NULL) { \
+        while (q->next != NULL) { \
+            q = q->next; \
+        } \
+        tail = q; \
+    }
+void TObjPlayer__sub_800F7118(Ply_800F7118 *self) {
+    Ply_800F7118 *p;
+    Ply_800F7118 *head;
+    Ply_800F7118 *tail;
+    s32 i;
+    Ply_800F7118 *q;
+    Ply_800F7118 *r;
+    u16 id;
+    if (self->f36C > 0 && self->f340 == NULL && self->f344 == NULL) {
+        head = NULL;
+        tail = NULL;
+        for (i = lbl_805D586C; i < lbl_805D586C + lbl_805D5870; i++) {
+            p = (Ply_800F7118 *)get_player_data__10TObjPlayerFi(i);
+            if (p == NULL || p == self) {
+                continue;
+            }
+            id = obj_getField1c(p);
+            if (id < 0x1000 || id >= 0x4000) {
+                continue;
+            }
+            if (p->f30 & 0x800) {
+                continue;
+            }
+            if (p->f36C != self->f36C || p->f28 != self->f28) {
+                continue;
+            }
+            switch (self->f334) {
+            case 2:
+                switch (p->f334) {
+                case 2:
+                    FIND_TAIL_800F7118(p);
+                    break;
+                }
+                break;
+            case 1:
+                switch (p->f334) {
+                case 2:
+                    if (head == NULL) {
+                        q = p->prev;
+                        if (q == NULL) {
+                            head = p;
+                        } else FIND_TAIL_800F7118(q);
+                    }
+                    break;
+                case 1:
+                    FIND_TAIL_800F7118(p);
+                    break;
+                }
+                break;
+            case 0:
+                switch (p->f334) {
+                case 2:
+                    if (head == NULL) {
+                        q = p->prev;
+                        if (q == NULL) {
+                            head = p;
+                        } else {
+                            r = q->prev;
+                            if (r == NULL) {
+                                head = q;
+                            } else FIND_TAIL_800F7118(r);
+                        }
+                    }
+                    break;
+                case 1:
+                    q = p->prev;
+                    if (q == NULL) {
+                        head = p;
+                    } else FIND_TAIL_800F7118(q);
+                    break;
+                default:
+                    FIND_TAIL_800F7118(p);
+                    break;
+                }
+                break;
+            }
+        }
+        if (head != NULL) {
+            self->f340 = head;
+            head->prev = self;
+        } else if (tail != NULL) {
+            self->f344 = tail;
+            tail->next = self;
+        }
+    }
+}
+
 s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0) {
     return ((s32)_w0->groupRoot()) ? 1 : 0;
 }

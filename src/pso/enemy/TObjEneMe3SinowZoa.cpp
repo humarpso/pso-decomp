@@ -1096,7 +1096,7 @@ extern "C" void TObjEneMe3SinowZoaReal__vt60();
 extern "C" void TObjEneMe3SinowZoaReal__vt61();
 extern "C" void TObjEneMe3SinowZoa__sub_80316A74();
 extern "C" void TObjEneMe3SinowZoa__sub_803173D0();
-extern "C" void TObjEneMe3SinowZoa__sub_8031786C();
+extern "C" void TObjEneMe3SinowZoa__sub_8031786C(u8 *);
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
 extern "C" void TObjPlayer__sub_800111D8();
@@ -1263,6 +1263,260 @@ void *__vt__22TObjEneMe3SinowZoaReal[116] = {
     (void *)&TObjEneMe3SinowZoa__sub_8031A590, (void *)&action__18TObjEneMe3SinowZoaFPvi, (void *)&update_move__18TObjEneMe3SinowZoaFPv, (void *)&TObjEneMe3SinowZoa__sub_803173D0,
 };
 #define lbl_804E87C4 ((u8 *)lbl_804E87C4)
+
+struct VBase_14_aa9368 { char pad[0x14]; };
+struct VObj_14_aa9368 : VBase_14_aa9368 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual M2C_UNK m6();
+    virtual M2C_UNK m7();
+};
+struct VBase_18_fc0b09 { char pad[0x18]; };
+struct VObj_18_fc0b09 : VBase_18_fc0b09 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual s32 m9(f32, f32, f32);
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual void m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual void m102();
+    virtual void m103();
+    virtual void m104();
+    virtual void m105();
+    virtual M2C_UNK m106();
+    virtual s32 m107();
+    virtual s32 m108();
+    virtual void m109();
+    virtual void m110();
+    virtual void m111();
+    virtual void m112();
+    virtual M2C_UNK m113();
+};
+
+struct Zoa_8031786C {
+    u8 pad0[0x3C0];
+    s32 f3C0;
+    u8 pad3C4[0x3CC - 0x3C4];
+    s32 f3CC;
+    s32 f3D0;
+    u8 pad3D4[0x3F8 - 0x3D4];
+    s32 f3F8;
+    u8 pad3FC[0x414 - 0x3FC];
+    VObj_14_aa9368 sub;
+};
+
+M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 is_main_phase_15__9TObjEneDDFv();
+M2C_UNK clear_global_flag_400__9TObjEneDDFv();
+M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
+M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+s32 render_model_if_visible__18TObjEneMe3SinowZoaFPv(u8 *arg0);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+extern u8 lbl_8050BEC0[];
+extern s32 *lbl_80542FF0[];
+extern u8 lbl_8058D4C0[];
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D6ADC;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805D9E84;
+extern const f32 lbl_805D9E88;
+extern const f32 lbl_805DF318;
+
+#define v ((VObj_18_fc0b09 *)arg0)
+void TObjEneMe3SinowZoa__sub_8031786C(u8 *arg0) {
+    s32 mode;
+    s32 draw;
+    s32 i;
+    Zoa_8031786C *o = (Zoa_8031786C *)arg0;
+
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        v->m113();
+        return;
+    }
+    TObjEneMe3SinowZoa__sub_8031A454(arg0);
+    if (o->f3CC & 2) {
+        mode = 0;
+    } else if (is_main_phase_15__9TObjEneDDFv() != 0) {
+        mode = v->m9(lbl_805D9E88, lbl_805D9E84, TObjEneMe3SinowZoa__data_805DF2F0);
+    } else if (v->m8(lbl_805DF318, TObjEneMe3SinowZoa__data_805DF2F0) != 0) {
+        mode = 1;
+    } else {
+        mode = 0;
+    }
+    if (mode != 0) {
+        if (render_model_if_visible__18TObjEneMe3SinowZoaFPv(arg0) != 0) {
+            return;
+        }
+        update_secondary_light__9TObjEneDDFPv(arg0);
+        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5664 = lbl_805D7784;
+        lbl_805D5668 = lbl_805D7780;
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8050BEC0, lbl_8058D4C0);
+        if (!(o->f3D0 & 0x4000)) {
+            v->m106();
+            clear_global_flag_400__9TObjEneDDFv();
+        }
+        toggle_particle_effect__10TObjPlayerFv();
+        set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
+        for (i = 0; i < 3; i++) {
+            if (lbl_80542FF0[i] != NULL) {
+                *lbl_80542FF0[i] = o->f3F8;
+            }
+        }
+        draw = 1;
+        if (v->m107() != 0) {
+            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                draw = 0;
+            } else if (o->f3C0 != 0) {
+                draw = 0;
+            }
+        } else if (TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
+            o->sub.m6();
+            if (toggle_flag_9__10TObjPlayerFPv(arg0) != 0) {
+                draw = 0;
+            }
+        } else if (o->f3C0 != 0) {
+            draw = 0;
+        }
+        if (draw != 0) {
+            push_matrix();
+            post_translate_matrix(arg0 + 0x38);
+            translate_matrix(0, TObjEneMe3SinowZoa__data_805DF31C, *(f32 *)(arg0 + 0x3E4), TObjEneMe3SinowZoa__data_805DF31C);
+            rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
+            lbl_805D6ADC = 0;
+            if (mode == 1) {
+                draw__16TObjEneRe7BeruraFPv(arg0);
+            } else {
+                render_world_model__10TObjPlayerFPv(arg0);
+            }
+            pop_matrix();
+        }
+        if (v->m108() == 0 && TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
+            o->sub.m7();
+        }
+        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, lbl_8050BEC0);
+        lbl_805D7784 = lbl_805D5664;
+        lbl_805D7780 = lbl_805D5668;
+        some_id_805c6f74 = lbl_805D5660;
+        update_primary_light__9TObjEneDDFPv(arg0);
+    }
+    end_effect_render__13TParticleCtrlFv();
+}
+
+#undef v
 
 void TObjEneMe3SinowZoa__sub_80317F90(u8 *arg0, s32 arg1) {
     Vec_80317F90 v;

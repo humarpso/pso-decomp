@@ -226,6 +226,123 @@ struct VD_803062D4 : VB_803062D4 {
     virtual ~VD_803062D4();
 };
 
+struct VBase_14_0d3ae4 { char pad[0x14]; };
+
+struct VObj_14_0d3ae4 : VBase_14_0d3ae4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual M2C_UNK m3();
+    virtual void m4();
+    virtual s32 m5();
+};
+
+struct VBase_18_eeb1dd { char pad[0x18]; };
+
+struct VObj_18_eeb1dd : VBase_18_eeb1dd {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual M2C_UNK m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual M2C_UNK m100();
+};
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -276,6 +393,25 @@ M2C_UNK transition_enemy_state(void *, int);
 M2C_UNK advance_animation_playback(void *);
 extern const f32 TObjEneDellBiter__data_805DF00C;
 void TObjEneDellBiter__sub_80304B88(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
+M2C_UNK set_active__9TObjEneDDFPv(void *);
+M2C_UNK move_clamped_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, void *);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK play_sound_effect(int, void *, int, int);
+void TObjEneDellBiter__sub_803058DC(s32 arg0);
+void TObjEneDellBiter__sub_8030591C(s32 arg0);
+s32 TObjEneDellBiter__sub_80305C40(u8 *arg0);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+extern u8 *TObjEneDellBiter__data_805D6A2C;
+extern const f32 lbl_805DF000;
+extern const f32 lbl_805DF010;
+void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1589,7 +1725,6 @@ void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1);
 void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 s32 TObjEneDellBiter__sub_803044AC(void *, void *);
-s32 TObjEneDellBiter__sub_80304D10(void *, void *);
 void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1);
@@ -2304,6 +2439,85 @@ void TObjEneDellBiter__sub_80304B88(u8 *arg0, s32 arg1) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define VO ((VObj_18_eeb1dd *)(arg0))
+#define FADE ((VObj_14_0d3ae4 *)(arg0 + 0x3D4))
+void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1) {
+    switch (arg1) {
+    case 4:
+        F(s16, 0xB8) = 2;
+        set_field_378__9TObjEneDDFPvi(arg0, 5);
+        F(s32, 0x3C0) &= ~1;
+        F(s32, 0x3C0) |= 6;
+        M2C_FIELD(F(u8 *, 0xA4), s32 *, 0x18) |= 0x700;
+        VO->m94();
+        FADE->m3();
+        F(f32, 0x4DC) = *(f32 *)TObjEneDellBiter__data_805D6A2C;
+        F(s32, 0x4D0) = 0;
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, (void *)0x40039E12), arg0 + 0x38, 0, 0);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
+        VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+        F(f32, 0x38) -= lbl_805DF010 * sin_table_lookup(F(s32, 0x60));
+        F(f32, 0x40) -= lbl_805DF010 * cos_table_lookup(F(s32, 0x60));
+        F(s32, 0x4CC) = (s32)(lbl_805DF010 / *(f32 *)TObjEneDellBiter__data_805D6A2C);
+        F(s32, 0x488) = 0;
+        F(s32, 0x48C) = 0;
+        set_active__9TObjEneDDFPv(arg0);
+        break;
+    case 3:
+        if (F(s32, 0x4D0) == 2) {
+            transition_enemy_state(arg0, 5);
+        }
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        switch (F(s32, 0x4D0)) {
+        case 0:
+            TObjEneDellBiter__sub_8030591C((s32)arg0);
+            F(f32, 0x38) = F(f32, 0x4DC) * sin_table_lookup(F(s32, 0x60)) + F(f32, 0x38);
+            F(f32, 0x40) = F(f32, 0x4DC) * cos_table_lookup(F(s32, 0x60)) + F(f32, 0x40);
+            TObjEneDellBiter__sub_80305C40(arg0);
+            F(s32, 0x4CC)--;
+            if (F(s32, 0x4CC) <= 0) {
+                F(s32, 0x4D0) = 1;
+                F(s32, 0x4CC) = 0;
+                F(s32, 0x3C0) &= ~4;
+                set_field_378__9TObjEneDDFPvi(arg0, 5);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, (void *)0x40039B14), arg0 + 0x38, 0, 0);
+            }
+            VO->m100();
+            break;
+        case 1:
+            F(s32, 0x4CC)++;
+            if (F(s32, 0x4CC) >= 10) {
+                F(s16, 0xB8) = 3;
+                TObjEneDellBiter__sub_803058DC((s32)arg0);
+                if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+                    F(s32, 0x4D0) = 2;
+                }
+                F(f32, 0x4DC) *= lbl_805DF000;
+            }
+            TObjEneDellBiter__sub_80305C40(arg0);
+            move_clamped_on_ground__9TObjEneDDFPvfff(arg0, F(f32, 0x3A0), F(f32, 0x3A8), F(f32, 0x4DC));
+            break;
+        }
+        if (FADE->m5() != 0) {
+            F(s32, 0x3C0) &= ~2;
+            VO->m87();
+        }
+        break;
+    case 5:
+        F(s32, 0x3C0) &= ~4;
+        M2C_FIELD(F(u8 *, 0xA4), s32 *, 0x18) &= ~0x700;
+        clear_field_388__9TObjEneDDFPv(arg0);
+        break;
+    }
+}
+#pragma pop
+
 void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
@@ -2420,7 +2634,7 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
         ((s32 (*)(void *, void *))run_task__16TObjEneDellBiterFPvi)((void *) (arg0), (void *) (arg2));
         return;
     case 3:
-        TObjEneDellBiter__sub_80304D10((void *) (arg0), (void *) (arg2));
+        TObjEneDellBiter__sub_80304D10((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 4:
         TObjEneDellBiter__sub_80304B88((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));

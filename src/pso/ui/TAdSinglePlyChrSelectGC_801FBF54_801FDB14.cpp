@@ -37,6 +37,51 @@ struct Slot_801FDEE4 {
 
 struct DateStamp_801FDEE4 { u8 pad[0xC]; };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct B1C_801FE010 { u32 w[7]; };
+
+struct B10_801FE010 { u32 w[4]; };
+
+struct B200_801FE010 { u32 w[0x80]; };
+
+struct I18_801FE010 { u8 b[0x18]; };
+
+struct B90_801FE010 { u32 w[0x24]; };
+
+struct B420_801FE010 { u32 w[0x108]; };
+
+struct I54_801FE010 { u8 b[0x54]; };
+
+struct BAC_801FE010 { u32 w[0x2B]; };
+
+struct B100_801FE010 { u32 w[0x40]; };
+
+struct B28_801FE010 { u32 w[0xA]; };
+
+struct B40_801FE010 { u32 w[0x10]; };
+
+struct S_801FE010 {
+    u32 a0, a4, a8, aC, a10, a14;
+    B1C_801FE010 b18;
+    B10_801FE010 b34;
+    B200_801FE010 b44;
+    u32 c244, c248, c24C;
+    I18_801FE010 items[200];
+    B90_801FE010 d1510;
+    B420_801FE010 d15A0;
+    I54_801FE010 slots[20];
+    BAC_801FE010 e2050;
+    BAC_801FE010 e20FC;
+    B1C_801FE010 e21A8;
+    B100_801FE010 e21C4;
+    B28_801FE010 e22C4;
+    B28_801FE010 e22EC;
+    B40_801FE010 e2314;
+    B1C_801FE010 e2354;
+};
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E2048(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
@@ -75,6 +120,9 @@ void *TAdSinglePlyChrSelectGC__sub_80202B1C(void *, s32);
 void TAdSinglePlyChrSelectGC__sub_80203220(void *);
 void TAdSinglePlyChrSelectGC__sub_80211584(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3);
+void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
+void *TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
+S_801FE010 *TAdSinglePlyChrSelectGC__sub_801FE010(S_801FE010 *arg0, S_801FE010 *arg1);
 }
 
 extern "C" {
@@ -204,6 +252,50 @@ s32 TAdSinglePlyChrSelectGC__sub_801FDEE4(u32 arg0, s32 arg1, u32 arg2, s32 arg3
     }
     dst[arg3].f2790 = 1;
     return 1;
+}
+
+S_801FE010 *TAdSinglePlyChrSelectGC__sub_801FE010(S_801FE010 *arg0, S_801FE010 *arg1) {
+    I18_801FE010 *p;
+    I18_801FE010 *q;
+    I54_801FE010 *s;
+    I54_801FE010 *t;
+    arg0->a0 = arg1->a0;
+    arg0->a4 = arg1->a4;
+    arg0->a8 = arg1->a8;
+    arg0->aC = arg1->aC;
+    arg0->a10 = arg1->a10;
+    arg0->a14 = arg1->a14;
+    arg0->b18 = arg1->b18;
+    arg0->b34 = arg1->b34;
+    arg0->b44 = arg1->b44;
+    arg0->c244 = arg1->c244;
+    arg0->c248 = arg1->c248;
+    arg0->c24C = arg1->c24C;
+    p = arg0->items;
+    q = arg1->items;
+    do {
+        copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(p, q);
+        p++;
+        q++;
+    } while (p < arg0->items + 200);
+    arg0->d1510 = arg1->d1510;
+    arg0->d15A0 = arg1->d15A0;
+    s = arg0->slots;
+    t = arg1->slots;
+    do {
+        TAdSinglePlyChrSelectGC__sub_80076D9C(s, t);
+        s++;
+        t++;
+    } while (s < arg0->slots + 20);
+    arg0->e2050 = arg1->e2050;
+    arg0->e20FC = arg1->e20FC;
+    arg0->e21A8 = arg1->e21A8;
+    arg0->e21C4 = arg1->e21C4;
+    arg0->e22C4 = arg1->e22C4;
+    arg0->e22EC = arg1->e22EC;
+    arg0->e2314 = arg1->e2314;
+    arg0->e2354 = arg1->e2354;
+    return arg0;
 }
 
 void TAdSinglePlyChrSelectGC__sub_801FE2D0(s32 i) {

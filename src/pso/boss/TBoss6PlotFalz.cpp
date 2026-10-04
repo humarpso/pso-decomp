@@ -18,6 +18,8 @@ struct Vec_802AB3E0 { f32 x, y, z; };
 
 struct Player_802AB3E0 { u8 pad[0x38]; Vec_802AB3E0 pos; };
 
+struct Vec_802AB6CC { f32 x, y, z; };
+
 extern "C" {
 void fn_803594B4(void *, s32, f32);
 extern const f32 TBoss6PlotFalz__data_805DE098;
@@ -38,6 +40,23 @@ int TBoss6Thanks__sub_8035D270();
 extern s32 lbl_805D586C;
 extern const f32 lbl_805DE094;
 void TBoss6PlotFalz__sub_802AB3E0(void);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 TCameraCtrl__sub_80068958();
+s32 angle_diff_s16(s32, s32);
+M2C_UNK get_camera_no__11TCameraCtrlFv();
+u8 *get_player_by_client_id(u16);
+M2C_UNK vec3_add_to(void *, void *);
+f32 vec3_dot(void *, void *);
+M2C_UNK vector_length(void *);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK normalize_vector(void *);
+extern const f64 lbl_804705E0[];
+extern u8 *lbl_805D4DF0;
+extern const f32 TBoss6PlotFalz__data_805DE098;
+extern const f32 lbl_805DE0A4;
+extern const f32 lbl_805DE0A8;
+s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r);
 }
 
 extern "C" {
@@ -93,6 +112,85 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0) {
     subtract_vector((void *) (&stack.sp8), (void *) (&lbl_8047059C.value));
     stack.spC = TBoss6PlotFalz__data_805DE098;
     vector_length((void *) (&stack.sp8));
+}
+#define VLEN(v) (((f32 (*)(void *))vector_length)(v))
+s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
+    Vec_802AB6CC c;
+    Vec_802AB6CC pl;
+    Vec_802AB6CC p = *(Vec_802AB6CC *)arg0;
+    Vec_802AB6CC d1;
+    Vec_802AB6CC d2;
+    Vec_802AB6CC d3;
+    Vec_802AB6CC a;
+    Vec_802AB6CC b;
+    Vec_802AB6CC dir;
+    u8 *player;
+    f32 l2;
+    f32 l3;
+    s32 ang1;
+    s32 ang2;
+    s32 ang3;
+    s32 s1;
+    s32 s2;
+    p.y = TBoss6PlotFalz__data_805DE098;
+    get_camera_no__11TCameraCtrlFv();
+    player = get_player_by_client_id(TCameraCtrl__sub_80068958());
+    if (player == NULL) {
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec(&pl, player + 0x38);
+    VecCopy__FP3VecPC3Vec(&c, lbl_805D4DF0 + 0x178);
+    VecCopy__FP3VecPC3Vec(&d1, &p);
+    subtract_vector(&d1, &pl);
+    d1.y = TBoss6PlotFalz__data_805DE098;
+    if (VLEN(&d1) < r) {
+        return 1;
+    }
+    VecCopy__FP3VecPC3Vec(&d2, &p);
+    subtract_vector(&d2, &c);
+    d2.y = TBoss6PlotFalz__data_805DE098;
+    l2 = VLEN(&d2);
+    if (l2 < r) {
+        return 1;
+    }
+    if (l2 > lbl_805DE0A8) {
+        return 0;
+    }
+    VecCopy__FP3VecPC3Vec(&d3, &pl);
+    subtract_vector(&d3, &c);
+    d3.y = TBoss6PlotFalz__data_805DE098;
+    l3 = VLEN(&d3);
+    if (l3 <= lbl_805DE0A4 || l3 > lbl_805DE0A8) {
+        return 0;
+    }
+    if (l3 < l2 - r) {
+        return 0;
+    }
+    if (vec3_dot(&d2, &d3) <= TBoss6PlotFalz__data_805DE098) {
+        return 0;
+    }
+    dir.x = -d2.z;
+    dir.y = TBoss6PlotFalz__data_805DE098;
+    dir.z = d2.x;
+    normalize_vector(&dir);
+    dir.x *= r;
+    dir.z *= r;
+    VecCopy__FP3VecPC3Vec(&a, &p);
+    vec3_add_to(&a, &dir);
+    VecCopy__FP3VecPC3Vec(&b, &p);
+    subtract_vector(&b, &dir);
+    ang1 = (s32)(lbl_804705E0[0] * get_ad_end_text_start__10TObjPlayerFv(a.x - c.x, a.z - c.z));
+    ang2 = (s32)(lbl_804705E0[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - c.x, b.z - c.z));
+    ang3 = (s32)(lbl_804705E0[0] * get_ad_end_text_start__10TObjPlayerFv(pl.x - c.x, pl.z - c.z));
+    s1 = angle_diff_s16(ang1, ang3);
+    s2 = angle_diff_s16(ang3, ang2);
+    if ((s1 >= 0 && s2 >= 0) || (s1 <= 0 && s2 <= 0)) {
+        if (l3 < l2 + r) {
+            return 0;
+        }
+        return 1;
+    }
+    return 0;
 }
 
 }

@@ -46,6 +46,54 @@ struct Save_80202C68 {
     s32 f194AC;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct B1C_80202DD4 { u32 w[7]; };
+
+struct B10_80202DD4 { u32 w[4]; };
+
+struct B400_80202DD4 { u32 w[0x100]; };
+
+struct B90_80202DD4 { u32 w[0x24]; };
+
+struct B420_80202DD4 { u32 w[0x108]; };
+
+struct BAC_80202DD4 { u32 w[0x2B]; };
+
+struct B100_80202DD4 { u32 w[0x40]; };
+
+struct B28_80202DD4 { u32 w[0xA]; };
+
+struct BC0_80202DD4 { u32 w[0x30]; };
+
+struct B21FC_80202DD4 { u32 w[0x87F]; };
+
+struct Item_80202DD4 { u8 data[0x18]; };
+
+struct Elem_80202DD4 { u8 data[0x54]; };
+
+struct S_80202DD4 {
+    s32 f0, f4, f8, fC, f10, f14;
+    B1C_80202DD4 b18;
+    B10_80202DD4 b34;
+    B400_80202DD4 b44;
+    s32 f444, f448, f44C;
+    Item_80202DD4 items[4];
+    B90_80202DD4 b4B0;
+    B420_80202DD4 b540;
+    Elem_80202DD4 elems[20];
+    BAC_80202DD4 bFF0;
+    BAC_80202DD4 b109C;
+    B1C_80202DD4 b1148;
+    B100_80202DD4 b1164;
+    B28_80202DD4 b1264;
+    B28_80202DD4 b128C;
+    BC0_80202DD4 b12B4;
+    B1C_80202DD4 b1374;
+    B21FC_80202DD4 b1390;
+};
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
@@ -79,6 +127,9 @@ void TAdSinglePlyChrSelectGC__sub_802115C0();
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_80202D7C(void *, void *);
 Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_80202C68 *arg1);
+void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
+void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
+u8 *TAdSinglePlyChrSelectGC__sub_80202DD4(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -239,6 +290,48 @@ Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_8
     arg0->tail = arg1->tail;
     arg0->blk = arg1->blk;
     arg0->f194AC = arg1->f194AC;
+    return arg0;
+}
+
+u8 *TAdSinglePlyChrSelectGC__sub_80202DD4(u8 *arg0, u8 *arg1) {
+    S_80202DD4 *d = (S_80202DD4 *)arg0;
+    S_80202DD4 *s = (S_80202DD4 *)arg1;
+    Elem_80202DD4 *p;
+    Elem_80202DD4 *q;
+    d->f0 = s->f0;
+    d->f4 = s->f4;
+    d->f8 = s->f8;
+    d->fC = s->fC;
+    d->f10 = s->f10;
+    d->f14 = s->f14;
+    d->b18 = s->b18;
+    d->b34 = s->b34;
+    d->b44 = s->b44;
+    d->f444 = s->f444;
+    d->f448 = s->f448;
+    d->f44C = s->f44C;
+    copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(&d->items[0], &s->items[0]);
+    copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(&d->items[1], &s->items[1]);
+    copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(&d->items[2], &s->items[2]);
+    copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(&d->items[3], &s->items[3]);
+    d->b4B0 = s->b4B0;
+    d->b540 = s->b540;
+    p = d->elems;
+    q = s->elems;
+    do {
+        TAdSinglePlyChrSelectGC__sub_80076D9C(p, q);
+        p++;
+        q++;
+    } while (p < d->elems + 20);
+    d->bFF0 = s->bFF0;
+    d->b109C = s->b109C;
+    d->b1148 = s->b1148;
+    d->b1164 = s->b1164;
+    d->b1264 = s->b1264;
+    d->b128C = s->b128C;
+    d->b12B4 = s->b12B4;
+    d->b1374 = s->b1374;
+    d->b1390 = s->b1390;
     return arg0;
 }
 

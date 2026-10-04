@@ -41,6 +41,31 @@ struct VObj_18_802178E4 : VBase_18_802178E4 {
     virtual void m7(s32, s32);
 };
 
+#define QL_80217C1C ((QList_80217C1C *)TQuestListOnline__data_805D6190)
+struct VBase_18_80217C1C { char pad[0x18]; };
+
+struct VObj_18_80217C1C : VBase_18_80217C1C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7(s32, s32);
+    virtual s32 m8();
+};
+
+struct Obj_80217C1C {
+    u8 pad0[0x24]; s32 f24; u8 pad28[0x38 - 0x28];
+    u32 f38; u32 f3C; u32 f40; u32 f44; s32 f48; u8 tag[0x68 - 0x4C]; s32 f68;
+    VObj_18_80217C1C *f6C;
+};
+
+struct QEnt_80217C1C { u8 type; u8 pad1[0x27]; u8 name[0x98 - 0x28]; };
+
+struct QList_80217C1C { u8 f0; u8 count; u8 pad2[2]; QEnt_80217C1C ents[1]; };
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -82,6 +107,26 @@ s32 get_selected_menu_value(void *);
 extern void *TLobby__data_805D5580;
 extern u8 lbl_805DC6A0;
 void TQuestListOnline__sub_802178E4(u8 *arg0);
+s32 obj_getField1c(int);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+s32 set_position_xy(int, f32, f32);
+s32 send_and_handle__6TLobbyFPvii(int, void *, int);
+s32 get_window_layout_position(int);
+M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+s32 get_status_flag__6TLobbyFPv(u32);
+s32 get_flag_bit2__6TLobbyFPv(u32);
+M2C_UNK send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
+M2C_UNK send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
+s32 get_unlocked_tier__16TQuestListOnlineFv(void *);
+f32 get_scale__15TShopWindowBaseFv(void *);
+M2C_UNK TWindow__close(void *);
+u32 create_yes_no_window(int, int, int, int);
+s32 select_cursor_entry__6TLobbyFPv(u32);
+extern void *TLobby__data_805D5580;
+extern u8 *TQuestListOnline__data_805D6190;
+extern s32 lbl_805D61F8;
+extern u8 lbl_805DC6A0;
+void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0);
 }
 
 extern "C" {
@@ -189,6 +234,71 @@ void request_quest_list__16TQuestListOnlineFi(s32 arg0) {
 }
 
 int run_task__16TQuestListOnlineFPv(void* p) { return set_field_20__12TQuestListVMFPvi((void*)(p), (int)(5)); }
+
+void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0) {
+    if (arg0->f6C->m8() == 0) {
+        return;
+    }
+    if (arg0->f38 != 0) {
+        s32 sel = select_cursor_entry__6TLobbyFPv(arg0->f38);
+        if (arg0->f3C != 0 && sel != arg0->f48) {
+            send_and_handle__6TLobbyFPvii(arg0->f3C, QL_80217C1C->ents[sel].name, 0x80);
+        }
+        if (arg0->f40 != 0 && sel != arg0->f48) {
+            TWindow__close((void *)arg0->f40);
+            arg0->f40 = 0;
+        }
+        arg0->f48 = sel;
+    }
+    if (arg0->f38 != 0 && get_status_flag__6TLobbyFPv(arg0->f38) != 0) {
+        if (arg0->f68 == 0) {
+            s32 idx = select_cursor_entry__6TLobbyFPv(arg0->f38);
+            __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(arg0->tag, &QL_80217C1C->ents[idx]);
+            switch ((TQuestListOnline__data_805D6190 + idx * 0x98)[4]) {
+            case 1:
+                lbl_805D61F8 = 0;
+                break;
+            case 2:
+                lbl_805D61F8 = 1;
+                break;
+            default:
+                lbl_805D61F8 = 0;
+                break;
+            }
+            send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__data_805D5580, arg0->tag, get_unlocked_tier__16TQuestListOnlineFv(arg0), &lbl_805DC6A0, &lbl_805DC6A0);
+            if (arg0->f3C != 0) {
+                TWindow__close((void *)arg0->f3C);
+                arg0->f3C = 0;
+            }
+            TWindow__close((void *)arg0->f38);
+            arg0->f38 = 0;
+            set_field_20__12TQuestListVMFPvi(arg0, 0xC);
+            arg0->f68++;
+            return;
+        } else if (arg0->f68 == 1) {
+            s32 idx = select_cursor_entry__6TLobbyFPv(arg0->f38);
+            __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(arg0->tag, &QL_80217C1C->ents[idx]);
+            send_info__9TProtocolFR16TPlyGuildCardTag(TLobby__data_805D5580, arg0->tag);
+            set_field_20__12TQuestListVMFPvi(arg0, 0xC);
+            arg0->f68++;
+            return;
+        } else if (arg0->f68 == 2) {
+            if (arg0->f44 == 0) {
+                u16 id = obj_getField1c(arg0->f24);
+                arg0->f44 = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
+                set_position_xy(arg0->f44, get_scale__15TShopWindowBaseFv(arg0), get_scale__15TShopWindowBaseFv(arg0));
+                if (arg0->f6C != NULL) {
+                    arg0->f6C->m7(5, 1);
+                }
+                set_field_20__12TQuestListVMFPvi(arg0, 8);
+            }
+        }
+    }
+    if (arg0->f38 != 0 && get_flag_bit2__6TLobbyFPv(arg0->f38) != 0) {
+        set_field_20__12TQuestListVMFPvi(arg0, 9);
+    }
+}
+
 void TQuestListOnline__sub_80217EC4(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80217EC4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80217EC4, spC) == 0x4) ? 1 : -1];

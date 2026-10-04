@@ -1828,6 +1828,197 @@ void set_sync_data__11TBoss6Type1FPvPv(void *arg0, void *arg1) {
 
 extern s32 tl_04;
 
+struct VBase_18_f05d67 { char pad[0x18]; };
+struct VObj_18_f05d67 : VBase_18_f05d67 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(void *);
+};
+
+struct Arr_802B93C4 { u8 pad[0x378]; s32 arr[32]; };
+struct Tmp_802B93C4 { s32 a; s16 b; s16 c; u8 pad[0x10]; };
+
+void add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+void reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 TObjFish__sub_800E3124(void *, void *);
+void set_param__12TObjEneLappyFPvi(void *, int);
+void bind_enemy_combat_stats(void *, int, int, int);
+void initialize__9TObjEnemyFPv(void *);
+s32 init_collision_body_parts(void *, void *, int);
+void TBoss6PlotFalz__sub_802AC2D8(void *, void *, int);
+s32 get_fish_count__8TObjFishFv();
+void TBoss6Type1__sub_802B854C(void *);
+s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
+extern u8 lbl_80470D1C[];
+extern u8 lbl_80470D48[];
+extern u8 lbl_80470E08[];
+extern u8 lbl_80470E88[];
+extern u8 lbl_80470EA0[];
+extern u8 lbl_80470EAC[];
+extern u8 lbl_804DF4E0[];
+extern u8 __vt__11TBoss6Type1[];
+extern s32 lbl_805D3EB0;
+
+#define arg0 ((u8 *)arg0_)
+#define arg2 ((s32 *)arg2_)
+
+#pragma push
+#pragma opt_common_subs off
+s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
+    Tmp_802B93C4 tmp;
+    s32 i;
+
+    ((void (*)(void *, s32))initialize__9TObjEnemyFPv)(arg0, arg1);
+    M2C_FIELD(arg0, u8 **, 0x18) = __vt__11TBoss6Type1;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3EB0;
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, 8);
+    M2C_FIELD(arg0, s32 *, 0x3F8) = arg2[0];
+    ((VObj_18_f05d67 *)(arg0))->m79(arg2 + 1);
+    if (TLobby__sub_8002AFD4(arg0, &tmp, 1) != 0) {
+        tmp.a = 0;
+        tmp.c = 0;
+        TLobby__sub_8002AFD4(arg0, &tmp, 0);
+    }
+    M2C_FIELD(arg0, s32 *, 0x3FC) = get_fish_count__8TObjFishFv();
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_80470CD4);
+    copy_xyz__10TObjPlayerFPvPv(arg0 + 0x5C, lbl_80470D1C);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    init_collision_body_parts(arg0, lbl_804DF4E0, 7);
+    update_position__11TBoss6Type1FPv(arg0);
+    M2C_FIELD(arg0, f32 *, 0x310) = TBoss6Type1__data_805DE2D0;
+    M2C_FIELD(arg0, f32 *, 0x30C) = TBoss6Type1__data_805DE2D0;
+    M2C_FIELD(arg0, f32 *, 0x308) = TBoss6Type1__data_805DE2D0;
+    M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+    bind_enemy_combat_stats(arg0, register_boss__6TLobbyFPv(0x2B), dispatch_shared_handler_b__6TLobbyFPv(0x2B), register_object__6TLobbyFPv(0x2B));
+    M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+    reset_photon_effect__12TBoss3VoloptFPv(arg0);
+    set_param__12TObjEneLappyFPvi(arg0, 0x4E);
+    TBoss6Type1__sub_802B854C(arg0);
+    M2C_FIELD(arg0, s32 *, 0x654) = TObjFish__sub_800E3124(lbl_80470D48, arg0 + 0x578);
+    M2C_FIELD(arg0, s32 *, 0x650) = TObjFish__sub_800E3124(lbl_80470E08, arg0 + 0x5FC);
+    TBoss6PlotFalz__sub_802AC2D8(arg0 + 0x658, lbl_80470E88, 2);
+    TBoss6PlotFalz__sub_802AC2D8(arg0 + 0x66C, lbl_80470EA0, 1);
+    M2C_FIELD(arg0, s32 *, 0x400) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 7, 0xF);
+    M2C_FIELD(arg0, s32 *, 0x404) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 2, 0xF);
+    M2C_FIELD(arg0, s32 *, 0x414) = 0;
+    M2C_FIELD(arg0, s8 *, 0x41C) = 0;
+    TBoss6Type1__sub_802B96C0((s32)(arg0 + 0x420), (s32)lbl_80470EAC);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x420, arg0 + 0x38);
+    TBoss6Type1__sub_802B96C0((s32)(arg0 + 0x42C), (s32)lbl_80470EAC);
+    M2C_FIELD(arg0, s32 *, 0x438) = 1;
+    M2C_FIELD(arg0, s32 *, 0x418) = 0;
+    for (i = 0; i < 32; i++) {
+        ((Arr_802B93C4 *)arg0)->arr[i] = 0;
+    }
+    TBoss6Type1__sub_802B7E88(arg0);
+    M2C_FIELD(arg0, s32 *, 0x4AC) = 0;
+    M2C_FIELD(arg0, f32 *, 0x4B4) = TBoss6Type1__data_805DE2E4;
+    latch_phase_counter__11TBoss6Type1FPv(arg0);
+    M2C_FIELD(arg0, s32 *, 0x4B8) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4BC) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C0) = 0;
+    M2C_FIELD(arg0, s32 *, 0x4C4) = 0;
+    M2C_FIELD(arg0, f32 *, 0x4D4) = TBoss6Type1__data_805DE2D0;
+    M2C_FIELD(arg0, f32 *, 0x4D8) = TBoss6Type1__data_805DE2E4;
+    reset_fields_4e0__11TBoss6Type1FPv(arg0);
+    reset_param__11TBoss6Type1FPv(arg0);
+    TBoss6Type1__sub_802B7D50(arg0);
+    M2C_FIELD(arg0, s32 *, 0x408) = 0;
+    TBoss6Type1__sub_802B4D38((Obj_802B4D38 *)arg0);
+    TBoss6Type1__sub_802B4B34((Obj_802B4B34 *)arg0);
+    TBoss6Type1__sub_802B4A90(arg0);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x56C, arg0 + 0x38);
+    TBoss6Type1__sub_802B865C((Boss_802B865C *)arg0, 0);
+    return arg0_;
+}
+#pragma pop
+#undef arg2
+#undef arg0
+
 u8 * TBoss6Type1__sub_802B96C0(s32 arg0, s32 arg1) {
     *(M2CCopy_C_boss6_1 *)(arg0) = *(const M2CCopy_C_boss6_1 *)(arg1);
     return (u8 *)arg0;

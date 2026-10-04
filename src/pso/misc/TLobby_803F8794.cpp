@@ -2977,6 +2977,109 @@ void TLobby__sub_804074E8(s16 arg0, s16 arg1, s16 arg2, s16 arg3, s16 arg4, s32 
     TLobby__sub_80407F20(arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7);
 }
 
+struct Conn_8040799C { s32 a; s16 f4; s16 f6; };
+struct Peer_8040799C { s16 st; s16 f2; u8 pad4; u8 f5; u8 pad6[2]; Conn_8040799C *conn; u8 addr[6]; u8 name[6]; };
+struct Ent_8040799C { s16 f0; s16 f2; s16 f4; s16 f6; u8 pad8[6]; u8 fE; u8 fF; u8 pad10[2]; u8 a12[6]; u8 a18[8]; };
+struct Tbl_8040799C { s16 count; s16 h2; s16 h4; s16 h6; s16 h8; s16 hA; s16 hC; u8 padE[2]; Peer_8040799C *list; Ent_8040799C *ents; };
+struct Out_8040799C { Conn_8040799C *a; void *b; void *c; void *d; void *e; };
+void TLobby__sub_80408060(void *, void *);
+void *TLobby__sub_804081C0(Out_8040799C *, void *);
+struct Ent_80408428;
+struct Ent_80408428 *TLobby__sub_80408428(s16, s32, u8, void *, u8, void *, s16);
+
+#define TBL ((Tbl_8040799C *)&lbl_805C1AB0)
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Ent_8040799C *Lookup_8040799C(Tbl_8040799C *t, s16 idx) {
+    Ent_8040799C *list = t->ents;
+    s16 ok;
+    if (idx >= 0 && idx < t->h2) {
+        ok = 1;
+    } else {
+        ok = -1;
+    }
+    if (ok >= 0) {
+        return &list[idx];
+    }
+    return NULL;
+}
+
+inline Peer_8040799C *Find_8040799C(Tbl_8040799C *t, u8 k, void *name) {
+    s16 n = t->count;
+    Peer_8040799C *p = t->list;
+    for (; n > 0; n--, p++) {
+        if (p->f5 == k && p->st != 0 && TLobby__sub_803F9EC4(p->name, name, p->f5) == 0) {
+            return p;
+        }
+    }
+    return NULL;
+}
+
+inline void Clear_8040799C(Peer_8040799C *p) {
+    if (p->conn != NULL) {
+        p->conn->a = 0;
+        p->conn->f6 = 0;
+        p->conn->f4 = 0;
+    }
+}
+
+inline void Send_8040799C(Ent_8040799C *e, void *name) {
+    Out_8040799C o;
+    void *r = TLobby__sub_804081C0(&o, e);
+    if (r != NULL) {
+        o.a->f6 = 1;
+        TLobby__sub_803F9F04(o.b, e->a12, e->fE);
+        TLobby__sub_803F9F04(o.c, e->a18, e->fF);
+        TUdpSocket__sub_803F9EE4(o.d, 0, e->fE);
+        TLobby__sub_803F9F04(o.e, name, e->fF);
+        TLobby__sub_80409B48(e->f2, e->f6, 1, 0, (s32)r);
+        if (r != NULL) {
+            TUdpSocket__sub_804072C4(r);
+        }
+    }
+}
+
+s32 TLobby__sub_8040799C(s16 arg0, void *arg1, void *arg2) {
+    Tbl_8040799C *t = TBL;
+    Ent_8040799C *e;
+    Peer_8040799C *p;
+    s32 ret;
+    Peer_8040799C *np;
+
+    e = Lookup_8040799C(t, arg0);
+    if (e == NULL) {
+        return -2;
+    }
+    ret = 0;
+    p = Find_8040799C(t, e->fF, arg1);
+    if (p != NULL) {
+        p->f2 = t->hA;
+        if (p->st != 1) {
+            ret = TLobby__sub_80409B48(e->f2, e->f4, 0, (s32)p->addr, (s32)arg2);
+        } else {
+            if (p->conn != NULL) {
+                Clear_8040799C(p);
+                p->conn = NULL;
+            }
+            TLobby__sub_80408060(p, arg2);
+            Send_8040799C(e, arg1);
+            p->f2 = t->hC;
+        }
+    } else {
+        u8 buf[6];
+        TUdpSocket__sub_803F9EE4(buf, 0, 6);
+        np = (Peer_8040799C *)TLobby__sub_80408428(e->f2, e->f4, e->fF, arg1, e->fE, buf, 1);
+        TLobby__sub_80408060(np, arg2);
+        Send_8040799C(e, arg1);
+        np->f2 = t->hC;
+    }
+    return ret;
+}
+#pragma pop
+#undef TBL
+
 typedef struct Node_804082AC { struct Node_804082AC *next; u8 pad4[2]; u8 f6[0x10]; } Node_804082AC;
 typedef struct Ent_804082AC { u8 pad0[0xE]; u8 fE; u8 fF; u8 pad10[2]; u8 f12[6]; u8 f18[4]; Node_804082AC *f1C; } Ent_804082AC;
 typedef struct Key_804082AC { u8 pad0[0x10]; void *f10; } Key_804082AC;
@@ -3053,6 +3156,136 @@ s32 TLobby__sub_80408388(s16 id) {
     return -1;
 }
 
+typedef struct Sub_80408428 {
+    s32 f0;
+    s16 f4;
+    s16 f6;
+    u8 pad8[4];
+    s32 fC;
+} Sub_80408428;
+
+typedef struct Ent_80408428 {
+    s16 state;
+    s16 stamp;
+    u8 type4;
+    u8 type5;
+    u8 pad6[2];
+    Sub_80408428 *sub;
+    u8 addrC[6];
+    u8 addr12[6];
+} Ent_80408428;
+
+typedef struct Tbl_80408428 {
+    s16 count;
+    u8 pad2[8];
+    s16 stampA;
+    u8 padC[4];
+    Ent_80408428 *list;
+} Tbl_80408428;
+
+typedef struct Pkt_80408428 {
+    u8 pad0[4];
+    s32 f4;
+    s32 f8;
+    s16 fC;
+    u8 padE[2];
+    u8 f10[4];
+} Pkt_80408428;
+
+struct Ent_804086B4;
+Ent_804086B4 *TLobby__sub_804086B4(s16 key);
+
+#pragma push
+#pragma inline_depth(4)
+#pragma dont_inline off
+
+inline Ent_80408428 *find_80408428(Tbl_80408428 *t, u8 type, void *addr) {
+    s16 n = t->count;
+    Ent_80408428 *e = t->list;
+    while (n > 0) {
+        if (e->type5 == type && e->state != 0 && TLobby__sub_803F9EC4(e->addr12, addr, e->type5) == 0) {
+            return e;
+        }
+        n--;
+        e++;
+    }
+    return NULL;
+}
+
+inline void detach_80408428(Ent_80408428 *e) {
+    if (e->sub != NULL) {
+        e->sub->f0 = 0;
+        e->sub->f6 = 0;
+        e->sub->f4 = 0;
+    }
+    e->sub = NULL;
+}
+
+Ent_80408428 *TLobby__sub_80408428(s16 arg0, s32 arg1, u8 type, void *addr, u8 type2, void *addr2, s16 state) {
+    Tbl_80408428 *t = (Tbl_80408428 *)&lbl_805C1AB0;
+    Ent_80408428 *e;
+    Pkt_80408428 *p;
+
+    e = find_80408428(t, type, addr);
+    if (e != NULL) {
+        e->stamp = t->stampA;
+        if (addr2 == NULL) {
+            return e;
+        }
+        if (e->state != 1) {
+            int n2 = type2;
+            if (TLobby__sub_803F9EC4(e->addrC, addr2, n2) != 0) {
+                TLobby__sub_803F9F04(e->addrC, addr2, n2);
+                e->state = state;
+            }
+            return e;
+        }
+        TLobby__sub_803F9F04(e->addrC, addr2, type2);
+        e->state = state;
+        if (e->sub != NULL) {
+            p = (Pkt_80408428 *)TLobby__sub_80407310();
+            if (p != NULL) {
+                p->f4 = 1;
+                p->f8 = e->sub->f6;
+                p->fC = e->sub->f6;
+                set_value_and_enable__6TLobbyFPvi(p->f10, e->sub->fC);
+                TLobby__sub_80409B48(arg0, arg1, 0, (s32)e->addrC, (s32)p);
+                TUdpSocket__sub_804072C4(p);
+            }
+        }
+        detach_80408428(e);
+        return e;
+    }
+    if (addr2 == NULL) {
+        return NULL;
+    }
+    e = (Ent_80408428 *)TLobby__sub_80408718();
+    if (e == NULL) {
+        e = (Ent_80408428 *)TLobby__sub_804086B4(4);
+        if (e == NULL) {
+            e = (Ent_80408428 *)TLobby__sub_804086B4(0);
+        }
+        if (e->sub != NULL) {
+            detach_80408428(e);
+        }
+        e->state = 0;
+        e->stamp = 0;
+        TUdpSocket__sub_803F9EE4(e->addrC, 0, 6);
+        TUdpSocket__sub_803F9EE4(e->addr12, 0, 4);
+    }
+    if (addr2 != NULL) {
+        TLobby__sub_803F9F04(e->addrC, addr2, type2);
+    }
+    TLobby__sub_803F9F04(e->addr12, addr, type);
+    e->type4 = type2;
+    e->type5 = type;
+    e->state = state;
+    e->stamp = t->stampA;
+    e->sub = NULL;
+    return e;
+}
+
+#pragma pop
 struct Ent_804086B4 { s16 f0; s16 f2; u8 pad[0x14]; };
 struct Tbl_804086B4 { s16 count; u8 pad[0xE]; Ent_804086B4 *list; };
 Ent_804086B4 *TLobby__sub_804086B4(s16 key) {

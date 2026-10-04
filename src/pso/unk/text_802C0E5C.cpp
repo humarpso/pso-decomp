@@ -4,6 +4,28 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_802C22A4 { f32 x, y, z; };
+
+struct Hit_802C22A4 { u8 pad0[4]; Vec_802C22A4 *n; };
+
+struct Obj_802C22A4 {
+    u8 pad0[0x1E]; s16 f1E; u8 pad20[0x38 - 0x20]; Vec_802C22A4 pos;
+    u8 pad44[0x98 - 0x44];
+    s32 f98; s32 f9C; s32 fA0; f32 fA4; u8 padA8[0x4];
+    Vec_802C22A4 vAC; s32 fB8; s32 fBC; s32 fC0; s32 fC4; s32 fC8;
+};
+
+extern "C" {
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 angle_diff_s16(s32, s32);
+s32 approach_angle_limited(s32, s32, s32);
+s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
+Hit_802C22A4 *csnVecterUnder(Vec_802C22A4 *, s32);
+void vec3_add_to(void *, void *);
+extern const f64 lbl_80471960[];
+extern const f32 lbl_805DE518;
+}
+
 extern "C" {
 
 struct RecoveredGlobal_8019A9B8_lbl_80446184 {
@@ -171,7 +193,6 @@ struct Pl_802C26E4 {
     u8 padac[0xC8 - 0xAC];
     s32 idx;
 };
-s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *, Ent_802C26E4 *, f32);
 
 struct Obj_802C2548 {
     u8 pad0[0x98];
@@ -417,6 +438,14 @@ extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
+extern "C" {
+void VecCopy__FP3VecPC3Vec(Vec_802C1660 *, Vec_802C1660 *);
+void direction_to_rotation_xz(Vec_802C1660 *, s32 *, s32 *);
+f32 subtract_vector(Vec_802C1660 *, Vec_802C1660 *);
+extern Entry_802C2548 lbl_80471848[];
+s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
+}
+
 void TObjPlayer__sub_802C0F3C(Obj_802C0F3C *self) {
     TObjPlayer__sub_802C10C0(self);
     self->b4 += lbl_80471914[self->d8].a;
@@ -851,6 +880,88 @@ void TObjPlayer__sub_802C2244(void) {
     (*(u8 * *)&lbl_805D67A4) = load_gvm_texture_file((s32) &lbl_804719A4.value);
 }
 
+struct Pl_802C26E4;
+struct Ent_802C26E4;
+struct Vec_802C1660;
+s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32) {
+    s32 r;
+    Obj_802C22A4 *self = (Obj_802C22A4 *)arg0_;
+    Entry_802C2548 *e;
+    s32 old;
+    s32 diff;
+    Vec_802C22A4 a;
+    Vec_802C22A4 b;
+    s32 tmp;
+    s32 tmp2;
+    e = &lbl_80471848[self->fC8];
+    if (!(e->f & 1)) {
+        return 1;
+    }
+    ((s32 (*)(void *, s32, s32, Vec_802C22A4 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, self->fA4);
+    VecCopy__FP3VecPC3Vec((Vec_802C1660 *)&self->vAC, (Vec_802C1660 *)&a);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C22A4 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, self->fA4 + e->d);
+    if (self->f1E != 0) {
+        Vec_802C22A4 p = self->vAC;
+        Hit_802C22A4 *hit;
+        vec3_add_to(&p, &self->pos);
+        p.y += lbl_805DE518;
+        hit = csnVecterUnder(&p, 0x16EF);
+        if (hit != NULL) {
+            self->pos.y = hit->n->y;
+        }
+    }
+    {
+    Vec_802C22A4 d;
+    VecCopy__FP3VecPC3Vec((Vec_802C1660 *)&d, (Vec_802C1660 *)&b);
+    subtract_vector((Vec_802C1660 *)&d, (Vec_802C1660 *)&a);
+    direction_to_rotation_xz((Vec_802C1660 *)&d, &tmp, &tmp2);
+    }
+    self->fBC = approach_angle_limited(self->fBC, tmp, e->e);
+    old = self->fB8;
+    tmp = (s32)(lbl_80471960[0] * get_ad_end_text_start__10TObjPlayerFv(b.x - a.x, b.z - a.z));
+    if (!(e->f & 2)) {
+        self->fB8 = approach_angle_limited(old, tmp, e->e);
+    }
+    if (!(e->f & 4)) {
+        diff = angle_diff_s16(old, tmp);
+        if (diff > 0x30) {
+            if (self->fC4 > 0) {
+                self->fC4 = 0;
+            }
+            self->fC4 -= 0x40;
+            if (self->fC4 < -0x200) {
+                self->fC4 = -0x200;
+            }
+            self->fC0 += self->fC4;
+            if (self->fC0 < -0x2000) {
+                self->fC0 = -0x2000;
+            }
+        } else if (diff < -0x30) {
+            if (self->fC4 < 0) {
+                self->fC4 = 0;
+            }
+            self->fC4 += 0x40;
+            if (self->fC4 > 0x200) {
+                self->fC4 = 0x200;
+            }
+            self->fC0 += self->fC4;
+            if (self->fC0 > 0x2000) {
+                self->fC0 = 0x2000;
+            }
+        } else {
+            self->fC4 = 0;
+            if (self->fC0 > 0x100) {
+                self->fC0 -= 0x100;
+            } else if (self->fC0 < -0x100) {
+                self->fC0 += 0x100;
+            } else {
+                self->fC0 = 0;
+            }
+        }
+    }
+    return r;
+}
+
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
     Vec_802C2548 a;
     Vec_802C2548 b;
@@ -891,7 +1002,7 @@ void TObjPlayer__sub_802C26E4(Pl_802C26E4 *arg0) {
     e += arg0->idx;
     f32 ox = arg0->x;
     arg0->x = ox + e->b;
-    if (TObjPlayer__sub_802C22A4(arg0, e, ox) == 0) {
+    if (TObjPlayer__sub_802C22A4((Pl_802C26E4 *)(arg0), (Ent_802C26E4 *)(e), ox) == 0) {
         arg0->x = lbl_805DE4F8;
     }
     arg0->y = arg0->y + lbl_80471848[arg0->idx].c;

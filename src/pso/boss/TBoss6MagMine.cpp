@@ -69,6 +69,93 @@ struct Stack_80368AB8 {
     f32 sp14;
 };
 
+struct VBase_18_aa4667 { char pad[0x18]; };
+
+struct VObj_18_aa4667 : VBase_18_aa4667 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+};
+
+struct Key_80369228 { s32 a; s16 b; s16 c; s32 d; s32 e; };
+
 extern "C" {
 extern const f32 TBoss6MagMine__data_805E0310;
 void TBoss6MagMine__sub_80368994(u8 *arg0);
@@ -86,7 +173,7 @@ void play_sound_effect(int, Vec_80368C14 *, int, int);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
-extern f32 TBoss6MagMine__data_805E0314;
+extern const f32 TBoss6MagMine__data_805E0314;
 extern const f32 lbl_805E031C;
 void TBoss6MagMine__sub_80368C14(Mine_80368C14 *o);
 s32 TBoss6PlotFalz__sub_802AB5B4(int, f32);
@@ -95,6 +182,33 @@ s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
 extern const f32 lbl_805E0318;
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
+u32 create_particle_emitter(void *, int);
+void set_flags__11TBoss4Type2FPvUi(void *, u32);
+M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
+void bind_enemy_combat_stats(void *, s32, s32, s32);
+void initialize__9TObjEnemyFPv(void *);
+s32 init_collision_body_parts(void *, void *, int);
+s32 get_fish_count__8TObjFishFv();
+f32 vector_length(Vec_80368C14 *);
+void subtract_vector(Vec_80368C14 *, void *);
+M2C_UNK normalize_vector(void *);
+extern u8 __vt__13TBoss6MagMine[];
+extern M2C_UNK lbl_804F322C[];
+extern s32 lbl_805D44B0;
+extern const f32 TBoss6MagMine__data_805E0310;
+extern const f32 TBoss6MagMine__data_805E0314;
+extern const f32 TBoss6MagMine__data_805E0328;
+extern const f32 lbl_805E0338;
+extern const f32 lbl_805E033C;
+s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -110,7 +224,6 @@ s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 void init__13TBoss6MagMineFPv(void* p);
 void update_linked_state__13TBoss6MagMineFPv(void *arg0);
-s32 TBoss6MagMine__ct(s32, s32, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
@@ -150,7 +263,7 @@ void copy_pos__13TBoss6MagMineFi(s32 arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
 }
 
-extern f32 TBoss6MagMine__data_805E0314;
+extern const f32 TBoss6MagMine__data_805E0314;
 
 void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     s32 temp_r31;
@@ -294,6 +407,68 @@ void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
 
 extern s32 tl_04;
 
+#pragma push
+#pragma opt_common_subs off
+#define self ((u8 *)arg0)
+s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
+    Key_80369228 key;
+    u8 *d;
+    ((void (*)(void *, s32))initialize__9TObjEnemyFPv)(self, arg1);
+    M2C_FIELD(self, M2C_UNK **, 0x18) = lbl_804F322C;
+    M2C_FIELD(self, s32 *, 0) = lbl_805D44B0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
+    add_flags_2e4__10TObjPlayerFPvUi(self, 8);
+    ((VObj_18_aa4667 *)(self))->m79(arg2);
+    if (TLobby__sub_8002AFD4(self, &key, 1) != 0) {
+        key.a = 0;
+        key.c = 0;
+        TLobby__sub_8002AFD4(self, &key, 0);
+    }
+    M2C_FIELD(self, s32 *, 0x374) = get_fish_count__8TObjFishFv();
+    M2C_FIELD(self, s32 *, 0x24) = 0;
+    M2C_FIELD(self, s32 *, 0x34) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    init_collision_body_parts(self, __vt__13TBoss6MagMine, 1);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
+    M2C_FIELD(self, f32 *, 0x308) = M2C_FIELD(self, f32 *, 0x30C) = M2C_FIELD(self, f32 *, 0x310) = TBoss6MagMine__data_805E0314;
+    M2C_FIELD(self, s32 *, 0x2A8) = 0;
+    bind_enemy_combat_stats(self, register_boss__6TLobbyFPv(0x2D), dispatch_shared_handler_b__6TLobbyFPv(0x2D), register_object__6TLobbyFPv(0x2D));
+    M2C_FIELD(self, s16 *, 0x33E) = M2C_FIELD(self, s16 *, 0x32C);
+    reset_photon_effect__12TBoss3VoloptFPv(self);
+    set_param__12TObjEneLappyFPvi(self, 0);
+    d = dispatch_shared_handler_a__6TLobbyFPv(0x2D);
+    M2C_FIELD(self, s32 *, 0x39C) = (s32) M2C_FIELD(d, f32 *, 4);
+    if ((f32) M2C_FIELD(self, s32 *, 0x39C) <= TBoss6MagMine__data_805E0314) {
+        M2C_FIELD(self, s32 *, 0x39C) = 0x14;
+    }
+    M2C_FIELD(self, s32 *, 0x3A0) = (s32) M2C_FIELD(d, f32 *, 8);
+    if ((f32) M2C_FIELD(self, s32 *, 0x3A0) < TBoss6MagMine__data_805E0314 || M2C_FIELD(self, s32 *, 0x3A0) > 0x64) {
+        M2C_FIELD(self, s32 *, 0x3A0) = 0;
+    }
+    M2C_FIELD(self, s32 *, 0x3A4) = (u16) (M2C_FIELD(self, u16 *, 0x1C) + (s32) (TBoss6MagMine__data_805E0328 * (M2C_FIELD(self, f32 *, 0x38) + M2C_FIELD(self, f32 *, 0x40)))) % 100;
+    M2C_FIELD(self, f32 *, 0x3A8) = TBoss6MagMine__data_805E0314;
+    M2C_FIELD(self, f32 *, 0x398) = TBoss6MagMine__data_805E0310;
+    M2C_FIELD(self, s32 *, 0x394) = 0;
+    M2C_FIELD(self, s32 *, 0x390) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x378, arg0 + 0x384);
+    subtract_vector((Vec_80368C14 *) (self + 0x378), self + 0x38);
+    M2C_FIELD(self, f32 *, 0x37C) = TBoss6MagMine__data_805E0314;
+    if (vector_length((Vec_80368C14 *) (self + 0x378)) <= lbl_805E0338) {
+        M2C_FIELD(self, f32 *, 0x378) = TBoss6MagMine__data_805E0310;
+    }
+    normalize_vector(self + 0x378);
+    M2C_FIELD(self, f32 *, 0x378) *= lbl_805E033C;
+    M2C_FIELD(self, f32 *, 0x380) *= lbl_805E033C;
+    M2C_FIELD(self, u32 *, 0x3B0) = create_particle_emitter(self + 0x38, 0x146);
+    if (M2C_FIELD(self, u32 *, 0x3B0) != 0U) {
+        set_flags__11TBoss4Type2FPvUi(M2C_FIELD(self, void **, 0x3B0), 0x40);
+    }
+    return arg0;
+}
+#undef self
+#pragma pop
+
 s32 create__13TBoss6MagMineFi(s32 arg0) {
     s32 var_r31;
     s32 var_r4;
@@ -304,7 +479,7 @@ s32 create__13TBoss6MagMineFi(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6MagMine__ct(var_r31, var_r4, arg0);
+        var_r31 = TBoss6MagMine__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
     }
     return var_r31;
 }

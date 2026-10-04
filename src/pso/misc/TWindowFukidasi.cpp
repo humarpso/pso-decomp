@@ -15,6 +15,15 @@ struct Fuki_80250A24 {
     f32 center[2];
 };
 
+struct Fuki_802506E8 {
+    u8 pad0[0x38];
+    f32 size[2];
+    u8 pad40[0x48 - 0x40];
+    f32 rsize[2];
+    u8 pad50[0x90 - 0x50];
+    f32 center[2];
+};
+
 extern "C" {
 f32 get_random_float__8TObjFishFv(f32);
 f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -36,6 +45,22 @@ extern const f32 lbl_805DCD24;
 extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 lbl_805DCD2C;
 s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
+int rand(void);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 xyz_distance(void *, void *);
+extern const f64 TWindowFukidasi__data_8044ED70;
+extern const f32 TWindowFukidasi__data_805DCCE8;
+extern const f32 TWindowFukidasi__data_805DCD08;
+extern const f32 TWindowFukidasi__data_805DCD0C;
+extern const f32 TWindowFukidasi__data_805DCD14;
+extern const f32 TWindowFukidasi__data_805DCD18;
+extern const f32 TWindowFukidasi__data_805DCD1C;
+extern const f32 lbl_805DCD20;
+extern const f32 lbl_805DCD24;
+s32 TWindowFukidasi__sub_802506E8(Fuki_802506E8 *b, f32 *rect, f32 *o);
 }
 
 extern "C" {
@@ -233,7 +258,6 @@ s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0);
 void TWindowFukidasi__sub_802504A8(void *arg0);
 void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *b);
 s32 TWindowFukidasi__sub_802505C0(void *, f32 *, f32 *);
-s32 TWindowFukidasi__sub_802506E8(void *, f32 *, f32 *);
 s32 shift_rect_with_head__15TWindowFukidasiFPvPvPv(Fuki_80250F70 *b, f32 *rect, f32 *out);
 void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b);
 s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *arg0, f32 *pos, f32 *out);
@@ -337,6 +361,13 @@ extern const f32 lbl_805DCDB4;
 extern const f32 lbl_805DCDB8;
 extern const f32 lbl_805DCDBC;
 extern const f32 lbl_805DCDC0;
+
+extern "C" {
+s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
+s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *arg0, f32 *pos, f32 *out);
+void get_boundary_offset__15TWindowFukidasiFPviPv(Fuki_8025181C *b, s32 angle, f32 *out);
+extern Cam_80251380 *lbl_805D4DF0;
+}
 
 extern "C" {
 s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
@@ -502,6 +533,57 @@ struct Fuki_8025181C;
 #define F70_80250A24 ((Fuki_80250F70 *)b)
 #define CLAMP_80250A24 ((s32 (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__15TWindowFukidasiFPvPvf)
 #define DRAW_80250A24 ((void *(*)(Fuki_80250F70 *, f32 *, f32 *, s32))draw_resolved_window__15TWindowFukidasiFiiii)
+
+#pragma push
+#pragma fp_contract on
+struct Cam_80251380;
+#define F70_802506E8 ((Fuki_80250F70 *)b)
+#define CLAMP_802506E8 ((s32 (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__15TWindowFukidasiFPvPvf)
+#define DRAW_802506E8 ((void *(*)(Fuki_80250F70 *, f32 *, f32 *, s32))draw_resolved_window__15TWindowFukidasiFiiii)
+s32 TWindowFukidasi__sub_802506E8(Fuki_802506E8 *b, f32 *rect, f32 *o) {
+    f32 world[3];
+    f32 edge[2];
+    f32 dx;
+    f32 dy;
+    f32 reach;
+    s32 a;
+    s32 angle;
+    project_anchor__15TWindowFukidasiFv(F70_802506E8, world, NULL);
+    reach = TWindowFukidasi__data_805DCD08 / xyz_distance((u8 *)lbl_805D4DF0 + 0x178, world);
+    dx = (TWindowFukidasi__data_805DCD0C * b->rsize[0] + rect[0]) - b->center[0];
+    dy = (TWindowFukidasi__data_805DCD0C * b->rsize[1] + rect[1]) - b->center[1];
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(dy, dx)));
+    edge[0] = dx - reach * cos_table_lookup(a);
+    edge[1] = dy - reach * sin_table_lookup(a);
+    edge[0] /= TWindowFukidasi__data_805DCD18 + b->rsize[0];
+    edge[1] /= TWindowFukidasi__data_805DCD1C + b->rsize[1];
+    angle = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle + 0x8000, edge);
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    edge[0] += reach * cos_table_lookup(a);
+    edge[1] += reach * sin_table_lookup(a);
+    o[0] = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
+    o[1] = (b->center[1] + edge[1]) - TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (CLAMP_802506E8(F70_802506E8, o, TWindowFukidasi__data_805DCCE8) != 0) {
+        return 0;
+    }
+    if (DRAW_802506E8(F70_802506E8, o, b->size, 4) == NULL) {
+        return 1;
+    }
+    angle = (s32) ((f32) a + (lbl_805DCD20 * (TWindowFukidasi__data_805DCD14 * (f32) rand()) - lbl_805DCD24));
+    get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    edge[0] += reach * cos_table_lookup(a);
+    edge[1] += reach * sin_table_lookup(a);
+    o[0] = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
+    o[1] = (b->center[1] + edge[1]) - TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (CLAMP_802506E8(F70_802506E8, o, TWindowFukidasi__data_805DCCE8) != 0) {
+        return 0;
+    }
+    return (u32) __cntlzw((u32) DRAW_802506E8(F70_802506E8, o, b->size, 4)) >> 5;
+}
+#pragma pop
+
 s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2) {
     Pt_80250A24 *o = (Pt_80250A24 *)arg2;
     f32 world[3];
@@ -629,7 +711,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
             if (shift_rect_with_head__15TWindowFukidasiFPvPvPv((Fuki_80250F70 *)b, b->rect, a) != 0) {
                 res = a;
             }
-            if (TWindowFukidasi__sub_802506E8(b, a, d) != 0) {
+            if (TWindowFukidasi__sub_802506E8((Fuki_802506E8 *)(b), (f32 *)(a), (f32 *)(d)) != 0) {
                 res = d;
             }
             if (res != d && rest_balloon__15TWindowFukidasiFv((Fuki_80250A24 *)(b), (f32 *)(d), (f32 *)(c)) != 0) {
