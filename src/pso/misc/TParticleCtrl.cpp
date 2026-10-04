@@ -88,7 +88,41 @@ struct Vtx_80086248 { f32 x, y, z, u, v; u32 color; };
 
 struct UV_80086248 { f32 u0, v0, u1, v1; };
 
-struct Tex_80086248 { u8 pad0[0x10]; UV_80086248 *uvs; u8 pad14[0x28 - 0x14]; };
+struct Tex_80086248 {
+    u32 flags;
+    s32 param;
+    s32 tex;
+    u8 pad0C[4];
+    UV_80086248 *uvs;
+    f32 sx;
+    f32 sy;
+    s32 color;
+    u8 pad20[8];
+};
+
+typedef struct Vec_80085EE4 { f32 x, y, z; } Vec_80085EE4;
+typedef struct Quad_80085EE4 { f32 x, y, z, ax, ay, bx, by, pad1C; f32 u, v, du, k0, k1, dv; f32 pad38[2]; } Quad_80085EE4;
+
+typedef struct Cam_80085EE4 {
+    u8 pad0[8];
+    f32 cx;
+    f32 cy;
+    u8 pad10[8];
+    f32 scale;
+    f32 aspect;
+} Cam_80085EE4;
+
+typedef struct Particle_80085EE4 {
+    u8 pad0[0x70];
+    Vec_80085EE4 pos;
+    Vec_80085EE4 off;
+    f32 f88;
+    f32 f8C;
+    s32 f90;
+    s8 f94;
+    s8 f95;
+    s16 f96;
+} Particle_80085EE4;
 
 struct Ctrl_80086248 {
     u8 pad0[0x1C];
@@ -164,6 +198,22 @@ extern Tex_80086248 lbl_804C5820[];
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805D94D8;
 void draw_particle_refraction_quad(Ctrl_80086248 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK fn_80141EB4();
+M2C_UNK setSpriteInverseColorBlend();
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK init_xyz_limits__10TObjPlayerFv();
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+M2C_UNK matrix_mult_vec(int, void *, void *);
+M2C_UNK begin_screen_draw(int);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK DVDConvertEntrynumToPath(void *);
+M2C_UNK set_draw_texture_and_color(int, int);
+M2C_UNK set_constant_material_color(int);
+extern Cam_80085EE4 lbl_8058D4F8;
+extern const f32 lbl_805D94C0;
+extern const f32 lbl_805D94C8;
 }
 
 extern "C" {
@@ -276,6 +326,100 @@ u8 *TParticleCtrl__sub_80085E78(u8 *arg0, s32 arg1, s32 arg2) {
     lbl_805D2930 = 1;
     return arg0;
 }
+
+#pragma push
+#pragma fp_contract on
+void TParticleCtrl__sub_80085EE4(Particle_80085EE4 *p, s32 kind) {
+    Vec_80085EE4 view;
+    Vec_80085EE4 world;
+    Quad_80085EE4 quad;
+    UV_80086248 *uv;
+    f32 sx;
+    f32 sy;
+    f32 x;
+    f32 cy;
+    f32 z;
+    f32 y;
+    f32 c;
+    f32 s;
+    u32 flags;
+    f32 a;
+    f32 b;
+
+    flags = lbl_804C5820[kind].flags;
+    if (flags & 2) {
+        if (flags & 4) {
+            fn_80141EB4();
+        } else {
+            reset_transform_state__10TObjPlayerFv();
+        }
+    } else if (flags & 4) {
+        setSpriteInverseColorBlend();
+    } else {
+        init_xyz_limits__10TObjPlayerFv();
+    }
+    sy = lbl_8058D4F8.scale;
+    x = lbl_8058D4F8.cx;
+    cy = lbl_8058D4F8.cy;
+    sx = sy * (lbl_805D94C0 / (lbl_805D94C0 * lbl_8058D4F8.aspect));
+    begin_effect_render__13TParticleCtrlFv();
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi(lbl_804C5820[kind].param);
+    set_draw_texture_and_color(lbl_804C5820[kind].tex, lbl_804C5820[kind].color);
+    uv = &lbl_804C5820[kind].uvs[p->f94];
+    quad.u = uv->u0;
+    quad.v = uv->v0;
+    quad.du = uv->u1 - uv->u0;
+    quad.k1 = quad.k0 = TParticleCtrl__data_805D94C4;
+    quad.dv = uv->v1 - uv->v0;
+    world.x = p->pos.x + p->off.x;
+    world.y = p->pos.y + p->off.y;
+    world.z = p->pos.z + p->off.z;
+    if (p->f95 != 1) {
+        matrix_mult_vec(0, &world, &view);
+        view.y = -view.y;
+    } else {
+        VecCopy__FP3VecPC3Vec(&view, &world);
+    }
+    if (view.z <= lbl_805D94C8 || p->f95 == 1) {
+        set_constant_material_color(p->f90);
+        if (p->f95 != 1) {
+            z = TParticleCtrl__data_805D94CC / -view.z;
+            a = sx * z;
+            b = sy * z;
+            sx = a;
+            sy = b;
+            x = view.x * a + x;
+            y = view.y * b + cy;
+        } else {
+            sx = TParticleCtrl__data_805D94CC;
+            z = view.z;
+            sy = sx;
+            x = view.x;
+            y = view.y;
+        }
+        sx *= lbl_804C5820[kind].sx;
+        sy *= lbl_804C5820[kind].sy;
+        sx *= p->f88;
+        sy *= p->f8C;
+        c = cos_table_lookup(p->f96);
+        s = -sin_table_lookup(p->f96);
+        quad.z = z;
+        quad.x = x - (sx * c + sy * s);
+        quad.y = y - (-sx * s + sy * c);
+        sy = sy + sy;
+        sx = sx + sx;
+        quad.ax = sx * c;
+        quad.ay = -sx * s;
+        quad.bx = sy * s;
+        quad.by = sy * c;
+        DVDConvertEntrynumToPath(&quad);
+    }
+    get_player__20TWindowSubStatusDispFv();
+    end_effect_render__13TParticleCtrlFv();
+    reset_transform_state__10TObjPlayerFv();
+}
+#pragma pop
 
 s32 is_particle_sprite_additive(u8 *arg0) {
     return *M2C_FIELD(M2C_FIELD(&TParticleCtrl__data_80511F70.value, M2C_UNK *, (M2C_FIELD(arg0, u16 *, 0x1C) * 4)), s32 **, 0x28) & 1;
