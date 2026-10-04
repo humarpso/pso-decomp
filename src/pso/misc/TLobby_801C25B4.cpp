@@ -135,6 +135,10 @@ struct Lobby_801C49B8 {
 
 struct Cnt_801C49B8 { s32 v[2]; };
 
+struct Rank_801C343C { u16 id; s16 rank; s32 score; };
+
+struct Team_801C343C { s32 v[2]; };
+
 extern "C" {
 void handle_6x7E(void);
 extern void *TLobby__data_805D5D98;
@@ -216,7 +220,6 @@ void TWindowCtrl__sub_8024A4B0(s32);
 s32 TLobby__sub_801C271C(Lobby_801C484C *);
 void TLobby__sub_801C2898(Lobby_801C484C *, s32);
 void TLobby__sub_801C29F0(Lobby_801C484C *);
-void TLobby__sub_801C343C(Lobby_801C484C *);
 void TLobby__sub_801C484C(Lobby_801C484C *self);
 s32 get_game_mode__6TLobbyFv();
 M2C_UNK TLobby__sub_801B0B88();
@@ -280,7 +283,6 @@ M2C_UNK send_6x7D_set_battle_mode_data(void *);
 M2C_UNK init__6TLobbyFPv();
 void send_neg50__6TLobbyFPvPv(void* p, void* a1);
 M2C_UNK TLobby__sub_801C32B4(void *);
-void TLobby__sub_801C343C(Lobby_801C484C *);
 s32 TLobby__sub_801C3C1C(Lobby_801C484C *, s32);
 void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
@@ -330,6 +332,16 @@ extern s32 lbl_80511CC8[];
 extern char lbl_80511CD8[];
 extern s32 lbl_805D5DA4;
 void TLobby__sub_801C49B8(Lobby_801C49B8 *self);
+u32 get_player_by_client_id(u16);
+s16 obj_getField1c(u32);
+s32 TLobby__sub_801C19D0(void *);
+void TLobby__sub_801C36E4(void *arg0, void *arg1);
+s32 TLobby__sub_801C4FC4(void *p);
+u8 get_rule_field_a__6TLobbyFPv(void *);
+extern Team_801C343C lbl_80446FBC[];
+extern M2C_UNK lbl_8050EA40[];
+extern M2C_UNK TLobby__data_80511C80[];
+s32 TLobby__sub_801C343C(Lobby_801C484C *);
 }
 
 extern "C" {
@@ -403,6 +415,73 @@ s32 assign_player_id__6TLobbyFv(void) {
 }
 
 void send_neg50__6TLobbyFPvPv(void* p, void* a1) { play_cue_stream_file(p); fn_801C23A8((void*)-50, a1); }
+
+#define TBL_801C343C ((Rank_801C343C *)TLobby__data_80511C80)
+#define PLAYER_801C343C(k) ((u32 (*)(s32))get_player_by_client_id)(k)
+s32 TLobby__sub_801C343C(Lobby_801C484C *) {
+    s32 n;
+    s32 i;
+    s32 j;
+    u32 p;
+    s32 rank;
+    s32 m;
+    s32 k;
+    for (k = 0; k < 4; k++) {
+        TBL_801C343C[k].id = 0xFFFF;
+        TBL_801C343C[k].rank = 0;
+        TBL_801C343C[k].score = 0;
+    }
+    n = 0;
+    if (get_rule_field_a__6TLobbyFPv(lbl_8050EA40) == 1) {
+        Team_801C343C team = lbl_80446FBC[0];
+        for (k = 0; k < 4; k++) {
+            p = PLAYER_801C343C(k);
+            if (p != 0) {
+                s32 t = TLobby__sub_801C19D0((void *)(p + 0x828)) != 1 ? 1 : 0;
+                team.v[t] += TLobby__sub_801C4FC4((void *)(p + 0x7AC));
+            }
+        }
+        for (k = 0; k < 4; k++) {
+            p = PLAYER_801C343C(k);
+            if (p != 0) {
+                TBL_801C343C[n].id = obj_getField1c(p);
+                TBL_801C343C[n].score = team.v[TLobby__sub_801C19D0((void *)(p + 0x828)) != 1 ? 1 : 0];
+                n++;
+            }
+        }
+    } else {
+        for (k = 0; k < 4; k++) {
+            p = PLAYER_801C343C(k);
+            if (p != 0) {
+                TBL_801C343C[n].id = obj_getField1c(p);
+                TBL_801C343C[n].score = TLobby__sub_801C4FC4((void *)(p + 0x7AC));
+                n++;
+            }
+        }
+        if (n <= 1) {
+            return 0;
+        }
+    }
+    for (i = 0; i < n - 1; i++) {
+        if (TBL_801C343C[i].id != 0xFFFF) {
+            for (j = i + 1; j < n; j++) {
+                if (TBL_801C343C[j].id != 0xFFFF && TBL_801C343C[i].score < TBL_801C343C[j].score) {
+                    Rank_801C343C tmp = TBL_801C343C[i];
+                    TLobby__sub_801C36E4(&TBL_801C343C[i], &TBL_801C343C[j]);
+                    TLobby__sub_801C36E4(&TBL_801C343C[j], &tmp);
+                }
+            }
+        }
+    }
+    rank = 0;
+    for (m = 0; m < n; m++) {
+        TBL_801C343C[m].rank = rank;
+        if (m < n - 1 && TBL_801C343C[m].score != TBL_801C343C[m + 1].score) {
+            rank = m + 1;
+        }
+    }
+    return 1;
+}
 
 void TLobby__sub_801C36E4(void *arg0, void *arg1) {
     M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, u16 *, 0);
@@ -694,7 +773,7 @@ void TLobby__sub_801C4214(u8 *arg0) {
         }
         if (check_timeout__6TLobbyFPv(arg0, M2C_FIELD(arg0, s32 *, 0x44)--) != 0 || M2C_FIELD(arg0, s32 *, 0x44) <= 0) {
             clear_counter__6TLobbyFPv(arg0);
-            TLobby__sub_801C343C((Lobby_801C484C *)arg0);
+            TLobby__sub_801C343C((Lobby_801C484C *)((Lobby_801C484C *)arg0));
             TLobby__sub_801C32B4(arg0);
             if (((u16 *)TLobby__data_80511C80)[0] == lbl_805D53A0) {
                 send_neg50__6TLobbyFPvPv(lbl_80447008, (void *)0x96);
@@ -879,7 +958,7 @@ void TLobby__sub_801C484C(Lobby_801C484C *self) {
             TLobby__sub_801C29F0(self);
             self->timer60 = 90;
         }
-        TLobby__sub_801C343C(self);
+        TLobby__sub_801C343C((Lobby_801C484C *)(self));
         break;
     case -1:
         break;

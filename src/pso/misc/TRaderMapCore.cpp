@@ -247,6 +247,19 @@ struct Glob_801F9770 {
     u8 rest[0x44];
 };
 
+struct Pad_801FAF24 {
+    u8 pad0[0x20];
+    u8 ctl[0x30];
+};
+
+struct Radar_801FAF24 {
+    u8 pad0[0x184];
+    u32 f184;
+    f32 f188;
+    f32 f18C;
+    f32 f190;
+};
+
 extern "C" {
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
@@ -459,6 +472,22 @@ extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data
 extern s32 TRaderMapCore__data_805D5F3C;
 extern void *TRaderMapCore__data_805D5F40;
 void open_free_map_view__13TRaderMapCoreFv(void);
+s32 has_flag__13TRaderMapCoreFPv(void *, s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 TRaderMapCore__sub_801A6EEC(void *, s32, s32, s32);
+s32 get_map_id__13TRaderMapCoreFPv(u32);
+s32 check_flag_100__10TObjPlayerFPv(u32);
+u32 get_player_by_client_id(s32);
+void add_zoom_distance__13TRaderMapCoreFf(f32 farg0);
+void pan_vertical__13TRaderMapCoreFv(f32 farg0);
+void pan_horizontal__13TRaderMapCoreFv(f32 farg0);
+extern Pad_801FAF24 lbl_8050E208[];
+extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__data_80513708;
+extern const f32 TRaderMapCore__data_805DC528;
+extern const f32 TRaderMapCore__data_805DC58C;
+extern const f32 lbl_805DC598;
+void TRaderMapCore__sub_801FAF24(u8 *arg0);
 }
 
 extern "C" {
@@ -1158,6 +1187,68 @@ s32 is_render_admitted__13TRaderMapCoreFPvPv(void *arg0v, void *arg1) {
         }
     }
     return all_parents_unqueued_for_destruction__7TObjectFv(arg0v) != 0 ? 1 : 0;
+}
+
+void TRaderMapCore__sub_801FAF24(u8 *arg0) {
+    Radar_801FAF24 *self = (Radar_801FAF24 *)arg0;
+    u32 p;
+    s32 i;
+    s32 j;
+    s32 k;
+    for (i = 0; i < 4; i++) {
+        p = get_player_by_client_id(i);
+        if (p != 0 && check_flag_100__10TObjPlayerFPv(p) != 0) {
+            return;
+        }
+    }
+    if (self->f184 != 0) {
+        for (j = 0; j < 4; j++) {
+            p = get_player_by_client_id(j);
+            if (p != 0 && TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0) {
+                self->f184 = 0;
+                return;
+            }
+        }
+        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10) != 0) {
+            self->f18C += lbl_805DC598;
+        }
+        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20) != 0) {
+            self->f18C -= lbl_805DC598;
+        }
+        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x40) != 0) {
+            self->f188 += lbl_805DC598;
+        }
+        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x80) != 0) {
+            self->f188 -= lbl_805DC598;
+        }
+        if (TRaderMapCore__sub_801A6EEC(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20000, 0x27, 1) != 0) {
+            self->f190 -= lbl_805DC598;
+        }
+        if (TRaderMapCore__sub_801A6EEC(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10000, 0x27, 1) != 0) {
+            self->f190 += lbl_805DC598;
+        }
+        pan_horizontal__13TRaderMapCoreFv(self->f188);
+        pan_vertical__13TRaderMapCoreFv(self->f18C);
+        add_zoom_distance__13TRaderMapCoreFf(self->f190);
+        self->f188 *= TRaderMapCore__data_805DC58C;
+        self->f18C *= TRaderMapCore__data_805DC58C;
+        self->f190 *= TRaderMapCore__data_805DC58C;
+        return;
+    }
+    for (k = 0; k < 4; k++) {
+        p = get_player_by_client_id(k);
+        if (p != 0 && TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0 &&
+            has_flag__13TRaderMapCoreFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x10000) != 0) {
+            self->f184 = p;
+            u8 *cam = (u8 *)&TRaderMapCore__data_80513708;
+            M2C_FIELD(cam, f32 *, 0x28) = M2C_FIELD(self->f184, f32 *, 0x38);
+            M2C_FIELD(cam, f32 *, 0x30) = M2C_FIELD(self->f184, f32 *, 0x40);
+            self->f188 = TRaderMapCore__data_805DC528;
+            self->f18C = TRaderMapCore__data_805DC528;
+            self->f190 = TRaderMapCore__data_805DC528;
+            return;
+        }
+    }
 }
 
 void update_target__13TRaderMapCoreFPv(void *arg0) {

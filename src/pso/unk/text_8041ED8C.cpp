@@ -76,6 +76,34 @@ struct G_8041ED8C { Obj_8041ED8C *p; s16 n; u8 pad[0xA2]; };
 
 struct Buf_8041ED8C { u8 b[8]; };
 
+struct Obj_8041F11C {
+    u8 pad0[6];
+    s16 f6;
+    u8 pad8[3];
+    u8 fB;
+    u8 padC[0xD8 - 0xC];
+    u32 fD8;
+    u8 padDC[0xE8 - 0xDC];
+    u8 fE8;
+    u8 padE9[0x200 - 0xE9];
+    s32 f200;
+    u8 pad204[0x2D0 - 0x204];
+    s32 f2D0;
+    u8 pad2D4[0x544 - 0x2D4];
+};
+
+struct G_8041F11C { Obj_8041F11C *p; s16 n; u8 pad[0xA2]; };
+
+struct Addr_80420DE4 { u32 family; u8 a[0x10]; };
+
+struct E_80420DE4 { u8 pad0[4]; u16 f4; u8 f6[8]; u16 fE; u16 f10; u8 pad12[2]; Addr_80420DE4 f14; Addr_80420DE4 f28; s32 f3C; u8 pad40[4]; };
+
+struct G_80420DE4 { s16 count; u8 pad2[6]; E_80420DE4 *ents; };
+
+struct Hdr_80420DE4 { u16 src; u16 dst; u16 len; u16 sum; };
+
+struct O_80420DE4 { u8 pad0[8]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1A[2]; u8 f1C[4]; };
+
 extern "C" {
 M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
@@ -106,6 +134,20 @@ void TLobby__sub_80406FD8(void *, void *, u32);
 void TLobby__sub_8041A9AC(Obj_8041ED8C *);
 extern G_8041ED8C lbl_805C1D48;
 s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3);
+void TLobby__sub_80422E30(s16, s32, s32, s16);
+void TLobby__sub_80422368(s16, s32, s16);
+extern G_8041ED8C lbl_805C1D48;
+s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
+extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
+void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
+s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
+s16 TLobby__sub_8040DB94(void *);
+s16 TLobby__sub_8040DBFC(void *, void *);
+s16 TLobby__sub_8040DB34(void *, s32);
+s16 TLobby__sub_80421F10(void *, void *, void *, u16, s32, s16);
+void TLobby__sub_80406EB8(void *, u32);
+void TLobby__sub_80406FD8(void *, void *, u32);
+s32 TLobby__sub_80420DE4(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3);
 }
 
 extern "C" {
@@ -205,6 +247,19 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
     }
     if (self->fD8 == 0 && (self->fB & 8) && !(self->fB & 0x20)) {
         TLobby__sub_80422E30((s16)(self - lbl_805C1D48.p), self->f2D0, 3, 3);
+        self->fB |= 0x20;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_8041F11C(Obj_8041F11C *self) {
+    s16 idx = self - (*(G_8041F11C *)&lbl_805C1D48).p;
+    while (self->fE8 != 0) {
+        self->fE8 = 0;
+        TLobby__sub_80422368(idx, self->f200, -7);
+    }
+    if (self->fD8 == 0 && !(self->fB & 0x20)) {
+        TLobby__sub_80422E30((s16)(self - (*(G_8041F11C *)&lbl_805C1D48).p), self->f2D0, 3, 3);
         self->fB |= 0x20;
     }
     return 0;
@@ -351,6 +406,64 @@ inline void add_item_80420FC8(Pkt_80420FC8 *pkt, void *data, s32 len) {
     set_value_and_enable__6TLobbyFPvi(pkt->items[n].data, (s32)data);
     pkt->count++;
 }
+
+s32 TLobby__sub_80420DE4(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420DE4 *dst, s32 arg3) {
+    u8 sp20[8];
+    Hdr_80420DE4 hdr;
+    G_80420DE4 *g;
+    s16 i;
+    s16 *plen;
+    E_80420DE4 *e;
+    plen = &arg0->f18;
+    set_value_and_enable__6TLobbyFPvi(sp20, (s32)&hdr);
+    TLobby__sub_80406FD8(sp20, plen + 2, 8);
+    if (hdr.sum != 0 && (u16)TLobby__sub_8040D8F0(src, dst, 0x11, arg0, 0) != 0) {
+        return -1;
+    }
+    g = (G_80420DE4 *)&lbl_805C1DF0;
+    e = g->ents;
+    i = 0;
+    while (i < g->count) {
+        if (e->f4 == 0) {
+            goto next;
+        }
+        if (TLobby__sub_8040DB94(&e->f28) != 0) {
+            if (e->f28.family != 0 && e->f28.family != src->family) {
+                goto next;
+            }
+        } else if (TLobby__sub_8040DBFC(&e->f28, src) != 0) {
+            goto next;
+        }
+        if (TLobby__sub_8040DB94(&e->f14) != 0) {
+            if (e->f14.family != 0 && e->f14.family != dst->family) {
+                goto next;
+            }
+        } else if (TLobby__sub_8040DBFC(&e->f14, dst) != 0) {
+            goto next;
+        }
+        if (e->f10 != 0 && e->f10 != hdr.src) {
+            goto next;
+        }
+        if (e->fE != hdr.dst) {
+            goto next;
+        }
+        arg0->f8 -= 8;
+        *plen -= 8;
+        TLobby__sub_80406EB8(plen + 2, 8);
+        if (TLobby__sub_80421F10(arg0, src, dst, hdr.src, e->f3C, i) != 0) {
+            return -1;
+        }
+        return 0;
+    next:
+        i++;
+        e++;
+    }
+    if (TLobby__sub_8040DB34(dst, arg3) == 1) {
+        return 0;
+    }
+    return -2;
+}
+
 s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5) {
     s16 r;
     E_80420FC8 *e;

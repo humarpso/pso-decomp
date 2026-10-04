@@ -14,6 +14,32 @@ struct RecoveredGlobal_803C0AD8_lbl_80570AC0 {
     u8 remaining[0x9BC];
 };
 
+struct Strm_803C1A8C {
+    u8 pad0[4];
+    s32 state;
+    s32 id;
+    u8 padC[2];
+    s8 channels;
+    u8 padF[0x50 - 0xF];
+    u8 *src;
+    s32 maxLen;
+    u8 pad58[0x64 - 0x58];
+    s16 *buf;
+    s32 bufLen;
+    s32 rOff;
+    s32 pos;
+    s32 avail;
+    s32 x78;
+    u8 pad7C[0x88 - 0x7C];
+    void (*read)(s32, s32 *, s32 *, s32 *);
+    s32 readArg;
+    void (*done)(s32, s32, s32);
+    s32 doneArg;
+    u8 pad98[0xA0 - 0x98];
+    s32 n;
+    s32 bytes;
+};
+
 struct Obj_803C34F4 { u8 pad[0xA8]; s16 state; };
 
 struct Obj_803C3ACC { u8 pad[0xA8]; s16 state; s16 sub; };
@@ -174,10 +200,12 @@ s16 get_field_a8__6TLobbyFPv(u8 *arg0);
 s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
 s16 get_slot__6TLobbyFPv(u8 *arg0);
 void init_scroll__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_803C1A8C();
+void TLobby__sub_803C1A8C(Strm_803C1A8C *o);
 M2C_UNK TLobby__sub_803C1DC4();
-M2C_UNK TLobby__sub_803C263C();
-M2C_UNK TLobby__sub_803C2A00();
+void TLobby__sub_803C263C(Strm_803C1A8C *o);
+void TLobby__sub_803C2A00(Strm_803C1A8C *o);
+s32 get_client_count__6TLobbyFPv(int);
+extern s16 lbl_804F9B80[];
 M2C_UNK TLobby__sub_803C2D38();
 M2C_UNK clear_record_data__6TLobbyFPv(int);
 M2C_UNK memset(void *, int, int);
@@ -186,10 +214,47 @@ M2C_UNK reset_field_0C__6TLobbyFPv(int);
 
 void dispatch_network_state__6TLobbyFPv(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0xAA) == 1) {
-        TLobby__sub_803C1A8C();
+        TLobby__sub_803C1A8C((Strm_803C1A8C *)arg0);
         return;
     }
     TLobby__sub_803C1DC4();
+}
+
+void TLobby__sub_803C1A8C(Strm_803C1A8C *o) {
+    u8 *src = o->src;
+    if (o->state == 1 && get_client_count__6TLobbyFPv(o->id) == 0) {
+        s16 *l;
+        s16 *r;
+        s32 i;
+        s32 n;
+        o->read(o->readArg, &o->pos, &o->avail, &o->x78);
+        n = o->bufLen - o->pos;
+        if (n > o->avail) {
+            n = o->avail;
+        }
+        if (n > o->maxLen) {
+            n = o->maxLen;
+        }
+        l = o->buf + o->pos;
+        if (o->channels == 2) {
+            r = o->buf + (o->rOff + o->pos);
+            for (i = 0; i < n; i++) {
+                l[i] = (src[i * 2] << 8) & 0xFF00;
+                r[i] = (src[i * 2 + 1] << 8) & 0xFF00;
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                l[i] = (src[i] << 8) & 0xFF00;
+            }
+        }
+        o->n = n;
+        o->bytes = n * o->channels;
+        o->state = 2;
+    }
+    if (o->state == 2) {
+        o->done(o->doneArg, o->bytes, o->n);
+        o->state = 3;
+    }
 }
 
 #define o ((Obj_803C2174 *)arg0)
@@ -268,14 +333,89 @@ void dispatch_by_state__6TLobbyFPv(u8 *arg0) {
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xAA);
     if (temp_r0 == 2) {
-        TLobby__sub_803C263C();
+        TLobby__sub_803C263C((Strm_803C1A8C *)arg0);
         return;
     }
     if (temp_r0 == 1) {
-        TLobby__sub_803C2A00();
+        TLobby__sub_803C2A00((Strm_803C1A8C *)arg0);
         return;
     }
     TLobby__sub_803C2D38();
+}
+
+void TLobby__sub_803C263C(Strm_803C1A8C *o) {
+    u8 *src = o->src;
+
+    if (o->state == 1 && get_client_count__6TLobbyFPv(o->id) == 0) {
+        s16 *dst;
+        s16 *dst2;
+        s32 i;
+        s32 n;
+        o->read(o->readArg, &o->pos, &o->avail, &o->x78);
+        n = o->bufLen - o->pos;
+        if (n > o->avail) {
+            n = o->avail;
+        }
+        if (n > o->maxLen) {
+            n = o->maxLen;
+        }
+        dst = o->buf + o->pos;
+        if (o->channels == 2) {
+            dst2 = o->buf + (o->rOff + o->pos);
+            for (i = 0; i < n; i++) {
+                dst[i] = lbl_804F9B80[src[i * 2]];
+                dst2[i] = lbl_804F9B80[src[i * 2 + 1]];
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                dst[i] = lbl_804F9B80[src[i]];
+            }
+        }
+        o->n = n;
+        o->bytes = n * o->channels;
+        o->state = 2;
+    }
+    if (o->state == 2) {
+        o->done(o->doneArg, o->bytes, o->n);
+        o->state = 3;
+    }
+}
+
+void TLobby__sub_803C2A00(Strm_803C1A8C *o) {
+    u8 *src = o->src;
+    if (o->state == 1 && get_client_count__6TLobbyFPv(o->id) == 0) {
+        s16 *l;
+        s16 *r;
+        s32 i;
+        s32 n;
+        o->read(o->readArg, &o->pos, &o->avail, &o->x78);
+        n = o->bufLen - o->pos;
+        if (n > o->avail) {
+            n = o->avail;
+        }
+        if (n > o->maxLen) {
+            n = o->maxLen;
+        }
+        l = o->buf + o->pos;
+        if (o->channels == 2) {
+            r = o->buf + (o->rOff + o->pos);
+            for (i = 0; i < n; i++) {
+                l[i] = (src[i * 2] << 8) & 0xFF00;
+                r[i] = (src[i * 2 + 1] << 8) & 0xFF00;
+            }
+        } else {
+            for (i = 0; i < n; i++) {
+                l[i] = (src[i] << 8) & 0xFF00;
+            }
+        }
+        o->n = n;
+        o->bytes = n * o->channels;
+        o->state = 2;
+    }
+    if (o->state == 2) {
+        o->done(o->doneArg, o->bytes, o->n);
+        o->state = 3;
+    }
 }
 
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2) {

@@ -51,6 +51,9 @@ struct V_803E18C0 { f32 x, y, z; };
 
 struct Line_803E18C0 { V_803E18C0 o; V_803E18C0 d; };
 
+
+struct Faces_803E0ED4 { s32 v[6][4]; };
+
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
 extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
@@ -82,6 +85,12 @@ extern const f32 lbl_805E1024;
 extern const f64 lbl_805E1028;
 extern const f64 lbl_805E1030;
 f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
+s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
+void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
+s32 TObjPlayer__sub_803DFB1C(Vec_803E1B1C *a, Vec_803E1B1C *b);
+s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b);
+extern const Faces_803E0ED4 lbl_8047E438;
+s32 TObjPlayer__sub_803E0ED4(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB);
 }
 
 extern "C" {
@@ -153,6 +162,53 @@ static inline int collisionNormalEquals(CollisionPoint a,CollisionPoint b) {
 static inline CollisionPoint collisionNormalize(CollisionPoint p) {
     return collisionScale(p,lbl_805E1018/collisionRoot(collisionDot(p,p)));
 }
+
+
+#pragma use_lmw_stmw off
+s32 TObjPlayer__sub_803E0ED4(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) {
+    Vec_803E1B1C qa[4];
+    Vec_803E1B1C qb[4];
+    Vec_803E1B1C mnA;
+    Vec_803E1B1C mxA;
+    Vec_803E1B1C mnB;
+    Vec_803E1B1C mxB;
+    s32 i;
+    s32 j;
+    s32 mask;
+    s32 *fa;
+    s32 *fb;
+    int k;
+    mask = 0;
+    TObjPlayer__sub_803E1B1C((struct Vec_803E1B1C *)(boxA), (struct Vec_803E1B1C *)(&mnA), (struct Vec_803E1B1C *)(&mxA));
+    TObjPlayer__sub_803E1B1C((struct Vec_803E1B1C *)(boxB), (struct Vec_803E1B1C *)(&mnB), (struct Vec_803E1B1C *)(&mxB));
+    if (test_aabb_overlap__10TObjPlayerFPvPvPvPv((u8 *)&mnA, (u8 *)&mxA, (u8 *)&mnB, (u8 *)&mxB) != 0) {
+    Faces_803E0ED4 faces = lbl_8047E438;
+    for (i = 0; i < 6; i++) {
+        fa = faces.v[i];
+        qa[0].x = boxA[fa[0]].x; qa[0].y = boxA[fa[0]].y; qa[0].z = boxA[fa[0]].z;
+        qa[1].x = boxA[fa[1]].x; qa[1].y = boxA[fa[1]].y; qa[1].z = boxA[fa[1]].z;
+        qa[2].x = boxA[fa[2]].x; qa[2].y = boxA[fa[2]].y; qa[2].z = boxA[fa[2]].z;
+        qa[3].x = boxA[fa[3]].x; qa[3].y = boxA[fa[3]].y; qa[3].z = boxA[fa[3]].z;
+        for (j = 0; j < 6; j++) {
+            fb = faces.v[j];
+            qb[0].x = boxB[fb[0]].x; qb[0].y = boxB[fb[0]].y; qb[0].z = boxB[fb[0]].z;
+            qb[1].x = boxB[fb[1]].x; qb[1].y = boxB[fb[1]].y; qb[1].z = boxB[fb[1]].z;
+            qb[2].x = boxB[fb[2]].x; qb[2].y = boxB[fb[2]].y; qb[2].z = boxB[fb[2]].z;
+            qb[3].x = boxB[fb[3]].x; qb[3].y = boxB[fb[3]].y; qb[3].z = boxB[fb[3]].z;
+            if (TObjPlayer__sub_803DFB1C(qa, qb) != 0) {
+                return 1;
+            }
+            mask |= __SITransfer(qa, qb);
+            if (mask == 7) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+    }
+    return 0;
+}
+
 s32 test_box_sphere_contact(CollisionPoint* box,CollisionSphere* sphere) {
     CollisionPoint lo=box[0],hi=box[0];
     for(int i=1;i<8;++i) {

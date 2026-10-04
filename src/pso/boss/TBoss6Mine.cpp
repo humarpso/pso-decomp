@@ -54,6 +54,94 @@ struct Vec_80324440 { f32 x, y, z; };
 
 struct Vec_80323FA4 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct VBase_18_f05d67 { char pad[0x18]; };
+
+struct VObj_18_f05d67 : VBase_18_f05d67 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(void *);
+};
+
+struct Tmp_80324A00 { s32 a; u8 pad4[2]; s16 b; u8 pad8[8]; };
+
 extern "C" {
 f32 vector_length(void *);
 extern const f32 lbl_805DF58C;
@@ -105,6 +193,34 @@ extern const f32 lbl_805DF588;
 void TBoss6Mine__sub_80323FA4(u8 *arg0);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 void TBoss6Mine__vt2(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+f32 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
+u32 create_particle_emitter(void *, int);
+M2C_UNK set_flags__11TBoss4Type2FPvUi(u32, int);
+M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+M2C_UNK initialize__9TObjEnemyFPv(s32, s32);
+s32 init_collision_body_parts(void *, void *, int);
+f32 TBoss6Mine__sub_802ABD88(void *);
+s32 get_fish_count__8TObjFishFv();
+extern u8 __vt__10TBoss6Mine[];
+extern M2C_UNK lbl_804ECBAC[];
+extern s32 lbl_805D4178;
+extern const f32 TBoss6Mine__data_805DF580;
+extern const float TBoss6Mine__data_805DF584;
+extern const f32 lbl_805DF5A4;
+extern const f32 lbl_805DF5CC;
+extern const f32 lbl_805DF5D0;
+extern const f32 lbl_805DF5D4;
+extern const f32 lbl_805DF5D8;
+extern const f32 lbl_805DF5DC;
+s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -121,7 +237,6 @@ void draw__10TBoss6MineFPv(void *arg0);
 void draw_parts__10TBoss6MineFPv(void* p);
 void set_state7__10TBoss6MineFPv(void *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
-s32 TBoss6Mine__ct(s32, s32, s32);
 M2C_UNK TBoss6PlotFalz__sub_802ABE3C(s32, M2C_UNK, M2C_UNK, f32);
 M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
 void TBoss6Type1__sub_802B5DD4(void *);
@@ -400,6 +515,69 @@ void *__dt__10TBoss6MineFPvs(void *arg0, s16 arg1) {
 
 extern s32 tl_04;
 
+#pragma push
+#pragma fp_contract on
+#define VecCopyP ((u8 *(*)(void *, void *))VecCopy__FP3VecPC3Vec)
+#define THIS self
+s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
+    u8 *self;
+    Tmp_80324A00 tmp;
+    f32 f;
+    self = (u8 *)arg0;
+    initialize__9TObjEnemyFPv(arg0, arg1);
+    M2C_FIELD(THIS, M2C_UNK **, 0x18) = lbl_804ECBAC;
+    M2C_FIELD(THIS, s32 *, 0) = lbl_805D4178;
+    M2C_FIELD(THIS, s32 *, 0x378) = M2C_FIELD(arg2, s32 *, 0x40);
+    VecCopyP(THIS + 0x38, (u8 *)arg2 + 0x44);
+    VecCopyP(THIS + 0x3BC, (u8 *)arg2 + 0x50);
+    M2C_FIELD(THIS, s32 *, 0x37C) = M2C_FIELD(arg2, s32 *, 0x5C);
+    M2C_FIELD(THIS, s32 *, 0x388) = M2C_FIELD(arg2, s32 *, 0x60);
+    add_flags_2e4__10TObjPlayerFPvUi(THIS, 8);
+    ((VObj_18_f05d67 *)THIS)->m79((void *)arg2);
+    if (TLobby__sub_8002AFD4(THIS, &tmp, 1) != 0) {
+        tmp.a = 0;
+        tmp.b = 0;
+        TLobby__sub_8002AFD4(THIS, &tmp, 0);
+    }
+    M2C_FIELD(THIS, s32 *, 0x374) = get_fish_count__8TObjFishFv();
+    M2C_FIELD(THIS, s32 *, 0x24) = 0;
+    M2C_FIELD(THIS, s32 *, 0x34) = 0;
+    VecCopyP(THIS + 0x44, VecCopyP(THIS + 0x50, VecCopyP(THIS + 0x74, THIS + 0x38)));
+    init_collision_body_parts(THIS, __vt__10TBoss6Mine, 1);
+    VecCopyP(THIS + 0x2FC, THIS + 0x38);
+    M2C_FIELD(THIS, f32 *, 0x310) = TBoss6Mine__data_805DF580;
+    M2C_FIELD(THIS, f32 *, 0x30C) = TBoss6Mine__data_805DF580;
+    M2C_FIELD(THIS, f32 *, 0x308) = TBoss6Mine__data_805DF580;
+    M2C_FIELD(THIS, s32 *, 0x2A8) = 0;
+    bind_enemy_combat_stats(THIS, register_boss__6TLobbyFPv(0x2D), dispatch_shared_handler_b__6TLobbyFPv(0x2D), register_object__6TLobbyFPv(0x2D));
+    M2C_FIELD(THIS, s16 *, 0x33E) = M2C_FIELD(THIS, s16 *, 0x32C);
+    reset_photon_effect__12TBoss3VoloptFPv(THIS);
+    set_param__12TObjEneLappyFPvi(THIS, 0);
+    M2C_FIELD(THIS, s32 *, 0x3A0) = lbl_805DF5D0 * TBoss6Mine__sub_802ABD88(THIS + 0x388) + lbl_805DF5CC;
+    M2C_FIELD(THIS, s32 *, 0x3A4) = 0x96 - M2C_FIELD(THIS, s32 *, 0x3A0);
+    M2C_FIELD(THIS, s32 *, 0x3A8) = lbl_805DF5D8 * TBoss6Mine__sub_802ABD88(THIS + 0x388) + lbl_805DF5D4;
+    M2C_FIELD(THIS, f32 *, 0x3AC) = lbl_805DF5DC * TBoss6Mine__sub_802ABD88(THIS + 0x388) + lbl_805DF5A4;
+    f = *dispatch_shared_handler_a__6TLobbyFPv(0x2D);
+    M2C_FIELD(THIS, s32 *, 0x384) = f;
+    if (TBoss6Mine__data_805DF580 == f) {
+        M2C_FIELD(THIS, s32 *, 0x384) = 0x14;
+    }
+    M2C_FIELD(THIS, f32 *, 0x3C8) = TBoss6Mine__data_805DF580;
+    VecCopyP(THIS + 0x3B0, THIS + 0x38);
+    M2C_FIELD(THIS, f32 *, 0x39C) = (*(const f32 *)&TBoss6Mine__data_805DF584);
+    M2C_FIELD(THIS, s32 *, 0x390) = 0;
+    M2C_FIELD(THIS, s32 *, 0x394) = 0;
+    M2C_FIELD(THIS, s32 *, 0x398) = 0;
+    M2C_FIELD(THIS, s32 *, 0x38C) = 0;
+    M2C_FIELD(THIS, s32 *, 0x380) = 0;
+    M2C_FIELD(THIS, u32 *, 0x3CC) = create_particle_emitter(THIS + 0x38, 0x146);
+    if (M2C_FIELD(THIS, u32 *, 0x3CC) != 0) {
+        set_flags__11TBoss4Type2FPvUi(M2C_FIELD(THIS, u32 *, 0x3CC), 0x40);
+    }
+    return arg0;
+}
+#pragma pop
+
 s32 create__10TBoss6MineFi(s32 arg0) {
     s32 var_r31;
     s32 var_r4;
@@ -410,7 +588,7 @@ s32 create__10TBoss6MineFi(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6Mine__ct(var_r31, var_r4, arg0);
+        var_r31 = TBoss6Mine__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
     }
     return var_r31;
 }

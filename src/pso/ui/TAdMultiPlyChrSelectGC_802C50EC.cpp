@@ -98,6 +98,26 @@ typedef struct Self_802C5C84 {
     s32 f4EC;
 } Self_802C5C84;
 
+struct S_802C6AC8 {
+    u8 pad0[0x20];
+    s32 f20;
+    u8 pad24[0x444 - 0x24];
+    s32 alpha[4][3];
+    s32 col[4][3];
+    u8 pad4a4[8];
+    s32 sel[4][3];
+    s32 f4DC[4];
+    s32 f4EC;
+    u8 pad4f0[0x8];
+    s32 f4F8;
+    s32 f4FC;
+    u8 pad500[0x530 - 0x500];
+    s32 f530;
+    s32 f534;
+};
+
+struct Pad_802C6AC8 { u8 pad[0x20]; u8 ctl[0x30]; };
+
 extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802C5BCC(s32 arg0, s32 *arg1, s32 *arg2);
 int TAdMultiPlyChrSelectGC__sub_802C65C0(void);
@@ -184,6 +204,20 @@ extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
 extern Jump_802C5C84 lbl_80471B00[][5];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802C5C84(Self_802C5C84 *self, s32 x_, s32 y_, s32 dx, s32 dy, s32 depth);
+s32 TWindowShortListCtrl__check_controller_button(void *, int);
+void TAdMultiPlyChrSelectGC__sub_802C5C28(s32 arg0, u32 *arg1);
+void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self);
+void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self);
+s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
+s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
+s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
+s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
+s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
+s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
+extern u8 lbl_8050E3B8[];
+extern int TAdMultiPlyChrSelectGC__data_805D67D8;
+extern s32 TAdMultiPlyChrSelectGC__data_805D67DC;
+void TAdMultiPlyChrSelectGC__sub_802C6AC8(S_802C6AC8 *o);
 }
 
 extern "C" {
@@ -596,6 +630,74 @@ loop_1:
         return 3;
     }
     goto loop_1;
+}
+#define FIND_SLOT(o) ((s32 (*)(void *))find_active_slot__22TAdMultiPlyChrSelectGCFv)(o)
+void TAdMultiPlyChrSelectGC__sub_802C6AC8(S_802C6AC8 *o) {
+    u32 i;
+    u32 j;
+    u32 k;
+    if (TAdMultiPlyChrSelectGC__sub_802C6848(get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()) == 0 && o->f20 < count_ready__22TAdMultiPlyChrSelectGCFv()) {
+        TAdMultiPlyChrSelectGC__data_805D67D8 = FIND_SLOT(o);
+        switch (TAdMultiPlyChrSelectGC__data_805D67DC) {
+        case 1:
+            break;
+        case 0: {
+            u32 buf[2];
+            TAdMultiPlyChrSelectGC__sub_802C5C28((s32)o, buf);
+            o->f4EC = buf[1] - 1;
+            o->sel[TAdMultiPlyChrSelectGC__data_805D67D8][o->f4EC] = buf[0] - 1;
+            break;
+        }
+        }
+    }
+    if (TAdMultiPlyChrSelectGC__sub_802C6848(0) == 0 || count_ready__22TAdMultiPlyChrSelectGCFv() < 2) {
+        o->f534 = 0;
+    } else {
+        o->f534 = 1;
+    }
+    if (o->f534 != 0) {
+        switch (TAdMultiPlyChrSelectGC__data_805D67DC) {
+        case 0:
+            TAdMultiPlyChrSelectGC__sub_802C61E4((S_802C61E4 *)o);
+            if (get_clamped_cursor__22TAdMultiPlyChrSelectGCFv() == 3 && TAdMultiPlyChrSelectGC__sub_802C64D0(3) != 0) {
+                s32 n = count_ready__22TAdMultiPlyChrSelectGCFv();
+                if (TAdMultiPlyChrSelectGC__sub_802C6558() < n) {
+                    TAdMultiPlyChrSelectGC__data_805D67D8 = FIND_SLOT(o);
+                }
+            }
+            break;
+        case 1:
+            TAdMultiPlyChrSelectGC__sub_802C6008((S_802C6008 *)o);
+            break;
+        }
+    }
+    o->f530 = 0;
+    if (o->f534 != 0) {
+        for (i = 0; i < 4; i++) {
+            if (TWindowShortListCtrl__check_controller_button(((Pad_802C6AC8 *)lbl_8050E3B8)[i].ctl, 8) != 0 && TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
+                o->f530 = 1;
+            }
+        }
+    }
+    for (k = 0; k < 4; k++) {
+        for (j = 0; j < 3; j++) {
+            o->alpha[k][j] -= 0x16;
+            if (o->alpha[k][j] < 0) {
+                o->alpha[k][j] = 0;
+            }
+        }
+    }
+    o->alpha[o->sel[TAdMultiPlyChrSelectGC__data_805D67D8][o->f4EC]][o->f4EC] = 0xFF;
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 3; j++) {
+            o->col[i][j] = (o->alpha[i][j] << 24) | 0xFFFFFF;
+        }
+    }
+    if (o->f4FC != 0) {
+        o->f4F8 = 0;
+        o->f4FC = 0;
+    }
+    o->f20 = count_ready__22TAdMultiPlyChrSelectGCFv();
 }
 
 typedef char RecoveredGlobal_802C658C_TAdMultiPlyChrSelectGC__data_804E0A48_size[sizeof(RecoveredGlobal_802C658C_TAdMultiPlyChrSelectGC__data_804E0A48) == 0x10 ? 1 : -1];

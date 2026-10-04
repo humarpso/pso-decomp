@@ -68,8 +68,57 @@ public:
 
 typedef void (QLC_802890AC::*Handler_802890AC)();
 
+typedef s32 M2C_UNK;
+struct VBase_80288DA4 { char pad[0x18]; };
+
+struct VObj_80288DA4 : VBase_80288DA4 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6();
+    virtual void m7(s32, s32);
+    virtual s32 m8();
+};
+
+struct Ent_80288DA4 { s32 id; s32 f4; s32 f8; s32 fC; };
+
+struct Pair_80288DA4 { s32 a; s32 b; };
+
+struct QLC_80288DA4 {
+    u8 pad[0x24];
+    s32 f24;
+    u8 pad28[0x30 - 0x28];
+    VObj_80288DA4 *obj;
+    void *f34;
+    void *f38;
+    void *f3C;
+    void *f40;
+    u8 pad44[0x4C - 0x44];
+    s32 f4C;
+    s32 f50;
+    s32 count;
+    Ent_80288DA4 *entries;
+};
+
 extern "C" {
 
+s32 obj_getField1c(s32);
+s32 get_camera_id__11TCameraCtrlFv();
+M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 get_status_flag__6TLobbyFPv(void *);
+s32 get_flag_bit2__6TLobbyFPv(void *);
+s32 get_quest_list_text(int, int, int);
+f32 get_scale__15TShopWindowBaseFv(void *);
+M2C_UNK set_position_xy(void *, f32, f32);
+s32 TWindow__close(void *);
+M2C_UNK set_field_1c__6TLobbyFPvf(void *, f32);
+void *create_yes_no_window(s32, u16, s32, s32);
+s32 select_cursor_entry__6TLobbyFPv(s32);
+M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
+void *TLobby__sub_80269CC0(s32, Pair_80288DA4 *, s32, u16);
+s32 get_window_layout_position(s32);
+extern Pair_80288DA4 lbl_80450AB4[];
+extern const f32 lbl_805DD8E0;
+extern const f32 lbl_805DD8E4;
+void TQuestListChallenge__sub_80288DA4(QLC_80288DA4 *self);
 }
 
 extern "C" {
@@ -234,6 +283,58 @@ block_9:
 
 extern M2C_UNK __vt__19TQuestListChallenge[];
 extern s32 TQuestListChallenge__data_805D64B0;
+
+#define SUB_80222C28(a, b) ((s32 (*)(s32, s32))get_quest_list_text)(a, b)
+void TQuestListChallenge__sub_80288DA4(QLC_80288DA4 *self) {
+    Pair_80288DA4 p;
+    s32 sel;
+    s32 id;
+    s32 text;
+    s32 text2;
+    if (self->obj->m8() == 0) {
+        return;
+    }
+    if (self->f38 != NULL && self->f3C != NULL) {
+        sel = select_cursor_entry__6TLobbyFPv((s32)self->f38);
+        if (sel != self->f4C) {
+            text = SUB_80222C28(self->f50, self->entries[sel].f4);
+            send_and_handle__6TLobbyFPvii(self->f3C, text, 0x80);
+            self->f4C = sel;
+            if (self->f40 != NULL) {
+                TWindow__close(self->f40);
+                self->f40 = NULL;
+            }
+        }
+    }
+    if (self->f38 != NULL && get_flag_bit2__6TLobbyFPv(self->f38) == 1) {
+        set_field_20__12TQuestListVMFPvi(self, 4);
+        return;
+    }
+    if (self->f38 != NULL && get_status_flag__6TLobbyFPv(self->f38) == 1) {
+    sel = select_cursor_entry__6TLobbyFPv((s32)self->f38);
+    if (self->f40 == NULL) {
+        p.a = lbl_80450AB4[0].a;
+        p.b = lbl_80450AB4[0].b;
+        id = (u16)obj_getField1c(self->f24);
+        self->f40 = TLobby__sub_80269CC0(get_window_layout_position(0x2E), &p, 1, id);
+        text2 = SUB_80222C28(self->f50, self->entries[sel].f8);
+        send_and_handle__6TLobbyFPvii(self->f40, text2, 0x80);
+        set_field_1c__6TLobbyFPvf(self->f40, lbl_805DD8E0);
+        if (get_camera_id__11TCameraCtrlFv() >= 2) {
+            set_position_xy(self->f40, lbl_805DD8E4, lbl_805DD8E4);
+        }
+    }
+    if (self->f34 == NULL) {
+        id = (u16)obj_getField1c(self->f24);
+        self->f34 = create_yes_no_window(get_window_layout_position(0x2B), id, 0, 0);
+        set_position_xy(self->f34, get_scale__15TShopWindowBaseFv(self), get_scale__15TShopWindowBaseFv(self));
+        if (self->obj != NULL) {
+            self->obj->m7(5, 0x80);
+        }
+        set_field_20__12TQuestListVMFPvi(self, 2);
+    }
+    }
+}
 
 void TQuestListChallenge__sub_80288FDC(QLC_80288FDC *arg0) {
     u16 id;

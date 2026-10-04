@@ -36,6 +36,26 @@ struct S_803DB9A0 { u8 pad[0x60]; C_803DB9A0 c; };
 
 struct F_803DB9A0 { f32 r, g, b, a; };
 
+typedef void (*RecoveredCallback_bfe74032a8e8)(s32);
+typedef void (*RecoveredCallback_bfe74032a8e8)(s32);
+typedef void (*RecoveredCallback_bfe74032a8e8)(s32);
+typedef void (*RecoveredCallback_b52dc2a08a00)(u8);
+typedef void (*RecoveredCallback_b52dc2a08a00)(u8);
+typedef void (*RecoveredCallback_b52dc2a08a00)(u8);
+typedef struct GinjaCounts_803DB734 {
+    u8 pad0[0x58];
+    s32 tevDirty;
+    s32 texGenDirty;
+    u8 pad60[0x70 - 0x60];
+    u8 count[3];
+    u8 pre[3];
+    u8 post[3];
+    u8 total[3];
+    u32 flags7C;
+    u32 pad80;
+    u32 texGenCount;
+} GinjaCounts_803DB734;
+
 extern "C" {
 void draw_ginja_model(s32 arg0);
 M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
@@ -139,6 +159,19 @@ extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D7794;
 void set_ginja_channel_ctrl(s32 channel,s32 flags);
+void GXSetNumChans(u8);
+void GXSetNumTexGens(u8);
+void GXSetNumTevStages(u8);
+void set_ginja_channel_ctrl(s32 channel,s32 flags);
+extern S_803DB560 lbl_8058CD80;
+extern RecoveredCallback_bfe74032a8e8 lbl_805D76E8;
+extern RecoveredCallback_bfe74032a8e8 lbl_805D76EC;
+extern RecoveredCallback_bfe74032a8e8 lbl_805D76F0;
+extern RecoveredCallback_b52dc2a08a00 lbl_805D76F4;
+extern RecoveredCallback_b52dc2a08a00 lbl_805D76F8;
+extern RecoveredCallback_b52dc2a08a00 lbl_805D76FC;
+extern s32 some_id_805c6f74;
+void GXSetVtxDesc(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -211,6 +244,80 @@ void set_ginja_channel_ctrl(s32 channel,s32 flags) {
     GXSetChanCtrl(channel,enabled,ambientSource,materialSource,lbl_805D7794,2,2);
     GXSetChanCtrl(channel+2,0,ambientSource,materialSource,lbl_805D7794,2,2);
 }
+
+#define GC ((GinjaCounts_803DB734 *)&lbl_8058CD80)
+#pragma push
+#pragma use_lmw_stmw off
+void GXSetVtxDesc(s32 arg0, s32 arg1) {
+    s32 sum;
+    s32 sum2;
+    s32 i;
+    if ((u32)(arg1 & 0x1903) != 0) {
+        s32 n = arg0 & 3;
+        if ((u32)(some_id_805c6f74 & 0x80000) != 0) {
+            s32 pre = GC->pre[0];
+            s32 post = GC->post[0];
+            GC->count[0] = n;
+            sum = pre + n;
+            GXSetNumChans(GC->total[0] = post + sum);
+            if (pre != 0 && lbl_805D76E8 != NULL) {
+                lbl_805D76E8(0);
+            }
+            for (i = 0; i < n; i++) {
+                set_ginja_channel_ctrl(pre + i, arg0);
+            }
+            if (post != 0 && lbl_805D76F4 != NULL) {
+                lbl_805D76F4(sum);
+            }
+        } else {
+            GXSetNumChans(n);
+            for (i = 0; i < n; i++) {
+                set_ginja_channel_ctrl(i, arg0);
+            }
+        }
+    }
+    if ((u32)(arg1 & 0xF0) != 0) {
+        u8 n = (u32)(arg0 & 0xF0) >> 4;
+        if ((u32)(some_id_805c6f74 & 0x80000) != 0) {
+            s32 pre = GC->pre[1];
+            s32 post = GC->post[1];
+            GC->count[1] = n;
+            sum = pre + n;
+            GXSetNumTexGens(GC->total[1] = post + sum);
+            if (pre != 0 && lbl_805D76EC != NULL) {
+                lbl_805D76EC(0);
+            }
+            if (post != 0 && lbl_805D76F8 != NULL) {
+                lbl_805D76F8(sum);
+            }
+        } else {
+            GXSetNumTexGens(n);
+        }
+        GC->texGenDirty = -1;
+        GC->flags7C |= 4;
+        GC->texGenCount = n;
+    }
+    if ((u32)(arg1 & 0xF0000) != 0) {
+        u8 n = (u32)(arg0 & 0xF0000) >> 16;
+        if ((u32)(some_id_805c6f74 & 0x80000) != 0) {
+            s32 pre = GC->pre[2];
+            s32 post = GC->post[2];
+            GC->count[2] = n;
+            sum2 = pre + n;
+            GXSetNumTevStages(GC->total[2] = post + sum2);
+            if (pre != 0 && lbl_805D76F0 != NULL) {
+                lbl_805D76F0(0);
+            }
+            if (post != 0 && lbl_805D76FC != NULL) {
+                lbl_805D76FC(sum2);
+            }
+        } else {
+            GXSetNumTevStages(n);
+        }
+        GC->tevDirty = -1;
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma scheduling off

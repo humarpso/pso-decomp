@@ -34,7 +34,19 @@ s32 get_main_phase();
 int TBoss3Volopt__sub_8003CB48(void);
 void alloc_idle_event__12TBoss3VoloptFv(void);
 s32 is_photon_blast_active__11TCameraCtrlFv(void);
-M2C_UNK TBoss3Volopt__sub_8003E584(void *);
+void TBoss3Volopt__sub_8003E584(void *);
+typedef struct { u8 cmd; u8 size; u16 id; s16 a; s16 b; s16 c; s16 d; } Pk15_8003E584;
+typedef struct { u8 cmd; u8 size; u16 id; u8 data[6]; s16 a; s16 b; u16 pad; } Pk84_8003E584;
+typedef struct { u8 cmd; u8 size; u16 id; u8 data[6]; s16 a; } Pk16_8003E584;
+typedef struct { s8 b; u8 pad[3]; } Ent_8003E584;
+s32 TCameraCtrl__sub_8003D0A8(void *);
+s32 TBoss3Volopt__sub_8003F458();
+extern Ent_8003E584 lbl_804FEED0[];
+extern s32 lbl_805D4C28;
+extern s32 lbl_805D4C64;
+extern const f32 lbl_805D86A4;
+extern const f32 lbl_805D86A8;
+
 M2C_UNK set_flag_3__7TObjectFv(void *);
 M2C_UNK init_fade_color__12TBoss3VoloptFPvPvPv(void *, void *, void *);
 M2C_UNK init_fade__12TBoss3VoloptFPvPvPv(void *, void *, void *);
@@ -1201,6 +1213,158 @@ void free_parts__12TBoss3VoloptFv(void) {
     destroy__20TBoss3VoloptHiraisinFv();
     release__19TBoss3VoloptMonitorFv();
 }
+
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+
+void TBoss3Volopt__sub_8003E584(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    Pk15_8003E584 a1;
+    Pk15_8003E584 b1;
+    Pk84_8003E584 c1;
+    Pk15_8003E584 a2;
+    Pk15_8003E584 b2;
+    Pk16_8003E584 c2;
+    s32 i;
+    s32 found;
+    s32 n;
+    s32 lim;
+    s32 lim2;
+    s32 v;
+
+    if (TCameraCtrl__sub_8003D2C4() != 0 && find_nearest_visible_player(arg0, 0, lbl_805D8668) != 0xFFFF) {
+    if (F(s16, 0x3F2) > 0) {
+        F(s16, 0x3F2)--;
+    } else if (TBoss3Volopt__sub_8003F398() != 0) {
+        switch (F(s16, 0x3F0)) {
+        case 0:
+            found = 0;
+            for (i = 0; i < 6; i++) {
+                if (lbl_804FEED0[i].b == 0) {
+                    found = 1;
+                }
+            }
+            if (found != 0) {
+                if (find_entity_by_id(lbl_805D271C) != NULL && TBoss3Volopt__sub_8003F458() != 0) {
+                    n = (s32)(lbl_805D86A4 * calc_boss4_scale__10TObjPlayerFi(arg0)) + 2;
+                    set_type__12TBoss3VoloptFPv(&a1);
+                    a1.id = F(u16, 0x1C);
+                    a1.a = 0;
+                    a1.c = F(s32, 0x3A4);
+                    a1.d = n;
+                    finalize_and_send_60__12TBoss3VoloptFPv(&a1);
+                    F(s32, 0x3A4) -= n;
+                    if (F(s32, 0x3A4) < 0) {
+                        F(s32, 0x3A4) += 6;
+                    }
+                    F(s16, 0x3F2) = 0x1E;
+                    F(s16, 0x3F0) = 1;
+                }
+            } else {
+                F(s16, 0x3F0) = 2;
+            }
+            break;
+        case 1:
+            if (lbl_805D4C64 != 0) {
+                F(s16, 0x3F0) = 2;
+            }
+            break;
+        case 2:
+            F(s16, 0x3F8) = 0;
+            lbl_805D4C28 = 0;
+            F(s16, 0x3F0) = 3;
+            break;
+        case 3:
+            if (lbl_805D4C28 == 1 || F(s16, 0x3F8) >= 2) {
+                lbl_805D4C28 = 1;
+                set_type__12TBoss3VoloptFPv(&b1);
+                b1.id = F(u16, 0x1C);
+                b1.a = 1;
+                finalize_and_send_60__12TBoss3VoloptFPv(&b1);
+                F(s16, 0x3F0) = 0;
+                F(s16, 0x3F2) = 0x1E;
+            } else {
+                F(s16, 0x3F8)++;
+                lim = TCameraCtrl__sub_8003D0A8(arg0);
+                TBoss3Volopt__sub_8003F384(&c1);
+                c1.id = F(u16, 0x1C);
+                c1.a = F(s16, 0x3FC) < lim ? F(s16, 0x3FC) : lim;
+                c1.b = lbl_805D86A8 * calc_boss4_scale__10TObjPlayerFi(arg0);
+                move_data__6TLobbyFv(c1.data, lbl_804FEE74, 6);
+                send_update_60__12TBoss3VoloptFPv(&c1);
+                if (F(s16, 0x3FC) < 5) {
+                    F(s16, 0x3FC)++;
+                }
+                F(s16, 0x3F2) = 0x1E;
+            }
+            break;
+        }
+    } else {
+        switch (F(s16, 0x3F0)) {
+        case 0:
+            found = 0;
+            for (i = 0; i < 6; i++) {
+                if (lbl_804FEED0[i].b == 0) {
+                    found = 1;
+                }
+            }
+            if (found != 0) {
+                if (find_entity_by_id(lbl_805D271C) != NULL && TBoss3Volopt__sub_8003F458() != 0) {
+                    n = (s32)(lbl_805D86A4 * calc_boss4_scale__10TObjPlayerFi(arg0)) + 2;
+                    set_type__12TBoss3VoloptFPv(&a2);
+                    a2.id = F(u16, 0x1C);
+                    a2.a = 0;
+                    a2.c = F(s32, 0x3A4);
+                    a2.d = n;
+                    finalize_and_send_60__12TBoss3VoloptFPv(&a2);
+                    F(s32, 0x3A4) -= n;
+                    if (F(s32, 0x3A4) < 0) {
+                        F(s32, 0x3A4) += 6;
+                    }
+                    F(s16, 0x3F2) = 0x1E;
+                    F(s16, 0x3F0) = 1;
+                }
+            } else {
+                F(s16, 0x3F0) = 2;
+            }
+            break;
+        case 1:
+            if (lbl_805D4C64 != 0) {
+                F(s16, 0x3F0) = 2;
+            }
+            break;
+        case 2:
+            F(s16, 0x3F8) = 0;
+            lbl_805D4C28 = 0;
+            F(s16, 0x3F0) = 3;
+            break;
+        case 3:
+            if (lbl_805D4C28 == 1 || F(s16, 0x3F8) >= 2) {
+                lbl_805D4C28 = 1;
+                set_type__12TBoss3VoloptFPv(&b2);
+                b2.id = F(u16, 0x1C);
+                b2.a = 1;
+                finalize_and_send_60__12TBoss3VoloptFPv(&b2);
+                F(s16, 0x3F0) = 0;
+                F(s16, 0x3F2) = 0x1E;
+            } else {
+                F(s16, 0x3F8)++;
+                lim2 = TCameraCtrl__sub_8003D0A8(arg0);
+                TBoss3Volopt__sub_8003F33C(&c2);
+                c2.id = F(u16, 0x1C);
+                c2.a = F(s16, 0x3FC) < lim2 ? F(s16, 0x3FC) : lim2;
+                move_data__6TLobbyFv(c2.data, lbl_804FEE74, 6);
+                send_6x16__12TBoss3VoloptFPv(&c2);
+                if (F(s16, 0x3FC) < 5) {
+                    F(s16, 0x3FC)++;
+                }
+                F(s16, 0x3F2) = 0x1E;
+            }
+            break;
+        }
+    }
+}
+}
+#undef F
 
 void TBoss3Volopt__sub_8003EE10(void) {
     s32 v2;

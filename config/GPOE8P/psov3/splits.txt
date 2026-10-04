@@ -308,6 +308,7 @@ pso/boss/TBoss2DeRolLe_80034A14.cpp:
 
 pso/boss/TBoss2DeRolLe_80035084.cpp:
 	.text       start:0x80035084 end:0x800366C0
+	.bss        start:0x804FE268 end:0x804FE2A4
 
 pso/boss/TBoss2Fin.cpp:
 	.text       start:0x800366C0 end:0x80036824
@@ -10194,7 +10195,7 @@ pso/misc/TWindowCtrlMain_8024CB74.cpp:
 
 pso/misc/TWindowCtrlMain_8024CB7C.cpp:
 	.text       start:0x8024CB7C end:0x8024D368
-	.sdata2     start:0x805DCC18 end:0x805DCC30
+	.sdata2     start:0x805DCC18 end:0x805DCC58
 
 pso/misc/TWindowCtrlMain.cpp:
 	.text       start:0x8024D368 end:0x8024D960
@@ -12349,7 +12350,7 @@ pso/misc/TLobby_802D79EC.cpp:
 pso/enemy/TObjEneGibbles.cpp:
 	.text       start:0x802D7A2C end:0x802DBCC4
 	.rodata     start:0x80472790 end:0x80472798
-	.data       start:0x804E2B5C end:0x804E2B8C
+	.data       start:0x804E2B3C end:0x804E2B8C
 	.sdata2     start:0x805DE87C end:0x805DE884
 
 pso/ui/TAdMultiPlyChrSelectGC_802DBCC4.cpp:
@@ -14118,6 +14119,7 @@ pso/unk/text_8034D3D0.cpp:
 
 pso/unk/text_8034D500.cpp:
 	.text       start:0x8034D500 end:0x8034D790
+	.rodata     start:0x80478C48 end:0x80478C50
 
 pso/unk/text_8034D790.cpp:
 	.text       start:0x8034D790 end:0x8034DAA0

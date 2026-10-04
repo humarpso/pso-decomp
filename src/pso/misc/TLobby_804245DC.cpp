@@ -73,6 +73,18 @@ typedef struct Tbl_80426894 {
     Ent_80426894 ent[6];
 } Tbl_80426894;
 
+struct Ent_804253F8 {
+    s32 used;
+    s32 f4;
+    u32 base;
+};
+
+typedef struct Ent_80425870 {
+    s32 used;
+    u32 f4;
+    u32 base;
+} Ent_80425870;
+
 extern "C" {
 M2C_UNK OSInitMessageQueue(void *, void *, int);
 M2C_UNK TLobby__sub_803F9B28(void *);
@@ -217,7 +229,6 @@ extern s16 lbl_805D7B18;
 void TLobby__sub_80424CA8(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
-u8 *TLobby__sub_80425870(s32);
 s32 TLobby__sub_80425C70(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 OSReceiveMessage(void *, void *, int);
 void TLobby__sub_804253A0(s32);
@@ -322,6 +333,10 @@ extern s32 lbl_805D7C80;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
 M2C_UNK TLobby__sub_8042B370(int, int);
+extern Ent_804253F8 lbl_805C30C0[0x20];
+void TLobby__sub_804253F8(u32 arg0);
+extern Ent_804253F8 lbl_805C30C0[0x20];
+u8 *TLobby__sub_80425870(s32 arg0);
 }
 
 extern "C" {
@@ -432,6 +447,44 @@ void TLobby__sub_80424CA8(void) {
     lbl_805D7B14 = TLobby__sub_804250A8(0);
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline Ent_804253F8 *find_804253F8(u32 arg0) {
+    s32 i;
+    for (i = 0; i < 0x20; i++) {
+        if (lbl_805C30C0[i].used != 0 && lbl_805C30C0[i].base <= arg0 &&
+            arg0 < lbl_805C30C0[i].base + 0x600) {
+            break;
+        }
+    }
+    if (i >= 0x20) {
+        return NULL;
+    }
+    return &lbl_805C30C0[i];
+}
+void TLobby__sub_804253F8(u32 arg0) {
+    Ent_804253F8 *e = find_804253F8(arg0);
+    if (e != NULL) {
+        e->used = 0;
+        e->f4 = 0;
+    }
+}
+#pragma pop
+
+u8 *TLobby__sub_80425870(s32 arg0) {
+    s32 i;
+    for (i = 0; i < 32; i++) {
+        if (((Ent_80425870 *)&lbl_805C30C0)[i].used != 0 && ((Ent_80425870 *)&lbl_805C30C0)[i].base <= (u32)arg0 && (u32)arg0 < ((Ent_80425870 *)&lbl_805C30C0)[i].base + 0x600) {
+            break;
+        }
+    }
+    if (i >= 32) {
+        return NULL;
+    }
+    return (u8 *)&((Ent_80425870 *)&lbl_805C30C0)[i];
+}
+
 void TLobby__sub_804259F0(void) {
     TLobby__sub_803F95E4(lbl_805D7BA8);
 }
@@ -461,7 +514,7 @@ s32 TLobby__sub_80425C70(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 ok;
     u8 *p;
     if (arg3 != 0) {
-        p = TLobby__sub_80425870(arg1);
+        p = TLobby__sub_80425870((s32)(arg1));
     } else {
         p = TLobby__sub_804256B8(arg1);
     }

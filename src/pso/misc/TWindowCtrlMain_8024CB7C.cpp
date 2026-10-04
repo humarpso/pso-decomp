@@ -33,6 +33,37 @@ s32 TWindowCtrlMain__sub_8024CE24(void);
 s32 TWindowCtrlMain__sub_8024CE34(void);
 s32 is_window_display_enabled(void);
 bool TWindowCtrlMain__sub_8024CE58(void);
+struct Vec2_8024CE68 { f32 x, y; };
+struct Poly_8024CE68 {
+    Vec2_8024CE68 *verts;
+    u32 *colors;
+    s32 flags;
+    s32 count;
+};
+struct Quad_8024CE68 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
+
+void TWindowCtrlMain__sub_801E352C(void *, int, int, f32);
+void fn_801E3330(void *, int, int, f32);
+void set_global_param__8TObjFishFi(void *);
+void begin_screen_draw(int);
+void get_player__20TWindowSubStatusDispFv();
+void draw_textured_quad_at_depth(void *, f32);
+void set_draw_texture_and_color(int, int);
+extern void *lbl_805D63F0;
+extern const f32 TWindowCtrlMain__data_805DCC18;
+extern const f32 TWindowCtrlMain__data_805DCC1C;
+extern const f32 TWindowCtrlMain__data_805DCC20;
+extern const f32 lbl_805DCC24;
+extern const f32 lbl_805DCC30;
+extern const f32 lbl_805DCC34;
+extern const f32 lbl_805DCC38;
+extern const f32 lbl_805DCC3C;
+extern const f32 lbl_805DCC40;
+extern const f32 lbl_805DCC44;
+extern const f32 lbl_805DCC48;
+extern const f32 lbl_805DCC4C;
+extern const f32 lbl_805DCC50;
+extern const f32 lbl_805DCC54;
 
 void TWindowCtrlMain__sub_8024CB7C() {
     TWindowCtrlMain__data_805D6400 |= 1;
@@ -124,5 +155,132 @@ s32 is_window_display_enabled(void) {
 bool TWindowCtrlMain__sub_8024CE58(void) {
     return TWindowCtrlMain__data_805D6408 != 0;
 }
+
+#pragma push
+#pragma fp_contract on
+void draw_menu_backdrop_gradients(s32 viewport_index) {
+    Vec2_8024CE68 verts[4];
+    Quad_8024CE68 q;
+    Poly_8024CE68 poly;
+    u32 colors[4];
+    Poly_8024CE68 line;
+    Vec2_8024CE68 lverts[2];
+    u32 lcolors[2];
+    WindowControlState *s;
+    f32 alpha;
+    s32 a;
+    f32 y;
+    u32 c;
+
+    s = get_window_control_state(viewport_index);
+    alpha = s->field08;
+    if (alpha <= 0.0f) {
+        return;
+    }
+    poly.verts = verts;
+    poly.colors = colors;
+    poly.flags = 0;
+    poly.count = 4;
+    colors[0] = 0xFF000000;
+    colors[1] = 0xFF000000;
+    colors[2] = 0xFF000000;
+    colors[3] = 0xFF000000;
+    verts[0].x = 0.0f;
+    verts[0].y = 0.0f;
+    verts[1].x = 0.5f * s->field0C;
+    verts[1].y = 0.0f;
+    verts[2].x = 0.5f * s->field0C;
+    verts[2].y = 480.0f;
+    verts[3].x = 0.0f;
+    verts[3].y = 480.0f;
+    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+
+    verts[0].x = 0.5f * s->field0C;
+    verts[0].y = 480.0f - 0.5f * (480.0f - s->field18);
+    verts[1].x = 640.0f;
+    verts[1].y = 480.0f - 0.5f * (480.0f - s->field18);
+    verts[2].x = 640.0f;
+    verts[2].y = 480.0f;
+    verts[3].x = 0.5f * s->field0C;
+    verts[3].y = 480.0f;
+    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+
+    colors[2] = 0;
+    colors[3] = 0;
+    verts[0].x = 0.5f * s->field0C;
+    verts[0].y = 0.0f;
+    verts[1].x = 0.5f * s->field0C;
+    verts[1].y = 480.0f - 0.5f * (480.0f - s->field18);
+    verts[2].x = s->field0C;
+    verts[2].y = 480.0f - 0.5f * (480.0f - s->field18);
+    verts[3].x = s->field0C;
+    verts[3].y = 0.0f;
+    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+
+    verts[0].x = 0.5f * s->field0C;
+    verts[0].y = 480.0f - 0.5f * (480.0f - s->field18);
+    verts[1].x = 640.0f;
+    verts[1].y = 480.0f - 0.5f * (480.0f - s->field18);
+    verts[2].x = 640.0f;
+    verts[2].y = s->field18;
+    verts[3].x = 0.5f * s->field0C;
+    verts[3].y = s->field18;
+    TWindowCtrlMain__sub_801E352C(&poly, 4, 22, -10.0f);
+
+    begin_screen_draw(1);
+    set_global_param__8TObjFishFi(lbl_805D63F0);
+    a = (s32)(255.0f * alpha) << 24;
+    set_draw_texture_and_color(11, a | 0xFFFFFF);
+
+    for (y = s->field18; y > 0.0f; y -= 16.0f) {
+        q.x0 = 0.0f;
+        q.y0 = y - 16.0f;
+        q.x1 = s->field0C;
+        q.y1 = y;
+        q.u0 = 0.07421875f;
+        q.v0 = 0.93359375f;
+        q.u1 = 0.13671875f;
+        q.v1 = 0.99609375f;
+        draw_textured_quad_at_depth(&q, 0.1f);
+    }
+    for (y = s->field18; y < 480.0f; y += 16.0f) {
+        q.x0 = 0.0f;
+        q.y0 = y;
+        q.x1 = 640.0f;
+        q.y1 = 16.0f + y;
+        q.u0 = 0.07421875f;
+        q.v0 = 0.93359375f;
+        q.u1 = 0.13671875f;
+        q.v1 = 0.99609375f;
+        draw_textured_quad_at_depth(&q, 0.1f);
+    }
+    q.x0 = s->field0C;
+    q.y0 = s->field18 - 16.0f;
+    q.x1 = 16.0f + s->field0C;
+    q.y1 = s->field18;
+    q.u0 = 0.00390625f;
+    q.v0 = 0.93359375f;
+    q.u1 = 0.06640625f;
+    q.v1 = 0.99609375f;
+    draw_textured_quad_at_depth(&q, 0.1f);
+    get_player__20TWindowSubStatusDispFv();
+
+    line.verts = lverts;
+    line.colors = lcolors;
+    line.flags = 0;
+    line.count = 2;
+    lcolors[1] = lcolors[0] = a | 0xEDFF;
+    lverts[0].x = s->field0C;
+    lverts[0].y = s->field10;
+    lverts[1].x = s->field0C;
+    lverts[1].y = s->field18 - 16.0f;
+    fn_801E3330(&line, 2, 4, -10.0f);
+    lverts[0].x = 16.0f + s->field0C;
+    lverts[0].y = s->field18;
+    lverts[1].x = s->field14;
+    lverts[1].y = s->field18;
+    fn_801E3330(&line, 2, 4, -10.0f);
+}
+#pragma pop
 
 }

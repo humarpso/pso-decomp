@@ -489,6 +489,7 @@ pso/enemy/TObjEneRecon_8031E650.cpp
 pso/enemy/TObjEneRecon_8031E69C.cpp
 pso/enemy/TObjEneRecon_8031E708.cpp
 pso/enemy/TObjEneRecon_8031E800.cpp
+pso/enemy/TObjEneRecon_8031E88C.cpp
 pso/enemy/TObjEneRecon_8031ED80.cpp
 pso/enemy/TObjEneRecon_8031EDBC.cpp
 pso/enemy/TObjEneRecon_8031EF00.cpp
@@ -1428,6 +1429,7 @@ pso/misc/TOMineIcon02.cpp
 pso/misc/TOMineIcon03.cpp
 pso/misc/TOMineTrap.cpp
 pso/misc/TOMineTrapDisp.cpp
+pso/misc/TOMineTrapDisp_8016EDC8.cpp
 pso/misc/TOMineTrap_8016ED9C.cpp
 pso/misc/TOMonumentAncient01.cpp
 pso/misc/TOMonumentAncient01_801726D4.cpp

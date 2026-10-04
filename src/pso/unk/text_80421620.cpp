@@ -256,6 +256,29 @@ s32 TLobby__sub_8040F454(s32, s32, s32, s16);
 s32 TLobby__sub_80412CA4(void *, s16, s16, s16, s32);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p);
+M2C_UNK TLobby__sub_803F9214(void *);
+u16 TLobby__sub_803F9E84(void *);
+M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+extern u8 lbl_805C3094[];
+extern u8 lbl_805D7B1C[6];
+extern u32 lbl_805D7B4C;
+extern u32 lbl_805D7B50;
+extern u32 lbl_805D7B58;
+extern u32 lbl_805D7B60;
+s32 TLobby__sub_80423A7C(u8 *arg0);
+u16 TLobby__sub_803F9E84(void *);
+M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+extern u8 lbl_805C3094[];
+extern volatile s32 lbl_805D4820;
+extern u8 lbl_805D7B1C[6];
+extern u8 lbl_805D7B24[4];
+extern s32 lbl_805D7B28;
+extern u32 lbl_805D7B4C;
+extern u32 lbl_805D7B50;
+extern u32 lbl_805D7B58;
+s32 TLobby__sub_80423844(u8 *arg0);
 }
 
 extern "C" {
@@ -833,6 +856,123 @@ s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p) {
     OSRestoreInterrupts(intr);
     TUdpSocket__sub_803F95A4((void *) (lbl_805C1C50.value));
     return r;
+}
+
+s32 TLobby__sub_80423844(u8 *arg0) {
+    s32 m;
+    u8 *p;
+    u16 len;
+    u32 tmp;
+    TUdpSocket__sub_803F9EE4(arg0, 0, 0x5DC);
+    arg0[0] = 1;
+    arg0[1] = 1;
+    arg0[2] = 6;
+    arg0[3] = 0;
+    TLobby__sub_803F9F04(arg0 + 4, &lbl_805D7B50, 4);
+    *(u16 *)(arg0 + 0xA) = 0;
+    if (lbl_805D4820 == 4 || lbl_805D4820 == 5) {
+        *(s32 *)(arg0 + 0xC) = lbl_805D7B28;
+    }
+    TLobby__sub_803F9F04(arg0 + 0x1C, lbl_805D7B1C, 6);
+    p = arg0 + 0xEC;
+    *(s32 *)p = (*(s32 *)&lbl_805D7B4C);
+    p += 4;
+    *p++ = 0x35;
+    *p++ = 1;
+    *p++ = 3;
+    *p++ = 0x3D;
+    *p++ = 7;
+    *p++ = 1;
+    TLobby__sub_803F9F04(p, lbl_805D7B1C, 6);
+    p += 6;
+    *p++ = 0x37;
+    *p++ = 5;
+    *p++ = 1;
+    *p++ = 3;
+    *p++ = 6;
+    *p++ = 0xF;
+    *p++ = 0x1C;
+    if (lbl_805D4820 != 4 && lbl_805D4820 != 5) {
+        *p++ = 0x36;
+        *p++ = 4;
+        TLobby__sub_803F9F04(p, lbl_805D7B24, 4);
+        p += 4;
+    }
+    if (lbl_805D7B58 != 0) {
+        *p++ = 0x33;
+        *p++ = 4;
+        tmp = lbl_805D7B58;
+        TLobby__sub_803F9F04(p, &tmp, 4);
+        p += 4;
+    }
+    if (lbl_805D4820 != 4 && lbl_805D4820 != 5) {
+        *p++ = 0x32;
+        *p++ = 4;
+        TLobby__sub_803F9F04(p, &lbl_805D7B28, 4);
+        p += 4;
+    }
+    len = TLobby__sub_803F9E84(((char *)&lbl_805C3094));
+    if (len != 0) {
+        *p++ = 0xC;
+        m = len + 1;
+        *p++ = m;
+        TLobby__sub_803F9F04(p, ((char *)&lbl_805C3094), m);
+        p += m;
+    }
+    *p++ = 0xFF;
+    return p - arg0;
+}
+
+s32 TLobby__sub_80423A7C(u8 *arg0) {
+    u32 spC;
+    u8 *p;
+    u16 len;
+    s32 n;
+    TUdpSocket__sub_803F9EE4(arg0, 0, 0x5DC);
+    arg0[0] = 1;
+    arg0[1] = 1;
+    arg0[2] = 6;
+    arg0[3] = 0;
+    TLobby__sub_803F9214(&lbl_805D7B60);
+    lbl_805D7B50 = lbl_805D7B60;
+    TLobby__sub_803F9F04(arg0 + 4, &lbl_805D7B50, 4);
+    *(s16 *)(arg0 + 0xA) = 0;
+    TLobby__sub_803F9F04(arg0 + 0x1C, lbl_805D7B1C, 6);
+    p = arg0 + 0xEC;
+    *(u32 *)p = lbl_805D7B4C;
+    p += 4;
+    *p++ = 0x35;
+    *p++ = 1;
+    *p++ = 1;
+    *p++ = 0x3D;
+    *p++ = 7;
+    *p++ = 1;
+    TLobby__sub_803F9F04(p, lbl_805D7B1C, 6);
+    p += 6;
+    *p++ = 0x37;
+    *p++ = 5;
+    *p++ = 1;
+    *p++ = 3;
+    *p++ = 6;
+    *p++ = 0xF;
+    *p++ = 0x1C;
+    if (lbl_805D7B58 != 0) {
+        *p++ = 0x33;
+        *p++ = 4;
+        spC = lbl_805D7B58;
+        TLobby__sub_803F9F04(p, &spC, 4);
+        p += 4;
+    }
+    len = TLobby__sub_803F9E84(lbl_805C3094);
+    if (len != 0) {
+        *p++ = 0xC;
+        n = len + 1;
+        *p++ = n;
+        TLobby__sub_803F9F04(p, lbl_805C3094, n);
+        p += n;
+    }
+    *p++ = 0xFF;
+    return p - arg0;
 }
 
 s32 TLobby__sub_8042455C(void *a) {

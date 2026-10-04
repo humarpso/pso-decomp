@@ -19,6 +19,15 @@ struct Chal_80073738 {
     Rec_80073738 recs[4];
 };
 
+struct Rec_80073428 { s32 flag; u8 data[0x100]; };
+
+struct Chal_80073428 {
+    u8 pad0[0x270];
+    Rec_80073428 recs[4];
+};
+
+struct Slot_80073428 { s32 a; s32 slot; };
+
 extern "C" {
 extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
 void TLobby__sub_800739BC(void);
@@ -44,6 +53,28 @@ extern char lbl_805D912C[2];
 extern const f32 lbl_805D9134;
 extern const f32 lbl_805D9138;
 void TLobby__sub_80073738(void *arg0, void *arg1);
+extern RecoveredGlobal_800739BC_lbl_8048C9D8 lbl_8048C9D8;
+char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 get_layout_id__20TWindowSubStatusDispFv(void *);
+s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
+Slot_80073428 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
+s32 TLobby__sub_8006F994(s32);
+s32 get_slot_clamped__6TLobbyFv(s32);
+void split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32, s32 *, s32 *, s32 *);
+u8 *get_player_by_client_id(s32);
+int sprintf(char *, const char *, ...);
+char *strcat(char *, const char *);
+extern char lbl_804385E0[];
+extern char lbl_804385EC[];
+extern char lbl_804385F4[];
+extern char lbl_80438604[];
+extern char lbl_80438618[];
+extern s32 lbl_8048D158[];
+extern char lbl_804FF838[];
+extern char lbl_805D9128[2];
+extern char lbl_805D912C[2];
+extern char lbl_805D9130[2];
+void TAdSinglePlyChrSelectGC__sub_80073428(M2C_UNK arg0, s32 arg1);
 }
 
 extern "C" {
@@ -55,6 +86,68 @@ int is_visible__17TWindowSubComCardFPv(void* p) { return (*(u16*)((char*)p + 0x7
 typedef char RecoveredGlobal_800739BC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800739BC_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
 #define CHAL ((Chal_80073738 *)&lbl_8048C9D8)
+
+#define CHAL_80073428 ((Chal_80073428 *)&lbl_8048C9D8)
+void TAdSinglePlyChrSelectGC__sub_80073428(M2C_UNK arg0, s32 arg1) {
+    char buf2[0x18];
+    char buf1[0x10];
+    s32 h1, m1, s1;
+    s32 h2, m2, s2;
+    s32 idx;
+    s32 kind;
+    Rec_80073428 *rec;
+    s32 i;
+    u8 *data;
+    s32 t;
+    Slot_80073428 *slot;
+    s32 *p;
+    s32 sum;
+    s32 n;
+    s32 j;
+    s32 sl;
+    if (arg1 >= 3 && arg1 <= 0xB) {
+        idx = arg1 - 3;
+        kind = 0;
+    } else if (arg1 >= 0xC && arg1 <= 0x10) {
+        kind = 1;
+        idx = arg1 - 0xC;
+    }
+    sprintf(lbl_804FF838, lbl_804385E0, TQuestVmDownLoadServer__sub_8006EF6C(0x53), idx + 1, 0xFF);
+    for (i = 0, rec = CHAL_80073428->recs; i < 4; i++, rec++) {
+        if (rec->flag != 0) {
+            strcat(lbl_804FF838, (char *)(get_player_by_client_id(i) + 0x85C));
+            strcat(lbl_804FF838, lbl_805D9128);
+            data = rec->data;
+            slot = TWindowSubStatusDisp__sub_8006F134(data, kind);
+            t = TLobby__sub_8006F994(TWindowSubStatusDisp__sub_8006F0D8(data, kind)[idx]);
+            if (t == 0) {
+                strcat(lbl_804FF838, lbl_804385EC);
+                strcat(lbl_804FF838, TQuestVmDownLoadServer__sub_8006EF6C(0x51));
+                strcat(lbl_804FF838, lbl_805D912C);
+            } else {
+                if (get_slot_clamped__6TLobbyFv(slot->slot) == 0) {
+                    strcat(lbl_804FF838, lbl_804385F4);
+                } else {
+                    p = TWindowSubStatusDisp__sub_8006F0D8(data, kind);
+                    sum = 0;
+                    n = ((s32 (*)(s32))get_layout_id__20TWindowSubStatusDispFv)(kind);
+                    for (j = 0; j < n; j++, p++) {
+                        sum += TLobby__sub_8006F994(*p);
+                    }
+                    sl = get_slot_clamped__6TLobbyFv(slot->slot);
+                    split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(sum, &h1, &m1, &s1);
+                    sprintf(buf2, lbl_80438604, h1, m1, s1, lbl_8048D158[sl]);
+                    strcat(lbl_804FF838, buf2);
+                }
+                strcat(lbl_804FF838, lbl_805D9130);
+                split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(t, &h2, &m2, &s2);
+                sprintf(buf1, lbl_80438618, h2, m2, s2);
+                strcat(lbl_804FF838, buf1);
+            }
+        }
+    }
+}
+
 void TLobby__sub_80073738(void *arg0, void *arg1) {
     char tmp[32];
     s32 n;
