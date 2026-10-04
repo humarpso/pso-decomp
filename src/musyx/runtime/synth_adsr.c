@@ -120,10 +120,10 @@ s32 salChangeADSRState(void *a0) {
 }
 #undef arg0
 
-void adsrSetup(u8 *arg0) {
+u32 adsrSetup(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; };
     ((Fields_arg0*)arg0)->field_1 = 0;
-    salChangeADSRState((void *)(arg0));
+    return salChangeADSRState((void *)(arg0));
 }
 #define dspScale2IndexTab lbl_804F68DC
 #pragma push

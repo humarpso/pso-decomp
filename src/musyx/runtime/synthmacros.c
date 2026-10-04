@@ -569,7 +569,7 @@ typedef struct ADSR_803AF634 {
 } ADSR_803AF634;
 s32 dataGetCurve(s16 arg0);
 u32 adsrConvertTimeCents(s32 arg0);
-void adsrSetup(u8 *arg0);
+u32 adsrSetup(u8 *arg0);
 extern u8 lbl_804F68DC[];
 
 #pragma push
