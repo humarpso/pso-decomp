@@ -45,6 +45,27 @@ struct Info_800703D0 {
     Blk14_800703D0 f;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct M2CCopy_8 { u32 w[2]; };
+
+struct M2CCopy_1C4 { u32 a; struct { u32 w[0x70]; } b; };
+
+struct M2CCopy_10 { u8 bytes[0x10]; };
+
+struct M2CCopy_14 { u8 bytes[0x14]; };
+
+struct M2CCopy_18 { u8 bytes[0x18]; };
+
+struct M2CCopy_50 { u8 bytes[0x50]; };
+
+struct M2CCopy_54 { u8 bytes[0x54]; };
+
+struct M2CCopy_1C0 { u8 bytes[0x1c0]; };
+
+struct M2CCopy_410 { u8 bytes[0x410]; };
+
 extern "C" {
 s32 get_card_window__17TWindowSubComCardFUi(u32);
 extern M2C_UNK lbl_8048C9D8[];
@@ -74,6 +95,7 @@ extern M2C_UNK lbl_8048C9D8[];
 extern s32 tl_07;
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
+void TLobby__sub_800707F4(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -243,6 +265,38 @@ void TLobby__sub_80070600(O_80070600 *self) {
         create__14TObjBagWarnWinFPv(tl_07);
         self->x1c = 1;
     }
+}
+void TLobby__sub_800707F4(u8 *arg0, u8 *arg1) {
+    u8 *temp_r6;
+    u8 *temp_r8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0xC) = (s32) M2C_FIELD(arg1, s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x10) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
+    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
+    M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg1, s32 *, 0x20);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg1, s32 *, 0x24);
+    M2C_FIELD(arg0, s32 *, 0x28) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
+    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x2C);
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
+    *(M2CCopy_10 *)((s32) arg0 + 0x38) = *(const M2CCopy_10 *)((s32) arg1 + 0x38);
+    M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(arg1, s32 *, 0x48);
+    M2C_FIELD(arg0, s32 *, 0x4C) = (s32) M2C_FIELD(arg1, s32 *, 0x4C);
+    *(M2CCopy_8 *)((s32) arg0 + 0x50) = *(const M2CCopy_8 *)((s32) arg1 + 0x50);
+    {
+        const M2CCopy_1C4 *src = (const M2CCopy_1C4 *)(arg1 + 0x58);
+        M2CCopy_1C4 *dst = (M2CCopy_1C4 *)(arg0 + 0x58);
+        *dst = *src;
+    }
+    temp_r8 = (u8 *)(arg0 + 0x218);
+    temp_r6 = (u8 *)(arg1 + 0x218);
+    *(M2CCopy_54 *)((s32) temp_r8 + 4) = *(const M2CCopy_54 *)((s32) temp_r6 + 4);
+    *(M2CCopy_410 *)((s32) (arg0 + 0x26C) + 4) = *(const M2CCopy_410 *)((s32) (arg1 + 0x26C) + 4);
+    *(M2CCopy_10 *)((s32) arg0 + 0x680) = *(const M2CCopy_10 *)((s32) arg1 + 0x680);
 }
 
 }

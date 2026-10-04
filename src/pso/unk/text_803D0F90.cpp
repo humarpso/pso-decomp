@@ -30,6 +30,21 @@ struct Obj_803D158C {
     s32 x1c; s32 x20; s32 x24; void *h28; s32 x2c; s32 x30; s32 x34;
 };
 
+struct Rec_803D1A98 { s32 key; char name[0x28]; s32 a; s32 b; s32 c; s32 x38; s32 x3c; };
+
+struct Obj_803D1A98 {
+    s8 used; u8 state; u8 pad2[6]; struct SJ_803D1A98 *sj; u8 padc[8];
+    s32 x14; s32 x18; s32 head; s32 x20; s32 count; u8 pad28[0x10];
+    Rec_803D1A98 recs[16];
+};
+
+struct SJIf_803D1A98 {
+    void *f[9];
+    s32 (*GetNumData)(struct SJ_803D1A98 *, s32);
+};
+
+struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
+
 extern "C" {
 void TLobby__sub_803D0DEC(const char *fmt, ...);
 extern char lbl_8047DCF0[];
@@ -79,6 +94,13 @@ void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 extern char lbl_8047DCF0[];
 void TLobby__sub_803D158C(Obj_803D158C *o);
+void TLobby__sub_803D0DEC(const char *fmt, ...);
+void notify_dvd_read__6TLobbyFv(void);
+void enter_lock__6TLobbyFv(void);
+extern Ent_803D1C24 lbl_80583058[];
+extern char lbl_8047DDB8[];
+extern char lbl_8047DDE4[];
+Obj_803D1A98 *TLobby__sub_803D1A98(SJ_803D1A98 *sj);
 }
 
 extern "C" {
@@ -226,6 +248,47 @@ void TLobby__sub_803D158C(Obj_803D158C *o) {
     }
     ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lk0);
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Obj_803D1A98 *find_free_803D1A98(void) {
+    s32 i;
+    Obj_803D1A98 *o = 0;
+    for (i = 0; i < 16; i++) {
+        if ((s8)lbl_80583058[i].state == 0) {
+            o = (Obj_803D1A98 *)&lbl_80583058[i];
+            break;
+        }
+    }
+    return o;
+}
+Obj_803D1A98 *TLobby__sub_803D1A98(SJ_803D1A98 *sj) {
+    u8 lk[4];
+    s32 i;
+    Obj_803D1A98 *o;
+    if (sj == 0) {
+        TLobby__sub_803D0DEC(lbl_8047DDB8);
+        return 0;
+    }
+    ((void (*)(void *))enter_lock__6TLobbyFv)(lk);
+    o = find_free_803D1A98();
+    if (o == 0) {
+        TLobby__sub_803D0DEC(lbl_8047DDE4);
+    } else {
+        o->sj = sj;
+        o->state = 0;
+        o->x18 = sj->vt->GetNumData(sj, 0) + sj->vt->GetNumData(sj, 1);
+        o->x14 = (o->x18 * 8) / 10;
+        for (i = 0; i < 16; i++) {
+            o->recs[i].x38 = 0;
+        }
+        o->used = 1;
+    }
+    ((void (*)(void *))notify_dvd_read__6TLobbyFv)(lk);
+    return o;
+}
+#pragma pop
 
 void TLobby__sub_803D1C24(void) {
     u8 lock[8];
