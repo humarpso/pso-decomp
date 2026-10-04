@@ -44,6 +44,7 @@ force_active:
   - GenerateNextTrackEvent
   - GetPublicId
   - GetStreamValue
+  - HandleDepopVoice
   - HandleEvent
   - HandleMasterTrack
   - HandleNotes
@@ -62,6 +63,7 @@ force_active:
   - ScanIDList
   - ScanIDListReverse
   - SetFXParameters
+  - SortVoices
   - StartContinousEmitters
   - StartPause
   - TAdMultiChgGameModeGC__sub_8036E49C
@@ -535,7 +537,10 @@ force_active:
   - run_task__9TSaveChCrFv
   - salCallback
   - salChangeADSRState
+  - salCheckVolErrorAndResetDelta
   - salGetStartDelay
+  - salInitHRTFBuffer
+  - salSynthSendMessage
   - send_partner_attack_stage_request
   - seqCrossFade
   - seqFreeKeyOffNote

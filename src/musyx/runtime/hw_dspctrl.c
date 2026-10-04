@@ -21,6 +21,22 @@ extern "C" {
 
 Rec_803B59E4 lbl_805663D8[8];
 
+u32 lbl_805D7458;
+u16 *lbl_805D745C;
+u16 *lbl_805D7460;
+u16 lbl_805D7464;
+u16 *lbl_805D7468;
+u16 *lbl_805D746C;
+u16 *lbl_805D7470;
+u16 lbl_805D7474;
+u16 *lbl_805D7478;
+u32 lbl_805D747C;
+s32 lbl_805D7480;
+s32 *lbl_805D7484;
+void *lbl_805D7488;
+DSPvoice_803B5500 *lbl_805D748C;
+s32 (*lbl_805D7490)(s32, s32);
+
 #define dspStudio lbl_805663D8
 #define salNumVoices lbl_805D74C5
 #define salMaxStudioNum lbl_805D74C4
