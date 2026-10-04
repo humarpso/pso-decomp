@@ -751,6 +751,7 @@ pso/boss/TBoss4Uro_8005C49C.cpp:
 
 pso/boss/TBoss4Zako_8005C9BC.cpp:
 	.text       start:0x8005C9BC end:0x8005CF10
+	.sdata2     start:0x805D8D24 end:0x805D8D28
 
 pso/boss/TBoss4Uro_8005CF10.cpp:
 	.text       start:0x8005CF10 end:0x8005CF14

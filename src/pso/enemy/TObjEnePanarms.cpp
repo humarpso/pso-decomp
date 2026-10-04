@@ -6,6 +6,25 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Stack_800E0D1C {
+    f32 sp8;
+    f32 spC;
+    f32 sp10;
+};
+
+extern "C" {
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+int set_field_b8__14TObjEnePanarmsFPvs(void*, int);
+s32 TObjEnePanarms__sub_800DFB44(s32);
+M2C_UNK TObjEnePanarms__sub_800E1C98(void *, M2C_UNK);
+u8 check_can_attack__14TObjEnePanarmsFPv(void *arg0);
+s32 angle_diff_s16(s32, s32);
+s32 vec3_add_to(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
+extern const f32 TObjEnePanarms__data_805DA530;
+void TObjEnePanarms__sub_800E0D1C(u8 *arg0);
+}
+
 extern "C" {
 
 struct Stack_800DFC18
@@ -870,6 +889,42 @@ void TObjEnePanarms__sub_800E0CB0(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 1);
     set_field_b8__14TObjEnePanarmsFPvs((void*)((void *) (arg0)), (int)((int) (8)));
 }
+
+#pragma push
+#pragma fp_contract on
+void TObjEnePanarms__sub_800E0D1C(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800E0D1C, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800E0D1C, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800E0D1C, sp10) == 0x8) ? 1 : -1];
+    Stack_800E0D1C stack;
+    f32 temp_f1;
+    f32 temp_f2;
+    f32 temp_f31;
+    s32 temp_r0;
+    if (((s32 (*)(void *))check_can_attack__14TObjEnePanarmsFPv)(arg0) != 0) {
+        TObjEnePanarms__sub_800E1C98((void *) (arg0), (int) (0x10));
+        return;
+    }
+    if (TObjEnePanarms__sub_800DFB44((int) (M2C_FIELD(arg0, s32 *, 0x3A0))) != 0) {
+        TObjEnePanarms__sub_800E1C98((void *) (arg0), (int) (2));
+        return;
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x3B4) - 5;
+    if (temp_r0 > 0) {
+        temp_f31 = TObjEnePanarms__data_805DA530 / (f32) temp_r0;
+        VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x38C));
+        subtract_vector((void *) (&stack.sp8), (void *) (arg0 + 0x38));
+        stack.sp8 *= temp_f31;
+        stack.spC *= temp_f31;
+        stack.sp10 *= temp_f31;
+        vec3_add_to((void *) (arg0 + 0x38), (void *) (&stack.sp8));
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) ((temp_f31 * (f32) angle_diff_s16((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x398)))) + (f32) M2C_FIELD(arg0, s32 *, 0x60));
+    } else if (temp_r0 == 0) {
+        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
+    }
+    M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3B4) - 1);
+}
+#pragma pop
 
 void TObjEnePanarms__sub_800E0E88(u8 *arg0) {
     u8 *temp_r6;

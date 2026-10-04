@@ -5,6 +5,20 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef s32 M2C_UNK;
+
+struct Ent_80272CB0 {
+    u16 type;
+    u16 id;
+    u8 name[0x1C];
+};
+
+struct List_80272CB0 {
+    u8 pad0;
+    u8 count;
+    u8 pad2[2];
+    Ent_80272CB0 ents[1];
+};
+
 extern "C" {
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
@@ -38,6 +52,19 @@ M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
 s32 get_window_layout_position(M2C_UNK);
 s32 TWindowSubComCard__sub_80273004(void);
+void *get_message_10__20TWindowSubStatusDispFPv(int);
+s32 open_hard_keyboard__6TLobbyFPv(void *);
+u8 *get_card_window__17TWindowSubComCardFUi(u32);
+s32 TWindowSubComCard__sub_802491C4(s32, void *, s32);
+void TWindowSubComCard__sub_802685C4(void *, u32);
+void update_next_entry__17TWindowSubComCardFPviii(s32, void *, void *, u32);
+void create_sub_window__20TWindowChoiceSettingFPvi(s32, void *);
+s32 get_window_layout_position(M2C_UNK);
+void *TWindowSubComCard__sub_80272034(void *, void *, s32);
+void get_message_10__17TWindowSubComCardFPvPv(void *p, void *a1);
+void set_flag_10__17TWindowSubComCardFPv(s32);
+extern u8 lbl_8044F6BC[];
+s32 TWindowSubComCard__sub_80272CB0(u8 *arg0);
 }
 
 extern "C" {
@@ -164,6 +191,42 @@ s32 TWindowSubComCard__sub_80272994(void) {
 void TWindowSubComCard__sub_80272A64(void) {
     set_window_mode_4__6TLobbyFPvii((M2C_UNK)(get_window_layout_position((M2C_UNK)(0x8f))), (M2C_UNK *)(lbl_8044F6C4), (M2C_UNK)(1));
 }
+
+typedef void *(*GetMsg_80272CB0)(void *, void *);
+s32 TWindowSubComCard__sub_80272CB0(u8 *arg0) {
+    s32 i;
+    u8 *card;
+    u16 id;
+    s32 n;
+    s32 idx;
+    s32 hard;
+    s32 w;
+    Ent_80272CB0 *e;
+    List_80272CB0 *l;
+    card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
+    hard = open_hard_keyboard__6TLobbyFPv(*(void **)(arg0 + 0x20));
+    w = TWindowSubComCard__sub_802491C4(get_window_layout_position(0x8C), lbl_8044F6BC, 6);
+    create_sub_window__20TWindowChoiceSettingFPvi(w, get_message_10__20TWindowSubStatusDispFPv(0x6D));
+    update_next_entry__17TWindowSubComCardFPviii(w, get_message_10__20TWindowSubStatusDispFPv(0x6D), ((GetMsg_80272CB0)get_message_10__17TWindowSubComCardFPvPv)(arg0, (void *)hard), 0);
+    l = *(List_80272CB0 **)(arg0 + 0x58);
+    idx = -1;
+    n = l->count;
+    e = l->ents;
+    for (i = 0; i < n; i++, e++) {
+        if (e->type == 0) {
+            idx++;
+            if (e->id >= 500) {
+                update_next_entry__17TWindowSubComCardFPviii(w, e->name, TWindowSubComCard__sub_80272034(arg0, card + 0x22EC, idx), e->id);
+                if (hard != 0) {
+                    TWindowSubComCard__sub_802685C4((void *)w, e->id);
+                }
+            }
+        }
+    }
+    set_flag_10__17TWindowSubComCardFPv(w);
+    return w;
+}
+
 void TWindowSubComCard__sub_80272EBC(void) {
     set_window_mode_4__6TLobbyFPvii((M2C_UNK)(get_window_layout_position((M2C_UNK)(0x80))), (M2C_UNK *)(lbl_8044F6AC), (M2C_UNK)(1));
 }
