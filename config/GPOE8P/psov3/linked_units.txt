@@ -109,6 +109,7 @@ musyx/runtime/snd_synthapi.c
 musyx/runtime/synth_ac.c
 musyx/runtime/synth_adsr.c
 musyx/runtime/synth_vsamples.c
+musyx/runtime/synthvoice.c
 os/OSCache.c
 os/OSContext.c
 os/OSError.c

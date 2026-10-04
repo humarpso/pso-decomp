@@ -23,6 +23,21 @@ static StreamBuffer_803BDCD0 aramStreamBuffers[64];
 #define lbl_8056E3DC (*(Obj_803BDCB8 *)&aramQueueHi)
 #define lbl_8056E660 ((Rec_803BE1EC *)aramStreamBuffers)
 
+void aramQueueCallback(u32 ptr) {
+    u32 i;
+    ARQRequest_803BDCD0 *arq;
+    ARAMTransferQueue_803BDCD0 *aramQueue;
+
+    arq = (ARQRequest_803BDCD0 *)ptr;
+    aramQueue = arq->priority == 1 ? &aramQueueHi : &aramQueueLo;
+    for (i = 0; i < 16; ++i) {
+        if (arq == &aramQueue->queue[i].arq && aramQueue->queue[i].callback) {
+            aramQueue->queue[i].callback(aramQueue->queue[i].user);
+        }
+    }
+    --aramQueue->valid;
+}
+
 void aramUploadData(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg) {
     Q_803BDAE4 *q;
     s32 lvl;

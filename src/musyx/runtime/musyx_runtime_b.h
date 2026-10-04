@@ -708,7 +708,7 @@ void hwSetADSR(s32 n, void *arg1, u8 mode);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32 level);
 M2C_UNK ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
-void aramQueueCallback(void);
+void aramQueueCallback(u32 ptr);
 extern AramQueues_803BDCD0 lbl_8056E158;
 extern Obj_803BDCB8 lbl_8056E3DC;
 void aramUploadData(u8 *src, u32 dst, u32 len, s32 dir, void *cb, void *arg);

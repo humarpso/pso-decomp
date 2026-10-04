@@ -298,7 +298,7 @@ void mcmdStartSample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
 #pragma bool off
 #pragma opt_common_subs on
 void mcmdPlayMacro(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
-    u32 macStart(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
+    u32 macStart(u16 arg0, u8 arg1, u8 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
     s32 key;
     u32 new_child;
 
@@ -1399,7 +1399,7 @@ void macMakeInactive(Obj_803B312C *ov, s32 state) {
 
 #define HEAD (*(Voice_803B2128 **)&lbl_805D741C)
 
-u32 macStart(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
+u32 macStart(u16 arg0, u8 arg1, u8 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
                       u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15) {
     u32 macro;
     s32 flag;

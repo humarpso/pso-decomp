@@ -350,6 +350,7 @@ force_active:
   - get_floor_switch_flag
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_surface_contact_point
+  - get_vidlist
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
   - handle_equip_offer__24TShopEquipmentListWindowFv
   - handle_grid_navigation__22TWindowSubCustomSelectFPv
@@ -584,6 +585,8 @@ force_active:
   - update_trails__11TItemWeaponFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_when_camera_active__13TObjWarnChimeFPv
+  - voiceRemovePriority
+  - voiceResetLastStarted
   - vsUpdateBuffer
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data

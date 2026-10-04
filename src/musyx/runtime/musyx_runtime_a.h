@@ -2095,7 +2095,7 @@ void voiceFree(Obj_803B312C *o);
 u32 dataGetMacro(u16);
 u32 vidMakeNew(SYNTH_VOICE_SV *svoice, u32 isMaster);
 void voiceSetPriority(Voice_803B2128 *, u8);
-u32 voiceAllocate(u8, u32, u16, u8);
+u32 voiceAllocate(u8, u8, u16, u8);
 void inpResetMidiCtrl(u8, u8, u8);
 void inpResetChannelDefaults(u8, u8);
 void hwBreak(u32);
@@ -2506,7 +2506,7 @@ void TimeQueueAdd(Program_803B1DA4 *self);
 void UnYieldMacro(Ch_803B1E48 *o, u32 arg1);
 void macMakeActive(void *arg0);
 void macMakeInactive(Obj_803B312C *ov, s32 state);
-u32 macStart(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
+u32 macStart(u16 arg0, u8 arg1, u8 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7,
                       u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
 void macInit(void);
 void vidInit(void);

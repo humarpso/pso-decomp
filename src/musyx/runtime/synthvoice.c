@@ -40,7 +40,14 @@ static SYNTH_VOICELIST_V voiceList[64];
 #define lbl_80564D48 synth_last_fxstarted
 
 extern "C" {
-extern u16 lbl_805D7444;
+s32 lbl_805D7438;
+Node_803B2598 *lbl_805D743C;
+Node_803B24A0 *lbl_805D7440;
+u16 lbl_805D7444;
+u8 lbl_805D7446;
+u8 lbl_805D7447;
+u8 lbl_805D7448;
+u8 lbl_805D7449;
 }
 #define voicePrioSortRootListRoot lbl_805D7444
 #define voiceMusicRunning lbl_805D7446
@@ -315,6 +322,163 @@ void voiceSetPriority(Voice_803B2128 *svoice, u8 prio) {
     voicePrioSortVoicesRoot[prio] = v;
     svoice->pad10C[0] = prio;
     set_sound_hw_voice_priority_V(svoice->fF4 & 0xFF, ((u32)prio << 24) | (svoice->f110 >> 15));
+}
+
+#pragma pop
+
+struct Cfg_803B2CF0 { u8 pad[0x210]; u8 voiceNum; u8 maxMusic; u8 maxSFX; };
+#define synthInfo_803B2CF0 (*(Cfg_803B2CF0 *)&lbl_80557348)
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+
+u32 voiceAllocate(u8 priority, u8 maxVoices, u16 allocId, u8 fxFlag) {
+    s32 i;
+    s32 num;
+    s32 voice;
+    u16 p;
+    u32 type_alloc;
+    SYNTH_VOICELIST_V *sfv;
+
+    if (!lbl_805D73B8) {
+        if (fxFlag) {
+            type_alloc = (voiceFxRunning >= synthInfo_803B2CF0.maxSFX && synthInfo_803B2CF0.voiceNum > synthInfo_803B2CF0.maxSFX);
+
+            if (synthInfo_803B2CF0.maxSFX <= maxVoices) {
+                goto _skip_alloc;
+            }
+
+            goto _do_alloc;
+        } else {
+            type_alloc = (voiceMusicRunning >= synthInfo_803B2CF0.maxMusic && synthInfo_803B2CF0.voiceNum > synthInfo_803B2CF0.maxMusic);
+
+            if (synthInfo_803B2CF0.maxMusic <= maxVoices) {
+                goto _skip_alloc;
+            }
+
+        _do_alloc:
+            num = 0;
+            voice = -1;
+
+            p = voicePrioSortRootListRoot;
+            while (p != 0xFFFF && priority >= p && voice == -1) {
+                for (i = voicePrioSortVoicesRoot[p]; i != 0xff; i = voicePrioSortVoices[i].next) {
+                    if (allocId != SV_VOICES[i].allocId)
+                        continue;
+                    ++num;
+                    if (SV_VOICES[i].block)
+                        continue;
+
+                    if (!type_alloc || fxFlag == SV_VOICES[i].fxFlag) {
+                        if ((SV_VOICES[i].cFlags & 2))
+                            continue;
+                        if (voice != -1) {
+                            if (SV_VOICES[i].age < SV_VOICES[voice].age)
+                                voice = i;
+                        } else
+                            voice = i;
+                    }
+                }
+
+                p = voicePrioSortRootList[p].next;
+            }
+        }
+
+        if (num < maxVoices) {
+            while (p != 0xffff && num < maxVoices) {
+                i = voicePrioSortVoicesRoot[p];
+                while (i != 0xff) {
+                    if (allocId == SV_VOICES[i].allocId) {
+                        num++;
+                    }
+
+                    i = voicePrioSortVoices[i].next;
+                }
+
+                p = voicePrioSortRootList[p].next;
+            }
+
+            if (num < maxVoices) {
+            _skip_alloc:
+                voice = -1;
+                if (voiceListRoot != 0xff && type_alloc == 0) {
+                    voice = voiceListRoot;
+                    goto _update;
+                }
+
+                if (priority < voicePrioSortRootListRoot) {
+                    return -1;
+                }
+                p = voicePrioSortRootListRoot;
+
+                while (p != 0xFFFF && priority >= p && voice == -1) {
+                    for (i = voicePrioSortVoicesRoot[p]; i != 0xff; i = voicePrioSortVoices[i].next) {
+                        if (SV_VOICES[i].block != 0)
+                            continue;
+
+                        if (!type_alloc || fxFlag == SV_VOICES[i].fxFlag) {
+                            if ((SV_VOICES[i].cFlags & 2))
+                                continue;
+                            if (voice != -1) {
+                                if (SV_VOICES[voice].age > SV_VOICES[i].age)
+                                    voice = i;
+                            } else
+                                voice = i;
+                        }
+                    }
+                    p = voicePrioSortRootList[p].next;
+                }
+
+                if (voice == -1) {
+                    return 0xffffffff;
+                }
+
+            _update:
+                if (SV_VOICES_L[voice].prio > priority) {
+                    goto _fail;
+                }
+            }
+        }
+
+        if (voice == -1) {
+            goto _fail;
+        }
+
+        if (voiceList[voice].user == 1) {
+            sfv = voiceList + voice;
+            i = sfv->prev;
+
+            if (i != 0xff) {
+                voiceList[i].next = sfv->next;
+            } else {
+                voiceListRoot = sfv->next;
+            }
+
+            i = sfv->next;
+            if (i != 0xff) {
+                voiceList[i].prev = sfv->prev;
+            }
+
+            if (voice == voiceListInsert) {
+                voiceListInsert = sfv->prev;
+            }
+
+            sfv->user = 0;
+        } else if (SV_VOICES_L[voice].fxFlag) {
+            voiceFxRunning--;
+        } else {
+            voiceMusicRunning--;
+        }
+        if (fxFlag != 0) {
+            ++voiceFxRunning;
+        } else {
+            ++voiceMusicRunning;
+        }
+        return voice;
+    }
+
+_fail:
+    return -1;
 }
 
 #pragma pop

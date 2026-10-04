@@ -541,6 +541,66 @@ s32 dataRemoveFX(u16 gid) {
 #pragma bool off
 #pragma dont_inline off
 #pragma inline_depth(4)
+s32 dataInsertMacro(u16 mid, void *macroaddr) {
+    long main;
+    long pos;
+    long base;
+    long i;
+
+    hwDisableIrq();
+
+    main = mid >> 6;
+
+    if (dataMacMainTab[main].num == 0) {
+        pos = base = dataMacMainTab[main].subTabIndex = dataMacTotal;
+    } else {
+        base = dataMacMainTab[main].subTabIndex;
+        for (i = 0; i < dataMacMainTab[main].num && dataMacSubTabmem[base + i].id < mid; ++i) {
+        }
+
+        if (i < dataMacMainTab[main].num) {
+            pos = base + i;
+            if (mid == dataMacSubTabmem[pos].id) {
+                dataMacSubTabmem[pos].refCount++;
+                hwEnableIrq();
+                return 0;
+            }
+        } else {
+            pos = base + i;
+        }
+    }
+
+    if (dataMacTotal < 2048) {
+        for (i = 0; i < 512; ++i) {
+            if (dataMacMainTab[i].subTabIndex > base) {
+                dataMacMainTab[i].subTabIndex++;
+            }
+        }
+
+        i = dataMacTotal - 1;
+        for (; i >= pos; --i) {
+            dataMacSubTabmem[i + 1] = dataMacSubTabmem[i];
+        }
+
+        dataMacSubTabmem[pos].id = mid;
+        dataMacSubTabmem[pos].data = macroaddr;
+        dataMacSubTabmem[pos].refCount = 1;
+        dataMacMainTab[main].num++;
+        dataMacTotal++;
+        hwEnableIrq();
+        return 1;
+    }
+    hwEnableIrq();
+    return 0;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
 
 s32 dataRemoveMacro(u16 mid) {
     s32 main;
