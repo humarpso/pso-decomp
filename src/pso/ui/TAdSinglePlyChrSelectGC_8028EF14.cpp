@@ -28,7 +28,6 @@ extern const f32 lbl_805DD950;
 extern const f32 lbl_805DD954;
 s32 find_shape_triangle_region(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
-extern RecoveredGlobal_8029057C_lbl_804D3F74 lbl_804D3F74;
 void reset_creation_shape_set(s32 arg0);
 extern CreationHeadModelStates lbl_8051C0E8;
 extern CreationHeadModelStates lbl_8051C110[7];
@@ -90,7 +89,6 @@ M2C_UNK __dl__7TObjectFPv(void *);
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_802905D4(void *);
-extern M2C_UNK lbl_804D4054[];
 extern Slot_8028F150 lbl_8051D288[];
 extern s32 lbl_805D49B4;
 extern int lbl_805D6534;
@@ -123,7 +121,6 @@ extern int lbl_805D6534;
 extern u32 lbl_805D6538;
 extern E_8028F210 *lbl_805D6540;
 void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
-extern s32 lbl_804D3FAC[];
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend lbl_8051D268;
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
@@ -152,6 +149,495 @@ M2C_UNK TLobby__sub_803DA16C(void *);
 int set_motion_interpolation_flag(void*);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+
+extern "C" void TAdSinglePlyChrSelectGC__sub_80290088();
+extern "C" void TAdSinglePlyChrSelectGC__sub_80290194();
+extern "C" void TLobby__sub_801A1FD8();
+extern "C" void TObjPlayer__sub_80019568();
+extern "C" void TObjRoomId__sub_801A1E2C();
+extern "C" void TParticleCtrl__sub_801A2124();
+extern "C" void apply_object_set_data();
+extern "C" void classify_actor_view_detail();
+extern "C" u8 lbl_804512A0[];
+extern "C" u8 lbl_804512AC[];
+extern "C" u8 lbl_804512B8[];
+extern "C" u8 lbl_804512C4[];
+extern "C" u8 lbl_804512D0[];
+extern "C" u8 lbl_804512DC[];
+extern "C" u8 lbl_804512E8[];
+extern "C" u8 lbl_804512F4[];
+extern "C" u8 lbl_80451300[];
+extern "C" u8 lbl_8045130C[];
+extern "C" u8 lbl_80451318[];
+extern "C" u8 lbl_80451324[];
+extern "C" u8 lbl_80451330[];
+extern "C" u8 lbl_8045133C[];
+extern "C" u8 lbl_80451348[];
+extern "C" u8 lbl_80451354[];
+extern "C" u8 lbl_80451360[];
+extern "C" u8 lbl_8045136C[];
+extern "C" u8 lbl_80451378[];
+extern "C" u8 lbl_80451384[];
+extern "C" u8 lbl_80451390[];
+extern "C" u8 lbl_8045139C[];
+extern "C" u8 lbl_804513A8[];
+extern "C" u8 lbl_804513B4[];
+extern "C" u8 lbl_804513C0[];
+extern "C" u8 lbl_804513CC[];
+extern "C" u8 lbl_804513D8[];
+extern "C" u8 lbl_804513E4[];
+extern "C" u8 lbl_804513F0[];
+extern "C" u8 lbl_804513FC[];
+extern "C" u8 lbl_80451408[];
+extern "C" u8 lbl_80451414[];
+extern "C" u8 lbl_80451420[];
+extern "C" u8 lbl_8045142C[];
+extern "C" u8 lbl_80451438[];
+extern "C" u8 lbl_80451444[];
+extern "C" u8 lbl_80451450[];
+extern "C" u8 lbl_8045145C[];
+extern "C" u8 lbl_80451468[];
+extern "C" u8 lbl_80451474[];
+extern "C" u8 lbl_80451480[];
+extern "C" u8 lbl_8045148C[];
+extern "C" u8 lbl_80451498[];
+extern "C" u8 lbl_804514A4[];
+extern "C" u8 lbl_804514B0[];
+extern "C" u8 lbl_804514BC[];
+extern "C" u8 lbl_804514C8[];
+extern "C" u8 lbl_804514D4[];
+extern "C" u8 lbl_804514E0[];
+extern "C" u8 lbl_804514EC[];
+extern "C" u8 lbl_804514F8[];
+extern "C" u8 lbl_80451504[];
+extern "C" u8 lbl_80451510[];
+extern "C" u8 lbl_8045151C[];
+extern "C" u8 lbl_80451528[];
+extern "C" u8 lbl_80451534[];
+extern "C" u8 lbl_80451540[];
+extern "C" u8 lbl_8045154C[];
+extern "C" u8 lbl_80451558[];
+extern "C" u8 lbl_80451564[];
+extern "C" u8 lbl_80451570[];
+extern "C" u8 lbl_8045157C[];
+extern "C" u8 lbl_80451588[];
+extern "C" u8 lbl_80451594[];
+extern "C" u8 lbl_804515A0[];
+extern "C" u8 lbl_804515AC[];
+extern "C" u8 lbl_804515B8[];
+extern "C" u8 lbl_804515C4[];
+extern "C" u8 lbl_804515D0[];
+extern "C" u8 lbl_804515DC[];
+extern "C" u8 lbl_804515E8[];
+extern "C" u8 lbl_804515F4[];
+extern "C" u8 lbl_80451600[];
+extern "C" u8 lbl_8045160C[];
+extern "C" u8 lbl_80451618[];
+extern "C" u8 lbl_80451624[];
+extern "C" u8 lbl_80451630[];
+extern "C" u8 lbl_8045163C[];
+extern "C" u8 lbl_80451648[];
+extern "C" u8 lbl_80451654[];
+extern "C" u8 lbl_80451660[];
+extern "C" u8 lbl_8045166C[];
+extern "C" u8 lbl_80451678[];
+extern "C" u8 lbl_80451684[];
+extern "C" u8 lbl_80451690[];
+extern "C" u8 lbl_8045169C[];
+extern "C" u8 lbl_804516A8[];
+extern "C" u8 lbl_804516B4[];
+extern "C" u8 lbl_804516C0[];
+extern "C" u8 lbl_804516CC[];
+extern "C" u8 lbl_804516D8[];
+extern "C" u8 lbl_804516E4[];
+extern "C" u8 lbl_804516F0[];
+extern "C" u8 lbl_804516FC[];
+extern "C" u8 lbl_80451708[];
+extern "C" u8 lbl_80451714[];
+extern "C" u8 lbl_80451720[];
+extern "C" u8 lbl_8045172C[];
+extern "C" u8 lbl_80451738[];
+extern "C" u8 lbl_80451744[];
+extern "C" u8 lbl_80451750[];
+extern "C" u8 lbl_8045175C[];
+extern "C" u8 lbl_80451768[];
+extern "C" u8 lbl_80451774[];
+extern "C" u8 lbl_80451780[];
+extern "C" u8 lbl_8045178C[];
+extern "C" u8 lbl_80451798[];
+extern "C" u8 lbl_804517A4[];
+extern "C" u8 lbl_804517B0[];
+extern "C" u8 lbl_804517BC[];
+extern "C" u8 lbl_804517C8[];
+extern "C" u8 lbl_804517D4[];
+extern "C" u8 lbl_804517E0[];
+extern "C" u8 lbl_804517EC[];
+extern "C" u8 lbl_804517F8[];
+extern "C" u8 lbl_80451804[];
+extern "C" u8 lbl_80451810[];
+extern "C" u8 lbl_8045181C[];
+extern "C" u8 lbl_80451828[];
+extern "C" u8 lbl_80451834[];
+extern "C" u8 lbl_80451840[];
+extern "C" u8 lbl_8045184C[];
+extern "C" u8 lbl_80451858[];
+extern "C" u8 lbl_80451864[];
+extern "C" u8 lbl_80451870[];
+extern "C" u8 lbl_8045187C[];
+extern "C" u8 lbl_80451888[];
+extern "C" u8 lbl_80451894[];
+extern "C" u8 lbl_804518A0[];
+extern "C" u8 lbl_804518AC[];
+extern "C" u8 lbl_804518B8[];
+extern "C" u8 lbl_804518C4[];
+extern "C" u8 lbl_804518D0[];
+extern "C" u8 lbl_804518DC[];
+extern "C" u8 lbl_804518E8[];
+extern "C" u8 lbl_804518F4[];
+extern "C" u8 lbl_80451900[];
+extern "C" u8 lbl_8045190C[];
+extern "C" u8 lbl_80451918[];
+extern "C" u8 lbl_80451924[];
+extern "C" u8 lbl_80451930[];
+extern "C" u8 lbl_8045193C[];
+extern "C" u8 lbl_80451948[];
+extern "C" u8 lbl_80451954[];
+extern "C" u8 lbl_80451960[];
+extern "C" u8 lbl_8045196C[];
+extern "C" u8 lbl_80451978[];
+extern "C" u8 lbl_80451984[];
+extern "C" u8 lbl_80451990[];
+extern "C" u8 lbl_8045199C[];
+extern "C" u8 lbl_804519A8[];
+extern "C" u8 lbl_804519B4[];
+extern "C" u8 lbl_804519C0[];
+extern "C" u8 lbl_804519CC[];
+extern "C" u8 lbl_804519D8[];
+extern "C" u8 lbl_804519E4[];
+extern "C" u8 lbl_804519F0[];
+extern "C" u8 lbl_804519FC[];
+extern "C" u8 lbl_80451A08[];
+extern "C" u8 lbl_80451A14[];
+extern "C" u8 lbl_80451A20[];
+extern "C" u8 lbl_80451A2C[];
+extern "C" u8 lbl_80451A38[];
+extern "C" u8 lbl_80451A44[];
+extern "C" u8 lbl_80451A50[];
+extern "C" u8 lbl_80451A5C[];
+extern "C" u8 lbl_80451A68[];
+extern "C" u8 lbl_80451A74[];
+extern "C" u8 lbl_80451A80[];
+extern "C" u8 lbl_80451A8C[];
+extern "C" u8 lbl_80451A98[];
+extern "C" u8 lbl_80451AA4[];
+extern "C" u8 lbl_80451AB0[];
+extern "C" u8 lbl_80451ABC[];
+extern "C" u8 lbl_80451AC8[];
+extern "C" u8 lbl_80451AD4[];
+extern "C" u8 lbl_80451AE0[];
+extern "C" u8 lbl_80451AEC[];
+extern "C" u8 lbl_80451AF8[];
+extern "C" u8 lbl_80451B04[];
+extern "C" u8 lbl_80451B10[];
+extern "C" u8 lbl_80451B1C[];
+extern "C" u8 lbl_80451B28[];
+extern "C" u8 lbl_80451B34[];
+extern "C" u8 lbl_80451B40[];
+extern "C" u8 lbl_80451B4C[];
+extern "C" u8 lbl_80451B58[];
+extern "C" u8 lbl_80451B64[];
+extern "C" u8 lbl_80451B70[];
+extern "C" u8 lbl_80451B7C[];
+extern "C" u8 lbl_80451B88[];
+extern "C" u8 lbl_80451B94[];
+extern "C" u8 lbl_80451BA0[];
+extern "C" u8 lbl_80451BAC[];
+extern "C" u8 lbl_80451BB8[];
+extern "C" u8 lbl_80451BC4[];
+extern "C" u8 lbl_80451BD0[];
+extern "C" u8 lbl_80451BDC[];
+extern "C" u8 lbl_80451BE8[];
+extern "C" u8 lbl_80451BF4[];
+extern "C" u8 lbl_80451C00[];
+extern "C" u8 lbl_80451C0C[];
+extern "C" u8 lbl_80451C18[];
+extern "C" u8 lbl_80451C24[];
+extern "C" u8 lbl_80451C30[];
+extern "C" u8 lbl_80451C3C[];
+extern "C" u8 lbl_80451C48[];
+extern "C" u8 lbl_80451C54[];
+extern "C" u8 lbl_80451C60[];
+extern "C" u8 lbl_80451C6C[];
+extern "C" u8 lbl_80451C78[];
+extern "C" u8 lbl_80451C84[];
+extern "C" u8 lbl_80451C90[];
+extern "C" u8 lbl_80451C9C[];
+extern "C" u8 lbl_80451CA8[];
+extern "C" u8 lbl_80451CB4[];
+extern "C" u8 lbl_805D3B70[];
+extern "C" u8 lbl_805D3B74[];
+extern "C" u8 lbl_805D3B78[];
+extern "C" u8 lbl_805D3B7C[];
+extern "C" u8 lbl_805D3B80[];
+extern "C" u8 lbl_805D3B84[];
+extern "C" u8 lbl_805D3B88[];
+extern "C" u8 lbl_805D3B8C[];
+extern "C" u8 lbl_805D3B90[];
+extern "C" u8 lbl_805D3B94[];
+extern "C" u8 lbl_805D3B98[];
+extern "C" u8 lbl_805D3B9C[];
+extern "C" u8 lbl_805D3BA0[];
+extern "C" u8 lbl_805D3BA4[];
+extern "C" u8 lbl_805D3BA8[];
+extern "C" u8 lbl_805D3BAC[];
+extern "C" u8 lbl_805D3BB0[];
+extern "C" u8 lbl_805D3BB4[];
+extern "C" u8 lbl_805D3BB8[];
+extern "C" void render_shadows__7TObjectFv();
+extern "C" void reset_movement__10TObjPlayerFPv();
+extern "C" void update_object_view_visibility();
+extern void *lbl_804D3A08[14];
+extern void *lbl_804D3A40[4];
+extern void *lbl_804D3A50[13];
+extern void *lbl_804D3A84[4];
+extern void *lbl_804D3A94[7];
+extern void *lbl_804D3AB0[4];
+extern void *lbl_804D3AC0[23];
+extern void *lbl_804D3B1C[4];
+extern void *lbl_804D3B2C[7];
+extern void *lbl_804D3B48[4];
+extern void *lbl_804D3B58[7];
+extern void *lbl_804D3B74[4];
+extern void *lbl_804D3B84[23];
+extern void *lbl_804D3BE0[4];
+extern void *lbl_804D3BF0[23];
+extern void *lbl_804D3C4C[4];
+extern void *lbl_804D3C5C[23];
+extern void *lbl_804D3CB8[4];
+extern void *lbl_804D3CC8[7];
+extern void *lbl_804D3CE4[4];
+extern void *lbl_804D3CF4[23];
+extern void *lbl_804D3D50[4];
+extern void *lbl_804D3D60[23];
+extern void *lbl_804D3DBC[4];
+extern void *lbl_804D3DCC[4];
+extern void *lbl_804D3DDC[4];
+extern void *lbl_804D3DEC[4];
+extern void *lbl_804D3DFC[4];
+extern void *lbl_804D3E0C[3];
+extern void *lbl_804D3E18[4];
+extern void *lbl_804D3E28[3];
+extern void *lbl_804D3E34[4];
+extern void *lbl_804D3E44[3];
+extern void *lbl_804D3E50[4];
+extern void *lbl_804D3E60[3];
+extern void *lbl_804D3E6C[4];
+extern void *lbl_804D3E7C[3];
+extern void *lbl_804D3E88[4];
+void *lbl_804D3A08[14] = {
+    (void *)&lbl_804512A0, (void *)&lbl_804512AC, (void *)&lbl_804512B8, (void *)&lbl_804512C4,
+    (void *)&lbl_804512D0, (void *)&lbl_804512DC, (void *)&lbl_804512E8, (void *)&lbl_804512F4,
+    (void *)&lbl_80451300, (void *)&lbl_8045130C, (void *)&lbl_80451318, (void *)&lbl_80451324,
+    (void *)&lbl_80451330, (void *)0x0,
+};
+void *lbl_804D3A40[4] = {
+    (void *)&lbl_8045133C, (void *)&lbl_804D3A08, (void *)&lbl_805D3B70, (void *)0xd0000,
+};
+void *lbl_804D3A50[13] = {
+    (void *)&lbl_80451348, (void *)&lbl_80451354, (void *)&lbl_80451360, (void *)&lbl_8045136C,
+    (void *)&lbl_80451378, (void *)&lbl_80451384, (void *)&lbl_80451390, (void *)&lbl_8045139C,
+    (void *)&lbl_804513A8, (void *)&lbl_804513B4, (void *)&lbl_804513C0, (void *)&lbl_804513CC,
+    (void *)0x0,
+};
+void *lbl_804D3A84[4] = {
+    (void *)&lbl_804513D8, (void *)&lbl_804D3A50, (void *)&lbl_805D3B74, (void *)0xc0000,
+};
+void *lbl_804D3A94[7] = {
+    (void *)&lbl_804513E4, (void *)&lbl_804513F0, (void *)&lbl_804513FC, (void *)&lbl_80451408,
+    (void *)&lbl_80451414, (void *)&lbl_80451420, (void *)0x0,
+};
+void *lbl_804D3AB0[4] = {
+    (void *)&lbl_8045142C, (void *)&lbl_804D3A94, (void *)&lbl_805D3B78, (void *)0x60000,
+};
+void *lbl_804D3AC0[23] = {
+    (void *)&lbl_80451438, (void *)&lbl_80451444, (void *)&lbl_80451450, (void *)&lbl_8045145C,
+    (void *)&lbl_80451468, (void *)&lbl_80451474, (void *)&lbl_80451480, (void *)&lbl_8045148C,
+    (void *)&lbl_80451498, (void *)&lbl_804514A4, (void *)&lbl_804514B0, (void *)&lbl_804514BC,
+    (void *)&lbl_804514C8, (void *)&lbl_804514D4, (void *)&lbl_804514E0, (void *)&lbl_804514EC,
+    (void *)&lbl_804514F8, (void *)&lbl_80451504, (void *)&lbl_80451510, (void *)&lbl_8045151C,
+    (void *)&lbl_80451528, (void *)&lbl_80451534, (void *)0x0,
+};
+void *lbl_804D3B1C[4] = {
+    (void *)&lbl_80451540, (void *)&lbl_804D3AC0, (void *)&lbl_805D3B7C, (void *)0x160000,
+};
+void *lbl_804D3B2C[7] = {
+    (void *)&lbl_8045154C, (void *)&lbl_80451558, (void *)&lbl_80451564, (void *)&lbl_80451570,
+    (void *)&lbl_8045157C, (void *)&lbl_80451588, (void *)0x0,
+};
+void *lbl_804D3B48[4] = {
+    (void *)&lbl_80451594, (void *)&lbl_804D3B2C, (void *)&lbl_805D3B80, (void *)0x60000,
+};
+void *lbl_804D3B58[7] = {
+    (void *)&lbl_804515A0, (void *)&lbl_804515AC, (void *)&lbl_804515B8, (void *)&lbl_804515C4,
+    (void *)&lbl_804515D0, (void *)&lbl_804515DC, (void *)0x0,
+};
+void *lbl_804D3B74[4] = {
+    (void *)&lbl_804515E8, (void *)&lbl_804D3B58, (void *)&lbl_805D3B84, (void *)0x60000,
+};
+void *lbl_804D3B84[23] = {
+    (void *)&lbl_804515F4, (void *)&lbl_80451600, (void *)&lbl_8045160C, (void *)&lbl_80451618,
+    (void *)&lbl_80451624, (void *)&lbl_80451630, (void *)&lbl_8045163C, (void *)&lbl_80451648,
+    (void *)&lbl_80451654, (void *)&lbl_80451660, (void *)&lbl_8045166C, (void *)&lbl_80451678,
+    (void *)&lbl_80451684, (void *)&lbl_80451690, (void *)&lbl_8045169C, (void *)&lbl_804516A8,
+    (void *)&lbl_804516B4, (void *)&lbl_804516C0, (void *)&lbl_804516CC, (void *)&lbl_804516D8,
+    (void *)&lbl_804516E4, (void *)&lbl_804516F0, (void *)0x0,
+};
+void *lbl_804D3BE0[4] = {
+    (void *)&lbl_804516FC, (void *)&lbl_804D3B84, (void *)&lbl_805D3B88, (void *)0x160000,
+};
+void *lbl_804D3BF0[23] = {
+    (void *)&lbl_80451708, (void *)&lbl_80451714, (void *)&lbl_80451720, (void *)&lbl_8045172C,
+    (void *)&lbl_80451738, (void *)&lbl_80451744, (void *)&lbl_80451750, (void *)&lbl_8045175C,
+    (void *)&lbl_80451768, (void *)&lbl_80451774, (void *)&lbl_80451780, (void *)&lbl_8045178C,
+    (void *)&lbl_80451798, (void *)&lbl_804517A4, (void *)&lbl_804517B0, (void *)&lbl_804517BC,
+    (void *)&lbl_804517C8, (void *)&lbl_804517D4, (void *)&lbl_804517E0, (void *)&lbl_804517EC,
+    (void *)&lbl_804517F8, (void *)&lbl_80451804, (void *)0x0,
+};
+void *lbl_804D3C4C[4] = {
+    (void *)&lbl_80451810, (void *)&lbl_804D3BF0, (void *)&lbl_805D3B8C, (void *)0x160000,
+};
+void *lbl_804D3C5C[23] = {
+    (void *)&lbl_8045181C, (void *)&lbl_80451828, (void *)&lbl_80451834, (void *)&lbl_80451840,
+    (void *)&lbl_8045184C, (void *)&lbl_80451858, (void *)&lbl_80451864, (void *)&lbl_80451870,
+    (void *)&lbl_8045187C, (void *)&lbl_80451888, (void *)&lbl_80451894, (void *)&lbl_804518A0,
+    (void *)&lbl_804518AC, (void *)&lbl_804518B8, (void *)&lbl_804518C4, (void *)&lbl_804518D0,
+    (void *)&lbl_804518DC, (void *)&lbl_804518E8, (void *)&lbl_804518F4, (void *)&lbl_80451900,
+    (void *)&lbl_8045190C, (void *)&lbl_80451918, (void *)0x0,
+};
+void *lbl_804D3CB8[4] = {
+    (void *)&lbl_80451924, (void *)&lbl_804D3C5C, (void *)&lbl_805D3B90, (void *)0x160000,
+};
+void *lbl_804D3CC8[7] = {
+    (void *)&lbl_80451930, (void *)&lbl_8045193C, (void *)&lbl_80451948, (void *)&lbl_80451954,
+    (void *)&lbl_80451960, (void *)&lbl_8045196C, (void *)0x0,
+};
+void *lbl_804D3CE4[4] = {
+    (void *)&lbl_80451978, (void *)&lbl_804D3CC8, (void *)&lbl_805D3B94, (void *)0x60000,
+};
+void *lbl_804D3CF4[23] = {
+    (void *)&lbl_80451984, (void *)&lbl_80451990, (void *)&lbl_8045199C, (void *)&lbl_804519A8,
+    (void *)&lbl_804519B4, (void *)&lbl_804519C0, (void *)&lbl_804519CC, (void *)&lbl_804519D8,
+    (void *)&lbl_804519E4, (void *)&lbl_804519F0, (void *)&lbl_804519FC, (void *)&lbl_80451A08,
+    (void *)&lbl_80451A14, (void *)&lbl_80451A20, (void *)&lbl_80451A2C, (void *)&lbl_80451A38,
+    (void *)&lbl_80451A44, (void *)&lbl_80451A50, (void *)&lbl_80451A5C, (void *)&lbl_80451A68,
+    (void *)&lbl_80451A74, (void *)&lbl_80451A80, (void *)0x0,
+};
+void *lbl_804D3D50[4] = {
+    (void *)&lbl_80451A8C, (void *)&lbl_804D3CF4, (void *)&lbl_805D3B98, (void *)0x160000,
+};
+void *lbl_804D3D60[23] = {
+    (void *)&lbl_80451A98, (void *)&lbl_80451AA4, (void *)&lbl_80451AB0, (void *)&lbl_80451ABC,
+    (void *)&lbl_80451AC8, (void *)&lbl_80451AD4, (void *)&lbl_80451AE0, (void *)&lbl_80451AEC,
+    (void *)&lbl_80451AF8, (void *)&lbl_80451B04, (void *)&lbl_80451B10, (void *)&lbl_80451B1C,
+    (void *)&lbl_80451B28, (void *)&lbl_80451B34, (void *)&lbl_80451B40, (void *)&lbl_80451B4C,
+    (void *)&lbl_80451B58, (void *)&lbl_80451B64, (void *)&lbl_80451B70, (void *)&lbl_80451B7C,
+    (void *)&lbl_80451B88, (void *)&lbl_80451B94, (void *)0x0,
+};
+void *lbl_804D3DBC[4] = {
+    (void *)&lbl_80451BA0, (void *)&lbl_804D3D60, (void *)&lbl_805D3B9C, (void *)0x160000,
+};
+void *lbl_804D3DCC[4] = {
+    (void *)&lbl_80451BAC, (void *)&lbl_80451BB8, (void *)&lbl_80451BC4, (void *)0x0,
+};
+void *lbl_804D3DDC[4] = {
+    (void *)&lbl_80451BD0, (void *)&lbl_804D3DCC, (void *)&lbl_805D3BA0, (void *)0x30000,
+};
+void *lbl_804D3DEC[4] = {
+    (void *)&lbl_80451BDC, (void *)&lbl_80451BE8, (void *)&lbl_80451BF4, (void *)0x0,
+};
+void *lbl_804D3DFC[4] = {
+    (void *)&lbl_80451C00, (void *)&lbl_804D3DEC, (void *)&lbl_805D3BA4, (void *)0x30000,
+};
+void *lbl_804D3E0C[3] = {
+    (void *)&lbl_80451C0C, (void *)&lbl_80451C18, (void *)0x0,
+};
+void *lbl_804D3E18[4] = {
+    (void *)&lbl_80451C24, (void *)&lbl_804D3E0C, (void *)&lbl_805D3BA8, (void *)0x20000,
+};
+void *lbl_804D3E28[3] = {
+    (void *)&lbl_80451C30, (void *)&lbl_80451C3C, (void *)0x0,
+};
+void *lbl_804D3E34[4] = {
+    (void *)&lbl_80451C48, (void *)&lbl_804D3E28, (void *)&lbl_805D3BAC, (void *)0x20000,
+};
+void *lbl_804D3E44[3] = {
+    (void *)&lbl_80451C54, (void *)&lbl_80451C60, (void *)0x0,
+};
+void *lbl_804D3E50[4] = {
+    (void *)&lbl_80451C6C, (void *)&lbl_804D3E44, (void *)&lbl_805D3BB0, (void *)0x20000,
+};
+void *lbl_804D3E60[3] = {
+    (void *)&lbl_80451C78, (void *)&lbl_80451C84, (void *)0x0,
+};
+void *lbl_804D3E6C[4] = {
+    (void *)&lbl_80451C90, (void *)&lbl_804D3E60, (void *)&lbl_805D3BB4, (void *)0x20000,
+};
+void *lbl_804D3E7C[3] = {
+    (void *)&lbl_80451C9C, (void *)&lbl_80451CA8, (void *)0x0,
+};
+void *lbl_804D3E88[4] = {
+    (void *)&lbl_80451CB4, (void *)&lbl_804D3E7C, (void *)&lbl_805D3BB8, (void *)0x20000,
+};
+void *lbl_804D3E98[19] = {
+    (void *)&lbl_804D3A40, (void *)&lbl_804D3A84, (void *)&lbl_804D3AB0, (void *)&lbl_804D3B1C,
+    (void *)&lbl_804D3B48, (void *)&lbl_804D3B74, (void *)&lbl_804D3BE0, (void *)&lbl_804D3C4C,
+    (void *)&lbl_804D3CB8, (void *)&lbl_804D3CE4, (void *)&lbl_804D3D50, (void *)&lbl_804D3DBC,
+    (void *)&lbl_804D3DDC, (void *)&lbl_804D3DFC, (void *)&lbl_804D3E18, (void *)&lbl_804D3E34,
+    (void *)&lbl_804D3E50, (void *)&lbl_804D3E6C, (void *)&lbl_804D3E88,
+};
+void *lbl_804D3EE4[36] = {
+    (void *)0x10000, (void *)0x21, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x1, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x1f, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x20, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x1e, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x2f, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x30, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x2e, (void *)0x3f800000, (void *)0x0,
+};
+void *lbl_804D3F74[14] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xffffffff,
+    (void *)&TAdSinglePlyChrSelectGC__sub_80290088, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_8028FFC0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0,
+};
+void *lbl_804D3FAC[24] = {
+    (void *)0x1, (void *)0x3, (void *)0x0, (void *)0x0,
+    (void *)0x4, (void *)0x3, (void *)0x3, (void *)0x5,
+    (void *)0x4, (void *)0x1, (void *)0x3, (void *)0x2,
+    (void *)0x2, (void *)0x6, (void *)0x3, (void *)0x3,
+    (void *)0x5, (void *)0x6, (void *)0x2, (void *)0x6,
+    (void *)0x7, (void *)0x8, (void *)0x7, (void *)0x2,
+};
+void *lbl_804D400C[18] = {
+    (void *)0x0, (void *)0x0, (void *)0x3eaaaaab, (void *)0x0,
+    (void *)0x3f2aaaab, (void *)0x0, (void *)0x3eaaaaab, (void *)0x3f000000,
+    (void *)0x0, (void *)0x3f800000, (void *)0x3eaaaaab, (void *)0x3f800000,
+    (void *)0x3f2aaaab, (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f800000,
+    (void *)0x3f800000, (void *)0x0,
+};
+void *lbl_804D4054[21] = {
+    (void *)0x0, (void *)0x0, (void *)&TAdSinglePlyChrSelectGC__sub_802908CC, (void *)&TAdSinglePlyChrSelectGC__sub_80290194,
+    (void *)&close_if_active__23TAdSinglePlyChrSelectGCFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&reset_movement__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0,
+};
+#define lbl_804D3F74 (*(RecoveredGlobal_8029057C_lbl_804D3F74 *)lbl_804D3F74)
+#define lbl_804D3FAC ((s32 *)lbl_804D3FAC)
+#define lbl_804D4054 ((M2C_UNK *)lbl_804D4054)
 
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     if (((s32) M2C_FIELD(arg0, s32 *, 0x14) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x10) != 0)) {
@@ -584,6 +1070,69 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
             __dl__7TObjectFPv((void *) (arg0));
         }
     }
+    return arg0;
+}
+
+s32 load_resource_from_descriptor(s32, M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, s32);
+M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+M2C_UNK set_animation__10TObjPlayerFPvs(void *, s16);
+M2C_UNK TObjMotion__ct(void *, void *);
+s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
+M2C_UNK fn_80290BE0();
+extern s32 lbl_805D3BBC;
+extern void *lbl_805D6528;
+extern const f32 lbl_805DD940;
+struct Slot_802909B4 {
+    s32 f0; u8 pad4[0xC]; s32 f10; s32 f14; u8 pad18[0x16C]; s32 f184; s32 f188;
+    u8 pad18C[0x16C]; s32 f2F8; s32 f2FC; u8 pad300[0x16C];
+};
+
+void *TCMCharacter__ct(void *arg0, void *arg1) {
+    Slot_802909B4 *p;
+    s32 res;
+    u32 cm;
+
+    TObjMotion__ct(arg0, arg1);
+    M2C_FIELD(arg0, void **, 0x18) = (void *)lbl_804D4054;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3BBC;
+    lbl_805D49B4 = 1;
+    cm = lbl_805D6520;
+    lbl_805D6530 = 0;
+    lbl_805D6534 = 0;
+    lbl_805D653C = (u32)arg0;
+    res = (s32)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (res != 0) {
+        res = load_resource_from_descriptor(res, 6, ((s32 *)lbl_804D3E98)[get_display_index__12TCharaMakingFPv((void *)cm)], 0, 0, 0);
+    }
+    lbl_805D6554 = res;
+    for (p = ((Slot_802909B4 *)lbl_8051D288); p < ((Slot_802909B4 *)lbl_8051D288) + 0x80; p++) {
+        p->f0 = 0;
+        p->f14 = 0;
+        p->f188 = 0;
+        p->f2FC = 0;
+        p->f10 = 0;
+        p->f184 = 0;
+        p->f2F8 = 0;
+    }
+    lbl_805D6540 = 0;
+    ((void (*)(int))TAdSinglePlyChrSelectGC__sub_8028ED54)(0);
+    lbl_805D6540 = 0;
+    set_field_d8__10TObjPlayerFPvi(arg0, (void *)lbl_804D3EE4);
+    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(lbl_805D6528, s32 *, 0x430));
+    M2C_FIELD(arg0, s16 *, 0xB8) = creation_motion_group(lbl_805D6520);
+    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    M2C_FIELD(arg0, s32 *, 0xE0) = alloc_buffer__11TOBoss4RockFPv(0xC00);
+    M2C_FIELD(arg0, f32 *, 0x40) = lbl_805DD940;
+    M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DD940;
+    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DD940;
+    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    M2C_FIELD(arg0, s32 *, 0x60) = 0;
+    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+    load_creation_shape_rel((W_80290250 *)arg0);
+    fn_80290BE0();
+    lbl_805D6558 = 0;
     return arg0;
 }
 

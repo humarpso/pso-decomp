@@ -438,4 +438,196 @@ void reset_windows__16TAdChrSelBSlotGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 1;
 }
 
+struct C_8030F874 {
+    u8 pad0[0x1C];
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+};
+typedef void (C_8030F874::*Pmf_8030F874)();
+
+extern "C" void TAdChrSelBSlotGC__sub_8030E458();
+extern "C" void TAdChrSelBSlotGC__sub_8030E550();
+extern "C" void TAdChrSelBSlotGC__sub_8030E620();
+extern "C" void TAdChrSelBSlotGC__sub_8030E624();
+extern "C" void TAdChrSelBSlotGC__sub_8030E6E0();
+extern "C" void TAdChrSelBSlotGC__sub_8030E768();
+extern "C" void TAdChrSelBSlotGC__sub_8030E824();
+extern "C" void TAdChrSelBSlotGC__sub_8030E8E0();
+extern "C" void TAdChrSelBSlotGC__sub_8030E99C();
+extern "C" void TAdChrSelBSlotGC__sub_8030EA58();
+extern "C" void TAdChrSelBSlotGC__sub_8030EB14();
+extern "C" void TAdChrSelBSlotGC__sub_8030EBD0();
+extern "C" void TAdChrSelBSlotGC__sub_8030ECB8();
+extern "C" void enter_state17__16TAdChrSelBSlotGCFPv();
+extern "C" void init__16TAdChrSelBSlotGCFPv();
+extern "C" void reset_load_state__16TAdChrSelBSlotGCFPv();
+extern "C" void reset_slot_state__16TAdChrSelBSlotGCFPv();
+extern "C" void set_load_state__16TAdChrSelBSlotGCFPv();
+extern "C" void set_state_confirm__16TAdChrSelBSlotGCFPv();
+extern "C" void update_load_state__16TAdChrSelBSlotGCFPv();
+void *lbl_804E7A48[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&reset_windows__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7A54[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&close_windows__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7A60[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030F3A0,
+};
+void *lbl_804E7A6C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030F2E4,
+};
+void *lbl_804E7A78[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030F228,
+};
+void *lbl_804E7A84[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030F13C,
+};
+void *lbl_804E7A90[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_card_confirm__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7A9C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030EF74,
+};
+void *lbl_804E7AA8[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_card_select__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7AB4[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_slot_state__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7AC0[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030ECB8,
+};
+void *lbl_804E7ACC[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030EBD0,
+};
+void *lbl_804E7AD8[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030EB14,
+};
+void *lbl_804E7AE4[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030EA58,
+};
+void *lbl_804E7AF0[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E99C,
+};
+void *lbl_804E7AFC[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E8E0,
+};
+void *lbl_804E7B08[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E824,
+};
+void *lbl_804E7B14[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E768,
+};
+void *lbl_804E7B20[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E6E0,
+};
+void *lbl_804E7B2C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E624,
+};
+void *lbl_804E7B38[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E620,
+};
+void *lbl_804E7B44[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&enter_state17__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7B50[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&set_state_confirm__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7B5C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&update_load_state__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7B68[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E550,
+};
+void *lbl_804E7B74[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&reset_slot_state__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7B80[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&reset_load_state__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7B8C[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&init__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7B98[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&set_load_state__16TAdChrSelBSlotGCFPv,
+};
+void *lbl_804E7BA4[3] = {
+    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E458,
+};
+void *lbl_804E7BB0[90] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0,
+};
+
+void run_task__16TAdChrSelBSlotGCFv(C_8030F874 *self) {
+    static s8 init;
+    if (self->f1C < 0 || self->f1C >= 30) {
+        self->f1C = 1;
+    }
+    self->f20 = self->f1C;
+    if (get_global_state__16TAdChrSelBSlotGCFv(self) <= 0xD && self->f1C > 1) {
+        self->f1C = 1;
+    }
+    if (!init) {
+        ((Pmf_8030F874 *)lbl_804E7BB0)[0] = *(Pmf_8030F874 *)lbl_804E7A48;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[1] = *(Pmf_8030F874 *)lbl_804E7A54;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[2] = *(Pmf_8030F874 *)lbl_804E7A60;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[3] = *(Pmf_8030F874 *)lbl_804E7A6C;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[4] = *(Pmf_8030F874 *)lbl_804E7A78;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[5] = *(Pmf_8030F874 *)lbl_804E7A84;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[6] = *(Pmf_8030F874 *)lbl_804E7A90;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[7] = *(Pmf_8030F874 *)lbl_804E7A9C;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[8] = *(Pmf_8030F874 *)lbl_804E7AA8;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[9] = *(Pmf_8030F874 *)lbl_804E7AB4;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[10] = *(Pmf_8030F874 *)lbl_804E7AC0;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[11] = *(Pmf_8030F874 *)lbl_804E7ACC;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[12] = *(Pmf_8030F874 *)lbl_804E7AD8;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[13] = *(Pmf_8030F874 *)lbl_804E7AE4;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[14] = *(Pmf_8030F874 *)lbl_804E7AF0;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[15] = *(Pmf_8030F874 *)lbl_804E7AFC;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[16] = *(Pmf_8030F874 *)lbl_804E7B08;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[17] = *(Pmf_8030F874 *)lbl_804E7B14;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[18] = *(Pmf_8030F874 *)lbl_804E7B20;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[19] = *(Pmf_8030F874 *)lbl_804E7B2C;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[20] = *(Pmf_8030F874 *)lbl_804E7B38;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[21] = *(Pmf_8030F874 *)lbl_804E7B44;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[22] = *(Pmf_8030F874 *)lbl_804E7B50;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[23] = *(Pmf_8030F874 *)lbl_804E7B5C;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[24] = *(Pmf_8030F874 *)lbl_804E7B68;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[25] = *(Pmf_8030F874 *)lbl_804E7B74;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[26] = *(Pmf_8030F874 *)lbl_804E7B80;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[27] = *(Pmf_8030F874 *)lbl_804E7B8C;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[28] = *(Pmf_8030F874 *)lbl_804E7B98;
+        ((Pmf_8030F874 *)lbl_804E7BB0)[29] = *(Pmf_8030F874 *)lbl_804E7BA4;
+        init = 1;
+    }
+    (self->*((Pmf_8030F874 *)lbl_804E7BB0)[self->f1C])();
+    if (self->f1C != self->f20) {
+        self->f24 = 0;
+    }
+    self->f24++;
+}
 }
