@@ -129,6 +129,36 @@ struct Berura_800954E8 {
     u8 arr[4][0x1C];
 };
 
+typedef s32 M2C_UNK;
+struct Ent_800959F8 { s32 f0; u8 *f4; };
+
+struct Res_800959F8 { u8 pad[0x42C]; u8 *f42C; Ent_800959F8 *f430; };
+
+struct T16_800959F8 { s32 f0; s32 f4; s32 f8; s32 fC; };
+
+struct Atk_800959F8 { s32 w[4]; };
+
+struct V3_800959F8 { f32 x, y, z; };
+
+struct Elem_800959F8 {
+    u8 *buf;
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    f32 f10;
+    f32 f14;
+    s32 *f18;
+    s32 f1C;
+    s32 f20;
+    s32 f24;
+    f32 f28, f2C, f30;
+    s32 f34, f38, f3C;
+    f32 f40, f44, f48;
+    s32 f4C;
+    s32 f50;
+    u8 pad54[0x10];
+};
+
 extern "C" {
 void fn_80095DD0(u8 *arg0);
 void fn_80095DF4(u8 *arg0);
@@ -149,6 +179,59 @@ extern M2C_UNK TObjPlayer__sub_800D7C58[];
 void __destroy_arr(void *, void *, u32, u32);
 extern M2C_UNK __vt__16TObjEneRe7Berura[];
 Berura_800954E8 *__dt__16TObjEneRe7BeruraFv(Berura_800954E8 *self, s16 flag);
+s32 check_v2_mode__9TObjEneDDFv(void);
+Res_800959F8 *load_enemy_bml_resource_named(void *, void *);
+Res_800959F8 *load_enemy_bml_resource(void *);
+u8 *alloc_buffer__11TOBoss4RockFPv(s32);
+void set_global_flag__10TObjPlayerFv(void);
+void bind_motion_context(void *, f32);
+void apply_attack_params__16TObjEneRe7BeruraFiPv(u32, void *);
+void clear_global_state__10TObjPlayerFv(void);
+s32 *collect_and_count__12TBoss3VoloptFUii(u32 arg0, s32 arg1);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+void *alloc_tables__6TLobbyFPvii(void *, s32, s32);
+void *TBoss4Type3__sub_800D9ABC(void *arg0, s32 segs, f32 start, f32 end, f32 step);
+void TBoss4Type3__sub_800D9994(void *, s32, u8 *, s32 *, V3_800959F8 *);
+s32 register_boss__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+void spawn_npc_enemy__6TLobbyFsiiiff(s16, s32, s32, s32, f32, f32);
+extern u8 lbl_8048F6C4[];
+extern T16_800959F8 lbl_8048F6D4[];
+extern u8 lbl_80439EF8[];
+extern s32 lbl_80439DA0[];
+extern Atk_800959F8 lbl_80439EB4;
+extern const s32 lbl_805D9718[1];
+extern const s32 lbl_805D971C[1];
+extern const s32 lbl_805D9720[1];
+extern s32 TObjEneRe7Berura__data_805D4F58[1];
+extern s32 TObjEneRe7Berura__data_805D4F5C[1];
+extern s32 lbl_805D4F60[1];
+extern u32 TObjEneRe7Berura__data_805D4F64;
+extern s32 lbl_805D4F68;
+extern s32 lbl_805D4F6C;
+extern s32 lbl_805D4F70;
+extern s32 lbl_805D4F74;
+extern s32 lbl_805D4F78;
+extern s32 lbl_805D4F7C;
+extern u32 lbl_805D4F80;
+extern s32 lbl_805D4F84;
+extern s32 lbl_805D4F88;
+extern u32 lbl_805D4F8C;
+extern u32 lbl_805D4FA0;
+extern const f32 TObjEneRe7Berura__data_805D972C;
+extern const f32 TObjEneRe7Berura__data_805D9730;
+extern const f32 TObjEneRe7Berura__data_805D9738;
+extern const f32 TObjEneRe7Berura__data_805D9740;
+extern const f32 lbl_805D974C;
+extern const f32 TObjEneRe7Berura__data_805D9764;
+extern const f32 lbl_805D9778;
+extern const f32 lbl_805D977C;
+extern const f32 lbl_805D9780;
+extern const f32 lbl_805D9784;
+extern const f32 lbl_805D9788;
+void TObjEneRe7Berura__sub_800959F8(void);
 }
 
 extern "C" {
@@ -278,6 +361,114 @@ void *create__16TObjEneRe7BeruraFPv(void *arg0) {
         o = TObjEneRe7Berura__ct((void *)(o), (void *)(tl_04), (void *)(arg0));
     }
     return o;
+}
+
+f32 lbl_805007C8[3];
+__declspec(section ".data") s32 TObjEneRe7Berura__data_805007D4[2];
+Elem_800959F8 TObjEneRe7Berura__data_805007DC[2];
+#define RES ((Res_800959F8 *)TObjEneRe7Berura__data_805D4F64)
+void TObjEneRe7Berura__sub_800959F8(void) {
+    s32 pair[4];
+    V3_800959F8 vecs[4];
+    Res_800959F8 *r;
+    u32 m;
+    u8 *buf;
+    s32 i;
+    void *p;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        r = load_enemy_bml_resource_named(lbl_8048F6C4, lbl_80439EF8);
+    } else {
+        r = load_enemy_bml_resource(lbl_8048F6C4);
+    }
+    TObjEneRe7Berura__data_805D4F64 = (u32)r;
+    lbl_805007C8[0] = TObjEneRe7Berura__data_805D972C;
+    lbl_805007C8[1] = TObjEneRe7Berura__data_805D972C;
+    lbl_805007C8[2] = TObjEneRe7Berura__data_805D972C;
+    lbl_805D4F68 = 0;
+    lbl_805D4F6C = 0;
+    lbl_805D4F70 = 0;
+    lbl_805D4F74 = 0;
+    lbl_805D4F78 = 0;
+    lbl_805D4F7C = 0;
+    m = *(u32 *)(r->f42C + 8);
+    buf = alloc_buffer__11TOBoss4RockFPv(0x660);
+    lbl_805D4F80 = (u32)buf;
+    TObjEneRe7Berura__data_805007DC[0].buf = buf;
+    TObjEneRe7Berura__data_805007DC[1].buf = buf + 0x330;
+    TObjEneRe7Berura__data_805007DC[0].f4 = 0x21;
+    TObjEneRe7Berura__data_805007DC[0].f8 = 0x31;
+    TObjEneRe7Berura__data_805007DC[1].f4 = 0x38;
+    TObjEneRe7Berura__data_805007DC[1].f8 = 0x48;
+    TObjEneRe7Berura__data_805007DC[0].fC = 3;
+    TObjEneRe7Berura__data_805007DC[0].f10 = TObjEneRe7Berura__data_805D9764;
+    TObjEneRe7Berura__data_805007DC[0].f14 = TObjEneRe7Berura__data_805D9740;
+    TObjEneRe7Berura__data_805007DC[1].fC = 4;
+    TObjEneRe7Berura__data_805007DC[1].f10 = lbl_805D9778;
+    TObjEneRe7Berura__data_805007DC[1].f14 = lbl_805D977C;
+    for (i = 0; i < 2; i++) {
+        Elem_800959F8 *e = &TObjEneRe7Berura__data_805007DC[i];
+        u8 *ent = RES->f430[lbl_8048F6D4[e->fC].f4].f4;
+        set_global_flag__10TObjPlayerFv();
+        bind_motion_context(ent, e->f14);
+        apply_attack_params__16TObjEneRe7BeruraFiPv(m, e);
+        clear_global_state__10TObjPlayerFv();
+        e->f18 = collect_and_count__12TBoss3VoloptFUii(m, e->f4);
+        e->f1C = (s32)collect_and_count__12TBoss3VoloptFUii(m, e->f8);
+        e->f20 = 7;
+        e->f24 = e->f18[1];
+        e->f28 = TObjEneRe7Berura__data_805D972C;
+        e->f2C = TObjEneRe7Berura__data_805D972C;
+        e->f30 = TObjEneRe7Berura__data_805D972C;
+        e->f34 = 0;
+        e->f38 = 0;
+        e->f3C = 0;
+        e->f40 = lbl_805D974C;
+        e->f44 = lbl_805D974C;
+        e->f48 = lbl_805D974C;
+        e->f4C = e->f18[0x2C / 4];
+        e->f50 = 0;
+    }
+    lbl_805D4F84 = ((s32 *)collect_and_count__12TBoss3VoloptFUii(m, 2)[1])[1] + 8;
+    lbl_805D4F88 = ((s32 *)collect_and_count__12TBoss3VoloptFUii(m, 1)[1])[1] + 8;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
+    if (p != NULL) {
+        p = alloc_tables__6TLobbyFPvii(p, *(s32 *)(RES->f42C + 8), 2);
+    }
+    lbl_805D4F8C = (u32)p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = TBoss4Type3__sub_800D9ABC(p, 4, lbl_805D9780, lbl_805D9784, TObjEneRe7Berura__data_805D9738);
+    }
+    lbl_805D4FA0 = (u32)p;
+    pair[0] = 0x2E;
+    pair[1] = 0x2E;
+    pair[2] = 0x45;
+    pair[3] = 0x45;
+    for (i = 0; i < 4; i++) {
+        vecs[i].x = TObjEneRe7Berura__data_805D972C;
+        vecs[i].y = TObjEneRe7Berura__data_805D972C;
+        vecs[i].z = TObjEneRe7Berura__data_805D972C;
+    }
+    vecs[0].x = TObjEneRe7Berura__data_805D9730;
+    vecs[2].x = TObjEneRe7Berura__data_805D9730;
+    TBoss4Type3__sub_800D9994(p, *(s32 *)(RES->f42C + 8), (RES->f430 + lbl_8048F6D4[2].f4)->f4, pair, vecs);
+    for (i = 0; i < 1; i++) {
+        TObjEneRe7Berura__data_805D4F58[i] = register_boss__6TLobbyFPv(lbl_805D9718[i]);
+    }
+    for (s32 j = 0; j < 2; j++) {
+        TObjEneRe7Berura__data_805007D4[j] = dispatch_shared_handler_b__6TLobbyFPv(lbl_80439DA0[j]);
+    }
+    for (i = 0; i < 1; i++) {
+        TObjEneRe7Berura__data_805D4F5C[i] = register_object__6TLobbyFPv(lbl_805D971C[i]);
+    }
+    for (i = 0; i < 1; i++) {
+        lbl_805D4F60[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_805D9720[i]);
+    }
+    {
+        Atk_800959F8 atk = lbl_80439EB4;
+        atk.w[0] = (s32)RES->f430;
+        spawn_npc_enemy__6TLobbyFsiiiff(0x15, *(s32 *)(RES->f42C + 8), *(s32 *)(RES->f42C + 0xC), (s32)&atk, lbl_805D9788, TObjEneRe7Berura__data_805D972C);
+    }
 }
 
 void fn_80095DD0(u8 *arg0) {

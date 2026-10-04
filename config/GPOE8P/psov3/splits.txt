@@ -1769,6 +1769,7 @@ pso/enemy/TObjEneRe7Berura.cpp:
 
 pso/enemy/TObjEneRe7Berura_80095394.cpp:
 	.text       start:0x80095394 end:0x80095E18
+	.bss        start:0x805007C8 end:0x805007D4
 
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp:
 	.text       start:0x80095E18 end:0x80095EA0
@@ -7384,6 +7385,7 @@ pso/object/TObjWarpBossMulti.cpp:
 
 pso/object/TObjWarpBoss_8019F510.cpp:
 	.text       start:0x8019F510 end:0x8019F9E4
+	.data       start:0x804B9490 end:0x804B94A0
 
 pso/unk/text_8019F9E4.cpp:
 	.text       start:0x8019F9E4 end:0x8019FA48
@@ -7715,6 +7717,7 @@ pso/misc/TPhotonPilla.cpp:
 
 pso/unk/text_801AE1F8.cpp:
 	.text       start:0x801AE1F8 end:0x801AE48C
+	.data       start:0x804C3A38 end:0x804C3A84
 
 pso/player/TObjPlayer_801AE48C.cpp:
 	.text       start:0x801AE48C end:0x801AE510
@@ -10748,6 +10751,7 @@ pso/misc/TWindowOptionCtrl_8026BCBC.cpp:
 
 pso/misc/TWindowOptionCtrl_8026BCC0.cpp:
 	.text       start:0x8026BCC0 end:0x8026C40C
+	.data       start:0x804D07C0 end:0x804D0830
 
 pso/misc/TWindowOptionCtrl_8026C40C.cpp:
 	.text       start:0x8026C40C end:0x8026C52C
@@ -11572,6 +11576,7 @@ pso/misc/TChCrEffTag_8029ACA8.cpp:
 
 pso/menu/TChCrEffWall.cpp:
 	.text       start:0x8029ACF8 end:0x8029AED0
+	.data       start:0x804DBF58 end:0x804DBFB8
 
 pso/misc/TChCrEffTagStr.cpp:
 	.text       start:0x8029AED0 end:0x8029B098
@@ -14212,6 +14217,7 @@ pso/misc/TLobby_8034C23C.cpp:
 
 pso/misc/TWindowOptionCtrl_8034C384.cpp:
 	.text       start:0x8034C384 end:0x8034CC00
+	.data       start:0x804F01C0 end:0x804F0230
 
 pso/misc/TWindowSubInformationBoard_8034CC00.cpp:
 	.text       start:0x8034CC00 end:0x8034CD98

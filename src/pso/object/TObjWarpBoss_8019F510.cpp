@@ -38,6 +38,7 @@ struct Obj_8019F578 {
     s32 f180;
 };
 
+typedef s32 M2C_UNK;
 extern "C" {
 s32 get_main_phase();
 s32 create__17TObjWarpBossMultiFPv(void *);
@@ -55,6 +56,44 @@ extern s32 lbl_805D3488;
 extern const f32 lbl_805DC000;
 extern const f32 lbl_805DC018;
 Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2);
+s32 get_bml_motion(s32, M2C_UNK);
+s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
+s32 load_resource_from_descriptor(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+s32 TContainerAncient01__sub_8020335C();
+s32 get_global_state__14TOKeyMachine01Fv();
+extern u32 lbl_805D5C88;
+extern int lbl_805D5C8C;
+extern int lbl_805D5C90;
+extern int lbl_805D5C94;
+extern int lbl_805D5C98;
+extern int lbl_805D5C9C;
+extern int lbl_805D5CA0;
+extern int lbl_805D5CA4;
+extern "C" u8 lbl_80446480[];
+extern "C" u8 lbl_80446494[];
+extern "C" u8 lbl_804464AC[];
+extern "C" u8 lbl_804464C8[];
+extern "C" u8 lbl_804464E4[];
+extern "C" u8 lbl_80446500[];
+extern "C" u8 lbl_80446514[];
+extern "C" u8 lbl_8044652C[];
+extern "C" u8 lbl_80446544[];
+extern "C" u8 lbl_8044655C[];
+extern "C" u8 lbl_80446574[];
+extern "C" u8 lbl_80446590[];
+extern "C" u8 lbl_804465AC[];
+extern "C" u8 lbl_804465C4[];
+extern "C" u8 lbl_804465E0[];
+extern "C" u8 lbl_804465FC[];
+extern void *lbl_804B9490[4];
+extern void *lbl_804B94A0[3];
+extern void *lbl_804B94BC[4];
+extern void *lbl_804B94CC[3];
+extern void *lbl_804B94E8[3];
+extern __declspec(section ".data") void *lbl_804B94F4[2];
+void TObjFish__sub_8019F764(void);
 }
 
 extern "C" {
@@ -157,6 +196,82 @@ void TObjFish__sub_8019F72C(void) {
 }
 
     extern int lbl_805D5CA4;
+
+void *lbl_804B9490[4] = {
+    (void *)&lbl_80446480, (void *)&lbl_80446494, (void *)&lbl_804464AC, (void *)0x0,
+};
+void *lbl_804B94A0[3] = {
+    (void *)&lbl_804464C8, (void *)&lbl_804464E4, (void *)0x0,
+};
+void *lbl_804B94AC[4] = {
+    (void *)&lbl_80446500, (void *)&lbl_804B9490, (void *)&lbl_804B94A0, (void *)0x30002,
+};
+void *lbl_804B94BC[4] = {
+    (void *)&lbl_80446514, (void *)&lbl_8044652C, (void *)&lbl_80446544, (void *)0x0,
+};
+void *lbl_804B94CC[3] = {
+    (void *)&lbl_8044655C, (void *)&lbl_80446574, (void *)0x0,
+};
+void *lbl_804B94D8[4] = {
+    (void *)&lbl_80446590, (void *)&lbl_804B94BC, (void *)&lbl_804B94CC, (void *)0x30002,
+};
+void *lbl_804B94E8[3] = {
+    (void *)&lbl_804465AC, (void *)&lbl_804465C4, (void *)0x0,
+};
+__declspec(section ".data") void *lbl_804B94F4[2] = {
+    (void *)&lbl_804465E0, (void *)0x0,
+};
+void *lbl_804B94FC[4] = {
+    (void *)&lbl_804465FC, (void *)&lbl_804B94E8, (void *)&lbl_804B94F4, (void *)0x20001,
+};
+void TObjFish__sub_8019F764(void) {
+    s32 st;
+    s32 r;
+    st = get_global_state__14TOKeyMachine01Fv();
+    if (st >= 8 && st <= 0xA) {
+        r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (r != 0) {
+            r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94D8, 0, 0, 0);
+        }
+        (*(s32 *)&lbl_805D5C88) = r;
+        (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
+        (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
+        (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&lbl_805D5CA0) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+        return;
+    }
+    if (TContainerAncient01__sub_8020335C() != 0 || st == 0x1C || st == 0x1D) {
+        r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (r != 0) {
+            r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94FC, 0, 0, 0);
+        }
+        (*(s32 *)&lbl_805D5C88) = r;
+        (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
+        (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+        (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&lbl_805D5CA0) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
+        (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 0);
+        return;
+    }
+    r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+    if (r != 0) {
+        r = ((s32 (*)(s32, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK)) load_resource_from_descriptor)(r, 5, lbl_804B94AC, 0, 0, 0);
+    }
+    (*(s32 *)&lbl_805D5C88) = r;
+    (*(s32 *)&lbl_805D5C8C) = get_bml_model(r, 0);
+    (*(s32 *)&lbl_805D5C90) = get_bml_model((*(s32 *)&lbl_805D5C88), 2);
+    (*(s32 *)&lbl_805D5C94) = get_bml_model((*(s32 *)&lbl_805D5C88), 1);
+    (*(s32 *)&lbl_805D5C98) = get_bml_motion((*(s32 *)&lbl_805D5C88), 1);
+    (*(s32 *)&lbl_805D5C9C) = get_bml_motion((*(s32 *)&lbl_805D5C88), 0);
+    (*(s32 *)&lbl_805D5CA0) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+    (*(s32 *)&lbl_805D5CA4) = TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C88), 2);
+}
+
 int fn_8019F9AC(void) {  return lbl_805D5CA4; }
 
     extern int lbl_805D5CA0;
