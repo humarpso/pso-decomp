@@ -372,6 +372,8 @@ typedef struct Voice_803BBB30 {
     u8 lfoUsedByInput[2];
 } Voice_803BBB30;
 
+struct Vec_803BAD1C { f32 x; f32 y; f32 z; };
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void set_global_flag__6TLobbyFc(s8 arg0);
@@ -592,7 +594,6 @@ u8 TLobby__sub_803BC774(u8 arg0);
 u16 TLobby__sub_803BB5E4(u8 arg0, u8 arg1, u8 arg2);
 u16 TLobby__sub_803BC7E4(Obj_803BC7E4 *arg0, u8 arg1);
 u8 TLobby__sub_803BC774(u8 arg0);
-void TLobby__sub_803BB3C8(u8 arg0, u8 arg1, u8 arg2, s16 arg3);
 void TLobby__sub_803BC884(Obj_803BC884 *arg0, u8 arg1, s16 arg2);
 extern s32 lbl_805D748C;
 u32 TLobby__sub_803BD694(s32 arg0);
@@ -660,6 +661,10 @@ s16 TLobby__sub_803AFF9C(Voice_803BBB30 *, u32, u32);
 u16 TLobby__sub_803BB5E4(u8 arg0, u8 arg1, u8 arg2);
 extern u64 lbl_805D73C0;
 u16 calc_sound_controller_value(Voice_803BBB30 *svoice, Inp_803BBB30 *inp, u8 midi, u8 midiSet);
+void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
+void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value);
+void *search_sound_sample_directory(void *key, void *base, s32 num, s32 len, s32 (*cmp)(void *, void *));
+f32 TLobby__sub_803BAD1C(Vec_803BAD1C *vec);
 }
 
 extern "C" {
@@ -674,8 +679,53 @@ void transform_vec3__6TLobbyFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg2, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) + ((M2C_FIELD(arg0, f32 *, 0x20) * M2C_FIELD(arg1, f32 *, 8)) + ((M2C_FIELD(arg0, f32 *, 0x18) * M2C_FIELD(arg1, f32 *, 0)) + (M2C_FIELD(arg0, f32 *, 0x1C) * M2C_FIELD(arg1, f32 *, 4)))));
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+inline f32 sqrtf_803BAD1C(f32 x) {
+    static const f64 _half = .5;
+    static const f64 _three = 3.0;
+    volatile f32 y;
+    if (x > 0.0f) {
+        f64 guess = __frsqrte((f64)x);
+        guess = _half * guess * (_three - guess * guess * x);
+        guess = _half * guess * (_three - guess * guess * x);
+        guess = _half * guess * (_three - guess * guess * x);
+        y = (f32)(x * guess);
+        return y;
+    }
+    return x;
+}
+f32 TLobby__sub_803BAD1C(Vec_803BAD1C *vec) {
+    f32 l = sqrtf_803BAD1C(vec->x * vec->x + vec->y * vec->y + vec->z * vec->z);
+    vec->x /= l;
+    vec->y /= l;
+    vec->z /= l;
+    return l;
+}
+#pragma pop
+
 void TLobby__sub_803BADD0(u8 a, u8 b, u32 v) {
     lbl_8056DE98[b][a] |= v;
+}
+
+void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value) {
+    if (channel == 0xFF) {
+        return;
+    }
+    if (ctrl < 64) {
+        TLobby__sub_803BADF8(ctrl & 31, channel, set, value >> 7);
+        TLobby__sub_803BADF8((ctrl & 31) + 32, channel, set, value & 0x7f);
+    } else if (ctrl == 128 || ctrl == 129) {
+        TLobby__sub_803BADF8(ctrl & 254, channel, set, value >> 7);
+        TLobby__sub_803BADF8((ctrl & 254) + 1, channel, set, value & 0x7f);
+    } else if (ctrl == 132 || ctrl == 133) {
+        TLobby__sub_803BADF8(ctrl & 254, channel, set, value >> 7);
+        TLobby__sub_803BADF8((ctrl & 254) + 1, channel, set, value & 0x7f);
+    } else {
+        TLobby__sub_803BADF8(ctrl, channel, set, value >> 7);
+    }
 }
 
 void TLobby__sub_803BB4F0(u8 arg0, u8 arg1, u32 arg2) {
@@ -1110,7 +1160,7 @@ void TLobby__sub_803BC884(Obj_803BC884 *arg0, u8 arg1, s16 arg2) {
     s32 k;
     k = TLobby__sub_803BC774(arg1);
     if ((k >= 0xA2 || k < 0xA0) && arg0->b121 != 0xFF) {
-        TLobby__sub_803BB3C8(arg1, arg0->b121, arg0->b122, v);
+        TLobby__sub_803BB3C8(arg1, (u8)(arg0->b121), (u8)(arg0->b122), (u16)(v));
     }
 }
 
@@ -1132,6 +1182,29 @@ s16 TLobby__sub_803BC93C(s32 arg0) {
         return -tbl[t & 0x3FF];
     }
     return -tbl[0x3FF - (t & 0x3FF)];
+}
+
+void *search_sound_sample_directory(void *key, void *base, s32 num, s32 len, s32 (*cmp)(void *, void *)) {
+    long l;
+    long r;
+    long m;
+    long c;
+    void *ptr;
+    if (num != 0) {
+        l = 1;
+        r = num;
+        do {
+            if ((c = cmp(key, (ptr = (void *)((u32)base + len * ((m = (l + r) >> 1) - 1))))) == 0) {
+                return ptr;
+            }
+            if (c < 0) {
+                r = m - 1;
+            } else {
+                l = m + 1;
+            }
+        } while (l <= r);
+    }
+    return 0;
 }
 
 void shift_left_8__6TLobbyFPv(s32 *arg0) {

@@ -193,6 +193,26 @@ struct Env_803B4360 {
     u8 pad14[0x12]; u8 f26;
 };
 
+struct Src_803B8A14 { u8 vol; u8 volA; u8 volB; u8 srcStudio; };
+
+struct Slot_803B8A14 { u8 studio; u8 pad; u16 vol; u16 volA; u16 volB; Src_803B8A14 *desc; };
+
+struct Obj_803B8A14 { u8 pad[0x52]; u8 numInputs; u8 pad53[5]; Slot_803B8A14 in[7]; };
+
+struct SynthInfo_803BAB54 {
+    u8 pad[0x210];
+    u8 voiceNum;
+    u8 maxMusic;
+    u8 maxSFX;
+    u8 studioNum;
+};
+
+struct Vec_803B9438 { f32 x; f32 y; f32 z; };
+
+struct A_803B9438 { A_803B9438 *next; u8 pad4[0xC]; Vec_803B9438 pos; };
+
+struct B_803B9438 { B_803B9438 *next; u8 pad4[8]; Vec_803B9438 pos; f32 distance; u8 studio; };
+
 extern "C" {
 void TLobby__sub_803A49C8(s32);
 void TLobby__sub_803A4B7C(s32);
@@ -390,6 +410,21 @@ s32 transition_sound_envelope(void *a0);
 s32 transition_sound_envelope(void *a0);
 extern u16 lbl_804F6758[];
 u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2);
+s32 TLobby__sub_803B8A14(Obj_803B8A14 *stp, Src_803B8A14 *desc);
+void TLobby__sub_803A6CA0(void);
+void TLobby__sub_803A9A3C(u32 mixFrq, u32 numVoices);
+void TLobby__sub_803AA79C(void);
+void TLobby__sub_803AE814(void *arg0, void *arg1);
+void TLobby__sub_803B4584(void);
+void TLobby__sub_803B4CEC(void);
+void TLobby__sub_803BAB10(s32 arg0);
+s32 TLobby__sub_803BCC0C(u32 *frq, u32 numVoices, u32 numStudios, u32 flags);
+extern u8 lbl_805D7380;
+extern u8 lbl_805D73B8;
+s32 TLobby__sub_803BAB54(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize);
+extern s32 lbl_805D74A0;
+extern s32 lbl_805D74A4;
+void TLobby__sub_803B9438(void);
 }
 
 extern "C" {
@@ -557,6 +592,10 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1);
 s32 TLobby__sub_803B2920(u8 *arg0);
 void TLobby__sub_803B4CEC(void);
+
+extern "C" {
+extern Cfg_803AA35C lbl_80557348;
+}
 
 extern "C" {
 extern Cfg_803AA35C lbl_80557348;
@@ -2523,6 +2562,22 @@ void TLobby__sub_803B89B4(Ent_803B89B4 *arg0) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs on
+s32 TLobby__sub_803B8A14(Obj_803B8A14 *stp, Src_803B8A14 *desc) {
+    if (stp->numInputs < 7) {
+        stp->in[stp->numInputs].studio = desc->srcStudio;
+        stp->in[stp->numInputs].vol = ((u16)desc->vol << 8) | ((u16)desc->vol << 1);
+        stp->in[stp->numInputs].volA = ((u16)desc->volA << 8) | ((u16)desc->volA << 1);
+        stp->in[stp->numInputs].volB = ((u16)desc->volB << 8) | ((u16)desc->volB << 1);
+        stp->in[stp->numInputs].desc = desc;
+        ++stp->numInputs;
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
+
 s32 TLobby__sub_803B8ABC(Obj_803B8ABC *arg0, u32 arg1) {
     s32 i;
 
@@ -2569,6 +2624,36 @@ void process_sound_aux_callbacks(void) {
         v++;
     }
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+void TLobby__sub_803B9438(void) {
+    Vec_803B9438 d;
+    B_803B9438 *r;
+    A_803B9438 *li;
+    f32 distance;
+    u32 n;
+    for (n = 0, li = (*(A_803B9438 * *)&lbl_805D74A0); li != 0; li = li->next, ++n)
+        ;
+    if (n != 0) {
+        for (r = (*(B_803B9438 * *)&lbl_805D74A4); r != 0; r = r->next) {
+            if (r->studio != 0xFF) {
+                distance = 0.f;
+                for (li = (*(A_803B9438 * *)&lbl_805D74A0); li != 0; li = li->next) {
+                    d.x = r->pos.x - li->pos.x;
+                    d.y = r->pos.y - li->pos.y;
+                    d.z = r->pos.z - li->pos.z;
+                    distance += d.x * d.x + d.y * d.y + d.z * d.z;
+                }
+                r->distance = distance / n;
+            }
+        }
+    }
+}
+#pragma pop
 
 void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0) {
     if (arg0->next != 0) {
@@ -2618,5 +2703,51 @@ void TLobby__sub_803BAB10(s32 arg0) {
     lbl_805D7498 = 0;
     lbl_805D74B2 = (arg0 & 2) != 0;
 }
+#define synthInfo (*(SynthInfo_803BAB54 *)&lbl_80557348)
+#define sndActive lbl_805D7380
+#define synthIdleWaitActive lbl_805D73B8
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+static inline s32 DoInit_803BAB54(u32 mixFrq, u32 aramSize, u32 numVoices, u32 flags) {
+    u32 ret;
+    ret = 0;
+    TLobby__sub_803B4CEC();
+    TLobby__sub_803AE814(0, (void *)aramSize);
+    TLobby__sub_803A6CA0();
+    synthIdleWaitActive = 0;
+    TLobby__sub_803A9A3C(mixFrq, numVoices);
+    TLobby__sub_803AA79C();
+    TLobby__sub_803B4584();
+    TLobby__sub_803BAB10(flags);
+    sndActive = 1;
+    return ret;
+}
+s32 TLobby__sub_803BAB54(u8 voices, u8 music, u8 sfx, u8 studios, u32 flags, u32 aramSize) {
+    s32 ret;
+    u32 frq;
+    ret = 0;
+    sndActive = 0;
+    if (voices <= 64) {
+        synthInfo.voiceNum = voices;
+    } else {
+        synthInfo.voiceNum = 64;
+    }
+    if (studios <= 8) {
+        synthInfo.studioNum = studios;
+    } else {
+        synthInfo.studioNum = 8;
+    }
+    synthInfo.maxMusic = music;
+    synthInfo.maxSFX = sfx;
+    frq = 32000;
+    if ((ret = TLobby__sub_803BCC0C(&frq, synthInfo.voiceNum, synthInfo.studioNum, flags)) == 0) {
+        ret = DoInit_803BAB54(32000, aramSize, synthInfo.voiceNum, flags);
+    }
+    return ret;
+}
+#pragma pop
 
 }
