@@ -388,6 +388,35 @@ typedef struct SEQ_INSTANCE_803A6364 {
     SEQ_EVENT_803A6364 event[64]; u8 *trackSectionTab; SEQ_SECTION_803A6364 section[16];
 } SEQ_INSTANCE_803A6364;
 
+struct Sub_803AA66C { u8 pad[8]; u32 vid; };
+
+struct Rec_803AA66C {
+    u8 pad0[0xF4];
+    u32 id;
+    Sub_803AA66C *vidList;
+    u8 padFC[0x11F - 0xFC];
+    u8 studio;
+    u8 pad120[0x404 - 0x120];
+};
+
+struct Cfg_803AA66C { u8 pad[0x210]; u8 voiceNum; };
+
+struct Ent_803ACD40 { s32 f0; u16 id; u16 ref; };
+
+struct Tbl_803ACD40 { u8 pad[0x4600]; Ent_803ACD40 ents[1]; };
+
+struct Ent_803ACEC4 { void *p; u16 key; u16 f6; u16 count; u16 padA; };
+
+struct Tbl_803ACEC4 { u8 pad[0x4E00]; Ent_803ACEC4 ents[256]; };
+
+struct Ent_803AD10C { u32 a; u16 key; u16 pad6; u16 count; u16 padA; };
+
+struct Tbl_803AD10C { u8 pad[0x4E00]; Ent_803AD10C ents[256]; };
+
+struct Ent_803AD4D0 { s32 f0; u16 id; u16 ref; };
+
+struct Tbl_803AD4D0 { u8 pad[0x600]; Ent_803AD4D0 ents[1]; };
+
 extern "C" {
 void TLobby__sub_803A4B7C(s32);
 void TLobby__sub_803A4FC4(s32, s32, s32);
@@ -627,6 +656,59 @@ SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex,
 void TLobby__sub_803A5A04(List_803A5A04 *arg0, Node_803A5A04 *arg1);
 float floorf(float);
 u32 TLobby__sub_803A6364(u8 secIndex, u32 deltaTime);
+s32 TLobby__sub_803A9200(u32 id, u8 a1, u8 a2);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+s32 TLobby__sub_803AA0E0(u32 vid, u8 ctrl, u8 value);
+s32 TLobby__sub_803A92E8(u32 id, u8 a1, u16 a2);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+s32 TLobby__sub_803AA140(u32 vid, u8 ctrl, u16 value);
+u32 TLobby__sub_803A3D20(u32 seqId);
+void set_sound_aux_bus_callbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+extern s32 lbl_80557B9C[8];
+extern void *lbl_80557BBC[8];
+extern s32 lbl_80557BDC[8];
+extern void *lbl_80557BFC[8];
+extern u8 lbl_805D7384[8];
+extern u8 lbl_805D738C[8];
+extern u8 lbl_805D7394[8];
+extern u8 lbl_805D739C[8];
+void register_sound_aux_callbacks(u8 studio, void *auxA, s32 userA, u8 midiA, u32 seqIDA, void *auxB, s32 userB, u8 midiB, u32 seqIDB);
+extern Rec_803A8D2C *lbl_805D73B0;
+extern void *lbl_80557BBC[8];
+extern void *lbl_80557BFC[8];
+extern u8 lbl_805D738C[8];
+extern u8 lbl_805D739C[8];
+s32 TLobby__sub_803B3748(u32 id);
+u32 is_sound_hw_voice_active(s32 i);
+void TLobby__sub_803BD598(s32 arg0);
+void TLobby__sub_803BD60C(u8 i);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+void TLobby__sub_803AA66C(u8 studio);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+extern u8 lbl_80559E70[];
+extern u16 lbl_805D73D4;
+s32 TLobby__sub_803ACD40(u16 arg0);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+extern u8 lbl_80559E70[];
+extern u16 lbl_805D73D6;
+s32 TLobby__sub_803ACEC4(u16 key, void *p, u16 f6);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+extern u8 lbl_80559E70[];
+extern u16 lbl_805D73D6;
+s32 TLobby__sub_803AD10C(u16 key);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+extern u8 lbl_80559E70[];
+extern u16 lbl_805D73D2;
+s32 TLobby__sub_803AD4D0(u16 arg0);
 }
 
 extern "C" {
@@ -806,6 +888,10 @@ extern Cfg_803AA35C lbl_80557348;
 extern "C" {
 extern Cfg_803AA35C lbl_80557348;
 extern V_803B1F24 *lbl_805D741C;
+}
+
+extern "C" {
+extern Cfg_803AA35C lbl_80557348;
 }
 
 void TLobby__sub_803A3858(Owner_803A3C24 *o) {
@@ -1526,6 +1612,22 @@ u16 lookup_sound_bank_index(u8 arg0, u8 arg1) {
     return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
 }
 
+s32 TLobby__sub_803AA0E0(u32 vid, u8 ctrl, u8 value) {
+    s32 ret;
+    sound_disable_irq();
+    ret = TLobby__sub_803A9200(vid, ctrl, value);
+    sound_enable_irq();
+    return ret;
+}
+
+s32 TLobby__sub_803AA140(u32 vid, u8 ctrl, u16 value) {
+    s32 ret;
+    sound_disable_irq();
+    ret = TLobby__sub_803A92E8(vid, ctrl, value);
+    sound_enable_irq();
+    return ret;
+}
+
 s32 TLobby__sub_803AA1A0(s32 arg0) {
     s32 var_r31;
     s32 var_r3;
@@ -1603,6 +1705,53 @@ void set_sound_output_mode(s32 mode) {
     }
 }
 
+void register_sound_aux_callbacks(u8 studio, void *auxA, s32 userA, u8 midiA, u32 seqIDA, void *auxB, s32 userB, u8 midiB, u32 seqIDB) {
+    sound_disable_irq();
+    if (auxA != 0) {
+        if ((lbl_805D739C[studio] = midiA) != 0xFF) {
+            lbl_805D7394[studio] = TLobby__sub_803A3D20(seqIDA);
+            lbl_80557BBC[studio] = auxA;
+            lbl_80557B9C[studio] = userA;
+        }
+    } else {
+        lbl_80557BBC[studio] = 0;
+        lbl_805D739C[studio] = 0xFF;
+    }
+    if (auxB != 0) {
+        if ((lbl_805D738C[studio] = midiB) != 0xFF) {
+            lbl_805D7384[studio] = TLobby__sub_803A3D20(seqIDB);
+            lbl_80557BFC[studio] = auxB;
+            lbl_80557BDC[studio] = userB;
+        }
+    } else {
+        lbl_80557BFC[studio] = 0;
+        lbl_805D738C[studio] = 0xFF;
+    }
+    set_sound_aux_bus_callbacks(studio, (s32)auxA, userA, (s32)auxB, userB);
+    sound_enable_irq();
+}
+
+void TLobby__sub_803AA66C(u8 studio) {
+    u32 i;
+    for (i = 0; i < (*(Cfg_803AA66C *)&lbl_80557348).voiceNum; ++i) {
+        Rec_803AA66C *sv;
+        if (studio == (sv = &(*(Rec_803AA66C * *)&lbl_805D73B0)[i])->studio) {
+            if (sv->id != 0xFFFFFFFF) {
+                TLobby__sub_803B3748(sv->vidList->vid);
+            } else if (is_sound_hw_voice_active(i)) {
+                TLobby__sub_803BD598(i);
+            }
+        }
+    }
+    sound_disable_irq();
+    lbl_80557BBC[studio] = 0;
+    lbl_80557BFC[studio] = 0;
+    lbl_805D739C[studio] = 0xFF;
+    lbl_805D738C[studio] = 0xFF;
+    sound_enable_irq();
+    TLobby__sub_803BD60C(studio);
+}
+
 void TLobby__sub_803AA75C(u8 arg0) {
     TLobby__sub_803BD62C(arg0);
 }
@@ -1662,6 +1811,143 @@ u32 TLobby__sub_803ABB10(u32 arg0, u32 arg1) {
         return (((arg0 + 13) / 7 * 4 & ~7) + 31) & ~31;
     }
     return ((arg0 * 2) + 31) & ~31;
+}
+
+s32 TLobby__sub_803ACD40(u16 arg0) {
+    Tbl_803ACD40 *t = (Tbl_803ACD40 *)lbl_80559E70;
+    Ent_803ACD40 *e;
+    s32 i;
+    s32 n;
+    s32 j;
+    sound_disable_irq();
+    n = lbl_805D73D4;
+    e = t->ents;
+    i = 0;
+    while (i < n && arg0 != e->id) {
+        e++;
+        i++;
+    }
+    if (i != n) {
+        if (--t->ents[i].ref == 0) {
+            for (j = i + 1; j < n; j++) {
+                ((Ent_803ACD40 *)((u8 *)t + 0x4600))[j - 1] = ((Ent_803ACD40 *)((u8 *)t + 0x4600))[j];
+            }
+            lbl_805D73D4--;
+            sound_enable_irq();
+            return 1;
+        }
+    }
+    sound_enable_irq();
+    return 0;
+}
+
+#pragma push
+#pragma optimize_for_size off
+#define TBL ((Ent_803ACEC4 *)((u8 *)t + 0x4E00))
+s32 TLobby__sub_803ACEC4(u16 key, void *p, u16 f6) {
+    Tbl_803ACEC4 *t = (Tbl_803ACEC4 *)lbl_80559E70;
+    s32 n;
+    s32 i;
+    Ent_803ACEC4 *e;
+    s32 j;
+    sound_disable_irq();
+    n = lbl_805D73D6;
+    i = 0;
+    e = t->ents;
+    while (i < n && e->key < key) {
+        e++;
+        i++;
+    }
+    if (i < n) {
+        if (key != t->ents[i].key) {
+            if ((u32)n < 0x100) {
+                for (j = n - 1; j >= i; j--) {
+                    TBL[j + 1] = TBL[j];
+                }
+                lbl_805D73D6++;
+            } else {
+                sound_enable_irq();
+                return 0;
+            }
+        } else {
+            t->ents[i].count++;
+            sound_enable_irq();
+            return 0;
+        }
+    } else {
+        if ((u32)n < 0x100) {
+            lbl_805D73D6++;
+        } else {
+            sound_enable_irq();
+            return 0;
+        }
+    }
+    t->ents[i].key = key;
+    t->ents[i].p = p;
+    t->ents[i].f6 = f6;
+    t->ents[i].count = 1;
+    sound_enable_irq();
+    return 1;
+}
+#pragma pop
+
+#pragma push
+#pragma optimize_for_size off
+s32 TLobby__sub_803AD10C(u16 key) {
+    Tbl_803AD10C *t = (Tbl_803AD10C *)lbl_80559E70;
+    s32 n;
+    s32 i;
+    Ent_803AD10C *e;
+    s32 j;
+    sound_disable_irq();
+    n = lbl_805D73D6;
+    i = 0;
+    e = t->ents;
+    while (i < n && key != e->key) {
+        e++;
+        i++;
+    }
+    if (i != n) {
+        if (--t->ents[i].count == 0) {
+            for (j = i + 1; j < n; j++) {
+                ((Ent_803AD10C *)((u8 *)t + 0x4E00))[j - 1] = ((Ent_803AD10C *)((u8 *)t + 0x4E00))[j];
+            }
+            lbl_805D73D6--;
+            sound_enable_irq();
+            return 1;
+        }
+    }
+    sound_enable_irq();
+    return 0;
+}
+#pragma pop
+
+s32 TLobby__sub_803AD4D0(u16 arg0) {
+    Tbl_803AD4D0 *t = (Tbl_803AD4D0 *)lbl_80559E70;
+    Ent_803AD4D0 *e;
+    s32 i;
+    s32 n;
+    s32 j;
+    sound_disable_irq();
+    n = lbl_805D73D2;
+    e = t->ents;
+    i = 0;
+    while (i < n && arg0 != e->id) {
+        e++;
+        i++;
+    }
+    if (i != n) {
+        if (--t->ents[i].ref == 0) {
+            for (j = i + 1; j < n; j++) {
+                ((Ent_803AD4D0 *)((u8 *)t + 0x600))[j - 1] = ((Ent_803AD4D0 *)((u8 *)t + 0x600))[j];
+            }
+            lbl_805D73D2--;
+            sound_enable_irq();
+            return 1;
+        }
+    }
+    sound_enable_irq();
+    return 0;
 }
 
 s32 TLobby__sub_803ADB58(u16 id) {
