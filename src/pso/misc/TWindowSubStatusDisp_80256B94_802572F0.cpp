@@ -4,6 +4,54 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Gauge_80257784 {
+    u16 flags;
+    u8 pad2[0x8 - 0x2];
+    f32 f8;
+    f32 fC;
+    f32 f10;
+    f32 f14;
+    s32 f18;
+    f32 f1C;
+    f32 f20;
+    f32 f24;
+    u8 pad28[0x60 - 0x28];
+    s32 f60;
+    s32 f64;
+};
+
+struct Parent_80257784 {
+    u8 pad0[0x10];
+    f32 f10;
+    f32 f14;
+    f32 f18;
+    u8 pad1C[0x30 - 0x1C];
+    s32 f30;
+    u8 pad34[0x38 - 0x34];
+    f32 f38;
+};
+
+struct Pos_80257784 { f32 x, y; };
+
+extern "C" {
+M2C_UNK TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
+M2C_UNK draw_status_gauge_bar(void *, void *, void *, f32, f32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK begin_screen_draw(s32, f32, f32, f32);
+M2C_UNK get_player__20TWindowSubStatusDispFv();
+M2C_UNK set_draw_texture_and_color(s32, s32);
+M2C_UNK set_constant_material_color(s32);
+extern s32 lbl_805D63F0;
+extern const f32 lbl_805DCED8;
+extern const f32 lbl_805DCEDC;
+extern const f32 lbl_805DCEE0;
+extern const f32 lbl_805DCEE4;
+extern const f32 lbl_805DCEE8;
+extern const f32 lbl_805DCEEC;
+void TWindowSubStatusDisp__sub_80257784(Gauge_80257784 *self, Parent_80257784 *parent);
+}
+
 extern "C" {
 
 struct Col_802575C0 { u8 r, g, b, a; };
@@ -157,6 +205,68 @@ void update_disp_value__20TWindowSubStatusDispFPv(void *arg0) {
     TWindowSubStatusDisp__sub_80256C00();
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg0, f32 *, 0x24);
 }
+
+#pragma push
+#pragma fp_contract on
+void TWindowSubStatusDisp__sub_80257784(Gauge_80257784 *self, Parent_80257784 *parent) {
+    Pos_80257784 pos;
+    f32 scale;
+    f32 lo;
+    f32 hi;
+    f32 used;
+    f32 avail;
+    f32 cur;
+    f32 ratio;
+    f32 sz;
+    s32 col;
+    used = self->f10 / lbl_805DCEDC + self->fC / parent->f18;
+    used *= lbl_805DCEE0;
+    avail = lbl_805DCEE4 * ((f32)parent->f30 - used);
+    if (avail <= 0.0f) {
+        return;
+    }
+    if (self->f20 <= 0.0f || self->f24 <= 0.0f) {
+        ratio = 0.0f;
+    } else {
+        ratio = self->f24 * self->f14 / self->f20;
+    }
+    cur = self->f1C;
+    if (cur <= ratio) {
+        lo = cur;
+        col = self->f60;
+        hi = ratio;
+    } else {
+        hi = cur;
+        col = self->f64;
+        lo = ratio - lbl_805DCED8;
+    }
+    if (lo > avail) {
+        lo = avail;
+    }
+    if (hi > avail) {
+        hi = avail;
+    }
+    if (!(hi <= 0.0f) || (self->flags & 8)) {
+        pos.x = parent->f10 + self->fC;
+        pos.y = parent->f14 + self->f10;
+        sz = self->f8;
+        scale = lbl_805DCEE8 / (lbl_805DCEEC * sz + parent->f38);
+        begin_screen_draw(1, sz, lbl_805DCEEC, lbl_805DCEE8);
+        set_global_param__8TObjFishFi(lbl_805D63F0);
+        set_draw_texture_and_color(0xB, -1);
+        if (self->flags & 8) {
+            TWindowSubStatusDisp__sub_80256C40(self, parent, &pos, scale);
+        }
+        if (hi > 0.0f) {
+            set_constant_material_color(col);
+            draw_status_gauge_bar(self, parent, &pos, scale, hi);
+            set_constant_material_color(self->f18);
+            draw_status_gauge_bar(self, parent, &pos, scale, lo);
+        }
+        get_player__20TWindowSubStatusDispFv();
+    }
+}
+#pragma pop
 
 void update_status_gauge_hold(Bar_8025799C *bar) {
     if (bar->flags & 0x40) {

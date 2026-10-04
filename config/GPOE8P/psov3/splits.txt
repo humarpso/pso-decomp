@@ -324,6 +324,7 @@ pso/boss/TBoss2LaserLight.cpp:
 
 pso/boss/TBoss2Mine_800375C0.cpp:
 	.text       start:0x800375C0 end:0x80037C8C
+	.rodata     start:0x80435AF0 end:0x80435AF8
 
 pso/boss/TBoss2Mine_80037C8C.cpp:
 	.text       start:0x80037C8C end:0x80037CE4
@@ -13090,6 +13091,7 @@ pso/unk/text_8031B240.cpp:
 
 pso/enemy/TObjEneReconBomb.cpp:
 	.text       start:0x8031B6A8 end:0x8031BC38
+	.sdata2     start:0x805DF394 end:0x805DF3AC
 
 pso/enemy/TObjEneRecon_8031BC38.cpp:
 	.text       start:0x8031BC38 end:0x8031BCB8
@@ -14561,6 +14563,7 @@ pso/enemy/TObjEneIllGill.cpp:
 
 pso/boss/TBoss6MagMine.cpp:
 	.text       start:0x8036897C end:0x80369654
+	.rodata     start:0x8047A370 end:0x8047A378
 
 pso/object/TObjParticleLobby.cpp:
 	.text       start:0x80369654 end:0x80369B5C

@@ -5,6 +5,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 get_bml_model(void *, int);
+M2C_UNK draw_blob_shadow(int);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
+M2C_UNK rotate_matrix_zyx(int, int, int, int);
+M2C_UNK rotate_matrix_z(int, int);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK rotate_matrix_x(int, void *);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_chunk_object(int);
+extern u32 lbl_805D6AE8;
+extern const f32 lbl_805DF398;
+extern const f32 lbl_805DF39C;
+void render__16TObjEneReconBombFv(u8 *arg0);
+}
+
+extern "C" {
 
 u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1);
@@ -21,6 +42,48 @@ void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 s16 obj_getField1c(int);
 
 extern M2C_UNK __vt__16TObjEneReconBomb[];
+
+#pragma push
+#pragma fp_contract on
+void render__16TObjEneReconBombFv(u8 *arg0) {
+    struct { f32 x, y, z; } sc;
+    s32 spC;
+    s32 sp8;
+    f32 temp_f0;
+    f32 temp_f1;
+    f32 var_f1;
+    s32 temp_r31;
+    s32 temp_r30;
+    if ((u32) lbl_805D6AE8 == 0U) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    temp_r31 = get_bml_model((void *) (lbl_805D6AE8), (int) (2));
+    temp_r30 = TObjFish__sub_8001EDB0((void *) (lbl_805D6AE8), (int) (2));
+    push_matrix();
+    translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (lbl_805DF398 + M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
+    rotate_matrix_zyx((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+    set_global_param__8TObjFishFi((int) (temp_r30));
+    draw_chunk_object((int) (temp_r31));
+    pop_matrix();
+    push_matrix();
+    translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (lbl_805DF39C + M2C_FIELD(arg0, f32 *, 0x348)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
+    direction_to_rotation_xz((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
+    rotate_matrix_z((int) (0), (int) (sp8));
+    rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
+    var_f1 = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x348);
+    if (var_f1 > 40.0f) {
+        var_f1 = 40.0f;
+    } else if (var_f1 < 0.0f) {
+        var_f1 = 0.0f;
+    }
+    sc.x = sc.y = 0.65f * (1.0f - (var_f1 / 40.0f)) + 0.1f;
+    sc.z = 1.0f;
+    scale_current_matrix((void *) (&sc));
+    draw_blob_shadow((int) (0));
+    pop_matrix();
+}
+#pragma pop
 
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
