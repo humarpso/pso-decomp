@@ -86,6 +86,14 @@ struct Rec_80218918 { u8 pad[0xB4]; s32 slot; s32 type; };
 
 struct QL_80218918 { u8 pad[0x28]; Rec_80218918 recs[48]; };
 
+struct VBase_80218BBC { char pad[0x18]; };
+
+struct VObj_80218BBC : VBase_80218BBC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6();
+    virtual void m7(s32, s32);
+};
+
 extern "C" {
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -121,7 +129,6 @@ M2C_UNK close_and_destroy__12TQuestListVMFPv(void *arg0);
 M2C_UNK close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_8021884C(void *);
 void update_close__12TQuestListVMFPv(void *arg0);
-M2C_UNK TQuestListVM__sub_80218BBC(void *);
 M2C_UNK TQuestListVM__sub_80219064(void *);
 M2C_UNK quest_vm_load(void *arg0);
 M2C_UNK TQuestListVM__sub_8021916C(void *);
@@ -190,6 +197,16 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 extern s32 TQuestListVM__data_805D6208;
 extern s32 TQuestListVM__data_805D620C;
 void TQuestListVM__sub_80218918(void *p);
+s32 is_visible__17TWindowSubComCardFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+void close_windows__12TQuestListVMFPv(void *arg0);
+M2C_UNK TWindow__close(void *);
+s32 get_selected_menu_value(void *);
+extern s32 TQuestListVM__data_805D6200;
+extern s32 TQuestListVM__data_805D6204;
+void TQuestListVM__sub_80218BBC(u8 *arg0);
 }
 
 extern "C" {
@@ -416,6 +433,52 @@ void TQuestListVM__sub_80218AD4(u8 *arg0) {
     }
 }
 
+void TQuestListVM__sub_80218BBC(u8 *arg0) {
+    if (M2C_FIELD(arg0, void **, 0x2378) != NULL) {
+        if (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x2378)) != 0) {
+            switch (get_selected_menu_value(M2C_FIELD(arg0, void **, 0x2378))) {
+            case 0:
+                TWindow__close(M2C_FIELD(arg0, void **, 0x2378));
+                M2C_FIELD(arg0, void **, 0x2378) = NULL;
+                ((int (*)(void *, int))set_field_20__12TQuestListVMFPvi)(arg0, 0xB);
+                return;
+            case 1:
+                TWindow__close(M2C_FIELD(arg0, void **, 0x2378));
+                M2C_FIELD(arg0, void **, 0x2378) = NULL;
+                if (M2C_FIELD(arg0, void **, 0x2380) != NULL) {
+                    TWindow__close(M2C_FIELD(arg0, void **, 0x2380));
+                    M2C_FIELD(arg0, void **, 0x2380) = NULL;
+                }
+                if (M2C_FIELD(arg0, void **, 0x2374) != NULL) {
+                    clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x2374));
+                }
+                TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
+                TQuestListVM__data_805D6204 = 0x40000;
+                ((VObj_80218BBC *)arg0)->m7(0x19, 1);
+                close_windows__12TQuestListVMFPv(arg0);
+                ((int (*)(void *, int))set_field_20__12TQuestListVMFPvi)(arg0, 5);
+                return;
+            }
+        }
+        if (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x2378)) != 0) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x2378));
+            M2C_FIELD(arg0, void **, 0x2378) = NULL;
+            if (M2C_FIELD(arg0, void **, 0x2380) != NULL) {
+                TWindow__close(M2C_FIELD(arg0, void **, 0x2380));
+                M2C_FIELD(arg0, void **, 0x2380) = NULL;
+            }
+            if (M2C_FIELD(arg0, void **, 0x2374) != NULL) {
+                clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x2374));
+            }
+            TQuestListVM__data_805D6200 = M2C_FIELD(arg0, s32 *, 0x2384);
+            TQuestListVM__data_805D6204 = 0x40000;
+            ((VObj_80218BBC *)arg0)->m7(0x19, 1);
+            close_windows__12TQuestListVMFPv(arg0);
+            ((int (*)(void *, int))set_field_20__12TQuestListVMFPvi)(arg0, 5);
+        }
+    }
+}
+
 void TQuestListVM__sub_80218D40(u8 *arg0) {
     if (*(u32 *)(arg0 + 0x2380) == 0U) {
         Pair_80218D40 sp8 = lbl_8044BF48[0];
@@ -572,7 +635,7 @@ void TQuestListVM__vt9(u8 *arg0) {
         TQuestListVM__sub_80218D40((u8 *)((void *) (arg0)));
         return;
     case 10:
-        TQuestListVM__sub_80218BBC((void *) (arg0));
+        TQuestListVM__sub_80218BBC((u8 *)((void *) (arg0)));
         return;
     case 11:
         TQuestListVM__sub_80218AD4((u8 *)((void *) (arg0)));

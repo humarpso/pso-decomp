@@ -50,6 +50,20 @@ struct Lobby_801C374C {
     s32 b;
 };
 
+struct Lobby_801C484C {
+    u8 pad0[0x20];
+    s32 state;
+    s32 result;
+    u8 pad28[8];
+    s64 start;
+    s32 remain;
+    s32 limit;
+    u8 pad40[8];
+    s32 timer48;
+    u8 pad4c[0x14];
+    s32 timer60;
+};
+
 extern "C" {
 void handle_6x7E(void);
 extern void *TLobby__data_805D5D98;
@@ -123,6 +137,16 @@ extern s32 lbl_805D5DA4;
 extern s32 lbl_805D5DB0;
 extern u8 lbl_805D5DBC[4];
 void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt);
+void TLobby__sub_801C2F40(Lobby_801C484C *);
+s32 TLobby__sub_801C3C1C(Lobby_801C484C *, s32);
+void TLobby__sub_801C3CFC(s8 arg0, s32 arg1, s32 arg2);
+s64 OSGetTime();
+void TWindowCtrl__sub_8024A4B0(s32);
+s32 TLobby__sub_801C271C(Lobby_801C484C *);
+void TLobby__sub_801C2898(Lobby_801C484C *, s32);
+void TLobby__sub_801C29F0(Lobby_801C484C *);
+void TLobby__sub_801C343C(Lobby_801C484C *);
+void TLobby__sub_801C484C(Lobby_801C484C *self);
 }
 
 extern "C" {
@@ -362,6 +386,46 @@ void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1) {
 }
 s32 TLobby__sub_801C417C(void) {
     return M2C_FIELD((*(void * *)&TLobby__data_805D5DA0), s32 *, 0x24) * 0x3C;
+}
+void TLobby__sub_801C484C(Lobby_801C484C *self) {
+    s32 secs;
+    s32 rem;
+    switch (self->state) {
+    case 0:
+        TLobby__sub_801C2F40(self);
+        self->state = 1;
+    case 1:
+        if (TLobby__sub_801C3C1C(self, 1) != 0) {
+            TLobby__sub_801C3CFC(5, 0, 0);
+            return;
+        }
+        secs = (OSGetTime() - self->start) / (*(u32 *)0x800000F8 / 4);
+        rem = self->limit - secs;
+        self->remain = rem > 0 ? rem : 0;
+        TWindowCtrl__sub_8024A4B0(self->remain);
+        if (self->remain == 0) {
+            self->result = 3;
+            TLobby__sub_801C3CFC(3, 0, 0);
+            return;
+        }
+        if (TLobby__sub_801C271C(self) != 0) {
+            if (--self->timer48 <= 0) {
+                self->result = 3;
+                TLobby__sub_801C3CFC(3, 0, 0);
+            }
+        } else {
+            self->timer48 = 300;
+        }
+        TLobby__sub_801C2898(self, secs);
+        if (--self->timer60 <= 0) {
+            TLobby__sub_801C29F0(self);
+            self->timer60 = 90;
+        }
+        TLobby__sub_801C343C(self);
+        break;
+    case -1:
+        break;
+    }
 }
 
 }

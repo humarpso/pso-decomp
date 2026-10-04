@@ -2,6 +2,10 @@
 
 struct Block_803F7438 { u8 b[0x10]; };
 
+struct Slot_803F74CC { u32 bit; u32 keys[4][4]; };
+
+struct Pool_803F74CC { u32 mask; Slot_803F74CC slots[16]; };
+
 extern "C" {
 extern u32 *lbl_805D79F0;
 void fn_803F7660(u32 *mask);
@@ -14,7 +18,6 @@ s32 fn_803F71BC(char *s);
 s32 fn_803F632C(u8 *, u32, s32);
 void fn_803F7404(u32 *p, s32 n);
 void fn_803F7424(void);
-u32 *fn_803F74CC(s32);
 void fn_803F7660(u32 *mask);
 extern u32 lbl_805A8AE8[];
 s32 fn_803F7254(s32 arg0, u8 *arg1, u32 arg2, s32 arg3);
@@ -23,6 +26,9 @@ void fn_803F7330(u32 *arg0, u32 *arg1);
 void fn_803F7308(u32 *dst, u32 *src);
 void fn_803F7330(u32 *arg0, u32 *arg1);
 void fn_803F7388(u32 *arg0, Block_803F7438 *arg1, Block_803F7438 *arg2);
+void fn_803F7308(u32 *dst, u32 *src);
+extern u32 *lbl_805D79F0;
+u32 *fn_803F74CC(s32 arg0);
 }
 
 extern "C" {
@@ -62,7 +68,7 @@ s32 fn_803F7254(s32 arg0, u8 *arg1, u32 arg2, s32 arg3) {
     u32 i;
     s32 r;
     fn_803F7404(lbl_805A8AE8, 1);
-    key = fn_803F74CC(arg0);
+    key = fn_803F74CC((s32)(arg0));
     for (i = 0; i < arg2; i += 0x10) {
         if (fn_803F7438((u32 *)(key), (u8 *)(arg1 + i), (s32)(0x10), (u8 *)(arg1 + i)) != 0) {
             return -1;
@@ -158,6 +164,43 @@ s32 fn_803F7438(u32 *key, u8 *src, s32 len, u8 *dst) {
         fn_803F7388((u32 *)(key), (Block_803F7438 *)(p++), (Block_803F7438 *)(q++));
     }
     return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma scheduling off
+#pragma peephole off
+#pragma optimization_level 2
+u32 *fn_803F74CC(s32 arg0) {
+    s32 i;
+    u32 *b;
+    u32 mask;
+    u32 *a;
+    u32 bit;
+    s32 n;
+    u32 *slot;
+    n = *lbl_805D79F0 >> 16;
+    for (i = 0; i <= n; i++) {
+        if (i == n) {
+            return NULL;
+        }
+        if ((*lbl_805D79F0 & (1 << i)) == 0) {
+            *lbl_805D79F0 |= 1 << i;
+            break;
+        }
+    }
+    slot = (u32 *)&((Pool_803F74CC *)lbl_805D79F0)->slots[i];
+    *slot = 1 << i;
+    fn_803F7308(slot + 1, (u32 *)arg0);
+    for (i = 0; i < 3; i++) {
+        a = &((Slot_803F74CC *)slot)->keys[i][0];
+        b = &((Slot_803F74CC *)slot)->keys[i + 1][0];
+        b[1] = ~((a[1] + a[3]) >> 1) + ~((a[0] - a[2]) << 1);
+        b[2] = ~((a[2] + a[3]) >> 1) + ~((a[0] - a[1]) << 1);
+        b[3] = ~((a[1] + a[2]) >> 1) + ~((a[0] - a[3]) << 1);
+        b[0] = ~((a[2] + a[0]) >> 1) + ~((a[1] - a[3]) << 1);
+    }
+    return slot;
 }
 #pragma pop
 

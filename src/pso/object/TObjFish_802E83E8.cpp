@@ -12,6 +12,10 @@ struct M2CCopy_10 { u8 bytes[0x10]; };
 
 struct M2CCopy_14 { u8 bytes[0x14]; };
 
+struct Pt_802E95F8 { f32 x, y, z; };
+
+struct Fish_802E95F8 { u8 pad[0x534]; Pt_802E95F8 pts[16]; u8 pad2[0x728 - 0x534 - 16 * 12]; s32 idx; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -45,6 +49,16 @@ extern const f32 lbl_805DEA10;
 extern const f32 lbl_805DEA38;
 extern const f32 lbl_805DEA4C;
 void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 advance_animation_playback(void *);
+void TObjFish__sub_802EC7F0(u8 *arg0);
+M2C_UNK TObjFish__sub_802ECE90(void *, int, int);
+s32 TObjFish__sub_802ED4AC(void *, int);
+s32 TObjFish__sub_802ED62C(void *, int);
+extern const f32 lbl_805DEA68;
+extern const f32 lbl_805DEA6C;
+void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -360,6 +374,10 @@ extern const f32 lbl_805DEA5C;
 extern const f32 lbl_805DEA60;
 extern const f32 lbl_805DEA64;
 extern const f32 lbl_805DEB68;
+
+extern "C" {
+void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
+}
 
 extern "C" {
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
@@ -767,6 +785,64 @@ void TObjFish__sub_802E9458(u8 *arg0, u32 arg1) {
 }
 extern int fold_flush_0;
 #pragma pop
+
+void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
+    s32 temp_r0;
+    s32 temp_r4;
+    switch (arg1) {
+    case 4:
+        set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (3));
+        TObjFish__sub_802ECBDC((Fish_802ECBDC *)arg0);
+        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
+        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFEFF);
+        M2C_FIELD(arg0, s32 *, 0x6C0) = arg2;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
+        M2C_FIELD(arg0, s32 *, 0x728) = 0;
+        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
+        M2C_FIELD(arg0, f32 *, 0x744) = (f32) lbl_805DEA68;
+        M2C_FIELD(arg0, s32 *, 0x704) = (s32) (M2C_FIELD(arg0, s32 *, 0x704) + 1);
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x704) >= 3) {
+            M2C_FIELD(arg0, s32 *, 0x704) = 0;
+        }
+    default:
+        return;
+    case 2:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
+            TObjFish__sub_802ED62C((void *) (arg0), (int) (2));
+            return;
+        }
+        break;
+    case 9:
+        if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
+            TObjFish__sub_802EC7F0(arg0);
+            return;
+        }
+        break;
+    case 0:
+        advance_animation_playback((void *) (arg0));
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x72C);
+        switch (temp_r0) {
+        case 0:
+            if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
+                TObjFish__sub_802ECE90((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x728)), (int) (M2C_FIELD(arg0, s32 *, 0x704)));
+                M2C_FIELD(arg0, s32 *, 0x72C) = 1;
+                return;
+            }
+            break;
+        case 1:
+            temp_r4 = ((Fish_802E95F8 *)arg0)->idx;
+            if (((Fish_802E95F8 *)arg0)->pts[temp_r4].x < ((Fish_802E95F8 *)arg0)->pts[temp_r4 + 1].x) {
+                ((Fish_802E95F8 *)arg0)->idx = temp_r4 + 1;
+                if ((f32) M2C_FIELD(arg0, s32 *, 0x728) >= lbl_805DEA6C) {
+                    M2C_FIELD(arg0, s32 *, 0x72C) = 2;
+                }
+                TObjFish__sub_802ECE90((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x728)), (int) (M2C_FIELD(arg0, s32 *, 0x704)));
+            }
+            break;
+        }
+        break;
+    }
+}
 
 void TObjFish__sub_802EBE50(void* o, u32 k) {
     switch (k) {

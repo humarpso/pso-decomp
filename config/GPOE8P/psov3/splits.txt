@@ -66,6 +66,7 @@ pso/object/TObject_8001A448.cpp:
 
 pso/item/TItemMag_8001A468.cpp:
 	.text       start:0x8001A468 end:0x8001A678
+	.rodata     start:0x80434580 end:0x80434588
 
 pso/player/TObjPlayer_8001A678.cpp:
 	.text       start:0x8001A678 end:0x8001A988
