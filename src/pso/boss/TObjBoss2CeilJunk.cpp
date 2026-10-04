@@ -79,6 +79,25 @@ struct Obj_8003A1B4
   f32 fB4;
 };
 
+struct Vec_8003A314 { f32 x, y, z; };
+
+struct Junk_8003A314 {
+    u8 pad0[0x38];
+    Vec_8003A314 pos;
+    u8 pad44[0x10];
+    f32 f54;
+    u8 pad58[4];
+    s32 f5C;
+    s32 f60;
+    u8 pad64[0x2C];
+    Vec_8003A314 vel;
+    u8 pad9C[0xC];
+    s32 fA8;
+    s32 fAC;
+    s32 fB0;
+    f32 fB4;
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 rand_signed_unit();
@@ -117,6 +136,31 @@ extern const f32 lbl_805D8568;
 extern const f32 lbl_805D856C;
 extern const f32 lbl_805D8570;
 void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *get_player_data__10TObjPlayerFi(s32);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 get_game_mode__6TLobbyFv();
+M2C_UNK TBoss2DeRolLe__sub_80034DCC(void *);
+M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, int);
+M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+s32 is_valid_target__9TObjEneDDFPv(void *);
+M2C_UNK play_sound_effect(int, void *, int, int);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+M2C_UNK vec3_add_to(void *, void *);
+M2C_UNK subtract_vector(void *, void *);
+extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
+extern f32 lbl_80435BF0[];
+extern const f32 lbl_805D4BE0;
+extern const f32 lbl_805D857C;
+extern const f32 lbl_805D8580;
+extern const f32 lbl_805D8584;
+extern const f32 lbl_805D8588;
+extern const f32 lbl_805D858C;
+extern const f32 lbl_805D8590;
+extern const f32 lbl_805D8594;
+void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o);
 }
 
 extern "C" {
@@ -164,6 +208,110 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   pop_matrix();
   some_id_805c6f74 = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);
+}
+
+void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
+    Vec_8003A314 p;
+    Vec_8003A314 d;
+    s32 id;
+    s32 hit;
+    s32 n;
+    u8 *pl;
+    s32 i;
+    f32 top;
+    f32 bottom;
+    f32 rad;
+    f32 h;
+    switch (o->fA8) {
+    case 0:
+        o->vel.y += -0.3f;
+        if (o->vel.y < -10.0f) {
+            o->vel.y = -10.0f;
+        }
+        o->pos.y += o->vel.y;
+        if (o->pos.y <= lbl_805D4BE0) {
+            o->fA8 = 1;
+            VecCopy__FP3VecPC3Vec(&p, &o->pos);
+            switch (o->fAC) {
+            case 0:
+            case 1:
+            case 3:
+                id = 0x170;
+                break;
+            case 2:
+            case 4:
+            case 5:
+                id = 0x171;
+                p.y += lbl_805D857C;
+                break;
+            }
+            create_particle__17TObjBoss2CeilJunkFv(&p, id);
+        }
+        break;
+    case 1:
+        o->pos.y -= lbl_805D8580;
+        if (o->pos.y < lbl_805D8584) {
+            queue_destruction__7TObjectFv(o);
+        }
+        break;
+    case 2:
+        o->vel.y += -0.3f;
+        if (o->vel.y < -10.0f) {
+            o->vel.y = -10.0f;
+        }
+        o->pos.y += o->vel.y;
+        if (o->pos.y - o->f54 < lbl_805D8588) {
+            hit = 0;
+            n = get_game_mode__6TLobbyFv();
+            top = o->pos.y - o->vel.y;
+            bottom = o->pos.y - ((f32 *)&lbl_80435BD8)[o->fAC];
+            rad = lbl_805D858C + lbl_80435BF0[o->fAC];
+            for (i = 0; i < n; i++) {
+                pl = get_player_data__10TObjPlayerFi(i);
+                if (is_valid_target__9TObjEneDDFPv(pl) != 0) {
+                    h = M2C_FIELD(pl, f32 *, 0xD48) + M2C_FIELD(pl, f32 *, 0x3C);
+                    if (top > h && bottom < h) {
+                        VecCopy__FP3VecPC3Vec(&d, pl + 0x38);
+                        subtract_vector(&d, &o->pos);
+                        if (clamp_velocity__15TObjBoss2TunnelFPv(&d) < rad) {
+                            hit = 1;
+                            TBoss2DeRolLe__sub_80034DCC(pl);
+                        }
+                    }
+                }
+            }
+            if (o->pos.y <= o->f54) {
+                o->pos.y = o->f54;
+                hit = 1;
+                create_particle__17TObjBoss2CeilJunkFv(&o->pos, 0x160);
+            }
+            if (hit != 0) {
+                o->vel.y *= lbl_805D8590;
+                o->vel.x = lbl_805D8594 * sin_table_lookup(o->f60);
+                o->vel.z = lbl_805D8594 * cos_table_lookup(o->f60);
+                o->fA8 = 3;
+                play_sound_effect(0x4003A801, &o->pos, 0, 0);
+                set_shake_preset__11TCameraCtrlFi(0);
+            }
+        }
+        break;
+    case 3:
+        o->vel.y += -0.3f;
+        if (o->vel.y < -10.0f) {
+            o->vel.y = -10.0f;
+        }
+        o->f5C += 0x1323;
+        vec3_add_to(&o->pos, &o->vel);
+        o->fB0++;
+        if (o->fB0 >= 10) {
+            o->fB4 -= 0.04f;
+            if (o->fB4 <= 0.0f) {
+                o->fB4 = 0.0f;
+                queue_destruction__7TObjectFv(o);
+            }
+        }
+        break;
+    }
 }
 
 void *__dt__17TObjBoss2CeilJunkFv(void *arg0, s16 arg1) {

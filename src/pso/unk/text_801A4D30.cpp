@@ -1,3 +1,126 @@
+#include "types.h"
+typedef struct Vec_801A4D30 {
+    s32 x, y, z;
+} Vec_801A4D30;
+
+typedef struct Pair_801A4D30 {
+    s32 a, b;
+} Pair_801A4D30;
+
+typedef struct Obj_801A4D30 {
+    u8 pad0[0x1C];
+    s8 state;
+    u8 pad1D;
+    s16 timer;
+    s32 result;
+    void *list;
+    void *window;
+    void *card;
+} Obj_801A4D30;
+
 extern "C" {
+void queue_destruction__7TObjectFv(void *);
+void set_active_camera_pose(void *, void *);
+void activate_camera_mode(int);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 get_instance__15TAdPlayerLoadGCFv(void);
+void TAdDialingGC__sub_801A4CA4(void *);
+s32 TWindowShortListCtrl__sub_801A513C(void *);
+int TWindowShortListCtrl__sub_801A5144(void *);
+s32 TAdSinglePlyChrSelectGC__sub_801FC5D8(void);
+void pso_system_load_gc(void);
+void request_scene_change__21TAdMultiChgGameModeGCFv(void);
+void TWindow__close(void *);
+void send_and_handle__6TLobbyFPvii(void *, s32, s32);
+void *update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
+s32 TAdSinglePlyChrSelectGC__sub_8033B9F8(void *);
+void *create__16TCheckMemoryCardFPvPvPv(void *, void *, void *);
+extern Vec_801A4D30 lbl_80446940;
+extern Vec_801A4D30 lbl_8044694C;
+extern Pair_801A4D30 lbl_80446958[];
+extern Pair_801A4D30 lbl_80446960[];
+extern const f32 lbl_805DC0A8;
+void fn_801A4D30(Obj_801A4D30 *self);
+}
+
+extern "C" {
+
+void fn_801A4D30(Obj_801A4D30 *self) {
+    Vec_801A4D30 pos = lbl_80446940;
+    Vec_801A4D30 target = lbl_8044694C;
+    activate_camera_mode(9);
+    set_active_camera_pose(&pos, &target);
+    switch (self->state) {
+    case 0:
+        self->state = 1;
+    case 1:
+        if (self->list != NULL) {
+            if (TWindowShortListCtrl__sub_801A5144(self->list) != 0) {
+                self->state = 2;
+            } else {
+                self->result = TWindowShortListCtrl__sub_801A513C(self->list);
+                if (self->result != 4) {
+                    self->state = 2;
+                }
+            }
+        }
+        break;
+    case 2:
+        if (self->list != NULL) {
+            queue_destruction__7TObjectFv(self->list);
+            self->list = NULL;
+        }
+        self->state = 3;
+    case 3:
+        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+            self->state = 4;
+        }
+        break;
+    case 4:
+        if (self->card == NULL) {
+            self->card = create__16TCheckMemoryCardFPvPvPv(self, NULL, NULL);
+        }
+        self->state = 5;
+    case 5:
+        if (self->card != NULL && TAdSinglePlyChrSelectGC__sub_8033B9F8(self->card) == 1) {
+            queue_destruction__7TObjectFv(self->card);
+            self->card = NULL;
+            if (TAdSinglePlyChrSelectGC__sub_801FC5D8() != 0) {
+                pso_system_load_gc();
+            }
+            self->timer = 0;
+            self->state = 6;
+        }
+        break;
+    case 6:
+        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+            self->state = 8;
+        } else {
+            Pair_801A4D30 a = lbl_80446958[0];
+            Pair_801A4D30 b = lbl_80446960[0];
+            self->window = update_window_mode_from_progress__6TLobbyFiPv(&a, &b);
+            send_and_handle__6TLobbyFPvii(self->window, TQuestVmDownLoadServer__sub_8006EF6C(0xC), 1);
+            self->state = 7;
+        }
+        break;
+    case 7:
+        if (get_instance__15TAdPlayerLoadGCFv() == 0) {
+            TWindow__close(self->window);
+            self->window = NULL;
+            self->state = 8;
+        }
+        break;
+    case 8:
+        self->timer++;
+        if ((f32)self->timer > lbl_805DC0A8) {
+            TAdDialingGC__sub_801A4CA4(self);
+            self->state = 9;
+            request_scene_change__21TAdMultiChgGameModeGCFv();
+        }
+        break;
+    case 9:
+        break;
+    }
+}
 
 }

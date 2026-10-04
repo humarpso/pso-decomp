@@ -261,6 +261,21 @@ extern const f32 lbl_805DE330;
 extern const f32 lbl_805DE334;
 extern const f32 lbl_805DE33C;
 extern const f32 lbl_805DE340;
+s32 TBoss6Type1__sub_802B529C(T1_802B529C *arg0, s32 arg1, s32 arg2);
+s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
+int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
+s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n);
+s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
+s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
+s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
+void TBoss6Type1__sub_802B8EE0(Boss_802B8EE0 *self, Atk_802B8EE0 *atk);
+M2C_UNK TBoss6Type1__sub_802B9178(void *o, M2C_UNK t, M2C_UNK *src);
+void TBoss6Type1__sub_802B9204(u8 *arg0, s8 arg1);
+s32 rand();
+extern u8 lbl_80470EB8[];
+extern const f32 TBoss6Type1__data_805DE304;
+extern const f32 lbl_805DE3D8;
+void TBoss6Type1__sub_802B8BB4(u8 *arg0);
 }
 
 extern "C" {
@@ -1633,6 +1648,74 @@ void TBoss6Type1__vt60(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
     M2C_FIELD(arg0, f32 *, 0x4D4) = (f32) TBoss6Type1__data_805DE2E4;
     play_sound_effect(0x39E01, arg0 + 0x584, 0, 1, arg0);
+}
+
+struct T1_802B529C;
+struct Boss_802B5434;
+struct Boss_802B8EE0;
+void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
+    Atk_802B8EE0 s;
+    s32 r4;
+    s32 n;
+    s32 id;
+    switch (M2C_FIELD(arg0, s32 *, 0x414)) {
+    case 0:
+        if (((s32 (*)(void *))TBoss6Type1__sub_802B600C)(arg0) != 0) {
+            ((void (*)(u8 *, s32))TBoss6Type1__sub_802B9204)(arg0, TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 5, 6));
+            break;
+        }
+        switch (TBoss6Type1__sub_802B5434((Boss_802B5434 *)arg0, 3, 5, 0x20)) {
+        case 3:
+            TBoss6Type1__sub_802B9204(arg0, 3);
+            return;
+        case 5:
+            ((void (*)(u8 *, s32))TBoss6Type1__sub_802B9204)(arg0, TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 5, 6));
+            return;
+        case 4:
+            return;
+        }
+        break;
+    case 1:
+        TBoss6Type1__sub_802B8EE0((Boss_802B8EE0 *)arg0, &s);
+        if (TBoss6Type1__sub_802B5FDC(arg0) != 0) {
+            id = 0x15;
+            n = TBoss6Type1__sub_802B529C((T1_802B529C *)arg0, 0x15, 8);
+            if (n == 0 || TBoss6Type1__data_805DE304 * (f32)rand() < lbl_805DE3D8 / (f32)n) {
+                s.b2 = -2;
+            } else {
+                id = 2;
+            }
+            TBoss6Type1__sub_802B9178(arg0, id, (M2C_UNK *)&s);
+            break;
+        }
+        if (TBoss6Type1__sub_802B5FF4(arg0) != 0) {
+            TBoss6Type1__sub_802B9178(arg0, 4, (M2C_UNK *)&s);
+            break;
+        }
+        r4 = TBoss6Type1__sub_802B52E0((M2C_UNK)arg0, (s32)lbl_80470EB8, 5);
+        switch (r4) {
+        case 4:
+            if (s.b2 == -2) {
+                r4 = 2;
+            } else {
+                s.b1 = 0x1C;
+            }
+            break;
+        case 22:
+            s.b2 = 10;
+            break;
+        case 5:
+            s.b2 = 10;
+            r4 = TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 6, 7);
+            break;
+        case 8:
+            s.b2 = 10;
+            r4 = TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 8, 10);
+            break;
+        }
+        TBoss6Type1__sub_802B9178(arg0, r4, (M2C_UNK *)&s);
+        break;
+    }
 }
 
 void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0) {

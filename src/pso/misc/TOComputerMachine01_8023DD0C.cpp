@@ -18,6 +18,14 @@ struct Arr_8023DDC8 { u8 type; u8 pad; u16 count; u8 pad2[4]; UV_8023DDC8 *uv; u
 
 struct Model_8023DDC8 { Arr_8023DDC8 *arrays; u8 pad[4]; void *s0; void *s1; };
 
+struct Spr_8023E0FC { s16 x0, y0, cx, cy, u0, v0, u1, v1; u8 pad[4]; };
+
+struct Self_8023E0FC { f32 x, y; u8 pad8[4]; f32 sx, sy; s32 rot; u8 pad18[4]; Spr_8023E0FC *sprs; };
+
+struct Vtx_8023E0FC { f32 x, y, z, u, v; s32 color; };
+
+struct Info_8023E0FC { f32 x, y, z; f32 dx1, dy1, dx2, dy2; f32 pad; f32 u, v, du1, dv1, du2, dv2; u8 pad2[8]; };
+
 extern "C" {
 void TObjPlayer__sub_8023E034(void **arg0);
 s32 has_texture_scroll_entry(Tbl_8023DD0C *t, u16 id);
@@ -28,6 +36,13 @@ void DCFlushRangeNoSync(void *, u32);
 void scroll_ginja_mesh_uvs(Model_8023DDC8 *self, s16 du, s16 dv, u16 cmd, s32 rewrite);
 void TObjPlayer__sub_8023E034(void **arg0);
 void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv(void);
+void DVDConvertEntrynumToPath(void *);
+void set_draw_texture_and_color(s32, s32);
+void TObjPlayer__sub_8023E0FC(Self_8023E0FC *self, s32 idx, s32 color, s32 flags, f32 z);
 }
 
 extern "C" {
@@ -168,5 +183,91 @@ void TObjPlayer__sub_8023E034(void **arg0) {
     }
     M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + ((M2C_FIELD(temp_r5, s16 *, 2) + 2) * 2);
 }
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_8023E0FC(Self_8023E0FC *self, s32 idx, s32 color, s32 flags, f32 z) {
+    Vtx_8023E0FC v[4];
+    Info_8023E0FC info;
+    s32 i;
+    Spr_8023E0FC *s;
+    f32 x;
+    f32 y;
+    f32 l;
+    f32 t;
+    f32 r;
+    f32 b;
+    f32 sn;
+    f32 cs;
+    f32 u0, v0, u1, v1;
+    f32 cx, cy;
+    for (i = 0; i < 4; i++) {
+        v[i].z = 1.0f / -z;
+        v[i].color = color;
+    }
+    s = &self->sprs[idx];
+    cx = s->cx;
+    cy = s->cy;
+    l = -cx * self->sx;
+    t = -cy * self->sy;
+    r = self->sx * (s->x0 - cx);
+    b = self->sy * (s->y0 - cy);
+    x = self->x;
+    y = self->y;
+    if (flags & 1) {
+        sn = sin_table_lookup(self->rot);
+        cs = cos_table_lookup(self->rot);
+        v[0].x = (cs * l + x) + sn * t;
+        v[1].x = (cs * l + x) + sn * b;
+        v[2].x = (cs * r + x) + sn * t;
+        v[3].x = (cs * r + x) + sn * b;
+        v[0].y = (cs * t + y) - sn * l;
+        v[1].y = (cs * b + y) - sn * l;
+        v[2].y = (cs * t + y) - sn * r;
+        v[3].y = (cs * b + y) - sn * r;
+    } else {
+        v[0].x = x + l;
+        v[0].y = y + t;
+        v[1].x = x + l;
+        v[1].y = y + b;
+        v[2].x = x + r;
+        v[2].y = y + t;
+        v[3].x = x + r;
+        v[3].y = y + b;
+    }
+    u0 = (f32)s->u0 / 255.0f;
+    v0 = (f32)s->v0 / 255.0f;
+    u1 = (f32)s->u1 / 255.0f;
+    v1 = (f32)s->v1 / 255.0f;
+    v[0].u = u0;
+    v[0].v = v0;
+    v[1].u = u0;
+    v[1].v = v1;
+    v[2].u = u1;
+    v[2].v = v0;
+    v[3].u = u1;
+    v[3].v = v1;
+    info.x = v[0].x;
+    info.y = v[0].y;
+    info.z = z;
+    info.dx1 = v[1].x - v[0].x;
+    info.dy1 = v[1].y - v[0].y;
+    info.dx2 = v[2].x - v[0].x;
+    info.dy2 = v[2].y - v[0].y;
+    info.u = v[0].u;
+    info.v = v[0].v;
+    info.du1 = v[1].u - v[0].u;
+    info.dv1 = v[1].v - v[0].v;
+    info.du2 = v[2].u - v[0].u;
+    info.dv2 = v[2].v - v[0].v;
+    if (flags & 0x20) {
+        begin_screen_draw(1);
+    } else {
+        begin_screen_draw(0);
+    }
+    set_draw_texture_and_color(idx, color);
+    DVDConvertEntrynumToPath(&info);
+    get_player__20TWindowSubStatusDispFv();
+}
+#pragma pop
 
 }

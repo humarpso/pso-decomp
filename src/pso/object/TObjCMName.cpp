@@ -29,6 +29,22 @@ struct Menu_80296D68
   f32 scroll;
 };
 
+typedef s32 M2C_UNK;
+struct Menu_80297B18 {
+    u8 pad0[0x1C];
+    void *f1C;
+    u8 pad20[0x24 - 0x20];
+    s32 *ids;
+    s32 count;
+    s32 sel;
+    s32 f30;
+    s32 pulse;
+    f32 t;
+    f32 tmax;
+};
+
+struct Pair_80297B18 { s32 a, b; };
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(s32, s32, s32, s32);
@@ -42,6 +58,32 @@ extern const f32 lbl_805DDAA8;
 extern const f32 lbl_805DDAAC;
 extern const f32 lbl_805DDB80;
 void run_task__16TObjCMAssignMenuFv(void *arg0);
+f32 get_random_float__8TObjFishFv(f32);
+void TCameraCtrl__sub_80068EF0(void);
+void restore_full_screen_view__11TCameraCtrlFv(void);
+const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
+u32 calc_text_width(void *);
+void TObjWarpString__sub_80145750(const char *, u32, f32, f32);
+s32 TObjCMMainMenu__sub_8028DA7C(void *);
+s32 is_active__23TAdSinglePlyChrSelectGCFv();
+f32 get_scale__14TObjCMMainMenuFv(void);
+void TObjCMIcon__sub_80299488(void);
+void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
+f32 sin_table_lookup(s32);
+extern Pair_80297B18 lbl_80464FC8[];
+extern s32 lbl_805D6558;
+extern s32 TObjCMMainMenu__data_805D659C;
+extern const s32 lbl_805DDA5C;
+extern const s32 lbl_805DDA60;
+extern const s32 lbl_805DDA64;
+extern const s32 lbl_805DDA68;
+extern const f32 lbl_805DDA70;
+extern const f32 TObjCMMainMenu__data_805DDB44;
+extern const f32 lbl_805DDBA0;
+extern const f32 lbl_805DDBA4;
+extern const f32 lbl_805DDBA8;
+extern const f32 lbl_805DDBAC;
+void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m);
 }
 
 extern "C" {
@@ -1390,6 +1432,77 @@ void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
     }
 }
 extern int fold_flush_6;
+#pragma pop
+
+#pragma push
+#pragma fp_contract on
+void TObjCMMainMenu__sub_80297B18(Menu_80297B18 *m) {
+    s32 v14;
+    s32 v10;
+    s32 vC;
+    s32 v8;
+    u32 color;
+    s32 i;
+    f32 s;
+    f32 step;
+    f32 y;
+    if (m->ids[m->sel] == 9 && TObjCMMainMenu__sub_8028DA7C(m->f1C) == 0) {
+        color = ((u32)(TObjCMMainMenu__data_805DDB44 * (lbl_805DDA70 - lbl_805DDBA8 * get_random_float__8TObjFishFv(sin_table_lookup(m->pulse << 10)))) << 24) | 0xFFFFFF;
+        s = get_scale__14TObjCMMainMenuFv();
+        step = lbl_805DDBAC * s;
+        y = lbl_805DDBA4 * s - step;
+        for (i = 0; i < 2; i++) {
+            const char *str = TQuestVmDownLoadServer__sub_8006EF6C(i + 0x3B);
+            f32 x = lbl_805DDBA0 - (f32)calc_text_width((void *)str);
+            restore_full_screen_view__11TCameraCtrlFv();
+            TObjWarpString__sub_80145750(str, color, x, y);
+            TCameraCtrl__sub_80068EF0();
+            y += step;
+        }
+    }
+    switch (TObjCMMainMenu__data_805D659C) {
+    case 0:
+        if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
+            if (m->ids[m->sel] == 9 && TObjCMMainMenu__sub_8028DA7C(m->f1C) == 0) {
+                v14 = lbl_805DDA5C;
+                TObjCMIcon__sub_802994C8(1, &v14);
+            } else if (((s8 *)m->f1C)[0x30] == -1) {
+                Pair_80297B18 p18 = lbl_80464FC8[0];
+                TObjCMIcon__sub_802994C8(2, (s32 *)&p18);
+            } else {
+                v10 = lbl_805DDA60;
+                TObjCMIcon__sub_802994C8(1, &v10);
+            }
+        } else {
+            TObjCMIcon__sub_80299488();
+        }
+        break;
+    case 1:
+        switch (m->ids[m->sel]) {
+        case 7:
+            TObjCMIcon__sub_80299488();
+            break;
+        case 8:
+            break;
+        default:
+            vC = lbl_805DDA64;
+            TObjCMIcon__sub_802994C8(1, &vC);
+            break;
+        }
+        break;
+    case 2:
+        if (m->f30 == 0 || lbl_805D6558 == 2) {
+            v8 = lbl_805DDA68;
+            TObjCMIcon__sub_802994C8(1, &v8);
+        } else {
+            TObjCMIcon__sub_80299488();
+        }
+        break;
+    default:
+        TObjCMIcon__sub_80299488();
+        break;
+    }
+}
 #pragma pop
 
 void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self) {

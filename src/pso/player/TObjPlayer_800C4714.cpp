@@ -793,6 +793,132 @@ struct VObj_18_f9c8ca : VBase_18_f9c8ca {
     virtual void m99();
     virtual M2C_UNK m100();
 };
+
+struct VBase_18_189925 { char pad[0x18]; };
+
+struct VObj_18_189925 : VBase_18_189925 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual s32 m17(s32);
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual void m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual M2C_UNK m93();
+};
+
+struct Vec_800C5B10 { f32 x, y, z; };
+
+struct Ctl_800C5B10 { u8 pad[0x8]; void *field_8; };
+
+struct Player_800C5B10 : VObj_18_189925 {
+    u8 pad1C[0x38 - 0x1C];
+    Vec_800C5B10 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 field_60;
+    u8 pad64[0xB4 - 0x64];
+    u32 field_B4;
+    s16 field_B8;
+    u8 padBA[0x2A8 - 0xBA];
+    Player_800C5B10 *target;
+    u8 pad2AC[0x2FC - 0x2AC];
+    Vec_800C5B10 pos2;
+    u8 pad308[0x318 - 0x308];
+    s32 field_318;
+    u8 pad31C[0x326 - 0x31C];
+    s16 field_326;
+    s16 field_328;
+    u8 pad32A[0x34C - 0x32A];
+    u32 field_34C;
+    Ctl_800C5B10 *field_350;
+};
+
 extern "C" {
 s32 countChildren__9TObjEnemyFv(void *);
 struct Obj_800C5164 {
@@ -982,6 +1108,21 @@ s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void * a0, s32 a1);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 void beast_enter_approach(u8 *arg0);
+M2C_UNK apply_actor_gravity(void *, int, f32);
+M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_field_0c__10TObjPlayerFPv(s32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 angle_difference_abs(s32, s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback();
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+M2C_UNK subtract_vector(void *, void *);
+extern const f64 lbl_8043BC88;
+extern const f32 lbl_805DA030;
+extern const f32 lbl_805DA034;
+void TObjPlayer__sub_800C5B10(Player_800C5B10 *arg0);
 }
 
 extern "C" {
@@ -1447,6 +1588,57 @@ void beast_update_approach(u8 *arg0) {
     update_collisions__10TObjPlayerFPv(arg0);
     minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
     obj_clearFlags30(arg0, 0x200000);
+}
+
+void TObjPlayer__sub_800C5B10(Player_800C5B10 *arg0) {
+    s32 ang;
+    advance_animation_playback();
+    switch (arg0->field_328) {
+    case 0:
+        if (objInBand__FP7GameObjf(arg0, lbl_805DA034) != 0) {
+            arg0->m93();
+        }
+        if (arg0->field_B4 != 0x20) {
+            arg0->field_328 = 1;
+            arg0->field_B8 = 2;
+        }
+        break;
+    case 1:
+        if (arg0->target != NULL && arg0->m17(0x1E) != 0) {
+            Vec_800C5B10 d;
+            VecCopy__FP3VecPC3Vec(&d, &arg0->target->pos2);
+            subtract_vector(&d, &arg0->pos2);
+            ang = update_angle__10TObjPlayerFPviPv(arg0, arg0->field_350->field_8, &d);
+            if (d.x * d.x + d.z * d.z < lbl_805DA030 || arg0->field_34C == 0) {
+                arg0->field_326 = 3;
+                arg0->field_328 = 1;
+                arg0->field_B8 = 2;
+            } else if (ang <= get_field_0c__10TObjPlayerFPv(arg0->field_318)) {
+                arg0->field_328 = 2;
+                arg0->field_B8 = 0;
+            }
+        }
+        break;
+    case 2:
+        if (arg0->target != NULL && arg0->m17(0x1E) != 0) {
+            Vec_800C5B10 d;
+            VecCopy__FP3VecPC3Vec(&d, &arg0->target->pos2);
+            subtract_vector(&d, &arg0->pos2);
+            ang = angle_difference_abs(arg0->field_60, (s32)(lbl_8043BC88 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
+            if (d.x * d.x + d.z * d.z < lbl_805DA030 || arg0->field_34C == 0) {
+                arg0->field_326 = 3;
+                arg0->field_328 = 1;
+                arg0->field_B8 = 2;
+            } else if (get_field_0c__10TObjPlayerFPv(arg0->field_318) < ang) {
+                arg0->field_328 = 1;
+                arg0->field_B8 = 2;
+            }
+        }
+        break;
+    }
+    apply_actor_gravity(arg0, 0, lbl_805DA034);
+    update_collisions__10TObjPlayerFPv(arg0);
+    minimap_render_dot(&arg0->pos, -0x5DB4, 1, 0);
 }
 
 void beast_enter_approach(u8 *arg0) {

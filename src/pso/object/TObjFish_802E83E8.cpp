@@ -16,6 +16,10 @@ struct Pt_802E95F8 { f32 x, y, z; };
 
 struct Fish_802E95F8 { u8 pad[0x534]; Pt_802E95F8 pts[16]; u8 pad2[0x728 - 0x534 - 16 * 12]; s32 idx; };
 
+struct Vec_802EBBC8 { f32 x, y, z; };
+
+struct Cam_802EBBC8 { s8 a; s8 b; s16 c; f32 d; f32 e; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 s32 queue_destruction__7TObjectFv(void *);
@@ -59,6 +63,35 @@ s32 TObjFish__sub_802ED62C(void *, int);
 extern const f32 lbl_805DEA68;
 extern const f32 lbl_805DEA6C;
 void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+M2C_UNK restore_player_cameras();
+s32 activate_camera_mode(int);
+M2C_UNK cache_target_and_forward__11TCameraCtrlFii(void *, int);
+u8 *get_scripted_camera_playback();
+s32 spawn_particle_effect_with_flags(void *, int, int);
+s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
+M2C_UNK get_target_state_a__9TObjEneDDFPv(void *);
+M2C_UNK get_target_state_b__9TObjEneDDFPv(void *);
+s32 query_teammate_state__9TObjEneDDFPv();
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 advance_animation_playback(void *);
+int play_sound_effect(void*, void*, void*, void*);
+M2C_UNK init_all_slots__11TWindowCtrlFv();
+M2C_UNK init_all_slots2__11TWindowCtrlFv();
+M2C_UNK TObjFish__sub_802E7888(void *);
+M2C_UNK destroy_child__8TObjFishFPv(void *);
+void TObjFish__sub_802EC7F0(u8 *arg0);
+s32 TObjFish__sub_802ED62C(void *, int);
+extern Vec_802EBBC8 lbl_80473F78;
+extern Vec_802EBBC8 lbl_80473F84;
+extern const f32 lbl_805DEA10;
+extern const f32 lbl_805DEA28;
+extern const f32 lbl_805DEA2C;
+extern const f32 lbl_805DEB54;
+extern const f32 lbl_805DEB78;
+extern const f32 lbl_805DEB7C;
+extern const f32 lbl_805DEB80;
+void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -381,6 +414,10 @@ void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
 
 extern "C" {
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
+}
+
+extern "C" {
+void TObjFish__sub_802ECC44(Fish_802ECC44 *self);
 }
 
 void TObjFish__sub_802E8528(void* o, u32 k) {
@@ -840,6 +877,82 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
             }
             break;
         }
+        break;
+    }
+}
+
+struct Fish_802ECC44;
+void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
+    switch (arg1) {
+    case 4:
+        set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
+        TObjFish__sub_802ECC44((Fish_802ECC44 *) arg0);
+        M2C_FIELD(arg0, s32 *, 0x628) &= ~4;
+        M2C_FIELD(arg0, s32 *, 0x628) &= ~0x100;
+        M2C_FIELD(arg0, f32 *, 0x6F0) = lbl_805DEA10;
+        M2C_FIELD(arg0, s32 *, 0x728) = 0;
+        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
+        init_all_slots__11TWindowCtrlFv();
+        get_target_state_b__9TObjEneDDFPv(arg0);
+        break;
+    case 2:
+        if (M2C_FIELD(arg0, s32 *, 0x728) == 1) {
+            M2C_FIELD(arg0, s32 *, 0x6C0) = 0;
+            TObjFish__sub_802ED62C(arg0, 2);
+        }
+        break;
+    case 9:
+        if (M2C_FIELD(arg0, s32 *, 0x728) == 1) {
+            M2C_FIELD(arg0, s32 *, 0x6C0) = 0;
+            TObjFish__sub_802EC7F0(arg0);
+        }
+        break;
+    case 0:
+        if (M2C_FIELD(arg0, s32 *, 0x72C) == 0) {
+            if (query_teammate_state__9TObjEneDDFPv() == 0) {
+                Cam_802EBBC8 cam;
+                cam.b = 0;
+                cam.a = 1;
+                cam.c = 0;
+                cam.d = lbl_805DEA10;
+                cam.e = lbl_805DEA28;
+                activate_camera_mode(5);
+                cache_target_and_forward__11TCameraCtrlFii(&cam, 0x1C71);
+                M2C_FIELD(arg0, s32 *, 0x72C) = 1;
+            }
+        } else {
+            advance_animation_playback(arg0);
+            if (objInBand__FP7GameObjf(arg0, lbl_805DEB54) != 0) {
+                play_sound_effect((void *) 0x39E00, 0, 0, 0);
+            }
+            if (objInBand__FP7GameObjf(arg0, lbl_805DEB78) != 0) {
+                destroy_child__8TObjFishFPv(arg0);
+                M2C_FIELD(arg0, s32 *, 0x7B0) = spawn_continuous_particle_effect_with_flags(arg0 + 0x7B4, 0x20F, 0x40);
+            }
+            if (objInBand__FP7GameObjf(arg0, lbl_805DEB7C) != 0) {
+                destroy_child__8TObjFishFPv(arg0);
+            }
+            if (objInBand__FP7GameObjf(arg0, lbl_805DEA2C) != 0) {
+                Vec_802EBBC8 v = lbl_80473F78;
+                spawn_particle_effect_with_flags(&v, 0x20F, 0x40);
+            }
+            if (objInBand__FP7GameObjf(arg0, lbl_805DEB80) != 0) {
+                Vec_802EBBC8 w = lbl_80473F84;
+                spawn_particle_effect_with_flags(&w, 0x20F, 0x40);
+                play_sound_effect((void *) 0x39906, 0, 0, 0);
+            }
+            TObjFish__sub_802E7888(arg0);
+            if (*(u16 *) (get_scripted_camera_playback() + 2) & 1) {
+                restore_player_cameras();
+                TObjFish__sub_802EC7F0(arg0);
+                M2C_FIELD(arg0, s32 *, 0x728) = 1;
+            }
+        }
+        break;
+    case 5:
+        restore_player_cameras();
+        init_all_slots2__11TWindowCtrlFv();
+        get_target_state_a__9TObjEneDDFPv(arg0);
         break;
     }
 }

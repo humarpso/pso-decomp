@@ -55,6 +55,8 @@ struct Ent_802BCAB8 { s32 a; s32 b; };
 
 struct Obj_802BCAB8 { u8 pad[0x400]; Ent_802BCAB8 ents[2]; };
 
+struct Vec_802BAD90 { f32 x, y, z; };
+
 extern "C" {
 s32 get_bml_model(s32, M2C_UNK);
 s32 collect_and_count__12TBoss3VoloptFUii(int, int);
@@ -108,6 +110,24 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
 void TBoss6Type2__sub_802BCAB8(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 * get_player_data__10TObjPlayerFi(s32);
+s32 get_game_mode__6TLobbyFv();
+M2C_UNK play_sound_effect(s32, void *, s32, s32);
+s32 is_active__14TBoss6PlotFalzFPv();
+void TBoss6RockChase__sub_8036D6D4(void *, void *);
+s32 rand(void);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+extern const f32 TBoss6Type2__data_805DE40C;
+extern const f32 TBoss6Type2__data_805DE410;
+extern const f32 TBoss6Type2__data_805DE434;
+extern const f32 lbl_805DE464;
+extern const f32 TBoss6Type2__data_805DE468;
+extern const f32 lbl_805DE46C;
+extern const f32 lbl_805DE470;
+extern const f32 lbl_805DE474;
+void TBoss6Type2__sub_802BAD90(void *arg0);
 }
 
 extern "C" {
@@ -663,6 +683,10 @@ extern Tb_802BD014 lbl_804E00DC[];
 
 extern "C" {
 Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
+}
+
+extern "C" {
+extern RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C TBoss6Type2__data_8047105C;
 }
 
 void render__11TBoss6Type2Fv(void* p) { render_body_effects__11TBoss6Type2FPv(p); draw__11TBoss6Type2FPv(p); }
@@ -1242,6 +1266,43 @@ void TBoss6Type2__sub_802BAD04(s32 arg0) {
         TBoss6Type2__sub_8035DC60(arg0, (s32) (M2C_FIELD(arg0, u8 **, 0x414) + 0x38), TBoss6Type2__data_805DE460);
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type2__sub_802BAD90(void *arg0) {
+    Vec_802BAD90 p;
+    Vec_802BAD90 q;
+    s32 n;
+    s32 cnt;
+    s32 i;
+    u8 *pl;
+    n = 0;
+    cnt = get_game_mode__6TLobbyFv();
+    for (i = 0; i < cnt; i++) {
+        pl = get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv() != 0) {
+            f32 r = lbl_805DE464 * (TBoss6Type2__data_805DE468 * (f32)rand()) + TBoss6Type2__data_805DE434;
+            s32 ang = (s32)(lbl_805DE46C * (TBoss6Type2__data_805DE468 * (f32)rand()));
+            VecCopy__FP3VecPC3Vec(&p, pl + 0x38);
+            p.x += r * sin_table_lookup(ang);
+            p.y = TBoss6Type2__data_805DE410;
+            p.z += r * cos_table_lookup(ang);
+            TBoss6RockChase__sub_8036D6D4(arg0, &p);
+            n++;
+        }
+    }
+    while (n < 10) {
+        f32 dx = lbl_805DE470 * (lbl_805DE474 * (TBoss6Type2__data_805DE468 * (f32)rand()) - TBoss6Type2__data_805DE40C);
+        f32 dz = lbl_805DE470 * (lbl_805DE474 * (TBoss6Type2__data_805DE468 * (f32)rand()) - TBoss6Type2__data_805DE40C);
+        VecCopy__FP3VecPC3Vec(&q, &TBoss6Type2__data_8047105C);
+        q.x += dx;
+        q.z += dz;
+        TBoss6RockChase__sub_8036D6D4(arg0, &q);
+        n++;
+    }
+    play_sound_effect(0x4006AB1D, &TBoss6Type2__data_8047105C, 0, 1);
+}
+#pragma pop
 
 void TBoss6Type2__sub_802BAFEC(M2C_UNK arg0, s32 arg1) {
     s32 avail_tbl[32];

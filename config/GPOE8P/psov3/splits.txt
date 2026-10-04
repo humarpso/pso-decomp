@@ -364,6 +364,7 @@ pso/boss/TBoss2Tentacle.cpp:
 pso/boss/TObjBoss2CeilJunk.cpp:
 	.text       start:0x8003A1B4 end:0x8003A81C
 	.rodata     start:0x80435C30 end:0x80435C38
+	.sdata2     start:0x805D8574 end:0x805D85A0
 
 pso/boss/TObjBoss2CeilJunk_8003A81C.cpp:
 	.text       start:0x8003A81C end:0x8003A95C
@@ -734,6 +735,7 @@ pso/boss/TBoss4Type1.cpp:
 	.text       start:0x800525AC end:0x80055678
 	.ctors      start:0x80433F38 end:0x80433F3C
 	.rodata     start:0x80437628 end:0x80437630
+	.sdata2     start:0x805D8B28 end:0x805D8B2C
 
 pso/player/TObjPlayer_80055678.cpp:
 	.text       start:0x80055678 end:0x8005569C
@@ -759,6 +761,7 @@ pso/boss/TBoss4Uro_8005CF10.cpp:
 
 pso/boss/TBoss4Zako.cpp:
 	.text       start:0x8005CF14 end:0x8005D6F4
+	.rodata     start:0x804378C0 end:0x804378C8
 
 pso/boss/TBoss8Dragon_8005D6F4.cpp:
 	.text       start:0x8005D6F4 end:0x8005D700
@@ -1959,6 +1962,7 @@ pso/player/TObjPlayer_800AAFBC.cpp:
 
 pso/enemy/TObjEneShark.cpp:
 	.text       start:0x800AC1E0 end:0x800ACA60
+	.rodata     start:0x8043AEC4 end:0x8043AEDC
 
 pso/player/TObjPlayer_800ACA60_800ACA60.cpp:
 	.text       start:0x800ACA60 end:0x800ACD80
@@ -2124,6 +2128,7 @@ pso/object/TObjGrass.cpp:
 	.text       start:0x800BCA2C end:0x800BFBBC
 	.rodata     start:0x8043B7B0 end:0x8043B7B8
 	.data       start:0x80492A60 end:0x80492A88
+	.sdata2     start:0x805D9EB8 end:0x805D9ED4
 
 pso/player/TObjPlayer_800BFBBC.cpp:
 	.text       start:0x800BFBBC end:0x800C16E0
@@ -2276,6 +2281,7 @@ pso/enemy/TObjEneBm5GibonU.cpp:
 
 pso/object/TObjGyaranzoMissile_800D1F84.cpp:
 	.text       start:0x800D1F84 end:0x800D2900
+	.rodata     start:0x8043C3A8 end:0x8043C428
 
 pso/unk/text_800D2900.cpp:
 	.text       start:0x800D2900 end:0x800D2CE4
@@ -2567,6 +2573,7 @@ pso/enemy/TObjEneMe3Stelth_800F2B8C.cpp:
 
 pso/enemy/TObjEneMe3Stelth_800F2C8C.cpp:
 	.text       start:0x800F2C8C end:0x800F4424
+	.sdata2     start:0x805DA834 end:0x805DA838
 
 pso/enemy/TObjEneMe3Stelth_800F4424.cpp:
 	.text       start:0x800F4424 end:0x800F4598
@@ -6527,6 +6534,8 @@ pso/misc/TOTrap_801792AC.cpp:
 
 pso/misc/TOTrapAncient01.cpp:
 	.text       start:0x8017939C end:0x8017A20C
+	.rodata     start:0x80442E68 end:0x80442E70
+	.sdata2     start:0x805DBA48 end:0x805DBA74
 
 pso/misc/TOTrapAncient02R.cpp:
 	.text       start:0x8017A20C end:0x8017A210
@@ -6826,6 +6835,7 @@ pso/object/TObjCityMainWarp_80186E24.cpp:
 
 pso/object/TObjCityMainWarp_80186F84.cpp:
 	.text       start:0x80186F84 end:0x80187824
+	.data       start:0x804B61DC end:0x804B61F8
 
 pso/object/TObjCityMainWarpChallenge.cpp:
 	.text       start:0x80187824 end:0x80187C98
@@ -7362,6 +7372,8 @@ pso/ui/TAdDialingGC_801A4C90.cpp:
 
 pso/unk/text_801A4D30.cpp:
 	.text       start:0x801A4D30 end:0x801A4FC0
+	.rodata     start:0x80446968 end:0x80446970
+	.data       start:0x804C22B0 end:0x804C22D8
 
 pso/misc/TWindowShortListCtrl_801A4FC0.cpp:
 	.text       start:0x801A4FC0 end:0x801A5228
@@ -9733,6 +9745,8 @@ pso/unk/text_8023DCB8.cpp:
 
 pso/misc/TOComputerMachine01_8023DD0C.cpp:
 	.text       start:0x8023DD0C end:0x8023E480
+	.rodata     start:0x8044DCD8 end:0x8044DCE0
+	.sdata2     start:0x805DC9B0 end:0x805DC9B8
 
 pso/player/TObjPlayer_8023E480.cpp:
 	.text       start:0x8023E480 end:0x8023E7A8
@@ -9746,6 +9760,7 @@ pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp:
 
 pso/ui/TAdMultiChgGameModeGC_8023EAC4.cpp:
 	.text       start:0x8023EAC4 end:0x8023F160
+	.data       start:0x804CCED0 end:0x804CCFB8
 
 pso/unk/text_8023F160.cpp:
 	.text       start:0x8023F160 end:0x8023F1B8
@@ -9780,6 +9795,7 @@ pso/misc/TLobby_8023F734_80240808.cpp:
 
 pso/misc/TLobby_8023F734.cpp:
 	.text       start:0x80240B40 end:0x80242148
+	.data       start:0x804CDC44 end:0x804CDC88
 
 pso/misc/TLobby_8023F734_80242148.cpp:
 	.text       start:0x80242148 end:0x80242618
@@ -12153,6 +12169,7 @@ pso/unk/text_802CE68C.cpp:
 
 pso/enemy/TObjEneBm9Mericarol_802CECE0.cpp:
 	.text       start:0x802CECE0 end:0x802D04C0
+	.rodata     start:0x804724C0 end:0x804724C8
 
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp:
 	.text       start:0x802D04C0 end:0x802D05BC
@@ -15989,6 +16006,7 @@ pso/unk/text_803F3DD4.cpp:
 
 pso/ui/TAdPlayerLoadGC_803F3F64.cpp:
 	.text       start:0x803F3F64 end:0x803F4D10
+	.data       start:0x804FCE84 end:0x804FCEA4
 
 pso/unk/text_803F4D10.cpp:
 	.text       start:0x803F4D10 end:0x803F4D84

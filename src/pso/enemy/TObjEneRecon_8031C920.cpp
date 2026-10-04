@@ -238,6 +238,119 @@ struct VB_8031CCFC {
     virtual void m96();
 };
 
+#define F(T, o) M2C_FIELD(arg0, T *, o)
+struct VBase_18_2afebf { char pad[0x18]; };
+
+struct VObj_18_2afebf : VBase_18_2afebf {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual M2C_UNK m87();
+    virtual void m88();
+    virtual void m89();
+    virtual void m90();
+    virtual void m91();
+    virtual void m92();
+    virtual void m93();
+    virtual M2C_UNK m94();
+    virtual void m95();
+    virtual void m96();
+    virtual void m97();
+    virtual void m98();
+    virtual void m99();
+    virtual void m100();
+    virtual void m101();
+    virtual s32 m102(f32);
+};
+
+struct Obj_8031C920 { u8 pad[0x38]; f32 x, y, z; };
+
+struct Prm_8031C920 { f32 f0; f32 f4; };
+
 extern "C" {
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void update_velocity__9TObjEneDDFPv(void *);
@@ -279,6 +392,31 @@ extern const f64 TObjEneRecon__data_80476110;
 extern const f32 lbl_805DF3F8;
 extern const f32 lbl_805DF3FC;
 void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 update_death_check__14TObjEneEpsilonFPv(void *);
+void update_velocity__9TObjEneDDFPv(void *);
+void transition_enemy_state(void *, s16);
+void advance_animation_playback(void *);
+void spawn_trap_b__12TObjEneReconFi(s32);
+void TObjEneRecon__sub_8031D898(void *);
+void TObjEneRecon__sub_8031D994(void *);
+f32 approach_value__12TObjEneReconFff(void *, f32, f32);
+M2C_UNK TObjEneRecon__sub_8031DD14(void *);
+void set_flag2__12TObjEneReconFPv(void *, f32, f32, f32);
+void TObjEneRecon__sub_8031DE88(void *, s32);
+f32 sin_table_lookup(s32);
+extern const f64 TObjEneRecon__data_80476110;
+extern const f32 TObjEneRecon__data_805DF3C4;
+extern const f32 TObjEneRecon__data_805DF3E0;
+extern const f32 TObjEneRecon__data_805DF3E4;
+extern const f32 lbl_805DF3E8;
+extern const f32 lbl_805DF3EC;
+extern const f32 lbl_805DF3F0;
+extern const f32 lbl_805DF3F4;
+extern const f32 lbl_805DF3F8;
+void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -288,6 +426,95 @@ typedef struct VObj_18_83f71d VObj_18_83f71d;
 #define PSO_VCALL_VObj_18_83f71d_m94(_self) (((VObj_18_83f71d *)(_self))->m94())
 #define PSO_VCALL_VObj_18_83f71d_m102(_self, _arg0) (((VObj_18_83f71d *)(_self))->m102((_arg0)))
 #define PSO_VCALL_VObj_18_83f71d_m87(_self, _arg0) (((VObj_18_83f71d *)(_self))->m87((_arg0)))
+
+void TObjEneRecon__sub_8031C920(u8 *arg0, s32 arg1) {
+    f32 r;
+    f32 h;
+    f32 k;
+    Obj_8031C920 *t;
+    switch (arg1) {
+    case 4:
+        F(s16, 0xB8) = 1;
+        ((VObj_18_2afebf *)(arg0))->m94();
+        F(u32, 0x444) &= ~1;
+        F(u32, 0x444) |= 2;
+        F(u32, 0x30) |= 0x01000000;
+        if (F(s16, 0x326) == 4) {
+            F(s32, 0x3C0) = 2;
+        } else {
+            F(s32, 0x3C0) = 0;
+            F(s32, 0x3D0) = F(s32, 0x60) + 0x8000;
+            F(s32, 0x3D4) = 0;
+            F(s32, 0x3D8) = 0;
+        }
+        break;
+    case 3:
+        if (F(u8 *, 0x390) == NULL) {
+            transition_enemy_state(arg0, 5);
+        } else if (F(s32, 0x46C) > 0x8000 || F(s32, 0x46C) < -0x8000) {
+            TObjEneRecon__sub_8031D994(arg0);
+        } else if (F(s32, 0x470) > 0x5000 || F(s32, 0x470) < -0x5000) {
+            TObjEneRecon__sub_8031D898(arg0);
+        }
+        break;
+    case 1:
+        break;
+    case 5:
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        if (update_death_check__14TObjEneEpsilonFPv(arg0) != 0 || ((VObj_18_2afebf *)(arg0))->m102(TObjEneRecon__data_805DF3E4) != 0) {
+            switch (F(s32, 0x3C0)) {
+            case 0:
+                TObjEneRecon__sub_8031DE88(arg0, F(s32, 0x3D0));
+                update_velocity__9TObjEneDDFPv(arg0);
+                k = lbl_805DF3E8 * F(f32, 0x468);
+                r = F(Prm_8031C920 *, 0x350)->f4;
+                h = TObjEneRecon__data_805DF3C4;
+                if (F(f32, 0x3AC) < k * k) {
+                    if (calc_boss4_scale__10TObjPlayerFi(arg0) > TObjEneRecon__data_805DF3E0) {
+                        F(s32, 0x3D4) = (lbl_805DF3EC * r) / (lbl_805DF3F0 * F(f32, 0x468));
+                    } else {
+                        F(s32, 0x3D4) = (lbl_805DF3F4 * r) / (lbl_805DF3F0 * F(f32, 0x468));
+                    }
+                    F(s32, 0x3C0) = 1;
+                }
+                break;
+            case 1:
+                F(s32, 0x3D0) += F(s32, 0x3D4) / 2;
+                F(s32, 0x46C) += F(s32, 0x3D4) / 2;
+                F(s32, 0x470) += F(s32, 0x3D4) / 2;
+                TObjEneRecon__sub_8031DE88(arg0, F(s32, 0x3D0));
+                update_velocity__9TObjEneDDFPv(arg0);
+                r = F(Prm_8031C920 *, 0x350)->f4;
+                h = TObjEneRecon__data_805DF3C4;
+                if (F(f32, 0x3AC) < r) {
+                    F(s32, 0x3C0) = 2;
+                }
+                break;
+            case 2:
+                F(s32, 0x3D0) += F(s32, 0x3D4);
+                F(s32, 0x46C) += F(s32, 0x3D4);
+                F(s32, 0x470) += F(s32, 0x3D4);
+                TObjEneRecon__sub_8031DE88(arg0, F(s32, 0x3D0));
+                update_velocity__9TObjEneDDFPv(arg0);
+                r = F(Prm_8031C920 *, 0x350)->f4;
+                h = lbl_805DF3F8 * sin_table_lookup(F(s32, 0x3D8));
+                F(s32, 0x3D8) += 0x380;
+                break;
+            }
+            VecCopy__FP3VecPC3Vec(arg0 + 0x44C, arg0 + 0x3A0);
+            set_flag2__12TObjEneReconFPv(arg0, F(f32, 0x44C), F(f32, 0x454), r);
+            F(f32, 0x448) = approach_value__12TObjEneReconFff(arg0, F(f32, 0x448), F(f32, 0x398) + h);
+            TObjEneRecon__sub_8031DD14(arg0);
+            t = F(Obj_8031C920 *, 0x390);
+            F(s32, 0x60) = TObjEneRecon__data_80476110 * get_ad_end_text_start__10TObjPlayerFv(t->x - F(f32, 0x38), t->z - F(f32, 0x40));
+            ((VObj_18_2afebf *)(arg0))->m87();
+            spawn_trap_b__12TObjEneReconFi((s32)arg0);
+        }
+        break;
+    }
+}
 
 void TObjEneRecon__sub_8031CCFC(u8 *arg0, s32 arg1) {
     switch (arg1) {

@@ -58,6 +58,9 @@ struct Obj_8005A1AC {
 struct Ply_80059ABC;
 struct Vec_800597A8 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct Vec_800584E4 { f32 x, y, z; };
+
 extern "C" {
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern u8 lbl_80487150[];
@@ -74,6 +77,18 @@ extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
 extern const f32 lbl_805D8C74;
 void TBoss4Type3__sub_800597A8(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u8 * create_yutai__11TBoss4Type3FPvPvPv(void *, void *, void *);
+void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+void request_destroy__11TBoss4Type2FUi(void *);
+u32 spawn_particle_effect(void *, int);
+u32 create_particle_emitter(void *, int);
+void set_flags__11TBoss4Type2FPvUi(void *, u32);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK play_sound_effect(int, void *, int, int);
+void spawn_effect__11TBoss4Type3Fsss(s32, s32, s32);
+extern const f32 TBoss4Type3__data_805D8C40;
+void TBoss4Type3__vt39(u8 *arg0);
 }
 
 extern "C" {
@@ -916,6 +931,12 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 extern "C" {
+Ply_80059ABC * get_player_by_client_id(u16);
+}
+
+extern "C" {
+void TBoss4Type3__sub_80059ABC(Obj_80059ABC *self, s32 arg1);
+void TBoss4Type3__sub_8005A398(TBoss4Type3_8005A398 *self, s32 arg1);
 Ply_80059ABC * get_player_by_client_id(u16);
 }
 
@@ -1762,6 +1783,92 @@ void TBoss4Type3__vt41(void *arg0) {
 }
 
 void TBoss4Type3__vt40(void* p) { *(s32*)((char*)p + 0x52c) = 0; *(s32*)((char*)p + 0x398) = 147; }
+
+struct Obj_80059ABC;
+struct TBoss4Type3_8005A398;
+void TBoss4Type3__vt39(u8 *arg0) {
+    Vec_800584E4 v;
+    Ply_80059ABC *p;
+    u16 id;
+    void *pos;
+    u32 h;
+    id = M2C_FIELD(arg0, u16 *, 0x3B8);
+    if (id == 0xFFFF) {
+        TBoss4Type3__sub_8005A398((TBoss4Type3_8005A398 *)arg0, 1);
+        return;
+    }
+    if (id == 0xFFFF || (p = get_player_by_client_id(id)) == NULL) {
+        v.x = v.y = v.z = TBoss4Type3__data_805D8C40;
+    } else {
+        VecCopy__FP3VecPC3Vec(&v, (u8 *)p + 0x2FC);
+    }
+    TBoss4Type3__sub_80059ABC((Obj_80059ABC *)arg0, M2C_FIELD(arg0, u16 *, 0x3B8));
+    if (M2C_FIELD(arg0, s32 *, 0x398) == 0x31) {
+        play_sound_effect(0x4003AA2E, 0, 0, 0);
+        spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (s16)M2C_FIELD(arg0, u16 *, 0x3B8));
+        TBoss4Type3__sub_8005A678(arg0, 5);
+    }
+    pos = arg0 + 0x474;
+    if (M2C_FIELD(arg0, s32 *, 0x398) < 0x12) {
+        if (M2C_FIELD(arg0, void **, 0x42C) != NULL) {
+            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x42C));
+            M2C_FIELD(arg0, void **, 0x42C) = NULL;
+        }
+    } else if (M2C_FIELD(arg0, s32 *, 0x398) <= 0x21 && M2C_FIELD(arg0, u32 *, 0x42C) == 0) {
+        h = create_particle_emitter(pos, 0x142);
+        M2C_FIELD(arg0, u32 *, 0x42C) = h;
+        if (h != 0) {
+            set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0x42C), 0x40);
+        }
+    }
+    if (M2C_FIELD(arg0, void **, 0x42C) != NULL) {
+        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x42C), pos);
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x398) == 0x21) {
+        create_yutai__11TBoss4Type3FPvPvPv(arg0, 0, (void *)M2C_FIELD(arg0, u16 *, 0x3B8));
+    }
+    if (M2C_FIELD(arg0, s32 *, 0x398) == 0x1C) {
+        h = spawn_particle_effect(&v, 0x38);
+        if (h != 0) {
+            set_flags__11TBoss4Type2FPvUi((void *)h, 0x40);
+        }
+    }
+    pos = &v;
+    if (M2C_FIELD(arg0, s32 *, 0x398) < 2) {
+        if (M2C_FIELD(arg0, void **, 0x430) != NULL) {
+            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x430));
+            M2C_FIELD(arg0, void **, 0x430) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x434) != NULL) {
+            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x434));
+            M2C_FIELD(arg0, void **, 0x434) = NULL;
+        }
+    } else if (M2C_FIELD(arg0, s32 *, 0x398) <= 0x12) {
+        if (M2C_FIELD(arg0, u32 *, 0x430) == 0) {
+            h = create_particle_emitter(pos, 0xEA);
+            M2C_FIELD(arg0, u32 *, 0x430) = h;
+            if (h != 0) {
+                set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0x430), 0x40);
+            }
+        }
+        if (M2C_FIELD(arg0, u32 *, 0x434) == 0) {
+            h = create_particle_emitter(pos, 0x139);
+            M2C_FIELD(arg0, u32 *, 0x434) = h;
+            if (h != 0) {
+                set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0x434), 0x40);
+            }
+        }
+    }
+    if (M2C_FIELD(arg0, void **, 0x430) != NULL) {
+        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x430), pos);
+    }
+    if (M2C_FIELD(arg0, void **, 0x434) != NULL) {
+        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x434), pos);
+    }
+    if (--M2C_FIELD(arg0, s32 *, 0x398) < 0) {
+        TBoss4Type3__sub_8005A398((TBoss4Type3_8005A398 *)arg0, 1);
+    }
+}
 
 void TBoss4Type3__vt38(void *arg0) {
     if (TBoss4Type3__sub_8005254C(M2C_FIELD(arg0, u16 *, 0x3B8)) == 0) {

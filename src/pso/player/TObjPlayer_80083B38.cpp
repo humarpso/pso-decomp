@@ -40,6 +40,14 @@ struct View_80083D54 {
 
 struct Mtx44_80083D54 { f32 m[4][4]; };
 
+struct C_800842A4 { u8 pad[0x20]; s32 x20; };
+
+struct B_800842A4 { u8 pad[0xc]; C_800842A4 *c; };
+
+struct A_800842A4 { u8 pad[0x8]; B_800842A4 *b; };
+
+struct G_800842A4 { A_800842A4 *a; u8 pad[0x1c]; };
+
 extern "C" {
 extern int lbl_805D4EE0;
 void TObjPlayer__sub_80083FB0(void);
@@ -189,6 +197,29 @@ extern const f32 lbl_805D9404;
 extern const f32 lbl_805D9408;
 extern const f32 lbl_805D9440;
 void TObjPlayer__sub_80084038(u32 arg0, s32 arg1, f32 farg0);
+M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_800847FC();
+M2C_UNK TObjPlayer__sub_80084824(f32, f32);
+M2C_UNK TObjPlayer__sub_80084834(s32);
+M2C_UNK TObjPlayer__sub_80084840(f32, f32, f32);
+M2C_UNK reset_transform_state__10TObjPlayerFv();
+M2C_UNK Dolphin_GXSetVtxDesc(M2C_UNK, M2C_UNK);
+M2C_UNK GXClearVtxDesc();
+M2C_UNK GXSetVtxAttrFmt(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK GXSetNumTexGens(M2C_UNK);
+M2C_UNK GXBegin(M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK GXSetNumChans(M2C_UNK);
+M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
+M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
+M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK TObjPlayer__sub_803E20B0();
+M2C_UNK setup_blended_textured_draw();
+extern G_800845F8 lbl_8048E5B4;
+extern const f32 lbl_805D93D0;
+extern const f32 lbl_805D93D8;
+extern const f32 lbl_805D9444;
+void TObjPlayer__sub_800842A4(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -402,6 +433,55 @@ void TObjPlayer__sub_80084038(u32 arg0, s32 arg1, f32 farg0) {
     reset_transform_state__10TObjPlayerFv();
     if (arg1 != 0) {
         temp_r4_2 = lbl_8048E5B4.a->b->c;
+        M2C_FIELD(temp_r4_2, s32 *, 0x10) = 0x280;
+        M2C_FIELD(temp_r4_2, s32 *, 0x14) = 0x1E0;
+    }
+}
+
+void TObjPlayer__sub_800842A4(u32 arg0, f32 *arg1, f32 *arg2, s32 arg3) {
+    u32 temp_r31;
+    void *temp_r4;
+    void *temp_r4_2;
+    set_global_param__8TObjFishFi((M2C_UNK *)&lbl_8048E5B4);
+    if (arg3 != 0) {
+        temp_r4 = (*(G_800842A4 *)&lbl_8048E5B4).a->b->c;
+        M2C_FIELD(temp_r4, s32 *, 0x10) = 0x100;
+        M2C_FIELD(temp_r4, s32 *, 0x14) = 0xC0;
+    }
+    load_list_texture(0, 0, 0, 0);
+    reset_transform_state__10TObjPlayerFv();
+    TObjPlayer__sub_803E20B0();
+    setup_blended_textured_draw();
+    GXSetNumTexGens((M2C_UNK)(1));
+    GXSetNumChans((M2C_UNK)(1));
+    set_tex_coord_gen__10TObjPlayerFiiii((M2C_UNK)(0), (M2C_UNK)(1), (M2C_UNK)(4), (M2C_UNK)(0x3C));
+    GXSetTevOp((M2C_UNK)(0), (M2C_UNK)(1));
+    GXSetTevOrder((M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(0), (M2C_UNK)(4));
+    GXClearVtxDesc();
+    Dolphin_GXSetVtxDesc((M2C_UNK)(9), (M2C_UNK)(1));
+    Dolphin_GXSetVtxDesc((M2C_UNK)(0xB), (M2C_UNK)(1));
+    Dolphin_GXSetVtxDesc((M2C_UNK)(0xD), (M2C_UNK)(1));
+    GXSetVtxAttrFmt((M2C_UNK)(4), (M2C_UNK)(9), (M2C_UNK)(1), (M2C_UNK)(4), (M2C_UNK)(0));
+    GXSetVtxAttrFmt((M2C_UNK)(4), (M2C_UNK)(0xB), (M2C_UNK)(1), (M2C_UNK)(5), (M2C_UNK)(0));
+    GXSetVtxAttrFmt((M2C_UNK)(4), (M2C_UNK)(0xD), (M2C_UNK)(1), (M2C_UNK)(4), (M2C_UNK)(0));
+    GXBegin((M2C_UNK)(0x80), (M2C_UNK)(4), (M2C_UNK)(4));
+    TObjPlayer__sub_80084840(arg1[0] * lbl_805D9444, arg1[1] * lbl_805D9444, lbl_805D9444);
+    temp_r31 = (arg0 << 8) | (arg0 >> 24);
+    TObjPlayer__sub_80084834(temp_r31);
+    TObjPlayer__sub_80084824(lbl_805D93D0, lbl_805D93D0);
+    TObjPlayer__sub_80084840(lbl_805D9444 * (arg1[0] + arg2[0]), arg1[1] * lbl_805D9444, lbl_805D9444);
+    TObjPlayer__sub_80084834(temp_r31);
+    TObjPlayer__sub_80084824(lbl_805D93D8, lbl_805D93D0);
+    TObjPlayer__sub_80084840(lbl_805D9444 * (arg1[0] + arg2[0]), lbl_805D9444 * (arg1[1] + arg2[1]), lbl_805D9444);
+    TObjPlayer__sub_80084834(temp_r31);
+    TObjPlayer__sub_80084824(lbl_805D93D8, lbl_805D93D8);
+    TObjPlayer__sub_80084840(arg1[0] * lbl_805D9444, lbl_805D9444 * (arg1[1] + arg2[1]), lbl_805D9444);
+    TObjPlayer__sub_80084834(temp_r31);
+    TObjPlayer__sub_80084824(lbl_805D93D0, lbl_805D93D8);
+    TObjPlayer__sub_800847FC();
+    reset_transform_state__10TObjPlayerFv();
+    if (arg3 != 0) {
+        temp_r4_2 = (*(G_800842A4 *)&lbl_8048E5B4).a->b->c;
         M2C_FIELD(temp_r4_2, s32 *, 0x10) = 0x280;
         M2C_FIELD(temp_r4_2, s32 *, 0x14) = 0x1E0;
     }

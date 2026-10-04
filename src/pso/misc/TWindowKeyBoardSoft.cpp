@@ -7,10 +7,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Rec_8025D3CC { u8 a; s8 len; };
 
+struct Desc_8025DECC { f32 *pos; u32 *col; s32 a; s32 b; };
+
 extern "C" {
 s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
 M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
 void TWindowKeyBoardSoft__sub_8025D3CC(u8 *arg0, u8 *arg1);
+void set_glyph_quad_extents(u8, void *);
+s32 map_char_to_font_code(u16);
+u8 get_font_char_advance(s32);
+void apply_context_transform_to_rect(void *, void *);
+M2C_UNK TObjCMHairMenu__sub_801E35C4(void *, int, int, f32);
+extern u32 lbl_804CFA84[];
+extern const f32 lbl_805DD048;
+extern const f32 lbl_805DD058;
+void TWindowSubStatusDisp__sub_8025DECC(void *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -100,7 +111,6 @@ void update__19TWindowKeyBoardSoftFPv(void *arg0);
 void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 s32 fn_8025DE10(void *, void *);
-s32 TWindowSubStatusDisp__sub_8025DECC(void *, void *, void *);
 s32 TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, int, int);
 void TWindowSubStatusDisp__sub_8025E350(void *arg0, void *arg1, void *arg2);
 s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
@@ -432,6 +442,68 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0) {
     }
 }
 
+void TWindowSubStatusDisp__sub_8025DECC(void *arg0, void *arg1, void *arg2) {
+    Quad_8025E350 q;
+    f32 pos[8];
+    Desc_8025DECC d;
+    u32 col[4];
+    f32 depth;
+    u8 adv;
+    u8 n;
+    u16 ch;
+    char *p;
+    s32 ci;
+    p = *(char **)((u8 *)arg0 + 0x9C);
+    if (p == NULL) {
+        return;
+    }
+    depth = lbl_805DD058 + ((Box_8025E350 *)arg1)->z;
+    d.pos = pos;
+    d.col = col;
+    d.a = 0;
+    d.b = 4;
+    while (*p != 0) {
+        ci = (p == *(char **)((u8 *)arg0 + 0xA0)) ? 1 : 2;
+        n = p[1];
+        p += 3;
+        while (n-- != 0) {
+            ch = *p++;
+            if ((ch & 0xE0) == 0x80 || (ch & 0xE0) == 0xE0) {
+                ch <<= 8;
+                n--;
+                ch |= *p++ & 0xFF;
+            }
+            adv = get_font_char_advance(map_char_to_font_code(ch));
+            if (((f32 *)arg2)[0] + (f32)adv > ((Box_8025E350 *)arg1)->x + ((Box_8025E350 *)arg1)->w) {
+                ((f32 *)arg2)[0] = ((Box_8025E350 *)arg1)->x;
+                ((f32 *)arg2)[1] += lbl_805DD048;
+            }
+            if ((s32)ch == 0x20) {
+                ((f32 *)arg2)[0] += (f32)(s32)adv;
+            } else {
+                q.x = ((f32 *)arg2)[0];
+                q.y = ((f32 *)arg2)[1];
+                set_glyph_quad_extents(adv, &q);
+                apply_context_transform_to_rect(arg1, &q);
+                d.col[0] = lbl_804CFA84[ci];
+                d.col[1] = d.col[0];
+                d.col[2] = d.col[0];
+                d.col[3] = d.col[0];
+                pos[0] = q.x;
+                pos[1] = q.y;
+                pos[2] = q.x2;
+                pos[3] = q.y;
+                pos[4] = q.x2;
+                pos[5] = q.y2;
+                pos[6] = q.x;
+                pos[7] = q.y2;
+                TObjCMHairMenu__sub_801E35C4(&d, 4, 6, depth);
+                ((f32 *)arg2)[0] += (f32)(s32)adv;
+            }
+        }
+    }
+}
+
 void TWindowSubStatusDisp__sub_8025E350(void *arg0, void *arg1, void *arg2) {
     Quad_8025E350 q;
     f32 scale;
@@ -497,7 +569,7 @@ void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1) {
         temp_r3 = M2C_FIELD(arg0, u16 *, 0x60);
         if (temp_r3 & 2) {
             if (temp_r3 & 4) {
-                TWindowSubStatusDisp__sub_8025DECC((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10));
+                TWindowSubStatusDisp__sub_8025DECC((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (&stack.sp10)));
                 var_r31 = 0;
             } else {
                 TWindowSubStatusDisp__sub_8025E148((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x84)), (int) (M2C_FIELD(arg0, s32 *, 0x94)));

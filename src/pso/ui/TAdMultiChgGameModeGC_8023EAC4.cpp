@@ -4,6 +4,43 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+extern "C" {
+void *__nw__7TObjectFUl(u32);
+void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(void *);
+s32 TAdMultiPlyChrSelectGC__sub_802DFF78(s32, s32);
+void *TAdEnterPPPPassGC__ct(void *, s32);
+void *TAdEnterPasswordGC__ct(void *, s32);
+void *TAdEnterSerialAccessGC__ct(void *, s32);
+void *TAdEp3Exist__ct(void *, s32);
+void *TAdExNetConfirmGC__ct(void *, s32);
+void *TAdLicAgreementGC__ct(void *, s32);
+void *TAdMultiChgGameModeGC__sub_8036EB44(void *, s32);
+void *TAdMultiConfirmGC__ct(void *, s32);
+void *TAdMultiSaveGC__ct(void *, s32);
+void *TAdPsoPassSaveGC__ct(void *, s32);
+void *TAdSinglePlyChrSelectGC__ct(void *, s32);
+void *TAdSnAkPassConfirmGC__ct(void *, s32);
+void *TAdTimeSetGC__ct(void *, s32);
+void *TAdTrialAgreementGC__ct(void *, s32);
+void *TAdTrialModemChkGC__ct(void *, s32);
+void *TAdVIConfigGC__ct(void *, s32);
+void *TLobby__sub_80336520(void *, s32);
+void *__ct__12TLevelSelectFv(void *);
+void *__ct__16TAdStorySelectGCFv(void *, s32);
+void *__ct__19TAdSelectGameModeGCFv(void *, s32);
+void *__ct__21TAdMultiChgGameModeGCFv(void *, s32);
+void *__ct__21TAdMultiSelGameModeGCFv(void *, s32, s32);
+void *__ct__5TLogoFv(void *, s32);
+void *construct_option_scene(void *);
+extern u8 lbl_8044DD18[];
+extern s32 lbl_805D3848;
+extern s32 tl_01;
+extern s32 tl_02;
+extern s32 lbl_805D63CC;
+void TAdMultiChgGameModeGC__sub_8023ED34(void);
+}
+
 extern "C" {
 
 void begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
@@ -136,6 +173,212 @@ void init_change_mode__21TAdMultiChgGameModeGCFv(void) {
     sync_mode_state__21TAdMultiChgGameModeGCFv();
     lbl_805D3848 = 0;
     lbl_805D63C8 = 1;
+}
+void TAdMultiChgGameModeGC__sub_8023ED34(void) {
+    void *p;
+    switch (lbl_805D3848) {
+    case 0:
+    case 8:
+    case 9:
+    case 18:
+    case 19:
+    case 21:
+    case 22:
+    case 23:
+    case 27:
+        break;
+    default:
+        apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(lbl_8044DD18);
+        break;
+    }
+    switch (lbl_805D3848) {
+    case 0:
+        p = __nw__7TObjectFUl(0x4C);
+        if (p != NULL) {
+            p = TLobby__sub_80336520(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 4:
+        p = __nw__7TObjectFUl(0x24);
+        if (p != NULL) {
+            p = __ct__16TAdStorySelectGCFv(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 5:
+        p = __nw__7TObjectFUl(0x24);
+        if (p != NULL) {
+            p = __ct__19TAdSelectGameModeGCFv(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 6:
+        p = __nw__7TObjectFUl(0x60);
+        if (p != NULL) {
+            p = TAdSinglePlyChrSelectGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 7:
+        lbl_805D63CC = TAdMultiPlyChrSelectGC__sub_802DFF78(tl_01, 0);
+        break;
+    case 8:
+        p = __nw__7TObjectFUl(0x468);
+        if (p != NULL) {
+            p = TAdTimeSetGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 9:
+        p = __nw__7TObjectFUl(0x34);
+        if (p != NULL) {
+            p = TAdMultiSaveGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 10:
+        p = __nw__7TObjectFUl(0x4C);
+        if (p != NULL) {
+            p = TAdMultiConfirmGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 11:
+        p = __nw__7TObjectFUl(0x30);
+        if (p != NULL) {
+            p = __ct__21TAdMultiChgGameModeGCFv(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 12:
+        p = __nw__7TObjectFUl(0x44);
+        if (p != NULL) {
+            p = __ct__21TAdMultiSelGameModeGCFv(p, tl_01, 0);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 13:
+        p = __nw__7TObjectFUl(0x44);
+        if (p != NULL) {
+            p = __ct__21TAdMultiSelGameModeGCFv(p, tl_01, 1);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 14:
+        lbl_805D63CC = TAdMultiPlyChrSelectGC__sub_802DFF78(tl_01, 1);
+        break;
+    case 15:
+        p = __nw__7TObjectFUl(0x68);
+        if (p != NULL) {
+            p = TAdEnterSerialAccessGC__ct(p, tl_02);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 16:
+        p = __nw__7TObjectFUl(0x44);
+        if (p != NULL) {
+            p = TAdEnterPasswordGC__ct(p, tl_02);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 17:
+        p = __nw__7TObjectFUl(0x3C);
+        if (p != NULL) {
+            p = TAdLicAgreementGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 18:
+        p = __nw__7TObjectFUl(0x4C);
+        if (p != NULL) {
+            p = TAdVIConfigGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 19:
+        p = __nw__7TObjectFUl(0x38);
+        if (p != NULL) {
+            p = __ct__5TLogoFv(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 20:
+        p = __nw__7TObjectFUl(0x4C);
+        if (p != NULL) {
+            p = TAdSnAkPassConfirmGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 21:
+        p = __nw__7TObjectFUl(0x30);
+        if (p != NULL) {
+            p = TAdExNetConfirmGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 22:
+        p = __nw__7TObjectFUl(0x30);
+        if (p != NULL) {
+            p = TAdTrialModemChkGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 23:
+        p = __nw__7TObjectFUl(0x3C);
+        if (p != NULL) {
+            p = TAdTrialAgreementGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 24:
+        lbl_805D63CC = TAdMultiPlyChrSelectGC__sub_802DFF78(tl_01, 2);
+        break;
+    case 25:
+        p = __nw__7TObjectFUl(0x44);
+        if (p != NULL) {
+            p = TAdEnterPPPPassGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 26:
+        p = __nw__7TObjectFUl(0x48);
+        if (p != NULL) {
+            p = TAdPsoPassSaveGC__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 27:
+        p = __nw__7TObjectFUl(0x38);
+        if (p != NULL) {
+            p = TAdMultiChgGameModeGC__sub_8036EB44(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 28:
+        p = __nw__7TObjectFUl(0x38);
+        if (p != NULL) {
+            p = TAdEp3Exist__ct(p, tl_01);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 1:
+        p = __nw__7TObjectFUl(0x28);
+        if (p != NULL) {
+            p = __ct__12TLevelSelectFv(p);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 3:
+        p = __nw__7TObjectFUl(0x30);
+        if (p != NULL) {
+            p = construct_option_scene(p);
+        }
+        lbl_805D63CC = (s32)p;
+        break;
+    case 29:
+        break;
+    }
 }
 
 }

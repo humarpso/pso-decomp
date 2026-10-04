@@ -86,6 +86,18 @@ struct S_802C61E4 {
     s32 f4F8;
 };
 
+typedef s32 M2C_UNK;
+typedef struct Jump_802C5C84 {
+    s32 v[4];
+} Jump_802C5C84;
+
+typedef struct Self_802C5C84 {
+    u8 pad0[0x4AC];
+    s32 f4AC[5][3];
+    u8 pad4E8[0x4EC - 0x4E8];
+    s32 f4EC;
+} Self_802C5C84;
+
 extern "C" {
 void TAdMultiPlyChrSelectGC__sub_802C5BCC(s32 arg0, s32 *arg1, s32 *arg2);
 int TAdMultiPlyChrSelectGC__sub_802C65C0(void);
@@ -161,13 +173,17 @@ extern s32 TAdMultiPlyChrSelectGC__data_805D67E0;
 void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5C84(void *, int, int, int, int, int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 extern u8 lbl_8050E3B8[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self);
+M2C_UNK play_sound_effect(int, void *, int, int);
+extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
+extern Jump_802C5C84 lbl_80471B00[][5];
+extern int TAdMultiPlyChrSelectGC__data_805D67D8;
+void TAdMultiPlyChrSelectGC__sub_802C5C84(Self_802C5C84 *self, s32 x_, s32 y_, s32 dx, s32 dy, s32 depth);
 }
 
 extern "C" {
@@ -312,6 +328,97 @@ void TAdMultiPlyChrSelectGC__sub_802C5C28(s32 arg0, u32 *arg1) {
 }
 
 #define WIN_802C6008 ((void *)(lbl_8050E3B8 + TAdMultiPlyChrSelectGC__data_805D67E0 * 0x50 + 0x20))
+
+void TAdMultiPlyChrSelectGC__sub_802C5C84(Self_802C5C84 *self, s32 x_, s32 y_, s32 dx, s32 dy, s32 depth) {
+    s32 x = x_;
+    s32 y = y_;
+    s32 dir;
+    s32 nx;
+    s32 ny;
+    s32 cnt;
+    s32 k;
+    x++;
+    y++;
+    if (dy == -1) dir = 0;
+    if (dy == 1) dir = 1;
+    if (dx == -1) dir = 2;
+    if (dx == 1) dir = 3;
+    ny = y + dy;
+    nx = x + dx;
+    if (TAdMultiPlyChrSelectGC__data_804E0A68[ny][nx] == 1) {
+        x += dx;
+        y += dy;
+        play_sound_effect(0x54100, NULL, 0, 0);
+        self->f4EC = x - 1;
+        self->f4AC[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC] = y - 1;
+        return;
+    }
+    if (TAdMultiPlyChrSelectGC__data_804E0A68[ny][nx] == 0) {
+        Jump_802C5C84 j = lbl_80471B00[ny][nx];
+        switch (dir) {
+        case 0:
+        case 1:
+            ny += j.v[dir];
+            break;
+        case 2:
+        case 3:
+            nx += j.v[dir];
+            break;
+        }
+        ny -= dy;
+        nx -= dx;
+        TAdMultiPlyChrSelectGC__sub_802C5C84(self, nx - 1, ny - 1, dx, dy, depth - 1);
+        return;
+    }
+    if (TAdMultiPlyChrSelectGC__data_804E0A68[ny][nx] == -1) {
+        if (dy != 0) {
+            cnt = 0;
+            for (k = 0; k < 4; k++) {
+                if (TAdMultiPlyChrSelectGC__data_804E0A68[k + 1][self->f4EC + 1] == -1) {
+                    cnt++;
+                }
+            }
+            if (cnt == 4) {
+                nx = 3 - x;
+                TAdMultiPlyChrSelectGC__sub_802C5C84(self, nx - 1, y - 1, dx, dy, 4);
+            } else {
+                TAdMultiPlyChrSelectGC__sub_802C5C84(self, nx - 1, ny - 1, dx, dy, 4);
+            }
+            return;
+        }
+        cnt = 0;
+        for (k = 0; k < 4; k++) {
+            if (TAdMultiPlyChrSelectGC__data_804E0A68[k + 1][nx] == -1) {
+                cnt++;
+            }
+        }
+        if (cnt == 4) {
+            return;
+        }
+        switch (x) {
+        case 0:
+            nx = 1;
+            break;
+        case 3:
+            nx = 2;
+            break;
+        default:
+            nx = 3 - x;
+            break;
+        }
+        if (y < 3) {
+            ny = 0;
+            dx = 0;
+            dy = 1;
+        } else {
+            ny = 5;
+            dx = 0;
+            dy = -1;
+        }
+        TAdMultiPlyChrSelectGC__sub_802C5C84(self, nx - 1, ny - 1, dx, dy, 4);
+    }
+}
+
 void TAdMultiPlyChrSelectGC__sub_802C6008(S_802C6008 *self) {
     TAdMultiPlyChrSelectGC__sub_802C5F1C(self, self->f1C++);
     if (self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
@@ -344,16 +451,16 @@ void TAdMultiPlyChrSelectGC__sub_802C61E4(S_802C61E4 *self) {
     m = TAdMultiPlyChrSelectGC__sub_802C6558();
     if (m != n && self->f4DC[self->f4EC] != 0 && self->f4F8 == 0) {
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x10, 6, 1) != 0) {
-            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 0, -1, self->f4DC[self->f4EC]);
+            TAdMultiPlyChrSelectGC__sub_802C5C84((Self_802C5C84 *)(self), (s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(0), (s32)(-1), (s32)(self->f4DC[self->f4EC]));
         }
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x20, 6, 1) != 0) {
-            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 0, 1, self->f4DC[self->f4EC]);
+            TAdMultiPlyChrSelectGC__sub_802C5C84((Self_802C5C84 *)(self), (s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(0), (s32)(1), (s32)(self->f4DC[self->f4EC]));
         }
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x80, 6, 1) != 0) {
-            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], 1, 0, 2);
+            TAdMultiPlyChrSelectGC__sub_802C5C84((Self_802C5C84 *)(self), (s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(1), (s32)(0), (s32)(2));
         }
         if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(WIN_802C61E4, 0x40, 6, 1) != 0) {
-            TAdMultiPlyChrSelectGC__sub_802C5C84(self, self->f4EC, self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC], -1, 0, 2);
+            TAdMultiPlyChrSelectGC__sub_802C5C84((Self_802C5C84 *)(self), (s32)(self->f4EC), (s32)(self->sel[TAdMultiPlyChrSelectGC__data_805D67D8][self->f4EC]), (s32)(-1), (s32)(0), (s32)(2));
         }
     }
     if (TWindowShortListCtrl__check_controller_button(WIN_802C61E4, 4) != 0 && self->f4F8 == 0) {

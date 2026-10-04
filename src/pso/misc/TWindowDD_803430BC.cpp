@@ -44,6 +44,12 @@ struct S_803435A0 { u8 *p; };
 
 struct W_803435A0 { u8 pad[0x24]; S_803435A0 f24[1]; };
 
+struct DD_803461CC {
+    s16 count;
+    s16 type;
+    s16 ids[4];
+};
+
 extern "C" {
 M2C_UNK free_child__9TWindowDDFPv(int);
 M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
@@ -142,6 +148,14 @@ extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC0C;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_803435A0(u8 *arg0);
+M2C_UNK TWindowDD__sub_8034734C(DD_803461CC *, char *, s32 *);
+M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
+M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
+M2C_UNK TWindowDD__sub_80348688(char *, s32 *);
+M2C_UNK maybe_scroll__9TWindowDDFPvPv(char *, s32 *);
+M2C_UNK TWindowDD__sub_80348818(s32, char *, s32 *);
+M2C_UNK TWindowDD__sub_8034886C(s32, char *, s32 *);
+s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1);
 }
 
 extern "C" {
@@ -765,6 +779,87 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     }
     return v;
 }
+
+s32 TWindowDD__sub_803461CC(DD_803461CC *arg0, char *arg1) {
+    s32 pos;
+    s32 n;
+    pos = 0;
+    n = arg0->count;
+    if (n == 0) {
+        arg1[0] = 0;
+        return 1;
+    }
+    switch (arg0->type) {
+    case 1:
+        TWindowDD__sub_8034740C(arg0, arg1, &pos);
+        break;
+    case 2:
+        if (n > 2) {
+            n = 2;
+        }
+        {
+        s32 i;
+        for (i = 0; i < n; i++) {
+            TWindowDD__sub_8034886C(arg0->ids[i], arg1, &pos);
+        }
+        }
+        TWindowDD__sub_80348818(0x3F, arg1, &pos);
+        if (arg0->count > 2) {
+            TWindowDD__sub_80348688(arg1, &pos);
+            TWindowDD__sub_8034886C(arg0->ids[2], arg1, &pos);
+        }
+        break;
+    case 3:
+        if (n > 3) {
+            n = 3;
+        }
+        {
+        s32 i;
+        for (i = 0; i < n; i++) {
+            if (i != 2) {
+                maybe_scroll__9TWindowDDFPvPv(arg1, &pos);
+            }
+            TWindowDD__sub_80347474(arg0, arg0->ids[i], arg1, &pos);
+        }
+        }
+        if (arg0->count > 3) {
+            TWindowDD__sub_80348688(arg1, &pos);
+            TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
+        }
+        break;
+    case 4:
+        if (n > 2) {
+            TWindowDD__sub_80347474(arg0, arg0->ids[2], arg1, &pos);
+        }
+        if (n > 1) {
+            maybe_scroll__9TWindowDDFPvPv(arg1, &pos);
+            TWindowDD__sub_8034886C(arg0->ids[1], arg1, &pos);
+        }
+        if (n > 3) {
+            TWindowDD__sub_8034886C(arg0->ids[3], arg1, &pos);
+        }
+        TWindowDD__sub_80348688(arg1, &pos);
+        TWindowDD__sub_8034886C(arg0->ids[0], arg1, &pos);
+        break;
+    case 5:
+        {
+        s32 i;
+        for (i = 0; i < n; i++) {
+            if (i != 2) {
+                maybe_scroll__9TWindowDDFPvPv(arg1, &pos);
+            }
+            TWindowDD__sub_80347474(arg0, arg0->ids[i], arg1, &pos);
+        }
+        }
+        break;
+    case 6:
+        TWindowDD__sub_8034734C(arg0, arg1, &pos);
+        break;
+    }
+    arg1[pos++] = 0;
+    return pos;
+}
+
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     s16 v;
     switch (arg1) {

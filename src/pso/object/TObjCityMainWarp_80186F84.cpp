@@ -77,6 +77,23 @@ M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 extern s32 lbl_805D53A0;
 extern void *lbl_805D5B28;
 void TObjCityMainWarp__sub_8018709C(u8 *arg0);
+s32 get_main_phase();
+s32 TLobby__sub_800C6C10(s32);
+s32 TObjCityMainWarp__sub_80186B34(void *);
+s32 TObjCityMainWarp__sub_80186BBC(void *, f32);
+M2C_UNK close_windows__16TObjCityMainWarpFPv();
+M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
+M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
+M2C_UNK trigger_warp_effect__16TObjCityMainWarpFPvi(void *, s32);
+M2C_UNK TObjCityMainWarp__sub_801875F8(void *);
+s32 get_warp_state__19TWindowSubTradeMainFv();
+M2C_UNK TWindow__close(u32);
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(u32);
+s32 get_card_data__17TWindowSubComCardFPv(u32);
+s32 TWindowSubComCard__sub_802A57FC(u32);
+extern s32 lbl_805D53A0;
+extern void *lbl_805D5B28;
+void TObjCityMainWarp__sub_801871D0(u8 *arg0);
 }
 
 extern "C" {
@@ -161,6 +178,85 @@ void TObjCityMainWarp__sub_8018709C(u8 *arg0) {
         }
         break;
     case 2:
+        break;
+    case -1:
+        close_windows__16TObjCityMainWarpFPv();
+        break;
+    }
+}
+
+void TObjCityMainWarp__sub_801871D0(u8 *arg0) {
+    s32 r;
+    if (M2C_FIELD(arg0, s32 *, 0x15C) == 1) {
+        M2C_FIELD(arg0, s16 *, 0xDC) = 3;
+        return;
+    }
+    switch (M2C_FIELD(arg0, s16 *, 0xE0)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x170) = 0;
+        M2C_FIELD(arg0, s32 *, 0x174) = 0;
+        M2C_FIELD(arg0, s16 *, 0xE0) = 1;
+        M2C_FIELD(arg0, s32 *, 0xD0) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
+        break;
+    case 1:
+        if (((u32 (*)(f32))TObjCityMainWarp__sub_80186BBC)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
+            TObjCityMainWarp__sub_801875F8(arg0);
+            trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 2;
+            break;
+        }
+        if (M2C_FIELD(arg0, u32 *, 0xB0) != 0) {
+            TWindow__close(M2C_FIELD(arg0, u32 *, 0xB0));
+            M2C_FIELD(arg0, u32 *, 0xB0) = 0;
+        }
+        if (M2C_FIELD(arg0, u32 *, 0x164) != 0) {
+            TWindow__close(M2C_FIELD(arg0, u32 *, 0x164));
+            M2C_FIELD(arg0, u32 *, 0x164) = 0;
+        }
+        break;
+    case 2:
+        TObjCityMainWarp__sub_801875F8(arg0);
+        if (M2C_FIELD(arg0, u32 *, 0x168) != 0) {
+            if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168)) != 0) {
+                M2C_FIELD(arg0, s16 *, 0xE0) = 3;
+            } else if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, u32 *, 0x168)) != 0) {
+                r = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x168));
+                if (r == 0) {
+                    trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+                    M2C_FIELD(arg0, s32 *, 0x170) = 1;
+                    TObjCityMainWarp__sub_80186CC8(arg0, 1);
+                    M2C_FIELD(arg0, s16 *, 0xE0) = 5;
+                } else if (r == 1) {
+                    M2C_FIELD(arg0, s16 *, 0xE0) = 3;
+                }
+            }
+        }
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
+            ((s32 (*)())TLobby__sub_800C6C10)() != 0 && TObjCityMainWarp__sub_80186B34(arg0) != 0) {
+            TObjCityMainWarp__sub_80186CC8(arg0, 2);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 5;
+        }
+        if (M2C_FIELD(arg0, s16 *, 0xE0) != 2) {
+            ((M2C_UNK (*)(void *))close_windows__16TObjCityMainWarpFPv)(arg0);
+        }
+        break;
+    case 3:
+        notify_player_warp__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+        M2C_FIELD(arg0, s16 *, 0xE0) = 4;
+        break;
+    case 4:
+        if (((u32 (*)(f32))TObjCityMainWarp__sub_80186BBC)(M2C_FIELD(arg0, f32 *, 0xAC)) == 0) {
+            M2C_FIELD(arg0, s16 *, 0xE0) = 1;
+            break;
+        }
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF &&
+            ((s32 (*)())TLobby__sub_800C6C10)() != 0 && TObjCityMainWarp__sub_80186B34(arg0) != 0) {
+            TObjCityMainWarp__sub_80186CC8(arg0, 2);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 5;
+        }
+        break;
+    case 5:
         break;
     case -1:
         close_windows__16TObjCityMainWarpFPv();

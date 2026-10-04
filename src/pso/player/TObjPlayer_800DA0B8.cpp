@@ -40,6 +40,36 @@ typedef struct Ene_800DA508 {
 
 struct Vec_800DA7E4 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+typedef struct Home_800DB0F8 {
+    u8 pad0[8];
+    s32 f8;
+} Home_800DB0F8;
+
+typedef struct Obj_800DB0F8 {
+    u8 pad0[0x30];
+    s32 flags30;
+    u8 pad34[0x38 - 0x34];
+    u8 pos[0xC];
+    u8 pad44[0xB8 - 0x44];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 frame;
+    u8 padC4[0x350 - 0xC4];
+    Home_800DB0F8 *home;
+    u8 pad354[0x37C - 0x354];
+    s32 state;
+    u8 pad380[0x384 - 0x380];
+    s32 timer;
+    s32 f388;
+    u8 pad38C[0x39C - 0x38C];
+    u8 fx39C[0xC];
+    u8 fx3A8[0xC];
+    s32 count;
+    u8 pad3B8[0x3D8 - 0x3B8];
+    f32 f3D8;
+} Obj_800DB0F8;
+
 extern "C" {
 void set_state__15TObjEneMe1GiGueFPvi(void *, s32);
 void TObjPlayer__sub_800DB8D4(u8 *arg0);
@@ -95,6 +125,27 @@ extern const f32 lbl_805DA3F8;
 extern const f32 lbl_805DA40C;
 extern const f32 lbl_805DA430;
 void TObjPlayer__sub_800DA7E4(u8 *arg0);
+u16 find_nearest_visible_player(void *, int, f32);
+M2C_UNK apply_actor_gravity(void *, int, f32);
+M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
+M2C_UNK TBoss3VoloptMonitor__sub_8004292C();
+M2C_UNK spawn_particle_effect(void *, int);
+M2C_UNK TObjPlayer__sub_800D9E8C(void *);
+s32 TObjPlayer__sub_800D9F4C(void *);
+void TObjPlayer__sub_800DA414(Obj_800DA414 *arg0, s32 arg1);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+M2C_UNK play_sound_effect(int, void *, int, int);
+extern const f32 lbl_805DA3F8;
+extern const f32 lbl_805DA3FC;
+extern const f32 lbl_805DA408;
+extern const f32 lbl_805DA45C;
+extern const f32 lbl_805DA460;
+extern const f32 lbl_805DA464;
+void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o);
 }
 
 extern "C" {
@@ -227,6 +278,83 @@ void TObjPlayer__sub_800DA7E4(u8 *arg0) {
             update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
         }
         M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
+        break;
+    }
+}
+
+struct Obj_800DA414;
+void TObjPlayer__sub_800DB0F8(Obj_800DB0F8 *o) {
+    s32 r;
+    s32 i;
+    switch (o->state) {
+    case 0:
+        TBoss3VoloptMonitor__sub_8004292C();
+        r = 0;
+        if (!(o->flags30 & 0x01000000)) {
+            r = TObjPlayer__sub_800D9F4C(o);
+        }
+        if (r > 0) {
+            o->fB8 = 2;
+            o->timer = 0x5A;
+            o->state = 1;
+        } else if (o->flags30 & 0x01000000) {
+            update_if_active__15TObjEneMe1GiGueFPv(o, 0xB);
+        } else {
+            update_if_active__15TObjEneMe1GiGueFPv(o, 0);
+        }
+        o->f388 &= ~0x40000;
+        break;
+    case 1:
+    case 2:
+    case 3:
+        switch (o->state) {
+        case 1:
+            if (o->frame >= lbl_805DA45C) {
+                TObjPlayer__sub_800D9E8C(o);
+                spawn_particle_effect(o->fx39C, 0xF7);
+                spawn_particle_effect(o->fx3A8, 0xF7);
+                o->state = 2;
+            }
+            break;
+        case 2:
+            play_persistent_sound(0x4003AD1E, o, o->pos, 0, 0);
+            if (o->frame >= lbl_805DA3FC) {
+                TObjPlayer__sub_800D9E8C(o);
+                for (i = 0; i < o->count; i++) {
+                    TObjPlayer__sub_800DA414((Obj_800DA414 *)o, i);
+                }
+                o->state = 3;
+            }
+            break;
+        }
+        advance_animation_playback(o);
+        apply_actor_gravity(o, 0, lbl_805DA3F8);
+        update_collisions__10TObjPlayerFPv(o);
+        o->timer--;
+        if (o->timer <= 0) {
+            o->timer = 0x2D;
+            o->fB8 = 1;
+            o->state = 4;
+        }
+        break;
+    case 4:
+        enemy_wander_home(o, o->home->f8, o->f3D8, lbl_805DA460, lbl_805DA460);
+        advance_animation_playback(o);
+        apply_actor_gravity(o, 0, lbl_805DA3F8);
+        update_collisions__10TObjPlayerFPv(o);
+        if (objInBand__FP7GameObjf(o, lbl_805DA464) != 0 || objInBand__FP7GameObjf(o, lbl_805DA3FC) != 0) {
+            play_sound_effect(0x4003AD23, o->pos, 0, 0);
+        }
+        if (find_nearest_visible_player(o, 0, lbl_805DA408) != 0xFFFF) {
+            update_if_active__15TObjEneMe1GiGueFPv(o, 0xB);
+        } else {
+            o->timer--;
+            if (o->timer <= 0) {
+                update_if_active__15TObjEneMe1GiGueFPv(o, 0);
+            }
+        }
+        break;
+    case -1:
         break;
     }
 }

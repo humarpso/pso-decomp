@@ -9,6 +9,60 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct VBase_18_0c879f { char pad[0x18]; };
+
+struct VObj_18_0c879f : VBase_18_0c879f {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(s32, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+};
+
+struct S_80050808 { s32 a; f32 b; };
+
+struct Ang_80050808 { s32 x, y, z; };
+
+extern "C" {
+u16 find_nearest_visible_player(void *, int, f32);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void queue_destruction__7TObjectFv(void *);
+s32 is_boss_active__13TObjDFHormingFv();
+s32 TBoss4DarkFalz__sub_8004C1AC();
+M2C_UNK check_attack_trigger__11TBoss4Type3FPv(void *);
+M2C_UNK fn_8005063C(void *);
+M2C_UNK fn_8005076C(void *);
+int queue_destruction__13TObjDFHormingFPv(void* p);
+M2C_UNK copy_vec3__11TBoss4Type2FPvPv(void *, void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 query_teammate_state__9TObjEneDDFPv();
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
+u8 * get_player_by_client_id(u16);
+M2C_UNK minimap_render_dot(void *, int, int, int);
+void vec3_add_to(void *, void *);
+void subtract_vector(void *, void *);
+void normalize_vector(void *);
+extern const f32 lbl_805D8A60;
+void run_task__13TObjDFHormingFv(u8 *arg0);
+}
+
 extern "C" {
 
 struct S_80050A68 {
@@ -176,7 +230,76 @@ extern const f32 lbl_805D8AB4;
 extern const f32 lbl_805D8AB8;
 extern const f32 lbl_805D8ABC;
 
+extern "C" {
+f32 xyz_distance(Vec_80050D74 *, Vec_80050D74 *);
+}
+
 int queue_destruction__13TObjDFHormingFPv(void* p) { return ((int (*)(void*))queue_destruction__7TObjectFv)(p); }
+
+void run_task__13TObjDFHormingFv(u8 *arg0) {
+    Ang_80050808 rot;
+    Vec_80050D74 d;
+    S_80050808 s;
+    u8 *p;
+    s32 i;
+    if (query_teammate_state__9TObjEneDDFPv() != 0) {
+        return;
+    }
+    if (M2C_FIELD(arg0, u16 *, 0x334) == 0xFFFF || (p = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x334))) == NULL) {
+        queue_destruction__7TObjectFv(arg0);
+        return;
+    }
+    VecCopy__FP3VecPC3Vec(arg0 + 0x36C, p + 0x2FC);
+    M2C_FIELD(arg0, f32 *, 0x37C) = xyz_distance((Vec_80050D74 *)(arg0 + 0x2FC), (Vec_80050D74 *)(arg0 + 0x36C));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x2FC);
+    switch (M2C_FIELD(arg0, s32 *, 0x368)) {
+    case 0:
+        fn_8005076C(arg0);
+        break;
+    case 1:
+        fn_8005063C(arg0);
+        break;
+    case 2:
+        check_attack_trigger__11TBoss4Type3FPv(arg0);
+        break;
+    }
+    normalize_vector(arg0 + 0x348);
+    M2C_FIELD(arg0, f32 *, 0x348) *= M2C_FIELD(arg0, f32 *, 0x354);
+    M2C_FIELD(arg0, f32 *, 0x34C) *= M2C_FIELD(arg0, f32 *, 0x354);
+    M2C_FIELD(arg0, f32 *, 0x350) *= M2C_FIELD(arg0, f32 *, 0x354);
+    vec3_add_to(arg0 + 0x2FC, arg0 + 0x348);
+    {
+        s32 id = find_nearest_visible_player(arg0, 0, lbl_805D8A60);
+        if (id != 0xFFFF && (p = get_player_by_client_id(id)) != NULL) {
+            if (is_boss_active__13TObjDFHormingFv() != 0) {
+                s.a = 0;
+                s.b = M2C_FIELD(arg0, s32 *, 0x360);
+                {
+                    S_80050808 t = s;
+                    ((VObj_18_0c879f *)p)->m21(TBoss4DarkFalz__sub_8004C1AC(), &t, 0, -1, -1);
+                }
+            }
+            queue_destruction__13TObjDFHormingFPv(arg0);
+            return;
+        }
+    }
+    for (i = 0; i < 2; i++) {
+        if (M2C_FIELD(arg0 + i * 4, u32 *, 0x358) != 0) {
+            if (i == 1) {
+                VecCopy__FP3VecPC3Vec(&d, arg0 + 0x2FC);
+                subtract_vector(&d, arg0 + 0x44);
+                direction_to_rotation_xz(&d, &rot.x, &rot.z);
+                rot.y = 0;
+                copy_vec3__11TBoss4Type2FPvPv((void *)M2C_FIELD(arg0 + i * 4, u32 *, 0x358), &rot);
+            }
+            copy_pos__11TNowLoadingFPvPv((void *)M2C_FIELD(arg0 + i * 4, u32 *, 0x358), arg0 + 0x2FC);
+        }
+    }
+    minimap_render_dot(arg0 + 0x2FC, -0x5DB4, 1, 0);
+    if (--M2C_FIELD(arg0, s32 *, 0x338) < 0) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
 
 S_80050A68 *__dt__13TObjDFHormingFv(S_80050A68 *o, s16 flag) {
     s32 i;

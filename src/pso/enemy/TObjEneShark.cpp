@@ -21,6 +21,16 @@ typedef struct O_800AC5EC {
     void *objs[2];
 } O_800AC5EC;
 
+struct Anim_800AC318 { s32 motions; void *actions; s32 initial_action; s32 counts; };
+
+struct Pair_800AC318 { s32 a; s32 b; };
+
+struct Bodies_800AC318 { s32 a; s32 b; s32 model; s32 textures; };
+
+struct Res_800AC318 { u8 pad[0x42C]; Bodies_800AC318 *bodies; Pair_800AC318 *motions; };
+
+struct Act_800AC318 { s32 a; s32 idx; f32 c; s32 d; };
+
 extern "C" {
 extern u32 lbl_805D50B8;
 void TObjPlayer__sub_800AC9DC(O_800AC9DC *self, s32 i);
@@ -36,6 +46,35 @@ void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 extern u8 TObjPlayer__sub_800D7C58[];
 extern u8 lbl_8049168C[];
 O_800AC5EC *TObjPlayer__sub_800AC5EC(O_800AC5EC *arg0, s16 arg1);
+s32 dispatch_shared_handler_a__6TLobbyFPv(int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 check_v2_mode__9TObjEneDDFv();
+u8 *load_enemy_bml_resource_named(void *, void *);
+u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void draw_trail_with_colors(void *, s32, s32, s32, s32);
+void *TBoss4Type3__sub_800D9ABC(void *, s32, f32, f32, f32);
+s32 *alloc_buffer__11TOBoss4RockFPv(s32);
+void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern u8 lbl_8043AEDC[];
+extern u8 lbl_804914F4[];
+extern Act_800AC318 lbl_80491504[];
+extern u32 lbl_805D50A8;
+extern u32 lbl_805D50AC;
+extern u32 lbl_805D50B0;
+extern u32 lbl_805D50B4;
+extern u32 lbl_805D50B8;
+extern u32 lbl_805D50BC;
+extern u32 lbl_805D50C0;
+extern s32 lbl_805D50C4;
+extern const f32 lbl_805D9BA0;
+extern const f32 lbl_805D9BAC;
+extern const f32 lbl_805D9BC0;
+extern const f32 lbl_805D9BC8;
+extern const f32 lbl_805D9BCC;
+void TLobby__sub_800AC318(void);
 }
 
 extern "C" {
@@ -103,6 +142,65 @@ void free_resources__12TObjEneSharkFv(void) {
     if ((u32) lbl_805D50B8 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D50B8, 1);
         lbl_805D50B8 = 0U;
+    }
+}
+
+#define G_A8 (*(s32 **)&lbl_805D50A8)
+#define G_AC (*(s32 **)&lbl_805D50AC)
+#define G_B0 (*(s32 **)&lbl_805D50B0)
+#define G_B4 (*(s32 **)&lbl_805D50B4)
+#define G_B8 (*(u8 **)&lbl_805D50B8)
+#define G_BC (*(void **)&lbl_805D50BC)
+#define G_C0 (*(void **)&lbl_805D50C0)
+#define RES ((Res_800AC318 *)G_B8)
+void TLobby__sub_800AC318(void) {
+    void *p;
+    s32 i;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        G_B8 = load_enemy_bml_resource_named(lbl_804914F4, lbl_8043AEDC);
+    } else {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = load_resource_from_descriptor(p, 1, lbl_804914F4, 0, 0, 0);
+        }
+        G_B8 = (u8 *)p;
+    }
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = TBoss4Type3__sub_800D9ABC(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
+    }
+    G_BC = p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = TBoss4Type3__sub_800D9ABC(p, 2, lbl_805D9BC8, lbl_805D9BAC, lbl_805D9BC0);
+    }
+    G_C0 = p;
+    draw_trail_with_colors(G_BC, RES->bodies->model, RES->motions[lbl_80491504[3].idx].b, 5, 8);
+    draw_trail_with_colors(G_C0, RES->bodies->model, RES->motions[lbl_80491504[4].idx].b, 0xA, 0xD);
+    G_A8 = alloc_buffer__11TOBoss4RockFPv(0xC);
+    G_AC = alloc_buffer__11TOBoss4RockFPv(0xC);
+    G_B0 = alloc_buffer__11TOBoss4RockFPv(0xC);
+    G_B4 = alloc_buffer__11TOBoss4RockFPv(0xC);
+    G_A8[0] = register_boss__6TLobbyFPv(0x4F);
+    G_A8[1] = register_boss__6TLobbyFPv(0x50);
+    G_A8[2] = register_boss__6TLobbyFPv(0x51);
+    G_AC[0] = dispatch_shared_handler_b__6TLobbyFPv(0x54);
+    G_AC[1] = dispatch_shared_handler_b__6TLobbyFPv(0x55);
+    G_AC[2] = dispatch_shared_handler_b__6TLobbyFPv(0x56);
+    G_B0[0] = register_object__6TLobbyFPv(0x4E);
+    G_B0[1] = register_object__6TLobbyFPv(0x4F);
+    G_B0[2] = register_object__6TLobbyFPv(0x50);
+    G_B4[0] = dispatch_shared_handler_a__6TLobbyFPv(0x4E);
+    G_B4[1] = dispatch_shared_handler_a__6TLobbyFPv(0x4F);
+    G_B4[2] = dispatch_shared_handler_a__6TLobbyFPv(0x50);
+    lbl_805D50C4 = 0;
+    {
+        s16 ids[3] = { 0x2F, 0x30, 0x31 };
+        Anim_800AC318 anim = { (s32)RES->motions, lbl_80491504, 2, 0xC0000 };
+        for (i = 0; i < 3; i++) {
+            spawn_npc_enemy__6TLobbyFsiiiff(ids[i], RES->bodies[i].model, RES->bodies[i].textures, &anim,
+                lbl_805D9BCC, lbl_805D9BA0);
+        }
     }
 }
 

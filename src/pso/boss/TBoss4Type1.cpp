@@ -6,6 +6,29 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+s32 TCameraCtrl__sub_80068958(s32);
+void request_follow_camera_offsets(void *, void *, s32);
+s32 get_camera_no__11TCameraCtrlFv(void);
+void matrix_mult_vec(int, void *, void *);
+f32 vector_length(void *);
+void set_position_vec3__10TObjPlayerFPvPv(int, void *);
+void TObjPlayer__sub_803D8CD4(int);
+int rotate_matrix_y(void *, void *);
+int push_matrix(void);
+int pop_matrix(void);
+extern f32 lbl_804860A8[];
+extern const f32 lbl_805D8B20;
+extern const f32 lbl_805D8B24;
+extern const f32 lbl_805D8B28;
+extern const f32 lbl_805D8B2C;
+extern const f32 lbl_805D8B30;
+extern const f32 lbl_805D8B34;
+extern const f32 lbl_805D8B38;
+extern const f32 lbl_805D8B3C;
+extern const f32 lbl_805D8B40;
+}
+
+extern "C" {
 
 struct RecoveredGlobal_80052C58_lbl_80486218 {
     M2C_UNK value;
@@ -281,7 +304,6 @@ void TBoss4Type2__sub_8005307C(void* p);
 void update_flag800_state__11TBoss4Type2FPv(void *arg0);
 void check_state_if_idle__11TBoss4Type2FPv(void* p);
 void TBoss4Type2__sub_800531BC(void* p);
-int TObjPlayer__sub_800531C8(void*);
 void fn_80053440(Obj_80053440 *arg0);
 void TBoss4Type2__sub_80053504(u8 *arg0);
 void check_state_transition__11TBoss4Type2FPv(void *arg0);
@@ -414,6 +436,16 @@ extern s32 tl_04;
 
 #pragma push
 #pragma fp_contract on
+struct Cam_800531C8 { u8 pad[0x178]; Vec_80053E40 pos; };
+
+extern "C" {
+extern Vec_80053E40 lbl_804375EC;
+extern Vec_80053E40 lbl_804375F8;
+extern XZ_80053E40 lbl_804860C0[];
+extern Cam_800531C8 *lbl_805D4DF0;
+void TObjPlayer__sub_800531C8(Obj_80053E40 *o);
+}
+
 void TBoss4Type2__sub_800525AC(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
@@ -764,6 +796,68 @@ void TBoss4Type2__sub_800530C0(Obj_800530C0 *arg0) {
 void check_state_if_idle__11TBoss4Type2FPv(void* p) { if (*(int*)((char*)p + 0x398) == 0) { ((int (*)(void*))check_state_transition__11TBoss4Type2FPv)(p); } }
 
 void TBoss4Type2__sub_800531BC(void* p) { *(s32*)((char*)p + 0x398) = 75; }
+
+#pragma push
+#pragma fp_contract on
+void TObjPlayer__sub_800531C8(Obj_80053E40 *o) {
+    XZ_80053E40 pts[7];
+    Vec_80053E40 in;
+    Vec_80053E40 out;
+    f32 best;
+    s32 i;
+    s32 j;
+    f32 t;
+    s32 cn;
+    best = lbl_805D8B20;
+    push_matrix();
+    TObjPlayer__sub_803D8CD4(0);
+    set_position_vec3__10TObjPlayerFPvPv(0, &o->pos);
+    rotate_matrix_y(0, o->x60);
+    for (i = 0; i < o->count; i++) {
+        in.x = lbl_804860C0[i].x;
+        in.y = lbl_805D8B20;
+        in.z = lbl_804860C0[i].z;
+        matrix_mult_vec(0, &in, &out);
+        pts[i].x = out.x;
+        pts[i].z = out.z;
+    }
+    pop_matrix();
+    {
+        Vec_80053E40 cam = lbl_805D4DF0->pos;
+        Vec_80053E40 d;
+        for (j = 0; j < o->count; j++) {
+            f32 r = lbl_805D8B24 + lbl_804860A8[j];
+            f32 len;
+            d.x = cam.x - pts[j].x;
+            d.y = lbl_805D8B20;
+            d.z = cam.z - pts[j].z;
+            len = vector_length(&d);
+            if (!(len >= r)) {
+                r -= len;
+                if (best < r) {
+                    best = r;
+                }
+            }
+        }
+    }
+    {
+        Vec_80053E40 a = lbl_804375EC;
+        Vec_80053E40 b = lbl_804375F8;
+        if (best > lbl_805D8B28) {
+            best = lbl_805D8B28;
+        }
+        t = best / 40.42f;
+        if (t > lbl_805D8B20) {
+            a.y = lbl_805D8B30 * t + lbl_805D8B2C;
+            a.z = lbl_805D8B34;
+            b.y = lbl_805D8B38;
+            b.z = lbl_805D8B40 * t + lbl_805D8B3C;
+        }
+        cn = TCameraCtrl__sub_80068958(get_camera_no__11TCameraCtrlFv());
+        request_follow_camera_offsets(&a, &b, cn);
+    }
+}
+#pragma pop
 
 void fn_80053440(Obj_80053440 *arg0) {
     Vec_80053440 v;
@@ -1230,7 +1324,7 @@ void snapshot_position__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + lbl_805D8B24);
 }
 
-void render_and_update_effects__10TObjPlayerFPv(void* p) { ((int (*)(void*))TObjPlayer__sub_80053E40)(p); render_effects__10TObjPlayerFPv((void*)(p)); TObjPlayer__sub_800531C8(p); }
+void render_and_update_effects__10TObjPlayerFPv(void* p) { ((int (*)(void*))TObjPlayer__sub_80053E40)(p); render_effects__10TObjPlayerFPv((void*)(p)); TObjPlayer__sub_800531C8((Obj_80053E40 *)(p)); }
 
 #pragma push
 #pragma opt_common_subs off

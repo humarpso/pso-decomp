@@ -40,6 +40,28 @@ struct Timer_80199F14 {
     s32 time;
 };
 
+struct Vec_8019A104 { f32 x, y, z; };
+
+struct Cfg_8019A104 { u8 pad0[0x1C]; f32 range; u8 pad20[0xC]; Vec_8019A104 p2C; Vec_8019A104 p38; f32 f44; u8 pad48[0xC]; };
+
+struct State_8019A104 { u8 pad0[0x10]; s16 flags; u8 pad12[0xA]; };
+
+struct Player_8019A104 { u8 pad0[0x38]; Vec_8019A104 pos; };
+
+struct Timer_8019A104 {
+    u8 pad0[0x30];
+    u32 f30;
+    u8 pad34[4];
+    Vec_8019A104 pos;
+    u8 pad44[0x300];
+    Vec_8019A104 vel;
+    s32 time;
+    u8 pad354[4];
+    s32 f358;
+    s32 f35C;
+    s32 f360;
+};
+
 extern "C" {
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
@@ -86,7 +108,6 @@ s32 TLobby__sub_8001E8FC();
 void spawn_particle_effect_with_flags(void *, int, int);
 s32 fn_8019978C(void *, void *, void *);
 void update_best_time__12TWindowTimerFPv(void *arg0);
-void TWindowTimer__sub_8019A104(void *, u16);
 void open__11TWindowCtrlFiii(s32, void *, int);
 void vec3_add_to(void *, void *);
 extern u8 lbl_8044613C[];
@@ -94,6 +115,25 @@ extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DBF90;
 void TWindowTimer__sub_80199F14(Timer_80199F14 *self);
+s32 obj_getField1c(void *);
+void TWindowTimer__sub_80198DCC(void *, s32, s32);
+void TWindowTimer__sub_8019A098(void);
+void TWindowTimer__sub_8019A738(s32 i);
+void TWindowTimer__sub_8019A754(s32 i);
+Player_8019A098 *get_player_by_client_id(s32);
+void open__11TWindowCtrlFiii(s32, void *, int);
+f32 vector_length(void *, f32);
+f32 xyz_distance(void *, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+extern u8 lbl_80446148[];
+extern const f64 lbl_80446150[];
+extern Vec_8019A104 lbl_804B8D94;
+extern Vec_8019A104 lbl_804B8DA0;
+extern RecoveredGlobal_8019A574_lbl_8050DD58 lbl_8050DD58;
+extern M2C_UNK lbl_8050DDAC[];
+extern const f32 lbl_805DBF58;
+extern const f32 lbl_805DBF94;
+void TWindowTimer__sub_8019A104(void *arg0, u16 id);
 }
 
 extern "C" {
@@ -139,7 +179,7 @@ void TWindowTimer__sub_80199F14(Timer_80199F14 *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    TWindowTimer__sub_8019A104(self, lbl_805D53A0);
+    TWindowTimer__sub_8019A104((void *)(self), (u16)(lbl_805D53A0));
     update_best_time__12TWindowTimerFPv(self);
     if (self->pos.y <= lbl_805DBF90) {
         queue_destruction__7TObjectFv(self);
@@ -172,6 +212,75 @@ void TWindowTimer__sub_8019A098(void) {
         pkt.z = z;
         pkt.flag = 0;
         sync_from_lobby__10TNpcPlayerFPv(&pkt);
+    }
+}
+
+#define CFG (*(Cfg_8019A104 *)&lbl_8050DD58)
+#define ST (*(State_8019A104 *)lbl_8050DDAC)
+void TWindowTimer__sub_8019A104(void *arg0, u16 id) {
+    Timer_8019A104 *self;
+    Player_8019A104 *p;
+    f32 len;
+    s32 ang;
+    p = (Player_8019A104 *)get_player_by_client_id(id);
+    self = (Timer_8019A104 *)arg0;
+    if (p == NULL) {
+        return;
+    }
+    if (xyz_distance(&CFG.p2C, &self->pos) <= CFG.f44 && lbl_805DBF58 == ((f32 (*)(void *))vector_length)(&self->vel)) {
+        ST.flags |= 2;
+        if (self->f360 == 0) {
+            TWindowTimer__sub_8019A754(1);
+            self->f360 = 1;
+        }
+    }
+    if (xyz_distance(&CFG.p38, &self->pos) <= CFG.f44 && lbl_805DBF58 == ((f32 (*)(void *))vector_length)(&self->vel)) {
+        ST.flags |= 1;
+        if (self->f360 == 0) {
+            TWindowTimer__sub_8019A754(0);
+            self->f360 = 1;
+        }
+    }
+    if (xyz_distance(&lbl_804B8D94, &self->pos) <= CFG.f44 && lbl_805DBF58 == ((f32 (*)(void *))vector_length)(&self->vel)) {
+        ST.flags |= 0x10;
+        if (self->f360 == 0) {
+            TWindowTimer__sub_8019A738(0);
+            self->f360 = 1;
+        }
+    }
+    if (xyz_distance(&lbl_804B8DA0, &self->pos) <= CFG.f44 && lbl_805DBF58 == ((f32 (*)(void *))vector_length)(&self->vel)) {
+        ST.flags |= 0x20;
+        if (self->f360 == 0) {
+            TWindowTimer__sub_8019A738(1);
+            self->f360 = 1;
+        }
+    }
+    if ((ST.flags & 2 || ST.flags & 1 || ST.flags & 0x20 || ST.flags & 0x10) && !(ST.flags & 8) && !(ST.flags & 4)) {
+        open__11TWindowCtrlFiii(obj_getField1c(self), lbl_80446148, 0x1B);
+    }
+    if (!(ST.flags & 0x33) && self->f360 != 0) {
+        self->f360 = 0;
+    }
+    len = ((f32 (*)(void *))vector_length)(&self->vel);
+    if (lbl_805DBF58 == len) {
+        if (self->f358 == 0) {
+            open__11TWindowCtrlFiii(((s32 (*)(void *, s32))obj_getField1c)(self, self->f35C++), (void *)&lbl_805DBF94, 0x1B);
+        }
+        self->f358 = 1;
+    } else {
+        self->f358 = 0;
+    }
+    if (xyz_distance(&self->pos, &p->pos) > CFG.range) {
+        self->f30 = 0;
+        return;
+    }
+    if (self->f30 != 1) {
+        self->f30 = 1;
+        ang = lbl_80446150[0] * get_ad_end_text_start__10TObjPlayerFv(self->pos.x - p->pos.x, self->pos.z - p->pos.z);
+        if (lbl_805DBF58 == len) {
+            TWindowTimer__sub_80198DCC(&self->pos, ang, self->time);
+            ((void (*)(void *))TWindowTimer__sub_8019A098)(self);
+        }
     }
 }
 

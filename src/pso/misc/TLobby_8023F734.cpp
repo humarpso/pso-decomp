@@ -21,6 +21,22 @@ struct Params_80240B64 {
     Ctl_80240B64 *ctl;
 };
 
+struct Owner_80241798 { u8 pad[0x288]; u32 field_288; };
+
+struct Sound_80241798 {
+    Owner_80241798 *owner;
+    u8 pad4[0x4];
+    s32 flags;
+    u8 padC[0x4];
+    s32 group;
+    s32 id;
+    u8 pad18[0x58];
+    s32 pitch;
+    s32 velocity;
+    u8 pad78[0x14];
+    s16 field_8C;
+};
+
 extern "C" {
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 M2C_UNK sndFXCtrl(int, int, int);
@@ -37,7 +53,6 @@ void TLobby__sub_802409F0(SoundRequestVoice *);
 void update__6TLobbyFPv(void *);
 void TLobby__sub_80240F38(void);
 void TLobby__sub_80240F3C(SoundRequestVoice *);
-void TLobby__sub_80241798(SoundRequestVoice *);
 void TLobby__sub_80241A0C(void);
 void send_voice_controller_updates(u8 *arg0);
 void clamp_params__6TLobbyFPv(void *arg0);
@@ -48,6 +63,8 @@ u32 sndFXCheck(u32);
 extern s8 TLobby__data_805434A8[];
 extern s32 TLobby__data_805D5E24;
 s32 tick_sound_voice(SoundRequestVoice *v);
+u32 advance_rng__6TLobbyFPv(void *);
+void TLobby__sub_80241798(Sound_80241798 *arg0);
 }
 
 extern "C" {
@@ -92,7 +109,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
             break;
         }
         ((void (*)(SoundRequestVoice *))TLobby__sub_80241A0C)(v);
-        TLobby__sub_80241798(v);
+        TLobby__sub_80241798((Sound_80241798 *)(v));
     start:
         ((void (*)(SoundRequestVoice *))TLobby__sub_80240F38)(v);
         TLobby__sub_80240F3C(v);
@@ -174,6 +191,109 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
 int TLobby__sub_80240E8C(void) { return 0; }
 
 void TLobby__sub_80240F38(void) {  }
+
+void TLobby__sub_80241798(Sound_80241798 *arg0) {
+    s32 num = 1;
+    s32 den = 1;
+    s32 mask = 0;
+    s32 min = 0;
+    switch (arg0->owner->field_288) {
+    case 16:
+        switch (arg0->group) {
+        case 4:
+            switch (arg0->id) {
+            case 5: case 6: case 7: case 8: case 9:
+                mask = 0x3F;
+                min = 0x40;
+                arg0->flags |= 0x80;
+                break;
+            }
+            break;
+        }
+        break;
+    case 2:
+        switch (arg0->group) {
+        case 4:
+            switch (arg0->id) {
+            case 6:
+                mask = 0x3F;
+                min = 0x20;
+                arg0->flags |= 0x80;
+                break;
+            }
+            break;
+        }
+        break;
+    case 9:
+        switch (arg0->group) {
+        case 3:
+            switch (arg0->id) {
+            case 0: case 1:
+                mask = 0x3F;
+                min = 0x80;
+                arg0->flags |= 0x80;
+                break;
+            }
+            break;
+        }
+        break;
+    case 12:
+        switch (arg0->group) {
+        case 4:
+            switch (arg0->id) {
+            case 11:
+                mask = 0x3F;
+                min = 0x20;
+                arg0->flags |= 0x80;
+                break;
+            case 12: case 13:
+                mask = 0x3F;
+                min = 0x60;
+                arg0->flags |= 0x80;
+                break;
+            }
+            break;
+        case 3:
+            switch (arg0->id) {
+            case 20:
+                den = 6;
+                mask = 0x3F;
+                min = 0x20;
+                arg0->flags |= 0x80;
+                arg0->field_8C = 0x1000;
+                break;
+            }
+            break;
+        }
+        break;
+    case 13:
+        switch (arg0->group) {
+        case 3:
+            switch (arg0->id) {
+            case 5:
+                num = 2;
+                mask = 0x3F;
+                min = 0xC0;
+                arg0->flags |= 0x80;
+                break;
+            case 21: case 22:
+                mask = 0x3F;
+                min = 0x40;
+                arg0->flags |= 0x80;
+                break;
+            }
+            break;
+        }
+        break;
+    }
+    if (arg0->flags & 0x80) {
+        arg0->pitch = num * ((s32)((advance_rng__6TLobbyFPv(arg0->owner) >> 16) & 0x3FFF) - 0x2000) / den;
+        arg0->velocity = min + (mask & advance_rng__6TLobbyFPv(arg0->owner));
+        if ((s32)(advance_rng__6TLobbyFPv(arg0->owner) & 0x3F) < 0x20) {
+            arg0->velocity = -arg0->velocity;
+        }
+    }
+}
 
 void TLobby__sub_80241A0C(void) {  }
 

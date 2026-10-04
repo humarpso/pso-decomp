@@ -46,6 +46,10 @@ struct CARDStat_801E2048 {
     u8 rest[0x38];
 };
 
+struct Date_801E21A8 { u16 year; u8 mon; u8 mday; u8 hour; u8 min; u8 sec; u8 pad; u8 pad8[4]; };
+
+struct Info_801E21A8 { u32 length; s16 blocks; u8 f6; u8 f7; s16 f8; u16 year; u8 mon; u8 mday; u8 hour; u8 min; u8 sec; u8 pad; };
+
 extern "C" {
 s32 TAdPlayerLoadGC__sub_801E1518(void *arg0, s32 arg1, u32 arg2);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
@@ -117,6 +121,17 @@ int strncmp(const char *, const char *, u32);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 s32 TAdPlayerLoadGC__sub_801E2048(s32 chan, const char *name);
+M2C_UNK TAdPlayerLoadGC__sub_801E101C(s32);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(s32 arg0);
+s32 TAdPlayerLoadGC__sub_801E2048(s32 chan, const char *name);
+void fn_801E283C(u32, Date_801E21A8 *);
+s32 CARDGetResultCode(void *);
+s32 CARDProbeEx(s32, M2C_UNK *, s32 *);
+s32 CARDGetStatus(s32, s32, CARDStat_801E2048 *);
+int strcmp(const char *s1, const char *s2);
+extern s32 TAdPlayerLoadGC__data_805D5E30;
+extern s32 TAdPlayerLoadGC__data_805D5E40;
+s32 TAdPlayerLoadGC__sub_801E21A8(s32 chan, const char *name, Info_801E21A8 *info);
 }
 
 extern "C" {
@@ -466,6 +481,93 @@ check:
             TAdPlayerLoadGC__data_805D5E40 = 0;
             return 0;
         }
+    }
+    TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+    return -0xFB;
+}
+
+s32 TAdPlayerLoadGC__sub_801E21A8(s32 chan, const char *name, Info_801E21A8 *info) {
+    M2C_UNK memSize;
+    s32 sectorSize;
+    Date_801E21A8 date;
+    CARDStat_801E2048 st;
+    s32 r;
+    s32 found;
+    s32 i;
+    if (chan >= 2) {
+        TAdPlayerLoadGC__data_805D5E40 = -0xFF;
+        return -0xFF;
+    }
+    do {
+        r = CARDProbeEx(chan, &memSize, &sectorSize);
+    } while (r == -1);
+    if (sectorSize != 0x2000) {
+        TAdPlayerLoadGC__data_805D5E40 = -0xDF;
+        return -0xFF;
+    }
+    switch (r) {
+    case -3:
+        TAdPlayerLoadGC__data_805D5E40 = -0xFF;
+        return -0xFF;
+    }
+    switch (check_memcard_status__15TAdPlayerLoadGCFi(chan)) {
+    case -1:
+        TAdPlayerLoadGC__data_805D5E40 = -1;
+        return -1;
+    case -128:
+    default:
+        TAdPlayerLoadGC__data_805D5E40 = -0xFD;
+        return -0xFD;
+    case 0:
+        break;
+    }
+    switch (TAdPlayerLoadGC__sub_801E2048(chan, name)) {
+    case -251:
+        TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+        return -0xFB;
+    case -1:
+        TAdPlayerLoadGC__data_805D5E40 = -1;
+        return -1;
+    }
+    if (!(TAdPlayerLoadGC__data_805D5E30 & (4 << chan))) {
+        if (TAdPlayerLoadGC__sub_801E101C(chan) != 0) {
+            TAdPlayerLoadGC__data_805D5E40 = -0xFB;
+            return -0xFB;
+        }
+    }
+    goto check;
+busy:
+    TAdPlayerLoadGC__data_805D5E40 = -1;
+    return -1;
+check:
+    if (CARDGetResultCode((void *)chan) == -1) {
+        goto busy;
+    }
+    found = 0;
+    for (i = 0; i < 0x7F; i++) {
+        if (CARDGetStatus(chan, i, &st) == 0 && strcmp(st.fileName, name) == 0) {
+            found = 1;
+            break;
+        }
+    }
+    if (found != 0) {
+        if (info != NULL) {
+            info->length = st.length;
+            info->blocks = (st.length >> 13) + 1;
+            info->f6 = 0;
+            info->f7 = 0;
+            info->f8 = 0;
+            fn_801E283C(st.time, &date);
+            info->year = date.year;
+            info->mon = date.mon;
+            info->mday = date.mday;
+            info->hour = date.hour;
+            info->min = date.min;
+            info->sec = date.sec;
+            info->pad = date.pad;
+        }
+        TAdPlayerLoadGC__data_805D5E40 = 0;
+        return 0;
     }
     TAdPlayerLoadGC__data_805D5E40 = -0xFB;
     return -0xFB;
