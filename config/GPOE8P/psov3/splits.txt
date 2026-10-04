@@ -1729,6 +1729,7 @@ pso/enemy/TObjEneBalClawClaw.cpp:
 
 pso/enemy/TObjEneBeast.cpp:
 	.text       start:0x800922E4 end:0x80092A7C
+	.data       start:0x8048F2C8 end:0x8048F2D8
 
 pso/player/TObjPlayer_80092A7C.cpp:
 	.text       start:0x80092A7C end:0x80092AE0
@@ -7084,6 +7085,8 @@ pso/unk/text_8018E258.cpp:
 pso/object/TObjDoor_8018E358.cpp:
 	.text       start:0x8018E358 end:0x8018F458
 	.rodata     start:0x80445580 end:0x80445588
+	.data       start:0x804B7618 end:0x804B7630
+	.sbss       start:0x805D5BCC end:0x805D5BD0
 	.sdata2     start:0x805DBDC0 end:0x805DBDF0
 
 pso/object/TObjDoorJung.cpp:
@@ -11344,6 +11347,7 @@ pso/unk/text_8028EC70.cpp:
 
 pso/ui/TAdSinglePlyChrSelectGC_8028EF14.cpp:
 	.text       start:0x8028EF14 end:0x80290B3C
+	.data       start:0x804D3A08 end:0x804D3A40
 
 pso/unk/text_80290B3C.cpp:
 	.text       start:0x80290B3C end:0x80290BE0
@@ -12471,6 +12475,8 @@ pso/ui/TAdMultiPlyChrSelectGC_802DEC44.cpp:
 
 pso/ui/TAdMultiPlyChrSelectGC_802DEF54.cpp:
 	.text       start:0x802DEF54 end:0x802DFC0C
+	.data       start:0x804E2B90 end:0x804E2F38
+	.sbss       start:0x805D68D4 end:0x805D68D8
 
 pso/ui/TAdMultiPlyChrSelectGC.cpp:
 	.text       start:0x802DFC0C end:0x802E0064
@@ -13128,6 +13134,8 @@ pso/ui/TAdChrSelBSlotGC_8030E354.cpp:
 
 pso/ui/TAdChrSelBSlotGC_8030ED88.cpp:
 	.text       start:0x8030ED88 end:0x8030FD54
+	.data       start:0x804E7A48 end:0x804E7D18
+	.sbss       start:0x805D6AA4 end:0x805D6AA8
 
 pso/ui/TAdChrSelBSlotGC.cpp:
 	.text       start:0x8030FD54 end:0x8030FE74
