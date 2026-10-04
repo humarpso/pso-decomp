@@ -15,7 +15,24 @@ struct RecoveredGlobal_803A98F0_lbl_80556F88 {
 };
 
 struct Ent_803B89B4 { u8 pad0[0xC]; Ent_803B89B4 *next; Ent_803B89B4 *prev; u8 pad14[0xD8]; u8 active; u8 padED[2]; u8 idx; };
-struct Rec_803B59E4 { u8 pad[0x48]; Ent_803B89B4 *head; u8 pad4c[4]; u8 f50; u8 pad2[0xBC - 0x51]; };
+typedef struct DSPhostDPop_SV { s32 l; s32 r; s32 s; s32 lA; s32 rA; s32 sA; s32 lB; s32 rB; s32 sB; } DSPhostDPop_SV;
+struct Rec_803B59E4 {
+    void *spb;
+    DSPhostDPop_SV hostDPopSum;
+    s32 *main[2];
+    s32 *auxA[3];
+    s32 *auxB[3];
+    union { void *voiceRoot; Ent_803B89B4 *head; };
+    void *alienVoiceRoot;
+    union { u8 state; u8 f50; };
+    u8 isMaster;
+    u8 numInputs;
+    u32 type;
+    u8 in[0x54];
+    void *auxAHandler;
+    void *auxBHandler;
+    u8 padB4[0xBC - 0xB4];
+};
 
 struct Node_803B2598 { Node_803B2598 *next; u32 pad; u32 key; };
 
@@ -417,6 +434,82 @@ struct Ent_803AD4D0 { s32 f0; u16 id; u16 ref; };
 
 struct Tbl_803AD4D0 { u8 pad[0x600]; Ent_803AD4D0 ents[1]; };
 
+typedef struct MSTEP_SV { u32 para[2]; } MSTEP_SV;
+typedef struct CALLSTACK_SV { MSTEP_SV *addr; MSTEP_SV *curAddr; } CALLSTACK_SV;
+typedef struct VID_LIST_SV { struct VID_LIST_SV *next; struct VID_LIST_SV *prev; u32 vid; u32 root; } VID_LIST_SV;
+typedef struct SYNTH_QUEUE_SV { struct SYNTH_QUEUE_SV *next; struct SYNTH_QUEUE_SV *prev; u8 voice; u8 jobTabIndex; } SYNTH_QUEUE_SV;
+typedef struct SYNTH_JOBTAB_SV { SYNTH_QUEUE_SV *lowPrecision; SYNTH_QUEUE_SV *event; SYNTH_QUEUE_SV *zeroOffset; } SYNTH_JOBTAB_SV;
+typedef struct SYNTH_LFO_SV { u32 time; u32 period; s16 value; s16 lastValue; } SYNTH_LFO_SV;
+typedef struct SYNTHMasterFader_SV {
+    f32 volume; f32 target; f32 start; f32 time; f32 deltaTime; f32 pauseVol; f32 pauseTarget; f32 pauseStart;
+    f32 pauseTime; f32 pauseDeltaTime; u32 seqId; u8 seqMode; u8 type;
+} SYNTHMasterFader_SV;
+typedef struct CTRL_SOURCE_SV { u8 midiCtrl; u8 combine; s32 scale; } CTRL_SOURCE_SV;
+typedef struct CTRL_DEST_SV { CTRL_SOURCE_SV source[4]; u16 oldValue; u8 numSource; } CTRL_DEST_SV;
+typedef struct ADSR_VARS_SV {
+    u8 mode; u8 state; u32 cnt; s32 currentVolume; s32 currentIndex; s32 currentDelta;
+    union {
+        struct { u32 aTime; u32 dTime; u16 sLevel; u32 rTime; u16 cutOff; u8 aMode; } dls;
+        struct { u32 aTime; u32 dTime; u16 sLevel; u32 rTime; } linear;
+    } data;
+} ADSR_VARS_SV;
+#pragma pack(push, 4)
+typedef struct SYNTH_VOICE_SV {
+    SYNTH_QUEUE_SV lowPrecisionJob; SYNTH_QUEUE_SV zeroOffsetJob; SYNTH_QUEUE_SV eventJob;
+    u64 lastLowCallTime; u64 lastZeroCallTime; MSTEP_SV *addr; MSTEP_SV *curAddr;
+    struct SYNTH_VOICE_SV *nextMacActive; struct SYNTH_VOICE_SV *prevMacActive;
+    struct SYNTH_VOICE_SV *nextTimeQueueMacro; struct SYNTH_VOICE_SV *prevTimeQueueMacro;
+    u32 macState; MSTEP_SV *trapEventAddr[3]; MSTEP_SV *trapEventCurAddr[3]; u8 trapEventAny;
+    CALLSTACK_SV callStack[4]; u8 callStackEntryNum; u8 callStackIndex;
+    u64 macStartTime; u64 wait; u64 waitTime; u8 timeUsedByInput; u16 loop; s32 local_vars[16];
+    u32 child; u32 parent; u32 id; VID_LIST_SV *vidList; VID_LIST_SV *vidMasterList;
+    u16 allocId; u16 macroId; u8 keyGroup; u32 lastVID; u8 prio; u16 ageSpeed; u32 age; u64 cFlags;
+    u8 block; u8 fxFlag; u8 vGroup; u8 studio; u8 track; u8 midi; u8 midiSet; u8 section;
+    u32 sInfo; u32 playFrq; u16 curNote; s8 curDetune; u8 orgNote; u8 lastNote; u8 portType;
+    u16 portLastCtrlState; u32 portDuration; u32 portCurPitch; u32 portTime;
+    u8 vibKeyRange; u8 vibCentRange; u32 vibPeriod; u32 vibCurTime; s32 vibCurOffset; s16 vibModAddScale;
+    u32 volume; u32 orgVolume; float lastVolFaderScale; u32 lastPan; u32 lastSPan; float treCurScale;
+    u16 treScale; u16 treModAddScale; u32 panning[2]; s32 panDelta[2]; u32 panTarget[2]; u32 panTime[2];
+    u8 revVolScale; u8 revVolOffset; u8 volTable; u8 itdMode; s32 envDelta; u32 envTarget; u32 envCurrent;
+    u32 sweepOff[2]; s32 sweepAdd[2]; s32 sweepCnt[2]; u8 sweepNum[2]; SYNTH_LFO_SV lfo[2];
+    u8 lfoUsedByInput[2]; u8 pbLowerKeyRange; u8 pbUpperKeyRange; u16 pbLast;
+    ADSR_VARS_SV pitchADSR; s16 pitchADSRRange; u16 curPitch;
+    struct { u8 vol; u8 pan; u8 midi; u8 midiSet; u8 section; u8 track; u8 vGroup; u8 studio; u8 itdMode; } setup;
+    u32 midiDirtyFlags;
+    CTRL_DEST_SV inpVolume; CTRL_DEST_SV inpPanning; CTRL_DEST_SV inpSurroundPanning; CTRL_DEST_SV inpPitchBend;
+    CTRL_DEST_SV inpDoppler; CTRL_DEST_SV inpModulation; CTRL_DEST_SV inpPedal; CTRL_DEST_SV inpPortamento;
+    CTRL_DEST_SV inpPreAuxA; CTRL_DEST_SV inpReverb; CTRL_DEST_SV inpPreAuxB; CTRL_DEST_SV inpPostAuxB;
+    CTRL_DEST_SV inpTremolo;
+    u8 mesgNum; u8 mesgRead; u8 mesgWrite; s32 mesgQueue[4]; u16 curOutputVolume;
+} SYNTH_VOICE_SV;
+typedef struct synthITDInfo_SV { u8 music; u8 sfx; } synthITDInfo_SV;
+#pragma pack(pop)
+typedef struct LAYER_SV { u16 id; u8 keyLow; u8 keyHigh; s8 transpose; u8 volume; s16 prioOffset; u8 panning; u8 reserved[3]; } LAYER_SV;
+typedef struct KEYMAP_SV { u16 id; s8 transpose; u8 panning; s16 prioOffset; u8 reserved[2]; } KEYMAP_SV;
+typedef struct FX_TAB_SV { u16 id; u16 macro; u8 maxVoices; u8 priority; u8 volume; u8 panning; u8 key; u8 vGroup; } FX_TAB_SV;
+typedef struct SynthInfo_SV { u32 mixFrq; u32 numSamples; struct { u32 frq; u8 stereo; u8 bits; s8 deviceName[256]; s8 versionText[256]; } pbInfo; u8 voiceNum; u8 maxMusic; u8 maxSFX; u8 studioNum; } SynthInfo_SV;
+typedef void (*SND_AUX_CALLBACK_SV)(u8 reason, void *info, void *user);
+typedef struct SynthBss_SV {
+    u32 synthTicksPerSecond[9][16];
+    SYNTH_JOBTAB_SV synthJobTable[32];
+    SynthInfo_SV synthInfo;
+    SYNTHMasterFader_SV synthMasterFader[32];
+    u8 synthTrackVolume[64];
+    SND_AUX_CALLBACK_SV synthAuxACallback[8];
+    void *synthAuxAUser[8];
+    SND_AUX_CALLBACK_SV synthAuxBCallback[8];
+    void *synthAuxBUser[8];
+    synthITDInfo_SV synthITDDefault[8];
+    s32 synthGlobalVariable[16];
+    CTRL_DEST_SV inpAuxB[8][4];
+    CTRL_DEST_SV inpAuxA[8][4];
+} SynthBss_SV;
+
+#define CLAMP_SV(value, min, max) ((value) > (max) ? (max) : (value) < (min) ? (min) : (value))
+#define CLAMP_INV_SV(value, min, max) ((value) < (min) ? (min) : (value) > (max) ? (max) : (value))
+#define SV_VOICES ((SYNTH_VOICE_SV *)lbl_805D73B0)
+#define SV_VOICES_L (*(SYNTH_VOICE_SV **)&lbl_805D73B0)
+
 extern "C" {
 void TLobby__sub_803A4B7C(s32);
 void TLobby__sub_803A4FC4(s32, s32, s32);
@@ -438,7 +531,6 @@ void TLobby__sub_803A5078(s8, s32, s32, s32);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
 void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern RecoveredGlobal_803AA0C0_lbl_80556E88 lbl_80556E88;
 u16 lookup_sound_bank_index(u8 arg0, u8 arg1);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
@@ -448,9 +540,9 @@ void sound_enable_irq(void);
 void sound_disable_irq(void);
 void TLobby__sub_803AA2FC(u8 arg0, u16 arg1, u8 arg2);
 void TLobby__sub_803BD62C(u8);
-void TLobby__sub_803AA75C(u8 arg0);
+void TLobby__sub_803AA75C(u8 arg0, void *in_desc);
 void TLobby__sub_803BD660(u8);
-void TLobby__sub_803AA77C(u8 arg0);
+void TLobby__sub_803AA77C(u8 arg0, void *in_desc);
 extern s32 lbl_805D73AC;
 void TLobby__sub_803AB574(s8 *arg0, s8 *arg1);
 void start_sound_envelope(u8 *arg0);
@@ -470,7 +562,6 @@ extern s8 lbl_805D74B0;
 extern s8 lbl_805D74B1;
 extern s8 lbl_805D74B2;
 void TLobby__sub_803BAB10(s32 arg0);
-s32 schedule_sound_voice_update(void *, int, int);
 #pragma pack(push, 4)
 struct Obj_803A8C5C { u8 pad0[0x24]; s64 p24; s64 p2C; };
 #pragma pack(pop)
@@ -491,7 +582,6 @@ void TLobby__sub_803A9944(u8 i, u8 v);
 u32 TLobby__sub_803AA2B8(u32 id);
 extern Program_803B1DA4 *lbl_805D7420;
 void enqueue_sound_program_deadline(Program_803B1DA4 *self);
-extern s32 release_sound_envelope(struct Envelope_803B431C *e, u32 duration);
 s32 key_off_sound_envelope(struct Envelope_803B431C *e);
 s32 TLobby__sub_803AE5FC(u8 *arg0, u8 *arg1);
 s32 *search_sound_sample_directory(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
@@ -523,7 +613,6 @@ void TLobby__sub_803B89B4(Ent_803B89B4 *arg0);
 u32 TLobby__sub_803ABB10(u32 arg0, u32 arg1);
 s32 *search_sound_sample_directory(Req_803AE60C *, void *, u16, s32, s32 (*)(u8 *, u8 *));
 s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D6;
 extern Res_803AE6DC *lbl_805D7410;
 s32 TLobby__sub_803AE6DC(s16 arg0, u16 *arg1);
@@ -560,7 +649,6 @@ extern Rec_803A8D2C *lbl_805D73B0;
 s32 get_slot_value__6TLobbyFi(u8);
 void TLobby__sub_803B488C(s32);
 void TLobby__sub_803B1AF4(Rec_803A996C *);
-void TLobby__sub_803B36A8(u8);
 s32 TLobby__sub_803B46A4(u8);
 s32 TLobby__sub_803A996C(s32 op, u32 idx);
 s32 key_off_sound_fx(int id);
@@ -572,7 +660,6 @@ extern Slot_803A4EB8 lbl_8054AB48[];
 void TLobby__sub_803A4EB8(s32 arg0);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73DA;
 s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2);
 void sound_enable_irq(void);
@@ -691,22 +778,18 @@ void sound_disable_irq(void);
 void TLobby__sub_803AA66C(u8 studio);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D4;
 s32 TLobby__sub_803ACD40(u16 arg0);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D6;
 s32 TLobby__sub_803ACEC4(u16 key, void *p, u16 f6);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D6;
 s32 TLobby__sub_803AD10C(u16 key);
 void sound_enable_irq(void);
 void sound_disable_irq(void);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D2;
 s32 TLobby__sub_803AD4D0(u16 arg0);
 }
@@ -744,12 +827,10 @@ typedef void (*Cb_803AB0E4)(s32, s32, s32, s32, s32);
 struct Rec_803AB0E4 { u8 pad[8]; u8 state; u8 pad9[3]; Cb_803AB0E4 cb; u8 pad10[0x38]; s32 f48; s32 f4c; u8 pad50[0x14]; };
 
 void TLobby__sub_803B3628(s32);
-extern Rec_803AB0E4 lbl_80558570[];
 struct Ent_803ADB58 { u16 id; u16 ref; s32 f4; s32 f8; s32 fc; u8 pad10[0x10]; };
 struct Tbl_803ADB58 { Ent_803ADB58 *list; s32 base; s32 f8; };
 
 s32 TLobby__sub_803BD93C(void *, s32);
-extern u8 lbl_80559E70[];
 extern u16 lbl_805D73D0;
 struct Grp_803AE76C { u16 f0; u16 n; void *base; };
 struct Key_803AE76C { s16 key; };
@@ -794,8 +875,6 @@ extern u8 lbl_805D7446;
 extern u8 lbl_805D7447;
 extern u8 lbl_805D7448;
 extern u8 lbl_805D7449;
-void TLobby__sub_803B4CF8(u16, void *, void *, void *);
-void TLobby__sub_803B4CF8(u16, void *, void *, void *);
 struct Ent_803B5DB0 {
     u8 pad[0x1C];
     u32 key;
@@ -859,7 +938,6 @@ void TLobby__sub_803BADD0(u8, u8, u32);
 void TLobby__sub_803BB8F0(s32, u8, s32, u8, bool);
 void TLobby__sub_803BADF8(s32, u8, u8, s32);
 u16 TLobby__sub_803BB5E4(s32, u8, u8);
-s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);
 extern Ent_803B5398 lbl_80565DD8[];
 extern u8 lbl_805D74C4;
 extern u8 lbl_805D74C6;
@@ -1029,6 +1107,43 @@ void TLobby__sub_803A3C24(Node_803A3C24 *arg0) {
     lbl_805D7364 = arg0;
 }
 
+typedef struct SeqInst_803A3C84 {
+    struct SeqInst_803A3C84 *next;
+    struct SeqInst_803A3C84 *prev;
+    u8 pad8[4];
+    u32 publicId;
+    u8 pad10[0x1868 - 0x10];
+} SeqInst_803A3C84;
+extern u32 lbl_805D7370;
+#pragma push
+#pragma opt_common_subs on
+u32 TLobby__sub_803A3C84(u32 seqId) {
+    u32 pub_id;
+    SeqInst_803A3C84 *si;
+
+    do {
+        pub_id = lbl_805D7370++;
+        lbl_805D7370 &= ~0x80000000;
+
+        for (si = (SeqInst_803A3C84 *)lbl_805D737C; si != NULL; si = si->next) {
+            if (si->publicId == pub_id) {
+                pub_id = 0xFFFFFFFF;
+                break;
+            }
+        }
+        for (si = (SeqInst_803A3C84 *)lbl_805D7378; si != NULL; si = si->next) {
+            if (si->publicId == pub_id) {
+                pub_id = 0xFFFFFFFF;
+                break;
+            }
+        }
+    } while (pub_id == 0xFFFFFFFF);
+
+    lbl_8054AB48[seqId].n.id = pub_id;
+    return pub_id;
+}
+#pragma pop
+
 #pragma push
 #pragma opt_common_subs on
 u32 TLobby__sub_803A3D20(u32 seqId) {
@@ -1044,6 +1159,238 @@ u32 TLobby__sub_803A3D20(u32 seqId) {
         }
     }
     return 0xFFFFFFFF;
+}
+#pragma pop
+
+#define ARR_GET_803A3D8C(arr, offset) ((void *)(offset + (u32)arr))
+typedef struct SND_SEQVOLDEF_SEQ { u8 track; u8 volGroup; } SND_SEQVOLDEF_SEQ;
+typedef struct SND_PLAYPARA_SEQ {
+    u32 flags; u32 trackMute[2]; u16 speed;
+    struct { u16 time; u8 target; } volume;
+    u8 numSeqVolDef; SND_SEQVOLDEF_SEQ *seqVolDef; u8 numFaded; u8 *faded;
+} SND_PLAYPARA_SEQ;
+typedef struct MIDI_CHANNEL_SETUP_803A3D8C { u8 program; u8 volume; u8 panning; u8 reverb; u8 chorus; } MIDI_CHANNEL_SETUP_803A3D8C;
+typedef struct MIDISETUP_803A3D8C { u16 songId; u16 reserved; MIDI_CHANNEL_SETUP_803A3D8C channel[16]; } MIDISETUP_803A3D8C;
+#define SEQ_CUR (*(SEQ_INSTANCE_803A49C8 **)&lbl_805D7360)
+#define SEQ_FREE_LIST ((SEQ_INSTANCE_803A49C8 *)lbl_805D7378)
+#define SEQ_RUN_LIST ((SEQ_INSTANCE_803A49C8 *)lbl_805D737C)
+#define SEQ_RUN_L (*(SEQ_INSTANCE_803A49C8 **)&lbl_805D737C)
+extern SEQ_INSTANCE_803A49C8 *lbl_805D7374;
+extern u8 lbl_80557B5C[64];
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+
+static inline void DoPrgChange_803A3D8C(SEQ_INSTANCE_803A49C8 *seq, u8 prg, u8 midi) {
+    extern u16 lbl_80556E88[8][16];
+    lbl_80556E88[lbl_805D7368][midi] = 0xFFFF;
+    if (midi != 9) {
+        prg = seq->normTrans[prg];
+        if (prg == 0xFF) {
+            return;
+        }
+        seq->prgState[midi].macId = seq->normtab[prg].macro;
+        seq->prgState[midi].priority = seq->normtab[prg].prio;
+        seq->prgState[midi].maxVoices = seq->normtab[prg].maxVoices;
+        return;
+    }
+
+    prg = seq->drumTrans[prg];
+    if (prg == 0xFF) {
+        return;
+    }
+    seq->prgState[midi].macId = seq->drumtab[prg].macro;
+    seq->prgState[midi].priority = seq->drumtab[prg].prio;
+    seq->prgState[midi].maxVoices = seq->drumtab[prg].maxVoices;
+}
+
+static inline void BuildTransTab_803A3D8C(u8 *tab, PAGE_803A49C8 *page) {
+    u8 i;
+
+    for (i = 0; i < 128; ++i) {
+        tab[i] = 0xff;
+    }
+
+    for (i = 0; page->index != 0xFF; ++i, page++) {
+        tab[page->index] = i;
+    }
+}
+
+u32 TLobby__sub_803A3D8C(PAGE_803A49C8 *norm, PAGE_803A49C8 *drum, MIDISETUP_803A3D8C *midiSetup, u32 *song,
+                         SND_PLAYPARA_SEQ *para, u8 studio, u16 sgid) {
+    extern u16 lbl_80556E88[8][16];
+    void TLobby__sub_803A94E0(u8 volume, u16 time, u8 vGroup, u8 seqMode, u32 seqId);
+    void TLobby__sub_803A9944(u8 i, u8 v);
+    void TLobby__sub_803BB4F0(u8, u8, u8);
+    void TLobby__sub_803BB8AC(u8, u8);
+    void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
+    void TLobby__sub_803A61F8(void);
+    ARR_803A49C8 *arr;
+    u32 *tracktab;
+    s32 i;
+    SEQ_INSTANCE_803A49C8 *nseq;
+    SEQ_INSTANCE_803A49C8 *oldCSeq;
+    u32 seqId;
+    u32 bpm;
+
+    if ((nseq = lbl_805D7374) == NULL) {
+        return 0xFFFFFFFF;
+    }
+    if ((lbl_805D7374 = nseq->next) != NULL) {
+        lbl_805D7374->prev = NULL;
+    }
+    if ((nseq->next = SEQ_RUN_L) != NULL) {
+        SEQ_RUN_L->prev = nseq;
+    }
+
+    nseq->prev = NULL;
+    SEQ_RUN_L = nseq;
+    nseq->state = 1;
+    for (i = 0; i < 16; ++i) {
+        nseq->section[i].globalEventRoot = NULL;
+    }
+
+    seqId = nseq->index;
+    nseq->syncActive = 0;
+    nseq->normtab = norm;
+    nseq->drumtab = drum;
+    nseq->arrbase = (ARR_803A49C8 *)song;
+    nseq->groupID = sgid;
+    BuildTransTab_803A3D8C(nseq->normTrans, nseq->normtab);
+    BuildTransTab_803A3D8C(nseq->drumTrans, nseq->drumtab);
+    nseq->defVGroup = seqId + 23;
+    for (i = 0; i < 64; ++i) {
+        nseq->trackVolGroup[i] = nseq->defVGroup;
+    }
+
+    nseq->defStudio = studio;
+    if (para == NULL) {
+        nseq->trackMute[0] = -1;
+        nseq->trackMute[1] = -1;
+        for (i = 0; i < 16; ++i) {
+            nseq->section[i].speed = 256;
+        }
+
+        TLobby__sub_803A94E0(0x7F, 0, nseq->defVGroup, 0, 0xFFFFFFFF);
+    } else {
+        if (para->flags & 1) {
+            nseq->trackMute[0] = para->trackMute[0];
+            nseq->trackMute[1] = para->trackMute[1];
+        } else {
+            nseq->trackMute[0] = -1;
+            nseq->trackMute[1] = -1;
+        }
+
+        if (para->flags & 2) {
+            for (i = 0; i < 16; ++i) {
+                nseq->section[i].speed = para->speed;
+            }
+        } else {
+            for (i = 0; i < 16; ++i) {
+                nseq->section[i].speed = 256;
+            }
+        }
+
+        if (para->flags & 8) {
+            for (i = 0; i < para->numSeqVolDef; ++i) {
+                nseq->trackVolGroup[para->seqVolDef[i].track] = para->seqVolDef[i].volGroup;
+                TLobby__sub_803A9944(para->seqVolDef[i].volGroup, 0);
+            }
+        }
+
+        if (para->flags & 4) {
+            TLobby__sub_803A94E0(para->volume.target, para->volume.time, nseq->defVGroup, 0, 0xFFFFFFFF);
+
+            for (i = 0; i < para->numFaded; ++i) {
+                TLobby__sub_803A94E0(para->volume.target, para->volume.time, para->faded[i], 0, 0xFFFFFFFF);
+            }
+        }
+    }
+
+    arr = (ARR_803A49C8 *)song;
+    if (arr->info & 0x80000000) {
+        nseq->trackSectionTab = (u8 *)ARR_GET_803A3D8C(arr, arr->tsTab);
+    } else {
+        nseq->trackSectionTab = NULL;
+    }
+
+    bpm = arr->info & 0x0fffffff;
+
+    if (!(arr->info & 0x40000000)) {
+        bpm <<= 10;
+    }
+
+    for (i = 0; i < 16; ++i) {
+        nseq->section[i].bpm = bpm;
+        TLobby__sub_803A6ED0(bpm >> 10, seqId, i);
+
+        if (arr->mTrack != 0) {
+            nseq->section[i].mTrack.base = (MTRACK_DATA_803A49C8 *)ARR_GET_803A3D8C(arr, arr->mTrack);
+            nseq->section[i].mTrack.addr = nseq->section[i].mTrack.base;
+        } else {
+            nseq->section[i].mTrack.base = NULL;
+        }
+
+        nseq->section[i].loopDisable = 0;
+        nseq->section[i].loopCnt = 0;
+    }
+
+    tracktab = (u32 *)ARR_GET_803A3D8C(arr, arr->tTab);
+    for (i = 0; i < 64; ++i) {
+        lbl_80557B5C[i] = 0x7F;
+        nseq->pattern[i].addr = NULL;
+        if (tracktab[i] != 0) {
+            nseq->track[i].addr = nseq->track[i].base = (TENTRY_803A49C8 *)ARR_GET_803A3D8C(arr, tracktab[i]);
+        } else {
+            nseq->track[i].addr = nseq->track[i].base = NULL;
+        }
+    }
+
+    nseq->noteUsed[0] = NULL;
+    nseq->noteUsed[1] = NULL;
+    nseq->noteKeyOff = NULL;
+
+    for (i = 0; i < 16; ++i) {
+        TLobby__sub_803BB4F0(i, seqId, 1);
+    }
+    for (i = 0; i < 16; ++i) {
+        nseq->prgState[i].macId = 0xffff;
+    }
+    for (i = 0; i < 16; ++i) {
+        TLobby__sub_803BB8AC(i, seqId);
+    }
+    if (midiSetup != NULL) {
+        for (i = 0; i < 16; ++i) {
+            DoPrgChange_803A3D8C(nseq, midiSetup->channel[i].program, i);
+            TLobby__sub_803BADF8(7, i, seqId, midiSetup->channel[i].volume);
+            TLobby__sub_803BADF8(10, i, seqId, midiSetup->channel[i].panning);
+            TLobby__sub_803BADF8(0x5B, i, seqId, midiSetup->channel[i].reverb);
+            TLobby__sub_803BADF8(0x5D, i, seqId, midiSetup->channel[i].chorus);
+        }
+    }
+    for (i = 0; i < 16; ++i) {
+        lbl_80556E88[seqId][i] = 0xffff;
+    }
+    for (i = 0; i < 16; ++i) {
+        nseq->section[i].time[0].high = 0;
+        nseq->section[i].time[0].low = 0;
+        nseq->section[i].time[1].high = 0;
+        nseq->section[i].time[1].low = 0;
+        nseq->section[i].timeIndex = 0;
+    }
+    nseq->keyOffCheck = 0;
+
+    if (para != NULL && (para->flags & 0x10) != 0) {
+        TLobby__sub_803A4964((Node_803A4964 *)nseq);
+    }
+
+    oldCSeq = SEQ_CUR;
+    SEQ_CUR = nseq;
+    TLobby__sub_803A61F8();
+    SEQ_CUR = oldCSeq;
+    seqId = TLobby__sub_803A3C84(seqId);
+    return seqId;
 }
 #pragma pop
 
@@ -1257,6 +1604,349 @@ found:
     }
 }
 
+typedef struct SeqBss_803A4FC4 {
+    NOTE_803A49C8 seqNote[256];
+    SEQ_INSTANCE_803A49C8 seqInstance[8];
+} SeqBss_803A4FC4;
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline u32 seqGetPrivateId_803A4FC4(u32 seqId) {
+    SEQ_INSTANCE_803A49C8 *si;
+    for (si = SEQ_RUN_LIST; si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    for (si = SEQ_FREE_LIST; si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    return 0xFFFFFFFF;
+}
+
+void TLobby__sub_803A4FC4(s32 seqId, s32 mask1, s32 mask2) {
+    SeqBss_803A4FC4 *bss = (SeqBss_803A4FC4 *)lbl_80549748;
+    seqId = seqGetPrivateId_803A4FC4(seqId);
+    if (seqId == 0xFFFFFFFF) {
+        return;
+    }
+
+    if ((seqId & 0x80000000) == 0) {
+        bss->seqInstance[seqId].trackMute[0] = mask1;
+        bss->seqInstance[seqId].trackMute[1] = mask2;
+    } else {
+        seqId &= ~0x80000000;
+        bss->seqInstance[seqId].syncCrossInfo.flags |= 0x10;
+        bss->seqInstance[seqId].syncCrossInfo.trackMute2[0] = mask1;
+        bss->seqInstance[seqId].syncCrossInfo.trackMute2[1] = mask2;
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline u32 seqGetPrivateId_X5214(u32 seqId) {
+    SEQ_INSTANCE_803A49C8 *si;
+    for (si = SEQ_RUN_LIST; si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    for (si = SEQ_FREE_LIST; si != NULL; si = si->next) {
+        if (si->publicId == (seqId & ~0x80000000)) {
+            return si->index | (seqId & 0x80000000);
+        }
+    }
+    return 0xFFFFFFFF;
+}
+static inline void seqSpeed_X5214(SeqBss_803A4FC4 *bss, u32 seqId, u16 speed) {
+    u32 i;
+
+    seqId = TLobby__sub_803A3D20(seqId);
+    if ((seqId & 0x80000000) == 0) {
+        for (i = 0; i < 16; ++i) {
+            bss->seqInstance[seqId].section[i].speed = speed;
+        }
+    } else {
+        seqId &= ~0x80000000;
+        bss->seqInstance[seqId].syncCrossInfo.flags |= 0x20;
+        bss->seqInstance[seqId].syncCrossInfo.speed2 = speed;
+    }
+}
+
+static inline void seqMute_X5214(SeqBss_803A4FC4 *bss, u32 seqId, u32 mask1, u32 mask2) {
+    seqId = TLobby__sub_803A3D20(seqId);
+    if (seqId == 0xFFFFFFFF) {
+        return;
+    }
+
+    if ((seqId & 0x80000000) == 0) {
+        bss->seqInstance[seqId].trackMute[0] = mask1;
+        bss->seqInstance[seqId].trackMute[1] = mask2;
+    } else {
+        seqId &= ~0x80000000;
+        bss->seqInstance[seqId].syncCrossInfo.flags |= 0x10;
+        bss->seqInstance[seqId].syncCrossInfo.trackMute2[0] = mask1;
+        bss->seqInstance[seqId].syncCrossInfo.trackMute2[1] = mask2;
+    }
+}
+
+void TLobby__sub_803A5214(SND_CROSSFADE_803A49C8 *ci, u32 *new_seqId, u8 irq_call) {
+    void TLobby__sub_803A5078(u8 volume, u16 time, u32 seqId, u8 mode);
+    void TLobby__sub_803AA058(u8 volume, u16 time, u32 seqId, u8 mode);
+    void TLobby__sub_803A4EB8(s32 arg0);
+    u32 TLobby__sub_803A3D20(u32 seqId);
+    void TLobby__sub_803A9FC8(s32 arg0);
+    void TLobby__sub_803AA000(s32 arg0, s32 arg1, s32 arg2);
+    void TLobby__sub_803A9F80(u32 seqId, u16 speed);
+    u32 TLobby__sub_803B5398(u16 sgid, u16 sid, void *arrfile, SND_PLAYPARA_SEQ *para, u8 irq_call, u8 studio);
+    u32 TLobby__sub_803B54D8(u16 sgid, u16 sid, void *arrfile, SND_PLAYPARA_SEQ *para, u8 studio);
+    SND_PLAYPARA_SEQ pp;
+    u32 seqId;
+    u16 time;
+    SeqBss_803A4FC4 *bss = (SeqBss_803A4FC4 *)lbl_80549748;
+
+    seqId = seqGetPrivateId_X5214(ci->seqId1);
+
+    if ((ci->flags & 4) != 0) {
+        bss->seqInstance[seqId].syncCrossInfo = *ci;
+        bss->seqInstance[seqId].syncActive = 1;
+        bss->seqInstance[seqId].syncSeqIdPtr = new_seqId;
+        bss->seqInstance[seqId].syncCrossInfo.flags &= ~4;
+        *new_seqId = ci->seqId1 | 0x80000000;
+        return;
+    }
+
+    if (irq_call) {
+        time = ci->time1 < 5 ? 5 : ci->time1;
+        if ((ci->flags & 1) != 0) {
+            TLobby__sub_803A5078(0, time, ci->seqId1, 2);
+        } else if ((ci->flags & 0x40) != 0) {
+            TLobby__sub_803A5078(0, time, ci->seqId1, 3);
+        } else {
+            TLobby__sub_803A5078(0, time, ci->seqId1, 1);
+        }
+    } else {
+        if ((ci->flags & 1) != 0) {
+            TLobby__sub_803AA058(0, ci->time1, ci->seqId1, 2);
+        } else if ((ci->flags & 0x40) != 0) {
+            TLobby__sub_803AA058(0, ci->time1, ci->seqId1, 3);
+        } else {
+            TLobby__sub_803AA058(0, ci->time1, ci->seqId1, 1);
+        }
+    }
+
+    if (new_seqId == NULL) {
+        return;
+    }
+
+    if ((ci->flags & 2) != 0) {
+        if (seqGetPrivateId_X5214(ci->seqId2) != 0xFFFFFFFF) {
+            if (irq_call) {
+                TLobby__sub_803A4EB8(ci->seqId2);
+                TLobby__sub_803A5078(ci->vol2, ci->time2, ci->seqId2, 0);
+                if ((ci->flags & 0x10) != 0) {
+                    seqMute_X5214(bss, ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
+                }
+                if ((ci->flags & 0x20) != 0) {
+                    seqSpeed_X5214(bss, ci->seqId2, ci->speed2);
+                }
+            } else {
+                TLobby__sub_803A9FC8(ci->seqId2);
+                TLobby__sub_803AA058(ci->vol2, ci->time2, ci->seqId2, 0);
+                if ((ci->flags & 0x10) != 0) {
+                    TLobby__sub_803AA000(ci->seqId2, ci->trackMute2[0], ci->trackMute2[1]);
+                }
+                if ((ci->flags & 0x20) != 0) {
+                    TLobby__sub_803A9F80(ci->seqId2, ci->speed2);
+                }
+            }
+            *new_seqId = ci->seqId2;
+        } else {
+            *new_seqId = 0xFFFFFFFF;
+        }
+    } else {
+        pp.flags = 4;
+        if ((ci->flags & 8) != 0) {
+            pp.flags |= 0x10;
+        }
+        if ((ci->flags & 0x20) != 0) {
+            pp.flags |= 2;
+            pp.speed = ci->speed2;
+        }
+        if ((ci->flags & 0x10) != 0) {
+            pp.flags |= 1;
+            pp.trackMute[0] = ci->trackMute2[0];
+            pp.trackMute[1] = ci->trackMute2[1];
+        }
+        pp.volume.time = ci->time2;
+        pp.volume.target = ci->vol2;
+        pp.numFaded = 0;
+        if (irq_call != 0) {
+            if ((*new_seqId = TLobby__sub_803B5398(ci->gid2, ci->sid2, ci->arr2, &pp, 1, ci->studio2)) !=
+                    0xFFFFFFFF &&
+                (ci->flags & 0x80) != 0) {
+                seqMute_X5214(bss, *new_seqId, 0, 0);
+            }
+        } else {
+            if ((*new_seqId = TLobby__sub_803B54D8(ci->gid2, ci->sid2, ci->arr2, &pp, ci->studio2)) !=
+                    0xFFFFFFFF &&
+                (ci->flags & 0x80) != 0) {
+                TLobby__sub_803AA000(*new_seqId, 0, 0);
+            }
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+u8 *TLobby__sub_803A5748(u8 *stream, u16 *deltaTime, s16 *deltaData) {
+    u8 b1;
+    u8 b2;
+    s16 v;
+
+    b1 = stream[0];
+    b2 = stream[1];
+    if (b1 == 0x80 && b2 == 0) {
+        return NULL;
+    }
+
+    if ((b1 & 0x80) != 0) {
+        *deltaTime = ((b1 & 0x7f) << 8) | b2;
+        stream += 2;
+    } else {
+        *deltaTime = b1;
+        stream += 1;
+    }
+
+    b1 = stream[0];
+    b2 = stream[1];
+    if ((b1 & 0x80) != 0) {
+        v = ((b1 & 0x7f) << 8) | b2;
+        v <<= 1;
+        v >>= 1;
+        *deltaData = v;
+        stream += 2;
+    } else {
+        v = b1;
+        v <<= 9;
+        v >>= 9;
+        *deltaData = v;
+        stream += 1;
+    }
+
+    return stream;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+Node_803A5A04 *TLobby__sub_803A57EC(u8 trackId) {
+    TRACK_803A49C8 *track;
+    CPAT_803A49C8 *pattern;
+    SEQ_EVENT_803A49C8 *ev;
+    u32 patternTime;
+    u32 pitchTime;
+    u32 modTime;
+
+    track = &SEQ_CUR->track[trackId];
+    pattern = &SEQ_CUR->pattern[trackId];
+
+    if (track->addr != NULL) {
+        ev = &SEQ_CUR->event[trackId];
+        ev->trackId = trackId;
+        ev->info.pattern.base = pattern;
+
+        if (pattern->addr == NULL) {
+        null_pattern_addr:
+            if (track->addr->pattern == 0xffff) {
+                track->addr = NULL;
+                return NULL;
+            }
+
+            if (track->addr->pattern == 0xfffe) {
+                if (SEQ_CUR->trackSectionTab == NULL) {
+                    if (SEQ_CUR->section[0].loopDisable) {
+                        track->addr = NULL;
+                        return NULL;
+                    }
+                } else if (SEQ_CUR->section[SEQ_CUR->trackSectionTab[trackId]].loopDisable) {
+                    track->addr = NULL;
+                    return NULL;
+                }
+
+                ev->type = 3;
+                ev->time = track->addr->time;
+                track->addr = &track->base[*((u16 *)&track->addr->transpose)];
+                return (Node_803A5A04 *)ev;
+            }
+
+            ev->type = 4;
+            ev->time = track->addr->time;
+            ev->info.trackAddr = track->addr;
+            ++track->addr;
+            return (Node_803A5A04 *)ev;
+        }
+
+        pitchTime = pattern->pitchBend.nextTime;
+        modTime = pattern->modulation.nextTime;
+
+    loop:
+        patternTime = pattern->addr->time + pattern->lTime;
+        if (patternTime >= pitchTime) {
+            goto use_pitch_time;
+        }
+        if (patternTime >= modTime) {
+            goto use_mod_time;
+        }
+        if (pattern->addr->key == 0xff && pattern->addr->velocity == 0xff) {
+            pattern->addr = NULL;
+            goto null_pattern_addr;
+        }
+
+        ev->info.trackAddr = (TENTRY_803A49C8 *)pattern->addr;
+        pattern->lTime = patternTime;
+
+        if ((pattern->addr->key & 0x80) != 0) {
+            pattern->addr = (NOTE_DATA_803A49C8 *)((u8 *)pattern->addr + 4);
+            goto use_pattern_time;
+        }
+        if ((pattern->addr->key | pattern->addr->velocity) == 0) {
+            pattern->addr = (NOTE_DATA_803A49C8 *)((u8 *)pattern->addr + 4);
+            goto loop;
+        }
+        ++pattern->addr;
+
+    use_pattern_time:
+        ev->type = 0;
+        ev->time = patternTime + pattern->baseTime;
+        goto end;
+
+    use_pitch_time:
+        if (pitchTime < modTime) {
+            ev->time = pitchTime + pattern->baseTime;
+            ev->type = 2;
+            goto end;
+        }
+
+    use_mod_time:
+        ev->time = modTime + pattern->baseTime;
+        ev->type = 1;
+
+    end:
+        return (Node_803A5A04 *)ev;
+    }
+
+    return NULL;
+}
+#pragma pop
+
 void TLobby__sub_803A5A04(List_803A5A04 *arg0, Node_803A5A04 *arg1) {
     Node_803A5A04 *p = arg0->head;
     Node_803A5A04 *q = 0;
@@ -1283,6 +1973,218 @@ void TLobby__sub_803A5A04(List_803A5A04 *arg0, Node_803A5A04 *arg1) {
     }
     arg1->next = 0;
 }
+
+typedef struct SeqBss_803A5A78 {
+    NOTE_803A6364 seqNote[256];
+    SEQ_INSTANCE_803A6364 seqInstance[8];
+    u16 seqMIDIPriority[8][16];
+} SeqBss_803A5A78;
+
+#define ARR_GET_803A5A78(arr, offset) ((void *)(offset + (u32)arr))
+typedef struct SEQ_PATTERN_803A5A78 { u32 headerLen; u32 pitchBend; u32 modulation; u32 noteData; } SEQ_PATTERN_803A5A78;
+extern u8 lbl_805D736C;
+#define CSEQ_5A78 (*(SEQ_INSTANCE_803A6364 **)&lbl_805D7360)
+#define NOTEFREE_5A78 (*(NOTE_803A6364 **)&lbl_805D7364)
+void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value);
+void TLobby__sub_803BB4F0(u8, u8, u8);
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+
+static inline void InitStream_803A5A78(SEQ_STREAM_803A6364 *stream, u32 streamDataOffset) {
+    u16 delta;
+    if (streamDataOffset != 0) {
+        if ((stream->nextAddr = TLobby__sub_803A5748((u8 *)ARR_GET_803A5A78(CSEQ_5A78->arrbase, streamDataOffset), &delta,
+                                                     &stream->nextDelta)) != NULL) {
+            stream->nextTime = delta;
+        } else {
+            stream->nextTime = 0x7fffffff;
+        }
+    } else {
+        stream->nextTime = 0x7fffffff;
+    }
+}
+
+static inline u16 HandleStream_803A5A78(SEQ_STREAM_803A6364 *stream) {
+    u16 delta;
+    stream->value += stream->nextDelta;
+    if (stream->nextAddr != NULL) {
+        if ((stream->nextAddr = TLobby__sub_803A5748(stream->nextAddr, &delta, &stream->nextDelta)) != NULL) {
+            stream->nextTime += delta;
+        } else {
+            stream->nextTime = 0x7fffffff;
+        }
+    } else {
+        stream->nextTime = 0x7fffffff;
+    }
+    return stream->value;
+}
+
+static inline void DoPrgChange_803A5A78(SeqBss_803A5A78 *bss, SEQ_INSTANCE_803A6364 *seq, u8 prg, u8 midi) {
+    bss->seqMIDIPriority[lbl_805D7368][midi] = 0xFFFF;
+    if (midi != 9) {
+        prg = seq->normTrans[prg];
+        if (prg == 0xFF) {
+            return;
+        }
+        seq->prgState[midi].macId = seq->normtab[prg].macro;
+        seq->prgState[midi].priority = seq->normtab[prg].prio;
+        seq->prgState[midi].maxVoices = seq->normtab[prg].maxVoices;
+        return;
+    }
+
+    prg = seq->drumTrans[prg];
+    if (prg == 0xFF) {
+        return;
+    }
+    seq->prgState[midi].macId = seq->drumtab[prg].macro;
+    seq->prgState[midi].priority = seq->drumtab[prg].prio;
+    seq->prgState[midi].maxVoices = seq->drumtab[prg].maxVoices;
+}
+
+static inline void FreeNote_803A5A78(NOTE_803A6364 *n) {
+    if (n->next != NULL) {
+        n->next->prev = n->prev;
+    }
+    if (n->prev != NULL) {
+        n->prev->next = n->next;
+    } else {
+        CSEQ_5A78->noteUsed[n->timeIndex] = n->next;
+    }
+    if ((n->next = NOTEFREE_5A78) != NULL) {
+        NOTEFREE_5A78->prev = n;
+    }
+    n->prev = NULL;
+    NOTEFREE_5A78 = n;
+}
+
+SEQ_EVENT_803A6364 *TLobby__sub_803A5A78(SEQ_EVENT_803A6364 *event, u8 secIndex, u32 *loopFlag) {
+    u32 TLobby__sub_803A7880(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet,
+                             u8 section, u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd);
+    SeqBss_803A5A78 *bss = (SeqBss_803A5A78 *)lbl_80549748;
+    CPAT_803A6364 *pa;
+    NOTE_DATA_803A6364 *pe;
+    s32 velocity;
+    s32 key;
+    u8 midi;
+    u16 macId;
+    NOTE_803A6364 *note;
+    TENTRY_803A6364 *tEntry;
+    CPAT_803A6364 *pattern;
+    u32 *pTab;
+    SEQ_PATTERN_803A5A78 *pptr;
+
+    switch (event->type) {
+    case 4:
+        tEntry = event->info.trackAddr;
+        pattern = &CSEQ_5A78->pattern[event->trackId];
+        pTab = (u32 *)ARR_GET_803A5A78(CSEQ_5A78->arrbase, CSEQ_5A78->arrbase->pTab);
+        pptr = (SEQ_PATTERN_803A5A78 *)ARR_GET_803A5A78(CSEQ_5A78->arrbase, pTab[tEntry->pattern]);
+        pattern->addr = (NOTE_DATA_803A6364 *)&pptr->noteData;
+        pattern->lTime = 0;
+        pattern->baseTime = tEntry->time;
+        pattern->patternInfo = tEntry;
+        InitStream_803A5A78(&pattern->pitchBend, pptr->pitchBend);
+        pattern->pitchBend.value = 0x2000;
+        InitStream_803A5A78(&pattern->modulation, pptr->modulation);
+        pattern->modulation.value = 0;
+        pattern->midi = ((u8 *)ARR_GET_803A5A78(CSEQ_5A78->arrbase, CSEQ_5A78->arrbase->tmTab))[event->trackId];
+        if (tEntry->prgChange != 0xff) {
+            DoPrgChange_803A5A78(bss, CSEQ_5A78, tEntry->prgChange, pattern->midi);
+        }
+        if (tEntry->velocity != 0xff) {
+            TLobby__sub_803BADF8(7, pattern->midi, lbl_805D7368, tEntry->velocity);
+        }
+        break;
+
+    case 0:
+        pe = event->info.pattern.addr;
+        pa = event->info.pattern.base;
+        key = pe->key;
+        velocity = pe->velocity;
+        midi = pa->midi;
+
+        if ((key & 0x80) != 0) {
+            switch (velocity) {
+            case 0:
+                DoPrgChange_803A5A78(bss, CSEQ_5A78, key & 0x7f, midi);
+                break;
+            case 1:
+                TLobby__sub_803BADF8(0x82, midi, lbl_805D7368, key & 0x7f);
+                break;
+            default:
+                if ((velocity & 0x80) != 0x80) {
+                    break;
+                }
+                switch (velocity & 0x7f) {
+                case 0x68:
+                    if (CSEQ_5A78->syncActive) {
+                        TLobby__sub_803A5214((SND_CROSSFADE_803A49C8 *)&CSEQ_5A78->syncCrossInfo, CSEQ_5A78->syncSeqIdPtr, 1);
+                        CSEQ_5A78->syncActive = 0;
+                    }
+                    break;
+                case 0x69:
+                    bss->seqMIDIPriority[lbl_805D7368][midi] = key & 0x7f;
+                    break;
+                case 0x6a:
+                    bss->seqMIDIPriority[lbl_805D7368][midi] = (key & 0x7f) + 0x80;
+                    break;
+                case 0x79:
+                    TLobby__sub_803BB4F0(midi, lbl_805D7368, 0);
+                    break;
+                case 0x7b:
+                    TLobby__sub_803A3B54();
+                    break;
+                default:
+                    TLobby__sub_803BADF8(velocity & 0x7f, midi, lbl_805D7368, key & 0x7f);
+                    break;
+                }
+            }
+            break;
+        }
+
+        if ((CSEQ_5A78->trackMute[event->trackId / 32] & (1 << (event->trackId & 0x1f))) != 0) {
+            if ((macId = CSEQ_5A78->prgState[midi].macId) != 0xffff) {
+                key += pa->patternInfo->transpose;
+                key = key > 0x7f ? 0x7f : key < 0 ? 0 : key;
+
+                velocity += pa->patternInfo->velocityAdd;
+                velocity = velocity > 0x7f ? 0x7f : velocity < 0 ? 0 : velocity;
+
+                if ((note = (NOTE_803A6364 *)TLobby__sub_803A3934(event->time + pe->length, secIndex)) != NULL) {
+                    if ((note->id = TLobby__sub_803A7880(
+                             macId, CSEQ_5A78->prgState[midi].priority, CSEQ_5A78->prgState[midi].maxVoices,
+                             key, velocity, 64, midi, lbl_805D7368, secIndex, 0, event->trackId,
+                             CSEQ_5A78->trackVolGroup[event->trackId], lbl_805D736C ? -1 : 0,
+                             CSEQ_5A78->defStudio, lbl_80557C1C[CSEQ_5A78->defStudio].b0)) == 0xFFFFFFFF) {
+                        FreeNote_803A5A78(note);
+                    }
+                }
+            }
+        }
+        break;
+
+    case 2:
+        pa = event->info.pattern.base;
+        TLobby__sub_803BB3C8(0x80, pa->midi, lbl_805D7368, HandleStream_803A5A78(&pa->pitchBend));
+        break;
+
+    case 1:
+        pa = event->info.pattern.base;
+        TLobby__sub_803BB3C8(1, pa->midi, lbl_805D7368, HandleStream_803A5A78(&pa->modulation));
+        break;
+
+    case 3:
+        *loopFlag |= 1;
+        return NULL;
+    }
+
+    return (SEQ_EVENT_803A6364 *)TLobby__sub_803A57EC(event->trackId);
+}
+#pragma pop
+#undef CSEQ_5A78
+#undef NOTEFREE_5A78
 
 void TLobby__sub_803A61F8(void) {
     u32 i;
@@ -1430,6 +2332,402 @@ void TLobby__sub_803A6F4C(Obj_803A6F4C *arg0) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs on
+u32 TLobby__sub_803A6FC4(u8 key, u8 midi, u8 midiSet, u32 isMaster, u32 *rejected) {
+    void TLobby__sub_803BBAA8(u8 midi, u8 midiSet, u8 key);
+    u32 alloc_sound_voice_id(SYNTH_VOICE_SV *svoice, u32 isMaster);
+    u32 i;
+    u32 vid;
+    u32 id;
+    SYNTH_VOICE_SV *sv;
+    SYNTH_VOICE_SV *last_sv;
+    u32 legatoVoiceIsStarting;
+
+    legatoVoiceIsStarting = 0;
+    vid = 0xFFFFFFFF;
+
+    i = 0;
+    sv = SV_VOICES;
+    while (i < lbl_80557348.count) {
+        if (sv->block == 0 && sv->id != 0xFFFFFFFF && sv->midi == midi && sv->midiSet == midiSet) {
+            if ((sv->cFlags & 2) != 0) {
+                legatoVoiceIsStarting = 1;
+            }
+            if ((sv->cFlags & 0x10) != 0 && (sv->cFlags & 0x10000000008) != 0x8 && is_sound_hw_voice_active(i)) {
+                if (vid == 0xFFFFFFFF && (sv->cFlags & 0x20002) == 0x20002) {
+                    *rejected = 1;
+                    return 0xFFFFFFFF;
+                }
+                last_sv = sv;
+                sv->portCurPitch = (sv->curNote * 65536) + (sv->curDetune * 65536) / 100;
+                sv->lastNote = sv->curNote;
+                sv->curNote = key + ((sv->curNote & 0xff) - sv->orgNote);
+                sv->orgNote = key;
+                sv->curDetune = 0;
+                sv->portTime = 0;
+                sv->cFlags |= 0x20000;
+                unlink_sound_program((Prog_803B25CC *)&SV_VOICES[i]);
+                if (vid == 0xFFFFFFFF) {
+                    sv->child = 0xFFFFFFFF;
+                    sv->parent = 0xFFFFFFFF;
+                    vid = alloc_sound_voice_id(&SV_VOICES[i], isMaster);
+                    id = sv->id;
+                } else {
+                    SV_VOICES[id & 0xff].child = sv->id;
+                    sv->parent = id;
+                    id = sv->id;
+                    alloc_sound_voice_id(&SV_VOICES[i], 0);
+                }
+            }
+        }
+        ++i;
+        sv++;
+    }
+
+    if (vid != 0xFFFFFFFF) {
+        TLobby__sub_803B3B24((Obj_803B3B24 *)last_sv);
+        TLobby__sub_803BBAA8(last_sv->midi, last_sv->midiSet, last_sv->curNote);
+        *rejected = 0;
+    } else {
+        *rejected = legatoVoiceIsStarting;
+    }
+    return vid;
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+
+static inline u32 check_portamento_SV(u8 key, u8 midi, u8 midiSet, u32 newVID, u32 *vid) {
+    u32 rejected;
+
+    if (TLobby__sub_803BB5E4(65, midi, midiSet) > 8064) {
+        *vid = TLobby__sub_803A6FC4(key & 0x7f, midi, midiSet, newVID, &rejected);
+        return (u32)__cntlzw(rejected) >> 5;
+    }
+    *vid = 0xFFFFFFFF;
+    return 1;
+}
+
+u32 TLobby__sub_803A724C(u16 layerID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                         u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd) {
+    LAYER_SV *TLobby__sub_803AE6DC(u16 layerID, u16 *n);
+    u32 start_sound_voice(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                          u8 midiSet, u8 section, u16 step, u16 trackid, u8 new_vid, u8 vGroup, u8 studio, u32 itd);
+    u32 TLobby__sub_803A7620(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                             u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd);
+    u32 TLobby__sub_803B2920(SYNTH_VOICE_SV *svoice);
+    u16 n;
+    u32 vid;
+    u32 new_id;
+    u32 id;
+    LAYER_SV *l;
+    s32 p;
+    s32 k;
+    u8 v;
+    u8 mKey;
+
+    vid = 0xFFFFFFFF;
+    if ((l = TLobby__sub_803AE6DC(layerID, &n)) == NULL) {
+        goto end;
+    }
+
+    mKey = key & 0x7f;
+    for (; n != 0; --n, l++) {
+        if (l->id == 0xffff || l->keyLow > mKey || l->keyHigh < mKey) {
+            continue;
+        }
+
+        k = mKey + l->transpose;
+        k = CLAMP_SV(k, 0, 127);
+
+        if ((l->id & 0xC000) == 0) {
+            if (check_portamento_SV(k, midi, midiSet, 0, &new_id)) {
+                if (new_id != 0xFFFFFFFF) {
+                    goto apply_new_id;
+                } else {
+                    goto start_new_id;
+                }
+            }
+            continue;
+        }
+
+    start_new_id:
+        if ((l->panning & 0x80) == 0) {
+            p = l->panning - 0x40;
+            p += panning;
+            p = CLAMP_INV_SV(p, 0, 0x7f);
+        } else {
+            p = 0x80;
+        }
+
+        v = (vol * l->volume) / 0x7f;
+        prio += l->prioOffset;
+        prio = CLAMP_SV(prio, 0, 0xff);
+
+        switch (l->id & 0xC000) {
+        case 0:
+            new_id = start_sound_voice(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
+                                       section, step, trackid, 0, vGroup, studio, itd);
+            break;
+        case 0x4000:
+            new_id = TLobby__sub_803A7620(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
+                                          section, step, trackid, 0, vGroup, studio, itd);
+            break;
+        case 0x8000:
+            new_id = TLobby__sub_803A724C(l->id, prio, maxVoices, allocId, k | (key & 0x80), v, p, midi, midiSet,
+                                          section, step, trackid, 0, vGroup, studio, itd);
+            break;
+        }
+
+        if (new_id != 0xFFFFFFFF) {
+        apply_new_id:
+            if (vid == 0xFFFFFFFF) {
+                if (vidFlag != 0) {
+                    vid = TLobby__sub_803B2920(&SV_VOICES[new_id & 0xff]);
+                } else {
+                    vid = new_id;
+                }
+            } else {
+                SV_VOICES[id & 0xff].child = new_id;
+                SV_VOICES[new_id & 0xff].parent = id;
+            }
+            id = new_id;
+            while (SV_VOICES[id & 0xff].child != 0xFFFFFFFF) {
+                SV_VOICES[id & 0xff].block = 1;
+                id = SV_VOICES[id & 0xff].child;
+            }
+            SV_VOICES[id & 0xff].block = 1;
+        }
+    }
+
+end:
+    return vid;
+}
+#pragma pop
+
+void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime);
+s16 TLobby__sub_803BC93C(u16 angle);
+u16 TLobby__sub_803BC090(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC120(SYNTH_VOICE_SV *svoice);
+u16 TLobby__sub_803BC0D8(SYNTH_VOICE_SV *svoice);
+void TLobby__sub_803BD19C(u32 v, u16 speed);
+u32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2);
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+
+static inline u32 apply_portamento_SV(SYNTH_VOICE_SV *svoice, u32 ccents, u32 deltaTime) {
+    u32 old_portCurPitch;
+
+    if ((svoice->cFlags & 0x400) != 0 && (int)((svoice->portDuration - svoice->portTime) >> 8) > 0) {
+        old_portCurPitch = svoice->portCurPitch;
+        svoice->portCurPitch += (int)deltaTime * ((int)(ccents - svoice->portCurPitch) >> 8) /
+                                (int)((svoice->portDuration - svoice->portTime) >> 8);
+
+        if ((old_portCurPitch < ccents && svoice->portCurPitch < ccents) ||
+            (old_portCurPitch > ccents && (svoice->portCurPitch > ccents))) {
+            ccents = svoice->portCurPitch;
+            svoice->portTime += deltaTime;
+        } else {
+            svoice->portTime = svoice->portDuration;
+        }
+    }
+    return ccents;
+}
+
+static inline void synthInitPortamento_SV(SYNTH_VOICE_SV *svoice) {
+    if (svoice->cFlags & 0x20000) {
+        return;
+    }
+
+    if (svoice->portType == 1) {
+        if (!(svoice->cFlags & 0x1000)) {
+            svoice->portTime = 0;
+        } else {
+            svoice->portTime = svoice->portDuration;
+        }
+    } else {
+        svoice->portTime = svoice->portDuration;
+    }
+
+    svoice->portCurPitch = svoice->lastNote << 16;
+}
+
+static inline u32 convert_cents_SV(SYNTH_VOICE_SV *svoice, u32 ccents) {
+    u32 curDetune;
+    u32 cpitch;
+
+    cpitch = calc_sound_base_pitch(ccents / 65536, svoice->sInfo) * 65536;
+    if ((curDetune = ccents & 0xffff) != 0) {
+        cpitch += curDetune * ((calc_sound_pitch_semitone_up(cpitch / 65536) & 0xffff) - (cpitch / 65536));
+    }
+    return cpitch;
+}
+
+static inline void UpdateTimeMIDICtrl_SV(SYNTH_VOICE_SV *sv) {
+    if (!sv->timeUsedByInput) {
+        return;
+    }
+
+    sv->timeUsedByInput = 0;
+    sv->midiDirtyFlags = 0x1fff;
+}
+
+void update_sound_voice_pitch(u32 i) {
+    u32 j;
+    s32 pbend;
+    u32 ccents;
+    u32 cpitch;
+    u16 Modulation;
+    u16 portamento;
+    u32 lowDeltaTime;
+    SYNTH_VOICE_SV *sv;
+    u32 cntDelta;
+    u32 addFactor;
+    u16 adsr_start;
+    u16 adsr_delta;
+    s32 vrange;
+    s32 voff;
+
+    sv = &SV_VOICES[i];
+    if (!is_sound_hw_voice_active(i) && sv->addr == NULL) {
+        goto end;
+    }
+
+    lowDeltaTime = lbl_805D73C0 - sv->lastLowCallTime;
+    sv->lastLowCallTime = lbl_805D73C0;
+    for (j = 0; j < 2; ++j) {
+        if (sv->lfo[j].period == 0) {
+            continue;
+        }
+        sv->lfo[j].time += lowDeltaTime;
+        sv->lfo[j].value =
+            TLobby__sub_803BC93C((sv->lfo[j].time % sv->lfo[j].period * 16) / (sv->lfo[j].period / 256));
+        if (sv->lfo[j].value != sv->lfo[j].lastValue) {
+            sv->lfo[j].lastValue = sv->lfo[j].value;
+            if (sv->lfoUsedByInput[j]) {
+                sv->lfoUsedByInput[j] = 0;
+                sv->midiDirtyFlags |= 0x1fff;
+            }
+        }
+    }
+
+    if ((sv->cFlags & 0x2000) != 0) {
+        sv->vibCurTime += lowDeltaTime;
+        sv->vibCurOffset = TLobby__sub_803BC93C((sv->vibCurTime % sv->vibPeriod * 16) / (sv->vibPeriod / 256));
+    }
+
+    if (sv->sweepNum[0] | sv->sweepNum[1]) {
+        cntDelta = (lowDeltaTime << 8) >> 4;
+        addFactor = (lowDeltaTime << 4) >> 4;
+        for (j = 0; j < 2; ++j) {
+            if (sv->sweepNum[j] == 0) {
+                continue;
+            }
+            sv->sweepCnt[j] -= cntDelta;
+            if (sv->sweepCnt[j] <= 0) {
+                sv->sweepCnt[j] = sv->sweepNum[j] << 16;
+                sv->sweepOff[j] = 0;
+            } else {
+                sv->sweepOff[j] += (sv->sweepAdd[j] >> 12) * addFactor;
+            }
+        }
+    }
+
+    for (j = 0; j < 2; ++j) {
+        if (sv->panning[j] == sv->panTarget[j]) {
+            continue;
+        }
+        sv->panTime[j] -= lowDeltaTime;
+        if ((s32)sv->panTime[j] <= 0) {
+            sv->panning[j] = sv->panTarget[j];
+            sv->panTime[j] = 0;
+        } else {
+            sv->panning[j] = sv->panTarget[j] - (sv->panTime[j] / 256) * sv->panDelta[j];
+            sv->panning[j] = CLAMP_INV_SV((s32)sv->panning[j], 0, 0x7f0000u);
+        }
+
+        sv->cFlags |= 0x200000000000;
+    }
+
+    if ((sv->cFlags & 0x20000000000) != 0 &&
+        TLobby__sub_803B4500(&sv->pitchADSR, &adsr_start, &adsr_delta)) {
+        sv->cFlags &= ~0x20000000000;
+    }
+
+    ccents = sv->curNote * 65536 + (sv->curDetune * 65536) / 100;
+    if ((sv->cFlags & 0x10030) != 0) {
+        if (sv->midi != 0xff) {
+            pbend = TLobby__sub_803BC090(sv);
+            sv->pbLast = pbend;
+            goto pbend_adjust;
+        }
+    } else {
+        pbend = sv->pbLast;
+    pbend_adjust:
+        if (pbend != 0x2000) {
+            pbend -= 0x2000;
+            if (pbend < 0) {
+                ccents += sv->pbLowerKeyRange * pbend * 8;
+            } else {
+                ccents += sv->pbUpperKeyRange * pbend * 8;
+            }
+        }
+    }
+
+    if ((sv->cFlags & 0x2000) != 0) {
+        Modulation = TLobby__sub_803BC120(sv);
+        vrange = sv->vibKeyRange * 256 + (sv->vibCentRange * 256) / 100;
+        if (sv->vibModAddScale != 0) {
+            vrange += (sv->vibModAddScale * ((Modulation >> 7) & 0x1ff)) >> 7;
+        }
+        if ((sv->cFlags & 0x4000) != 0) {
+            voff = (sv->vibCurOffset * ((Modulation >> 7) & 0x1ff)) >> 7;
+        } else {
+            voff = sv->vibCurOffset;
+        }
+        ccents += (vrange * voff) >> 4;
+    }
+
+    if (sv->midi != 0xff) {
+        portamento = TLobby__sub_803BB5E4(65, sv->midi, sv->midiSet);
+        if (portamento != sv->portLastCtrlState || (sv->cFlags & 0x21000) == 0x20000) {
+            if (portamento <= 0x1f80) {
+                sv->cFlags &= ~0x400;
+            } else {
+                if ((sv->cFlags & 0x400) == 0) {
+                    synthInitPortamento_SV(sv);
+                }
+                sv->cFlags |= 0x400;
+            }
+            sv->cFlags |= 0x1000;
+            sv->portLastCtrlState = portamento;
+        }
+    }
+
+    ccents = apply_portamento_SV(sv, ccents, lowDeltaTime);
+    if ((sv->cFlags & 0x20000000000) != 0) {
+        ccents += sv->pitchADSRRange * (sv->pitchADSR.currentVolume >> 16) >> 7;
+    }
+
+    cpitch = convert_cents_SV(sv, ccents);
+    cpitch += sv->sweepOff[0] + sv->sweepOff[1];
+    cpitch = ((cpitch >> 16) * TLobby__sub_803BC0D8(sv)) >> 13;
+    sv->curPitch = cpitch;
+
+    TLobby__sub_803BD19C(i, cpitch);
+    schedule_sound_voice_update(sv, 0, 0xf00);
+
+end:
+    UpdateTimeMIDICtrl_SV(sv);
+}
+#pragma pop
+
 void TLobby__sub_803A897C(s32 arg0) {
     Ch_803A897C *o = (Ch_803A897C *)&lbl_805D73B0[arg0];
 
@@ -1454,20 +2752,88 @@ void TLobby__sub_803A897C(s32 arg0) {
     }
 }
 
+extern u8 lbl_805D7381;
+#pragma push
+#pragma opt_common_subs on
+void schedule_sound_voice_update(SYNTH_VOICE_SV *svoice, s32 jobType, u32 deltaTime) {
+    SynthBss_SV *bss = (SynthBss_SV *)&lbl_80556F88;
+    SYNTH_QUEUE_SV *newJq;
+    SYNTH_QUEUE_SV **root;
+    u8 jobTabIndex;
+    SYNTH_JOBTAB_SV *jobTab;
+
+    jobTabIndex = ((deltaTime / 256) + lbl_805D7381) & 0x1f;
+    jobTab = &bss->synthJobTable[jobTabIndex];
+
+    switch (jobType) {
+    case 0:
+        newJq = &svoice->lowPrecisionJob;
+        if (newJq->jobTabIndex != 0xff) {
+            if (newJq->jobTabIndex == jobTabIndex) {
+                return;
+            }
+            if (newJq->next != NULL) {
+                newJq->next->prev = newJq->prev;
+            }
+            if (newJq->prev != NULL) {
+                newJq->prev->next = newJq->next;
+            } else {
+                bss->synthJobTable[newJq->jobTabIndex].lowPrecision = newJq->next;
+            }
+        }
+        root = &jobTab->lowPrecision;
+        break;
+    case 1:
+        newJq = &svoice->zeroOffsetJob;
+        if (newJq->jobTabIndex != 0xff) {
+            if (newJq->jobTabIndex == jobTabIndex) {
+                return;
+            }
+            if (newJq->next != NULL) {
+                newJq->next->prev = newJq->prev;
+            }
+            if (newJq->prev != NULL) {
+                newJq->prev->next = newJq->next;
+            } else {
+                bss->synthJobTable[newJq->jobTabIndex].zeroOffset = newJq->next;
+            }
+        }
+        root = &jobTab->zeroOffset;
+        break;
+    case 2:
+        newJq = &svoice->eventJob;
+        if (newJq->jobTabIndex != 0xff) {
+            return;
+        }
+        root = &jobTab->event;
+        break;
+    default:
+        break;
+    }
+
+    newJq->jobTabIndex = jobTabIndex;
+    if ((newJq->next = *root) != NULL) {
+        (*root)->prev = newJq;
+    }
+    newJq->prev = NULL;
+    *root = newJq;
+}
+#pragma pop
+
 void reset_sound_voice_schedule(Obj_803A8C5C* voice) {
     voice->p24 = lbl_805D73C0;
     voice->p2C = lbl_805D73C0;
-    schedule_sound_voice_update(voice, 0, 0);
-    schedule_sound_voice_update(voice, 1, 0);
+    schedule_sound_voice_update((SYNTH_VOICE_SV *)voice, 0, 0);
+    schedule_sound_voice_update((SYNTH_VOICE_SV *)voice, 1, 0);
 }
 
 void TLobby__sub_803A8CC0(void *arg0) {
-    schedule_sound_voice_update(arg0, 0, 0);
-    schedule_sound_voice_update(arg0, 1, 0);
+    schedule_sound_voice_update((SYNTH_VOICE_SV *)arg0, 0, 0);
+    schedule_sound_voice_update((SYNTH_VOICE_SV *)arg0, 1, 0);
 }
 
 void TLobby__sub_803A8D04(s32 arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6) {
-    schedule_sound_voice_update((void *) (arg0), (int) (2), (int) (0));
+    schedule_sound_voice_update((SYNTH_VOICE_SV *) (arg0), (int) (2), (int) (0));
 }
 
 void TLobby__sub_803A8D2C(Node_803A8D2C **list, void (*cb)(u8)) {
@@ -1516,6 +2882,66 @@ s32 synth_start_fx(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
     return ret;
 }
 
+#pragma push
+#pragma opt_common_subs on
+s32 TLobby__sub_803A9200(u32 vid, u8 ctrl, u8 value) {
+    void TLobby__sub_803BADF8(u8 ctrl, u8 channel, u8 set, u8 value);
+    u32 i;
+    u32 ret;
+
+    ret = 0;
+    vid = find_sound_voice_by_id(vid);
+
+    while (vid != 0xFFFFFFFF) {
+        i = vid & 0xff;
+        if (vid == SV_VOICES[i].id) {
+            if ((SV_VOICES[i].cFlags & 0x2) != 0) {
+                TLobby__sub_803BADF8(ctrl, i, SV_VOICES[i].setup.midiSet, value);
+            } else {
+                TLobby__sub_803BADF8(ctrl, i, SV_VOICES[i].midiSet, value);
+            }
+
+            vid = SV_VOICES[i].child;
+            ret = 1;
+        } else {
+            return ret;
+        }
+    }
+
+    return ret;
+}
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+s32 TLobby__sub_803A92E8(u32 vid, u8 ctrl, u16 value) {
+    void TLobby__sub_803BB3C8(u8 ctrl, u8 channel, u8 set, u16 value);
+    u32 i;
+    u32 ret;
+
+    ret = 0;
+    vid = find_sound_voice_by_id(vid);
+
+    while (vid != 0xFFFFFFFF) {
+        i = vid & 0xff;
+        if (vid == SV_VOICES[i].id) {
+            if ((SV_VOICES[i].cFlags & 0x2) != 0) {
+                TLobby__sub_803BB3C8(ctrl, i, SV_VOICES[i].setup.midiSet, value);
+            } else {
+                TLobby__sub_803BB3C8(ctrl, i, SV_VOICES[i].midiSet, value);
+            }
+
+            vid = SV_VOICES[i].child;
+            ret = 1;
+        } else {
+            return ret;
+        }
+    }
+
+    return ret;
+}
+#pragma pop
+
 void TLobby__sub_803A93D0(u8 *arg0, u8 *arg1) {
     TLobby__sub_803BB98C(7U, arg0, arg1);
     TLobby__sub_803BB98C(0xAU, arg0, arg1);
@@ -1560,6 +2986,7 @@ void TLobby__sub_803A9944(u8 i, u8 v) {
 }
 
 s32 TLobby__sub_803A996C(s32 op, u32 idx) {
+    void TLobby__sub_803B36A8(u8);
     s32 ret = 0;
     switch (op) {
     case 0:
@@ -1609,6 +3036,7 @@ void TLobby__sub_803AA058(s8 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 typedef char RecoveredGlobal_803AA0C0_lbl_80556E88_size[sizeof(RecoveredGlobal_803AA0C0_lbl_80556E88) == 0x100 ? 1 : -1];
 u16 lookup_sound_bank_index(u8 arg0, u8 arg1) {
+    extern RecoveredGlobal_803AA0C0_lbl_80556E88 lbl_80556E88;
     return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
 }
 
@@ -1731,6 +3159,22 @@ void register_sound_aux_callbacks(u8 studio, void *auxA, s32 userA, u8 midiA, u3
     sound_enable_irq();
 }
 
+void TLobby__sub_803BD5EC(u8 i, s32 a, s32 b);
+#pragma push
+#pragma opt_common_subs on
+void TLobby__sub_803AA5BC(u8 studio, u32 isMaster, u32 type) {
+    sound_disable_irq();
+    lbl_80557BBC[studio] = 0;
+    lbl_80557BFC[studio] = 0;
+    lbl_805D739C[studio] = 0xFF;
+    lbl_805D738C[studio] = 0xFF;
+    lbl_80557C1C[studio].b1 = 0;
+    lbl_80557C1C[studio].b0 = 0;
+    TLobby__sub_803BD5EC(studio, isMaster, type);
+    sound_enable_irq();
+}
+#pragma pop
+
 void TLobby__sub_803AA66C(u8 studio) {
     u32 i;
     for (i = 0; i < (*(Cfg_803AA66C *)&lbl_80557348).voiceNum; ++i) {
@@ -1752,12 +3196,14 @@ void TLobby__sub_803AA66C(u8 studio) {
     TLobby__sub_803BD60C(studio);
 }
 
-void TLobby__sub_803AA75C(u8 arg0) {
-    TLobby__sub_803BD62C(arg0);
+void TLobby__sub_803AA75C(u8 arg0, void *in_desc) {
+    void TLobby__sub_803BD62C(u8, void *);
+    TLobby__sub_803BD62C(arg0, in_desc);
 }
 
-void TLobby__sub_803AA77C(u8 arg0) {
-    TLobby__sub_803BD660(arg0);
+void TLobby__sub_803AA77C(u8 arg0, void *in_desc) {
+    void TLobby__sub_803BD660(u8, void *);
+    TLobby__sub_803BD660(arg0, in_desc);
 }
 
 void TLobby__sub_803AA864(void) {
@@ -1769,6 +3215,7 @@ void TLobby__sub_803AB0E0(void) {
 }
 
 void TLobby__sub_803AB0E4(s32 arg0) {
+    extern Rec_803AB0E4 lbl_80558570[];
     Rec_803AB0E4 *r = &lbl_80558570[arg0];
 
     switch (r->state) {
@@ -1784,6 +3231,7 @@ void TLobby__sub_803AB0E4(s32 arg0) {
 }
 
 s32 TLobby__sub_803AB168(u32 arg0) {
+    extern Rec_803AB0E4 lbl_80558570[];
     Rec_803AB0E4 *r = lbl_80558570;
     s32 i;
 
@@ -1806,6 +3254,94 @@ void TLobby__sub_803AB574(s8 *arg0, s8 *arg1) {
     }
 }
 
+typedef u32 (*StreamCb_803AB5A8)(void *buffer1, u32 len1, void *buffer2, u32 len2, u32 user);
+
+typedef struct ADPCMInfo_803AB5A8 {
+    u16 numCoef;
+    u8 initialPS;
+    u8 loopPS;
+    s16 loopY0;
+    s16 loopY1;
+    s16 coefTab[8][2];
+} ADPCMInfo_803AB5A8;
+
+typedef struct Stream_803AB5A8 {
+    u32 stid;
+    u32 flags;
+    u8 state;
+    u8 type;
+    StreamCb_803AB5A8 updateFunction;
+    s16 *buffer;
+    u32 size;
+    u32 bytes;
+    u32 last;
+    ADPCMInfo_803AB5A8 adpcmInfo;
+    u32 voice;
+    u32 user;
+    u32 frq;
+    u8 prio;
+    u8 vol;
+    u8 pan;
+    u8 span;
+    u8 auxa;
+    u8 auxb;
+    u8 orgPan;
+    u8 orgSPan;
+    u8 studio;
+    u8 hwStreamHandle;
+    u32 nextStreamHandle;
+} Stream_803AB5A8;
+
+typedef struct SynthInfo_803AB5A8 {
+    u32 mixFrq;
+    u32 numSamples;
+    u8 pbInfo[0x208];
+    u8 voiceNum;
+    u8 maxMusic;
+    u8 maxSFX;
+    u8 studioNum;
+} SynthInfo_803AB5A8;
+
+void set_sound_voice_mix(s32 idx, u32 p, u32 x, s32 a3, f32 a, f32 b, f32 c);
+void sound_enable_irq(void);
+void sound_disable_irq(void);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+static inline void CheckOutputMode_803AB5A8(u8 *pan, u8 *span) {
+    if (lbl_805D73AC & 1) {
+        *pan = 64;
+        *span = 0;
+    } else if (!(lbl_805D73AC & 2)) {
+        *span = 0;
+    }
+}
+
+static inline void SetHWMix_803AB5A8(const Stream_803AB5A8 *si) {
+    set_sound_voice_mix(si->voice, 0, (si->pan << 16), (si->span << 16), si->vol * (1 / 127.f), si->auxa * (1 / 127.f), si->auxb * (1 / 127.f));
+}
+
+void TLobby__sub_803AB5A8(void) {
+    extern Stream_803AB5A8 lbl_80558570[64];
+    u32 i;
+
+    sound_disable_irq();
+    for (i = 0; i < lbl_80557348.count; ++i) {
+        if (lbl_80558570[i].state != 0) {
+            lbl_80558570[i].pan = lbl_80558570[i].orgPan;
+            lbl_80558570[i].span = lbl_80558570[i].orgSPan;
+            CheckOutputMode_803AB5A8(&lbl_80558570[i].pan, &lbl_80558570[i].span);
+            if (lbl_80558570[i].state != 3) {
+                SetHWMix_803AB5A8(&lbl_80558570[i]);
+            }
+        }
+    }
+    sound_enable_irq();
+}
+#pragma pop
+
 u32 TLobby__sub_803ABB10(u32 arg0, u32 arg1) {
     if (arg1 & 1) {
         return (((arg0 + 13) / 7 * 4 & ~7) + 31) & ~31;
@@ -1814,6 +3350,7 @@ u32 TLobby__sub_803ABB10(u32 arg0, u32 arg1) {
 }
 
 s32 TLobby__sub_803ACD40(u16 arg0) {
+    extern u8 lbl_80559E70[];
     Tbl_803ACD40 *t = (Tbl_803ACD40 *)lbl_80559E70;
     Ent_803ACD40 *e;
     s32 i;
@@ -1845,6 +3382,7 @@ s32 TLobby__sub_803ACD40(u16 arg0) {
 #pragma optimize_for_size off
 #define TBL ((Ent_803ACEC4 *)((u8 *)t + 0x4E00))
 s32 TLobby__sub_803ACEC4(u16 key, void *p, u16 f6) {
+    extern u8 lbl_80559E70[];
     Tbl_803ACEC4 *t = (Tbl_803ACEC4 *)lbl_80559E70;
     s32 n;
     s32 i;
@@ -1894,6 +3432,7 @@ s32 TLobby__sub_803ACEC4(u16 key, void *p, u16 f6) {
 #pragma push
 #pragma optimize_for_size off
 s32 TLobby__sub_803AD10C(u16 key) {
+    extern u8 lbl_80559E70[];
     Tbl_803AD10C *t = (Tbl_803AD10C *)lbl_80559E70;
     s32 n;
     s32 i;
@@ -1923,6 +3462,7 @@ s32 TLobby__sub_803AD10C(u16 key) {
 #pragma pop
 
 s32 TLobby__sub_803AD4D0(u16 arg0) {
+    extern u8 lbl_80559E70[];
     Tbl_803AD4D0 *t = (Tbl_803AD4D0 *)lbl_80559E70;
     Ent_803AD4D0 *e;
     s32 i;
@@ -1950,7 +3490,44 @@ s32 TLobby__sub_803AD4D0(u16 arg0) {
     return 0;
 }
 
+struct Hdr_803ADA80 { u32 info; u32 length; u32 loopOffset; u32 loopLength; };
+struct SDir_803ADA80 { u16 id; u16 ref_cnt; u32 offset; void *addr; Hdr_803ADA80 header; u32 extraData; };
+struct Tbl_803ADA80 { SDir_803ADA80 *data; void *base; u16 numSmp; u16 res; };
+
+void TLobby__sub_803BD8A8(Hdr_803ADA80 **arg0, void **arg1);
+
+s32 TLobby__sub_803ADA80(u16 sid) {
+    extern Tbl_803ADA80 lbl_80559E70[];
+    u32 i;
+    Hdr_803ADA80 *header;
+    SDir_803ADA80 *data;
+    SDir_803ADA80 *sdir;
+
+    data = 0;
+    sdir = 0;
+    for (i = 0; i < lbl_805D73D0; ++i) {
+        u16 v;
+        for (data = lbl_80559E70[i].data; (v = data->id) != 0xFFFF; ++data) {
+            if (v == sid && data->ref_cnt != 0xFFFF) {
+                sdir = data;
+                goto done;
+            }
+        }
+    }
+done:
+
+    if (sdir->ref_cnt == 0) {
+        sdir->addr = (void *)((u32)sdir->offset + (u32)lbl_80559E70[i].base);
+        header = &sdir->header;
+        TLobby__sub_803BD8A8(&header, &sdir->addr);
+    }
+
+    ++sdir->ref_cnt;
+    return 1;
+}
+
 s32 TLobby__sub_803ADB58(u16 id) {
+    extern u8 lbl_80559E70[];
     u32 i;
 
     for (i = 0; i < lbl_805D73D0; i++) {
@@ -1970,6 +3547,7 @@ s32 TLobby__sub_803ADB58(u16 id) {
 }
 
 s32 TLobby__sub_803ADBF0(u16 arg0, Rec_803ADBF0 *arg1, u16 arg2) {
+    extern u8 lbl_80559E70[];
     Tbl_803ADBF0 *t = (Tbl_803ADBF0 *)lbl_80559E70;
     Ent_803ADBF0 *e;
     s32 i;
@@ -2031,6 +3609,7 @@ s32 compare_sound_sample_id(u16 *arg0, u16 *arg1) {
 }
 
 s32 find_sound_sample(s16 id, Sample_803AE4D4 *s) {
+    extern u8 lbl_80559E70[];
     u8 *base;
     s32 i;
 
@@ -2081,6 +3660,7 @@ s32 TLobby__sub_803AE6CC(u8 *arg0, u8 *arg1) {
 }
 
 s32 TLobby__sub_803AE6DC(s16 arg0, u16 *arg1) {
+    extern u8 lbl_80559E70[];
     ((Req_803AE6DC *)(lbl_80559E70 + 0xA620))->f4 = arg0;
     if ((lbl_805D7410 = (Res_803AE6DC *)search_sound_sample_directory((Req_803AE60C *)((Req_803AE6DC *)(lbl_80559E70 + 0xA620)), (void *)(lbl_80559E70 + 0x4E00), (u16)(lbl_805D73D6), (s32)(0xC), (s32 (*)(u8 *, u8 *))(TLobby__sub_803AE6CC))) != 0) {
         *arg1 = lbl_805D7410->h6;
@@ -2094,6 +3674,7 @@ s32 TLobby__sub_803AE75C(u16 *arg0, u16 *arg1) {
 }
 
 Se_803A9144 *find_sound_fx_record(s16 arg0) {
+    extern u8 lbl_80559E70[];
     s32 i;
     Blk_803AE76C *b;
     s32 *r;
@@ -2126,6 +3707,98 @@ void TLobby__sub_803AE814(void *arg0, void *arg1) {
     }
     TLobby__sub_803BD884(arg0, arg1);
 }
+
+struct Obj_803AE8F8 {
+    u8 pad0[0x90];
+    u64 f90;
+    u64 deadline;
+    u64 fa0;
+    u8 padA8[0xF4 - 0xA8];
+    u32 iF4;
+    u8 padF8[0x114 - 0xF8];
+    u32 fh;
+    u32 fl;
+};
+struct Op_803AE8F8 { u32 w0; u32 w4; };
+
+u16 TLobby__sub_803BC91C(void);
+void shift_left_8__6TLobbyFPv(void *);
+void TLobby__sub_803BCA50(void *, void *);
+u32 is_sound_hw_voice_active(s32 i);
+void enqueue_sound_program_deadline(Program_803B1DA4 *self);
+void set_sound_program_wait_state(Obj_803B312C *, s32);
+extern u64 lbl_805D7428;
+
+#define FLAGS (*(u64 *)&o->fh)
+#pragma push
+#pragma bool off
+s32 handle_sound_macro_wait(Obj_803AE8F8 *o, Op_803AE8F8 *op) {
+    u32 v;
+    u32 ms;
+
+    if ((v = op->w4 >> 16) == 0) {
+        goto end;
+    }
+    if ((op->w0 >> 8) & 1) {
+        if ((FLAGS & 8ULL) != 0) {
+            if ((FLAGS & 0x10000000000ULL) == 0) {
+                return 0;
+            }
+            FLAGS |= 0x40000000000ULL;
+        }
+        FLAGS |= 4ULL;
+    } else {
+        FLAGS &= ~4ULL;
+    }
+    if ((op->w0 >> 24) & 1) {
+        if ((FLAGS & 0x20ULL) == 0 && is_sound_hw_voice_active((u8)o->iF4) == 0) {
+            return 0;
+        }
+        FLAGS |= 0x40000ULL;
+    } else {
+        FLAGS &= ~0x40000ULL;
+    }
+    if ((op->w0 >> 16) & 1) {
+        v = TLobby__sub_803BC91C() % v;
+    }
+    if (v != 0xFFFF) {
+        if ((ms = ((u8)(op->w4 >> 8) & 1) != 0)) {
+            shift_left_8__6TLobbyFPv(&v);
+        } else {
+            TLobby__sub_803BCA50(&v, o);
+        }
+        if (ms != 0) {
+            if (op->w4 & 1) {
+                o->deadline = o->f90 + v;
+            } else {
+                o->deadline = lbl_805D7428 + v;
+            }
+        } else {
+            if (op->w4 & 1) {
+                o->deadline = v;
+            } else {
+                o->deadline = o->fa0 + v;
+            }
+        }
+        if (o->deadline <= lbl_805D7428) {
+            o->fa0 = o->deadline;
+            o->deadline = 0;
+        }
+    } else {
+        o->deadline = -1;
+    }
+    if (o->deadline != 0) {
+        if (o->deadline != (u64)-1) {
+            enqueue_sound_program_deadline((Program_803B1DA4 *)o);
+        }
+        set_sound_program_wait_state((Obj_803B312C *)o, 1);
+        return 1;
+    }
+end:
+    return 0;
+}
+#pragma pop
+#undef FLAGS
 
 #define FLAGS (*(u64 *)&o->fh)
 void TLobby__sub_803AEC00(Obj_803AEC00 *o, Op_803AEC00 *op) {
@@ -2160,6 +3833,169 @@ body:
 }
 
 #define FLAGS (*(u64 *)&o->fh)
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803AED58 { u32 para[2]; } MSTEP_803AED58;
+typedef struct VIDL_803AED58 { struct VIDL_803AED58 *next; struct VIDL_803AED58 *prev; u32 vid; u32 root; } VIDL_803AED58;
+typedef struct LFO_803AED58 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AED58;
+typedef struct CSRC_803AED58 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AED58;
+typedef struct CDEST_803AED58 { CSRC_803AED58 source[4]; u16 oldValue; u8 numSource; } CDEST_803AED58;
+typedef struct Voice_803AED58 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AED58 *addr;
+  MSTEP_803AED58 *curAddr;
+  struct Voice_803AED58 *nextMacActive;
+  struct Voice_803AED58 *prevMacActive;
+  struct Voice_803AED58 *nextTimeQueueMacro;
+  struct Voice_803AED58 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AED58 *trapEventAddr[3];
+  MSTEP_803AED58 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AED58 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AED58 *vidList;
+  VIDL_803AED58 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AED58 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AED58 inpVolume;
+  CDEST_803AED58 inpPanning;
+  CDEST_803AED58 inpSurroundPanning;
+  CDEST_803AED58 inpPitchBend;
+  CDEST_803AED58 inpDoppler;
+  CDEST_803AED58 inpModulation;
+  CDEST_803AED58 inpPedal;
+  CDEST_803AED58 inpPortamento;
+  CDEST_803AED58 inpPreAuxA;
+  CDEST_803AED58 inpReverb;
+  CDEST_803AED58 inpPreAuxB;
+  CDEST_803AED58 inpPostAuxB;
+  CDEST_803AED58 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AED58;
+#pragma pack(pop)
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+void TLobby__sub_803AED58(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
+    u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
+    s32 key;
+    u32 new_child;
+
+    key = ((u32)svoice->orgNote + (s8)(u8)(cstep->para[0] >> 8));
+    key = (key < 0) ? 0 : key > 0x7f ? 0x7f : key;
+
+    if (svoice->fxFlag != 0) {
+        key |= 0x80;
+    }
+
+    svoice->block = 1;
+    new_child = start_sound_voice((u16)(cstep->para[0] >> 0x10), (u8)(cstep->para[1] >> 0x10),
+                                  (u8)(cstep->para[1] >> 0x18), svoice->allocId, key,
+                                  (u8)(svoice->volume >> 0x10), (u8)(svoice->panning[0] >> 0x10), svoice->midi,
+                                  svoice->midiSet, svoice->section, (u16)cstep->para[1], (u16)svoice->track, 0,
+                                  svoice->vGroup, svoice->studio, svoice->itdMode == 0);
+    svoice->block = 0;
+    if (new_child != 0xFFFFFFFF) {
+        svoice->lastVID = (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].vidList->vid;
+        (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].parent = svoice->id;
+        if (svoice->child != -1) {
+            (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].child = svoice->child;
+            (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)svoice->child].parent = new_child;
+        }
+        svoice->child = new_child;
+        if (svoice->fxFlag != 0) {
+            TLobby__sub_803A93D0((u8 *)&(*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child], (u8 *)svoice);
+        }
+    } else {
+        svoice->lastVID = 0xFFFFFFFF;
+    }
+}
+#pragma pop
+
 void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
     u32 v;
     s8 hi;
@@ -2211,6 +4047,718 @@ void TLobby__sub_803AF0CC(Obj_803AF0CC *o, Op_803AF0CC *op) {
 
 #undef FLAGS
 #define FLAGS (*(u64 *)&o->fh)
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803AF3DC { u32 para[2]; } MSTEP_803AF3DC;
+typedef struct VIDL_803AF3DC { struct VIDL_803AF3DC *next; struct VIDL_803AF3DC *prev; u32 vid; u32 root; } VIDL_803AF3DC;
+typedef struct LFO_803AF3DC { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AF3DC;
+typedef struct CSRC_803AF3DC { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AF3DC;
+typedef struct CDEST_803AF3DC { CSRC_803AF3DC source[4]; u16 oldValue; u8 numSource; } CDEST_803AF3DC;
+typedef struct Voice_803AF3DC {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AF3DC *addr;
+  MSTEP_803AF3DC *curAddr;
+  struct Voice_803AF3DC *nextMacActive;
+  struct Voice_803AF3DC *prevMacActive;
+  struct Voice_803AF3DC *nextTimeQueueMacro;
+  struct Voice_803AF3DC *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AF3DC *trapEventAddr[3];
+  MSTEP_803AF3DC *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AF3DC *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AF3DC *vidList;
+  VIDL_803AF3DC *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AF3DC lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AF3DC inpVolume;
+  CDEST_803AF3DC inpPanning;
+  CDEST_803AF3DC inpSurroundPanning;
+  CDEST_803AF3DC inpPitchBend;
+  CDEST_803AF3DC inpDoppler;
+  CDEST_803AF3DC inpModulation;
+  CDEST_803AF3DC inpPedal;
+  CDEST_803AF3DC inpPortamento;
+  CDEST_803AF3DC inpPreAuxA;
+  CDEST_803AF3DC inpReverb;
+  CDEST_803AF3DC inpPreAuxB;
+  CDEST_803AF3DC inpPostAuxB;
+  CDEST_803AF3DC inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AF3DC;
+#pragma pack(pop)
+
+typedef struct ADSR_803AF3DC {
+    union {
+        struct { s32 atime; s32 dtime; u16 slevel; u16 rtime; s32 ascale; s32 dscale; } dls;
+        struct { u16 atime; u16 dtime; u16 slevel; u16 rtime; } linear;
+    } data;
+} ADSR_803AF3DC;
+s32 TLobby__sub_803AE60C(s16 arg0);
+void set_sound_hw_voice_envelope(u8, void *, s32);
+extern f32 lbl_804F6CDC[];
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+void configure_sound_macro_envelope(Voice_803AF3DC *svoice, MSTEP_803AF3DC *cstep) {
+    ADSR_803AF3DC adsr;
+    ADSR_803AF3DC *adsr_ptr;
+    s32 ascale;
+    s32 dscale;
+    f32 sScale;
+
+    if ((adsr_ptr = (ADSR_803AF3DC *)TLobby__sub_803AE60C((u16)(cstep->para[0] >> 8))) != 0) {
+        if (!(u8)(cstep->para[0] >> 24)) {
+            adsr.data.linear.atime = adsr_ptr->data.linear.atime >> 8 | adsr_ptr->data.linear.atime << 8;
+            adsr.data.linear.dtime = adsr_ptr->data.linear.dtime >> 8 | adsr_ptr->data.linear.dtime << 8;
+            adsr.data.linear.slevel = adsr_ptr->data.linear.slevel >> 8 | adsr_ptr->data.linear.slevel << 8;
+            adsr.data.linear.rtime = adsr_ptr->data.linear.rtime >> 8 | adsr_ptr->data.linear.rtime << 8;
+            set_sound_hw_voice_envelope(svoice->id & 0xFF, &adsr, 0);
+        } else {
+            sScale = lbl_804F6CDC[(u16)(adsr_ptr->data.dls.slevel >> 8 | adsr_ptr->data.dls.slevel << 8) >> 5];
+            adsr.data.dls.atime =
+                ((u8 *)&adsr_ptr->data.dls.atime)[0] << 0 | ((u8 *)&adsr_ptr->data.dls.atime)[1] << 8 |
+                ((u8 *)&adsr_ptr->data.dls.atime)[2] << 16 | ((u8 *)&adsr_ptr->data.dls.atime)[3] << 24;
+            adsr.data.dls.dtime =
+                ((u8 *)&adsr_ptr->data.dls.dtime)[0] << 0 | ((u8 *)&adsr_ptr->data.dls.dtime)[1] << 8 |
+                ((u8 *)&adsr_ptr->data.dls.dtime)[2] << 16 | ((u8 *)&adsr_ptr->data.dls.dtime)[3] << 24;
+            adsr.data.dls.slevel = 4096.f * sScale;
+            adsr.data.dls.rtime = adsr_ptr->data.dls.rtime >> 8 | adsr_ptr->data.dls.rtime << 8;
+            ascale =
+                ((u8 *)&adsr_ptr->data.dls.ascale)[0] << 0 | ((u8 *)&adsr_ptr->data.dls.ascale)[1] << 8 |
+                ((u8 *)&adsr_ptr->data.dls.ascale)[2] << 16 | ((u8 *)&adsr_ptr->data.dls.ascale)[3] << 24;
+
+            dscale =
+                ((u8 *)&adsr_ptr->data.dls.dscale)[0] << 0 | ((u8 *)&adsr_ptr->data.dls.dscale)[1] << 8 |
+                ((u8 *)&adsr_ptr->data.dls.dscale)[2] << 16 | ((u8 *)&adsr_ptr->data.dls.dscale)[3] << 24;
+
+            if (ascale != 0x80000000) {
+                adsr.data.dls.atime += (s32)(1.1920929e-07f * svoice->orgVolume * ascale);
+            }
+
+            if (dscale != 0x80000000) {
+                adsr.data.dls.dtime += (s32)(0.0078125f * svoice->orgNote * dscale);
+            }
+
+            set_sound_hw_voice_envelope(svoice->id & 0xFF, &adsr, 1);
+        }
+
+        svoice->cFlags |= 0x100;
+    }
+}
+#pragma pop
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803AF954 { u32 para[2]; } MSTEP_803AF954;
+typedef struct VIDL_803AF954 { struct VIDL_803AF954 *next; struct VIDL_803AF954 *prev; u32 vid; u32 root; } VIDL_803AF954;
+typedef struct LFO_803AF954 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AF954;
+typedef struct CSRC_803AF954 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AF954;
+typedef struct CDEST_803AF954 { CSRC_803AF954 source[4]; u16 oldValue; u8 numSource; } CDEST_803AF954;
+typedef struct Voice_803AF954 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AF954 *addr;
+  MSTEP_803AF954 *curAddr;
+  struct Voice_803AF954 *nextMacActive;
+  struct Voice_803AF954 *prevMacActive;
+  struct Voice_803AF954 *nextTimeQueueMacro;
+  struct Voice_803AF954 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AF954 *trapEventAddr[3];
+  MSTEP_803AF954 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AF954 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AF954 *vidList;
+  VIDL_803AF954 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AF954 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AF954 inpVolume;
+  CDEST_803AF954 inpPanning;
+  CDEST_803AF954 inpSurroundPanning;
+  CDEST_803AF954 inpPitchBend;
+  CDEST_803AF954 inpDoppler;
+  CDEST_803AF954 inpModulation;
+  CDEST_803AF954 inpPedal;
+  CDEST_803AF954 inpPortamento;
+  CDEST_803AF954 inpPreAuxA;
+  CDEST_803AF954 inpReverb;
+  CDEST_803AF954 inpPreAuxB;
+  CDEST_803AF954 inpPostAuxB;
+  CDEST_803AF954 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AF954;
+#pragma pack(pop)
+
+s32 TLobby__sub_803AE60C(s16 arg0);
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+u32 TLobby__sub_803AF954(u32 volume, u16 curve) {
+    u8 *ptr;
+    u32 vlow;
+    u32 vhigh;
+    s32 d;
+
+    if (curve != 0xFFFF) {
+        if ((ptr = (u8 *)TLobby__sub_803AE60C(curve))) {
+            vhigh = (volume >> 16) & 0xFFFF;
+            vlow = volume & 0xFFFF;
+
+            if (vhigh < 0x7f) {
+                d = vlow * (ptr[vhigh + 1] - ptr[vhigh]);
+                volume = d + (ptr[vhigh] << 16);
+            } else {
+                volume = ptr[vhigh] << 16;
+            }
+        }
+    }
+
+    return volume;
+}
+#pragma pop
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803AF9D4 { u32 para[2]; } MSTEP_803AF9D4;
+typedef struct VIDL_803AF9D4 { struct VIDL_803AF9D4 *next; struct VIDL_803AF9D4 *prev; u32 vid; u32 root; } VIDL_803AF9D4;
+typedef struct LFO_803AF9D4 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AF9D4;
+typedef struct CSRC_803AF9D4 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AF9D4;
+typedef struct CDEST_803AF9D4 { CSRC_803AF9D4 source[4]; u16 oldValue; u8 numSource; } CDEST_803AF9D4;
+typedef struct Voice_803AF9D4 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AF9D4 *addr;
+  MSTEP_803AF9D4 *curAddr;
+  struct Voice_803AF9D4 *nextMacActive;
+  struct Voice_803AF9D4 *prevMacActive;
+  struct Voice_803AF9D4 *nextTimeQueueMacro;
+  struct Voice_803AF9D4 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AF9D4 *trapEventAddr[3];
+  MSTEP_803AF9D4 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AF9D4 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AF9D4 *vidList;
+  VIDL_803AF9D4 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AF9D4 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AF9D4 inpVolume;
+  CDEST_803AF9D4 inpPanning;
+  CDEST_803AF9D4 inpSurroundPanning;
+  CDEST_803AF9D4 inpPitchBend;
+  CDEST_803AF9D4 inpDoppler;
+  CDEST_803AF9D4 inpModulation;
+  CDEST_803AF9D4 inpPedal;
+  CDEST_803AF9D4 inpPortamento;
+  CDEST_803AF9D4 inpPreAuxA;
+  CDEST_803AF9D4 inpReverb;
+  CDEST_803AF9D4 inpPreAuxB;
+  CDEST_803AF9D4 inpPostAuxB;
+  CDEST_803AF9D4 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AF9D4;
+#pragma pack(pop)
+
+s32 TLobby__sub_803AE60C(s16 arg0);
+void shift_left_8__6TLobbyFPv(void *);
+void TLobby__sub_803BCA50(void *, void *);
+u32 shift_right_8__6TLobbyFUi(u32 arg0);
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline u32 TranslateVolume_803AF9D4(u32 volume, u16 curve) {
+    u8 *ptr;
+    u32 vlow;
+    u32 vhigh;
+    s32 d;
+
+    if (curve != 0xFFFF) {
+        if ((ptr = (u8 *)TLobby__sub_803AE60C(curve))) {
+            vhigh = (volume >> 16) & 0xFFFF;
+            vlow = volume & 0xFFFF;
+
+            if (vhigh < 0x7f) {
+                d = vlow * (ptr[vhigh + 1] - ptr[vhigh]);
+                volume = d + (ptr[vhigh] << 16);
+            } else {
+                volume = ptr[vhigh] << 16;
+            }
+        }
+    }
+
+    return volume;
+}
+
+void TLobby__sub_803AF9D4(Voice_803AF9D4 *svoice, MSTEP_803AF9D4 *cstep, s32 start_vol) {
+    u32 tvol;
+    u32 time;
+    s32 mstime;
+    u16 curve;
+
+    time = (u16)(cstep->para[1] >> 16);
+
+    if ((u8)(cstep->para[1] >> 8) & 1) {
+        shift_left_8__6TLobbyFPv(&time);
+    } else {
+        TLobby__sub_803BCA50(&time, svoice);
+    }
+
+    mstime = shift_right_8__6TLobbyFUi(time);
+    if (mstime == 0) {
+        mstime = 1;
+    }
+
+    tvol = (svoice->volume * (u8)(cstep->para[0] >> 8) >> 7);
+    tvol += (u8)(cstep->para[0] >> 16) << 16;
+
+    if (tvol > 0x7f0000) {
+        tvol = 0x7f0000;
+    }
+
+    curve = (u16)(u8)(cstep->para[0] >> 0x18);
+    curve |= (((u16)(u8)cstep->para[1]) << 8);
+    tvol = TranslateVolume_803AF9D4(tvol, curve);
+    svoice->envTarget = tvol;
+    svoice->envCurrent = start_vol;
+    svoice->envDelta = (s32)(tvol - start_vol) / mstime;
+    svoice->volume = start_vol;
+    svoice->cFlags |= 0x8000;
+}
+#pragma pop
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803AFB00 { u32 para[2]; } MSTEP_803AFB00;
+typedef struct VIDL_803AFB00 { struct VIDL_803AFB00 *next; struct VIDL_803AFB00 *prev; u32 vid; u32 root; } VIDL_803AFB00;
+typedef struct LFO_803AFB00 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803AFB00;
+typedef struct CSRC_803AFB00 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803AFB00;
+typedef struct CDEST_803AFB00 { CSRC_803AFB00 source[4]; u16 oldValue; u8 numSource; } CDEST_803AFB00;
+typedef struct Voice_803AFB00 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803AFB00 *addr;
+  MSTEP_803AFB00 *curAddr;
+  struct Voice_803AFB00 *nextMacActive;
+  struct Voice_803AFB00 *prevMacActive;
+  struct Voice_803AFB00 *nextTimeQueueMacro;
+  struct Voice_803AFB00 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803AFB00 *trapEventAddr[3];
+  MSTEP_803AFB00 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803AFB00 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803AFB00 *vidList;
+  VIDL_803AFB00 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803AFB00 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803AFB00 inpVolume;
+  CDEST_803AFB00 inpPanning;
+  CDEST_803AFB00 inpSurroundPanning;
+  CDEST_803AFB00 inpPitchBend;
+  CDEST_803AFB00 inpDoppler;
+  CDEST_803AFB00 inpModulation;
+  CDEST_803AFB00 inpPedal;
+  CDEST_803AFB00 inpPortamento;
+  CDEST_803AFB00 inpPreAuxA;
+  CDEST_803AFB00 inpReverb;
+  CDEST_803AFB00 inpPreAuxB;
+  CDEST_803AFB00 inpPostAuxB;
+  CDEST_803AFB00 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803AFB00;
+#pragma pack(pop)
+
+struct Obj_803B3AA8;
+u16 TLobby__sub_803BC91C(void);
+s32 TLobby__sub_803B3AA8(Obj_803B3AA8 *arg0);
+void TLobby__sub_803BBAA8(u8 arg0, u8 arg1, u8 arg2);
+struct Obj_803AE8F8;
+struct Op_803AE8F8;
+s32 handle_sound_macro_wait(Obj_803AE8F8 *o, Op_803AE8F8 *op);
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline u32 mcmdSetKey_803AFB00(Voice_803AFB00 *svoice, MSTEP_803AFB00 *cstep) {
+    svoice->curNote = (u8)(cstep->para[0] >> 8) & 0x7f;
+    svoice->curDetune = (s8)(cstep->para[0] >> 0x10);
+    if ((u32)TLobby__sub_803B3AA8((Obj_803B3AA8 *)svoice) != 0) {
+        TLobby__sub_803BBAA8(svoice->midi, svoice->midiSet, svoice->curNote & 0xff);
+    }
+    cstep->para[0] = 4;
+    return handle_sound_macro_wait((Obj_803AE8F8 *)svoice, (Op_803AE8F8 *)cstep);
+}
+
+void TLobby__sub_803AFB00(Voice_803AFB00 *svoice, MSTEP_803AFB00 *cstep) {
+    u8 k1;
+    u8 k2;
+    u8 t;
+    s32 i1;
+    s32 i2;
+    u8 detune;
+
+    if (!(u8)(cstep->para[1] >> 8)) {
+        k1 = (cstep->para[0] >> 8);
+        k2 = (cstep->para[0] >> 24);
+        if (k1 > k2) {
+            t = k1;
+            k1 = k2;
+            k2 = t;
+        }
+    } else {
+        i1 = svoice->curNote - (u8)(cstep->para[0] >> 8);
+        i2 = svoice->curNote + (u8)(cstep->para[0] >> 24);
+
+        k1 = i1 < 0 ? 0 : i1 > 127 ? 127 : i1;
+        k2 = i2 < 0 ? 0 : i2 > 127 ? 127 : i2;
+    }
+
+    if ((u8)cstep->para[1]) {
+        detune = (TLobby__sub_803BC91C() % 201) - 100;
+    } else {
+        detune = (u8)(cstep->para[0] >> 16);
+    }
+
+    cstep->para[0] = ((u8)detune << 16) | 0x19 | ((k1 + (TLobby__sub_803BC91C() % ((k2 - k1) + 1))) * 0x100);
+    cstep->para[1] = 0;
+    mcmdSetKey_803AFB00(svoice, cstep);
+}
+#pragma pop
+
 void TLobby__sub_803AFCA0(Obj_803AFCA0 *o, s32 ch, Op_803AFCA0 *op, u64 mask, u32 flag) {
     u8 x;
     u32 w0;
@@ -2313,6 +4861,446 @@ void TLobby__sub_803B0004(Obj_803B0004 *arg0, u32 arg1, u32 arg2, s32 arg3) {
 }
 
 #define o ((Rec_803B1AF4 *)ov)
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803B0198 { u32 para[2]; } MSTEP_803B0198;
+typedef struct VIDL_803B0198 { struct VIDL_803B0198 *next; struct VIDL_803B0198 *prev; u32 vid; u32 root; } VIDL_803B0198;
+typedef struct LFO_803B0198 { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803B0198;
+typedef struct CSRC_803B0198 { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803B0198;
+typedef struct CDEST_803B0198 { CSRC_803B0198 source[4]; u16 oldValue; u8 numSource; } CDEST_803B0198;
+typedef struct Voice_803B0198 {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803B0198 *addr;
+  MSTEP_803B0198 *curAddr;
+  struct Voice_803B0198 *nextMacActive;
+  struct Voice_803B0198 *prevMacActive;
+  struct Voice_803B0198 *nextTimeQueueMacro;
+  struct Voice_803B0198 *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803B0198 *trapEventAddr[3];
+  MSTEP_803B0198 *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803B0198 *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803B0198 *vidList;
+  VIDL_803B0198 *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803B0198 lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803B0198 inpVolume;
+  CDEST_803B0198 inpPanning;
+  CDEST_803B0198 inpSurroundPanning;
+  CDEST_803B0198 inpPitchBend;
+  CDEST_803B0198 inpDoppler;
+  CDEST_803B0198 inpModulation;
+  CDEST_803B0198 inpPedal;
+  CDEST_803B0198 inpPortamento;
+  CDEST_803B0198 inpPreAuxA;
+  CDEST_803B0198 inpReverb;
+  CDEST_803B0198 inpPreAuxB;
+  CDEST_803B0198 inpPostAuxB;
+  CDEST_803B0198 inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803B0198;
+#pragma pack(pop)
+
+typedef struct SynthInfo_803B0198 { u32 mixFrq; u32 numSamples; u8 pbInfo[0x208]; u8 voiceNum; u8 maxMusic; u8 maxSFX; u8 studioNum; } SynthInfo_803B0198;
+u32 find_sound_voice_by_id(u32 id);
+void TLobby__sub_803B1F24(void *arg0);
+extern void (*lbl_805D73B4)(u32, s32);
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline s32 varGet32_803B0198(Voice_803B0198 *svoice, u32 ctrl, u8 index) {
+    index &= 0x1f;
+    return index < 16 ? svoice->local_vars[index] : lbl_80557C2C[index - 16];
+}
+
+static inline u32 ExecuteTrap_803B0198(Voice_803B0198 *svoice, u8 trapType) {
+    if (svoice->trapEventAny != 0 && svoice->trapEventAddr[trapType] != 0) {
+        svoice->curAddr = svoice->trapEventCurAddr[trapType];
+        svoice->addr = svoice->trapEventAddr[trapType];
+        svoice->trapEventAddr[trapType] = 0;
+        TLobby__sub_803B1F24(svoice);
+        return 1;
+    }
+    return 0;
+}
+
+static inline u32 macPostMessage_803B0198(u32 vid, s32 mesg) {
+    Voice_803B0198 *sv;
+    if ((vid = find_sound_voice_by_id(vid)) != -1 && (sv = &(*(Voice_803B0198 **)&lbl_805D73B0)[vid & 0xFF])->mesgNum < 4) {
+        ++sv->mesgNum;
+        sv->mesgQueue[sv->mesgWrite] = mesg;
+        sv->mesgWrite = (sv->mesgWrite + 1) & 3;
+        ExecuteTrap_803B0198(sv, 2);
+        return 1;
+    }
+    return 0;
+}
+
+void TLobby__sub_803B0198(Voice_803B0198 *svoice, MSTEP_803B0198 *cstep) {
+    u8 i;
+    s32 mesg;
+    u16 macro;
+
+    {
+        u8 index = (u8)(cstep->para[1] >> 8);
+        index &= 0x1f;
+        mesg = index < 16 ? svoice->local_vars[index] : lbl_80557C2C[index - 16];
+    }
+
+    if (!(u8)(cstep->para[0] >> 8)) {
+        macro = (u16)(cstep->para[0] >> 16);
+        if (macro != 0xFFFF) {
+            i = 0;
+            while (i < lbl_80557348.count) {
+                if ((*(Voice_803B0198 **)&lbl_805D73B0)[i].addr != 0 && macro == (*(Voice_803B0198 **)&lbl_805D73B0)[i].macroId) {
+                    macPostMessage_803B0198((*(Voice_803B0198 **)&lbl_805D73B0)[i].vidList->vid, mesg);
+                }
+                ++i;
+            }
+        } else if (lbl_805D73B4 != 0) {
+            lbl_805D73B4(svoice->vidList->vid, mesg);
+        }
+    } else {
+        macPostMessage_803B0198(varGet32_803B0198(svoice, 0, (u8)cstep->para[1]), mesg);
+    }
+}
+#pragma pop
+
+#pragma pack(push, 4)
+typedef struct MSTEP_803B03CC { u32 para[2]; } MSTEP_803B03CC;
+typedef struct VIDL_803B03CC { struct VIDL_803B03CC *next; struct VIDL_803B03CC *prev; u32 vid; u32 root; } VIDL_803B03CC;
+typedef struct LFO_803B03CC { u32 time; u32 period; s16 value; s16 lastValue; } LFO_803B03CC;
+typedef struct CSRC_803B03CC { u8 midiCtrl; u8 combine; s32 scale; } CSRC_803B03CC;
+typedef struct CDEST_803B03CC { CSRC_803B03CC source[4]; u16 oldValue; u8 numSource; } CDEST_803B03CC;
+typedef struct Voice_803B03CC {
+  u32 lowPrecisionJob[3];
+  u32 zeroOffsetJob[3];
+  u32 eventJob[3];
+  u64 lastLowCallTime;
+  u64 lastZeroCallTime;
+  MSTEP_803B03CC *addr;
+  MSTEP_803B03CC *curAddr;
+  struct Voice_803B03CC *nextMacActive;
+  struct Voice_803B03CC *prevMacActive;
+  struct Voice_803B03CC *nextTimeQueueMacro;
+  struct Voice_803B03CC *prevTimeQueueMacro;
+  u32 macState;
+  MSTEP_803B03CC *trapEventAddr[3];
+  MSTEP_803B03CC *trapEventCurAddr[3];
+  u8 trapEventAny;
+  MSTEP_803B03CC *callStack[4][2];
+  u8 callStackEntryNum;
+  u8 callStackIndex;
+  u64 macStartTime;
+  u64 wait;
+  u64 waitTime;
+  u8 timeUsedByInput;
+  u16 loop;
+  s32 local_vars[16];
+  u32 child;
+  u32 parent;
+  u32 id;
+  VIDL_803B03CC *vidList;
+  VIDL_803B03CC *vidMasterList;
+  u16 allocId;
+  u16 macroId;
+  u8 keyGroup;
+  u32 lastVID;
+  u8 prio;
+  u16 ageSpeed;
+  u32 age;
+  u64 cFlags;
+  u8 block;
+  u8 fxFlag;
+  u8 vGroup;
+  u8 studio;
+  u8 track;
+  u8 midi;
+  u8 midiSet;
+  u8 section;
+  u32 sInfo;
+  u32 playFrq;
+  u16 curNote;
+  s8 curDetune;
+  u8 orgNote;
+  u8 lastNote;
+  u8 portType;
+  u16 portLastCtrlState;
+  u32 portDuration;
+  u32 portCurPitch;
+  u32 portTime;
+  u8 vibKeyRange;
+  u8 vibCentRange;
+  u32 vibPeriod;
+  u32 vibCurTime;
+  s32 vibCurOffset;
+  s16 vibModAddScale;
+  u32 volume;
+  u32 orgVolume;
+  float lastVolFaderScale;
+  u32 lastPan;
+  u32 lastSPan;
+  float treCurScale;
+  u16 treScale;
+  u16 treModAddScale;
+  u32 panning[2];
+  s32 panDelta[2];
+  u32 panTarget[2];
+  u32 panTime[2];
+  u8 revVolScale;
+  u8 revVolOffset;
+  u8 volTable;
+  u8 itdMode;
+  s32 envDelta;
+  u32 envTarget;
+  u32 envCurrent;
+  u32 sweepOff[2];
+  s32 sweepAdd[2];
+  s32 sweepCnt[2];
+  u8 sweepNum[2];
+  LFO_803B03CC lfo[2];
+  u8 lfoUsedByInput[2];
+  u8 pbLowerKeyRange;
+  u8 pbUpperKeyRange;
+  u16 pbLast;
+  u32 pitchADSR[10];
+  s16 pitchADSRRange;
+  u16 curPitch;
+  struct { u8 vol, pan, midi, midiSet, section, track, vGroup, studio, itdMode; } setup;
+  u32 midiDirtyFlags;
+  CDEST_803B03CC inpVolume;
+  CDEST_803B03CC inpPanning;
+  CDEST_803B03CC inpSurroundPanning;
+  CDEST_803B03CC inpPitchBend;
+  CDEST_803B03CC inpDoppler;
+  CDEST_803B03CC inpModulation;
+  CDEST_803B03CC inpPedal;
+  CDEST_803B03CC inpPortamento;
+  CDEST_803B03CC inpPreAuxA;
+  CDEST_803B03CC inpReverb;
+  CDEST_803B03CC inpPreAuxB;
+  CDEST_803B03CC inpPostAuxB;
+  CDEST_803B03CC inpTremolo;
+  u8 mesgNum;
+  u8 mesgRead;
+  u8 mesgWrite;
+  s32 mesgQueue[4];
+  u16 curOutputVolume;
+} Voice_803B03CC;
+#pragma pack(pop)
+
+typedef struct SynthInfo_803B03CC { u32 mixFrq; u32 numSamples; u8 pbInfo[0x208]; u8 voiceNum; u8 maxMusic; u8 maxSFX; u8 studioNum; } SynthInfo_803B03CC;
+struct Rec_803A9454;
+void key_off_sound_program(Rec_803A9454 *);
+
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+void TLobby__sub_803B03CC(Voice_803B03CC *svoice, MSTEP_803B03CC *cstep) {
+    void TLobby__sub_803B36A8(u32 vi);
+    u32 i;
+    u8 kg;
+    u32 kill;
+
+    svoice->keyGroup = 0;
+    kg = (u8)(cstep->para[0] >> 8);
+    kill = (u8)(cstep->para[0] >> 0x10) != 0;
+
+    if (kg) {
+        for (i = 0; i < lbl_80557348.count; ++i) {
+            if ((*(Voice_803B03CC **)&lbl_805D73B0)[i].addr != 0 && ((*(Voice_803B03CC **)&lbl_805D73B0)[i].cFlags & 0x2) == 0 &&
+                kg == (*(Voice_803B03CC **)&lbl_805D73B0)[i].keyGroup) {
+                if (!kill) {
+                    key_off_sound_program((Rec_803A9454 *)&(*(Voice_803B03CC **)&lbl_805D73B0)[i]);
+                } else {
+                    TLobby__sub_803B36A8(i);
+                }
+            }
+        }
+        svoice->keyGroup = kg;
+    }
+}
+#pragma pop
+
+#pragma pack(push, 4)
+struct SYNTH_VOICE_803B19AC {
+    u8 pad0[0x34];
+    void *addr;
+    void *curAddr;
+    SYNTH_VOICE_803B19AC *nextMacActive;
+    SYNTH_VOICE_803B19AC *prevMacActive;
+    SYNTH_VOICE_803B19AC *nextTimeQueueMacro;
+    SYNTH_VOICE_803B19AC *prevTimeQueueMacro;
+    u32 macState;
+    void *trapEventAddr[3];
+    void *trapEventCurAddr[3];
+    u8 trapEventAny;
+    u8 pad69[0x98 - 0x69];
+    u64 wait;
+    u64 waitTime;
+    u8 padA8[0xF4 - 0xA8];
+    u32 id;
+    u8 padF8[0x114 - 0xF8];
+    u64 cFlags;
+};
+#pragma pack(pop)
+struct V_803B1F24;
+struct Program_803B1DA4;
+
+void TLobby__sub_803B1F24(void *);
+void dispatch_sound_macro_program(SYNTH_VOICE_803B19AC *);
+u32 is_sound_hw_voice_active(s32 i);
+extern Program_803B1DA4 *lbl_805D7420;
+extern V_803B1F24 *lbl_805D741C;
+extern u64 lbl_805D7428;
+
+#define macTimeQueueRoot ((SYNTH_VOICE_803B19AC *)lbl_805D7420)
+#define macActiveMacroRoot ((SYNTH_VOICE_803B19AC *)lbl_805D741C)
+#define macRealTime lbl_805D7428
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline u32 ExecuteTrap_803B19AC(SYNTH_VOICE_803B19AC *svoice, u8 trapType) {
+    if (svoice->trapEventAny != 0 && svoice->trapEventAddr[trapType] != NULL) {
+        svoice->curAddr = svoice->trapEventCurAddr[trapType];
+        svoice->addr = svoice->trapEventAddr[trapType];
+        svoice->trapEventAddr[trapType] = NULL;
+        TLobby__sub_803B1F24(svoice);
+        return 1;
+    }
+
+    return 0;
+}
+
+static inline u32 HasHWEventTrap_803B19AC(SYNTH_VOICE_803B19AC *svoice) {
+    if (svoice->trapEventAny != 0) {
+        return svoice->trapEventAddr[1] != NULL;
+    }
+    return 0;
+}
+
+static inline void CheckHWEventTrap_803B19AC(SYNTH_VOICE_803B19AC *svoice) {
+    if ((svoice->cFlags & 0x20) == 0 && !is_sound_hw_voice_active(svoice->id & 0xff)) {
+        ExecuteTrap_803B19AC(svoice, 1);
+    }
+}
+
+void TLobby__sub_803B19AC(u32 deltaTime) {
+    SYNTH_VOICE_803B19AC *sv;
+    SYNTH_VOICE_803B19AC *nextSv;
+    u64 w;
+
+    for (sv = macTimeQueueRoot; sv != NULL && sv->wait <= macRealTime;) {
+        nextSv = sv->nextTimeQueueMacro;
+        w = sv->wait;
+        TLobby__sub_803B1F24(sv);
+        sv->waitTime = w;
+        sv = nextSv;
+    }
+
+    for (sv = macActiveMacroRoot; sv != NULL; sv = sv->nextMacActive) {
+        nextSv = sv->nextMacActive;
+        if (HasHWEventTrap_803B19AC(sv) != 0) {
+            CheckHWEventTrap_803B19AC(sv);
+        }
+        dispatch_sound_macro_program(sv);
+    }
+    macRealTime += deltaTime;
+}
+
+#pragma pop
+
 void TLobby__sub_803B1AF4(Rec_803A996C *ov) {
     u32 done;
 
@@ -2567,7 +5555,7 @@ extern "C" {
 void free_sound_voice(Obj_803B312C *o);
 
 u32 start_sound_macro(u16);
-u32 alloc_sound_voice_id(Voice_803B2128 *, u32);
+u32 alloc_sound_voice_id(SYNTH_VOICE_SV *svoice, u32 isMaster);
 void TLobby__sub_803B2B60(Voice_803B2128 *, u8);
 u32 allocate_sound_voice(u8, u32, u16, u8);
 void TLobby__sub_803BB4F0(u8, u8, u8);
@@ -2656,7 +5644,7 @@ u32 start_sound_voice(u16 arg0, u8 arg1, u32 arg2, u16 arg3, u8 arg4, u8 arg5, u
             v->f3EC = 0;
             v->fF4 = id | ((arg0 << 16) | ((arg4 << 8) & 0xFF00));
             TLobby__sub_803B2B60(v, arg1);
-            vid = alloc_sound_voice_id(v, arg12);
+            vid = alloc_sound_voice_id((SYNTH_VOICE_SV *)v, arg12);
             if (vid != 0xFFFFFFFF) {
                 if (v->state != 0) {
                     dequeue_sound_program_deadline((Ch_803B1E48 *)v, 0);
@@ -2776,6 +5764,76 @@ s32 TLobby__sub_803B2920(u8 *arg0) {
 
 extern s16 lbl_805D7450;
 
+#define vidCurrentId (*(u32 *)&lbl_805D7438)
+#define vidRoot (*(VID_LIST_SV **)&lbl_805D743C)
+#define vidFree (*(VID_LIST_SV **)&lbl_805D7440)
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline u32 get_newvid_SV(void) {
+    u32 vid;
+    do {
+        vid = vidCurrentId++;
+    } while (vid == 0xFFFFFFFF);
+
+    return vid;
+}
+
+u32 alloc_sound_voice_id(SYNTH_VOICE_SV *svoice, u32 isMaster) {
+    u32 vid;
+    VID_LIST_SV *nvl;
+    VID_LIST_SV *lvl;
+    VID_LIST_SV *vl;
+
+    vid = get_newvid_SV();
+    lvl = NULL;
+    nvl = vidRoot;
+
+    while (nvl != NULL) {
+        if (nvl->vid > vid) {
+            break;
+        }
+
+        if (nvl->vid == vid) {
+            vid = get_newvid_SV();
+        }
+        lvl = nvl;
+        nvl = nvl->next;
+    }
+
+    if ((vl = vidFree) == NULL) {
+        return 0xFFFFFFFF;
+    }
+
+    if ((vidFree = vidFree->next) != NULL) {
+        vidFree->prev = NULL;
+    }
+
+    if (lvl == NULL) {
+        vidRoot = vl;
+    } else {
+        lvl->next = vl;
+    }
+
+    vl->prev = lvl;
+    vl->next = nvl;
+
+    if (nvl != NULL) {
+        nvl->prev = vl;
+    }
+
+    vl->vid = vid;
+    vl->root = svoice->id;
+    svoice->vidMasterList = isMaster ? vl : NULL;
+    svoice->vidList = vl;
+
+    return isMaster ? vid : svoice->id;
+}
+
+#pragma pop
+
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
@@ -2833,6 +5891,187 @@ void free_sound_voice(Obj_803B312C *o) {
     o->id = -1;
 }
 
+#define svVoice (*(SYNTH_VOICE_SV **)&lbl_805D73B0)
+#define svInfo lbl_80557348
+#pragma push
+#pragma opt_common_subs on
+
+u32 TLobby__sub_803B3540(u8 prio) {
+    u32 voice;
+
+    if ((voice = allocate_sound_voice(prio, 0xFF, 0xFFFF, 1)) != 0xFFFFFFFF) {
+        svVoice[voice].block = 1;
+        svVoice[voice].fxFlag = 1;
+
+        unlink_sound_program((Prog_803B25CC *)&svVoice[voice]);
+        svVoice[voice].id = voice | 0xFFFFFF00;
+
+        if (is_sound_hw_voice_active(voice)) {
+            TLobby__sub_803BCEC8(voice);
+        }
+
+        set_sound_program_wait_state((Obj_803B312C *)&svVoice[voice], 2);
+        svVoice[voice].addr = NULL;
+        TLobby__sub_803B2B60((Voice_803B2128 *)&svVoice[voice], prio);
+    }
+
+    return voice;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+
+void TLobby__sub_803B3628(s32 voice) {
+    if (voice == 0xFFFFFFFF) {
+        return;
+    }
+
+    if (is_sound_hw_voice_active(voice)) {
+        TLobby__sub_803BCEC8(voice);
+    }
+
+    svVoice[voice].id = voice;
+    free_sound_voice((Obj_803B312C *)&svVoice[voice]);
+    svVoice[voice].block = 0;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+
+void TLobby__sub_803B36A8(u32 vi) {
+    SYNTH_VOICE_SV *sv = &svVoice[vi];
+    if (sv->addr != NULL) {
+        unlink_sound_program((Prog_803B25CC *)sv);
+        sv->cFlags &= ~3;
+        sv->age = 0;
+        free_sound_voice((Obj_803B312C *)sv);
+    }
+
+    if (sv->block != 0) {
+        TLobby__sub_803AB0E4(vi);
+    }
+
+    TLobby__sub_803BCEC8(vi);
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline u32 vidGetInternalId_803B3748(u32 vid) {
+    Node_803B2598 *vl;
+
+    if (vid != 0xffffffff) {
+        if ((vl = TLobby__sub_803B2598(vid)) != NULL) {
+            return ((u32 *)vl)[3];
+        }
+    }
+
+    return 0xffffffff;
+}
+
+static inline void voiceKill_803B3748(u32 vi) {
+    SYNTH_VOICE_SV *sv = &svVoice[vi];
+    if (sv->addr != NULL) {
+        unlink_sound_program((Prog_803B25CC *)sv);
+        sv->cFlags &= ~3;
+        sv->age = 0;
+        free_sound_voice((Obj_803B312C *)sv);
+    }
+
+    if (sv->block != 0) {
+        TLobby__sub_803AB0E4(vi);
+    }
+
+    TLobby__sub_803BCEC8(vi);
+}
+
+s32 TLobby__sub_803B3748(u32 voiceid) {
+    s32 ret = -1;
+    u32 next_voiceid;
+    u32 i;
+    if (lbl_805D7380 != 0) {
+        for (voiceid = vidGetInternalId_803B3748(voiceid); voiceid != -1; voiceid = next_voiceid) {
+            i = voiceid & 0xff;
+            next_voiceid = svVoice[i].child;
+            if (voiceid == svVoice[i].id) {
+                voiceKill_803B3748(i);
+                ret = 0;
+            }
+        }
+    }
+
+    return ret;
+}
+
+#pragma pop
+
+#pragma push
+#pragma opt_common_subs on
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline void voiceKill_803B3858(u32 vi) {
+    SYNTH_VOICE_SV *sv = &svVoice[vi];
+    if (sv->addr != NULL) {
+        unlink_sound_program((Prog_803B25CC *)sv);
+        sv->cFlags &= ~3;
+        sv->age = 0;
+        free_sound_voice((Obj_803B312C *)sv);
+    }
+
+    if (sv->block != 0) {
+        TLobby__sub_803AB0E4(vi);
+    }
+
+    TLobby__sub_803BCEC8(vi);
+}
+
+void TLobby__sub_803B3858(u16 *ref) {
+    u32 i;
+    u16 id;
+
+    for (i = 0; i < svInfo.count; ++i) {
+        if (svVoice[i].addr == NULL && svVoice[i].block == 0) {
+            voiceKill_803B3858(i);
+        }
+    }
+
+    while (*ref != 0xFFFF) {
+        if ((*ref & 0x8000)) {
+            id = *ref & 0x3fff;
+            while (id <= ref[1]) {
+                for (i = 0; i < svInfo.count; ++i) {
+                    if (svVoice[i].addr != NULL && id == svVoice[i].macroId) {
+                        voiceKill_803B3858(i);
+                    }
+                }
+                ++id;
+            }
+            ref += 2;
+        } else {
+            for (i = 0; i < svInfo.count; ++i) {
+                if (svVoice[i].addr != NULL && *ref == svVoice[i].macroId) {
+                    voiceKill_803B3858(i);
+                }
+            }
+            ++ref;
+        }
+    }
+}
+
+#pragma pop
+
+#undef svVoice
+#undef svInfo
+
 s32 TLobby__sub_803B3AA8(Obj_803B3AA8 *arg0) {
     u32 id = arg0->id;
     if (id != 0xFFFFFFFF) {
@@ -2885,6 +6124,26 @@ void TLobby__sub_803B3B80(Obj_803B3B80 *arg0) {
         }
     }
 }
+
+#pragma push
+#pragma opt_common_subs on
+
+void TLobby__sub_803B3BFC(void) {
+    u32 i;
+    u32 j;
+
+    for (i = 0; i < 8; ++i) {
+        for (j = 0; j < 16; ++j) {
+            lbl_80564CC8[i][j] = 0xFF;
+        }
+    }
+
+    for (j = 0; j < 64; ++j) {
+        lbl_80564D48[j] = 0xFF;
+    }
+}
+
+#pragma pop
 
 s32 calc_sound_pitch_semitone_up(s32 current) {
     return (s32)(lbl_805E0B78 * (f32)(u16)current);
@@ -3018,11 +6277,71 @@ void start_sound_envelope(u8 *arg0) {
     transition_sound_envelope((void *)(arg0));
 }
 
+typedef struct ADSR_VARS_803B41C8 {
+    u8 mode;
+    u8 state;
+    u32 cnt;
+    s32 currentVolume;
+    s32 currentIndex;
+    s32 currentDelta;
+    union data_803B41C8 {
+        struct _dls_803B41C8 {
+            u32 aTime;
+            u32 dTime;
+            u16 sLevel;
+            u32 rTime;
+            u16 cutOff;
+            u8 aMode;
+        } dls;
+    } data;
+} ADSR_VARS_803B41C8;
+
+extern u8 lbl_804F68DC[];
+extern u8 lbl_804F68DC[];
+#define dspScale2IndexTab lbl_804F68DC
+#pragma push
+#pragma opt_common_subs on
+
+u32 release_sound_envelope(ADSR_VARS_803B41C8 *adsr, u32 rtime) {
+    switch (adsr->mode) {
+    case 0:
+        adsr->state = 4;
+        adsr->cnt = rtime;
+        if (rtime == 0) {
+            adsr->cnt = 1;
+            adsr->currentDelta = 0;
+            return 1;
+        }
+        adsr->currentDelta = -(adsr->currentVolume / rtime);
+        break;
+    case 1:
+        if (adsr->data.dls.aMode == 0 && adsr->state == 1) {
+            adsr->currentIndex = (193 - dspScale2IndexTab[adsr->currentVolume >> 21]) * 0x10000;
+        }
+
+        adsr->cnt = (u32)(3.238342E-4f * (float)adsr->currentIndex * (float)rtime) >> 12;
+        adsr->state = 4;
+        if (adsr->cnt == 0) {
+            adsr->cnt = 1;
+            adsr->currentDelta = adsr->currentIndex = adsr->currentVolume = 0;
+            return 1;
+        }
+
+        adsr->currentDelta = -(adsr->currentIndex / adsr->cnt);
+        break;
+    }
+
+    return 0;
+}
+
+#pragma pop
+#undef dspScale2IndexTab
+
 s32 key_off_sound_envelope(struct Envelope_803B431C *e) {
     switch (e->mode) {
     case 0:
     case 1:
-        return release_sound_envelope(e, e->release);
+        return release_sound_envelope((ADSR_VARS_803B41C8 *)e, e->release);
     default:
         return 0;
     }
@@ -3090,7 +6409,7 @@ u32 advance_sound_envelope(void *arg0, void *arg1, void *arg2) {
 #undef out
 #undef dlt
 
-s32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2) {
+u32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2) {
     u8 i;
 
     for (i = 0; i < 15; i++) {
@@ -3101,11 +6420,213 @@ s32 TLobby__sub_803B4500(void *arg0, void *arg1, void *arg2) {
     return 0;
 }
 
+typedef struct SND_VIRTUALSAMPLE_INFO_VS {
+    u16 smpID;
+    u16 instID;
+    union {
+        struct {
+            u32 off1;
+            u32 len1;
+            u32 off2;
+            u32 len2;
+        } update;
+    } data;
+} SND_VIRTUALSAMPLE_INFO_VS;
+typedef struct VS_BUFFER_VS {
+    u8 state;
+    u8 hwId;
+    u8 smpType;
+    u8 voice;
+    u32 last;
+    u32 finalGoodSamples;
+    u32 finalLast;
+    SND_VIRTUALSAMPLE_INFO_VS info;
+} VS_BUFFER_VS;
+typedef struct VS_VS {
+    u8 numBuffers;
+    u32 bufferLength;
+    VS_BUFFER_VS streamBuffer[64];
+    u8 voices[64];
+    u16 nextInstID;
+    u32 (*callback)(u8, const SND_VIRTUALSAMPLE_INFO_VS *);
+} VS_VS;
+extern VS_VS lbl_80565488;
+#define vs (*vsp)
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+void TLobby__sub_803B4584(void) {
+    VS_VS *vsp = &lbl_80565488;
+    u32 i;
+    vs.numBuffers = 0;
+    for (i = 0; i < 64; i++) {
+        vs.voices[i] = 0xFF;
+    }
+
+    vs.nextInstID = 0;
+    vs.callback = NULL;
+}
+
+#pragma pop
+
+#undef vs
+
 void TLobby__sub_803B4CEC(void) {
     lbl_805D7450 = 0;
 }
 
+typedef struct LAYER_803B4CF8 {
+    u16 id;
+    u8 keyLow;
+    u8 keyHigh;
+    s8 transpose;
+    u8 volume;
+    s16 prioOffset;
+    u8 panning;
+    u8 reserved[3];
+} LAYER_803B4CF8;
+typedef struct MEM_DATA_803B4CF8 {
+    u32 nextOff;
+    u16 id;
+    u16 reserved;
+    union {
+        struct {
+            u32 num;
+            LAYER_803B4CF8 entry[1];
+        } layer;
+        u8 map[1];
+        u8 tab[1];
+        u32 cmd[1][2];
+    } data;
+} MEM_DATA_803B4CF8;
+typedef struct POOL_DATA_803B4CF8 {
+    u32 macroOff;
+    u32 curveOff;
+    u32 keymapOff;
+    u32 layerOff;
+} POOL_DATA_803B4CF8;
+
+s32 TLobby__sub_803ADE74(u16 mid, void *macroaddr);
+s32 TLobby__sub_803AE184(u16 mid);
+s32 TLobby__sub_803ACB50(u16 cid, void *keymapdata);
+s32 TLobby__sub_803ACD40(u16 sid);
+s32 TLobby__sub_803ACEC4(u16 cid, void *layerdata, u16 size);
+s32 TLobby__sub_803AD10C(u16 sid);
+s32 TLobby__sub_803AD2D8(u16 cid, void *curvedata);
+s32 TLobby__sub_803AD4D0(u16 sid);
+s32 TLobby__sub_803ADA80(u16 sid);
+s32 TLobby__sub_803ADB58(u16 id);
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline MEM_DATA_803B4CF8 *GetPoolAddr_803B4CF8(u16 id, MEM_DATA_803B4CF8 *m) {
+    while (m->nextOff != 0xFFFFFFFF) {
+        if (m->id == id) {
+            return m;
+        }
+
+        m = (MEM_DATA_803B4CF8 *)((u8 *)m + m->nextOff);
+    }
+    return NULL;
+}
+
+static inline MEM_DATA_803B4CF8 *GetMacroAddr_803B4CF8(u16 id, POOL_DATA_803B4CF8 *pool) {
+    if (pool == NULL) {
+        return NULL;
+    }
+    return GetPoolAddr_803B4CF8(id, (MEM_DATA_803B4CF8 *)((u8 *)pool + pool->macroOff));
+}
+static inline MEM_DATA_803B4CF8 *GetCurveAddr_803B4CF8(u16 id, POOL_DATA_803B4CF8 *pool) {
+    if (pool == NULL) {
+        return NULL;
+    }
+    return GetPoolAddr_803B4CF8(id, (MEM_DATA_803B4CF8 *)((u8 *)pool + pool->curveOff));
+}
+static inline MEM_DATA_803B4CF8 *GetKeymapAddr_803B4CF8(u16 id, POOL_DATA_803B4CF8 *pool) {
+    if (pool == NULL) {
+        return NULL;
+    }
+    return GetPoolAddr_803B4CF8(id, (MEM_DATA_803B4CF8 *)((u8 *)pool + pool->keymapOff));
+}
+static inline MEM_DATA_803B4CF8 *GetLayerAddr_803B4CF8(u16 id, POOL_DATA_803B4CF8 *pool) {
+    if (pool == NULL) {
+        return NULL;
+    }
+    return GetPoolAddr_803B4CF8(id, (MEM_DATA_803B4CF8 *)((u8 *)pool + pool->layerOff));
+}
+
+void TLobby__sub_803B4CF8(u16 id, void *data, u8 dataType, u32 remove) {
+    MEM_DATA_803B4CF8 *m;
+
+    switch (dataType) {
+    case 0:
+        if (!remove) {
+            if ((m = GetMacroAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
+                TLobby__sub_803ADE74(id, &m->data.cmd);
+            } else {
+                TLobby__sub_803ADE74(id, NULL);
+            }
+        } else {
+            TLobby__sub_803AE184(id);
+        }
+        break;
+    case 2: {
+        id |= 0x4000;
+        if (!remove) {
+            if ((m = GetKeymapAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
+                TLobby__sub_803ACB50(id, &m->data.map);
+            } else {
+                TLobby__sub_803ACB50(id, NULL);
+            }
+        } else {
+            TLobby__sub_803ACD40(id);
+        }
+    } break;
+    case 3: {
+        id |= 0x8000;
+        if (!remove) {
+            if ((m = GetLayerAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
+                TLobby__sub_803ACEC4(id, &m->data.layer.entry, m->data.layer.num);
+            } else {
+                TLobby__sub_803ACEC4(id, NULL, 0);
+            }
+        } else {
+            TLobby__sub_803AD10C(id);
+        }
+    } break;
+    case 4:
+        if (!remove) {
+            if ((m = GetCurveAddr_803B4CF8(id, (POOL_DATA_803B4CF8 *)data)) != NULL) {
+                TLobby__sub_803AD2D8(id, &m->data.tab);
+            } else {
+                TLobby__sub_803AD2D8(id, NULL);
+            }
+        } else {
+            TLobby__sub_803AD4D0(id);
+        }
+        break;
+    case 1:
+        if (!remove) {
+            TLobby__sub_803ADA80(id);
+        } else {
+            TLobby__sub_803ADB58(id);
+        }
+        break;
+    }
+}
+
+#pragma pop
+
 void TLobby__sub_803B4F5C(u16 *p, void *a, void *b, void *c) {
+    void TLobby__sub_803B4CF8(u16, void *, void *, void *);
     u16 i;
     u16 v;
 
@@ -3122,6 +6643,7 @@ void TLobby__sub_803B4F5C(u16 *p, void *a, void *b, void *c) {
 }
 
 void TLobby__sub_803B4FF8(u16 *start, void *a, void *b, void *c) {
+    void TLobby__sub_803B4CF8(u16, void *, void *, void *);
     s16 i;
     u16 *p;
 
@@ -3152,6 +6674,7 @@ void TLobby__sub_803B4FF8(u16 *start, void *a, void *b, void *c) {
 }
 
 s32 TLobby__sub_803B5398(u16 id, u16 sub, s32 a2, s32 a3, u8 locked, s32 a5) {
+    s32 TLobby__sub_803A3D8C(u8 *, u8 *, u16 *, s32, s32, s32, u16);
     Ent_803B5398 *tbl = lbl_80565DD8;
     Ent_803B5398 *e;
     s32 i;
@@ -3200,14 +6723,321 @@ void TLobby__sub_803B54D8(u16 arg0, u16 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TLobby__sub_803B5398(arg0, arg1, arg2, arg3, 0U, arg4);
 }
 
+typedef struct _PB_803B5500 {
+    u8 pad0[0x4];
+    u16 currHi;
+    u16 currLo;
+    u8 pad8[0x38 - 0x8];
+    u16 itdBufferHi;
+    u16 itdBufferLo;
+    u8 pad3C[0x4E - 0x3C];
+    u16 updateDataHi;
+    u16 updateDataLo;
+    u8 pad52[0xBC - 0x52];
+} _PB_803B5500;
+typedef struct DSPvoice_803B5500 {
+    _PB_803B5500 *pb;
+    void *patchData;
+    void *itdBuffer;
+    u8 padC[0x24 - 0xC];
+    u32 changed[5];
+    u8 pad38[0xE4 - 0x38];
+    u8 lastUpdatePitch;
+    u8 lastUpdateVol;
+    u8 lastUpdateVolA;
+    u8 lastUpdateVolB;
+    u32 virtualSampleID;
+    u8 state;
+    u8 postBreak;
+    u8 startupBreak;
+    u8 padEF[0xF4 - 0xEF];
+} DSPvoice_803B5500;
+#define dspStudio lbl_805663D8
+
+extern u8 lbl_805D74C5;
+extern u32 lbl_805D7458;
+extern u16 *lbl_805D7478;
+extern s32 *lbl_805D7484;
+extern DSPvoice_803B5500 *lbl_805D748C;
+extern void *lbl_805D7488;
+extern s32 lbl_805D7480;
+#define salNumVoices lbl_805D74C5
+#define salMaxStudioNum lbl_805D74C4
+#define dspARAMZeroBuffer lbl_805D7458
+#define dspCmdList lbl_805D7478
+#define dspSurround lbl_805D7484
+#define dspVoice lbl_805D748C
+#define dspITDBuffer lbl_805D7488
+#define dspHrtfHistoryBuffer (*(void **)&lbl_805D7480)
+
+u32 TLobby__sub_803BDEF0(void);
+void *TLobby__sub_803BE7B0(u32 size);
+s32 memset(void *, int, int);
+void DCFlushRange(void *, int);
+void DCInvalidateRange(void *, int);
+void DCStoreRangeNoSync(void *, int);
+s32 DCFlushRangeNoSync(void *, int);
+void TLobby__sub_803B58A4(void);
+void TLobby__sub_803B58DC(u8 studio, u32 isMaster, u32 type);
+#define salMalloc TLobby__sub_803BE7B0
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+
+u32 TLobby__sub_803B5500(u8 numVoices, u8 numStudios, u32 defaultStudioDPL2) {
+    u32 i;
+    u32 j;
+    u32 itdPtr;
+
+    salNumVoices = numVoices;
+    salMaxStudioNum = numStudios;
+
+    dspARAMZeroBuffer = TLobby__sub_803BDEF0();
+    if ((dspCmdList = (u16 *)salMalloc(1024 * sizeof(u16)))) {
+        if ((dspSurround = (s32 *)salMalloc(160 * sizeof(s32)))) {
+            memset(dspSurround, 0, 160 * sizeof(s32));
+            DCFlushRange(dspSurround, 160 * sizeof(long));
+            if ((dspVoice = (DSPvoice_803B5500 *)salMalloc(salNumVoices * sizeof(DSPvoice_803B5500)))) {
+                if ((dspITDBuffer = salMalloc(salNumVoices * 64))) {
+                    DCInvalidateRange(dspITDBuffer, salNumVoices * 64);
+                    itdPtr = (u32)dspITDBuffer;
+                    for (i = 0; i < salNumVoices; ++i) {
+                        dspVoice[i].state = 0;
+                        dspVoice[i].postBreak = 0;
+                        dspVoice[i].startupBreak = 0;
+                        dspVoice[i].lastUpdatePitch = 0xff;
+                        dspVoice[i].lastUpdateVol = 0xff;
+                        dspVoice[i].lastUpdateVolA = 0xff;
+                        dspVoice[i].lastUpdateVolB = 0xff;
+                        dspVoice[i].pb = (_PB_803B5500 *)salMalloc(sizeof(_PB_803B5500));
+                        memset(dspVoice[i].pb, 0, sizeof(_PB_803B5500));
+                        dspVoice[i].patchData = salMalloc(0x80);
+                        dspVoice[i].pb->currHi = ((u32)dspVoice[i].pb >> 16);
+                        dspVoice[i].pb->currLo = (u16)(u32)dspVoice[i].pb;
+                        dspVoice[i].pb->updateDataHi = ((u32)dspVoice[i].patchData >> 16);
+                        dspVoice[i].pb->updateDataLo = ((u16)(u32)dspVoice[i].patchData);
+                        dspVoice[i].pb->itdBufferHi = ((u32)itdPtr >> 16);
+                        dspVoice[i].pb->itdBufferLo = ((u16)itdPtr);
+                        dspVoice[i].itdBuffer = (void *)itdPtr;
+                        itdPtr += 0x40;
+                        dspVoice[i].virtualSampleID = 0xFFFFFFFF;
+                        DCStoreRangeNoSync(dspVoice[i].pb, sizeof(_PB_803B5500));
+                        for (j = 0; j < 5; ++j) {
+                            dspVoice[i].changed[j] = 0;
+                        }
+                    }
+
+                    for (i = 0; i < salMaxStudioNum; ++i) {
+                        dspStudio[i].state = 0;
+                        if (!(dspStudio[i].spb = salMalloc(0x36))) {
+                            return 0;
+                        }
+
+                        if (!(dspStudio[i].main[0] = (s32 *)salMalloc(0x3c00))) {
+                            return 0;
+                        }
+
+                        memset(dspStudio[i].main[0], 0, 0x3c00);
+                        DCFlushRangeNoSync(dspStudio[i].main[0], 0x3c00);
+                        dspStudio[i].main[1] = dspStudio[i].main[0] + 0x1e0;
+                        dspStudio[i].auxA[0] = dspStudio[i].main[1] + 0x1e0;
+                        dspStudio[i].auxA[1] = dspStudio[i].auxA[0] + 0x1e0;
+                        dspStudio[i].auxA[2] = dspStudio[i].auxA[1] + 0x1e0;
+                        dspStudio[i].auxB[0] = dspStudio[i].auxA[2] + 0x1e0;
+                        dspStudio[i].auxB[1] = dspStudio[i].auxB[0] + 0x1e0;
+                        dspStudio[i].auxB[2] = dspStudio[i].auxB[1] + 0x1e0;
+                        memset(dspStudio[i].spb, 0, 0x36);
+                        dspStudio[i].hostDPopSum.l = dspStudio[i].hostDPopSum.r = dspStudio[i].hostDPopSum.s = 0;
+                        dspStudio[i].hostDPopSum.lA = dspStudio[i].hostDPopSum.rA = dspStudio[i].hostDPopSum.sA = 0;
+                        dspStudio[i].hostDPopSum.lB = dspStudio[i].hostDPopSum.rB = dspStudio[i].hostDPopSum.sB = 0;
+                        DCFlushRangeNoSync(dspStudio[i].spb, 0x36);
+                    }
+                    TLobby__sub_803B58DC(0, 1, defaultStudioDPL2 != 0 ? 1 : 0);
+                    if (!(dspHrtfHistoryBuffer = salMalloc(0x100))) {
+                        return 0;
+                    }
+
+                    TLobby__sub_803B58A4();
+                    return 1;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+#pragma pop
+#undef dspStudio
+
 void TLobby__sub_803B58A4(void) {
     memset((void *) (lbl_805D7480), (int) (0), (int) (0x100));
     DCFlushRangeNoSync((void *) (lbl_805D7480), (int) (0x100));
 }
 
+#define dspStudio lbl_805663D8
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+
+void TLobby__sub_803B58DC(u8 studio, u32 isMaster, u32 type) {
+    memset(dspStudio[studio].main[0], 0, 0x3c00);
+    DCFlushRangeNoSync(dspStudio[studio].main[0], 0x3c00);
+    memset(dspStudio[studio].spb, 0, 0x36);
+    dspStudio[studio].hostDPopSum.l = dspStudio[studio].hostDPopSum.r =
+        dspStudio[studio].hostDPopSum.s = 0;
+    dspStudio[studio].hostDPopSum.lA = dspStudio[studio].hostDPopSum.rA =
+        dspStudio[studio].hostDPopSum.sA = 0;
+    dspStudio[studio].hostDPopSum.lB = dspStudio[studio].hostDPopSum.rB =
+        dspStudio[studio].hostDPopSum.sB = 0;
+    DCFlushRangeNoSync(dspStudio[studio].spb, 0x36);
+    memset(dspStudio[studio].auxA[0], 0, 0x780);
+    DCFlushRangeNoSync(dspStudio[studio].auxA[0], 0x780);
+    memset(dspStudio[studio].auxB[0], 0, 0x780);
+    DCFlushRangeNoSync(dspStudio[studio].auxB[0], 0x780);
+    dspStudio[studio].voiceRoot = NULL;
+    dspStudio[studio].alienVoiceRoot = NULL;
+    dspStudio[studio].state = 1;
+    dspStudio[studio].isMaster = isMaster;
+    dspStudio[studio].numInputs = 0;
+    dspStudio[studio].type = type;
+    dspStudio[studio].auxAHandler = dspStudio[studio].auxBHandler = NULL;
+}
+
+#pragma pop
+#undef dspStudio
+
 void TLobby__sub_803B59E4(u8 i) {
     lbl_805663D8[i].f50 = 0;
 }
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+
+u32 TLobby__sub_803B5A04(u16 *dsp_vol, u16 *dsp_delta, u16 *last_vol, u16 targetVol,
+                         u16 *resetFlags, u16 resetMask) {
+    s16 d;
+    s16 x;
+
+    if (targetVol != *last_vol) {
+        d = (s16)targetVol - (s16)*last_vol;
+        if ((s16)d >= 32 && (s16)d < 160) {
+            x = (s16)d >> 5;
+            if ((s16)x < 5) {
+                resetFlags[x] |= resetMask;
+            }
+
+            *dsp_delta = 1;
+            *last_vol += (x << 5);
+            return 1;
+        }
+
+        if (-32 >= (s16)d && -160 < (s16)d) {
+            x = -(s16)d >> 5;
+            if (x < 5) {
+                resetFlags[x] |= resetMask;
+            }
+            *dsp_delta = 0xFFFF;
+            *last_vol -= x << 5;
+            return 1;
+        }
+
+        if (targetVol == 0 && (s16)d > -32) {
+            *dsp_vol = *last_vol = 0;
+        }
+    }
+
+    *dsp_delta = 0;
+    return 0;
+}
+
+#pragma pop
+
+typedef struct _PBDPOP_803B5AF8 {
+    u16 aL;
+    u16 aAuxAL;
+    u16 aAuxBL;
+    u16 aR;
+    u16 aAuxAR;
+    u16 aAuxBR;
+    u16 aS;
+    u16 aAuxAS;
+    u16 aAuxBS;
+} _PBDPOP_803B5AF8;
+typedef struct _PB_803B5AF8 {
+    u8 pad0[0xC];
+    u16 mixerCtrl;
+    u16 state;
+    u8 pad10[0x52 - 0x10];
+    _PBDPOP_803B5AF8 dpop;
+} _PB_803B5AF8;
+typedef struct DSPvoice_803B5AF8 {
+    _PB_803B5AF8 *pb;
+    u8 pad4[0xED - 0x4];
+    u8 postBreak;
+} DSPvoice_803B5AF8;
+typedef struct DSPhostDPop_803B5AF8 {
+    s32 l;
+    s32 r;
+    s32 s;
+    s32 lA;
+    s32 rA;
+    s32 sA;
+    s32 lB;
+    s32 rB;
+    s32 sB;
+} DSPhostDPop_803B5AF8;
+typedef struct DSPstudioinfo_803B5AF8 {
+    void *spb;
+    DSPhostDPop_803B5AF8 hostDPopSum;
+} DSPstudioinfo_803B5AF8;
+
+#pragma push
+#pragma opt_common_subs on
+#pragma bool off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+static inline void AddDpop_803B5AF8(s32 *sum, s16 delta) {
+    *sum += (int)delta;
+    *sum = (*sum > 0x7fffff) ? 0x7fffff : (*sum < -0x7fffff ? -0x7fffff : *sum);
+}
+
+void TLobby__sub_803B5AF8(DSPstudioinfo_803B5AF8 *stp, DSPvoice_803B5AF8 *dsp_vptr) {
+    _PB_803B5AF8 *pb;
+    dsp_vptr->postBreak = 0;
+    dsp_vptr->pb->state = 0;
+    pb = dsp_vptr->pb;
+
+    AddDpop_803B5AF8(&stp->hostDPopSum.l, pb->dpop.aL);
+    AddDpop_803B5AF8(&stp->hostDPopSum.r, pb->dpop.aR);
+
+    if ((pb->mixerCtrl & 0x04) != 0) {
+        AddDpop_803B5AF8(&stp->hostDPopSum.s, pb->dpop.aS);
+    }
+
+    if ((pb->mixerCtrl & 0x01) != 0) {
+        AddDpop_803B5AF8(&stp->hostDPopSum.lA, pb->dpop.aAuxAL);
+        AddDpop_803B5AF8(&stp->hostDPopSum.rA, pb->dpop.aAuxAR);
+
+        if ((pb->mixerCtrl & 0x14) != 0) {
+            AddDpop_803B5AF8(&stp->hostDPopSum.sA, pb->dpop.aAuxAS);
+        }
+    }
+
+    if ((pb->mixerCtrl & 0x12) != 0) {
+        AddDpop_803B5AF8(&stp->hostDPopSum.lB, pb->dpop.aAuxBL);
+        AddDpop_803B5AF8(&stp->hostDPopSum.rB, pb->dpop.aAuxBR);
+
+        if ((pb->mixerCtrl & 0x4) != 0) {
+            AddDpop_803B5AF8(&stp->hostDPopSum.sB, pb->dpop.aAuxBS);
+        }
+    }
+}
+
+#pragma pop
 
 void TLobby__sub_803B5DB0(Ent_803B5DB0 **v, s32 left, s32 right) {
     Ent_803B5DB0 **pm;
@@ -3251,6 +7081,26 @@ s32 TLobby__sub_803B88CC(u8 *arg0, s32 arg1) {
     }
     return lbl_805D7490(arg1, ((Fields_arg0*)arg0)->field_18);
 }
+
+struct Ent_803B8910 { u8 pad0[0xC]; Ent_803B8910 *next; Ent_803B8910 *prev; u8 pad14[0x10]; s32 flags; u8 pad28[0xC4]; u8 active; u8 fED; u8 fEE; u8 idx; };
+#pragma push
+#pragma opt_common_subs on
+void TLobby__sub_803B8910(Ent_803B8910 *dsp_vptr, u8 studio) {
+    if (dsp_vptr->active != 0) {
+        TLobby__sub_803B89B4((Ent_803B89B4 *)dsp_vptr);
+        dsp_vptr->flags |= 0x20;
+    }
+    dsp_vptr->fED = 0;
+    if ((dsp_vptr->next = (Ent_803B8910 *)lbl_805663D8[studio].voiceRoot) != 0) {
+        dsp_vptr->next->prev = dsp_vptr;
+    }
+    dsp_vptr->prev = 0;
+    lbl_805663D8[studio].voiceRoot = dsp_vptr;
+    dsp_vptr->fEE = 0;
+    dsp_vptr->active = 1;
+    dsp_vptr->idx = studio;
+}
+#pragma pop
 
 void TLobby__sub_803B89B4(Ent_803B89B4 *arg0) {
     if (arg0->active != 0) {
@@ -3359,6 +7209,449 @@ void TLobby__sub_803B9438(void) {
 }
 #pragma pop
 
+struct FVec_S3D { f32 x; f32 y; f32 z; };
+struct FMat_S3D { f32 m[3][3]; f32 t[3]; };
+struct StudioInput_S3D { u8 vol; u8 volA; u8 volB; u8 srcStudio; };
+
+struct Room_S3D {
+    Room_S3D *next;
+    Room_S3D *prev;
+    u32 flags;
+    FVec_S3D pos;
+    f32 distance;
+    u8 studio;
+    void (*activateReverb)(u8 studio, void *para);
+    void (*deActivateReverb)(u8 studio);
+    void *user;
+    u32 curMVol;
+};
+
+struct Door_S3D {
+    Door_S3D *next;
+    Door_S3D *prev;
+    FVec_S3D pos;
+    f32 open;
+    f32 dampen;
+    u8 fxVol;
+    u8 destStudio;
+    Room_S3D *a;
+    Room_S3D *b;
+    u32 flags;
+    s16 filterCoef[4];
+    StudioInput_S3D input;
+};
+
+struct Listener_S3D {
+    Listener_S3D *next;
+    Listener_S3D *prev;
+    Room_S3D *room;
+    u32 flags;
+    FVec_S3D pos;
+    f32 volPosOff;
+    FVec_S3D dir;
+    FVec_S3D heading;
+    FVec_S3D right;
+    FVec_S3D up;
+    FMat_S3D mat;
+    f32 surroundDisFront;
+    f32 surroundDisBack;
+    f32 soundSpeed;
+    f32 vol;
+};
+
+union ParaData_S3D { u8 value7; u16 value14; };
+struct Param_S3D { u8 ctrl; ParaData_S3D paraData; };
+struct ParaInfo_S3D { u8 numPara; Param_S3D *paraArray; };
+
+struct Emitter_S3D {
+    Emitter_S3D *next;
+    Emitter_S3D *prev;
+    Room_S3D *room;
+    ParaInfo_S3D *paraInfo;
+    u32 flags;
+    FVec_S3D pos;
+    FVec_S3D dir;
+    f32 maxDis;
+    f32 maxVol;
+    f32 minVol;
+    f32 volPush;
+    u32 vid;
+    u32 group;
+    u16 fxid;
+    u8 studio;
+    u8 maxVoices;
+    u16 VolLevelCnt;
+    f32 fade;
+};
+
+extern s8 lbl_805D7498;
+extern s32 lbl_805D749C;
+extern s32 lbl_805D74A0;
+extern s32 lbl_805D74A4;
+extern s32 lbl_805D74A8;
+extern s32 lbl_805D74AC;
+extern s8 lbl_805D74B0;
+extern s8 lbl_805D74B1;
+extern s8 lbl_805D74B2;
+
+#define s3dCallCnt (*(u8 *)&lbl_805D7498)
+#define s3dEmitterRoot (*(Emitter_S3D **)&lbl_805D749C)
+#define s3dListenerRoot (*(Listener_S3D **)&lbl_805D74A0)
+#define s3dRoomRoot (*(Room_S3D **)&lbl_805D74A4)
+#define s3dDoorRoot (*(Door_S3D **)&lbl_805D74A8)
+#define snd_used_studios (*(u32 *)&lbl_805D74AC)
+#define snd_base_studio (*(u8 *)&lbl_805D74B0)
+#define snd_max_studios (*(u8 *)&lbl_805D74B1)
+#define s3dUseMaxVoices (*(u8 *)&lbl_805D74B2)
+
+s32 key_off_sound_fx(int id);
+void TLobby__sub_803AA5BC(u8 studio, u32 isMaster, u32 type);
+void TLobby__sub_803AA66C(u8 studio);
+void TLobby__sub_803B9438(void);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+void TLobby__sub_803B94FC(void) {
+    Listener_S3D *li;
+    Emitter_S3D *em;
+    Room_S3D *r;
+    Room_S3D *max_room;
+    Room_S3D *room;
+    FVec_S3D d;
+    f32 distance;
+    f32 maxDis;
+    u32 li_num;
+    u32 i;
+    u32 mask;
+    u8 has_listener;
+
+    TLobby__sub_803B9438();
+
+    for (li_num = 0, li = s3dListenerRoot; li != 0; li = li->next, ++li_num)
+        ;
+
+    if (li_num != 0) {
+        for (room = s3dRoomRoot; room != 0; room = room->next) {
+            if (room->studio == 0xff) {
+                distance = 0.f;
+                for (li = s3dListenerRoot; li != 0; li = li->next) {
+                    d.x = room->pos.x - li->pos.x;
+                    d.y = room->pos.y - li->pos.y;
+                    d.z = room->pos.z - li->pos.z;
+                    distance += d.x * d.x + d.y * d.y + d.z * d.z;
+                }
+
+                distance = distance / li_num;
+
+                has_listener = 0;
+                for (li = s3dListenerRoot; li != 0; li = li->next) {
+                    if (li->room == room) {
+                        has_listener = 1;
+                        break;
+                    }
+                }
+
+                mask = ~(-1 << snd_max_studios);
+
+                if (mask != (snd_used_studios & mask)) {
+                    for (i = 0; i < snd_max_studios; ++i) {
+                        if (!(snd_used_studios & (1 << i))) {
+                            break;
+                        }
+                    }
+
+                    snd_used_studios |= (1 << i);
+                    room->studio = i + snd_base_studio;
+                } else {
+                    maxDis = -1.f;
+
+                    for (r = s3dRoomRoot; r != 0; r = r->next) {
+                        if (r->studio != 0xFF && maxDis < r->distance) {
+                            maxDis = r->distance;
+                            max_room = r;
+                        }
+                    }
+
+                    if (has_listener || maxDis > distance) {
+                        for (em = s3dEmitterRoot; em != 0; em = em->next) {
+                            if (em->room == max_room) {
+                                key_off_sound_fx(em->vid);
+                                em->flags |= 0x80000;
+                                em->vid = -1;
+                            }
+                        }
+
+                        if (max_room->deActivateReverb != 0) {
+                            max_room->deActivateReverb(max_room->studio);
+                        }
+
+                        TLobby__sub_803AA66C(max_room->studio);
+                        room->studio = max_room->studio;
+                        max_room->studio = 0xff;
+                        max_room->flags = 0;
+                    } else {
+                        continue;
+                    }
+                }
+                room->distance = distance;
+                room->curMVol = has_listener ? 0x7f0000 : 0;
+
+                if (room->curMVol * 1.2014794e-07f >= 0.5) {
+                    TLobby__sub_803AA5BC(room->studio, 1, 0);
+                } else {
+                    TLobby__sub_803AA5BC(room->studio, 0, 0);
+                }
+
+                if (room->activateReverb != 0) {
+                    room->activateReverb(room->studio, room->user);
+                }
+            } else {
+                if (room->flags & 0x80000000) {
+                    room->curMVol += 0x40000;
+                    if (room->curMVol >= 0x7F0000) {
+                        room->curMVol = 0x7F0000;
+                        room->flags &= ~0x80000000;
+                    }
+
+                    if (room->curMVol * 1.2014794e-07f >= 0.5) {
+                        TLobby__sub_803AA5BC(room->studio, 1, 0);
+                    } else {
+                        TLobby__sub_803AA5BC(room->studio, 0, 0);
+                    }
+                }
+
+                if ((room->flags & 0x40000000) != 0) {
+                    room->curMVol = room->curMVol - 0x40000;
+                    if ((int)room->curMVol >= 0) {
+                        room->curMVol = 0;
+                        room->flags &= ~0x40000000;
+                    }
+                    if (room->curMVol * 1.2014794e-07f >= 0.5) {
+                        TLobby__sub_803AA5BC(room->studio, 1, 0);
+                    } else {
+                        TLobby__sub_803AA5BC(room->studio, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+static inline void CalcDoorParameters_S3D(Door_S3D *door) {
+    f32 f;
+    f32 v;
+    v = door->open;
+    f = (1.f - door->open) * door->dampen;
+    door->input.volA = door->fxVol * v;
+    door->input.volB = 0;
+    door->input.vol = v * 127.f;
+}
+
+void TLobby__sub_803B98D8(void) {
+    Door_S3D *door;
+
+    for (door = s3dDoorRoot; door != 0; door = door->next) {
+        if (!(door->flags & 0x80000000)) {
+            if (door->a->studio != 0xFF) {
+                if (door->b->studio != 0xFF) {
+                    CalcDoorParameters_S3D(door);
+                    if (door->flags & 1) {
+                        door->input.srcStudio = door->b->studio;
+                        TLobby__sub_803AA75C(door->a->studio, &door->input);
+                    } else {
+                        door->input.srcStudio = door->a->studio;
+                        TLobby__sub_803AA75C(door->b->studio, &door->input);
+                    }
+
+                    door->flags |= 0x80000000;
+                }
+            }
+        } else if (door->a->studio == 0xFF || door->b->studio == 0xFF) {
+            if ((door->a->studio != 0xFF && door->a->studio == door->destStudio) ||
+                (door->b->studio != 0xFF && door->b->studio == door->destStudio)) {
+                TLobby__sub_803AA77C(door->destStudio, &door->input);
+            }
+
+            door->flags &= ~0x80000000;
+        } else {
+            CalcDoorParameters_S3D(door);
+        }
+    }
+}
+#pragma pop
+
+void transform_vec3__6TLobbyFPvPvPv(void *mat, void *in, void *out);
+f32 TLobby__sub_803BAD1C(FVec_S3D *vec);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+inline f32 sqrtf_S3D(f32 x) {
+    static const f64 _half = .5;
+    static const f64 _three = 3.0;
+    volatile f32 y;
+    if (x > 0.0f) {
+        f64 guess = __frsqrte((f64)x);
+        guess = _half * guess * (_three - guess * guess * x);
+        guess = _half * guess * (_three - guess * guess * x);
+        guess = _half * guess * (_three - guess * guess * x);
+        y = (f32)(x * guess);
+        return y;
+    }
+    return x;
+}
+
+void TLobby__sub_803B9AB4(Emitter_S3D *em, f32 *vol, f32 *doppler, f32 *xPan, f32 *yPan, f32 *zPan) {
+    Listener_S3D *li;
+    FVec_S3D d;
+    FVec_S3D v;
+    FVec_S3D p;
+    f32 relspeed;
+    f32 distance;
+    f32 new_distance;
+    f32 ft;
+    f32 vd;
+    FVec_S3D pan;
+    u32 n;
+
+    ft = 1.f / 60.f;
+    *vol = 0.f;
+    *doppler = 1.f;
+
+    pan.x = pan.y = pan.z = 0.f;
+
+    for (n = 0, li = s3dListenerRoot; li != 0; li = li->next, ++n) {
+        d.x = em->pos.x - (li->pos.x + li->heading.x * li->volPosOff);
+        d.y = em->pos.y - (li->pos.y + li->heading.y * li->volPosOff);
+        d.z = em->pos.z - (li->pos.z + li->heading.z * li->volPosOff);
+
+        distance = sqrtf_S3D(d.x * d.x + d.y * d.y + d.z * d.z);
+
+        if (em->maxDis >= distance) {
+            vd = distance / em->maxDis;
+
+            if (em->volPush >= 0.f) {
+                *vol += li->vol * (em->minVol + (em->maxVol - em->minVol) *
+                                                    (1.f - ((1.f - em->volPush) * vd + em->volPush * vd * vd)));
+            } else {
+                *vol += li->vol * (em->minVol + (em->maxVol - em->minVol) *
+                                                    (1.f - ((em->volPush + 1.f) * vd -
+                                                            em->volPush * (1.f - (1.f - vd) * (1.f - vd)))));
+            }
+
+            if (em->flags & 0x80000) {
+                continue;
+            }
+            if ((em->flags & 0x8) || (li->flags & 1)) {
+                v.x = li->dir.x - em->dir.x;
+                v.y = li->dir.y - em->dir.y;
+                v.z = li->dir.z - em->dir.z;
+                relspeed = sqrtf_S3D(v.x * v.x + v.y * v.y + v.z * v.z);
+
+                if (relspeed > 0.f) {
+                    d.x = (em->pos.x + em->dir.x * ft) - (li->pos.x + li->dir.x * ft);
+                    d.y = (em->pos.y + em->dir.y * ft) - (li->pos.y + li->dir.y * ft);
+                    d.z = (em->pos.z + em->dir.z * ft) - (li->pos.z + li->dir.z * ft);
+
+                    new_distance = sqrtf_S3D(d.x * d.x + d.y * d.y + d.z * d.z);
+
+                    if (new_distance < distance) {
+                        *doppler = li->soundSpeed / (li->soundSpeed - relspeed);
+                    } else {
+                        *doppler = li->soundSpeed / (li->soundSpeed + relspeed);
+                    }
+                }
+            }
+
+            if (distance != 0.f) {
+                transform_vec3__6TLobbyFPvPvPv(&li->mat, &em->pos, &p);
+
+                if (p.z <= 0.f) {
+                    pan.z += -li->surroundDisFront < p.z ? -p.z / li->surroundDisFront : 1.f;
+                } else {
+                    pan.z += li->surroundDisBack > p.z ? -p.z / li->surroundDisBack : -1.f;
+                }
+
+                if (p.x != 0.f || p.y != 0.f || p.z != 0.f) {
+                    TLobby__sub_803BAD1C(&p);
+                }
+
+                pan.x += p.x;
+                pan.y -= p.y;
+            }
+        }
+    }
+
+    if (n != 0) {
+        *xPan = pan.x / n;
+        *yPan = pan.y / n;
+        *zPan = pan.z / n;
+    }
+}
+#pragma pop
+
+s32 TLobby__sub_803A9200(u32 id, u8 a1, u8 a2);
+s32 TLobby__sub_803A92E8(u32 id, u8 a1, u16 a2);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+static inline u8 clip127_S3D(u8 v) {
+    if (v > 0x7f) {
+        return 0x7f;
+    }
+    return v;
+}
+
+static inline u16 clip3FFF_S3D(u32 v) {
+    if (v > 0x3fff) {
+        return 0x3fff;
+    }
+    return v;
+}
+
+void TLobby__sub_803B9F98(Emitter_S3D *const em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler) {
+    u32 vid;
+    u8 i;
+    Param_S3D *pPtr;
+
+    vid = em->vid;
+    if ((em->flags & 0x100000) != 0) {
+        TLobby__sub_803A9200(vid, 7, clip127_S3D((em->fade * vol) * 127.f));
+    } else {
+        TLobby__sub_803A9200(vid, 7, clip127_S3D(vol * 127.f));
+    }
+
+    TLobby__sub_803A9200(vid, 10, clip127_S3D((1.f + xPan) * 64.f));
+    TLobby__sub_803A9200(vid, 131, clip127_S3D((1.f - zPan) * 64.f));
+    TLobby__sub_803A92E8(vid, 132, clip3FFF_S3D(doppler * 8192.0f));
+
+    if (em->paraInfo != 0) {
+        pPtr = em->paraInfo->paraArray;
+        for (i = 0; i < em->paraInfo->numPara; ++pPtr, ++i) {
+            if (pPtr->ctrl < 0x40 || pPtr->ctrl == 0x80 || pPtr->ctrl == 0x84) {
+                TLobby__sub_803A92E8(vid, pPtr->ctrl, (pPtr->paraData).value14);
+            } else {
+                TLobby__sub_803A9200(vid, pPtr->ctrl, (pPtr->paraData).value7);
+            }
+        }
+    }
+}
+#pragma pop
+
 void TLobby__sub_803BA1B8(Node_803BA1B8 *arg0) {
     if (arg0->next != 0) {
         arg0->next->prev = arg0->prev;
@@ -3395,6 +7688,345 @@ void TLobby__sub_803BA228(Ent_803BA228 *arg0, u32 arg1) {
         }
     }
 }
+
+struct StartList_S3D {
+    StartList_S3D *next;
+    f32 vol;
+    f32 xPan;
+    f32 yPan;
+    f32 zPan;
+    f32 pitch;
+    Emitter_S3D *em;
+};
+
+struct RunList_S3D {
+    RunList_S3D *next;
+    f32 vol;
+    Emitter_S3D *em;
+};
+
+struct StartGroup_S3D {
+    u32 id;
+    StartList_S3D *list;
+    RunList_S3D *running;
+    u16 numRunning;
+};
+
+static Emitter_S3D tmp_em_S3D;
+static StartGroup_S3D startGroup_S3D[64];
+static StartList_S3D startListNum_S3D[64];
+static RunList_S3D runList_S3D[64];
+extern u8 lbl_805D74B3;
+extern u8 lbl_805D74B4;
+extern u8 lbl_805D74B5;
+
+#define startGroup startGroup_S3D
+#define startListNum startListNum_S3D
+#define runList runList_S3D
+#define startGroupNum lbl_805D74B3
+#define startListNumnum lbl_805D74B4
+#define runListNum lbl_805D74B5
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+void TLobby__sub_803BA2D8(Emitter_S3D *em, f32 vol) {
+    s32 i;
+    RunList_S3D *rl;
+    RunList_S3D *lrl;
+
+    for (i = 0; i < startGroupNum; ++i) {
+        if (em->group == startGroup[i].id) {
+            break;
+        }
+    }
+
+    if (i == startGroupNum) {
+        startGroup[i].list = 0;
+        startGroup[i].running = 0;
+        startGroup[i].numRunning = 0;
+        startGroup[i].id = em->group;
+        ++startGroupNum;
+    }
+
+    ++startGroup[i].numRunning;
+
+    lrl = 0;
+    for (rl = startGroup[i].running; rl != 0; rl = rl->next) {
+        if (rl->vol > vol) {
+            break;
+        }
+        lrl = rl;
+    }
+
+    if (lrl == 0) {
+        startGroup[i].running = &runList[runListNum];
+    } else {
+        lrl->next = &runList[runListNum];
+    }
+
+    runList[runListNum].next = rl;
+    runList[runListNum].em = em;
+    runList[runListNum++].vol = vol;
+}
+#pragma pop
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+u32 TLobby__sub_803BA3EC(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 pitch) {
+    s32 i;
+    StartList_S3D *sl;
+
+    for (i = 0; i < startGroupNum; ++i) {
+        if (em->group == startGroup[i].id) {
+            break;
+        }
+    }
+
+    if (i == startGroupNum) {
+        if (startGroupNum == 64) {
+            return 0;
+        }
+
+        startGroup[i].list = 0;
+        startGroup[i].running = 0;
+        startGroup[i].numRunning = 0;
+        startGroup[i].id = em->group;
+        ++startGroupNum;
+    }
+
+    if (startListNumnum == 64) {
+        return 0;
+    }
+
+    if ((sl = startGroup[i].list) != 0) {
+        for (; sl->next != 0; sl = sl->next) {
+            if (sl->vol < vol) {
+                break;
+            }
+        }
+        startListNum[startListNumnum].next = sl->next;
+        sl->next = &startListNum[startListNumnum];
+    } else {
+        startListNum[startListNumnum].next = startGroup[i].list;
+        startGroup[i].list = &startListNum[startListNumnum];
+    }
+
+    startListNum[startListNumnum].em = em;
+    startListNum[startListNumnum].pitch = pitch;
+    startListNum[startListNumnum].xPan = xPan;
+    startListNum[startListNumnum].yPan = yPan;
+    startListNum[startListNumnum].zPan = zPan;
+    startListNum[startListNumnum++].vol = vol;
+
+    return 1;
+}
+#pragma pop
+
+void TLobby__sub_803B9F98(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+#pragma bool off
+void TLobby__sub_803BA51C(void) {
+    s32 synth_start_fx(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
+    s32 i;
+    StartList_S3D *sl;
+    Emitter_S3D *em;
+    f32 dv;
+
+    for (i = 0; i < startGroupNum; ++i) {
+        for (sl = startGroup[i].list; sl != 0; sl = sl->next) {
+            if ((startGroup[i].running != 0) &&
+                !(((s3dUseMaxVoices != 0 && ((startGroup[i].id & 0x80000000) != 0)) &&
+                   (startGroup[i].numRunning < startGroup[i].list->em->maxVoices)))) {
+
+                dv = sl->vol - (startGroup[i].running)->vol;
+                if (dv <= 0.08f) {
+                    continue;
+                } else if (dv <= 0.15f) {
+                    if (++sl->em->VolLevelCnt < 20) {
+                        continue;
+                    }
+                } else {
+                    sl->em->VolLevelCnt = 0;
+                }
+            }
+            em = sl->em;
+
+            if (em->room != 0 && em->room->studio == 0xFF) {
+                goto set_flags;
+            }
+            if ((em->vid = synth_start_fx(em->fxid, 127, 64, em->room != 0 ? em->room->studio : em->studio,
+                                          (em->flags & 0x10) != 0)) == -1) {
+            set_flags:
+                if (!(em->flags & 0x2)) {
+                    em->flags |= 0x40000;
+                    em->flags &= ~0x20000;
+                }
+            } else {
+                if (!(em->flags & 0x20)) {
+                    em->flags |= 0x100000;
+                    em->fade = 0.f;
+                } else {
+                    em->fade = 1.f;
+                }
+                TLobby__sub_803B9F98(em, sl->vol, sl->xPan, sl->yPan, sl->zPan, sl->pitch);
+                em->flags &= ~0x20000;
+                ++startGroup[i].numRunning;
+                if (startGroup[i].running != 0) {
+                    startGroup[i].running = startGroup[i].running->next;
+                }
+            }
+        }
+    }
+}
+#pragma pop
+
+s32 key_off_sound_fx(int id);
+u32 TLobby__sub_803AA2B8(u32 id);
+void TLobby__sub_803B94FC(void);
+void TLobby__sub_803B98D8(void);
+void TLobby__sub_803B9AB4(Emitter_S3D *em, f32 *vol, f32 *doppler, f32 *xPan, f32 *yPan, f32 *zPan);
+void TLobby__sub_803B9F98(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 doppler);
+void TLobby__sub_803BA2D8(Emitter_S3D *em, f32 vol);
+u32 TLobby__sub_803BA3EC(Emitter_S3D *em, f32 vol, f32 xPan, f32 yPan, f32 zPan, f32 pitch);
+void TLobby__sub_803BA51C(void);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma auto_inline on
+#pragma opt_common_subs on
+#pragma bool off
+static inline void ClearStartList_S3D(void) {
+    startGroupNum = 0;
+    startListNumnum = 0;
+    runListNum = 0;
+}
+
+static inline void EmitterShutdown_S3D(Emitter_S3D *em) {
+    if (em->next != 0) {
+        em->next->prev = em->prev;
+    }
+
+    if (em->prev != 0) {
+        em->prev->next = em->next;
+    } else {
+        s3dEmitterRoot = em->next;
+    }
+
+    em->flags &= 0xFFFF;
+    if (em->vid != -1) {
+        key_off_sound_fx(em->vid);
+    }
+}
+
+void TLobby__sub_803BA744(void) {
+    s32 synth_start_fx(u16 fid, u8 vol, u8 pan, u8 studio, u32 itd);
+    Emitter_S3D *em;
+    Emitter_S3D *nem;
+    f32 vol;
+    f32 xPan;
+    f32 yPan;
+    f32 zPan;
+    f32 pitch;
+
+    if (s3dCallCnt != 0) {
+        --s3dCallCnt;
+        return;
+    }
+    s3dCallCnt = 3;
+    ClearStartList_S3D();
+    em = s3dEmitterRoot;
+    for (; em != 0; em = nem) {
+        nem = em->next;
+        if ((em->flags & 0x40000) != 0) {
+            EmitterShutdown_S3D(em);
+            continue;
+        }
+        if ((em->flags & 0x20001) != 0) {
+            TLobby__sub_803B9AB4(em, &vol, &pitch, &xPan, &yPan, &zPan);
+        }
+
+        if (!(em->flags & 0x80000)) {
+            if (em->flags & 0x20000) {
+                if (vol == 0.f && em->flags & 0x4) {
+                    em->flags |= 0x80000;
+                    em->flags &= ~0x20000;
+                    goto found_emitter;
+                } else if (vol == 0.f && em->flags & 0x40) {
+                    EmitterShutdown_S3D(em);
+                    continue;
+                }
+
+                if (em->flags & 1) {
+                    if (TLobby__sub_803BA3EC(em, vol, xPan, yPan, zPan, pitch)) {
+                        continue;
+                    }
+                } else if (em->room == 0 || em->room->studio != 0xFF) {
+                    if ((em->vid = synth_start_fx(em->fxid, 127, 64, em->room != 0 ? em->room->studio : em->studio,
+                                                  (em->flags & 0x10) != 0)) == -1) {
+                    derp:
+                        if (!(em->flags & 2)) {
+                            em->flags |= 0x40000;
+                            em->flags &= ~0x20000;
+                        } else {
+                            continue;
+                        }
+                    }
+                } else {
+                    goto derp;
+                }
+            } else if ((em->vid = TLobby__sub_803AA2B8(em->vid)) == -1) {
+                if ((em->flags & 2)) {
+                    em->flags |= 0x20000;
+                } else {
+                    em->flags |= 0x40000;
+                }
+            }
+
+        found_emitter:
+            if (em->vid != -1) {
+                if ((em->flags & 1) != 0) {
+                    TLobby__sub_803BA2D8(em, vol);
+                }
+                if ((vol == 0.f) && ((em->flags & 4) != 0)) {
+                    key_off_sound_fx(em->vid);
+                    em->vid = 0xffffffff;
+                    if ((em->flags & 2)) {
+                        em->flags |= 0x80000;
+                    } else {
+                        em->flags |= 0x40000;
+                    }
+                } else {
+                    TLobby__sub_803B9F98(em, vol, xPan, yPan, zPan, pitch);
+                }
+            }
+            if ((em->flags & 0x100000) != 0) {
+                em->fade += .3f;
+                if (em->fade >= 1.f) {
+                    em->flags &= ~0x100000;
+                }
+            }
+        } else if ((em->room == 0 || (em->room != 0 && em->room->studio != 0xff)) && vol != 0.f) {
+            em->flags &= ~0x80000;
+            em->flags |= 0x20000;
+        }
+    }
+    TLobby__sub_803BA51C();
+    TLobby__sub_803B94FC();
+    TLobby__sub_803B98D8();
+}
+#pragma pop
 
 void TLobby__sub_803BAB10(s32 arg0) {
     lbl_805D749C = 0;
