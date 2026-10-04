@@ -34,6 +34,9 @@ force_active:
   - DMAErrorHandler
   - DVDGetCurrentDir
   - DoCrossTalk
+  - DoEnvelopeCalculation
+  - DoPanningSetup
+  - DoSetPitch
   - Dolphin_DVDCancelAsync
   - Dolphin_GXFlush
   - EXIClearInterrupts
@@ -63,6 +66,7 @@ force_active:
   - ResetNotes
   - ScanIDList
   - ScanIDListReverse
+  - SelectSource
   - SetFXParameters
   - SortVoices
   - StartContinousEmitters
@@ -134,7 +138,10 @@ force_active:
   - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
+  - TimeQueueAdd
+  - TranslateVolume
   - TypeAndStatusCallback
+  - UnYieldMacro
   - UpdateRoomDistances
   - _GetInputValue
   - __ARQCallbackHack
@@ -403,7 +410,21 @@ force_active:
   - lbl_804EC724
   - load_item_pmt
   - lookup_attack_marker
+  - macHandleActive
+  - macMakeActive
   - maccmp
+  - mcmdLoop
+  - mcmdPlayMacro
+  - mcmdPortamento
+  - mcmdRandomKey
+  - mcmdSendMessage
+  - mcmdSetADSR
+  - mcmdSetKeyGroup
+  - mcmdSetPitchADSR
+  - mcmdStartSample
+  - mcmdVarCalculation
+  - mcmdVibrato
+  - mcmdWait
   - open_buy_window__22TShopEquipmentSequenceFPv
   - open_equip_kind_list__15TWindowSubEquipFPvUi
   - open_greeting__20TShopItemTecSequenceFPv
@@ -592,6 +613,8 @@ force_active:
   - update_trails__11TItemWeaponFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_when_camera_active__13TObjWarnChimeFPv
+  - varGet32
+  - varSet32
   - voiceRemovePriority
   - voiceResetLastStarted
   - vsUpdateBuffer

@@ -111,6 +111,7 @@ musyx/runtime/synth_ac.c
 musyx/runtime/synth_adsr.c
 musyx/runtime/synth_vsamples.c
 musyx/runtime/synthdata.c
+musyx/runtime/synthmacros.c
 musyx/runtime/synthvoice.c
 os/OSCache.c
 os/OSContext.c
@@ -2730,6 +2731,7 @@ pso/player/TObjPlayer_802D5174_802D5A04.cpp
 pso/player/TObjPlayer_802D5174_802D5C0C.cpp
 pso/player/TObjPlayer_802E0580.cpp
 pso/player/TObjPlayer_802E8050.cpp
+pso/player/TObjPlayer_802ED928.cpp
 pso/player/TObjPlayer_80307618.cpp
 pso/player/TObjPlayer_803083B0.cpp
 pso/player/TObjPlayer_80309D80.cpp

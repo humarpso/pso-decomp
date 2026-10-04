@@ -130,6 +130,45 @@ body:
     o->i38 = o->i34 + ((op->w4 & 0xFFFF) << 3);
 }
 
+#pragma push
+#pragma bool off
+#pragma opt_common_subs on
+void mcmdPlayMacro(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
+    u32 macStart(u16 arg0, u8 arg1, u8 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
+    s32 key;
+    u32 new_child;
+
+    key = ((u32)svoice->orgNote + (s8)(u8)(cstep->para[0] >> 8));
+    key = (key < 0) ? 0 : key > 0x7f ? 0x7f : key;
+
+    if (svoice->fxFlag != 0) {
+        key |= 0x80;
+    }
+
+    svoice->block = 1;
+    new_child = macStart((u16)(cstep->para[0] >> 0x10), (u8)(cstep->para[1] >> 0x10),
+                                  (u8)(cstep->para[1] >> 0x18), svoice->allocId, key,
+                                  (u8)(svoice->volume >> 0x10), (u8)(svoice->panning[0] >> 0x10), svoice->midi,
+                                  svoice->midiSet, svoice->section, (u16)cstep->para[1], (u16)svoice->track, 0,
+                                  svoice->vGroup, svoice->studio, svoice->itdMode == 0);
+    svoice->block = 0;
+    if (new_child != 0xFFFFFFFF) {
+        svoice->lastVID = (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].vidList->vid;
+        (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].parent = svoice->id;
+        if (svoice->child != -1) {
+            (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].child = svoice->child;
+            (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)svoice->child].parent = new_child;
+        }
+        svoice->child = new_child;
+        if (svoice->fxFlag != 0) {
+            synthFXCloneMidiSetup((u8 *)&(*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child], (u8 *)svoice);
+        }
+    } else {
+        svoice->lastVID = 0xFFFFFFFF;
+    }
+}
+#pragma pop
+
 #pragma pack(4)
 typedef struct MSTEP_803AEEF0 { u32 para[2]; } MSTEP_803AEEF0;
 typedef struct VIDL_803AEEF0 { struct VIDL_803AEEF0 *next; struct VIDL_803AEEF0 *prev; u32 vid; u32 root; } VIDL_803AEEF0;
@@ -301,45 +340,6 @@ void mcmdStartSample(Voice_803AEEF0 *svoice, MSTEP_803AEEF0 *cstep) {
 #pragma pop
 
 #define FLAGS (*(u64 *)&o->fh)
-
-#pragma push
-#pragma bool off
-#pragma opt_common_subs on
-void mcmdPlayMacro(Voice_803AED58 *svoice, MSTEP_803AED58 *cstep) {
-    u32 macStart(u16 arg0, u8 arg1, u8 arg2, u16 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7, u8 arg8, u8 arg9, u16 arg10, u16 arg11, u8 arg12, u8 arg13, u8 arg14, u32 arg15);
-    s32 key;
-    u32 new_child;
-
-    key = ((u32)svoice->orgNote + (s8)(u8)(cstep->para[0] >> 8));
-    key = (key < 0) ? 0 : key > 0x7f ? 0x7f : key;
-
-    if (svoice->fxFlag != 0) {
-        key |= 0x80;
-    }
-
-    svoice->block = 1;
-    new_child = macStart((u16)(cstep->para[0] >> 0x10), (u8)(cstep->para[1] >> 0x10),
-                                  (u8)(cstep->para[1] >> 0x18), svoice->allocId, key,
-                                  (u8)(svoice->volume >> 0x10), (u8)(svoice->panning[0] >> 0x10), svoice->midi,
-                                  svoice->midiSet, svoice->section, (u16)cstep->para[1], (u16)svoice->track, 0,
-                                  svoice->vGroup, svoice->studio, svoice->itdMode == 0);
-    svoice->block = 0;
-    if (new_child != 0xFFFFFFFF) {
-        svoice->lastVID = (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].vidList->vid;
-        (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].parent = svoice->id;
-        if (svoice->child != -1) {
-            (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child].child = svoice->child;
-            (*(Voice_803AED58 **)&lbl_805D73B0)[(u8)svoice->child].parent = new_child;
-        }
-        svoice->child = new_child;
-        if (svoice->fxFlag != 0) {
-            synthFXCloneMidiSetup((u8 *)&(*(Voice_803AED58 **)&lbl_805D73B0)[(u8)new_child], (u8 *)svoice);
-        }
-    } else {
-        svoice->lastVID = 0xFFFFFFFF;
-    }
-}
-#pragma pop
 
 void mcmdVibrato(Obj_803AF0CC *o, Op_803AF0CC *op) {
     u32 v;
@@ -2724,5 +2724,11 @@ void macInit(void) {
     }
 }
 #pragma pop
+
+u8 lbl_805D7418;
+V_803B1F24 *lbl_805D741C;
+Program_803B1DA4 *lbl_805D7420;
+u64 lbl_805D7428;
+MSTEP_803B04A0 lbl_805D7430;
 
 }
