@@ -5,6 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+extern "C" {
+
 struct VBase_18_574b0f { char pad[0x18]; };
 
 struct VObj_18_574b0f : VBase_18_574b0f {
@@ -103,24 +105,6 @@ struct VObj_18_574b0f : VBase_18_574b0f {
     virtual void m92();
     virtual M2C_UNK m93();
 };
-
-extern "C" {
-s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback();
-M2C_UNK play_cue_stream_file(void *);
-void TBoss8Dragon__sub_802FBA84(u8 *arg0);
-M2C_UNK copy_pos_to_field688__12TBoss8DragonFPv(void* p);
-M2C_UNK restore_target_pos__12TBoss8DragonFPv(void* p);
-void TBoss8Dragon__sub_802FBBFC(u8 *arg0, s32 arg1);
-void set_active_flag__12TBoss8DragonFPv(void* a0);
-void reset_timer__12TBoss8DragonFPv(void* p);
-extern M2C_UNK lbl_80474B40[];
-extern const f32 TBoss8Dragon__data_805DED58;
-void TBoss8Dragon__sub_802F8150(u8 *arg0, u32 arg1);
-}
-
-extern "C" {
 
 struct RecoveredGlobal_802F45A0_lbl_80474580 { M2C_UNK value; u8 remaining[0x88]; };
 
@@ -1224,6 +1208,10 @@ struct Part_802FCA58 { u8 pad0[4]; f32 f4; u8 pad8[0x20]; f32 f28; };
 
 struct Cfg_802FCA58 { u8 pad[0x18]; s32 i18; s32 i1C; s32 i20; };
 
+struct Vec_802FDC1C { f32 x, y, z; };
+
+struct Cam_802FDC1C { s32 f0; f32 *p4; f32 *p8; };
+
 f32 calc_boss4_scale__10TObjPlayerFi();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * get_player_data__10TObjPlayerFi(s32);
@@ -1234,6 +1222,7 @@ f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(f32);
 s32 register_object__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
+void TLobby__sub_8001FE7C(void*, int);
 void TBoss1Dragon__sub_80027A80(void *, void *);
 s32 get_game_mode__6TLobbyFv(void);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -1243,10 +1232,12 @@ M2C_UNK set_speed__12TBoss8DragonFPvf(void *, f32);
 s32 reset_lobby_model__10TObjPlayerFPv(void *);
 M2C_UNK set_type__10TObjPlayerFPvi(void *, int);
 void fn_8002B094(s32);
+s32 get_camera_id__11TCameraCtrlFv();
 u8 * csnVecterUnder(M2C_UNK *, M2C_UNK);
 void maybe_delete__15TObjBoss2TunnelFis(void *, s32);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(int, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 M2C_UNK spawn_particle_effect_with_flags(void *, void *, int);
 M2C_UNK TObjEneEpsilon__sub_800B9384(void *, int, f32);
 s32 enemy_validate_retained_target(void *);
@@ -1292,10 +1283,13 @@ u32 get_player_by_client_id(M2C_UNK);
 s32 render_model_tree__12TBoss8DragonFPvPv(s32, s32);
 M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
+M2C_UNK play_cue_stream_file(void *);
 void __dl__7TObjectFPv(void *);
+void * __nw__7TObjectFUl(int);
 void __dt__7TObjectFv(void *, s32);
 M2C_UNK alloc_effect_node__12TBoss3VoloptFUisi(s32, M2C_UNK, s32);
 void TBoss8Dragon__sub_802F33C8(s32, s32, s32);
+s32 find_target_enemy__12TBoss8DragonFv();
 s32 is_any_part_alive__12TBoss8DragonFv(void);
 s32 TBoss8Dragon__sub_802F376C();
 s32 TBoss8Dragon__sub_802F3878(void *);
@@ -1321,6 +1315,7 @@ void TBoss8Dragon__sub_802F75C8(u8 *arg0, u32 arg1);
 int TBoss8Dragon__sub_802F7808(void*, int, int);
 int action_17__12TBoss8DragonFPvi(void* p, int a1);
 int TBoss8Dragon__sub_802F7B4C(void* p, int a1);
+void TBoss8Dragon__sub_802F8150(u8 *arg0, u32 arg1);
 void TBoss8Dragon__sub_802F9850(void *arg0p, u32 arg1);
 void TBoss8Dragon__sub_802F9A4C(u8 *arg0, u32 arg1);
 void TBoss8Dragon__sub_802F9B8C(u8 *arg0, u32 arg1);
@@ -1359,8 +1354,10 @@ int TBoss8Dragon__sub_802FB984(void);
 s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_802FBA1C(u8 *arg0);
 void TBoss8Dragon__sub_802FBA84(u8 *arg0);
+M2C_UNK copy_pos_to_field688__12TBoss8DragonFPv(void* p);
 void set_speed__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
 void save_position__12TBoss8DragonFPv(void* p);
+M2C_UNK restore_target_pos__12TBoss8DragonFPv(void* p);
 void TBoss8Dragon__sub_802FBBC8(u8 *arg0, s32 *arg1);
 void sync_target_pos__12TBoss8DragonFPv(void* p);
 void TBoss8Dragon__sub_802FBBFC(u8 *arg0, s32 arg1);
@@ -1400,7 +1397,10 @@ void TBoss8Dragon__sub_802FCD04(void);
 void TBoss8Dragon__sub_802FCD08(void);
 void TBoss8Dragon__sub_802FCD0C(void);
 void check_death__12TBoss8DragonFPv(void *arg0);
-M2C_UNK TBoss8Dragon__sub_802FD9D0();
+void * TBoss8Dragon__ct(void *, void *, void *);
+void TBoss8Dragon__sub_802FD9D0(void);
+void free_static__12TBoss8DragonFv(void);
+void * create__12TBoss8DragonFPv(void *arg0);
 M2C_UNK send_swapped_packet__12TBoss8DragonFPv(void *);
 void bswap_packet__12TBoss8DragonFPv(void *);
 M2C_UNK build_6xA8_gol_dragon_boss_actions(void *);
@@ -1428,9 +1428,9 @@ s32 set_global_state__16TObjEneRe7BeruraFi(void (*)(void));
 extern u8 TBoss8Dragon__data_804744A8[];
 extern u8 TBoss8Dragon__data_804744C8[];
 extern const f64 TBoss8Dragon__data_80474B28;
-extern s32 TBoss8Dragon__data_804E4C28[];
 extern s32 TBoss8Dragon__data_80541DC8[];
 extern u8 *TBoss8Dragon__data_80541DDC[];
+extern u32 TBoss8Dragon__data_805D6988;
 extern s32 TBoss8Dragon__data_805D698C;
 extern s32 TBoss8Dragon__data_805D6994;
 extern s32 TBoss8Dragon__data_805D6998;
@@ -1441,6 +1441,7 @@ extern u8 *TBoss8Dragon__data_805D69AC;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern u16 TBoss8Dragon__data_805D69BC;
 extern const f32 TBoss8Dragon__data_805DED50;
+extern const f32 TBoss8Dragon__data_805DED58;
 extern const f32 TBoss8Dragon__data_805DED64;
 extern const f32 TBoss8Dragon__data_805DED74;
 extern const f32 TBoss8Dragon__data_805DED7C;
@@ -1468,8 +1469,7 @@ extern const RecoveredGlobal_802FBA84_lbl_80474658 lbl_80474658;
 extern const RecoveredGlobal_802FBA84_lbl_804746CC lbl_804746CC;
 extern Eff_802FB828 lbl_80474AA4;
 extern S_802FB290 lbl_80474AB8;
-extern M2C_UNK lbl_804E5494[];
-extern M2C_UNK lbl_804E5534[];
+extern M2C_UNK lbl_80474B40[];
 extern u8 lbl_8050E208[];
 extern RecoveredGlobal_802F45A0_lbl_80541DE8 lbl_80541DE8;
 extern RecoveredGlobal_802F45A0_lbl_80541DF4 lbl_80541DF4;
@@ -1508,6 +1508,369 @@ extern const f32 lbl_805DEED0;
 extern const f32 lbl_805DEED4;
 extern const f32 lbl_805DEEDC;
 extern const f32 lbl_805DEEE0;
+extern void *tl_04;
+
+extern "C" void TBoss8DragonEffBullet__sub_802F8F88();
+extern "C" void TBoss8Dragon__sub_802F3D18();
+extern "C" void TBoss8Dragon__sub_802F3D6C();
+extern "C" void TBoss8Dragon__sub_802F4360();
+extern "C" void TBoss8Dragon__sub_802F4380();
+extern "C" void TBoss8Dragon__sub_802F4DD4();
+extern "C" void TBoss8Dragon__sub_802F5990();
+extern "C" void TBoss8Dragon__sub_802F5BA0();
+extern "C" void TBoss8Dragon__sub_802F5CC8();
+extern "C" void TBoss8Dragon__sub_802F610C();
+extern "C" void TBoss8Dragon__sub_802F6618();
+extern "C" void TBoss8Dragon__sub_802F6708();
+extern "C" void TBoss8Dragon__sub_802F6838();
+extern "C" void TBoss8Dragon__sub_802F6D1C();
+extern "C" void TBoss8Dragon__sub_802F72A8();
+extern "C" void TBoss8Dragon__sub_802F7B70();
+extern "C" void TBoss8Dragon__sub_802F8044();
+extern "C" void TBoss8Dragon__sub_802F8270();
+extern "C" void TBoss8Dragon__sub_802F8578();
+extern "C" void TBoss8Dragon__sub_802F87EC();
+extern "C" void TBoss8Dragon__sub_802F89F8();
+extern "C" void TBoss8Dragon__sub_802F951C();
+extern "C" void TBoss8Dragon__sub_802F9D08();
+extern "C" void TBoss8Dragon__sub_802FA4E4();
+extern "C" void TBoss8Dragon__sub_802FCF00();
+extern "C" void TBoss8Dragon__sub_802FDE68();
+extern "C" void TBoss8Dragon__sub_802FDE6C();
+extern "C" void TBoss8Dragon__sub_802FDE70();
+extern "C" void TBoss8Dragon__sub_802FDE74();
+extern "C" void TBoss8Dragon__sub_802FDE78();
+extern "C" void TBoss8Dragon__sub_802FDE7C();
+extern "C" void TBoss8Dragon__sub_802FDE80();
+extern "C" void TLobby__sub_801A1FD8();
+extern "C" void TObjEneDD__vt100();
+extern "C" void TObjEneDD__vt77();
+extern "C" void TObjEneDD__vt82();
+extern "C" void TObjEneDD__vt83();
+extern "C" void TObjEneDD__vt84();
+extern "C" void TObjEneDD__vt86();
+extern "C" void TObjEneDD__vt87();
+extern "C" void TObjEneDD__vt88();
+extern "C" void TObjEneDD__vt89();
+extern "C" void TObjEneDD__vt90();
+extern "C" void TObjEneDD__vt91();
+extern "C" void TObjEneDD__vt92();
+extern "C" void TObjEneDD__vt93();
+extern "C" void TObjEneDD__vt94();
+extern "C" void TObjEneDD__vt95();
+extern "C" void TObjEneDD__vt96();
+extern "C" void TObjEneDD__vt97();
+extern "C" void TObjEneDD__vt98();
+extern "C" void TObjEneDD__vt99();
+extern "C" void TObjEneEpsilon__vt101();
+extern "C" void TObjEneEpsilon__vt81();
+extern "C" void TObjPlayer__sub_8000FF3C();
+extern "C" u8 TObjPlayer__sub_800105E4[];
+extern "C" void TObjPlayer__sub_80010A80();
+extern "C" u8 TObjPlayer__sub_80010A84[];
+extern "C" u8 TObjPlayer__sub_80010B44[];
+extern "C" u8 TObjPlayer__sub_8001119C[];
+extern "C" void TObjPlayer__sub_800111D8();
+extern "C" u8 TObjPlayer__sub_80011210[];
+extern "C" u8 TObjPlayer__sub_80011704[];
+extern "C" u8 TObjPlayer__sub_80011824[];
+extern "C" u8 TObjPlayer__sub_8001401C[];
+extern "C" u8 TObjPlayer__sub_80014108[];
+extern "C" void TObjPlayer__sub_80014830();
+extern "C" void TObjPlayer__sub_80014838();
+extern "C" void TObjPlayer__sub_80014840();
+extern "C" void TObjPlayer__sub_80014890();
+extern "C" void TObjPlayer__sub_80014894();
+extern "C" void TObjPlayer__sub_80014898();
+extern "C" u8 TObjPlayer__sub_8001489C[];
+extern "C" u8 TObjPlayer__sub_80014900[];
+extern "C" u8 TObjPlayer__sub_80014B5C[];
+extern "C" u8 TObjPlayer__sub_80014C1C[];
+extern "C" u8 TObjPlayer__sub_80014C78[];
+extern "C" u8 TObjPlayer__sub_80014E74[];
+extern "C" u8 TObjPlayer__sub_80015DE8[];
+extern "C" u8 TObjPlayer__sub_800162E0[];
+extern "C" u8 TObjPlayer__sub_80016454[];
+extern "C" u8 TObjPlayer__sub_800166DC[];
+extern "C" u8 TObjPlayer__sub_80016944[];
+extern "C" void TObjPlayer__sub_80016C54();
+extern "C" u8 TObjPlayer__sub_80016D78[];
+extern "C" u8 TObjPlayer__sub_80016FF8[];
+extern "C" u8 TObjPlayer__sub_800171A0[];
+extern "C" void TObjPlayer__sub_800172CC();
+extern "C" u8 TObjPlayer__sub_8001745C[];
+extern "C" void TObjPlayer__sub_80018E6C();
+extern "C" u8 TObjPlayer__sub_80018EE4[];
+extern "C" u8 TObjPlayer__sub_80018F5C[];
+extern "C" u8 TObjPlayer__sub_80018F64[];
+extern "C" void TObjPlayer__sub_80019568();
+extern "C" void TObjPlayer__sub_800F65D0();
+extern "C" void TObjPlayer__sub_800F673C();
+extern "C" u8 TObjPlayer__sub_800F698C[];
+extern "C" void apply_switch_attack__10TObjPlayerFi();
+extern "C" void fn_80010EBC();
+extern "C" void fn_80010EC0();
+extern "C" void fn_80010EC4();
+extern "C" void fn_80010EC8();
+extern "C" void fn_800F5D80();
+extern "C" u8 fn_801A1F48[];
+extern "C" u8 fn_801A212C[];
+extern "C" u8 fn_801A2340[];
+extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
+extern "C" void get_pos__10TObjPlayerFii();
+extern "C" void has_flag_0x800__10TObjPlayerFPv();
+extern "C" u8 lbl_8047473C[];
+extern "C" u8 lbl_80474754[];
+extern "C" u8 lbl_8047476C[];
+extern "C" u8 lbl_80474784[];
+extern "C" u8 lbl_804747A0[];
+extern "C" u8 lbl_804747C0[];
+extern "C" u8 lbl_804747DC[];
+extern "C" u8 lbl_804747F8[];
+extern "C" u8 lbl_80474818[];
+extern "C" u8 lbl_80474834[];
+extern "C" u8 lbl_80474850[];
+extern "C" u8 lbl_8047486C[];
+extern "C" u8 lbl_8047488C[];
+extern "C" u8 lbl_804748A8[];
+extern "C" u8 lbl_804748C4[];
+extern "C" u8 lbl_804748E0[];
+extern "C" u8 lbl_804748FC[];
+extern "C" u8 lbl_80474918[];
+extern "C" u8 lbl_80474938[];
+extern "C" u8 lbl_80474958[];
+extern "C" u8 lbl_80474974[];
+extern "C" u8 lbl_80474990[];
+extern "C" u8 lbl_804749AC[];
+extern "C" u8 lbl_804749C8[];
+extern "C" u8 lbl_804749E8[];
+extern "C" u8 lbl_80474A04[];
+extern "C" u8 lbl_80474A24[];
+extern "C" u8 lbl_80474A44[];
+extern "C" u8 lbl_80474A64[];
+extern "C" u8 lbl_80474A80[];
+extern "C" void reset_pose__10TObjPlayerFPv();
+extern "C" void test_flag30_512__10TObjPlayerFPv();
+extern "C" void test_flag_1000__10TObjPlayerFPv();
+extern "C" void test_flag_256__10TObjPlayerFPv();
+extern "C" void trigger_switch_attack__10TObjPlayerFi();
+extern "C" void try_start_action__10TObjPlayerFPvii();
+extern "C" void try_update__12TBoss8DragonFPv();
+extern "C" void update_action_timer__10TObjPlayerFPv();
+extern "C" void update_flag30_timer__10TObjPlayerFPv();
+extern void *lbl_804E4D8C[4];
+extern void *lbl_804E4D9C[27];
+void TBoss8Dragon__sub_802F4B90(u8 *arg0, u32 arg1);
+void TBoss8Dragon__sub_802FCA58(u8 *arg0);
+u8 *TBoss8Dragon__sub_802FD354(u8 *arg0, s16 arg1);
+void *TBoss8Dragon__data_804E4C08[5] = {
+    (void *)0x12, (void *)0x14, (void *)0x15, (void *)0x16,
+    (void *)0x17,
+};
+void *lbl_804E4C1C[3] = {
+    (void *)0x11, (void *)0x12, (void *)0x13,
+};
+void *TBoss8Dragon__data_804E4C28[89] = {
+    (void *)0x0, (void *)0x1, (void *)0x2, (void *)0x3,
+    (void *)0x4, (void *)0x43610000, (void *)0x0, (void *)0x600,
+    (void *)0x500050, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41200000,
+    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x41200000, (void *)0x0,
+    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x0,
+    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x41700000, (void *)0x0, (void *)0x0, (void *)0x8003,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41700000,
+    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x41200000, (void *)0x0,
+    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x0,
+    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0,
+};
+void *lbl_804E4D8C[4] = {
+    (void *)&lbl_8047473C, (void *)&lbl_80474754, (void *)&lbl_8047476C, (void *)0x0,
+};
+void *lbl_804E4D9C[27] = {
+    (void *)&lbl_80474784, (void *)&lbl_804747A0, (void *)&lbl_804747C0, (void *)&lbl_804747DC,
+    (void *)&lbl_804747F8, (void *)&lbl_80474818, (void *)&lbl_80474834, (void *)&lbl_80474850,
+    (void *)&lbl_8047486C, (void *)&lbl_8047488C, (void *)&lbl_804748A8, (void *)&lbl_804748C4,
+    (void *)&lbl_804748E0, (void *)&lbl_804748FC, (void *)&lbl_80474918, (void *)&lbl_80474938,
+    (void *)&lbl_80474958, (void *)&lbl_80474974, (void *)&lbl_80474990, (void *)&lbl_804749AC,
+    (void *)&lbl_804749C8, (void *)&lbl_804749E8, (void *)&lbl_80474A04, (void *)&lbl_80474A24,
+    (void *)&lbl_80474A44, (void *)&lbl_80474A64, (void *)0x0,
+};
+void *lbl_804E4E08[116] = {
+    (void *)&lbl_80474A80, (void *)&lbl_804E4D8C, (void *)&lbl_804E4D9C, (void *)0x3001a,
+    (void *)0x10000, (void *)0xb, (void *)0x3f000000, (void *)0x0,
+    (void *)0x10000, (void *)0xd, (void *)0x3f000000, (void *)0x0,
+    (void *)0x30000, (void *)0xa, (void *)0x3f333333, (void *)0x0,
+    (void *)0x30000, (void *)0x12, (void *)0x3f666666, (void *)0x0,
+    (void *)0x30000, (void *)0x3, (void *)0x3f000000, (void *)0x0,
+    (void *)0x10000, (void *)0x4, (void *)0x3ecccccd, (void *)0x0,
+    (void *)0x30000, (void *)0x5, (void *)0x3f000000, (void *)0x0,
+    (void *)0x30000, (void *)0xc, (void *)0x3f000000, (void *)0x0,
+    (void *)0x20009, (void *)0x8, (void *)0x3f000000, (void *)0x0,
+    (void *)0x10000, (void *)0x2, (void *)0x3e99999a, (void *)0x0,
+    (void *)0x30000, (void *)0x9, (void *)0x3e99999a, (void *)0x0,
+    (void *)0x30000, (void *)0x11, (void *)0x3f19999a, (void *)0x0,
+    (void *)0x30000, (void *)0x10, (void *)0x3f000000, (void *)0x0,
+    (void *)0x30000, (void *)0xf, (void *)0x3f000000, (void *)0x0,
+    (void *)0x30000, (void *)0xe, (void *)0x3f000000, (void *)0x0,
+    (void *)0x30000, (void *)0x7, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x13, (void *)0x3f800000, (void *)0x0,
+    (void *)0x2000e, (void *)0x6, (void *)0x3f800000, (void *)0x0,
+    (void *)0x20010, (void *)0x14, (void *)0x3f8ccccd, (void *)0x0,
+    (void *)0x30000, (void *)0x0, (void *)0x3f000000, (void *)0x0,
+    (void *)0x10000, (void *)0x19, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x18, (void *)0x3f000000, (void *)0x0,
+    (void *)0x20017, (void *)0x17, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10000, (void *)0x15, (void *)0x3f800000, (void *)0x0,
+    (void *)0x20010, (void *)0x16, (void *)0x3f000000, (void *)0x80000000,
+    (void *)0x30000, (void *)0x17, (void *)0x3f800000, (void *)0x0,
+    (void *)0x30000, (void *)0x1, (void *)0x3f000000, (void *)0x80000000,
+    (void *)0x20008, (void *)0x11, (void *)0x3f19999a, (void *)0x0,
+};
+void *lbl_804E4FD8[3] = {
+    (void *)0x0, (void *)0x419e6666, (void *)0xc0a00000,
+};
+void *lbl_804E4FE4[3] = {
+    (void *)0x0, (void *)0x41cb70a4, (void *)0x4235ae14,
+};
+void *lbl_804E4FF0[9] = {
+    (void *)0x0, (void *)0x41b80000, (void *)0xc0400000, (void *)0x0,
+    (void *)0x42000000, (void *)0x0, (void *)0x0, (void *)0x41c80000,
+    (void *)0xc0a00000,
+};
+void *lbl_804E5014[288] = {
+    (void *)0x0, (void *)0x41300000, (void *)0x42200000, (void *)0x0,
+    (void *)0x40a00000, (void *)0x420c0000, (void *)0x0, (void *)0x42480000,
+    (void *)0x42700000, (void *)0x0, (void *)0x41a00000, (void *)0xc2f00000,
+    (void *)0x0, (void *)0x42f00000, (void *)0xc2f00000, (void *)0x0,
+    (void *)0x41c80000, (void *)0xc1f00000, (void *)0x0, (void *)0x42480000,
+    (void *)0xc2a00000, (void *)0x0, (void *)0x42f00000, (void *)0x42480000,
+    (void *)0x0, (void *)0x43960000, (void *)0xc1f00000, (void *)0x0,
+    (void *)0x42200000, (void *)0x0, (void *)0x43960000, (void *)0x42f00000,
+    (void *)0x42480000, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802FA478,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802FA374, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802FA16C, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F9D08, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F9B8C,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F9850, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F951C, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8DragonEffBullet__sub_802F8F88, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F8578,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F8270, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F8578, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F8578, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F8578,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F8150, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F8044, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F7B70, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F7B4C,
+    (void *)0x0, (void *)0xffffffff, (void *)&action_17__12TBoss8DragonFPvi, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F75C8, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F6D1C, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F6838,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F6708, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F6618, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F645C, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F610C,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F5F64, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F5CC8, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F5BA0, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F5990,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F4DD4, (void *)0x0,
+    (void *)0xffffffff, (void *)&action__12TBoss8DragonFPvi, (void *)0x0, (void *)0xffffffff,
+    (void *)&update_wander_state__12TBoss8DragonFPvi, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F89F8,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F72A8, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F57E4, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F5644, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F5434,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F51DC, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F9A4C, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_802F87EC, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_802F4B90,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804E5494[16] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x438c0000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x433e0000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x43340000, (void *)0x0, (void *)0x0,
+};
+void *lbl_804E54D4[12] = {
+    (void *)0x0, (void *)0x43340000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x43fa0000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804E5504[12] = {
+    (void *)0x0, (void *)0x43340000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x44610000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0xc3c80000, (void *)0x0, (void *)0x0,
+};
+void *lbl_804E5534[107] = {
+    (void *)0x0, (void *)0x0, (void *)&TBoss8Dragon__sub_802FD354, (void *)&TBoss8Dragon__sub_802FCF00,
+    (void *)&TBoss8Dragon__sub_802F4380, (void *)&try_update__12TBoss8DragonFPv, (void *)&TLobby__sub_801A1FD8, (void *)&fn_801A1F48,
+    (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
+    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&TObjPlayer__sub_80011210, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&TObjPlayer__sub_80018E6C, (void *)&TObjPlayer__sub_80011704,
+    (void *)&TObjPlayer__sub_80016454, (void *)&TObjPlayer__sub_80015DE8, (void *)&TObjPlayer__sub_80014108, (void *)&TBoss8Dragon__sub_802F3D18,
+    (void *)&TObjPlayer__sub_80011824, (void *)&TObjPlayer__sub_8001401C, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&TObjPlayer__sub_800162E0,
+    (void *)&TBoss8Dragon__sub_802FCD0C, (void *)&TObjPlayer__sub_8000FF3C, (void *)&TObjPlayer__sub_8001745C, (void *)&test_flag_256__10TObjPlayerFPv,
+    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800171A0,
+    (void *)&TObjPlayer__sub_80016FF8, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80016D78,
+    (void *)&TObjPlayer__sub_80016C54, (void *)&TObjPlayer__sub_80016944, (void *)&TObjPlayer__sub_800166DC, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&TBoss8Dragon__sub_802FDE68, (void *)&TBoss8Dragon__sub_802FDE6C, (void *)&TBoss8Dragon__sub_802FDE70, (void *)&TBoss8Dragon__sub_802FDE74,
+    (void *)&TBoss8Dragon__sub_802FDE78, (void *)&TBoss8Dragon__sub_802FDE7C, (void *)&TBoss8Dragon__sub_802FDE80, (void *)&TObjPlayer__sub_80014E74,
+    (void *)&TObjPlayer__sub_80014C78, (void *)&TObjPlayer__sub_80014C1C, (void *)&TObjPlayer__sub_80014B5C, (void *)&TObjPlayer__sub_80014900,
+    (void *)&TObjPlayer__sub_8001489C, (void *)&TObjPlayer__sub_800105E4, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
+    (void *)&TObjPlayer__sub_80014890, (void *)&TBoss8Dragon__sub_802FCD00, (void *)&TBoss8Dragon__sub_802FCD04, (void *)&TBoss8Dragon__sub_802FCD08,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&TObjPlayer__sub_80010B44, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&TObjPlayer__sub_80010A84, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&TObjPlayer__sub_800F673C, (void *)&TObjPlayer__sub_800F698C, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TBoss8Dragon__sub_802FA4E4,
+    (void *)&TBoss8Dragon__sub_802FCA58, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
+    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
+    (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
+    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
+    (void *)&TObjEneEpsilon__vt101, (void *)&TBoss8Dragon__sub_802F4360, (void *)&TBoss8Dragon__sub_802F3D6C,
+};
+#define TBoss8Dragon__data_804E4C28 ((s32 *)TBoss8Dragon__data_804E4C28)
+#define lbl_804E5494 ((M2C_UNK *)lbl_804E5494)
+#define lbl_804E5534 ((M2C_UNK *)lbl_804E5534)
 
 void TBoss8Dragon__sub_802F44D8(Obj_802F44D8 *o) {
     s32 saved = o->f34;
@@ -2663,7 +3026,7 @@ void TBoss8Dragon__sub_802FAE74(u8 *arg0) {
             return;
         }
     }
-    TBoss8Dragon__sub_802FD9D0();
+    ((M2C_UNK (*)(void))TBoss8Dragon__sub_802FD9D0)();
 }
 extern int fold_flush_5;
 #pragma pop
@@ -3290,6 +3653,82 @@ u8 *TBoss8Dragon__sub_802FD354(u8 *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+void TBoss8Dragon__sub_802FD9D0(void) { (*(int *)&TBoss8Dragon__data_805D69B8) = 0; }
+
+void free_static__12TBoss8DragonFv(void) {
+    if ((u32) (*(u32 *)&TBoss8Dragon__data_805D69A8) != 0U) {
+        safe_free__23TAdSinglePlyChrSelectGCFUi((void*)(*(u32 *)&TBoss8Dragon__data_805D69A8));
+        (*(u32 *)&TBoss8Dragon__data_805D69A8) = 0U;
+    }
+    if ((u32) TBoss8Dragon__data_805D6988 != 0U) {
+        TLobby__sub_8001FE7C((void*)TBoss8Dragon__data_805D6988, 1);
+        TBoss8Dragon__data_805D6988 = 0U;
+    }
+}
+
+void *create__12TBoss8DragonFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x8A4);
+    if (o != NULL) {
+        o = TBoss8Dragon__ct(o, tl_04, arg0);
+    }
+    return o;
+}
+
+void TBoss8Dragon__sub_802FDC1C(Vec_802FDC1C *arg0, Vec_802FDC1C *arg1) {
+    s32 mode;
+    s32 idx;
+
+    if (TBoss8Dragon__data_805D69AC == NULL) {
+        mode = 1;
+    } else if (find_target_enemy__12TBoss8DragonFv() != 0) {
+        mode = 0;
+    } else if (M2C_FIELD(TBoss8Dragon__data_805D69AC, s16 *, 0x326) == 0x17) {
+        mode = 1;
+    } else {
+        switch (M2C_FIELD(TBoss8Dragon__data_805D69AC, s32 *, 0x3E4)) {
+        case 0:
+        default:
+            idx = 0;
+            break;
+        case 1:
+            idx = 1;
+            break;
+        case 2:
+            idx = 2;
+            break;
+        }
+        VecCopy__FP3VecPC3Vec(arg0, (Vec_802FDC1C *) lbl_804E4FF0 + idx);
+        VecCopy__FP3VecPC3Vec(arg1, (Vec_802FDC1C *) lbl_804E5014 + idx);
+        if (M2C_FIELD(TBoss8Dragon__data_805D69AC, u32 *, 0x64C) == 1) {
+            arg1->y += TBoss8Dragon__data_805DEEA4;
+            arg1->z += TBoss8Dragon__data_805DEEA4;
+        }
+        return;
+    }
+    arg0->x = TBoss8Dragon__data_805DED50;
+    arg1->x = TBoss8Dragon__data_805DED50;
+    switch (mode) {
+    case 1:
+    default:
+        if (get_camera_id__11TCameraCtrlFv() == 2) {
+            VecCopy__FP3VecPC3Vec(arg0, lbl_804E4FD8);
+            VecCopy__FP3VecPC3Vec(arg1, lbl_804E4FE4);
+            break;
+        }
+        arg0->y = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p4[0];
+        arg0->z = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p4[1];
+        arg1->y = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p4[2];
+        arg1->z = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p4[3];
+        break;
+    case 0:
+        arg0->y = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p4[4];
+        arg0->z = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p4[5];
+        arg1->y = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p8[0];
+        arg1->z = (*(Cam_802FDC1C *)&TBoss8Dragon__data_80541DDC).p8[1];
+        break;
+    }
 }
 
 }

@@ -490,18 +490,9 @@ pso/player/TObjPlayer_80042D90.cpp:
 	.text       start:0x80042D90 end:0x80042F84
 
 pso/boss/TBoss3VoloptP01.cpp:
-	.text       start:0x80042F84 end:0x80043EA4
-	.data       start:0x804843B8 end:0x804843E0
-
-pso/boss/TBoss3VoloptP01_80043EA4.cpp:
-	.text       start:0x80043EA4 end:0x80043EE8
-
-pso/boss/TBoss3VoloptP01_80043EE8.cpp:
-	.text       start:0x80043EE8 end:0x80043F8C
-
-pso/boss/TBoss3VoloptP01_80043F8C.cpp:
-	.text       start:0x80043F8C end:0x800443DC
+	.text       start:0x80042F84 end:0x800443DC
 	.rodata     start:0x80436648 end:0x80436650
+	.data       start:0x80484170 end:0x804843E0
 
 pso/unk/text_800443DC.cpp:
 	.text       start:0x800443DC end:0x80044420
@@ -1744,30 +1735,9 @@ pso/enemy/TObjEneRe7Berura_80092CCC.cpp:
 pso/enemy/TObjEneRe7Berura_8009358C.cpp:
 	.text       start:0x8009358C end:0x80094994
 
-pso/enemy/TObjEneRe7Berura_80094994.cpp:
-	.text       start:0x80094994 end:0x80094DB4
-	.data       start:0x8048F900 end:0x8048F930
-
-pso/enemy/TObjEneRe7Berura_80094DB4.cpp:
-	.text       start:0x80094DB4 end:0x80094EA8
-
-pso/enemy/TObjEneRe7Berura_80094EA8.cpp:
-	.text       start:0x80094EA8 end:0x80094EE0
-
-pso/enemy/TObjEneRe7Berura_80094EE0.cpp:
-	.text       start:0x80094EE0 end:0x80094F40
-
-pso/enemy/TObjEneRe7Berura_80094F40.cpp:
-	.text       start:0x80094F40 end:0x80094F64
-
-pso/enemy/TObjEneRe7Berura_80094F64.cpp:
-	.text       start:0x80094F64 end:0x80095328
-
 pso/enemy/TObjEneRe7Berura.cpp:
-	.text       start:0x80095328 end:0x80095394
-
-pso/enemy/TObjEneRe7Berura_80095394.cpp:
-	.text       start:0x80095394 end:0x80095E18
+	.text       start:0x80094994 end:0x80095E18
+	.data       start:0x8048F650 end:0x8048F930
 	.bss        start:0x805007C8 end:0x805007D4
 
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp:
@@ -1826,55 +1796,12 @@ pso/unk/text_8009A6AC.cpp:
 pso/unk/text_8009A704.cpp:
 	.text       start:0x8009A704 end:0x8009A7A0
 
-pso/enemy/TObjEneMe1CanadinLeader_8009A7A0.cpp:
-	.text       start:0x8009A7A0 end:0x8009B9C8
-	.rodata     start:0x8043A390 end:0x8043A398
-	.data       start:0x8049018C end:0x804901B4
-
-pso/enemy/TObjEneMe1Canadin_8009B9C8.cpp:
-	.text       start:0x8009B9C8 end:0x8009BD00
-
-pso/unk/text_8009BD00.cpp:
-	.text       start:0x8009BD00 end:0x8009BDA8
-	.data       start:0x804901B4 end:0x804901F0
-
-pso/enemy/TObjEneMe1Canadin_8009BDA8_8009BDA8.cpp:
-	.text       start:0x8009BDA8 end:0x8009BFF8
-
-pso/enemy/TObjEneMe1Canadin_8009BDA8_8009BFF8.cpp:
-	.text       start:0x8009BFF8 end:0x8009C7D8
-	.sdata2     start:0x805D98C0 end:0x805D98D0
-
-pso/enemy/TObjEneMe1Canadin_8009BDA8.cpp:
-	.text       start:0x8009C7D8 end:0x8009D800
-
-pso/enemy/TObjEneMe1Canadin_8009BDA8_8009D800.cpp:
-	.text       start:0x8009D800 end:0x8009E1D4
-	.data       start:0x804901F0 end:0x80490238
-
-pso/unk/text_8009E1D4.cpp:
-	.text       start:0x8009E1D4 end:0x8009E238
-
-pso/enemy/TObjEneMe1CanadinLeader_8009E238.cpp:
-	.text       start:0x8009E238 end:0x8009E3E4
-
-pso/enemy/TObjEneMe1Canadin_8009E3E4.cpp:
-	.text       start:0x8009E3E4 end:0x8009EA54
-
 pso/enemy/TObjEneMe1Canadin.cpp:
-	.text       start:0x8009EA54 end:0x8009EB6C
-
-pso/enemy/TObjEneMe1Canadin_8009EB6C.cpp:
-	.text       start:0x8009EB6C end:0x8009EC00
-
-pso/enemy/TObjEneMe1Canadin_8009EC00.cpp:
-	.text       start:0x8009EC00 end:0x8009EC50
-
-pso/enemy/TObjEneMe1Canadin_8009EC50.cpp:
-	.text       start:0x8009EC50 end:0x8009ECE0
-
-pso/enemy/TObjEneMe1Canadin_8009ECE0.cpp:
-	.text       start:0x8009ECE0 end:0x8009F410
+	.text       start:0x8009A7A0 end:0x8009F410
+	.rodata     start:0x8043A390 end:0x8043A398
+	.data       start:0x8048FEB0 end:0x80490238
+	.bss        start:0x80500930 end:0x80500960
+	.sdata2     start:0x805D98C0 end:0x805D98D0
 
 pso/unk/text_8009F410.cpp:
 	.text       start:0x8009F410 end:0x8009F4A0
@@ -2340,21 +2267,9 @@ pso/object/TObjGyaranzoMissile_800D1F84.cpp:
 pso/unk/text_800D2900.cpp:
 	.text       start:0x800D2900 end:0x800D2CE4
 
-pso/unk/text_800D2CE4.cpp:
-	.text       start:0x800D2CE4 end:0x800D3A68
-	.data       start:0x804943D4 end:0x804943FC
-
-pso/player/TObjPlayer_800D3A68.cpp:
-	.text       start:0x800D3A68 end:0x800D3B38
-
 pso/enemy/TObjEneGyaranzo.cpp:
-	.text       start:0x800D3B38 end:0x800D3E54
-
-pso/unk/text_800D3E54.cpp:
-	.text       start:0x800D3E54 end:0x800D3ED8
-
-pso/unk/text_800D3ED8.cpp:
-	.text       start:0x800D3ED8 end:0x800D40D8
+	.text       start:0x800D2CE4 end:0x800D40D8
+	.data       start:0x80494108 end:0x804943FC
 
 pso/object/TObjGyaranzoMissile_800D40D8.cpp:
 	.text       start:0x800D40D8 end:0x800D4600
@@ -2487,24 +2402,9 @@ pso/player/TObjPlayer_800DA0B8.cpp:
 pso/player/TObjPlayer_800DA0B8_800DB920.cpp:
 	.text       start:0x800DB920 end:0x800DBAB8
 
-pso/player/TObjPlayer_800DA0B8_800DBAB8.cpp:
-	.text       start:0x800DBAB8 end:0x800DBDCC
-	.data       start:0x80494DDC end:0x80494E10
-
-pso/player/TObjPlayer_800DA0B8_800DBDCC.cpp:
-	.text       start:0x800DBDCC end:0x800DBF88
-
 pso/enemy/TObjEneNanoDrago_800DBF88.cpp:
-	.text       start:0x800DBF88 end:0x800DBFF0
-
-pso/misc/TLobby_800DBFF0.cpp:
-	.text       start:0x800DBFF0 end:0x800DC0FC
-
-pso/unk/text_800DC0FC.cpp:
-	.text       start:0x800DC0FC end:0x800DC180
-
-pso/unk/text_800DC180.cpp:
-	.text       start:0x800DC180 end:0x800DC410
+	.text       start:0x800DBAB8 end:0x800DC410
+	.data       start:0x80494B10 end:0x80494E10
 
 pso/enemy/TObjEneNanoDrago.cpp:
 	.text       start:0x800DC410 end:0x800DC420
@@ -2547,18 +2447,9 @@ pso/enemy/TObjEneMe3ShinowaMirage.cpp:
 pso/enemy/TObjEneMe3ShinowaReal.cpp:
 	.text       start:0x800E4490 end:0x800E47DC
 
-pso/enemy/TObjEneMe3ShinowaMirage_800E47DC.cpp:
-	.text       start:0x800E47DC end:0x800E71A8
-	.data       start:0x80495EF8 end:0x80495F3C
-
-pso/enemy/TObjEneMe3Shinowa_800E71A8.cpp:
-	.text       start:0x800E71A8 end:0x800E728C
-
-pso/enemy/TObjEneMe3ShinowaMirage_800E728C.cpp:
-	.text       start:0x800E728C end:0x800E762C
-
 pso/enemy/TObjEneMe3Shinowa.cpp:
-	.text       start:0x800E762C end:0x800E7A70
+	.text       start:0x800E47DC end:0x800E7A70
+	.data       start:0x80495BE0 end:0x80495F3C
 
 pso/enemy/TObjEneMe3ShinowaMirage_800E7A70.cpp:
 	.text       start:0x800E7A70 end:0x800E80A4
@@ -2619,20 +2510,8 @@ pso/enemy/TObjEneRe4Bit_800EDC90.cpp:
 	.text       start:0x800EDC90 end:0x800EDCCC
 
 pso/enemy/TObjEneRe4Sorcerer_800EDCCC.cpp:
-	.text       start:0x800EDCCC end:0x800EF56C
-	.data       start:0x80497194 end:0x804971BC
-
-pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EF56C.cpp:
-	.text       start:0x800EF56C end:0x800EFE30
-
-pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE30.cpp:
-	.text       start:0x800EFE30 end:0x800EFE44
-
-pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFE44.cpp:
-	.text       start:0x800EFE44 end:0x800EFED8
-
-pso/enemy/TObjEneRe4Sorcerer_800EDCCC_800EFED8.cpp:
-	.text       start:0x800EFED8 end:0x800F0810
+	.text       start:0x800EDCCC end:0x800F0810
+	.data       start:0x80496EE0 end:0x804971BC
 	.sdata2     start:0x805DA798 end:0x805DA7D4
 
 pso/player/TObjPlayer_800F0810.cpp:
@@ -12765,15 +12644,9 @@ pso/boss/TBoss8Dragon_802F4480.cpp:
 	.text       start:0x802F4480 end:0x802F44D8
 
 pso/boss/TBoss8Dragon.cpp:
-	.text       start:0x802F44D8 end:0x802FD9D0
+	.text       start:0x802F44D8 end:0x802FDDD4
 	.rodata     start:0x80474B10 end:0x80474B18
-	.data       start:0x804E56E0 end:0x804E5E78
-
-pso/boss/TBoss8Dragon_802FD9D0.cpp:
-	.text       start:0x802FD9D0 end:0x802FDA78
-
-pso/boss/TBoss8Dragon_802FDA78.cpp:
-	.text       start:0x802FDA78 end:0x802FDDD4
+	.data       start:0x804E4C08 end:0x804E5E78
 
 pso/slices/pso_carve_802fddd4.cpp:
 	.text       start:0x802FDDD4 end:0x802FDE68
@@ -13154,63 +13027,9 @@ pso/enemy/TObjEneMe3SinowZoa_80317788.cpp:
 pso/enemy/TObjEneMe3SinowZoa_80317828.cpp:
 	.text       start:0x80317828 end:0x8031786C
 
-pso/enemy/TObjEneMe3SinowZoa_8031786C.cpp:
-	.text       start:0x8031786C end:0x80319FFC
-
-pso/enemy/TObjEneMe3SinowZoa_80319FFC.cpp:
-	.text       start:0x80319FFC end:0x8031A178
-
-pso/enemy/TObjEneMe3SinowZoa_8031A178.cpp:
-	.text       start:0x8031A178 end:0x8031A454
-	.data       start:0x804E8B3C end:0x804E8B88
-
-pso/enemy/TObjEneMe3SinowZoa_8031A454.cpp:
-	.text       start:0x8031A454 end:0x8031A494
-
-pso/enemy/TObjEneMe3SinowZoa_8031A494.cpp:
-	.text       start:0x8031A494 end:0x8031A4E8
-
-pso/enemy/TObjEneMe3SinowZoa_8031A4E8.cpp:
-	.text       start:0x8031A4E8 end:0x8031A590
-
 pso/enemy/TObjEneMe3SinowZoa.cpp:
-	.text       start:0x8031A590 end:0x8031A598
-
-pso/enemy/TObjEneMe3SinowZoa_8031A598.cpp:
-	.text       start:0x8031A598 end:0x8031A628
-
-pso/enemy/TObjEneMe3SinowZoa_8031A628.cpp:
-	.text       start:0x8031A628 end:0x8031A62C
-
-pso/enemy/TObjEneMe3SinowZoa_8031A62C.cpp:
-	.text       start:0x8031A62C end:0x8031A6A0
-
-pso/enemy/TObjEneMe3SinowZoa_8031A6A0.cpp:
-	.text       start:0x8031A6A0 end:0x8031AA20
-
-pso/enemy/TObjEneMe3SinowZoa_8031AA20.cpp:
-	.text       start:0x8031AA20 end:0x8031AB64
-
-pso/enemy/TObjEneMe3SinowZoa_8031AB64.cpp:
-	.text       start:0x8031AB64 end:0x8031ABBC
-
-pso/enemy/TObjEneMe3SinowZoa_8031ABBC.cpp:
-	.text       start:0x8031ABBC end:0x8031ABC0
-
-pso/slices/pso_carve_8031abc0.cpp:
-	.text       start:0x8031ABC0 end:0x8031AC40
-
-pso/enemy/TObjEneMe3SinowZoa_8031AC40.cpp:
-	.text       start:0x8031AC40 end:0x8031AC74
-
-pso/enemy/TObjEneMe3SinowZoa_8031AC74.cpp:
-	.text       start:0x8031AC74 end:0x8031AEE8
-
-pso/enemy/TObjEneMe3SinowZoa_8031AEE8.cpp:
-	.text       start:0x8031AEE8 end:0x8031AF88
-
-pso/enemy/TObjEneMe3SinowZoa_8031AF88.cpp:
-	.text       start:0x8031AF88 end:0x8031B124
+	.text       start:0x8031786C end:0x8031B124
+	.data       start:0x804E87A8 end:0x804E8B88
 
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp:
 	.text       start:0x8031B124 end:0x8031B170
