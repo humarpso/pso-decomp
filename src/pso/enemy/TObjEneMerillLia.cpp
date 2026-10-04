@@ -244,6 +244,12 @@ struct Vec_800D57C8 { s32 x, y, z; };
 
 struct Vec_800D6618 { f32 x, y, z; };
 
+struct Stack_800D4D74 {
+    M2C_UNK sp8;
+    f32 spC;
+    f32 sp10;
+};
+
 extern "C" {
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
@@ -328,7 +334,6 @@ extern s32 lbl_805D5550;
 s32 TObjEneMerillLia__sub_800D5100(Obj_800D5100 *self);
 void set_param__12TObjEneLappyFPvi(void *p, s32 v);
 void TObjEneMerillLia__sub_800D5150(Obj_800D5150 *self);
-s32 TObjEneMerillLia__sub_800D4D74(void *);
 s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 s32 TBoss3Volopt__sub_800D8E80(void *);
 s32 advance_animation_playback(void *);
@@ -340,7 +345,6 @@ void TObjEneMerillLia__sub_800D51C8(Ene_800D51C8 *arg0);
 s16 find_nearest_visible_player(void *, s32, f32);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
-s32 TObjEneMerillLia__sub_800D4D74(void *);
 void TObjEneMerillLia__sub_800D501C(s32 arg0);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
@@ -387,7 +391,6 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_800C4E08(void *);
 M2C_UNK update_target_near_flag(void *);
-s32 TObjEneMerillLia__sub_800D4D74(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 advance_animation_playback(void *);
 s32 test_elt_flag__10TObjPlayerFPvii(void *, int, int);
@@ -398,6 +401,22 @@ extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA31C;
 extern const f32 lbl_805DA320;
 void TObjEneMerillLia__sub_800D6618(u8 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void attach_particle_model(void *, s32, s32, s32, s32, f32);
+u8 * csnVectorUnder(s32, void *, s32);
+s32 TParticleCtrl__sub_80086884(s32);
+int get_instance__13TParticleCtrlFv(void);
+s32 spawn_particle_effect(s32, s32);
+void fn_800D88E4(s32);
+s32 objInBand__FP7GameObjf(void *, f32);
+s32 rand(void);
+extern s32 lbl_805D53A4;
+extern const f32 lbl_805DA2EC;
+extern const f32 lbl_805DA2F0;
+extern const f32 TObjEneMerillLia__data_805DA2F4;
+extern const f32 lbl_805DA2F8;
+extern const f32 lbl_805DA2FC;
+void TObjEneMerillLia__sub_800D4D74(u8 *arg0);
 }
 
 extern "C" {
@@ -426,6 +445,30 @@ M2C_UNK obj_setFlags30(void *, M2C_UNK);
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 
 void TObjEneMerillLia__sub_800D4D70(void) {  }
+
+void TObjEneMerillLia__sub_800D4D74(u8 *arg0) {
+    typedef char sp8_offset[(offsetof(Stack_800D4D74, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800D4D74, spC) == 0x4) ? 1 : -1];
+    Stack_800D4D74 stack;
+    s32 temp_r29;
+    s32 temp_r3_2;
+    u8 *temp_r3;
+    VecCopy__FP3VecPC3Vec(&stack.sp8, arg0 + 0x38);
+    stack.spC += lbl_805DA2EC;
+    temp_r3 = (u8 *)(csnVectorUnder((s32) &stack.sp8, arg0 + 0x120, 5));
+    if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, s32 *, 0) & 4)) {
+        if (((s32) ((f32) lbl_805D53A4 * (lbl_805DA2F0 * (f32) rand())) % 5) == 0) {
+            temp_r3_2 = spawn_particle_effect(M2C_FIELD(temp_r3, s32 *, 4) + 0x38, 0x49);
+            if (temp_r3_2 != 0) {
+                attach_particle_model((void *) temp_r3_2, TParticleCtrl__sub_80086884(2), get_instance__13TParticleCtrlFv(), 0, 1, TObjEneMerillLia__data_805DA2F4);
+            }
+            spawn_particle_effect(M2C_FIELD(temp_r3, s32 *, 4) + 0x38, 0xA4);
+        }
+        if ((objInBand__FP7GameObjf(arg0, lbl_805DA2F8) != 0) || (objInBand__FP7GameObjf(arg0, lbl_805DA2FC) != 0)) {
+            fn_800D88E4((s32) (arg0 + 0x38));
+        }
+    }
+}
 
 void TObjEneMerillLia__sub_800D4EC8(s32 arg0) {
     play_sound_effect((void *) (copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x3AD04))), (void *) (arg0 + 0x38), (int) (0), (int) (0));
@@ -657,7 +700,7 @@ void TObjEneMerillLia__sub_800D5570(Obj_800D5570 *arg0) {
         TBoss3Volopt__sub_800D8E80(arg0->sub38);
         break;
     case 1:
-        TObjEneMerillLia__sub_800D4D74(arg0);
+        TObjEneMerillLia__sub_800D4D74((u8 *)(arg0));
         if (((VObj_14_800D5570 *)((u8 *)arg0 + 0x3A8))->m5() != 0) {
             arg0->state = 2;
         }
@@ -746,7 +789,7 @@ void TObjEneMerillLia__sub_800D64F0(Ene_800D64F0 *arg0) {
         }
         break;
     case 1:
-        TObjEneMerillLia__sub_800D4D74(arg0);
+        TObjEneMerillLia__sub_800D4D74((u8 *)(arg0));
         if (objInBand__FP7GameObjf(arg0, lbl_805DA304) != 0) {
             TObjEneMerillLia__sub_800D501C((s32)arg0);
         }
@@ -779,7 +822,7 @@ void TObjEneMerillLia__sub_800D6618(u8 *arg0) {
         }
         break;
     default:
-        TObjEneMerillLia__sub_800D4D74(arg0);
+        TObjEneMerillLia__sub_800D4D74((u8 *)(arg0));
         if (M2C_FIELD(arg0, u32 *, 0x2A8) != 0U) {
             if (test_elt_flag__10TObjPlayerFPvii(arg0, 0, 0x300000) != 0) {
                 if ((f32) M2C_FIELD(arg0, u32 *, 0x38C)++ < lbl_805DA31C) {

@@ -26,6 +26,16 @@ struct E_80420D38 { u8 pad0[4]; u16 f4; u8 pad6[8]; u16 fE; u8 pad10[0x30]; s32 
 
 struct G_80420D38 { s16 count; u8 pad2[6]; E_80420D38 *ents; };
 
+struct Addr_80420FC8 { u32 family; u8 a[0x10]; };
+
+struct E_80420FC8 { u8 pad0[4]; u16 f4; u8 f6[2]; u16 f8; s16 fA; s16 fC; u8 padE[2]; u16 f10; u8 pad12[2]; Addr_80420FC8 f14; Addr_80420FC8 f28; u8 pad3C[4]; s32 f40; };
+
+struct G_80420FC8 { s16 count; u8 pad2[6]; E_80420FC8 *ents; };
+
+struct Item_80420FC8 { s16 len; u8 pad2[2]; u8 data[8]; };
+
+struct Pkt_80420FC8 { u8 pad0[4]; s32 count; s32 len; Item_80420FC8 items[1]; };
+
 extern "C" {
 M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
@@ -37,6 +47,15 @@ s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
+void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
+s16 TLobby__sub_8040D86C(void *, void *, void *, s32, s32, int);
+s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
+s16 TLobby__sub_8040D95C(void *, void *);
+s16 TLobby__sub_8040DA54(void *, void *);
+s16 TLobby__sub_8040DB94(void *);
+void TLobby__sub_80422E30(s16, s32, s32, s16);
+extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
+s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
 }
 
 extern "C" {
@@ -129,5 +148,56 @@ s32 TLobby__sub_80420D38(u16 arg0, u8 arg1) {
     }
     return 0;
 }
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void add_item_80420FC8(Pkt_80420FC8 *pkt, void *data, s32 len) {
+    s32 n = pkt->count;
+    s32 off = pkt->len;
+    pkt->items[n].len = len;
+    pkt->len = off + len;
+    set_value_and_enable__6TLobbyFPvi(pkt->items[n].data, (s32)data);
+    pkt->count++;
+}
+s16 TLobby__sub_80420FC8(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5) {
+    s16 r;
+    E_80420FC8 *e;
+    if (id < 0 || id >= ((G_80420FC8 *)&lbl_805C1DF0)->count) {
+        return -4;
+    }
+    e = ((G_80420FC8 *)&lbl_805C1DF0)->ents;
+    e += id;
+    if (e->f4 == 0) {
+        return -4;
+    }
+    if (TLobby__sub_8040DB94(&e->f28) == 0) {
+        dst = &e->f28;
+    }
+    if (e->f14.family != 0) {
+        src = &e->f14;
+    }
+    if (src->family != 0 && src->family != dst->family) {
+        return -2;
+    }
+    if (e->f10 != 0) {
+        e->f8 = e->f10;
+    } else {
+        e->f8 = port;
+    }
+    if (TLobby__sub_8040DA54(dst, src) == 0) {
+        TLobby__sub_80422E30(id, e->f40, 2, 0x80);
+        return -6;
+    }
+    r = TLobby__sub_8040D95C(src, dst);
+    if (r < 0) {
+        return r;
+    }
+    e->fA = pkt->len + 8;
+    add_item_80420FC8(pkt, e->f6, 8);
+    e->fC = 0;
+    e->fC = TLobby__sub_8040D8F0(src, dst, 0x11, pkt, 1);
+    return TLobby__sub_8040D86C(pkt, dst, src, arg5 + 4, arg5 + 4, 0x11);
+}
+#pragma pop
 
 }

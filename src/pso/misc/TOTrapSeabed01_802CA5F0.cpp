@@ -41,7 +41,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 TOTrap__ct(void *);
-s32 TOTrapSeabed01__sub_802CA5F4(void *);
+void TOTrapSeabed01__sub_802CA5F4(void *);
 extern RecoveredGlobal_802CA9AC_lbl_804E0FB8 lbl_804E0FB8;
 extern M2C_UNK __vt__14TOTrapSeabed01[];
 extern s32 lbl_805D3F10;

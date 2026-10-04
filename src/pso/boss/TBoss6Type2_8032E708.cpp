@@ -124,6 +124,8 @@ typedef struct Vec_8032ECE0 { f32 x; f32 y; f32 z; } Vec_8032ECE0;
 
 typedef struct Vec_8032F690 { f32 x; f32 y; f32 z; } Vec_8032F690;
 
+typedef struct Vec_8032F418 { f32 x; f32 y; f32 z; } Vec_8032F418;
+
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 apply_direction_sign__11TBoss6Type2FPvf(void *arg0, f32 farg0);
@@ -268,6 +270,21 @@ extern const f32 lbl_805DF800;
 extern const f32 lbl_805DF840;
 extern const f32 lbl_805DF844;
 void TBoss6Type2__sub_8032F690(u8 *arg0);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void TBoss6Rock__sub_80353C60(void *, f32);
+void TBoss6Type2__sub_80356E88(s32, void *, s32);
+s32 rand(void);
+f32 sin_table_lookup(void *);
+f32 cos_table_lookup(void *);
+extern s32 lbl_80477444[];
+extern const f32 lbl_805DF7F0;
+extern const f32 lbl_805DF7FC;
+extern const f32 lbl_805DF828;
+extern const f32 lbl_805DF82C;
+extern const f32 lbl_805DF830;
+extern const f32 lbl_805DF834;
+extern const f32 lbl_805DF838;
+void TBoss6Type2__sub_8032F418(u8 *arg0);
 }
 
 extern "C" {
@@ -281,7 +298,6 @@ void set_action_field_0x408__11TBoss6Type2FPvs(void* p, s16 v);
 void set_anim_frame__11TBoss6Type2FPvi(void* p, s32 v);
 void set_target_nodes__11TBoss6Type2FPvPvPv(void* p, void* a1, void* a2);
 void update_rotation_ramp__11TBoss6Type2FPv(void *arg0);
-M2C_UNK TBoss6Type2__sub_8032F418(void *);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 s32 TLobby__sub_800C6C10();
@@ -622,7 +638,7 @@ void update_rotation_ramp__11TBoss6Type2FPv(void *arg0) {
                 u32 tmp378 = (u32) M2C_FIELD(arg0, u32 *, 0x378);
                 if (tmp378 != 0U) {
                     if (get_rotation_timer__11TBoss6Type2FPv(tmp378) == 0) {
-                        TBoss6Type2__sub_8032F418(arg0);
+                        TBoss6Type2__sub_8032F418((u8 *)(arg0));
                     }
                 }
             }
@@ -672,6 +688,29 @@ void TBoss6Type2__sub_8032F3E0(s32 i, void *pts, s32 n) {
         TBoss6Type2__sub_8032F360((O_8032F360 *)((void *)(p)), (V3_8032F360 *)((void *)(pts)), (s32)((s32)(n)));
     }
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss6Type2__sub_8032F418(u8 *arg0) {
+    Vec_8032F418 pts[3];
+    Vec_8032F418 *p;
+    s32 i;
+    s32 ang;
+    f32 r;
+    s32 d;
+    for (i = 0; i < 3; i++) {
+        ang = M2C_FIELD(arg0, s32 *, 0x60) + lbl_80477444[i] + (s32)(lbl_805DF828 * -(lbl_805DF830 * (f32)rand() - lbl_805DF82C));
+        r = lbl_805DF7F0 * (lbl_805DF830 * (f32)rand()) + lbl_805DF834;
+        p = &pts[i];
+        VecCopy__FP3VecPC3Vec(p, arg0 + 0x44C);
+        p->x = r * ((f32 (*)(s32))sin_table_lookup)(ang) + p->x;
+        p->y = lbl_805DF7FC;
+        p->z = r * ((f32 (*)(s32))cos_table_lookup)(ang) + p->z;
+        TBoss6Rock__sub_80353C60(p, lbl_805DF838);
+    }
+    TBoss6Type2__sub_80356E88(M2C_FIELD(arg0, s32 *, 0x384), pts, 3);
+}
+#pragma pop
 
 void TBoss6Type2__sub_8032F5C4(void *arg0) {
     s32 temp_r4;

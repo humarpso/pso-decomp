@@ -314,6 +314,12 @@ struct Cache_803E840C {
     Page_803E840C pages[10];
 };
 
+struct Ent_803E8C2C { u8 pad[2]; u8 len; char name[1]; };
+
+struct Node_803E8C2C { Ent_803E8C2C *ent; Node_803E8C2C *next; };
+
+struct Out_803E8C2C { s16 a; s16 id; s16 len; s16 pre; u8 pad[4]; Ent_803E8C2C *ent; };
+
 extern "C" {
 extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
 void TQuestVmDownLoadServer__sub_803EE2E4(void);
@@ -630,6 +636,11 @@ void *TQuestVmDownLoadServer__sub_803EBD38(void *sp, void *a1, s32 a2, void *hp,
 extern u8 *lbl_805D7858;
 extern RecoveredGlobal_803E8710_lbl_8058DE08 lbl_8058DE08;
 void TQuestVmDownLoadServer__sub_803E840C(void);
+int strncmp(const char *, const char *, u32);
+s32 TQuestVmDownLoadServer__sub_803E7D58(const u8 *a, const u8 *b, s32 n);
+extern RecoveredGlobal_803E9764_lbl_80591EC8 lbl_80591EC8;
+extern Node_803E8C2C *lbl_80593EC8[];
+s32 TQuestVmDownLoadServer__sub_803E8C2C(char *arg0, s16 arg1, Out_803E8C2C *arg2);
 }
 
 extern "C" {
@@ -1359,6 +1370,70 @@ inline s32 IsSjisLead_803E90A8(u8 c) {
     }
     return 0;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline s32 Hash_803E8C2C(char *s) {
+    s32 h;
+    u8 c = s[0];
+    if (c >= 0xA0 && c < 0xF0) {
+        h = c - 0xA0;
+    } else {
+        h = 0;
+    }
+    return h;
+}
+s32 TQuestVmDownLoadServer__sub_803E8C2C(char *arg0, s16 arg1, Out_803E8C2C *arg2) {
+    Node_803E8C2C *n;
+    Ent_803E8C2C *e;
+    s16 len;
+    Ent_803E8C2C *found;
+    s16 pre;
+    s16 blen;
+    s32 r;
+    s16 m;
+    s32 off;
+    u8 unused[8];
+    blen = 0;
+    pre = 0;
+    arg2->pre = 0;
+    arg2->len = 0;
+    for (n = lbl_80593EC8[Hash_803E8C2C(arg0)]; n != NULL; n = n->next) {
+        e = n->ent;
+        len = e->len;
+        m = TQuestVmDownLoadServer__sub_803E7D58((u8 *)e->name, (u8 *)arg0, (s16)len);
+        if (m >= pre) {
+            pre = m + 1;
+        }
+        r = strncmp(e->name, arg0, (s16)len);
+        if (r == 0) {
+            if ((s16)len == arg1) {
+                return 2;
+            }
+            blen = len;
+            found = e;
+        } else if (r > 0) {
+            if (strncmp(e->name, arg0, arg1) == 0) {
+                return 2;
+            }
+            break;
+        }
+    }
+    if (blen == 0) {
+        arg2->id = -1;
+        return 0;
+    }
+    off = (u8 *)found - (u8 *)&lbl_80591EC8;
+    arg2->a = 0;
+    arg2->id = ((off / 1024) << 12) | (off % 1024);
+    arg2->len = blen;
+    arg2->pre = pre;
+    arg2->ent = found;
+    return 1;
+}
+#pragma pop
+
 void TQuestVmDownLoadServer__sub_803E90A8(u8 *arg0, s32 arg1, Msg_803E90A8 *arg2, u8 arg3) {
     u16 cur;
     s32 v;

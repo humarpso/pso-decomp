@@ -138,7 +138,6 @@ void TBoss8Dragon__sub_802FAE74(u8 *arg0);
 s32 is_health_low__12TBoss8DragonFPv(void *arg0);
 void store_position__12TBoss8DragonFi(s32 arg0);
 void check_death__12TBoss8DragonFPv(void *arg0);
-M2C_UNK TBoss8Dragon__sub_802FCDB8(void *);
 extern s32 lbl_805D53A0;
 extern s32 TBoss8Dragon__data_805D69B8;
 extern const f32 lbl_805DEEE4;
@@ -162,6 +161,12 @@ extern const f32 TBoss8Dragon__data_805DEDA4;
 extern const f32 TBoss8Dragon__data_805DEDD8;
 extern const f32 lbl_805DEE54;
 void TBoss8Dragon__sub_802F87EC(u8 *arg0, u32 arg1);
+int TBoss8Dragon__sub_802FB984(void);
+s32 check_damage_reaction__12TBoss8DragonFPv(void *arg0);
+void TBoss8Dragon__sub_802FBBFC(u8 *arg0, s32 arg1);
+s32 is_health_low__12TBoss8DragonFPv(void *arg0);
+extern s32 lbl_805D69B4;
+void TBoss8Dragon__sub_802FCDB8(u8 *arg0);
 }
 
 extern "C" {
@@ -4183,6 +4188,49 @@ block_8:
     ((D_V *) arg0)->m85(M2C_FIELD(arg0, s16 *, 0x326), 0xB);
 }
 
+void TBoss8Dragon__sub_802FCDB8(u8 *arg0) {
+    s32 temp_r4;
+    temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C0);
+    if (temp_r4 & 0x40) {
+        if (!(temp_r4 & 0x20) && (M2C_FIELD(arg0, s16 *, 0x32C) <= 0)) {
+            TBoss8Dragon__sub_802FBBFC(arg0, (int) (0x16));
+            return;
+        }
+        goto block_14;
+    }
+    if (((s32 (*)(void))is_health_low__12TBoss8DragonFPv)() != 0) {
+        if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x10)) {
+            if (check_damage_reaction__12TBoss8DragonFPv((void *) (arg0)) == 0) {
+                if (((s32 (*)(void *))TBoss8Dragon__sub_802FB984)((void *) (arg0)) != 0) {
+                    return;
+                }
+                goto block_14;
+            }
+        } else {
+            goto block_14;
+        }
+    } else {
+        if (!(M2C_FIELD(arg0, s32 *, 0x3C0) & 0x20) && (M2C_FIELD(arg0, s16 *, 0x32C) <= 0)) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x3E4) == 1) {
+                TBoss8Dragon__sub_802FBBFC(arg0, (int) (0xC));
+                return;
+            }
+            TBoss8Dragon__sub_802FBBFC(arg0, (int) (0x15));
+            return;
+        }
+block_14:
+        if ((s32) lbl_805D69B4 != 0) {
+            ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 2);
+            return;
+        }
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x74C) != 0) {
+            ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0xB);
+            return;
+        }
+        ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 9);
+    }
+}
+
 void TBoss8Dragon__sub_802FCF00(u8 *arg0) {
     s16 temp_r0;
     s16 temp_r3;
@@ -4265,7 +4313,7 @@ void TBoss8Dragon__sub_802FCF00(u8 *arg0) {
                         }
                         clear_attack_receipts((void *) (arg0));
                     }
-                    TBoss8Dragon__sub_802FCDB8((void *) (arg0));
+                    TBoss8Dragon__sub_802FCDB8((u8 *)((void *) (arg0)));
                 }
                 ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 8);
                 ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);

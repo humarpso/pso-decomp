@@ -94,6 +94,20 @@ struct VObj_80218BBC : VBase_80218BBC {
     virtual void m7(s32, s32);
 };
 
+struct VBase_18_8021924C { char pad[0x18]; };
+
+struct VObj_18_8021924C : VBase_18_8021924C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8();
+};
+
 extern "C" {
 s32 TLobby__sub_8001EEF4();
 s32 TLobby__sub_8001EEFC(M2C_UNK *);
@@ -132,7 +146,6 @@ void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_80219064(void *);
 M2C_UNK quest_vm_load(void *arg0);
 M2C_UNK TQuestListVM__sub_8021916C(void *);
-M2C_UNK TQuestListVM__sub_8021924C(void *);
 M2C_UNK TQuestListVM__sub_802194BC(void *);
 M2C_UNK TQuestListVM__sub_8021969C(void *);
 M2C_UNK TQuestListVM__sub_80219748(void *);
@@ -207,6 +220,20 @@ s32 get_selected_menu_value(void *);
 extern s32 TQuestListVM__data_805D6200;
 extern s32 TQuestListVM__data_805D6204;
 void TQuestListVM__sub_80218BBC(u8 *arg0);
+int obj_getField1c(int);
+int set_field_20__12TQuestListVMFPvi(void*, void*);
+M2C_UNK TShopArmorListWindow__sub_80266DB0(void *);
+M2C_UNK calc_list_content_extent(void *);
+void send_and_handle__6TLobbyFPvii(u32, void *, int);
+u32 set_window_mode_4__6TLobbyFPvii(int, void *, int);
+int get_window_layout_position(int);
+void add_list_entry__6TLobbyFPviii(u32, int, void *, int);
+u32 create_item_list_window(void *, int, u16);
+extern char lbl_8044BF04[];
+extern char lbl_8044BF14[];
+extern Pair_80218D40 lbl_8044BF40[];
+extern s32 lbl_805D5544;
+M2C_UNK TQuestListVM__sub_8021924C(void *p);
 }
 
 extern "C" {
@@ -558,6 +585,56 @@ M2C_UNK quest_vm_load(void *arg0) {
     }
 }
 
+#define arg0 ((u8 *)p)
+M2C_UNK TQuestListVM__sub_8021924C(void *p) {
+    s32 off;
+    s32 i;
+    u8 *e;
+    if (((VObj_18_8021924C *)(arg0))->m8() != 0) {
+        if (*(u32 *)(arg0 + 0x2374) != 0U) {
+            TShopArmorListWindow__sub_80266DB0(*(void **)(arg0 + 0x2374));
+        } else {
+            switch (lbl_805D5544) {
+            case 0:
+                *(u32 *)(arg0 + 0x2374) = create_item_list_window(lbl_8044BF04, 0x40, obj_getField1c(*(s32 *)(arg0 + 0x24)));
+                break;
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            default:
+                *(u32 *)(arg0 + 0x2374) = create_item_list_window(lbl_8044BF14, 0x40, obj_getField1c(*(s32 *)(arg0 + 0x24)));
+                break;
+            }
+        }
+        if (*(u32 *)(arg0 + 0x2374) != 0U) {
+            for (i = 0, off = 0; i < *(s32 *)(arg0 + 0x2368); i++, off += 0xBC) {
+                e = arg0 + off;
+                switch (*(s32 *)(e + 0xE0)) {
+                case 0:
+                    add_list_entry__6TLobbyFPviii(*(u32 *)(arg0 + 0x2374), 0x17, e + 0x35, i);
+                    break;
+                case 1:
+                    add_list_entry__6TLobbyFPviii(*(u32 *)(arg0 + 0x2374), 0x31, e + 0x35, i);
+                    break;
+                default:
+                    add_list_entry__6TLobbyFPviii(*(u32 *)(arg0 + 0x2374), 0x17, e + 0x35, i);
+                    break;
+                }
+            }
+            calc_list_content_extent(*(void **)(arg0 + 0x2374));
+            set_field_20__12TQuestListVMFPvi(arg0, (void *)6);
+        }
+        if (*(u32 *)(arg0 + 0x237C) == 0U) {
+            Pair_80218D40 sp8 = lbl_8044BF40[0];
+            *(u32 *)(arg0 + 0x237C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x2D), &sp8, 1);
+            send_and_handle__6TLobbyFPvii(*(u32 *)(arg0 + 0x237C), arg0 + 0x55, 0x80);
+            *(s32 *)(arg0 + 0x236C) = 0;
+        }
+    }
+}
+#undef arg0
+
 s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e) {
     s32 i;
     if (e->a == -1 || e->c == -1) {
@@ -617,7 +694,7 @@ void TQuestListVM__vt9(u8 *arg0) {
         TQuestListVM__sub_802194BC((void *) (arg0));
         return;
     case 5:
-        TQuestListVM__sub_8021924C((void *) (arg0));
+        TQuestListVM__sub_8021924C((void *)((void *) (arg0)));
         return;
     case 6:
         TQuestListVM__sub_8021916C((void *) (arg0));

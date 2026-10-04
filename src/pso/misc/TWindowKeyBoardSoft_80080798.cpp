@@ -21,6 +21,9 @@ struct Kb_800808FC {
     s32 cursor;
 };
 
+struct Field_80080D1C;
+struct F_80080DFC { u16 *buffer; s32 cursor; u32 width; u32 linePixels; s32 scroll; u32 capacity; };
+
 extern "C" {
 u16 map_char_to_font_code(u16);
 u8 get_font_char_advance(u16);
@@ -36,6 +39,8 @@ s32 TWindowKeyBoardSoft__sub_80080B34(Kb_800808FC *);
 void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
+s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
+s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1);
 }
 
 extern "C" {
@@ -213,6 +218,51 @@ s32 TWindowKeyBoardSoft__sub_80080D1C(Field_80080D1C *f, u16 code, u32 *x, u32 *
     *y += 0x14;
     *x = w;
     return (*y >= f->linePixels) ? 1 : 0;
+}
+
+s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1) {
+    u32 x;
+    u32 y;
+    u32 count;
+    u16 *p;
+    s32 n;
+    s32 c;
+    count = 0;
+    y = 0;
+    x = 0;
+    p = arg0->buffer;
+    n = arg0->cursor;
+    while (n > 0) {
+        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, *p, &x, &y, &count) != 0) {
+            *p = 0;
+            *arg1 = 0;
+            arg0->cursor -= n;
+            arg0->scroll -= n;
+            return 1;
+        }
+        p++;
+        n--;
+    }
+    for (p = arg1; (c = *p) != 0; p++) {
+        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, c, &x, &y, &count) != 0) {
+            *p = 0;
+            arg0->buffer[arg0->cursor] = 0;
+            arg0->scroll = arg0->cursor;
+            return 1;
+        }
+    }
+    p = &arg0->buffer[arg0->cursor];
+    n = arg0->scroll - arg0->cursor;
+    while (n > 0) {
+        if (TWindowKeyBoardSoft__sub_80080D1C((Field_80080D1C *)arg0, *p, &x, &y, &count) != 0) {
+            *p = 0;
+            arg0->scroll -= n;
+            return 1;
+        }
+        p++;
+        n--;
+    }
+    return 0;
 }
 
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1) {
