@@ -767,6 +767,7 @@ pso/boss/TBoss8Dragon_8005D700.cpp:
 
 pso/boss/TBoss8Dragon_8005D708.cpp:
 	.text       start:0x8005D708 end:0x8005D860
+	.rodata     start:0x80437EA8 end:0x80437EB0
 
 pso/boss/TBoss8Dragon_8005D860.cpp:
 	.text       start:0x8005D860 end:0x8005D880
@@ -804,6 +805,7 @@ pso/player/TObjPlayer_800666B0.cpp:
 
 pso/boss/TBoss5GryphonShockWave.cpp:
 	.text       start:0x800666F8 end:0x80066A88
+	.rodata     start:0x80437F68 end:0x80437F70
 
 pso/boss/TBoss5GryphonSnarl.cpp:
 	.text       start:0x80066A88 end:0x80066F10
