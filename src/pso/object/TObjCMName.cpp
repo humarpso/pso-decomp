@@ -9,6 +9,41 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Menu_80296D68
+{
+  u8 pad0[0x1C];
+  u8 *app;
+  s32 enabled;
+  s32 index;
+  s32 value;
+  s32 limit;
+  s32 wrap;
+  u8 pad34[4];
+  s32 ticks;
+  s32 active;
+  f32 fade;
+  s32 step;
+  s32 target;
+  s32 columns;
+  u8 pad50[8];
+  f32 scroll;
+};
+
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 play_sound_effect(s32, s32, s32, s32);
+void clear_task_state__14TObjCMMainMenuFv(void);
+s32 TChCrCharSelect__sub_80298F8C(int);
+s32 TObjCMProportion__sub_8029916C(M2C_UNK);
+void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0);
+extern const f32 lbl_805DDA70;
+extern const f32 lbl_805DDA90;
+extern const f32 lbl_805DDAA8;
+extern const f32 lbl_805DDAAC;
+extern const f32 lbl_805DDB80;
+void run_task__16TObjCMAssignMenuFv(void *arg0);
+}
+
 extern "C" {
 
 struct Ent_802964B0 {
@@ -972,6 +1007,149 @@ void calc_grid_layout__16TObjCMAssignMenuFPv(void *arg0) {
         }
     }
 }
+
+#pragma push
+#pragma opt_common_subs off
+typedef struct Menu_80296D68 Menu_80296D68;
+void run_task__16TObjCMAssignMenuFv(void *arg0) {
+  s32 step;
+  s32 wrap;
+  s32 old;
+  s16 r;
+  s16 *new_var;
+  s16 v;
+  s32 t;
+  f32 fade;
+  s32 off;
+  Menu_80296D68 *self = (Menu_80296D68 *) arg0;
+  u8 *app;
+  s32 delta;
+  self->ticks++;
+  if (self->active == 0)
+  {
+    fade = self->fade + lbl_805DDAA8;
+    self->fade = fade;
+    if (fade <= lbl_805DDA90)
+    {
+      self->fade = lbl_805DDA90;
+      queue_destruction__7TObjectFv(self);
+    }
+    return;
+  }
+  fade = self->fade + lbl_805DDAAC;
+  self->fade = fade;
+  if (fade > lbl_805DDA70)
+  {
+    self->fade = lbl_805DDA70;
+  }
+  delta = 0;
+  if (self->enabled != 0)
+  {
+    if (TChCrCharSelect__sub_80298F8C((int)(0x80)) != 0)
+    {
+      delta = 1;
+    }
+    else
+      if (TChCrCharSelect__sub_80298F8C((int)(0x40)) != 0)
+    {
+      delta = -1;
+    }
+    if (self->columns > 1)
+    {
+      if (TChCrCharSelect__sub_80298F8C((int)(0x20)) != 0)
+      {
+        delta = self->step;
+      }
+      else
+        if (TChCrCharSelect__sub_80298F8C((int)(0x10)) != 0)
+      {
+        delta = -self->step;
+      }
+    }
+  }
+  if (delta != 0)
+  {
+    app = self->app;
+    off = (self->index * 2) + 0x38;
+    old = *((s16 *) (((s8 *) app) + off));
+    *((s16 *) (((s8 *) app) + off)) = old + delta;
+    if ((delta == 1) || (delta == (-1)))
+    {
+      v = *((s16 *) (((s8 *) app) + off));
+      if (v >= self->limit)
+      {
+        *((s16 *) (((s8 *) app) + off)) = 0;
+      }
+      else
+        if (v < 0)
+      {
+        *((s16 *) (((s8 *) app) + off)) = self->limit - 1;
+      }
+    }
+    else
+    {
+      step = self->step;
+      v = *((s16 *) (((s8 *) app) + off));
+      r = old % step;
+      wrap = self->wrap;
+      if (v >= wrap)
+      {
+        *((s16 *) (((s8 *) app) + off)) = r;
+      }
+      else
+      {
+        if (self->fade)
+        {
+        }
+        if (v < 0)
+        {
+          t = r;
+          while ((t + step) < wrap)
+          {
+            t += step;
+          }
+          *((s16 *) (((s8 *) app) + off)) = t;
+        }
+      }
+    }
+    new_var = (s16 *) (((s8 *) app) + off);
+    if ((*new_var) != old)
+    {
+      play_sound_effect(0x54100, 0, 0, 0);
+    }
+    self->value = *new_var;
+  }
+  calc_grid_layout__16TObjCMAssignMenuFPv(self);
+  if (self->scroll < ((f32) self->target))
+  {
+    self->scroll += lbl_805DDB80;
+    if (self->scroll > ((f32) self->target))
+    {
+      self->scroll = (f32) self->target;
+    }
+  }
+  else
+    if (self->scroll > ((f32) self->target))
+  {
+    self->scroll -= lbl_805DDB80;
+    if (self->scroll < ((f32) self->target))
+    {
+      self->scroll = (f32) self->target;
+    }
+  }
+  if ((self->enabled != 0) && (TObjCMProportion__sub_8029916C((M2C_UNK)(6)) != 0))
+  {
+    play_sound_effect(0x53704, 0, 0, 0);
+    clear_task_state__14TObjCMMainMenuFv();
+    self->active = 0;
+  }
+  else
+    if (self->enabled == 0)
+  {
+    self->enabled = 1;
+  }
+}
+#pragma pop
 
 void * create__16TObjCMAssignMenuFPvPv(void *arg0, void *arg1) {
     void *o;

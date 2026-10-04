@@ -93,6 +93,22 @@ struct Luker_80234D50 {
     s32 f10C;
 };
 
+struct Vec_802342A4
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Obj_802342A4
+{
+  u8 pad0[0x18];
+  void *vt;
+  u32 kids[3];
+  void *f28;
+  Vec_802342A4 pos;
+};
+
 extern "C" {
 void clear_pipe_interaction_latch(void* p);
 void clear_pipe_interaction_latch(void* p);
@@ -254,6 +270,19 @@ extern M2C_UNK lbl_80515BA0[];
 extern u8 TTecLuker__data_805D37E0[4];
 extern const f32 lbl_805DC858;
 void run_task__9TTecLukerFv(u8 *arg0);
+s32 is_split_screen();
+M2C_UNK clear_active_flag__13TParticleCtrlFPv(u32);
+M2C_UNK enable__13TParticleCtrlFPv(u32);
+f32 horizontal_distance_squared(void *, void *);
+u32 get_player_by_client_id(s32);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+void TTecLuker__sub_8023503C(void* p);
+void TTecLuker__sub_80235048(void* p);
+s32 is_parents_unqueued__9TTecLukerFUi(u32);
+extern s32 lbl_805D4DF0;
+extern const f32 lbl_805DC864;
+extern const f32 lbl_805DC868;
+void update_telepipe_visual(Obj_802342A4 *self);
 }
 
 extern "C" {
@@ -534,6 +563,92 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
             create__9TTecLukerFPvPvPvPv(player, player + 0x38, player + 0x38, 0);
         }
     }
+}
+
+typedef struct Obj_802342A4 Obj_802342A4;
+typedef struct Vec_802342A4 Vec_802342A4;
+void update_telepipe_visual(Obj_802342A4 *self) {
+  f32 d;
+  f32 best;
+  s32 j;
+  s32 i;
+  s32 st;
+  u32 pl;
+  best = lbl_805DC864;
+  j = get_global_state__14TOKeyMachine01Fv();
+  st = j;
+  if ((st == 0) || (st == 0x12))
+  {
+    return;
+  }
+  if (is_split_screen() != 0)
+  {
+    for (j = 0; j < 4; j++)
+    {
+      pl = get_player_by_client_id(j);
+      if (pl != 0)
+      {
+        d = horizontal_distance_squared(&self->pos, (void *) (pl + 0x38));
+        if (d <= best)
+        {
+          best = d;
+        }
+      }
+    }
+    if (best >= lbl_805DC868)
+    {
+      for (i = 0; i < 3; i++)
+      {
+        if (is_parents_unqueued__9TTecLukerFUi(self->kids[i]) != 0)
+        {
+          enable__13TParticleCtrlFPv(self->kids[i]);
+          if (self->f28 != 0)
+          {
+            TTecLuker__sub_80235048((void*)(self->f28));
+          }
+        }
+      }
+      return;
+    }
+    for (i = 0; i < 3; i++)
+    {
+      if (is_parents_unqueued__9TTecLukerFUi(self->kids[i]) != 0)
+      {
+        clear_active_flag__13TParticleCtrlFPv(self->kids[i]);
+        if (self->f28 != 0)
+        {
+          TTecLuker__sub_8023503C((void*)(self->f28));
+        }
+      }
+    }
+    return;
+  }
+  if (horizontal_distance_squared(&self->pos, (void *) (lbl_805D4DF0 + 0x178)) >= lbl_805DC868)
+  {
+    for (i = 0; i < 3; i++)
+    {
+      if (is_parents_unqueued__9TTecLukerFUi(self->kids[i]) != 0)
+      {
+        enable__13TParticleCtrlFPv(self->kids[i]);
+        if (self->f28 != 0)
+        {
+          TTecLuker__sub_80235048((void*)(self->f28));
+        }
+      }
+    }
+    return;
+  }
+  for (i = 0; i < 3; i++)
+  {
+    if (is_parents_unqueued__9TTecLukerFUi(self->kids[i]) != 0)
+    {
+      clear_active_flag__13TParticleCtrlFPv(self->kids[i]);
+      if (self->f28 != 0)
+      {
+        TTecLuker__sub_8023503C((void*)(self->f28));
+      }
+    }
+  }
 }
 
 Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1) {

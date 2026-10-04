@@ -61,6 +61,14 @@ struct Obj_801A0DB4;
 struct Obj_801A0E38;
 struct Obj_801A0CE8;
 struct Obj_801A0C38;
+
+struct Luker_801A1260
+{
+  u8 pad[0xA8];
+  u16 owner;
+  u16 partner;
+};
+
 extern "C" {
 void allow_rendering__7TObjectFv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
@@ -121,7 +129,6 @@ void TObjLuker__sub_801A0CE8(Obj_801A0CE8 *self);
 void TObjLuker__sub_801A0DB4(Obj_801A0DB4 *self);
 void TObjLuker__sub_801A0E38(Obj_801A0E38 *self);
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
-void transfer_to_town__9TObjLukerFv(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
@@ -149,6 +156,23 @@ s32 check_flag_100__10TObjPlayerFPv(void *);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 extern s32 lbl_805D53A0;
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
+s32 get_main_phase();
+M2C_UNK mark_area_change_pending();
+s32 obj_isState3_324(int);
+s32 is_split_screen(void);
+s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
+M2C_UNK set_state__9TTecLukerFPvi(void *, int);
+M2C_UNK set__10TObjRoomIdFPvs(int, volatile short);
+Ctrl_801A0E38 *get_player_by_client_id(u16 id);
+M2C_UNK send_6x21_inter_level_warp(int, void *);
+s32 get_floor_map_terrain(int);
+M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
+M2C_UNK init_fields__9TTecLukerFPvs(void *, int);
+M2C_UNK TTecLuker__sub_802340E4(void *);
+extern M2C_UNK lbl_80515BA0[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D55C0;
+void transfer_to_town__9TObjLukerFv(u8 *arg0_);
 }
 
 extern "C" {
@@ -346,6 +370,72 @@ s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0) {
     return 0;
 }
 
+typedef struct Ctrl_801A0E38 Ctrl_801A0E38;
+typedef struct Luker_801A1260 Luker_801A1260;
+void transfer_to_town__9TObjLukerFv(u8 *arg0_) {
+  Luker_801A1260 *arg0 = (Luker_801A1260 *) arg0_;
+  u8 *self;
+  u8 *local;
+  s32 i;
+  u8 *p;
+  s32 flag;
+  self = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(arg0->owner);
+  local = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(lbl_805D53A0);
+  if ((((get_main_phase() == 0xF) && (lbl_805D55C0 != 0)) || (self == 0)) || (local == 0))
+  {
+    return;
+  }
+  set_area__6TLobbyFPvi(lbl_80515BA0, *((s16 *) (((s8 *) self) + 0x832)), get_floor_map_terrain(*((s16 *) (((s8 *) self) + 0x832))));
+  mark_area_change_pending();
+  for (i = 0; i < 4; i++)
+  {
+    p = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(i);
+    if (p != 0)
+    {
+      flag = 0x830 * 0;
+      if (is_split_screen() != 0)
+      {
+        flag = 1;
+      }
+      else
+        if (obj_isState3_324((int) p) != 0)
+      {
+        flag = 1;
+      }
+      if (flag != 0)
+      {
+        set_state__9TTecLukerFPvi(p + 0x848, arg0->owner);
+        send_6x21_inter_level_warp((int) p, (void *) get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+        set__10TObjRoomIdFPvs((int) p, (s16) (*((s32 *) (((s8 *) self) + 0x834))));
+      }
+    }
+  }
+  if (local != 0)
+  {
+    set_state__9TTecLukerFPvi(local + 0x848, arg0->owner);
+    if (((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(arg0->owner) != 0)
+    {
+      set__10TObjRoomIdFPvs((int) local, (s16) (*((s32 *) (((s8 *) self) + 0x834))));
+    }
+    send_6x21_inter_level_warp((int) local, (void *) get_dest_area__17TObjAreaWarpQuestFPv(lbl_80515BA0));
+  }
+  if (is_split_screen() != 0)
+  {
+    self = (u8 *) ((Ctrl_801A0E38 *(*)(s32)) get_player_by_client_id)(arg0->partner);
+    if (self != 0)
+    {
+      init_fields__9TTecLukerFPvs(self + 0x830, arg0->partner);
+      TTecLuker__sub_802340E4(self + 0x830);
+    }
+  }
+  else
+    if (lbl_805D53A0 == arg0->owner)
+  {
+    init_fields__9TTecLukerFPvs(local + 0x830, arg0->owner);
+    TTecLuker__sub_802340E4(local + 0x830);
+  }
+}
+
 void render__9TObjLukerFv(void) {  }
 
 extern void *tl_05;
@@ -420,7 +510,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                 }
                 break;
             case 2:
-                transfer_to_town__9TObjLukerFv(arg0);
+                transfer_to_town__9TObjLukerFv((u8 *)(arg0));
                 queue_destruction__7TObjectFv(arg0);
                 break;
             }
