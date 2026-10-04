@@ -60,6 +60,15 @@ extern const f32 lbl_805D86C8;
 extern const f32 lbl_805D86CC;
 extern const f32 lbl_805D86D0;
 void TObjPlayer__sub_8003FCD0(u8 *arg0);
+void TObjPlayer__sub_8003FCD0(u8 *arg0);
+s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
+s32 TObjPlayer__sub_80040AE4(s32 i);
+void update_if_active__15TObjEneMe1GiGueFPv(void*, M2C_UNK);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+extern s32 lbl_805D4C14;
+void TObjPlayer__sub_8003F9D4(void *arg0_);
 }
 
 extern "C" {
@@ -572,7 +581,6 @@ void update_topple_state__10TObjPlayerFPv(u8 *arg0);
 void link_photon__10TObjPlayerFUs(u16 arg0);
 s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1);
 void TObjPlayer__sub_8003F81C(u8 *arg0);
-void TObjPlayer__sub_8003F9D4(void *);
 void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self);
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
@@ -923,6 +931,10 @@ void *lbl_80483A10[83] = {
 };
 #define lbl_80483A10 ((M2C_UNK *)lbl_80483A10)
 
+extern "C" {
+s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1);
+}
+
 void set_grabbed_state__10TObjPlayerFi(s32 arg0) {
     void *temp_r3;
 
@@ -1066,6 +1078,58 @@ void TObjPlayer__sub_8003F81C(u8 *arg0) {
         break;
     }
     advance_animation_playback((void *) (arg0));
+    if ((s32) lbl_805D4C14 >= 0) {
+        minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
+    }
+}
+
+struct Obj_8003F730;
+void TObjPlayer__sub_8003F9D4(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    s32 temp_r0;
+    s32 temp_r0_2;
+    s32 temp_r3;
+    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x10000);
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        break;
+    case 1:
+        advance_animation_playback(arg0);
+        M2C_FIELD(arg0, s32 *, 0x390) = (s32) (M2C_FIELD(arg0, s32 *, 0x390) - TObjPlayer__sub_80040AE4((int) (0)));
+        M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) - TObjPlayer__sub_80040AE4((int) (0)));
+        TObjPlayer__sub_8003FCD0(arg0);
+        M2C_FIELD(arg0, s32 *, 0x398) = calc_spin_value__10TObjPlayerFPv((void *) (arg0));
+        M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x398) - 0x4000);
+        temp_r3 = M2C_FIELD(arg0, s32 *, 0x3C0);
+        if (temp_r3 > 1) {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x394) <= -0x238E) {
+                M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (temp_r3 - 1);
+                temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x3BC) - 1;
+                M2C_FIELD(arg0, s32 *, 0x3BC) = temp_r0_2;
+                if (temp_r0_2 < 0) {
+                    M2C_FIELD(arg0, s32 *, 0x3BC) = 5;
+                }
+                if (((s32 (*)(void *))TObjPlayer__sub_8003F730)((void *) (arg0)) == 1) {
+                    M2C_FIELD(arg0, s32 *, 0x37C) = 0;
+                }
+            } else {
+                goto block_14;
+            }
+        } else {
+            if ((s32) M2C_FIELD(arg0, s32 *, 0x394) < -0x1555) {
+                M2C_FIELD(arg0, s32 *, 0x3D0) = (s32) M2C_FIELD(arg0, s32 *, 0x390);
+                update_if_active__15TObjEneMe1GiGueFPv((void *) (arg0), (int) (9));
+            }
+block_14:
+            play_persistent_sound((int) (0x4003BC05), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+        }
+        break;
+    case -1:
+        break;
+    }
     if ((s32) lbl_805D4C14 >= 0) {
         minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
     }
@@ -1306,7 +1370,7 @@ void TObjPlayer__sub_80040558(void * _w0) {  }
 void TObjPlayer__sub_8004055C(Obj_8004055C *arg0) {
     switch (arg0->state) {
     case 0: TObjPlayer__sub_8003FFE4(arg0); return;
-    case 1: TObjPlayer__sub_8003F9D4(arg0); return;
+    case 1: TObjPlayer__sub_8003F9D4((void *)(arg0)); return;
     case 2: TObjPlayer__sub_800401CC(arg0); return;
     case 4: update_grabbed_state__10TObjPlayerFPv(arg0); return;
     case 5: TObjPlayer__sub_80040038(arg0); return;

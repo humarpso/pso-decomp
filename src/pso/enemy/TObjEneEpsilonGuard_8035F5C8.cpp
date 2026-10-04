@@ -793,6 +793,18 @@ s32 TObjEneEpsilonGuard__sub_8035FAA8(void *);
 s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 void TObjEneEpsilonGuard__sub_803610D0(u8 *arg0, s32 arg1);
+void queue_destruction__7TObjectFv(void *);
+M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, void *, s32, void *, s32);
+M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
+M2C_UNK advance_animation_playback(void *);
+void play_sound_effect(s32, void *, s32, s32);
+s32 TObjEneEpsilonGuard__sub_8035FC8C(W_8035FC8C *arg0);
+void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
+extern u8 lbl_80479C90[];
+extern s32 lbl_805D6FA4;
+void TObjEneEpsilonGuard__sub_80360948(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1130,6 +1142,44 @@ void TObjEneEpsilonGuard__sub_803607DC(u8 *arg0) {
     }
 }
 #pragma pop
+
+void TObjEneEpsilonGuard__sub_80360948(u8 *arg0, s32 arg1) {
+    s32 temp_r4;
+    switch (arg1) {
+    case 4:
+        set_field_378__9TObjEneDDFPvi(arg0, 9);
+        ((VObj_18 *)(arg0))->m94();
+        M2C_FIELD(arg0, s32 *, 0x438) |= 0x800;
+        temp_r4 = M2C_FIELD(arg0, s32 *, 0x438);
+        M2C_FIELD(arg0, s32 *, 0x438) = temp_r4 & ~0x243;
+        set_guard_state__19TObjEneEpsilonGuardFPv(arg0, temp_r4);
+        refresh_and_send_entity_flags__12TBoss8DragonFPv(arg0);
+        M2C_FIELD(arg0, s32 *, 0x4E4) = 0;
+        M2C_FIELD(arg0, s32 *, 0x4E8) = 0;
+        break;
+    case 3:
+        if (M2C_FIELD(arg0, s32 *, 0x4E4) == 1 && TObjEneEpsilonGuard__sub_8035FC8C((W_8035FC8C *)arg0) != 0) {
+            queue_destruction__7TObjectFv(arg0);
+        }
+        break;
+    case 5:
+        break;
+    case 0:
+        if (M2C_FIELD(arg0, s32 *, 0x4E4) == 0) {
+            advance_animation_playback(arg0);
+            M2C_FIELD(arg0, s32 *, 0x4E8)++;
+            if (M2C_FIELD(arg0, s32 *, 0x4E8) >= 0x14) {
+                ((VObj_18 *)(arg0))->m93();
+                create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D6FA4, lbl_80479C90, M2C_FIELD(arg0, s32 *, 0x24), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+                play_sound_effect(0x4003AD4C, arg0 + 0x2FC, 0, 0);
+                trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
+                M2C_FIELD(arg0, s32 *, 0x438) |= 1;
+                M2C_FIELD(arg0, s32 *, 0x4E4) = 1;
+            }
+        }
+        break;
+    }
+}
 
 void update_fade__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
     s32 temp_r0;

@@ -149,6 +149,7 @@ typedef void (TCheckRoomSequence::*Fn_802102D0)();
 
 struct Item_80210E28 { u8 b0, b1, b2, b3, b4; u8 pad5[0x14 - 5]; s16 f14; u8 pad16[2]; };
 
+struct TCheckRoomSequence_8020F070;
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 is_item_record_empty(u8 *arg0);
@@ -377,6 +378,17 @@ s32 get_item_def__18TCheckRoomSequenceFUi(void *);
 extern Rec_80211034 *lbl_80513D88[];
 extern s32 lbl_80513D98[];
 void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
+void TCheckRoomSequence__sub_8020F070(TCheckRoomSequence_8020F070 *self);
+M2C_UNK close_message_window__13TShopSequenceFPv(void *);
+M2C_UNK __dt__13TShopSequenceFv(void *, int);
+int TShopWindowBase__sub_8022397C(void*);
+M2C_UNK __dl__7TObjectFPv(void *);
+void TWindow__close(TWin_8020F070 *);
+extern u8 __vt__18TCheckRoomSequence[];
+extern s32 TCheckRoomSequence__data_80513DB8[];
+u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -927,6 +939,48 @@ void TCheckRoomSequence__vt9(TCheckRoomSequence *self) {
 }
 
 #define self ((Seq_80210754 *)arg0)
+
+#pragma push
+#pragma optimization_level 1
+u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = ((M2C_UNK *)&__vt__18TCheckRoomSequence);
+        if (M2C_FIELD(arg0, void **, 0x48) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x48));
+            M2C_FIELD(arg0, void **, 0x48) = NULL;
+        }
+        close_message_window__13TShopSequenceFPv(arg0);
+        if (M2C_FIELD(arg0, TWin_8020F070 **, 0x34) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, TWin_8020F070 **, 0x34));
+            M2C_FIELD(arg0, TWin_8020F070 **, 0x34) = NULL;
+        }
+        if (M2C_FIELD(arg0, TWin_8020F070 **, 0x40) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, TWin_8020F070 **, 0x40));
+            M2C_FIELD(arg0, TWin_8020F070 **, 0x40) = NULL;
+        }
+        if (M2C_FIELD(arg0, TWin_8020F070 **, 0x38) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, TWin_8020F070 **, 0x38));
+            M2C_FIELD(arg0, TWin_8020F070 **, 0x38) = NULL;
+        }
+        if (M2C_FIELD(arg0, TWin_8020F070 **, 0x3C) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, TWin_8020F070 **, 0x3C));
+            M2C_FIELD(arg0, TWin_8020F070 **, 0x3C) = NULL;
+        }
+        TCheckRoomSequence__sub_8020F070((TCheckRoomSequence_8020F070 *)arg0);
+        TCheckRoomSequence__data_80513DB8[TShopWindowBase__sub_8022397C(arg0)] = 0;
+        if (M2C_FIELD(arg0, u32 *, 0x30) != 0) {
+            safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0x30));
+            M2C_FIELD(arg0, s32 *, 0x30) = 0;
+        }
+        __dt__13TShopSequenceFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+#pragma pop
+
 void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_) {
     s32 arg2 = arg2_;
     TShopSequence__ct((u8 *)arg0);

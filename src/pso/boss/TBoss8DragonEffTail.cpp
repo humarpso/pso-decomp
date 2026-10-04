@@ -45,6 +45,47 @@ typedef struct EffTail_8002C06C {
     f32 unkC8;
 } EffTail_8002C06C;
 
+struct P8_802FE494 { s32 a; s32 b; };
+
+struct V3_802FE494 { f32 x, y, z; };
+
+struct VB_802FE494 { u8 pad0[0x18]; };
+
+struct Obj_802FE494 : VB_802FE494 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15(P8_802FE494 *, s32);
+    u8 pad1C[0x38 - 0x1C];
+    f32 x38;
+    f32 x3C;
+    f32 x40;
+    u8 pad44[0x60 - 0x44];
+    s32 x60;
+    u8 pad64[0xA4 - 0x64];
+    u8 *xA4;
+    u8 padA8[0xB0 - 0xA8];
+    u8 *xB0;
+    V3_802FE494 *xB4;
+    s32 xB8;
+    s32 xBC;
+    f32 xC0;
+    f32 xC4;
+    f32 xC8;
+};
+
 extern "C" {
 extern const f32 lbl_805DEF18;
 void TBoss8DragonEffTail__vt20(u8 *arg0, u8 *arg1);
@@ -57,6 +98,25 @@ extern M2C_UNK __vt__19TBoss8DragonEffTail[];
 extern s32 lbl_805D4020;
 extern const f32 lbl_805DEF14;
 EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void update_collider_contact_by_height(void *, f32);
+void TBoss8Dragon__sub_802FBF0C(void *);
+void TBoss8Dragon__sub_802FBF40(void *);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+M2C_UNK vec3_add_to(s32, s32, s32);
+void matrix_mult_vec(s32, void *, void *);
+void TObjPlayer__sub_803D8CD4(s32);
+void rotate_matrix_y(s32, s32);
+void translate_matrix(s32, f32, f32, f32);
+void push_matrix(void);
+void pop_matrix(void);
+extern P8_802FE494 lbl_80474BBC[];
+extern const f32 lbl_805DEF08;
+extern const f32 lbl_805DEF0C;
+extern const f32 lbl_805DEF10;
+extern const f32 lbl_805DEF14;
+void run_task__19TBoss8DragonEffTailFv(u8 *arg0p);
 }
 
 extern "C" {
@@ -80,6 +140,47 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void fn_802FE48C(void) {  }
 void render__19TBoss8DragonEffTailFv(void) {  }
+
+void run_task__19TBoss8DragonEffTailFv(u8 *arg0p) {
+    s32 off;
+    u8 *e;
+    V3_802FE494 *p;
+    s32 i;
+    Obj_802FE494 *self = (Obj_802FE494 *)arg0p;
+    VecCopy__FP3VecPC3Vec(arg0p + 0x38, (u8 *)self->xB4 + 0x24);
+    ((void (*)(void *, void *))vec3_add_to)(arg0p + 0x38, (u8 *)self->xB4 + 0x78);
+    self->x38 *= lbl_805DEF08;
+    self->x40 *= lbl_805DEF08;
+    self->x3C = *(f32 *)(self->xB0 + 0x3C);
+    self->x60 = *(s32 *)(self->xB0 + 0x60);
+    p = self->xB4;
+    push_matrix();
+    TObjPlayer__sub_803D8CD4(0);
+    rotate_matrix_y(0, -self->x60);
+    translate_matrix(0, -self->x38, -self->x3C, -self->x40);
+    for (i = 0, off = 0; i < 0x11; i++, off += 0x2C) {
+        e = self->xA4 + off;
+        VecCopy__FP3VecPC3Vec(e + 0x1C, p);
+        matrix_mult_vec(0, p++, e);
+        update_collider_contact_by_height(e, lbl_805DEF0C);
+    }
+    pop_matrix();
+    if (self->xBC == 1) {
+        self->xC0 = lbl_805DEF10 * cos_table_lookup(self->x60);
+        self->xC4 = lbl_805DEF14;
+        self->xC8 = lbl_805DEF10 * -sin_table_lookup(self->x60);
+    } else {
+        self->xC0 = lbl_805DEF10 * -cos_table_lookup(self->x60);
+        self->xC4 = lbl_805DEF14;
+        self->xC8 = lbl_805DEF10 * sin_table_lookup(self->x60);
+    }
+    {
+        P8_802FE494 sp = lbl_80474BBC[0];
+        TBoss8Dragon__sub_802FBF0C(self->xB0);
+        self->m15(&sp, self->xB8);
+    }
+    TBoss8Dragon__sub_802FBF40(self->xB0);
+}
 
 void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
     vec3_add_to(arg1 + 0x308, arg0 + 0xC0, arg0);

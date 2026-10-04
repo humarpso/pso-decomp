@@ -466,6 +466,20 @@ s32 obj_testFlags30(void *, u32);
 void obj_clearFlags30(void *, u32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void TObjEneDolmOlm__sub_8030158C(u8 *arg0);
+f32 calc_boss4_scale__10TObjPlayerFi();
+void obj_clearFlags30(void *, u32);
+M2C_UNK obj_setFlags30(void *, M2C_UNK);
+s32 get_current_floor();
+s32 get_field_3e4__10TObjPlayerFPv(int);
+f32 get_random_float__8TObjFishFv(f32);
+u8 *get_enemy_entity(u32);
+f32 horizontal_distance_squared(void *, void *);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+u8 *get_player_by_client_id(u32);
+extern u32 TObjEneDolmOlm__data_805D6A0C;
+extern const f32 TObjEneDolmOlm__data_805DEF5C;
+extern const f32 TObjEneDolmOlm__data_805DEF6C;
+void TObjEneDolmOlm__sub_80301348(u8 *arg0);
 }
 
 extern "C" {
@@ -520,7 +534,6 @@ extern "C" {
 void TLobby__sub_801A1FD8();
 }
 extern "C" {
-void TObjEneDolmOlm__sub_80301348();
 }
 extern "C" {
 }
@@ -1074,6 +1087,76 @@ extern const f32 TObjEneDolmOlm__data_805DEF6C;
 void advance_position__14TObjEneDolmOlmFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + TObjEneDolmOlm__data_805DEF6C);
+}
+
+void TObjEneDolmOlm__sub_80301348(u8 *arg0) {
+    f32 temp_f31;
+    f32 var_f30;
+    u16 id;
+    s32 var_r29;
+    u8 *temp_r3_2;
+    u8 *temp_r3_3;
+    switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+    case 0:
+    case 2:
+    case 10:
+    case 11:
+        break;
+    case 1:
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        if (M2C_FIELD(arg0, u32 *, 0x34C) == 0U) {
+            M2C_FIELD(arg0, s16 *, 0x326) = 3;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 7;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0x326) = 2;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0xA;
+        }
+        obj_clearFlags30((void *) (arg0), (int) (0x04040000));
+        clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (0x0A000000));
+        break;
+    default:
+        id = M2C_FIELD(arg0, u16 *, 0x338);
+        var_r29 = 0;
+        var_f30 = TObjEneDolmOlm__data_805DEF6C;
+        if (id < 0x1000U) {
+            temp_r3_2 = get_player_by_client_id(id);
+            if (temp_r3_2 != NULL) {
+                temp_f31 = horizontal_distance_squared((void *) (temp_r3_2 + 0x38), (void *) (arg0 + 0x38));
+                var_f30 = get_random_float__8TObjFishFv(M2C_FIELD(temp_r3_2, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C));
+                if (get_field_3e4__10TObjPlayerFPv((int) (temp_r3_2)) == get_current_floor()) {
+                    if ((temp_f31 < (M2C_FIELD(M2C_FIELD(TObjEneDolmOlm__data_805D6A0C, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x368) * 4)), f32 *, 0x10) * M2C_FIELD(M2C_FIELD(TObjEneDolmOlm__data_805D6A0C, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x368) * 4)), f32 *, 0x10))) && (((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(arg0) < M2C_FIELD(arg0, f32 *, 0x3D0))) {
+                        var_r29 = 1;
+                    }
+                }
+            }
+        } else if (id < 0x4000U) {
+            temp_r3_3 = get_enemy_entity(id);
+            if (temp_r3_3 != NULL) {
+                var_f30 = get_random_float__8TObjFishFv(M2C_FIELD(temp_r3_3, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x3C));
+            }
+        }
+        if (var_r29 == 1) {
+            M2C_FIELD(arg0, s16 *, 0x326) = 0xB;
+            M2C_FIELD(arg0, s16 *, 0x328) = 0;
+            obj_setFlags30((void *) (arg0), (int) (0x200000));
+            obj_clearFlags30((void *) (arg0), (int) (0x04040000));
+            clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (0x0A000000));
+            return;
+        }
+        if (var_f30 < TObjEneDolmOlm__data_805DEF6C) {
+            M2C_FIELD(arg0, s16 *, 0x326) = 5;
+            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            if (TObjEneDolmOlm__data_805DEF5C < ((f32 (*)(void *)) calc_boss4_scale__10TObjPlayerFi)(arg0)) {
+                M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+            } else {
+                M2C_FIELD(arg0, s16 *, 0xB8) = 4;
+            }
+            obj_setFlags30((void *) (arg0), (int) (0x200000));
+            obj_clearFlags30((void *) (arg0), (int) (0x04040000));
+            clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (0x0A000000));
+        }
+        break;
+    }
 }
 
 void TObjEneDolmOlm__sub_8030158C(u8 *arg0) {

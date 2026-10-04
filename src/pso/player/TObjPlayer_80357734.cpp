@@ -139,6 +139,71 @@ struct Strike_80357B2C {
     f32 len;
 };
 
+struct VBase_18 { char pad[0x18]; };
+
+struct VObj_18 : VBase_18 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual M2C_UNK m49(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
+};
+
+struct V_80357784 { f32 x, y, z; };
+
+struct Info_80357784 {
+    u8 pad0[0x10];
+    s32 f10;
+    u8 pad14[0x28 - 0x14];
+    s32 f28;
+    V_80357784 v[5];
+};
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -207,6 +272,15 @@ extern const f32 lbl_805E0060;
 extern const f32 lbl_805E0064;
 extern const f32 lbl_805E0068;
 void spawn_scattered_lightning_strikes(u8 *arg0, s32 arg1);
+s32 is_mode_two_and_ready__10TObjPlayerFPv();
+M2C_UNK restore_action_type__11TItemWeaponFPv(void *);
+M2C_UNK remap_extra_attack_type(void *);
+M2C_UNK fill_status_info__10TObjPlayerFPvPv(void *, void *);
+M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
+M2C_UNK create__20TItemEffOrgaFlowShotFPvPv(int, void *, int);
+void *reset_field28__10TObjPlayerFPv(void *arg0);
+extern s32 tl_05;
+void TObjPlayer__sub_80357784(u8 *arg0);
 }
 
 extern "C" {
@@ -289,6 +363,38 @@ void *reset_field28__10TObjPlayerFPv(void *arg0) {
 void TObjPlayer__sub_8035776C(void *arg0, void *arg1) {
     M2C_FIELD(arg1, s32 *, 0x40) = (s32) (M2C_FIELD(arg1, s32 *, 0x40) | 0x400);
     M2C_FIELD(arg1, s32 *, 0x78) = 0x12;
+}
+
+void TObjPlayer__sub_80357784(u8 *arg0) {
+    Info_80357784 info;
+    V_80357784 sp8;
+    s32 temp_r5;
+    if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
+        remap_extra_attack_type((void *) (arg0));
+        reset_field28__10TObjPlayerFPv((void *) (&info));
+        fill_status_info__10TObjPlayerFPvPv((void *) (arg0), (void *) (&info));
+        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (4), (void *) (&info.v[0]));
+        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&info.v[1]));
+        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (6), (void *) (&info.v[2]));
+        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (9), (void *) (&info.v[3]));
+        draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (0xA), (void *) (&info.v[4]));
+        temp_r5 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
+        info.f28 = temp_r5;
+        info.f10 = 0xA;
+        create__20TItemEffOrgaFlowShotFPvPv((int) (tl_05), (void *) (&info), (int) (temp_r5));
+        restore_action_type__11TItemWeaponFPv((void *) (arg0));
+        return;
+    }
+    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (6), (void *) (&sp8));
+    ((VObj_18 *)(arg0))->m49((M2C_UNK *)&sp8, 0, 0, 1);
+    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (9), (void *) (&sp8));
+    ((VObj_18 *)(arg0))->m49((M2C_UNK *)&sp8, 1, 0x11C7, 1);
+    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&sp8));
+    ((VObj_18 *)(arg0))->m49((M2C_UNK *)&sp8, 2, -0x11C7, 1);
+    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (0xA), (void *) (&sp8));
+    ((VObj_18 *)(arg0))->m49((M2C_UNK *)&sp8, 3, 0x2000, 1);
+    draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (4), (void *) (&sp8));
+    ((VObj_18 *)(arg0))->m49((M2C_UNK *)&sp8, 4, -0x2000, 1);
 }
 
 void TObjPlayer__sub_80357954(u8 *arg0) {

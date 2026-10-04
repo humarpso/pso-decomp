@@ -125,6 +125,31 @@ struct VObj_802D0C14 : VBase_802D0C14 {
 
 struct S_802D0C14 { u8 pad[0x3C0]; void *arr[2]; };
 
+struct VBase_18_0ab400 { char pad[0x18]; };
+
+struct VObj_18_0ab400 : VBase_18_0ab400 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual M2C_UNK m19(s32, void *, s32);
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern const f32 lbl_805DE704;
@@ -176,6 +201,16 @@ M2C_UNK __destroy_arr(void *, void *, u32, u32);
 void TObjPlayer__sub_800D7C58(void);
 extern u8 lbl_804E16C4[];
 u8 *TObjEneBm9Mericarol__sub_802D0C14(u8 *arg0, s16 arg1);
+s32 obj_is_hit_receivable(u32);
+f32 get_random_float__8TObjFishFv(f32);
+s32 get_battle_param__10TObjPlayerFi(s32);
+s32 is_area_attack_target_eligible(void *, u32);
+s32 attack_target_history_add(s32, s32);
+M2C_UNK init_all_slots__10TObjPlayerFv();
+M2C_UNK mark_enemy_body_contacts(void *);
+M2C_UNK TObjPlayer__sub_801561C4(void *, f32);
+extern const f32 lbl_805DE758;
+s32 TObjPlayer__sub_802D134C(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
 
 extern "C" {
@@ -431,6 +466,49 @@ void *create__19TObjEneBm9MericarolFPv(void *arg0) {
         o = TObjEneBm9Mericarol__ct(o, tl_04, arg0);
     }
     return o;
+}
+
+s32 TObjPlayer__sub_802D134C(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
+    s32 hit;
+    u32 mask;
+    s32 obj;
+    s32 i;
+    s32 ok;
+    hit = 0;
+    mask = 0;
+    if (M2C_FIELD(arg0, u32 *, 0xAC) == 0) {
+        return 0;
+    }
+    init_all_slots__10TObjPlayerFv();
+    if (M2C_FIELD(arg1, s32 *, 4) & 1) {
+        TObjPlayer__sub_801561C4(arg0, farg0);
+        mask |= 0x80000;
+    }
+    if (M2C_FIELD(arg1, s32 *, 4) & 2) {
+        mark_enemy_body_contacts(arg0);
+        mask |= 0x100000;
+    }
+    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), u32 *, 0x18) & mask) {
+        for (i = 0; i < 0x10; i++) {
+            obj = get_battle_param__10TObjPlayerFi(i);
+            if (obj == 0) {
+                break;
+            }
+            if (obj_is_hit_receivable(obj) != 0 && (u32)obj != M2C_FIELD(arg0, u32 *, 0xAC) &&
+                is_area_attack_target_eligible(arg0, M2C_FIELD(obj, u32 *, 0x30)) != 0 &&
+                !(get_random_float__8TObjFishFv(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(obj, f32 *, 0x300)) > lbl_805DE758)) {
+                ok = 1;
+                if (arg3 != 0 && attack_target_history_add(arg3, obj) == 0) {
+                    ok = 0;
+                }
+                if (ok != 0) {
+                    ((VObj_18_0ab400 *)(arg0))->m19(obj, arg1, arg2);
+                    hit = 1;
+                }
+            }
+        }
+    }
+    return hit;
 }
 
 void TObjPlayer__sub_802D14B4(u8 *arg0) {

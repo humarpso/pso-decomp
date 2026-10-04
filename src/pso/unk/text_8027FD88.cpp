@@ -120,6 +120,19 @@ s32 get_player_by_client_id(s16);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 s16 get_value__20TWindowSubStatusDispFPv(int);
 void TWindowSubStatusDisp__vt12(u8 *arg0);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
+u16 get_card_window_field__23TAdSinglePlyChrSelectGCFi(u16);
+u16 get_card_window_status__23TAdSinglePlyChrSelectGCFi(u16);
+u16 TAdSinglePlyChrSelectGC__sub_801FC36C(u16);
+u16 get_card_state__23TAdSinglePlyChrSelectGCFi(u16);
+void *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(void *);
+M2C_UNK init_window_layout_entries(void *, M2C_UNK *, s16);
+M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
+extern M2C_UNK lbl_804D244C[];
+extern const f32 TWindowSubStatusDisp__data_805DD708;
+void TWindowSubStatusDisp__vt7(u8 *arg0);
 }
 
 extern "C" {
@@ -158,6 +171,35 @@ void TWindowSubStatusDisp__vt16(void) {  }
 void TWindowSubStatusDisp__vt15(void) {  }
 
 void TWindowSubStatusDisp__vt18(void) {  }
+
+void TWindowSubStatusDisp__vt7(u8 *arg0) {
+    u8 *temp_r30;
+    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) > TWindowSubStatusDisp__data_805DD708) {
+        M2C_FIELD(arg0, s32 *, 0x5C) = 7;
+    }
+    init_window_layout_entries(arg0 + 0x24, lbl_804D244C, M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
+    set_text_entry_string(temp_r30, get_message_10__20TWindowSubStatusDispFPv(0x8F), 0);
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
+    set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 6), 0);
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 4);
+    set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 7), 0);
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 7);
+    set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 8), 0);
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xA);
+    set_text_entry_string(temp_r30, get_localized_text_entry(0x10, 9), 0);
+    set_flag0_bit2__15TWindowHelpItemFPv(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xD));
+    set_flag0_bit2__15TWindowHelpItemFPv(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xE));
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 3);
+    M2C_FIELD(temp_r30, s32 *, 0x20) = (s32) get_card_state__23TAdSinglePlyChrSelectGCFi((u16) M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 6);
+    M2C_FIELD(temp_r30, s32 *, 0x20) = (s32) TAdSinglePlyChrSelectGC__sub_801FC36C((u16) M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 9);
+    M2C_FIELD(temp_r30, s32 *, 0x20) = (s32) get_card_window_status__23TAdSinglePlyChrSelectGCFi((u16) M2C_FIELD(arg0, s16 *, 0x20));
+    temp_r30 = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xC);
+    M2C_FIELD(temp_r30, s32 *, 0x20) = (s32) get_card_window_field__23TAdSinglePlyChrSelectGCFi((u16) M2C_FIELD(arg0, s16 *, 0x20));
+    set_flag0_bit2__15TWindowHelpItemFPv(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0xF));
+}
 
 void TWindowSubStatusDisp__vt14(void) {  }
 

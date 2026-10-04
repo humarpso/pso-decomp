@@ -111,6 +111,7 @@ struct Src_801F718C {
 
 struct QVm_801F7890;
 struct QVm_801F6D24;
+
 extern "C" {
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -220,7 +221,6 @@ void check_client_connections__22TQuestVmDownLoadServerFPv(void *arg0);
 void TQuestVmDownLoadServer__sub_801F7FEC(u8 *arg0);
 void close_window__22TQuestVmDownLoadServerFPv(void *arg0);
 void open__22TQuestVmDownLoadServerFPv(void *arg0);
-void TQuestVmDownLoadServer__sub_801F7DC8(u8 *arg0);
 M2C_UNK set_flag_4__9TObjLukerFPv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p);
 void TQuestVmDownLoadServer__sub_801F7CC0(u8 *arg0);
@@ -261,6 +261,19 @@ Src_801F7478 TQuestVmDownLoadServer__data_80512B28;
 Src_801F770C lbl_80512B64;
 Src_801F718C lbl_80512BA0;
 RecoveredGlobal_801F84AC_lbl_80512BDC lbl_80512BDC;
+M2C_UNK disallow_rendering__7TObjectFv(u32);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
+s32 TWindowShortListCtrl__check_controller_button(int, int);
+M2C_UNK reset_counter__6TSceneFv();
+s32 poll_field_20c__22TQuestVmDownLoadServerFPv(void *);
+M2C_UNK select_if_mc_present__13TAdMcSelectGCFv();
+u32 create__13TAdMcSelectGCFPv(s32);
+s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
+M2C_UNK TQuestVmDownLoadServer__sub_801F6E08(void *, s32, M2C_UNK);
+extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
+extern u32 lbl_805D55D4;
+extern s32 tl_03;
+void TQuestVmDownLoadServer__sub_801F7DC8(u8 *arg0);
 }
 
 extern "C" {
@@ -621,6 +634,51 @@ void open__22TQuestVmDownLoadServerFPv(void *arg0) {
     TQuestVmDownLoadServer__sub_801F6E08(arg0, get_localized_text_entry(0x29, 1), 1);
 }
 
+void TQuestVmDownLoadServer__sub_801F7DC8(u8 *arg0) {
+    s32 temp_r0;
+    if (((u32) M2C_FIELD(arg0, u32 *, 0x294) == 0U) || (poll_field_20c__22TQuestVmDownLoadServerFPv(arg0 + 0x1C) != 0)) {
+        if ((void *) M2C_FIELD(arg0, u8 **, 0x29C) == NULL) {
+            reset_counter__6TSceneFv();
+            if (lbl_805D55D4 != 0) {
+                disallow_rendering__7TObjectFv(lbl_805D55D4);
+            }
+            M2C_FIELD(arg0, u32 *, 0x29C) = create__13TAdMcSelectGCFPv(tl_03);
+        }
+        if ((void *) M2C_FIELD(arg0, u8 **, 0x29C) != NULL) {
+            select_if_mc_present__13TAdMcSelectGCFv();
+        }
+        if (TWindowShortListCtrl__check_controller_button((int)((u8 *)&lbl_8050E208.value + 0x20), 2) != 0) {
+            select_if_mc_present__13TAdMcSelectGCFv();
+            TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (TQuestVmDownLoadServer__sub_8006EF6C(0x42)), (int) (1));
+            M2C_FIELD(arg0, s32 *, 0x2A0) = 0x14;
+            return;
+        }
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x294) == 0U) {
+            temp_r0 = M2C_FIELD(arg0, s32 *, 0x2A4);
+            switch (temp_r0) {
+            case 0:
+                TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (get_localized_text_entry((int) (0x29), (int) (0))), (int) (1));
+                return;
+            case 1:
+                TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (TQuestVmDownLoadServer__sub_8006EF6C(0x45)), (int) (1));
+                return;
+            case 2:
+                TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (TQuestVmDownLoadServer__sub_8006EF6C(0x60)), (int) (1));
+                return;
+            case 3:
+                TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (get_localized_text_entry((int) (0x29), (int) (2))), (int) (1));
+                return;
+            case 4:
+                TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (get_localized_text_entry((int) (0x29), (int) (3))), (int) (1));
+                return;
+            case 5:
+                TQuestVmDownLoadServer__sub_801F6E08((void *) (arg0), (int) (get_localized_text_entry((int) (0x29), (int) (4))), (int) (1));
+                break;
+            }
+        }
+    }
+}
+
 void close_window__22TQuestVmDownLoadServerFPv(void *arg0) {
     u32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x2A0) = 2;
@@ -705,7 +763,7 @@ void TQuestVmDownLoadServer__vt1(u8 *arg0) {
         open__22TQuestVmDownLoadServerFPv(arg0);
         break;
     case 3:
-        TQuestVmDownLoadServer__sub_801F7DC8(arg0);
+        TQuestVmDownLoadServer__sub_801F7DC8((u8 *)(arg0));
         break;
     case 4:
         if (lbl_805D55C0 != 0) {

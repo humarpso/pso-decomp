@@ -65,6 +65,18 @@ char *strcpy(char *, const char *);
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DBCA8;
 void TObjPlayer__sub_80187438(u8 *arg0);
+s32 TLobby__sub_800C6C10(s32);
+s32 TObjCityMainWarp__sub_80186B34(void *);
+s32 TObjCityMainWarp__sub_80186BBC(void *, f32);
+M2C_UNK close_windows__16TObjCityMainWarpFPv();
+M2C_UNK TObjCityMainWarp__sub_80186CC8(void *, M2C_UNK);
+M2C_UNK trigger_warp_effect__16TObjCityMainWarpFPvi(void *, s32);
+M2C_UNK TObjCityMainWarp__sub_801875F8(void *);
+s32 get_warp_state__19TWindowSubTradeMainFv();
+M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+extern s32 lbl_805D53A0;
+extern void *lbl_805D5B28;
+void TObjCityMainWarp__sub_8018709C(u8 *arg0);
 }
 
 extern "C" {
@@ -115,6 +127,47 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
         break;
     }
 }
+
+void TObjCityMainWarp__sub_8018709C(u8 *arg0) {
+    s32 r;
+    switch (M2C_FIELD(arg0, s16 *, 0xE0)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x160) = 0x12C;
+        play_sound_effect(0x40003205, arg0 + 0x38, 0, 0);
+        M2C_FIELD(arg0, s16 *, 0xE0) = 1;
+        M2C_FIELD(arg0, s32 *, 0xD0) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x42C), s32 *, 8);
+        M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(M2C_FIELD(lbl_805D5B28, void **, 0x430), s32 *, 0x2C);
+        break;
+    case 1:
+        if (((u32 (*)(f32))TObjCityMainWarp__sub_80186BBC)(M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
+            TObjCityMainWarp__sub_801875F8(arg0);
+            if (M2C_FIELD(arg0, s32 *, 0x170) == 0) {
+                trigger_warp_effect__16TObjCityMainWarpFPvi(arg0, lbl_805D53A0);
+                M2C_FIELD(arg0, s32 *, 0x170) = 1;
+            }
+        }
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0) {
+            if (TLobby__sub_800C6C10(M2C_FIELD(arg0, s32 *, 0x160)--) != 0) {
+                if (M2C_FIELD(arg0, s32 *, 0x160) <= 0) {
+                    r = 1;
+                } else {
+                    r = TObjCityMainWarp__sub_80186B34(arg0);
+                }
+                if (r != 0) {
+                    TObjCityMainWarp__sub_80186CC8(arg0, 2);
+                    M2C_FIELD(arg0, s16 *, 0xE0) = 2;
+                }
+            }
+        }
+        break;
+    case 2:
+        break;
+    case -1:
+        close_windows__16TObjCityMainWarpFPv();
+        break;
+    }
+}
+
 void TObjPlayer__sub_80187438(u8 *arg0) {
     Warp_80187438 *self = (Warp_80187438 *)arg0;
     s32 i;

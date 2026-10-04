@@ -49,6 +49,12 @@ struct Obj_802BBAB0 {
     Vec_802BBAB0 v680[1];
 };
 
+struct Prm_802BCAB8 { s32 a; s32 c; f32 b; f32 d; };
+
+struct Ent_802BCAB8 { s32 a; s32 b; };
+
+struct Obj_802BCAB8 { u8 pad[0x400]; Ent_802BCAB8 ents[2]; };
+
 extern "C" {
 s32 get_bml_model(s32, M2C_UNK);
 s32 collect_and_count__12TBoss3VoloptFUii(int, int);
@@ -90,6 +96,18 @@ extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE430;
 extern const f32 TBoss6Type2__data_805DE434;
 void TBoss6Type2__sub_802BBAB0(Obj_802BBAB0 *self);
+M2C_UNK clear_render_callback__8TObjFishFv(u32);
+M2C_UNK TObjFish__sub_800E3074(u32);
+M2C_UNK reset_fish_globals__8TObjFishFv();
+M2C_UNK TBoss6PlotFalz__sub_802ABF44(f32);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK draw_model_blend_motion(s32, Prm_802BCAB8 *, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
+M2C_UNK set_global_flag__10TObjPlayerFv();
+M2C_UNK clear_global_state__10TObjPlayerFv();
+extern const f32 TBoss6Type2__data_805DE40C;
+extern const f32 TBoss6Type2__data_805DE410;
+void TBoss6Type2__sub_802BCAB8(u8 *arg0);
 }
 
 extern "C" {
@@ -1856,6 +1874,72 @@ struct Obj_802BCD2C {
 };
 extern const s32 TBoss6Type2__data_805DE4B8;
 extern const s32 lbl_805DE4BC;
+
+void TBoss6Type2__sub_802BCAB8(u8 *arg0) {
+    Prm_802BCAB8 prm;
+    f32 zero;
+    f32 a;
+    s32 b;
+    u32 obj;
+    s32 done;
+    s32 i;
+    Ent_802BCAB8 *e;
+    s32 p0;
+    s32 p1;
+    set_global_flag__10TObjPlayerFv();
+    obj = M2C_FIELD(arg0, u32 *, 0x764);
+    done = 0;
+    if (obj != 0) {
+        zero = TBoss6Type2__data_805DE410;
+        for (i = 0; i < 2; i++) {
+            e = &((Obj_802BCAB8 *)arg0)->ents[i];
+            p0 = e->a;
+            p1 = e->b;
+            switch (i) {
+            case 0:
+                a = TBoss6Type2__data_805DE40C - M2C_FIELD(arg0, f32 *, 0x41C);
+                break;
+            case 1:
+            default:
+                a = M2C_FIELD(arg0, f32 *, 0x41C);
+                break;
+            }
+            if (zero != a) {
+                if (a < TBoss6Type2__data_805DE40C) {
+                    TBoss6PlotFalz__sub_802ABF44(a);
+                }
+                set_global_param__8TObjFishFi(p0);
+                if (TBoss6Type2__data_805DE410 == M2C_FIELD(arg0, f32 *, 0x4A4)) {
+                    if (done != 0) {
+                        draw_model_motion(p1, M2C_FIELD(arg0, s32 *, 0x498), M2C_FIELD(arg0, f32 *, 0x49C));
+                    } else {
+                        TObjFish__sub_800E3074(obj);
+                        draw_model_motion(p1, M2C_FIELD(arg0, s32 *, 0x498), M2C_FIELD(arg0, f32 *, 0x49C));
+                        clear_render_callback__8TObjFishFv(obj);
+                        done = 1;
+                    }
+                } else {
+                    prm.a = M2C_FIELD(arg0, s32 *, 0x4AC);
+                    prm.b = M2C_FIELD(arg0, f32 *, 0x4B0);
+                    prm.c = M2C_FIELD(arg0, s32 *, 0x498);
+                    prm.d = M2C_FIELD(arg0, f32 *, 0x49C);
+                    if (done != 0) {
+                        draw_model_blend_motion(p1, &prm, M2C_FIELD(arg0, f32 *, 0x4A4));
+                    } else {
+                        TObjFish__sub_800E3074(obj);
+                        draw_model_blend_motion(p1, &prm, M2C_FIELD(arg0, f32 *, 0x4A4));
+                        clear_render_callback__8TObjFishFv(obj);
+                        done = 1;
+                    }
+                }
+                if (a < TBoss6Type2__data_805DE40C) {
+                    reset_fish_globals__8TObjFishFv();
+                }
+            }
+        }
+    }
+    clear_global_state__10TObjPlayerFv();
+}
 
 void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self) {
     s32 i;
