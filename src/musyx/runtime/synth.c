@@ -249,6 +249,117 @@ end:
 #pragma dont_inline off
 #pragma inline_depth(4)
 #pragma opt_common_subs on
+u32 StartKeymap(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd) {
+    KEYMAP_SV *dataGetKeymap(u16 keymapID);
+    u32 macStart(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                 u8 midiSet, u8 section, u16 step, u16 trackid, u8 new_vid, u8 vGroup, u8 studio, u32 itd);
+    s32 k;
+    u8 o;
+    KEYMAP_SV *keymap;
+    s32 p;
+    u32 vid;
+
+    if ((keymap = dataGetKeymap(keymapID)) != NULL) {
+        o = key & 0x7f;
+        if (keymap[o].id != 0xffff && (keymap[o].id & 0xc000) != 0x4000) {
+            if ((keymap[o].panning & 0x80) == 0) {
+                p = (keymap[key].panning - 0x40);
+                p += panning;
+                if (p < 0) {
+                    panning = 0;
+                } else if (p > 0x7f) {
+                    panning = 0x7f;
+                } else {
+                    panning = p;
+                }
+            } else {
+                panning = 0x80;
+            }
+
+            k = (key & 0x7f) + keymap[o].transpose;
+            k = CLAMP_SV(k, 0, 127);
+
+            prio += keymap[o].prioOffset;
+            prio = CLAMP_SV(prio, 0, 0xff);
+
+            if ((keymap[o].id & 0xc000) == 0) {
+                if (!check_portamento_SV(k & 0xff, midi, midiSet, vidFlag, &vid)) {
+                    return 0xffffffff;
+                }
+                if (vid != 0xffffffff) {
+                    return vid;
+                }
+                return macStart(keymap[o].id, prio, maxVoices, allocId, k | (key & 0x80), vol, panning, midi,
+                                midiSet, section, step, trackid, vidFlag, vGroup, studio, itd);
+            }
+
+            return StartLayer(keymap[o].id, prio, maxVoices, allocId, k | (key & 0x80), vol, panning, midi,
+                              midiSet, section, step, trackid, vidFlag & 0xff, vGroup, studio, itd);
+        }
+    }
+
+    return 0xFFFFFFFF;
+}
+
+static inline void unblockAllAllocatedVoices_SV(u32 vid) {
+    u32 id;
+
+    id = vidGetInternalId(vid);
+    while (id != 0xFFFFFFFF) {
+        SV_VOICES[id & 0xff].block = 0;
+        id = SV_VOICES[id & 0xff].child;
+    }
+}
+
+u32 synthStartSound(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet, u8 section,
+                    u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd) {
+    u32 macStart(u16 macid, u8 priority, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                 u8 midiSet, u8 section, u16 step, u16 trackid, u8 new_vid, u8 vGroup, u8 studio, u32 itd);
+    u32 StartKeymap(u16 keymapID, s16 prio, u8 maxVoices, u16 allocId, u8 key, u8 vol, u8 panning, u8 midi,
+                    u8 midiSet, u8 section, u16 step, u16 trackid, u32 vidFlag, u8 vGroup, u8 studio, u32 itd);
+    u16 allocId = id;
+
+    prio += prioOffset;
+    prio = CLAMP_SV(prio, 0, 0xff);
+
+    switch (id & 0xC000) {
+    case 0: {
+        u32 vid;
+        if (!check_portamento_SV(key, midi, midiSet, 1, &vid)) {
+            return 0xFFFFFFFF;
+        }
+        if (vid != 0xFFFFFFFF) {
+            return vid;
+        }
+        return macStart(id, prio, max, allocId, key, vol, panning, midi, midiSet, section, step, trackid, 1,
+                        vGroup, studio, itd);
+    }
+    case 0x4000: {
+        u32 vid = StartKeymap(id, prio, max, allocId, key, vol, panning, midi, midiSet, section, step, trackid,
+                              1, vGroup, studio, itd);
+        if (vid != 0xFFFFFFFF) {
+            unblockAllAllocatedVoices_SV(vid);
+        }
+        return vid;
+    }
+    case 0x8000: {
+        u32 vid = StartLayer(id, prio, max, allocId, key, vol, panning, midi, midiSet, section, step, trackid,
+                             1, vGroup, studio, itd);
+        if (vid != 0xFFFFFFFF) {
+            unblockAllAllocatedVoices_SV(vid);
+        }
+        return vid;
+    }
+    default:
+        return 0xFFFFFFFF;
+    }
+}
+#pragma pop
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
 
 static inline u32 apply_portamento_SV(SYNTH_VOICE_SV *svoice, u32 ccents, u32 deltaTime) {
     u32 old_portCurPitch;
@@ -832,6 +943,7 @@ void synthHandle(u32 deltaTime) {
 #pragma pop
 
 s32 synthFXStart(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4) {
+    s32 synthStartSound(s32, s32, s32, s32, u8, u8, s32, s32, s32, s32, s32, s32, s32, s32, s32);
     s32 ret = -1;
     Se_803A9144 *p = dataGetFX(arg0);
     if (p != NULL) {

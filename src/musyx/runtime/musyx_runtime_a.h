@@ -641,7 +641,7 @@ extern s32 lbl_805D749C;
 void EmitterShutdown(Node_803BA1B8 *arg0);
 extern Rec_803A8D2C *lbl_805D73B0;
 void HandleJobQueue(Node_803A8D2C **list, void (*cb)(u8));
-s32 synthStartSound(s32, s32, s32, s32, u8, u8, s32, s32, s32, s32, s32, s32, s32, s32, s32);
+u32 synthStartSound(u16 id, u8 prio, u8 max, u8 key, u8 vol, u8 panning, u8 midi, u8 midiSet, u8 section, u16 step, u16 trackid, u8 vGroup, s16 prioOffset, u8 studio, u32 itd);
 Se_803A9144 *dataGetFX(s16);
 s32 synthFXStart(s16 arg0, u8 arg1, u8 arg2, s32 arg3, s32 arg4);
 extern u8 lbl_805D7380;
