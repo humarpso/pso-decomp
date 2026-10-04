@@ -775,6 +775,7 @@ pso/boss/TBoss8Dragon_8005D880.cpp:
 	.text       start:0x8005D880 end:0x80065BC0
 	.rodata     start:0x80437EB8 end:0x80437EC0
 	.data       start:0x804884C0 end:0x80488668
+	.sdata2     start:0x805D8D74 end:0x805D8D78
 
 pso/boss/TBoss5Gryphon.cpp:
 	.text       start:0x80065BC0 end:0x80065C90
@@ -10981,6 +10982,7 @@ pso/misc/TWindowSubSymbolChatHelp.cpp:
 pso/misc/TWindowSubSymbolChatParts.cpp:
 	.text       start:0x80284C04 end:0x80285E10
 	.rodata     start:0x8044FC08 end:0x8044FC10
+	.sdata2     start:0x805DD7D4 end:0x805DD7F8
 
 pso/misc/TWindowSubSymbolChat_80285E10.cpp:
 	.text       start:0x80285E10 end:0x80286120
@@ -14011,6 +14013,7 @@ pso/misc/TChallenge4PItemSelect.cpp:
 
 pso/misc/TChallenge4PResult.cpp:
 	.text       start:0x8034B420 end:0x8034BE30
+	.data       start:0x804F0140 end:0x804F0174
 
 pso/ui/TAdFloorLoadCamGC.cpp:
 	.text       start:0x8034BE30 end:0x8034C18C

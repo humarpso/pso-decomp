@@ -4,6 +4,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+#include <stddef.h>
+struct Stack_80285274 {
+    f32 sp8;
+    f32 spC;
+};
+
+extern "C" {
+void TWindowSubSymbolChatFaceType__sub_80283C84(void *, void *, f32, f32);
+void fn_80285274(u8 *arg0, u8 *arg1);
+}
+
 extern "C" {
 
 struct Stack_80284C04 {
@@ -104,7 +115,6 @@ void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void handle_add__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void fn_80284FB8(void *);
 void fn_80285054(u8 *arg0);
-M2C_UNK fn_80285274(void *, s32);
 M2C_UNK fn_80285314(void *, s32);
 M2C_UNK fn_802855C4(void *, s32);
 M2C_UNK fn_802857C4(void *, s32);
@@ -266,6 +276,18 @@ void fn_80285054(u8 *arg0) {
     }
 }
 
+#pragma push
+#pragma fp_contract on
+void fn_80285274(u8 *arg0, u8 *arg1) {
+    typedef char sp8_offset[(offsetof(Stack_80285274, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_80285274, spC) == 0x4) ? 1 : -1];
+    Stack_80285274 stack;
+    stack.sp8 = ((40.0f * (f32) (s8) M2C_FIELD(arg0, u8 *, 0x72)) + 10.0f) - 3.0f;
+    stack.spC = ((40.0f * (f32) (s8) M2C_FIELD(arg0, u8 *, 0x73)) + 9.0f) - 3.0f;
+    TWindowSubSymbolChatFaceType__sub_80283C84(arg1, &stack.sp8, 38.0f, 0.1f);
+}
+#pragma pop
+
 void update_height__20TWindowSubSymbolChatFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x76) = compute_total_height__20TWindowSubSymbolChatFv();
     ((M2C_UNK (*)(void *))fn_80284C04)((void *)(arg0));
@@ -298,7 +320,7 @@ void render__25TWindowSubSymbolChatPartsFv(u8 *arg0) {
         break;
     }
     draw_window_scrollbar(M2C_FIELD(arg0, s32 *, 0x8C), temp_r3, arg0 + 0x68);
-    fn_80285274(arg0, temp_r3);
+    fn_80285274((u8 *)(arg0), (u8 *)(temp_r3));
     forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88), temp_r3);
 }
 

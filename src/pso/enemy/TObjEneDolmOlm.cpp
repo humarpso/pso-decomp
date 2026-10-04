@@ -462,6 +462,10 @@ extern u32 TObjEneDolmOlm__data_805D6A14;
 extern u32 TObjEneDolmOlm__data_805D6A18;
 extern const f32 lbl_805DEF64;
 void TObjEneDolmOlm__sub_80301148(u8 *arg0);
+s32 obj_testFlags30(void *, u32);
+void obj_clearFlags30(void *, u32);
+void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
+void TObjEneDolmOlm__sub_8030158C(u8 *arg0);
 }
 
 extern "C" {
@@ -512,109 +516,314 @@ M2C_UNK init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D4068;
 extern const f32 lbl_805DEF94;
 extern const f32 lbl_805DEF98;
-extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjEneDolmOlm__sub_80301348();
-extern "C" void TObjEneDolmOlm__sub_8030158C();
-extern "C" void TObjEneDolmOlm__sub_803021AC();
-extern "C" void TObjPlayer__sub_8000FF3C();
-extern "C" void TObjPlayer__sub_80010A80();
-extern "C" void TObjPlayer__sub_800111D8();
-extern "C" void TObjPlayer__sub_80014830();
-extern "C" void TObjPlayer__sub_80014838();
-extern "C" void TObjPlayer__sub_80014840();
-extern "C" void TObjPlayer__sub_80015884();
-extern "C" void TObjPlayer__sub_80016C54();
-extern "C" void TObjPlayer__sub_800172CC();
-extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_80019568();
-extern "C" void TObjPlayer__sub_800AC9D8();
-extern "C" void TObjPlayer__sub_800C53B4();
-extern "C" void TObjPlayer__sub_800C5B10();
-extern "C" void TObjPlayer__sub_800F65D0();
-extern "C" void TObjPlayer__sub_800F673C();
-extern "C" void add_actor_exp();
-extern "C" void apply_action_hold_status();
-extern "C" void apply_anti_technique__10TObjPlayerFv();
-extern "C" void apply_attack_stat_status__10TObjPlayerFv();
-extern "C" void apply_confusion_status__10TObjPlayerFv();
-extern "C" void apply_defense_stat_status__10TObjPlayerFv();
-extern "C" void apply_knockback_from_attacker();
-extern "C" void apply_movement_ailment__10TObjPlayerFv();
-extern "C" void apply_object_set_data();
-extern "C" void apply_paralysis__10TObjPlayerFv();
-extern "C" void apply_poison_status__10TObjPlayerFv();
-extern "C" void apply_set_data__9TObjEnemyFPvPv();
-extern "C" void apply_shock_status__10TObjPlayerFv();
-extern "C" void apply_switch_attack__10TObjPlayerFi();
-extern "C" void beast_idle_update();
-extern "C" void beast_retire_corpse();
-extern "C" void beast_select_target();
-extern "C" void beast_update_approach();
-extern "C" void beast_update_attack();
-extern "C" void beast_update_dead();
-extern "C" void beast_update_group_chase();
-extern "C" void beast_update_hurt();
-extern "C" void calc_distance_accuracy_penalty__10TObjPlayerFv();
-extern "C" void call_vt78__10TObjPlayerFPv();
-extern "C" void classify_actor_view_detail();
-extern "C" void clear_all_status_effects();
-extern "C" void clear_flag_0x100__10TObjPlayerFPv();
-extern "C" void clear_harmful_statuses__10TObjPlayerFv();
-extern "C" void cure_paralysis__10TObjPlayerFv();
-extern "C" void cure_poison_ailment();
-extern "C" void enemy_spawn_jellen_effect();
-extern "C" void enemy_spawn_zalure_effect();
-extern "C" void enter_state7__10TObjPlayerFPv();
-extern "C" void enter_state_8__10TObjPlayerFPv();
-extern "C" void fn_80010EBC();
-extern "C" void fn_80010EC0();
-extern "C" void fn_80010EC4();
-extern "C" void fn_80010EC8();
-extern "C" void fn_800F5D80();
-extern "C" void get_actor_body_center();
-extern "C" void get_actor_level_index();
-extern "C" void get_enemy_name__14TObjEnePanarmsFPv();
-extern "C" void get_pos__10TObjPlayerFii();
-extern "C" void has_flag_0x800__10TObjPlayerFPv();
-extern "C" void is_actor_cadence_frame();
-extern "C" void is_lying_down__12TObjEneBeastFv();
-extern "C" void is_target_in_attack_range__10TObjPlayerFv();
-extern "C" u8 lbl_80474F08[];
-extern "C" u8 lbl_80474F1C[];
-extern "C" u8 lbl_80474F34[];
-extern "C" u8 lbl_80474F54[];
-extern "C" u8 lbl_80474F74[];
-extern "C" u8 lbl_80474F90[];
-extern "C" u8 lbl_80474FAC[];
-extern "C" u8 lbl_80474FC8[];
-extern "C" u8 lbl_80474FE4[];
-extern "C" u8 lbl_80475000[];
-extern "C" u8 lbl_8047501C[];
-extern "C" u8 lbl_80475038[];
-extern "C" u8 lbl_80475054[];
-extern "C" u8 lbl_8047506C[];
-extern "C" u8 lbl_80475084[];
-extern "C" void receive_direct_attack__10TObjPlayerFv();
-extern "C" void receive_physical_attack__10TObjPlayerFv();
-extern "C" void receive_weapon_special_attack__10TObjPlayerFv();
-extern "C" void render_actor_shadows_default();
-extern "C" void reset_actor_action_state();
-extern "C" void reset_pose__10TObjPlayerFPv();
-extern "C" void roll_physical_accuracy__10TObjPlayerFv();
-extern "C" void select_melee_contact_body__10TObjPlayerFv();
-extern "C" void test_flag30_512__10TObjPlayerFPv();
-extern "C" void test_flag_1000__10TObjPlayerFPv();
-extern "C" void tick_freeze_and_reset_appearance();
-extern "C" void trigger_switch_attack__10TObjPlayerFi();
-extern "C" void try_start_action__10TObjPlayerFPvii();
-extern "C" void update_action_hold__12TObjEneBeastFPv();
-extern "C" void update_action_timer__10TObjPlayerFPv();
-extern "C" void update_actor_ground_y();
-extern "C" void update_attack_stat_status();
-extern "C" void update_defense_stat_status();
-extern "C" void update_flag30_timer__10TObjPlayerFPv();
-extern "C" void update_object_view_visibility();
-extern "C" void update_poison_status__10TObjPlayerFv();
+extern "C" {
+void TLobby__sub_801A1FD8();
+}
+extern "C" {
+void TObjEneDolmOlm__sub_80301348();
+}
+extern "C" {
+}
+extern "C" {
+void TObjEneDolmOlm__sub_803021AC();
+}
+extern "C" {
+void TObjPlayer__sub_8000FF3C();
+}
+extern "C" {
+void TObjPlayer__sub_80010A80();
+}
+extern "C" {
+void TObjPlayer__sub_800111D8();
+}
+extern "C" {
+void TObjPlayer__sub_80014830();
+}
+extern "C" {
+void TObjPlayer__sub_80014838();
+}
+extern "C" {
+void TObjPlayer__sub_80014840();
+}
+extern "C" {
+void TObjPlayer__sub_80015884();
+}
+extern "C" {
+void TObjPlayer__sub_80016C54();
+}
+extern "C" {
+void TObjPlayer__sub_800172CC();
+}
+extern "C" {
+void TObjPlayer__sub_80018E6C();
+}
+extern "C" {
+void TObjPlayer__sub_80019568();
+}
+extern "C" {
+void TObjPlayer__sub_800AC9D8();
+}
+extern "C" {
+void TObjPlayer__sub_800C53B4();
+}
+extern "C" {
+void TObjPlayer__sub_800C5B10();
+}
+extern "C" {
+void TObjPlayer__sub_800F65D0();
+}
+extern "C" {
+void TObjPlayer__sub_800F673C();
+}
+extern "C" {
+void add_actor_exp();
+}
+extern "C" {
+void apply_action_hold_status();
+}
+extern "C" {
+void apply_anti_technique__10TObjPlayerFv();
+}
+extern "C" {
+void apply_attack_stat_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_confusion_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_defense_stat_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_knockback_from_attacker();
+}
+extern "C" {
+void apply_movement_ailment__10TObjPlayerFv();
+}
+extern "C" {
+void apply_object_set_data();
+}
+extern "C" {
+void apply_paralysis__10TObjPlayerFv();
+}
+extern "C" {
+void apply_poison_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_set_data__9TObjEnemyFPvPv();
+}
+extern "C" {
+void apply_shock_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_switch_attack__10TObjPlayerFi();
+}
+extern "C" {
+void beast_idle_update();
+}
+extern "C" {
+void beast_retire_corpse();
+}
+extern "C" {
+void beast_select_target();
+}
+extern "C" {
+void beast_update_approach();
+}
+extern "C" {
+void beast_update_attack();
+}
+extern "C" {
+void beast_update_dead();
+}
+extern "C" {
+void beast_update_group_chase();
+}
+extern "C" {
+void beast_update_hurt();
+}
+extern "C" {
+void calc_distance_accuracy_penalty__10TObjPlayerFv();
+}
+extern "C" {
+void call_vt78__10TObjPlayerFPv();
+}
+extern "C" {
+void classify_actor_view_detail();
+}
+extern "C" {
+void clear_all_status_effects();
+}
+extern "C" {
+void clear_flag_0x100__10TObjPlayerFPv();
+}
+extern "C" {
+void clear_harmful_statuses__10TObjPlayerFv();
+}
+extern "C" {
+void cure_paralysis__10TObjPlayerFv();
+}
+extern "C" {
+void cure_poison_ailment();
+}
+extern "C" {
+void enemy_spawn_jellen_effect();
+}
+extern "C" {
+void enemy_spawn_zalure_effect();
+}
+extern "C" {
+void enter_state7__10TObjPlayerFPv();
+}
+extern "C" {
+void enter_state_8__10TObjPlayerFPv();
+}
+extern "C" {
+void fn_80010EBC();
+}
+extern "C" {
+void fn_80010EC0();
+}
+extern "C" {
+void fn_80010EC4();
+}
+extern "C" {
+void fn_80010EC8();
+}
+extern "C" {
+void fn_800F5D80();
+}
+extern "C" {
+void get_actor_body_center();
+}
+extern "C" {
+void get_actor_level_index();
+}
+extern "C" {
+void get_enemy_name__14TObjEnePanarmsFPv();
+}
+extern "C" {
+void get_pos__10TObjPlayerFii();
+}
+extern "C" {
+void has_flag_0x800__10TObjPlayerFPv();
+}
+extern "C" {
+void is_actor_cadence_frame();
+}
+extern "C" {
+void is_lying_down__12TObjEneBeastFv();
+}
+extern "C" {
+void is_target_in_attack_range__10TObjPlayerFv();
+}
+extern "C" {
+extern u8 lbl_80474F08[];
+}
+extern "C" {
+extern u8 lbl_80474F1C[];
+}
+extern "C" {
+extern u8 lbl_80474F34[];
+}
+extern "C" {
+extern u8 lbl_80474F54[];
+}
+extern "C" {
+extern u8 lbl_80474F74[];
+}
+extern "C" {
+extern u8 lbl_80474F90[];
+}
+extern "C" {
+extern u8 lbl_80474FAC[];
+}
+extern "C" {
+extern u8 lbl_80474FC8[];
+}
+extern "C" {
+extern u8 lbl_80474FE4[];
+}
+extern "C" {
+extern u8 lbl_80475000[];
+}
+extern "C" {
+extern u8 lbl_8047501C[];
+}
+extern "C" {
+extern u8 lbl_80475038[];
+}
+extern "C" {
+extern u8 lbl_80475054[];
+}
+extern "C" {
+extern u8 lbl_8047506C[];
+}
+extern "C" {
+extern u8 lbl_80475084[];
+}
+extern "C" {
+void receive_direct_attack__10TObjPlayerFv();
+}
+extern "C" {
+void receive_physical_attack__10TObjPlayerFv();
+}
+extern "C" {
+void receive_weapon_special_attack__10TObjPlayerFv();
+}
+extern "C" {
+void render_actor_shadows_default();
+}
+extern "C" {
+void reset_actor_action_state();
+}
+extern "C" {
+void reset_pose__10TObjPlayerFPv();
+}
+extern "C" {
+void roll_physical_accuracy__10TObjPlayerFv();
+}
+extern "C" {
+void select_melee_contact_body__10TObjPlayerFv();
+}
+extern "C" {
+void test_flag30_512__10TObjPlayerFPv();
+}
+extern "C" {
+void test_flag_1000__10TObjPlayerFPv();
+}
+extern "C" {
+void tick_freeze_and_reset_appearance();
+}
+extern "C" {
+void trigger_switch_attack__10TObjPlayerFi();
+}
+extern "C" {
+void try_start_action__10TObjPlayerFPvii();
+}
+extern "C" {
+void update_action_hold__12TObjEneBeastFPv();
+}
+extern "C" {
+void update_action_timer__10TObjPlayerFPv();
+}
+extern "C" {
+void update_actor_ground_y();
+}
+extern "C" {
+void update_attack_stat_status();
+}
+extern "C" {
+void update_defense_stat_status();
+}
+extern "C" {
+void update_flag30_timer__10TObjPlayerFPv();
+}
+extern "C" {
+void update_object_view_visibility();
+}
+extern "C" {
+void update_poison_status__10TObjPlayerFv();
+}
 void *lbl_804E6740[3] = {
     (void *)&lbl_80474F08, (void *)&lbl_80474F1C, (void *)0x0,
 };
@@ -865,6 +1074,42 @@ extern const f32 TObjEneDolmOlm__data_805DEF6C;
 void advance_position__14TObjEneDolmOlmFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
     M2C_FIELD(arg0, f32 *, 0x300) = (f32) (M2C_FIELD(arg0, f32 *, 0x300) + TObjEneDolmOlm__data_805DEF6C);
+}
+
+void TObjEneDolmOlm__sub_8030158C(u8 *arg0) {
+    s16 temp_r0;
+    if (obj_testFlags30(arg0, 0x1000U) != 0) {
+        M2C_FIELD(arg0, s16 *, 0x326) = 4;
+    }
+    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    switch (temp_r0) {
+    case 1:
+        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x34C) == 0U) {
+            M2C_FIELD(arg0, s16 *, 0x326) = 3;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 7;
+        } else {
+            M2C_FIELD(arg0, s16 *, 0x326) = 2;
+            M2C_FIELD(arg0, s16 *, 0xB8) = 0xA;
+        }
+        obj_clearFlags30(arg0, 0x04040000U);
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x0A000000U);
+        return;
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 5;
+        return;
+    default:
+        M2C_FIELD(arg0, s16 *, 0x326) = 3;
+        M2C_FIELD(arg0, s16 *, 0x328) = 1;
+        M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        obj_clearFlags30(arg0, 0x04040000U);
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 0x0A000000U);
+        return;
+    case 2:
+    case 3:
+    case 10:
+        return;
+    }
 }
 
 void update_state__14TObjEneDolmOlmFPv(void *arg0) {

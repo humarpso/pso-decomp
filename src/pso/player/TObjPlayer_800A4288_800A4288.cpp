@@ -17,6 +17,11 @@ extern A_800A4294 lbl_804CC8C8;
 extern G_800A4294 lbl_80500970;
 extern int lbl_805D5038;
 void TObjPlayer__sub_800A4294(void);
+void calc_move_state__10TObjPlayerFPv(void *arg0);
+M2C_UNK TObjPlayer__sub_800A7774(void *, void *);
+M2C_UNK set_param__16TEneParticleCtrlFPv(void *, s32);
+M2C_UNK free_particle_ctrl__16TEneParticleCtrlFPv(void *);
+void TObjPlayer__sub_800A435C(u8 *arg0);
 }
 
 extern "C" {
@@ -82,6 +87,36 @@ void apply_lookup_entry_effect__10TObjPlayerFPv(u8 *arg0) {
 
 extern M2C_UNK lbl_8043A8C8;
 extern f32 lbl_805D9A10;
+
+void TObjPlayer__sub_800A435C(u8 *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x380);
+    switch (temp_r0) {
+    case 0x0:
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x3A0) != 0U) {
+            free_particle_ctrl__16TEneParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x3A0));
+        }
+        break;
+    default:
+        calc_move_state__10TObjPlayerFPv(arg0);
+    case 0x107:
+    case 0x10E:
+        if (!(M2C_FIELD(arg0, s32 *, 0x374) & 4)) {
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x3A0) != 0U) {
+                free_particle_ctrl__16TEneParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x3A0));
+            }
+        } else if ((s32) M2C_FIELD(arg0, s32 *, 0x384) != (s32) M2C_FIELD(arg0, s32 *, 0x380)) {
+            if ((u32) M2C_FIELD(arg0, u32 *, 0x3A0) != 0U) {
+                set_param__16TEneParticleCtrlFPv(M2C_FIELD(arg0, void **, 0x3A0), M2C_FIELD(arg0, s32 *, 0x380));
+            }
+            M2C_FIELD(arg0, s32 *, 0x384) = (s32) M2C_FIELD(arg0, s32 *, 0x380);
+        }
+        break;
+    }
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x3A0) != 0U) {
+        TObjPlayer__sub_800A7774(M2C_FIELD(arg0, void **, 0x3A0), arg0 + 0x390);
+    }
+}
 
 void calc_move_state__10TObjPlayerFPv(void *arg0) {
     s16 temp_r0;

@@ -118,6 +118,21 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m103();
 };
 
+typedef s32 M2C_UNK;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Vec_8006426C { f32 x, y, z; };
+
+struct Obj_8006426C {
+    u8 pad0[0x3c0];
+    Vec_8006426C a;
+    u8 pad3cc[0x444 - 0x3cc];
+    Vec_8006426C b;
+    u8 pad450[0x578 - 0x450];
+    s32 f578;
+};
+
 extern "C" {
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void queue_destruction__7TObjectFv(void *);
@@ -141,6 +156,10 @@ M2C_UNK run_tasks__7TObjectFv(void *);
 extern const f32 lbl_805D8D58;
 extern const f32 lbl_805D8DAC;
 void TBoss8Dragon__sub_800653C4(u8 *arg0);
+M2C_UNK fn_8002B094(int);
+M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
+M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, int, void *, int);
+void TBoss8Dragon__sub_8006426C(Obj_8006426C *arg0);
 }
 
 extern "C" {
@@ -1085,7 +1104,6 @@ void TBoss8Dragon__sub_80063EF4(s32 arg0);
 void TBoss8Dragon__sub_80063F34(u8 *arg0);
 void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1);
 void TBoss8Dragon__sub_800641A8(u8 *arg0);
-void TBoss8Dragon__sub_8006426C(void *);
 void TBoss8Dragon__sub_8006435C(u8 *arg0);
 void TBoss8Dragon__sub_80064694(s32 arg0);
 void TBoss8Dragon__sub_800646F0(s32 arg0);
@@ -1327,6 +1345,11 @@ extern "C" {
 void TBoss8Dragon__sub_8005F740(O_8005F740 *self);
 void TBoss8Dragon__sub_8005FBC4(Obj_8005FBC4 *arg0);
 void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370_80062BA0 *obj);
+}
+
+extern "C" {
+extern M2CCopy_14 lbl_80437D40;
+extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
 }
 
 s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
@@ -1993,7 +2016,7 @@ void TBoss8Dragon__sub_80060F4C(Obj_80060F4C *arg0, s32 arg1) {
         ((M2C_UNK (*)(void *))advance_animation_playback)(arg0);
         ((void (*)(void *))TBoss8Dragon__sub_80064DB8)(arg0);
         ((void (*)(void *))update_velocity__9TObjEneDDFPv)(arg0);
-        TBoss8Dragon__sub_8006426C(arg0);
+        TBoss8Dragon__sub_8006426C((Obj_8006426C *)(arg0));
         ((void (*)(void *))TBoss8Dragon__sub_80064828)(arg0);
         v = get_speed_or_default__10TObjPlayerFPv(arg0);
         if (v < lbl_805D8E10 || v >= lbl_805D8DE4) {
@@ -2718,6 +2741,23 @@ extern int fold_flush_19;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+#pragma push
+#pragma fp_contract on
+void TBoss8Dragon__sub_8006426C(Obj_8006426C *arg0) {
+    Vec_8006426C mid;
+    M2CCopy_14 prm;
+    prm = lbl_80437D40;
+    mid.x = 0.5f * (arg0->a.x - arg0->b.x) + arg0->b.x;
+    mid.y = 0.5f * (arg0->a.y - arg0->b.y) + arg0->b.y;
+    mid.z = 0.5f * (arg0->a.z - arg0->b.z) + arg0->b.z;
+    fn_8002B094(arg0->f578);
+    reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&lbl_804FF5A0.value, s32 *, 0x10), 0);
+    emit_enemy_effect__9TObjEneDDFiiPvi(arg0, (int)&mid, &prm, arg0->f578);
+    reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&lbl_804FF5A0.value, s32 *, 0), 0);
+}
+#pragma pop
+
 void TBoss8Dragon__sub_8006435C(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8006435C, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006435C, sp10) == 0x8) ? 1 : -1];

@@ -65,6 +65,10 @@ struct Vec_800DEB48 { f32 x, y, z; };
 
 struct Vec_800DE7EC { f32 x, y, z; };
 
+struct Sub_800DD690 { u8 b[0xC]; };
+
+struct Obj_800DD690 { u8 pad0[0xB0]; u32 flags; u8 padb4[0xC0 - 0xB4]; f32 fc0; u8 padc4[0x394 - 0xC4]; u32 items[2]; u8 pad39c[4]; Sub_800DD690 subs[1]; };
+
 extern "C" {
 void obj_clearFlags30(void *, u32);
 void TObjEnePanarms__sub_800DD738(u8 *arg0);
@@ -269,6 +273,12 @@ extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 TObjEnePanarms__data_805DA4A4;
 extern const f32 lbl_805DA4AC;
 M2C_UNK TObjEnePanarms__sub_800DE7EC(void *p);
+u32 create_particle_emitter(void *, s32);
+void TObjEnePanarms__sub_800DED30(Obj_800DED30 *arg0, s32 arg1);
+extern s32 lbl_8043CD04[];
+extern s32 lbl_8043CD0C[];
+extern const f32 TObjEnePanarms__data_805DA4A4;
+void TObjEnePanarms__sub_800DD690(Obj_800DD690 *arg0);
 }
 
 extern "C" {
@@ -506,6 +516,21 @@ void TObjEnePanarms__sub_800DD5C8(u8 *arg0) {
     create__22TObjEnePanarmsAtkColliFPvPvPvPv(arg0, arg0 + 0x3D0, &buffer_8[0], (void *)1);
     set_field_b8__14TObjEnePanarmsFPvs(arg0, 9);
     M2C_FIELD(arg0, s32 *, 0x388) = 0x5A;
+}
+
+void TObjEnePanarms__sub_800DD690(Obj_800DD690 *arg0) {
+    s32 i;
+    if (arg0->fc0 >= TObjEnePanarms__data_805DA4A4) {
+        for (i = 0; i < 2; i++) {
+            u32 *slot = &arg0->items[i];
+            if (*slot == 0) {
+                *slot = create_particle_emitter(&arg0->subs[lbl_8043CD0C[i]], lbl_8043CD04[i]);
+            }
+        }
+    }
+    if (arg0->flags & 0x10) {
+        TObjEnePanarms__sub_800DED30((Obj_800DED30 *)arg0, 8);
+    }
 }
 
 void TObjEnePanarms__sub_800DD738(u8 *arg0) {

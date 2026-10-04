@@ -29,7 +29,6 @@ s32 is_active__11TBoss4Type2Fv();
 s32 get_global_state__14TOKeyMachine01Fv();
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
 int queue_destruction__18TChallenge4PResultFPv(void* p);
-M2C_UNK TChallenge4PResult__sub_8034BADC(void *);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
@@ -39,6 +38,15 @@ extern u8 lbl_8050E208[];
 void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0);
 extern M2C_UNK TChallenge4PResult__data_805436A8[];
 void TChallenge4PResult__sub_8034B66C(void);
+s32 TLobby__sub_80292270(int, int);
+void init_timer__18TChallenge4PResultFPv(void *arg0);
+void init_result_state__18TChallenge4PResultFPv(void *arg0);
+void init__18TChallenge4PResultFPv(void *arg0);
+void TChallenge4PResult__sub_8034B8B0(void* p);
+void TChallenge4PResult__sub_8034B8BC(u8 *arg0);
+void TChallenge4PResult__sub_8034B918(u8 *arg0);
+int TChallenge4PResult__sub_8034B974(void);
+void TChallenge4PResult__sub_8034BADC(u8 *arg0);
 }
 
 extern "C" {
@@ -174,6 +182,38 @@ void TChallenge4PResult__sub_8034BA68(TChallenge4PResult *arg0) {
     }
 }
 
+void TChallenge4PResult__sub_8034BADC(u8 *arg0) {
+    s32 temp_r3;
+    temp_r3 = TLobby__sub_80292270((int) (M2C_FIELD(arg0, s32 *, 0x28)), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
+    switch (temp_r3) {
+    case 2:
+        ((void (*)(void *))TChallenge4PResult__sub_8034B974)((void *) (arg0));
+        return;
+    case 1:
+        TChallenge4PResult__sub_8034B918(arg0);
+        return;
+    case 0:
+        TChallenge4PResult__sub_8034B8BC(arg0);
+        return;
+    case -1:
+        TChallenge4PResult__sub_8034B8B0((void *) (arg0));
+        return;
+    case -2:
+        init__18TChallenge4PResultFPv((void *) (arg0));
+        return;
+    case -3:
+        init_result_state__18TChallenge4PResultFPv((void *) (arg0));
+        return;
+    case -4:
+        init_timer__18TChallenge4PResultFPv((void *) (arg0));
+        return;
+    case -10:
+    default:
+        M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+        return;
+    }
+}
+
 void update_input__18TChallenge4PResultFPv(void *arg0) {
     s32 temp_r3;
     s32 temp_r5;
@@ -211,7 +251,7 @@ void TChallenge4PResult::run_task() {
             update_input__18TChallenge4PResultFPv((void *) (this));
             return;
         case 1:
-            TChallenge4PResult__sub_8034BADC((void *) (this));
+            TChallenge4PResult__sub_8034BADC((u8 *)((void *) (this)));
             return;
         case 2:
             TChallenge4PResult__sub_8034BA68((TChallenge4PResult *)((void *) (this)));

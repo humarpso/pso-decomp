@@ -97,6 +97,18 @@ struct Hdr_80020004 { u8 pad0[8]; u8 compressed; s8 small; u8 padA[0x36]; Rec_80
 
 struct Stream_80020004 { u8 pad[0x30]; };
 
+typedef struct Ent_8001FBEC {
+    s32 flags;
+    s32 unk4;
+    s32 motion;
+    s32 texture;
+} Ent_8001FBEC;
+
+typedef struct Lobby_8001FBEC {
+    u8 pad0[0x42C];
+    Ent_8001FBEC *entries;
+} Lobby_8001FBEC;
+
 extern "C" {
 M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
@@ -140,7 +152,6 @@ extern M2C_UNK lbl_80434D54[];
 extern s32 lbl_805D4ACC;
 s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
 void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
-s32 bind_bml_model(void *, u32, s32, s32);
 s32 set_stream_state__6TLobbyFi(s32, s32);
 s32 TLobby__sub_800FD944(s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
@@ -175,7 +186,6 @@ void set_flag_and_notify__6TLobbyFPv(void *arg0);
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
 M2C_UNK load_gvm_texture_archive(s32, s32);
 void TLobby__sub_8001F018(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
-s32 bind_bml_model(void *, u32, s32, s32);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 extern s32 lbl_805D4AD0;
 extern u32 lbl_805D4AD8;
@@ -201,6 +211,10 @@ extern M2C_UNK lbl_80434DF4[];
 extern M2C_UNK lbl_80434E10[];
 extern M2C_UNK lbl_80434E2C[];
 Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, Desc_80020004 *desc, s32 arg3, s32 arg4, s32 arg5);
+s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+extern M2C_UNK lbl_80434CE8[];
+s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -372,6 +386,30 @@ s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes) {
     return 1;
 }
 
+s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3) {
+    s32 data;
+    u32 offset;
+    s32 tag;
+    arg0->entries[arg2].motion = 0;
+    arg0->entries[arg2].texture = 0;
+    offset = 0;
+    while (offset < arg1) {
+        data = ((s32 (*)(void *, s32, u32 *, s32 *))alloc_load_data__6TLobbyFPviii)(arg0, arg3, &offset, &tag);
+        switch (tag) {
+        case 0x4E4A434D:
+            arg0->entries[arg2].motion = data;
+            break;
+        case 0x4E4A544C:
+            arg0->entries[arg2].texture = data;
+            break;
+        default:
+            debug_print__6TLobbyFii(lbl_80434CE8, tag);
+            break;
+        }
+    }
+    return 1;
+}
+
 s32 TLobby__sub_8001FCC4(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
     u32 offset;
     s32 tag;
@@ -408,7 +446,7 @@ s32 TLobby__sub_8001FD98(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
         debug_print__6TLobbyFii(lbl_80434D94, size - 0x40000);
     }
     set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
-    bind_bml_model(arg0, size, arg2, lbl_805D4ACC);
+    bind_bml_model((Lobby_8001FBEC *)(arg0), (u32)(size), (s32)(arg2), (s32)(lbl_805D4ACC));
     if (arg0->entries[arg2].texture != NULL) {
         TLobby__sub_8001F018((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
     }
@@ -545,7 +583,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                     lbl_805D5338 = lbl_805D2B10;
                     prs_decompress_buffer(buf, lbl_805D49B0);
                     safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
-                    bind_bml_model(self, size, i, (s32)lbl_805D49B0);
+                    bind_bml_model((Lobby_8001FBEC *)(self), (u32)(size), (s32)(i), (s32)((s32)lbl_805D49B0));
                 } else {
                     debug_print__6TLobbyFii(lbl_80434DF4, desc->name);
                 }
@@ -554,7 +592,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                 read_data__8TGStreamFPvii(&st, lbl_805D49B0, size);
                 TLobby__sub_800FDFEC(&st, blk);
                 lbl_805D5338 = lbl_805D2B10;
-                bind_bml_model(self, size, i, (s32)lbl_805D49B0);
+                bind_bml_model((Lobby_8001FBEC *)(self), (u32)(size), (s32)(i), (s32)((s32)lbl_805D49B0));
                 break;
             }
             if (self->flags & 0x800) {
