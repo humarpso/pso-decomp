@@ -5,6 +5,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_802D9EB4 { f32 x, y, z; };
+
+extern "C" {
+f32 TObjPlayer__sub_800186E8(void *, void *, Vec_802D9EB4 *);
+s32 get_field_0c__10TObjPlayerFPv(void *);
+f32 get_pos_x__10TObjPlayerFPv(void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 angle_difference_abs(s32, s32);
+extern const f64 TObjEneGibbles__data_80472798;
+extern u32 TObjEneGibbles__data_805D68AC;
+extern const f32 lbl_805DE834;
+extern const f32 lbl_805DE85C;
+s32 TObjEneGibbles__sub_802D9EB4(u8 *arg0);
+}
+
 extern "C" {
 
 struct Stack_802D7BE0 {
@@ -721,6 +736,46 @@ void TObjEneGibbles__sub_802D9D64(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) |= 1;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xF9FBFFFF);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x200000);
+}
+
+#define TGT_802D9EB4 (((void **)TObjEneGibbles__data_805D68AC)[M2C_FIELD(arg0, s16 *, 0x37C)])
+s32 TObjEneGibbles__sub_802D9EB4(u8 *arg0) {
+    Vec_802D9EB4 v;
+    f32 rad;
+    f32 dist;
+    s32 ang;
+    u8 *obj;
+    u8 *sub;
+    if (M2C_FIELD(arg0, s16 *, 0x326) >= 3) {
+        obj = M2C_FIELD(arg0, u8 **, 0x2A8);
+        if (obj != NULL && M2C_FIELD(arg0, u32 *, 0x318) != 0 && !(M2C_FIELD(obj, s32 *, 0x30) & 0x02000800)) {
+            dist = TObjPlayer__sub_800186E8(arg0, obj, &v);
+            ang = angle_difference_abs(M2C_FIELD(arg0, s32 *, 0x60), (s32)(TObjEneGibbles__data_80472798 * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)));
+            sub = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2A8), u8 **, 0xA4);
+            if (sub != NULL) {
+                rad = M2C_FIELD(sub, f32 *, 0xC);
+            } else {
+                rad = lbl_805DE834;
+            }
+            if (M2C_FIELD(arg0, s32 *, 0x374) & 8) {
+                M2C_FIELD(arg0, s16 *, 0x37C) = 2;
+                if (dist <= (rad + get_pos_x__10TObjPlayerFPv(TGT_802D9EB4)) * (rad + get_pos_x__10TObjPlayerFPv(TGT_802D9EB4)) && ang <= get_field_0c__10TObjPlayerFPv(TGT_802D9EB4)) {
+                    return 1;
+                }
+            } else if (M2C_FIELD(arg0, s32 *, 0x374) & 0x10) {
+                M2C_FIELD(arg0, s16 *, 0x37C) = 1;
+                if (dist <= (lbl_805DE85C + rad) * (lbl_805DE85C + rad) && ang <= 0xAAA) {
+                    return 1;
+                }
+            } else {
+                M2C_FIELD(arg0, s16 *, 0x37C) = 0;
+                if (dist <= (rad + get_pos_x__10TObjPlayerFPv(TGT_802D9EB4)) * (rad + get_pos_x__10TObjPlayerFPv(TGT_802D9EB4)) && ang <= get_field_0c__10TObjPlayerFPv(TGT_802D9EB4)) {
+                    return 1;
+                }
+            }
+        }
+    }
+    return 0;
 }
 
 void update_death_sequence__14TObjEneGibblesFPv(u8 *arg0) {

@@ -240,6 +240,12 @@ struct Self_80035420 {
     void *a740[6];
 };
 
+struct Vec_800363B4 { f32 x, y, z; };
+
+struct Seg_800363B4 { s8 n; u8 pad1[0xF]; void *model1; void *model2; };
+
+struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
+
 extern "C" {
 void TBoss2DeRolLe__sub_800361E8(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -288,6 +294,29 @@ M2C_UNK __dl__7TObjectFPv(void *);
 extern u8 lbl_804824D0[];
 extern s32 TBoss2DeRolLe__data_805D4BC4;
 u8 *TBoss2DeRolLe__sub_80035420(u8 *arg0, s16 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 get_random_float__8TObjFishFv(f32);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 get_scale_factor__10TObjPlayerFv(f32);
+M2C_UNK TObjLight__sub_801337F8(s32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
+f32 vector_length(void *);
+M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK normalize_vector(void *);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK draw_chunk_object(void *);
+extern const f64 lbl_80435A50[];
+extern u32 lbl_805D4BA4;
+extern s32 lbl_805D5560;
+extern const f32 lbl_805D8260;
+extern const f32 TBoss2Fin__data_805D8450;
+extern const f32 lbl_805D8454;
+void render__9TBoss2FinFv(u8 *arg0);
 }
 
 extern "C" {
@@ -660,6 +689,55 @@ void update_and_send__13TBoss2DeRolLeFPv(void* p) { swap_endian__13TBoss2DeRolLe
 void TBoss2DeRolLe__sub_800363A0(void* p) { *(u8*)((char*)p + 0x0) = 20; *(u8*)((char*)p + 0x1) = 3; }
 
 typedef char RecoveredGlobal_800365C8_lbl_80435A44_size[sizeof(RecoveredGlobal_800365C8_lbl_80435A44) == 0xC ? 1 : -1];
+
+void render__9TBoss2FinFv(u8 *arg0) {
+    Seg_800363B4 *seg;
+    Ang_800363B4 *ang;
+    Vec_800363B4 *pt;
+    s32 j;
+    s32 yaw;
+    Vec_800363B4 v;
+    set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x2C));
+    seg = M2C_FIELD(arg0, Seg_800363B4 **, 0x20);
+    ang = M2C_FIELD(arg0, Ang_800363B4 **, 0x24);
+    pt = M2C_FIELD(arg0, Vec_800363B4 **, 0x2C);
+    for (; seg->n >= 2; pt++, seg++, ang++) {
+        for (j = seg->n - 1; j > 0; j--, pt++) {
+            push_matrix();
+            set_position_vec3__10TObjPlayerFPvPv(0, pt);
+            VecCopy__FP3VecPC3Vec(&v, pt + 1);
+            subtract_vector(&v, pt);
+            if (TBoss2Fin__data_805D8450 == vector_length(&v)) {
+                v.x = TBoss2Fin__data_805D8450;
+                v.y = lbl_805D8454;
+                v.z = TBoss2Fin__data_805D8450;
+            } else {
+                normalize_vector(&v);
+            }
+            yaw = 0;
+            if (TBoss2Fin__data_805D8450 != get_random_float__8TObjFishFv(v.x) + get_random_float__8TObjFishFv(v.z)) {
+                yaw = lbl_80435A50[0] * get_ad_end_text_start__10TObjPlayerFv(-v.x, -v.z);
+                rotate_matrix_y(0, yaw);
+            }
+            rotate_matrix_x(0, lbl_80435A50[0] * get_scale_factor__10TObjPlayerFv(-v.y));
+            rotate_matrix_y(0, ang->yaw - yaw);
+            push_matrix();
+            scale_matrix(0, lbl_805D8260, lbl_805D8260, lbl_805D8260);
+            rotate_matrix_x(0, -0x4000);
+            if (j == 1) {
+                if (seg->model2 != NULL) {
+                    draw_chunk_object(seg->model2);
+                }
+            } else if (seg->model1 != NULL) {
+                draw_chunk_object(seg->model1);
+            }
+            pop_matrix();
+            pop_matrix();
+        }
+    }
+    TObjLight__sub_801337F8(lbl_805D5560);
+}
+
 void run_task__9TBoss2FinFv(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_800365C8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800365C8, spC) == 0x4) ? 1 : -1];

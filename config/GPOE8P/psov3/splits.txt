@@ -6154,6 +6154,7 @@ pso/unk/text_80165940.cpp:
 
 pso/misc/TODummyKeyCave01.cpp:
 	.text       start:0x80165B50 end:0x80165F84
+	.sdata2     start:0x805DB5E0 end:0x805DB5F0
 
 pso/misc/TOExplosiveMachine03.cpp:
 	.text       start:0x80165F84 end:0x801660F4
@@ -12109,6 +12110,7 @@ pso/enemy/TObjEneMe1GiGue.cpp:
 
 pso/enemy/TObjEneMe1GiGue_802CB274.cpp:
 	.text       start:0x802CB274 end:0x802CB620
+	.sdata2     start:0x805DE660 end:0x805DE670
 
 pso/enemy/TObjEneMe1GiGue_802CB620.cpp:
 	.text       start:0x802CB620 end:0x802CD054
@@ -12538,6 +12540,7 @@ pso/boss/TBoss7LaserLight.cpp:
 
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp:
 	.text       start:0x802EF26C end:0x802EF600
+	.sdata2     start:0x805DEBE0 end:0x805DEBEC
 
 pso/boss/TBoss7PhotonPad.cpp:
 	.text       start:0x802EF600 end:0x802EF800

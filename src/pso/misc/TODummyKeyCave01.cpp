@@ -32,6 +32,27 @@ struct VObj_80165B50 : VBase_80165B50 {
     virtual s32 m8(f32, f32);
 };
 
+struct Obj_80165C84 {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad28[0x90 - 0x28];
+    s32 f90;
+    s32 f94;
+    u16 f98;
+    u16 f9A;
+    u8 pad9C[0xA0 - 0x9C];
+    f32 fA0;
+    u8 padA4[0xB0 - 0xA4];
+    f32 fB0;
+    u8 padB4[0xB8 - 0xB4];
+    s32 fB8;
+    u8 padBC[0xC0 - 0xBC];
+    s32 fC0;
+    s32 fC4;
+    s32 fC8;
+    s32 fCC;
+};
+
 extern "C" {
 u8 * TPhotonMagicSquare__sub_801A2640(void *);
 M2C_UNK fn_80165940(void *, f32);
@@ -57,6 +78,15 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805DB5D0;
 extern const f32 lbl_805DB5D4;
 void render__16TODummyKeyCave01Fv(u8 *arg0);
+M2C_UNK obj_clearFlags30(void *, s32);
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
+u8 is_current_floor_switch_set(u16);
+void *__nw__7TObjectFUl(int);
+extern const f32 lbl_805DB5D8;
+extern const f32 lbl_805DB5DC;
+extern const f32 lbl_805DB5E0;
+void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self);
 }
 
 extern "C" {
@@ -108,6 +138,68 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         }
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
+    }
+}
+
+void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self) {
+    u32 st;
+    u8 skip;
+    void *o;
+    if (check_demo_mode__10TObjPlayerFv() == 1) {
+        obj_clearFlags30(self, 0x08000000);
+    }
+    if (self->f98 < 0x100) {
+        st = is_current_floor_switch_set(self->f98);
+        if (st != self->f9A) {
+            self->f9A = st;
+            skip = 0;
+            if (self->fC4 == 1 && st == 0) {
+                skip = 1;
+            }
+            if (skip == 0) {
+                o = __nw__7TObjectFUl(0x24);
+                if (o != NULL) {
+                    TODummyKeyCave01Sound__ct(o, self, self->fC0, self->fC8);
+                }
+            }
+        }
+    }
+    if (self->f9A == 1) {
+        self->f24 = self->f94;
+        f32 lo = lbl_805DB5D8;
+        if (lo < self->fB0) {
+            self->fB0 = self->fB0 + lbl_805DB5DC;
+            if (self->fB0 < lo) {
+                self->fB0 = lo;
+            }
+        }
+        if (self->fCC < 0x2000) {
+            self->fCC = self->fCC + 0x333;
+        }
+    } else {
+        self->f24 = self->f90;
+        if (self->fB0 < lbl_805DB5E0) {
+            self->fB0 = self->fB0 - lbl_805DB5DC;
+            if (lbl_805DB5E0 < self->fB0) {
+                self->fB0 = lbl_805DB5E0;
+            }
+        }
+        if (self->fB8 == 1) {
+            self->fA0 += 0.1f;
+            if (1.0f <= self->fA0) {
+                self->fA0 = 1.0f;
+                self->fB8 = 0;
+            }
+        } else {
+            self->fA0 -= 0.1f;
+            if (self->fA0 <= 0.0f) {
+                self->fA0 = 0.0f;
+                self->fB8 = 1;
+            }
+        }
+        if (self->fCC > 0) {
+            self->fCC = self->fCC - 0x333;
+        }
     }
 }
 
