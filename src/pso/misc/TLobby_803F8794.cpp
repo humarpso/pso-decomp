@@ -465,6 +465,8 @@ struct P_8041D2B8 { s32 a; s32 b; s32 c; s32 d; };
 
 struct O_8041D2B8 { u8 pad0[0x238]; s32 f238; u8 pad23C[0x320 - 0x23C]; s16 n; u8 pad322[0xE]; P_8041D2B8 items[32]; };
 
+struct Strm_80405A74 { u8 *p; u16 len; };
+
 extern "C" {
 s32 TLobby__sub_803FA150(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -867,6 +869,33 @@ void TLobby__sub_80421814(void);
 s32 TLobby__sub_80421B3C(s32);
 s32 TLobby__sub_8040BF38(u8 *arg0);
 void TLobby__sub_8041D2B8(O_8041D2B8 *o, s16 idx, s32 a, s32 b);
+void TLobby__sub_803F9214(s32 *out);
+void TLobby__sub_803FC144(u16 v);
+s16 TLobby__sub_80401BCC(void *, void *, int);
+u16 TLobby__sub_80402ADC(u8 *p);
+u32 TLobby__sub_80402AFC(u8 *p);
+extern s16 lbl_805D7A7A;
+extern u8 lbl_805D7AB0[4];
+extern u8 lbl_805D7AB4[1];
+s16 TLobby__sub_804012E0(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4);
+void TLobby__sub_803FC4B4(u8 *arg0, s32 arg1);
+M2C_UNK TLobby__sub_803FDBF8(void *, Strm_80405A74 *);
+s32 TLobby__sub_803FE6CC(void *, int, int, void *);
+void TLobby__sub_8040098C(Self_8040098C *self);
+u8 *TLobby__sub_80401B8C(struct RecoveredFields_80401B8C_arg0 *arg0, s16 arg1);
+s16 TLobby__sub_80401BCC(void *, void *, int);
+u16 TLobby__sub_80402ADC(u8 *p);
+u8 *TLobby__sub_80402B28(u8 *p, u16 v);
+M2C_UNK PADRead(void *, Strm_80405A74 *);
+s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
+s16 fn_804040E0(void *, Strm_80405A74 **);
+M2C_UNK TLobby__sub_804060B8(u8 *, u16, int);
+extern u8 lbl_805C0038[];
+extern s16 lbl_805D7A7A;
+extern s16 lbl_805D7A7C;
+extern u8 lbl_805D7AD0;
+extern u8 lbl_805D7AD4;
+void TLobby__sub_80405A74(Strm_80405A74 *arg0);
 }
 
 extern "C" {
@@ -2221,6 +2250,127 @@ void TLobby__sub_80400BA8(u8 *arg0) {
     s->f34 |= s->f38;
 }
 
+#define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lbl_805D7AB0, 2) != 2 ? -1 : TLobby__sub_80402ADC(lbl_805D7AB0))
+#define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lbl_805D7AB0, 4) != 4 ? 0 : TLobby__sub_80402AFC(lbl_805D7AB0))
+#define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lbl_805D7AB4, 1) != 1 ? -1 : (s16)lbl_805D7AB4[0])
+#define F(t, o) M2C_FIELD(arg2, t *, o)
+s16 TLobby__sub_804012E0(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4) {
+    s16 len;
+    s16 res;
+    s32 t;
+    s16 lim;
+    res = 2;
+    len = arg3[1] - 2;
+    switch (arg3[0]) {
+    case 1:
+        F(s16, 0x1E) = rd16_804012E0(arg0);
+        len -= 2;
+        if (F(s16, 0x1E) < 0x80) {
+            F(s16, 0x1E) = 0x80;
+            res = 3;
+        } else if (F(s16, 0x1E) > 0x1000) {
+            F(s16, 0x1E) = 0x1000;
+            res = 3;
+        }
+        if (arg4 != 0 && (F(s16, 4) & 2) && F(s16, 0x1E) > (lim = F(s16, 6))) {
+            F(s16, 0x1E) = lim;
+            res = 3;
+        }
+        break;
+    case 2:
+        F(u32, 0x20) = rd32_804012E0(arg0);
+        len -= 4;
+        if (lbl_805D7A7A != 0) {
+            res = 4;
+        } else if (arg4 == 0 || (F(s16, 4) & 4)) {
+            u32 v = F(u32, 0x20) | F(u32, 8);
+            if (F(u32, 0x20) != v) {
+                F(u32, 0x20) = v;
+                res = 3;
+            }
+        }
+        break;
+    case 3:
+        F(u16, 0x24) = rd16_804012E0(arg0);
+        len -= 2;
+        if (F(u16, 0x24) == 0xC223) {
+            F(s8, 0x30) = rd8_804012E0(arg0);
+            len -= 1;
+        }
+        if (F(u8, 0x19) != 0) {
+            u16 v = F(u16, 0x24);
+            if (v == 0xC023 || (v == 0xC223 && (s32)F(u8, 0x30) == 5)) {
+                F(u16, 0xC) = v;
+                F(u8, 0x18) = F(u8, 0x30);
+            } else {
+                F(u16, 0x24) = 0xC023;
+                F(s8, 0x30) = 0;
+                res = 3;
+                arg3[1] = 4;
+                while (len > 0) {
+                    len--;
+                    if (rd8_804012E0(arg0) == -1) {
+                        return -1;
+                    }
+                }
+            }
+        } else {
+            u16 a = F(u16, 0x24);
+            u16 b = F(u16, 0xC);
+            if (a != b || (a == 0xC223 && F(s8, 0x30) != F(s8, 0x18))) {
+                F(u16, 0x24) = b;
+                res = 3;
+                F(u8, 0x30) = F(u8, 0x18);
+            }
+        }
+        if (res == 2) {
+            TLobby__sub_803FC144(F(u16, 0x24));
+        }
+        break;
+    case 5:
+        F(u32, 0x28) = rd32_804012E0(arg0);
+        len -= 4;
+        if (F(u32, 0x28) == 0 || M2C_FIELD(arg1, u32 *, 0x5C) == M2C_FIELD(arg1, u32 *, 0x28)) {
+            TLobby__sub_803F9214(&t);
+            res = 3;
+            F(u32, 0x28) += t;
+        }
+        break;
+    case 7:
+        if (!(F(s16, 0) & 0x80)) {
+            res = 4;
+        }
+        break;
+    case 8:
+        if (lbl_805D7A7A != 0) {
+            res = 4;
+        } else if (!(F(s16, 0) & 0x100)) {
+            res = 4;
+        }
+        break;
+    case 0:
+        res = 4;
+        break;
+    default:
+        res = 4;
+        break;
+    }
+    if (arg3[0] > 8 || !(F(s16, 0) & (1 << arg3[0]))) {
+        res = 4;
+    }
+    if (len < 0) {
+        return -1;
+    }
+    if (arg4 == 0 && len > 0) {
+        while (len-- > 0) {
+            if (rd8_804012E0(arg0) == -1) {
+                return -1;
+            }
+        }
+    }
+    return res;
+}
+
 s32 TLobby__sub_804019A8(Cfg_804019A8 *c, s16 type) {
     if (type == 0) {
         c->flags |= 8;
@@ -2807,6 +2957,165 @@ typedef struct Lobby_804062A0 {
     u8 pad[3];
     u8 sub[0x140];
 } Lobby_804062A0;
+
+struct RecoveredFields_80401B8C_arg0;
+struct Self_8040098C;
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 valid_80405A74(Strm_80405A74 **s) {
+    s32 r = 0;
+    if (s != NULL && *s != NULL) {
+        r = 1;
+    }
+    return r;
+}
+inline s32 avail_80405A74(Strm_80405A74 **s) {
+    s32 r = 0;
+    if (valid_80405A74(s) && (*s)->len > 1) {
+        r = 1;
+    }
+    return r;
+}
+inline s32 get_80405A74(Strm_80405A74 **s) {
+    if (avail_80405A74(s)) {
+        (*s)->len--;
+        return *(*s)->p++;
+    }
+    if (TLobby__sub_80401BCC(s, &lbl_805D7AD4, 1) != 1) {
+        return -1;
+    }
+    return (s16)lbl_805D7AD4;
+}
+#define FWD_80405A74()                                                       \
+    M2C_FIELD(G, s16 *, 0x13A)++;                                            \
+    t = (Strm_80405A74 *)TLobby__sub_80401B8C((RecoveredFields_80401B8C_arg0 *)arg0, 4); \
+    p = t->p;                                                                \
+    *p++ = 0xFF;                                                             \
+    *p++ = 3;                                                                \
+    TLobby__sub_80402B28(p, code);                                           \
+    u = t;                                                                   \
+    if (u == NULL) {                                                         \
+        M2C_FIELD(G, s16 *, 0x142)++;                                        \
+        return;                                                              \
+    }                                                                        \
+    if (TLobby__sub_80401BCC(&u, &lbl_805D7AD0, 2) == 2) {                   \
+        TLobby__sub_80402ADC(&lbl_805D7AD0);                                 \
+    }                                                                        \
+    TLobby__sub_803FE6CC(G + 4, 8, 0, u);                                    \
+    return;
+void TLobby__sub_80405A74(Strm_80405A74 *arg0) {
+    u16 code;
+    u8 *G;
+    Strm_80405A74 *t;
+    u8 *p;
+    Strm_80405A74 *u;
+    u8 pad[0x24];
+    if (arg0 == NULL) {
+        return;
+    }
+    G = lbl_805C0038;
+    if (lbl_805D7A7A == 0 && arg0->p[0] == 0xFF && arg0->p[1] == 3 &&
+        TLobby__sub_80401BCC(&arg0, &lbl_805D7AD0, 2) == 2) {
+        TLobby__sub_80402ADC(&lbl_805D7AD0);
+    }
+    code = (u16)get_80405A74(&arg0);
+    if (!(code & 1)) {
+        code = (code << 8) | get_80405A74(&arg0);
+    }
+    switch (code) {
+    case 0x21:
+        if (M2C_FIELD(G, u8 *, 0x6C) != 5) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        TLobby__sub_804060B8(arg0->p, arg0->len, 0x800);
+        return;
+    case 0x57:
+        if (M2C_FIELD(G, u8 *, 0xD4) != 5) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        TLobby__sub_804060B8(arg0->p, arg0->len, -0x7923);
+        return;
+    case 0x2D:
+        if (M2C_FIELD(G, u8 *, 0x6C) != 5) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        if (!(M2C_FIELD(M2C_FIELD(G, u8 **, 0x9C), s16 *, 0x28) & 4)) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        if (fn_804040E0(M2C_FIELD(M2C_FIELD(G, u8 **, 0x9C), void **, 0x98), &arg0) <= 0) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        TLobby__sub_804060B8(arg0->p, arg0->len, 0x800);
+        return;
+    case 0x2F:
+        if (M2C_FIELD(G, u8 *, 0x6C) != 5) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        if (!(M2C_FIELD(M2C_FIELD(G, u8 **, 0x9C), s16 *, 0x28) & 4)) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        if (TLobby__sub_80403F4C(M2C_FIELD(M2C_FIELD(G, u8 **, 0x9C), void **, 0x98), &arg0) <= 0) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        TLobby__sub_804060B8(arg0->p, arg0->len, 0x800);
+        return;
+    case 0xC021:
+        M2C_FIELD(G, s16 *, 0x130)++;
+        TLobby__sub_803FDBF8(G + 4, arg0);
+        return;
+    case 0xC023:
+        if (G[0] != 2 && G[0] != 3) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            if (G[0] == 0) {
+                TLobby__sub_8040098C((Self_8040098C *)(G + 4));
+            }
+            return;
+        }
+        M2C_FIELD(G, s16 *, 0x132)++;
+        PADRead(G + 0x38, arg0);
+        return;
+    case 0xC223:
+        if (G[0] != 2 && G[0] != 3) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            if (G[0] == 0) {
+                TLobby__sub_8040098C((Self_8040098C *)(G + 4));
+            }
+            return;
+        }
+        M2C_FIELD(G, s16 *, 0x136)++;
+        TLobby__sub_803FC4B4(G + 0xA0, (s32)arg0);
+        return;
+    case 0x8021:
+        if (G[0] != 3) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        M2C_FIELD(G, s16 *, 0x134)++;
+        TLobby__sub_803FDBF8(G + 0x6C, arg0);
+        return;
+    case 0x8057:
+        if (G[0] != 3) {
+            M2C_FIELD(G, s16 *, 0x140)++;
+            return;
+        }
+        if (lbl_805D7A7C != 6 && (s16)(s32)lbl_805D7A7C) {
+            FWD_80405A74()
+        }
+        M2C_FIELD(G, s16 *, 0x138)++;
+        TLobby__sub_803FDBF8(G + 0xD4, arg0);
+        return;
+    default:
+        FWD_80405A74()
+    }
+}
 
 s32 TLobby__sub_804062A0(s16 arg0) {
     Lobby_804062A0 *l = (Lobby_804062A0 *)lbl_805C0038;
@@ -5058,6 +5367,202 @@ s32 TLobby__sub_804168D4(u8 *o, s32 len, u8 **out, s16 *outlen) {
     }
     return 0;
 }
+
+struct Peer_80416994 { u8 pad0[3]; u8 state; u8 pad4[2]; s16 f6; u8 pad8[0x14 - 0x8]; u8 name[0x10]; };
+struct Sub_80416994 { u8 pad0[3]; u8 state; u8 pad4[4]; u8 addr[0x30 - 0x8]; s16 port; u8 pad32[2]; s32 val; };
+struct Ent_80416994 {
+    u8 pad0[3];
+    u8 state;
+    s16 phase;
+    u8 pad6[2];
+    s16 f8;
+    s16 timer;
+    u8 flags;
+    u8 padD[3];
+    Sub_80416994 *sub;
+    u8 pad14[2];
+    u8 name[0x10];
+    s16 len;
+    u8 data[0x48 - 0x28];
+};
+struct Glob_80416994 {
+    u8 pad0[2];
+    s16 count;
+    s16 count2;
+    u8 pad6[0xC - 6];
+    Ent_80416994 *ents;
+    Peer_80416994 *peers;
+    u8 pad14[0x24 - 0x14];
+    s16 delay2;
+    s16 delay1;
+};
+struct Msg_80416994 { u8 pad0[4]; u8 flags; u8 pad5[3]; u8 name[0x10]; };
+struct Item_80416994 { s16 port; u8 pad2[2]; u8 val[8]; };
+struct Pkt_80416994 { u8 pad0[4]; s32 n; s32 port; Item_80416994 items[1]; };
+struct Arg_80416994 { u8 *p; s32 v; };
+
+M2C_UNK TLobby__sub_80411604(int, int, void *);
+s32 TLobby__sub_803F9EC4(void *, void *, int);
+u8 *TLobby__sub_80407310();
+void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void TLobby__sub_803F9F04(void *, void *, int);
+void TUdpSocket__sub_804072C4(void *);
+s16 TLobby__sub_80413C0C(void *, s32);
+s16 TLobby__sub_80413AA0(void *, s32);
+s32 TLobby__sub_80410BA8(void *, void *, s32, void *);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline Ent_80416994 *FindEnt_80416994(Glob_80416994 *g, void *name) {
+    s16 n = g->count;
+    Ent_80416994 *e = g->ents;
+    for (; n > 0; n--, e++) {
+        if (e->state == 1 && TLobby__sub_803F9EC4(e->name, name, 0x10) == 0) {
+            return e;
+        }
+    }
+    return 0;
+}
+
+inline void ClearPeer_80416994(Peer_80416994 *p) {
+    p->state = 0;
+    p->f6 = 0;
+}
+
+inline Peer_80416994 *ScanPeers_80416994(Glob_80416994 *g, void *name) {
+    s16 m;
+    Peer_80416994 *p;
+    Peer_80416994 *hit;
+    hit = 0;
+    m = g->count2;
+    p = g->peers;
+    for (; m > 0; m--, p++) {
+        if (p->state == 1) {
+            if (TLobby__sub_803F9EC4(p->name, name, 0x10) == 0) {
+                ClearPeer_80416994(p);
+            } else {
+                hit = p;
+            }
+        }
+    }
+    return hit;
+}
+
+s32 TLobby__sub_80416994(Msg_80416994 *msg, u8 *name, s16 len, s32 arg3, s32 arg4, s32 id) {
+    Arg_80416994 a;
+    Arg_80416994 b;
+    Glob_80416994 *g = (Glob_80416994 *)lbl_805C1C08;
+    Ent_80416994 *e;
+
+    if (TLobby__sub_80413C0C(msg->name, id) != 0) {
+        a.p = msg->name;
+        TLobby__sub_80411604(id, 1, &a);
+        return 0;
+    }
+    if (TLobby__sub_80413AA0(msg->name, id) != 0) {
+        return 0;
+    }
+    e = FindEnt_80416994(g, msg->name);
+    if (e == 0) {
+        return 0;
+    }
+    if ((e->flags ^ msg->flags) & 0x80) {
+        if (len == 0 || name == 0 || (e->len == len && TLobby__sub_803F9EC4(e->data, name, len) == 0) || (msg->flags & 0x20)) {
+            if (msg->flags & 0x80) {
+                e->flags |= 0x80;
+                a.p = msg->name;
+                TLobby__sub_80411604(id, 8, &a);
+            } else {
+                Peer_80416994 *hit;
+                e->flags |= ~0x80;
+                hit = ScanPeers_80416994(g, msg->name);
+                if (hit == 0) {
+                    a.p = msg->name;
+                    TLobby__sub_80411604(id, 9, &a);
+                } else {
+                    b.v = (s32)hit->name;
+                    b.p = msg->name;
+                    TLobby__sub_80411604(id, 7, &b);
+                }
+            }
+        }
+    }
+    switch (e->phase) {
+    case 0:
+        if (len != 0 && name != 0) {
+            e->len = ((u32)len > 0x20) ? 0x20 : len;
+            TLobby__sub_803F9F04(e->data, name, e->len);
+            if (msg->flags & 0x40) {
+                e->phase = 1;
+                e->timer = g->delay1;
+            } else {
+                e->phase = 2;
+                e->timer = g->delay2;
+            }
+            e->flags = msg->flags;
+            if (e->sub != 0) {
+                Pkt_80416994 *pkt = (Pkt_80416994 *)TLobby__sub_80407310();
+                s32 ret;
+                if (pkt == 0) {
+                    ret = -0x10E;
+                } else {
+                    pkt->n = 0;
+                    pkt->port = e->sub->port;
+                    pkt->items[pkt->n].port = e->sub->port;
+                    set_value_and_enable__6TLobbyFPvi(pkt->items[pkt->n].val, e->sub->val);
+                    pkt->n++;
+                    ret = TLobby__sub_80410BA8(pkt, e->sub->addr, e->f8, e->data);
+                    TUdpSocket__sub_804072C4(pkt);
+                }
+                e->sub->state = 0;
+                e->sub = 0;
+                return ret;
+            }
+        }
+        break;
+    case 1:
+        if (len != 0 && name != 0 && (e->len != len || TLobby__sub_803F9EC4(e->data, name, len) != 0)) {
+            if (msg->flags & 0x20) {
+                e->len = ((u32)len > 0x20) ? 0x20 : len;
+                TLobby__sub_803F9F04(e->data, name, e->len);
+                e->flags = msg->flags;
+                if (msg->flags & 0x40) {
+                    e->phase = 1;
+                    e->timer = g->delay1;
+                    break;
+                }
+            }
+            e->phase = 2;
+            e->timer = g->delay2;
+        }
+        break;
+    case 2:
+    case 3:
+    case 4:
+        if (len != 0 && name != 0 && (e->len != len || TLobby__sub_803F9EC4(e->data, name, len) != 0)) {
+            if (msg->flags & 0x20) {
+                e->len = ((u32)len > 0x20) ? 0x20 : len;
+                TLobby__sub_803F9F04(e->data, name, e->len);
+                if (msg->flags & 0x40) {
+                    e->phase = 1;
+                    e->timer = g->delay1;
+                } else {
+                    e->phase = 2;
+                    e->timer = g->delay2;
+                }
+                e->flags = msg->flags;
+            }
+        } else if (msg->flags & 0x40) {
+            e->phase = 1;
+            e->timer = g->delay1;
+            e->flags = msg->flags;
+        }
+        break;
+    }
+    return 0;
+}
+#pragma pop
 
 typedef struct Arg_80417D1C { u8 *p; s32 v; } Arg_80417D1C;
 void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);

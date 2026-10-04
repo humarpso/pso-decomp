@@ -533,6 +533,176 @@ void TScene__sub_8020430C(void) {
         }
     }
 }
+struct Cam_80204688 { u8 pad[0x178]; f32 x; f32 y; f32 z; u8 pad184[0x194 - 0x184]; s32 a194; u8 pad198[4]; s32 a19C; };
+struct Task_80204688 { u8 pad[0x1C]; s32 count; };
+struct Model_80204688 { u8 pad[0x14]; f32 x, y, z; };
+struct Node_80204688 { u32 flags; Model_80204688 *model; f32 x, y, z; };
+
+extern "C" {
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern const f32 TScene__data_805DC5D8;
+extern const f32 TScene__data_805DC600;
+extern const f32 lbl_805DC5E0;
+extern const f32 lbl_805DC5E8;
+extern const f32 lbl_805DC5EC;
+extern const f32 lbl_805DC5F0;
+extern const f32 lbl_805DC5F4;
+extern const f32 lbl_805DC5F8;
+extern const f32 lbl_805DC5FC;
+extern Vec_80204024 lbl_8044A84C[];
+extern u8 lbl_8058D490[];
+extern Root_80204024 *lbl_805D4DF0;
+bool TScene__sub_80204188(f32 farg0);
+s32 TScene__sub_80204024(f32 thr, s32 unused, void *a, void *b, Vec_80204024 *c);
+void TScene__sub_802041F4(void *task, SceneMaterialSection *room);
+SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
+SceneMaterialNode* resolve_indirect_object_record(void*,SceneMaterialAnimated*);
+f32 vec3_dot(void *, void *);
+void normalize_vector(Vec_80204024 *);
+void push_matrix_from(void *);
+void rotate_matrix_y(s32, s32);
+void rotate_vector_by_matrix(s32, void *, Vec_80204024 *);
+void pop_matrix(void);
+void pop_matrices(s32);
+s32 is_split_screen(void);
+
+#define CAM ((Cam_80204688 *)lbl_805D4DF0)
+#define TEST ((s32 (*)(f32, void *, void *, void *, Vec_80204024 *))TScene__sub_80204024)
+#define VIS ((s32 (*)(void *, void *, f32, f32))TScene__sub_80204188)
+
+void TScene__sub_80204688(Task_80204688 *task) {
+    static f32 s_near = lbl_805DC5E8;
+    static f32 s_far = lbl_805DC5EC;
+    static f32 s_pad = lbl_805DC5F0;
+    Vec_80204024 dir;
+    Vec_80204024 d;
+    Vec_80204024 up = lbl_8044A84C[0];
+    Vec_80204024 p;
+    Vec_80204024 v;
+    s32 i;
+    SceneMaterialSection *sec;
+
+    if (TScene__data_805D5FCC == NULL) {
+        return;
+    }
+    if (is_split_screen() != 0) {
+        s_near = lbl_805DC5F4;
+        s_far = lbl_805DC5F8;
+    } else {
+        s_near = lbl_805DC5FC;
+        s_far = TScene__data_805D5FCC->radius;
+    }
+    task->count = 0;
+    push_matrix_from(lbl_8058D490);
+    rotate_matrix_y(0, CAM->a194);
+    rotate_vector_by_matrix(0, &up, &dir);
+    normalize_vector(&dir);
+    pop_matrix();
+
+    sec = TScene__data_805D5FCC->sections;
+    for (i = 0; i < TScene__data_805D5FCC->count; i++) {
+        if (sec->flags & 0x80000) {
+            TScene__sub_802041F4(task, sec);
+            sec++;
+        } else {
+            f32 dist;
+            f32 dot;
+            p.x = sec->position[0];
+            p.y = TScene__data_805DC5D8;
+            p.z = sec->position[2];
+            d.x = p.x - CAM->x;
+            d.y = TScene__data_805DC5D8;
+            d.z = p.z - CAM->z;
+            dist = d.x * d.x + d.y * d.y + d.z * d.z;
+            if (dist < sec->radius * sec->radius) {
+                sec->flags |= 0x10000;
+                sec++;
+                task->count++;
+            } else if (dist > s_far * s_far) {
+                sec->flags &= ~0x10000;
+                sec++;
+            } else {
+                normalize_vector(&d);
+                dot = vec3_dot(&dir, &d);
+                if (dot < TScene__data_805DC5D8) {
+                    sec->flags &= ~0x10000;
+                    sec++;
+                } else if (dot >= TScene__data_805DC5D8 && dot < TScene__data_805DC600) {
+                    push_matrix_from(lbl_8058D490);
+                    rotate_matrix_y(0, CAM->a19C);
+                    rotate_vector_by_matrix(0, &dir, &up);
+                    normalize_vector(&up);
+                    pop_matrices(1);
+                    if (TEST(sec->radius, task, &p, &d, &up) != 0) {
+                        sec->flags |= 0x10000;
+                        sec++;
+                        task->count++;
+                    } else {
+                        push_matrix_from(lbl_8058D490);
+                        rotate_matrix_y(0, -CAM->a19C);
+                        rotate_vector_by_matrix(0, &dir, &up);
+                        normalize_vector(&up);
+                        pop_matrices(1);
+                        if (TEST(sec->radius, task, &p, &d, &up) != 0) {
+                            sec->flags |= 0x10000;
+                            sec++;
+                            task->count++;
+                        } else {
+                            goto clear;
+                        }
+                    }
+                } else {
+                    sec->flags |= 0x10000;
+                    sec++;
+                    task->count++;
+                }
+            }
+        }
+        continue;
+    clear:
+        sec->flags &= ~0x10000;
+        sec++;
+    }
+
+    sec = TScene__data_805D5FCC->sections;
+    for (i = 0; i < TScene__data_805D5FCC->count; i++, sec++) {
+        if (sec->flags & 0x100000) {
+            SceneMaterialStatic *st = sec->objects;
+            s32 j;
+            for (j = 0; j < sec->count; j++, st++) {
+                Node_80204688 *n = (Node_80204688 *)resolve_indirect_node_record(task, st);
+                v.x = n->model->x + (sec->position[0] + n->x);
+                v.y = n->model->y + (sec->position[1] + n->y);
+                v.z = n->model->z + (sec->position[2] + n->z);
+                if (VIS(task, &v, s_near + s_pad, lbl_805DC5E0) != 0) {
+                    st->flags |= 0x10000;
+                } else {
+                    st->flags &= ~0x10000;
+                }
+            }
+            {
+                SceneMaterialAnimated *an = sec->animated;
+                for (j = 0; j < sec->animatedCount; j++, an++) {
+                    Node_80204688 *n = (Node_80204688 *)resolve_indirect_object_record(task, an);
+                    v.x = sec->position[0] + n->x;
+                    v.y = sec->position[1] + n->y;
+                    v.z = sec->position[2] + n->z;
+                    if (VIS(task, &v, s_near + s_pad, lbl_805DC5E0) != 0) {
+                        an->flags |= 0x10000;
+                    } else {
+                        an->flags &= ~0x10000;
+                    }
+                }
+            }
+        }
+    }
+}
+
+}
+#undef CAM
+#undef TEST
+#undef VIS
+
 s32 TScene__sub_80204B78(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4) {
     Vec_80204024 c;
     Vec_80204024 a;

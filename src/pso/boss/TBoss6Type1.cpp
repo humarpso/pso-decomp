@@ -1316,6 +1316,137 @@ void TBoss6Type1__sub_802B73AC(Boss_802B73AC *self) {
 }
 #pragma pop
 
+struct ArgPair_802B7530 {
+    Arg_802B6B34 a[2];
+    inline ArgPair_802B7530(s32 r) {
+        a[0].kind = 0;
+        a[1].kind = 0;
+        a[1].v.f = (f32)r;
+        a[0].v.i = a[1].v.i;
+    }
+};
+struct Vec_802B7530 { f32 x, y, z; };
+struct W3_802B7530 { s32 x, y, z; };
+struct Line_802B7530 { Vec_802B7530 p; Vec_802B7530 d; };
+struct Boss_802B7530 {
+    u8 pad0[0x3FC];
+    s32 f3FC;
+    u8 pad400[0x408 - 0x400];
+    u32 f408;
+    u8 pad40C[0x460 - 0x40C];
+    u32 f460;
+    f32 f464;
+    f32 f468;
+    u8 pad46C[0x47C - 0x46C];
+    s32 f47C;
+    u8 pad480[0x56C - 0x480];
+    Vec_802B7530 f56C;
+    u8 pad578[0x5D8 - 0x578];
+    Vec_802B7530 a;
+    Vec_802B7530 b;
+};
+
+f32 project_point_onto_line(void *, void *, void *);
+f32 vec3_dot(void *, void *);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+extern const f32 TBoss6Type1__data_805DE2E0;
+extern const f32 TBoss6Type1__data_805DE360;
+extern const f32 lbl_805DE398;
+extern const f32 lbl_805DE39C;
+extern const f32 lbl_805DE3A0;
+#pragma push
+#pragma fp_contract on
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+void TBoss6Type1__sub_802B7530(Boss_802B7530 *self) {
+    Line_802B7530 line;
+    Vec_802B7530 v;
+    Vec_802B7530 w;
+    Vec_802B7530 out;
+    Vec_802B7530 A;
+    Vec_802B7530 B;
+    f32 t = self->f464;
+    u32 motion = self->f460;
+    s32 n;
+    s32 i;
+
+    if (motion != get_bml_motion(self->f3FC, TBoss6Type1__data_804DF61C[13].ids[1])) return;
+    if (t < lbl_805DE398 || t > lbl_805DE39C) return;
+    {
+    f32 end = lbl_805DE398 + self->f468;
+    if (t >= lbl_805DE398 && t < end) {
+        ((M2C_UNK (*)(int, void *, int, int))play_sound_effect)(0x40039209, &self->b, 0, 0);
+    }
+    }
+    init_parts__11TBoss6Type1FPv(self);
+    n = get_game_mode__6TLobbyFv();
+    for (i = 0; i < n; i++) {
+        Player_802B6B34 *p = get_player_data__10TObjPlayerFi(i);
+        if (is_active__14TBoss6PlotFalzFPv() != 0) {
+            Vec_802B7530 *a = &self->a;
+            VecCopy__FP3VecPC3Vec(&v, &p->pos);
+            v.y = TBoss6Type1__data_805DE2D0;
+            VecCopy__FP3VecPC3Vec(&w, &self->b);
+            subtract_vector(&w, a);
+            line.p.x = a->x;
+            line.p.y = TBoss6Type1__data_805DE2D0;
+            line.p.z = a->z;
+            line.d.x = w.x;
+            line.d.y = TBoss6Type1__data_805DE2D0;
+            line.d.z = w.z;
+            if (!(project_point_onto_line(&v, &line, &out) > TBoss6Type1__data_805DE360)) {
+                A.x = line.p.x;
+                A.y = line.p.z;
+                B.x = line.p.x + line.d.x;
+                B.z = line.p.z + line.d.z;
+                subtract_vector(&A, &out);
+                subtract_vector(&B, &out);
+                A.y = TBoss6Type1__data_805DE2D0;
+                B.y = TBoss6Type1__data_805DE2D0;
+                if (!(vec3_dot(&A, &B) > TBoss6Type1__data_805DE2D0)) {
+                    p->m21(self, ArgPair_802B7530(TBoss6PlotFalz__sub_802AB5B4(self->f47C, TBoss6Type1__data_805DE2E0)).a, 0, -1, -1);
+                }
+            }
+        }
+    }
+    if (self->f408 & 1) return;
+    W3_802B7530 c = *(W3_802B7530 *)&self->b;
+    W3_802B7530 e;
+    Vec_802B7530 dlt;
+    f32 dist;
+    *(f32 *)&c.y = TBoss6Type1__data_805DE2D0;
+    dist = xyz_distance(&c, &self->f56C);
+    if (!(dist < lbl_805DE3A0)) {
+        f32 r = dist / lbl_805DE3A0;
+        s32 cnt;
+        f32 s;
+        s32 j;
+        e.x = c.x;
+        e.y = c.y;
+        e.z = c.z;
+        cnt = (s32)(1.0f + r);
+        if (cnt > 4) cnt = 4;
+        s = 1.0f / (f32)cnt;
+        VecCopy__FP3VecPC3Vec(&dlt, &self->f56C);
+        subtract_vector(&dlt, &c);
+        dlt.x *= s;
+        dlt.y *= s;
+        dlt.z *= s;
+        for (j = 0; j < cnt; j++) {
+            spawn_particle_effect_with_flags(&e, 0x212, 0x40);
+            spawn_particle_effect_with_flags(&e, 0x213, 0x40);
+            vec3_add_to(&e, &dlt);
+        }
+        VecCopy__FP3VecPC3Vec(&self->f56C, &c);
+    }
+    {
+        ((M2C_UNK (*)(int, void *, int, int))play_sound_effect)(0x4003B00A, &c, 0, 0);
+        TBoss6PlotFalz__sub_802ABE3C(&c, 0xC0, 0xF, TBoss6Type1__data_805DE318);
+    }
+}
+#pragma pop
+
 void enable_parts__11TBoss6Type1FPv(void *arg0) {
     void *temp_r3;
     void *temp_r4;

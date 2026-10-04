@@ -57,6 +57,105 @@ struct Obj_802BCAB8 { u8 pad[0x400]; Ent_802BCAB8 ents[2]; };
 
 struct Vec_802BAD90 { f32 x, y, z; };
 
+typedef s32 M2C_UNK;
+struct T2_802BA000;
+struct Obj_802BC050;
+struct T2_802BB768;
+struct Obj_802B9D6C;
+struct O_802BCEF4;
+struct VBase_18_802BE0D4 { char pad[0x18]; };
+
+struct VObj_18_802BE0D4 : VBase_18_802BE0D4 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(void *);
+};
+
+struct Tmp_802BE0D4 { s32 a; s16 b; s16 c; u8 pad[0x10]; };
+
+struct Ent_802BE0D4 { s32 a; s32 b; };
+
+struct Ents_802BE0D4 { u8 pad[0x400]; Ent_802BE0D4 ents[2]; };
+
+struct Arr_802BE0D4 { u8 pad[0x378]; s32 arr[32]; };
+
 extern "C" {
 s32 get_bml_model(s32, M2C_UNK);
 s32 collect_and_count__12TBoss3VoloptFUii(int, int);
@@ -128,6 +227,55 @@ extern const f32 lbl_805DE46C;
 extern const f32 lbl_805DE470;
 extern const f32 lbl_805DE474;
 void TBoss6Type2__sub_802BAD90(void *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
+s32 get_bml_model(s32, M2C_UNK);
+void copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+void reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 TObjFish__sub_800E3124(void *, void *);
+void set_param__12TObjEneLappyFPvi(void *, int);
+void bind_enemy_combat_stats(void *, int, int, int);
+void initialize__9TObjEnemyFPv(void *);
+s32 init_collision_body_parts(void *, void *, int);
+void TBoss6PlotFalz__sub_802AC2D8(void *, void *, int);
+s32 get_fish_count__8TObjFishFv();
+void TBoss6Type2__sub_802B9C00(u8 *arg0, s32 arg1);
+void set_fields_554__11TBoss6Type2FPv(void* p);
+void cache_fish_params__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_802BA7B0(void* p);
+int TBoss6Type2__sub_802BB694(void);
+void TBoss6Type2__sub_802BB818(void *, f32);
+void advance_position__11TBoss6Type2FPv(u8 *arg0);
+void reset_indices__11TBoss6Type2FPv(void *arg0);
+void reset_attack_counter__11TBoss6Type2FPv(void *arg0);
+void copy_anim_state__11TBoss6Type2FPv(void *arg0);
+void set_screen_pos__11TBoss6Type2FPv(void *arg0);
+void TBoss6Type2__sub_802BC754(u8 *arg0);
+void TBoss6Type2__sub_802BCEF4(O_802BCEF4 *o);
+void TBoss6Type2__sub_802BD014(void *ov, void *vv);
+void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
+s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
+void TBoss6Rock__sub_80354A50(void *);
+void TBoss6Type2__sub_8036DD30();
+extern u8 lbl_80471068[];
+extern u8 lbl_80471074[];
+extern int lbl_804710BC[];
+extern u8 lbl_8047113C[];
+extern s32 lbl_8047127C[];
+extern s32 lbl_8047128C[];
+extern u8 lbl_80471294[];
+extern s32 lbl_804712AC[];
+extern u8 lbl_804DF950[];
+extern u8 __vt__11TBoss6Type2[];
+extern s32 lbl_805D3EB8;
+extern const f32 TBoss6Type2__data_805DE40C;
+extern const f32 TBoss6Type2__data_805DE410;
+s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_);
 }
 
 extern "C" {
@@ -594,7 +742,6 @@ void TBoss6Type2__sub_802BDD6C(void *arg0, s32 arg1, M2C_UNK *arg2);
 void TBoss6Type2__sub_802BDDF8(u8 *arg0, s8 arg1);
 void parse_action_packet__11TBoss6Type2FPvPv(void *arg0, void *arg1);
 void TBoss6Type2__sub_802BDF50(u8 *arg0, u8 *arg1);
-s32 TBoss6Type2__ct(s32, s32, s32);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
 s32 create__11TBoss6Type2Fi(s32 arg0);
 void TBoss6Type2__vt42(void);
@@ -687,6 +834,13 @@ Blk_802BCFD4 *TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
 
 extern "C" {
 extern RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C TBoss6Type2__data_8047105C;
+}
+
+extern "C" {
+void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self);
+void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0);
+void TBoss6Type2__sub_802BB768(T2_802BB768 *arg0);
+void TBoss6Type2__sub_802BC050(Obj_802BC050 *o);
 }
 
 void render__11TBoss6Type2Fv(void* p) { render_body_effects__11TBoss6Type2FPv(p); draw__11TBoss6Type2FPv(p); }
@@ -2695,6 +2849,108 @@ extern int fold_flush_34;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+#pragma push
+#pragma opt_common_subs off
+#define arg0 ((u8 *)arg0_)
+#define arg2 ((s32 *)arg2_)
+s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_) {
+    Tmp_802BE0D4 tmp;
+    s32 i;
+    s32 id;
+    ((void (*)(void *, s32))initialize__9TObjEnemyFPv)(arg0, arg1);
+    M2C_FIELD(arg0, u8 **, 0x18) = __vt__11TBoss6Type2;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3EB8;
+    M2C_FIELD(arg0, s32 *, 0x3F8) = arg2[0];
+    ((VObj_18_802BE0D4 *)(arg0))->m79(arg2 + 1);
+    if (TLobby__sub_8002AFD4(arg0, &tmp, 1) != 0) {
+        tmp.a = 0;
+        tmp.c = 0;
+        TLobby__sub_8002AFD4(arg0, &tmp, 0);
+    }
+    M2C_FIELD(arg0, s32 *, 0x3FC) = get_fish_count__8TObjFishFv();
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x38, lbl_80471068);
+    copy_xyz__10TObjPlayerFPvPv(arg0 + 0x5C, lbl_80471074);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
+    init_collision_body_parts(arg0, lbl_804DF950, 3);
+    advance_position__11TBoss6Type2FPv(arg0);
+    M2C_FIELD(arg0, f32 *, 0x310) = TBoss6Type2__data_805DE410;
+    M2C_FIELD(arg0, f32 *, 0x30C) = TBoss6Type2__data_805DE410;
+    M2C_FIELD(arg0, f32 *, 0x308) = TBoss6Type2__data_805DE410;
+    M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+    bind_enemy_combat_stats(arg0, register_boss__6TLobbyFPv(0x2C), dispatch_shared_handler_b__6TLobbyFPv(0x2C), register_object__6TLobbyFPv(0x2C));
+    M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s32 *, 0x4F8) = M2C_FIELD(arg0, s16 *, 0x32C);
+    reset_photon_effect__12TBoss3VoloptFPv(arg0);
+    set_param__12TObjEneLappyFPvi(arg0, 0x4E);
+    id = (s8)((u8 *)arg2)[0x44] % 4;
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, lbl_804710BC[id]);
+    M2C_FIELD(arg0, s32 *, 0x428) = id;
+    M2C_FIELD(arg0, s32 *, 0x42C) = M2C_FIELD(arg0, s32 *, 0x430) = lbl_8047127C[((s8)((u8 *)arg2)[0x44] >> 2) % 4];
+    TBoss6Type2__sub_802BC050((Obj_802BC050 *)arg0);
+    {
+    s32 k;
+    for (k = 0; k < 2; k++) {
+        Ent_802BE0D4 *e = &((Ents_802BE0D4 *)arg0)->ents[k];
+        id = lbl_8047128C[k];
+        e->a = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x3FC), id);
+        e->b = get_bml_model(M2C_FIELD(arg0, s32 *, 0x3FC), id);
+    }
+    }
+    TBoss6Type2__sub_802BCEF4((O_802BCEF4 *)arg0);
+    M2C_FIELD(arg0, s32 *, 0x764) = TObjFish__sub_800E3124(lbl_8047113C, arg0 + 0x59C);
+    TBoss6PlotFalz__sub_802AC2D8(arg0 + 0x768, lbl_80471294, 2);
+    M2C_FIELD(arg0, s32 *, 0x458) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 7, 0xF);
+    M2C_FIELD(arg0, s8 *, 0x478) = 0;
+    M2C_FIELD(arg0, s32 *, 0x47C) = 0x11;
+    TBoss6Type2__sub_802BE4E0((s32 *)(arg0 + 0x480), lbl_804712AC);
+    M2C_FIELD(arg0, s32 *, 0x480) = M2C_FIELD(arg0, s32 *, 0x60);
+    VecCopy__FP3VecPC3Vec(arg0 + 0x484, arg0 + 0x38);
+    M2C_FIELD(arg0, s32 *, 0x474) = 0;
+    for (i = 0; i < 32; i++) {
+        ((Arr_802BE0D4 *)arg0)->arr[i] = 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0x418) = 0;
+    M2C_FIELD(arg0, f32 *, 0x41C) = TBoss6Type2__data_805DE410;
+    M2C_FIELD(arg0, s32 *, 0x420) = 0;
+    M2C_FIELD(arg0, s32 *, 0x424) = 0;
+    M2C_FIELD(arg0, u16 *, 0x464) = 0xFFFF;
+    M2C_FIELD(arg0, s16 *, 0x466) = ((s16 (*)(void *))TBoss6Type2__sub_802BB694)(arg0);
+    M2C_FIELD(arg0, u16 *, 0x468) = 0xFFFF;
+    M2C_FIELD(arg0, u16 *, 0x46A) = 0xFFFF;
+    M2C_FIELD(arg0, s32 *, 0x46C) = -1;
+    M2C_FIELD(arg0, s32 *, 0x470) = 0;
+    TBoss6Type2__sub_802BC754(arg0);
+    set_screen_pos__11TBoss6Type2FPv(arg0);
+    copy_anim_state__11TBoss6Type2FPv(arg0);
+    reset_attack_counter__11TBoss6Type2FPv(arg0);
+    reset_indices__11TBoss6Type2FPv(arg0);
+    M2C_FIELD(arg0, f32 *, 0x4FC) = TBoss6Type2__data_805DE410;
+    M2C_FIELD(arg0, f32 *, 0x500) = TBoss6Type2__data_805DE40C;
+    M2C_FIELD(arg0, s32 *, 0x508) = 0;
+    TBoss6Type2__sub_802BB818(arg0, TBoss6Type2__data_805DE410);
+    TBoss6Type2__sub_802BB768((T2_802BB768 *)arg0);
+    TBoss6Rock__sub_80354A50(arg0);
+    TBoss6Type2__sub_802BA7B0(arg0);
+    TBoss6Type2__sub_8036DD30();
+    cache_fish_params__11TBoss6Type2FPv(arg0);
+    TBoss6Type2__sub_802BA000((T2_802BA000 *)arg0);
+    set_fields_554__11TBoss6Type2FPv(arg0);
+    TBoss6Type2__sub_802B9D6C((Obj_802B9D6C *)arg0);
+    TBoss6Type2__sub_802B9C00(arg0, 0);
+    TBoss6Type2__sub_802B9C00(arg0, 1);
+    TBoss6Type2__sub_802B9C00(arg0, 2);
+    TBoss6Type2__sub_802B9C00(arg0, 3);
+    TBoss6Type2__sub_802B9C00(arg0, 4);
+    TBoss6Type2__sub_802B9C00(arg0, 5);
+    TBoss6Type2__sub_802BD014(arg0, 0);
+    return arg0_;
+}
+#undef arg2
+#undef arg0
+#pragma pop
+
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1) {
     *arg0 = *arg1;
     *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
@@ -2719,7 +2975,7 @@ s32 create__11TBoss6Type2Fi(s32 arg0) {
         if (var_r4 != 0) {
             var_r4 = TObjControl__ct(var_r4, tl_04);
         }
-        var_r31 = TBoss6Type2__ct(var_r31, var_r4, arg0);
+        var_r31 = TBoss6Type2__ct((s32)(var_r31), (s32)(var_r4), (s32)(arg0));
     }
     return var_r31;
 }

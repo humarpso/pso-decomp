@@ -125,7 +125,11 @@ M2C_UNK memcpy(void *, void *, int);
 extern M2C_UNK lbl_805D7C30;
 void TLobby__sub_8042B560(s32 arg0);
 M2C_UNK OSDisableInterrupts();
-M2C_UNK OSRestoreInterrupts();
+M2C_UNK OSRestoreInterrupts(s32);
+M2C_UNK OSSleepThread(void *);
+extern u32 lbl_805D7C4C;
+extern s32 lbl_805D7C50;
+void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 extern s32 lbl_805D7C44;
 extern s32 lbl_805D7C48;
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
@@ -1003,6 +1007,114 @@ void TLobby__sub_8042B560(s32 arg0) {
     memcpy((void *) (&lbl_805D7C30), (void *) (arg0), (int) (6));
 }
 
+void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {
+    u8 sp43;
+    u8 sp42;
+    s16 sp40;
+    s32 sp3C;
+    s32 sp38;
+    s32 sp34;
+    s32 sp30;
+    s32 sp2C;
+    s32 sp28;
+    u8 sp27;
+    u8 sp26;
+    u8 sp25;
+    u8 sp24;
+    s32 sp20;
+    s32 sp1C;
+    s32 sp18;
+    s32 sp14;
+    s32 e;
+    s32 pad;
+
+    e = OSDisableInterrupts();
+    for (;;) {
+        if (EXILock(0, 2, (u32)TLobby__sub_80429598) == 1) {
+            OSRestoreInterrupts(e);
+            break;
+        }
+        OSSleepThread(&lbl_805D7C38);
+        OSRestoreInterrupts(e);
+    }
+    lbl_805D7C4C = arg0;
+    lbl_805D7C50 = arg1;
+    if (arg0 == 0U) {
+        sp43 = 0;
+        sp3C = 0xC0000800;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp3C, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp43, 1, 1);
+        EXIDeselect(0);
+    } else {
+        sp42 = 0xFF;
+        sp38 = 0xC0000800;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp38, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp42, 1, 1);
+        EXIDeselect(0);
+        sp40 = 0x100;
+        sp34 = 0xC0000A00;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp34, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp40, 2, 1);
+        EXIDeselect(0);
+        sp30 = 0xC0001600;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp30, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp40, 2, 1);
+        EXIDeselect(0);
+        sp2C = 0xC0001800;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp2C, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp40, 2, 1);
+        EXIDeselect(0);
+        sp40 = 0xF00;
+        sp28 = 0xC0001A00;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp28, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp40, 2, 1);
+        EXIDeselect(0);
+        sp20 = 0x80000100;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp20, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp27, 1, 0);
+        EXIDeselect(0);
+        e = sp27;
+        e &= ~1;
+        e |= 0x12;
+        sp26 = e;
+        sp1C = 0xC0000100;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp1C, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp26, 1, 1);
+        EXIDeselect(0);
+        sp18 = 0xC0000000;
+        sp25 = 8;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp18, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp25, 1, 1);
+        EXIDeselect(0);
+        sp24 = 8;
+        sp14 = 0xC0003200;
+        EXISelect(0, 2, 5);
+        EXIImm(0, &sp14, 4, 1, 0);
+        EXISync(0);
+        EXIImmEx(0, (s32)&sp24, 1, 1);
+        EXIDeselect(0);
+    }
+    EXIUnlock(0);
+}
+
 s32 TLobby__sub_8042B9C0(void *p) {
     s32 *arg0 = (s32 *)p;
     u8 buf[2];
@@ -1022,10 +1134,10 @@ s32 TLobby__sub_8042B9C0(void *p) {
 }
 
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1) {
-    OSDisableInterrupts();
+    s32 e = OSDisableInterrupts();
     lbl_805D7C44 = arg0;
     lbl_805D7C48 = arg1;
-    OSRestoreInterrupts();
+    OSRestoreInterrupts(e);
 }
 
 void TAdSinglePlyChrSelectGC__sub_8042BF48(void) {

@@ -26,6 +26,18 @@ struct RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 {
     u8 remaining[0xAC];
 };
 
+struct Sub_8025EDB4 {
+    u8 pad[0xB4];
+    s32 flags;
+};
+
+struct Ctl_8025EDB4 {
+    u8 pad[0x60];
+    u32 flags;
+    u8 pad64[0xC];
+    Sub_8025EDB4 *sub;
+};
+
 struct Ctl_8025F21C { u8 p0[0x60]; u32 f60; };
 
 typedef s32 M2C_UNK;
@@ -50,6 +62,22 @@ s32 TKeyBoardControl__sub_801323C8(void *, int);
 s32 TKeyBoardControl__sub_801A58B0(void);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 s32 TKeyBoardControl__sub_8025EC54(void);
+extern u8 lbl_8049DD78[];
+extern u8 lbl_8049DDF8[];
+extern u16 lbl_8049DE78[];
+extern u16 lbl_8049DF78[];
+extern u16 lbl_8049E078[];
+extern u8 lbl_8049E378[];
+extern u8 lbl_8049E3F8[];
+extern u8 lbl_8049E478[];
+extern u8 lbl_8049E4F8[];
+extern u8 lbl_8049E578[];
+extern u8 lbl_8049E5F8[];
+extern u8 lbl_8049E678[];
+extern u8 lbl_8049E6F8[];
+extern u8 lbl_8049E778[];
+extern u8 lbl_8049E7F8[];
+extern u8 lbl_8049E878[];
 }
 
 extern "C" {
@@ -130,6 +158,120 @@ u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1) {
     }
     return M2C_FIELD(((u8 *)(&lbl_8049E178.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
 }
+
+#define arg0 ((Ctl_8025EDB4 *)arg0_)
+s32 TKeyBoardControl__sub_8025EDB4(void *arg0_, s32 arg1, u16 *arg2) {
+    s32 shift;
+    u32 f;
+    u16 c;
+
+    f = arg0->flags;
+    if (f & 1) {
+        shift = f & 0x20;
+    } else if (((s32 (*)(void *, s32))TKeyBoardControl__sub_8025EC1C)(arg0, arg1) != 0) {
+        shift = arg0->flags & 0x20;
+    } else {
+        shift = arg0->flags & 0x80;
+    }
+    if (!(arg0->sub->flags & 1) || get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270) != 0) {
+        switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270)) {
+        case 0:
+            if ((arg0->flags & 4) && lbl_805D5544 == 0) {
+                *arg2 = lbl_8049E078[(u8)arg1];
+            } else if (shift != 0) {
+                *arg2 = lbl_8049DDF8[(u8)arg1];
+            } else {
+                *arg2 = lbl_8049DD78[(u8)arg1];
+            }
+            break;
+        case 2:
+            if (arg0->flags & 8) {
+                *arg2 = lbl_8049E578[(u8)arg1];
+            } else if (shift != 0) {
+                *arg2 = lbl_8049E4F8[(u8)arg1];
+            } else {
+                *arg2 = lbl_8049E478[(u8)arg1];
+            }
+            break;
+        case 4:
+            if (arg0->flags & 8) {
+                *arg2 = lbl_8049E878[(u8)arg1];
+            } else if (shift != 0) {
+                *arg2 = lbl_8049E7F8[(u8)arg1];
+            } else {
+                *arg2 = lbl_8049E778[(u8)arg1];
+            }
+            break;
+        case 3:
+            if (arg0->flags & 8) {
+                *arg2 = lbl_8049E6F8[(u8)arg1];
+            } else if (shift != 0) {
+                *arg2 = lbl_8049E678[(u8)arg1];
+            } else {
+                *arg2 = lbl_8049E5F8[(u8)arg1];
+            }
+            break;
+        default:
+            if (shift != 0) {
+                *arg2 = lbl_8049E3F8[(u8)arg1];
+            } else {
+                *arg2 = lbl_8049E378[(u8)arg1];
+            }
+            break;
+        }
+        if (arg0->sub->flags & 1) {
+            return ((arg0->flags >> 7) & 1) ? 2 : 0;
+        }
+        return 1;
+    }
+    if (arg0->sub->flags & 2) {
+        if (arg0->flags & 4) {
+            *arg2 = lbl_8049E078[(u8)arg1];
+        } else if (shift != 0) {
+            *arg2 = lbl_8049DF78[(u8)arg1];
+        } else {
+            *arg2 = lbl_8049DE78[(u8)arg1];
+        }
+        return 1;
+    }
+    if (arg0->sub->flags & 4) {
+        if (((s32 (*)(void *, s32))TKeyBoardControl__sub_8025EC1C)(arg0, arg1) != 0) {
+            if (arg0->flags & 4) {
+                *arg2 = lbl_8049E078[(u8)arg1];
+            } else if (shift != 0) {
+                *arg2 = lbl_8049DDF8[(u8)arg1];
+            } else {
+                *arg2 = lbl_8049DD78[(u8)arg1];
+            }
+            return ((arg0->flags >> 7) & 1) ? 2 : 0;
+        }
+        if (arg0->flags & 4) {
+            *arg2 = lbl_8049E078[(u8)arg1];
+        } else if (shift != 0) {
+            *arg2 = lbl_8049DF78[(u8)arg1];
+        } else {
+            *arg2 = lbl_8049DE78[(u8)arg1];
+        }
+        return 1;
+    }
+    *arg2 = TKeyBoardControl__sub_8025ED80((u8 *)arg0, arg1);
+    if (!(arg0->sub->flags & 8)) {
+        return 1;
+    }
+    c = *arg2;
+    if (c < 0x829F) {
+        return 1;
+    }
+    if (c > 0x82F1) {
+        return 1;
+    }
+    if (c > 0x82DD) {
+        *arg2 = c + 1;
+    }
+    *arg2 += 0xA1;
+    return 1;
+}
+#undef arg0
 
 s32 TKeyBoardControl__sub_8025F21C(Ctl_8025F21C *c) {
     if (c->f60 & 0x40) {

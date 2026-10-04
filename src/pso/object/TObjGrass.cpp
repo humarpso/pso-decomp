@@ -135,6 +135,44 @@ struct Grass_800BD10C {
     u8 pad354[0x380 - 0x354]; Vec_800BD10C p380;
 };
 
+struct VBase_14_800BE8FC { char pad[0x14]; };
+
+struct VObj_14_800BE8FC : VBase_14_800BE8FC {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
+    virtual s32 m5();
+};
+
+struct Vec_800BE8FC { f32 x, y, z; };
+
+struct Param_800BE8FC { u8 pad0[4]; f32 speed; s32 turn; };
+
+struct Grass_800BE8FC {
+    u8 pad0[0x30];
+    u32 flags30;
+    u8 pad34[4];
+    Vec_800BE8FC pos;
+    Vec_800BE8FC prev;
+    Vec_800BE8FC home;
+    u8 pad5C[0x60 - 0x5C];
+    s32 angle;
+    u8 pad64[0xB8 - 0x64];
+    s16 fB8;
+    u8 padBA[0x290 - 0xBA];
+    Vec_800BE8FC f290;
+    Vec_800BE8FC f29C;
+    u8 pad2A8[0x2FC - 0x2A8];
+    Vec_800BE8FC f2FC;
+    u8 pad308[0x328 - 0x308];
+    s16 state;
+    u8 pad32A[0x350 - 0x32A];
+    Param_800BE8FC *param;
+    u8 pad354[0x39C - 0x354];
+    s16 f39C;
+    u8 pad39E[0x3AC - 0x39E];
+    s32 f3AC;
+    VObj_14_800BE8FC sub;
+};
+
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
@@ -234,7 +272,6 @@ M2C_UNK TObjGrass__sub_800BCE44(u8 *arg0);
 M2C_UNK update__9TObjGrassFPv(u8 *arg0);
 M2C_UNK TObjGrass__sub_800BD4D8(void *);
 M2C_UNK TObjGrass__sub_800BE75C(Grass_800BE75C *o);
-M2C_UNK TObjGrass__sub_800BE8FC(void *);
 u8 *get_enemy_entity(u16);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -353,6 +390,40 @@ extern s32 lbl_805D5550;
 extern s32 tl_05;
 extern const f32 TObjGrass__data_805D9EB8;
 M2C_UNK TObjGrass__sub_800BD10C(void *arg0_);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+void enemy_wander_home(void *, s32, f32, f32, f32);
+M2C_UNK move_with_wall_slide(void *);
+void enemy_set_heading_velocity(void *, s32, f32);
+void enemy_turn_toward_dest(void *, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+void obj_clearFlags30(void *, u32);
+M2C_UNK obj_setFlags30(void *, u32);
+f32 get_random_float__8TObjFishFv(f32);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void TObjEneMe3SinowZoa__sub_800D758C(void *);
+void TBoss3Volopt__sub_800D8E80(void *);
+f32 horizontal_distance_squared(void *, void *);
+s32 approach_angle_limited(s32, s32, s32);
+M2C_UNK advance_animation_playback(void *);
+void refresh_collision_body_centers(void *);
+s32 project_actor_to_ground(void *, void *, s32);
+M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+f32 vec3_add_to(void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+M2C_UNK rotate_matrix_y(int, s32);
+M2C_UNK subtract_vector(void *, void *);
+s32 push_matrix_from(void *);
+M2C_UNK pop_matrices(int);
+extern const f64 TObjGrass__data_8043B7B8;
+extern Vec_800BE8FC lbl_8050BEE0;
+extern Vec_800BE8FC lbl_8050BF00;
+extern u8 lbl_8058D490[];
+extern const f32 TObjGrass__data_805D9EB8;
+extern const f32 lbl_805D9EE0;
+extern const f32 lbl_805D9EE4;
+extern const f32 lbl_805D9F0C;
+extern const f32 lbl_805D9F10;
+void TObjGrass__sub_800BE8FC(void *arg0);
 }
 
 extern "C" {
@@ -938,6 +1009,123 @@ void TObjGrass__vt57(void *arg0) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs off
+#define o ((Grass_800BE8FC *)arg0)
+void TObjGrass__sub_800BE8FC(void *arg0) {
+    advance_animation_playback(o);
+    switch (o->state) {
+    case 0:
+        obj_setFlags30(o, 0x04040000);
+        TObjEneMe3SinowZoa__sub_800D758C(&o->sub);
+        TBoss3Volopt__sub_800D8E80(&o->pos);
+        o->state = 1;
+        break;
+    case 1:
+        obj_setFlags30(o, 0x04040000);
+        if (o->sub.m5() == 1) {
+            o->state = 2;
+            o->fB8 = 1;
+            o->f3AC = 0;
+        }
+        break;
+    default:
+        o->state = 2;
+    case 2:
+        obj_clearFlags30(o, 0x04040000);
+        switch (o->f39C) {
+        case 1:
+            o->fB8 = 1;
+            if (lbl_805D9EE4 < horizontal_distance_squared(&o->pos, &o->home)) {
+                Vec_800BE8FC *d;
+                Vec_800BE8FC *v;
+                s32 ang;
+                VecCopy__FP3VecPC3Vec(&o->f29C, &o->home);
+                VecCopy__FP3VecPC3Vec(&o->f290, &o->f2FC);
+                VecCopy__FP3VecPC3Vec(&o->prev, &o->pos);
+                VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &o->home);
+                subtract_vector(&lbl_8050BEE0, &o->pos);
+                d = &lbl_8050BEE0;
+                ang = (s32)(TObjGrass__data_8043B7B8 * get_ad_end_text_start__10TObjPlayerFv(d->x, d->z));
+                v = &lbl_8050BF00;
+                v->x = v->y = TObjGrass__data_805D9EB8;
+                v->z = o->param->speed;
+                push_matrix_from(lbl_8058D490);
+                rotate_matrix_y(0, ang);
+                rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
+                pop_matrices(1);
+                vec3_add_to(&lbl_8050BF00, &o->pos);
+                if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
+                    o->fB8 = 1;
+                    VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                    o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
+                } else {
+                    f32 r = get_random_float__8TObjFishFv(d->z);
+                    if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < r) {
+                        ang = (s32)(TObjGrass__data_8043B7B8 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, TObjGrass__data_805D9EB8));
+                    } else {
+                        ang = (s32)(TObjGrass__data_8043B7B8 * get_ad_end_text_start__10TObjPlayerFv(TObjGrass__data_805D9EB8, d->z));
+                    }
+                    v->y = TObjGrass__data_805D9EB8;
+                    lbl_8050BF00.x = TObjGrass__data_805D9EB8;
+                    v->z = o->param->speed;
+                    push_matrix_from(lbl_8058D490);
+                    rotate_matrix_y(0, ang);
+                    rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
+                    pop_matrices(1);
+                    vec3_add_to(&lbl_8050BF00, &o->pos);
+                    if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
+                        o->fB8 = 1;
+                        VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                        o->angle = approach_angle_limited(o->angle, ang, o->param->turn);
+                    } else {
+                        s32 ang2;
+                        r = get_random_float__8TObjFishFv(d->z);
+                        if (get_random_float__8TObjFishFv(lbl_8050BEE0.x) < r) {
+                            ang2 = (s32)(TObjGrass__data_8043B7B8 * get_ad_end_text_start__10TObjPlayerFv(TObjGrass__data_805D9EB8, d->z));
+                        } else {
+                            ang2 = (s32)(TObjGrass__data_8043B7B8 * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, TObjGrass__data_805D9EB8));
+                        }
+                        v->y = TObjGrass__data_805D9EB8;
+                        lbl_8050BF00.x = TObjGrass__data_805D9EB8;
+                        v->z = o->param->speed;
+                        push_matrix_from(lbl_8058D490);
+                        rotate_matrix_y(0, ang2);
+                        rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
+                        pop_matrices(1);
+                        vec3_add_to(&lbl_8050BF00, &o->pos);
+                        if (project_actor_to_ground(o, &lbl_8050BF00, 0) == 1) {
+                            o->fB8 = 1;
+                            VecCopy__FP3VecPC3Vec(&o->pos, &lbl_8050BF00);
+                            o->angle = approach_angle_limited(o->angle, ang2, o->param->turn);
+                        } else {
+                            o->fB8 = 1;
+                        }
+                    }
+                }
+                enemy_turn_toward_dest(o, o->param->turn);
+                enemy_set_heading_velocity(o, o->angle, o->param->speed);
+                move_with_wall_slide(o);
+            } else {
+                ((void (*)(void *, f32, f32, f32, s32))enemy_wander_home)(o, lbl_805D9F0C * o->param->speed, lbl_805D9EE0, lbl_805D9F10, o->param->turn);
+            }
+            refresh_collision_body_centers(o);
+            break;
+        default:
+            o->fB8 = 0;
+            if (!(o->flags30 & 0x800000)) {
+                apply_actor_gravity(o, 0, TObjGrass__data_805D9EB8);
+            }
+            break;
+        }
+        break;
+    }
+    minimap_render_dot(&o->pos, -0x5DB4, 1, 0);
+    obj_clearFlags30(o, 0x200000);
+}
+#undef o
+#pragma pop
+
 void TObjGrass__vt56(Obj_800BEE2C *self) {
     switch (self->f326) {
     case 0:
@@ -1091,7 +1279,7 @@ void run_task__9TObjGrassFv(u8 *arg0) {
     {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
-            TObjGrass__sub_800BE8FC((void *) (arg0));
+            TObjGrass__sub_800BE8FC((void *)((void *) (arg0)));
             break;
         case 1:
             TObjGrass__sub_800BE75C((Grass_800BE75C *)((void *) (arg0)));

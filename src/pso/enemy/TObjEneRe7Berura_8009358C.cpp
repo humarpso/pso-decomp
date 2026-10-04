@@ -441,6 +441,23 @@ struct VSub_80094470 : VBase_14_80094470 {
     virtual s32 v4();
 };
 
+struct VBase_14_664b17 { char pad[0x14]; };
+
+struct VObj_14_664b17 : VBase_14_664b17 {
+    virtual void m0();
+    virtual void m1();
+    virtual M2C_UNK m2();
+    virtual M2C_UNK m3();
+    virtual void m4();
+    virtual s32 m5();
+};
+
+struct Vec_80093C80 { f32 x, y, z; };
+
+struct Tbl_80093C80 { u8 pad0[0xC]; s32 anim; f32 hi; f32 lo; u8 pad18[0x40]; Vec_80093C80 ofs; u8 pad64[0x0]; };
+
+struct Obj_80093C80 { u8 pad[0x418]; s32 armf[2]; Vec_80093C80 armp[2]; void *emit[2]; };
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv();
@@ -521,6 +538,28 @@ M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK advance_animation_playback();
 extern const f32 TObjEneRe7Berura__data_805D9724;
 void TObjEneRe7Berura__sub_80094470(u8 *arg0, s32 arg1);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+M2C_UNK rotate_xz_pair_by_angle(void *, void *, s32);
+void *create_particle_emitter(void *, s32);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 check_death_trigger__16TObjEneRe7BeruraFPv();
+void TObjEneRe7Berura__sub_80094D3C(void *);
+M2C_UNK launch__21TObjEneRe7BeruraPunchFPvii(s32, s32, void *, void *);
+s32 check_v2_mode__9TObjEneDDFv();
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback();
+M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
+s32 play_sound_effect(s32, u32, s16, s32);
+M2C_UNK vec3_add_to(void *, void *);
+extern f32 lbl_8048F6D4[];
+extern Tbl_80093C80 TObjEneRe7Berura__data_805007DC[];
+extern const f32 TObjEneRe7Berura__data_805D9738;
+extern const f32 lbl_805D975C;
+void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -791,6 +830,118 @@ void TObjEneRe7Berura__sub_80093888(u8 *arg0, s32 arg1) {
     }
 }
 }
+
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define EMIT_(i) (((Obj_80093C80 *)arg0)->emit[i])
+#define ARMF ((s32 *)(arg0 + 0x418))
+#define ARMP (((Obj_80093C80 *)arg0)->armp)
+#define SUB ((VObj_14_664b17 *)(arg0 + 0x3FC))
+void TObjEneRe7Berura__sub_80093C80(u8 *arg0, s32 arg1) {
+    Vec_80093C80 v;
+    Tbl_80093C80 *t;
+    s32 ok;
+    switch (arg1) {
+    case 4:
+        ((VObj_18_8bca97 *)(arg0))->m94();
+        F(s32, 0x3C0) &= ~3;
+        F(s32, 0x3C0) |= 4;
+        set_field_378__9TObjEneDDFPvi(arg0, 5);
+        t = &TObjEneRe7Berura__data_805007DC[F(s32, 0x3F4)];
+        F(s16, 0xB8) = t->anim;
+        F(f32, 0x4D0) = t->lo;
+        F(f32, 0x4D4) = t->hi;
+        F(s32, 0x4C0) = 0;
+        for (s32 i = 0; i < 2; i++) {
+            EMIT_(i) = 0;
+        }
+        if (check_v2_mode__9TObjEneDDFv() != 0) {
+            lbl_8048F6D4[0x48 / 4] = lbl_805D975C;
+            lbl_8048F6D4[0x38 / 4] = lbl_805D975C;
+        } else {
+            lbl_8048F6D4[0x48 / 4] = TObjEneRe7Berura__data_805D9738;
+            lbl_8048F6D4[0x38 / 4] = TObjEneRe7Berura__data_805D9738;
+        }
+        play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BC20), (u32)(arg0 + 0x38), 0, 0);
+        play_effect_if_v2__10TObjPlayerFi(-0x100);
+        break;
+    case 3:
+        if (F(s32, 0x4C0) == 3 && check_death_trigger__16TObjEneRe7BeruraFPv() == 0) {
+            transition_enemy_state(arg0, 4);
+        }
+        break;
+    case 0:
+        advance_animation_playback();
+        switch (F(s32, 0x4C0)) {
+        case 0:
+            ok = 1;
+            for (s32 i = 0; i < 2; i++) {
+                if (EMIT_(i) == 0) {
+                    EMIT_(i) = create_particle_emitter(arg0 + 0x2FC, 0xDC);
+                    if (EMIT_(i) != 0) {
+                        enable__13TParticleCtrlFPv(EMIT_(i));
+                    } else {
+                        for (s32 j = 0; j < i; j++) {
+                            enable__13TParticleCtrlFPv(EMIT_(j));
+                        }
+                        ok = 0;
+                        break;
+                    }
+                }
+            }
+            if (ok != 0) {
+                if (F(f32, 0xC0) < F(f32, 0x4D4) && F(f32, 0xC0) >= F(f32, 0x4D0)) {
+                    for (s32 i = 0; i < 2; i++) {
+                        enable__13TParticleCtrlFPv(EMIT_(i));
+                    }
+                } else {
+                    for (s32 i = 0; i < 2; i++) {
+                        copy_pos__11TNowLoadingFPvPv(EMIT_(i), &ARMP[i]);
+                    }
+                }
+            }
+            if (objInBand__FP7GameObjf(arg0, F(f32, 0x4D0)) != 0) {
+                ARMF[F(s32, 0x3F4)] |= 3;
+                SUB->m3();
+                VecCopy__FP3VecPC3Vec(&v, &TObjEneRe7Berura__data_805007DC[F(s32, 0x3F4)].ofs);
+                rotate_xz_pair_by_angle(&v.x, &v.z, F(s32, 0x60));
+                vec3_add_to(&v, arg0 + 0x38);
+                launch__21TObjEneRe7BeruraPunchFPvii(F(s32, 0x3F8), F(s32, 0x3F4), &v, arg0 + 0x394);
+                F(s32, 0x4C0) = 1;
+                TObjEneRe7Berura__sub_80094D3C(arg0);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003A321), (u32)(arg0 + 0x38), 0, 0);
+                play_effect_if_v2__10TObjPlayerFi(-0x100);
+            }
+            break;
+        case 1:
+            if (!(ARMF[F(s32, 0x3F4)] & 2)) {
+                F(s32, 0x4C0) = 2;
+                ARMF[F(s32, 0x3F4)] |= 4;
+                ARMF[F(s32, 0x3F4)] &= ~1;
+            }
+            break;
+        case 2:
+            if (SUB->m5() != 0) {
+                ARMF[F(s32, 0x3F4)] &= ~4;
+                if (F(s32, 0x3F4) == 0) {
+                    F(s32, 0x3F4) = 1;
+                } else {
+                    F(s32, 0x3F4) = 0;
+                }
+                F(s32, 0x4C0) = 3;
+            }
+            break;
+        }
+        ((VObj_18_8bca97 *)(arg0))->m100();
+        ((VObj_18_8bca97 *)(arg0))->m87();
+        break;
+    case 5:
+        SUB->m2();
+        ARMF[F(s32, 0x3F4)] &= ~7;
+        TObjEneRe7Berura__sub_80094D3C(arg0);
+        break;
+    }
+}
+
 void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     switch (arg1) {

@@ -53,6 +53,43 @@ extern G_80039C44 *TBoss2Tentacle__data_805D4BD4;
 extern s32 lbl_805D4BD8;
 extern const f32 lbl_805D8528;
 void render__14TBoss2TentacleFv(u8 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+M2C_UNK emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
+void *get_instance__13TBoss2DeRolLeFv(void);
+void TBoss2Tentacle__sub_8003998C(void);
+M2C_UNK TBoss2Tentacle__sub_80039994(void *, f32);
+void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
+void TBoss2Tentacle__sub_80039CB4(void* p);
+void TBoss2Tentacle__sub_80039D50(void* p);
+void TBoss2Tentacle__sub_80039D64(void* a0);
+void TBoss2Tentacle__sub_80039D88(void* p);
+void TBoss2Tentacle__sub_80039DA4(void* p);
+void TBoss2Tentacle__sub_80039DBC(void* p);
+void TBoss2Tentacle__sub_80039DD4(void* p);
+void init_motion_from_table__14TBoss2TentacleFPv(void* a0);
+void reset__14TBoss2TentacleFPv(void* a0);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+s32 approach_angle_limited(s32, s32, s32);
+M2C_UNK play_sound_effect(int, void *, int, int);
+f32 sin_table_lookup(s32);
+M2C_UNK matrix_mult_vec(int, void *, void *);
+M2C_UNK TObjPlayer__sub_803D8CD4(int);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK TObjPlayer__sub_803D9730(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+extern int TBoss2Tentacle__data_80435B78[];
+extern s32 lbl_80435B88[];
+extern const f64 lbl_80435BA8[];
+extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
+extern const f32 lbl_805D852C;
+extern const float TBoss2Tentacle__data_805D8530;
+extern const float TBoss2Tentacle__data_805D8534;
+extern const f32 lbl_805D8538;
+extern const f32 lbl_805D853C;
+extern const f32 lbl_805D8540;
+void run_task__14TBoss2TentacleFv(u8 *arg0);
 }
 
 extern "C" {
@@ -126,6 +163,144 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     }
     pop_matrix();
     clear_global_state__10TObjPlayerFv();
+}
+
+typedef V3_80039DE0 V3_800394DC;
+typedef struct { u8 pad[0x30]; V3_800394DC pts[14]; } Ten_800394DC;
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+void run_task__14TBoss2TentacleFv(u8 *arg0) {
+    if (F(s32, 0x20) != F(s32, 0x1C)) {
+        switch (F(s32, 0x20)) {
+        case 0:
+            TBoss2Tentacle__sub_80039D88(arg0);
+            break;
+        case 1:
+            TBoss2Tentacle__sub_80039D64(arg0);
+            break;
+        case 4:
+            TBoss2Tentacle__sub_80039D50(arg0);
+            break;
+        case 2:
+            init_motion_from_table__14TBoss2TentacleFPv(arg0);
+            break;
+        case 3:
+            reset__14TBoss2TentacleFPv(arg0);
+            break;
+        case 5:
+            TBoss2Tentacle__sub_80039CB4(arg0);
+            break;
+        }
+        F(s32, 0x1C) = F(s32, 0x20);
+    }
+    switch (F(s32, 0x1C)) {
+    case 0:
+        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        F(s32, 0x128) += F(s32, 0x124);
+        F(s32, 0x11C) = lbl_805D852C * ((*(const f32 *)&TBoss2Tentacle__data_805D8530) + sin_table_lookup(F(s32, 0x128)));
+        if (!(F(s32, 0x2C) & 1)) {
+            F(s32, 0x11C) = -F(s32, 0x11C);
+        }
+        break;
+    case 1:
+        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0x4000, 0x280);
+        break;
+    case 2:
+        F(s32, 0x11C) = approach_angle_limited(F(s32, 0x11C), 0, 0x80);
+        if (F(s32, 0x11C) == 0) {
+            TBoss2Tentacle__sub_80039DA4(arg0);
+        }
+        break;
+    case 3: {
+        V3_800394DC pos;
+        V3_800394DC v;
+        f32 len;
+        v.z = v.y = v.x = (*(const f32 *)&TBoss2Tentacle__data_805D8534);
+        push_matrix();
+        TObjPlayer__sub_803D8CD4(0);
+        TObjPlayer__sub_803D9730(0, F(s32, 0x110));
+        matrix_mult_vec(0, &v, arg0 + 0x140);
+        pop_matrix();
+        VecCopy__FP3VecPC3Vec(&v, arg0 + 0x12C);
+        subtract_vector(&v, arg0 + 0x140);
+        len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
+        F(s32, 0x11C) = (s32)(lbl_80435BA8[0] * get_ad_end_text_start__10TObjPlayerFv(v.x, v.z)) + 0x8000;
+        VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x12C);
+        switch (F(s32, 0x24)) {
+        case 0: {
+            s32 i;
+            F(f32, 0x150) -= lbl_805D8538;
+            if (F(f32, 0x150) <= lbl_805D8538) {
+                F(f32, 0x150) = lbl_805D8538;
+                F(s32, 0x14C) = 0;
+                F(s32, 0x24) = 1;
+            }
+            for (i = 2; i < 12; i++) {
+                ((Ten_800394DC *)arg0)->pts[i].x = F(f32, 0x150) * TBoss2Tentacle__data_804FE8E8[i].x;
+            }
+            F(s32, 0xE0) = 0x4000;
+            break;
+        }
+        case 1:
+            F(f32, 0x138) += lbl_805D853C;
+            if (F(f32, 0x138) > len) {
+                void *inst;
+                F(f32, 0x138) = len;
+                F(s32, 0x14C) = 0;
+                F(s32, 0x24) = 2;
+                inst = get_instance__13TBoss2DeRolLeFv();
+                if (inst != NULL) {
+                    emit_effect_and_step__13TBoss2DeRolLeFPvPv(inst, &pos);
+                }
+                play_sound_effect(0x4003A507, &pos, 0, 0);
+            }
+            if (F(f32, 0x138) >= lbl_805D8540 * len) {
+                F(f32, 0x13C) = (*(const f32 *)&TBoss2Tentacle__data_805D8530);
+            } else {
+                F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
+            }
+            F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), lbl_80435B88[F(s32, 0x2C)], 0x100);
+            TBoss2Tentacle__sub_80039994(arg0, len);
+            break;
+        case 2:
+            F(s32, 0x14C)++;
+            if (F(s32, 0x14C) > F(s32, 0x154)) {
+                F(s32, 0x14C) = 0;
+                F(f32, 0x150) = (*(const f32 *)&TBoss2Tentacle__data_805D8530);
+                F(s32, 0x24) = 3;
+            }
+            ((void (*)(void *))TBoss2Tentacle__sub_8003998C)(arg0);
+            break;
+        case 3:
+            F(f32, 0x138) -= 8.0f;
+            if (F(f32, 0x138) < 20.0f) {
+                F(f32, 0x138) = 20.0f;
+                F(s32, 0x24) = 2;
+                TBoss2Tentacle__sub_80039DBC(arg0);
+            }
+            if (F(f32, 0x138) >= lbl_805D8540 * len) {
+                F(f32, 0x13C) = (*(const f32 *)&TBoss2Tentacle__data_805D8530);
+            } else {
+                F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
+            }
+            F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0, 0x100);
+            TBoss2Tentacle__sub_80039994(arg0, len);
+            break;
+        }
+        break;
+    }
+    case 4:
+        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        F(s32, 0x11C) = approach_angle_limited(F(s32, 0x11C), ((s32 *)&TBoss2Tentacle__data_80435B78)[F(s32, 0x2C)], 0x80);
+        break;
+    case 5:
+        TBoss2Tentacle__sub_80039C44((Obj_80039C44 *)arg0);
+        F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), 0, 0x280);
+        if (F(s32, 0x120) == 0) {
+            TBoss2Tentacle__sub_80039DD4(arg0);
+        }
+        break;
+    }
 }
 
 void TBoss2Tentacle__sub_8003998C(void) {  }

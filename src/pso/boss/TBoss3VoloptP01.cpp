@@ -442,6 +442,12 @@ s32 TBoss3VoloptP01__sub_80042FCC(u8 *arg0);
 s32 TBoss3VoloptP01__sub_8004301C(void *);
 void reset_state__15TBoss3VoloptP01FPv(void *arg0);
 void TBoss3VoloptP01__sub_800430D0(void *);
+typedef struct { f32 x, y, z; } Vec_800430D0;
+M2C_UNK TObjPlayer__sub_80042974(void *);
+M2C_UNK TObjPlayer__sub_80042B34(void *);
+M2C_UNK TObjPlayer__sub_80042ED0(void *, int, void *);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+extern const f32 lbl_805D877C;
 void TBoss3VoloptP01__sub_8004354C(u8 *arg0);
 void TBoss3VoloptP01__sub_80043758(void *);
 void TBoss3VoloptP01__sub_800437F4(u8 *arg0);
@@ -686,6 +692,170 @@ void reset_state__15TBoss3VoloptP01FPv(void *arg0) {
     temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
     M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) | 1);
 }
+
+#define F430D0(t, o) M2C_FIELD(arg0, t *, o)
+
+void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    s32 s;
+
+    TBoss3VoloptMonitor__sub_8004292C(arg0);
+    switch (F430D0(s32, 0x37C)) {
+    case 0:
+        F430D0(u8 *, 0x3AC) = NULL;
+        if (F430D0(s32, 0x388) & 0x10000) {
+            F430D0(s32, 0x37C) = F430D0(s32, 0x3A0);
+            switch (F430D0(s32, 0x37C)) {
+            case 2:
+            case 3:
+                F430D0(s16, 0xB8) = 5;
+                break;
+            case 5: {
+                Vec_800430D0 v;
+                TObjPlayer__sub_80042ED0(arg0, 5, &v);
+                F430D0(u8 *, 0x3AC) = create_particle_emitter(&v, 0x11A);
+                F430D0(s16, 0xB8) = 2;
+                break;
+            }
+            case 6:
+                F430D0(s16, 0xB8) = 2;
+                advance_animation_playback(arg0);
+                F430D0(f32, 0xC0) = lbl_805D877C;
+                F430D0(s32, 0x37C) = 7;
+                break;
+            }
+        } else {
+            s = F430D0(s16, 0x2B8) / 4;
+            F430D0(s32, 0x394) = s;
+            F430D0(s16, 0xB8) = 5;
+            ((void (*)(void *, s32))reset_state__15TBoss3VoloptP01FPv)(arg0, s);
+            F430D0(s32, 0x388) |= 0x10000;
+            set_mode__11TCameraCtrlFPv(F430D0(u8 *, 0x3B8));
+            F430D0(s16, 0x33C) = 0x14;
+            F430D0(s32, 0x3A0) = 1;
+            F430D0(s32, 0x37C) = 1;
+            TObjPlayer__sub_80042DE8(arg0);
+            F430D0(s16, 0x39C) = 0;
+        }
+        if (F430D0(s32, 0x3A8) != 0) {
+            F430D0(s32, 0x388) |= 0x80000;
+        } else {
+            F430D0(s32, 0x388) &= ~0x80000;
+        }
+        advance_animation_playback(arg0);
+        break;
+    case 1:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        if (--F430D0(s16, 0x33C) <= 0) {
+            play_sound_effect(0x4003A306, arg0 + 0x38, 0xA, 0);
+            F430D0(s32, 0x37C) = 2;
+        }
+        break;
+    case 2:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        if (TBoss3VoloptP01__sub_8004301C(arg0) == 1) {
+            F430D0(s32, 0x3A0) = 3;
+            F430D0(s32, 0x37C) = 3;
+        }
+        break;
+    case 3:
+        advance_animation_playback(arg0);
+        if (F430D0(s16, 0xB8) == 2) {
+            if (F430D0(s32, 0x3A8) != 0) {
+                F430D0(s32, 0x3A0) = 4;
+                F430D0(s32, 0x37C) = 4;
+            } else {
+                F430D0(s32, 0x3A0) = 0xC;
+                F430D0(s32, 0x37C) = 0xC;
+                F430D0(s32, 0x388) &= ~0x10000;
+                F430D0(s16, 0x398) = 0xAF;
+            }
+        }
+        break;
+    case 4: {
+        Vec_800430D0 v;
+        F430D0(s16, 0x398) = 0x19;
+        TObjPlayer__sub_80042ED0(arg0, 5, &v);
+        F430D0(u8 *, 0x3AC) = create_particle_emitter(&v, 0x11A);
+        F430D0(s32, 0x3A0) = 5;
+        F430D0(s32, 0x37C) = 5;
+    }
+    case 5:
+        play_persistent_sound(0x4002B51E, arg0, arg0 + 0x38, 0, 0);
+        if (--F430D0(s16, 0x398) <= 0) {
+            if (F430D0(u8 *, 0x3AC) != NULL) {
+                queue_destruction__7TObjectFv(F430D0(u8 *, 0x3AC));
+                F430D0(u8 *, 0x3AC) = NULL;
+            }
+            F430D0(s32, 0x3A0) = 6;
+            F430D0(s32, 0x37C) = 6;
+        }
+        break;
+    case 6:
+        advance_animation_playback(arg0);
+        if (F430D0(f32, 0xC0) >= lbl_805D877C) {
+            F430D0(s32, 0x37C) = 7;
+        }
+        break;
+    case 7:
+        if (F430D0(s32, 0x3A8) != 0) {
+            if (TBoss3Volopt__sub_8003F398() != 0) {
+                TObjPlayer__sub_80042974(arg0);
+            } else {
+                TObjPlayer__sub_80042B34(arg0);
+            }
+            F430D0(s16, 0x39C)++;
+        }
+        F430D0(s32, 0x388) &= ~0x10000;
+        F430D0(s16, 0x33C) = 0x78;
+        F430D0(s32, 0x37C) = 8;
+    case 8:
+        F430D0(s16, 0x33C)--;
+        if (F430D0(s16, 0x33C) <= 0) {
+            F430D0(s32, 0x37C) = 9;
+        }
+        break;
+    case 9:
+        advance_animation_playback(arg0);
+        if (F430D0(u32, 0xB4) != 4) {
+            if (F430D0(s16, 0x39C) >= 2) {
+                F430D0(s32, 0x37C) = 0xA;
+            } else {
+                F430D0(s32, 0x37C) = 4;
+            }
+        }
+        break;
+    case 10:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        play_sound_effect(0x4003A810, arg0 + 0x38, 0xA, 0);
+        F430D0(s32, 0x37C) = 0xB;
+    case 11:
+        set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
+        if (TBoss3VoloptP01__sub_80042FCC(arg0) == 1) {
+            reset_look_state__11TCameraCtrlFPv(F430D0(u8 *, 0x3B8));
+            ((VObj_18_62ff9d *)(arg0))->m56();
+            F430D0(s32, 0x388) &= ~0x80000;
+        }
+        break;
+    case 12:
+        if (--F430D0(s16, 0x398) <= 0) {
+            F430D0(s32, 0x37C) = 0xA;
+        }
+        break;
+    case -1:
+        if (F430D0(u8 *, 0x3AC) != NULL) {
+            queue_destruction__7TObjectFv(F430D0(u8 *, 0x3AC));
+            F430D0(u8 *, 0x3AC) = NULL;
+        }
+        break;
+    }
+    submit_cursor_candidate(arg0, -1);
+    minimap_render_dot(arg0 + 0x38, -0x5DB4, 1, 0);
+    if (F430D0(s32, 0x37C) != -1) {
+        F430D0(s32, 0x3A4) = F430D0(s32, 0x37C);
+    }
+}
+#undef F430D0
 
 #pragma push
 #pragma fp_contract on

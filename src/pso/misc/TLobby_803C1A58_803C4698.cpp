@@ -78,6 +78,11 @@ extern s32 lbl_805D7540;
 extern const s32 lbl_805E0D30;
 void TLobby__sub_803C59B8(void);
 s32 __DVDPrepareResetAsync(u8 *hdr, s32 size, s32 *o1, s16 *o2, s16 *o3, s32 *o4, s32 *o5, s32 *o6, s32 *o7);
+void strncat(char *buf, s32 arg, s32 n);
+s32 strlen(const char *);
+extern char lbl_80572000[];
+extern const char lbl_805E0D28[2];
+void TLobby__sub_803C526C(s32 arg0, s32 arg1, char *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -270,6 +275,38 @@ extern s32 lbl_805D7528;
 extern s32 lbl_805D752C;
 
 typedef void (*Callback_803C5744)(s32 ctx, char *msg);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline void num_to_str_803C526C(s32 v, char *out, s32 n) {
+    s32 i;
+    s32 len;
+    for (i = 0; i < 32; i++) {
+        out[i] = v % 10;
+        v /= 10;
+        if (v == 0) {
+            out[i] = 0;
+            break;
+        }
+    }
+    s32 sl = strlen(lbl_80572000);
+    len = n - 1;
+    if (sl < len) {
+        len = sl;
+    }
+    for (i = 0; i < len; i++) {
+        out[i] = lbl_80572000[len - 1 - i];
+    }
+    out[i] = 0;
+}
+void TLobby__sub_803C526C(s32 arg0, s32 arg1, char *arg2, s32 arg3) {
+    num_to_str_803C526C(arg0, arg2, arg3);
+    strncat(arg2, (s32)lbl_805E0D28, arg3 - strlen(arg2) - 1);
+    num_to_str_803C526C(arg1, arg2 + strlen(arg2), 4 - strlen(arg2));
+}
+#pragma pop
+
 void TLobby__sub_803C5744(const char *msg, s32 arg) {
     strncpy(((char *)&lbl_80572020), msg, 0xFF);
     strncat(((char *)&lbl_80572020), arg, 0xFF);

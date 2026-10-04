@@ -466,6 +466,99 @@ struct VObj_18_eeb1dd : VBase_18_eeb1dd {
     virtual M2C_UNK m100();
 };
 
+struct VBase_18_313dd8 { char pad[0x18]; };
+
+struct VObj_18_313dd8 : VBase_18_313dd8 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85();
+    virtual void m86();
+    virtual M2C_UNK m87();
+};
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -535,6 +628,46 @@ extern u8 *TObjEneDellBiter__data_805D6A2C;
 extern const f32 lbl_805DF000;
 extern const f32 lbl_805DF010;
 void TObjEneDellBiter__sub_80304D10(u8 *arg0, s32 arg1);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+M2C_UNK fn_8002B094(int);
+s32 TObjBoss2Tunnel__sub_8007E5A0(int, int, int, int, int);
+f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
+s32 enemy_validate_retained_target();
+M2C_UNK enemy_copy_target_destination(void *);
+M2C_UNK update_velocity__9TObjEneDDFPv(void *);
+M2C_UNK clear_field_388__9TObjEneDDFPv(void *);
+M2C_UNK set_active__9TObjEneDDFPv(void *);
+s32 has_move_failures__9TObjEneDDFPvi(void *, int);
+M2C_UNK move_clamped_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
+u32 enemy_probe_wall_ahead(void *, f32, f32, f32);
+M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
+M2C_UNK transition_enemy_state(void *, int);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, void *);
+s32 approach_angle_limited(int, int, int);
+s32 objInBand__FP7GameObjf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
+M2C_UNK play_sound_effect(int, void *, int, int);
+s32 TObjEneDellBiter__sub_803054A8(u8 *arg0);
+s32 TObjEneDellBiter__sub_803054FC(u8 *arg0);
+void clear_active_flag__16TObjEneDellBiterFPv(void *arg0);
+void TObjEneDellBiter__sub_803058DC(s32 arg0);
+void TObjEneDellBiter__sub_8030591C(s32 arg0);
+void TObjEneDellBiter__sub_80305B60(u8 *arg0);
+s32 TObjEneDellBiter__sub_80305C40(u8 *arg0);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
+f32 subtract_vector(void *, void *);
+extern const f64 TObjEneDellBiter__data_80475328;
+extern u8 *TObjEneDellBiter__data_805D6A2C;
+extern const f32 TObjEneDellBiter__data_805DEFE8;
+extern const f32 TObjEneDellBiter__data_805DEFF4;
+extern const f32 lbl_805DEFF8;
+extern const f32 lbl_805DEFFC;
+extern const f32 lbl_805DF000;
+void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1847,7 +1980,6 @@ void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_803040D0(u8 *arg0, s32 arg1);
 void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
-s32 TObjEneDellBiter__sub_803044AC(void *, void *);
 void run_task__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void handle_movement_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void update_state__16TObjEneDellBiterFPvi(void *arg0, s32 arg1);
@@ -2573,6 +2705,123 @@ void handle_attack_event__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1) {
 }
 
 #pragma fp_contract on
+
+#pragma push
+#pragma fp_contract on
+typedef struct { f32 x, y, z; } Vec_803044AC;
+#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define G(t, o) M2C_FIELD(TObjEneDellBiter__data_805D6A2C, t *, o)
+void TObjEneDellBiter__sub_803044AC(u8 *arg0, s32 arg1) {
+    s32 hit;
+    f32 t;
+    switch (arg1) {
+    case 4:
+        F(s16, 0xB8) = 7;
+        set_field_378__9TObjEneDDFPvi(arg0, 5);
+        F(s32, 0x3C0) &= ~3;
+        F(s32, 0x3C0) |= 4;
+        F(s32, 0x4CC) = 0;
+        F(s32, 0x4D0) = 0;
+        F(f32, 0x4DC) = G(f32, 0);
+        F(f32, 0x4E0) = TObjEneDellBiter__data_805DEFF4;
+        fn_8002B094(F(s32, 0x4A0));
+        set_active__9TObjEneDDFPv(arg0);
+        break;
+    case 3:
+        if (F(s32, 0x4CC) == 3) {
+            F(s32, 0x488) = 0;
+            F(s32, 0x48C)++;
+            F(s32, 0x3C0) &= ~8;
+            if (TObjEneDellBiter__sub_803054A8(arg0) == 0 && TObjEneDellBiter__sub_803054FC(arg0) == 0) {
+                transition_enemy_state(arg0, 5);
+            }
+        }
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        switch (F(s32, 0x4CC)) {
+        case 0:
+            if (objInBand__FP7GameObjf(arg0, lbl_805DEFF8) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DEFFC) != 0) {
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, (void *)0x40039E12), arg0 + 0x38, 0, 0);
+                TObjEneDellBiter__sub_80305B60(arg0);
+            }
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+                F(s16, 0xB8) = 2;
+                F(s32, 0x4CC) = 1;
+                M2C_FIELD(F(u8 *, 0xA4), s32 *, 0x18) |= 0x700;
+            }
+            if (((s32 (*)(void *))enemy_validate_retained_target)(arg0) != 0) {
+                enemy_copy_target_destination(arg0);
+                update_velocity__9TObjEneDDFPv(arg0);
+            }
+            F(s32, 0x60) = approach_angle_limited(F(s32, 0x60), (s32)(TObjEneDellBiter__data_80475328 * get_ad_end_text_start__10TObjPlayerFv(F(f32, 0x3A0), F(f32, 0x3A8))), 0x280);
+            F(s32, 0x484) = TObjBoss2Tunnel__sub_8007E5A0(F(s32, 0x60), F(s32, 0x484), F(s32, 0x60), 0x200, 0x2000);
+            ((VObj_18_313dd8 *)(arg0))->m87();
+            break;
+        case 1:
+            TObjEneDellBiter__sub_8030591C((s32)arg0);
+            if (((s32 (*)(void *))clear_active_flag__16TObjEneDellBiterFPv)(arg0) != 0) {
+                enemy_copy_target_destination(arg0);
+                update_velocity__9TObjEneDDFPv(arg0);
+            }
+            hit = 0;
+            if (enemy_probe_wall_ahead(arg0, F(f32, 0x3A0), F(f32, 0x3A8), TObjEneDellBiter__data_805DEFE8 * G(f32, 0)) != 0) {
+                hit = 1;
+            }
+            move_clamped_on_ground__9TObjEneDDFPvfff(arg0, F(f32, 0x3A0), F(f32, 0x3A8), G(f32, 0));
+            F(f32, 0x4E0) += G(f32, 0);
+            if (has_move_failures__9TObjEneDDFPvi(arg0, 1) != 0) {
+                hit = 1;
+            }
+            update_enemy_collision_flags__10TObjPlayerFPv(arg0);
+            if (M2C_FIELD(F(u8 *, 0xA4), s32 *, 0x18) & 0x200000) {
+                hit = 1;
+            }
+            if (TObjEneDellBiter__sub_80305C40(arg0) != 0) {
+                hit = 1;
+            }
+            if (((s32 (*)(void *))enemy_validate_retained_target)(arg0) != 0) {
+                Vec_803044AC v;
+                VecCopy__FP3VecPC3Vec(&v, F(u8 *, 0x390) + 0x38);
+                subtract_vector(&v, arg0 + 0x38);
+                if (clamp_velocity__15TObjBoss2TunnelFPv(&v) >= TObjEneDellBiter__data_805DEFE8) {
+                    if (v.x * sin_table_lookup(F(s32, 0x60)) + v.z * cos_table_lookup(F(s32, 0x60)) < TObjEneDellBiter__data_805DEFF4) {
+                        hit = 1;
+                    }
+                }
+            }
+            if (hit != 0 || F(f32, 0x4E0) >= G(f32, 0x10)) {
+                F(s32, 0x4CC) = 2;
+                F(s32, 0x4D0) = 0;
+                set_field_378__9TObjEneDDFPvi(arg0, 5);
+                play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, (void *)0x40039B14), arg0 + 0x38, 0, 0);
+            }
+            break;
+        case 2:
+            F(s32, 0x4D0)++;
+            if (F(s32, 0x4D0) >= 10) {
+                F(s16, 0xB8) = 3;
+                TObjEneDellBiter__sub_803058DC((s32)arg0);
+                if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
+                    F(s32, 0x3C0) &= ~4;
+                    F(s32, 0x4CC) = 3;
+                }
+                F(f32, 0x4DC) *= lbl_805DF000;
+            }
+            TObjEneDellBiter__sub_80305C40(arg0);
+            move_clamped_on_ground__9TObjEneDDFPvfff(arg0, F(f32, 0x3A0), F(f32, 0x3A8), F(f32, 0x4DC));
+            break;
+        }
+        break;
+    case 5:
+        F(s32, 0x3C0) &= ~4;
+        M2C_FIELD(F(u8 *, 0xA4), s32 *, 0x18) &= ~0x700;
+        clear_field_388__9TObjEneDDFPv(arg0);
+        break;
+    }
+}
+#pragma pop
+
 void TObjEneDellBiter__sub_8030492C(u8 *arg0, s32 arg1) {
     f32 temp_f31;
     f32 temp_f31_2;
@@ -2876,7 +3125,7 @@ void TObjEneDellBiter__vt85(s32 arg0, u32 arg1, s32 arg2) {
         TObjEneDellBiter__sub_8030492C((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 6:
-        TObjEneDellBiter__sub_803044AC((void *) (arg0), (void *) (arg2));
+        TObjEneDellBiter__sub_803044AC((u8 *)((void *) (arg0)), (s32)((void *) (arg2)));
         return;
     case 7:
         ((s32 (*)(void *, void *))handle_attack_event__16TObjEneDellBiterFPvi)((void *) (arg0), (void *) (arg2));

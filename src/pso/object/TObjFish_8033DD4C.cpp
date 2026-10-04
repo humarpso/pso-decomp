@@ -18,6 +18,34 @@ struct O_8033E5A8 {
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Vec_8033E0F0 { f32 x, y, z; };
+
+struct Rng_8033E0F0 { s32 start; s32 end; s32 id; };
+
+struct Fish_8033E0F0 {
+    u8 pad0[0x4C];
+    f32 f4c;
+    s32 timer;
+    s32 f54;
+    Vec_8033E0F0 pos;
+    Vec_8033E0F0 f64;
+    u8 pad70[0x74 - 0x70];
+    Vec_8033E0F0 f74;
+    u8 pad80[0x84 - 0x80];
+    Vec_8033E0F0 f84;
+    Vec_8033E0F0 f90;
+    u8 pad9C[0xA0 - 0x9C];
+    void *emit[4];
+    void *fb0;
+};
+
+struct Pl_8033E0F0 {
+    u8 pad0[0x30];
+    u32 f30;
+    u8 pad34[0x38 - 0x34];
+    Vec_8033E0F0 pos;
+};
+
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void * fn_8033E8C0(void *arg0, void *arg1);
@@ -77,6 +105,33 @@ extern s32 lbl_805D42B0;
 extern const f32 lbl_805DFA98;
 extern const f32 lbl_805DFAB8;
 void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2);
+void request_destroy__11TBoss4Type2FUi(void *);
+void VecCopy__FP3VecPC3Vec(void *, void *);
+void vec3_add_to(void *, void *);
+f32 vector_length(void *);
+void subtract_vector(void *, void *);
+M2C_UNK play_sound_effect(int, void *, int, int);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+void *create_particle_emitter(void *, int);
+void set_flags__11TBoss4Type2FPvUi(void *, u32);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+void TBoss6Type1__sub_803204B8(void *, void *, void *);
+s32 get_game_mode__6TLobbyFv();
+Pl_8033E0F0 *get_player_data__10TObjPlayerFi(s32);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
+s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
+M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
+s32 get_phase__8TObjFishFPv(int);
+void queue_destruction__7TObjectFv(void *);
+extern Vec_8033E0F0 lbl_804780AC[];
+extern Vec_8033E0F0 lbl_804780B8[];
+extern Rng_8033E0F0 lbl_8047814C[];
+extern u8 lbl_8047817C[];
+extern const f32 lbl_805DFA98;
+extern const f32 lbl_805DFAB0;
+extern const f32 lbl_805DFAB4;
+void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0);
 }
 
 extern "C" {
@@ -165,6 +220,130 @@ void TObjFish__sub_8033DE60(void *p) {
 #undef arg0
 
 void update__8TObjFishFPv(void* p) { TObjFish__sub_8033DFB4(p); TObjFish__sub_8033DE60(p); TObjFish__sub_8033DD4C((void *)(p)); render_effect__8TObjFishFPv(p); }
+
+#pragma push
+#pragma pool_data off
+void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0) {
+    Vec_8033E0F0 b;
+    Vec_8033E0F0 mid;
+    Vec_8033E0F0 a;
+    if ((arg0->f4c += 0.7f) > 499.0f) {
+        arg0->f4c = 499.0f;
+    }
+    switch (arg0->timer) {
+    case 0x0:
+        play_sound_effect(0x4003232C, 0, 0, 0);
+        break;
+    case 0xAE:
+    case 0xCF:
+        play_sound_effect(0x4003942D, 0, 0, 0);
+        break;
+    case 0x23B:
+        play_sound_effect(0x40032830, 0, 0, 0);
+        break;
+    }
+    if (arg0->timer >= 0x12C && arg0->timer <= 0x1AC) {
+        play_persistent_sound(0x4003352E, arg0, 0, 0, 0);
+    }
+    if (arg0->timer >= 0x1D7 && arg0->timer <= 0x23A) {
+        play_persistent_sound(0x32D2F, arg0, 0, 0, 0);
+    }
+    switch (arg0->timer) {
+    case 0xAE:
+    case 0xCF: {
+        Vec_8033E0F0 p = arg0->pos;
+        vec3_add_to(&p, lbl_804780AC);
+        spawn_particle_effect_with_flags(&p, 0x221, 0x40);
+        spawn_particle_effect_with_flags(&p, 0x22F, 0x40);
+        break;
+    }
+    case 0x1AC:
+        spawn_particle_effect_with_flags(&arg0->f74, 0x223, 0x40);
+        break;
+    case 0x23A: {
+        Vec_8033E0F0 p = arg0->pos;
+        vec3_add_to(&p, lbl_804780B8);
+        spawn_particle_effect_with_flags(&p, 0xA4, 0x40);
+        spawn_particle_effect_with_flags(&p, 0xE3, 0x40);
+        break;
+    }
+    }
+    if (arg0->timer >= 0x12C && arg0->timer < 0x1BA) {
+        spawn_particle_effect_with_flags(&arg0->f74, 0x22E, 0x40);
+    }
+    {
+        Vec_8033E0F0 *ptrs[4];
+        s32 i;
+        ptrs[0] = &arg0->pos;
+        ptrs[1] = &arg0->f64;
+        ptrs[2] = &arg0->f74;
+        ptrs[3] = &arg0->f64;
+        for (i = 0; i < 4; i++) {
+            if (arg0->timer >= lbl_8047814C[i].start && arg0->timer < lbl_8047814C[i].end) {
+                if (arg0->emit[i] == 0) {
+                    arg0->emit[i] = create_particle_emitter(ptrs[i], lbl_8047814C[i].id);
+                    if (arg0->emit[i] != 0) {
+                        set_flags__11TBoss4Type2FPvUi(arg0->emit[i], 0x40);
+                    }
+                } else {
+                    copy_pos__11TNowLoadingFPvPv(arg0->emit[i], ptrs[i]);
+                }
+            } else if (arg0->emit[i] != 0) {
+                request_destroy__11TBoss4Type2FUi(arg0->emit[i]);
+                arg0->emit[i] = 0;
+            }
+        }
+    }
+    if (arg0->timer >= 0x1AE) {
+        s32 pb;
+        s32 pm;
+        VecCopy__FP3VecPC3Vec(&a, &arg0->f84);
+        pb = (s32)&b;
+        VecCopy__FP3VecPC3Vec((void *)pb, &arg0->f90);
+        pm = (s32)&mid;
+        VecCopy__FP3VecPC3Vec((void *)pm, &a);
+        vec3_add_to((void *)pm, (void *)pb);
+        mid.x *= lbl_805DFAB0;
+        mid.y *= lbl_805DFAB0;
+        mid.z *= lbl_805DFAB0;
+        TBoss6Type1__sub_803204B8(arg0->fb0, &a, lbl_8047817C);
+    }
+    if (arg0->timer == 0x23A) {
+        s32 n = get_game_mode__6TLobbyFv();
+        Vec_8033E0F0 c;
+        s32 i;
+        VecCopy__FP3VecPC3Vec(&c, &arg0->pos);
+        vec3_add_to(&c, lbl_804780B8);
+        for (i = 0; i < n; i++) {
+            Pl_8033E0F0 *p = get_player_data__10TObjPlayerFi(i);
+            if (is_locally_controlled__10TObjPlayerFPv(p) != 0 && is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
+                Vec_8033E0F0 d;
+                VecCopy__FP3VecPC3Vec(&d, &p->pos);
+                subtract_vector(&d, &c);
+                d.y = lbl_805DFA98;
+                if (!(vector_length(&d) > lbl_805DFAB4)) {
+                    p->f30 |= 0x600;
+                }
+            }
+        }
+    }
+    switch (arg0->timer) {
+    case 0x5F:
+    case 0x82:
+    case 0xB1:
+    case 0xCD:
+    case 0xFA:
+    case 0x10E:
+    case 0x23C:
+        queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
+        break;
+    }
+    arg0->timer++;
+    if (arg0->timer >= 0x2CA || get_phase__8TObjFishFPv(arg0->f54) != 7) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+#pragma pop
 
 O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
