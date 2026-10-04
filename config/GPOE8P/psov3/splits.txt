@@ -12068,6 +12068,8 @@ pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp:
 
 pso/ui/TAdChrSelSlotGC.cpp:
 	.text       start:0x802C70AC end:0x802C7C44
+	.rodata     start:0x80471D68 end:0x80471D70
+	.sdata2     start:0x805DE5D0 end:0x805DE5E8
 
 pso/ui/TAdFadeGC.cpp:
 	.text       start:0x802C7C44 end:0x802C7F78

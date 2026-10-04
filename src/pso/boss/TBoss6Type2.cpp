@@ -19,6 +19,36 @@ struct O_802BCEF4 { u8 pad[0x3FC]; s32 model; u8 pad400[0x498 - 0x400]; Ent_802B
 
 struct Tb_802BCEF4 { u8 pad[8]; s32 v[1]; };
 
+struct Hit_802BBAB0 { s32 x; f32 y; };
+
+struct VBase_18_b27ba1 { char pad[0x18]; };
+
+struct VObj_18_b27ba1 : VBase_18_b27ba1 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual M2C_UNK m21(void *, Hit_802BBAB0 *, M2C_UNK, M2C_UNK, M2C_UNK);
+};
+
+struct Vec_802BBAB0 { f32 x, y, z; };
+
+struct Obj_802BBAB0 {
+    u8 pad0[0x3C];
+    f32 f3C;
+    u8 pad40[0x418 - 0x40];
+    s32 f418;
+    u8 pad41C[0x4B4 - 0x41C];
+    s32 f4B4;
+    u8 pad4B8[0x4E8 - 0x4B8];
+    f32 f4E8;
+    u8 pad4EC[0x59C - 0x4EC];
+    Vec_802BBAB0 rock[19];
+    Vec_802BBAB0 v680[1];
+};
+
 extern "C" {
 s32 get_bml_model(s32, M2C_UNK);
 s32 collect_and_count__12TBoss3VoloptFUii(int, int);
@@ -33,7 +63,6 @@ void TBoss6Type2__sub_802B9D90(u8 *arg0);
 void TBoss6Type2__sub_802BA3B4(u8 *arg0);
 M2C_UNK TBoss6Type2__sub_802BA6DC();
 void TBoss6Type2__sub_802BA7BC(u8 *o);
-M2C_UNK TBoss6Type2__sub_802BBAB0(void *);
 void update_parts_flags__11TBoss6Type2FPv(void *arg0);
 M2C_UNK TBoss6Type2__sub_802BBE20(void *);
 void advance_position__11TBoss6Type2FPv(u8 *arg0);
@@ -50,6 +79,17 @@ extern u8 lbl_804712E0[];
 extern M2C_UNK TBoss6Type2__data_804DF9D4[];
 extern const s32 TBoss6Type2__data_805DE4B8;
 void TBoss6Type2__sub_802BCEF4(O_802BCEF4 *o);
+u8 * get_player_by_client_id(u32);
+s32 is_active__14TBoss6PlotFalzFPv();
+s32 TBoss6PlotFalz__sub_802AB5B4(s32, f32);
+s32 TBoss6Type2__sub_802BB920(void *self, void *target, f32 range);
+M2C_UNK TBoss6Rock__sub_80353B7C(void *, f32);
+f32 xyz_distance(void *, void *);
+extern s32 lbl_80471324[];
+extern const f32 TBoss6Type2__data_805DE40C;
+extern const f32 TBoss6Type2__data_805DE430;
+extern const f32 TBoss6Type2__data_805DE434;
+void TBoss6Type2__sub_802BBAB0(Obj_802BBAB0 *self);
 }
 
 extern "C" {
@@ -1354,6 +1394,49 @@ s32 TBoss6Type2__sub_802BB920(void *self, void *target, f32 range) {
     return mask;
 }
 
+void TBoss6Type2__sub_802BBAB0(Obj_802BBAB0 *self) {
+    Hit_802BBAB0 a;
+    f32 range;
+    s32 r;
+    s32 i;
+    s32 mask;
+    s32 j;
+    Vec_802BBAB0 *rock;
+    s32 hit;
+    VObj_18_b27ba1 *p;
+    s32 v;
+    range = TBoss6Type2__data_805DE434;
+    for (i = 0; i < 6; i++) {
+        rock = &self->rock[lbl_80471324[i]];
+        TBoss6Rock__sub_80353B7C(rock, TBoss6Type2__data_805DE434);
+        if (!(rock->y - self->f3C > range)) {
+            hit = 0;
+            if (xyz_distance(rock, &self->v680[lbl_80471324[i]]) >= TBoss6Type2__data_805DE40C) {
+                hit = 1;
+            }
+            r = TBoss6Type2__sub_802BB920(self, rock, TBoss6Type2__data_805DE434);
+            if (hit != 0 && r != 0) {
+                for (mask = 1, j = 0; j < 4; j++, mask <<= 1) {
+                    if (mask & r) {
+                        p = (VObj_18_b27ba1 *)((s32 (*)(s32))get_player_by_client_id)(j);
+                        if (((s32 (*)(void *))is_active__14TBoss6PlotFalzFPv)(p) != 0) {
+                            v = self->f4B4;
+                            if (self->f418 != 0) {
+                                v = (s32)((f32)v * self->f4E8);
+                            }
+                            s32 rr = TBoss6PlotFalz__sub_802AB5B4(v, TBoss6Type2__data_805DE430);
+                            a.x = 0;
+                            a.y = rr;
+                            Hit_802BBAB0 h = a;
+                            p->m21(self, &h, 0, -1, -1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 void set_owner_flag_bit0__11TBoss6Type2FPv(void *arg0) {
     void *temp_r3;
 
@@ -1925,7 +2008,7 @@ void run_task__11TBoss6Type2Fv(u8 *arg0) {
     update_collisions__10TObjPlayerFPv((void *) (arg0));
     submit_cursor_candidate((void *) (arg0), (int) (-1));
     add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DE4C0));
-    TBoss6Type2__sub_802BBAB0((void *) (arg0));
+    TBoss6Type2__sub_802BBAB0((Obj_802BBAB0 *)((void *) (arg0)));
     TBoss6Type2__sub_802BB498((T2_802BB498 *) (arg0));
     TBoss6Type2__sub_802BC124((void *) (arg0));
     TBoss6PlotFalz__sub_802AC1D8((void *) (arg0 + 0x768), (int) (8), (int) (0));

@@ -44,6 +44,24 @@ struct S_802C7560 {
 #pragma dont_inline off
 struct M2CCopy_14 { s32 v[5]; };
 
+struct E_802C7758 { f32 x; f32 y; f32 z; f32 w; u8 pad[0x10]; };
+
+struct S_802C7758 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    s32 f1C;
+    u8 pad20[0x10];
+    E_802C7758 e[2];
+    E_802C7758 e2[3];
+    u8 padD0[0xE8 - 0xD0];
+    s32 aE8[5];
+    s32 aFC[5];
+    void *a110[2];
+    void *a118[3];
+    s32 f124;
+};
+
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
@@ -61,6 +79,10 @@ extern const s32 lbl_80471D50[];
 extern const s32 lbl_805D5544;
 extern u32 lbl_805D67F0;
 void TLobby__sub_802C7920(void);
+M2C_UNK __ct__7TObjectFP7TObject(void *);
+extern u8 __vt__15TAdChrSelSlotGC[];
+extern s32 lbl_805D3EE8;
+S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self);
 }
 
 extern "C" {
@@ -159,6 +181,41 @@ void TAdMcSelectGC__sub_802C7560(S_802C7560 *arg0, s32 arg1, void *arg2) {
     arg0->e[arg1].y2 = lbl_805DE5D4 + arg0->v[arg1].y;
     arg0->b[arg1] = 0;
 }
+
+#pragma push
+#pragma fp_contract on
+S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self) {
+    u32 i;
+    u32 j;
+    u32 k;
+    f32 t;
+    __ct__7TObjectFP7TObject(self);
+    self->vt = __vt__15TAdChrSelSlotGC;
+    self->f0 = lbl_805D3EE8;
+    self->f1C = -1;
+    self->f124 = 1;
+    for (i = 0; i < 5; i++) {
+        self->aFC[i] = 0;
+        self->aE8[i] = 0;
+    }
+    for (j = 0; j < 2; j++) {
+        self->a110[j] = NULL;
+        self->e[j].x = 0.0f;
+        t = 32.0f * (f32)j;
+        self->e[j].y = t / 256.0f;
+        self->e[j].z = 174.0f / 256.0f;
+        self->e[j].w = (32.0f + t) / 256.0f;
+    }
+    for (k = 0; k < 3; k++) {
+        self->a118[k] = NULL;
+        self->e2[k].x = 0.0f;
+        self->e2[k].y = (24.0f * (f32)k + 64.0f) / 256.0f;
+        self->e2[k].z = 174.0f / 256.0f;
+        self->e2[k].w = (24.0f * (f32)(k + 1) + 64.0f) / 256.0f;
+    }
+    return self;
+}
+#pragma pop
 
 void TLobby__sub_802C78EC(void) {
     if ((u32) lbl_805D67F0 != 0U) {
