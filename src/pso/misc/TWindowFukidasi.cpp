@@ -4,6 +4,40 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Pt_80250A24 { f32 x, y; };
+
+struct Fuki_80250A24 {
+    u8 pad0[0x38];
+    f32 size[2];
+    u8 pad40[0x48 - 0x40];
+    f32 rsize[2];
+    u8 pad50[0x90 - 0x50];
+    f32 center[2];
+};
+
+extern "C" {
+f32 get_random_float__8TObjFishFv(f32);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 newton_sqrtf(f32);
+s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0);
+int rand(void);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+f32 xyz_distance(void *, void *);
+extern const f64 TWindowFukidasi__data_8044ED70;
+extern const f32 TWindowFukidasi__data_805DCCE8;
+extern const f32 TWindowFukidasi__data_805DCD08;
+extern const f32 TWindowFukidasi__data_805DCD0C;
+extern const f32 TWindowFukidasi__data_805DCD14;
+extern const f32 TWindowFukidasi__data_805DCD18;
+extern const f32 TWindowFukidasi__data_805DCD1C;
+extern const f32 lbl_805DCD20;
+extern const f32 lbl_805DCD24;
+extern const f32 TWindowFukidasi__data_805DCD28;
+extern const f32 lbl_805DCD2C;
+s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2);
+}
+
 extern "C" {
 
 struct Entry_80250380 { u8 pad[0x10]; f32 w; f32 h; };
@@ -200,7 +234,6 @@ void TWindowFukidasi__sub_802504A8(void *arg0);
 void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *b);
 s32 TWindowFukidasi__sub_802505C0(void *, f32 *, f32 *);
 s32 TWindowFukidasi__sub_802506E8(void *, f32 *, f32 *);
-s32 rest_balloon__15TWindowFukidasiFv(void *, f32 *, f32 *);
 s32 shift_rect_with_head__15TWindowFukidasiFPvPvPv(Fuki_80250F70 *b, f32 *rect, f32 *out);
 void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b);
 s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *arg0, f32 *pos, f32 *out);
@@ -304,6 +337,13 @@ extern const f32 lbl_805DCDB4;
 extern const f32 lbl_805DCDB8;
 extern const f32 lbl_805DCDBC;
 extern const f32 lbl_805DCDC0;
+
+extern "C" {
+s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
+s32 project_anchor__15TWindowFukidasiFv(Fuki_80250F70 *arg0, f32 *pos, f32 *out);
+void get_boundary_offset__15TWindowFukidasiFPviPv(Fuki_8025181C *b, s32 angle, f32 *out);
+extern Cam_80251380 *lbl_805D4DF0;
+}
 
 void complete_speech_balloon(u8 *arg0) {
     s32 t;
@@ -456,6 +496,88 @@ void place_rect_at_head_or_slot__15TWindowFukidasiFPv(Fuki_802504C0 *b) {
 extern int fold_flush_1;
 #pragma pop
 
+#pragma push
+#pragma fp_contract on
+struct Fuki_8025181C;
+#define F70_80250A24 ((Fuki_80250F70 *)b)
+#define CLAMP_80250A24 ((s32 (*)(Fuki_80250F70 *, f32 *, f32))clamp_position__15TWindowFukidasiFPvPvf)
+#define DRAW_80250A24 ((void *(*)(Fuki_80250F70 *, f32 *, f32 *, s32))draw_resolved_window__15TWindowFukidasiFiiii)
+s32 rest_balloon__15TWindowFukidasiFv(Fuki_80250A24 *b, f32 *rect, f32 *arg2) {
+    Pt_80250A24 *o = (Pt_80250A24 *)arg2;
+    f32 world[3];
+    f32 edge[2];
+    f32 dist;
+    f32 dx;
+    f32 dy;
+    f32 reach;
+    f32 t;
+    s32 a;
+    s32 angle;
+    project_anchor__15TWindowFukidasiFv(F70_80250A24, world, NULL);
+    reach = TWindowFukidasi__data_805DCD08 / xyz_distance(lbl_805D4DF0->pos, world);
+    dx = (TWindowFukidasi__data_805DCD0C * b->rsize[0] + rect[0]) - b->center[0];
+    dy = (TWindowFukidasi__data_805DCD0C * b->rsize[1] + rect[1]) - b->center[1];
+    dist = newton_sqrtf(dx * dx + dy * dy);
+    if (dist < TWindowFukidasi__data_805DCD28) {
+        angle = 0xD400;
+    } else {
+        a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(dy, dx)));
+        edge[0] = dx - reach * cos_table_lookup(a);
+        edge[1] = dy - reach * sin_table_lookup(a);
+        edge[0] /= TWindowFukidasi__data_805DCD18 + b->rsize[0];
+        edge[1] /= TWindowFukidasi__data_805DCD1C + b->rsize[1];
+        angle = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    }
+    get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    edge[0] += reach * cos_table_lookup(a);
+    edge[1] += reach * sin_table_lookup(a);
+    if (get_random_float__8TObjFishFv(dist - newton_sqrtf(edge[0] * edge[0] + edge[1] * edge[1])) < TWindowFukidasi__data_805DCD1C) {
+        return 0;
+    }
+    o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
+    o->y = (b->center[1] + edge[1]) - TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (CLAMP_80250A24(F70_80250A24, (f32 *)o, TWindowFukidasi__data_805DCCE8) != 0) {
+        return 0;
+    }
+    if (DRAW_80250A24(F70_80250A24, (f32 *)o, b->size, 4) == NULL) {
+        return 1;
+    }
+    t = TWindowFukidasi__data_805DCD14 * (f32) rand();
+    edge[0] += t * (dx - edge[0]);
+    edge[1] += t * (dy - edge[1]);
+    o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
+    o->y = (b->center[1] + edge[1]) - TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (DRAW_80250A24(F70_80250A24, (f32 *)o, b->size, 4) == NULL) {
+        return 1;
+    }
+    angle = (s32) ((f32) a + (lbl_805DCD20 * (TWindowFukidasi__data_805DCD14 * (f32) rand()) - lbl_805DCD24));
+    get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    edge[0] += reach * cos_table_lookup(a);
+    edge[1] += reach * sin_table_lookup(a);
+    o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
+    o->y = (b->center[1] + edge[1]) - TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (CLAMP_80250A24(F70_80250A24, (f32 *)o, TWindowFukidasi__data_805DCCE8) != 0) {
+        return 0;
+    }
+    if (DRAW_80250A24(F70_80250A24, (f32 *)o, b->size, 4) == NULL) {
+        return 1;
+    }
+    angle = (s32) (lbl_805DCD2C * (TWindowFukidasi__data_805DCD14 * (f32) rand()));
+    get_boundary_offset__15TWindowFukidasiFPviPv((Fuki_8025181C *)b, angle, edge);
+    a = (s32) (TWindowFukidasi__data_8044ED70 * ((f64)get_ad_end_text_start__10TObjPlayerFv(edge[1], edge[0])));
+    edge[0] += reach * cos_table_lookup(a);
+    edge[1] += reach * sin_table_lookup(a);
+    o->x = (b->center[0] + edge[0]) - TWindowFukidasi__data_805DCD0C * b->size[0];
+    o->y = (b->center[1] + edge[1]) - TWindowFukidasi__data_805DCD0C * b->size[1];
+    if (CLAMP_80250A24(F70_80250A24, (f32 *)o, TWindowFukidasi__data_805DCCE8) != 0) {
+        return 0;
+    }
+    return (u32) __cntlzw((u32) DRAW_80250A24(F70_80250A24, (f32 *)o, b->size, 4)) >> 5;
+}
+#pragma pop
+
 s32 shift_rect_with_head__15TWindowFukidasiFPvPvPv(Fuki_80250F70 *b, f32 *rect, f32 *out) {
     f32 x = b->head[0];
     f32 y = b->head[1];
@@ -499,7 +621,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
             if (shift_rect_with_head__15TWindowFukidasiFPvPvPv((Fuki_80250F70 *)b, b->rect, a) != 0) {
                 res = a;
             }
-            if (rest_balloon__15TWindowFukidasiFv(b, a, c) != 0) {
+            if (rest_balloon__15TWindowFukidasiFv((Fuki_80250A24 *)(b), (f32 *)(a), (f32 *)(c)) != 0) {
                 res = c;
             }
         } else {
@@ -510,7 +632,7 @@ void refresh_rect_placement__15TWindowFukidasiFPv(Fuki_80251028 *b) {
             if (TWindowFukidasi__sub_802506E8(b, a, d) != 0) {
                 res = d;
             }
-            if (res != d && rest_balloon__15TWindowFukidasiFv(b, d, c) != 0) {
+            if (res != d && rest_balloon__15TWindowFukidasiFv((Fuki_80250A24 *)(b), (f32 *)(d), (f32 *)(c)) != 0) {
                 res = c;
             }
             if (res == NULL && TWindowFukidasi__sub_802505C0(b, b->rect, e) != 0) {
