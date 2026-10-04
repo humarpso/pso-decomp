@@ -85,6 +85,9 @@ force_active:
   - TItemWeaponMechgun__ct
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
+  - TLobby__sub_801037A0
+  - TLobby__sub_8010385C
+  - TLobby__sub_80103B44
   - TLobby__sub_801E6604
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
@@ -139,6 +142,8 @@ force_active:
   - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
+  - TWindowTimer__sub_8019A098
+  - TWindowTimer__sub_8019A104
   - TimeQueueAdd
   - TranslateVolume
   - TypeAndStatusCallback

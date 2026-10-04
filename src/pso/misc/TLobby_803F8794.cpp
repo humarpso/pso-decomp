@@ -896,6 +896,8 @@ extern s16 lbl_805D7A7C;
 extern u8 lbl_805D7AD0;
 extern u8 lbl_805D7AD4;
 void TLobby__sub_80405A74(Strm_80405A74 *arg0);
+void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
+void MD5Transform(u32 *state, u8 *block);
 }
 
 extern "C" {
@@ -2454,6 +2456,141 @@ void TLobby__sub_80401FA8(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80402B60_lbl_805C0620_size[sizeof(RecoveredGlobal_80402B60_lbl_805C0620) == 0x18 ? 1 : -1];
+
+#define S11_80401FE8 7
+#define S12_80401FE8 12
+#define S13_80401FE8 17
+#define S14_80401FE8 22
+#define S21_80401FE8 5
+#define S22_80401FE8 9
+#define S23_80401FE8 14
+#define S24_80401FE8 20
+#define S31_80401FE8 4
+#define S32_80401FE8 11
+#define S33_80401FE8 16
+#define S34_80401FE8 23
+#define S41_80401FE8 6
+#define S42_80401FE8 10
+#define S43_80401FE8 15
+#define S44_80401FE8 21
+#define F_80401FE8(x, y, z) (((x) & (y)) | ((~x) & (z)))
+#define G_80401FE8(x, y, z) (((x) & (z)) | ((y) & (~z)))
+#define H_80401FE8(x, y, z) ((x) ^ (y) ^ (z))
+#define I_80401FE8(x, y, z) ((y) ^ ((x) | (~z)))
+#define ROTATE_LEFT_80401FE8(x, n) (((x) << (n)) | ((x) >> (32 - (n))))
+#define FF_80401FE8(a, b, c, d, x, s, ac) { (a) += F_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define GG_80401FE8(a, b, c, d, x, s, ac) { (a) += G_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define HH_80401FE8(a, b, c, d, x, s, ac) { (a) += H_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#define II_80401FE8(a, b, c, d, x, s, ac) { (a) += I_80401FE8((b), (c), (d)) + (x) + (u32)(ac); (a) = ROTATE_LEFT_80401FE8((a), (s)); (a) += (b); }
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+#pragma opt_common_subs on
+inline void Decode_80401FE8(u32 *output, u8 *input, u32 len) {
+    u32 i, j;
+    for (i = 0, j = 0; j < len; i++, j += 4) {
+        output[i] = ((u32)input[j]) | (((u32)input[j + 1]) << 8) | (((u32)input[j + 2]) << 16) | (((u32)input[j + 3]) << 24);
+    }
+}
+void MD5Transform(u32 *state, u8 *block) {
+    u32 a = state[0], b = state[1], c = state[2], d = state[3], x[16];
+    Decode_80401FE8(x, block, 64);
+    FF_80401FE8(a, b, c, d, x[0], S11_80401FE8, 0xd76aa478);
+    FF_80401FE8(d, a, b, c, x[1], S12_80401FE8, 0xe8c7b756);
+    FF_80401FE8(c, d, a, b, x[2], S13_80401FE8, 0x242070db);
+    FF_80401FE8(b, c, d, a, x[3], S14_80401FE8, 0xc1bdceee);
+    FF_80401FE8(a, b, c, d, x[4], S11_80401FE8, 0xf57c0faf);
+    FF_80401FE8(d, a, b, c, x[5], S12_80401FE8, 0x4787c62a);
+    FF_80401FE8(c, d, a, b, x[6], S13_80401FE8, 0xa8304613);
+    FF_80401FE8(b, c, d, a, x[7], S14_80401FE8, 0xfd469501);
+    FF_80401FE8(a, b, c, d, x[8], S11_80401FE8, 0x698098d8);
+    FF_80401FE8(d, a, b, c, x[9], S12_80401FE8, 0x8b44f7af);
+    FF_80401FE8(c, d, a, b, x[10], S13_80401FE8, 0xffff5bb1);
+    FF_80401FE8(b, c, d, a, x[11], S14_80401FE8, 0x895cd7be);
+    FF_80401FE8(a, b, c, d, x[12], S11_80401FE8, 0x6b901122);
+    FF_80401FE8(d, a, b, c, x[13], S12_80401FE8, 0xfd987193);
+    FF_80401FE8(c, d, a, b, x[14], S13_80401FE8, 0xa679438e);
+    FF_80401FE8(b, c, d, a, x[15], S14_80401FE8, 0x49b40821);
+    GG_80401FE8(a, b, c, d, x[1], S21_80401FE8, 0xf61e2562);
+    GG_80401FE8(d, a, b, c, x[6], S22_80401FE8, 0xc040b340);
+    GG_80401FE8(c, d, a, b, x[11], S23_80401FE8, 0x265e5a51);
+    GG_80401FE8(b, c, d, a, x[0], S24_80401FE8, 0xe9b6c7aa);
+    GG_80401FE8(a, b, c, d, x[5], S21_80401FE8, 0xd62f105d);
+    GG_80401FE8(d, a, b, c, x[10], S22_80401FE8, 0x2441453);
+    GG_80401FE8(c, d, a, b, x[15], S23_80401FE8, 0xd8a1e681);
+    GG_80401FE8(b, c, d, a, x[4], S24_80401FE8, 0xe7d3fbc8);
+    GG_80401FE8(a, b, c, d, x[9], S21_80401FE8, 0x21e1cde6);
+    GG_80401FE8(d, a, b, c, x[14], S22_80401FE8, 0xc33707d6);
+    GG_80401FE8(c, d, a, b, x[3], S23_80401FE8, 0xf4d50d87);
+    GG_80401FE8(b, c, d, a, x[8], S24_80401FE8, 0x455a14ed);
+    GG_80401FE8(a, b, c, d, x[13], S21_80401FE8, 0xa9e3e905);
+    GG_80401FE8(d, a, b, c, x[2], S22_80401FE8, 0xfcefa3f8);
+    GG_80401FE8(c, d, a, b, x[7], S23_80401FE8, 0x676f02d9);
+    GG_80401FE8(b, c, d, a, x[12], S24_80401FE8, 0x8d2a4c8a);
+    HH_80401FE8(a, b, c, d, x[5], S31_80401FE8, 0xfffa3942);
+    HH_80401FE8(d, a, b, c, x[8], S32_80401FE8, 0x8771f681);
+    HH_80401FE8(c, d, a, b, x[11], S33_80401FE8, 0x6d9d6122);
+    HH_80401FE8(b, c, d, a, x[14], S34_80401FE8, 0xfde5380c);
+    HH_80401FE8(a, b, c, d, x[1], S31_80401FE8, 0xa4beea44);
+    HH_80401FE8(d, a, b, c, x[4], S32_80401FE8, 0x4bdecfa9);
+    HH_80401FE8(c, d, a, b, x[7], S33_80401FE8, 0xf6bb4b60);
+    HH_80401FE8(b, c, d, a, x[10], S34_80401FE8, 0xbebfbc70);
+    HH_80401FE8(a, b, c, d, x[13], S31_80401FE8, 0x289b7ec6);
+    HH_80401FE8(d, a, b, c, x[0], S32_80401FE8, 0xeaa127fa);
+    HH_80401FE8(c, d, a, b, x[3], S33_80401FE8, 0xd4ef3085);
+    HH_80401FE8(b, c, d, a, x[6], S34_80401FE8, 0x4881d05);
+    HH_80401FE8(a, b, c, d, x[9], S31_80401FE8, 0xd9d4d039);
+    HH_80401FE8(d, a, b, c, x[12], S32_80401FE8, 0xe6db99e5);
+    HH_80401FE8(c, d, a, b, x[15], S33_80401FE8, 0x1fa27cf8);
+    HH_80401FE8(b, c, d, a, x[2], S34_80401FE8, 0xc4ac5665);
+    II_80401FE8(a, b, c, d, x[0], S41_80401FE8, 0xf4292244);
+    II_80401FE8(d, a, b, c, x[7], S42_80401FE8, 0x432aff97);
+    II_80401FE8(c, d, a, b, x[14], S43_80401FE8, 0xab9423a7);
+    II_80401FE8(b, c, d, a, x[5], S44_80401FE8, 0xfc93a039);
+    II_80401FE8(a, b, c, d, x[12], S41_80401FE8, 0x655b59c3);
+    II_80401FE8(d, a, b, c, x[3], S42_80401FE8, 0x8f0ccc92);
+    II_80401FE8(c, d, a, b, x[10], S43_80401FE8, 0xffeff47d);
+    II_80401FE8(b, c, d, a, x[1], S44_80401FE8, 0x85845dd1);
+    II_80401FE8(a, b, c, d, x[8], S41_80401FE8, 0x6fa87e4f);
+    II_80401FE8(d, a, b, c, x[15], S42_80401FE8, 0xfe2ce6e0);
+    II_80401FE8(c, d, a, b, x[6], S43_80401FE8, 0xa3014314);
+    II_80401FE8(b, c, d, a, x[13], S44_80401FE8, 0x4e0811a1);
+    II_80401FE8(a, b, c, d, x[4], S41_80401FE8, 0xf7537e82);
+    II_80401FE8(d, a, b, c, x[11], S42_80401FE8, 0xbd3af235);
+    II_80401FE8(c, d, a, b, x[2], S43_80401FE8, 0x2ad7d2bb);
+    II_80401FE8(b, c, d, a, x[9], S44_80401FE8, 0xeb86d391);
+    state[0] += a;
+    state[1] += b;
+    state[2] += c;
+    state[3] += d;
+    TUdpSocket__sub_803F9EE4(x, 0, sizeof(x));
+}
+#pragma pop
+#undef S11_80401FE8
+#undef S12_80401FE8
+#undef S13_80401FE8
+#undef S14_80401FE8
+#undef S21_80401FE8
+#undef S22_80401FE8
+#undef S23_80401FE8
+#undef S24_80401FE8
+#undef S31_80401FE8
+#undef S32_80401FE8
+#undef S33_80401FE8
+#undef S34_80401FE8
+#undef S41_80401FE8
+#undef S42_80401FE8
+#undef S43_80401FE8
+#undef S44_80401FE8
+#undef FF_80401FE8
+#undef GG_80401FE8
+#undef HH_80401FE8
+#undef II_80401FE8
+#undef ROTATE_LEFT_80401FE8
+#undef F_80401FE8
+#undef G_80401FE8
+#undef H_80401FE8
+#undef I_80401FE8
 
 u16 TLobby__sub_80402ADC(u8 *p) {
     u16 v = *p++;

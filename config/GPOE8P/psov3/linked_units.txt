@@ -326,6 +326,7 @@ pso/enemy/TObjEneBalClawClaw_80090950.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
 pso/enemy/TObjEneBalClawClaw_80090DD0.cpp
 pso/enemy/TObjEneBm3Fly.cpp
+pso/enemy/TObjEneBm3Fly_800B012C.cpp
 pso/enemy/TObjEneBm5GibonU_800D0CB8.cpp
 pso/enemy/TObjEneBm5GibonU_800D0D14.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
@@ -416,7 +417,9 @@ pso/enemy/TObjEneMe3StelthReal.cpp
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp
 pso/enemy/TObjEneMe3Stelth_800F169C.cpp
 pso/enemy/TObjEneMe3Stelth_800F1C90.cpp
+pso/enemy/TObjEneMe3Stelth_800F1CD4.cpp
 pso/enemy/TObjEneMe3Stelth_800F2240.cpp
+pso/enemy/TObjEneMe3Stelth_800F2270.cpp
 pso/enemy/TObjEneMe3Stelth_800F2A48.cpp
 pso/enemy/TObjEneMe3Stelth_800F2B8C.cpp
 pso/enemy/TObjEneMe3Stelth_800F4424.cpp
@@ -460,11 +463,13 @@ pso/enemy/TObjEneRecon_8031BC38.cpp
 pso/enemy/TObjEneRecon_8031BCB8.cpp
 pso/enemy/TObjEneRecon_8031BD64.cpp
 pso/enemy/TObjEneRecon_8031BDF4.cpp
+pso/enemy/TObjEneRecon_8031BE8C.cpp
 pso/enemy/TObjEneRecon_8031C124.cpp
 pso/enemy/TObjEneRecon_8031C18C.cpp
 pso/enemy/TObjEneRecon_8031C190.cpp
 pso/enemy/TObjEneRecon_8031C23C.cpp
 pso/enemy/TObjEneRecon_8031C2E0.cpp
+pso/enemy/TObjEneRecon_8031C364.cpp
 pso/enemy/TObjEneRecon_8031C7BC.cpp
 pso/enemy/TObjEneRecon_8031D780.cpp
 pso/enemy/TObjEneRecon_8031D898.cpp
@@ -792,6 +797,7 @@ pso/misc/TChCrCharSelect_80293BEC.cpp
 pso/misc/TChCrCharSelect_80293D10.cpp
 pso/misc/TChCrCharSelect_80293D58.cpp
 pso/misc/TChCrCharSelect_802993CC.cpp
+pso/misc/TChCrCharSelect_802A1BFC.cpp
 pso/misc/TChCrCharSelect_802A207C.cpp
 pso/misc/TChCrEffCtrlPl.cpp
 pso/misc/TChCrEffFade.cpp
@@ -1374,6 +1380,7 @@ pso/misc/TODoorCave02.cpp
 pso/misc/TODoorCave02_8016206C.cpp
 pso/misc/TODoorCave03.cpp
 pso/misc/TODoorFourLightBase.cpp
+pso/misc/TODoorFourLightSpace.cpp
 pso/misc/TODoorJungleMain.cpp
 pso/misc/TODoorLabo.cpp
 pso/misc/TODoorMachine02.cpp
@@ -1976,6 +1983,7 @@ pso/misc/TWindowSubShortCut_80246FB0.cpp
 pso/misc/TWindowSubShortMail_80131998.cpp
 pso/misc/TWindowSubShortMail_80131AA4.cpp
 pso/misc/TWindowSubShortMail_80246CB8.cpp
+pso/misc/TWindowSubShortMail_8027E620.cpp
 pso/misc/TWindowSubShortMail_8027E620_8027E620.cpp
 pso/misc/TWindowSubShortMail_802A571C.cpp
 pso/misc/TWindowSubStatusDisp.cpp
@@ -2051,6 +2059,7 @@ pso/misc/TWindowSubTradeMessage.cpp
 pso/misc/TWindowTimer.cpp
 pso/misc/TWindowTimer_80198814.cpp
 pso/misc/TWindowTimer_80198C84.cpp
+pso/misc/TWindowTimer_80199EA0.cpp
 pso/misc/TWindowTradeRequest.cpp
 pso/misc/TWindowUserSort.cpp
 pso/misc/TWindow_80217288.cpp
@@ -2331,6 +2340,7 @@ pso/player/TObjPlayer_80081FC8.cpp
 pso/player/TObjPlayer_800822D0.cpp
 pso/player/TObjPlayer_80083360.cpp
 pso/player/TObjPlayer_80083594.cpp
+pso/player/TObjPlayer_80083B38.cpp
 pso/player/TObjPlayer_800847A8.cpp
 pso/player/TObjPlayer_80084B84.cpp
 pso/player/TObjPlayer_8008DCF0_8008FC0C.cpp
@@ -2877,6 +2887,7 @@ pso/ui/TAdADXlogo_80019848.cpp
 pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp
+pso/ui/TAdChrSelASlotGC_800740FC.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
 pso/ui/TAdChrSelBSlotGC.cpp
 pso/ui/TAdChrSelBSlotGC_8030FE74.cpp
@@ -2932,6 +2943,7 @@ pso/ui/TAdMcSelectGC_8032A0A4.cpp
 pso/ui/TAdMcSelectMcGC.cpp
 pso/ui/TAdMultiChgGameModeGC.cpp
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp
+pso/ui/TAdMultiChgGameModeGC_8023EAC4.cpp
 pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
 pso/ui/TAdMultiChgGameModeGC_8036DE10.cpp
 pso/ui/TAdMultiConfirmGC.cpp
@@ -3186,6 +3198,7 @@ pso/unk/text_800FFC6C.cpp
 pso/unk/text_80100BB0.cpp
 pso/unk/text_801028D8.cpp
 pso/unk/text_80103674.cpp
+pso/unk/text_801036CC.cpp
 pso/unk/text_80104F4C.cpp
 pso/unk/text_801057A8.cpp
 pso/unk/text_80107C9C.cpp

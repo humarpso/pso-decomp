@@ -51,6 +51,13 @@ struct Save_80103890 {
 
 struct Ent_80103DD8 { s8 n; u8 pad1[0xD]; u16 key; u8 padx[0xC]; s32 val; u8 pad2[4]; };
 
+struct Save_801039BC {
+    u16 slots[0x10];
+    s32 boss[0xC];
+    s32 counts[0xF];
+    Ent_801037A0 items[1];
+};
+
 extern "C" {
 extern s32 lbl_805D5420;
 s32 TLobby__sub_8010385C(s32 arg0);
@@ -114,6 +121,15 @@ void spawn_dropped_item_from_msg(void *, s32);
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void TLobby__sub_80103B70(s32 n);
+void TLobby__sub_801042C0(void *);
+s32 TLobby__sub_80104384(u16);
+void TLobby__sub_80104258(void *, void *);
+void bswap_item__6TLobbyFPv(void *);
+void normalize__9TItemDataFv(void *);
+extern u16 *lbl_805D542C;
+extern Ent_801037A0 **lbl_805D541C;
+extern s32 lbl_805D5420;
+s32 TLobby__sub_801039BC(void *arg0);
 }
 
 extern "C" {
@@ -208,6 +224,45 @@ void TLobby__sub_80103890(Save_80103890 *src) {
     }
     TLobby__sub_801041D8();
 }
+
+#pragma push
+#pragma opt_propagation off
+s32 TLobby__sub_801039BC(void *arg0) {
+    s32 i;
+    u16 b;
+    Save_801039BC *dst = (Save_801039BC *)arg0;
+    s32 k;
+    Ent_801037A0 *d;
+    s32 j;
+    s32 count;
+    Ent_801037A0 *p;
+    s32 n;
+    for (i = 0; i < 0x10; i++) {
+        dst->slots[i] = lbl_805D542C[i];
+    }
+    for (b = 0; b != 0xC; b++) {
+        dst->boss[b] = TLobby__sub_80104384(b);
+    }
+    for (i = 0; i < 0xF; i++) {
+        dst->counts[i] = (*(s32 **)&lbl_805D5420)[i];
+    }
+    d = dst->items;
+    k = 0;
+    for (j = 0; j != 0xF; j++) {
+        count = (*(s32 **)&lbl_805D5420)[j];
+        p = lbl_805D541C[j];
+        for (n = 0; n != count; n++, p++, k++) {
+            TLobby__sub_80104258(d, p);
+            normalize__9TItemDataFv((u8 *)d + 0x10);
+            bswap_item__6TLobbyFPv(d);
+            d++;
+        }
+    }
+    i = k * 0x24 + 0x8C;
+    TLobby__sub_801042C0(dst);
+    return i;
+}
+#pragma pop
 
 u16 TLobby__sub_80103AD4(void) {
     s32 temp_r0;

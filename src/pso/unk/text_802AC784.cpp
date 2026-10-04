@@ -239,6 +239,25 @@ void handle_6xA3_olga_flow_boss_actions(Msg_802AC7E4 *m) {
     }
 }
 
+struct Msg_802AC86C { u16 h; u16 a; s8 b; s8 c; u8 pad[0x12]; };
+struct Boss_802AC86C { u8 pad[0x1C]; u16 f1C; u8 pad2[0x374 - 0x1E]; s32 f374; };
+void fn_802ACD60(void *);
+void build_6xA3_olga_flow_boss_actions(void *);
+s32 rand();
+extern const f32 TBoss6PlotFalz__data_805DE08C;
+extern const f32 lbl_805DE0DC;
+
+void TBoss6PlotFalz__sub_802AC86C(Boss_802AC86C *o, s8 v) {
+    Msg_802AC86C m;
+    if (o->f374 == 0) {
+        build_6xA3_olga_flow_boss_actions(&m);
+        m.a = o->f1C;
+        m.b = v;
+        m.c = (s8)(lbl_805DE0DC * (TBoss6PlotFalz__data_805DE08C * (f32)rand()));
+        fn_802ACD60(&m);
+    }
+}
+
 u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
   s32 *new_var;
   s32 temp_r0;

@@ -24,6 +24,10 @@ struct Obj_8035240C : Base_8035240C {
     virtual s32 v8(f32, f32);
 };
 
+struct Obj_8035255C { u8 pad0[0xB0]; f32 f_b0; u8 padB4[0x1C]; s16 idx; };
+
+struct Fish_8035255C { s32 a; u32 cnt; };
+
 extern "C" {
 extern const f32 lbl_805DFEE4;
 extern const f32 lbl_805DFEE8;
@@ -60,6 +64,10 @@ extern void *TObjLobbyMain__data_805D6EC8;
 extern void *lbl_805D6ECC;
 extern const f32 TObjLobbyMain__data_805DFEE0;
 void render__13TObjLobbyMainFv(u8 *arg0);
+s32 get_bml_motion(void *, s32);
+extern s32 lbl_80479078[];
+extern void *TObjLobbyMain__data_805D6EC8;
+void TObjLobbyMain__sub_8035255C(Obj_8035255C *o);
 }
 
 extern "C" {
@@ -249,6 +257,19 @@ void update_computer_machines__13TObjLobbyMainFv(void) {
 }
 
 extern const f32 TObjLobbyMain__data_805DFEE0;
+
+void TObjLobbyMain__sub_8035255C(Obj_8035255C *o) {
+    f32 a, b;
+    s32 v = lbl_80479078[o->idx];
+    if (v != 5) {
+        a = (f32)((Fish_8035255C *)get_bml_motion(TObjLobbyMain__data_805D6EC8, v))->cnt;
+        b = a - 1.0f;
+        o->f_b0 += 1.0f;
+        if (b < o->f_b0) {
+            o->f_b0 -= b;
+        }
+    }
+}
 
 void TObjLobbyMain__sub_803525F0(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (M2C_FIELD(arg0, f32 *, 0xD4) + lbl_805DFEE4);

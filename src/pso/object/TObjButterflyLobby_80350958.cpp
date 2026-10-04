@@ -12,10 +12,42 @@ struct ButterflyLobbyVObj_80350958 : ButterflyLobbyBase_80350958 {
 
 struct Obj_80350AE4 { u8 pad[0x90]; s32 state; f32 val; };
 
+struct Vec_80350BC4 { f32 x, y, z; };
+
+struct Butterfly_80350BC4 {
+    u8 pad00[0x38];
+    Vec_80350BC4 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 angY;
+    u8 pad64[0x9C - 0x64];
+    f32 baseY;
+    u8 padA0[0xA4 - 0xA0];
+    f32 vx, vy, vz;
+    f32 anim;
+    f32 animSpd;
+    f32 tilt;
+    s16 timer;
+    s16 phase;
+    u8 state;
+    u8 rising;
+    u8 dir;
+};
+
 extern "C" {
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
 void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+u32 csnVector(void *, void *, int);
+void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0);
+s32 rand();
+f32 sin_table_lookup(int);
+void rotate_vector_by_matrix(int, void *, void *);
+M2C_UNK rotate_matrix_y(int, int);
+void push_matrix_from(void *);
+void pop_matrices(int);
+extern u8 lbl_8058D490[];
+void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o);
 }
 
 extern "C" {
@@ -108,5 +140,163 @@ void TObjButterflyLobby__sub_80350AE4(Obj_80350AE4 *arg0) {
         break;
     }
 }
+#pragma push
+#pragma fp_contract on
+typedef s32 M2C_UNK;
+struct Obj_80350AE4;
+#define FRND() (3.0517578125e-05f * (f32)rand())
+void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
+    f32 base;
+    TObjButterflyLobby__sub_80350AE4((Obj_80350AE4 *)o);
+    base = 3.2f * sin_table_lookup(o->phase) + o->baseY;
+    if (o->rising == 0) {
+        o->tilt = 5.0f * (base - o->pos.y);
+        if (o->tilt < -4.0f) {
+            o->tilt = -4.0f;
+        } else if (o->tilt > 4.0f) {
+            o->tilt = 4.0f;
+        }
+        o->animSpd = 2.0f * (0.01f * o->tilt) + 0.3f;
+        o->vy += 0.1f * (0.027f * o->tilt);
+        o->anim += o->animSpd;
+        if (o->anim > 5.0f) {
+            o->anim = 0.0f;
+        }
+    } else {
+        o->tilt = -7.0f * (base - o->pos.y);
+        if (o->tilt < 0.1f) {
+            o->tilt = 0.1f;
+        } else if (o->tilt > 4.0f) {
+            o->tilt = 4.0f;
+        }
+        o->animSpd = 2.0f * (0.1f * o->tilt) + 0.32f;
+        o->vy -= 0.5f * (0.027f * o->tilt);
+        o->vy -= 0.027f;
+        o->anim += o->animSpd;
+        if (o->anim > 5.0f) {
+            o->anim = 0.0f;
+            o->rising = 0;
+        }
+    }
+    switch (o->state) {
+    case 0:
+        o->vx *= 0.8f;
+        o->vz *= 0.8f;
+        break;
+    case 1:
+        if (o->rising == 0) {
+            Vec_80350BC4 in;
+            Vec_80350BC4 out;
+            in.x = 2.0f * (0.0015f * (2.0f * FRND() - 1.0f));
+            in.y = 0.0f;
+            in.z = 2.0f * (0.0015f * FRND()) + 0.05f;
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(0, o->angY);
+            rotate_vector_by_matrix(0, &in, &out);
+            pop_matrices(1);
+            o->vx += out.x;
+            o->vz += out.z;
+            o->vx *= 0.72f;
+            o->vz *= 0.72f;
+        } else {
+            o->vx *= 0.85f;
+            o->vz *= 0.85f;
+        }
+        break;
+    case 2:
+        if (o->dir == 0) {
+            o->angY += 200.0f * FRND() + 200.0f;
+        } else {
+            o->angY -= 200.0f * FRND() + 200.0f;
+        }
+        if (o->rising == 0) {
+            Vec_80350BC4 in;
+            Vec_80350BC4 out;
+            in.x = 2.0f * (0.025f * (2.0f * FRND() - 1.0f));
+            in.y = 0.0f;
+            in.z = 2.0f * (0.025f * FRND()) + 0.05f;
+            push_matrix_from(lbl_8058D490);
+            rotate_matrix_y(0, o->angY);
+            rotate_vector_by_matrix(0, &in, &out);
+            pop_matrices(1);
+            o->vx += out.x;
+            o->vz += out.z;
+            o->vx *= 0.85f;
+            o->vz *= 0.85f;
+        } else {
+            o->vx *= 0.75f;
+            o->vz *= 0.75f;
+        }
+        break;
+    }
+    {
+    Vec_80350BC4 p;
+    VecCopy__FP3VecPC3Vec(&p, &o->pos);
+    p.y += o->vy;
+    if (csnVector(&o->pos, &p, -1) == 0) {
+        VecCopy__FP3VecPC3Vec(&o->pos, &p);
+    } else {
+        o->baseY = o->pos.y;
+        if (o->vy < 0.0f) {
+            o->baseY += 10.0f;
+        } else {
+            o->baseY -= 10.0f;
+        }
+    }
+    p.x += o->vx;
+    if (csnVector(&o->pos, &p, -1) == 0) {
+        VecCopy__FP3VecPC3Vec(&o->pos, &p);
+    }
+    p.z += o->vz;
+    if (csnVector(&o->pos, &p, -1) == 0) {
+        VecCopy__FP3VecPC3Vec(&o->pos, &p);
+    }
+    }
+    if (o->pos.y > 12.0f + base) {
+        o->pos.y = 12.0f + base;
+    } else if (o->pos.y < base - 6.0f) {
+        o->pos.y = base - 6.0f;
+    }
+    if (o->timer != 0) {
+        o->timer--;
+    } else {
+        switch (o->state) {
+        case 0:
+            o->state = 1;
+            o->timer = 2.0f * (20.0f * FRND()) + 20.0f;
+            break;
+        case 1:
+            if (FRND() < 0.5f) {
+                o->state = 2;
+                o->timer = 50.0f * FRND() + 50.0f;
+                if (FRND() < 0.5f) {
+                    o->dir = 0;
+                } else {
+                    o->dir = 1;
+                }
+            } else {
+                o->state = 0;
+                o->timer = 30.0f * FRND() + 30.0f;
+            }
+            break;
+        case 2:
+            if (FRND() < 0.4f) {
+                o->state = 2;
+                o->timer = 50.0f * FRND() + 50.0f;
+                if (FRND() < 0.5f) {
+                    o->dir = 0;
+                } else {
+                    o->dir = 1;
+                }
+            } else {
+                o->state = 1;
+                o->timer = 2.0f * (30.0f * FRND()) + 30.0f;
+            }
+            break;
+        }
+    }
+    o->phase += (s32)(40.0f * FRND() + 160.0f);
+}
+#pragma pop
 
 }

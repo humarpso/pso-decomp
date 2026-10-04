@@ -35,6 +35,24 @@ struct Tbl_80289EE0 { s32 v[8]; };
 struct Door_80289EE0 { u8 pad[0xD8]; s32 sw[8]; };
 
 typedef s32 M2C_UNK;
+
+struct Door_8028A28C {
+    u8 pad0[0x24];
+    s32 f24;
+    u8 pad28[0x10];
+    u8 f38[0x28];
+    s32 f60;
+    u8 pad64[0x24];
+    s32 f88;
+    u8 pad8c[0x3C];
+    s32 fc8;
+    u8 padcc[4];
+    s32 fd0;
+    u8 *fd4;
+    u8 *fd8[4];
+    u8 *fe8[4];
+};
+
 extern "C" {
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(int, int);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
@@ -67,6 +85,17 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 u8 is_current_floor_switch_set(u16);
 void draw_ginja_model(s32);
 M2C_UNK TODoorFourLightSpace__sub_80289B4C(void *arg0);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+u8 is_current_floor_switch_set(u16);
+M2C_UNK get_instance__12TBoss8DragonFv();
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi();
+void draw_ginja_model(s32);
+M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *arg0);
 }
 
 extern "C" {
@@ -362,7 +391,6 @@ s32 TODoorFourLightRuins__vt17(void *arg0);
 void TODoorFourLightRuins__vt4(void *arg0, s16 *arg1);
 void *__dt__20TODoorFourLightRuinsFv(void *arg0, s16 arg1);
 void render__20TODoorFourLightRuinsFv(u8 *arg0);
-M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
@@ -461,6 +489,63 @@ void TODoorFourLightRuins__vt12(u8 *arg0) {
     }
 }
 
+typedef M2C_UNK (*SetParam_8028A28C)(s32);
+#define self ((Door_8028A28C *)arg0)
+M2C_UNK TODoorFourLightRuins__sub_8028A28C(void *arg0) {
+    s32 lit[4];
+    u8 **a;
+    u8 **b;
+    for (s32 k = 0; k < 4; k++) {
+        lit[k] = 1;
+    }
+    if (!(self->fd0 & 1)) {
+        s32 j;
+        for (j = 0; j < self->f88; j++) {
+            if (is_current_floor_switch_set(self->fc8 + j) == 1) {
+                lit[j] = 1;
+            } else {
+                lit[j] = 0;
+            }
+        }
+    }
+    a = self->fd8;
+    b = self->fe8;
+    {
+    u8 *p = self->fd4;
+    push_matrix();
+    ((SetParam_8028A28C)set_global_param__8TObjFishFi)(self->f24);
+    post_translate_matrix(self->f38);
+    rotate_matrix_y(0, self->f60);
+    draw_ginja_model(M2C_FIELD(p, s32 *, 4));
+    draw_ginja_model(M2C_FIELD(M2C_FIELD(p, u8 **, 0x2C), s32 *, 4));
+    }
+    begin_effect_render__13TParticleCtrlFv();
+    for (s32 i = 0; i < 4; i++) {
+        if (lit[i] == 1) {
+            ((SetParam_8028A28C)set_global_param__8TObjFishFi)(get_instance__12TBoss8DragonFv());
+        } else {
+            ((SetParam_8028A28C)set_global_param__8TObjFishFi)(self->f24);
+        }
+        if (*a != 0) {
+            push_matrix();
+            post_translate_matrix(*a + 8);
+            draw_ginja_model(M2C_FIELD(*a, s32 *, 4));
+            pop_matrix();
+        }
+        if (*b != 0) {
+            push_matrix();
+            post_translate_matrix(*b + 8);
+            draw_ginja_model(M2C_FIELD(*b, s32 *, 4));
+            pop_matrix();
+        }
+        a++;
+        b++;
+    }
+    end_effect_render__13TParticleCtrlFv();
+    pop_matrix();
+}
+#undef self
+
 void render__20TODoorFourLightRuinsFv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
@@ -490,7 +575,7 @@ void render__20TODoorFourLightRuinsFv(u8 *arg0) {
         case 0:
             temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xCC);
             if ((temp_r0_2 == 2) || (temp_r0_2 == 3)) {
-                TODoorFourLightRuins__sub_8028A28C(arg0);
+                TODoorFourLightRuins__sub_8028A28C((void *)(arg0));
                 return;
             }
             push_matrix();

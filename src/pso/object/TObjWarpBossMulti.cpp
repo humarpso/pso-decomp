@@ -232,7 +232,7 @@ M2C_UNK request_active_window_close();
 M2C_UNK send_code_45_1__10TObjPlayerFi();
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(u32);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TObjWarpBossMulti__sub_8019EB94(void *);
+void TObjWarpBossMulti__sub_8019EB94(void *);
 M2C_UNK TObjWarpBossMulti__sub_8019EFF0(void *);
 s32 get_warp_state__19TWindowSubTradeMainFv();
 char *strcpy(char *, const char *);
@@ -258,6 +258,12 @@ void handle_6x6A_set_boss_warp_flags(void *arg0);
 void TObjWarpBossMulti__sub_8019E6C0(Obj_8019E6C0 *self, u16 value);
 void notify_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
 void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1);
+s32 TLobby__sub_800C6C10();
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
+s32 get_card_data__17TWindowSubComCardFPv(void *);
+s32 TWindowSubComCard__sub_802A57FC(void *);
+extern s32 lbl_805D5C90;
+extern s32 lbl_805D5C98;
 void TObjWarpBossMulti__sub_8019E798(u8 *arg0);
 void warp_boss_handle_window(void *arg0);
 void update_state__17TObjWarpBossMultiFPv(void *arg0);
@@ -721,6 +727,89 @@ void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0) {
         break;
     }
 }
+
+#define arg0 ((u8 *)arg0_)
+void TObjWarpBossMulti__sub_8019EB94(void *arg0_) {
+    s32 r;
+
+    if (M2C_FIELD(arg0, s32 *, 0x15C) == 1) {
+        M2C_FIELD(arg0, s16 *, 0xDC) = 3;
+        return;
+    }
+    switch (M2C_FIELD(arg0, s16 *, 0xE0)) {
+    case 0:
+        M2C_FIELD(arg0, s32 *, 0x170) = 0;
+        M2C_FIELD(arg0, s32 *, 0x174) = 0;
+        M2C_FIELD(arg0, s16 *, 0xE0) = 1;
+        M2C_FIELD(arg0, s32 *, 0xD0) = lbl_805D5C90;
+        M2C_FIELD(arg0, s32 *, 0xD4) = lbl_805D5C98;
+        break;
+    case 1:
+        if (TObjWarpBossMulti__sub_8019E418(arg0) == 0 && (u32) TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) != 0) {
+            TObjWarpBossMulti__sub_8019EFF0(arg0);
+            warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 2;
+            break;
+        }
+        if (M2C_FIELD(arg0, void **, 0xB0) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
+            M2C_FIELD(arg0, void **, 0xB0) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x164) != NULL) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x164));
+            M2C_FIELD(arg0, void **, 0x164) = NULL;
+        }
+        break;
+    case 2:
+        TObjWarpBossMulti__sub_8019EFF0(arg0);
+        if (M2C_FIELD(arg0, void **, 0x168) != NULL) {
+            if (get_card_data__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168)) != 0) {
+                M2C_FIELD(arg0, s16 *, 0xE0) = 3;
+            } else if (TWindowSubComCard__sub_802A57FC(M2C_FIELD(arg0, void **, 0x168)) != 0) {
+                r = get_slot_or_neg1__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168));
+                if (r == 0) {
+                    warp_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
+                    M2C_FIELD(arg0, s32 *, 0x170) = 1;
+                    TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 1);
+                    M2C_FIELD(arg0, s16 *, 0xE0) = 5;
+                } else if (r == 1) {
+                    M2C_FIELD(arg0, s16 *, 0xE0) = 3;
+                }
+            }
+        }
+        if (TObjWarpBossMulti__sub_8019E418(arg0) != 0) {
+            M2C_FIELD(arg0, s16 *, 0xE0) = 3;
+        }
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && TObjWarpBossMulti__sub_8019E4E8((Wb_8019E4E8 *) arg0) != 0) {
+            TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 2);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 5;
+        }
+        if (M2C_FIELD(arg0, s16 *, 0xE0) != 2) {
+            close_windows__17TObjWarpBossMultiFPv(arg0);
+        }
+        break;
+    case 3:
+        notify_player__17TObjWarpBossMultiFPvi(arg0, lbl_805D53A0);
+        M2C_FIELD(arg0, s16 *, 0xE0) = 4;
+        break;
+    case 4:
+        if ((u32) TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) == 0) {
+            M2C_FIELD(arg0, s16 *, 0xE0) = 1;
+            break;
+        }
+        if (get_warp_state__19TWindowSubTradeMainFv() != 0 && get_main_phase() == 0xF && TLobby__sub_800C6C10() != 0 && TObjWarpBossMulti__sub_8019E4E8((Wb_8019E4E8 *) arg0) != 0) {
+            TObjWarpBossMulti__sub_8019E6C0((Obj_8019E6C0 *) arg0, 2);
+            M2C_FIELD(arg0, s16 *, 0xE0) = 5;
+        }
+        break;
+    case -1:
+        close_windows__17TObjWarpBossMultiFPv(arg0);
+        break;
+    case 5:
+        break;
+    }
+}
+#undef arg0
 
 void TObjPlayer__sub_8019EE14(u8 *arg0) {
     Warp_8019EE14 *self = (Warp_8019EE14 *)arg0;
