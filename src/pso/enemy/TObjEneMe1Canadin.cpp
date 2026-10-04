@@ -10,6 +10,128 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
 
+struct VBase_8009AD18 { char pad[0x18]; };
+struct VObj_8009AD18 : VBase_8009AD18 {
+    virtual s32 m0();
+    virtual s32 m1();
+    virtual s32 m2();
+    virtual s32 m3();
+    virtual s32 m4();
+    virtual s32 m5();
+    virtual s32 m6();
+    virtual s32 m7();
+    virtual s32 m8();
+    virtual s32 m9();
+    virtual s32 m10();
+    virtual s32 m11();
+    virtual s32 m12();
+    virtual s32 m13();
+    virtual s32 m14();
+    virtual s32 m15();
+    virtual s32 m16();
+    virtual s32 m17();
+    virtual s32 m18();
+    virtual s32 m19();
+    virtual s32 m20();
+    virtual s32 m21();
+    virtual s32 m22();
+    virtual s32 m23();
+    virtual s32 m24();
+    virtual s32 m25();
+    virtual s32 m26();
+    virtual s32 m27();
+    virtual s32 m28();
+    virtual s32 m29();
+    virtual s32 m30();
+    virtual s32 m31();
+    virtual s32 m32();
+    virtual s32 m33();
+    virtual s32 m34();
+    virtual s32 m35();
+    virtual s32 m36();
+    virtual s32 m37();
+    virtual s32 m38();
+    virtual s32 m39();
+    virtual s32 m40();
+    virtual s32 m41();
+    virtual s32 m42();
+    virtual s32 m43();
+    virtual s32 m44();
+    virtual s32 m45();
+    virtual s32 m46();
+    virtual s32 m47();
+    virtual s32 m48();
+    virtual s32 m49();
+    virtual s32 m50();
+    virtual s32 m51();
+    virtual s32 m52();
+    virtual s32 m53();
+    virtual s32 m54();
+    virtual s32 m55();
+    virtual s32 m56();
+    virtual s32 m57();
+    virtual s32 m58();
+    virtual s32 m59();
+    virtual s32 m60();
+    virtual s32 m61();
+    virtual s32 m62();
+    virtual s32 m63();
+    virtual s32 m64();
+    virtual s32 m65();
+    virtual s32 m66();
+    virtual s32 m67();
+    virtual s32 m68();
+    virtual s32 m69();
+    virtual s32 m70();
+    virtual s32 m71();
+    virtual s32 m72();
+    virtual s32 m73();
+    virtual s32 m74();
+    virtual s32 m75();
+    virtual s32 m76();
+    virtual s32 m77();
+    virtual s32 m78();
+    virtual s32 m79();
+    virtual s32 m80();
+    virtual s32 m81();
+    virtual s32 m82();
+    virtual s32 m83();
+    virtual s32 m84();
+    virtual s32 m85();
+    virtual s32 m86();
+    virtual s32 m87();
+    virtual s32 m88();
+    virtual s32 m89();
+    virtual s32 m90();
+    virtual s32 m91();
+    virtual s32 m92();
+    virtual s32 m93();
+    virtual s32 m94();
+};
+
+struct Obj_8009AD18 {
+    u8 pad0[0x3C];
+    f32 f3C;
+    u8 pad40[0x390 - 0x40];
+    s32 f390;
+    u8 pad394[0x3C8 - 0x394];
+    u32 flags3C8;
+    u8 pad3CC[0x400 - 0x3CC];
+    s32 timer;
+    u8 pad404[0x470 - 0x404];
+    s32 sub;
+    u8 pad474[0x4A8 - 0x474];
+    f32 f4A8;
+    f32 f4AC;
+    f32 f4B0;
+    u8 pad4B4[0x4B8 - 0x4B4];
+    s32 f4B8;
+    u8 pad4BC[0x4D0 - 0x4BC];
+    s32 count;
+    void *members[8];
+    s32 f4F4;
+};
+
 extern "C" {
 
 struct VBase_18 { char pad[0x18]; };
@@ -2276,7 +2398,7 @@ extern "C" void TObjEneDD__vt96();
 extern "C" void TObjEneDD__vt97();
 extern "C" void TObjEneDD__vt99();
 extern "C" void TObjEneEpsilon__vt81();
-extern "C" void TObjEneMe1CanadinLeader__vt108();
+extern "C" void TObjEneMe1CanadinLeader__vt108(u8 *arg0, s32 arg1);
 extern "C" void TObjEneMe1CanadinLeader__vt109();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
@@ -2538,6 +2660,75 @@ void TObjEneMe1CanadinLeader__vt110(Leader_8009AB4C *obj, s32 mode) {
         return;
     }
 }
+
+#define self ((Obj_8009AD18 *)arg0)
+void TObjEneMe1CanadinLeader__vt108(u8 *arg0, s32 arg1) {
+    s32 k;
+    s32 i;
+    s32 j;
+
+    switch (arg1) {
+    case 4: {
+        advance_state_5_to_4__17TObjEneMe1CanadinFPv(arg0);
+        set_field_378__9TObjEneDDFPvi(arg0, 3);
+        ((VObj_8009AD18 *)arg0)->m94();
+        const f32 *p = (const f32 *)lbl_8043A280;
+        self->f4A8 = p[1];
+        self->f4AC = p[2];
+        self->f4B0 = p[3];
+        self->sub = 0;
+        for (k = 2, i = 0; i < self->count; k += 2, i++) {
+            set_leader_index__23TObjEneMe1CanadinLeaderFPvii(self->members[i], self->f390, k);
+        }
+        break;
+    }
+    case 3:
+        if (self->flags3C8 & 2) {
+            self->flags3C8 &= ~2;
+            self->f4F4 = 1;
+            transition_enemy_state(arg0, 4);
+        }
+        break;
+    case 0:
+        ((void (*)(void *))advance_animation_playback)(arg0);
+        update_linked_position__14TObjEneEpsilonFPv(arg0, TObjEneMe1Canadin__data_805D988C);
+        switch (self->sub) {
+        case 0:
+            self->timer--;
+            if (self->timer <= 0) {
+                self->f4B8 = 2;
+                self->sub = 1;
+                play_sound_effect(0x4003B21A, arg0 + 0x2FC, 0, 0);
+            }
+            break;
+        case 1:
+            if (self->f4B8 == 0) {
+                self->flags3C8 |= 0x8000;
+                for (j = 0; j < self->count; j++) {
+                    if (TObjEneMe1CanadinLeader__sub_8009E36C(self->members[j]) == 0) {
+                        break;
+                    }
+                }
+                if (j == self->count) {
+                    set_attack_flag__23TObjEneMe1CanadinLeaderFPv(arg0);
+                    s32 m;
+                    for (m = 0; m < self->count; m++) {
+                        set_attack_flag__23TObjEneMe1CanadinLeaderFPv(self->members[m]);
+                    }
+                }
+            }
+            update_move__17TObjEneMe1CanadinFPv(arg0);
+            break;
+        }
+        TObjEneMe1Canadin__sub_8009EB14(arg0, lbl_805D9890 + self->f3C);
+        ((VObj_8009AD18 *)arg0)->m87();
+        break;
+    case 5:
+        ((VObj_8009AD18 *)arg0)->m90();
+        break;
+    }
+}
+#undef self
 
 #define self ((Obj_8009AF54 *)arg0)
 void TObjEneMe1CanadinLeader__sub_8009AF54(void *arg0) {

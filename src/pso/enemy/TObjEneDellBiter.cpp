@@ -221,6 +221,11 @@ struct VObj_14_80304B88 : VBase_14_80304B88 {
     virtual s32 m4();
 };
 
+struct VB_803062D4 { u8 pad0[0x18]; };
+struct VD_803062D4 : VB_803062D4 {
+    virtual ~VD_803062D4();
+};
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -1654,6 +1659,12 @@ extern const f32 TObjEneDellBiter__data_805DEFE4;
 extern const f32 TObjEneDellBiter__data_805DEFE8;
 extern const f32 TObjEneDellBiter__data_805DEFF4;
 extern const f32 TObjEneDellBiter__data_805DF00C;
+void TObjPlayer__sub_800A05B8(void *, s32);
+void __dt__9TObjEneDDFv(void *, s32);
+void TBoss8Dragon__sub_800BC5A0(void *, s32);
+void free_collision_body_parts(void *);
+void __destroy_arr(void *, void *, s32, s32);
+u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1);
 extern M2C_UNK TObjPlayer__sub_800D7C58[];
 extern M2C_UNK __vt__16TObjEneDellBiter[];
 extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
@@ -2786,6 +2797,53 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
     TObjEneDellBiter__sub_80306110((u8 *)((void *) (arg0)));
     set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
     ((VObj_18 *)(arg0))->m98();
+}
+
+u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjEneDellBiter;
+        if (M2C_FIELD(arg0, void **, 0x4C0) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4C0));
+            M2C_FIELD(arg0, void **, 0x4C0) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x4C4) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4C4));
+            M2C_FIELD(arg0, void **, 0x4C4) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x4C8) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4C8));
+            M2C_FIELD(arg0, void **, 0x4C8) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x4A4) != NULL) {
+            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4A4));
+            M2C_FIELD(arg0, void **, 0x4A4) = NULL;
+        }
+        if (M2C_FIELD(arg0, void **, 0x4A0) != NULL) {
+            TBoss8Dragon__sub_800BC5A0(M2C_FIELD(arg0, void **, 0x4A0), 1);
+            M2C_FIELD(arg0, void **, 0x4A0) = NULL;
+        }
+        if (M2C_FIELD(arg0, VD_803062D4 **, 0x498) != NULL) {
+            delete M2C_FIELD(arg0, VD_803062D4 **, 0x498);
+            M2C_FIELD(arg0, VD_803062D4 **, 0x498) = NULL;
+        }
+        if (M2C_FIELD(arg0, VD_803062D4 **, 0x494) != NULL) {
+            delete M2C_FIELD(arg0, VD_803062D4 **, 0x494);
+            M2C_FIELD(arg0, VD_803062D4 **, 0x494) = NULL;
+        }
+        if (M2C_FIELD(arg0, VD_803062D4 **, 0x49C) != NULL) {
+            free_collision_body_parts(M2C_FIELD(arg0, VD_803062D4 **, 0x49C));
+            delete M2C_FIELD(arg0, VD_803062D4 **, 0x49C);
+            M2C_FIELD(arg0, VD_803062D4 **, 0x49C) = NULL;
+        }
+        free_collision_body_parts(arg0);
+        __destroy_arr(arg0 + 0x3F0, TObjPlayer__sub_800D7C58, 0x1C, 4);
+        TObjPlayer__sub_800A05B8(arg0 + 0x3D4, -1);
+        __dt__9TObjEneDDFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 
 void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {

@@ -208,6 +208,28 @@ struct VObj_800E3B34_800E3A58 : Base_800E3B34_800E3A58 {
     virtual void m92();
 };
 
+struct VB14_800E3DFC { u8 pad[0x14]; };
+struct Sub_800E3DFC : VB14_800E3DFC {
+    virtual void v0();
+    virtual void v1(s32, void *, f32);
+    virtual void v2();
+};
+struct VB18_800E3DFC { u8 pad[0x18]; };
+struct Self_800E3DFC : VB18_800E3DFC {
+#define V(n) virtual void m##n();
+    V(0) V(1) V(2) V(3) V(4) V(5) V(6) V(7) V(8) V(9)
+    V(10) V(11) V(12) V(13) V(14) V(15) V(16) V(17) V(18) V(19)
+    V(20) V(21) V(22) V(23) V(24) V(25) V(26) V(27) V(28) V(29)
+    V(30) V(31) V(32) V(33) V(34) V(35) V(36) V(37) V(38) V(39)
+    V(40) V(41) V(42) V(43) V(44) V(45) V(46) V(47) V(48) V(49)
+    V(50) V(51) V(52) V(53) V(54) V(55) V(56) V(57) V(58) V(59)
+    V(60) V(61) V(62) V(63) V(64) V(65) V(66) V(67) V(68) V(69)
+    V(70) V(71) V(72) V(73) V(74) V(75) V(76) V(77) V(78) V(79)
+    V(80) V(81) V(82) V(83) V(84)
+#undef V
+    virtual void m85(s16, s32);
+};
+
 #include <stddef.h>
 struct VBase_14_85ec0b { char pad[0x14]; };
 
@@ -380,7 +402,14 @@ int init_mirage__23TObjEneMe3ShinowaMirageFPv(void* p);
 void set_flag_0x100__23TObjEneMe3ShinowaMirageFPv(void *arg0);
 M2C_UNK enemy_set_target_id(void *, int);
 int transition_enemy_state(void*, int);
-void *TObjEneMe3ShinowaMirage__ct(void *, void *, void *, void *, void *);
+u8 *TObjEneMe3ShinowaMirage__ct(u8 *, void *, u8 *, void *, void *);
+s16 obj_getField1c(void *);
+M2C_UNK init_common_from__9TObjEneDDFPvPv(void *, void *);
+M2C_UNK fn_800E762C(void *);
+M2C_UNK TObjEneMe3ShinowaMirage__sub_800E7884(void *);
+M2C_UNK TObjEneMe3Shinowa__ct(void *, void *);
+extern s32 lbl_805D2AD0;
+extern const f32 lbl_805DA5C0;
 s32 TObjEneMe3ShinowaReal__sub_800E45CC(int, int);
 M2C_UNK set_chunk_material_color(s32);
 s32 find_entity_by_id(int);
@@ -500,13 +529,50 @@ void *__dt__23TObjEneMe3ShinowaMirageFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+#define arg3 ((s16)(s32)a3)
+#define arg4 ((s16)(s32)a4)
+u8 *TObjEneMe3ShinowaMirage__ct(u8 *arg0, void *arg1, u8 *arg2, void *a3, void *a4) {
+    u8 *temp_r5;
+
+    TObjEneMe3Shinowa__ct(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TObjEneMe3ShinowaMirage;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2AD0;
+    M2C_FIELD(arg0, s16 *, 0x42C) = obj_getField1c((void *) (arg2));
+    init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
+    M2C_FIELD(arg0, f32 *, 0x358) = (f32) M2C_FIELD(arg2, f32 *, 0x358);
+    fn_800E762C((void *) (arg0));
+    M2C_FIELD(arg0, s16 *, 0x1C) = arg3;
+    M2C_FIELD(arg0, s16 *, 0x2C) = arg4;
+    TObjEneMe3ShinowaMirage__sub_800E7884((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 0x1000);
+    set_flag_0x100__23TObjEneMe3ShinowaMirageFPv((void *) (arg0));
+    M2C_FIELD(arg0, s32 *, 0x3D0) = 0xB000FFB0;
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DA5C0;
+    M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805DA5C0;
+    temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA4));
+    M2C_FIELD(temp_r5, f32 *, 0x20) = (f32) lbl_805DA5C0;
+    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x800);
+    M2C_FIELD(arg0, f32 *, 0x430) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    M2C_FIELD(arg0, f32 *, 0x434) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    M2C_FIELD(arg0, f32 *, 0x438) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    M2C_FIELD(arg0, f32 *, 0x43C) = (f32) TObjEneMe3ShinowaMirage__data_805DA5B8;
+    ((Sub_800E3DFC *)(arg0 + 0x3E8))->v1(0, temp_r5, lbl_805DA5C0);
+    ((Sub_800E3DFC *)(arg0 + 0x3E8))->v2();
+    M2C_FIELD(arg0, s16 *, 0x326) = 8;
+    ((Self_800E3DFC *)arg0)->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
+    return arg0;
+}
+#undef arg3
+#undef arg4
+
 extern void *tl_04;
 
 void * create__23TObjEneMe3ShinowaMirageFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = __nw__7TObjectFUl(0x440);
     if (o != NULL) {
-        o = TObjEneMe3ShinowaMirage__ct(o, tl_04, arg0, arg1, arg2);
+        o = TObjEneMe3ShinowaMirage__ct((u8 *)o, tl_04, (u8 *)arg0, arg1, arg2);
     }
     return o;
 }

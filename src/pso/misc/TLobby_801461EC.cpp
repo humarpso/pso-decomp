@@ -40,8 +40,17 @@ struct RecoveredGlobal_80146D50_lbl_8050C784 {
 };
 
 extern "C" {
-int TLobby__sub_801469D8(void*);
-int TLobby__sub_801469B8(void* p);
+void TLobby__sub_801469D8(void);
+M2C_UNK TLobby__sub_803FAFDC();
+M2C_UNK TLobby__sub_803FB184(void *);
+M2C_UNK TLobby__sub_803FB1A4(void *);
+M2C_UNK TLobby__sub_80407358();
+M2C_UNK TLobby__sub_8040874C();
+M2C_UNK TLobby__sub_8041509C();
+M2C_UNK TLobby__sub_80423064(void *, int);
+M2C_UNK TLobby__sub_80424CA8();
+M2C_UNK TLobby__sub_80424CF4(void *, void *, int);
+void TLobby__sub_801469B8(void* p);
     extern int lbl_805D5708;
 void call_146CA0_with_5708__6TLobbyFv(void);
     extern unsigned char lbl_8050C784[];
@@ -236,7 +245,48 @@ void cleanup__6TLobbyFv(void* _w0) {
         lbl_805D5700 = 0U;
     }
 }
-int TLobby__sub_801469B8(void* p) { return TLobby__sub_801469D8(p); }
+void TLobby__sub_801469B8(void* p) { TLobby__sub_801469D8(); }
+void TLobby__sub_801469D8(void) {
+    struct { u8 pad0[4]; s16 f4; u8 pad6[0x3E]; } spC;
+    s16 sp8;
+
+    lbl_805D56F8 &= 0xFFFFFFFE;
+    teardown_boss2__6TLobbyFv();
+    if (TLobby__sub_80145EE4() != 0) {
+        if (lbl_805D56F8 & 0x10) {
+            TLobby__sub_80424CF4((void *) ((s16) lbl_805D2D00), (void *) (lbl_805D56D8), (int) (3));
+            lbl_805D56F8 &= 0xFFFFFFEF;
+            TLobby__sub_80424CA8();
+        }
+    } else if (is_state_active__6TLobbyFv() != 0) {
+        if ((s32) lbl_805D2D00 != -1) {
+            TLobby__sub_80423064((void *) ((s16) lbl_805D2D00), (int) (0));
+            sp8 = 0;
+            TLobby__sub_803FB1A4((void *) (&sp8));
+            do {
+                TLobby__sub_803FB184((void *) (&spC));
+                send_and_handle__6TLobbyFPv();
+            } while (spC.f4 != 0);
+        }
+        if (lbl_805D56F8 & 4) {
+            TLobby__sub_803FAFDC();
+            lbl_805D56F8 &= 0xFFFFFFFB;
+        }
+    }
+    lbl_805D2D00 = -1;
+    if (lbl_805D56F8 & 0x20) {
+        TLobby__sub_8041509C();
+        lbl_805D56F8 &= 0xFFFFFFDF;
+    }
+    if (lbl_805D56F8 & 0x40) {
+        TLobby__sub_8040874C();
+        lbl_805D56F8 &= 0xFFFFFFBF;
+    }
+    if (lbl_805D56F8 & 0x80) {
+        TLobby__sub_80407358();
+        lbl_805D56F8 &= 0xFFFFFF7F;
+    }
+}
 
 s32 TLobby__sub_80146B08(void) {
     s32 sp8;

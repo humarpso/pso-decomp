@@ -166,7 +166,7 @@ void update__23TShopJudgmentItemWindowFPv(void *arg0);
 void TShopJudgmentItemWindow__sub_80221134(u8 *arg0);
 void handle_input__23TShopJudgmentItemWindowFPv(void *arg0);
 void close__23TShopJudgmentItemWindowFPv(void* p);
-M2C_UNK TShopJudgmentItemWindow__sub_8022072C();
+void TShopJudgmentItemWindow__sub_8022072C(u8 *arg0);
 void TShopJudgmentItemWindow__sub_802209D8(u8 *arg0);
 M2C_UNK TShopJudgmentItemWindow__sub_80220F68();
 void TShopJudgmentItemWindow__vt9(u8 *arg0);
@@ -281,6 +281,65 @@ void invoke_callback_170_and_destroy__23TShopJudgmentItemWindowFPv(void *arg0) {
     if (temp_r12 != NULL) {
         temp_r12(M2C_FIELD(arg0, s32 *, 0x164));
         queue_destruction__7TObjectFv((void*)(arg0));
+    }
+}
+
+void TShopJudgmentItemWindow__sub_8022072C(u8 *arg0) {
+    f32 temp_f31;
+    s32 temp_r3;
+    s32 temp_r31;
+
+    if (((VObj_18 *)(arg0))->m8() != 0) {
+        if ((u32) M2C_FIELD(arg0, u32 *, 0x158) == 0U) {
+            temp_r31 = obj_getField1c((s32) (M2C_FIELD(arg0, s32 *, 0x24)));
+            M2C_FIELD(arg0, s32 *, 0x158) = create_yes_no_window(get_window_layout_position(0x2B), temp_r31, 0, 0);
+            set_selected_index__17TWindowSubComCardFPvs((void *)M2C_FIELD(arg0, s32 *, 0x158), 0);
+            temp_f31 = get_scale__15TShopWindowBaseFv((void *) (arg0));
+            set_position_xy(M2C_FIELD(arg0, s32 *, 0x158), get_scale__15TShopWindowBaseFv((void *) (arg0)), temp_f31);
+        }
+        if (((u32) M2C_FIELD(arg0, u32 *, 0x158) != 0U) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x158)) != 0)) {
+            temp_r3 = get_selected_menu_value((s32) (M2C_FIELD(arg0, u32 *, 0x158)));
+            if (temp_r3 == 0) {
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x160) != 0U) {
+                    TWindow__close(M2C_FIELD(arg0, void **, 0x160));
+                    M2C_FIELD(arg0, u32 *, 0x160) = 0U;
+                }
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x154) != 0U) {
+                    TWindow__close(M2C_FIELD(arg0, void **, 0x154));
+                    M2C_FIELD(arg0, u32 *, 0x154) = 0U;
+                }
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x15C) != 0U) {
+                    TWindow__close(M2C_FIELD(arg0, void **, 0x15C));
+                    M2C_FIELD(arg0, u32 *, 0x15C) = 0U;
+                }
+                if ((u32) M2C_FIELD(arg0, u32 *, 0x50) != 0U) {
+                    queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x50));
+                    M2C_FIELD(arg0, u32 *, 0x50) = 0U;
+                }
+                M2C_FIELD(arg0, s32 *, 0x14C) = 3;
+                TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+                M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+                try_spend_actor_meseta((s32) (M2C_FIELD(arg0, s32 *, 0x24)), (s32) (0x64));
+                ((VObj_18 *)(arg0))->m6(0xA, 1);
+                set_field_20__12TQuestListVMFPvi((void *) (arg0), 5);
+                return;
+            }
+            if (temp_r3 == 1) {
+                TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+                M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+                ((VObj_18 *)(arg0))->m6(8, 1);
+                set_field_20__12TQuestListVMFPvi((void *) (arg0), 4);
+                return;
+            }
+            goto block_17;
+        }
+block_17:
+        if (((u32) M2C_FIELD(arg0, u32 *, 0x158) != 0U) && (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x158)) != 0)) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x158));
+            M2C_FIELD(arg0, u32 *, 0x158) = 0U;
+            ((VObj_18 *)(arg0))->m6(8, 1);
+            set_field_20__12TQuestListVMFPvi((void *) (arg0), 4);
+        }
     }
 }
 
@@ -585,7 +644,7 @@ void TShopJudgmentItemWindow__vt9(u8 *arg0) {
         update__23TShopJudgmentItemWindowFPv(arg0);
         return;
     case 6:
-        TShopJudgmentItemWindow__sub_8022072C();
+        TShopJudgmentItemWindow__sub_8022072C((u8 *)(arg0));
         return;
     case 7:
         TShopJudgmentItemWindow__sub_802209D8((u8 *)(arg0));
