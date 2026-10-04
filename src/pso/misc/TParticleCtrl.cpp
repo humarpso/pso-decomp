@@ -136,6 +136,24 @@ struct Ctrl_80086248 {
     s8 frame;
 };
 
+struct Vec_80085CB0 { f32 x, y, z; };
+
+struct Player_80085CB0 {
+    u8 pad0[0x178];
+    Vec_80085CB0 pos;
+    u8 pad184[0x194 - 0x184];
+    s32 f194;
+};
+
+struct Ctrl_80085CB0 {
+    u8 pad0[0x38];
+    Vec_80085CB0 pos;
+    u8 pad44[0x90 - 0x44];
+    f32 f90;
+    f32 f94;
+    s32 f98;
+};
+
 extern "C" {
 s32 is_split_screen(void);
 u8 *__nw__7TObjectFUl(M2C_UNK);
@@ -214,6 +232,24 @@ M2C_UNK set_constant_material_color(int);
 extern Cam_80085EE4 lbl_8058D4F8;
 extern const f32 lbl_805D94C0;
 extern const f32 lbl_805D94C8;
+f32 get_random_float__8TObjFishFv(f32);
+u32 csnVector(void *, void *, int);
+f32 vec3_dot(void *, void *);
+f32 vec_squared_length(void *);
+M2C_UNK rotate_vector_by_matrix(int, void *, void *);
+M2C_UNK rotate_matrix_y(int, s32);
+M2C_UNK normalize_vector(void *);
+M2C_UNK push_matrix_from(void *);
+M2C_UNK pop_matrix();
+extern Vec_80085CB0 lbl_804393D0;
+extern M2C_UNK lbl_8058D490[];
+extern u8 *lbl_805D4DF0;
+extern const f32 lbl_805D9480;
+extern const f32 lbl_805D9488;
+extern const f32 lbl_805D94AC;
+extern const f32 lbl_805D94B4;
+extern const f32 lbl_805D94B8;
+void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self);
 }
 
 extern "C" {
@@ -302,6 +338,44 @@ u8 *TParticleCtrl__sub_8008598C(s32 arg0) {
         var_r0 = (u8 *)(TParticleCtrl__sub_80085E78((u8 *)(temp_r3), (s32)(arg0), (s32)(tl_particle)));
     }
     return var_r0;
+}
+
+#pragma fp_contract on
+void TParticleCtrl__sub_80085CB0(Ctrl_80085CB0 *self) {
+    Vec_80085CB0 out;
+    Vec_80085CB0 d;
+    f32 v;
+    f32 r;
+    if ((*(Player_80085CB0 * *)&lbl_805D4DF0) != NULL) {
+        d.x = self->pos.x - (*(Player_80085CB0 * *)&lbl_805D4DF0)->pos.x;
+        d.y = lbl_805D9480;
+        d.z = self->pos.z - (*(Player_80085CB0 * *)&lbl_805D4DF0)->pos.z;
+        if (lbl_805D9480 != vec_squared_length(&d)) {
+            normalize_vector(&d);
+        }
+        push_matrix_from(lbl_8058D490);
+        Vec_80085CB0 t = lbl_804393D0;
+        rotate_matrix_y((int)(0), (s32)((*(Player_80085CB0 * *)&lbl_805D4DF0)->f194));
+        rotate_vector_by_matrix(0, &t, &out);
+        pop_matrix();
+        self->f94 = vec3_dot(&out, &d);
+        r = get_random_float__8TObjFishFv(self->f94);
+        if (self->f94 >= 0.0f) {
+            v = get_random_float__8TObjFishFv(lbl_805D94AC - r);
+            if (v > lbl_805D94B4) {
+                v = lbl_805D94B4;
+            }
+        } else {
+            v = 0.0f;
+        }
+        self->f90 = lbl_805D9488 * v + lbl_805D94B8;
+        Vec_80085CB0 p = (*(Player_80085CB0 * *)&lbl_805D4DF0)->pos;
+        if (csnVector(&p, &self->pos, 0x100) != 0) {
+            self->f98 = 1;
+        } else {
+            self->f98 = 0;
+        }
+    }
 }
 
 void *TParticleCtrl__sub_80085E20(void *arg0, s16 arg1) {

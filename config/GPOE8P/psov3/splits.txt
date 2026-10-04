@@ -1563,7 +1563,7 @@ pso/enemy/TObjEneMe1CanadinLeader.cpp:
 pso/misc/TParticleCtrl.cpp:
 	.text       start:0x80085798 end:0x800866F8
 	.rodata     start:0x80439418 end:0x80439420
-	.sdata2     start:0x805D94C4 end:0x805D94E0
+	.sdata2     start:0x805D9480 end:0x805D94E0
 
 pso/misc/TParticleCtrl_800866F8.cpp:
 	.text       start:0x800866F8 end:0x800867AC
@@ -1737,6 +1737,7 @@ pso/unk/text_80092B10.cpp:
 
 pso/enemy/TObjEneRe7Berura_80092CCC.cpp:
 	.text       start:0x80092CCC end:0x8009358C
+	.rodata     start:0x80439EE8 end:0x80439EF0
 
 pso/enemy/TObjEneRe7Berura_8009358C.cpp:
 	.text       start:0x8009358C end:0x80094994
@@ -7182,6 +7183,7 @@ pso/unk/text_80198F14.cpp:
 
 pso/misc/TWindowTimer_80199078.cpp:
 	.text       start:0x80199078 end:0x80199674
+	.sdata2     start:0x805DBF58 end:0x805DBF68
 
 pso/unk/text_80199674.cpp:
 	.text       start:0x80199674 end:0x80199A44
@@ -11332,6 +11334,7 @@ pso/object/TObjCMMainMenu_8029427C.cpp:
 
 pso/ui/TObjCMHexTile_80294324.cpp:
 	.text       start:0x80294324 end:0x80294520
+	.rodata     start:0x80464F38 end:0x80464F40
 
 pso/ui/TObjCMHexTile.cpp:
 	.text       start:0x80294520 end:0x802948A8
@@ -12099,6 +12102,8 @@ pso/misc/TOTrapSeabed01_802CA2F0.cpp:
 
 pso/misc/TOTrapSeabed01_802CA5F0.cpp:
 	.text       start:0x802CA5F0 end:0x802CAA84
+	.rodata     start:0x804720E0 end:0x804720E8
+	.sdata2     start:0x805DE644 end:0x805DE658
 
 pso/enemy/TObjEneMe1GiGue_802CAA84.cpp:
 	.text       start:0x802CAA84 end:0x802CABE4

@@ -19,6 +19,21 @@ struct RecoveredGlobal_80199470_lbl_8050DDAC {
 
 struct G_80199078 { u8 pad[0x10]; s16 flags; };
 
+struct Fx_801994DC {
+    f32 a;
+    f32 b;
+    f32 c;
+    f32 d;
+    f32 e;
+    s32 f;
+    u32 g;
+    void *h;
+};
+
+struct Col_801994DC { f32 r, g, b, a; };
+
+struct Ang_801994DC { s32 x, y, z; };
+
 extern "C" {
 void TWindowTimer__sub_801992EC(u8 *arg0, u8 *arg1);
 s32 get_minutes__6TLobbyFv(void);
@@ -33,6 +48,23 @@ extern const f32 lbl_805DBF58;
 void handle_6x79_gogo_ball(u8 *arg0);
 extern RecoveredGlobal_80199470_lbl_8050DDAC lbl_8050DDAC;
 void TWindowTimer__sub_80199078(void);
+M2C_UNK direction_to_rotation_xz(void *, void *, void *);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+M2C_UNK TObjPlayer__sub_801E2FEC(void *, int, int);
+M2C_UNK rotate_matrix_y(int, s32);
+M2C_UNK rotate_matrix_z(int, int);
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK scale_current_matrix(void *);
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_chunk_material_color(void *);
+extern const f32 lbl_804A7418[];
+extern M2C_UNK lbl_804B8D80[];
+extern u32 lbl_805D52F8;
+void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
 }
 
 extern "C" {
@@ -102,6 +134,52 @@ void handle_6x79_gogo_ball(u8 *arg0) {
     M2C_FIELD(&lbl_8050DDAC.value, s32 *, 0xC) = (s32) M2C_FIELD(arg0, s32 *, 8);
     M2C_FIELD(&lbl_8050DDAC.value, u8 *, 0x18) = (u8) M2C_FIELD(arg0, u8 *, 0x14);
     M2C_FIELD(&lbl_8050DDAC.value, s32 *, 0x14) = (s32) M2C_FIELD(arg0, s32 *, 4);
+}
+void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0) {
+    Ang_801994DC ang;
+    Col_801994DC col;
+    Fx_801994DC fx;
+    if (lbl_805D52F8 == 0) {
+        return;
+    }
+    direction_to_rotation_xz(arg2, &ang.x, &ang.z);
+    push_matrix();
+    post_translate_matrix(arg1);
+    translate_matrix(0, 0.0f, 0.3f, 0.0f);
+    rotate_matrix_z(0, ang.z);
+    rotate_matrix_x(0, ang.x);
+    rotate_matrix_y(0, arg3);
+    if (arg4 != NULL) {
+        scale_current_matrix(arg4);
+    }
+    rotate_matrix_x(0, -0x4000);
+    fx.a = -5.0f;
+    fx.b = 0.0f;
+    fx.c = 0.0f;
+    fx.d = 1.0f;
+    fx.e = 1.0f;
+    fx.f = 0;
+    fx.g = lbl_805D52F8;
+    fx.h = lbl_804B8D80;
+    col.r = farg0;
+    col.g = 1.0f;
+    col.b = 1.0f;
+    col.a = 1.0f;
+    set_chunk_material_color(&col);
+    begin_effect_render__13TParticleCtrlFv();
+    TObjPlayer__sub_801E2FEC(&fx, 0, 0x22);
+    fx.a = 0.0f;
+    fx.b = 0.0f;
+    TObjPlayer__sub_801E2FEC(&fx, 0, 0x26);
+    fx.a = -5.0f;
+    fx.b = -5.0f;
+    TObjPlayer__sub_801E2FEC(&fx, 0, 0x2A);
+    fx.a = 0.0f;
+    fx.b = -5.0f;
+    TObjPlayer__sub_801E2FEC(&fx, 0, 0x2E);
+    end_effect_render__13TParticleCtrlFv();
+    set_chunk_material_color((void *)lbl_804A7418);
+    pop_matrix();
 }
 
 }

@@ -641,6 +641,7 @@ s32 TQuestVmDownLoadServer__sub_803E7D58(const u8 *a, const u8 *b, s32 n);
 extern RecoveredGlobal_803E9764_lbl_80591EC8 lbl_80591EC8;
 extern Node_803E8C2C *lbl_80593EC8[];
 s32 TQuestVmDownLoadServer__sub_803E8C2C(char *arg0, s16 arg1, Out_803E8C2C *arg2);
+s32 TQuestVmDownLoadServer__sub_803ED0CC(u8 kind, u8 v, u8 w, s32 base, s32 add);
 }
 
 extern "C" {
@@ -2729,6 +2730,67 @@ inline s32 InRange_803ED26C(u8 v) {
         r = 1;
     }
     return r;
+}
+
+s32 TQuestVmDownLoadServer__sub_803ED0CC(u8 kind, u8 v, u8 w, s32 base, s32 add) {
+    s32 r = 0;
+    switch (kind) {
+    case 0:
+        if ((v >= 0x14 && v <= 0x19) || v == 0x32) {
+            r = 0xF;
+        }
+        break;
+    case 1:
+        if (v == 0x1A) {
+            r = 0x14;
+        }
+        break;
+    case 2:
+        if ((u8)(v - 0x1B) <= 1) {
+            r = 0xF;
+        }
+        break;
+    case 3:
+        if (v == 0x1F || v == 0x38) {
+            r = 0x14;
+        }
+        break;
+    case 4:
+        if (v == 0x16) {
+            r = 0x14;
+        }
+        break;
+    case 5:
+        if (w == 0xFF) {
+            if (v >= 1 && v <= 0xD) {
+                r = 0xF;
+            }
+        } else if ((v >= 0x80 && v <= 0x8B && w == 4) || (v == 0xD && w == 0)) {
+            r = 0xF;
+        }
+        break;
+    case 6:
+        if (v >= 0x14 && v <= 0x19) {
+            r = 0xF;
+        } else if (v == 0x1F || v == 0x38) {
+            r = 0x14;
+        }
+        break;
+    case 7:
+        if (v == 0x1D) {
+            r = 0xF;
+        }
+        break;
+    case 8:
+        if ((v >= 0x14 && v <= 0x19) || (v >= 1 && v <= 0xD)) {
+            r = 0x14;
+        }
+        break;
+    }
+    if (r == 0) {
+        return base;
+    }
+    return base + r + add;
 }
 
 s32 TQuestVmDownLoadServer__sub_803ED26C(Arg_803ED26C *a, u8 k, u8 v, s32 base) {
