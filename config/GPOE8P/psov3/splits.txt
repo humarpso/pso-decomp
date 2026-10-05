@@ -493,16 +493,12 @@ pso/boss/TBoss3VoloptMonitor.cpp:
 pso/unk/text_80042960.cpp:
 	.text       start:0x80042960 end:0x80042974
 
-pso/unk/text_80042974.cpp:
-	.text       start:0x80042974 end:0x80042D90
-
-pso/player/TObjPlayer_80042D90.cpp:
-	.text       start:0x80042D90 end:0x80042F84
-
 pso/boss/TBoss3VoloptP01.cpp:
-	.text       start:0x80042F84 end:0x800443DC
-	.rodata     start:0x80436648 end:0x80436650
+	.text       start:0x80042974 end:0x800443DC
+	.rodata     start:0x80436620 end:0x80436650
 	.data       start:0x80484170 end:0x804843E0
+	.sdata      start:0x805D2748 end:0x805D274C
+	.sdata2     start:0x805D8760 end:0x805D879C
 
 pso/unk/text_800443DC.cpp:
 	.text       start:0x800443DC end:0x80044420
@@ -7209,30 +7205,10 @@ pso/unk/text_80198960.cpp:
 	.text       start:0x80198960 end:0x80198A2C
 
 pso/unk/text_80198A2C.cpp:
-	.text       start:0x80198A2C end:0x80198C84
+	.text       start:0x80198A2C end:0x8019A790
 	.rodata     start:0x80446080 end:0x80446088
-
-pso/misc/TWindowTimer_80198C84.cpp:
-	.text       start:0x80198C84 end:0x80198E84
-
-pso/unk/text_80198E84.cpp:
-	.text       start:0x80198E84 end:0x80198F14
-
-pso/unk/text_80198F14.cpp:
-	.text       start:0x80198F14 end:0x80199078
-
-pso/misc/TWindowTimer_80199078.cpp:
-	.text       start:0x80199078 end:0x80199674
-	.sdata2     start:0x805DBF58 end:0x805DBF68
-
-pso/unk/text_80199674.cpp:
-	.text       start:0x80199674 end:0x80199A44
-
-pso/unk/text_80199A44.cpp:
-	.text       start:0x80199A44 end:0x80199EA0
-
-pso/misc/TWindowTimer_80199EA0.cpp:
-	.text       start:0x80199EA0 end:0x8019A790
+	.data       start:0x804B8A10 end:0x804B8DAC
+	.sdata2     start:0x805DBF48 end:0x805DBF9C
 
 pso/object/TObjTank.cpp:
 	.text       start:0x8019A790 end:0x8019AA18

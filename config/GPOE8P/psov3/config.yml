@@ -248,6 +248,7 @@ force_active:
   - __dt__14TSlicerHistoryFv
   - __dt__14TWindowCtrlSubFv
   - __dt__15TAdDrawLineCtrlFv
+  - __dt__15TBoss3VoloptP01Fv
   - __dt__15TBoss6CrushPtclFv
   - __dt__15TBoss6CrushRockFv
   - __dt__15TChCrCharSelectFv
@@ -541,6 +542,7 @@ force_active:
   - lbl_804B6D98
   - lbl_804B6DA4
   - lbl_804B7630
+  - lbl_804B8D58
   - lbl_804B94A0
   - lbl_804B94BC
   - lbl_804B94CC
@@ -613,6 +615,7 @@ force_active:
   - render__14TFontSmallTaskFv
   - render__14TObjEneBm5WolfFPv
   - render__15TAdDrawLineCtrlFv
+  - render__15TBoss3VoloptP01Fv
   - render__16TAdStorySelectGCFv
   - render__16TBGLightningCtrlFv
   - render__16TBoss1DragonDemoFv
@@ -696,6 +699,7 @@ force_active:
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
+  - run_task__15TBoss3VoloptP01Fv
   - run_task__15TBoss6CrushPtclFv
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv

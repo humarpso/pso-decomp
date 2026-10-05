@@ -138,6 +138,7 @@ pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin.cpp
 pso/boss/TBoss3VoloptHiraisin_8004155C.cpp
 pso/boss/TBoss3VoloptMonitor.cpp
+pso/boss/TBoss3VoloptP01.cpp
 pso/boss/TBoss3Volopt_8003F3F8.cpp
 pso/boss/TBoss3Volopt_80040F7C.cpp
 pso/boss/TBoss3Volopt_8004812C.cpp
@@ -2113,8 +2114,6 @@ pso/misc/TWindowSubTradeMain_803322B8.cpp
 pso/misc/TWindowSubTradeMessage.cpp
 pso/misc/TWindowTimer.cpp
 pso/misc/TWindowTimer_80198814.cpp
-pso/misc/TWindowTimer_80198C84.cpp
-pso/misc/TWindowTimer_80199EA0.cpp
 pso/misc/TWindowTradeRequest.cpp
 pso/misc/TWindowUserSort.cpp
 pso/misc/TWindow_80217288.cpp
@@ -2388,7 +2387,6 @@ pso/player/TObjPlayer_80020898.cpp
 pso/player/TObjPlayer_8002AE7C.cpp
 pso/player/TObjPlayer_80036824.cpp
 pso/player/TObjPlayer_80040B28.cpp
-pso/player/TObjPlayer_80042D90.cpp
 pso/player/TObjPlayer_80048360.cpp
 pso/player/TObjPlayer_800495E0.cpp
 pso/player/TObjPlayer_80052374.cpp
@@ -3582,8 +3580,7 @@ pso/unk/text_80197998.cpp
 pso/unk/text_80197E54.cpp
 pso/unk/text_80197F74.cpp
 pso/unk/text_80198960.cpp
-pso/unk/text_80198E84.cpp
-pso/unk/text_80198F14.cpp
+pso/unk/text_80198A2C.cpp
 pso/unk/text_8019AD50.cpp
 pso/unk/text_8019B0D4.cpp
 pso/unk/text_8019DBB4.cpp
