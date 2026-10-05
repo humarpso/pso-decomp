@@ -19,7 +19,66 @@
     "use_lmw_stmw": "on",
     "opt": "nocse"
   },
+  "pso/misc/TLobby_803F8E08.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nocse"
+  },
+  "pso/misc/TLobby_803FAEA0.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nocse"
+  },
+  "pso/misc/TLobby_803FC178.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nocse"
+  },
+  "pso/misc/TLobby_804048E8.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nocse"
+  },
+  "pso/misc/TLobby_804050DC.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nocse"
+  },
   "pso/misc/TLobby_804245DC.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TLobby_80426CAC.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TLobby_80428374.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TLobby_80429598.cpp": {
+    "mw_version": "GC/1.2.5n",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
+  "pso/misc/TLobby_8042BF48.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",

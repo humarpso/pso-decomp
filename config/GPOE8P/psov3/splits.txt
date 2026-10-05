@@ -15930,9 +15930,27 @@ pso/unk/text_803F7678.cpp:
 	.bss        start:0x805A9008 end:0x805AA098
 
 pso/misc/TLobby_803F8794.cpp:
-	.text       start:0x803F8794 end:0x8041ED8C
+	.text       start:0x803F8794 end:0x803F8E08
+	.bss        start:0x805AEEB0 end:0x805BE070
+
+pso/misc/TLobby_803F8E08.cpp:
+	.text       start:0x803F8E08 end:0x803FAEA0
+
+pso/misc/TLobby_803FAEA0.cpp:
+	.text       start:0x803FAEA0 end:0x803FC178
+	.bss        start:0x805BFF68 end:0x805C0180
+
+pso/misc/TLobby_803FC178.cpp:
+	.text       start:0x803FC178 end:0x804048E8
 	.data       start:0x804FD628 end:0x804FD64C
 	.bss        start:0x805C0180 end:0x805C02D0
+
+pso/misc/TLobby_804048E8.cpp:
+	.text       start:0x804048E8 end:0x804050DC
+	.bss        start:0x805C06D8 end:0x805C18A0
+
+pso/misc/TLobby_804050DC.cpp:
+	.text       start:0x804050DC end:0x8041ED8C
 
 pso/unk/text_8041ED8C.cpp:
 	.text       start:0x8041ED8C end:0x80421178
@@ -15948,8 +15966,22 @@ pso/unk/text_80421620.cpp:
 	.text       start:0x80421620 end:0x804245DC
 
 pso/misc/TLobby_804245DC.cpp:
-	.text       start:0x804245DC end:0x8042E8C4
+	.text       start:0x804245DC end:0x80426CAC
 	.bss        start:0x805CF240 end:0x805CF2E0
+
+pso/misc/TLobby_80426CAC.cpp:
+	.text       start:0x80426CAC end:0x80428374
+	.bss        start:0x805CFC20 end:0x805D0A40
+
+pso/misc/TLobby_80428374.cpp:
+	.text       start:0x80428374 end:0x80429598
+
+pso/misc/TLobby_80429598.cpp:
+	.text       start:0x80429598 end:0x8042BF48
+	.bss        start:0x805D0AA0 end:0x805D1D20
+
+pso/misc/TLobby_8042BF48.cpp:
+	.text       start:0x8042BF48 end:0x8042E8C4
 
 pso/unk/text_8042E8C4.cpp:
 	.text       start:0x8042E8C4 end:0x8042E9FC

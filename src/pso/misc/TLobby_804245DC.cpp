@@ -945,96 +945,19 @@ s32 TLobby__sub_80426C34(s32 arg0) {
     return 0;
 }
 
-s32 TLobby__sub_80427240(u8 **arg0) {
-    s16 a = 0;
-    s16 b;
-    u8 pad[6];
-    TLobby__sub_803F9F04(*arg0, &a, 2);
-    *arg0 += 2;
-    b = 0;
-    TLobby__sub_803F9F04(*arg0, &b, 2);
-    *arg0 += 2;
-    return 4;
-}
+s32 TLobby__sub_80427240(u8 **arg0);
 
-s32 TLobby__sub_804272B8(s32 *arg0, u8 *arg1) {
-    struct Fields_arg1 { u8 pad_0[58]; u8 field_3A; };
-    s16 sp12;
-    s16 sp10;
-    s16 temp_r3;
-    if ((u8) ((Fields_arg1*)arg1)->field_3A == 0) {
-        return 0;
-    }
-    sp12 = 0x102;
-    TLobby__sub_803F9F04((void *) (*arg0), (void *) (&sp12), (int) (2));
-    *arg0 += 2;
-    temp_r3 = TLobby__sub_803F9E84((void *) (arg1 + 0x3A));
-    sp10 = temp_r3;
-    TLobby__sub_803F9F04((void *) (*arg0), (void *) (&sp10), (int) (2));
-    *arg0 += 2;
-    TLobby__sub_803F9F04((void *) (*arg0), (void *) (arg1 + 0x3A), (int) (temp_r3));
-    *arg0 += temp_r3;
-    return temp_r3 + 4;
-}
+s32 TLobby__sub_804272B8(s32 *arg0, u8 *arg1);
 
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
-s32 TLobby__sub_804277FC(s32 arg0, u8 *arg1, u16 arg2) {
-    u8 *p = arg1;
-    u16 len = arg2;
-    u16 a;
-    u16 b;
-    u8 pad[4];
-    s32 t;
-    while (len != 0) {
-        TLobby__sub_803F9F04(&a, p, 2);
-        if (a == 0) {
-            break;
-        }
-        TLobby__sub_803F9F04(&b, p + 2, 2);
-        t = b + 4;
-        p += t;
-        len -= t;
-    }
-    return 0;
-}
+s32 TLobby__sub_804277FC(s32 arg0, u8 *arg1, u16 arg2);
 
-Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
-    u16 id;
-    Ent_80427C6C *ret;
-    s16 i;
-    if (arg1 < 0x14U) {
-        return NULL;
-    }
-    TLobby__sub_803F9F04((void *)&id, (void *)(arg0 + 0x10), 2);
-    if (id == 0) {
-        return NULL;
-    }
-    i = 0;
-    ret = NULL;
-    while (i < 1) {
-        ret = &((Ent_80427C6C *)&lbl_805CFC20)[i];
-        if (id == ret->id) {
-            break;
-        }
-        i++;
-    }
-    if (i >= 1) {
-        ret = NULL;
-    }
-    return ret;
-}
+Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 
-s16 TLobby__sub_80427D0C(s16 arg0) {
-    if ((arg0 < 0) || (arg0 >= 1)) {
-        return -1;
-    }
-    return M2C_FIELD(((u8 *)(&lbl_805CFC20.value) + (arg0 * 0xE14)), s16 *, 0);
-}
+s16 TLobby__sub_80427D0C(s16 arg0);
 
-s32 TLobby__sub_80428358(void) {
-    return 0;
-}
+s32 TLobby__sub_80428358(void);
 
 extern u32 lbl_805D7C04;
 extern s32 lbl_805D7C08;
@@ -1050,433 +973,69 @@ extern s32 lbl_805D7C28;
 typedef char RecoveredGlobal_80428374_lbl_805D0A40_size[sizeof(RecoveredGlobal_80428374_lbl_805D0A40) == 0x60 ? 1 : -1];
 
 typedef char RecoveredGlobal_80428360_lbl_805CFC20_size[sizeof(RecoveredGlobal_80428360_lbl_805CFC20) == 0xE20 ? 1 : -1];
-s32 TLobby__sub_80428360(void) {
-    (*(RecoveredGlobal_80428360_lbl_805CFC20 *)&lbl_805CFC20).value = -1;
-    return 0;
-}
+s32 TLobby__sub_80428360(void);
 
-void TLobby__sub_80428374(void) {
-    TLobby__sub_803F77E0((void *) (&lbl_805D0A40.value));
-}
+void TLobby__sub_80428374(void);
 
 typedef char RecoveredGlobal_8042839C_lbl_805D0A40_size[sizeof(RecoveredGlobal_8042839C_lbl_805D0A40) == 0x60 ? 1 : -1];
-s32 TLobby__sub_8042839C(void) {
-    __OSBootDol((void *) (&(*(RecoveredGlobal_8042839C_lbl_805D0A40 *)&lbl_805D0A40).value));
-    return 0;
-}
+s32 TLobby__sub_8042839C(void);
 
-s32 TLobby__sub_80428768(u8 *arg0) {
-    s32 start;
-    s32 now;
-    s16 *p;
-    u32 limit;
-    s32 ret;
-    ret = 0;
-    TLobby__sub_803F9214(&start);
-    p = *M2C_FIELD(&lbl_805D0A40.value, s16 ***, 0x10);
-    if (p == NULL) {
-        limit = *(s16 *)(arg0 + 4) * 1000;
-    } else {
-        limit = *p * 1000;
-    }
-    for (;;) {
-        if (lbl_805D7A86 != 0) {
-            ret = 4;
-            break;
-        }
-        TLobby__sub_803F9214(&now);
-        if ((u32)(now - start) > limit) {
-            break;
-        }
-        TUdpSocket__sub_803F95A4(lbl_805C18A0[0]);
-        TLobby__sub_803F97E8(100);
-        TLobby__sub_803F95C4(lbl_805C18A0[0]);
-    }
-    return ret;
-}
+s32 TLobby__sub_80428768(u8 *arg0);
 
-void TLobby__sub_804294C4(void) {
-    TLobby__sub_803F95E4(lbl_805D7C00);
-}
+void TLobby__sub_804294C4(void);
 
-s32 TLobby__sub_804294E8(void) {
-    lbl_805D7BEC = lbl_805D7BE0;
-    lbl_805D7BF0 = lbl_805D7BE0;
-    lbl_805D7BF4 = lbl_805D7BE0;
-    lbl_805D7BF8 = lbl_805D7BE0 + lbl_805D7BE8;
-    lbl_805D7BFC = lbl_805D7BE8;
-    if (TLobby__sub_803F96AC((void *) (&lbl_805D7C00), (void *) (lbl_805D7BE0), (void *) (lbl_805D7BE8)) < 0) {
-        return -1;
-    }
-    reset_buffer_pool__6TLobbyFv();
-    return 0;
-}
+s32 TLobby__sub_804294E8(void);
 
-void reset_buffer_pool__6TLobbyFv(void) {
-    lbl_805D7C0C = 0;
-    lbl_805D7C24 = 0;
-    lbl_805D7C28 = 0;
-    if ((u32) lbl_805D7C04 != 0U) {
-        lbl_805D7C10 = lbl_805D7C04;
-        lbl_805D7C14 = lbl_805D7C04;
-        lbl_805D7C18 = lbl_805D7C04;
-        lbl_805D7C1C = lbl_805D7C04 + lbl_805D7C08;
-        lbl_805D7C20 = lbl_805D7C08;
-        return;
-    }
-    lbl_805D7C10 = 0U;
-    lbl_805D7C14 = 0U;
-    lbl_805D7C18 = 0U;
-    lbl_805D7C1C = 0;
-    lbl_805D7C20 = 0;
-}
+void reset_buffer_pool__6TLobbyFv(void);
 
-void TLobby__sub_80429598(void) {
-    OSWakeupThread((void *) (&lbl_805D7C38));
-}
+void TLobby__sub_80429598(void);
 
-void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2) {
-    s32 sp14;
-    sp14 = ((arg0 << 8) & 0xFFFF00) | 0x80000000;
-    EXISelect(0, 2U, 5);
-    EXIImm(0, &sp14, 4, 1U, 0U);
-    EXISync(0);
-    EXIImmEx(0, arg1, arg2, 0);
-    EXIDeselect(0);
-}
+void TLobby__sub_804295BC(s32 arg0, s32 arg1, s32 arg2);
 
-void TLobby__sub_80429994(u16 arg0) {
-    u32 len;
-    s32 cmd;
-    len = (lbl_805D7C64 + 0x1F) & ~0x1F;
-    cmd = ((arg0 << 8) & 0xFFFF00) | 0x80000000;
-    EXISelect(0, 2, 5);
-    EXIImm(0, &cmd, 4, 1, 0);
-    EXISync(0);
-    EXIDma(0, lbl_805D0B20, len, 0, lbl_805D7C68 != 0 ? (void *)TLobby__sub_80429A38 : (void *)TLobby__sub_80429AC8);
-}
+void TLobby__sub_80429994(u16 arg0);
 
-void TLobby__sub_80429A38(s32 chan, void *ctx) {
-    u32 len;
-    s32 cmd;
-    len = (lbl_805D7C68 + 0x1F) & ~0x1F;
-    EXIDeselect(0);
-    cmd = 0x80010000;
-    EXISelect(0, 2, 5);
-    EXIImm(0, &cmd, 4, 1, 0);
-    EXISync(0);
-    EXIDma(0, lbl_805D1120, len, 0, (void *)TLobby__sub_80429AC8);
-}
+void TLobby__sub_80429A38(s32 chan, void *ctx);
 
-void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2) {
-    s32 var_r3;
-    s32 var_r4;
-    lbl_805D7C7C = arg0;
-    var_r3 = 0;
-    lbl_805D7C80 = arg1;
-    var_r4 = 0;
-    lbl_805D7C40 = 1;
-    lbl_805D7C54 = arg2;
-    TLobby__sub_8042B370((int)((int) (0)), (int)((int) (0)));
-}
+void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 
-M2C_UNK TLobby__sub_8042B370(int, int) {
-    u8 pad[4];
-    s32 cmd;
-    if (EXILock(0, 2, (u32)TLobby__sub_8042B370) != 0) {
-        if (lbl_805D7C80 < 0x3C) {
-            lbl_805D7C80 = 0x3C;
-        }
-        lbl_805D7C84 = lbl_805D7C80 & ~0x1F;
-        lbl_805D7C88 = lbl_805D7C80 - lbl_805D7C84;
-        DCStoreRange((void *)lbl_805D7C7C, lbl_805D7C84);
-        cmd = 0xC0004800;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &cmd, 4, 1, 0);
-        EXISync(0);
-        EXIDma(0, (void *)lbl_805D7C7C, lbl_805D7C84, 1, (void *)TLobby__sub_8042B434);
-    }
-}
+M2C_UNK TLobby__sub_8042B370(int, int);
 
-void TLobby__sub_8042B538(void *dst) {
-    memcpy(dst, &lbl_805D7C30, 6);
-}
+void TLobby__sub_8042B538(void *dst);
 
-void TLobby__sub_8042B560(s32 arg0) {
-    memcpy((void *) (&lbl_805D7C30), (void *) (arg0), (int) (6));
-}
+void TLobby__sub_8042B560(s32 arg0);
 
-void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {
-    u8 sp43;
-    u8 sp42;
-    s16 sp40;
-    s32 sp3C;
-    s32 sp38;
-    s32 sp34;
-    s32 sp30;
-    s32 sp2C;
-    s32 sp28;
-    u8 sp27;
-    u8 sp26;
-    u8 sp25;
-    u8 sp24;
-    s32 sp20;
-    s32 sp1C;
-    s32 sp18;
-    s32 sp14;
-    s32 e;
-    s32 pad;
+void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 
-    e = OSDisableInterrupts();
-    for (;;) {
-        if (EXILock(0, 2, (u32)TLobby__sub_80429598) == 1) {
-            OSRestoreInterrupts(e);
-            break;
-        }
-        OSSleepThread(&lbl_805D7C38);
-        OSRestoreInterrupts(e);
-    }
-    lbl_805D7C4C = arg0;
-    lbl_805D7C50 = arg1;
-    if (arg0 == 0U) {
-        sp43 = 0;
-        sp3C = 0xC0000800;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp3C, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp43, 1, 1);
-        EXIDeselect(0);
-    } else {
-        sp42 = 0xFF;
-        sp38 = 0xC0000800;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp38, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp42, 1, 1);
-        EXIDeselect(0);
-        sp40 = 0x100;
-        sp34 = 0xC0000A00;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp34, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp40, 2, 1);
-        EXIDeselect(0);
-        sp30 = 0xC0001600;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp30, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp40, 2, 1);
-        EXIDeselect(0);
-        sp2C = 0xC0001800;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp2C, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp40, 2, 1);
-        EXIDeselect(0);
-        sp40 = 0xF00;
-        sp28 = 0xC0001A00;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp28, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp40, 2, 1);
-        EXIDeselect(0);
-        sp20 = 0x80000100;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp20, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp27, 1, 0);
-        EXIDeselect(0);
-        e = sp27;
-        e &= ~1;
-        e |= 0x12;
-        sp26 = e;
-        sp1C = 0xC0000100;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp1C, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp26, 1, 1);
-        EXIDeselect(0);
-        sp18 = 0xC0000000;
-        sp25 = 8;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp18, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp25, 1, 1);
-        EXIDeselect(0);
-        sp24 = 8;
-        sp14 = 0xC0003200;
-        EXISelect(0, 2, 5);
-        EXIImm(0, &sp14, 4, 1, 0);
-        EXISync(0);
-        EXIImmEx(0, (s32)&sp24, 1, 1);
-        EXIDeselect(0);
-    }
-    EXIUnlock(0);
-}
+s32 TLobby__sub_8042B9C0(void *p);
 
-s32 TLobby__sub_8042B9C0(void *p) {
-    s32 *arg0 = (s32 *)p;
-    u8 buf[2];
-    s32 v;
-    if (EXILock(0, 2, 0) != 0) {
-        TLobby__sub_804295BC(0x31, (s32)&buf[1], 1);
-        if ((buf[1] & 1) || (buf[1] & 2)) {
-            v = 1;
-        } else {
-            v = 0;
-        }
-        *arg0 = v;
-        EXIUnlock(0);
-        return 1;
-    }
-    return 0;
-}
+void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 
-void TLobby__sub_8042BA48(s32 arg0, s32 arg1) {
-    s32 e = OSDisableInterrupts();
-    lbl_805D7C44 = arg0;
-    lbl_805D7C48 = arg1;
-    OSRestoreInterrupts(e);
-}
+u8 TLobby__sub_8042BE64(void);
 
-u8 TLobby__sub_8042BE64(void) {
-    u8 val;
-    u16 cmd;
-    s16 pad;
-    s32 enabled;
-    u8 ret;
-    enabled = OSDisableInterrupts();
-    while (1) {
-        if (EXILock(0, 2, (u32)TLobby__sub_80429598) == 1) {
-            OSRestoreInterrupts(enabled);
-            break;
-        }
-        OSSleepThread(&lbl_805D7C38);
-        OSRestoreInterrupts(enabled);
-    }
-    cmd = 0x100;
-    EXISelect(0, 2, 5);
-    EXIImm(0, &cmd, 2, 1, 0);
-    EXISync(0);
-    EXIImm(0, &val, 1, 0, 0);
-    EXISync(0);
-    EXIDeselect(0);
-    ret = val;
-    EXIUnlock(0);
-    return ret;
-}
-
-void TAdSinglePlyChrSelectGC__sub_8042BF48(void) {
-    OSWakeupThread((void *) (&lbl_805D7CA0));
-}
+void TAdSinglePlyChrSelectGC__sub_8042BF48(void);
 
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042DD70_lbl_805D1D20) == 0x1C ? 1 : -1];
-s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB0) != 0) {
-        return -4;
-    }
-    if ((s32) lbl_805D7C98 != 3) {
-        return -7;
-    }
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB0) = 1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB4) = arg0;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xBC) = arg1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB8) = arg1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xD8) = arg2;
-    TAdSinglePlyChrSelectGC__sub_8042DDE4((int)((int) (0)), (int)((int) (0)));
-    return 1;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 #pragma pop
 
-void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1) {
-    if (EXILock(0, 2U, (u32) TAdSinglePlyChrSelectGC__sub_8042DDE4) != 0) {
-        TAdSinglePlyChrSelectGC__sub_8042DE20();
-    }
-}
+void TAdSinglePlyChrSelectGC__sub_8042DDE4(int _w0, int _w1);
 
 typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042E768_lbl_805D1D20) == 0x1C ? 1 : -1];
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E57C(s32 arg0) {
-    char buf[0x80];
-    s32 pad;
-    Names_8042E57C names = lbl_804801F8;
-    if (arg0 <= 0 || arg0 >= 5) {
-        return -2;
-    }
-    strcpy(buf, lbl_805D495C);
-    strcat(buf, names.name[arg0]);
-    strcat(buf, lbl_805D48AC);
-    TAdSinglePlyChrSelectGC__sub_8042D49C(buf);
-    return 1;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042E57C(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E628(s32 arg0) {
-    char buf[0x80];
-    s32 pad;
-    Names_8042E628 names = lbl_80480210;
-    if (arg0 <= 0 || arg0 > 3) {
-        return -2;
-    }
-    strcpy(buf, lbl_805D4970);
-    strcat(buf, names.name[arg0]);
-    strcat(buf, lbl_805D48AC);
-    TAdSinglePlyChrSelectGC__sub_8042D49C(buf);
-    return 1;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042E628(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E6C4(s32 arg0) {
-    char buf[0x80];
-    s32 pad;
-    Names_8042E6C4 names = lbl_80480220;
-    if (arg0 <= 0 || arg0 > 4) {
-        return -2;
-    }
-    strcpy(buf, lbl_805D4980);
-    strcat(buf, names.name[arg0]);
-    strcat(buf, lbl_805D48AC);
-    TAdSinglePlyChrSelectGC__sub_8042D49C(buf);
-    return 1;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042E6C4(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0) {
-    if (arg0 != 0U) {
-        *(M2CCopy_1C *)(arg0) = *(const M2CCopy_1C *)(&lbl_805D1D20.value);
-    }
-    return lbl_805D7C98;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E7B8(s32 arg0) {
-    char buf[0x80];
-    Names_8042E7B8 names = lbl_80480234;
-    s32 pad;
-    if (arg0 <= 0 || arg0 > 2) {
-        return -2;
-    }
-    strcpy(buf, lbl_805D4988);
-    strcat(buf, names.name[arg0]);
-    strcat(buf, lbl_805D48AC);
-    TAdSinglePlyChrSelectGC__sub_8042D49C(buf);
-    return 1;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042E7B8(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0) {
-    if ((arg0 == 0) && ((s32) lbl_805D7C98 == 3)) {
-        lbl_805D7C98 = 1;
-        if (EXILock(0, 2U, 0U) == 0) {
-            return 1;
-        }
-        TAdSinglePlyChrSelectGC__sub_8042D6A4(&lbl_805D4918);
-        EXIUnlock(0);
-        goto block_5;
-    }
-block_5:
-    return 1;
-}
+s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
 
-s32 fn_8042E8B8(void) {
-    return 0x80003100;
-}
+s32 fn_8042E8B8(void);
 
 }
