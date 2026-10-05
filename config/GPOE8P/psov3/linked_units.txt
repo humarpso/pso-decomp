@@ -781,6 +781,7 @@ pso/menu/TAdPlyChrSelPlateGC.cpp
 pso/menu/TAdRicoRing.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
 pso/menu/TChCrCharSelect.cpp
+pso/menu/TChCrEffWall.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
 pso/menu/TObjTagChallenge_80074B88.cpp
@@ -2407,6 +2408,7 @@ pso/player/TObjPlayer_800A0408_800A0478.cpp
 pso/player/TObjPlayer_800A0408_800A04B8.cpp
 pso/player/TObjPlayer_800A0408_800A05B8.cpp
 pso/player/TObjPlayer_800A7764.cpp
+pso/player/TObjPlayer_800ACA60.cpp
 pso/player/TObjPlayer_800ACA60_800ACA60.cpp
 pso/player/TObjPlayer_800ACA60_800ACD80.cpp
 pso/player/TObjPlayer_800BBE90.cpp
@@ -2824,6 +2826,7 @@ pso/player/TObjPlayer_8032DA84_8032DE2C.cpp
 pso/player/TObjPlayer_8032DA84_8032DEB4.cpp
 pso/player/TObjPlayer_8032DA84_8032DF74.cpp
 pso/player/TObjPlayer_8032E4C8.cpp
+pso/player/TObjPlayer_80337348.cpp
 pso/player/TObjPlayer_8033C7C8.cpp
 pso/player/TObjPlayer_8033D324.cpp
 pso/player/TObjPlayer_8033E910.cpp
@@ -3262,6 +3265,7 @@ pso/unk/text_800FA7E0.cpp
 pso/unk/text_800FCC78.cpp
 pso/unk/text_800FD8A0.cpp
 pso/unk/text_800FD930.cpp
+pso/unk/text_800FD944.cpp
 pso/unk/text_800FE154.cpp
 pso/unk/text_800FEA34.cpp
 pso/unk/text_800FFC6C.cpp
@@ -3276,6 +3280,7 @@ pso/unk/text_80107D4C.cpp
 pso/unk/text_80108020.cpp
 pso/unk/text_80108860.cpp
 pso/unk/text_80108F04.cpp
+pso/unk/text_801094D8.cpp
 pso/unk/text_801095EC.cpp
 pso/unk/text_80109710.cpp
 pso/unk/text_80109AE4.cpp
@@ -3810,6 +3815,7 @@ pso/unk/text_8028EC70.cpp
 pso/unk/text_80290B3C.cpp
 pso/unk/text_80290BE0.cpp
 pso/unk/text_80290BEC.cpp
+pso/unk/text_80290D1C.cpp
 pso/unk/text_80290DEC.cpp
 pso/unk/text_80290E28.cpp
 pso/unk/text_80290FEC.cpp

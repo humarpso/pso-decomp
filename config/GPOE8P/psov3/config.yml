@@ -475,10 +475,12 @@ force_active:
   - gTRKMsgBufs
   - get_floor_surface_type__10TObjPlayerFPv
   - get_floor_switch_flag
+  - get_material_limit_for_class
   - get_selected_blast__13TWindowSubMagFPv
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_state__19TBoss8DragonEffTailFPv
   - get_surface_contact_point
+  - get_total_materials_used
   - get_vidlist
   - handle_buy_confirm__20TShopArmorListWindowFv
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
@@ -835,6 +837,10 @@ force_active:
   - unused_render_func__9TMainTaskFv
   - update_and_destroy__10TObjPlayerFPv
   - update_anim_if_active__23TObjSeabedSuisoBrakableFPv
+  - update_appearance_drop__11TObjEneMojaFv
+  - update_appearance_jump__11TObjEneMojaFv
+  - update_approach_state__11TObjEneMojaFPv
+  - update_attack_jump__11TObjEneMojaFv
   - update_backdrop_transition__17TWindowMainMenu1PFPv
   - update_button_hold_counter
   - update_buy_sell_choice__20TShopItemTecSequenceFPv
@@ -846,6 +852,7 @@ force_active:
   - update_detonation__10TTecRaFoieFPvPv
   - update_dying_state__14TObjEneBm5WolfFPvi
   - update_follow__11TItemMagSubFv
+  - update_idle_state__11TObjEneMojaFv
   - update_inward_orbit_point
   - update_letterbox_hide__9TCineCtrlFPv
   - update_letterbox_show__9TCineCtrlFPv
@@ -854,6 +861,7 @@ force_active:
   - update_lunge__14TObjEneBm5WolfFv
   - update_main_menu_request__11TWindowCtrlFPv
   - update_pad_recalibration
+  - update_punch_attack__11TObjEneMojaFPv
   - update_selected_help__19TWindowSubTechniqueFPvi
   - update_selection_input__19TWindowSubMagPhotonFPv
   - update_short_list_request__11TWindowCtrlFPv
@@ -862,6 +870,7 @@ force_active:
   - update_state__14TObjEneBm5WolfFPv
   - update_state__8TObjDoorFPv
   - update_target_info_window__11TWindowCtrlFPv
+  - update_technique_state__11TObjEneMojaFv
   - update_title_prompt__19TAdTrialAgreementGCFPv
   - update_trails__11TItemWeaponFPv
   - update_transition__11TItemMagSubFPv
