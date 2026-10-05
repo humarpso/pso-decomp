@@ -269,8 +269,6 @@ void TParticleCtrl__sub_803E2008(s32);
 void fn_803E2070(void);
 
 extern M2C_UNK TFogCtrl__data_80501188[];
-extern const f32 TFogCtrl__data_805DA948;
-extern const f32 TFogCtrl__data_805DA94C;
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
@@ -282,30 +280,12 @@ extern u32 lbl_805D5388;
 extern s32 lbl_805D538C;
 extern E_800FC220 *lbl_805D5398;
 extern s32 lbl_805D53A4;
-extern const f32 lbl_805DA950;
-extern const f32 lbl_805DA954;
-extern const f32 lbl_805DA958;
-extern const f32 lbl_805DA95C;
-extern f32 lbl_805DA964;
-extern f32 lbl_805DA968;
-extern const f32 lbl_805DA978;
-extern const f32 lbl_805DA97C;
-extern const f32 lbl_805DA980;
-extern const f32 lbl_805DA984;
-extern const f32 lbl_805DA988;
-extern const f32 lbl_805DA98C;
-extern const f32 lbl_805DA990;
-extern const f32 lbl_805DA994;
-extern const f32 lbl_805DA998;
-extern const f32 lbl_805DA99C;
-extern const f32 lbl_805DA9A0;
-extern const f32 lbl_805DA9A4;
-extern const f32 lbl_805DA9A8;
-extern const f32 lbl_805DA9AC;
-extern const f32 lbl_805DA9B0;
-extern const f32 lbl_805DA9B4;
-extern const f32 lbl_805DA9B8;
 extern M2C_UNK *tl_02;
+
+extern const f32 TFogCtrl__data_805DA948 = 0.0f;
+extern const f32 TFogCtrl__data_805DA94C = 640.0f;
+#define FOG_ZERO (*(const f32 *)&TFogCtrl__data_805DA948)
+#define FOG_MAX (*(const f32 *)&TFogCtrl__data_805DA94C)
 
 #pragma push
 #pragma inline_depth(1)
@@ -456,18 +436,18 @@ s32 apply_fog_entry(void *arg0) {
     fn_803E1FC8((self->color << 8) | (self->color >> 24));
     fn_803E1FFC(self->start, self->end);
     if (is_split_screen() == 0) {
-        if (self->width >= TFogCtrl__data_805DA94C) {
-            self->width = TFogCtrl__data_805DA94C;
-        } else if (self->width <= TFogCtrl__data_805DA948) {
-            self->width = TFogCtrl__data_805DA948;
+        if (self->width >= FOG_MAX) {
+            self->width = FOG_MAX;
+        } else if (self->width <= FOG_ZERO) {
+            self->width = FOG_ZERO;
         }
         GXInitFogAdjTable(&tbl, (s32)self->width, lbl_8058CA60);
         GXSetFogRangeAdj(1, 0x140, &tbl);
     } else {
-        if (self->width >= lbl_805DA950) {
-            self->width = lbl_805DA950;
-        } else if (self->width <= TFogCtrl__data_805DA948) {
-            self->width = TFogCtrl__data_805DA948;
+        if (self->width >= (3.2e+02f)) {
+            self->width = (3.2e+02f);
+        } else if (self->width <= FOG_ZERO) {
+            self->width = FOG_ZERO;
         }
         GXInitFogAdjTable(&tbl, (s32)self->width, lbl_8058CA60);
         GXSetFogRangeAdj(1, 0xA0, &tbl);
@@ -595,17 +575,17 @@ void apply_slot_params__8TFogCtrlFPvi(FogCtrl_800FB134 *self, s32 idx) {
     self->color = row->color;
     self->end = row->end;
     self->start = row->start;
-    self->width = TFogCtrl__data_805DA94C;
-    if (TFogCtrl__data_805DA948 != row->end_amplitude) {
-        t = row->end_amplitude * sin_table_lookup((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[2])));
+    self->width = FOG_MAX;
+    if (FOG_ZERO != row->end_amplitude) {
+        t = row->end_amplitude * sin_table_lookup((s32)((182.04445f) * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[2])));
         self->end += t;
     }
-    if (TFogCtrl__data_805DA948 != row->start_amplitude) {
-        t = row->start_amplitude * sin_table_lookup((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[4])));
+    if (FOG_ZERO != row->start_amplitude) {
+        t = row->start_amplitude * sin_table_lookup((s32)((182.04445f) * ((f32)lbl_805D53A4 * row->speed + (f32)row->phases[4])));
         self->start += t;
     }
-    if (TFogCtrl__data_805DA948 != row->width) {
-        self->width = (f32)row->phases[6] * sin_table_lookup((s32)(lbl_805DA954 * ((f32)lbl_805D53A4 * row->speed))) + row->width;
+    if (FOG_ZERO != row->width) {
+        self->width = (f32)row->phases[6] * sin_table_lookup((s32)((182.04445f) * ((f32)lbl_805D53A4 * row->speed))) + row->width;
     }
     self->dirty |= 1;
 }
@@ -622,7 +602,7 @@ s32 is_controller_animated__8TFogCtrlFii(s32 arg0, s32 arg1) {
   temp_r3 = *((s32 *) (((s8 *) temp_r31) + 0));
   if (temp_r3 & 2)
   {
-    if (((TFogCtrl__data_805DA948 != (*((f32 *) (((s8 *) temp_r31) + 0x20)))) || (TFogCtrl__data_805DA948 != (*((f32 *) (((s8 *) temp_r31) + 0x28))))) || (((u8) (*((u8 *) (((s8 *) temp_r31) + 0x3E)))) != 0))
+    if (((FOG_ZERO != (*((f32 *) (((s8 *) temp_r31) + 0x20)))) || (FOG_ZERO != (*((f32 *) (((s8 *) temp_r31) + 0x28))))) || (((u8) (*((u8 *) (((s8 *) temp_r31) + 0x3E)))) != 0))
     {
       return 1;
     }
@@ -634,14 +614,14 @@ s32 is_controller_animated__8TFogCtrlFii(s32 arg0, s32 arg1) {
     get_random_float__21TObjEneMe3ShinowaRealFv((f32) temp_f31);
     var_f31 = temp_f31 + (*((f32 *) (((s8 *) temp_r31) + 0x18)));
     get_random_float__21TObjEneMe3ShinowaRealFv((f32) var_f31);
-    if (var_f31 < TFogCtrl__data_805DA948)
+    if (var_f31 < FOG_ZERO)
     {
-      var_f31 += lbl_805DA958;
+      var_f31 += (128.0f);
     }
     else
-      if (var_f31 >= lbl_805DA958)
+      if (var_f31 >= (128.0f))
     {
-      var_f31 -= lbl_805DA958;
+      var_f31 -= (128.0f);
     }
     *((f32 *) (((s8 *) temp_r31) + 0x44)) = var_f31;
     return 1;
@@ -660,7 +640,7 @@ void load_entry_into_slot__8TFogCtrlFPvii(Ctrl_800FB424 *self, s32 i, s32 entry)
     Fog_800FB424 *f = self->fogs[i];
     f->entry = entry;
     copy_fog_entry((u8 *)f, (u8 *)get_entry__8TFogCtrlFi(entry));
-    f->f44 = TFogCtrl__data_805DA948;
+    f->f44 = FOG_ZERO;
     for (k = 0; k < 3; k++) {
         f->f48[k] = 0;
     }
@@ -700,14 +680,14 @@ void run_task__8TFogCtrlFv(Ctrl_800FB498 *arg0) {
         arg0->blendFrom = arg0->reqFrom;
         arg0->blendTo = arg0->reqTo;
         arg0->blendCommit = arg0->reqCommit;
-        arg0->amount = TFogCtrl__data_805DA948;
+        arg0->amount = FOG_ZERO;
         if (arg0->blendTo == 0) {
             arg0->rate = arg0->slots[arg0->blendFrom]->rate;
         } else {
             arg0->rate = arg0->slots[arg0->blendTo]->rate;
         }
-        if (arg0->rate <= TFogCtrl__data_805DA948) {
-            arg0->rate = lbl_805DA95C;
+        if (arg0->rate <= FOG_ZERO) {
+            arg0->rate = (0.001f);
         }
         arg0->selected = 3;
         arg0->slots[3]->identity = arg0->slots[arg0->blendTo]->identity;
@@ -716,7 +696,7 @@ void run_task__8TFogCtrlFv(Ctrl_800FB498 *arg0) {
         mixed = arg0->slots[3];
         from = arg0->slots[arg0->blendFrom];
         to = arg0->slots[arg0->blendTo];
-        mixed->randomPhase = 0.0f;
+        mixed->randomPhase = FOG_ZERO;
         amount = arg0->amount;
         if (amount >= 1.0f) {
             TFogCtrl__sub_800FB400((O_800FB400 *)arg0, arg0->reqTo, arg0->reqCommit);
@@ -788,7 +768,7 @@ TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index
         ((TFogCtrl_800FB92C **)&TFogCtrl__data_80501188)[self->index] = self;
     }
     self->f20 = 0;
-    one = TFogCtrl__data_805DA948;
+    one = FOG_ZERO;
     for (i = 0; i < 4; i++) {
         self->fogs[i].entry = 0;
         copy_fog_entry((u8 *)&self->fogs[i], lbl_80501198);
@@ -796,7 +776,7 @@ TFogCtrl_800FB92C *TFogCtrl__ct(TFogCtrl_800FB92C *self, void *parent, s32 index
         self->ptrs[i] = &self->fogs[i];
     }
     self->f184 = 0;
-    one = TFogCtrl__data_805DA948;
+    one = FOG_ZERO;
     self->f19C = 0;
     self->f1A0 = 0;
     self->f1A4 = 0;
@@ -905,7 +885,7 @@ void reset__8TFogCtrlFv(void) {
     }
     lbl_805D5388 = 0U;
     ((M2C_UNK (*)(M2C_UNK))fn_803E1FC8)(-1);
-    ((M2C_UNK (*)(f32, f32))fn_803E1FFC)(lbl_805DA964, lbl_805DA968);
+    ((M2C_UNK (*)(f32, f32))fn_803E1FFC)((1e+03f), (1e+04f));
     ((M2C_UNK (*)(void))fn_803E2070)();
     begin_effect_render__13TParticleCtrlFv();
 }
@@ -920,10 +900,10 @@ void init_scene_fog_system(void) {
     (*(FogParam_800FBC5C *)&lbl_80501198).f10 = 0.01f;
     (*(FogParam_800FBC5C *)&lbl_80501198).f14 = 0;
     for (i = 0; i < 8; i++) {
-        (*(FogParam_800FBC5C *)&lbl_80501198).f18[i] = 0.0f;
+        (*(FogParam_800FBC5C *)&lbl_80501198).f18[i] = FOG_ZERO;
         (*(FogParam_800FBC5C *)&lbl_80501198).f38[i] = 0;
     }
-    (*(FogParam_800FBC5C *)&lbl_80501198).f18[6] = 640.0f;
+    (*(FogParam_800FBC5C *)&lbl_80501198).f18[6] = FOG_MAX;
     lbl_805D5388 = (u32)alloc_buffer__11TOBoss4RockFPv(0x2000);
     for (i = 0; i < 0x80; i++) {
         copy_fog_entry((u8 *)&((FogParam_800FBC5C *)lbl_805D5388)[i], (u8 *)&lbl_80501198);
@@ -935,145 +915,6 @@ void init_scene_fog_system(void) {
     ((M2C_UNK (*)(void))end_effect_render__13TParticleCtrlFv)();
     create_instance__8TFogCtrlFv();
     TObjFogCollisionPoison__sub_801533C0();
-}
-
-void TWindowSubStatusDisp__sub_800FBD74(s32 arg0, f32 farg0, f32 farg1, f32 farg2) {
-    typedef char sp8_offset[(offsetof(Stack_800FBD74, sp8) == 0x0) ? 1 : -1];
-    typedef char spC_offset[(offsetof(Stack_800FBD74, spC) == 0x4) ? 1 : -1];
-    typedef char sp10_offset[(offsetof(Stack_800FBD74, sp10) == 0x8) ? 1 : -1];
-    typedef char sp14_offset[(offsetof(Stack_800FBD74, sp14) == 0xC) ? 1 : -1];
-    typedef char sp18_offset[(offsetof(Stack_800FBD74, sp18) == 0x10) ? 1 : -1];
-    typedef char sp1C_offset[(offsetof(Stack_800FBD74, sp1C) == 0x14) ? 1 : -1];
-    typedef char sp20_offset[(offsetof(Stack_800FBD74, sp20) == 0x18) ? 1 : -1];
-    typedef char sp24_offset[(offsetof(Stack_800FBD74, sp24) == 0x1C) ? 1 : -1];
-    Stack_800FBD74 stack;
-    f32 temp_f7;
-    f32 temp_f8;
-    reset_transform_state__10TObjPlayerFv();
-    begin_screen_draw((int) (1));
-    render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color((int) (0), (void *) (arg0));
-    stack.sp8 = farg0;
-    stack.spC = farg1;
-    stack.sp10 = lbl_805DA978 + farg0;
-    stack.sp14 = lbl_805DA97C + farg1;
-    stack.sp18 = lbl_805DA980;
-    stack.sp1C = lbl_805DA984;
-    stack.sp20 = lbl_805DA988;
-    stack.sp24 = lbl_805DA98C;
-    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
-    temp_f8 = stack.sp8 + lbl_805DA990;
-    temp_f7 = stack.spC + lbl_805DA994;
-    stack.sp8 = temp_f8;
-    stack.spC = temp_f7;
-    stack.sp10 = lbl_805DA998 + temp_f8;
-    stack.sp14 = lbl_805DA99C + temp_f7;
-    stack.sp18 = lbl_805DA9A0;
-    stack.sp1C = lbl_805DA9A4;
-    stack.sp20 = lbl_805DA9A8;
-    stack.sp24 = lbl_805DA9AC;
-    draw_textured_quad_at_depth((void *) (&stack.sp8), (f32) (farg2));
-    get_player__20TWindowSubStatusDispFv();
-}
-
-void TWindowSubStatusDisp__sub_800FBEA8(void *color, s16 value, u16 digits, f32 x, f32 y, f32 scale) {
-    Pos_800FBEA8 pos;
-    s32 id;
-    s32 i;
-    reset_transform_state__10TObjPlayerFv();
-    begin_screen_draw(1);
-    render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color(0, color);
-    for (i = 0; i < digits; i++) {
-        id = ((s32 (*)(s32))TWindowSubStatusDisp__sub_800FC248)((u8)(value % 10) + '0');
-        x -= ((u8 (*)(s32))get_small_font_glyph_width)(id);
-        pos.x = x;
-        pos.y = y;
-        ((void (*)(s32, Pos_800FBEA8 *))build_small_font_glyph_quad)(id, &pos);
-        draw_textured_quad_at_depth(&pos, scale);
-        value /= 10;
-    }
-    get_player__20TWindowSubStatusDispFv();
-}
-
-void draw_small_font_text(void *color, const char *s, f32 x, f32 y, f32 scale) {
-    Pos_800FBFD8 pos;
-    s32 id;
-    reset_transform_state__10TObjPlayerFv();
-    begin_screen_draw(1);
-    render_forward__20TWindowSubStatusDispFPv();
-    set_draw_texture_and_color(0, color);
-    while (*s != 0) {
-        u8 c = *s++;
-        pos.x = x;
-        pos.y = y;
-        id = ((s32 (*)(s32))TWindowSubStatusDisp__sub_800FC248)(c);
-        ((void (*)(s32, Pos_800FBEA8 *))build_small_font_glyph_quad)((s32)(id), (Pos_800FBEA8 *)(&pos));
-        draw_textured_quad_at_depth(&pos, scale);
-        x += ((u8 (*)(s32))get_small_font_glyph_width)(id);
-    }
-    get_player__20TWindowSubStatusDispFv();
-}
-
-int get_name_text_width(void* p) { return ((int (*)(void*))calc_small_font_text_width)(p); }
-
-u32 calc_small_font_text_width(const char *s) {
-    f32 max = lbl_805DA9B0;
-    u32 w = 0;
-    u8 c;
-
-    if (s == NULL) {
-        return 0;
-    }
-    while (*s != 0) {
-        c = *s++;
-        if (c == '\n') {
-            if (max < (f32)w) {
-                max = (f32)w;
-            }
-            w = 0;
-        } else if (c == ' ') {
-            w = (f32)w + lbl_805DA9B4;
-        } else {
-            w += ((u8 (*)(u8))get_small_font_glyph_width)(c);
-        }
-    }
-    if (max < (f32)w) {
-        max = (f32)w;
-    }
-    return max;
-}
-
-s32 get_small_font_glyph_width(u8 c) {
-    return (s32)lbl_805D5398[c - 0x20].w;
-}
-
-void TWindowSubStatusDisp__sub_800FC248(void) {  }
-
-void calc_plain_glyph_quad(u8 c, Quad_800FC24C *q) {
-    f32 a = (f32)((c & 0xF) << 4);
-    f32 b = 109.0f + (f32)(c & 0xF0);
-    E_800FC220 *g = &lbl_805D5398[c - 0x20];
-    q->y0 = q->y0 + g->x;
-    q->x1 = q->x0 + g->w;
-    q->y1 = lbl_805DA9B8 + q->y0;
-    q->u0 = a / 256.0f;
-    q->v0 = b / 256.0f;
-    q->u1 = (a + g->w) / 256.0f;
-    q->v1 = (lbl_805DA9B8 + b) / 256.0f;
-}
-
-void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q) {
-    f32 a = (f32)((c << 4) & 0xF0);
-    f32 b = (f32)(c & 0xF0);
-    E_800FC220 *g = &lbl_805D5398[c - 0x20];
-    q->y0 = q->y0 + g->x;
-    q->x1 = q->x0 + g->w;
-    q->y1 = lbl_805DA9B8 + q->y0;
-    q->u0 = a / 256.0f;
-    q->v0 = b / 256.0f;
-    q->u1 = (a + g->w) / 256.0f;
-    q->v1 = (lbl_805DA9B8 + b) / 256.0f;
 }
 
 }

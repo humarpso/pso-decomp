@@ -280,10 +280,12 @@ force_active:
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - advance_position__10TTecSlicerFPv
   - advance_to_preparation_phase__20TShopArmorListWindowFPv
+  - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFPv
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
+  - apply_slot_params__8TFogCtrlFPvi
   - aramQueueCallback
   - bswap_enemy_set_row_fields
   - bswap_guild_card_tag__17TWindowSubComCardFPv
@@ -415,6 +417,7 @@ force_active:
   - initialize_player_data__10TObjPlayerFPv
   - inpTranslateExCtrl
   - invoke_callback__10TItemTimerFPv
+  - is_controller_animated__8TFogCtrlFii
   - is_end__12TCharaMakingFv
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
@@ -516,6 +519,7 @@ force_active:
   - render__9TAdBackGCFv
   - render_background_status__18TAdGameStartBackGCFPv
   - render_cursor__19TAdMcSelectCursorGCFPv
+  - request_transition__8TFogCtrlFPvii
   - resetTechniqueContactQuery
   - reset_and_invoke__6TLobbyFv
   - reset_placement_search_ring

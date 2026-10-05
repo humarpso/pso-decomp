@@ -858,6 +858,7 @@ pso/misc/TEndingC_8008D00C_8008D56C.cpp
 pso/misc/TEndingC_8008D00C_8008D5A0.cpp
 pso/misc/TEndingPic.cpp
 pso/misc/TEnding_8008C5C0.cpp
+pso/misc/TFogCtrl.cpp
 pso/misc/TFontSmallHelp.cpp
 pso/misc/TFontSmallLobby_801C013C.cpp
 pso/misc/TFontSmallLobby_801D62D0.cpp
@@ -2007,6 +2008,7 @@ pso/misc/TWindowSubStatusDisp_8006F044.cpp
 pso/misc/TWindowSubStatusDisp_8006F044_8006F044.cpp
 pso/misc/TWindowSubStatusDisp_80071774.cpp
 pso/misc/TWindowSubStatusDisp_80077760.cpp
+pso/misc/TWindowSubStatusDisp_800FBD74.cpp
 pso/misc/TWindowSubStatusDisp_800FFE1C.cpp
 pso/misc/TWindowSubStatusDisp_80100DD0.cpp
 pso/misc/TWindowSubStatusDisp_801059B4.cpp
