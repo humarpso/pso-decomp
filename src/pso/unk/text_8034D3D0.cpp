@@ -1,3 +1,234 @@
+#include "types.h"
+typedef struct Vec4_8034D500 {
+    f32 x, y, z, w;
+} Vec4_8034D500;
+
+typedef struct Vec3_8034D500 {
+    f32 x, y, z;
+} Vec3_8034D500;
+
 extern "C" {
+f32 TBoss8Dragon__sub_8008072C(f32, f32);
+s32 TBoss8Dragon__sub_803D6214(int, int);
+s32 TBoss8Dragon__sub_8034D500(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t);
+}
+
+extern "C" {
+
+struct Entry_8034D3D0 {
+    u8 pad0[0xC];
+    f32 weight;
+};
+
+s32 fn_8034D3D0(Entry_8034D3D0 *e, s32 n, s32 arg2, s32 arg3, s32 arg4, f32 scale) {
+    f32 sum;
+    f32 total;
+    f32 ratio;
+    s32 i;
+
+    if (e == NULL || n <= 1) {
+        return 0;
+    }
+    sum = 0.0f;
+    for (i = 0; i < n; i++) {
+        sum += e[i].weight;
+    }
+    if (0.0f == sum) {
+        return 0;
+    }
+    if (arg3 == 0) {
+        total = (s32) (sum - e[n - 1].weight);
+    } else {
+        total = (s32) sum;
+    }
+    ratio = scale * arg2; ratio /= total;
+    if (ratio >= 1.0f) {
+        return 1;
+    }
+    return TBoss8Dragon__sub_8034D500((Vec4_8034D500 *)e, n, arg3, (Vec3_8034D500 *)arg4, ratio);
+}
+
+}
+
+extern "C" {
+
+#pragma push
+#pragma fp_contract on
+s32 TBoss8Dragon__sub_8034D500(Vec4_8034D500 *pts, s32 count, s32 closed, Vec3_8034D500 *out, f32 t) {
+    s32 n;
+    s32 i;
+    s32 m;
+    f32 u;
+    f32 w;
+    f32 a;
+    f32 b;
+    s32 k;
+    if (count <= 2) {
+        return 0;
+    }
+    n = count - 1;
+    u = (1.0f) - t;
+    out->z = out->y = out->x = (0.0f);
+    if (closed == 0) {
+        for (i = 0; i <= n; i++) {
+            k = TBoss8Dragon__sub_803D6214(n, i);
+            a = TBoss8Dragon__sub_8008072C(t, (f32)i);
+            b = TBoss8Dragon__sub_8008072C(u, (f32)(n - i));
+            w = ((f32)k * a) * b;
+            out->x += w * pts[i].x;
+            out->y += w * pts[i].y;
+            out->z += w * pts[i].z;
+        }
+    } else {
+        m = n + 1;
+        for (i = 0; i <= n; i++) {
+            k = TBoss8Dragon__sub_803D6214(m, i);
+            a = TBoss8Dragon__sub_8008072C(t, (f32)i);
+            b = TBoss8Dragon__sub_8008072C(u, (f32)(m - i));
+            w = ((f32)k * a) * b;
+            if (i == n) {
+                out->x += w * pts[0].x;
+                out->y += w * pts[0].y;
+                out->z += w * pts[0].z;
+            } else {
+                out->x += w * pts[i].x;
+                out->y += w * pts[i].y;
+                out->z += w * pts[i].z;
+            }
+        }
+    }
+    if ((1.0f) == t) {
+        return 1;
+    }
+    return 0;
+}
+#pragma pop
+
+}
+
+#include "types.h"
+struct PartnerText_8034D9E0 {
+    const char *text[6];
+    s32 kind[6];
+};
+
+struct PartnerText_8034DA38
+{
+  const char *text[6];
+  s32 kind[6];
+};
+
+extern "C" {
+extern struct PartnerText_8034D9E0 lbl_805436B8[];
+const char *get_partner_custom_text(s32 kind, u16 player);
+extern struct PartnerText_8034D9E0 lbl_805436B8[];
+void set_partner_dialogue_override(const char *text, s32 kind, u16 player);
+}
+
+extern "C" {
+struct V3_8034D790 { f32 x, y, z; };
+struct Ent_8034D790 { V3_8034D790 p; f32 weight; };
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void normalize_vector(void *);
+
+#pragma push
+#pragma fp_contract on
+s32 fn_8034D790(Ent_8034D790 *e, s32 n, s32 arg2, s32 closed, V3_8034D790 *out, f32 scale) {
+    V3_8034D790 a;
+    V3_8034D790 b;
+    V3_8034D790 d;
+    f32 sum;
+    f32 pos;
+    f32 acc;
+    f32 prev;
+    s32 total;
+    s32 seg;
+    s32 i;
+    s32 idx;
+
+    if (e == NULL || n <= 1) {
+        return 0;
+    }
+    sum = 0.0f;
+    for (i = 0; i < n; i++) {
+        sum += e[i].weight;
+    }
+    if (0.0f == sum) {
+        return 0;
+    }
+    pos = scale * arg2;
+    if (closed == 0) {
+        total = (s32)(sum - e[n - 1].weight);
+    } else {
+        total = (s32)sum;
+    }
+    seg = (s32)pos / total;
+    pos -= seg * sum;
+    if (closed == 0 && seg != 0) {
+        VecCopy__FP3VecPC3Vec(out, &e[n - 1]);
+        return 1;
+    }
+    acc = 0.0f;
+    prev = acc;
+    for (i = 0; i < n; i++) {
+        acc += e[i].weight;
+        if (pos <= acc) {
+            pos -= prev;
+            idx = i;
+            break;
+        }
+        prev = acc;
+    }
+    if (idx == n - 1) {
+        VecCopy__FP3VecPC3Vec(&a, &e[idx]);
+        VecCopy__FP3VecPC3Vec(&b, &e[0]);
+    } else {
+        VecCopy__FP3VecPC3Vec(&a, &e[idx]);
+        VecCopy__FP3VecPC3Vec(&b, &e[idx + 1]);
+    }
+    d.x = b.x - a.x;
+    d.y = b.y - a.y;
+    d.z = b.z - a.z;
+    normalize_vector(&d);
+    out->x = d.x * pos + a.x;
+    out->y = d.y * pos + a.y;
+    out->z = d.z * pos + a.z;
+    return 0;
+}
+#pragma pop
+}
+extern "C" {
+
+const char *get_partner_custom_text(s32 kind, u16 player) {
+    s32 i;
+    if (player >= 4) {
+        return NULL;
+    }
+    for (i = 0; i < 6; i++) {
+        if (kind == lbl_805436B8[player].kind[i]) {
+            return lbl_805436B8[player].text[i];
+        }
+    }
+    return NULL;
+}
+typedef struct PartnerText_8034DA38 PartnerText_8034DA38;
+void set_partner_dialogue_override(const char *text, s32 kind, u16 player) {
+  s32 i;
+  long long off;
+  if (player >= 4)
+  {
+    return;
+  }
+  off = player * 0x30;
+  for (i = 0; i < 6; i++)
+  {
+    if ((((struct PartnerText_8034DA38 *)&lbl_805436B8)[player].kind[i] == 25) || (kind == ((struct PartnerText_8034DA38 *)&lbl_805436B8)[player].kind[i]))
+    {
+      ((struct PartnerText_8034DA38 *) (((u8 *) ((struct PartnerText_8034DA38 *)&lbl_805436B8)) + off))->kind[i] = kind;
+      ((struct PartnerText_8034DA38 *)&lbl_805436B8)[player].text[i] = text;
+      return;
+    }
+  }
+}
 
 }

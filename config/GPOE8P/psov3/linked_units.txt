@@ -806,6 +806,7 @@ pso/misc/TCameraCtrl_8006B3D8.cpp
 pso/misc/TCameraCtrl_8006BA68.cpp
 pso/misc/TCameraCtrl_8006C580.cpp
 pso/misc/TCameraCtrl_8006C5D8.cpp
+pso/misc/TCameraCtrl_8006C8E4.cpp
 pso/misc/TCameraCtrl_800766C4.cpp
 pso/misc/TCameraCtrl_80082FCC.cpp
 pso/misc/TCameraCtrl_8013F25C.cpp
@@ -3160,7 +3161,7 @@ pso/unk/text_80048118.cpp
 pso/unk/text_800483F8.cpp
 pso/unk/text_8004AA04.cpp
 pso/unk/text_8004AB90.cpp
-pso/unk/text_8004DE44.cpp
+pso/unk/text_8004D9A8.cpp
 pso/unk/text_8004F030.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F5F8.cpp
@@ -3930,6 +3931,7 @@ pso/unk/text_8033FF78.cpp
 pso/unk/text_80349B8C.cpp
 pso/unk/text_8034AD38.cpp
 pso/unk/text_8034CEDC.cpp
+pso/unk/text_8034D3D0.cpp
 pso/unk/text_8034DAA0.cpp
 pso/unk/text_803501BC.cpp
 pso/unk/text_8035029C.cpp

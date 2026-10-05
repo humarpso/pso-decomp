@@ -602,18 +602,9 @@ pso/boss/TBoss4DarkFalz_8004C93C.cpp:
 	.sdata2     start:0x805D8938 end:0x805D8940
 
 pso/unk/text_8004D9A8.cpp:
-	.text       start:0x8004D9A8 end:0x8004DA7C
-
-pso/unk/text_8004DA7C.cpp:
-	.text       start:0x8004DA7C end:0x8004DE44
-	.data       start:0x80485460 end:0x80485550
-	.sdata2     start:0x805D896C end:0x805D8988
-
-pso/unk/text_8004DE44.cpp:
-	.text       start:0x8004DE44 end:0x8004DEE0
-
-pso/unk/text_8004DEE0.cpp:
-	.text       start:0x8004DEE0 end:0x8004E020
+	.text       start:0x8004D9A8 end:0x8004E020
+	.data       start:0x80485460 end:0x80485590
+	.sdata2     start:0x805D8968 end:0x805D8988
 
 pso/object/TObjDFDemo0.cpp:
 	.text       start:0x8004E020 end:0x8004E428
@@ -910,13 +901,14 @@ pso/misc/TCameraCtrl_8006C5D8.cpp:
 	.text       start:0x8006C5D8 end:0x8006C8E4
 
 pso/misc/TCameraCtrl_8006C8E4.cpp:
-	.text       start:0x8006C8E4 end:0x8006CC30
+	.text       start:0x8006C8E4 end:0x8006CCEC
 	.rodata     start:0x80438520 end:0x80438528
-	.sdata2     start:0x805D9044 end:0x805D9050
+	.sdata2     start:0x805D9040 end:0x805D904C
 
 pso/misc/TCameraCtrl_8006CC30.cpp:
-	.text       start:0x8006CC30 end:0x8006E82C
-	.rodata     start:0x80438540 end:0x80438548
+	.text       start:0x8006CCEC end:0x8006E82C
+	.rodata     start:0x80438528 end:0x80438548
+	.sdata2     start:0x805D9050 end:0x805D90B8
 
 pso/unk/text_8006E82C.cpp:
 	.text       start:0x8006E82C end:0x8006E85C
@@ -14140,14 +14132,9 @@ pso/misc/TWindowSubInformationBoard.cpp:
 	.data       start:0x804F0248 end:0x804F027C
 
 pso/unk/text_8034D3D0.cpp:
-	.text       start:0x8034D3D0 end:0x8034D500
-
-pso/unk/text_8034D500.cpp:
-	.text       start:0x8034D500 end:0x8034D790
+	.text       start:0x8034D3D0 end:0x8034DAA0
 	.rodata     start:0x80478C48 end:0x80478C50
-
-pso/unk/text_8034D790.cpp:
-	.text       start:0x8034D790 end:0x8034DAA0
+	.sdata2     start:0x805DFDE8 end:0x805DFDF0
 
 pso/unk/text_8034DAA0.cpp:
 	.text       start:0x8034DAA0 end:0x8034DC20
