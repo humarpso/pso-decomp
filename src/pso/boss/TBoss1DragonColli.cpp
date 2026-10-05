@@ -1,4 +1,11 @@
-#include "pso/TBoss1DragonColli.h"
+#include "pso/TObject.h"
+class TBoss1DragonColli : public TObject {
+public:
+    TObject *objects[3];
+public:
+    virtual void render();
+    virtual ~TBoss1DragonColli();
+};
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -41,7 +48,7 @@ struct O_8002B4CC {
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_8002B250___vt__17TBoss1DragonColli __vt__17TBoss1DragonColli;
+extern void *__vt__17TBoss1DragonColli[];
 extern s32 lbl_805D265C;
 extern const f32 lbl_805D8108;
 extern const f32 lbl_805D810C;
@@ -130,7 +137,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     s32 var_r0_2;
     s32 var_r0_3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TBoss1DragonColli.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TBoss1DragonColli;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D265C;
     stack.sp8 = lbl_805D8108;
     stack.spC = lbl_805D8108;
@@ -242,4 +249,45 @@ void fn_8002B630(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg1, f32 *, 0x28);
 }
 
+void __dt__17TBoss1DragonColliFv();
+void run_task__7TObjectFv();
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124();
+void update_object_view_visibility();
+void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C();
+void TObjPlayer__sub_80019568();
+u8 lbl_80481B90[0x2C] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x41, 0xC8, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x80, 0x03,
+};
+void *__vt__17TBoss1DragonColli[] = {
+    0,
+    0,
+    (void *)__dt__17TBoss1DragonColliFv,
+    (void *)run_task__7TObjectFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+M2C_UNK lbl_80481BD4[] = {
+    0,
+    0,
+    (M2C_UNK)destroy__17TBoss1DragonColliFPvs,
+    (M2C_UNK)run_task__7TObjectFv,
+    (M2C_UNK)TBoss1DragonColli__sub_8002B358,
+    (M2C_UNK)render_shadows__7TObjectFv,
+    (M2C_UNK)TLobby__sub_801A1FD8,
+    (M2C_UNK)apply_object_set_data,
+    (M2C_UNK)release_member_90__10TObjPlayerFPv,
+    (M2C_UNK)TParticleCtrl__sub_801A2124,
+    (M2C_UNK)update_object_view_visibility,
+    (M2C_UNK)classify_actor_view_detail,
+    (M2C_UNK)TObjRoomId__sub_801A1E2C,
+    (M2C_UNK)TObjPlayer__sub_80019568,
+    0,
+};
 }

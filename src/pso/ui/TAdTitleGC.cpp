@@ -44,8 +44,6 @@ struct Title_802A0C84 {
 
 extern "C" {
 u32 calc_text_width(void *);
-extern const f32 lbl_805DDDD0;
-extern const f32 lbl_805DDDD4;
 void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(M2C_UNK);
@@ -53,22 +51,13 @@ M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D6630;
-extern const f32 lbl_805DDDC8;
-extern const f32 lbl_805DDDCC;
 M2C_UNK TAdTitleGC__sub_802A0A60(void *arg0, s32 arg1, M2C_UNK arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 u32 TAdMcSelectGC__sub_80019DA8(void *, s32, f32);
 extern u8 __vt__10TAdTitleGC[];
 extern s32 lbl_805D3D78;
-extern const f32 lbl_805DDDE4;
-extern const f32 lbl_805DDDE8;
-extern const f32 lbl_805DDDF0;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
 extern f32 lbl_8046620C[];
-extern const f32 lbl_805DDDD8;
-extern const f32 lbl_805DDDDC;
-extern const f32 lbl_805DDDE0;
-extern const f32 lbl_805DDDE4;
 M2C_UNK TAdTitleGC__sub_802A0C84(void *p);
 }
 
@@ -90,7 +79,7 @@ M2C_UNK TAdTitleGC__sub_802A0A60(void *arg0, s32 arg1, M2C_UNK arg2) {
     set_global_param__8TObjFishFi(lbl_805D6630);
     set_draw_texture_and_color(arg1 > 0xB, arg2);
     for (i = 0; i < 8; i++) {
-        draw_textured_quad_at_depth(&((Title_802A0A60 *)arg0)->recs[i], lbl_805DDDC8 / -(lbl_805DDDCC - (f32)i));
+        draw_textured_quad_at_depth(&((Title_802A0A60 *)arg0)->recs[i], (-1.0f) / -((113.0f) - (f32)i));
     }
     return get_player__20TWindowSubStatusDispFv();
 }
@@ -120,8 +109,8 @@ block_5:
 #pragma push
 #pragma fp_contract on
 void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2) {
-    M2C_FIELD(arg1, f32 *, 0) = (f32) (lbl_805DDDD0 - (f32) calc_text_width((void *) (arg2)));
-    M2C_FIELD(arg1, f32 *, 4) = (f32) lbl_805DDDD4;
+    M2C_FIELD(arg1, f32 *, 0) = (f32) ((6.2e+02f) - (f32) calc_text_width((void *) (arg2)));
+    M2C_FIELD(arg1, f32 *, 4) = (f32) (86.0f);
 }
 #pragma pop
 
@@ -129,10 +118,10 @@ M2C_UNK TAdTitleGC__sub_802A0C84(void *p) {
     Title_802A0C84 *arg0 = (Title_802A0C84 *)p;
     s32 i;
     for (i = 0; i < 8; i++) {
-        arg0->rects[i].x0 = lbl_805DDDD8 - ((f32)(10 - arg0->f128) * ((f32)(10 - arg0->f128) * lbl_8046620C[i]));
-        arg0->rects[i].y0 = lbl_805DDDDC;
-        arg0->rects[i].x1 = lbl_805DDDE0 + arg0->rects[i].x0;
-        arg0->rects[i].y1 = lbl_805DDDE4 + arg0->rects[i].y0;
+        arg0->rects[i].x0 = (64.0f) - ((f32)(10 - arg0->f128) * ((f32)(10 - arg0->f128) * lbl_8046620C[i]));
+        arg0->rects[i].y0 = (43.0f);
+        arg0->rects[i].x1 = (512.0f) + arg0->rects[i].x0;
+        arg0->rects[i].y1 = (4e+01f) + arg0->rects[i].y0;
     }
     return (M2C_UNK)p;
 }
@@ -167,12 +156,12 @@ TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *paren
     self->f130 = 0;
     off = (self->idx > 11) ? -12 : 0;
     for (i = 0; i < 8; i++) {
-        self->recs[i].a = lbl_805DDDE8;
-        self->recs[i].b = lbl_805DDDE4 * (f32)(self->idx + off) / 512.0f;
-        self->recs[i].c = lbl_805DDDF0;
-        self->recs[i].d = lbl_805DDDE4 * (f32)(self->idx + off + 1) / 512.0f;
+        self->recs[i].a = (0.0f);
+        self->recs[i].b = (4e+01f) * (f32)(self->idx + off) / 512.0f;
+        self->recs[i].c = 1.0f;
+        self->recs[i].d = (4e+01f) * (f32)(self->idx + off + 1) / 512.0f;
     }
-    self->f130 = TAdMcSelectGC__sub_80019DA8(self, 8, lbl_805DDDE8);
+    self->f130 = TAdMcSelectGC__sub_80019DA8(self, 8, (0.0f));
     return self;
 }
 #pragma pop

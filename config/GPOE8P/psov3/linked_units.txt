@@ -118,6 +118,7 @@ os/OSContext.c
 os/OSError.c
 os/OSMemory.c
 pad/Pad.c
+pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
 pso/boss/TBoss1DragonEffBullet.cpp
@@ -231,6 +232,7 @@ pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
 pso/boss/TBoss7LaserPtcl_8035AA98.cpp
 pso/boss/TBoss7PhotonBullet.cpp
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp
+pso/boss/TBoss8DragonColli.cpp
 pso/boss/TBoss8DragonDemo.cpp
 pso/boss/TBoss8DragonEffBreath.cpp
 pso/boss/TBoss8DragonEffBullet.cpp
@@ -712,8 +714,7 @@ pso/item/TItemMenuCtrl_80115A78.cpp
 pso/item/TItemMenuCtrl_80115AF0.cpp
 pso/item/TItemMoney.cpp
 pso/item/TItemObject.cpp
-pso/item/TItemObject_80115D6C_801161A4.cpp
-pso/item/TItemObject_80115D6C_801164C4.cpp
+pso/item/TItemObject_80115D6C.cpp
 pso/item/TItemProArmor.cpp
 pso/item/TItemProArmorParticle.cpp
 pso/item/TItemProArmor_80102C3C.cpp
@@ -2989,10 +2990,10 @@ pso/ui/TAdFloorLoadPrtGC.cpp
 pso/ui/TAdGameStartBackGC.cpp
 pso/ui/TAdGameStartBackGC_80307298.cpp
 pso/ui/TAdGameStartBackGC_803072CC.cpp
+pso/ui/TAdGameStartGC.cpp
 pso/ui/TAdGameStartLineGC.cpp
 pso/ui/TAdGameStartShadowGC.cpp
 pso/ui/TAdGameStartShineGC.cpp
-pso/ui/TAdGameStartSubGC_802E67FC.cpp
 pso/ui/TAdLicAgreementGC.cpp
 pso/ui/TAdLoadNetworkGC.cpp
 pso/ui/TAdLoadNetworkGC_803084AC.cpp
@@ -3111,6 +3112,7 @@ pso/ui/TAdStorySelectGC.cpp
 pso/ui/TAdStorySelectGC_8019DC14.cpp
 pso/ui/TAdStorySelectGC_802C3284.cpp
 pso/ui/TAdSubPlyItemGC.cpp
+pso/ui/TAdTitleGC.cpp
 pso/ui/TAdTitleTexGC.cpp
 pso/ui/TAdTrialAgreementGC.cpp
 pso/ui/TAdTrialAgreementGC_8033573C.cpp

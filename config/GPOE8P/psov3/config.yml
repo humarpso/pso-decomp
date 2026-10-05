@@ -81,6 +81,7 @@ force_active:
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
   - TAdSinglePlyChrSelectGC__sub_8028EE20
+  - TAdTitleGC__sub_802A0A60
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
   - TBoss7Crawfish__sub_80308840
@@ -93,6 +94,7 @@ force_active:
   - TChCrTagName__vt4
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
+  - TItemObject__vt42
   - TItemProArmor__sub_80117730
   - TItemProArmor__vt14
   - TItemWeaponMechgun__ct
@@ -200,6 +202,7 @@ force_active:
   - __VIInit
   - __ct__15TBoss6CrushRockFv
   - __ct__9TEffGuardFPC3Vec
+  - __dt__10TAdTitleGCFv
   - __dt__10TBoss4FadeFv
   - __dt__10TDPBShowerFv
   - __dt__10TEndingPicFv
@@ -266,7 +269,9 @@ force_active:
   - __dt__16TItemReverseTechFv
   - __dt__16TObjBagWarnWin4PFv
   - __dt__16TObjItemOKWindowFv
+  - __dt__17TAdGameStartSubGCFv
   - __dt__17TAdSelectTxtSubGCFv
+  - __dt__17TBoss1DragonColliFv
   - __dt__17TBoss5GryphonDemoFv
   - __dt__17TBoss6EffFlowSoulFv
   - __dt__17TOSwitchAttackSubFv
@@ -384,6 +389,7 @@ force_active:
   - create_particle_emitters__9TTecBartaFPv
   - create_particles__11TTecGiBartaFv
   - create_rafoie_explosion
+  - create_sphere_chain__17TBoss1DragonColliFiPviPvf
   - curvecmp
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
@@ -522,6 +528,8 @@ force_active:
   - lbl_804663F8
   - lbl_8046FC68
   - lbl_8046FC78
+  - lbl_80472C38
+  - lbl_80472C48
   - lbl_80483EEC
   - lbl_8048E758
   - lbl_80494B18
@@ -539,6 +547,7 @@ force_active:
   - lbl_804B94E8
   - lbl_804B94F4
   - lbl_804E0BE8
+  - lbl_804E3B60
   - lbl_804E80D0
   - lbl_804E8114
   - lbl_804E8124
@@ -583,6 +592,7 @@ force_active:
   - refresh_label__11TChCrEffTagFPv
   - remove_duplicate_bindings__21TWindowSubCustomEquipFPvPv
   - render__10TAdADXlogoFv
+  - render__10TAdTitleGCFv
   - render__10TEndingPicFv
   - render__11TAdRicoRingFv
   - render__11TAdSEGAlogoFv
@@ -608,6 +618,7 @@ force_active:
   - render__16TBoss1DragonDemoFv
   - render__16TBoss4CheckEmptyFv
   - render__16TBoss8DragonDemoFv
+  - render__17TAdGameStartSubGCFv
   - render__17TAdSelectTxtSubGCFv
   - render__17TBoss5GryphonDemoFv
   - render__17TObjBoss8DemoRoomFv
@@ -647,6 +658,7 @@ force_active:
   - run_single_view_frame
   - run_split_screen_frame
   - run_task__10TAdADXlogoFv
+  - run_task__10TAdTitleGCFv
   - run_task__10TDPBShowerFv
   - run_task__10TEndingPicFv
   - run_task__10TItemTimerFv
@@ -698,6 +710,7 @@ force_active:
   - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TItemReverseTechFv
   - run_task__16TObjBagWarnWin4PFv
+  - run_task__17TAdGameStartSubGCFv
   - run_task__17TAdSelectTxtSubGCFv
   - run_task__17TBoss5GryphonDemoFv
   - run_task__17TBoss6EffFlowSoulFv

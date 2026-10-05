@@ -1,4 +1,10 @@
-#include "pso/TBoss8DragonColli.h"
+#include "pso/TObject.h"
+class TBoss8DragonColli : public TObject {
+public:
+    virtual void render();
+    virtual ~TBoss8DragonColli();
+    TObject *objects[3];
+};
 #include "types.h"
 struct E_802F3144 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
@@ -74,7 +80,7 @@ typedef char RecoveredGlobal_802F2F68___vt__17TBoss8DragonColli_size[sizeof(Reco
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_802F2F68___vt__17TBoss8DragonColli __vt__17TBoss8DragonColli;
+extern void *__vt__17TBoss8DragonColli[];
 extern s32 lbl_805D4004;
 extern const f32 lbl_805DED20;
 extern const f32 lbl_805DED24;
@@ -115,7 +121,7 @@ u8 *TBoss8DragonColli__ct(u8 *arg0, s32 arg1) {
     s32 var_r0_2;
     s32 var_r0_3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TBoss8DragonColli.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TBoss8DragonColli;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4004;
     stack.sp8 = lbl_805DED20;
     stack.spC = lbl_805DED20;
@@ -210,4 +216,45 @@ s32 TBoss8DragonColli__sub_802F31E4(int arg0, void *arg1, int arg2, void *arg3, 
 }
 #undef self
 
+void __dt__17TBoss8DragonColliFv();
+void run_task__7TObjectFv();
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124();
+void update_object_view_visibility();
+void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C();
+void TObjPlayer__sub_80019568();
+u8 lbl_804E4B70[0x2C] = {
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x41, 0xC8, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x80, 0x03,
+};
+void *__vt__17TBoss8DragonColli[] = {
+    0,
+    0,
+    (void *)__dt__17TBoss8DragonColliFv,
+    (void *)run_task__7TObjectFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+M2C_UNK lbl_804E4BB4[] = {
+    0,
+    0,
+    (M2C_UNK)destroy__17TBoss8DragonColliFPvs,
+    (M2C_UNK)run_task__7TObjectFv,
+    (M2C_UNK)TBoss8DragonColli__sub_802F3070,
+    (M2C_UNK)render_shadows__7TObjectFv,
+    (M2C_UNK)TLobby__sub_801A1FD8,
+    (M2C_UNK)apply_object_set_data,
+    (M2C_UNK)release_member_90__10TObjPlayerFPv,
+    (M2C_UNK)TParticleCtrl__sub_801A2124,
+    (M2C_UNK)update_object_view_visibility,
+    (M2C_UNK)classify_actor_view_detail,
+    (M2C_UNK)TObjRoomId__sub_801A1E2C,
+    (M2C_UNK)TObjPlayer__sub_80019568,
+    0,
+};
 }

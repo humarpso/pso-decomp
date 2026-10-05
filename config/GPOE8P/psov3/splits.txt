@@ -234,6 +234,7 @@ pso/unk/text_8002B164.cpp:
 pso/boss/TBoss1DragonColli.cpp:
 	.text       start:0x8002B1C0 end:0x8002B68C
 	.rodata     start:0x804353D8 end:0x804353E0
+	.data       start:0x80481B90 end:0x80481C10
 
 pso/boss/TBoss1DragonDemo.cpp:
 	.text       start:0x8002B68C end:0x8002B840
@@ -3448,14 +3449,8 @@ pso/unk/text_80115D68.cpp:
 	.text       start:0x80115D68 end:0x80115D6C
 
 pso/item/TItemObject_80115D6C.cpp:
-	.text       start:0x80115D6C end:0x801161A4
-	.data       start:0x8049F74C end:0x8049F770
-
-pso/item/TItemObject_80115D6C_801161A4.cpp:
-	.text       start:0x801161A4 end:0x801164C4
-
-pso/item/TItemObject_80115D6C_801164C4.cpp:
-	.text       start:0x801164C4 end:0x80116578
+	.text       start:0x80115D6C end:0x80116578
+	.data       start:0x8049F698 end:0x8049F770
 
 pso/player/TObjPlayer_80116578.cpp:
 	.text       start:0x80116578 end:0x80116634
@@ -11622,7 +11617,7 @@ pso/ui/TAdTitleGC.cpp:
 	.text       start:0x802A0A60 end:0x802A0F3C
 	.rodata     start:0x80466230 end:0x80466240
 	.data       start:0x804DCAA0 end:0x804DCAB8
-	.sdata2     start:0x805DDDEC end:0x805DDDF0
+	.sdata2     start:0x805DDDC8 end:0x805DDDF4
 
 pso/misc/TLobby_802A0F3C.cpp:
 	.text       start:0x802A0F3C end:0x802A1020
@@ -12563,16 +12558,11 @@ pso/unk/text_802E6260.cpp:
 	.ctors      start:0x80433FD4 end:0x80433FD8
 
 pso/ui/TAdGameStartGC.cpp:
-	.text       start:0x802E62F8 end:0x802E67FC
-
-pso/ui/TAdGameStartSubGC_802E67FC.cpp:
-	.text       start:0x802E67FC end:0x802E6830
-
-pso/ui/TAdGameStartSubGC_802E6830.cpp:
-	.text       start:0x802E6830 end:0x802E6CA8
-	.rodata     start:0x80472C60 end:0x80472C68
-	.data       start:0x804E3B90 end:0x804E3BA8
-	.sdata2     start:0x805DE9BC end:0x805DE9C0
+	.text       start:0x802E62F8 end:0x802E6CA8
+	.rodata     start:0x80472C28 end:0x80472C68
+	.data       start:0x804E3B60 end:0x804E3BA8
+	.sdata      start:0x805D3FA8 end:0x805D3FB8
+	.sdata2     start:0x805DE990 end:0x805DE9C8
 
 pso/player/TObjPlayer_802E6CA8.cpp:
 	.text       start:0x802E6CA8 end:0x802E79B0
@@ -12729,6 +12719,7 @@ pso/unk/text_802F2E7C.cpp:
 pso/boss/TBoss8DragonColli.cpp:
 	.text       start:0x802F2ED8 end:0x802F3348
 	.rodata     start:0x804744A0 end:0x804744A8
+	.data       start:0x804E4B70 end:0x804E4BF0
 
 pso/boss/TBoss8Dragon_802F3348.cpp:
 	.text       start:0x802F3348 end:0x802F3504
