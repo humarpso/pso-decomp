@@ -338,6 +338,12 @@ cflags_dolphin = [
     "-D__GEKKO__",  # donor SDK sources guard asm functions with this
 ]
 
+# odemuexi2/DebuggerDriver.o was built with deferred inlining: functions are
+# emitted in reverse definition order and its small EXI helpers inline away.
+cflags_dolphin_deferred = [
+    "-inline auto,deferred" if f == "-inline auto" else f for f in cflags_dolphin
+]
+
 # Recovered SDK owners omit unused inline-math constants from their pools.
 cflags_dolphin_recovered = [
     f for f in cflags_dolphin if f != "-char unsigned"
@@ -719,7 +725,7 @@ if args.target == "psov3":
         DolphinLib(
             "odemuexi2",
             [
-                NonMatching("odemuexi2/DebuggerDriver.c"),
+                NonMatching("odemuexi2/DebuggerDriver.c", cflags=cflags_dolphin_deferred),
             ],
         ),
         TRKLib(

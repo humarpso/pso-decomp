@@ -14735,6 +14735,7 @@ os/OSResetSW.c:
 
 os/OSRtc.c:
 	.text       start:0x803742B4 end:0x80374CE0
+	.bss        start:0x80543B60 end:0x80543BB8
 
 os/OSSync.c:
 	.text       start:0x80374CE0 end:0x80374D64
@@ -14744,6 +14745,7 @@ os/OSThread.c:
 
 os/OSTime.c:
 	.text       start:0x80375F08 end:0x8037632C
+	.data       start:0x804F4468 end:0x804F44C8
 
 os/__ppc_eabi_init.cpp:
 	.text       start:0x8037632C end:0x803763C0
@@ -15266,6 +15268,8 @@ odenotstub/odenotstub.c:
 
 odemuexi2/DebuggerDriver.c:
 	.text       start:0x803A2DD8 end:0x803A3858
+	.sdata      start:0x805D4628 end:0x805D4629
+	.sbss       start:0x805D7348 end:0x805D7360
 
 musyx/runtime/seq.c:
 	extab       start:0x8000E568 end:0x8000E5D8

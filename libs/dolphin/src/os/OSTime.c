@@ -1,7 +1,19 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include <dolphin/exi.h>
 #include <dolphin/os.h>
 
+#include <macros.h>
 #include "os/__os.h"
+
+#define OS_TIME_SPEED OS_TIMER_CLOCK
+#define OS_TICKS_TO_SEC(x) ((x) / (OS_TIME_SPEED))
+#define OS_TICKS_TO_MSEC(x) ((x) / (OS_TIME_SPEED / 1000))
+#define OS_TICKS_TO_USEC(x) (((x)*8) / (OS_TIME_SPEED / 125000))
+#define OS_SEC_TO_TICKS(x) ((x) * (OS_TIME_SPEED))
+#define OS_MSEC_TO_TICKS(x) ((x) * (OS_TIME_SPEED / 1000))
+#define OS_USEC_TO_TICKS(x) ((x) * (OS_TIME_SPEED / 125000) / 8)
 
 
 static int YearDays[MONTH_MAX] = {0,   31,  59,  90,  120, 151,

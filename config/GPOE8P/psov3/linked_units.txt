@@ -43,6 +43,7 @@ TRK_MINNOW_DOLPHIN/nubinit.c
 TRK_MINNOW_DOLPHIN/support.c
 TRK_MINNOW_DOLPHIN/target_options.c
 ai/ai.c
+ar/ar.c
 ar/arq.c
 card/CARDBios.c
 card/CARDBlock.c
@@ -113,10 +114,13 @@ musyx/runtime/synth_vsamples.c
 musyx/runtime/synthdata.c
 musyx/runtime/synthmacros.c
 musyx/runtime/synthvoice.c
+odemuexi2/DebuggerDriver.c
 os/OSCache.c
 os/OSContext.c
 os/OSError.c
 os/OSMemory.c
+os/OSRtc.c
+os/OSTime.c
 pad/Pad.c
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp

@@ -28,4 +28,6 @@
 
 #define ASSERT(cond) ASSERTLINE(__LINE__, cond)
 
+#define ALIGN_NEXT(u, align) ((u + (align - 1)) & (~(align - 1)))
+
 #endif

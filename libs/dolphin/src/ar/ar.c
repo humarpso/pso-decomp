@@ -11,6 +11,7 @@
 #define __AR_StackPointer lbl_805D7268
 #define __AR_init_flag lbl_805D7274
 
+#include <macros.h>
 #include <dolphin/ar.h>
 
 #include <dolphin.h>

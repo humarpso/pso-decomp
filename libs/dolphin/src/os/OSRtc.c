@@ -1,6 +1,10 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #include <dolphin/exi.h>
 #include <dolphin/os.h>
 
+#include <macros.h>
 #include "os/__os.h"
 
 static SramControl Scb ATTRIBUTE_ALIGN(DOLPHIN_ALIGNMENT);
@@ -140,7 +144,6 @@ void __OSInitSram(void) {
     ASSERTLINE(318, Scb.sync);
     Scb.offset = SRAM_SIZE;
 
-    OSSetGbsMode(OSGetGbsMode());
 }
 
 static void* LockSram(u32 offset) {
@@ -184,13 +187,6 @@ static int UnlockSram(int commit, u32 offset) {
         }
         if (offset < Scb.offset) {
             Scb.offset = offset;
-        }
-
-        if (Scb.offset <= 0x14) {
-            OSSramEx* sram = (OSSramEx*)(Scb.sram + sizeof(OSSram));
-            if (((u32)sram->gbs & 0x7c00) == 0x5000 || ((u32)sram->gbs & 0xc0) == 0xc0) {
-                sram->gbs = 0;
-            }
         }
 
         Scb.sync = WriteSram(&Scb.sram[Scb.offset], Scb.offset, SRAM_SIZE - Scb.offset);
