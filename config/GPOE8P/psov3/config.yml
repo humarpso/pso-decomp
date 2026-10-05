@@ -197,6 +197,7 @@ force_active:
   - __dt__13TObjBoss5CtrlFv
   - __dt__13TObjBoss7DustFv
   - __dt__13TObjResultWinFv
+  - __dt__13TParticleCtrlFv
   - __dt__13TPlyOnCreatedFv
   - __dt__14TAdFloorLoadGCFv
   - __dt__14TAdLoadQuestGCFv
@@ -292,6 +293,8 @@ force_active:
   - apply_room_transform_to_object_rows
   - apply_slot_params__8TFogCtrlFPvi
   - aramQueueCallback
+  - attach_model__13TParticleCtrlFPviiiif
+  - bind_controller_devices
   - bswap_enemy_set_row_fields
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
@@ -439,6 +442,7 @@ force_active:
   - is_within_camera_distance
   - layercmp
   - lbl_80483EEC
+  - lbl_8048E758
   - lbl_80494B18
   - lbl_80497710
   - lbl_80497718
@@ -567,6 +571,7 @@ force_active:
   - run_task__13TObjBoss5CtrlFv
   - run_task__13TObjBoss7DustFv
   - run_task__13TObjResultWinFv
+  - run_task__13TParticleCtrlFv
   - run_task__14TAdFloorLoadGCFv
   - run_task__14TAdLoadQuestGCFv
   - run_task__14TAdSelectTxtGCFv
@@ -635,6 +640,8 @@ force_active:
   - set_code_43_6__10TObjPlayerFPv
   - set_enable_count__13TOHealGeneralFPvi
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
+  - set_particle_draw_scale
+  - set_particle_tint_color
   - set_player_room_control_flag
   - set_script_entry__13TOHealGeneralFPvi
   - set_tev_stage_mode
@@ -650,6 +657,8 @@ force_active:
   - spawn_recipe_particles__14TItemEffShieldFPv
   - spawn_scattered_lightning_strikes
   - step_camera_scalar
+  - step_fade_opacity_decrease
+  - step_fade_opacity_increase
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
@@ -670,6 +679,7 @@ force_active:
   - update_light_direction__12TCharaMakingFPv
   - update_load_state__9TItemLoadFPv
   - update_main_menu_request__11TWindowCtrlFPv
+  - update_pad_recalibration
   - update_selected_help__19TWindowSubTechniqueFPvi
   - update_selection_input__19TWindowSubMagPhotonFPv
   - update_short_list_request__11TWindowCtrlFPv

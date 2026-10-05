@@ -894,7 +894,6 @@ pso/misc/TJudgmentSequence.cpp
 pso/misc/TJudgmentSequence_8021E4C4.cpp
 pso/misc/TKeyBoardControl_8000F764.cpp
 pso/misc/TKeyBoardControl_801A57C4.cpp
-pso/misc/TKeyBoardControl_801A6510.cpp
 pso/misc/TKeyBoardControl_802433DC.cpp
 pso/misc/TKeyBoardControl_8025CB70.cpp
 pso/misc/TKeyBoardControl_80290CB0.cpp
@@ -1408,6 +1407,7 @@ pso/misc/TOExplosiveMachine03.cpp
 pso/misc/TOFenceAncient01.cpp
 pso/misc/TOFenceAncient02.cpp
 pso/misc/TOFenceAncient03.cpp
+pso/misc/TOFenceAncient04.cpp
 pso/misc/TOGrassJungle.cpp
 pso/misc/TOGrassJungle_8029CD90.cpp
 pso/misc/TOHangceilingCave01.cpp
@@ -1430,6 +1430,7 @@ pso/misc/TOKeyMachine01_8016D448.cpp
 pso/misc/TOKeyMachine01_8029E764.cpp
 pso/misc/TOKey_8015845C.cpp
 pso/misc/TOKey_80169EE4.cpp
+pso/misc/TOKurage.cpp
 pso/misc/TOLightMachine01.cpp
 pso/misc/TOMine.cpp
 pso/misc/TOMineDisp.cpp
@@ -1514,6 +1515,7 @@ pso/misc/TParticleCtrl_80083550.cpp
 pso/misc/TParticleCtrl_800866F8.cpp
 pso/misc/TParticleCtrl_800867AC.cpp
 pso/misc/TParticleCtrl_800867E4.cpp
+pso/misc/TParticleCtrl_8008767C.cpp
 pso/misc/TParticleCtrl_801A25B4.cpp
 pso/misc/TParticleCtrl_801C6650.cpp
 pso/misc/TParticleCtrl_801D6B3C.cpp
@@ -2645,6 +2647,7 @@ pso/player/TObjPlayer_80166970.cpp
 pso/player/TObjPlayer_80178150.cpp
 pso/player/TObjPlayer_8017E4EC.cpp
 pso/player/TObjPlayer_801A2570.cpp
+pso/player/TObjPlayer_801A5AEC.cpp
 pso/player/TObjPlayer_801A7080.cpp
 pso/player/TObjPlayer_801A9BAC.cpp
 pso/player/TObjPlayer_801AA220.cpp
@@ -3219,6 +3222,7 @@ pso/unk/text_800EB778.cpp
 pso/unk/text_800F591C.cpp
 pso/unk/text_800F5BC0.cpp
 pso/unk/text_800F7D30.cpp
+pso/unk/text_800F7DAC.cpp
 pso/unk/text_800F8A0C.cpp
 pso/unk/text_800F8A18.cpp
 pso/unk/text_800F8A78.cpp
@@ -3460,7 +3464,6 @@ pso/unk/text_80160838.cpp
 pso/unk/text_801611CC.cpp
 pso/unk/text_80165940.cpp
 pso/unk/text_80166B6C.cpp
-pso/unk/text_80168AA8.cpp
 pso/unk/text_8016916C.cpp
 pso/unk/text_80169334.cpp
 pso/unk/text_80169BD0.cpp
@@ -3558,7 +3561,6 @@ pso/unk/text_801A2B38.cpp
 pso/unk/text_801A3014.cpp
 pso/unk/text_801A4D30.cpp
 pso/unk/text_801A5778.cpp
-pso/unk/text_801A69E4.cpp
 pso/unk/text_801A6A28.cpp
 pso/unk/text_801A6A5C.cpp
 pso/unk/text_801A6F84.cpp

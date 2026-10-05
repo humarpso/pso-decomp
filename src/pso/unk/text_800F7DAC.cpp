@@ -101,14 +101,6 @@ extern M2C_UNK lbl_804999B8[];
 extern M2C_UNK lbl_804999D0[];
 extern void *lbl_805D5330;
 extern s32 lbl_805D53A0;
-extern const f32 lbl_805DA8E8;
-extern const f32 lbl_805DA8EC;
-extern const f32 lbl_805DA8F0;
-extern const f32 lbl_805DA8F4;
-extern const f32 lbl_805DA8F8;
-extern const f32 lbl_805DA8FC;
-extern const f32 lbl_805DA900;
-extern const f32 lbl_805DA904;
 extern void *tl_fade;
 
 #pragma push
@@ -169,20 +161,20 @@ void render_screen_fade(Fade_800F7E28 *self) {
     q.start = 0;
     q.count = 4;
     self->u.c[3] = (s32)self->level;
-    q.pos[0] = lbl_805DA8E8;
-    q.pos[1] = lbl_805DA8E8;
+    q.pos[0] = (0.0f);
+    q.pos[1] = (0.0f);
     q.col[0] = self->u.color;
-    q.pos[2] = lbl_805DA8EC;
-    q.pos[3] = lbl_805DA8E8;
+    q.pos[2] = (6.4e+02f);
+    q.pos[3] = (0.0f);
     q.col[1] = self->u.color;
-    q.pos[4] = lbl_805DA8EC;
-    q.pos[5] = lbl_805DA8F0;
+    q.pos[4] = (6.4e+02f);
+    q.pos[5] = (4.8e+02f);
     q.col[2] = self->u.color;
-    q.pos[6] = lbl_805DA8E8;
-    q.pos[7] = lbl_805DA8F0;
+    q.pos[6] = (0.0f);
+    q.pos[7] = (4.8e+02f);
     q.col[3] = self->u.color;
-    if (lbl_805DA8E8 != (f32)self->u.c[3]) {
-        TObjCMHairMenu__sub_801E35C4(&q, 4, 0x16, lbl_805DA8F4);
+    if ((0.0f) != (f32)self->u.c[3]) {
+        TObjCMHairMenu__sub_801E35C4(&q, 4, 0x16, (-1e+01f));
     }
     TCameraCtrl__sub_80068EF0();
 }
@@ -209,9 +201,9 @@ void dispatch_state__6TLobbyFPv(void *arg0) {
 #pragma opt_common_subs off
 void TLobby__sub_800F7FB8(u8 *arg0) {
     M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805DA8F8);
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805DA8FC) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA8FC;
+    M2C_FIELD(arg0, f32 *, 0x1C) += 1.0f;
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= (128.0f)) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (128.0f);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -226,9 +218,9 @@ extern int fold_flush_1;
 #pragma opt_common_subs off
 void step_fade_opacity_increase(u8 *arg0) {
     M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805DA900);
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805DA904) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA904;
+    M2C_FIELD(arg0, f32 *, 0x1C) += 8.0f;
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= (255.0f)) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (255.0f);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -242,7 +234,7 @@ extern int fold_flush_2;
 void init_fadeout_state__6TLobbyFi(s32 arg0) {
     if ((void *) lbl_805D5330 != NULL) {
         M2C_FIELD(lbl_805D5330, s32 *, 0x28) = arg0;
-        M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) lbl_805DA8E8;
+        M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) (0.0f);
         M2C_FIELD(lbl_805D5330, s8 *, 0x20) = 0;
         M2C_FIELD(lbl_805D5330, s8 *, 0x21) = 0;
         M2C_FIELD(lbl_805D5330, s8 *, 0x22) = 0;
@@ -254,9 +246,9 @@ void init_fadeout_state__6TLobbyFi(s32 arg0) {
 #pragma opt_common_subs off
 void step_fade_opacity_decrease(u8 *arg0) {
     M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805DA900);
-    if (M2C_FIELD(arg0, f32 *, 0x1C) <= lbl_805DA8E8) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA8E8;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - (8.0f));
+    if (M2C_FIELD(arg0, f32 *, 0x1C) <= (0.0f)) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (0.0f);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -270,7 +262,7 @@ extern int fold_flush_3;
 void set_fade_params__6TLobbyFi(s32 arg0) {
     if ((void *) lbl_805D5330 != NULL) {
         M2C_FIELD(lbl_805D5330, s32 *, 0x28) = arg0;
-        M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) lbl_805DA904;
+        M2C_FIELD(lbl_805D5330, f32 *, 0x1C) = (f32) (255.0f);
         M2C_FIELD(lbl_805D5330, s8 *, 0x20) = 0;
         M2C_FIELD(lbl_805D5330, s8 *, 0x21) = 0;
         M2C_FIELD(lbl_805D5330, s8 *, 0x22) = 0;
@@ -335,7 +327,7 @@ void TLobby__sub_800F838C(u8 *arg0) {
 u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499988.value;
-        set_value__15TWindowCtrlMainFii(lbl_805D53A0, TLobby__sub_800F8250(arg0, lbl_805DA8F8));
+        set_value__15TWindowCtrlMainFii(lbl_805D53A0, TLobby__sub_800F8250(arg0, (1.0f)));
         ((u8 * (*)(void *, s16))__dt__7TObjectFv)(arg0, 0);
         if (arg1 > 0) {
             ((void (*)(s32))__dl__7TObjectFPv)((s32) arg0);
@@ -392,15 +384,15 @@ void *TLobby__sub_800F85C0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void* init_entry_fields__6TLobbyFPviii(void* a0, int a1, int a2, int a3) { ((int (*)(void))init_object__12TBoss3VoloptFPvPv)(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804999A0); *(int*)((char*)a0 + 0x28) = a2; *(float*)((char*)a0 + 0x1c) = lbl_805DA8E8; *(unsigned char*)((char*)a0 + 0x21) = 0; *(unsigned char*)((char*)a0 + 0x22) = 0; *(unsigned char*)((char*)a0 + 0x20) = 255; *(int*)((char*)a0 + 0x24) = a3; return a0; }
+void* init_entry_fields__6TLobbyFPviii(void* a0, int a1, int a2, int a3) { ((int (*)(void))init_object__12TBoss3VoloptFPvPv)(); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)&lbl_804999A0); *(int*)((char*)a0 + 0x28) = a2; *(float*)((char*)a0 + 0x1c) = (0.0f); *(unsigned char*)((char*)a0 + 0x21) = 0; *(unsigned char*)((char*)a0 + 0x22) = 0; *(unsigned char*)((char*)a0 + 0x20) = 255; *(int*)((char*)a0 + 0x24) = a3; return a0; }
 
 #pragma push
 #pragma opt_common_subs off
 void TLobby__sub_800F8690(u8 *arg0) {
     M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805DA900);
-    if (M2C_FIELD(arg0, f32 *, 0x1C) <= (*(const f32 *)&lbl_805DA8E8)) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (*(const f32 *)&lbl_805DA8E8);
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - (8.0f));
+    if (M2C_FIELD(arg0, f32 *, 0x1C) <= 0.0f) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) 0.0f;
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -426,7 +418,7 @@ void *init_fade__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPvPv(arg0, tl_fade);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999B8;
     M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805DA904;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (255.0f);
     M2C_FIELD(arg0, u8 *, 0x20) = 0;
     M2C_FIELD(arg0, u8 *, 0x21) = 0;
     M2C_FIELD(arg0, u8 *, 0x22) = 0;
@@ -437,9 +429,9 @@ void *init_fade__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2) {
 #pragma opt_common_subs off
 void TLobby__sub_800F87B4(u8 *arg0) {
     M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805DA900);
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805DA904) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DA904;
+    M2C_FIELD(arg0, f32 *, 0x1C) += 8.0f;
+    if (M2C_FIELD(arg0, f32 *, 0x1C) >= (255.0f)) {
+        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (255.0f);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
@@ -465,7 +457,7 @@ void *init__22THunterGuildSeqOfflineFPvPvPv(void *arg0, void *arg1, void *arg2) 
     init_object__12TBoss3VoloptFPvPv(arg0, tl_fade);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999D0;
     M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805DA8E8;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (0.0f);
     M2C_FIELD(arg0, u8 *, 0x20) = 0;
     M2C_FIELD(arg0, u8 *, 0x21) = 0;
     M2C_FIELD(arg0, u8 *, 0x22) = 0;
@@ -485,20 +477,20 @@ void TBoss3Volopt__sub_800F88D8(Fade_800F88D8 *self) {
     q.start = 0;
     q.count = 4;
     self->u.c[3] = (s32)self->level;
-    q.pos[0] = lbl_805DA8E8;
-    q.pos[1] = lbl_805DA8E8;
+    q.pos[0] = (0.0f);
+    q.pos[1] = (0.0f);
     q.col[0] = self->u.color;
-    q.pos[2] = lbl_805DA8EC;
-    q.pos[3] = lbl_805DA8E8;
+    q.pos[2] = (6.4e+02f);
+    q.pos[3] = (0.0f);
     q.col[1] = self->u.color;
-    q.pos[4] = lbl_805DA8EC;
-    q.pos[5] = lbl_805DA8F0;
+    q.pos[4] = (6.4e+02f);
+    q.pos[5] = (4.8e+02f);
     q.col[2] = self->u.color;
-    q.pos[6] = lbl_805DA8E8;
-    q.pos[7] = lbl_805DA8F0;
+    q.pos[6] = (0.0f);
+    q.pos[7] = (4.8e+02f);
     q.col[3] = self->u.color;
-    if (lbl_805DA8E8 != (f32)self->u.c[3]) {
-        ((void (*)(Quad_800F88D8 *, s32, s32, f32))TObjCMHairMenu__sub_801E35C4)(&q, 4, 0x16, lbl_805DA8F4);
+    if ((0.0f) != (f32)self->u.c[3]) {
+        ((void (*)(Quad_800F88D8 *, s32, s32, f32))TObjCMHairMenu__sub_801E35C4)(&q, 4, 0x16, (-1e+01f));
     }
     TCameraCtrl__sub_80068EF0();
 }

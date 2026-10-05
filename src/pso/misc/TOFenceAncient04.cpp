@@ -325,9 +325,6 @@ extern M2C_UNK __vt__16TOFenceAncient04[];
 extern M2C_UNK __vt__22TOHangceilingCave01Key[];
 extern M2C_UNK __vt__25TOHangceilingCave01Normal[];
 extern M2C_UNK __vt__27TOHangceilingCave01KeyQuick[];
-extern u8 lbl_804416A8[];
-extern u8 lbl_804416C0[];
-extern u8 lbl_804416D8[];
 extern Q_801681D0 lbl_804417EC;
 extern u8 lbl_804B1F70[];
 extern RecoveredGlobal_80167878_lbl_804B1F80 lbl_804B1F80;
@@ -361,6 +358,14 @@ extern const f32 lbl_805DB684;
 extern const f32 lbl_805DB688;
 extern const f32 lbl_805DB68C;
 extern void *tl_05;
+
+extern const char lbl_80441648[] = "fd_obj_n_saku_6x4.gj";
+extern const char lbl_80441660[] = "fd_obj_n_saku_6x4.njm";
+extern const char lbl_80441678[] = "bm_fd_obj_n_saku_6x4.bml";
+extern const char lbl_80441694[] = "TOFenceAncient04";
+__declspec(section ".rodata") extern const char lbl_804416A8[];
+__declspec(section ".rodata") extern const char lbl_804416C0[];
+__declspec(section ".rodata") extern const char lbl_804416D8[];
 
 void TOFenceAncient04__vt14(void) {  }
 
@@ -400,10 +405,14 @@ void TOFenceAncient04__sub_8016775C(void) {
     (*(Big_8016775C * *)&lbl_805D59C8) = v;
     (*(Buf_8016775C * *)&lbl_805D59CC) = alloc_buffer__11TOBoss4RockFPv(0x10);
     (*(Buf_8016775C * *)&lbl_805D59CC)->a = (*(Big_8016775C * *)&lbl_805D59C8)->p->f0C;
-    (*(Buf_8016775C * *)&lbl_805D59CC)->b = load_gvm_texture_file(lbl_804416A8);
-    (*(Buf_8016775C * *)&lbl_805D59CC)->c = load_gvm_texture_file(lbl_804416C0);
-    (*(Buf_8016775C * *)&lbl_805D59CC)->d = load_gvm_texture_file(lbl_804416D8);
+    (*(Buf_8016775C * *)&lbl_805D59CC)->b = load_gvm_texture_file((void *)lbl_804416A8);
+    (*(Buf_8016775C * *)&lbl_805D59CC)->c = load_gvm_texture_file((void *)lbl_804416C0);
+    (*(Buf_8016775C * *)&lbl_805D59CC)->d = load_gvm_texture_file((void *)lbl_804416D8);
 }
+
+__declspec(section ".rodata") extern const char lbl_804416A8[] = "o_fence_ancient_b.gvm";
+__declspec(section ".rodata") extern const char lbl_804416C0[] = "o_fence_ancient_g.gvm";
+__declspec(section ".rodata") extern const char lbl_804416D8[] = "o_fence_ancient_p.gvm";
 
 void *__dt__16TOFenceAncient04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -441,352 +450,5 @@ u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB648;
     return arg0;
 }
-
-void TOHangceilingCave01KeyQuick__vt77(void *arg0) {
-    u8 *p;
-
-    M2C_FIELD(arg0, s32 *, 0x24) = lbl_805D59D4[1];
-    M2C_FIELD(arg0, void **, 0xF8) = get_bml_motion(lbl_805D59D0, 1);
-    M2C_FIELD(arg0, f32 *, 0x354) = lbl_805DB650;
-    ((M2C_UNK (*)(void *, int))fn_801682E4)(arg0, 3);
-    p = M2C_FIELD(arg0, u8 **, 0xA4);
-    M2C_FIELD(p, s32 *, 0x18) &= ~8;
-    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB650;
-    M2C_FIELD(arg0, f32 *, 0xC8) = lbl_805DB654;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF8), u32 *, 4) - lbl_805DB654;
-    ((M2C_UNK (*)(void *))reset_state)(arg0);
-}
-
-void TOHangceilingCave01KeyQuick__vt78(u8 *arg0) {
-    f32 temp_f1;
-    s16 temp_r0;
-    u8 *temp_r3;
-    u8 *temp_r4;
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
-    switch (temp_r0) {
-    case 3:
-        if ((is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) && (M2C_FIELD(arg0, f32 *, 0xC0) <= M2C_FIELD(arg0, f32 *, 0xC4))) {
-            ((M2C_UNK (*)(void *, int))fn_801682E4)((void *) (arg0), (int) (2));
-        }
-        ((M2C_UNK (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)((void *) (arg0));
-        return;
-    case 1:
-        ((M2C_UNK (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)((void *) (arg0));
-        ((M2C_UNK (*)(void *))fn_80168488)((void *) (arg0));
-        if (lbl_805DB65C < M2C_FIELD(arg0, f32 *, 0xC0)) {
-            temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
-            M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) & 0xFFFFFFF7);
-        }
-        if (lbl_805DB660 == M2C_FIELD(arg0, f32 *, 0xC0)) {
-            ((VObj_18_f90cfc *)(arg0))->m77();
-        }
-        break;
-    case 2:
-        if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0x35C))) == 1) {
-            if (lbl_805DB650 != M2C_FIELD(arg0, f32 *, 0xC0)) {
-                ((M2C_UNK (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)((void *) (arg0));
-            }
-            if (lbl_805DB664 == M2C_FIELD(arg0, f32 *, 0xC0)) {
-                temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
-                M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) | lbl_805DB658);
-                return;
-            }
-        } else {
-            if ((lbl_805DB668 <= M2C_FIELD(arg0, f32 *, 0xC0)) && (M2C_FIELD(arg0, f32 *, 0xC0) <= M2C_FIELD(arg0, f32 *, 0xC4))) {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB650;
-            } else if (lbl_805DB66C <= M2C_FIELD(arg0, f32 *, 0xC0)) {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB654;
-            } else if (lbl_805DB670 <= M2C_FIELD(arg0, f32 *, 0xC0)) {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB674;
-            } else if (lbl_805DB678 <= M2C_FIELD(arg0, f32 *, 0xC0)) {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB67C;
-            } else if (lbl_805DB680 <= M2C_FIELD(arg0, f32 *, 0xC0)) {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB65C;
-            } else {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB684;
-            }
-            ((M2C_UNK (*)(void *, int))fn_801682E4)((void *) (arg0), (int) (1));
-        }
-        break;
-    }
-}
-
-void *__dt__27TOHangceilingCave01KeyQuickFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__27TOHangceilingCave01KeyQuick;
-        destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-u8 *TOHangceilingCave01KeyQuick__ct(u8 *arg0, s32 arg1) {
-    ((u8 * (*)(void *, s32))TOHangceilingCave01KeyQuick__sub_80168C6C)(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80167C78___vt__27TOHangceilingCave01KeyQuick *)&__vt__27TOHangceilingCave01KeyQuick).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FF0;
-    init_geometry__19TOHangceilingCave01FPv(arg0);
-    set_scale__27TOHangceilingCave01KeyQuickFPvf(arg0, lbl_805DB688 + M2C_FIELD(arg0, f32 *, 0x70));
-    return arg0;
-}
-
-void TOHangceilingCave01Key__vt77(void *arg0) {
-    u8 *p;
-
-    M2C_FIELD(arg0, s32 *, 0x24) = lbl_805D59D4[1];
-    M2C_FIELD(arg0, void **, 0xF8) = get_bml_motion(lbl_805D59D0, 1);
-    M2C_FIELD(arg0, f32 *, 0x354) = lbl_805DB650;
-    ((M2C_UNK (*)(void *, int))fn_801682E4)(arg0, 3);
-    p = M2C_FIELD(arg0, u8 **, 0xA4);
-    M2C_FIELD(p, s32 *, 0x18) &= ~8;
-    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB650;
-    M2C_FIELD(arg0, f32 *, 0xC8) = lbl_805DB654;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF8), u32 *, 4) - lbl_805DB654;
-    ((M2C_UNK (*)(void *))reset_state)(arg0);
-}
-
-void TOHangceilingCave01Key__vt78(u8 *arg0) {
-    switch (*(s16 *)(arg0 + 0x326)) {
-    case 3:
-        if (is_current_floor_switch_set((u16)*(s32 *)(arg0 + 0x35C)) == 1 && *(f32 *)(arg0 + 0xC0) <= *(f32 *)(arg0 + 0xC4)) {
-            ((M2C_UNK (*)(void *, int))fn_801682E4)(arg0, 2);
-        }
-        ((M2C_UNK (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)(arg0);
-        break;
-    case 1:
-        ((M2C_UNK (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)(arg0);
-        ((M2C_UNK (*)(void *))fn_80168488)(arg0);
-        if (lbl_805DB65C == *(f32 *)(arg0 + 0xC0)) {
-            *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) &= ~8;
-        } else if (lbl_805DB660 == *(f32 *)(arg0 + 0xC0)) {
-            ((VObj_18_f90cfc *)(arg0))->m77();
-            clear_current_floor_switch((u16)*(s32 *)(arg0 + 0x35C));
-        }
-        break;
-    case 2:
-        ((M2C_UNK (*)(void *))advance_wrap_offset__25TOHangceilingCave01NormalFPv)(arg0);
-        if (lbl_805DB664 == *(f32 *)(arg0 + 0xC0)) {
-            *(s32 *)(*(u8 **)(arg0 + 0xA4) + 0x18) |= lbl_805DB658;
-        } else if (*(f32 *)(arg0 + 0xC0) == *(f32 *)(arg0 + 0xC4)) {
-            ((M2C_UNK (*)(void *, int))fn_801682E4)(arg0, 1);
-        }
-        break;
-    }
-}
-
-void *__dt__22TOHangceilingCave01KeyFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TOHangceilingCave01Key;
-        destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-void *TOHangceilingCave01Key__ct(void *arg0) {
-    TOHangceilingCave01KeyQuick__sub_80168C6C(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TOHangceilingCave01Key;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2FEC;
-    init_geometry__19TOHangceilingCave01FPv(arg0);
-    return arg0;
-}
-
-void TOHangceilingCave01Normal__vt77(void *arg0) {
-    void *temp_r6;
-    union { f64 d; u32 i[2]; } cvt;
-
-    s32 *p;
-    M2C_FIELD(arg0, void **, 0xF8) = get_bml_motion(lbl_805D59D0, lbl_805D59E4);
-    p = lbl_805D59D4;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *p;
-    M2C_FIELD(arg0, f32 *, 0x354) = (f32) (lbl_805DB65C * M2C_FIELD(arg0, f32 *, 0x350));
-    ((M2C_UNK (*)(void *, M2C_UNK, s32 *, f32))fn_801682E4)(arg0, 0, p, lbl_805DB65C);
-    temp_r6 = M2C_FIELD(arg0, void **, 0xA4);
-    M2C_FIELD(temp_r6, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r6, s32 *, 0x18) | lbl_805DB658);
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB650;
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DB654;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), u32 *, 4) - lbl_805DB654;
-}
-
-void TOHangceilingCave01Normal__vt78(Obj_80168010 *arg0) {
-    switch (arg0->state) {
-    case 0:
-        if (lbl_805DB650 < arg0->f354) {
-            arg0->f354 = arg0->f354 - lbl_805DB654;
-            return;
-        }
-        ((M2C_UNK (*)(void *, int)) fn_801682E4)(arg0, 1);
-        ((M2C_UNK (*)(void *))reset_state)(arg0);
-        return;
-    case 1:
-        ((M2C_UNK (*)(void))advance_wrap_offset__25TOHangceilingCave01NormalFPv)();
-        ((M2C_UNK (*)(void *))fn_80168488)(arg0);
-        if (lbl_805DB65C == arg0->fC0) {
-            M2C_FIELD(arg0->fA4, s32 *, 0x18) &= ~8;
-            return;
-        }
-        if (lbl_805DB660 == arg0->fC0) {
-            ((M2C_UNK (*)(void *, int)) fn_801682E4)(arg0, 2);
-        }
-        return;
-    case 2:
-        ((M2C_UNK (*)(void))advance_wrap_offset__25TOHangceilingCave01NormalFPv)();
-        if (lbl_805DB664 == arg0->fC0) {
-            M2C_FIELD(arg0->fA4, s32 *, 0x18) |= lbl_805DB658;
-            return;
-        }
-        if (arg0->fC0 == arg0->fC4) {
-            arg0->m77();
-        }
-        break;
-    }
-}
-
-void *__dt__25TOHangceilingCave01NormalFv(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TOHangceilingCave01Normal;
-        destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-void *TOHangceilingCave01Normal__ct(void *arg0) {
-    TOHangceilingCave01KeyQuick__sub_80168C6C(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TOHangceilingCave01Normal;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2FE8;
-    init_geometry__19TOHangceilingCave01FPv(arg0);
-    return arg0;
-}
-
-f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0) {
-    Q_801681D0 q = lbl_804417EC;
-    return farg0 * q.w[lbl_805D5550];
-}
-
-void advance_wrap_offset__25TOHangceilingCave01NormalFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + M2C_FIELD(arg0, f32 *, 0xC8));
-    if (M2C_FIELD(arg0, f32 *, 0xC4) < M2C_FIELD(arg0, f32 *, 0xC0)) {
-        M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (*(f32 *)&lbl_805DB650);
-    }
-}
-
-s32 fn_80168244(Obj_80168244 *self, u32 v) {
-    s32 i;
-    for (i = 0; i != self->count; i++) {
-        if (self->arr[i] == v) {
-            return 1;
-        }
-    }
-    return 0;
-}
-
-void fn_80168280(Obj_80168280 *self, u32 v) {
-    if (self->count < 4) {
-        self->arr[self->count++] = v;
-    }
-}
-
-void reset_state(u8 *arg0) {
-    memset(arg0 + 0x33C, 0, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x34C) = 0;
-}
-
-void fn_801682E4(Obj_801682E4 *o, s32 arg1) {
-    s16 sp8;
-    if (arg1 != o->mode) {
-        o->mode = arg1;
-        if (((s32 (*)(void *, void *, int))access_object_saved_state)(o, &sp8, 1) != 0) {
-            sp8 = o->mode;
-        }
-        switch (o->mode) {
-        case 0:
-        case 1:
-            break;
-        case 2:
-            o->fish = ((Fish_801682E4 * (*)(s32, s32))get_bml_motion)(lbl_805D59D0, lbl_805D59E4);
-            o->f0C0 = lbl_805DB68C;
-            o->f0C8 = lbl_805DB654;
-            o->f0C4 = (f32)o->fish->f4 - lbl_805DB654;
-            break;
-        }
-    }
-}
-
-void fn_80168398(u8 *arg0) {
-    s32 state = get_global_state__14TOKeyMachine01Fv();
-    s32 id = 0;
-    switch (*(s16 *)(arg0 + 0x326)) {
-    case 2:
-        switch (state) {
-        case 0x13:
-        case 0x14:
-            id = 0x4BC11;
-            break;
-        case 0x15:
-        case 0x16:
-            id = 0x4004BC11;
-            break;
-        default:
-            id = 0x43C18;
-            break;
-        }
-        break;
-    case 1:
-        switch (state) {
-        case 0x13:
-        case 0x14:
-            id = 0x4B212;
-            break;
-        case 0x15:
-        case 0x16:
-            id = 0x4004B212;
-            break;
-        default:
-            id = 0x4321A;
-            break;
-        }
-        break;
-    }
-    if (id != 0) {
-        play_persistent_sound(id, arg0, arg0 + 0x38, 0, 0);
-    }
-}
-
-#pragma push
-#pragma dont_inline off
-#pragma inline_depth(1)
-static inline void hit_80168488(VO_80168488 *o, VO_80168488 *a, Pair_80168488 p) { o->m21(a, &p, 0, -1, -1); }
-#pragma pop
-
-#pragma push
-#pragma dont_inline off
-#pragma inline_depth(1)
-void fn_80168488(VO_80168488 *arg0) {
-    s32 var_r30;
-    VO_80168488 *temp_r3;
-    var_r30 = 0;
-    do {
-        temp_r3 = (VO_80168488 *)get_player_by_client_id(var_r30);
-        if ((temp_r3 != NULL) && (((s32 (*)(void *, void *))fn_80168244)(arg0, temp_r3) == 0)) {
-            if ((get_field_3e4__10TObjPlayerFPv(temp_r3) == get_current_floor()) && (check_actor_body_contact(arg0, temp_r3, lbl_805DB688) != 0U)) {
-                Pair_80168488 t;
-                t.a = 0;
-                t.b = arg0->m79(M2C_FIELD(arg0, f32 *, 0x338));
-                hit_80168488(temp_r3, arg0, t);
-                obj_setFlags30(temp_r3, 0x400);
-                ((M2C_UNK (*)(void *, void *))fn_80168280)(arg0, temp_r3);
-            }
-        }
-        var_r30 += 1;
-    } while (var_r30 != 0xC);
-}
-extern int fold_flush_0;
-#pragma pop
 
 }

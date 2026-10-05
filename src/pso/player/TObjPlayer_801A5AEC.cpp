@@ -69,7 +69,6 @@ M2C_UNK check_and_read__16TKeyBoardControlFi(void *);
 void TKeyBoardControl__sub_801A5EA0(u8 arg0);
 s32 is_split_screen();
 M2C_UNK TKeyBoardControl__sub_80132650(void *);
-M2C_UNK TKeyBoardControl__sub_801A6910(int);
 M2C_UNK update_button_hold_counters(int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
@@ -104,7 +103,6 @@ void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 M2C_UNK update_button_hold_counters(int);
 extern const f64 lbl_80446A00[];
-extern Src_801A5F1C lbl_804C2308;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
 extern u8 lbl_8050E3B8[];
 extern s32 lbl_805D34C8;
@@ -115,6 +113,24 @@ extern const f32 lbl_805DC0C0;
 extern const f32 lbl_805DC0C4;
 extern const f32 lbl_805DC0C8;
 void controller_stuff__Fv(void);
+}
+
+struct Kb_801A6910 {
+    u32 f0;
+    u8 pad4[4];
+    u32 f8;
+    u8 padC[0x48 - 0xC];
+    u32 f48;
+    u32 f4C;
+};
+struct Def_804C2308 { u32 w[13]; };
+extern "C" {
+s32 TKeyBoardControl__sub_801A6910(Kb_801A6910 *self);
+void fn_801A69E4(s32 arg0, s32 *arg1);
+Def_804C2308 lbl_804C2308 = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+u32 lbl_804C233C[6] = { 16, 32, 64, 128, 4, 2 };
+u32 lbl_804C2354[6] = { 94, 93, 92, 95, 97, 76 };
+s32 lbl_804C236C[4] = { 0, 6, 12, 18 };
 }
 
 extern "C" {
@@ -204,16 +220,16 @@ s32 TKeyBoardControl__sub_801A5B00(void) {
 void update_pad_recalibration(void) {
     s32 i;
     s32 j;
-    Masks_801A5C4C masks = lbl_804469D8;
+    Masks_801A5C4C masks = { 0x80000000, 0x40000000, 0x20000000, 0x10000000 };
     for (i = 0; i < 4; i++) {
         if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x40A) == 0x40A) {
             lbl_805D5D0C[i]++;
-            if (lbl_804469E8[0] == (f64)lbl_805D5D0C[i]) {
+            if (15.0 == (f64)lbl_805D5D0C[i]) {
                 lbl_805D5D09 = 1;
                 for (j = 0; j < 4; j++) {
                     PADRecalibrate(masks.m[j]);
                 }
-            } else if ((f64)lbl_805D5D0C[i] > lbl_804469E8[0]) {
+            } else if ((f64)lbl_805D5D0C[i] > 15.0) {
                 lbl_805D5D0C[i] = 0x10;
             }
         } else {
@@ -256,7 +272,7 @@ void TKeyBoardControl__sub_801A5EC4(void) {
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__data_80506270.value));
     if (is_split_screen() == 0) {
         temp_r31 = (u8 *)&lbl_8050E208.value + 0x160;
-        TKeyBoardControl__sub_801A6910((int) (temp_r31));
+        ((M2C_UNK (*)(int))TKeyBoardControl__sub_801A6910)((int) (temp_r31));
         update_button_hold_counters((int) (temp_r31));
     }
 }
@@ -373,30 +389,30 @@ void controller_stuff__Fv(void) {
                     map_c_stick_to_buttons((u8 *)pad, pad->cx, pad->cy, old);
                     if (lbl_805D4DF0 != NULL) {
                         if (is_split_screen() != 0) {
-                            a = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                            b = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                            a = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                            b = ((Obj_801A5F1C *)lbl_805D4DF0)->base[i] + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
                         } else {
-                            a = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                            b = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                            a = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                            b = *(s32 *)(lbl_805D4DF0 + 0x94) + (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
                         }
                     } else {
-                        a = (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
-                        b = (s32)(lbl_80446A00[0] * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
+                        a = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(fx, fy));
+                        b = (s32)(10430.38043493439 * get_ad_end_text_start__10TObjPlayerFv(gx, gy));
                     }
                     pad->ang0 = (u16)a;
                     pad->ang1 = (u16)b;
                     update_button_hold_counters((int)pad);
                 } else {
-                    pad->hold = lbl_804C2308.b0;
-                    pad->rel = lbl_804C2308.b1;
-                    pad->press = lbl_804C2308.b2;
-                    pad->up = lbl_804C2308.b3;
-                    pad->trig_r = lbl_804C2308.trig_r;
-                    pad->trig_l = lbl_804C2308.trig_l;
-                    pad->sx = lbl_804C2308.sx;
-                    pad->sy = lbl_804C2308.sy;
-                    pad->cx = lbl_804C2308.cx;
-                    pad->cy = lbl_804C2308.cy;
+                    pad->hold = (*(Src_801A5F1C *)&lbl_804C2308).b0;
+                    pad->rel = (*(Src_801A5F1C *)&lbl_804C2308).b1;
+                    pad->press = (*(Src_801A5F1C *)&lbl_804C2308).b2;
+                    pad->up = (*(Src_801A5F1C *)&lbl_804C2308).b3;
+                    pad->trig_r = (*(Src_801A5F1C *)&lbl_804C2308).trig_r;
+                    pad->trig_l = (*(Src_801A5F1C *)&lbl_804C2308).trig_l;
+                    pad->sx = (*(Src_801A5F1C *)&lbl_804C2308).sx;
+                    pad->sy = (*(Src_801A5F1C *)&lbl_804C2308).sy;
+                    pad->cx = (*(Src_801A5F1C *)&lbl_804C2308).cx;
+                    pad->cy = (*(Src_801A5F1C *)&lbl_804C2308).cy;
                     pad->ang0 = 0;
                     pad->mag0 = lbl_805DC0C0;
                     for (j = 0; j < 14; j++) {
@@ -411,5 +427,274 @@ void controller_stuff__Fv(void) {
     }
 }
 #pragma pop
+
+}
+
+#pragma push
+#define lbl_8050E208 ((s32 *)&lbl_8050E208)
+#define lbl_8050E3B8 ((s32 *)lbl_8050E3B8)
+#define lbl_8050E568 ((s32 *)lbl_8050E568)
+#define lbl_805D5D09 (*(s8 *)&lbl_805D5D09)
+#define TKeyBoardControl__data_80506270 ((u8 *)&TKeyBoardControl__data_80506270)
+
+struct Sub_801A67A4
+{
+  u32 w[7];
+};
+
+struct Rec_801A67A4
+{
+  s32 f0;
+  s32 f4;
+  s32 f8;
+  s32 fC;
+  u16 f10;
+  u16 f12;
+  s16 f14;
+  s16 f16;
+  s16 f18;
+  s16 f1A;
+  s32 f1C;
+  s32 f20;
+  f32 f24;
+  f32 f28;
+  Sub_801A67A4 f2C;
+  s32 f48;
+  s32 f4C;
+};
+
+struct Src_801A66B8 {
+    u8 pad0[8];
+    s32 f8;
+    s32 fC;
+    s32 f10;
+    s32 f14;
+    u16 f18;
+    u16 f1A;
+    s16 f1C;
+    s16 f1E;
+    s16 f20;
+    s16 f22;
+};
+
+struct Pad_801A66B8 {
+    s32 f0;
+    s32 f4;
+    s32 f8;
+    s32 fC;
+    u16 f10;
+    u16 f12;
+    s16 f14;
+    s16 f16;
+    s16 f18;
+    s16 f1A;
+    s32 f1C;
+    u8 pad20[4];
+    f32 f24;
+    u8 pad28[4];
+    s16 f2C[14];
+    s32 f48;
+    s32 f4C;
+};
+
+struct Ctl_801A6510 {
+    u8 pad0[0x30];
+    u32 *f30;
+};
+
+extern "C" {
+s32 TKeyBoardControl__sub_803DEB74(int);
+extern s32 lbl_805D34C8;
+extern s8 lbl_805D5D08;
+extern s8 lbl_805D5D0A;
+extern s8 lbl_805D5D0C[4];
+void TKeyBoardControl__sub_801A6854(void);
+u8 get_key_state_2__16TKeyBoardControlFPv(void *);
+s32 read_input__16TKeyBoardControlFi(u8);
+void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
+void reset__16TKeyBoardControlFv();
+extern const f32 lbl_805DC0C0;
+s32 is_split_screen(void);
+s32 TKeyBoardControl__sub_803DEB74(int);
+void bind_controller_devices(void);
+}
+
+extern "C" {
+
+void bind_controller_devices(void) {
+    Ctl_801A6510 *p;
+    void **pb;
+    s32 *fb;
+    void **pa;
+    s32 i;
+    s32 *ids;
+    s32 *fa;
+    s32 n;
+    pb = (void **)lbl_8050E208;
+    pa = (void **)lbl_8050E3B8;
+    fb = &lbl_8050E208[4];
+    ids = lbl_804C236C;
+    fa = &lbl_8050E3B8[4];
+    for (i = 0; i < 4; i++) {
+        p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
+        if (*p->f30 & 1) {
+            *pa++ = p;
+            *fa++ = 1;
+        } else {
+            *pa++ = (void *)&lbl_804C2308;
+            *fa++ = 0;
+        }
+    }
+    ids = lbl_804C236C;
+    if (is_split_screen() != 0) {
+        for (i = 0; i < 4; i++) {
+            p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
+            if (*p->f30 & 1) {
+                *pb++ = p;
+                *fb++ = 1;
+            } else {
+                *pb++ = (void *)&lbl_804C2308;
+                *fb++ = 0;
+            }
+        }
+    } else {
+        n = 0;
+        for (i = 0; i < 4; i++) {
+            p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
+            if (p != NULL && (*p->f30 & 1)) {
+                *pb = p;
+                n++;
+                pb++;
+                *fb++ = 1;
+            }
+        }
+        for (; n < 4; n++) {
+            *pb++ = (void *)&lbl_804C2308;
+            *fb++ = 0;
+        }
+    }
+}
+
+void reset_controller_input_state(void) {
+    s32 i;
+    s32 j;
+    Pad_801A66B8 *p;
+
+    p = (Pad_801A66B8 *)((u8 *)lbl_8050E208 + 0x20);
+    for (i = 0; i < 4; i++) {
+        p->f0 = ((Src_801A66B8 *)&lbl_804C2308)[0].f8;
+        p->f4 = ((Src_801A66B8 *)&lbl_804C2308)[0].fC;
+        p->f8 = ((Src_801A66B8 *)&lbl_804C2308)[0].f10;
+        p->fC = ((Src_801A66B8 *)&lbl_804C2308)[0].f14;
+        p->f12 = ((Src_801A66B8 *)&lbl_804C2308)[0].f1A;
+        p->f10 = ((Src_801A66B8 *)&lbl_804C2308)[0].f18;
+        p->f14 = ((Src_801A66B8 *)&lbl_804C2308)[0].f1C;
+        p->f16 = ((Src_801A66B8 *)&lbl_804C2308)[0].f1E;
+        p->f18 = ((Src_801A66B8 *)&lbl_804C2308)[0].f20;
+        p->f1A = ((Src_801A66B8 *)&lbl_804C2308)[0].f22;
+        p->f1C = 0;
+        p->f24 = lbl_805DC0C0;
+        for (j = 0; j < 14; j++) {
+            p->f2C[j] = 0;
+        }
+        p->f48 = 0;
+        p->f4C = 0;
+        p++;
+    }
+    TKeyBoardControl__sub_801A67A4((Rec_801A67A4 *)&lbl_8050E208[0x58], (Rec_801A67A4 *)((u8 *)lbl_8050E208 + 0x20));
+    reset__16TKeyBoardControlFv();
+}
+
+typedef struct Rec_801A67A4 Rec_801A67A4;
+typedef struct Sub_801A67A4 Sub_801A67A4;
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1) {
+  Rec_801A67A4 *new_var;
+  Rec_801A67A4 *new_var2;
+  Sub_801A67A4 *s;
+  Sub_801A67A4 *d;
+  arg0->f0 = arg1->f0;
+  arg0->f4 = arg1->f4;
+  arg0->f8 = arg1->f8;
+  arg0->fC = arg1->fC;
+  arg0->f10 = arg1->f10;
+  arg0->f12 = arg1->f12;
+  arg0->f14 = arg1->f14;
+  new_var = (new_var2 = arg0);
+  new_var2->f16 = arg1->f16;
+  arg0->f18 = arg1->f18;
+  new_var2->f1A = arg1->f1A;
+  new_var->f1C = arg1->f1C;
+  new_var2->f20 = arg1->f20;
+  arg0->f24 = arg1->f24;
+  arg0->f28 = arg1->f28;
+  s = &arg1->f2C;
+  d = &(new_var = new_var2)->f2C;
+  *d = *s;
+  arg0->f48 = arg1->f48;
+  new_var->f4C = arg1->f4C;
+}
+
+void TKeyBoardControl__sub_801A6854(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        lbl_8050E568[i] = 0;
+    }
+    lbl_8050E208[0] = TKeyBoardControl__sub_803DEB74(0);
+    lbl_8050E208[1] = TKeyBoardControl__sub_803DEB74(6);
+    lbl_8050E208[2] = TKeyBoardControl__sub_803DEB74(0xC);
+    lbl_8050E208[3] = TKeyBoardControl__sub_803DEB74(0x12);
+    lbl_805D5D08 = 0;
+    lbl_805D5D09 = 0;
+    lbl_805D5D0A = 0;
+    for (i = 0; i < 4; i++) {
+        lbl_805D5D0C[i] = 0;
+    }
+    lbl_805D34C8 = 1;
+}
+s32 TKeyBoardControl__sub_801A6910(Kb_801A6910 *self) {
+    s32 i;
+    u8 n;
+    s32 j;
+    self->f0 = 0;
+    self->f8 = 0;
+    for (i = 0; i < 6; i++) {
+        if (read_input__16TKeyBoardControlFi(lbl_804C2354[i]) != 0) {
+            self->f0 |= lbl_804C233C[i];
+        }
+    }
+    n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__data_80506270);
+    for (j = 0; j < n; j++) {
+        ((void (*)(u8, u32 *))fn_801A69E4)(((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__data_80506270, j), &self->f8);
+    }
+    self->f48 = self->f0;
+    self->f4C = self->f8;
+    return 0;
+}
+
+}
+
+#undef lbl_8050E208
+#undef lbl_8050E3B8
+#undef lbl_8050E568
+#undef lbl_805D5D09
+#undef TKeyBoardControl__data_80506270
+#pragma pop
+
+extern "C" {
+}
+
+extern "C" {
+
+void fn_801A69E4(s32 arg0, s32 *arg1) {
+    s32 i;
+    for (i = 0; i < 6; i++) {
+        if (arg0 == ((s32 *)lbl_804C2354)[i]) {
+            *arg1 |= ((s32 *)lbl_804C233C)[i];
+        }
+    }
+}
 
 }

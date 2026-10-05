@@ -69,8 +69,6 @@ void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805DB7A8;
-extern const f32 lbl_805DB7C8;
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
@@ -108,10 +106,6 @@ void init__8TOKurageFPv(u8 *arg0);
 extern M2C_UNK __vt__8TOKurage[];
 extern s32 lbl_805D3060;
 extern u32 TOKurage__data_805D5A38;
-extern const f32 TOKurage__data_805DB7AC;
-extern const f32 lbl_805DB7D8;
-extern const f32 lbl_805DB820;
-extern const f32 lbl_805DB824;
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 fn_800FD8B4(void *);
 void debug_printf_at(s32 id, const char *fmt, ...);
@@ -152,9 +146,6 @@ void update_state__8TOKurageFPv(void *arg0) {
     }
 }
 
-extern const f32 lbl_805DB7A8;
-extern const f32 TOKurage__data_805DB7AC;
-
 void TOKurage__sub_8016DA34(void *self) {
     if (fn_800FD8B4(self) == 1) {
         debug_printf_at(0x13001C, lbl_80441EA0);
@@ -166,18 +157,18 @@ void TOKurage__sub_8016DA34(void *self) {
 void init__8TOKurageFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) lbl_805DB7A8;
-    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) lbl_805DB7A8;
-    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) lbl_805DB7A8;
-    M2C_FIELD(arg0, f32 *, 0xF8) = (f32) lbl_805DB7A8;
+    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xF8) = (f32) (0.0f);
     M2C_FIELD(arg0, s8 *, 0x100) = 0;
     M2C_FIELD(arg0, s8 *, 0x101) = 0;
     M2C_FIELD(arg0, s16 *, 0xFC) = 0x1E;
     M2C_FIELD(arg0, s16 *, 0xFE) = 0;
-    M2C_FIELD(arg0, f32 *, 0x104) = (f32) TOKurage__data_805DB7AC;
-    M2C_FIELD(arg0, f32 *, 0x108) = (f32) TOKurage__data_805DB7AC;
-    M2C_FIELD(arg0, f32 *, 0x10C) = (f32) TOKurage__data_805DB7AC;
-    M2C_FIELD(arg0, f32 *, 0x110) = (f32) TOKurage__data_805DB7AC;
+    M2C_FIELD(arg0, f32 *, 0x104) = (f32) (1.0f);
+    M2C_FIELD(arg0, f32 *, 0x108) = (f32) (1.0f);
+    M2C_FIELD(arg0, f32 *, 0x10C) = (f32) (1.0f);
+    M2C_FIELD(arg0, f32 *, 0x110) = (f32) (1.0f);
 }
 
 #pragma push
@@ -382,16 +373,16 @@ void render__8TOKurageFv(u8 *arg0) {
         case 4:
             lbl_805D5660 = some_id_805c6f74;
             some_id_805c6f74 |= 0x10;
-            if (*(f32 *)(arg0 + 0x104) < lbl_805DB7A8) {
+            if (*(f32 *)(arg0 + 0x104) < (0.0f)) {
                 *(u8 *)(arg0 + 0x100) = 3;
             } else {
-                *(f32 *)(arg0 + 0x104) -= lbl_805DB7C8;
+                *(f32 *)(arg0 + 0x104) -= (0.01f);
             }
             break;
         default:
             if (((s32 (*)(void *, f32))is_any_player_within_radius_xz)(arg0, *(f32 *)(arg0 + 0x70) * *(f32 *)(arg0 + 0x70)) == 0 &&
-                *(f32 *)(arg0 + 0x104) < lbl_805DB7A8) {
-                *(f32 *)(arg0 + 0x104) = TOKurage__data_805DB7AC;
+                *(f32 *)(arg0 + 0x104) < (0.0f)) {
+                *(f32 *)(arg0 + 0x104) = (1.0f);
             }
             lbl_805D5660 = some_id_805c6f74;
             some_id_805c6f74 |= 0x10;
@@ -456,10 +447,10 @@ u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
     M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&TOKurage__data_805D5A38), 0);
     M2C_FIELD(arg0, u8 **, 0xC8) = get_bml_motion((*(s32 *)&TOKurage__data_805D5A38), 1);
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB7D8;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - TOKurage__data_805DB7AC);
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB820;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB824;
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (0.5f);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - (1.0f));
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (5e+02f);
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (1e+02f);
     init__8TOKurageFPv((u8 *)((void *) (arg0)));
     return arg0;
 }

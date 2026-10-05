@@ -1,13 +1,17 @@
 #include "pso/TParticleCtrl.h"
 
-TParticleCtrl::~TParticleCtrl() {}
-
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "types.h"
+#pragma readonly_strings on
+extern "C" {
+extern const f32 TParticleCtrl__data_805D94E0[1] = {0.0f};
+extern const f32 TParticleCtrl__data_805D94E4[1] = {1.0f};
+const char *TParticleCtrl__data_805D2938[2] = {"TParticleCtrl", 0};
+}
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -147,7 +151,6 @@ extern u32 TParticleCtrl__data_805D4F04;
 void free_all__13TParticleCtrlFv(void);
 s32 read_disc_file(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-extern s32 lbl_805D2944;
 extern u32 lbl_805D2948;
 extern int lbl_805D4EF8;
 void init_particle_buffer__13TParticleCtrlFv(void);
@@ -231,15 +234,14 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
-extern char lbl_80439494[];
-extern char lbl_804394A4[];
-extern char lbl_804394BC[];
-extern char lbl_804394D4[];
-extern u8 lbl_8048E768[];
 extern s32 lbl_805D4EFC;
 extern u32 TParticleCtrl__data_805D4F00;
 extern u32 TParticleCtrl__data_805D4F04;
 void load_particle_entry_resources(void);
+extern char lbl_80439494[];
+extern char lbl_804394A4[];
+extern char lbl_804394BC[];
+extern char lbl_804394D4[];
 s32 is_split_screen();
 M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
 M2C_UNK setup_particle_tev(M2C_UNK);
@@ -326,248 +328,10 @@ extern GenEntry_8008767C lbl_8048E710[];
 extern u8 *lbl_805D4DF0;
 extern void *tl_07;
 extern void *tl_particlemodel;
-extern const f32 TParticleCtrl__data_805D94E0;
-extern const f32 TParticleCtrl__data_805D94E4;
 extern const f32 lbl_805D94E8;
 extern const f32 lbl_805D94EC;
 extern const f32 lbl_805D94F0;
 void run_task__13TParticleCtrlFv(Ctrl_8008767C *self);
-}
-
-extern "C" {
-
-struct ParticleVec {
-    s32 x;
-    s32 y;
-    s32 z;
-};
-
-struct ParticleCtrlData {
-    s32 descriptor;
-    u8 pad04[0x14];
-    void *vtable;
-    f32 field1C;
-    s32 field20;
-    f32 field24;
-    s32 particle_index;
-    u16 flags;
-    u16 field2E;
-    s32 field30;
-    s32 field34;
-    s32 field38;
-    s32 field3C;
-    f32 field40;
-    f32 field44;
-    s32 field48;
-    s32 field4C;
-    s32 field50;
-    s32 field54;
-    void *owner;
-    u8 pad5C[4];
-    ParticleVec position;
-    ParticleVec direction;
-};
-
-void __ct__7TObjectFP7TObject(void *, void *);
-void VecCopy__FP3VecPC3Vec(void *, const void *);
-
-extern void *__vt__13TParticleCtrl[];
-extern s32 TParticleCtrl__data_805D2938;
-extern void *tl_07;
-extern void *tl_clipout;
-extern const f32 TParticleCtrl__data_805D94E0;
-extern const f32 TParticleCtrl__data_805D94E4;
-
-#define COPY_PARTICLE_DIRECTION(particle, direction) do {                      \
-    s32 component;                                                             \
-    component = direction->x;                                                  \
-    particle->direction.x = component;                                         \
-    component = direction->z;                                                  \
-    particle->direction.z = component;                                         \
-    component = direction->y;                                                  \
-    particle->direction.y = component;                                         \
-} while (0)
-#define CLEAR_PARTICLE_DIRECTION(particle, unused) do {                        \
-    particle->direction.x = 0;                                                 \
-    particle->direction.y = 0;                                                 \
-    particle->direction.z = 0;                                                 \
-} while (0)
-
-#define INITIALIZE_PARTICLE(particle, position, particle_index, field30,       \
-                            field34, field38, use_self, particle_flags,        \
-                            direction_action, direction_source) do {           \
-    __ct__7TObjectFP7TObject(particle, tl_07);                                 \
-    particle->vtable = __vt__13TParticleCtrl;                                  \
-    particle->descriptor = TParticleCtrl__data_805D2938;                       \
-    particle->field4C = 0;                                                     \
-    particle->field50 = 0;                                                     \
-    particle->field54 = 0;                                                     \
-    particle->field48 = 0;                                                     \
-    particle->field40 = TParticleCtrl__data_805D94E4;                          \
-    particle->field44 = TParticleCtrl__data_805D94E4;                          \
-    particle->field1C = TParticleCtrl__data_805D94E0;                          \
-    particle->field20 = 0;                                                     \
-    particle->field24 = TParticleCtrl__data_805D94E4;                          \
-    particle->particle_index = particle_index;                                 \
-    VecCopy__FP3VecPC3Vec(&particle->position, position);                      \
-    particle->flags = particle_flags;                                          \
-    particle->field2E = 0xFFFF;                                                \
-    direction_action(particle, direction_source);                              \
-    particle->field30 = field30;                                               \
-    particle->field34 = field34;                                               \
-    particle->field38 = field38;                                               \
-    particle->field3C = 0;                                                     \
-    if (use_self != 0) {                                                       \
-        particle->owner = particle;                                            \
-    } else if (particle->flags & 0x800) {                                      \
-        if (particle->flags & 0x4000) {                                        \
-            particle->owner = tl_clipout;                                      \
-        } else {                                                               \
-            particle->owner = tl_07;                                           \
-        }                                                                      \
-    } else {                                                                   \
-        particle->owner = tl_07;                                               \
-    }                                                                          \
-} while (0)
-
-void *__ct__13TParticleCtrlFv(
-    ParticleCtrlData *particle,
-    const void *position,
-    ParticleVec *direction,
-    s32 particle_index,
-    s32 field30,
-    s32 field34,
-    s32 field38,
-    s32 use_self,
-    u16 flags)
-{
-    __ct__7TObjectFP7TObject(particle, tl_07);
-    particle->vtable = __vt__13TParticleCtrl;
-    particle->descriptor = TParticleCtrl__data_805D2938;
-    particle->field4C = 0;
-    particle->field50 = 0;
-    particle->field54 = 0;
-    particle->field48 = 0;
-    particle->field40 = TParticleCtrl__data_805D94E4;
-    particle->field44 = TParticleCtrl__data_805D94E4;
-    particle->field1C = TParticleCtrl__data_805D94E0;
-    particle->field20 = 0;
-    particle->field24 = TParticleCtrl__data_805D94E4;
-    particle->particle_index = particle_index;
-    VecCopy__FP3VecPC3Vec(&particle->position, position);
-    particle->flags = flags;
-    particle->field2E = 0xFFFF;
-    {
-        s32 component;
-        component = direction->x;
-        particle->direction.x = component;
-        component = direction->z;
-        particle->direction.z = component;
-        component = direction->y;
-        particle->direction.y = component;
-    }
-    particle->field30 = field30;
-    particle->field34 = field34;
-    particle->field38 = field38;
-    particle->field3C = 0;
-    if (use_self != 0) {
-        particle->owner = particle;
-    } else if (particle->flags & 0x800) {
-        if (particle->flags & 0x4000) {
-            particle->owner = tl_clipout;
-        } else {
-            particle->owner = tl_07;
-        }
-    } else {
-        particle->owner = tl_07;
-    }
-    return particle;
-}
-
-void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(
-    ParticleCtrlData *particle,
-    const void *position,
-    ParticleVec *direction,
-    s32 particle_index,
-    s32 field30,
-    s32 field34,
-    s32 field38,
-    s32 use_self)
-{
-    __ct__7TObjectFP7TObject(particle, tl_07);
-    particle->vtable = __vt__13TParticleCtrl;
-    particle->descriptor = TParticleCtrl__data_805D2938;
-    particle->field4C = 0;
-    particle->field50 = 0;
-    particle->field54 = 0;
-    particle->field48 = 0;
-    particle->field40 = TParticleCtrl__data_805D94E4;
-    particle->field44 = TParticleCtrl__data_805D94E4;
-    particle->field1C = TParticleCtrl__data_805D94E0;
-    particle->field20 = 0;
-    particle->field24 = TParticleCtrl__data_805D94E4;
-    particle->particle_index = particle_index;
-    VecCopy__FP3VecPC3Vec(&particle->position, position);
-    particle->flags = 0;
-    particle->field2E = 0xFFFF;
-    {
-        s32 component;
-        component = direction->x;
-        particle->direction.x = component;
-        component = direction->z;
-        particle->direction.z = component;
-        component = direction->y;
-        particle->direction.y = component;
-    }
-    particle->field30 = field30;
-    particle->field34 = field34;
-    particle->field38 = field38;
-    particle->field3C = 0;
-    if (use_self != 0) {
-        particle->owner = particle;
-    } else if (particle->flags & 0x800) {
-        if (particle->flags & 0x4000) {
-            particle->owner = tl_clipout;
-        } else {
-            particle->owner = tl_07;
-        }
-    } else {
-        particle->owner = tl_07;
-    }
-    return particle;
-}
-
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(
-    ParticleCtrlData *particle,
-    const void *position,
-    s32 particle_index,
-    s32 field30,
-    s32 field34,
-    s32 field38,
-    s32 use_self,
-    u16 flags)
-{
-    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
-                        field38, use_self, flags, CLEAR_PARTICLE_DIRECTION,
-                        position);
-    return particle;
-}
-
-void *initialize__13TParticleCtrlFPvPviiiii(
-    ParticleCtrlData *particle,
-    const void *position,
-    s32 particle_index,
-    s32 field30,
-    s32 field34,
-    s32 field38,
-    s32 use_self)
-{
-    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
-                        field38, use_self, 0, CLEAR_PARTICLE_DIRECTION,
-                        position);
-    return particle;
-}
-
 }
 
 #include "types.h"
@@ -628,16 +392,16 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
     if (def == NULL) {
         return;
     }
-    if (TParticleCtrl__data_805D94E0 == def->freq) {
+    if (TParticleCtrl__data_805D94E0[0] == def->freq) {
         self->accum += def->amp * self->rate;
     } else {
-        self->angle += (s32)(lbl_805D94E8 * def->freq);
+        self->angle += (s32)(182.04445f * def->freq);
         self->accum += self->rate * (self->def->amp * get_random_float__8TObjFishFv(sin_table_lookup(self->angle)));
     }
     if (lbl_805D4DF0 != NULL && !(self->flags & 0x40)) {
         if (is_split_screen() != 0) {
             if (TLoadCtrl__sub_8001C60C() == 0) {
-                f32 lim = lbl_805D94EC;
+                f32 lim = 10000.0f;
                 s32 near = 0;
                 s32 i;
                 for (i = 0; i < 4; i++) {
@@ -647,16 +411,16 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
                     }
                 }
                 if (near == 0) {
-                    self->accum = TParticleCtrl__data_805D94E0;
+                    self->accum = TParticleCtrl__data_805D94E0[0];
                 }
             }
         } else if (TLoadCtrl__sub_8001C60C() == 0) {
-            if (!(horizontal_distance_squared(&self->pos, lbl_805D4DF0 + 0x178) < lbl_805D94F0)) {
-                self->accum = TParticleCtrl__data_805D94E0;
+            if (!(horizontal_distance_squared(&self->pos, lbl_805D4DF0 + 0x178) < 40000.0f)) {
+                self->accum = TParticleCtrl__data_805D94E0[0];
             }
         }
     }
-    step = TParticleCtrl__data_805D94E4;
+    step = TParticleCtrl__data_805D94E4[0];
     while (self->accum >= step) {
         self->accum -= step;
         kind = self->def->kind;
@@ -724,9 +488,279 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
     }
 }
 #pragma pop
+extern "C" {
+extern u32 lbl_805D2940[1];
+extern const char *lbl_8048E758[4];
+extern void *lbl_8048E768[4];
+extern const char *lbl_805D2944;
+}
 
 void clear_active_flag__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) &= 0xfffe; }
 void enable__13TParticleCtrlFPv(void* p) { *(u16*)((char*)p + 0x2c) |= 0x1; }
+extern "C" {
+void __dt__7TObjectFv(void *, int);
+void __dl__7TObjectFPv(void *);
+void render__7TObjectFv(void);
+void render_shadows__7TObjectFv(void);
+void *__dt__13TParticleCtrlFv(void *self, s16 flag);
+void *__vt__13TParticleCtrl[] = {
+    0,
+    0,
+    (void *)__dt__13TParticleCtrlFv,
+    (void *)run_task__13TParticleCtrlFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+void *__dt__13TParticleCtrlFv(void *self, s16 flag) {
+    if (self != 0) {
+        *(void **)((u8 *)self + 0x18) = __vt__13TParticleCtrl;
+        __dt__7TObjectFv(self, 0);
+        if (flag > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+}
+extern "C" {
+u32 lbl_805D2940[1] = {0};
+const char *lbl_8048E758[4] = {"eff_f_foie.gj", "eff_sinowahamon.gj", "jungle_hamon.gj", 0};
+void *lbl_8048E768[4] = {(void *)"bm_tec_regurar.bml", lbl_8048E758, lbl_805D2940, (void *)0x30000};
+const char *lbl_805D2944 = "particleentry.dat";
+}
+
+extern "C" {
+
+struct ParticleVec {
+    s32 x;
+    s32 y;
+    s32 z;
+};
+
+struct ParticleCtrlData {
+    s32 descriptor;
+    u8 pad04[0x14];
+    void *vtable;
+    f32 field1C;
+    s32 field20;
+    f32 field24;
+    s32 particle_index;
+    u16 flags;
+    u16 field2E;
+    s32 field30;
+    s32 field34;
+    s32 field38;
+    s32 field3C;
+    f32 field40;
+    f32 field44;
+    s32 field48;
+    s32 field4C;
+    s32 field50;
+    s32 field54;
+    void *owner;
+    u8 pad5C[4];
+    ParticleVec position;
+    ParticleVec direction;
+};
+
+void __ct__7TObjectFP7TObject(void *, void *);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+
+extern void *__vt__13TParticleCtrl[];
+extern void *tl_07;
+extern void *tl_clipout;
+
+#define COPY_PARTICLE_DIRECTION(particle, direction) do {                      \
+    s32 component;                                                             \
+    component = direction->x;                                                  \
+    particle->direction.x = component;                                         \
+    component = direction->z;                                                  \
+    particle->direction.z = component;                                         \
+    component = direction->y;                                                  \
+    particle->direction.y = component;                                         \
+} while (0)
+#define CLEAR_PARTICLE_DIRECTION(particle, unused) do {                        \
+    particle->direction.x = 0;                                                 \
+    particle->direction.y = 0;                                                 \
+    particle->direction.z = 0;                                                 \
+} while (0)
+
+#define INITIALIZE_PARTICLE(particle, position, particle_index, field30,       \
+                            field34, field38, use_self, particle_flags,        \
+                            direction_action, direction_source) do {           \
+    __ct__7TObjectFP7TObject(particle, tl_07);                                 \
+    particle->vtable = __vt__13TParticleCtrl;                                  \
+    particle->descriptor = (s32)TParticleCtrl__data_805D2938[0];                       \
+    particle->field4C = 0;                                                     \
+    particle->field50 = 0;                                                     \
+    particle->field54 = 0;                                                     \
+    particle->field48 = 0;                                                     \
+    particle->field40 = TParticleCtrl__data_805D94E4[0];                          \
+    particle->field44 = TParticleCtrl__data_805D94E4[0];                          \
+    particle->field1C = TParticleCtrl__data_805D94E0[0];                          \
+    particle->field20 = 0;                                                     \
+    particle->field24 = TParticleCtrl__data_805D94E4[0];                          \
+    particle->particle_index = particle_index;                                 \
+    VecCopy__FP3VecPC3Vec(&particle->position, position);                      \
+    particle->flags = particle_flags;                                          \
+    particle->field2E = 0xFFFF;                                                \
+    direction_action(particle, direction_source);                              \
+    particle->field30 = field30;                                               \
+    particle->field34 = field34;                                               \
+    particle->field38 = field38;                                               \
+    particle->field3C = 0;                                                     \
+    if (use_self != 0) {                                                       \
+        particle->owner = particle;                                            \
+    } else if (particle->flags & 0x800) {                                      \
+        if (particle->flags & 0x4000) {                                        \
+            particle->owner = tl_clipout;                                      \
+        } else {                                                               \
+            particle->owner = tl_07;                                           \
+        }                                                                      \
+    } else {                                                                   \
+        particle->owner = tl_07;                                               \
+    }                                                                          \
+} while (0)
+
+void *__ct__13TParticleCtrlFv(
+    ParticleCtrlData *particle,
+    const void *position,
+    ParticleVec *direction,
+    s32 particle_index,
+    s32 field30,
+    s32 field34,
+    s32 field38,
+    s32 use_self,
+    u16 flags)
+{
+    __ct__7TObjectFP7TObject(particle, tl_07);
+    particle->vtable = __vt__13TParticleCtrl;
+    particle->descriptor = (s32)TParticleCtrl__data_805D2938[0];
+    particle->field4C = 0;
+    particle->field50 = 0;
+    particle->field54 = 0;
+    particle->field48 = 0;
+    particle->field40 = TParticleCtrl__data_805D94E4[0];
+    particle->field44 = TParticleCtrl__data_805D94E4[0];
+    particle->field1C = TParticleCtrl__data_805D94E0[0];
+    particle->field20 = 0;
+    particle->field24 = TParticleCtrl__data_805D94E4[0];
+    particle->particle_index = particle_index;
+    VecCopy__FP3VecPC3Vec(&particle->position, position);
+    particle->flags = flags;
+    particle->field2E = 0xFFFF;
+    {
+        s32 component;
+        component = direction->x;
+        particle->direction.x = component;
+        component = direction->z;
+        particle->direction.z = component;
+        component = direction->y;
+        particle->direction.y = component;
+    }
+    particle->field30 = field30;
+    particle->field34 = field34;
+    particle->field38 = field38;
+    particle->field3C = 0;
+    if (use_self != 0) {
+        particle->owner = particle;
+    } else if (particle->flags & 0x800) {
+        if (particle->flags & 0x4000) {
+            particle->owner = tl_clipout;
+        } else {
+            particle->owner = tl_07;
+        }
+    } else {
+        particle->owner = tl_07;
+    }
+    return particle;
+}
+
+void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(
+    ParticleCtrlData *particle,
+    const void *position,
+    ParticleVec *direction,
+    s32 particle_index,
+    s32 field30,
+    s32 field34,
+    s32 field38,
+    s32 use_self)
+{
+    __ct__7TObjectFP7TObject(particle, tl_07);
+    particle->vtable = __vt__13TParticleCtrl;
+    particle->descriptor = (s32)TParticleCtrl__data_805D2938[0];
+    particle->field4C = 0;
+    particle->field50 = 0;
+    particle->field54 = 0;
+    particle->field48 = 0;
+    particle->field40 = TParticleCtrl__data_805D94E4[0];
+    particle->field44 = TParticleCtrl__data_805D94E4[0];
+    particle->field1C = TParticleCtrl__data_805D94E0[0];
+    particle->field20 = 0;
+    particle->field24 = TParticleCtrl__data_805D94E4[0];
+    particle->particle_index = particle_index;
+    VecCopy__FP3VecPC3Vec(&particle->position, position);
+    particle->flags = 0;
+    particle->field2E = 0xFFFF;
+    {
+        s32 component;
+        component = direction->x;
+        particle->direction.x = component;
+        component = direction->z;
+        particle->direction.z = component;
+        component = direction->y;
+        particle->direction.y = component;
+    }
+    particle->field30 = field30;
+    particle->field34 = field34;
+    particle->field38 = field38;
+    particle->field3C = 0;
+    if (use_self != 0) {
+        particle->owner = particle;
+    } else if (particle->flags & 0x800) {
+        if (particle->flags & 0x4000) {
+            particle->owner = tl_clipout;
+        } else {
+            particle->owner = tl_07;
+        }
+    } else {
+        particle->owner = tl_07;
+    }
+    return particle;
+}
+
+void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(
+    ParticleCtrlData *particle,
+    const void *position,
+    s32 particle_index,
+    s32 field30,
+    s32 field34,
+    s32 field38,
+    s32 use_self,
+    u16 flags)
+{
+    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
+                        field38, use_self, flags, CLEAR_PARTICLE_DIRECTION,
+                        position);
+    return particle;
+}
+
+void *initialize__13TParticleCtrlFPvPviiiii(
+    ParticleCtrlData *particle,
+    const void *position,
+    s32 particle_index,
+    s32 field30,
+    s32 field34,
+    s32 field38,
+    s32 use_self)
+{
+    INITIALIZE_PARTICLE(particle, position, particle_index, field30, field34,
+                        field38, use_self, 0, CLEAR_PARTICLE_DIRECTION,
+                        position);
+    return particle;
+}
+
+}
 
 int TParticleCtrl__sub_800884F0(void* p) { return copy_xyz__10TObjPlayerFPvPv((char*)p + 0x98); }
 
@@ -765,7 +799,7 @@ void free_all__13TParticleCtrlFv(void) {
 }
 void init_particle_buffer__13TParticleCtrlFv(void) {
     s32 temp_r3;
-    temp_r3 = read_disc_file(lbl_805D2944, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
+    temp_r3 = read_disc_file((s32)lbl_805D2944, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
     lbl_805D2948 = 0;
     if (temp_r3 >= 0) {
         lbl_805D2948 = (u32) temp_r3 / 152U;
@@ -802,4 +836,10 @@ void load_particle_entry_resources(void) {
     TParticleCtrl__data_805D4F04 = load_gvm_texture_file(lbl_804394D4);
 }
 
+}
+extern "C" {
+__declspec(section ".rodata") extern char lbl_80439494[] = "particleentrya";
+__declspec(section ".rodata") extern char lbl_804394A4[] = "particleentrya0%d.dat";
+__declspec(section ".rodata") extern char lbl_804394BC[] = "particleentrya%d.dat";
+__declspec(section ".rodata") extern char lbl_804394D4[] = "tecregular.gvm";
 }

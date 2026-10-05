@@ -1629,7 +1629,8 @@ pso/misc/TNowLoading_80087660.cpp:
 pso/misc/TParticleCtrl_8008767C.cpp:
 	.text       start:0x8008767C end:0x8008877C
 	.rodata     start:0x80439420 end:0x804394E8
-	.data       start:0x8048E740 end:0x8048E758
+	.data       start:0x8048E740 end:0x8048E778
+	.sdata      start:0x805D2938 end:0x805D2948
 	.sdata2     start:0x805D94E0 end:0x805D94F8
 
 pso/misc/ParticleBallistic.cpp:
@@ -2668,7 +2669,7 @@ pso/unk/text_800F7D30.cpp:
 pso/unk/text_800F7DAC.cpp:
 	.text       start:0x800F7DAC end:0x800F8A0C
 	.rodata     start:0x8043D798 end:0x8043D7A8
-	.sdata2     start:0x805DA8FC end:0x805DA910
+	.sdata2     start:0x805DA8E8 end:0x805DA90C
 
 pso/unk/text_800F8A0C.cpp:
 	.text       start:0x800F8A0C end:0x800F8A18
@@ -6234,14 +6235,12 @@ pso/misc/TOFenceAncient03.cpp:
 	.rodata     start:0x80441640 end:0x80441648
 
 pso/misc/TOFenceAncient04.cpp:
-	.text       start:0x801675E8 end:0x80168588
-	.rodata     start:0x804416F0 end:0x80441858
+	.text       start:0x801675E8 end:0x80167980
+	.rodata     start:0x80441648 end:0x804416F8
 
 pso/misc/TOHangceilingCave01.cpp:
-	.text       start:0x80168588 end:0x80168AA8
-
-pso/unk/text_80168AA8.cpp:
-	.text       start:0x80168AA8 end:0x80168C04
+	.text       start:0x80167980 end:0x80168C04
+	.rodata     start:0x804416F8 end:0x80441890
 
 pso/misc/TOHangceilingCave01KeyQuick_80168C04.cpp:
 	.text       start:0x80168C04 end:0x80168D3C
@@ -6309,7 +6308,7 @@ pso/unk/text_8016D8F8.cpp:
 pso/misc/TOKurage.cpp:
 	.text       start:0x8016D99C end:0x8016E998
 	.rodata     start:0x80441ED0 end:0x80441EE0
-	.sdata2     start:0x805DB7A8 end:0x805DB820
+	.sdata2     start:0x805DB7A8 end:0x805DB828
 
 pso/misc/TOLightMachine01.cpp:
 	.text       start:0x8016E998 end:0x8016ED9C
@@ -7446,15 +7445,9 @@ pso/misc/TKeyBoardControl_801A57C4.cpp:
 	.text       start:0x801A57C4 end:0x801A5AEC
 
 pso/player/TObjPlayer_801A5AEC.cpp:
-	.text       start:0x801A5AEC end:0x801A6510
-	.rodata     start:0x804469F0 end:0x80446A00
-	.data       start:0x804C237C end:0x804C2438
-
-pso/misc/TKeyBoardControl_801A6510.cpp:
-	.text       start:0x801A6510 end:0x801A69E4
-
-pso/unk/text_801A69E4.cpp:
-	.text       start:0x801A69E4 end:0x801A6A28
+	.text       start:0x801A5AEC end:0x801A6A28
+	.rodata     start:0x804469D8 end:0x80446A08
+	.data       start:0x804C2308 end:0x804C2438
 
 pso/unk/text_801A6A28.cpp:
 	.text       start:0x801A6A28 end:0x801A6A5C
