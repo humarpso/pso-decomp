@@ -337,8 +337,6 @@ pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
 pso/enemy/TObjEneBalClawClaw_80090DD0.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3Fly_800B012C.cpp
-pso/enemy/TObjEneBm5GibonU_800D0CB8.cpp
-pso/enemy/TObjEneBm5GibonU_800D0D14.cpp
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
