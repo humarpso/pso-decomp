@@ -108,11 +108,6 @@ s32 rand();
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
 extern s32 lbl_805D26E8;
-extern const f32 lbl_805D856C;
-extern const f32 lbl_805D859C;
-extern const f32 lbl_805D85A0;
-extern const f32 lbl_805D85A4;
-extern const f32 lbl_805D85A8;
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TObjEneDD__sub_800B9D94(void *, void *, int, void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -132,9 +127,6 @@ extern Holder_8003A1B4 *lbl_805D4BE8;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805D8568;
-extern const f32 lbl_805D856C;
-extern const f32 lbl_805D8570;
 void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -153,13 +145,6 @@ M2C_UNK subtract_vector(void *, void *);
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
 extern f32 lbl_80435BF0[];
 extern const f32 lbl_805D4BE0;
-extern const f32 lbl_805D857C;
-extern const f32 lbl_805D8580;
-extern const f32 lbl_805D8584;
-extern const f32 lbl_805D8588;
-extern const f32 lbl_805D858C;
-extern const f32 lbl_805D8590;
-extern const f32 lbl_805D8594;
 void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o);
 }
 
@@ -182,18 +167,18 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   {
     Vec_8003A1B4 s;
     f32 t = lbl_80435BF0[self->fAC];
-    new_var = lbl_805D8568 * t;
-    s.y = lbl_805D856C;
+    new_var = (0.2f) * t;
+    s.y = (1.0f);
     s.x = (s.z = new_var);
     TObjEneDD__sub_800B9D94(self->f44, self->f9C, 0, &s);
   }
   lbl_805D5660 = some_id_805c6f74;
-  if (self->fB4 < lbl_805D856C)
+  if (self->fB4 < (1.0f))
   {
     some_id_805c6f74 = lbl_805D5660 | 0x8820;
     {
       Color_8003A1B4 c = lbl_80435C1C;
-      c.a = lbl_805D8570 + self->fB4;
+      c.a = (-1.0f) + self->fB4;
       set_chunk_material_color(&c);
     }
     set_chunk_material_override_pair(0xFF00, 0x800);
@@ -242,15 +227,15 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
             case 4:
             case 5:
                 id = 0x171;
-                p.y += lbl_805D857C;
+                p.y += (5.0f);
                 break;
             }
             create_particle__17TObjBoss2CeilJunkFv(&p, id);
         }
         break;
     case 1:
-        o->pos.y -= lbl_805D8580;
-        if (o->pos.y < lbl_805D8584) {
+        o->pos.y -= (3.0f);
+        if (o->pos.y < (-5e+01f)) {
             queue_destruction__7TObjectFv(o);
         }
         break;
@@ -260,12 +245,12 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
             o->vel.y = -10.0f;
         }
         o->pos.y += o->vel.y;
-        if (o->pos.y - o->f54 < lbl_805D8588) {
+        if (o->pos.y - o->f54 < (3e+01f)) {
             hit = 0;
             n = get_game_mode__6TLobbyFv();
             top = o->pos.y - o->vel.y;
             bottom = o->pos.y - ((f32 *)&lbl_80435BD8)[o->fAC];
-            rad = lbl_805D858C + lbl_80435BF0[o->fAC];
+            rad = (1e+01f) + lbl_80435BF0[o->fAC];
             for (i = 0; i < n; i++) {
                 pl = get_player_data__10TObjPlayerFi(i);
                 if (is_valid_target__9TObjEneDDFPv(pl) != 0) {
@@ -286,9 +271,9 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
                 create_particle__17TObjBoss2CeilJunkFv(&o->pos, 0x160);
             }
             if (hit != 0) {
-                o->vel.y *= lbl_805D8590;
-                o->vel.x = lbl_805D8594 * sin_table_lookup(o->f60);
-                o->vel.z = lbl_805D8594 * cos_table_lookup(o->f60);
+                o->vel.y *= (-0.5f);
+                o->vel.x = (2.0f) * sin_table_lookup(o->f60);
+                o->vel.z = (2.0f) * cos_table_lookup(o->f60);
                 o->fA8 = 3;
                 play_sound_effect(0x4003A801, &o->pos, 0, 0);
                 set_shake_preset__11TCameraCtrlFi(0);
@@ -324,6 +309,7 @@ void *__dt__17TObjBoss2CeilJunkFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+extern const f32 lbl_805D85A0 = 6.0f;
 #pragma push
 #pragma opt_dead_assignments off
 typedef char RecoveredGlobal_8003A6F4_lbl_80435BD8_size[sizeof(RecoveredGlobal_8003A6F4_lbl_80435BD8) == 0x18 ? 1 : -1];
@@ -336,8 +322,8 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
     arg0->field_0 = lbl_805D26E8;
     VecCopy__FP3VecPC3Vec(&arg0->unknown_1C[0x1C], (void *) arg2);
     temp_f2 = (f32) rand();
-    temp_f1 = lbl_805D85A4 * temp_f2;
-    arg0->field_AC = (s32) (lbl_805D85A0 * temp_f1);
+    temp_f1 = (3.0517578e-05f) * temp_f2;
+    arg0->field_AC = (s32) (*(const volatile f32 *)&lbl_805D85A0 * temp_f1);
     if (spawn_effect__15TObjBoss2TunnelFiPvPv(&arg0->unknown_1C[0x1C], &arg0->unknown_1C[0x28], arg0->unknown_9C, temp_f1, temp_f2) == 0) {
         arg0->field_A8 = 0;
     } else {
@@ -345,12 +331,12 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
         arg0->field_54 = arg0->field_48 + M2C_FIELD(((u8 *)(&lbl_80435BD8.value) + (arg0->field_AC * 4)), f32 *, 0);
     }
     arg0->field_60 = calc_random_scaled__10TObjPlayerFv();
-    arg0->field_5C = (s32) (lbl_805D85A8 * rand_signed_unit());
-    arg0->field_90 = lbl_805D859C;
-    arg0->field_94 = lbl_805D859C;
-    arg0->field_98 = lbl_805D859C;
+    arg0->field_5C = (s32) ((4096.0f) * rand_signed_unit());
+    arg0->field_90 = (0.0f);
+    arg0->field_94 = (0.0f);
+    arg0->field_98 = (0.0f);
     arg0->field_B0 = 0;
-    arg0->field_B4 = lbl_805D856C;
+    arg0->field_B4 = (1.0f);
     return (unsigned char *) (arg0);
 }
 #pragma pop

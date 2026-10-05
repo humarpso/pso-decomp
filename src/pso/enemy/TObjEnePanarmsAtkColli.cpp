@@ -106,7 +106,6 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern const f32 lbl_805DA5A4;
 }
 
 extern "C" {
@@ -179,7 +178,7 @@ void fn_800E3428(Obj_800E3428 *self) {
     subtract_vector(&d, &self->pos);
     len = vector_length(&d);
     if (0.0f == len) {
-        d.x = lbl_805DA5A4;
+        d.x = (1.0f);
     }
     normalize_vector(&d);
     d.x *= self->f378;
@@ -497,12 +496,6 @@ int play_sound_effect(void *, void *, void *, void *);
 extern s32 lbl_80495A80[];
 extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
 extern s32 lbl_805D2AC0;
-extern const f32 lbl_805DA5A0;
-extern const f32 lbl_805DA5A4;
-extern const f32 lbl_805DA5A8;
-extern const f32 lbl_805DA5AC;
-extern const f32 lbl_805DA5B0;
-extern const f32 lbl_805DA5B4;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
 
@@ -565,6 +558,8 @@ typedef struct VObj_18_f56c51 VObj_18_f56c51;
 #define PSO_VCALL_VObj_18_f56c51_m100(_self, _arg0) (((VObj_18_f56c51 *)(_self))->m100((_arg0)))
 
 #define self arg0
+extern const f32 lbl_805DA5A8 = 10.0f;
+extern const f32 lbl_805DA5AC = 2.8f;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     f32 scale;
     initialize__9TObjEnemyFPv(self, arg1);
@@ -580,24 +575,24 @@ void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, voi
     if (self->f38C < 0.0f) {
         self->f38C = 0.0f;
     }
-    self->scale.y = lbl_805DA5A0;
-    if (lbl_805DA5A0 == vector_length(&self->scale)) {
-        self->scale.x = lbl_805DA5A4;
+    self->scale.y = (0.0f);
+    if ((0.0f) == vector_length(&self->scale)) {
+        self->scale.x = (1.0f);
     }
     normalize_vector(&self->scale);
     switch (self->type) {
     case 0:
         play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(self, 0x4003BC2B), &self->pos, 0, 0);
-        self->f378 = lbl_805DA5B0;
-        self->f37C = lbl_805DA5B4;
+        self->f378 = (5.0f);
+        self->f37C = (1.0416666f);
         self->f380 = 0xC;
-        scale = lbl_805DA5AC;
+        scale = *(const volatile f32 *)&lbl_805DA5AC;
         break;
     case 1:
-        self->f378 = lbl_805DA5B0;
-        self->f37C = lbl_805DA5A0;
+        self->f378 = (5.0f);
+        self->f37C = (0.0f);
         self->f380 = 0xC;
-        scale = lbl_805DA5A8;
+        scale = *(const volatile f32 *)&lbl_805DA5A8;
         break;
     }
     self->scale.x *= scale;

@@ -582,6 +582,8 @@ void *lbl_804E7BB0[90] = {
     (void *)0x0, (void *)0x0,
 };
 
+int lbl_805D6AA0;
+
 void run_task__16TAdChrSelBSlotGCFv(C_8030F874 *self) {
     static s8 init;
     if (self->f1C < 0 || self->f1C >= 30) {

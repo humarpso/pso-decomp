@@ -259,6 +259,7 @@ pso/boss/TBoss8Dragon_80359A7C.cpp
 pso/boss/TObjBoss1Crater.cpp
 pso/boss/TObjBoss1Crater_8002C6B4.cpp
 pso/boss/TObjBoss1Floor.cpp
+pso/boss/TObjBoss2CeilJunk.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
 pso/boss/TObjBoss2Dust.cpp
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp
@@ -442,6 +443,7 @@ pso/enemy/TObjEneMorfosArm_80335218.cpp
 pso/enemy/TObjEneMorfos_80337500.cpp
 pso/enemy/TObjEneNanoDrago.cpp
 pso/enemy/TObjEneNanoDrago_800DBF88.cpp
+pso/enemy/TObjEnePanarmsAtkColli.cpp
 pso/enemy/TObjEnePanarms_8002AE74.cpp
 pso/enemy/TObjEnePanarms_800DFB74.cpp
 pso/enemy/TObjEnePanarms_800F5E90.cpp
@@ -705,6 +707,7 @@ pso/item/TItemMoney.cpp
 pso/item/TItemObject.cpp
 pso/item/TItemObject_80115D6C_801161A4.cpp
 pso/item/TItemObject_80115D6C_801164C4.cpp
+pso/item/TItemProArmor.cpp
 pso/item/TItemProArmorParticle.cpp
 pso/item/TItemProArmor_80102C3C.cpp
 pso/item/TItemProArmor_80116F68.cpp
@@ -1482,6 +1485,7 @@ pso/misc/TOTrap.cpp
 pso/misc/TOTrapAncient01_80226534.cpp
 pso/misc/TOTrapAncient02R.cpp
 pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
+pso/misc/TOTrapChainSawEdge.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
 pso/misc/TOTrapSeabed01.cpp
 pso/misc/TOTrapSeabed01_802CA2F0.cpp
@@ -2180,8 +2184,8 @@ pso/object/TObjBgmColCtrl_8036A4AC.cpp
 pso/object/TObjBgmCol_8017E664.cpp
 pso/object/TObjBgmCol_8017E7F0.cpp
 pso/object/TObjBigTuitate.cpp
-pso/object/TObjButterflyLobby.cpp
 pso/object/TObjButterflyLobby_8007A5D8.cpp
+pso/object/TObjButterflyLobby_80350958.cpp
 pso/object/TObjCHTimeWin.cpp
 pso/object/TObjCHTimeWin_80074C94.cpp
 pso/object/TObjCHTimeWin_80074C94_80074CF0.cpp
@@ -2227,6 +2231,7 @@ pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp
 pso/object/TObjEnvSound.cpp
+pso/object/TObjEnvSoundGlobal.cpp
 pso/object/TObjEvtCollision.cpp
 pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
@@ -2926,6 +2931,7 @@ pso/ui/TAdBackGC_8029A7B0.cpp
 pso/ui/TAdChrSelASlotGC_800740FC.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
 pso/ui/TAdChrSelBSlotGC.cpp
+pso/ui/TAdChrSelBSlotGC_8030ED88.cpp
 pso/ui/TAdChrSelBSlotGC_8030FE74.cpp
 pso/ui/TAdChrSelBSlotGC_80310050.cpp
 pso/ui/TAdChrSelBSlotGC_803100A4.cpp
@@ -2998,6 +3004,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802DD714.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DD8E0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DE094.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802DEC44.cpp
+pso/ui/TAdMultiPlyChrSelectGC_802DEF54.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802E0064.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802E0C28.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802E0FC8.cpp
@@ -3262,6 +3269,7 @@ pso/unk/text_80115D68.cpp
 pso/unk/text_80116D90.cpp
 pso/unk/text_80117FEC.cpp
 pso/unk/text_80118164.cpp
+pso/unk/text_8011892C.cpp
 pso/unk/text_8011B328.cpp
 pso/unk/text_8011B620.cpp
 pso/unk/text_8011B694.cpp

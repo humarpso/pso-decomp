@@ -113,6 +113,8 @@ void TObjPlayer__sub_802A841C(void) {
     for (i = 0; i < 6; i++) ((s32 *)&lbl_80540B10)[i] = 0;
 }
 
+void *lbl_805D66B0;
+
 M2C_UNK setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second) {
     Tbl5_802A8448 scales = lbl_8046FC34;
     f32 m0[2][3];

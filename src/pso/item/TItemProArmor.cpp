@@ -150,7 +150,7 @@ u8 * TItemEquipBase__ct(void *);
 s16 get_bswap16_field8__9TItemDataFPv(void *);
 s16 getS16_06__9TItemDataFPv(void *);
 s32 lookup_item_pmt_record(void *);
-extern M2C_UNK __vt__13TItemProArmor[];
+extern void *__vt__13TItemProArmor[];
 extern s32 lbl_805D2C30;
 u8 *TItemProArmor__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -234,11 +234,11 @@ void apply_to_player__13TItemProArmorFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK lbl_8049FF88[];
+extern void *lbl_8049FF88[];
 
 void *TItemProArmor__sub_80117730(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FF88;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8049FF88;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -247,11 +247,11 @@ void *TItemProArmor__sub_80117730(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049FF88[];
+extern void *lbl_8049FF88[];
 
 void *init_item_object__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FF88;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8049FF88;
     return arg0;
 }
 
@@ -317,6 +317,172 @@ void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
 }
 
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
+extern "C" {
+void run_task__5TItemFPv();
+void TItem__sub_8010263C();
+void render__5TItemFPv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void release_member_90__10TObjPlayerFPv();
+void TItemObject__vt7();
+void TItem__sub_80100B8C();
+void classify_actor_view_detail();
+void register_attack__5TItemFPv();
+void TItem__sub_801022FC();
+void TItemObject__vt12();
+void TItem__sub_801005E0();
+void TItem__sub_801005DC();
+void TItem__sub_80100678();
+void TItemObject__vt16();
+void TItem__sub_8010067C();
+void TItem__sub_801007B0();
+void TItem__sub_801007AC();
+void TItem__sub_8010075C();
+void TItem__sub_80100758();
+void TItem__sub_80100698();
+void TItem__sub_80100694();
+void TItem__sub_80100690();
+void TItem__sub_8010068C();
+void TItem__sub_80100688();
+void destroy__5TItemFPv();
+void TItem__sub_801007A8();
+void TItemObject__vt29();
+void TItem__sub_80100680();
+void TObjPlayer__sub_80102BD0();
+void TItem__sub_80100674();
+void ret_8010066C();
+void load_encoded_value__11TItemObjectFv();
+void TItemObject__vt35();
+void TItemObject__vt36();
+void ret_8010064C();
+void TItem__sub_80100648();
+void TItem__sub_801005E4();
+void TItem__sub_801005D8();
+void TObjPlayer__sub_80102BD8();
+void TParticleCtrl__sub_801A2124();
+void set_attach_slot__14TItemEquipBaseFPvc();
+void equip__14TItemEquipBaseFPv();
+void unequip__14TItemEquipBaseFPv();
+void add_equip_stats__14TItemEquipBaseFPvi();
+void remove_equip_stats__14TItemEquipBaseFPvi();
+void TItemEquipBase__sub_8010AEFC();
+void subtract_equip_stats__14TItemEquipBaseFPviPvPv();
+void update_equip__14TItemEquipBaseFPv();
+void update_pickup_flag__5TItemFi();
+void TItemEquipBase__sub_8010A77C();
+void ret_80100664();
+void ret_8010065C();
+void ret_80100654();
+void TItemEquipBase__sub_8010A940();
+void release__14TItemEquipBaseFPv();
+void TItemEquipBase__sub_8010A93C();
+void TItemEquipBase__sub_8010A938();
+void TItemEquipBase__sub_8010A788();
+}
+
+void *lbl_8049FF88[46] = {
+    0,
+    0,
+    (void *)TItemProArmor__sub_80117730,
+    (void *)run_task__5TItemFPv,
+    (void *)TItem__sub_8010263C,
+    (void *)render__5TItemFPv,
+    (void *)TLobby__sub_801A1FD8,
+    (void *)apply_object_set_data,
+    (void *)release_member_90__10TObjPlayerFPv,
+    (void *)TItemObject__vt7,
+    (void *)TItem__sub_80100B8C,
+    (void *)classify_actor_view_detail,
+    (void *)register_attack__5TItemFPv,
+    (void *)TItem__sub_801022FC,
+    (void *)TItemObject__vt12,
+    (void *)TItem__sub_801005E0,
+    (void *)TItem__sub_801005DC,
+    (void *)TItem__sub_80100678,
+    (void *)TItemObject__vt16,
+    (void *)TItem__sub_8010067C,
+    (void *)TItem__sub_801007B0,
+    (void *)TItem__sub_801007AC,
+    (void *)TItem__sub_8010075C,
+    (void *)TItem__sub_80100758,
+    (void *)TItem__sub_80100698,
+    (void *)TItem__sub_80100694,
+    (void *)TItem__sub_80100690,
+    (void *)TItem__sub_8010068C,
+    (void *)TItem__sub_80100688,
+    (void *)destroy__5TItemFPv,
+    (void *)TItem__sub_801007A8,
+    (void *)TItemObject__vt29,
+    (void *)TItem__sub_80100680,
+    (void *)TObjPlayer__sub_80102BD0,
+    (void *)TItem__sub_80100674,
+    (void *)ret_8010066C,
+    (void *)load_encoded_value__11TItemObjectFv,
+    (void *)TItemObject__vt35,
+    (void *)TItemObject__vt36,
+    (void *)ret_8010064C,
+    (void *)TItem__sub_80100648,
+    (void *)TItem__sub_801005E4,
+    (void *)TItem__sub_801005D8,
+    (void *)TObjPlayer__sub_80102BD8,
+    (void *)apply_to_player__13TItemProArmorFPv,
+    0,
+};
+
+void *__vt__13TItemProArmor[51] = {
+    0,
+    0,
+    (void *)__dt__13TItemProArmorFv,
+    (void *)run_task__5TItemFPv,
+    (void *)TItem__sub_8010263C,
+    (void *)render__5TItemFPv,
+    (void *)TLobby__sub_801A1FD8,
+    (void *)apply_object_set_data,
+    (void *)release_member_90__10TObjPlayerFPv,
+    (void *)TParticleCtrl__sub_801A2124,
+    (void *)TItem__sub_80100B8C,
+    (void *)classify_actor_view_detail,
+    (void *)register_attack__5TItemFPv,
+    (void *)TItem__sub_801022FC,
+    (void *)TItemProArmor__sub_801178D4,
+    (void *)TItem__sub_801005E0,
+    (void *)TItemProArmor__vt14,
+    (void *)TItem__sub_80100678,
+    (void *)write_item_data__13TItemProArmorFPvPv,
+    (void *)set_attach_slot__14TItemEquipBaseFPvc,
+    (void *)equip__14TItemEquipBaseFPv,
+    (void *)unequip__14TItemEquipBaseFPv,
+    (void *)add_equip_stats__14TItemEquipBaseFPvi,
+    (void *)remove_equip_stats__14TItemEquipBaseFPvi,
+    (void *)TItemEquipBase__sub_8010AEFC,
+    (void *)subtract_equip_stats__14TItemEquipBaseFPviPvPv,
+    (void *)TItem__sub_80100690,
+    (void *)TItem__sub_8010068C,
+    (void *)TItem__sub_80100688,
+    (void *)update_equip__14TItemEquipBaseFPv,
+    (void *)TItem__sub_801007A8,
+    (void *)update_pickup_flag__5TItemFi,
+    (void *)TItem__sub_80100680,
+    (void *)TItemEquipBase__sub_8010A77C,
+    (void *)TItem__sub_80100674,
+    (void *)ret_8010066C,
+    (void *)ret_80100664,
+    (void *)ret_8010065C,
+    (void *)ret_80100654,
+    (void *)get_slot_count__13TItemProArmorFPv,
+    (void *)increment_slot_count__13TItemProArmorFPv,
+    (void *)TItem__sub_801005E4,
+    (void *)TItem__sub_801005D8,
+    (void *)TObjPlayer__sub_80102BD8,
+    (void *)TItemProArmor__vt42,
+    (void *)TItemEquipBase__sub_8010A940,
+    (void *)update_armor__13TItemProArmorFPv,
+    (void *)release__14TItemEquipBaseFPv,
+    (void *)TItemEquipBase__sub_8010A93C,
+    (void *)TItemEquipBase__sub_8010A938,
+    (void *)TItemEquipBase__sub_8010A788,
+};
+
 void TItemProArmor__vt42(Armor_80117954 *self) {
     void *o;
     if (self->owner == NULL) {
@@ -453,11 +619,11 @@ s32 TItemProArmor__sub_80117C60(s32 arg0) {
 void TItemProArmor__sub_80117D00(void) {  }
 void TItemProArmor__sub_80117D04(void) {  }
 
-extern M2C_UNK __vt__13TItemProArmor[];
+extern void *__vt__13TItemProArmor[];
 
 void *__dt__13TItemProArmorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TItemProArmor;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__13TItemProArmor;
         __dt__14TItemEquipBaseFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

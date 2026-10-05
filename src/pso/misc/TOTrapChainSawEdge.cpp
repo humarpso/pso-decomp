@@ -1,4 +1,5 @@
 #include "types.h"
+#pragma readonly_strings on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -8,8 +9,6 @@ extern "C" {
 s32 fn_802C9924(s32);
 s32 TOTrapChainSawKey__sub_802C9960(s32);
 s32 TOTrapChainSawKey__sub_802C999C(int, f32);
-extern const f32 lbl_805DE618;
-extern const f32 lbl_805DE61C;
 void TOTrapChainSawKey__vt14(u8 *arg0);
 }
 
@@ -88,6 +87,7 @@ struct VObj_18_62e3d5 : VBase_18_62e3d5 {
     virtual f32 m28(f32);
 };
 
+struct Pair_802C80F0 { s32 v[2]; };
 struct P_802C8BD0 { s32 a; f32 b; };
 
 struct T_802C8F68 { s32 r[3][3]; };
@@ -368,52 +368,34 @@ extern M2C_UNK __vt__14TOTrapChainSaw[];
 extern M2C_UNK __vt__17TOTrapChainSawKey[];
 extern M2C_UNK __vt__18TOTrapChainSawEdge[];
 extern M2C_UNK __vt__20TOTrapChainSawDamage[];
-extern F4_802C8FF8 lbl_80471EDC[];
-extern T_802C8F68 lbl_80471EEC;
-extern s32 lbl_80471F28[];
-extern s32 lbl_80471F30[];
-extern char lbl_80471F88[];
-extern u8 lbl_80471FA8[];
 extern u32 lbl_80540B30[5];
 extern u32 lbl_80540B44[5];
-extern s32 lbl_805D3F00;
-extern s32 lbl_805D3F04;
-extern s32 lbl_805D3F08;
-extern s32 lbl_805D3F0C;
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D5550;
-extern const f32 lbl_805DE618;
-extern const f32 lbl_805DE61C;
-extern const f32 lbl_805DE620;
-extern const f32 lbl_805DE624;
-extern const f32 lbl_805DE628;
-extern const f32 lbl_805DE62C;
-extern const f32 lbl_805DE630;
-extern const f32 lbl_805DE634;
-extern const f32 lbl_805DE638;
 extern void *tl_05;
-extern "C" u8 lbl_80471DA0[];
-extern "C" u8 lbl_80471DB8[];
-extern "C" u8 lbl_80471DD0[];
-extern "C" u8 lbl_80471DF0[];
-extern "C" u8 lbl_80471E0C[];
-extern "C" u8 lbl_80471E28[];
-extern "C" u8 lbl_80471E40[];
-extern "C" u8 lbl_80471E58[];
-extern "C" u8 lbl_80471E78[];
-extern "C" u8 lbl_80471E94[];
-extern "C" u8 lbl_80471EB0[];
 void *lbl_804E0BD0[6] = {
-    (void *)&lbl_80471DA0, (void *)&lbl_80471DB8, (void *)&lbl_80471DD0, (void *)&lbl_80471DF0,
-    (void *)&lbl_80471E0C, (void *)0x0,
+    (void *)"fe_obj_nokogiri_2m.gj", (void *)"fe_obj_nokogiri_4m.gj", (void *)"fe_obj_sekigai_light_moto.gj", (void *)"fe_obj_sekigai2m_moto.gj",
+    (void *)"fe_obj_sekigai4m_moto.gj", (void *)0x0,
 };
 void *lbl_804E0BE8[6] = {
-    (void *)&lbl_80471E28, (void *)&lbl_80471E40, (void *)&lbl_80471E58, (void *)&lbl_80471E78,
-    (void *)&lbl_80471E94, (void *)0x0,
+    (void *)"fe_obj_nokogiri_2m.njm", (void *)"fe_obj_nokogiri_4m.njm", (void *)"fe_obj_sekigai_light_moto.njm", (void *)"fe_obj_sekigai2m_moto.njm",
+    (void *)"fe_obj_sekigai4m_moto.njm", (void *)0x0,
 };
 void *lbl_804E0C00[4] = {
-    (void *)&lbl_80471EB0, (void *)&lbl_804E0BD0, (void *)&lbl_804E0BE8, (void *)0x50005,
+    (void *)"bm_obj_jungle_nokogiri.bml", (void *)&lbl_804E0BD0, (void *)&lbl_804E0BE8, (void *)0x50005,
 };
+const char *lbl_805D3F00 = "TOTrapChainSaw";
+__declspec(section ".rodata") F4_802C8FF8 lbl_80471EDC = { 1.0f, 2.0f, 3.0f, 6.0f };
+const T_802C8F68 lbl_80471EEC = { { { 0x4D01F, 0x4C122, 0x4BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 } } };
+const char *lbl_805D3F04 = "TOTrapChainSawDamage";
+const s32 lbl_80471F28[2] = { 0, 1 };
+const s32 lbl_80471F30[2] = { 0, 1 };
+const char *lbl_805D3F08 = "TOTrapChainSawKey";
+const s32 lbl_80471F4C[2] = { 3, 4 };
+const s32 lbl_80471F54[2] = { 3, 4 };
+const char *lbl_805D3F0C = "TOTrapChainSawEdge";
+const s32 lbl_80471F70[2] = { 0, 1 };
+const s32 lbl_80471F78[2] = { 0, 1 };
 void *lbl_804E0C10[44] = {
     (void *)0xc0a00000, (void *)0x0, (void *)0x0, (void *)0x40400000,
     (void *)0x0, (void *)0x0, (void *)0x10403, (void *)0x0,
@@ -441,6 +423,32 @@ void *lbl_804E0CC0[44] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
 
+void TOTrapChainSawEdge__vt14(void *arg0) {
+    Pair_802C80F0 a = *(Pair_802C80F0 *)lbl_80471F70;
+    Pair_802C80F0 b = *(Pair_802C80F0 *)lbl_80471F78;
+    s32 x;
+    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
+    x = M2C_FIELD(arg0, s32 *, 0xFC);
+    M2C_FIELD(arg0, s32 *, 0xFC) = x < 0 ? 0 : (x > 1 ? 1 : x);
+    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(s32))TOTrapChainSawKey__sub_802C999C)(a.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
+    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960(b.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
+    M2C_FIELD(arg0, s32 *, 0x24) = fn_802C9924(0);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (1.0f);
+}
+
+void TOTrapChainSawEdge__vt23(void *arg0) {
+    set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
+    push_matrix();
+    post_translate_matrix((void *)((char *)arg0 + 56));
+    push_matrix();
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
+    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
+    draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
+    pop_matrix();
+    pop_matrix();
+}
+
 void TOTrapChainSawEdge__vt21(void *arg0) {
     s32 temp_r0;
     s32 temp_r4;
@@ -461,6 +469,7 @@ void TOTrapChainSawEdge__vt21(void *arg0) {
     }
 }
 
+extern const f32 lbl_805DE620 = -1.0f;
 void TOTrapChainSawEdge__vt20(void *arg0) {
     s32 temp_r0;
     s32 temp_r4;
@@ -480,12 +489,12 @@ void TOTrapChainSawEdge__vt20(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = (s32) (M2C_FIELD(arg0, s32 *, 0xD4) + M2C_FIELD(arg0, s32 *, 0xD0));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) < 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
-            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xD0) * lbl_805DE620);
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xD0) * *(const volatile f32 *)&lbl_805DE620);
             M2C_FIELD(arg0, s32 *, 0x104) = 0;
         }
         if (M2C_FIELD(arg0, s32 *, 0xD4) > (temp_r4_2 = M2C_FIELD(arg0, s32 *, 0xCC))) {
             M2C_FIELD(arg0, s32 *, 0xD4) = temp_r4_2;
-            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xD0) * lbl_805DE620);
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xD0) * *(const volatile f32 *)&lbl_805DE620);
         }
         break;
     }
@@ -557,7 +566,7 @@ void TOTrapChainSawKey__vt23(void *arg0) {
 void TOTrapChainSawKey__vt12(void) {
     ((M2C_UNK (*)(void))TOTrapChainSaw__sub_802C9090)();
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
-    debug_printf_at(0x13001E, lbl_80471F88);
+    debug_printf_at(0x13001E, "<- SELECT A MODEL");
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
 
@@ -565,7 +574,7 @@ void TOTrapChainSawKey__vt22(u8 *arg0) {
     ((M2C_UNK (*)())TOTrapChainSaw__sub_802C9600)();
     M2C_FIELD(arg0, f32 *, 0x104) = (f32) (M2C_FIELD(arg0, f32 *, 0x104) + M2C_FIELD(arg0, f32 *, 0x108));
     if (M2C_FIELD(arg0, f32 *, 0x104) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x100), s32 *, 4) - 1)) {
-        M2C_FIELD(arg0, f32 *, 0x104) = (f32) lbl_805DE618;
+        M2C_FIELD(arg0, f32 *, 0x104) = (f32) (0.0f);
     }
     play_persistent_sound((void *) (((s32 (*)(void *, int))TOTrapChainSawKey__sub_802C8F68)((void *) (arg0), (int) (2))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
@@ -585,21 +594,21 @@ void TOTrapChainSawKey__vt16(S_802C86D4 *arg0) {
 }
 
 void TOTrapChainSawKey__vt14(u8 *arg0) {
-    s32 a[2] = {3, 4};
-    s32 b[2] = {3, 4};
+    Pair_802C80F0 a = *(Pair_802C80F0 *)lbl_80471F4C;
+    Pair_802C80F0 b = *(Pair_802C80F0 *)lbl_80471F54;
     s32 x;
     M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
     x = M2C_FIELD(arg0, s32 *, 0xF8);
     M2C_FIELD(arg0, s32 *, 0xF8) = (x < 0) ? 0 : ((x > 1) ? 1 : x);
-    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(int))TOTrapChainSawKey__sub_802C999C)(a[M2C_FIELD(arg0, s32 *, 0xF8)]);
-    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960((s32)(b[M2C_FIELD(arg0, s32 *, 0xF8)]));
+    M2C_FIELD(arg0, s32 *, 0xC8) = ((s32 (*)(int))TOTrapChainSawKey__sub_802C999C)(a.v[M2C_FIELD(arg0, s32 *, 0xF8)]);
+    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960((s32)(b.v[M2C_FIELD(arg0, s32 *, 0xF8)]));
     M2C_FIELD(arg0, s32 *, 0x24) = fn_802C9924((s32)(3));
-    M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DE618;
-    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DE61C;
-    M2C_FIELD(arg0, s32 *, 0xFC) = TOTrapChainSawKey__sub_802C999C((int)(2), lbl_805DE618);
+    M2C_FIELD(arg0, f32 *, 0xB4) = (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xB8) = (1.0f);
+    M2C_FIELD(arg0, s32 *, 0xFC) = TOTrapChainSawKey__sub_802C999C((int)(2), (0.0f));
     M2C_FIELD(arg0, s32 *, 0x100) = TOTrapChainSawKey__sub_802C9960((s32)(2));
-    M2C_FIELD(arg0, f32 *, 0x104) = lbl_805DE618;
-    M2C_FIELD(arg0, f32 *, 0x108) = lbl_805DE61C;
+    M2C_FIELD(arg0, f32 *, 0x104) = (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x108) = (1.0f);
 }
 
 int TOTrapChainSawKey__vt13(void* p) { return ((int (*)(void*))decode_params__14TOTrapChainSawFPv)(p); }
@@ -667,8 +676,8 @@ void TOTrapChainSawDamage__vt24(void* p) { *(s32*)((char*)p + 0x100) = 0; }
 void TOTrapChainSawDamage__vt12(void) {
     TOTrapChainSaw__sub_802C9090();
     ((void (*)(s32))set_global_count__12TObjNpcEnemyFi)(0xFF00FF);
-    ((void (*)(int, void *, ...))debug_printf_at)(0x13001D, lbl_80471FA8);
-    ((void (*)(int, void *, ...))debug_printf_at)(0x13001E, ((u8 *)&lbl_80471F88));
+    ((void (*)(int, void *, ...))debug_printf_at)(0x13001D, (void *)"<- DAMAGE POWER");
+    ((void (*)(int, void *, ...))debug_printf_at)(0x13001E, (void *)"<- SELECT A MODEL");
     ((void (*)(s32))set_global_count__12TObjNpcEnemyFi)(0xF0F0F0FF);
 }
 
@@ -737,8 +746,8 @@ void TOTrapChainSawDamage__vt14(Obj_802C8C60 *arg0, f32 _w1) {
     arg0->fC8 = TOTrapChainSawKey__sub_802C999C((int)(a.v[arg0->fF8]), _w1);
     arg0->fBC = TOTrapChainSawKey__sub_802C9960(b.v[arg0->fF8]);
     arg0->f24 = fn_802C9924(0);
-    arg0->fB4 = lbl_805DE618;
-    arg0->fB8 = lbl_805DE61C;
+    arg0->fB4 = (0.0f);
+    arg0->fB8 = (1.0f);
 }
 extern int fold_flush_3;
 #pragma pop
@@ -807,22 +816,22 @@ void *TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2) {
     void *o;
     ((void * (*)(void *, void *, void *))TOTrapChainSaw__ct)(arg0, arg1, arg2);
     *(M2C_UNK **)(((u8 *)arg0) + 0x18) = __vt__20TOTrapChainSawDamage;
-    *(s32 *)(((u8 *)arg0) + 0) = lbl_805D3F04;
+    *(s32 *)(((u8 *)arg0) + 0) = (s32) lbl_805D3F04;
     ((VObj_802C8E24 *)arg0)->m13();
     ((VObj_802C8E24 *)arg0)->m14();
     ((s32 (*)(void *, void *, int))init_collision_body_parts)(arg0, &((Ent_802C8E24 *)lbl_804E0C10)[*(s32 *)(((u8 *)arg0) + 0xF8)], 2);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    *(f32 *)(((u8 *)arg0) + 0x3C) += lbl_805DE624;
+    *(f32 *)(((u8 *)arg0) + 0x3C) += (5.0f);
     {
         Copy_802C8E24 c = *(Copy_802C8E24 *)arg2;
-        *(f32 *)((u8 *)&c + 0x10) += lbl_805DE628;
+        *(f32 *)((u8 *)&c + 0x10) += (1e+01f);
         o = __nw__7TObjectFUl(0x108);
         if (o != NULL) {
             o = ((void * (*)(void *, void *, void *))TOTrapChainSawEdge__ct)(o, arg0, &c);
         }
         *(void **)(((u8 *)arg0) + 0x104) = o;
-        *(f32 *)((u8 *)&c + 0x10) += lbl_805DE624;
+        *(f32 *)((u8 *)&c + 0x10) += (5.0f);
         o = __nw__7TObjectFUl(0x108);
         if (o != NULL) {
             o = ((void * (*)(void *, void *, void *))TOTrapChainSawEdge__ct)(o, arg0, &c);
@@ -858,7 +867,7 @@ extern int fold_flush_8;
 #pragma pop
 
 f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0) {
-    F4_802C8FF8 t = lbl_80471EDC[0];
+    F4_802C8FF8 t = lbl_80471EDC;
     return farg0 * t.v[lbl_805D5550];
 }
 
@@ -876,7 +885,7 @@ void update_demo__14TOTrapChainSawFPv(void *arg0) {
 void TOTrapChainSaw__sub_802C9090(void) {  }
 
 void TOTrapChainSaw__sub_802C9094(u8 *arg0) {
-    if (((VObj_18_52534d *)(arg0))->m8(lbl_805DE62C, lbl_805DE630) == 1) {
+    if (((VObj_18_52534d *)(arg0))->m8((4e+02f), (5e+01f)) == 1) {
         ((VObj_18_52534d *)(arg0))->m23();
         update_demo__14TOTrapChainSawFPv(arg0);
     }
@@ -913,7 +922,7 @@ int TOTrapChainSaw__sub_802C91DC(void *arg0) {
                 if (get_field_3e4__10TObjPlayerFPv(p) == ((s32 (*)(void))get_current_floor)()) {
                     t = M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0x60);
                     M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0x60) = t + M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0xD4);
-                    if (check_actor_body_contact(((VObj_802C91DC *)arg0), p, lbl_805DE634) != 0) {
+                    if (check_actor_body_contact(((VObj_802C91DC *)arg0), p, (1e+02f)) != 0) {
                         ((VObj_802C91DC *)arg0)->m16(p);
                         ((VObj_802C91DC *)arg0)->m18(p);
                     }
@@ -929,7 +938,7 @@ int TOTrapChainSaw__sub_802C91DC(void *arg0) {
             if (get_field_3e4__10TObjPlayerFPv(q) == ((s32 (*)(void))get_current_floor)()) {
                 t2 = M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0x60);
                 M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0x60) = t2 + M2C_FIELD(((VObj_802C91DC *)arg0), s32 *, 0xD4);
-                if (check_actor_body_contact(((VObj_802C91DC *)arg0), q, lbl_805DE634) != 0) {
+                if (check_actor_body_contact(((VObj_802C91DC *)arg0), q, (1e+02f)) != 0) {
                     ((VObj_802C91DC *)arg0)->m16(q);
                     ((VObj_802C91DC *)arg0)->m18(q);
                 }
@@ -954,13 +963,13 @@ void TOTrapChainSaw__sub_802C936C(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(arg0, s32 *, 0xD4) + M2C_FIELD(arg0, s32 *, 0xD0);
         if (M2C_FIELD(arg0, s32 *, 0xD4) < 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;
-            M2C_FIELD(arg0, s32 *, 0xD0) = (s32)((f32)M2C_FIELD(arg0, s32 *, 0xD0) * lbl_805DE620);
-            M2C_FIELD(arg0, s32 *, 0xEC) = (s32)(lbl_805DE638 * (f32)(u16)M2C_FIELD(arg0, s32 *, 0x8C));
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32)((f32)M2C_FIELD(arg0, s32 *, 0xD0) * *(const volatile f32 *)&lbl_805DE620);
+            M2C_FIELD(arg0, s32 *, 0xEC) = (s32)(30.0f * (f32)(u16)M2C_FIELD(arg0, s32 *, 0x8C));
             self->m27();
         }
         if (M2C_FIELD(arg0, s32 *, 0xD4) > M2C_FIELD(arg0, s32 *, 0xCC)) {
             M2C_FIELD(arg0, s32 *, 0xD4) = M2C_FIELD(arg0, s32 *, 0xCC);
-            M2C_FIELD(arg0, s32 *, 0xD0) = (s32)((f32)M2C_FIELD(arg0, s32 *, 0xD0) * lbl_805DE620);
+            M2C_FIELD(arg0, s32 *, 0xD0) = (s32)((f32)M2C_FIELD(arg0, s32 *, 0xD0) * *(const volatile f32 *)&lbl_805DE620);
             self->m26();
         }
     } else {
@@ -986,6 +995,7 @@ void update_sweep__14TOTrapChainSawFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD4) = 0;
     }
 }
+extern "C" { u8 *lbl_805D6808; }
 
 #pragma push
 #pragma opt_propagation off
@@ -995,7 +1005,7 @@ void TOTrapChainSaw__sub_802C9600(u8 *arg0) {
     if (M2C_FIELD(arg0, u8 **, 0xBC) != NULL) {
         M2C_FIELD(arg0, f32 *, 0xB4) = M2C_FIELD(arg0, f32 *, 0xB4) + M2C_FIELD(arg0, f32 *, 0xB8);
         if (M2C_FIELD(arg0, f32 *, 0xB4) > (f32) (u32) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), s32 *, 4) - 1)) {
-            M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DE618;
+            M2C_FIELD(arg0, f32 *, 0xB4) = (0.0f);
         }
     }
 }
@@ -1074,5 +1084,155 @@ u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xEC) = 0;
     return arg0;
 }
+
+void render_shadows__7TObjectFv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124();
+void update_object_view_visibility();
+void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C();
+void TObjPlayer__sub_80019568();
+void TOTrapChainSawEdge__vt15();
+void TOTrapChainSaw__sub_802C9BE4();
+void TOTrapChainSaw__sub_802C9BE8();
+void TOTrapChainSaw__sub_802C9BEC();
+void TOTrapChainSaw__sub_802C9BF0();
+void TOTrapChainSaw__sub_802C9BF4();
+void TOTrapChainSaw__vt14();
+void TOTrapChainSaw__vt23();
+M2C_UNK __vt__18TOTrapChainSawEdge[31] = {
+    0,
+    0,
+    (M2C_UNK)&__dt__18TOTrapChainSawEdgeFv,
+    (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&render_shadows__7TObjectFv,
+    (M2C_UNK)&TLobby__sub_801A1FD8,
+    (M2C_UNK)&apply_object_set_data,
+    (M2C_UNK)&release_member_90__10TObjPlayerFPv,
+    (M2C_UNK)&TParticleCtrl__sub_801A2124,
+    (M2C_UNK)&update_object_view_visibility,
+    (M2C_UNK)&classify_actor_view_detail,
+    (M2C_UNK)&TObjRoomId__sub_801A1E2C,
+    (M2C_UNK)&TObjPlayer__sub_80019568,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9090,
+    (M2C_UNK)&decode_params__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSawEdge__vt14,
+    (M2C_UNK)&TOTrapChainSawEdge__vt15,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BE4,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSawEdge__vt20,
+    (M2C_UNK)&TOTrapChainSawEdge__vt21,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9600,
+    (M2C_UNK)&TOTrapChainSawEdge__vt23,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BE8,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BEC,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF0,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+};
+M2C_UNK __vt__17TOTrapChainSawKey[31] = {
+    0,
+    0,
+    (M2C_UNK)&__dt__17TOTrapChainSawKeyFv,
+    (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&render_shadows__7TObjectFv,
+    (M2C_UNK)&TLobby__sub_801A1FD8,
+    (M2C_UNK)&apply_object_set_data,
+    (M2C_UNK)&release_member_90__10TObjPlayerFPv,
+    (M2C_UNK)&TParticleCtrl__sub_801A2124,
+    (M2C_UNK)&update_object_view_visibility,
+    (M2C_UNK)&classify_actor_view_detail,
+    (M2C_UNK)&TObjRoomId__sub_801A1E2C,
+    (M2C_UNK)&TObjPlayer__sub_80019568,
+    (M2C_UNK)&TOTrapChainSawKey__vt12,
+    (M2C_UNK)&TOTrapChainSawKey__vt13,
+    (M2C_UNK)&TOTrapChainSawKey__vt14,
+    (M2C_UNK)&TOTrapChainSawKey__vt15,
+    (M2C_UNK)&TOTrapChainSawKey__vt16,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
+    (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSawKey__vt22,
+    (M2C_UNK)&TOTrapChainSawKey__vt23,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BE8,
+    (M2C_UNK)&TOTrapChainSawKey__vt25,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF0,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+};
+M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
+    0,
+    0,
+    (M2C_UNK)&__dt__20TOTrapChainSawDamageFv,
+    (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&render_shadows__7TObjectFv,
+    (M2C_UNK)&TLobby__sub_801A1FD8,
+    (M2C_UNK)&apply_object_set_data,
+    (M2C_UNK)&release_member_90__10TObjPlayerFPv,
+    (M2C_UNK)&TParticleCtrl__sub_801A2124,
+    (M2C_UNK)&update_object_view_visibility,
+    (M2C_UNK)&classify_actor_view_detail,
+    (M2C_UNK)&TObjRoomId__sub_801A1E2C,
+    (M2C_UNK)&TObjPlayer__sub_80019568,
+    (M2C_UNK)&TOTrapChainSawDamage__vt12,
+    (M2C_UNK)&TOTrapChainSawDamage__vt13,
+    (M2C_UNK)&TOTrapChainSawDamage__vt14,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C91DC,
+    (M2C_UNK)&TOTrapChainSawDamage__vt16,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
+    (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSawDamage__vt22,
+    (M2C_UNK)&TOTrapChainSawDamage__vt23,
+    (M2C_UNK)&TOTrapChainSawDamage__vt24,
+    (M2C_UNK)&TOTrapChainSawDamage__vt25,
+    (M2C_UNK)&TOTrapChainSawDamage__vt26,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+};
+M2C_UNK __vt__14TOTrapChainSaw[31] = {
+    0,
+    0,
+    (M2C_UNK)&__dt__14TOTrapChainSawFv,
+    (M2C_UNK)&update_active_flag__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9094,
+    (M2C_UNK)&render_shadows__7TObjectFv,
+    (M2C_UNK)&TLobby__sub_801A1FD8,
+    (M2C_UNK)&apply_object_set_data,
+    (M2C_UNK)&release_member_90__10TObjPlayerFPv,
+    (M2C_UNK)&TParticleCtrl__sub_801A2124,
+    (M2C_UNK)&update_object_view_visibility,
+    (M2C_UNK)&classify_actor_view_detail,
+    (M2C_UNK)&TObjRoomId__sub_801A1E2C,
+    (M2C_UNK)&TObjPlayer__sub_80019568,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9090,
+    (M2C_UNK)&decode_params__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__vt14,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C91DC,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BE4,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9174,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9124,
+    (M2C_UNK)&clear_field_d8__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C936C,
+    (M2C_UNK)&update_sweep__14TOTrapChainSawFPv,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9600,
+    (M2C_UNK)&TOTrapChainSaw__vt23,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BE8,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BEC,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF0,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
+    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+};
 
 }

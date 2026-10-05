@@ -129,6 +129,8 @@ public:
 
 typedef void (Afs_8028BA64::*Handler_8028BA64)();
 
+s32 lbl_805D64D8;
+
 extern "C" {
 
 void TChCrLoadAfs::run_task() {

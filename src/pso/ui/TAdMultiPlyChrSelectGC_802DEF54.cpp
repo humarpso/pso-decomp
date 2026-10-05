@@ -328,6 +328,8 @@ void *lbl_804E2D64[117] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0,
 };
+u8 *lbl_805D68D0;
+
 void run_task__22TAdMultiPlyChrSelectGCFv(C_802DF114 *self) {
     static s8 init;
     TAdMultiChgGameModeGC__sub_8023E834(self);

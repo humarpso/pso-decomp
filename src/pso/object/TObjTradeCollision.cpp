@@ -21,8 +21,6 @@ struct RecoveredGlobal_802C8034___vt__18TObjTradeCollision {
     u8 remaining[0x34];
 };
 
-struct Pair_802C80F0 { s32 v[2]; };
-
 extern "C" {
 s32 fn_802C7ECC(void *, int);
 M2C_UNK TWindowSubTradeMain__sub_802D3940(int);
@@ -32,31 +30,16 @@ s32 TObjPlayer__sub_801569F4(void *);
 extern M2C_UNK __vt__18TObjTradeCollision[];
 extern s32 lbl_805D3EF8;
 u8 *TObjTradeCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-s32 fn_802C9924(M2C_UNK);
-s32 TOTrapChainSawKey__sub_802C9960(s32);
-s32 TOTrapChainSawKey__sub_802C999C(s32);
-extern u8 lbl_80471F70[];
-extern u8 lbl_80471F78[];
-extern const f32 lbl_805DE618;
-extern const f32 lbl_805DE61C;
-void TOTrapChainSawEdge__vt14(void *arg0);
 }
 
 extern "C" {
 
-void TOTrapChainSawEdge__vt23(void *arg0);
 void *TObjTradeCollision__create(void *arg0);
 void *__dt__18TObjTradeCollisionFv(void *arg0, s16 arg1);
 void render__18TObjTradeCollisionFv(void);
-void post_translate_matrix(void *);
-void draw_ginja_model_with_motion(void *, void *, f32);
-void rotate_matrix_y(int, void *);
-void push_matrix(void);
-void pop_matrix(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
-void set_global_param__8TObjFishFi(void *);
 
 void render__18TObjTradeCollisionFv(void) {  }
 
@@ -105,32 +88,6 @@ void *TObjTradeCollision__create(void *arg0) {
         o = TObjTradeCollision__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
     }
     return o;
-}
-
-void TOTrapChainSawEdge__vt14(void *arg0) {
-    Pair_802C80F0 a = *(Pair_802C80F0 *)lbl_80471F70;
-    Pair_802C80F0 b = *(Pair_802C80F0 *)lbl_80471F78;
-    s32 x;
-    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
-    x = M2C_FIELD(arg0, s32 *, 0xFC);
-    M2C_FIELD(arg0, s32 *, 0xFC) = x < 0 ? 0 : (x > 1 ? 1 : x);
-    M2C_FIELD(arg0, s32 *, 0xC8) = TOTrapChainSawKey__sub_802C999C(a.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
-    M2C_FIELD(arg0, s32 *, 0xBC) = TOTrapChainSawKey__sub_802C9960(b.v[M2C_FIELD(arg0, s32 *, 0xFC)]);
-    M2C_FIELD(arg0, s32 *, 0x24) = fn_802C9924(0);
-    M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DE618;
-    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DE61C;
-}
-
-void TOTrapChainSawEdge__vt23(void *arg0) {
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
-    push_matrix();
-    post_translate_matrix((void *)((char *)arg0 + 56));
-    push_matrix();
-    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
-    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
-    draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
-    pop_matrix();
-    pop_matrix();
 }
 
 }

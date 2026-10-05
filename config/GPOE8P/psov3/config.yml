@@ -71,6 +71,11 @@ force_active:
   - SortVoices
   - StartContinousEmitters
   - StartPause
+  - TAdChrSelBSlotGC__sub_8030EF74
+  - TAdChrSelBSlotGC__sub_8030F13C
+  - TAdChrSelBSlotGC__sub_8030F228
+  - TAdChrSelBSlotGC__sub_8030F2E4
+  - TAdChrSelBSlotGC__sub_8030F3A0
   - TAdMultiChgGameModeGC__sub_8036E49C
   - TAdRayGC__sub_8029BCB4
   - TAdSinglePlyChrSelectGC__sub_80133530
@@ -82,6 +87,8 @@ force_active:
   - TChCrTagInformation__sub_802A1E8C
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
+  - TItemProArmor__sub_80117730
+  - TItemProArmor__vt14
   - TItemWeaponMechgun__ct
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
@@ -107,6 +114,7 @@ force_active:
   - TOSensor__sub_80175514
   - TOSwitchAttack__sub_80198504
   - TObjBagWarnWin__sub_8006EC20
+  - TObjButterflyLobby__sub_80350AE4
   - TObjDoor__sub_8018EA2C
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
@@ -292,6 +300,7 @@ force_active:
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
   - apply_slot_params__8TFogCtrlFPvi
+  - apply_to_player__13TItemProArmorFPv
   - aramQueueCallback
   - attach_model__13TParticleCtrlFPviiiif
   - bind_controller_devices
@@ -309,6 +318,7 @@ force_active:
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
   - clamp_hp_value__10TObjPlayerFPvPv
   - close_shop_subwindows__7TWindowFPvs
+  - close_windows__16TAdChrSelBSlotGCFPv
   - configure_scripted_camera_playback
   - construct_cane_weapon
   - construct_dagger_weapon
@@ -414,6 +424,7 @@ force_active:
   - hwSetTimeOffset
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
+  - init_effect_flags__13TItemProArmorFPv
   - init_gx_lighting_defaults
   - init_inventory_items__10TObjPlayerFi
   - init_launch_angles__10TTecSlicerFPvPvi
@@ -457,6 +468,7 @@ force_active:
   - lbl_804B94CC
   - lbl_804B94E8
   - lbl_804B94F4
+  - lbl_804E0BE8
   - lbl_804E80D0
   - lbl_804E8114
   - lbl_804E8124
@@ -541,6 +553,7 @@ force_active:
   - reset_and_invoke__6TLobbyFv
   - reset_placement_search_ring
   - reset_state__13TObjWarnChimeFPv
+  - reset_windows__16TAdChrSelBSlotGCFPv
   - resolve_active_quest_result__22THunterGuildSeqOfflineFPv
   - resolve_set_row_factory_indices
   - return_to_city_after_defeat
@@ -671,6 +684,8 @@ force_active:
   - update_buy_sell_choice__20TShopItemTecSequenceFPv
   - update_buy_sell_choice__22TShopEquipmentSequenceFPv
   - update_buy_sell_choice__26TShopEquipmentGearSequenceFPv
+  - update_card_confirm__16TAdChrSelBSlotGCFPv
+  - update_card_select__16TAdChrSelBSlotGCFPv
   - update_customize_help_text
   - update_follow__11TItemMagSubFv
   - update_inward_orbit_point
@@ -683,6 +698,7 @@ force_active:
   - update_selected_help__19TWindowSubTechniqueFPvi
   - update_selection_input__19TWindowSubMagPhotonFPv
   - update_short_list_request__11TWindowCtrlFPv
+  - update_slot_state__16TAdChrSelBSlotGCFPv
   - update_special_pose__11TItemMagSubFPv
   - update_state__8TObjDoorFPv
   - update_target_info_window__11TWindowCtrlFPv

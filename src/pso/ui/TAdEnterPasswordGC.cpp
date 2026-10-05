@@ -10,8 +10,8 @@ struct RecoveredGlobal_8032B904_lbl_80477278 { M2C_UNK value; u8 remaining[0xC];
 typedef char RecoveredGlobal_8032B904_lbl_80477278_size[sizeof(RecoveredGlobal_8032B904_lbl_80477278) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 {
-    M2C_UNK value;
-    u8 remaining[0x80];
+    char value;
+    u8 remaining[8];
 };
 
 struct RecoveredGlobal_8032BB34___vt__18TAdEnterPasswordGC {
@@ -59,7 +59,9 @@ extern "C" {
 void fn_8032B318(void *, void *);
 extern u8 lbl_804ED9F0[];
 extern s32 lbl_805D6CA4;
-static char s_password_8032B984[9] = { 1 };
+#pragma explicit_zero_data on
+RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20 = { 0 };
+#pragma explicit_zero_data off
 }
 
 extern "C" {
@@ -285,7 +287,6 @@ void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
     }
 }
 
-typedef char RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20_size[sizeof(RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20) == 0x84 ? 1 : -1];
 void TAdEnterPasswordGC__sub_8032BA8C(s32 arg0) {
     memset((void *) (&TAdEnterPasswordGC__data_804EDA20.value), (int) (0), (int) (9));
     strncpy((s32) &TAdEnterPasswordGC__data_804EDA20.value, arg0, 9);

@@ -46,8 +46,6 @@ extern "C" {
 void spawn_particle_effect_with_flags(void *, s32, s32);
 void run_task__12TTecZondeEffFv(void *);
 s32 rand(void);
-extern const f32 lbl_805DF5F4;
-extern const f32 lbl_805DF5F8;
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
@@ -57,8 +55,6 @@ void TBoss8Dragon__sub_8034D500(void *, void *, s32, void *, f32);
 void subtract_vector(void *, void *);
 extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
-extern const f32 lbl_805DF5E8;
-extern const f32 lbl_805DF5FC;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 extern L1_80325070 **lbl_805D6C50;
 s32 TBoss5GryphonLightningEff__sub_80325070(void *self_, void *p_);
@@ -143,12 +139,13 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
 }
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
     run_task__12TTecZondeEffFv(arg0);
-    if (lbl_805DF5F4 * (f32)rand() > lbl_805DF5F8) {
-        s32 i = (f32)arg0->n * (lbl_805DF5F4 * (f32)rand());
+    if ((3.0517578e-05f) * (f32)rand() > (0.95f)) {
+        s32 i = (f32)arg0->n * ((3.0517578e-05f) * (f32)rand());
         spawn_particle_effect_with_flags(&arg0->ents[i], 0x215, 0x40);
     }
     (*(s16 *)((u8 *)arg0 + 0x25C))++;
 }
+extern const f32 lbl_805DF5FC = 0.0625f;
 #pragma push
 #pragma fp_contract on
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale) {
@@ -164,7 +161,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     TBoss8Dragon__sub_8034D500(a, b, 0, &self->v28, x1);
     subtract_vector(&self->v28, &self->v1c);
     self->f34 = update_scale__15TObjBoss2TunnelFPv(&self->v28);
-    self->n = self->f34 * lbl_805DF5FC;
+    self->n = self->f34 * *(const volatile f32 *)&lbl_805DF5FC;
     self->n = self->n + 1;
     if (self->n < 2) {
         self->n = 2;
@@ -177,7 +174,7 @@ Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *pa
     for (i = 0; i < self->n; i++) {
         TBoss8Dragon__sub_8034D500(a, b, 0, &self->pts[i], x0 + x1 * ((f32)i / denom));
     }
-    self->f34 = lbl_805DF5E8;
+    self->f34 = (0.0f);
     for (i = 0; (f32)i < denom; i++) {
         VecCopy__FP3VecPC3Vec(&v, &self->pts[i]);
         subtract_vector(&v, &self->pts[i + 1]);

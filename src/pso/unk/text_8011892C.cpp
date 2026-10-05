@@ -150,7 +150,7 @@ void TItemProUnit__vt43(void *arg0) {
     o->m17(9);
 }
 
-extern M2C_UNK __vt__12TItemProUnit[];
+extern void *__vt__12TItemProUnit[];
 extern s32 lbl_805D2C40;
 extern const f32 TItemProUnit__data_805DABF8;
 
@@ -236,6 +236,105 @@ void TItemProUnit__vt42(u8 *arg0) {
   }
 }
 
+extern "C" {
+void __dt__12TItemProUnitFv();
+void run_task__5TItemFPv();
+void TItem__sub_8010263C();
+void render__5TItemFPv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124();
+void TItem__sub_80100B8C();
+void classify_actor_view_detail();
+void register_attack__5TItemFPv();
+void TItem__sub_801022FC();
+void TItem__sub_801005E0();
+void TItem__sub_80100678();
+void set_attach_slot__14TItemEquipBaseFPvc();
+void equip__14TItemEquipBaseFPv();
+void unequip__14TItemEquipBaseFPv();
+void add_equip_stats__14TItemEquipBaseFPvi();
+void remove_equip_stats__14TItemEquipBaseFPvi();
+void TItemEquipBase__sub_8010AEFC();
+void subtract_equip_stats__14TItemEquipBaseFPviPvPv();
+void TItem__sub_80100690();
+void TItem__sub_8010068C();
+void TItem__sub_80100688();
+void update_equip__14TItemEquipBaseFPv();
+void TItem__sub_801007A8();
+void update_pickup_flag__5TItemFi();
+void TItem__sub_80100680();
+void TItemEquipBase__sub_8010A77C();
+void TItem__sub_80100674();
+void ret_8010066C();
+void ret_80100664();
+void ret_8010065C();
+void ret_80100654();
+void ret_8010064C();
+void TItem__sub_80100648();
+void TItem__sub_801005E4();
+void TItem__sub_801005D8();
+void TObjPlayer__sub_80102BD8();
+void TItemEquipBase__sub_8010B620();
+void release__14TItemEquipBaseFPv();
+void TItemEquipBase__sub_8010A788();
+}
+
+void *__vt__12TItemProUnit[51] = {
+    0,
+    0,
+    (void *)__dt__12TItemProUnitFv,
+    (void *)run_task__5TItemFPv,
+    (void *)TItem__sub_8010263C,
+    (void *)render__5TItemFPv,
+    (void *)TLobby__sub_801A1FD8,
+    (void *)apply_object_set_data,
+    (void *)release_member_90__10TObjPlayerFPv,
+    (void *)TParticleCtrl__sub_801A2124,
+    (void *)TItem__sub_80100B8C,
+    (void *)classify_actor_view_detail,
+    (void *)register_attack__5TItemFPv,
+    (void *)TItem__sub_801022FC,
+    (void *)TItemProUnit__vt12,
+    (void *)TItem__sub_801005E0,
+    (void *)TItemProUnit__vt14,
+    (void *)TItem__sub_80100678,
+    (void *)TItemProUnit__vt16,
+    (void *)set_attach_slot__14TItemEquipBaseFPvc,
+    (void *)equip__14TItemEquipBaseFPv,
+    (void *)unequip__14TItemEquipBaseFPv,
+    (void *)add_equip_stats__14TItemEquipBaseFPvi,
+    (void *)remove_equip_stats__14TItemEquipBaseFPvi,
+    (void *)TItemEquipBase__sub_8010AEFC,
+    (void *)subtract_equip_stats__14TItemEquipBaseFPviPvPv,
+    (void *)TItem__sub_80100690,
+    (void *)TItem__sub_8010068C,
+    (void *)TItem__sub_80100688,
+    (void *)update_equip__14TItemEquipBaseFPv,
+    (void *)TItem__sub_801007A8,
+    (void *)update_pickup_flag__5TItemFi,
+    (void *)TItem__sub_80100680,
+    (void *)TItemEquipBase__sub_8010A77C,
+    (void *)TItem__sub_80100674,
+    (void *)ret_8010066C,
+    (void *)ret_80100664,
+    (void *)ret_8010065C,
+    (void *)ret_80100654,
+    (void *)ret_8010064C,
+    (void *)TItem__sub_80100648,
+    (void *)TItem__sub_801005E4,
+    (void *)TItem__sub_801005D8,
+    (void *)TObjPlayer__sub_80102BD8,
+    (void *)TItemProUnit__vt42,
+    (void *)TItemProUnit__vt43,
+    (void *)TItemEquipBase__sub_8010B620,
+    (void *)release__14TItemEquipBaseFPv,
+    (void *)TItemProUnit__vt46,
+    (void *)TItemProUnit__vt47,
+    (void *)TItemEquipBase__sub_8010A788,
+};
+
 void TItemProUnit__sub_80118D58(u8 *arg0) {
     s16 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x18C);
@@ -279,7 +378,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     u8 *temp_r3;
 
     TItemEquipBase__ct();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TItemProUnit;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TItemProUnit;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C40;
     ((VItemProUnit_8011892C *)arg0)->m17((s8) (M2C_FIELD(arg2, u8 *, 4) + 9));
     M2C_FIELD(arg0, s16 *, 0x190) = 0;

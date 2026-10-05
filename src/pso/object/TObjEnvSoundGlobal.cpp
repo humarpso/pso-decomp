@@ -44,8 +44,6 @@ u8 *TObjEnvSoundEx__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_801902D8_lbl_804B7A70 lbl_804B7A70;
-extern const f32 lbl_805DBE10;
-extern const f32 lbl_805DBE14;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
 s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0);
@@ -54,7 +52,6 @@ void run_task__18TObjEnvSoundGlobalFv(Obj_801903B4 *self);
 f32 xz_distance_squared(void *, void *);
 void play_persistent_sound(s32, void *, f32 *, s32, s32);
 extern u8 *lbl_805D4DF0;
-extern const f32 lbl_805DBE10;
 void run_task__14TObjEnvSoundExFv(Env_80190624 *o);
 }
 
@@ -84,11 +81,11 @@ s32 TObjEnvSoundGlobal__sub_801902D8(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x98) = -1;
     }
     M2C_FIELD(arg0, f32 *, 0x90) = (f32) M2C_FIELD(arg0, s32 *, 0x88);
-    if (M2C_FIELD(arg0, f32 *, 0x90) < lbl_805DBE10) {
-        M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DBE10;
+    if (M2C_FIELD(arg0, f32 *, 0x90) < (-127.0f)) {
+        M2C_FIELD(arg0, f32 *, 0x90) = (f32) (-127.0f);
     }
-    if (M2C_FIELD(arg0, f32 *, 0x90) > lbl_805DBE14) {
-        M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DBE14;
+    if (M2C_FIELD(arg0, f32 *, 0x90) > (127.0f)) {
+        M2C_FIELD(arg0, f32 *, 0x90) = (f32) (127.0f);
     }
     return var_r31;
 }
@@ -219,7 +216,7 @@ void run_task__14TObjEnvSoundExFv(Env_80190624 *o) {
         if (o->vol < -127.0f) {
             o->vol = -127.0f;
         }
-        if (o->vol > lbl_805DBE10) {
+        if (o->vol > (-127.0f)) {
             switch (o->mode) {
             case 0:
                 break;
@@ -251,7 +248,7 @@ u8 *TObjEnvSoundEx__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D334C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     TObjEnvSoundEx__sub_8019054C((u8 *)((void *) (arg0)));
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DBE10;
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) (-127.0f);
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

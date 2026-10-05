@@ -84,29 +84,21 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
     pop_matrix();
 }
 
-extern M2C_UNK lbl_80478DF0;
-extern const f32 TObjButterflyLobby__data_805DFE40;
-extern const f32 lbl_805DFE44;
-extern const f32 lbl_805DFE48;
-
 void init_params__18TObjButterflyLobbyFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x98, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0xA4) = (f32) TObjButterflyLobby__data_805DFE40;
-    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) TObjButterflyLobby__data_805DFE40;
-    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) TObjButterflyLobby__data_805DFE40;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DFE44 * (lbl_805DFE48 * (f32) rand()));
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TObjButterflyLobby__data_805DFE40;
+    M2C_FIELD(arg0, f32 *, 0xA4) = 0.0f;
+    M2C_FIELD(arg0, f32 *, 0xA8) = 0.0f;
+    M2C_FIELD(arg0, f32 *, 0xAC) = 0.0f;
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (0.5f * (3.0517578125e-05f * (f32) rand()));
+    M2C_FIELD(arg0, f32 *, 0xB8) = 0.0f;
     M2C_FIELD(arg0, s8 *, 0xC0) = 0;
     M2C_FIELD(arg0, s8 *, 0xC1) = 0;
     M2C_FIELD(arg0, s16 *, 0xBC) = 0x1E;
     M2C_FIELD(arg0, s16 *, 0xBE) = 0;
 }
 
-extern const f32 lbl_805DFE4C;
-extern const f32 lbl_805DFE50;
-
 void render__18TObjButterflyLobbyFv(void *arg0) {
-    if ((((ButterflyLobbyVObj_80350958*)arg0)->m8(lbl_805DFE4C, lbl_805DFE50) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 0)) {
+    if ((((ButterflyLobbyVObj_80350958*)arg0)->m8(400.0f, 20.0f) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
         render__18TObjButterflyLobbyFPv((u8 *)(arg0));
     }
@@ -298,5 +290,82 @@ void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
     o->phase += (s32)(40.0f * FRND() + 160.0f);
 }
 #pragma pop
+
+}
+
+extern "C" {
+s32 TObjFish__sub_8001EDB0(void *, int);
+s32 get_bml_model(void *, int);
+M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
+M2C_UNK TPhotonMagicSquare__sub_801A2640();
+s32 is_lobby_event_active();
+extern M2C_UNK __vt__18TObjButterflyLobby[];
+extern s32 lbl_805D4360;
+u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2);
+}
+
+extern "C" {
+
+void *TObjButterflyLobby__create(void *arg0);
+void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1);
+void destroy_instance__18TObjButterflyLobbyFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+void __dl__7TObjectFPv(void *);
+void *__nw__7TObjectFUl(int);
+void destroy_particle__13TParticleCtrlFPvs(void *, int);
+
+extern M2C_UNK __vt__18TObjButterflyLobby[];
+
+void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjButterflyLobby;
+        destroy_particle__13TParticleCtrlFPvs(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+extern void *tl_05;
+
+u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
+    TPhotonMagicSquare__sub_801A2640();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjButterflyLobby;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4360;
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
+    copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
+    VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
+    if (is_lobby_event_active() != 0) {
+        M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    } else {
+        M2C_FIELD(arg0, s32 *, 0x90) = 3;
+    }
+    M2C_FIELD(arg0, f32 *, 0x94) = 1.0f;
+    if ((s32) M2C_FIELD(arg2, s32 *, 0x30) < 1) {
+        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lbl_805D6EB8), (int) (0));
+        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lbl_805D6EB8), (int) (0));
+    } else {
+        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lbl_805D6EB8), (int) (1));
+        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lbl_805D6EB8), (int) (1));
+    }
+    init_params__18TObjButterflyLobbyFPv((u8 *) (arg0));
+    return arg0;
+}
+
+void *TObjButterflyLobby__create(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xCC);
+    if (o != NULL) {
+        o = TObjButterflyLobby__ct((u8 *)(o), (int)(tl_05), (u8 *)(arg0));
+    }
+    return o;
+}
+
+void destroy_instance__18TObjButterflyLobbyFv(void) {
+    if ((u32) lbl_805D6EB8 != 0U) {
+        TLobby__sub_8001FE7C((void*)lbl_805D6EB8, 1);
+        lbl_805D6EB8 = 0U;
+    }
+}
 
 }
