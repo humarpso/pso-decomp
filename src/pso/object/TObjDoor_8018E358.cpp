@@ -85,13 +85,10 @@ void draw_ginja_model_with_motion(int, int, void *, f32);
 extern Glob_8018E358 TObjDoor__data_8050DC80[];
 void TObjDoor__sub_8018E8BC(void);
 f32 sin_table_lookup(s32);
-extern const f32 lbl_805DBDD0;
-extern const f32 lbl_805DBDD4;
 void update_anim__8TObjDoorFPv(void *arg0);
 f32 xyz_distance_squared(void *, void *);
 M2C_UNK project_world_to_screen(int, void *, void *);
 extern s32 lbl_805D4DF0;
-extern const f32 lbl_805DBDDC;
 s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1);
 M2C_UNK free_collision_body_parts(void *);
 M2C_UNK unregister_object_by_id(void *);
@@ -111,8 +108,6 @@ void *TObjDoorJung__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *TObjDoorJung__create(void *arg0);
-extern const f32 lbl_805DBDC0;
-extern const f32 TObjDoor__data_805DBDC4;
 void update_opening_glow__8TObjDoorFPv(u8 *arg0);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
@@ -151,7 +146,6 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
 s32 get_bml_model(s32, s32);
 s32 get_bml_motion(s32, s32);
-extern u8 lbl_80445588[];
 extern u32 lbl_805D5BC4;
 extern s32 TObjDoor__data_805D5BC0;
 extern Glob_8018E358 TObjDoor__data_8050DC80[];
@@ -184,23 +178,19 @@ s32 check_player_door_proximity(TObjDoor*,s32,f32);
 void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
-extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
 void update_state__8TObjDoorFPv(TObjDoor* door);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK init_collision_body_parts(void *, void *, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801569F4(void *, void *);
 extern M2C_UNK __vt__8TObjDoor[];
 extern s32 lbl_805D3330;
-extern const f32 TObjDoor__data_805DBDC4;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
-extern const f32 lbl_805DBDC8,lbl_805DBDC0,lbl_805DBDCC,TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDD4,lbl_805DBDD0;
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door);
 }
 
 extern "C" {
 
 struct DoorMotionHeader { void* rows; u32 frameCount; };
-extern const f32 lbl_805DBDC8,lbl_805DBDCC;
 
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void set_active_camera_pose(f32*,f32*);
@@ -213,7 +203,6 @@ void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 is_current_floor_switch_set(u16);
 extern DoorMotionHeader* TObjDoor__data_8050DC78[];
 extern s32 TObjDoor__data_805D5BC8;
-extern const f32 TObjDoor__data_805DBDC4,lbl_805DBDD8,lbl_805DBDE8,lbl_805DBDEC,lbl_805DBDF0;
 
 void TObjDoor__sub_8018E890(void);
 void update_timer__8TObjDoorFPv(void *arg0);
@@ -446,9 +435,9 @@ void TObjDoor__sub_8018E890(void) {  }
 #pragma push
 #pragma opt_common_subs off
 void update_opening_glow__8TObjDoorFPv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805DBDC0);
-    if (M2C_FIELD(arg0, f32 *, 0xC4) < TObjDoor__data_805DBDC4) {
-        M2C_FIELD(arg0, f32 *, 0xC4) = (f32) TObjDoor__data_805DBDC4;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) - (0.05f));
+    if (M2C_FIELD(arg0, f32 *, 0xC4) < (0.0f)) {
+        M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (0.0f);
     }
 }
 #pragma pop
@@ -456,8 +445,8 @@ void update_opening_glow__8TObjDoorFPv(u8 *arg0) {
 void TObjDoor__sub_8018E8BC(void) {  }
 
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door) {
-    door->frame+=lbl_805DBDC8;
-    if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1))door->frame=TObjDoor__data_805DBDC4;
+    door->frame+=(1.5f);
+    if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1))door->frame=(0.0f);
     door->glow+=0.05f;
     if(door->glow>0.5f)door->glow=0.5f;
 }
@@ -466,13 +455,13 @@ void draw_closed_glow__8TObjDoorFPv(TObjDoor* door) {
 #pragma fp_contract on
 void update_anim__8TObjDoorFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x300);
-    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBDD4 * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xC8)) + lbl_805DBDD0;
+    M2C_FIELD(arg0, f32 *, 0xC4) = (0.2f) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xC8)) + (0.4f);
 }
 void update_locked_pulse__8TObjDoorFPv(TObjDoor* door) {
-    door->accentFrame+=lbl_805DBDD8;
-    if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=TObjDoor__data_805DBDC4;
+    door->accentFrame+=(2.0f);
+    if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=(0.0f);
     door->phase+=0x300;
-    door->glow=lbl_805DBDD4*sin_table_lookup(door->phase)+lbl_805DBDD0;
+    door->glow=(0.2f)*sin_table_lookup(door->phase)+(0.4f);
 }
 
 #pragma push
@@ -488,7 +477,7 @@ s32 TObjDoor__sub_8018EA2C(s32 arg0, f32 farg0, f32 farg1) {
         return 1;
     }
     project_world_to_screen((int) (0), (void *) (arg0 + 0x38), (void *) (&sp8));
-    if ((-farg1 <= sp8) && (sp8 <= (lbl_805DBDDC + farg1))) {
+    if ((-farg1 <= sp8) && (sp8 <= ((6.4e+02f) + farg1))) {
         return 1;
     }
     return 0;
@@ -508,20 +497,22 @@ struct VObj_8018EAF8 : VBase_8018EAF8 {
     virtual s32 m8(f32, f32);
 };
 typedef void (VObj_8018EAF8::*Pmf_8018EAF8)();
-extern const f32 lbl_805DBDE0;
-extern const f32 lbl_805DBDE4;
 
+s32 TObjDoor__data_805D5BC0;
+u32 lbl_805D5BC4;
+s32 TObjDoor__data_805D5BC8;
+static s8 lbl_805D5BCC;
+static s8 lbl_805D5BCD;
 void render__8TObjDoorFv(VObj_8018EAF8 *self) {
-    static s8 init;
     s32 saved;
-    if (!init) {
+    if (!lbl_805D5BCD) {
         ((Pmf_8018EAF8 *)lbl_804B77F0)[0] = *(Pmf_8018EAF8 *)lbl_804B77A8;
         ((Pmf_8018EAF8 *)lbl_804B77F0)[1] = *(Pmf_8018EAF8 *)lbl_804B77B4;
         ((Pmf_8018EAF8 *)lbl_804B77F0)[2] = *(Pmf_8018EAF8 *)lbl_804B77C0;
         ((Pmf_8018EAF8 *)lbl_804B77F0)[3] = *(Pmf_8018EAF8 *)lbl_804B77CC;
         ((Pmf_8018EAF8 *)lbl_804B77F0)[4] = *(Pmf_8018EAF8 *)lbl_804B77D8;
         ((Pmf_8018EAF8 *)lbl_804B77F0)[5] = *(Pmf_8018EAF8 *)lbl_804B77E4;
-        init = 1;
+        lbl_805D5BCD = 1;
     }
     saved = *(s32 *)((u8 *)self + 0xAC);
 
@@ -529,10 +520,10 @@ void render__8TObjDoorFv(VObj_8018EAF8 *self) {
         *(s32 *)((u8 *)self + 0xAC) = 0;
     }
     if (*(s32 *)((u8 *)self + 0xAC) == 0 || *(s32 *)((u8 *)self + 0xAC) == 2) {
-        if (TObjDoor__sub_8018EA2C((s32) self, lbl_805DBDE0, lbl_805DBDE4) != 0) {
+        if (TObjDoor__sub_8018EA2C((s32) self, (7e+02f), (2.5e+02f)) != 0) {
             (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[*(s32 *)((u8 *)self + 0xAC)])();
         }
-    } else if (self->m8(lbl_805DBDE0, lbl_805DBDE4) != 0) {
+    } else if (self->m8((7e+02f), (2.5e+02f)) != 0) {
         (self->*((Pmf_8018EAF8 *)lbl_804B77F0)[*(s32 *)((u8 *)self + 0xAC)])();
     }
     if (TObjDoor__data_805D5BC8 != 0) {
@@ -545,7 +536,7 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
     switch(door->state) {
     case 0:
         if(is_current_floor_switch_set((u16)door->switchId)==1) {
-            if(TObjDoor__data_805D5BC8==0)door->accentFrame=TObjDoor__data_805DBDC4;
+            if(TObjDoor__data_805D5BC8==0)door->accentFrame=(0.0f);
             if(door->cameraMode==0)door->state=2;
             else door->state=1;
         }
@@ -561,19 +552,19 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
             if(ticks==0) {restore_player_cameras();door->state=2;return;}
         }
         if(door->cameraTicks>60) {
-            door->accentFrame+=lbl_805DBDD8;
-            if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=TObjDoor__data_805DBDC4;
+            door->accentFrame+=(2.0f);
+            if(door->accentFrame>(f32)(TObjDoor__data_8050DC78[1]->frameCount-1))door->accentFrame=(0.0f);
         }
         return;
     case 2:
         set_indexed_flags(door,0,1);
-        if(check_player_door_proximity(door,0,lbl_805DBDE8)!=0) {
-            door->frame=TObjDoor__data_805DBDC4;door->state=4;clear_player_status_flag__10TObjPlayerFPviUi(door,0,1);
+        if(check_player_door_proximity(door,0,(7e+01f))!=0) {
+            door->frame=(0.0f);door->state=4;clear_player_status_flag__10TObjPlayerFPviUi(door,0,1);
         }
         break;
     case 4:
         play_persistent_sound(0x49e08,door,door->position,0,0);
-        door->frame+=lbl_805DBDEC;
+        door->frame+=(1.8f);
         if(door->frame>(f32)(TObjDoor__data_8050DC78[0]->frameCount-1)) {
             door->frame=(f32)(TObjDoor__data_8050DC78[0]->frameCount-1);door->state=5;
         }
@@ -585,7 +576,7 @@ void update_state__8TObjDoorFPv(TObjDoor* door) {
         break;
     case 5:
         clear_player_status_flag__10TObjPlayerFPviUi(door,0,1);
-        if(check_player_door_proximity(door,1,lbl_805DBDF0)!=0) {door->state=3;set_indexed_flags(door,0,1);}
+        if(check_player_door_proximity(door,1,100.0f)!=0) {door->state=3;set_indexed_flags(door,0,1);}
         break;
     }
 }
@@ -598,16 +589,15 @@ typedef void (VObj_8018EF70::*Pmf_8018EF70)();
 void minimap_render_gate(void *, u32, u16, int, int);
 
 void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
-    static s8 init;
     s32 saved;
-    if (!init) {
+    if (!lbl_805D5BCC) {
         ((Pmf_8018EF70 *)lbl_804B7760)[0] = *(Pmf_8018EF70 *)lbl_804B7718;
         ((Pmf_8018EF70 *)lbl_804B7760)[1] = *(Pmf_8018EF70 *)lbl_804B7724;
         ((Pmf_8018EF70 *)lbl_804B7760)[2] = *(Pmf_8018EF70 *)lbl_804B7730;
         ((Pmf_8018EF70 *)lbl_804B7760)[3] = *(Pmf_8018EF70 *)lbl_804B773C;
         ((Pmf_8018EF70 *)lbl_804B7760)[4] = *(Pmf_8018EF70 *)lbl_804B7748;
         ((Pmf_8018EF70 *)lbl_804B7760)[5] = *(Pmf_8018EF70 *)lbl_804B7754;
-        init = 1;
+        lbl_805D5BCC = 1;
     }
     saved = *(s32 *)((u8 *)self + 0xAC);
 
@@ -647,12 +637,12 @@ void *TObjDoor__ct(void *arg0, void *arg1, void *arg2) {
     d->f0 = lbl_805D3330;
     ((DoorVt_8018F15C *)d)->m5(arg2);
     d->fAC = 0;
-    d->fB8 = TObjDoor__data_805DBDC4;
-    d->fB4 = TObjDoor__data_805DBDC4;
+    d->fB8 = (0.0f);
+    d->fB4 = (0.0f);
     d->fB0 = 1;
     d->fBC = d->f8C % 2;
     d->fC0 = 0x50;
-    d->fC4 = TObjDoor__data_805DBDC4;
+    d->fC4 = (0.0f);
     d->fC8 = 0;
     d->fCC = (u8)d->f84;
     d->fD0 = (u8)(d->f84 >> 8) % 10;
@@ -684,13 +674,14 @@ void free_resources__8TObjDoorFv(void) {
     }
 }
 
+extern "C" const char lbl_80445588[] = "fe_obj_door.gvm";
 void TObjDoor__sub_8018F30C(void) {
     s32 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
         p = (s32)load_resource_from_descriptor((void *)p, 5, lbl_804B763C, 0, 0, 0);
     }
     lbl_805D5BC4 = p;
-    TObjDoor__data_805D5BC0 = load_gvm_texture_file(lbl_80445588);
+    TObjDoor__data_805D5BC0 = load_gvm_texture_file((void *)lbl_80445588);
     ((s32 *)&TObjDoor__data_8050DC80)[0] = get_bml_model(lbl_805D5BC4, 4);
     ((s32 *)&TObjDoor__data_8050DC80)[1] = get_bml_model(lbl_805D5BC4, 3);
     ((s32 *)&TObjDoor__data_8050DC80)[2] = get_bml_model(lbl_805D5BC4, 0);

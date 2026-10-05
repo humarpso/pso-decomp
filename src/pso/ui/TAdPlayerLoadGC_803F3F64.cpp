@@ -75,7 +75,7 @@ s32 TAdPlayerLoadGC__sub_803F45E0(s32 *arg0, s32 *arg1);
 s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
 s32 TAdPlayerLoadGC__sub_803F3A14(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_803F3AF0(s32 arg0, const char *arg1);
-extern char lbl_804FCE68[];
+
 extern AdLoadState_805A82C0 lbl_805A82C0;
 void TAdPlayerLoadGC__sub_803F467C(void);
 s32 CARDGetSerialNo(s32 chan, u64 *serialNo);
@@ -118,7 +118,7 @@ s32 TAdPlayerLoadGC__sub_803F4B80(void);
 s32 TAdPlayerLoadGC__sub_803F4B8C(int chan, u8 *out);
 u32 fn_803F4D4C(Save_803F3F64 *arg0, s32 arg1);
 s32 fn_803F7254(u8 *arg0, u8 *arg1, u32 arg2, void *arg3);
-extern char lbl_804FCE68[];
+
 extern u8 lbl_805A5F00[];
 extern AdLoadState_805A82C0 lbl_805A82C0;
 extern u8 lbl_805A82E4[];
@@ -169,7 +169,7 @@ void TAdPlayerLoadGC__sub_803F3F64(void) {
         s->x8 = 7;
     case 7:
         get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 1);
-        lbl_805A82C0.x10 = TAdPlayerLoadGC__sub_803F3690(TAdPlayerLoadGC__sub_803F4B24(), lbl_804FCE68);
+        lbl_805A82C0.x10 = TAdPlayerLoadGC__sub_803F3690(TAdPlayerLoadGC__sub_803F4B24(), "sega_network_information");
         if (lbl_805A82C0.x10 < 0) {
             get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
             lbl_805A82C0.a = lbl_805A82C0.x10;
@@ -370,7 +370,7 @@ void TAdPlayerLoadGC__sub_803F467C(void) {
     switch (s->x8) {
     case 1:
         get_or_set_channel_flag__15TAdPlayerLoadGCFii(s->arg, 1);
-        lbl_805A82C0.a = TAdPlayerLoadGC__sub_803F3AF0(s->arg, lbl_804FCE68);
+        lbl_805A82C0.a = TAdPlayerLoadGC__sub_803F3AF0(s->arg, "sega_network_information");
         if (lbl_805A82C0.a < 0) {
             get_or_set_channel_flag__15TAdPlayerLoadGCFii(s->arg, 0);
             lbl_805A82C0.result = -209;

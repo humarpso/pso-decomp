@@ -688,6 +688,7 @@ pso/item/TItemLockCountCtrl.cpp
 pso/item/TItemLockCountCtrl_80119238.cpp
 pso/item/TItemLockCountCtrl_8011E184.cpp
 pso/item/TItemMagGrowEff.cpp
+pso/item/TItemMagSub.cpp
 pso/item/TItemMagSub_80113D84.cpp
 pso/item/TItemMagSub_80114524.cpp
 pso/item/TItemMagSub_80114714.cpp
@@ -790,6 +791,7 @@ pso/misc/TCameraCtrl_80067F44.cpp
 pso/misc/TCameraCtrl_80067F8C.cpp
 pso/misc/TCameraCtrl_8006A9F0.cpp
 pso/misc/TCameraCtrl_8006B3D8.cpp
+pso/misc/TCameraCtrl_8006BA68.cpp
 pso/misc/TCameraCtrl_8006C580.cpp
 pso/misc/TCameraCtrl_8006C5D8.cpp
 pso/misc/TCameraCtrl_800766C4.cpp
@@ -1466,6 +1468,7 @@ pso/misc/TORockCaveSM02.cpp
 pso/misc/TORockCaveSS02.cpp
 pso/misc/TORockCaveSimple.cpp
 pso/misc/TORockJungleL01.cpp
+pso/misc/TOSensor.cpp
 pso/misc/TOSignCave01.cpp
 pso/misc/TOSignCave02.cpp
 pso/misc/TOSignCave03.cpp
@@ -1983,6 +1986,7 @@ pso/misc/TWindowSubItemList.cpp
 pso/misc/TWindowSubItem_801F8FD4.cpp
 pso/misc/TWindowSubItem_80249058.cpp
 pso/misc/TWindowSubLog.cpp
+pso/misc/TWindowSubMag.cpp
 pso/misc/TWindowSubMagPhoton.cpp
 pso/misc/TWindowSubMag_802559F8.cpp
 pso/misc/TWindowSubMag_80255E14.cpp
@@ -2216,6 +2220,7 @@ pso/object/TObjDoaEx01_8018DFFC.cpp
 pso/object/TObjDoor.cpp
 pso/object/TObjDoorJung_8023DBEC.cpp
 pso/object/TObjDoorKey.cpp
+pso/object/TObjDoor_8018E358.cpp
 pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp
@@ -3004,6 +3009,7 @@ pso/ui/TAdPlayerLoadGC_802D645C.cpp
 pso/ui/TAdPlayerLoadGC_802D6488.cpp
 pso/ui/TAdPlayerLoadGC_802D64B4.cpp
 pso/ui/TAdPlayerLoadGC_8033BB14.cpp
+pso/ui/TAdPlayerLoadGC_803F3F64.cpp
 pso/ui/TAdPlyPltAnimCtrlGC.cpp
 pso/ui/TAdPlyPltAnimGC.cpp
 pso/ui/TAdPlyPltAnimGC_80356190.cpp

@@ -275,7 +275,6 @@ extern const f32 TItemMagSub__data_805DABD8;
 extern M2C_UNK __vt__11TItemMagSub[];
 extern Vec_801151E0 lbl_8043E59C[];
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 lbl_8043E5A8;
-extern const f64 lbl_8043E5D8;
 extern M2C_UNK lbl_8049F5A0[];
 extern f32 lbl_8058D4C0[4], lbl_8050BEC0[4];
 extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
@@ -673,7 +672,7 @@ u8 *TItemMagSub__ct(u8 *self, u8 *player, u8 *item) {
     for (i = 0; i < 3; i++) {
         ((MagSub_80115800 *) self)->slots[i] = -1;
     }
-    if (lbl_8043E5D8 < M2C_FIELD(player, f32 *, 0x8A8)) {
+    if (0.5 < M2C_FIELD(player, f32 *, 0x8A8)) {
         M2C_FIELD(self, f32 *, 0xC8) = -((lbl_805DABE0 * M2C_FIELD(player, f32 *, 0x8A8)) - lbl_805DABDC);
     } else {
         M2C_FIELD(self, f32 *, 0xC8) = TItemMagSub__data_805DABD8;

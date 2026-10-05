@@ -42,12 +42,7 @@ struct Obj_801756C4 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0xCC - 0x44]; f32 range
 struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
-extern const f32 lbl_805DB994;
-extern const f32 lbl_805DB998;
 void TOSensorAncient01__vt14(u8 *arg0);
-extern const f32 lbl_805DB988;
-extern const f32 lbl_805DB98C;
-extern const f32 lbl_805DB990;
 void TOSensorAncient01__sub_8017585C(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
@@ -242,15 +237,15 @@ void TOSensorAncient01__vt23(void) {  }
 #pragma opt_common_subs off
 void TOSensorAncient01__sub_8017585C(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xF4) & 1) {
-        M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xF0) + lbl_805DB988);
-        if (lbl_805DB98C < M2C_FIELD(arg0, f32 *, 0xF0)) {
-            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB98C;
+        M2C_FIELD(arg0, f32 *, 0xF0) += (0.26666668f);
+        if ((4.0f) < M2C_FIELD(arg0, f32 *, 0xF0)) {
+            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (4.0f);
             M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) & 0xFFFFFFFE);
         }
     } else {
-        M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xF0) - lbl_805DB988);
-        if (M2C_FIELD(arg0, f32 *, 0xF0) < lbl_805DB990) {
-            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB990;
+        M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xF0) - (0.26666668f));
+        if (M2C_FIELD(arg0, f32 *, 0xF0) < (0.0f)) {
+            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (0.0f);
             M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) | 1);
         }
     }
@@ -266,7 +261,7 @@ void TOSensorAncient01__vt15(void *arg0) {
 }
 void TOSensorAncient01__vt14(u8 *arg0) {
     s32 temp_r3;
-    M2C_FIELD(arg0, s32 *, 0xEC) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0xEC) + lbl_805DB994);
+    M2C_FIELD(arg0, s32 *, 0xEC) += (1.31e+03f);
     TOSensorAncient01__sub_8017585C((u8 *)((s32)(arg0)));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0xE8);
     if (temp_r3 > 0) {
@@ -274,7 +269,7 @@ void TOSensorAncient01__vt14(u8 *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0xE8) = 0;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DB998);
+    M2C_FIELD(arg0, f32 *, 0x3C) += (1.0f);
 }
 
 }
@@ -322,18 +317,11 @@ M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__17TOSensorAncient01[];
 extern s32 lbl_805D3148;
 extern u32 lbl_805D5A88;
-extern const f32 lbl_805DB990;
-extern const f32 lbl_805DB998;
-extern const f32 lbl_805DB9A8;
-extern const f32 lbl_805DB9AC;
 u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
-s32 load_gvm_texture_file(void *);
-extern u8 lbl_804429E8[];
-extern u8 lbl_80442A00[];
-extern u8 lbl_80442A18[];
+s32 load_gvm_texture_file(const void *);
 extern u8 lbl_804B41F0[];
 extern u32 lbl_805D5A88;
 extern void *lbl_805D5A8C;
@@ -365,9 +353,6 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 struct Pair_80175994 { s32 a; s32 b; };
-extern const f32 lbl_805DB99C;
-extern const f32 lbl_805DB9A0;
-extern const f32 lbl_805DB9A4;
 
 void render__17TOSensorAncient01Fv(u8 *arg0) {
     u8 *temp_r30;
@@ -391,7 +376,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
         temp_r30_2 = (u8 *)(M2C_FIELD(temp_r30, u8 **, 0x2C));
-        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < lbl_805DB99C) {
+        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (3e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)lbl_805D5A8C;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
@@ -400,7 +385,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         pop_matrix();
         push_matrix();
         temp_r30_3 = (u8 *)(M2C_FIELD(temp_r30_2, u8 **, 0x30));
-        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < lbl_805DB9A0) {
+        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (6e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)lbl_805D5A8C;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
@@ -409,7 +394,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         pop_matrix();
         push_matrix();
         temp_r30_4 = (u8 *)(M2C_FIELD(temp_r30_3, u8 **, 0x30));
-        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < lbl_805DB9A4) {
+        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (9e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)lbl_805D5A8C;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
@@ -480,6 +465,12 @@ void destroy__17TOSensorAncient01Fv(void) {
 
 extern M2C_UNK __vt__17TOSensorAncient01[];
 
+extern "C" {
+extern const char lbl_804429E8[];
+extern const char lbl_80442A00[];
+extern const char lbl_80442A18[];
+}
+
 void TOSensorAncient01__sub_80175D0C(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
@@ -496,6 +487,12 @@ void TOSensorAncient01__sub_80175D0C(void) {
     lbl_805D5A94 = 0;
     lbl_805D5A98 = 0;
     lbl_805D5A9C = 0;
+}
+
+extern "C" {
+__declspec(section ".rodata") extern const char lbl_804429E8[] = "fs_obj_o_sensor01r.gvm";
+__declspec(section ".rodata") extern const char lbl_80442A00[] = "fs_obj_o_sensor02.gvm";
+__declspec(section ".rodata") extern const char lbl_80442A18[] = "fs_obj_o_sensor02r.gvm";
 }
 
 void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
@@ -525,13 +522,13 @@ u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     }
     M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A88), u8 **, 0x42C), void **, 8));
     M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A88), u8 **, 0x430), void **, 4));
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB998);
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB998;
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB9A8;
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - (1.0f));
+    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (1.0f);
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (4e+02f);
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (lbl_805DB9AC + M2C_FIELD(arg0, f32 *, 0x68));
-    if (M2C_FIELD(arg0, f32 *, 0xCC) < lbl_805DB990) {
-        M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DB990;
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) ((5e+01f) + M2C_FIELD(arg0, f32 *, 0x68));
+    if (M2C_FIELD(arg0, f32 *, 0xCC) < (0.0f)) {
+        M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (0.0f);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
         M2C_FIELD(arg0, s32 *, 0xD0) = 2;
@@ -540,7 +537,7 @@ u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     }
     M2C_FIELD(arg0, s32 *, 0xE8) = 0x78;
     M2C_FIELD(arg0, s32 *, 0xEC) = 0;
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB990;
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (0.0f);
     M2C_FIELD(arg0, s32 *, 0xF4) = 0;
     return arg0;
 }

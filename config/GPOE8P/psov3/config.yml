@@ -103,8 +103,11 @@ force_active:
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
   - TODragonfly__sub_80164764
+  - TOSensor__sub_8017546C
+  - TOSensor__sub_80175514
   - TOSwitchAttack__sub_80198504
   - TObjBagWarnWin__sub_8006EC20
+  - TObjDoor__sub_8018EA2C
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjEneRecon__vt85
@@ -282,6 +285,8 @@ force_active:
   - advance_to_preparation_phase__20TShopArmorListWindowFPv
   - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFPv
+  - apply_node_oscillation__11TItemMagSubFPvPv
+  - apply_placement_matrix__11TItemMagSubFPv
   - apply_room_transform
   - apply_room_transform_to_enemy_rows
   - apply_room_transform_to_object_rows
@@ -301,6 +306,7 @@ force_active:
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
   - clamp_hp_value__10TObjPlayerFPvPv
   - close_shop_subwindows__7TWindowFPvs
+  - configure_scripted_camera_playback
   - construct_cane_weapon
   - construct_dagger_weapon
   - construct_handgun_weapon
@@ -313,9 +319,11 @@ force_active:
   - count_plist_strips_by_texture
   - count_unlocked_difficulties__12TLevelSelectFv
   - create__13TItemProArmorFiUi
+  - create_action_menu__13TWindowSubMagFPvi
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
   - create_icon__10TObjPlayerFiii
   - create_inward_orbit_effect
+  - create_learned_blast_toast__13TWindowSubMagFPv
   - create_particle_emitters__9TTecBartaFPv
   - create_particles__11TTecGiBartaFv
   - curvecmp
@@ -380,6 +388,7 @@ force_active:
   - gTRKMsgBufs
   - get_floor_surface_type__10TObjPlayerFPv
   - get_floor_switch_flag
+  - get_selected_blast__13TWindowSubMagFPv
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
   - get_state__19TBoss8DragonEffTailFPv
   - get_surface_contact_point
@@ -419,6 +428,7 @@ force_active:
   - invoke_callback__10TItemTimerFPv
   - is_controller_animated__8TFogCtrlFii
   - is_end__12TCharaMakingFv
+  - is_mag_full
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
   - is_player_in_range__9TObjLukerFv
@@ -437,6 +447,7 @@ force_active:
   - lbl_804B6D7C
   - lbl_804B6D98
   - lbl_804B6DA4
+  - lbl_804B7630
   - lbl_804B94A0
   - lbl_804B94BC
   - lbl_804B94CC
@@ -449,11 +460,13 @@ force_active:
   - lbl_804EC6CC
   - lbl_804EC708
   - lbl_804EC724
+  - lerp_follow_anchor
   - load_item_pmt
   - lookup_attack_marker
   - macHandleActive
   - macMakeActive
   - maccmp
+  - mag_accumulate_drift
   - mcmdLoop
   - mcmdPlayMacro
   - mcmdPortamento
@@ -636,6 +649,7 @@ force_active:
   - spawn_line__13TPhotonEstllaFPv
   - spawn_recipe_particles__14TItemEffShieldFPv
   - spawn_scattered_lightning_strikes
+  - step_camera_scalar
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
@@ -649,6 +663,7 @@ force_active:
   - update_buy_sell_choice__22TShopEquipmentSequenceFPv
   - update_buy_sell_choice__26TShopEquipmentGearSequenceFPv
   - update_customize_help_text
+  - update_follow__11TItemMagSubFv
   - update_inward_orbit_point
   - update_letterbox_hide__9TCineCtrlFPv
   - update_letterbox_show__9TCineCtrlFPv
@@ -658,9 +673,12 @@ force_active:
   - update_selected_help__19TWindowSubTechniqueFPvi
   - update_selection_input__19TWindowSubMagPhotonFPv
   - update_short_list_request__11TWindowCtrlFPv
+  - update_special_pose__11TItemMagSubFPv
+  - update_state__8TObjDoorFPv
   - update_target_info_window__11TWindowCtrlFPv
   - update_title_prompt__19TAdTrialAgreementGCFPv
   - update_trails__11TItemWeaponFPv
+  - update_transition__11TItemMagSubFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
   - update_when_camera_active__13TObjWarnChimeFPv
   - varGet32

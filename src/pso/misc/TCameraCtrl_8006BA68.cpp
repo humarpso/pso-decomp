@@ -37,7 +37,6 @@ E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Pad_8006BB1C lbl_8050E208;
-extern const f32 lbl_805D9008;
 void TCameraCtrl__sub_8006BB1C(Obj_8006BB1C *arg0);
 }
 
@@ -88,9 +87,9 @@ void TCameraCtrl__sub_8006BB1C(Obj_8006BB1C *arg0) {
     s16 sy = pad->sy;
     f32 r;
     if (btn & 0x20000) {
-        arg0->dist += lbl_805D9008;
+        arg0->dist += (2.2f);
     } else if (btn & 0x10000) {
-        arg0->dist -= lbl_805D9008;
+        arg0->dist -= (2.2f);
     }
     if (arg0->dist < 10.0f) {
         arg0->dist = 10.0f;

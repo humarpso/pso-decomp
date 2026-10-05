@@ -899,7 +899,7 @@ pso/misc/TCameraCtrl_8006B3D8.cpp:
 pso/misc/TCameraCtrl_8006BA68.cpp:
 	.text       start:0x8006BA68 end:0x8006C580
 	.rodata     start:0x804383F0 end:0x804383F8
-	.sdata2     start:0x805D900C end:0x805D9018
+	.sdata2     start:0x805D9008 end:0x805D9014
 
 pso/misc/TCameraCtrl_8006C580.cpp:
 	.text       start:0x8006C580 end:0x8006C5D8
@@ -6500,6 +6500,7 @@ pso/misc/TOSensor.cpp:
 	.text       start:0x80175468 end:0x80175F88
 	.rodata     start:0x804429E0 end:0x80442A38
 	.data       start:0x804B4160 end:0x804B41E0
+	.sdata2     start:0x805DB988 end:0x805DB9B0
 
 pso/misc/TOSensorGeneral01.cpp:
 	.text       start:0x80175F88 end:0x801764DC
@@ -6976,10 +6977,10 @@ pso/unk/text_8018E258.cpp:
 
 pso/object/TObjDoor_8018E358.cpp:
 	.text       start:0x8018E358 end:0x8018F458
-	.rodata     start:0x80445580 end:0x80445588
-	.data       start:0x804B7618 end:0x804B7630
-	.sbss       start:0x805D5BCC end:0x805D5BD0
-	.sdata2     start:0x805DBDC0 end:0x805DBDF0
+	.rodata     start:0x80445580 end:0x80445598
+	.data       start:0x804B7618 end:0x804B7838
+	.sbss       start:0x805D5BC0 end:0x805D5BD0
+	.sdata2     start:0x805DBDC0 end:0x805DBDF4
 
 pso/object/TObjDoorJung.cpp:
 	.text       start:0x8018F458 end:0x8018FA6C
@@ -10936,7 +10937,7 @@ pso/misc/TWindowSubMag.cpp:
 	.text       start:0x8027B2B8 end:0x8027C13C
 	.rodata     start:0x8044FA08 end:0x8044FA10
 	.data       start:0x804D16D8 end:0x804D1720
-	.sdata2     start:0x805DD64C end:0x805DD664
+	.sdata2     start:0x805DD648 end:0x805DD678
 
 pso/unk/text_8027C13C.cpp:
 	.text       start:0x8027C13C end:0x8027C22C
@@ -16066,7 +16067,7 @@ pso/unk/text_803F3DD4.cpp:
 
 pso/ui/TAdPlayerLoadGC_803F3F64.cpp:
 	.text       start:0x803F3F64 end:0x803F4D10
-	.data       start:0x804FCE84 end:0x804FCEA4
+	.data       start:0x804FCE68 end:0x804FCEA4
 
 pso/unk/text_803F4D10.cpp:
 	.text       start:0x803F4D10 end:0x803F4D84

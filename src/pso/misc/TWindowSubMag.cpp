@@ -50,7 +50,6 @@ struct TWindowSubMag_8027B888 {
 extern "C" {
 extern u8 *lbl_805D553C;
 s32 TWindowSubMag__sub_8027C0B0(s32 arg0);
-extern const f32 lbl_805DD668;
 bool is_mag_full(u8 *arg0);
 struct TWindowSubMag_8027B62C {
     u8 pad0[0x28];
@@ -65,7 +64,6 @@ M2C_UNK TWindowSubComCard__sub_80265E60(void *, f32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(void *, s32, s32, s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, s32, s32);
 void *create_titled_window_menu(s32, s32, s32, M2C_UNK);
-extern const f32 lbl_805DD664;
 void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 id);
 s32 get_selected_blast__13TWindowSubMagFPv(Obj_8027C0C4 *o);
 s32 get_shared_text_buffer();
@@ -141,9 +139,6 @@ int get_active_flag__13TWindowSubMagFPv(void* p);
 u32 is_action_active__10TObjPlayerFPv(void *);
 extern u8 lbl_8044F9E8[];
 extern Pad_8027B888 lbl_8050E208[];
-extern const f32 lbl_805DD66C;
-extern const f32 lbl_805DD670;
-extern const f32 lbl_805DD674;
 void run_task__13TWindowSubMagFv(void *arg0);
 }
 
@@ -189,7 +184,7 @@ M2C_UNK send_and_handle__6TLobbyFPvii(s32, M2C_UNK *, M2C_UNK);
 M2C_UNK set_field_1c__6TLobbyFPvf(void *);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(s32);
 
-extern M2C_UNK lbl_805DD648;
+extern "C" const char lbl_805DD648[] = "";
 
 extern "C" {
 void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 id);
@@ -203,7 +198,7 @@ void update_mag_help__13TWindowSubMagFPv(void *arg0) {
     if (temp_r3 != (s8) M2C_FIELD(arg0, u8 *, 0x1D)) {
         M2C_FIELD(arg0, u8 *, 0x1D) = (u8) temp_r3;
         if (temp_r3 == -1) {
-            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x4C), &lbl_805DD648, 0x80);
+            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x4C), (M2C_UNK *)lbl_805DD648, 0x80);
             return;
         }
         send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x4C), get_help_text_string(temp_r3 + 0x27), 0x80);
@@ -330,7 +325,7 @@ void *create_action_menu__13TWindowSubMagFPvi(TWindowSubMag_8027B62C *menu, s32 
         draw_text_gray__17TWindowSubComCardFiiii(window, get_message_10__20TWindowSubStatusDispFPv(0x64), 6, 0);
     }
     set_flag70_bit10__16TObjCityMainWarpFPv(window);
-    TWindowSubComCard__sub_80265E60(window, lbl_805DD664);
+    TWindowSubComCard__sub_80265E60(window, (172.0f));
     align_menu_entry_positions(window);
     return window;
 }
@@ -368,6 +363,8 @@ void render__13TWindowSubMagFv(void) {  }
 
 extern M2C_UNK __vt__13TWindowSubMag[];
 
+extern "C" const f32 lbl_805DD668 = 2.0f;
+
 #define self ((TWindowSubMag_8027B888 *)arg0)
 void run_task__13TWindowSubMagFv(void *arg0) {
     void *w;
@@ -400,7 +397,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         TWindowSubMag__sub_80255E24(self->help);
         init_and_setup__13TWindowSubMagFPvPv((s32)self->list, 2);
         clear_selected_and_update_entry__14TWindowSubItemFPv(self->list);
-        start_scroll__13TWindowSubMagFPvf(self->list, lbl_805DD66C);
+        start_scroll__13TWindowSubMagFPvf(self->list, (188.0f));
         self->state = 2;
     case 2:
         update_displayed_item__13TWindowSubMagFPv(self);
@@ -432,7 +429,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
             clear_flag60_bit8__13TWindowSubMagFPv((void*)(self->help));
             call_if_split_screen(self->help, self->client_id);
         }
-        start_scroll__13TWindowSubMagFPvf(self->list, lbl_805DD66C);
+        start_scroll__13TWindowSubMagFPvf(self->list, (188.0f));
         if (self->card == NULL) {
             self->card = create_action_menu__13TWindowSubMagFPvi((TWindowSubMag_8027B62C *)self, select_cursor_entry__6TLobbyFPv((s32)self->list));
         }
@@ -505,7 +502,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
             break;
         }
     case 11:
-        if ((f32)self->timer++ > lbl_805DD670 && TWindowSubMag__sub_80253698(self->help) != 0) {
+        if ((f32)self->timer++ > (3e+01f) && TWindowSubMag__sub_80253698(self->help) != 0) {
             self->state = 10;
         }
         break;
@@ -520,7 +517,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
             break;
         }
     case 13:
-        if ((f32)self->timer++ > lbl_805DD674 && self->effect != NULL) {
+        if ((f32)self->timer++ > (9e+01f) && self->effect != NULL) {
             TWindow__close(self->effect);
             self->effect = NULL;
             self->state = 3;
@@ -639,7 +636,7 @@ int get_active_flag__13TWindowSubMagFPv(void* p) { return *(u8*)((char*)p + 0x60
 int TWindowSubMag__sub_8027C0E8(void* p) { return *(u8*)((char*)p + 0x60) & 0x2; }
 
 bool is_mag_full(u8 *arg0) {
-    return (M2C_FIELD(arg0, f32 *, 0x194) < lbl_805DD668) == 0;
+    return (M2C_FIELD(arg0, f32 *, 0x194) < *(const volatile f32 *)&lbl_805DD668) == 0;
 }
 
 void set_flag60_bit8__13TWindowSubMagFPv(void* p) { *(u8*)((char*)p + 0x60) |= 0x8; }
