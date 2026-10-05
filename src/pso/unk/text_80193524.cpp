@@ -103,20 +103,18 @@ struct Fence_801935D8 {
 };
 
 extern "C" {
-extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt14(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK func_80141618__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
-M2C_UNK draw_laser_beam__13TLazerFenceSwFv(void *);
+void draw_laser_beam__13TLazerFenceSwFv(void *);
 M2C_UNK set_current_scene__6TSceneFi(int);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
 void render__13TLazerFenceSwFv(u8 *arg0);
 extern const f32 TLazerFenceSw__data_805DBE84;
-extern RecoveredGlobal_80193A84_lbl_8050DCF0 lbl_8050DCF0;
 void TLazerFenceSw__vt15(u8 *arg0);
 void TOKey__sub_8016AA20();
 void set_global_count__12TObjNpcEnemyFi(int);
@@ -176,6 +174,10 @@ M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
 M2C_UNK fn_80156CA0(void *);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
+__declspec(section ".data") u32 lbl_8050DCE8[2];
+__declspec(section ".data") u32 lbl_8050DCF0[2];
+__declspec(section ".data") u32 lbl_8050DCF8[3];
+#define lbl_8050DCF0 (*(RecoveredGlobal_80193A84_lbl_8050DCF0 *)lbl_8050DCF0)
 extern void *tl_05;
 
 void *create__15TObjLazerFence4FPv(void *arg0) {
@@ -232,6 +234,85 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
 
 #pragma push
 #pragma opt_common_subs off
+struct Res_8050DCE8 {
+    u32 models[2];
+    u32 motions[2];
+    u32 meshes[3];
+};
+struct Sw_801936E0 {
+    u8 pad0[0x38];
+    u8 pos[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0xB0 - 0x64];
+    f32 fB0;
+    u8 padB4[0xD4 - 0xB4];
+    s32 fD4;
+    u8 padD8[0xE8 - 0xD8];
+    u16 fE8;
+    u8 padEA[0xEC - 0xEA];
+    f32 fEC;
+    u8 padF0[0x110 - 0xF0];
+    f32 f110;
+    u32 f114;
+};
+void free_children__12TObjDoorJungFPvPv(u32, u16);
+M2C_UNK set_global_param__8TObjFishFi(int);
+void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
+void PPCSync(void);
+void push_matrix(void);
+void post_translate_matrix(void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK draw_ginja_object(s32);
+M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
+M2C_UNK begin_effect_render__13TParticleCtrlFv();
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+void pop_matrix(void);
+extern u8 *lbl_805D5C38;
+extern u32 lbl_805D53A4;
+extern s32 some_id_805c6f74;
+extern const f32 lbl_805DBE78;
+extern s32 TLazerFenceSw__data_805D5C34;
+void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
+    Sw_801936E0 *self = (Sw_801936E0 *)arg0;
+    s32 i;
+
+    for (i = 0; i < 3; i++) {
+        free_children__12TObjDoorJungFPvPv(lbl_8050DCF8[i], self->fE8);
+    }
+    set_global_param__8TObjFishFi(TLazerFenceSw__data_805D5C34);
+    if (lbl_805D53A4 != self->f114 && self->f110 >= lbl_805DBE78) {
+        self->f114 = lbl_805D53A4;
+        scroll_ginja_mesh_uvs(*(u32 *)(lbl_805D5C38 + 4), 0, (s32)self->f110, 5, 1);
+        PPCSync();
+        self->f110 = self->f110 - (f32)(s32)self->f110;
+    }
+    switch (self->fD4) {
+    case 0:
+        push_matrix();
+        post_translate_matrix(self->pos);
+        rotate_matrix_y(0, self->f60);
+        draw_ginja_object(lbl_8050DCE8[1]);
+        begin_effect_render__13TParticleCtrlFv();
+        some_id_805c6f74 |= 0x01000000;
+        draw_ginja_model_with_motion(lbl_8050DCE8[0], ((u32 *)&lbl_8050DCF0)[0], self->fB0);
+        some_id_805c6f74 &= ~0x01000000;
+        end_effect_render__13TParticleCtrlFv();
+        pop_matrix();
+        break;
+    case 1:
+        push_matrix();
+        post_translate_matrix(self->pos);
+        rotate_matrix_y(0, self->f60);
+        draw_ginja_model_with_motion(lbl_8050DCE8[1], ((u32 *)&lbl_8050DCF0)[1], self->fEC);
+        begin_effect_render__13TParticleCtrlFv();
+        some_id_805c6f74 |= 0x01000000;
+        draw_ginja_model_with_motion(lbl_8050DCE8[0], ((u32 *)&lbl_8050DCF0)[0], self->fB0);
+        some_id_805c6f74 &= ~0x01000000;
+        end_effect_render__13TParticleCtrlFv();
+        pop_matrix();
+        break;
+    }
+}
 void render__13TLazerFenceSwFv(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
         if (get_state_flag__9TMainTaskFv() != 1) {
@@ -253,6 +334,7 @@ void render__13TLazerFenceSwFv(u8 *arg0) {
 }
 #pragma pop
 
+__declspec(section ".rodata") u8 lbl_80445CD8[16] = "<- SELECT COLOR";
 void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
     TOKey__sub_8016AA20();
     if (arg0->f8C < 0) {

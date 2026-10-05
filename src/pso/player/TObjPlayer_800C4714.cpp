@@ -1024,7 +1024,6 @@ int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
 s32 update_action_hold__12TObjEneBeastFPv(u8 *arg0);
-extern u8 lbl_80500C30[];
 extern void *lbl_805D5188;
 void TLobby__sub_803DA16C(void *);
 void free__11TOBoss4RockFUi(void *);
@@ -1246,6 +1245,14 @@ void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
+struct Node_800C4D88 { void *p; s32 v; };
+struct A_800C4D88 { u8 x[0x24]; };
+struct B_800C4D88 { u8 x[0xC]; };
+A_800C4D88 lbl_80500C00;
+B_800C4D88 lbl_80500C24;
+__declspec(section ".data") Node_800C4D88 lbl_80500C30;
+#define lbl_80500C30 ((u8 *)&lbl_80500C30)
+
 void TObjPlayer__sub_800C4D44(void) {
     void *p = lbl_80500C30;
     if (p != 0) {
@@ -1257,6 +1264,17 @@ void TObjPlayer__sub_800C4D44(void) {
     }
 }
 
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+void TLobby__sub_801E47C4(void *, void *);
+void set_render_rect__10TObjPlayerFPviiii(void *, void *, s32, s32, s32);
+void set_texture_name(void *, void *, s32, s32);
+void TObjPlayer__sub_800C4D88(void) {
+    set_render_rect__10TObjPlayerFPviiii(&lbl_80500C00, lbl_805D5188 = alloc_buffer__11TOBoss4RockFPv(0x800), 0x902, 0x20, 0x20);
+    set_texture_name(&lbl_80500C24, &lbl_80500C00, 0x18696, 0x40800000);
+    ((Node_800C4D88 *)lbl_80500C30)->p = &lbl_80500C24;
+    ((Node_800C4D88 *)lbl_80500C30)->v = 1;
+    TLobby__sub_801E47C4(lbl_80500C30, &lbl_80500C24);
+}
 void TObjPlayer__sub_800C4E08(u8 *arg0) {
     if (obj_testFlags30((void *)(arg0), (int)(0x100000)) != 0) {
         M2C_FIELD(arg0, f32 *, 0x394) = (f32) M2C_FIELD(arg0, f32 *, 0x39C);
