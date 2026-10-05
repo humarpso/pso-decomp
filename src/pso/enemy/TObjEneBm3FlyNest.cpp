@@ -98,6 +98,12 @@ struct VObj_800B3EB8 : VBase_800B3EB8 {
 };
 
 extern "C" {
+extern const f32 lbl_805D9CF8;
+extern const f32 lbl_805D9D6C;
+void TObjEneBm3FlyNest__sub_800B47C4(void);
+}
+
+extern "C" {
 
 struct Base_800B1A90_800B1978 { char pad[0x18]; };
 
@@ -1525,7 +1531,6 @@ void load_resources__17TObjEneBm3FlyNestFv(void);
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void * TObjEneBm3FlyNest__sub_800B4630(void *arg0, s16 arg1);
 u8 * TObjEneBm3FlyNest__sub_800B4688(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
-s32 TObjEneBm3FlyNest__sub_800B47C4();
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
 void __dt__9TObjEneDDFv(void *, int);
@@ -1767,7 +1772,18 @@ extern u8 lbl_8043B380[];
 extern const f64 lbl_8043B398[];
 extern RecoveredGlobal_800B22C8_lbl_80491B4C lbl_80491B4C;
 extern M2C_UNK lbl_804920B4[];
-extern RecoveredGlobal_800B2948_lbl_80500B00 lbl_80500B00;
+typedef struct Ctl_800B47C4 {
+    f32 *pv;
+    s32 *pc;
+    s32 d;
+    s32 e;
+    s32 f;
+} Ctl_800B47C4;
+f32 lbl_80500B00[3];
+f32 lbl_80500B0C[6];
+__declspec(section ".data") s32 lbl_80500B24[2];
+Ctl_800B47C4 lbl_80500B2C;
+#define lbl_80500B00 (*(RecoveredGlobal_800B2948_lbl_80500B00 *)lbl_80500B00)
 extern s32 lbl_805D28B8;
 extern s32 lbl_805D2A10;
 extern s32 lbl_805D2A1C;
@@ -3205,6 +3221,22 @@ u8 *TObjEneBm3FlyNest__sub_800B4688(u8 *self, void *parent, s32 a, s32 b, s32 un
     M2C_FIELD(self, f32 *, 0x60) = lbl_805D9CF8;
     M2C_FIELD(self, s32 *, 0x2C) = 0;
     return self;
+}
+void TObjEneBm3FlyNest__sub_800B47C4(void) {
+    f32 *v = lbl_80500B0C;
+    f32 zero = lbl_805D9CF8;
+    v[0] = zero;
+    v[1] = zero;
+    v[2] = zero;
+    v[3] = zero;
+    v[4] = lbl_805D9D6C;
+    v[5] = lbl_805D9D6C;
+    lbl_80500B24[0] = -1;
+    lbl_80500B24[1] = -1;
+    lbl_80500B2C.pv = lbl_80500B0C;
+    lbl_80500B2C.pc = lbl_80500B24;
+    lbl_80500B2C.d = 0;
+    lbl_80500B2C.e = 2;
 }
 
 }

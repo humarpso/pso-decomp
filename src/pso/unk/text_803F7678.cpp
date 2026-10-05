@@ -86,15 +86,25 @@ struct Cfg_803F86C0 {
     u8 *f44;
 };
 
+struct Sub_803F77E4 {
+    s16 f0; s16 f2; s16 f4; s16 f6; s16 f8; u8 padA[2];
+    void *fC; void *f10; void *f14; void *f18; void *f1C; void *f20; void *f24; void *f28;
+    void *f2C; void *f30; void *f34; s8 f38; u8 pad39[3]; void *f3C; void *f40; s32 f44;
+};
+
+struct Obj_803F77E4 {
+    u8 *f0; s16 f4; u8 *f8; s16 fC; s16 fE; u8 *f10; s16 f14; void *f18; s16 f1C;
+    u8 *f20; u8 *f24; u8 *f28; u8 *f2C; u8 *f30; u8 *f34; u8 *f38;
+    s16 f3C; s16 f3E; s16 f40; s16 f42; s16 f44; s16 f46; s16 f48;
+    Sub_803F77E4 *f4C;
+};
+
 extern "C" {
-extern RecoveredGlobal_803F76F4_lbl_805A9008 lbl_805A9008;
 void TLobby__sub_803F76F4(u8 *arg0);
-extern RecoveredGlobal_803F76F4_lbl_805A9008 lbl_805A9008;
 void TLobby__sub_803F7790(u8 *arg0);
 extern RecoveredGlobal_803F7984_lbl_805AA098 lbl_805AA098;
 extern M2C_UNK lbl_805D7A00;
 void TLobby__sub_803F7984(u8 *arg0);
-extern RecoveredGlobal_803F76F4_lbl_805A9008 lbl_805A9008;
 void TLobby__sub_803F79C0(u8 *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_8042E7B8(s32);
 s32 TLobby__sub_803F8044(s32 arg0);
@@ -240,6 +250,36 @@ void TLobby__sub_803F808C(void);
 s32 TLobby__sub_803F811C(s16 *arg0);
 void TLobby__sub_803F86BC(void);
 
+void __OSBootDol(u8 *arg0);
+extern M2C_UNK lbl_805D79F8;
+extern M2C_UNK lbl_805E1108;
+extern M2C_UNK lbl_805E1110;
+extern M2C_UNK lbl_805E1118;
+extern M2C_UNK lbl_805E111C;
+extern M2C_UNK lbl_805E1120;
+extern M2C_UNK lbl_805E1128;
+extern M2C_UNK lbl_805E1130;
+extern M2C_UNK lbl_805E1138;
+extern M2C_UNK lbl_805E1140;
+
+u8 lbl_805A9008[0xA88];
+u8 lbl_805A9A90[0x60];
+u8 lbl_805A9AF0[0x80];
+u8 lbl_805A9B70[0x80];
+u8 lbl_805A9BF0[0x80];
+u8 lbl_805A9C70[0x80];
+u8 lbl_805A9CF0[0x80];
+u8 lbl_805A9D70[0x80];
+u8 lbl_805A9DF0[0x80];
+u8 lbl_805A9E70[0x10];
+u8 lbl_805A9E80[0x200];
+u8 lbl_805AA080[0x18];
+const char lbl_8047FD38[] = "NO CARRIER";
+const char lbl_8047FD44[] = "NO DIALTONE";
+const char lbl_8047FD50[] = "send \"AT&FE0\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATS0=1\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATW2\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATX3&C1&D2\\r\"\nwait \"OK\\r\\n\",3\n";
+const char lbl_8047FDD4[] = "dial \"%t\"\n";
+#define lbl_805A9008 (*(RecoveredGlobal_803F76F4_lbl_805A9008 *)lbl_805A9008)
+
 void TLobby__sub_803F7678(void) {
 
 }
@@ -308,6 +348,55 @@ void TLobby__sub_803F7790(u8 *arg0) {
 
 void TLobby__sub_803F77E0(void) {
 
+}
+
+void __OSBootDol(u8 *arg0) {
+    Obj_803F77E4 *o = (Obj_803F77E4 *)arg0;
+
+    o->f0 = lbl_805AA080;
+    o->f4 = 6;
+    o->f8 = lbl_805A9E80;
+    o->fC = 4;
+    o->fE = 0x80;
+    o->f10 = lbl_805A9E70;
+    o->f14 = 4;
+    o->f18 = &lbl_805D79F8;
+    o->f1C = 4;
+    o->f20 = lbl_805A9DF0;
+    o->f24 = lbl_805A9D70;
+    o->f28 = lbl_805A9CF0;
+    o->f2C = lbl_805A9C70;
+    o->f30 = lbl_805A9BF0;
+    o->f34 = lbl_805A9B70;
+    o->f38 = lbl_805A9AF0;
+    o->f3C = 0x80;
+    o->f3E = 0x80;
+    o->f40 = 0x80;
+    o->f42 = 0x80;
+    o->f44 = 0x80;
+    o->f46 = 0x80;
+    o->f48 = 0x80;
+    o->f4C = (Sub_803F77E4 *)(lbl_805A9A90);
+    o->f4C->f0 = 1;
+    o->f4C->f2 = 1;
+    o->f4C->f4 = 1;
+    o->f4C->f6 = 0;
+    o->f4C->f8 = 1;
+    o->f4C->fC = &lbl_805E1108;
+    o->f4C->f10 = &lbl_805E1110;
+    o->f4C->f14 = &lbl_805E1118;
+    o->f4C->f18 = &lbl_805E111C;
+    o->f4C->f1C = &lbl_805E1120;
+    o->f4C->f20 = &lbl_805E1128;
+    o->f4C->f24 = &lbl_805E1130;
+    o->f4C->f28 = &lbl_805E1138;
+    o->f4C->f2C = (void *)lbl_8047FD38;
+    o->f4C->f30 = (void *)lbl_8047FD44;
+    o->f4C->f34 = &lbl_805E1140;
+    o->f4C->f38 = 0xD;
+    o->f4C->f3C = (void *)lbl_8047FD50;
+    o->f4C->f40 = (void *)lbl_8047FDD4;
+    o->f4C->f44 = 0;
 }
 
 void TLobby__sub_803F7980(void) {

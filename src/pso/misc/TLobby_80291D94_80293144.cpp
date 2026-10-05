@@ -171,7 +171,7 @@ extern u32 lbl_805D6580;
 extern s32 lbl_805D6584;
 extern s32 lbl_805D6588;
 
-extern "C" void TLobby__sub_802936AC();
+extern "C" void *TLobby__sub_802936AC(void *arg0, s16 arg1);
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
 void *lbl_804DAB60[420] = {
@@ -554,6 +554,21 @@ void update_destruction_countdown__6TLobbyFPv(void *arg0) {
         maybe_handle_destruction__6TLobbyFPv((void*)((void*)(arg0)));
         M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
     }
+}
+M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+M2C_UNK __dl__7TObjectFPv(void *);
+void TLobby__sub_800707F4(void *, void *);
+void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(void **)((u8 *)arg0 + 0x18) = (void *)lbl_804DB888;
+        TLobby__sub_800707F4(lbl_804DB1F0, &lbl_804DAB60);
+        lbl_805D6580 = 0;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
 }
 struct C_80293720 { s32 f0; u8 pad4[0x14]; void *f18; s32 f1c; s32 f20; s32 f24; s32 f28; };
 void __ct__7TObjectFP7TObject(void *, void *);

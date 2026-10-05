@@ -2337,10 +2337,30 @@ extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_804E6C3C[2];
-extern void *lbl_804E6C44[15];
+extern void *lbl_804E6C44[11];
 extern void *lbl_804E6C80[2];
-extern void *lbl_804E6C88[15];
+extern void *lbl_804E6C88[11];
 void render__16TObjEneDellBiterFv(u8 *arg0);
+struct V3_80306858 { f32 x; f32 y; f32 z; };
+struct S16_80306858 { s32 a; s32 b; s32 c; s32 d; };
+struct L4_80306858 { u8 pad[4]; s32 v; };
+struct L3_80306858 { u8 pad[4]; L4_80306858 *p; };
+struct L2_80306858 { u8 pad[0x2C]; L3_80306858 *p; };
+struct L1_80306858 { u8 pad[8]; L2_80306858 *p; s32 c; };
+struct Obj_80306858 { u8 pad[0x42C]; L1_80306858 *p; s32 v; };
+struct Ent_80306858 { u8 pad[0xC]; f32 f; };
+struct G_80306858 { u8 pad[0x1C]; Ent_80306858 e; u8 pad2[0x100 - 0x2C]; u8 a[0x44]; u8 b[4]; };
+
+extern "C" {
+u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+void *load_enemy_bml_resource(void *);
+s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern S16_80306858 lbl_8047527C;
+void TObjEneDellBiter__sub_80306858(void);
+}
 void *lbl_804E6B70[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -2361,20 +2381,24 @@ void *lbl_804E6B8C[44] = {
 __declspec(section ".data") void *lbl_804E6C3C[2] = {
     (void *)&lbl_80475138, (void *)0x0,
 };
-void *lbl_804E6C44[15] = {
+void *lbl_804E6C44[11] = {
     (void *)&lbl_80475148, (void *)&lbl_80475160, (void *)&lbl_80475174, (void *)&lbl_8047518C,
     (void *)&lbl_804751A0, (void *)&lbl_804751B8, (void *)&lbl_804751CC, (void *)&lbl_804751E0,
-    (void *)&lbl_804751F8, (void *)&lbl_8047520C, (void *)0x0, (void *)&lbl_80475220,
-    (void *)&lbl_804E6C3C, (void *)&lbl_804E6C44, (void *)0x1000a,
+    (void *)&lbl_804751F8, (void *)&lbl_8047520C, (void *)0x0,
+};
+void *lbl_804E6C70[4] = {
+    (void *)&lbl_80475220, (void *)&lbl_804E6C3C, (void *)&lbl_804E6C44, (void *)0x1000a,
 };
 __declspec(section ".data") void *lbl_804E6C80[2] = {
     (void *)&lbl_80475238, (void *)0x0,
 };
-void *lbl_804E6C88[15] = {
+void *lbl_804E6C88[11] = {
     (void *)&lbl_80475148, (void *)&lbl_80475160, (void *)&lbl_80475174, (void *)&lbl_8047518C,
     (void *)&lbl_804751A0, (void *)&lbl_804751B8, (void *)&lbl_804751CC, (void *)&lbl_804751E0,
-    (void *)&lbl_804751F8, (void *)&lbl_8047520C, (void *)0x0, (void *)&lbl_8047524C,
-    (void *)&lbl_804E6C80, (void *)&lbl_804E6C88, (void *)0x1000a,
+    (void *)&lbl_804751F8, (void *)&lbl_8047520C, (void *)0x0,
+};
+void *lbl_804E6CB4[4] = {
+    (void *)&lbl_8047524C, (void *)&lbl_804E6C80, (void *)&lbl_804E6C88, (void *)0x1000a,
 };
 void *lbl_804E6CC4[40] = {
     (void *)0x10000, (void *)0x8, (void *)0x3f000000, (void *)0x0,
@@ -3954,6 +3978,37 @@ void *TObjEneDellBiter__create(void *arg0) {
     }
     return o;
 }
+
+#define G_80306858 (*(V3_80306858 *)&lbl_80541E48)
+void TObjEneDellBiter__sub_80306858(void) {
+    G_80306858.x = TObjEneDellBiter__data_805DEFF4;
+    G_80306858.y = TObjEneDellBiter__data_805DEFF4;
+    G_80306858.z = TObjEneDellBiter__data_805DEFF4;
+    if (is_split_screen() != 0) {
+        TObjEneDellBiter__data_805D6A30 = (u32)load_enemy_bml_resource(lbl_804E6CB4);
+    } else {
+        TObjEneDellBiter__data_805D6A30 = (u32)load_enemy_bml_resource(lbl_804E6C70);
+    }
+    lbl_805D6A20 = register_boss__6TLobbyFPv(0xD);
+    TObjEneDellBiter__data_805D6A24 = dispatch_shared_handler_b__6TLobbyFPv(0xD);
+    lbl_805D6A28 = register_object__6TLobbyFPv(0xD);
+    TObjEneDellBiter__data_805D6A2C = dispatch_shared_handler_a__6TLobbyFPv(0xD);
+    TObjEneDellBiter__data_805D6A34 = 0;
+    TObjEneDellBiter__data_805D6A38 = 0;
+    TObjEneDellBiter__data_805D6A3C = 0;
+    TObjEneDellBiter__sub_803067AC(4, M2C_FIELD(TObjEneDellBiter__data_805D6A2C, f32 *, 8));
+    TObjEneDellBiter__sub_803067AC(5, M2C_FIELD(TObjEneDellBiter__data_805D6A2C, f32 *, 0xC));
+    {
+        Obj_80306858 *o = (Obj_80306858 *)TObjEneDellBiter__data_805D6A30;
+        Ent_80306858 *ent = (Ent_80306858 *)lbl_804E6B8C;
+        lbl_805D6A40 = o->p->p->p->p->v;
+        lbl_805D6A44 = 0;
+        S16_80306858 sp = lbl_8047527C;
+        sp.a = o->v;
+        spawn_npc_enemy__6TLobbyFsiiiff(0x46, (int)o->p->p, o->p->c, &sp, ent->f, TObjEneDellBiter__data_805DEFF4);
+    }
+}
+#undef G_80306858
 
 void apply_armor_add_slot(void *arg0) {
     struct VObj_80306994_80305BDC *o = (struct VObj_80306994_80305BDC *)get_item_field_2__9TItemDataFPv(M2C_FIELD(arg0, s32 *, 0xF0));

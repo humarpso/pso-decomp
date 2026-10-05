@@ -411,6 +411,7 @@ pso/boss/TBoss3Volopt.cpp:
 	.ctors      start:0x80433F30 end:0x80433F34
 	.rodata     start:0x80436310 end:0x80436318
 	.data       start:0x80483938 end:0x80483974
+	.bss        start:0x804FEE68 end:0x804FEE74
 	.sdata2     start:0x805D8670 end:0x805D869C
 
 pso/misc/TCameraCtrl_8003F3A0.cpp:
@@ -690,6 +691,7 @@ pso/boss/TBoss4Type1.cpp:
 	.text       start:0x800525AC end:0x80055678
 	.ctors      start:0x80433F38 end:0x80433F3C
 	.rodata     start:0x80437628 end:0x80437630
+	.data       start:0x80485AE0 end:0x80485B08
 	.sdata2     start:0x805D8B28 end:0x805D8B2C
 
 pso/player/TObjPlayer_80055678.cpp:
@@ -1954,6 +1956,7 @@ pso/enemy/TObjEneBm3FlyNest.cpp:
 	.text       start:0x800B1978 end:0x800B4820
 	.rodata     start:0x8043B378 end:0x8043B3A8
 	.data       start:0x80491D74 end:0x804920B4
+	.bss        start:0x80500B00 end:0x80500B40
 	.sdata2     start:0x805D9C7C end:0x805D9D08
 
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp:
@@ -5602,6 +5605,7 @@ pso/unk/text_8014618C.cpp:
 pso/misc/TLobby_801461EC.cpp:
 	.text       start:0x801461EC end:0x801471A0
 	.data       start:0x804A7808 end:0x804A7850
+	.bss        start:0x8050C0A8 end:0x8050C784
 
 pso/unk/text_801471A0.cpp:
 	.text       start:0x801471A0 end:0x80147A80
@@ -13840,6 +13844,7 @@ pso/misc/TWindowDD_80341B10.cpp:
 pso/misc/TWindowDD_80342254.cpp:
 	.text       start:0x80342254 end:0x803424EC
 	.ctors      start:0x8043400C end:0x80434010
+	.data       start:0x804EFC50 end:0x804EFC90
 
 pso/misc/TWindowDD_803424EC.cpp:
 	.text       start:0x803424EC end:0x80342554
@@ -15649,6 +15654,7 @@ pso/misc/TLobby_803D3194.cpp:
 
 pso/unk/text_803D31A4.cpp:
 	.text       start:0x803D31A4 end:0x803D3988
+	.bss        start:0x8058B480 end:0x8058B4A0
 
 pso/misc/TLobby_803D3988.cpp:
 	.text       start:0x803D3988 end:0x803D39F8
@@ -15941,6 +15947,7 @@ pso/misc/TWindowKeyBoardSoft_803E6610.cpp:
 pso/misc/TQuestVmDownLoadServer_803E6970.cpp:
 	.text       start:0x803E6970 end:0x803F0C50
 	.data       start:0x804FC858 end:0x804FCD34
+	.bss        start:0x80596668 end:0x805A02A8
 
 pso/misc/TKeyBoardControl_803F0C50.cpp:
 	.text       start:0x803F0C50 end:0x803F1804
@@ -15978,7 +15985,9 @@ pso/unk/text_803F71BC.cpp:
 
 pso/unk/text_803F7678.cpp:
 	.text       start:0x803F7678 end:0x803F8794
+	.rodata     start:0x8047FD38 end:0x8047FDE0
 	.data       start:0x804FD360 end:0x804FD380
+	.bss        start:0x805A9008 end:0x805AA098
 
 pso/misc/TLobby_803F8794.cpp:
 	.text       start:0x803F8794 end:0x8041ED8C

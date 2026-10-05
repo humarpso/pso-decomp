@@ -96,6 +96,19 @@ extern const f32 lbl_805D8698;
 extern const f32 lbl_805D869C;
 extern const f32 lbl_805D86A0;
 void TBoss3Volopt__sub_8003DD4C(void *arg0_);
+void TCameraCtrl__sub_8003D340(u8 *arg0);
+void update_volopt_seq__11TCameraCtrlFPv(void *arg0);
+void TCameraCtrl__sub_8003D648(u8 *arg0);
+void TBoss3Volopt__sub_8003D7BC(u8 *arg0);
+void TBoss3Volopt__sub_8003DA78(u8 *arg0);
+void request_follow_camera_offsets(void *, void *, int, f32);
+M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+extern s32 lbl_805D4C30;
+extern s32 lbl_805D4C34;
+extern s32 lbl_805D4C38;
+extern s32 lbl_805D4C3C;
+extern const f32 lbl_805D8660;
+void TBoss3Volopt__sub_8003EB34(u8 *arg0);
 }
 
 extern "C" {
@@ -299,7 +312,6 @@ void TBoss3Volopt__sub_8003DC34(u8 *arg0);
 void reset_vol_opt_state(void* a0);
 int TBoss3Volopt__sub_8003EA2C(void*);
 void render__12TBoss3VoloptFv(void);
-M2C_UNK TBoss3Volopt__sub_8003EB34(void *);
 void run_task__12TBoss3VoloptFv(u8 *arg0);
 void * create__12TBoss3VoloptFPv(void *arg0);
 void free_parts__12TBoss3VoloptFv(void);
@@ -407,8 +419,6 @@ extern u8 lbl_804836A0[];
 extern u8 lbl_80483760[];
 extern u16 lbl_80483770[];
 extern RecoveredGlobal_8003D648_lbl_8048377C lbl_8048377C;
-extern RecoveredGlobal_8003DC34_lbl_804FEE68 lbl_804FEE68;
-extern M2C_UNK lbl_804FEE74[];
 extern RecoveredGlobal_8003C8B4_lbl_804FEEAC lbl_804FEEAC;
 extern s32 lbl_805D2714;
 extern u16 lbl_805D2718;
@@ -444,6 +454,14 @@ extern const f32 lbl_805D8660;
 extern const f32 lbl_805D8664;
 extern const f32 lbl_805D8678;
 extern s32 tl_04;
+
+u32 lbl_804FEE68[3];
+__declspec(section ".data") M2C_UNK lbl_804FEE74[2];
+f32 lbl_804FEE7C[3];
+f32 lbl_804FEE88[3];
+f32 lbl_804FEE94[3];
+f32 lbl_804FEEA0[3];
+#define lbl_804FEE68 (*(RecoveredGlobal_8003DC34_lbl_804FEE68 *)lbl_804FEE68)
 
 void fn_8003C7EC(void) {
     M2C_FIELD(&lbl_80483578.value, f32 *, 4) = (f32) lbl_805D825C;
@@ -1170,6 +1188,55 @@ void TBoss3Volopt__sub_8003DD4C(void *arg0_) {
 
 void render__12TBoss3VoloptFv(void) {  }
 
+void TBoss3Volopt__sub_8003EB34(u8 *arg0) {
+    u8 *p;
+    switch (*(s16 *)(arg0 + 0x326)) {
+    case 0:
+        TCameraCtrl__sub_8003D340(arg0);
+        break;
+    case 1:
+        TBoss3Volopt__sub_8003DA78(arg0);
+        play_persistent_sound(0x4003C600, arg0, 0, 0, 0);
+        break;
+    case 2:
+        TBoss3Volopt__sub_8003D7BC(arg0);
+        p = (*(u8 * *)&lbl_805D4C30);
+        if (*(s32 *)(p + 0x18) != 0) {
+            lbl_804FEE7C[0] = lbl_805D8660;
+            lbl_804FEE7C[1] = *(f32 *)(p + 0xC);
+            lbl_804FEE7C[2] = *(f32 *)(p + 8);
+            lbl_804FEE88[0] = lbl_805D8660;
+            lbl_804FEE88[1] = *(f32 *)(p + 4);
+            lbl_804FEE88[2] = *(f32 *)(p + 0);
+            request_follow_camera_offsets(lbl_804FEE7C, lbl_804FEE88, 0xFFFF, lbl_805D8660);
+        }
+        break;
+    case 3:
+        TCameraCtrl__sub_8003D648(arg0);
+        play_persistent_sound(0x4003C601, arg0, 0, 0, 0);
+        break;
+    case 4:
+        update_volopt_seq__11TCameraCtrlFPv(arg0);
+        if (lbl_805D4C3C != 0) {
+            p = (*(u8 * *)&lbl_805D4C38);
+        } else {
+            p = (*(u8 * *)&lbl_805D4C34);
+        }
+        if (*(s32 *)(p + 0x18) != 0) {
+            lbl_804FEE94[0] = lbl_805D8660;
+            lbl_804FEE94[1] = *(f32 *)(p + 0xC);
+            lbl_804FEE94[2] = *(f32 *)(p + 8);
+            lbl_804FEEA0[0] = lbl_805D8660;
+            lbl_804FEEA0[1] = *(f32 *)(p + 4);
+            lbl_804FEEA0[2] = *(f32 *)(p + 0);
+            request_follow_camera_offsets(lbl_804FEE94, lbl_804FEEA0, 0xFFFF, lbl_805D8660);
+        }
+        break;
+    case 5:
+        break;
+    }
+}
+
 void run_task__12TBoss3VoloptFv(u8 *arg0) {
     if (obj_testFlags30((void *) (arg0), (int) (0x800)) != 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -1184,12 +1251,12 @@ void run_task__12TBoss3VoloptFv(u8 *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x374) != (s16) M2C_FIELD(arg0, s16 *, 0x326)) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
                 M2C_FIELD(arg0, s32 *, 0x37C) = -1;
-                TBoss3Volopt__sub_8003EB34((void *) (arg0));
+                TBoss3Volopt__sub_8003EB34((u8 *)((void *) (arg0)));
             }
             M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
             M2C_FIELD(arg0, s32 *, 0x37C) = 0;
         }
-        TBoss3Volopt__sub_8003EB34((void *) (arg0));
+        TBoss3Volopt__sub_8003EB34((u8 *)((void *) (arg0)));
     }
 }
 

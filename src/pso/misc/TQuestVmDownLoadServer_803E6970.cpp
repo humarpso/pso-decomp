@@ -3117,6 +3117,23 @@ void push_download_entry__22TQuestVmDownLoadServerFPv(M2C_UNK *arg0) {
 
 extern s32 lbl_805D7900;
 
+struct Blk_803ECFE4 { Blk_803ECFE4 *next; u8 pad[0x10]; };
+Blk_803ECFE4 lbl_80596668[2000];
+extern s32 lbl_805D78A8;
+void TQuestVmDownLoadServer__sub_803ECFE4(void) {
+    Blk_803ECFE4 *p;
+    if (lbl_805D78A8 == 0 && lbl_805D78AC == 2000) {
+        return;
+    }
+    lbl_805D78B0 = (M2C_UNK *)lbl_80596668;
+    for (p = lbl_80596668; p < &lbl_80596668[1999]; p++) {
+        p->next = p + 1;
+    }
+    p->next = NULL;
+    lbl_805D78AC = 2000;
+    lbl_805D78A8 = 0;
+}
+
 typedef char RecoveredGlobal_803EE2E4_lbl_8058DC98_size[sizeof(RecoveredGlobal_803EE2E4_lbl_8058DC98) == 0x50 ? 1 : -1];
 
 u16 TQuestVmDownLoadServer__sub_803ED0B4(u8 *arg0, u16 arg1) {

@@ -28,8 +28,6 @@ struct Cb_803D3678 { s32 fn; s32 arg; };
 
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803D31A4_lbl_8058B6B8 lbl_8058B6B8;
-extern RecoveredGlobal_803D31A4_lbl_8058B6D4 lbl_8058B6D4;
 extern s32 lbl_805D7658;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
@@ -40,42 +38,32 @@ extern P_803D33E4 lbl_805D766C;
 void TLobby__sub_803D33F4(s32 arg0, s32 arg1);
 void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
 void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
-extern P_803D346C lbl_8058B5A0[];
 void TLobby__sub_803D346C(s32 arg0);
 char *strncpy(char *, const char *, unsigned long);
-extern u8 lbl_8058B4A0[];
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D3860(char *arg0);
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-extern P_803D346C lbl_8058B5A0[];
 void TLobby__sub_803D34B0(s32 arg0, void (*arg1)(s32), s32 arg2);
 char *strncpy(char *, const char *, unsigned long);
-extern u8 lbl_8058B4A0[];
 extern char lbl_8047DF3C[];
-extern Cb_803D3678 lbl_8058B5D8[][4];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D3678(s32 arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
 int vsprintf(char *s, const char *fmt, va_list ap);
-extern u8 lbl_8058B4A0[];
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D38B4(const char *fmt, ...);
 char *strncpy(char *, const char *, unsigned long);
-extern u8 lbl_8058B4A0[];
 extern char lbl_8047DEF0[];
 extern char lbl_8047DF14[];
-extern Cb_803D3678 lbl_8058B5D8[][4];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern M2C_UNK lbl_805D765C;
 void TLobby__sub_803D3540(s32 arg0, s32 arg1, s32 fn, s32 arg);
 char *strncpy(char *, const char *, unsigned long);
-extern u8 lbl_8058B4A0[];
 extern char lbl_8047DF5C[];
-extern Cb_803D3678 lbl_8058B5D8[][4];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern M2C_UNK lbl_805D765C;
@@ -86,6 +74,13 @@ extern "C" {
 
 typedef char RecoveredGlobal_803D31A4_lbl_8058B6B8_size[sizeof(RecoveredGlobal_803D31A4_lbl_8058B6B8) == 0x1C ? 1 : -1];
 typedef char RecoveredGlobal_803D31A4_lbl_8058B6D4_size[sizeof(RecoveredGlobal_803D31A4_lbl_8058B6D4) == 0x1C ? 1 : -1];
+u32 lbl_8058B480[8];
+u8 lbl_8058B4A0[0x100];
+P_803D346C lbl_8058B5A0[7];
+Cb_803D3678 lbl_8058B5D8[7][4];
+RecoveredGlobal_803D31A4_lbl_8058B6B8 lbl_8058B6B8;
+RecoveredGlobal_803D31A4_lbl_8058B6D4 lbl_8058B6D4;
+
 void TLobby__sub_803D31A4(void) {
     if ((s32) lbl_805D7658 == 0) {
         memset((void *) (&lbl_8058B6B8.value), (int) (0), (int) (0x1C));
@@ -98,6 +93,38 @@ void TLobby__sub_803D31A4(void) {
     }
     lbl_805D7658 += 1;
 }
+struct Cb_803D3224 { s32 (*fn)(s32); s32 arg; };
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline s32 run_callbacks_803D3224(s32 idx) {
+    Cb_803D3224 *c;
+    s32 i;
+    s32 r = 0;
+    c = (Cb_803D3224 *)lbl_8058B5D8[idx];
+
+    for (i = 0; i < 4; i++, c++) {
+        if (c->fn != 0) {
+            ((s32 *)&lbl_8058B6B8)[idx] = 1;
+            r |= c->fn(c->arg);
+            ((s32 *)&lbl_8058B6B8)[idx] = 0;
+        }
+    }
+    ((s32 *)&lbl_8058B6D4)[idx]++;
+    return r;
+}
+
+s32 TLobby__sub_803D3224(void) {
+    return run_callbacks_803D3224(5);
+}
+s32 TLobby__sub_803D32B4(void) {
+    return run_callbacks_803D3224(4);
+}
+s32 TLobby__sub_803D3344(void) {
+    return run_callbacks_803D3224(2);
+}
+#pragma pop
 void TLobby__sub_803D33D4(s32 arg0, s32 arg1) {
     lbl_805D7664.a = arg0;
     lbl_805D7664.b = arg1;
