@@ -202,6 +202,37 @@ struct D_800320B4 {
     f32 ay;
 };
 
+typedef struct Vec_800344A4 {
+    f32 x, y, z;
+} Vec_800344A4;
+typedef struct DeRolLe_800344A4 {
+    u8 pad0[0x3D8];
+    u8 unk3D8[0x540 - 0x3D8];
+    Vec_800344A4 pts[8];
+    u8 pad5A0[0x5E0 - 0x5A0];
+    void *joints[8];
+    u8 pad600[0x654 - 0x600];
+    s32 mode;
+} DeRolLe_800344A4;
+extern "C" {
+u8 TBoss2DeRolLe__sub_80034574(u8 *arg0);
+void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0);
+u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0);
+void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0);
+u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
+void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
+u8 TBoss2DeRolLe__sub_80034960(u8 *arg0);
+void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
+}
+#define TBoss2DeRolLe__sub_80034574 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034574)
+#define init_wave_params__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_wave_params__13TBoss2DeRolLeFPv)
+#define update_state__13TBoss2DeRolLeFPv ((s32 (*)(void *))update_state__13TBoss2DeRolLeFPv)
+#define init_move_params__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_move_params__13TBoss2DeRolLeFPv)
+#define TBoss2DeRolLe__sub_80034800 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034800)
+#define init_movement__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_movement__13TBoss2DeRolLeFPv)
+#define TBoss2DeRolLe__sub_80034960 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034960)
+#define TBoss2DeRolLe__sub_800344A4 ((M2C_UNK (*)(void *, int, int))TBoss2DeRolLe__sub_800344A4)
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
@@ -222,13 +253,6 @@ extern const f32 lbl_805D8340;
 extern const f32 lbl_805D8344;
 void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2);
 void TBoss2DeRolLe__sub_800338BC(void);
-s32 TBoss2DeRolLe__sub_80034574(void *);
-M2C_UNK init_wave_params__13TBoss2DeRolLeFPv(void *);
-s32 update_state__13TBoss2DeRolLeFPv(void *);
-M2C_UNK init_move_params__13TBoss2DeRolLeFPv(void *);
-s32 TBoss2DeRolLe__sub_80034800(void *);
-M2C_UNK init_movement__13TBoss2DeRolLeFPv(void *);
-s32 TBoss2DeRolLe__sub_80034960(void *);
 M2C_UNK init_head_params__13TBoss2DeRolLeFPv(void *);
 void TBoss2DeRolLe__sub_80034C90(void *, s32);
 void advance_animation_playback(void *);
@@ -510,7 +534,7 @@ void TBoss2DeRolLe__sub_80030A38(u8 *arg0, u32 arg1);
 void TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
 s32 TBoss2DeRolLe__sub_800313F8(void *, void *, int);
 void TBoss2DeRolLe__sub_80031AD4(void *, void *);
-s32 TBoss2DeRolLe__sub_80032B28(void *, void *);
+void TBoss2DeRolLe__sub_80032B28(void *, void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
 void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_8003383C(u8 *arg0);
@@ -535,7 +559,6 @@ void update_check__13TBoss2DeRolLeFPv(void *arg0);
 void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
 void TBoss2DeRolLe__sub_80034258(Obj_80034258 *self);
 void TBoss2DeRolLe__sub_800342C0(s32 arg0);
-M2C_UNK TBoss2DeRolLe__sub_800344A4(void *, int, int);
 void TBoss2DeRolLe__sub_80034C90(void *, s32);
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
@@ -1926,6 +1949,119 @@ void TBoss2DeRolLe__sub_800327C8(void *arg0, void *arg1, int arg2, int arg3) {
 #undef o
 #pragma pop
 
+struct Pad_80032B28 { u8 pad[8]; u32 buttons; };
+extern const f32 lbl_805D83FC;
+#define arg0 ((u8 *)arg0_)
+void TBoss2DeRolLe__sub_80032B28(void *arg0_, void *arg1_) {
+    u32 arg1 = (u32)arg1_;
+    u32 b;
+
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        TBoss2DeRolLe__sub_800341F0((Obj_800341F0 *)arg0);
+        M2C_FIELD(arg0, s32 *, 0x3C0) &= ~4;
+        M2C_FIELD(arg0, s32 *, 0x3C0) |= 0x100;
+        M2C_FIELD(arg0, f32 *, 0x6A4) = TBoss2DeRolLe__data_805D827C;
+        M2C_FIELD(arg0, s32 *, 0x64) = 0;
+        M2C_FIELD(arg0, s32 *, 0x6E4) = 1;
+        M2C_FIELD(arg0, s32 *, 0x6E8) = 0;
+        M2C_FIELD(arg0, s32 *, 0x6E0) = 0;
+        break;
+    case 2:
+        switch (M2C_FIELD(arg0, s32 *, 0x654)) {
+        case 0:
+            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            if (b & 0x10) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 3);
+            } else if (b & 0x40) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 4);
+            } else if (b & 0x20) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 5);
+            } else if (b & 0x400) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x12);
+            } else if (b & 4) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x10);
+            } else if (b & 2) {
+                M2C_FIELD(arg0, f32 *, 0x40) = lbl_805D83FC;
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 1);
+            }
+            break;
+        case 1:
+            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            if (b & 0x40) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 6);
+            } else if (b & 0x20) {
+            } else if (b & 0x80) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 8);
+            } else if (b & 0x400) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x18);
+            } else if (b & 4) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x19);
+            } else if (b & 2) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x1E);
+            }
+            break;
+        case 2:
+            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            if (b & 0x20) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 9);
+            } else if (b & 0x80) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0xA);
+            } else if (b & 0x10) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0xB);
+            } else if (b & 0x400) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x13);
+            } else if (b & 4) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x11);
+            } else if (b & 2) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x1E);
+            }
+            break;
+        case 3:
+            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            if (b & 0x80) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0xC);
+            } else if (b & 0x10) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0xD);
+            } else if (b & 0x40) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0xE);
+            } else if (b & 0x400) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0xF);
+            } else if (b & 4) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x1A);
+            } else if (b & 0x200) {
+                if (is_active__15TObjBoss2TunnelFv() != 0) {
+                    set_global_flag_800__15TObjBoss2TunnelFv();
+                } else {
+                    set_global_flag_400__15TObjBoss2TunnelFv();
+                }
+            } else if (b & 2) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)arg0, 0x1F);
+            }
+            break;
+        }
+        break;
+    case 0:
+        advance_animation_playback(arg0);
+        if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
+            M2C_FIELD(arg0, f32 *, 0xC8) -= 0.03f;
+            if (M2C_FIELD(arg0, f32 *, 0xC8) < 0.6f) {
+                M2C_FIELD(arg0, f32 *, 0xC8) = 0.6f;
+            }
+        }
+        break;
+    case 1: return;
+    case 3: return;
+    case 5: return;
+    case 6: return;
+    case 7: return;
+    case 8: return;
+    case 9: return;
+    }
+}
+#undef arg0
+
 #pragma push
 #pragma fp_contract on
 #define o ((Rol_80032E38 *)arg0)
@@ -2482,3 +2618,268 @@ void TBoss2DeRolLe__sub_800342C0(s32 arg0) {
 }
 
 }
+
+#undef TBoss2DeRolLe__sub_80034574
+#undef init_wave_params__13TBoss2DeRolLeFPv
+#undef update_state__13TBoss2DeRolLeFPv
+#undef init_move_params__13TBoss2DeRolLeFPv
+#undef TBoss2DeRolLe__sub_80034800
+#undef init_movement__13TBoss2DeRolLeFPv
+#undef TBoss2DeRolLe__sub_80034960
+#undef TBoss2DeRolLe__sub_800344A4
+
+#define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
+#define play_sound_effect ((void (*)(s32, Vec_800344A4 *, s32, s32))play_sound_effect)
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 TBoss2DeRolLe__data_805D8280;
+extern const f32 TBoss2DeRolLe__data_805D8328;
+extern const f32 TBoss2DeRolLe__data_805D8334;
+extern const f32 lbl_805D8438;
+extern const f32 lbl_805D843C;
+u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
+extern const f32 TBoss2DeRolLe__data_805D82DC;
+void TBoss2DeRolLe__sub_8003443C(u8 *arg0);
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+extern const f32 TBoss2DeRolLe__data_805D8328;
+extern const f32 TBoss2DeRolLe__data_805D8334;
+extern const f32 lbl_805D8440;
+u8 TBoss2DeRolLe__sub_80034960(u8 *arg0);
+void call_36A90_with_1__11TBoss2JointFPv(void *);
+void *__ct__15TBoss2PhotonPadFv(void *, void *, Vec_800344A4 *, Vec_800344A4 *, s32);
+void *__nw__7TObjectFUl(u32);
+f32 sin_table_lookup(s32);
+f32 cos_table_lookup(s32);
+extern const f32 TBoss2DeRolLe__data_805D827C;
+extern const f32 TBoss2DeRolLe__data_805D832C;
+void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+u8 TBoss2DeRolLe__sub_80034574(u8 *arg0);
+}
+
+extern "C" {
+
+void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
+void free_laser__13TBoss2DeRolLeFPv(void *arg0);
+void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0);
+void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
+void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0);
+u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0);
+s32 TBoss2DeRolLe__sub_80035FCC(void *);
+M2C_UNK TBoss2LaserLight__sub_80037474(void *);
+M2C_UNK TBoss2LaserLight__sub_80037480(void *);
+f32 get_random_float__8TObjFishFv(f32);
+M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
+
+void free_laser__13TBoss2DeRolLeFPv(void *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
+        TBoss2LaserLight__sub_80037474(M2C_FIELD(arg0, void **, 0x6B8));
+    }
+    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFEF);
+}
+
+void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0) {
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
+        TBoss2LaserLight__sub_80037480(M2C_FIELD(arg0, void **, 0x6B8));
+    }
+    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x10);
+}
+
+extern const f32 TBoss2DeRolLe__data_805D82D8;
+extern const f32 TBoss2DeRolLe__data_805D82F0;
+extern const f32 TBoss2DeRolLe__data_805D8330;
+extern const f32 TBoss2DeRolLe__data_805D8358;
+extern const f32 TBoss2DeRolLe__data_805D83DC;
+
+#pragma push
+#pragma fp_contract on
+void TBoss2DeRolLe__sub_8003443C(u8 *arg0) {
+    VecCopy__FP3VecPC3Vec(arg0 + 0x6BC, arg0 + 0x4E8);
+    M2C_FIELD(arg0, f32 *, 0x6BC) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4F4)) + M2C_FIELD(arg0, f32 *, 0x6BC));
+    M2C_FIELD(arg0, f32 *, 0x6C0) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4F8)) + M2C_FIELD(arg0, f32 *, 0x6C0));
+    M2C_FIELD(arg0, f32 *, 0x6C4) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4FC)) + M2C_FIELD(arg0, f32 *, 0x6C4));
+}
+#pragma pop
+
+void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2) {
+    Vec_800344A4 v;
+    s32 ang;
+    void *p;
+    ang = 0x3800 - idx * 0x33;
+    v.x = sin_table_lookup(ang);
+    v.y = TBoss2DeRolLe__data_805D827C;
+    v.z = cos_table_lookup(ang);
+    if (self->mode == 2) {
+        v.x *= TBoss2DeRolLe__data_805D832C;
+    }
+    p = __nw__7TObjectFUl(0x38);
+    if (p != NULL) {
+        __ct__15TBoss2PhotonPadFv(p, self->unk3D8, &self->pts[idx], &v, arg2);
+    }
+    play_sound_effect(0x4003B708, &self->pts[idx], 0, 1);
+    call_36A90_with_1__11TBoss2JointFPv(self->joints[idx]);
+}
+
+u8 TBoss2DeRolLe__sub_80034574(u8 *arg0) {
+    f32 var_f2;
+    s32 temp_r0;
+    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x664);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x660);
+    switch (temp_r0) {
+    case 2:
+        break;
+    case 1:
+        var_f2 = M2C_FIELD(arg0, f32 *, 0x694) - 0.1f;
+        if (var_f2 < -4.0f) {
+            var_f2 = -4.0f;
+        }
+        M2C_FIELD(arg0, f32 *, 0x694) = var_f2;
+        M2C_FIELD(arg0, f32 *, 0x69C) = (f32) (M2C_FIELD(arg0, f32 *, 0x69C) + var_f2);
+        if (M2C_FIELD(arg0, f32 *, 0x67C) > 30.0f) {
+            M2C_FIELD(arg0, s32 *, 0x660) = 3;
+        }
+        break;
+    case 3:
+        if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x684) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x660) = 4;
+        }
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) += 0.1f;
+    if (M2C_FIELD(arg0, f32 *, 0xC8) > 0.9f) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = 0.9f;
+    }
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x660) == 4);
+}
+
+void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x660) = 1;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
+}
+
+extern const f32 TBoss2DeRolLe__data_805D8280;
+extern const f32 TBoss2DeRolLe__data_805D82B4;
+extern const f32 TBoss2DeRolLe__data_805D8328;
+
+u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0) {
+    s32 temp_r0;
+
+    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x684);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x65C);
+    switch (temp_r0) {
+    case 0:
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8280;
+        if (M2C_FIELD(arg0, f32 *, 0x69C) > TBoss2DeRolLe__data_805D82B4) {
+            M2C_FIELD(arg0, s32 *, 0x65C) = 1;
+        }
+        break;
+    case 1:
+        if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x664) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x65C) = 2;
+        }
+        break;
+    }
+    if (M2C_FIELD(arg0, f32 *, 0x69C) > TBoss2DeRolLe__data_805D82B4) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
+    }
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x65C) == 2);
+}
+
+extern const f32 TBoss2DeRolLe__data_805D82F0;
+extern const f32 TBoss2DeRolLe__data_805D8300;
+extern const f32 TBoss2DeRolLe__data_805D8330;
+extern const f32 TBoss2DeRolLe__data_805D8348;
+extern const f32 TBoss2DeRolLe__data_805D83AC;
+extern const f32 lbl_805D8434;
+
+void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x65C) = 0;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(lbl_805D8434 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+}
+
+extern const f32 TBoss2DeRolLe__data_805D82F0;
+extern const f32 TBoss2DeRolLe__data_805D8300;
+extern const f32 TBoss2DeRolLe__data_805D8330;
+extern const f32 TBoss2DeRolLe__data_805D8348;
+extern const f32 TBoss2DeRolLe__data_805D8358;
+extern const f32 TBoss2DeRolLe__data_805D83AC;
+extern const f32 TBoss2DeRolLe__data_805D83DC;
+
+u8 TBoss2DeRolLe__sub_80034800(u8 *arg0) {
+  const f32 *new_var;
+  s32 temp_r0;
+  TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x664));
+  temp_r0 = *((s32 *) (((s8 *) arg0) + 0x660));
+  switch (temp_r0)
+  {
+    case 0:
+      if ((*((f32 *) (((s8 *) arg0) + 0x67C))) > lbl_805D8438)
+    {
+      *((s32 *) (((s8 *) arg0) + 0x660)) = 2;
+    }
+      break;
+    case 2:
+      *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) TBoss2DeRolLe__data_805D8280;
+      *((s32 *) (((s8 *) arg0) + 0x660)) = 3;
+      break;
+    case 3:
+      if (TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x684)) == 3)
+    {
+      *((s32 *) (((s8 *) arg0) + 0x660)) = 4;
+    }
+      if ((*((f32 *) (((s8 *) arg0) + 0x69C))) > lbl_805D843C)
+    {
+      *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0xC8))) + TBoss2DeRolLe__data_805D8334);
+      if ((*((f32 *) (((s8 *) arg0) + 0xC8))) > (*(new_var = &TBoss2DeRolLe__data_805D8328)))
+      {
+        *((f32 *) (((s8 *) arg0) + 0xC8)) = (f32) (*new_var);
+      }
+    }
+      break;
+  }
+  return (u8) ((*((s32 *) (((s8 *) arg0) + 0x660))) == 4);
+}
+
+void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x660) = 0;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, get_random_float__8TObjFishFv(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+}
+#pragma push
+#pragma opt_common_subs off
+u8 TBoss2DeRolLe__sub_80034960(u8 *arg0) {
+    s32 temp_r0;
+    TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x684));
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x65C);
+    switch (temp_r0) {
+    case 0:
+        if (M2C_FIELD(arg0, f32 *, 0x69C) > lbl_805D8440) {
+            M2C_FIELD(arg0, s32 *, 0x65C) = 1;
+        }
+        break;
+    case 1:
+        if (TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x664)) == 3) {
+            M2C_FIELD(arg0, s32 *, 0x65C) = 2;
+        }
+        break;
+    }
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + TBoss2DeRolLe__data_805D8334);
+    if (M2C_FIELD(arg0, f32 *, 0xC8) > TBoss2DeRolLe__data_805D8328) {
+        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
+    }
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x65C) == 2);
+}
+#pragma pop
+
+}
+
+#undef VecCopy__FP3VecPC3Vec
+#undef play_sound_effect

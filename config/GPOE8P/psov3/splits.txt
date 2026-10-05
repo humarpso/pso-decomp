@@ -291,14 +291,10 @@ pso/unk/text_8002F61C.cpp:
 	.text       start:0x8002F61C end:0x8002F73C
 
 pso/boss/TBoss2DeRolLe.cpp:
-	.text       start:0x8002F73C end:0x800343B4
+	.text       start:0x8002F73C end:0x80034A14
 	.rodata     start:0x80435A08 end:0x80435A10
 	.data       start:0x8048267C end:0x80482A38
-	.sdata2     start:0x805D827C end:0x805D82A4
-
-pso/boss/TBoss2DeRolLe_800343B4.cpp:
-	.text       start:0x800343B4 end:0x80034A14
-	.sdata2     start:0x805D82DC end:0x805D8434
+	.sdata2     start:0x805D827C end:0x805D8434
 
 pso/boss/TBoss2DeRolLe_80034A14.cpp:
 	.text       start:0x80034A14 end:0x80035084
@@ -5440,11 +5436,8 @@ pso/unk/text_801414B0.cpp:
 	.text       start:0x801414B0 end:0x80141550
 
 pso/unk/text_80141550.cpp:
-	.text       start:0x80141550 end:0x80141670
-	.bss        start:0x8050BEC0 end:0x8050BEE0
-
-pso/player/TObjPlayer_80141670.cpp:
-	.text       start:0x80141670 end:0x801418C4
+	.text       start:0x80141550 end:0x801418C4
+	.bss        start:0x8050BEC0 end:0x8050C040
 
 pso/unk/text_801418C4.cpp:
 	.text       start:0x801418C4 end:0x80141944
@@ -5603,12 +5596,9 @@ pso/unk/text_8014618C.cpp:
 	.text       start:0x8014618C end:0x801461EC
 
 pso/misc/TLobby_801461EC.cpp:
-	.text       start:0x801461EC end:0x801471A0
+	.text       start:0x801461EC end:0x80147A80
 	.data       start:0x804A7808 end:0x804A7850
-	.bss        start:0x8050C0A8 end:0x8050C784
-
-pso/unk/text_801471A0.cpp:
-	.text       start:0x801471A0 end:0x80147A80
+	.bss        start:0x8050C0A8 end:0x8050CF68
 
 pso/misc/TOBoss4Rock.cpp:
 	.text       start:0x80147A80 end:0x80147B30
@@ -11755,46 +11745,10 @@ pso/unk/text_802AA8FC_802AABEC.cpp:
 pso/unk/text_802AA8FC_802AAC74.cpp:
 	.text       start:0x802AAC74 end:0x802AACF4
 
-pso/boss/TBoss6PlotFalz_802AACF4.cpp:
-	.text       start:0x802AACF4 end:0x802AB110
-
-pso/boss/TBoss6PlotFalz_802AB110.cpp:
-	.text       start:0x802AB110 end:0x802AB398
-
 pso/boss/TBoss6PlotFalz.cpp:
-	.text       start:0x802AB398 end:0x802ABA5C
-
-pso/boss/TBoss6PlotFalz_802ABA5C.cpp:
-	.text       start:0x802ABA5C end:0x802ABB1C
-
-pso/boss/TBoss6PlotFalz_802ABB1C.cpp:
-	.text       start:0x802ABB1C end:0x802ABB84
-
-pso/boss/TBoss6PlotFalz_802ABB84.cpp:
-	.text       start:0x802ABB84 end:0x802ABFD4
+	.text       start:0x802AACF4 end:0x802ACCC8
 	.rodata     start:0x804705D8 end:0x804705E0
 	.sdata2     start:0x805DE098 end:0x805DE0C0
-
-pso/boss/TBoss6PlotFalz_802ABFD4.cpp:
-	.text       start:0x802ABFD4 end:0x802AC18C
-
-pso/boss/TBoss6PlotFalz_802AC18C.cpp:
-	.text       start:0x802AC18C end:0x802AC194
-
-pso/boss/TBoss6PlotFalz_802AC194.cpp:
-	.text       start:0x802AC194 end:0x802AC538
-
-pso/unk/text_802AC538.cpp:
-	.text       start:0x802AC538 end:0x802AC654
-
-pso/boss/TBoss6EmptyWarp.cpp:
-	.text       start:0x802AC654 end:0x802AC678
-
-pso/boss/TBoss6PlotFalz_802AC678.cpp:
-	.text       start:0x802AC678 end:0x802AC784
-
-pso/unk/text_802AC784.cpp:
-	.text       start:0x802AC784 end:0x802ACCC8
 
 pso/misc/TWindowCallBack.cpp:
 	.text       start:0x802ACCC8 end:0x802ACF04
@@ -12083,26 +12037,11 @@ pso/misc/TOTrapSeabed01_802CA5F0.cpp:
 	.rodata     start:0x804720E0 end:0x804720E8
 	.sdata2     start:0x805DE644 end:0x805DE658
 
-pso/enemy/TObjEneMe1GiGue_802CAA84.cpp:
-	.text       start:0x802CAA84 end:0x802CABE4
-
-pso/enemy/TObjEneMe1GiGueBarrier_802CABE4.cpp:
-	.text       start:0x802CABE4 end:0x802CAC80
-
 pso/enemy/TObjEneMe1GiGue.cpp:
-	.text       start:0x802CAC80 end:0x802CB274
+	.text       start:0x802CAA84 end:0x802CD780
 	.rodata     start:0x804722A0 end:0x804722A8
-
-pso/enemy/TObjEneMe1GiGue_802CB274.cpp:
-	.text       start:0x802CB274 end:0x802CB620
-	.sdata2     start:0x805DE660 end:0x805DE670
-
-pso/enemy/TObjEneMe1GiGue_802CB620.cpp:
-	.text       start:0x802CB620 end:0x802CD054
-
-pso/enemy/TObjEneMe1GiGue_802CD054.cpp:
-	.text       start:0x802CD054 end:0x802CD780
 	.data       start:0x804E11C8 end:0x804E14E4
+	.sdata2     start:0x805DE660 end:0x805DE6C0
 
 pso/enemy/TObjEneMe1GiGue_802CD780.cpp:
 	.text       start:0x802CD780 end:0x802CE1B0
@@ -12991,12 +12930,9 @@ pso/misc/TPlayerBattleCtrl4P.cpp:
 	.text       start:0x80311E4C end:0x803123F4
 
 pso/misc/TPlayerBattleCtrl4P_803123F4.cpp:
-	.text       start:0x803123F4 end:0x80312A80
-	.data       start:0x804E7D30 end:0x804E8098
+	.text       start:0x803123F4 end:0x80312BDC
+	.data       start:0x804E7D30 end:0x804E80C0
 	.sbss       start:0x805D6AB4 end:0x805D6AB8
-
-pso/misc/TPlayerBattleCtrl4P_80312A80.cpp:
-	.text       start:0x80312A80 end:0x80312BDC
 
 pso/misc/TPlayerBattleCtrl4P_80312BDC.cpp:
 	.text       start:0x80312BDC end:0x80312C50

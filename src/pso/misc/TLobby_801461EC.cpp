@@ -74,7 +74,6 @@ s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 u8 *TLobby__sub_80146D14(void);
 u8 *TLobby__sub_80146CA0(s32 arg0);
-extern RecoveredGlobal_80146D44_lbl_8050CE14 lbl_8050CE14;
 M2C_UNK *TLobby__sub_80146D44(void);
 u8 *TLobby__sub_80146D50(s32 arg0);
 s32 TLobby__sub_801466F4(u32 arg0);
@@ -163,7 +162,7 @@ struct Info_80146D7C {
 };
 
 extern "C" {
-M2C_UNK fn_80147A60(s32);
+void fn_80147A60(int a0);
 s16 TLobby__sub_8042455C(void *);
 s16 TLobby__sub_8042474C(void *, void *, void *);
 s16 TLobby__sub_8042489C(void *, void *);
@@ -215,9 +214,14 @@ u32 lbl_8050C684[64];
 u32 lbl_8050C784[345];
 u32 lbl_8050CCE8[73];
 __declspec(section ".data") s32 lbl_8050CE0C[2];
+char lbl_8050CE14[0x20];
+char lbl_8050CE34[0x20];
+u8 lbl_8050CE54[0x114];
+extern s32 lbl_805D5714;
 #define lbl_8050C0A8 (*(RecoveredGlobal_8014672C_lbl_8050C0A8 *)lbl_8050C0A8)
 #define lbl_8050C784 (*(unsigned char (*)[0x564])lbl_8050C784)
 #define lbl_8050CCE8 (*(RecoveredGlobal_80146CB8_lbl_8050CCE8 *)lbl_8050CCE8)
+#define lbl_8050CE14 (*(RecoveredGlobal_80146D44_lbl_8050CE14 *)lbl_8050CE14)
 
 void init_keyboard_buffer__6TLobbyFv(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; TLobby__sub_803F4B68((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
@@ -574,3 +578,161 @@ void teardown_boss2__6TLobbyFv(void) {
 }
 
 }
+#undef lbl_8050C0A8
+#undef lbl_8050C784
+#undef lbl_8050CCE8
+#undef lbl_8050CE14
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_80147A74_lbl_804EF500 {
+    M2C_UNK value;
+    u8 remaining[0x94];
+};
+
+struct S_801472F8 { u8 pad0[4]; s16 a; s16 b; u8 rest[0x38]; };
+
+typedef s32 M2C_UNK;
+struct Req_801471A0 { s32 type; u32 addr; u8 pad[0x18]; };
+
+struct Cfg_801471A0 { u8 pad[0x558]; u32 dns1; u32 dns2; };
+
+extern "C" {
+extern RecoveredGlobal_80147A74_lbl_804EF500 lbl_804EF500;
+M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void);
+void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
+void OSReport(const char *, ...);
+s16 TLobby__sub_8040A45C();
+s16 TLobby__sub_8040ADE8(Req_801471A0 *);
+extern char lbl_8043F3F0[];
+extern char lbl_8043F404[];
+extern s32 lbl_805D570C;
+s32 TLobby__sub_801471A0(void);
+}
+
+extern "C" {
+
+s32 TLobby__sub_80147284(void);
+void TLobby__sub_80147978(void);
+void fn_80147A60(int a0);
+void fn_80147A68(void);
+M2C_UNK TLobby__sub_803FAFDC();
+
+#define lbl_8050C784 (*(Cfg_801471A0 *)lbl_8050C784)
+#define TLobby__sub_803FB184 ((s16 (*)(void *))TLobby__sub_803FB184)
+#define TLobby__sub_80423064 ((M2C_UNK (*)(s16, M2C_UNK))TLobby__sub_80423064)
+extern s32 lbl_805D2D00;
+extern s32 lbl_805D56F8;
+
+s32 TLobby__sub_801471A0(void) {
+    Req_801471A0 req;
+    s16 r1;
+    s16 r2;
+    if (TLobby__sub_8040A45C() == 0) {
+        lbl_805D570C = 1;
+        req.type = 4;
+        req.addr = lbl_805D56DC;
+        if (lbl_8050C784.dns1 != 0) {
+            req.addr = lbl_8050C784.dns1;
+        }
+        r1 = TLobby__sub_8040ADE8(&req);
+        req.addr = lbl_805D56E0;
+        if (lbl_8050C784.dns2 != 0) {
+            req.addr = lbl_8050C784.dns2;
+        }
+        r2 = TLobby__sub_8040ADE8(&req);
+        OSReport(lbl_8043F3F0, r1);
+        OSReport(lbl_8043F404, r2);
+        if (r1 == 0 || r2 == 0) {
+            return 0;
+        }
+        return 0xB;
+    }
+    return 0xB;
+}
+
+s32 TLobby__sub_80147284(void) {
+    s16 sp8;
+
+    if ((s32) lbl_805D2D00 != -1) {
+        TLobby__sub_80423064((s16) lbl_805D2D00, 0);
+        sp8 = 1;
+        TLobby__sub_803FB1A4(&sp8);
+    }
+    flush_pending_flag2__6TLobbyFv();
+    if (lbl_805D56F8 & 4) {
+        TLobby__sub_803FAFDC();
+        lbl_805D56F8 &= 0xFFFFFFFB;
+    }
+    teardown_boss2__6TLobbyFv();
+    lbl_805D2D00 = -1;
+    return 0;
+}
+
+void TLobby__sub_801472F8(s16 *arg0, s16 *arg1) {
+    S_801472F8 s;
+    if (TLobby__sub_803FB184(&s) < 0) {
+        s.a = 0;
+    }
+    *arg0 = s.a;
+    *arg1 = s.b;
+}
+
+void TLobby__sub_80147978(void) {  }
+#undef lbl_8050C784
+struct Acct_8014797C {
+    char host[0x80];
+    char user[0x20];
+    char pass[0x20];
+    char dns1[0x20];
+    char dns2[0x20];
+    char f100[0x40];
+    char f140[0x40];
+    char f180[0x40];
+    u32 f1C0;
+    u32 f1C4;
+    s32 valid;
+};
+#define lbl_8050C784 (*(Acct_8014797C (*)[3])lbl_8050C784)
+#define memset ((void *(*)(void *, s32, u32))memset)
+#define strncpy ((char *(*)(char *, const char *, u32))strncpy)
+void TLobby__sub_8014797C(void) {
+    memset(&lbl_8050C784[0], 0, sizeof(Acct_8014797C));
+    memset(&lbl_8050C784[1], 0, sizeof(Acct_8014797C));
+    memset(&lbl_8050C784[2], 0, sizeof(Acct_8014797C));
+    lbl_8050C784[0].valid = 0;
+    lbl_8050C784[1].valid = 0;
+    lbl_8050C784[2].valid = 0;
+    lbl_805D5714 = 0;
+    lbl_805D5704 = 0;
+    lbl_805D56F8 = 0;
+    if (TLobby__sub_8014618C() != 0) {
+        lbl_805D5704 = 1;
+    }
+    TLobby__sub_80146D7C();
+    memset(lbl_8050CE14, 0, 0x20);
+    strncpy(lbl_8050CE14, lbl_8050C784[2].user, 0x1F);
+    memset(lbl_8050CE34, 0, 0x20);
+    strncpy(lbl_8050CE34, lbl_8050C784[0].user, 0x1F);
+}
+#undef lbl_8050C784
+#undef memset
+#undef strncpy
+
+    extern int lbl_805D56D0;
+void fn_80147A60(int a0) { lbl_805D56D0 = a0; }
+
+    extern int lbl_805D56D0;
+void fn_80147A68(void) { lbl_805D56D0 = 0; }
+typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
+M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void) {
+    return &lbl_804EF500.value;
+}
+
+}
+#undef TLobby__sub_803FB184
+#undef TLobby__sub_80423064
