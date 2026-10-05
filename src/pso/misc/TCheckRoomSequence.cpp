@@ -406,7 +406,7 @@ void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1);
 void init_check__18TCheckRoomSequenceFUi(u32 arg0);
 void init_check_params__18TCheckRoomSequenceFUi(u32 arg0);
 int set_quest_list_mode_19__18TCheckRoomSequenceFPv(void* p);
-int copy_bank_from_card_window(void);
+void copy_bank_from_card_window(s32 slot);
 s32 get_game_play_mode();
 int TShopWindowBase__sub_8022397C(void*);
 int copy_entry_bytes__10TObjPlayerFPvPv(void*, void*);
@@ -910,7 +910,7 @@ void open_bank__18TCheckRoomSequenceFv(u8 *arg0) {
 }
 #pragma pop
 
-void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); TShopWindowBase__sub_8022397C(p); copy_bank_from_card_window(); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
+void TCheckRoomSequence__vt10(void* p) { restore_player_state__13TShopSequenceFPv(p); TShopWindowBase__sub_8022397C(p); ((int (*)(void))copy_bank_from_card_window)(); set_field_20__12TQuestListVMFPvi((void*)(p), (void*)((void*)1)); }
 
 void TCheckRoomSequence__vt9(TCheckRoomSequence *self) {
     static Fn_802102D0 fns[20] = {
@@ -1193,6 +1193,18 @@ void copy_bank_to_card_window(s32 slot) {
             w->count = lbl_80513D98[slot];
             move_data__6TLobbyFv(w->items, lbl_80513D88[slot], 0x12C0);
         }
+    }
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+void copy_bank_from_card_window(s32 slot) {
+    Card_8021118C *w = get_card_window__17TWindowSubComCardFUi(slot);
+    if (w != 0) {
+        lbl_80513DA8[slot] = w->meseta;
+        lbl_80513D98[slot] = w->count;
+        move_data__6TLobbyFv(lbl_80513D88[slot], w->items, 0x12C0);
     }
 }
 #pragma pop

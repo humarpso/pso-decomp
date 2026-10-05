@@ -8965,6 +8965,7 @@ pso/misc/TLobby_8020DFD8.cpp:
 
 pso/unk/text_8020E08C.cpp:
 	.text       start:0x8020E08C end:0x8020E3BC
+	.bss        start:0x80513A40 end:0x80513AD0
 
 pso/misc/TLobby_8020E3BC.cpp:
 	.text       start:0x8020E3BC end:0x8020E400

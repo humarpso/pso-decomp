@@ -16,12 +16,23 @@ struct Floor_8020E08C {
 
 struct Archive_8020E08C { void *objects; void *enemies; };
 
+struct Rec4_8020E228 { u16 a; u16 id; };
+struct Rec12_8020E228 { u32 a; u16 id; u16 b; u32 c; };
 extern "C" {
 s32 get_current_floor(void);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *, void *, void *, s32, u32);
-extern Floor_8020E08C TLobby__data_80513AD0[18];
-extern Archive_8020E08C TLobby__data_80513A40[18];
+Archive_8020E08C TLobby__data_80513A40[18];
+Floor_8020E08C TLobby__data_80513AD0[18];
+u32 TLobby__data_80513C80[18];
+u32 TLobby__data_80513CC8[18];
+u32 TLobby__data_80513D10[9];
+void *init_memory_pool__6TLobbyFPviii(void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+void *TQuestVmDownLoadServer__sub_8007EBDC(s32, s32);
+void *__ct__5THeapFUli(void *, u32, s32);
+void *__nw__5THeapFUl(u32);
+void *memset(void *, int, u32);
 extern void *TLobby__data_805D6104;
 extern ObjRow_8020E08C *TLobby__data_805D610C;
 extern EneRow_8020E08C *TLobby__data_805D6114;
@@ -82,6 +93,68 @@ void arrive_floor_population(void) {
         floor->enemyPlacement &= ~4U;
         TLobby__data_805D6118 = floor->enemies;
     }
+}
+
+extern s32 lbl_805D6100;
+extern void *TLobby__data_805D6108;
+extern s32 TLobby__data_805D611C;
+extern s32 TLobby__data_805D6120;
+extern s32 TLobby__data_805D6124;
+extern s32 TLobby__data_805D6128;
+extern s32 lbl_805D612C;
+extern s32 lbl_805D6130;
+extern s16 TLobby__data_805D6134;
+extern s32 TLobby__data_805D6138;
+extern s32 TLobby__data_805D613C;
+extern Rec4_8020E228 *TLobby__data_805D6140;
+extern Rec12_8020E228 *TLobby__data_805D6144;
+extern s32 TLobby__data_805D6148;
+extern s32 TLobby__data_805D614C;
+
+void init_item_drop_tables(void) {
+    s32 i;
+    s32 k;
+    void *p;
+
+    TLobby__data_805D6134 = 0;
+    TLobby__data_805D6138 = 0;
+    TLobby__data_805D613C = 0;
+    TLobby__data_805D6104 = 0;
+    TLobby__data_805D6108 = 0;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x30);
+    if (p != NULL) {
+        p = init_memory_pool__6TLobbyFPviii(p, lbl_805D612C, lbl_805D6130, 0x40);
+    }
+    TLobby__data_805D6104 = p;
+    for (i = 0; i < 18; i++) {
+        TLobby__data_80513A40[i].objects = NULL;
+        TLobby__data_80513A40[i].enemies = NULL;
+    }
+    p = __nw__5THeapFUl(0x14);
+    if (p != NULL) {
+        p = __ct__5THeapFUli(p, 0xA000, 0x20);
+    }
+    TLobby__data_805D6108 = p;
+    memset(TLobby__data_80513AD0, 0, 0x1B0);
+    memset(TLobby__data_80513C80, 0, 0x48);
+    memset(TLobby__data_80513CC8, 0, 0x48);
+    memset(TLobby__data_80513D10, 0, 0x24);
+    TLobby__data_805D6140 = (Rec4_8020E228 *)TQuestVmDownLoadServer__sub_8007EBDC(0xBA0, 4);
+    TLobby__data_805D6144 = (Rec12_8020E228 *)TQuestVmDownLoadServer__sub_8007EBDC(0xB50, 0xC);
+    k = 0;
+    for (i = 0; i < 0xBA0; i++) {
+        TLobby__data_805D6140[i].id = k++ + 0x100;
+    }
+    for (i = 0; i < 0xB50; i++) {
+        TLobby__data_805D6144[i].id = k++ + 0x100;
+    }
+    TLobby__data_805D6148 = 0;
+    TLobby__data_805D614C = 0;
+    TLobby__data_805D611C = 0;
+    TLobby__data_805D6124 = 0;
+    TLobby__data_805D6120 = 0;
+    TLobby__data_805D6128 = 0;
+    lbl_805D6100 = 0;
 }
 
 }
