@@ -84,6 +84,8 @@ force_active:
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
   - TBoss7Crawfish__sub_80308840
+  - TBoss8DragonDemo__sub_802F2CC4
+  - TBoss8Dragon__sub_8036AF50
   - TChCrTagInformation__sub_802A1E8C
   - TChCrTagName__sub_802A208C
   - TChCrTagName__sub_802A226C
@@ -167,6 +169,10 @@ force_active:
   - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
+  - TWindowSubStatusDisp__sub_8036D774
+  - TWindowSubStatusDisp__sub_8036D88C
+  - TWindowSubStatusDisp__sub_8036D994
+  - TWindowSubStatusDisp__sub_8036DA94
   - TWindowSubSymbolChatHelp__sub_80284A28
   - TWindowTimer__sub_8019A098
   - TWindowTimer__sub_8019A104
@@ -250,6 +256,7 @@ force_active:
   - __dt__16TBoss1DragonDemoFv
   - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TBoss4CheckEmptyFv
+  - __dt__16TBoss8DragonDemoFv
   - __dt__16TChCrLoadGmNjReqFv
   - __dt__16TItemReverseTechFv
   - __dt__16TObjBagWarnWin4PFv
@@ -397,6 +404,7 @@ force_active:
   - fn_80010F4C
   - fn_8007F560
   - fn_8010EFE8
+  - fn_8013F288
   - fn_8016AD3C
   - fn_801A753C
   - fn_801C1E98
@@ -560,6 +568,7 @@ force_active:
   - render__16TBGLightningCtrlFv
   - render__16TBoss1DragonDemoFv
   - render__16TBoss4CheckEmptyFv
+  - render__16TBoss8DragonDemoFv
   - render__17TAdSelectTxtSubGCFv
   - render__17TBoss5GryphonDemoFv
   - render__17TObjBoss8DemoRoomFv
@@ -643,6 +652,7 @@ force_active:
   - run_task__16TBoss1DragonDemoFv
   - run_task__16TBoss3VoloptCtrlFv
   - run_task__16TBoss4CheckEmptyFv
+  - run_task__16TBoss8DragonDemoFv
   - run_task__16TChCrLoadGmNjReqFv
   - run_task__16TItemReverseTechFv
   - run_task__16TObjBagWarnWin4PFv

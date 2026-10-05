@@ -58,8 +58,6 @@ u8 * TPhotonMagicSquare__sub_801A2640(void *);
 M2C_UNK fn_80165940(void *, f32);
 extern M2C_UNK __vt__16TODummyKeyCave01[];
 extern s32 lbl_805D2FA8;
-extern const f32 lbl_805DB5E0;
-extern const f32 lbl_805DB5E8;
 u8 *TODummyKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -75,17 +73,12 @@ M2C_UNK set_chunk_material_color(void *);
 extern u8 lbl_804A7418[];
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805DB5D0;
-extern const f32 lbl_805DB5D4;
 void render__16TODummyKeyCave01Fv(u8 *arg0);
 M2C_UNK obj_clearFlags30(void *, s32);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK TODummyKeyCave01Sound__ct(void *, void *, s32, s32);
 u8 is_current_floor_switch_set(u16);
 void *__nw__7TObjectFUl(int);
-extern const f32 lbl_805DB5D8;
-extern const f32 lbl_805DB5DC;
-extern const f32 lbl_805DB5E0;
 void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self);
 }
 
@@ -105,7 +98,7 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
     u32 v;
     u8 *node;
     s32 id;
-    if (((VObj_80165B50 *)arg0)->m8(lbl_805DB5D0, lbl_805DB5D4) != 0 && *(void **)(arg0 + 0x34) != NULL &&
+    if (((VObj_80165B50 *)arg0)->m8((4e+02f), (2e+01f)) != 0 && *(void **)(arg0 + 0x34) != NULL &&
         (v = *(u32 *)(arg0 + 0x24)) != 0) {
         notify_fish_if_valid__10TObjPlayerFUi(v);
         push_matrix();
@@ -166,9 +159,9 @@ void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self) {
     }
     if (self->f9A == 1) {
         self->f24 = self->f94;
-        f32 lo = lbl_805DB5D8;
+        f32 lo = (-0.7f);
         if (lo < self->fB0) {
-            self->fB0 = self->fB0 + lbl_805DB5DC;
+            self->fB0 += (-0.023333333f);
             if (self->fB0 < lo) {
                 self->fB0 = lo;
             }
@@ -178,10 +171,10 @@ void run_task__16TODummyKeyCave01Fv(Obj_80165C84 *self) {
         }
     } else {
         self->f24 = self->f90;
-        if (self->fB0 < lbl_805DB5E0) {
-            self->fB0 = self->fB0 - lbl_805DB5DC;
-            if (lbl_805DB5E0 < self->fB0) {
-                self->fB0 = lbl_805DB5E0;
+        if (self->fB0 < (0.0f)) {
+            self->fB0 = self->fB0 - (-0.023333333f);
+            if ((0.0f) < self->fB0) {
+                self->fB0 = (0.0f);
             }
         }
         if (self->fB8 == 1) {
@@ -231,15 +224,15 @@ u8 *TODummyKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 *)&__vt__16TODummyKeyCave01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FA8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) lbl_805DB5E8;
-    M2C_FIELD(arg0, f32 *, 0xA4) = (f32) lbl_805DB5E8;
-    M2C_FIELD(arg0, f32 *, 0xA0) = (f32) lbl_805DB5E8;
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DB5E8;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DB5E0;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DB5E0;
-    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DB5E0;
+    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) 1.0f;
+    M2C_FIELD(arg0, f32 *, 0xA4) = (f32) 1.0f;
+    M2C_FIELD(arg0, f32 *, 0xA0) = (f32) 1.0f;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) 1.0f;
+    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) (0.0f);
     M2C_FIELD(arg0, s32 *, 0xB8) = 1;
-    fn_80165940((void *) (arg0), (f32) (lbl_805DB5E8));
+    fn_80165940((void *) (arg0), (f32) (1.0f));
     M2C_FIELD(arg0, s32 *, 0xCC) = 0;
     return arg0;
 }

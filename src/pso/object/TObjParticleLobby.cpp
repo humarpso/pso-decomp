@@ -28,7 +28,6 @@ s32 create_particle_emitter(void *, int);
 s32 init_map_object_base(void *, void *);
 extern M2C_UNK __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
-extern const f32 lbl_805E0344;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TLobby__sub_80351DFC();
 s32 TObjParticleLobby__sub_80369654(void);
@@ -42,7 +41,6 @@ void set_param_ptr__11TBoss4Type2FPvi(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u16);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 TObjParticleLobby__sub_80369654(void);
-extern const f32 lbl_805E0348;
 void TObjParticleLobby__sub_803697E8(void *arg0);
 }
 
@@ -173,7 +171,7 @@ void TObjParticleLobby__sub_803697E8(void *arg0) {
         set_param_ptr__11TBoss4Type2FPvi(M2C_FIELD(arg0, void **, 0xD4), v);
     }
     f = M2C_FIELD(arg0, f32 *, 0x70);
-    if (f < lbl_805E0348) {
+    if (f < 0.0f) {
         t = 0x2;
         if (M2C_FIELD(arg0, s32 *, 0x88) == 1) {
             t = 0x42;
@@ -248,7 +246,7 @@ u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xD4) = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
     TObjParticleLobby__sub_803697E8((void *)((void *) (arg0)));
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805E0344;
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (1.0f);
     return arg0;
 }
 

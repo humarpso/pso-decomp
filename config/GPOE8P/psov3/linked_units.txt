@@ -231,6 +231,7 @@ pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
 pso/boss/TBoss7LaserPtcl_8035AA98.cpp
 pso/boss/TBoss7PhotonBullet.cpp
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp
+pso/boss/TBoss8DragonDemo.cpp
 pso/boss/TBoss8DragonEffBreath.cpp
 pso/boss/TBoss8DragonEffBullet.cpp
 pso/boss/TBoss8DragonEffTail.cpp
@@ -257,6 +258,7 @@ pso/boss/TBoss8Dragon_802F4480.cpp
 pso/boss/TBoss8Dragon_80324D3C.cpp
 pso/boss/TBoss8Dragon_80325D38.cpp
 pso/boss/TBoss8Dragon_80359A7C.cpp
+pso/boss/TBoss8Dragon_8036AEF8.cpp
 pso/boss/TObjBoss1Crater.cpp
 pso/boss/TObjBoss1Crater_8002C6B4.cpp
 pso/boss/TObjBoss1Floor.cpp
@@ -1275,6 +1277,7 @@ pso/misc/TLockOnCursor_8013EDC4.cpp
 pso/misc/TLockOnCursor_8013EE00.cpp
 pso/misc/TLockOnCursor_8013EE68.cpp
 pso/misc/TLockOnCursor_8013EEC8.cpp
+pso/misc/TLogo.cpp
 pso/misc/TLogo_8001C134.cpp
 pso/misc/TLogo_8030818C.cpp
 pso/misc/TMainCursor.cpp
@@ -2069,6 +2072,7 @@ pso/misc/TWindowSubStatusDisp_802A35B4.cpp
 pso/misc/TWindowSubStatusDisp_802A4DE8.cpp
 pso/misc/TWindowSubStatusDisp_80327390.cpp
 pso/misc/TWindowSubStatusDisp_8034A938.cpp
+pso/misc/TWindowSubStatusDisp_8036D774.cpp
 pso/misc/TWindowSubStatusDisp_803DEE6C.cpp
 pso/misc/TWindowSubSymbolChat.cpp
 pso/misc/TWindowSubSymbolChatFaceType.cpp
