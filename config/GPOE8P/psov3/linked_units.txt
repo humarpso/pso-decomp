@@ -980,6 +980,7 @@ pso/misc/TLobby_800F8AA8_800F8AA8.cpp
 pso/misc/TLobby_800F8AA8_800F8AD0.cpp
 pso/misc/TLobby_800F8AA8_800F8B20.cpp
 pso/misc/TLobby_800F8AA8_800F8C2C.cpp
+pso/misc/TLobby_800F8AA8_800F8D08.cpp
 pso/misc/TLobby_800F8AA8_800F8F40.cpp
 pso/misc/TLobby_800F9690.cpp
 pso/misc/TLobby_800F9A60.cpp

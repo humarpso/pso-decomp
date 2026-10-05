@@ -362,6 +362,7 @@ pso/unk/text_8003AB00.cpp:
 
 pso/boss/TObjBoss2DustCtrl.cpp:
 	.text       start:0x8003AB5C end:0x8003ACD8
+	.data       start:0x80483388 end:0x804833A0
 	.bss        start:0x804FE9E8 end:0x804FEA80
 
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp:
@@ -5437,6 +5438,7 @@ pso/unk/text_801414B0.cpp:
 
 pso/unk/text_80141550.cpp:
 	.text       start:0x80141550 end:0x80141670
+	.bss        start:0x8050BEC0 end:0x8050BEE0
 
 pso/player/TObjPlayer_80141670.cpp:
 	.text       start:0x80141670 end:0x801418C4
@@ -12543,6 +12545,7 @@ pso/unk/text_802F1200.cpp:
 
 pso/boss/TObjBoss7DustCtrl.cpp:
 	.text       start:0x802F125C end:0x802F13D8
+	.data       start:0x804E4948 end:0x804E4960
 	.bss        start:0x80541948 end:0x805419E0
 
 pso/boss/TObjBoss7DustCtrl_802F13D8.cpp:
