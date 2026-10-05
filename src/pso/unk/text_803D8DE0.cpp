@@ -7,10 +7,6 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 typedef struct { f32 x, y, z, w; } Quat_803D8E0C;
 
-extern const f32 lbl_805E0EE8;
-extern const f32 lbl_805E0EEC;
-__declspec(section ".sdata2") extern const f64 lbl_805E0EF0;
-__declspec(section ".sdata2") extern const f64 lbl_805E0EF8;
 }
 
 extern "C" {
@@ -47,9 +43,9 @@ static inline f32 sqrtf_803D8E0C(f32 x) {
     if (x > 0.0f) {
         volatile f32 r;
         f64 g = __frsqrte(x);
-        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - x * (g * g));
-        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - x * (g * g));
-        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - x * (g * g));
+        g = (0.5) * g * ((3.0) - x * (g * g));
+        g = (0.5) * g * ((3.0) - x * (g * g));
+        g = (0.5) * g * ((3.0) - x * (g * g));
         r = (f32)(x * g);
         return r;
     }
@@ -74,9 +70,9 @@ void blend_quaternions_nlerp(Quat_803D8E0C *a, Quat_803D8E0C *b, Quat_803D8E0C *
     by = b->y;
     bz = b->z;
     bw = b->w;
-    s = lbl_805E0EE8 - t;
+    s = (1.0f) - t;
 
-    if (aw * bw + (az * bz + (ax * bx + ay * by)) > lbl_805E0EEC) {
+    if (aw * bw + (az * bz + (ax * bx + ay * by)) > (0.0f)) {
         x = ax * s + bx * t;
         y = ay * s + by * t;
         z = az * s + bz * t;
@@ -91,13 +87,13 @@ void blend_quaternions_nlerp(Quat_803D8E0C *a, Quat_803D8E0C *b, Quat_803D8E0C *
     if (mag > 0.0f) {
         volatile f32 r;
         f64 g = __frsqrte(mag);
-        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - mag * (g * g));
-        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - mag * (g * g));
-        g = lbl_805E0EF0 * g * (lbl_805E0EF8 - mag * (g * g));
+        g = (0.5) * g * ((3.0) - mag * (g * g));
+        g = (0.5) * g * ((3.0) - mag * (g * g));
+        g = (0.5) * g * ((3.0) - mag * (g * g));
         r = (f32)(mag * g);
         mag = r;
     }
-    inv = lbl_805E0EE8 / mag;
+    inv = (1.0f) / mag;
     out->x = x * inv;
     out->y = y * inv;
     out->z = z * inv;

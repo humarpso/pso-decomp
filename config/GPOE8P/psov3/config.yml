@@ -146,6 +146,7 @@ force_active:
   - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
+  - TWindowSubSymbolChatHelp__sub_80284A28
   - TWindowTimer__sub_8019A098
   - TWindowTimer__sub_8019A104
   - TimeQueueAdd
@@ -390,6 +391,7 @@ force_active:
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
   - handle_sell_confirm__24TShopEquipmentSellWindowFv
+  - handle_toggle_input__24TWindowSubSymbolChatHelpFPv
   - handle_withdraw_confirm__18TShopGetItemWindowFPv
   - handle_withdraw_list_input__18TShopGetItemWindowFPv
   - has_serial_input__22TAdEnterSerialAccessGCFv
@@ -423,11 +425,23 @@ force_active:
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - layercmp
+  - lbl_80483EEC
   - lbl_80494B18
   - lbl_80497710
   - lbl_80497718
   - lbl_80497758
   - lbl_80497760
+  - lbl_804B6D7C
+  - lbl_804B6D98
+  - lbl_804B6DA4
+  - lbl_804B94A0
+  - lbl_804B94BC
+  - lbl_804B94CC
+  - lbl_804B94E8
+  - lbl_804B94F4
+  - lbl_804E80D0
+  - lbl_804E8114
+  - lbl_804E8124
   - lbl_804EC6B0
   - lbl_804EC6CC
   - lbl_804EC708

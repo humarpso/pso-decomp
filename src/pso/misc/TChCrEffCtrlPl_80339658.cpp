@@ -29,9 +29,6 @@ extern "C" {
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK draw_ui_sprite(int, void *, f32, f32);
-extern const f32 lbl_805DF9F0;
-extern const f32 lbl_805DF9F4;
-extern const f32 lbl_805DF9F8;
 void render__14TChCrEffCtrlPlFv(u8 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -39,14 +36,9 @@ s32 get_clamped_player_index__14TChCrEffCtrlPlFv();
 extern u8 lbl_80477C70[];
 extern u8 __vt__14TChCrEffCtrlPl[];
 extern s32 lbl_805D4270;
-extern const f32 lbl_805DFA08;
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_80477C78[];
-extern const f32 lbl_805DF9F4;
-extern const f32 lbl_805DF9FC;
-extern const f32 lbl_805DFA00;
-extern const f32 lbl_805DFA04;
 void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self);
 }
 
@@ -63,12 +55,12 @@ u32 fn_80339954();
 void render__14TChCrEffCtrlPlFv(u8 *arg0) {
     f32 var_f2;
     set_depth_buffer_settings_1__Fv();
-    var_f2 = lbl_805DF9F0 * M2C_FIELD(arg0, f32 *, 0x2C);
-    if (var_f2 > lbl_805DF9F4) {
-        var_f2 = lbl_805DF9F4;
+    var_f2 = (2.5f) * M2C_FIELD(arg0, f32 *, 0x2C);
+    if (var_f2 > (1.0f)) {
+        var_f2 = (1.0f);
     }
-    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (var_f2));
-    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x24), (f32) (lbl_805DF9F8), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
+    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (var_f2));
+    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
     restore_saved_depth_alpha_state();
 }
 #pragma pop
@@ -81,18 +73,18 @@ void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self) {
     f32 x;
     f32 y;
     self->f34 += 0xB60;
-    self->x += lbl_805DF9FC * (lbl_80477C78[0] - self->x);
-    self->y += lbl_805DF9FC * (lbl_80477C78[1] - self->y);
-    self->f2c += lbl_805DFA00;
+    self->x += (0.05f) * (lbl_80477C78[0] - self->x);
+    self->y += (0.05f) * (lbl_80477C78[1] - self->y);
+    self->f2c += (0.011111111f);
     if (self->f2c > 1.0f) {
         self->f2c = 1.0f;
     }
     self->f30 = self->f2c;
-    if (lbl_805DF9F4 == self->f2c) {
-        s = lbl_805DF9F4;
+    if ((1.0f) == self->f2c) {
+        s = (1.0f);
         v = sin_table_lookup(self->f34);
-        if ((self->f34 & 0x20000) && v > lbl_805DFA04) {
-            s -= v - lbl_805DFA04;
+        if ((self->f34 & 0x20000) && v > (0.7f)) {
+            s -= v - (0.7f);
         }
         self->f30 = s * self->f2c;
     }
@@ -106,7 +98,7 @@ O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1) {
     arg0->f1c = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0x8B;
     arg0->f20 = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0xBC;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0->v, lbl_80477C70);
-    arg0->f2c = lbl_805DFA08;
+    arg0->f2c = 0.0f;
     arg0->f34 = 0;
     return arg0;
 }

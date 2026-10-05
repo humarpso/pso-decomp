@@ -50,9 +50,6 @@ s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 fn_800BC4C8(void *, void *, void *);
 extern M2C_UNK __vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
-extern const f32 lbl_805DEBE8;
-extern const f32 lbl_805DEBF0;
-extern const f32 lbl_805DEBF4;
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -62,7 +59,6 @@ extern V2_802EF2AC lbl_80474038[];
 extern M2C_UNK lbl_80474040[];
 extern const f32 lbl_805DEA00;
 extern const f32 lbl_805DEA04;
-extern const f32 lbl_805DEBEC;
 void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0);
 }
 
@@ -93,8 +89,8 @@ void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0) {
             arg0->ec = 3.0f;
         }
         arg0->c4 -= arg0->ec;
-        arg0->c0 = lbl_805DEBEC * arg0->b4 + arg0->c0;
-        arg0->c8 = lbl_805DEBEC * arg0->bc + arg0->c8;
+        arg0->c0 = (2.0f) * arg0->b4 + arg0->c0;
+        arg0->c8 = (2.0f) * arg0->bc + arg0->c8;
     } else {
         arg0->c4 = 18.7f;
         arg0->c0 = arg0->b4 * arg0->b0 + arg0->c0;
@@ -147,17 +143,17 @@ u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3FD4;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3))));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg4));
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805DEBE8;
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) lbl_805DEBF0;
-    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) lbl_805DEBF0;
-    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) lbl_805DEBF0;
-    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) lbl_805DEBF4;
-    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) lbl_805DEBF4;
-    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) lbl_805DEBF4;
+    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) (3.0f);
+    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (1.0f);
+    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) (1.0f);
+    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (1.0f);
     M2C_FIELD(arg0, f32 *, 0xB0) = farg0;
     M2C_FIELD(arg0, s32 *, 0xE4) = 0;
     M2C_FIELD(arg0, s32 *, 0xE8) = 0;
-    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) lbl_805DEBF0;
+    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (0.0f);
     M2C_FIELD(arg0, s32 *, 0xF0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x202), (int) (0x40));
     M2C_FIELD(arg0, s32 *, 0xF4) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x203), (int) (0x40));
     return arg0;

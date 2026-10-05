@@ -61,30 +61,16 @@ int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
-extern const f32 lbl_805DD788;
-extern const f32 lbl_805DD78C;
-extern const f32 lbl_805DD790;
-extern const f32 lbl_805DD794;
-extern const f32 lbl_805DD798;
-extern const f32 lbl_805DD79C;
-extern const f32 lbl_805DD7B0;
-extern const f32 lbl_805DD7B4;
 void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *arg1);
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
 extern UV_802844C8 lbl_8044FBA4[];
-extern const f32 lbl_805DD788;
-extern const f32 lbl_805DD78C;
-extern const f32 lbl_805DD7B8;
 void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
 extern UV_802845EC lbl_8044FB74[];
-extern const f32 lbl_805DD788;
-extern const f32 lbl_805DD78C;
-extern const f32 lbl_805DD7B8;
 void TWindowSubSymbolChatHelp__sub_802845EC(s32 arg0, Win_802845EC *arg1, s32 arg2, s32 arg3);
 }
 
@@ -113,11 +99,11 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
     f32 scale;
     s32 i;
     s32 t;
-    scale = lbl_805DD788 / (lbl_805DD78C + arg1->scale);
-    q.u0 = lbl_805DD790;
-    q.v0 = lbl_805DD794;
-    q.u1 = lbl_805DD798;
-    q.v1 = lbl_805DD79C;
+    scale = (-1.0f) / ((0.1794f) + arg1->scale);
+    q.u0 = (0.9375f);
+    q.v0 = (0.15234375f);
+    q.u1 = (0.9921875f);
+    q.v1 = (0.20703125f);
     for (i = 0; i < 8; i++) {
         if (arg0->flags & 2) {
             t = get_parts_entry__28TWindowSubSymbolChatPartsSetFi(i);
@@ -125,7 +111,7 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
             t = TWindowSubSymbolChatHelp__sub_80247EE8(i);
         }
         set_constant_material_color(t);
-        q.x = 12.0f * (f32)i + (112.0f + arg1->x);
+        q.x = (112.0f + arg1->x) + 12.0f * (f32)i;
         q.y = 50.0f + arg1->y;
         q.x2 = 14.0f + q.x;
         q.y2 = 14.0f + q.y;
@@ -141,10 +127,10 @@ void TWindowSubSymbolChatHelp__sub_8028429C(Self_8028429C *arg0, Win_8028429C *a
     q.y = 50.0f + arg1->y;
     q.x2 = 14.0f + q.x;
     q.y2 = 14.0f + q.y;
-    q.u0 = lbl_805DD7B0;
-    q.v0 = lbl_805DD794;
-    q.u1 = lbl_805DD7B4;
-    q.v1 = lbl_805DD79C;
+    q.u0 = (0.87109375f);
+    q.v0 = (0.15234375f);
+    q.u1 = (0.92578125f);
+    q.v1 = (0.20703125f);
     apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, scale);
 }
@@ -162,16 +148,16 @@ void TWindowSubSymbolChatHelp__sub_802844C8(Self_802844C8 *arg0, Win_802844C8 *a
         idx = 6;
     }
     uv = &lbl_8044FBA4[idx];
-    scale = lbl_805DD788 / (lbl_805DD78C + arg1->scale);
+    scale = (-1.0f) / ((0.1794f) + arg1->scale);
     set_constant_material_color(arg3);
-    q.x = lbl_805DD7B8 + arg1->x;
-    q.y = lbl_805DD7B8 * (f32)arg2 + arg1->y;
+    q.x = (16.0f) + arg1->x;
+    q.y = (16.0f) * (f32)arg2 + arg1->y;
     q.x2 = 231.0f + q.x;
-    q.y2 = lbl_805DD7B8 + q.y;
+    q.y2 = (16.0f) + q.y;
     q.u0 = uv->u / 256.0f;
     q.v0 = uv->v / 256.0f;
     q.u1 = (231.0f + uv->u) / 256.0f;
-    q.v1 = (lbl_805DD7B8 + uv->v) / 256.0f;
+    q.v1 = ((16.0f) + uv->v) / 256.0f;
     apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, scale);
 }
@@ -184,16 +170,16 @@ void TWindowSubSymbolChatHelp__sub_802845EC(s32 arg0, Win_802845EC *arg1, s32 ar
     UV_802845EC *uv;
     f32 scale;
     uv = &lbl_8044FB74[arg2];
-    scale = lbl_805DD788 / (lbl_805DD78C + arg1->scale);
+    scale = (-1.0f) / ((0.1794f) + arg1->scale);
     set_constant_material_color(arg3);
     q.x = arg1->x;
-    q.y = lbl_805DD7B8 * (f32)arg2 + arg1->y;
-    q.x2 = lbl_805DD7B8 + q.x;
-    q.y2 = lbl_805DD7B8 + q.y;
+    q.y = (16.0f) * (f32)arg2 + arg1->y;
+    q.x2 = (16.0f) + q.x;
+    q.y2 = (16.0f) + q.y;
     q.u0 = uv->u / 256.0f;
     q.v0 = uv->v / 256.0f;
-    q.u1 = (lbl_805DD7B8 + uv->u) / 256.0f;
-    q.v1 = (lbl_805DD7B8 + uv->v) / 256.0f;
+    q.u1 = ((16.0f) + uv->u) / 256.0f;
+    q.v1 = ((16.0f) + uv->v) / 256.0f;
     apply_context_transform_to_rect(arg1, &q);
     draw_textured_quad_at_depth(&q, scale);
 }

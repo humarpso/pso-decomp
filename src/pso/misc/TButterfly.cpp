@@ -36,10 +36,6 @@ void rotate_matrix_y(void *, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrices(s32);
 extern u8 lbl_8058D490[];
-extern const f32 lbl_805DBB14;
-extern const f32 lbl_805DBB24;
-extern const f32 lbl_805DBB28;
-extern const f32 lbl_805DBB34;
 void run_task__10TButterflyFv(Butterfly_8017EA74 *self);
 }
 
@@ -57,17 +53,14 @@ s32 rand();
 M2C_UNK set_global_param__8TObjFishFi();
 
 extern M2C_UNK lbl_80443970;
-extern const f32 lbl_805DBAD8;
-extern const f32 lbl_805DBADC;
-extern const f32 lbl_805DBAE0;
 
 void init_motion__10TButterflyFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x90, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DBAD8;
-    M2C_FIELD(arg0, f32 *, 0xA0) = (f32) lbl_805DBAD8;
-    M2C_FIELD(arg0, f32 *, 0xA4) = (f32) lbl_805DBAD8;
-    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) (lbl_805DBADC * (lbl_805DBAE0 * (f32) rand()));
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DBAD8;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xA0) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xA4) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xA8) = (f32) ((0.5f) * ((3.0517578e-05f) * (f32) rand()));
+    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (0.0f);
     M2C_FIELD(arg0, s8 *, 0xB8) = 0;
     M2C_FIELD(arg0, s8 *, 0xB9) = 0;
     M2C_FIELD(arg0, s16 *, 0xB4) = 0x1E;
@@ -75,11 +68,9 @@ void init_motion__10TButterflyFPv(u8 *arg0) {
 }
 
 extern s32 lbl_805D5B10;
-extern const f32 lbl_805DBAE4;
-extern const f32 lbl_805DBAE8;
 
 void render__10TButterflyFv(void *arg0) {
-    if (((VObj_8017E978*)arg0)->m8(lbl_805DBAE4, lbl_805DBAE8) != 0) {
+    if (((VObj_8017E978*)arg0)->m8((4e+02f), (2e+01f)) != 0) {
         TObjFish__sub_8001EDB0(lbl_805D5B10, 0);
         set_global_param__8TObjFishFi();
         draw_model__10TButterflyFPv(arg0);
@@ -128,8 +119,8 @@ void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
     }
     switch (self->state) {
     case 0:
-        self->vel.x = self->vel.x * lbl_805DBB14;
-        self->vel.z = self->vel.z * lbl_805DBB14;
+        self->vel.x *= (0.8f);
+        self->vel.z *= (0.8f);
         break;
     case 1:
         if (self->flag == 0) {
@@ -144,11 +135,11 @@ void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
             pop_matrices(1);
             self->vel.x = self->vel.x + out.x;
             self->vel.z = self->vel.z + out.z;
-            self->vel.x = self->vel.x * lbl_805DBB24;
-            self->vel.z = self->vel.z * lbl_805DBB24;
+            self->vel.x *= (0.72f);
+            self->vel.z *= (0.72f);
         } else {
-            self->vel.x = self->vel.x * lbl_805DBB28;
-            self->vel.z = self->vel.z * lbl_805DBB28;
+            self->vel.x *= (0.85f);
+            self->vel.z *= (0.85f);
         }
         break;
     case 2:
@@ -169,11 +160,11 @@ void run_task__10TButterflyFv(Butterfly_8017EA74 *self) {
             pop_matrices(1);
             self->vel.x = self->vel.x + out.x;
             self->vel.z = self->vel.z + out.z;
-            self->vel.x = self->vel.x * lbl_805DBB28;
-            self->vel.z = self->vel.z * lbl_805DBB28;
+            self->vel.x *= (0.85f);
+            self->vel.z *= (0.85f);
         } else {
-            self->vel.x = self->vel.x * lbl_805DBB34;
-            self->vel.z = self->vel.z * lbl_805DBB34;
+            self->vel.x *= (0.75f);
+            self->vel.z *= (0.75f);
         }
         break;
     }

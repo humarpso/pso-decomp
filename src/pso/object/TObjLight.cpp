@@ -76,8 +76,6 @@ s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__9TObjLight[];
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__data_80506320;
 extern s32 lbl_805D33B8;
-extern const f32 lbl_805DBEAC;
-extern const f32 lbl_805DBEB8;
 u8 *TObjLight__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 Actor_80193FE8 *get_player_data__10TObjPlayerFi(s32);
@@ -103,7 +101,6 @@ extern const Vec_80193FE8 lbl_80445D44;
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__data_80506320;
 extern u8 lbl_8058D490[];
 extern u8 *lbl_805D4DF0;
-extern const f32 lbl_805DBEB4;
 void run_task__9TObjLightFv(Light_80193FE8 *self);
 }
 
@@ -179,10 +176,10 @@ void run_task__9TObjLightFv(Light_80193FE8 *self) {
                 f32 r2 = self->radius * self->radius;
                 if (r2 >= d) {
                     f32 t;
-                    d = lbl_805DBEB4 - d / r2;
+                    d = (1.0f) - d / r2;
                     t = d * self->strength;
-                    if (t > lbl_805DBEB4) {
-                        t = lbl_805DBEB4;
+                    if (t > (1.0f)) {
+                        t = (1.0f);
                     }
                     self->out_color.x = t * (self->color.x - self->base_color.x) + self->base_color.x;
                     self->out_color.y = t * (self->color.y - self->base_color.y) + self->base_color.y;
@@ -201,10 +198,10 @@ void run_task__9TObjLightFv(Light_80193FE8 *self) {
                 f32 r2 = self->radius * self->radius;
                 if (r2 >= d) {
                     f32 t;
-                    d = lbl_805DBEB4 - d / r2;
+                    d = (1.0f) - d / r2;
                     t = d * self->strength;
-                    if (t > lbl_805DBEB4) {
-                        t = lbl_805DBEB4;
+                    if (t > (1.0f)) {
+                        t = (1.0f);
                     }
                     self->out_color.x = t * (self->color.x - self->base_color.x) + self->base_color.x;
                     self->out_color.y = t * (self->color.y - self->base_color.y) + self->base_color.y;
@@ -242,20 +239,20 @@ u8 *TObjLight__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33B8;
     ((VObj_18_8322b3 *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(arg2, s16 *, 8);
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DBEB8;
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) 0.5f;
     M2C_FIELD(arg0, f32 *, 0xF4) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
     M2C_FIELD(arg0, f32 *, 0xF8) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
     M2C_FIELD(arg0, f32 *, 0xFC) = (f32) M2C_FIELD(arg0, f32 *, 0x70);
-    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) lbl_805DBEAC;
-    M2C_FIELD(arg0, f32 *, 0xE8) = (f32) lbl_805DBEAC;
-    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) lbl_805DBEAC;
+    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xE8) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (0.0f);
     M2C_FIELD(arg0, s32 *, 0x9C) = 0;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xBC), (void *) ((u8 *)&TObjLight__data_80506320.value + 0x24));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD8), (void *) ((u8 *)&TObjLight__data_80506320.value + 0xC));
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DBEB8;
-    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) lbl_805DBEAC;
-    M2C_FIELD(arg0, f32 *, 0xF8) = (f32) lbl_805DBEAC;
-    M2C_FIELD(arg0, f32 *, 0xFC) = (f32) lbl_805DBEAC;
+    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) 0.5f;
+    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xF8) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xFC) = (f32) (0.0f);
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }

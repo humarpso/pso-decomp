@@ -41,7 +41,6 @@ s32 clear_global_state__10TObjPlayerFv();
 extern Color_801ACE1C lbl_804A7418;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805DC1E0;
 void render__18TPhotonMagicSquareFv(Self_801ACE1C *self);
 }
 
@@ -56,9 +55,9 @@ void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
     scale_current_matrix(&self->v68);
     Color_801ACE1C saved = self->color;
     if ((self->fB0 % self->fCC) == 0) {
-        self->color.r = lbl_805DC1E0;
-        self->color.g = lbl_805DC1E0;
-        self->color.b = lbl_805DC1E0;
+        self->color.r = (0.5f);
+        self->color.g = (0.5f);
+        self->color.b = (0.5f);
     }
     lbl_805D5660 = some_id_805c6f74;
     some_id_805c6f74 |= 0x10;
@@ -95,9 +94,6 @@ struct Self_801ACF24 {
 };
 
 void queue_destruction__7TObjectFv(void *);
-extern const f32 TPhotonMagicSquare__data_805DC1E4;
-extern const f32 lbl_805DC1E8;
-extern const f32 TPhotonMagicSquare__data_805DC1EC;
 
 #pragma push
 #pragma fp_contract on
@@ -107,23 +103,23 @@ void run_task__18TPhotonMagicSquareFv(Self_801ACF24 *self) {
     }
     switch (self->fB4) {
     case 0:
-        if (self->fA0 < TPhotonMagicSquare__data_805DC1E4) {
-            self->fA0 = lbl_805DC1E8 * self->fC8 + self->fA0;
+        if (self->fA0 < (1.0f)) {
+            self->fA0 = (2.0f) * self->fC8 + self->fA0;
         }
-        if (self->f68 < TPhotonMagicSquare__data_805DC1E4) {
-            self->f68 = lbl_805DC1E8 * self->fC8 + self->f68;
-            self->f70 = lbl_805DC1E8 * self->fC8 + self->f70;
+        if (self->f68 < (1.0f)) {
+            self->f68 = (2.0f) * self->fC8 + self->f68;
+            self->f70 = (2.0f) * self->fC8 + self->f70;
         }
         break;
     case 1:
-        if (self->fA0 > TPhotonMagicSquare__data_805DC1EC) {
+        if (self->fA0 > (0.0f)) {
             self->fA0 = self->fA0 - self->fC8;
         }
-        if (self->f68 > TPhotonMagicSquare__data_805DC1EC) {
+        if (self->f68 > (0.0f)) {
             self->f68 = self->f68 - self->fC8;
             self->f70 = self->f70 - self->fC8;
         }
-        if ((f32)self->fB0 > (f32)self->fC4 + TPhotonMagicSquare__data_805DC1E4 / self->fC8) {
+        if ((f32)self->fB0 > (f32)self->fC4 + (1.0f) / self->fC8) {
             queue_destruction__7TObjectFv(self);
             return;
         }
@@ -133,7 +129,7 @@ void run_task__18TPhotonMagicSquareFv(Self_801ACF24 *self) {
     if (self->f9C < self->f94) {
         self->f9C = self->f9C + self->f98;
     } else {
-        self->f9C = TPhotonMagicSquare__data_805DC1EC;
+        self->f9C = (0.0f);
     }
 }
 #pragma pop
@@ -164,9 +160,6 @@ extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSq
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *lbl_805D5D28;
-extern const f32 TPhotonMagicSquare__data_805DC1E4;
-extern const f32 TPhotonMagicSquare__data_805DC1EC;
-extern const f32 TPhotonMagicSquare__data_805DC1F0;
 u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -175,10 +168,6 @@ extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSq
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *lbl_805D5D28;
-extern const f32 TPhotonMagicSquare__data_805DC1E4;
-extern const f32 TPhotonMagicSquare__data_805DC1EC;
-extern const f32 TPhotonMagicSquare__data_805DC1F0;
-extern const f32 lbl_805DC1F4;
 u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -189,10 +178,6 @@ extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSq
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
 extern u8 *lbl_805D5D28;
-extern const f32 TPhotonMagicSquare__data_805DC1E4;
-extern const f32 lbl_805DC1E8;
-extern const f32 TPhotonMagicSquare__data_805DC1EC;
-extern const f32 TPhotonMagicSquare__data_805DC1F0;
 u8 *TPhotonMagicSquare__sub_801AD330(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 }
 
@@ -223,13 +208,13 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4,
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0x28);
     M2C_FIELD(arg0, u8 **, 0x90) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x430), void **, 0x14));
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), u32 *, 4) - TPhotonMagicSquare__data_805DC1E4);
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) TPhotonMagicSquare__data_805DC1F0;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), u32 *, 4) - (1.0f));
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) (0.1f);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0x2C);
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x70) = (f32) TPhotonMagicSquare__data_805DC1EC;
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&TPhotonMagicSquare__data_804C3940.value + (arg2 * 0x10)));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
@@ -245,19 +230,19 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 a
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0x28);
     M2C_FIELD(arg0, u8 **, 0x90) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x430), void **, 0x14));
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), u32 *, 4) - TPhotonMagicSquare__data_805DC1E4);
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) TPhotonMagicSquare__data_805DC1F0;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), u32 *, 4) - (1.0f));
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) (0.1f);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0x2C);
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x70) = (f32) TPhotonMagicSquare__data_805DC1EC;
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD218_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__data_804C3940).value + (arg2 * 0x10)));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     M2C_FIELD(arg0, s32 *, 0xC4) = arg4;
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DC1F4;
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (0.04f);
     M2C_FIELD(arg0, s32 *, 0xCC) = 0xFFFFFF;
     return arg0;
 }
@@ -268,23 +253,23 @@ u8 *TPhotonMagicSquare__sub_801AD330(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3)
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0x28);
     M2C_FIELD(arg0, u8 **, 0x90) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x430), void **, 0x14));
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), u32 *, 4) - TPhotonMagicSquare__data_805DC1E4);
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) TPhotonMagicSquare__data_805DC1F0;
+    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x90), u32 *, 4) - (1.0f));
+    M2C_FIELD(arg0, f32 *, 0x98) = (f32) (0.1f);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D5D28, u8 **, 0x42C), s32 *, 0x2C);
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) TPhotonMagicSquare__data_805DC1EC;
-    M2C_FIELD(arg0, f32 *, 0x70) = (f32) TPhotonMagicSquare__data_805DC1EC;
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x70) = (f32) (0.0f);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xA0), (void *) ((u8 *)&(*(RecoveredGlobal_801AD330_TPhotonMagicSquare__data_804C3940 *)&TPhotonMagicSquare__data_804C3940).value + (arg2 * 0x10)));
     temp_r3 = find_entity_by_id((void *) (arg3));
     if (temp_r3 != 0) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB8), (void *) (temp_r3 + 0x38));
     }
-    M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (M2C_FIELD(arg0, f32 *, 0xBC) + lbl_805DC1E8);
+    M2C_FIELD(arg0, f32 *, 0xBC) += (2.0f);
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
     M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     M2C_FIELD(arg0, s32 *, 0xC4) = 0x37;
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TPhotonMagicSquare__data_805DC1F0;
+    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (0.1f);
     M2C_FIELD(arg0, s32 *, 0xCC) = 2;
     play_sound_effect((int) (0x4002AD2E), (int) (0), (int) (0), (int) (0));
     return arg0;

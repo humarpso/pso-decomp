@@ -19,34 +19,23 @@ extern "C" {
 s32 __cvt_fp2unsigned(f32);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
-extern const f64 lbl_80438DB0;
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2);
 }
 
 extern "C" {
-extern const RecoveredGlobal_800800EC_lbl_80438D7C lbl_80438D7C;
-extern const f32 lbl_805D92D8;
-extern const f32 lbl_805D92DC;
-extern const f32 lbl_805D9300;
+extern const char lbl_80438D68[] = "TDuelEffectNumber";
+extern const RecoveredGlobal_800800EC_lbl_80438D7C lbl_80438D7C = {0, {0x43, 0x2A, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x43, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x42, 0xAA, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
 void fn_800800EC(M2C_UNK arg0, u8 *arg1, s32 arg2);
 void fn_8007FF28(Obj_8007FF28 *self, s32 arg1);
 s32 get_camera_no__11TCameraCtrlFv(void);
 f32 get_scale__15TWindowCtrlMainFv(s32);
-extern const f32 lbl_805D92E4;
-extern const f32 lbl_805D92E8;
-extern const f32 lbl_805D92EC;
-extern const f32 lbl_805D92F0;
-extern const f32 lbl_805D92F4;
 
 void queue_destruction__7TObjectFv(void *);
-extern const f32 lbl_805D9304;
 void run_task__17TDuelEffectNumberFv(u8 *arg0);
 void render__17TDuelEffectNumberFv(void *arg0);
 M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
 void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1);
-extern const f32 lbl_805D92F8;
-extern const f32 lbl_805D92FC;
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK reset_transform_state__10TObjPlayerFv();
@@ -55,7 +44,7 @@ extern s32 lbl_805D63F0;
 
 void fn_8007FE78(Obj_8007FF28 *self, s32 arg1, void *arg2, f32 farg0, f32 farg1, f32 farg2) {
     f32 *src = (f32 *)arg2;
-    farg1 = farg1 * lbl_80438DB0;
+    farg1 *= (0.5);
     M2C_FIELD(arg1, f32 *, 0) = src[0] - 64.0f * farg1;
     M2C_FIELD(arg1, f32 *, 4) = src[1] - 85.0f * farg1;
     M2C_FIELD(arg1, f32 *, 8) = src[0] + 64.0f * farg1;
@@ -72,10 +61,10 @@ void fn_8007FF28(Obj_8007FF28 *self, s32 arg1) {
     f32 c;
 
     if (self->timer >= 5 && self->timer < 20) {
-        scale = lbl_805D92E4 / get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
-        c = lbl_805D92EC;
-        b = c * ((f32)(self->timer - 5) / lbl_805D92F0) + lbl_805D92E8;
-        fn_8007FE78((Obj_8007FF28 *)(self), (s32)(arg1), (void *)(self->x1C), scale, b, self->timer < 10 ? c : c - c * ((f32)(self->timer - 10) / lbl_805D92F4));
+        scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
+        c = (0.5f);
+        b = c * ((f32)(self->timer - 5) / (15.0f)) + (1.0f);
+        fn_8007FE78((Obj_8007FF28 *)(self), (s32)(arg1), (void *)(self->x1C), scale, b, self->timer < 10 ? c : c - c * ((f32)(self->timer - 10) / (1e+01f)));
     }
 }
 #pragma pop
@@ -88,16 +77,16 @@ void fn_8007FFF4(Obj_8007FF28 *self, s32 arg1) {
     f32 b;
     f32 c;
 
-    scale = lbl_805D92E4 / get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
+    scale = (-1.0f) / get_scale__15TWindowCtrlMainFv(get_camera_no__11TCameraCtrlFv());
     if (self->timer < 5) {
-        b = lbl_805D92F8 - ((f32) self->timer / lbl_805D92FC);
-        c = lbl_805D92EC;
+        b = (2.0f) - ((f32) self->timer / (5.0f));
+        c = (0.5f);
         c = c * (f32) (self->timer / 5) + c;
     } else if (self->timer < 25) {
-        c = b = lbl_805D92E8;
+        c = b = (1.0f);
     } else {
-        b = lbl_805D92E8;
-        c = b - ((f32) (self->timer - 25) / lbl_805D92FC);
+        b = (1.0f);
+        c = b - ((f32) (self->timer - 25) / (5.0f));
     }
     fn_8007FE78((Obj_8007FF28 *)(self), (s32)(arg1), (void *)(self->x1C), scale, b, c);
 }
@@ -111,12 +100,12 @@ void fn_800800EC(M2C_UNK arg0, u8 *arg1, s32 arg2) {
     temp_r0 = arg2 * 8;
     M2C_FIELD(arg1, f32 *, 0x10) = (f32) M2C_FIELD(((u8 *)(&lbl_80438D7C.value) + temp_r0), f32 *, 0);
     M2C_FIELD(arg1, f32 *, 0x14) = (f32) M2C_FIELD(((u8 *)(&lbl_80438D7C.value) + temp_r0), f32 *, 4);
-    M2C_FIELD(arg1, f32 *, 0x18) = (f32) (lbl_805D92D8 + M2C_FIELD(arg1, f32 *, 0x10));
-    M2C_FIELD(arg1, f32 *, 0x1C) = (f32) (lbl_805D92DC + M2C_FIELD(arg1, f32 *, 0x14));
-    M2C_FIELD(arg1, f32 *, 0x10) = (f32) (M2C_FIELD(arg1, f32 *, 0x10) * lbl_805D9300);
-    M2C_FIELD(arg1, f32 *, 0x14) = (f32) (M2C_FIELD(arg1, f32 *, 0x14) * lbl_805D9300);
-    M2C_FIELD(arg1, f32 *, 0x18) = (f32) (M2C_FIELD(arg1, f32 *, 0x18) * lbl_805D9300);
-    M2C_FIELD(arg1, f32 *, 0x1C) = (f32) (M2C_FIELD(arg1, f32 *, 0x1C) * lbl_805D9300);
+    M2C_FIELD(arg1, f32 *, 0x18) = (f32) ((64.0f) + M2C_FIELD(arg1, f32 *, 0x10));
+    M2C_FIELD(arg1, f32 *, 0x1C) = (f32) ((85.0f) + M2C_FIELD(arg1, f32 *, 0x14));
+    M2C_FIELD(arg1, f32 *, 0x10) *= (0.00390625f);
+    M2C_FIELD(arg1, f32 *, 0x14) *= (0.00390625f);
+    M2C_FIELD(arg1, f32 *, 0x18) *= (0.00390625f);
+    M2C_FIELD(arg1, f32 *, 0x1C) *= (0.00390625f);
 }
 #pragma pop
 
@@ -135,7 +124,7 @@ void render__17TDuelEffectNumberFv(void *arg0) {
 }
 void run_task__17TDuelEffectNumberFv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + 1);
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x28) >= lbl_805D9304) {
+    if ((f32) M2C_FIELD(arg0, s32 *, 0x28) >= (3e+01f)) {
         queue_destruction__7TObjectFv(arg0);
     }
 }

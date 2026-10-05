@@ -391,21 +391,6 @@ s32 create_instance__17TQuestThreadBoardFi(s32 arg0) {
 }
 
 }
-void TQuestThreadBoard::run_task() {}
-
-TQuestThreadBoard::~TQuestThreadBoard() {
-    if (m_28 != nullptr) {
-        TWindow__close(m_28);
-        m_28 = nullptr;
-    }
-    if (m_2c != nullptr) {
-        TWindow__close(m_2c);
-        m_2c = nullptr;
-    }
-    close_windows__6TLobbyFv();
-    lbl_805D5EF0 = 0;
-}
-
 extern "C" {
 void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     void *thread = o->thread;
@@ -524,6 +509,22 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     }
     }
 }
+}
+
+TQuestThreadBoard::~TQuestThreadBoard() {
+    if (m_28 != nullptr) {
+        TWindow__close(m_28);
+        m_28 = nullptr;
+    }
+    if (m_2c != nullptr) {
+        TWindow__close(m_2c);
+        m_2c = nullptr;
+    }
+    close_windows__6TLobbyFv();
+    lbl_805D5EF0 = 0;
+}
+
+extern "C" {
 
 u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)((void *) (arg0), (int) (0));

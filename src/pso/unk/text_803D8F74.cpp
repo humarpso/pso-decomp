@@ -29,12 +29,6 @@ f64 acos(f32);
 void scale_matrix(u32, f32, f32, f32);
 
 void rotate_matrix_x(u32, s32);
-extern const f32 lbl_805E0F00;
-__declspec(section ".sdata2") extern const f64 lbl_805E0F08;
-__declspec(section ".sdata2") extern const f64 lbl_805E0F10;
-__declspec(section ".sdata2") extern const f64 lbl_805E0F18;
-extern const f32 lbl_805E0F20;
-extern const f32 lbl_805E0F24;
 
 }
 
@@ -44,11 +38,11 @@ extern "C" {
 #pragma dont_inline off
 #pragma inline_depth(4)
 static inline f32 sqrtf_803D8F74(f32 x) {
-    if (x > lbl_805E0F00) {
+    if (x > (0.0f)) {
         f64 guess = __frsqrte((f64)x);
-        guess = lbl_805E0F08 * guess * (lbl_805E0F10 - guess * guess * x);
-        guess = lbl_805E0F08 * guess * (lbl_805E0F10 - guess * guess * x);
-        guess = lbl_805E0F08 * guess * (lbl_805E0F10 - guess * guess * x);
+        guess = (0.5) * guess * ((3.0) - guess * guess * x);
+        guess = (0.5) * guess * ((3.0) - guess * guess * x);
+        guess = (0.5) * guess * ((3.0) - guess * guess * x);
         volatile f32 y = (f32)(x * guess);
         return y;
     }
@@ -65,17 +59,17 @@ void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
     f32 len = sqrtf_803D8F74(arg1->normal[1] * arg1->normal[1] + xz * xz);
     s32 rx;
     s32 ry;
-    if (arg1->normal[1] >= lbl_805E0F00) {
-        rx = -(s32)(lbl_805E0F18 * acosf_803D8F74(xz / len));
+    if (arg1->normal[1] >= (0.0f)) {
+        rx = -(s32)((10430.38043493439) * acosf_803D8F74(xz / len));
     }
-    if (arg1->normal[1] < lbl_805E0F00) {
-        rx = (s32)(lbl_805E0F18 * acosf_803D8F74(xz / len));
+    if (arg1->normal[1] < (0.0f)) {
+        rx = (s32)((10430.38043493439) * acosf_803D8F74(xz / len));
     }
-    if (arg1->normal[0] >= lbl_805E0F00) {
-        ry = (s32)(lbl_805E0F18 * acosf_803D8F74(arg1->normal[2] / xz));
+    if (arg1->normal[0] >= (0.0f)) {
+        ry = (s32)((10430.38043493439) * acosf_803D8F74(arg1->normal[2] / xz));
     }
-    if (arg1->normal[0] < lbl_805E0F00) {
-        ry = -(s32)(lbl_805E0F18 * acosf_803D8F74(arg1->normal[2] / xz));
+    if (arg1->normal[0] < (0.0f)) {
+        ry = -(s32)((10430.38043493439) * acosf_803D8F74(arg1->normal[2] / xz));
     }
     translate_matrix(arg0, arg1->origin[0], arg1->origin[1], arg1->origin[2]);
     rotate_matrix_y((Matrix34*)arg0, ry);
@@ -87,14 +81,13 @@ void reflect_matrix_in_plane(u32 arg0, const ReflectionPlane *arg1)
 }
 #pragma pop
 
-__declspec(section ".sdata2") extern const f64 lbl_805E0F28;
 void rotate_matrix_y(Matrix34* matrix, s32 angle) {
     Matrix34 rotation;
     Matrix34* selected;
     if (angle != 0) {
         if (matrix == NULL) selected = (Matrix34*)lbl_805D7774;
         else selected = matrix;
-        PSMTXRotRad(&rotation, 'y', (f32)(lbl_805E0F28 * (f64)angle));
+        PSMTXRotRad(&rotation, 'y', (f32)((9.587378008291125e-05) * (f64)angle));
         PSMTXConcat((int)selected, (int)&rotation, (int)selected);
     }
 }
