@@ -222,14 +222,11 @@ pso/boss/TBoss7Crawfish_8030908C.cpp
 pso/boss/TBoss7DeRolLeC.cpp
 pso/boss/TBoss7DeRolLeC_802EE4E0.cpp
 pso/boss/TBoss7Joint.cpp
-pso/boss/TBoss7Joint_802E7B00.cpp
 pso/boss/TBoss7Joint_802EE6E0.cpp
 pso/boss/TBoss7LaserPtcl.cpp
-pso/boss/TBoss7LaserPtcl_802ECDA0.cpp
 pso/boss/TBoss7LaserPtcl_8035A934.cpp
 pso/boss/TBoss7LaserPtcl_8035A9B8.cpp
 pso/boss/TBoss7LaserPtcl_8035AA98.cpp
-pso/boss/TBoss7PhotonBullet.cpp
 pso/boss/TBoss7PhotonBullet_802EF26C.cpp
 pso/boss/TBoss8DragonColli.cpp
 pso/boss/TBoss8DragonDemo.cpp
@@ -793,7 +790,6 @@ pso/misc/TCameraCtrl_80067C88.cpp
 pso/misc/TCameraCtrl_80067CE8.cpp
 pso/misc/TCameraCtrl_80067F44.cpp
 pso/misc/TCameraCtrl_80067F8C.cpp
-pso/misc/TCameraCtrl_8006A9F0.cpp
 pso/misc/TCameraCtrl_8006B3D8.cpp
 pso/misc/TCameraCtrl_8006BA68.cpp
 pso/misc/TCameraCtrl_8006C580.cpp
@@ -2245,7 +2241,6 @@ pso/object/TObjEnvSoundGlobal.cpp
 pso/object/TObjEvtCollision.cpp
 pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
-pso/object/TObjFish_802ED828.cpp
 pso/object/TObjFogCollision.cpp
 pso/object/TObjFogCollisionPoison.cpp
 pso/object/TObjFogCollisionSwitch.cpp
@@ -2804,7 +2799,6 @@ pso/player/TObjPlayer_802D5174_802D5900.cpp
 pso/player/TObjPlayer_802D5174_802D5A04.cpp
 pso/player/TObjPlayer_802D5174_802D5C0C.cpp
 pso/player/TObjPlayer_802E0580.cpp
-pso/player/TObjPlayer_802E8050.cpp
 pso/player/TObjPlayer_802ED928.cpp
 pso/player/TObjPlayer_80307618.cpp
 pso/player/TObjPlayer_803083B0.cpp
@@ -3867,7 +3861,6 @@ pso/unk/text_802E0B60.cpp
 pso/unk/text_802E10D8.cpp
 pso/unk/text_802E3BA8.cpp
 pso/unk/text_802E4A4C.cpp
-pso/unk/text_802E79B0.cpp
 pso/unk/text_802EDCF0.cpp
 pso/unk/text_802EED20.cpp
 pso/unk/text_802EEE24.cpp
