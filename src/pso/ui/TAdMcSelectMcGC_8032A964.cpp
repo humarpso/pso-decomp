@@ -1,4 +1,10 @@
-#include "pso/TAdMcSelectMcGC.h"
+#include "pso/TObject.h"
+class TAdMcSelectMcGC : public TObject {
+public:
+    virtual ~TAdMcSelectMcGC();
+    virtual void run_task();
+    virtual void render();
+};
 
 TAdMcSelectMcGC::~TAdMcSelectMcGC() {}
 
@@ -37,7 +43,10 @@ void init_memorycard__15TAdMcSelectMcGCFv(void);
 int TLobby__sub_8023E4B4(void*, void*);
 
     extern unsigned char lbl_80477150[];
-    extern unsigned char lbl_804ED9CC[];
+    struct McCardName_804ED9C0 { void *name; s32 a; s32 b; };
+    struct McCardRef_804ED9CC { void *card; s32 n; };
+    McCardName_804ED9C0 lbl_804ED9C0 = { lbl_80477150, 0, 0 };
+    __declspec(section ".data") McCardRef_804ED9CC lbl_804ED9CC = { &lbl_804ED9C0, 1 };
     extern int TAdMcSelectMcGC__data_805D6C98;
 
 Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2) {
@@ -70,7 +79,7 @@ void TAdMcSelectMcGC__sub_8032AA54(void) {
     }
 }
 
-void init_memorycard__15TAdMcSelectMcGCFv(void) { TAdMcSelectMcGC__data_805D6C98 = (int)lbl_804ED9CC; TLobby__sub_8023E4B4(lbl_80477150, lbl_804ED9CC); }
+void init_memorycard__15TAdMcSelectMcGCFv(void) { TAdMcSelectMcGC__data_805D6C98 = (int)&lbl_804ED9CC; TLobby__sub_8023E4B4(lbl_80477150, &lbl_804ED9CC); }
 
 s32 TAdMcSelectMcGC__sub_8032AAC4(void* p) { return *(s32*)((char*)p + 0x20); }
 

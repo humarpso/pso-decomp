@@ -830,6 +830,7 @@ pso/misc/TChCrEffTag_8029ACA8.cpp
 pso/misc/TChCrEffTag_8029B098.cpp
 pso/misc/TChCrLoadAfs_8028B8B8.cpp
 pso/misc/TChCrLoadAfs_8028B940.cpp
+pso/misc/TChCrTag.cpp
 pso/misc/TChCrTagInformation.cpp
 pso/misc/TChCrTagInformation_802A1FAC.cpp
 pso/misc/TChCrTagInformation_802A200C.cpp
@@ -1182,11 +1183,6 @@ pso/misc/TLobby_80291D94_802930C8.cpp
 pso/misc/TLobby_80299A60.cpp
 pso/misc/TLobby_80299A60_80299A60.cpp
 pso/misc/TLobby_80299A60_80299D68.cpp
-pso/misc/TLobby_80299A60_8029A16C.cpp
-pso/misc/TLobby_80299A60_8029A184.cpp
-pso/misc/TLobby_80299A60_8029A1E4.cpp
-pso/misc/TLobby_80299A60_8029A304.cpp
-pso/misc/TLobby_80299A60_8029A398.cpp
 pso/misc/TLobby_802A018C.cpp
 pso/misc/TLobby_802A0F3C.cpp
 pso/misc/TLobby_802A6080.cpp
@@ -2333,10 +2329,10 @@ pso/object/TObjResultWin.cpp
 pso/object/TObjRoomId.cpp
 pso/object/TObjRoomId_800FD8C8.cpp
 pso/object/TObjSeabedSuisoBrakable_801315D4.cpp
-pso/object/TObjSeabedSuisoBrakable_802A62E8.cpp
 pso/object/TObjSinBoard.cpp
 pso/object/TObjSoloPlayWin.cpp
 pso/object/TObjSoloPlayWin_800747C4.cpp
+pso/object/TObjSuisoChip.cpp
 pso/object/TObjTailsTailsMove.cpp
 pso/object/TObjTank.cpp
 pso/object/TObjTombstone.cpp
@@ -2354,7 +2350,6 @@ pso/object/TObjVoloptPillar.cpp
 pso/object/TObjVoloptShutter.cpp
 pso/object/TObjWaitEntryHairMoveSim_800FE300.cpp
 pso/object/TObjWaitEntryHairMoveSim_800FE45C.cpp
-pso/object/TObjWarnChime.cpp
 pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
@@ -2952,6 +2947,7 @@ pso/ui/TAdADXlogo_80019848.cpp
 pso/ui/TAdAgreementBaseGC.cpp
 pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp
+pso/ui/TAdBackTxtGC.cpp
 pso/ui/TAdChrSelASlotGC_800740FC.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
 pso/ui/TAdChrSelBSlotGC.cpp
@@ -2997,6 +2993,7 @@ pso/ui/TAdGameStartShineGC.cpp
 pso/ui/TAdLicAgreementGC.cpp
 pso/ui/TAdLoadNetworkGC.cpp
 pso/ui/TAdLoadNetworkGC_803084AC.cpp
+pso/ui/TAdLoadQuestCellGC.cpp
 pso/ui/TAdLoadQuestGC.cpp
 pso/ui/TAdLoadQuestGC_80309788.cpp
 pso/ui/TAdLoadQuestGC_80309854.cpp
@@ -3008,6 +3005,7 @@ pso/ui/TAdMcSelectCursorGC_8032A610.cpp
 pso/ui/TAdMcSelectGC.cpp
 pso/ui/TAdMcSelectGC_8032A0A4.cpp
 pso/ui/TAdMcSelectMcGC.cpp
+pso/ui/TAdMcSelectMcGC_8032A964.cpp
 pso/ui/TAdMultiChgGameModeGC.cpp
 pso/ui/TAdMultiChgGameModeGC_8023E7A8.cpp
 pso/ui/TAdMultiChgGameModeGC_8023EAC4.cpp
@@ -3092,7 +3090,6 @@ pso/ui/TAdSinglePlyChrSelectGC_8028C650.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028D5D4_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029A914.cpp
-pso/ui/TAdSinglePlyChrSelectGC_8029BC4C.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E1CEC.cpp
@@ -3181,13 +3178,13 @@ pso/unk/text_80071B30.cpp
 pso/unk/text_80071F90.cpp
 pso/unk/text_80072004.cpp
 pso/unk/text_80072230.cpp
-pso/unk/text_8007313C.cpp
 pso/unk/text_80074724.cpp
 pso/unk/text_80074BD0.cpp
 pso/unk/text_80074C20.cpp
 pso/unk/text_80074C70.cpp
 pso/unk/text_80074E04.cpp
 pso/unk/text_80074E48.cpp
+pso/unk/text_80076760.cpp
 pso/unk/text_80076BC4.cpp
 pso/unk/text_80076BC4_80076C68.cpp
 pso/unk/text_80076BC4_80076D1C.cpp
@@ -3295,6 +3292,7 @@ pso/unk/text_8011085C.cpp
 pso/unk/text_8011491C.cpp
 pso/unk/text_80115D68.cpp
 pso/unk/text_80116D90.cpp
+pso/unk/text_80116DE8.cpp
 pso/unk/text_80117FEC.cpp
 pso/unk/text_80118164.cpp
 pso/unk/text_8011892C.cpp

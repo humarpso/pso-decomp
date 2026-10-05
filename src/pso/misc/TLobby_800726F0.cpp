@@ -101,7 +101,7 @@ void play_player_default_effect__6TLobbyFv(s32 _w0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_visible__17TWindowSubComCardFPv(u32);
 s32 get_selected_menu_value(u32);
-extern M2C_UNK lbl_8048D120[];
+M2C_UNK lbl_8048D120[3] = { 1, 0, 0 };
 extern s8 lbl_8050E208[];
 void update_challenge_retry__6TLobbyFPv(void *arg0);
 void send_45_and_close_windows__6TLobbyFv(void * _w0);
@@ -125,7 +125,7 @@ void set_field_1c__6TLobbyFPvf(u32, f32);
 void send_and_handle__6TLobbyFPvii(u32, s32, s32);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, s32);
 M2C_UNK get_window_layout_position(M2C_UNK);
-extern u8 lbl_8048D12C[];
+__declspec(section ".data") f32 lbl_8048D12C[2] = { 360.0f, 125.0f };
 extern const f32 lbl_805D9110;
 void TLobby__sub_80072BB0(Obj_80072BB0 *self);
 }
@@ -398,6 +398,162 @@ void handle_challenge_retry_confirm(void *arg0) {
         show_ctrl_and_play_effect__6TLobbyFPv((void*)(arg0));
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
     }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+extern "C" {
+s32 obj_testFlags30(void *, s32);
+
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TWindowCtrlMain__sub_8024CE58(void);
+
+void fn_8007313C(u8 *arg0);
+}
+
+extern "C" {
+
+void fn_8007313C(u8 *arg0) {
+  s32 temp_r3;
+  s32 var_r31;
+  int new_var;
+  u32 var_r30;
+  u8 *temp_r3_2;
+  temp_r3 = get_global_state__14TOKeyMachine01Fv();
+  if (temp_r3 != 0x12)
+  {
+    if (temp_r3 < 0x12)
+    {
+      if (temp_r3 != 0)
+      {
+        return;
+      }
+      goto block_4;
+    }
+  }
+  else
+  {
+    new_var = 0;
+    block_4:
+    if (TWindowCtrlMain__sub_8024CE58() != 0)
+    {
+      ((M2C_UNK (*)(void *))play_player_default_effect__6TLobbyFv)((void *) arg0);
+      var_r31 = 1;
+      var_r30 = new_var;
+      loop_6:
+      temp_r3_2 = (u8 *) ((s32 (*)(u32))get_player_by_client_id)(var_r30);
+      if ((temp_r3_2 != 0) && (obj_testFlags30(temp_r3_2, 0x02000000) != 0))
+      {
+        var_r31 = 0;
+      }
+      else
+      {
+        var_r30 += 1;
+        if (((s32) var_r30) < 4)
+        {
+          goto loop_6;
+        }
+      }
+      if (var_r31 != 0)
+      {
+        if (((s32) (*((s32 *) (((s8 *) arg0) + 0x20)))) != 0)
+        {
+          ((M2C_UNK (*)(void *))send_45_and_close_windows__6TLobbyFv)((void *) arg0);
+          ((M2C_UNK (*)(void *))show_ctrl_and_play_effect__6TLobbyFPv)((void *) arg0);
+          *((s32 *) (((s8 *) arg0) + 0x1C)) = 2;
+          return;
+        }
+        ((M2C_UNK (*)(void *))send_45_and_close_windows__6TLobbyFv)((void *) arg0);
+        ((M2C_UNK (*)(void *))play_player_default_effect__6TLobbyFv)((void *) arg0);
+        ((M2C_UNK (*)(void *))TLobby__sub_80072BB0)((void *) arg0);
+        *((s32 *) (((s8 *) arg0) + 0x1C)) = 3;
+      }
+    }
+  }
+}
+
+}
+
+#include "pso/TObjChallengeRetry.h"
+
+#include "types.h"
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 is_ready_to_draw__6TLobbyFv();
+
+void *fn_800733C4(void *arg0);
+void *__ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK __vt__18TObjChallengeRetry[];
+extern s32 lbl_805D2860;
+void *TObjChallengeRetry__ct(void *, void *);
+void *__nw__7TObjectFUl(int);
+void *fn_800733C4(void *arg0);
+}
+
+extern "C" {
+
+void run_task__18TObjChallengeRetryFv(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, s32 *, 0x20) = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    switch (temp_r0) {
+    case 0:
+        fn_8007313C((u8 *) (arg0));
+        break;
+    case 1:
+        handle_challenge_retry_confirm(arg0);
+        break;
+    case 2:
+        update_challenge_retry__6TLobbyFPv(arg0);
+        break;
+    case 3:
+        handle_loss_sequence(arg0);
+        break;
+    case 4:
+        update_destroy_countdown__6TLobbyFPv(arg0);
+        break;
+    }
+    if (is_ready_to_draw__6TLobbyFv() == 0) {
+        send_45_and_close_windows__6TLobbyFv(arg0);
+        close_window_2c__6TLobbyFPv(arg0);
+        TLobby__sub_80072B70(arg0);
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
+
+TObjChallengeRetry::~TObjChallengeRetry() {
+    if (m_20 != 0 && m_24 == 0) {
+        TLobby__sub_80072308(0);
+    }
+}
+
+void *TObjChallengeRetry__ct(void *arg0, void *parent) {
+    __ct__7TObjectFP7TObject(arg0, parent);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjChallengeRetry;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2860;
+    M2C_FIELD(arg0, s32 *, 0x20) = ((s32 (*)(void *))is_challenge_lobby__6TLobbyFv)(arg0);
+    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    return arg0;
+}
+
+void *fn_800733C4(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x34);
+    if (o != NULL) {
+        o = TObjChallengeRetry__ct(o, arg0);
+    }
+    return o;
 }
 
 }

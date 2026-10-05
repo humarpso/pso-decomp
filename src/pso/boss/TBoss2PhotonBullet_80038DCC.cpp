@@ -54,11 +54,10 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0);
 void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
-extern M2C_UNK __vt__18TBoss2PhotonBullet[];
+extern void *__vt__18TBoss2PhotonBullet[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 fn_800BC4C8(void *, void *, void *);
 extern s32 lbl_805D26DC;
-extern const f32 lbl_805D8520;
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0);
 }
 
@@ -124,7 +123,7 @@ void run_task__18TBoss2PhotonBulletFv(u8 *arg0) {
 
 void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TBoss2PhotonBullet;
+        M2C_FIELD(arg0, void ***, 0x18) = __vt__18TBoss2PhotonBullet;
         if (M2C_FIELD(arg0, void **, 0xE4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xE4)); M2C_FIELD(arg0, M2C_UNK *, 0xE4) = 0; }
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -135,21 +134,128 @@ void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
 }
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0) {
     fn_800BC4C8((void *) (arg0), (void *) (arg1), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TBoss2PhotonBullet;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__18TBoss2PhotonBullet;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26DC;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0xC0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg4));
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = 3.0f;
-    M2C_FIELD(arg0, f32 *, 0xCC) = lbl_805D8520;
-    M2C_FIELD(arg0, f32 *, 0xD0) = lbl_805D8520;
-    M2C_FIELD(arg0, f32 *, 0xD4) = lbl_805D8520;
+    M2C_FIELD(arg0, f32 *, 0xCC) = (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xD0) = (0.0f);
+    M2C_FIELD(arg0, f32 *, 0xD4) = (0.0f);
     M2C_FIELD(arg0, f32 *, 0xB0) = farg0;
     M2C_FIELD(arg0, s32 *, 0xD8) = 0;
     M2C_FIELD(arg0, s32 *, 0xDC) = 0;
-    M2C_FIELD(arg0, f32 *, 0xE0) = lbl_805D8520;
+    M2C_FIELD(arg0, f32 *, 0xE0) = (0.0f);
     M2C_FIELD(arg0, s32 *, 0xE4) = 0;
     return arg0;
 }
 
+}
+
+struct Rec_80039288 { s32 a, b, c; f32 d; };
+
+typedef struct Pad_80039140 {
+    u8 pad0[0x10];
+    void *parent;
+    u8 pad14[8];
+    s32 unk1C;
+    u8 pos[8];
+    u8 unk28[4];
+    s32 level;
+    s32 shots;
+    s32 timer;
+} Pad_80039140;
+
+struct S_80039288 {
+    s32 f0;
+    u8 pad4[0x14];
+    void *vt;
+    s32 f1c;
+    u8 v20[8];
+    u8 v28[4];
+    s32 f2c, f30, f34;
+};
+
+extern "C" {
+void __ct__7TObjectFP7TObject(void *, void *);
+
+void rotate_xz_pair_by_angle(void *, void *, s32);
+extern Rec_80039288 lbl_80435B08[];
+extern void *__vt__15TBoss2PhotonPad[];
+extern s32 lbl_805D26D8;
+void queue_destruction__7TObjectFv(void *);
+void *get_instance__13TBoss2DeRolLeFv(void);
+void *__nw__7TObjectFUl(u32);
+void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self);
+S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4);
+}
+
+extern "C" {
+
+void render__15TBoss2PhotonPadFv(void);
+void __dt__7TObjectFv(void *, s16);
+void render_shadows__7TObjectFv(void);
+void *__dt__15TBoss2PhotonPadFv(void *self, s16 arg1);
+
+void render__15TBoss2PhotonPadFv(void) {  }
+void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self) {
+    void *inst;
+    void *p;
+
+    self->timer--;
+    if (self->timer <= 0) {
+        inst = get_instance__13TBoss2DeRolLeFv();
+        if (inst != NULL) {
+            p = __nw__7TObjectFUl(0xE8);
+            if (p != NULL) {
+                ((void *(*)(void *, void *, void *, s32, void *, f32))TBoss2PhotonBullet__ct)(p, self->parent, inst, self->unk1C, self->pos, (1.5f) * lbl_80435B08[self->level].d);
+            }
+        }
+        self->timer = lbl_80435B08[self->level].b;
+        rotate_xz_pair_by_angle(self->pos, self->unk28, lbl_80435B08[self->level].c / lbl_80435B08[self->level].a);
+        self->shots--;
+        if (self->shots == 0) {
+            queue_destruction__7TObjectFv(self);
+        }
+    }
+}
+void *__dt__15TBoss2PhotonPadFv(void *self, s16 arg1) {
+    if (self != NULL) {
+        M2C_FIELD(self, void ***, 0x18) = __vt__15TBoss2PhotonPad;
+        __dt__7TObjectFv(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4) {
+    __ct__7TObjectFP7TObject(o, parent);
+    o->vt = (void *)__vt__15TBoss2PhotonPad;
+    o->f0 = lbl_805D26D8;
+    o->f1c = arg2;
+    o->f2c = arg4;
+    VecCopy__FP3VecPC3Vec(o->v20, arg3);
+    rotate_xz_pair_by_angle(o->v20, o->v28, -(lbl_80435B08[o->f2c].c / 2));
+    o->f30 = lbl_80435B08[o->f2c].a;
+    o->f34 = 0;
+    return o;
+}
+
+}
+
+extern "C" {
+void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124(); void update_object_view_visibility(); void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568(); void TObjPlayer__sub_800BC394();
+void area_attack_deliver_direct(); void TObjPlayer__sub_800BC220(); void TObjPlayer__sub_800BC1F0();
+void area_attack_deliver_physical(); void dispatch_vt15__10TObjPlayerFPvPv(); void area_attack_apply_recoil();
+void area_attack_receive_direct(); void apply_hit_if_active__10TObjPlayerFPvPvPv();
+void *__vt__18TBoss2PhotonBullet[23] = {
+    0, 0, (void *)__dt__18TBoss2PhotonBulletFv, (void *)run_task__18TBoss2PhotonBulletFv, (void *)render__18TBoss2PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568, (void *)TObjPlayer__sub_800BC394, (void *)area_attack_deliver_direct, (void *)TObjPlayer__sub_800BC220, (void *)TObjPlayer__sub_800BC1F0, (void *)area_attack_deliver_physical, (void *)dispatch_vt15__10TObjPlayerFPvPv, (void *)area_attack_apply_recoil, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__10TObjPlayerFPvPvPv
+};
+void *__vt__15TBoss2PhotonPad[6] = {
+    0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)render__15TBoss2PhotonPadFv, (void *)render_shadows__7TObjectFv
+};
 }

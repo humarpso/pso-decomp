@@ -11,7 +11,7 @@ s32 get_state_flag__9TMainTaskFv();
 void render_state__18TAdLoadQuestCellGCFPv(void *arg0);
 s32 __nw__7TObjectFUl(int);
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
-extern TAdLoadQuestCellGC *lbl_804EFF38[3];
+__declspec(section ".data") TAdLoadQuestCellGC *lbl_804EFF38[3] = { 0, 0, 0 };
 s32 TAdLoadQuestGC__sub_80349B20(s32 arg0, s32 arg1);
 }
 

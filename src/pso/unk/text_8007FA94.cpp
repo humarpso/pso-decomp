@@ -24,7 +24,7 @@ M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
 M2C_UNK play_cue_stream_file(void *);
 extern u8 lbl_80438D40[];
 extern u8 lbl_80438D58[];
-extern u8 lbl_8048DFA0[];
+f32 lbl_8048DFA0[3] = { 320.0f, 221.0f, 0.5f };
 void fn_8007FB14(Obj_8007FB14 *self);
 }
 
@@ -99,4 +99,39 @@ void fn_8007FB14(Obj_8007FB14 *self) {
     }
 }
 
+}
+
+#include "pso/misc/TDuelEffectCtrl.h"
+
+extern "C" {
+extern TObject* tl_clipout;
+extern const char* lbl_805D28D8;
+}
+
+void TDuelEffectCtrl::render() {}
+
+void TDuelEffectCtrl::run_task() {
+    switch (m_state) {
+    case 0:
+        fn_8007FB14((Obj_8007FB14 *)this);
+        break;
+    case 1:
+        fn_8007FA94((Obj_8007FA94 *)this);
+        break;
+    }
+    ++m_frameCount;
+}
+
+TDuelEffectCtrl::~TDuelEffectCtrl() {
+    if (m_effect != NULL) {
+        queue_destruction__7TObjectFv(m_effect);
+        m_effect = NULL;
+    }
+}
+
+TDuelEffectCtrl::TDuelEffectCtrl(TObject* parent, u8 state) : TObject(parent) {
+    m_name = lbl_805D28D8;
+    m_state = state;
+    m_frameCount = 0;
+    m_effect = new TObject(tl_clipout);
 }
