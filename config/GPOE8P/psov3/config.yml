@@ -516,6 +516,7 @@ force_active:
   - init_text_window_layout
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
+  - initialize_from_placement__13TObjRaderIconFv
   - initialize_player_data__10TObjPlayerFPv
   - inpTranslateExCtrl
   - invoke_callback__10TItemTimerFPv

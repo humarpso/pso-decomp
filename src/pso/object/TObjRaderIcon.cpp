@@ -28,10 +28,10 @@ s32 TPhotonMagicSquare__sub_801A2640(void *);
 extern M2C_UNK __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void submit_radar_marker__13TObjRaderIconFv(void *, u32, u16, s32, s32, f32);
+void add_radar_scaled_gate(void *, u32, u16, s32, s32, f32);
 u8 is_current_floor_switch_set(u16);
 void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
-void TObjRaderIcon__sub_80197200(u8 *arg0);
+void initialize_from_placement__13TObjRaderIconFv(u8 *arg0);
 }
 
 extern "C" {
@@ -69,18 +69,18 @@ void run_task__13TObjRaderIconFv(Icon_80197110 *arg0) {
             }
         }
         if (all == 1) {
-            submit_radar_marker__13TObjRaderIconFv(arg0->pos, 0xFF00FF00, arg0->f60, 0, 0, arg0->f9C);
+            add_radar_scaled_gate(arg0->pos, 0xFF00FF00, arg0->f60, 0, 0, arg0->f9C);
         } else {
-            submit_radar_marker__13TObjRaderIconFv(arg0->pos, 0xFFFF0000, arg0->f60, 0, 0, arg0->f9C);
+            add_radar_scaled_gate(arg0->pos, 0xFFFF0000, arg0->f60, 0, 0, arg0->f9C);
         }
         break;
     case 1:
-        submit_radar_marker__13TObjRaderIconFv(arg0->pos, arg0->fA0, arg0->f60, 0, 0, arg0->f9C);
+        add_radar_scaled_gate(arg0->pos, arg0->fA0, arg0->f60, 0, 0, arg0->f9C);
         break;
     }
 }
 
-void TObjRaderIcon__sub_80197200(u8 *arg0) {
+void initialize_from_placement__13TObjRaderIconFv(u8 *arg0) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x90) = 0;
     M2C_FIELD(arg0, s32 *, 0x94) = 1;
@@ -131,7 +131,7 @@ u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019733C___vt__13TObjRaderIcon *)&__vt__13TObjRaderIcon).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3418;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    TObjRaderIcon__sub_80197200((u8 *)((void *) (arg0)));
+    initialize_from_placement__13TObjRaderIconFv((u8 *)((void *) (arg0)));
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }
