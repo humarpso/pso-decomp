@@ -127,16 +127,11 @@ pso/boss/TBoss1Dragon_800BC3C4.cpp
 pso/boss/TBoss2DeRolLe_80034A14.cpp
 pso/boss/TBoss2Fin.cpp
 pso/boss/TBoss2Mine.cpp
-pso/boss/TBoss2Mine_80037C8C.cpp
-pso/boss/TBoss2Mine_80037CE4.cpp
-pso/boss/TBoss2Mine_80038140.cpp
-pso/boss/TBoss2Mine_800389E4.cpp
-pso/boss/TBoss2Mine_80038B40.cpp
+pso/boss/TBoss2Mine_800375C0.cpp
 pso/boss/TBoss2PhotonBullet_80038DCC.cpp
 pso/boss/TBoss3VoloptCore.cpp
 pso/boss/TBoss3VoloptCtrl.cpp
 pso/boss/TBoss3VoloptHiraisin.cpp
-pso/boss/TBoss3VoloptHiraisin_8004155C.cpp
 pso/boss/TBoss3VoloptMonitor.cpp
 pso/boss/TBoss3VoloptP01.cpp
 pso/boss/TBoss3Volopt_8003F3F8.cpp
@@ -246,7 +241,6 @@ pso/boss/TBoss8Dragon_8005D860.cpp
 pso/boss/TBoss8Dragon_80067034.cpp
 pso/boss/TBoss8Dragon_800BB650.cpp
 pso/boss/TBoss8Dragon_800BC53C.cpp
-pso/boss/TBoss8Dragon_801E3CFC.cpp
 pso/boss/TBoss8Dragon_8028A8F8.cpp
 pso/boss/TBoss8Dragon_802F3348.cpp
 pso/boss/TBoss8Dragon_802F3504.cpp
@@ -471,7 +465,6 @@ pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
-pso/enemy/TObjEneRecobox.cpp
 pso/enemy/TObjEneRecon.cpp
 pso/enemy/TObjEneRecon_8029E89C.cpp
 pso/enemy/TObjEneRecon_8029E89C_8029EB40.cpp
@@ -1829,7 +1822,6 @@ pso/misc/TWindowCtrl_80269FB0.cpp
 pso/misc/TWindowCtrl_8026AD44.cpp
 pso/misc/TWindowCtrl_8026F6A4.cpp
 pso/misc/TWindowCtrl_80271DFC.cpp
-pso/misc/TWindowDD_801E32E8.cpp
 pso/misc/TWindowDD_8020C2DC.cpp
 pso/misc/TWindowDD_8024662C.cpp
 pso/misc/TWindowDD_80246F8C.cpp
@@ -2241,6 +2233,7 @@ pso/object/TObjCity_Season_ValentineHeart.cpp
 pso/object/TObjCity_Season_XmasTree.cpp
 pso/object/TObjCity_Season_XmasWreath.cpp
 pso/object/TObjCollision.cpp
+pso/object/TObjDFDemo2.cpp
 pso/object/TObjDFDemo3.cpp
 pso/object/TObjDFDemo4.cpp
 pso/object/TObjDFDemo5.cpp
@@ -2791,7 +2784,6 @@ pso/player/TObjPlayer_801D9E08.cpp
 pso/player/TObjPlayer_801D9E10.cpp
 pso/player/TObjPlayer_801D9E40.cpp
 pso/player/TObjPlayer_801E2D1C.cpp
-pso/player/TObjPlayer_801E3D34.cpp
 pso/player/TObjPlayer_801E483C.cpp
 pso/player/TObjPlayer_802034EC.cpp
 pso/player/TObjPlayer_8022602C.cpp
@@ -3170,7 +3162,6 @@ pso/unk/text_800483F8.cpp
 pso/unk/text_8004AA04.cpp
 pso/unk/text_8004AB90.cpp
 pso/unk/text_8004D9A8.cpp
-pso/unk/text_8004F030.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F5F8.cpp
 pso/unk/text_8004F904.cpp

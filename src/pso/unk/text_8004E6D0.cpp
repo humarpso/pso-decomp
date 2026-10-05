@@ -32,7 +32,6 @@ void clear_global_state__10TObjPlayerFv();
 extern const f32 lbl_805D89B8;
 extern const f32 lbl_805D89BC;
 extern const f32 lbl_805D89C0;
-void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0);
 }
 
 extern "C" {
@@ -48,38 +47,6 @@ void * create_demo1__14TBoss4DarkFalzFPvPvPv(void *arg0, void *arg1, void *arg2)
         o = TObjDFDemo1__ct(o, arg0, arg1, arg2);
     }
     return o;
-}
-void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0) {
-    f32 alpha;
-    s32 i;
-    alpha = lbl_805D89B8;
-    if (arg0->fa8 == 0) {
-        if (arg0->fbc >= 0xF0) {
-            return;
-        }
-        if (arg0->fbc > 0xC8) {
-            alpha = (f32)(0xF0 - arg0->fbc) / lbl_805D89BC;
-        }
-    }
-    if (alpha <= lbl_805D89C0) {
-        return;
-    }
-    if (alpha < 1.0f) {
-        TObjPlayer__sub_80052390(alpha);
-    }
-    push_matrix();
-    set_global_flag__10TObjPlayerFv();
-    post_translate_matrix(arg0->fac);
-    rotate_matrix_y(0, arg0->fb8);
-    for (i = 0; i < 2; i++) {
-        set_global_param__8TObjFishFi(arg0->recs[i].b);
-        draw_model_motion(arg0->recs[i].a, arg0->recs[i].c, arg0->fc0);
-    }
-    clear_global_state__10TObjPlayerFv();
-    pop_matrix();
-    if (alpha < 1.0f) {
-        sync_player_globals__10TObjPlayerFv();
-    }
 }
 
 }

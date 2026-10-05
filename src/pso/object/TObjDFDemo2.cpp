@@ -1,11 +1,40 @@
 #include "types.h"
+#pragma readonly_strings on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+typedef struct Rec_8004E918 {
+    s32 a;
+    s32 b;
+    s32 c;
+} Rec_8004E918;
+
+typedef struct Obj_8004E918 {
+    u8 pad0[0x90];
+    Rec_8004E918 recs[2];
+    s32 fa8;
+    f32 fac[3];
+    s32 fb8;
+    s32 fbc;
+    f32 fc0;
+} Obj_8004E918;
+
+typedef struct Obj_8004EA2C {
+    u8 pad0[0xA8];
+    s32 fa8;
+    f32 fac[3];
+    u8 padb8[4];
+    s32 ftimer;
+    f32 fc0;
+} Obj_8004EA2C;
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 typedef s32 M2C_UNK;
 extern "C" {
+void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0);
+void fn_8004EA2C(Obj_8004EA2C *arg0);
+void queue_event_1D__12TBoss3VoloptFss(s16, s16);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
 u32 spawn_particle_effect(void *, M2C_UNK);
@@ -13,8 +42,6 @@ u32 create_particle_emitter(void *, M2C_UNK);
 M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, M2C_UNK);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-extern const f32 lbl_805D89D0;
-extern const f32 lbl_805D89DC;
 void TBoss4Type2__sub_8004EE74(u8 *arg0);
 M2C_UNK sync_player_globals__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_80052390(f32);
@@ -54,10 +81,7 @@ s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
-extern Pose_8004EB78 lbl_80437384;
 extern s32 lbl_804867C0[];
-extern s32 lbl_805D2788;
-extern const f32 lbl_805D89CC;
 }
 
 extern "C" {
@@ -70,15 +94,16 @@ void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void TLobby__sub_801A1FD8();
-void TObjPlayer__sub_8004E918();
 void TObjRoomId__sub_801A1E2C();
 void TParticleCtrl__sub_801A2124();
 void apply_object_set_data();
 void classify_actor_view_detail();
-void fn_8004EA2C();
 void render_shadows__7TObjectFv();
 void reset_motion_fields__10TObjPlayerFPv();
 void update_object_view_visibility();
+
+const char *lbl_805D2788 = "TObjDFDemo2";
+__declspec(section ".rodata") Pose_8004EB78 lbl_80437384 = {0, 0, 0};
 __declspec(section ".data") void *lbl_80485678[2] = {
     (void *)0x12, (void *)0x11,
 };
@@ -91,6 +116,65 @@ void *lbl_8048568C[13] = {
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
+
+void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0) {
+    f32 alpha;
+    s32 i;
+    alpha = 1.0f;
+    if (arg0->fa8 == 0) {
+        if (arg0->fbc >= 0xF0) {
+            return;
+        }
+        if (arg0->fbc > 0xC8) {
+            alpha = (f32)(0xF0 - arg0->fbc) / 40.0f;
+        }
+    }
+    if (alpha <= 0.0f) {
+        return;
+    }
+    if (alpha < 1.0f) {
+        TObjPlayer__sub_80052390(alpha);
+    }
+    push_matrix();
+    set_global_flag__10TObjPlayerFv();
+    post_translate_matrix(arg0->fac);
+    rotate_matrix_y(0, arg0->fb8);
+    for (i = 0; i < 2; i++) {
+        set_global_param__8TObjFishFi(arg0->recs[i].b);
+        draw_model_motion(arg0->recs[i].a, arg0->recs[i].c, arg0->fc0);
+    }
+    clear_global_state__10TObjPlayerFv();
+    pop_matrix();
+    if (alpha < 1.0f) {
+        sync_player_globals__10TObjPlayerFv();
+    }
+}
+void fn_8004EA2C(Obj_8004EA2C *arg0) {
+    void *e;
+    if (arg0->ftimer == 0x90) {
+        e = (void *)spawn_particle_effect(arg0->fac, 0xC3);
+        if (e != NULL) {
+            set_flags__11TBoss4Type2FPvUi(e, 0x40);
+        }
+        play_sound_effect(0x4003AD15, arg0->fac, 0, 1);
+        queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
+    }
+    while (arg0->ftimer >= 0xB4) {
+        if (arg0->fa8 != 0 || arg0->ftimer <= 0xDC) {
+            e = (void *)spawn_particle_effect(arg0->fac, 0x14E);
+            if (e != NULL) {
+                set_flags__11TBoss4Type2FPvUi(e, 0x40);
+            }
+        }
+        break;
+    }
+    if ((arg0->fc0 += 0.5f) > 119.0f) {
+        arg0->fc0 = 119.0f;
+    }
+    if (++arg0->ftimer >= 0x118) {
+        queue_destruction__7TObjectFv(arg0);
+    }
+}
 
 void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -114,7 +198,7 @@ void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
 
     TPhotonMagicSquare__sub_801A2640(self, arg1);
     self->vt18 = (u8 *)lbl_8048568C;
-    self->vt0 = lbl_805D2788;
+    self->vt0 = (s32) lbl_805D2788;
     VecCopy__FP3VecPC3Vec(self->pos, arg2);
     self->b8 = arg3;
     self->a8 = arg4;
@@ -126,7 +210,7 @@ void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
         ((s32 *)self)[i * 3 + 0x25] = TObjFish__sub_8001EDB0(cnt, k);
         ((s32 *)self)[i * 3 + 0x26] = get_bml_motion(cnt, ((s32 *)lbl_80485678)[i]);
     }
-    self->c0 = lbl_805D89CC;
+    self->c0 = -0.5f;
     activate_camera_mode(5);
     {
         Pose_8004EB78 p = lbl_80437384;
@@ -149,86 +233,5 @@ void * create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *arg0, void *arg1, void *arg
     }
     return o;
 }
-
-void TObjPlayer__sub_8004ED28(u8 *arg0) {
-    f32 a = 1.0f;
-    s32 t = M2C_FIELD(arg0, s32 *, 0xB0);
-    if (t < 5) {
-        a = (f32)t / 5.0f;
-    } else if (t > 0x86) {
-        a = (f32)(0x8B - t) / 5.0f;
-    }
-    if (a <= 0.0f) {
-        return;
-    }
-    if (a < 1.0f) {
-        TObjPlayer__sub_80052390(a);
-    }
-    push_matrix();
-    set_global_flag__10TObjPlayerFv();
-    post_translate_matrix(arg0 + 0xA0);
-    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xAC));
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x98));
-    TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0xB8));
-    func_803e11e8__FUl(1);
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0x94), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xB4));
-    clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0xB8));
-    func_803e11e8__FUl(2);
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0x94), M2C_FIELD(arg0, s32 *, 0x9C), M2C_FIELD(arg0, f32 *, 0xB4));
-    func_803e11f0__Fv();
-    clear_global_state__10TObjPlayerFv();
-    pop_matrix();
-    if (a < 1.0f) {
-        sync_player_globals__10TObjPlayerFv();
-    }
-}
-
-#pragma push
-#pragma opt_common_subs off
-void TBoss4Type2__sub_8004EE74(u8 *arg0) {
-    f32 cur;
-    f32 nxt;
-    s32 temp_r0;
-    s32 temp_r0_2;
-    u32 temp_r3;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) >= 0x5A) {
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x90) != 0U) {
-            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x90));
-            M2C_FIELD(arg0, u32 *, 0x90) = 0U;
-        }
-    } else {
-        temp_r3 = M2C_FIELD(arg0, u32 *, 0x90);
-        if (temp_r3 == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x90) = create_particle_emitter(arg0 + 0xBC, 0x1BD);
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x90) != 0U) {
-                set_flags__11TBoss4Type2FPvUi((void *) M2C_FIELD(arg0, u32 *, 0x90), 0x40);
-            }
-        } else if (temp_r3 != 0U) {
-            copy_pos__11TNowLoadingFPvPv((void *) temp_r3, arg0 + 0xBC);
-        }
-    }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) == 0x86) {
-        temp_r3 = spawn_particle_effect(arg0 + 0xA0, 0x9B);
-        if (temp_r3 != 0U) {
-            set_flags__11TBoss4Type2FPvUi((void *) temp_r3, 0x40);
-        }
-    }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);
-    if ((temp_r0 == 0x28) || (temp_r0 == 0x3C)) {
-        play_sound_effect(0x4003D03A, arg0 + 0xA0, 0, 1);
-    }
-    cur = M2C_FIELD(arg0, f32 *, 0xB4);
-    nxt = cur + lbl_805D89D0;
-    M2C_FIELD(arg0, f32 *, 0xB4) = nxt;
-    if (nxt > lbl_805D89DC) {
-        M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805D89DC;
-    }
-    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xB0) + 1;
-    M2C_FIELD(arg0, s32 *, 0xB0) = temp_r0_2;
-    if (temp_r0_2 >= 0x8C) {
-        queue_destruction__7TObjectFv(arg0);
-    }
-}
-#pragma pop
 
 }

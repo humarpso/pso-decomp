@@ -385,9 +385,9 @@ extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_804EC6B0[7];
-extern void *lbl_804EC6CC[15];
+extern void *lbl_804EC6CC[11];
 extern void *lbl_804EC708[7];
-extern void *lbl_804EC724[15];
+extern void *lbl_804EC724[11];
 void *lbl_804EC668[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -401,21 +401,25 @@ void *lbl_804EC6B0[7] = {
     (void *)&lbl_80476118, (void *)&lbl_80476124, (void *)&lbl_80476134, (void *)&lbl_80476144,
     (void *)&lbl_8047615C, (void *)&lbl_80476174, (void *)0x0,
 };
-void *lbl_804EC6CC[15] = {
+void *lbl_804EC6CC[11] = {
     (void *)&lbl_8047618C, (void *)&lbl_804761A4, (void *)&lbl_804761C0, (void *)&lbl_804761D8,
     (void *)&lbl_804761F4, (void *)&lbl_80476208, (void *)&lbl_80476220, (void *)&lbl_80476234,
-    (void *)&lbl_8047624C, (void *)&lbl_80476260, (void *)0x0, (void *)&lbl_80476274,
-    (void *)&lbl_804EC6B0, (void *)&lbl_804EC6CC, (void *)0x6000a,
+    (void *)&lbl_8047624C, (void *)&lbl_80476260, (void *)0x0,
+};
+void *lbl_804EC6F8[4] = {
+    (void *)&lbl_80476274, (void *)&lbl_804EC6B0, (void *)&lbl_804EC6CC, (void *)0x6000a,
 };
 void *lbl_804EC708[7] = {
     (void *)&lbl_80476288, (void *)&lbl_80476298, (void *)&lbl_80476134, (void *)&lbl_80476144,
     (void *)&lbl_8047615C, (void *)&lbl_80476174, (void *)0x0,
 };
-void *lbl_804EC724[15] = {
+void *lbl_804EC724[11] = {
     (void *)&lbl_8047618C, (void *)&lbl_804761A4, (void *)&lbl_804761C0, (void *)&lbl_804761D8,
     (void *)&lbl_804761F4, (void *)&lbl_80476208, (void *)&lbl_80476220, (void *)&lbl_80476234,
-    (void *)&lbl_8047624C, (void *)&lbl_80476260, (void *)0x0, (void *)&lbl_804762AC,
-    (void *)&lbl_804EC708, (void *)&lbl_804EC724, (void *)0x6000a,
+    (void *)&lbl_8047624C, (void *)&lbl_80476260, (void *)0x0,
+};
+void *lbl_804EC750[4] = {
+    (void *)&lbl_804762AC, (void *)&lbl_804EC708, (void *)&lbl_804EC724, (void *)0x6000a,
 };
 void *lbl_804EC760[16] = {
     (void *)0x10000, (void *)0x1, (void *)0x3dcccccd, (void *)0x0,
@@ -582,4 +586,151 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     return arg0;
 }
 
+}
+
+#define TObjEneRecobox__data_805D6B20 (*(int *)&TObjEneRecobox__data_805D6B20)
+
+extern "C" {
+s32 get_global_state__14TOKeyMachine01Fv();
+u32 TObjEneRecobox__sub_8032013C(u32 arg0);
+}
+
+extern "C" {
+
+int TObjEneRecobox__sub_803201D0(void);
+
+u32 TObjEneRecobox__sub_8032013C(u32 arg0) {
+    u32 ret;
+    if (((s32)(arg0 & 0xBFFF00FF) >> 16 << 16) != 0x30000) {
+        return arg0;
+    }
+    ret = get_global_state__14TOKeyMachine01Fv();
+    switch (ret) {
+    case 0x22:
+        ret = arg0 - 0x40010000 + 0x4E19;
+        break;
+    case 0x23:
+        ret = arg0 - 0x40010000 + 0x4E28;
+        break;
+    default:
+        return arg0;
+    }
+    ret |= arg0 & 0x8FFFFF00;
+    return ret;
+}
+
+int TObjEneRecobox__sub_803201D0(void) {  return TObjEneRecobox__data_805D6B20; }
+
+}
+
+#undef TObjEneRecobox__data_805D6B20
+
+#define TObjEneRecobox__data_805D6B20 (*(u32 *)&TObjEneRecobox__data_805D6B20)
+#define TObjEneRecobox__ct ((void *(*)(void *, void *, void *))TObjEneRecobox__ct)
+
+extern "C" {
+
+void *TObjEneRecobox__create(void *arg0);
+void release_static_instance__14TObjEneRecoboxFv(void);
+void TLobby__sub_8001FE7C(void*, int);
+void *__nw__7TObjectFUl(int);
+M2C_UNK release_static_instance__12TObjEneReconFv();
+
+void release_static_instance__14TObjEneRecoboxFv(void) {
+    release_static_instance__12TObjEneReconFv();
+    if ((u32) TObjEneRecobox__data_805D6B20 != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjEneRecobox__data_805D6B20, 1);
+        TObjEneRecobox__data_805D6B20 = 0U;
+    }
+}
+
+extern void *tl_04;
+
+void *TObjEneRecobox__create(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x4F4);
+    if (o != NULL) {
+        o = TObjEneRecobox__ct(o, tl_04, arg0);
+    }
+    return o;
+}
+
+extern "C" {
+struct V3_80320260 { f32 x, y, z; };
+struct Spawn_80320260 { s32 a, b, c, d; };
+struct Inner_80320260 { u8 pad[0x18]; s32 f18; s32 f1C; };
+struct Box_80320260 { u8 pad[0x42C]; Inner_80320260 *f42C; s32 f430; };
+struct Sub_80320260 { u8 pad[0xC]; f32 f0C; };
+struct Area_80320260 { u8 pad[0x1C]; Sub_80320260 sub; u8 pad2[0x90 - 0x2C]; u8 f90[0xE8 - 0x90]; u8 fE8[4]; };
+
+s32 is_split_screen(void *);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
+s32 register_boss__6TLobbyFPv(s32);
+u32 load_enemy_bml_resource(void *);
+void spawn_npc_enemy__6TLobbyFsiiiff(s16, s32, s32, void *, f32, f32);
+void TObjEneRecon__sub_8031E708(void);
+extern Spawn_80320260 lbl_804762D4;
+extern "C" u8 lbl_80476118[];
+extern "C" u8 lbl_80476124[];
+extern "C" u8 lbl_80476134[];
+extern "C" u8 lbl_80476144[];
+extern "C" u8 lbl_8047615C[];
+extern "C" u8 lbl_80476174[];
+extern "C" u8 lbl_8047618C[];
+extern "C" u8 lbl_804761A4[];
+extern "C" u8 lbl_804761C0[];
+extern "C" u8 lbl_804761D8[];
+extern "C" u8 lbl_804761F4[];
+extern "C" u8 lbl_80476208[];
+extern "C" u8 lbl_80476220[];
+extern "C" u8 lbl_80476234[];
+extern "C" u8 lbl_8047624C[];
+extern "C" u8 lbl_80476260[];
+extern "C" u8 lbl_80476274[];
+extern "C" u8 lbl_80476288[];
+extern "C" u8 lbl_80476298[];
+extern "C" u8 lbl_804762AC[];
+#undef lbl_804EC684
+#define lbl_804EC684 (*(Sub_80320260 *)lbl_804EC684)
+extern V3_80320260 lbl_80543000;
+extern s32 lbl_805D6B10;
+extern s32 lbl_805D6B14;
+extern s32 lbl_805D6B18;
+extern s32 lbl_805D6B1C;
+extern const f32 lbl_805DF46C;
+
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline f32 getf_80320260(Sub_80320260 *p) { return p->f0C; }
+void TObjEneRecobox__sub_80320260(void) {
+    Box_80320260 *box;
+
+    lbl_80543000.x = lbl_805DF46C;
+    lbl_80543000.y = lbl_805DF46C;
+    lbl_80543000.z = lbl_805DF46C;
+    {
+        u32 res;
+        if (is_split_screen(&lbl_80543000) != 0) {
+            res = load_enemy_bml_resource(lbl_804EC750);
+        } else {
+            res = load_enemy_bml_resource(lbl_804EC6F8);
+        }
+        TObjEneRecobox__data_805D6B20 = res;
+    }
+    lbl_805D6B10 = register_boss__6TLobbyFPv(0x41);
+    lbl_805D6B14 = dispatch_shared_handler_b__6TLobbyFPv(0x41);
+    lbl_805D6B18 = register_object__6TLobbyFPv(0x41);
+    lbl_805D6B1C = dispatch_shared_handler_a__6TLobbyFPv(0x41);
+    TObjEneRecon__sub_8031E708();
+    {
+        Sub_80320260 *sp = &lbl_804EC684;
+        Spawn_80320260 s = lbl_804762D4;
+        box = (Box_80320260 *)TObjEneRecobox__data_805D6B20;
+        s.a = box->f430;
+        spawn_npc_enemy__6TLobbyFsiiiff(0xD, box->f42C->f18, box->f42C->f1C, &s, getf_80320260(sp), lbl_805DF46C);
+    }
+}
+
+}
 }
