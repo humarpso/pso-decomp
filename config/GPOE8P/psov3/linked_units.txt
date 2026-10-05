@@ -1365,10 +1365,8 @@ pso/misc/TOBind_80158608.cpp
 pso/misc/TOBind_801586B8.cpp
 pso/misc/TOBiwaMushi.cpp
 pso/misc/TOBoss4.cpp
-pso/misc/TOBoss4Bird.cpp
 pso/misc/TOBoss4Rock.cpp
 pso/misc/TOBoss4Rock_8035A7FC.cpp
-pso/misc/TOBoss4Tower.cpp
 pso/misc/TOCakeshopCave01.cpp
 pso/misc/TOCapsuleAncient01.cpp
 pso/misc/TOCapsuleLabo.cpp
@@ -2826,9 +2824,6 @@ pso/player/TObjPlayer_8032DA84_8032DE2C.cpp
 pso/player/TObjPlayer_8032DA84_8032DEB4.cpp
 pso/player/TObjPlayer_8032DA84_8032DF74.cpp
 pso/player/TObjPlayer_8032E4C8.cpp
-pso/player/TObjPlayer_803302D8.cpp
-pso/player/TObjPlayer_803302D8_803302D8.cpp
-pso/player/TObjPlayer_803302D8_80330384.cpp
 pso/player/TObjPlayer_8033C7C8.cpp
 pso/player/TObjPlayer_8033D324.cpp
 pso/player/TObjPlayer_8033E910.cpp

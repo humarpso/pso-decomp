@@ -1,5 +1,93 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+struct Vec_8015959C;
+extern "C" {
+s32 TObjFish__sub_8001EDB0(s32,s32);
+s32 get_bml_model(s32,s32);
+M2C_UNK rotate_matrix_y(int,int);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK draw_ginja_object(int);
+void* alloc_buffer__11TOBoss4RockFPv(s32);
+void TOBoss4__ct(void*,void*);
+void VecCopy__FP3VecPC3Vec(Vec_8015959C*,Vec_8015959C*);
+u8* TOBoss4Bird__ct(u8*,s32);
+extern M2C_UNK __vt__11TOBoss4Bird[];
+}
+#include "types.h"
+extern "C" {
+extern const u32 lbl_805DB310 = 0x44FA0000;
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#pragma fp_contract on
+struct Vec_801589E8 { f32 x, y, z; };
+struct Rot_801589E8 { s32 x, y, z; };
+struct Rock_801589E8 {
+    u8 pad0[0x6C];
+    f32 f6c;
+    u8 pad70[0x98 - 0x70];
+    f32 spread;
+    s32 count;
+    s32 *models;
+    s32 *params;
+    Vec_801589E8 *positions;
+    f32 *speeds;
+    Rot_801589E8 *rots;
+    Rot_801589E8 *rotspd;
+};
+
+extern "C" {
+
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 rand();
+extern s32 lbl_805D58A8;
+
+#pragma push
+#pragma dont_inline off
+#pragma auto_inline off
+#pragma inline_depth(2)
+inline void respawn_801589E8(Rock_801589E8 *self, s32 i) {
+    f32 r = (4.0f) * ((3.0517578e-05f) * (f32)rand());
+    f32 base;
+    self->models[i] = get_bml_model(lbl_805D58A8, (s32)r);
+    self->params[i] = TObjFish__sub_8001EDB0(lbl_805D58A8, (s32)r);
+    self->positions[i].x = self->spread * ((3.0517578e-05f) * (f32)rand());
+    self->positions[i].y = (0.0f);
+    self->positions[i].z = self->spread * ((3.0517578e-05f) * (f32)rand());
+    base = (0.5f) * self->f6c;
+    self->speeds[i] = base * ((3.0517578e-05f) * (f32)rand()) + base;
+    self->rots[i].x = (s32)((65535.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rots[i].y = (s32)((65535.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rots[i].z = (s32)((65535.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rotspd[i].x = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rotspd[i].y = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rotspd[i].z = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
+}
+
+void run_task__11TOBoss4RockFv(Rock_801589E8 *self) {
+    s32 i;
+
+    for (i = 0; i < self->count; i++) {
+        self->rots[i].x += self->rotspd[i].x;
+        self->rots[i].y += self->rotspd[i].y;
+        self->rots[i].z += self->rotspd[i].z;
+        self->positions[i].y += self->speeds[i];
+        if (*(const f32 *)&lbl_805DB310 < self->positions[i].y) {
+            respawn_801589E8(self, i);
+        }
+    }
+}
+#pragma pop
+
+}
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 typedef s32 M2C_UNK;
@@ -105,3 +193,525 @@ void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1) {
 }
 
 }
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+#pragma fp_contract on
+struct VBase_18_1a504b { char pad[0x18]; };
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct Vec_80158FB4 { f32 x, y, z; };
+struct Rot_80158FB4 { s32 x, y, z; };
+struct Rock_80158FB4 {
+    u8 pad0[0x6C];
+    f32 f6c;
+    u8 pad70[0x98 - 0x70];
+    f32 spread;
+    s32 count;
+    s32 *models;
+    s32 *params;
+    Vec_80158FB4 *positions;
+    f32 *speeds;
+    Rot_80158FB4 *rots;
+    Rot_80158FB4 *rotspd;
+};
+
+extern "C" {
+
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+void TOBoss4__ct(void *, void *);
+s32 rand();
+extern M2C_UNK __vt__11TOBoss4Rock[];
+extern s32 lbl_805D2EBC;
+extern s32 lbl_805D58A8;
+
+#pragma push
+#pragma dont_inline off
+#pragma auto_inline off
+#pragma inline_depth(4)
+inline s32 irand_80158FB4(f32 scale) {
+    return (s32)(scale * ((3.0517578e-05f) * (f32)rand()));
+}
+
+inline void set_model_80158FB4(Rock_80158FB4 *self, s32 i, s32 k) {
+    self->models[i] = get_bml_model(lbl_805D58A8, k);
+    self->params[i] = TObjFish__sub_8001EDB0(lbl_805D58A8, k);
+}
+
+inline void respawn_80158FB4(Rock_80158FB4 *self, s32 i) {
+    f32 base;
+    set_model_80158FB4(self, i, irand_80158FB4((4.0f)));
+    self->positions[i].x = self->spread * ((3.0517578e-05f) * (f32)rand());
+    self->positions[i].y = (0.0f);
+    self->positions[i].z = self->spread * ((3.0517578e-05f) * (f32)rand());
+    base = (0.5f) * self->f6c;
+    self->speeds[i] = base * ((3.0517578e-05f) * (f32)rand()) + base;
+    self->rots[i].x = (s32)((65535.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rots[i].y = (s32)((65535.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rots[i].z = (s32)((65535.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rotspd[i].x = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rotspd[i].y = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
+    self->rotspd[i].z = (s32)((4096.0f) * ((3.0517578e-05f) * (f32)rand()));
+}
+
+#define arg0 ((u8 *)arg0_)
+#define self ((Rock_80158FB4 *)arg0_)
+void *TOBoss4Rock__ct(void *arg0_, void *arg1) {
+    s32 i;
+
+    TOBoss4__ct(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOBoss4Rock;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2EBC;
+    ((VObj_18_1a504b *)(arg0))->m5((s32)arg1);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D58A8, 1);
+    M2C_FIELD(arg0, f32 *, 0x94) = M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), u8 **, 4), f32 *, 0x14);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 1);
+    self->spread = (5e+01f) + M2C_FIELD(arg0, f32 *, 0x68);
+    if (self->f6c < (0.0f)) {
+        self->f6c *= (-1.0f);
+    }
+    self->count = M2C_FIELD(arg0, s32 *, 0x84);
+    if (self->count < 1) {
+        self->count = 1;
+    } else if (self->count > 8) {
+        self->count = 8;
+    }
+    self->models = (s32 *)alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    self->params = (s32 *)alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    self->positions = (Vec_80158FB4 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0xC);
+    self->speeds = (f32 *)alloc_buffer__11TOBoss4RockFPv(self->count * 4);
+    self->rots = (Rot_80158FB4 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0xC);
+    self->rotspd = (Rot_80158FB4 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0xC);
+    for (i = 0; i < self->count; i++) {
+        respawn_80158FB4(self, i);
+    }
+    return arg0;
+}
+#undef arg0
+#undef self
+#pragma pop
+
+}
+
+#define TObjFish__sub_8001EDB0 ((s32 (*)(void*,int))TObjFish__sub_8001EDB0)
+#define get_bml_model ((s32 (*)(void*,int))get_bml_model)
+#define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
+#define set_global_param__8TObjFishFi ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)
+#define draw_ginja_object ((M2C_UNK (*)(s32))draw_ginja_object)
+#define TOBoss4__ct ((M2C_UNK (*)(void))TOBoss4__ct)
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct RecoveredGlobal_80159514___vt__12TOBoss4Tower {
+    M2C_UNK value;
+    u8 remaining[0x30];
+};
+
+extern "C" {
+extern M2C_UNK __vt__12TOBoss4Tower[];
+extern s32 lbl_805D2EB8;
+extern s32 lbl_805D58A8;
+u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
+
+struct Base_80159400 { char pad[0x18]; };
+struct VObj_80159400 : Base_80159400 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+void *TOBoss4Tower__create(void *arg0);
+void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
+void render__12TOBoss4TowerFv(u8 *arg0);
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+void __dl__7TObjectFPv(void *);
+void __dt__7TOBoss4Fv(void *, int);
+void *__nw__7TObjectFUl(int);
+
+void *TOBoss4Tower__create(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x98);
+    if (o != NULL) {
+        o = TOBoss4Tower__ct((u8 *)(o), (s32)(arg0));
+    }
+    return o;
+}
+
+void render__12TOBoss4TowerFv(u8 *arg0) {
+    if (((VObj_80159400 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
+        push_matrix();
+        post_translate_matrix(arg0 + 0x38);
+        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+        pop_matrix();
+    }
+}
+
+extern M2C_UNK __vt__12TOBoss4Tower[];
+
+void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOBoss4Tower;
+        __dt__7TOBoss4Fv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+typedef char RecoveredGlobal_80159514___vt__12TOBoss4Tower_size[sizeof(RecoveredGlobal_80159514___vt__12TOBoss4Tower) == 0x34 ? 1 : -1];
+u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
+    TOBoss4__ct();
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EB8;
+    ((VObj_18_1a504b *)(arg0))->m5(arg1);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (lbl_805D58A8), (int) (5));
+    M2C_FIELD(arg0, f32 *, 0x94) = (f32) (6e+01f);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (lbl_805D58A8), (int) (5));
+    return arg0;
+}
+
+}
+
+#undef TObjFish__sub_8001EDB0
+#undef get_bml_model
+#undef rotate_matrix_y
+#undef set_global_param__8TObjFishFi
+#undef draw_ginja_object
+#undef TOBoss4__ct
+typedef s32 M2C_UNK;
+
+extern "C" {
+
+struct Vec_8015959C { f32 x, y, z; };
+
+struct Bird_8015959C {
+    u8 pad0[0x38];
+    Vec_8015959C f38;
+    u8 pad44[0x50 - 0x44];
+    Vec_8015959C f50;
+    u8 pad5c[0x60 - 0x5c];
+    s32 f60;
+    u8 pad64[0x9c - 0x64];
+    f32 f9c;
+    f32 fa0;
+    f32 fa4;
+    f32 fa8;
+    f32 fac;
+    f32 fb0;
+    s32 state;
+    u8 padb8[0xc4 - 0xb8];
+    Vec_8015959C fc4;
+    f32 fd0;
+    f32 fd4;
+    u8 padd8[0xdc - 0xd8];
+    s32 fdc;
+    s32 fe0;
+    s32 fe4;
+};
+
+void VecCopy__FP3VecPC3Vec(Vec_8015959C *, Vec_8015959C *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+f32 horizontal_distance_squared(Vec_8015959C *, Vec_8015959C *);
+s32 approach_angle_limited(s32, s32, s32);
+s32 rand(void);
+f32 sin_table_lookup(s32);
+void vec3_add_to(Vec_8015959C *, Vec_8015959C *);
+void rotate_vector_by_matrix(s32, Vec_8015959C *, Vec_8015959C *);
+void subtract_vector(Vec_8015959C *, Vec_8015959C *);
+void push_matrix_from(void *);
+void pop_matrices(s32);
+extern Vec_8015959C lbl_8050BEE0;
+extern Vec_8015959C lbl_8050BF00;
+extern u8 lbl_8058D490[];
+
+void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
+    self->fa4 += self->fa0;
+    if (self->f9c < self->fa4) {
+        self->fa4 -= self->f9c;
+    }
+    self->fe0 += self->fdc;
+    self->fd4 = self->fd0 * sin_table_lookup(self->fe0);
+    switch (self->state) {
+    case 0:
+        self->state = 1;
+        lbl_8050BEE0.x = (0.0f);
+        lbl_8050BEE0.y = self->fac * ((3.0517578e-05f) * (f32)rand());
+        lbl_8050BEE0.z = self->fb0 * ((3.0517578e-05f) * (f32)rand());
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, (s32)((182.04445f) * ((3.6e+02f) * ((3.0517578e-05f) * (f32)rand()))));
+        rotate_vector_by_matrix(0, &lbl_8050BEE0, &lbl_8050BEE0);
+        pop_matrices(1);
+        VecCopy__FP3VecPC3Vec(&self->fc4, &self->f50);
+        vec3_add_to(&self->fc4, &lbl_8050BEE0);
+        break;
+    case 1:
+        VecCopy__FP3VecPC3Vec(&lbl_8050BEE0, &self->fc4);
+        subtract_vector(&lbl_8050BEE0, &self->f38);
+        self->f60 = approach_angle_limited(self->f60, (s32)((10430.38043493439) * get_ad_end_text_start__10TObjPlayerFv(lbl_8050BEE0.x, lbl_8050BEE0.z)), 0x100);
+        lbl_8050BF00.x = lbl_8050BF00.y = (0.0f);
+        lbl_8050BF00.z = self->fa8;
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, self->f60);
+        rotate_vector_by_matrix(0, &lbl_8050BF00, &lbl_8050BF00);
+        pop_matrices(1);
+        vec3_add_to(&self->f38, &lbl_8050BF00);
+        if (horizontal_distance_squared(&self->fc4, &self->f38) < self->fb0 || (1.5e+02f) < (f32)self->fe4++) {
+            self->state = 0;
+            self->fe4 = 0;
+        }
+        break;
+    }
+}
+
+}
+
+typedef s32 M2C_UNK;
+struct Vec_80159870 { f32 x, y, z; };
+
+struct VBase_80159870 { char pad[0x18]; };
+
+struct VObj_80159870 : VBase_80159870 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Bird_80159870 : VObj_80159870 {
+    u8 pad1C[0x24 - 0x1C];
+    s32 param;
+    u8 pad28[0x34 - 0x28];
+    s32 f34;
+    Vec_80159870 pos;
+    u8 pad44[0x60 - 0x44];
+    s32 rotY;
+    u8 pad64[0x90 - 0x64];
+    f32 f90;
+    f32 f94;
+    s32 f98;
+    u8 pad9C[0xA4 - 0x9C];
+    f32 fA4;
+    u8 padA8[0xB8 - 0xA8];
+    s32 count;
+    Vec_80159870 *positions;
+    s32 *rots;
+    u8 padC4[0xD4 - 0xC4];
+    f32 fD4;
+};
+
+extern "C" {
+M2C_UNK translate_matrix(int, f32, f32, f32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK draw_ginja_model_with_motion(int, int, f32);
+void render__11TOBoss4BirdFv(Bird_80159870 *self);
+}
+
+extern "C" {
+
+void render__11TOBoss4BirdFv(Bird_80159870 *self) {
+    s32 i;
+    if (self->m8(self->f90, self->f94) != 0) {
+        push_matrix();
+        post_translate_matrix(&self->pos);
+        set_global_param__8TObjFishFi(self->param);
+        for (i = 0; i < self->count; i++) {
+            push_matrix();
+            translate_matrix(0, (0.0f), self->fD4, (0.0f));
+            post_translate_matrix(&self->positions[i]);
+            rotate_matrix_y(0, self->rotY);
+            rotate_matrix_y(0, self->rots[i]);
+            draw_ginja_model_with_motion(self->f34, self->f98, self->fA4);
+            pop_matrix();
+        }
+        pop_matrix();
+    }
+}
+
+}
+
+#define TOBoss4Bird__ct ((void* (*)(void*,void*))TOBoss4Bird__ct)
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *create__11TOBoss4BirdFPv(void *arg0);
+void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1);
+void free__11TOBoss4RockFUi(void *);
+void __dl__7TObjectFPv(void *);
+void __dt__7TOBoss4Fv(void *, int);
+void *__nw__7TObjectFUl(int);
+
+void *create__11TOBoss4BirdFPv(void *arg0) {
+    void *o = __nw__7TObjectFUl(0xE8);
+    if (o != NULL) {
+        o = TOBoss4Bird__ct(o, arg0);
+    }
+    return o;
+}
+
+extern M2C_UNK __vt__11TOBoss4Bird[];
+
+void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOBoss4Bird;
+        if (M2C_FIELD(arg0, void **, 0xBC) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xBC)); }
+        if (M2C_FIELD(arg0, void **, 0xC0) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xC0)); }
+        __dt__7TOBoss4Fv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+}
+
+#undef TOBoss4Bird__ct
+#define get_bml_model ((u8* (*)(s32,s32))get_bml_model)
+#define alloc_buffer__11TOBoss4RockFPv ((s32 (*)(s32))alloc_buffer__11TOBoss4RockFPv)
+#define TOBoss4__ct ((void (*)(void*))TOBoss4__ct)
+#define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
+#define __vt__11TOBoss4Bird (*(u8 (*)[1])&__vt__11TOBoss4Bird)
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+
+struct M2CCopy_48 { u8 bytes[0x48]; };
+
+struct Vec_80159A10 { f32 x, y, z; };
+
+struct VecTbl_80159A10 { Vec_80159A10 v[6]; };
+
+struct Bird_80159A10 {
+    s32 f0;
+    u8 pad4[0x24 - 0x4];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    u8 *model;
+    u8 pad38[0x68 - 0x38];
+    f32 f68, f6C, f70;
+    u8 pad74[0x84 - 0x74];
+    s32 f84;
+    s32 f88;
+    s32 f8C;
+    u8 pad90[0x94 - 0x90];
+    f32 f94;
+    u8 *motion;
+    f32 f9C, fA0, fA4;
+    f32 fA8, fAC, fB0;
+    s32 fB4;
+    s32 count;
+    Vec_80159A10 *vecs;
+    s32 *angs;
+    f32 fC4, fC8, fCC;
+    f32 fD0;
+    f32 fD4;
+    f32 fD8;
+    s32 fDC;
+    s32 fE0;
+    s32 fE4;
+};
+
+extern "C" {
+u8 *get_bml_motion(s32, s32);
+s32 rand(void);
+f32 sin_table_lookup(s32);
+extern VecTbl_80159A10 lbl_80440348[];
+extern s32 lbl_805D2EB4;
+extern s32 lbl_805D58A8;
+u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1);
+}
+
+extern "C" {
+
+#pragma push
+#pragma fp_contract on
+u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
+    Bird_80159A10 *o = (Bird_80159A10 *)arg0;
+    s32 i;
+    TOBoss4__ct(arg0);
+    *(u8 **)(arg0 + 0x18) = __vt__11TOBoss4Bird;
+    o->f0 = lbl_805D2EB4;
+    ((VObj_18_1a504b *)arg0)->m5(arg1);
+    o->model = get_bml_model(lbl_805D58A8, 0);
+    o->f94 = *(f32 *)(*(u8 **)(o->model + 4) + 0x14);
+    o->f24 = TObjFish__sub_8001EDB0(lbl_805D58A8, 0);
+    o->motion = get_bml_motion(lbl_805D58A8, 0);
+    o->f9C = (f32)*(u32 *)(o->motion + 4) - (1.0f);
+    o->fA0 = (1.0f);
+    o->fA4 = (0.0f);
+    o->fA8 = (1.0f) + o->f68;
+    o->fAC = (5e+01f) + o->f6C;
+    o->fB0 = (1e+02f) + o->f70;
+    o->fB4 = 0;
+    o->count = o->f84 + 3;
+    if (o->count < 0) {
+        o->count = 1;
+    } else if (o->count > 6) {
+        o->count = 6;
+    }
+    o->vecs = (Vec_80159A10 *)alloc_buffer__11TOBoss4RockFPv(o->count * 0xC);
+    o->angs = (s32 *)alloc_buffer__11TOBoss4RockFPv(o->count * 4);
+    {
+        VecTbl_80159A10 tbl = lbl_80440348[0];
+        for (i = 0; i < o->count; i++) {
+            VecCopy__FP3VecPC3Vec(&o->vecs[i], &tbl.v[i]);
+            o->angs[i] = 0x8000;
+        }
+    }
+    o->fC4 = o->fC8 = o->fCC = (0.0f);
+    o->fD8 = (0.1f) * (f32)o->f88 + (1.0f);
+    o->fDC = (s32)((182.04445f) * ((3.6e+02f) / ((3e+01f) / o->fD8)));
+    o->fE0 = (s32)((182.04445f) * ((3.6e+02f) * ((3.0517578e-05f) * (f32)rand())));
+    o->fD0 = (0.1f) * (f32)o->f8C + (1.0f);
+    o->fD4 = o->fD0 * sin_table_lookup(o->fE0);
+    o->fE4 = 0;
+    return arg0;
+}
+#pragma pop
+
+}
+
+#undef get_bml_model
+#undef alloc_buffer__11TOBoss4RockFPv
+#undef TOBoss4__ct
+#undef VecCopy__FP3VecPC3Vec
+#undef __vt__11TOBoss4Bird

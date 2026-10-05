@@ -5893,20 +5893,9 @@ pso/misc/TOBind_801586B8.cpp:
 	.rodata     start:0x80440280 end:0x80440288
 
 pso/misc/TOBoss4Rock_801589E8.cpp:
-	.text       start:0x801589E8 end:0x80159400
-
-pso/misc/TOBoss4Tower.cpp:
-	.text       start:0x80159400 end:0x8015959C
-
-pso/misc/TOBoss4Bird_8015959C.cpp:
-	.text       start:0x8015959C end:0x8015994C
-
-pso/misc/TOBoss4Bird.cpp:
-	.text       start:0x8015994C end:0x80159A10
-
-pso/unk/text_80159A10.cpp:
-	.text       start:0x80159A10 end:0x80159CEC
+	.text       start:0x801589E8 end:0x80159CEC
 	.rodata     start:0x80440390 end:0x804403A8
+	.sdata2     start:0x805DB310 end:0x805DB354
 
 pso/misc/TOBoss4.cpp:
 	.text       start:0x80159CEC end:0x80159E24
@@ -13537,28 +13526,11 @@ pso/player/TObjPlayer_8032E4C8.cpp:
 	.text       start:0x8032E4C8 end:0x8032E708
 
 pso/boss/TBoss6Type2_8032E708.cpp:
-	.text       start:0x8032E708 end:0x80330240
-	.rodata     start:0x80477460 end:0x80477470
-	.data       start:0x804EDF38 end:0x804EDF90
-	.sdata2     start:0x805DF7F4 end:0x805DF854
-
-pso/unk/text_80330240.cpp:
-	.text       start:0x80330240 end:0x803302D8
-
-pso/player/TObjPlayer_803302D8_803302D8.cpp:
-	.text       start:0x803302D8 end:0x80330384
-
-pso/player/TObjPlayer_803302D8_80330384.cpp:
-	.text       start:0x80330384 end:0x803303E0
-
-pso/player/TObjPlayer_803302D8.cpp:
-	.text       start:0x803303E0 end:0x8033068C
-
-pso/unk/text_8033068C.cpp:
-	.text       start:0x8033068C end:0x80330724
-
-pso/unk/text_80330724.cpp:
-	.text       start:0x80330724 end:0x803309C4
+	.text       start:0x8032E708 end:0x803309C4
+	.rodata     start:0x804773B0 end:0x80477470
+	.data       start:0x804EDD68 end:0x804EDF90
+	.sdata      start:0x805D4220 end:0x805D4224
+	.sdata2     start:0x805DF7F0 end:0x805DF858
 
 pso/boss/TBoss6Mag.cpp:
 	.text       start:0x803309C4 end:0x803309D8
