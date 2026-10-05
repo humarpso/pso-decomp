@@ -65,6 +65,7 @@ Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b,
 extern "C" {
 void request_destroy__11TBoss4Type2FUi(void*);
 }
+extern "C" int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
 void TItemEffHeaven::run_task() {
     Self_8010900C *self = (Self_8010900C *)this;
@@ -137,7 +138,6 @@ extern "C" {
 int destroy__14TItemEffHeavenFPv(void* p);
 int queue_destruction__7TObjectFv(void*);
 
-int destroy__14TItemEffHeavenFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 Obj_801092A8 *TItemEffHeaven__ct(Obj_801092A8 *self, void *parent, s32 a, s16 b, s32 c) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);

@@ -33,3 +33,5 @@ void TObjPlayer__sub_80354F44(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TObjPlayer_80354EC8_80354EC8_cpp_ref = (void *)TObjPlayer__sub_80354EEC;

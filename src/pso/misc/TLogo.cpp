@@ -1,4 +1,9 @@
-#include "pso/TLogo.h"
+#include "pso/TObject.h"
+class TLogo : public TObject {
+public:
+    virtual void render();
+    virtual ~TLogo();
+};
 
 TLogo::~TLogo() {}
 
@@ -37,7 +42,6 @@ extern "C" {
 s32 TLobby__sub_800FD6A0(void *, int);
 s32 render_tick__Fv();
 s32 delete_all_task_children__9TMainTaskFv(void *);
-extern u8 lbl_804A72D8[0x48];
 void TLogo__sub_8013F5AC();
 M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
 u32 __ct__10TAdADXlogoFv(void *, void *);
@@ -86,9 +90,36 @@ s32 fn_8013F264(void* p) { return fn_8013F288((void*)((char*)p + 0x98)); }
 s32 fn_8013F288(void* p) { return *(s32*)((char*)p + 0x0); }
 void render__5TLogoFv(void) {  }
 
-extern M2C_UNK __vt__5TLogo[];
+extern void *__vt__5TLogo[];
 extern void *lbl_805D2CC8;
 
+extern "C" {
+void TCameraCtrl__sub_8006A35C(); void reset__11TCameraCtrlFv(); void TCameraCtrl__sub_800693F4(); void TCameraCtrl__sub_80069318();
+void update_keyboard_menu__6TLobbyFv(); void free_keyboard_soft_resources__6TLobbyFv();
+void register_texture_f256_ad_pic_2(); void free_global__23TAdSinglePlyChrSelectGCFv();
+void register_texture_f256_backtext(); void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv();
+void register_texture_logo_e(); void free_held_object__5TLogoFv(); void TLogo__sub_8001C364(); void TLogo__sub_8001C360();
+void TWindowCtrlMain__sub_8024D838(); void TWindowCtrlMain__sub_8024D690(); void TLogo__sub_80019A2C(); void TLogo__sub_80019A28();
+void __dt__5TLogoFv(); void render_shadows__7TObjectFv();
+void *lbl_804A72D8[18] = {
+    (void *)TCameraCtrl__sub_8006A35C, (void *)reset__11TCameraCtrlFv,
+    (void *)TCameraCtrl__sub_800693F4, (void *)TCameraCtrl__sub_80069318,
+    (void *)update_keyboard_menu__6TLobbyFv, (void *)free_keyboard_soft_resources__6TLobbyFv,
+    (void *)register_texture_f256_ad_pic_2, (void *)free_global__23TAdSinglePlyChrSelectGCFv,
+    (void *)register_texture_f256_backtext, (void *)free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
+    (void *)register_texture_logo_e, (void *)free_held_object__5TLogoFv,
+    (void *)TLogo__sub_8001C364, (void *)TLogo__sub_8001C360,
+    (void *)TWindowCtrlMain__sub_8024D838, (void *)TWindowCtrlMain__sub_8024D690,
+    (void *)TLogo__sub_80019A2C, (void *)TLogo__sub_80019A28,
+};
+void *__vt__5TLogo[6] = {
+    0, 0,
+    (void *)__dt__5TLogoFv,
+    (void *)run_task__5TLogoFv,
+    (void *)render__5TLogoFv,
+    (void *)render_shadows__7TObjectFv,
+};
+}
 void run_task__5TLogoFv(u8 *arg0) {
     u32 temp_r0;
     u32 var_r0;
@@ -197,7 +228,7 @@ void run_task__5TLogoFv(u8 *arg0) {
 
 void *__ct__5TLogoFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__5TLogo;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__5TLogo;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2CC8;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

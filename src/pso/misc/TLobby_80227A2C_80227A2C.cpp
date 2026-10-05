@@ -47,3 +47,5 @@ void TLobby__sub_80227AA8(s32 arg0) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TLobby_80227A2C_80227A2C_cpp_ref = (void *)TLobby__sub_80227A94;

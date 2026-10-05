@@ -1,7 +1,5 @@
 #include "pso/TBoss5GryphonLightningEff.h"
 
-TBoss5GryphonLightningEff::~TBoss5GryphonLightningEff() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -145,6 +143,7 @@ void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {
     }
     (*(s16 *)((u8 *)arg0 + 0x25C))++;
 }
+TBoss5GryphonLightningEff::~TBoss5GryphonLightningEff() {}
 extern const f32 lbl_805DF5FC = 0.0625f;
 #pragma push
 #pragma fp_contract on

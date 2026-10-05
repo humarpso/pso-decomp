@@ -503,3 +503,5 @@ typedef char RecoveredGlobal_8000F9E4_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F9CC_lbl_804FE120) == 0x18 ? 1 : -1];
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TFontSmallTask_cpp_ref = (void *)TLobby__sub_800FD764;

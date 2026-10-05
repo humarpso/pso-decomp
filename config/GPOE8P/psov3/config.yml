@@ -85,6 +85,10 @@ force_active:
   - TBoss3Volopt__sub_800D8F78
   - TBoss7Crawfish__sub_80308840
   - TChCrTagInformation__sub_802A1E8C
+  - TChCrTagName__sub_802A208C
+  - TChCrTagName__sub_802A226C
+  - TChCrTagName__sub_802A2500
+  - TChCrTagName__vt4
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
   - TItemProArmor__sub_80117730
@@ -92,10 +96,13 @@ force_active:
   - TItemWeaponMechgun__ct
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
+  - TLobby__sub_80070A78
+  - TLobby__sub_800FD764
   - TLobby__sub_801037A0
   - TLobby__sub_8010385C
   - TLobby__sub_80103B44
   - TLobby__sub_801E6604
+  - TLobby__sub_80227A94
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
@@ -142,6 +149,7 @@ force_active:
   - TObjPlayer__sub_802C4648
   - TObjPlayer__sub_80307784
   - TObjPlayer__sub_80312FB0
+  - TObjPlayer__sub_80354EEC
   - TObjPlayer__sub_803640F8
   - TObjPlayer__sub_803DA84C
   - TObjPlayer__sub_803DAA70
@@ -149,11 +157,13 @@ force_active:
   - TObjPlayer__sub_803DC994
   - TObjResultWin__sub_80074664
   - TPlyDispConfig__sub_801E0A68
+  - TQuestVmDownLoadServer__sub_8007EC1C
   - TRecvGenerateID__sub_801DFBC4
   - TSaveChCr__sub_8033A010
   - TWindowActionPalette__sub_801C1C20
   - TWindowActionPalette__sub_801C1C30
   - TWindowCtrl__sub_8024A7CC
+  - TWindowGetComCard__sub_8007B69C
   - TWindowKeyBoardSoft__sub_8024ECDC
   - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_80271A6C
@@ -191,6 +201,7 @@ force_active:
   - __dt__12TAdSoniclogoFv
   - __dt__12TBGLightningFv
   - __dt__12TChCrEffFadeFv
+  - __dt__12TChCrTagNameFv
   - __dt__12TItemDropSubFv
   - __dt__12TItemEffCaneFv
   - __dt__12TItemTexLoadFv
@@ -213,8 +224,11 @@ force_active:
   - __dt__14TAdSelectTxtGCFv
   - __dt__14TBoss4ZakoDrawFv
   - __dt__14TBoss6EffHyouiFv
+  - __dt__14TChCrEffCtrlPlFv
   - __dt__14TChCrEffTagStrFv
   - __dt__14TEnemyTaskListFv
+  - __dt__14TFontSmallTaskFv
+  - __dt__14TItemEffHeavenFv
   - __dt__14TItemEffShieldFv
   - __dt__14TSetEvtDestroyFv
   - __dt__14TSlicerHistoryFv
@@ -245,12 +259,14 @@ force_active:
   - __dt__17TBoss6EffFlowSoulFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjBoss8DemoRoomFv
+  - __dt__17TObjItemNameEntryFv
   - __dt__17TObjVoloptShutterFv
   - __dt__18TAdGameStartBackGCFv
   - __dt__18TAdLoadQuestLineGCFv
   - __dt__18TItemLockCountCtrlFv
   - __dt__18TItemReverseTechBGFv
   - __dt__18TOChatSensorFolderFv
+  - __dt__18TObjItemNameSelectFv
   - __dt__18TObjTailsTailsMoveFv
   - __dt__19THunterGuildWarningFv
   - __dt__19TItemDisconnectCtrlFv
@@ -276,6 +292,7 @@ force_active:
   - __dt__7TEndingFv
   - __dt__7TSwitchFv
   - __dt__8TAdRayGCFv
+  - __dt__8TEndingCFv
   - __dt__8TObjRainFv
   - __dt__9TAdBackGCFv
   - __dt__9TBoss2FinFv
@@ -311,6 +328,7 @@ force_active:
   - bswap_object_row_fields
   - build_sell_list__24TShopEquipmentSellWindowFPv
   - calc_params__11TTecGiBartaFPv
+  - calc_small_font_scale
   - chat_dispatch_accepted_result
   - chat_log_remove_line
   - chat_text_lacks_language_tag
@@ -393,6 +411,7 @@ force_active:
   - fn_801DF558
   - fn_801DF740
   - fn_801DF7F8
+  - fn_801F6520
   - fn_8026D564
   - fn_80349C54
   - fn_803CBE00
@@ -427,6 +446,7 @@ force_active:
   - init__18TObjAreaWarpForestFPvPvPv
   - init_default_fields__6TLobbyFPv
   - init_effect_flags__13TItemProArmorFPv
+  - init_forward_default__10TObjPlayerFv
   - init_gx_lighting_defaults
   - init_inventory_items__10TObjPlayerFi
   - init_launch_angles__10TTecSlicerFPvPvi
@@ -454,6 +474,7 @@ force_active:
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - layercmp
+  - lbl_804663F8
   - lbl_8046FC68
   - lbl_8046FC78
   - lbl_80483EEC
@@ -482,6 +503,7 @@ force_active:
   - lbl_804EC724
   - lerp_follow_anchor
   - load_item_pmt
+  - load_quest_root_script
   - lookup_attack_marker
   - macHandleActive
   - macMakeActive
@@ -522,6 +544,7 @@ force_active:
   - render__12TAdSoniclogoFv
   - render__12TBGLightningFv
   - render__12TChCrEffFadeFv
+  - render__12TChCrTagNameFv
   - render__12TLevelSelectFv
   - render__13TAdTitleTexGCFv
   - render__13TObjBoss7DustFv
@@ -529,7 +552,9 @@ force_active:
   - render__14TAdLoadQuestGCFv
   - render__14TAdSelectTxtGCFv
   - render__14TBoss4ZakoDrawFv
+  - render__14TChCrEffCtrlPlFv
   - render__14TChCrEffTagStrFv
+  - render__14TFontSmallTaskFv
   - render__15TAdDrawLineCtrlFv
   - render__16TAdStorySelectGCFv
   - render__16TBGLightningCtrlFv
@@ -550,6 +575,7 @@ force_active:
   - render__26TBoss5GryphonLightningWingFv
   - render__7TSwitchFv
   - render__8TAdRayGCFv
+  - render__8TEndingCFv
   - render__8TObjRainFv
   - render__9TAdBackGCFv
   - render_background_status__18TAdGameStartBackGCFPv
@@ -557,6 +583,7 @@ force_active:
   - request_transition__8TFogCtrlFPvii
   - resetTechniqueContactQuery
   - reset_and_invoke__6TLobbyFv
+  - reset_leader_selection
   - reset_placement_search_ring
   - reset_state__13TObjWarnChimeFPv
   - reset_windows__16TAdChrSelBSlotGCFPv
@@ -578,6 +605,7 @@ force_active:
   - run_task__12TAdSoniclogoFv
   - run_task__12TBGLightningFv
   - run_task__12TChCrEffFadeFv
+  - run_task__12TChCrTagNameFv
   - run_task__12TItemEffCaneFv
   - run_task__12TItemTexLoadFv
   - run_task__12TLevelSelectFv
@@ -597,8 +625,11 @@ force_active:
   - run_task__14TAdSelectTxtGCFv
   - run_task__14TBoss4ZakoDrawFv
   - run_task__14TBoss6EffHyouiFv
+  - run_task__14TChCrEffCtrlPlFv
   - run_task__14TChCrEffTagStrFv
   - run_task__14TEnemyTaskListFv
+  - run_task__14TFontSmallTaskFv
+  - run_task__14TItemEffHeavenFv
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
@@ -644,6 +675,7 @@ force_active:
   - run_task__7TEndingFv
   - run_task__7TSwitchFv
   - run_task__8TAdRayGCFv
+  - run_task__8TEndingCFv
   - run_task__8TObjRainFv
   - run_task__9TAdBackGCFv
   - run_task__9TEffGuardFv

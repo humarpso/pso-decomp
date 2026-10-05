@@ -129,3 +129,5 @@ s8 TObjPlayer__sub_80102C30(u8 *arg0) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TObjPlayer_80102A58_cpp_ref = (void *)init_forward_default__10TObjPlayerFv;

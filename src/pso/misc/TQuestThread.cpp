@@ -1,8 +1,37 @@
 #include "types.h"
-#include "pso/TObjItemNameSelect.h"
-#include "pso/TObjItemNameEntry.h"
-#include "pso/TQuestThreadBoard.h"
-#include "pso/TQuestThread.h"
+#include "pso/TObject.h"
+class TObjItemNameSelect : public TObject {
+public:
+ void* m_1c;
+ void* m_20;
+public:
+    virtual void render();
+    virtual ~TObjItemNameSelect();
+};
+class TObjItemNameEntry : public TObject {
+public:
+ void* m_1c;
+ void* m_20;
+public:
+    virtual void render();
+    virtual ~TObjItemNameEntry();
+};
+class TQuestThreadBoard : public TObject {
+public:
+    u8 _pad1C[0xC];
+ void* m_28;
+ void* m_2c;
+
+    virtual void render();
+    virtual ~TQuestThreadBoard();
+    virtual void run_task();
+};
+class TQuestThread : public TObject {
+public:
+    virtual void render();
+    virtual ~TQuestThread();
+    virtual void run_task();
+};
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -236,10 +265,10 @@ M2C_UNK strncpy(void *, void *, int);
 
 extern M2C_UNK TQuestThread__data_804C8678[];
 extern RecoveredGlobal_801F5B5C_TQuestThread__data_80512AD0 TQuestThread__data_80512AD0;
-extern RecoveredGlobal_801F5CB0___vt__12TQuestThread __vt__12TQuestThread;
-extern M2C_UNK __vt__17TObjItemNameEntry[];
-extern RecoveredGlobal_801F5630___vt__17TQuestThreadBoard __vt__17TQuestThreadBoard;
-extern u8 __vt__18TObjItemNameSelect[];
+extern void *__vt__12TQuestThread[];
+extern void *__vt__17TObjItemNameEntry[];
+extern void *__vt__17TQuestThreadBoard[];
+extern void *__vt__18TObjItemNameSelect[];
 extern s32 enable_v2_features;
 extern s32 evt2_random_enemies_mode;
 extern char lbl_8044A5D0[];
@@ -355,7 +384,7 @@ void *TObjItemNameEntry__ct(void *arg0) {
     u32 var_r0;
 
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjItemNameEntry;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__17TObjItemNameEntry;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D35D8;
     if ((var_r0 = __nw__7TObjectFUl(0x2C)) != 0U) {
         var_r0 = TKeyBoardControl__ct((void*)var_r0, arg0, 8, 0, 1, lbl_805D53A0);
@@ -528,7 +557,7 @@ extern "C" {
 
 u8 *TQuestThreadBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, int))__ct__7TObjectFP7TObject)((void *) (arg0), (int) (0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TQuestThreadBoard.value;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__17TQuestThreadBoard;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D35D4;
     ((s32 (*)(void *, void *))copy_quest_script_context)((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
     M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x20) + (arg2 * 4)), s32 *, 0);
@@ -616,7 +645,6 @@ extern int fold_flush_1;
 #pragma pop
 
 }
-TQuestThread::~TQuestThread() {}
 
 extern "C" {
 void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
@@ -719,6 +747,8 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
     }
 }
 
+TQuestThread::~TQuestThread() {}
+
 u8 *create_floor_quest_thread(void) {
     s32 temp_r30;
     u8 *temp_r3;
@@ -768,7 +798,7 @@ u8 *create_quest_thread(s32 arg0) {
 
 u8 *__ct__12TQuestThreadFv(u8 *arg0, s32 arg1, s32 arg2) {
     ((s32 (*)(void *, void *))__ct__7TObjectFP7TObject)((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TQuestThread.value;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__12TQuestThread;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D35D0;
     ((s32 (*)(void *, void *))copy_quest_script_context)((void *) ((u8 *)(arg0) + 0x1C), (void *) (arg1 + 0x24));
     M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD((M2C_FIELD(arg0, s32 *, 0x20) + (arg2 * 4)), s32 *, 0);
@@ -1043,5 +1073,45 @@ int queue_destruction__12TQuestThreadFPv(void* p) { return queue_destruction__7T
 void free_menu_object(void* p) { void* m = *(void**)((char*)p + 0x20); if (m) fn_801F6520((void*)(m)); }
 
 void fn_801F6520(void* p) { *(u16*)((char*)p + 0x60) &= 0xfffe; }
+
+void __dt__18TObjItemNameSelectFv();
+void __dt__17TObjItemNameEntryFv();
+void __dt__17TQuestThreadBoardFv();
+void __dt__12TQuestThreadFv();
+void run_task__7TObjectFv();
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+void *__vt__18TObjItemNameSelect[] = {
+    0,
+    0,
+    (void *)__dt__18TObjItemNameSelectFv,
+    (void *)run_task__7TObjectFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+void *__vt__17TObjItemNameEntry[] = {
+    0,
+    0,
+    (void *)__dt__17TObjItemNameEntryFv,
+    (void *)run_task__7TObjectFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+void *__vt__17TQuestThreadBoard[] = {
+    0,
+    0,
+    (void *)__dt__17TQuestThreadBoardFv,
+    (void *)run_task__17TQuestThreadBoardFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+void *__vt__12TQuestThread[] = {
+    0,
+    0,
+    (void *)__dt__12TQuestThreadFv,
+    (void *)run_task__12TQuestThreadFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
 
 }

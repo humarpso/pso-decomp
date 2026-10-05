@@ -96,3 +96,5 @@ void TWindowGetComCard__sub_8007B69C(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TWindowGetComCard_8007B54C_cpp_ref = (void *)TWindowGetComCard__sub_8007B69C;

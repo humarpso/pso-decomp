@@ -481,7 +481,6 @@ void * create_jisin__11TBoss4Type2FPvPv(void *arg0, void *arg1) {
 }
 
 }
-TObjDFBeamCursor::~TObjDFBeamCursor() {}
 
 extern "C" {
 void run_task__16TObjDFBeamCursorFv(u8 *arg0) {
@@ -493,6 +492,7 @@ void run_task__16TObjDFBeamCursorFv(u8 *arg0) {
         ((M2C_UNK (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
     }
 }
+TObjDFBeamCursor::~TObjDFBeamCursor() {}
 
 void *TObjDFBeamCursor__ct(void *arg0, void *arg1, void *arg2) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);

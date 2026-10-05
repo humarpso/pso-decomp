@@ -107,3 +107,5 @@ void TBoss8Dragon__sub_802F2E30(Obj_8002B118 *self) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TBoss8DragonDemo_cpp_ref = (void *)TBoss8DragonDemo__sub_802F2CC4;

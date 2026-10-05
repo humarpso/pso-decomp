@@ -57,3 +57,5 @@ void *TQuestVmDownLoadServer__sub_8007ECB0(void *arg0) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TQuestVmDownLoadServer_8007EBDC_cpp_ref = (void *)TQuestVmDownLoadServer__sub_8007EC1C;

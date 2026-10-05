@@ -1,4 +1,34 @@
-#include "pso/misc/TEndingC.h"
+#include "pso/TObject.h"
+#include "types.h"
+
+class TEndingC : public TObject {
+public:
+    virtual void render_shadows();
+    virtual void render();
+    virtual void run_task();
+    virtual ~TEndingC();
+
+    u32 phase;
+    s32 elapsed_ticks;
+    s32 cycle_index;
+    f32 primary_opacity;
+    f32 secondary_opacity;
+    u8 render_geometry[0x60];
+    s32 timing_rate;
+    f32 fade_in_ticks;
+    f32 fade_out_ticks;
+};
+#include <stddef.h>
+typedef char TEndingCSize[sizeof(TEndingC) == 0x9C ? 1 : -1];
+typedef char TEndingC_phase_offset[offsetof(TEndingC, phase) == 0x1C ? 1 : -1];
+typedef char TEndingC_elapsed_ticks_offset[offsetof(TEndingC, elapsed_ticks) == 0x20 ? 1 : -1];
+typedef char TEndingC_cycle_index_offset[offsetof(TEndingC, cycle_index) == 0x24 ? 1 : -1];
+typedef char TEndingC_primary_opacity_offset[offsetof(TEndingC, primary_opacity) == 0x28 ? 1 : -1];
+typedef char TEndingC_secondary_opacity_offset[offsetof(TEndingC, secondary_opacity) == 0x2C ? 1 : -1];
+typedef char TEndingC_render_geometry_offset[offsetof(TEndingC, render_geometry) == 0x30 ? 1 : -1];
+typedef char TEndingC_timing_rate_offset[offsetof(TEndingC, timing_rate) == 0x90 ? 1 : -1];
+typedef char TEndingC_fade_in_ticks_offset[offsetof(TEndingC, fade_in_ticks) == 0x94 ? 1 : -1];
+typedef char TEndingC_fade_out_ticks_offset[offsetof(TEndingC, fade_out_ticks) == 0x98 ? 1 : -1];
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -10,7 +40,7 @@ struct RecoveredGlobal_8008D3D4___vt__8TEndingC { M2C_UNK value; u8 remaining[0x
 extern "C" {
 s32 TKeyBoardControl__sub_8000F828(void);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern RecoveredGlobal_8008D3D4___vt__8TEndingC __vt__8TEndingC;
+extern void *__vt__8TEndingC[];
 extern s32 lbl_805D2960;
 extern const f32 lbl_805D95CC;
 extern const f32 lbl_805D95D4;
@@ -57,6 +87,17 @@ void TEndingC::render() {
     set_draw_texture_and_color(0, ((s32) (lbl_805D95C0 * secondary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
     draw_textured_quad_at_depth(render_geometry + 0x40, lbl_805D95C8);
     get_player__20TWindowSubStatusDispFv();
+}
+
+extern "C" {
+void __dt__8TEndingCFv(); void run_task__8TEndingCFv(); void render__8TEndingCFv(); void render_shadows__7TObjectFv();
+void *__vt__8TEndingC[6] = {
+    0, 0,
+    (void *)__dt__8TEndingCFv,
+    (void *)run_task__8TEndingCFv,
+    (void *)render__8TEndingCFv,
+    (void *)render_shadows__7TObjectFv,
+};
 }
 
 void TEndingC::run_task() {
@@ -204,7 +245,7 @@ extern "C" {
 u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TEndingC.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TEndingC;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2960;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;

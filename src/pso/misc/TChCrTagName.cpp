@@ -5,8 +5,6 @@ public:
     virtual ~TChCrTagName();
 };
 
-TChCrTagName::~TChCrTagName() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -339,6 +337,7 @@ s32 TChCrTagName__vt4(u8 *arg0) {
     }
     return 0;
 }
+TChCrTagName::~TChCrTagName() {}
 
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);

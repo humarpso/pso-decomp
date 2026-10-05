@@ -62,3 +62,5 @@ void TLobby__sub_80070A78(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TLobby_80070A00_80070A00_cpp_ref = (void *)TLobby__sub_80070A78;

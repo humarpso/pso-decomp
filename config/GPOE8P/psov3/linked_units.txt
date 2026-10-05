@@ -174,6 +174,7 @@ pso/boss/TBoss5Gryphon.cpp
 pso/boss/TBoss5GryphonDemo.cpp
 pso/boss/TBoss5GryphonDemo_80066128.cpp
 pso/boss/TBoss5GryphonLightning.cpp
+pso/boss/TBoss5GryphonLightningEff.cpp
 pso/boss/TBoss5GryphonLightningHorn.cpp
 pso/boss/TBoss5GryphonLightningWing.cpp
 pso/boss/TBoss5GryphonLightningWing_80324CEC.cpp
@@ -548,6 +549,7 @@ pso/item/TItemEffEquip_801088D0.cpp
 pso/item/TItemEffEquip_801088F8.cpp
 pso/item/TItemEffEquip_80108920.cpp
 pso/item/TItemEffFlame.cpp
+pso/item/TItemEffHeaven.cpp
 pso/item/TItemEffLandHit.cpp
 pso/item/TItemEffLavis.cpp
 pso/item/TItemEffNeedleBase_80109D48.cpp
@@ -815,6 +817,7 @@ pso/misc/TChCrCharSelect_802993CC.cpp
 pso/misc/TChCrCharSelect_802A1BFC.cpp
 pso/misc/TChCrCharSelect_802A207C.cpp
 pso/misc/TChCrEffCtrlPl.cpp
+pso/misc/TChCrEffCtrlPl_80339658.cpp
 pso/misc/TChCrEffFade.cpp
 pso/misc/TChCrEffTag.cpp
 pso/misc/TChCrEffTagStr.cpp
@@ -826,6 +829,7 @@ pso/misc/TChCrLoadAfs_8028B940.cpp
 pso/misc/TChCrTagInformation.cpp
 pso/misc/TChCrTagInformation_802A1FAC.cpp
 pso/misc/TChCrTagInformation_802A200C.cpp
+pso/misc/TChCrTagName.cpp
 pso/misc/TChCrTagOccHeader.cpp
 pso/misc/TChCrTagOccHeader_802A2BD8.cpp
 pso/misc/TChCrTagPlBack_802A54D0.cpp
@@ -859,6 +863,7 @@ pso/misc/TEndingAB_8008C9FC.cpp
 pso/misc/TEndingAB_8008CCC4.cpp
 pso/misc/TEndingAB_8008CE08.cpp
 pso/misc/TEndingC.cpp
+pso/misc/TEndingC_8008D00C.cpp
 pso/misc/TEndingC_8008D00C_8008D538.cpp
 pso/misc/TEndingC_8008D00C_8008D56C.cpp
 pso/misc/TEndingC_8008D00C_8008D5A0.cpp
@@ -942,6 +947,7 @@ pso/misc/TLobby_8006F278_8006FA28.cpp
 pso/misc/TLobby_8006F278_8006FA54.cpp
 pso/misc/TLobby_8006F278_8006FAA8.cpp
 pso/misc/TLobby_80070A00.cpp
+pso/misc/TLobby_80070A00_80070A00.cpp
 pso/misc/TLobby_80070A00_80070AB0.cpp
 pso/misc/TLobby_80070A00_80070B90.cpp
 pso/misc/TLobby_80070A00_80071410.cpp
@@ -1143,6 +1149,7 @@ pso/misc/TLobby_802230F8.cpp
 pso/misc/TLobby_80226070_80226070.cpp
 pso/misc/TLobby_80226070_802260C4.cpp
 pso/misc/TLobby_80226070_802260F0.cpp
+pso/misc/TLobby_80227A2C_80227A2C.cpp
 pso/misc/TLobby_80227A2C_80227AF8.cpp
 pso/misc/TLobby_80228C84.cpp
 pso/misc/TLobby_8023F734_8024074C.cpp
@@ -1604,11 +1611,13 @@ pso/misc/TQuestListOnline_80218310.cpp
 pso/misc/TQuestListVM_8007EAF8.cpp
 pso/misc/TQuestListVM_800F95F4.cpp
 pso/misc/TQuestListVM_801F4398.cpp
+pso/misc/TQuestThread.cpp
 pso/misc/TQuestThreadBoard.cpp
 pso/misc/TQuestThread_801F4A04.cpp
 pso/misc/TQuestThread_801F4D20.cpp
 pso/misc/TQuestVmDownLoadServer.cpp
 pso/misc/TQuestVmDownLoadServer_8006FC34.cpp
+pso/misc/TQuestVmDownLoadServer_8007EBDC.cpp
 pso/misc/TQuestVmDownLoadServer_80080788.cpp
 pso/misc/TQuestVmDownLoadServer_800F9CE4.cpp
 pso/misc/TQuestVmDownLoadServer_800FA8A4.cpp
@@ -1837,6 +1846,7 @@ pso/misc/TWindowFukidasi_80252AE4.cpp
 pso/misc/TWindowFukidasi_80252B74.cpp
 pso/misc/TWindowFukidasi_80252BF8.cpp
 pso/misc/TWindowGetComCard.cpp
+pso/misc/TWindowGetComCard_8007B54C.cpp
 pso/misc/TWindowHelpItem.cpp
 pso/misc/TWindowHelpItem_802531A0.cpp
 pso/misc/TWindowHelpItem_80255AB4.cpp
@@ -2420,6 +2430,7 @@ pso/player/TObjPlayer_800FFA88.cpp
 pso/player/TObjPlayer_80100CC8.cpp
 pso/player/TObjPlayer_80100E00.cpp
 pso/player/TObjPlayer_80101824.cpp
+pso/player/TObjPlayer_80102A58.cpp
 pso/player/TObjPlayer_80102C78.cpp
 pso/player/TObjPlayer_80102D48.cpp
 pso/player/TObjPlayer_80104860.cpp
@@ -2822,6 +2833,7 @@ pso/player/TObjPlayer_8034DF2C.cpp
 pso/player/TObjPlayer_8034EFDC.cpp
 pso/player/TObjPlayer_80351748.cpp
 pso/player/TObjPlayer_80354EC8.cpp
+pso/player/TObjPlayer_80354EC8_80354EC8.cpp
 pso/player/TObjPlayer_80355A58.cpp
 pso/player/TObjPlayer_80357734.cpp
 pso/player/TObjPlayer_8035A630.cpp
@@ -3101,9 +3113,11 @@ pso/ui/TAdWarningBaseGC_8032D154.cpp
 pso/ui/TAdWarningBaseGC_8032D188.cpp
 pso/ui/TAdWarningBaseGC_8032D1A4.cpp
 pso/ui/TAdYesNoBaseGC.cpp
+pso/ui/TFontSmallTask.cpp
 pso/ui/TObjBagWarnWin.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
+pso/ui/TObjDFJisin.cpp
 pso/ui/TObjDFTenchuFuru_80051B98.cpp
 pso/ui/TObjDFTenchuFuru_80051D5C.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
