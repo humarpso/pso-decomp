@@ -2,6 +2,7 @@
 #define Chan lbl_805D7CD0
 #define Dev lbl_805D7CD4
 #define EXIGetID Dolphin_EXIGetID
+#define EXIGetType fn_80430A10
 #define Enabled lbl_805D7CD8
 
 #include <dolphin/exi.h>
@@ -12,6 +13,35 @@ static s32 Chan;
 static u32 Dev;
 static u32 Enabled;
 static u32 BarnacleEnabled;
+
+s32 EXIGetType(s32 chan, u32 dev, u32* type) {
+    u32 _type;
+    s32 probe;
+
+    probe = EXIGetID(chan, dev, &_type);
+
+    if (!probe) {
+        return probe;
+    }
+
+    switch (_type & ~0xFF) {
+        case 0x04020300:
+        case 0x04020200:
+        case 0x04020100:
+        case 0x04060000:
+            *type = (_type & ~0xFF);
+            return probe;
+        default:
+            switch (_type & ~0xFFFF) {
+                case 0x05070000:
+                    *type = 0x05070000;
+                    return probe;
+            }
+
+            *type = _type;
+            return probe;
+    }
+}
 
 int InitializeUART();
 int ReadUARTN();

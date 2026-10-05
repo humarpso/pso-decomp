@@ -206,6 +206,7 @@ force_active:
   - __VIInit
   - __ct__15TBoss6CrushRockFv
   - __ct__9TEffGuardFPC3Vec
+  - __destroy_global_chain_reference
   - __dt__10TAdTitleGCFv
   - __dt__10TBoss4FadeFv
   - __dt__10TDPBShowerFv
@@ -334,6 +335,10 @@ force_active:
   - __dt__9TItemLoadFv
   - __dt__9TSaveChCrFv
   - __equals_dec
+  - __fini_cpp_exceptions
+  - __fini_cpp_exceptions_reference
+  - __init_cpp_exceptions
+  - __init_cpp_exceptions_reference
   - __less_dec
   - __minus_dec
   - __num2dec_internal

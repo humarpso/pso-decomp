@@ -2084,7 +2084,7 @@ pso/object/TObjGrassWeb.cpp:
 pso/object/TObjGrass.cpp:
 	.text       start:0x800BCA2C end:0x800BFBBC
 	.rodata     start:0x8043B7B0 end:0x8043B7B8
-	.data       start:0x80492A60 end:0x80492A88
+	.data       start:0x80492928 end:0x80492A88
 	.bss        start:0x80500BB8 end:0x80500BE0
 	.sdata2     start:0x805D9EB8 end:0x805D9ED4
 
@@ -14795,6 +14795,9 @@ dvd/dvderror.c:
 
 dvd/fstload.c:
 	.text       start:0x8037B064 end:0x8037B2A4
+	.data       start:0x804F4790 end:0x804F4800
+	.bss        start:0x80544778 end:0x805447E8
+	.sdata      start:0x805D4548 end:0x805D4558
 
 vi/vi.c:
 	.text       start:0x8037B2A4 end:0x8037CD24
@@ -14926,6 +14929,7 @@ gx/GXLight.c:
 
 gx/GXTexture.c:
 	.text       start:0x8038BE90 end:0x8038CE4C
+	.data       start:0x804F50A8 end:0x804F52D0
 	.sdata      start:0x805D45A0 end:0x805D45E0
 	.sdata2     start:0x805E04F0 end:0x805E0518
 
@@ -15055,11 +15059,11 @@ PowerPC_EABI_Support/Runtime/Src/ptmf.c:
 	.text       start:0x80396A20 end:0x80396A78
 
 PowerPC_EABI_Support/Runtime/Src/runtime.c:
-	.text       start:0x80396A78 end:0x803972C0
+	.text       start:0x80396A78 end:0x803972B8
 	.rodata     start:0x8047BA08 end:0x8047BA20
 
 PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp:
-	.text       start:0x803972C0 end:0x80397334
+	.text       start:0x803972B8 end:0x80397334
 	.ctors      start:0x80433F20 end:0x80433F24
 	.dtors      start:0x80434020 end:0x80434028
 	.sdata      start:0x805D45E0 end:0x805D45E4

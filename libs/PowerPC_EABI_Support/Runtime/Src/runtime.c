@@ -206,7 +206,3 @@ asm void __cvt_sll_flt(void) {
 asm void __cvt_dbl_usll(void) {
 #include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/__cvt_dbl_usll.inc"
 }
-
-asm char* GetR2__Fv_803972B8(void) {
-#include "orig_asm/PowerPC_EABI_Support/Runtime/Src/runtime/GetR2__Fv_803972B8.inc"
-}

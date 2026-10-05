@@ -244,6 +244,107 @@ struct Grass_800BD4D8 {
     VObj_18_800BD4D8 *hit[12];
 };
 
+struct VBase_14_fa0828 { char pad[0x14]; };
+
+struct VObj_14_fa0828 : VBase_14_fa0828 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual M2C_UNK m3();
+};
+
+struct VBase_18_c99286 { char pad[0x18]; };
+
+struct VObj_18_c99286 : VBase_18_c99286 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual M2C_UNK m79(s32);
+    virtual M2C_UNK m80();
+};
+
+struct E1C_800BF924 { u8 pad[0x1C]; };
+
+struct E2C_800BF924 { u8 pad[0x2C]; };
+
+struct T_800BF924 { u8 pad[0x3C]; u8 f3C[0x80]; E1C_800BF924 e1[1]; E2C_800BF924 e2[4]; };
+
 extern "C" {
 s32 spawn_particle_effect(s32, s32);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
@@ -318,8 +419,6 @@ s32 *alloc_buffer__11TOBoss4RockFPv(int);
 M2C_UNK spawn_npc_enemy__6TLobbyFsiiiff(int, s32, s32, Quad_800BF66C *, f32, f32);
 extern Quad_800BF66C lbl_8043B780;
 extern M2C_UNK lbl_8043B7C0[];
-extern M2C_UNK lbl_80492954[];
-extern s32 lbl_80492964[];
 extern s32 lbl_805D5140;
 extern u32 TObjGrass__data_805D5144;
 extern s32 lbl_805D5148;
@@ -379,7 +478,7 @@ extern const f32 lbl_805D9EBC;
 extern const f32 TObjGrass__data_805D9EE8;
 extern const f32 lbl_805D9EF4;
 extern const f32 lbl_805D9EF8;
-extern f32 TObjGrass__data_805D9EFC;
+extern const f32 TObjGrass__data_805D9EFC;
 void TObjGrass__sub_800BDD70(u8 *arg0);
 f32 enemy_move_toward(void *, s32, void *, s32, f32);
 void enemy_pursue_point(void *, s32, void *, f32, f32);
@@ -550,6 +649,43 @@ extern const f32 TObjGrass__data_805D9EE8;
 extern const f32 lbl_805D9EEC;
 extern const f32 lbl_805D9EF0;
 void TObjGrass__sub_800BD4D8(void *arg0_);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+M2C_UNK obj_setFlags30(void *, u32);
+M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
+M2C_UNK init_position_vectors__10TObjPlayerFi(void *);
+void TObjGrass__sub_800BFB68(O_800BFB68 *self);
+void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
+M2C_UNK init_common__18TObjEneMe3SinowZoaFPv(void *);
+s32 create__12TObjEneSaverFPvPv(int, int);
+M2C_UNK set_param__12TObjEneLappyFPvi(void *, int, int);
+M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+M2C_UNK initialize__9TObjEnemyFPv(void *, M2C_UNK, s32);
+M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
+M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+M2C_UNK init_collision_body_parts(void *, void *, int);
+extern "C" u8 lbl_8043B6A0[];
+extern "C" u8 lbl_8043B6B4[];
+extern "C" u8 lbl_8043B6CC[];
+extern "C" u8 lbl_8043B6E0[];
+extern "C" u8 lbl_8043B6F8[];
+extern "C" u8 lbl_8043B70C[];
+extern "C" u8 lbl_8043B724[];
+extern "C" u8 lbl_8043B738[];
+extern "C" u8 lbl_8043B74C[];
+extern "C" u8 lbl_8043B760[];
+extern u8 __vt__9TObjGrass[];
+extern s32 lbl_805D2A38;
+extern s32 lbl_805D5140;
+extern u32 TObjGrass__data_805D5144;
+extern s32 lbl_805D5148;
+extern u32 TObjGrass__data_805D5154;
+extern const f32 TObjGrass__data_805D9EB8;
+extern const f32 TObjGrass__data_805D9EFC;
+u8 *TObjGrass__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
 extern "C" {
@@ -566,7 +702,6 @@ M2C_UNK advance_animation_playback(void *);
 void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 void *TObjControl__ct(void *, void *);
-void *TObjGrass__ct(void *, void *, void *);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
@@ -578,6 +713,131 @@ M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void obj_clearFlags30(void *, u32);
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+
+extern "C" {
+void TLobby__sub_801A1FD8();
+}
+extern "C" {
+void TObjRoomId__sub_801A1E2C();
+}
+extern "C" {
+void TParticleCtrl__sub_801A2124();
+}
+extern "C" {
+void __dt__12TObjGrassWebFv();
+}
+extern "C" {
+void apply_object_set_data();
+}
+extern "C" {
+void classify_actor_view_detail();
+}
+extern "C" {
+extern u8 lbl_8043B6A0[];
+}
+extern "C" {
+extern u8 lbl_8043B6B4[];
+}
+extern "C" {
+extern u8 lbl_8043B6CC[];
+}
+extern "C" {
+extern u8 lbl_8043B6E0[];
+}
+extern "C" {
+extern u8 lbl_8043B6F8[];
+}
+extern "C" {
+extern u8 lbl_8043B70C[];
+}
+extern "C" {
+extern u8 lbl_8043B724[];
+}
+extern "C" {
+extern u8 lbl_8043B738[];
+}
+extern "C" {
+extern u8 lbl_8043B74C[];
+}
+extern "C" {
+extern u8 lbl_8043B760[];
+}
+extern "C" {
+void render__12TObjGrassWebFv();
+}
+extern "C" {
+void render_shadows__7TObjectFv();
+}
+extern "C" {
+void reset_motion_fields__10TObjPlayerFPv();
+}
+extern "C" {
+void run_task__12TObjGrassWebFv();
+}
+extern "C" {
+void update_object_view_visibility();
+}
+extern void *lbl_80492928[2];
+extern void *lbl_80492930[9];
+extern "C" {
+extern u8 lbl_8043B6A0[]; extern "C" u8 lbl_8043B6B4[]; extern "C" u8 lbl_8043B6CC[]; extern "C" u8 lbl_8043B6E0[];
+}
+extern "C" {
+extern u8 lbl_8043B6F8[]; extern "C" u8 lbl_8043B70C[]; extern "C" u8 lbl_8043B724[]; extern "C" u8 lbl_8043B738[];
+}
+extern "C" {
+extern u8 lbl_8043B74C[]; extern "C" u8 lbl_8043B760[];
+}
+extern "C" {
+extern void TLobby__sub_801A1FD8(); extern "C" void TObjRoomId__sub_801A1E2C(); extern "C" void TParticleCtrl__sub_801A2124();
+}
+extern "C" {
+extern void __dt__12TObjGrassWebFv(); extern "C" void apply_object_set_data(); extern "C" void classify_actor_view_detail();
+}
+extern "C" {
+extern void render__12TObjGrassWebFv(); extern "C" void render_shadows__7TObjectFv(); extern "C" void reset_motion_fields__10TObjPlayerFPv();
+}
+extern "C" {
+extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility();
+}
+__declspec(section ".data") void *lbl_80492928[2] = {
+    (void *)&lbl_8043B6A0, (void *)0x0,
+};
+void *lbl_80492930[9] = {
+    (void *)&lbl_8043B6B4, (void *)&lbl_8043B6CC, (void *)&lbl_8043B6E0, (void *)&lbl_8043B6F8,
+    (void *)&lbl_8043B70C, (void *)&lbl_8043B724, (void *)&lbl_8043B738, (void *)&lbl_8043B74C,
+    (void *)0x0,
+};
+void *lbl_80492954[4] = {
+    (void *)&lbl_8043B760, (void *)&lbl_80492928, (void *)&lbl_80492930, (void *)0x10008,
+};
+void *lbl_80492964[32] = {
+    (void *)0x10000, (void *)0x6, (void *)0x3f333333, (void *)0x1,
+    (void *)0x10001, (void *)0x7, (void *)0x3fa66666, (void *)0x1,
+    (void *)0x20000, (void *)0x2, (void *)0x3f333333, (void *)0x4,
+    (void *)0x20000, (void *)0x4, (void *)0x3f333333, (void *)0x4,
+    (void *)0x20000, (void *)0x5, (void *)0x3f333333, (void *)0x4,
+    (void *)0x20000, (void *)0x0, (void *)0x3f19999a, (void *)0x8,
+    (void *)0x30005, (void *)0x1, (void *)0x3ecccccd, (void *)0x10,
+    (void *)0x20001, (void *)0x3, (void *)0x3f000000, (void *)0x20,
+};
+void *lbl_804929E4[7] = {
+    (void *)0x43c80000, (void *)0x3f400000, (void *)0x100, (void *)0x1e0000,
+    (void *)0x0, (void *)0x1, (void *)0x0,
+};
+void *lbl_80492A00[11] = {
+    (void *)0x0, (void *)0x41700000, (void *)0x0, (void *)0x41200000,
+    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *__vt__12TObjGrassWeb[13] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__12TObjGrassWebFv, (void *)&run_task__12TObjGrassWebFv,
+    (void *)&render__12TObjGrassWebFv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&TObjRoomId__sub_801A1E2C,
+};
+#define lbl_80492954 ((M2C_UNK *)lbl_80492954)
+#define lbl_80492964 ((s32 *)lbl_80492964)
 
 void TObjGrass__sub_800BCA2C(void * _w0) {  }
 
@@ -1803,7 +2063,7 @@ void * create__9TObjGrassFPv(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x404);
     if (o2 != NULL) {
-        o2 = TObjGrass__ct(o2, o, arg0);
+        o2 = TObjGrass__ct((u8 *)(o2), (M2C_UNK)(o), (s32)(arg0));
     }
     return o2;
 }
@@ -1890,6 +2150,58 @@ Obj_800BF880 *__dt__9TObjGrassFv(Obj_800BF880 *arg0, s16 arg1) {
             __dl__7TObjectFPv(arg0);
         }
     }
+    return arg0;
+}
+
+u8 *TObjGrass__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    s32 t;
+    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    M2C_FIELD(arg0, u8 **, 0x18) = __vt__9TObjGrass;
+    init_common__18TObjEneMe3SinowZoaFPv(arg0 + 0x3B0);
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2A38;
+    ((VObj_18_c99286 *)(arg0))->m79(arg2);
+    init_position_vectors__10TObjPlayerFi(arg0);
+    apply_actor_gravity(arg0, 0, TObjGrass__data_805D9EB8);
+    t = M2C_FIELD(TObjGrass__data_805D5154, s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = t;
+    M2C_FIELD(arg0, f32 *, 0x6C) = TObjGrass__data_805D9EFC;
+    M2C_FIELD(arg0, s32 *, 0x368) = 0;
+    set_param__12TObjEneLappyFPvi(arg0, 0xC, t);
+    M2C_FIELD(arg0, s16 *, 0x33A) = 0x1E;
+    M2C_FIELD(arg0, s16 *, 0x33C) = M2C_FIELD(arg0, s16 *, 0x33A);
+    M2C_FIELD(arg0, s32 *, 0x334) = 0;
+    TObjGrass__sub_800BFB8C((O_800BFB8C *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
+    M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)lbl_80492964;
+    set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
+    if (TObjGrass__data_805D9EB8 < M2C_FIELD(arg0, f32 *, 0x358)) {
+        M2C_FIELD(arg0, s16 *, 0x39C) = 2;
+    } else {
+        M2C_FIELD(arg0, s16 *, 0x39C) = 1;
+    }
+    M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    init_collision_body_parts(arg0, &((E2C_800BF924 *)lbl_80492A00)[M2C_FIELD(arg0, s32 *, 0x368)], 1);
+    M2C_FIELD(arg0, s16 *, 0x39E) = 0;
+    bind_enemy_combat_stats(arg0, lbl_805D5140, ((u32 *)TObjGrass__data_805D5144)[M2C_FIELD(arg0, s16 *, 0x39E)], lbl_805D5148);
+    M2C_FIELD(arg0, u8 **, 0x350) = (u8 *)&((E1C_800BF924 *)lbl_804929E4)[M2C_FIELD(arg0, s32 *, 0x368)];
+    M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+    update_prev_position__10TObjPlayerFPv(arg0);
+    copy_position__20TBoss3VoloptHiraisinFi(arg0);
+    reset_photon_effect__10TObjPlayerFPv(arg0);
+    M2C_FIELD(arg0, f32 *, 0x398) = TObjGrass__data_805D9EB8;
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s16 *, 0x328) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3A0) = 0;
+    TObjGrass__sub_800BFB68((O_800BFB68 *)(arg0));
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, 2);
+    obj_setFlags30(arg0, 0x04040000);
+    ((VObj_14_fa0828 *)(arg0 + 0x3B0))->m3();
+    M2C_FIELD(arg0, s32 *, 0x3AC) = 1;
+    M2C_FIELD(arg0, s32 *, 0x3CC) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
+    M2C_FIELD(arg0, s32 *, 0x3D0) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
+    M2C_FIELD(arg0, s32 *, 0x3A8) = 0;
+    ((VObj_18_c99286 *)(arg0))->m80();
     return arg0;
 }
 

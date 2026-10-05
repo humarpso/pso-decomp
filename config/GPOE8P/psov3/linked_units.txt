@@ -35,6 +35,7 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/w_pow.c
 PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/NMWException.cp
+PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 TRK_MINNOW_DOLPHIN/flush_cache.c
 TRK_MINNOW_DOLPHIN/msgbuf.c

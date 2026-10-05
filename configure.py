@@ -681,7 +681,7 @@ if args.target == "psov3":
             [
                 Matching("dvd/dvdqueue.c"),
                 Matching("dvd/dvderror.c"),
-                NonMatching("dvd/fstload.c"),
+                NonMatching("dvd/fstload.c", cflags=cflags_dolphin_recovered),
             ],
         ),
         DolphinLib(
