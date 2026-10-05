@@ -707,6 +707,7 @@ pso/unk/text_8005063C.cpp:
 pso/ui/TObjDFJisin.cpp:
 	.text       start:0x800507E8 end:0x80051580
 	.rodata     start:0x804374E8 end:0x804374F0
+	.data       start:0x804858F8 end:0x80485A7C
 	.sdata2     start:0x805D8AB0 end:0x805D8AB4
 
 pso/boss/TObjDFRecover.cpp:
@@ -11659,8 +11660,10 @@ pso/misc/TChCrCharSelect_802A207C.cpp:
 
 pso/misc/TChCrTagName.cpp:
 	.text       start:0x802A208C end:0x802A2A00
-	.rodata     start:0x80466438 end:0x80466440
-	.sdata2     start:0x805DDE48 end:0x805DDE4C
+	.rodata     start:0x804663F8 end:0x80466440
+	.data       start:0x804DCC18 end:0x804DCC38
+	.sdata      start:0x805D3DA0 end:0x805D3DA4
+	.sdata2     start:0x805DDE28 end:0x805DDEA4
 
 pso/unk/text_802A2A00.cpp:
 	.text       start:0x802A2A00 end:0x802A2BD8
@@ -11833,8 +11836,10 @@ pso/misc/TTecKafun.cpp:
 
 pso/misc/TBGLightningCtrl.cpp:
 	.text       start:0x802A9A08 end:0x802AA2D4
-	.rodata     start:0x8046FC98 end:0x8046FCA0
-	.sdata2     start:0x805DE030 end:0x805DE060
+	.rodata     start:0x8046FC68 end:0x8046FCB8
+	.data       start:0x804DDF60 end:0x804DDFB0
+	.sdata      start:0x805D3E38 end:0x805D3E40
+	.sdata2     start:0x805DE030 end:0x805DE068
 
 pso/misc/TOBiwaMushi.cpp:
 	.text       start:0x802AA2D4 end:0x802AABEC

@@ -189,6 +189,7 @@ force_active:
   - __dt__11TMapCsnCtrlFv
   - __dt__11TObjDFYutaiFv
   - __dt__12TAdSoniclogoFv
+  - __dt__12TBGLightningFv
   - __dt__12TChCrEffFadeFv
   - __dt__12TItemDropSubFv
   - __dt__12TItemEffCaneFv
@@ -231,6 +232,7 @@ force_active:
   - __dt__15TObjSoloPlayWinFv
   - __dt__15TPlyOnCountOverFv
   - __dt__16TAdStorySelectGCFv
+  - __dt__16TBGLightningCtrlFv
   - __dt__16TBoss1DragonDemoFv
   - __dt__16TBoss3VoloptCtrlFv
   - __dt__16TBoss4CheckEmptyFv
@@ -452,6 +454,8 @@ force_active:
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - layercmp
+  - lbl_8046FC68
+  - lbl_8046FC78
   - lbl_80483EEC
   - lbl_8048E758
   - lbl_80494B18
@@ -516,6 +520,7 @@ force_active:
   - render__11TAdSEGAlogoFv
   - render__11TChCrEffTagFv
   - render__12TAdSoniclogoFv
+  - render__12TBGLightningFv
   - render__12TChCrEffFadeFv
   - render__12TLevelSelectFv
   - render__13TAdTitleTexGCFv
@@ -527,6 +532,7 @@ force_active:
   - render__14TChCrEffTagStrFv
   - render__15TAdDrawLineCtrlFv
   - render__16TAdStorySelectGCFv
+  - render__16TBGLightningCtrlFv
   - render__16TBoss1DragonDemoFv
   - render__16TBoss4CheckEmptyFv
   - render__17TAdSelectTxtSubGCFv
@@ -570,6 +576,7 @@ force_active:
   - run_task__11TAdSEGAlogoFv
   - run_task__11TChCrEffTagFv
   - run_task__12TAdSoniclogoFv
+  - run_task__12TBGLightningFv
   - run_task__12TChCrEffFadeFv
   - run_task__12TItemEffCaneFv
   - run_task__12TItemTexLoadFv
@@ -601,6 +608,7 @@ force_active:
   - run_task__15TObjDeadListWinFv
   - run_task__15TObjSoloPlayWinFv
   - run_task__16TAdStorySelectGCFv
+  - run_task__16TBGLightningCtrlFv
   - run_task__16TBoss1DragonDemoFv
   - run_task__16TBoss3VoloptCtrlFv
   - run_task__16TBoss4CheckEmptyFv

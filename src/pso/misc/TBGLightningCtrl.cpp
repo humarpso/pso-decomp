@@ -1,5 +1,10 @@
 #include "types.h"
-#include "pso/TBGLightning.h"
+#include "pso/TObject.h"
+class TBGLightning : public TObject {
+public:
+    virtual void render_shadows();
+    virtual ~TBGLightning();
+};
 #include <stddef.h>
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -103,21 +108,16 @@ void reset_particles__13TParticleCtrlFv(void);
 void TParticleCtrl__sub_803E2A1C(void *, int);
 void TParticleCtrl__sub_803E2B68(s32 arg0);
 
-extern struct VTBlob_802AA21C_802AA12C __vt__12TBGLightning;
-extern M2C_UNK __vt__16TBGLightningCtrl[];
-extern s32 lbl_8046FC8C[];
+extern void *__vt__12TBGLightning[];
+extern void *__vt__16TBGLightningCtrl[];
 extern unsigned char lbl_8046FCA0[];
-extern s32 lbl_805D3E38;
-extern s32 lbl_805D3E3C;
+__declspec(section ".rodata") extern const char lbl_8046FC68[] = "TBGLightning";
+const char *lbl_805D3E38 = lbl_8046FC68;
+__declspec(section ".rodata") extern const char lbl_8046FC78[] = "TBGLightningCtrl";
+const char *lbl_805D3E3C = lbl_8046FC78;
+__declspec(section ".rodata") s32 lbl_8046FC8C[3] = { 1, 5, 0 };
 extern void *lbl_805D4DF0;
 extern int lbl_805D66D0;
-extern const f32 lbl_805DE030;
-extern const f32 lbl_805DE034;
-extern const f32 lbl_805DE038;
-extern const f32 lbl_805DE03C;
-extern const f32 lbl_805DE040;
-extern const f32 lbl_805DE060;
-extern const f32 lbl_805DE064;
 extern void *tl_05;
 
 void TBGLightningCtrl__sub_802A9A08(void) { set_global_param__8TObjFishFi((void*)(lbl_805D66D0)); }
@@ -133,7 +133,7 @@ void TBGLightningCtrl__sub_802A9A2C(u8 *arg0, s32 arg1) {
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0x68) * sin_table_lookup(arg1);
     stack.spC = M2C_FIELD(arg0, f32 *, 0x6C);
     stack.sp10 = M2C_FIELD(arg0, f32 *, 0x68) * cos_table_lookup(arg1);
-    ((s32 (*)(s32, s32, f32))TBGLightning__sub_802AA164)((s32) arg0, (s32) &stack.sp8, M2C_FIELD(arg0, f32 *, 0x70) * ((lbl_805DE034 * (lbl_805DE038 * (f32) rand())) + lbl_805DE030));
+    ((s32 (*)(s32, s32, f32))TBGLightning__sub_802AA164)((s32) arg0, (s32) &stack.sp8, M2C_FIELD(arg0, f32 *, 0x70) * (((0.3f) * ((3.0517578e-05f) * (f32) rand())) + (1.0f)));
 }
 extern int fold_flush_0;
 #pragma pop
@@ -151,9 +151,9 @@ void run_task__16TBGLightningCtrlFv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x90) = (s32) (temp_r3 - 1);
     if (temp_r3 <= 0) {
         temp_f2 = (f32) ((int (*)(void))rand)();
-        temp_f1 = lbl_805DE038 * temp_f2;
-        ((void (*)(void *, s32, f32, f32))TBGLightningCtrl__sub_802A9A2C)(arg0, (s32) (lbl_805DE03C * temp_f1), temp_f1, temp_f2);
-        M2C_FIELD(arg0, s32 *, 0x90) = (s32) (((f32) M2C_FIELD(arg0, s32 *, 0x88) * (lbl_805DE038 * (f32) ((int (*)(void))rand)())) + (f32) M2C_FIELD(arg0, s32 *, 0x84));
+        temp_f1 = (3.0517578e-05f) * temp_f2;
+        ((void (*)(void *, s32, f32, f32))TBGLightningCtrl__sub_802A9A2C)(arg0, (s32) ((65536.0f) * temp_f1), temp_f1, temp_f2);
+        M2C_FIELD(arg0, s32 *, 0x90) = (s32) (((f32) M2C_FIELD(arg0, s32 *, 0x88) * ((3.0517578e-05f) * (f32) ((int (*)(void))rand)())) + (f32) M2C_FIELD(arg0, s32 *, 0x84));
     }
 }
 extern int fold_flush_1;
@@ -161,7 +161,7 @@ extern int fold_flush_1;
 
 void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TBGLightningCtrl;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TBGLightningCtrl;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -172,7 +172,7 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
 
 u8 *TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A9C24___vt__16TBGLightningCtrl *)&__vt__16TBGLightningCtrl).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TBGLightningCtrl;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E3C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x90) = 0;
@@ -196,7 +196,9 @@ void destroy_instance__16TBGLightningCtrlFv(void) {
 }
 
 void load_bg_lightning(void) { lbl_805D66D0 = load_gvm_texture_file(lbl_8046FCA0); }
+__declspec(section ".rodata") extern unsigned char lbl_8046FCA0[] = "bg_lightning.gvm";
 
+extern const f32 lbl_805DE040 = 0.0f;
 void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c) {
     Vtx_802A9D40 r[4];
     f32 x;
@@ -205,8 +207,8 @@ void fn_802A9D40(void *arg0, f32 *p, f32 *d, s32 c) {
     f32 hi;
     f32 z;
     f32 y;
-    hi = lbl_805DE040;
-    lo = lbl_805DE030;
+    hi = *(const volatile f32 *)&lbl_805DE040;
+    lo = (1.0f);
     r[0].x = x = p[0]; r[0].y = y = p[1]; r[0].z = z = p[2]; r[0].u = hi; r[0].v = hi; r[0].c = c;
     r[1].x = x; r[1].y = yd = y + d[1]; r[1].z = z; r[1].u = hi; r[1].v = lo; r[1].c = c;
     r[2].x = x + d[0]; r[2].y = y; r[2].z = z + d[2]; r[2].u = lo; r[2].v = hi; r[2].c = c;
@@ -294,7 +296,7 @@ void render__12TBGLightningFv(s32 arg0) {
     if (get_state_flag__9TMainTaskFv() != 0) {
         temp_r31 = M2C_FIELD(lbl_805D4DF0, s32 *, 0x194) + 0x4000;
         stack.sp8 = sin_table_lookup(temp_r31);
-        stack.spC = lbl_805DE060;
+        stack.spC = (-1.0f);
         stack.sp10 = cos_table_lookup(temp_r31);
         begin_effect_render__13TParticleCtrlFv();
         init_xyz_limits__10TObjPlayerFv();
@@ -336,11 +338,11 @@ u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
     s8 temp_r5;
 
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, void **, 0x18) = (void *) &__vt__12TBGLightning;
+    M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__12TBGLightning;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E38;
     temp_f2 = (f32) rand();
-    temp_f1 = lbl_805DE038 * temp_f2;
-    temp_r5 = (s8) (lbl_805DE064 * temp_f1);
+    temp_f1 = (3.0517578e-05f) * temp_f2;
+    temp_r5 = (s8) ((2.0f) * temp_f1);
     M2C_FIELD(arg0, s8 *, 0x1C) = temp_r5;
     M2C_FIELD(arg0, s8 *, 0x1D) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2, temp_r5, temp_f1, temp_f2);
@@ -348,4 +350,38 @@ u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
     return arg0;
 }
 
+}
+
+extern "C" {
+void __dt__12TBGLightningFv();
+void render_shadows__7TObjectFv();
+void TLobby__sub_801A1FD8();
+void apply_object_set_data();
+void reset_motion_fields__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124();
+void update_object_view_visibility();
+void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C();
+void *__vt__16TBGLightningCtrl[] = {
+    0, 0,
+    (void *)__dt__16TBGLightningCtrlFv,
+    (void *)run_task__16TBGLightningCtrlFv,
+    (void *)render__16TBGLightningCtrlFv,
+    (void *)render_shadows__7TObjectFv,
+    (void *)TLobby__sub_801A1FD8,
+    (void *)apply_object_set_data,
+    (void *)reset_motion_fields__10TObjPlayerFPv,
+    (void *)TParticleCtrl__sub_801A2124,
+    (void *)update_object_view_visibility,
+    (void *)classify_actor_view_detail,
+    (void *)TObjRoomId__sub_801A1E2C,
+};
+void *__vt__12TBGLightning[] = {
+    0, 0,
+    (void *)__dt__12TBGLightningFv,
+    (void *)run_task__12TBGLightningFv,
+    (void *)render__12TBGLightningFv,
+    (void *)render_shadows__7TObjectFv,
+    0,
+};
 }

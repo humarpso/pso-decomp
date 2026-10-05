@@ -1,4 +1,9 @@
-#include "pso/TChCrTagName.h"
+#include "pso/TChCrTag.h"
+class TChCrTagName : public TChCrTag {
+public:
+    virtual void render_shadows();
+    virtual ~TChCrTagName();
+};
 
 TChCrTagName::~TChCrTagName() {}
 
@@ -77,25 +82,11 @@ struct TChCrTagName_802A208C : VBase_802A208C {
 
 extern "C" {
 u8 * __ct__8TChCrTagFv(void *, s32);
-extern RecoveredGlobal_802A28C0___vt__12TChCrTagName __vt__12TChCrTagName;
-extern s32 lbl_805D3DA0;
-extern const f32 lbl_805DDE48;
-extern const f32 lbl_805DDE8C;
-extern const f32 lbl_805DDE90;
-extern const f32 lbl_805DDE94;
-extern const f32 lbl_805DDE98;
-extern const f32 lbl_805DDE9C;
-extern const f32 lbl_805DDEA0;
+extern void *__vt__12TChCrTagName[];
+__declspec(section ".rodata") extern const char lbl_804663F8[] = "TChCrTagName";
+const char *lbl_805D3DA0 = lbl_804663F8;
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2);
 f32 cos_table_lookup(s32);
-extern const f32 lbl_805DDE28;
-extern const f32 lbl_805DDE70;
-extern const f32 lbl_805DDE74;
-extern const f32 lbl_805DDE78;
-extern const f32 lbl_805DDE7C;
-extern const f32 lbl_805DDE80;
-extern const f32 lbl_805DDE84;
-extern const f32 lbl_805DDE88;
 void TChCrTagName__sub_802A26E0(u8 *arg0);
 s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
@@ -103,19 +94,10 @@ s32 get_instance__15TChCrCharSelectFv();
 s32 TChCrTagName__vt4(u8 *arg0);
 s32 get_selected_index__15TChCrCharSelectFv();
 s32 get_selected_char__15TChCrCharSelectFv();
-extern const f32 lbl_805DDE68;
-extern const f32 lbl_805DDE6C;
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
 extern vec2f lbl_80466408[];
-extern const f32 lbl_805DDE28;
-extern const f32 lbl_805DDE34;
-extern const f32 lbl_805DDE38;
-extern const f32 lbl_805DDE3C;
-extern const f32 lbl_805DDE50;
-extern const f32 lbl_805DDE54;
-extern const f32 lbl_805DDE64;
 void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
@@ -123,31 +105,11 @@ extern vec2f lbl_80466410[];
 extern vec2f lbl_80466418[];
 extern vec2f lbl_80466420[];
 extern vec2f lbl_80466428[];
-extern const f32 lbl_805DDE28;
-extern const f32 lbl_805DDE30;
-extern const f32 lbl_805DDE34;
-extern const f32 lbl_805DDE38;
-extern const f32 lbl_805DDE3C;
-extern const f32 lbl_805DDE50;
-extern const f32 lbl_805DDE54;
-extern const f32 lbl_805DDE58;
-extern const f32 lbl_805DDE5C;
-extern const f32 lbl_805DDE60;
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0);
 f32 sin_table_lookup(s32);
 extern vec2f lbl_80466430[];
-extern const f32 lbl_805DDE28;
-extern const f32 lbl_805DDE2C;
-extern const f32 lbl_805DDE30;
-extern const f32 lbl_805DDE34;
-extern const f32 lbl_805DDE38;
-extern const f32 lbl_805DDE3C;
-extern const f32 lbl_805DDE40;
-extern const f32 lbl_805DDE44;
-extern const f32 lbl_805DDE4C;
-extern const f32 lbl_805DDE50;
 int TChCrTagName__sub_802A208C(void *p);
 }
 
@@ -187,35 +149,35 @@ int TChCrTagName__sub_802A208C(void *p) {
     vec2f pos;
     vec2f scale = lbl_80466430[0];
     if (self->f24 > self->f40) {
-        t = (self->f24 - self->f40) / (lbl_805DDE28 - self->f40);
+        t = (self->f24 - self->f40) / ((1.0f) - self->f40);
     } else {
         return;
     }
     s = TChCrTagName__sub_802A265C((Tag_802A265C *)self);
     if (self->m4() != 0) {
-        depth = lbl_805DDE2C;
+        depth = (-1.8125f);
     } else {
-        depth = lbl_805DDE34 * s + lbl_805DDE30;
+        depth = (0.3125f) * s + (-2.125f);
     }
-    bright = lbl_805DDE3C * (s * s) + lbl_805DDE38;
+    bright = (0.75f) * (s * s) + (0.25f);
     t2 = t * t;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
-    pos.x += lbl_805DDE40;
-    pos.y += lbl_805DDE44;
+    pos.x += (5.0f);
+    pos.y += (9.0f);
     alpha = t2;
     id = self->f20 + 0x4B;
     if (self->m4() != 0) {
-        alpha = lbl_805DDE38 * sin_table_lookup(self->f44 << 9) + t2;
+        alpha = (0.25f) * sin_table_lookup(self->f44 << 9) + t2;
         if (alpha < 0.0f) {
             alpha = 0.0f;
-        } else if (alpha > lbl_805DDE28) {
-            alpha = lbl_805DDE28;
+        } else if (alpha > (1.0f)) {
+            alpha = (1.0f);
         }
     }
     draw_ui_sprite_shaded(id, &pos, &scale, depth, alpha, bright);
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
-    pos.x = lbl_805DDE4C;
-    pos.y += lbl_805DDE50;
+    pos.x = (169.0f);
+    pos.y += (3.0f);
     draw_ui_sprite_shaded(self->f20 + 0x57, &pos, &scale, depth, t2, bright);
 }
 #pragma pop
@@ -223,49 +185,49 @@ int TChCrTagName__sub_802A208C(void *p) {
 int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *self) {
     f32 s;
     f32 depth;
-    f32 t = lbl_805DDE28;
+    f32 t = (1.0f);
     f32 bright;
     if (self->f24 < self->f40) {
         t = (self->f24 - self->f3c) / (self->f40 - self->f3c);
     }
     s = TChCrTagName__sub_802A265C((Tag_802A265C *)self);
     if (self->m4() != 0) {
-        depth = lbl_805DDE30;
+        depth = (-2.125f);
     } else {
-        depth = lbl_805DDE34 * s + lbl_805DDE54;
+        depth = (0.3125f) * s + (-2.4375f);
     }
-    bright = lbl_805DDE3C * (s * s) + lbl_805DDE38;
+    bright = (0.75f) * (s * s) + (0.25f);
     t = t * t;
     {
         vec2f scale = lbl_80466410[0];
         vec2f pos;
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
         draw_ui_sprite_shaded(0x41, &pos, &scale, depth, t, bright);
-        pos.y += lbl_805DDE58;
+        pos.y += (22.0f);
         draw_ui_sprite_shaded(0x42, &pos, &scale, depth, t, bright);
     }
     {
         vec2f scale = lbl_80466418[0];
         vec2f pos;
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
-        pos.x += lbl_805DDE5C;
+        pos.x += (226.0f);
         draw_ui_sprite_shaded(self->f20 == 0 ? 0x44 : 0x48, &pos, &scale, depth, t, bright);
-        pos.y += lbl_805DDE58;
+        pos.y += (22.0f);
         draw_ui_sprite_shaded(self->f20 == 11 ? 0x46 : 0x4A, &pos, &scale, depth, t, bright);
     }
     {
         vec2f scale = lbl_80466420[0];
         vec2f pos;
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
-        pos.x += lbl_805DDE5C;
-        pos.y += lbl_805DDE60;
+        pos.x += (226.0f);
+        pos.y += (8.0f);
         draw_ui_sprite_shaded(0x40, &pos, &scale, depth, t, bright);
     }
-    if (self->f24 < lbl_805DDE28) {
+    if (self->f24 < (1.0f)) {
         vec2f scale = lbl_80466428[0];
         vec2f pos;
         copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
-        pos.x -= lbl_805DDE50;
+        pos.x -= (3.0f);
         draw_ui_sprite_shaded(0x3F, &pos, &scale, depth, t, bright);
     }
 }
@@ -278,21 +240,28 @@ void TChCrTagName__sub_802A2500(TChCrTagName_802A2500 *self) {
     vec2f pos;
     s32 id = self->f20 / 4 + 0x3C;
     vec2f scale = lbl_80466408[0];
-    t = lbl_805DDE28;
+    t = (1.0f);
     if (self->f24 < self->f40) {
         t = (self->f24 - self->f3c) / (self->f40 - self->f3c);
     }
     s = TChCrTagName__sub_802A265C((Tag_802A265C *)self);
     if (self->m4() != 0) {
-        depth = lbl_805DDE54;
+        depth = (-2.4375f);
     } else {
-        depth = lbl_805DDE34 * s + lbl_805DDE64;
+        depth = (0.3125f) * s + (-2.75f);
     }
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&pos, &self->pos);
-    pos.y += lbl_805DDE50;
-    draw_ui_sprite_shaded(id, &pos, &scale, depth, t * t, lbl_805DDE3C * (s * s) + lbl_805DDE38);
+    pos.y += (3.0f);
+    draw_ui_sprite_shaded(id, &pos, &scale, depth, t * t, (0.75f) * (s * s) + (0.25f));
 }
 #pragma pop
+
+__declspec(section ".rodata") vec2f lbl_80466408[1] = {{9.625f, 1.0f}};
+__declspec(section ".rodata") vec2f lbl_80466410[1] = {{28.25f, 1.0f}};
+__declspec(section ".rodata") vec2f lbl_80466418[1] = {{1.0f, 1.0f}};
+__declspec(section ".rodata") vec2f lbl_80466420[1] = {{1.0f, 1.75f}};
+__declspec(section ".rodata") vec2f lbl_80466428[1] = {{1.0f, 3.75f}};
+__declspec(section ".rodata") vec2f lbl_80466430[1] = {{1.0f, 1.0f}};
 
 void render__12TChCrTagNameFv(void* p) { TChCrTagName__sub_802A2500((TChCrTagName_802A2500 *)(p)); TChCrTagName__sub_802A226C((TChCrTagName_802A226C *)((TChCrTagName_802A226C *)(p))); TChCrTagName__sub_802A208C((void *)(p)); }
 
@@ -316,7 +285,7 @@ f32 TChCrTagName__sub_802A265C(Tag_802A265C *arg0) {
     if (r != 0) {
         return arg0->f30;
     }
-    return lbl_805DDE6C * arg0->f30 + lbl_805DDE68;
+    return (0.4f) * arg0->f30 + (0.6f);
 }
 #pragma fp_contract reset
 
@@ -325,9 +294,9 @@ void TChCrTagName__sub_802A26E0(u8 *arg0) {
   f32 temp_f2;
   f32 var_f4;
   f32 temp_f3;
-  var_f4 = lbl_805DDE28;
-  *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) lbl_805DDE70;
-  *((f32 *) (((s8 *) arg0) + 0x4C)) = (f32) ((lbl_805DDE78 * ((f32) (*((s32 *) (((s8 *) arg0) + 0x20))))) + lbl_805DDE74);
+  var_f4 = (1.0f);
+  *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) (58.0f);
+  *((f32 *) (((s8 *) arg0) + 0x4C)) = (f32) (((27.0f) * ((f32) (*((s32 *) (((s8 *) arg0) + 0x20))))) + (1e+02f));
   temp_f2 = *((f32 *) (((s8 *) arg0) + 0x24));
   temp_f1 = *((f32 *) (((s8 *) arg0) + 0x40));
   if (temp_f2 < temp_f1)
@@ -336,10 +305,10 @@ void TChCrTagName__sub_802A26E0(u8 *arg0) {
     {
       temp_f3 = *((f32 *) (((s8 *) arg0) + 0x3C));
       temp_f1 = (temp_f2 - temp_f3) / (temp_f1 - temp_f3);
-      var_f4 = lbl_805DDE7C * (lbl_805DDE28 - cos_table_lookup((s32) (lbl_805DDE80 * temp_f1)));
+      var_f4 = (0.5f) * ((1.0f) - cos_table_lookup((s32) ((32768.0f) * temp_f1)));
     }
   }
-  *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x48))) + ((lbl_805DDE88 * var_f4) + lbl_805DDE84));
+  *((f32 *) (((s8 *) arg0) + 0x48)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x48))) + (((3e+02f) * var_f4) + (-3e+02f)));
 }
 
 void run_task__12TChCrTagNameFv(void *arg0) {
@@ -373,14 +342,14 @@ s32 TChCrTagName__vt4(u8 *arg0) {
 
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TChCrTagName.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TChCrTagName;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DA0;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDE8C;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDE90;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DDE94;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDE98;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DDE48;
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) -((lbl_805DDEA0 * (f32) (0xC - M2C_FIELD(arg0, s32 *, 0x20))) - lbl_805DDE9C);
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (0.033333335f);
+    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (-0.022222223f);
+    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (0.6666667f);
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (-0.06666667f);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (0.0f);
+    M2C_FIELD(arg0, f32 *, 0x40) = 0.8f - 0.053333335f * (f32) (0xC - M2C_FIELD(arg0, s32 *, 0x20));
     TChCrTagName__sub_802A26E0((u8 *)(arg0));
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     return arg0;
@@ -397,4 +366,18 @@ void *create__12TChCrTagNameFPv(void *arg0) {
 
 void create_all__12TChCrTagNameFv(void) { { int i; for (i = 0; i < 12; i++) { create__12TChCrTagNameFPv((void *)((void*)i)); } } }
 
+}
+
+extern "C" {
+void __dt__12TChCrTagNameFv();
+void render_shadows__7TObjectFv();
+void *__vt__12TChCrTagName[] = {
+    0, 0,
+    (void *)__dt__12TChCrTagNameFv,
+    (void *)run_task__12TChCrTagNameFv,
+    (void *)render__12TChCrTagNameFv,
+    (void *)render_shadows__7TObjectFv,
+    (void *)TChCrTagName__vt4,
+    0,
+};
 }

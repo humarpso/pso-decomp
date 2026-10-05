@@ -1,9 +1,28 @@
 #include "types.h"
 #include "dolphin/mtx.h"
 #include <stddef.h>
-#include "pso/TObjDFJisin.h"
-#include "pso/TObjDFBeamCursor.h"
-#include "pso/TObjDFRecBall.h"
+#include "pso/TObject.h"
+class TObjDFJisin : public TObject {
+public:
+    virtual void render();
+    virtual ~TObjDFJisin();
+    virtual void run_task();
+};
+class TObjDFBeamCursor : public TObject {
+public:
+    virtual void render();
+    virtual ~TObjDFBeamCursor();
+    virtual void run_task();
+};
+class TObjDFRecBall : public TObject {
+public:
+    u8 _pad1C[0x28];
+ void* m_44;
+public:
+    virtual void render();
+    virtual ~TObjDFRecBall();
+    virtual void run_task();
+};
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -193,10 +212,10 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 f32 xyz_distance(Vec_80050D74 *, Vec_80050D74 *);
 
-extern RecoveredGlobal_8005101C___vt__11TObjDFJisin __vt__11TObjDFJisin;
-extern u8 __vt__13TObjDFHorming[];
-extern RecoveredGlobal_80051430___vt__13TObjDFRecBall __vt__13TObjDFRecBall;
-extern M2C_UNK __vt__16TObjDFBeamCursor[];
+extern void *__vt__11TObjDFJisin[];
+extern void *__vt__13TObjDFHorming[];
+extern void *__vt__13TObjDFRecBall[];
+extern void *__vt__16TObjDFBeamCursor[];
 extern const f64 lbl_804374F0;
 extern s32 lbl_804858C0[];
 extern s32 lbl_805D27BC;
@@ -328,7 +347,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3) {
     s32 i;
 
     TObjPlayer__sub_80019038(arg0, arg1);
-    M2C_FIELD(arg0, u8 **, 0x18) = __vt__13TObjDFHorming;
+    M2C_FIELD(arg0, u8 **, 0x18) = (u8 *)__vt__13TObjDFHorming;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D27C8;
     M2C_FIELD(arg0, u16 *, 0x334) = arg3;
     M2C_FIELD(arg0, s32 *, 0x338) = 0x96;
@@ -443,7 +462,7 @@ TObjDFJisin::~TObjDFJisin() {}
 extern "C" {
 u8 *TObjDFJisin__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__11TObjDFJisin.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__11TObjDFJisin;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27C4;
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (lbl_805D8AA0 * sin_table_lookup(arg2));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D8A30;
@@ -477,7 +496,7 @@ void run_task__16TObjDFBeamCursorFv(u8 *arg0) {
 
 void *TObjDFBeamCursor__ct(void *arg0, void *arg1, void *arg2) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjDFBeamCursor;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TObjDFBeamCursor;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D27C0;
     M2C_FIELD(arg0, u32 *, 0x1C) = 32;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg2);
@@ -545,7 +564,7 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     s32 temp_r31;
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TObjDFRecBall.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__13TObjDFRecBall;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27BC;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
@@ -572,4 +591,192 @@ void * create__13TObjDFRecBallFPvPvPv(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 
+}
+
+extern "C" {
+void TLobby__sub_801A1FD8();
+void TObjPlayer__sub_8000FF3C();
+void TObjPlayer__sub_80010A78();
+void TObjPlayer__sub_80010A80();
+void TObjPlayer__sub_80011010();
+void TObjPlayer__sub_800111D8();
+void TObjPlayer__sub_80014830();
+void TObjPlayer__sub_80014838();
+void TObjPlayer__sub_80014840();
+void TObjPlayer__sub_80014884();
+void TObjPlayer__sub_80014888();
+void TObjPlayer__sub_8001488C();
+void TObjPlayer__sub_80014890();
+void TObjPlayer__sub_80014894();
+void TObjPlayer__sub_80014898();
+void TObjPlayer__sub_80015884();
+void TObjPlayer__sub_80016C54();
+void TObjPlayer__sub_800172CC();
+void TObjPlayer__sub_80018E6C();
+void TObjPlayer__sub_80019568();
+void TObjRoomId__sub_801A1E2C();
+void __dt__11TObjDFJisinFv();
+void __dt__13TObjDFRecBallFv();
+void __dt__16TObjDFBeamCursorFv();
+void add_actor_exp();
+void apply_action_hold_status();
+void apply_anti_technique__10TObjPlayerFv();
+void apply_attack_stat_status__10TObjPlayerFv();
+void apply_confusion_status__10TObjPlayerFv();
+void apply_defense_stat_status__10TObjPlayerFv();
+void apply_knockback_from_attacker();
+void apply_movement_ailment__10TObjPlayerFv();
+void apply_object_set_data();
+void apply_paralysis__10TObjPlayerFv();
+void apply_poison_status__10TObjPlayerFv();
+void apply_shock_status__10TObjPlayerFv();
+void apply_switch_attack__10TObjPlayerFi();
+void calc_distance_accuracy_penalty__10TObjPlayerFv();
+void classify_actor_view_detail();
+void clear_all_status_effects();
+void clear_harmful_statuses__10TObjPlayerFv();
+void cure_paralysis__10TObjPlayerFv();
+void cure_poison_ailment();
+void enemy_spawn_jellen_effect();
+void enemy_spawn_zalure_effect();
+void fn_80010EBC();
+void fn_80010EC0();
+void fn_80010EC4();
+void fn_80010EC8();
+void get_actor_body_center();
+void get_actor_level_index();
+void get_pos__10TObjPlayerFii();
+void has_flag_0x800__10TObjPlayerFPv();
+void is_actor_cadence_frame();
+void is_target_in_attack_range__10TObjPlayerFv();
+void receive_direct_attack__10TObjPlayerFv();
+void receive_physical_attack__10TObjPlayerFv();
+void receive_weapon_special_attack__10TObjPlayerFv();
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+void reset_actor_action_state();
+void reset_pose__10TObjPlayerFPv();
+void roll_physical_accuracy__10TObjPlayerFv();
+void run_task__11TObjDFJisinFv();
+void run_task__13TObjDFRecBallFv();
+void select_melee_contact_body__10TObjPlayerFv();
+void test_flag30_512__10TObjPlayerFPv();
+void test_flag_1000__10TObjPlayerFPv();
+void test_flag_256__10TObjPlayerFPv();
+void trigger_switch_attack__10TObjPlayerFi();
+void try_start_action__10TObjPlayerFPvii();
+void update_action_hold_status__10TObjPlayerFv();
+void update_action_timer__10TObjPlayerFPv();
+void update_actor_ground_y();
+void update_attack_stat_status();
+void update_defense_stat_status();
+void update_flag30_timer__10TObjPlayerFPv();
+void update_movement_status__10TObjPlayerFv();
+void update_object_view_visibility();
+void update_poison_status__10TObjPlayerFv();
+void *__vt__13TObjDFHorming[] = {
+    0,
+    0,
+    (void *)__dt__13TObjDFHormingFv,
+    (void *)run_task__13TObjDFHormingFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+    (void *)TLobby__sub_801A1FD8,
+    (void *)apply_object_set_data,
+    (void *)reset_actor_action_state,
+    (void *)get_actor_body_center,
+    (void *)update_object_view_visibility,
+    (void *)classify_actor_view_detail,
+    (void *)TObjRoomId__sub_801A1E2C,
+    (void *)TObjPlayer__sub_80019568,
+    (void *)add_actor_exp,
+    (void *)TObjPlayer__sub_800111D8,
+    (void *)get_actor_level_index,
+    (void *)update_actor_ground_y,
+    (void *)TObjPlayer__sub_80018E6C,
+    (void *)is_actor_cadence_frame,
+    (void *)select_melee_contact_body__10TObjPlayerFv,
+    (void *)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (void *)receive_physical_attack__10TObjPlayerFv,
+    (void *)receive_direct_attack__10TObjPlayerFv,
+    (void *)receive_weapon_special_attack__10TObjPlayerFv,
+    (void *)apply_knockback_from_attacker,
+    (void *)try_start_action__10TObjPlayerFPvii,
+    (void *)roll_physical_accuracy__10TObjPlayerFv,
+    (void *)TObjPlayer__sub_80011010,
+    (void *)TObjPlayer__sub_8000FF3C,
+    (void *)is_target_in_attack_range__10TObjPlayerFv,
+    (void *)test_flag_256__10TObjPlayerFPv,
+    (void *)test_flag30_512__10TObjPlayerFPv,
+    (void *)has_flag_0x800__10TObjPlayerFPv,
+    (void *)test_flag_1000__10TObjPlayerFPv,
+    (void *)update_poison_status__10TObjPlayerFv,
+    (void *)update_action_hold_status__10TObjPlayerFv,
+    (void *)update_action_timer__10TObjPlayerFPv,
+    (void *)update_flag30_timer__10TObjPlayerFPv,
+    (void *)update_movement_status__10TObjPlayerFv,
+    (void *)TObjPlayer__sub_80016C54,
+    (void *)update_attack_stat_status,
+    (void *)update_defense_stat_status,
+    (void *)TObjPlayer__sub_800172CC,
+    (void *)apply_poison_status__10TObjPlayerFv,
+    (void *)apply_paralysis__10TObjPlayerFv,
+    (void *)TObjPlayer__sub_80015884,
+    (void *)apply_confusion_status__10TObjPlayerFv,
+    (void *)apply_movement_ailment__10TObjPlayerFv,
+    (void *)apply_shock_status__10TObjPlayerFv,
+    (void *)clear_harmful_statuses__10TObjPlayerFv,
+    (void *)apply_attack_stat_status__10TObjPlayerFv,
+    (void *)apply_defense_stat_status__10TObjPlayerFv,
+    (void *)cure_poison_ailment,
+    (void *)cure_paralysis__10TObjPlayerFv,
+    (void *)clear_all_status_effects,
+    (void *)apply_action_hold_status,
+    (void *)apply_anti_technique__10TObjPlayerFv,
+    (void *)TObjPlayer__sub_80014898,
+    (void *)TObjPlayer__sub_80014894,
+    (void *)TObjPlayer__sub_80014890,
+    (void *)TObjPlayer__sub_8001488C,
+    (void *)TObjPlayer__sub_80014888,
+    (void *)TObjPlayer__sub_80014884,
+    (void *)reset_pose__10TObjPlayerFPv,
+    (void *)TObjPlayer__sub_80014840,
+    (void *)TObjPlayer__sub_80014838,
+    (void *)TObjPlayer__sub_80014830,
+    (void *)get_pos__10TObjPlayerFii,
+    (void *)apply_switch_attack__10TObjPlayerFi,
+    (void *)enemy_spawn_jellen_effect,
+    (void *)trigger_switch_attack__10TObjPlayerFi,
+    (void *)enemy_spawn_zalure_effect,
+    (void *)TObjPlayer__sub_80010A80,
+    (void *)TObjPlayer__sub_80010A78,
+    (void *)fn_80010EC8,
+    (void *)fn_80010EC4,
+    (void *)fn_80010EC0,
+    (void *)fn_80010EBC,
+};
+void *__vt__11TObjDFJisin[] = {
+    0,
+    0,
+    (void *)__dt__11TObjDFJisinFv,
+    (void *)run_task__11TObjDFJisinFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+void *__vt__16TObjDFBeamCursor[] = {
+    0,
+    0,
+    (void *)__dt__16TObjDFBeamCursorFv,
+    (void *)run_task__16TObjDFBeamCursorFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+void *__vt__13TObjDFRecBall[] = {
+    0,
+    0,
+    (void *)__dt__13TObjDFRecBallFv,
+    (void *)run_task__13TObjDFRecBallFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
 }
