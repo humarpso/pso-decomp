@@ -2196,40 +2196,12 @@ pso/enemy/TObjEnemyCustom_800C8040.cpp:
 pso/misc/TLobby_800C80FC.cpp:
 	.text       start:0x800C80FC end:0x800C811C
 
-pso/enemy/TObjEneMe1Gee_800C811C.cpp:
-	.text       start:0x800C811C end:0x800C81DC
-
-pso/enemy/TObjEneMe1Gee_800C81DC.cpp:
-	.text       start:0x800C81DC end:0x800C86C4
-	.data       start:0x80493A54 end:0x80493A7C
-
-pso/enemy/TObjEneMe1Gee_800C86C4.cpp:
-	.text       start:0x800C86C4 end:0x800C86E0
-
-pso/slices/pso_carve_800c86e0.cpp:
-	.text       start:0x800C86E0 end:0x800C8788
-
 pso/enemy/TObjEneMe1Gee.cpp:
-	.text       start:0x800C8788 end:0x800CC788
+	.text       start:0x800C811C end:0x800CCB24
 	.rodata     start:0x8043BE90 end:0x8043BE98
-	.data       start:0x80493A7C end:0x80493AC8
+	.data       start:0x80493780 end:0x80493AC8
+	.bss        start:0x80500E38 end:0x80500E78
 	.sdata2     start:0x805DA0D8 end:0x805DA0E8
-
-pso/enemy/TObjEneMe1Gee_800CC788.cpp:
-	.text       start:0x800CC788 end:0x800CC808
-
-pso/enemy/TObjEneMe1Gee_800CC808.cpp:
-	.text       start:0x800CC808 end:0x800CC89C
-
-pso/enemy/TObjEneMe1Gee_800CC89C.cpp:
-	.text       start:0x800CC89C end:0x800CC900
-
-pso/enemy/TObjEneMe1Gee_800CC900.cpp:
-	.text       start:0x800CC900 end:0x800CC950
-
-pso/enemy/TObjEneMe1Gee_800CC950.cpp:
-	.text       start:0x800CC950 end:0x800CCB24
-	.bss        start:0x80500E38 end:0x80500E68
 
 pso/enemy/TObjEneBm5GibonU.cpp:
 	.text       start:0x800CCB24 end:0x800D1F84
