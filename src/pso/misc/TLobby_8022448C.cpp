@@ -184,6 +184,12 @@ extern u32 lbl_805D6268;
 extern int lbl_805D626C;
 extern s32 lbl_8044C768[];
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
+void sort_shop_items(s32, s32, s32);
+void generate_shop_technique_pool(s32);
+void generate_shop_rare_tool_pool(s32);
+void generate_shop_common_tool_pool(s32);
+extern u32 lbl_805D6260;
+void TLobby__sub_802244B0(s32 idx);
 }
 
 extern "C" {
@@ -208,16 +214,33 @@ s32 level_to_reward__6TLobbyFi(s32 arg0);
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
 void try_close__6TLobbyFPv(void* p);
 M2C_UNK TLobby__sub_800F957C(u32);
-int TLobby__sub_802244B0(void);
 int generate_shop_weapon_stock(void);
 int TLobby__sub_80225A08(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
     extern int lbl_805D6264;
-void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; TLobby__sub_802244B0(); }
+void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; TLobby__sub_802244B0((s32)(a0)); }
 
 extern M2C_UNK lbl_80513F20[];
 extern u32 lbl_805D6260;
+
+s32 lbl_80513EF0[4];
+s32 lbl_80513F00[4];
+s32 lbl_80513F10[4];
+s32 lbl_80513F20[4];
+void TLobby__sub_802244B0(s32 idx) {
+    if (lbl_805D6260 != 0) {
+        if (lbl_80513F10[idx] == 0) {
+            lbl_80513F10[idx] = 1;
+            lbl_80513EF0[idx] = 0;
+            lbl_80513F00[idx] = 0;
+            generate_shop_common_tool_pool(idx);
+            generate_shop_rare_tool_pool(idx);
+            generate_shop_technique_pool(idx);
+            sort_shop_items(lbl_80513F20[idx], lbl_80513EF0[idx], 2);
+        }
+    }
+}
 
 void free_all_rocks__6TLobbyFv(void) {
     s32 var_r28 = 3;

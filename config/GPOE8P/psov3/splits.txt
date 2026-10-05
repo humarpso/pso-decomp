@@ -361,6 +361,7 @@ pso/unk/text_8003AB00.cpp:
 
 pso/boss/TObjBoss2DustCtrl.cpp:
 	.text       start:0x8003AB5C end:0x8003ACD8
+	.bss        start:0x804FE9E8 end:0x804FEA80
 
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp:
 	.text       start:0x8003ACD8 end:0x8003AD1C
@@ -1200,6 +1201,7 @@ pso/object/TObjButterflyLobby_8007A5D8.cpp:
 pso/unk/text_8007A6C8.cpp:
 	.text       start:0x8007A6C8 end:0x8007A720
 	.ctors      start:0x80433F4C end:0x80433F50
+	.bss        start:0x804FF9C0 end:0x804FFD40
 
 pso/object/TObjMapCsn_8007A720.cpp:
 	.text       start:0x8007A720 end:0x8007A7A0
@@ -7127,6 +7129,7 @@ pso/unk/text_80197F74.cpp:
 
 pso/unk/text_80197FD0.cpp:
 	.text       start:0x80197FD0 end:0x8019806C
+	.bss        start:0x8050DD18 end:0x8050DD24
 
 pso/object/TObjSinBoard.cpp:
 	.text       start:0x8019806C end:0x80198814
@@ -7667,6 +7670,7 @@ pso/player/TObjPlayer_801BE03C.cpp:
 pso/unk/text_801BE104.cpp:
 	.text       start:0x801BE104 end:0x801BE1C0
 	.ctors      start:0x80433F8C end:0x80433F90
+	.bss        start:0x8050E920 end:0x8050EA10
 
 pso/player/TObjPlayer_801BE1C0.cpp:
 	.text       start:0x801BE1C0 end:0x801BE388
@@ -9336,6 +9340,7 @@ pso/unk/text_80223B98.cpp:
 pso/misc/TLobby_8022448C.cpp:
 	.text       start:0x8022448C end:0x80225CD8
 	.rodata     start:0x8044C7B8 end:0x8044C7C0
+	.bss        start:0x80513EF0 end:0x80513F10
 	.sdata2     start:0x805DC738 end:0x805DC740
 
 pso/unk/text_80225CD8.cpp:
@@ -12521,6 +12526,7 @@ pso/unk/text_802F1200.cpp:
 
 pso/boss/TObjBoss7DustCtrl.cpp:
 	.text       start:0x802F125C end:0x802F13D8
+	.bss        start:0x80541948 end:0x805419E0
 
 pso/boss/TObjBoss7DustCtrl_802F13D8.cpp:
 	.text       start:0x802F13D8 end:0x802F141C

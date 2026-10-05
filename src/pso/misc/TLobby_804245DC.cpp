@@ -111,6 +111,12 @@ typedef struct Ent_80425870 {
     u32 base;
 } Ent_80425870;
 
+typedef struct Ent_80427C6C {
+    u16 pad0;
+    u16 id;
+    u8 rest[0xE10];
+} Ent_80427C6C;
+
 extern "C" {
 M2C_UNK OSInitMessageQueue(void *, void *, int);
 M2C_UNK TLobby__sub_803F9B28(void *);
@@ -370,6 +376,21 @@ extern u8 lbl_805D7B1C[6];
 extern u32 lbl_805D7B28;
 extern u8 lbl_805D7B4C[4];
 extern u8 lbl_805D7B50[4];
+s32 TLobby__sub_803F9F04(void *, void *, int);
+extern RecoveredGlobal_80427D0C_lbl_805CFC20 lbl_805CFC20;
+Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
+s32 EXIDeselect(s32);
+s32 EXIImm(s32, void *, s32, u32, u32);
+s32 EXISelect(s32, u32, s32);
+s32 EXISync(s32);
+s32 EXILock(s32, u32, u32);
+s32 EXIUnlock(s32);
+M2C_UNK OSDisableInterrupts();
+M2C_UNK OSRestoreInterrupts(s32);
+M2C_UNK OSSleepThread(void *);
+void TLobby__sub_80429598(void);
+extern M2C_UNK lbl_805D7C38;
+u8 TLobby__sub_8042BE64(void);
 }
 
 extern "C" {
@@ -978,6 +999,32 @@ s32 TLobby__sub_804277FC(s32 arg0, u8 *arg1, u16 arg2) {
     return 0;
 }
 
+Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1) {
+    u16 id;
+    Ent_80427C6C *ret;
+    s16 i;
+    if (arg1 < 0x14U) {
+        return NULL;
+    }
+    TLobby__sub_803F9F04((void *)&id, (void *)(arg0 + 0x10), 2);
+    if (id == 0) {
+        return NULL;
+    }
+    i = 0;
+    ret = NULL;
+    while (i < 1) {
+        ret = &((Ent_80427C6C *)&lbl_805CFC20)[i];
+        if (id == ret->id) {
+            break;
+        }
+        i++;
+    }
+    if (i >= 1) {
+        ret = NULL;
+    }
+    return ret;
+}
+
 s16 TLobby__sub_80427D0C(s16 arg0) {
     if ((arg0 < 0) || (arg0 >= 1)) {
         return -1;
@@ -1290,6 +1337,33 @@ void TLobby__sub_8042BA48(s32 arg0, s32 arg1) {
     lbl_805D7C44 = arg0;
     lbl_805D7C48 = arg1;
     OSRestoreInterrupts(e);
+}
+
+u8 TLobby__sub_8042BE64(void) {
+    u8 val;
+    u16 cmd;
+    s16 pad;
+    s32 enabled;
+    u8 ret;
+    enabled = OSDisableInterrupts();
+    while (1) {
+        if (EXILock(0, 2, (u32)TLobby__sub_80429598) == 1) {
+            OSRestoreInterrupts(enabled);
+            break;
+        }
+        OSSleepThread(&lbl_805D7C38);
+        OSRestoreInterrupts(enabled);
+    }
+    cmd = 0x100;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd, 2, 1, 0);
+    EXISync(0);
+    EXIImm(0, &val, 1, 0, 0);
+    EXISync(0);
+    EXIDeselect(0);
+    ret = val;
+    EXIUnlock(0);
+    return ret;
 }
 
 void TAdSinglePlyChrSelectGC__sub_8042BF48(void) {
