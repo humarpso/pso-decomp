@@ -122,44 +122,6 @@ void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_804E135C[];
-
-void *deleting_dtor__15TObjEneMe1GiGueFPvs(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E135C;
-        free_collision_body_parts(arg0);
-        TObjPlayer__sub_800D7C58((s8 *)arg0 + 0x418, -1);
-        __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3FC, -1);
-        __dt__15TObjEnemyCustomFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-
-void TObjEneMe1GiGue__sub_802CDAB4(void) {  }
-void TObjEneMe1GiGue__sub_802CDAB8(void) {  }
-void TObjEneMe1GiGue__sub_802CDABC(void) {  }
-void TObjEneMe1GiGue__sub_802CDAC0(void) {  }
-
-s32 TObjEneMe1GiGue__sub_802CDAC4(void *self, s32 i) {
-    return (*(G_802CDAC4 * *)&TObjEneMe1GiGue__data_805D6834)->v[i];
-}
-
-f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1) {
-    return M2C_FIELD((TObjEneMe1GiGue__data_805D6834 + (arg1 * 4)), f32 *, 0);
-}
-
-void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
-
-extern M2C_UNK lbl_804E14E8[];
-
-void TObjEneMe1GiGue__sub_802CDAEC(O_802CDAEC *self, s32 i) {
-    self->f34 = TObjEneMe1GiGue__data_805D6838->e[i].c;
-    self->f24 = TObjEneMe1GiGue__data_805D6838->e[i].d;
-}
-
 #pragma push
 #pragma opt_common_subs off
 #define self ((Shot_802CDB1C *)arg0)

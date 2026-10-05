@@ -1948,12 +1948,17 @@ pso/enemy/TObjEneBm3Fly_800B012C.cpp:
 pso/enemy/TObjEneBm3Fly.cpp:
 	.text       start:0x800B1614 end:0x800B1978
 
+pso/enemy/TObjEneBm3Fly_800B1978.cpp:
+	.text       start:0x800B1978 end:0x800B23A0
+	.data       start:0x80491B30 end:0x80491DA0
+	.sdata2     start:0x805D9C7C end:0x805D9C80
+
 pso/enemy/TObjEneBm3FlyNest.cpp:
-	.text       start:0x800B1978 end:0x800B4820
+	.text       start:0x800B23A0 end:0x800B4820
 	.rodata     start:0x8043B378 end:0x8043B3A8
-	.data       start:0x80491D74 end:0x804920B4
+	.data       start:0x80491DA0 end:0x804920B4
 	.bss        start:0x80500B00 end:0x80500B40
-	.sdata2     start:0x805D9C7C end:0x805D9D08
+	.sdata2     start:0x805D9CF8 end:0x805D9D08
 
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp:
 	.text       start:0x800B4820 end:0x800B7B14
@@ -12038,17 +12043,17 @@ pso/misc/TOTrapSeabed01_802CA5F0.cpp:
 	.sdata2     start:0x805DE644 end:0x805DE658
 
 pso/enemy/TObjEneMe1GiGue.cpp:
-	.text       start:0x802CAA84 end:0x802CD780
+	.text       start:0x802CAA84 end:0x802CDB1C
 	.rodata     start:0x804722A0 end:0x804722A8
 	.data       start:0x804E11C8 end:0x804E14E4
 	.sdata2     start:0x805DE660 end:0x805DE6C0
 
-pso/enemy/TObjEneMe1GiGue_802CD780.cpp:
-	.text       start:0x802CD780 end:0x802CE1B0
+pso/enemy/TObjEneMe1GiGue_802CDB1C.cpp:
+	.text       start:0x802CDB1C end:0x802CE088
 	.rodata     start:0x804722C0 end:0x804722C8
 
 pso/enemy/TObjEneMe1GiGueMissile.cpp:
-	.text       start:0x802CE1B0 end:0x802CE510
+	.text       start:0x802CE088 end:0x802CE510
 
 pso/unk/text_802CE510.cpp:
 	.text       start:0x802CE510 end:0x802CE68C

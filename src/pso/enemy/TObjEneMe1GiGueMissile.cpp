@@ -51,12 +51,65 @@ void TObjEneMe1GiGue__sub_802CE4E8(void);
 void TObjEneMe1GiGue__sub_802CE4EC(void);
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1);
 void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
-int TObjEneMe1GiGueMissile__sub_802CE088(void*, void*);
+void TObjEneMe1GiGueMissile__sub_802CE088(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
 int get_barrier_count__15TObjEneMe1GiGueFv(void);
 int queue_destruction__7TObjectFv(void*);
+
+struct Hit_802CE088 { s32 kind; f32 power; };
+struct VBase_802CE088 { u8 pad[0x18]; };
+struct VEnt_802CE088 : VBase_802CE088 {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20();
+    virtual f32 m21(void *src, Hit_802CE088 *hit, s32 a, s32 b, s32 c);
+};
+u8 *get_player_by_client_id(s32);
+f32 horizontal_distance_squared(void *, void *);
+void obj_setFlags30(void *, int);
+s32 get_global_state__14TOKeyMachine01Fv();
+void create_fire_explosion_effect(void *, f32, void *, int, void *);
+extern void *tl_07;
+extern const f32 lbl_805DE6D0;
+extern const f32 lbl_805DE6D4;
+extern const f32 lbl_805DE6D8;
+
+#pragma push
+#pragma opt_common_subs off
+void TObjEneMe1GiGueMissile__sub_802CE088(void *self, void *pos) {
+    void *fx;
+    VEnt_802CE088 *p;
+    s32 i;
+    fx = (void *)__nw__7TObjectFUl(0x64);
+    if (fx != NULL) {
+        create_fire_explosion_effect(fx, lbl_805DE6D0, pos, 0, tl_07);
+    }
+    for (i = 0; i < 4; i++) {
+        p = (VEnt_802CE088 *)get_player_by_client_id(i);
+        if (p != NULL && horizontal_distance_squared((u8 *)p + 0x38, pos) <= lbl_805DE6D4) {
+            Hit_802CE088 h;
+            h.kind = 0;
+            h.power = M2C_FIELD(self, f32 *, 0xC0);
+            {
+                Hit_802CE088 h1 = h;
+                if (p->m21(M2C_FIELD(self, void **, 0x1C), &h1, 0, -1, -1) > lbl_805DE6D8) {
+                    obj_setFlags30(p, 0x600);
+                }
+            }
+            if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
+                play_sound_effect(0x4003A312, (u32)((u8 *)p + 0x38), 0, 0);
+            } else {
+                play_sound_effect(0x3A81F, (u32)((u8 *)p + 0x38), 0, 0);
+            }
+        }
+    }
+}
+#pragma pop
 
 void TObjEneMe1GiGueMissile__vt4(void* p) { TObjEneMe1GiGueMissile__sub_802CE088(p, (char*)p + 0x6c); queue_destruction__7TObjectFv(p); }
 
