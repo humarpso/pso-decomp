@@ -574,6 +574,7 @@ if args.target == "psov3":
                 NonMatching('gx/GXTexture.c'),
                 NonMatching('gx/GXBump.c'),
                 NonMatching('gx/GXPixel.c'),
+                NonMatching("gx/GXStubs.c"),
                 NonMatching('gx/GXDisplayList.c'),
                 NonMatching('gx/GXTransform.c'),
                 NonMatching('gx/GXPerf.c'),
@@ -664,6 +665,7 @@ if args.target == "psov3":
                 NonMatching("os/OSCache.c", cflags=cflags_dolphin_recovered),
                 NonMatching("os/OSContext.c", cflags=cflags_dolphin_recovered),
                 NonMatching("os/OSError.c", cflags=cflags_dolphin_recovered),
+                NonMatching("os/OSFont.c"),
                 Matching("os/OSInterrupt.c"),
                 NonMatching("os/OSLink.c"),
                 Matching("os/OSMessage.c"),
@@ -764,6 +766,9 @@ if args.target == "psov3":
             "MSL_C.PPCEABI.bare.H",
             [
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"),
+                # alloc.c: only GC/1.3 emits `li -5; and` where 1.3.2+ use rlwinm
+                NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/alloc.c",
+                            mw_version="GC/1.3"),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c"),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c"),
                 Matching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/direct_io.c"),

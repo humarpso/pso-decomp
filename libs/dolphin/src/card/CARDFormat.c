@@ -1,7 +1,6 @@
 
 
 #define FormatCallback CARDFormat_FormatCallback
-#define OSGetFontEncode fn_803721C0
 #define __CARDBlock lbl_80544980
 #define __CARDDefaultApiCallback fn_80380B74
 #include <dolphin.h>

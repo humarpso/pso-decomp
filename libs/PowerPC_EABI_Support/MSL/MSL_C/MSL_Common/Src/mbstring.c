@@ -2,6 +2,84 @@
 #include "MSL_C/string.h"
 
 #pragma dont_inline on
+static int is_utf8_complete(const char* s, size_t n) {
+    if (n == 0)
+        return -1;
+
+    if (*s == 0x00)
+        return 0;
+
+    if ((*s & 0x80) == 0x00)
+        return 1;
+    else if ((*s & 0xE0) == 0xC0) {
+        if (n >= 2) {
+            if ((*(s + 1) & 0x80) == 0x80)
+                return 2;
+            return -1;
+        }
+        return -2;
+    } else if ((*s & 0xF0) == 0xE0) {
+        if (n >= 3) {
+            if (((*(s + 1) & 0x80) == 0x80) && ((*(s + 2) & 0x80) == 0x80))
+                return 3;
+            return -1;
+        } else if (((n == 2) && ((*(s + 1) & 0x80) == 0x80)) || (n == 1))
+            return -2;
+        return -1;
+    } else
+        return -1;
+}
+
+static int utf8_to_unicode(wchar_t* pwc, const char* s, size_t n) {
+    int number_of_bytes;
+    int check_byte_count;
+    const char* source;
+    wchar_t result_chr = 0;
+
+    if (!s)
+        return 0;
+
+    if (n <= 0)
+        return -1;
+
+    number_of_bytes = is_utf8_complete(s, n);
+    if (number_of_bytes < 0)
+        return -1;
+
+    source = s;
+    switch (number_of_bytes) {
+        case 3:
+            result_chr |= (*source++ & 0x0F);
+            result_chr <<= 6;
+        case 2:
+            result_chr |= (*source++ & 0x3F);
+            result_chr <<= 6;
+        case 1:
+            result_chr |= (*source++ & 0x7F);
+    }
+
+    if (result_chr == 0x0000)
+        check_byte_count = 0;
+    else if (result_chr < 0x0080)
+        check_byte_count = 1;
+    else if (result_chr < 0x0800)
+        check_byte_count = 2;
+    else
+        check_byte_count = 3;
+
+    if (check_byte_count != number_of_bytes)
+        return -1;
+
+    if (pwc != 0)
+        *pwc = result_chr;
+
+    return number_of_bytes;
+}
+
+int mbtowc(wchar_t* pwc, const char* s, size_t n) {
+    return utf8_to_unicode(pwc, s, n);
+}
+
 size_t unicode_to_UTF8(char* r3, wchar_t r4) {
     const char lut[] = { 0, 0, 0xC0, 0xE0 };
     int r5;

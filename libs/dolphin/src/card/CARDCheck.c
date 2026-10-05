@@ -1,6 +1,5 @@
 
 
-#define OSGetFontEncode fn_803721C0
 #define VerifyDir CARDCheck_VerifyDir
 #define VerifyFAT CARDCheck_VerifyFAT
 #define VerifyID CARDCheck_VerifyID

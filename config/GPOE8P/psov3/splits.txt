@@ -14710,6 +14710,10 @@ os/OSError.c:
 	.bss        start:0x80543AF0 end:0x80543B30
 	.sdata      start:0x805D4518 end:0x805D4520
 
+os/OSFont.c:
+	.text       start:0x803721C0 end:0x80372218
+	.sdata      start:0x805D4520 end:0x805D4522
+
 os/OSInterrupt.c:
 	.text       start:0x80372218 end:0x80372A84
 	.data       start:0x804F43D8 end:0x804F4408
@@ -14959,6 +14963,9 @@ gx/GXPixel.c:
 	.data       start:0x804F52F8 end:0x804F5318
 	.sdata2     start:0x805E0520 end:0x805E0578
 
+gx/GXStubs.c:
+	.text       start:0x8038E708 end:0x8038E70C
+
 gx/GXDisplayList.c:
 	.text       start:0x8038E70C end:0x8038E77C
 
@@ -15099,8 +15106,11 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c:
 	.bss        start:0x80549310 end:0x80549410
 	.sbss       start:0x805D7318 end:0x805D7328
 
-pso/unk/text_80397520.cpp:
-	.text       start:0x80397520 end:0x80397654
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/alloc.c:
+	.text       start:0x80397520 end:0x80397A88
+	.rodata     start:0x8047BA98 end:0x8047BAB0
+	.bss        start:0x80549410 end:0x80549448
+	.sbss       start:0x805D7328 end:0x805D7330
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c:
 	.text       start:0x80397A88 end:0x80397B90
@@ -15129,11 +15139,8 @@ PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c:
 	.text       start:0x80399E88 end:0x8039A154
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c:
-	.text       start:0x8039A154 end:0x8039A298
+	.text       start:0x8039A154 end:0x8039A4C4
 	.sdata2     start:0x805E05C8 end:0x805E05CC
-
-pso/unk/text_8039A298.cpp:
-	.text       start:0x8039A298 end:0x8039A2B8
 
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c:
 	.text       start:0x8039A4C4 end:0x8039A634

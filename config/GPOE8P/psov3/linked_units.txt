@@ -1,4 +1,5 @@
 # Units linked into the DOL from compiled source
+PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/alloc.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c
 PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/rand.c
@@ -88,6 +89,7 @@ gx/GXLight.c
 gx/GXMisc.c
 gx/GXPerf.c
 gx/GXPixel.c
+gx/GXStubs.c
 gx/GXTransform.c
 mtx/mtx.c
 mtx/mtx44.c
@@ -120,6 +122,7 @@ odemuexi2/DebuggerDriver.c
 os/OSCache.c
 os/OSContext.c
 os/OSError.c
+os/OSFont.c
 os/OSLink.c
 os/OSMemory.c
 os/OSRtc.c
@@ -3987,8 +3990,6 @@ pso/unk/text_8036BBF4.cpp
 pso/unk/text_8036D0C0.cpp
 pso/unk/text_8036F764.cpp
 pso/unk/text_80396328.cpp
-pso/unk/text_80397520.cpp
-pso/unk/text_8039A298.cpp
 pso/unk/text_803C1668.cpp
 pso/unk/text_803CBCA0.cpp
 pso/unk/text_803CBCF8.cpp

@@ -26,6 +26,7 @@ force_active:
   - AddRunningEmitter
   - AddStartingEmitter
   - AllocateNote
+  - Block_link
   - CARDCheckExAsync
   - CalcEmitter
   - CheckDoorStatus
@@ -417,6 +418,7 @@ force_active:
   - create_rafoie_explosion
   - create_sphere_chain__17TBoss1DragonColliFiPviPvf
   - curvecmp
+  - deallocate_from_fixed_pools
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv

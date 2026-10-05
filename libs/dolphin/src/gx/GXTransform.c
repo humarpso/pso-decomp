@@ -3,7 +3,6 @@
 #define WriteMTXPS3x3from3x4 GXTransform_WriteMTXPS3x3from3x4
 #define WriteMTXPS4x2 GXTransform_WriteMTXPS4x2
 #define WriteMTXPS4x3 GXTransform_WriteMTXPS4x3
-#define __GXSetRange fn_8038E708
 
 #include <dolphin/gx.h>
 #include <dolphin/mtx.h>
