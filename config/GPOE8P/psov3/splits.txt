@@ -2212,6 +2212,7 @@ pso/enemy/TObjEneMe1Gee_800CC900.cpp:
 
 pso/enemy/TObjEneMe1Gee_800CC950.cpp:
 	.text       start:0x800CC950 end:0x800CCB24
+	.bss        start:0x80500E38 end:0x80500E68
 
 pso/enemy/TObjEneBm5GibonU_800CCB24.cpp:
 	.text       start:0x800CCB24 end:0x800D0A88
@@ -2479,6 +2480,7 @@ pso/enemy/TObjEneRe4Bit_800ED4BC.cpp:
 
 pso/enemy/TObjEneRe4Bit_800ED9EC.cpp:
 	.text       start:0x800ED9EC end:0x800EDB74
+	.bss        start:0x80501050 end:0x80501070
 
 pso/enemy/TObjEneRe4Bit.cpp:
 	.text       start:0x800EDB74 end:0x800EDB98
@@ -2633,6 +2635,7 @@ pso/misc/TLobby_800F8AA8_800F8C34.cpp:
 
 pso/misc/TLobby_800F8AA8_800F8D08.cpp:
 	.text       start:0x800F8D08 end:0x800F8DC8
+	.data       start:0x80499A00 end:0x80499A40
 
 pso/misc/TLobby_800F8AA8_800F8DC8.cpp:
 	.text       start:0x800F8DC8 end:0x800F8F40
@@ -5609,6 +5612,7 @@ pso/npc/TObjNpcARW00.cpp:
 
 pso/unk/text_80148274.cpp:
 	.text       start:0x80148274 end:0x801482F8
+	.data       start:0x804A7CB8 end:0x804A7CDC
 
 pso/unk/text_801482F8.cpp:
 	.text       start:0x801482F8 end:0x80148DCC
