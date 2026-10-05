@@ -400,6 +400,7 @@ pso/enemy/TObjEneMe1GiGueBarrier.cpp
 pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
 pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
+pso/enemy/TObjEneMe1GiGue_802CDB1C.cpp
 pso/enemy/TObjEneMe3ShinowaReal.cpp
 pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp
 pso/enemy/TObjEneMe3SinowZoaReal.cpp
