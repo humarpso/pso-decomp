@@ -150,6 +150,9 @@ typedef void (TCheckRoomSequence::*Fn_802102D0)();
 struct Item_80210E28 { u8 b0, b1, b2, b3, b4; u8 pad5[0x14 - 5]; s16 f14; u8 pad16[2]; };
 
 struct TCheckRoomSequence_8020F070;
+
+struct Card_8021118C { u8 pad[0x248]; s32 count; s32 meseta; u8 items[1]; };
+
 extern "C" {
 extern Rec_80211034 *lbl_80513D88[];
 u8 is_item_record_empty(u8 *arg0);
@@ -206,7 +209,6 @@ void handle_error_ack__18TCheckRoomSequenceFPv(u8 *arg0);
 M2C_UNK add_meseta__10TObjPlayerFl(int, int);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 bank_debit_meseta(s32 v, s32 i);
-M2C_UNK copy_bank_to_card_window(int);
 int is_confirmed__24TShopEquipmentSellWindowFPv(void* p);
 s32 get_result__24TShopEquipmentSellWindowFPv(void* p);
 int is_confirmed__18TWindowInputNumberFPv(void* p);
@@ -218,7 +220,6 @@ void accept_meseta_withdrawal__18TCheckRoomSequenceFPv(u8 *arg0);
 M2C_UNK try_spend_actor_meseta(int, int);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 bank_credit_meseta(s32 v, s32 i);
-M2C_UNK copy_bank_to_card_window(int);
 int is_confirmed__24TShopEquipmentSellWindowFPv(void* p);
 s32 get_result__24TShopEquipmentSellWindowFPv(void* p);
 int is_confirmed__18TWindowInputNumberFPv(void* p);
@@ -237,7 +238,6 @@ void TCheckRoomSequence__sub_80210904(s32 slot);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
-M2C_UNK copy_bank_to_card_window(int);
 M2C_UNK close_if_single_screen__13TShopSequenceFv(void *);
 M2C_UNK close_window__13TShopSequenceFPv(void *);
 int TShopWindowBase__sub_8022397C(void*);
@@ -286,7 +286,6 @@ u8 is_item_record_empty(u8 *arg0);
 u8 bank_has_free_row(s32 i);
 s32 TCheckRoomSequence__sub_80210B34(u8 *, s32, s32);
 void TCheckRoomSequence__sub_802114D4(u8 *arg0, u8 *arg1);
-M2C_UNK copy_bank_to_card_window(int);
 s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot);
 s32 obj_getField1c(int);
 s32 is_visible__17TWindowSubComCardFPv(int);
@@ -371,7 +370,6 @@ extern s32 TCheckRoomSequence__data_80513DB8[];
 extern s32 lbl_805D3640;
 extern s32 TCheckRoomSequence__data_805D616C;
 void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_);
-M2C_UNK copy_bank_to_card_window(int);
 void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
 u8 is_item_record_empty(u8 *arg0);
 s32 get_item_def__18TCheckRoomSequenceFUi(void *);
@@ -389,6 +387,10 @@ void TWindow__close(TWin_8020F070 *);
 extern u8 __vt__18TCheckRoomSequence[];
 extern s32 TCheckRoomSequence__data_80513DB8[];
 u8 *__dt__18TCheckRoomSequenceFv(u8 *arg0, s16 arg1);
+s32 is_ready__23TAdSinglePlyChrSelectGCFv(void);
+Card_8021118C *get_card_window__17TWindowSubComCardFUi(s32);
+void move_data__6TLobbyFv(void *, void *, s32);
+void copy_bank_to_card_window(s32 slot);
 }
 
 extern "C" {
@@ -525,7 +527,7 @@ void accept_meseta_withdrawal__18TCheckRoomSequenceFPv(u8 *arg0) {
         temp_r3 = ((s32)TShopWindowBase__sub_8022397C((void*)((void *) (arg0))));
         bank_debit_meseta((s32)((int) (temp_r31)), (s32)((int) (temp_r3)));
         add_meseta__10TObjPlayerFl((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (temp_r31));
-        copy_bank_to_card_window((int) (temp_r3));
+        copy_bank_to_card_window((s32)((int) (temp_r3)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
             set_entry_field_20__15TWindowMainMenuFii((int) (M2C_FIELD(arg0, u32 *, 0x40)), (int) (get_room_data__18TCheckRoomSequenceFi((int) (temp_r3))));
         }
@@ -594,7 +596,7 @@ void accept_meseta_deposit__18TCheckRoomSequenceFPv(u8 *arg0) {
         temp_r3 = ((s32)TShopWindowBase__sub_8022397C((void*)((void *) (arg0))));
         bank_credit_meseta((s32)((int) (temp_r31)), (s32)((int) (temp_r3)));
         try_spend_actor_meseta((int) (M2C_FIELD(arg0, s32 *, 0x24)), (int) (temp_r31));
-        copy_bank_to_card_window((int) (temp_r3));
+        copy_bank_to_card_window((s32)((int) (temp_r3)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
             set_entry_field_20__15TWindowMainMenuFii((int) (M2C_FIELD(arg0, u32 *, 0x40)), (int) (get_room_data__18TCheckRoomSequenceFi((int) (temp_r3))));
         }
@@ -878,7 +880,7 @@ void TCheckRoomSequence__sub_802100FC(void) {  }
 #pragma optimization_level 1
 void TCheckRoomSequence__vt11(u8 *arg0) {
     if ((((VObj_18_8d1630 *)(arg0))->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *) (arg0)) != 0) || (TShopWindowBase__sub_802239EC((void *) (arg0)) != 0)) && (TAdPlayerLoadGC__sub_801E1B50((int) (get_chr_select_state__23TAdSinglePlyChrSelectGCFv())) == 0)) {
-        copy_bank_to_card_window(TShopWindowBase__sub_8022397C((void*)((void *) (arg0))));
+        copy_bank_to_card_window((s32)(TShopWindowBase__sub_8022397C((void*)((void *) (arg0)))));
         close_if_single_screen__13TShopSequenceFv((void *) (arg0));
         close_window__13TShopSequenceFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -1116,11 +1118,11 @@ void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot) {
         if (recs[idx].b0 != 3) {
             TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
             lbl_80513D98[slot]--;
-            copy_bank_to_card_window(slot);
+            copy_bank_to_card_window((s32)(slot));
         } else if (get_item_def__18TCheckRoomSequenceFUi(&recs[idx]) == 0) {
             TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
             lbl_80513D98[slot]--;
-            copy_bank_to_card_window(slot);
+            copy_bank_to_card_window((s32)(slot));
         } else if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[idx]) == 0) {
             n = recs[idx].f14;
             n -= amount;
@@ -1128,10 +1130,10 @@ void TCheckRoomSequence__sub_80210E28(s32 idx, s32 amount, s32 slot) {
                 if (n == 0) {
                     TCheckRoomSequence__sub_80211408((Obj_80211408 *)&recs[idx]);
                     lbl_80513D98[slot]--;
-                    copy_bank_to_card_window(slot);
+                    copy_bank_to_card_window((s32)(slot));
                 } else {
                     recs[idx].f14 = n;
-                    copy_bank_to_card_window(slot);
+                    copy_bank_to_card_window((s32)(slot));
                 }
             }
         }
@@ -1169,11 +1171,29 @@ s32 store_item_in_bank(u8 *item, s32 arg1, s32 slot) {
         if (((s32 (*)(u8 *))is_item_record_empty)((u8 *)&recs[i]) != 0) {
             TCheckRoomSequence__sub_802114D4((u8 *)&recs[i], item);
             lbl_80513D98[slot]++;
-            copy_bank_to_card_window(slot);
+            copy_bank_to_card_window((s32)(slot));
             return 1;
         }
     }
     return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 1
+Rec_80211034 *lbl_80513D88[4];
+s32 lbl_80513D98[4];
+s32 lbl_80513DA8[4];
+void copy_bank_to_card_window(s32 slot) {
+    Card_8021118C *w;
+    if (is_ready__23TAdSinglePlyChrSelectGCFv() != 0) {
+        w = get_card_window__17TWindowSubComCardFUi(slot);
+        if (w != 0) {
+            w->meseta = lbl_80513DA8[slot];
+            w->count = lbl_80513D98[slot];
+            move_data__6TLobbyFv(w->items, lbl_80513D88[slot], 0x12C0);
+        }
+    }
 }
 #pragma pop
 

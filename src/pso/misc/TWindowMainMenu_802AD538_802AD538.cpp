@@ -4,6 +4,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+typedef s32 M2C_UNK;
+struct Item_802AE4DC { u8 pad[0x12]; u8 sel; };
+
+struct Menu_802AE4DC {
+    u8 pad[0x61];
+    s8 cur;
+    u8 pad2[0x124 - 0x62];
+    Item_802AE4DC *items[8];
+};
+
+extern "C" {
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void play_cursor_sound__15TWindowMainMenuFv(Menu_802AE4DC *m, int d);
+}
+
 extern "C" {
 
 struct Item_802ADADC { u8 pad[0x12]; u8 f12; };
@@ -139,7 +154,6 @@ Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
 void TWindowMainMenu__sub_802AE380(void *arg0);
 void handle_cancel__15TWindowMainMenuFPv(void *arg0);
 void handle_confirm__15TWindowMainMenuFPv(u8 *arg0);
-M2C_UNK play_cursor_sound__15TWindowMainMenuFv(void *, int);
 void handle_navigation_input__15TWindowMainMenuFPv(u8 *arg0);
 void TLanguage__sub_803DAF70(int, int);
 void begin_screen_draw(int);
@@ -161,6 +175,10 @@ extern f32 lbl_805DE160;
 extern f32 lbl_805DE164;
 extern const f32 lbl_805DE1A4;
 extern f32 lbl_805DE1A8;
+
+extern "C" {
+int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self);
+}
 
 void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
     Rect_802AD538 r;
@@ -598,15 +616,31 @@ void handle_confirm__15TWindowMainMenuFPv(u8 *arg0) {
   }
 }
 
+struct Obj_802ADC04;
+void play_cursor_sound__15TWindowMainMenuFv(Menu_802AE4DC *m, int d) {
+    int n;
+    play_sound_effect(0x54100, 0, 0, 0);
+    m->items[m->cur]->sel = 0;
+    n = TWindowMainMenu__sub_802ADC04((Obj_802ADC04 *)m);
+    m->cur += d;
+    if (m->cur < 0) {
+        m->cur = n - 1;
+    }
+    if (m->cur > n - 1) {
+        m->cur = 0;
+    }
+    m->items[m->cur]->sel = 1;
+}
+
 void handle_navigation_input__15TWindowMainMenuFPv(u8 *arg0) {
     u8 *temp_r31;
     if ((is_window_reveal_complete() != 0) && (((s32 (*)(void *))get_menu_flag__15TWindowMainMenuFPv)((void *) (arg0)) == 0) && (((s32 (*)(void *))is_flag_set__15TWindowMainMenuFPv)((void *) (arg0)) == 0) && !(M2C_FIELD(arg0, u8 *, 0x60) & 4)) {
         temp_r31 = (u8 *)&lbl_8050E208.value + (is_player_input_active((int) (M2C_FIELD(arg0, s16 *, 0x20))) * 0x50) + 0x20;
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r31), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
-            play_cursor_sound__15TWindowMainMenuFv((void *) (arg0), (int) (-1));
+            play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)((void *) (arg0)), (int)((int) (-1)));
         }
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r31), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
-            play_cursor_sound__15TWindowMainMenuFv((void *) (arg0), (int) (1));
+            play_cursor_sound__15TWindowMainMenuFv((Menu_802AE4DC *)((void *) (arg0)), (int)((int) (1)));
         }
         if ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
             handle_confirm__15TWindowMainMenuFPv((u8 *)((void *) (arg0)));

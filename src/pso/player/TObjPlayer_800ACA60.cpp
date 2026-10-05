@@ -335,6 +335,25 @@ struct Moja_800AD3D8 {
     s32 count;
 };
 
+typedef struct Info_800AEBB8 {
+    u8 pad0[4];
+    f32 f4;
+    s32 f8;
+} Info_800AEBB8;
+
+typedef struct Moja_800AEBB8 {
+    u8 pad0[0x50];
+    Vec_800AE18C pos;
+    u8 pad5C[0x2FC - 0x5C];
+    Vec_800AE18C f2FC;
+    u8 pad308[0x328 - 0x308];
+    s16 phase;
+    u8 pad32A[0x350 - 0x32A];
+    Info_800AEBB8 *info;
+    u8 pad354[0x374 - 0x354];
+    s32 f374;
+} Moja_800AEBB8;
+
 extern "C" {
 void begin_attack__11TObjEneMojaFPv(Moja_800ADE48 *self);
 s32 update_movement_status__10TObjPlayerFv();
@@ -387,7 +406,6 @@ void update_invincibility__10TObjPlayerFPv(void *arg0);
 void update_attack_jump__11TObjEneMojaFv(Obj_800ACFE8 *);
 M2C_UNK update_approach_state__11TObjEneMojaFPv(u8 *arg0);
 struct Moja_800AE450;
-M2C_UNK update_idle_state__11TObjEneMojaFv(void *);
 u8 *get_enemy_entity(u16);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int);
@@ -609,6 +627,14 @@ extern const f32 lbl_805D9C1C;
 extern const f32 lbl_805D9C20;
 extern const f32 lbl_805D9C24;
 M2C_UNK update_technique_state__11TObjEneMojaFv(void *self_800AD3D8);
+void enemy_wander_home(void *, s32, f32, f32, f32);
+s32 select_enemy_destination(void *, Vec_800AE18C *, int);
+M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800AE18C *);
+M2C_UNK obj_clearFlags30(void *, M2C_UNK);
+M2C_UNK advance_animation_playback();
+void refresh_collision_body_centers(void *);
+extern const f32 lbl_805D9C4C;
+void update_idle_state__11TObjEneMojaFv(Moja_800AEBB8 *self);
 }
 
 extern "C" {
@@ -1378,6 +1404,31 @@ void update_appearance_jump__11TObjEneMojaFv(Moja_800AE7F4 *self) {
 }
 #pragma pop
 
+void update_idle_state__11TObjEneMojaFv(Moja_800AEBB8 *self) {
+    switch (self->phase) {
+    case 0:
+    default: {
+        Vec_800AE18C dest = self->pos;
+        if (select_enemy_destination(self, &dest, 7) != 0) {
+            Vec_800AE18C cur = self->f2FC;
+            copy_position_if_valid__10TObjPlayerFii(self, &cur);
+        }
+        switch (self->f374) {
+        case 0:
+            self->phase = 1;
+            break;
+        }
+        break;
+    }
+    case 1:
+        advance_animation_playback();
+        ((void (*)(f32, void *, s32, f32, f32)) enemy_wander_home)(self->info->f4, self, self->info->f8, lbl_805D9C4C, lbl_805D9C4C);
+        break;
+    }
+    refresh_collision_body_centers(self);
+    obj_clearFlags30(self, 0x200000);
+}
+
 void update_meseta_anim_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
@@ -1614,7 +1665,7 @@ void run_task__11TObjEneMojaFPv(u8 *arg0) {
     {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
-            update_idle_state__11TObjEneMojaFv((void *) (arg0));
+            update_idle_state__11TObjEneMojaFv((Moja_800AEBB8 *)((void *) (arg0)));
             break;
         case 1:
             update_appearance_jump__11TObjEneMojaFv((Moja_800AE7F4 *)((void *) (arg0)));

@@ -2794,6 +2794,7 @@ pso/unk/text_800FD930.cpp:
 
 pso/unk/text_800FD944.cpp:
 	.text       start:0x800FD944 end:0x800FDA34
+	.data       start:0x8049CA88 end:0x8049CBA8
 
 pso/misc/TGStream.cpp:
 	.text       start:0x800FDA34 end:0x800FDCB4
@@ -9005,6 +9006,7 @@ pso/misc/TLobby_8020F00C.cpp:
 pso/misc/TCheckRoomSequence.cpp:
 	.text       start:0x8020F034 end:0x802115F4
 	.data       start:0x804C9490 end:0x804C9664
+	.bss        start:0x80513D88 end:0x80513D98
 	.sbss       start:0x805D6170 end:0x805D6178
 
 pso/misc/TShopEquipmentSellWindow_802115F4.cpp:
