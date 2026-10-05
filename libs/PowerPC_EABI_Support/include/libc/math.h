@@ -25,10 +25,18 @@ double copysign(double x, double y);
 
 double floor(double x);
 
+#ifndef PSO_MATH_LOCAL_CONST
+#ifdef PSO_SDK_COMPACT_MATH
+#define PSO_MATH_LOCAL_CONST const
+#else
+#define PSO_MATH_LOCAL_CONST static const
+#endif
+#endif
+
 extern inline float sqrtf(float x)
 {
-    static const double _half = .5;
-    static const double _three = 3.0;
+    PSO_MATH_LOCAL_CONST double _half = .5;
+    PSO_MATH_LOCAL_CONST double _three = 3.0;
     volatile float y;
     if (x > 0.0f)
     {
@@ -44,8 +52,8 @@ extern inline float sqrtf(float x)
 
 extern inline float sqrt(float x)
 {
-    static const double _half = .5;
-    static const double _three = 3.0;
+    PSO_MATH_LOCAL_CONST double _half = .5;
+    PSO_MATH_LOCAL_CONST double _three = 3.0;
     volatile float y;
     if (x > 0.0f)
     {

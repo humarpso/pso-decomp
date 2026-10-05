@@ -1,3 +1,6 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #define TRKTargetTranslate fn_80395A10
 #define __TRK_get_MSR fn_80394078
 

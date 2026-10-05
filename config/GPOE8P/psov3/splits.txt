@@ -15017,9 +15017,12 @@ TRK_MINNOW_DOLPHIN/targimpl.c:
 	.text       start:0x80394088 end:0x80395930
 	.rodata     start:0x8047B928 end:0x8047B9B0
 	.data       start:0x804F54C8 end:0x804F54F8
+	.bss        start:0x80546B40 end:0x80546B44
 
 TRK_MINNOW_DOLPHIN/dolphin_trk.c:
 	.text       start:0x80395930 end:0x80395A70
+	.data       start:0x804F54F8 end:0x804F5538
+	.bss        start:0x805470C0 end:0x805470C8
 
 TRK_MINNOW_DOLPHIN/mpc_7xx_603e.c:
 	.text       start:0x80395A70 end:0x80395DE8
@@ -15030,6 +15033,7 @@ TRK_MINNOW_DOLPHIN/main_TRK.c:
 
 TRK_MINNOW_DOLPHIN/dolphin_trk_glue.c:
 	.text       start:0x80395E2C end:0x803962D8
+	.bss        start:0x805470D0 end:0x805481EC
 
 TRK_MINNOW_DOLPHIN/targcont.c:
 	.text       start:0x803962D8 end:0x8039630C

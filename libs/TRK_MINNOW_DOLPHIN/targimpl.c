@@ -1,3 +1,6 @@
+#ifndef PSO_SDK_COMPACT_MATH
+#define PSO_SDK_COMPACT_MATH 1
+#endif
 #define TRKExceptionHandler targimpl_TRKExceptionHandler
 #define TRKSuppAccessFile Runtime_TRKSuppAccessFile
 #define TRKTargetTranslate fn_80395A10
@@ -10,6 +13,9 @@
 #define gTRKStepStatus lbl_804F54E4
 
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
+#define TRKOpenFile fn_80395918
+#define TRKCloseFile fn_80395920
+#define TRKPositionFile fn_80395928
 
 typedef struct memRange {
     u8* start;
@@ -101,13 +107,16 @@ DSError HandleOpenFileSupportRequest(const char* path, u8 replyError, u32* param
 
 static BOOL TRKTargetCheckStep();
 
-asm u32 __TRK_get_MSR() {
-#include "orig_asm/TRK_MINNOW_DOLPHIN/targimpl/__TRK_get_MSR.inc"
-}
-
-asm void __TRK_set_MSR(register u32 msr) {
-#include "orig_asm/TRK_MINNOW_DOLPHIN/targimpl/__TRK_set_MSR.inc"
-}
+void TRKPositionFile(void) { asm {
+} }
+void TRKCloseFile(void) { asm {
+} }
+void TRKOpenFile(void) { asm {
+} }
+#pragma function_align 16
+u32 TRKAccessFile(u32, u32, u32*, u8*) { asm {
+} }
+#pragma function_align 4
 
 #pragma dont_inline on
 DSError TRKValidMemory32(const void* addr, size_t length,

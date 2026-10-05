@@ -1,8 +1,16 @@
 #define TRK_fill_mem mem_TRK_TRK_fill_mem
+#define __TRK_get_MSR fn_80394078
+#define __TRK_set_MSR fn_80394080
 
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
 
 static void TRK_fill_mem(void* dest, int val, size_t count);
+
+__declspec(section ".init") void* TRK_memset(void* dest, int val, size_t count)
+{
+	TRK_fill_mem(dest, val, count);
+	return dest;
+}
 
 __declspec(section ".init") void* TRK_memcpy(void* dest, const void* src, size_t count)
 {
@@ -14,12 +22,6 @@ __declspec(section ".init") void* TRK_memcpy(void* dest, const void* src, size_t
 	while (--count) {
 		*++d = *++s;
 	}
-}
-
-__declspec(section ".init") void* TRK_memset(void* dest, int val, size_t count)
-{
-	TRK_fill_mem(dest, val, count);
-	return dest;
 }
 
 static void TRK_fill_mem(void* dest, int value, size_t length)
@@ -84,4 +86,12 @@ static void TRK_fill_mem(void* dest, int value, size_t length)
 
 #undef cDest
 #undef lDest
+}
+
+asm u32 __TRK_get_MSR() {
+#include "orig_asm/TRK_MINNOW_DOLPHIN/mem_TRK/__TRK_get_MSR.inc"
+}
+
+asm void __TRK_set_MSR(register u32 msr) {
+#include "orig_asm/TRK_MINNOW_DOLPHIN/mem_TRK/__TRK_set_MSR.inc"
 }
