@@ -356,7 +356,6 @@ void check_state_flag_2__9TObjEneDDFPv(void *);
 void init_model__9TObjEneDDFPv(void *, void *, s32);
 void init_position_vectors__9TObjEneDDFPv(void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 lbl_80435A68;
-extern Param_80036EA8 lbl_80482A50;
 extern const f32 lbl_805D846C;
 extern const f32 TBoss2Joint__data_805D8474;
 extern const f32 lbl_805D8490;
@@ -387,6 +386,21 @@ void TObjEneDD__vt0(void *, int);
 void free_collision_body_parts(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
+
+__declspec(section ".data") void *lbl_80482A50[2] = {
+    (void *)0x10, (void *)0x10,
+};
+__declspec(section ".data") void *lbl_80482A58[2] = {
+    (void *)0xf, (void *)0xf,
+};
+void *lbl_80482A60[20] = {
+    (void *)0x10, (void *)0x10, (void *)0x43610000, (void *)0x0,
+    (void *)0x600, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x42480000, (void *)0x0, (void *)0x0, (void *)0x8003,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+#define lbl_80482A50 (*(Param_80036EA8 *)lbl_80482A50)
 
 void TBoss2Joint__sub_8003688C(u8 *arg0) {
   u32 temp_r5;
@@ -423,6 +437,34 @@ typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_8
 void TBoss2Joint__sub_80036A90(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TBoss2Joint__data_805D8474;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x3AC), (void *) ((u8 *)&lbl_80435A68.value + (arg1 * 0x10)));
+}
+
+struct Ent_80036ACC { s32 a; s32 b; };
+struct Obj_80036ACC {
+    u8 pad0[0x2B8];
+    s16 f2B8;
+    u8 pad1[0x32C - 0x2BA];
+    s16 f32C;
+    u8 pad2[0x38C - 0x32E];
+    u32 f38C;
+};
+void TObjPlayer__sub_8002EA64(void *, void *, void *);
+void reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, int, int, int);
+void *__nw__7TObjectFUl(u32);
+void TBoss2Joint__vt102(Obj_80036ACC *self) {
+    self->f38C = self->f38C | 1;
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(self,
+        register_boss__6TLobbyFPv(((Ent_80036ACC *)&lbl_80482A50)->b),
+        dispatch_shared_handler_b__6TLobbyFPv(((Ent_80036ACC *)lbl_80482A58)->b),
+        register_object__6TLobbyFPv(((Ent_80036ACC *)lbl_80482A60)->b));
+    self->f32C = 0x4E20;
+    self->f2B8 = 0x4E20;
+    {
+        void *o = __nw__7TObjectFUl(0x364);
+        if (o != NULL) {
+            TObjPlayer__sub_8002EA64(o, self, (u8 *)self + 0x38);
+        }
+    }
 }
 
 void TBoss2Joint__vt91(void *arg0) {
