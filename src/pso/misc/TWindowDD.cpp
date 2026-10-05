@@ -38,8 +38,6 @@ s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1);
 s32 TWindowDD__sub_803404A4(M2C_UNK arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
 void TWindowDD__sub_80340828(u8 *arg0);
-extern f32 lbl_804EFB90[];
-extern f32 lbl_804EFB98[];
 extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC00;
 extern const f32 lbl_805DFC04;
@@ -186,7 +184,22 @@ void TWindowDD__sub_80340828(u8 *arg0) {
 
 void TWindowDD__sub_80340910(void* p) { *(s32*)((char*)p + 0x60) = 1; }
 
-extern M2C_UNK lbl_804EFBAC[];
+void TWindowDD__sub_8034055C();
+void render_shadows__7TObjectFv();
+__declspec(section ".data") void *lbl_804EFB90[2] = {
+    (void *)0x0, (void *)0x0,
+};
+void *lbl_804EFB98[5] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x3,
+};
+void *lbl_804EFBAC[7] = {
+    (void *)0x0, (void *)0x0, (void *)&TWindowDD__sub_8034094C, (void *)&update_draw__9TWindowDDFPv,
+    (void *)&TWindowDD__sub_8034055C, (void *)&render_shadows__7TObjectFv, (void *)0x0,
+};
+#define lbl_804EFB90 ((f32 *)lbl_804EFB90)
+#define lbl_804EFB98 ((f32 *)lbl_804EFB98)
+#define lbl_804EFBAC ((M2C_UNK *)lbl_804EFBAC)
 
 void TWindowDD__sub_8034091C(u8 *arg0, s32 arg1) {
     s32 temp_r0;
@@ -212,6 +225,21 @@ void *TWindowDD__sub_8034094C(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+
+struct W_803409A4 { u8 pad0[0x18]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; s32 f60; s32 f64; s32 f68; };
+void *TWindowDD__sub_802466E0(void *, void *, int, void *);
+
+#define arg0 ((W_803409A4 *)arg0v)
+void *TWindowDD__sub_803409A4(void *arg0v) {
+    TWindowDD__sub_802466E0(arg0, lbl_804EFB98, 4, lbl_804EFB90);
+    arg0->p18 = lbl_804EFBAC;
+    arg0->f60 = 1;
+    arg0->f64 = 2;
+    arg0->f68 = 2;
+    arg0->f5c = 0x01000000;
+    return arg0;
+}
+#undef arg0
 
 void *create__9TWindowDDFv(void) {
     void *o = __nw__7TObjectFUl(0x6C);

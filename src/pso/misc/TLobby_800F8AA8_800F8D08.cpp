@@ -33,4 +33,10 @@ void TLobby__sub_800F8D1C(s32 n) {
     lbl_80499A30[n] = 0;
 }
 
+void TLobby__sub_800F8DA0(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    lbl_80499A00[arg1] = arg0;
+    lbl_80499A10[arg1] = arg2;
+    lbl_80499A20[arg1] = arg3;
+}
+
 }

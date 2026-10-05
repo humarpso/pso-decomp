@@ -39,14 +39,14 @@ extern const f32 lbl_805DD954;
 s32 find_shape_triangle_region(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_802905A4(void* p, void* q);
 void reset_creation_shape_set(s32 arg0);
-extern CreationHeadModelStates lbl_8051C0E8;
-extern CreationHeadModelStates lbl_8051C110[7];
 extern void ***lbl_805D6550;
 void clear_next_entry__10TObjPlayerFiPv(void *,void *);
-extern CreationBodyModelStates lbl_8051C228;
-extern CreationBodyModelStates lbl_8051C430[7];
 void reset_creation_body_shapes();
 void reset_creation_head_shapes();
+CreationHeadModelStates lbl_8051C0E8;
+CreationHeadModelStates lbl_8051C110[7];
+CreationBodyModelStates lbl_8051C228;
+CreationBodyModelStates lbl_8051C430[7];
 extern Slot_8028F150 lbl_8051D288[];
 Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void);
 extern Slot_8028F150 lbl_8051D288[];
@@ -1478,6 +1478,28 @@ void load_creation_shape_rel(W_80290250 *arg0) {
         if (arg0->rc > 0x44000) {
             return;
         }
+    }
+}
+
+struct Sel_802902CC {
+    u8 pad0[4];
+    s32 a4;
+    s32 a8;
+    s32 c[3];
+    s32 d[3];
+    s32 e[3];
+};
+
+void TAdSinglePlyChrSelectGC__sub_802902CC(Sel_802902CC *arg0) {
+    s32 i;
+    reset_creation_head_shapes();
+    reset_creation_body_shapes();
+    clear_next_entry__10TObjPlayerFiPv((void *)arg0->a4, (void *)&lbl_8051C0E8);
+    clear_next_entry__10TObjPlayerFiPv((void *)arg0->a8, (void *)&lbl_8051C228);
+    for (i = 0; i < 3; i++) {
+        s32 t = arg0->c[i];
+        clear_next_entry__10TObjPlayerFiPv((void *)arg0->d[i], (void *)((u8 *)lbl_8051C110 + t * 0x28));
+        clear_next_entry__10TObjPlayerFiPv((void *)arg0->e[i], (void *)((u8 *)lbl_8051C430 + t * 0x208));
     }
 }
 
