@@ -694,11 +694,17 @@ pso/player/TObjPlayer_80055678.cpp:
 	.text       start:0x80055678 end:0x8005569C
 
 pso/boss/TBoss4Zanzo.cpp:
-	.text       start:0x8005569C end:0x8005BABC
-	.ctors      start:0x80433F3C end:0x80433F44
-	.rodata     start:0x80437748 end:0x80437890
+	.text       start:0x8005569C end:0x80058208
+	.ctors      start:0x80433F3C end:0x80433F40
+	.rodata     start:0x80437748 end:0x80437758
 	.data       start:0x80486370 end:0x8048652C
 	.sdata2     start:0x805D8BAC end:0x805D8C28
+
+pso/boss/TBoss4Type3.cpp:
+	.text       start:0x80058208 end:0x8005BABC
+	.ctors      start:0x80433F40 end:0x80433F44
+	.rodata     start:0x80437758 end:0x80437890
+	.data       start:0x80486A70 end:0x804872E8
 
 pso/boss/TBoss4Bishi.cpp:
 	.text       start:0x8005BABC end:0x8005C49C
