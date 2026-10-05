@@ -21,7 +21,6 @@ struct Pad_8034BE5C { u8 pad0[0x34]; s16 tilt; u8 pad36[4]; s16 speed; };
 extern "C" {
 void __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK __vt__17TAdFloorLoadCamGC[];
-extern const f32 lbl_805DFDB8;
 extern void *lbl_805D4340;
 void TAdMultiChgGameModeGC__sub_8023E834(void *);
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
@@ -34,14 +33,7 @@ f32 cos_table_lookup(s32);
 f32 vec_squared_length(void *);
 void normalize_vector(void *);
 extern Pad_8034BE5C lbl_8050E3B8;
-extern const f32 lbl_805DFDA8;
-extern const f32 lbl_805DFDAC;
-extern const f32 lbl_805DFDB0;
-extern const f32 lbl_805DFDB4;
 extern const f32 lbl_805DFDB8;
-extern const f32 lbl_805DFDBC;
-extern const f32 lbl_805DFDC0;
-extern const f32 lbl_805DFDC8;
 void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s);
 }
 
@@ -63,6 +55,22 @@ void render__17TAdFloorLoadCamGCFv(void) {  }
 
 extern M2C_UNK __vt__17TAdFloorLoadCamGC[];
 
+extern "C" {
+extern const f32 lbl_805DFDA8 = 182.04445f;
+extern const f32 lbl_805DFDAC = -0.1f;
+extern const f32 lbl_805DFDB0 = 1.2f;
+extern const f32 lbl_805DFDB4 = 100.0f;
+extern const f32 lbl_805DFDB8 = 0.0f;
+extern const f32 lbl_805DFDBC = 99.3f;
+extern const f32 lbl_805DFDC0 = 0.4f;
+#define lbl_805DFDA8 (*(const f32 *)&lbl_805DFDA8)
+#define lbl_805DFDAC (*(const f32 *)&lbl_805DFDAC)
+#define lbl_805DFDB0 (*(const f32 *)&lbl_805DFDB0)
+#define lbl_805DFDB4 (*(const f32 *)&lbl_805DFDB4)
+#define lbl_805DFDB8 (*(const f32 *)&lbl_805DFDB8)
+#define lbl_805DFDBC (*(const f32 *)&lbl_805DFDBC)
+#define lbl_805DFDC0 (*(const f32 *)&lbl_805DFDC0)
+}
 #pragma push
 #pragma fp_contract on
 void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
@@ -107,7 +115,7 @@ void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
     s->up.z += dz;
     VecCopy__FP3VecPC3Vec(&up, &s->up);
     if (vec_squared_length(&s->up) == lbl_805DFDB8) {
-        up.y = lbl_805DFDC8;
+        up.y = 1.0f;
     } else {
         normalize_vector(&up);
     }

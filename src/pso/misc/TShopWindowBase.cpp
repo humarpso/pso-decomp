@@ -1,7 +1,5 @@
 #include "pso/TShopWindowBase.h"
 
-TShopWindowBase::~TShopWindowBase() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -114,6 +112,19 @@ void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
 extern M2C_UNK __vt__15TShopWindowBase[];
 extern void *lbl_805D3700;
 
+void *__dt__7TObjectFv(void *, s16);
+void __dl__7TObjectFPv(void *);
+void *__dt__15TShopWindowBaseFv(void *self, s16 m) {
+    if (self != NULL) {
+        M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__15TShopWindowBase;
+        __dt__7TObjectFv(self, 0);
+        if (m > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+
 void *__ct__15TShopWindowBaseFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TShopWindowBase;
@@ -124,4 +135,25 @@ void *__ct__15TShopWindowBaseFv(void *arg0) {
     return arg0;
 }
 
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+void TShopWindowBase__sub_802115F0();
+void TShopWindowBase__sub_80217454();
+void TShopWindowBase__sub_80216080();
+void TShopWindowBase__sub_80217458();
+void TShopWindowBase__sub_8021745C();
+M2C_UNK __vt__15TShopWindowBase[12] = {
+    0,
+    0,
+    (M2C_UNK)__dt__15TShopWindowBaseFv,
+    (M2C_UNK)draw_if_ready__15TShopWindowBaseFPv,
+    (M2C_UNK)render__7TObjectFv,
+    (M2C_UNK)render_shadows__7TObjectFv,
+    (M2C_UNK)TShopWindowBase__sub_802115F0,
+    (M2C_UNK)TShopWindowBase__sub_80217454,
+    (M2C_UNK)TShopWindowBase__sub_80216080,
+    (M2C_UNK)TShopWindowBase__sub_80217458,
+    (M2C_UNK)TShopWindowBase__sub_8021745C,
+    (M2C_UNK)TShopWindowBase__vt9,
+};
 }

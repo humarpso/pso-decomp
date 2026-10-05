@@ -31,7 +31,6 @@ u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void submit_radar_marker__13TObjRaderIconFv(void *, u32, u16, s32, s32, f32);
 u8 is_current_floor_switch_set(u16);
 void run_task__13TObjRaderIconFv(Icon_80197110 *arg0);
-extern const f32 lbl_805DBF08;
 void TObjRaderIcon__sub_80197200(u8 *arg0);
 }
 
@@ -86,7 +85,7 @@ void TObjRaderIcon__sub_80197200(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x90) = 0;
     M2C_FIELD(arg0, s32 *, 0x94) = 1;
     M2C_FIELD(arg0, s32 *, 0x98) = 0;
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DBF08;
+    M2C_FIELD(arg0, f32 *, 0x9C) = 1.0f;
     M2C_FIELD(arg0, s32 *, 0xA0) = 0;
     M2C_FIELD(arg0, s32 *, 0x90) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x90) < 0) {

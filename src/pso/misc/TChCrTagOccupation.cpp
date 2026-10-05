@@ -48,7 +48,10 @@ extern const f32 lbl_805DDEF8;
 extern const f32 lbl_805DDEFC;
 void fn_802A2DF4(Tag_802A2DF4 *self);
 u8 * __ct__8TChCrTagFv(void *, s32);
-extern RecoveredGlobal_802A300C___vt__18TChCrTagOccupation __vt__18TChCrTagOccupation;
+extern void *__vt__18TChCrTagOccupation[];
+void *__dt__8TChCrTagFv(void *, s16);
+void __dl__7TObjectFPv(void *);
+void *__dt__18TChCrTagOccupationFv(void *self, s16 m);
 extern s32 lbl_805D3DB0;
 extern const f32 lbl_805DDF00;
 extern const f32 lbl_805DDF04;
@@ -110,7 +113,18 @@ int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
 
 }
 
-TChCrTagOccupation::~TChCrTagOccupation() {}
+extern "C" {
+void *__dt__18TChCrTagOccupationFv(void *self, s16 m) {
+    if (self != NULL) {
+        M2C_FIELD(self, void ***, 0x18) = __vt__18TChCrTagOccupation;
+        __dt__8TChCrTagFv(self, 0);
+        if (m > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+}
 
 extern "C" {
 
@@ -122,7 +136,7 @@ typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(Rec
 
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__18TChCrTagOccupation.value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__18TChCrTagOccupation;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DB0;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDF00;
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDF04;
@@ -144,4 +158,18 @@ void *create__18TChCrTagOccupationFPv(void *arg0) {
 
 void create_all__18TChCrTagOccupationFv(void) { { int i; for (i = 0; i < 3; i++) { create__18TChCrTagOccupationFPv((void *)((void*)i)); } } }
 
+}
+
+extern "C" {
+void TChCrTag__sub_802A1A00();
+void render_shadows__7TObjectFv();
+void *__vt__18TChCrTagOccupation[7] = {
+    0,
+    0,
+    (void *)__dt__18TChCrTagOccupationFv,
+    (void *)TChCrTag__sub_802A1A00,
+    (void *)render__18TChCrTagOccupationFv,
+    (void *)render_shadows__7TObjectFv,
+    (void *)TChCrTagOccupation__vt4,
+};
 }

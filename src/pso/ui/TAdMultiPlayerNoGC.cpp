@@ -28,11 +28,6 @@ void queue_destruction__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__18TAdMultiPlayerNoGC[];
 extern s32 lbl_805D4288;
-extern const f32 lbl_805DFA14;
-extern const f32 lbl_805DFA18;
-extern const f32 lbl_805DFA1C;
-extern const f32 lbl_805DFA20;
-extern const f32 lbl_805DFA28;
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg);
 }
 
@@ -50,13 +45,12 @@ int get_state_flag__9TMainTaskFv(void*);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D6D78;
-extern f32 lbl_805DFA10;
 
 void render_status__18TAdMultiPlayerNoGCFi(s32 arg0) {
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D6D78);
     set_draw_texture_and_color(0, -1);
-    draw_textured_quad_at_depth(arg0 + 0x20, lbl_805DFA10);
+    draw_textured_quad_at_depth(arg0 + 0x20, (0.25f));
     get_player__20TWindowSubStatusDispFv();
 }
 
@@ -82,16 +76,16 @@ Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s
         queue_destruction__7TObjectFv(self);
         return self;
     }
-    self->f44 = lbl_805DFA14;
+    self->f44 = (112.0f);
     self->f1C = arg;
     self->f20 = self->f40;
     self->f24 = self->f44;
-    self->f28 = lbl_805DFA18 + self->f40;
-    self->f2C = lbl_805DFA1C + self->f44;
-    self->f30 = lbl_805DFA20;
-    self->f34 = lbl_805DFA1C * self->f1C / 128.0f;
-    self->f38 = lbl_805DFA28;
-    self->f3C = (lbl_805DFA1C * self->f1C + lbl_805DFA1C) / 128.0f;
+    self->f28 = (128.0f) + self->f40;
+    self->f2C = (22.0f) + self->f44;
+    self->f30 = (0.0f);
+    self->f34 = (22.0f) * self->f1C / 128.0f;
+    self->f38 = 1.0f;
+    self->f3C = ((22.0f) * self->f1C + (22.0f)) / 128.0f;
     return self;
 }
 

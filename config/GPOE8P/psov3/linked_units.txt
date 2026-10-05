@@ -329,6 +329,7 @@ pso/effect/TEffClitical.cpp
 pso/effect/TEffGuard.cpp
 pso/effect/TEffHit.cpp
 pso/effect/TEffect.cpp
+pso/encryption/PSOV3Encryption.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
@@ -527,6 +528,7 @@ pso/enemy/TObjEnemy.cpp
 pso/enemy/TObjEnemyCustom.cpp
 pso/enemy/TObjEnemyCustom_800C76F4.cpp
 pso/enemy/TObjEnemyCustom_800C7A04.cpp
+pso/enemy/TObjEnemyCustom_800C7D18.cpp
 pso/enemy/TObjEnemyCustom_800C8018.cpp
 pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
@@ -772,6 +774,7 @@ pso/item/TObjContainerBase.cpp
 pso/item/TObjContainerEnemy.cpp
 pso/item/TObjContainerIdo.cpp
 pso/item/TObjContainerIdo_801A0B94.cpp
+pso/item/TObjContainerItem.cpp
 pso/item/TObjContainerJungEnemy.cpp
 pso/item/TObjContainerJungEx_8018D900.cpp
 pso/item/TObjContainerNoItem.cpp
@@ -1699,6 +1702,7 @@ pso/misc/TShopGetItemWindow_8021F0A4.cpp
 pso/misc/TShopItemTecSequence.cpp
 pso/misc/TShopJudgmentItemWindow_8026DF00.cpp
 pso/misc/TShopSequence.cpp
+pso/misc/TShopWindowBase.cpp
 pso/misc/TShopWindowBase_80213FD0.cpp
 pso/misc/TShopWindowBase_802143AC.cpp
 pso/misc/TShopWindowBase_80217454.cpp
@@ -2328,6 +2332,7 @@ pso/object/TObjQuestCol_80196B3C.cpp
 pso/object/TObjQuestCol_8019703C.cpp
 pso/object/TObjRaderCol.cpp
 pso/object/TObjRaderHideCol.cpp
+pso/object/TObjRaderIcon.cpp
 pso/object/TObjRain.cpp
 pso/object/TObjRainCtrl.cpp
 pso/object/TObjRainCtrl_80197CE8.cpp
@@ -2389,6 +2394,7 @@ pso/player/TObjPlayer_80036824.cpp
 pso/player/TObjPlayer_80040B28.cpp
 pso/player/TObjPlayer_80048360.cpp
 pso/player/TObjPlayer_800495E0.cpp
+pso/player/TObjPlayer_8004FA98.cpp
 pso/player/TObjPlayer_80052374.cpp
 pso/player/TObjPlayer_80055678.cpp
 pso/player/TObjPlayer_800666B0.cpp
@@ -2940,6 +2946,8 @@ pso/slices/run_8020C5A4.cpp
 pso/slices/run_8024AD74.cpp
 pso/slices/run_8024B2F4.cpp
 pso/system/ChunkMaterialState.cpp
+pso/system/THeap.cpp
+pso/system/TMainTask.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TOChatSensorCapture.cpp
 pso/system/TOChatSensorCapture_8015A8D8.cpp
@@ -2984,6 +2992,7 @@ pso/ui/TAdEnterSerialAccessGC_802E0110.cpp
 pso/ui/TAdEnterSerialAccessGC_8032AD30.cpp
 pso/ui/TAdExNetConfirmGC.cpp
 pso/ui/TAdExNetConfirmGC_8032C504.cpp
+pso/ui/TAdFloorLoadCamGC.cpp
 pso/ui/TAdFloorLoadGC.cpp
 pso/ui/TAdFloorLoadPrtGC.cpp
 pso/ui/TAdGameStartBackGC.cpp
@@ -3014,6 +3023,7 @@ pso/ui/TAdMultiChgGameModeGC_8023F4E4.cpp
 pso/ui/TAdMultiChgGameModeGC_8036DE10.cpp
 pso/ui/TAdMultiConfirmGC.cpp
 pso/ui/TAdMultiConfirmGC_802E072C.cpp
+pso/ui/TAdMultiPlayerNoGC.cpp
 pso/ui/TAdMultiPlyChrSelectGC_801A6EA0.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802B1850.cpp
 pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp
@@ -3164,7 +3174,6 @@ pso/unk/text_8004F030.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F5F8.cpp
 pso/unk/text_8004F904.cpp
-pso/unk/text_8004FCC4.cpp
 pso/unk/text_80050050.cpp
 pso/unk/text_800502FC.cpp
 pso/unk/text_8005063C.cpp

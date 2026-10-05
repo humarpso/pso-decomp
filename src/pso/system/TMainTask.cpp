@@ -1,6 +1,19 @@
+#define allow_rendering() allow_rendering(); void allow_rendering_inline_unused_()
+#define disallow_rendering() disallow_rendering(); void disallow_rendering_inline_unused_()
+#define allow_rendering_shadows() allow_rendering_shadows(); void allow_rendering_shadows_inline_unused_()
+#define disallow_rendering_shadows() disallow_rendering_shadows(); void disallow_rendering_shadows_inline_unused_()
+#define set_flag_3() set_flag_3(); void set_flag_3_inline_unused_()
+#define clear_flag_3() clear_flag_3(); void clear_flag_3_inline_unused_()
+
 #include "pso/THeap.h"
 #include "pso/TMainTask.h"
 #include "pso/TObject.h"
+#undef allow_rendering
+#undef disallow_rendering
+#undef allow_rendering_shadows
+#undef disallow_rendering_shadows
+#undef set_flag_3
+#undef clear_flag_3
 
 extern u32 some_main_task_flag;
 extern u32 update_flags, old_update_flags;

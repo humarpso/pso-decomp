@@ -6,14 +6,6 @@
 THeap *obj_heap;
 THeap *alt_heap;
 
-void THeap::operator delete(void *ptr) {
-
-}
-
-void *THeap::operator new(size_t size) {
-    return NULL;
-}
-
 #include "types.h"
 struct V3_801412D0 { f32 x, y, z; };
 
@@ -24,13 +16,9 @@ f64 TPlyPhotonChair__sub_80142624(f32);
 s32 TObjPlayer__sub_801412D0(V3_801412D0 *v, V3_801412D0 *out);
 }
 
-void xfree(void *ptr) {
+void xfree(void *ptr);
 
-}
-
-void *xmalloc(size_t size) {
-    return NULL;
-}
+void *xmalloc(size_t size);
 
 void THeap::heap_free(void *ptr) {
     #define heap_ptr &ptr_u8[-sizeof(heap_node)]
