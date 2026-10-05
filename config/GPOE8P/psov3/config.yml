@@ -337,6 +337,7 @@ force_active:
   - __dt__9TItemLoadFv
   - __dt__9TSaveChCrFv
   - __equals_dec
+  - __fill_mem
   - __fini_cpp_exceptions
   - __fini_cpp_exceptions_reference
   - __init_cpp_exceptions
@@ -344,6 +345,7 @@ force_active:
   - __less_dec
   - __minus_dec
   - __num2dec_internal
+  - __start
   - __str2dec
   - __timesdec
   - __ull2dec

@@ -36,6 +36,7 @@ PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Src/math_ppc.c
 PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp
 PowerPC_EABI_Support/Runtime/Src/NMWException.cp
 PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp
+PowerPC_EABI_Support/Runtime/Src/__mem.c
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 TRK_MINNOW_DOLPHIN/flush_cache.c
 TRK_MINNOW_DOLPHIN/msgbuf.c
@@ -123,6 +124,7 @@ os/OSLink.c
 os/OSMemory.c
 os/OSRtc.c
 os/OSTime.c
+os/__start.c
 pad/Pad.c
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp

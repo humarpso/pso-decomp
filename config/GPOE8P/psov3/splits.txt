@@ -14751,7 +14751,11 @@ os/OSTime.c:
 	.text       start:0x80375F08 end:0x8037632C
 	.data       start:0x804F4468 end:0x804F44C8
 
+os/__start.c:
+	.init       start:0x8000C000 end:0x8000C254
+
 os/__ppc_eabi_init.cpp:
+	.init       start:0x8000C254 end:0x8000C2A8
 	.text       start:0x8037632C end:0x803763C0
 
 mtx/mtx.c:
@@ -15011,6 +15015,7 @@ TRK_MINNOW_DOLPHIN/flush_cache.c:
 	.text       start:0x80393F84 end:0x80393FBC
 
 TRK_MINNOW_DOLPHIN/mem_TRK.c:
+	.init       start:0x8000C2A8 end:0x8000C2FC
 	.text       start:0x80393FBC end:0x80394088
 
 TRK_MINNOW_DOLPHIN/targimpl.c:
@@ -15020,6 +15025,7 @@ TRK_MINNOW_DOLPHIN/targimpl.c:
 	.bss        start:0x80546B40 end:0x80546B44
 
 TRK_MINNOW_DOLPHIN/dolphin_trk.c:
+	.init       start:0x8000E230 end:0x8000E334
 	.text       start:0x80395930 end:0x80395A70
 	.data       start:0x804F54F8 end:0x804F5538
 	.bss        start:0x805470C0 end:0x805470C8
@@ -16052,3 +16058,6 @@ gba/GBAXfer.c:
 gba/GBAKey.c:
 	.text       start:0x80433CB8 end:0x80433F20
 	.data       start:0x804FDC78 end:0x804FE01E
+
+PowerPC_EABI_Support/Runtime/Src/__mem.c:
+	.init       start:0x8000E334 end:0x8000E46C

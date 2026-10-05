@@ -609,6 +609,8 @@ if args.target == "psov3":
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
                 NonMatching("PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp",
                             mw_version="GC/2.6", cflags=cflags_native_recovered),
+                NonMatching("PowerPC_EABI_Support/Runtime/Src/__mem.c",
+                            mw_version="GC/2.6", cflags=cflags_native_recovered),
                 NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_fp.c",
                             mw_version="GC/1.3", cflags=cflags_native_recovered_auto),
                 NonMatching("PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c",
@@ -654,6 +656,7 @@ if args.target == "psov3":
             "os",
             [
                 NonMatching("os/OS.c", cflags=cflags_dolphin_recovered),
+                NonMatching("os/__start.c", cflags=cflags_dolphin_recovered),
                 Matching("os/OSAlarm.c"),
                 Matching("os/OSAlloc.c"),
                 Matching("os/OSArena.c"),
