@@ -9436,6 +9436,7 @@ pso/object/TObject_8022A5C8.cpp:
 pso/object/TObject.cpp:
 	.text       start:0x8022A618 end:0x8022ACA8
 	.ctors      start:0x80433FAC end:0x80433FB0
+	.bss        start:0x80515F08 end:0x80515F14
 
 pso/object/TObject_8022ACA8.cpp:
 	.text       start:0x8022ACA8 end:0x8022AD74
@@ -11256,6 +11257,7 @@ pso/misc/TLobby_80291D94_802930C8.cpp:
 pso/misc/TLobby_80291D94_80293144.cpp:
 	.text       start:0x80293144 end:0x802937D4
 	.ctors      start:0x80433FBC end:0x80433FC0
+	.data       start:0x804DAB60 end:0x804DB1F0
 
 pso/misc/TChCrCharSelect_802937D4.cpp:
 	.text       start:0x802937D4 end:0x802937E8
@@ -12005,6 +12007,7 @@ pso/menu/TAdPlyChrSelPlateGC.cpp:
 
 pso/ui/TAdMultiPlyChrSelectGC_802C50EC.cpp:
 	.text       start:0x802C50EC end:0x802C6D64
+	.data       start:0x804E0A48 end:0x804E0A58
 
 pso/ui/TAdChrSelPlyPlateGC.cpp:
 	.text       start:0x802C6D64 end:0x802C6DD4
@@ -12116,7 +12119,8 @@ pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp:
 
 pso/enemy/TObjEneBm9Mericarol.cpp:
 	.text       start:0x802D073C end:0x802D14F4
-	.data       start:0x804E1870 end:0x804E18A4
+	.data       start:0x804E1548 end:0x804E18A4
+	.bss        start:0x80540B58 end:0x80540B7C
 
 pso/unk/text_802D14F4.cpp:
 	.text       start:0x802D14F4 end:0x802D17F4
@@ -12127,6 +12131,7 @@ pso/enemy/TObjEneBm9Mericarol_802D17F4.cpp:
 
 pso/unk/text_802D1C84.cpp:
 	.text       start:0x802D1C84 end:0x802D1D48
+	.bss        start:0x80540B98 end:0x80540BC8
 
 pso/unk/text_802D1D48.cpp:
 	.text       start:0x802D1D48 end:0x802D1EFC

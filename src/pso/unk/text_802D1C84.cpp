@@ -222,7 +222,7 @@ struct VObj_18_477421 : VBase_18_477421 {
 };
 
 extern "C" {
-extern u8 lbl_80540BC8[];
+extern u32 lbl_80540BC8[];
 extern void *lbl_805D6880;
 void TLobby__sub_803DA16C(void *);
 void free__11TOBoss4RockFUi(void *);
@@ -240,6 +240,23 @@ void fn_802D1C84(void) {
         free__11TOBoss4RockFUi(lbl_805D6880);
         lbl_805D6880 = 0;
     }
+}
+
+void *alloc_buffer__11TOBoss4RockFPv(s32);
+void TLobby__sub_801E47C4(void *, void *);
+void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
+void set_texture_name(void *, void *, int, int);
+
+u32 lbl_80540B98[9];
+u32 lbl_80540BBC[3];
+__declspec(section ".data") u32 lbl_80540BC8[2];
+
+void fn_802D1CC8(void) {
+    set_render_rect__10TObjPlayerFPviiii(lbl_80540B98, (int)(lbl_805D6880 = alloc_buffer__11TOBoss4RockFPv(0x800)), 0x902, 0x20, 0x20);
+    set_texture_name(lbl_80540BBC, lbl_80540B98, 0x18696, 0x40800000);
+    lbl_80540BC8[0] = (u32)lbl_80540BBC;
+    lbl_80540BC8[1] = 1;
+    TLobby__sub_801E47C4(lbl_80540BC8, lbl_80540BBC);
 }
 #define PSO_VCALL_VObj_18_477421_m99(_self) (((VObj_18_477421 *)(_self))->m99())
 #define PSO_VCALL_VObj_18_477421_m81(_self) (((VObj_18_477421 *)(_self))->m81())
