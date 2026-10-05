@@ -4,17 +4,30 @@ extern "C" int  all_parents_unqueued_for_destruction__7TObjectFv(TObject*);
 extern "C" void request_destroy__11TBoss4Type2FUi(void*);
 extern "C" void queue_destruction__7TObjectFv(TObject*);
 
-void TItemEffEquip::run_task() {
-    if (all_parents_unqueued_for_destruction__7TObjectFv((TObject*)this->m_1c) == 0) {
-        this->m_1c = NULL;
-        queue_destruction__7TObjectFv(this);
+struct Equip_Self { u8 pad0[0x18]; void *vt; void *m_1c; void *m_20; };
+extern "C" {
+extern void *__vt__13TItemEffEquip[];
+void __dt__7TObjectFv(void *, s16);
+s32 __dl__7TObjectFPv(void *);
+void run_task__13TItemEffEquipFv(Equip_Self *self) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv((TObject*)self->m_1c) == 0) {
+        self->m_1c = NULL;
+        queue_destruction__7TObjectFv((TObject*)self);
     }
 }
 
-TItemEffEquip::~TItemEffEquip() {
-    request_destroy__11TBoss4Type2FUi(this->m_20);
+void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
+    if (self != NULL) {
+        self->vt = __vt__13TItemEffEquip;
+        request_destroy__11TBoss4Type2FUi(self->m_20);
+        __dt__7TObjectFv(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
 }
-
+}
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -51,6 +64,62 @@ void initialize_linked_object_reference(void *, void *);
 void TObjPlayer__sub_801569F4(void *, void *);
 extern u8 lbl_8043E1A0[];
 
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
+M2C_UNK spawn_particle_effect(s32, M2C_UNK);
+void *__nw__7TObjectFUl(int);
+struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
+void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
+M2C_UNK fn_80108860(void *, void *);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+extern M2C_UNK TItemEffEquip__sub_801088D0[];
+extern M2C_UNK TItemEffEquip__sub_801088F8[];
+extern s32 lbl_805D2BA0;
+Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b);
+
+#define self ((Equip_80108A20 *)arg0)
+void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
+    void *mem;
+
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    self->vt = __vt__13TItemEffEquip;
+    self->x0 = lbl_805D2BA0;
+    disallow_rendering__7TObjectFv(arg0);
+    mem = __nw__7TObjectFUl(0xE0);
+    if (mem != NULL) {
+        mem = ((void *(*)(void *, void *, void *, void *))TItemEffFlame__sub_80108C90)(mem, arg0, arg2, arg3);
+    }
+    self->src = mem;
+    self->x20 = 0;
+    self->x24 = arg5;
+    if (self->src != NULL) {
+        fn_80108860(arg0, arg4);
+        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088F8, 0xA);
+        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088D0, 0x14);
+    } else {
+        queue_destruction__7TObjectFv((TObject *)arg0);
+    }
+    return arg0;
+}
+#undef self
+
+void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    void *o;
+    o = __nw__7TObjectFUl(0x28);
+    if (o != NULL) {
+        TItemEffEquip__ct(o, arg0, arg1, arg2, arg3, arg4);
+    }
+}
 struct VBase0x18_80108b5c { char pad[0x18]; };
 struct VObj80108B5C_80108b5c : VBase0x18_80108b5c {
     virtual void m0();
@@ -129,71 +198,6 @@ u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0) {
     return arg0 + 0x38;
 }
 
-void VObj80108B5C_80108b5c::m0(){}
-void VObj80108B5C_80108b5c::m1(){}
-void VObj80108B5C_80108b5c::m2(){}
-void VObj80108B5C_80108b5c::m3(){}
-void VObj80108B5C_80108b5c::m4(){}
-void VObj80108B5C_80108b5c::m5(){}
-void VObj80108B5C_80108b5c::m6(){}
-void VObj80108B5C_80108b5c::m7(){}
-void VObj80108B5C_80108b5c::m8(){}
-void VObj80108B5C_80108b5c::m9(){}
-void VObj80108B5C_80108b5c::m10(){}
-void VObj80108B5C_80108b5c::m11(){}
-void VObj80108B5C_80108b5c::m12(){}
-void VObj80108B5C_80108b5c::m13(){}
-void VObj80108B5C_80108b5c::m14(){}
-void VObj80108B5C_80108b5c::m15(){}
-void VObj80108B5C_80108b5c::m16(){}
-void VObj80108B5C_80108b5c::m17(){}
-void VObj80108B5C_80108b5c::m18(){}
-void VObj80108B5C_80108b5c::m19(){}
-void VObj80108B5C_80108b5c::m20(){}
-void VObj80108B5C_80108b5c::m21(){}
-void VObj80108B5C_80108b5c::m22(){}
-void VObj80108B5C_80108b5c::m23(){}
-void VObj80108B5C_80108b5c::m24(){}
-void VObj80108B5C_80108b5c::m25(){}
-void VObj80108B5C_80108b5c::m26(){}
-void VObj80108B5C_80108b5c::m27(){}
-void VObj80108B5C_80108b5c::m28(){}
-void VObj80108B5C_80108b5c::m29(){}
-void VObj80108B5C_80108b5c::m30(){}
-void VObj80108B5C_80108b5c::m31(){}
-void VObj80108B5C_80108b5c::m32(){}
-void VObj80108B5C_80108b5c::m33(){}
-void VObj80108B5C_80108b5c::m34(){}
-void VObj80108B5C_80108b5c::m35(){}
-void VObj80108B5C_80108b5c::m36(){}
-void VObj80108B5C_80108b5c::m37(){}
-void VObj80108B5C_80108b5c::m38(){}
-void VObj80108B5C_80108b5c::m39(){}
-void VObj80108B5C_80108b5c::m40(){}
-void VObj80108B5C_80108b5c::m41(){}
-void VObj80108B5C_80108b5c::m42(){}
-void VObj80108B5C_80108b5c::m43(){}
-void VObj80108B5C_80108b5c::m44(){}
-void VObj80108B5C_80108b5c::m45(){}
-void VObj80108B5C_80108b5c::m46(){}
-void VObj80108B5C_80108b5c::m47(){}
-void VObj80108B5C_80108b5c::m48(){}
-void VObj80108B5C_80108b5c::m49(){}
-void VObj80108B5C_80108b5c::m50(){}
-void VObj80108B5C_80108b5c::m51(){}
-void VObj80108B5C_80108b5c::m52(){}
-void VObj80108B5C_80108b5c::m53(){}
-void VObj80108B5C_80108b5c::m54(){}
-void VObj80108B5C_80108b5c::m55(){}
-void VObj80108B5C_80108b5c::m56(){}
-void VObj80108B5C_80108b5c::m57(){}
-void VObj80108B5C_80108b5c::m58(){}
-void VObj80108B5C_80108b5c::m59(){}
-void VObj80108B5C_80108b5c::m60(){}
-void VObj80108B5C_80108b5c::m61(){}
-void VObj80108B5C_80108b5c::m62(){}
-void VObj80108B5C_80108b5c::m63(s32, void *){}
-
 struct VBase0x18_2_80108bb0 { char pad[0x18]; };
 struct VObj80108BB0_80108bb0 : VBase0x18_2_80108bb0 {
     virtual void m0();
@@ -271,76 +275,11 @@ void notify_hit__13TItemEffFlameFPv(u8 *arg0) {
     }
 }
 
-void VObj80108BB0_80108bb0::m0(){}
-void VObj80108BB0_80108bb0::m1(){}
-void VObj80108BB0_80108bb0::m2(){}
-void VObj80108BB0_80108bb0::m3(){}
-void VObj80108BB0_80108bb0::m4(){}
-void VObj80108BB0_80108bb0::m5(){}
-void VObj80108BB0_80108bb0::m6(){}
-void VObj80108BB0_80108bb0::m7(){}
-void VObj80108BB0_80108bb0::m8(){}
-void VObj80108BB0_80108bb0::m9(){}
-void VObj80108BB0_80108bb0::m10(){}
-void VObj80108BB0_80108bb0::m11(){}
-void VObj80108BB0_80108bb0::m12(){}
-void VObj80108BB0_80108bb0::m13(){}
-void VObj80108BB0_80108bb0::m14(){}
-void VObj80108BB0_80108bb0::m15(){}
-void VObj80108BB0_80108bb0::m16(){}
-void VObj80108BB0_80108bb0::m17(){}
-void VObj80108BB0_80108bb0::m18(){}
-void VObj80108BB0_80108bb0::m19(){}
-void VObj80108BB0_80108bb0::m20(){}
-void VObj80108BB0_80108bb0::m21(){}
-void VObj80108BB0_80108bb0::m22(){}
-void VObj80108BB0_80108bb0::m23(){}
-void VObj80108BB0_80108bb0::m24(){}
-void VObj80108BB0_80108bb0::m25(){}
-void VObj80108BB0_80108bb0::m26(){}
-void VObj80108BB0_80108bb0::m27(){}
-void VObj80108BB0_80108bb0::m28(){}
-void VObj80108BB0_80108bb0::m29(){}
-void VObj80108BB0_80108bb0::m30(){}
-void VObj80108BB0_80108bb0::m31(){}
-void VObj80108BB0_80108bb0::m32(){}
-void VObj80108BB0_80108bb0::m33(){}
-void VObj80108BB0_80108bb0::m34(){}
-void VObj80108BB0_80108bb0::m35(){}
-void VObj80108BB0_80108bb0::m36(){}
-void VObj80108BB0_80108bb0::m37(){}
-void VObj80108BB0_80108bb0::m38(){}
-void VObj80108BB0_80108bb0::m39(){}
-void VObj80108BB0_80108bb0::m40(){}
-void VObj80108BB0_80108bb0::m41(){}
-void VObj80108BB0_80108bb0::m42(){}
-void VObj80108BB0_80108bb0::m43(){}
-void VObj80108BB0_80108bb0::m44(){}
-void VObj80108BB0_80108bb0::m45(){}
-void VObj80108BB0_80108bb0::m46(){}
-void VObj80108BB0_80108bb0::m47(){}
-void VObj80108BB0_80108bb0::m48(){}
-void VObj80108BB0_80108bb0::m49(){}
-void VObj80108BB0_80108bb0::m50(){}
-void VObj80108BB0_80108bb0::m51(){}
-void VObj80108BB0_80108bb0::m52(){}
-void VObj80108BB0_80108bb0::m53(){}
-void VObj80108BB0_80108bb0::m54(){}
-void VObj80108BB0_80108bb0::m55(){}
-void VObj80108BB0_80108bb0::m56(){}
-void VObj80108BB0_80108bb0::m57(){}
-void VObj80108BB0_80108bb0::m58(){}
-void VObj80108BB0_80108bb0::m59(){}
-void VObj80108BB0_80108bb0::m60(){}
-void VObj80108BB0_80108bb0::m61(){}
-void VObj80108BB0_80108bb0::m62(){}
-void VObj80108BB0_80108bb0::m63(s32, void *){}
-
-extern M2C_UNK lbl_8049F038[];
+extern void *lbl_8049F038[];
 
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F038;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8049F038;
         if ((u32) M2C_FIELD(arg0, u32 *, 0xA4) != 0U) {
             unregister_object_by_id(arg0);
             clear_obj_links(arg0);
@@ -373,66 +312,34 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
 
 }
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-extern "C" {
-
-void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
-void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
-M2C_UNK spawn_particle_effect(s32, M2C_UNK);
-void *__nw__7TObjectFUl(int);
-struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
-void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
-M2C_UNK fn_80108860(void *, void *);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK TItemEffEquip__sub_801088D0[];
-extern M2C_UNK TItemEffEquip__sub_801088F8[];
-extern M2C_UNK __vt__13TItemEffEquip[];
-extern s32 lbl_805D2BA0;
-
-#define self ((Equip_80108A20 *)arg0)
-void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5) {
-    void *mem;
-
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    self->vt = __vt__13TItemEffEquip;
-    self->x0 = lbl_805D2BA0;
-    disallow_rendering__7TObjectFv(arg0);
-    mem = __nw__7TObjectFUl(0xE0);
-    if (mem != NULL) {
-        mem = ((void *(*)(void *, void *, void *, void *))TItemEffFlame__sub_80108C90)(mem, arg0, arg2, arg3);
-    }
-    self->src = mem;
-    self->x20 = 0;
-    self->x24 = arg5;
-    if (self->src != NULL) {
-        fn_80108860(arg0, arg4);
-        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088F8, 0xA);
-        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088D0, 0x14);
-    } else {
-        queue_destruction__7TObjectFv((TObject *)arg0);
-    }
-    return arg0;
-}
-#undef self
-
-void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
-    void *o;
-    o = __nw__7TObjectFUl(0x28);
-    if (o != NULL) {
-        TItemEffEquip__ct(o, arg0, arg1, arg2, arg3, arg4);
-    }
-}
-
 void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     spawn_particle_effect(arg3, 0x45);
     play_sound_effect(0x4001C112, 0, 0, 0);
 }
 
+}
+
+extern "C" {
+void render__7TObjectFv(void);
+void render_shadows__7TObjectFv(void);
+void TLobby__sub_801A1FD8(void);
+void apply_object_set_data(void);
+void release_member_90__10TObjPlayerFPv(void *);
+void update_object_view_visibility(void);
+void classify_actor_view_detail(void);
+void TObjRoomId__sub_801A1E2C(void);
+void TObjPlayer__sub_80019568(void);
+
+void *__vt__13TItemEffEquip[6] = {
+    0, 0, (void *)__dt__13TItemEffEquipFv, (void *)run_task__13TItemEffEquipFv,
+    (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
+};
+void *lbl_8049F038[14] = {
+    0, 0, (void *)destroy__13TItemEffFlameFPvs, (void *)notify_hit__13TItemEffFlameFPv,
+    (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
+    (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
+    (void *)release_member_90__10TObjPlayerFPv, (void *)notify_hit_and_get_pos__13TItemEffFlameFPv,
+    (void *)update_object_view_visibility, (void *)classify_actor_view_detail,
+    (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568,
+};
 }

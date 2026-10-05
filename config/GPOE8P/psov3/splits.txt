@@ -1912,7 +1912,7 @@ pso/unk/text_800A0994.cpp:
 pso/enemy/TObjEneDarkGunCenter.cpp:
 	.text       start:0x800A0B18 end:0x800A0EDC
 	.rodata     start:0x8043A490 end:0x8043A498
-	.data       start:0x804905EC end:0x80490608
+	.data       start:0x804904A0 end:0x80490608
 
 pso/unk/text_800A0EDC.cpp:
 	.text       start:0x800A0EDC end:0x800A36A8
@@ -2022,8 +2022,8 @@ pso/enemy/TObjEneBm3FlyNest.cpp:
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp:
 	.text       start:0x800B4820 end:0x800B7B14
 	.rodata     start:0x8043B5A8 end:0x8043B5B0
-	.data       start:0x804924A4 end:0x804924EC
-	.sdata2     start:0x805D9DD4 end:0x805D9DD8
+	.data       start:0x804922F8 end:0x804924EC
+	.sdata2     start:0x805D9D70 end:0x805D9E5C
 
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp:
 	.text       start:0x800B7B14 end:0x800B7BBC
@@ -3187,6 +3187,7 @@ pso/item/TItemEffEquip_80108920.cpp:
 
 pso/item/TItemEffEquip.cpp:
 	.text       start:0x80108974 end:0x80108D6C
+	.data       start:0x8049F020 end:0x8049F070
 
 pso/item/TItemEffFlame.cpp:
 	.text       start:0x80108D6C end:0x80108F04
@@ -6364,7 +6365,7 @@ pso/unk/text_80171A98.cpp:
 pso/misc/TOMineIcon04.cpp:
 	.text       start:0x80171C78 end:0x8017205C
 	.rodata     start:0x80442260 end:0x80442268
-	.data       start:0x804B3804 end:0x804B387C
+	.data       start:0x804B36A8 end:0x804B387C
 
 pso/misc/TOMonitorMachine01.cpp:
 	.text       start:0x8017205C end:0x8017262C
@@ -11568,7 +11569,8 @@ pso/misc/TOKeyJungleMain_8029CF68.cpp:
 
 pso/object/TObjFish.cpp:
 	.text       start:0x8029E3EC end:0x8029E764
-	.data       start:0x804DC764 end:0x804DC7B4
+	.rodata     start:0x80465A48 end:0x80465E08
+	.data       start:0x804DC640 end:0x804DC7B4
 
 pso/misc/TOKeyMachine01_8029E764.cpp:
 	.text       start:0x8029E764 end:0x8029E7BC

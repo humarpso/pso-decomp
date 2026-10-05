@@ -14,13 +14,13 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK TPhotonMagicSquare__sub_801A2640();
 s32 TObjFish__sub_8029E170(void *, void *, int, int);
-extern M2C_UNK __vt__8TObjFish[];
+extern void *__vt__8TObjFish[];
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern u8 lbl_804DC640[];
+extern void *lbl_804DC640[];
 extern u32 TObjFish__data_805D65E8;
 extern s32 TObjFish__data_805D65EC;
 void TObjFish__sub_8029E5E8(void);
@@ -35,11 +35,11 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
-extern M2C_UNK __vt__8TObjFish[];
+extern void *__vt__8TObjFish[];
 
 void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TObjFish;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TObjFish;
         if (M2C_FIELD(arg0, void **, 0xA0) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0xA0)); M2C_FIELD(arg0, M2C_UNK *, 0xA0) = 0; }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -55,7 +55,7 @@ u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     f32 temp_f0;
     f32 var_f1;
     TPhotonMagicSquare__sub_801A2640();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TObjFish;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TObjFish;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D58;
     M2C_FIELD(arg0, s32 *, 0xA0) = 0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
@@ -101,8 +101,139 @@ void free_resource__8TObjFishFv(void) {
         TObjFish__data_805D65E8 = 0U;
     }
 }
+void TLobby__sub_801A1FD8();
+void TObjRoomId__sub_801A1E2C();
+void TParticleCtrl__sub_801A2124();
+void apply_object_set_data();
+void classify_actor_view_detail();
+void render__8TObjFishFv();
+void render_shadows__7TObjectFv();
+void reset_motion_fields__10TObjPlayerFPv();
+void run_task__8TObjFishFv();
+void update_object_view_visibility();
+#pragma push
+extern const char lbl_80465A48[] = "lobby_suisou_sakana01_yellow.gj";
+extern const char lbl_80465A68[] = "lobby_suisou_sakana02_red.gj";
+extern const char lbl_80465A88[] = "lobby_suisou_sakana03_bule.gj";
+extern const char lbl_80465AA8[] = "lobby_suisou_sakana01_yellow.njm";
+extern const char lbl_80465ACC[] = "lobby_suisou_sakana02_red.njm";
+extern const char lbl_80465AEC[] = "lobby_suisou_sakana03_bule.njm";
+extern const char lbl_80465B0C[] = "bm_sakana_obj_lobby.bml";
+extern const char lbl_80465B24[] = "sakana_jungle21.gj";
+extern const char lbl_80465B38[] = "sakana_jungle22.gj";
+extern const char lbl_80465B4C[] = "sakana_jungle23.gj";
+extern const char lbl_80465B60[] = "sakana_jungle21.njm";
+extern const char lbl_80465B74[] = "sakana_jungle22.njm";
+extern const char lbl_80465B88[] = "sakana_jungle23.njm";
+extern const char lbl_80465B9C[] = "bm_sakana_obj_jungle2.bml";
+extern const char lbl_80465BB8[] = "sakana_jungle51.gj";
+extern const char lbl_80465BCC[] = "sakana_jungle52.gj";
+extern const char lbl_80465BE0[] = "sakana_jungle53.gj";
+extern const char lbl_80465BF4[] = "sakana_jungle51.njm";
+extern const char lbl_80465C08[] = "sakana_jungle52.njm";
+extern const char lbl_80465C1C[] = "sakana_jungle53.njm";
+extern const char lbl_80465C30[] = "bm_sakana_obj_jungle5.bml";
+extern const char lbl_80465C4C[] = "sakana01_obj1.gj";
+extern const char lbl_80465C60[] = "sakana02_obj1.gj";
+extern const char lbl_80465C74[] = "sakana03_obj1.gj";
+extern const char lbl_80465C88[] = "sakana01_obj1.njm";
+extern const char lbl_80465C9C[] = "sakana02_obj1.njm";
+extern const char lbl_80465CB0[] = "sakana03_obj1.njm";
+extern const char lbl_80465CC4[] = "bm_sakana_obj_seabed1.bml";
+extern const char lbl_80465CE0[] = "sakana04_obj1.gj";
+extern const char lbl_80465CF4[] = "sakana05_obj1.gj";
+extern const char lbl_80465D08[] = "sakana06_obj1.gj";
+extern const char lbl_80465D1C[] = "sakana04_obj1.njm";
+extern const char lbl_80465D30[] = "sakana05_obj1.njm";
+extern const char lbl_80465D44[] = "sakana06_obj1.njm";
+extern const char lbl_80465D58[] = "bm_sakana_obj_seabed2.bml";
+
+extern const f32 lbl_80465D74[15] = { 1.0f, 1.0f, 1.0f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.4f, 0.0f, 0.0f, 0.0f };
+extern const f32 lbl_80465DB0[15] = { 30.0f, 30.0f, 30.0f, 5.0f, 20.0f, 30.0f, 5.0f, 5.0f, 5.0f, 30.0f, 30.0f, 30.0f, 30.0f, 30.0f, 30.0f };
+extern const char lbl_80465DEC[] = "TObjFish";
+extern const f64 TObjFish__data_80465DF8 = 4503601774854144.0;
+extern const f64 lbl_80465E00 = 10430.38043493439;
+#pragma pop
+void *lbl_804DC640[60] = {
+    (void *)lbl_80465A48,
+    (void *)lbl_80465A68,
+    (void *)lbl_80465A88,
+    0,
+    (void *)lbl_80465AA8,
+    (void *)lbl_80465ACC,
+    (void *)lbl_80465AEC,
+    0,
+    (void *)lbl_80465B0C,
+    (void *)&lbl_804DC640[0],
+    (void *)&lbl_804DC640[4],
+    (void *)0x30003,
+    (void *)lbl_80465B24,
+    (void *)lbl_80465B38,
+    (void *)lbl_80465B4C,
+    0,
+    (void *)lbl_80465B60,
+    (void *)lbl_80465B74,
+    (void *)lbl_80465B88,
+    0,
+    (void *)lbl_80465B9C,
+    (void *)&lbl_804DC640[12],
+    (void *)&lbl_804DC640[16],
+    (void *)0x30003,
+    (void *)lbl_80465BB8,
+    (void *)lbl_80465BCC,
+    (void *)lbl_80465BE0,
+    0,
+    (void *)lbl_80465BF4,
+    (void *)lbl_80465C08,
+    (void *)lbl_80465C1C,
+    0,
+    (void *)lbl_80465C30,
+    (void *)&lbl_804DC640[24],
+    (void *)&lbl_804DC640[28],
+    (void *)0x30003,
+    (void *)lbl_80465C4C,
+    (void *)lbl_80465C60,
+    (void *)lbl_80465C74,
+    0,
+    (void *)lbl_80465C88,
+    (void *)lbl_80465C9C,
+    (void *)lbl_80465CB0,
+    0,
+    (void *)lbl_80465CC4,
+    (void *)&lbl_804DC640[36],
+    (void *)&lbl_804DC640[40],
+    (void *)0x30003,
+    (void *)lbl_80465CE0,
+    (void *)lbl_80465CF4,
+    (void *)lbl_80465D08,
+    0,
+    (void *)lbl_80465D1C,
+    (void *)lbl_80465D30,
+    (void *)lbl_80465D44,
+    0,
+    (void *)lbl_80465D58,
+    (void *)&lbl_804DC640[48],
+    (void *)&lbl_804DC640[52],
+    (void *)0x30003,
+};
+void *__vt__8TObjFish[13] = {
+    0,
+    0,
+    (void *)__dt__8TObjFishFv,
+    (void *)run_task__8TObjFishFv,
+    (void *)render__8TObjFishFv,
+    (void *)render_shadows__7TObjectFv,
+    (void *)TLobby__sub_801A1FD8,
+    (void *)apply_object_set_data,
+    (void *)reset_motion_fields__10TObjPlayerFPv,
+    (void *)TParticleCtrl__sub_801A2124,
+    (void *)update_object_view_visibility,
+    (void *)classify_actor_view_detail,
+    (void *)TObjRoomId__sub_801A1E2C,
+};
+
 void TObjFish__sub_8029E5E8(void) {
-    u8 *base = lbl_804DC640;
+    u8 *base = (u8 *)lbl_804DC640;
     u8 *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 24:
