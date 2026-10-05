@@ -2453,11 +2453,12 @@ pso/enemy/TObjEneNanoDrago.cpp:
 	.text       start:0x800DC410 end:0x800DC420
 
 pso/unk/text_800DC420.cpp:
-	.text       start:0x800DC420 end:0x800DCC90
-	.rodata     start:0x8043C910 end:0x8043C940
+	.text       start:0x800DC420 end:0x800DC9EC
+	.rodata     start:0x8043C908 end:0x8043C920
 
 pso/player/TObjPlayer_800DCC90.cpp:
-	.text       start:0x800DCC90 end:0x800DCEB8
+	.text       start:0x800DC9EC end:0x800DCEB8
+	.rodata     start:0x8043C920 end:0x8043C948
 
 pso/enemy/TObjEnePanarms_800DCEB8.cpp:
 	.text       start:0x800DCEB8 end:0x800DF6E0
@@ -9695,15 +9696,27 @@ pso/unk/text_80236EE8.cpp:
 	.text       start:0x80236EE8 end:0x80237194
 
 pso/misc/TTecPlayerInfluence.cpp:
-	.text       start:0x80237194 end:0x802379EC
-	.rodata     start:0x8044D918 end:0x8044DA48
+	.text       start:0x80237194 end:0x80237494
+	.rodata     start:0x8044D918 end:0x8044D920
+	.sdata2     start:0x805DC8A0 end:0x805DC8BC
 
 pso/misc/TTecRaBarta.cpp:
-	.text       start:0x802379EC end:0x802380F4
+	.text       start:0x80237494 end:0x80237DAC
+	.rodata     start:0x8044D920 end:0x8044DA48
+	.sdata      start:0x805D37F8 end:0x805D37FC
+	.sdata2     start:0x805DC8C0 end:0x805DC8C8
 
 pso/misc/TTecRaFoie.cpp:
-	.text       start:0x802380F4 end:0x80239490
-	.rodata     start:0x8044DB00 end:0x8044DB88
+	.text       start:0x80237DAC end:0x80238C6C
+	.rodata     start:0x8044DA48 end:0x8044DB08
+	.sdata      start:0x805D3800 end:0x805D3804
+	.sdata2     start:0x805DC8C8 end:0x805DC8F0
+
+pso/misc/TTecRaZonde_80238C6C.cpp:
+	.text       start:0x80238C6C end:0x80239490
+	.rodata     start:0x8044DB08 end:0x8044DB88
+	.sdata      start:0x805D3808 end:0x805D380C
+	.sdata2     start:0x805DC8F0 end:0x805DC908
 
 pso/misc/TTecResta.cpp:
 	.text       start:0x80239490 end:0x80239D8C
@@ -14226,13 +14239,11 @@ pso/misc/TLobby_80351E64.cpp:
 	.text       start:0x80351E64 end:0x803520D8
 
 pso/object/TObjLobbyMain_803520D8.cpp:
-	.text       start:0x803520D8 end:0x803526D8
-	.rodata     start:0x804790E8 end:0x804790F0
+	.text       start:0x803520D8 end:0x80352A54
+	.rodata     start:0x80479078 end:0x804790F0
 	.data       start:0x804F0F98 end:0x804F0FF0
-	.sdata2     start:0x805DFEE0 end:0x805DFEE4
-
-pso/object/TObjLobbyMain.cpp:
-	.text       start:0x803526D8 end:0x80352A54
+	.sdata      start:0x805D4370 end:0x805D4374
+	.sdata2     start:0x805DFEE0 end:0x805DFEF0
 
 pso/unk/text_80352A54.cpp:
 	.text       start:0x80352A54 end:0x80352AC0

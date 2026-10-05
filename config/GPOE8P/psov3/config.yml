@@ -334,6 +334,8 @@ force_active:
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
   - build_sell_list__24TShopEquipmentSellWindowFPv
+  - calc_area_parameters__10TTecRaFoieFPv
+  - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFPv
   - calc_small_font_scale
   - chat_dispatch_accepted_result
@@ -366,6 +368,7 @@ force_active:
   - create_learned_blast_toast__13TWindowSubMagFPv
   - create_particle_emitters__9TTecBartaFPv
   - create_particles__11TTecGiBartaFv
+  - create_rafoie_explosion
   - curvecmp
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
@@ -482,6 +485,19 @@ force_active:
   - is_visible__19TBoss1DragonEffTailFPv
   - is_within_camera_distance
   - layercmp
+  - lbl_8044D920
+  - lbl_8044D944
+  - lbl_8044D968
+  - lbl_8044D98C
+  - lbl_8044D9B0
+  - lbl_8044D9D4
+  - lbl_8044DA48
+  - lbl_8044DA54
+  - lbl_8044DA6C
+  - lbl_8044DA84
+  - lbl_8044DB08
+  - lbl_8044DB14
+  - lbl_8044DB2C
   - lbl_804663F8
   - lbl_8046FC68
   - lbl_8046FC78
@@ -717,6 +733,7 @@ force_active:
   - spawn_effect__10TObjPlayerFiUiii
   - spawn_laser__12TPhotonPillaFPv
   - spawn_line__13TPhotonEstllaFPv
+  - spawn_rafoie_explosion_bursts
   - spawn_recipe_particles__14TItemEffShieldFPv
   - spawn_scattered_lightning_strikes
   - step_camera_scalar
@@ -737,6 +754,7 @@ force_active:
   - update_card_confirm__16TAdChrSelBSlotGCFPv
   - update_card_select__16TAdChrSelBSlotGCFPv
   - update_customize_help_text
+  - update_detonation__10TTecRaFoieFPvPv
   - update_follow__11TItemMagSubFv
   - update_inward_orbit_point
   - update_letterbox_hide__9TCineCtrlFPv

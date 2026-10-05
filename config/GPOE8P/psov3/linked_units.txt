@@ -1718,7 +1718,10 @@ pso/misc/TTecLuker_8022BEAC_8022C03C.cpp
 pso/misc/TTecLuker_802360E4.cpp
 pso/misc/TTecMegid.cpp
 pso/misc/TTecMegid_80235B24.cpp
+pso/misc/TTecPlayerInfluence.cpp
 pso/misc/TTecRaBarta.cpp
+pso/misc/TTecRaFoie.cpp
+pso/misc/TTecRaZonde_80238C6C.cpp
 pso/misc/TTecResta.cpp
 pso/misc/TTecReverser.cpp
 pso/misc/TTecReverser_8034DED4.cpp
@@ -2283,7 +2286,7 @@ pso/object/TObjLiveMonitor_8030B4FC.cpp
 pso/object/TObjLiveMonitor_8030B574.cpp
 pso/object/TObjLiveMonitor_8030B5E8.cpp
 pso/object/TObjLiveMonitor_8030B7B4.cpp
-pso/object/TObjLobbyMain.cpp
+pso/object/TObjLobbyMain_803520D8.cpp
 pso/object/TObjLuker.cpp
 pso/object/TObjLuker_8001A438.cpp
 pso/object/TObjLuker_801329B0.cpp
@@ -3244,6 +3247,7 @@ pso/unk/text_800D97E8.cpp
 pso/unk/text_800D98D8.cpp
 pso/unk/text_800D9BBC.cpp
 pso/unk/text_800D9C34.cpp
+pso/unk/text_800DC420.cpp
 pso/unk/text_800EB778.cpp
 pso/unk/text_800F591C.cpp
 pso/unk/text_800F5BC0.cpp
