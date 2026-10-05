@@ -68,10 +68,6 @@ struct OSThread
     u8 *stackBase;
     u32 *stackEnd;
 
-#if VERSION >= VER_GAFU01_00
-    s32 error;
-    void* specific[2];
-#endif
 };
 
 enum OS_THREAD_STATE

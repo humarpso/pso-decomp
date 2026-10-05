@@ -14712,6 +14712,7 @@ os/OSInterrupt.c:
 
 os/OSLink.c:
 	.text       start:0x80372A84 end:0x80373208
+	.data       start:0x804F4408 end:0x804F4458
 
 os/OSMessage.c:
 	.text       start:0x80373208 end:0x8037340C
@@ -14724,6 +14725,8 @@ os/OSMutex.c:
 
 os/OSReboot.c:
 	.text       start:0x80373938 end:0x80373B44
+	.bss        start:0x80543B40 end:0x80543B60
+	.sbss       start:0x805D7098 end:0x805D70A8
 
 os/OSReset.c:
 	.text       start:0x80373B44 end:0x80373F28
@@ -14742,6 +14745,7 @@ os/OSSync.c:
 
 os/OSThread.c:
 	.text       start:0x80374D64 end:0x80375F08
+	.bss        start:0x80543BB8 end:0x805445A0
 
 os/OSTime.c:
 	.text       start:0x80375F08 end:0x8037632C

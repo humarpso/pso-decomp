@@ -94,28 +94,7 @@ static int CheckThreadQueue(OSThreadQueue* queue);
 static int IsMember(OSThreadQueue* queue, OSThread* thread);
 static void OSSetCurrentThread(OSThread* thread);
 
-static void DefaultSwitchThreadCallback(OSThread* from, OSThread* to) {}
-static OSSwitchThreadCallback SwitchThreadCallback = DefaultSwitchThreadCallback;
-
-OSSwitchThreadCallback OSSetSwitchThreadCallback(OSSwitchThreadCallback callback) {
-    OSSwitchThreadCallback prev;
-    BOOL enabled;
-
-    enabled = OSDisableInterrupts();
-    prev = SwitchThreadCallback;
-
-    SwitchThreadCallback = callback ? callback : DefaultSwitchThreadCallback;
-    OSRestoreInterrupts(enabled);
-
-    if (prev == DefaultSwitchThreadCallback) {
-        return NULL;
-    }
-
-    return prev;
-}
-
 static inline void OSSetCurrentThread(OSThread* thread) {
-    SwitchThreadCallback(__OSCurrentThread, thread);
     __OSCurrentThread = thread;
 }
 
@@ -146,7 +125,6 @@ void __OSThreadInit() {
     thread->stackEnd = (u32*)&_stack_end;
     *(u32*)thread->stackEnd = OS_THREAD_STACK_MAGIC;
     OSSetCurrentThread(thread);
-    OSClearStack(0);
     RunQueueBits = 0;
     RunQueueHint = 0;
 
@@ -365,8 +343,9 @@ static OSThread* SelectThread(int yield) {
         }
     }
 
+    OSSetCurrentThread(NULL);
+
     if (RunQueueBits == 0) {
-        OSSetCurrentThread(NULL);
         OSSetCurrentContext(&IdleContext);
         do {
             OSEnableInterrupts();
@@ -413,7 +392,6 @@ void OSYieldThread(void) {
 int OSCreateThread(OSThread* thread, void* (*func)(void*), void* param, void* stack, u32 stackSize, OSPriority priority, u16 attr) {
     BOOL enabled;
     u32 sp;
-    int i;
 
     ASSERTMSGLINE(LINE(864, 895, 895), ((priority >= OS_PRIORITY_MIN) && (priority <= OS_PRIORITY_MAX)), "OSCreateThread(): priority out of range (0 <= priority <= 31).");
 
@@ -446,21 +424,7 @@ int OSCreateThread(OSThread* thread, void* (*func)(void*), void* param, void* st
     thread->stackBase = stack;
     thread->stackEnd = (void*)((unsigned int)stack - stackSize);
     *thread->stackEnd = OS_THREAD_STACK_MAGIC;
-    thread->error = 0;
-    for (i = 0; i < 2; i++) {
-        thread->specific[i] = NULL;
-    }
     enabled = OSDisableInterrupts();
-
-    if (__OSErrorTable[16] != NULL) {
-        thread->context.srr1 |= 0x900;
-        thread->context.state |= 1;
-        thread->context.fpscr = (__OSFpscrEnableBits & 0xf8) | 4;
-        for (i = 0; i < 32; ++i) {
-            *(u64*)&thread->context.fpr[i] = (u64)0xffffffffffffffffLL;
-            *(u64*)&thread->context.psf[i] = (u64)0xffffffffffffffffLL;
-        }
-    }
 
     ASSERTMSG1LINE(LINE(918, 949, 949), __OSIsThreadActive(thread) == 0L, "OSCreateThread(): thread %p is still active.", thread);
 
@@ -836,40 +800,4 @@ s32 OSCheckActiveThreads(void) {
     }
     OSRestoreInterrupts(enabled);
     return cThread;
-}
-
-void OSClearStack(u8 val) {
-    __REGISTER u32 sp;
-    __REGISTER u32* p;
-    __REGISTER u32 pattern;
-
-    pattern = (val << 24) | (val << 16) | (val << 8) | val;
-    sp = OSGetStackPointer();
-    for (p = __OSCurrentThread->stackEnd + 1; (u32)p < sp; ++p) {
-        *p = pattern;
-    }
-}
-
-void OSSetThreadSpecific(s32 index, void* ptr) {
-    OSThread* thread;
-
-    thread = __OSCurrentThread;
-    ASSERTLINE(LINE(1573, 1604, 1604), 0 <= index && index < OS_THREAD_SPECIFIC_MAX);
-
-    if (thread != 0 && index >= 0 && index < OS_THREAD_SPECIFIC_MAX) {
-        thread->specific[index] = ptr;
-    }
-}
-
-void* OSGetThreadSpecific(s32 index) {
-    OSThread* thread;
-
-    thread = __OSCurrentThread;
-    ASSERTLINE(LINE(1584, 1615, 1615), 0 <= index && index < OS_THREAD_SPECIFIC_MAX);
-
-    if (thread != 0 && index >= 0 && index < OS_THREAD_SPECIFIC_MAX) {
-        return thread->specific[index];
-    }
-
-    return NULL;
 }

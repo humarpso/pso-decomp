@@ -119,6 +119,7 @@ odemuexi2/DebuggerDriver.c
 os/OSCache.c
 os/OSContext.c
 os/OSError.c
+os/OSLink.c
 os/OSMemory.c
 os/OSRtc.c
 os/OSTime.c

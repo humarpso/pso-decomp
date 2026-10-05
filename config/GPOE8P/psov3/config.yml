@@ -61,6 +61,8 @@ force_active:
   - InsertGlobalEvent
   - KeyOffNotes
   - L2GlobalInvalidate
+  - OSNotifyLink
+  - OSNotifyUnlink
   - PADSetSamplingCallback
   - PSMTXRotTrig
   - ResetNotes
