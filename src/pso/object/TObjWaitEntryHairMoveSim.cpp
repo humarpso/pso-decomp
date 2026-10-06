@@ -46,12 +46,10 @@ s32 TObjTailsTailsMove__sub_800FFDBC(void *);
 s32 __nw__7TObjectFUl(int);
 s32 get_display_index__12TCharaMakingFPv(void *);
 s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0);
-extern Ent_800FE698 lbl_8049D998[];
 s32 TObjWaitEntryHairMoveSim__sub_800FE698(Obj_800FE698 *o);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(s32);
 void create__19TObjEZBoneRotPlayerFPvPvPv(void *, s32, void *);
 void create_hairmove__10TObjPlayerFPvPvPv(void *, void *, s32);
-extern Ent_800FE698 lbl_8049D998[];
 void TObjWaitEntryHairMoveSim__sub_800FE5A0(void *arg0);
 }
 
@@ -61,6 +59,564 @@ void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
 void run_task__24TObjWaitEntryHairMoveSimFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
+
+extern "C" void TObjWaitEntryHairMoveSim__sub_800FE3C0();
+extern "C" void destroy__24TObjWaitEntryHairMoveSimFPvs();
+extern "C" void render__7TObjectFv();
+extern "C" void render_shadows__7TObjectFv();
+extern void *lbl_8049CBA8[16];
+extern void *lbl_8049CBE8[20];
+extern void *lbl_8049CC38[16];
+extern void *lbl_8049CC78[36];
+extern void *lbl_8049CD08[24];
+extern void *lbl_8049CD68[8];
+extern void *lbl_8049CD88[16];
+extern void *lbl_8049CDC8[8];
+extern void *lbl_8049CDE8[16];
+extern void *lbl_8049CE28[20];
+extern void *lbl_8049CE78[28];
+extern void *lbl_8049CEE8[20];
+extern void *lbl_8049CF38[16];
+extern void *lbl_8049CF78[24];
+extern void *lbl_8049CFD8[12];
+extern void *lbl_8049D008[12];
+extern void *lbl_8049D038[20];
+extern void *lbl_8049D088[16];
+extern void *lbl_8049D0C8[12];
+extern void *lbl_8049D0F8[20];
+extern void *lbl_8049D148[32];
+extern void *lbl_8049D1C8[36];
+extern void *lbl_8049D258[12];
+extern void *lbl_8049D288[12];
+extern void *lbl_8049D2B8[20];
+extern void *lbl_8049D308[20];
+extern void *lbl_8049D358[8];
+extern void *lbl_8049D378[8];
+extern void *lbl_8049D398[12];
+extern void *lbl_8049D3C8[20];
+extern void *lbl_8049D418[16];
+extern void *lbl_8049D458[8];
+extern void *lbl_8049D478[16];
+extern void *lbl_8049D4B8[24];
+extern void *lbl_8049D518[16];
+extern void *lbl_8049D558[12];
+extern void *lbl_8049D588[8];
+extern void *lbl_8049D5A8[16];
+extern void *lbl_8049D5E8[20];
+extern void *lbl_8049D638[16];
+extern void *lbl_8049D678[5];
+extern void *lbl_8049D68C[5];
+extern void *lbl_8049D6A0[5];
+extern void *lbl_8049D6B4[5];
+extern void *lbl_8049D6C8[5];
+extern void *lbl_8049D6DC[5];
+extern void *lbl_8049D6F0[5];
+extern void *lbl_8049D704[5];
+extern void *lbl_8049D718[5];
+extern void *lbl_8049D72C[5];
+extern void *lbl_8049D740[5];
+extern void *lbl_8049D754[5];
+extern void *lbl_8049D768[5];
+extern void *lbl_8049D77C[5];
+extern void *lbl_8049D790[5];
+extern void *lbl_8049D7A4[5];
+extern void *lbl_8049D7B8[5];
+extern void *lbl_8049D7CC[5];
+extern void *lbl_8049D7E0[5];
+extern void *lbl_8049D7F4[5];
+extern void *lbl_8049D808[5];
+extern void *lbl_8049D81C[5];
+extern void *lbl_8049D830[5];
+extern void *lbl_8049D844[5];
+extern void *lbl_8049D858[5];
+extern void *lbl_8049D86C[5];
+extern void *lbl_8049D880[5];
+extern void *lbl_8049D894[5];
+extern void *lbl_8049D8A8[5];
+extern void *lbl_8049D8BC[5];
+extern void *lbl_8049D8D0[5];
+extern void *lbl_8049D8E4[5];
+extern void *lbl_8049D8F8[5];
+extern void *lbl_8049D90C[5];
+extern void *lbl_8049D920[5];
+extern void *lbl_8049D934[5];
+extern void *lbl_8049D948[5];
+extern void *lbl_8049D95C[5];
+extern void *lbl_8049D970[5];
+extern void *lbl_8049D984[5];
+extern void *lbl_8049DC28[20];
+void *lbl_8049CBA8[16] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CBE8[20] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x4, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CC38[16] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CC78[36] = {
+    (void *)0x1, (void *)0x3e051eb8, (void *)0x0, (void *)0x3f851eb8,
+    (void *)0x2, (void *)0x3df5c290, (void *)0x0, (void *)0x3f75c290,
+    (void *)0x3, (void *)0x3de147af, (void *)0x0, (void *)0x3f6147af,
+    (void *)0x4, (void *)0x3dcccccd, (void *)0x0, (void *)0x3f4ccccd,
+    (void *)0x5, (void *)0xbe051eb8, (void *)0x0, (void *)0x3f851eb8,
+    (void *)0x6, (void *)0xbdf5c290, (void *)0x0, (void *)0x3f75c290,
+    (void *)0x7, (void *)0xbde147af, (void *)0x0, (void *)0x3f6147af,
+    (void *)0x8, (void *)0xbdcccccd, (void *)0x0, (void *)0x3f4ccccd,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CD08[24] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xb, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xc, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CD68[8] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CD88[16] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CDC8[8] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CDE8[16] = {
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CE28[20] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x3e800000, (void *)0x0,
+    (void *)0x2, (void *)0x3f800000, (void *)0x3e800000, (void *)0x0,
+    (void *)0x3, (void *)0x3f800000, (void *)0xbe800000, (void *)0x0,
+    (void *)0x4, (void *)0x3f800000, (void *)0xbe800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CE78[28] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x9, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xa, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CEE8[20] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x3f800000,
+    (void *)0x2, (void *)0x3f800000, (void *)0x0, (void *)0x3f800000,
+    (void *)0x3, (void *)0x3f800000, (void *)0x0, (void *)0x3f800000,
+    (void *)0x4, (void *)0x3f800000, (void *)0x0, (void *)0x3f800000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CF38[16] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CF78[24] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x9, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049CFD8[12] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x3e800000,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x3e800000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D008[12] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x3ee66666, (void *)0xbee66666,
+    (void *)0x2, (void *)0x3f800000, (void *)0xbee66666, (void *)0x3ee66666,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D038[20] = {
+    (void *)0x1, (void *)0x3dcccccd, (void *)0x0, (void *)0x3f35c28f,
+    (void *)0x2, (void *)0x3dcccccd, (void *)0x0, (void *)0x3f35c28f,
+    (void *)0x3, (void *)0x3dcccccd, (void *)0x0, (void *)0x3f35c28f,
+    (void *)0x4, (void *)0x3dcccccd, (void *)0x0, (void *)0x3f35c28f,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D088[16] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D0C8[12] = {
+    (void *)0x6, (void *)0x0, (void *)0x0, (void *)0x3f800000,
+    (void *)0x7, (void *)0x0, (void *)0x0, (void *)0x3f800000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D0F8[20] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xa, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xb, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D148[32] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xb, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xc, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xf, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x10, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D1C8[36] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x3e4ccccd,
+    (void *)0x2, (void *)0x3f800000, (void *)0x0, (void *)0x3e4ccccd,
+    (void *)0x3, (void *)0x3f800000, (void *)0x0, (void *)0x3e4ccccd,
+    (void *)0x4, (void *)0x3f800000, (void *)0x0, (void *)0x3e4ccccd,
+    (void *)0x5, (void *)0xbf800000, (void *)0x0, (void *)0xbe4ccccd,
+    (void *)0x6, (void *)0xbf800000, (void *)0x0, (void *)0xbe4ccccd,
+    (void *)0x7, (void *)0xbf800000, (void *)0x0, (void *)0xbe4ccccd,
+    (void *)0x8, (void *)0xbf800000, (void *)0x0, (void *)0xbe4ccccd,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D258[12] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x3ee66666, (void *)0xbee66666,
+    (void *)0x2, (void *)0x3f800000, (void *)0xbee66666, (void *)0x3ee66666,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D288[12] = {
+    (void *)0x2, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D2B8[20] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f000000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f000000, (void *)0x0,
+    (void *)0xa, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xb, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D308[20] = {
+    (void *)0x6, (void *)0x3f800000, (void *)0x3f000000, (void *)0x0,
+    (void *)0x7, (void *)0x3f99999a, (void *)0x3f333333, (void *)0x0,
+    (void *)0xa, (void *)0xbf800000, (void *)0x3f000000, (void *)0x0,
+    (void *)0xb, (void *)0xbf99999a, (void *)0x3f333333, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D358[8] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D378[8] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D398[12] = {
+    (void *)0x6, (void *)0x0, (void *)0x0, (void *)0x3f800000,
+    (void *)0x7, (void *)0x0, (void *)0x0, (void *)0x3f800000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D3C8[20] = {
+    (void *)0x1, (void *)0xbf800000, (void *)0x3e800000, (void *)0x0,
+    (void *)0x2, (void *)0xbf800000, (void *)0x3e800000, (void *)0x0,
+    (void *)0x3, (void *)0x3f800000, (void *)0xbe800000, (void *)0x0,
+    (void *)0x4, (void *)0x3f800000, (void *)0xbe800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D418[16] = {
+    (void *)0x3, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x4, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x5, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D458[8] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D478[16] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D4B8[24] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x4, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x5, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D518[16] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D558[12] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0xbf800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D588[8] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D5A8[16] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D5E8[20] = {
+    (void *)0x1, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x2, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0x4, (void *)0x3f800000, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D638[16] = {
+    (void *)0x6, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x7, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0x8, (void *)0x0, (void *)0x3f800000, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049D678[5] = {
+    (void *)0xa00, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CBA8,
+};
+void *lbl_8049D68C[5] = {
+    (void *)0x300, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CBE8,
+};
+void *lbl_8049D6A0[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CC38,
+};
+void *lbl_8049D6B4[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CC78,
+};
+void *lbl_8049D6C8[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CD08,
+};
+void *lbl_8049D6DC[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CD68,
+};
+void *lbl_8049D6F0[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CD88,
+};
+void *lbl_8049D704[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CDC8,
+};
+void *lbl_8049D718[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CDE8,
+};
+void *lbl_8049D72C[5] = {
+    (void *)0x1800, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CE28,
+};
+void *lbl_8049D740[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CE78,
+};
+void *lbl_8049D754[5] = {
+    (void *)0x280, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CEE8,
+};
+void *lbl_8049D768[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CF38,
+};
+void *lbl_8049D77C[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CF78,
+};
+void *lbl_8049D790[5] = {
+    (void *)0x800, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049CFD8,
+};
+void *lbl_8049D7A4[5] = {
+    (void *)0x1800, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D008,
+};
+void *lbl_8049D7B8[5] = {
+    (void *)0x1400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D038,
+};
+void *lbl_8049D7CC[5] = {
+    (void *)0x200, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D088,
+};
+void *lbl_8049D7E0[5] = {
+    (void *)0xc00, (void *)0x1400, (void *)0x1800, (void *)0x3f733333,
+    (void *)&lbl_8049D0C8,
+};
+void *lbl_8049D7F4[5] = {
+    (void *)0xa00, (void *)0x1800, (void *)0x3800, (void *)0x3f733333,
+    (void *)&lbl_8049D0F8,
+};
+void *lbl_8049D808[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D148,
+};
+void *lbl_8049D81C[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D1C8,
+};
+void *lbl_8049D830[5] = {
+    (void *)0x1800, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D258,
+};
+void *lbl_8049D844[5] = {
+    (void *)0x600, (void *)0xa00, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D288,
+};
+void *lbl_8049D858[5] = {
+    (void *)0xc00, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D2B8,
+};
+void *lbl_8049D86C[5] = {
+    (void *)0x400, (void *)0x1800, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D308,
+};
+void *lbl_8049D880[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D358,
+};
+void *lbl_8049D894[5] = {
+    (void *)0x800, (void *)0x1400, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D378,
+};
+void *lbl_8049D8A8[5] = {
+    (void *)0x340, (void *)0x1400, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D398,
+};
+void *lbl_8049D8BC[5] = {
+    (void *)0x1800, (void *)0x1000, (void *)0x2000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D3C8,
+};
+void *lbl_8049D8D0[5] = {
+    (void *)0x200, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D418,
+};
+void *lbl_8049D8E4[5] = {
+    (void *)0xc00, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D458,
+};
+void *lbl_8049D8F8[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f99999a,
+    (void *)&lbl_8049D478,
+};
+void *lbl_8049D90C[5] = {
+    (void *)0x200, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D4B8,
+};
+void *lbl_8049D920[5] = {
+    (void *)0x300, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D518,
+};
+void *lbl_8049D934[5] = {
+    (void *)0xc00, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D558,
+};
+void *lbl_8049D948[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D588,
+};
+void *lbl_8049D95C[5] = {
+    (void *)0x300, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D5A8,
+};
+void *lbl_8049D970[5] = {
+    (void *)0x400, (void *)0x1000, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049D5E8,
+};
+void *lbl_8049D984[5] = {
+    (void *)0x600, (void *)0x1000, (void *)0x2000, (void *)0x3f99999a,
+    (void *)&lbl_8049D638,
+};
+void *lbl_8049D998[164] = {
+    (void *)0xff07ff, (void *)&lbl_8049D678, (void *)0x0, (void *)0x0,
+    (void *)0xff09ff, (void *)&lbl_8049D68C, (void *)0x0, (void *)0x0,
+    (void *)0x1ff03ff, (void *)&lbl_8049D6A0, (void *)0x0, (void *)0x0,
+    (void *)0x1ff04ff, (void *)&lbl_8049D6B4, (void *)0x0, (void *)0x0,
+    (void *)0x1ff06ff, (void *)&lbl_8049D6C8, (void *)0x0, (void *)0x0,
+    (void *)0x5ffff01, (void *)&lbl_8049D6DC, (void *)0x0, (void *)0x0,
+    (void *)0x5ffff02, (void *)&lbl_8049D6F0, (void *)0x0, (void *)0x0,
+    (void *)0x5ffff03, (void *)&lbl_8049D704, (void *)0x0, (void *)0x0,
+    (void *)0x6ff00ff, (void *)&lbl_8049D718, (void *)0x0, (void *)0x0,
+    (void *)0x602ffff, (void *)&lbl_8049D72C, (void *)0x0, (void *)0x0,
+    (void *)0x603ffff, (void *)&lbl_8049D740, (void *)0x0, (void *)0x0,
+    (void *)0x6ff03ff, (void *)&lbl_8049D754, (void *)0x0, (void *)0x0,
+    (void *)0x6ff05ff, (void *)&lbl_8049D768, (void *)0x0, (void *)0x0,
+    (void *)0x6ff06ff, (void *)&lbl_8049D77C, (void *)0x0, (void *)0x0,
+    (void *)0x609ffff, (void *)&lbl_8049D790, (void *)0x0, (void *)0x0,
+    (void *)0x701ffff, (void *)&lbl_8049D7A4, (void *)0x0, (void *)0x0,
+    (void *)0x7ff05ff, (void *)&lbl_8049D7B8, (void *)0x0, (void *)0x0,
+    (void *)0x7ff07ff, (void *)&lbl_8049D7CC, (void *)0x0, (void *)0x0,
+    (void *)0x709ffff, (void *)&lbl_8049D7E0, (void *)0x0, (void *)0x0,
+    (void *)0x800ffff, (void *)&lbl_8049D7F4, (void *)0x0, (void *)0x0,
+    (void *)0x8ff00ff, (void *)&lbl_8049D808, (void *)0x0, (void *)0x0,
+    (void *)0x8ff03ff, (void *)&lbl_8049D81C, (void *)0x0, (void *)0x0,
+    (void *)0x805ffff, (void *)&lbl_8049D830, (void *)0x0, (void *)0x0,
+    (void *)0x806ffff, (void *)&lbl_8049D844, (void *)0x0, (void *)0x0,
+    (void *)0x8ff06ff, (void *)&lbl_8049D858, (void *)0x0, (void *)0x0,
+    (void *)0x809ffff, (void *)&lbl_8049D86C, (void *)0x0, (void *)0x0,
+    (void *)0x9ffff00, (void *)&lbl_8049D880, (void *)0x0, (void *)0x0,
+    (void *)0x9ffff02, (void *)&lbl_8049D894, (void *)0x0, (void *)0x0,
+    (void *)0xa02ffff, (void *)&lbl_8049D8A8, (void *)0x0, (void *)0x0,
+    (void *)0xa03ffff, (void *)&lbl_8049D8BC, (void *)0x0, (void *)0x0,
+    (void *)0xaff05ff, (void *)&lbl_8049D8D0, (void *)0x0, (void *)0x0,
+    (void *)0xaff07ff, (void *)&lbl_8049D8E4, (void *)0x0, (void *)0x0,
+    (void *)0xa08ffff, (void *)&lbl_8049D8F8, (void *)0x0, (void *)0x0,
+    (void *)0xaff09ff, (void *)&lbl_8049D90C, (void *)0x0, (void *)0x0,
+    (void *)0xbff01ff, (void *)&lbl_8049D920, (void *)0x0, (void *)0x0,
+    (void *)0xbff03ff, (void *)&lbl_8049D934, (void *)0x0, (void *)0x0,
+    (void *)0xbff04ff, (void *)&lbl_8049D948, (void *)0x0, (void *)0x0,
+    (void *)0xbff06ff, (void *)&lbl_8049D95C, (void *)0x0, (void *)0x0,
+    (void *)0xbff07ff, (void *)&lbl_8049D970, (void *)0x0, (void *)0x0,
+    (void *)0xb09ffff, (void *)&lbl_8049D984, (void *)0x0, (void *)0x0,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8049DC28[20] = {
+    (void *)0x1, (void *)0x3f000000, (void *)0x0, (void *)0x3f800000,
+    (void *)0x2, (void *)0x3f000000, (void *)0x0, (void *)0x3f800000,
+    (void *)0x3, (void *)0x3f000000, (void *)0x0, (void *)0x3f800000,
+    (void *)0x4, (void *)0x3f000000, (void *)0x0, (void *)0x3f800000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x3e800000,
+};
+void *lbl_8049DC78[5] = {
+    (void *)0x400, (void *)0xc00, (void *)0x1000, (void *)0x3f8ccccd,
+    (void *)&lbl_8049DC28,
+};
+void *lbl_8049DC8C[6] = {
+    (void *)0x0, (void *)0x0, (void *)&destroy__24TObjWaitEntryHairMoveSimFPvs, (void *)&TObjWaitEntryHairMoveSim__sub_800FE3C0,
+    (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv,
+};
+#define lbl_8049D998 ((Ent_800FE698 *)lbl_8049D998)
 
 void run_task__24TObjWaitEntryHairMoveSimFv(void *arg0) {
     if ((s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), s32 *, 0xCFC) == 0) {

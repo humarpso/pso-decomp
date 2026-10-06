@@ -26,6 +26,8 @@ void __ct__7TObjectFP7TObject(void *);
 extern M2C_UNK __vt__17TMCFormatSequence[];
 extern void *lbl_805D35EC;
 
+char TQuestVmDownLoadServer__data_804C8690[] = "\xB8\xB4\xBD\xC4\xCC\xA7\xB2\xD9";
+
 void run_task__17TMCFormatSequenceFv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);

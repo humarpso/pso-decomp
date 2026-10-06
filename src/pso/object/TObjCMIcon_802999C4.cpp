@@ -1,5 +1,16 @@
 #include "pso/TObjCMIcon.h"
 
+s32 lbl_804DBDE0[35] = {
+    2, 0x38, 0xA8, 0, 0,
+    2, 0x38, 0xA9, 0, 0,
+    2, 0x38, 0xAA, 0, 0,
+    3, 0x38, 0x37, 0xAA, 0,
+    2, 0x37, 0xA7, 0, 0,
+    2, 0x37, 0xAB, 0, 0,
+    2, 0x37, 0xAC, 0, 0,
+};
+__declspec(section ".data") f32 lbl_804DBE6C[2] = { 604.0f, 443.0f };
+
 TObjCMIcon::~TObjCMIcon() {}
 
 #include "types.h"

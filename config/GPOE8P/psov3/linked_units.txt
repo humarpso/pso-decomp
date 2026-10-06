@@ -772,11 +772,13 @@ pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdPlyChrSelPlateGC.cpp
 pso/menu/TAdRicoRing.cpp
 pso/menu/TAdRicoRing_8001BEE8.cpp
+pso/menu/TAdTimeSetGC.cpp
 pso/menu/TChCrCharSelect.cpp
 pso/menu/TChCrEffWall.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
 pso/menu/TObjTagChallenge_80074B88.cpp
+pso/menu/TQuestBgmCtrl.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/TAttackTrace.cpp
 pso/misc/TBGLightningCtrl.cpp
@@ -1272,6 +1274,7 @@ pso/misc/TLockOnCursor_8013EEC8.cpp
 pso/misc/TLogo.cpp
 pso/misc/TLogo_8001C134.cpp
 pso/misc/TLogo_8030818C.cpp
+pso/misc/TMCFormatSequence.cpp
 pso/misc/TMainCursor.cpp
 pso/misc/TMainCursor_8013AE18.cpp
 pso/misc/TMainCursor_8013AF0C.cpp
@@ -2109,6 +2112,7 @@ pso/misc/pso_const_ids4.cpp
 pso/misc/pso_const_ids5.cpp
 pso/misc/pso_const_ids6.cpp
 pso/misc/pso_const_ids7.cpp
+pso/network/TGameProtocol.cpp
 pso/network/TProtocolChoiceSearch.cpp
 pso/network/TProtocol_801D9EEC.cpp
 pso/network/TProtocol_801DA240.cpp

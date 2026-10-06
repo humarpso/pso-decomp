@@ -2807,7 +2807,7 @@ pso/object/TObjWaitEntryHairMoveSim_800FE45C.cpp:
 
 pso/object/TObjWaitEntryHairMoveSim.cpp:
 	.text       start:0x800FE510 end:0x800FE834
-	.data       start:0x8049DCA4 end:0x8049DCBC
+	.data       start:0x8049CBA8 end:0x8049DCBC
 
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp:
 	.text       start:0x800FE834 end:0x800FEA34
@@ -2834,7 +2834,7 @@ pso/unk/text_800FF580.cpp:
 
 pso/object/TObjEZRopeBase.cpp:
 	.text       start:0x800FF9B8 end:0x800FFA88
-	.data       start:0x8049DD44 end:0x8049DD60
+	.data       start:0x8049DCF0 end:0x8049DD60
 
 pso/player/TObjPlayer_800FFA88.cpp:
 	.text       start:0x800FFA88 end:0x800FFC34
@@ -3453,7 +3453,7 @@ pso/item/TItemReverseTechCtrl_8011A5A8.cpp:
 
 pso/item/TItemReverseTechCtrl.cpp:
 	.text       start:0x8011A6E0 end:0x8011A780
-	.data       start:0x804A048C end:0x804A04A8
+	.data       start:0x804A0440 end:0x804A04A8
 
 pso/unk/text_8011A780.cpp:
 	.text       start:0x8011A780 end:0x8011B010
@@ -5522,7 +5522,7 @@ pso/slices/run_801449DC.cpp:
 
 pso/system/TNECFontEORFunction.cpp:
 	.text       start:0x801449FC end:0x80144AC8
-	.data       start:0x804A77EC end:0x804A7808
+	.data       start:0x804A74E8 end:0x804A7808
 
 pso/unk/text_80144AC8.cpp:
 	.text       start:0x80144AC8 end:0x80144B14
@@ -8339,7 +8339,7 @@ pso/unk/text_801E416C.cpp:
 
 pso/network/TGameProtocol.cpp:
 	.text       start:0x801E4260 end:0x801E4374
-	.data       start:0x804C57C4 end:0x804C57DC
+	.data       start:0x804C5260 end:0x804C57DC
 
 pso/misc/TGameProtocol.cpp:
 	.text       start:0x801E4374 end:0x801E43E4
@@ -8397,7 +8397,7 @@ pso/misc/TQuestBgmCtrl_801E63F4.cpp:
 
 pso/menu/TQuestBgmCtrl.cpp:
 	.text       start:0x801E6404 end:0x801E64EC
-	.data       start:0x804C69B4 end:0x804C69CC
+	.data       start:0x804C6970 end:0x804C69CC
 
 pso/misc/TQuestBgmCtrl.cpp:
 	.text       start:0x801E64EC end:0x801E6544
@@ -8543,7 +8543,7 @@ pso/unk/text_801F6548.cpp:
 
 pso/misc/TMCFormatSequence.cpp:
 	.text       start:0x801F69A0 end:0x801F6B00
-	.data       start:0x804C869C end:0x804C86B4
+	.data       start:0x804C8690 end:0x804C86B4
 
 pso/unk/text_801F6B00.cpp:
 	.text       start:0x801F6B00 end:0x801F6B80
@@ -11327,7 +11327,7 @@ pso/object/TObjCMIcon.cpp:
 
 pso/object/TObjCMIcon_802999C4.cpp:
 	.text       start:0x802999C4 end:0x80299A60
-	.data       start:0x804DBE74 end:0x804DBE90
+	.data       start:0x804DBDE0 end:0x804DBE90
 
 pso/misc/TLobby_80299A60_80299A60.cpp:
 	.text       start:0x80299A60 end:0x80299D68
@@ -12315,7 +12315,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802E13C8_802E2AD4.cpp:
 
 pso/menu/TAdTimeSetGC.cpp:
 	.text       start:0x802E32E8 end:0x802E34AC
-	.data       start:0x804E3514 end:0x804E352C
+	.data       start:0x804E3040 end:0x804E352C
 
 pso/unk/text_802E34AC.cpp:
 	.text       start:0x802E34AC end:0x802E3AE4

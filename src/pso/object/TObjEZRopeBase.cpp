@@ -2,6 +2,19 @@
 
 extern "C" void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
+extern "C" void TObjPlayer__sub_800FEE84();
+extern "C" void TObjPlayer__sub_800FEEA4();
+extern "C" void dt_ad_single_ply_chr_select__10TObjPlayerFPvs();
+extern "C" void render_shadows__7TObjectFv();
+f32 lbl_8049DCF0[12] = {
+    0.5f, 1.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+};
+f32 lbl_8049DD20[3] = { 0.0f, -0.75f, 0.0f };
+void *lbl_8049DD2C[6] = {
+    (void *)0x0, (void *)0x0, (void *)&dt_ad_single_ply_chr_select__10TObjPlayerFPvs, (void *)&TObjPlayer__sub_800FEEA4,
+    (void *)&TObjPlayer__sub_800FEE84, (void *)&render_shadows__7TObjectFv,
+};
+
 TObjEZRopeBase::~TObjEZRopeBase() {
     if (m_2c != nullptr) { safe_free__23TAdSinglePlyChrSelectGCFUi(m_2c); m_2c = nullptr; }
 }
