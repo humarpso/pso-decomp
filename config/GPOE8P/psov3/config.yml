@@ -139,6 +139,8 @@ force_active:
   - TObjEneDD__sub_800BB980
   - TObjEneMe1Canadin__sub_8009FB54
   - TObjEneMe1GiGueMissile__sub_802CE088
+  - TObjEneMe1GiGue__sub_802CB170
+  - TObjEneMe1GiGue__sub_802CD058
   - TObjEneRecon__vt85
   - TObjFish__sub_800E2FFC
   - TObjGrass__sub_800BFB8C
@@ -598,6 +600,9 @@ force_active:
   - lbl_804B94F4
   - lbl_804DC098
   - lbl_804E0BE8
+  - lbl_804E11D8
+  - lbl_804E1210
+  - lbl_804E1220
   - lbl_804E3B60
   - lbl_804E80D0
   - lbl_804E8114
@@ -626,6 +631,7 @@ force_active:
   - lbl_80501060
   - lbl_80501068
   - lbl_8050C014
+  - lbl_80540BBC
   - lerp_follow_anchor
   - load_item_pmt
   - load_quest_root_script
@@ -915,6 +921,7 @@ force_active:
   - update_load_state__9TItemLoadFPv
   - update_lunge__14TObjEneBm5WolfFv
   - update_main_menu_request__11TWindowCtrlFPv
+  - update_movement__15TObjEneMe1GiGueFPv
   - update_pad_recalibration
   - update_punch_attack__11TObjEneMojaFPv
   - update_selected_help__19TWindowSubTechniqueFPvi

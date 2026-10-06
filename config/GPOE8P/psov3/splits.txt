@@ -11725,7 +11725,7 @@ pso/unk/text_802AA8FC_802AAC74.cpp:
 pso/boss/TBoss6PlotFalz.cpp:
 	.text       start:0x802AACF4 end:0x802ACCC8
 	.rodata     start:0x804705D8 end:0x804705E0
-	.sdata2     start:0x805DE098 end:0x805DE0C0
+	.sdata2     start:0x805DE088 end:0x805DE0E0
 
 pso/misc/TWindowCallBack.cpp:
 	.text       start:0x802ACCC8 end:0x802ACF04

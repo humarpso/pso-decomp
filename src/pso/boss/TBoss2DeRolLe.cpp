@@ -214,6 +214,109 @@ typedef struct DeRolLe_800344A4 {
     u8 pad600[0x654 - 0x600];
     s32 mode;
 } DeRolLe_800344A4;
+
+struct Vec_80033AA4 { f32 x, y, z; };
+
+struct Vec3i_80033AA4 { s32 x, y, z; };
+
+struct Obj_80033AA4 {
+    u8 pad0[0x540];
+    Vec_80033AA4 pos[42];
+    u8 pad738[8];
+    void *ctl[6];
+    s32 f758;
+};
+
+struct Vec_800313F8 { f32 x, y, z; };
+
+struct Sub_800313F8 { u8 pad0[8]; u32 f8; };
+
+struct DR_800313F8 {
+    u8 pad0[0x38];
+    Vec_800313F8 pos;
+    u8 pad44[0x64 - 0x44];
+    s32 f64;
+    u8 pad68[0xB0 - 0x68];
+    u32 fB0;
+    u8 padB4[0xB8 - 0xB4];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 fC0;
+    u8 padC4[0x3C0 - 0xC4];
+    u32 f3C0;
+    u8 pad3C4[0x3CC - 0x3C4];
+    Sub_800313F8 *f3CC;
+    u8 pad3D0[0x44C - 0x3D0];
+    Vec_800313F8 v44C;
+    Vec_800313F8 v458;
+    u8 pad464[0x4E8 - 0x464];
+    Vec_800313F8 v4E8;
+    u8 pad4F4[0x518 - 0x4F4];
+    u8 snd[0x620 - 0x518];
+    s32 tentacles[4];
+    u8 pad630[0x654 - 0x630];
+    s32 f654;
+    u8 pad658[0x6A4 - 0x658];
+    f32 f6A4;
+    u8 pad6A8[0x6E0 - 0x6A8];
+    s32 f6E0;
+    s32 f6E4;
+    s32 f6E8;
+    s32 f6EC;
+    u8 pad6F0[0x6FC - 0x6F0];
+    f32 f6FC;
+    f32 f700;
+    f32 f704;
+    f32 f708;
+    f32 f70C;
+    f32 f710;
+    f32 f714;
+    f32 f718;
+    u8 pad71C[0x73C - 0x71C];
+    void *f73C;
+};
+
+struct Vec_8002FE60 { f32 x, y, z; };
+
+struct Inst_8002FE60 { u32 w[5]; };
+
+struct D_8002FE60 {
+    u8 pad0[0xB8];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 frame;
+    u8 padC4[0x390 - 0xC4];
+    u8 *target;
+    u8 pad394[0x3C0 - 0x394];
+    u32 flags;
+    u8 pad3C4[0x4E8 - 0x3C4];
+    Vec_8002FE60 pos;
+    Vec_8002FE60 dir;
+    u8 pad500[0x518 - 0x500];
+    u8 snd[0x654 - 0x518];
+    s32 mode;
+    u8 pad658[0x6C8 - 0x658];
+    s32 f6C8;
+    void *laser1;
+    void *laser2;
+    u8 pad6D4[0x6DC - 0x6D4];
+    s32 count;
+    s32 phase;
+    s32 timer;
+    s32 f6E8;
+    u8 pad6EC[0x6F4 - 0x6EC];
+    s32 f6F4;
+    u8 pad6F8[0x6FC - 0x6F8];
+    f32 speed;
+    f32 f700;
+    u8 pad704[0x724 - 0x704];
+    Vec_8002FE60 vel;
+    Vec_8002FE60 hit;
+    void *ptcl;
+    u8 pad740[0x758 - 0x740];
+    s32 f758;
+};
+
 extern "C" {
 u8 TBoss2DeRolLe__sub_80034574(u8 *arg0);
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0);
@@ -223,6 +326,107 @@ u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
 u8 TBoss2DeRolLe__sub_80034960(u8 *arg0);
 void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+f32 get_random_float__8TObjFishFv(f32);
+void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
+void *create_particle_controller_with_angles(void *, void *, int, int, int);
+M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, u32);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
+extern s32 lbl_804824B8[];
+extern f32 lbl_804824C4[];
+extern const f32 TBoss2DeRolLe__data_805D8294;
+extern const f32 TBoss2DeRolLe__data_805D82A0;
+extern const f32 TBoss2DeRolLe__data_805D82A4;
+extern const f32 TBoss2DeRolLe__data_805D82A8;
+extern const f32 lbl_805D82E0;
+extern const f32 TBoss2DeRolLe__data_805D8328;
+void TBoss2DeRolLe__sub_80033AA4(Obj_80033AA4 *o);
+f32 calc_boss4_scale__10TObjPlayerFi(void *);
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+void queue_destruction__7TObjectFv(void *);
+int play_sound(void* p, int a1);
+void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
+void TBoss2DeRolLe__sub_80034C90(void *, s32);
+M2C_UNK forward_80039DC8__14TBoss2TentacleFPv(s32);
+M2C_UNK TObjBoss2Tunnel__sub_8003C5F8();
+M2C_UNK TObjBoss2Tunnel__sub_8003C610();
+M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
+void *create_particle_emitter(void *, int);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 objInBand__FP7GameObjf(void *, f32);
+void advance_animation_playback(void *);
+extern const f32 TBoss2DeRolLe__data_805D827C;
+extern const f32 TBoss2DeRolLe__data_805D8288;
+extern const f32 TBoss2DeRolLe__data_805D8294;
+extern const f32 TBoss2DeRolLe__data_805D829C;
+extern const f32 TBoss2DeRolLe__data_805D82A0;
+extern const f32 TBoss2DeRolLe__data_805D82A4;
+extern const f32 TBoss2DeRolLe__data_805D82A8;
+extern const f32 TBoss2DeRolLe__data_805D82B4;
+extern const f32 TBoss2DeRolLe__data_805D82B8;
+extern const f32 TBoss2DeRolLe__data_805D82BC;
+extern const f32 lbl_805D82D0;
+extern const f32 TBoss2DeRolLe__data_805D82D8;
+extern const f32 TBoss2DeRolLe__data_805D82DC;
+extern const f32 TBoss2DeRolLe__data_805D82E4;
+extern const f32 lbl_805D8304;
+extern const f32 TBoss2DeRolLe__data_805D832C;
+extern const f32 TBoss2DeRolLe__data_805D8348;
+extern const f32 lbl_805D834C;
+extern const f32 lbl_805D8350;
+extern const f32 lbl_805D8354;
+extern const f32 TBoss2DeRolLe__data_805D8358;
+extern const f32 lbl_805D835C;
+extern const f32 lbl_805D8360;
+extern const f32 lbl_805D8364;
+extern const f32 lbl_805D8368;
+extern const f32 lbl_805D836C;
+extern const f32 lbl_805D8370;
+void TBoss2DeRolLe__sub_800313F8(DR_800313F8 *o, u32 arg1, s32 arg2);
+M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+f32 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void queue_destruction__7TObjectFv(void *);
+s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
+void fn_8002B094(s32);
+int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2);
+int play_sound(void* p, int a1);
+void TBoss2DeRolLe__sub_800342C0(s32 arg0);
+void free_laser__13TBoss2DeRolLeFPv(void *arg0, s32);
+void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
+void TBoss2DeRolLe__sub_8003443C(u8 *arg0);
+void TBoss2DeRolLe__sub_80034C90(void *, s32);
+void TBoss2DeRolLe__sub_80037178(void *, void *);
+void *TBoss2LaserLight__sub_80037264(void *, void *, int, int);
+u8 *csnVector(void *, void *, int);
+void clamp_velocity__15TObjBoss2TunnelFPv(void *);
+f32 update_scale__15TObjBoss2TunnelFPv(void *);
+s32 spawn_particle_effect_with_flags(void *, int, int);
+void *spawn_continuous_particle_effect_with_flags(void *, int, int);
+M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 fn_800B91F4(void *);
+s32 check_v2_mode__9TObjEneDDFv(void);
+void setup_instance__9TObjEneDDFiiPvi(void *, void *, void *, s32);
+void advance_animation_playback(void *);
+void *__nw__7TObjectFUl(u32);
+M2C_UNK vec3_add_to(int, void *);
+void subtract_vector(void *, void *);
+extern Inst_8002FE60 lbl_804356FC[];
+extern const f64 lbl_80435A10[];
+extern u8 *TBoss2DeRolLe__data_805D4BA0;
+void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1);
+u32 __cvt_fp2unsigned(f32);
+extern u32 *lbl_804FE2A4[];
+extern u32 *lbl_804FE2D8[];
+extern const f32 TBoss2DeRolLe__data_805D82A0;
+extern const f32 TBoss2DeRolLe__data_805D82BC;
+extern const f32 TBoss2DeRolLe__data_805D8300;
+extern const f32 TBoss2DeRolLe__data_805D8328;
+extern const f32 TBoss2DeRolLe__data_805D8334;
+extern const f32 lbl_805D842C;
+void TBoss2DeRolLe__sub_80033684(u8 *arg0);
 }
 #define TBoss2DeRolLe__sub_80034574 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034574)
 #define init_wave_params__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_wave_params__13TBoss2DeRolLeFPv)
@@ -526,13 +730,11 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 void TBoss2DeRolLe__sub_8002F73C(Obj_8002F73C *self, u32 kind);
 void TBoss2DeRolLe__sub_8002FCE4(Obj_8002FCE4 *self, u32 kind);
 void TBoss2DeRolLe__sub_8002FD9C(DeRolLe_8002FD9C *self, u32 arg1, s32 arg2);
-s32 TBoss2DeRolLe__sub_8002FE60(void *, void *);
 void TBoss2DeRolLe__sub_80030588(u8 *arg0, u32 arg1);
 void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80030898(u8 *arg0, u32 arg1, s32 arg2);
 void TBoss2DeRolLe__sub_80030A38(u8 *arg0, u32 arg1);
 void TBoss2DeRolLe__sub_80030DFC(void *, void *, int);
-s32 TBoss2DeRolLe__sub_800313F8(void *, void *, int);
 void TBoss2DeRolLe__sub_80031AD4(void *, void *);
 void TBoss2DeRolLe__sub_80032B28(void *, void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
@@ -630,6 +832,18 @@ extern "C" {
 void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_80034258(Obj_80034258 *self);
+}
+
+extern "C" {
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
+}
+
+extern "C" {
+void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self);
+void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
+void TBoss2DeRolLe__sub_80034E90(Obj_80034034 *self, s32 mode);
 }
 
 extern "C" {
@@ -880,6 +1094,240 @@ void TBoss2DeRolLe__sub_8002FD9C(DeRolLe_8002FD9C *self, u32 arg1, s32 arg2) {
         break;
     }
 }
+
+#define VCOPY(d, s) ((void (*)(void *, void *)) VecCopy__FP3VecPC3Vec)((d), (s))
+#define VADD(d, s) ((void (*)(void *, void *)) vec3_add_to)((d), (s))
+#pragma push
+#pragma fp_contract on
+void TBoss2DeRolLe__sub_8002FE60(void *arg0, u32 arg1) {
+    Vec_8002FE60 *vel;
+    Vec_8002FE60 *hit;
+    D_8002FE60 *self = (D_8002FE60 *) arg0;
+    vel = &self->vel;
+    switch (arg1) {
+    case 4:
+        self->flags &= ~4;
+        self->flags |= 0x100;
+        TBoss2DeRolLe__sub_800341F0((Obj_800341F0 *) self);
+        self->fB8 = 0xF;
+        self->mode = 3;
+        TBoss2DeRolLe__sub_80034C90(self, self->mode);
+        fn_8002B094(self->f6C8);
+        self->phase = 0;
+        self->timer = 0;
+        self->f6E8 = 0;
+        self->f6F4 = 0;
+        self->speed = 0.0f;
+        self->f700 = 0.0f;
+        vel->x = 0.0f;
+        vel->y = 0.0f;
+        vel->z = 0.0f;
+        self->ptcl = NULL;
+        break;
+    case 2:
+        if (self->phase == 4) {
+            if (self->count >= 4) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *) self, 0x1C);
+            } else {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *) self, 0x1B);
+            }
+        }
+        break;
+    case 9:
+        if (self->phase == 4) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *) self);
+        }
+        break;
+    case 0:
+        advance_animation_playback(self);
+        self->f758 = 6;
+        switch (self->phase) {
+        case 0:
+            self->timer++;
+            if (self->timer >= 0x14) {
+                self->timer = 0;
+                self->phase = 1;
+                fn_8002B094(self->f6C8);
+                self->fB8 = 0xD;
+                if (fn_800B91F4(self) != 0) {
+                    VCOPY(vel, self->target + 0x38);
+                } else {
+                    vel->x = 0.0f;
+                    vel->y = 0.0f;
+                    vel->z = 0.0f;
+                }
+                TBoss2DeRolLe__sub_8003443C((u8 *)(self));
+                activate_laser_light__13TBoss2DeRolLeFPv(self);
+                ((int (*)(int, void *))play_sound)(0x4003A809, self->snd);
+            }
+            break;
+        case 1:
+            if (self->count != 0 && check_v2_mode__9TObjEneDDFv() != 0) {
+                self->frame = 13.0f;
+            }
+            if (self->frame <= 12.0f) {
+                if (self->ptcl == NULL) {
+                    self->ptcl = spawn_continuous_particle_effect_with_flags(&self->pos, 0x122, 0x40);
+                    if (self->ptcl != NULL) {
+                        enable__13TParticleCtrlFPv(self->ptcl);
+                    }
+                } else {
+                    Vec_8002FE60 a;
+                    VCOPY(&a, &self->pos);
+                    a.x += 2.0f * (5.0f * self->dir.x);
+                    a.y += 5.0f * self->dir.y;
+                    a.z += 5.0f * self->dir.z;
+                    copy_pos__11TNowLoadingFPvPv(self->ptcl, &a);
+                }
+            } else if (self->ptcl != NULL) {
+                queue_destruction__7TObjectFv(self->ptcl);
+                self->ptcl = NULL;
+            }
+            TBoss2DeRolLe__sub_8003443C((u8 *)(self));
+            if (self->frame >= 13.0f) {
+                self->frame = 13.0f;
+                self->phase = 2;
+                subtract_vector(vel, &self->pos);
+                clamp_velocity__15TObjBoss2TunnelFPv(vel);
+                vel->y = 0.0f;
+                self->f6F4 = lbl_80435A10[0] * get_ad_end_text_start__10TObjPlayerFv(vel->x, vel->z);
+                self->speed = 80.0f;
+                spawn_particle_effect_with_flags(&self->pos, 0x126, 0x40);
+            }
+            break;
+        case 2: {
+            f32 k;
+            f32 dist;
+            f32 s;
+            u8 *col;
+            self->frame = 13.0f;
+            self->speed += 30.0f;
+            if (self->ptcl == NULL) {
+                self->ptcl = spawn_continuous_particle_effect_with_flags(&self->pos, 0x177, 0x40);
+                if (self->ptcl != NULL) {
+                    enable__13TParticleCtrlFPv(self->ptcl);
+                }
+            } else {
+                Vec_8002FE60 b;
+                VCOPY(&b, &self->pos);
+                b.x += 2.0f * (5.0f * self->dir.x);
+                b.y += 5.0f * self->dir.y;
+                b.z += 5.0f * self->dir.z;
+                copy_pos__11TNowLoadingFPvPv(self->ptcl, &b);
+            }
+            {
+                Vec_8002FE60 e;
+                Vec_8002FE60 c;
+                Vec_8002FE60 p;
+                Vec_8002FE60 d;
+                f32 h;
+                f32 dy;
+                f32 t;
+                hit = &self->hit;
+                h = self->pos.y;
+                dy = -10.0f - h;
+                e.x = vel->x * self->speed;
+                e.y = dy;
+                e.z = vel->z * self->speed;
+                t = (10.0f - h) / dy;
+                c.x = e.x * t;
+                c.y = dy * t;
+                c.z = e.z * t;
+                VADD(&c, &self->pos);
+                VCOPY(hit, &e);
+                VADD(hit, &self->pos);
+                self->f700 += 5.0f;
+                if (self->f700 >= 20.0f) {
+                    self->f700 -= 20.0f;
+                }
+                s = self->f700;
+                VCOPY(&p, &self->pos);
+                VCOPY(&d, hit);
+                subtract_vector(&d, &p);
+                dist = update_scale__15TObjBoss2TunnelFPv(&d);
+                p.x += d.x * s;
+                p.y += d.y * s;
+                p.z += d.z * s;
+                k = 20.0f;
+                d.x *= k;
+                d.y *= k;
+                d.z *= k;
+                for (; dist > s; s += k) {
+                    spawn_particle_effect_with_flags(&p, 0x176, 0x40);
+                    VADD(&p, &d);
+                }
+                col = csnVector(&c, hit, 0x16EF);
+                if (col != NULL) {
+                    VCOPY(hit, *(void **) (col + 4));
+                    if (self->laser1 == NULL) {
+                        void *o = __nw__7TObjectFUl(0x124);
+                        if (o != NULL) {
+                            o = TBoss2LaserLight__sub_80037264(o, self, 6, 0x124);
+                        }
+                        self->laser1 = o;
+                    } else {
+                        TBoss2DeRolLe__sub_80037178(self->laser1, hit);
+                    }
+                    if (self->laser2 == NULL) {
+                        void *o = __nw__7TObjectFUl(0x124);
+                        if (o != NULL) {
+                            o = TBoss2LaserLight__sub_80037264(o, self, 0xF, 0x125);
+                        }
+                        self->laser2 = o;
+                    } else {
+                        TBoss2DeRolLe__sub_80037178(self->laser2, hit);
+                    }
+                }
+                {
+                    Inst_8002FE60 r = lbl_804356FC[0];
+                    *(f32 *) &r.w[1] = *(f32 *) TBoss2DeRolLe__data_805D4BA0;
+                    setup_instance__9TObjEneDDFiiPvi(self, hit, &r, self->f6C8);
+                }
+            }
+            ((int (*)(int, void *, void *))spawn_trap__13TBoss2DeRolLeFPvii)(0x4003B00A, self, hit);
+            if (self->speed >= 500.0f) {
+                self->speed = 500.0f;
+                self->phase = 3;
+                if (self->ptcl != NULL) {
+                    queue_destruction__7TObjectFv(self->ptcl);
+                    self->ptcl = NULL;
+                }
+            }
+            break;
+        }
+        case 3:
+            if (check_v2_mode__9TObjEneDDFv() != 0) {
+                self->phase = 4;
+            }
+            if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(self) != 0) {
+                self->phase = 4;
+            }
+            break;
+        }
+        break;
+    case 6:
+        TBoss2DeRolLe__sub_800342C0((s32) self);
+        break;
+    case 5:
+        free_laser__13TBoss2DeRolLeFPv((void *)(self), (s32)(self->count++));
+        if (self->ptcl != NULL) {
+            queue_destruction__7TObjectFv(self->ptcl);
+            self->ptcl = NULL;
+        }
+        if (self->laser1 != NULL) {
+            queue_destruction__7TObjectFv(self->laser1);
+            self->laser1 = NULL;
+        }
+        if (self->laser2 != NULL) {
+            queue_destruction__7TObjectFv(self->laser2);
+            self->laser2 = NULL;
+        }
+        break;
+    }
+}
+#pragma pop
+#undef VCOPY
+#undef VADD
 
 #pragma push
 #pragma fp_contract on
@@ -1459,7 +1907,220 @@ extern const f32 lbl_805D83A4;
 extern const f32 lbl_805D83A8;
 extern const f32 TBoss2DeRolLe__data_805D83AC;
 
+#pragma push
+#pragma fp_contract on
+void TBoss2DeRolLe__sub_800313F8(DR_800313F8 *o, u32 arg1, s32 arg2) {
+    switch (arg1) {
+    case 4:
+        o->fB8 = 1;
+        TBoss2DeRolLe__sub_800341F0((Obj_800341F0 *)(o));
+        o->f3C0 |= 4;
+        o->f3C0 &= ~0x100;
+        o->f654 = arg2;
+        TBoss2DeRolLe__sub_80034C90(o, o->f654);
+        o->f6FC = TBoss2DeRolLe__data_805D827C;
+        o->f708 = TBoss2DeRolLe__data_805D827C;
+        o->f704 = TBoss2DeRolLe__data_805D827C;
+        o->f700 = TBoss2DeRolLe__data_805D827C;
+        o->f70C = lbl_805D8304;
+        o->f710 = TBoss2DeRolLe__data_805D827C;
+        o->f714 = o->pos.z;
+        o->f718 = TBoss2DeRolLe__data_805D827C;
+        o->f6E4 = 0;
+        o->f6E0 = 0;
+        o->f6E8 = 0;
+        o->f73C = 0;
+        o->f6EC = 0;
+        break;
+    case 2: {
+        u32 fl = o->f3CC->f8;
+        if (fl & 0x400) {
+            if (o->f654 == 0) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(o), (s32)(0x14));
+            } else {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(o), (s32)(0x15));
+            }
+        } else if (fl & 4) {
+            if (o->f654 == 0) {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(o), (s32)(0x16));
+            } else {
+                TBoss2DeRolLe__sub_80034E90((Obj_80034034 *)(o), (s32)(0x17));
+            }
+        }
+        break;
+    }
+    case 9:
+        if (o->fB8 == 0xA || o->fB8 == 9) {
+            TBoss2DeRolLe__sub_80033D44((Obj_80034034 *)(o));
+        }
+        break;
+    case 0:
+        advance_animation_playback(o);
+        switch (o->f6E0) {
+        case 0:
+            o->f6E4++;
+            if (o->f6E4 > 0xA) {
+                o->f6E4 = 0;
+                o->f6E0 = 1;
+                if (o->f654 == 0) {
+                    o->fB8 = 7;
+                    o->f6FC = TBoss2DeRolLe__data_805D832C;
+                } else {
+                    o->fB8 = 8;
+                    o->f6FC = TBoss2DeRolLe__data_805D82BC;
+                }
+            }
+            break;
+        case 1:
+            if (!(o->fB0 & 4)) {
+                o->f6E0 = 2;
+            }
+            break;
+        case 2:
+            if (o->fC0 >= TBoss2DeRolLe__data_805D82B8) {
+                o->f6E0 = 3;
+                o->f708 = TBoss2DeRolLe__data_805D827C;
+                o->f700 = o->pos.x;
+                o->f704 = (TBoss2DeRolLe__data_805D82B4 * o->f6FC - o->f700) / TBoss2DeRolLe__data_805D8348;
+                o->f70C = -(o->f710 / TBoss2DeRolLe__data_805D8348);
+                o->f714 = o->pos.z;
+                o->f710 = TBoss2DeRolLe__data_805D827C;
+            }
+            break;
+        case 3:
+            if (o->fC0 >= lbl_805D82D0) {
+                o->f6E0 = 4;
+                o->f708 = TBoss2DeRolLe__data_805D827C;
+                o->f700 = TBoss2DeRolLe__data_805D82B4 * o->f6FC;
+                o->f704 = (lbl_805D834C * o->f6FC - o->f700) / TBoss2DeRolLe__data_805D8348;
+                o->f714 = o->pos.z;
+                o->f70C = (TBoss2DeRolLe__data_805D82A0 * (TBoss2DeRolLe__data_805D82E4 - o->pos.z)) / lbl_805D8350;
+                o->f710 = TBoss2DeRolLe__data_805D827C;
+            }
+            break;
+        case 4:
+            if (o->fC0 >= TBoss2DeRolLe__data_805D8294) {
+                o->f6E0 = 5;
+                o->f708 = TBoss2DeRolLe__data_805D827C;
+                o->f700 = lbl_805D834C * o->f6FC;
+                o->f704 = (TBoss2DeRolLe__data_805D82B4 * o->f6FC - o->f700) / TBoss2DeRolLe__data_805D82D8;
+                o->f718 = (lbl_805D8354 * -o->f6FC) / TBoss2DeRolLe__data_805D82D8;
+            }
+            break;
+        case 5:
+            if (o->fC0 >= TBoss2DeRolLe__data_805D8358) {
+                s32 i;
+                o->f6E0 = 6;
+                set_shake_preset__11TCameraCtrlFi(1);
+                if (o->f654 == 0) {
+                    TObjBoss2Tunnel__sub_8003C610();
+                } else {
+                    TObjBoss2Tunnel__sub_8003C5F8();
+                }
+                ((int (*)(s32, void *))play_sound)(0x4003A507, o->snd);
+                for (i = 0; i < 4; i++) {
+                    forward_80039DC8__14TBoss2TentacleFPv(o->tentacles[i]);
+                }
+            }
+            break;
+        case 6:
+            break;
+        }
+        o->f6E8++;
+        if (o->f6E0 != 0 && o->f6E0 != 1) {
+            if (o->fC0 >= lbl_805D835C && o->fC0 <= lbl_805D8360 && o->f6E8 >= 2) {
+                Vec_800313F8 v;
+                f32 s;
+                o->f6E8 = 0;
+                VecCopy__FP3VecPC3Vec((int)&v, &o->v4E8);
+                s = lbl_805D8364 * calc_boss4_scale__10TObjPlayerFi(o);
+                v.x = v.x - o->f6FC * s;
+                v.y = TBoss2DeRolLe__data_805D82A8;
+                v.z = v.z + TBoss2DeRolLe__data_805D82A4;
+                ((void (*)(void *, Vec_800313F8 *))spawn_ceil_junk__13TBoss2DeRolLeFii)(o, &v);
+            }
+            if (objInBand__FP7GameObjf(o, lbl_805D835C) != 0) {
+                ((int (*)(s32, void *))play_sound)(0x4003AD11, o->snd);
+            }
+            if (o->f73C == 0) {
+                o->f73C = create_particle_emitter(&o->pos, 0x161);
+                if (o->f73C != 0) {
+                    enable__13TParticleCtrlFPv(o->f73C);
+                }
+            } else if (o->fC0 >= lbl_805D8368 && o->fC0 <= TBoss2DeRolLe__data_805D82DC) {
+                o->f6EC++;
+                if (o->f6EC % 4 == 0) {
+                    copy_pos__11TNowLoadingFPvPv(o->f73C, &o->v44C);
+                } else if (o->f6EC % 4 == 2) {
+                    copy_pos__11TNowLoadingFPvPv(o->f73C, &o->v458);
+                } else {
+                    enable__13TParticleCtrlFPv(o->f73C);
+                }
+            } else {
+                enable__13TParticleCtrlFPv(o->f73C);
+            }
+        }
+        switch (o->f6E0) {
+        case 0:
+        case 1:
+        case 2:
+            o->f710 += o->f70C;
+            if (o->f710 < -7.0f) {
+                o->f710 = -7.0f;
+            }
+            o->pos.z += o->f710;
+            break;
+        case 3: {
+            f32 t = o->fC0 - TBoss2DeRolLe__data_805D82B8;
+            o->pos.x = o->f704 * t + o->f700;
+            f32 h = TBoss2DeRolLe__data_805D8288 * o->f70C;
+            o->pos.z = t * (h * t + lbl_805D836C) + o->f714;
+            if (objInBand__FP7GameObjf(o, lbl_805D8370) != 0) {
+                ((int (*)(s32, void *))play_sound)(0x4003AD12, o->snd);
+            }
+            break;
+        }
+        case 4: {
+            f32 t = o->fC0 - lbl_805D82D0;
+            o->pos.x = o->f704 * t + o->f700;
+            f32 h = TBoss2DeRolLe__data_805D8288 * o->f70C;
+            o->pos.z = t * (h * t) + o->f714;
+            o->f6A4 = TBoss2DeRolLe__data_805D829C * t;
+            if (o->f6A4 > 4.0f) {
+                o->f6A4 = 4.0f;
+            }
+            break;
+        }
+        case 5: {
+            f32 t = o->fC0 - TBoss2DeRolLe__data_805D8294;
+            f32 u;
+            o->pos.x = o->f704 * t + o->f700;
+            u = o->fC0 - lbl_805D82D0;
+            {
+                f32 h = TBoss2DeRolLe__data_805D8288 * o->f70C;
+                f32 w = u * (h * u);
+                o->pos.z = o->f714 + w;
+            }
+            o->f64 = o->f718 * t;
+            break;
+        }
+        case 6:
+            break;
+        }
+        break;
+    case 5:
+        o->f3C0 &= ~4;
+        if (o->f73C != 0) {
+            queue_destruction__7TObjectFv(o->f73C);
+            o->f73C = 0;
+        }
+        break;
+    }
+}
+#pragma pop
+
 #define o ((Rol_80031AD4 *)arg0)
+
 void TBoss2DeRolLe__sub_80031AD4(void *arg0, void *arg1) {
     Vec_80031AD4 va;
     Vec_80031AD4 vb;
@@ -2278,10 +2939,10 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         TBoss2DeRolLe__sub_800327C8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (3)), (int)((int) (2)));
         return;
     case 18:
-        TBoss2DeRolLe__sub_800313F8((void *) (arg0), (void *) (arg2), (int) (0));
+        TBoss2DeRolLe__sub_800313F8((DR_800313F8 *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (0)));
         return;
     case 19:
-        TBoss2DeRolLe__sub_800313F8((void *) (arg0), (void *) (arg2), (int) (2));
+        TBoss2DeRolLe__sub_800313F8((DR_800313F8 *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (2)));
         return;
     case 20:
         TBoss2DeRolLe__sub_800310F8((void *)((void *) (arg0)), (void *)((void *) (arg2)), (int)((int) (0)));
@@ -2314,7 +2975,7 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         ((s32 (*)(void *, void *))TBoss2DeRolLe__sub_80030588)((void *) (arg0), (void *) (arg2));
         return;
     case 27:
-        TBoss2DeRolLe__sub_8002FE60((void *) (arg0), (void *) (arg2));
+        TBoss2DeRolLe__sub_8002FE60((void *)((void *) (arg0)), (u32)((void *) (arg2)));
         return;
     case 28:
         TBoss2DeRolLe__sub_8002FD9C((DeRolLe_8002FD9C *)((void *) (arg0)), (u32)((void *) (arg2)), (s32)((int) (0)));
@@ -2334,6 +2995,60 @@ void TBoss2DeRolLe__sub_8003344C(s32 arg0, u32 arg1, s32 arg2) {
         return;
     }
 }
+
+#pragma push
+#pragma fp_contract on
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline u32 pack_80033684(u32 a, u32 r, u32 g, u32 b) { u32 c = a << 24; c |= r << 16; c |= g << 8; c |= b; return c; }
+static inline u32 swap_80033684(u32 x) {
+    u32 t = x >> 16;
+    t = __rlwimi(t, x, 16, 0, 7);
+    t = __rlwimi(t, x, 16, 8, 15);
+    return t;
+}
+void TBoss2DeRolLe__sub_80033684(u8 *arg0) {
+    s32 i;
+    f32 t;
+    u8 v;
+    u32 c;
+    f32 add;
+    f32 mul;
+    f32 scale;
+    f32 half;
+    f32 wrap;
+    f32 step;
+    f32 ph;
+    t = M2C_FIELD(arg0, f32 *, 0x6D4);
+    if (t > TBoss2DeRolLe__data_805D82BC) {
+        t = TBoss2DeRolLe__data_805D82A0 - t;
+    }
+    v = __cvt_fp2unsigned(lbl_805D842C * (TBoss2DeRolLe__data_805D8328 * t + TBoss2DeRolLe__data_805D8334));
+    c = swap_80033684(pack_80033684(0xFF, v, 0, v >> 2));
+    *lbl_804FE2A4[0] = c;
+    *lbl_804FE2A4[2] = c;
+    *lbl_804FE2A4[1] = swap_80033684(pack_80033684(0xFF, v, v, 0));
+    step = TBoss2DeRolLe__data_805D8300;
+    wrap = TBoss2DeRolLe__data_805D82A0;
+    half = TBoss2DeRolLe__data_805D82BC;
+    scale = lbl_805D842C;
+    mul = TBoss2DeRolLe__data_805D8328;
+    ph = M2C_FIELD(arg0, f32 *, 0x6D4);
+    add = TBoss2DeRolLe__data_805D8334;
+    for (i = 0; i < 10; i++) {
+        ph += step;
+        if (ph > wrap) {
+            ph -= wrap;
+        }
+        t = ph;
+        if (ph > half) {
+            t = TBoss2DeRolLe__data_805D82A0 - ph;
+        }
+        v = __cvt_fp2unsigned(scale * (mul * t + add));
+        *lbl_804FE2D8[i] = swap_80033684(pack_80033684(0xFF, v, v, 0));
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma opt_common_subs off
@@ -2397,6 +3112,76 @@ void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2) {
 void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1) {
     TObjBoss2Tunnel__sub_8003B1D8((void *) (arg1));
 }
+
+#pragma push
+#pragma fp_contract on
+void TBoss2DeRolLe__sub_80033AA4(Obj_80033AA4 *o) {
+    Vec_80033AA4 t;
+    Vec3i_80033AA4 ang;
+    s32 ok;
+    s32 j;
+    s32 i;
+    s32 k;
+    void *p;
+    s32 m;
+    s32 n;
+    ok = 1;
+    for (i = 0; i < 6; i++) {
+        if (o->ctl[i] == NULL) {
+            ang.z = 0;
+            ang.y = 0;
+            ang.x = 0;
+            p = create_particle_controller_with_angles(o->pos, &ang, 0x120, 1, 0x40);
+            if (p != NULL) {
+                o->ctl[i] = p;
+                set_flags__11TBoss4Type2FPvUi(o->ctl[i], 2);
+                enable__13TParticleCtrlFPv(o->ctl[i]);
+            } else {
+                for (j = 0; j < i; j++) {
+                    enable__13TParticleCtrlFPv(o->ctl[j]);
+                }
+                ok = 0;
+                break;
+            }
+        }
+    }
+    if (ok != 0) {
+        if (o->f758 == 0) {
+            for (k = 0; k < 3; k++) {
+                Vec_80033AA4 *v = &o->pos[lbl_804824B8[k]];
+                f32 r = get_random_float__8TObjFishFv(v->y - lbl_805D82E0);
+                f32 lim = lbl_804824C4[k];
+                if (r < TBoss2DeRolLe__data_805D8328 * lim) {
+                    ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, v);
+                    lim -= r;
+                    t.y = TBoss2DeRolLe__data_805D82A8;
+                    t.x += lim;
+                    copy_pos__11TNowLoadingFPvPv(o->ctl[k * 2], &t);
+                    t.x -= TBoss2DeRolLe__data_805D82A0 * lim;
+                    copy_pos__11TNowLoadingFPvPv(o->ctl[k * 2 + 1], &t);
+                } else {
+                    enable__13TParticleCtrlFPv(o->ctl[k * 2]);
+                    enable__13TParticleCtrlFPv(o->ctl[k * 2 + 1]);
+                }
+            }
+        } else {
+            ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, &o->pos[o->f758]);
+            t.y = TBoss2DeRolLe__data_805D82A8;
+            t.x += TBoss2DeRolLe__data_805D8294;
+            copy_pos__11TNowLoadingFPvPv(o->ctl[0], &t);
+            t.x -= TBoss2DeRolLe__data_805D82A4;
+            copy_pos__11TNowLoadingFPvPv(o->ctl[1], &t);
+            for (m = 2; m < 6; m++) {
+                enable__13TParticleCtrlFPv(o->ctl[m]);
+            }
+            o->f758 = 0;
+        }
+        for (n = 0; n < 6; n++) {
+            ((void (*)(void *, void *))TBoss2DeRolLe__sub_80033A80)(o, o->ctl[n]);
+        }
+    }
+}
+#pragma pop
 
 void TBoss2DeRolLe__sub_80033D44(Obj_80034034 *self) {
     s32 retry;
@@ -2666,7 +3451,6 @@ u8 TBoss2DeRolLe__sub_80034574(u8 *arg0);
 extern "C" {
 
 void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0);
-void free_laser__13TBoss2DeRolLeFPv(void *arg0);
 void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0);
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0);
@@ -2677,7 +3461,7 @@ M2C_UNK TBoss2LaserLight__sub_80037480(void *);
 f32 get_random_float__8TObjFishFv(f32);
 M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
 
-void free_laser__13TBoss2DeRolLeFPv(void *arg0) {
+void free_laser__13TBoss2DeRolLeFPv(void *arg0, s32 _w1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
         TBoss2LaserLight__sub_80037474(M2C_FIELD(arg0, void **, 0x6B8));
     }

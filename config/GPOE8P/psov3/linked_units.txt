@@ -201,6 +201,7 @@ pso/boss/TBoss6EmptyWarp_802B0E2C_802B0F8C.cpp
 pso/boss/TBoss6GravBall.cpp
 pso/boss/TBoss6GravBall_80323134.cpp
 pso/boss/TBoss6Mag.cpp
+pso/boss/TBoss6PlotFalz.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
 pso/boss/TBoss6Thanks_8035D1F4.cpp
 pso/boss/TBoss6Tube.cpp
@@ -398,6 +399,7 @@ pso/enemy/TObjEneMe1Canadin_8009FA24_8009FE60.cpp
 pso/enemy/TObjEneMe1Canadin_8009FA24_800A0028.cpp
 pso/enemy/TObjEneMe1Canadin_8009FA24_800A0100.cpp
 pso/enemy/TObjEneMe1Gee_802A4BB8.cpp
+pso/enemy/TObjEneMe1GiGue.cpp
 pso/enemy/TObjEneMe1GiGueBarrier.cpp
 pso/enemy/TObjEneMe1GiGueMissile.cpp
 pso/enemy/TObjEneMe1GiGueMissile_802A4628.cpp
@@ -3883,6 +3885,7 @@ pso/unk/text_802C9A58.cpp
 pso/unk/text_802C9C18.cpp
 pso/unk/text_802CE510.cpp
 pso/unk/text_802D14F4.cpp
+pso/unk/text_802D1C84.cpp
 pso/unk/text_802D1D48.cpp
 pso/unk/text_802D298C.cpp
 pso/unk/text_802E0784.cpp

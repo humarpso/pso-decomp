@@ -19,9 +19,6 @@ u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 extern u8 lbl_8047059C[];
 extern u32 TBoss6PlotFalz__data_805D66F0;
 extern u32 TBoss6PlotFalz__data_805D66F4;
-extern const f32 TBoss6PlotFalz__data_805DE098;
-extern const f32 TBoss6PlotFalz__data_805DE09C;
-extern const f32 TBoss6PlotFalz__data_805DE0BC;
 int queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -35,7 +32,6 @@ void set_chunk_material_override_pair(int, int, s32, s32);
 void set_chunk_material_color(Color_802ABF44 *);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 rand(void);
-extern const f32 TBoss6PlotFalz__data_805DE08C;
 }
 
 #define get_player_data__10TObjPlayerFi ((Player_802AAE78 *(*)(s32))get_player_data__10TObjPlayerFi)
@@ -135,8 +131,6 @@ s32 TBoss6PlotFalz__sub_802AAD84(s32 arg0, u32 arg1);
 
 struct TBoss6PlotFalz_802AACF4 { u8 pad[0x3D0]; s32 f3D0; s32 f3D4; s32 f3D8; };
 void set_shake_preset__11TCameraCtrlFi(int);
-extern const f32 lbl_805DE088;
-extern const f32 lbl_805DE090;
 }
 
 extern "C" {
@@ -150,7 +144,7 @@ void TBoss6PlotFalz__sub_802AACF4(TBoss6PlotFalz_802AACF4 *o) {
         o->f3D4 = n;
         if (n < 0) {
             set_shake_preset__11TCameraCtrlFi(o->f3D8);
-            o->f3D4 = (s32)(lbl_805DE088 * (TBoss6PlotFalz__data_805DE08C * (f32)rand()) + lbl_805DE088);
+            o->f3D4 = (s32)(60.0f * (3.0517578125e-05f * (f32)rand()) + 60.0f);
         }
     }
 }
@@ -240,7 +234,7 @@ u16 TBoss6PlotFalz__sub_802AAFCC(void) {
     if (n == 0) {
         return 0xFFFF;
     }
-    return ids[(s32)(((f32)n - lbl_805DE090) * (TBoss6PlotFalz__data_805DE08C * (f32)rand()))];
+    return ids[(s32)(((f32)n - 0.1f) * (3.0517578125e-05f * (f32)rand()))];
 }
 
 s32 is_active__14TBoss6PlotFalzFPv(void *arg0) {
@@ -414,7 +408,6 @@ void TBoss6PlotFalz__sub_802AB684(s32 arg0);
 int spawn_particle_effect(void *, int);
 int play_sound_effect(int, int, int, int);
 int TBoss6Thanks__sub_8035D270();
-extern const f32 lbl_805DE094;
 void TBoss6PlotFalz__sub_802AB3E0(void);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 TCameraCtrl__sub_80068958();
@@ -425,8 +418,6 @@ f32 vec3_dot(void *, void *);
 M2C_UNK normalize_vector(void *);
 extern const f64 lbl_804705E0[];
 extern u8 *lbl_805D4DF0;
-extern const f32 lbl_805DE0A4;
-extern const f32 lbl_805DE0A8;
 s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r);
 }
 
@@ -451,7 +442,7 @@ void TBoss6PlotFalz__sub_802AB3E0(void) {
     f32 k;
     if (TBoss6Thanks__sub_8035D270() != 0) {
         play_sound_effect(0x40033231, 0, 0, 0);
-        k = lbl_805DE094;
+        k = 12.5f;
         for (i = 0; i < lbl_805D586C; i++) {
             p = get_player_data__10TObjPlayerFi(i);
             if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0) {
@@ -463,27 +454,156 @@ void TBoss6PlotFalz__sub_802AB3E0(void) {
     }
 }
 
+}
+struct VBase_802AB490 { char pad[0x18]; };
+struct VObj_802AB490 : VBase_802AB490 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77(void *);
+};
+struct V3_802AB490 { s32 x, y, z; };
+struct Msg_802AB490 { s32 a, b, c; };
+extern "C" {
+s32 is_split_screen();
+s32 TLobby__sub_8002AFD4(void *, void *, int);
+void TLobby__sub_800F6510(void *, void *);
+void distribute_experience(void *);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
+extern s32 lbl_805D53A0;
+
+void TBoss6PlotFalz__sub_802AB490(u8 *arg0) {
+    TBoss6PlotFalz__sub_802AB3E0();
+    if (is_split_screen() != 0) {
+        distribute_experience(arg0);
+    } else {
+        u8 *pl = ((u8 *(*)(s32))get_player_by_client_id)(lbl_805D53A0);
+        if (pl != NULL) {
+            V3_802AB490 saved = *(V3_802AB490 *)(arg0 + 0x2FC);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, pl + 0x2FC);
+            distribute_experience(arg0);
+            VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, &saved);
+        }
+    }
+    Msg_802AB490 m;
+    m.a = 0x800;
+    TLobby__sub_800F6510(arg0, &m);
+    TLobby__sub_8002AFD4(arg0, &m, 0);
+    ((VObj_802AB490 *)arg0)->m77(&m);
+    send_entity_set_flags__6TLobbyFPv(arg0);
+    queue_destruction__7TObjectFv(arg0);
+}
+
 void TBoss6PlotFalz__sub_802AB568(u8 *arg0, s32 arg1, f32 farg0) {
     f32 var_f1;
     u8 *temp_r3;
     var_f1 = farg0;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x380));
-    if ((temp_r3 != NULL) && !(var_f1 <= TBoss6PlotFalz__data_805DE098)) {
-        if (var_f1 > TBoss6PlotFalz__data_805DE09C) {
-            var_f1 = TBoss6PlotFalz__data_805DE09C;
+    if ((temp_r3 != NULL) && !(var_f1 <= 0.0f)) {
+        if (var_f1 > 1.0f) {
+            var_f1 = 1.0f;
         }
         fn_803594B4(temp_r3, arg1, var_f1);
     }
 }
+f32 sin_table_lookup(s32);
+#pragma push
+#pragma fp_contract on
+s32 TBoss6PlotFalz__sub_802AB5B4(s32 arg0, f32 farg0) {
+    s32 v = (s32)((f32)arg0 * (farg0 * sin_table_lookup((s32)(65535.0f * (3.0517578125e-05f * (f32)rand())))) + (f32)arg0);
+    if (v < 1) {
+        v = 1;
+    }
+    return v;
+}
+#pragma pop
 void TBoss6PlotFalz__sub_802AB684(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_802AB684, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_802AB684, spC) == 0x4) ? 1 : -1];
     Stack_802AB684 stack;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0));
     subtract_vector((void *) (&stack.sp8), (void *) (&lbl_8047059C.value));
-    stack.spC = TBoss6PlotFalz__data_805DE098;
+    stack.spC = 0.0f;
     vector_length((void *) (&stack.sp8));
 }
+extern "C" {
+__declspec(section ".sdata2") const f32 lbl_805DE0A4[1] = { 1e-05f };
+}
+#define lbl_805DE0A4 (lbl_805DE0A4[0])
 #define VLEN(v) (((f32 (*)(void *))vector_length)(v))
 s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     Vec_802AB6CC c;
@@ -503,7 +623,7 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     s32 ang3;
     s32 s1;
     s32 s2;
-    p.y = TBoss6PlotFalz__data_805DE098;
+    p.y = 0.0f;
     get_camera_no__11TCameraCtrlFv();
     player = get_player_by_client_id(TCameraCtrl__sub_80068958());
     if (player == NULL) {
@@ -513,35 +633,35 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
     VecCopy__FP3VecPC3Vec(&c, lbl_805D4DF0 + 0x178);
     VecCopy__FP3VecPC3Vec(&d1, &p);
     subtract_vector(&d1, &pl);
-    d1.y = TBoss6PlotFalz__data_805DE098;
+    d1.y = 0.0f;
     if (VLEN(&d1) < r) {
         return 1;
     }
     VecCopy__FP3VecPC3Vec(&d2, &p);
     subtract_vector(&d2, &c);
-    d2.y = TBoss6PlotFalz__data_805DE098;
+    d2.y = 0.0f;
     l2 = VLEN(&d2);
     if (l2 < r) {
         return 1;
     }
-    if (l2 > lbl_805DE0A8) {
+    if (l2 > 250.0f) {
         return 0;
     }
     VecCopy__FP3VecPC3Vec(&d3, &pl);
     subtract_vector(&d3, &c);
-    d3.y = TBoss6PlotFalz__data_805DE098;
+    d3.y = 0.0f;
     l3 = VLEN(&d3);
-    if (l3 <= lbl_805DE0A4 || l3 > lbl_805DE0A8) {
+    if (l3 <= lbl_805DE0A4 || l3 > 250.0f) {
         return 0;
     }
     if (l3 < l2 - r) {
         return 0;
     }
-    if (vec3_dot(&d2, &d3) <= TBoss6PlotFalz__data_805DE098) {
+    if (vec3_dot(&d2, &d3) <= 0.0f) {
         return 0;
     }
     dir.x = -d2.z;
-    dir.y = TBoss6PlotFalz__data_805DE098;
+    dir.y = 0.0f;
     dir.z = d2.x;
     normalize_vector(&dir);
     dir.x *= r;
@@ -571,6 +691,20 @@ s32 TBoss6PlotFalz__sub_802AB6CC(void *arg0, f32 r) {
 #undef get_player_by_client_id
 #undef lbl_8047059C
 
+extern "C" {
+f32 cos_table_lookup(s32);
+
+f32 TBoss6PlotFalz__sub_802AB9F0(f32 t) {
+    if (t < 0.0f) {
+        return 0.0f;
+    }
+    if (t > 1.0f) {
+        return 1.0f;
+    }
+    return 0.5f * (1.0f - cos_table_lookup((s32)(32768.0f * t)));
+}
+}
+
 #define TBoss6PlotFalz__data_805D66F0 (*(void **)&TBoss6PlotFalz__data_805D66F0)
 #define TBoss6PlotFalz__data_805D66F4 (*(u8 **)&TBoss6PlotFalz__data_805D66F4)
 
@@ -587,7 +721,7 @@ f32 get_value__14TBoss6PlotFalzFv(void);
 
 f32 get_value__14TBoss6PlotFalzFv(void) {
     if ((TBoss6PlotFalz__sub_802ABADC() == 0) || ((void *) TBoss6PlotFalz__data_805D66F0 == NULL)) {
-        return TBoss6PlotFalz__data_805DE098;
+        return 0.0f;
     }
     return M2C_FIELD(TBoss6PlotFalz__data_805D66F0, f32 *, 0x3C);
 }
@@ -661,7 +795,6 @@ u32 create__11TBoss6Type1Fi(void *, int);
 void TBoss6PlotFalz__sub_802ABCDC(u8 *arg0);
 u32 create__11TBoss6Type2Fi(void *, int);
 void TBoss6PlotFalz__sub_802ABC64(u8 *arg0);
-extern const f32 lbl_805DE0B4;
 f32 TBoss6Mine__sub_802ABD88(s32 *arg0);
 extern RecoveredGlobal_802ABBC4_lbl_804705CC lbl_804705CC;
 s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1);
@@ -673,7 +806,6 @@ s32 get_game_mode__6TLobbyFv(void);
 void spawn_effect__11TBoss4Type3Fsss(s16, s16, s16);
 f32 xyz_distance(void *, void *);
 void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range);
-extern s32 lbl_805DE0B8;
 void TBoss6PlotFalz__sub_802ABF44(f32 f);
 }
 
@@ -743,7 +875,7 @@ void ensure_field384__14TBoss6PlotFalzFPv(void *arg0) {
 
 f32 TBoss6Mine__sub_802ABD88(s32 *arg0) {
     *arg0 = TBoss6Type1__sub_802ABDEC((s32)((void *) (*arg0)));
-    return (f32) (*arg0 & 0x7FFF) / lbl_805DE0B4;
+    return (f32) (*arg0 & 0x7FFF) / 32767.0f;
 }
 
 s32 TBoss6Type1__sub_802ABDEC(s32 seed) {
@@ -765,11 +897,15 @@ void TBoss6PlotFalz__sub_802ABE3C(void *pos, s16 amount, s16 kind, f32 range) {
         if (is_state_1f__14TBoss6PlotFalzFUi(p) != 0 && is_locally_controlled__10TObjPlayerFPv(p) != 0) {
             d = xyz_distance((void *)(p + 0x38), pos);
             if (!(d >= range)) {
-                spawn_effect__11TBoss4Type3Fsss((s16)((f32)amount * (TBoss6PlotFalz__data_805DE09C - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
+                spawn_effect__11TBoss4Type3Fsss((s16)((f32)amount * (1.0f - d / range)), kind, (s16)((s32 (*)(s32))obj_getField1c)(p));
             }
         }
     }
 }
+extern "C" {
+__declspec(section ".sdata2") const s32 lbl_805DE0B8[1] = { 0x8829 };
+}
+#define lbl_805DE0B8 (lbl_805DE0B8[0])
 void TBoss6PlotFalz__sub_802ABF44(f32 f) {
     Color_802ABF44 c;
     s32 old = (*(s32 *)&some_id_805c6f74);
@@ -799,12 +935,9 @@ struct Stack_802AC040 {
 };
 
 extern "C" {
-extern const f32 lbl_805DE0C0;
-extern const f32 lbl_805DE0C4;
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1);
 M2C_UNK set_chunk_blend(int);
 extern f32 TBoss6PlotFalz__data_805D3E54;
-extern s32 lbl_805DE0C8;
 void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 extern s32 lbl_805D5550;
 bool TBoss6PlotFalz__sub_802AC17C(void);
@@ -815,22 +948,26 @@ extern "C" {
 void update_camera_target__14TBoss6PlotFalzFv(void);
 
 void update_camera_target__14TBoss6PlotFalzFv(void) {
-    if (TBoss6PlotFalz__data_805D3E54 > TBoss6PlotFalz__data_805DE098) {
+    if (TBoss6PlotFalz__data_805D3E54 > 0.0f) {
         lbl_805D7784 = lbl_805D5664;
         lbl_805D7780 = lbl_805D5668;
         some_id_805c6f74 = lbl_805D5660;
     }
-    TBoss6PlotFalz__data_805D3E54 = TBoss6PlotFalz__data_805DE0BC;
+    TBoss6PlotFalz__data_805D3E54 = (-1.0f);
 }
 #pragma push
 #pragma fp_contract on
 void TBoss6PlotFalz__sub_802AC008(f32 farg0, f32 farg1) {
     f32 temp_f3;
-    temp_f3 = lbl_805DE0C0 * farg1;
-    TBoss6PlotFalz__sub_802AC040(farg0, (lbl_805DE0C4 * farg1) + TBoss6PlotFalz__data_805DE09C, temp_f3, temp_f3);
+    temp_f3 = 0.25f * farg1;
+    TBoss6PlotFalz__sub_802AC040(farg0, ((-0.75f) * farg1) + 1.0f, temp_f3, temp_f3);
 }
 #pragma pop
 
+extern "C" {
+__declspec(section ".sdata2") const s32 lbl_805DE0C8[1] = { 0x8810 };
+}
+#define lbl_805DE0C8 (lbl_805DE0C8[0])
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_dead_assignments off
@@ -847,11 +984,11 @@ void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
     s32 temp_r5;
     s32 temp_r8;
     var_f1 = farg0;
-    if (((*(const f32 *)&TBoss6PlotFalz__data_805DE0BC) != TBoss6PlotFalz__data_805D3E54) || (var_f1 < (*(const f32 *)&TBoss6PlotFalz__data_805DE098)) || (var_f1 > TBoss6PlotFalz__data_805DE09C) || (farg1 < (*(const f32 *)&TBoss6PlotFalz__data_805DE098)) || (farg1 > TBoss6PlotFalz__data_805DE09C) || (farg2 < (*(const f32 *)&TBoss6PlotFalz__data_805DE098)) || (farg2 > TBoss6PlotFalz__data_805DE09C) || (farg3 < (*(const f32 *)&TBoss6PlotFalz__data_805DE098)) || (farg3 > TBoss6PlotFalz__data_805DE09C)) {
-        var_f1 = (*(const f32 *)&TBoss6PlotFalz__data_805DE098);
+    if (((-1.0f) != TBoss6PlotFalz__data_805D3E54) || (var_f1 < 0.0f) || (var_f1 > 1.0f) || (farg1 < 0.0f) || (farg1 > 1.0f) || (farg2 < 0.0f) || (farg2 > 1.0f) || (farg3 < 0.0f) || (farg3 > 1.0f)) {
+        var_f1 = 0.0f;
     }
     TBoss6PlotFalz__data_805D3E54 = var_f1;
-    if ((*(const f32 *)&TBoss6PlotFalz__data_805DE098) != var_f1) {
+    if (0.0f != var_f1) {
         temp_r8 = some_id_805c6f74;
         temp_r5 = temp_r8 & 0xFFFFFFDF;
         some_id_805c6f74 = temp_r5;
@@ -861,13 +998,13 @@ void TBoss6PlotFalz__sub_802AC040(f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
         some_id_805c6f74 = temp_r5 | lbl_805DE0C8;
         set_chunk_material_override_pair((int) (0), (int) (0x800), (int) (temp_r5), (void *) (lbl_805D7780), (void *) (lbl_805D7784), (int) (temp_r8));
         set_chunk_blend((int) (0x2500));
-        stack.sp8 = TBoss6PlotFalz__data_805DE09C;
-        temp_f2 = -((TBoss6PlotFalz__data_805D3E54 * (TBoss6PlotFalz__data_805DE09C - farg1)) - TBoss6PlotFalz__data_805DE09C);
-        temp_f1 = -((TBoss6PlotFalz__data_805D3E54 * (TBoss6PlotFalz__data_805DE09C - farg2)) - TBoss6PlotFalz__data_805DE09C);
+        stack.sp8 = 1.0f;
+        temp_f2 = -((TBoss6PlotFalz__data_805D3E54 * (1.0f - farg1)) - 1.0f);
+        temp_f1 = -((TBoss6PlotFalz__data_805D3E54 * (1.0f - farg2)) - 1.0f);
         stack.spC = temp_f2;
         stack.sp10 = temp_f1;
-        stack.sp14 = -((TBoss6PlotFalz__data_805D3E54 * (TBoss6PlotFalz__data_805DE09C - farg3)) - TBoss6PlotFalz__data_805DE09C);
-        set_chunk_material_color((void *) (&stack.sp8), (f32) (temp_f1), (f32) (temp_f2), (f32) (TBoss6PlotFalz__data_805DE09C), (f32) (TBoss6PlotFalz__data_805D3E54));
+        stack.sp14 = -((TBoss6PlotFalz__data_805D3E54 * (1.0f - farg3)) - 1.0f);
+        set_chunk_material_color((void *) (&stack.sp8), (f32) (temp_f1), (f32) (temp_f2), (f32) (1.0f), (f32) (TBoss6PlotFalz__data_805D3E54));
     }
 }
 #pragma pop
@@ -964,9 +1101,6 @@ M2C_UNK refresh_collision_body_centers(void *);
 extern u8 lbl_804705B4[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
-extern const f32 lbl_805DE0CC;
-extern const f32 lbl_805DE0D0;
-extern const f32 lbl_805DE0D4;
 void TBoss6PlotFalz__sub_802AC3E8(void);
 }
 
@@ -1051,12 +1185,12 @@ void TBoss6PlotFalz__sub_802AC3E8(void) {
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = (Obj_802AC3E8 *)get_player_data__10TObjPlayerFi(i);
         if (p != NULL && p->sub != NULL && (p->sub->flags & 0x20000)
-            && !(xyz_distance(lbl_804705B4, &p->pos) > lbl_805DE0CC)
-            && !(xyz_distance(lbl_8047059C, &p->pos) <= lbl_805DE0D0)) {
+            && !(xyz_distance(lbl_804705B4, &p->pos) > 150.0f)
+            && !(xyz_distance(lbl_8047059C, &p->pos) <= 300.0f)) {
             VecCopy__FP3VecPC3Vec(&v, &p->pos);
             subtract_vector(&v, lbl_804705B4);
             vec3_add_to(&v, lbl_8047059C);
-            v.y = lbl_805DE0D4;
+            v.y = 7.5f;
             VecCopy__FP3VecPC3Vec(&p->pos, &v);
             refresh_collision_body_centers(p);
         }
@@ -1078,13 +1212,52 @@ void TBoss6PlotFalz__sub_802AC4D8(void *self) {
 
 }
 
+struct V_802AC538 { f32 x, y, z; };
+extern "C" {
+u8 *get_hit_data__14TBoss4DarkFalzFPv(void *);
+void save_position__14TBoss4DarkFalzFi(void *);
+void TBoss4DarkFalz__sub_8004C220();
+void reset_cameras_to_actor(void *, s32);
+extern const V_802AC538 lbl_804705A8;
+
+#pragma push
+#pragma fp_contract on
+void fn_802AC538(void) {
+    s32 step;
+    s32 ang = 0;
+    s32 i;
+    if (lbl_805D586C <= 2) {
+        step = 0x2000;
+    } else {
+        step = 0x2000 / (lbl_805D586C - 1);
+    }
+    for (i = 0; i < lbl_805D586C; i++) {
+        void *p = get_player_data__10TObjPlayerFi(i);
+        if (p != NULL && get_field_3e0__12TBoss3VoloptFPv(p) == 0x1F) {
+            V_802AC538 pos = lbl_804705A8;
+            pos.x += 350.0f * sin_table_lookup(ang);
+            pos.z += 350.0f * cos_table_lookup(ang);
+            ((void (*)(void *, void *))TBoss4DarkFalz__sub_8004C220)(p, &pos);
+            save_position__14TBoss4DarkFalzFi(p);
+            *(s32 *)(get_hit_data__14TBoss4DarkFalzFPv(p) + 4) = ang + 0x8000;
+            refresh_equipment_slot__10TObjPlayerFv(p);
+            if (is_locally_controlled__10TObjPlayerFPv((s32)p) != 0) {
+                reset_cameras_to_actor(p, 0);
+            }
+            ang += step;
+        }
+    }
+}
+#pragma pop
+}
+
 #define TBoss6PlotFalz__sub_802AC3E8 ((int (*)(void))TBoss6PlotFalz__sub_802AC3E8)
 
 extern "C" {
 
 void init_warp__15TBoss6EmptyWarpFv(void);
 
-int fn_802AC538(void);
+void fn_802AC538(void);
 
 void init_warp__15TBoss6EmptyWarpFv(void) { fn_802AC538(); TBoss6PlotFalz__sub_802AC3E8(); }
 
@@ -1373,7 +1546,6 @@ struct Msg_802AC86C { u16 h; u16 a; s8 b; s8 c; u8 pad[0x12]; };
 struct Boss_802AC86C { u8 pad[0x1C]; u16 f1C; u8 pad2[0x374 - 0x1E]; s32 f374; };
 void fn_802ACD60(void *);
 void build_6xA3_olga_flow_boss_actions(void *);
-extern const f32 lbl_805DE0DC;
 
 void TBoss6PlotFalz__sub_802AC86C(Boss_802AC86C *o, s8 v) {
     Msg_802AC86C m;
@@ -1381,7 +1553,7 @@ void TBoss6PlotFalz__sub_802AC86C(Boss_802AC86C *o, s8 v) {
         build_6xA3_olga_flow_boss_actions(&m);
         m.a = o->f1C;
         m.b = v;
-        m.c = (s8)(lbl_805DE0DC * (TBoss6PlotFalz__data_805DE08C * (f32)rand()));
+        m.c = (s8)(127.0f * (3.0517578125e-05f * (f32)rand()));
         fn_802ACD60(&m);
     }
 }
@@ -1431,7 +1603,7 @@ u8 *__dt__14TBoss6PlotFalzFv(u8 *arg0, s16 arg1) {
     queue_instance_destruction__14TBoss6PlotFalzFv((void *) arg0);
     destroy_static_instance__14TBoss6PlotFalzFv((void *) arg0);
     TBoss6PlotFalz__data_805D66EC = 0;
-    TBoss6PlotFalz__data_805D3E54 = TBoss6PlotFalz__data_805DE0BC;
+    TBoss6PlotFalz__data_805D3E54 = (-1.0f);
     __dt__9TObjEnemyFv((void *) arg0, (int) 0);
     if (arg1 > 0)
     {
@@ -1465,9 +1637,9 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x310) = (f32) TBoss6PlotFalz__data_805DE098;
-    M2C_FIELD(arg0, f32 *, 0x30C) = (f32) TBoss6PlotFalz__data_805DE098;
-    M2C_FIELD(arg0, f32 *, 0x308) = (f32) TBoss6PlotFalz__data_805DE098;
+    M2C_FIELD(arg0, f32 *, 0x310) = (f32) 0.0f;
+    M2C_FIELD(arg0, f32 *, 0x30C) = (f32) 0.0f;
+    M2C_FIELD(arg0, f32 *, 0x308) = (f32) 0.0f;
     M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
     temp_r30 = register_boss__6TLobbyFPv((int) (0x2C));
     temp_r29 = dispatch_shared_handler_b__6TLobbyFPv((int) (0x2C));
@@ -1487,7 +1659,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
     TBoss6PlotFalz__data_805D66F0 = 0;
     TBoss6PlotFalz__data_805D66F4 = 0;
     M2C_FIELD(arg0, s32 *, 0x3DC) = 0;
-    TBoss6PlotFalz__data_805D3E54 = TBoss6PlotFalz__data_805DE0BC;
+    TBoss6PlotFalz__data_805D3E54 = (-1.0f);
     M2C_FIELD(arg0, s8 *, 0x37C) = 0;
     M2C_FIELD(arg0, s32 *, 0x378) = -1;
     TBoss6PlotFalz__sub_802AB2B8(arg0, 0);
