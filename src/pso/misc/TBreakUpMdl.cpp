@@ -494,40 +494,4 @@ u8 *TBreakUpMdl__sub_8009705C(u8 *arg0, s32 arg1) {
 
 void copy__11TBreakUpMdlFPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(f32*)((char*)p + 0x14) = *(f32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 
-void TObjEneDf2Bringer__vt104(Bringer_80097100 *self) {
-    f32 frame;
-    s32 i;
-    Motion_80097100 *mot;
-    get_target_info__9TObjEneDDFPv((void*)(self));
-    if (self->m8(lbl_805D97D8, lbl_805D97DC) != 0) {
-        Vec_80097100 v = lbl_8043A0E0;
-        update_player_state__9TObjEneDDFPv(self, &v, 0);
-        toggle_particle_effect__10TObjPlayerFv();
-        set_global_param__8TObjFishFi(self->texlist);
-        push_matrix();
-        post_translate_matrix(self->pos);
-        rotate_matrix_y((s32)(0), (s32)(self->f60));
-        i = (s32)self->animIdx;
-        if (i < 0) {
-            i = 0;
-        } else if (i >= 11) {
-            i = 10;
-        }
-        mot = self->mots[self->anims[i].idx].mot;
-        frame = self->frame;
-        if (frame < TObjEneDf2Bringer__data_805D97E0) {
-            frame = TObjEneDf2Bringer__data_805D97E0;
-        } else if (frame > (f32)(mot->count - 1)) {
-            frame = (f32)(mot->count - 1);
-        }
-        set_global_flag__10TObjPlayerFv();
-        draw_model_motion(self->f34, mot, frame);
-        clear_global_state__10TObjPlayerFv();
-        pop_matrix();
-        end_effect_render__13TParticleCtrlFv();
-    }
-}
-
-void TObjEneDf2Bringer__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { TObjEneDf2Bringer__sub_800994F8(p); } }
-
 }

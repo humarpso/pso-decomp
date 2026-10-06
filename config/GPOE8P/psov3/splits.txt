@@ -1721,8 +1721,12 @@ pso/enemy/TObjEneRe7Berura_800967C0.cpp:
 	.text       start:0x800967C0 end:0x8009680C
 
 pso/misc/TBreakUpMdl.cpp:
-	.text       start:0x8009680C end:0x800972B0
-	.rodata     start:0x80439F68 end:0x8043A0F8
+	.text       start:0x8009680C end:0x80097100
+	.rodata     start:0x80439F68 end:0x80439F70
+
+pso/enemy/TObjEneDf2Bringer_80097100.cpp:
+	.text       start:0x80097100 end:0x800972B0
+	.rodata     start:0x8043A0F0 end:0x8043A0F8
 
 pso/enemy/TObjEneDf2Bringer_800972B0.cpp:
 	.text       start:0x800972B0 end:0x80098970
@@ -7781,13 +7785,9 @@ pso/misc/TLobby_801C25B4.cpp:
 	.text       start:0x801C3130 end:0x801C4CE0
 	.data       start:0x804C3EA0 end:0x804C3F10
 
-pso/unk/text_801C4CE0.cpp:
-	.text       start:0x801C4CE0 end:0x801C4D9C
-	.data       start:0x804C3F10 end:0x804C3F2C
-
 pso/player/TPlayerBattleCtrl.cpp:
-	.text       start:0x801C4D9C end:0x801C4EBC
-	.data       start:0x804C3F2C end:0x804C3F44
+	.text       start:0x801C4CE0 end:0x801C4EBC
+	.data       start:0x804C3F10 end:0x804C3F44
 
 pso/unk/text_801C4EBC.cpp:
 	.text       start:0x801C4EBC end:0x801C4F70
@@ -12981,20 +12981,8 @@ pso/enemy/TObjEneRecon_8031C23C.cpp:
 	.text       start:0x8031C23C end:0x8031C250
 
 pso/enemy/TObjEneRecon_8031C250.cpp:
-	.text       start:0x8031C250 end:0x8031C2E0
+	.text       start:0x8031C250 end:0x8031D780
 	.rodata     start:0x80476108 end:0x80476110
-
-pso/enemy/TObjEneRecon_8031C2E0.cpp:
-	.text       start:0x8031C2E0 end:0x8031C364
-
-pso/enemy/TObjEneRecon_8031C364.cpp:
-	.text       start:0x8031C364 end:0x8031C7BC
-
-pso/enemy/TObjEneRecon_8031C7BC.cpp:
-	.text       start:0x8031C7BC end:0x8031C920
-
-pso/enemy/TObjEneRecon_8031C920.cpp:
-	.text       start:0x8031C920 end:0x8031D780
 
 pso/enemy/TObjEneRecon_8031D780.cpp:
 	.text       start:0x8031D780 end:0x8031D898

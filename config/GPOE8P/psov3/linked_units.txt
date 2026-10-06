@@ -367,6 +367,7 @@ pso/enemy/TObjEneDelDepthBomb_80316244.cpp
 pso/enemy/TObjEneDelDepth_80315AD8.cpp
 pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDf2Bringer.cpp
+pso/enemy/TObjEneDf2Bringer_80097100.cpp
 pso/enemy/TObjEneDf2Bringer_80099F0C.cpp
 pso/enemy/TObjEneDubchik.cpp
 pso/enemy/TObjEneEpsilon.cpp
@@ -473,9 +474,7 @@ pso/enemy/TObjEneRecon_8031C124.cpp
 pso/enemy/TObjEneRecon_8031C18C.cpp
 pso/enemy/TObjEneRecon_8031C190.cpp
 pso/enemy/TObjEneRecon_8031C23C.cpp
-pso/enemy/TObjEneRecon_8031C2E0.cpp
-pso/enemy/TObjEneRecon_8031C364.cpp
-pso/enemy/TObjEneRecon_8031C7BC.cpp
+pso/enemy/TObjEneRecon_8031C250.cpp
 pso/enemy/TObjEneRecon_8031D780.cpp
 pso/enemy/TObjEneRecon_8031D898.cpp
 pso/enemy/TObjEneRecon_8031DB34.cpp
@@ -784,6 +783,7 @@ pso/menu/TQuestBgmCtrl.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/TAttackTrace.cpp
 pso/misc/TBGLightningCtrl.cpp
+pso/misc/TBreakUpMdl.cpp
 pso/misc/TButterfly.cpp
 pso/misc/TButterfly_8017F364.cpp
 pso/misc/TCameraCtrl_8002ADD0.cpp
@@ -2878,6 +2878,7 @@ pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
+pso/player/TPlayerBattleCtrl.cpp
 pso/player/TPlyItem.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
@@ -3631,7 +3632,6 @@ pso/unk/text_801BDE60.cpp
 pso/unk/text_801BDFC4.cpp
 pso/unk/text_801BE388.cpp
 pso/unk/text_801C23A8.cpp
-pso/unk/text_801C4CE0.cpp
 pso/unk/text_801C51D4.cpp
 pso/unk/text_801C53D4.cpp
 pso/unk/text_801C543C.cpp

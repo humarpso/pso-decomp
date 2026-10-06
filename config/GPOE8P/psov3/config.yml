@@ -360,6 +360,7 @@ force_active:
   - advance_position__10TTecSlicerFPv
   - advance_to_preparation_phase__20TShopArmorListWindowFPv
   - alerted_state__14TObjEneBm5WolfFPvi
+  - alloc_breakup_piece_records
   - anchor_state__14TObjEneBm5WolfFPvi
   - appearing_state__14TObjEneBm5WolfFPvi
   - apply_fog_entry
@@ -380,6 +381,7 @@ force_active:
   - bswap_enemy_set_row_fields
   - bswap_guild_card_tag__17TWindowSubComCardFPv
   - bswap_object_row_fields
+  - build_node_records__11TBreakUpMdlFPvPvi
   - build_sell_list__24TShopEquipmentSellWindowFPv
   - calc_area_parameters__10TTecRaFoieFPv
   - calc_circle_offset__14TObjEneBm5WolfFPvPvPv
@@ -521,6 +523,7 @@ force_active:
   - hwSetITDMode
   - hwSetTimeOffset
   - init__18TObjAreaWarpForestFPvPvPv
+  - init_alpha__11TBreakUpMdlFPvif
   - init_city_door
   - init_default_fields__6TLobbyFPv
   - init_effect_flags__13TItemProArmorFPv
