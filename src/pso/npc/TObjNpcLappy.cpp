@@ -137,7 +137,7 @@ extern "C" void TObjPlayer__sub_80018E6C();
 extern "C" void TObjPlayer__sub_800F65D0();
 extern "C" void TObjPlayer__sub_800F673C();
 extern "C" void TObjPlayer__sub_80148D80();
-extern "C" void TObjPlayer__sub_80148D84();
+extern "C" void deactivateIdleMode__11TObjNpcBaseFv();
 extern "C" void activate_idle_mode__11TObjNpcBaseFPv();
 extern "C" void add_actor_exp();
 extern "C" void apply_action_hold_status();
@@ -236,7 +236,7 @@ void *lbl_804A9DD4[95] = {
     (void *)&apply_poison_status__10TObjPlayerFv, (void *)&apply_paralysis__10TObjPlayerFv, (void *)&TObjPlayer__sub_80015884, (void *)&apply_confusion_status__10TObjPlayerFv,
     (void *)&apply_movement_ailment__10TObjPlayerFv, (void *)&apply_shock_status__10TObjPlayerFv, (void *)&clear_harmful_statuses__10TObjPlayerFv, (void *)&apply_attack_stat_status__10TObjPlayerFv,
     (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
-    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80148D84, (void *)&activate_idle_mode__11TObjNpcBaseFPv,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&deactivateIdleMode__11TObjNpcBaseFv, (void *)&activate_idle_mode__11TObjNpcBaseFPv,
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjPlayer__sub_8001488C, (void *)&TObjPlayer__sub_80014888, (void *)&TObjPlayer__sub_80014884,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
