@@ -778,6 +778,7 @@ pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge_80074B44.cpp
 pso/menu/TObjTagChallenge_80074B88.cpp
 pso/misc/CreationMotion.cpp
+pso/misc/TAttackTrace.cpp
 pso/misc/TBGLightningCtrl.cpp
 pso/misc/TButterfly.cpp
 pso/misc/TButterfly_8017F364.cpp

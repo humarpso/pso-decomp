@@ -1,7 +1,5 @@
 #include "pso/TNECFontEORFunction.h"
 
-TNECFontEORFunction::~TNECFontEORFunction() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -33,5 +31,6 @@ void run_task__19TNECFontEORFunctionFv(void) {
         lbl_805D56C0 += 1;
     }
 }
+TNECFontEORFunction::~TNECFontEORFunction() {}
 
 }

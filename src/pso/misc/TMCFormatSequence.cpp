@@ -3,11 +3,6 @@
 extern "C" void TWindow__close(void*);
 extern "C" void close_window__17TMCFormatSequenceFPv(void*);
 
-TMCFormatSequence::~TMCFormatSequence() {
-    if (m_38 != nullptr) { TWindow__close(m_38); m_38 = nullptr; }
-    close_window__17TMCFormatSequenceFPv(this);
-}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -53,6 +48,10 @@ void run_task__17TMCFormatSequenceFv(u8 *arg0) {
     }
 }
 
+TMCFormatSequence::~TMCFormatSequence() {
+    if (m_38 != nullptr) { TWindow__close(m_38); m_38 = nullptr; }
+    close_window__17TMCFormatSequenceFPv(this);
+}
 void *TMCFormatSequence__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TMCFormatSequence;

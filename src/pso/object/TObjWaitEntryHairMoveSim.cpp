@@ -1,7 +1,5 @@
 #include "pso/TObjWaitEntryHairMoveSim.h"
 
-TObjWaitEntryHairMoveSim::~TObjWaitEntryHairMoveSim() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -141,5 +139,6 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE73C(s32 arg0) {
     }
     return 0;
 }
+TObjWaitEntryHairMoveSim::~TObjWaitEntryHairMoveSim() {}
 
 }
