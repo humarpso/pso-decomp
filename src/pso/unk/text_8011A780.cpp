@@ -56,7 +56,7 @@ extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 lbl_805D54E8;
 extern s32 lbl_805D54EC;
-void advance_item_id_counter(s32 arg0);
+u32 advance_item_id_counter(s32 arg0);
 M2C_UNK TLobby__sub_80103BFC(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
 M2C_UNK bswap_6xa2_fields__6TLobbyFPv();
@@ -316,16 +316,10 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
 }
 
 void handle_6x62(void) {  }
-void advance_item_id_counter(s32 arg0) {
-    s32 temp_r4;
-    s32 temp_r4_2;
-    if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
-        temp_r4 = (arg0 * 4) & 0x3FFFC;
-        M2C_FIELD(lbl_805D54EC, M2C_UNK *, temp_r4) = M2C_FIELD(lbl_805D54EC, M2C_UNK *, temp_r4) + 1;
-        return;
-    }
-    temp_r4_2 = (arg0 * 4) & 0x3FFFC;
-    M2C_FIELD(lbl_805D54E8, M2C_UNK *, temp_r4_2) = M2C_FIELD(lbl_805D54E8, M2C_UNK *, temp_r4_2) + 1;
+u32 advance_item_id_counter(s32 client) {
+    if (get_global_state__14TOKeyMachine01Fv() == 0xF)
+        return ((u32*)lbl_805D54EC)[(u16)client]++;
+    return ((u32*)lbl_805D54E8)[(u16)client]++;
 }
 void TLobby__sub_8011AFB8(void) {
     s32 i;
