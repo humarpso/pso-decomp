@@ -513,6 +513,7 @@ force_active:
   - hwSetITDMode
   - hwSetTimeOffset
   - init__18TObjAreaWarpForestFPvPvPv
+  - init_city_door
   - init_default_fields__6TLobbyFPv
   - init_effect_flags__13TItemProArmorFPv
   - init_forward_default__10TObjPlayerFv
@@ -845,6 +846,7 @@ force_active:
   - step_placement_search
   - strstr
   - teardown_render_state__10TObjPlayerFPv
+  - tick_battle_music_timer
   - transfer_to_town__9TObjLukerFv
   - traverse_animated_node_tree
   - unused_render_func__9TMainTaskFv

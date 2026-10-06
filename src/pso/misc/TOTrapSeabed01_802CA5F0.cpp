@@ -1,4 +1,11 @@
 #include "types.h"
+extern "C" {
+__declspec(section ".sdata2") extern const f32 TOTrapSeabed01__data_805DE644[1] = { 0.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DE648[1] = { 0.5f };
+__declspec(section ".sdata2") extern const f32 lbl_805DE64C[1] = { 15.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DE650[1] = { 0.1f };
+__declspec(section ".sdata2") extern const f32 lbl_805DE654[1] = { 10.0f };
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -140,7 +147,6 @@ extern M2C_UNK __vt__14TOTrapSeabed01[];
 extern s32 lbl_805D3F10;
 extern u32 TOTrapSeabed01__data_805D6810;
 extern const f32 lbl_805DE640;
-extern const f32 TOTrapSeabed01__data_805DE644;
 u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 get_bml_model(int, int);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -158,7 +164,6 @@ extern s32 lbl_805D681C;
 extern s32 lbl_805D6820;
 void TOTrapSeabed01__sub_802CA820(void);
 extern s32 lbl_80472090[];
-extern const f32 lbl_805DE64C;
 extern const f32 lbl_805DE658;
 void TOTrapSeabed01__sub_802CA5F4(void *arg0);
 }
@@ -219,13 +224,15 @@ inline s32 clampi_802CA5F4(s32 lo, s32 hi, s32 v) {
     }
     return v;
 }
+#pragma push
+#pragma opt_common_subs off
 void TOTrapSeabed01__sub_802CA5F4(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x68) = clampf_802CA5F4(0.1f, 10.0f, M2C_FIELD(arg0, f32 *, 0x68));
+    M2C_FIELD(arg0, f32 *, 0x68) = clampf_802CA5F4(lbl_805DE650[0], lbl_805DE654[0], M2C_FIELD(arg0, f32 *, 0x68));
     M2C_FIELD(arg0, s32 *, 0x84) = CLAMPI(M2C_FIELD(arg0, s32 *, 0x84), 1, 0x3C);
     M2C_FIELD(arg0, s32 *, 0x88) = CLAMPI(M2C_FIELD(arg0, s32 *, 0x88), 0, 1);
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, f32 *, 0x334) = lbl_805DE64C;
-    M2C_FIELD(arg0, f32 *, 0x338) = lbl_805DE64C;
+    M2C_FIELD(arg0, f32 *, 0x334) = lbl_805DE64C[0];
+    M2C_FIELD(arg0, f32 *, 0x338) = lbl_805DE64C[0];
     M2C_FIELD(arg0, s32 *, 0x348) = (s32) (lbl_805DE658 * (f32) M2C_FIELD(arg0, s32 *, 0x84));
     if (M2C_FIELD(arg0, s32 *, 0x88) != 0) {
         M2C_FIELD(arg0, s32 *, 0x34C) = 1;
@@ -233,13 +240,14 @@ void TOTrapSeabed01__sub_802CA5F4(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x34C) = 0;
     }
     M2C_FIELD(arg0, f32 *, 0xC8) = M2C_FIELD(arg0, f32 *, 0x68);
-    if (M2C_FIELD(arg0, f32 *, 0x6C) < 0.0f) {
-        M2C_FIELD(arg0, f32 *, 0x6C) = 0.0f;
+    if (M2C_FIELD(arg0, f32 *, 0x6C) < TOTrapSeabed01__data_805DE644[0]) {
+        M2C_FIELD(arg0, f32 *, 0x6C) = TOTrapSeabed01__data_805DE644[0];
     }
     M2C_FIELD(arg0, f32 *, 0x354) = ((VObj_802CA5F4 *)arg0)->m85(M2C_FIELD(arg0, f32 *, 0x6C));
     M2C_FIELD(arg0, s32 *, 0x8C) = CLAMPI(M2C_FIELD(arg0, s32 *, 0x8C), 0, 5);
     M2C_FIELD(arg0, s32 *, 0x350) = lbl_80472090[M2C_FIELD(arg0, s32 *, 0x8C)];
 }
+#pragma pop
 
 void *create__14TOTrapSeabed01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x35C);
@@ -320,7 +328,7 @@ u8 *TOTrapSeabed01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((int) ((*(s32 *)&TOTrapSeabed01__data_805D6810)), (int) (0));
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DE640;
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644;
+    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) TOTrapSeabed01__data_805DE644[0];
     TOTrapSeabed01__sub_802CA5F4((void *)((void *) (arg0)));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804E0FB8.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));

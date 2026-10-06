@@ -1,4 +1,11 @@
 #include "types.h"
+extern "C" {
+__declspec(section ".sdata2") extern const f32 lbl_805DC320[1] = { 1.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DC324[1] = { 3.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DC328[1] = { -4.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DC32C[1] = { 0.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DC330[1] = { 0.1f };
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -163,21 +170,26 @@ void *TForceOperate__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
+#pragma push
+#pragma opt_common_subs off
 void calc_death_pose_height_offset(Out_801C58CC *arg0, Actor_801C58CC *arg1) {
     f32 sp[4];
     arg1->m63(1, sp);
-    arg0->v = (1.0f + arg1->f3c) - sp[1];
-    if (arg0->v > 3.0f) {
-        arg0->v = 3.0f;
+    arg0->v = (lbl_805DC320[0] + arg1->f3c) - sp[1];
+    if (arg0->v > lbl_805DC324[0]) {
+        arg0->v = lbl_805DC324[0];
     }
-    if (arg0->v < -4.0f) {
-        arg0->v = -4.0f;
+    if (arg0->v < lbl_805DC328[0]) {
+        arg0->v = lbl_805DC328[0];
     }
 }
+#pragma pop
 
 void calc_death_sink_offset(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) (M2C_FIELD(arg0, f32 *, 4) * M2C_FIELD(arg0, f32 *, 8));
 }
+#pragma push
+#pragma opt_common_subs off
 void update_player_appear_fade(u8 *arg0) {
     f32 var_f31;
     s16 temp_r3_2;
@@ -194,7 +206,7 @@ void update_player_appear_fade(u8 *arg0) {
             if ((is_inactive__10TObjPlayerFPv() != 0) && (check_flag_40000__10TObjPlayerFPv((int) (temp_r3)) == 0) && (check_flag_04000000__10TObjPlayerFPv((int) (temp_r3)) != 0) && (is_on_current_floor__10TObjPlayerFi((int) (temp_r3)) != 0)) {
                 if (--M2C_FIELD(arg0, s16 *, 2) < 0) {
                     if (get_mode__11TCameraCtrlFv() != 0) {
-                        M2C_FIELD(temp_r3, f32 *, 0x624) = (f32) 1.0f;
+                        M2C_FIELD(temp_r3, f32 *, 0x624) = (f32) lbl_805DC320[0];
                         M2C_FIELD(arg0, s32 *, 4) = 2;
                         return;
                     }
@@ -203,7 +215,7 @@ void update_player_appear_fade(u8 *arg0) {
                     if (obj_testFlags30((int) (temp_r3), (int) (0x800)) == 0) {
                         TObjPlayer__sub_80108164((int) (M2C_FIELD(arg0, u16 *, 0)));
                     }
-                    M2C_FIELD(temp_r3, f32 *, 0x624) = (f32) 0.0f;
+                    M2C_FIELD(temp_r3, f32 *, 0x624) = (f32) lbl_805DC32C[0];
                     refresh_equipment_slot__10TObjPlayerFv((int) (temp_r3));
                     return;
                 }
@@ -211,9 +223,9 @@ void update_player_appear_fade(u8 *arg0) {
             break;
         case 1:
             var_f31 = M2C_FIELD(temp_r3, f32 *, 0x624);
-            var_f31 += 0.1f;
-            if (var_f31 >= 1.0f) {
-                var_f31 = 1.0f;
+            var_f31 += lbl_805DC330[0];
+            if (var_f31 >= lbl_805DC320[0]) {
+                var_f31 = lbl_805DC320[0];
                 M2C_FIELD(arg0, s32 *, 4) = 2;
                 set_flag_2000000_alt__10TObjPlayerFPv();
                 activate_body_collision__10TObjPlayerFPv((int) (temp_r3));
@@ -223,6 +235,7 @@ void update_player_appear_fade(u8 *arg0) {
         }
     }
 }
+#pragma pop
 
 }
 
@@ -285,7 +298,7 @@ void enter_battle_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801C5B18(void* a0) { *(float*)((char*)a0 + 0x1c) = 1.0f; }
+void TObjPlayer__sub_801C5B18(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
 
 void write_ids__10TObjPlayerFPv(void* p) { set_some_id__FUl(*(void**)((char*)p + 0x0)); set_chunk_material_override_pair(*(void**)((char*)p + 0x4), *(void**)((char*)p + 0x8)); set_chunk_material_color((char*)p + 0xc); }
 
@@ -297,7 +310,7 @@ void save_render_material_state(u8 *arg0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xC), (void *) (&lbl_8058D4C0.value));
 }
 
-void set_vec4_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x1c) = 1.0f; *(float*)((char*)a0 + 0x20) = 1.0f; *(float*)((char*)a0 + 0x24) = 1.0f; *(float*)((char*)a0 + 0x28) = 1.0f; }
+void set_vec4_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; *(float*)((char*)a0 + 0x20) = lbl_805DC320[0]; *(float*)((char*)a0 + 0x24) = lbl_805DC320[0]; *(float*)((char*)a0 + 0x28) = lbl_805DC320[0]; }
 
 void reset_ring__10TObjPlayerFPv(void* p) { clear_flags__11TAdRicoRingFPvUi(p, (void*)1); set_lock_timer__10TObjPlayerFPvi((void*)(p), (void*)((void*)-1)); set_target_id__6TLobbyFi((void*)0); }
 

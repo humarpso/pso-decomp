@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" const f32 lbl_805DBBE8[1];
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -75,7 +76,7 @@ void render_lobby_door__10TObjPlayerFPv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        translate_matrix(0, 0.0f, 0.0f, lbl_805DBBF4);
+        translate_matrix(0, lbl_805DBBE8[0], lbl_805DBBE8[0], lbl_805DBBF4);
         draw_ginja_model_with_motion(get_city_common_model(0x14), get_city_common_motion(0xB), M2C_FIELD(arg0, f32 *, 0xB4));
         pop_matrix();
     }
@@ -796,6 +797,8 @@ void check_ground_or_fall__10TObjPlayerFPv(void *arg0) {
     }
 }
 
+#pragma push
+#pragma opt_common_subs off
 void city_door_tick_closing(void* o) {
  CityDoorFields* door = (CityDoorFields*)o;
  if (((CityDoorProbe3*)o)->m12(door->parameters->openingDistanceSquared) != 0) {
@@ -803,13 +806,14 @@ void city_door_tick_closing(void* o) {
   ((CityDoorProbe3*)o)->m18();
  } else {
   door->frame -= door->parameters->speed;
-  if (door->frame <= 0.0f) {
-   door->frame = 0.0f;
+  if (door->frame <= lbl_805DBBE8[0]) {
+   door->frame = lbl_805DBBE8[0];
    door->phase = 0;
    door->collider->flags |= 1;
   }
  }
 }
+#pragma pop
 
 void city_door_tick_opening(void* o) {
 void* params=F(o,void*,0xB8);
@@ -878,8 +882,8 @@ u8 *init_city_door(u8 *arg0, M2C_UNK arg1, s32 arg2, u8 *arg3) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xAC) = 0;
     temp_r4 = (u8 *)&lbl_80443F20.value - 4;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) 0.0f;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) 0.0f;
+    M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DBBE8[0];
+    M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805DBBE8[0];
     M2C_FIELD(arg0, u8 **, 0xB8) = arg3;
     *(M2CCopy_2C *)(copy_storage_80182D8C.bytes) = *(const M2CCopy_2C *)((s32) temp_r4 + 4);
     temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB8));
@@ -899,3 +903,5 @@ s32 TLobby__sub_80182E60(void) {
 void fn_80182E7C(void* a0) { *(float*)((char*)a0 + 0x9c) = lbl_805DBC00; *(int*)((char*)a0 + 0x90) = 1; }
 
 }
+
+__declspec(section ".sdata2") const f32 lbl_805DBBE8[1] = { 0.0f };

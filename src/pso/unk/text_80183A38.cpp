@@ -1,4 +1,22 @@
 #include "types.h"
+extern "C" {
+__declspec(section ".sdata2") extern const f32 lbl_805DBC1C[1] = { 0.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC20[1] = { 3.0517578e-05f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC24[1] = { 0.33f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC28[1] = { 0.66f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC2C[1] = { 0.8f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC30[1] = { 250.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC34[1] = { 10.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC38[1] = { 3.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC3C[1] = { 450.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC40[1] = { 50.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC44[1] = { 800.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC48[1] = { 200.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC4C[1] = { 20.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC50[1] = { 0.037f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC54[1] = { 1.0f };
+__declspec(section ".sdata2") extern const f32 lbl_805DBC58[1] = { 1.3f };
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -68,8 +86,6 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, s32, f32);
 extern s32 lbl_8050DC50[];
-extern const f32 lbl_805DBC44;
-extern const f32 lbl_805DBC4C;
 void fn_80183AF0(Obj_80183AF0 *self);
 }
 
@@ -90,6 +106,8 @@ void fn_80183AA0(void *self) {
     debug_printf_at(0x130020, lbl_80444250);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);
 }
+#pragma push
+#pragma opt_common_subs off
 void fn_80183AF0(Obj_80183AF0 *self) {
     Res_80183AF0 *res;
     s32 idx;
@@ -97,7 +115,7 @@ void fn_80183AF0(Obj_80183AF0 *self) {
     Vec_80183AF0 a;
     Vec_80183AF0 b;
     res = get_anim_frame__25TObjCity_Season_EasterEggFPv(self);
-    if (res != NULL && self->m8(lbl_805DBC44, lbl_805DBC4C) != 0) {
+    if (res != NULL && self->m8(lbl_805DBC44[0], lbl_805DBC4C[0]) != 0) {
         set_global_param__8TObjFishFi(lbl_8050DC50[5]);
         idx = TObjCity_Season_SonicAdv2__sub_80183C38(self);
         push_matrix();
@@ -106,15 +124,16 @@ void fn_80183AF0(Obj_80183AF0 *self) {
         draw_model_motion(res->a[idx].v, res->b[idx].v, self->xb0);
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&pos, &self->pos);
-        pos.y += 0.037f;
-        a.x = 0.0f;
-        a.y = 1.0f;
-        a.z = 0.0f;
-        b.x = 1.0f;
-        b.y = 0.0f;
-        b.z = 1.3f;
+        pos.y += lbl_805DBC50[0];
+        a.x = lbl_805DBC1C[0];
+        a.y = lbl_805DBC54[0];
+        a.z = lbl_805DBC1C[0];
+        b.x = lbl_805DBC54[0];
+        b.y = lbl_805DBC1C[0];
+        b.z = lbl_805DBC58[0];
         TObjEneDD__sub_800B9D94(&pos, &a, self->x60, &b);
     }
 }
+#pragma pop
 
 }

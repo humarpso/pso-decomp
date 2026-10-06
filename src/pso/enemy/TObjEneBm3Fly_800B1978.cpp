@@ -1,4 +1,5 @@
 #include "types.h"
+extern "C" const f32 lbl_805D9C7C[1];
 #include "pso/enemy/TObjEneBm3Fly.h"
 #include <stddef.h>
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1855,12 +1856,15 @@ void *__vt__13TObjEneBm3Fly[107] = {
 #define lbl_80491B4C (*(RecoveredGlobal_800B22C8_lbl_80491B4C *)lbl_80491B4C)
 #define __vt__13TObjEneBm3Fly ((M2C_UNK *)__vt__13TObjEneBm3Fly)
 
+#pragma push
+#pragma opt_common_subs off
 void clamp_flight_height__13TObjEneBm3FlyFPv(u8 *arg0) {
-    if ((M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x3C)) < 1.2f) {
-        M2C_FIELD(arg0, f32 *, 0x42C) = 1.2f + M2C_FIELD(arg0, f32 *, 0x3C);
+    if ((M2C_FIELD(arg0, f32 *, 0x42C) - M2C_FIELD(arg0, f32 *, 0x3C)) < lbl_805D9C7C[0]) {
+        M2C_FIELD(arg0, f32 *, 0x42C) = lbl_805D9C7C[0] + M2C_FIELD(arg0, f32 *, 0x3C);
     }
     M2C_FIELD(arg0, f32 *, 0x300) = M2C_FIELD(arg0, f32 *, 0x42C);
 }
+#pragma pop
 
 void store_position__13TObjEneBm3FlyFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2FC) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
@@ -2231,3 +2235,5 @@ void load_resources__13TObjEneBm3FlyFv(void) {
 }
 
 }
+
+__declspec(section ".sdata2") const f32 lbl_805D9C7C[1] = { 1.2f };

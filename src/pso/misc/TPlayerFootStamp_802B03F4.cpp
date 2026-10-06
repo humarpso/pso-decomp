@@ -10,8 +10,6 @@ typedef s32 M2C_UNK;
 extern "C" {
 void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
 int TBoss6PlotFalz__sub_802AC678(void*);
-extern const f32 lbl_805DE218;
-extern const f32 lbl_805DE21C;
 void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o);
 int TBoss6PlotFalz__sub_802AC4D8(void);
 void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
@@ -75,9 +73,9 @@ void stop_adx_audio(void *arg0) {
 void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o) {
     s32 t = o->f3CC;
     if (t <= 0x2D) {
-        TBoss6PlotFalz__sub_802AB568(o, lbl_805DE218, 0);
+        TBoss6PlotFalz__sub_802AB568(o, 1.0f, 0);
     } else if (t > 0x2D && t < 0x10E) {
-        TBoss6PlotFalz__sub_802AB568(o, (f32)(0x10E - t) / lbl_805DE21C, 0);
+        TBoss6PlotFalz__sub_802AB568(o, (f32)(0x10E - t) / 225.0f, 0);
     }
     if (o->f3CC == 0x2D) {
         ((void (*)(void)) TBoss6PlotFalz__sub_802AC678)();
@@ -133,7 +131,5 @@ void TBoss6PlotFalz__sub_802B06D0(void *arg0) {
         TBoss6PlotFalz__sub_802AB2B8(arg0, 4);
     }
 }
-
-extern const f32 lbl_805DE220;
 
 }

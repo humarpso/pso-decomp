@@ -47,7 +47,6 @@ void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
-extern const f32 lbl_805D89F0;
 extern const f32 lbl_805D89F4;
 extern const f32 lbl_805D89F8;
 void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0);
@@ -76,7 +75,7 @@ int fn_8004F1FC(void*);
 void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0) {
     f32 alpha;
     s32 i;
-    alpha = lbl_805D89F0;
+    alpha = 1.0f;
     if (arg0->ff8 > 0x4C) {
         return;
     }

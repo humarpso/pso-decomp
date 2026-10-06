@@ -98,7 +98,6 @@ struct VObj_800B3EB8 : VBase_800B3EB8 {
 };
 
 extern "C" {
-extern const f32 lbl_805D9CF8;
 extern const f32 lbl_805D9D6C;
 void TObjEneBm3FlyNest__sub_800B47C4(void);
 }
@@ -1768,7 +1767,6 @@ extern char lbl_8043B338[];
 extern char lbl_8043B348[];
 extern char lbl_8043B358[];
 extern char lbl_8043B368[];
-extern u8 lbl_8043B380[];
 extern const f64 lbl_8043B398[];
 extern RecoveredGlobal_800B22C8_lbl_80491B4C lbl_80491B4C;
 extern M2C_UNK lbl_804920B4[];
@@ -1809,10 +1807,6 @@ extern const f32 lbl_805D9CB4;
 extern const f32 lbl_805D9CE8;
 extern const f32 lbl_805D9CEC;
 extern const f32 lbl_805D9CF0;
-extern const f32 lbl_805D9CF8;
-extern const f32 lbl_805D9CFC;
-extern const f32 lbl_805D9D00;
-extern const f32 lbl_805D9D04;
 extern const f32 lbl_805D9D08;
 extern const f32 lbl_805D9D0C;
 extern const f32 lbl_805D9D10;
@@ -1866,7 +1860,7 @@ void TObjPlayer__sub_800B23A0(u8 *arg0) {
     switch (M2C_FIELD(arg0, s32 *, 0x38C)) {
     default:
     case 2:
-        var_f31 = lbl_805D9CF8;
+        var_f31 = 0.0f;
         var_r30 = M2C_FIELD(arg0, Pair_800B23A0 **, 0xDC)[M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xD8), s32 *, 4)].e;
         break;
     case 9:
@@ -1878,13 +1872,13 @@ void TObjPlayer__sub_800B23A0(u8 *arg0) {
         var_f31 = var_r30->count - 1;
         break;
     }
-    if (((VObj_18_800B23A0 *)arg0)->m8(lbl_805D9CFC, lbl_805D9D00) != 0) {
+    if (((VObj_18_800B23A0 *)arg0)->m8(500.0f, 120.0f) != 0) {
         Vec_800B23A0 v = lbl_8043B31C;
         update_player_state__9TObjEneDDFPv(arg0, &v, 1);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         ((void (*)(void))push_matrix)();
         ((void (*)(void *))post_translate_matrix)(arg0 + 0x38);
-        translate_matrix(0, lbl_805D9CF8, lbl_805D9D04, lbl_805D9CF8);
+        translate_matrix(0, 0.0f, -5.0f, 0.0f);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
@@ -1901,6 +1895,9 @@ void TObjPlayer__sub_800B23A0(u8 *arg0) {
     draw_chunk_object(lbl_805D28B8);
     ((void (*)(void))pop_matrix)();
 }
+
+__declspec(section ".rodata") extern const char lbl_8043B380[] = "bm_ene_bm3_fly_a.bml";
+__declspec(section ".rodata") extern const f64 lbl_8043B398[1] = { 10430.38043493439 };
 
 void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     Cam_800B264C *cm;
@@ -1920,8 +1917,8 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
     self->f3AC = 0;
     if (self->f326 != 9) {
         if (is_main_phase_15__9TObjEneDDFv() != 0) {
-            res = ((VObj_18_113a45 *)(arg0))->m9(lbl_805D9D08 + lbl_805D9E88, lbl_805D9D0C + lbl_805D9E84, lbl_805D9D00);
-        } else if (((VObj_18_113a45 *)(arg0))->m8(lbl_805D9CFC, lbl_805D9D00) != 0) {
+            res = ((VObj_18_113a45 *)(arg0))->m9(lbl_805D9D08 + lbl_805D9E88, lbl_805D9D0C + lbl_805D9E84, 120.0f);
+        } else if (((VObj_18_113a45 *)(arg0))->m8(500.0f, 120.0f) != 0) {
             res = 1;
         } else {
             res = 0;
@@ -1944,7 +1941,7 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
                 Vec_800B264C v = lbl_8043B310;
                 if (self->f326 == 0) {
                     t = lbl_805D9D10 / (self->f4B0 - lbl_805D9D14);
-                    if (t < lbl_805D9D18 && t > lbl_805D9CF8) {
+                    if (t < lbl_805D9D18 && t > 0.0f) {
                         v.x = v.z = lbl_805D9D1C * t;
                     }
                 }
@@ -1957,7 +1954,7 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
                 lbl_805D510C = 0;
                 lbl_805D5110 = (NestAttachmentPoint *)&self->f3C8;
                 post_translate_matrix(self->f38);
-                ((M2C_UNK (*)(int, f32, f32, f32))translate_matrix)(0, lbl_805D9CF8, self->f4B0, lbl_805D9CF8);
+                ((M2C_UNK (*)(int, f32, f32, f32))translate_matrix)(0, 0.0f, self->f4B0, 0.0f);
                 if (self->f326 == 0) {
                     lbl_805D5118 = 0;
                     lbl_805D5114 = (s32)self->f3E0;
@@ -2069,12 +2066,12 @@ void state_dying__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 7;
         ((VObj_18_9c7b63 *)(arg0))->m94();
-        M2C_FIELD(arg0, f32 *, 0x4B0) = lbl_805D9CF8;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = 0.0f;
         refresh_lobby_state__10TObjPlayerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x4C8) = 4;
         M2C_FIELD(arg0, s32 *, 0x4CC) = 0x14;
         M2C_FIELD(arg0, s32 *, 0x4D0) = 0;
-        M2C_FIELD(arg0, f32 *, 0x4D8) = lbl_805D9CF8;
+        M2C_FIELD(arg0, f32 *, 0x4D8) = 0.0f;
         break;
     case 3:
         if (M2C_FIELD(arg0, f32 *, 0x4D8) >= lbl_805D9D20) {
@@ -2090,7 +2087,7 @@ void state_dying__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
             if (get_flag_b4__21TObjEneMe3ShinowaRealFPv(arg0) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x4D0) = 1;
                 v.x = lbl_805D9D24;
-                v.y = lbl_805D9CF8;
+                v.y = 0.0f;
                 v.z = lbl_805D9D28;
                 rotate_xz_pair_by_angle(&v, &v.z, M2C_FIELD(arg0, s32 *, 0x60));
                 vec3_add_to(&v, arg0 + 0x38);
@@ -2137,11 +2134,11 @@ void handle_motion_event__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         ((M2C_UNK (*)(void *, void *, M2C_UNK, M2C_UNK))play_sound_effect)((void *)(s32)((M2C_UNK (*)(void *, M2C_UNK))copy_target_state__14TObjEnePanarmsFPvPv)(arg0, 0x4003A829), arg0 + 0x38, 0, 0);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) != 0) {
             M2C_FIELD(arg0, s16 *, 0xB8) = 6;
-            M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
+            M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) 0.0f;
             return;
         }
         M2C_FIELD(arg0, s16 *, 0xB8) = 2;
-        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9D04;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) -5.0f;
         return;
     case 3:
         if (((s32 (*)(void))get_flag_b4__21TObjEneMe3ShinowaRealFPv)() != 0) {
@@ -2173,7 +2170,7 @@ void state_spawn__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 5;
         ((VObj18_800b2fd0 *) arg0)->vf180();
         set_field_378__9TObjEneDDFPvi(arg0, 5);
-        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) 0.0f;
         return;
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
@@ -2200,7 +2197,7 @@ void update_state__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 4;
         ((VObj18_800b30b0 *) arg0)->vf180();
         set_field_378__9TObjEneDDFPvi(arg0, 5);
-        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) 0.0f;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) == 0) {
             M2C_FIELD(arg0, s32 *, 0x3A8) = 1;
             M2C_FIELD(arg0, s32 *, 0x4C0) = 2;
@@ -2237,7 +2234,7 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 3;
         ((VObj_18_e9c804 *)(arg0))->m94();
         set_field_378__9TObjEneDDFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (5)));
-        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9D04;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) -5.0f;
         break;
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
@@ -2260,8 +2257,8 @@ void TObjEneBm3FlyNest__sub_800B318C(u8 *arg0, s32 arg1) {
             spawn_particle_effect((void *) (&stack.sp8), (int) (0xF0));
         }
         M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) (M2C_FIELD(arg0, f32 *, 0x4B0) + lbl_805D9D2C);
-        if (M2C_FIELD(arg0, f32 *, 0x4B0) > lbl_805D9CF8) {
-            M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9CF8;
+        if (M2C_FIELD(arg0, f32 *, 0x4B0) > 0.0f) {
+            M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) 0.0f;
         }
         ((VObj_18_e9c804 *)(arg0))->m100();
         break;
@@ -2279,7 +2276,7 @@ void handle_event__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 1;
         ((VObj_800B3354_800B30B0 *)arg0)->m94();
         set_field_378__9TObjEneDDFPvi(arg0, 2);
-        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9D04;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) -5.0f;
         return;
     case 3:
         if (M2C_FIELD(arg0, s32 *, 0xB0) & 0x10) {
@@ -2305,7 +2302,7 @@ void state_wait__17TObjEneBm3FlyNestFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((struct VObj_800B3428_800B30B0 *)arg0)->m94();
         set_field_378__9TObjEneDDFPvi(arg0, 2);
-        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) lbl_805D9D04;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = (f32) -5.0f;
         M2C_FIELD(arg0, s32 *, 0x4C0) = 1;
         M2C_FIELD(arg0, s32 *, 0x4C4) = 0x96;
         return;
@@ -2330,7 +2327,7 @@ void state_initial_emit__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s16 *, 0xB8) = 0;
         ((VObj_18 *)(arg0))->m93();
         set_field_378__9TObjEneDDFPvi((void *) (arg0), 2);
-        M2C_FIELD(arg0, f32 *, 0x4B0) = lbl_805D9D04;
+        M2C_FIELD(arg0, f32 *, 0x4B0) = -5.0f;
         M2C_FIELD(arg0, s32 *, 0x4C8) = 0;
         M2C_FIELD(arg0, s32 *, 0x4CC) = 0;
         M2C_FIELD(arg0, s32 *, 0x4D0) = 0;
@@ -2760,7 +2757,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     for (i = 0; i < 4; i++) {
         activate_and_dispatch__10TObjPlayerFPv(&self->f440[i]);
     }
-    self->f4B0 = lbl_805D9CF8;
+    self->f4B0 = 0.0f;
     self->f4B4[0] = 0;
     self->f4B4[1] = 0;
     self->f4B4[2] = 0;
@@ -2770,7 +2767,7 @@ void *TObjEneBm3FlyNest__ct(void *arg0, void *arg1, void *arg2) {
     self->f4B4[6] = 0;
     self->f4B4[7] = 0;
     self->f4B4[8] = 0;
-    self->f4D8 = lbl_805D9CF8;
+    self->f4D8 = 0.0f;
     self->f326 = 0;
     ((VObj_800B3EB8 *)self)->m85(self->f326, 4);
     return self;
@@ -2798,15 +2795,15 @@ void *create__17TObjEneBm3FlyNestFPv(void *arg0) {
 
 void load_resources__17TObjEneBm3FlyNestFv(void) {
     Bodies_800B41E8 *bodies;
-    (*(Vec_800B41E8 *)&lbl_80500B00).x = lbl_805D9CF8;
-    (*(Vec_800B41E8 *)&lbl_80500B00).y = lbl_805D9CF8;
-    (*(Vec_800B41E8 *)&lbl_80500B00).z = lbl_805D9CF8;
+    (*(Vec_800B41E8 *)&lbl_80500B00).x = 0.0f;
+    (*(Vec_800B41E8 *)&lbl_80500B00).y = 0.0f;
+    (*(Vec_800B41E8 *)&lbl_80500B00).z = 0.0f;
     lbl_805D510C = 0;
     (*(s32 *)&lbl_805D5110) = 0;
     lbl_805D5114 = 0;
     lbl_805D5118 = 0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5108 = load_enemy_bml_resource_named(&lbl_80491E34, lbl_8043B380);
+        lbl_805D5108 = load_enemy_bml_resource_named(&lbl_80491E34, (void *)lbl_8043B380);
     } else {
         lbl_805D5108 = load_enemy_bml_resource(&lbl_80491E34);
     }
@@ -2820,7 +2817,7 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
         Anim_800B41E8 anim = lbl_8043B2F4;
         anim.motions = ((Res_800B41E8 *)lbl_805D5108)->motions;
         bodies = (Bodies_800B41E8 *)((Res_800B41E8 *)lbl_805D5108)->bodies;
-        spawn_npc_enemy__6TLobbyFsiiiff(8, bodies->model, bodies->textures, &anim, lbl_80491DBC.radius, lbl_805D9CF8);
+        spawn_npc_enemy__6TLobbyFsiiiff(8, bodies->model, bodies->textures, &anim, lbl_80491DBC.radius, 0.0f);
     }
 }
 
@@ -2877,7 +2874,7 @@ void update_monest_carrier(u8 *self) {
         break;
     case 1:
         M2C_FIELD(self, f32 *, 0x20) += lbl_805D9D18;
-        if (M2C_FIELD(self, f32 *, 0x20) > lbl_805D9CF8) {
+        if (M2C_FIELD(self, f32 *, 0x20) > 0.0f) {
             M2C_FIELD(self, s32 *, 0x2C) = 2;
             M2C_FIELD(self, f32 *, 0x54) = lbl_805D9D64 * M2C_FIELD(self, f32 *, 0x5C);
         }
@@ -2939,24 +2936,19 @@ u8 *TObjEneBm3FlyNest__sub_800B4688(u8 *self, void *parent, s32 a, s32 b, s32 un
     M2C_FIELD(self, f32 *, 0x4C) = (f32) (M2C_FIELD(self, s32 *, 0x28) * 2);
     M2C_FIELD(self, f32 *, 0x3C) = lbl_805D9D18;
     M2C_FIELD(self, s32 *, 0x44) = 0;
-    M2C_FIELD(self, f32 *, 0x50) = lbl_805D9CF8;
-    M2C_FIELD(self, f32 *, 0x54) = lbl_805D9CF8;
-    M2C_FIELD(self, f32 *, 0x58) = lbl_805D9CF8;
-    M2C_FIELD(self, f32 *, 0x5C) = lbl_805D9CF8;
-    M2C_FIELD(self, f32 *, 0x64) = lbl_805D9CF8;
-    M2C_FIELD(self, f32 *, 0x60) = lbl_805D9CF8;
+    M2C_FIELD(self, f32 *, 0x50) = 0.0f;
+    M2C_FIELD(self, f32 *, 0x54) = 0.0f;
+    M2C_FIELD(self, f32 *, 0x58) = 0.0f;
+    M2C_FIELD(self, f32 *, 0x5C) = 0.0f;
+    M2C_FIELD(self, f32 *, 0x64) = 0.0f;
+    M2C_FIELD(self, f32 *, 0x60) = 0.0f;
     M2C_FIELD(self, s32 *, 0x2C) = 0;
     return self;
 }
 void TObjEneBm3FlyNest__sub_800B47C4(void) {
     f32 *v = lbl_80500B0C;
-    f32 zero = lbl_805D9CF8;
-    v[0] = zero;
-    v[1] = zero;
-    v[2] = zero;
-    v[3] = zero;
-    v[4] = lbl_805D9D6C;
-    v[5] = lbl_805D9D6C;
+    v[3] = v[2] = v[1] = v[0] = 0.0f;
+    v[5] = v[4] = lbl_805D9D6C;
     lbl_80500B24[0] = -1;
     lbl_80500B24[1] = -1;
     lbl_80500B2C.pv = lbl_80500B0C;
