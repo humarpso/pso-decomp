@@ -359,7 +359,7 @@ pso/unk/text_8003AB00.cpp:
 pso/boss/TObjBoss2DustCtrl.cpp:
 	.text       start:0x8003AB5C end:0x8003ACD8
 	.data       start:0x80483388 end:0x804833A0
-	.bss        start:0x804FE9E8 end:0x804FEA80
+	.bss        start:0x804FE9E8 end:0x804FEE68
 
 pso/boss/TObjBoss2DustCtrl_8003ACD8.cpp:
 	.text       start:0x8003ACD8 end:0x8003AD1C
@@ -1203,7 +1203,7 @@ pso/object/TObjButterflyLobby_8007A5D8.cpp:
 pso/unk/text_8007A6C8.cpp:
 	.text       start:0x8007A6C8 end:0x8007A720
 	.ctors      start:0x80433F4C end:0x80433F50
-	.bss        start:0x804FF9C0 end:0x804FFD40
+	.bss        start:0x804FF9C0 end:0x80500158
 
 pso/object/TObjMapCsn_8007A720.cpp:
 	.text       start:0x8007A720 end:0x8007A7A0
@@ -2110,7 +2110,7 @@ pso/misc/TLobby_800C1748.cpp:
 pso/enemy/TObjEneLappy.cpp:
 	.text       start:0x800C1BEC end:0x800C25A0
 	.data       start:0x80492BD8 end:0x80492BE4
-	.bss        start:0x80500BE0 end:0x80500BF8
+	.bss        start:0x80500BE0 end:0x80500C00
 	.sdata2     start:0x805D9FA8 end:0x805D9FAC
 
 pso/player/TObjPlayer_800C25A0.cpp:
@@ -12057,7 +12057,7 @@ pso/enemy/TObjEneBm9Mericarol_802D17F4.cpp:
 
 pso/unk/text_802D1C84.cpp:
 	.text       start:0x802D1C84 end:0x802D1D48
-	.bss        start:0x80540B98 end:0x80540BC8
+	.bss        start:0x80540B98 end:0x80540BD0
 
 pso/unk/text_802D1D48.cpp:
 	.text       start:0x802D1D48 end:0x802D1EFC
@@ -12442,7 +12442,7 @@ pso/unk/text_802F1200.cpp:
 pso/boss/TObjBoss7DustCtrl.cpp:
 	.text       start:0x802F125C end:0x802F13D8
 	.data       start:0x804E4948 end:0x804E4960
-	.bss        start:0x80541948 end:0x805419E0
+	.bss        start:0x80541948 end:0x80541DC8
 
 pso/boss/TObjBoss7DustCtrl_802F13D8.cpp:
 	.text       start:0x802F13D8 end:0x802F141C
@@ -14911,7 +14911,7 @@ TRK_MINNOW_DOLPHIN/targimpl.c:
 	.text       start:0x80394088 end:0x80395930
 	.rodata     start:0x8047B928 end:0x8047B9B0
 	.data       start:0x804F54C8 end:0x804F54F8
-	.bss        start:0x80546B40 end:0x80546B44
+	.bss        start:0x80546B40 end:0x805470BC
 
 TRK_MINNOW_DOLPHIN/dolphin_trk.c:
 	.init       start:0x8000E230 end:0x8000E334
@@ -15433,7 +15433,7 @@ pso/misc/TLobby_803CC0B4.cpp:
 
 pso/unk/text_803CC134.cpp:
 	.text       start:0x803CC134 end:0x803CC274
-	.bss        start:0x8057B7B0 end:0x8057B7D0
+	.bss        start:0x8057B7B0 end:0x8057DF50
 
 pso/misc/TLobby_803CC274.cpp:
 	.text       start:0x803CC274 end:0x803CC294
@@ -15538,7 +15538,7 @@ pso/misc/TLobby_803D3194.cpp:
 
 pso/unk/text_803D31A4.cpp:
 	.text       start:0x803D31A4 end:0x803D3988
-	.bss        start:0x8058B480 end:0x8058B4A0
+	.bss        start:0x8058B480 end:0x8058B6F0
 
 pso/misc/TLobby_803D3988.cpp:
 	.text       start:0x803D3988 end:0x803D39F8

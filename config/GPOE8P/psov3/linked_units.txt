@@ -3999,6 +3999,7 @@ pso/unk/text_803C1668.cpp
 pso/unk/text_803CBCA0.cpp
 pso/unk/text_803CBCF8.cpp
 pso/unk/text_803CC070.cpp
+pso/unk/text_803CC134.cpp
 pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
 pso/unk/text_803D0F1C.cpp
@@ -4006,6 +4007,7 @@ pso/unk/text_803D2434.cpp
 pso/unk/text_803D2624.cpp
 pso/unk/text_803D2640.cpp
 pso/unk/text_803D2C84.cpp
+pso/unk/text_803D31A4.cpp
 pso/unk/text_803D39F8.cpp
 pso/unk/text_803D43A8.cpp
 pso/unk/text_803D4418.cpp
