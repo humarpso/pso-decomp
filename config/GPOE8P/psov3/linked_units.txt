@@ -333,6 +333,7 @@ pso/enemy/TObjEneBalClawClaw_80090950.cpp
 pso/enemy/TObjEneBalClawClaw_80090D3C.cpp
 pso/enemy/TObjEneBalClawClaw_80090DD0.cpp
 pso/enemy/TObjEneBm3Fly.cpp
+pso/enemy/TObjEneBm3FlyNest.cpp
 pso/enemy/TObjEneBm3Fly_800B012C.cpp
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
@@ -2257,6 +2258,7 @@ pso/object/TObjGbAdvance_80187D90.cpp
 pso/object/TObjGbAdvance_80187E18.cpp
 pso/object/TObjGoalWarpAncient.cpp
 pso/object/TObjGoalWarpAncient_8017CB60.cpp
+pso/object/TObjGrass.cpp
 pso/object/TObjGrassWeb.cpp
 pso/object/TObjGyaranzoMissile.cpp
 pso/object/TObjGyaranzoMissile_800D40D8.cpp

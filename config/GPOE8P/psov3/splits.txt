@@ -2088,10 +2088,10 @@ pso/object/TObjGrassWeb.cpp:
 
 pso/object/TObjGrass.cpp:
 	.text       start:0x800BCA2C end:0x800BFBBC
-	.rodata     start:0x8043B7B0 end:0x8043B7B8
+	.rodata     start:0x8043B7B0 end:0x8043B7D8
 	.data       start:0x80492928 end:0x80492A88
 	.bss        start:0x80500BB8 end:0x80500BE0
-	.sdata2     start:0x805D9EB8 end:0x805D9ED4
+	.sdata2     start:0x805D9EB8 end:0x805D9F20
 
 pso/player/TObjPlayer_800BFBBC.cpp:
 	.text       start:0x800BFBBC end:0x800C16E0

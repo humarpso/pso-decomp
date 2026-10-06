@@ -139,6 +139,7 @@ force_active:
   - TObjEneMe1GiGueMissile__sub_802CE088
   - TObjEneRecon__vt85
   - TObjFish__sub_800E2FFC
+  - TObjGrass__sub_800BFB8C
   - TObjPlayer__sub_800181DC
   - TObjPlayer__sub_8004055C
   - TObjPlayer__sub_800405D8
@@ -384,6 +385,7 @@ force_active:
   - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFPv
   - calc_small_font_scale
+  - capture_attachment__17TObjEneBm3FlyNestFv
   - chasing_state__14TObjEneBm5WolfFPvi
   - chat_dispatch_accepted_result
   - chat_log_remove_line
@@ -494,6 +496,8 @@ force_active:
   - get_surface_contact_point
   - get_total_materials_used
   - get_vidlist
+  - handle_appear__17TObjEneBm3FlyNestFPvi
+  - handle_attachment_sample__17TObjEneBm3FlyNestFi
   - handle_buy_confirm__20TShopArmorListWindowFv
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
   - handle_equip_offer__20TShopArmorListWindowFv
@@ -566,6 +570,9 @@ force_active:
   - lbl_80472C48
   - lbl_80483EEC
   - lbl_8048E758
+  - lbl_80491DE8
+  - lbl_80491DF4
+  - lbl_80492930
   - lbl_80494B18
   - lbl_80497710
   - lbl_80497718
@@ -592,6 +599,10 @@ force_active:
   - lbl_804EC708
   - lbl_804EC724
   - lbl_804ED9C0
+  - lbl_80500B0C
+  - lbl_80500B24
+  - lbl_80500B2C
+  - lbl_80500BC4
   - lerp_follow_anchor
   - load_item_pmt
   - load_quest_root_script
@@ -839,6 +850,8 @@ force_active:
   - spawn_recoil_dust__14TObjEneBm5WolfFiPv
   - spawn_scattered_lightning_strikes
   - standing_state__14TObjEneBm5WolfFPvi
+  - state_dying__17TObjEneBm3FlyNestFPvi
+  - state_initial_emit__17TObjEneBm3FlyNestFPvi
   - step_camera_scalar
   - step_fade_opacity_decrease
   - step_fade_opacity_increase
