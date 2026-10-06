@@ -447,6 +447,7 @@ pso/enemy/TObjEneRe2Flower.cpp
 pso/enemy/TObjEneRe2Flower_800C3B8C.cpp
 pso/enemy/TObjEneRe2Flower_800C3BA8.cpp
 pso/enemy/TObjEneRe4Bit.cpp
+pso/enemy/TObjEneRe4Bit_800ED9EC.cpp
 pso/enemy/TObjEneRe4Bit_800EDB98.cpp
 pso/enemy/TObjEneRe4Bit_800EDC90.cpp
 pso/enemy/TObjEneRe4Sorcerer.cpp
@@ -833,6 +834,7 @@ pso/misc/TChCrTagInformation_802A200C.cpp
 pso/misc/TChCrTagName.cpp
 pso/misc/TChCrTagOccHeader.cpp
 pso/misc/TChCrTagOccHeader_802A2BD8.cpp
+pso/misc/TChCrTagOccupation.cpp
 pso/misc/TChCrTagPlBack_802A54D0.cpp
 pso/misc/TChCrTagPlBack_802A552C.cpp
 pso/misc/TChallenge.cpp
@@ -1410,6 +1412,7 @@ pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
 pso/misc/TODragonflyCave01.cpp
+pso/misc/TODummyKeyCave01.cpp
 pso/misc/TOExplosiveMachine01.cpp
 pso/misc/TOExplosiveMachine02.cpp
 pso/misc/TOExplosiveMachine03.cpp
@@ -1456,6 +1459,7 @@ pso/misc/TOMonumentAncient01.cpp
 pso/misc/TOMonumentAncient01_801726D4.cpp
 pso/misc/TOMonumentAncient02.cpp
 pso/misc/TORainbowCave01.cpp
+pso/misc/TORainbowCave01_80173014.cpp
 pso/misc/TORevlightCave01.cpp
 pso/misc/TORevlightCave01_80173478.cpp
 pso/misc/TORevlightCave01_80173664.cpp
@@ -1480,6 +1484,7 @@ pso/misc/TORockCaveSS02.cpp
 pso/misc/TORockCaveSimple.cpp
 pso/misc/TORockJungleL01.cpp
 pso/misc/TOSensor.cpp
+pso/misc/TOSensorGeneral01.cpp
 pso/misc/TOSignCave01.cpp
 pso/misc/TOSignCave02.cpp
 pso/misc/TOSignCave03.cpp
@@ -1533,6 +1538,7 @@ pso/misc/TParticleCtrl_801D6B3C.cpp
 pso/misc/TParticleCtrl_801D6B8C.cpp
 pso/misc/TParticleCtrl_801E2EFC.cpp
 pso/misc/TParticleCtrl_801E5330.cpp
+pso/misc/TParticleCtrl_80327D30.cpp
 pso/misc/TParticleCtrl_803E29FC.cpp
 pso/misc/TPhotonEstlla.cpp
 pso/misc/TPhotonEstlla_801AA710.cpp
@@ -1554,6 +1560,7 @@ pso/misc/TPlayerBattleCtrl4P_80311800.cpp
 pso/misc/TPlayerBattleCtrl4P_80312BDC.cpp
 pso/misc/TPlayerFootStamp_802B01D8.cpp
 pso/misc/TPlayerFootStamp_802B02B0.cpp
+pso/misc/TPlayerFootStamp_802B03F4.cpp
 pso/misc/TPlayerFootStamp_802B0770.cpp
 pso/misc/TPlayerFootStamp_802B0808.cpp
 pso/misc/TPlyCharData.cpp
@@ -1663,6 +1670,7 @@ pso/misc/TScene_80327B00.cpp
 pso/misc/TScene_803DCDA8.cpp
 pso/misc/TSendDownloadHead.cpp
 pso/misc/TSetManager.cpp
+pso/misc/TSetManager_8020D7D4.cpp
 pso/misc/TShopArmorListWindow.cpp
 pso/misc/TShopArmorListWindow_80266CF8.cpp
 pso/misc/TShopArmorListWindow_802785FC.cpp
@@ -2228,6 +2236,7 @@ pso/object/TObjCity_Season_ValentineHeart.cpp
 pso/object/TObjCity_Season_XmasTree.cpp
 pso/object/TObjCity_Season_XmasWreath.cpp
 pso/object/TObjCollision.cpp
+pso/object/TObjCurtainLobby_8035B87C.cpp
 pso/object/TObjDFDemo2.cpp
 pso/object/TObjDFDemo3.cpp
 pso/object/TObjDFDemo4.cpp
@@ -2245,9 +2254,11 @@ pso/object/TObjDoor_8018E358.cpp
 pso/object/TObjDoor_801F3754.cpp
 pso/object/TObjEZBoneRotBase.cpp
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp
+pso/object/TObjEZRopeBase.cpp
 pso/object/TObjEnvSound.cpp
 pso/object/TObjEnvSoundGlobal.cpp
 pso/object/TObjEvtCollision.cpp
+pso/object/TObjFish.cpp
 pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
 pso/object/TObjFogCollision.cpp
@@ -2269,6 +2280,8 @@ pso/object/TObjHashiVersus1.cpp
 pso/object/TObjHashiVersus2.cpp
 pso/object/TObjIllGillKage.cpp
 pso/object/TObjInfoCol.cpp
+pso/object/TObjKabochaLobby.cpp
+pso/object/TObjLaboDesignBase.cpp
 pso/object/TObjLazerFence4.cpp
 pso/object/TObjLazerFenceNorm.cpp
 pso/object/TObjLight.cpp
@@ -2300,6 +2313,7 @@ pso/object/TObjOnlineEnding.cpp
 pso/object/TObjOnlineEnding_802E4B80_802E4B80.cpp
 pso/object/TObjOnlineEnding_802E4B80_802E522C.cpp
 pso/object/TObjParticle.cpp
+pso/object/TObjParticleLobby.cpp
 pso/object/TObjPathObj.cpp
 pso/object/TObjQuestCol.cpp
 pso/object/TObjQuestCol2.cpp
@@ -2324,6 +2338,7 @@ pso/object/TObjRaderIcon.cpp
 pso/object/TObjRain.cpp
 pso/object/TObjRainCtrl.cpp
 pso/object/TObjRainCtrl_80197CE8.cpp
+pso/object/TObjRainbowLobby.cpp
 pso/object/TObjResultWin.cpp
 pso/object/TObjRoomId.cpp
 pso/object/TObjRoomId_800FD8C8.cpp
@@ -2341,6 +2356,7 @@ pso/object/TObjTombstone_800762F0.cpp
 pso/object/TObjTombstone_800764E0.cpp
 pso/object/TObjTombstone_8007666C.cpp
 pso/object/TObjTradeCollision.cpp
+pso/object/TObjTreeLobby.cpp
 pso/object/TObjTuitate.cpp
 pso/object/TObjVoloptCage.cpp
 pso/object/TObjVoloptCage_80048CDC.cpp
@@ -2792,6 +2808,7 @@ pso/player/TObjPlayer_80278AB4.cpp
 pso/player/TObjPlayer_8029EE64.cpp
 pso/player/TObjPlayer_8029F694.cpp
 pso/player/TObjPlayer_802A1440.cpp
+pso/player/TObjPlayer_802A8368.cpp
 pso/player/TObjPlayer_802C09A8.cpp
 pso/player/TObjPlayer_802C0A38.cpp
 pso/player/TObjPlayer_802C0DA0.cpp
@@ -2932,6 +2949,7 @@ pso/system/ChunkMaterialState.cpp
 pso/system/THeap.cpp
 pso/system/TMainTask.cpp
 pso/system/TMemberCheck.cpp
+pso/system/TNECFontEORFunction.cpp
 pso/system/TOChatSensorCapture.cpp
 pso/system/TOChatSensorCapture_8015A8D8.cpp
 pso/system/TOChatSensorFolder.cpp
@@ -3468,6 +3486,7 @@ pso/unk/text_8013ADD0.cpp
 pso/unk/text_8013ADE4.cpp
 pso/unk/text_80140D50.cpp
 pso/unk/text_801414B0.cpp
+pso/unk/text_80141550.cpp
 pso/unk/text_801418C4.cpp
 pso/unk/text_80141944.cpp
 pso/unk/text_80141A30.cpp

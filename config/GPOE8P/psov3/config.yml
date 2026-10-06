@@ -95,6 +95,7 @@ force_active:
   - TChCrTagName__sub_802A226C
   - TChCrTagName__sub_802A2500
   - TChCrTagName__vt4
+  - TChCrTagOccupation__vt4
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
   - TItemObject__vt42
@@ -299,6 +300,7 @@ force_active:
   - __dt__18TAdMultiPlayerNoGCFv
   - __dt__18TBoss2PhotonBulletFv
   - __dt__18TBoss7PhotonBulletFv
+  - __dt__18TChCrTagOccupationFv
   - __dt__18TItemLockCountCtrlFv
   - __dt__18TItemReverseTechBGFv
   - __dt__18TOChatSensorFolderFv
@@ -307,6 +309,7 @@ force_active:
   - __dt__19THunterGuildWarningFv
   - __dt__19TItemDisconnectCtrlFv
   - __dt__19TItemShootModelRotZFv
+  - __dt__19TNECFontEORFunctionFv
   - __dt__19TOChatSensorCaptureFv
   - __dt__19TObjBoss2RaftSplashFv
   - __dt__19TObjBoss5FloorGrassFv
@@ -411,6 +414,7 @@ force_active:
   - count_plist_strips_by_texture
   - count_unlocked_difficulties__12TLevelSelectFv
   - create__13TItemProArmorFiUi
+  - create__13TObjEneRe4BitFPvPvPvPvPv
   - create_action_menu__13TWindowSubMagFPvi
   - create_buy_list_windows__24TShopEquipmentListWindowFPv
   - create_icon__10TObjPlayerFiii
@@ -599,10 +603,25 @@ force_active:
   - lbl_804EC708
   - lbl_804EC724
   - lbl_804ED9C0
+  - lbl_804F2B80
+  - lbl_804F2B90
+  - lbl_804F2B98
+  - lbl_804F2BA8
+  - lbl_804F2BB0
+  - lbl_804F2BC0
+  - lbl_804F2BC8
+  - lbl_804F2BD8
+  - lbl_804F2BE0
+  - lbl_804F2BF0
+  - lbl_804F2BF8
   - lbl_80500B0C
   - lbl_80500B24
   - lbl_80500B2C
   - lbl_80500BC4
+  - lbl_80501058
+  - lbl_80501060
+  - lbl_80501068
+  - lbl_8050C014
   - lerp_follow_anchor
   - load_item_pmt
   - load_quest_root_script
@@ -680,6 +699,7 @@ force_active:
   - render__18TAdMultiPlayerNoGCFv
   - render__18TBoss2PhotonBulletFv
   - render__18TBoss7PhotonBulletFv
+  - render__18TChCrTagOccupationFv
   - render__18TItemReverseTechBGFv
   - render__20TAdChrSelMovePlateGCFv
   - render__20TAdGameStartShadowGCFv
@@ -792,6 +812,7 @@ force_active:
   - run_task__18TObjTailsTailsMoveFv
   - run_task__19THunterGuildWarningFv
   - run_task__19TItemDisconnectCtrlFv
+  - run_task__19TNECFontEORFunctionFv
   - run_task__19TOChatSensorCaptureFv
   - run_task__19TObjBoss2RaftSplashFv
   - run_task__19TObjBoss7RaftSplashFv
@@ -835,6 +856,8 @@ force_active:
   - set_player_room_control_flag
   - set_script_entry__13TOHealGeneralFPvi
   - set_tev_stage_mode
+  - setup_indirect_tev_alternate
+  - setup_indirect_tev_ordinary
   - setup_state_helper__10TObjPlayerFPv
   - shuffle_shop_pool
   - sleeping_state__14TObjEneBm5WolfFPvi
