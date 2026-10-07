@@ -1,5 +1,7 @@
 """Compiler exceptions established by complete owning-TU object comparisons."""
 import json
+import shlex
+from collections.abc import Mapping
 from pathlib import Path
 
 PROFILE_FILE = Path(__file__).resolve().parent.parent / 'config/GPOE8P/psov3/compiler_profiles.json'
@@ -29,9 +31,35 @@ def object_options(owner, flags, profiles=None):
     return {'mw_version': profile['mw_version'], 'cflags': result}
 
 
+class CompileRules(Mapping):
+    """source -> (compiler, argv); cflags are split only when a rule is read.
+
+    build.ninja has ~5k MWCC rules and a caller usually needs one, so splitting
+    every rule up front cost ~1.4 s per call."""
+
+    def __init__(self, raw):
+        self._raw = raw
+        self._split = {}
+
+    def __getitem__(self, source):
+        rule = self._split.get(source)
+        if rule is None:
+            version, cflags = self._raw[source]
+            rule = self._split[source] = (version, shlex.split(cflags))
+        return rule
+
+    def __contains__(self, source):
+        return source in self._raw
+
+    def __iter__(self):
+        return iter(self._raw)
+
+    def __len__(self):
+        return len(self._raw)
+
+
 def compile_rules(ninja_text):
     """Read source -> (compiler, argv) from expanded MWCC Ninja rules."""
-    import shlex
     import re
     text = re.sub(r'\$\n\s*', ' ', ninja_text)
     rules = {}
@@ -40,7 +68,7 @@ def compile_rules(ninja_text):
 
     def save():
         if source and 'mw_version' in values and 'cflags' in values:
-            rules[source] = (values['mw_version'], shlex.split(values['cflags']))
+            rules[source] = (values['mw_version'], values['cflags'])
 
     for line in text.splitlines():
         if line.startswith('build '):
@@ -53,7 +81,7 @@ def compile_rules(ninja_text):
             key, value = line.strip().split('=', 1)
             values[key.strip()] = value.strip()
     save()
-    return rules
+    return CompileRules(rules)
 
 
 def rules_from_file(path):
