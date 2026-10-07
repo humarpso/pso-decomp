@@ -15,6 +15,31 @@ struct Obj_802C22A4 {
     Vec_802C22A4 vAC; s32 fB8; s32 fBC; s32 fC0; s32 fC4; s32 fC8;
 };
 
+struct LobbyPigeon {
+    u8 prefix[0x18];
+    void* vtable;
+    u8 objectFields[0x84 - 0x1C];
+    s32 movementSelector;
+    u8 objectTail[0x90 - 0x88];
+    f32 viewDistance;
+    u8 unknown94[4];
+    s32 phase;
+    f32 scale;
+    s32 modelIndex;
+    s32 theme;
+    void* model;
+    void* animation;
+    void* path;
+    f32 pathFrame;
+    f32 animationFrame;
+    f32 pathPosition[3];
+    s32 pathYaw, pathPitch, pathRoll, rollSpeed;
+    s32 movement;
+    s32 soundDelay;
+};
+
+struct PigeonMovement { s32 motion; f32 pathSpeed, animationSpeed, lookAhead; s32 turnStep; };
+
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_diff_s16(s32, s32);
@@ -24,6 +49,16 @@ Hit_802C22A4 *csnVecterUnder(Vec_802C22A4 *, s32);
 void vec3_add_to(void *, void *);
 extern const f64 lbl_80471960[];
 extern const f32 lbl_805DE518;
+u8 * TObjPathObj__ct(LobbyPigeon*, void*, const void*);
+void calc_level_display_state__10TObjPlayerFPv(LobbyPigeon*);
+s32 get_bml_model(void *, s32);
+s32 get_bml_motion(void *, s32);
+void TObjPlayer__sub_802C0CAC(LobbyPigeon*);
+s32 rand();
+extern M2C_UNK lbl_804E0898[];
+extern void* lbl_805D67B8;
+extern const f32 lbl_805DE4F8, lbl_805DE4FC, lbl_805DE500, lbl_805DE504, lbl_805DE508, lbl_805DE50C, lbl_805DE514;
+LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source);
 }
 
 extern "C" {
@@ -356,14 +391,14 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
 void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0);
 void * deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1);
-u8 * TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1);
+u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
 void * create_path_obj__10TObjPlayerFPv(void *arg0);
 void free_chr_select__10TObjPlayerFv(void);
 void TObjPlayer__sub_802C2244(void);
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
 void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0);
 void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
-u8 * TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1);
+u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2);
 void * TObjPlayer__sub_802C28B4(void *arg0);
 void TObjPlayer__sub_802C2900(void);
 void TObjPlayer__sub_802C2958(void);
@@ -371,11 +406,10 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self);
 s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self);
 void draw_model_parts__10TObjPlayerFPv(u8 *arg0);
 void * TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1);
-u8 * TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1);
+u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
 void __dt__11TObjPathObjFv(void *, int);
-u8 * TObjPathObj__ct(void *, s32);
 void spawn_npc_enemy__6TLobbyFsiiiff(s32, s32, s32, void *, f32, f32);
 s32 rand();
 f32 bind_motion_context(void *, f32);
@@ -446,6 +480,10 @@ extern Entry_802C2548 lbl_80471848[];
 s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32);
 }
 
+extern "C" {
+extern Ent_802C0F3C lbl_80471914[];
+}
+
 void TObjPlayer__sub_802C0F3C(Obj_802C0F3C *self) {
     TObjPlayer__sub_802C10C0(self);
     self->b4 += lbl_80471914[self->d8].a;
@@ -479,6 +517,32 @@ void *TObjPlayer__sub_802C11AC(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+#pragma fp_contract on
+LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source) {
+    s32 movement;
+    s32 selector;
+    TObjPathObj__ct((LobbyPigeon*)(self), (void*)(parent), (const void*)(source));
+    self->vtable = ((void* *)&lbl_804E0898);
+    calc_level_display_state__10TObjPlayerFPv(self);
+    self->scale = lbl_805DE4FC;
+    self->model = ((void*)get_bml_model((void *)(lbl_805D67B8), (s32)(self->modelIndex)));
+    self->animation = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(0)));
+    selector = self->movementSelector;
+    if (selector < 0) movement = 0;
+    else {
+        movement = 2;
+        if (selector <= 2) movement = selector;
+    }
+    self->movement = movement;
+    self->path = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(((PigeonMovement *)&lbl_80471914)[self->movement].motion)));
+    self->pathFrame = lbl_805DE4F8;
+    self->animationFrame = lbl_805DE4F8;
+    TObjPlayer__sub_802C0CAC(self);
+    self->viewDistance = lbl_805DE514;
+    self->soundDelay = (s32)(lbl_805DE504 * (lbl_805DE508 * (lbl_805DE50C * (f32)rand())) + lbl_805DE500);
+    return self;
 }
 
 void *create_child_object__10TObjPlayerFPv(void *arg0) {
@@ -820,10 +884,10 @@ void *deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1) {
+u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
   s32 var_r0;
   s32 temp_r3;
-  TObjPathObj__ct(arg0, arg1);
+  TObjPathObj__ct((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C20E8_lbl_804E0910 *)&lbl_804E0910).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D67A8), 0);
   *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D67A8), 0);
@@ -1022,10 +1086,10 @@ void *TObjPlayer__sub_802C27A4(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1) {
+u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2) {
   s32 var_r0;
   s32 temp_r3;
-  TObjPathObj__ct(arg0, arg1);
+  TObjPathObj__ct((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C27FC_lbl_804E094C *)&lbl_804E094C).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D67A0), 0);
   *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D67A0), 0);
@@ -1202,10 +1266,10 @@ void *TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1) {
+u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
   s32 var_r0;
   s32 temp_r3;
-  TObjPathObj__ct(arg0, arg1);
+  TObjPathObj__ct((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C2F04_lbl_804E0988 *)&lbl_804E0988).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D6798), 0);
   *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D6798), 5);

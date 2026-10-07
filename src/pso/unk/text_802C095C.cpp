@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjPlayer__sub_802C095C(void *arg0);
-void *TObjPlayer__sub_802C1204(void *, void *, void *);
+void *construct_lobby_pigeon(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -13,7 +13,7 @@ extern void *tl_05;
 void *TObjPlayer__sub_802C095C(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TObjPlayer__sub_802C1204(o, tl_05, arg0);
+        o = construct_lobby_pigeon(o, tl_05, arg0);
     }
     return o;
 }
