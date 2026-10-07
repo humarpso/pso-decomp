@@ -1,3 +1,4 @@
+#include "pso/object/LobbyPigeon.h"
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -15,50 +16,46 @@ struct Obj_802C22A4 {
     Vec_802C22A4 vAC; s32 fB8; s32 fBC; s32 fC0; s32 fC4; s32 fC8;
 };
 
-struct LobbyPigeon {
-    u8 prefix[0x18];
-    void* vtable;
-    u8 objectFields[0x84 - 0x1C];
-    s32 movementSelector;
-    u8 objectTail[0x90 - 0x88];
-    f32 viewDistance;
-    u8 unknown94[4];
-    s32 phase;
-    f32 scale;
-    s32 modelIndex;
-    s32 theme;
-    void* model;
-    void* animation;
-    void* path;
-    f32 pathFrame;
-    f32 animationFrame;
-    f32 pathPosition[3];
-    s32 pathYaw, pathPitch, pathRoll, rollSpeed;
-    s32 movement;
-    s32 soundDelay;
-};
-
 struct PigeonMovement { s32 motion; f32 pathSpeed, animationSpeed, lookAhead; s32 turnStep; };
 
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 angle_diff_s16(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
+s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3,
+                                 f32 farg0);
 Hit_802C22A4 *csnVecterUnder(Vec_802C22A4 *, s32);
 void vec3_add_to(void *, void *);
 extern const f64 lbl_80471960[];
 extern const f32 lbl_805DE518;
 u8 * TObjPathObj__ct(LobbyPigeon*, void*, const void*);
-void calc_level_display_state__10TObjPlayerFPv(LobbyPigeon*);
+void select_lobby_pigeon_model(LobbyPigeon *);
 s32 get_bml_model(void *, s32);
 s32 get_bml_motion(void *, s32);
-void TObjPlayer__sub_802C0CAC(LobbyPigeon*);
+void initialize_lobby_pigeon_path(LobbyPigeon *);
 s32 rand();
 extern M2C_UNK lbl_804E0898[];
 extern void* lbl_805D67B8;
 extern const f32 lbl_805DE4F8, lbl_805DE4FC, lbl_805DE500, lbl_805DE504, lbl_805DE508, lbl_805DE50C, lbl_805DE514;
 LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source);
+s32 filter_lobby_pigeon_theme(LobbyPigeon *);
+extern const f32 lbl_805DE4F8, lbl_805DE4FC, lbl_805DE510;
+void update_lobby_pigeon_visibility(LobbyPigeon *self);
+s32 check_demo_mode__10TObjPlayerFv();
+s32 get_state_flag__9TMainTaskFv();
+void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2,
+                                         f32 farg0);
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+M2C_UNK rotate_matrix_z(M2C_UNK, s32);
+void scale_matrix(void *, f32, f32, f32);
+M2C_UNK draw_model_motion(s32, s32, f32);
+extern void *lbl_805D67BC;
+extern const f32 lbl_805DE4FC;
+void draw_lobby_pigeon(LobbyPigeon *self);
 }
 
 extern "C" {
@@ -373,9 +370,8 @@ u8 * load_gvm_texture_file(s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);
-s32 TObjPlayer__sub_802C0A74(void *);
-void TObjPlayer__sub_802C10C0(void *);
-void * TObjPlayer__sub_802C11AC(void *arg0, s16 arg1);
+s32 advance_lobby_pigeon_path(void *);
+void *destroy_lobby_pigeon(void *arg0, s16 arg1);
 void * create_child_object__10TObjPlayerFPv(void *arg0);
 void destroy_instance__10TObjPlayerFv(void);
 void TObjPlayer__sub_802C13C8(void);
@@ -408,7 +404,8 @@ void draw_model_parts__10TObjPlayerFPv(u8 *arg0);
 void * TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2);
 void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
-s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0);
+s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3,
+                                 f32 farg0);
 void __dt__11TObjPathObjFv(void *, int);
 void spawn_npc_enemy__6TLobbyFsiiiff(s32, s32, s32, void *, f32, f32);
 s32 rand();
@@ -484,39 +481,94 @@ extern "C" {
 extern Ent_802C0F3C lbl_80471914[];
 }
 
-void TObjPlayer__sub_802C0F3C(Obj_802C0F3C *self) {
-    TObjPlayer__sub_802C10C0(self);
-    self->b4 += lbl_80471914[self->d8].a;
-    if (TObjPlayer__sub_802C0A74(self) == 0) {
-        self->b4 = lbl_805DE4F8;
-    }
-    self->b8 += lbl_80471914[self->d8].b;
-    if (self->b8 > (f32)(u32)(self->ac->n - 1)) {
-        self->b8 = lbl_805DE4F8;
-    }
-    if (--self->dc < 0) {
-        Mtx_802C0F3C m;
-        Vec_802C0F3C v = lbl_80471950;
-        TObjPlayer__sub_803D8CD4(&m);
-        set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
-        ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
-        set_position_vec3__10TObjPlayerFPvPv(&m, &self->bc);
-        matrix_mult_vec(&m, &v, &v);
-        self->dc = (s32)(lbl_805DE504 * (lbl_805DE508 * (lbl_805DE50C * (f32)rand())) + lbl_805DE500);
-    }
+void draw_lobby_pigeon(LobbyPigeon *self) {
+  if (check_demo_mode__10TObjPlayerFv() == 1 &&
+      get_state_flag__9TMainTaskFv() == 0)
+    draw_line_strip__10TObjPlayerFPviif((u8 *)(self), (s32)(self->model),
+                                        (s32)(self->path), lbl_805DE4FC);
+  if (self->phase == 0 || lbl_805D67BC == 0)
+    return;
+  set_global_param__8TObjFishFi((s32)(lbl_805D67BC));
+  push_matrix();
+  post_translate_matrix((void *)(self->position));
+  rotate_matrix_y((M2C_UNK)(0), (s32)(self->facing));
+  post_translate_matrix((void *)(self->pathPosition));
+  rotate_matrix_y((M2C_UNK)(0), (s32)(self->pathYaw));
+  rotate_matrix_z((M2C_UNK)(0), (s32)(self->pathRoll));
+  if (self->phase != 3)
+    scale_matrix(0, self->scale, self->scale, self->scale);
+  draw_model_motion((s32)(self->model), (s32)(self->animation),
+                    self->animationFrame);
+  pop_matrix();
+}
+
+void update_lobby_pigeon(Obj_802C0F3C *self) {
+  update_lobby_pigeon_visibility((LobbyPigeon *)(self));
+  self->b4 += lbl_80471914[self->d8].a;
+  if (advance_lobby_pigeon_path(self) == 0) {
+    self->b4 = lbl_805DE4F8;
+  }
+  self->b8 += lbl_80471914[self->d8].b;
+  if (self->b8 > (f32)(u32)(self->ac->n - 1)) {
+    self->b8 = lbl_805DE4F8;
+  }
+  if (--self->dc < 0) {
+    Mtx_802C0F3C m;
+    Vec_802C0F3C v = lbl_80471950;
+    TObjPlayer__sub_803D8CD4(&m);
+    set_position_vec3__10TObjPlayerFPvPv(&m, &self->pos);
+    ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
+    set_position_vec3__10TObjPlayerFPvPv(&m, &self->bc);
+    matrix_mult_vec(&m, &v, &v);
+    self->dc =
+        (s32)(lbl_805DE504 * (lbl_805DE508 * (lbl_805DE50C * (f32)rand())) +
+              lbl_805DE500);
+  }
 }
 extern int fold_flush_0;
 #pragma pop
 
-void *TObjPlayer__sub_802C11AC(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0898;
-        __dt__11TObjPathObjFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
+void update_lobby_pigeon_visibility(LobbyPigeon *self) {
+  switch (self->phase) {
+  case 0:
+    if (self->theme == filter_lobby_pigeon_theme(self)) {
+      self->phase = 2;
     }
-    return arg0;
+    break;
+  case 2: {
+    f32 lim = 1.0f;
+    self->scale += 0.1f;
+    if (self->scale >= lim) {
+      self->scale = lim;
+      self->phase = 3;
+    }
+  } break;
+  case 1: {
+    f32 lim = 0.0f;
+    self->scale -= 0.1f;
+    if (self->scale <= lim) {
+      self->scale = lim;
+      self->phase = 0;
+    }
+  } break;
+  case 3:
+  default:
+    if (self->theme != filter_lobby_pigeon_theme(self)) {
+      self->phase = 1;
+    }
+    break;
+  }
+}
+
+void *destroy_lobby_pigeon(void *arg0, s16 arg1) {
+  if (arg0 != NULL) {
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0898;
+    __dt__11TObjPathObjFv(arg0, 0);
+    if (arg1 > 0) {
+      __dl__7TObjectFPv(arg0);
+    }
+  }
+  return arg0;
 }
 
 #pragma fp_contract on
@@ -525,7 +577,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     s32 selector;
     TObjPathObj__ct((LobbyPigeon*)(self), (void*)(parent), (const void*)(source));
     self->vtable = ((void* *)&lbl_804E0898);
-    calc_level_display_state__10TObjPlayerFPv(self);
+    select_lobby_pigeon_model(self);
     self->scale = lbl_805DE4FC;
     self->model = ((void*)get_bml_model((void *)(lbl_805D67B8), (s32)(self->modelIndex)));
     self->animation = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(0)));
@@ -539,9 +591,11 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     self->path = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(((PigeonMovement *)&lbl_80471914)[self->movement].motion)));
     self->pathFrame = lbl_805DE4F8;
     self->animationFrame = lbl_805DE4F8;
-    TObjPlayer__sub_802C0CAC(self);
+    initialize_lobby_pigeon_path(self);
     self->viewDistance = lbl_805DE514;
-    self->soundDelay = (s32)(lbl_805DE504 * (lbl_805DE508 * (lbl_805DE50C * (f32)rand())) + lbl_805DE500);
+    self->randomDelay =
+        (s32)(lbl_805DE504 * (lbl_805DE508 * (lbl_805DE50C * (f32)rand())) +
+              lbl_805DE500);
     return self;
 }
 
@@ -586,9 +640,13 @@ s32 TObjPlayer__sub_802C1428(Obj_802C1428 *self) {
     s32 r;
     s32 old;
     s32 diff;
-    ((s32 (*)(void *, s32, s32, Vec_802C1660 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, self->fA4);
+    ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 self->fA4);
     VecCopy__FP3VecPC3Vec(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, self->fA4 + lbl_804718CC[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, self->fA4 + lbl_804718CC[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &tmp, &tmp2);
@@ -644,9 +702,13 @@ s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self) {
     self->fBC = 0;
     self->fC0 = 0;
     self->fC4 = 0;
-    ((s32 (*)(void *, s32, s32, Vec_802C1660 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, lbl_805DE4F8);
+    ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 lbl_805DE4F8);
     VecCopy__FP3VecPC3Vec(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, lbl_804718CC[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C1660 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, lbl_804718CC[self->fC8].d);
     VecCopy__FP3VecPC3Vec(&d, &b);
     subtract_vector(&d, &a);
     direction_to_rotation_xz(&d, &self->fBC, &tmp);
@@ -775,9 +837,13 @@ s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
     s32 r;
     s32 old;
     s32 diff;
-    ((s32 (*)(void *, s32, s32, Vec_802C1E34 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, self->fA4);
+    ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 self->fA4);
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, self->fA4 + lbl_80471890[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, self->fA4 + lbl_80471890[self->fC8].d);
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
@@ -833,9 +899,13 @@ s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self) {
     self->fBC = 0;
     self->fC0 = 0;
     self->fC4 = 0;
-    ((s32 (*)(void *, s32, s32, Vec_802C1E34 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, lbl_805DE4F8);
+    ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 lbl_805DE4F8);
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, lbl_80471890[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C1E34 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, lbl_80471890[self->fC8].d);
     ((void (*)(Vec_802C1E34 *, Vec_802C1E34 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C1E34 *, Vec_802C1E34 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C1E34 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
@@ -961,9 +1031,13 @@ s32 TObjPlayer__sub_802C22A4(Pl_802C26E4 *arg0_, Ent_802C26E4 *, f32) {
     if (!(e->f & 1)) {
         return 1;
     }
-    ((s32 (*)(void *, s32, s32, Vec_802C22A4 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, self->fA4);
+    ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 self->fA4);
     VecCopy__FP3VecPC3Vec((Vec_802C1660 *)&self->vAC, (Vec_802C1660 *)&a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C22A4 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, self->fA4 + e->d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C22A4 *,
+                  f32))sample_clamped_path_position)(self, self->f98, self->fA0,
+                                                     &b, self->fA4 + e->d);
     if (self->f1E != 0) {
         Vec_802C22A4 p = self->vAC;
         Hit_802C22A4 *hit;
@@ -1036,9 +1110,13 @@ s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self) {
     self->fBC = 0;
     self->fC0 = 0;
     self->fC4 = 0;
-    ((s32 (*)(void *, s32, s32, Vec_802C2548 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, lbl_805DE4F8);
+    ((s32 (*)(void *, s32, s32, Vec_802C2548 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 lbl_805DE4F8);
     ((void (*)(Vec_802C2548 *, Vec_802C2548 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C2548 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, lbl_80471848[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C2548 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, lbl_80471848[self->fC8].d);
     ((void (*)(Vec_802C2548 *, Vec_802C2548 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C2548 *, Vec_802C2548 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2548 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
@@ -1155,9 +1233,13 @@ s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
     s32 r;
     s32 old;
     s32 diff;
-    ((s32 (*)(void *, s32, s32, Vec_802C2C48 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, self->fA4);
+    ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 self->fA4);
     ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, self->fA4 + lbl_804717D4[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, self->fA4 + lbl_804717D4[self->fC8].d);
     ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2C48 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &tmp, &tmp2);
@@ -1213,9 +1295,13 @@ s32 TObjPlayer__sub_802C2C48(Obj_802C2C48 *self) {
     self->fBC = 0;
     self->fC0 = 0;
     self->fC4 = 0;
-    ((s32 (*)(void *, s32, s32, Vec_802C2C48 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &a, lbl_805DE4F8);
+    ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
+              f32))sample_clamped_path_position)(self, self->f98, self->fA0, &a,
+                                                 lbl_805DE4F8);
     ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&self->vAC, &a);
-    r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(self, self->f98, self->fA0, &b, lbl_804717D4[self->fC8].d);
+    r = ((s32 (*)(void *, s32, s32, Vec_802C2C48 *,
+                  f32))sample_clamped_path_position)(
+        self, self->f98, self->fA0, &b, lbl_804717D4[self->fC8].d);
     ((void (*)(Vec_802C2C48 *, Vec_802C2C48 *))VecCopy__FP3VecPC3Vec)(&d, &b);
     ((f32 (*)(Vec_802C2C48 *, Vec_802C2C48 *))subtract_vector)(&d, &a);
     ((void (*)(Vec_802C2C48 *, s32 *, s32 *))direction_to_rotation_xz)(&d, &self->fBC, &tmp);
@@ -1302,35 +1388,38 @@ void draw_line_strip__10TObjPlayerFPviif(u8 *arg0, s32 arg1, s32 arg2, f32 farg0
 
     var_f31 = lbl_805DE4F8;
     do {
-        ((s32 (*)(void *, s32, s32, M2C_UNK *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(arg0, arg1, arg2, sp14, var_f31);
-        var_f31 += farg0;
-        temp_r30 = ((s32 (*)(void *, s32, s32, M2C_UNK *, f32))clamp_value_to_max__10TObjPlayerFPviPvif)(arg0, arg1, arg2, sp8, var_f31);
-        push_matrix();
-        post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        TObjMapWarp__sub_80141CB0(sp14, sp8, 0xF0F0F0FF, 0xF0F0F0FF);
-        pop_matrix();
+      ((s32 (*)(void *, s32, s32, M2C_UNK *, f32))sample_clamped_path_position)(
+          arg0, arg1, arg2, sp14, var_f31);
+      var_f31 += farg0;
+      temp_r30 = ((s32 (*)(void *, s32, s32, M2C_UNK *,
+                           f32))sample_clamped_path_position)(arg0, arg1, arg2,
+                                                              sp8, var_f31);
+      push_matrix();
+      post_translate_matrix(arg0 + 0x38);
+      rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+      TObjMapWarp__sub_80141CB0(sp14, sp8, 0xF0F0F0FF, 0xF0F0F0FF);
+      pop_matrix();
     } while (temp_r30 != 0);
 }
 
-s32 clamp_value_to_max__10TObjPlayerFPviPvif(void *arg0, s32 arg1, void *arg2, s32 arg3, f32 farg0) {
-    M2C_UNK sp24[3];
-    M2C_UNK sp18[3];
-    M2C_UNK sp8[4];
-    f32 var_f1;
-    s32 var_r31;
-    u32 temp_r7;
+s32 sample_clamped_path_position(void *arg0, s32 arg1, void *arg2, s32 arg3,
+                                 f32 farg0) {
+  M2C_UNK sp24[3];
+  M2C_UNK sp18[3];
+  M2C_UNK sp8[4];
+  f32 var_f1;
+  s32 var_r31;
+  u32 temp_r7;
 
-    var_f1 = farg0;
-    var_r31 = 1;
-    temp_r7 = M2C_FIELD(arg2, s32 *, 4) - 1;
-    if (var_f1 > (f32) temp_r7) {
-        var_r31 = 0;
-        var_f1 = (f32) temp_r7;
-    }
-    bind_motion_context(arg2, var_f1);
-    sample_motion_node_transform(arg1, arg3, sp24, sp18, sp8);
-    return var_r31;
+  var_f1 = farg0;
+  var_r31 = 1;
+  temp_r7 = M2C_FIELD(arg2, s32 *, 4) - 1;
+  if (var_f1 > (f32)temp_r7) {
+    var_r31 = 0;
+    var_f1 = (f32)temp_r7;
+  }
+  bind_motion_context(arg2, var_f1);
+  sample_motion_node_transform(arg1, arg3, sp24, sp18, sp8);
+  return var_r31;
 }
-
 }

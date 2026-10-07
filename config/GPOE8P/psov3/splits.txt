@@ -11886,18 +11886,19 @@ pso/player/TObjPlayer_802C09A8.cpp:
 pso/unk/text_802C09E0.cpp:
 	.text       start:0x802C09E0 end:0x802C0A38
 
-pso/player/TObjPlayer_802C0A38.cpp:
+pso/object/LobbyPigeonTheme.cpp:
 	.text       start:0x802C0A38 end:0x802C0A74
 
-pso/unk/text_802C0A74.cpp:
+pso/object/LobbyPigeonPath.cpp:
 	.text       start:0x802C0A74 end:0x802C0DA0
 
-pso/player/TObjPlayer_802C0DA0.cpp:
+pso/object/LobbyPigeonSelection.cpp:
 	.text       start:0x802C0DA0 end:0x802C0E5C
 
 pso/unk/text_802C0E5C.cpp:
 	.text       start:0x802C0E5C end:0x802C311C
 	.rodata     start:0x80471968 end:0x80471978
+	.sdata2     start:0x805DE4F8 end:0x805DE514
 
 pso/object/TObjPathObj.cpp:
 	.text       start:0x802C311C end:0x802C3284
