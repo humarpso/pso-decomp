@@ -20,6 +20,11 @@ void subtractive_rng_xor_buffer(s32 *self, u32 *data, s32 len);
 void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_refill(Crypt_8007C438 *c);
 void subtractive_rng_seed(R_8007C48C *arg0, s32 arg1);
+extern void* memcpy(void*,const void*,u32);
+void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32 size);
+extern u8 lbl_80500398[256], lbl_80500498[256];
+extern u16 TAdSinglePlyChrSelectGC__sub_8007C584(s32*,u16);
+void subtractive_rng_make_shuffle(s32* stream);
 }
 
 extern "C" {
@@ -30,6 +35,26 @@ void TAdSinglePlyChrSelectGC__sub_8007C0CC(s32 *self, u32 *data, s32 len) {
     for (i = 0; i < n; i++) {
         data[i] = subtractive_rng_next(self) - data[i];
     }
+}
+
+void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32 size) {
+ u32 block,i;
+ memcpy(destination,source,size);
+ for(block=0;block<(size>>8);block++) {
+  for(i=0;i<256;i++) destination[(block<<8)+lbl_80500498[i]]=source[(block<<8)+i];
+ }
+}
+
+void subtractive_rng_make_shuffle(s32* stream) {
+ s32 i; u16 index; u8 value;
+ for(i=0;i<256;i++) lbl_80500398[i]=(u8)i;
+ for(i=255;i>=0;i--) {
+  index=TAdSinglePlyChrSelectGC__sub_8007C584(stream,(u16)(i+1));
+  value=lbl_80500398[index];
+  lbl_80500398[index]=lbl_80500398[i];
+  lbl_80500498[value]=(u8)i;
+  lbl_80500398[i]=value;
+ }
 }
 
 void TAdSinglePlyChrSelectGC__sub_8007C2FC(s32 *self, u32 *data, s32 len) {
