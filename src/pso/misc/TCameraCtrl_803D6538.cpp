@@ -114,6 +114,11 @@ struct Proj_803D676C { f32 m[4][4]; s32 f40; f32 f44, f48, f4C, f50, f54; };
 
 struct Disp_803D676C { u8 pad[6]; u16 h; };
 
+struct MotionQuaternionKey {
+  u32 frame;
+  f32 rotation[4];
+};
+
 extern "C" {
 
 s32 sample_motion_vector_channel(s32 arg0);
@@ -138,6 +143,11 @@ extern const f32 lbl_805E0E30;
 extern const f32 lbl_805E0E34;
 extern const f32 lbl_805E0E38;
 void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2);
+void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t,
+                              void *k0, void *k1, void *frac);
+void blend_quaternions_nlerp(void *a, void *b, void *out, f32 t);
+void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
+                                        f32 frame);
 }
 
 extern "C" {
@@ -207,7 +217,6 @@ extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6C94(s32 arg0);
-void TObjPlayer__sub_803D6D7C(u32, u32, s32, f32);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6D0C(s32 arg0);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
@@ -454,12 +463,26 @@ s32 TObjPlayer__sub_803D6C94(s32 arg0) {
 #define G_803D6D0C ((St_803D6D0C *)lbl_805D76BC)
 s32 TObjPlayer__sub_803D6D0C(s32 arg0) {
     if (G_803D6D0C->keys[G_803D6D0C->idx] != 0) {
-        TObjPlayer__sub_803D6D7C(G_803D6D0C->keys[G_803D6D0C->idx], G_803D6D0C->vals[G_803D6D0C->idx], arg0, G_803D6D0C->t);
-        G_803D6D0C->idx = G_803D6D0C->idx + 1;
-        return 1;
+      interpolate_motion_quaternion_keys(
+          (u32)(G_803D6D0C->keys[G_803D6D0C->idx]),
+          (u32)(G_803D6D0C->vals[G_803D6D0C->idx]), (s32)(arg0), G_803D6D0C->t);
+      G_803D6D0C->idx = G_803D6D0C->idx + 1;
+      return 1;
     }
     G_803D6D0C->idx = G_803D6D0C->idx + 1;
     return 0;
+}
+
+void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
+                                        f32 frame) {
+  f32 fraction;
+  MotionQuaternionKey *first;
+  MotionQuaternionKey *second;
+  find_motion_key_interval(
+      (void *)((void *)keys), (s32)(sizeof(MotionQuaternionKey)), (s32)(count),
+      frame, (void *)(&first), (void *)(&second), (void *)(&fraction));
+  ((void (*)(void *, void *, f32, void *))blend_quaternions_nlerp)(
+      first->rotation, second->rotation, fraction, (void *)output);
 }
 
 #pragma push
