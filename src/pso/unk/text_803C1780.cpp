@@ -10,7 +10,7 @@ struct Obj_803C1A24 { u8 pad[0xAC]; void *fac; };
 extern "C" {
 void TLobby__sub_803C1A00(u8 *arg0, s32 arg1);
 extern RecoveredCallback_1268626c296b lbl_805D7514;
-void TLobby__sub_803C1A24(Obj_803C1A24 *arg0);
+void invoke_notify_callback__6TLobbyFPv(Obj_803C1A24 *arg0);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ void TLobby__sub_803C1A00(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xB0) = arg1;
     M2C_FIELD(arg0, u32 *, 0xB4) = (u32) (arg1 / 96);
 }
-void TLobby__sub_803C1A24(Obj_803C1A24 *arg0) {
+void invoke_notify_callback__6TLobbyFPv(Obj_803C1A24 *arg0) {
     if (arg0->fac != 0) {
         lbl_805D7514(arg0->fac);
     }

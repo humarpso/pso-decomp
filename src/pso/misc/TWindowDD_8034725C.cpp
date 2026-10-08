@@ -102,7 +102,7 @@ s32 setup_entry__9TWindowDDFPvi(void *arg0, s32 arg1);
 void *get_player_by_client_id(u16);
 M2C_UNK TWindowDD__sub_803412A0(u32);
 M2C_UNK set_first_entry_text__9TWindowDDFPvUi(u32, s32);
-s32 TWindowDD__sub_80347204(s16);
+s32 is_id_in_special_range__9TWindowDDFs(s16);
 s32 TWindowDD__sub_80347238();
 u8 TWindowDD__sub_80347858(s16 arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -119,7 +119,7 @@ s32 classify_id__9TWindowDDFs(s16 arg0) {
     if (TWindowDD__sub_80347238() != 0) {
         return 1;
     }
-    if (TWindowDD__sub_80347204(arg0) != 0) {
+    if (is_id_in_special_range__9TWindowDDFs(arg0) != 0) {
         return 2;
     }
     if (arg0 == 0x4F3) {

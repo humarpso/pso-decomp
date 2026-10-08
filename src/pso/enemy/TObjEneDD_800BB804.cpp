@@ -350,7 +350,7 @@ struct Obj_800BB88C {
 };
 
 extern "C" {
-void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1);
+void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt83(void *arg0);
@@ -367,7 +367,7 @@ void reset_state_fields__9TObjEneDDFPv(Obj_800BB88C *self);
 extern "C" {
 
 s32 TObjEneDD__sub_800BB878(s32 arg0, s32 arg1);
-void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1);
+void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1);
 void TObjEneDD__sub_800BBA0C(u8 *arg0);
 void TObjEneDD__vt77(void *arg0);
 u8 TObjEneDD__vt84(void *arg0);
@@ -429,12 +429,12 @@ void TObjEneDD__vt77(void *arg0) {
 
 void load_enemy_bml_resource_named(s32 arg0, s32 arg1) {
     s32 sp8;
-    TObjEneDD__sub_800BB980((u8 *)((void *) (&sp8)), (u8 *)((void *) (arg0)));
+    copy_resource_desc__9TObjEneDDFPvPv((u8 *)((void *) (&sp8)), (u8 *)((void *) (arg0)));
     sp8 = arg1;
     load_enemy_bml_resource((u8 *)((void *)((void *) (&sp8))));
 }
 
-void TObjEneDD__sub_800BB980(u8 *arg0, u8 *arg1) {
+void copy_resource_desc__9TObjEneDDFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
     M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
     M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);

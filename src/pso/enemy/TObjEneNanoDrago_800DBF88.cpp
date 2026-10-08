@@ -231,7 +231,7 @@ void TLobby__sub_800DC028(void);
 Obj_800DC0FC * fn_800DC0FC(Obj_800DC0FC *arg0, s16 arg1);
 u8 * TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void TObjPlayer__sub_800DC444(void);
-void TObjPlayer__sub_800DC448(void *, s32);
+void load_entry_params_nanodrago__10TObjPlayerFPvi(void *, s32);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void initialize_enemy_photon_effect(void *);
 void * TObjControl__ct(void *, void *);
@@ -857,7 +857,7 @@ u8 *TObjEneNanoDrago__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x36C) = M2C_FIELD(arg2, s16 *, 0x3E);
-    TObjPlayer__sub_800DC448(arg0, M2C_FIELD(arg0, s32 *, 0x368));
+    load_entry_params_nanodrago__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, u8 **, 0xD8) = lbl_80494B5C;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
     init_collision_body_parts(arg0, lbl_80494C38, 2);

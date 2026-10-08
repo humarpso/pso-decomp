@@ -19,7 +19,7 @@ struct G_8031B198 { u32 p; u32 rest[3]; };
 extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_804E8880;
 extern const f32 lbl_805DF38C;
-void TObjEneMe3SinowZoa__sub_8031B170(s32 arg0, f32 farg0);
+void set_entry_value_clamped__18TObjEneMe3SinowZoaFif(s32 arg0, f32 farg0);
 M2C_UNK TLobby__sub_8001FE7C(u32, M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 extern G_8031B198 lbl_80542FDC;
@@ -32,7 +32,7 @@ extern "C" {
 
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
-void TObjEneMe3SinowZoa__sub_8031B170(s32 arg0, f32 farg0) {
+void set_entry_value_clamped__18TObjEneMe3SinowZoaFif(s32 arg0, f32 farg0) {
   u8 *new_var;
   f32 var_f1;
   var_f1 = farg0;

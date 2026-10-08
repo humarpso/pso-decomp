@@ -34,7 +34,7 @@ s32 CARDUnmount(s32 chan);
 void TAdPlayerLoadGC__sub_803F389C(s32 chan);
 M2C_UNK memset(void *, int, int);
 extern Slot_803F3478 lbl_805A28E0[];
-void TAdPlayerLoadGC__sub_803F32A4(s32 arg0);
+void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
 extern S_803F3328 lbl_805A29B0[];
 s32 CARDClose(void *);
 M2C_UNK memset(void *, int, int);
@@ -89,7 +89,7 @@ s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     return r;
 }
 
-s32 TAdPlayerLoadGC__sub_803F3478(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 chan;
 
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {

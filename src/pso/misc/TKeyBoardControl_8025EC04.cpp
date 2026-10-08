@@ -45,7 +45,7 @@ extern "C" {
 void TKeyBoardControl__sub_8025EC04(u8 *arg0);
 extern RecoveredGlobal_8025ED80_lbl_8049E178 lbl_8049E178;
 extern RecoveredGlobal_8025ED80_lbl_8049E278 lbl_8049E278;
-u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1);
+u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1);
 s32 TKeyBoardControl__sub_801321B4(void *);
 s32 TKeyBoardControl__sub_80132274(void *);
 s32 is_key_57_pressed__16TKeyBoardControlFi(void *);
@@ -152,7 +152,7 @@ s32 has_non_modifier_key__16TKeyBoardControlFv(void) {
     return TKeyBoardControl__sub_801323C8(TKeyBoardControl__data_80506270, 0x57) != 0 ? 1 : 0;
 }
 
-u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1) {
+u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x80) {
         return M2C_FIELD(((u8 *)(&lbl_8049E278.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
     }
@@ -254,7 +254,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
         }
         return 1;
     }
-    *arg2 = TKeyBoardControl__sub_8025ED80((u8 *)arg0, arg1);
+    *arg2 = lookup_key_char__16TKeyBoardControlFPvi((u8 *)arg0, arg1);
     if (!(arg0->sub->flags & 8)) {
         return 1;
     }

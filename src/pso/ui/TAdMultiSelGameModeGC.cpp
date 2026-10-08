@@ -88,7 +88,7 @@ typedef struct Arr3_803001B4 { s32 v[3]; } Arr3_803001B4;
 
 extern "C" {
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
-s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx);
+s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx);
 s32 get_localized_text_entry(s32, s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
 void align_menu_entry_positions(s32);
@@ -96,7 +96,7 @@ void update_layout_height__17TWindowSubComCardFPvf(s32, f32);
 void draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, u32);
-s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx);
+s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx);
 extern Pos3_803001B4 lbl_80474ED4;
 extern Arr3_803001B4 lbl_80474EEC;
 extern Arr3_803001B4 lbl_80474EF8;
@@ -117,7 +117,7 @@ int reset_count__14TObjEneDolmOlmFv(void);
 
 void render__21TAdMultiSelGameModeGCFv(void) {  }
 
-s32 TAdMultiSelGameModeGC__sub_80300124(void *self, s32 mode, u32 idx) {
+s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx) {
     switch (mode) {
     case 0:
         return idx < (u32)(get_max_difficulty_for_party_level() + 1) ? 1 : 0;
@@ -148,7 +148,7 @@ s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1) {
     n = counts[arg1];
     r = check_room_seq_4__16TAdChrSelASlotGCFii(&pos.p[arg1], n);
     for (i = 0; i < n; i++) {
-        if (TAdMultiSelGameModeGC__sub_80300124(arg0, arg1, i) != 0) {
+        if (is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(arg0, arg1, i) != 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);
         } else {
             draw_text_gray__17TWindowSubComCardFiiii(r, get_localized_text_entry(0x18, i + b.v[arg1]), 6, i + a.v[arg1]);

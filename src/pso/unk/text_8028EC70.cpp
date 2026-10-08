@@ -35,7 +35,7 @@ s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv();
 extern s32 lbl_805D6520;
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0);
-void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s);
+void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s);
 void copy_player_visual_record(void *, void *);
 s32 get_display_index__12TCharaMakingFPv(void *);
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -74,7 +74,7 @@ s32 count_char_diffs__23TAdSinglePlyChrSelectGCFPvPv(A_8028ECCC *a, B_8028ECCC *
     return n;
 }
 
-void TAdSinglePlyChrSelectGC__sub_8028ED24(Dst_8028ED24 *d, Src_8028ED24 *s) {
+void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED24 *s) {
     s32 i;
     for (i = 0; i < 5; i++) d->a[i] = s->a[i];
     d->b = s->b;

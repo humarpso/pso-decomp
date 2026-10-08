@@ -101,7 +101,7 @@ extern s32 lbl_805D6CA4;
 u8 *TAdEnterPasswordGC__ct(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
 void render__18TAdEnterPasswordGCFv(void *self);
-void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self);
+void clear_password__18TAdEnterPasswordGCFPv(T_8032BBF0 *self);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void update_children__18TAdEnterPasswordGCFPv(O_8032BC1C *arg0);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *);
@@ -328,7 +328,7 @@ u8 *TAdEnterPasswordGC__ct(u8 *arg0) {
     return arg0;
 }
 
-void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self) {
+void clear_password__18TAdEnterPasswordGCFPv(T_8032BBF0 *self) {
     s32 i;
     for (i = 0; i < 24; i++) {
         self->arr[i] = 0;

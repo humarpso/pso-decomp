@@ -12,7 +12,7 @@ struct VObj_801193D8 : Base_801193D8 {
 
 extern "C" {
 extern VObj_801193D8 *lbl_80506228[7];
-void TItemLockCountCtrl__sub_801193D8(void);
+void free_all__18TItemLockCountCtrlFv(void);
 extern VObj_801193D8 *lbl_80506228[7];
 void *TItemLockCountCtrl__ct(void *, s32, s32, void (*)(int), void (*)(int));
 void *__nw__7TObjectFUl(u32);
@@ -103,7 +103,7 @@ void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0) {
         obj_setFlags30(temp, 0x40);
     }
 }
-void TItemLockCountCtrl__sub_801193D8(void) {
+void free_all__18TItemLockCountCtrlFv(void) {
     s32 i;
     for (i = 0; i != 7; i++) {
         if (lbl_80506228[i] != 0) {

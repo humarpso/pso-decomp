@@ -506,7 +506,7 @@ extern const f32 lbl_805DA32C;
 extern const f32 lbl_805DA330;
 void render__16TObjEneMerillLiaFPv(u8 *arg0);
 extern u32 TObjEneMerillLia__data_805D5220;
-void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
+void load_entry_params__16TObjEneMerillLiaFPvi(O_800D7274 *self, s32 i);
 extern s32 lbl_805D5550;
 s32 get_clamped_level__16TObjEneMerillLiaFPv(Obj_800D5100 *self);
 void set_param__12TObjEneLappyFPvi(void *p, s32 v);
@@ -1799,7 +1799,7 @@ M2C_UNK init_position_vectors__10TObjPlayerFi(void *);
 M2C_UNK init_enemy_base__10TObjPlayerFPv(void *, M2C_UNK);
 void clamp_and_apply_mode_param__16TObjEneMerillLiaFPv(Obj_800D5150 *self);
 void init_params_from_position__16TObjEneMerillLiaFPv(u8 *arg0);
-void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i);
+void load_entry_params__16TObjEneMerillLiaFPvi(O_800D7274 *self, s32 i);
 M2C_UNK init_common__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
@@ -1831,7 +1831,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
     init_position_vectors__10TObjPlayerFi(arg0);
     M2C_FIELD(arg0, s32 *, 0x334) = M2C_FIELD(arg0, s32 *, 0x368);
     clamp_and_apply_mode_param__16TObjEneMerillLiaFPv((Obj_800D5150 *) arg0);
-    TObjEneMerillLia__sub_800D7274((O_800D7274 *) arg0, M2C_FIELD(arg0, s32 *, 0x368));
+    load_entry_params__16TObjEneMerillLiaFPvi((O_800D7274 *) arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, void **, 0xD8) = lbl_80494570;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
     M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(TObjEneMerillLia__data_805D5220, s32 *, 0x430);
@@ -1871,7 +1871,7 @@ void *TObjEneMerillLia__ct(void *arg0v, void *arg1, void *arg2) {
 }
 #undef arg0
 
-void TObjEneMerillLia__sub_800D7274(O_800D7274 *self, s32 i) {
+void load_entry_params__16TObjEneMerillLiaFPvi(O_800D7274 *self, s32 i) {
     self->f34 = (*(D_800D7274 * *)&TObjEneMerillLia__data_805D5220)->entries[i].f8;
     self->f24 = (*(D_800D7274 * *)&TObjEneMerillLia__data_805D5220)->entries[i].fc;
 }

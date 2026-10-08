@@ -87,7 +87,7 @@ M2C_UNK TKeyBoardControl__sub_8025EC04(int);
 extern RecoveredGlobal_80131C5C_lbl_8050E208 lbl_8050E208;
 void run_task__16TKeyBoardControlFv(u8 *arg0);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
-void TKeyBoardControl__sub_801320CC(void);
+void append_next_char_global__16TKeyBoardControlFv(void);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 void reset_global_keys_a__16TKeyBoardControlFv(void);
@@ -225,7 +225,7 @@ void append_next_char__16TKeyBoardControlFPv(Obj_8013206C *arg0) {
     arg0->f0 = 4;
 }
 
-void TKeyBoardControl__sub_801320CC(void) { append_next_char__16TKeyBoardControlFPv((Obj_8013206C *)((void *)((void *) (&TKeyBoardControl__data_80506270.value)))); }
+void append_next_char_global__16TKeyBoardControlFv(void) { append_next_char__16TKeyBoardControlFPv((Obj_8013206C *)((void *)((void *) (&TKeyBoardControl__data_80506270.value)))); }
 
 void disable_disconnected_ports__16TKeyBoardControlFv(void) {
     M2C_UNK sp8;
@@ -423,7 +423,7 @@ void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
     init_pad_states__16TKeyBoardControlFv();
     TKeyBoardControl__sub_80132824(arg0);
-    fn_803F1864(((M2C_UNK *)TKeyBoardControl__sub_801320CC));
+    fn_803F1864(((M2C_UNK *)append_next_char_global__16TKeyBoardControlFv));
 }
 typedef char RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void reset_global_keys_a__16TKeyBoardControlFv(void) {

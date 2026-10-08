@@ -86,7 +86,7 @@ s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void *create__12TChCrLoadAfsFPvPvPv(void *, int, void *);
 void *TAdSinglePlyChrSelectGC__sub_8028CF8C(void *, s32, s32);
-void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *, s32, s32, s32);
+void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *, s32, s32, s32);
 s32 get_display_index__12TCharaMakingFPv(void *);
 void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0);
@@ -201,7 +201,7 @@ void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0) {
     for (i = 0, off = 0; i < 3; i++, off += 4) {
         p = (Sl_8028CB6C *)((u8 *)arg0 + off);
         id = p->a;
-        t = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, TAdSinglePlyChrSelectGC__sub_8028CFBC(arg0, disp, arg0->cm->f3e, id));
+        t = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(arg0, disp, arg0->cm->f3e, id));
         p->b = t;
         if (t == NULL) {
             break;
@@ -324,7 +324,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
 
 extern s32 lbl_804D3788[];
 extern s32 lbl_804D37D4[];
-void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return (void *)(arg2 + (arg3 * lbl_804D3788[arg1] + lbl_804D37D4[arg1]));
 }
 

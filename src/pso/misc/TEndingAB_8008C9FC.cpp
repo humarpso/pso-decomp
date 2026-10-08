@@ -17,7 +17,7 @@ void draw_overlay__9TEndingABFPv(u8 *arg0);
 extern s32 lbl_805D5550;
 extern s32 lbl_805D4F14;
 s32 set_global_param__8TObjFishFi(s32);
-void TEndingAB__sub_8008CC5C(void);
+void set_fish_global_param__9TEndingABFv(void);
 }
 
 extern "C" {
@@ -123,7 +123,7 @@ void draw_overlay__9TEndingABFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TEndingAB__sub_8008CC5C(void) {
+void set_fish_global_param__9TEndingABFv(void) {
     switch (lbl_805D5550) {
     case 0:
     case 1:

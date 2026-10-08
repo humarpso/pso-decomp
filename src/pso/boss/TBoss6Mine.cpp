@@ -154,7 +154,7 @@ extern const f32 lbl_805DF5C4;
 void TBoss6Mine__vt0(u8 *arg0);
 M2C_UNK render_actor_shadows_default();
 extern const f32 TBoss6Mine__data_805DF580;
-void TBoss6Mine__sub_80323E1C(u8 *arg0);
+void render_shadow_if_visible__10TBoss6MineFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 s32 project_actor_to_ground(void *, void *, int);
 f32 vec3_add_to(void *, void *);
@@ -263,7 +263,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
 
-void TBoss6Mine__sub_80323E1C(u8 *arg0) {
+void render_shadow_if_visible__10TBoss6MineFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, f32 *, 0x3C) >= (*(const f32 *)&TBoss6Mine__data_805DF580)) {
         render_actor_shadows_default();
     }

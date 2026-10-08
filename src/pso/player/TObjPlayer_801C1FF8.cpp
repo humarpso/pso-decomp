@@ -23,8 +23,8 @@ struct S_801C20A4 { u16 f0; s16 f2; s32 f4; f32 f8; f32 fC; f32 f10; s32 f14; u8
 
 extern "C" {
 s32 TObjPlayer__sub_801C2044(s32 *arg0);
-u32 TObjPlayer__sub_801C2154(O_801C2154 *self);
-u32 TObjPlayer__sub_801C2180(O_801C2180 *self);
+u32 unpack_u32_hi__10TObjPlayerFPv(O_801C2154 *self);
+u32 unpack_u32_lo__10TObjPlayerFPv(O_801C2180 *self);
 u8 TObjPlayer__sub_801C21C4(O_801C21C4 *self, s32 i);
 void is_slot_within_limit__10TObjPlayerFiiUc(u8 id, s16 i, u8 v);
 u8 get_slot_value_checked__10TObjPlayerFPvi(O_801C21D4 *self, s32 i);
@@ -124,7 +124,7 @@ u8 get_team_id__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0x1); }
 u8 get_char_class__10TObjPlayerFPv(void* p) { return *(u8*)((char*)p + 0x0); }
 s32 get_level_row_exp_threshold(void* p) { return *(s32*)((char*)p + 0x8); }
 
-u32 TObjPlayer__sub_801C2154(O_801C2154 *self) {
+u32 unpack_u32_hi__10TObjPlayerFPv(O_801C2154 *self) {
     u32 r = (u8)self->recs[4].v;
     r |= (u8)self->recs[5].v << 8;
     r |= (u8)self->recs[6].v << 16;
@@ -132,7 +132,7 @@ u32 TObjPlayer__sub_801C2154(O_801C2154 *self) {
     return r;
 }
 
-u32 TObjPlayer__sub_801C2180(O_801C2180 *self) {
+u32 unpack_u32_lo__10TObjPlayerFPv(O_801C2180 *self) {
     u32 r = (u8)self->recs[0].v;
     r |= (u8)self->recs[1].v << 8;
     r |= (u8)self->recs[2].v << 16;

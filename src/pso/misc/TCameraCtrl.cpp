@@ -675,7 +675,7 @@ struct Cam_8006B0D4 {
 };
 
 extern "C" {
-u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1);
+u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_8006B324_lbl_805137F8 lbl_805137F8;
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
@@ -886,7 +886,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
         if (TCameraCtrl__data_804FF628[0] == 5) {
             render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__data_804FF700[get_camera_no__11TCameraCtrlFv()]);
             for (i = 1; i < 4; i++) {
-                ((u8 *(*)(C30_8006AD34 &, const C30_8006AD34 &))TCameraCtrl__sub_8006AF74)(TCameraCtrl__data_804FF700[i], TCameraCtrl__data_804FF700[0]);
+                ((u8 *(*)(C30_8006AD34 &, const C30_8006AD34 &))copy_view_params__11TCameraCtrlFii)(TCameraCtrl__data_804FF700[i], TCameraCtrl__data_804FF700[0]);
             }
         } else {
             render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__data_804FF700[get_camera_no__11TCameraCtrlFv()]);
@@ -900,7 +900,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
 #undef G
 #undef GF
 
-u8 * TCameraCtrl__sub_8006AF74(s32 arg0, s32 arg1) {
+u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1) {
     *(M2CCopy_30 *)(arg0) = *(const M2CCopy_30 *)(arg1);
     return (u8 *)arg0;
 }

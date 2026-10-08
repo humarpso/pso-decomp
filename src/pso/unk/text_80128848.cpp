@@ -61,7 +61,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_80128A70();
 void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0);
 void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
-void TObjPlayer__sub_80128944(u8 *arg0);
+void draw_status_icon_set__10TObjPlayerFPv(u8 *arg0);
 u8 * init_shot_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -92,7 +92,7 @@ void apply_m49_state_a__10TObjPlayerFPv(u8 *arg0) {
     }
     ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 1);
 }
-void TObjPlayer__sub_80128944(u8 *arg0) {
+void draw_status_icon_set__10TObjPlayerFPv(u8 *arg0) {
     draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1FC, arg0 + 0x208);
 }
 

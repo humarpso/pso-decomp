@@ -9,8 +9,8 @@ extern "C" {
 s32 get_main_phase();
 M2C_UNK THunterGuildWarning__sub_80211700();
 M2C_UNK clear_instance_table__22THunterGuildSeqOfflineFv();
-M2C_UNK THunterGuildSeqOffline__sub_80213C7C();
-M2C_UNK THunterGuildSeqOffline__sub_80214A34();
+M2C_UNK clear_slots__22THunterGuildSeqOfflineFv();
+M2C_UNK clear_slot_flags__22THunterGuildSeqOfflineFv();
 M2C_UNK release_resources__16TQuestListOnlineFv();
 
 void update_hunter_guild_phase(void) {
@@ -19,8 +19,8 @@ void update_hunter_guild_phase(void) {
         clear_instance_table__22THunterGuildSeqOfflineFv();
     }
     if (get_main_phase() == 0xF) {
-        THunterGuildSeqOffline__sub_80213C7C();
-        THunterGuildSeqOffline__sub_80214A34();
+        clear_slots__22THunterGuildSeqOfflineFv();
+        clear_slot_flags__22THunterGuildSeqOfflineFv();
         release_resources__16TQuestListOnlineFv();
     }
 }
@@ -40,7 +40,7 @@ M2C_UNK THunterGuildSeqOffline__sub_8021339C();
 M2C_UNK THunterGuildWarning__sub_8021170C();
 M2C_UNK init_download_buffers__16TQuestListOnlineFv();
 M2C_UNK THunterGuildSeqOffline__sub_80213CA4();
-M2C_UNK THunterGuildSeqOffline__sub_80214A5C();
+M2C_UNK zero_four_slots__22THunterGuildSeqOfflineFv();
 s32 get_main_phase();
 
 void update_guild_or_quest_phase__6TLobbyFv(void) {
@@ -50,7 +50,7 @@ void update_guild_or_quest_phase__6TLobbyFv(void) {
     }
     if (get_main_phase() == 0xF) {
         init_download_buffers__16TQuestListOnlineFv();
-        THunterGuildSeqOffline__sub_80214A5C();
+        zero_four_slots__22THunterGuildSeqOfflineFv();
         THunterGuildSeqOffline__sub_80213CA4();
     }
 }

@@ -75,7 +75,7 @@ void update_global_sound_frame(void);
 M2C_UNK reset_sound_state__6TLobbyFPv(void *);
 extern unsigned char lbl_80514F64[];
 void TLobby__sub_8022809C(void);
-M2C_UNK TLobby__sub_800F8FB8();
+M2C_UNK run_disk_error_check__6TLobbyFv();
 int render_tick__Fv(void);
 s32 is_sound_enabled();
 M2C_UNK init_sound_aux_effects(void *);
@@ -86,7 +86,7 @@ extern unsigned char lbl_80514F64[];
 void wait_for_sound_init__6TLobbyFv(void);
 s32 init_range_zero__6TLobbyFPv(void* arg0);
 extern RecoveredGlobal_802287F0_lbl_80515BA0 lbl_80515BA0;
-s32 TLobby__sub_802287F0(void);
+s32 init_range_zero_global__6TLobbyFv(void);
 void *reset_sound_owner_state(void *self);
 void TLobby__sub_80240808(void *self, s32 x);
 void *__register_global_object(void *obj, void *dtor, void *entry);
@@ -149,7 +149,7 @@ void load_floor_sound_bank(s32 arg0) {
             }
             validate_and_set_selection__6TLobbyFPvi((void *) (lbl_80514F64), (int) (temp_r31));
             do {
-                TLobby__sub_800F8FB8();
+                run_disk_error_check__6TLobbyFv();
                 TLobby__sub_803CB81C();
                 run_frame__6TLobbyFv();
             } while (is_ready__6TLobbyFPv((void *) (lbl_80514F64)) == 0);
@@ -182,7 +182,7 @@ void wait_for_sound_init__6TLobbyFv(void) {
     validate_and_set_selection__6TLobbyFPvi((void *) (&(*(RecoveredGlobal_802280C4_lbl_80514F64 *)&lbl_80514F64).value), (int) (0));
     do {
         TLobby__sub_803382E4();
-        TLobby__sub_800F8FB8();
+        run_disk_error_check__6TLobbyFv();
         TLobby__sub_803CB81C();
         render_tick__Fv();
     } while (is_sound_enabled() == 0);
@@ -320,7 +320,7 @@ void promote_area_floor(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_802287F0_lbl_80515BA0_size[sizeof(RecoveredGlobal_802287F0_lbl_80515BA0) == 0x28 ? 1 : -1];
-s32 TLobby__sub_802287F0(void) { return init_range_zero__6TLobbyFPv((void*)((s32) &lbl_80515BA0.value)); }
+s32 init_range_zero_global__6TLobbyFv(void) { return init_range_zero__6TLobbyFPv((void*)((s32) &lbl_80515BA0.value)); }
 
 s32 init_range_zero__6TLobbyFPv(void* arg0) {
     init_range__6TLobbyFPvi(arg0, 0);

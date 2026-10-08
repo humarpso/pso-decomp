@@ -45,9 +45,9 @@ void update_state__18TAdAgreementBaseGCFPv(u8 *arg0);
 void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 extern char lbl_804770BC[];
 extern char lbl_804770C4[];
-void TAdAgreementBaseGC__sub_803297F8(void);
+void create_agreement_callback__18TAdAgreementBaseGCFv(void);
 s32 get_state_flag__9TMainTaskFv();
-void TAdAgreementBaseGC__sub_803296C4(void *self);
+void check_main_task_state__18TAdAgreementBaseGCFPv(void *self);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void __ct__9TAdBackGCFv(void *, void *);
@@ -85,7 +85,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-void TAdAgreementBaseGC__sub_803296C4(void *self) {
+void check_main_task_state__18TAdAgreementBaseGCFPv(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) { return;
     }
 }
@@ -111,7 +111,7 @@ extern M2C_UNK __vt__18TAdAgreementBaseGC[];
 typedef char RecoveredGlobal_80329830_lbl_8050E208_size[sizeof(RecoveredGlobal_80329830_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_80329830_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80329830_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
-void TAdAgreementBaseGC__sub_803297F8(void) {
+void create_agreement_callback__18TAdAgreementBaseGCFv(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804770BC, lbl_804770C4, (void *)draw_agreement_text__18TAdAgreementBaseGCFv);
 }
 

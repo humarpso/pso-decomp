@@ -140,7 +140,7 @@ public:
 extern "C" {
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
-void TObjPlayer__sub_80362C28(u8 *arg0);
+void set_evp_default__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E025C;
 void TObjPlayer__sub_80362C54(u8 *arg0);
@@ -333,7 +333,7 @@ void *TObjEneEpsilon__ct(void *arg0) {
 
 extern M2C_UNK lbl_804F26E0[];
 
-void TObjPlayer__sub_80362C28(u8 *arg0) {
+void set_evp_default__10TObjPlayerFPv(u8 *arg0) {
     set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E0258));
 }
 

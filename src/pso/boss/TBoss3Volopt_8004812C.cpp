@@ -36,7 +36,7 @@ extern "C" {
 extern s32 lbl_805D4CDC;
 f32 TBoss3Volopt__sub_8004812C(s32 arg0);
 extern G_8004813C *lbl_805D4CE4;
-void TBoss3Volopt__sub_8004813C(O_8004813C *self, s32 i);
+void load_params_from_table__12TBoss3VoloptFPvi(O_8004813C *self, s32 i);
 extern G_8004816C *lbl_805D4D1C;
 s32 TBoss3Volopt__sub_8004816C(s32 i);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -73,7 +73,7 @@ f32 TBoss3Volopt__sub_8004812C(s32 arg0) {
     return M2C_FIELD((lbl_805D4CDC + (arg0 * 4)), f32 *, 0);
 }
 
-void TBoss3Volopt__sub_8004813C(O_8004813C *self, s32 i) {
+void load_params_from_table__12TBoss3VoloptFPvi(O_8004813C *self, s32 i) {
     self->f34 = lbl_805D4CE4->entries[i].c;
     self->f24 = lbl_805D4CE4->entries[i].d;
 }

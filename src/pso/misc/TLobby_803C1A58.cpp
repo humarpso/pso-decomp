@@ -172,7 +172,7 @@ M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C8B38(u8 *arg0);
 short TLobby__sub_803C8B2C(u8 *arg0);
 M2C_UNK notify_error__6TLobbyFPv(void *);
-void TLobby__sub_803C5B2C(M2C_UNK arg0, s32 arg1);
+void forward_notify_error__6TLobbyFii(M2C_UNK arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
 s32 clear_buffer_a00__6TLobbyFv(void);
@@ -321,7 +321,7 @@ s32 process_connection_state__6TLobbyFv(void) {
     return 0;
 }
 
-void TLobby__sub_803C5B2C(M2C_UNK arg0, s32 arg1) {
+void forward_notify_error__6TLobbyFii(M2C_UNK arg0, s32 arg1) {
     notify_error__6TLobbyFPv((void *) (arg1));
 }
 

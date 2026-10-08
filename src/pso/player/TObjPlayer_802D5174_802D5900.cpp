@@ -19,7 +19,7 @@ struct S_802D595C {
 
 extern "C" {
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
-void TObjPlayer__sub_802D59E0(M2C_UNK arg0, s32 arg1);
+void spawn_item_thunk__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 extern u8 lbl_804E21F8[];
 extern const f32 lbl_805DE798;
 void init_state_445__10TObjPlayerFPv(void *);
@@ -63,7 +63,7 @@ S_802D595C *init_mag_effect_state__10TObjPlayerFPv(S_802D595C *arg0) {
     return arg0;
 }
 
-void TObjPlayer__sub_802D59E0(M2C_UNK arg0, s32 arg1) {
+void spawn_item_thunk__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
 }
 

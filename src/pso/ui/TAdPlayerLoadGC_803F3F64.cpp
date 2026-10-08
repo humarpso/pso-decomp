@@ -68,7 +68,7 @@ s32 TLobby__sub_803F4AEC(void);
 s32 TLobby__sub_803F4B68(s32 mode);
 s32 TLobby__sub_803F4AB4(void);
 extern AdLoadState_805A82C0 lbl_805A82C0;
-s32 TAdPlayerLoadGC__sub_803F4554(s32 arg0);
+s32 request_load__15TAdPlayerLoadGCFi(s32 arg0);
 s32 TLobby__sub_803F4AB4(void);
 extern AdLoadState_805A82C0 lbl_805A82C0;
 s32 TAdPlayerLoadGC__sub_803F45E0(s32 *arg0, s32 *arg1);
@@ -105,7 +105,7 @@ void *memcpy(void *, const void *, u32);
 s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
 s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
-s32 TAdPlayerLoadGC__sub_803F3478(s32 arg0, Save_803F3F64 *arg1, s32 arg2, s32 arg3);
+s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, Save_803F3F64 *arg1, s32 arg2, s32 arg3);
 s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_803F3690(s32 arg0, const char *arg1);
 void TAdPlayerLoadGC__sub_803F389C(s32 chan);
@@ -211,7 +211,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
         } else {
             lbl_805D79A0 = (Save_803F3F64 *)lbl_805A82C0.x0;
         }
-        lbl_805A82C0.a = TAdPlayerLoadGC__sub_803F3478(lbl_805A82C0.x10, lbl_805D79A0, TAdPlayerLoadGC__sub_803F4B80(), 0);
+        lbl_805A82C0.a = queue_network_request__15TAdPlayerLoadGCFiiii(lbl_805A82C0.x10, lbl_805D79A0, TAdPlayerLoadGC__sub_803F4B80(), 0);
         if (lbl_805A82C0.a < 0) {
             if ((void *)(&lbl_805A82C0)[0].x0 == NULL) {
                 if (lbl_805D79A0 != NULL) {
@@ -309,7 +309,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
 
 #pragma push
 #pragma scheduling off
-s32 TAdPlayerLoadGC__sub_803F4554(s32 arg0) {
+s32 request_load__15TAdPlayerLoadGCFi(s32 arg0) {
     AdLoadState_805A82C0 *s;
     switch (TLobby__sub_803F4AB4()) {
     case 0:

@@ -220,11 +220,11 @@ extern u8 *TWindowDD__data_805D6E48;
 s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 apply_both_choices__9TWindowDDFii(void *, int);
 s32 TWindowDD_check_input_mask(void *, int);
-M2C_UNK TWindowDD__sub_803407F0(int, int);
+M2C_UNK set_clamped_page__9TWindowDDFPvi(int, int);
 s32 TWindowDD__sub_80340820(int);
 M2C_UNK handle_input__9TWindowDDFPv(int);
 M2C_UNK TWindowDD__sub_80340910(int);
-M2C_UNK TWindowDD__sub_8034091C(int, int);
+M2C_UNK set_clamped_selection__9TWindowDDFPvi(int, int);
 M2C_UNK set_value_f32__9TWindowDDFPvi(int, int);
 M2C_UNK TWindowDD__sub_80341AE0(int);
 M2C_UNK TWindowDD__sub_80341AF8(int);
@@ -540,11 +540,11 @@ void run_task__9TWindowDDFv(u8 *arg0) {
     s32 done;
     if (w->x80 != 0) {
         if (w->xB0 == 0) {
-            TWindowDD__sub_803407F0(w->x80, 2);
+            set_clamped_page__9TWindowDDFPvi(w->x80, 2);
         } else if (w->xC4 > 1) {
-            TWindowDD__sub_803407F0(w->x80, 0);
+            set_clamped_page__9TWindowDDFPvi(w->x80, 0);
         } else {
-            TWindowDD__sub_803407F0(w->x80, 1);
+            set_clamped_page__9TWindowDDFPvi(w->x80, 1);
         }
     }
     cur = w->subs[w->idx];
@@ -599,7 +599,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
             if (w->xB8 != 1 && TWindowDD_check_input_mask(w->input, 0x80) != 0) {
                 spawn_window__9TWindowDDFv();
                 w->xA8 = 1;
-                TWindowDD__sub_8034091C(w->x80, get_cursor_index__9TWindowDDFPv((int)w->subs[w->idx]));
+                set_clamped_selection__9TWindowDDFPvi(w->x80, get_cursor_index__9TWindowDDFPv((int)w->subs[w->idx]));
                 TWindowDD__sub_80341AE0((int)cur);
                 TWindowDD__sub_80343BC0(&w->xE0, &w->xC4);
                 if (w->xE0 > 0) {

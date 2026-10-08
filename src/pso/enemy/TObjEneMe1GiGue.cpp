@@ -2571,7 +2571,7 @@ extern s32 ene_me1_gigue_boss_id;
 extern s32 lbl_805D682C;
 extern s32 lbl_805D6830;
 extern s32 TObjEneMe1GiGue__param_table;
-void TObjEneMe1GiGue__sub_802CDAEC(O_802CDAEC *self, s32 i);
+void load_params_from_table__15TObjEneMe1GiGueFPvi(O_802CDAEC *self, s32 i);
 
 #define GIGUE_DATA_6838 ((G_802CDAEC *)TObjEneMe1GiGue__data_805D6838)
 
@@ -2601,7 +2601,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 0x11);
     M2C_FIELD(arg0, s32 *, 0x36C) = M2C_FIELD(arg2, s16 *, 0x3E);
-    TObjEneMe1GiGue__sub_802CDAEC((O_802CDAEC *) arg0, M2C_FIELD(arg0, s32 *, 0x368));
+    load_params_from_table__15TObjEneMe1GiGueFPvi((O_802CDAEC *) arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, void **, 0xD8) = lbl_804E1258;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
     init_collision_body_parts(arg0, lbl_804E1304, 2);
@@ -2670,7 +2670,7 @@ f32 TObjEneMe1GiGue__sub_802CDAD8(M2C_UNK arg0, s32 arg1) {
 
 void TObjEneMe1GiGue__sub_802CDAE8(void) {  }
 
-void TObjEneMe1GiGue__sub_802CDAEC(O_802CDAEC *self, s32 i) {
+void load_params_from_table__15TObjEneMe1GiGueFPvi(O_802CDAEC *self, s32 i) {
     self->f34 = GIGUE_DATA_6838->e[i].c;
     self->f24 = GIGUE_DATA_6838->e[i].d;
 }

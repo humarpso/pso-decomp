@@ -452,7 +452,7 @@ M2C_UNK set_mode__5TItemFPvc(void *, int);
 M2C_UNK clear_item_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK delete_children__7TObjectFv(void *);
 void unequip__14TItemEquipBaseFPv(u8 *arg0);
-s32 TItemLoad__sub_801100F0(s32);
+s32 has_resource_id__9TItemLoadFi(s32);
 s32 find_node_by_id__9TItemLoadFi(s32);
 void bind_loaded_resources__14TItemEquipBaseFPv(u8 *arg0);
 M2C_UNK get_id__13TItemProArmorFPv(void *);
@@ -566,7 +566,7 @@ void subtract_equip_stats__14TItemEquipBaseFPviPvPv(u8 *arg0, s32 arg1, u8 *arg2
 void update_equip__14TItemEquipBaseFPv(void *arg0);
 void update_with_player__14TItemEquipBaseFi(s32 arg0);
 M2C_UNK subtract_s16_stat(void *, void *);
-s32 TItemLoad__sub_801103F4(s16);
+s32 release_resource_by_id__9TItemLoadFi(s16);
 s32 TObjPlayer__sub_800194E8(void *);
 s8 TObjPlayer__sub_80102C30();
 void __dt__5TItemFv(void *, int);
@@ -610,7 +610,7 @@ void bind_loaded_resources__14TItemEquipBaseFPv(u8 *arg0) {
     u8 *temp_r3_2;
     if ((u32) M2C_FIELD(arg0, u32 *, 0xF4) == 0U) {
         temp_r3 = M2C_FIELD(arg0, s16 *, 0x172);
-        if ((temp_r3 != -1) && (TItemLoad__sub_801100F0((s32) temp_r3) == 1)) {
+        if ((temp_r3 != -1) && (has_resource_id__9TItemLoadFi((s32) temp_r3) == 1)) {
             temp_r3_2 = (u8 *)(find_node_by_id__9TItemLoadFi((s32) M2C_FIELD(arg0, s16 *, 0x172)));
             if (temp_r3_2 != NULL) {
                 M2C_FIELD(arg0, u32 *, 0xF4) = (u32) M2C_FIELD(temp_r3_2, u32 *, 0);
@@ -931,7 +931,7 @@ void equip__14TItemEquipBaseFPv(u8 *arg0) {
 void release__14TItemEquipBaseFPv(void *arg0) {
     s16 temp = M2C_FIELD(arg0, s16 *, 0x172);
     if (temp != -1) {
-        TItemLoad__sub_801103F4(temp);
+        release_resource_by_id__9TItemLoadFi(temp);
         M2C_FIELD(arg0, s16 *, 0x172) = -1;
         M2C_FIELD(arg0, s32 *, 0xF4) = 0;
         M2C_FIELD(arg0, s32 *, 0x24) = 0;

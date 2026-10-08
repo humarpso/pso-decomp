@@ -117,7 +117,7 @@ struct G_802932EC {
 extern "C" {
 void copy_struct__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 void TLobby__sub_8029379C(void);
-void TLobby__sub_802934E0(void);
+void clear_card_status_flags__6TLobbyFv(void);
 s32 get_main_phase();
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -131,7 +131,7 @@ void TLobby__sub_80293218(s32 arg0);
 u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
 void TLobby__sub_800703D0(void *, void *);
-void TLobby__sub_802934E0(void);
+void clear_card_status_flags__6TLobbyFv(void);
 void snapshot_player_card_status__6TLobbyFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void create_obj_tag_challenge(s32);
@@ -514,14 +514,14 @@ void TLobby__sub_802933FC(void *arg0) {
     }
 }
 
-void TLobby__sub_802934E0(void) {
+void clear_card_status_flags__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) (*(G_802934E0 *)&lbl_804DB1F0).r[i].f = 0;
 }
 
 void snapshot_player_card_status__6TLobbyFv(void) {
     s32 i;
-    TLobby__sub_802934E0();
+    clear_card_status_flags__6TLobbyFv();
     for (i = 0; i < 4; i++) {
         if (get_player_by_client_id(i) != 0 && get_card_window__17TWindowSubComCardFUi(i) != NULL) {
             Rec_8029350C *r = &(*(G_8029350C *)&lbl_804DB1F0).r[i];

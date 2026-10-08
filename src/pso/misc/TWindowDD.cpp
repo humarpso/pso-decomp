@@ -21,9 +21,9 @@ struct RecoveredGlobal_803404A4_lbl_8050E208
 struct E_803403F8 { f32 a; f32 b; f32 c; f32 d; f32 e; s32 f; };
 
 extern "C" {
-void TWindowDD__sub_803407F0(u8 *arg0, s32 arg1);
+void set_clamped_page__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
-void TWindowDD__sub_8034091C(u8 *arg0, s32 arg1);
+void set_clamped_selection__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 void set_value_f32__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 extern const f32 lbl_805DFC34;
 extern const f32 lbl_805DFC38;
@@ -139,7 +139,7 @@ s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
 
 void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
 
-void TWindowDD__sub_803407F0(u8 *arg0, s32 arg1) {
+void set_clamped_page__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
     if (arg1 < 0) {
         M2C_FIELD(arg0, s32 *, 0x64) = 0;
         return;
@@ -201,7 +201,7 @@ void *lbl_804EFBAC[7] = {
 #define lbl_804EFB98 ((f32 *)lbl_804EFB98)
 #define lbl_804EFBAC ((M2C_UNK *)lbl_804EFBAC)
 
-void TWindowDD__sub_8034091C(u8 *arg0, s32 arg1) {
+void set_clamped_selection__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 var_r4;
     var_r4 = arg1;

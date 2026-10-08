@@ -247,7 +247,7 @@ M2C_UNK free__11TOBoss4RockFUi(void*);
 FogParam_800FBC5C * alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK create__22TObjFogCollisionPoisonFv();
 M2C_UNK TObjFogCollisionPoison__sub_801533BC();
-void TObjFogCollisionPoison__sub_801533C0(void);
+void clear_state_array__22TObjFogCollisionPoisonFv(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -914,7 +914,7 @@ void init_scene_fog_system(void) {
     }
     ((M2C_UNK (*)(void))end_effect_render__13TParticleCtrlFv)();
     create_instance__8TFogCtrlFv();
-    TObjFogCollisionPoison__sub_801533C0();
+    clear_state_array__22TObjFogCollisionPoisonFv();
 }
 
 }

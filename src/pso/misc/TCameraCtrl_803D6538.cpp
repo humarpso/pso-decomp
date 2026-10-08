@@ -220,14 +220,14 @@ s32 sample_motion_vector_channel(s32 arg0);
 extern u8 *lbl_805D76BC;
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
 extern u8 *lbl_805D76BC;
-s32 TObjPlayer__sub_803D6C94(s32 arg0);
+s32 run_next_key_callback__10TObjPlayerFi(s32 arg0);
 extern u8 *lbl_805D76BC;
 s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
 void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
 s32 sample_motion_vector_channel(s32 arg0);
-s32 TObjPlayer__sub_803D6C94(s32 arg0);
+s32 run_next_key_callback__10TObjPlayerFi(s32 arg0);
 s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 s32 TObjPlayer__sub_803D7FD0(void);
 s32 TObjPlayer__sub_803D7FD8(void);
@@ -454,7 +454,7 @@ s32 TObjPlayer__sub_803D6C1C(s32 arg0) {
 }
 
 #define G_803D6C94 ((St_803D6C94 *)lbl_805D76BC)
-s32 TObjPlayer__sub_803D6C94(s32 arg0) {
+s32 run_next_key_callback__10TObjPlayerFi(s32 arg0) {
     if (G_803D6C94->keys[G_803D6C94->idx] != 0) {
         G_803D6C94->fn28(G_803D6C94->keys[G_803D6C94->idx], G_803D6C94->vals[G_803D6C94->idx], arg0, G_803D6C94->t);
         G_803D6C94->idx = G_803D6C94->idx + 1;
@@ -875,7 +875,7 @@ void bind_motion_channel_samplers(int arg0, f32 farg0) {
         M2C_FIELD(lbl_805D76BC, void **, 0x30) = (void *)TObjPlayer__sub_803D7FD0;
     }
     if ((u32) (temp_r5 & 2) != 0) {
-        M2C_FIELD(lbl_805D76BC, void **, 0x34) = (void *)TObjPlayer__sub_803D6C94;
+        M2C_FIELD(lbl_805D76BC, void **, 0x34) = (void *)run_next_key_callback__10TObjPlayerFi;
         M2C_FIELD(lbl_805D76BC, void **, 0x3C) = NULL;
     } else if ((u32) (temp_r5 & 0x2000) != 0) {
         M2C_FIELD(lbl_805D76BC, void **, 0x34) = NULL;

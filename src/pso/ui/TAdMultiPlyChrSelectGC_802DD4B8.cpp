@@ -12,7 +12,7 @@ M2C_UNK clear_entries__18TAdChrMoveEffectGCFPv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE304();
+M2C_UNK clear_slot_entry__23TAdSinglePlyChrSelectGCFi();
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_child_visible__17TWindowSubComCardFPv(s32);
 s32 get_card_data__17TWindowSubComCardFPv(s32);
@@ -101,7 +101,7 @@ void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             return;
         case 0:
             TAdMultiPlyChrSelectGC__sub_802DFFE8(M2C_FIELD(arg0, s32 *, 0x5C));
-            TAdSinglePlyChrSelectGC__sub_801FE304();
+            clear_slot_entry__23TAdSinglePlyChrSelectGCFi();
             set_field_1c__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x6C), 0x16);
             M2C_FIELD(arg0, s32 *, 0x20) = 0x14;
             break;

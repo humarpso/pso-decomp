@@ -361,7 +361,7 @@ void init_breakup_effect__15TBoss3VoloptP01Fv(void);
 s32 set_player_view_flag__11TCameraCtrlFi();
 s32 set_flag_08000000__11TCameraCtrlFi();
 void apply_hit_reaction__12TBoss3VoloptFPvf(void *, f32);
-void TBoss3Volopt__sub_80044CB8(void *);
+void copy_phase2_positions_to_global__12TBoss3VoloptFPv(void *);
 void set_action_wait__12TBoss3VoloptFPvUs(void *, u16);
 void set_motion__12TBoss3VoloptFPvs(void *, u16);
 void check_and_trigger__12TBoss3VoloptFPv(void *);
@@ -485,7 +485,7 @@ void handle_6x85_vol_opt_phase2_boss_actions(Obj_8003CA2C *self) {
         swap_6x85_fields__12TBoss3VoloptFPv(self);
         switch (self->mode) {
         case 0:
-            TBoss3Volopt__sub_80044CB8(self);
+            copy_phase2_positions_to_global__12TBoss3VoloptFPv(self);
             break;
         }
     }

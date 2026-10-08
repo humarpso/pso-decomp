@@ -8,7 +8,7 @@ extern "C" {
 void* init_object__15TAdPlayerLoadGCFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TAdPlayerLoadGC__sub_802D6504(u8 *arg0);
+u8 *create_instance__15TAdPlayerLoadGCFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -19,7 +19,7 @@ int set_status_flags__10TObjPlayerFPvUi(void*, void*);
     extern unsigned char lbl_804E24F0[];
     extern const float lbl_805DE7A8;
 void* init_object__15TAdPlayerLoadGCFPv(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lbl_804E24F0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(float*)((char*)a0 + 0x1f8) = lbl_805DE7A8; return a0; }
-u8 *TAdPlayerLoadGC__sub_802D6504(u8 *arg0) {
+u8 *create_instance__15TAdPlayerLoadGCFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

@@ -195,7 +195,7 @@ s16 TLobby__sub_80419B04();
 s32 TLobby__sub_8041A1D8(void);
 s16 TLobby__sub_8041A230();
 s32 reset_stack_module__6TLobbyFv(void);
-s16 TLobby__sub_80420C9C();
+s16 init_ucb_entries__6TLobbyFv();
 extern char lbl_804800F0[];
 extern u32 TLobby__network_stack_init_count;
 extern u8 *lbl_805E1188;
@@ -332,7 +332,7 @@ s16 init_network_stack__6TLobbyFv(void) {
             if (var_r31 >= 0) {
                 var_r31 = TLobby__sub_8041A230();
                 if (var_r31 >= 0) {
-                    var_r31 = TLobby__sub_80420C9C();
+                    var_r31 = init_ucb_entries__6TLobbyFv();
                     if (var_r31 >= 0) {
                         var_r31 = init_packet_fragment_pools__6TLobbyFv();
                         if (var_r31 >= 0) {

@@ -1675,7 +1675,7 @@ int emit_part_attack_effect__12TBoss8DragonFPvi(void *arg0, int arg1);
 void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1);
 void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self);
 void apply_remote_action__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
-void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
+void copy_action_state__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
 void handle_6xA0_gal_gryphon_boss_actions(void *arg0);
 void set_target_from_action__12TBoss8DragonFPvPv(void *arg0, void *arg1);
 void handle_6x9F_gal_gryphon_boss_actions(void *arg0);
@@ -5076,7 +5076,7 @@ void apply_remote_action__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
     VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x484)), (void*)((void *) (arg1 + 4)));
     ((f32 (*)(void *, void *))subtract_vector)((void *) (arg0 + 0x484), (void *) (arg0 + 0x38));
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    TBoss8Dragon__sub_80064B90((u8 *)((void *) (arg0 + 0x494)), (u8 *)((void *) (arg1 + 0x14)));
+    copy_action_state__12TBoss8DragonFPvPv((u8 *)((void *) (arg0 + 0x494)), (u8 *)((void *) (arg1 + 0x14)));
     M2C_FIELD(arg0, s16 **, 0x4BC) = (s16 *) (arg0 + 0x494);
     temp_r4 = *M2C_FIELD(arg0, s16 **, 0x4BC);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != temp_r4) {
@@ -5103,7 +5103,7 @@ extern int fold_flush_27;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1) {
+void copy_action_state__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
     *(M2CCopy_10 *)((s32) arg0 + 4) = *(const M2CCopy_10 *)((s32) arg1 + 4);

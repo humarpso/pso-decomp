@@ -60,8 +60,8 @@ struct Save_801039BC {
 
 extern "C" {
 extern s32 lbl_805D5420;
-s32 TLobby__sub_8010385C(s32 arg0);
-s32 TLobby__sub_80103B44(s32 arg0);
+s32 is_stat_over_limit__6TLobbyFi(s32 arg0);
+s32 is_entry_valid__6TLobbyFi(s32 arg0);
 extern s32 lbl_805D5424;
 extern s32 lbl_805D5428;
 u16 pop_free_id__6TLobbyFv(void);
@@ -108,8 +108,8 @@ extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val);
 void TLobby__sub_801037A0(s32 n);
-s32 TLobby__sub_8010385C(s32 arg0);
-s32 TLobby__sub_80103B44(s32 arg0);
+s32 is_stat_over_limit__6TLobbyFi(s32 arg0);
+s32 is_entry_valid__6TLobbyFi(s32 arg0);
 void TLobby__sub_80104258(void *, void *);
 void *memcpy(void *, const void *, u32);
 extern Ent_801037A0 **lbl_805D541C;
@@ -183,7 +183,7 @@ void TLobby__sub_801037A0(s32 n) {
     }
 }
 
-s32 TLobby__sub_8010385C(s32 arg0) {
+s32 is_stat_over_limit__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 0) && (arg0 < 0x12) && ((s32) M2C_FIELD(lbl_805D5420, M2C_UNK *, (arg0 * 4)) < 0x32)) {
         return 0;
     }
@@ -284,7 +284,7 @@ s32 TLobby__sub_80103B04(u16 arg0) {
   return 0;
 }
 
-s32 TLobby__sub_80103B44(s32 arg0) {
+s32 is_entry_valid__6TLobbyFi(s32 arg0) {
     if (((s32) M2C_FIELD(lbl_805D5420, M2C_UNK *, (arg0 * 4)) < 0xC0) && (arg0 < 0x12)) {
         return 1;
     }
@@ -387,10 +387,10 @@ s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e) {
     s32 hi;
     Ent_80103DD8 *p;
     if (e != NULL) {
-        if (TLobby__sub_8010385C(e->n) != 0) {
+        if (is_stat_over_limit__6TLobbyFi(e->n) != 0) {
             TLobby__sub_801037A0(e->n);
         }
-        if (e->n < 0x12 && TLobby__sub_80103B44(e->n) != 0) {
+        if (e->n < 0x12 && is_entry_valid__6TLobbyFi(e->n) != 0) {
             idx = e->n;
             list = (*(Ent_80103DD8 ** *)&lbl_805D541C)[idx];
             if (list != NULL) {

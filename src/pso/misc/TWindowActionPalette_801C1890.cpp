@@ -104,12 +104,12 @@ struct C_801C1BA8 { u32 w[5]; };
 struct S_801C1BA8 { u8 a; u8 b; u8 c; u8 d; s32 e; C_801C1BA8 f; };
 
 extern "C" {
-int TObjPlayer__sub_80019664(void);
+int init_packet_9a__10TObjPlayerFPv(void);
 void bswap_warp_packet__10TObjPlayerFPv(void* p);
 void send_warp_packet__10TObjPlayerFPv(void* p);
 s32 TLobby__send_and_handle_60(s32);
 void bswap_warp_packet__10TObjPlayerFPv(void* p);
-int TObjPlayer__sub_80019664(void);
+int init_packet_9a__10TObjPlayerFPv(void);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
@@ -193,11 +193,11 @@ int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
 int TWindowActionPalette__sub_801C1C20(void* p);
 int construct_pb_controller__15TFontSmallLobbyFi(void);
-int TFontSmallLobby__sub_801D6614(void);
+int is_valid_index__15TFontSmallLobbyFs(void);
 int TObjPlayer__sub_801C1F50(void* p);
 int test_flags_any(void*, int);
 int construct_pb_controller__15TFontSmallLobbyFi(void);
-int TFontSmallLobby__sub_801D6614(void);
+int is_valid_index__15TFontSmallLobbyFs(void);
 int TObjPlayer__sub_801C1F50(void* p);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);
 void TObjPlayer__sub_801C1F78(void* p, s16 v);

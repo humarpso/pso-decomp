@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_load__9TItemLoadFPv(u8 *arg0);
-M2C_UNK TItemLoad__sub_8010F61C(u32, s32, s32);
+M2C_UNK start_load_with_id__9TItemLoadFPvii(u32, s32, s32);
 M2C_UNK begin_load_if_pending__9TItemLoadFPvii(u32, u32, s32);
 s32 TItemLoad__sub_80110740(u32);
 u32 TItemLoad__sub_80110748(u32);
@@ -28,7 +28,7 @@ void update_load__9TItemLoadFPv(u8 *arg0) {
     switch (temp_r0) {
     case 1:
         if (((u32) lbl_805D54A0 != 0U) && ((u32) lbl_805D549C != 0U)) {
-            TItemLoad__sub_8010F61C(lbl_805D54A0, lbl_805D54A4 + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x2C00), M2C_FIELD(arg0, s32 *, 0x24));
+            start_load_with_id__9TItemLoadFPvii(lbl_805D54A0, lbl_805D54A4 + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x2C00), M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, s32 *, 0x20) = 2;
         }
         return;

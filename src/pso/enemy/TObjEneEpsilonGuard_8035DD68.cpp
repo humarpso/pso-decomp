@@ -409,9 +409,9 @@ struct VObj_8035EA90 : VBase_8035EA90 {
 
 extern "C" {
 s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0);
-s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0);
+s32 is_guard_active__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void clear_and_flag_state__19TObjEneEpsilonGuardFPv(u8 *arg0);
-void TObjEneEpsilonGuard__sub_8035DE88(u8 *arg0);
+void set_flag_8_and_notify__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DEC0(u8 *arg0);
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 extern RecoveredGlobal_8035E374_lbl_805439E0 lbl_805439E0;
@@ -591,7 +591,7 @@ s32 TObjEneEpsilonGuard__sub_8035DD74(u8 *arg0) {
     return ((u32) M2C_FIELD(arg0, u32 *, 0x46C) >> 4U) & 1;
 }
 
-s32 TObjEneEpsilonGuard__sub_8035DD94(u8 *arg0) {
+s32 is_guard_active__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x30) & 0xA00) {
         return 0;
     }
@@ -633,7 +633,7 @@ void clear_and_flag_state__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     ((VObj_18 *)(arg0))->m53();
 }
 
-void TObjEneEpsilonGuard__sub_8035DE88(u8 *arg0) {
+void set_flag_8_and_notify__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x46C) = (s32) (M2C_FIELD(arg0, s32 *, 0x46C) | 8);
     ((VObj_18 *)(arg0))->m53();
 }

@@ -31,7 +31,7 @@ M2C_UNK set_input_active__11TWindowChatFPv(void *);
 s32 TWindowChat__sub_80247080(u8 *arg0);
 M2C_UNK set_active_flag__11TWindowChatFPv(void *);
 M2C_UNK set_input_active__11TWindowChatFPv(void *);
-s32 TWindowDD__sub_80348470(int);
+s32 get_mode_code__9TWindowDDFPv(int);
 s32 TWindowChat__sub_80247128(u8 *arg0);
 s32 TWindowChat__sub_80247D50(s32);
 s32 TWindowChat__sub_8025CB10(s32);
@@ -88,7 +88,7 @@ s32 TWindowChat__sub_80247128(u8 *arg0) {
     if (temp_r3 == 0U) {
         return 0;
     }
-    temp_r3_2 = TWindowDD__sub_80348470((int) (temp_r3));
+    temp_r3_2 = get_mode_code__9TWindowDDFPv((int) (temp_r3));
     if (temp_r3_2 == 0) {
         return 0;
     }

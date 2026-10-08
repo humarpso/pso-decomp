@@ -320,7 +320,7 @@ extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804
 void end_conversation_camera(void);
 extern RecoveredGlobal_8006D494_camera_controller_registry camera_controller_registry;
 extern RecoveredGlobal_8006D494_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-void TCameraCtrl__sub_8006D460(void);
+void set_active_camera_flag__11TCameraCtrlFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * csnVector(void *, void *, u32);
 void recenter_with_obstruction__11TCameraCtrlFPvPvPv(struct RecoveredFields_8006DCD4_arg0 *arg0, u8 *arg1, u8 *arg2);
@@ -709,7 +709,7 @@ void apply_follow_camera_offsets(void *arg0, void *arg1, s32 arg2, u16 arg3) {
 }
 #undef REG_8006D344
 
-void TCameraCtrl__sub_8006D460(void) {
+void set_active_camera_flag__11TCameraCtrlFv(void) {
     u8 *temp_r3;
     if ((u8) (*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value == 0) {
         temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_8006D460_camera_controller_registry *)&camera_controller_registry).value, M2C_UNK *, (((*(RecoveredGlobal_8006D460_TCameraCtrl__data_804FF628 *)&TCameraCtrl__data_804FF628).value * 4) & 0x3FC)));

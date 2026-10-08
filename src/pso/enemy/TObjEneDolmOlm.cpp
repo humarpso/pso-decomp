@@ -529,7 +529,7 @@ M2C_UNK set_active__12TObjEneReconFv();
 extern const f32 TObjEneDolmOlm__data_805DEF50;
 void run_task__14TObjEneDolmOlmFPv(u8 *arg0);
 extern u32 TObjEneDolmOlm__data_805D6A10;
-void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
+void load_params_from_table__14TObjEneDolmOlmFPvi(O_80302D80 *self, s32 i);
 void advance_animation_playback(void);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
 void play_area_sound_effect__12TBoss3VoloptFi(void *);
@@ -565,7 +565,7 @@ extern const f32 TObjEneDolmOlm__data_805DEF50;
 void spawn_ground_effects__14TObjEneDolmOlmFPvPv(u8 *arg0, Vec_80300D00 *arg1);
 M2C_UNK draw_trail_with_colors(u32, s32, s32, int, int);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
-void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i);
+void load_params_from_table__14TObjEneDolmOlmFPvi(O_80302D80 *self, s32 i);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern u32 TObjEneDolmOlm__data_805D6A10;
@@ -1245,7 +1245,7 @@ void TObjEneDolmOlm__sub_80301148(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x368) = 1;
         set_param__12TObjEneLappyFPvi(arg0, 0x41);
     }
-    TObjEneDolmOlm__sub_80302D80((O_80302D80 *)arg0, M2C_FIELD(arg0, s32 *, 0x368));
+    load_params_from_table__14TObjEneDolmOlmFPvi((O_80302D80 *)arg0, M2C_FIELD(arg0, s32 *, 0x368));
     set_global_flag__10TObjPlayerFv();
     draw_trail_with_colors(TObjEneDolmOlm__data_805D6A14,
         ((T_80301148 *)TObjEneDolmOlm__data_805D6A10)->a[M2C_FIELD(arg0, s32 *, 0x368)].v,
@@ -1986,7 +1986,7 @@ u8 *TObjEneDolmOlm__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
-void TObjEneDolmOlm__sub_80302D80(O_80302D80 *self, s32 i) {
+void load_params_from_table__14TObjEneDolmOlmFPvi(O_80302D80 *self, s32 i) {
     self->f34 = (*(G_80302D80 * *)&TObjEneDolmOlm__data_805D6A10)->e[i].c;
     self->f24 = (*(G_80302D80 * *)&TObjEneDolmOlm__data_805D6A10)->e[i].d;
 }

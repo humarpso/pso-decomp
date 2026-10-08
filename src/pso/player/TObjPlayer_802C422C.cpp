@@ -86,7 +86,7 @@ void set_flag_80000__10TObjPlayerFPv(void* p);
 void set_flag_e7__10TObjPlayerFPvUc(void* p, u8 v);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-s32 TAdSelectGameModeGC__sub_801A2FAC();
+s32 free_sub_ctrls__19TAdSelectGameModeGCFPv();
 int clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFPv(void*);

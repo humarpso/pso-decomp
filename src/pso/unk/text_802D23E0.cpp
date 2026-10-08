@@ -22,7 +22,7 @@ struct Half_802D26C8 { u8 b[0xF8]; };
 struct Pair_802D26C8 { Half_802D26C8 h[2]; };
 
 extern "C" {
-u8 * TLobby__sub_802D27E0(s32 arg0, s32 arg1);
+u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK get_shared_text_buffer();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK refresh_player_status__6TLobbyFv(int);
@@ -56,7 +56,7 @@ extern u32 TLobby__data_805D6898;
 void update_trade_proposal_state__6TLobbyFv(void);
 s32 TLobby__sub_802D1D48(void *, void *);
 M2C_UNK update_both_halves__6TLobbyFPv(void *);
-u8 * TLobby__sub_802D27E0(s32 arg0, s32 arg1);
+u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1);
 s32 show_event_message__6TLobbyFiii(void *, int, int);
 extern Half_802D26C8 TLobby__data_80540BD0[4];
 extern u32 lbl_805D53A0;
@@ -180,8 +180,8 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     s32 r;
     s32 flag = 0;
     update_both_halves__6TLobbyFPv(&buf);
-    ((u8 *(*)(void *, void *))TLobby__sub_802D27E0)(&buf.h[0], &TLobby__data_80540BD0[2]);
-    ((u8 *(*)(void *, void *))TLobby__sub_802D27E0)(&buf.h[1], &TLobby__data_80540BD0[1]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__data_80540BD0[2]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__data_80540BD0[1]);
     r = TLobby__sub_802D1D48(&buf, &code);
     if (r == 4) {
         flag = 1;
@@ -189,8 +189,8 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
         return show_event_message__6TLobbyFiii((void *)lbl_805D53A0, r, code);
     }
     update_both_halves__6TLobbyFPv(&buf);
-    ((u8 *(*)(void *, void *))TLobby__sub_802D27E0)(&buf.h[0], &TLobby__data_80540BD0[0]);
-    ((u8 *(*)(void *, void *))TLobby__sub_802D27E0)(&buf.h[1], &TLobby__data_80540BD0[3]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[0], &TLobby__data_80540BD0[0]);
+    ((u8 *(*)(void *, void *))copy_struct_f8__6TLobbyFii)(&buf.h[1], &TLobby__data_80540BD0[3]);
     r = TLobby__sub_802D1D48(&buf, &code);
     if (r == 4) {
         if (flag) {
@@ -202,7 +202,7 @@ s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     return 0;
 }
 
-u8 * TLobby__sub_802D27E0(s32 arg0, s32 arg1) {
+u8 * copy_struct_f8__6TLobbyFii(s32 arg0, s32 arg1) {
     *(M2CCopy_F8 *)(arg0) = *(const M2CCopy_F8 *)(arg1);
     return (u8 *)arg0;
 }

@@ -398,7 +398,7 @@ void * __dt__16TObjCMAutoMkDataFv(void *arg0, s16 arg1);
 u8 * TObjCMAutoMkData__ct(u8 *arg0);
 void * create__14TObjCMHairMenuFPv(void *arg0);
 Hair_802964B0 * __ct__14TObjCMHairMenuFv(Hair_802964B0 *arg0, void *arg1);
-void TObjCMAssignMenu__sub_80296560(Menu_80296560 *self);
+void draw_assign_icons__16TObjCMAssignMenuFPv(Menu_80296560 *self);
 void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self);
 void render_assign_slots__16TObjCMAssignMenuFv(Menu_80296744 *self);
 void render__16TObjCMAssignMenuFv(Menu_80296928 *self);
@@ -899,7 +899,7 @@ TObjCMAssignMenu::~TObjCMAssignMenu() {}
 extern "C" {
 #pragma push
 #pragma fp_contract on
-void TObjCMAssignMenu__sub_80296560(Menu_80296560 *self) {
+void draw_assign_icons__16TObjCMAssignMenuFPv(Menu_80296560 *self) {
     s32 idx;
     u32 bit;
     s32 i;
@@ -1102,7 +1102,7 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
         if (self->owner->flags & 0x10) {
             TObjCMAssignMenu__sub_80296648((Menu_80296648 *)(self));
         } else {
-            TObjCMAssignMenu__sub_80296560((Menu_80296560 *)(self));
+            draw_assign_icons__16TObjCMAssignMenuFPv((Menu_80296560 *)(self));
         }
         break;
     }

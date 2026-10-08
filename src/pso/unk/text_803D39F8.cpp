@@ -40,7 +40,7 @@ s32 get_handle_field_checked__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803CFEA0_lbl_8047DAE4 lbl_8047E0F8;
 extern s32 lbl_805D767C;
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
-s32 TLobby__sub_803D3AD8(u8 *arg0);
+s32 get_field4_or_report__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803D39F8_lbl_8047E0C8 lbl_8047E0C8;
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
@@ -80,7 +80,7 @@ void set_list_unit__6TLobbyFPvi(S_803D3A4C *s, s32 unit) {
     }
 }
 
-s32 TLobby__sub_803D3AD8(u8 *arg0) {
+s32 get_field4_or_report__6TLobbyFPv(u8 *arg0) {
     if (arg0 == NULL) {
         if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) lbl_805D7678) != NULL) {
             lbl_805D7678(lbl_805D767C, &lbl_8047E0F8.value, 0);

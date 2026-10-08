@@ -18,7 +18,7 @@ typedef struct Row_8025930C {
 
 extern "C" {
 s32 is_flag_4_set__20TWindowSubStatusDispFPv(void *p);
-void TWindowSubStatusDisp__sub_80259814(void *p);
+void check_flag_4_noop__20TWindowSubStatusDispFPv(void *p);
 void reset_transform_state__10TObjPlayerFv();
 void init_xyz_limits__10TObjPlayerFv();
 u32 calc_text_width(s32);
@@ -216,7 +216,7 @@ void draw_item_list_row(ItemListRow *row, ItemListWindowView *win) {
   }
 }
 
-void TWindowSubStatusDisp__sub_80259814(void *p) {
+void check_flag_4_noop__20TWindowSubStatusDispFPv(void *p) {
     if (is_flag_4_set__20TWindowSubStatusDispFPv(p)) return;
 }
 

@@ -17,7 +17,7 @@ extern RecoveredGlobal_80080438_lbl_80438DD4 lbl_80438DD4;
 void TDuelEffectNumber__sub_80080438(u8 *arg0, f32 farg0);
 extern Entry_800803D4 lbl_80438DEC[];
 void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
-void TDuelEffectNumber__sub_800803D4(void *self, f32 f);
+void render_pair__17TDuelEffectNumberFPvf(void *self, f32 f);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ void *__ct__17TDuelEffectNumberFv(void *arg0, void *arg1, void *arg2, void *arg3
 }
 typedef char RecoveredGlobal_80080438_lbl_80438DD4_size[sizeof(RecoveredGlobal_80080438_lbl_80438DD4) == 0x18 ? 1 : -1];
 
-void TDuelEffectNumber__sub_800803D4(void *self, f32 f) {
+void render_pair__17TDuelEffectNumberFPvf(void *self, f32 f) {
     s32 i;
     for (i = 0; i < 2; i++) {
         TDuelEffectNumber__sub_800802F8(self, &lbl_80438DEC[i], f);

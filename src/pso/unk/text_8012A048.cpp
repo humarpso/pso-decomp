@@ -61,7 +61,7 @@ extern "C" {
 M2C_UNK TObjPlayer__sub_80128A70();
 void apply_m49_state_b__10TObjPlayerFPv(u8 *arg0);
 void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
-void TObjPlayer__sub_8012A0EC(u8 *arg0);
+void draw_status_icons_default__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -74,7 +74,7 @@ void apply_m49_state_b__10TObjPlayerFPv(u8 *arg0) {
     }
     ((VObj_18 *)(arg0))->m49(arg0 + 0x208, 0, 0, 1);
 }
-void TObjPlayer__sub_8012A0EC(u8 *arg0) {
+void draw_status_icons_default__10TObjPlayerFPv(u8 *arg0) {
     draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1FC, arg0 + 0x208);
 }
 

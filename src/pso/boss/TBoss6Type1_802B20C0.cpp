@@ -179,8 +179,8 @@ M2C_UNK set_flag_on_threshold__11TBoss6Type1FPv(void *);
 s32 TBoss6Type1__sub_802B6060(void *);
 int TBoss6Type1__sub_802B626C(void*);
 M2C_UNK reset_param__11TBoss6Type1FPv(void *);
-M2C_UNK TBoss6Type1__sub_802B64B4(void *);
-M2C_UNK TBoss6Type1__sub_802B64DC(void *);
+M2C_UNK decrease_field_clamped_min__11TBoss6Type1FPv(void *);
+M2C_UNK increase_field_clamped_max__11TBoss6Type1FPv(void *);
 int TBoss6Type1__sub_802B6504(void*);
 void spawn_grav_ball__11TBoss6Type1FPv(void *);
 M2C_UNK TBoss6Type1__sub_802B6944(void *);
@@ -687,10 +687,10 @@ void TBoss6Type1__sub_802B31E4(u8 *arg0) {
     rotate_around_center__11TBoss6Type1FPvii((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x410)), (int) (M2C_FIELD(arg0, s32 *, 0x40C)));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x410);
     if ((temp_r3 <= (s32) M2C_FIELD(arg0, s32 *, 0x4A0)) && (temp_r3 >= 0x1E)) {
-        TBoss6Type1__sub_802B64DC((void *) (arg0));
+        increase_field_clamped_max__11TBoss6Type1FPv((void *) (arg0));
         TBoss6Type1__sub_802B6C30((void *) (arg0));
     } else {
-        TBoss6Type1__sub_802B64B4((void *) (arg0));
+        decrease_field_clamped_min__11TBoss6Type1FPv((void *) (arg0));
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x410) >= 0x1E) {
         var_r3 = 0x4003B50C;

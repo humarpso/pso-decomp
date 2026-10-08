@@ -18,7 +18,7 @@ struct Ent_801E4874 {
 
 extern "C" {
 extern s32 lbl_805D5E58;
-s32 TLanguage__sub_801E4B40(void);
+s32 read_u16_le__9TLanguageFv(void);
 extern s32 lbl_805D5E58;
 s32 read_u32_le__9TLanguageFv(void);
 void tmp_buf_release__6TLobbyFi(void *);
@@ -128,8 +128,8 @@ u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     lbl_805D5E58 = arg0;
     read_into_buffer__9TLanguageFii((s32)((s32)(arg1)), (s32)((s32)(4)));
     M2C_FIELD(arg1, s32 *, 4) = read_u32_le__9TLanguageFv();
-    M2C_FIELD(arg1, u16 *, 8) = TLanguage__sub_801E4B40();
-    M2C_FIELD(arg1, u16 *, 0xA) = TLanguage__sub_801E4B40();
+    M2C_FIELD(arg1, u16 *, 8) = read_u16_le__9TLanguageFv();
+    M2C_FIELD(arg1, u16 *, 0xA) = read_u16_le__9TLanguageFv();
     bswap_32__FPUl(arg1 + 4);
     bswap_16__FPUs(arg1 + 8);
     bswap_16__FPUs(arg1 + 0xA);
@@ -151,7 +151,7 @@ s32 read_u32_le__9TLanguageFv(void) {
     return v;
 }
 
-s32 TLanguage__sub_801E4B40(void) {
+s32 read_u16_le__9TLanguageFv(void) {
     s32 lo = *(u8 *)lbl_805D5E58++;
     lo |= *(u8 *)lbl_805D5E58++ << 8;
     return lo;

@@ -13,7 +13,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8036B6D0_lbl_804F3660 lbl_804F3660;
 extern u32 TObjBoss8DemoRoom__data_805D7010;
-void TObjBoss8DemoRoom__sub_8036B6D0(void);
+void load_resource__17TObjBoss8DemoRoomFv(void);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ void free_static_instance__17TObjBoss8DemoRoomFv(void) {
     }
 }
 
-void TObjBoss8DemoRoom__sub_8036B6D0(void) {
+void load_resource__17TObjBoss8DemoRoomFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

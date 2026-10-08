@@ -49,7 +49,7 @@ typedef struct Out_803DEA18
 extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
-s16 TKeyBoardControl__sub_803DEC10(s16 x);
+s16 scale_axis_value__16TKeyBoardControlFs(s16 x);
 M2C_UNK Dolphin_PADRead(void *, void *);
 extern M2C_UNK keyboard_pad_status_buffer[];
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
@@ -80,7 +80,7 @@ void PSMTXIdentity(void *);
 void move_data__6TLobbyFv(u32, void *, s32);
 void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
-s16 TKeyBoardControl__sub_803DEC10(s16 x);
+s16 scale_axis_value__16TKeyBoardControlFs(s16 x);
 M2C_UNK Dolphin_PADRead(void *, void *);
 extern M2C_UNK keyboard_pad_status_buffer[];
 extern Pad_803DEA18 TKeyBoardControl_prev_pad_state[4];
@@ -140,8 +140,8 @@ void read_pads__16TKeyBoardControlFv(void) {
       out->notHeld = ~out->held;
       out->pressed = map_pad_buttons__16TKeyBoardControlFUs(cur & diff);
       out->released = map_pad_buttons__16TKeyBoardControlFUs(released);
-      out->stickX = TKeyBoardControl__sub_803DEC10(pad->stickX);
-      out->stickY = -TKeyBoardControl__sub_803DEC10(pad->stickY);
+      out->stickX = scale_axis_value__16TKeyBoardControlFs(pad->stickX);
+      out->stickY = -scale_axis_value__16TKeyBoardControlFs(pad->stickY);
       out->substickX = pad->substickX;
       out->substickY = pad->substickY;
       out->trigL = pad->triggerL;
@@ -206,7 +206,7 @@ s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0) {
 #pragma push
 #pragma scheduling off
 #pragma optimize_for_size off
-s16 TKeyBoardControl__sub_803DEC10(s16 x) {
+s16 scale_axis_value__16TKeyBoardControlFs(s16 x) {
     return (x * 128) / 89;
 }
 #pragma pop

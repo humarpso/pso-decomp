@@ -97,7 +97,7 @@ extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lbl_805D3720;
 extern s32 lbl_805D62E4;
 extern s32 lbl_805D62E8;
-u8 *TLobby__sub_80226C3C(void);
+u8 *get_current_slot_entry__6TLobbyFv(void);
 s32 set_field_40_and_notify__6TLobbyFPvs(int, int);
 extern M2C_UNK lbl_804CB850[];
 extern s32 lbl_805D6330;
@@ -205,7 +205,7 @@ void update_sound_request_slots(void) {
 int TLobby__sub_80226B64(void) { update_lobby_subsystems__6TLobbyFv(); init_layout_positions__6TLobbyFv(); TLobby__sub_80226308(); lbl_805D62B4 = 0; lbl_805D62B8 = 0; lbl_805D62B0 = 1; return 0; }
 
 typedef char RecoveredGlobal_80226C3C_lbl_80514D00_size[sizeof(RecoveredGlobal_80226C3C_lbl_80514D00) == 0x258 ? 1 : -1];
-u8 *TLobby__sub_80226C3C(void) {
+u8 *get_current_slot_entry__6TLobbyFv(void) {
     if ((s32) lbl_805D62E4 == 1) {
         return (u8 *)&lbl_80514D00.value + (lbl_805D62E8 << 5);
     }

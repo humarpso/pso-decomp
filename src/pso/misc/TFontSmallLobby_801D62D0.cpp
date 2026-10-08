@@ -21,7 +21,7 @@ s32 obj_testFlags30(void *, s32);
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 f32 fn_801D6AB4(void *, s32, s32);
 s32 accumulate_damage_stats(u8 *arg0, s32 arg1, s32 arg2);
-int TFontSmallLobby__sub_801D6614(s16 arg0);
+int is_valid_index__15TFontSmallLobbyFs(s16 arg0);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void fn_801D6A18(Obj_801D6A18 *p);
 M2C_UNK init_forward__10TObjPlayerFPv(void *);
@@ -85,7 +85,7 @@ s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0) {
     return arg0;
 }
 
-int TFontSmallLobby__sub_801D6614(s16 arg0) {
+int is_valid_index__15TFontSmallLobbyFs(s16 arg0) {
     u8 var_r4;
     var_r4 = 0;
     if (((arg0 >= 0) && (arg0 < 6)) || (arg0 == -1)) {

@@ -427,7 +427,7 @@ M2C_UNK start_loading__9TLoadCtrlFUi(M2C_UNK);
 M2C_UNK load_battle_param_entry();
 M2C_UNK process_pending_resources();
 M2C_UNK find_leader_section_id(void *, s32);
-M2C_UNK TLobby__sub_80134D28();
+M2C_UNK install_game_join_handlers__6TLobbyFv();
 M2C_UNK clear_counters__6TLobbyFv();
 M2C_UNK send_game_character__6TLobbyFv();
 M2C_UNK process_deferred_player_setup__6TLobbyFv();
@@ -605,7 +605,7 @@ void reload_lobby_floor_scene(void) {
     TLobby__sub_801F494C(0);
     TLobby__sub_801A3E94();
     process_deferred_player_setup__6TLobbyFv();
-    TLobby__sub_80134D28();
+    install_game_join_handlers__6TLobbyFv();
     TObjPlayer__sub_801B1BA4();
     send_room_change__6TLobbyFi(TLobby__data_805D55B0);
     init_key_slots__15TOKeyJungleMainFPv();

@@ -67,21 +67,21 @@ void set_symbol_flags__20TWindowSubSymbolChatFPvii(u8 *arg0, s32 arg1, s32 arg2)
     extern int lbl_805D4E50;
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void add__20TWindowSubSymbolChatFPviiiii(s32 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1);
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1);
 int TWindowSubSymbolChat__sub_80076FE0(void* p);
 M2C_UNK strncpy(void *, void *, int);
 void set_entry_name__20TWindowSubSymbolChatFPvPv(u8 *arg0, void *arg1);
@@ -190,7 +190,7 @@ void set_flag_bit9__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);
 }
 
-void TWindowSubSymbolChat__sub_8007706C(u8 *arg0, s32 arg1) {
+void set_symbol_index__20TWindowSubSymbolChatFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFE1F);
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) | (arg1 << 5));
     M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 1);

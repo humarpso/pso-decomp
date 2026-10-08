@@ -286,7 +286,7 @@ extern const f32 TOCtrlDubchik__data_805DB3B0;
 void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
-void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
+void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, s32);
@@ -305,7 +305,7 @@ s32 refresh_collision_body_centers(void *);
 void TOCtrlDubchik__sub_8015C9D0(u8 *);
 void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
 void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
-void TOCtrlDubchik__sub_8015CC30(u8 *arg0);
+void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TOCtrlDubchik__sub_8015CCF4(u8 *arg0);
 void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0);
@@ -396,7 +396,7 @@ void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TOCtrlDubchik__sub_8015CC30(u8 *arg0) {
+void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x388) = (f32) (M2C_FIELD(arg0, f32 *, 0x388) - TOCtrlDubchik__data_805DB3B0);
     if (M2C_FIELD(arg0, f32 *, 0x388) < TOCtrlDubchik__data_805DB3A8) {
         M2C_FIELD(arg0, f32 *, 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
@@ -503,7 +503,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
         update_spin__13TOCtrlDubchikFPv(arg0);
         break;
     case 4:
-        TOCtrlDubchik__sub_8015CC30(arg0);
+        decay_timer_and_finish__13TOCtrlDubchikFPv(arg0);
         break;
     case 5:
         decay_timer_and_clear_flag__13TOCtrlDubchikFPv(arg0);

@@ -28,7 +28,7 @@ void TAdChrSelMovePlateGC__sub_803257E8(T_803257E8 *self);
 void run_task__20TAdChrSelMovePlateGCFv(O_80325824 *arg0);
 extern const f32 lbl_805DF604;
 extern const f32 lbl_805DF608;
-void TAdChrSelMovePlateGC__sub_80325764(Obj_80325764 *arg0, V2_80325764 *arg1);
+void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764 *arg1);
 void __ct__7TObjectFP7TObject(void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8();
 void TAdChrSelMovePlateGC__sub_803257E8(T_803257E8 *self);
@@ -53,7 +53,7 @@ void TAdChrSelMovePlateGC__sub_8032572C(T_8032572C *self) {
     self->count = 0;
 }
 
-void TAdChrSelMovePlateGC__sub_80325764(Obj_80325764 *arg0, V2_80325764 *arg1) {
+void add_plate_rect__20TAdChrSelMovePlateGCFPvPv(Obj_80325764 *arg0, V2_80325764 *arg1) {
     arg0->ents[arg0->count].a = arg1->x;
     arg0->ents[arg0->count].b = arg1->y;
     arg0->ents[arg0->count].c = lbl_805DF604 + arg1->x;

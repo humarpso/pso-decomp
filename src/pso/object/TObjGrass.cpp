@@ -363,7 +363,7 @@ M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
 s32 play_sound_effect(void *, void *, int, int);
 extern u32 TObjGrass__data_805D5154;
-void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
+void init_from_table_entry__9TObjGrassFPvi(O_800BFB8C *self, s32 i);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
 void TObjGrass__vt56(Obj_800BEE2C *self);
 s32 queue_destruction__7TObjectFv(void *);
@@ -614,7 +614,7 @@ M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
 M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
 M2C_UNK init_position_vectors__10TObjPlayerFi(void *);
 void TObjGrass__sub_800BFB68(O_800BFB68 *self);
-void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i);
+void init_from_table_entry__9TObjGrassFPvi(O_800BFB8C *self, s32 i);
 M2C_UNK init_common__18TObjEneMe3SinowZoaFPv(void *);
 s32 create__12TObjEneSaverFPvPv(int, int);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int, int);
@@ -2119,7 +2119,7 @@ u8 *TObjGrass__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s16 *, 0x33A) = 0x1E;
     M2C_FIELD(arg0, s16 *, 0x33C) = M2C_FIELD(arg0, s16 *, 0x33A);
     M2C_FIELD(arg0, s32 *, 0x334) = 0;
-    TObjGrass__sub_800BFB8C((O_800BFB8C *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
+    init_from_table_entry__9TObjGrassFPvi((O_800BFB8C *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
     M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)lbl_80492964;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
     if ((0.0f) < M2C_FIELD(arg0, f32 *, 0x358)) {
@@ -2161,7 +2161,7 @@ void TObjGrass__sub_800BFB68(O_800BFB68 *self) {
     }
 }
 
-void TObjGrass__sub_800BFB8C(O_800BFB8C *self, s32 i) {
+void init_from_table_entry__9TObjGrassFPvi(O_800BFB8C *self, s32 i) {
     self->f34 = (*(D_800BFB8C * *)&TObjGrass__data_805D5154)->entries[i].f8;
     self->f24 = (*(D_800BFB8C * *)&TObjGrass__data_805D5154)->entries[i].fc;
 }

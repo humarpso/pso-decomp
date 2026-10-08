@@ -61,7 +61,7 @@ void TObjEneDf2Bringer__vt26(void);
 void run_task__17TObjEneDf2BringerFv(u8 *arg0);
 void init_enemy__17TObjEneDf2BringerFPv(u8 *arg0);
 void * TObjEneDf2Bringer__ct(void *arg0, void *arg1, void *arg2);
-void TObjEneDf2Bringer__sub_80099AEC(s32 arg0, f32 farg0);
+void set_entry_value_clamped__17TObjEneDf2BringerFif(s32 arg0, f32 farg0);
 void free_resources__17TObjEneDf2BringerFv(void);
 void * create__17TObjEneDf2BringerFPv(void *arg0);
 }
@@ -3299,7 +3299,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
 void run_task__17TObjEneDf2BringerFv(u8 *arg0);
 extern const f32 lbl_805D9844;
-void TObjEneDf2Bringer__sub_80099AEC(s32 arg0, f32 farg0);
+void set_entry_value_clamped__17TObjEneDf2BringerFif(s32 arg0, f32 farg0);
 }
 
 extern "C" {
@@ -3498,7 +3498,7 @@ extern u32 TObjEneDf2Bringer__data_805D4FB8;
 
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
-void TObjEneDf2Bringer__sub_80099AEC(s32 arg0, f32 farg0) {
+void set_entry_value_clamped__17TObjEneDf2BringerFif(s32 arg0, f32 farg0) {
   u8 *new_var;
   f32 var_f1;
   var_f1 = farg0;

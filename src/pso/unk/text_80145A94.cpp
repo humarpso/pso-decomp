@@ -22,7 +22,7 @@ M2C_UNK TAdPlayerLoadGC__sub_803F3CF4();
 M2C_UNK TLobby__sub_803F3D60();
 s32 fn_803F3DD4(s32, void *);
 s32 fn_803F3EA0(s32 *, s32 *);
-s32 TAdPlayerLoadGC__sub_803F4554(s32);
+s32 request_load__15TAdPlayerLoadGCFi(s32);
 s32 TAdPlayerLoadGC__sub_803F45E0(s32 *, s32 *);
 u32 TAdPlayerLoadGC__sub_803F4B80();
 M2C_UNK copy_current_entry_name__6TLobbyFPvi(void *, int);
@@ -103,7 +103,7 @@ s32 TLobby__sub_80145A94(void) {
             case 1:
                 switch (sub) {
                 case 1:
-                    if (TAdPlayerLoadGC__sub_803F4554(id) < 0) {
+                    if (request_load__15TAdPlayerLoadGCFi(id) < 0) {
                         state = 0;
                         sub = 0;
                         break;

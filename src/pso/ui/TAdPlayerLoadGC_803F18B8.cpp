@@ -36,7 +36,7 @@ s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
 void TAdPlayerLoadGC__sub_803F389C(s32 chan);
 M2C_UNK memset(void *, int, int);
-void TAdPlayerLoadGC__sub_803F32A4(s32 arg0);
+void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDClose(void *);
 M2C_UNK memset(void *, int, int);
 s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
@@ -237,7 +237,7 @@ s32 TAdPlayerLoadGC__sub_803F31BC(void) {
     return 0;
 }
 
-void TAdPlayerLoadGC__sub_803F32A4(s32 arg0) {
+void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0) {
     u8 *temp_r30;
     temp_r30 = (u8 *)lbl_805A28E0 + (arg0 * 0x68);
     M2C_FIELD(temp_r30, s32 *, 0) = 0;

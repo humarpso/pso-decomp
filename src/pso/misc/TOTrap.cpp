@@ -222,7 +222,7 @@ M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0);
 extern u32 lbl_80442CD0[];
 extern s32 lbl_805D5550;
-f32 TOTrap__sub_80178B78(f32 farg0);
+f32 scale_by_table_value__6TOTrapFf(f32 farg0);
 s32 fn_80171314(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
@@ -274,7 +274,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 
-f32 TOTrap__sub_80178B78(f32 farg0) {
+f32 scale_by_table_value__6TOTrapFf(f32 farg0) {
     u32 v[4];
     v[0] = lbl_80442CD0[0];
     v[1] = lbl_80442CD0[1];

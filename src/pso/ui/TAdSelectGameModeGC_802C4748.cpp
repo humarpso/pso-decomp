@@ -31,7 +31,7 @@ int enable_camera__19TAdSelectGameModeGCFv(void);
 s32 get_main_phase();
 s32 get_mode_data__19TAdSelectGameModeGCFv();
 int enable_camera__19TAdSelectGameModeGCFv(void);
-s32 TAdSelectGameModeGC__sub_801A2FAC();
+s32 free_sub_ctrls__19TAdSelectGameModeGCFPv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 void TAdSelectGameModeGC__sub_802C478C(void);
 s32 get_localized_text_entry(int, int);
@@ -79,7 +79,7 @@ extern "C" {
 int fn_802C4748(void* p);
 s32 DateToSeconds__FP9DateStampPi(s32 *, s32 *);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
-s32 TAdSelectGameModeGC__sub_801A2FAC();
+s32 free_sub_ctrls__19TAdSelectGameModeGCFPv();
 int clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFPv(void*);
@@ -118,7 +118,7 @@ void TAdSelectGameModeGC__sub_802C478C(void) {
             return;
         case 1:
             ((M2C_UNK)TAdMultiPlyChrSelectGC__sub_802C6558());
-            TAdSelectGameModeGC__sub_801A2FAC();
+            free_sub_ctrls__19TAdSelectGameModeGCFPv();
             return;
         }
     } else {

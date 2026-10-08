@@ -135,7 +135,7 @@ s32 get_option_state__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_80134D28(void) {
+void install_game_join_handlers__6TLobbyFv(void) {
     *(void (**)())(TLobby__data_805D5580 + 0xBC04) = handle_game_join__6TLobbyFPv;
     *(void (**)())(TLobby__data_805D5580 + 0xBC18) = on_game_player_add__6TLobbyFiii;
 }
@@ -1776,7 +1776,7 @@ M2C_UNK THunterGuildSeqOffline__sub_8021339C();
 M2C_UNK THunterGuildWarning__sub_8021170C();
 M2C_UNK init_download_buffers__16TQuestListOnlineFv();
 M2C_UNK THunterGuildSeqOffline__sub_80213CA4();
-M2C_UNK THunterGuildSeqOffline__sub_80214A5C();
+M2C_UNK zero_four_slots__22THunterGuildSeqOfflineFv();
 s32 get_main_phase();
 
 void update_guild_or_quest_phase__6TLobbyFv(void) {
@@ -1786,7 +1786,7 @@ void update_guild_or_quest_phase__6TLobbyFv(void) {
     }
     if (get_main_phase() == 0xF) {
         init_download_buffers__16TQuestListOnlineFv();
-        THunterGuildSeqOffline__sub_80214A5C();
+        zero_four_slots__22THunterGuildSeqOfflineFv();
         THunterGuildSeqOffline__sub_80213CA4();
     }
 }

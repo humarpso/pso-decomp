@@ -943,7 +943,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(s32 arg0);
 void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 get_actor_level_index(void* p);
-s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1);
+s32 add_capped_counter_999__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
 s32 add_actor_exp(u8 *arg0, s32 arg1);
 int get_tp_materials_clamped__10TObjPlayerFPv(u8 *arg0);
@@ -1061,7 +1061,7 @@ void obj_setFlags30(ObjFlags* p, u32 mask);
 void bswap_head16__10TObjPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void* p);
 void send_head__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_80019664(O_80019664 *self);
+void init_packet_9a__10TObjPlayerFPv(O_80019664 *self);
 bool is_split_screen(void);
 f32 calc_random_ratio__10TObjPlayerFv(void);
 s32 get_current_floor(void);
@@ -1633,7 +1633,7 @@ void handle_6x9A_update_entity_stat(Pkt_80010C54 *pkt) {
 
 void TObjPlayer__sub_80010DE8(Obj_80010DE8 *self, u16 a, u8 b, u8 c) {
     Pkt_80010DE8 pkt;
-    ((void (*)(Pkt_80010DE8 *))TObjPlayer__sub_80019664)(&pkt);
+    ((void (*)(Pkt_80010DE8 *))init_packet_9a__10TObjPlayerFPv)(&pkt);
     pkt.f2 = self->f1c;
     pkt.f4 = a;
     pkt.f6 = b;
@@ -1757,7 +1757,7 @@ s32 TObjPlayer::add_meseta(s32 amount) {
 
 s32 get_actor_level_index(void* p) { return *(s32*)((char*)*(void**)((char*)p + 0x2b0) + 0x18); }
 
-s32 TObjPlayer__sub_800111A8(u8 *arg0, s32 arg1) {
+s32 add_capped_counter_999__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s16 *, 0x11A) = (s16) (M2C_FIELD(arg0, s16 *, 0x11A) + arg1);
     if ((s16) M2C_FIELD(arg0, s16 *, 0x11A) > 0x3E7) {
         M2C_FIELD(arg0, s16 *, 0x11A) = 0x3E7;
@@ -5058,7 +5058,7 @@ int read_be16_field2__10TObjPlayerFPv(void* p) { return bswap_16__FPUs((char*)p 
 
 void send_head__10TObjPlayerFPv(void* p) { bswap_head16__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void TObjPlayer__sub_80019664(O_80019664 *self) {
+void init_packet_9a__10TObjPlayerFPv(O_80019664 *self) {
     self->f4 = 0xFFFF;
     self->f6 = 0;
     self->f7 = 0;

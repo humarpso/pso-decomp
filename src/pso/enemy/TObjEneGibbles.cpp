@@ -247,7 +247,7 @@ M2C_UNK submit_cursor_candidate(void *, int);
 u32 get_player_by_client_id(void *);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
-void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0);
+void set_min_clamped_entry_value__14TObjEneGibblesFiif(M2C_UNK arg0, s32 arg1, f32 farg0);
 void TObjEneGibbles__sub_802D7A54(void *arg0);
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
 int TObjEneGibbles__sub_802D7F94(void *, int);
@@ -524,7 +524,7 @@ M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
 M2C_UNK play_sound_effect(int, void *, int, int);
 void * __nw__7TObjectFUl(int);
 s32 is_valid_and_active__10TObjPlayerFUi();
-void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0);
+void set_min_clamped_entry_value__14TObjEneGibblesFiif(M2C_UNK arg0, s32 arg1, f32 farg0);
 void TObjEneGibbles__sub_802D7A54(void *arg0);
 s32 TObjEneGibbles__sub_802D7BE0(s32 arg0);
 void play_distance_sound__14TObjEneGibblesFi(s32 arg0);
@@ -1017,7 +1017,7 @@ extern "C" {
 void TObjEneGibbles__sub_802DBC94(O_802DBC94 *self, s32 i);
 }
 
-void TObjEneGibbles__sub_802D7A2C(M2C_UNK arg0, s32 arg1, f32 farg0) {
+void set_min_clamped_entry_value__14TObjEneGibblesFiif(M2C_UNK arg0, s32 arg1, f32 farg0) {
   f32 var_f1;
   u8 *new_var;
   var_f1 = farg0;
@@ -1408,10 +1408,10 @@ void TObjEneGibbles__sub_802D8984(u8 *arg0) {
         o->f3A4 = 0;
         if (o->f374 & 0x80) {
             o->f3A8 = PRM->f18;
-            TObjEneGibbles__sub_802D7A2C((M2C_UNK)o, 6, PRM->fC);
+            set_min_clamped_entry_value__14TObjEneGibblesFiif((M2C_UNK)o, 6, PRM->fC);
         } else {
             o->f3A8 = PRM->f18;
-            TObjEneGibbles__sub_802D7A2C((M2C_UNK)o, 6, PRM->fC);
+            set_min_clamped_entry_value__14TObjEneGibblesFiif((M2C_UNK)o, 6, PRM->fC);
         }
         o->sub = 4;
         o->f30 &= 0xF9FFFFFF;

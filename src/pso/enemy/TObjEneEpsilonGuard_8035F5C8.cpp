@@ -882,7 +882,7 @@ u32 find_entity_by_id(s32);
 void TObjEneEpsilonGuard__sub_8035DEC0();
 void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0);
 u32 find_entity_by_id(s32);
-s32 TObjEneEpsilonGuard__sub_8035DD94();
+s32 is_guard_active__19TObjEneEpsilonGuardFPv();
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0);
 u32 find_entity_by_id(s32);
 s32 is_state_flag_set__19TObjEneEpsilonGuardFPv();
@@ -1200,7 +1200,7 @@ s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         find_entity_by_id(arg0->h[i]);
-        if (TObjEneEpsilonGuard__sub_8035DD94() == 0) {
+        if (is_guard_active__19TObjEneEpsilonGuardFPv() == 0) {
             return 0;
         }
     }

@@ -281,7 +281,7 @@ void TBoss2DeRolLe__sub_800360A8(void *arg0);
 M2C_UNK advance_action_sequence__13TBoss2DeRolLeFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 construct_piece_controller__10TObjPlayerFPvii(int, void *, int);
-s32 TBoss2DeRolLe__sub_8003383C(void *);
+s32 advance_phase_wrap__13TBoss2DeRolLeFPv(void *);
 s32 update_projectile_spawns__13TBoss2DeRolLeFPv(void *);
 s32 update_particle_ctrls__13TBoss2DeRolLeFPv(void *);
 M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
@@ -546,7 +546,7 @@ void run_task__13TBoss2DeRolLeFPv(u8 *arg0) {
       }
       PSO_VCALL_VObj_18_bd2ad6_m85(arg0, *((s16 *) (((s8 *) arg0) + 0x326)), 0);
     }
-    TBoss2DeRolLe__sub_8003383C((void *) arg0);
+    advance_phase_wrap__13TBoss2DeRolLeFPv((void *) arg0);
     update_projectile_spawns__13TBoss2DeRolLeFPv((void *) arg0);
   }
   TObjEneDD__sub_800BBA0C((void *) arg0);

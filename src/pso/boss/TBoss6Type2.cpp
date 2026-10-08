@@ -664,8 +664,8 @@ void init_parts__11TBoss6Type2FPv(s32 arg0);
 void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self);
 void update_footstep_effects__11TBoss6Type2FPv(u8 *arg0);
 void set_fields_554__11TBoss6Type2FPv(void* p);
-void TBoss6Type2__sub_802B9EE4(T2_802B9EE4 *arg0);
-void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0);
+void restore_effect_values__11TBoss6Type2FPv(T2_802B9EE4 *arg0);
+void sum_offsets__11TBoss6Type2FPv(T2_802B9EE4 *arg0);
 void aim_toward_point__11TBoss6Type2FPvPv(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
 void init_collected_entries__11TBoss6Type2FPv(T2_802BA000 *arg0);
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
@@ -1066,7 +1066,7 @@ void set_fields_554__11TBoss6Type2FPv(void* p) { *(s32*)((char*)p + 0x554) = 1; 
 #pragma opt_common_subs reset
 #pragma opt_propagation reset
 #pragma opt_dead_assignments reset
-void TBoss6Type2__sub_802B9EE4(T2_802B9EE4 *arg0) {
+void restore_effect_values__11TBoss6Type2FPv(T2_802B9EE4 *arg0) {
     s32 i;
     for (i = 0; i < 2; i++) {
         *arg0->e[i].p = arg0->e[i].a;
@@ -1082,7 +1082,7 @@ extern int fold_flush_4;
 #pragma opt_common_subs reset
 #pragma opt_propagation reset
 #pragma opt_dead_assignments reset
-void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0) {
+void sum_offsets__11TBoss6Type2FPv(T2_802B9EE4 *arg0) {
     s32 i;
     for (i = 0; i < 2; i++) {
         *arg0->e[i].p = arg0->e[i].a + arg0->e[i].b;

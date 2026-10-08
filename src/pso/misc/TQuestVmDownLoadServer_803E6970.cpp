@@ -452,7 +452,7 @@ extern s32 lbl_805D7904;
 s32 TQuestVmDownLoadServer__sub_803E8084(void);
 void __VIRetraceHandler(void);
 s32 match_prefix_length__22TQuestVmDownLoadServerFPvPvi(const u8 *a, const u8 *b, s32 n);
-Node_803EB894 *TQuestVmDownLoadServer__sub_803EB894(Node_803EB894 *p);
+Node_803EB894 *detach_node_chain__22TQuestVmDownLoadServerFPv(Node_803EB894 *p);
 Node_803EB794 *advance_nodes__22TQuestVmDownLoadServerFPvi(Node_803EB794 *p, s32 n);
 s32 count_entries_until_terminator__22TQuestVmDownLoadServerFPvPv(const u8 *p, const u8 *end);
 extern s32 lbl_805D78AC;
@@ -2480,7 +2480,7 @@ Node_803EB878 *TQuestVmDownLoadServer__sub_803EB878(Node_803EB878 *p) {
     return p->next;
 }
 
-Node_803EB894 *TQuestVmDownLoadServer__sub_803EB894(Node_803EB894 *p) {
+Node_803EB894 *detach_node_chain__22TQuestVmDownLoadServerFPv(Node_803EB894 *p) {
     Node_803EB894 *next;
     while (p->flags & 1) {
         p = p->next;

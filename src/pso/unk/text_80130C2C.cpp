@@ -19,7 +19,7 @@ extern "C" {
 extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
-void TObjPlayer__sub_80130CD8(Obj_80130CD8 *arg0);
+void update_gauge_fade__10TObjPlayerFPv(Obj_80130CD8 *arg0);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, void *);
 M2C_UNK launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, void *, M2C_UNK, struct Vec_80130C2C *, struct Ang_80130C2C *);
@@ -50,7 +50,7 @@ void eject_casing_at_marker__10TObjPlayerFPv(struct Pl_80130C2C *arg0) {
     spawn_particle_effect(&sp8, 9);
 }
 
-void TObjPlayer__sub_80130CD8(Obj_80130CD8 *arg0) {
+void update_gauge_fade__10TObjPlayerFPv(Obj_80130CD8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
     switch (arg0->f204) {

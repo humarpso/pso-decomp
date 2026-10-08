@@ -31,7 +31,7 @@ extern Rec_803DA688 *lbl_805D7768;
 s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0);
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
-void TObjPlayer__sub_803DA244(Rec_803DA688 *arg0, s32 arg1);
+void init_record_array__10TObjPlayerFPvi(Rec_803DA688 *arg0, s32 arg1);
 extern Err_803DA5A8 lbl_8058D470[];
 extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
@@ -73,7 +73,7 @@ void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c) {
 
 #pragma push
 #pragma optimize_for_size off
-void TObjPlayer__sub_803DA244(Rec_803DA688 *arg0, s32 arg1) {
+void init_record_array__10TObjPlayerFPvi(Rec_803DA688 *arg0, s32 arg1) {
     s32 i;
     lbl_805D7768 = arg0;
     lbl_805D7764 = arg1;

@@ -7,9 +7,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 int is_valid_state__6TLobbyFPvi(void*);
-int TLobby__sub_80329418(s32 arg0);
+int is_state_valid_flag__6TLobbyFi(s32 arg0);
 int check_valid_state__6TLobbyFi(void*);
-int TLobby__sub_80329444(void* object);
+int is_check_state_valid__6TLobbyFPv(void* object);
 }
 
 extern "C" {
@@ -22,13 +22,13 @@ int is_valid_state__6TLobbyFPvi(void*);
 int is_invalid_state__6TLobbyFPv(void* p) { return (is_valid_state__6TLobbyFPvi(p)) == 0; }
 int TLobby__sub_803293F0(void* p) { return (check_valid_state__6TLobbyFi((void*)(p))) == 0; }
 
-int TLobby__sub_80329418(s32 arg0) {
+int is_state_valid_flag__6TLobbyFi(s32 arg0) {
     return (u8) (((s32)is_valid_state__6TLobbyFPvi((void*)(arg0))) == 1);
 }
 
     extern int lbl_805D6C80;
 
-int TLobby__sub_80329444(void* object) {
+int is_check_state_valid__6TLobbyFPv(void* object) {
     return (u8) (((s32)check_valid_state__6TLobbyFi(object)) == 1);
 }
 

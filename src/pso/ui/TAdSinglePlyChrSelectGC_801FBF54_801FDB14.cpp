@@ -119,7 +119,7 @@ void load_pso_system_slot__23TAdSinglePlyChrSelectGCFv(void);
 extern u32 lbl_805D5F58;
 void clear_entry__23TAdSinglePlyChrSelectGCFi(s32 i);
 extern u32 lbl_805D5F5C;
-void TAdSinglePlyChrSelectGC__sub_801FE304(s32 i);
+void clear_slot_entry__23TAdSinglePlyChrSelectGCFi(s32 i);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 M2C_UNK load_player_slot__23TAdSinglePlyChrSelectGCFPvii(int, void *, void *);
 extern unsigned char lbl_804C8914[];
@@ -384,7 +384,7 @@ void clear_entry__23TAdSinglePlyChrSelectGCFi(s32 i) {
     (*(Ent_801FE2D0 * *)&lbl_805D5F58)[i].b = 0;
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FE304(s32 i) {
+void clear_slot_entry__23TAdSinglePlyChrSelectGCFi(s32 i) {
     if ((*(Ent_801FE304 * *)&lbl_805D5F5C) == 0) return;
     if (i >= 4) return;
     (*(Ent_801FE304 * *)&lbl_805D5F5C)[i].a = 0;

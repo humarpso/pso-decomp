@@ -110,13 +110,13 @@ void init__9TItemDataFv(void *);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 init_single_player_chr_select__6TLobbyFPv(s32);
 extern RecoveredGlobal_80202A40_lbl_8051381C lbl_8051381C;
-void TAdSinglePlyChrSelectGC__sub_80202A40(void);
+void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void clear_inventory_slot_by_index__23TAdSinglePlyChrSelectGCFPvi(Obj_80202B4C *self, s32 i);
-void TAdSinglePlyChrSelectGC__sub_80202C08(Obj_80202C08 *self);
-void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self);
+void clear_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C08 *self);
+void reset_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C3C *self);
 void __construct_array(void *, void *, void *, int, int);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void* TAdSinglePlyChrSelectGC__sub_80203158(void* p);
@@ -171,7 +171,7 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
 }
 
 typedef char RecoveredGlobal_80202A40_lbl_8051381C_size[sizeof(RecoveredGlobal_80202A40_lbl_8051381C) == 0xE8 ? 1 : -1];
-void TAdSinglePlyChrSelectGC__sub_80202A40(void) {
+void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void) {
     init_single_player_chr_select__6TLobbyFPv((s32) &lbl_8051381C.value);
 }
 
@@ -256,7 +256,7 @@ void set_state__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5FA0 = a0; }
 
     extern int lbl_805D5FA4;
 
-void TAdSinglePlyChrSelectGC__sub_80202C08(Obj_80202C08 *self) {
+void clear_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C08 *self) {
     s32 i;
     self->n = 0;
     for (i = 0; i < 4; i++) {
@@ -267,7 +267,7 @@ void TAdSinglePlyChrSelectGC__sub_80202C08(Obj_80202C08 *self) {
 
 void set_chr_select_state__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5FA4 = a0; }
 
-void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self) {
+void reset_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C3C *self) {
     s32 i;
     self->n = 0;
     for (i = 0; i < 4; i++) {

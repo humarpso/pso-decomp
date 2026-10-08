@@ -22,11 +22,11 @@ struct Obj_8023FCC0 {
 
 extern "C" {
 extern E_8023FF38 lbl_805162EC[];
-void TLobby__sub_8023FF38(void);
+void reset_sound_group_fade__6TLobbyFv(void);
 extern E_8023FF38 lbl_805162EC[];
 void start_voice_fade(void *, s32);
 void fade_voice_channels__6TLobbyFi(s32 arg0);
-void TLobby__sub_800F8DA0(void *, int, int, u32);
+void set_entry_params__6TLobbyFiiii(void *, int, int, u32);
 void read_checked_align__6TLobbyFiii(void *, int, u32);
 void *adxf_open_afs__6TLobbyFii(int, int);
 void *xmalloc__FUl(u32 bytes);
@@ -43,7 +43,7 @@ u8 is_ready__6TLobbyFPv(void *arg0);
 u8 is_ready__6TLobbyFPv(void *arg0) {
     return (u8) (M2C_FIELD(arg0, s32 *, 0x298) == 1);
 }
-void TLobby__sub_8023FF38(void) {
+void reset_sound_group_fade__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 0x20; i++) {
         lbl_805162EC[i].f40 = -0x100;
@@ -91,7 +91,7 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
     }
     for (i = 0; i < 4; i++) {
         read_checked_align__6TLobbyFiii(self->fC14[i], self->fC24[i] / 2048, self->ents[id].h[i]);
-        TLobby__sub_800F8DA0(&self->fC14[i], i, self->fC24[i] / 2048, self->ents[id].h[i]);
+        set_entry_params__6TLobbyFiiii(&self->fC14[i], i, self->fC24[i] / 2048, self->ents[id].h[i]);
     }
     return 0;
 fail:

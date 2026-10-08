@@ -17,7 +17,7 @@ struct VO_800E7A98 : VB_800E7A98 { virtual ~VO_800E7A98(); };
 extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_80495C6C;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
-void TObjEneMe3ShinowaMirage__sub_800E7A70(s32 arg0, f32 farg0);
+void set_slot_min_clamped_value__23TObjEneMe3ShinowaMirageFif(s32 arg0, f32 farg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
 M2C_UNK __dt__11TBoss4Type3FPvs(void *, s32);
 M2C_UNK free__11TOBoss4RockFUi(void *);
@@ -37,7 +37,7 @@ int create__21TObjEneMe3ShinowaRealFPv(void*);
 
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
-void TObjEneMe3ShinowaMirage__sub_800E7A70(s32 arg0, f32 farg0) {
+void set_slot_min_clamped_value__23TObjEneMe3ShinowaMirageFif(s32 arg0, f32 farg0) {
   u8 *new_var;
   f32 var_f1;
   var_f1 = farg0;

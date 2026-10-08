@@ -102,7 +102,7 @@ u16 get_flags__11TWindowCtrlFPv(void *);
 extern void *TWindowCtrl__data_805D63F8;
 void *show_chat_balloon__11TWindowCtrlFPviiPvPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *text, void *local);
 char *skip_name_prefix__11TWindowCtrlFPvPv(void *self, char *s);
-s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
+s32 count_balloon_slots__11TWindowCtrlFPv(Obj_8024A7CC *self);
 void *get_player_by_client_id(s32);
 extern s32 lbl_805D53A0;
 s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
@@ -110,7 +110,7 @@ void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 M2C_UNK TWindow__close(void *);
 s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
-s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self);
+s32 count_balloon_slots__11TWindowCtrlFPv(Obj_8024A7CC *self);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void *TWindowFukidasi__sub_80252B74(void *, s32, s32, void *, f32);
 void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player, s32 flags, void *local);
@@ -394,7 +394,7 @@ s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 spea
     return result;
 }
 
-s32 TWindowCtrl__sub_8024A7CC(Obj_8024A7CC *self) {
+s32 count_balloon_slots__11TWindowCtrlFPv(Obj_8024A7CC *self) {
     s32 n = 0;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -421,7 +421,7 @@ void *acquire_balloon_slot__11TWindowCtrlFPviiPv(Ctrl_8024A928 *self, s32 player
         }
     }
     if (i >= 4) {
-        i = TWindowCtrl__sub_8024A7CC((Obj_8024A7CC *)self);
+        i = count_balloon_slots__11TWindowCtrlFPv((Obj_8024A7CC *)self);
         if (i >= 4) {
             i = ((s32 (*)(Ctrl_8024A714 *, s32))find_farthest_balloon_slot__11TWindowCtrlFPvUs)((Ctrl_8024A714 *)self, player);
         }

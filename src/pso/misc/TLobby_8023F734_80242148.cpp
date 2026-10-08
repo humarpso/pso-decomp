@@ -41,12 +41,12 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8024259C_TLobby__data_8050AAAC TLobby__data_8050AAAC;
 extern u32 TLobby__data_805D5580;
 void TLobby__sub_8024259C(s32 arg0);
-char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
+char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *get_shared_text_buffer();
-void TWindowSubStatusDisp__sub_80228D4C();
+void append_comma__20TWindowSubStatusDispFv();
 void text_builder_append(char *);
 void text_builder_reset();
-char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
+char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b);
 char *build_text_from_comma_list__6TLobbyFPv(char *list);
 s32 send_find_user__9TProtocolFR16TPlyGuildCardTagUl(void *, Tag_802421C4 *, s32);
 extern u32 TLobby__data_805D5580;
@@ -146,7 +146,7 @@ char *parse_csv_token__6TLobbyFPvPv(char *src, char *dst) {
     return src;
 }
 
-char *TLobby__sub_802424A4(char *s, s32 a, s32 b) {
+char *skip_to_comma_field__6TLobbyFPvii(char *s, s32 a, s32 b) {
     s32 i;
     for (i = a + 1; i < b;) {
         if (*s == '\0') return s;
@@ -170,8 +170,8 @@ char *build_text_from_comma_list__6TLobbyFPv(char *list) {
         }
     }
     for (i = 0; i < count; i++) {
-        TWindowSubStatusDisp__sub_80228D4C();
-        s = TLobby__sub_802424A4(list, i, count);
+        append_comma__20TWindowSubStatusDispFv();
+        s = skip_to_comma_field__6TLobbyFPvii(list, i, count);
         d = buf;
         while (*s != '\0' && *s != ',') {
             *d++ = *s++;

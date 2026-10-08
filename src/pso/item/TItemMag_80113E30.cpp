@@ -9,7 +9,7 @@ struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
 struct MagData_80113F64 { u8 pad[0xC]; u8 flags; u8 blasts; };
 
 extern "C" {
-void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1);
+void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 u8 obj_isState7_324(u8 *arg0);
 s16 get_total_level__11TItemMagSubFPv(void *);
 s16 TItemData__sub_801146A4(void *);
@@ -69,7 +69,7 @@ int test_feed_flags__11TItemMagSubFPvUi(void* p, u32 m);
 int get_status_flag__8TItemMagFPv(void* p) { return *(u32*)((char*)p + 0x18c) & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
 
-void TItemMag__sub_80113E48(u8 *arg0, u8 *arg1) {
+void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
     M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
     M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);

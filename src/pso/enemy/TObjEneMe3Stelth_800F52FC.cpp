@@ -16,7 +16,7 @@ struct VO_800F5324 : VB_800F5324 { virtual ~VO_800F5324(); };
 extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_804977A0;
 extern const f32 lbl_805DA8AC;
-void TObjEneMe3Stelth__sub_800F52FC(s32 arg0, f32 farg0);
+void set_slot_min_clamped_value__16TObjEneMe3StelthFif(s32 arg0, f32 farg0);
 M2C_UNK TLobby__sub_8001FE7C(void *, s32);
 M2C_UNK __dt__11TBoss4Type3FPvs(void *, s32);
 M2C_UNK free__11TOBoss4RockFUi(void *);
@@ -31,7 +31,7 @@ extern "C" {
 
 typedef struct RecoveredGlobal_8031B170_lbl_804E8880 RecoveredGlobal_8031B170_lbl_804E8880;
 typedef char RecoveredGlobal_8031B170_lbl_804E8880_size[((sizeof(RecoveredGlobal_8031B170_lbl_804E8880)) == 0xD0) ? (1) : (-1)];
-void TObjEneMe3Stelth__sub_800F52FC(s32 arg0, f32 farg0) {
+void set_slot_min_clamped_value__16TObjEneMe3StelthFif(s32 arg0, f32 farg0) {
   u8 *new_var;
   f32 var_f1;
   var_f1 = farg0;

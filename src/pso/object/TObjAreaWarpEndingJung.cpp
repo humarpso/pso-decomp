@@ -345,7 +345,7 @@ void * __dt__22TObjAreaWarpEndingJungFv(void *arg0, s16 arg1);
 void * TObjAreaWarpEndingJung__ct(void *arg0);
 void * create_TObjWarpString(void *arg0, void *arg1);
 s64 fn_8019B480(void *arg0, void *arg1);
-void TObjWarpString__sub_8019B6E4(u8 *arg0);
+void fade_and_destroy__14TObjWarpStringFPv(u8 *arg0);
 void TObjWarpString__sub_8019B728(void *arg0);
 void TObjWarpString__sub_8019B744(u8 *arg0);
 void TObjWarpString__sub_8019B77C(void *arg0);
@@ -632,7 +632,7 @@ s64 fn_8019B480(void *arg0, void *arg1) {
     return *p;
 }
 
-void TObjWarpString__sub_8019B6E4(u8 *arg0) {
+void fade_and_destroy__14TObjWarpStringFPv(u8 *arg0) {
   const f32 *new_var;
   *((f32 *) (((s8 *) arg0) + 0x44)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x44))) - lbl_805DBFEC);
   if ((*((f32 *) (((s8 *) arg0) + 0x44))) < (*(new_var = &lbl_805DBFE4)))
@@ -689,7 +689,7 @@ void run_task__14TObjWarpStringFv(void *arg0) {
         ((M2C_UNK (*)(void))TObjWarpString__sub_8019B728)();
         return;
     case 3:
-        ((M2C_UNK (*)(void))TObjWarpString__sub_8019B6E4)();
+        ((M2C_UNK (*)(void))fade_and_destroy__14TObjWarpStringFPv)();
         return;
     }
 }

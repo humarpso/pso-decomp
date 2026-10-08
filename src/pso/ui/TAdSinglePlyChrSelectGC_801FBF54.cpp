@@ -66,7 +66,7 @@ s32 free_char_data_slots__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void);
 s32 free_data__23TAdSinglePlyChrSelectGCFv(void);
 s32 free__23TAdSinglePlyChrSelectGCFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_80202C08(void *);
+s32 clear_slot_lists__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80201970_lbl_805137D8 lbl_805137D8;
 extern RecoveredGlobal_80201970_lbl_805137F8 lbl_805137F8;
 extern u32 lbl_805D5F58;
@@ -525,7 +525,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
 
 void release_all__23TAdSinglePlyChrSelectGCFv(void) {
     free_char_data_slots__23TAdSinglePlyChrSelectGCFPv((void *) (&lbl_805137D8.value));
-    TAdSinglePlyChrSelectGC__sub_80202C08((void *) (&lbl_805137F8.value));
+    clear_slot_lists__23TAdSinglePlyChrSelectGCFPv((void *) (&lbl_805137F8.value));
     if ((void *) lbl_805D5F60 != NULL) {
         __dt__12TPlyCharDataFv(lbl_805D5F60, 1);
     }

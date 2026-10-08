@@ -74,7 +74,7 @@ extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__sl
 void THunterGuildSeqOffline__sub_8021E180(s32 arg0);
 extern Tbl_8021E1FC TShopGenerator__data_804C9FA8;
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
-void TMedicalCenterMes__sub_80216238(void);
+void clear_slot_flags__17TMedicalCenterMesFv(void);
 void run_fn_table_reverse__14TShopGeneratorFv(void);
 s32 obj_getField1c(s32);
 s32 TShopGenerator__sub_80222DAC(s32);
@@ -277,7 +277,7 @@ void run_fn_table_reverse__14TShopGeneratorFv(void) {
     E_8021E1FC *p;
     s32 n;
     s32 i;
-    TMedicalCenterMes__sub_80216238();
+    clear_slot_flags__17TMedicalCenterMesFv();
     p = &TShopGenerator__data_804C9FA8.e[7];
     n = 7;
     do {

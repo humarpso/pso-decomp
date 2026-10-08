@@ -66,7 +66,7 @@ u8 * init_state__10TObjPlayerFPviPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_saber_weapon(u8 *arg0);
-void TObjPlayer__sub_8012CCCC(Pl_8012CCCC *arg0);
+void toggle_slot_states__10TObjPlayerFPv(Pl_8012CCCC *arg0);
 }
 
 extern "C" {
@@ -85,7 +85,7 @@ u8 *create_saber_weapon(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer__sub_8012CCCC(Pl_8012CCCC *arg0) {
+void toggle_slot_states__10TObjPlayerFPv(Pl_8012CCCC *arg0) {
     if (arg0->m49((u8 *)arg0 + 0x1F8, 0, 0, 1) != 0) {
         arg0->m49((u8 *)arg0 + 0x204, 0, 0, 0);
     } else {

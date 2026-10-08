@@ -21,7 +21,7 @@ extern "C" {
 M2C_UNK TWindowDD__sub_80343BC0(int, void *);
 M2C_UNK reset_selection__9TWindowDDFPv(void *, void *);
 void TWindowDD__sub_803484C4(u8 *arg0);
-s32 TWindowDD__sub_80348470(u8 *arg0);
+s32 get_mode_code__9TWindowDDFPv(u8 *arg0);
 int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
 void append_prompt_newline__9TWindowDDFPvPv(u8 *arg0, s32 *arg1);
@@ -103,7 +103,7 @@ void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1) {
     TWindowDD__sub_8034B008((s32)(0), (s32)((s32) arg1));
 }
 
-s32 TWindowDD__sub_80348470(u8 *arg0) {
+s32 get_mode_code__9TWindowDDFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = M2C_FIELD(arg0, s32 *, 0xA8);
     if (temp_r3 == 2) {

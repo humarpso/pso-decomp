@@ -14,7 +14,7 @@ s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 s8 TItemData__sub_8010CACC(void *self, s8 c);
 s8 TItemData__sub_8010CACC(void *self, s8 c);
-void TItemData__sub_8010CBAC(u8 *self, u8 *in);
+void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
-        TItemData__sub_8010CBAC((u8 *)((void *)(arg0)), (u8 *)((s8 *)(sp8)));
+        pack_three_colors__9TItemDataFPvPv((u8 *)((void *)(arg0)), (u8 *)((s8 *)(sp8)));
     }
 }
 
@@ -90,7 +90,7 @@ s8 TItemData__sub_8010CACC(void *self, s8 c) {
 
 int TItemData__sub_8010CB10(void) { return 0; }
 
-void TItemData__sub_8010CBAC(u8 *self, u8 *in) {
+void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in) {
   s32 i;
   if (in != 0)
   {

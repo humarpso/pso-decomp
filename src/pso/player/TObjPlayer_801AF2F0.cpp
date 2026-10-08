@@ -2807,8 +2807,8 @@ u8 TObjPlayer__sub_801C2134(s32);
 u8 get_team_id__10TObjPlayerFPv(s32);
 u8 get_char_class__10TObjPlayerFPv(s32);
 s32 get_level_row_exp_threshold();
-s32 TObjPlayer__sub_801C2154(void *);
-s32 TObjPlayer__sub_801C2180(void *);
+s32 unpack_u32_hi__10TObjPlayerFPv(void *);
+s32 unpack_u32_lo__10TObjPlayerFPv(void *);
 s8 TObjPlayer__sub_801C21AC(void *);
 s8 TObjPlayer__sub_801C21B4(void *);
 s8 TObjPlayer__sub_801C21BC(void *);
@@ -6922,7 +6922,7 @@ void copy_short_fields__10TObjPlayerFPvPv(Pkt_801B8908 *, void *);
 void bswap_body_words__10TObjPlayerFPv(Pkt_801B8908 *);
 s32 validate_6x83_place_trap(Pkt_801B8908 *);
 u32 create_placed_trap__10TOMineTrapFUiss(u8 *, s32, s32);
-void TObjPlayer__sub_801C5728(u8 *, s32, s32);
+void consume_trap_count__10TObjPlayerFiii(u8 *, s32, s32);
 void call_window_method_with_default_vec__11TWindowCtrlFi(u16);
 
 void handle_6x83_place_trap(void *arg0) {
@@ -6933,7 +6933,7 @@ void handle_6x83_place_trap(void *arg0) {
     if (validate_6x83_place_trap(&pkt) != 0) {
         u8 *p = (u8 *) ((u32 (*)(int))get_player_by_client_id)(pkt.client);
         if (p != NULL && create_placed_trap__10TOMineTrapFUiss(p, pkt.a, pkt.b) != 0) {
-            TObjPlayer__sub_801C5728(p + 0x7C4, 1, pkt.a);
+            consume_trap_count__10TObjPlayerFiii(p + 0x7C4, 1, pkt.a);
             if (is_locally_controlled__10TObjPlayerFPv(p) != 0) {
                 call_window_method_with_default_vec__11TWindowCtrlFi((u16)obj_getField1c(p));
             }
@@ -8074,12 +8074,12 @@ void TObjPlayer__sub_801BB8B0(u8 *arg0, u8 *arg1) {
     var_r31 = (u8 *)(arg1);
     var_r30 = (u8 *)(arg0);
     var_r3 = (u8 *)(var_r31);
-    temp_r0 = TObjPlayer__sub_801C2180(var_r3);
+    temp_r0 = unpack_u32_lo__10TObjPlayerFPv(var_r3);
     var_r3 = (u8 *)(var_r30 + 0x41C);
     var_r4 = temp_r0;
     set_state__9TTecLukerFPvi((int) (var_r3), (int) (var_r4));
     var_r3 = (u8 *)(var_r31);
-    M2C_FIELD(var_r30, s32 *, 0x420) = TObjPlayer__sub_801C2154(var_r3);
+    M2C_FIELD(var_r30, s32 *, 0x420) = unpack_u32_hi__10TObjPlayerFPv(var_r3);
 }
 
 void init_class_flags__10TObjPlayerFPvi(void *arg0, s32 arg1) {

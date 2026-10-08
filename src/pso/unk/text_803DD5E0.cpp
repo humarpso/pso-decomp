@@ -55,9 +55,9 @@ extern s32 lbl_805D77A0;
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s);
 void bswap32_in_place__6TLobbyFPv(u32 *p);
-void TLobby__sub_803DE2C0(u32 *p);
+void bswap_u32__6TLobbyFPv(u32 *p);
 u32 bswap32__6TLobbyFUi(u32 v);
-void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s);
+void copy_4word_struct__6TLobbyFPvPv(S_803DDD94 *d, S_803DDD94 *s);
 void bswap32_in_place__6TLobbyFPv(u32 *p);
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
@@ -89,7 +89,7 @@ extern s32 lbl_805D7758;
 s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx);
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s);
-void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s);
+void copy_4word_struct__6TLobbyFPvPv(S_803DDD94 *d, S_803DDD94 *s);
 void move_data__6TLobbyFv(void*, const void*, s32);
 s32 strlen(const char*);
 void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
@@ -109,7 +109,7 @@ s32 TObjPlayer__sub_803DAB9C(s32, u32);
 M2C_UNK TObjPlayer__sub_803DAC1C(s32);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
 void DCFlushRange(void *, u32);
-void TLobby__sub_803DE2C0(u32 *p);
+void bswap_u32__6TLobbyFPv(u32 *p);
 u32 bswap32__6TLobbyFUi(u32 v);
 void move_data__6TLobbyFv(void*, const void*, s32);
 void *xmalloc__FUl(u32 bytes);
@@ -386,7 +386,7 @@ void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s) {
+void copy_4word_struct__6TLobbyFPvPv(S_803DDD94 *d, S_803DDD94 *s) {
     s32 t;
     t = s->a;
     d->a = t;
@@ -440,11 +440,11 @@ void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, co
         if (dimensions) record += 2;
         if (alternateGlobal) {
             if (globals) {
-                TLobby__sub_803DDD94((S_803DDD94*)&texture->globalIndex, (S_803DDD94*)record);
+                copy_4word_struct__6TLobbyFPvPv((S_803DDD94*)&texture->globalIndex, (S_803DDD94*)record);
                 texture->attributes |= 0x01000000;
             }
         } else if (globals) {
-            TLobby__sub_803DDD94((S_803DDD94*)&texture->globalIndex, (S_803DDD94*)record);
+            copy_4word_struct__6TLobbyFPvPv((S_803DDD94*)&texture->globalIndex, (S_803DDD94*)record);
             texture->attributes |= 0x00800000;
         }
         off += 0xC;
@@ -565,7 +565,7 @@ s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TLobby__sub_803DE2C0(u32 *p) {
+void bswap_u32__6TLobbyFPv(u32 *p) {
     u32 v = *p;
     *p = ((v & 0xFF000000) >> 24) | ((v & 0xFF0000) >> 8) | ((v & 0xFF00) << 8) | ((v & 0xFF) << 24);
 }
@@ -593,9 +593,9 @@ void *load_nj_chunk_model_resource(u8 *base, u32 *off, u32 *out) {
     pos = 0;
     src = base + *off;
     move_data__6TLobbyFv(&magic, src, 4);
-    TLobby__sub_803DE2C0(&magic);
+    bswap_u32__6TLobbyFPv(&magic);
     move_data__6TLobbyFv(&size, src + 4, 4);
-    TLobby__sub_803DE2C0(&size);
+    bswap_u32__6TLobbyFPv(&size);
     src += 8;
     *off += 8;
     magic = bswap32__6TLobbyFUi(magic);
@@ -651,12 +651,12 @@ unknown:
     return NULL;
 relocate:
     move_data__6TLobbyFv(&magic, src, 4);
-    TLobby__sub_803DE2C0(&magic);
+    bswap_u32__6TLobbyFPv(&magic);
     *off += 4;
     magic = bswap32__6TLobbyFUi(magic);
     if (magic == 0x504F4630) {
         move_data__6TLobbyFv(&size, src + 4, 4);
-        TLobby__sub_803DE2C0(&size);
+        bswap_u32__6TLobbyFPv(&size);
         src += 8;
         *off += 4;
         while (size != 0) {

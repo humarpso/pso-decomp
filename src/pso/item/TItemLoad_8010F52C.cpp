@@ -27,9 +27,9 @@ extern s32 lbl_805D54A4;
 void TItemLoad__sub_8010F5A0(void);
 void init__9TItemLoadFPv(void *, void *, int, int);
 extern M2C_UNK lbl_8049F40C[];
-s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3);
+s32 construct_with_vtable__9TItemLoadFiPvii(int arg0, void *a1, int a2, int a3);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
-void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2);
+void start_load_with_id__9TItemLoadFPvii(Load_8010F61C *self, s32 id, s32 arg2);
 M2C_UNK decompress_buffer__9TItemLoadFUi();
 M2C_UNK tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
@@ -98,13 +98,13 @@ void TItemLoad__sub_8010F5A0(void) {
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x40));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = TItemLoad__sub_8010F838((int)((int) (temp_r3_2)), (void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
+        var_r0_2 = construct_with_vtable__9TItemLoadFiPvii((int)((int) (temp_r3_2)), (void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
     }
     (*(s32 *)&lbl_805D54A0) = var_r0_2;
     lbl_805D54A4 = alloc_buffer__11TOBoss4RockFPv((int) (0x21000));
 }
 
-void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2) {
+void start_load_with_id__9TItemLoadFPvii(Load_8010F61C *self, s32 id, s32 arg2) {
     s32 i;
     if (id != 0 && begin_load__9TItemLoadFPvi(self, arg2) == 1) {
         self->id = id;
@@ -172,7 +172,7 @@ void *dt__9TItemLoadFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-s32 TItemLoad__sub_8010F838(int arg0, void *a1, int a2, int a3) {
+s32 construct_with_vtable__9TItemLoadFiPvii(int arg0, void *a1, int a2, int a3) {
     Load_8010F838 *self = (Load_8010F838 *)arg0;
     s32 i;
     init__9TItemLoadFPv(self, a1, a2, a3);

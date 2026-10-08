@@ -31,7 +31,7 @@ void start_attack_at_target__14TBoss2TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2
 void VecCopy__FP3VecPC3Vec(void *, void *);
 extern V3_80039DE0 TBoss2Tentacle__data_804FE8E8[];
 extern s32 lbl_804FE990[];
-void TBoss2Tentacle__sub_80039DE0(Obj_80039DE0 *self);
+void reset_segment_points__14TBoss2TentacleFPv(Obj_80039DE0 *self);
 extern G_80039C44 *TBoss2Tentacle__motion_data;
 void TBoss2Tentacle__sub_80039C44(Obj_80039C44 *self);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -323,7 +323,7 @@ void TBoss2Tentacle__sub_80039CB4(void* p) { *(s32*)((char*)p + 0x11c) = 0; *(s3
     extern const float TBoss2Tentacle__data_805D8530;
     extern const float TBoss2Tentacle__data_805D8534;
     extern const float lbl_805D8544;
-void reset__14TBoss2TentacleFPv(void* a0) { *(int*)((char*)a0 + 0x11c) = 0; *(int*)((char*)a0 + 0x120) = 0; *(int*)((char*)a0 + 0x24) = 0; TBoss2Tentacle__sub_80039DE0((Obj_80039DE0 *)(a0)); *(float*)((char*)a0 + 0x138) = lbl_805D8544; *(int*)((char*)a0 + 0x14c) = 0; *(float*)((char*)a0 + 0x13c) = TBoss2Tentacle__data_805D8534; *(float*)((char*)a0 + 0x150) = TBoss2Tentacle__data_805D8530; }
+void reset__14TBoss2TentacleFPv(void* a0) { *(int*)((char*)a0 + 0x11c) = 0; *(int*)((char*)a0 + 0x120) = 0; *(int*)((char*)a0 + 0x24) = 0; reset_segment_points__14TBoss2TentacleFPv((Obj_80039DE0 *)(a0)); *(float*)((char*)a0 + 0x138) = lbl_805D8544; *(int*)((char*)a0 + 0x14c) = 0; *(float*)((char*)a0 + 0x13c) = TBoss2Tentacle__data_805D8534; *(float*)((char*)a0 + 0x150) = TBoss2Tentacle__data_805D8530; }
 
     extern int TBoss2Tentacle__data_80435B78[];
 void init_motion_from_table__14TBoss2TentacleFPv(void* a0) { *(int*)((char*)a0 + 0x11c) = TBoss2Tentacle__data_80435B78[*(int*)((char*)a0 + 0x2c)]; *(int*)((char*)a0 + 0x120) = 16384; *(int*)((char*)a0 + 0x24) = 0; }
@@ -343,7 +343,7 @@ void TBoss2Tentacle__sub_80039DD4(void* p) { *(s32*)((char*)p + 0x20) = 0; }
 
     extern const float lbl_805D8558;
 
-void TBoss2Tentacle__sub_80039DE0(Obj_80039DE0 *self) {
+void reset_segment_points__14TBoss2TentacleFPv(Obj_80039DE0 *self) {
     s32 i;
     for (i = 0; i < 14; i++) {
         VecCopy__FP3VecPC3Vec(&self->pts[i], &TBoss2Tentacle__data_804FE8E8[i]);

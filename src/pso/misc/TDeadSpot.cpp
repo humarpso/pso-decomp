@@ -81,7 +81,7 @@ void TDeadSpot__sub_800D7FD4(Obj_800D7FD4 *arg0);
 void __ct__9TDeadSpotFv(void *);
 extern M2C_UNK lbl_80494A10[];
 extern const f32 TDeadSpot__data_805DA38C;
-Obj_800D80E4 *TDeadSpot__sub_800D80E4(Obj_800D80E4 *arg0);
+Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0);
 extern const f32 TDeadSpot__data_805DA388;
 extern const f32 TDeadSpot__data_805DA38C;
 void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
@@ -251,7 +251,7 @@ extern const f32 lbl_805DA39C;
 
 #pragma push
 #pragma fp_contract on
-Obj_800D80E4 *TDeadSpot__sub_800D80E4(Obj_800D80E4 *arg0) {
+Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0) {
     E_800D80E4 *p;
     s32 i;
     f32 bx, by, bz, s;

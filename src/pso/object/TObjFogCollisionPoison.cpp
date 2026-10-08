@@ -57,7 +57,7 @@ extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
 u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
-void TObjFogCollisionPoison__sub_801533C0(void);
+void clear_state_array__22TObjFogCollisionPoisonFv(void);
 void TObjFogCollisionSwitch__vt12(void *self);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern char lbl_80440078[];
@@ -232,7 +232,7 @@ void create__22TObjFogCollisionPoisonFv(void) {
 
 void TObjFogCollisionPoison__sub_801533BC(void) {  }
 
-void TObjFogCollisionPoison__sub_801533C0(void) {
+void clear_state_array__22TObjFogCollisionPoisonFv(void) {
     s32 i;
     for (i = 0; i < 12; i++) {
         ((s32 *)&TObjFogCollisionPoison__data_8050D430)[i] = 0;

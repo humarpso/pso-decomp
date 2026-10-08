@@ -110,7 +110,7 @@ extern s32 TQuestListOnline__data_805D61E0;
 void release_resources__16TQuestListOnlineFv(void);
 extern RecoveredGlobal_80215ABC_lbl_804CA0B8 lbl_804CA0B8;
 extern s32 lbl_805D6238;
-bool TLobby__sub_80215ABC(u8 *arg0);
+bool is_slot_match__6TLobbyFPv(u8 *arg0);
 extern G_802156E0 *lbl_805D61C0;
 u8 lookup_key_value__6TLobbyFc(s8 x);
 extern G_802156E0 *lbl_805D61C0;
@@ -521,7 +521,7 @@ void TLobby__sub_8021599C(Obj_8021599C *obj) {
     lbl_805D61C8 += (s8)lookup_key_value__6TLobbyFc(r);
 }
 
-bool TLobby__sub_80215ABC(u8 *arg0) {
+bool is_slot_match__6TLobbyFPv(u8 *arg0) {
     return M2C_FIELD(arg0, u8 *, 1) == M2C_FIELD(&lbl_804CA0B8.value, M2C_UNK *, (lbl_805D6238 * 4));
 }
 

@@ -181,7 +181,7 @@ void *alloc_particle_memory(int);
 u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
 void *init_particle_random_spread__13TParticleCtrlFPvPvPvPv(void *, void *, void *, void *);
-void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2);
+void * create_random_spread__13TParticleCtrlFPvPvPv(void *arg0, void *arg1, void *arg2);
 int queue_destruction__7TObjectFv(void *);
 f32 vec_squared_length(void *);
 extern const f32 TParticleCtrl__data_805D94F8;
@@ -272,7 +272,7 @@ M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TParticleCtrl__sub_801E4E7C(s32, void *);
+M2C_UNK append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 cos_table_lookup(s32);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
@@ -304,7 +304,7 @@ M2C_UNK apply_particle_model_fade_color(void *, M2C_UNK);
 M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TParticleCtrl__sub_801E4E7C(s32, void *);
+M2C_UNK append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
 f32 vector_length(void *);
@@ -356,7 +356,7 @@ void restore_saved_depth_alpha_state();
 void direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK TParticleCtrl__sub_801E4E7C(s32, void *);
+M2C_UNK append_node_to_tail__13TParticleCtrlFPvPv(s32, void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 f32 vec3_dot(void *, void *);
 M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
@@ -509,7 +509,7 @@ u8 *create_ballistic_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, 
     }
     return var_r0;
 }
-void * TParticleCtrl__sub_800887EC(void *arg0, void *arg1, void *arg2) {
+void * create_random_spread__13TParticleCtrlFPvPvPv(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = alloc_particle_memory(0xd0);
     if (o != NULL) {
@@ -682,9 +682,9 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
         restore_saved_depth_alpha_state();
     } else if (p->def->flags & 0x20) {
         id = p->tex + 0x36;
-        TParticleCtrl__sub_801E4E7C(((s32 *)&TParticleCtrl__data_80511F70)[id], p->f6C);
+        append_node_to_tail__13TParticleCtrlFPvPv(((s32 *)&TParticleCtrl__data_80511F70)[id], p->f6C);
     } else {
-        TParticleCtrl__sub_801E4E7C(((s32 *)&TParticleCtrl__data_80511F70)[p->tex], p->f6C);
+        append_node_to_tail__13TParticleCtrlFPvPv(((s32 *)&TParticleCtrl__data_80511F70)[p->tex], p->f6C);
     }
 }
 

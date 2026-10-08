@@ -415,7 +415,7 @@ struct Plr_800F6BF0 : VBase_800F6BF0 {
     virtual void m12(s32);
 };
 
-s32 TObjPlayer__sub_800111A8(void *, M2C_UNK);
+s32 add_capped_counter_999__10TObjPlayerFPvi(void *, M2C_UNK);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
 s16 get_atp__10TObjPlayerFPv(void *);
@@ -802,7 +802,7 @@ void award_enemy_experience(u8 *arg0, s32 arg1) {
             draw_player_status(p, p, &lbl_805DA8CC);
             draw_player_status(p, arg0, &lbl_805DA8D0);
         }
-        TObjPlayer__sub_800111A8(p, 1);
+        add_capped_counter_999__10TObjPlayerFPvi(p, 1);
     } else {
         val = (s32)((f32)val * lbl_805DA8D4);
     }

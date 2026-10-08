@@ -47,9 +47,9 @@ extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
 extern s32 lbl_805D61B8;
 u8 *THunterGuildSeqOffline__sub_80214A84(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
-void THunterGuildSeqOffline__sub_80214A5C(void);
+void zero_four_slots__22THunterGuildSeqOfflineFv(void);
 extern RecoveredGlobal_80214A84_lbl_80513E60 lbl_80513E60;
-void THunterGuildSeqOffline__sub_80214A34(void);
+void clear_slot_flags__22THunterGuildSeqOfflineFv(void);
 u8 *TShopSequence__ct(u8 *);
 s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_80214A84_lbl_804C97F0 lbl_804C97F0;
@@ -89,14 +89,14 @@ void dispatch_state__22THunterGuildSeqOfflineFPv(Seq_80214978 *arg0) {
     }
 }
 
-void THunterGuildSeqOffline__sub_80214A34(void) {
+void clear_slot_flags__22THunterGuildSeqOfflineFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&lbl_80513E60)[i] = 0;
     }
 }
 
-void THunterGuildSeqOffline__sub_80214A5C(void) {
+void zero_four_slots__22THunterGuildSeqOfflineFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&lbl_80513E60)[i] = 0;

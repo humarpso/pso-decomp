@@ -40,7 +40,7 @@ char *strncpy(char *dst, const char *src, u32 n);
 void strncat(char *buf, s32 arg, s32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
 void report_adx_error__6TLobbyFPvi(const char *msg, s32 arg);
-s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out);
+s32 parse_packet_header_len__6TLobbyFPviPv(Hdr_803C46A4 *p, s32 size, s16 *out);
 s32 find_terminator_index__6TLobbyFPviPv(s16 *arg0, s32 arg1, s16 *arg2);
 char *strncpy(char *dst, const char *src, u32 n);
 void TLobby__sub_803D38B4(const char *fmt, ...);
@@ -69,7 +69,7 @@ M2C_UNK memset(void *, int, int);
 void ar_alloc__6TLobbyFv(void);
 void get_state_zero__6TLobbyFv(void);
 void process_connection_state__6TLobbyFv(void);
-void TLobby__sub_803C5B2C(void);
+void forward_notify_error__6TLobbyFii(void);
 extern u8 lbl_80572120[];
 extern s32 lbl_805D4658;
 extern s32 TLobby_init_ref_count;
@@ -121,7 +121,7 @@ void TLobby__sub_803C4698(void) {
 
 extern s32 lbl_805D7520;
 
-s32 TLobby__sub_803C46A4(Hdr_803C46A4 *p, s32 size, s16 *out) {
+s32 parse_packet_header_len__6TLobbyFPviPv(Hdr_803C46A4 *p, s32 size, s16 *out) {
     if (size < 0x10) {
         return -1;
     }
@@ -418,7 +418,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         reset_sound_buffers__6TLobbyFv();
         init_afs_adxf_state__6TLobbyFv();
         TLobby__sub_803CC114();
-        flush_update__6TLobbyFv((void *)TLobby__sub_803C5B2C, 0);
+        flush_update__6TLobbyFv((void *)forward_notify_error__6TLobbyFii, 0);
         memset(lbl_80572120, 0, 0xA80);
         TLobby__sub_803D1CC0();
         if (lbl_805D4658 == 1) {

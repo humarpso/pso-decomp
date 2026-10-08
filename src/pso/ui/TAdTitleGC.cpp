@@ -44,7 +44,7 @@ struct Title_802A0C84 {
 
 extern "C" {
 u32 calc_text_width(void *);
-void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2);
+void calc_text_pos__10TAdTitleGCFiPvi(M2C_UNK arg0, u8 *arg1, s32 arg2);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
@@ -108,7 +108,7 @@ block_5:
 
 #pragma push
 #pragma fp_contract on
-void TAdTitleGC__sub_802A0C24(M2C_UNK arg0, u8 *arg1, s32 arg2) {
+void calc_text_pos__10TAdTitleGCFiPvi(M2C_UNK arg0, u8 *arg1, s32 arg2) {
     M2C_FIELD(arg1, f32 *, 0) = (f32) ((6.2e+02f) - (f32) calc_text_width((void *) (arg2)));
     M2C_FIELD(arg1, f32 *, 4) = (f32) (86.0f);
 }
@@ -138,7 +138,7 @@ void run_task__10TAdTitleGCFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x12C) = 0xFF;
     }
     TAdTitleGC__sub_802A0C84((void *)(arg0));
-    TAdTitleGC__sub_802A0C24((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
+    calc_text_pos__10TAdTitleGCFiPvi((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off

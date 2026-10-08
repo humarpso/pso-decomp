@@ -8,7 +8,7 @@ extern "C" {
 
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *arg0);
 s16 get_valid_index__15TFontSmallLobbyFPv(void *arg0);
-s32 TFontSmallLobby__sub_801D6614(s16);
+s32 is_valid_index__15TFontSmallLobbyFs(s16);
 M2C_UNK set_section_index__15TFontSmallLobbyFPvs(void *, M2C_UNK);
 
 s16 TAdSinglePlyChrSelectGC__sub_801D5DDC(void *arg0) {
@@ -25,7 +25,7 @@ s16 get_valid_index__15TFontSmallLobbyFPv(void *arg0) {
     s16 var_r31;
 
     var_r31 = M2C_FIELD(arg0, s16 *, 2);
-    if (TFontSmallLobby__sub_801D6614(var_r31) == 0) {
+    if (is_valid_index__15TFontSmallLobbyFs(var_r31) == 0) {
         var_r31 = 0;
     }
     return var_r31;

@@ -59,12 +59,12 @@ extern "C" {
 #include "types.h"
 extern "C" {
 int queue_destruction__7TObjectFv(void*);
-void TNeedleShoot__sub_802A4A4C(u8 *arg0);
+void tick_lifetime__12TNeedleShootFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TNeedleShoot__sub_802A4A4C(u8 *arg0) {
+void tick_lifetime__12TNeedleShootFPv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0xC0) - 1;
     M2C_FIELD(arg0, s32 *, 0xC0) = temp_r0;

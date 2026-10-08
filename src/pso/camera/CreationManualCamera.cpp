@@ -17,12 +17,12 @@ extern const f32 lbl_805DD974,lbl_805DD978,lbl_805DD9B4,lbl_805DD9B8,lbl_805DD9B
 extern "C" {
 
 void *TCameraCtrl__vt8(void);
-int TObjCMProportion__sub_802918B8(void* p);
+int update_camera__16TObjCMProportionFPv(void* p);
 void *TCameraCtrl__sub_80291CBC(void *);
 void *__nw__7TObjectFUl(int);
 int update_creation_camera_auto(void*);
 
-int TObjCMProportion__sub_802918B8(void* p) { return update_creation_camera_auto(p); }
+int update_camera__16TObjCMProportionFPv(void* p) { return update_creation_camera_auto(p); }
 
 #pragma push
 #pragma fp_contract on

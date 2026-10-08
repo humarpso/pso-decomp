@@ -120,7 +120,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void wait_ready_loop__6TLobbyFv(void);
-s32 TLobby__sub_800F8FB8();
+s32 run_disk_error_check__6TLobbyFv();
 M2C_UNK TLobby__sub_801384E4();
 M2C_UNK set_state__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 get_main_phase();
@@ -131,7 +131,7 @@ M2C_UNK render_tick__Fv();
 void wait_ready_loop__6TLobbyFv(void) {
     lbl_805D5359 = 0;
 loop_1:
-    if (TLobby__sub_800F8FB8() != 1) {
+    if (run_disk_error_check__6TLobbyFv() != 1) {
         if (get_main_phase() == 0xF) {
             TLobby__sub_801384E4();
         }
@@ -184,7 +184,7 @@ extern u8 lbl_805D533C;
 #pragma push
 #pragma dont_inline off
 #pragma inline_depth(4)
-s32 TLobby__sub_800F8FB8(void) {
+s32 run_disk_error_check__6TLobbyFv(void) {
     f32 pos[8];
     Desc_800F8FB8 d;
     s32 ids[4];

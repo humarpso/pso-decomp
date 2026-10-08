@@ -11,7 +11,7 @@ void __destroy_arr(void *arr, void *dtor, u32 size, u32 n);
 void TLobby__sub_80242148(void *self, s32 x);
 extern char lbl_805162EC[];
 void TLobby__sub_80240974(void);
-u16 TLobby__sub_802408EC(u16 crc, u8 c);
+u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c);
 void *__construct_array(void *, void *, void *, u32, u32);
 s32 __register_global_object(s32, void *, void *);
 void TLobby__sub_80240974(void);
@@ -60,7 +60,7 @@ void reset_sound_owner_state(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x2AC) = 0x1E240;
 }
 
-u16 TLobby__sub_802408EC(u16 crc, u8 c) {
+u16 update_crc16_ccitt__6TLobbyFUsUc(u16 crc, u8 c) {
     s32 i;
     u32 r = crc;
     r ^= c << 8;

@@ -21,7 +21,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030B048_lbl_804E7688 lbl_804E7688;
 extern u32 TObjBoss8Piller__data_805D6A78;
-void TObjBoss8Piller__sub_8030B048(void);
+void load_resource_descriptor__15TObjBoss8PillerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
@@ -61,7 +61,7 @@ void free_held_object__15TObjBoss8PillerFv(void) {
         TObjBoss8Piller__data_805D6A78 = 0U;
     }
 }
-void TObjBoss8Piller__sub_8030B048(void) {
+void load_resource_descriptor__15TObjBoss8PillerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

@@ -392,7 +392,7 @@ struct Out_800FD614 { s32 a; s32 b; };
 extern "C" {
 void reset_leader_selection(void* p);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__data_805011D8;
-void TLobby__sub_800FD764(void);
+void reset_leader_selection_static__6TLobbyFv(void);
 void call_funcs_reverse__6TLobbyFPvUi(Ent_800FD6A0 *arr, u32 size);
 s32 is_area_transfer_pending(void);
 s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size);
@@ -492,7 +492,7 @@ s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size) {
     return 1;
 }
 
-void TLobby__sub_800FD764(void) {
+void reset_leader_selection_static__6TLobbyFv(void) {
     reset_leader_selection((void*)((M2C_UNK *)(&TLobby__data_805011D8.value)));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -504,4 +504,4 @@ typedef char RecoveredGlobal_8000F9CC_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TFontSmallTask_cpp_ref = (void *)TLobby__sub_800FD764;
+__declspec(section ".ctors") static void *const __sinit_TFontSmallTask_cpp_ref = (void *)reset_leader_selection_static__6TLobbyFv;

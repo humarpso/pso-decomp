@@ -107,7 +107,7 @@ M2C_UNK restore_actor_draw_lighting(s32);
 M2C_UNK setup_actor_draw_lighting();
 s32 is_anim_finished__10TObjPlayerFPv(void *arg0);
 void update_animation_frame__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_80142BB4(Obj_80142BB4 *self, s16 i);
+s32 get_anim_entry_value__10TObjPlayerFPvs(Obj_80142BB4 *self, s16 i);
 void serialize_node_flags__10TObjPlayerFPv(u8 *arg0);
 void clear_next_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
@@ -230,7 +230,7 @@ void update_animation_frame__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     *(s32 *)(arg0 + 0xF8) = b[n].f4;
 }
 
-s32 TObjPlayer__sub_80142BB4(Obj_80142BB4 *self, s16 i) {
+s32 get_anim_entry_value__10TObjPlayerFPvs(Obj_80142BB4 *self, s16 i) {
     return self->e2[self->e1[i].idx].b;
 }
 
@@ -456,7 +456,7 @@ void advance_animation_playback(Anim_80143504 *a) {
         break;
     case 2:
         if (a->frame >= last) {
-            if (((u32 (*)(void *, s16))TObjPlayer__sub_80142BB4)(a, a->tbl[a->cur].next) == 0) {
+            if (((u32 (*)(void *, s16))get_anim_entry_value__10TObjPlayerFPvs)(a, a->tbl[a->cur].next) == 0) {
                 a->frame -= a->end;
             } else {
                 a->cur = a->tbl[a->cur].next;

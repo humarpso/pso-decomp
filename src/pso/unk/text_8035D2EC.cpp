@@ -16,7 +16,7 @@ extern u8 lbl_80479BB4[][3];
 s32 any_player_has_listed_equipment(void);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
-void TObjPlayer__sub_8010941C(void);
+void forward_item_effect_callback__10TObjPlayerFii(void);
 void fn_8035D3E0(Obj_8035D3E0 *arg0, Out_8035D3E0 *arg1);
 }
 
@@ -51,7 +51,7 @@ void fn_8035D3E0(Obj_8035D3E0 *arg0, Out_8035D3E0 *arg1) {
     get_weapon_color__11TItemWeaponFPv(sp8, arg0);
     copy_vec4__13TRaderMapCoreFPvPv(arg1->v60, sp8);
     arg1->f44 = arg0->f188;
-    arg1->f70 = (void *)TObjPlayer__sub_8010941C;
+    arg1->f70 = (void *)forward_item_effect_callback__10TObjPlayerFii;
 }
 
 }

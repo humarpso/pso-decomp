@@ -683,7 +683,7 @@ void * create_TBoss3VoloptCore(void *arg0, void *arg1, s16 arg2, s16 arg3);
 void * TBoss3VoloptCore__sub_80040A7C(void *arg0, void *arg1, void *arg2);
 int TObjPlayer__sub_80040ADC(void);
 s32 TObjPlayer__sub_80040AE4(s32 i);
-void TObjPlayer__sub_80040AF8(O_80040AF8 *self, s32 i);
+void load_entry_params_volopt__10TObjPlayerFPvi(O_80040AF8 *self, s32 i);
 void update_if_active__15TObjEneMe1GiGueFPv(void*, M2C_UNK);
 M2C_UNK TCameraCtrl__sub_8006A044(M2C_UNK, f32);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -1651,7 +1651,7 @@ void TBoss3VoloptCore__ct(VObj_80040894 *arg0) {
     set_param__12TObjEneLappyFPvi(arg0, 0x2E);
     update_prev_position__10TObjPlayerFPv(arg0);
     reset_photon_effect__12TBoss3VoloptFPv(arg0);
-    ((M2C_UNK (*)(void *, M2C_UNK))TObjPlayer__sub_80040AF8)(arg0, 0x18);
+    ((M2C_UNK (*)(void *, M2C_UNK))load_entry_params_volopt__10TObjPlayerFPvi)(arg0, 0x18);
     M2C_FIELD(arg0, s32 *, 0x388) |= 0x10000;
     M2C_FIELD(arg0, s32 *, 0x390) = 0;
     temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
@@ -1694,7 +1694,7 @@ s32 TObjPlayer__sub_80040AE4(s32 i) {
     return (*(G_80040AE4 * *)&lbl_805D4C5C)->arr[i];
 }
 
-void TObjPlayer__sub_80040AF8(O_80040AF8 *self, s32 i) {
+void load_entry_params_volopt__10TObjPlayerFPvi(O_80040AF8 *self, s32 i) {
     self->f34 = (*(G_80040AF8 * *)&lbl_805D4C60)->entries[i].f8;
     self->f24 = (*(G_80040AF8 * *)&lbl_805D4C60)->entries[i].fc;
 }

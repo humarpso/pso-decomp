@@ -58,7 +58,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK append_string(void *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512350;
-void TLobby__sub_801E6818(void);
+void append_default_string__6TLobbyFv(void);
 M2C_UNK append_string(void *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80512340;
 void TLobby__sub_801E6840(void);
@@ -210,7 +210,7 @@ extern M2C_UNK lbl_805DC4A4;
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
-void TLobby__sub_801E6818(void) {
+void append_default_string__6TLobbyFv(void) {
     append_string((void *)((M2C_UNK *)(&lbl_80512350.value)));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];

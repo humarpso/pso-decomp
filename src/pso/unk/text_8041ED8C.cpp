@@ -380,7 +380,7 @@ s32 reset_stack_module__6TLobbyFv(void) {
     return 0;
 }
 #define G_ (*(G_80420C9C *)&lbl_805C1DF0)
-s32 TLobby__sub_80420C9C(void) {
+s32 init_ucb_entries__6TLobbyFv(void) {
     s16 i;
     E_80420C9C *e;
 

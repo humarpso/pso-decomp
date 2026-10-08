@@ -116,7 +116,7 @@ void init_net_buffer_table__6TLobbyFPv(u8 *arg0);
 void init_net_block_620_params__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803F7984_lbl_805AA098 lbl_805AA098;
 extern M2C_UNK lbl_805D7A00;
-void TLobby__sub_803F7984(u8 *arg0);
+void init_buffer_desc_b__6TLobbyFPv(u8 *arg0);
 void init_net_buffer_desc__6TLobbyFPv(u8 *arg0);
 s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32);
 s32 send_atx_command_mode__6TLobbyFi(s32 arg0);
@@ -143,7 +143,7 @@ extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 void stop_network_thread__6TLobbyFv(void);
 extern s32 lbl_805D7A10;
 extern s32 lbl_805D7A14;
-u32 TLobby__sub_803F8440(u8 *arg0, s32 arg1, u32 arg2);
+u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 extern s16 lbl_805D47F8;
 extern u16 lbl_805D47FA;
 extern u16 lbl_805D47FC;
@@ -222,7 +222,7 @@ extern s32 lbl_805D7A10;
 extern s16 lbl_805D7A34;
 extern char lbl_805E1148[4];
 s32 TLobby__sub_803F8314(A_803F8314 *arg0);
-u32 TLobby__sub_803F8440(u8 *arg0, s32 arg1, u32 arg2);
+u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 u32 layout_buffers__6TLobbyFPvPvPv(u8 *, u32, u32);
 extern u32 lbl_805D7A40;
 extern u32 lbl_805D7A44;
@@ -425,7 +425,7 @@ void TLobby__sub_803F7980(void) {
 }
 
 typedef char RecoveredGlobal_803F7984_lbl_805AA098_size[sizeof(RecoveredGlobal_803F7984_lbl_805AA098) == 0x4C18 ? 1 : -1];
-void TLobby__sub_803F7984(u8 *arg0) {
+void init_buffer_desc_b__6TLobbyFPv(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[12]; M2C_UNK * field_C; M2C_UNK * field_10; s16 field_14; s16 field_16; };
     ((Fields_arg0*)arg0)->field_C = &lbl_805D7A00;
     ((Fields_arg0*)arg0)->field_10 = &lbl_805AA098.value;
@@ -817,7 +817,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-u32 TLobby__sub_803F8440(u8 *arg0, s32 arg1, u32 arg2) {
+u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2) {
     u32 temp_r3;
     lbl_805D7A10 = arg1;
     lbl_805D7A14 = M2C_FIELD(arg0, s32 *, 0x10);
@@ -861,7 +861,7 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size) {
     if (q == 0) {
         return -1;
     }
-    if (hdr.b != 0 && TLobby__sub_803F8440((u8 *)&hdr, q, end) == 0) {
+    if (hdr.b != 0 && compute_range_end__6TLobbyFPviUi((u8 *)&hdr, q, end) == 0) {
         return -1;
     }
     return 0;

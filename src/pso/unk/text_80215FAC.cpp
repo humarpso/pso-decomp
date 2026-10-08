@@ -42,7 +42,7 @@ s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
 s32 get_slot_flag__17TMedicalCenterMesFi(s32 arg0);
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
-void TMedicalCenterMes__sub_80216238(void);
+void clear_slot_flags__17TMedicalCenterMesFv(void);
 extern RecoveredGlobal_80215FAC_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 void TJudgmentSequence__sub_80216030(void);
 extern RecoveredGlobal_80216084_TMedicalCenterMes__data_80513EA0 TMedicalCenterMes__slot_flags;
@@ -165,7 +165,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
     }
 }
 
-void TMedicalCenterMes__sub_80216238(void) {
+void clear_slot_flags__17TMedicalCenterMesFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TMedicalCenterMes__slot_flags)[i] = 0;

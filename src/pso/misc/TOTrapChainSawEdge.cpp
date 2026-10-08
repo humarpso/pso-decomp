@@ -335,7 +335,7 @@ void * create__20TOTrapChainSawDamageFPv(void *arg0);
 void * __dt__20TOTrapChainSawDamageFv(void *arg0, s16 arg1);
 void * TOTrapChainSawDamage__ct(void *arg0, void *arg1, void *arg2);
 s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1);
-f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0);
+f32 scale_by_level__14TOTrapChainSawFf(f32 farg0);
 void update_demo__14TOTrapChainSawFPv(void *arg0);
 void TOTrapChainSaw__sub_802C9090(void);
 void update_demo_if_in_range__14TOTrapChainSawFPv(u8 *arg0);
@@ -866,7 +866,7 @@ s32 get_area_table_value__17TOTrapChainSawKeyFii(s32 arg0, s32 arg1) {
 extern int fold_flush_8;
 #pragma pop
 
-f32 TOTrapChainSaw__sub_802C8FF8(f32 farg0) {
+f32 scale_by_level__14TOTrapChainSawFf(f32 farg0) {
     F4_802C8FF8 t = lbl_80471EDC;
     return farg0 * t.v[lbl_805D5550];
 }
@@ -1133,7 +1133,7 @@ M2C_UNK __vt__18TOTrapChainSawEdge[31] = {
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BEC,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF0,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+    (M2C_UNK)&scale_by_level__14TOTrapChainSawFf
 };
 M2C_UNK __vt__17TOTrapChainSawKey[31] = {
     0,
@@ -1166,7 +1166,7 @@ M2C_UNK __vt__17TOTrapChainSawKey[31] = {
     (M2C_UNK)&TOTrapChainSawKey__vt25,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF0,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+    (M2C_UNK)&scale_by_level__14TOTrapChainSawFf
 };
 M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
     0,
@@ -1199,7 +1199,7 @@ M2C_UNK __vt__20TOTrapChainSawDamage[31] = {
     (M2C_UNK)&TOTrapChainSawDamage__vt25,
     (M2C_UNK)&TOTrapChainSawDamage__vt26,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+    (M2C_UNK)&scale_by_level__14TOTrapChainSawFf
 };
 M2C_UNK __vt__14TOTrapChainSaw[31] = {
     0,
@@ -1232,7 +1232,7 @@ M2C_UNK __vt__14TOTrapChainSaw[31] = {
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BEC,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF0,
     (M2C_UNK)&TOTrapChainSaw__sub_802C9BF4,
-    (M2C_UNK)&TOTrapChainSaw__sub_802C8FF8
+    (M2C_UNK)&scale_by_level__14TOTrapChainSawFf
 };
 
 }

@@ -739,7 +739,7 @@ void TBoss2DeRolLe__sub_80031AD4(void *, void *);
 void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *, void *);
 void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1);
 void dispatch_action__13TBoss2DeRolLeFiUii(s32 arg0, u32 arg1, s32 arg2);
-void TBoss2DeRolLe__sub_8003383C(u8 *arg0);
+void advance_phase_wrap__13TBoss2DeRolLeFPv(u8 *arg0);
 int spawn_trap__13TBoss2DeRolLeFPvii(void* p, int a1, int a2);
 int play_sound(void* p, int a1);
 void TBoss2DeRolLe__sub_800338BC(void);
@@ -3052,7 +3052,7 @@ void TBoss2DeRolLe__sub_80033684(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss2DeRolLe__sub_8003383C(u8 *arg0) {
+void advance_phase_wrap__13TBoss2DeRolLeFPv(u8 *arg0) {
     f32 temp_f1;
     M2C_FIELD(arg0, f32 *, 0x6D4) = (f32) (M2C_FIELD(arg0, f32 *, 0x6D4) + M2C_FIELD(arg0, f32 *, 0x6D8));
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x6D4);

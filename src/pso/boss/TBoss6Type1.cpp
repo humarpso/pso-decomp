@@ -450,10 +450,10 @@ extern const f32 lbl_805DE2FC;
 void TBoss6Type1__sub_802B5140(s32 arg0, s32 arg1, s32 arg2);
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const f32 lbl_805DE370;
-void TBoss6Type1__sub_802B64B4(u8 *arg0);
+void decrease_field_clamped_min__11TBoss6Type1FPv(u8 *arg0);
 extern const f32 TBoss6Type1__data_805DE2E4;
 extern const f32 lbl_805DE374;
-void TBoss6Type1__sub_802B64DC(u8 *arg0);
+void increase_field_clamped_max__11TBoss6Type1FPv(u8 *arg0);
 s32 request_destroy__11TBoss4Type2FUi(int);
 void release_effect_slot__11TBoss6Type1Fii(s32 arg0, s32 arg1);
 void release_effect_slot__11TBoss6Type1Fii(s32 arg0, s32 arg1);
@@ -466,7 +466,7 @@ void TBoss6Type1__sub_802B5AB0(void);
 extern const f32 lbl_805DE348;
 void TBoss6Type1__sub_802B5CB4(u8 *arg0);
 extern const s32 lbl_805DE2D4;
-void TBoss6Type1__sub_802B4B34(Obj_802B4B34 *self);
+void clear_slot_array__11TBoss6Type1FPv(Obj_802B4B34 *self);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 int is_field4b0_delta_reached__11TBoss6Type1FPv(Obj_802B5E48 *self);
 void TBoss6Type1__sub_802B4D38(Obj_802B4D38 *self);
@@ -646,7 +646,7 @@ void TBoss6Type1__sub_802B4B04(u8 *arg0) {
 
 int TBoss6Type1__sub_802B4B14(void* p) { return TBoss6Type1__sub_802B4A9C(p); }
 
-void TBoss6Type1__sub_802B4B34(Obj_802B4B34 *self) {
+void clear_slot_array__11TBoss6Type1FPv(Obj_802B4B34 *self) {
     s32 i;
     self->f508 = 0;
     for (i = 0; i < lbl_805DE2D4; i++) self->arr[i] = 0;
@@ -1308,7 +1308,7 @@ void reset_param__11TBoss6Type1FPv(void *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TBoss6Type1__sub_802B64B4(u8 *arg0) {
+void decrease_field_clamped_min__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) (M2C_FIELD(arg0, f32 *, 0x4DC) + lbl_805DE370);
     if (M2C_FIELD(arg0, f32 *, 0x4DC) < TBoss6Type1__data_805DE2D0) {
         M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) TBoss6Type1__data_805DE2D0;
@@ -1318,7 +1318,7 @@ void TBoss6Type1__sub_802B64B4(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss6Type1__sub_802B64DC(u8 *arg0) {
+void increase_field_clamped_max__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) (M2C_FIELD(arg0, f32 *, 0x4DC) + lbl_805DE374);
     if (M2C_FIELD(arg0, f32 *, 0x4DC) > TBoss6Type1__data_805DE2E4) {
         M2C_FIELD(arg0, f32 *, 0x4DC) = (f32) TBoss6Type1__data_805DE2E4;
@@ -2480,7 +2480,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     TBoss6Type1__sub_802B7D50(arg0);
     M2C_FIELD(arg0, s32 *, 0x408) = 0;
     TBoss6Type1__sub_802B4D38((Obj_802B4D38 *)arg0);
-    TBoss6Type1__sub_802B4B34((Obj_802B4B34 *)arg0);
+    clear_slot_array__11TBoss6Type1FPv((Obj_802B4B34 *)arg0);
     TBoss6Type1__sub_802B4A90(arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x56C, arg0 + 0x38);
     set_action_state__11TBoss6Type1FPvi((Boss_802B865C *)arg0, 0);

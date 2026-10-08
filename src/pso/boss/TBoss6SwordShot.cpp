@@ -56,7 +56,7 @@ extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *create__15TBoss6SwordWaveFiiiif(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
-void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1);
+void set_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -72,9 +72,9 @@ s32 query_teammate_state__9TObjEneDDFPv();
 extern const f32 lbl_805E0010;
 extern const f32 lbl_805E0014;
 void run_task__15TBoss6SwordWaveFv(u8 *arg0);
-void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
-void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b);
-void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
+void split_bit_index__15TBoss6SwordWaveFiUcPvPv(s32 arg0, u8 v, void *a, void *b);
+void split_bit_index__15TBoss6SwordWaveFiUcPvPv(s32 arg0, u8 v, void *a, void *b);
+void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
 void *spawn_particle_effect_with_flags(void *, int, int);
 void spawn_particle_effect(void *, int);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
@@ -97,7 +97,7 @@ s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
 M2C_UNK reset_rock_state__10TBoss6RockFi(s32);
 u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
-void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
+void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1);
 M2C_UNK vec3_add_to(void *, void *);
 f32 vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
@@ -414,7 +414,7 @@ M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
         if (((s32 (*)(void *, u8))test_rock_bit__15TBoss6SwordWaveFiUc)(arg0 + 0x30, t) == 0) {
             continue;
         }
-        ((void (*)(void *, u8))TBoss6SwordWave__sub_80356D10)(arg0 + 0x30, t);
+        ((void (*)(void *, u8))clear_bit__15TBoss6SwordWaveFPvUc)(arg0 + 0x30, t);
         reset_rock_state__10TBoss6RockFi(i);
         if (dist <= lbl_805E0004) {
             continue;
@@ -437,7 +437,7 @@ M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
             hi += lbl_805E000C;
         }
         for (; lo <= hi; lo++) {
-            ((void (*)(void *, s32))TBoss6SwordWave__sub_80356D10)(arg0 + 0x30, lo);
+            ((void (*)(void *, s32))clear_bit__15TBoss6SwordWaveFPvUc)(arg0 + 0x30, lo);
         }
     }
 }
@@ -514,11 +514,11 @@ u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80356C80, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80356C80, spC) == 0x4) ? 1 : -1];
     Stack_80356C80 stack;
-    TBoss6SwordWave__sub_80356CDC((s32)(arg0), arg1, (void *)(&stack.spC), (void *)(&stack.sp8));
+    split_bit_index__15TBoss6SwordWaveFiUcPvPv((s32)(arg0), arg1, (void *)(&stack.spC), (void *)(&stack.sp8));
     return (u8) (((1 << stack.sp8) & M2C_FIELD(arg0, M2C_UNK *, (stack.spC * 4))) != 0);
 }
 
-void TBoss6SwordWave__sub_80356CDC(s32 arg0, u8 v, void *a, void *b) {
+void split_bit_index__15TBoss6SwordWaveFiUcPvPv(s32 arg0, u8 v, void *a, void *b) {
     s32 x = v;
     *(s32 *)a = x / 32;
     *(s32 *)b = x % 32;
@@ -528,10 +528,10 @@ u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2) {
     return (u8) (arg2 >> 8U);
 }
 
-void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1) {
+void clear_bit__15TBoss6SwordWaveFPvUc(W_80356D10 *arg0, u8 arg1) {
     s32 idx;
     s32 bit;
-    TBoss6SwordWave__sub_80356CDC((s32)arg0, arg1, &idx, &bit);
+    split_bit_index__15TBoss6SwordWaveFiUcPvPv((s32)arg0, arg1, &idx, &bit);
     arg0->w[idx] &= ~(1 << bit);
 }
 
@@ -543,17 +543,17 @@ void fill_range__15TBoss6SwordWaveFPvPvPv(void *arg0, void *arg1, void *arg2) {
     }
     fn_80356E30(arg0);
     while (a <= b) {
-        ((void (*)(void *, s32))TBoss6SwordWave__sub_80356DDC)(arg0, a);
+        ((void (*)(void *, s32))set_bit__15TBoss6SwordWaveFiUc)(arg0, a);
         a++;
     }
 }
 
-void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1) {
+void set_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1) {
   s32 spC;
   s32 sp8;
   s32 temp_r5;
   s8 *new_var;
-  TBoss6SwordWave__sub_80356CDC((s32)(arg0), arg1, (void *)(&spC), (void *)(&sp8));
+  split_bit_index__15TBoss6SwordWaveFiUcPvPv((s32)(arg0), arg1, (void *)(&spC), (void *)(&sp8));
   temp_r5 = spC * 4;
   new_var = ((s8 *) arg0) + temp_r5;
   *((M2C_UNK *) (((s8 *) arg0) + temp_r5)) = (*((M2C_UNK *) new_var)) | (1 << sp8);

@@ -101,7 +101,7 @@ extern "C" {
 M2C_UNK send_6x61_activate_mag_effect(void *, s16);
 void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0);
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
-void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
+void spawn_item_from_arg__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
 s32 get_flag_40__8TItemMagFPv(void *);
 void draw_weapon_model(void);
@@ -149,7 +149,7 @@ void *enter_state_341__10TObjPlayerFPv(void *arg0) {
     extern const float lbl_805DE790;
 void set_radar_marker_pos__10TObjPlayerFiPv(int a0, void* a1) { set_radar_marker_params__10TObjPlayerFPvPv(); *(float*)((char*)a1 + 0x38) = lbl_805DE790; }
 
-void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1) {
+void spawn_item_from_arg__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
     spawn_item__10TObjPlayerFi((void *) (arg1));
 }
 

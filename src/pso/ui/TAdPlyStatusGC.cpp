@@ -91,7 +91,7 @@ extern s32 TAdPlyStatusGC__data_805D6DB8;
 void set_load_state__14TAdPlyStatusGCFPvi(u8 *arg0, s32 arg1);
 void set_field_1c__6TLobbyFPvf(f32);
 s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
-void TAdPlyStatusGC__sub_8033F3D8(void *arg0, void *arg1);
+void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1);
 extern u8 lbl_804783D8[];
 extern const f32 lbl_805DFAEC;
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
@@ -194,7 +194,7 @@ void set_draw_texture_and_color(s32, s32);
 extern const f32 lbl_805DFAE0;
 extern const f32 lbl_805DFAE4;
 extern Vec2_8033F3D8 lbl_804783E0[];
-void TAdPlyStatusGC__sub_8033F3D8(void *arg0, void *arg1) {
+void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     Item_8033F3D8 items[3];
     Box_8033F3D8 box;
     Vec2_8033F3D8 pts[3];
@@ -307,7 +307,7 @@ void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
 }
 
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1) {
-    s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(arg1, lbl_804783D8, (void *)TAdPlyStatusGC__sub_8033F3D8);
+    s32 r = create_callback__22TAdEnterSerialAccessGCFPvPvPv(arg1, lbl_804783D8, (void *)draw_status_window__14TAdPlyStatusGCFPvPv);
     set_field_1c__6TLobbyFPvf(lbl_805DFAEC);
     return r;
 }

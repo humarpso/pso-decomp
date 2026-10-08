@@ -160,7 +160,7 @@ void reset_flag__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803C0758(u8 *arg0);
 M2C_UNK TLobby__sub_803C1A00(int);
 void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_803C1A24(int);
+M2C_UNK invoke_notify_callback__6TLobbyFPv(int);
 void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void clear_record__6TLobbyFPv(void *);
 void release_ref__6TLobbyFv(void);
@@ -318,7 +318,7 @@ void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1) {
 }
 void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 8) = arg1;
-    TLobby__sub_803C1A24((int) (M2C_FIELD(arg0, s32 *, 4)));
+    invoke_notify_callback__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
 }
 
 s32 TLobby__sub_803C07E8(Obj_803C07E8 *self) {

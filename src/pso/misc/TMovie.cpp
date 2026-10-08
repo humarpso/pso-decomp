@@ -308,13 +308,13 @@ extern "C" {
 
 void render_until_finished__6TMovieFv(void);
 
-s32 TLobby__sub_800F8FB8();
+s32 run_disk_error_check__6TLobbyFv();
 M2C_UNK render_tick__Fv();
 s32 DVDCheckDisk();
 
 void render_until_finished__6TMovieFv(void) {
 loop_1:
-    if ((DVDCheckDisk() == 0) && (TLobby__sub_800F8FB8() == 0)) {
+    if ((DVDCheckDisk() == 0) && (run_disk_error_check__6TLobbyFv() == 0)) {
         render_tick__Fv();
         goto loop_1;
     }
@@ -336,7 +336,7 @@ s32 is_playback_finished__6TMovieFPv(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 s32 TAdEndText__sub_8001B41C();
-s32 TLobby__sub_800F8FB8();
+s32 run_disk_error_check__6TLobbyFv();
 M2C_UNK fn_801449E4();
 M2C_UNK fn_801449F0();
 s32 check_reset_button__16TKeyBoardControlFv();
@@ -353,8 +353,8 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
     s8 temp_r3;
 
     if (TAdEndText__sub_8001B41C() != 0) {
-        if ((TLobby__sub_800F8FB8() == 0) || (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) != 0) || (func_801A5E54__Fv() != 0)) {
-            if ((TLobby__sub_800F8FB8() == 0) || (func_801A5E54__Fv() != 0)) {
+        if ((run_disk_error_check__6TLobbyFv() == 0) || (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) != 0) || (func_801A5E54__Fv() != 0)) {
+            if ((run_disk_error_check__6TLobbyFv() == 0) || (func_801A5E54__Fv() != 0)) {
                 fn_801449F0();
             }
             return 1;
@@ -379,7 +379,7 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
         var_r31 = lbl_8050E208 + 0x160;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 4) != 0) goto block_fn_8000F91C;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 2) != 0) goto block_fn_8000F91C;
-        if (TLobby__sub_800F8FB8() == 0) goto block_fn_8000F91C;
+        if (run_disk_error_check__6TLobbyFv() == 0) goto block_fn_8000F91C;
         if (check_reset_button__16TKeyBoardControlFv() != 0) goto block_fn_8000F91C;
         if (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
 block_fn_8000F91C:
@@ -396,7 +396,7 @@ block_fn_8000F91C:
         var_r31 = lbl_8050E208 + 0x160;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 4) != 0) goto block_call_func;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 2) != 0) goto block_call_func;
-        if (TLobby__sub_800F8FB8() == 0) goto block_call_func;
+        if (run_disk_error_check__6TLobbyFv() == 0) goto block_call_func;
         if (var_r30 != 0) goto block_call_func;
         if (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
 block_call_func:

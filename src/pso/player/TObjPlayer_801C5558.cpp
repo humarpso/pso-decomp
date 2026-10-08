@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2);
-s32 TObjPlayer__sub_801C5728(s32 arg0, s32 arg1, s32 arg2);
+s32 consume_trap_count__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -90,7 +90,7 @@ s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
     return var_r3;
 }
 
-s32 TObjPlayer__sub_801C5728(s32 arg0, s32 arg1, s32 arg2) {
+s32 consume_trap_count__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD((arg0 + arg2), s8 *, 0) = M2C_FIELD((arg0 + arg2), u8 *, 0) - arg1;
     if ((s8) M2C_FIELD((arg0 + arg2), u8 *, 0) < 0) {
         M2C_FIELD((arg0 + arg2), s8 *, 0) = 0;

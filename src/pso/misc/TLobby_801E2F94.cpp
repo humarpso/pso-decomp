@@ -561,13 +561,13 @@ struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { M2C_UNK value;
 typedef char RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 
 extern "C" {
-M2C_UNK TLobby__sub_800F8FB8();
+M2C_UNK run_disk_error_check__6TLobbyFv();
 s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_803382E4();
 s32 read_afs_toc__6TLobbyFi(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_800F8FB8();
+M2C_UNK run_disk_error_check__6TLobbyFv();
 s32 reset_state_byte__6TLobbyFv();
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
@@ -643,7 +643,7 @@ s32 TKeyBoardControl__sub_801E3E24(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 >= 0) {
 loop_2:
         if (read_afs_toc__6TLobbyFi((void *) (arg0)) != 3) {
-            TLobby__sub_800F8FB8();
+            run_disk_error_check__6TLobbyFv();
             flush_input__16TKeyBoardControlFv();
             update_global_sound_frame();
             read_pads__16TKeyBoardControlFv();
@@ -661,7 +661,7 @@ s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2) {
     if (temp_r3 >= 0) {
 loop_1:
         if (read_afs_toc__6TLobbyFi((void *) (arg0)) != 3) {
-            TLobby__sub_800F8FB8();
+            run_disk_error_check__6TLobbyFv();
             TLobby__sub_803382E4();
             run_frame__6TLobbyFv();
             goto loop_1;

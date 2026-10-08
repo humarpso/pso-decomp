@@ -2011,7 +2011,7 @@ void TObjEneDellBiter__vt26(void);
 void run_task__16TObjEneDellBiterFv(u8 *arg0);
 void init_params__16TObjEneDellBiterFPv(void *);
 void * TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2);
-void TObjEneDellBiter__sub_803067AC(s32 arg0, f32 farg0);
+void set_min_clamped_entry_value__16TObjEneDellBiterFif(s32 arg0, f32 farg0);
 void destroy_static_instance__16TObjEneDellBiterFv(void);
 void * TObjEneDellBiter__create(void *arg0);
 void apply_armor_add_slot(void *arg0);
@@ -3951,7 +3951,7 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
-void TObjEneDellBiter__sub_803067AC(s32 arg0, f32 farg0) {
+void set_min_clamped_entry_value__16TObjEneDellBiterFif(s32 arg0, f32 farg0) {
   u8 *new_var;
   f32 var_f1;
   var_f1 = farg0;
@@ -3996,8 +3996,8 @@ void load_resources__16TObjEneDellBiterFv(void) {
     TObjEneDellBiter__data_805D6A34 = 0;
     TObjEneDellBiter__data_805D6A38 = 0;
     TObjEneDellBiter__data_805D6A3C = 0;
-    TObjEneDellBiter__sub_803067AC(4, M2C_FIELD(TObjEneDellBiter__data_805D6A2C, f32 *, 8));
-    TObjEneDellBiter__sub_803067AC(5, M2C_FIELD(TObjEneDellBiter__data_805D6A2C, f32 *, 0xC));
+    set_min_clamped_entry_value__16TObjEneDellBiterFif(4, M2C_FIELD(TObjEneDellBiter__data_805D6A2C, f32 *, 8));
+    set_min_clamped_entry_value__16TObjEneDellBiterFif(5, M2C_FIELD(TObjEneDellBiter__data_805D6A2C, f32 *, 0xC));
     {
         Obj_80306858 *o = (Obj_80306858 *)TObjEneDellBiter__data_805D6A30;
         Ent_80306858 *ent = (Ent_80306858 *)lbl_804E6B8C;

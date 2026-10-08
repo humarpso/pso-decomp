@@ -838,7 +838,7 @@ void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
 extern s32 lbl_805D2738;
 u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
-void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
+void load_params_from_table__20TBoss3VoloptHiraisinFPvi(O_80041B34 *self, s32 i);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
 void recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
 void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
@@ -847,7 +847,7 @@ void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void reset_photon_effect__12TBoss3VoloptFPv(void *);
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
-void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i);
+void load_params_from_table__20TBoss3VoloptHiraisinFPvi(O_80041B34 *self, s32 i);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void init_collision_body_parts(void *, void *, s32);
@@ -949,7 +949,7 @@ void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     self->unk33E = self->hp32C;
     set_param__12TObjEneLappyFPvi(self, 0x2E);
     reset_photon_effect__12TBoss3VoloptFPv(self);
-    TBoss3VoloptHiraisin__sub_80041B34((O_80041B34 *)((struct O_80041B34 *)self), (s32)(0x10));
+    load_params_from_table__20TBoss3VoloptHiraisinFPvi((O_80041B34 *)((struct O_80041B34 *)self), (s32)(0x10));
     TObjEnemyCustom__sub_800C7860(self);
     add_flags_2e4__10TObjPlayerFPvUi(self, 4);
     obj_setFlags30(self, 0x8000);
@@ -990,7 +990,7 @@ void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0) {
 
 extern s32 lbl_805D4C14;
 
-void TBoss3VoloptHiraisin__sub_80041B34(O_80041B34 *self, s32 i) {
+void load_params_from_table__20TBoss3VoloptHiraisinFPvi(O_80041B34 *self, s32 i) {
     self->f34 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].f8;
     self->f24 = (*(G_80041B34 * *)&TBoss3VoloptHiraisin__data_805D4C80)->entries[i].fc;
 }

@@ -158,7 +158,7 @@ extern u32 lbl_805D7C00;
 void cancel_alarm_b__6TLobbyFv(void);
 M2C_UNK OSWakeupThread(void *);
 extern M2C_UNK lbl_805D7C38;
-void TLobby__sub_80429598(void);
+void wake_network_thread__6TLobbyFv(void);
 s32 EXIDeselect(s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
@@ -184,7 +184,7 @@ extern s32 lbl_805D7C48;
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 M2C_UNK OSWakeupThread(void *);
 extern M2C_UNK lbl_805D7CA0;
-void TAdSinglePlyChrSelectGC__sub_8042BF48(void);
+void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void);
 s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
@@ -392,7 +392,7 @@ s32 EXIUnlock(s32);
 M2C_UNK OSDisableInterrupts();
 M2C_UNK OSRestoreInterrupts(s32);
 M2C_UNK OSSleepThread(void *);
-void TLobby__sub_80429598(void);
+void wake_network_thread__6TLobbyFv(void);
 extern M2C_UNK lbl_805D7C38;
 u8 exi_read_status_byte__6TLobbyFv(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
@@ -411,7 +411,7 @@ extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 void reset_message_thread__6TLobbyFv(void);
 extern u8 lbl_805CF3C8[];
-s32 TLobby__sub_80426998(s16 arg0, u16 arg1);
+s32 remove_rec_by_handle__6TLobbyFsUs(s16 arg0, u16 arg1);
 }
 
 extern "C" {
@@ -943,7 +943,7 @@ static inline s16 remove_rec_80426998(u16 key) {
     }
     return -1;
 }
-s32 TLobby__sub_80426998(s16 arg0, u16 arg1) {
+s32 remove_rec_by_handle__6TLobbyFsUs(s16 arg0, u16 arg1) {
     if (arg0 != 0) {
         return -0x113;
     }
@@ -1063,7 +1063,7 @@ s32 init_buffer_pool__6TLobbyFv(void);
 
 void reset_buffer_pool__6TLobbyFv(void);
 
-void TLobby__sub_80429598(void);
+void wake_network_thread__6TLobbyFv(void);
 
 void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
@@ -1087,7 +1087,7 @@ void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 
 u8 exi_read_status_byte__6TLobbyFv(void);
 
-void TAdSinglePlyChrSelectGC__sub_8042BF48(void);
+void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void);
 
 #pragma push
 #pragma opt_common_subs off

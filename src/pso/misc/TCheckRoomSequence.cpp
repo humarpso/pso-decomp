@@ -184,12 +184,12 @@ extern s32 lbl_805D6160;
 extern s32 TCheckRoomSequence__data_805D6164;
 extern s32 TCheckRoomSequence__data_805D6168;
 extern s32 TCheckRoomSequence__data_805D616C;
-void TCheckRoomSequence__sub_80210810(void);
+void reset_slot_state__18TCheckRoomSequenceFv(void);
 extern s32 lbl_805D6160;
 extern s32 TCheckRoomSequence__data_805D6164;
 extern s32 TCheckRoomSequence__data_805D6168;
 extern s32 TCheckRoomSequence__data_805D616C;
-void TCheckRoomSequence__sub_80210860(void);
+void reset_slots__18TCheckRoomSequenceFv(void);
 s32 bank_debit_meseta(s32 v, s32 i);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 void finish_room_check__18TCheckRoomSequenceFPv(u8 *arg0);
@@ -1000,7 +1000,7 @@ void *TCheckRoomSequence__ct(void *arg0, s32 arg1, s32 arg2_) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_80210810(void) {
+void reset_slot_state__18TCheckRoomSequenceFv(void) {
     lbl_805D6160 = 0;
     TCheckRoomSequence__data_805D6164 = 0;
     TCheckRoomSequence__data_805D6168 = 0;
@@ -1013,7 +1013,7 @@ void TCheckRoomSequence__sub_80210810(void) {
 
 #pragma push
 #pragma optimization_level 1
-void TCheckRoomSequence__sub_80210860(void) {
+void reset_slots__18TCheckRoomSequenceFv(void) {
     lbl_805D6160 = 0;
     TCheckRoomSequence__data_805D6164 = 0;
     TCheckRoomSequence__data_805D6168 = 0;

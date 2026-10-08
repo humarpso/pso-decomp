@@ -10,7 +10,7 @@ void init_float_table__9TEndingABFPv(void* a0);
 void render__9TEndingABFv(s32 arg0);
 M2C_UNK TEndingAB__sub_8008CCC0(s32);
 M2C_UNK draw_overlay__9TEndingABFPv(s32);
-M2C_UNK TEndingAB__sub_8008CC5C();
+M2C_UNK set_fish_global_param__9TEndingABFv();
 
     extern const float lbl_805D9584;
     extern const float lbl_805D9588;
@@ -32,7 +32,7 @@ extern s32 TEndingAB__data_805D4F10;
 
 void render__9TEndingABFv(s32 arg0) {
     if ((s32) TEndingAB__data_805D4F10 != 0) {
-        TEndingAB__sub_8008CC5C();
+        set_fish_global_param__9TEndingABFv();
         draw_overlay__9TEndingABFPv(arg0);
         TEndingAB__sub_8008CCC0(arg0);
     }

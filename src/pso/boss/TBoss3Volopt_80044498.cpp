@@ -740,7 +740,7 @@ extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_8
 extern RecoveredGlobal_8004585C_lbl_804FF04C lbl_804FF04C;
 void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0);
 extern s16 lbl_804FF030[];
-void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self);
+void copy_phase2_positions_to_global__12TBoss3VoloptFPv(O_80044CB8 *self);
 void dispatch_state__12TBoss3VoloptFPv(V_80047408 *self);
 f32 receive_physical_attack__10TObjPlayerFv(void *, void *, f32);
 f32 receive_physical_attack_with_part_mask__12TBoss3VoloptFPvPvf(Obj_80044E4C *self, void *a1, f32 x);
@@ -992,7 +992,7 @@ void apply_hit_reaction__12TBoss3VoloptFPvf(void *arg0, f32 farg0) {
     }
 }
 
-void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self) {
+void copy_phase2_positions_to_global__12TBoss3VoloptFPv(O_80044CB8 *self) {
     s32 i;
     for (i = 0; i < 3; i++) {
         lbl_804FF030[i] = self->arr[i];
