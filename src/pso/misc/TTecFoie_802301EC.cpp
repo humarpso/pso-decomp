@@ -29,7 +29,7 @@ u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, 
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
 extern s32 lbl_805D37B0;
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
-extern Band_802301EC TTecFoie__data_8044D13C[];
+extern Band_802301EC TTecFoie__emitter_profile_table[];
 u32 find_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -48,7 +48,7 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
         queue_destruction__7TObjectFv(self);
         return;
     }
-    for (i = 0; i < TTecFoie__data_8044D13C[self->band].count; i++) {
+    for (i = 0; i < TTecFoie__emitter_profile_table[self->band].count; i++) {
         if (self->emitters[i] != 0) {
             copy_pos__11TNowLoadingFPvPv(self->emitters[i], self->pos);
         }

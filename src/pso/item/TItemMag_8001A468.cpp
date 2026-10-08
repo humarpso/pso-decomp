@@ -118,8 +118,8 @@ extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
 int TObjPlayer__sub_8001A77C(void *p);
 M2C_UNK publish_light_direction_color(int, void *, void *);
-extern Color_8001A6A8 lbl_80434478[];
-extern Light_8001A6A8 lbl_804344CC[];
+extern Color_8001A6A8 player_light_color_rgba_table[];
+extern Light_8001A6A8 player_light_direction_color_table[];
 extern s8 lbl_805D49E4;
 int publish_light_color__10TObjPlayerFPv(void *p);
 }
@@ -160,11 +160,11 @@ extern s32 lbl_805D5550;
 
 int publish_light_color__10TObjPlayerFPv(void *p) {
     ColorF_8001A6A8 c;
-    c.r = lbl_80434478[lbl_805D49E4].r / 255.0f;
-    c.g = lbl_80434478[lbl_805D49E4].g / 255.0f;
-    c.b = lbl_80434478[lbl_805D49E4].b / 255.0f;
-    c.a = lbl_80434478[lbl_805D49E4].a / 255.0f;
-    return publish_light_direction_color(0, &lbl_804344CC[lbl_805D49E4], &c);
+    c.r = player_light_color_rgba_table[lbl_805D49E4].r / 255.0f;
+    c.g = player_light_color_rgba_table[lbl_805D49E4].g / 255.0f;
+    c.b = player_light_color_rgba_table[lbl_805D49E4].b / 255.0f;
+    c.a = player_light_color_rgba_table[lbl_805D49E4].a / 255.0f;
+    return publish_light_direction_color(0, &player_light_direction_color_table[lbl_805D49E4], &c);
 }
 
 int TObjPlayer__sub_8001A77C(void *p) {

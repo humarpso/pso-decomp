@@ -120,7 +120,7 @@ void reset_floor_items__6TLobbyFv(void);
 s32 get_instance__6TLobbyFv();
 s32 is_quest_active();
 s32 TItemDropSub__sub_80107B74();
-extern Tbl_801044B8 lbl_8043E068;
+extern Tbl_801044B8 item_drop_area_remap_table;
 void normalize_drop_area(s32 *p);
 }
 
@@ -272,7 +272,7 @@ void normalize_drop_area(s32 *p) {
     } else if (p != NULL) {
         v = *p;
         if (v >= 0x13 && v < 0x24) {
-            Tbl_801044B8 t = lbl_8043E068;
+            Tbl_801044B8 t = item_drop_area_remap_table;
             *p = t.v[(u32)(v - 0x13)];
         }
     }

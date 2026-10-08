@@ -8,7 +8,7 @@ struct Tbl_8010C8B4 { s32 w[19]; };
 
 extern "C" {
 u8 get_weapon_class_motion_type(u8);
-extern const Tbl_8010C8B4 lbl_8043E2D8;
+extern const Tbl_8010C8B4 item_icon_index_by_category_table;
 s32 get_item_icon_index(const u8 *q);
 }
 
@@ -96,7 +96,7 @@ void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
 s32 get_item_icon_index(const u8 *q) {
     u8 v;
     if (q[0] == 0) {
-        Tbl_8010C8B4 t = lbl_8043E2D8;
+        Tbl_8010C8B4 t = item_icon_index_by_category_table;
         if ((v = q[1]) < 0xAA) {
             v = get_weapon_class_motion_type(v);
         }

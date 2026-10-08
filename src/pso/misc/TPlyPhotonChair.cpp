@@ -151,7 +151,7 @@ void sync_field10_from_child__15TPlyPhotonChairFPv(void *arg0);
 void set_field_8__15TPlyPhotonChairFPvi(void* p, s32 v);
 void set_type__15TPlyPhotonChairFPvi(void* p, s32 v);
 void *init__15TPlyPhotonChairFPv(void *arg0);
-extern RecoveredGlobal_8035B3C0_lbl_8047975C lbl_8047975C;
+extern RecoveredGlobal_8035B3C0_lbl_8047975C TPlyPhotonChair__section_id_color_table;
 extern M2C_UNK __vt__15TPlyPhotonChair[];
 extern s32 lbl_805D4418;
 extern u32 TPlyPhotonChair__data_805D6F40;
@@ -322,7 +322,7 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return arg0;
     }
-    get_rader_map__11TMainCursorFPv((void *) (arg0 + 0xD0), (void *) ((u8 *)&lbl_8047975C.value + (get_actor_section_id((int) (temp_r3)) * 0x10)));
+    get_rader_map__11TMainCursorFPv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id((int) (temp_r3)) * 0x10)));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1));
     set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1)))));
     set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1)))));

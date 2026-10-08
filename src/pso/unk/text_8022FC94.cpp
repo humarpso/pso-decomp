@@ -103,7 +103,7 @@ void queue_destruction__7TObjectFv(void *self);
 void free__11TOBoss4RockFUi(void **);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
-extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
+extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
 extern void *__vt__8TTecFoie[];
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting);
 s32 attach_particle_model(int, int, int, int, int, f32);
@@ -113,7 +113,7 @@ void *spawn_directional_particle(void *pos, void *dir, s32 id);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, u16 e);
 void *spawn_continuous_particle_effect_with_flags(void *, s32, u16);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-extern TTecFoieData_80230144 TTecFoie__data_8044D13C[];
+extern TTecFoieData_80230144 TTecFoie__emitter_profile_table[];
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805DC7F8;
 void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self);
@@ -148,22 +148,22 @@ void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
   fwd.y = 0;
   fwd.z = self->az;
   spawn_directional_particle(self->pos, &fwd, 0x18);
-  self->emitters = (void **) alloc_buffer__11TOBoss4RockFPv(TTecFoie__data_8044D13C[self->band].count * 4);
-  for (i = 0; i < TTecFoie__data_8044D13C[self->band].count; i++)
+  self->emitters = (void **) alloc_buffer__11TOBoss4RockFPv(TTecFoie__emitter_profile_table[self->band].count * 4);
+  for (i = 0; i < TTecFoie__emitter_profile_table[self->band].count; i++)
   {
-    Binding_8022FC94 *b = &(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i];
+    Binding_8022FC94 *b = &(*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i];
     f = (b->flags & 0x1000) ? (0x2000) : (0);
-    if ((&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->flags & 1)
+    if ((&(*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i])->flags & 1)
     {
       rev.x = self->ax + 0x8000;
       rev.y = 0;
       rev.z = self->az;
-      self->emitters[i] = spawn_particle_effect_with_rotation(self->pos, &rev, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].entry, f);
+      self->emitters[i] = spawn_particle_effect_with_rotation(self->pos, &rev, (*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].entry, f);
     }
     else
-      if ((&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->flags & 2)
+      if ((&(*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i])->flags & 2)
     {
-      self->emitters[i] = spawn_particle_effect_with_rotation(self->pos, &fwd, (&(*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i])->entry, f);
+      self->emitters[i] = spawn_particle_effect_with_rotation(self->pos, &fwd, (&(*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i])->entry, f);
     }
     else
     {
@@ -171,11 +171,11 @@ void create_particle_emitters__8TTecFoieFPv(Foie_8022FC94 *self) {
     }
     if (self->emitters[i] != 0)
     {
-      if ((*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].flags & 0x20)
+      if ((*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].flags & 0x20)
       {
         attach_particle_model((int) self->emitters[i], get_particle_model__13TParticleCtrlFi(0), lbl_805D63B0, 0, 1, lbl_805DC7F8);
       }
-      set_position_xy__10TObjPlayerFPvff(self->emitters[i], (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__data_8044D13C[self->band])))[i].scale);
+      set_position_xy__10TObjPlayerFPvff(self->emitters[i], (*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].scale, (*((Binding_8022FC94 **) (&TTecFoie__emitter_profile_table[self->band])))[i].scale);
     }
   }
 }
@@ -232,7 +232,7 @@ void create__8TTecFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) 
 TTecFoie_80230144 *__dt__8TTecFoieFv(TTecFoie_80230144 *self, s16 deleting) {
     if (self) {
         self->vtable = __vt__8TTecFoie;
-        for (u32 i = 0; i < TTecFoie__data_8044D13C[self->band].count; ++i) {
+        for (u32 i = 0; i < TTecFoie__emitter_profile_table[self->band].count; ++i) {
             queue_destruction__7TObjectFv(self->emitters[i]);
         }
         free__11TOBoss4RockFUi(self->emitters);

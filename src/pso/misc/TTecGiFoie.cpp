@@ -192,7 +192,7 @@ void pop_matrices(s32);
 
 extern const f32 TTecGiFoie__data_805DC81C;
 extern RecoveredGlobal_80231638___vt__10TTecGiFoie __vt__10TTecGiFoie;
-extern Profile_802312E4 lbl_8044D2F4[];
+extern Profile_802312E4 TTecGiFoie__emitter_profile_table[];
 extern u8 lbl_8044D324[];
 extern Vec_8023179C lbl_8044D32C;
 extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
@@ -223,7 +223,7 @@ u8 *gifoie_orbit_dtor(Task_80231224 *task, s16 flag) {
         if (task->single != 0) {
             ((void (*)(void *))queue_destruction__7TObjectFv)(task->emitters[0]);
         } else {
-            for (i = 0; i < ((Profile_80231224 *)&lbl_8044D2F4)[task->band].count; i++) {
+            for (i = 0; i < ((Profile_80231224 *)&TTecGiFoie__emitter_profile_table)[task->band].count; i++) {
                 ((void (*)(void *))queue_destruction__7TObjectFv)(task->emitters[i]);
             }
         }
@@ -260,14 +260,14 @@ Task_802312E4 *construct_orbit__10TTecGiFoieFPvPviUciPvUc(Task_802312E4 *self, V
         self->x38 = TTecGiFoie__data_805DC81C;
     } else {
         s32 i;
-        self->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D2F4[self->band].count * 4);
-        for (i = 0; i < lbl_8044D2F4[self->band].count; i++) {
+        self->emitters = alloc_buffer__11TOBoss4RockFPv(TTecGiFoie__emitter_profile_table[self->band].count * 4);
+        for (i = 0; i < TTecGiFoie__emitter_profile_table[self->band].count; i++) {
             Rot_802312E4 r;
             Part_802312E4 *p;
             r.x = 0;
             r.y = 0;
             r.z = 0x4000;
-            p = &lbl_8044D2F4[self->band].parts[i];
+            p = &TTecGiFoie__emitter_profile_table[self->band].parts[i];
             self->emitters[i] = spawn_particle_effect_with_rotation(&self->pos, &r, p->id, (p->flags & 0x1000) ? 0x2000 : 0);
             if (self->band == 2) {
                 if (arg4 >= 0xF && arg4 < 0x19) {

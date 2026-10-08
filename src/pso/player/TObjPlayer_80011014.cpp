@@ -1134,8 +1134,8 @@ void post_translate_matrix(void *);
 extern M2C_UNK TObjPlayer__data_80434060[];
 extern const f64 TObjPlayer__data_804340B8;
 extern int TObjPlayer__data_8050D460[];
-extern M2C_UNK lbl_80434040[];
-extern M2C_UNK lbl_80434050[];
+extern M2C_UNK player_attack_stat_status_light_colors[];
+extern M2C_UNK player_defense_stat_status_light_colors[];
 extern s16 lbl_8043406C[];
 extern Vec_800115C4 lbl_80434074;
 extern const f64 lbl_80434098;
@@ -3425,7 +3425,7 @@ void apply_defense_stat_status__10TObjPlayerFv(s32 arg0, void *arg1) {
         if (((s32 (*)(s32, M2C_UNK))obj_testFlags30)(arg0, 0x02000000) == 0) {
             u32 temp_obj = __nw__7TObjectFUl(0x64);
             if (temp_obj != 0U) {
-                ((M2C_UNK (*)(u32, M2C_UNK *, M2C_UNK *, s32, s32, f32, M2C_UNK))construct_actor_light_task)(temp_obj, lbl_80434050, TObjPlayer__data_80434060, 0x2D, arg0, (0.1f), tl_07);
+                ((M2C_UNK (*)(u32, M2C_UNK *, M2C_UNK *, s32, s32, f32, M2C_UNK))construct_actor_light_task)(temp_obj, player_defense_stat_status_light_colors, TObjPlayer__data_80434060, 0x2D, arg0, (0.1f), tl_07);
             }
         }
     }
@@ -3467,7 +3467,7 @@ void apply_attack_stat_status__10TObjPlayerFv(TObjPlayer *arg0, StatStatusReceip
         if (((s32 (*)(TObjPlayer*, M2C_UNK))obj_testFlags30)(arg0, 0x02000000) == 0) {
             u32 temp_obj = __nw__7TObjectFUl(0x64);
             if (temp_obj != 0U) {
-                ((M2C_UNK (*)(u32, M2C_UNK *, M2C_UNK *, s32, TObjPlayer*, f32, M2C_UNK))construct_actor_light_task)(temp_obj, lbl_80434040, TObjPlayer__data_80434060, 0x2D, arg0, (0.1f), tl_07);
+                ((M2C_UNK (*)(u32, M2C_UNK *, M2C_UNK *, s32, TObjPlayer*, f32, M2C_UNK))construct_actor_light_task)(temp_obj, player_attack_stat_status_light_colors, TObjPlayer__data_80434060, 0x2D, arg0, (0.1f), tl_07);
             }
         }
     }
@@ -3896,7 +3896,7 @@ s32 update_defense_stat_status(u8 *arg0) {
                 }
                 obj = ((void * (*)(u32))__nw__7TObjectFUl)(0x64);
                 if (obj != 0) {
-                    construct_actor_light_task((0.1f), obj, ((u8 *)&lbl_80434050), ((u8 *)&TObjPlayer__data_80434060), 0x2D, arg0, tl_07);
+                    construct_actor_light_task((0.1f), obj, ((u8 *)&player_defense_stat_status_light_colors), ((u8 *)&TObjPlayer__data_80434060), 0x2D, arg0, tl_07);
                 }
             }
             return 1;
@@ -3936,7 +3936,7 @@ s32 update_attack_stat_status(u8 *arg0) {
                 }
                 obj = ((void * (*)(u32))__nw__7TObjectFUl)(0x64);
                 if (obj != 0) {
-                    construct_actor_light_task((0.1f), obj, ((u8 *)&lbl_80434040), ((u8 *)&TObjPlayer__data_80434060), 0x2D, arg0, tl_07);
+                    construct_actor_light_task((0.1f), obj, ((u8 *)&player_attack_stat_status_light_colors), ((u8 *)&TObjPlayer__data_80434060), 0x2D, arg0, tl_07);
                 }
             }
             return 1;

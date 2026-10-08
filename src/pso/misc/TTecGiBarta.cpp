@@ -235,7 +235,7 @@ void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0) {
 struct Raw_802304A0 { u8 b[12]; };
 extern "C" {
 void create_particles__11TTecGiBartaFv(void *arg0) {
-    extern Band_802304A0 lbl_8044D24C[];
+    extern Band_802304A0 TTecGiBarta__emitter_profile_table[];
     Shot_802304A0 *shot = (Shot_802304A0 *)arg0;
     Angles_802304A0 angles;
     Vec_802304A0 pos;
@@ -250,14 +250,14 @@ void create_particles__11TTecGiBartaFv(void *arg0) {
     angles.a[0] = shot->f54;
     angles.a[1] = 0;
     angles.a[2] = shot->f5C;
-    shot->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D24C[shot->band].count * 4);
-    for (i = 0; i < lbl_8044D24C[shot->band].count; i++) {
+    shot->emitters = alloc_buffer__11TOBoss4RockFPv(TTecGiBarta__emitter_profile_table[shot->band].count * 4);
+    for (i = 0; i < TTecGiBarta__emitter_profile_table[shot->band].count; i++) {
         *(Raw_802304A0 *)&pos = *(Raw_802304A0 *)&shot->pos;
-        if (lbl_8044D24C[shot->band].rows[i].flags & 0x800) {
+        if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x800) {
             pos.y -= lbl_805DC800;
         }
-        if (lbl_8044D24C[shot->band].rows[i].flags & 2) {
-            emitter = spawn_continuous_particle_with_direction(&pos, &angles, lbl_8044D24C[shot->band].rows[i].entry);
+        if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 2) {
+            emitter = spawn_continuous_particle_with_direction(&pos, &angles, TTecGiBarta__emitter_profile_table[shot->band].rows[i].entry);
         } else {
             *(Raw_802304A0 *)&off = *(Raw_802304A0 *)&lbl_8044D288;
             push_matrix_from(lbl_8058D490);
@@ -267,17 +267,17 @@ void create_particles__11TTecGiBartaFv(void *arg0) {
             p2.x = shot->pos.x + off.x;
             p2.y = shot->pos.y + off.y;
             p2.z = shot->pos.z + off.z;
-            if (lbl_8044D24C[shot->band].rows[i].flags & 0x800) {
+            if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x800) {
                 p2.y -= lbl_805DC800;
             }
-            emitter = create_particle_emitter(&p2, lbl_8044D24C[shot->band].rows[i].entry);
+            emitter = create_particle_emitter(&p2, TTecGiBarta__emitter_profile_table[shot->band].rows[i].entry);
         }
         if (emitter != NULL) {
-            if (lbl_8044D24C[shot->band].rows[i].flags & 0x40) {
-                set_position_xy__10TObjPlayerFPvff(emitter, lbl_8044D24C[shot->band].rows[i].scale, lbl_8044D24C[shot->band].rows[i].scale);
+            if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x40) {
+                set_position_xy__10TObjPlayerFPvff(emitter, TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale, TTecGiBarta__emitter_profile_table[shot->band].rows[i].scale);
             }
-            if (lbl_8044D24C[shot->band].rows[i].flags & 0x20) {
-                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, (u16)(lbl_8044D24C[shot->band].rows[i].flags >> 16)), lbl_805D63B0, NULL, 0, lbl_805DC804);
+            if (TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags & 0x20) {
+                attach_particle_model(emitter, get_bml_model(lbl_805D63AC, (u16)(TTecGiBarta__emitter_profile_table[shot->band].rows[i].flags >> 16)), lbl_805D63B0, NULL, 0, lbl_805DC804);
             }
         }
         shot->emitters[i] = emitter;
@@ -373,10 +373,10 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
 }
 
 TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 deleting) {
-    extern TTecGiBartaData_80230B48 lbl_8044D24C[];
+    extern TTecGiBartaData_80230B48 TTecGiBarta__emitter_profile_table[];
     if (self) {
         self->vtable = __vt__11TTecGiBarta;
-        for (u32 i = 0; i < lbl_8044D24C[self->band].count; ++i) {
+        for (u32 i = 0; i < TTecGiBarta__emitter_profile_table[self->band].count; ++i) {
             if (self->emitters[i]) {
                 queue_destruction__7TObjectFv(self->emitters[i]);
             }

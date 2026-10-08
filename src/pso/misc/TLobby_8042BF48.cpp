@@ -311,21 +311,21 @@ s32 poll_exi_status__6TLobbyFPv(void *p);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
-extern Names_8042E57C lbl_804801F8;
+extern Names_8042E57C TAdSinglePlyChrSelectGC__modem_type_names;
 extern char lbl_805D48AC[2];
 extern char lbl_805D495C[7];
 s32 send_at_ms_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
-extern Names_8042E628 lbl_80480210;
+extern Names_8042E628 TAdSinglePlyChrSelectGC__modem_error_correction_names;
 extern char lbl_805D48AC[2];
 extern char lbl_805D4970[7];
 s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
-extern Names_8042E6C4 lbl_80480220;
+extern Names_8042E6C4 TAdSinglePlyChrSelectGC__modem_compression_names;
 extern char lbl_805D48AC[2];
 extern char lbl_805D4980[5];
 s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0);
@@ -585,7 +585,7 @@ typedef char RecoveredGlobal_8042E768_lbl_805D1D20_size[sizeof(RecoveredGlobal_8
 s32 send_at_ms_command__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     char buf[0x80];
     s32 pad;
-    Names_8042E57C names = lbl_804801F8;
+    Names_8042E57C names = TAdSinglePlyChrSelectGC__modem_type_names;
     if (arg0 <= 0 || arg0 >= 5) {
         return -2;
     }
@@ -599,7 +599,7 @@ s32 send_at_ms_command__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     char buf[0x80];
     s32 pad;
-    Names_8042E628 names = lbl_80480210;
+    Names_8042E628 names = TAdSinglePlyChrSelectGC__modem_error_correction_names;
     if (arg0 <= 0 || arg0 > 3) {
         return -2;
     }
@@ -613,7 +613,7 @@ s32 send_at_error_correction_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     char buf[0x80];
     s32 pad;
-    Names_8042E6C4 names = lbl_80480220;
+    Names_8042E6C4 names = TAdSinglePlyChrSelectGC__modem_compression_names;
     if (arg0 <= 0 || arg0 > 4) {
         return -2;
     }

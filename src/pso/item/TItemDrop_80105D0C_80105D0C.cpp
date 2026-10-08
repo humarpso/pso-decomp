@@ -42,7 +42,7 @@ s32 get_game_play_mode();
 extern M2C_UNK lbl_8050EA40[];
 void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
 s32 sprintf(void *, void *, ...);
-extern Names_80105DB0 lbl_8043E0D4;
+extern Names_80105DB0 item_drop_difficulty_name_table;
 extern char lbl_8043E0E4[];
 extern s32 TItemDrop__data_805D5470;
 extern s32 TItemDrop__data_805D5474;
@@ -105,7 +105,7 @@ s32 get_drop_table_mode_flags(void) {
 }
 
 void format_drop_table_filename(void *out, s32 arg1) {
-    Names_80105DB0 names = lbl_8043E0D4;
+    Names_80105DB0 names = item_drop_difficulty_name_table;
     char *s1;
     char *s2;
     s32 n;
