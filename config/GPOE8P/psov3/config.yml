@@ -85,8 +85,6 @@ force_active:
   - TAdSinglePlyChrSelectGC__sub_8028EE20
   - TBoss1DragonColli_sphere_chain_desc
   - TBoss3VoloptP01_class_name
-  - TBoss6SwordWave__sub_80356D10
-  - TBoss6SwordWave__sub_80356DDC
   - TBoss8DragonDemo__sub_802F2CC4
   - TBoss8Dragon__sub_8036AF50
   - TChCrTagName__sub_802A226C
@@ -103,12 +101,8 @@ force_active:
   - TKeyBoardControl_key_bit_table
   - TLobby__sub_80070A78
   - TLobby__sub_800F9F08
-  - TLobby__sub_800FD764
   - TLobby__sub_801037A0
-  - TLobby__sub_8010385C
-  - TLobby__sub_80103B44
   - TLobby__sub_80227A94
-  - TLobby__sub_802D27E0
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
@@ -130,7 +124,6 @@ force_active:
   - TOSensor__sub_80175514
   - TOTrapChainSawDamage_class_name
   - TOTrapChainSawEdge_class_name
-  - TObjEneDD__sub_800BB980
   - TObjEneDelDepth_motion_file_list
   - TObjEneDelDepth_motion_names
   - TObjEneRe4Bit__vt26
@@ -150,7 +143,6 @@ force_active:
   - TObjEneRe4Bit__vt86
   - TObjEneRe4Bit_boss_handles
   - TObjEneRecon__vt85
-  - TObjGrass__sub_800BFB8C
   - TObjOnlineEndingHexLine__direction_table
   - TObjOnlineEndingHexLine__hex_line_params
   - TObjOnlineEndingHexLine_corner_offsets
@@ -186,12 +178,10 @@ force_active:
   - TTecRaFoie_class_name
   - TTecRaZonde_class_name
   - TWindowActionPalette__sub_801C1C20
-  - TWindowCtrl__sub_8024A7CC
   - TWindowHelpItem__sub_8025A900
   - TWindowHelpItem__sub_8025A904
   - TWindowKeyBoardSoft__sub_80080B34
   - TWindowSetLevelUp__sub_8026DDE0
-  - TWindowSubComCard__sub_80077958
   - TWindowSubStatusDisp__sub_8025AF0C
   - TWindowSubStatusDisp__sub_8025B0D0
   - TWindowSubStatusDisp__sub_8025B2DC
@@ -440,6 +430,7 @@ force_active:
   - calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv
   - calc_slot_offset_position__10TObjPlayerFPviPvPv
   - calc_small_font_scale
+  - calc_text_pos__10TAdTitleGCFiPvi
   - calc_tube_progress__10TBoss6TubeFi
   - call_state_action__14TBoss6PlotFalzFPv
   - capture_attachment__17TObjEneBm3FlyNestFv
@@ -468,6 +459,7 @@ force_active:
   - circling_state__14TObjEneBm5WolfFv
   - clamp_hp_value__10TObjPlayerFPvPv
   - clamp_params_and_init__14TOTrapSeabed01FPv
+  - clear_bit__15TBoss6SwordWaveFPvUc
   - clear_flag_in_state7__14TObjEneBalClawFPv
   - clear_photon_blast_slots__10TObjPlayerFv
   - clear_segment_flags__17TBoss1DragonColliFPv
@@ -504,6 +496,7 @@ force_active:
   - construct_tec_barta_facing
   - construct_technique_disk_item
   - construct_with_index__22TObjFogCollisionPoisonFPvPvi
+  - construct_with_vtable__9TItemLoadFiPvii
   - consume_counter__14TOTrapChainSawFPvPv
   - controller_default_pad_state
   - copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii
@@ -517,11 +510,15 @@ force_active:
   - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_record__13TObjTombstoneFPvi
   - copy_request__23TAdSinglePlyChrSelectGCFPvPv
+  - copy_resource_desc__9TObjEneDDFPvPv
   - copy_ring_buffer_window__15TObjBoss2TunnelFPv
   - copy_state__12TWindowTimerFPvPv
   - copy_state__16TKeyBoardControlFPvPv
+  - copy_struct28__17TWindowSubComCardFii
+  - copy_struct_f8__6TLobbyFii
   - copy_vec4_forward__15TPlyPhotonChairFi
   - copy_vec4_reverse__15TPlyPhotonChairFi
+  - count_balloon_slots__11TWindowCtrlFPv
   - count_empty_slots__20TWindowSubSymbolChatFPv
   - count_plist_strips_by_texture
   - count_sync_record_bytes__6TLobbyFv
@@ -562,6 +559,7 @@ force_active:
   - destroy__16TBoss3VoloptCoreFPvs
   - destroy_arrays__14TPlyDispConfigFii
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
+  - destroy_static_array__10TObjPlayerFv
   - destroy_subobjects_recursive__10TObjPlayerFPv
   - dispatch_action_state__10TObjPlayerFPv
   - dispatch_by_index__19TWindowKeyBoardSoftFPv
@@ -735,6 +733,7 @@ force_active:
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
   - handle_sell_confirm__24TShopEquipmentSellWindowFv
+  - handle_socket_event__10TUdpSocketFsPv
   - handle_state_message__13TObjEneRe4BitFPvi
   - handle_team_select__6TLobbyFv
   - handle_toggle_input__24TWindowSubSymbolChatHelpFPv
@@ -767,6 +766,7 @@ force_active:
   - init_forward_default__10TObjPlayerFv
   - init_fresh_character_slot
   - init_from_script__12TQuestThreadFPviii
+  - init_from_table_entry__9TObjGrassFPvi
   - init_gravity_globals__12TBoss1DragonFv
   - init_gx_lighting_defaults
   - init_instance__9TTecZaruaFPviiii
@@ -781,6 +781,7 @@ force_active:
   - init_net_config_defaults__23TAdSinglePlyChrSelectGCFv
   - init_object__22TQuestVmDownLoadServerFPv
   - init_object__23TAdSinglePlyChrSelectGCFPvPv
+  - init_packet_9a__10TObjPlayerFPv
   - init_parameters__9TTecBartaFPv
   - init_parameters__9TTecMegidFPv
   - init_parameters__9TTecRestaFPv
@@ -816,6 +817,7 @@ force_active:
   - is_downloadable_new_entry__12TQuestListVMFPvPv
   - is_end__12TCharaMakingFv
   - is_entry_table_valid__8TObjFishFPv
+  - is_entry_valid__6TLobbyFi
   - is_mag_full
   - is_no_service_active__14TShopGeneratorFPvi
   - is_player_in_range__10TObjRoomIdFPvUsf
@@ -824,6 +826,7 @@ force_active:
   - is_same_slot_entry__23TAdSinglePlyChrSelectGCFPviPvi
   - is_slot_active__14TShopGeneratorFi
   - is_special_sound_id
+  - is_stat_over_limit__6TLobbyFi
   - is_target_in_range__11TObjInfoColFf
   - is_visible__14TBoss7CrawfishFPv
   - is_visible__19TBoss1DragonEffTailFPv
@@ -1000,10 +1003,13 @@ force_active:
   - lbl_80541DA0
   - lerp_follow_anchor
   - load_downloaded_quest__12TQuestListVMFPv
+  - load_entry_params_volopt__10TObjPlayerFPvi
   - load_floor_bin_file__6TSceneFi
   - load_floor_rel_file__6TSceneFi
   - load_item_pmt
   - load_params__15TObjEneMe1GiGueFi
+  - load_params_from_table__15TObjEneMe1GiGueFPvi
+  - load_params_from_table__20TBoss3VoloptHiraisinFPvi
   - load_quest_globals__6TLobbyFPv
   - load_quest_root_script
   - load_quest_vm__12TQuestListVMFPv
@@ -1087,6 +1093,7 @@ force_active:
   - push_nearby_players__10TObjPlayerFPv
   - queue_deferred_photon_blast_hit
   - read_stream_u8
+  - read_u16_le__9TLanguageFv
   - read_u32_le__9TLanguageFv
   - rebuild_area_keep_players__6TLobbyFv
   - rebuild_item_list__18TShopGetItemWindowFv
@@ -1184,6 +1191,7 @@ force_active:
   - reset_all_tech_slots__10TObjPlayerFPv
   - reset_and_invoke__6TLobbyFv
   - reset_leader_selection
+  - reset_leader_selection_static__6TLobbyFv
   - reset_placement_search_ring
   - reset_state__13TObjWarnChimeFPv
   - reset_state_fields__9TObjEneDDFPv
@@ -1319,6 +1327,8 @@ force_active:
   - sample_clamped_path_position
   - save_and_send_state__19TContainerAncient01FPv
   - save_quest_state_to_record__6TLobbyFPv
+  - scale_axis_value__16TKeyBoardControlFs
+  - scale_by_level__14TOTrapChainSawFf
   - scan_memcard_quest_files__12TQuestListVMFPv
   - schedule_pack_reaction__14TObjEneBm5WolfFPvis
   - select_death_direction__14TObjEneBm5WolfFPvPv
@@ -1329,6 +1339,7 @@ force_active:
   - seqFreeKeyOffNote
   - set_all_flags__17TBoss8DragonColliFPv
   - set_bank_panel_art__20TWindowActionPaletteFPvi
+  - set_bit__15TBoss6SwordWaveFiUc
   - set_code_43_6__10TObjPlayerFPv
   - set_cursor_row_for_mode__14TWindowSubItemFPvi
   - set_elem_flags__17TBoss1DragonColliFPv
@@ -1392,6 +1403,7 @@ force_active:
   - spawn_scattered_lightning_strikes
   - spawn_slow_effect__10TObjPlayerFii
   - spawn_wave_ring_particles__15TBoss6SwordWaveFPv
+  - split_bit_index__15TBoss6SwordWaveFiUcPvPv
   - standing_state__14TObjEneBm5WolfFPvi
   - start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv
   - start_entry_timer__6TLobbyFPvUsi
