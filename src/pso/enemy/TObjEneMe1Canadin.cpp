@@ -3173,7 +3173,7 @@ void *lbl_8048FF30[28] = {
     (void *)0x20001, (void *)0x3, (void *)0x3f19999a, (void *)0x0,
     (void *)0x30000, (void *)0x1, (void *)0x3f000000, (void *)0x0,
 };
-void *lbl_8048FFA0[5] = {
+void *canadin_leader_fade_sequence_table[5] = {
     (void *)&lbl_8043A2B0, (void *)&lbl_8043A2CC, (void *)&lbl_8043A2D8, (void *)&lbl_8043A2F8,
     (void *)&lbl_8043A308,
 };
@@ -4882,7 +4882,7 @@ void update_fade_sequence__23TObjEneMe1CanadinLeaderFPv(void *pv) {
         p->timer++;
         if ((f32)p->timer >= lbl_805D98B0) {
             p->timer = 0;
-            switch (((s8 **)lbl_8048FFA0)[p->tblIdx][p->pos++]) {
+            switch (((s8 **)canadin_leader_fade_sequence_table)[p->tblIdx][p->pos++]) {
             case 0x62:
                 p->f4a4 = lbl_805D9898;
                 break;

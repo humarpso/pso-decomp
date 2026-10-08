@@ -32,11 +32,11 @@ extern const f32 lbl_805DC0D0;
 extern const f32 lbl_805DC0D4;
 void begin_photon_summon_camera(u8 *arg0, s8 arg1);
 extern struct Ent_801A70C8 lbl_8050E700[32];
-extern s32 lbl_805D5D1C;
+extern s32 deferred_photon_blast_hit_count;
 extern const f32 lbl_805DC0D0;
 void clear_deferred_photon_blast_hits(void);
 extern struct Ent_801A710C lbl_8050E580[32];
-extern s32 lbl_805D5D14;
+extern s32 photon_blast_hit_count;
 extern const f32 lbl_805DC0D0;
 void clear_photon_blast_hits(void);
 }
@@ -59,7 +59,7 @@ extern const f32 lbl_805DC0D4;
 
 void clear_deferred_photon_blast_hits(void) {
     s32 i;
-    lbl_805D5D1C = 0;
+    deferred_photon_blast_hit_count = 0;
     for (i = 0; i < 32; i++) {
         lbl_8050E700[i].a = 0xFFFF;
         lbl_8050E700[i].b = lbl_805DC0D0;
@@ -69,7 +69,7 @@ void clear_deferred_photon_blast_hits(void) {
 
 void clear_photon_blast_hits(void) {
     s32 i;
-    lbl_805D5D14 = 0;
+    photon_blast_hit_count = 0;
     for (i = 0; i < 32; i++) {
         lbl_8050E580[i].a = 0xFFFF;
         lbl_8050E580[i].b = lbl_805DC0D0;
@@ -79,22 +79,22 @@ void clear_photon_blast_hits(void) {
 
 void queue_deferred_photon_blast_hit(u32 arg0, s32 arg1, s32 arg2) {
     s32 found = 0;
-    if (lbl_805D5D1C < 0x20) {
+    if (deferred_photon_blast_hit_count < 0x20) {
         const f32 *e = get_photon_blast_entry__10TObjPlayerFi(arg1);
         if (arg2 == 0) {
             s32 i;
-            for (i = 0; i < lbl_805D5D1C; i++) {
+            for (i = 0; i < deferred_photon_blast_hit_count; i++) {
                 if (arg0 == (u32)lbl_8050E700[i].a) {
                     found = 1;
                 }
             }
         }
         if (found == 0) {
-            lbl_8050E700[lbl_805D5D1C].c = arg1;
-            lbl_8050E700[lbl_805D5D1C].b = e[0];
-            lbl_8050E700[lbl_805D5D1C].a = arg0;
+            lbl_8050E700[deferred_photon_blast_hit_count].c = arg1;
+            lbl_8050E700[deferred_photon_blast_hit_count].b = e[0];
+            lbl_8050E700[deferred_photon_blast_hit_count].a = arg0;
             lbl_805D5D20 = arg0;
-            lbl_805D5D1C++;
+            deferred_photon_blast_hit_count++;
         }
     }
 }
@@ -103,23 +103,23 @@ void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
     const f32 *entry;
     s32 duplicate = 0;
     s32 i;
-    if (lbl_805D5D14 >= 32) {
+    if (photon_blast_hit_count >= 32) {
         return;
     }
     entry = get_photon_blast_entry__10TObjPlayerFi(kind);
     if (allow_duplicate == 0) {
-        for (i = 0; i < lbl_805D5D14; i++) {
+        for (i = 0; i < photon_blast_hit_count; i++) {
             if (lbl_8050E580[i].a == identity) {
                 duplicate = 1;
             }
         }
     }
     if (duplicate == 0) {
-        lbl_8050E580[lbl_805D5D14].c = kind;
-        lbl_8050E580[lbl_805D5D14].b = *entry;
-        lbl_8050E580[lbl_805D5D14].a = identity;
+        lbl_8050E580[photon_blast_hit_count].c = kind;
+        lbl_8050E580[photon_blast_hit_count].b = *entry;
+        lbl_8050E580[photon_blast_hit_count].a = identity;
         lbl_805D5D18 = identity;
-        lbl_805D5D14 = lbl_805D5D14 + 1;
+        photon_blast_hit_count = photon_blast_hit_count + 1;
     }
 }
 

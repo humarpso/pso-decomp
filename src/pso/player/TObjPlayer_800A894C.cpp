@@ -132,7 +132,7 @@ struct Res_800AA82C;
 extern Res_800AA82C *lbl_805D5090;
 extern s32 lbl_805D5094;
 extern s32 lbl_805D5098;
-extern void *lbl_805D50A4;
+extern void *breakup_model_ptr;
 
 s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
@@ -162,7 +162,7 @@ extern s32 lbl_805D5094;
 extern s32 lbl_805D5098;
 extern Node_800AA82C *lbl_805D509C;
 extern Node_800AA82C *lbl_805D50A0;
-extern void *lbl_805D50A4;
+extern void *breakup_model_ptr;
 extern const f32 lbl_805D9AF0;
 extern const f32 lbl_805D9B10;
 extern const f32 lbl_805D9B20;
@@ -1267,9 +1267,9 @@ void * create_dubchik__10TObjPlayerFPv(void *arg0) {
     return o2;
 }
 void free_effect_resources__10TObjPlayerFv(void) {
-    if (lbl_805D50A4 != NULL) {
-        delete (VObj_800AA704 *)lbl_805D50A4;
-        lbl_805D50A4 = NULL;
+    if (breakup_model_ptr != NULL) {
+        delete (VObj_800AA704 *)breakup_model_ptr;
+        breakup_model_ptr = NULL;
     }
     if (lbl_805D5090 != NULL) {
         TLobby__sub_8001FE7C(lbl_805D5090, 1);
@@ -1334,7 +1334,7 @@ void TObjPlayer__sub_800AA82C(void) {
     if (p != NULL) {
         p = init_from_model__11TBreakUpMdlFPvi(p, lbl_805D5090->mdl->f8);
     }
-    lbl_805D50A4 = p;
+    breakup_model_ptr = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B34, lbl_805D9B38, lbl_805D9AF0);

@@ -222,8 +222,8 @@ M2C_UNK init_collision_body_parts(void *, void *, int);
 void TObjEneIllGill__sub_80367DA4(s32 arg0);
 extern M2C_UNK __vt__14TObjEneIllGill[];
 extern s32 TObjEneIllGill_class_name;
-extern int lbl_805D6FD0;
-extern s32 lbl_805D6FD4;
+extern int TObjEneIllGill__shared_effect;
+extern s32 TObjEneIllGill__boss_registration_id;
 extern s32 lbl_805D6FD8;
 extern const f32 TObjEneIllGill__data_805E02BC;
 extern const f32 lbl_805E0308;
@@ -1961,9 +1961,9 @@ void *__dt__14TObjEneIllGillFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int lbl_805D6FD0;
+    extern int TObjEneIllGill__shared_effect;
 
-#define G6FD0 ((u8 *)lbl_805D6FD0)
+#define G6FD0 ((u8 *)TObjEneIllGill__shared_effect)
 u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     initialize__9TObjEnemyFPv(self, arg1, arg2);
     FIG_8036858C(void *, 0x18) = __vt__14TObjEneIllGill;
@@ -1993,7 +1993,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
     reset_photon_effect__10TObjPlayerFPv(self);
     FIG_8036858C(void *, 0x350) = lbl_804F2F24;
     FIG_8036858C(s32, 0x394) = 0;
-    bind_enemy_combat_stats((void *)(self), (int)(lbl_805D6FD4), (int)(((s32 *)lbl_804F2F6C)[FIG_8036858C(s32, 0x394)]), (int)(lbl_805D6FD8));
+    bind_enemy_combat_stats((void *)(self), (int)(TObjEneIllGill__boss_registration_id), (int)(((s32 *)lbl_804F2F6C)[FIG_8036858C(s32, 0x394)]), (int)(lbl_805D6FD8));
     FIG_8036858C(s32, 0x3A0) = 0;
     FIG_8036858C(s16, 0x326) = 0;
     FIG_8036858C(s16, 0x328) = 0;
@@ -2032,7 +2032,7 @@ u8 *TObjEneIllGill__ct(u8 *self, s32 arg1, u8 *arg2) {
 }
 #undef FIG_8036858C
 
-void free_effect__14TObjEneIllGillFv(void) { TLobby__sub_8001FE7C((void*)(lbl_805D6FD0), (void*)1); lbl_805D6FD0 = 0;
+void free_effect__14TObjEneIllGillFv(void) { TLobby__sub_8001FE7C((void*)(TObjEneIllGill__shared_effect), (void*)1); TObjEneIllGill__shared_effect = 0;
  }
 
 struct Pos_80368818 { s32 w[4]; };
@@ -2044,9 +2044,9 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Pos_80368818 lbl_8047A318;
-extern s32 lbl_805D6FD4;
+extern s32 TObjEneIllGill__boss_registration_id;
 extern s32 lbl_805D6FD8;
-extern int lbl_805D6FD0;
+extern int TObjEneIllGill__shared_effect;
 void load_shared_resources__14TObjEneIllGillFv(void) {
     void *p;
     u8 *area;
@@ -2057,8 +2057,8 @@ void load_shared_resources__14TObjEneIllGillFv(void) {
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, lbl_804F2E74, 0, 0, 0);
     }
-    lbl_805D6FD0 = (int)p;
-    lbl_805D6FD4 = register_boss__6TLobbyFPv(0x26);
+    TObjEneIllGill__shared_effect = (int)p;
+    TObjEneIllGill__boss_registration_id = register_boss__6TLobbyFPv(0x26);
     lbl_804F2F6C[0] = dispatch_shared_handler_b__6TLobbyFPv(0x26);
     lbl_804F2F6C[1] = dispatch_shared_handler_b__6TLobbyFPv(0x27);
     lbl_804F2F6C[2] = dispatch_shared_handler_b__6TLobbyFPv(0x28);
@@ -2076,7 +2076,7 @@ void load_shared_resources__14TObjEneIllGillFv(void) {
     q->x = q->y = q->z = TObjEneIllGill__data_805E02BC;
     {
         Pos_80368818 pos = lbl_8047A318;
-        area = (u8 *)lbl_805D6FD0;
+        area = (u8 *)TObjEneIllGill__shared_effect;
         pos.w[0] = *(s32 *)(area + 0x430);
         spawn_npc_enemy__6TLobbyFsiiiff(0x43, *(s32 *)(*(u8 **)(area + 0x42C) + 8), *(s32 *)(*(u8 **)(area + 0x42C) + 0xC), &pos,
                                         *(f32 *)((u8 *)lbl_804F2F40 + 0xC), TObjEneIllGill__data_805E02BC);

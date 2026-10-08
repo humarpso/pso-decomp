@@ -17,13 +17,13 @@ void fn_801C247C(u8 *arg0);
 u8 *init__17TWindowDuelResultFPvPvPvPv(void *, s32, s32, s32);
 void set_and_notify__6TLobbyFi(int);
 u8 *__nw__7TObjectFUl(s32);
-extern u8 *lbl_805D5D90;
+extern u8 *duel_result_window;
 extern s32 tl_00;
 void show_duel_result_window(s32 arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_801C241C_lbl_804C3E60 lbl_804C3E60;
-extern u8 *lbl_805D5D90;
+extern u8 *duel_result_window;
 u8 *fn_801C241C(u8 *arg0, s16 arg1);
 }
 
@@ -32,9 +32,9 @@ extern "C" {
 void show_duel_result_window(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
-    if ((void *) lbl_805D5D90 != NULL) {
-        M2C_FIELD(lbl_805D5D90, s32 *, 0x1C) = arg1;
-        M2C_FIELD(lbl_805D5D90, s32 *, 0x20) = arg0;
+    if ((void *) duel_result_window != NULL) {
+        M2C_FIELD(duel_result_window, s32 *, 0x1C) = arg1;
+        M2C_FIELD(duel_result_window, s32 *, 0x20) = arg0;
         set_and_notify__6TLobbyFi((int)((void *) (arg0)));
         return;
     }
@@ -43,14 +43,14 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(init__17TWindowDuelResultFPvPvPvPv(temp_r3, tl_00, arg0, arg1));
     }
-    lbl_805D5D90 = var_r0;
+    duel_result_window = var_r0;
 }
 
 typedef char RecoveredGlobal_801C241C_lbl_804C3E60_size[sizeof(RecoveredGlobal_801C241C_lbl_804C3E60) == 0x18 ? 1 : -1];
 u8 *fn_801C241C(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C3E60.value;
-        (*(s32 *)&lbl_805D5D90) = 0;
+        (*(s32 *)&duel_result_window) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

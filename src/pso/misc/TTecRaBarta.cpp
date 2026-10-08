@@ -238,7 +238,7 @@ extern const Emitter_80237494 lbl_8044D968[3] = {{473, 0, 0.0f}, {475, 0x40, 1.2
 extern const Emitter_80237494 lbl_8044D98C[3] = {{473, 0, 0.0f}, {406, 0, 0.0f}, {409, 0x30060, 1.6f}};
 extern const Emitter_80237494 lbl_8044D9B0[3] = {{473, 0, 0.0f}, {406, 0x40, 1.2f}, {410, 0x30060, 1.8f}};
 extern const Emitter_80237494 lbl_8044D9D4[3] = {{473, 0, 0.0f}, {407, 0, 0.0f}, {411, 0x40060, 1.0f}};
-extern const Profile_80237494 lbl_8044D9F8[6] = {
+extern const Profile_80237494 rabarta_band_emitter_table[6] = {
     {(Emitter_80237494 *)lbl_8044D920, 3}, {(Emitter_80237494 *)lbl_8044D944, 3}, {(Emitter_80237494 *)lbl_8044D968, 3},
     {(Emitter_80237494 *)lbl_8044D98C, 3}, {(Emitter_80237494 *)lbl_8044D9B0, 3}, {(Emitter_80237494 *)lbl_8044D9D4, 3},
 };
@@ -254,23 +254,23 @@ void TTecRaBarta__vt6(Rabarta_80237494 *self, void *pos) {
   u32 i;
   Vec_80237494 point;
   Emitter_80237494 *binding;
-  self->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D9F8[self->band].count * 4);
-  for (i = 0; i < lbl_8044D9F8[self->band].count; i++)
+  self->emitters = alloc_buffer__11TOBoss4RockFPv(rabarta_band_emitter_table[self->band].count * 4);
+  for (i = 0; i < rabarta_band_emitter_table[self->band].count; i++)
   {
     VecCopy__FP3VecPC3Vec(&point, self->source + 0x38);
     if (pos != 0)
     {
       VecCopy__FP3VecPC3Vec(&point, pos);
     }
-    self->emitters[i] = create_particle_emitter(&point, lbl_8044D9F8[self->band].emitters[i].entry);
-    binding = &lbl_8044D9F8[self->band].emitters[i];
+    self->emitters[i] = create_particle_emitter(&point, rabarta_band_emitter_table[self->band].emitters[i].entry);
+    binding = &rabarta_band_emitter_table[self->band].emitters[i];
     if ((binding->flags & 0x40) && (self->emitters[i] != 0))
     {
       set_position_xy__10TObjPlayerFPvff(self->emitters[i], binding->scale, binding->scale);
     }
-    if (lbl_8044D9F8[self->band].emitters[i].flags & 0x20)
+    if (rabarta_band_emitter_table[self->band].emitters[i].flags & 0x20)
     {
-      u32 mid = lbl_8044D9F8[self->band].emitters[i].flags >> 16;
+      u32 mid = rabarta_band_emitter_table[self->band].emitters[i].flags >> 16;
       if (self && self)
       {
       }
@@ -388,7 +388,7 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 
 #define TTecRaBarta_class_name ((u32)TTecRaBarta_class_name)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
-#define lbl_8044D9F8 ((struct Profile_80237A94 *)lbl_8044D9F8)
+#define rabarta_band_emitter_table ((struct Profile_80237A94 *)rabarta_band_emitter_table)
 #define __dl__7TObjectFPv ((M2C_UNK (*)(void *))__dl__7TObjectFPv)
 #define spawn_particle_effect ((void * (*)(Vec_80237FB8 *, int))spawn_particle_effect)
 #define calc_parameters__11TTecRaBartaFv ((void (*)(void *))calc_parameters__11TTecRaBartaFv)
@@ -490,7 +490,7 @@ void run_task__11TTecRaBartaFv(u8 *arg0);
 
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *spawn_particle_effect_with_flags(Vec_80237DAC *, s32, s32);
-extern RafoieBursts_80237DAC lbl_8044DAB4[];
+extern RafoieBursts_80237DAC rafoie_burst_table[];
 extern const f32 lbl_805DC8C8;
 void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
@@ -562,7 +562,7 @@ struct Self_80237A94 *__dt__11TTecRaBartaFv(struct Self_80237A94 *self, s16 arg1
 
     if (self != NULL) {
         self->vtable = __vt__11TTecRaBarta;
-        for (i = 0; i < lbl_8044D9F8[self->band].count; i++) {
+        for (i = 0; i < rabarta_band_emitter_table[self->band].count; i++) {
             obj = self->objs[i];
             if (obj != NULL) {
                 queue_destruction__7TObjectFv(obj);
@@ -664,6 +664,6 @@ void TTecRaFoie__vt6(TTecRaFoie_80237FB8 *self);
 
 #undef spawn_particle_effect
 #undef __dl__7TObjectFPv
-#undef lbl_8044D9F8
+#undef rabarta_band_emitter_table
 #undef __nw__7TObjectFUl
 #undef TTecRaBarta_class_name

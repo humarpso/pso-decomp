@@ -59,7 +59,7 @@ s32 read_be16_field2__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
-extern s32 lbl_805D5D6C;
+extern s32 lobby_player_count;
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 lbl_80487CCC;
 extern RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90 lbl_80487CD8;
 extern int lbl_805D4DBC;

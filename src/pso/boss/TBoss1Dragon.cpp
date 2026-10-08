@@ -1785,7 +1785,7 @@ struct Obj_80029DE4 {
 };
 extern "C" {
 extern f32 lbl_805D4AF8;
-extern f32 lbl_805D4AFC;
+extern f32 boss1_dragon_gravity;
 extern s32 tl_05;
 extern const f32 TBoss1Dragon__data_805D7F48;
 extern const f32 lbl_805D8004;
@@ -2221,7 +2221,7 @@ s32 set_shake_preset__11TCameraCtrlFi(int);
 M2C_UNK spawn_particle_effect_with_flags(void *, s32, M2C_UNK);
 s32 objInBand__FP7GameObjf(void *, f32);
 M2C_UNK advance_animation_playback();
-extern const f32 lbl_805D4AF4;
+extern const f32 TBoss1Dragon__gravity_accel;
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
 extern const f32 TBoss1Dragon__data_805D8008;
@@ -3424,13 +3424,13 @@ void TBoss1Dragon::handleFallState(u32 reason) {
         switch (temp_r0_3) {
         case 0:
             if (this->animationFrame > TBoss1Dragon__data_805D8008) {
-                this->fallVelocity = (f32) (this->fallVelocity + lbl_805D4AF4);
+                this->fallVelocity = (f32) (this->fallVelocity + TBoss1Dragon__gravity_accel);
                 this->height = (f32) (this->height + this->fallVelocity);
             }
             this->heightOffset = (f32) (this->defaultHeightOffset + ((this->height - this->rootHeight) - this->positionY));
             return;
         case 1:
-            this->fallVelocity = (f32) (this->fallVelocity + lbl_805D4AF4);
+            this->fallVelocity = (f32) (this->fallVelocity + TBoss1Dragon__gravity_accel);
             this->height = (f32) (this->height + this->fallVelocity);
             temp_f3 = this->positionY;
             temp_f1 = this->rootHeight;
@@ -4905,7 +4905,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
         F(f32, 0x3AC) = F(f32, 0x3AC) + TBoss1Dragon__data_805D7FF8;
         init_air_turn__12TBoss1DragonFv(arg0, F(s32, 0x874));
         k = -(13.0f / lbl_805D4AF8);
-        t = newton_sqrtf((2.0f + (F(f32, 0x5DC) - 169.0f / (2.0f * lbl_805D4AF8))) / -lbl_805D4AFC);
+        t = newton_sqrtf((2.0f + (F(f32, 0x5DC) - 169.0f / (2.0f * lbl_805D4AF8))) / -boss1_dragon_gravity);
         if (F(f32, 0x3AC) < 50.0f) {
             t = F(f32, 0x3AC) / (k + t);
             F(f32, 0x884) = t;
@@ -4976,7 +4976,7 @@ void update_dive_state__12TBoss1DragonFv(u8 *arg0, u32 arg1) {
                 F(f32, 0x880) = F(f32, 0x880) + F(f32, 0x88C);
                 move_with_wall_stop__9TObjEneDDFPvfff(arg0, F(f32, 0x3A0), F(f32, 0x3A8), F(f32, 0x880));
             } else {
-                F(f32, 0x888) = F(f32, 0x888) + lbl_805D4AFC;
+                F(f32, 0x888) = F(f32, 0x888) + boss1_dragon_gravity;
                 move_with_wall_stop__9TObjEneDDFPvfff(arg0, F(f32, 0x3A0), F(f32, 0x3A8), F(f32, 0x884));
             }
             F(f32, 0x5DC) = F(f32, 0x5DC) + F(f32, 0x888);

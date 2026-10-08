@@ -40,7 +40,7 @@ DrawTarget *query_game_join_id__10TObjPlayerFv(u32);
 extern u32 some_id_805c6f74, lbl_805D7784, lbl_805D7780;
 extern u32 lbl_805D5660, lbl_805D5664, lbl_805D5668;
 extern Color lbl_8050BEC0, lbl_8058D4C0;
-extern EquippedItemDrawQueue *lbl_805D6FBC;
+extern EquippedItemDrawQueue *player_item_id_list;
 void render_equipped_item_queue();
 }
 
@@ -49,16 +49,16 @@ extern "C" {
 void push_to_player_list__5TItemFPv(void* a0);
 int push_to_list__10TObjPlayerFPvi(void*, void*);
 
-    extern EquippedItemDrawQueue *lbl_805D6FBC;
-void push_to_player_list__5TItemFPv(void* a0) { push_to_list__10TObjPlayerFPvi((void*)(lbl_805D6FBC), a0); }
+    extern EquippedItemDrawQueue *player_item_id_list;
+void push_to_player_list__5TItemFPv(void* a0) { push_to_list__10TObjPlayerFPvi((void*)(player_item_id_list), a0); }
 void render_equipped_item_queue() {
     reset_transform_state__10TObjPlayerFv();
     lbl_805D5660 = some_id_805c6f74;
     lbl_805D5664 = lbl_805D7784;
     lbl_805D5668 = lbl_805D7780;
     copy_vec4__13TRaderMapCoreFPvPv(&lbl_8050BEC0, &lbl_8058D4C0);
-    u32 *id = lbl_805D6FBC->item_ids;
-    s32 remaining = lbl_805D6FBC->count;
+    u32 *id = player_item_id_list->item_ids;
+    s32 remaining = player_item_id_list->count;
     while (remaining != 0) {
         DrawTarget *item = query_game_join_id__10TObjPlayerFv(*id++);
         if (item) {

@@ -676,7 +676,7 @@ struct Cam_8006B0D4 {
 
 extern "C" {
 u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1);
-extern RecoveredGlobal_8006B324_lbl_805137F8 lbl_805137F8;
+extern RecoveredGlobal_8006B324_lbl_805137F8 chr_select_request_buffer;
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix_from(void *);
@@ -1006,7 +1006,7 @@ u8 *TCameraCtrl__ct(u8 *arg0, void *parent) {
 
 typedef char RecoveredGlobal_8006B324_lbl_805137F8_size[sizeof(RecoveredGlobal_8006B324_lbl_805137F8) == 0x24 ? 1 : -1];
 M2C_UNK *TCameraCtrl__sub_8006B324(void) {
-    return &lbl_805137F8.value;
+    return &chr_select_request_buffer.value;
 }
 
 int get_instance__11TCameraCtrlFv(void) {  return camera_split_screen_selector; }

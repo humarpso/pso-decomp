@@ -19,7 +19,7 @@ M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_800A887C_lbl_80491260 lbl_80491260;
-extern s32 lbl_805D50A4;
+extern s32 breakup_model_ptr;
 void TObjPlayer__sub_800A887C(u8 *arg0);
 }
 
@@ -40,7 +40,7 @@ void TObjPlayer__sub_800A887C(u8 *arg0) {
     {
       play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x4003AD16), (u32) (arg0 + 0x38), 0, 0);
     }
-    create_breakup_mdl__12TBoss3VoloptFiiiii((void *) lbl_805D50A4, (void *) (&lbl_80491260.value), (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (void *) (arg0 + 0x2FC), (int) (*((s32 *) (((s8 *) arg0) + 0x60))));
+    create_breakup_mdl__12TBoss3VoloptFiiiii((void *) breakup_model_ptr, (void *) (&lbl_80491260.value), (int) (*((s32 *) (((s8 *) arg0) + 0x24))), (void *) (arg0 + 0x2FC), (int) (*((s32 *) (((s8 *) arg0) + 0x60))));
     refresh_lobby_state__10TObjPlayerFPv((void *) arg0);
     send_entity_set_flags__6TLobbyFPv(arg0);
     trigger_dell_biter_events__10TObjPlayerFPv((void *) (arg0 + 0x2FC));

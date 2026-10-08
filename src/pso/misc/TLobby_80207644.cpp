@@ -43,9 +43,9 @@ struct Ent_8020780C { s32 pad; s32 a; s32 b; };
 typedef struct FloorEntry_80207770 { s32 a; s32 b; s32 c; } FloorEntry_80207770;
 
 extern "C" {
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
 M2C_UNK set_state__16TAdStorySelectGCFi(void*);
@@ -53,15 +53,15 @@ s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 lbl_8044B658;
 extern RecoveredGlobal_802078A4_lbl_8044B778 lbl_8044B778;
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 extern int lbl_805D6060;
 extern const f32 lbl_805DC610;
 void randomize_adventure_maps(void);
 M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B898;
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 void init_floor_map_registry(void);
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 M2C_UNK memset(void *, int, int);
 extern struct Ids_80207C60 lbl_8044B8E0;
 void TLobby__sub_80207BB0(void);
@@ -72,10 +72,10 @@ s32 get_game_play_mode();
 extern Tbl_8020765C lbl_8044B928;
 extern Tbl_8020765C lbl_8044B9B8;
 s32 get_boss_warp_destination(void);
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 extern int lbl_805D6060;
 void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size);
-extern RecoveredGlobal_80207798_lbl_80513920 lbl_80513920;
+extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_terrain(s32 arg0);
 }
 
@@ -121,7 +121,7 @@ extern s32 lbl_805D3628;
 
 void TLobby__sub_80207750(s32 arg0, s32 arg1) {
     if (arg0 <= 0x11) {
-        s32 *p = (s32 *)&lbl_80513920;
+        s32 *p = (s32 *)&floor_map_registry;
         p[arg0 * 3 + 1] = arg1;
     }
 }
@@ -134,7 +134,7 @@ s32 get_floor_map_terrain(s32 arg0) {
     if (arg0 > 0x11) {
         return 0;
     }
-    s32 *p = (s32 *)&lbl_80513920;
+    s32 *p = (s32 *)&floor_map_registry;
     return p[arg0 * 3 + 1];
 }
 
@@ -145,8 +145,8 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         return 0;
     }
     temp_r0 = arg0 * 0xC;
-    M2C_FIELD(((u8 *)(&lbl_80513920.value) + temp_r0), s32 *, 0) = arg1;
-    temp_r4 = (u8 *)(&lbl_80513920.value) + temp_r0;
+    M2C_FIELD(((u8 *)(&floor_map_registry.value) + temp_r0), s32 *, 0) = arg1;
+    temp_r4 = (u8 *)(&floor_map_registry.value) + temp_r0;
     M2C_FIELD(temp_r4, s32 *, 4) = arg2;
     M2C_FIELD(temp_r4, s32 *, 8) = arg3;
     return 1;
@@ -163,8 +163,8 @@ s32 get_floor_map_selection(s32 arg0, u8 *arg1) {
         return 0;
     }
     temp_r6 = arg0 * 0xC;
-    temp_r5 = (u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&lbl_80513920).value) + temp_r6;
-    M2C_FIELD(arg1, s32 *, 0) = (s32) M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&lbl_80513920).value) + temp_r6), s32 *, 0);
+    temp_r5 = (u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&floor_map_registry).value) + temp_r6;
+    M2C_FIELD(arg1, s32 *, 0) = (s32) M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&floor_map_registry).value) + temp_r6), s32 *, 0);
     M2C_FIELD(arg1, s32 *, 4) = (s32) M2C_FIELD(temp_r5, s32 *, 4);
     M2C_FIELD(arg1, s32 *, 8) = (s32) M2C_FIELD(temp_r5, s32 *, 8);
     return 1;
@@ -185,15 +185,15 @@ void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size) {
         switch ((*(s32 *)&lbl_805D6060)) {
         case 1:
             for (i = 0; i < n; i++, src += 2) {
-                ((Ent_8020780C *)&lbl_80513920)[i].a = src[0];
-                ((Ent_8020780C *)&lbl_80513920)[i].b = src[1];
+                ((Ent_8020780C *)&floor_map_registry)[i].a = src[0];
+                ((Ent_8020780C *)&floor_map_registry)[i].b = src[1];
             }
             break;
         case 0:
         default:
             for (i = 0; i < n; i++, src += 2) {
-                ((Ent_8020780C *)&lbl_80513920)[i].a = src[0];
-                ((Ent_8020780C *)&lbl_80513920)[i].b = src[1];
+                ((Ent_8020780C *)&floor_map_registry)[i].a = src[0];
+                ((Ent_8020780C *)&floor_map_registry)[i].b = src[1];
             }
             break;
         }
@@ -204,7 +204,7 @@ void randomize_adventure_maps(void) {
   M2C_UNK *var_r31;
   s32 var_r30;
   s32 var_r29;
-  var_r31 = (M2C_UNK *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&lbl_80513920).value);
+  var_r31 = (M2C_UNK *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
   set_state__16TAdStorySelectGCFi((void*)((*(s32 *)&lbl_805D6060)));
   var_r30 = get_main_phase();
   if (is_not_split_screen__13TRaderMapCoreFv() == 1)
@@ -243,12 +243,12 @@ void randomize_adventure_maps(void) {
 void TLobby__sub_80207BB0(void) {
     struct Ids_80207C60 ids = lbl_8044B8E0;
     s32 i;
-    memset((void *) ((struct Map_80207C60 *)&lbl_80513920), 0, 0xD8);
+    memset((void *) ((struct Map_80207C60 *)&floor_map_registry), 0, 0xD8);
     for (i = 0; i < 18; i++) {
-        ((struct Map_80207C60 *)&lbl_80513920)[i].map = -1;
+        ((struct Map_80207C60 *)&floor_map_registry)[i].map = -1;
     }
     for (i = 0; i < 18; i++) {
-        ((struct Map_80207C60 *)&lbl_80513920)[i].map = ids.w[i];
+        ((struct Map_80207C60 *)&floor_map_registry)[i].map = ids.w[i];
     }
 }
 #pragma pop
@@ -256,12 +256,12 @@ void TLobby__sub_80207BB0(void) {
 void init_floor_map_registry(void) {
     struct Ids_80207C60 ids = lbl_8044B898;
     s32 i;
-    memset((void *) ((struct Map_80207C60 *)&lbl_80513920), 0, 0xD8);
+    memset((void *) ((struct Map_80207C60 *)&floor_map_registry), 0, 0xD8);
     for (i = 0; i < 18; i++) {
-        ((struct Map_80207C60 *)&lbl_80513920)[i].map = -1;
+        ((struct Map_80207C60 *)&floor_map_registry)[i].map = -1;
     }
     for (i = 0; i < 18; i++) {
-        ((struct Map_80207C60 *)&lbl_80513920)[i].map = ids.w[i];
+        ((struct Map_80207C60 *)&floor_map_registry)[i].map = ids.w[i];
     }
 }
 

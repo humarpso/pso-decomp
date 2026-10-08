@@ -193,12 +193,12 @@ extern "C" void handle_6xAF_turn_or_move_lobby_chair();
 extern "C" void handle_6xB0_turn_or_move_lobby_chair();
 extern "C" void handle_6xB1();
 extern "C" void handle_6xB2_play_sound_from_player();
-u8 lbl_804C5260[36] = {
+u8 key_machine_state_mask_table[36] = {
     2, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
     4, 4, 4, 1, 4, 4, 2, 4, 4, 4, 4, 4,
     4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
 };
-void *lbl_804C5284[336] = {
+void *pso_command_dispatch_table[336] = {
     (void *)0x3e0007, (void *)&handle_6x3E_stop_at_position, (void *)0x400007, (void *)&handle_6x40_walk_to_position,
     (void *)0x420007, (void *)&handle_6x42_move_to_position, (void *)0x430004, (void *)&handle_6x43_attack,
     (void *)0x440004, (void *)&handle_6x44_attack, (void *)0x450004, (void *)&handle_6x45_attack,

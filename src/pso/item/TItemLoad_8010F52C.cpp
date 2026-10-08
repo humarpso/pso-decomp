@@ -37,7 +37,7 @@ s32 tmp_buf_use_req__6TLobbyFPv(s32);
 M2C_UNK reset_state__9TItemLoadFPv(void *);
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
-extern s32 lbl_805D2BF0;
+extern s32 item_load_tmp_buffer;
 void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self);
 }
 
@@ -127,7 +127,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
     void *p;
     u32 i;
     if (TLobby__sub_8001EEF4() == 1) {
-        h = tmp_buf_use_req__6TLobbyFPv(lbl_805D2BF0);
+        h = tmp_buf_use_req__6TLobbyFPv(item_load_tmp_buffer);
         off = self->id;
         total = decompress_buffer__9TItemLoadFUi();
         pos = 0;
@@ -155,7 +155,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
                 break;
             }
         }
-        tmp_buf_release__6TLobbyFi(lbl_805D2BF0);
+        tmp_buf_release__6TLobbyFi(item_load_tmp_buffer);
         self->id = 0;
         reset_state__9TItemLoadFPv(self);
     }
@@ -192,16 +192,16 @@ void begin_load_if_pending__9TItemLoadFPvii(void *arg0, s32 arg1, s32 arg2) {
     }
 }
 
-extern s32 lbl_805D2BF0;
+extern s32 item_load_tmp_buffer;
 
 void reload_item__9TItemLoadFPv(void *arg0) {
     s32 temp_r31;
 
     if (TLobby__sub_8001EEF4() == 1) {
-        temp_r31 = tmp_buf_use_req__6TLobbyFPv(lbl_805D2BF0);
+        temp_r31 = tmp_buf_use_req__6TLobbyFPv(item_load_tmp_buffer);
         decompress_buffer__9TItemLoadFUi();
         load_gvm_texture_archive(temp_r31, M2C_FIELD(arg0, s32 *, 0x24));
-        tmp_buf_release__6TLobbyFi(lbl_805D2BF0);
+        tmp_buf_release__6TLobbyFi(item_load_tmp_buffer);
         M2C_FIELD(arg0, s32 *, 0x24) = 0;
         reset_state__9TItemLoadFPv(arg0);
     }

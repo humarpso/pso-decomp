@@ -17,7 +17,7 @@ struct RecoveredGlobal_803646F0___vt__21TItemProArmorParticle {
 extern "C" {
 u8 get_slot_count__14TItemProShieldFPv(void *);
 u8 * TItemProArmor__ct(void *, void *);
-extern RecoveredGlobal_803646F0_lbl_8047A020 lbl_8047A020;
+extern RecoveredGlobal_803646F0_lbl_8047A020 TItemProArmorParticle__particle_id_table;
 extern M2C_UNK __vt__21TItemProArmorParticle[];
 extern s32 lbl_805D4478;
 u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1);
@@ -99,7 +99,7 @@ u8 *TItemProArmorParticle__ct(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, s32 *, 0x198) = -1;
     temp_r0 = get_slot_count__14TItemProShieldFPv(arg0) - 0x29;
     if (temp_r0 < 0xCU) {
-        M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(&lbl_8047A020.value, M2C_UNK *, ((temp_r0 * 4) & 0x3FC));
+        M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(&TItemProArmorParticle__particle_id_table.value, M2C_UNK *, ((temp_r0 * 4) & 0x3FC));
         if (temp_r0 < 5U) {
             M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
         } else {

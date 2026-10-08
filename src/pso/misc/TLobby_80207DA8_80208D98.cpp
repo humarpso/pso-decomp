@@ -17,7 +17,7 @@ extern "C" {
 extern Area_80208E8C *TLobby__data_805D6068;
 extern u8 lbl_8044BAC8[];
 extern s32 lbl_805D6094;
-extern M2C_UNK lbl_805139F8[];
+extern M2C_UNK lobby_slot_ptr_table[];
 void replace_file_extension__6TLobbyFPvPvPv(Buf_80208E8C *, void *, void *);
 s32 update_lobby_scene__6TSceneFPv(Buf_80208E8C *);
 s32 heap_alloc__5THeapFUl(s32, s32);
@@ -25,7 +25,7 @@ void read_disc_file(Buf_80208E8C *, void *);
 M2C_UNK bswap_floor_event_set(s32);
 s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 void heap_free__5THeapFPv(void *, void *);
-extern M2C_UNK lbl_805139F8[];
+extern M2C_UNK lobby_slot_ptr_table[];
 extern s32 lbl_805D6094;
 void free_team_buffers__6TLobbyFv(void);
 }
@@ -37,7 +37,7 @@ M2C_UNK bswap_floor_event_set(s32);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 s32 heap_alloc__5THeapFUl(s32, s32);
 
-extern M2C_UNK lbl_805139F8[];
+extern M2C_UNK lobby_slot_ptr_table[];
 extern s32 lbl_805D6094;
 
 s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -48,13 +48,13 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
         return 0;
     }
     temp_r29 = arg0 * 4;
-    if ((u32) *((s32 *)((s8 *)lbl_805139F8 + temp_r29)) != 0U) {
+    if ((u32) *((s32 *)((s8 *)lobby_slot_ptr_table + temp_r29)) != 0U) {
         return 0;
     }
     temp_r3 = heap_alloc__5THeapFUl(lbl_805D6094, arg2);
     if (temp_r3 != 0) {
         move_data__6TLobbyFv(temp_r3, arg1, arg2);
-        *((s32 *)((s8 *)lbl_805139F8 + temp_r29)) = temp_r3;
+        *((s32 *)((s8 *)lobby_slot_ptr_table + temp_r29)) = temp_r3;
         bswap_floor_event_set(arg0);
         return 1;
     }
@@ -64,9 +64,9 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
 void free_team_buffers__6TLobbyFv(void) {
     s32 i;
     for (i = 17; i >= 0; i--) {
-        if ((u32)((s32 *)&lbl_805139F8)[i] != 0) {
-            heap_free__5THeapFPv((void *)lbl_805D6094, (void *)((s32 *)&lbl_805139F8)[i]);
-            ((s32 *)&lbl_805139F8)[i] = 0;
+        if ((u32)((s32 *)&lobby_slot_ptr_table)[i] != 0) {
+            heap_free__5THeapFPv((void *)lbl_805D6094, (void *)((s32 *)&lobby_slot_ptr_table)[i]);
+            ((s32 *)&lobby_slot_ptr_table)[i] = 0;
         }
     }
 }
@@ -87,7 +87,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
         p = ((void *)heap_alloc__5THeapFUl((s32)((*(void * *)&lbl_805D6094)), (s32)(n)));
         if (p != 0) {
             read_disc_file(&buf, p);
-            ((void * *)&lbl_805139F8)[floor] = p;
+            ((void * *)&lobby_slot_ptr_table)[floor] = p;
             bswap_floor_event_set(floor);
             return 1;
         }

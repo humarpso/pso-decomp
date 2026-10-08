@@ -3055,8 +3055,8 @@ extern s32 lbl_805D2B28;
 extern s32 lbl_805D3530;
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D55C0;
-extern s32 lbl_805D5D6C;
-extern s32 lbl_805D5D88;
+extern s32 lobby_player_count;
+extern s32 shared_state_flags;
 extern Rec_801B09A4 *lbl_805D5DB8;
 extern M2C_UNK lbl_805DC27C;
 extern f32 lbl_805DC280;
@@ -3754,7 +3754,7 @@ void TLobby__sub_801B09A4(void) {
     VObj_801B09A4 *players[12];
     s32 i;
     VObj_801B09A4 *p;
-    lbl_805D5D88 |= 1;
+    shared_state_flags |= 1;
     for (i = 0; i < 12; i++) {
         players[i] = NULL;
     }
@@ -3773,7 +3773,7 @@ void TLobby__sub_801B09A4(void) {
             TLobby__sub_8024AC20(i);
         }
     }
-    lbl_805D5D88 &= ~1;
+    shared_state_flags &= ~1;
 }
 
 s32 check_switch_available__6TLobbyFPvi(void *arg0, s32 arg1) {
@@ -3825,7 +3825,7 @@ void apply_battle_rules_to_players__6TLobbyFv(void) {
         if (get_rule_field_0__6TLobbyFPv(q) == 1) {
             ((void (*)(Pl_801B0B88 *))set_state_flag_6043__10TObjPlayerFPv)(p);
             if (((s32 (*)(Pl_801B0B88 *))is_locally_controlled__10TObjPlayerFPv)(p) != 0) {
-                lbl_805D5D6C = 1;
+                lobby_player_count = 1;
             }
         } else {
             return;

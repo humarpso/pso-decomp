@@ -115,7 +115,7 @@ extern void *item_pmt_tbl;
 void play_weapon_owner_sounds(Ctx_8011C7C8 *c);
 extern void *item_pmt_tbl;
 extern const f32 lbl_805DAC74;
-extern s32 lbl_8043E7B4[];
+extern s32 weapon_special_roll_channel_table[];
 u8 roll_weapon_special_for_stars(u8 arg0);
 f32 get_item_price_coefficient(u8 arg0, u8 arg1);
 u8 get_field_ed__10TObjPlayerFPv(void *p);
@@ -414,7 +414,7 @@ u8 roll_weapon_special_for_stars(u8 arg0) {
     s32 i;
     result = 0;
     if (arg0 < 4U) {
-        n = ((u32 (*)(int, int))roll_item_channel_below)(lbl_8043E7B4[arg0], 0xF);
+        n = ((u32 (*)(int, int))roll_item_channel_below)(weapon_special_roll_channel_table[arg0], 0xF);
         key = arg0 + 1;
         c = 0;
         i = 1;

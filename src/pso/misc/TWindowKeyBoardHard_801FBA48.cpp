@@ -32,8 +32,8 @@ s32 TAdSinglePlyChrSelectGC__sub_80202A68(void *);
 void destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(void *, s32);
 void copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 void *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(void *);
-extern u8 lbl_8051381C[];
-extern s32 lbl_80513910[];
+extern u8 chr_select_rng_state[];
+extern s32 chr_select_serial_seeds[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -48,7 +48,7 @@ s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, char *, void *);
 char *strncpy(char *, const char *, u32);
 void *memcpy(void *, const void *, u32);
 extern char lbl_804C8954[];
-extern s32 lbl_80513910[];
+extern s32 chr_select_serial_seeds[];
 extern s32 lbl_805D49B4;
 u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, char *desc);
 s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
@@ -152,16 +152,16 @@ void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0) {
         b = construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(b);
     }
     copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(a, arg0);
-    subtractive_rng_seed(lbl_8051381C, lbl_80513910[1]);
-    subtractive_rng_make_shuffle(lbl_8051381C);
-    subtractive_rng_unshuffle(lbl_8051381C, a, b, 0x194B0);
+    subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[1]);
+    subtractive_rng_make_shuffle(chr_select_rng_state);
+    subtractive_rng_unshuffle(chr_select_rng_state, a, b, 0x194B0);
     copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(arg0, b);
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(b, 1);
     destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(a, 1);
-    subtractive_rng_seed(lbl_8051381C, lbl_80513910[0]);
-    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(lbl_8051381C, arg0, 0x194B0);
-    subtractive_rng_seed(lbl_8051381C, TAdSinglePlyChrSelectGC__sub_80202A68(arg0));
-    subtractive_rng_xor_buffer(lbl_8051381C, arg0, 0x194AC);
+    subtractive_rng_seed(chr_select_rng_state, chr_select_serial_seeds[0]);
+    apply_rng_cipher__23TAdSinglePlyChrSelectGCFPvPvi(chr_select_rng_state, arg0, 0x194B0);
+    subtractive_rng_seed(chr_select_rng_state, TAdSinglePlyChrSelectGC__sub_80202A68(arg0));
+    subtractive_rng_xor_buffer(chr_select_rng_state, arg0, 0x194AC);
 }
 
 u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, char *desc) {
@@ -190,7 +190,7 @@ u8 load_and_verify_character_save__23TAdSinglePlyChrSelectGCFPvPv(char *name, ch
         return 0;
     }
     lbl_805D49B4 = 0;
-    lbl_80513910[0] = lbl_80513910[1] = sum;
+    chr_select_serial_seeds[0] = chr_select_serial_seeds[1] = sum;
     data = (u8 *)alloc__22TQuestVmDownLoadServerFPv(0x194B0);
     memcpy(data, buf + 0x2048, 0x194B0);
     TAdSinglePlyChrSelectGC__sub_801FBC3C(data);

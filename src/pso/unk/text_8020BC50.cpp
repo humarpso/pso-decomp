@@ -37,7 +37,7 @@ extern s32 tl_07;
 void TLobby__sub_8020BC50(void);
 s32 get_current_floor();
 void bswap_player_fields__6TLobbyFPv(void *);
-extern Area_8020BD50 TLobby__data_80513AD0[];
+extern Area_8020BD50 TLobby__floor_enemy_group_table[];
 extern ObjB_8020BD50 *TLobby__data_805D610C;
 extern s32 TLobby__data_805D6110;
 extern ObjA_8020BD50 *TLobby__data_805D6114;
@@ -91,7 +91,7 @@ void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt) {
     bswap_player_fields__6TLobbyFPv(pkt);
     id = pkt->id;
     if (id >= 0x1000 && id < 0x4000) {
-        a = &TLobby__data_80513AD0[pkt->area];
+        a = &TLobby__floor_enemy_group_table[pkt->area];
         if (a->l1 != NULL) {
             e = a->l1;
             for (i = 0; i < a->n1; i++, e++) {
@@ -112,7 +112,7 @@ void handle_6x76_set_entity_set_flags(Pkt_8020BD50 *pkt) {
     }
     id = pkt->id;
     if (id >= 0x4000 && id < 0xFFFF) {
-        a2 = &TLobby__data_80513AD0[pkt->area];
+        a2 = &TLobby__floor_enemy_group_table[pkt->area];
         if (a2->l0 != NULL) {
             e2 = a2->l0;
             for (i = 0; i < a2->n0; i++, e2++) {

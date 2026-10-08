@@ -270,7 +270,7 @@ void rotate_matrix_y(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 extern M2C_UNK lbl_804C4540[];
-extern u8 *TObjPlayer__data_805D5D80;
+extern u8 *TObjPlayer__shared_model_buffer;
 extern int lbl_805D5E08;
 extern const float lbl_805DC3F8;
 Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *parent, Src_801D88C8 *src);
@@ -327,7 +327,7 @@ Player_801D88C8 *create_ending_sequence_player(Player_801D88C8 *self, void *pare
     VecCopy__FP3VecPC3Vec(self->pos, get_sub_object__10TObjPlayerFPv(src->sub));
     self->ang = get_lock_timer__10TObjPlayerFPv(src->sub);
     select_class_action_provider__10TObjPlayerFPv(self);
-    self->model = TObjPlayer__data_805D5D80 + obj_getField1c(self) * 0xC00;
+    self->model = TObjPlayer__shared_model_buffer + obj_getField1c(self) * 0xC00;
     init_npc_animation__10TObjPlayerFPvPvPvPv(self, get_table_entry_by_clamped_index__10TObjPlayerFPv((u8 *)self), *(s32 *)lbl_805D5E08, 1);
     self->frame = src->frame;
     set_action_flag_40__10TObjPlayerFPv(self);

@@ -35,8 +35,8 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern u32 TObjSuisouLobby__data_805D6FF0;
-extern s32 lbl_805D6FF4;
+extern u32 TObjSuisouLobby__instance;
+extern s32 TObjSuisouLobby__lobby_type;
 void load_resources__15TObjSuisouLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_connected__6TLobbyFv();
@@ -55,8 +55,8 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
-extern u32 TObjSuisouLobby__data_805D6FF0;
-extern s32 lbl_805D6FF4;
+extern u32 TObjSuisouLobby__instance;
+extern s32 TObjSuisouLobby__lobby_type;
 void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2);
 }
 
@@ -193,12 +193,12 @@ void *create__15TObjSuisouLobbyFPv(void *arg0) {
     return o;
 }
 
-extern u32 TObjSuisouLobby__data_805D6FF0;
+extern u32 TObjSuisouLobby__instance;
 
 void destroy_instance__15TObjSuisouLobbyFv(void) {
-    if ((u32) TObjSuisouLobby__data_805D6FF0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjSuisouLobby__data_805D6FF0, 1);
-        TObjSuisouLobby__data_805D6FF0 = 0U;
+    if ((u32) TObjSuisouLobby__instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjSuisouLobby__instance, 1);
+        TObjSuisouLobby__instance = 0U;
     }
 }
 
@@ -210,8 +210,8 @@ void load_resources__15TObjSuisouLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F33E0.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjSuisouLobby__data_805D6FF0) = var_r0;
-    lbl_805D6FF4 = get_lobby_type__6TLobbyFv();
+    (*(s32 *)&TObjSuisouLobby__instance) = var_r0;
+    TObjSuisouLobby__lobby_type = get_lobby_type__6TLobbyFv();
 }
 
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
@@ -267,8 +267,8 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     }
     ((void (*)(void *))TObjSuisouLobby__sub_80369D68)(arg0);
     self->cc = 1.0f;
-    self->x34 = *(s32 *)(*(u8 **)((u8 *)TObjSuisouLobby__data_805D6FF0 + 0x42C) + 8);
-    self->x24 = lbl_805D6FF4;
+    self->x34 = *(s32 *)(*(u8 **)((u8 *)TObjSuisouLobby__instance + 0x42C) + 8);
+    self->x24 = TObjSuisouLobby__lobby_type;
     return arg0;
 }
 #pragma pop

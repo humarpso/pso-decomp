@@ -10,8 +10,8 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int reset_id_array__10TObjPlayerFPv(void*);
 
-    extern int lbl_805D6FBC;
-void reset_id_array_global__10TObjPlayerFv(void) { reset_id_array__10TObjPlayerFPv((void*)(lbl_805D6FBC)); }
+    extern int player_item_id_list;
+void reset_id_array_global__10TObjPlayerFv(void) { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
 
 extern M2C_UNK lbl_804F29F8[];
 

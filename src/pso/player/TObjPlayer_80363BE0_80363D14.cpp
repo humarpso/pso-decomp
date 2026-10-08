@@ -60,7 +60,7 @@ void alloc_and_run_object__10TObjPlayerFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void *run_and_return_arg__10TObjPlayerFi(void *);
 
-extern void *lbl_805D6FBC;
+extern void *player_item_id_list;
 
 void alloc_and_run_object__10TObjPlayerFv(void) {
     void *o;
@@ -69,7 +69,7 @@ void alloc_and_run_object__10TObjPlayerFv(void) {
     if (o != NULL) {
         o = run_and_return_arg__10TObjPlayerFi(o);
     }
-    lbl_805D6FBC = o;
+    player_item_id_list = o;
 }
 void TObjPlayer__sub_80363D4C(void) {
     s32 *p;

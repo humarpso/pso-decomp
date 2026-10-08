@@ -55,7 +55,7 @@ extern M2C_UNK keyboard_pad_status_buffer[];
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 extern M2C_UNK TKeyBoardControl__pad_status_buffer[];
 void init_pad_slots_and_read__16TKeyBoardControlFv(void);
-extern Ent_803DEBC8 lbl_804FC6E4[];
+extern Ent_803DEBC8 pad_button_map_table[];
 extern u32 lbl_805D46E0;
 s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
 extern V4_803DECFC lbl_8058D4C0;
@@ -63,8 +63,8 @@ extern u8 TObjLight__data_8058D528[];
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
-extern f32 lbl_805D7790;
-extern s32 lbl_805D7794;
+extern f32 light_position_distance;
+extern s32 gx_chan_ctrl_light_mask;
 extern const f32 lbl_805E0FB0;
 extern const f32 lbl_805E0FB4;
 extern const f32 lbl_805E0FB8;
@@ -73,7 +73,7 @@ void GXInitLightAttnK(void *, f32, f32, f32);
 void reset_scene_fog(void);
 void init_light_globals(void);
 extern u8 lbl_8058D490[];
-extern u32 lbl_805D776C;
+extern u32 matrix_stack_limit;
 extern u32 lbl_805D7770;
 extern u32 lbl_805D7774;
 void PSMTXIdentity(void *);
@@ -198,7 +198,7 @@ s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0) {
     s32 r = 0;
     u32 i;
     for (i = 0; i < lbl_805D46E0; i++) {
-        if (arg0 & lbl_804FC6E4[i].mask) r |= lbl_804FC6E4[i].val;
+        if (arg0 & pad_button_map_table[i].mask) r |= pad_button_map_table[i].val;
     }
     return r;
 }
@@ -236,7 +236,7 @@ extern s32 some_id_805c6f74;
 void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1) {
     lbl_805D7770 = 0xE0000000;
     lbl_805D7774 = 0xE0000000;
-    lbl_805D776C = (arg1 - 1) * 0x30 + 0xE0000000;
+    matrix_stack_limit = (arg1 - 1) * 0x30 + 0xE0000000;
     PSMTXIdentity(lbl_8058D490 == 0 ? (u8 *)0xE0000000 : lbl_8058D490);
     move_data__6TLobbyFv(lbl_805D7770, lbl_8058D490, 0x30);
 }
@@ -249,8 +249,8 @@ void init_light_globals(void) {
     lbl_8058D4C0.b = lbl_805E0FB4;
     lbl_8058D4C0.c = lbl_805E0FB4;
     lbl_8058D4C0.d = lbl_805E0FB4;
-    lbl_805D7794 = 0;
-    lbl_805D7790 = lbl_805E0FB8;
+    gx_chan_ctrl_light_mask = 0;
+    light_position_distance = lbl_805E0FB8;
     GXInitLightAttnK(TObjLight__data_8058D528, lbl_805E0FBC, lbl_805E0FB4, lbl_805E0FB4);
     reset_scene_fog();
 }

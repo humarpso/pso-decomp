@@ -32,7 +32,7 @@ s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
 u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, s32);
-extern Tbl_802A6F98 lbl_80466C5C;
+extern Tbl_802A6F98 seabed_suiso_texture_name_table;
 extern Tbl_802A6F98 lbl_80466C80;
 extern M2C_UNK lbl_80466CE0[];
 extern M2C_UNK lbl_80466CF8[];
@@ -78,7 +78,7 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
         }
         TObjSeabedSuisoBrakable__data_805D6670 = (u32)p;
         if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CE0)) != 0) {
-            t1 = lbl_80466C5C;
+            t1 = seabed_suiso_texture_name_table;
             for (i = 0; i < 5; i++) {
                 lbl_80540AC0[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t1.w[i]);
             }

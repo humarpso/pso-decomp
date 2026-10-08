@@ -24,7 +24,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FDA4C();
 M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 M2C_UNK save_character_file__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_field_118__22TAdEnterSerialAccessGCFv();
-extern RecoveredGlobal_801FF200_lbl_80513910 lbl_80513910;
+extern RecoveredGlobal_801FF200_lbl_80513910 chr_select_serial_seeds;
 extern u32 lbl_805D5F58;
 extern s32 lbl_805D5F78;
 s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv(void);
@@ -59,7 +59,7 @@ extern V2_801FEE14 lbl_8044A7D0[];
 extern V2_801FEE14 lbl_8044A7D8[];
 extern V2_801FEE14 lbl_804C8A44[];
 extern u8 lbl_8050E208[];
-extern RecoveredGlobal_801FF200_lbl_80513910 lbl_80513910;
+extern RecoveredGlobal_801FF200_lbl_80513910 chr_select_serial_seeds;
 extern u32 lbl_805D5F58;
 extern s32 lbl_805D5F78;
 extern s32 lbl_805D5F7C;
@@ -87,7 +87,7 @@ M2C_UNK prepare_save_data__23TAdSinglePlyChrSelectGCFv();
 s8 get_chr_select_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 
-extern M2C_UNK lbl_80513904[];
+extern M2C_UNK char_select_date_stamp[];
 extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
@@ -105,14 +105,14 @@ s32 load_selected_char__23TAdSinglePlyChrSelectGCFv(void) {
             var_r31 = load_chr_select_slot__23TAdSinglePlyChrSelectGCFv();
             if (var_r31 == 0) {
                 lbl_805D5F78 = 8;
-                getDateStamp__FP9DateStamp(lbl_80513904);
+                getDateStamp__FP9DateStamp(char_select_date_stamp);
             }
         }
     }
     return var_r31;
 }
 
-extern M2C_UNK lbl_80513904[];
+extern M2C_UNK char_select_date_stamp[];
 extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
 extern u32 lbl_805D5F64;
@@ -130,7 +130,7 @@ s32 load_selected_character__23TAdSinglePlyChrSelectGCFv(void) {
             var_r31 = load_chr_select_slot__23TAdSinglePlyChrSelectGCFv();
             if (var_r31 == 0) {
                 lbl_805D5F78 = 8;
-                getDateStamp__FP9DateStamp(lbl_80513904);
+                getDateStamp__FP9DateStamp(char_select_date_stamp);
             }
         }
     }
@@ -222,9 +222,9 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
     }
     increment_counter__23TAdSinglePlyChrSelectGCFv();
     v = get_field_118__22TAdEnterSerialAccessGCFv();
-    M2C_FIELD(&lbl_80513910.value, s32 *, 4) = v;
-    M2C_FIELD(&lbl_80513910.value, s32 *, 0) = v;
-    encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *)lbl_805D5F58, &lbl_80513910.value);
+    M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 4) = v;
+    M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 0) = v;
+    encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *)lbl_805D5F58, &chr_select_serial_seeds.value);
     save_character_file__23TAdSinglePlyChrSelectGCFi(1);
     TAdSinglePlyChrSelectGC__sub_801FDA4C();
     lbl_805D5F78 = 6;
@@ -279,9 +279,9 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
 s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     temp_r3 = get_field_118__22TAdEnterSerialAccessGCFv();
-    M2C_FIELD(&lbl_80513910.value, s32 *, 4) = temp_r3;
-    M2C_FIELD(&lbl_80513910.value, s32 *, 0) = temp_r3;
-    encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *) ((*(s32 *)&lbl_805D5F58)), (void *) (&lbl_80513910.value));
+    M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 4) = temp_r3;
+    M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 0) = temp_r3;
+    encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *) ((*(s32 *)&lbl_805D5F58)), (void *) (&chr_select_serial_seeds.value));
     save_character_file__23TAdSinglePlyChrSelectGCFi((int) (1));
     if (((s32)TAdSinglePlyChrSelectGC__sub_801FDA4C()) != 0) {
         return 0;

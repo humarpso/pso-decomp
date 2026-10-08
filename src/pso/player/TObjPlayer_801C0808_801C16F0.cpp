@@ -17,7 +17,7 @@ void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
-extern s32 lbl_805D5D6C;
+extern s32 lobby_player_count;
 void send_player_floor_packet_u32x5__10TObjPlayerFPv(void* p);
 void bswap_set_floor_packet__10TObjPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void* p);

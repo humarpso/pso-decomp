@@ -187,7 +187,7 @@ int has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_remain_count__10TTecSlicerFPv(void *);
 s32 push_matrix(void);
 s32 pop_matrix(void);
-extern RecoveredGlobal_8023B770_lbl_8044DC20 lbl_8044DC20;
+extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
 void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, int);
 u32 get_player_by_client_id(u16);
@@ -325,9 +325,9 @@ void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 ar
   var_r31 = (s32) get_remain_count__10TTecSlicerFPv(var_r3);
   var_r3 = (M2C_UNK *) var_r30;
   temp_r0 = has_valid_handle__10TObjPlayerFPv(var_r3) * 3;
-  var_r3 = (M2C_UNK *) (&lbl_8044DC20.value);
-  var_r3 = (M2C_UNK *) (&lbl_8044DC20.value);
-  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_64 = (s32) (*((M2C_UNK *) (((s8 *) (&lbl_8044DC20.value)) + ((var_r31 + temp_r0) * 4))));
+  var_r3 = (M2C_UNK *) (&TTecSlicer__launch_angle_table.value);
+  var_r3 = (M2C_UNK *) (&TTecSlicer__launch_angle_table.value);
+  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_64 = (s32) (*((M2C_UNK *) (((s8 *) (&TTecSlicer__launch_angle_table.value)) + ((var_r31 + temp_r0) * 4))));
   pop_matrix();
 }
 

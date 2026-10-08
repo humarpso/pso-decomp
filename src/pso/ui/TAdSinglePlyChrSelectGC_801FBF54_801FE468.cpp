@@ -35,13 +35,13 @@ extern u32 lbl_805D5F58;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0);
 void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
-extern int lbl_805137D8[];
-extern u8 lbl_805137F8[];
+extern int chr_select_buffer_ptr_table[];
+extern u8 chr_select_request_buffer[];
 extern u32 lbl_805D5F58;
 void copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(Req_801FE5F8 *arg0);
 void *memcpy(void *, const void *, u32);
-extern int lbl_805137D8[];
-extern u8 lbl_805137F8[];
+extern int chr_select_buffer_ptr_table[];
+extern u8 chr_select_request_buffer[];
 extern u32 lbl_805D5F58;
 void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void);
 void copy_request__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1);
@@ -90,7 +90,7 @@ s32 get_entry__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     return 0;
 }
 
-    extern int lbl_805137D8[];
+    extern int chr_select_buffer_ptr_table[];
 
 typedef char RecoveredGlobal_801FE4BC_lbl_805137C8_size[sizeof(RecoveredGlobal_801FE4BC_lbl_805137C8) == 0x10 ? 1 : -1];
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0) {
@@ -111,10 +111,10 @@ M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0) {
 void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        Req_801FE5F8 *r = (Req_801FE5F8 *)lbl_805137F8;
+        Req_801FE5F8 *r = (Req_801FE5F8 *)chr_select_request_buffer;
         if (r->slot[i] < 7 && r->slot[i] >= 0) {
-            memcpy(((Slot_801FE5F8 *)lbl_805D5F58)[r->slot[i]].chr, (void *)lbl_805137D8[r->dest[i]], 0x41C);
-            memcpy(((Slot_801FE5F8 *)lbl_805D5F58)[r->slot[i]].inv, (void *)lbl_805137D8[r->dest[i] + 4], 0x2370);
+            memcpy(((Slot_801FE5F8 *)lbl_805D5F58)[r->slot[i]].chr, (void *)chr_select_buffer_ptr_table[r->dest[i]], 0x41C);
+            memcpy(((Slot_801FE5F8 *)lbl_805D5F58)[r->slot[i]].inv, (void *)chr_select_buffer_ptr_table[r->dest[i] + 4], 0x2370);
         }
     }
 }
@@ -122,15 +122,15 @@ void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void) {
 void copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(Req_801FE5F8 *arg0) {
     s32 i;
     if (arg0->count <= 4) {
-        copy_request__23TAdSinglePlyChrSelectGCFPvPv((void *)(lbl_805137F8), (void *)(arg0));
+        copy_request__23TAdSinglePlyChrSelectGCFPvPv((void *)(chr_select_request_buffer), (void *)(arg0));
         for (i = 0; i < 4; i++) {
-            memset((void *)lbl_805137D8[i], 0, 0x41C);
-            memset((void *)lbl_805137D8[i + 4], 0, 0x2370);
+            memset((void *)chr_select_buffer_ptr_table[i], 0, 0x41C);
+            memset((void *)chr_select_buffer_ptr_table[i + 4], 0, 0x2370);
         }
         for (i = 0; i < 4; i++) {
             if (arg0->slot[i] < 7 && arg0->dest[i] != -1) {
-                memcpy((void *)lbl_805137D8[arg0->dest[i]], ((Slot_801FE5F8 *)lbl_805D5F58)[arg0->slot[i]].chr, 0x41C);
-                memcpy((void *)lbl_805137D8[arg0->dest[i] + 4], ((Slot_801FE5F8 *)lbl_805D5F58)[arg0->slot[i]].inv, 0x2370);
+                memcpy((void *)chr_select_buffer_ptr_table[arg0->dest[i]], ((Slot_801FE5F8 *)lbl_805D5F58)[arg0->slot[i]].chr, 0x41C);
+                memcpy((void *)chr_select_buffer_ptr_table[arg0->dest[i] + 4], ((Slot_801FE5F8 *)lbl_805D5F58)[arg0->slot[i]].inv, 0x2370);
             }
         }
     }
@@ -157,10 +157,10 @@ s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv(void) {
     return var_r0;
 }
 
-int TAdSinglePlyChrSelectGC__sub_801FE7D4(int a0) {  return lbl_805137D8[a0 + 4]; }
+int TAdSinglePlyChrSelectGC__sub_801FE7D4(int a0) {  return chr_select_buffer_ptr_table[a0 + 4]; }
 
-    extern int lbl_805137D8[];
-int get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int a0) {  return lbl_805137D8[a0]; }
+    extern int chr_select_buffer_ptr_table[];
+int get_char_table_entry__23TAdSinglePlyChrSelectGCFi(int a0) {  return chr_select_buffer_ptr_table[a0]; }
 
 extern u32 lbl_805D5F58;
 

@@ -126,7 +126,7 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
-extern s32 lbl_805D5084;
+extern s32 dimedian_type3_object;
 extern s32 lbl_805D5088;
 extern const f32 lbl_805D9AA4;
 void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o);
@@ -263,7 +263,7 @@ void TObjPlayer__sub_800A7A14(Obj_800A7A14 *o) {
     }
     switch (o->fB8) {
     case 3:
-        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)lbl_805D5084, o->fC0);
+        e = lookup_entry_by_value__10TObjPlayerFPvf((void *)dimedian_type3_object, o->fC0);
         idx = 0;
         break;
     case 4:

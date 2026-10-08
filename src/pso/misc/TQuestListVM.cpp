@@ -179,7 +179,7 @@ int set_field_20__12TQuestListVMFPvi(void*, void*);
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern s32 TQuestListVM__data_805D6200;
 extern s32 TQuestListVM__data_805D6204;
-extern RecoveredGlobal_8033B9C4_lbl_80513910 lbl_80512D00;
+extern RecoveredGlobal_8033B9C4_lbl_80513910 download_rng_seed_pair;
 void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0);
 M2C_UNK tmp_buf_release__6TLobbyFi(M2C_UNK *);
 s32 TLobby__sub_8001EEF4();
@@ -1095,8 +1095,8 @@ u8 *TQuestListVM__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
 void TQuestVmDownLoadServer__sub_80219EC4(void* p) { *(u16*)((char*)p + 0x70) |= 0x8; }
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
 void TQuestVmDownLoadServer__sub_80219ED4(s32 arg0) {
-    M2C_FIELD(&lbl_80512D00.value, s32 *, 4) = arg0;
-    M2C_FIELD(&lbl_80512D00.value, s32 *, 0) = arg0;
+    M2C_FIELD(&download_rng_seed_pair.value, s32 *, 4) = arg0;
+    M2C_FIELD(&download_rng_seed_pair.value, s32 *, 0) = arg0;
 }
 
 }

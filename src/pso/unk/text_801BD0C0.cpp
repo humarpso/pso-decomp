@@ -137,7 +137,7 @@ extern "C" {
 u16 obj_getField1c(void *);
 void select_class_action_provider__10TObjPlayerFPv(void *, s32);
 void update_input_and_draw__10TObjPlayerFi(void *);
-extern s32 TObjPlayer__data_805D5D80;
+extern s32 TObjPlayer__shared_model_buffer;
 void TObjPlayer__sub_801BD240(P_801BD240 *arg0);
 void init_npc_animation__10TObjPlayerFPvPvPvPv(void *, void *, s32, s32);
 s32 get_handle_value__10TObjPlayerFPv(void *);
@@ -180,7 +180,7 @@ void init_idle_animation__10TObjPlayerFPv(Player_801BD1B4 *arg0) {
 
 void TObjPlayer__sub_801BD240(P_801BD240 *arg0) {
     s32 t = obj_getField1c(arg0) * 0xC00;
-    arg0->fE0 = TObjPlayer__data_805D5D80 + t;
+    arg0->fE0 = TObjPlayer__shared_model_buffer + t;
     select_class_action_provider__10TObjPlayerFPv(arg0, t);
     arg0->f380->m3(obj_getField1c(arg0));
     init_idle_animation__10TObjPlayerFPv((Player_801BD1B4 *)(arg0));

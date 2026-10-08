@@ -14,7 +14,7 @@ void TItemDrop__sub_800FDDF4();
 void TItemDrop__sub_800FDE7C(void *);
 s32 load_all_floor_event_sets__6TLobbyFv();
 extern u8 lbl_8044BAD0[];
-extern s32 lbl_805139F8[];
+extern s32 lobby_slot_ptr_table[];
 extern int lbl_805D6090;
 extern s32 lbl_805D6098;
 void load_set_event_gsl__6TLobbyFv(void);
@@ -35,7 +35,7 @@ int get_team_state__6TLobbyFPv(void* p) { return free_team_buffers__6TLobbyFv(p)
 void load_set_event_gsl__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 0x12; i++) {
-        lbl_805139F8[i] = 0;
+        lobby_slot_ptr_table[i] = 0;
     }
     (*(s32 *)&lbl_805D6090) = -1;
     lbl_805D6098 = 0;

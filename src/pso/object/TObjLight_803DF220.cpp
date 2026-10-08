@@ -40,11 +40,11 @@ M2C_UNK load_camera_view_matrix();
 M2C_UNK setup_opaque_color_draw();
 M2C_UNK TObjPlayer__sub_803E21DC();
 void TObjPlayer__sub_803DF768(s32 arg0);
-extern M2C_UNK lbl_804FC748[];
-extern s32 lbl_805D7794;
+extern M2C_UNK light_slot_mask_table[];
+extern s32 gx_chan_ctrl_light_mask;
 void submit_light0(s32 arg0, s32 arg1);
 M2C_UNK GXLoadLightObjImm(void *, int);
-extern M2C_UNK lbl_804FC748[];
+extern M2C_UNK light_slot_mask_table[];
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
 void load_gx_light_slot(s32 arg0);
 extern char lbl_804FC75C[];
@@ -65,7 +65,7 @@ M2C_UNK GXInitLightPos(void *, f32, f32, f32);
 M2C_UNK GXInitLightDir(void *, f32, f32, f32);
 void assert_light_id__9TObjLightFi(s32 arg0);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
-extern const f32 lbl_805D7790;
+extern const f32 light_position_distance;
 void init_distant_light(s32 idx, f32 x, f32 y, f32 z);
 void GXBegin(int, int, u16);
 void draw_untextured_trail_strip(void *arg0, void *arg1);
@@ -109,11 +109,11 @@ void submit_light0(s32 arg0, s32 arg1) {
     s32 var_r0;
     assert_light_id__9TObjLightFi((s32)(arg0));
     if (arg1 == 0) {
-        var_r0 = lbl_805D7794 & ~M2C_FIELD(((u8 *)(lbl_804FC748) + (arg0 * 4)), s32 *, 0);
+        var_r0 = gx_chan_ctrl_light_mask & ~M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0);
     } else {
-        var_r0 = lbl_805D7794 | M2C_FIELD(((u8 *)(lbl_804FC748) + (arg0 * 4)), s32 *, 0);
+        var_r0 = gx_chan_ctrl_light_mask | M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0);
     }
-    lbl_805D7794 = var_r0;
+    gx_chan_ctrl_light_mask = var_r0;
 }
 
 
@@ -141,7 +141,7 @@ void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b) {
 void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
     assert_light_id__9TObjLightFi(idx);
     if (idx == 0) {
-        GXInitLightPos((u8 *)&TObjLight__data_8058D528 + (idx << 6), lbl_805D7790 * -x, lbl_805D7790 * -y, lbl_805D7790 * -z);
+        GXInitLightPos((u8 *)&TObjLight__data_8058D528 + (idx << 6), light_position_distance * -x, light_position_distance * -y, light_position_distance * -z);
     } else {
         GXInitLightDir((u8 *)&TObjLight__data_8058D528 + (idx << 6), x, y, z);
     }
@@ -150,7 +150,7 @@ void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
 
 void load_gx_light_slot(s32 arg0) {
     assert_light_id__9TObjLightFi((s32)(arg0));
-    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__data_8058D528.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(lbl_804FC748) + (arg0 * 4)), s32 *, 0)));
+    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__data_8058D528.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0)));
 }
 
 

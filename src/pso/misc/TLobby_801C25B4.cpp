@@ -150,7 +150,7 @@ struct V_801C418C : Base_801C418C {
 
 extern "C" {
 void handle_6x7E(void);
-extern void *TLobby__data_805D5D98;
+extern void *TLobby__battle_mode_data_ptr;
 void TLobby__sub_801C38A4(void);
 int TLobby__sub_801B09A4(void);
 int inc_player_count__10TObjPlayerFv(void);
@@ -159,8 +159,8 @@ void init_and_set_flag__6TLobbyFv(void);
 u32 TPlayerBattleCtrl__ct(u32, s32);
 u32 __nw__7TObjectFUl(M2C_UNK);
 void strncpy(void *, void *, int);
-extern void *TLobby__data_805D5D98;
-extern s32 TLobby__data_805D5DA0;
+extern void *TLobby__battle_mode_data_ptr;
+extern s32 TLobby__battle_config_ptr;
 extern s32 tl_00;
 void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK send_set_battle_mode_data__6TLobbyFPv(void *);
@@ -180,7 +180,7 @@ M2C_UNK play_effect_default__10TObjPlayerFii(u32, M2C_UNK);
 extern s32 lbl_805D53A0;
 M2C_UNK request_active_window_close();
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
-extern s32 TLobby__data_805D5DA0;
+extern s32 TLobby__battle_config_ptr;
 s32 TLobby__sub_801C417C(void);
 extern void *lbl_805D5DB8;
 void __destroy_new_array(void *, void *);
@@ -193,7 +193,7 @@ void TAdSinglePlyChrSelectGC__sub_801C5158(void);
 void *__construct_new_array(void *, void *, void *, s32, s32);
 void destroy_char_data__10TObjPlayerFis(int, s16);
 void init_char_data__10TObjPlayerFPv(void);
-extern void *TLobby__data_805D5D98;
+extern void *TLobby__battle_mode_data_ptr;
 extern s32 lbl_805D5D9C;
 extern void *lbl_805D5DB8;
 extern s32 TLobby__data_805D5DC0;
@@ -216,7 +216,7 @@ void bswap_set_battle_mode_data__6TLobbyFPv(Pkt_801C374C *);
 extern s32 TLobby__data_80511CA0[];
 extern s16 lbl_80511CC0[];
 extern s32 lbl_805D53A0;
-extern void *TLobby__data_805D5D98;
+extern void *TLobby__battle_mode_data_ptr;
 extern s32 lbl_805D5DA4;
 extern s32 lbl_805D5DB0;
 extern u8 lbl_805D5DBC[4];
@@ -270,7 +270,7 @@ extern const f32 lbl_805D3544;
 extern const f32 lbl_805D3548;
 extern const f32 lbl_805D354C;
 extern const f32 lbl_805D3550;
-extern s32 TLobby__data_805D5DA0;
+extern s32 TLobby__battle_config_ptr;
 extern const f32 lbl_805D5DC4;
 extern const f32 lbl_805D5DC8;
 void apply_game_settings__6TLobbyFii(M2C_UNK arg0, s32 arg1);
@@ -540,10 +540,10 @@ void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt) {
     bswap_set_battle_mode_data__6TLobbyFPv(pkt);
     switch (pkt->type) {
     case 0:
-        if (TLobby__data_805D5D98 != NULL) {
-            ((Lobby_801C374C *)TLobby__data_805D5D98)->mode = pkt->mode;
-            ((Lobby_801C374C *)TLobby__data_805D5D98)->a = pkt->v[0];
-            ((Lobby_801C374C *)TLobby__data_805D5D98)->b = pkt->v[1];
+        if (TLobby__battle_mode_data_ptr != NULL) {
+            ((Lobby_801C374C *)TLobby__battle_mode_data_ptr)->mode = pkt->mode;
+            ((Lobby_801C374C *)TLobby__battle_mode_data_ptr)->a = pkt->v[0];
+            ((Lobby_801C374C *)TLobby__battle_mode_data_ptr)->b = pkt->v[1];
         }
         break;
     case 2:
@@ -563,13 +563,13 @@ void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt) {
         lbl_805D5DBC[pkt->v[0]] = 1;
         break;
     case 5:
-        if (TLobby__data_805D5D98 != NULL) {
-            set_flag_270__6TLobbyFPv(TLobby__data_805D5D98);
+        if (TLobby__battle_mode_data_ptr != NULL) {
+            set_flag_270__6TLobbyFPv(TLobby__battle_mode_data_ptr);
         }
         break;
     case 6:
-        if (TLobby__data_805D5D98 != NULL) {
-            ((Lobby_801C374C *)TLobby__data_805D5D98)->mode = 6;
+        if (TLobby__battle_mode_data_ptr != NULL) {
+            ((Lobby_801C374C *)TLobby__battle_mode_data_ptr)->mode = 6;
             for (i = 0; i < 4; i++) {
                 lbl_80511CC0[i] = pkt->v[i];
             }
@@ -579,8 +579,8 @@ void handle_6x7D_set_battle_mode_data(Pkt_801C374C *pkt) {
 }
 
 void TLobby__sub_801C38A4(void) {
-    if ((void *) TLobby__data_805D5D98 != NULL) {
-        M2C_FIELD(TLobby__data_805D5D98, s32 *, 0x24) = 0;
+    if ((void *) TLobby__battle_mode_data_ptr != NULL) {
+        M2C_FIELD(TLobby__battle_mode_data_ptr, s32 *, 0x24) = 0;
     }
 }
 void init_and_set_flag__6TLobbyFv(void) { TLobby__sub_801B09A4(); inc_player_count__10TObjPlayerFv(); lbl_805D5DB4 = 1; }
@@ -623,16 +623,16 @@ void TLobby__sub_801C38E8(void *arg0) {
 
 void init_battle_ctrl__6TLobbyFii(s32 arg0, s32 arg1) {
     u32 var_r3;
-    if ((u32) (*(u32 *)&TLobby__data_805D5D98) == 0U) {
+    if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) == 0U) {
         var_r3 = __nw__7TObjectFUl(0x278);
         if (var_r3 != 0U) {
             var_r3 = TPlayerBattleCtrl__ct(var_r3, tl_00);
         }
-        (*(u32 *)&TLobby__data_805D5D98) = var_r3;
+        (*(u32 *)&TLobby__battle_mode_data_ptr) = var_r3;
     }
-    if ((u32) (*(u32 *)&TLobby__data_805D5D98) != 0U) {
-        strncpy((void *)((*(u32 *)&TLobby__data_805D5D98) + 0x68), (void *)(arg1), (int)(0x200));
-        TLobby__data_805D5DA0 = arg0;
+    if ((u32) (*(u32 *)&TLobby__battle_mode_data_ptr) != 0U) {
+        strncpy((void *)((*(u32 *)&TLobby__battle_mode_data_ptr) + 0x68), (void *)(arg1), (int)(0x200));
+        TLobby__battle_config_ptr = arg0;
     }
 }
 
@@ -644,7 +644,7 @@ void TLobby__sub_801C3A40(void) {
 }
 
 void init_char_slots__6TLobbyFv(void) {
-    TLobby__data_805D5D98 = 0;
+    TLobby__battle_mode_data_ptr = 0;
     lbl_805D5D9C = TKeyBoardControl__sub_8000F828() == 1 ? 0x19 : 0x1E;
     lbl_805D5DB8 = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(0x3220), (void *)init_char_data__10TObjPlayerFPv, (void *)destroy_char_data__10TObjPlayerFis, 0x42C, 0xC);
     TAdSinglePlyChrSelectGC__sub_801C5158();
@@ -725,7 +725,7 @@ void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2) {
     send_set_battle_mode_data__6TLobbyFPv(&stack.sp8);
 }
 
-#define CFG (*(Cfg_801C3D50 **)&TLobby__data_805D5DA0)
+#define CFG (*(Cfg_801C3D50 **)&TLobby__battle_config_ptr)
 void apply_game_settings__6TLobbyFii(M2C_UNK arg0, s32 arg1) {
     reset_settings_to_default__6TLobbyFPv((void *) (lbl_8050EA40));
     if (arg1 != 0) {
@@ -817,7 +817,7 @@ void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1) {
     }
 }
 s32 TLobby__sub_801C417C(void) {
-    return M2C_FIELD((*(void * *)&TLobby__data_805D5DA0), s32 *, 0x24) * 0x3C;
+    return M2C_FIELD((*(void * *)&TLobby__battle_config_ptr), s32 *, 0x24) * 0x3C;
 }
 
 struct Lobby_801C484C;

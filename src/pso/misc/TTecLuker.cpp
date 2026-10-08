@@ -121,7 +121,7 @@ int init_packet_9a__10TObjPlayerFPv(void);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
-extern s32 lbl_805D5D6C;
+extern s32 lobby_player_count;
 void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
 void TTecLuker__sub_80235028(void* p);
 void TTecLuker__sub_80235028(void* p);

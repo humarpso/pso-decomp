@@ -50,7 +50,7 @@ u32 spawn_particle_effect(void *, int);
 void set_tint_color__13TParticleCtrlFPvi(u32, s32);
 u8 *get_player_by_client_id(u16);
 u32 classify_distance_band__8TTecCtrlFiii(s16, s16, u16);
-extern s32 lbl_8044D8F8[];
+extern s32 support_tec_range_effect_id_table[];
 extern Arr_80236EE8 lbl_8044D908;
 void spawn_support_tec_range_effect(Tec_80236EE8 *self);
 }
@@ -96,7 +96,7 @@ void spawn_support_tec_range_effect(Tec_80236EE8 *self) {
         band = classify_distance_band__8TTecCtrlFiii(kind, self->level, self->slot);
         {
             Arr_80236EE8 fx = lbl_8044D908;
-            fx.w[0] = spawn_particle_effect(&pos, lbl_8044D8F8[band]);
+            fx.w[0] = spawn_particle_effect(&pos, support_tec_range_effect_id_table[band]);
             if (band == 3) {
                 fx.w[1] = spawn_particle_effect(&pos, 0x1F2);
                 fx.w[2] = spawn_particle_effect(&pos, 0x19D);

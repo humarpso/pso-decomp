@@ -30,7 +30,7 @@ M2C_UNK clear_obj_links(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK destroy_child__8TObjFishFPv(void *);
 extern M2C_UNK lbl_804E3E54[];
-extern u32 lbl_805D6938;
+extern u32 boss7_joint_state;
 u8 *fn_802EDCF0(u8 *arg0, s16 arg1);
 }
 
@@ -75,8 +75,8 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
         }
         free__11TOBoss4RockFUi(o->f6D8);
         clear_obj_links(arg0);
-        if (lbl_805D6938 == (u32) arg0) {
-            lbl_805D6938 = 0;
+        if (boss7_joint_state == (u32) arg0) {
+            boss7_joint_state = 0;
         }
         destroy_child__8TObjFishFPv(arg0);
         __dt__7TObjectFv(arg0 + 0x690, -1);

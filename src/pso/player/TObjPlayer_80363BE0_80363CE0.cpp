@@ -9,12 +9,12 @@ extern "C" {
 void free_static_buffer__10TObjPlayerFv(void);
 void __dl__FPv(void*);
 
-extern u32 lbl_805D6FBC;
+extern u32 player_item_id_list;
 
 void free_static_buffer__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D6FBC != 0U) {
-        __dl__FPv((void*)lbl_805D6FBC);
-        lbl_805D6FBC = 0U;
+    if ((u32) player_item_id_list != 0U) {
+        __dl__FPv((void*)player_item_id_list);
+        player_item_id_list = 0U;
     }
 }
 

@@ -1152,7 +1152,7 @@ extern s32 camera_split_screen_selector;
 extern s32 lbl_805D53A4;
 extern s32 lbl_805D5550;
 extern s32 lbl_805D586C;
-extern s32 lbl_805D5D6C;
+extern s32 lobby_player_count;
 extern s32 lbl_805D5FC0;
 extern M2C_UNK tl_07;
 
@@ -5081,7 +5081,7 @@ s32 get_current_floor(void) {
 s32 get_field_3e4__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x3e4); }
 
 s32 get_player_count__10TObjPlayerFv(void) {
-    return lbl_805D5D6C;
+    return lobby_player_count;
 }
 
 int get_item_field_6__10TObjPlayerFPv(void* p) { return get_slot_value__10TObjPlayerFPvi((char*)p + 0xd04, 6); }

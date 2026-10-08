@@ -56,7 +56,7 @@ void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, s32, void *, void *);
 void set_ad_field__6TLobbyFPvi(void *, s32);
 void fn_80329BAC(void* p);
-extern u8 lbl_80477090[];
+extern u8 agreement_item_rect_table[];
 extern u8 lbl_804770A0[];
 extern M2C_UNK __vt__18TAdAgreementBaseGC[];
 extern s32 lbl_805D41B8;
@@ -205,11 +205,11 @@ Obj_80329AA8 *TAdAgreementBaseGC__ct(Obj_80329AA8 *arg0, void *arg1) {
     }
     p = __nw__7TObjectFUl(0x708);
     if (p != 0) {
-        p = __ct__14TAdSelectCurGCFv(p, tl_clipout, lbl_80477090, lbl_804770A0);
+        p = __ct__14TAdSelectCurGCFv(p, tl_clipout, agreement_item_rect_table, lbl_804770A0);
     }
     arg0->cur = p;
-    add_item_rect__12TLevelSelectFPvPv(arg0->cur, lbl_80477090);
-    add_item_rect__12TLevelSelectFPvPv(arg0->cur, lbl_80477090 + 8);
+    add_item_rect__12TLevelSelectFPvPv(arg0->cur, agreement_item_rect_table);
+    add_item_rect__12TLevelSelectFPvPv(arg0->cur, agreement_item_rect_table + 8);
     fn_80329BAC((void*)(arg0->cur));
     set_ad_field__6TLobbyFPvi(arg0->cur, 1);
     return arg0;

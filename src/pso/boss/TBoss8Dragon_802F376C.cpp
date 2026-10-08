@@ -30,14 +30,14 @@ u16 obj_getField1c(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 Ent_802F376C *get_enemy_entity(u16);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 extern const f32 lbl_805DED48;
 s32 is_closest_part__12TBoss8DragonFPv(Ent_802F376C *arg0);
 u16 obj_getField1c(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 Ent_802F376C *get_enemy_entity(u16);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 extern const f32 lbl_805DED48;
 extern const f32 lbl_805DED4C;
 s32 push_apart_from_parts__12TBoss8DragonFPv(Ent_802F3878 *arg0);
@@ -45,7 +45,7 @@ u16 obj_getField1c(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 Ent_802F376C *get_enemy_entity(u16);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 extern const f32 lbl_805DED48;
 extern const f32 lbl_805DED4C;
 s32 is_near_other_part__12TBoss8DragonFPv(Ent_802F3974 *arg0);
@@ -57,7 +57,7 @@ s32 is_closest_part__12TBoss8DragonFPv(Ent_802F376C *arg0) {
     Vec_802F376C v;
     f32 len;
     s32 i;
-    if (lbl_805D6978 == 0) {
+    if (boss8_dragon_leader_part == 0) {
         return 1;
     }
     v.x = arg0->x - arg0->x;
@@ -65,7 +65,7 @@ s32 is_closest_part__12TBoss8DragonFPv(Ent_802F376C *arg0) {
     v.z = arg0->z - arg0->z;
     len = clamp_velocity__15TObjBoss2TunnelFPv(&v);
     for (i = 1; i < 6; i++) {
-        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)lbl_805D6978, i);
+        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)boss8_dragon_leader_part, i);
         if (id != obj_getField1c(arg0)) {
             Ent_802F376C *e = get_enemy_entity(id);
             if (e != NULL) {
@@ -87,11 +87,11 @@ s32 push_apart_from_parts__12TBoss8DragonFPv(Ent_802F3878 *arg0) {
     Vec_802F3878 v;
     f32 d;
     s32 i;
-    if (lbl_805D6978 == 0) {
+    if (boss8_dragon_leader_part == 0) {
         return 0;
     }
     for (i = 0; i < 6; i++) {
-        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)lbl_805D6978, i);
+        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)boss8_dragon_leader_part, i);
         if (id != obj_getField1c(arg0)) {
             Ent_802F3878 *e = ((Ent_802F3878 *)get_enemy_entity(id));
             if (e != NULL) {
@@ -114,11 +114,11 @@ s32 push_apart_from_parts__12TBoss8DragonFPv(Ent_802F3878 *arg0) {
 s32 is_near_other_part__12TBoss8DragonFPv(Ent_802F3974 *arg0) {
     Vec_802F3974 v;
     s32 i;
-    if (lbl_805D6978 == 0) {
+    if (boss8_dragon_leader_part == 0) {
         return 0;
     }
     for (i = 0; i < 6; i++) {
-        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)lbl_805D6978, i);
+        u16 id = get_part_count_plus__12TBoss8DragonFPvi((void *)boss8_dragon_leader_part, i);
         if (id != obj_getField1c(arg0)) {
             Ent_802F3974 *e = ((Ent_802F3974 *)get_enemy_entity(id));
             if (e != NULL) {

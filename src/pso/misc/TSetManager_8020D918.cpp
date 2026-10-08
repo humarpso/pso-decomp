@@ -32,7 +32,7 @@ extern s16 TLobby__data_805D6134;
 void clear_floor_flags_and_depart__6TLobbyFv(void);
 s32 get_current_floor(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *p);
-extern Area_8020DEE4 TLobby__data_80513AD0[];
+extern Area_8020DEE4 TLobby__floor_enemy_group_table[];
 extern SrcA_8020DEE4 *TLobby__data_805D610C;
 extern SrcB_8020DEE4 *TLobby__data_805D6114;
 void depart_floor_population(int unused);
@@ -191,7 +191,7 @@ void reset_id_tables__6TLobbyFv(void) {
 }
 
 void depart_floor_population(int unused) {
-    Area_8020DEE4 *area = &TLobby__data_80513AD0[get_current_floor()];
+    Area_8020DEE4 *area = &TLobby__floor_enemy_group_table[get_current_floor()];
     if (TLobby__data_805D610C != 0) {
         SrcA_8020DEE4 *s = TLobby__data_805D610C;
         Dst_8020DEE4 *d = area->a;

@@ -109,7 +109,7 @@ s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 init_single_player_chr_select__6TLobbyFPv(s32);
-extern RecoveredGlobal_80202A40_lbl_8051381C lbl_8051381C;
+extern RecoveredGlobal_80202A40_lbl_8051381C chr_select_rng_state;
 void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
@@ -172,7 +172,7 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
 
 typedef char RecoveredGlobal_80202A40_lbl_8051381C_size[sizeof(RecoveredGlobal_80202A40_lbl_8051381C) == 0xE8 ? 1 : -1];
 void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void) {
-    init_single_player_chr_select__6TLobbyFPv((s32) &lbl_8051381C.value);
+    init_single_player_chr_select__6TLobbyFPv((s32) &chr_select_rng_state.value);
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {

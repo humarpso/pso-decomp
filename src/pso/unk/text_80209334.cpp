@@ -15,7 +15,7 @@ struct S_802094AC { s32 a; s32 *arr; s32 f8; s32 count; };
 struct Arg_80209334 { u8 pad[0xC]; s32 c; s32 d; };
 
 extern "C" {
-extern RecoveredGlobal_802093EC_lbl_805139F8 lbl_805139F8;
+extern RecoveredGlobal_802093EC_lbl_805139F8 lobby_slot_ptr_table;
 s32 get_area_event_data(s32 arg0);
 s32 TLobby__sub_80209410(Obj_80209410 *s);
 void TLobby__sub_80209440(void *);
@@ -63,7 +63,7 @@ void *TSetEvtDestroy__ct(void *arg0, void *parent, Arg_80209334 *arg2) {
 
 s32 get_area_event_data(s32 arg0) {
     if (arg0 < 0x12) {
-        return M2C_FIELD(&lbl_805139F8.value, M2C_UNK *, (arg0 * 4));
+        return M2C_FIELD(&lobby_slot_ptr_table.value, M2C_UNK *, (arg0 * 4));
     }
     return 0;
 }

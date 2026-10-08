@@ -4,7 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-extern AllocatorCallbacks *lbl_805D77A8;
+extern AllocatorCallbacks *global_allocator;
 void xfree__FPv(void *arg0);
 }
 
@@ -13,7 +13,7 @@ extern "C" {
 #pragma push
 #pragma scheduling off
 void xfree__FPv(void *arg0) {
-    lbl_805D77A8->release(arg0, lbl_805D77A8);
+    global_allocator->release(arg0, global_allocator);
 }
 #pragma pop
 

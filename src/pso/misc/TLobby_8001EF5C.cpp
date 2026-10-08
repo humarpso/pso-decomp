@@ -137,14 +137,14 @@ M2C_UNK TItemDrop__sub_800FE2DC();
 s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 s32 xmalloc__FUl(M2C_UNK);
 extern s8 TLobby__tmp_buf_name[];
-extern s32 lbl_805D4ACC;
-extern s32 lbl_805D4AD4;
-extern u32 lbl_805D4AD8;
+extern s32 lobby_download_buffer;
+extern s32 tmp_buf_in_use_flag;
+extern u32 bml_load_buffer;
 void init_download_buffers__6TLobbyFv(void);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-extern s32 lbl_805D4ACC;
+extern s32 lobby_download_buffer;
 extern M2C_UNK lbl_80434C48[];
 void load_bin_motion_callback(void *arg0);
 extern s32 lbl_805D4AD0;
@@ -163,7 +163,7 @@ M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 M2C_UNK load_gvm_texture_archive(s32, s32);
 extern M2C_UNK lbl_80434B04[];
 extern M2C_UNK lbl_80434B24[];
-extern s32 lbl_805D4ACC;
+extern s32 lobby_download_buffer;
 extern M2C_UNK lbl_805D7F10;
 void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -172,7 +172,7 @@ M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434D10[];
 extern M2C_UNK lbl_80434D30[];
 extern M2C_UNK lbl_80434D54[];
-extern s32 lbl_805D4ACC;
+extern s32 lobby_download_buffer;
 s32 load_bin_motion__6TLobbyFPvii(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
 void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 s32 set_stream_state__6TLobbyFi(s32, s32);
@@ -180,7 +180,7 @@ s32 get_resource_file_size__6TLobbyFPv(s32);
 M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
 extern M2C_UNK lbl_80434D74[];
 extern M2C_UNK lbl_80434D94[];
-extern s32 lbl_805D4ACC;
+extern s32 lobby_download_buffer;
 s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
 M2C_UNK TLobby__sub_8001EDD8(void *, s32);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -191,7 +191,7 @@ M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 extern M2C_UNK lbl_80434C70[];
 extern M2C_UNK lbl_80434C98[];
-extern s32 lbl_805D4ACC;
+extern s32 lobby_download_buffer;
 extern M2C_UNK lbl_805D7F10;
 void load_bin_model_callback__6TLobbyFPv(Lobby_8001FA1C *self);
 M2C_UNK TLobby__sub_8001EDF4(void *);
@@ -211,7 +211,7 @@ M2C_UNK load_gvm_texture_archive(s32, s32);
 void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 extern s32 lbl_805D4AD0;
-extern u32 lbl_805D4AD8;
+extern u32 bml_load_buffer;
 void pump_frames__6TLobbyFv(void);
 void open__8TGStreamFPvPvi(void *, s32, s32);
 s32 get_instance__8TGStreamFv(void *);
@@ -224,7 +224,7 @@ void debug_printf_nop(void *, ...);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 char *strncpy(char *dest, const char *src, unsigned long num);
 extern u8 *lbl_805D49B0;
-extern u8 lbl_805D4AC8;
+extern u8 bml_load_state;
 extern s32 lbl_805D5338;
 extern s32 lbl_805D2B10;
 extern M2C_UNK lbl_80434B70[];
@@ -265,13 +265,13 @@ extern M2C_UNK lbl_80434BB0[];
 extern M2C_UNK lbl_80434BD4[];
 extern M2C_UNK lbl_80434BF8[];
 extern M2C_UNK lbl_80434C18[];
-extern u8 lbl_805D4AC8;
-extern u32 lbl_805D4AD8;
-extern u32 lbl_805D4ADC;
+extern u8 bml_load_state;
+extern u32 bml_load_buffer;
+extern u32 lobby_bml_file_handle;
 extern u8 *lbl_805D4AE0;
-extern Rec_8001F128 *lbl_805D4AE4;
-extern s32 lbl_805D4AE8;
-extern u8 *lbl_805D4AEC;
+extern Rec_8001F128 *bml_header_record_ptr;
+extern s32 bml_load_entry_index;
+extern u8 *lobby_bml_read_buffer;
 extern M2C_UNK lbl_805D7F10;
 s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 }
@@ -312,11 +312,11 @@ void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2)
     char buf[0x20];
     s32 size;
     change_file_extension__6TLobbyFPvPvPv(buf, arg1, &lbl_805D7F10);
-    size = load_sct_file__8TGStreamFii(buf, lbl_805D4ACC);
+    size = load_sct_file__8TGStreamFii(buf, lobby_download_buffer);
     if (size > 0x40000) {
         debug_print__6TLobbyFii(lbl_80434B04, buf);
     } else if (size > 0) {
-        load_gvm_texture_archive(lbl_805D4ACC, arg0->entries[arg2].data);
+        load_gvm_texture_archive(lobby_download_buffer, arg0->entries[arg2].data);
         arg0->entries[arg2].flags |= 1;
     } else {
         arg0->entries[arg2].flags |= 2;
@@ -336,8 +336,8 @@ void set_flag_and_notify__6TLobbyFPv(void *arg0) {
     }
 }
 
-extern s32 lbl_805D4ACC;
-extern u32 lbl_805D4AD8;
+extern s32 lobby_download_buffer;
+extern u32 bml_load_buffer;
 
 #define self ((Ctx_8001F128 *) arg0)
 s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
@@ -349,10 +349,10 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
             self->state = 9;
             break;
         }
-        lbl_805D4AE8 = 0;
-        lbl_805D4AEC = tmp_buf_use_req__6TLobbyFPv(lbl_80434B44);
-        lbl_805D4ADC = adxf_open__6TLobbyFUii(arg1, 0);
-        if (lbl_805D4ADC == 0) {
+        bml_load_entry_index = 0;
+        lobby_bml_read_buffer = tmp_buf_use_req__6TLobbyFPv(lbl_80434B44);
+        lobby_bml_file_handle = adxf_open__6TLobbyFUii(arg1, 0);
+        if (lobby_bml_file_handle == 0) {
             debug_print__6TLobbyFii(lbl_80434B50, arg1);
             self->state = 0xB;
             return -1;
@@ -361,24 +361,24 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
         if (n > 0x4000) {
             debug_printf_nop(lbl_80434B70, n);
         }
-        lbl_805D4AE0 = (u8 *) lbl_805D4AD8;
-        lbl_805D4AE4 = (Rec_8001F128 *) (lbl_805D4AD8 + 0x40);
-        read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, (void *) lbl_805D4AD8);
-        set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AE0);
+        lbl_805D4AE0 = (u8 *) bml_load_buffer;
+        bml_header_record_ptr = (Rec_8001F128 *) (bml_load_buffer + 0x40);
+        read_checked_align__6TLobbyFiii(lobby_bml_file_handle, n, (void *) bml_load_buffer);
+        set_read_params__6TLobbyFiii(&lobby_bml_file_handle, n, lbl_805D4AE0);
         self->state = 1;
     case 1:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
             self->state = 9;
-        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+        } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
             switch (lbl_805D4AE0[8]) {
             case 0x50:
-                lbl_805D4AC8 = 1;
+                bml_load_state = 1;
                 break;
             default:
-                lbl_805D4AC8 = 0;
+                bml_load_state = 0;
                 break;
             }
             self->state = 2;
@@ -387,15 +387,15 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 2:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
             self->state = 9;
         } else if (self->nmodel < self->f434) {
-            n = (lbl_805D4AE4->size + 0x7FF) / 2048;
-            switch ((s8) lbl_805D4AC8) {
+            n = (bml_header_record_ptr->size + 0x7FF) / 2048;
+            switch ((s8) bml_load_state) {
             case 0:
             case 1:
-                read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, lbl_805D4AEC);
-                set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AEC);
+                read_checked_align__6TLobbyFiii(lobby_bml_file_handle, n, lobby_bml_read_buffer);
+                set_read_params__6TLobbyFiii(&lobby_bml_file_handle, n, lobby_bml_read_buffer);
                 break;
             default:
                 debug_print__6TLobbyFii(lbl_80434B90);
@@ -409,16 +409,16 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 3:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
             self->state = 9;
-        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+        } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
-            switch ((s8) lbl_805D4AC8) {
+            switch ((s8) bml_load_state) {
             case 1: {
-                s32 p = alloc__22TQuestVmDownLoadServerFPv(lbl_805D4AE4->rawSize);
+                s32 p = alloc__22TQuestVmDownLoadServerFPv(bml_header_record_ptr->rawSize);
                 if (p != 0) {
-                    prs_decompress_buffer((s32) lbl_805D4AEC, (void *) p);
-                    bind_bml_model((Lobby_8001FBEC *) self, lbl_805D4AE4->rawSize, self->nmodel++, p);
+                    prs_decompress_buffer((s32) lobby_bml_read_buffer, (void *) p);
+                    bind_bml_model((Lobby_8001FBEC *) self, bml_header_record_ptr->rawSize, self->nmodel++, p);
                     safe_free__23TAdSinglePlyChrSelectGCFUi(p);
                 } else {
                     debug_print__6TLobbyFii(lbl_80434BB0);
@@ -426,25 +426,25 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
                 break;
             }
             case 0:
-                bind_bml_model((Lobby_8001FBEC *) self, lbl_805D4AE4->size, self->nmodel++, (s32) lbl_805D4AEC);
+                bind_bml_model((Lobby_8001FBEC *) self, bml_header_record_ptr->size, self->nmodel++, (s32) lobby_bml_read_buffer);
                 break;
             }
-            lbl_805D4AE4++;
+            bml_header_record_ptr++;
             self->state = 2;
         }
         break;
     case 4:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
             self->state = 9;
         } else if (self->nmotion < self->f438) {
-            n = (lbl_805D4AE4->size + 0x7FF) / 2048;
-            switch ((s8) lbl_805D4AC8) {
+            n = (bml_header_record_ptr->size + 0x7FF) / 2048;
+            switch ((s8) bml_load_state) {
             case 0:
             case 1:
-                read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, lbl_805D4AEC);
-                set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AEC);
+                read_checked_align__6TLobbyFiii(lobby_bml_file_handle, n, lobby_bml_read_buffer);
+                set_read_params__6TLobbyFiii(&lobby_bml_file_handle, n, lobby_bml_read_buffer);
                 break;
             default:
                 debug_print__6TLobbyFii(lbl_80434B90);
@@ -453,23 +453,23 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
             self->state = 5;
         } else {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
-            lbl_805D4AE4 = (Rec_8001F128 *) (lbl_805D4AE0 + 0x40);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
+            bml_header_record_ptr = (Rec_8001F128 *) (lbl_805D4AE0 + 0x40);
             self->state = 6;
         }
         break;
     case 5:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
             self->state = 9;
-        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+        } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
-            switch ((s8) lbl_805D4AC8) {
+            switch ((s8) bml_load_state) {
             case 1: {
-                s32 p = alloc__22TQuestVmDownLoadServerFPv(lbl_805D4AE4->rawSize);
+                s32 p = alloc__22TQuestVmDownLoadServerFPv(bml_header_record_ptr->rawSize);
                 if (p != 0) {
-                    prs_decompress_buffer((s32) lbl_805D4AEC, (void *) p);
+                    prs_decompress_buffer((s32) lobby_bml_read_buffer, (void *) p);
                     bind_bml_motion((Lobby_8001FB6C *) self, self->nmodel++, (void *) p);
                     safe_free__23TAdSinglePlyChrSelectGCFUi(p);
                 } else {
@@ -478,41 +478,41 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
                 break;
             }
             case 0:
-                bind_bml_motion((Lobby_8001FB6C *) self, self->nmotion++, lbl_805D4AEC);
+                bind_bml_motion((Lobby_8001FB6C *) self, self->nmotion++, lobby_bml_read_buffer);
                 break;
             }
-            lbl_805D4AE4++;
+            bml_header_record_ptr++;
             self->state = 4;
         }
         break;
     case 6:
-        while (self->entries[lbl_805D4AE8].texture == 0) {
-            lbl_805D4AE8++;
-            lbl_805D4AE4++;
-            if (lbl_805D4AE8 >= self->f434) {
+        while (self->entries[bml_load_entry_index].texture == 0) {
+            bml_load_entry_index++;
+            bml_header_record_ptr++;
+            if (bml_load_entry_index >= self->f434) {
                 break;
             }
         }
-        if (lbl_805D4AE8 < self->f434) {
-            change_file_extension__6TLobbyFPvPvPv(0, lbl_805D4AE4, &lbl_805D7F10);
-            lbl_805D4ADC = adxf_open__6TLobbyFUii(lbl_805D4AE4, 0);
-            if (lbl_805D4ADC != 0) {
+        if (bml_load_entry_index < self->f434) {
+            change_file_extension__6TLobbyFPvPvPv(0, bml_header_record_ptr, &lbl_805D7F10);
+            lobby_bml_file_handle = adxf_open__6TLobbyFUii(bml_header_record_ptr, 0);
+            if (lobby_bml_file_handle != 0) {
                 n = TLobby__sub_803CC53C();
                 if (n > 0x80) {
-                    debug_print__6TLobbyFii(lbl_80434BF8, lbl_805D4AE4, n << 11);
-                    lbl_805D4AE8++;
-                    lbl_805D4AE4++;
+                    debug_print__6TLobbyFii(lbl_80434BF8, bml_header_record_ptr, n << 11);
+                    bml_load_entry_index++;
+                    bml_header_record_ptr++;
                 } else {
-                    read_checked_align__6TLobbyFiii(lbl_805D4ADC, n, lbl_805D4AEC);
-                    set_read_params__6TLobbyFiii(&lbl_805D4ADC, n, lbl_805D4AEC);
+                    read_checked_align__6TLobbyFiii(lobby_bml_file_handle, n, lobby_bml_read_buffer);
+                    set_read_params__6TLobbyFiii(&lobby_bml_file_handle, n, lobby_bml_read_buffer);
                 }
             } else {
-                self->entries[lbl_805D4AE8].flags |= 2;
+                self->entries[bml_load_entry_index].flags |= 2;
                 if (!(self->flags & 4)) {
-                    debug_print__6TLobbyFii(lbl_80434C18, lbl_805D4AE4);
+                    debug_print__6TLobbyFii(lbl_80434C18, bml_header_record_ptr);
                 }
-                lbl_805D4AE8++;
-                lbl_805D4AE4++;
+                bml_load_entry_index++;
+                bml_header_record_ptr++;
                 break;
             }
             self->state = 7;
@@ -524,14 +524,14 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     case 7:
         if (self->flags & 0x200) {
             reset_read_state__6TLobbyFv();
-            TLobby__sub_803CCE9C(lbl_805D4ADC);
+            TLobby__sub_803CCE9C(lobby_bml_file_handle);
             self->state = 9;
-        } else if (TLobby__sub_803CC4C0(lbl_805D4ADC) == 3) {
+        } else if (TLobby__sub_803CC4C0(lobby_bml_file_handle) == 3) {
             reset_read_state__6TLobbyFv();
-            load_gvm_texture_archive((s32) lbl_805D4AEC, (s32) self->entries[lbl_805D4AE8].texture);
-            self->entries[lbl_805D4AE8].flags |= 1;
-            lbl_805D4AE8++;
-            lbl_805D4AE4++;
+            load_gvm_texture_archive((s32) lobby_bml_read_buffer, (s32) self->entries[bml_load_entry_index].texture);
+            self->entries[bml_load_entry_index].flags |= 1;
+            bml_load_entry_index++;
+            bml_header_record_ptr++;
             self->ntex++;
             self->state = 6;
         }
@@ -552,19 +552,19 @@ s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
 #undef self
 
 void free_chr_select_data__6TLobbyFv(void) {
-    if ((u32) lbl_805D4AD8 != 0U) {
-        xfree__FPv((void*)((void*)lbl_805D4AD8));
-        lbl_805D4AD8 = 0U;
+    if ((u32) bml_load_buffer != 0U) {
+        xfree__FPv((void*)((void*)bml_load_buffer));
+        bml_load_buffer = 0U;
     }
     TItemDrop__sub_800FE2D8();
-    safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D4ACC);
-    lbl_805D4ACC = 0;
+    safe_free__23TAdSinglePlyChrSelectGCFUi(lobby_download_buffer);
+    lobby_download_buffer = 0;
 }
 void init_download_buffers__6TLobbyFv(void) {
-    (*(s32 *)&lbl_805D4AD8) = xmalloc__FUl(0x4000);
-    lbl_805D4ACC = alloc__22TQuestVmDownLoadServerFPv(0x40000);
+    (*(s32 *)&bml_load_buffer) = xmalloc__FUl(0x4000);
+    lobby_download_buffer = alloc__22TQuestVmDownLoadServerFPv(0x40000);
     TItemDrop__sub_800FE2DC();
-    lbl_805D4AD4 = 1;
+    tmp_buf_in_use_flag = 1;
     TLobby__tmp_buf_name[0] = 0;
 }
 
@@ -592,7 +592,7 @@ void load_bin_motion_callback(void *arg0) {
     void *temp_r4;
     *M2C_FIELD(arg0, s32 **, 0) = 0;
     spC = 0;
-    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(M2C_FIELD(arg0, void **, 4)), (s32)(lbl_805D4ACC), (s32)(&spC), (s32)(&sp8));
+    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(M2C_FIELD(arg0, void **, 4)), (s32)(lobby_download_buffer), (s32)(&spC), (s32)(&sp8));
     if (temp_r3 == 0) {
         debug_print__6TLobbyFii(lbl_80434C48);
     }
@@ -614,7 +614,7 @@ void load_bin_model_callback__6TLobbyFPv(Lobby_8001FA1C *self) {
     s32 *slot;
     i = 0;
     while (i < self->f14) {
-        data = ((s32 (*)(void *, s32, void *, void *))alloc_load_data__6TLobbyFPviii)(self->fC, lbl_805D4ACC, &i, &tag);
+        data = ((s32 (*)(void *, s32, void *, void *))alloc_load_data__6TLobbyFPviii)(self->fC, lobby_download_buffer, &i, &tag);
         switch (tag) {
         case 0x4E4A544C:
             slot = self->f8;
@@ -687,7 +687,7 @@ s32 load_bin_motion__6TLobbyFPvii(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
     s32 size;
     s32 data;
     arg0->entries[arg2].data = 0;
-    size = set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
+    size = set_stream_state__6TLobbyFi(arg1, lobby_download_buffer);
     if (size == 0) {
         debug_print__6TLobbyFii(lbl_80434D10, arg1);
         return 0;
@@ -696,7 +696,7 @@ s32 load_bin_motion__6TLobbyFPvii(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2) {
         debug_print__6TLobbyFii(lbl_80434D30, size - 0x40000);
     }
     offset = 0;
-    data = alloc_load_data__6TLobbyFPviii((void *)(arg0), (s32)(lbl_805D4ACC), (s32)(&offset), (s32)(&tag));
+    data = alloc_load_data__6TLobbyFPviii((void *)(arg0), (s32)(lobby_download_buffer), (s32)(&offset), (s32)(&tag));
     if (data == 0) {
         debug_print__6TLobbyFii(lbl_80434D54);
     }
@@ -716,8 +716,8 @@ s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2) {
     if (size > 0x40000) {
         debug_print__6TLobbyFii(lbl_80434D94, size - 0x40000);
     }
-    set_stream_state__6TLobbyFi(arg1, lbl_805D4ACC);
-    bind_bml_model((Lobby_8001FBEC *)(arg0), (u32)(size), (s32)(arg2), (s32)(lbl_805D4ACC));
+    set_stream_state__6TLobbyFi(arg1, lobby_download_buffer);
+    bind_bml_model((Lobby_8001FBEC *)(arg0), (u32)(size), (s32)(arg2), (s32)(lobby_download_buffer));
     if (arg0->entries[arg2].texture != NULL) {
         load_texture_sub__6TLobbyFPvPvi((Lobby_8001F018 *)(arg0), (void *)(arg1), (s32)(arg2));
     }
@@ -822,15 +822,15 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
         if (sectors > 0x4000) {
             debug_printf_nop(lbl_80434B70, sectors);
         }
-        hdr = (Hdr_80020004 *)lbl_805D4AD8;
+        hdr = (Hdr_80020004 *)bml_load_buffer;
         first = hdr->recs;
         read_data__8TGStreamFPvii(&st, hdr, sectors << 11);
         switch (hdr->compressed) {
         case 0x50:
-            lbl_805D4AC8 = 1;
+            bml_load_state = 1;
             break;
         default:
-            lbl_805D4AC8 = 0;
+            bml_load_state = 0;
             break;
         }
         blk = 0x800;
@@ -844,7 +844,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
             if (size > 0x40000) {
                 debug_print__6TLobbyFii(lbl_80434DD4, size - 0x40000);
             }
-            switch (lbl_805D4AC8) {
+            switch (bml_load_state) {
             case 1:
                 buf = alloc__22TQuestVmDownLoadServerFPv(size + 0x800);
                 if (buf != 0) {
@@ -896,7 +896,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
             if (sz > 0x40000) {
                 debug_print__6TLobbyFii(lbl_80434DD4, sz - 0x40000);
             }
-            switch (lbl_805D4AC8) {
+            switch (bml_load_state) {
             case 1: {
                 s32 mb = alloc__22TQuestVmDownLoadServerFPv(sz + 0x800);
                 read_data__8TGStreamFPvii(&st, (void *)mb, sz);

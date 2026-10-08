@@ -178,7 +178,7 @@ void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *spawn_particle_effect(void *, int);
 void *create_particle_emitter(void *, int);
 void **alloc_buffer__11TOBoss4RockFPv(int);
-extern Profile_80237494 lbl_8044D9F8[];
+extern Profile_80237494 rabarta_band_emitter_table[];
 extern Emitter_80237494 lbl_8044DA28;
 extern void *lbl_805D63AC;
 extern void *lbl_805D63B0;

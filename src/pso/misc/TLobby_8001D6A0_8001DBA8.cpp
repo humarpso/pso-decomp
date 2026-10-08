@@ -36,13 +36,13 @@ void TLobby__sub_8001DBD8(s32 _w0) {
 void forward_8001DBD8__6TLobbyFPv(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
 void TLobby__sub_8001DC04(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
 
-    extern int TLobby__data_805D4ABC;
+    extern int TLobby__lobby_instance;
 
 typedef char RecoveredGlobal_8001DC24_lbl_80515BC8_size[sizeof(RecoveredGlobal_8001DC24_lbl_80515BC8) == 0x100 ? 1 : -1];
 M2C_UNK *get_shared_text_buffer(void) {
     return &lbl_80515BC8.value;
 }
 
-void broadcast__6TLobbyFPv(void* a0) { broadcast_to_players__6TLobbyFii((void*)(TLobby__data_805D4ABC), a0); }
+void broadcast__6TLobbyFPv(void* a0) { broadcast_to_players__6TLobbyFii((void*)(TLobby__lobby_instance), a0); }
 
 }

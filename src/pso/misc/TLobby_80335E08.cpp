@@ -68,7 +68,7 @@ extern M2C_UNK lbl_804EE470[];
 void *ct_with_parent__6TLobbyFPvPv(void *arg0, void *arg1);
 void TLobby__sub_80335FE0(void);
 void TLobby__sub_80335FE4(void);
-    extern unsigned char lbl_804EE9A4[];
+    extern unsigned char lobby_record_table[];
 void* get_record__6TLobbyFi(int a0);
 int TAdTrialAgreementGC__sub_8033596C(void*);
 int TLobby__sub_80336030(void* p);
@@ -90,9 +90,9 @@ extern const f32 lbl_805DF8E0;
 extern const f32 lbl_805DF8E4;
 void draw_title_screen__6TLobbyFv(void);
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(M2C_UNK *);
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 void bind_title_texture_list(void);
-extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804EE584;
+extern RecoveredGlobal_8000F7FC_lbl_80515F48 title_texture_list;
 void *get_title_texture_list(void);
 }
 
@@ -157,15 +157,15 @@ void TLobby__sub_80335FE0(void) {  }
 void TLobby__sub_80335FE4(void) {  }
 
 void *get_title_texture_list(void) {
-    return ((char *)&lbl_804EE584);
+    return ((char *)&title_texture_list);
 }
 
-void* get_record__6TLobbyFi(int a0) {  return (char*)lbl_804EE9A4 + a0 * 32; }
+void* get_record__6TLobbyFi(int a0) {  return (char*)lobby_record_table + a0 * 32; }
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void bind_title_texture_list(void) {
-    notify_fish_if_valid__10TObjPlayerFUi((M2C_UNK *)(&lbl_804EE584.value));
+    notify_fish_if_valid__10TObjPlayerFUi((M2C_UNK *)(&title_texture_list.value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

@@ -28,18 +28,18 @@ struct RecoveredGlobal_8013D91C_main_task {
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-extern u8 *lbl_805D5640;
-extern s32 lbl_805D5644;
-extern s32 TLockOnCursor__data_805D5648;
+extern u8 *lock_on_cursor_bml_resource;
+extern s32 lock_on_cursor_model;
+extern s32 TLockOnCursor__target_cursor_model;
 void free_cursor_resources__13TLockOnCursorFv(void);
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8013DC38_lbl_804A7140 target_cursor_resource_descriptor;
-extern u8 *lbl_805D5640;
-extern s32 lbl_805D5644;
-extern s32 TLockOnCursor__data_805D5648;
-extern s32 lbl_805D564C;
+extern u8 *lock_on_cursor_bml_resource;
+extern s32 lock_on_cursor_model;
+extern s32 TLockOnCursor__target_cursor_model;
+extern s32 main_cursor_model;
 void load_target_cursor_models(void);
 M2C_UNK __dt__7TObjectFv(void *, int);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
@@ -204,28 +204,28 @@ void reset_and_spawn_cursors__13TLockOnCursorFi(s32 arg0) {
 }
 
 void free_cursor_resources__13TLockOnCursorFv(void) {
-    if ((void *) lbl_805D5640 != NULL) {
-        TLobby__sub_8001FE7C(lbl_805D5640, 1);
-        lbl_805D5640 = NULL;
+    if ((void *) lock_on_cursor_bml_resource != NULL) {
+        TLobby__sub_8001FE7C(lock_on_cursor_bml_resource, 1);
+        lock_on_cursor_bml_resource = NULL;
     }
-    lbl_805D5644 = 0;
-    TLockOnCursor__data_805D5648 = 0;
+    lock_on_cursor_model = 0;
+    TLockOnCursor__target_cursor_model = 0;
 }
 
 void load_target_cursor_models(void) {
     s32 temp_r3;
     s32 var_r0;
-    if ((void *) lbl_805D5640 == NULL) {
+    if ((void *) lock_on_cursor_bml_resource == NULL) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &target_cursor_resource_descriptor.value, 0, 0, 0));
         }
-        lbl_805D5640 = (unsigned char *) ((void *) var_r0);
+        lock_on_cursor_bml_resource = (unsigned char *) ((void *) var_r0);
         if ((u32) var_r0 != 0U) {
-            lbl_805D5644 = get_bml_model((void *) var_r0, 0);
-            TLockOnCursor__data_805D5648 = get_bml_model(lbl_805D5640, 0);
-            lbl_805D564C = get_bml_model(lbl_805D5640, 2);
+            lock_on_cursor_model = get_bml_model((void *) var_r0, 0);
+            TLockOnCursor__target_cursor_model = get_bml_model(lock_on_cursor_bml_resource, 0);
+            main_cursor_model = get_bml_model(lock_on_cursor_bml_resource, 2);
         }
     }
 }

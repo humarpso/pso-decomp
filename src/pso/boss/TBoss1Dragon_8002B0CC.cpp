@@ -11,9 +11,9 @@ extern f32 TBoss1Dragon__data_805D7FF8;
 extern f32 lbl_805D8014;
 extern f32 lbl_805D9E80;
 extern f32 lbl_805D4AF0;
-extern f32 lbl_805D4AF4;
+extern f32 TBoss1Dragon__gravity_accel;
 extern f32 lbl_805D4AF8;
-extern f32 lbl_805D4AFC;
+extern f32 boss1_dragon_gravity;
 extern f32 lbl_805D4B40;
 void init_gravity_globals__12TBoss1DragonFv(void);
 s32 TBoss1Dragon__sub_8002B108(O_8002B108 *self, s32 i);
@@ -25,9 +25,9 @@ extern "C" {
 
 void init_gravity_globals__12TBoss1DragonFv(void) {
     lbl_805D4AF0 = TBoss1Dragon__data_805D7F9C * lbl_805D9E80;
-    lbl_805D4AF4 = TBoss1Dragon__data_805D7F24 * lbl_805D9E80;
+    TBoss1Dragon__gravity_accel = TBoss1Dragon__data_805D7F24 * lbl_805D9E80;
     lbl_805D4AF8 = TBoss1Dragon__data_805D7FF8 * lbl_805D9E80;
-    lbl_805D4AFC = lbl_805D8014 * lbl_805D9E80;
+    boss1_dragon_gravity = lbl_805D8014 * lbl_805D9E80;
     lbl_805D4B40 = TBoss1Dragon__data_805D7FF8 * lbl_805D9E80;
 }
 s32 TBoss1Dragon__sub_8002B108(O_8002B108 *self, s32 i) {

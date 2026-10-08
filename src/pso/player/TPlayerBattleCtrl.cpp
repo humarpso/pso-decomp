@@ -64,7 +64,7 @@ void update_player_battle_ctrl_state(void *arg0) {
 extern "C" {
 void TWindow__close(void *);
 extern s32 lbl_805D55C0;
-extern s32 TLobby__data_805D5D98;
+extern s32 TLobby__battle_mode_data_ptr;
 }
 
 void TPlayerBattleCtrl::run_task() {
@@ -89,5 +89,5 @@ TPlayerBattleCtrl::~TPlayerBattleCtrl() {
     if (window_4c != NULL) TWindow__close(window_4c);
     if (window_50 != NULL) TWindow__close(window_50);
     if (window_54 != NULL) TWindow__close(window_54);
-    TLobby__data_805D5D98 = 0;
+    TLobby__battle_mode_data_ptr = 0;
 }

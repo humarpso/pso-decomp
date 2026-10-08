@@ -321,56 +321,56 @@ void * create__15TObjEneDimedianFPv(void *arg0) {
     return o2;
 }
 
-extern u32 lbl_805D5070;
+extern u32 dimedian_boss_object_buf;
 extern u32 lbl_805D5074;
-extern u32 lbl_805D5078;
-extern u32 lbl_805D507C;
-extern u32 lbl_805D5080;
-extern u32 lbl_805D5084;
+extern u32 TObjEneDimedian__boss_objects;
+extern u32 dimedian_buffer_ptr;
+extern u32 dimedian_resource_ptr;
+extern u32 dimedian_type3_object;
 extern u32 lbl_805D5088;
 
 void free_boss_objects__15TObjEneDimedianFv(void) {
-    if ((u32) lbl_805D5070 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D5070);
-        lbl_805D5070 = 0U;
+    if ((u32) dimedian_boss_object_buf != 0U) {
+        free__11TOBoss4RockFUi((void*)dimedian_boss_object_buf);
+        dimedian_boss_object_buf = 0U;
     }
     if ((u32) lbl_805D5074 != 0U) {
         free__11TOBoss4RockFUi((void*)lbl_805D5074);
         lbl_805D5074 = 0U;
     }
-    if ((u32) lbl_805D5078 != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D5078);
-        lbl_805D5078 = 0U;
+    if ((u32) TObjEneDimedian__boss_objects != 0U) {
+        free__11TOBoss4RockFUi((void*)TObjEneDimedian__boss_objects);
+        TObjEneDimedian__boss_objects = 0U;
     }
-    if ((u32) lbl_805D507C != 0U) {
-        free__11TOBoss4RockFUi((void*)lbl_805D507C);
-        lbl_805D507C = 0U;
+    if ((u32) dimedian_buffer_ptr != 0U) {
+        free__11TOBoss4RockFUi((void*)dimedian_buffer_ptr);
+        dimedian_buffer_ptr = 0U;
     }
     if ((u32) lbl_805D5088 != 0U) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D5088, 1);
         lbl_805D5088 = 0U;
     }
-    if ((u32) lbl_805D5084 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D5084, 1);
-        lbl_805D5084 = 0U;
+    if ((u32) dimedian_type3_object != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)dimedian_type3_object, 1);
+        dimedian_type3_object = 0U;
     }
-    if ((u32) lbl_805D5080 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5080, 1);
-        lbl_805D5080 = 0U;
+    if ((u32) dimedian_resource_ptr != 0U) {
+        TLobby__sub_8001FE7C((void*)dimedian_resource_ptr, 1);
+        dimedian_resource_ptr = 0U;
     }
 }
 
-#define lbl_805D5070 (*(s32 **)&lbl_805D5070)
+#define dimedian_boss_object_buf (*(s32 **)&dimedian_boss_object_buf)
 #define lbl_805D5074 (*(s32 **)&lbl_805D5074)
-#define lbl_805D5078 (*(s32 **)&lbl_805D5078)
-#define lbl_805D507C (*(s32 **)&lbl_805D507C)
-#define lbl_805D5080 (*(u8 **)&lbl_805D5080)
-#define lbl_805D5084 (*(void **)&lbl_805D5084)
+#define TObjEneDimedian__boss_objects (*(s32 **)&TObjEneDimedian__boss_objects)
+#define dimedian_buffer_ptr (*(s32 **)&dimedian_buffer_ptr)
+#define dimedian_resource_ptr (*(u8 **)&dimedian_resource_ptr)
+#define dimedian_type3_object (*(void **)&dimedian_type3_object)
 #define lbl_805D5088 (*(void **)&lbl_805D5088)
 
 #undef M2C_FIELD
 #define M2C_FIELD(expr, type, offset) (*(type *)((s8 *)(expr) + (offset)))
-#define RES_800A8118 ((Res_800A8118 *)lbl_805D5080)
+#define RES_800A8118 ((Res_800A8118 *)dimedian_resource_ptr)
 #define lbl_80490D54 ((u8 *)lbl_80490D54)
 #define lbl_80490D64 ((Act_800A8118 *)lbl_80490D64)
 #define lbl_80490E68 ((Part_800A8118 *)lbl_80490E68)
@@ -381,15 +381,15 @@ void load_dimedian_resources__6TLobbyFv(void) {
     void *p;
     s32 i;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5080 = load_enemy_bml_resource_named(lbl_80490D54, lbl_8043AAA4);
+        dimedian_resource_ptr = load_enemy_bml_resource_named(lbl_80490D54, lbl_8043AAA4);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 1, lbl_80490D54, 0, 0, 0);
         }
-        lbl_805D5080 = (u8 *)p;
+        dimedian_resource_ptr = (u8 *)p;
     }
-    r = M2C_FIELD(lbl_805D5080, u8 *, 0x42C);
+    r = M2C_FIELD(dimedian_resource_ptr, u8 *, 0x42C);
     lbl_80500988[0] = CHAIN_800A8118(M2C_FIELD(r, u8 *, 0x8));
     lbl_80500988[1] = CHAIN_800A8118(M2C_FIELD(r, u8 *, 0x18));
     lbl_80500988[2] = CHAIN_800A8118(M2C_FIELD(r, u8 *, 0x28));
@@ -400,37 +400,37 @@ void load_dimedian_resources__6TLobbyFv(void) {
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
     }
-    lbl_805D5084 = p;
+    dimedian_type3_object = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);
     }
     lbl_805D5088 = p;
-    draw_trail_with_colors(lbl_805D5084, RES_800A8118->bodies->model,
+    draw_trail_with_colors(dimedian_type3_object, RES_800A8118->bodies->model,
         RES_800A8118->motions[lbl_80490D64[3].idx].b, 5, 8);
     draw_trail_with_colors(lbl_805D5088, RES_800A8118->bodies->model,
         RES_800A8118->motions[lbl_80490D64[4].idx].b, 0xA, 0xD);
-    lbl_805D5070 = alloc_buffer__11TOBoss4RockFPv(0xC);
+    dimedian_boss_object_buf = alloc_buffer__11TOBoss4RockFPv(0xC);
     lbl_805D5074 = alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D5078 = alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D507C = alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D5070[0] = register_boss__6TLobbyFPv(0x53);
-    lbl_805D5070[1] = register_boss__6TLobbyFPv(0x54);
-    lbl_805D5070[2] = register_boss__6TLobbyFPv(0x55);
+    TObjEneDimedian__boss_objects = alloc_buffer__11TOBoss4RockFPv(0xC);
+    dimedian_buffer_ptr = alloc_buffer__11TOBoss4RockFPv(0xC);
+    dimedian_boss_object_buf[0] = register_boss__6TLobbyFPv(0x53);
+    dimedian_boss_object_buf[1] = register_boss__6TLobbyFPv(0x54);
+    dimedian_boss_object_buf[2] = register_boss__6TLobbyFPv(0x55);
     lbl_805D5074[0] = dispatch_shared_handler_b__6TLobbyFPv(0x5A);
     lbl_805D5074[1] = dispatch_shared_handler_b__6TLobbyFPv(0x5B);
     lbl_805D5074[2] = dispatch_shared_handler_b__6TLobbyFPv(0x5C);
-    lbl_805D5078[0] = register_object__6TLobbyFPv(0x52);
-    lbl_805D5078[1] = register_object__6TLobbyFPv(0x53);
-    lbl_805D5078[2] = register_object__6TLobbyFPv(0x54);
-    lbl_805D507C[0] = dispatch_shared_handler_a__6TLobbyFPv(0x52);
-    lbl_805D507C[1] = dispatch_shared_handler_a__6TLobbyFPv(0x53);
-    lbl_805D507C[2] = dispatch_shared_handler_a__6TLobbyFPv(0x54);
+    TObjEneDimedian__boss_objects[0] = register_object__6TLobbyFPv(0x52);
+    TObjEneDimedian__boss_objects[1] = register_object__6TLobbyFPv(0x53);
+    TObjEneDimedian__boss_objects[2] = register_object__6TLobbyFPv(0x54);
+    dimedian_buffer_ptr[0] = dispatch_shared_handler_a__6TLobbyFPv(0x52);
+    dimedian_buffer_ptr[1] = dispatch_shared_handler_a__6TLobbyFPv(0x53);
+    dimedian_buffer_ptr[2] = dispatch_shared_handler_a__6TLobbyFPv(0x54);
     {
         s16 ids[3] = { 0x1B, 0x1C, 0x1D };
         Anim_800A8118 anim = { (s32)RES_800A8118->motions, lbl_80490D64, 2, 0xC0000 };
         for (i = 0; i < 3; i++) {
-            u8 *b = M2C_FIELD(lbl_805D5080, u8 *, 0x42C) + i * 0x10;
+            u8 *b = M2C_FIELD(dimedian_resource_ptr, u8 *, 0x42C) + i * 0x10;
             spawn_npc_enemy__6TLobbyFsiiiff(ids[i], M2C_FIELD(b, s32, 8), M2C_FIELD(b, s32, 0xC), &anim,
                 lbl_80490E68[i].radius, lbl_805D9AC4);
         }
@@ -487,13 +487,13 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     fn_800A884C(arg0, M2C_FIELD(arg0, s32 *, 0x368));
     M2C_FIELD(arg0, u8 **, 0xD8) = lbl_80490D64;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(lbl_805D5080, s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(dimedian_resource_ptr, s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     init_collision_body_parts(arg0, lbl_80490E68 + M2C_FIELD(arg0, s32 *, 0x334) * 0x2C, 1);
-    bind_enemy_combat_stats(arg0, lbl_805D5070[M2C_FIELD(arg0, s32 *, 0x334)],
-        lbl_805D5074[M2C_FIELD(arg0, s32 *, 0x334)], lbl_805D5078[M2C_FIELD(arg0, s32 *, 0x334)]);
+    bind_enemy_combat_stats(arg0, dimedian_boss_object_buf[M2C_FIELD(arg0, s32 *, 0x334)],
+        lbl_805D5074[M2C_FIELD(arg0, s32 *, 0x334)], TObjEneDimedian__boss_objects[M2C_FIELD(arg0, s32 *, 0x334)]);
     M2C_FIELD(arg0, u8 **, 0x350) = lbl_80490E14 + M2C_FIELD(arg0, s32 *, 0x334) * 0x1C;
     M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);
@@ -540,10 +540,10 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     M2C_FIELD(arg0, s32 *, 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, color);
     M2C_FIELD(arg0, s32 *, 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, color);
     M2C_FIELD(arg0, s32 *, 0x390) = 1;
-    M2C_FIELD(arg0, f32 *, 0x398) = ((f32 **)lbl_805D507C)[M2C_FIELD(arg0, s32 *, 0x334)][0];
-    M2C_FIELD(arg0, f32 *, 0x3A0) = ((f32 **)lbl_805D507C)[M2C_FIELD(arg0, s32 *, 0x334)][1];
-    M2C_FIELD(arg0, f32 *, 0x39C) = ((f32 **)lbl_805D507C)[M2C_FIELD(arg0, s32 *, 0x334)][2];
-    M2C_FIELD(arg0, f32 *, 0x3A4) = ((f32 **)lbl_805D507C)[M2C_FIELD(arg0, s32 *, 0x334)][3];
+    M2C_FIELD(arg0, f32 *, 0x398) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][0];
+    M2C_FIELD(arg0, f32 *, 0x3A0) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][1];
+    M2C_FIELD(arg0, f32 *, 0x39C) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][2];
+    M2C_FIELD(arg0, f32 *, 0x3A4) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][3];
     for (i = 0; i < 4; i++) {
         activate_and_dispatch__10TObjPlayerFPv(&((Self_800A8530 *)arg0)->subs[i]);
     }

@@ -12,13 +12,13 @@ struct Entry804C69D8 {
     u32 field0;
     M2C_UNK (*handler)(M2C_UNK);
 };
-extern struct Entry804C69D8 lbl_804C69D8[];
+extern struct Entry804C69D8 qst_opcode_table[];
 
 void qst_getargs_801F29CC(s32 arg0) {
     struct Entry804C69D8 *temp_r3;
     M2C_UNK (*temp_r31)(M2C_UNK);
 
-    temp_r3 = lbl_804C69D8;
+    temp_r3 = qst_opcode_table;
     temp_r3 += arg0;
     temp_r31 = temp_r3->handler;
     temp_r31(read_be_u16(temp_r3));

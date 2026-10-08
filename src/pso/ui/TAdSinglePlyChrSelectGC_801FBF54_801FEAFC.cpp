@@ -14,7 +14,7 @@ s32 get_instance__15TAdPlayerLoadGCFv();
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
 M2C_UNK getDateStamp__FP9DateStamp(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FDC14(int);
-extern RecoveredGlobal_801FEBBC_lbl_80513904 lbl_80513904;
+extern RecoveredGlobal_801FEBBC_lbl_80513904 char_select_date_stamp;
 extern u32 lbl_805D5F5C;
 extern s32 lbl_805D5F78;
 s32 TAdSinglePlyChrSelectGC__sub_801FEBBC(void);
@@ -77,7 +77,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FEBBC(void) {
             var_r31 = TAdSinglePlyChrSelectGC__sub_801FDC14((int) (1));
             if (var_r31 == 0) {
                 lbl_805D5F78 = 0x14;
-                getDateStamp__FP9DateStamp((void *) (&lbl_80513904.value));
+                getDateStamp__FP9DateStamp((void *) (&char_select_date_stamp.value));
             }
         }
     }

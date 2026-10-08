@@ -88,7 +88,7 @@ s32 TLobby__sub_803F4AEC(void);
 extern char lbl_804FCEA4[];
 extern char lbl_804FCEB4[];
 extern char lbl_804FCEC4[];
-extern char lbl_804FCED4[];
+extern char default_player_name[];
 extern char lbl_804FCEE4[];
 extern char lbl_804FCEF4[];
 extern char lbl_804FCF04[];
@@ -426,8 +426,8 @@ void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void) {
             strcpy(lbl_805D79C0->rec[i].name, lbl_804FCEC4);
             break;
         case 3:
-            strcpy(lbl_805D79C0->ent[i].name, lbl_804FCED4);
-            strcpy(lbl_805D79C0->rec[i].name, lbl_804FCED4);
+            strcpy(lbl_805D79C0->ent[i].name, default_player_name);
+            strcpy(lbl_805D79C0->rec[i].name, default_player_name);
             break;
         case 4:
             strcpy(lbl_805D79C0->ent[i].name, lbl_804FCEE4);

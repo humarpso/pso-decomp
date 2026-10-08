@@ -108,9 +108,9 @@ struct Kb_803F132C {
 };
 
 extern "C" {
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 void parse_pad_event__16TKeyBoardControlFiUi(s32 arg0, u32 arg1);
 s32 SIDisablePolling(u32);
 extern s32 lbl_805D793C;
@@ -119,7 +119,7 @@ extern s32 lbl_805D793C;
 extern s32 lbl_805D7930;
 void disable_channel_polling__16TKeyBoardControlFi(s32 arg0);
 s32 disable_all_channels__16TKeyBoardControlFv(void);
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
 void Dolphin_SIGetTypeAsync(s32, void *);
@@ -130,19 +130,19 @@ s32 OSRegisterResetFunction(void *);
 s32 SIRefreshSamplingRate(void);
 void *memset(void *, int, u32);
 extern u8 lbl_804FCD38[];
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 extern s32 lbl_805D7930;
 void init_pad_states__16TKeyBoardControlFv(void);
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 s32 OSDisableInterrupts(void);
 void OSRestoreInterrupts(s32);
 s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void TKeyBoardControl__sub_803F0E8C(void);
 s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1);
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 extern s32 lbl_805D7930;
 void detect_device_type__16TKeyBoardControlFi(s32 chan);
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 extern s32 lbl_805D7930;
 void OSClearContext(OSContext_803F0F84 *);
 void OSSetCurrentContext(OSContext_803F0F84 *);
@@ -157,7 +157,7 @@ void SIEnablePolling(u32);
 s32 SIGetResponse(s32, void *);
 extern s32 lbl_805D793C;
 void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0);
-extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+extern RecoveredGlobal_803F1548_lbl_805A2720 keyboard_pad_state_table;
 void *memset(void *, int, u32);
 void update_pressed_keys__16TKeyBoardControlFPv(Kbd_803F1210 *p);
 void update_key_events__16TKeyBoardControlFi(s32 chan);
@@ -172,7 +172,7 @@ typedef char RecoveredGlobal_803F0CF4_lbl_805A2720_size[sizeof(RecoveredGlobal_8
 void init_pad_states__16TKeyBoardControlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
-        Pad_803F0C50 *p = &((Pad_803F0C50 *)&lbl_805A2720)[i];
+        Pad_803F0C50 *p = &((Pad_803F0C50 *)&keyboard_pad_state_table)[i];
         p->x2c = 0;
         p->x28 = 0;
         p->a = 0;
@@ -194,7 +194,7 @@ void parse_pad_event__16TKeyBoardControlFiUi(s32 arg0, u32 arg1) {
     u8 *temp_r4;
     temp_r6 = arg1 >> 0x10U;
     temp_r0 = (arg1 >> 0x10U) & 0xFFF0;
-    temp_r4 = (u8 *)&(*(RecoveredGlobal_803F0CF4_lbl_805A2720 *)&lbl_805A2720).value + (arg0 * 0x68);
+    temp_r4 = (u8 *)&(*(RecoveredGlobal_803F0CF4_lbl_805A2720 *)&keyboard_pad_state_table).value + (arg0 * 0x68);
     switch (temp_r0) {
     case 0x820:
         ((Fields_temp_r4*)temp_r4)->field_0 = 1;
@@ -216,7 +216,7 @@ void parse_pad_event__16TKeyBoardControlFiUi(s32 arg0, u32 arg1) {
 }
 
 void detect_device_type__16TKeyBoardControlFi(s32 chan) {
-    Pad_803F0D74 *p = &((Pad_803F0D74 *)&lbl_805A2720)[chan];
+    Pad_803F0D74 *p = &((Pad_803F0D74 *)&keyboard_pad_state_table)[chan];
     u32 type;
     if (p->x1c != 0) {
         return;
@@ -263,7 +263,7 @@ void TKeyBoardControl__sub_803F0E8C(void) {
 typedef char RecoveredGlobal_803F1548_lbl_805A2720_size[sizeof(RecoveredGlobal_803F1548_lbl_805A2720) == 0x1A0 ? 1 : -1];
 
 s32 TKeyBoardControl__sub_803F0E90(s32 arg0, void *arg1) {
-    Pad_803F0E90 *p = &((Pad_803F0E90 *)&lbl_805A2720)[arg0];
+    Pad_803F0E90 *p = &((Pad_803F0E90 *)&keyboard_pad_state_table)[arg0];
     void *cb;
     s32 ret;
     s32 lvl;
@@ -293,7 +293,7 @@ s32 disable_all_channels__16TKeyBoardControlFv(void) {
 }
 
 void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OSContext_803F0F84 *ctx) {
-    Pad_803F0F84 *p = &((Pad_803F0F84 *)&lbl_805A2720)[chan];
+    Pad_803F0F84 *p = &((Pad_803F0F84 *)&keyboard_pad_state_table)[chan];
     u8 unused[8];
     OSContext_803F0F84 tmp;
     void (*cb)(s32);
@@ -325,7 +325,7 @@ void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OS
 }
 
 void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
-    Pad_803F107C *p = &((Pad_803F107C *)&lbl_805A2720)[chan];
+    Pad_803F107C *p = &((Pad_803F107C *)&keyboard_pad_state_table)[chan];
     u8 unused[8];
     OSContext_803F0F84 tmp;
     OSContext_803F0F84 *old;
@@ -362,7 +362,7 @@ void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
 }
 s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 en;
-    K_803F119C *k = &((K_803F119C *)&lbl_805A2720)[arg0];
+    K_803F119C *k = &((K_803F119C *)&keyboard_pad_state_table)[arg0];
     en = OSDisableInterrupts();
     k->f30 = arg3;
     k->f10 = arg1;
@@ -413,7 +413,7 @@ void update_key_events__16TKeyBoardControlFi(s32 chan) {
     s32 j2;
     u8 c2;
     s32 i2;
-    k = &((Kb_803F132C *)&lbl_805A2720)[chan];
+    k = &((Kb_803F132C *)&keyboard_pad_state_table)[chan];
     if (k->err == -1) {
         memset(k->prev, 0, 4);
         memset(k->cur, 0, 4);
@@ -465,7 +465,7 @@ void update_key_events__16TKeyBoardControlFi(s32 chan) {
 #pragma pop
 
 u8 TKeyBoardControl__sub_803F1548(s32 arg0) {
-    return M2C_FIELD(((u8 *)&lbl_805A2720.value + (arg0 * 0x68)), u8 *, 1);
+    return M2C_FIELD(((u8 *)&keyboard_pad_state_table.value + (arg0 * 0x68)), u8 *, 1);
 }
 
 void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0) {

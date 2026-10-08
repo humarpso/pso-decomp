@@ -119,7 +119,7 @@ void save_quest_state_to_record__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 M2C_UNK *TObjItemOKWindow__sub_801F3268(void);
 unsigned char read_packet_byte__6TLobbyFv(void);
-extern struct Op_801F2E64 lbl_804C69D8[];
+extern struct Op_801F2E64 qst_opcode_table[];
 extern s32 TLobby__data_805D5E98;
 s32 dispatch_quest_opcode(void);
 int bswap_16__FPUs(void*);
@@ -266,7 +266,7 @@ s32 dispatch_quest_opcode(void) {
             op = read_packet_byte__6TLobbyFv() + 0x200;
             break;
         }
-        lbl_804C69D8[op].fn(op);
+        qst_opcode_table[op].fn(op);
     }
     return TLobby__data_805D5E98;
 }

@@ -16,7 +16,7 @@ void *TMapCsnCtrl__ct(void *, void *);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
-extern void *lbl_805D5650;
+extern void *map_csn_ctrl_instance;
 
 void create_map_csn_ctrl__6TLobbyFv(void) {
     void *o;
@@ -24,7 +24,7 @@ void create_map_csn_ctrl__6TLobbyFv(void) {
     if (o != NULL) {
         o = TMapCsnCtrl__ct(o, tl_05);
     }
-    lbl_805D5650 = o;
+    map_csn_ctrl_instance = o;
 }
 
 void* TLobby__sub_80141030(void* p) { return (char*)p + 0xac; }

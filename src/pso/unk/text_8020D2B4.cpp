@@ -70,7 +70,7 @@ void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 s32 get_current_floor();
 s32 assign_display_objects__6TLobbyFPvi(int, int);
 s32 assign_objects_to_slots__6TLobbyFPvi(int, int);
-extern RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 TLobby__data_80513AD0;
+extern RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 TLobby__floor_enemy_group_table;
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D610C;
 extern s32 TLobby__data_805D6114;
@@ -233,7 +233,7 @@ void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0) {
     u8 *temp_r30;
     temp_r3 = get_current_floor();
     TLobby__data_805D60FC = temp_r3;
-    temp_r30 = (u8 *)&TLobby__data_80513AD0.value + (temp_r3 * 0x18);
+    temp_r30 = (u8 *)&TLobby__floor_enemy_group_table.value + (temp_r3 * 0x18);
     if (!(M2C_FIELD(temp_r30, s32 *, 8) & 2)) {
         apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 0))));
         M2C_FIELD(temp_r30, s32 *, 8) = (s32) (M2C_FIELD(temp_r30, s32 *, 8) | 2);

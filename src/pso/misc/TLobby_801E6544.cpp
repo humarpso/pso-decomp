@@ -2157,7 +2157,7 @@ extern s32 lbl_80449B10[];
 extern Tbl_801E9AF8 lbl_80449B18[];
 extern M2C_UNK lbl_80449B2C[];
 extern const f64 lbl_80449CC0;
-extern s32 lbl_804C69D0[];
+extern s32 qst_bgm_filename_table[];
 extern RecoveredGlobal_801ECF84_lbl_8050D3E0 lbl_8050D3E0;
 extern s32 lbl_8050DB70[];
 extern E_801E93B4 lbl_8050E208[];
@@ -8224,7 +8224,7 @@ void qst_op_window_msg(void) {
 }
 
 void qst_op_bgm(void) {
-    play_cue_stream_file(lbl_804C69D0[(*(RecoveredGlobal_801F027C_TLobby__data_80512220 *)&TLobby__data_80512220).value]);
+    play_cue_stream_file(qst_bgm_filename_table[(*(RecoveredGlobal_801F027C_TLobby__data_80512220 *)&TLobby__data_80512220).value]);
 }
 
 void qst_op_se(void) {

@@ -125,7 +125,7 @@ s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32
 extern S_803DA7E0 lbl_8058D470;
 extern u8 lbl_8058D860[];
 extern char lbl_805D46D8[4];
-extern Slot_803DD784 *lbl_805D7768;
+extern Slot_803DD784 *record_array_ptr;
 s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx);
 }
 
@@ -135,10 +135,10 @@ void TLobby__sub_803DDD20(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
 void set_ginja_draw_flags(s32 arg0);
 
-extern s32 lbl_805D7788;
+extern s32 ginja_draw_flags;
 
 void set_ginja_draw_flags(s32 arg0) {
-    lbl_805D7788 = arg0;
+    ginja_draw_flags = arg0;
 }
 
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1) {
@@ -213,7 +213,7 @@ s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx) {
         return r;
     }
     n -= base;
-    Dolphin_DVDReadPrio(pfi, lbl_805D7768[handle].tex->buf, size - n, n, 2);
+    Dolphin_DVDReadPrio(pfi, record_array_ptr[handle].tex->buf, size - n, n, 2);
     DVDClose(pfi);
     return 1;
 }

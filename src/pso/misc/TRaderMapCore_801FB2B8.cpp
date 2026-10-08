@@ -60,7 +60,7 @@ s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK fn_803D64F8(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
-extern GRec_801FB490 TRaderMapCore__data_80513708[];
+extern GRec_801FB490 TRaderMapCore__map_view_state[];
 extern f32 lbl_805D35F0;
 extern f32 lbl_805D35FC;
 extern s32 lbl_805D3604;
@@ -160,7 +160,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     arg0->f17c = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 0);
     arg0->f180 = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 1);
     for (i = 0; i < 3; i++) {
-        g = &TRaderMapCore__data_80513708[i];
+        g = &TRaderMapCore__map_view_state[i];
         fn_803D64F8(g);
         g->f4 = lbl_805D35F0;
         g->f10 = TRaderMapCore__data_805DC568;

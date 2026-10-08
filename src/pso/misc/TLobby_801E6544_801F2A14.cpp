@@ -18,20 +18,20 @@ typedef struct Ent_801F2AB4 {
 extern "C" {
 s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 M2C_UNK stream_read_be32(void);
-extern Ent_801F2A14 lbl_804C69D8[];
+extern Ent_801F2A14 qst_opcode_table[];
 void qst_getargs_801F2A5C(s32 arg0);
 void qst_getargs_801F2AB4(s32 arg0);
 }
 
 extern "C" {
 
-extern Ent_801F2A14 lbl_804C69D8[];
+extern Ent_801F2A14 qst_opcode_table[];
 
 void qst_getargs_801F2A14(s32 arg0) {
     Ent_801F2A14 *temp_r3;
     M2C_UNK (*temp_r31)(M2C_UNK);
 
-    temp_r3 = lbl_804C69D8;
+    temp_r3 = qst_opcode_table;
     temp_r3 += arg0;
     temp_r31 = temp_r3->fn;
     temp_r31(stream_read_be32());
@@ -52,7 +52,7 @@ void qst_getargs_801F2A5C(s32 arg0) {
     M2C_UNK (*temp_r31)(s32, s32);
     s32 temp_r30;
     struct Ent_A *e;
-    e = (struct Ent_A *) (u8 *) ((struct Ent_A *)&lbl_804C69D8);
+    e = (struct Ent_A *) (u8 *) ((struct Ent_A *)&qst_opcode_table);
     e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
     temp_r31 = e->fn;
     temp_r30 = read_packet_byte__6TLobbyFv(e);
@@ -61,7 +61,7 @@ void qst_getargs_801F2A5C(s32 arg0) {
 void qst_getargs_801F2AB4(s32 arg0) {
     void (*fn)(s32, s32);
     s32 a;
-    Ent_801F2AB4 *e = (Ent_801F2AB4 *)&lbl_804C69D8;
+    Ent_801F2AB4 *e = (Ent_801F2AB4 *)&qst_opcode_table;
     e += arg0;
     fn = e->fn;
     a = ((s32 (*)(void))read_packet_byte__6TLobbyFv)();

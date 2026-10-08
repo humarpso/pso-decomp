@@ -46,8 +46,8 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
 
-    extern int lbl_805D6938;
-int get_state__11TBoss7JointFv(void) {  return lbl_805D6938; }
+    extern int boss7_joint_state;
+int get_state__11TBoss7JointFv(void) {  return boss7_joint_state; }
 
 void TBoss7Joint__sub_802EE6E8(void) {  }
 void TBoss7Joint__sub_802EE6EC(void) {  }

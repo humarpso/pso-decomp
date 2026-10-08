@@ -23,7 +23,7 @@ s32 get_current_floor(void);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *, void *, void *, s32, u32);
 Archive_8020E08C TLobby__data_80513A40[18];
-Floor_8020E08C TLobby__data_80513AD0[18];
+Floor_8020E08C TLobby__floor_enemy_group_table[18];
 u32 TLobby__data_80513C80[18];
 u32 TLobby__data_80513CC8[18];
 u32 TLobby__data_80513D10[9];
@@ -58,7 +58,7 @@ void arrive_floor_population(void) {
     TLobby__data_805D6110 = 0;
     TLobby__data_805D6118 = 0;
     index = get_current_floor();
-    floor = &TLobby__data_80513AD0[index];
+    floor = &TLobby__floor_enemy_group_table[index];
     bytes = floor->objects * 0x44;
     if (bytes > 0) {
         bytes = (bytes + 0x1F) & ~0x1F;
@@ -135,7 +135,7 @@ void init_item_drop_tables(void) {
         p = __ct__5THeapFUli(p, 0xA000, 0x20);
     }
     TLobby__data_805D6108 = p;
-    memset(TLobby__data_80513AD0, 0, 0x1B0);
+    memset(TLobby__floor_enemy_group_table, 0, 0x1B0);
     memset(TLobby__data_80513C80, 0, 0x48);
     memset(TLobby__data_80513CC8, 0, 0x48);
     memset(TLobby__data_80513D10, 0, 0x24);

@@ -78,7 +78,7 @@ M2C_UNK sync_char_select_state__10TObjPlayerFv();
 M2C_UNK memcpy(s32, s32, u32);
 void *memset(void *, int, unsigned long);
 extern u8 lbl_804C88C0[];
-extern s32 lbl_80513910[];
+extern s32 chr_select_serial_seeds[];
 extern s32 lbl_805D55C0;
 extern u32 lbl_805D5F58;
 extern u32 lbl_805D5F60;
@@ -133,7 +133,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv(void) {
     return 0xFFFF0000;
 }
 
-extern s32 lbl_80513910[];
+extern s32 chr_select_serial_seeds[];
 extern s32 lbl_805D5F68;
 extern s32 lbl_805D5F98;
 
@@ -244,8 +244,8 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                 render_tick__Fv();
             }
             t = get_field_118__22TAdEnterSerialAccessGCFv();
-            lbl_80513910[1] = t;
-            lbl_80513910[0] = t;
+            chr_select_serial_seeds[1] = t;
+            chr_select_serial_seeds[0] = t;
             obj = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
             if (obj != NULL) {
                 obj = init_char_slots__23TAdSinglePlyChrSelectGCFi();
@@ -315,9 +315,9 @@ s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
                 break;
             }
             t = get_field_118__22TAdEnterSerialAccessGCFv();
-            lbl_80513910[1] = t;
-            lbl_80513910[0] = t;
-            encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *)lbl_805D5F58, lbl_80513910);
+            chr_select_serial_seeds[1] = t;
+            chr_select_serial_seeds[0] = t;
+            encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv((void *)lbl_805D5F58, chr_select_serial_seeds);
             save_character_file__23TAdSinglePlyChrSelectGCFi(1);
             while (TAdSinglePlyChrSelectGC__sub_801FDA4C() != 0) {
                 run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
@@ -359,8 +359,8 @@ s32 load_and_verify_data(s32 arg0) {
 
     set_save_slot__23TAdSinglePlyChrSelectGCFi(0);
     temp_r3 = get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
-    lbl_80513910[1] = temp_r3;
-    lbl_80513910[0] = temp_r3;
+    chr_select_serial_seeds[1] = temp_r3;
+    chr_select_serial_seeds[0] = temp_r3;
     memcpy(lbl_805D5F68, lbl_805D5F98 + 0x2048, 0xE28C);
     TAdSinglePlyChrSelectGC__sub_801FFF98(lbl_805D5F68);
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0xE28C);

@@ -622,7 +622,7 @@ M2C_UNK TWindow__close(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 extern void* lbl_804EF8C0[];
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
-extern RecoveredGlobal_8033B9C4_lbl_80513910 lbl_80513910;
+extern RecoveredGlobal_8033B9C4_lbl_80513910 chr_select_serial_seeds;
 void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
 extern char lbl_804C8914[];
@@ -732,8 +732,8 @@ void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 
 typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
 void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0) {
-    M2C_FIELD(&lbl_80513910.value, s32 *, 4) = arg0;
-    M2C_FIELD(&lbl_80513910.value, s32 *, 0) = arg0;
+    M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 4) = arg0;
+    M2C_FIELD(&chr_select_serial_seeds.value, s32 *, 0) = arg0;
 }
 
 s32 get_field_44__23TAdSinglePlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x44); }

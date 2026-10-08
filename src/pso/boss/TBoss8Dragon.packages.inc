@@ -1310,17 +1310,17 @@ M2C_UNK get_part_count_plus__12TBoss8DragonFPvi(u32, s32);
 u32 get_enemy_entity();
 M2C_UNK set_state_22__12TBoss8DragonFPv();
 
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 
 s32 find_target_enemy__12TBoss8DragonFv(void) {
     s32 var_r31;
 
-    if ((u32) lbl_805D6978 == 0U) {
+    if ((u32) boss8_dragon_leader_part == 0U) {
         return 0;
     }
     var_r31 = 1;
 loop_3:
-    get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, var_r31);
+    get_part_count_plus__12TBoss8DragonFPvi(boss8_dragon_leader_part, var_r31);
     if (get_enemy_entity() != 0U) {
         return 1;
     }
@@ -1331,17 +1331,17 @@ loop_3:
     goto loop_3;
 }
 
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 
 s32 is_any_part_alive__12TBoss8DragonFv(void) {
     s32 var_r31;
 
-    if ((u32) lbl_805D6978 == 0U) {
+    if ((u32) boss8_dragon_leader_part == 0U) {
         return 1;
     }
     var_r31 = 1;
 loop_3:
-    get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, var_r31);
+    get_part_count_plus__12TBoss8DragonFPvi(boss8_dragon_leader_part, var_r31);
     if (get_enemy_entity() != 0U) {
         return 0;
     }
@@ -1352,15 +1352,15 @@ loop_3:
     goto loop_3;
 }
 
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 
 void update_all_parts__12TBoss8DragonFv(void) {
     s32 var_r31;
 
-    if ((u32) lbl_805D6978 != 0U) {
+    if ((u32) boss8_dragon_leader_part != 0U) {
         var_r31 = 1;
         do {
-            get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, var_r31);
+            get_part_count_plus__12TBoss8DragonFPvi(boss8_dragon_leader_part, var_r31);
             if (get_enemy_entity() != 0U) {
                 set_state_22__12TBoss8DragonFPv();
             }
@@ -1385,7 +1385,7 @@ M2C_UNK get_part_count_plus__12TBoss8DragonFPvi(u32, s32);
 u32 get_enemy_entity();
 s32 is_split_screen();
 
-extern u32 lbl_805D6978;
+extern u32 boss8_dragon_leader_part;
 
 bool has_enough_enemies__12TBoss8DragonFv(void) {
     s32 i;
@@ -1394,13 +1394,13 @@ bool has_enough_enemies__12TBoss8DragonFv(void) {
     if (is_split_screen() != 0) {
         return 1;
     }
-    if (lbl_805D6978 == 0U) {
+    if (boss8_dragon_leader_part == 0U) {
         return 0;
     }
     count = 0;
     i = 0;
     do {
-        get_part_count_plus__12TBoss8DragonFPvi(lbl_805D6978, i);
+        get_part_count_plus__12TBoss8DragonFPvi(boss8_dragon_leader_part, i);
         if (get_enemy_entity() != 0U) {
             count += 1;
         }

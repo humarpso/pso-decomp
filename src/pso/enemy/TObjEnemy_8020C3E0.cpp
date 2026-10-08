@@ -17,11 +17,11 @@ struct Sub_8020C500 { u8 p0[2]; s16 flags; u8 p1[4]; };
 struct Grp_8020C500 { s32 count; u8 pad[0xC]; Sub_8020C500 *recs; u8 pad2[4]; };
 
 extern "C" {
-extern Grp_8020C458 TLobby__data_80513AD0[];
+extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C458 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
 s32 clear_record_flags_a__6TLobbyFv(void);
-extern Grp_8020C458 TLobby__data_80513AD0[];
+extern Grp_8020C458 TLobby__floor_enemy_group_table[];
 extern Rec_8020C500 *TLobby__data_805D610C;
 extern s32 TLobby__data_805D6110;
 s32 clear_record_flags_b__6TLobbyFv(void);
@@ -71,9 +71,9 @@ s32 clear_record_flags_a__6TLobbyFv(void) {
         }
     }
     for (k = 0; k < 0x12; k++) {
-        if (TLobby__data_80513AD0[k].recs != NULL) {
-            for (j = 0; j < TLobby__data_80513AD0[k].count; j++) {
-                TLobby__data_80513AD0[k].recs[j].flags = 0;
+        if (TLobby__floor_enemy_group_table[k].recs != NULL) {
+            for (j = 0; j < TLobby__floor_enemy_group_table[k].count; j++) {
+                TLobby__floor_enemy_group_table[k].recs[j].flags = 0;
             }
         }
     }
@@ -89,9 +89,9 @@ s32 clear_record_flags_b__6TLobbyFv(void) {
         }
     }
     for (k = 0; k < 0x12; k++) {
-        if (((Grp_8020C500 *)&TLobby__data_80513AD0)[k].recs != NULL) {
-            for (j = 0; j < ((Grp_8020C500 *)&TLobby__data_80513AD0)[k].count; j++) {
-                ((Grp_8020C500 *)&TLobby__data_80513AD0)[k].recs[j].flags = 0;
+        if (((Grp_8020C500 *)&TLobby__floor_enemy_group_table)[k].recs != NULL) {
+            for (j = 0; j < ((Grp_8020C500 *)&TLobby__floor_enemy_group_table)[k].count; j++) {
+                ((Grp_8020C500 *)&TLobby__floor_enemy_group_table)[k].recs[j].flags = 0;
             }
         }
     }

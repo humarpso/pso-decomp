@@ -105,8 +105,8 @@ int is_inactive__13TLockOnCursorFPv(void* p) { return (test_flags_any((char*)p +
 int update_ring_sub__13TLockOnCursorFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0x8, 2); }
 s32 TLockOnCursor__sub_8013EB2C(void* p) { return *(s32*)((char*)p + 0x4); }
 
-    extern int TLockOnCursor__data_805D5648;
-int TLockOnCursor__sub_8013EB34(void) {  return TLockOnCursor__data_805D5648; }
+    extern int TLockOnCursor__target_cursor_model;
+int TLockOnCursor__sub_8013EB34(void) {  return TLockOnCursor__target_cursor_model; }
 
 int test_flag_1_at_8__13TLockOnCursorFPv(void* p) { return test_flags_any((char*)p + 0x8, 1); }
 s32 get_target__13TLockOnCursorFPv(void* p) { return *(s32*)((char*)p + 0x0); }

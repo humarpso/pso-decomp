@@ -279,7 +279,7 @@ extern M2C_UNK lbl_8049F5A0[];
 extern f32 lbl_8058D4C0[4], lbl_8050BEC0[4];
 extern RecoveredGlobal_80114DB8_lbl_8058D490 lbl_8058D490;
 extern f32 lbl_805D2C08;
-extern f32 lbl_805D2C0C;
+extern f32 item_mag_follow_scale;
 extern u32 lbl_805D2C10;
 extern u32 some_id_805c6f74, lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -557,7 +557,7 @@ void update_follow__11TItemMagSubFv(Sub_80115334 *self) {
         if (((u32 (*)(void *, s32))test_feed_flags__11TItemMagSubFPvUi)(self, 2) != 0U) {
             VecCopy__FP3VecPC3Vec((u8 *)self + 0xA0, (s32)&v);
         } else if (((u32 (*)(void *, s32))test_feed_flags__11TItemMagSubFPvUi)(self, 0x10) != 0U) {
-            lerp_follow_anchor((Vec_80114CD8 *)&v, (Vec_80114CD8 *)((u8 *)self + 0xA0), &lbl_805D2C0C);
+            lerp_follow_anchor((Vec_80114CD8 *)&v, (Vec_80114CD8 *)((u8 *)self + 0xA0), &item_mag_follow_scale);
         } else {
             lerp_follow_anchor((Vec_80114CD8 *)&v, (Vec_80114CD8 *)((u8 *)self + 0xA0), (f32 *)(self->rec + 8));
         }

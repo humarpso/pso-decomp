@@ -46,7 +46,7 @@ extern s16 *lbl_805D56B4;
 extern s32 menu_font_upload_flags;
 extern Glyph_80145804 *menu_font_glyph_table;
 extern u8 lbl_805D56C0;
-extern void *lbl_805D56C4;
+extern void *menu_font_object;
 void load_menu_font(void);
 }
 
@@ -123,7 +123,7 @@ void load_menu_font(void) {
     if (f != NULL) {
         f = TNECFontEORFunction__ct(f);
     }
-    lbl_805D56C4 = f;
+    menu_font_object = f;
 }
 #pragma pop
 

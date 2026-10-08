@@ -27,7 +27,7 @@ void *heap_alloc__5THeapFUl(u32, u32);
 void *memcpy(void *, const void *, unsigned long);
 void *memset(void *, int, unsigned long);
 extern Slot_8020B970 TLobby__data_80513A40[];
-extern Tbl_8020B970 TLobby__data_80513AD0[];
+extern Tbl_8020B970 TLobby__floor_enemy_group_table[];
 extern u32 TLobby__data_805D6104;
 extern u32 TLobby__data_805D6108;
 s32 TLobby__sub_8020B970(s32 idx, Src_8020B970 *src, u32 size);
@@ -41,7 +41,7 @@ s32 TLobby__sub_8020B970(s32 idx, Src_8020B970 *src, u32 size) {
     if (TLobby__data_805D6108 != 0 && TLobby__data_805D6104 != 0) {
     u32 sz = size;
     s32 n = sz / 68;
-    Tbl_8020B970 *t = &TLobby__data_80513AD0[idx];
+    Tbl_8020B970 *t = &TLobby__floor_enemy_group_table[idx];
     Src_8020B970 *s;
     Dst_8020B970 *d;
     s32 i;

@@ -15,7 +15,7 @@ extern s32 TLobby__data_805D4AA4;
 extern s32 TLobby__data_805D4AA8;
 extern s32 TLobby__data_805D4AAC;
 extern s32 TLobby__data_805D4AB0;
-extern s32 TLobby__data_805D4ABC;
+extern s32 TLobby__lobby_instance;
 extern s32 lbl_805D5550;
 void alloc_battle_param_tables(void);
 }
@@ -104,7 +104,7 @@ void alloc_battle_param_tables(void) {
     get_instance__6TLobbyFv();
     set_difficulty__6TLobbyFi();
     load_battle_param_entry();
-    TLobby__data_805D4ABC = 0;
+    TLobby__lobby_instance = 0;
 }
 
 void swap_endian__6TLobbyFPv(void* p) { bswap_16__FPUs((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x2)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); bswap_16__FPUs((void*)((char*)p + 0x8)); bswap_16__FPUs((void*)((char*)p + 0xa)); bswap_32__FPUl((void*)((char*)p + 0xc)); bswap_32__FPUl((void*)((char*)p + 0x10)); bswap_32__FPUl((void*)((char*)p + 0x14)); bswap_32__FPUl((void*)((char*)p + 0x18)); bswap_32__FPUl((void*)((char*)p + 0x1c)); }

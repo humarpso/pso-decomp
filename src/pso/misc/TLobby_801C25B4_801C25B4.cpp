@@ -17,7 +17,7 @@ struct Ent_801C26A8 { u16 id; s16 active; u8 pad[4]; };
 extern "C" {
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 u8 is_battle_mode_active__19TPlayerBattleCtrl4PFv(void);
-extern u8 *TLobby__data_805D5D98;
+extern u8 *TLobby__battle_mode_data_ptr;
 u8 TLobby__sub_801C2614(void);
 extern s32 TLobby__data_805D5DC0;
 s32 TLobby__sub_801C2678(void);
@@ -77,7 +77,7 @@ u8 TLobby__sub_801C2614(void) {
     var_r0 = is_battle_mode_active__19TPlayerBattleCtrl4PFv();
     return var_r0;
   }
-  var_r3 = (u8 *) TLobby__data_805D5D98;
+  var_r3 = (u8 *) TLobby__battle_mode_data_ptr;
   if (var_r3 != 0)
   {
     var_r3 = (u8 *) (*((u8 **) (((s8 *) var_r3) + 0x1C)));

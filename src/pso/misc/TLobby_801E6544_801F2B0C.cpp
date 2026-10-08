@@ -26,13 +26,13 @@ int get_indexed_offset__6TLobbyFi(int a0);
 void qst_getargs_801F2B0C(s32 arg0);
 M2C_UNK read_packet_byte__6TLobbyFv(void *);
 
-extern Ent_801F2B0C lbl_804C69D8[];
+extern Ent_801F2B0C qst_opcode_table[];
 
 void qst_getargs_801F2B0C(s32 arg0) {
     Ent_801F2B0C *temp_r3;
     M2C_UNK (*temp_r31)(M2C_UNK);
 
-    temp_r3 = lbl_804C69D8;
+    temp_r3 = qst_opcode_table;
     temp_r3 += arg0;
     temp_r31 = temp_r3->fn;
     temp_r31(read_packet_byte__6TLobbyFv(temp_r3));
@@ -42,14 +42,14 @@ extern s32 TLobby__data_805D5EA4;
 void qst_getargs_801F2B54(s32 arg0) {
     Ent_801F2B0C *e;
 
-    e = lbl_804C69D8;
+    e = qst_opcode_table;
     e += arg0;
     e->fn((M2C_UNK)e);
     TLobby__data_805D5EA4 = 0;
 }
 
 void qst_getargs_801F2B94(s32 arg0) {
-    ((void (*)(void))lbl_804C69D8[arg0].fn)();
+    ((void (*)(void))qst_opcode_table[arg0].fn)();
 }
 
 extern int TLobby__data_80512240[];

@@ -22,10 +22,10 @@ void TMainCursor__sub_8013E2B0(void* p) { *(s16*)((char*)p + 0x2) = 0; *(s16*)((
 void reset_slot__11TMainCursorFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 void set_type__11TMainCursorFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 
-    extern int lbl_805D564C;
-int get_cursor_state__11TMainCursorFv(void) {  return lbl_805D564C; }
+    extern int main_cursor_model;
+int get_cursor_state__11TMainCursorFv(void) {  return main_cursor_model; }
 
-    extern int lbl_805D5644;
-int TMainCursor__sub_8013E2DC(void) {  return lbl_805D5644; }
+    extern int lock_on_cursor_model;
+int TMainCursor__sub_8013E2DC(void) {  return lock_on_cursor_model; }
 
 }

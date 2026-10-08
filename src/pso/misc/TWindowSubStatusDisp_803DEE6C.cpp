@@ -17,18 +17,18 @@ M2C_UNK setup_render__10TObjPlayerFv();
 M2C_UNK setup_blended_textured_draw();
 void begin_screen_draw(s32 arg0);
 s32 load_list_texture(void *, int, int, int);
-extern s32 lbl_805D77B0;
+extern s32 constant_material_color;
 void set_draw_texture_and_color(s32 arg0, s32 arg1);
 void GXBegin(u32, u32, u16);
-extern s32 lbl_805D77B0;
+extern s32 constant_material_color;
 extern const f32 lbl_805E0FC8;
 void draw_textured_quad_at_depth(f32 *q, f32 depth);
 s64 OSGetTime(void);
 u32 TLobby__sub_803DF1CC(void);
-extern s32 lbl_805D77B0;
+extern s32 constant_material_color;
 void set_constant_material_color(u32 x);
 void GXBegin(u32, u32, u16);
-extern s32 lbl_805D77B0;
+extern s32 constant_material_color;
 extern const f32 lbl_805E0FC8;
 void DVDConvertEntrynumToPath(f32 *q);
 }
@@ -61,7 +61,7 @@ void get_player__20TWindowSubStatusDispFv(void) {
 #pragma opt_common_subs off
 #pragma optimize_for_size off
 void draw_textured_quad_at_depth(f32 *q, f32 depth) {
-    u32 color = (*(u32 *)&lbl_805D77B0);
+    u32 color = (*(u32 *)&constant_material_color);
     f32 z = lbl_805E0FC8 / depth;
     f32 x0 = q[0] * z;
     f32 x1 = q[2] * z;
@@ -87,7 +87,7 @@ void draw_textured_quad_at_depth(f32 *q, f32 depth) {
 #pragma scheduling off
 void DVDConvertEntrynumToPath(f32 *q) {
     f32 z = lbl_805E0FC8 / q[2];
-    u32 color = (*(u32 *)&lbl_805D77B0);
+    u32 color = (*(u32 *)&constant_material_color);
     f32 y0, x0, u0, v0;
     f32 x1, y1, u1, v1;
     f32 x3, y3, u3, v3;
@@ -141,7 +141,7 @@ void DVDConvertEntrynumToPath(f32 *q) {
 #pragma peephole off
 void set_draw_texture_and_color(s32 arg0, s32 arg1) {
     load_list_texture((void *) (arg0), (int) (0), (int) (0), (int) (0));
-    lbl_805D77B0 = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
+    constant_material_color = ((arg1 & 0xFFFFFF) << 8) | ((u32) (arg1 & 0xFF000000) >> 0x18U);
 }
 #pragma pop
 
@@ -149,7 +149,7 @@ void set_draw_texture_and_color(s32 arg0, s32 arg1) {
 #pragma scheduling off
 #pragma peephole off
 void set_constant_material_color(u32 x) {
-    (*(u32 *)&lbl_805D77B0) = ((x & 0xFFFFFF) << 8) | ((x & 0xFF000000) >> 24);
+    (*(u32 *)&constant_material_color) = ((x & 0xFFFFFF) << 8) | ((x & 0xFF000000) >> 24);
 }
 #pragma pop
 

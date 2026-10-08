@@ -289,7 +289,7 @@ extern "C" {
 extern const Entry_80238C6C lbl_8044DB08[1] = {{147}};
 extern const Entry_80238C6C lbl_8044DB14[2] = {{170}, {173}};
 extern const Entry_80238C6C lbl_8044DB2C[2] = {{171}, {174}};
-extern const Profile_80238C6C TTecRaZonde__data_8044DB44[6] = {
+extern const Profile_80238C6C TTecRaZonde__band_profile_table[6] = {
     {(Entry_80238C6C *)lbl_8044DB08, 1}, {(Entry_80238C6C *)lbl_8044DB08, 1}, {(Entry_80238C6C *)lbl_8044DB08, 1},
     {(Entry_80238C6C *)lbl_8044DB14, 2}, {(Entry_80238C6C *)lbl_8044DB14, 2}, {(Entry_80238C6C *)lbl_8044DB2C, 2},
 };
@@ -453,9 +453,9 @@ u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *ori
 
 void TTecRaZonde__vt6(struct Self_80238C6C *self) {
     u32 i;
-    self->emitters = (s32 *)alloc_buffer__11TOBoss4RockFPv(TTecRaZonde__data_8044DB44[self->band].count * 4);
-    for (i = 0; i < TTecRaZonde__data_8044DB44[self->band].count; i++) {
-        self->emitters[i] = create_particle_emitter(&self->points[i], TTecRaZonde__data_8044DB44[self->band].entries[i].entry);
+    self->emitters = (s32 *)alloc_buffer__11TOBoss4RockFPv(TTecRaZonde__band_profile_table[self->band].count * 4);
+    for (i = 0; i < TTecRaZonde__band_profile_table[self->band].count; i++) {
+        self->emitters[i] = create_particle_emitter(&self->points[i], TTecRaZonde__band_profile_table[self->band].entries[i].entry);
     }
 }
 
@@ -543,7 +543,7 @@ Self_80238EC8 *__dt__11TTecRaZondeFv(Self_80238EC8 *self, s16 arg1) {
     u32 i;
     if (self != NULL) {
         self->vtable = __vt__11TTecRaZonde;
-        for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].count; i++) {
+        for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[self->band].count; i++) {
             if (self->objs[i] != 0) {
                 queue_destruction__7TObjectFv(self->objs[i]);
                 self->objs[i] = 0;
@@ -571,12 +571,12 @@ void run_task__11TTecRaZondeFv(Obj_80238F84 *self) {
         ((void (*)(void *))queue_destruction__7TObjectFv)(self);
         return;
     }
-    for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].count; i++) {
+    for (i = 0; i < ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[self->band].count; i++) {
         if (self->sourceId < 12) {
             if (i == 1) {
-                create_timed_particle_emitter((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, 0, 60, self->source);
+                create_timed_particle_emitter((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[self->band].entries[i].entry, 0, 60, self->source);
             } else {
-                spawn_particle_effect((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__data_8044DB44)[self->band].entries[i].entry, self->source);
+                spawn_particle_effect((u8 *)self->source + 0x2FC, ((RProfile_80238F84 *)TTecRaZonde__band_profile_table)[self->band].entries[i].entry, self->source);
             }
         }
     }

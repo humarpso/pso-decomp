@@ -115,7 +115,7 @@ void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self);
 extern "C" {
 extern const f32 lbl_805DD12C;
 
-extern u8 lbl_804D00DC[];
+extern u8 lockon_window_layout_entries[];
 extern Cb_80263370 lbl_804D0288;
 extern M2C_UNK __vt__13TWindowLockOn[];
 extern const f32 lbl_805DD100;
@@ -311,7 +311,7 @@ u32 calc_text_width(int);
 int get_field_20__17TWindowSubComCardFPv(int);
 M2C_UNK reset_float_field__15TWindowHelpItemFPv(int);
 M2C_UNK set_default_status__17TWindowDuelResultFPvi(void *, int);
-extern Data_80263014 lbl_804D0088;
+extern Data_80263014 lock_on_window_params;
 extern const f32 lbl_805DD104;
 extern const f32 lbl_805DD108;
 extern const f32 lbl_805DD10C;
@@ -322,7 +322,7 @@ extern const f32 lbl_805DD10C;
 #define arg0 ((Lock_80263014 *)a0)
 #define obj ((void *)a1)
 void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
-    Data_80263014 *d = &lbl_804D0088;
+    Data_80263014 *d = &lock_on_window_params;
     u32 width;
     s32 e;
     s32 kind;
@@ -394,7 +394,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     Ent_80263370 *e;
     Ent_80263370 *e2;
     f32 r;
-    init_window_layout_entries(arg0->sub, lbl_804D00DC, arg0->player);
+    init_window_layout_entries(arg0->sub, lockon_window_layout_entries, arg0->player);
     arg0->cb = lbl_804D0288;
     e = (Ent_80263370 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     init_item_row__20TWindowSubStatusDispFPvPvi(e, item, 0);

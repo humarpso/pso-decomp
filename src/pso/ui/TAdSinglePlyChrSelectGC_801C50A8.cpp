@@ -24,7 +24,7 @@ extern int lbl_805D5F64;
 void TAdSinglePlyChrSelectGC__sub_801C5108(int a0);
 extern int lbl_805D5F64;
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void);
-    extern int lbl_805D5D90;
+    extern int duel_result_window;
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 extern u32 lbl_805D5DD0;
@@ -64,7 +64,7 @@ void TAdSinglePlyChrSelectGC__sub_801C5108(int a0) { *(short*)((char*)lbl_805D5F
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void) {
     return M2C_FIELD((*(u8 * *)&lbl_805D5F64), u16 *, 0x21A8);
 }
-void TAdSinglePlyChrSelectGC__sub_801C5120(void) { lbl_805D5D90 = 0; }
+void TAdSinglePlyChrSelectGC__sub_801C5120(void) { duel_result_window = 0; }
 void destroy__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) lbl_805D5DD0 != 0U) {
         queue_destruction__7TObjectFv((void*)lbl_805D5DD0);

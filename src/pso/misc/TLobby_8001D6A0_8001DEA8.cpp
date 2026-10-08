@@ -22,10 +22,10 @@ void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1);
 s32 get_player_entry__6TLobbyFii(s32, s32);
 s32 is_valid_player_index__6TLobbyFi();
 
-extern s32 TLobby__data_805D4ABC;
+extern s32 TLobby__lobby_instance;
 
 void TLobby__sub_8001DEA8(s32 arg0) {
-    TLobby__data_805D4ABC = arg0;
+    TLobby__lobby_instance = arg0;
 }
 
 void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1) {

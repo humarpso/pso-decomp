@@ -9,7 +9,7 @@ struct AllocatorCallbacks {
 };
 
 extern "C" {
-extern AllocatorCallbacks *lbl_805D77A8;
+extern AllocatorCallbacks *global_allocator;
 void *xmalloc__FUl(u32 bytes);
 void xfree__FPv(void *allocation);
 }

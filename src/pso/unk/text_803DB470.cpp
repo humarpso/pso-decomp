@@ -67,7 +67,7 @@ void GXSetZCompLoc(s32);
 void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
 extern RecoveredCallback_d26337a2813d lbl_805D76E4;
-extern s32 lbl_805D7788;
+extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 void end_ginja_model_draw(void);
 void queue_model_draw_matrix(s32, s32);
@@ -108,9 +108,9 @@ extern s32 some_id_805c6f74;
 GinjaMaterialCache *invalidate_ginja_inherited_state();
 s32 apply_ginja_material_params(GinjaDrawRecord *);
 s32 GXCallDisplayList(void *, u32);
-extern s32 lbl_805D7704, lbl_805D7708, lbl_805D7788;
+extern s32 lbl_805D7704, lbl_805D7708, ginja_draw_flags;
 s32 draw_ginja_model_lists(GinjaModel *model);
-extern s32 lbl_805D7788;
+extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 extern S_803DB560 lbl_8058CD80;
 void reset_particle_counter__10TObjPlayerFv(void);
@@ -140,7 +140,7 @@ void convert_color_u8_to_f32(const C_803DB9A0 *, F_803DB9A0 *);
 extern F_803DB9A0 lbl_8058D4C0;
 extern const C_803DB9A0 lbl_805E0F68;
 extern S_803DB560 lbl_8058CD80;
-extern s32 lbl_805D7788;
+extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 void set_ginja_material_color(u32 v);
 void init_model_draw_queue(void *);
@@ -152,12 +152,12 @@ void apply_scene_fog(void);
 s32 queue_model_draw_current_matrix(s32 arg0);
 s32 draw_ginja_model_lists(GinjaModel *model);
 extern RecoveredCallback_d26337a2813d lbl_805D76E4;
-extern s32 lbl_805D7788;
+extern s32 ginja_draw_flags;
 void draw_ginja_object(void *arg0);
 void GXSetChanCtrl(s32,s32,s32,s32,s32,s32,s32);
-extern s32 lbl_805D7788;
+extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
-extern s32 lbl_805D7794;
+extern s32 gx_chan_ctrl_light_mask;
 void set_ginja_channel_ctrl(s32 channel,s32 flags);
 void GXSetNumChans(u8);
 void GXSetNumTexGens(u8);
@@ -186,7 +186,7 @@ void draw_ginja_object(void *arg0) {
     if (lbl_805D76E4 != NULL) {
         lbl_805D76E4();
     }
-    if ((u32) (lbl_805D7788 & 2) != 0U) {
+    if ((u32) (ginja_draw_flags & 2) != 0U) {
         set_effect_active__10TObjPlayerFv();
         apply_scene_fog();
     }
@@ -235,14 +235,14 @@ void set_ginja_channel_ctrl(s32 channel,s32 flags) {
     s32 ambientSource,materialSource,enabled;
     if((u32)(flags&0x100)!=0)enabled=0;else enabled=1;
     if((u32)(flags&0x1000)!=0)ambientSource=1;else ambientSource=0;
-    if((u32)(lbl_805D7788&2)!=0) {
+    if((u32)(ginja_draw_flags&2)!=0) {
         GXSetChanCtrl(4,0,0,0,0,2,2);return;
     }
     if((u32)(some_id_805c6f74&0x30)!=0)materialSource=0;
     else if((u32)(flags&0x800)!=0)materialSource=1;
     else materialSource=0;
-    GXSetChanCtrl(channel,enabled,ambientSource,materialSource,lbl_805D7794,2,2);
-    GXSetChanCtrl(channel+2,0,ambientSource,materialSource,lbl_805D7794,2,2);
+    GXSetChanCtrl(channel,enabled,ambientSource,materialSource,gx_chan_ctrl_light_mask,2,2);
+    GXSetChanCtrl(channel+2,0,ambientSource,materialSource,gx_chan_ctrl_light_mask,2,2);
 }
 
 #define GC ((GinjaCounts_803DB734 *)&lbl_8058CD80)
@@ -332,7 +332,7 @@ void set_ginja_material_color(u32 v) {
     (*(S_803DB9A0 *)&lbl_8058CD80).c.g = (v & 0xFF0000) >> 16;
     (*(S_803DB9A0 *)&lbl_8058CD80).c.b = (v & 0xFF00) >> 8;
     (*(S_803DB9A0 *)&lbl_8058CD80).c.a = v & 0xFF;
-    if ((u32) (lbl_805D7788 & 2) != 0U) {
+    if ((u32) (ginja_draw_flags & 2) != 0U) {
         GXSetChanMatColor(4, fallback);
     } else if ((u32) (some_id_805c6f74 & 0x10) != 0U) {
         convert_color_f32_to_u8(&lbl_8058D4C0, &converted);
@@ -490,7 +490,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
       }
     }
   }
-  if (((u32)(lbl_805D7788 & 2)) == 0U) {
+  if (((u32)(ginja_draw_flags & 2)) == 0U) {
     lbl_805D7704 = 0;
     if ((lbl_805D7708 & 1) && (lbl_805D7708 & 2)) {
       lbl_805D7704 |= 8;
@@ -519,7 +519,7 @@ s32 draw_ginja_model_lists(GinjaModel *model) {
 #pragma scheduling off
 #pragma peephole off
 void prepare_ginja_model(void) {
-    if ((*(u32 *)&lbl_805D7788) & 2) {
+    if ((*(u32 *)&ginja_draw_flags) & 2) {
         reset_particle_counter__10TObjPlayerFv();
         apply_scene_fog();
     }
@@ -537,7 +537,7 @@ void prepare_ginja_model(void) {
 #pragma push
 #pragma peephole off
 void end_ginja_model_draw(void) {
-    if ((u32) (lbl_805D7788 & 2) != 0) {
+    if ((u32) (ginja_draw_flags & 2) != 0) {
         set_effect_active__10TObjPlayerFv();
         apply_scene_fog();
     }

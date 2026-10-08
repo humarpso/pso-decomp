@@ -113,7 +113,7 @@ s32 bswap__16TPlyGuildCardTagFv(s32);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
-extern s32 lbl_805D5D6C;
+extern s32 lobby_player_count;
 void fn_801DF874(void* p);
 void fn_801DF740(void* p);
 s32 bswap_16__FPUs(s32);

@@ -76,7 +76,7 @@ void init_and_activate__10TObjPlayerFPv(void *);
 void set_indexed_flags(void *, s32, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, s32);
-extern u8 lbl_804B4ECC[];
+extern u8 ovs2wall01_collision_parts[];
 extern M2C_UNK __vt__11TOVS2Wall01[];
 extern s32 lbl_805D31E0;
 extern s32 TOVS2Wall01__data_805D5AE8;
@@ -191,7 +191,7 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     obj_setFlags30(arg0, 0x60000000);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(TOVS2Wall01__data_805D5AE8, 6);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(TOVS2Wall01__data_805D5AE8, 6);
-    init_collision_body_parts(arg0, lbl_804B4ECC + 0x108, 1);
+    init_collision_body_parts(arg0, ovs2wall01_collision_parts + 0x108, 1);
     set_indexed_flags(arg0, 0, 0x08000000);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     M2C_FIELD(arg0, s16 *, 0x326) = 0;

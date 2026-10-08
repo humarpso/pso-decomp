@@ -11,14 +11,14 @@ void dispatch_command__6TLobbyFi(s32 arg0);
 s32 read_packet_byte__6TLobbyFv(struct Ent_A *);
 
 s32 read_be_u16();
-extern struct Ent_A lbl_804C69D8[];
+extern struct Ent_A qst_opcode_table[];
 
 void dispatch_command__6TLobbyFi(s32 arg0) {
     M2C_UNK (*temp_r31)(s32, s32);
     s32 temp_r30;
     struct Ent_A *e;
 
-    e = (struct Ent_A *) (u8 *) lbl_804C69D8;
+    e = (struct Ent_A *) (u8 *) qst_opcode_table;
     e = (struct Ent_A *) ((u8 *) e + (arg0 * 8));
     temp_r31 = e->fn;
     temp_r30 = read_packet_byte__6TLobbyFv(e);

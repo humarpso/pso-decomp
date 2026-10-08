@@ -23,20 +23,20 @@ extern "C" {
 extern s32 lbl_805D7758;
 void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0);
 void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c);
-extern s32 lbl_805D7764;
-extern Rec_803DA688 *lbl_805D7768;
+extern s32 record_array_count;
+extern Rec_803DA688 *record_array_ptr;
 s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
-extern s32 lbl_805D7764;
-extern Rec_803DA688 *lbl_805D7768;
+extern s32 record_array_count;
+extern Rec_803DA688 *record_array_ptr;
 s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0);
-extern s32 lbl_805D7764;
-extern Rec_803DA688 *lbl_805D7768;
+extern s32 record_array_count;
+extern Rec_803DA688 *record_array_ptr;
 void init_record_array__10TObjPlayerFPvi(Rec_803DA688 *arg0, s32 arg1);
 extern Err_803DA5A8 lbl_8058D470[];
 extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
-extern s32 lbl_805D7764;
-extern Rec_803DA688 *lbl_805D7768;
+extern s32 record_array_count;
+extern Rec_803DA688 *record_array_ptr;
 s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1);
 extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
@@ -75,8 +75,8 @@ void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c) {
 #pragma optimize_for_size off
 void init_record_array__10TObjPlayerFPvi(Rec_803DA688 *arg0, s32 arg1) {
     s32 i;
-    lbl_805D7768 = arg0;
-    lbl_805D7764 = arg1;
+    record_array_ptr = arg0;
+    record_array_count = arg1;
     for (i = 0; i < arg1; i++) {
         arg0->a = 0;
         arg0->b = 0;
@@ -116,8 +116,8 @@ s32 find_table_index_by_id__10TObjPlayerFUi(u32 arg0) {
     u32 *q;
     s32 i;
     i = 0;
-    e = (*(E_803DA55C * *)&lbl_805D7768);
-    for (; i < lbl_805D7764; e++, i++) {
+    e = (*(E_803DA55C * *)&record_array_ptr);
+    for (; i < record_array_count; e++, i++) {
         q = e->p;
         if (q != 0 && arg0 == *q) {
             return i;
@@ -132,8 +132,8 @@ s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1)
     Slot_803DA5A8 *q;
     s32 idx;
     *arg0 = NULL;
-    p = lbl_805D7768;
-    for (i = 0; i < lbl_805D7764; p++, i++) {
+    p = record_array_ptr;
+    for (i = 0; i < record_array_count; p++, i++) {
         if (p->d == NULL) {
             *arg0 = p;
             idx = i;
@@ -165,8 +165,8 @@ s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1)
 s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
     Sub_803DA688 *d;
     s32 i;
-    Rec_803DA688 *p = lbl_805D7768;
-    for (i = 0; i < lbl_805D7764; p++, i++) {
+    Rec_803DA688 *p = record_array_ptr;
+    for (i = 0; i < record_array_count; p++, i++) {
         if (p->c == arg1) {
             d = p->d;
             if (d != 0 && d->v == arg0) return i;

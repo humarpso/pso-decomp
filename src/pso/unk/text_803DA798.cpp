@@ -49,7 +49,7 @@ typedef s32 M2C_UNK;
 struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
 
 extern "C" {
-extern s32 lbl_805D7768;
+extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
 void release_empty_ref_entry__10TObjPlayerFPv(void *);
 s32 fn_803DB20C(void *);
@@ -58,21 +58,21 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 find_table_index_by_id__10TObjPlayerFUi(u32);
 extern u8 *lbl_805D774C;
-extern s32 lbl_805D7768;
+extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
 void TObjPlayer__sub_803DA7E0(void);
 extern u8 *lbl_805D774C;
 s32 set_texture_num(s32 i);
-extern s32 lbl_805D7768;
+extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
 void move_data__6TLobbyFv();
 void DCFlushRange(void *, void *);
 void TObjPlayer__sub_803DA808(void *arg0, s32 arg1, void *arg2);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 extern S_803DA7E0 lbl_8058D470;
-extern s32 lbl_805D7768;
+extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
 s32 TObjPlayer__sub_803DB23C(void *);
@@ -84,7 +84,7 @@ s32 find_table_index_by_id__10TObjPlayerFUi(u32);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, void *);
 s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 void TObjPlayer__sub_803DAD24(void);
-extern s32 lbl_805D7768;
+extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
 s32 TObjPlayer__sub_803D9DA8(int, void *);
 s32 TObjPlayer__sub_803DA104(int);
@@ -202,25 +202,25 @@ s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3) {
                 return -1;
             }
             sp8->c = arg1;
-            sp8->obj = (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].obj;
+            sp8->obj = (*(Rec_803DA8E4 **)&record_array_ptr)[idx].obj;
             sp8->obj->refs++;
             sp8->cnt = 1;
-            sp8->v14 = (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].v14;
+            sp8->v14 = (*(Rec_803DA8E4 **)&record_array_ptr)[idx].v14;
             ((void (*)(Rec_803DA8E4 *)) TObjPlayer__sub_803DAD24)(sp8);
             *arg3 = slot;
             return 1;
         }
         *arg3 = r;
-        (*(Rec_803DA8E4 **)&lbl_805D7768)[r].cnt++;
-        (*(Rec_803DA8E4 **)&lbl_805D7768)[r].obj->refs++;
+        (*(Rec_803DA8E4 **)&record_array_ptr)[r].cnt++;
+        (*(Rec_803DA8E4 **)&record_array_ptr)[r].obj->refs++;
         return 1;
     }
     *arg3 = idx;
     if (idx < 0) {
         return 0;
     }
-    (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].cnt++;
-    (*(Rec_803DA8E4 **)&lbl_805D7768)[idx].obj->refs++;
+    (*(Rec_803DA8E4 **)&record_array_ptr)[idx].cnt++;
+    (*(Rec_803DA8E4 **)&record_array_ptr)[idx].obj->refs++;
     return 1;
 }
 #pragma pop
@@ -257,12 +257,12 @@ s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2) {
 #pragma scheduling off
 #pragma peephole off
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j) {
-    self->arr[i].p = (E_803DAB7C *)lbl_805D7768 + j;
+    self->arr[i].p = (E_803DAB7C *)record_array_ptr + j;
 }
 #pragma pop
 
 s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
-    u8 *p = (*(Ent_803DAB9C * *)&lbl_805D7768)[arg0].d;
+    u8 *p = (*(Ent_803DAB9C * *)&record_array_ptr)[arg0].d;
     if (p == 0) {
         ((s32 *)&lbl_8058D470)[2] = 1;
         return -1;
@@ -277,7 +277,7 @@ s32 TObjPlayer__sub_803DAB9C(s32 arg0, s32 arg1) {
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803DAC1C(s32 arg0) {
-    TObjPlayer__sub_803DAE98((u8 *)((void *) (lbl_805D7768 + (arg0 * 0x18))), (s32)((void *) (lbl_805D7768)));
+    TObjPlayer__sub_803DAE98((u8 *)((void *) (record_array_ptr + (arg0 * 0x18))), (s32)((void *) (record_array_ptr)));
 }
 #pragma pop
 
@@ -319,7 +319,7 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
         var_r3 = (u8 *)((void *)-1);
         return -1;
     }
-    var_r4 = (u8 *)((*(u8 * *)&lbl_805D7768));
+    var_r4 = (u8 *)((*(u8 * *)&record_array_ptr));
     var_r4 += temp_r3 * 0x18;
     var_r3 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0xC));
     temp_r0 = (long) (var_r3 + 4);

@@ -48,7 +48,7 @@ extern s32 lbl_805D6928;
 extern s32 lbl_805D692C;
 extern s32 lbl_805D6930;
 extern s32 lbl_805D6934;
-extern s32 lbl_805D6938;
+extern s32 boss7_joint_state;
 extern u8 *lbl_805D693C;
 extern s32 lbl_805D6940;
 extern const f32 lbl_805DEA10;
@@ -94,7 +94,7 @@ void TObjPlayer__sub_802EE574(void) {
     lbl_805D692C = 0;
     lbl_805D6930 = 0;
     lbl_805D6934 = 0;
-    lbl_805D6938 = 0;
+    boss7_joint_state = 0;
     run_load_callback_table(&lbl_804E3C5C.value, 0x30);
     lbl_805D693C = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D6918, u8 **, 0x42C), s32 *, 8), 0x4D);
     lbl_805D6940 = M2C_FIELD(lbl_805D693C, s32 *, 0x2C);

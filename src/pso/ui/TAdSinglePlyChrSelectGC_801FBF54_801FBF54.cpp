@@ -116,7 +116,7 @@ void xfree__FPv(void *);
 int memcpy(void*, void*, void*);
 void *memset(void *, int, u32);
 extern char lbl_804C88C0[];
-extern s32 lbl_80513910[];
+extern s32 chr_select_serial_seeds[];
 extern int lbl_805D5F58;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F84;
@@ -479,7 +479,7 @@ s32 load_save_from_card__23TAdSinglePlyChrSelectGCFv(void) {
         }
     }
     g = get_field_118__22TAdEnterSerialAccessGCFv();
-    lbl_80513910[0] = lbl_80513910[1] = g;
+    chr_select_serial_seeds[0] = chr_select_serial_seeds[1] = g;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x1156C);
     if (p != 0) {
         p = init_char_slots__23TAdSinglePlyChrSelectGCFi(p);

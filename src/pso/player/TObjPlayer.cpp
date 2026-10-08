@@ -183,8 +183,8 @@ int set_mode__20TWindowActionPaletteFPvUc(void*);
 int set_slot__20TWindowActionPaletteFPvUc(void*);
 s32 try_add_item_count__10TObjPlayerFiiiUc(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 
-    extern int lbl_805D5D74;
-void set_shared_flag__10TObjPlayerFi(int a0) { lbl_805D5D74 = a0; }
+    extern int shared_flag;
+void set_shared_flag__10TObjPlayerFi(int a0) { shared_flag = a0; }
 
     extern int lbl_805D5D70;
 void set_shared_count__10TObjPlayerFi(int a0) { lbl_805D5D70 = a0; }

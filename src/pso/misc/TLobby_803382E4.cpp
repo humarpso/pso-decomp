@@ -82,13 +82,13 @@ void *lbl_804EF1B8[9] = {
 __declspec(section ".data") void *lbl_804EF1DC[2] = {
     (void *)&lbl_804EF1B8, (void *)0x3,
 };
-void *lbl_804EF1E4[16] = {
+void *title_pulse_color_table[16] = {
     (void *)0x44040000, (void *)0x43908000, (void *)0x3f000000, (void *)0xb4000000,
     (void *)0x44140000, (void *)0x43908000, (void *)0x3f000000, (void *)0xb4000000,
     (void *)0x44040000, (void *)0x43b08000, (void *)0x3f000000, (void *)0xb4000000,
     (void *)0x44140000, (void *)0x43b08000, (void *)0x3f000000, (void *)0xb4000000,
 };
-void *lbl_804EF224[48] = {
+void *lobby_pulse_color_table[48] = {
     (void *)0x44040000, (void *)0x43908000, (void *)0x3f000000, (void *)0x0,
     (void *)0x0, (void *)0xffffffff, (void *)0x44140000, (void *)0x43908000,
     (void *)0x3f000000, (void *)0x3f800000, (void *)0x0, (void *)0xffffffff,
@@ -131,8 +131,8 @@ void *lbl_804EF3E0[8] = {
 
 #define lbl_804EF1B8 (*(G_80338534 *)lbl_804EF1B8)
 #define lbl_804EF1DC ((M2C_UNK *)lbl_804EF1DC)
-#define lbl_804EF1E4 ((B_80338608 *)lbl_804EF1E4)
-#define lbl_804EF224 ((A_80338608 *)lbl_804EF224)
+#define title_pulse_color_table ((B_80338608 *)title_pulse_color_table)
+#define lobby_pulse_color_table ((A_80338608 *)lobby_pulse_color_table)
 
 #pragma push
 #pragma dont_inline off
@@ -271,8 +271,8 @@ void update_pulse_colors__6TLobbyFi(s32 arg0) {
     lbl_805D6D60 += 0xCCC;
     c0 = ((u32)(lbl_805DF9B4 * t) << 24) | 0xFFFFFF;
     c1 = (u32)(lbl_805DF9B8 * t) << 24;
-    a = lbl_804EF224;
-    b = lbl_804EF1E4;
+    a = lobby_pulse_color_table;
+    b = title_pulse_color_table;
     for (i = 0; i < 4; i++) {
         a->col = c0;
         a++;

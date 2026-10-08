@@ -148,40 +148,40 @@ void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
     return self;
 }
 
-    extern TItemEffectWeapon::TrailVertex* lbl_805D6FB0;
-    extern s32* lbl_805D6FB4;
+    extern TItemEffectWeapon::TrailVertex* item_weapon_trail_vertex_buffer;
+    extern s32* weapon_trail_slot_bitmap;
 
 }
 
 void TItemEffectWeapon::release_trail_buffer(void* buffer) {
     if (buffer != NULL) {
-        s32 vertex_offset = ((u8*)buffer - (u8*)lbl_805D6FB0) / 16;
-        lbl_805D6FB4[(u32)vertex_offset >> 5] = 0;
+        s32 vertex_offset = ((u8*)buffer - (u8*)item_weapon_trail_vertex_buffer) / 16;
+        weapon_trail_slot_bitmap[(u32)vertex_offset >> 5] = 0;
     }
 }
 
 TItemEffectWeapon::TrailVertex* TItemEffectWeapon::allocate_trail_buffer() {
-    s32* allocated = lbl_805D6FB4;
+    s32* allocated = weapon_trail_slot_bitmap;
     for (s32 i = 0; i < 16; i++) {
         if (allocated[i] == 0) {
             allocated[i] = 1;
-            return lbl_805D6FB0 + i * 32;
+            return item_weapon_trail_vertex_buffer + i * 32;
         }
     }
     return NULL;
 }
 
 void TItemEffectWeapon::free_static_effects() {
-    free__11TOBoss4RockFUi(lbl_805D6FB4);
-    free__11TOBoss4RockFUi(lbl_805D6FB0);
-    lbl_805D6FB4 = NULL;
-    lbl_805D6FB0 = NULL;
+    free__11TOBoss4RockFUi(weapon_trail_slot_bitmap);
+    free__11TOBoss4RockFUi(item_weapon_trail_vertex_buffer);
+    weapon_trail_slot_bitmap = NULL;
+    item_weapon_trail_vertex_buffer = NULL;
 }
 
 void TItemEffectWeapon::initialize_static_effects() {
-    lbl_805D6FB0 = (TrailVertex*)alloc_buffer__11TOBoss4RockFPv(16 * 32 * sizeof(TrailVertex));
-    lbl_805D6FB4 = (s32*)alloc_buffer__11TOBoss4RockFPv(16 * sizeof(s32));
+    item_weapon_trail_vertex_buffer = (TrailVertex*)alloc_buffer__11TOBoss4RockFPv(16 * 32 * sizeof(TrailVertex));
+    weapon_trail_slot_bitmap = (s32*)alloc_buffer__11TOBoss4RockFPv(16 * sizeof(s32));
     for (s32 i = 0; i < 16; i++) {
-        lbl_805D6FB4[i] = 0;
+        weapon_trail_slot_bitmap[i] = 0;
     }
 }

@@ -168,7 +168,7 @@ typedef struct Vec_8003B6E8 {
 extern "C" {
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
-extern Rec_8003C108 lbl_80483590[];
+extern Rec_8003C108 boss2_tunnel_particle_pos_table[];
 extern const f32 lbl_805D85B0;
 void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o);
 s32 get_state_flag__9TMainTaskFv();
@@ -183,8 +183,8 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK draw_ginja_object(s32);
 extern Vec_8003B2EC lbl_80435EB8[];
-extern s32 lbl_804833B8[];
-extern s32 lbl_804833D0[];
+extern s32 boss2_tunnel_model_index_table[];
+extern s32 boss2_tunnel_model_order_table[];
 extern Models_8003B2EC *boss2_tunnel_instance;
 extern Fog_8003B2EC **lbl_805D4BEC;
 void render__15TObjBoss2TunnelFv(u8 *arg0);
@@ -325,12 +325,12 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
             translate_matrix(0, (0.0f), o->fac, (0.0f));
             rotate_matrix_z(0, o->fa0);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[lbl_804833B8[t]].obj);
+            draw_ginja_object(boss2_tunnel_instance->models[boss2_tunnel_model_index_table[t]].obj);
             pop_matrix();
             push_matrix();
             rotate_matrix_z(0, o->fa8);
             translate_matrix(0, o->f98, (0.0f), (0.0f));
-            draw_ginja_object(boss2_tunnel_instance->models[lbl_804833D0[t]].obj);
+            draw_ginja_object(boss2_tunnel_instance->models[boss2_tunnel_model_order_table[t]].obj);
             pop_matrix();
             post_translate_matrix(&v);
         }
@@ -343,16 +343,16 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 struct S_8003C108;
-s32 lbl_804833B8[6] = {
+s32 boss2_tunnel_model_index_table[6] = {
     0x14, 0xe, 0xf, 0x10,
     0x11, 0x13,
 };
-s32 lbl_804833D0[12] = {
+s32 boss2_tunnel_model_order_table[12] = {
     0xc, 0x6, 0x7, 0x8,
     0x9, 0xb, 0x5, 0x0,
     0x1, 0x2, 0x3, 0x4,
 };
-void *lbl_80483400[28] = {
+void *boss2_tunnel_color_table[28] = {
     (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f19999a, (void *)0x3ecccccd,
     (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f4ccccd, (void *)0x3f000000,
     (void *)0x3f800000, (void *)0x3f4ccccd, (void *)0x3f19999a, (void *)0x3e99999a,
@@ -361,7 +361,7 @@ void *lbl_80483400[28] = {
     (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f19999a, (void *)0x3ecccccd,
     (void *)0x3f800000, (void *)0x3f800000, (void *)0x3f19999a, (void *)0x3ecccccd,
 };
-void *lbl_80483470[4] = {
+void *boss2_tunnel_color[4] = {
     (void *)0x3f800000, (void *)0x3f4ccccd, (void *)0x3f4ccccd, (void *)0x3f4ccccd,
 };
 void *lbl_80483480[15] = {
@@ -370,8 +370,8 @@ void *lbl_80483480[15] = {
     (void *)0x2, (void *)0x14, (void *)0x4, (void *)0x5,
     (void *)0x4, (void *)0x2, (void *)0xffffffff,
 };
-#define lbl_80483400 ((Col_8003B6E8 *)lbl_80483400)
-#define lbl_80483470 ((Col_8003B6E8 *)lbl_80483470)
+#define boss2_tunnel_color_table ((Col_8003B6E8 *)boss2_tunnel_color_table)
+#define boss2_tunnel_color ((Col_8003B6E8 *)boss2_tunnel_color)
 #define lbl_80483480 ((s32 *)lbl_80483480)
 void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
     f32 tmp;
@@ -608,8 +608,8 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
     }
     if (is_active__15TObjBoss2TunnelFv() == 0) {
         f32 d = o->f1c;
-        Col_8003B6E8 *a = &lbl_80483400[o->f34];
-        Col_8003B6E8 *b = &lbl_80483400[o->f38];
+        Col_8003B6E8 *a = &boss2_tunnel_color_table[o->f34];
+        Col_8003B6E8 *b = &boss2_tunnel_color_table[o->f38];
         if (d <= (2e+02f)) {
             TObjBoss2Tunnel__sub_801339EC(a->r, a->g, a->b);
         } else if (d <= (4e+02f)) {
@@ -622,7 +622,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
             TObjBoss2Tunnel__sub_801339EC(b->r, b->g, b->b);
         }
     } else {
-        TObjBoss2Tunnel__sub_801339EC(lbl_80483470->r, lbl_80483470->g, lbl_80483470->b);
+        TObjBoss2Tunnel__sub_801339EC(boss2_tunnel_color->r, boss2_tunnel_color->g, boss2_tunnel_color->b);
     }
 }
 #pragma pop
@@ -640,7 +640,7 @@ void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o) {
     for (i = 0; i < 4; i++) {
         p = o->ptr[i];
         if (p == 0) {
-            r = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&lbl_80483590[i], 0x171, 1);
+            r = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&boss2_tunnel_particle_pos_table[i], 0x171, 1);
             if (r != 0) {
                 enable__13TParticleCtrlFPv((void *)r);
                 o->ptr[i] = r;
@@ -723,9 +723,9 @@ struct S_8003C2E4 {
 };
 
 extern "C" {
-extern s32 lbl_804834BC[];
+extern s32 boss2_tunnel_queue_table[];
 extern s32 lbl_804834D4[];
-extern s32 lbl_80483550[];
+extern s32 boss2_tunnel_shift_queue_table[];
 extern s32 lbl_804834D4[];
 }
 
@@ -748,7 +748,7 @@ void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self) {
     for (i = 0; i < 5; i++) {
         self->q[i] = self->q[i + 1];
     }
-    self->q[5] = lbl_80483550[self->idx++];
+    self->q[5] = boss2_tunnel_shift_queue_table[self->idx++];
 }
 
 void copy_ring_buffer_window__15TObjBoss2TunnelFPv(S_8003C2E4 *o) {
@@ -774,7 +774,7 @@ void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self) {
     s32 i;
     s32 j;
     for (i = 0; i < n; i++) {
-        self->q[i] = lbl_804834BC[k++];
+        self->q[i] = boss2_tunnel_queue_table[k++];
     }
     for (j = 0; i < 6; i++, j++) {
         self->q[i] = lbl_804834D4[j];

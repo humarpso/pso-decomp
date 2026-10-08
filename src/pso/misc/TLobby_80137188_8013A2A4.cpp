@@ -74,7 +74,7 @@ void bswap_player_data__6TLobbyFi(s32 arg0) {
 
 void bswap_inventory__6TLobbyFPv(void* p) { bswap_32__FPUl(p); { int i; for (i = 0; i < 30; i++) { bswap__17TPlyInventoryItemFv((char*)p + 0x4 + i * 28); } } }
 
-    extern int lbl_805D5D6C;
-void set_player_count__6TLobbyFi(int a0) { lbl_805D5D6C = a0; }
+    extern int lobby_player_count;
+void set_player_count__6TLobbyFi(int a0) { lobby_player_count = a0; }
 
 }

@@ -18,10 +18,10 @@ s32 get_map_count__10TObjMapCsnFv(void);
 
 void* get_data_ptr__10TObjMapCsnFPv(void* p) { return (char*)p + 0x1c; }
 
-extern s32 lbl_805D5650;
+extern s32 map_csn_ctrl_instance;
 
 s32 get_map_count__10TObjMapCsnFv(void) {
-    return lbl_805D5650;
+    return map_csn_ctrl_instance;
 }
 void* init__10TObjMapCsnFPv(void* a0) { init_and_return__10TObjMapCsnFi((s32)(a0)); *(int*)((char*)a0 + 0x8) = -1; *(float*)((char*)a0 + 0xc) = lbl_805D9204; return a0; }
 s32 init_and_return__10TObjMapCsnFi(s32 arg0) {

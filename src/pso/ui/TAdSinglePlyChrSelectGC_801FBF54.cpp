@@ -56,7 +56,7 @@ extern u32 lbl_805D5F70;
 void alloc_char_buffers__23TAdSinglePlyChrSelectGCFv(void);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
-extern M2C_UNK lbl_80513904[];
+extern M2C_UNK char_select_date_stamp[];
 extern void *lbl_805D5F64;
 s32 update_play_time__23TAdSinglePlyChrSelectGCFv(void);
 u8 * __dt__12TPlyCharDataFv(void *, short);
@@ -67,8 +67,8 @@ s32 free_buffer__23TAdSinglePlyChrSelectGCFv(void);
 s32 free_data__23TAdSinglePlyChrSelectGCFv(void);
 s32 free__23TAdSinglePlyChrSelectGCFv(void);
 s32 clear_slot_lists__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80201970_lbl_805137D8 lbl_805137D8;
-extern RecoveredGlobal_80201970_lbl_805137F8 lbl_805137F8;
+extern RecoveredGlobal_80201970_lbl_805137D8 chr_select_buffer_ptr_table;
+extern RecoveredGlobal_80201970_lbl_805137F8 chr_select_request_buffer;
 extern u32 lbl_805D5F58;
 extern u8 *lbl_805D5F60;
 extern void *lbl_805D5F64;
@@ -112,7 +112,7 @@ void TAdSinglePlyChrSelectGC__sub_8028DC1C();
 void begin_action_from_char_select__10TObjPlayerFv();
 void *memcpy(void *, s32, s32);
 M2C_UNK memset(M2C_UNK, s32, s32);
-extern M2C_UNK lbl_80513904[];
+extern M2C_UNK char_select_date_stamp[];
 s32 init_fresh_character_card(void);
 }
 
@@ -167,7 +167,7 @@ s32 get_player_count__23TAdSinglePlyChrSelectGCFv(void) {
     return 0;
 }
 
-extern M2C_UNK lbl_80513904[];
+extern M2C_UNK char_select_date_stamp[];
 
 s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     M2C_UNK sp10[4];
@@ -175,7 +175,7 @@ s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 sp8;
 
     if (arg0 != NULL) {
-        DateToSeconds__FP9DateStampPi((M2C_UNK *)(lbl_80513904), (s32 *)(&spC));
+        DateToSeconds__FP9DateStampPi((M2C_UNK *)(char_select_date_stamp), (s32 *)(&spC));
         getDateStamp__FP9DateStamp(sp10);
         DateToSeconds__FP9DateStampPi((M2C_UNK *)(sp10), (s32 *)(&sp8));
         M2C_FIELD(arg0, s32 *, 0xC) = (s32) (M2C_FIELD(arg0, s32 *, 0xC) + (sp8 - spC));
@@ -189,9 +189,9 @@ s32 update_play_time__23TAdSinglePlyChrSelectGCFv(void) {
     s32 spC;
     s32 sp8;
     if ((void *) (*(u8 * *)&lbl_805D5F64) != NULL) {
-        DateToSeconds__FP9DateStampPi((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&lbl_80513904).value), (s32 *)(&spC));
-        getDateStamp__FP9DateStamp((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&lbl_80513904).value));
-        DateToSeconds__FP9DateStampPi((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&lbl_80513904).value), (s32 *)(&sp8));
+        DateToSeconds__FP9DateStampPi((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&char_select_date_stamp).value), (s32 *)(&spC));
+        getDateStamp__FP9DateStamp((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&char_select_date_stamp).value));
+        DateToSeconds__FP9DateStampPi((M2C_UNK *)(&(*(RecoveredGlobal_802010E8_lbl_80513904 *)&char_select_date_stamp).value), (s32 *)(&sp8));
         M2C_FIELD((*(u8 * *)&lbl_805D5F64), s32 *, 0xC) = (s32) (M2C_FIELD((*(u8 * *)&lbl_805D5F64), s32 *, 0xC) + (sp8 - spC));
         return M2C_FIELD((*(u8 * *)&lbl_805D5F64), s32 *, 0xC);
     }
@@ -259,8 +259,8 @@ s32 init_fresh_character_card(void) {
     TAdSinglePlyChrSelectGC__sub_8028DC1C();
     begin_action_from_char_select__10TObjPlayerFv();
     memset((M2C_UNK)((s32)card), (s32)(0), (s32)(0x2370));
-    getDateStamp__FP9DateStamp((M2C_UNK *)(((s32 *)&lbl_80513904)));
-    DateToSeconds__FP9DateStampPi((M2C_UNK *)(((s32 *)&lbl_80513904)), (s32 *)(&card->secs));
+    getDateStamp__FP9DateStamp((M2C_UNK *)(((s32 *)&char_select_date_stamp)));
+    DateToSeconds__FP9DateStampPi((M2C_UNK *)(((s32 *)&char_select_date_stamp)), (s32 *)(&card->secs));
     card->magic = 0xA205B064;
     card->fC = 0;
     card->f0 = 0;
@@ -524,8 +524,8 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
 }
 
 void release_all__23TAdSinglePlyChrSelectGCFv(void) {
-    free_char_data_slots__23TAdSinglePlyChrSelectGCFPv((void *) (&lbl_805137D8.value));
-    clear_slot_lists__23TAdSinglePlyChrSelectGCFPv((void *) (&lbl_805137F8.value));
+    free_char_data_slots__23TAdSinglePlyChrSelectGCFPv((void *) (&chr_select_buffer_ptr_table.value));
+    clear_slot_lists__23TAdSinglePlyChrSelectGCFPv((void *) (&chr_select_request_buffer.value));
     if ((void *) lbl_805D5F60 != NULL) {
         __dt__12TPlyCharDataFv(lbl_805D5F60, 1);
     }

@@ -17,7 +17,7 @@ struct Ent_8020C07C { u8 pad0[2]; s16 flags; u8 pad1[6]; s16 a; s16 b; u8 pad2[0
 
 extern "C" {
 s32 get_current_floor(void);
-extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
+extern QuestSavedEnemyFloor_8020C1F0 TLobby__floor_enemy_group_table[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
 s32 is_room_enemy_set_cleared(s32 floor, s16 room);
@@ -30,7 +30,7 @@ extern Ent_8020C07C *TLobby__data_805D610C;
 extern s32 TLobby__data_805D6110;
 void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set);
 s32 get_current_floor(void);
-extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
+extern QuestSavedEnemyFloor_8020C1F0 TLobby__floor_enemy_group_table[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
 s32 count_quest_enemies_flag8__6TLobbyFv(void);
@@ -87,7 +87,7 @@ s32 count_quest_enemies_flag8__6TLobbyFv(void) {
     }
     for (i = 0; i < 0x12; i++) {
         if (i != get_current_floor()) {
-            QuestSavedEnemyFloor_8020C1F0 *t = &TLobby__data_80513AD0[i];
+            QuestSavedEnemyFloor_8020C1F0 *t = &TLobby__floor_enemy_group_table[i];
             QuestSavedEnemyRow_8020C1F0 *b = t->rows;
             if (b != NULL) {
                 for (j = 0; j < t->count; j++) {
@@ -115,7 +115,7 @@ s32 is_room_enemy_set_cleared(s32 floor, s16 room) {
         }
         return 1;
     } else {
-        QuestSavedEnemyFloor_8020C1F0 *saved = &TLobby__data_80513AD0[floor];
+        QuestSavedEnemyFloor_8020C1F0 *saved = &TLobby__floor_enemy_group_table[floor];
         QuestSavedEnemyRow_8020C1F0 *row = saved->rows;
         if (row != NULL) {
             for (i = 0; i < saved->count; i++, row++) {

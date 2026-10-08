@@ -56,14 +56,14 @@ struct Faces_803E0ED4 { s32 v[6][4]; };
 
 extern "C" {
 M2C_UNK GXLoadPosMtxImm(void *, int);
-extern RecoveredGlobal_803E1D1C_lbl_804FC780 lbl_804FC780;
+extern RecoveredGlobal_803E1D1C_lbl_804FC780 gx_pos_mtx_index_table;
 extern s32 lbl_805D7774;
 void load_current_pos_matrix(s32 arg0);
 extern const f32 lbl_805E1038;
 extern const f32 lbl_805E103C;
 f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b);
 extern s32 lbl_805D7774;
-extern s32 lbl_804FC7A8[];
+extern s32 tex_matrix_id_table[];
 void GXLoadTexMtxImm(void *mtx, u32 id, s32 type);
 void load_current_tex_matrix(s32 i);
 s32 spheres_overlap(u8 *arg0, u8 *arg1);
@@ -76,7 +76,7 @@ void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct V
 void Dolphin_GXInitTexObj(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E1D90 *, s32);
-extern s32 lbl_804FC7D0[];
+extern s32 list_texture_map_table[];
 extern TexObj_803E1D90 list_texture_tex_obj;
 extern Ctx_803E1D90 *lbl_805D774C;
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
@@ -368,7 +368,7 @@ extern s8 lbl_805D77C8;
 #pragma scheduling off
 typedef char RecoveredGlobal_803E1D1C_lbl_804FC780_size[sizeof(RecoveredGlobal_803E1D1C_lbl_804FC780) == 0x28 ? 1 : -1];
 void load_current_pos_matrix(s32 arg0) {
-    GXLoadPosMtxImm((void *) (lbl_805D7774), (int) (M2C_FIELD(((u8 *)(&lbl_804FC780.value) + (arg0 * 4)), s32 *, 0)));
+    GXLoadPosMtxImm((void *) (lbl_805D7774), (int) (M2C_FIELD(((u8 *)(&gx_pos_mtx_index_table.value) + (arg0 * 4)), s32 *, 0)));
 }
 #pragma pop
 
@@ -377,7 +377,7 @@ void load_current_pos_matrix(s32 arg0) {
 #pragma push
 #pragma scheduling off
 void load_current_tex_matrix(s32 i) {
-    GXLoadTexMtxImm((void *)lbl_805D7774, lbl_804FC7A8[i], 0);
+    GXLoadTexMtxImm((void *)lbl_805D7774, tex_matrix_id_table[i], 0);
 }
 #pragma pop
 
@@ -400,7 +400,7 @@ void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
     } else {
         Dolphin_GXInitTexObj(&list_texture_tex_obj, hdr->image, hdr->width, hdr->height, hdr->format, wrapS, wrapT, mip);
     }
-    GXLoadTexObj(&list_texture_tex_obj, lbl_804FC7D0[map]);
+    GXLoadTexObj(&list_texture_tex_obj, list_texture_map_table[map]);
 }
 
 void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3) {

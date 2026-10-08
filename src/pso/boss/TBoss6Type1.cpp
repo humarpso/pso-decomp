@@ -482,7 +482,7 @@ s32 copy_vec3__11TBoss4Type2FPvPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern u8 lbl_80471014[];
 s32 get_bml_motion(s32, s32);
-extern Tbl_802B82B8 TBoss6Type1__data_804DF61C[];
+extern Tbl_802B82B8 TBoss6Type1__motion_set_table[];
 extern const s32 TBoss6Type1__data_805DE3C4;
 void spawn_effect_slot__11TBoss6Type1FPvi(u8 *arg0, s32 arg1);
 s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2);
@@ -1631,7 +1631,7 @@ void update_beam_attack__11TBoss6Type1FPv(Boss_802B7530 *self) {
     s32 n;
     s32 i;
 
-    if (motion != get_bml_motion(self->f3FC, TBoss6Type1__data_804DF61C[13].ids[1])) return;
+    if (motion != get_bml_motion(self->f3FC, TBoss6Type1__motion_set_table[13].ids[1])) return;
     if (t < lbl_805DE398 || t > lbl_805DE39C) return;
     {
     f32 end = lbl_805DE398 + self->f468;
@@ -2032,7 +2032,7 @@ void advance_animations__11TBoss6Type1FPv(Boss_802B8384 *self) {
         lim = len - TBoss6Type1__data_805DE2E4;
         if (a->t >= lim) {
             a->t = lim;
-            set_motion_set__11TBoss6Type1FPvi((void *)(self), (s32)(TBoss6Type1__data_804DF61C[self->f43C].f4));
+            set_motion_set__11TBoss6Type1FPvi((void *)(self), (s32)(TBoss6Type1__motion_set_table[self->f43C].f4));
         }
         break;
     }
@@ -2053,7 +2053,7 @@ void set_motion_set__11TBoss6Type1FPvi(void *arg0_, s32 arg1) {
     arg0->f43C = arg1;
     z = TBoss6Type1__data_805DE2D0;
     n = TBoss6Type1__data_805DE3C4;
-    t = &TBoss6Type1__data_804DF61C[arg1];
+    t = &TBoss6Type1__motion_set_table[arg1];
     arg0->f440 = t->f0;
     for (i = 0; i < n; i++) {
         a = &arg0->anim[i];

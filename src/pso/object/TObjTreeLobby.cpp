@@ -61,8 +61,8 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_80364A1C_lbl_804F2B18 TObjTreeLobby_resource_descriptor;
-extern u32 TObjTreeLobby__data_805D6FC0;
-extern s32 lbl_805D6FC4;
+extern u32 TObjTreeLobby__instance;
+extern s32 tree_lobby_type;
 void load_resources__13TObjTreeLobbyFv(void);
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
@@ -159,12 +159,12 @@ void *create__13TObjTreeLobbyFPv(void *arg0) {
     return o;
 }
 
-extern u32 TObjTreeLobby__data_805D6FC0;
+extern u32 TObjTreeLobby__instance;
 
 void destroy_static_instance__13TObjTreeLobbyFv(void) {
-    if ((u32) TObjTreeLobby__data_805D6FC0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjTreeLobby__data_805D6FC0, 1);
-        TObjTreeLobby__data_805D6FC0 = 0U;
+    if ((u32) TObjTreeLobby__instance != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjTreeLobby__instance, 1);
+        TObjTreeLobby__instance = 0U;
     }
 }
 void load_resources__13TObjTreeLobbyFv(void) {
@@ -175,8 +175,8 @@ void load_resources__13TObjTreeLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjTreeLobby_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjTreeLobby__data_805D6FC0) = var_r0;
-    lbl_805D6FC4 = get_lobby_type__6TLobbyFv();
+    (*(s32 *)&TObjTreeLobby__instance) = var_r0;
+    tree_lobby_type = get_lobby_type__6TLobbyFv();
 }
 
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1) {
@@ -200,8 +200,8 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     }
     M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjTreeLobby__data_805D6FC0, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6FC4;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjTreeLobby__instance, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) tree_lobby_type;
     return arg0;
 }
 void send_destroy_to_player__13TObjTreeLobbyFPv(Obj_80364B6C *arg0) {

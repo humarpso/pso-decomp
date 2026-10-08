@@ -28,7 +28,7 @@ struct Glob_8001EE48 { s8 value; u8 remaining[0x1F]; };
 extern "C" {
 s32 strcmp(void *, void *);
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
-extern s32 lbl_805D4AD4;
+extern s32 tmp_buf_in_use_flag;
 void TLobby__sub_8001EDF4(u8 *arg0);
 s32 get_bml_motion(Fish_8001ED9C *self, s32 i);
 s32 TObjFish__sub_8001EDB0(Fish_8001EDB0 *self, s32 i);
@@ -38,15 +38,15 @@ char *strncpy(char *d, const char *s, u32 n);
 void debug_print__6TLobbyFii(s32 arg0, ...);
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
 extern char lbl_80434AE8[];
-extern s32 lbl_805D4AD4;
-extern s32 lbl_805D4ACC;
+extern s32 tmp_buf_in_use_flag;
+extern s32 lobby_download_buffer;
 s32 tmp_buf_use_req__6TLobbyFPv(const char *name);
 s32 strcmp(void *, void *);
 void debug_print__6TLobbyFii(s32 arg0, ...);
 extern char lbl_80434AA0[];
 extern char lbl_80434AC0[];
 extern RecoveredGlobal_8001EDF4_lbl_804FE148 TLobby__tmp_buf_name;
-extern s32 lbl_805D4AD4;
+extern s32 tmp_buf_in_use_flag;
 s32 tmp_buf_release__6TLobbyFi(s32 arg0);
 }
 
@@ -70,7 +70,7 @@ s32 get_bml_model(Fish_8001EDC4 *self, s32 i) {
     return self->entries[i].c;
 }
 
-extern s32 lbl_805D4AD4;
+extern s32 tmp_buf_in_use_flag;
 
 typedef char RecoveredGlobal_8001EDF4_lbl_804FE148_size[sizeof(RecoveredGlobal_8001EDF4_lbl_804FE148) == 0x20 ? 1 : -1];
 
@@ -79,15 +79,15 @@ void TLobby__sub_8001EDD8(List_8001EDD8 *self, s32 item) {
 }
 
 void TLobby__sub_8001EDF4(u8 *arg0) {
-    if (((s32) lbl_805D4AD4 == 0) && (strcmp(&TLobby__tmp_buf_name.value, arg0) == 0)) {
-        lbl_805D4AD4 = 1;
+    if (((s32) tmp_buf_in_use_flag == 0) && (strcmp(&TLobby__tmp_buf_name.value, arg0) == 0)) {
+        tmp_buf_in_use_flag = 1;
         TLobby__tmp_buf_name.value = 0;
     }
 }
 
 s32 tmp_buf_release__6TLobbyFi(s32 arg0) {
     if (arg0 != 0) {
-        if (lbl_805D4AD4 == 1) {
+        if (tmp_buf_in_use_flag == 1) {
             debug_print__6TLobbyFii((s32)lbl_80434AA0, arg0);
             return 0;
         }
@@ -96,19 +96,19 @@ s32 tmp_buf_release__6TLobbyFi(s32 arg0) {
             return 0;
         }
     }
-    lbl_805D4AD4 = 1;
+    tmp_buf_in_use_flag = 1;
     (*(Glob_8001EE48 *)&TLobby__tmp_buf_name).value = 0;
     return 1;
 }
 
 s32 TLobby__sub_8001EEF4(void) {
-    return lbl_805D4AD4;
+    return tmp_buf_in_use_flag;
 }
 s32 tmp_buf_use_req__6TLobbyFPv(const char *name) {
-    if (lbl_805D4AD4 != 0) {
-        lbl_805D4AD4 = 0;
+    if (tmp_buf_in_use_flag != 0) {
+        tmp_buf_in_use_flag = 0;
         strncpy(((char *)&TLobby__tmp_buf_name), name, 0x20);
-        return lbl_805D4ACC;
+        return lobby_download_buffer;
     }
     debug_print__6TLobbyFii((s32)lbl_80434AE8);
     return 0;

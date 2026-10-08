@@ -185,7 +185,7 @@ s32 get_bml_motion(int, int);
 void copy_transform__11TBoss6Type2FPvPv(void* p, void* q);
 extern u8 lbl_804712BC[];
 extern u8 lbl_804712E0[];
-extern M2C_UNK TBoss6Type2__data_804DF9D4[];
+extern M2C_UNK TBoss6Type2__motion_table[];
 extern const s32 TBoss6Type2__data_805DE4B8;
 void init_motion_entries__11TBoss6Type2FPv(O_802BCEF4 *o);
 u8 * get_player_by_client_id(u32);
@@ -272,7 +272,7 @@ extern s32 lbl_8047127C[];
 extern s32 lbl_8047128C[];
 extern u8 lbl_80471294[];
 extern s32 lbl_804712AC[];
-extern u8 lbl_804DF950[];
+extern u8 boss6_type2_collision_parts[];
 extern u8 __vt__11TBoss6Type2[];
 extern s32 lbl_805D3EB8;
 extern const f32 TBoss6Type2__data_805DE40C;
@@ -792,7 +792,7 @@ f32 xyz_distance(void *, void *);
 
 extern RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C TBoss6Type2__data_8047105C;
 extern const f64 TBoss6Type2__data_804713C0;
-extern M2C_UNK TBoss6Type2__data_804DF9D4[];
+extern M2C_UNK TBoss6Type2__motion_table[];
 extern const f32 TBoss6Type2__data_805DE40C;
 extern const f32 TBoss6Type2__data_805DE410;
 extern const f32 TBoss6Type2__data_805DE41C;
@@ -2092,9 +2092,9 @@ void set_screen_pos__11TBoss6Type2FPv(void *arg0) {
         var_f1 = lbl_805DE4B4 * M2C_FIELD(arg0, f32 *, 0x4D8);
         var_f0 = lbl_805DE4B4 * M2C_FIELD(arg0, f32 *, 0x4DC);
     }
-    M2C_FIELD(TBoss6Type2__data_804DF9D4, f32 *, 0x2C) = var_f1;
-    M2C_FIELD(TBoss6Type2__data_804DF9D4, f32 *, 0x3C) = var_f1;
-    M2C_FIELD(TBoss6Type2__data_804DF9D4, f32 *, 0xEC) = var_f0;
+    M2C_FIELD(TBoss6Type2__motion_table, f32 *, 0x2C) = var_f1;
+    M2C_FIELD(TBoss6Type2__motion_table, f32 *, 0x3C) = var_f1;
+    M2C_FIELD(TBoss6Type2__motion_table, f32 *, 0xEC) = var_f0;
 }
 extern int fold_flush_12;
 #pragma pop
@@ -2291,7 +2291,7 @@ void update_motion_tracks__11TBoss6Type2FPv(Obj_802BCD2C *self) {
         lim = n - TBoss6Type2__data_805DE40C;
         if (e->t >= lim) {
             e->t = lim;
-            TBoss6Type2__sub_802BCC54(self, TBoss6Type2__data_804DF9D4[self->f490 * 4 + 1]);
+            TBoss6Type2__sub_802BCC54(self, TBoss6Type2__motion_table[self->f490 * 4 + 1]);
         }
         break;
     }
@@ -2319,10 +2319,10 @@ void init_motion_entries__11TBoss6Type2FPv(O_802BCEF4 *o) {
         Ent_802BCEF4 *e = &o->ents[i];
         s32 r;
         copy_transform__11TBoss6Type2FPvPv(e, lbl_804712E0);
-        r = get_bml_motion(o->model, ((Tb_802BCEF4 *)TBoss6Type2__data_804DF9D4)->v[i]);
+        r = get_bml_motion(o->model, ((Tb_802BCEF4 *)TBoss6Type2__motion_table)->v[i]);
         e->f14 = r;
         e->f0 = r;
-        e->f8 = *(f32 *)((u8 *)TBoss6Type2__data_804DF9D4 + 0xC);
+        e->f8 = *(f32 *)((u8 *)TBoss6Type2__motion_table + 0xC);
     }
 }
 
@@ -3015,7 +3015,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, lbl_80471068);
     copy_xyz__10TObjPlayerFPvPv(arg0 + 0x5C, lbl_80471074);
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x50, (void *)VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
-    init_collision_body_parts(arg0, lbl_804DF950, 3);
+    init_collision_body_parts(arg0, boss6_type2_collision_parts, 3);
     advance_position__11TBoss6Type2FPv(arg0);
     M2C_FIELD(arg0, f32 *, 0x310) = TBoss6Type2__data_805DE410;
     M2C_FIELD(arg0, f32 *, 0x30C) = TBoss6Type2__data_805DE410;

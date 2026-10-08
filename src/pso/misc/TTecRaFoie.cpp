@@ -139,7 +139,7 @@ void __dl__7TObjectFPv(void *);
 #define __dl__7TObjectFPv ((M2C_UNK (*)(void *))__dl__7TObjectFPv)
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
 #define destroy_technique_base__9TTecLukerFPvs ((M2C_UNK (*)(void *, int))destroy_technique_base__9TTecLukerFPvs)
-extern struct Profile_80237A94 lbl_8044D9F8[];
+extern struct Profile_80237A94 rabarta_band_emitter_table[];
 u16 obj_getField1c(void *);
 void calc_parameters__11TTecRaBartaFv(void *);
 extern M2C_UNK __vt__11TTecRaBarta[];
@@ -178,7 +178,7 @@ extern const RafoieBurst_80237DAC lbl_8044DA48[1] = {{494, 0, 1.0f}};
 extern const RafoieBurst_80237DAC lbl_8044DA54[2] = {{491, 0, 1.0f}, {494, 0, 1.0f}};
 extern const RafoieBurst_80237DAC lbl_8044DA6C[2] = {{393, 0, 1.0f}, {494, 0, 1.0f}};
 extern const RafoieBurst_80237DAC lbl_8044DA84[4] = {{396, 0, 1.0f}, {494, 0, 1.0f}, {482, 0x1000, 1.0f}, {486, 0x10, 1.0f}};
-extern const RafoieBursts_80237DAC lbl_8044DAB4[6] = {
+extern const RafoieBursts_80237DAC rafoie_burst_table[6] = {
     {(RafoieBurst_80237DAC *)lbl_8044DA48, 1}, {(RafoieBurst_80237DAC *)lbl_8044DA48, 1}, {(RafoieBurst_80237DAC *)lbl_8044DA48, 1},
     {(RafoieBurst_80237DAC *)lbl_8044DA54, 2}, {(RafoieBurst_80237DAC *)lbl_8044DA6C, 2}, {(RafoieBurst_80237DAC *)lbl_8044DA84, 4},
 };
@@ -202,8 +202,8 @@ void spawn_rafoie_explosion_bursts(Obj_80237DAC *self) {
     u32 i;
     VecCopy__FP3VecPC3Vec(&higher, &self->position);
     higher.y = (8.0f) + self->position.y;
-    for (i = 0; i < lbl_8044DAB4[self->band].count; i++) {
-        RafoieBurst_80237DAC *row = &lbl_8044DAB4[self->band].entries[i];
+    for (i = 0; i < rafoie_burst_table[self->band].count; i++) {
+        RafoieBurst_80237DAC *row = &rafoie_burst_table[self->band].entries[i];
         s32 mode = 0;
         void *p;
         if (row->flags & 0x1000) {
@@ -215,7 +215,7 @@ void spawn_rafoie_explosion_bursts(Obj_80237DAC *self) {
             p = spawn_particle_effect_with_flags(&higher, row->entry, mode);
         }
         if (p != NULL) {
-            set_position_xy__10TObjPlayerFPvff(p, lbl_8044DAB4[self->band].entries[i].scale, lbl_8044DAB4[self->band].entries[i].scale);
+            set_position_xy__10TObjPlayerFPvff(p, rafoie_burst_table[self->band].entries[i].scale, rafoie_burst_table[self->band].entries[i].scale);
         }
     }
 }
@@ -774,7 +774,7 @@ extern M2C_UNK __vt__10TTecRaFoie[];
 u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
-extern struct Profile_80238C6C TTecRaZonde__data_8044DB44[];
+extern struct Profile_80238C6C TTecRaZonde__band_profile_table[];
 void TTecRaZonde__vt6(struct Self_80238C6C *self);
 u16 obj_getField1c(void *);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
