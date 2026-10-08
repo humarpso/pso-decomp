@@ -82,7 +82,7 @@ extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
-f32 TContainerAncient01__sub_8018BE30(V_8018BE30 *self);
+f32 call_vt5_and_get_default_scale__19TContainerAncient01FPv(V_8018BE30 *self);
 extern const f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD14;
 f32 TContainerAncient01__vt22(V_8018BE98 *self);
@@ -157,7 +157,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 #pragma pop
 
-f32 TContainerAncient01__sub_8018BE30(V_8018BE30 *self) {
+f32 call_vt5_and_get_default_scale__19TContainerAncient01FPv(V_8018BE30 *self) {
     self->m20(0, TContainerAncient01__data_805DBD10);
     return TContainerAncient01__data_805DBD14;
 }

@@ -334,7 +334,7 @@ M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
     extern const float TContainerAncient01__data_805DBD1C;
 
-extern "C" void TContainerAncient01__sub_8018BE30();
+extern "C" void call_vt5_and_get_default_scale__19TContainerAncient01FPv();
 extern "C" void TContainerAncient01__sub_8018BE68();
 extern "C" void TContainerAncient01__sub_8018BE6C();
 extern "C" void TContainerAncient01__sub_8018BE74();
@@ -342,7 +342,7 @@ extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A78();
 extern "C" void TObjPlayer__sub_80010A80();
 extern "C" void TObjPlayer__sub_80011010();
-extern "C" void TObjPlayer__sub_800111D8();
+extern "C" void consume_timer_field__10TObjPlayerFPvi();
 extern "C" void TObjPlayer__sub_80014830();
 extern "C" void TObjPlayer__sub_80014838();
 extern "C" void TObjPlayer__sub_80014840();
@@ -449,10 +449,10 @@ void *lbl_804B6E1C[79] = {
     (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&update_state_machine__19TContainerAncient01FPv,
     (void *)&draw__19TContainerAncient01FPv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&is_within_range__19TContainerAncient01Fii, (void *)&TContainerAncient01__sub_8018ACC0, (void *)&save_and_send_state__19TContainerAncient01FPv, (void *)&check_item_type_range__19TContainerAncient01FPviPv,
-    (void *)&TContainerAncient01__sub_8018BE30, (void *)&TContainerAncient01__sub_8018BE68, (void *)&TContainerAncient01__sub_8018BE6C, (void *)&TContainerAncient01__sub_8018BE74,
+    (void *)&call_vt5_and_get_default_scale__19TContainerAncient01FPv, (void *)&TContainerAncient01__sub_8018BE68, (void *)&TContainerAncient01__sub_8018BE6C, (void *)&TContainerAncient01__sub_8018BE74,
     (void *)&TObjPlayer__sub_80011010, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
     (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
     (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,

@@ -501,7 +501,7 @@ void TObjEneMe3Stelth__sub_800F2E74(void *, s32);
 void TObjEneMe3Stelth__sub_800F3214(void *, s32);
 void TObjEneMe3Stelth__sub_800F348C(void *, s32);
 void state_chase_target__16TObjEneMe3StelthFPvi(void *, s32);
-void TObjEneMe3Stelth__sub_800F3BC8(void *, s32);
+void update_state_drop__16TObjEneMe3StelthFPvi(void *, s32);
 void update_state_fade_in__16TObjEneMe3StelthFPvi(void *, s32);
 void TObjEneMe3Stelth__sub_800F3FE4(void *, s32);
 void state_chase__16TObjEneMe3StelthFPvi(void *, s32);
@@ -614,7 +614,7 @@ extern "C" void render__16TObjEneMe3StelthFPv();
 extern "C" void TObjEneMe3Stelth__sub_800F4424();
 extern "C" void TObjPlayer__sub_8000FF3C();
 extern "C" void TObjPlayer__sub_80010A80();
-extern "C" void TObjPlayer__sub_800111D8();
+extern "C" void consume_timer_field__10TObjPlayerFPvi();
 extern "C" void TObjPlayer__sub_80014830();
 extern "C" void TObjPlayer__sub_80014838();
 extern "C" void TObjPlayer__sub_80014840();
@@ -750,7 +750,7 @@ void *__vt__20TObjEneMe3StelthReal[116] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__20TObjEneMe3StelthRealFv, (void *)&TObjEneMe3Stelth__sub_800F4FCC,
     (void *)&render__16TObjEneMe3StelthFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&handle_direct_attack__16TObjEneMe3StelthFPvPviPv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
@@ -797,7 +797,7 @@ void dispatch_state__16TObjEneMe3StelthFPvii(Obj_800F4598 *self, s32 arg1, s32 a
         update_state_fade_in__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 5:
-        TObjEneMe3Stelth__sub_800F3BC8(self, arg2);
+        update_state_drop__16TObjEneMe3StelthFPvi(self, arg2);
         break;
     case 6:
         state_chase_target__16TObjEneMe3StelthFPvi(self, arg2);

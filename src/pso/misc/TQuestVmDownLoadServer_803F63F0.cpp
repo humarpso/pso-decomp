@@ -148,7 +148,7 @@ extern s32 lbl_805D79E8;
 s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n);
 char *strncpy(char *, const char *, unsigned long);
 extern s32 lbl_805D79E8;
-s32 TQuestVmDownLoadServer__sub_803F7128(char *arg0, char *arg1, u32 arg2, u32 arg3);
+s32 copy_config_string__22TQuestVmDownLoadServerFPvPvUiUi(char *arg0, char *arg1, u32 arg2, u32 arg3);
 }
 
 extern "C" {
@@ -158,7 +158,7 @@ extern "C" {
 #pragma scheduling off
 #define GET(f) parse_config_int__22TQuestVmDownLoadServerFPvUi(s, n)
 #define GETL() get_config_line__22TQuestVmDownLoadServerFPvUi(s, n)
-#define CPY(dst, len) TQuestVmDownLoadServer__sub_803F7128(dst, s, n, len)
+#define CPY(dst, len) copy_config_string__22TQuestVmDownLoadServerFPvPvUiUi(dst, s, n, len)
 s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F0 *q) {
     char buf[8];
     s32 i;
@@ -339,7 +339,7 @@ s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n) {
 #pragma optimization_level 2
 #pragma scheduling off
 #pragma peephole off
-s32 TQuestVmDownLoadServer__sub_803F7128(char *arg0, char *arg1, u32 arg2, u32 arg3) {
+s32 copy_config_string__22TQuestVmDownLoadServerFPvPvUiUi(char *arg0, char *arg1, u32 arg2, u32 arg3) {
     if (arg2 <= 4) {
         *arg0 = 0;
     } else {

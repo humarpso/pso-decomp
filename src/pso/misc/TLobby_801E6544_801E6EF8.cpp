@@ -32,7 +32,7 @@ extern s32 TLobby__data_805D5580;
 extern s16 TLobby__data_805D5EC8;
 extern s16 TLobby__data_805D5ECA;
 extern s16 TLobby__data_805D5ECC;
-void TLobby__sub_801E6F40(void);
+void run_vm_helper_with_regs__6TLobbyFv(void);
 void push_op_arg__6TLobbyFi(s32);
 extern int TLobby__data_80512220[];
 extern s32 TLobby__data_805D5E74;
@@ -49,15 +49,15 @@ void TLobby__sub_801E7014(u8 a0);
 extern int TLobby__data_80512220[];
 extern u8 *TLobby__data_805D5E78;
 extern int TLobby__data_805D5EA4;
-void TLobby__sub_801E6FC4(u8 a0);
+void push_reg_ref_by_index__6TLobbyFUc(u8 a0);
 extern int TLobby__data_80512220[];
 extern s32 TLobby__data_805D5E74;
 extern int TLobby__data_805D5EA4;
-void TLobby__sub_801E6F98(u16 a0);
+void push_table_ref_by_index__6TLobbyFUs(u16 a0);
 extern int TLobby__data_80512220[];
 extern u8 *TLobby__data_805D5E78;
 extern int TLobby__data_805D5EA4;
-void TLobby__sub_801E7058(u8 a0);
+void op_push_reg_to_stack__6TLobbyFUc(u8 a0);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ void TLobby__sub_801E6F1C(void) {
 }
 
 typedef char RecoveredGlobal_801E6F40_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6F40_TLobby__data_80512220) == 0x20 ? 1 : -1];
-void TLobby__sub_801E6F40(void) {
+void run_vm_helper_with_regs__6TLobbyFv(void) {
     fn_801D9FA0((int) (TLobby__data_805D5580), (int) ((*(u16 *)&TLobby__data_805D5ECC)), (int) ((*(u16 *)&TLobby__data_805D5EC8)), (int) ((*(u16 *)&TLobby__data_805D5ECA)), (void *) (&(*(RecoveredGlobal_801E6F40_TLobby__data_80512220 *)&TLobby__data_80512220).value));
 }
 
@@ -88,11 +88,11 @@ void qst_op_arg_pushs(int a0) { int old = TLobby__data_805D5EA4; TLobby__data_80
 typedef struct RecoveredGlobal_801E7084_TLobby__data_80512220 RecoveredGlobal_801E7084_TLobby__data_80512220;
 typedef char RecoveredGlobal_801E7084_TLobby__data_80512220_size[((sizeof(RecoveredGlobal_801E7084_TLobby__data_80512220)) == 0x20) ? (1) : (-1)];
 
-void TLobby__sub_801E6F98(u16 a0) {
+void push_table_ref_by_index__6TLobbyFUs(u16 a0) {
     TLobby__data_80512220[TLobby__data_805D5EA4++] = TLobby__data_805D5E74 + a0 * 4;
 }
 
-void TLobby__sub_801E6FC4(u8 a0) {
+void push_reg_ref_by_index__6TLobbyFUc(u8 a0) {
     TLobby__data_80512220[TLobby__data_805D5EA4++] = (int)(TLobby__data_805D5E78 + a0 * 4);
 }
 
@@ -115,7 +115,7 @@ void qst_op_arg_pushl(int a0)
   TLobby__data_805D5EA4 = TLobby__data_805D5EA4 + 0x1;
   TLobby__data_80512220[new_var] = new_var3;
 }
-void TLobby__sub_801E7058(u8 a0) {
+void op_push_reg_to_stack__6TLobbyFUc(u8 a0) {
     int v = *(int *)(TLobby__data_805D5E78 + a0 * 4);
     int old = TLobby__data_805D5EA4;
     TLobby__data_805D5EA4 = old + 1;

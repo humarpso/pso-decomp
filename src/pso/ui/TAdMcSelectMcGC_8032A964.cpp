@@ -27,7 +27,7 @@ struct Alt_8032A9BC { u8 pad[0x120]; s32 f120, f124, f128, f12C, f130; };
 extern "C" {
 s32 TLobby__sub_803DA16C(void *, M2C_UNK);
 extern int TAdMcSelectMcGC__data_805D6C98;
-void TAdMcSelectMcGC__sub_8032AA54(void);
+void release_selected_entry__15TAdMcSelectMcGCFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__15TAdMcSelectMcGC[];
 extern s32 lbl_805D41D8;
@@ -69,7 +69,7 @@ Obj_8032A9BC *__ct__15TAdMcSelectMcGCFv(Obj_8032A9BC *arg0, void *arg1, s32 arg2
     return arg0;
 }
 
-void TAdMcSelectMcGC__sub_8032AA54(void) {
+void release_selected_entry__15TAdMcSelectMcGCFv(void) {
     u8 *temp_r4;
     if ((void **) (*(void ** *)&TAdMcSelectMcGC__data_805D6C98) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectMcGC__data_805D6C98));

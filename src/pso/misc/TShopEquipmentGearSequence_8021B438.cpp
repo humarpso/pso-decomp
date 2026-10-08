@@ -145,9 +145,9 @@ s32 open_greeting__26TShopEquipmentGearSequenceFPv(u8 *arg0);
 s32 restore_player_state__13TShopSequenceFPv(void *);
 void TShopEquipmentGearSequence__vt9(u8 *arg0);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
-void TShopEquipmentGearSequence__sub_8021B94C(void);
+void clear_window_slot_table__26TShopEquipmentGearSequenceFv(void);
 extern RecoveredGlobal_8021B7D0_TShopEquipmentGearSequence__data_80513EB0 TShopEquipmentGearSequence__window_slot_table;
-void TShopEquipmentGearSequence__sub_8021B924(void);
+void clear_window_slots__26TShopEquipmentGearSequenceFv(void);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
@@ -333,14 +333,14 @@ u8 *TShopEquipmentGearSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
-void TShopEquipmentGearSequence__sub_8021B924(void) {
+void clear_window_slots__26TShopEquipmentGearSequenceFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TShopEquipmentGearSequence__window_slot_table)[i] = 0;
     }
 }
 
-void TShopEquipmentGearSequence__sub_8021B94C(void) {
+void clear_window_slot_table__26TShopEquipmentGearSequenceFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TShopEquipmentGearSequence__window_slot_table)[i] = 0;

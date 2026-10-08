@@ -14,7 +14,7 @@ struct RecoveredGlobal_800FE364_lbl_8049DC78 {
 struct H_800FE32C { u8 pad[0x878]; u8 state; u8 pad879[0x88E - 0x879]; s8 flags; };
 
 extern "C" {
-s32 TObjWaitEntryHairMoveSim__sub_800FE32C(H_800FE32C *h);
+s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void TObjWaitEntryHairMoveSim__sub_800FE3C0(u8 *arg0);
 s32 create__19TObjEZBoneRotPlayerFPvPvPv(s32, s32, s32);
@@ -32,10 +32,10 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
 int is_move_done__24TObjWaitEntryHairMoveSimFv(void) {
-    return (~((int (*)(void))TObjWaitEntryHairMoveSim__sub_800FE32C)()) != 0 ? 1 : 0;
+    return (~((int (*)(void))get_move_done_result__24TObjWaitEntryHairMoveSimFPv)()) != 0 ? 1 : 0;
 }
 
-s32 TObjWaitEntryHairMoveSim__sub_800FE32C(H_800FE32C *h) {
+s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h) {
     if (!(h->flags & 0xA)) {
         return -1;
     }
@@ -99,7 +99,7 @@ void *__nw__7TObjectFUl(int);
 
 #define lbl_8049DC8C ((unsigned char *)lbl_8049DC8C)
     extern int lbl_805D2B44;
-void* construct__24TObjWaitEntryHairMoveSimFPvi(void* a0, int a1) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_8049DC8C; *(int*)((char*)a0 + 0x0) = lbl_805D2B44; *(int*)((char*)a0 + 0x20) = a1; *(int*)((char*)a0 + 0x1c) = ((int (*)(void*))TObjWaitEntryHairMoveSim__sub_800FE32C)((void*)(*(int*)((char*)a0 + 0x20))); return a0; }
+void* construct__24TObjWaitEntryHairMoveSimFPvi(void* a0, int a1) { __ct__7TObjectFP7TObject(); *(int*)((char*)a0 + 0x18) = (int)lbl_8049DC8C; *(int*)((char*)a0 + 0x0) = lbl_805D2B44; *(int*)((char*)a0 + 0x20) = a1; *(int*)((char*)a0 + 0x1c) = ((int (*)(void*))get_move_done_result__24TObjWaitEntryHairMoveSimFPv)((void*)(*(int*)((char*)a0 + 0x20))); return a0; }
 
 void * create__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
     void *o;

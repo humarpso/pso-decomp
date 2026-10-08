@@ -498,7 +498,7 @@ struct LobbyData_801352C0 {
 };
 
 extern char lbl_8043EE68[];
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF5E4(int);
+M2C_UNK load_character_from_card__23TAdSinglePlyChrSelectGCFi(int);
 u32 TLobby__data_80506A60[3];
 u32 TLobby__data_80506A6C[3252];
 u32 lbl_80509D3C[8];
@@ -662,7 +662,7 @@ void handle_6x71_unblock_game_join(void) {
             pend[i] = 0;
         }
         send_6F_burst_done__6TLobbyFPv(TLobby__data_805D5580);
-        TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
+        load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
         TLobby__data_805D5594 = 0xF;
     }
 }

@@ -157,7 +157,7 @@ void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count,
 extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
 extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E10;
-void TCameraCtrl__sub_803D66DC(Cam_803D66DC *arg0);
+void update_projection_params__11TCameraCtrlFPv(Cam_803D66DC *arg0);
 }
 
 extern "C" {
@@ -333,7 +333,7 @@ void set_screen_size(f32 farg0, f32 farg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TCameraCtrl__sub_803D66DC(Cam_803D66DC *arg0) {
+void update_projection_params__11TCameraCtrlFPv(Cam_803D66DC *arg0) {
     f32 c, b, a;
     (*(Cam_803D66DC *)&lbl_8058D4F8).f18 = a = arg0->f18;
     (*(Cam_803D66DC *)&lbl_8058D4F8).f8 = b = arg0->f8;

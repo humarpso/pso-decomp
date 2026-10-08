@@ -135,7 +135,7 @@ extern "C" {
 void TObjPlayer__sub_80010A80();
 }
 extern "C" {
-void TObjPlayer__sub_800111D8();
+void consume_timer_field__10TObjPlayerFPvi();
 }
 extern "C" {
 void TObjPlayer__sub_80014830();
@@ -424,7 +424,7 @@ void *lbl_804E135C[83] = {
     (void *)0x0, (void *)0x0, (void *)&deleting_dtor__15TObjEneMe1GiGueFPvs, (void *)&update_movement__15TObjEneMe1GiGueFPv,
     (void *)&draw_model__15TObjEneMe1GiGueFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&get_target_range__15TObjEneMe1GiGueFPv, (void *)&receive_attack__15TObjEneMe1GiGueFPviii,
     (void *)&calc_attack_range__15TObjEneMe1GiGueFPv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,

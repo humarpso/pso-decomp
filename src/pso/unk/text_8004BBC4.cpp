@@ -22,7 +22,7 @@ M2C_UNK TBoss4DarkFalz__sub_8004B084(void *);
 M2C_UNK TBoss4DarkFalz__sub_8004B0F8(void *);
 M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
 M2C_UNK update_visible_flag__14TBoss4DarkFalzFPv(void *);
-M2C_UNK TBoss4DarkFalz__sub_8004BAC4(void *);
+M2C_UNK update_roar_sound_timer__14TBoss4DarkFalzFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 query_teammate_state__9TObjEneDDFPv();
 void run_task__14TBoss4DarkFalzFv(u8 *arg0);
@@ -85,7 +85,7 @@ void run_task__14TBoss4DarkFalzFv(u8 *arg0) {
             TBoss4DarkFalz__sub_8004B0F8((void *) (arg0));
         }
         TBoss4DarkFalz__sub_8004B084((void *) (arg0));
-        TBoss4DarkFalz__sub_8004BAC4((void *) (arg0));
+        update_roar_sound_timer__14TBoss4DarkFalzFPv((void *) (arg0));
     }
 }
 

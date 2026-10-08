@@ -8,7 +8,7 @@ extern "C" {
 M2C_UNK world_to_grid_pos__11TBoss6Type2FPvPvPv(s32, u8 *, u8 *);
 void send_6xAD_olga_flow_subordinate_boss_actions(void *);
 void TBoss6Type2__sub_803570C8(void *);
-void TBoss6Type2__sub_80356E88(u8 arg0, s32 arg1, s32 arg2);
+void send_6xAD_grid_positions__11TBoss6Type2FUcii(u8 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ extern const f32 lbl_805E001C;
 extern const f32 lbl_805E0020;
 extern const f32 lbl_805E0024;
 
-void TBoss6Type2__sub_80356E88(u8 arg0, s32 arg1, s32 arg2) {
+void send_6xAD_grid_positions__11TBoss6Type2FUcii(u8 arg0, s32 arg1, s32 arg2) {
     u8 a;
     u8 b;
     u8 buf[0x44];

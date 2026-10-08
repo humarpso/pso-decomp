@@ -19,7 +19,7 @@ extern "C" {
 extern RecoveredGlobal_8033DCA8_lbl_80477F2C lbl_80477F2C;
 extern RecoveredGlobal_8033DCA8_lbl_804EFA08 lbl_804EFA08;
 extern const f32 lbl_805DFA90;
-void TObjFish__sub_8033DCA8(void);
+void copy_origin_with_y_offset__8TObjFishFv(void);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -119,7 +119,7 @@ void *create_variant__8TObjFishFPv(void *arg0) {
 
 typedef char RecoveredGlobal_8033DCA8_lbl_80477F2C_size[sizeof(RecoveredGlobal_8033DCA8_lbl_80477F2C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8033DCA8_lbl_804EFA08_size[sizeof(RecoveredGlobal_8033DCA8_lbl_804EFA08) == 0xC ? 1 : -1];
-void TObjFish__sub_8033DCA8(void) {
+void copy_origin_with_y_offset__8TObjFishFv(void) {
     M2C_FIELD(&lbl_804EFA08.value, f32 *, 0) = (f32) M2C_FIELD(&lbl_80477F2C.value, f32 *, 0);
     M2C_FIELD(&lbl_804EFA08.value, f32 *, 4) = (f32) (lbl_805DFA90 + M2C_FIELD(&lbl_80477F2C.value, f32 *, 4));
     M2C_FIELD(&lbl_804EFA08.value, f32 *, 8) = (f32) M2C_FIELD(&lbl_80477F2C.value, f32 *, 8);

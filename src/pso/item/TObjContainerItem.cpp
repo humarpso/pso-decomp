@@ -43,7 +43,7 @@ void classify_actor_view_detail();
 void TObjRoomId__sub_801A1E2C();
 void TObjPlayer__sub_80019568();
 void add_actor_exp();
-void TObjPlayer__sub_800111D8();
+void consume_timer_field__10TObjPlayerFPvi();
 void get_actor_level_index();
 void update_actor_ground_y();
 void TObjPlayer__sub_80018E6C();
@@ -52,7 +52,7 @@ void is_within_range__10TObjPlayerFPvi();
 void TObjPlayer__sub_8015C884();
 void TObjContainerAbeEnemy__vt20();
 void receive_technique_hit__17TObjContainerBaseFPviPv();
-void TObjPlayer__sub_8015C88C();
+void call_vt5_and_get_default_scale__10TObjPlayerFPv();
 void TLobby__sub_8015C8C4();
 void TLobby__sub_8015C8C8();
 void check_accuracy_hit__17TObjContainerBaseFv();
@@ -127,7 +127,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)TObjRoomId__sub_801A1E2C,
     (void *)TObjPlayer__sub_80019568,
     (void *)add_actor_exp,
-    (void *)TObjPlayer__sub_800111D8,
+    (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,
     (void *)update_actor_ground_y,
     (void *)TObjPlayer__sub_80018E6C,
@@ -136,7 +136,7 @@ void *__vt__21TObjContainerAbeEnemy[83] = {
     (void *)TObjPlayer__sub_8015C884,
     (void *)TObjContainerAbeEnemy__vt20,
     (void *)receive_technique_hit__17TObjContainerBaseFPviPv,
-    (void *)TObjPlayer__sub_8015C88C,
+    (void *)call_vt5_and_get_default_scale__10TObjPlayerFPv,
     (void *)TLobby__sub_8015C8C4,
     (void *)TLobby__sub_8015C8C8,
     (void *)check_accuracy_hit__17TObjContainerBaseFv,

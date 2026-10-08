@@ -73,7 +73,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
 void run_task__12TEneEffHamonFv(u8 *arg0);
-void TTecZondeEff__sub_800A39A8(struct Obj_800A39A8 *);
+void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_80490A18[];
 extern s32 lbl_805D29E0;
@@ -108,7 +108,7 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
-void TTecZondeEff__sub_800A39A8(struct Obj_800A39A8 *);
+void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *lbl_80500970[];
 extern s32 lbl_805D5038;

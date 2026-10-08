@@ -14,7 +14,7 @@ struct Entry_800803D4 { u8 data[0x18]; };
 extern "C" {
 void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 extern RecoveredGlobal_80080438_lbl_80438DD4 lbl_80438DD4;
-void TDuelEffectNumber__sub_80080438(u8 *arg0, f32 farg0);
+void render_number_default__17TDuelEffectNumberFPvf(u8 *arg0, f32 farg0);
 extern Entry_800803D4 lbl_80438DEC[];
 void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 void render_pair__17TDuelEffectNumberFPvf(void *self, f32 f);
@@ -47,7 +47,7 @@ void render_pair__17TDuelEffectNumberFPvf(void *self, f32 f) {
     }
 }
 
-void TDuelEffectNumber__sub_80080438(u8 *arg0, f32 farg0) {
+void render_number_default__17TDuelEffectNumberFPvf(u8 *arg0, f32 farg0) {
     TDuelEffectNumber__sub_800802F8(arg0, &lbl_80438DD4.value, farg0);
 }
 

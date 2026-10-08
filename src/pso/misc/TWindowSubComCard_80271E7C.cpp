@@ -135,7 +135,7 @@ u32 TWindowSubComCard__sub_802728CC(void *);
 u32 create_menu_window__17TWindowSubComCardFv(void *);
 u32 open_mode4_window__17TWindowSubComCardFv(void *);
 u32 TWindowSubComCard__sub_80272A98(void *);
-u32 TWindowSubComCard__sub_80272B60(void *, void *, int);
+u32 create_option_list_window__17TWindowSubComCardFPvii(void *, void *, int);
 u32 create_entry_list_window__17TWindowSubComCardFPv(void *);
 u32 TWindowSubComCard__sub_80272DE0(void *);
 u32 open_layout_window__17TWindowSubComCardFv(void *);
@@ -861,7 +861,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
         break;
     case 0x2B:
         TWindowSubComCard__sub_80249144((int) (M2C_FIELD(arg0, u32 *, 0x7C)));
-        M2C_FIELD(arg0, u32 *, 0x64) = TWindowSubComCard__sub_80272B60((void *) (arg0), (void *) ((u8 *)(arg0) + 0x30), (int) (update_selected_entry__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x7C)))));
+        M2C_FIELD(arg0, u32 *, 0x64) = create_option_list_window__17TWindowSubComCardFPvii((void *) (arg0), (void *) ((u8 *)(arg0) + 0x30), (int) (update_selected_entry__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x7C)))));
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x2CU;
     case 0x2C:
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x64))) != 0) {
@@ -963,7 +963,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
     case 0x37:
         TWindowSubComCard__sub_80249144((int) (M2C_FIELD(arg0, u32 *, 0x7C)));
         temp_r29_7 = get_card_window__17TWindowSubComCardFUi((int) (0xFFFF));
-        M2C_FIELD(arg0, u32 *, 0x64) = TWindowSubComCard__sub_80272B60((void *) (arg0), (void *) (temp_r29_7 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x7C)))));
+        M2C_FIELD(arg0, u32 *, 0x64) = create_option_list_window__17TWindowSubComCardFPvii((void *) (arg0), (void *) (temp_r29_7 + 0x22EC), (int) (update_selected_entry__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x7C)))));
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x38U;
     case 0x38:
         if (get_status_flag__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x64))) != 0) {

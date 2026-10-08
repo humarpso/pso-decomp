@@ -1209,9 +1209,9 @@ M2C_UNK vec3_add_to(void *, void *);
 extern "C" {
 void TLobby__sub_801A1FD8();
 void TObjPlayer__sub_80019568();
-void TObjPlayer__sub_800BC1F0();
+void call_vt16_with_default__10TObjPlayerFPv();
 void TObjPlayer__sub_800BC220();
-void TObjPlayer__sub_800BC394();
+void call_vt13_with_default__10TObjPlayerFPv();
 void TObjRoomId__sub_801A1E2C();
 void TParticleCtrl__sub_801A2124();
 void apply_hit_if_active__10TObjPlayerFPvPvPv();
@@ -1230,16 +1230,16 @@ void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_800C4B78(struct Obj_800C4B78 *o);
-void TObjPlayer__sub_800C4754(Obj_800C4754 *o);
+void update_falling_projectile__10TObjPlayerFPv(Obj_800C4754 *o);
 extern const u32 lbl_8043BC10[5] = { 0xF, 0x40000000, 0x40000000, 0x0, 0x1 };
 extern const char lbl_8043BC24[] = "TObjEneRe2Flower_Bomb";
 s32 lbl_805D2A50 = (s32)lbl_8043BC24;
 void *lbl_804933D8[24] = {
-    (void *)0x0, (void *)0x0, (void *)&destroy_and_free__10TObjPlayerFPvs, (void *)&TObjPlayer__sub_800C4754,
+    (void *)0x0, (void *)0x0, (void *)&destroy_and_free__10TObjPlayerFPvs, (void *)&update_falling_projectile__10TObjPlayerFPv,
     (void *)&update_equip_effect_if_active__10TObjPlayerFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&TObjPlayer__sub_800BC394, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
-    (void *)&TObjPlayer__sub_800BC220, (void *)&TObjPlayer__sub_800BC1F0, (void *)&area_attack_deliver_physical, (void *)&dispatch_vt15__10TObjPlayerFPvPv,
+    (void *)&TObjRoomId__sub_801A1E2C, (void *)&TObjPlayer__sub_80019568, (void *)&call_vt13_with_default__10TObjPlayerFPv, (void *)&hit_area_targets__10TObjPlayerFPvPviUif,
+    (void *)&TObjPlayer__sub_800BC220, (void *)&call_vt16_with_default__10TObjPlayerFPv, (void *)&area_attack_deliver_physical, (void *)&dispatch_vt15__10TObjPlayerFPvPv,
     (void *)&area_attack_apply_recoil, (void *)&area_attack_receive_direct, (void *)&apply_hit_if_active__10TObjPlayerFPvPvPv, (void *)0x0,
 };
 }
@@ -1254,7 +1254,7 @@ void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0) {
 }
 }
 extern "C" {
-void TObjPlayer__sub_800C4754(Obj_800C4754 *o) {
+void update_falling_projectile__10TObjPlayerFPv(Obj_800C4754 *o) {
     Vec_800C4754 tmp;
     Rot_800C4754 rot;
     Hit_800C4754 *hit;

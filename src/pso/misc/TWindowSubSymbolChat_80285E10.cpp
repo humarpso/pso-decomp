@@ -28,7 +28,7 @@ u16 *get_parts_entry__28TWindowSubSymbolChatPartsSetFPvi(void *, s32);
 u16 *get_parts_entry__28TWindowSubSymbolChatPartsSetFii(void *, s32);
 s32 calc_remaining_slots__20TWindowSubSymbolChatFv();
 extern const f32 lbl_805DD810;
-s32 TWindowSubSymbolChat__sub_80285E10(u8 *arg0, s8 *arg1, s32 *arg2);
+s32 select_symbol_chat_record__20TWindowSubSymbolChatFPvPvPv(u8 *arg0, s8 *arg1, s32 *arg2);
 }
 
 extern "C" {
@@ -36,7 +36,7 @@ extern "C" {
 #pragma push
 #pragma opt_lifetimes off
 #pragma opt_loop_invariants off
-s32 TWindowSubSymbolChat__sub_80285E10(u8 *arg0, s8 *arg1, s32 *arg2) {
+s32 select_symbol_chat_record__20TWindowSubSymbolChatFPvPvPv(u8 *arg0, s8 *arg1, s32 *arg2) {
     Data_80285E10 *temp_r28;
     s32 var_r31;
     s16 temp_r0;

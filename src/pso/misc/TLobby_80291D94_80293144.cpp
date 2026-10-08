@@ -116,7 +116,7 @@ struct G_802932EC {
 
 extern "C" {
 void copy_struct__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-void TLobby__sub_8029379C(void);
+void copy_global_value_block__6TLobbyFv(void);
 void clear_card_status_flags__6TLobbyFv(void);
 s32 get_main_phase();
 s32 is_split_screen();
@@ -590,7 +590,7 @@ C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
 }
 typedef char RecoveredGlobal_8029379C_lbl_804DAB60_size[sizeof(RecoveredGlobal_8029379C_lbl_804DAB60) == 0x690 ? 1 : -1];
 typedef char RecoveredGlobal_8029379C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8029379C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
-void TLobby__sub_8029379C(void) {
+void copy_global_value_block__6TLobbyFv(void) {
     *(M2CCopy_690 *)(&(*(RecoveredGlobal_8029379C_lbl_804DB1F0 *)&lbl_804DB1F0).value) = *(const M2CCopy_690 *)(&lbl_804DAB60.value);
 }
 

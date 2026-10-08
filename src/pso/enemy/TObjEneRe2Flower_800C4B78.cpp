@@ -1136,9 +1136,9 @@ int queue_destruction__7TObjectFv(void*);
 extern "C" {
 void TLobby__sub_801A1FD8();
 void TObjPlayer__sub_80019568();
-void TObjPlayer__sub_800BC1F0();
+void call_vt16_with_default__10TObjPlayerFPv();
 void TObjPlayer__sub_800BC220();
-void TObjPlayer__sub_800BC394();
+void call_vt13_with_default__10TObjPlayerFPv();
 void TObjRoomId__sub_801A1E2C();
 void TParticleCtrl__sub_801A2124();
 void apply_hit_if_active__10TObjPlayerFPvPvPv();

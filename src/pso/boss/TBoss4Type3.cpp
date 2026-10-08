@@ -976,7 +976,7 @@ extern "C" u8 TObjPlayer__sub_80010A84[];
 extern "C" u8 TObjPlayer__sub_80010B44[];
 extern "C" void TObjPlayer__sub_80011010();
 extern "C" u8 TObjPlayer__sub_8001119C[];
-extern "C" void TObjPlayer__sub_800111D8();
+extern "C" void consume_timer_field__10TObjPlayerFPvi();
 extern "C" u8 TObjPlayer__sub_80011210[];
 extern "C" u8 TObjPlayer__sub_80011704[];
 extern "C" u8 TObjPlayer__sub_80011824[];
@@ -1177,7 +1177,7 @@ void *lbl_80487184[83] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__11TBoss4Type3FPvs, (void *)&TBoss4Type3__sub_8005A88C,
     (void *)&TBoss4Type3__sub_8005A86C, (void *)&TObjPlayer__sub_800F5E08, (void *)&TLobby__sub_801A1FD8, (void *)&fn_801A1F48,
     (void *)&TObjPlayer__sub_80018F64, (void *)&TObjPlayer__sub_80018F5C, (void *)&fn_801A2340, (void *)&fn_801A212C,
-    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&TObjPlayer__sub_80011210, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&TObjPlayer__sub_80011210, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&TObjPlayer__sub_8001119C, (void *)&TObjPlayer__sub_80018EE4, (void *)&TObjPlayer__sub_80018E6C, (void *)&TObjPlayer__sub_80011704,
     (void *)&TObjPlayer__sub_80016454, (void *)&TObjPlayer__sub_80015DE8, (void *)&TObjPlayer__sub_80014108, (void *)&TObjPlayer__sub_8001311C,
     (void *)&TObjPlayer__sub_80011824, (void *)&TObjPlayer__sub_8001401C, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&TObjPlayer__sub_800162E0,

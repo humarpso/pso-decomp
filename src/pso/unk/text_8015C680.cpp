@@ -13,7 +13,7 @@ struct Obj_8015C88C {
 extern "C" {
 extern const f32 lbl_805DB398;
 extern const f32 lbl_805DB39C;
-f32 TObjPlayer__sub_8015C88C(Obj_8015C88C *self);
+f32 call_vt5_and_get_default_scale__10TObjPlayerFPv(Obj_8015C88C *self);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 u32 *alloc_buffer__11TOBoss4RockFPv(u32);
@@ -83,7 +83,7 @@ void load_container_fragment_textures__9TLanguageFv(void) {
 
 int TObjPlayer__sub_8015C884(void) { return 1; }
 
-f32 TObjPlayer__sub_8015C88C(Obj_8015C88C *self) {
+f32 call_vt5_and_get_default_scale__10TObjPlayerFPv(Obj_8015C88C *self) {
     self->m20(0, lbl_805DB398);
     return lbl_805DB39C;
 }

@@ -83,7 +83,7 @@ void TLobby__sub_801A1FD8();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A80();
 void TObjPlayer__sub_80011010();
-void TObjPlayer__sub_800111D8();
+void consume_timer_field__10TObjPlayerFPvi();
 void TObjPlayer__sub_80014830();
 void TObjPlayer__sub_80014838();
 void TObjPlayer__sub_80014840();
@@ -174,7 +174,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)get_enemy_name__14TObjEnePanarmsFPv,
     (void *)TObjPlayer__sub_80019568,
     (void *)add_actor_exp,
-    (void *)TObjPlayer__sub_800111D8,
+    (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,
     (void *)update_actor_ground_y,
     (void *)TObjPlayer__sub_80018E6C,

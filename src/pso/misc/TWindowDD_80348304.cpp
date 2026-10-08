@@ -18,7 +18,7 @@ struct W_80348520 {
 };
 
 extern "C" {
-M2C_UNK TWindowDD__sub_80343BC0(int, void *);
+M2C_UNK copy_chat_entry__9TWindowDDFPvPv(int, void *);
 M2C_UNK reset_selection__9TWindowDDFPv(void *, void *);
 void TWindowDD__sub_803484C4(u8 *arg0);
 s32 get_mode_code__9TWindowDDFPv(u8 *arg0);
@@ -116,7 +116,7 @@ void set_state__9TWindowDDFPv(void* p) { *(int*)((char*)p + 0xa8) = 3; close_all
 
 void TWindowDD__sub_803484C4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xA8) = 2;
-    TWindowDD__sub_80343BC0((int) (M2C_FIELD(arg0, s32 *, 0xC0)), (void *) (arg0 + 0xC4));
+    copy_chat_entry__9TWindowDDFPvPv((int) (M2C_FIELD(arg0, s32 *, 0xC0)), (void *) (arg0 + 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) != 0) {
         reset_selection__9TWindowDDFPv((void *) (arg0), (void *) (arg0 + 0xC4));
     }

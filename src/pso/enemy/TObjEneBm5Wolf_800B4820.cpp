@@ -2576,7 +2576,7 @@ void classify_actor_view_detail(void);
 void get_enemy_name__14TObjEnePanarmsFPv(void);
 void TObjPlayer__sub_80019568(void);
 void add_actor_exp(void);
-void TObjPlayer__sub_800111D8(void);
+void consume_timer_field__10TObjPlayerFPvi(void);
 void get_actor_level_index(void);
 void update_actor_ground_y(void);
 void TObjPlayer__sub_80018E6C(void);
@@ -2681,7 +2681,7 @@ void *lbl_804922F8[107] = {
     (void *)get_enemy_name__14TObjEnePanarmsFPv,
     (void *)TObjPlayer__sub_80019568,
     (void *)add_actor_exp,
-    (void *)TObjPlayer__sub_800111D8,
+    (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,
     (void *)update_actor_ground_y,
     (void *)TObjPlayer__sub_80018E6C,

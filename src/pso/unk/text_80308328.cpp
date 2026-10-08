@@ -12,12 +12,12 @@ M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 void fire_shot_from_icon__10TObjPlayerFPv(u8 *arg0);
 void fn_80308244();
 s32 apply_config_if_valid__13TAdVIConfigGCFii(s32, s32);
-void TObjPlayer__sub_80308328(void *self, T_80308328 *p);
+void init_hit_callback_config__10TObjPlayerFPvPv(void *self, T_80308328 *p);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80308328(void *self, T_80308328 *p) {
+void init_hit_callback_config__10TObjPlayerFPvPv(void *self, T_80308328 *p) {
     p->f74 = (void *)fn_80308244;
     p->f70 = (void *)apply_config_if_valid__13TAdVIConfigGCFii;
     p->f50 = -0x4000;

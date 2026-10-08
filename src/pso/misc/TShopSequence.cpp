@@ -39,7 +39,7 @@ void free_member_0x28_variant__13TShopSequenceFPv(void* p);
 void free_member__13TShopSequenceFPv(void* p);
 void restore_player_state__13TShopSequenceFPv(void *arg0);
 s32 update_download_server__13TShopSequenceFPv(void *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32);
+s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32);
 s32 activate_body_collision__10TObjPlayerFPv();
 s32 deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
@@ -99,7 +99,7 @@ void free_member_0x28_variant__13TShopSequenceFPv(void* p) { void* m = *(void**)
 void free_member__13TShopSequenceFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) show_message__17TMedicalCenterMesFPvii(m); }
 void close_if_single_screen__13TShopSequenceFv(void) {
     if ((get_game_mode__23TAdSinglePlyChrSelectGCFv() != 0) && (is_split_screen() == 0)) {
-        TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
+        load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
     }
 }
 void close_window__13TShopSequenceFPv(void *arg0) {

@@ -33,7 +33,7 @@ extern u32 lbl_805D79C0;
 extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
-void TAdPlayerLoadGC__sub_803F389C(s32 chan);
+void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
 M2C_UNK memset(void *, int, int);
 extern Slot_803F3478 lbl_805A28E0[];
 void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
@@ -57,7 +57,7 @@ M2C_UNK memset(void *, int, int);
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 extern Slot_803F3478 lbl_805A28E0[];
 extern S_803F3328 lbl_805A29B0[];
-s32 TAdPlayerLoadGC__sub_803F3690(s32 chan, const char *name);
+s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 }
 
 extern "C" {
@@ -156,7 +156,7 @@ s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
 #pragma push
 #pragma opt_dead_assignments off
 #pragma optimize_for_size off
-s32 TAdPlayerLoadGC__sub_803F3690(s32 chan, const char *name) {
+s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name) {
     s32 i;
     s32 *pc;
     s32 idx;
@@ -193,7 +193,7 @@ s32 TAdPlayerLoadGC__sub_803F3690(s32 chan, const char *name) {
 }
 #pragma pop
 
-void TAdPlayerLoadGC__sub_803F389C(s32 chan) {
+void unmount_card__15TAdPlayerLoadGCFi(s32 chan) {
     CARDUnmount(chan);
 }
 s32 take_network_info_load_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {

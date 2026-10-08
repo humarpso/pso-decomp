@@ -244,7 +244,7 @@ s32 test_input_flag_4__9TWindowDDFPv(void *);
 M2C_UNK set_state__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803484C4(void *);
 void run_task__9TWindowDDFv(u8 *arg0);
-void TWindowDD__sub_80343BC0(R_80343BC0 *arg0, R_80343BC0 *arg1);
+void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1);
 }
 
 extern "C" {
@@ -565,7 +565,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
                 case 0:
                     play_sound__9TWindowDDFv();
                     TWindowDD__sub_803484C4(w);
-                    TWindowDD__sub_80343BC0((R_80343BC0 *)(w->xC0), (R_80343BC0 *)(&w->xE0));
+                    copy_chat_entry__9TWindowDDFPvPv((R_80343BC0 *)(w->xC0), (R_80343BC0 *)(&w->xE0));
                     break;
                 case 1:
                     play_se__9TWindowDDFv();
@@ -603,7 +603,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
                 w->xA8 = 1;
                 set_clamped_selection__9TWindowDDFPvi(w->x80, get_cursor_index__9TWindowDDFPv((int)w->subs[w->idx]));
                 TWindowDD__sub_80341AE0((int)cur);
-                TWindowDD__sub_80343BC0((R_80343BC0 *)(&w->xE0), (R_80343BC0 *)(&w->xC4));
+                copy_chat_entry__9TWindowDDFPvPv((R_80343BC0 *)(&w->xE0), (R_80343BC0 *)(&w->xC4));
                 if (w->xE0 > 0) {
                     w->xE0--;
                     TWindowDD__sub_80347CC8(w, &w->xE0);
@@ -632,7 +632,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
 
 #pragma push
 #pragma optimization_level 1
-void TWindowDD__sub_80343BC0(R_80343BC0 *arg0, R_80343BC0 *arg1) {
+void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1) {
     u32 a, b;
     arg0->a = arg1->a;
     arg0->b = arg1->b;

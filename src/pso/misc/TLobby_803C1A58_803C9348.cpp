@@ -312,7 +312,7 @@ s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i);
 extern volatile s32 lbl_805D759C;
 extern volatile s32 lbl_805D75C8;
 extern s32 lbl_805D75C4;
-void TLobby__sub_803CBBB0(void);
+void wait_for_lock_release__6TLobbyFv(void);
 extern const char *const volatile lbl_805E0D78;
 void ARAlloc(void);
 void TLobby__sub_803CB81C(void);
@@ -1372,7 +1372,7 @@ void TLobby__sub_803CBB14(void) {
     lbl_805D75B4 = 1;
 }
 
-void TLobby__sub_803CBBB0(void) {
+void wait_for_lock_release__6TLobbyFv(void) {
     while (lbl_805D75C8 == 1) {
         lbl_805D759C++;
     }

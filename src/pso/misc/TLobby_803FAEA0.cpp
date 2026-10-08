@@ -496,13 +496,13 @@ void TLobby__sub_803F8AA0(u8 *arg0);
 extern RecoveredGlobal_803F8A0C_lbl_805B9534 lbl_805B9534;
 void TLobby__sub_803F8A0C(u8 *arg0);
 extern RecoveredGlobal_8041552C_lbl_805C1BE0 lbl_805C1BE0;
-s16 TLobby__sub_8041552C(s16 arg0);
+s16 get_slot_offset_or_default__6TLobbyFs(s16 arg0);
 u8 *TLobby__sub_803FB110(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 void TLobby__sub_804050DC(s16 arg0);
 extern RecoveredGlobal_803FD520_lbl_805C0310 lbl_805C0310;
 extern s16 lbl_805D7A7A;
-s16 TLobby__sub_803FD520(s16 arg0);
+s16 get_checked_status_value__6TLobbyFs(s16 arg0);
 void apply_default_params__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
 void init_buffer_descriptor_a__6TLobbyFPv(u8 *arg0);
@@ -646,7 +646,7 @@ extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
 u8 * TLobby__sub_80413264(void *, s32);
 s32 TLobby__sub_80413230(u8 *arg0, s32 arg1);
-s32 TLobby__sub_8040A19C(s16);
+s32 is_slot_flag_0x20_set__6TLobbyFs(s16);
 void TLobby__sub_804136AC(s16 arg0);
 s32 TLobby__sub_8040A25C(s16);
 void TLobby__sub_804136CC(s16 arg0);
@@ -1363,7 +1363,7 @@ s32 TLobby__sub_803FD4D8(s16 arg0);
 s32 TLobby__sub_803FD4FC(s16 arg0);
 
 typedef char RecoveredGlobal_803FD520_lbl_805C0310_size[sizeof(RecoveredGlobal_803FD520_lbl_805C0310) == 0x18 ? 1 : -1];
-s16 TLobby__sub_803FD520(s16 arg0);
+s16 get_checked_status_value__6TLobbyFs(s16 arg0);
 
 struct E_803FD560 { s16 a; s16 b; };
 struct G_803FD560 { s16 id; E_803FD560 e[2]; };
@@ -2446,7 +2446,7 @@ s32 TLobby__sub_804154E4(s16 arg0);
 s32 TLobby__sub_80415508(s16 arg0);
 
 typedef char RecoveredGlobal_8041552C_lbl_805C1BE0_size[sizeof(RecoveredGlobal_8041552C_lbl_805C1BE0) == 0x18 ? 1 : -1];
-s16 TLobby__sub_8041552C(s16 arg0);
+s16 get_slot_offset_or_default__6TLobbyFs(s16 arg0);
 
 struct E_80415558 { s16 a; s16 b; };
 struct G_80415558 { s16 h; E_80415558 e[2]; };

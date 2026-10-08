@@ -108,7 +108,7 @@ s32 get_window_layout_position(M2C_UNK);
 u8 * get_message_10__17TWindowSubComCardFPvPv(void *p, void *a1);
 extern const f32 TWindowSubComCard__data_805DD514;
 extern const f32 lbl_805DD518;
-s32 TWindowSubComCard__sub_80272B60(u8 *arg0, s32 arg1, s32 arg2);
+s32 create_option_list_window__17TWindowSubComCardFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 obj_isState3_324(void *);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 s32 is_script_controlled__10TObjPlayerFPv(void *);
@@ -312,7 +312,7 @@ typedef void *(*GetMsg_80272CB0)(void *, void *);
 
 #pragma push
 #pragma opt_loop_invariants off
-s32 TWindowSubComCard__sub_80272B60(u8 *arg0, s32 arg1, s32 arg2) {
+s32 create_option_list_window__17TWindowSubComCardFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 i;
     s32 count;
     s32 idx;

@@ -1498,7 +1498,7 @@ void dispatch_story_select_by_op__6TLobbyFi(s32 arg0);
 void TLobby__sub_801E7408(void);
 void spawn_lobby_object__6TLobbyFv(void);
 void close_active_window__6TLobbyFi(int a0);
-void TLobby__sub_801E76A8(s32 arg0);
+void op_play_sound_from_reg__6TLobbyFi(s32 arg0);
 void create_help_window__6TLobbyFv(void);
 void send_data__6TLobbyFv(void);
 void fill_player_present_flags__6TLobbyFUc(u8 out);
@@ -1531,15 +1531,15 @@ void update_card_window_slot__6TLobbyFv(void);
 void TLobby__sub_801E85B4(void);
 void op_cos__6TLobbyFv(void);
 void op_sin__6TLobbyFv(void);
-void TLobby__sub_801E871C(u8 reg, s32 val);
-void TLobby__sub_801E8750(u8 reg, u8 src);
-void TLobby__sub_801E8784(u8 reg, s32 val);
-void TLobby__sub_801E87B8(u8 reg, u8 src);
-void TLobby__sub_801E87EC(u8 reg, s32 val);
-void TLobby__sub_801E8820(u8 reg, u8 src);
-void TLobby__sub_801E8854(u8 reg, s32 val);
-void TLobby__sub_801E8888(u8 reg, u8 src);
-void TLobby__sub_801E88BC(s32 arg0, s32 arg1);
+void op_fdiv_reg__6TLobbyFUci(u8 reg, s32 val);
+void op_fdiv_reg_reg__6TLobbyFUcUc(u8 reg, u8 src);
+void mul_reg_by_immediate_float__6TLobbyFUci(u8 reg, s32 val);
+void mul_reg_by_reg_float__6TLobbyFUcUc(u8 reg, u8 src);
+void sub_register_float_imm__6TLobbyFUci(u8 reg, s32 val);
+void sub_register_float_reg__6TLobbyFUcUc(u8 reg, u8 src);
+void add_imm_float_to_reg__6TLobbyFUci(u8 reg, s32 val);
+void add_reg_to_reg_float__6TLobbyFUcUc(u8 reg, u8 src);
+void op_move_reg_reg__6TLobbyFii(s32 arg0, s32 arg1);
 void TLobby__sub_801E905C(void);
 void TLobby__sub_801E9084(void);
 void clear_flag__6TLobbyFv(void);
@@ -1547,8 +1547,8 @@ void free_child__6TLobbyFv(void);
 void set_partner_dialogue_for_slot__6TLobbyFUcUcPv(u8 a0, u8 a1, void *a2);
 void compute_path_point__6TLobbyFv(void);
 void calc_path_point__6TLobbyFv(void);
-void TLobby__sub_801E9388(u8 a0, u8 a1);
-void TLobby__sub_801E93B4(u8 src, u8 dst);
+void load_reg_table_f28__6TLobbyFUcUc(u8 a0, u8 a1);
+void load_reg_table_f20__6TLobbyFUcUc(u8 src, u8 dst);
 int TLobby__sub_801E93E0(void* p);
 void TLobby__sub_801E9400(void);
 void set_fixed_camera_from_table__6TLobbyFv(void);
@@ -1591,13 +1591,13 @@ void TLobby__sub_801E9EFC(void);
 void TLobby__sub_801E9F14(void);
 void TLobby__sub_801E9F2C(void);
 void TLobby__sub_801E9F50(void);
-void TLobby__sub_801E9F74(void);
+void load_reg_from_signed_byte__6TLobbyFv(void);
 void set_unit_list_flag__6TLobbyFi(s32 arg0);
 void set_unit_name_flag__6TLobbyFi(s32 arg0);
 void set_handler__6TLobbyFi(int a0);
 void store_card_stats__6TLobbyFUc(u8 i);
 void TLobby__sub_801EA1B4(s32 arg0);
-void TLobby__sub_801EA240(s32 arg0);
+void op_set_reg_from_flag__6TLobbyFi(s32 arg0);
 void TLobby__sub_801EA274(void);
 void quest_set_player_shrink_size(s32 player_variable, s32 size_variable);
 void spawn_symbolchat_colli__6TLobbyFUc(u8 i);
@@ -1608,7 +1608,7 @@ void TLobby__sub_801EA690(s32 arg0);
 void handle_split_screen__6TLobbyFv(void);
 void apply_split_screen__6TLobbyFv(void);
 void TLobby__sub_801EA7A0(s32 arg0);
-void TLobby__sub_801EA7E8(void);
+void load_setting_13_from_table__6TLobbyFv(void);
 void draw_or_send__6TLobbyFv(void);
 void TLobby__sub_801EA84C(s32 arg0);
 void TLobby__sub_801EA8E8(void);
@@ -1665,10 +1665,10 @@ void init_window__6TLobbyFv(void);
 void init_state__6TLobbyFv(void);
 void TLobby__sub_801EC43C(void);
 void write_mag_stats__6TLobbyFi(s32 i);
-void TLobby__sub_801EC5E4(void);
-void TLobby__sub_801EC624(void);
+void add_to_free_slot__6TLobbyFv(void);
+void clear_reg_block__6TLobbyFv(void);
 void TLobby__sub_801EC64C(void);
-void TLobby__sub_801EC664(void);
+void load_setting_17_from_table__6TLobbyFv(void);
 void TLobby__sub_801EC694(void);
 void update_main_phase__6TLobbyFv(int _w0, int _w1);
 void handle_player_event_from_data__6TLobbyFv(void);
@@ -1686,7 +1686,7 @@ void TLobby__sub_801EC90C(void);
 void TLobby__sub_801EC93C(void);
 void TLobby__sub_801EC954(void);
 void TLobby__sub_801EC984(void);
-void TLobby__sub_801EC9CC(void);
+void copy_clamped_setting_to_slot__6TLobbyFv(void);
 void TLobby__sub_801EC9F8(void);
 void TLobby__sub_801ECA1C(void);
 void TLobby__sub_801ECF2C(s32 arg0);
@@ -1878,7 +1878,7 @@ void qst_op_jmp_off(s32 arg0, u8 arg1, u8 *arg2);
 void qst_op_jmp_on(s32 arg0, u8 arg1, u8 *arg2);
 void qst_op_call(u16 arg0);
 void TLobby__sub_801F2214(s32 arg0, u32 arg1);
-void TLobby__sub_801F2234(s32 arg0, s32 arg1);
+void op_mod_reg__6TLobbyFii(s32 arg0, s32 arg1);
 void qst_op_jmp(int a0);
 void qst_op_xori(s32 arg0, s32 arg1);
 void qst_op_xor(s32 arg0, s32 arg1);
@@ -2343,7 +2343,7 @@ void spawn_lobby_object__6TLobbyFv(void) {
 
 void close_active_window__6TLobbyFi(int a0) { TLobby__data_805D5E78[(unsigned char)(a0)] = -1; TLobby__data_805D5E88 = a0; TLobby__data_805D5E98 = 12; set_flag_bit2__11TWindowCtrlFv(); ((int (*)(void*))close_window_if_active)((void*)((*(int *)&lbl_805D53A0))); ((int (*)(void))request_active_window_close)(); ((int (*)(void))set_close_flag__11TWindowCtrlFv)(); }
 
-void TLobby__sub_801E76A8(s32 arg0) {
+void op_play_sound_from_reg__6TLobbyFi(s32 arg0) {
     if ((u32) TLobby__data_805D5EC0 != 0U) {
         fn_80278518((void *) (TLobby__data_805D5EBC), (int) (M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))));
     }
@@ -2775,7 +2775,7 @@ void op_sin__6TLobbyFv(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E871C(u8 reg, s32 val) {
+void op_fdiv_reg__6TLobbyFUci(u8 reg, s32 val) {
     U_801E871C b;
     U_801E871C a;
     a.i = val;
@@ -2789,7 +2789,7 @@ void TLobby__sub_801E871C(u8 reg, s32 val) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E8750(u8 reg, u8 src) {
+void op_fdiv_reg_reg__6TLobbyFUcUc(u8 reg, u8 src) {
     U_801E8750 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + reg * 4);
     b.f /= *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + src * 4);
@@ -2801,7 +2801,7 @@ void TLobby__sub_801E8750(u8 reg, u8 src) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E8784(u8 reg, s32 val) {
+void mul_reg_by_immediate_float__6TLobbyFUci(u8 reg, s32 val) {
     U_801E8784 b;
     U_801E8784 a;
     a.i = val;
@@ -2815,7 +2815,7 @@ void TLobby__sub_801E8784(u8 reg, s32 val) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E87B8(u8 reg, u8 src) {
+void mul_reg_by_reg_float__6TLobbyFUcUc(u8 reg, u8 src) {
     U_801E87B8 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + reg * 4);
     b.f *= *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + src * 4);
@@ -2827,7 +2827,7 @@ void TLobby__sub_801E87B8(u8 reg, u8 src) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E87EC(u8 reg, s32 val) {
+void sub_register_float_imm__6TLobbyFUci(u8 reg, s32 val) {
     U_801E87EC b;
     U_801E87EC a;
     a.i = val;
@@ -2841,7 +2841,7 @@ void TLobby__sub_801E87EC(u8 reg, s32 val) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E8820(u8 reg, u8 src) {
+void sub_register_float_reg__6TLobbyFUcUc(u8 reg, u8 src) {
     U_801E8820 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + reg * 4);
     b.f -= *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + src * 4);
@@ -2853,7 +2853,7 @@ void TLobby__sub_801E8820(u8 reg, u8 src) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E8854(u8 reg, s32 val) {
+void add_imm_float_to_reg__6TLobbyFUci(u8 reg, s32 val) {
     U_801E8854 b;
     U_801E8854 a;
     a.i = val;
@@ -2867,7 +2867,7 @@ void TLobby__sub_801E8854(u8 reg, s32 val) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E8888(u8 reg, u8 src) {
+void add_reg_to_reg_float__6TLobbyFUcUc(u8 reg, u8 src) {
     U_801E8888 b;
     b.f = *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + reg * 4);
     b.f += *(f32 *)((*(s32 *)&TLobby__data_805D5E78) + src * 4);
@@ -2879,7 +2879,7 @@ void TLobby__sub_801E8888(u8 reg, u8 src) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E88BC(s32 arg0, s32 arg1) {
+void op_move_reg_reg__6TLobbyFii(s32 arg0, s32 arg1) {
     M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + ((arg0 * 4) & 0x3FC)), s32 *, 0) = (s32) M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + ((arg1 * 4) & 0x3FC)), f32 *, 0);
 }
 #pragma pop
@@ -3131,7 +3131,7 @@ void calc_path_point__6TLobbyFv(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9388(u8 a0, u8 a1) {
+void load_reg_table_f28__6TLobbyFUcUc(u8 a0, u8 a1) {
     ((s32 *)(*(s32 *)&TLobby__data_805D5E78))[a1] = lbl_8050E208[((s32 *)(*(s32 *)&TLobby__data_805D5E78))[a0]].f28;
 }
 #pragma pop
@@ -3140,7 +3140,7 @@ void TLobby__sub_801E9388(u8 a0, u8 a1) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E93B4(u8 src, u8 dst) {
+void load_reg_table_f20__6TLobbyFUcUc(u8 src, u8 dst) {
     *(s32 *)((*(s32 *)&TLobby__data_805D5E78) + dst * 4) = lbl_8050E208[*(s32 *)((*(s32 *)&TLobby__data_805D5E78) + src * 4)].f20;
 }
 #pragma pop
@@ -3658,7 +3658,7 @@ void TLobby__sub_801E9F50(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801E9F74(void) {
+void load_reg_from_signed_byte__6TLobbyFv(void) {
     M2C_FIELD(((*(s32 *)&TLobby__data_805D5E78) + ((M2C_FIELD(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0) * 4) & 0x3FC)), s32 *, 0) = (s32) (s8) M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_801E9F74_TLobby__data_80512220 *)&TLobby__data_80512220).value, u8 **, 4), u8 *, 0);
 }
 #pragma pop
@@ -3784,7 +3784,7 @@ void TLobby__sub_801EA1B4(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EA240(s32 arg0) {
+void op_set_reg_from_flag__6TLobbyFi(s32 arg0) {
     if ((s32) lbl_805D4C24 != 0) {
         M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
         return;
@@ -4054,7 +4054,7 @@ void TLobby__sub_801EA7A0(s32 arg0) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EA7E8(void) {
+void load_setting_13_from_table__6TLobbyFv(void) {
     u32 v = ((u32 *)&TLobby__data_80512220)[0];
     if (v < 2) {
         (*(G_801EA7E8 *)&TLobby__data_80512360).f13 = lbl_80449B10[v];
@@ -5582,7 +5582,7 @@ void give_pending_item_to_local_player__6TLobbyFv(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EC5E4(void) {
+void add_to_free_slot__6TLobbyFv(void) {
     s32 i;
     s32 v = ((s32 *)&TLobby__data_80512220)[0];
     for (i = 0; i < 8; i++) {
@@ -5607,7 +5607,7 @@ void TLobby__sub_801EC5E4(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EC624(void) {
+void clear_reg_block__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 8; i++) {
         lbl_80511CB0[i] = 0;
@@ -5646,7 +5646,7 @@ void TLobby__sub_801EC64C(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EC664(void) {
+void load_setting_17_from_table__6TLobbyFv(void) {
     if ((u32) (*(RecoveredGlobal_801EC90C_TLobby__data_80512220 *)&TLobby__data_80512220).value <= 0x1U) {
         M2C_FIELD(&(*(RecoveredGlobal_801EC90C_TLobby__data_80512360 *)&TLobby__data_80512360).value, s8 *, 0x11) = (s8) M2C_FIELD(((u8 *)(&lbl_80449B08.value) + ((*(RecoveredGlobal_801EC90C_TLobby__data_80512220 *)&TLobby__data_80512220).value * 4)), s32 *, 0);
     }
@@ -5987,7 +5987,7 @@ void TLobby__sub_801EC984(void) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TLobby__sub_801EC9CC(void) {
+void copy_clamped_setting_to_slot__6TLobbyFv(void) {
     u32 var_r0;
     var_r0 = (*(RecoveredGlobal_801EC9CC_TLobby__data_80512220 *)&TLobby__data_80512220).value;
     if ((var_r0 != 0xFFU) && (var_r0 > 0x1DU)) {
@@ -8503,7 +8503,7 @@ void TLobby__sub_801F2214(s32 arg0, u32 arg1) {
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) % arg1;
 }
 
-void TLobby__sub_801F2234(s32 arg0, s32 arg1) {
+void op_mod_reg__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = (arg0 * 4) & 0x3FC;
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) = M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, temp_r5) % M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg1 * 4) & 0x3FC));

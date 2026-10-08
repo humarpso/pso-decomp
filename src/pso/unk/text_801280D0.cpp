@@ -13,7 +13,7 @@ extern s32 tl_05;
 u8 *create_state_variant__10TObjPlayerFPv(u8 *arg0);
 extern const f32 lbl_805DADE0;
 extern const f32 lbl_805DADE4;
-void TObjPlayer__sub_80128128(Obj_80128128 *self);
+void decay_gauge_c_to_floor_b__10TObjPlayerFPv(Obj_80128128 *self);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ u8 *create_state_variant__10TObjPlayerFPv(u8 *arg0) {
     }
     return NULL;
 }
-void TObjPlayer__sub_80128128(Obj_80128128 *self) {
+void decay_gauge_c_to_floor_b__10TObjPlayerFPv(Obj_80128128 *self) {
     if (lbl_805DADE0 < self->c) {
         self->c -= lbl_805DADE4;
         if (self->c < lbl_805DADE0) {

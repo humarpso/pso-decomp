@@ -184,7 +184,7 @@ void TLobby__sub_801A1FD8();
 void TObjPlayer__sub_8000FF3C();
 void TObjPlayer__sub_80010A80();
 void TObjPlayer__sub_80011010();
-void TObjPlayer__sub_800111D8();
+void consume_timer_field__10TObjPlayerFPvi();
 void TObjPlayer__sub_80014830();
 void TObjPlayer__sub_80014838();
 void TObjPlayer__sub_80014840();
@@ -274,7 +274,7 @@ void *lbl_804EDDEC[83] = {
     (void *)0x0, (void *)0x0, (void *)fn_8033068C, (void *)update_main__11TBoss6Type2FPv,
     (void *)TObjPlayer__sub_8033051C, (void *)render_actor_shadows_default, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
     (void *)reset_actor_action_state, (void *)get_actor_body_center, (void *)update_object_view_visibility, (void *)classify_actor_view_detail,
-    (void *)get_enemy_name__14TObjEnePanarmsFPv, (void *)TObjPlayer__sub_80019568, (void *)add_actor_exp, (void *)TObjPlayer__sub_800111D8,
+    (void *)get_enemy_name__14TObjEnePanarmsFPv, (void *)TObjPlayer__sub_80019568, (void *)add_actor_exp, (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index, (void *)update_actor_ground_y, (void *)TObjPlayer__sub_80018E6C, (void *)is_actor_cadence_frame,
     (void *)select_melee_contact_body__10TObjPlayerFv, (void *)calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)get_conditional_rate__10TObjPlayerFPv, (void *)fn_80330240,
     (void *)receive_weapon_special_attack__10TObjPlayerFv, (void *)apply_knockback_from_attacker, (void *)try_start_action__10TObjPlayerFPvii, (void *)roll_physical_accuracy__10TObjPlayerFv,
@@ -420,7 +420,7 @@ f32 subtract_vector(void *, int);
 void turn_toward_target__11TBoss6Type2FPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void push_out_of_rocks__10TBoss6RockFPvf(void *, f32);
-void TBoss6Type2__sub_80356E88(s32, void *, s32);
+void send_6xAD_grid_positions__11TBoss6Type2FUcii(s32, void *, s32);
 s32 rand(void);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
@@ -857,7 +857,7 @@ void spawn_falling_rocks__11TBoss6Type2FPv(u8 *arg0) {
         p->z = r * ((f32 (*)(s32))cos_table_lookup)(ang) + p->z;
         push_out_of_rocks__10TBoss6RockFPvf(p, (1e+01f));
     }
-    TBoss6Type2__sub_80356E88(M2C_FIELD(arg0, s32 *, 0x384), pts, 3);
+    send_6xAD_grid_positions__11TBoss6Type2FUcii(M2C_FIELD(arg0, s32 *, 0x384), pts, 3);
 }
 #pragma pop
 

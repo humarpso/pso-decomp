@@ -1023,7 +1023,7 @@ extern const f32 lbl_805DA87C;
 extern const f32 lbl_805DA880;
 s32 enemy_has_live_target(void *);
 f32 get_node_world_y__16TObjEneMe3StelthFPv(void *);
-void TObjEneMe3Stelth__sub_800F3BC8(u8 *arg0, s32 arg1) {
+void update_state_drop__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     M2C_UNK update_distance_state__16TObjEneMe3StelthFPv(void *);
     f32 temp_f1;
     f32 temp_f1_2;

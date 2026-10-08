@@ -9,7 +9,7 @@ struct RecoveredGlobal_802F1AE0_lbl_804E4AD4 { M2C_UNK value; u8 remaining[0x14]
 
 extern "C" {
 extern const f32 lbl_805DEC98;
-void TObjBoss2Tunnel__sub_802F1A58(u8 *arg0);
+void advance_wrapped_scroll__15TObjBoss2TunnelFPv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
 s32 get_bml_model(void *, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -28,7 +28,7 @@ void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804E4AD4[];
 
-void TObjBoss2Tunnel__sub_802F1A58(u8 *arg0) {
+void advance_wrapped_scroll__15TObjBoss2TunnelFPv(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + lbl_805DEC98);

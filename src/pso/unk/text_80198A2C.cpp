@@ -410,7 +410,7 @@ void create_timer__11TWindowCtrlFv(void);
 extern M2C_UNK lbl_804B8E00[];
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
 void handle_6x79_gogo_ball(u8 *arg0);
-void TWindowTimer__sub_80199078(void);
+void clear_status_flags__12TWindowTimerFv(void);
 M2C_UNK direction_to_rotation_xz(void *, void *, void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -436,7 +436,7 @@ void __dt__7TObjectFv(void *, int);
 
 extern M2C_UNK lbl_804B8E00[];
 
-void TWindowTimer__sub_80199078(void) {
+void clear_status_flags__12TWindowTimerFv(void) {
     (*(G_80199078 *)&lbl_8050DDAC).flags &= ~1;
     (*(G_80199078 *)&lbl_8050DDAC).flags &= ~2;
     (*(G_80199078 *)&lbl_8050DDAC).flags &= ~0x10;

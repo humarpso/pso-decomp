@@ -390,7 +390,7 @@ extern s32 lbl_804DF614[];
 extern const f32 TBoss6Type1__data_805DE2D0;
 void draw_part_motions__11TBoss6Type1FPv(Boss_802B81A4 *arg0);
 extern const s32 lbl_805DE3C8;
-void TBoss6Type1__sub_802B8384(Boss_802B8384 *self);
+void advance_animations__11TBoss6Type1FPv(Boss_802B8384 *self);
 }
 
 extern "C" {
@@ -1999,7 +1999,7 @@ void draw_part_motions__11TBoss6Type1FPv(Boss_802B81A4 *arg0) {
 
 void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
 
-void TBoss6Type1__sub_802B8384(Boss_802B8384 *self) {
+void advance_animations__11TBoss6Type1FPv(Boss_802B8384 *self) {
     s32 cur;
     s32 i;
     Anim_802B8384 *a;

@@ -329,7 +329,7 @@ M2C_UNK render_tick__Fv();
 M2C_UNK create_quad_sprites__13TParticleCtrlFv();
 M2C_UNK create_floor_quest_thread();
 void *__ct__12TQuestThreadFv(void *, u32, M2C_UNK);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FF5E4(M2C_UNK);
+M2C_UNK load_character_from_card__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 M2C_UNK TLobby__sub_80207E24(void *, M2C_UNK);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK clear_ready_flag_unless_locked__6TLobbyFPv(void *);
@@ -841,7 +841,7 @@ M2C_UNK change_floor_reload_area(void) {
     process_deferred_player_setup__6TLobbyFv();
     create_floor_quest_thread();
     if (r != 0) {
-        TAdSinglePlyChrSelectGC__sub_801FF5E4(0);
+        load_character_from_card__23TAdSinglePlyChrSelectGCFi(0);
     }
     if (lbl_805D5EEC != 0) {
         q = __nw__7TObjectFUl(0x194);

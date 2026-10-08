@@ -148,7 +148,7 @@ extern "C" {
 s32 obj_is_hit_receivable(void *);
 void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
-void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o);
+void init_hit_effect_config__10TObjPlayerFPvPv(Obj_80126180 *self, Out_80126180 *o);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
@@ -170,7 +170,7 @@ void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1) {
 }
 #pragma pop
 
-void TObjPlayer__sub_80126180(Obj_80126180 *self, Out_80126180 *o) {
+void init_hit_effect_config__10TObjPlayerFPvPv(Obj_80126180 *self, Out_80126180 *o) {
     if (self->b == 0) {
         o->f74 = (void *)apply_hit_to_target__10TObjPlayerFiPv;
     }

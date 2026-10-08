@@ -42,7 +42,7 @@ typedef struct S_802C4E38 {
 
 extern "C" {
 extern const f32 lbl_805DE548;
-bool TAdPlyChrSelPlateGC__sub_802C4D5C(O_802C4D5C *self, s32 i);
+bool is_slot_value_ready__19TAdPlyChrSelPlateGCFPvi(O_802C4D5C *self, s32 i);
 extern const f32 lbl_805DE54C;
 void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -56,7 +56,7 @@ void run_task__19TAdPlyChrSelPlateGCFv(S_802C4E38 *self);
 
 extern "C" {
 
-bool TAdPlyChrSelPlateGC__sub_802C4D5C(O_802C4D5C *self, s32 i) {
+bool is_slot_value_ready__19TAdPlyChrSelPlateGCFPvi(O_802C4D5C *self, s32 i) {
     return (self->v[i] >= lbl_805DE548) ? true : false;
 }
 void reset_selection_slots__19TAdPlyChrSelPlateGCFPv(S_802C4D88 *arg0) {

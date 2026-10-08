@@ -56,7 +56,7 @@ int TSaveChCr__sub_8033A138(void);
 void close_window__9TSaveChCrFPv(void *arg0);
 void *create__9TSaveChCrFPv(void *arg0);
 void save_character__9TSaveChCrFPv(void* p);
-int TAdSinglePlyChrSelectGC__sub_801FF5E4(void*);
+int load_character_from_card__23TAdSinglePlyChrSelectGCFi(void*);
 s32 TWindow__close(void *);
 void *__nw__7TObjectFUl(int);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
@@ -84,8 +84,8 @@ void create_backgrounds__9TSaveChCrFPv(void *arg0) {
     M2C_FIELD(arg0, void **, 0x34) = o2;
 }
 
-int TSaveChCr__sub_8033A138(void) { return TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)(0)); }
-void save_character__9TSaveChCrFPv(void* p) { begin_action_from_char_select__10TObjPlayerFv(p); TAdSinglePlyChrSelectGC__sub_801FF5E4((void*)1); }
+int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)(0)); }
+void save_character__9TSaveChCrFPv(void* p) { begin_action_from_char_select__10TObjPlayerFv(p); load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)1); }
 
 extern void *tl_03;
 

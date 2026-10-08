@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern const f32 lbl_805DAD98;
 extern const f32 lbl_805DAD9C;
-void TObjPlayer__sub_80126D78(u8 *arg0);
+void ramp_up_gauge_1fc_to_cap__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80126D78(u8 *arg0) {
+void ramp_up_gauge_1fc_to_cap__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f2;
     temp_f2 = M2C_FIELD(arg0, f32 *, 0x1FC);
     if (temp_f2 < lbl_805DAD9C) {

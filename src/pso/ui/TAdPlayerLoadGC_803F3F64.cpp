@@ -107,8 +107,8 @@ s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, Save_803F3F64 *arg1, s32 arg2, s32 arg3);
 s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
-s32 TAdPlayerLoadGC__sub_803F3690(s32 arg0, const char *arg1);
-void TAdPlayerLoadGC__sub_803F389C(s32 chan);
+s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1);
+void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
 s32 take_network_info_load_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 arg0);
 void init_net_config_defaults__23TAdSinglePlyChrSelectGCFv(void);
@@ -169,11 +169,11 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
         s->x8 = 7;
     case 7:
         get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 1);
-        lbl_805A82C0.x10 = TAdPlayerLoadGC__sub_803F3690(TAdPlayerLoadGC__sub_803F4B24(), "sega_network_information");
+        lbl_805A82C0.x10 = begin_card_file_request__15TAdPlayerLoadGCFiPv(TAdPlayerLoadGC__sub_803F4B24(), "sega_network_information");
         if (lbl_805A82C0.x10 < 0) {
             get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
             lbl_805A82C0.a = lbl_805A82C0.x10;
-            TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+            unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
             lbl_805A82C0.result = -204;
             s->x8 = 27;
             break;
@@ -183,7 +183,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
         lbl_805A82C0.a = finish_load_slot_state3__15TAdPlayerLoadGCFiPv(TAdPlayerLoadGC__sub_803F4B24(), &lbl_805A82C0.b);
         if (lbl_805A82C0.a < 0) {
             get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-            TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+            unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
             lbl_805A82C0.result = -204;
             s->x8 = 27;
             break;
@@ -203,7 +203,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
             if (lbl_805D79A0 == NULL) {
                 close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
                 get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-                TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+                unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
                 lbl_805A82C0.result = -4;
                 s->x8 = 27;
                 break;
@@ -223,7 +223,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
             lbl_805D79A0 = NULL;
             close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
             get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-            TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+            unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
             lbl_805A82C0.result = -205;
             s->x8 = 27;
             break;
@@ -235,7 +235,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
             if (lbl_805D79A0->size <= 0 || (u32)lbl_805D79A0->size > 0x23B8) {
                 close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
                 get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-                TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+                unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
                 lbl_805A82C0.result = -30;
                 s->x8 = 27;
             } else {
@@ -243,7 +243,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                 if (lbl_805A82C0.a != 0) {
                     close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
                     get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-                    TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+                    unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
                     lbl_805A82C0.result = -31;
                     s->x8 = 27;
                 } else {
@@ -254,7 +254,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                         init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                         close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
                         get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-                        TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+                        unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
                         lbl_805A82C0.result = -32;
                         s->x8 = 27;
                     } else {
@@ -265,7 +265,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                             init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                             close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
                             get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-                            TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+                            unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
                             lbl_805A82C0.result = -33;
                             s->x8 = 27;
                         } else {
@@ -302,7 +302,7 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
         lbl_805D79A0 = NULL;
         close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);
         get_or_set_channel_flag__15TAdPlayerLoadGCFii(TAdPlayerLoadGC__sub_803F4B24(), 0);
-        TAdPlayerLoadGC__sub_803F389C(TAdPlayerLoadGC__sub_803F4B24());
+        unmount_card__15TAdPlayerLoadGCFi(TAdPlayerLoadGC__sub_803F4B24());
         break;
     }
 }

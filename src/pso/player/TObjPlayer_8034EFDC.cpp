@@ -150,7 +150,7 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
 u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
 void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o);
+void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o);
 u32 find_item_by_id(void);
 void spawn_fire_explosion_at_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_player_list__10TObjPlayerFv();
@@ -378,7 +378,7 @@ s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
     }
 }
 
-void TObjPlayer__sub_8034F590(void *a, O_8034F590 *o) {
+void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o) {
     o->f74 = (void *)spawn_fire_explosion_at_item__10TObjPlayerFii;
     o->f70 = (void *)spawn_fire_explosion_for_item__10TObjPlayerFii;
     o->flags |= 0x80;

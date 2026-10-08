@@ -944,7 +944,7 @@ void render_with_position_override__10TObjPlayerFPvPvi(u8 *arg0, u8 *arg1, s32 a
 s32 try_spend_actor_meseta(u8 *arg0, s32 arg1);
 s32 get_actor_level_index(void* p);
 s32 add_capped_counter_999__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1);
+s32 consume_timer_field__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 add_actor_exp(u8 *arg0, s32 arg1);
 int get_tp_materials_clamped__10TObjPlayerFPv(u8 *arg0);
 s32 add_actor_tp_bonus(O_80011274 *self, s32 x);
@@ -1766,7 +1766,7 @@ s32 add_capped_counter_999__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     return 1;
 }
 
-s32 TObjPlayer__sub_800111D8(u8 *arg0, s32 arg1) {
+s32 consume_timer_field__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
     temp_r5 = M2C_FIELD(arg0, u8 **, 0x2B0);
@@ -2115,7 +2115,7 @@ void *lbl_804806E8[] = {
     (void *)TObjRoomId__sub_801A1E2C,
     (void *)TObjPlayer__sub_80019568,
     (void *)add_actor_exp,
-    (void *)TObjPlayer__sub_800111D8,
+    (void *)consume_timer_field__10TObjPlayerFPvi,
     (void *)get_actor_level_index,
     (void *)update_actor_ground_y,
     (void *)TObjPlayer__sub_80018E6C,

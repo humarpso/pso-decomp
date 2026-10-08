@@ -71,7 +71,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
 void run_task__12TEneEffHamonFv(u8 *arg0);
-void TTecZondeEff__sub_800A39A8(struct Obj_800A39A8 *);
+void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_80490A18[];
 extern s32 lbl_805D29E0;
@@ -106,7 +106,7 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
-void TTecZondeEff__sub_800A39A8(struct Obj_800A39A8 *);
+void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *lbl_80500970[];
 extern s32 lbl_805D5038;
@@ -165,7 +165,7 @@ M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805D99F4;
 #pragma push
 #pragma fp_contract on
-void TTecZondeEff__sub_800A39A8(Obj_800A39A8 *o) {
+void build_beam_points__12TTecZondeEffFPv(Obj_800A39A8 *o) {
     f32 len;
     f32 ax;
     f32 ay;
@@ -414,7 +414,7 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
 void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
     s32 i;
     if (self->active != 0) {
-        TTecZondeEff__sub_800A39A8((Obj_800A39A8 *)self);
+        build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)self);
         lbl_805D5038 = *lbl_80500970[0][self->type].inner->p;
         for (i = 0; i < self->count; i++) {
             self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(self->timer * 0x1800) + lbl_805D9A04);
@@ -450,7 +450,7 @@ u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0x330) = 0;
     M2C_FIELD(arg0, s32 *, 0x334) = 0;
     M2C_FIELD(arg0, s32 *, 0x344) = arg4;
-    TTecZondeEff__sub_800A39A8((Obj_800A39A8 *)arg0);
+    build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)arg0);
     M2C_FIELD(arg0, s32 *, 0x328) = 0;
     M2C_FIELD(arg0, s32 *, 0x32C) = 0xFF000000;
     M2C_FIELD(arg0, s32 *, 0x340) = 0;

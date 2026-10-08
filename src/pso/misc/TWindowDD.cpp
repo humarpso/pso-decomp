@@ -43,7 +43,7 @@ extern const f32 lbl_805DFC00;
 extern const f32 lbl_805DFC04;
 extern const f32 lbl_805DFC08;
 extern const f32 lbl_805DFC2C;
-void TWindowDD__sub_80340A44(void);
+void init_layout_constants__9TWindowDDFv(void);
 extern const f32 lbl_805DFC30;
 void reset_entries__9TWindowDDFPvf(E_803403F8 *p, f32 v);
 }
@@ -249,7 +249,7 @@ void *create__9TWindowDDFv(void) {
     return o;
 }
 
-void TWindowDD__sub_80340A44(void) {
+void init_layout_constants__9TWindowDDFv(void) {
     lbl_804EFB90[0] = TWindowDD__data_805DFBFC;
     lbl_804EFB90[1] = lbl_805DFC00;
     lbl_804EFB98[0] = lbl_805DFC04;

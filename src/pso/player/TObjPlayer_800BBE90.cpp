@@ -145,9 +145,9 @@ struct P_800BC250 : VB_800BC250 {
 
 extern "C" {
 extern const f32 lbl_805D9EB4;
-void TObjPlayer__sub_800BC1F0(u8 *arg0);
+void call_vt16_with_default__10TObjPlayerFPv(u8 *arg0);
 extern const f32 lbl_805D9EB4;
-void TObjPlayer__sub_800BC394(u8 *arg0);
+void call_vt13_with_default__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_800BBFD0 *dst, const Vec_800BBFD0 *src);
 void subtract_vector(Vec_800BBFD0 *a, Vec_800BBFD0 *b);
 void clamp_velocity__15TObjBoss2TunnelFPv(void *p);
@@ -292,7 +292,7 @@ s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_800BC1F0(u8 *arg0) {
+void call_vt16_with_default__10TObjPlayerFPv(u8 *arg0) {
     ((VObj *)arg0)->m16(lbl_805D9EB4);
 }
 #pragma pop
@@ -340,7 +340,7 @@ s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, v
     return hit;
 }
 
-void TObjPlayer__sub_800BC394(u8 *arg0) {
+void call_vt13_with_default__10TObjPlayerFPv(u8 *arg0) {
     ((VObj *)arg0)->m13(lbl_805D9EB4);
 }
 

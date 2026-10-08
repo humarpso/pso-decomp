@@ -34,7 +34,7 @@ extern u32 lbl_805D79C0;
 extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
-void TAdPlayerLoadGC__sub_803F389C(s32 chan);
+void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
 M2C_UNK memset(void *, int, int);
 void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDClose(void *);

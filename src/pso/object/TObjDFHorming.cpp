@@ -18,7 +18,7 @@ s32 rand();
 extern const f32 lbl_805D8918;
 extern const f32 lbl_805D8930;
 extern const f32 lbl_805D8934;
-void TBoss4DarkFalz__sub_8004BAC4(void *arg0);
+void update_roar_sound_timer__14TBoss4DarkFalzFPv(void *arg0);
 }
 
 extern "C" {
@@ -680,7 +680,7 @@ void freeze_all_players__14TBoss4DarkFalzFPv(void *self) {
 #pragma push
 #pragma opt_common_subs off
 #pragma fp_contract on
-void TBoss4DarkFalz__sub_8004BAC4(void *arg0) {
+void update_roar_sound_timer__14TBoss4DarkFalzFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);

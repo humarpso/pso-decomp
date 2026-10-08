@@ -82,9 +82,9 @@ void set_ginja_blend_param(u32 x);
 void GXSetAlphaCompare(s32 comp0, s32 ref0, s32 op, s32 comp1, s32 ref1);
 void ginja_set_alpha_compare(s32 ref);
 extern S_803DB560 lbl_8058CD80;
-void TObjPlayer__sub_803DBB38(u32 v);
+void set_global_color_rgba_alt_b__10TObjPlayerFUi(u32 v);
 extern S_803DB560 lbl_8058CD80;
-void TObjPlayer__sub_803DBAF8(u32 v);
+void set_global_color_rgba__10TObjPlayerFUi(u32 v);
 extern S_803DB560 lbl_8058CD80;
 extern s32 some_id_805c6f74;
 extern s32 lbl_804FC5A4[];
@@ -354,7 +354,7 @@ void set_ginja_material_color(u32 v) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DBAF8(u32 v) {
+void set_global_color_rgba__10TObjPlayerFUi(u32 v) {
     (*(S_803DBAF8 *)&lbl_8058CD80).c.r = (v & 0xFF000000) >> 24;
     (*(S_803DBAF8 *)&lbl_8058CD80).c.g = (v & 0xFF0000) >> 16;
     (*(S_803DBAF8 *)&lbl_8058CD80).c.b = (v & 0xFF00) >> 8;
@@ -365,7 +365,7 @@ void TObjPlayer__sub_803DBAF8(u32 v) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DBB38(u32 v) {
+void set_global_color_rgba_alt_b__10TObjPlayerFUi(u32 v) {
     (*(S_803DBB38 *)&lbl_8058CD80).c.r = (v & 0xFF000000) >> 24;
     (*(S_803DBB38 *)&lbl_8058CD80).c.g = (v & 0xFF0000) >> 16;
     (*(S_803DBB38 *)&lbl_8058CD80).c.b = (v & 0xFF00) >> 8;

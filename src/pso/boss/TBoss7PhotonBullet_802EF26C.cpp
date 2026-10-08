@@ -252,12 +252,12 @@ u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 ar
 extern "C" {
 void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFPv();
 void TParticleCtrl__sub_801A2124(); void update_object_view_visibility(); void classify_actor_view_detail();
-void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568(); void TObjPlayer__sub_800BC394();
-void area_attack_deliver_direct(); void TObjPlayer__sub_800BC220(); void TObjPlayer__sub_800BC1F0();
+void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568(); void call_vt13_with_default__10TObjPlayerFPv();
+void area_attack_deliver_direct(); void TObjPlayer__sub_800BC220(); void call_vt16_with_default__10TObjPlayerFPv();
 void area_attack_deliver_physical(); void dispatch_vt15__10TObjPlayerFPvPv(); void area_attack_apply_recoil();
 void area_attack_receive_direct(); void apply_hit_if_active__10TObjPlayerFPvPvPv();
 void *__vt__18TBoss7PhotonBullet[23] = {
-    0, 0, (void *)__dt__18TBoss7PhotonBulletFv, (void *)run_task__18TBoss7PhotonBulletFv, (void *)render__18TBoss7PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568, (void *)TObjPlayer__sub_800BC394, (void *)area_attack_deliver_direct, (void *)TObjPlayer__sub_800BC220, (void *)TObjPlayer__sub_800BC1F0, (void *)area_attack_deliver_physical, (void *)dispatch_vt15__10TObjPlayerFPvPv, (void *)area_attack_apply_recoil, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__10TObjPlayerFPvPvPv
+    0, 0, (void *)__dt__18TBoss7PhotonBulletFv, (void *)run_task__18TBoss7PhotonBulletFv, (void *)render__18TBoss7PhotonBulletFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568, (void *)call_vt13_with_default__10TObjPlayerFPv, (void *)area_attack_deliver_direct, (void *)TObjPlayer__sub_800BC220, (void *)call_vt16_with_default__10TObjPlayerFPv, (void *)area_attack_deliver_physical, (void *)dispatch_vt15__10TObjPlayerFPvPv, (void *)area_attack_apply_recoil, (void *)area_attack_receive_direct, (void *)apply_hit_if_active__10TObjPlayerFPvPvPv
 };
 void *__vt__15TBoss7PhotonPad[6] = {
     0, 0, (void *)__dt__15TBoss7PhotonPadFv, (void *)run_task__15TBoss7PhotonPadFv, (void *)render__15TBoss7PhotonPadFv, (void *)render_shadows__7TObjectFv

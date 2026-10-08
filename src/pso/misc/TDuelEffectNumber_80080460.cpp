@@ -12,7 +12,7 @@ void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D9330;
 void run_task__17TDuelEffectStringFv(u8 *arg0);
 void render_pair__17TDuelEffectNumberFPvf(s32, f32);
-void TDuelEffectNumber__sub_80080438(void *, f32);
+void render_number_default__17TDuelEffectNumberFPvf(void *, f32);
 void calc_digit_transform__17TDuelEffectNumberFiPvPvi(s32 arg0, f32 *arg1, f32 *arg2, s32 arg3);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
@@ -91,7 +91,7 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
     switch (temp_r0) {
     case 0:
-        TDuelEffectNumber__sub_80080438(arg0, spC);
+        render_number_default__17TDuelEffectNumberFPvf(arg0, spC);
         break;
     case 1:
         render_pair__17TDuelEffectNumberFPvf((s32) arg0, spC);

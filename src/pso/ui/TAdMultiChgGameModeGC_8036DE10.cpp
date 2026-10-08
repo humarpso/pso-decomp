@@ -127,7 +127,7 @@ extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 u32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv(void);
-void TAdMultiChgGameModeGC__sub_8036E7DC(void *self);
+void update_mode_selection__21TAdMultiChgGameModeGCFPv(void *self);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036DEDC(void *self);
 M2C_UNK TWindow__close(void *);
@@ -466,7 +466,7 @@ void check_player_load_result__21TAdMultiChgGameModeGCFPv(void *arg0) {
     }
 }
 
-void TAdMultiChgGameModeGC__sub_8036E7DC(void *self) {
+void update_mode_selection__21TAdMultiChgGameModeGCFPv(void *self) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(self) != 0) {
         return;
     }

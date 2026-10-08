@@ -86,7 +86,7 @@ extern u32 lbl_805D5F64;
 extern s32 lbl_805D5F78;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F84;
-s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32 arg0);
+s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 }
 
 extern "C" {
@@ -174,7 +174,7 @@ void clear_load_buffers__23TAdSinglePlyChrSelectGCFv(void) {
     }
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FF5E4(s32 arg0) {
+s32 load_character_from_card__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 ret;
     u8 *obj;
     u32 buf;

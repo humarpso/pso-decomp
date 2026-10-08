@@ -1972,7 +1972,7 @@ extern "C" {
 void TBoss8Dragon__sub_800615FC();
 }
 extern "C" {
-void TBoss8Dragon__sub_800618CC(u8 *arg0, s32 arg1);
+void update_dive_motion__12TBoss8DragonFPvi(u8 *arg0, s32 arg1);
 }
 extern "C" {
 void TBoss8Dragon__sub_80061B8C();
@@ -2089,7 +2089,7 @@ extern "C" {
 void TObjPlayer__sub_80010A80();
 }
 extern "C" {
-void TObjPlayer__sub_800111D8();
+void consume_timer_field__10TObjPlayerFPvi();
 }
 extern "C" {
 void TObjPlayer__sub_80014830();
@@ -2500,7 +2500,7 @@ void *lbl_80487CD8[213] = {
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80062114, (void *)0x0, (void *)0xffffffff,
     (void *)&TBoss8Dragon__sub_80062018, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061D34,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061B8C, (void *)0x0,
-    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800618CC, (void *)0x0, (void *)0xffffffff,
+    (void *)0xffffffff, (void *)&update_dive_motion__12TBoss8DragonFPvi, (void *)0x0, (void *)0xffffffff,
     (void *)&TBoss8Dragon__sub_800615FC, (void *)0x0, (void *)0xffffffff, (void *)&handle_descend_state__12TBoss8DragonFPvi,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8006116C, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800610D0, (void *)0x0, (void *)0xffffffff,
@@ -2601,7 +2601,7 @@ void *lbl_804882C8[107] = {
     (void *)0x0, (void *)0x0, (void *)&TBoss8Dragon__sub_80065658, (void *)&update_main__12TBoss8DragonFPv,
     (void *)&TBoss8Dragon__sub_8005DF60, (void *)&update_unless_demo__12TBoss8DragonFPv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
-    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
     (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
     (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
     (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
@@ -3725,7 +3725,7 @@ extern const f32 lbl_805D8E10;
 extern const f32 lbl_805D8DE4;
 #pragma push
 #pragma fp_contract on
-void TBoss8Dragon__sub_800618CC(u8 *arg0, s32 arg1) {
+void update_dive_motion__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
     f32 speed;
     f32 f;
     f32 d;

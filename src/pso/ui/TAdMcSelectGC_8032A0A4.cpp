@@ -27,7 +27,7 @@ void set_float_1c__13TAdMcSelectGCFPvf(void* p, f32 v);
 void set_select_index__13TAdMcSelectGCFPvi(void* p, s32 v);
 int release_cursor_entry__19TAdMcSelectCursorGCFv(void);
 void *TAdMcSelectGC__ct(void *, void *);
-int TAdMcSelectMcGC__sub_8032AA54(void);
+int release_selected_entry__15TAdMcSelectMcGCFv(void);
 int TLobby__sub_802C78EC(void);
 int TLobby__sub_802C7920(void);
 void *__nw__7TObjectFUl(int);
@@ -46,7 +46,7 @@ void * create__13TAdMcSelectGCFPv(void *arg0) {
     return o;
 }
 
-void open__13TAdMcSelectGCFv(void) { TLobby__sub_802C78EC(); TAdMcSelectMcGC__sub_8032AA54(); release_cursor_entry__19TAdMcSelectCursorGCFv(); }
+void open__13TAdMcSelectGCFv(void) { TLobby__sub_802C78EC(); release_selected_entry__15TAdMcSelectMcGCFv(); release_cursor_entry__19TAdMcSelectCursorGCFv(); }
 void close__13TAdMcSelectGCFv(void) { init_resource__19TAdMcSelectCursorGCFv(); init_memorycard__15TAdMcSelectMcGCFv(); TLobby__sub_802C7920(); }
 void TAdMcSelectGC__sub_8032A140(void* p) { *(s32*)((char*)p + 0x1c) = 0; }
 

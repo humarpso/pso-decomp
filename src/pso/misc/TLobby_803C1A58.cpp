@@ -244,7 +244,7 @@ s32 DVDLowRead(void *);
 void TLobby__sub_803C6064(u8 *arg0);
 s32 cv_fs_tell__6TLobbyFPv(int);
 s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
-s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out);
+s32 check_packet_header_8001__6TLobbyFPviPv(u16 *p, s32 size, s32 *out);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
@@ -1270,7 +1270,7 @@ s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2) {
     return ((n1 + n2) / blk) * 32;
 }
 
-s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out) {
+s32 check_packet_header_8001__6TLobbyFPviPv(u16 *p, s32 size, s32 *out) {
     if (size < 2) {
         return 0;
     }

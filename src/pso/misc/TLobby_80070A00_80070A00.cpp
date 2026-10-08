@@ -22,7 +22,7 @@ struct RecoveredGlobal_80070A78_lbl_8048C9D8 {
 extern "C" {
 extern RecoveredGlobal_80070A78_lbl_8048C348 lbl_8048C348;
 extern RecoveredGlobal_80070A78_lbl_8048C9D8 lbl_8048C9D8;
-void TLobby__sub_80070A78(void);
+void copy_state_block__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -57,10 +57,10 @@ void init_on_main_phase__6TLobbyFv(void) {
 }
 typedef char RecoveredGlobal_80070A78_lbl_8048C348_size[sizeof(RecoveredGlobal_80070A78_lbl_8048C348) == 0x690 ? 1 : -1];
 typedef char RecoveredGlobal_80070A78_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070A78_lbl_8048C9D8) == 0x748 ? 1 : -1];
-void TLobby__sub_80070A78(void) {
+void copy_state_block__6TLobbyFv(void) {
     *(M2CCopy_690 *)(&lbl_8048C9D8.value) = *(const M2CCopy_690 *)(&lbl_8048C348.value);
 }
 
 }
 
-__declspec(section ".ctors") static void *const __sinit_TLobby_80070A00_80070A00_cpp_ref = (void *)TLobby__sub_80070A78;
+__declspec(section ".ctors") static void *const __sinit_TLobby_80070A00_80070A00_cpp_ref = (void *)copy_state_block__6TLobbyFv;

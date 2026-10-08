@@ -193,7 +193,7 @@ extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern Tbl_802043CC *TScene__data_805D6020;
 extern const f32 TScene__data_805DC5D8;
 extern const f32 lbl_805DC5E4;
-void TScene__sub_802043CC(s32 arg0);
+void update_room_visibility_from_camera__6TSceneFi(s32 arg0);
 }
 
 extern "C" {
@@ -605,7 +605,7 @@ s32 is_split_screen(void);
 #pragma push
 #pragma opt_propagation off
 #pragma opt_lifetimes off
-void TScene__sub_802043CC(s32 arg0) {
+void update_room_visibility_from_camera__6TSceneFi(s32 arg0) {
     Vec_802043CC dir;
     Vec_802043CC fwd;
     Vec_802043CC out;

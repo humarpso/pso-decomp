@@ -127,7 +127,7 @@ void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 s32 is_quest_active();
 M2C_UNK update_card_save_info__6TLobbyFv(void *);
 M2C_UNK spawn_player_tombstones__6TLobbyFv();
-void TLobby__sub_80070078(void *);
+void update_quest_challenge_state__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_800722AC(s32);
 M2C_UNK TLobby__sub_80072618();
 s32 TLobby__sub_800739BC(void *);
@@ -143,7 +143,7 @@ s32 init__23TAdSinglePlyChrSelectGCFv();
 extern s32 tl_07;
 
 extern "C" {
-void TLobby__sub_80070674(TLobby_80070674 *);
+void run_step_table__6TLobbyFPv(TLobby_80070674 *);
 }
 struct Obj_80070774 { u8 pad0[0x18]; void *vt; };
 Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1);
@@ -446,7 +446,7 @@ s32 get_list_state__16TQuestListOnlineFv();
 extern s32 TLobby__data_805D53AC;
 
 #define arg0 ((L_80070078 *)arg0_)
-void TLobby__sub_80070078(void *arg0_) {
+void update_quest_challenge_state__6TLobbyFPv(void *arg0_) {
     s32 id;
     s32 n;
 
@@ -587,7 +587,7 @@ void TLobby__sub_80070550(void) {  }
 void cleanup_if_inactive__6TLobbyFPv(void* p) { if (destroy_on_phase_change__6TLobbyFPv((void *)((void*)(p))) == 0) { TLobby__sub_80070170((void *)(p)); update_battle_cleanup_flag__6TLobbyFPv((void *)(p)); } }
 void TLobby__sub_80070598(u8 *arg0) {
     if (((s32)destroy_on_phase_change__6TLobbyFPv((void *)((void*)((void*)(arg0))))) == 0) {
-        TLobby__sub_80070078((void *) (arg0));
+        update_quest_challenge_state__6TLobbyFPv((void *) (arg0));
         if (is_quest_active() != 0) {
             ((M2C_UNK)init__23TAdSinglePlyChrSelectGCFv());
             ((M2C_UNK)TLobby__sub_800739BC((void *) (arg0)));
@@ -617,7 +617,7 @@ void TLobby__sub_80070600(O_80070600 *self) {
 }
 s32 TAdPlayerLoadGC__sub_801E1510(void *);
 
-void TLobby__sub_80070674(TLobby_80070674 *self) {
+void run_step_table__6TLobbyFPv(TLobby_80070674 *self) {
     if (TAdPlayerLoadGC__sub_801E1510(self) == 1) {
         return;
     }
@@ -645,7 +645,7 @@ void *lbl_8048D0B0[22] = {
     (void *)0x0, (void *)0x0,
 };
 void *lbl_8048D108[6] = {
-    (void *)0x0, (void *)0x0, (void *)&TLobby__sub_80070774, (void *)&TLobby__sub_80070674,
+    (void *)0x0, (void *)0x0, (void *)&TLobby__sub_80070774, (void *)&run_step_table__6TLobbyFPv,
     (void *)&TLobby__sub_80070550, (void *)&render_shadows__7TObjectFv,
 };
 

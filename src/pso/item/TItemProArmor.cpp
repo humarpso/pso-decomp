@@ -137,7 +137,7 @@ struct Armor_80117954 {
 
 extern "C" {
 void increment_slot_count__13TItemProArmorFPv(u8 *arg0);
-void TItemProArmor__sub_801178D4(u8 *arg0);
+void clamp_slot_counts__13TItemProArmorFPv(u8 *arg0);
 void * TItemProArmor__sub_80117650(void *arg0, void *arg1, void *arg2);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -301,7 +301,7 @@ void increment_slot_count__13TItemProArmorFPv(u8 *arg0) {
 
 u8 get_slot_count__13TItemProArmorFPv(void* p) { return *(u8*)((char*)p + 0x192); }
 
-void TItemProArmor__sub_801178D4(u8 *arg0) {
+void clamp_slot_counts__13TItemProArmorFPv(u8 *arg0) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x195) < (u8) M2C_FIELD(arg0, u8 *, 0x193)) {
         M2C_FIELD(arg0, u8 *, 0x193) = 0U;
     }
@@ -444,7 +444,7 @@ void *__vt__13TItemProArmor[51] = {
     (void *)classify_actor_view_detail,
     (void *)register_attack__5TItemFPv,
     (void *)try_pick_up_item__5TItemFPvi,
-    (void *)TItemProArmor__sub_801178D4,
+    (void *)clamp_slot_counts__13TItemProArmorFPv,
     (void *)TItem__sub_801005E0,
     (void *)TItemProArmor__vt14,
     (void *)TItem__sub_80100678,

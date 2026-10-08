@@ -13,7 +13,7 @@ void forward_item_effect_callback__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 void spawn_weapon_impact_effect(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3);
 extern const f32 lbl_805DAB38;
 void spawn_particle_effect(void *, int);
-void TObjPlayer__sub_801093B4(W_801093B4 *arg0);
+void spawn_hit_particle_trio__10TObjPlayerFPv(W_801093B4 *arg0);
 }
 
 extern "C" {
@@ -31,7 +31,7 @@ void spawn_heaven_effect__10TObjPlayerFiUiUsi(s32 arg0, u32 arg1, u16 arg2, s32 
 
 #pragma push
 #pragma opt_propagation off
-void TObjPlayer__sub_801093B4(W_801093B4 *arg0) {
+void spawn_hit_particle_trio__10TObjPlayerFPv(W_801093B4 *arg0) {
     V_801093B4 v;
     s32 c;
     s32 b;
@@ -50,10 +50,10 @@ void TObjPlayer__sub_801093B4(W_801093B4 *arg0) {
 #pragma pop
 
 void forward_item_effect_callback__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
-    TObjPlayer__sub_801093B4((W_801093B4 *)((void *) (arg1)));
+    spawn_hit_particle_trio__10TObjPlayerFPv((W_801093B4 *)((void *) (arg1)));
 }
 void spawn_weapon_impact_effect(M2C_UNK arg0, M2C_UNK arg1, M2C_UNK arg2, s32 arg3) {
-    TObjPlayer__sub_801093B4((W_801093B4 *)((void *) (arg3)));
+    spawn_hit_particle_trio__10TObjPlayerFPv((W_801093B4 *)((void *) (arg3)));
 }
 
 }
