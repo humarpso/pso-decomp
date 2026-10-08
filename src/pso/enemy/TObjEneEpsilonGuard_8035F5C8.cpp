@@ -841,7 +841,6 @@ M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 M2C_UNK advance_animation_playback(void *);
-M2C_UNK TObjEneEpsilonGuard__sub_8035FB44(void *);
 void tick_stun_timer__19TObjEneEpsilonGuardFPv(void *arg0);
 extern void *lbl_805D6F8C;
 void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1);
@@ -1040,6 +1039,9 @@ extern u8 *lbl_805D6F94;
 extern u8 *lbl_805D6F98;
 extern u8 *lbl_805D6F9C;
 void TObjEneEpsilonGuard__sub_803601D4(void);
+u32 find_entity_by_id(s32);
+s32 TObjEneEpsilonGuard__sub_8035DD68();
+void TObjEneEpsilonGuard__sub_8035FB44(u8 *arg0);
 }
 
 extern "C" {
@@ -1180,6 +1182,18 @@ void TObjEneEpsilonGuard__sub_8035FA50(W_8035FA50 *arg0) {
             TObjEneEpsilonGuard__sub_8035DEC0();
         }
     }
+}
+
+void TObjEneEpsilonGuard__sub_8035FB44(u8 *arg0) {
+    s32 var_r30;
+    var_r30 = 0;
+    M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFFDF);
+    do {
+        if ((find_entity_by_id((s32) M2C_FIELD(arg0 + var_r30 * 2, u16 *, 0x4DC)) != 0U) && (TObjEneEpsilonGuard__sub_8035DD68() == 1)) {
+            M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x20);
+        }
+        var_r30 += 1;
+    } while (var_r30 < 4);
 }
 
 s32 TObjEneEpsilonGuard__sub_8035FBBC(W_8035FBBC *arg0) {
@@ -1814,7 +1828,7 @@ void action__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x4E4) = 2;
                 M2C_FIELD(arg0, s32 *, 0x444) = (s32) M2C_FIELD(arg0, s32 *, 0x454);
             } else {
-                TObjEneEpsilonGuard__sub_8035FB44(arg0);
+                TObjEneEpsilonGuard__sub_8035FB44((u8 *)(arg0));
                 update_attack_pattern__19TObjEneEpsilonGuardFPv((void *)(arg0));
                 if (M2C_FIELD(arg0, s32 *, 0x438) & 0x10) {
                     M2C_FIELD(arg0, s32 *, 0x4E4) = 1;

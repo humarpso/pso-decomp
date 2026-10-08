@@ -283,6 +283,10 @@ s32 rand(void);
 extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 lbl_805DE4C4;
 s32 TBoss6Type2__sub_802BD7EC(Boss_802BD7EC *o);
+int TBoss6Type2__sub_802BB694(void);
+void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
+void send_action_packet_if_idle__11TBoss6Type2FPviPv(void *arg0, s32 arg1, M2C_UNK *arg2);
+void TBoss6Type2__sub_802BDC5C(u8 *arg0);
 }
 
 extern "C" {
@@ -2743,6 +2747,38 @@ extern int fold_flush_29;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+void TBoss6Type2__sub_802BDC5C(u8 *arg0) {
+    M2C_UNK sp8;
+    s32 var_r31;
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x424) != 0) {
+        var_r31 = 7;
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x46C) == 0) {
+            var_r31 = 0xA;
+        }
+    } else {
+        var_r31 = 8;
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x46C) == 0) {
+            var_r31 = 0xB;
+        }
+    }
+    switch (M2C_FIELD(arg0, s32 *, 0x374)) {
+    case 6:
+    case 9:
+        return;
+    case 7:
+    case 8:
+    case 10:
+    case 11:
+        M2C_FIELD(arg0, s16 *, 0x466) = ((s16 (*)(void *))TBoss6Type2__sub_802BB694)(arg0);
+        var_r31 = M2C_FIELD(arg0, s32 *, 0x374) - 1;
+    default:
+        TBoss6Type2__sub_802BD938(arg0, (u8 *) (&sp8));
+        send_action_packet_if_idle__11TBoss6Type2FPviPv((void *) (arg0), var_r31, &sp8);
+        break;
+    }
+}
+
 void update_action_state__11TBoss6Type2FPv(void *arg0) {
     M2C_UNK sp8;
     M2C_UNK var_r4;

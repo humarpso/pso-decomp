@@ -36,12 +36,53 @@ struct S_803C8678 {
     s32 cbarg;
 };
 
+struct Strm_803C9104;
+struct Buf_803C9104 {
+    void *ptr;
+    s32 size;
+};
+
+struct Vt_803C9104 {
+    u8 pad[0x18];
+    void (*lock)(Strm_803C9104 *, s32, s32, Buf_803C9104 *);
+    void (*unlock)(Strm_803C9104 *, s32, Buf_803C9104 *);
+    void (*write)(Strm_803C9104 *, s32, Buf_803C9104 *);
+};
+
+struct Strm_803C9104 {
+    Vt_803C9104 *vt;
+};
+
+struct Obj_803C9104 {
+    u8 pad[0x14];
+    Strm_803C9104 *strm;
+};
+
+struct S_803C8A14 {
+    u8 f0;
+    s8 state;
+    u8 f2;
+    s8 f3;
+    u8 pad4[4];
+    void *fp;
+    s32 pos;
+    s32 base;
+    s32 f14;
+    u8 pad18[0x34 - 0x18];
+    s32 f34;
+};
+
 extern "C" {
 s32 cv_fs_get_stat__6TLobbyFPv(u32);
 s32 cv_fs_req_rd__6TLobbyFPvii(u32, s32, s32);
 M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 extern s32 lbl_805D7554;
 extern s32 lbl_805D7558;
+M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
+M2C_UNK memset(void *, int, int);
+s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2);
+s32 cv_fs_tell__6TLobbyFPv(int);
+s32 TLobby__sub_803C8A14(S_803C8A14 *arg0);
 }
 
 struct RecoveredGlobal_803C90B0_lbl_80575140 {
@@ -643,6 +684,30 @@ void TLobby__sub_803C89C4(u8 *arg0) {
     release_ref__6TLobbyFv();
 }
 
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline s32 get_pos_803C8A14(S_803C8A14 *s) {
+    if (s->fp != NULL) {
+        return cv_fs_tell__6TLobbyFPv((int)s->fp) - s->base;
+    }
+    return 0;
+}
+s32 TLobby__sub_803C8A14(S_803C8A14 *arg0) {
+    if (arg0->f14 == 0) {
+        arg0->f34 = 0;
+        arg0->pos = 0;
+        arg0->state = 3;
+    } else {
+        arg0->state = 2;
+        arg0->f34 = 0;
+        arg0->pos = get_pos_803C8A14(arg0);
+        arg0->f3 = 0;
+    }
+    return 1;
+}
+#pragma pop
+
 s32 TLobby__sub_803C8A98(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
@@ -874,6 +939,38 @@ s32 TLobby__sub_803C90B0(void) {
 void on_set_mode__6TLobbyFv(void) {
     set_global_805D7520__6TLobbyFi();
 }
+
+s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2) {
+    s32 blk;
+    s32 total;
+    Strm_803C9104 *s;
+    s32 n1;
+    s32 n2;
+    Buf_803C9104 a;
+    Buf_803C9104 b;
+    void *p = arg0->strm;
+    s = (Strm_803C9104 *)p;
+    if (p == NULL) {
+        return 0;
+    }
+    blk = arg1 * 0x12;
+    total = (arg2 / 32) * blk;
+    s->vt->lock(s, 0, total, &a);
+    n1 = blk * (a.size / blk);
+    memset(a.ptr, 0, n1);
+    TLobby__sub_803D3130(&a, n1, (Pair_803C8678 *)&a, (Pair_803C8678 *)&b);
+    s->vt->write(s, 1, &a);
+    s->vt->unlock(s, 0, &b);
+    total = total - n1;
+    s->vt->lock(s, 0, total, &a);
+    n2 = blk * (a.size / blk);
+    memset(a.ptr, 0, n2);
+    TLobby__sub_803D3130(&a, n2, (Pair_803C8678 *)&a, (Pair_803C8678 *)&b);
+    s->vt->write(s, 1, &a);
+    s->vt->unlock(s, 0, &b);
+    return ((n1 + n2) / blk) * 32;
+}
+
 s32 TLobby__sub_803C9284(u16 *p, s32 size, s32 *out) {
     if (size < 2) {
         return 0;

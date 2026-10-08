@@ -119,6 +119,10 @@ typedef struct Ent_80427C6C {
 
 struct R_804253A0 { s32 a; s32 b; };
 
+struct Rec_80426998 { u16 a; u16 b; };
+
+struct Obj_80426998 { u8 pad[0x36]; s16 count; Rec_80426998 recs[5]; };
+
 extern "C" {
 M2C_UNK OSInitMessageQueue(void *, void *, int);
 M2C_UNK TLobby__sub_803F9B28(void *);
@@ -406,6 +410,8 @@ extern s32 lbl_805D7BB4;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 void TLobby__sub_80425B70(void);
+extern u8 lbl_805CF3C8[];
+s32 TLobby__sub_80426998(s16 arg0, u16 arg1);
 }
 
 extern "C" {
@@ -919,6 +925,34 @@ s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1) {
     TLobby__sub_8042BC00(arg1);
     return 0;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline s16 remove_rec_80426998(u16 key) {
+    s32 i;
+    Obj_80426998 *o = ((Obj_80426998 *)&lbl_805CF3C8);
+    Rec_80426998 *p = o->recs;
+    for (i = 5; i != 0; i--, p++) {
+        if (p->a != 0 && p->b == key) {
+            p->a = 0;
+            p->b = 0;
+            o->count--;
+            return 0;
+        }
+    }
+    return -1;
+}
+s32 TLobby__sub_80426998(s16 arg0, u16 arg1) {
+    if (arg0 != 0) {
+        return -0x113;
+    }
+    if (remove_rec_80426998(arg1) < 0) {
+        return -0x113;
+    }
+    return 0;
+}
+#pragma pop
 
 s32 TLobby__sub_80426A18(s16 arg0, u16 arg1) {
     if (arg0 != 0) {

@@ -99,6 +99,18 @@ struct Obj_803F77E4 {
     Sub_803F77E4 *f4C;
 };
 
+struct Info_803F861C {
+    s16 a;
+    s16 b;
+    u16 c;
+    u16 d;
+    s32 e;
+    s32 f;
+    s32 g;
+    s32 h;
+    s32 i;
+};
+
 extern "C" {
 void TLobby__sub_803F76F4(u8 *arg0);
 void TLobby__sub_803F7790(u8 *arg0);
@@ -132,7 +144,6 @@ void stop_network_thread__6TLobbyFv(void);
 extern s32 lbl_805D7A10;
 extern s32 lbl_805D7A14;
 u32 TLobby__sub_803F8440(u8 *arg0, s32 arg1, u32 arg2);
-s32 TLobby__sub_803F861C(int);
 extern s16 lbl_805D47F8;
 extern u16 lbl_805D47FA;
 extern u16 lbl_805D47FC;
@@ -212,7 +223,6 @@ extern s16 lbl_805D7A34;
 extern char lbl_805E1148[4];
 s32 TLobby__sub_803F8314(A_803F8314 *arg0);
 u32 TLobby__sub_803F8440(u8 *arg0, s32 arg1, u32 arg2);
-s32 TLobby__sub_803F861C(int);
 u32 TLobby__sub_803F8BA4(u8 *, u32, u32);
 extern u32 lbl_805D7A40;
 extern u32 lbl_805D7A44;
@@ -231,6 +241,17 @@ s32 TAdSinglePlyChrSelectGC__sub_8042D7E0(void *);
 extern s16 lbl_805D47F0;
 extern s16 lbl_805D7A34;
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
+s32 TLobby__sub_803F8D24(Info_803F861C *);
+extern s16 lbl_805D47F8;
+extern u16 lbl_805D47FA;
+extern u16 lbl_805D47FC;
+extern s32 lbl_805D4800;
+extern s16 lbl_805D4804;
+extern s32 lbl_805D4808;
+extern s32 lbl_805D480C;
+extern s32 lbl_805D7A48;
+extern s32 lbl_805D7A4C;
+s32 TLobby__sub_803F861C(Info_803F861C *arg0);
 }
 
 extern "C" {
@@ -819,7 +840,7 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size) {
     s32 r;
     u32 q;
     end = (u32)(data + size);
-    r = TLobby__sub_803F861C((int)&hdr);
+    r = TLobby__sub_803F861C((Info_803F861C *)((int)&hdr));
     if (size < 0) {
         return -1;
     }
@@ -870,9 +891,34 @@ s32 TLobby__sub_803F8564(u8 *arg0) {
     lbl_805D480C = M2C_FIELD(arg0, s32 *, 0x10);
     lbl_805D7A48 = M2C_FIELD(arg0, s32 *, 0x14);
     lbl_805D7A4C = M2C_FIELD(arg0, s32 *, 0x18);
-    return TLobby__sub_803F861C((int) (0));
+    return TLobby__sub_803F861C((Info_803F861C *)((int) (0)));
 }
 #pragma pop
+
+s32 TLobby__sub_803F861C(Info_803F861C *arg0) {
+    Info_803F861C local;
+    s32 y;
+    s32 x;
+    s32 n;
+    if (arg0 == NULL) {
+        arg0 = &local;
+    }
+    arg0->a = lbl_805D47F8;
+    arg0->b = lbl_805D4804;
+    arg0->c = lbl_805D47FA;
+    x = lbl_805D47FA * 0x44;
+    arg0->d = lbl_805D47FC;
+    y = lbl_805D47FC * 0x544;
+    arg0->g = lbl_805D480C;
+    n = x + y;
+    n += lbl_805D480C;
+    arg0->e = lbl_805D4800;
+    arg0->f = lbl_805D4808;
+    arg0->h = lbl_805D7A48;
+    arg0->i = lbl_805D7A4C;
+    n += TLobby__sub_803F8D24(arg0);
+    return n;
+}
 
 void TLobby__sub_803F86BC(void) {
 

@@ -62,6 +62,18 @@ struct S_802C7758 {
     s32 f124;
 };
 
+struct Quad_802C7314 {
+    u8 data[0x20];
+};
+
+struct TAdChrSelSlotGC_802C7314 {
+    u8 pad0[0x20];
+    Quad_802C7314 quad[5];
+    u8 padC0[0x3C];
+    s32 tex[5];
+    s32 visible[5];
+};
+
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
@@ -83,6 +95,14 @@ M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__15TAdChrSelSlotGC[];
 extern s32 lbl_805D3EE8;
 S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self);
+void set_global_param__8TObjFishFi(void *);
+void begin_screen_draw(int);
+void get_player__20TWindowSubStatusDispFv();
+void draw_textured_quad_at_depth(void *, f32);
+void set_draw_texture_and_color(int, int);
+extern u32 lbl_805D67F0;
+extern const f32 lbl_805DE5C8;
+void TAdChrSelSlotGC__sub_802C7314(TAdChrSelSlotGC_802C7314 *self);
 }
 
 extern "C" {
@@ -93,7 +113,6 @@ void TLobby__sub_802C78EC(void);
 void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1);
 void render__15TAdChrSelSlotGCFv(void *arg0);
 void reset_all_slots__15TAdChrSelSlotGCFPv(void* p);
-M2C_UNK TAdChrSelSlotGC__sub_802C7314(void *);
 void TLobby__sub_803DA16C(void*);
 M2C_UNK TWindow__close(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
@@ -129,6 +148,19 @@ void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
+void TAdChrSelSlotGC__sub_802C7314(TAdChrSelSlotGC_802C7314 *self) {
+    u32 i;
+    for (i = 0; i < 5; i++) {
+        if (self->visible[i] != 0) {
+            begin_screen_draw(1);
+            set_global_param__8TObjFishFi((void *)lbl_805D67F0);
+            set_draw_texture_and_color(0, self->tex[i]);
+            draw_textured_quad_at_depth(&self->quad[i], lbl_805DE5C8);
+            get_player__20TWindowSubStatusDispFv();
+        }
+    }
+}
+
 void render__15TAdChrSelSlotGCFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
@@ -141,7 +173,7 @@ void render__15TAdChrSelSlotGCFv(void *arg0) {
 block_5:
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 0xA);
-        TAdChrSelSlotGC__sub_802C7314(arg0);
+        TAdChrSelSlotGC__sub_802C7314((TAdChrSelSlotGC_802C7314 *)(arg0));
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 0) {

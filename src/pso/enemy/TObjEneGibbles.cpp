@@ -694,7 +694,8 @@ extern "C" {
 void TObjEneGibbles__sub_802DAC90();
 }
 extern "C" {
-void TObjEneGibbles__sub_802DB920();
+struct Gib_802DB920;
+Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1);
 }
 extern "C" {
 void TObjPlayer__sub_8000FF3C();
@@ -2628,6 +2629,52 @@ void load_resources__14TObjEneGibblesFv(void) {
         M2C_FIELD(M2C_FIELD(TObjEneGibbles__data_805D68B8, u8 **, 0x42C), s32 *, 8),
         M2C_FIELD(M2C_FIELD(TObjEneGibbles__data_805D68B8, u8 **, 0x42C), s32 *, 0xC),
         &s, ((f32 *)lbl_804E296C)[3], TObjEneGibbles__data_805DE7E4);
+}
+
+void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
+void __dt__9TObjEnemyFv(void *, int);
+void free_collision_body_parts(void *);
+void __dl__7TObjectFPv(void *);
+void __destroy_arr(void *, void *, int, int);
+
+struct PartBase_802DB920 {
+    u8 pad0[0x18];
+};
+
+struct Part_802DB920 : PartBase_802DB920 {
+    virtual ~Part_802DB920();
+};
+
+struct Gib_802DB920 {
+    u8 pad0[0x18];
+    void *vt;
+    u8 pad1c[0x3B4 - 0x1C];
+    Part_802DB920 *p3b4;
+    Part_802DB920 *p3b8;
+};
+
+Gib_802DB920 *TObjEneGibbles__sub_802DB920(Gib_802DB920 *self, s16 arg1) {
+    if (self != NULL) {
+        self->vt = lbl_804E29F0;
+        if (self->p3b4 != NULL) {
+            free_collision_body_parts(self->p3b4);
+            delete self->p3b4;
+            self->p3b4 = NULL;
+        }
+        if (self->p3b8 != NULL) {
+            free_collision_body_parts(self->p3b8);
+            delete self->p3b8;
+            self->p3b8 = NULL;
+        }
+        free_collision_body_parts(self);
+        __destroy_arr((u8 *)self + 0x3DC, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
+        __dt__18TObjEneMe3SinowZoaFPvs((u8 *)self + 0x3C0, -1);
+        __dt__9TObjEnemyFv(self, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
 }
 
 u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2) {

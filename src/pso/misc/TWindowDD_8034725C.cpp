@@ -23,6 +23,16 @@ struct S_80347CC8 { u8 pad[0x38]; f32 f38; };
 
 struct W_80347CC8 { u8 pad[0x70]; S_80347CC8 *f70; };
 
+struct W_80347B70 {
+    u8 pad0[0x20];
+    s32 idx;
+    void *tbl[0x1D];
+    s32 state;
+    s32 cur;
+    u8 pad_a0[0x24];
+    u8 sub[4];
+};
+
 extern "C" {
 void append_prompt_newline__9TWindowDDFPvPv(s32, void *);
 void TWindowDD__sub_8034886C(s32, s32, void *);
@@ -69,6 +79,18 @@ extern const f32 TWindowDD__data_805DFB58;
 extern const f32 lbl_805DFCD0;
 extern const f32 lbl_805DFCD4;
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
+s32 TWindowDD__sub_80342158(void *);
+s32 is_state_zero_unless_0x2C8__9TWindowDDFs(s32 arg0);
+void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1);
+void TWindowDD__sub_80348D90(void *, int);
+void TWindowDD__sub_80348DAC(void *);
+s32 TWindowDD__sub_80348DD8(void *, int);
+void TWindowDD__sub_80347B70(W_80347B70 *arg0);
+void init_and_mark_field8C__9TWindowDDFPv(void* p);
+void set_pos_and_data__9TWindowDDFPvf(void *p, f32 v);
+extern const f32 TWindowDD__data_805DFB6C;
+extern const f32 TWindowDD__data_805DFB74;
+u8 *TWindowDD__sub_803479E4(u8 *arg0);
 }
 
 extern "C" {
@@ -242,6 +264,22 @@ void TWindowDD__sub_80347940(O_80347940 *self, s32 i) {
     }
 }
 
+u8 *TWindowDD__sub_803479E4(u8 *arg0) {
+    s32 temp_r0;
+    u8 *var_r31;
+    var_r31 = NULL;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
+    if (temp_r0 > 0) {
+        var_r31 = ((u8 **)(arg0 + 0x24))[temp_r0 - 1];
+        if (var_r31 != NULL) {
+            init_and_mark_field8C__9TWindowDDFPv(var_r31);
+            set_pos_and_data__9TWindowDDFPvf(var_r31, (f32) (TWindowDD__data_805DFB6C));
+            M2C_FIELD(var_r31, f32 *, 0x38) = (f32) TWindowDD__data_805DFB74;
+        }
+    }
+    return var_r31;
+}
+
 void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = TWindowDD__sub_80342158((void *) (arg1));
@@ -258,6 +296,35 @@ void TWindowDD__sub_80347A4C(u8 *arg0, s32 arg1) {
 }
 
 #pragma fp_contract on
+
+struct W_80347CC8;
+void TWindowDD__sub_80347B70(W_80347B70 *arg0) {
+    s32 v;
+    v = TWindowDD__sub_80342158(arg0->tbl[arg0->idx]);
+    if ((s16)v != arg0->cur) {
+        switch (arg0->state) {
+        case 0:
+            if (is_state_zero_unless_0x2C8__9TWindowDDFs(v) != 0) {
+                TWindowDD__sub_80348DD8(arg0->sub, v);
+                arg0->state = 1;
+            } else {
+                TWindowDD__sub_80348D90(arg0->sub, v);
+            }
+            break;
+        case 1:
+            if (is_state_zero_unless_0x2C8__9TWindowDDFs(v) != 0) {
+                TWindowDD__sub_80348D90(arg0->sub, v);
+            } else {
+                TWindowDD__sub_80348DAC(arg0->sub);
+                arg0->state = 0;
+            }
+            break;
+        }
+        TWindowDD__sub_80347CC8((W_80347CC8 *)arg0, arg0->sub);
+        arg0->cur = (s16)v;
+    }
+}
+
 void TWindowDD__sub_80347CC8(W_80347CC8 *arg0, void *arg1) {
     S_80347CC8 *s;
     E_80347CC8 *e;

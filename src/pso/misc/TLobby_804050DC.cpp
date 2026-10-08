@@ -3197,6 +3197,58 @@ Rec_8040B33C *TLobby__sub_8040B33C(A_8040B33C *a) {
     return 0;
 }
 
+typedef struct Ent_8040B654 {
+    s16 state;
+    u8 pad2[2];
+    s16 id;
+    u8 pad6[4];
+    s16 fA;
+    u8 padC[4];
+    s16 f10;
+    u8 pad12[0x2A];
+} Ent_8040B654;
+
+typedef struct Mgr_8040B654 {
+    u8 pad[0x40];
+    s16 count;
+    u8 pad42[2];
+    Ent_8040B654 *ents;
+} Mgr_8040B654;
+
+struct Conn_8040C540;
+void dispatch_request_callback__6TLobbyFPvs(Conn_8040C540 *arg0, s16 arg1);
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline Ent_8040B654 *find_8040B654(s16 id) {
+    Mgr_8040B654 *g = (Mgr_8040B654 *)&lbl_805C1AF0;
+    s16 n;
+    Ent_8040B654 *e;
+    s16 i;
+
+    e = g->ents;
+    n = g->count;
+    for (i = 0; i < n; i++, e++) {
+        if (e->state == 1 && id == e->id) {
+            return e;
+        }
+    }
+    return NULL;
+}
+
+void TLobby__sub_8040B654(s16 id) {
+    Ent_8040B654 *e;
+
+    if ((e = find_8040B654(id)) != NULL) {
+        e->fA = 1;
+        if (e->f10 < 0) {
+            dispatch_request_callback__6TLobbyFPvs((Conn_8040C540 *)e, 0);
+        }
+    }
+}
+#pragma pop
+
 #pragma push
 #pragma opt_propagation off
 s32 build_dns_query_aaaa__6TLobbyFPvPvs(Q_8040B6E4 *q, u8 *name, s16 len) {
@@ -4379,6 +4431,53 @@ s32 get_ipv6_addr_scope__6TLobbyFPv(u8 *arg0) {
         var_r3 = 0;
         return 0;
     }
+}
+#pragma pop
+
+typedef struct Ent_80414504 { s16 state; s16 f2; u8 pad[0x2C]; } Ent_80414504;
+typedef struct Mgr_80414504 {
+    s16 a;
+    s16 count;
+    u8 pad4[0x18];
+    Ent_80414504 *ents;
+} Mgr_80414504;
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(1)
+inline Ent_80414504 *find_80414504(s16 id) {
+    Mgr_80414504 *g;
+    Ent_80414504 *e;
+
+    if (id < 0 || id >= (g = (Mgr_80414504 *)&lbl_805C1BB8)->count) {
+        return NULL;
+    }
+    e = g->ents;
+    e += id;
+    if (e->state != 1) {
+        return NULL;
+    }
+    return e;
+}
+
+s16 TLobby__sub_80414504(s32 arg0, s16 arg1, s16 arg2) {
+    Ent_80414504 *e;
+    s16 r;
+    s16 TLobby__sub_80409EB0(s16 arg0, s32 arg1);
+
+    e = find_80414504(arg2);
+    if (e == NULL) {
+        return -0x10A;
+    }
+    r = TLobby__sub_80409EB0(arg2, e->f2);
+    if (r < 0) {
+        return r;
+    }
+    if (r > arg1) {
+        return -2;
+    }
+    TLobby__sub_80409E18(arg2, e->f2, arg0);
+    return r;
 }
 #pragma pop
 

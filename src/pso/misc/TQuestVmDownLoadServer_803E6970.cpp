@@ -343,6 +343,12 @@ struct Node_803E8B1C { Ent_803E8B1C *ent; Node_803E8B1C *next; };
 
 struct Out_803E8B1C { s16 a; s16 id; u8 pad[8]; Ent_803E8B1C *ent; };
 
+struct Ent_803E7ACC {
+    s32 index;
+    s32 state;
+    Ent_803E7ACC *next;
+};
+
 extern "C" {
 extern RecoveredGlobal_803EE2E4_lbl_8058DC98 lbl_8058DC98;
 void TQuestVmDownLoadServer__sub_803EE2E4(void);
@@ -396,7 +402,6 @@ extern RecoveredGlobal_803EDB20_lbl_8047F8B8 lbl_8047F8B8;
 s32 TQuestVmDownLoadServer__sub_803EDB58(u8 arg0);
 extern RecoveredGlobal_803EDB20_lbl_8047F8B8 lbl_8047F8B8;
 s32 TQuestVmDownLoadServer__sub_803EDB74(u8 arg0);
-void TQuestVmDownLoadServer__sub_803E7ACC(void);
 s32 TQuestVmDownLoadServer__sub_803E86C8(void);
 void TQuestVmDownLoadServer__sub_803E9764(void);
 extern s32 lbl_805D7904;
@@ -703,6 +708,19 @@ s32 TQuestVmDownLoadServer__sub_803E76E8(s32 *arg0, s32 arg1, u32 arg2);
 extern u8 lbl_8047E898[];
 extern u16 lbl_8047E8A4[];
 u16 TQuestVmDownLoadServer__sub_803E71B0(u32 arg0);
+s32 TQuestVmDownLoadServer__sub_803F09FC(void *arg0, int arg1, int arg2);
+s32 TQuestVmDownLoadServer__sub_803F0BE0(void * _w0, void * _w1);
+extern RecoveredGlobal_803E8710_lbl_8058DE08 lbl_8058DE08;
+extern u8 *lbl_805D7858;
+extern s32 lbl_805D78F8;
+extern s32 lbl_805D7904;
+void TQuestVmDownLoadServer__sub_803E7ACC(void);
+s32 TQuestVmDownLoadServer__sub_803E779C(u32 arg0, s32 *arg1, s32 *arg2, s32 *arg3);
+u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page);
+u8 *get_buffer_ptr__22TQuestVmDownLoadServerFi(s32 arg0);
+void TQuestVmDownLoadServer__sub_803EFCB4(u8 *data, s32 a1, s32 a2, s32 *cnt, s32 *total, u8 *buf, s32 flags);
+extern s32 lbl_805D7904;
+s32 TQuestVmDownLoadServer__sub_803EFE14(u32 id, u8 a1, u8 a2, u8 *buf, s32 *out);
 }
 
 extern "C" {
@@ -1242,6 +1260,44 @@ inline s32 Seek_803E7B9C(s32 pos) {
 inline s32 Write_803E7B9C(void) {
     return -1;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 Open_803E7ACC(void) {
+    void *mode = (void *)lbl_805D78F8;
+    s32 h = TQuestVmDownLoadServer__sub_803F0BE0(&lbl_8058DE08.value, mode);
+    if (h == -1) {
+        lbl_805D7904 = -1;
+        return -1;
+    }
+    lbl_805D7904 = h;
+    return 0;
+}
+inline s32 Seek_803E7ACC(s32 h, s32 pos, s32 whence) {
+    return TQuestVmDownLoadServer__sub_803F09FC((void *)h, pos, whence);
+}
+inline s32 SeekRetry_803E7ACC(s32 pos) {
+    if (Seek_803E7ACC(lbl_805D7904, pos, 0) == -1) {
+        if (Open_803E7ACC() != 0) {
+            return -1;
+        }
+        if (Seek_803E7ACC(lbl_805D7904, pos, 0) == -1) {
+            return -1;
+        }
+    }
+    return 0;
+}
+void TQuestVmDownLoadServer__sub_803E7ACC(void) {
+    Ent_803E7ACC *e;
+    u8 unused[0x18];
+    for (e = (Ent_803E7ACC *)lbl_805D7858; e != NULL; e = e->next) {
+        if (e->state == 1) {
+            SeekRetry_803E7ACC((e->index << 10) + 0x3400);
+        }
+    }
+}
+#pragma pop
 
 u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page) {
     u8 unused[0x38];
@@ -2581,7 +2637,6 @@ struct N_803EBEFC {
 void *TQuestVmDownLoadServer__sub_803ECED0(void);
 void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 s32 TQuestVmDownLoadServer__sub_803EEA48(s32 arg0, s32 arg1, void *arg2, s32 *arg3);
-s32 TQuestVmDownLoadServer__sub_803EFE14(s32, u8, u8, void *, s32 *);
 extern s32 lbl_805D78F0;
 extern u8 lbl_80596258[];
 extern RecoveredGlobal_803E6ACC_lbl_805A0470 lbl_805A0470;
@@ -2700,7 +2755,7 @@ def:
         }
         goto def;
     } else {
-        if (TQuestVmDownLoadServer__sub_803EFE14(t->x4, t->x2, t->x3, base + 0xC, &count) <= 0) {
+        if (TQuestVmDownLoadServer__sub_803EFE14((u32)(t->x4), (u8)(t->x2), (u8)(t->x3), (u8 *)(base + 0xC), (s32 *)(&count)) <= 0) {
             goto def;
         }
     }
@@ -3737,6 +3792,36 @@ u8 *TQuestVmDownLoadServer__sub_803EFBDC(u8 *p, s32 key, s32 n, s32 len) {
         }
     }
     return p;
+}
+
+s32 TQuestVmDownLoadServer__sub_803EFE14(u32 id, u8 a1, u8 a2, u8 *buf, s32 *out) {
+    s32 a;
+    s32 b;
+    s32 cnt;
+    s32 total;
+    s32 r;
+    s32 v;
+    if (lbl_805D7904 == -1) {
+        return -3;
+    }
+    r = TQuestVmDownLoadServer__sub_803E779C(id, &a, &b, &cnt);
+    if (r == -1) {
+        return 0;
+    }
+    cnt = 0;
+    total = 0;
+    if (a != -1) {
+        TQuestVmDownLoadServer__sub_803EFCB4(get_cached_page__22TQuestVmDownLoadServerFi(r) + a, a1, a2, &cnt, &total, buf, 0);
+    }
+    if (b != -1) {
+        TQuestVmDownLoadServer__sub_803EFCB4(get_buffer_ptr__22TQuestVmDownLoadServerFi(b), a1, a2, &cnt, &total, buf, 0x8000);
+    }
+    v = cnt;
+    *out = v;
+    if (v == 0) {
+        return 0;
+    }
+    return 1;
 }
 
 s32 TQuestVmDownLoadServer__sub_803F0048(s32 id, u8 a1, u8 a2, void *dst) {
