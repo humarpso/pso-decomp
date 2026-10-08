@@ -1,6 +1,9 @@
 #include "pso/TObjBoss2DustCtrl.h"
-
 #include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -24,7 +27,11 @@ typedef struct Dust_8003AB7C {
     s32 ang[10];
 } Dust_8003AB7C;
 
-f32 sin_table_lookup(s32);
+typedef struct Out_8003AD54 { f32 x, y, z; u32 c; } Out_8003AD54;
+
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int, f32);
+s32 calc_random_scaled__10TObjPlayerFv();
 void matrix_mult_vec(s32, Vec_8003AB7C *, Out_8003AB7C *);
 void TObjPlayer__sub_803D8CD4(s32);
 void translate_matrix(s32, f32, f32, f32);
@@ -32,11 +39,25 @@ void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
 Vec_8003AB7C lbl_804FE9E8[6];
-Rot_8003AB7C lbl_804FEA30[10];
-Out_8003AB7C lbl_804FEA80[60];
+s32 lbl_804FEA30[20];
+Out_8003AD54 lbl_804FEA80[60];
 s32 lbl_804FEE40[10];
 extern const f32 lbl_805D85B8;
 extern const f32 lbl_805D85BC;
+extern const f32 lbl_805D85C0;
+extern const f32 lbl_805D85C4;
+extern const f32 lbl_805D85C8;
+extern s32 lbl_805D4BF0;
+
+void TObjBoss2DustCtrl__sub_8003AB5C(void);
+void *TObjBoss2DustCtrl__ct(void *arg0);
+void __ct__7TObjectFP7TObject(void *);
+void TObjBoss2DustCtrl__sub_8003AD50(void);
+void create__17TObjBoss2DustCtrlFv(void);
+void* __nw__7TObjectFUl(M2C_UNK);
+extern M2C_UNK __vt__17TObjBoss2DustCtrl[];
+extern void *lbl_805D26F8;
+extern s32 tl_05;
 
 #pragma push
 #pragma opt_propagation off
@@ -48,8 +69,8 @@ void TObjBoss2DustCtrl::run_task() {
     s32 i;
     s32 j;
 
-    rot = &lbl_804FEA30[0].a;
-    out = lbl_804FEA80;
+    rot = lbl_804FEA30;
+    out = (Out_8003AB7C *)lbl_804FEA80;
     push_matrix();
     scale = lbl_805D85BC;
     ang = lbl_804FEE40;
@@ -78,17 +99,7 @@ void TObjBoss2DustCtrl::run_task() {
 
 TObjBoss2DustCtrl::~TObjBoss2DustCtrl() {}
 
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
-
-void TObjBoss2DustCtrl__sub_8003AB5C(void);
-
-extern s32 lbl_805D4BF0;
 
 void TObjBoss2DustCtrl__sub_8003AB5C(void) {
     s32 temp_r0;
@@ -98,6 +109,55 @@ void TObjBoss2DustCtrl__sub_8003AB5C(void) {
     if (temp_r0 >= 0xA) {
         lbl_805D4BF0 = 0;
     }
+}
+
+void *TObjBoss2DustCtrl__ct(void *arg0) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjBoss2DustCtrl;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D26F8;
+    return arg0;
+}
+
+void create__17TObjBoss2DustCtrlFv(void) {
+    void* obj = __nw__7TObjectFUl(0x1C);
+    if (obj != 0) {
+        ((M2C_UNK (*)(void *, s32))TObjBoss2DustCtrl__ct)(obj, tl_05);
+    }
+}
+
+void TObjBoss2DustCtrl__sub_8003AD50(void) {  }
+
+void fn_8003AD54(void) {
+    s32 i;
+    s32 j;
+
+    for (i = 0; i < 6; i++) {
+        s32 a = (s32)(lbl_805D85C0 * (f32)i);
+        f32 s = lbl_805D85C4 * sin_table_lookup(a);
+        lbl_804FE9E8[i].x = s;
+        lbl_804FE9E8[i].y = lbl_805D85C8 * (f32)i;
+        lbl_804FE9E8[i].z = lbl_805D85C4 * cos_table_lookup(a, s);
+    }
+    {
+        s32 *p = lbl_804FEA30;
+        for (i = 0; i < 20; i++) {
+            *p++ = calc_random_scaled__10TObjPlayerFv();
+        }
+    }
+    {
+        Out_8003AD54 *o = lbl_804FEA80;
+        for (i = 0; i < 60; i++) {
+            o->x = lbl_805D85B8;
+            o->y = lbl_805D85B8;
+            o->z = lbl_805D85B8;
+            o->c = 0xFF709070;
+            o++;
+        }
+    }
+    for (j = 0; j < 10; j++) {
+        lbl_804FEE40[j] = calc_random_scaled__10TObjPlayerFv();
+    }
+    lbl_805D4BF0 = 0;
 }
 
 }

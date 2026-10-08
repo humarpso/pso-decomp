@@ -41,3 +41,5 @@ void disable_dragon_blocking_bodies(Obj_8002B118 *self) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TBoss1Dragon_8002B0CC_cpp_ref = (void *)TBoss1Dragon__sub_8002B0CC;

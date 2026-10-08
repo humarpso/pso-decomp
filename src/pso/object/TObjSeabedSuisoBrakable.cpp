@@ -22,6 +22,27 @@ void TLobby__sub_802A7318(void* p);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
+struct Tbl_802A6F98 { s32 w[5]; };
+struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
+
+void *get_bml_model(u32, int);
+u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
+s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(void *, int);
+u32 load_gvm_texture_file(void *);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 TObjDoorJung__sub_8023DBEC(u32, s32);
+extern Tbl_802A6F98 lbl_80466C5C;
+extern Tbl_802A6F98 lbl_80466C80;
+extern M2C_UNK lbl_80466CE0[];
+extern M2C_UNK lbl_80466CF8[];
+extern M2C_UNK lbl_804DD180[];
+extern M2C_UNK lbl_804DD268[];
+
+int lbl_80540AC0[5];
+int lbl_80540AD4[3];
+int lbl_80540AE0[4];
+
 extern u32 TObjSeabedSuisoBrakable__data_805D6670;
 extern u32 lbl_805D6674;
 
@@ -36,6 +57,67 @@ void free_static_resources__23TObjSeabedSuisoBrakableFv(void) {
         TObjSeabedSuisoBrakable__data_805D6670 = 0U;
     }
 }
+
+#pragma push
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+void TObjSeabedSuisoBrakable__sub_802A6F98(void) {
+    s32 i;
+    void *p;
+    void *item;
+    s32 **ptrs;
+    Tbl_802A6F98 t1;
+    Tbl_802A6F98 t2;
+
+    switch (get_global_state__14TOKeyMachine01Fv()) {
+    case 0x1D:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = (void *)load_resource_from_descriptor(p, 1, lbl_804DD268, 0, 0, 0);
+        }
+        TObjSeabedSuisoBrakable__data_805D6670 = (u32)p;
+        if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CE0)) != 0) {
+            t1 = lbl_80466C5C;
+            for (i = 0; i < 5; i++) {
+                lbl_80540AC0[i] = TObjDoorJung__sub_8023DBEC(lbl_805D6674, t1.w[i]);
+            }
+        }
+        break;
+    case 0x1C:
+    default:
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = (void *)load_resource_from_descriptor(p, 1, lbl_804DD180, 0, 0, 0);
+        }
+        TObjSeabedSuisoBrakable__data_805D6670 = (u32)p;
+        if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CF8)) != 0) {
+            t2 = lbl_80466C80;
+            for (i = 0; i < 5; i++) {
+                lbl_80540AC0[i] = TObjDoorJung__sub_8023DBEC(lbl_805D6674, t2.w[i]);
+            }
+        }
+        break;
+    }
+    if ((item = get_bml_model(TObjSeabedSuisoBrakable__data_805D6670, 0xC)) != NULL) {
+        lbl_80540AD4[0] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 1);
+        lbl_80540AD4[1] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 2);
+        lbl_80540AD4[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 4);
+    }
+    if ((p = get_bml_model(TObjSeabedSuisoBrakable__data_805D6670, 0xD)) != NULL) {
+        lbl_80540AE0[0] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 1);
+        lbl_80540AE0[1] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 2);
+        lbl_80540AE0[2] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 3);
+        ptrs = (s32 **)lbl_80540AE0;
+        for (i = 0; i < 3; i++) {
+            if (ptrs[i] != NULL) {
+                *ptrs[i] |= 0x100000;
+            }
+        }
+    }
+}
+extern int fold_flush_802A6F98;
+#pragma pop
 
     extern int lbl_80540AC0[];
 int get_break_data__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AC0[a0]; }

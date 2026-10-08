@@ -162,6 +162,58 @@ struct Obj_803CA194 {
     void *f94; s8 f98; u8 pad_99[3]; s32 f9c; s32 fa0;
 };
 
+struct Obj_803CA194;
+struct Ch_803CA3C4 {
+    s8 state;
+    u8 f1, f2;
+    s8 n;
+    void *f4;
+    void *f8;
+    void *fc;
+    void *f10;
+    s32 f14;
+    void *f18[2];
+    s32 f20;
+    s32 f24;
+    s32 f28;
+    s32 f2c;
+    s32 f30;
+    s32 f34;
+    s32 f38;
+    s16 f3c;
+    s16 f3e;
+    s16 f40;
+    s16 f42[8];
+    u8 pad52[2];
+    s32 f54;
+    s32 f58;
+    s32 f5c;
+    s16 f60;
+    u8 pad62[2];
+    s32 f64;
+    s16 f68;
+    s16 f6a;
+    s8 f6c;
+    s8 f6d;
+    u8 pad6e[4];
+    s8 f72;
+    u8 pad73[0x88 - 0x73];
+    s32 f88;
+    u8 pad8c[0x94 - 0x8C];
+    void *f94;
+    s8 f98;
+    u8 pad99[0xA8 - 0x99];
+};
+
+extern "C" const u32 lbl_805E0D58[1];
+extern "C" const u32 lbl_805E0D5C[1];
+extern "C" const u32 lbl_805E0D60[1];
+extern "C" const u32 lbl_805E0D64[1];
+#define lbl_805E0D58 (*(const f32 *)lbl_805E0D58)
+#define lbl_805E0D5C (*(const f32 *)lbl_805E0D5C)
+#define lbl_805E0D60 (*(const f32 *)lbl_805E0D60)
+#define lbl_805E0D64 (*(const f32 *)lbl_805E0D64)
+
 extern "C" {
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK release_ref__6TLobbyFv();
@@ -317,6 +369,14 @@ M2C_UNK TLobby__sub_803CC070(void *);
 M2C_UNK TLobby__sub_803D198C(void *);
 extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
+void *TLobby__sub_803C0848(void *, s32, void *);
+void TLobby__sub_803CA194(Obj_803CA194 *arg0);
+void *run_step_5210__6TLobbyFv(void *, s32);
+void *TLobby__sub_803D1A98(void *);
+void *TLobby__sub_803D2C84(void *, s32, s32);
+M2C_UNK memset(void *, int, int);
+extern Ent_803C9608 lbl_80572120[16];
+Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size);
 }
 
 extern "C" {
@@ -763,6 +823,91 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
     memset(arg0, 0, 0xA8);
     arg0->f0 = 0;
     release_ref__6TLobbyFv();
+}
+
+#undef lbl_805E0D58
+#undef lbl_805E0D5C
+#undef lbl_805E0D60
+#undef lbl_805E0D64
+__declspec(section ".sdata2") extern const u32 lbl_805E0D58[1] = { 0x00000000 };
+__declspec(section ".sdata2") extern const u32 lbl_805E0D5C[1] = { 0x447a0000 };
+__declspec(section ".sdata2") extern const u32 lbl_805E0D60[1] = { 0x42700000 };
+__declspec(section ".sdata2") extern const u32 lbl_805E0D64[1] = { 0xc2700000 };
+#define lbl_805E0D58 (*(const f32 *)lbl_805E0D58)
+#define lbl_805E0D5C (*(const f32 *)lbl_805E0D5C)
+#define lbl_805E0D60 (*(const f32 *)lbl_805E0D60)
+#define lbl_805E0D64 (*(const f32 *)lbl_805E0D64)
+
+Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size) {
+    Ch_803CA3C4 *c;
+    s32 aligned = (base + 0x3F) & ~0x3F;
+    s32 rem = size - (aligned - base);
+    s32 i;
+    s32 t;
+    for (i = 0; i < 16; i++) {
+        if (lbl_80572120[i].state == 0) {
+            break;
+        }
+    }
+    if (i == 16) {
+        return NULL;
+    }
+    c = (Ch_803CA3C4 *)&lbl_80572120[i];
+    memset(c, 0, 0xA8);
+    c->n = n;
+    t = (n * 0x2060) << 1;
+    c->f20 = aligned + t;
+    c->f24 = (rem - t - 0x24) / 2048 * 2048;
+    c->f28 = 0x24;
+    c->f2c = aligned;
+    c->f30 = 0x2000;
+    c->f34 = 0x2060;
+    c->f14 = 0;
+    c->f10 = TLobby__sub_803D2C84((void *)c->f20, c->f24, c->f28);
+    if (c->f10 == NULL) {
+        TLobby__sub_803CA194((Obj_803CA194 *)c);
+        return NULL;
+    }
+    for (i = 0; i < n; i++) {
+        c->f18[i] = TLobby__sub_803D2C84((void *)(c->f2c + c->f34 * i * 2), c->f30 * 2, (c->f34 - c->f30) * 2);
+        if (c->f18[i] == NULL) {
+            TLobby__sub_803CA194((Obj_803CA194 *)c);
+            return NULL;
+        }
+    }
+    if ((c->f4 = TLobby__sub_803C0848(c->f10, n, c->f18)) == NULL) {
+        TLobby__sub_803CA194((Obj_803CA194 *)c);
+        return NULL;
+    }
+    if ((c->fc = run_step_5210__6TLobbyFv(c->f18, n)) == NULL) {
+        TLobby__sub_803CA194((Obj_803CA194 *)c);
+        return NULL;
+    }
+    if ((c->f94 = TLobby__sub_803D1A98(c->f10)) == NULL) {
+        TLobby__sub_803CA194((Obj_803CA194 *)c);
+        return NULL;
+    }
+    c->f38 = 0x3C;
+    c->f3c = c->f24 / 2048;
+    c->f3e = 0.85 * c->f3c;
+    c->f40 = 0;
+    for (i = 0; i < n; i++) {
+        c->f42[i] = -0x80;
+    }
+    c->f6c = 1;
+    c->f54 = 0;
+    c->f58 = 0;
+    c->f5c = 0;
+    c->f60 = 0;
+    c->f64 = 0;
+    c->f68 = 0;
+    c->f6a = 0;
+    c->f6d = 1;
+    c->f72 = 0;
+    c->f88 = 0;
+    c->f98 = 1;
+    c->state = 1;
+    return c;
 }
 
 void TLobby__sub_803CA774(u8 *arg0, u8 *arg1, s32 arg2) {

@@ -34,3 +34,5 @@ void TLobby__sub_800F9F08(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TAdPlayerLoadGC_800F9EF8_cpp_ref = (void *)TLobby__sub_800F9F08;

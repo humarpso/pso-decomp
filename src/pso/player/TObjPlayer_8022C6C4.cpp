@@ -32,6 +32,14 @@ struct Player_8022D27C {
     u8 tech[1];
 };
 
+typedef struct Col_8022C738 { s32 w[4]; } Col_8022C738;
+
+typedef struct Vec_8022C738 { f32 x, y, z; } Vec_8022C738;
+
+typedef struct Params_8022C738 { u8 pad0[0x12]; s16 f12; u8 pad14[0x20 - 0x14]; s16 f20; } Params_8022C738;
+
+typedef struct LightData_8022C738 { u8 pad0[0x1C]; f32 f1C; u8 pad20[4]; } LightData_8022C738;
+
 extern "C" {
 void reset_slots__10TObjPlayerFPv(void *);
 Cursor_8022CDE8 *find_by_pos__11TMainCursorFiss(u32, int, s16);
@@ -84,6 +92,39 @@ extern s32 lbl_805D53A0;
 extern const f32 lbl_805DC7D8;
 extern const f32 lbl_805DC7E4;
 void launch_technique__10TObjPlayerFv(s32 tech, s32 unused, Player_8022D27C *pl);
+s32 is_locally_controlled__10TObjPlayerFPv(void *);
+void *__nw__7TObjectFUl(u32);
+Params_8022C738 *get_technique_base_params(void);
+void *TObjLight__sub_80235E9C(void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32, f32, f32, f32);
+void *initialize__9TObjLightFPvii(void *, void *, s32);
+void *init__9TObjLightFPvii(void *, void *, s32);
+void *init_from_owner__10TTecSlicerFPvii(void *, void *, s32);
+void *construct_resta_charge_sound(void *, void *, s32);
+void *init_6e6c__9TObjLightFPvii(void *, void *, s32);
+void *init_from_source__9TObjLightFPvii(void *, void *, s32);
+extern Col_8022C738 lbl_8044CF7C;
+extern Vec_8022C738 lbl_8044CF8C;
+extern Col_8022C738 lbl_8044CF98;
+extern Vec_8022C738 lbl_8044CFA8;
+extern Col_8022C738 lbl_8044CFB4;
+extern Vec_8022C738 lbl_8044CFC4;
+extern Col_8022C738 lbl_8044CFD0;
+extern Vec_8022C738 lbl_8044CFE0;
+extern Col_8022C738 lbl_8044CFEC;
+extern Vec_8022C738 lbl_8044CFFC;
+extern Col_8022C738 lbl_8044D008;
+extern Vec_8022C738 lbl_8044D018;
+extern Col_8022C738 lbl_8044D024;
+extern Vec_8022C738 lbl_8044D034;
+extern Col_8022C738 lbl_8044D040;
+extern Vec_8022C738 lbl_8044D050;
+extern Col_8022C738 lbl_8044D05C;
+extern Vec_8022C738 lbl_8044D06C;
+extern LightData_8022C738 TObjLight__data_80506320;
+extern s32 tl_07;
+extern const f32 lbl_805DC7DC;
+extern const f32 lbl_805DC7E0;
+void create_technique_charge_light(u32 kind, void *owner);
 }
 
 extern "C" {
@@ -118,6 +159,71 @@ s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
             get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)));           \
         set_tech_level__10TObjPlayerFPvs(slots, 1);                                      \
     }
+
+#pragma push
+#pragma opt_propagation off
+#define CHARGE_LIGHT_8022C738(COL, VEC, INIT)                                                    \
+    {                                                                                            \
+        Col_8022C738 c = COL;                                                                    \
+        Vec_8022C738 v = VEC;                                                                    \
+        void *o = __nw__7TObjectFUl(100);                                                        \
+        if (o != NULL) {                                                                         \
+            ((void *(*)(f32, f32, f32, void *, Col_8022C738 *, Vec_8022C738 *, s32, void *, s32)) \
+                 TObjLight__sub_80235E9C)(lbl_805DC7DC, lbl_805DC7E0, TObjLight__data_80506320.f1C, \
+                                          o, &c, &v, base, owner, tl_07);                        \
+        }                                                                                        \
+        if (is_locally_controlled__10TObjPlayerFPv(owner) != 0) {                                \
+            o = __nw__7TObjectFUl(0x34);                                                         \
+            if (o != NULL) {                                                                     \
+                INIT(o, owner, tl_07);                                                           \
+            }                                                                                    \
+        }                                                                                        \
+    }
+void create_technique_charge_light(u32 kind, void *owner) {
+    Params_8022C738 *p = get_technique_base_params();
+    s32 base = p->f12 + p->f20 + 50;
+    switch (kind) {
+    case 1:
+        CHARGE_LIGHT_8022C738(lbl_8044CF7C, lbl_8044CF8C, initialize__9TObjLightFPvii)
+        break;
+    case 0:
+    case 2:
+        CHARGE_LIGHT_8022C738(lbl_8044CF98, lbl_8044CFA8, initialize__9TObjLightFPvii)
+        break;
+    case 3:
+    case 4:
+        CHARGE_LIGHT_8022C738(lbl_8044CFB4, lbl_8044CFC4, init__9TObjLightFPvii)
+        break;
+    case 5:
+        CHARGE_LIGHT_8022C738(lbl_8044CFD0, lbl_8044CFE0, init__9TObjLightFPvii)
+        break;
+    case 6:
+    case 7:
+    case 8:
+        CHARGE_LIGHT_8022C738(lbl_8044CFEC, lbl_8044CFFC, init_from_owner__10TTecSlicerFPvii)
+        break;
+    case 9:
+    case 15:
+    case 16:
+    case 17:
+        CHARGE_LIGHT_8022C738(lbl_8044D008, lbl_8044D018, construct_resta_charge_sound)
+        break;
+    case 10:
+    case 11:
+    case 12:
+    case 14:
+        CHARGE_LIGHT_8022C738(lbl_8044D024, lbl_8044D034, init_6e6c__9TObjLightFPvii)
+        break;
+    case 13:
+        CHARGE_LIGHT_8022C738(lbl_8044D040, lbl_8044D050, init_6e6c__9TObjLightFPvii)
+        break;
+    case 18:
+        CHARGE_LIGHT_8022C738(lbl_8044D05C, lbl_8044D06C, init_from_source__9TObjLightFPvii)
+        break;
+    }
+}
+#pragma pop
+
 void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) {
     Cursor_8022CDE8 *c;
     void *slots;

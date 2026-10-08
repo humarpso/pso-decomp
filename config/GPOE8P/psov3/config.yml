@@ -85,6 +85,7 @@ force_active:
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
   - TAdSinglePlyChrSelectGC__sub_8028EE20
   - TAdTitleGC__sub_802A0A60
+  - TBoss1Dragon__sub_8002B0CC
   - TBoss2DeRolLe__sub_80034D58
   - TBoss3Volopt__sub_800D8F78
   - TBoss7Crawfish__sub_80308840
@@ -105,6 +106,7 @@ force_active:
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
   - TLobby__sub_80070A78
+  - TLobby__sub_800F9F08
   - TLobby__sub_800FD764
   - TLobby__sub_801037A0
   - TLobby__sub_8010385C
@@ -470,14 +472,17 @@ force_active:
   - find_support_technique_contact
   - flanking_state__14TObjEneBm5WolfFPvi
   - fn_80010F4C
+  - fn_8007A6C8
   - fn_8007F560
   - fn_8010EFE8
   - fn_8013F288
   - fn_8016AD3C
+  - fn_801A3BB8
   - fn_801A753C
   - fn_801C1E98
   - fn_801C1EE8
   - fn_801C1F40
+  - fn_801D34E0
   - fn_801D36B4
   - fn_801D371C
   - fn_801DF360
@@ -487,8 +492,11 @@ force_active:
   - fn_801DF558
   - fn_801DF740
   - fn_801DF7F8
+  - fn_801E0C08
   - fn_801F6520
+  - fn_8022F164
   - fn_8026D564
+  - fn_802E62A4
   - fn_80349C54
   - fn_803CBE00
   - free_item_pmt
@@ -530,6 +538,7 @@ force_active:
   - init_city_door
   - init_default_fields__6TLobbyFPv
   - init_effect_flags__13TItemProArmorFPv
+  - init_forward__19TItemDisconnectCtrlFv
   - init_forward_default__10TObjPlayerFv
   - init_gx_lighting_defaults
   - init_inventory_items__10TObjPlayerFi
@@ -539,6 +548,7 @@ force_active:
   - init_parameters__9TTecMegidFPv
   - init_parameters__9TTecRestaFPv
   - init_parameters__9TTecZondeFPv
+  - init_player_forward__6TLobbyFv
   - init_player_scale_state
   - init_text_window_layout
   - initialize__16TItemWeaponRifleFlPUc
@@ -612,6 +622,7 @@ force_active:
   - lbl_804EC708
   - lbl_804EC724
   - lbl_804ED9C0
+  - lbl_804EF3A4
   - lbl_804F2B80
   - lbl_804F2B90
   - lbl_804F2B98

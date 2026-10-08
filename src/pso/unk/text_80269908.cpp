@@ -9,10 +9,10 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void text_builder_append(const char *);
 void text_builder_reset(void);
 s32 append_message_window_line(void *, s32, u32, s32);
-extern char lbl_805DD22C[4];
 extern const f32 lbl_805DD230;
 extern const f32 lbl_805DD234;
 
+#pragma readonly_strings on
 s32 TWindowOptionCtrl__sub_80269908(u8 *arg0, const char *arg1, const char *arg2, u32 arg3) {
     const char *sep;
     f32 x;
@@ -34,5 +34,6 @@ s32 TWindowOptionCtrl__sub_80269908(u8 *arg0, const char *arg1, const char *arg2
     }
     return r;
 }
+#pragma readonly_strings reset
 
 }

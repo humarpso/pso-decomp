@@ -15,3 +15,5 @@ void fn_801A3BB8(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_text_801A3BB8_cpp_ref = (void *)fn_801A3BB8;

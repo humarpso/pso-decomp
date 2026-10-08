@@ -6,6 +6,8 @@ TAdFadeGC::~TAdFadeGC() {}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
+struct Desc_802C79C8 { f32 *pos; u32 *col; s32 a; s32 b; };
+
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
@@ -27,17 +29,90 @@ extern const f32 lbl_805DE5F0;
 extern const f32 lbl_805DE600;
 extern const f32 lbl_805DE608;
 void run_task__9TAdFadeGCFv(void *arg0);
+M2C_UNK fn_801E3330(void *, int, int, f32);
+M2C_UNK TObjCMHairMenu__sub_801E35C4(void *, int, int, f32, f32, f32);
+M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
+extern f32 lbl_805D6800;
+extern s8 lbl_805D6804;
+extern const f32 lbl_805DE5EC;
+extern const f32 lbl_805DE5F4;
+extern const f32 lbl_805DE5F8;
+extern const f32 lbl_805DE5FC;
 }
 
 extern "C" {
 
 void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2);
 void render__9TAdFadeGCFv(void* p);
-int TAdFadeGC__sub_802C79C8(void*);
+void TAdFadeGC__sub_802C79C8(u8 *);
 void __ct__7TObjectFP7TObject(void *);
 void render__18TObjTradeCollisionFv(void);
 
-void render__9TAdFadeGCFv(void* p) { if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) { TAdFadeGC__sub_802C79C8(p); } }
+void TAdFadeGC__sub_802C79C8(u8 *arg0) {
+    f32 pos[8];
+    Desc_802C79C8 d;
+    u32 col[4];
+    u32 i;
+    f32 y;
+    f32 y2;
+    u32 c;
+
+    d.pos = pos;
+    d.col = col;
+    d.a = 0;
+    d.b = 4;
+    switch (M2C_FIELD(arg0, s32 *, 0x28)) {
+    case 0:
+        abs__4cXyzCFv(0, 0xB);
+        abs__4cXyzCFv(1, 4);
+        for (i = 0; i < 120; i++) {
+            d.pos[0] = TAdFadeGC__data_805DE5E8;
+            y = lbl_805DE5EC * (f32) i;
+            d.pos[1] = y;
+            d.col[0] = 0x0FFFFFFF;
+            d.pos[2] = M2C_FIELD(arg0, f32 *, 0x20);
+            d.pos[3] = y;
+            d.col[1] = 0xFFFFFFFF;
+            d.pos[4] = lbl_805DE5F0;
+            y2 = lbl_805DE5F4 + y;
+            d.pos[5] = y2;
+            d.col[2] = 0xFFFFFFFF;
+            d.pos[6] = lbl_805DE5F0 - M2C_FIELD(arg0, f32 *, 0x20);
+            d.pos[7] = y2;
+            d.col[3] = 0xFFFFFFFF;
+            if (lbl_805D6804 == 0) {
+                lbl_805D6804 = 1;
+                lbl_805D6800 = lbl_805DE5F8;
+            }
+            fn_801E3330(&d, 4, 7, lbl_805D6800);
+        }
+        abs__4cXyzCFv(0, 8);
+        abs__4cXyzCFv(1, 6);
+        break;
+    case 1:
+    case 2:
+        d.pos[0] = TAdFadeGC__data_805DE5E8;
+        d.pos[1] = TAdFadeGC__data_805DE5E8;
+        c = M2C_FIELD(arg0, u32 *, 0x30);
+        d.col[0] = (c << 8) | (c >> 24);
+        d.pos[2] = TAdFadeGC__data_805DE5E8;
+        d.pos[3] = lbl_805DE5FC;
+        c = M2C_FIELD(arg0, u32 *, 0x30);
+        d.col[1] = (c << 8) | (c >> 24);
+        d.pos[4] = lbl_805DE5F0;
+        d.pos[5] = lbl_805DE5FC;
+        c = M2C_FIELD(arg0, u32 *, 0x30);
+        d.col[2] = (c << 8) | (c >> 24);
+        d.pos[6] = lbl_805DE5F0;
+        d.pos[7] = TAdFadeGC__data_805DE5E8;
+        c = M2C_FIELD(arg0, u32 *, 0x30);
+        d.col[3] = (c << 8) | (c >> 24);
+        TObjCMHairMenu__sub_801E35C4(&d, 4, 7, lbl_805DE5F8, lbl_805DE5FC, TAdFadeGC__data_805DE5E8);
+        break;
+    }
+}
+
+void render__9TAdFadeGCFv(void* p) { if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) { TAdFadeGC__sub_802C79C8((u8 *)p); } }
 
 extern M2C_UNK __vt__9TAdFadeGC[];
 extern const f32 TAdFadeGC__data_805DE5E8;

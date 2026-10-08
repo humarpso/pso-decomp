@@ -20,3 +20,5 @@ void init_forward__19TItemDisconnectCtrlFv(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TItemDisconnectCtrl_80105BE8_cpp_ref = (void *)init_forward__19TItemDisconnectCtrlFv;

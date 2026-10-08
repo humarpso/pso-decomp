@@ -153,6 +153,12 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
+  "pso/ui/TAdPlayerLoadGC_803F339C.cpp": {
+    "mw_version": "GC/1.2.5",
+    "optimization": "-O4,p",
+    "inline": "off",
+    "use_lmw_stmw": "on"
+  },
   "pso/unk/text_803F1804.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
@@ -459,14 +465,6 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/unk/text_803DD080.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole",
-    "sdata2": 8
-  },
   "pso/unk/text_803DD430.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
@@ -635,34 +633,6 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole",
     "sdata2": 8
-  },
-  "pso/unk/text_803DCEC8.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole"
-  },
-  "pso/unk/text_803DCF0C.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole"
-  },
-  "pso/unk/text_803DCF2C.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole"
-  },
-  "pso/misc/TMovie_803DCFE4.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole"
   },
   "pso/unk/text_803DD3C8.cpp": {
     "mw_version": "GC/2.6",

@@ -1,8 +1,7 @@
 #include "pso/TObjOnlineEndingHexLine.h"
-
-TObjOnlineEndingHexLine::~TObjOnlineEndingHexLine() {}
-
+#include "pso/TObjOnlineEndingHexMove.h"
 #include "types.h"
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -12,36 +11,167 @@ struct Param_802E5CB0 { f32 a; f32 b; s32 c; f32 d; };
 typedef char Param_802E5CB0_size[sizeof(Param_802E5CB0) == 0x10 ? 1 : -1];
 
 struct V2_802E55B8 { f32 x, y; };
-
 struct P2_802E55B8 { s16 x, y; };
-
 struct Hex_802E55B8 { u8 pad[0x1C]; P2_802E55B8 pts[32]; };
-
 struct Desc_802E55B8 { V2_802E55B8 *pts; u32 *cols; s32 z; s32 n; };
 
+struct P2_802E530C { s16 x, y; };
+struct Hex_802E530C { u8 pad[0x1C]; P2_802E530C pts[32]; f32 f9C; };
+
+struct V2_802E5B0C { f32 x, y; };
+
+struct Pkt_802E5EFC { s32 hdr; s32 idx; f32 val; };
+struct Self_802E5EFC { u8 pad[0x1c]; s32 timer; };
+
+typedef struct V4_802E62A4 { s32 a, b, c, d; } V4_802E62A4;
+
 extern "C" {
-void TObjOnlineEndingHexLine__sub_802E530C(void *);
-extern Param_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8;
-extern Param_802E5CB0 lbl_804E3AB8;
+
+V4_802E62A4 lbl_804E3A98[1] = {
+    { 0x3E800000, 0x3F800000, 0x00000000, 0x41200000 },
+};
+Param_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8 = { 0.0f, 0.0f, 0, 0.0f };
+Param_802E5CB0 lbl_804E3AB8 = { 0.0f, 0.0f, 0, 0.0f };
+u32 lbl_804E3AC8[4] = { 0x00000000, 0x00150000, 0x00000013, 0x00150013 };
+u32 lbl_804E3AD8[4] = { 0, 0, 0, 0 };
+P2_802E530C lbl_804E3AE8[18] = {
+    { -1, 0 }, { 0, -1 }, { 0, 1 },
+    { 0, 0 }, { 0, 0 }, { 0, 0 },
+    { 1, 0 }, { -1, -1 }, { -1, 1 },
+    { 1, 0 }, { 0, -1 }, { 0, 1 },
+    { -1, 0 }, { 1, -1 }, { 1, 1 },
+    { 0, 0 }, { 0, 0 }, { 0, 0 },
+};
+void *__dt__23TObjOnlineEndingHexLineFv(void *arg0, s16 arg1);
+void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
+void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
+void render_shadows__7TObjectFv(void);
+void *__vt__23TObjOnlineEndingHexLine[6] = {
+    (void *)0, (void *)0,
+    (void *)__dt__23TObjOnlineEndingHexLineFv,
+    (void *)run_task__23TObjOnlineEndingHexLineFv,
+    (void *)render__23TObjOnlineEndingHexLineFv,
+    (void *)render_shadows__7TObjectFv,
+};
+
 extern Param_802E5CB0 lbl_805412B0;
 extern const f32 lbl_805DE958;
+extern const f32 lbl_805DE95C;
+extern const f32 lbl_805DE960;
+extern const f32 lbl_805DE964;
+extern const f32 lbl_805DE968;
+extern const f32 lbl_805DE96C;
+extern const f32 lbl_805DE970;
+extern const f32 lbl_805DE974;
+extern const f32 lbl_805DE978;
+extern const f32 lbl_805DE97C;
+extern const f32 lbl_805DE980;
+extern const f32 lbl_805DE984;
+extern const f32 lbl_805DE988;
+extern const f32 lbl_805DE98C;
+extern V2_802E5B0C lbl_80472C00[];
+extern u8 lbl_8050E208[];
+extern s32 lbl_805D53A0;
+extern s32 lbl_805D3FA0;
+extern M2C_UNK __vt__23TObjOnlineEndingHexMove[];
+
+int rand(void);
 f32 get_random_float__8TObjFishFv(f32);
 s32 angle_difference_abs(int, int);
-extern const f32 lbl_805DE968;
-void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
+s32 angle_diff_s16(s32, s32);
+u32 get_player_by_client_id(int);
+M2C_UNK bswap_6x92__14TAdGameStartGCFPv(void *);
+M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+f32 sin_table_lookup(int);
+f32 cos_table_lookup(int);
 M2C_UNK fn_801E3330(Desc_802E55B8 *, s32, s32, f32);
-M2C_UNK TObjOnlineEndingHexLine__sub_802E5B0C(V2_802E55B8 *, P2_802E55B8 *);
-extern Param_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8;
-extern const f32 lbl_805DE964;
-void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
-}
-
-extern "C" {
-
-void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
-void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1);
-void *__ct__23TObjOnlineEndingHexLineFv(void *, void *, void *);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+void send_6x92__14TAdGameStartGCFPv(Pkt_802E5EFC *);
+void TAdGameStartGC__sub_802E6368(Pkt_802E5EFC *);
 void *__nw__7TObjectFUl(int);
+M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+void *__ct__23TObjOnlineEndingHexLineFv(void *, void *, void *);
+
+void TObjOnlineEndingHexLine__sub_802E530C(void *);
+void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1);
+void render__23TObjOnlineEndingHexLineFv(u8 *arg0);
+void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0);
+void *create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1);
+M2C_UNK TObjOnlineEndingHexLine__sub_802E5B0C(V2_802E55B8 *, P2_802E55B8 *);
+void TObjOnlineEndingHexLine__sub_802E5CB0(void);
+u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1);
+void copy_move_params__23TObjOnlineEndingHexMoveFPvPv(void *p, void *q);
+void *fn_802E6218(void *arg0);
+void fn_802E6260(void);
+
+void TObjOnlineEndingHexLine__sub_802E530C(void *arg0_) {
+    Hex_802E530C *h = (Hex_802E530C *)arg0_;
+    s16 dx;
+    s16 dy;
+    s32 bad[3];
+    s32 same[3];
+    P2_802E530C *dirs;
+    s32 base;
+    s32 sel;
+    s32 i;
+    s32 nbad;
+    s32 j;
+    s32 last;
+
+    dx = h->pts[1].x - h->pts[0].x;
+    dy = h->pts[1].y - h->pts[0].y;
+    h->f9C = lbl_805DE958;
+    for (i = 31; i >= 1; i--) {
+        TObjOnlineEndingHexLine__sub_802E55A4(&h->pts[i], &h->pts[i - 1]);
+    }
+    base = ((s16)(h->pts[0].x % 3) + (s16)(h->pts[0].y & 1) * 3) * 3;
+    dirs = &lbl_804E3AE8[base];
+    nbad = 0;
+    last = -1;
+    for (j = 0; j < 3; j++) {
+        P2_802E530C t = dirs[j];
+        if (t.x == dx && t.y == dy) {
+            same[j] = 1;
+        } else {
+            same[j] = 0;
+        }
+        t.x += h->pts[0].x;
+        t.y += h->pts[0].y;
+        if (t.x < 0 || t.x >= 0x16 || t.y < 0 || t.y >= 0x14) {
+            bad[j] = 1;
+            nbad++;
+        } else {
+            bad[j] = 0;
+            last = j;
+        }
+    }
+    switch (nbad) {
+    case 2:
+        sel = last;
+        break;
+    case 1:
+        for (sel = 0; sel < 3; sel++) {
+            if (bad[sel] == 0 && same[sel] == 0) {
+                break;
+            }
+        }
+        break;
+    case 0:
+        sel = (s32)(lbl_805DE95C * (lbl_805DE960 * (f32)rand()));
+        for (i = 0; i < 3; i++) {
+            if (bad[sel] == 0 && same[sel] == 0) {
+                break;
+            }
+            sel++;
+            if (sel >= 3) {
+                sel = 0;
+            }
+        }
+        break;
+    }
+    h->pts[0].x += dirs[sel].x;
+    h->pts[0].y += dirs[sel].y;
+}
 
 void TObjOnlineEndingHexLine__sub_802E55A4(void *arg0, void *arg1) {
     M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
@@ -97,6 +227,20 @@ void run_task__23TObjOnlineEndingHexLineFv(u8 *arg0) {
     }
 }
 
+void __dt__7TObjectFv(void *, int);
+void __dl__7TObjectFPv(void *);
+
+void *__dt__23TObjOnlineEndingHexLineFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, void **, 0x18) = __vt__23TObjOnlineEndingHexLine;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
 void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xA0);
@@ -105,6 +249,87 @@ void * create__23TObjOnlineEndingHexLineFPvPv(void *arg0, void *arg1) {
     }
     return o;
 }
+
+#define BASE_802E5930 TObjOnlineEndingHexLine__data_804E3AA8
+
+void handle_6x92(u8 *arg0) {
+    f32 v;
+    f32 d;
+    s32 idx;
+
+    bswap_6x92__14TAdGameStartGCFPv(arg0);
+    idx = M2C_FIELD(arg0, s32 *, 4);
+    v = M2C_FIELD(arg0, f32 *, 8);
+    idx = idx % 4;
+    if (get_player_by_client_id(idx) != 0U) {
+        switch (idx) {
+        case 0:
+            if (v < lbl_805DE96C || v > lbl_805DE970) {
+                return;
+            }
+            lbl_804E3AB8.a = v;
+            lbl_805412B0.a = lbl_805DE96C * (v - BASE_802E5930.a);
+            break;
+        case 1:
+            if (v < lbl_805DE968 || v > lbl_805DE974) {
+                return;
+            }
+            d = v - BASE_802E5930.b;
+            lbl_804E3AB8.b = v;
+            lbl_805412B0.b = lbl_805DE96C * d;
+            break;
+        case 2:
+            lbl_804E3AB8.c = (s32) v;
+            lbl_805412B0.c = (s32) (lbl_805DE96C * (f32) angle_diff_s16(BASE_802E5930.c, lbl_804E3AB8.c));
+            break;
+        case 3:
+            if (v < lbl_805DE978 || v > lbl_805DE97C) {
+                return;
+            }
+            d = v - BASE_802E5930.d;
+            lbl_804E3AB8.d = v;
+            lbl_805412B0.d = lbl_805DE96C * d;
+            break;
+        }
+    }
+}
+
+#undef BASE_802E5930
+
+#pragma push
+#pragma fp_contract on
+M2C_UNK TObjOnlineEndingHexLine__sub_802E5B0C(V2_802E55B8 *arg0, P2_802E55B8 *arg1) {
+    V2_802E5B0C p;
+    f32 s;
+    f32 c;
+    f32 sc;
+    s32 ang;
+
+    if (M2C_FIELD(arg1, s16 *, 2) & 1) {
+        p.x = lbl_805DE980 * (lbl_805DE970 + (f32) M2C_FIELD(arg1, s16 *, 0));
+    } else {
+        p.x = (f32) (M2C_FIELD(arg1, s16 *, 0) * 0x1E);
+    }
+    f32 y = (f32) (M2C_FIELD(arg1, s16 *, 2) * 0x19);
+    V2_802E5B0C ctr = lbl_80472C00[0];
+    ang = M2C_FIELD(&TObjOnlineEndingHexLine__data_804E3AA8, s32 *, 8);
+    p.x = p.x - ctr.x;
+    p.y = y;
+    p.y = p.y - ctr.y;
+    s = sin_table_lookup(ang);
+    c = cos_table_lookup(M2C_FIELD(&TObjOnlineEndingHexLine__data_804E3AA8, s32 *, 8));
+    sc = M2C_FIELD(&TObjOnlineEndingHexLine__data_804E3AA8, f32 *, 4);
+    V2_802E5B0C q = p;
+    p.x = c * q.x - s * q.y;
+    p.y = s * q.x + c * q.y;
+    p.x = p.x * sc;
+    p.y = p.y * sc;
+    p.x = p.x + ctr.x;
+    p.y = p.y + ctr.y;
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0), &p);
+    return 1;
+}
+#pragma pop
 
 #define CUR_802E5CB0 TObjOnlineEndingHexLine__data_804E3AA8
 
@@ -167,5 +392,112 @@ void TObjOnlineEndingHexLine__sub_802E5CB0(void) {
 }
 
 #undef CUR_802E5CB0
+
+}
+
+void TObjOnlineEndingHexMove::run_task() {
+    Self_802E5EFC *self = (Self_802E5EFC *)this;
+    Pkt_802E5EFC pkt;
+    void *pad;
+    f32 v;
+    f32 step;
+    f32 max;
+    f32 min;
+    s32 ang;
+
+    if (--self->timer < 0) {
+        self->timer = 0;
+    }
+    if (self->timer == 0) {
+        pad = lbl_8050E208 + 0x20;
+        if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x30000) != 0) {
+            TAdGameStartGC__sub_802E6368(&pkt);
+            pkt.idx = lbl_805D53A0 % 4;
+            switch (pkt.idx) {
+            case 0:
+            case 1:
+            case 3:
+                switch (pkt.idx) {
+                case 0:
+                    step = lbl_805DE984;
+                    max = lbl_805DE970;
+                    v = TObjOnlineEndingHexLine__data_804E3AA8.a;
+                    min = lbl_805DE96C;
+                    break;
+                case 1:
+                    step = lbl_805DE988;
+                    max = lbl_805DE974;
+                    v = TObjOnlineEndingHexLine__data_804E3AA8.b;
+                    min = lbl_805DE968;
+                    break;
+                case 3:
+                    step = lbl_805DE98C;
+                    max = lbl_805DE97C;
+                    v = TObjOnlineEndingHexLine__data_804E3AA8.d;
+                    min = lbl_805DE978;
+                    break;
+                }
+                if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
+                    v += step;
+                    if (v > max) {
+                        v = max;
+                    }
+                } else {
+                    v -= step;
+                    if (v < min) {
+                        v = min;
+                    }
+                }
+                pkt.val = v;
+                break;
+            case 2:
+                ang = TObjOnlineEndingHexLine__data_804E3AA8.c;
+                if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0) {
+                    ang += 0x1999;
+                } else {
+                    ang -= 0x1999;
+                }
+                pkt.val = (s32)(u16)ang;
+                break;
+            }
+            send_6x92__14TAdGameStartGCFPv(&pkt);
+            self->timer = 0x1E;
+        }
+    }
+    ((void (*)(void *))TObjOnlineEndingHexLine__sub_802E5CB0)(self);
+}
+
+TObjOnlineEndingHexMove::~TObjOnlineEndingHexMove() {}
+
+extern "C" {
+
+u8 *TObjOnlineEndingHexMove__ct(u8 *arg0, void *arg1) {
+    s32 i;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TObjOnlineEndingHexMove;
+    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3FA0;
+    for (i = 0; i < 4; i++) {
+        create__23TObjOnlineEndingHexLineFPvPv(arg1, &lbl_804E3AC8[i]);
+    }
+    copy_move_params__23TObjOnlineEndingHexMoveFPvPv((void*)(&lbl_805412B0), (void*)(lbl_804E3AD8));
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0x1E;
+    return arg0;
+}
+
+void copy_move_params__23TObjOnlineEndingHexMoveFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(u32*)((char*)p + 0x8) = *(u32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }
+
+void * fn_802E6218(void *arg0) {
+    void *o;
+    o = __nw__7TObjectFUl(0x20);
+    if (o != NULL) {
+        o = TObjOnlineEndingHexMove__ct((u8 *)(o), (void *)(arg0));
+    }
+    return o;
+}
+
+void fn_802E6260(void) {
+    copy_move_params__23TObjOnlineEndingHexMoveFPvPv(&TObjOnlineEndingHexLine__data_804E3AA8,
+        ((void *(*)(void *, void *))copy_move_params__23TObjOnlineEndingHexMoveFPvPv)(&lbl_804E3AB8, lbl_804E3A98));
+}
 
 }

@@ -3,6 +3,8 @@ struct Tag_801D7D4C { u8 d[4]; };
 
 struct Obj_801D7D4C { s32 n; Tag_801D7D4C x[4]; Tag_801D7D4C y[4]; };
 
+struct Tec_801D7DA4 { u8 pad[0x10]; s16 cost; };
+
 struct TItemData_801D8044 { u8 kind; u8 type; u8 sub; u8 pad[0x11]; };
 
 struct TObjPlayer_801D8044 {
@@ -14,6 +16,17 @@ struct TObjPlayer_801D8044 {
 
 extern "C" {
 void init__6gc_tagFv(void *);
+s32 obj_testFlags30(void *, u32);
+s32 reset_key_machine_state__10TObjPlayerFv();
+s32 get_camera_field__10TObjPlayerFPv(void *);
+s32 test_bit1_at_10__10TObjPlayerFPv(void *);
+u8 get_cast_technique_level(void *, int);
+Tec_801D7DA4 *calc_technique_parameters(s32, s32, s32);
+s32 get_game_play_mode();
+s32 is_flag_clear__17TObjWarpBossMultiFPv(void *);
+s32 is_technique_ready__8TTecCtrlFv();
+s32 TObjPlayer__sub_801C1F50(void *);
+
 void TObjPlayer__sub_801D7D4C(Obj_801D7D4C *arg0);
 u32 get_item_field_6__10TObjPlayerFPv(void *);
 s32 weapon_has_extra_attack(u32);
@@ -28,7 +41,7 @@ u16 obj_getField1c(void *);
 s32 TWindowCtrl__sub_8024A228(s32);
 s32 TMainCursor__sub_8013F244(void *);
 s32 fn_8013F24C(void *, s32);
-s32 is_palette_entry_displayable__10TObjPlayerFv(void *, u8, u8);
+s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *, u8, u8);
 bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 kind, u8 arg);
 }
 
@@ -43,6 +56,83 @@ void TObjPlayer__sub_801D7D4C(Obj_801D7D4C *arg0) {
         init__6gc_tagFv(&arg0->y[i]);
         i++;
     } while (i < 4);
+}
+s32 is_palette_entry_displayable__10TObjPlayerFv(u8 *arg0, u8 kind, u8 sub) {
+    s32 tec;
+
+    switch (kind) {
+    case 0:
+        return 0;
+    case 1:
+        return 1;
+    case 2:
+        if (obj_testFlags30(arg0, 0x20006) != 0 || reset_key_machine_state__10TObjPlayerFv() == 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
+            return 0;
+        }
+        if ((u8)sub == 2) {
+            if (get_item_field_6__10TObjPlayerFPv(arg0) != 0) {
+                if (((s32 (*)())weapon_has_extra_attack)() == 0) {
+                    return 0;
+                }
+            } else {
+                return 0;
+            }
+        }
+        return 1;
+    case 3:
+        if (test_bit1_at_10__10TObjPlayerFPv(arg0 + 0x428) != 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
+            return 0;
+        }
+        if (*(s16 *)(arg0 + 0x32E) - calc_technique_parameters(tec = sub, get_cast_technique_level(arg0 + 0x428, sub), ((s32 (*)(void *))obj_getField1c)(arg0))->cost < 0) {
+            return 0;
+        }
+        switch (tec) {
+        case 0x11:
+            if (get_game_play_mode() == 1) {
+                return 0;
+            }
+            break;
+        case 0xE:
+            if (is_flag_clear__17TObjWarpBossMultiFPv(arg0) == 0) {
+                return 0;
+            }
+            if (is_technique_ready__8TTecCtrlFv() != 0 || get_game_play_mode() == 1) {
+                return 0;
+            }
+            break;
+        }
+        return 1;
+    case 4:
+        if (get_camera_field__10TObjPlayerFPv(arg0) == 0) {
+            return 0;
+        }
+        switch ((u8)sub) {
+        case 9:
+            if (get_game_play_mode() == 1) {
+                return 0;
+            }
+            break;
+        case 10:
+            break;
+        case 11:
+            if (is_flag_clear__17TObjWarpBossMultiFPv(arg0) == 0) {
+                return 0;
+            }
+            if (is_technique_ready__8TTecCtrlFv() != 0) {
+                return 0;
+            }
+            break;
+        }
+        return 1;
+    case 5:
+        if (TObjPlayer__sub_801C1F50(arg0 + 0x4AC) == 0 || obj_testFlags30(arg0, 0x20006) != 0 || get_camera_field__10TObjPlayerFPv(arg0) == 0) {
+            return 0;
+        }
+        return 1;
+    case 7:
+        return 1;
+    }
+    return 0;
 }
 bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 kind, u8 arg) {
     TItemData_801D8044 item;
@@ -200,7 +290,7 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
     case 7:
         return 1;
     }
-    return is_palette_entry_displayable__10TObjPlayerFv(self, kind, arg) != 0;
+    return is_palette_entry_displayable__10TObjPlayerFv((u8 *)self, kind, arg) != 0;
 }
 
 }

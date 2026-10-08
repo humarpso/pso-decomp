@@ -715,6 +715,7 @@ extern const f32 lbl_805D8DAC;
 extern const f32 lbl_805D8DB0;
 extern const f32 lbl_805D8DB4;
 void TBoss8Dragon__sub_8005F0B8(u8 *arg0, u32 *arg1);
+M2C_UNK TBoss8Dragon__sub_80064C94(void *arg0, void *);
 }
 
 extern "C" {
@@ -1677,7 +1678,6 @@ void TBoss8Dragon__sub_80064B90(u8 *arg0, u8 *arg1);
 void handle_6xA0_gal_gryphon_boss_actions(void *arg0);
 void set_target_from_action__12TBoss8DragonFPvPv(void *arg0, void *arg1);
 void handle_6x9F_gal_gryphon_boss_actions(void *arg0);
-M2C_UNK TBoss8Dragon__sub_80064C94(void *, void *);
 void TBoss8Dragon__sub_80064CFC(s32 arg0);
 void reset_radius__12TBoss8DragonFPv(void* a0);
 void set_anim_speed__12TBoss8DragonFPv(void* a0);
@@ -1811,10 +1811,6 @@ extern f32 lbl_80437E14[];
 extern s32 lbl_80437E6C[];
 extern s32 lbl_80437E94[];
 extern const f64 lbl_80437EB0;
-extern RecoveredGlobal_80064CFC_lbl_80487848 lbl_80487848;
-extern u8 lbl_804882B0[];
-extern M2C_UNK lbl_804882BC[];
-extern u8 lbl_804882C8[];
 extern RecoveredGlobal_8006435C_lbl_804FF5A0 lbl_804FF5A0;
 extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
 extern RecoveredGlobal_8005E17C_lbl_804FF5C0 lbl_804FF5C0;
@@ -1919,6 +1915,720 @@ extern "C" {
 s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i);
 extern RecoveredGlobal_800646F0_lbl_804FF5B4 lbl_804FF5B4;
 }
+
+extern "C" {
+void TBoss8Dragon__sub_8005D708();
+}
+extern "C" {
+void TBoss8Dragon__sub_8005D860();
+}
+extern "C" {
+void TBoss8Dragon__sub_8005DF60();
+}
+extern "C" {
+void TBoss8Dragon__sub_8005FD34();
+}
+extern "C" {
+void TBoss8Dragon__sub_8005FE18();
+}
+extern "C" {
+void TBoss8Dragon__sub_8005FEF8();
+}
+extern "C" {
+void TBoss8Dragon__sub_800605E8();
+}
+extern "C" {
+void TBoss8Dragon__sub_80060788();
+}
+extern "C" {
+void TBoss8Dragon__sub_8006084C();
+}
+extern "C" {
+void TBoss8Dragon__sub_80060A58();
+}
+extern "C" {
+void TBoss8Dragon__sub_80060B18();
+}
+extern "C" {
+void TBoss8Dragon__sub_80060BF8();
+}
+extern "C" {
+void TBoss8Dragon__sub_80060CA4();
+}
+extern "C" {
+void TBoss8Dragon__sub_80060D9C();
+}
+extern "C" {
+void TBoss8Dragon__sub_800610D0();
+}
+extern "C" {
+void TBoss8Dragon__sub_8006116C();
+}
+extern "C" {
+void TBoss8Dragon__sub_80061434();
+}
+extern "C" {
+void TBoss8Dragon__sub_800615FC();
+}
+extern "C" {
+void TBoss8Dragon__sub_800618CC();
+}
+extern "C" {
+void TBoss8Dragon__sub_80061B8C();
+}
+extern "C" {
+void TBoss8Dragon__sub_80061D34();
+}
+extern "C" {
+void TBoss8Dragon__sub_80062018();
+}
+extern "C" {
+void TBoss8Dragon__sub_80062114();
+}
+extern "C" {
+void TBoss8Dragon__sub_800623E4();
+}
+extern "C" {
+void TBoss8Dragon__sub_80062660();
+}
+extern "C" {
+void TBoss8Dragon__sub_80063718();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F1C();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F20();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F24();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F28();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F2C();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F30();
+}
+extern "C" {
+void TBoss8Dragon__sub_80065F34();
+}
+extern "C" {
+void TLobby__sub_801A1FD8();
+}
+extern "C" {
+void TObjEneDD__vt100();
+}
+extern "C" {
+void TObjEneDD__vt77();
+}
+extern "C" {
+void TObjEneDD__vt82();
+}
+extern "C" {
+void TObjEneDD__vt83();
+}
+extern "C" {
+void TObjEneDD__vt84();
+}
+extern "C" {
+void TObjEneDD__vt86();
+}
+extern "C" {
+void TObjEneDD__vt87();
+}
+extern "C" {
+void TObjEneDD__vt88();
+}
+extern "C" {
+void TObjEneDD__vt89();
+}
+extern "C" {
+void TObjEneDD__vt90();
+}
+extern "C" {
+void TObjEneDD__vt91();
+}
+extern "C" {
+void TObjEneDD__vt92();
+}
+extern "C" {
+void TObjEneDD__vt93();
+}
+extern "C" {
+void TObjEneDD__vt94();
+}
+extern "C" {
+void TObjEneDD__vt95();
+}
+extern "C" {
+void TObjEneDD__vt96();
+}
+extern "C" {
+void TObjEneDD__vt97();
+}
+extern "C" {
+void TObjEneDD__vt98();
+}
+extern "C" {
+void TObjEneDD__vt99();
+}
+extern "C" {
+void TObjEneEpsilon__vt101();
+}
+extern "C" {
+void TObjEneEpsilon__vt81();
+}
+extern "C" {
+void TObjPlayer__sub_8000FF3C();
+}
+extern "C" {
+void TObjPlayer__sub_80010A80();
+}
+extern "C" {
+void TObjPlayer__sub_800111D8();
+}
+extern "C" {
+void TObjPlayer__sub_80014830();
+}
+extern "C" {
+void TObjPlayer__sub_80014838();
+}
+extern "C" {
+void TObjPlayer__sub_80014840();
+}
+extern "C" {
+void TObjPlayer__sub_80014890();
+}
+extern "C" {
+void TObjPlayer__sub_80014894();
+}
+extern "C" {
+void TObjPlayer__sub_80014898();
+}
+extern "C" {
+void TObjPlayer__sub_80016C54();
+}
+extern "C" {
+void TObjPlayer__sub_800172CC();
+}
+extern "C" {
+void TObjPlayer__sub_80018E6C();
+}
+extern "C" {
+void TObjPlayer__sub_80019568();
+}
+extern "C" {
+void TObjPlayer__sub_800F65D0();
+}
+extern "C" {
+void TObjPlayer__sub_800F673C();
+}
+extern "C" {
+void add_actor_exp();
+}
+extern "C" {
+void apply_action_hold_status();
+}
+extern "C" {
+void apply_anti_technique__10TObjPlayerFv();
+}
+extern "C" {
+void apply_attack_stat_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_defense_stat_status__10TObjPlayerFv();
+}
+extern "C" {
+void apply_knockback_from_attacker();
+}
+extern "C" {
+void apply_object_set_data();
+}
+extern "C" {
+void apply_set_data__9TObjEnemyFPvPv();
+}
+extern "C" {
+void apply_switch_attack__10TObjPlayerFi();
+}
+extern "C" {
+void calc_distance_accuracy_penalty__10TObjPlayerFv();
+}
+extern "C" {
+void classify_actor_view_detail();
+}
+extern "C" {
+void clear_all_status_effects();
+}
+extern "C" {
+void cure_paralysis__10TObjPlayerFv();
+}
+extern "C" {
+void cure_poison_ailment();
+}
+extern "C" {
+void enemy_spawn_jellen_effect();
+}
+extern "C" {
+void enemy_spawn_zalure_effect();
+}
+extern "C" {
+void fn_80010EBC();
+}
+extern "C" {
+void fn_80010EC0();
+}
+extern "C" {
+void fn_80010EC4();
+}
+extern "C" {
+void fn_80010EC8();
+}
+extern "C" {
+void fn_800F5D80();
+}
+extern "C" {
+void get_actor_body_center();
+}
+extern "C" {
+void get_actor_level_index();
+}
+extern "C" {
+void get_enemy_name__14TObjEnePanarmsFPv();
+}
+extern "C" {
+void get_pos__10TObjPlayerFii();
+}
+extern "C" {
+void has_flag_0x800__10TObjPlayerFPv();
+}
+extern "C" {
+void is_actor_cadence_frame();
+}
+extern "C" {
+void is_target_in_attack_range__10TObjPlayerFv();
+}
+extern "C" {
+extern u8 lbl_804378C8[];
+}
+extern "C" {
+extern u8 lbl_804378D8[];
+}
+extern "C" {
+extern u8 lbl_804378F0[];
+}
+extern "C" {
+extern u8 lbl_80437908[];
+}
+extern "C" {
+extern u8 lbl_80437918[];
+}
+extern "C" {
+extern u8 lbl_804379BC[];
+}
+extern "C" {
+extern u8 lbl_804379CC[];
+}
+extern "C" {
+extern u8 lbl_804379E0[];
+}
+extern "C" {
+extern u8 lbl_804379F4[];
+}
+extern "C" {
+extern u8 lbl_80437A08[];
+}
+extern "C" {
+extern u8 lbl_80437A20[];
+}
+extern "C" {
+extern u8 lbl_80437A38[];
+}
+extern "C" {
+extern u8 lbl_80437A50[];
+}
+extern "C" {
+extern u8 lbl_80437A6C[];
+}
+extern "C" {
+extern u8 lbl_80437A88[];
+}
+extern "C" {
+extern u8 lbl_80437AA0[];
+}
+extern "C" {
+extern u8 lbl_80437AB8[];
+}
+extern "C" {
+extern u8 lbl_80437ACC[];
+}
+extern "C" {
+extern u8 lbl_80437AE4[];
+}
+extern "C" {
+extern u8 lbl_80437AFC[];
+}
+extern "C" {
+extern u8 lbl_80437B18[];
+}
+extern "C" {
+extern u8 lbl_80437B30[];
+}
+extern "C" {
+extern u8 lbl_80437B4C[];
+}
+extern "C" {
+extern u8 lbl_80437B64[];
+}
+extern "C" {
+extern u8 lbl_80437B7C[];
+}
+extern "C" {
+extern u8 lbl_80437B94[];
+}
+extern "C" {
+extern u8 lbl_80437BAC[];
+}
+extern "C" {
+extern u8 lbl_80437BC4[];
+}
+extern "C" {
+extern u8 lbl_80437BE0[];
+}
+extern "C" {
+extern u8 lbl_80437BF8[];
+}
+extern "C" {
+extern u8 lbl_80437C14[];
+}
+extern "C" {
+extern u8 lbl_80437C2C[];
+}
+extern "C" {
+extern u8 lbl_80437C44[];
+}
+extern "C" {
+extern u8 lbl_80437C5C[];
+}
+extern "C" {
+extern u8 lbl_80437C74[];
+}
+extern "C" {
+extern u8 lbl_80437C8C[];
+}
+extern "C" {
+extern u8 lbl_80437CA4[];
+}
+extern "C" {
+void receive_direct_attack__10TObjPlayerFv();
+}
+extern "C" {
+void receive_physical_attack__10TObjPlayerFv();
+}
+extern "C" {
+void receive_weapon_special_attack__10TObjPlayerFv();
+}
+extern "C" {
+void reset_actor_action_state();
+}
+extern "C" {
+void reset_pose__10TObjPlayerFPv();
+}
+extern "C" {
+void roll_physical_accuracy__10TObjPlayerFv();
+}
+extern "C" {
+void select_melee_contact_body__10TObjPlayerFv();
+}
+extern "C" {
+void test_flag30_512__10TObjPlayerFPv();
+}
+extern "C" {
+void test_flag_1000__10TObjPlayerFPv();
+}
+extern "C" {
+void test_flag_256__10TObjPlayerFPv();
+}
+extern "C" {
+void trigger_switch_attack__10TObjPlayerFi();
+}
+extern "C" {
+void try_start_action__10TObjPlayerFPvii();
+}
+extern "C" {
+void update_action_hold_status__10TObjPlayerFv();
+}
+extern "C" {
+void update_action_timer__10TObjPlayerFPv();
+}
+extern "C" {
+void update_actor_ground_y();
+}
+extern "C" {
+void update_attack_stat_status();
+}
+extern "C" {
+void update_defense_stat_status();
+}
+extern "C" {
+void update_flag30_timer__10TObjPlayerFPv();
+}
+extern "C" {
+void update_movement_status__10TObjPlayerFv();
+}
+extern "C" {
+void update_object_view_visibility();
+}
+extern "C" {
+void update_poison_status__10TObjPlayerFv();
+}
+extern void *lbl_80487848[4];
+extern void *lbl_80487858[14];
+extern void *lbl_80487A88[5];
+extern void *lbl_80487A9C[140];
+extern "C" {
+void TBoss8Dragon__sub_8005EB00(u8 *arg0, u8 *arg1);
+}
+void *lbl_80487848[4] = {
+    (void *)&lbl_804378C8, (void *)&lbl_804378D8, (void *)&lbl_804378F0, (void *)0x0,
+};
+void *lbl_80487858[14] = {
+    (void *)&lbl_80437908, (void *)0x0, (void *)&lbl_80437918, (void *)&lbl_80487848,
+    (void *)&lbl_80487858, (void *)0x30001, (void *)0x1e, (void *)0x1f,
+    (void *)0x20, (void *)0x21, (void *)0x22, (void *)0x1e,
+    (void *)0x1f, (void *)0x20,
+};
+void *lbl_80487890[3] = {
+    (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_8048789C[3] = {
+    (void *)0x0, (void *)0x1, (void *)0x2,
+};
+void *lbl_804878A8[3] = {
+    (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void *lbl_804878B4[117] = {
+    (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x41200000, (void *)0x0,
+    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x0,
+    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x41200000, (void *)0x0, (void *)0x0, (void *)0x8003,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41200000,
+    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x41200000, (void *)0x0,
+    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x0,
+    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x41700000, (void *)0x0, (void *)0x0, (void *)0x8003,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41700000,
+    (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x41700000, (void *)0x0,
+    (void *)0x0, (void *)0x8003, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x41700000, (void *)0x0, (void *)0x0,
+    (void *)0x8003, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0,
+};
+void *lbl_80487A88[5] = {
+    (void *)&lbl_804379BC, (void *)&lbl_804379CC, (void *)&lbl_804379E0, (void *)&lbl_804379F4,
+    (void *)0x0,
+};
+void *lbl_80487A9C[140] = {
+    (void *)&lbl_80437A08, (void *)&lbl_80437A20, (void *)&lbl_80437A38, (void *)&lbl_80437A50,
+    (void *)&lbl_80437A6C, (void *)&lbl_80437A88, (void *)&lbl_80437AA0, (void *)&lbl_80437AB8,
+    (void *)&lbl_80437ACC, (void *)&lbl_80437AE4, (void *)&lbl_80437AFC, (void *)&lbl_80437B18,
+    (void *)&lbl_80437B30, (void *)&lbl_80437B4C, (void *)&lbl_80437B64, (void *)&lbl_80437B7C,
+    (void *)&lbl_80437B94, (void *)&lbl_80437BAC, (void *)&lbl_80437BC4, (void *)&lbl_80437BE0,
+    (void *)&lbl_80437BF8, (void *)&lbl_80437C14, (void *)&lbl_80437C2C, (void *)&lbl_80437C44,
+    (void *)&lbl_80437C5C, (void *)&lbl_80437C74, (void *)&lbl_80437C8C, (void *)0x0,
+    (void *)&lbl_80437CA4, (void *)&lbl_80487A88, (void *)&lbl_80487A9C, (void *)0x4001b,
+    (void *)0x10000, (void *)0x9, (void *)0x3f4ccccd, (void *)0x0,
+    (void *)0x10000, (void *)0xb, (void *)0x3f000000, (void *)0x0,
+    (void *)0x30000, (void *)0x1, (void *)0x3edc28f6, (void *)0x0,
+    (void *)0x30000, (void *)0xa, (void *)0x3f000000, (void *)0x0,
+    (void *)0x10000, (void *)0x0, (void *)0x3f451eb8, (void *)0x0,
+    (void *)0x30000, (void *)0x6, (void *)0x3ef5c28f, (void *)0x0,
+    (void *)0x20007, (void *)0x2, (void *)0x3f333333, (void *)0x6,
+    (void *)0x10000, (void *)0x5, (void *)0x3f666666, (void *)0x7,
+    (void *)0x30000, (void *)0x4, (void *)0x3f11eb85, (void *)0x0,
+    (void *)0x30000, (void *)0x3, (void *)0x3f333333, (void *)0x0,
+    (void *)0x2000b, (void *)0x16, (void *)0x3f800000, (void *)0xa,
+    (void *)0x10000, (void *)0x15, (void *)0x3f800000, (void *)0xb,
+    (void *)0x30000, (void *)0x17, (void *)0x3f800000, (void *)0x0,
+    (void *)0x2000e, (void *)0xf, (void *)0x3ecccccd, (void *)0xd,
+    (void *)0x10000, (void *)0xe, (void *)0x3eb33333, (void *)0xe,
+    (void *)0x30000, (void *)0xc, (void *)0x3ecccccd, (void *)0x0,
+    (void *)0x20011, (void *)0x19, (void *)0x3f400000, (void *)0x10,
+    (void *)0x10000, (void *)0x18, (void *)0x3eb33333, (void *)0x11,
+    (void *)0x30000, (void *)0x1a, (void *)0x3f19999a, (void *)0x0,
+    (void *)0x20014, (void *)0x13, (void *)0x3f000000, (void *)0x13,
+    (void *)0x10000, (void *)0x11, (void *)0x3f800000, (void *)0x14,
+    (void *)0x30000, (void *)0x14, (void *)0x3f000000, (void *)0x15,
+    (void *)0x30000, (void *)0x12, (void *)0x3ecccccd, (void *)0x16,
+    (void *)0x30000, (void *)0xd, (void *)0x3eb33333, (void *)0x0,
+    (void *)0x30000, (void *)0x8, (void *)0x3f266666, (void *)0x0,
+    (void *)0x30000, (void *)0x7, (void *)0x3f800000, (void *)0x80000000,
+    (void *)0x30000, (void *)0x10, (void *)0x3f000000, (void *)0x0,
+};
+void *lbl_80487CCC[3] = {
+    (void *)0x0, (void *)0x419e6666, (void *)0xc0a00000,
+};
+void *lbl_80487CD8[213] = {
+    (void *)0x0, (void *)0x41cb70a4, (void *)0x4235ae14, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80063714, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_8006369C, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80063570,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_active_player_count__19TPlayerBattleCtrl4PFPvi, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss3Volopt__sub_800627E4, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_80062BA0, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80063320,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80063088, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80062660, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_80062550, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800623E4,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80062E94, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80062114, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_80062018, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061D34,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061B8C, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800618CC, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_800615FC, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061434,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8006116C, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800610D0, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_80060F4C, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060D9C,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060CA4, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060BF8, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_80060B18, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060A58,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8006084C, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060788, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_800605E8, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060020,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FEF8, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FE18, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_8005FD34, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005FCE4,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0,
+};
+void *lbl_8048802C[16] = {
+    (void *)0x0, (void *)0x42860000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x42d60000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x43130000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x42820000, (void *)0x0, (void *)0x0,
+};
+void *lbl_8048806C[16] = {
+    (void *)0x0, (void *)0x42860000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x431d0000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x43998000, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x42820000, (void *)0x0, (void *)0x0,
+};
+void *lbl_804880AC[3] = {
+    (void *)0xc1c80000, (void *)0x0, (void *)0x428a0000,
+};
+void *lbl_804880B8[126] = {
+    (void *)0x41980000, (void *)0x0, (void *)0x428a0000, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005ED6C, (void *)0x0, (void *)0xffffffff,
+    (void *)&calc_params__12TBoss8DragonFiPvi, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EBDC,
+    (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EB6C, (void *)0x0,
+    (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8005EB00, (void *)0x0, (void *)0xffffffff,
+    (void *)&TBoss8Dragon__sub_8005EB00, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
+    (void *)0x0, (void *)0x0,
+};
+void *lbl_804882B0[3] = {
+    (void *)0x0, (void *)0xc61c4000, (void *)0x0,
+};
+void *lbl_804882BC[3] = {
+    (void *)0x0, (void *)0xc61c4000, (void *)0x0,
+};
+void *lbl_804882C8[107] = {
+    (void *)0x0, (void *)0x0, (void *)&TBoss8Dragon__sub_80065658, (void *)&TBoss8Dragon__sub_800653C4,
+    (void *)&TBoss8Dragon__sub_8005DF60, (void *)&update_unless_demo__12TBoss8DragonFPv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
+    (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
+    (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&TObjPlayer__sub_800111D8,
+    (void *)&get_actor_level_index, (void *)&update_actor_ground_y, (void *)&TObjPlayer__sub_80018E6C, (void *)&is_actor_cadence_frame,
+    (void *)&select_melee_contact_body__10TObjPlayerFv, (void *)&calc_distance_accuracy_penalty__10TObjPlayerFv, (void *)&receive_physical_attack__10TObjPlayerFv, (void *)&receive_direct_attack__10TObjPlayerFv,
+    (void *)&receive_weapon_special_attack__10TObjPlayerFv, (void *)&apply_knockback_from_attacker, (void *)&try_start_action__10TObjPlayerFPvii, (void *)&roll_physical_accuracy__10TObjPlayerFv,
+    (void *)&TBoss8Dragon__sub_8006536C, (void *)&TObjPlayer__sub_8000FF3C, (void *)&is_target_in_attack_range__10TObjPlayerFv, (void *)&test_flag_256__10TObjPlayerFPv,
+    (void *)&test_flag30_512__10TObjPlayerFPv, (void *)&has_flag_0x800__10TObjPlayerFPv, (void *)&test_flag_1000__10TObjPlayerFPv, (void *)&update_poison_status__10TObjPlayerFv,
+    (void *)&update_action_hold_status__10TObjPlayerFv, (void *)&update_action_timer__10TObjPlayerFPv, (void *)&update_flag30_timer__10TObjPlayerFPv, (void *)&update_movement_status__10TObjPlayerFv,
+    (void *)&TObjPlayer__sub_80016C54, (void *)&update_attack_stat_status, (void *)&update_defense_stat_status, (void *)&TObjPlayer__sub_800172CC,
+    (void *)&TBoss8Dragon__sub_80065F1C, (void *)&TBoss8Dragon__sub_80065F20, (void *)&TBoss8Dragon__sub_80065F24, (void *)&TBoss8Dragon__sub_80065F28,
+    (void *)&TBoss8Dragon__sub_80065F2C, (void *)&TBoss8Dragon__sub_80065F30, (void *)&TBoss8Dragon__sub_80065F34, (void *)&apply_attack_stat_status__10TObjPlayerFv,
+    (void *)&apply_defense_stat_status__10TObjPlayerFv, (void *)&cure_poison_ailment, (void *)&cure_paralysis__10TObjPlayerFv, (void *)&clear_all_status_effects,
+    (void *)&apply_action_hold_status, (void *)&apply_anti_technique__10TObjPlayerFv, (void *)&TObjPlayer__sub_80014898, (void *)&TObjPlayer__sub_80014894,
+    (void *)&TObjPlayer__sub_80014890, (void *)&TBoss8Dragon__sub_80065360, (void *)&TBoss8Dragon__sub_80065364, (void *)&TBoss8Dragon__sub_80065368,
+    (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
+    (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
+    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
+    (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
+    (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TBoss8Dragon__sub_80063718,
+    (void *)&TObjEneDD__sub_80064F50, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
+    (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
+    (void *)&TObjEneDD__vt93, (void *)&TObjEneDD__vt94, (void *)&TObjEneDD__vt95, (void *)&TObjEneDD__vt96,
+    (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
+    (void *)&TObjEneEpsilon__vt101, (void *)&TBoss8Dragon__sub_8005D860, (void *)&TBoss8Dragon__sub_8005D708,
+};
+#define lbl_80487848 (*(RecoveredGlobal_80064CFC_lbl_80487848 *)lbl_80487848)
+#define lbl_804882B0 ((u8 *)lbl_804882B0)
+#define lbl_804882BC ((M2C_UNK *)lbl_804882BC)
+#define lbl_804882C8 ((u8 *)lbl_804882C8)
 
 s32 TBoss8Dragon__sub_8005D880(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
     Obj_8005D880 *p;
@@ -3931,7 +4641,7 @@ void TBoss8Dragon__sub_800646F0(s32 arg0) {
     Stack_800646F0 stack;
     TBoss1Dragon__sub_80027A80((void *) (&stack.sp8), (void *) (&lbl_80437944.value));
     stack.sp10 = M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8), f32 *, 0x10);
-    TBoss8Dragon__sub_80064C94((void *) (arg0), (void *) (M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8)));
+    TBoss8Dragon__sub_80064C94((void *)((void *) (arg0)), (void *)((void *) (M2C_FIELD(&lbl_804FF5B4.value, u8 **, 8))));
     TBoss8Dragon__sub_80067074((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     emit_effect_at_position__9TObjEneDDFPvPv((void *) (arg0), (void *) (&stack.sp8));
     TBoss8Dragon__sub_80064CFC((s32)((void *) (arg0)));
@@ -4335,6 +5045,11 @@ extern int fold_flush_31;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+M2C_UNK TBoss8Dragon__sub_80064C94(void *arg0, void *) {
+    reload_stats_keep_hp_tp__9TObjEneDDFPv((void *)(arg0), (int)(((s32 *)&lbl_805D4D98)[((s32 *)lbl_80487890)[2]]), (int)(((s32 *)&lbl_804FF5A0)[((s32 *)lbl_8048789C)[2]]), (int)(((s32 *)&lbl_805D4D9C)[((s32 *)lbl_804878A8)[2]]));
+}
+
 void TBoss8Dragon__sub_80064CFC(s32 arg0) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv((void *) (arg0), (int) (M2C_FIELD(&lbl_805D4D98, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x48) * 4))), (int) (M2C_FIELD(&(*(RecoveredGlobal_80064CFC_lbl_804FF5A0 *)&lbl_804FF5A0).value, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x54) * 4))), (int) (M2C_FIELD(&lbl_805D4D9C, M2C_UNK *, (M2C_FIELD(&lbl_80487848.value, s32 *, 0x60) * 4))));
 }

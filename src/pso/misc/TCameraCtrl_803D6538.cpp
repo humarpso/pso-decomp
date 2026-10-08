@@ -119,6 +119,8 @@ struct MotionQuaternionKey {
   f32 rotation[4];
 };
 
+struct SplineKey_803D7288 { u32 frame; f32 value[3]; };
+
 extern "C" {
 
 s32 sample_motion_vector_channel(s32 arg0);
@@ -148,6 +150,8 @@ void find_motion_key_interval(void *keys, s32 stride, s32 count, f32 t,
 void blend_quaternions_nlerp(void *a, void *b, void *out, f32 t);
 void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
                                         f32 frame);
+u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
+void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output);
 }
 
 extern "C" {
@@ -582,6 +586,42 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     M2C_FIELD(arg2, s32 *, 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 6) - temp_r5_3)));
 }
 #pragma pop
+
+extern const f32 lbl_805E0E68;
+extern const f32 lbl_805E0E6C;
+extern const f32 lbl_805E0E70;
+extern const f32 lbl_805E0E74;
+extern const f32 lbl_805E0E78;
+extern const f32 lbl_805E0E7C;
+void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output) {
+    f32 tbl[2] = { 1.0f, 1.0f };
+    u32 delta;
+    u32 cf;
+    u32 index;
+    struct SplineKey_803D7288 *previous;
+    struct SplineKey_803D7288 *current;
+    struct SplineKey_803D7288 *next;
+    struct SplineKey_803D7288 *after;
+    f32 t, square, cube, twiceSquare, a, b, c, d;
+    index = find_motion_key_partition_u32((u8 *)keys, 16, count, (u32)frame);
+    previous = keys + (index + count - 1) % count;
+    current = keys + index;
+    next = keys + (index + 1) % count;
+    after = keys + (index + 2) % count;
+    cf = current->frame;
+    delta = next->frame - cf;
+    tbl[1] = (f32)delta;
+    t = (frame - (f32)cf) / tbl[(s32)delta > 0];
+    square = t * t;
+    cube = square * t;
+    a = 0.5f * ((-cube + 2.0f * square) - t);
+    b = 1.0f + (1.5f * cube - 2.5f * square);
+    c = 0.5f * t + (-1.5f * cube + 2.0f * square);
+    d = 0.5f * (cube - square);
+    output[0] = d * after->value[0] + (c * next->value[0] + (a * previous->value[0] + b * current->value[0]));
+    output[1] = d * after->value[1] + (c * next->value[1] + (a * previous->value[1] + b * current->value[1]));
+    output[2] = d * after->value[2] + (c * next->value[2] + (a * previous->value[2] + b * current->value[2]));
+}
 
 #pragma push
 #pragma scheduling off

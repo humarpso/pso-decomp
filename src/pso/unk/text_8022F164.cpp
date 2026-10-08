@@ -19,3 +19,5 @@ void fn_8022F164(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_text_8022F164_cpp_ref = (void *)fn_8022F164;

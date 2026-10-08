@@ -215,6 +215,135 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m103();
 };
 
+struct LBase_800ED7FC { char pad[0x14]; };
+struct Light_800ED7FC : LBase_800ED7FC {
+    virtual void l0();
+    virtual void l1();
+    virtual void l2();
+    virtual void l3(f32);
+};
+
+struct VBase_800ED7FC { char pad[0x18]; };
+struct Bit_800ED7FC : VBase_800ED7FC {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual void m63();
+    virtual void m64();
+    virtual void m65();
+    virtual void m66();
+    virtual void m67();
+    virtual void m68();
+    virtual void m69();
+    virtual void m70();
+    virtual void m71();
+    virtual void m72();
+    virtual void m73();
+    virtual void m74();
+    virtual void m75();
+    virtual void m76();
+    virtual void m77();
+    virtual void m78();
+    virtual void m79();
+    virtual void m80();
+    virtual void m81();
+    virtual void m82();
+    virtual void m83();
+    virtual void m84();
+    virtual void m85(s16, s32);
+    u8 pad1C[0x24 - 0x1C];
+    s32 x24;
+    u8 pad28[0x34 - 0x28];
+    s32 x34;
+    u8 pad38[0x326 - 0x38];
+    s16 state;
+    u8 pad328[0x350 - 0x328];
+    void *x350;
+    u8 pad354[0x37C - 0x354];
+    f32 x37C;
+    u8 pad380[0x3C8 - 0x380];
+    s32 kind;
+    s32 x3CC;
+    s32 x3D0;
+    s32 x3D4;
+    f32 x3D8;
+    Light_800ED7FC light;
+    u32 pad3F4;
+    f32 x3F8;
+    f32 x3FC;
+    f32 x400;
+    s32 x404;
+    s32 x408;
+    s32 x40C;
+};
+
+extern "C" {
+__declspec(section ".data") s32 lbl_80501050[2];
+__declspec(section ".data") s32 lbl_80501058[2];
+__declspec(section ".data") s32 lbl_80501060[2];
+__declspec(section ".data") s32 lbl_80501068[2];
+}
+
 struct Vec_800ED4BC { f32 x, y, z; };
 
 struct Obj_800ED4BC { u8 pad0[0x38]; f32 f38; u8 pad3C[4]; f32 f40; u8 pad44[0x2FC - 0x44]; Vec_800ED4BC v2FC; u8 pad308[0x3C0 - 0x308]; Vec_800ED4BC *f3C0; u8 pad3C4[0x3D8 - 0x3C4]; f32 f3D8; u8 pad3DC[0x3F8 - 0x3DC]; Vec_800ED4BC v3F8; };
@@ -249,7 +378,6 @@ void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void copy_pos__13TObjEneRe4BitFPv(void* p);
 void update_position_flag__13TObjEneRe4BitFPv(u8 *arg0);
 void free_collision_body_parts(void *);
-M2C_UNK TObjEneRe4Bit__sub_800ED7FC(void *);
 void TObjPlayer__sub_800A05B8(void *, int);
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void __dl__7TObjectFPv(void *);
@@ -351,6 +479,55 @@ void *__dt__13TObjEneRe4BitFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+int reset_hp__9TObjEneDDFPv(void *, s32, s32, s32);
+int initialize_enemy_state__9TObjEneDDFPv(void *, int);
+int set_state_8__9TObjEneDDFPv(void *);
+int init_model__9TObjEneDDFPv(void *, void *, int);
+int init_position_vectors__9TObjEneDDFPv(void *);
+int TObjEneRe4Sorcerer__sub_800ED268(void *);
+int TObjEneRe4Sorcerer__sub_800ED408(void *);
+extern u8 lbl_80496CD0[];
+extern u8 lbl_80496CEC[];
+struct Tbl_800ED7FC { s32 a[2]; s32 b[2]; s32 c[2]; };
+extern s32 lbl_805D52C8;
+extern s32 lbl_805D52CC;
+extern const f32 TObjEneRe4Bit__data_805DA770;
+extern const f32 lbl_805DA784;
+
+void TObjEneRe4Bit__sub_800ED7FC(Bit_800ED7FC *self) {
+    s32 i;
+
+    init_position_vectors__9TObjEneDDFPv(self);
+    self->x34 = lbl_805D52C8;
+    self->x24 = lbl_805D52CC;
+    init_model__9TObjEneDDFPv(self, lbl_80496CEC, 1);
+    i = self->kind == 1 ? 0 : 1;
+    reset_hp__9TObjEneDDFPv(self, lbl_80501050[i], lbl_80501058[i], lbl_80501060[i]);
+    set_state_8__9TObjEneDDFPv(self);
+    self->x350 = lbl_80496CD0;
+    if (self->kind == 1) {
+        initialize_enemy_state__9TObjEneDDFPv(self, 0x20);
+    } else {
+        initialize_enemy_state__9TObjEneDDFPv(self, 0x21);
+    }
+    self->x37C = lbl_805DA784;
+    self->x3CC = 0;
+    self->x3D0 = 3;
+    self->x3D4 = 3;
+    self->x3D8 = TObjEneRe4Bit__data_805DA770;
+    self->light.l3(lbl_805DA784);
+    self->x3F8 = TObjEneRe4Bit__data_805DA770;
+    self->x3FC = TObjEneRe4Bit__data_805DA770;
+    self->x400 = TObjEneRe4Bit__data_805DA770;
+    self->x404 = 0;
+    self->x408 = 0;
+    self->x40C = 0;
+    TObjEneRe4Sorcerer__sub_800ED408(self);
+    TObjEneRe4Sorcerer__sub_800ED268(self);
+    self->state = 0;
+    self->m85(self->state, 4);
+}
+
 extern M2C_UNK __vt__13TObjEneRe4Bit[];
 extern s32 lbl_805D2AE8;
 
@@ -366,8 +543,70 @@ u8 *TObjEneRe4Bit__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5
     M2C_FIELD(arg0, s32 *, 0x3C0) = arg3;
     M2C_FIELD(arg0, s32 *, 0x3C8) = arg4;
     VecCopy__FP3VecPC3Vec((void*)((void *) (arg0 + 0x38)), (void*)((void *) (arg3)));
-    TObjEneRe4Bit__sub_800ED7FC((void *) (arg0));
+    TObjEneRe4Bit__sub_800ED7FC((Bit_800ED7FC *) (arg0));
     return arg0;
+}
+
+}
+
+struct Inner_800EDAB4 { u8 pad0[0xC]; s32 fC; u8 pad10[8]; s32 f18; };
+
+struct Obj_800EDAB4 { u8 pad0[0x42C]; Inner_800EDAB4 *f42C; };
+
+struct Dst_800EDAB4 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
+
+extern "C" {
+s32 register_boss__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+extern s32 lbl_8043D2B0[];
+extern s32 lbl_8043D2B8[];
+extern s32 lbl_8043D2C0[];
+extern s32 lbl_8043D2C8[];
+extern s32 lbl_805D52C8;
+extern s32 lbl_805D52CC;
+extern Obj_800EDAB4 *lbl_805D52E0;
+}
+
+extern "C" {
+
+void TObjEneRe4Bit__sub_800EDAB0(void);
+void * create__13TObjEneRe4BitFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void create_disabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+void create_enabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+void *__nw__7TObjectFUl(int);
+
+void create_enabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    create__13TObjEneRe4BitFPvPvPvPvPv((void *)(arg0), (void *)(arg1), (void *)(1), (void *)(arg2), (void *)(arg3));
+}
+
+void create_disabled__13TObjEneRe4BitFiiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+    create__13TObjEneRe4BitFPvPvPvPvPv((void *)(arg0), (void *)(arg1), (void *)(0), (void *)(arg2), (void *)(arg3));
+}
+
+extern void *tl_04;
+
+void * create__13TObjEneRe4BitFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
+    void *o;
+    o = __nw__7TObjectFUl(0x410);
+    if (o != NULL) {
+        o = ((void *(*)(void *, void *, void *, void *, void *, void *, void *)) TObjEneRe4Bit__ct)(o, tl_04, arg0, arg1, arg2, arg3, arg4);
+    }
+    return o;
+}
+
+void TObjEneRe4Bit__sub_800EDAB0(void) {  }
+void TObjEneRe4Bit__sub_800EDAB4(void) {
+    s32 i;
+    lbl_805D52C8 = lbl_805D52E0->f42C->f18;
+    lbl_805D52CC = lbl_805D52E0->f42C->fC;
+    for (i = 0; i < 2; i++) {
+        lbl_80501050[i] = register_boss__6TLobbyFPv(lbl_8043D2B0[i]);
+        lbl_80501058[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043D2B8[i]);
+        lbl_80501060[i] = register_object__6TLobbyFPv(lbl_8043D2C0[i]);
+        lbl_80501068[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_8043D2C8[i]);
+    }
 }
 
 }

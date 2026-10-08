@@ -29,7 +29,17 @@ typedef struct Win_8024F094 {
     u8 sub[4];
 } Win_8024F094;
 
+struct W_8024F330 {
+    void a();
+    void b();
+};
+struct W_8024F3CC {
+    void a();
+    void b();
+};
 extern "C" {
+s8 get_type__20TWindowSubStatusDispFPv(int);
+s32 TWindowSubStatusDisp__sub_80257CB8(void *);
 s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, int);
 M2C_UNK draw_visible_window_entries(void *, void *, int);
@@ -41,8 +51,7 @@ s32 TWindowDD__sub_802466E0(void *, void *, void *, int);
 M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFPviii(void *, s32, s32, s32);
 s32 get_window_layout_position(int);
-extern RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult __vt__17TWindowDuelResult;
-extern M2C_UNK lbl_804CF020[];
+
 extern s32 lbl_805D38F0;
 extern const f32 lbl_805DCCB0;
 extern const f32 lbl_805DCCB4;
@@ -54,7 +63,6 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
-extern u8 lbl_804CEDD0[];
 void TWindowDuelResult__vt1(Win_8024EF40 *arg0);
 s32 get_shared_text_buffer(s32);
 s32 get_localized_text_entry(int, int);
@@ -69,7 +77,6 @@ void refresh_status_display__9TWindowDDFv(void *);
 void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
-extern u8 TWindowDuelResult__data_804CEBA0[];
 extern u8 lbl_8050EA40[];
 extern const f32 lbl_805DCCAC;
 void TWindowDuelResult__vt0(Win_8024F094 *self);
@@ -89,6 +96,85 @@ void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
+
+extern "C" u8 lbl_805D63F0[];
+extern "C" u8 lbl_805DCCA8[];
+void *TWindowDuelResult__data_804CEBA0[140] = {
+    (void *)0x13, (void *)0x1, (void *)0x3, (void *)0x0,
+    (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x41a00000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x42960000, (void *)0x41a00000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCCA8, (void *)0x3,
+    (void *)0x42aa0000, (void *)0x41a00000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x43be0000,
+    (void *)0x41a00000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x42200000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x42960000, (void *)0x42200000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCCA8, (void *)0x3,
+    (void *)0x42aa0000, (void *)0x42200000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x43be0000,
+    (void *)0x42200000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x42700000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x42960000, (void *)0x42700000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCCA8, (void *)0x3,
+    (void *)0x42aa0000, (void *)0x42700000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x43be0000,
+    (void *)0x42700000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x42a00000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x42960000, (void *)0x42a00000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCCA8, (void *)0x3,
+    (void *)0x42aa0000, (void *)0x42a00000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x43be0000,
+    (void *)0x42a00000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x6, (void *)0x428c0000, (void *)0x43040000,
+    (void *)0x41900000, (void *)0x41900000, (void *)0x43320000, (void *)0x434b0000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)&lbl_805D63F0, (void *)0x0,
+    (void *)0x14, (void *)0x3, (void *)0x42b00000, (void *)0x43040000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x100, (void *)0x0,
+};
+void *lbl_804CEDD0[119] = {
+    (void *)0x10, (void *)0x1, (void *)0x3, (void *)0x0,
+    (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x41a00000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x0, (void *)0x42200000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x3,
+    (void *)0x43870000, (void *)0x42200000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)&lbl_805DCCA8, (void *)0x4, (void *)0x43be0000,
+    (void *)0x42200000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x0, (void *)0x42700000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x3, (void *)0x43870000, (void *)0x42700000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCCA8, (void *)0x4,
+    (void *)0x43be0000, (void *)0x42700000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x0,
+    (void *)0x42a00000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)0x0, (void *)0x3, (void *)0x43870000, (void *)0x42a00000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)&lbl_805DCCA8,
+    (void *)0x4, (void *)0x43be0000, (void *)0x42a00000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x3,
+    (void *)0x0, (void *)0x42c80000, (void *)0x3f000000, (void *)0xffffffff,
+    (void *)0x0, (void *)0x0, (void *)0x3, (void *)0x43870000,
+    (void *)0x42c80000, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
+    (void *)&lbl_805DCCA8, (void *)0x4, (void *)0x43be0000, (void *)0x42c80000,
+    (void *)0x3f000000, (void *)0xffffffff, (void *)0x0, (void *)0x0,
+    (void *)0x6, (void *)0x428c0000, (void *)0x43040000, (void *)0x41900000,
+    (void *)0x41900000, (void *)0x43320000, (void *)0x434b0000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)&lbl_805D63F0, (void *)0x0, (void *)0x14,
+    (void *)0x3, (void *)0x42b00000, (void *)0x43040000, (void *)0x3f000000,
+    (void *)0xffffffff, (void *)0x100, (void *)0x0,
+};
+void *__vt__17TWindowDuelResult[5] = {
+    (void *)0x43c20000, (void *)0x43240000, (void *)0x47437b00, (void *)0x0,
+    (void *)0x3,
+};
+#define TWindowDuelResult__data_804CEBA0 ((u8 *)TWindowDuelResult__data_804CEBA0)
+#define lbl_804CEDD0 ((u8 *)lbl_804CEDD0)
+#define __vt__17TWindowDuelResult (*(RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult *)__vt__17TWindowDuelResult)
 
 void TWindowDuelResult__vt3(void) {  }
 
@@ -178,6 +264,28 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
     }
 }
 
+#pragma defer_codegen on
+s32 TWindowDuelResult__sub_8024F3CC(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    typedef void (W_8024F3CC::*PT)();
+    static PT tbl[2] = { &W_8024F3CC::a, &W_8024F3CC::b };
+    W_8024F3CC *w = (W_8024F3CC *)arg0;
+    TWindowSubStatusDisp__sub_80257CB8(arg0 + 0x24);
+    s8 t = get_type__20TWindowSubStatusDispFPv(*(s32 *)(arg0 + 0x68));
+    (w->*tbl[t])();
+    TWindowDuelResult__sub_8024F330(arg0);
+}
+
+s32 TWindowDuelResult__sub_8024F330(void *arg0_) {
+    u8 *arg0 = (u8 *)arg0_;
+    typedef void (W_8024F330::*PT)();
+    static PT tbl[2] = { &W_8024F330::a, &W_8024F330::b };
+    W_8024F330 *w = (W_8024F330 *)arg0;
+    s8 t = get_type__20TWindowSubStatusDispFPv(*(s32 *)(arg0 + 0x68));
+    (w->*tbl[t])();
+}
+#pragma defer_codegen off
+
 void TWindowDuelResult__sub_8024F478(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = setup_window_draw_context(arg0, (void *) (arg0 + 0x60));
@@ -198,7 +306,12 @@ void update__17TWindowDuelResultFPv(u8 *arg0) {
     update_window_entry_list(arg0, arg0 + 0x24);
 }
 
-extern M2C_UNK lbl_804CF020[];
+extern "C" void render_shadows__7TObjectFv();
+void *lbl_804CF020[6] = {
+    (void *)0x0, (void *)0x0, (void *)&destroy__17TWindowDuelResultFPvs, (void *)&update__17TWindowDuelResultFPv,
+    (void *)&TWindowDuelResult__sub_8024F478, (void *)&render_shadows__7TObjectFv,
+};
+#define lbl_804CF020 ((M2C_UNK *)lbl_804CF020)
 
 void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -217,7 +330,7 @@ u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
     TWindowDD__sub_802466E0((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)&lbl_804CF020).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv((void *)0xC));
     var_r0 = (u8 *)(temp_r3);

@@ -26,3 +26,5 @@ void init_player_forward__6TLobbyFv(void) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_TLobby_80328F7C_80329368_cpp_ref = (void *)init_player_forward__6TLobbyFv;
