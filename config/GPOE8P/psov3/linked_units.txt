@@ -180,8 +180,8 @@ pso/boss/TBoss4ZakoDraw_8030A96C.cpp
 pso/boss/TBoss4ZakoDraw_8030AD38.cpp
 pso/boss/TBoss4ZakoDraw_8030AD58.cpp
 pso/boss/TBoss5Gryphon.cpp
+pso/boss/TBoss5GryphonColli.cpp
 pso/boss/TBoss5GryphonDemo.cpp
-pso/boss/TBoss5GryphonDemo_80066128.cpp
 pso/boss/TBoss5GryphonLightning.cpp
 pso/boss/TBoss5GryphonLightningEff.cpp
 pso/boss/TBoss5GryphonLightningHorn.cpp
@@ -269,8 +269,10 @@ pso/boss/TObjBoss1Floor.cpp
 pso/boss/TObjBoss2CeilJunk.cpp
 pso/boss/TObjBoss2CeilJunk_8003B07C.cpp
 pso/boss/TObjBoss2Dust.cpp
+pso/boss/TObjBoss2DustCtrl.cpp
 pso/boss/TObjBoss2RaftSplash.cpp
 pso/boss/TObjBoss2RaftSplash_8003B0A0.cpp
+pso/boss/TObjBoss2Tunnel_8003B138.cpp
 pso/boss/TObjBoss2Tunnel_8007CE14.cpp
 pso/boss/TObjBoss2Tunnel_8007E0CC.cpp
 pso/boss/TObjBoss2Tunnel_8007E380.cpp
@@ -303,6 +305,7 @@ pso/boss/TObjBoss5Pillar_8028B6C0.cpp
 pso/boss/TObjBoss5Pillar_8028B714.cpp
 pso/boss/TObjBoss5Pillar_8028B810.cpp
 pso/boss/TObjBoss7Dust.cpp
+pso/boss/TObjBoss7DustCtrl.cpp
 pso/boss/TObjBoss7RaftSplash.cpp
 pso/boss/TObjBoss7RaftSplash_802F17B0.cpp
 pso/boss/TObjBoss7RaftSplash_802F1848.cpp
@@ -325,6 +328,7 @@ pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
+pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest.cpp
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
@@ -767,6 +771,7 @@ pso/menu/TAdTimeSetGC.cpp
 pso/menu/TChCrCharSelect.cpp
 pso/menu/TChCrEffWall.cpp
 pso/menu/TChCrLoadGmNjReq.cpp
+pso/menu/TObjTagChallenge.cpp
 pso/menu/TQuestBgmCtrl.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/TAttackTrace.cpp
@@ -820,6 +825,7 @@ pso/misc/TChCrTagInformation.cpp
 pso/misc/TChCrTagInformation_802A1FAC.cpp
 pso/misc/TChCrTagInformation_802A200C.cpp
 pso/misc/TChCrTagName.cpp
+pso/misc/TChCrTagOccupation.cpp
 pso/misc/TChallenge.cpp
 pso/misc/TChallenge4PItemSelect.cpp
 pso/misc/TCharaMaking.cpp

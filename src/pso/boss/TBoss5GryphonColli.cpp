@@ -1,3 +1,26 @@
+#include "types.h"
+extern "C" {
+s32 lbl_80488668[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
+}
+
+#include "types.h"
+
+extern "C" {
+
+int get_state__17TBoss5GryphonDemoFPv(void* p);
+int draw_linked_model__17TBoss5GryphonDemoFPv(void* p);
+void TBoss5GryphonDemo__sub_8006626C(void* p);
+void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, void* a2);
+
+int get_state__17TBoss5GryphonDemoFPv(void* p) { return ((int (*)(void*))TBoss5GryphonDemo__sub_8006626C)(*(void**)((char*)p + 0x1c)); }
+int draw_linked_model__17TBoss5GryphonDemoFPv(void* p) { return ((int (*)(void*))draw_model__17TBoss5GryphonDemoFPvPvPv)(*(void**)((char*)p + 0x1c)); }
+
+}
+
+extern "C" {
+s32 TBoss5GryphonDemo__sub_800663DC(int, void *, int, void *, f32);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+}
 #include "pso/TBoss5GryphonColli.h"
 
 extern "C" void queue_destruction__7TObjectFv(void*);
@@ -29,9 +52,7 @@ struct RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli {
 };
 
 extern "C" {
-s32 TBoss5GryphonDemo__sub_800663DC(int, void *, int, void *, f32);
 s32 __nw__7TObjectFUl(int);
-s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800661E4___vt__18TBoss5GryphonColli __vt__18TBoss5GryphonColli;
 extern s32 lbl_805D280C;
 extern const f32 lbl_805D8ED0;

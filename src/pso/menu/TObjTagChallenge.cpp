@@ -5,6 +5,7 @@ s32 TWindowCtrlMain__sub_8024CE58(void);
 void close_active_window__11TWindowCtrlFv(void);
 void fn_800740DC(void);
 void open_status_111__11TWindowCtrlFv(void);
+void queue_destruction__7TObjectFv(void *);
 }
 
 void TObjTagChallenge::run_task() {
@@ -12,7 +13,7 @@ void TObjTagChallenge::run_task() {
         close_active_window__11TWindowCtrlFv();
         fn_800740DC();
         open_status_111__11TWindowCtrlFv();
-        queue_destruction();
+        queue_destruction__7TObjectFv(this);
     }
 }
 

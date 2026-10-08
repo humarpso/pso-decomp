@@ -85,6 +85,19 @@ void boss7_dust_draw_at(M2C_UNK *arg0, s32 arg1) {
 
 }
 extern "C" {
+extern s32 lbl_805D6958;
+void TObjBoss7DustCtrl__sub_802F125C(void) {
+    s32 temp_r0;
+
+    temp_r0 = lbl_805D6958 + 1;
+    lbl_805D6958 = temp_r0;
+    if (temp_r0 >= 0xA) {
+        lbl_805D6958 = 0;
+    }
+}
+}
+
+extern "C" {
 
 #pragma push
 #pragma opt_propagation off
@@ -137,16 +150,6 @@ extern "C" {
 void TObjBoss7DustCtrl__sub_802F125C(void);
 
 extern s32 lbl_805D6958;
-
-void TObjBoss7DustCtrl__sub_802F125C(void) {
-    s32 temp_r0;
-
-    temp_r0 = lbl_805D6958 + 1;
-    lbl_805D6958 = temp_r0;
-    if (temp_r0 >= 0xA) {
-        lbl_805D6958 = 0;
-    }
-}
 
 }
 #include "types.h"

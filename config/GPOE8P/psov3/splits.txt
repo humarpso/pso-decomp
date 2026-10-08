@@ -377,8 +377,8 @@ pso/boss/TObjBoss2RaftSplash_8003B0A0.cpp:
 pso/boss/TObjBoss2Tunnel_8003B138.cpp:
 	.text       start:0x8003B138 end:0x8003C7EC
 	.rodata     start:0x80435EC8 end:0x80435ED0
-	.data       start:0x804833B8 end:0x804833D0
-	.sdata2     start:0x805D85F0 end:0x805D8650
+	.data       start:0x804833B8 end:0x804834BC
+	.sdata2     start:0x805D85E0 end:0x805D8658
 
 pso/boss/TBoss3Volopt.cpp:
 	.text       start:0x8003C7EC end:0x8003F3A0
@@ -713,12 +713,9 @@ pso/boss/TBoss8Dragon_80065C90.cpp:
 	.text       start:0x80065C90 end:0x80066128
 	.ctors      start:0x80433F44 end:0x80433F48
 
-pso/boss/TBoss5GryphonDemo_80066128.cpp:
-	.text       start:0x80066128 end:0x80066170
-
 pso/boss/TBoss5GryphonColli.cpp:
-	.text       start:0x80066170 end:0x80066268
-	.data       start:0x80488694 end:0x804886AC
+	.text       start:0x80066128 end:0x80066268
+	.data       start:0x80488668 end:0x804886AC
 
 pso/boss/TBoss5GryphonDemo.cpp:
 	.text       start:0x80066268 end:0x800666B0
@@ -1612,7 +1609,7 @@ pso/unk/text_80090488.cpp:
 pso/enemy/TObjEneBalClawClaw.cpp:
 	.text       start:0x8009048C end:0x800922E4
 	.data       start:0x8048F090 end:0x8048F2C8
-	.sdata2     start:0x805D96A0 end:0x805D96D0
+	.sdata2     start:0x805D9688 end:0x805D96D8
 
 pso/enemy/TObjEneBeast.cpp:
 	.text       start:0x800922E4 end:0x80092A7C
@@ -1859,7 +1856,7 @@ pso/unk/text_800AF8B0.cpp:
 pso/enemy/TObjEneBm3Fly.cpp:
 	.text       start:0x800AFB28 end:0x800B23A0
 	.data       start:0x80491B30 end:0x80491DA0
-	.sdata2     start:0x805D9C7C end:0x805D9C80
+	.sdata2     start:0x805D9C68 end:0x805D9CF4
 
 pso/enemy/TObjEneBm3FlyNest.cpp:
 	.text       start:0x800B23A0 end:0x800B4820
@@ -11467,7 +11464,7 @@ pso/ui/TAdFadeGC.cpp:
 	.text       start:0x802C79C8 end:0x802C7F78
 	.rodata     start:0x80471D70 end:0x80471D88
 	.data       start:0x804E0B80 end:0x804E0B98
-	.sdata      start:0x805D3EF0 end:0x805D3F00
+	.sdata      start:0x805D3EF0 end:0x805D3EF4
 	.sbss       start:0x805D6800 end:0x805D6808
 	.sdata2     start:0x805DE5E8 end:0x805DE614
 

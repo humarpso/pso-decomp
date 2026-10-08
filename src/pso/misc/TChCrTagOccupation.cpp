@@ -9,10 +9,6 @@ int render__17TChCrTagOccHeaderFv(void* p) { return fn_802A2A00(p); }
 
 }
 
-#include "pso/TChCrTagOccHeader.h"
-
-TChCrTagOccHeader::~TChCrTagOccHeader() {}
-
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -56,6 +52,32 @@ s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0) {
     return 0;
 }
 
+extern void *__vt__17TChCrTagOccHeader[];
+void *__dt__8TChCrTagFv(void *, s16);
+void __dl__7TObjectFPv(void *);
+void *__dt__17TChCrTagOccHeaderFv(void *self, s16 m) {
+    if (self != NULL) {
+        M2C_FIELD(self, void ***, 0x18) = __vt__17TChCrTagOccHeader;
+        __dt__8TChCrTagFv(self, 0);
+        if (m > 0) {
+            __dl__7TObjectFPv(self);
+        }
+    }
+    return self;
+}
+
+int render__17TChCrTagOccHeaderFv(void* p);
+void render_shadows__7TObjectFv();
+void *__vt__17TChCrTagOccHeader[] = {
+    0, 0,
+    (void *)__dt__17TChCrTagOccHeaderFv,
+    (void *)run_task__17TChCrTagOccHeaderFv,
+    (void *)render__17TChCrTagOccHeaderFv,
+    (void *)render_shadows__7TObjectFv,
+    (void *)TChCrTagOccHeader__vt4,
+    0,
+};
+
 }
 
 #define update_fade__8TChCrTagFPv (*(void (*)())&update_fade__8TChCrTagFPv)
@@ -71,13 +93,12 @@ u8 * __ct__8TChCrTagFv(void *, s32);
 void *__ct__17TChCrTagOccHeaderFv(void *arg0);
 
 extern const f32 lbl_805DDECC;
-extern M2C_UNK __vt__17TChCrTagOccHeader[];
 extern const f32 lbl_805DDED0;
 extern void *lbl_805D3DA8;
 
 void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
     ((void (*)(void *))__ct__8TChCrTagFv)(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TChCrTagOccHeader;
+    M2C_FIELD(arg0, void ***, 0x18) = __vt__17TChCrTagOccHeader;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DA8;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDECC;
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDED0;
@@ -277,7 +298,7 @@ void create_all__18TChCrTagOccupationFv(void) { { int i; for (i = 0; i < 3; i++)
 
 extern "C" {
 void render_shadows__7TObjectFv();
-void *__vt__18TChCrTagOccupation[7] = {
+void *__vt__18TChCrTagOccupation[8] = {
     0,
     0,
     (void *)__dt__18TChCrTagOccupationFv,
@@ -285,6 +306,7 @@ void *__vt__18TChCrTagOccupation[7] = {
     (void *)render__18TChCrTagOccupationFv,
     (void *)render_shadows__7TObjectFv,
     (void *)TChCrTagOccupation__vt4,
+    0,
 };
 }
 

@@ -94,6 +94,17 @@ void boss2_dust_draw_at(M2C_UNK *arg0, s32 arg1) {
 }
 
 }
+extern "C" {
+void TObjBoss2DustCtrl__sub_8003AB5C(void) {
+    s32 temp_r0;
+
+    temp_r0 = TObjBoss2DustCtrl_dust_counter + 1;
+    TObjBoss2DustCtrl_dust_counter = temp_r0;
+    if (temp_r0 >= 0xA) {
+        TObjBoss2DustCtrl_dust_counter = 0;
+    }
+}
+}
 
 #pragma push
 #pragma opt_propagation off
@@ -136,16 +147,6 @@ void TObjBoss2DustCtrl::run_task() {
 TObjBoss2DustCtrl::~TObjBoss2DustCtrl() {}
 
 extern "C" {
-
-void TObjBoss2DustCtrl__sub_8003AB5C(void) {
-    s32 temp_r0;
-
-    temp_r0 = TObjBoss2DustCtrl_dust_counter + 1;
-    TObjBoss2DustCtrl_dust_counter = temp_r0;
-    if (temp_r0 >= 0xA) {
-        TObjBoss2DustCtrl_dust_counter = 0;
-    }
-}
 
 void *TObjBoss2DustCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
