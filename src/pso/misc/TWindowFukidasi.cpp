@@ -251,7 +251,7 @@ f32 get_position_z__15TWindowCtrlMainFv(s16);
 void complete_speech_balloon(u8 *arg0);
 s32 is_speech_balloon_ready(u8 *arg0);
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *arg0, s32 arg1);
-void TWindowFukidasi__sub_80250314(Fuki_80250314 *b, f32 *out);
+void clamp_text_size__15TWindowFukidasiFPvPv(Fuki_80250314 *b, f32 *out);
 void calc_text_size__15TWindowFukidasiFPvPv(Fuki_80250380 *b, f32 *out);
 void sync_display_pos__15TWindowFukidasiFPv(void* p);
 s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0);
@@ -447,7 +447,7 @@ s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
     return (u32) __cntlzw(strcmp(get_field_20__17TWindowSubComCardFPv(), arg1)) >> 5;
 }
 
-void TWindowFukidasi__sub_80250314(Fuki_80250314 *b, f32 *out) {
+void clamp_text_size__15TWindowFukidasiFPvPv(Fuki_80250314 *b, f32 *out) {
     f32 size[2];
     calc_text_size__15TWindowFukidasiFPvPv((Fuki_80250380 *)(b), (f32 *)(size));
     if (b->anchor[0] > size[0]) {
@@ -1295,7 +1295,7 @@ void run_task__15TWindowFukidasiFPv(u8 *arg0) {
     }
       break;
     case 5:
-      ((void (*)(void *, void *))TWindowFukidasi__sub_80250314)(arg0, ((u8 *) arg0) + 0x38);
+      ((void (*)(void *, void *))clamp_text_size__15TWindowFukidasiFPvPv)(arg0, ((u8 *) arg0) + 0x38);
       *((s32 *) (((s8 *) arg0) + 0x50)) = 6;
       ((void (*)(void *))clear_flag__15TWindowFukidasiFPv)(arg0);
       ((void (*)(void *))set_flag2c_bit100__15TWindowFukidasiFPv)(arg0);

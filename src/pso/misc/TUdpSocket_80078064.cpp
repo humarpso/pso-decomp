@@ -53,7 +53,7 @@ void bswap_16__FPUs(void *);
 s16 TUdpSocket__sub_80421DEC(void *, int, void *, int, int, s32 (*)(s16, u8 *));
 s32 TUdpSocket__sub_80078378(s16 arg0, u8 *arg1);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
-s16 TUdpSocket__sub_800782B8(Sock_800782B8 *arg0);
+s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0);
 void TLobby__sub_80421B3C(s32);
 extern RecoveredGlobal_80078378_lbl_8048D3B8 lbl_8048D3B8;
 void TUdpSocket__sub_80078264(Sock_80078264 *arg0);
@@ -145,7 +145,7 @@ void TUdpSocket__sub_80078264(Sock_80078264 *arg0) {
     }
 }
 
-s16 TUdpSocket__sub_800782B8(Sock_800782B8 *arg0) {
+s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
     Q_800782B8 q1;
     Q2_800782B8 q2;
     u16 pb;

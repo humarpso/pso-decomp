@@ -57,7 +57,7 @@ void render__15TAdPlyPltAnimGCFv(u8 *arg0);
 void set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *arg0, s32 arg1);
 extern const V2_80355D5C lbl_80479350[];
 extern const f32 lbl_805DFFD0;
-void TAdPlyPltAnimCtrlGC__sub_80355D5C(Obj_80355D5C *o, V2_80355D5C *p);
+void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p);
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0);
 extern Pos_80355DE0 lbl_80479314[];
 extern u32 lbl_8047933C[];
@@ -104,7 +104,7 @@ void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void TAdPlyPltAnimCtrlGC__sub_80355D5C(Obj_80355D5C *o, V2_80355D5C *p) {
+void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p) {
     o->a = p->x;
     o->b = p->y;
     o->c = p->x + lbl_80479350[0].x;

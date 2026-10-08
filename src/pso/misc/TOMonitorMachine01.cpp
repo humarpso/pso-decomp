@@ -87,7 +87,7 @@ extern u8 lbl_804B3888[];
 extern s32 TOMonitorMachine01__data_8050DB68[];
 extern void *TOMonitorMachine01__data_805D5A58;
 extern s32 TOMonitorMachine01__data_805D5A5C;
-void TOMonitorMachine01__sub_8017246C(void);
+void load_resources__18TOMonitorMachine01Fv(void);
 }
 
 extern "C" {
@@ -220,7 +220,7 @@ void TOMonitorMachine01__sub_8017240C(void) {
     }
 }
 
-void TOMonitorMachine01__sub_8017246C(void) {
+void load_resources__18TOMonitorMachine01Fv(void) {
     void *temp_r5;
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

@@ -15,11 +15,11 @@ extern u32 lbl_8050E880[];
 extern u32 photon_blast_shared_resource;
 void TObjPlayer__sub_801AA3B4(void);
 extern struct PhotonBlastChain_801AA424 lbl_8050E890[];
-void TObjPlayer__sub_801AA424(void);
+void clear_photon_blast_slots__10TObjPlayerFv(void);
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 M2C_UNK run_load_callback_table(void *, int);
-void TObjPlayer__sub_801AA424(void);
+void clear_photon_blast_slots__10TObjPlayerFv(void);
 extern u8 lbl_804C343C[];
 extern u8 lbl_804C344C[];
 extern u32 lbl_8050E880[];
@@ -39,9 +39,9 @@ void TObjPlayer__sub_801AA3B4(void) {
     for (i = 0; i < 4; i++) {
         lbl_8050E880[i] = 0;
     }
-    TObjPlayer__sub_801AA424();
+    clear_photon_blast_slots__10TObjPlayerFv();
 }
-void TObjPlayer__sub_801AA424(void) {
+void clear_photon_blast_slots__10TObjPlayerFv(void) {
     s32 i;
     s32 j;
     for (i = 0; i < 4; i++) {
@@ -64,7 +64,7 @@ void load_photon_blast_resources(void) {
     for (i = 0; i < 4; i++) {
         lbl_8050E880[i] = 0;
     }
-    TObjPlayer__sub_801AA424();
+    clear_photon_blast_slots__10TObjPlayerFv();
 }
 
 }

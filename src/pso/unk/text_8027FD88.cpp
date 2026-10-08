@@ -83,7 +83,7 @@ extern M2C_UNK lbl_804D20FC[];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
 void TWindowSubStatusDisp__vt2(u8 *arg0);
 s8 get_type__20TWindowSubStatusDispFPv(int);
-s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0);
+s32 get_display_mode__20TWindowSubStatusDispFPv(Win_8027FD9C *arg0);
 Q_80280F14 *get_quest_id__12TQuestListVMFPv();
 s32 get_next_level_exp__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(s16);
@@ -144,7 +144,7 @@ M2C_UNK text_builder_append(char *);
 M2C_UNK text_builder_reset();
 M2C_UNK init_window_layout_entries(void *, M2C_UNK *, s16);
 M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
-s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0);
+s32 get_display_mode__20TWindowSubStatusDispFPv(Win_8027FD9C *arg0);
 extern s32 lbl_8044FAF0[];
 extern M2C_UNK lbl_804D27DC[];
 extern char lbl_805DD6E4[2];
@@ -172,7 +172,7 @@ s16 get_stat__20TWindowSubStatusDispFPv(s32);
 void fn_8027FD88(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x6c) = a; *(f32*)((char*)p + 0x70) = b; }
 void fn_8027FD94(void* p, s16 v) { *(s16*)((char*)p + 0x62) = v; }
 
-s32 TWindowSubStatusDisp__sub_8027FD9C(Win_8027FD9C *arg0) {
+s32 get_display_mode__20TWindowSubStatusDispFPv(Win_8027FD9C *arg0) {
     s32 r;
     if (arg0->f60 == 2) {
         s8 t = get_type__20TWindowSubStatusDispFPv(arg0->f68);
@@ -200,7 +200,7 @@ void TWindowSubStatusDisp__vt5(u8 *arg0) {
   }
   init_window_layout_entries(arg0 + 0x24, lbl_804D27DC, *((s16 *) (((s8 *) arg0) + 0x20)));
   new_var = arg0;
-  type = TWindowSubStatusDisp__sub_8027FD9C((Win_8027FD9C *) new_var);
+  type = get_display_mode__20TWindowSubStatusDispFPv((Win_8027FD9C *) new_var);
   e = (u16 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
   set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFPv(lbl_8044FAF0[type]), 0);
   n = get_layout_id__20TWindowSubStatusDispFv(type);

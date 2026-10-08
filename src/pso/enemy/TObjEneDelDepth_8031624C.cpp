@@ -114,7 +114,7 @@ void draw_model_part__15TObjEneDelDepthFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEneDelDepth__sub_80316364(Anim_80316364 *a) {
+void update_animation_frame__15TObjEneDelDepthFPv(Anim_80316364 *a) {
     if (a->frame == -1) {
         return;
     }

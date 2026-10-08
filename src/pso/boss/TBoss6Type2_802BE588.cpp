@@ -34,7 +34,7 @@ extern u8 lbl_805D675C;
 extern const f32 lbl_805DE3F8;
 extern f32 lbl_805DE4DC;
 extern const f32 lbl_805DE4F0;
-void TBoss6Type2__sub_802BF424(u8 *arg0);
+void init_timers_and_copy_pos__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK destroy_part__11TBoss6Type2Fii(void *, M2C_UNK);
 M2C_UNK copy_anim_state__11TBoss6Type2FPv(void *);
@@ -535,7 +535,7 @@ void TBoss6Type2__sub_802BE738(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x420) = (s32) (M2C_FIELD(arg0, s32 *, 0x420) + 1);
 }
 
-void TBoss6Type2__sub_802BF424(u8 *arg0) {
+void init_timers_and_copy_pos__11TBoss6Type2FPv(u8 *arg0) {
   if (((s8) lbl_805D675C) == 0)
   {
     lbl_805D675C = 1;

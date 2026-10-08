@@ -11,7 +11,7 @@ s32 fn_80225CD8(s32, char *, void *);
 char *strncpy(char *dest, const char *src, size_t num);
 extern void *lbl_805D5544;
 extern u8 *TOChatSensorCapture__data_805D58D8;
-s32 TOChatSensorCapture__sub_8015A8D8(u16 arg0, const char *arg1);
+s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
 char *strncpy(char *dest, const char *src, size_t num);
 extern u8 *TOChatSensorCapture__data_805D58D8;
 void capture_message__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
@@ -19,7 +19,7 @@ void capture_message__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
 
 extern "C" {
 
-s32 TOChatSensorCapture__sub_8015A8D8(u16 arg0, const char *arg1) {
+s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1) {
     char buf[0x20];
     s32 i;
     s32 c;

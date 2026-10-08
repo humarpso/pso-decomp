@@ -25,7 +25,7 @@ extern const f32 lbl_805DE798;
 void init_state_445__10TObjPlayerFPv(void *);
 void alloc_and_init__10TObjPlayerFiii(s32, s32, s32);
 void create_and_init_effect__10TObjPlayerFiPvi(s32, void *, s32);
-S_802D595C *TObjPlayer__sub_802D595C(S_802D595C *arg0);
+S_802D595C *init_mag_effect_state__10TObjPlayerFPv(S_802D595C *arg0);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void reset_animation_state__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_802D577C(arg0);
 }
 
-S_802D595C *TObjPlayer__sub_802D595C(S_802D595C *arg0) {
+S_802D595C *init_mag_effect_state__10TObjPlayerFPv(S_802D595C *arg0) {
     s32 i;
     V3_802D595C *p;
     init_state_445__10TObjPlayerFPv(arg0);

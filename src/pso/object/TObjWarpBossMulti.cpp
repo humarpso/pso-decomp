@@ -264,7 +264,7 @@ s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 extern s32 lbl_805D5C90;
 extern s32 lbl_805D5C98;
-void TObjWarpBossMulti__sub_8019E798(u8 *arg0);
+void update_floor_switch_state__17TObjWarpBossMultiFPv(u8 *arg0);
 void warp_boss_handle_window(void *arg0);
 void update_state__17TObjWarpBossMultiFPv(void *arg0);
 void update_warp_state__17TObjWarpBossMultiFPv(u8 *arg0);
@@ -580,7 +580,7 @@ void warp_player__17TObjWarpBossMultiFPvi(void *arg0, s32 arg1) {
     }
 }
 
-void TObjWarpBossMulti__sub_8019E798(u8 *arg0) {
+void update_floor_switch_state__17TObjWarpBossMultiFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r0_2;
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xE0);
@@ -882,7 +882,7 @@ void update__12TObjWarpBossFPv(void *arg0) {
         ((M2C_UNK (*)(void *))warp_boss_handle_window)(arg0);
         return;
     case 4:
-        ((M2C_UNK (*)(void *))TObjWarpBossMulti__sub_8019E798)(arg0);
+        ((M2C_UNK (*)(void *))update_floor_switch_state__17TObjWarpBossMultiFPv)(arg0);
         return;
     }
 }

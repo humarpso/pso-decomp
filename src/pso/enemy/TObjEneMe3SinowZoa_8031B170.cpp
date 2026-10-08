@@ -25,7 +25,7 @@ M2C_UNK free__11TOBoss4RockFUi(u32);
 extern G_8031B198 lbl_80542FDC;
 extern u32 TObjEneMe3SinowZoa__data_805D6AD8;
 extern Obj_8031B198 *TObjEneMe3SinowZoa__data_805D6AE0;
-void TObjEneMe3SinowZoa__sub_8031B198(void);
+void free_resources__18TObjEneMe3SinowZoaFv(void);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void TObjEneMe3SinowZoa__sub_8031B170(s32 arg0, f32 farg0) {
   new_var = new_var + (arg0 * 0x10);
   *((f32 *) (((s8 *) new_var) + 8)) = var_f1;
 }
-void TObjEneMe3SinowZoa__sub_8031B198(void) {
+void free_resources__18TObjEneMe3SinowZoaFv(void) {
     if (TObjEneMe3SinowZoa__data_805D6AE0 != NULL) {
         delete TObjEneMe3SinowZoa__data_805D6AE0;
         TObjEneMe3SinowZoa__data_805D6AE0 = NULL;

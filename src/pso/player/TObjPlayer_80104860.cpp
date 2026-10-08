@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 item_identity_matches(u8 *arg0, u8 *arg1);
 M2C_UNK get_weapon_special_type_amount(u8, s16 *, s16 *);
-u8 TObjPlayer__sub_8010494C(u8 arg0);
+u8 get_next_matching_special_index__10TObjPlayerFUc(u8 arg0);
 s32 compare_item_data_masked(void *arg0, void *arg1, s32 arg2);
 }
 
@@ -56,7 +56,7 @@ u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8 arg0) {
     return arg0;
 }
 
-u8 TObjPlayer__sub_8010494C(u8 arg0) {
+u8 get_next_matching_special_index__10TObjPlayerFUc(u8 arg0) {
     s16 spC;
     s16 spA;
     s16 sp8;

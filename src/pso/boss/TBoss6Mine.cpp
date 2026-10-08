@@ -207,7 +207,7 @@ M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
 M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK initialize__9TObjEnemyFPv(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
-f32 TBoss6Mine__sub_802ABD88(void *);
+f32 next_random_float__10TBoss6MineFPv(void *);
 s32 get_fish_count__8TObjFishFv();
 extern u8 __vt__10TBoss6Mine[];
 extern M2C_UNK lbl_804ECBAC[];
@@ -553,10 +553,10 @@ s32 TBoss6Mine__ct(s32 arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(THIS, s16 *, 0x33E) = M2C_FIELD(THIS, s16 *, 0x32C);
     reset_photon_effect__12TBoss3VoloptFPv(THIS);
     set_param__12TObjEneLappyFPvi(THIS, 0);
-    M2C_FIELD(THIS, s32 *, 0x3A0) = lbl_805DF5D0 * TBoss6Mine__sub_802ABD88(THIS + 0x388) + lbl_805DF5CC;
+    M2C_FIELD(THIS, s32 *, 0x3A0) = lbl_805DF5D0 * next_random_float__10TBoss6MineFPv(THIS + 0x388) + lbl_805DF5CC;
     M2C_FIELD(THIS, s32 *, 0x3A4) = 0x96 - M2C_FIELD(THIS, s32 *, 0x3A0);
-    M2C_FIELD(THIS, s32 *, 0x3A8) = lbl_805DF5D8 * TBoss6Mine__sub_802ABD88(THIS + 0x388) + lbl_805DF5D4;
-    M2C_FIELD(THIS, f32 *, 0x3AC) = lbl_805DF5DC * TBoss6Mine__sub_802ABD88(THIS + 0x388) + lbl_805DF5A4;
+    M2C_FIELD(THIS, s32 *, 0x3A8) = lbl_805DF5D8 * next_random_float__10TBoss6MineFPv(THIS + 0x388) + lbl_805DF5D4;
+    M2C_FIELD(THIS, f32 *, 0x3AC) = lbl_805DF5DC * next_random_float__10TBoss6MineFPv(THIS + 0x388) + lbl_805DF5A4;
     f = *dispatch_shared_handler_a__6TLobbyFPv(0x2D);
     M2C_FIELD(THIS, s32 *, 0x384) = f;
     if (TBoss6Mine__data_805DF580 == f) {

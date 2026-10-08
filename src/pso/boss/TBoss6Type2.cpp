@@ -262,7 +262,7 @@ void init_motion_entries__11TBoss6Type2FPv(O_802BCEF4 *o);
 void set_action_state__11TBoss6Type2FPvPv(void *ov, void *vv);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
 s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
-void TBoss6Rock__sub_80354A50(void *);
+void create_rock_pool__10TBoss6RockFi(void *);
 void capture_player_snapshots__11TBoss6Type2Fv();
 extern u8 lbl_80471068[];
 extern u8 lbl_80471074[];
@@ -651,8 +651,8 @@ int draw__11TBoss6Type2FPv(void*);
 int render_body_effects__11TBoss6Type2FPv(void*);
 void render__11TBoss6Type2Fv(void* p);
 s32 get_phase__11TBoss6Type2FPv(void* p);
-void TBoss6Type2__sub_802B9938(f32 *arg0, s8 *arg1, s8 *arg2);
-void TBoss6Type2__sub_802B9994(s8 arg0, s8 arg1, f32 *arg2);
+void world_to_grid_pos__11TBoss6Type2FPvPvPv(f32 *arg0, s8 *arg1, s8 *arg2);
+void grid_to_world_pos__11TBoss6Type2FccPv(s8 arg0, s8 arg1, f32 *arg2);
 void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0);
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1);
 s32 is_player_in_rock_area__11TBoss6Type2Fi(s32 id);
@@ -667,7 +667,7 @@ void set_fields_554__11TBoss6Type2FPv(void* p);
 void TBoss6Type2__sub_802B9EE4(T2_802B9EE4 *arg0);
 void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0);
 void aim_toward_point__11TBoss6Type2FPvPv(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
-void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0);
+void init_collected_entries__11TBoss6Type2FPv(T2_802BA000 *arg0);
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
 void reset_fish_fields__11TBoss6Type2FPv(Obj_802BA158 *self);
 void restore_target_player_state__11TBoss6Type2FPv(u8 *arg0);
@@ -736,7 +736,7 @@ void TBoss6Type2__sub_802BD340(void);
 void apply_damage__11TBoss6Type2FPvi(void *arg0, s32 arg1);
 void TBoss6Type2__sub_802BD378(T2_802BD378 *arg0, s32 arg1, void *arg2, s32 *arg3);
 s32 get_rotation_timer__11TBoss6Type2FPv(void* p);
-void TBoss6Type2__sub_802BD3CC(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
+void get_phase_values__11TBoss6Type2FPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 f32 TBoss6Type2__vt20(void *arg0, u32 arg1, f32 farg0);
 void TBoss6Type2__vt61(void* p);
 void TBoss6Type2__vt60(u8 *arg0);
@@ -848,7 +848,7 @@ extern RecoveredGlobal_802BD938_TBoss6Type2__data_8047105C TBoss6Type2__data_804
 
 extern "C" {
 void TBoss6Type2__sub_802B9D6C(Obj_802B9D6C *self);
-void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0);
+void init_collected_entries__11TBoss6Type2FPv(T2_802BA000 *arg0);
 void TBoss6Type2__sub_802BB768(T2_802BB768 *arg0);
 void init_segment_range__11TBoss6Type2FPv(Obj_802BC050 *o);
 }
@@ -857,7 +857,7 @@ void render__11TBoss6Type2Fv(void* p) { render_body_effects__11TBoss6Type2FPv(p)
 
 s32 get_phase__11TBoss6Type2FPv(void* p) { return *(s32*)((char*)p + 0x37c); }
 
-void TBoss6Type2__sub_802B9938(f32 *arg0, s8 *arg1, s8 *arg2) {
+void world_to_grid_pos__11TBoss6Type2FPvPvPv(f32 *arg0, s8 *arg1, s8 *arg2) {
     f32 fa = 0.5f + ((arg0[0] - -10500.0f) / 7.874016f);
     f32 fb = 0.5f + ((arg0[2] - -500.0f) / 7.874016f);
     *arg1 = (s8)fa;
@@ -866,7 +866,7 @@ void TBoss6Type2__sub_802B9938(f32 *arg0, s8 *arg1, s8 *arg2) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss6Type2__sub_802B9994(s8 arg0, s8 arg1, f32 *arg2) {
+void grid_to_world_pos__11TBoss6Type2FccPv(s8 arg0, s8 arg1, f32 *arg2) {
     arg2[0] = (f32)((TBoss6Type2__data_805DE41C * (f32)arg0) + lbl_805DE420);
     arg2[1] = TBoss6Type2__data_805DE410;
     arg2[2] = (f32)((TBoss6Type2__data_805DE41C * (f32)arg1) + lbl_805DE418);
@@ -880,7 +880,7 @@ void call_9A24_plus_1__11TBoss6Type2Fi(s32 arg0) {
 
 void unpack_path_entry__11TBoss6Type2FPvPv(u8 *arg0, s32 *arg1) {
     *arg1 = (s32) (s16) ((s8) M2C_FIELD(arg0, u8 *, 2) << 8);
-    ((M2C_UNK (*)(int, int, void *, void *))TBoss6Type2__sub_802B9994)((int) (M2C_FIELD(arg0, u8 *, 0)), (int) (M2C_FIELD(arg0, u8 *, 1)), (void *) ((u8 *) arg1 + 4), (void *) (arg0));
+    ((M2C_UNK (*)(int, int, void *, void *))grid_to_world_pos__11TBoss6Type2FccPv)((int) (M2C_FIELD(arg0, u8 *, 0)), (int) (M2C_FIELD(arg0, u8 *, 1)), (void *) ((u8 *) arg1 + 4), (void *) (arg0));
 }
 
 s32 is_player_in_rock_area__11TBoss6Type2Fi(s32 id) {
@@ -1126,7 +1126,7 @@ extern int fold_flush_6;
 #pragma opt_common_subs reset
 #pragma opt_propagation reset
 #pragma opt_dead_assignments reset
-void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0) {
+void init_collected_entries__11TBoss6Type2FPv(T2_802BA000 *arg0) {
     s32 i;
     for (i = 0; i < 2; i++) {
         arg0->e[i].p = (s32 *)(collect_and_count__12TBoss3VoloptFUii(arg0->o[i].h, 0x28) + 0x18);
@@ -2425,7 +2425,7 @@ s32 get_rotation_timer__11TBoss6Type2FPv(void* p) { return *(s32*)((char*)p + 0x
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss6Type2__sub_802BD3CC(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
+void get_phase_values__11TBoss6Type2FPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
     s32 i;
     *a = self->f2d6;
     *b = self->f2d4;
@@ -2682,7 +2682,7 @@ void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1) {
         ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)((s32)((void *) (&stack.sp18)), (s32)((void *) (&stack.spC)));
         vec3_add_to((void *) (&stack.sp18), (void *) (arg0 + 0x38));
     }
-    ((s32 (*)(void *, void *, void *))TBoss6Type2__sub_802B9938)((void *) (&stack.sp18), (void *) (&stack.sp9), (void *) (&stack.sp8));
+    ((s32 (*)(void *, void *, void *))world_to_grid_pos__11TBoss6Type2FPvPvPv)((void *) (&stack.sp18), (void *) (&stack.sp9), (void *) (&stack.sp8));
     M2C_FIELD(arg1, u8 *, 0) = stack.sp9;
     M2C_FIELD(arg1, u8 *, 1) = stack.sp8;
 }
@@ -2983,11 +2983,11 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     M2C_FIELD(arg0, s32 *, 0x508) = 0;
     TBoss6Type2__sub_802BB818(arg0, TBoss6Type2__data_805DE410);
     TBoss6Type2__sub_802BB768((T2_802BB768 *)arg0);
-    TBoss6Rock__sub_80354A50(arg0);
+    create_rock_pool__10TBoss6RockFi(arg0);
     TBoss6Type2__sub_802BA7B0(arg0);
     capture_player_snapshots__11TBoss6Type2Fv();
     cache_fish_params__11TBoss6Type2FPv(arg0);
-    TBoss6Type2__sub_802BA000((T2_802BA000 *)arg0);
+    init_collected_entries__11TBoss6Type2FPv((T2_802BA000 *)arg0);
     set_fields_554__11TBoss6Type2FPv(arg0);
     TBoss6Type2__sub_802B9D6C((Obj_802B9D6C *)arg0);
     spawn_particle_slot__11TBoss6Type2FPvi(arg0, 0);

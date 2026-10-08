@@ -10,7 +10,7 @@ extern s32 TBoss6Rock__data_80543778[];
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
 extern int TBoss6Rock__data_805D6EF8;
-void TBoss6Rock__sub_80354A50(s32 arg0);
+void create_rock_pool__10TBoss6RockFi(s32 arg0);
 void *dispatch_shared_handler_a__6TLobbyFPv(s32);
 u32 load_resource_from_descriptor(u32, s32, void *, s32, s32, s32);
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -39,7 +39,7 @@ void TBoss6Rock__sub_80354A44(void) { TBoss6Rock__data_805D6EF8 = 0; }
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
 
-void TBoss6Rock__sub_80354A50(s32 arg0) {
+void create_rock_pool__10TBoss6RockFi(s32 arg0) {
     s32 i;
     if (TBoss6Rock__data_805D6EF0 == 0 || TBoss6Rock__data_805D6EF4 == 0) {
         return;

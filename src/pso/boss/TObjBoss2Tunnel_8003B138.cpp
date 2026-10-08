@@ -125,7 +125,7 @@ f32 update_position__15TObjBoss2TunnelFPv(void *);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, f32 *);
 void set_global_flag_100__15TObjBoss2TunnelFv(void);
 void TObjBoss2Tunnel__sub_8003C2E4(void *);
-void TObjBoss2Tunnel__sub_8003C374(void *);
+void init_queue_from_start__15TObjBoss2TunnelFPv(void *);
 void TObjBoss2Tunnel__sub_8003C2A0(void *);
 s32 TFogCtrl__sub_800FAAE4(void);
 void *__nw__7TObjectFUl(int);
@@ -393,7 +393,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
                 o->f24 = 2;
                 o->fb0 = TFogCtrl__sub_800FAAE4();
             } else {
-                TObjBoss2Tunnel__sub_8003C374(o);
+                init_queue_from_start__15TObjBoss2TunnelFPv(o);
             }
         }
         break;

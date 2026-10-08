@@ -80,7 +80,7 @@ extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
 s32 strncpy(void *, void *, int);
 extern s32 lbl_805D6270;
-void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1);
+void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 lbl_80513F50;
 void clear_shop_weapon_flags(void);
@@ -121,7 +121,7 @@ M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 extern G_80225550 lbl_80513F60;
 extern u32 lobby_weapon_random_tables_ptr;
-void TLobby__sub_80225618(void);
+void free_lobby_resources__6TLobbyFv(void);
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 get_keyboard_mode__17TWindowSubComCardFv(void);
 void fn_801DB878(void *, void *);
@@ -702,7 +702,7 @@ void TLobby__sub_802255CC(s32 a, s32 b) {
 
 #pragma push
 #pragma optimization_level 1
-void TLobby__sub_80225618(void) {
+void free_lobby_resources__6TLobbyFv(void) {
     s32 i;
     for (i = 3; i >= 0; i--) {
         if (((u32 *)&lbl_80513F60)[i] != 0) {
@@ -868,7 +868,7 @@ s32 TLobby__sub_80225B90(O_80225B90 *o) {
     return 0;
 }
 
-void TLobby__sub_80225BC8(u8 *arg0, u8 *arg1) {
+void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     s32 temp_r7;
     M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 8);
     temp_r7 = lbl_805D6270;

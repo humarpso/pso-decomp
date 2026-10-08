@@ -44,7 +44,7 @@ void copy_vec3__11TBoss4Type2FPvPv(void *, void *);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
-void TObjEneRe7BeruraPunch__sub_80095FAC(void *);
+void update_velocity_and_snap__21TObjEneRe7BeruraPunchFPv(void *);
 void update_flight__21TObjEneRe7BeruraPunchFPv(void *);
 u32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
@@ -146,7 +146,7 @@ void run_task__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
         update_flight__21TObjEneRe7BeruraPunchFPv(arg0);
         break;
     case 2:
-        TObjEneRe7BeruraPunch__sub_80095FAC(arg0);
+        update_velocity_and_snap__21TObjEneRe7BeruraPunchFPv(arg0);
         break;
     }
     if (M2C_FIELD(arg0, s32 *, 0xB4) == 1) {

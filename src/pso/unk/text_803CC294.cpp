@@ -144,7 +144,7 @@ extern s32 lbl_805D75E4;
 void TLobby__sub_803CC884(void);
 M2C_UNK TLobby__sub_803CCE9C(Slot_803CD16C *);
 extern Slot_803CD16C lbl_8057CBD0[];
-void TLobby__sub_803CCE40(void);
+void release_used_slots__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -398,7 +398,7 @@ inline s32 open_803CD16C(Slot_803CD16C *s, s32 arg0, s32 arg1) {
     return 0;
 }
 
-void TLobby__sub_803CCE40(void) {
+void release_used_slots__6TLobbyFv(void) {
     s32 i;
     Slot_803CD16C *p;
     for (i = 0; i < 0x10; i++) {

@@ -70,7 +70,7 @@ int TWindowSubComCard__sub_80244774(void);
 s32 get_field_20__17TWindowSubComCardFPv(void* p);
 f32 TWindowSubComCard__sub_80244784(void *arg0);
 f32 calc_offset__17TWindowSubComCardFPv(void *arg0);
-f32 TWindowSubComCard__sub_80244818(u8 *arg0);
+f32 get_normalized_progress__17TWindowSubComCardFPv(u8 *arg0);
 void reparent_to_main_ctrl__17TWindowSubComCardFi(s32 arg0);
 void save_position__17TWindowSubComCardFPv(void* p);
 void TWindowSubTradeMain__sub_802448E4(void *arg0);
@@ -145,7 +145,7 @@ f32 TWindowSubComCard__sub_80244784(void *arg0) {
     if (v < lbl_805DCAC8) {
         return v;
     }
-    return TWindowSubComCard__sub_80244818((u8 *)arg0);
+    return get_normalized_progress__17TWindowSubComCardFPv((u8 *)arg0);
 }
 
 f32 calc_offset__17TWindowSubComCardFPv(void *arg0) {
@@ -160,7 +160,7 @@ f32 calc_offset__17TWindowSubComCardFPv(void *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-f32 TWindowSubComCard__sub_80244818(u8 *arg0) {
+f32 get_normalized_progress__17TWindowSubComCardFPv(u8 *arg0) {
     s32 temp_r3;
     if (M2C_FIELD(arg0, s32 *, 0x2C) & 0x2000) {
         return (*(const f32 *)&lbl_805DCAC8);

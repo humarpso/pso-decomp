@@ -43,7 +43,7 @@ struct Obj_80067D20 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void *TCameraCtrl__sub_80068018(void *);
+void *construct_derived__11TCameraCtrlFPv(void *);
 M2C_UNK set_target_pos__11TCameraCtrlFPvPv(void *, void *, f32);
 u8 *get_player_by_client_id(M2C_UNK);
 extern const f32 lbl_805D8F78;
@@ -69,7 +69,7 @@ void * TCameraCtrl__vt7(void) {
     void *o;
     o = __nw__7TObjectFUl(0x74);
     if (o != NULL) {
-        o = TCameraCtrl__sub_80068018(o);
+        o = construct_derived__11TCameraCtrlFPv(o);
     }
     return o;
 }

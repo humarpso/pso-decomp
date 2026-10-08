@@ -10,7 +10,7 @@ typedef s32 M2C_UNK;
 extern "C" {
 void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
 int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
-void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o);
+void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o);
 int refresh_players_equipment__14TBoss6PlotFalzFPv(void);
 void TBoss6PlotFalz__sub_802AB568(void *, f32, s32);
 s32 set_state__14TBoss6PlotFalzFPvi(void *, s32);
@@ -70,7 +70,7 @@ void stop_adx_audio(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     create_variant__8TObjFishFPv(arg0);
 }
-void TBoss6PlotFalz__sub_802B057C(Boss_802B057C *o) {
+void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o) {
     s32 t = o->f3CC;
     if (t <= 0x2D) {
         TBoss6PlotFalz__sub_802AB568(o, 1.0f, 0);

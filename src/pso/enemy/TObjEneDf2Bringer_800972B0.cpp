@@ -10,7 +10,7 @@ struct Obj_80098EFC;
 struct Obj_80098FF4;
 extern "C" {
 void render__17TObjEneDf2BringerFv(u8 *arg0);
-void TObjEneDf2Bringer__sub_800975A8(void);
+void step_cutscene_frame__17TObjEneDf2BringerFv(void);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
 void TObjEneDf2Bringer__sub_80097714(Bringer_80097714 *obj, s32 mode);
 void TObjEneDf2Bringer__sub_80097820(u8 *arg0, s32 arg1);
@@ -1150,7 +1150,7 @@ extern RecoveredGlobal_800975A8_lbl_805008A8 lbl_805008A8;
 extern s32 TObjEneDf2Bringer__data_805D4FBC;
 extern s32 TObjEneDf2Bringer__data_805D4FC0;
 extern s32 TObjEneDf2Bringer__data_805D4FC4;
-void TObjEneDf2Bringer__sub_800975A8(void);
+void step_cutscene_frame__17TObjEneDf2BringerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
@@ -1194,7 +1194,7 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjEneDf2Bringer__sub_800975A8(void);
+void step_cutscene_frame__17TObjEneDf2BringerFv(void);
 extern Vec_800972B0 lbl_8043A0D4[];
 extern s32 TObjEneDf2Bringer__data_805D4FBC;
 extern s32 TObjEneDf2Bringer__data_805D4FC0;
@@ -1511,7 +1511,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
             push_matrix();
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-            set_global_state__16TObjEneRe7BeruraFi((void *) (&TObjEneDf2Bringer__sub_800975A8));
+            set_global_state__16TObjEneRe7BeruraFi((void *) (&step_cutscene_frame__17TObjEneDf2BringerFv));
             set_global_flag__10TObjPlayerFv();
             if (var_r31 == 1) {
                 draw__16TObjEneRe7BeruraFPv((void *) (arg0));
@@ -1539,7 +1539,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
 }
 #pragma pop
 
-void TObjEneDf2Bringer__sub_800975A8(void) {
+void step_cutscene_frame__17TObjEneDf2BringerFv(void) {
     s32 temp_r4;
     switch (TObjEneDf2Bringer__data_805D4FBC) {
     case 8:

@@ -9,9 +9,9 @@ typedef char RecoveredGlobal_803655F8___vt__15TObjIllGillKage_size[sizeof(Recove
 
 extern "C" {
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-void TObjIllGillKage__sub_80365470(u8 *arg0);
+void tick_persistent_sound__15TObjIllGillKageFPv(u8 *arg0);
 int queue_destruction__15TObjIllGillKageFPv(void* p);
-void TObjIllGillKage__sub_80365470(u8 *arg0);
+void tick_persistent_sound__15TObjIllGillKageFPv(u8 *arg0);
 void attack_target__15TObjIllGillKageFPv(void *arg0);
 void run_task__15TObjIllGillKageFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -40,7 +40,7 @@ int queue_destruction__7TObjectFv(void*);
 
 int queue_destruction__15TObjIllGillKageFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
-void TObjIllGillKage__sub_80365470(u8 *arg0) {
+void tick_persistent_sound__15TObjIllGillKageFPv(u8 *arg0) {
     s32 temp_r3;
     play_persistent_sound((int) (0x4003A357), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x94);
@@ -68,7 +68,7 @@ void run_task__15TObjIllGillKageFv(u8 *arg0) {
         attack_target__15TObjIllGillKageFPv((void *)arg0);
         return;
     case 1:
-        TObjIllGillKage__sub_80365470((u8 *)arg0);
+        tick_persistent_sound__15TObjIllGillKageFPv((u8 *)arg0);
         return;
     default:
         queue_destruction__15TObjIllGillKageFPv((void*)arg0);

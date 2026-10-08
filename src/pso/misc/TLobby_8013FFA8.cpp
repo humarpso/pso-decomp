@@ -249,7 +249,7 @@ M2C_UNK init_area_lights();
 void TLobby__sub_801403B4(M2C_UNK _w0);
 M2C_UNK create_controller__14TObjBgmColCtrlFv();
 M2C_UNK reset_settings_to_default__6TLobbyFPv(M2C_UNK *);
-M2C_UNK TQuestVmDownLoadServer__sub_801F8F14();
+M2C_UNK reset_download_state__22TQuestVmDownLoadServerFv();
 M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK load_floor_sound_bank();
 extern M2C_UNK lobby_floor_scene_callbacks[];
@@ -713,7 +713,7 @@ s32 init_lobby_floor_scene__6TLobbyFv(void) {
         return 0;
     }
     init_area_lights();
-    TQuestVmDownLoadServer__sub_801F8F14();
+    reset_download_state__22TQuestVmDownLoadServerFv();
     reset_settings_to_default__6TLobbyFPv((M2C_UNK *)((void *) (&(*(RecoveredGlobal_80140A6C_lbl_8050EA40 *)&lbl_8050EA40).value)));
     create_tasks__6TLobbyFv();
     create_controller__14TObjBgmColCtrlFv();

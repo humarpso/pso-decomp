@@ -80,7 +80,7 @@ struct Obj_800BA244 { u8 pad[0x30]; u32 flags; u8 pad2[0xa4 - 0x34]; Part_800BA2
 
 extern "C" {
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B68C;
-void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1);
+void send_damage_message__9TObjEneDDFiPv(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B684;
 void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_800BA318_lbl_8043B68C lbl_8043B67C;
@@ -197,7 +197,7 @@ int check_state_flag_2__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPla
 int check_state_flag_1__9TObjEneDDFPv(void* p) { return add_flags_2e4__10TObjPlayerFPvUi(p, 1); }
 
 typedef char RecoveredGlobal_800BA318_lbl_8043B68C_size[sizeof(RecoveredGlobal_800BA318_lbl_8043B68C) == 0xC ? 1 : -1];
-void TObjEneDD__sub_800BA318(s32 arg0, u8 *arg1) {
+void send_damage_message__9TObjEneDDFiPv(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;

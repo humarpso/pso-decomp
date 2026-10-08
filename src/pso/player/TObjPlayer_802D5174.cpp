@@ -99,7 +99,7 @@ struct V_802D577C { f32 x, y, z; };
 
 extern "C" {
 M2C_UNK send_6x61_activate_mag_effect(void *, s16);
-void TObjPlayer__sub_802D5894(void *arg0);
+void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0);
 M2C_UNK spawn_item__10TObjPlayerFi(void *);
 void TObjPlayer__sub_802D5628(M2C_UNK arg0, s32 arg1);
 void TObjPlayer__sub_802D576C(O_802D576C *self, s32 x);
@@ -240,7 +240,7 @@ void TObjPlayer__sub_802D577C(void *arg0_) {
     }
 }
 
-void TObjPlayer__sub_802D5894(void *arg0) {
+void tick_mag_effect_counter__10TObjPlayerFPv(void *arg0) {
     s16 temp_r4;
     s16 temp_r4_2;
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x248);

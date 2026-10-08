@@ -236,7 +236,7 @@ void TLobby__sub_80426190(Obj_80426110 *);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
 extern u8 lbl_805CF2E0[];
-u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1);
+u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 typedef struct Ent_804267F0 {
     s16 count;
@@ -258,7 +258,7 @@ s32 TLobby__sub_80426C34(s32 arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_80427240(u8 **arg0);
 s32 TLobby__sub_803F9F04(void *, void *, int);
-s32 TLobby__sub_804277FC(s32 arg0, u8 *arg1, u16 arg2);
+s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void TLobby__sub_80419DDC(void *);
 s32 TLobby__sub_80421B3C(s32);
@@ -292,7 +292,7 @@ s32 TLobby__sub_80426660(u8 *arg0);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
-s32 TLobby__sub_80426704(s16 arg0, s32 arg1, s16 arg2);
+s32 queue_timeout_message__6TLobbyFsis(s16 arg0, s32 arg1, s16 arg2);
 s32 EXIImm(s32, void *, s32, u32, u32);
 s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
@@ -395,7 +395,7 @@ M2C_UNK get_time_ms__6TLobbyFPv(void *);
 s32 TLobby__sub_803F9EC4(void *, void *, int);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 void TLobby__sub_804264D4(s32 arg0);
-u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1);
+u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 M2C_UNK TLobby__sub_80427378(Ent_80427D40 *);
 s16 TLobby__sub_804275B0(s32, u16);
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
@@ -478,11 +478,11 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
 
 void TLobby__sub_804264D4(s32 arg0);
 
-u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1);
+u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
 
 s32 TLobby__sub_80426660(u8 *arg0);
 
-s32 TLobby__sub_80426704(s16 arg0, s32 arg1, s16 arg2);
+s32 queue_timeout_message__6TLobbyFsis(s16 arg0, s32 arg1, s16 arg2);
 
 s32 TLobby__sub_80426790(s16 arg0, void *arg1);
 
@@ -537,7 +537,7 @@ s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1) {
 
 typedef char RecoveredGlobal_80427D0C_lbl_805CFC20_size[sizeof(RecoveredGlobal_80427D0C_lbl_805CFC20) == 0xE20 ? 1 : -1];
 
-s32 TLobby__sub_804277FC(s32 arg0, u8 *arg1, u16 arg2) {
+s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2) {
     u8 *p = arg1;
     u16 len = arg2;
     u16 a;
@@ -616,7 +616,7 @@ s16 pppoe_recv_packet__6TLobbyFPvUsPv(u8 *buf, u16 bufLen, u16 *outLen) {
     s16 ret;
     u8 *src;
     check_80427D40();
-    if (TLobby__sub_804264F4(&pkt, &id) == 0) {
+    if (recv_pppoe_message__6TLobbyFPvPv(&pkt, &id) == 0) {
         if (outLen != NULL) {
             *outLen = 0;
         }

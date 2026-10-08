@@ -142,7 +142,7 @@ extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 TLobby__sub_80421B3C(s32 a);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-s32 TLobby__sub_8041E178(s32);
+s32 mark_connection_closed__6TLobbyFs(s32);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 tcp_delete__Fs(s32 a);
 u16 str_length__6TLobbyFi(void *);
@@ -621,7 +621,7 @@ s32 tcp_delete__Fs(s32 a) {
     g = ((G_8042298C *)&lbl_805C1C50);
     m = a & 0xFFFFF3FF;
     lock_mutex__6TLobbyFi((void *)g->f0);
-    r = TLobby__sub_8041E178(m);
+    r = mark_connection_closed__6TLobbyFs(m);
     unlock_mutex__10TUdpSocketFi((void *)g->f0);
     return r;
 }

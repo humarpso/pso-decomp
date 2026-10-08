@@ -27,7 +27,7 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_80482C58[];
 extern const f32 TBoss2LaserLight__data_805D849C;
-S_80037264 *TBoss2LaserLight__sub_80037264(S_80037264 *o, void *parent, s32 arg2, s32 arg3);
+S_80037264 *ct_init_points__16TBoss2LaserLightFPvPvii(S_80037264 *o, void *parent, s32 arg2, s32 arg3);
 M2C_UNK noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80133508(void *);
 M2C_UNK forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
@@ -62,7 +62,7 @@ void *__dt__16TBoss2LaserLightFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-S_80037264 *TBoss2LaserLight__sub_80037264(S_80037264 *o, void *parent, s32 arg2, s32 arg3) {
+S_80037264 *ct_init_points__16TBoss2LaserLightFPvPvii(S_80037264 *o, void *parent, s32 arg2, s32 arg3) {
     s32 i;
     __ct__7TObjectFP7TObject(o, parent);
     o->vt = ((u8 *)&lbl_80482C58);

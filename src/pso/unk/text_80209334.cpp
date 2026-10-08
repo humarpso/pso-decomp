@@ -19,7 +19,7 @@ extern RecoveredGlobal_802093EC_lbl_805139F8 lbl_805139F8;
 s32 get_area_event_data(s32 arg0);
 s32 TLobby__sub_80209410(Obj_80209410 *s);
 void TLobby__sub_80209440(void *);
-void TLobby__sub_802094AC(S_802094AC *arg0, s32 arg1);
+void init_shuffle_table__6TLobbyFPvi(S_802094AC *arg0, s32 arg1);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 void *TEnemyTaskList__ct(void *, void *, s32);
@@ -71,7 +71,7 @@ s32 TLobby__sub_80209410(Obj_80209410 *s) {
     if (s->count < s->idx) return 0;
     return s->items[s->idx++];
 }
-void TLobby__sub_802094AC(S_802094AC *arg0, s32 arg1) {
+void init_shuffle_table__6TLobbyFPvi(S_802094AC *arg0, s32 arg1) {
     s32 off;
     s32 i = 0;
     arg0->f8 = off = 0;

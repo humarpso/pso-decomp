@@ -141,7 +141,7 @@ void TItemEffectWeapon__sub_80363410(void*);
 extern const f32 lbl_805DAC9C;
 
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-void TObjPlayer__sub_8011FCC4(u8 *arg0);
+void update_weapon_trails__10TObjPlayerFPv(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, int);
 M2C_UNK draw_weapon_model(void *);
@@ -176,7 +176,7 @@ void update_trails__11TItemWeaponFPv(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8011FCC4(u8 *arg0) {
+void update_weapon_trails__10TObjPlayerFPv(u8 *arg0) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
         update_trails__11TItemWeaponFPv((u8 *)((void *) (arg0)));

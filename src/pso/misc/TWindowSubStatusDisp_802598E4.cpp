@@ -27,7 +27,7 @@ extern const f32 lbl_805DCF64;
 void set_status_entry_target(void *arg0, s32 arg1);
 extern M2C_UNK lbl_804CF9E0[];
 extern const f32 lbl_805DCF58;
-u8 *TWindowSubStatusDisp__sub_8025A0A4(u8 *arg0, u8 *arg1, s32 arg2);
+u8 *init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 extern M2C_UNK lbl_804CF9C8[];
 u8 *TWindowSubStatusDisp__sub_80259D3C(u8 *arg0, u8 *arg1, s32 arg2);
@@ -207,7 +207,7 @@ void *TWindowSubStatusDisp__sub_8025A04C(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_8025A0A4_lbl_804CF9E0_size[sizeof(RecoveredGlobal_8025A0A4_lbl_804CF9E0) == 0x18 ? 1 : -1];
-u8 *TWindowSubStatusDisp__sub_8025A0A4(u8 *arg0, u8 *arg1, s32 arg2) {
+u8 *init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80259D3C((u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
     M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_8025A0A4_lbl_804CF9E0 *)&lbl_804CF9E0).value;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg0, s32 *, 0x20);

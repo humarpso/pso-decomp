@@ -5,14 +5,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 u16 *get_array_entry__20TWindowSubStatusDispFPvi(s32, s32);
-s32 TWindowSubMag__sub_80253698(s32 arg0);
+s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_propagation off
-s32 TWindowSubMag__sub_80253698(s32 arg0) {
+s32 are_status_entries_ready__13TWindowSubMagFi(s32 arg0) {
     s32 var_r28;
     s32 var_r3;
     s32 var_r4;

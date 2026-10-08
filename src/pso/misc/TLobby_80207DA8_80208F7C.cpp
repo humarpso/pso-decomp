@@ -20,7 +20,7 @@ s32 load_all_floor_event_sets__6TLobbyFv(void);
 extern "C" {
 
 int get_team_state__6TLobbyFPv(void* p);
-int TLobby__sub_80208E30(void*);
+int free_team_buffers__6TLobbyFv(void*);
 
 s32 load_all_floor_event_sets__6TLobbyFv(void) {
     Stack_80208F7C stack;

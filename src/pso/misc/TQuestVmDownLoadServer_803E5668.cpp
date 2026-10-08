@@ -39,7 +39,7 @@ s32 TQuestVmDownLoadServer__sub_803F08E4(void *);
 extern RecoveredGlobal_803E5EFC_lbl_8058DD88 lbl_8058DD88;
 extern s32 lbl_805D782C;
 extern s32 lbl_805D7834;
-s32 TQuestVmDownLoadServer__sub_803E5EFC(void);
+s32 poll_download_status__22TQuestVmDownLoadServerFv(void);
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(int, int);
 void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
@@ -424,7 +424,7 @@ s32 TQuestVmDownLoadServer__sub_803E5EB8(void) {
     return 0;
 }
 typedef char RecoveredGlobal_803E5EFC_lbl_8058DD88_size[sizeof(RecoveredGlobal_803E5EFC_lbl_8058DD88) == 0x80 ? 1 : -1];
-s32 TQuestVmDownLoadServer__sub_803E5EFC(void) {
+s32 poll_download_status__22TQuestVmDownLoadServerFv(void) {
     if ((s32) lbl_805D782C == 0) {
         return -1;
     }

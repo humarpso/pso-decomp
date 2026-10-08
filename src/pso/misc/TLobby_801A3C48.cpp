@@ -460,7 +460,7 @@ M2C_UNK clear_flag3_all_tasks__9TMainTaskFv(void *);
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, M2C_UNK);
-M2C_UNK TOKeyJungleMain__sub_8029B2C4();
+M2C_UNK init_key_slots__15TOKeyJungleMainFPv();
 extern u8 TLobby__data_805011D8[];
 extern unsigned char lbl_80515BA0[];
 extern RecoveredGlobal_801A4820_main_task main_task;
@@ -608,7 +608,7 @@ void reload_lobby_floor_scene(void) {
     TLobby__sub_80134D28();
     TObjPlayer__sub_801B1BA4();
     send_room_change__6TLobbyFi(TLobby__data_805D55B0);
-    TOKeyJungleMain__sub_8029B2C4();
+    init_key_slots__15TOKeyJungleMainFPv();
     TLobby__data_805D5CE8 = 0;
     __dt__7TObjectFv(sp8, -1);
 }

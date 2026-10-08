@@ -20,7 +20,7 @@ extern "C" {
 
 extern "C" {
 u8 * TQuestVmDownLoadServer__sub_801F84AC(void);
-void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0);
+void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0);
 void DCInvalidateRange(void *, u32);
 void run_frame__6TLobbyFv(void);
 void ARQPostRequest(void *, u32, u32, u32, u32, u32, u32, void (*)(u32));
@@ -64,7 +64,7 @@ void TAdWarningBaseGC__sub_8032CE1C(void *arg0) {
     }
 }
 
-void TAdWarningBaseGC__sub_8032CE3C(u8 *arg0) {
+void request_aram_load_state__16TAdWarningBaseGCFPv(u8 *arg0) {
     s32 temp_r4;
     u32 temp_r3_2;
     u8 *temp_r3;

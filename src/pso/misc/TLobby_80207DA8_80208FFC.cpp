@@ -25,10 +25,10 @@ extern "C" {
 void free_heap__6TLobbyFv(void);
 int get_destroy_event_obj__6TLobbyFv(void);
 int get_team_state__6TLobbyFPv(void* p);
-int TLobby__sub_80208E30(void*);
+int free_team_buffers__6TLobbyFv(void*);
 int __dt__5THeapFv(void*, void*);
 
-int get_team_state__6TLobbyFPv(void* p) { return TLobby__sub_80208E30(p); }
+int get_team_state__6TLobbyFPv(void* p) { return free_team_buffers__6TLobbyFv(p); }
 
     extern int lbl_805D6094;
 

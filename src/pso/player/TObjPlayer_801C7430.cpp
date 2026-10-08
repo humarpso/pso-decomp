@@ -1896,7 +1896,7 @@ void TObjPlayer__sub_801D1D88(u8 *arg0);
 void update_and_send4__10TObjPlayerFPv(void* p);
 void byteswap_6x49_packet__10TObjPlayerFPv(struct Packet_801D1DDC *pkt);
 void swap_endian_shorts__10TObjPlayerFPv(void* p);
-s32 TObjPlayer__sub_801D1E7C(s32 arg0, u8 *arg1);
+s32 copy_photon_blast_data__10TObjPlayerFiPv(s32 arg0, u8 *arg1);
 void * init_6x49_packet__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801D1F44(void* p);
 void send_photon_blast_targets_packet(u8 *arg0);
@@ -4756,7 +4756,7 @@ void handle_6x49_execute_photon_blast(void *arg0) {
     Player_801CC6B8 *p;
     Msg_801CC6B8 m;
     ((void (*)(void *))init_6x49_packet__10TObjPlayerFPv)(&m);
-    ((void (*)(void *, void *))TObjPlayer__sub_801D1E7C)(&m, arg0);
+    ((void (*)(void *, void *))copy_photon_blast_data__10TObjPlayerFiPv)(&m, arg0);
     ((void (*)(void *))byteswap_6x49_packet__10TObjPlayerFPv)(&m);
     if (validate_6x49_packet__17TObjEneHoldEffectFPv(&m) != 0) {
         p = ((Player_801CC6B8 * (*)(s32))get_player_by_client_id)(m.id);
@@ -6982,7 +6982,7 @@ void swap_endian_shorts__10TObjPlayerFPv(void* p) { bswap_16__FPUs((char*)p + 0x
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-s32 TObjPlayer__sub_801D1E7C(s32 arg0, u8 *arg1) {
+s32 copy_photon_blast_data__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
   s32 var_r30;
   s32 var_r3;
   s32 var_r5;

@@ -443,7 +443,7 @@ s32 try_attack__10TNpcPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 partner_view_check_moved(u8 *arg0);
 s32 check_movement_progress__10TNpcPlayerFPv(u8 *arg0);
 void render__10TNpcPlayerFv(void);
-void TNpcPlayer__sub_80150050(Npc_80150050 *arg0);
+void init_follow_target__10TNpcPlayerFPv(Npc_80150050 *arg0);
 s32 needs_movement__10TNpcPlayerFPvPvi(u8 *arg0, void * _w1, int _w2);
 void select_path_waypoint__10TNpcPlayerFv(Self_801501A0 *self);
 void partner_observe_surroundings(u8 *arg0);
@@ -2650,7 +2650,7 @@ extern int fold_flush_4;
 
 void render__10TNpcPlayerFv(void) {  }
 
-void TNpcPlayer__sub_80150050(Npc_80150050 *arg0) {
+void init_follow_target__10TNpcPlayerFPv(Npc_80150050 *arg0) {
     Tgt_80150050 *t = arg0->mid->tgt;
     V3_80150050 off = lbl_8043FFAC;
     if (t != NULL) {
@@ -2915,7 +2915,7 @@ void init_state__10TNpcPlayerFPv(void *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
     switch (temp_r0) {
     case 0:
-        TNpcPlayer__sub_80150050((Npc_80150050 *)(arg0));
+        init_follow_target__10TNpcPlayerFPv((Npc_80150050 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x28) = 1;
     case 1:
         return;

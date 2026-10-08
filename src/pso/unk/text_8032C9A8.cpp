@@ -26,7 +26,7 @@ extern s32 TLobby__data_805D6CCC;
 extern s32 lbl_805D6CD0;
 extern u8 *TLobby__data_805D6CD4;
 extern u8 lbl_805D6CD8;
-s32 TLobby__sub_8032CB08(void);
+s32 start_gba_joyboot__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -65,7 +65,7 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-s32 TLobby__sub_8032CB08(void) {
+s32 start_gba_joyboot__6TLobbyFv(void) {
     if (GBAJoyBootAsync(3, 0, 4, TLobby__data_805D6CD4, lbl_805D6CD0, &lbl_805D6CD8, TLobby__sub_8032C7A8) == 0) {
         TLobby__data_805D6CCC = 3;
         return 1;

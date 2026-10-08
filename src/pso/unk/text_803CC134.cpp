@@ -2,7 +2,7 @@
 
 extern "C" {
 
-void TLobby__sub_803CCE40(void);
+void release_used_slots__6TLobbyFv(void);
 s32 memset(void *, int, int);
 extern s32 lbl_805D75D0;
 extern s32 lobby_adxf_current_file_id;
@@ -19,7 +19,7 @@ u8 lbl_8057CBD0[0x1380];
 
 void dec_ref_and_reset_tables__6TLobbyFv(void) {
     if (--lbl_805D75D0 == 0) {
-        TLobby__sub_803CCE40();
+        release_used_slots__6TLobbyFv();
         lobby_adxf_current_file_id = -1;
         lobby_adxf_open_file_handle = 0;
         lobby_afs_toc_entry_index = 0;
@@ -32,7 +32,7 @@ void dec_ref_and_reset_tables__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_803CC1D0(void) {
+void init_afs_adxf_state__6TLobbyFv(void) {
     lbl_805E0D80;
     if (lbl_805D75D0 == 0) {
         memset(lbl_8057CBD0, 0, 0x1380);

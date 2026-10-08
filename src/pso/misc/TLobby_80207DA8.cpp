@@ -44,7 +44,7 @@ s32 activate_first_floor_event(s32 idx, s32 id);
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 extern u8 *lbl_805D6094;
-u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1);
+u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
 s32 TLobby__sub_80208A04(void);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lbl_805139F8;
@@ -268,7 +268,7 @@ s32 activate_first_floor_event(s32 idx, s32 id) {
     return 0;
 }
 
-u8 *TLobby__sub_80208D28(s32 arg0, s32 arg1) {
+u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r30;
     u8 *temp_r3;
     if (arg0 > 0x11) {

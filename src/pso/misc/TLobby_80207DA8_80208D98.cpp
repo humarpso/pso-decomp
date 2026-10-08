@@ -27,7 +27,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 void heap_free__5THeapFPv(void *, void *);
 extern M2C_UNK lbl_805139F8[];
 extern s32 lbl_805D6094;
-void TLobby__sub_80208E30(void);
+void free_team_buffers__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     return 0;
 }
 
-void TLobby__sub_80208E30(void) {
+void free_team_buffers__6TLobbyFv(void) {
     s32 i;
     for (i = 17; i >= 0; i--) {
         if ((u32)((s32 *)&lbl_805139F8)[i] != 0) {

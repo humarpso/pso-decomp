@@ -38,7 +38,7 @@ extern u8 lbl_804FA088[];
 extern s32 lbl_804FA470[];
 void set_stream_channel_pan__6TLobbyFPvii(Obj_803D4540 *o, s32 ch, s32 pan);
 void sndStreamFrq(s32, s32);
-void TLobby__sub_803D4654(Obj_803D4654 *o, s32 rate);
+void set_stream_frequency__6TLobbyFPvi(Obj_803D4654 *o, s32 rate);
 }
 
 extern "C" {
@@ -106,7 +106,7 @@ void set_sound_stream_volume(Obj_803D4540 *o, s32 vol) {
 }
 #pragma pop
 
-void TLobby__sub_803D4654(Obj_803D4654 *o, s32 rate) {
+void set_stream_frequency__6TLobbyFPvi(Obj_803D4654 *o, s32 rate) {
     s32 i;
     if (o == 0) {
         return;

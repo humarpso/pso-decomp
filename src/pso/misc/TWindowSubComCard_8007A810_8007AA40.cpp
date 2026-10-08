@@ -17,7 +17,7 @@ struct S_8007AA70 {
 };
 
 extern "C" {
-int TWindowSubComCard__sub_8007AA70(S_8007AA70 *arg0, S_8007AA70 *arg1);
+int copy_struct__17TWindowSubComCardFPvPv(S_8007AA70 *arg0, S_8007AA70 *arg1);
 }
 
 extern "C" {
@@ -25,10 +25,10 @@ extern "C" {
 s32 forward_return_arg__17TWindowSubComCardFi(s32 arg0, S_8007AA70 * _w1);
 
 s32 forward_return_arg__17TWindowSubComCardFi(s32 arg0, S_8007AA70 * _w1) {
-    TWindowSubComCard__sub_8007AA70((S_8007AA70 *)(arg0), (S_8007AA70 *)(_w1));
+    copy_struct__17TWindowSubComCardFPvPv((S_8007AA70 *)(arg0), (S_8007AA70 *)(_w1));
     return arg0;
 }
-int TWindowSubComCard__sub_8007AA70(S_8007AA70 *arg0, S_8007AA70 *arg1) {
+int copy_struct__17TWindowSubComCardFPvPv(S_8007AA70 *arg0, S_8007AA70 *arg1) {
     *arg0 = *arg1;
     return (int)arg0;
 }

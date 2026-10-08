@@ -43,7 +43,7 @@ struct O_80153D98 { u8 pad[0x88]; s32 mode; };
 extern "C" {
 int TObjFogCollision__sub_80153F68(void *);
 int TObjFogCollision__sub_80153F70(void);
-void TObjFogCollision__sub_80153D2C(u8 *arg0);
+void dispatch_collision_virtuals__16TObjFogCollisionFPv(u8 *arg0);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
 M2C_UNK push_matrix();
@@ -143,7 +143,7 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
     }
 }
 
-void TObjFogCollision__sub_80153D2C(u8 *arg0) {
+void dispatch_collision_virtuals__16TObjFogCollisionFPv(u8 *arg0) {
     if (((s32)TObjFogCollision__sub_80153F70()) != 0) {
         ((VObj_18 *)(arg0))->m12();
     }

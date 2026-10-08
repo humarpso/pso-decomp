@@ -386,7 +386,7 @@ V(80)V(81)V(82)V(83)V(84)V(85)V(86)V(87)V(88)V(89)V(90)V(91)V(92)V(93)V(94)V(95)
 
 extern "C" {
 void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1);
-void TBoss2Mine__sub_800380B8(u8 *arg0, u8 *arg1, u8 *arg2);
+void set_launch_position_velocity__10TBoss2MineFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 f32 newton_sqrtf(s32, f32, f32, f32);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
@@ -511,7 +511,7 @@ void TBoss2Mine__sub_80037EE0(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-void TBoss2Mine__sub_800380B8(u8 *arg0, u8 *arg1, u8 *arg2) {
+void set_launch_position_velocity__10TBoss2MineFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) | 0x100);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg1);
     VecCopy__FP3VecPC3Vec(arg0 + 0x390, arg2);

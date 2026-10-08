@@ -10,7 +10,7 @@ int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
 s32 export_keyboard_text(s32, s32);
-s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
+s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(s32);
 s32 alloc_buffer__11TOBoss4RockFPv();
 int get_field_6c__19TWindowKeyBoardSoftFPv(void*);
 int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
@@ -20,7 +20,7 @@ int is_key_active__16TKeyBoardControlFPv(void*);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r3;
 
-    TWindowKeyBoardSoft__sub_8025CA70(M2C_FIELD(arg0, s32 *, 0x20));
+    measure_text_overflow__19TWindowKeyBoardSoftFPv(M2C_FIELD(arg0, s32 *, 0x20));
     temp_r3 = alloc_buffer__11TOBoss4RockFPv();
     export_keyboard_text(M2C_FIELD(arg0, s32 *, 0x20), temp_r3);
     return temp_r3;

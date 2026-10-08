@@ -596,7 +596,7 @@ void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi);
 void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1);
 f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
-void TBoss4Type2__sub_80056F38(Obj_80056F38 *self, s32 arg1, s32 arg2);
+void send_attack_code__11TBoss4Type2FPvii(Obj_80056F38 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056F90(Obj_80056F90 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
 s32 TBoss4Type2__sub_80057048(void *, int);
@@ -652,7 +652,7 @@ void TBoss4Type3__vt3(Obj_80059390 *self);
 void TBoss4Type3__vt2(void *arg0);
 void TBoss4Type3__vt1(void* p);
 void TBoss4Type3__vt0(void* p);
-void TBoss4Type3__sub_80059450(u8 *arg0);
+void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
@@ -666,7 +666,7 @@ void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 a
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
-void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
+void destroy_parts__11TBoss4Type3FPv(Obj_8005A2A4 *self);
 void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);
 void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 arg1);
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
@@ -1656,7 +1656,7 @@ void choose_next_action__11TBoss4Type2FPv(Obj_80056A54 *arg0) {
         TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
         break;
     case 13:
-        TBoss4Type2__sub_80056F38((Obj_80056F38 *)arg0, r, id);
+        send_attack_code__11TBoss4Type2FPvii((Obj_80056F38 *)arg0, r, id);
         break;
     default:
         TBoss4Type2__sub_80056FEC((Obj_80056FEC *)arg0, r);
@@ -1760,7 +1760,7 @@ f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0) {
     return lbl_805D8BFC * (TBoss4Type2__data_805D8BD8 - cos_table_lookup((s32) (lbl_805D8C00 * farg0)));
 }
 
-void TBoss4Type2__sub_80056F38(Obj_80056F38 *self, s32 arg1, s32 arg2) {
+void send_attack_code__11TBoss4Type2FPvii(Obj_80056F38 *self, s32 arg1, s32 arg2) {
     if (self->target != 0) {
         send_code_25_4__14TBoss4DarkFalzFPvi(self->target, (arg1 & 0xF) | (((self->f3a0 >> 12) & 0xF) << 4) | (((self->f3a0 >> 12) & 0xF) << 8) | ((self->f3ac & 0xF) << 12) | ((self->f3b0 & 0xF) << 16) | ((arg2 & 0xF) << 20));
     }

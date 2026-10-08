@@ -72,7 +72,7 @@ s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-s32 TContainerAncient01__sub_8018B5D0(void *);
+s32 init_state_vectors__19TContainerAncient01FPv(void *);
 extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__data_804B6DC0;
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC lbl_804B6DEC;
 extern M2C_UNK __vt__19TContainerAncient01[];
@@ -152,7 +152,7 @@ u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0x78) = (f32) ((M2C_FIELD(&TContainerAncient01__data_804B6DC0.value, f32 *, 4) * lbl_805DBD5C) + M2C_FIELD(arg0, f32 *, 0x78));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x74));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    TContainerAncient01__sub_8018B5D0((void *) (arg0));
+    init_state_vectors__19TContainerAncient01FPv((void *) (arg0));
     return arg0;
 }
 #pragma pop

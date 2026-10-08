@@ -349,7 +349,7 @@ void set_flags__11TBoss4Type2FPvUi(void *, u32);
 
 void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1);
 void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *, void *);
-void TBoss6Type2__sub_8032F304(O_8032F304 *arg0);
+void spawn_mag_mines__11TBoss6Type2FPv(O_8032F304 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
 void set_path_points__11TBoss6Type2FPvPvi(O_8032F360 *arg0, V3_8032F360 *arg1, s32 arg2);
@@ -809,7 +809,7 @@ void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self) {
 
 void TBoss6Type2__sub_8032F2F0(void* p, void* q) { *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
-void TBoss6Type2__sub_8032F304(O_8032F304 *arg0) {
+void spawn_mag_mines__11TBoss6Type2FPv(O_8032F304 *arg0) {
     void *m = arg0->mine;
     s32 i;
     for (i = 0; i < arg0->n; i++) {

@@ -49,7 +49,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805D9864;
 extern const f32 lbl_805D9868;
-void TObjEneDf2Bringer__sub_8009A2A4(u8 *arg0);
+void update_projectile_motion__17TObjEneDf2BringerFPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, const void *);
 void *csnVector(void *, void *, s32);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
@@ -167,7 +167,7 @@ void TObjEneDf2Bringer__sub_8009A2A0(void) {  }
 
 #pragma push
 #pragma fp_contract on
-void TObjEneDf2Bringer__sub_8009A2A4(u8 *arg0) {
+void update_projectile_motion__17TObjEneDf2BringerFPv(u8 *arg0) {
     f32 temp_f2;
     M2C_FIELD(arg0, f32 *, 0x50) = (f32) (M2C_FIELD(arg0, f32 *, 0x50) + lbl_805D9864);
     temp_f2 = lbl_805D9868 * M2C_FIELD(arg0, f32 *, 0x50);

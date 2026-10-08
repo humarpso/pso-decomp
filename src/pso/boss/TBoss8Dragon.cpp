@@ -1746,7 +1746,7 @@ s32 is_any_part_alive__12TBoss8DragonFv(void);
 s32 is_closest_part__12TBoss8DragonFPv();
 s32 push_apart_from_parts__12TBoss8DragonFPv(void *);
 s32 is_near_other_part__12TBoss8DragonFPv(void *);
-void TBoss8Dragon__sub_802F3CA0(void *, unsigned char);
+void set_mode_params__12TBoss8DragonFPvc(void *, unsigned char);
 void render_body_model__12TBoss8DragonFPv(Obj_802F44D8 *o);
 void update_camera_script__12TBoss8DragonFv(void);
 s32 TBoss8Dragon__sub_802F4694();
@@ -1787,7 +1787,7 @@ void spawn_ground_effect__12TBoss8DragonFPv(u8 *arg0);
 int setup_instance__12TBoss8DragonFPv(void* p);
 int get_state_flags__12TBoss8DragonFPv(void* p);
 int emit_effect__12TBoss8DragonFPv(void* p);
-void TBoss8Dragon__sub_802FB290(void *o, int x, u32 a, int w);
+void setup_breath_instance__12TBoss8DragonFPviUii(void *o, int x, u32 a, int w);
 void TBoss8Dragon__sub_802FB300(void);
 void emit_body_effects__12TBoss8DragonFPv(u8 *arg0);
 void init_state__12TBoss8DragonFi(s32 arg0);
@@ -6324,7 +6324,7 @@ int get_state_flags__12TBoss8DragonFPv(void* p) { return emit_effect_at_position
 
 int emit_effect__12TBoss8DragonFPv(void* p) { return emit_enemy_effect__9TObjEneDDFiiPvi(p); }
 
-void TBoss8Dragon__sub_802FB290(void *o, int x, u32 a, int w) {
+void setup_breath_instance__12TBoss8DragonFPviUii(void *o, int x, u32 a, int w) {
     S_802FB290 s = lbl_80474AB8;
     s.b = (*(G_802FB290 *)&TBoss8Dragon__data_80541DDC).value->f[0];
     s.a = a;
@@ -6610,7 +6610,7 @@ void apply_6xA8_action__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
   *((f32 *) (new_var2 + 0x690)) = (f32) (*((f32 *) (((s8 *) arg1) + 0xC)));
   *((f32 *) (new_var2 + 0x694)) = (f32) (*((f32 *) (((s8 *) arg1) + 0x10)));
   (((VObj_18_be4a70 *)(arg0))->m85((*((s16 *) (((s8 *) arg1) + 4))), (7)));
-  TBoss8Dragon__sub_802F3CA0(arg0, (s8) (*((u8 *) (((s8 *) arg1) + 0x14))));
+  set_mode_params__12TBoss8DragonFPvc(arg0, (s8) (*((u8 *) (((s8 *) arg1) + 0x14))));
   temp_r4 = *((s16 *) (((s8 *) arg1) + 4));
   if (((s16) (*((s16 *) (((s8 *) arg0) + 0x326)))) != temp_r4)
   {
@@ -7414,7 +7414,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, u16 *, 0x750) = 0xFFFF;
     M2C_FIELD(arg0, s32 *, 0x754) = 0;
     M2C_FIELD(arg0, s32 *, 0x758) = 0;
-    TBoss8Dragon__sub_802F3CA0(arg0, 2);
+    set_mode_params__12TBoss8DragonFPvc(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x84C) = 0;
     M2C_FIELD(arg0, s32 *, 0x850) = 0;
     M2C_FIELD(arg0, s32 *, 0x854) = 0;

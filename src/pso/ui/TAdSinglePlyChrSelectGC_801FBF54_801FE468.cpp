@@ -43,7 +43,7 @@ void *memcpy(void *, const void *, u32);
 extern int lbl_805137D8[];
 extern u8 lbl_805137F8[];
 extern u32 lbl_805D5F58;
-void TAdSinglePlyChrSelectGC__sub_801FE538(void);
+void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void);
 void TAdSinglePlyChrSelectGC__sub_801FE710(void *arg0, void *arg1);
 }
 
@@ -108,7 +108,7 @@ M2C_UNK *TAdSinglePlyChrSelectGC__sub_801FE4BC(u32 arg0) {
     return &lbl_805137C8.value;
 }
 
-void TAdSinglePlyChrSelectGC__sub_801FE538(void) {
+void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         Req_801FE5F8 *r = (Req_801FE5F8 *)lbl_805137F8;

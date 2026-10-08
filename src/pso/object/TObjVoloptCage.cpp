@@ -145,7 +145,7 @@ void obj_clear_flag30_20000(void *arg0);
 void obj_set_flag_20000(void *arg0);
 void update_state__14TObjVoloptCageFPv(void *arg0);
 M2C_UNK update_breakup__14TObjVoloptCageFPv();
-M2C_UNK TObjVoloptCage__sub_80048E80();
+M2C_UNK update_collision_state__14TObjVoloptCageFPv();
 M2C_UNK TObjVoloptCage__sub_80049000();
 M2C_UNK obj_clearFlags30(void *, M2C_UNK);
 M2C_UNK obj_setFlags30(void *, M2C_UNK);
@@ -163,7 +163,7 @@ void update_state__14TObjVoloptCageFPv(void *arg0) {
         update_capture__14TObjVoloptCageFPv();
         return;
     case 4:
-        TObjVoloptCage__sub_80048E80();
+        update_collision_state__14TObjVoloptCageFPv();
         return;
     case 5:
         update_breakup__14TObjVoloptCageFPv();

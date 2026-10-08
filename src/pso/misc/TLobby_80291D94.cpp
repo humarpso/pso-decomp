@@ -203,7 +203,7 @@ s32 TLobby__sub_80291F9C(void) {
 
 #define G_A lbl_804DB1F0
 #define G_B lbl_805D6580
-void TLobby__sub_80291FC0(void) {
+void reset_menu_state_globals__6TLobbyFv(void) {
     extern B_80291FC0 *lbl_805D6580;
     s32 i;
     s32 z;

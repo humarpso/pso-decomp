@@ -17,7 +17,7 @@ struct Card_8007AC7C {
 
 extern "C" {
 s32 is_active__17TWindowSubComCardFPv(void *);
-s32 TWindowSubComCard__sub_8007AB84(Card_8007AB84 *cards, s32 n);
+s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n);
 s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
 void move_words__6TLobbyFPvPvi(u32 *dst, u32 *src, s32 n);
 void TWindowSubComCard__sub_8007B26C(Card_8007AC10 *);
@@ -48,7 +48,7 @@ s32 init_guild_card_tag__17TWindowSubComCardFi(s32 arg0) {
     return arg0;
 }
 
-s32 TWindowSubComCard__sub_8007AB84(Card_8007AB84 *cards, s32 n) {
+s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n) {
     s32 i;
     for (i = 0; i < n; i++, cards++) {
         if (is_active__17TWindowSubComCardFPv(cards) == 0) {
@@ -59,7 +59,7 @@ s32 TWindowSubComCard__sub_8007AB84(Card_8007AB84 *cards, s32 n) {
 }
 
 void init_com_card__17TWindowSubComCardFv(void) {
-    TWindowSubComCard__sub_8007AB84((Card_8007AB84 *)(get_card_entry__17TWindowSubComCardFi((M2C_UNK)(0))), (s32)(0xD2));
+    has_inactive_card__17TWindowSubComCardFPvi((Card_8007AB84 *)(get_card_entry__17TWindowSubComCardFi((M2C_UNK)(0))), (s32)(0xD2));
 }
 
 void remove_card_at__17TWindowSubComCardFi(s32 i) {

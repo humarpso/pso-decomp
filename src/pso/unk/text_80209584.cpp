@@ -14,9 +14,9 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1);
 void bswap_quad_word__6TLobbyFPv(void *);
-Hdr_802095EC *TLobby__sub_802095EC(Hdr_802095EC *arg, s32 id);
+Hdr_802095EC *find_type5_header__6TLobbyFPvi(Hdr_802095EC *arg, s32 id);
 void bswap_quad_word__6TLobbyFPv(void *);
-Hdr_8020967C *TLobby__sub_8020967C(Hdr_8020967C *arg, s32 id);
+Hdr_8020967C *find_chunk_by_id__6TLobbyFPvi(Hdr_8020967C *arg, s32 id);
 }
 
 extern "C" {
@@ -36,7 +36,7 @@ u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x10) = arg1;
     return arg0;
 }
-Hdr_802095EC *TLobby__sub_802095EC(Hdr_802095EC *arg, s32 id) {
+Hdr_802095EC *find_type5_header__6TLobbyFPvi(Hdr_802095EC *arg, s32 id) {
     Hdr_802095EC *p;
     if ((p = arg) != NULL) {
         for (;;) {
@@ -55,7 +55,7 @@ Hdr_802095EC *TLobby__sub_802095EC(Hdr_802095EC *arg, s32 id) {
     }
     return NULL;
 }
-Hdr_8020967C *TLobby__sub_8020967C(Hdr_8020967C *arg, s32 id) {
+Hdr_8020967C *find_chunk_by_id__6TLobbyFPvi(Hdr_8020967C *arg, s32 id) {
     Hdr_8020967C *p;
     if ((p = arg) != NULL) {
         for (;;) {

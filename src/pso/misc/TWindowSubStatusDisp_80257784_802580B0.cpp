@@ -12,7 +12,7 @@ struct RecoveredGlobal_80258100_lbl_804CF998 {
 extern "C" {
 int TWindowSubStatusDisp__sub_80256BDC(void *, s16);
 extern unsigned char lbl_804CF998[];
-u8 *TWindowSubStatusDisp__sub_80258100(u8 *arg0, u8 *arg1, s16 arg2);
+u8 *init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 }
 
 extern "C" {
@@ -26,7 +26,7 @@ void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1);
 void* reset_entry__20TWindowSubStatusDispFPv(void* a0, s16 _w1) { TWindowSubStatusDisp__sub_80256BDC((void *)(a0), _w1); *(int*)((char*)a0 + 0x4) = (int)lbl_804CF998; *(float*)((char*)a0 + 0x8) = lbl_805DCEF8; *(float*)((char*)a0 + 0xc) = lbl_805DCEF8; *(float*)((char*)a0 + 0x10) = lbl_805DCEF8; *(float*)((char*)a0 + 0x14) = lbl_805DCEF8; return a0; }
 
 typedef char RecoveredGlobal_80258100_lbl_804CF998_size[sizeof(RecoveredGlobal_80258100_lbl_804CF998) == 0x18 ? 1 : -1];
-u8 *TWindowSubStatusDisp__sub_80258100(u8 *arg0, u8 *arg1, s16 arg2) {
+u8 *init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), arg2);
     M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_80258100_lbl_804CF998 *)&lbl_804CF998).value;
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 4);

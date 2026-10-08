@@ -24,7 +24,7 @@ s32 TKeyBoardControl__sub_80132310(s32);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
 void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *lbl_8050E208[];
-s32 TKeyBoardControl__sub_801A57D0(void);
+s32 any_pad_input_active__16TKeyBoardControlFv(void);
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
@@ -49,7 +49,7 @@ void reset__16TKeyBoardControlFv(void) { lbl_805D5D09 = 0; }
 
 extern u8 keyboard_reset_button_pressed;
 
-s32 TKeyBoardControl__sub_801A57D0(void) {
+s32 any_pad_input_active__16TKeyBoardControlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         Pad_801A57D0 *p = lbl_8050E208[i];

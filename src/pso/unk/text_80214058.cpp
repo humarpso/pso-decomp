@@ -25,7 +25,7 @@ void *TQuestListOnline__ct(void *, void *, void *, void *);
 void *__nw__7TObjectFUl(u32);
 void THunterGuildSeqOffline__sub_80213E64(void);
 void THunterGuildSeqOffline__sub_80213EBC(void);
-void THunterGuildSeqOffline__sub_80213F14(void);
+void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
 void THunterGuildSeqOffline__sub_80213F78(void);
 extern s32 tl_05;
 void fn_80214058(Seq_80214058 *arg0);
@@ -45,7 +45,7 @@ void fn_80214058(Seq_80214058 *arg0) {
         l->f28 = (void *)THunterGuildSeqOffline__sub_80213F78;
         l->f2c = (void *)THunterGuildSeqOffline__sub_80213EBC;
         l->f30 = (void *)THunterGuildSeqOffline__sub_80213E64;
-        l->f34 = (void *)THunterGuildSeqOffline__sub_80213F14;
+        l->f34 = (void *)reset_quest_list_vm__22THunterGuildSeqOfflineFv;
         set_field_20__12TQuestListVMFPvi(arg0, 0xE);
     }
 }

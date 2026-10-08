@@ -52,7 +52,7 @@ M2C_UNK render_tick__Fv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
 extern RecoveredGlobal_8011A350_main_task main_task;
-void TItemReverseTech__sub_8011A3D8(void);
+void run_cleanup_callbacks__16TItemReverseTechFv(void);
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 s32 prs_decompress_alloc(int, int, int);
@@ -189,7 +189,7 @@ typedef struct RecoveredGlobal_8011A3D8_lbl_804A03A8 RecoveredGlobal_8011A3D8_lb
 typedef struct RecoveredGlobal_8011A3D8_main_task RecoveredGlobal_8011A3D8_main_task;
 typedef char RecoveredGlobal_8011A3D8_lbl_804A03A8_size[((sizeof(RecoveredGlobal_8011A3D8_lbl_804A03A8)) == 0x38) ? (1) : (-1)];
 typedef char RecoveredGlobal_8011A3D8_main_task_size[((sizeof(RecoveredGlobal_8011A3D8_main_task)) == 0x34) ? (1) : (-1)];
-void TItemReverseTech__sub_8011A3D8(void) {
+void run_cleanup_callbacks__16TItemReverseTechFv(void) {
   M2C_UNK (*temp_r12)();
   u8 *var_r31;
   s32 var_r30;

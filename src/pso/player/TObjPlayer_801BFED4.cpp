@@ -13,7 +13,7 @@ extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
 void TObjPlayer__sub_801BFF80(u8 *arg0);
 M2C_UNK TFontSmallLobby__sub_801C0228();
-u8 *TObjPlayer__sub_801BFFA8(u8 *arg0, u8 *arg1);
+u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -62,7 +62,7 @@ void TObjPlayer__sub_801BFF80(u8 *arg0) {
 
 s32 TObjPlayer__sub_801BFFA0(void* p) { return *(s32*)((char*)p + 0x0); }
 
-u8 *TObjPlayer__sub_801BFFA8(u8 *arg0, u8 *arg1) {
+u8 *copy_hold_params__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228();
     M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
     M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);

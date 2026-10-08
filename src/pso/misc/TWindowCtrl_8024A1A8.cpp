@@ -94,7 +94,7 @@ extern void *TWindowCtrl__data_805D63F8;
 bool is_submit_cooldown_clear__11TWindowCtrlFv(void);
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBE0;
-f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
+f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
 void rearm_balloon__15TWindowFukidasiFv(void *, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
@@ -345,7 +345,7 @@ void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 
 }
 #pragma pop
 
-f32 TWindowCtrl__sub_8024A688(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2) {
+f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2) {
   f32 temp_f2;
   f32 temp_f3;
   f32 temp_f4;
@@ -379,12 +379,12 @@ s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 spea
         return 4;
     }
     result = 4;
-    farthest = ((f32 (*)(void *, RecoveredFields_8024A688_arg1 *, u16))TWindowCtrl__sub_8024A688)(ctrl, local, speaker);
+    farthest = ((f32 (*)(void *, RecoveredFields_8024A688_arg1 *, u16))get_entity_distance_or_default__11TWindowCtrlFiPvUs)(ctrl, local, speaker);
     for (i = 0; i < 4; i++) {
         b = ctrl->arr[i];
         if (b != NULL) {
             id = get_flags__11TWindowCtrlFPv(b);
-            d = ((f32 (*)(void *, RecoveredFields_8024A688_arg1 *, u16))TWindowCtrl__sub_8024A688)(ctrl, local, id);
+            d = ((f32 (*)(void *, RecoveredFields_8024A688_arg1 *, u16))get_entity_distance_or_default__11TWindowCtrlFiPvUs)(ctrl, local, id);
             if (!(farthest > d)) {
                 farthest = d;
                 result = i;

@@ -232,7 +232,7 @@ M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
-int TWindowSubStatusDisp__sub_80266EB8(void*);
+int clamp_scroll_offset__20TWindowSubStatusDispFPv(void*);
 void TWindow__close(void *);
 M2C_UNK __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
@@ -874,7 +874,7 @@ void TWindowSubItem__sub_8027AB10(Wn_8027AB10 *arg0) {
     }
 }
 
-void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); reset_list__20TShopArmorListWindowFPv(p); populate_sub_item_list((Win_8027ABFC*)(p)); clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(p); TWindowSubStatusDisp__sub_80266EB8(p); reset_selected__14TWindowSubItemFPv((void*)(p)); }
+void refresh__14TWindowSubItemFPv(void* p) { save_cursor_selection__20TShopArmorListWindowFPv(p); reset_list__20TShopArmorListWindowFPv(p); populate_sub_item_list((Win_8027ABFC*)(p)); clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(p); clamp_scroll_offset__20TWindowSubStatusDispFPv(p); reset_selected__14TWindowSubItemFPv((void*)(p)); }
 
 void populate_sub_item_list(Win_8027ABFC *arg0) {
     s32 ids[30];

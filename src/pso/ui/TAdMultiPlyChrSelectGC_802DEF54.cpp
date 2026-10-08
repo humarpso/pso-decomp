@@ -148,7 +148,7 @@ extern "C" void TAdMultiPlyChrSelectGC__sub_802DC8A0();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCA20();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCCA4();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCD14();
-extern "C" void TAdMultiPlyChrSelectGC__sub_802DCD90();
+extern "C" void update_idle_timer__22TAdMultiPlyChrSelectGCFPv();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DCF68();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DD010();
 extern "C" void TAdMultiPlyChrSelectGC__sub_802DD2B0();
@@ -258,7 +258,7 @@ void *lbl_804E2CBC[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&update_confirm_start__22TAdMultiPlyChrSelectGCFPv,
 };
 void *lbl_804E2CC8[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TAdMultiPlyChrSelectGC__sub_802DCD90,
+    (void *)0x0, (void *)0xffffffff, (void *)&update_idle_timer__22TAdMultiPlyChrSelectGCFPv,
 };
 void *lbl_804E2CD4[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TAdMultiPlyChrSelectGC__sub_802DCD14,

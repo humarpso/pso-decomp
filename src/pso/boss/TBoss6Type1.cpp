@@ -322,9 +322,9 @@ extern const f32 lbl_805DE334;
 extern const f32 lbl_805DE33C;
 extern const f32 lbl_805DE340;
 s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2);
-s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
-int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
-s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n);
+s32 pick_random_entry__11TBoss6Type1Fiii(M2C_UNK arg0, s32 arg1, s32 arg2);
+int rand_range_inclusive__11TBoss6Type1Fiii(M2C_UNK arg0, int arg1, int arg2);
+s32 pick_remapped_list_value__11TBoss6Type1FPviii(Boss_802B5434 *o, s32 a, s32 b, s32 n);
 s32 TBoss6Type1__sub_802B5FDC(u8 *arg0);
 s32 TBoss6Type1__sub_802B5FF4(u8 *arg0);
 s32 TBoss6Type1__sub_802B600C(T1_802B600C *arg0, f32 _w1);
@@ -390,17 +390,17 @@ s32 TBoss6Type1__sub_802B6060(u8 *arg0);
 s32 rand();
 extern const f32 lbl_805DE300;
 extern const f32 TBoss6Type1__data_805DE304;
-s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 pick_random_entry__11TBoss6Type1Fiii(M2C_UNK arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void decode_polar_position__11TBoss6Type1FPvPv(u8 *arg0, u8 *arg1);
 s32 calc_field4b0_delta__11TBoss6Type1FPv(void *arg0);
 extern const f32 lbl_805DE34C;
-s32 TBoss6Type1__sub_802B5ED8(u8 *arg0);
+s32 check_field4b0_threshold__11TBoss6Type1FPv(u8 *arg0);
 s32 rand();
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE308;
-int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2);
+int rand_range_inclusive__11TBoss6Type1Fiii(M2C_UNK arg0, int arg1, int arg2);
 extern RecoveredGlobal_802B5938_lbl_80470FFC lbl_80470FFC;
 extern RecoveredGlobal_802B5938_lbl_80471008 lbl_80471008;
 void TBoss6Type1__sub_802B5938(s32 arg0);
@@ -477,7 +477,7 @@ void TBoss6Type1__sub_802B8E1C(T1_802B8E1C *arg0);
 s32 rand();
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 TBoss6Type1__data_805DE30C;
-s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n);
+s32 pick_remapped_list_value__11TBoss6Type1FPviii(Boss_802B5434 *o, s32 a, s32 b, s32 n);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *, f32);
 extern const f32 TBoss6Type1__data_805DE2D0;
@@ -823,7 +823,7 @@ s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2) {
     return cnt;
 }
 
-s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2) {
+s32 pick_random_entry__11TBoss6Type1Fiii(M2C_UNK arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
     var_r0 = (s32) (((f32) arg2 - lbl_805DE300) * ((*(const f32 *)&TBoss6Type1__data_805DE304) * (f32) rand()));
     if (var_r0 >= arg2) {
@@ -834,7 +834,7 @@ s32 TBoss6Type1__sub_802B52E0(M2C_UNK arg0, s32 arg1, s32 arg2) {
 
 #pragma push
 #pragma fp_contract on
-int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2) {
+int rand_range_inclusive__11TBoss6Type1Fiii(M2C_UNK arg0, int arg1, int arg2) {
     if (arg1 >= arg2) {
         return arg1;
     }
@@ -842,7 +842,7 @@ int TBoss6Type1__sub_802B5378(M2C_UNK arg0, int arg1, int arg2) {
 }
 #pragma pop
 
-s32 TBoss6Type1__sub_802B5434(Boss_802B5434 *o, s32 a, s32 b, s32 n) {
+s32 pick_remapped_list_value__11TBoss6Type1FPviii(Boss_802B5434 *o, s32 a, s32 b, s32 n) {
     s32 i;
     if (n > 0x20) {
         n = 0x20;
@@ -1145,7 +1145,7 @@ s32 is_ready__11TBoss6Type1FPv(void *arg0) {
     return 0;
 }
 
-s32 TBoss6Type1__sub_802B5ED8(u8 *arg0) {
+s32 check_field4b0_threshold__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r31;
     temp_r31 = (s32) (M2C_FIELD(arg0, f32 *, 0x4B4) * (f32) M2C_FIELD(arg0, s32 *, 0x494));
     if (calc_field4b0_delta__11TBoss6Type1FPv(arg0) >= temp_r31) {
@@ -2070,15 +2070,15 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
     switch (M2C_FIELD(arg0, s32 *, 0x414)) {
     case 0:
         if (((s32 (*)(void *))TBoss6Type1__sub_802B600C)(arg0) != 0) {
-            ((void (*)(u8 *, s32))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 5, 6));
+            ((void (*)(u8 *, s32))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, rand_range_inclusive__11TBoss6Type1Fiii((M2C_UNK)arg0, 5, 6));
             break;
         }
-        switch (TBoss6Type1__sub_802B5434((Boss_802B5434 *)arg0, 3, 5, 0x20)) {
+        switch (pick_remapped_list_value__11TBoss6Type1FPviii((Boss_802B5434 *)arg0, 3, 5, 0x20)) {
         case 3:
             send_flow_action_if_idle__11TBoss6Type1FPvc(arg0, 3);
             return;
         case 5:
-            ((void (*)(u8 *, s32))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 5, 6));
+            ((void (*)(u8 *, s32))send_flow_action_if_idle__11TBoss6Type1FPvc)(arg0, rand_range_inclusive__11TBoss6Type1Fiii((M2C_UNK)arg0, 5, 6));
             return;
         case 4:
             return;
@@ -2101,7 +2101,7 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
             send_6xA4_action__11TBoss6Type1FPviPv(arg0, 4, (M2C_UNK *)&s);
             break;
         }
-        r4 = TBoss6Type1__sub_802B52E0((M2C_UNK)arg0, (s32)lbl_80470EB8, 5);
+        r4 = pick_random_entry__11TBoss6Type1Fiii((M2C_UNK)arg0, (s32)lbl_80470EB8, 5);
         switch (r4) {
         case 4:
             if (s.b2 == -2) {
@@ -2115,11 +2115,11 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
             break;
         case 5:
             s.b2 = 10;
-            r4 = TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 6, 7);
+            r4 = rand_range_inclusive__11TBoss6Type1Fiii((M2C_UNK)arg0, 6, 7);
             break;
         case 8:
             s.b2 = 10;
-            r4 = TBoss6Type1__sub_802B5378((M2C_UNK)arg0, 8, 10);
+            r4 = rand_range_inclusive__11TBoss6Type1Fiii((M2C_UNK)arg0, 8, 10);
             break;
         }
         send_6xA4_action__11TBoss6Type1FPviPv(arg0, r4, (M2C_UNK *)&s);

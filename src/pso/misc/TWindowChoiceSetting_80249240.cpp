@@ -34,7 +34,7 @@ s32 request_close__20TWindowChoiceSettingFPv(void *);
 s32 draw__20TWindowChoiceSettingFPv(void *);
 s32 move_next_choice__20TWindowChoiceSettingFPv(void *);
 s32 move_cursor_prev__20TWindowChoiceSettingFPv(void *);
-s32 TWindowChoiceSetting__sub_802689EC(void *);
+s32 update_scroll_offset__20TWindowChoiceSettingFPv(void *);
 s32 clamp_scroll__20TWindowChoiceSettingFPv(void *);
 s32 increment_counter__20TWindowSubStatusDispFPv(int);
 s32 update_subwindow__20TWindowSubStatusDispFPv(int);
@@ -115,7 +115,7 @@ void run_task__20TWindowChoiceSettingFv(u8 *arg0) {
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     fn_80249078((void *) (arg0));
     step_window_tween((void *) (arg0));
-    TWindowChoiceSetting__sub_802689EC((void *) (arg0));
+    update_scroll_offset__20TWindowChoiceSettingFPv((void *) (arg0));
     clamp_scroll__20TWindowChoiceSettingFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }

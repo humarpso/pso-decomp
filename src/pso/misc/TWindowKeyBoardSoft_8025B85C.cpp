@@ -102,7 +102,7 @@ u8 get_font_char_advance(u16);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
 void export_keyboard_text(Base_8025C974 *base, char *out);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_8025C974 *, u16, u32 *, u32 *, u32 *);
-s32 TWindowKeyBoardSoft__sub_8025CA70(Base_8025C974 *arg0);
+s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(Base_8025C974 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *);
@@ -690,7 +690,7 @@ void export_keyboard_text(Base_8025C974 *base, char *out) {
     *out = 0;
 }
 
-s32 TWindowKeyBoardSoft__sub_8025CA70(Base_8025C974 *arg0) {
+s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(Base_8025C974 *arg0) {
     u32 a = 0;
     u32 b = 0;
     u32 c = 0;

@@ -24,7 +24,7 @@ extern Globals_800B8A40 TObjEneBm5Wolf__data_80500B40;
 void* reset__14TObjEneBm5WolfFPv(void* p);
 s32 __dt__14TObjEneBm5WolfFis(s32 arg0, s16 arg1);
 void __register_global_object(void *obj, void *dtor, void *chain);
-void TObjEneBm5Wolf__sub_800B8A40(void);
+void register_global_objects__14TObjEneBm5WolfFv(void);
 }
 
 extern "C" {
@@ -119,7 +119,7 @@ void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self) {
 
 #pragma push
 #pragma opt_propagation off
-void TObjEneBm5Wolf__sub_800B8A40(void) {
+void register_global_objects__14TObjEneBm5WolfFv(void) {
     Globals_800B8A40 *g = &TObjEneBm5Wolf__data_80500B40;
     __register_global_object(((void *)reset__14TObjEneBm5WolfFPv((void*)(g->list0))), (void *)__dt__14TObjEneBm5WolfFis, g->chain0);
     __register_global_object(((void *)reset__14TObjEneBm5WolfFPv((void*)(g->list1))), (void *)__dt__14TObjEneBm5WolfFis, g->chain1);

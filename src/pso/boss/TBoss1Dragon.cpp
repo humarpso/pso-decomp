@@ -1960,7 +1960,7 @@ void update_walking_state__12TBoss1DragonFv(u8 *arg0, u32 arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 is_split_screen();
 void draw__12TBoss1DragonFPv(u8 *arg0);
-s32 TBoss1Dragon__sub_80021260(s32 arg0, Obj_80021260 *arg1);
+s32 check_parts_visible__12TBoss1DragonFiPv(s32 arg0, Obj_80021260 *arg1);
 s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0);
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 TBoss1Dragon__sub_8002B108(s32, s32);
@@ -2115,7 +2115,7 @@ extern s32 TBoss1Dragon__data_805D4B20;
 void dragon_capture_node_points(void);
 s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027590(void* object, void* action);
-void TBoss1Dragon__sub_8002878C(void *arg0);
+void reload_impact_stats__12TBoss1DragonFPv(void *arg0);
 M2C_UNK emit_effect_at_position__9TObjEneDDFPvPv(void *, void *);
 extern const RecoveredGlobal_80027AAC_lbl_80434EB4 lbl_80434EB4;
 void apply_ground_impact_attack__12TBoss1DragonFi(s32 arg0);
@@ -2140,7 +2140,7 @@ f32 TBoss1Dragon__sub_80027634(void);
 s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027590(void* object, void* action);
 void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1);
-void TBoss1Dragon__sub_800287F4(void *arg0, int _w1);
+void reload_stats_for_phase__12TBoss1DragonFPvi(void *arg0, int _w1);
 void reload_difficulty_stats__12TBoss1DragonFi(s32 arg0);
 M2C_UNK emit_effect_at_position__9TObjEneDDFPvPv(void *, void *);
 extern RecoveredGlobal_80027E78_lbl_80434E8C lbl_80434E8C;
@@ -2920,10 +2920,10 @@ void render__12TBoss1DragonFv(u8 *arg0) {
                             hit = ((s32 (*)(void *, void *, f32)) is_sphere_visible__12TBoss1DragonFf)(arg0, &probe, TBoss1Dragon__data_805D7F1C);
                         }
                         if (hit == 0) {
-                            hit = ((s32 (*)(void *, s32)) TBoss1Dragon__sub_80021260)(arg0, TBoss1Dragon__sub_8002B108(M2C_FIELD(arg0, s32 *, 0x68C), 1));
+                            hit = ((s32 (*)(void *, s32)) check_parts_visible__12TBoss1DragonFiPv)(arg0, TBoss1Dragon__sub_8002B108(M2C_FIELD(arg0, s32 *, 0x68C), 1));
                         }
                         if (hit == 0) {
-                            hit = ((s32 (*)(void *, s32)) TBoss1Dragon__sub_80021260)(arg0, TBoss1Dragon__sub_8002B108(M2C_FIELD(arg0, s32 *, 0x68C), 2));
+                            hit = ((s32 (*)(void *, s32)) check_parts_visible__12TBoss1DragonFiPv)(arg0, TBoss1Dragon__sub_8002B108(M2C_FIELD(arg0, s32 *, 0x68C), 2));
                         }
                     }
                 }
@@ -3484,7 +3484,7 @@ void render_shadows__12TBoss1DragonFPv(u8 *arg0) {
 
 struct Rec_80021260 { u8 pad0[0xC]; f32 f0C; u8 pad10[0xC]; u8 b1C[0x10]; };
 struct Obj_80021260 { u8 pad0[0xA4]; Rec_80021260 *recs; s32 count; };
-s32 TBoss1Dragon__sub_80021260(s32 arg0, Obj_80021260 *arg1) {
+s32 check_parts_visible__12TBoss1DragonFiPv(s32 arg0, Obj_80021260 *arg1) {
     s32 off;
     s32 n;
     s32 i;
@@ -6486,7 +6486,7 @@ void TBoss1Dragon__sub_80027A80(u8 *arg0, u8 *arg1) {
 typedef char RecoveredGlobal_80027AAC_lbl_80434EB4_size[sizeof(RecoveredGlobal_80027AAC_lbl_80434EB4) == 0x14 ? 1 : -1];
 void apply_ground_impact_attack__12TBoss1DragonFi(s32 arg0) {
     s32 temp_r3;
-    TBoss1Dragon__sub_8002878C((void *)(arg0));
+    reload_impact_stats__12TBoss1DragonFPv((void *)(arg0));
     temp_r3 = isV2Mode__12TBoss1DragonFv();
     switch (temp_r3) {
     case 0:
@@ -6629,7 +6629,7 @@ void apply_landing_attack__12TBoss1DragonFi(s32 arg0) {
     s32 temp_r3;
     TBoss1Dragon__sub_80027A80((u8 *)((void *) (&stack.sp8)), (u8 *)((void *) (&lbl_80434E8C.value)));
     stack.sp10 = M2C_FIELD((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 0xC);
-    TBoss1Dragon__sub_800287F4((void *) (arg0), (int) ((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value));
+    reload_stats_for_phase__12TBoss1DragonFPvi((void *) (arg0), (int) ((*(RecoveredGlobal_80027E78_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value));
     temp_r3 = isV2Mode__12TBoss1DragonFv();
     switch (temp_r3) {
     case 0:
@@ -6878,11 +6878,11 @@ typedef char RecoveredGlobal_80064CFC_lbl_804FF5A0_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8002885C_TBoss1Dragon__data_804FE168_size[sizeof(RecoveredGlobal_8002885C_TBoss1Dragon__data_804FE168) == 0x14 ? 1 : -1];
 
-void TBoss1Dragon__sub_8002878C(void *arg0) {
+void reload_impact_stats__12TBoss1DragonFPv(void *arg0) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[((s32 *)lbl_80480DFC)[3]], ((s32 *)&TBoss1Dragon__data_804FE168)[((s32 *)lbl_80480E10)[3]], (&TBoss1Dragon__data_805D4B04)[((s32 *)lbl_80480E24)[3]]);
 }
 
-void TBoss1Dragon__sub_800287F4(void *arg0, int _w1) {
+void reload_stats_for_phase__12TBoss1DragonFPvi(void *arg0, int _w1) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv(arg0, (&TBoss1Dragon__data_805D4B00)[((s32 *)lbl_80480DFC)[2]], ((s32 *)&TBoss1Dragon__data_804FE168)[((s32 *)lbl_80480E10)[2]], (&TBoss1Dragon__data_805D4B04)[((s32 *)lbl_80480E24)[2]]);
 }
 

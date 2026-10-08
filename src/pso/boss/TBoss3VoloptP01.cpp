@@ -19,7 +19,7 @@ void pop_matrix(void);
 void push_nearby_players__10TObjPlayerFPv(Obj_80042DE8*);
 s32 obj_testFlags30(void*,M2C_UNK);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void*,M2C_UNK);
-s32 TBoss3VoloptP01__sub_8004301C(S_8004301C*);
+s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C*);
 s32 fire_zonde_at_players__10TObjPlayerFPv(u8*);
 void TBoss3VoloptP01__sub_80043758(u8*);
 void reset_look_state__11TCameraCtrlFPv(void*);
@@ -346,7 +346,7 @@ void TObjPlayer__sub_80042ED0(P_80042ED0 *o, s32 idx, s32 arg2) {
 #define push_nearby_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
-#define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
+#define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
 #define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
@@ -1021,14 +1021,14 @@ extern int fold_flush_0;
 #undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
-#undef TBoss3VoloptP01__sub_8004301C
+#undef update_pulse_scale__15TBoss3VoloptP01FPv
 #undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
 #undef TBoss3VoloptP01_class_name
 extern "C" {
 struct S_8004301C { u8 pad0[0x38c]; f32 f38c; s8 f390; };
 
-s32 TBoss3VoloptP01__sub_8004301C(S_8004301C *o) {
+s32 update_pulse_scale__15TBoss3VoloptP01FPv(S_8004301C *o) {
     switch (o->f390) {
     case 0:
         o->f38c += (2.9333334f);
@@ -1063,7 +1063,7 @@ s32 TBoss3VoloptP01__sub_8004301C(S_8004301C *o) {
 #define push_nearby_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
-#define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
+#define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
 #define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
@@ -1136,7 +1136,7 @@ void TBoss3VoloptP01__sub_800430D0(void *arg0_) {
         break;
     case 2:
         set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
-        if (TBoss3VoloptP01__sub_8004301C(arg0) == 1) {
+        if (update_pulse_scale__15TBoss3VoloptP01FPv(arg0) == 1) {
             F430D0(s32, 0x3A0) = 3;
             F430D0(s32, 0x37C) = 3;
         }
@@ -1270,7 +1270,7 @@ void run_state_machine__15TBoss3VoloptP01FPv(u8 *arg0) {
         break;
     case 1:
         set_flags_30__19TBoss3VoloptMonitorFPv(arg0);
-        if (TBoss3VoloptP01__sub_8004301C((void *) (arg0)) == 1) {
+        if (update_pulse_scale__15TBoss3VoloptP01FPv((void *) (arg0)) == 1) {
             M2C_FIELD(arg0, s32 *, 0x37C) = 2;
         }
         break;
@@ -1327,7 +1327,7 @@ extern int fold_flush_1;
 #undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
-#undef TBoss3VoloptP01__sub_8004301C
+#undef update_pulse_scale__15TBoss3VoloptP01FPv
 #undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
 #undef TBoss3VoloptP01_class_name
@@ -1374,7 +1374,7 @@ void TBoss3VoloptP01__sub_80043758(u8 *arg0) {
 #define push_nearby_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))push_nearby_players__10TObjPlayerFPv)
 #define obj_testFlags30 ((s32 (*)(void*,int))obj_testFlags30)
 #define update_if_active__15TObjEneMe1GiGueFPv ((M2C_UNK (*)(void*,int))update_if_active__15TObjEneMe1GiGueFPv)
-#define TBoss3VoloptP01__sub_8004301C ((s32 (*)(void*))TBoss3VoloptP01__sub_8004301C)
+#define update_pulse_scale__15TBoss3VoloptP01FPv ((s32 (*)(void*))update_pulse_scale__15TBoss3VoloptP01FPv)
 #define fire_zonde_at_players__10TObjPlayerFPv ((M2C_UNK (*)(void*))fire_zonde_at_players__10TObjPlayerFPv)
 #define TBoss3VoloptP01__sub_80043758 ((void (*)(void*))TBoss3VoloptP01__sub_80043758)
 #define TBoss3VoloptP01_class_name (*(s32 *)&TBoss3VoloptP01_class_name)
@@ -1721,7 +1721,7 @@ void init_cursor_record__15TBoss3VoloptP01FPv(O_800443BC *self) {
 #undef push_nearby_players__10TObjPlayerFPv
 #undef obj_testFlags30
 #undef update_if_active__15TObjEneMe1GiGueFPv
-#undef TBoss3VoloptP01__sub_8004301C
+#undef update_pulse_scale__15TBoss3VoloptP01FPv
 #undef fire_zonde_at_players__10TObjPlayerFPv
 #undef TBoss3VoloptP01__sub_80043758
 #undef TBoss3VoloptP01_class_name

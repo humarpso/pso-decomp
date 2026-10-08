@@ -94,7 +94,7 @@ extern RecoveredGlobal_80286824_lbl_8050E208 lbl_8050E208;
 void handle_cursor_input__28TWindowSubSymbolChatPartsSetFPv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 extern RecoveredGlobal_80286824_lbl_8050E208 lbl_8050E208;
-void TWindowSubSymbolChatPartsSet__sub_8028642C(T_8028642C *arg0);
+void toggle_selected_part__28TWindowSubSymbolChatPartsSetFPv(T_8028642C *arg0);
 void TWindowChatSymbol__ct(void *, void *, void *);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -185,7 +185,7 @@ void TWindowSubSymbolChatPartsSet__sub_8028625C(Set_8028625C *arg0) {
     }
 }
 
-void TWindowSubSymbolChatPartsSet__sub_8028642C(T_8028642C *arg0) {
+void toggle_selected_part__28TWindowSubSymbolChatPartsSetFPv(T_8028642C *arg0) {
     switch (arg0->f69) {
     case 0:
     case 2:
@@ -305,7 +305,7 @@ void run_task__28TWindowSubSymbolChatPartsSetFv(u8 *arg0) {
             handle_cancel__28TWindowSubSymbolChatPartsSetFPv((void *) (arg0));
         }
     }
-    TWindowSubSymbolChatPartsSet__sub_8028642C((T_8028642C *)((void *) (arg0)));
+    toggle_selected_part__28TWindowSubSymbolChatPartsSetFPv((T_8028642C *)((void *) (arg0)));
     TWindowSubSymbolChatPartsSet__sub_8028625C((Set_8028625C *)((void *) (arg0)));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD820) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x88)));

@@ -36,7 +36,7 @@ struct Q_80212710 { u8 pad[0x23B8]; void *cb0; void *cb1; void *cb2; };
 void set_state_3__22THunterGuildSeqOfflineFv(void);
 void init_quest_list__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
-void THunterGuildSeqOffline__sub_80212710(void) {
+void create_quest_list_vm__22THunterGuildSeqOfflineFv(void) {
     Q_80212710 *p = (Q_80212710 *)__nw__7TObjectFUl(0x23C4);
     if (p != 0) {
         p = (Q_80212710 *)TQuestListVM__ct((u8 *)p, tl_05, (s32)THunterGuildSeqOffline__data_805D6188, ((G_80212710 *)THunterGuildSeqOffline__data_805D6188)->f24);

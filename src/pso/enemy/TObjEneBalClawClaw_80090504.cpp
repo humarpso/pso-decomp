@@ -77,7 +77,7 @@ void TObjEneBalClawClaw__sub_80090798(u8 *arg0);
 void obj_setFlags30(void *, u32);
 void TObjEneBalClawClaw__sub_800907DC(u8 *arg0);
 int reset_active_state__18TObjEneBalClawClawFPv(void* p);
-void TObjEneBalClawClaw__sub_8009060C(u8 *arg0);
+void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0);
 void apply_actor_gravity(void *, int, f32);
 void obj_setFlags30(void *, u32);
 void advance_animation_playback(void *);
@@ -138,7 +138,7 @@ void update_chase_state__18TObjEneBalClawClawFPv(u8 *arg0) {
     }
 }
 
-void TObjEneBalClawClaw__sub_8009060C(u8 *arg0) {
+void run_active_state__18TObjEneBalClawClawFPv(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = ((RecoveredFields_8009060C_arg0 *)arg0)->field_37C;
     switch (temp_r0) {

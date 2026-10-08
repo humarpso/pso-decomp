@@ -282,7 +282,7 @@ M2C_UNK spawn_ground_effect__10TObjPlayerFPvi(void *, int);
 M2C_UNK spawn_dead_spot_default__10TObjPlayerFii(void *, int);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 int TObjEnePanarms__sub_800DFBD0(u8 *arg0, s32 arg1, f32 farg0);
-void TObjEnePanarms__sub_800DFC18(void);
+void spawn_npc_pair__14TObjEnePanarmsFv(void);
 void update_action_timer__14TObjEnePanarmsFPv(void *arg0);
 void init_attack_state__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800DFE08(u8 *arg0);
@@ -303,7 +303,7 @@ void TObjEnePanarms__sub_800E0A44(u8 *arg0);
 void apply_effect_if_flagged__14TObjEnePanarmsFPv(void *arg0);
 void TObjEnePanarms__sub_800E0B9C(Obj_800E0B9C *arg0);
 void update_hit_state__14TObjEnePanarmsFPv(void *arg0);
-void TObjEnePanarms__sub_800E0CB0(u8 *arg0);
+void restore_from_linked_object__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E0E88(u8 *arg0);
 void update_move_to_target__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E1090(u8 *arg0);
@@ -455,7 +455,7 @@ int TObjEnePanarms__sub_800DFBD0(u8 *arg0, s32 arg1, f32 farg0) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-void TObjEnePanarms__sub_800DFC18(void) {
+void spawn_npc_pair__14TObjEnePanarmsFv(void) {
   s8 *new_var;
   Stack_800DFC18 stack;
   s32 temp_r8;
@@ -917,7 +917,7 @@ void update_hit_state__14TObjEnePanarmsFPv(void *arg0) {
     }
 }
 
-void TObjEnePanarms__sub_800E0CB0(u8 *arg0) {
+void restore_from_linked_object__14TObjEnePanarmsFPv(u8 *arg0) {
     u8 *temp_r4;
     u8 *temp_r5;
     temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x37C));

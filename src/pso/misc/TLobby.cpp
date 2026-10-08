@@ -258,7 +258,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void pop_and_close__6TLobbyFv(void);
-M2C_UNK TLobby__sub_800FA7E0(void *, M2C_UNK);
+M2C_UNK pop_stack_entry__6TLobbyFPvs(void *, M2C_UNK);
 
 extern void *lbl_805D5360;
 
@@ -266,7 +266,7 @@ void pop_and_close__6TLobbyFv(void) {
     void *temp_r31;
 
     temp_r31 = M2C_FIELD(lbl_805D5360, void **, 0x38);
-    TLobby__sub_800FA7E0(lbl_805D5360, 1);
+    pop_stack_entry__6TLobbyFPvs(lbl_805D5360, 1);
     lbl_805D5360 = temp_r31;
 }
 
@@ -671,9 +671,9 @@ extern "C" {
 void init_buffers__6TLobbyFii(s32 arg0, s32 arg1);
 void free_boss4rock__6TLobbyFv(void);
 int free_boss4rock__6TLobbyFPvs(void*, void*);
-u32 TLobby__sub_802095EC(s32, s32);
-u32 TLobby__sub_8020967C(s32, s32);
-u32 TLobby__sub_80209C58(s32, s32);
+u32 find_type5_header__6TLobbyFPvi(s32, s32);
+u32 find_chunk_by_id__6TLobbyFPvi(s32, s32);
+u32 find_header_by_id__6TLobbyFPvi(s32, s32);
 M2C_UNK TLobby__sub_80209D34(s32);
 int __dl__FPv(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
@@ -691,9 +691,9 @@ extern s32 lbl_805D60C8;
 void init_buffers__6TLobbyFii(s32 arg0, s32 arg1) {
     u32 temp_r3;
 
-    lbl_805D60A8 = TLobby__sub_80209C58(arg1, arg0);
-    lbl_805D60AC = TLobby__sub_8020967C(arg1, arg0);
-    temp_r3 = TLobby__sub_802095EC(arg1, arg0);
+    lbl_805D60A8 = find_header_by_id__6TLobbyFPvi(arg1, arg0);
+    lbl_805D60AC = find_chunk_by_id__6TLobbyFPvi(arg1, arg0);
+    temp_r3 = find_type5_header__6TLobbyFPvi(arg1, arg0);
     lbl_805D60B0 = temp_r3;
     if (((u32) lbl_805D60A8 != 0U) && ((u32) lbl_805D60AC != 0U) && (temp_r3 != 0U)) {
         lbl_805D60B4 = alloc__22TQuestVmDownLoadServerFPv(0x9000);
@@ -1826,10 +1826,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_step_60c8__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803D60C8();
+M2C_UNK set_buffer_params_checked__6TLobbyFUiUii();
 
 void run_step_60c8__6TLobbyFv(void) {
-    TLobby__sub_803D60C8();
+    set_buffer_params_checked__6TLobbyFUiUii();
 }
 
 }
@@ -1962,9 +1962,9 @@ void TLobby__sub_803CC030(void);
 void dispatch_packet__6TLobbyFv(void);
 M2C_UNK set_stream_channel_pan__6TLobbyFPvii();
 M2C_UNK set_sound_stream_volume();
-M2C_UNK TLobby__sub_803D4654();
+M2C_UNK set_stream_frequency__6TLobbyFPvi();
 M2C_UNK TLobby__sub_803D4704();
-M2C_UNK TLobby__sub_803D4714();
+M2C_UNK update_active_streams__6TLobbyFv();
 M2C_UNK get_packet_size__6TLobbyFPv();
 M2C_UNK get_available_size__6TLobbyFPv();
 M2C_UNK TLobby__sub_803D4CA0();
@@ -1979,7 +1979,7 @@ void trigger_sub_task__6TLobbyFv(void) {
 }
 
 void TLobby__sub_803CBF90(void) {
-    TLobby__sub_803D4654();
+    set_stream_frequency__6TLobbyFPvi();
 }
 
 void TLobby__sub_803CBFB0(void) {
@@ -1987,7 +1987,7 @@ void TLobby__sub_803CBFB0(void) {
 }
 
 void run_sequence__6TLobbyFv(void) {
-    TLobby__sub_803D4714();
+    update_active_streams__6TLobbyFv();
 }
 
 void TLobby__sub_803CBFF0(void) {

@@ -2404,7 +2404,7 @@ void get_hand_joint_position__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u32 apply_wall_response__10TObjPlayerFv(void *);
 void calc_move__10TObjPlayerFPvPvPv(void* p, void* a1, void* a2);
 void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0);
-void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2);
+void calc_wall_slide_point__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 u8 * TObjPlayer__vt16(u8 *arg0, u8 *arg1);
 void TObjPlayer__vt15(void *arg0);
 void handle_6x99(void);
@@ -2491,7 +2491,7 @@ void TObjPlayer__sub_801BBB70(void);
 int TObjPlayer__sub_801BBB74(void* p);
 void TObjPlayer__sub_801BBB94(void);
 void init_player_substructs__10TObjPlayerFPv(void *arg0);
-void TObjPlayer__sub_801BBBD0(s32 arg0);
+void init_action_palette_defaults__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801BBC2C(void* p);
 void update_lock_on_cursor__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BBC64(void);
@@ -2640,7 +2640,7 @@ s16 get_action_id__10TObjPlayerFPv(s32);
 u8 * TObjPlayer__sub_801BF934(void *);
 M2C_UNK TObjPlayer__sub_801BF93C(void *, void *);
 u32 TObjPlayer__sub_801BFFA0(void *);
-void TObjPlayer__sub_801BFFA8(Pkt_801B5254 *, s32);
+void copy_hold_params__10TObjPlayerFPvPv(Pkt_801B5254 *, s32);
 s16 get_floor__10TObjPlayerFPv(void *);
 int sub_802a7290_fwd__10TObjPlayerFPv(void*);
 int is_handle_valid__10TObjPlayerFPv(void*);
@@ -5730,7 +5730,7 @@ void handle_6x2C_impose_hold(s32 arg0) {
     Pkt_801B5254 pkt;
     s32 player;
     TObjPlayer__sub_801C0B24(&pkt);
-    TObjPlayer__sub_801BFFA8(&pkt, arg0);
+    copy_hold_params__10TObjPlayerFPvPv(&pkt, arg0);
     bswap_pkt_u16x2_u32__10TObjPlayerFPv(&pkt);
     if (validate_6x2C_impose_hold(&pkt) == 0) {
         return;
@@ -6484,7 +6484,7 @@ void calc_move_velocity__10TObjPlayerFPvPvf(void *arg0, void *arg1, f32 farg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_801B7930(void *arg0, void *arg1, void *arg2) {
+void calc_wall_slide_point__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     f32 temp_f2;
     temp_f2 = -((f32 (*)(void))vec3_dot)();
     M2C_FIELD(arg2, f32 *, 0) = (f32) ((temp_f2 * M2C_FIELD(arg1, f32 *, 0)) + M2C_FIELD(arg0, f32 *, 0));
@@ -8149,10 +8149,10 @@ void TObjPlayer__sub_801BBB94(void) {  }
 
 void init_player_substructs__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8013A748((void *)((char *)arg0 + 1280));
-    TObjPlayer__sub_801BBBD0((s32)((void *)(arg0)));
+    init_action_palette_defaults__10TObjPlayerFi((s32)((void *)(arg0)));
 }
 
-void TObjPlayer__sub_801BBBD0(s32 arg0) {
+void init_action_palette_defaults__10TObjPlayerFi(s32 arg0) {
     set_action_palette_entry__10TObjPlayerFiiiiii(arg0, 0, 0, 0, 1, 0);
     set_action_palette_entry__10TObjPlayerFiiiiii(arg0, 0, 1, 0, 1, 0);
 }

@@ -86,7 +86,7 @@ List_80212B88 *TQuestListChallenge__ct(void *, s32, Seq_80212B88 *, s32);
 s32 get_game_play_mode();
 void set_state_close__22THunterGuildSeqOfflineFv(void);
 void set_state_4__22THunterGuildSeqOfflineFv(void);
-void THunterGuildSeqOffline__sub_80212710(void);
+void create_quest_list_vm__22THunterGuildSeqOfflineFv(void);
 void set_state_close2__22THunterGuildSeqOfflineFv(void);
 void request_close__22THunterGuildSeqOfflineFv(void);
 extern s32 tl_05;
@@ -272,7 +272,7 @@ void open_quest_list__22THunterGuildSeqOfflineFPv(Seq_80212B88 *self) {
         if (list != NULL) {
             list->accepted = request_close__22THunterGuildSeqOfflineFv;
             list->cancelled = set_state_close2__22THunterGuildSeqOfflineFv;
-            list->download = THunterGuildSeqOffline__sub_80212710;
+            list->download = create_quest_list_vm__22THunterGuildSeqOfflineFv;
             set_field_20__12TQuestListVMFPvi(self, 10);
         }
         break;

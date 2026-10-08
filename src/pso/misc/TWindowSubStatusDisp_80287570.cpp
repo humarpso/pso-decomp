@@ -51,7 +51,7 @@ u32 calc_text_width(void *);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(void *);
 u8 *init_heading_entry__20TWindowSubStatusDispFPvPvici(u8 *arg0, u8 *arg1, s32 arg2, s8 arg3, s32 arg4);
 u8 TWindowSubStatusDisp__sub_80287AC4(u8 *arg0);
-void TWindowSubStatusDisp__sub_802877C8(void *arg0);
+void update_entry_color__20TWindowSubStatusDispFPv(void *arg0);
 void TWindowSubStatusDisp__sub_80287860(void *arg0, void *arg1);
 void apply_context_transform_to_rect(void *, Rect_80287580 *);
 void set_global_param__8TObjFishFi(s32);
@@ -147,7 +147,7 @@ f32 TWindowSubStatusDisp__sub_802877A4(f32 farg0) {
   return temp_f1;
 }
 
-void TWindowSubStatusDisp__sub_802877C8(void *arg0) {
+void update_entry_color__20TWindowSubStatusDispFPv(void *arg0) {
     Entry_802877C8 *e = (Entry_802877C8 *)arg0;
     switch (e->state) {
     case 0:
@@ -166,7 +166,7 @@ void TWindowSubStatusDisp__sub_802877C8(void *arg0) {
 
 void set_entry_state__20TWindowSubStatusDispFPvc(void *arg0, s8 arg1) {
     M2C_FIELD(arg0, s8 *, 0x18) = arg1;
-    TWindowSubStatusDisp__sub_802877C8((void *)(arg0));
+    update_entry_color__20TWindowSubStatusDispFPv((void *)(arg0));
 }
 
 typedef struct Stack_802878B8 Stack_802878B8;

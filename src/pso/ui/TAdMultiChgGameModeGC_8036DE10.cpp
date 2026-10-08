@@ -72,8 +72,8 @@ void handle_menu_input__21TAdMultiChgGameModeGCFPv(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
-void TAdMultiChgGameModeGC__sub_8036E49C(void *arg0);
-void TAdMultiChgGameModeGC__sub_8036E49C(void *arg0);
+void create_back_objects__21TAdMultiChgGameModeGCFPv(void *arg0);
+void create_back_objects__21TAdMultiChgGameModeGCFPv(void *arg0);
 M2C_UNK TWindow__close(void *);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, s32, M2C_UNK);
 void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0);
@@ -90,7 +90,7 @@ void TAdMultiChgGameModeGC__sub_8036E6EC(void);
 M2C_UNK refresh_char_slots__23TAdSinglePlyChrSelectGCFv();
 s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
-void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0);
+void update_mode_selection_and_save__21TAdMultiChgGameModeGCFi(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E750(void);
 int request_scene_change__21TAdMultiChgGameModeGCFv(void*);
 int request_scene_change_vt__21TAdMultiChgGameModeGCFPv(void* p);
@@ -122,7 +122,7 @@ extern RecoveredGlobal_8036DE10_lbl_804F37D4 lbl_804F37D4;
 s32 TAdMultiChgGameModeGC__sub_8036DE10(M2C_UNK arg0, s32 arg1, s32 arg2);
 s32 check_system_file_status__23TAdSinglePlyChrSelectGCFv(void);
 extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
-void TAdMultiChgGameModeGC__sub_8036EA24(u8 *arg0);
+void check_save_file_and_dispatch__21TAdMultiChgGameModeGCFPv(u8 *arg0);
 extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
@@ -371,7 +371,7 @@ void handle_menu_input__21TAdMultiChgGameModeGCFPv(u8 *arg0) {
         }
     }
 }
-void TAdMultiChgGameModeGC__sub_8036E49C(void *arg0) {
+void create_back_objects__21TAdMultiChgGameModeGCFPv(void *arg0) {
     void *o;
     void *o2;
     if (M2C_FIELD(arg0, void **, 0x28) == NULL) {
@@ -399,7 +399,7 @@ void TAdMultiChgGameModeGC__sub_8036E51C(u8 *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
         send_and_handle__6TLobbyFPvii((u32)((int) (M2C_FIELD(arg0, u32 *, 0x30))), (s32)((int) (TAdMultiChgGameModeGC__sub_8036DE10((M2C_UNK)((void *)((void *) (arg0))), (s32)((M2C_UNK)((int) (0))), (s32)((s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))))))), (M2C_UNK)((int) (3)));
     }
-    TAdMultiChgGameModeGC__sub_8036E49C((void *) (arg0));
+    create_back_objects__21TAdMultiChgGameModeGCFPv((void *) (arg0));
 }
 void TAdMultiChgGameModeGC__sub_8036E5A8(s32 arg0) {
     if ((handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)(arg0))) == 0) && (get_instance__15TAdPlayerLoadGCFv() == 0)) {
@@ -433,7 +433,7 @@ void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0) {
     }
 }
 void TAdMultiChgGameModeGC__sub_8036E6EC(void) {  }
-void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
+void update_mode_selection_and_save__21TAdMultiChgGameModeGCFi(s32 arg0) {
     if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)arg0))) == 0) {
         refresh_char_slots__23TAdSinglePlyChrSelectGCFv();
         if (encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv() != 0) {
@@ -525,7 +525,7 @@ void TAdMultiChgGameModeGC__sub_8036E9EC(void* p) { close_window_30__21TAdMultiC
 
 typedef char MemberActionStorage_8036EA24_size[sizeof(MemberActionStorage_8036EA24) == 12 ? 1 : -1];
 typedef char RecoveredGlobal_8036EA24_lbl_804F3908_size[sizeof(RecoveredGlobal_8036EA24_lbl_804F3908) == 0x108 ? 1 : -1];
-void TAdMultiChgGameModeGC__sub_8036EA24(u8 *arg0) {
+void check_save_file_and_dispatch__21TAdMultiChgGameModeGCFPv(u8 *arg0) {
     MemberActionStorage_8036EA24 member_action;
     typedef char sp8_offset[(offsetof(Stack_8036EA24, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8036EA24, spC) == 0x4) ? 1 : -1];

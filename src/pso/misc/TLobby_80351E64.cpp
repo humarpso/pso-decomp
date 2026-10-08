@@ -33,7 +33,7 @@ s32 get_filtered_event_theme__6TLobbyFv(void);
 s32 get_theme_lobby_type(void);
 void TLobby__sub_80351DF8(void *, s32);
 s32 get_filtered_event_theme__6TLobbyFv(void);
-void TLobby__sub_80351EAC(L_80351EAC *arg0);
+void update_event_theme_flags__6TLobbyFPv(L_80351EAC *arg0);
 }
 
 extern "C" {
@@ -67,7 +67,7 @@ int get_lobby_type__6TLobbyFv(void) {  return lbl_805D6EC4; }
 
 extern void *lbl_805D6EC0;
 
-void TLobby__sub_80351EAC(L_80351EAC *arg0) {
+void update_event_theme_flags__6TLobbyFPv(L_80351EAC *arg0) {
     s32 mode = get_filtered_event_theme__6TLobbyFv();
     arg0->flags &= ~7;
     if (arg0->mode != mode) {

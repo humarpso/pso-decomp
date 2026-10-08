@@ -226,7 +226,7 @@ f32 TOTrap__sub_80178B78(f32 farg0);
 s32 fn_80171314(void *);
 s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
-s32 TOTrap__sub_80178BC4(void *arg0);
+s32 is_any_player_matching_stat__6TOTrapFPv(void *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
 M2C_UNK calc_attach_pos__10TObjPlayerFPv();
 s32 is_locally_controlled__10TObjPlayerFPv(int);
@@ -287,7 +287,7 @@ void TOTrap__sub_80178BC0(void) {  }
 
 extern const f32 TOTrap__data_805DBA38;
 
-s32 TOTrap__sub_80178BC4(void *arg0) {
+s32 is_any_player_matching_stat__6TOTrapFPv(void *arg0) {
     s32 i;
     void *p;
     for (i = 0; i < 4; i++) {

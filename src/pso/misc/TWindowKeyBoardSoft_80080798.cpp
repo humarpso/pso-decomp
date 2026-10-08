@@ -42,10 +42,10 @@ s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u
 void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n);
 extern u16 lbl_8048E020[];
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
-void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
+void insert_char_slot__19TWindowKeyBoardSoftFPv(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_800809C0(Field_800809C0 *f);
 s32 TWindowKeyBoardSoft__sub_80080ABC(Field_80080ABC *f);
-void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
+void insert_char_slot__19TWindowKeyBoardSoftFPv(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
@@ -78,7 +78,7 @@ void append_text__19TWindowKeyBoardSoftFPvPv(F_80080798 *arg0, u8 *arg1) {
         if (TWindowKeyBoardSoft__sub_80080F68((F_80080F68 *)arg0, (s32)c) != 0) {
             break;
         }
-        TWindowKeyBoardSoft__sub_80080CC0((Field_80080CC0 *)arg0);
+        insert_char_slot__19TWindowKeyBoardSoftFPv((Field_80080CC0 *)arg0);
         arg0->buffer[arg0->cursor] = c;
         arg0->cursor++;
     }
@@ -141,7 +141,7 @@ void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch) {
         return;
     }
     if (TWindowKeyBoardSoft__sub_80080F68((F_80080F68 *)kb, ch) == 0) {
-        TWindowKeyBoardSoft__sub_80080CC0((Field_80080CC0 *)kb);
+        insert_char_slot__19TWindowKeyBoardSoftFPv((Field_80080CC0 *)kb);
         kb->buffer[kb->cursor] = ch;
         kb->cursor++;
     }
@@ -289,7 +289,7 @@ void TWindowKeyBoardSoft__sub_80080C64(Field_80080C64 *f, s32 pos, s32 n) {
     f->length += n;
 }
 
-void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f) {
+void insert_char_slot__19TWindowKeyBoardSoftFPv(Field_80080CC0 *f) {
     u32 len;
     u16 *p;
     u16 *q;

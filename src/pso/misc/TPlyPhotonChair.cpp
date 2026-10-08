@@ -116,8 +116,8 @@ struct Chair_8035B058 {
 extern "C" {
 void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TPlyPhotonChair__sub_801427D0(void *);
-M2C_UNK TPlyPhotonChair__sub_80142874(void *);
+M2C_UNK update_scale_state__15TPlyPhotonChairFPv(void *);
+M2C_UNK update_bob_motion__15TPlyPhotonChairFPv(void *);
 f32 get_float_c__15TPlyPhotonChairFPv(void *);
 u32 get_player_by_client_id(int);
 s32 is_mounted__15TPlyPhotonChairFPv();
@@ -255,12 +255,12 @@ void run_task__15TPlyPhotonChairFv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x94);
     switch ((s32) temp_r0) {
     case 0:
-        TPlyPhotonChair__sub_80142874((void *) (arg0 + 0x98));
-        TPlyPhotonChair__sub_80142874((void *) (arg0 + 0xB4));
+        update_bob_motion__15TPlyPhotonChairFPv((void *) (arg0 + 0x98));
+        update_bob_motion__15TPlyPhotonChairFPv((void *) (arg0 + 0xB4));
         return;
     case 1:
-        TPlyPhotonChair__sub_801427D0((void *) (arg0 + 0x98));
-        TPlyPhotonChair__sub_801427D0((void *) (arg0 + 0xB4));
+        update_scale_state__15TPlyPhotonChairFPv((void *) (arg0 + 0x98));
+        update_scale_state__15TPlyPhotonChairFPv((void *) (arg0 + 0xB4));
         if (get_float_c__15TPlyPhotonChairFPv((void *) (arg0 + 0x98)) <= (*(const f32 *)&lbl_805E012C)) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }

@@ -953,7 +953,7 @@ M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
-M2C_UNK TObjPlayer__sub_800F6E2C(void *, void *, void *);
+M2C_UNK link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
 M2C_UNK link_into_group_chain__10TObjPlayerFPv(void *);
 s32 is_action_available__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -1716,11 +1716,11 @@ void beast_idle_update(u8 *arg0) {
     if (other != NULL) {
         diff = M2C_FIELD(other, s32 *, 0x37C) - M2C_FIELD(arg0, s32 *, 0x37C);
         if (diff > 1) {
-            TObjPlayer__sub_800F6E2C(arg0, other, arg0);
+            link_chain_nodes__10TObjPlayerFPvPvPv(arg0, other, arg0);
             M2C_FIELD(arg0, s32 *, 0x37C) = M2C_FIELD(arg0, s32 *, 0x37C) + 1;
             M2C_FIELD(other, s32 *, 0x37C) = M2C_FIELD(other, s32 *, 0x37C) - 1;
         } else if (diff < -1) {
-            TObjPlayer__sub_800F6E2C(arg0, arg0, other);
+            link_chain_nodes__10TObjPlayerFPvPvPv(arg0, arg0, other);
             M2C_FIELD(arg0, s32 *, 0x37C) = M2C_FIELD(arg0, s32 *, 0x37C) - 1;
             M2C_FIELD(other, s32 *, 0x37C) = M2C_FIELD(other, s32 *, 0x37C) + 1;
         }

@@ -39,7 +39,7 @@ struct Buf_803D2104
 extern "C" {
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
-void TLobby__sub_803D2234(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2);
+void complete_buffer_request__6TLobbyFPvUiPv(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void read_stream_chunk__6TLobbyFPviiPv(Obj_803D22C8 *arg0, s32 arg1, s32 arg2, Buf_803D22C8 *arg3);
@@ -109,7 +109,7 @@ void advance_ring_buffer__6TLobbyFPviPv(Obj_803D2104 *arg0, s32 arg1, Buf_803D21
   restore_interrupts_nested__6TLobbyFv();
 }
 
-void TLobby__sub_803D2234(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2) {
+void complete_buffer_request__6TLobbyFPvUiPv(Obj_803D2234 *arg0, u32 arg1, Buf_803D2234 *arg2) {
     if (arg2->len <= 0 || arg2->ptr == 0) {
         return;
     }

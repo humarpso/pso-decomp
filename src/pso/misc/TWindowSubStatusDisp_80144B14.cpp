@@ -61,7 +61,7 @@ struct Glyph_80145190 {
 
 extern "C" {
 extern u8 lbl_805D56C0;
-s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2);
+s32 upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(u16 arg0, u8 *arg1, void **arg2);
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_804A74E8;
 void TWindowSubStatusDisp__sub_801454E0(s32 _w0);
@@ -383,7 +383,7 @@ void upload_font_glyph(u16 c, void *arg1) {
 }
 #undef g
 
-s32 TWindowSubStatusDisp__sub_80145278(u16 arg0, u8 *arg1, void **arg2) {
+s32 upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(u16 arg0, u8 *arg1, void **arg2) {
     u8 temp_r7;
     temp_r7 = M2C_FIELD(arg1, u8 *, 3);
     if (temp_r7 == (u8) lbl_805D56C0) {
@@ -417,10 +417,10 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
     if (g[0x80].code == code) {
         return &g[0x80];
     }
-    if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)g, &free_slot) != 0) {
+    if (upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(code, (u8 *)g, &free_slot) != 0) {
         return g;
     }
-    if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)&g[0x80], &free_slot) != 0) {
+    if (upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(code, (u8 *)&g[0x80], &free_slot) != 0) {
         return &g[0x80];
     }
     p = &menu_font_glyph_table[0x100];
@@ -428,7 +428,7 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
         if (p->code == code) {
             return p;
         }
-        if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)p, &free_slot) != 0) {
+        if (upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(code, (u8 *)p, &free_slot) != 0) {
             return p;
         }
     }
@@ -437,7 +437,7 @@ void *find_cached_glyph__20TWindowSubStatusDispFUs(u16 code) {
         if (q->code == code) {
             return q;
         }
-        if (TWindowSubStatusDisp__sub_80145278(code, (u8 *)q, &free_slot) != 0) {
+        if (upload_glyph_if_needed__20TWindowSubStatusDispFUsPvPv(code, (u8 *)q, &free_slot) != 0) {
             return q;
         }
     }

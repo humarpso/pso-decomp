@@ -1571,7 +1571,7 @@ void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2);
 void play_sound_in_band__13TObjEneMorfosFPv(u8 *arg0);
 s32 select_target_in_view__13TObjEneMorfosFPv(O_80334588 *arg0);
 int TObjEneMorfos__sub_80334704(void);
-void TObjEneMorfos__sub_8033471C(u8 *arg0);
+void init_target_offsets__13TObjEneMorfosFPv(u8 *arg0);
 void TObjEneMorfos__vt86(void *arg0);
 void set_hover_target_position__13TObjEneMorfosFPv(u8 *arg0);
 s32 approach_value__13TObjEneMorfosFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -2849,7 +2849,7 @@ int TObjEneMorfos__sub_80334704(void) { lbl_805D6D30 = *(float*)((char*)TObjEneM
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TObjEneMorfos__sub_8033471C(u8 *arg0) {
+void init_target_offsets__13TObjEneMorfosFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x368) <= 0) {
         M2C_FIELD(arg0, s32 *, 0x3E8) = 1;
     } else {
@@ -3197,7 +3197,7 @@ void *TObjEneMorfos__ct(void *arg0, void *arg1, void *arg2) {
     __construct_array((void *)((char *)arg0 + 1060), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4230;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
-    ((void (*)(void *))TObjEneMorfos__sub_8033471C)(arg0);
+    ((void (*)(void *))init_target_offsets__13TObjEneMorfosFPv)(arg0);
     init_instance__13TObjEneMorfosFPv(arg0);
     M2C_FIELD(arg0, u32 *, 0x494) = 0;
     return arg0;

@@ -2357,7 +2357,7 @@ s32 update_effect__17TObjEneMe3ShinowaFPv(u8 *arg0);
 void TObjEneMe3Shinowa__sub_800E7250(u8 *arg0);
 void TObjEneMe3Shinowa__sub_800E7268(u8 *arg0);
 void TObjEneMe3Shinowa__vt105(void);
-u8 TObjEneMe3ShinowaMirage__sub_800E728C(E_800E728C *arg0);
+u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E7324(u8 *arg0);
 void TObjEneMe3ShinowaMirage__sub_800E7378(u8 *arg0);
 s32 check_in_range__23TObjEneMe3ShinowaMirageFPv(void *arg0);
@@ -4057,7 +4057,7 @@ void TObjEneMe3Shinowa__vt105(void) {  }
 
 #pragma push
 #pragma fp_contract on
-u8 TObjEneMe3ShinowaMirage__sub_800E728C(E_800E728C *arg0) {
+u8 can_hit_same_target__23TObjEneMe3ShinowaMirageFPv(E_800E728C *arg0) {
     s16 mine;
     s32 ret;
     s16 theirs;

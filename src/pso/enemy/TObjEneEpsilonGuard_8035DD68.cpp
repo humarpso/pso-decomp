@@ -494,7 +494,7 @@ M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 u32 find_entity_by_id(u16);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
-s16 TObjEneEpsilonGuard__sub_8035F8F0(u32);
+s16 get_table_value_by_index__19TObjEneEpsilonGuardFPv(u32);
 extern u8 lbl_804F2034[];
 extern void *TObjEneEpsilonGuard__data_805D6F74;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
@@ -1064,7 +1064,7 @@ void TObjEneEpsilonGuard__sub_8035EA90(u8 *arg0) {
                     t = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x470));
                     if (t != 0 && p->m31() == 0) {
                         Pair_8035EA90 pr;
-                        pr.a = TObjEneEpsilonGuard__sub_8035F8F0(t);
+                        pr.a = get_table_value_by_index__19TObjEneEpsilonGuardFPv(t);
                         pr.b = M2C_FIELD(TObjEneEpsilonGuard__data_805D6F74, f32 *, 0xC);
                         p->m21(arg0, pr, 0, -1, -1);
                         p->m23(arg0);

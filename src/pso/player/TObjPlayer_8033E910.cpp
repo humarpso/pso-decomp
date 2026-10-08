@@ -52,7 +52,7 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void);
 void TObjPlayer__sub_8033EAF0(s32 arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
-void TLobby__sub_8033EC40(O_8033EC40 *arg0);
+void clear_item_list__6TLobbyFPv(O_8033EC40 *arg0);
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK set_tev_direct__13TParticleCtrlFi(int);
@@ -155,7 +155,7 @@ void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {
     }
 }
 
-void TLobby__sub_8033EC40(O_8033EC40 *arg0) {
+void clear_item_list__6TLobbyFPv(O_8033EC40 *arg0) {
     s32 i;
     if (arg0->items == 0) {
         queue_destruction__7TObjectFv(arg0);

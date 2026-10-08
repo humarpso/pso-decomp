@@ -27,7 +27,7 @@ struct O_8033C1CC { u8 pad[0x34]; void *p; u8 pad2[0x44 - 0x38]; s32 f44; };
 
 extern "C" {
 s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
-void TWindowSubComCard__sub_8033C10C(u8 *arg0);
+void poll_card_status__17TWindowSubComCardFPv(u8 *arg0);
 void TWindow__close(void *);
 void close_windows__17TWindowSubComCardFPv(u8 *arg0);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
@@ -52,7 +52,7 @@ extern const f32 lbl_805D6D98;
 void create_message_and_menu__17TWindowSubComCardFPvUiiUiUi(void *arg0, u32 arg1, s32 arg2, u32 arg3, u32 arg4);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_selected_menu_value(void *);
-void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *arg0);
+void handle_menu_selection__17TWindowSubComCardFPv(O_8033C1CC *arg0);
 }
 
 extern "C" {
@@ -60,7 +60,7 @@ extern "C" {
 void TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
-struct O_8033C1CC; void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *);
+struct O_8033C1CC; void handle_menu_selection__17TWindowSubComCardFPv(O_8033C1CC *);
 void reset__17TWindowSubComCardFPv(void *arg0);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
@@ -184,7 +184,7 @@ void reset__17TWindowSubComCardFPv(void *arg0) {
     set_state__17TWindowSubComCardFPvi((u8 *)(arg0), (s32)(0));
 }
 
-void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
+void poll_card_status__17TWindowSubComCardFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3C) = 0;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x38) <= 0) {
         M2C_FIELD(arg0, s32 *, 0x2C) = 0;
@@ -200,7 +200,7 @@ void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
 void TWindowSubComCard__sub_8033C178(void* p) { close_windows__17TWindowSubComCardFPv((u8 *)(p)); }
 void TWindowSubComCard__sub_8033C198(void) {  }
 int TWindowSubComCard__sub_8033C19C(void* p) { return update_card_display__17TWindowSubComCardFPvPvPvPvPv(p, 0, -1, -1, -1); }
-void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *arg0) {
+void handle_menu_selection__17TWindowSubComCardFPv(O_8033C1CC *arg0) {
     if (arg0->p == 0 || is_visible__17TWindowSubComCardFPv(arg0->p) == 0) {
         return;
     }

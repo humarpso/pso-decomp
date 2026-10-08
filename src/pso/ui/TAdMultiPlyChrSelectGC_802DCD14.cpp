@@ -13,7 +13,7 @@ extern "C" {
 int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdPlyPltAnimCtrlGC__sub_80355148();
 extern const f32 lbl_805DE89C;
-void TAdMultiPlyChrSelectGC__sub_802DCD90(u8 *arg0);
+void update_idle_timer__22TAdMultiPlyChrSelectGCFPv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -102,7 +102,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCD14(void *arg0) {
     }
 }
 
-void TAdMultiPlyChrSelectGC__sub_802DCD90(u8 *arg0) {
+void update_idle_timer__22TAdMultiPlyChrSelectGCFPv(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
     M2C_FIELD(arg0, s32 *, 0x1C) = temp_r4;

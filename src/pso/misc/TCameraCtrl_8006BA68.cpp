@@ -190,7 +190,7 @@ s32 set_camera_look_at(void *, void *, void *);
 extern RecoveredGlobal_8006C03C_lbl_804383E0 lbl_804383E0;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
 extern void *lbl_805D4DF0;
-void TCameraCtrl__sub_8006C03C(u8 *arg0);
+void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern void* camera_controller_registry[];
 extern RecoveredGlobal_8006C140_lbl_80488C50 lbl_80488C50;
@@ -356,7 +356,7 @@ typedef char RecoveredFields_8006C03C_lbl_805D4DF0_180_offset[offsetof(Recovered
 typedef char RecoveredFields_8006C03C_lbl_805D4DF0_184_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_184) == 0x184 ? 1 : -1];
 typedef char RecoveredFields_8006C03C_lbl_805D4DF0_188_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_188) == 0x188 ? 1 : -1];
 typedef char RecoveredFields_8006C03C_lbl_805D4DF0_18C_offset[offsetof(RecoveredFields_8006C03C_lbl_805D4DF0, field_18C) == 0x18C ? 1 : -1];
-void TCameraCtrl__sub_8006C03C(u8 *arg0) {
+void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8006C03C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006C03C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006C03C, sp10) == 0x8) ? 1 : -1];

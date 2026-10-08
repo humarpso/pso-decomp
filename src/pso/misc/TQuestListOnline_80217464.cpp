@@ -10,7 +10,7 @@ extern "C" {
 s32 select_cursor_entry__6TLobbyFPv(void *);
 extern u32 TQuestListOnline__data_805D6190;
 extern void *TQuestListOnline__data_805D61E0;
-s32 TQuestListOnline__sub_80217504(void);
+s32 get_selected_entry__16TQuestListOnlineFv(void);
 s32 prs_decompress_buffer(s32, s32);
 extern s32 TQuestListOnline__data_805D61E4;
 extern u32 lbl_805D61EC;
@@ -28,7 +28,7 @@ void ensure_online_quests_loaded__16TQuestListOnlineFv(void);
 s32 fn_802183B4();
 extern void *TQuestListOnline__data_805D61E0;
 extern s32 lbl_805D61F8;
-s32 TQuestListOnline__sub_80217464(void);
+s32 get_list_state__16TQuestListOnlineFv(void);
 }
 
 extern "C" {
@@ -51,7 +51,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 extern void *TQuestListOnline__data_805D6194;
 extern void *TQuestListOnline__data_805D61E0;
 
-s32 TQuestListOnline__sub_80217464(void) {
+s32 get_list_state__16TQuestListOnlineFv(void) {
     if ((void *) TQuestListOnline__data_805D61E0 == NULL) {
         return 0;
     }
@@ -78,7 +78,7 @@ s32 TQuestListOnline__sub_80217464(void) {
 
 #pragma push
 #pragma fp_contract on
-s32 TQuestListOnline__sub_80217504(void) {
+s32 get_selected_entry__16TQuestListOnlineFv(void) {
     struct S217 *p = (*(struct S217 * *)&TQuestListOnline__data_805D61E0);
     if (p != NULL) {
         void *q = p->f38;

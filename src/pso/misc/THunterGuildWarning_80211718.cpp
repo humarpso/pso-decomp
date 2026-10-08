@@ -6,12 +6,12 @@ struct S_80211718 { u8 pad[0x24]; u32 w[4]; };
 extern "C" {
 void THunterGuildWarning__sub_802119CC(Obj_802119CC *self);
 void TWindow__close(u32);
-void THunterGuildWarning__sub_80211718(S_80211718 *self);
+void close_windows__19THunterGuildWarningFPv(S_80211718 *self);
 }
 
 extern "C" {
 
-void THunterGuildWarning__sub_80211718(S_80211718 *self) {
+void close_windows__19THunterGuildWarningFPv(S_80211718 *self) {
     s32 i = 0;
     do {
         if (self->w[i] != 0) {

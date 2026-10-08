@@ -72,7 +72,7 @@ s32 play_sound_effect(int, int, int, int);
 void TObjPlayer__sub_801303D8(u8 *arg0);
 s32 init_shoot_model__10TObjPlayerFPv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
-s32 TObjPlayer__sub_80130368(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 M2C_UNK send_6x61_activate_mag_effect(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
@@ -90,7 +90,7 @@ typedef struct VBase_18_382324 VBase_18_382324;
 typedef struct VObj_18_382324 VObj_18_382324;
 #define PSO_VCALL_VObj_18_382324_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_382324 *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))
 
-s32 TObjPlayer__sub_80130368(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r3;
     s32 var_r0;
     s32 var_r3;

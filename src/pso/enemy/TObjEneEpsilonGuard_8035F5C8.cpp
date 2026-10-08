@@ -852,7 +852,7 @@ extern RecoveredGlobal_80360638_lbl_804F22CC lbl_804F22CC;
 extern RecoveredGlobal_80360638_lbl_805439FC lbl_805439FC;
 void draw_debug_line__19TObjEneEpsilonGuardFi(s32 arg0);
 extern RecoveredGlobal_8035F8F0_lbl_80479E6C lbl_80479E6C;
-s16 TObjEneEpsilonGuard__sub_8035F8F0(u8 *arg0);
+s16 get_table_value_by_index__19TObjEneEpsilonGuardFPv(u8 *arg0);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 void TObjEneMe3SinowZoa__sub_800D758C(void *);
@@ -888,7 +888,7 @@ u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DDC8();
 s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0);
 u32 find_entity_by_id(s32);
-s32 TObjEneEpsilonGuard__sub_8035FC8C(W_8035FC8C *arg0);
+s32 all_children_gone__19TObjEneEpsilonGuardFPv(W_8035FC8C *arg0);
 u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DE08();
 s32 TObjEneEpsilonGuard__sub_8035FCEC(W_8035FCEC *arg0);
@@ -943,7 +943,7 @@ M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, void *, s32, void *, s32);
 M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
 M2C_UNK advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
-s32 TObjEneEpsilonGuard__sub_8035FC8C(W_8035FC8C *arg0);
+s32 all_children_gone__19TObjEneEpsilonGuardFPv(W_8035FC8C *arg0);
 void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1);
 extern u8 lbl_80479C90[];
 extern s32 lbl_805D6FA4;
@@ -1038,7 +1038,7 @@ extern s32 lbl_805D6F90;
 extern u8 *lbl_805D6F94;
 extern u8 *lbl_805D6F98;
 extern u8 *lbl_805D6F9C;
-void TObjEneEpsilonGuard__sub_803601D4(void);
+void record_camera_angle_samples__19TObjEneEpsilonGuardFv(void);
 u32 find_entity_by_id(s32);
 s32 TObjEneEpsilonGuard__sub_8035DD68();
 void TObjEneEpsilonGuard__sub_8035FB44(u8 *arg0);
@@ -1133,7 +1133,7 @@ s16 TObjEneEpsilonGuard__sub_8035F8A8(W_8035F8A8 *arg0) {
     return t.v[i];
 }
 
-s16 TObjEneEpsilonGuard__sub_8035F8F0(u8 *arg0) {
+s16 get_table_value_by_index__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8035F8F0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8035F8F0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8035F8F0, sp10) == 0x8) ? 1 : -1];
@@ -1217,7 +1217,7 @@ s32 TObjEneEpsilonGuard__sub_8035FC20(W_8035FC20 *arg0) {
     return 1;
 }
 
-s32 TObjEneEpsilonGuard__sub_8035FC8C(W_8035FC8C *arg0) {
+s32 all_children_gone__19TObjEneEpsilonGuardFPv(W_8035FC8C *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (find_entity_by_id(arg0->h[i]) != 0) {
@@ -1293,7 +1293,7 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1) {
 }
 void TObjEneEpsilonGuard__sub_803601D0(void) {  }
 
-void TObjEneEpsilonGuard__sub_803601D4(void) {
+void record_camera_angle_samples__19TObjEneEpsilonGuardFv(void) {
     switch (lbl_805D6F90) {
     case 0x1C:
     case 0x26:
@@ -1381,7 +1381,7 @@ void draw_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
     clear_global_flag_400__9TObjEneDDFv();
     if (M2C_FIELD(arg0, s32 *, 0x438) & 2) {
-        set_global_state__16TObjEneRe7BeruraFi((void *) TObjEneEpsilonGuard__sub_803601D4);
+        set_global_state__16TObjEneRe7BeruraFi((void *) record_camera_angle_samples__19TObjEneEpsilonGuardFv);
     }
     toggle_particle_effect__10TObjPlayerFv();
     lbl_805D6F98 = arg0 + 0x470;
@@ -1510,7 +1510,7 @@ void action_destroy__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x4E8) = 0;
         break;
     case 3:
-        if (M2C_FIELD(arg0, s32 *, 0x4E4) == 1 && TObjEneEpsilonGuard__sub_8035FC8C((W_8035FC8C *)arg0) != 0) {
+        if (M2C_FIELD(arg0, s32 *, 0x4E4) == 1 && all_children_gone__19TObjEneEpsilonGuardFPv((W_8035FC8C *)arg0) != 0) {
             queue_destruction__7TObjectFv(arg0);
         }
         break;

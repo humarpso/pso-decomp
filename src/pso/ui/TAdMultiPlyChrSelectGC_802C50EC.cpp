@@ -157,7 +157,7 @@ extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
 void reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(S_802C5594 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
-void TAdMultiPlyChrSelectGC__sub_802C5944(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void init_slot_position__22TAdMultiPlyChrSelectGCFPviii(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TAdMultiPlyChrSelectGC__sub_802C689C(s32 arg0);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
@@ -324,7 +324,7 @@ void reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(S_802C5594 *arg0) {
     arg0->f530 = 0;
 }
 
-void TAdMultiPlyChrSelectGC__sub_802C5944(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void init_slot_position__22TAdMultiPlyChrSelectGCFPviii(S_802C5944 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&arg0->v[arg2][arg3]);
     arg0->e[arg2][arg3].x = arg0->v[arg2][arg3].x;
     arg0->e[arg2][arg3].y = arg0->v[arg2][arg3].y;

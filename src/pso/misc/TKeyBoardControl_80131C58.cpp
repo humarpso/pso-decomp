@@ -97,7 +97,7 @@ void TKeyBoardControl__sub_801328F8(void);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 bool TKeyBoardControl__sub_80132274(s32 arg0);
-void TKeyBoardControl__sub_8013206C(Obj_8013206C *arg0);
+void append_next_char__16TKeyBoardControlFPv(Obj_8013206C *arg0);
 s32 TKeyBoardControl__sub_80132368(K_80132368 *arg0);
 u8 TKeyBoardControl__sub_8013239C(K_8013239C *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1);
@@ -105,7 +105,7 @@ void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
 s8 TKeyBoardControl__sub_803F1548(s32);
 s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
 s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1);
-void TKeyBoardControl__sub_801324F8(Kb_801324F8 *arg0, u8 arg1);
+void tick_key_repeat_timer__16TKeyBoardControlFPvUc(Kb_801324F8 *arg0, u8 arg1);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void TKeyBoardControl__sub_80132598(Kb_80132650 *, u8, u32 *);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
@@ -129,7 +129,7 @@ void set_flag60_bit200__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit2__16TKeyBoardControlFPv(void* p);
 void set_flag62_bit8__16TKeyBoardControlFPv(void* p);
 s32 export_keyboard_text(s32, s32);
-s32 TWindowKeyBoardSoft__sub_8025CA70(s32);
+s32 measure_text_overflow__19TWindowKeyBoardSoftFPv(s32);
 void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -213,7 +213,7 @@ s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1) {
     return 1;
 }
 
-void TKeyBoardControl__sub_8013206C(Obj_8013206C *arg0) {
+void append_next_char__16TKeyBoardControlFPv(Obj_8013206C *arg0) {
     s32 i = 0;
     arg0->f4 = arg0->f4 + 1;
     do {
@@ -225,7 +225,7 @@ void TKeyBoardControl__sub_8013206C(Obj_8013206C *arg0) {
     arg0->f0 = 4;
 }
 
-void TKeyBoardControl__sub_801320CC(void) { TKeyBoardControl__sub_8013206C((Obj_8013206C *)((void *)((void *) (&TKeyBoardControl__data_80506270.value)))); }
+void TKeyBoardControl__sub_801320CC(void) { append_next_char__16TKeyBoardControlFPv((Obj_8013206C *)((void *)((void *) (&TKeyBoardControl__data_80506270.value)))); }
 
 void disable_disconnected_ports__16TKeyBoardControlFv(void) {
     M2C_UNK sp8;
@@ -336,7 +336,7 @@ void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0) {
     } while (var_r29 < 8);
 }
 
-void TKeyBoardControl__sub_801324F8(Kb_801324F8 *arg0, u8 arg1) {
+void tick_key_repeat_timer__16TKeyBoardControlFPvUc(Kb_801324F8 *arg0, u8 arg1) {
     Ent_801324F8 *p;
     Ent_801324F8 *q;
     s32 i;

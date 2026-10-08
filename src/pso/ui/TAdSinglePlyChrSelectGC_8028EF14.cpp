@@ -50,7 +50,7 @@ CreationBodyModelStates lbl_8051C430[7];
 extern Slot_8028F150 lbl_8051D288[];
 Slot_8028F150 *TAdSinglePlyChrSelectGC__sub_8028F150(void);
 extern Slot_8028F150 lbl_8051D288[];
-s32 TAdSinglePlyChrSelectGC__sub_8028EC70(void *, void *);
+s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 s32 creation_motion_group(u32);
@@ -73,7 +73,7 @@ extern u8 lbl_80451CD0[];
 extern Pair_802907E4 lbl_80540888[];
 extern Pair_802907E4 lbl_805408D8[];
 extern Pair_802907E4 lbl_80540928[];
-void TAdSinglePlyChrSelectGC__sub_802907E4(void* _w0);
+void init_entry_tables__23TAdSinglePlyChrSelectGCFPv(void* _w0);
 s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(void *, u32);
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
@@ -134,7 +134,7 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void map_shape_region_samples(s32 region, s32 *samples);
 extern CreationShapeBlend lbl_8051D268;
 s32 clear_creation_shape_eval_masks(f32 *dst, const f32 *a, const f32 *b, const f32 *c);
-s32 TAdSinglePlyChrSelectGC__sub_8028EC70(void *, void *);
+s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 extern Slot_8028F150 lbl_8051D288[];
 extern u32 lbl_805D6520;
 extern E_8028F210 *lbl_805D6540;
@@ -1202,7 +1202,7 @@ s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     Slot_8028F198 *end;
     end = (Slot_8028F198 *)((u8 *)((Slot_8028F198 *)&lbl_8051D288) + 0x23600);
     for (p = ((Slot_8028F198 *)&lbl_8051D288); p < end; p++) {
-        if (p->f0 != 0 && TAdSinglePlyChrSelectGC__sub_8028EC70(p, arg0) != 0) return 1;
+        if (p->f0 != 0 && is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(p, arg0) != 0) return 1;
     }
     return 0;
 }
@@ -1333,7 +1333,7 @@ s32 scan_creation_resources(void *arg0) {
         if (p->f2f8 == 0) {
             continue;
         }
-        if (TAdSinglePlyChrSelectGC__sub_8028EC70(p, (void *)lbl_805D6520) != 0) {
+        if (is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(p, (void *)lbl_805D6520) != 0) {
             break;
         }
     }
@@ -1599,7 +1599,7 @@ u8 is_active__23TAdSinglePlyChrSelectGCFv(void) {
     return (u8) (lbl_805D6530 == 1);
 }
 
-void TAdSinglePlyChrSelectGC__sub_802907E4(void* _w0) {
+void init_entry_tables__23TAdSinglePlyChrSelectGCFPv(void* _w0) {
     for (s32 i = 0; i < 10; i++) {
         TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_80540888[i]), (void*)(lbl_80451CD0));
         TAdSinglePlyChrSelectGC__sub_80290884((void*)(&lbl_805408D8[i]), (void*)(lbl_80451CD0));
@@ -1610,7 +1610,7 @@ void TAdSinglePlyChrSelectGC__sub_802907E4(void* _w0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_80290884(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
-void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { TAdSinglePlyChrSelectGC__sub_802907E4((void*)(p)); TAdSinglePlyChrSelectGC__sub_8029071C(p); }
+void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p) { init_entry_tables__23TAdSinglePlyChrSelectGCFPv((void*)(p)); TAdSinglePlyChrSelectGC__sub_8029071C(p); }
 u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
     Slot_8028F150 *p;
     Slot_8028F150 *end;

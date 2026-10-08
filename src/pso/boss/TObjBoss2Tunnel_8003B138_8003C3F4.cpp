@@ -51,7 +51,7 @@ void TObjBoss2Tunnel__sub_8003C5F8(void);
 extern s32 TObjBoss2Tunnel__global_flags;
 void TObjBoss2Tunnel__sub_8003C610(void);
 u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
-void TObjBoss2Tunnel__sub_8003C374(Tunnel_8003C45C *self);
+void init_queue_from_start__15TObjBoss2TunnelFPv(Tunnel_8003C45C *self);
 void reset_floats__15TObjBoss2TunnelFPv(void *a0);
 s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
@@ -115,7 +115,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     self->f1C = TObjBoss2Tunnel__data_805D85E0;
     self->f20 = TObjBoss2Tunnel__data_805D85E0;
     self->i28 = 0;
-    TObjBoss2Tunnel__sub_8003C374(self);
+    init_queue_from_start__15TObjBoss2TunnelFPv(self);
     self->i5C = 0;
     self->f60 = TObjBoss2Tunnel__data_805D85E0;
     self->i44 = 0;

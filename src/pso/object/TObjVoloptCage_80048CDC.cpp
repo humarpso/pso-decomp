@@ -203,7 +203,7 @@ extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
 void TObjVoloptCage__sub_80049000(u8 *arg0);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *, int);
-void TObjVoloptCage__sub_80048E80(u8 *arg0);
+void update_collision_state__14TObjVoloptCageFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -335,7 +335,7 @@ void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
 
 #pragma pop
 
-void TObjVoloptCage__sub_80048E80(u8 *arg0) {
+void update_collision_state__14TObjVoloptCageFPv(u8 *arg0) {
     s16 temp_r3;
     s32 temp_r0;
     s32 temp_r4;

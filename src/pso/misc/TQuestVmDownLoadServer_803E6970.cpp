@@ -474,12 +474,12 @@ s32 TQuestVmDownLoadServer__sub_803E6F48(u16 arg0);
 extern R_803E76A4 lbl_8058DE4C[];
 s32 TQuestVmDownLoadServer__sub_803E76A4(u32 arg0);
 extern R_803E76A4 lbl_8058DE4C[];
-s32 TQuestVmDownLoadServer__sub_803E773C(s32 *arg0, s32 arg1);
+s32 get_max_size_of_indices__22TQuestVmDownLoadServerFPvi(s32 *arg0, s32 arg1);
 extern R_803E76A4 lbl_8058DE4C[];
 s32 TQuestVmDownLoadServer__sub_803E779C(u32 arg0, s32 *arg1, s32 *arg2, s32 *arg3);
 void TQuestVmDownLoadServer__sub_803E87B0(u8 *arg0, u8 *arg1, u8 *arg2);
-void TQuestVmDownLoadServer__sub_803E8840(u8 *arg0, u8 *arg1);
-s32 TQuestVmDownLoadServer__sub_803E88B8(u8 *arg0);
+void copy_sjis_string__22TQuestVmDownLoadServerFPvPv(u8 *arg0, u8 *arg1);
+s32 calc_sjis_string_width__22TQuestVmDownLoadServerFPv(u8 *arg0);
 extern RecoveredGlobal_803E9F20_lbl_80595998 lbl_80595998;
 extern s32 lbl_805D7848;
 extern s32 lbl_805D78C0;
@@ -499,7 +499,7 @@ s32 seek_or_reopen__22TQuestVmDownLoadServerFi(int arg0);
 s32 TQuestVmDownLoadServer__sub_803E92C0(Msg_803E92C0 *arg0);
 s32 TQuestVmDownLoadServer__sub_803E9348(Msg_803E9348 *arg0);
 Node_803EA384 *TQuestVmDownLoadServer__sub_803ECF84(void);
-Node_803EA384 *TQuestVmDownLoadServer__sub_803EA384(s32 arg0, Hdr_803EA384 *arg1);
+Node_803EA384 *build_item_list__22TQuestVmDownLoadServerFiPv(s32 arg0, Hdr_803EA384 *arg1);
 extern RecoveredGlobal_803E9F20_lbl_80595998 lbl_80595998;
 s32 TQuestVmDownLoadServer__sub_803EA960(s32 i, s32 end);
 void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
@@ -613,7 +613,7 @@ s32 TQuestVmDownLoadServer__sub_803EB7C0(Node_803EB7C0 *arg0);
 void TQuestVmDownLoadServer__sub_803EED9C(u32);
 extern s32 lbl_805D78AC;
 extern M2C_UNK *lbl_805D78B0;
-void TQuestVmDownLoadServer__sub_803ECDC4(Node_803ECDC4 *p);
+void release_node_chain__22TQuestVmDownLoadServerFPv(Node_803ECDC4 *p);
 s32 TQuestVmDownLoadServer__sub_803EC71C(u16 *, u8 *, s32);
 s32 TQuestVmDownLoadServer__sub_803EE934(void);
 extern u16 lbl_805A02A8[];
@@ -1159,7 +1159,7 @@ s32 TQuestVmDownLoadServer__sub_803E76E8(s32 *arg0, s32 arg1, u32 arg2) {
     return 0;
 }
 
-s32 TQuestVmDownLoadServer__sub_803E773C(s32 *arg0, s32 arg1) {
+s32 get_max_size_of_indices__22TQuestVmDownLoadServerFPvi(s32 *arg0, s32 arg1) {
     s32 i;
     s32 max = 0;
     for (i = 0; i < arg1; i++) {
@@ -1668,7 +1668,7 @@ s32 TQuestVmDownLoadServer__sub_803E8804(const u8 *p, const u8 *end) {
     return n;
 }
 
-void TQuestVmDownLoadServer__sub_803E8840(u8 *arg0, u8 *arg1) {
+void copy_sjis_string__22TQuestVmDownLoadServerFPvPv(u8 *arg0, u8 *arg1) {
     while (*arg0 != 0) {
         u8 c = *arg0;
         s32 lead;
@@ -1686,7 +1686,7 @@ void TQuestVmDownLoadServer__sub_803E8840(u8 *arg0, u8 *arg1) {
     }
 }
 
-s32 TQuestVmDownLoadServer__sub_803E88B8(u8 *arg0) {
+s32 calc_sjis_string_width__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     s32 n = 0;
     while (*arg0 != 0) {
         u8 c = *arg0;
@@ -2190,7 +2190,7 @@ void *TQuestVmDownLoadServer__sub_803E9FFC(s32 arg0, s32 arg1, Tok_803E9FFC *t) 
 }
 #pragma pop
 
-Node_803EA384 *TQuestVmDownLoadServer__sub_803EA384(s32 arg0, Hdr_803EA384 *arg1) {
+Node_803EA384 *build_item_list__22TQuestVmDownLoadServerFiPv(s32 arg0, Hdr_803EA384 *arg1) {
     s16 id;
     s32 x4;
     s32 n;
@@ -2255,7 +2255,7 @@ void TQuestVmDownLoadServer__sub_803EADD4(Obj_803EADD4 *arg0, s32 arg1) {
         arg0->x0 = -1;
         arg0->x18 = -1;
         if ((u32)arg0->x4 != 0xFFFFFFFF) {
-            TQuestVmDownLoadServer__sub_803ECDC4((Node_803ECDC4 *)(arg0->x4));
+            release_node_chain__22TQuestVmDownLoadServerFPv((Node_803ECDC4 *)(arg0->x4));
         }
         arg0->x4 = NULL;
         arg0->x17 = -1;
@@ -3167,7 +3167,7 @@ void TQuestVmDownLoadServer__sub_803ECD8C(Node_803ECD8C *p) {
     }
 }
 
-void TQuestVmDownLoadServer__sub_803ECDC4(Node_803ECDC4 *p) {
+void release_node_chain__22TQuestVmDownLoadServerFPv(Node_803ECDC4 *p) {
     u32 prev = 0xFFFFFFFF;
     Node_803ECDC4 *next;
     while (p != NULL) {

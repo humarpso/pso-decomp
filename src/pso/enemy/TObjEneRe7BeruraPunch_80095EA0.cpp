@@ -37,7 +37,7 @@ extern "C" {
 M2C_UNK snap_to_ground__21TObjEneRe7BeruraPunchFPv(void *);
 extern const f32 lbl_805D979C;
 extern const f32 TObjEneRe7BeruraPunch__data_805D97A0;
-void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0);
+void update_velocity_and_snap__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 u8 * csnVector(s32, s32, s32);
 u8 *find_entity_by_id(u16);
 M2C_UNK TObjEneRe7Berura__sub_80094D98();
@@ -47,7 +47,7 @@ extern const f32 lbl_805D97A4;
 extern const f32 lbl_805D97A8;
 void update_flight__21TObjEneRe7BeruraPunchFPv(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094C68(u8 *);
-s32 TObjEneRe7Berura__sub_80094CD0(u8 *);
+s32 reload_stats_from_tables__16TObjEneRe7BeruraFPv(u8 *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 u8 *find_entity_by_id(u16);
 s32 refresh_collision_body_centers(void *, void *, f32, f32);
@@ -134,7 +134,7 @@ extern const f32 lbl_805D97B4;
 
 #pragma push
 #pragma fp_contract on
-void TObjEneRe7BeruraPunch__sub_80095FAC(u8 *arg0) {
+void update_velocity_and_snap__21TObjEneRe7BeruraPunchFPv(u8 *arg0) {
     if (((VObj_14_c1c33b *)((u8 *)(arg0) + (248)))->m4() != 0) {
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
     }
@@ -198,7 +198,7 @@ s32 TObjEneRe7BeruraPunch__sub_80096150(void *arg0) {
         return 1;
     }
     if (temp_r31 != 0) {
-        TObjEneRe7Berura__sub_80094CD0(temp_r31);
+        reload_stats_from_tables__16TObjEneRe7BeruraFPv(temp_r31);
     }
     Pair_80096150 p = lbl_80439F28[0];
     if (check_v2_mode__9TObjEneDDFv() != 0) {

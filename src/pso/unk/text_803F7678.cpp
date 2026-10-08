@@ -153,7 +153,7 @@ extern s32 lbl_805D4808;
 extern s32 lbl_805D480C;
 extern s32 lbl_805D7A48;
 extern s32 lbl_805D7A4C;
-s32 TLobby__sub_803F8564(u8 *arg0);
+s32 validate_and_store_net_params__6TLobbyFPv(u8 *arg0);
 extern s32 lbl_805D7A2C;
 s32 TLobby__sub_803F7D6C(void);
 extern E_803F7684 lbl_804FD350[];
@@ -175,7 +175,7 @@ void queue_thread_main__6TLobbyFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 extern s32 lbl_805D7A2C;
 void TLobby__sub_803F7D54(s32 arg0);
-s32 TLobby__sub_803F7DD8(s32 arg0, s16 arg1);
+s32 map_state_to_code__6TLobbyFis(s32 arg0, s16 arg1);
 s16 TLobby__sub_80427D0C(s16);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32);
@@ -605,7 +605,7 @@ s32 TLobby__sub_803F7D6C(void) {
     }
 }
 
-s32 TLobby__sub_803F7DD8(s32 arg0, s16 arg1) {
+s32 map_state_to_code__6TLobbyFis(s32 arg0, s16 arg1) {
     s32 v;
     switch (arg1) {
     case 0:
@@ -870,7 +870,7 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size) {
 
 #pragma push
 #pragma opt_common_subs off
-s32 TLobby__sub_803F8564(u8 *arg0) {
+s32 validate_and_store_net_params__6TLobbyFPv(u8 *arg0) {
     s32 temp_r5;
     if ((u16) M2C_FIELD(arg0, u16 *, 4) > 0x200U) {
         return -1;

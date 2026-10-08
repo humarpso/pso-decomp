@@ -51,8 +51,8 @@ s32 TLobby__sub_800C6C10();
 void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p);
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p);
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0);
-void TItemEffOrgaFlowShot__sub_80357284(void *arg0);
-void TBoss6Type2__sub_802B9994(u8, u8, Vec_803570E4 *);
+void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0);
+void grid_to_world_pos__11TBoss6Type2FccPv(u8, u8, Vec_803570E4 *);
 void TBoss6Type2__sub_8032F3E0(s32, Vec_803570E4 *, s32);
 void TBoss6Rock__sub_80353EA4(s32 i, s32 a, s32 b);
 void TBoss6Rock__sub_80353EDC(s32 i, s32 a, s32 b);
@@ -65,7 +65,7 @@ M2C_UNK decrement_packed_timer__15TObjBoss2TunnelFPvi(void *, int);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 s32 has_game_join_id();
 M2C_UNK check_hits__14TItemAttackColFPv(void *);
-void TItemEffOrgaFlowShot__sub_80357284(void *arg0);
+void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0);
 void TItemEffOrgaFlowShot__sub_80357358(u8 *arg0);
 extern const f32 lbl_805E0030;
 extern const f32 lbl_805E0034;
@@ -141,7 +141,7 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
             if (p[0] < 0 || p[1] < 0) {
                 break;
             }
-            TBoss6Type2__sub_802B9994(p[0], p[1], &v[i]);
+            grid_to_world_pos__11TBoss6Type2FccPv(p[0], p[1], &v[i]);
             n++;
         }
         TBoss6Type2__sub_8032F3E0(boss, v, n);
@@ -188,7 +188,7 @@ extern s32 some_id_805c6f74;
 #pragma push
 #pragma fp_contract on
 #pragma fp_contract on
-void TItemEffOrgaFlowShot__sub_80357284(void *arg0) {
+void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0) {
     Shot_80357284 *o = (Shot_80357284 *)arg0;
     Vec4_80357284 *dst;
     Vec4_80357284 *src;
@@ -268,7 +268,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }
     }
-    TItemEffOrgaFlowShot__sub_80357284((void *) (arg0));
+    update_segments__20TItemEffOrgaFlowShotFPv((void *) (arg0));
     TItemEffOrgaFlowShot__sub_80357358(arg0);
 }
 
@@ -321,7 +321,7 @@ u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x140) = 0x6040FF40;
     M2C_FIELD(arg0, s32 *, 0xE0) = 0x408840;
     M2C_FIELD(arg0, s32 *, 0x160) = 0x408840;
-    TItemEffOrgaFlowShot__sub_80357284((void *)((void *)(arg0)));
+    update_segments__20TItemEffOrgaFlowShotFPv((void *)((void *)(arg0)));
     TItemEffOrgaFlowShot__sub_80357358((u8 *)(arg0));
     return arg0;
 }

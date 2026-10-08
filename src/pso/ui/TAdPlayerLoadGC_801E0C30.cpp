@@ -87,7 +87,7 @@ extern s32 TAdPlayerLoadGC__data_805D5E38;
 void TAdPlayerLoadGC__sub_801E1350(void);
 s32 CARDGetResultCode(void *);
 extern s32 TAdPlayerLoadGC__data_805D5E40;
-s32 TAdPlayerLoadGC__sub_801E0CE0(s32 arg0);
+s32 check_card_result_code__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDUnmount();
 extern s32 TAdPlayerLoadGC__data_805D5E30;
 void TAdPlayerLoadGC__sub_801E12B0(s32 n);
@@ -171,7 +171,7 @@ void poll_card_load__15TAdPlayerLoadGCFi(s32 arg0) {
     }
 }
 
-s32 TAdPlayerLoadGC__sub_801E0CE0(s32 arg0) {
+s32 check_card_result_code__15TAdPlayerLoadGCFi(s32 arg0) {
     if (arg0 >= 2) {
         return 0;
     }

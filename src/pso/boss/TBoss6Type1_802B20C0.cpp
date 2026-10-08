@@ -97,12 +97,12 @@ s32 TBoss6PlotFalz__sub_802AC17C();
 void enter_flag800_state__11TBoss6Type1FPv(void *arg0);
 void update_attack_countdown__11TBoss6Type1FPv(void *arg0);
 void init_charge_attack__11TBoss6Type1FPv(u8 *arg0);
-void TBoss6Type1__sub_802B2208(u8 *arg0);
+void update_countdown_state__11TBoss6Type1FPv(u8 *arg0);
 void update_if_ready__11TBoss6Type1FPv(void *arg0);
 void set_phase_555__11TBoss6Type1FPv(void* p);
 void update_countdown__11TBoss6Type1FPv(void *arg0);
 void update_state__11TBoss6Type1FPv(void *arg0);
-void TBoss6Type1__sub_802B2400(u8 *arg0);
+void reset_effects__11TBoss6Type1FPv(u8 *arg0);
 void TBoss6Type1__sub_802B245C(void *arg0);
 void TBoss6Type1__sub_802B24B4(u8 *arg0);
 void update_attack_timer__11TBoss6Type1FPv(void *arg0);
@@ -173,7 +173,7 @@ s32 TBoss6Type1__sub_802B5D9C();
 s32 is_field3F8_over_0x20__11TBoss6Type1FPv(void *);
 s32 TBoss6Type1__sub_802B5E48();
 s32 is_ready__11TBoss6Type1FPv(void *);
-s32 TBoss6Type1__sub_802B5ED8(void *);
+s32 check_field4b0_threshold__11TBoss6Type1FPv(void *);
 int is_time_up__11TBoss6Type1FPv(void *);
 M2C_UNK set_flag_on_threshold__11TBoss6Type1FPv(void *);
 s32 TBoss6Type1__sub_802B6060(void *);
@@ -269,7 +269,7 @@ void init_charge_attack__11TBoss6Type1FPv(u8 *arg0) {
     release_effect_slot__11TBoss6Type1Fii((void*)(arg0), (void*)(1));
 }
 
-void TBoss6Type1__sub_802B2208(u8 *arg0) {
+void update_countdown_state__11TBoss6Type1FPv(u8 *arg0) {
     s32 temp_r0;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x410) == (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x40C) - lbl_805DE2A8)) {
         release_effect_slot__11TBoss6Type1Fii((void*)((s32) arg0), (void*)(3));
@@ -314,7 +314,7 @@ void update_state__11TBoss6Type1FPv(void *arg0) {
     }
 }
 
-void TBoss6Type1__sub_802B2400(u8 *arg0) {
+void reset_effects__11TBoss6Type1FPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x40C) = 0x1E;
     M2C_FIELD(arg0, s32 *, 0x410) = 0x1E;
     VecCopy__FP3VecPC3Vec(arg0 + 0x420, &(*(RecoveredGlobal_802B2400_lbl_80470CA4 *)&lbl_80470CA4).value);
@@ -610,7 +610,7 @@ void tick_trap_countdown__11TBoss6Type1FPv(u8 *arg0) {
 }
 
 void TBoss6Type1__sub_802B2F00(u8 *arg0) {
-    if ((((f32) M2C_FIELD(arg0, s32 *, 0x410) / (f32) M2C_FIELD(arg0, s32 *, 0x40C)) < lbl_805DE2B8) && (TBoss6Type1__sub_802B5ED8(arg0) != 0)) {
+    if ((((f32) M2C_FIELD(arg0, s32 *, 0x410) / (f32) M2C_FIELD(arg0, s32 *, 0x40C)) < lbl_805DE2B8) && (check_field4b0_threshold__11TBoss6Type1FPv(arg0) != 0)) {
         do_attack__11TBoss6Type1FPv(arg0);
         return;
     }

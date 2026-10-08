@@ -17,7 +17,7 @@ struct S_8003C2E4 {
 extern "C" {
 extern s32 lbl_804834BC[];
 extern s32 lbl_804834D4[];
-void TObjBoss2Tunnel__sub_8003C374(Obj_8003C374 *self);
+void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self);
 extern s32 lbl_80483550[];
 void TObjBoss2Tunnel__sub_8003C2A0(Obj_8003C2A0 *self);
 extern s32 lbl_804834D4[];
@@ -69,7 +69,7 @@ void TObjBoss2Tunnel__sub_8003C2E4(S_8003C2E4 *o) {
     }
 }
 
-void TObjBoss2Tunnel__sub_8003C374(Obj_8003C374 *self) {
+void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self) {
     s32 k = self->start;
     s32 n = 6 - k;
     s32 i;

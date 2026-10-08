@@ -220,7 +220,7 @@ void TBoss4DarkFalz__sub_8004B084(u8 *arg0);
 extern RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 TBoss4DarkFalz__data_80485108;
 void TBoss4DarkFalz__sub_8004B0F8(u8 *arg0);
 extern s32 lbl_805D586C;
-s32 TBoss4DarkFalz__sub_8004AFC4(void);
+s32 count_active_players__14TBoss4DarkFalzFv(void);
 void set_code_25_4__14TBoss4DarkFalzFPv(void *p);
 void swap_and_send__14TBoss4DarkFalzFPv(void *p);
 void send_code_25_4__14TBoss4DarkFalzFPvi(Obj_8004B16C *self, s32 arg);
@@ -321,7 +321,7 @@ s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
 
 void TBoss4DarkFalz__sub_8004AFB8(void* p) { *(s32*)((char*)p + 0x384) = 1; }
 
-s32 TBoss4DarkFalz__sub_8004AFC4(void) {
+s32 count_active_players__14TBoss4DarkFalzFv(void) {
     s32 count = 0;
     s32 i;
     for (i = 0; i < lbl_805D586C; i++) {

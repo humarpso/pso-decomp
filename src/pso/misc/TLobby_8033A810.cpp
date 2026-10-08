@@ -13,7 +13,7 @@ extern const s32 lbl_80477D18[];
 extern const s32 lbl_80477D2C[];
 extern const s32 lbl_805D5544;
 extern u32 lbl_805D6D78;
-void TLobby__sub_8033A844(void);
+void update_menu_cursor_selection__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void free_global_object__6TLobbyFv(void) {
         lbl_805D6D78 = 0U;
     }
 }
-void TLobby__sub_8033A844(void) {
+void update_menu_cursor_selection__6TLobbyFv(void) {
     update_menu_cursor__6TLobbyFv();
     Tbl_8033A844 a = *(const Tbl_8033A844 *)lbl_80477D18;
     Tbl_8033A844 b = *(const Tbl_8033A844 *)lbl_80477D2C;

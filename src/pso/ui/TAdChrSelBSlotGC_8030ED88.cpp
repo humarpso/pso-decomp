@@ -46,7 +46,7 @@ M2C_UNK TAdChrSelMovePlateGC__sub_8032572C(s32);
 M2C_UNK TAdChrSelSlotGC__sub_802C7498(s32, M2C_UNK);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, M2C_UNK, f32);
 M2C_UNK init_slot__13TAdMcSelectGCFPviPv(s32, M2C_UNK, M2C_UNK *);
-s32 TAdPlayerLoadGC__sub_801E0CE0(M2C_UNK);
+s32 check_card_result_code__15TAdPlayerLoadGCFi(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
 s32 TAdPlayerLoadGC__sub_801E24F8(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK TAdPlyChrSelPlateGC__sub_802C4D88(s32);
@@ -69,7 +69,7 @@ void update_slot_state__16TAdChrSelBSlotGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x70) = 0U;
     }
     if ((u32) (TAdPlayerLoadGC__sub_801E1B50(1) + 0x10000) != 0xFFFFU) {
-        if ((TAdPlayerLoadGC__sub_801E0CE0(1) != 0) && (TAdPlayerLoadGC__sub_801E1B50(1) == 0)) {
+        if ((check_card_result_code__15TAdPlayerLoadGCFi(1) != 0) && (TAdPlayerLoadGC__sub_801E1B50(1) == 0)) {
             M2C_FIELD(arg0, s32 *, 0x74) = TAdChrSelASlotGC__sub_8030C688(get_global_slot_data__16TAdChrSelBSlotGCFv(), 1);
             M2C_FIELD(arg0, s32 *, 0x1C) = 0xA;
             return;
@@ -450,7 +450,7 @@ extern "C" void TAdChrSelBSlotGC__sub_8030E458();
 extern "C" void TAdChrSelBSlotGC__sub_8030E550();
 extern "C" void TAdChrSelBSlotGC__sub_8030E620();
 extern "C" void TAdChrSelBSlotGC__sub_8030E624();
-extern "C" void TAdChrSelBSlotGC__sub_8030E6E0();
+extern "C" void reset_plate_positions__16TAdChrSelBSlotGCFPv();
 extern "C" void TAdChrSelBSlotGC__sub_8030E768();
 extern "C" void TAdChrSelBSlotGC__sub_8030E824();
 extern "C" void TAdChrSelBSlotGC__sub_8030E8E0();
@@ -521,7 +521,7 @@ void *lbl_804E7B14[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E768,
 };
 void *lbl_804E7B20[3] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E6E0,
+    (void *)0x0, (void *)0xffffffff, (void *)&reset_plate_positions__16TAdChrSelBSlotGCFPv,
 };
 void *lbl_804E7B2C[3] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TAdChrSelBSlotGC__sub_8030E624,

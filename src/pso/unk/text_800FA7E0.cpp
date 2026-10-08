@@ -8,12 +8,12 @@ M2C_UNK free_static_buffer__6TLobbyFPv(void *);
 extern s32 lbl_805D5360;
 extern u32 lbl_805D5364;
 extern s32 lbl_805D5368;
-u8 *TLobby__sub_800FA7E0(u8 *arg0, s16 arg1);
+u8 *pop_stack_entry__6TLobbyFPvs(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
 
-u8 *TLobby__sub_800FA7E0(u8 *arg0, s16 arg1) {
+u8 *pop_stack_entry__6TLobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) lbl_805D5364 == (u32)arg0) {
             lbl_805D5364 = 0U;

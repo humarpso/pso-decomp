@@ -66,7 +66,7 @@ void check_cancel_and_close__16TAdChrSelBSlotGCFPv(u8 *arg0);
 M2C_UNK TAdPlyChrSelPlateGC__sub_802C4DD0(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
-void TAdChrSelBSlotGC__sub_8030E6E0(u8 *arg0);
+void reset_plate_positions__16TAdChrSelBSlotGCFPv(u8 *arg0);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
 bool is_slot_state_one__16TAdChrSelBSlotGCFiUi(M2C_UNK arg0, u32 arg1);
 s32 get_state_flag__9TMainTaskFv();
@@ -164,7 +164,7 @@ void enter_state17__16TAdChrSelBSlotGCFPv(void *arg0) {
 void TAdChrSelBSlotGC__sub_8030E620(void) {  }
 
 typedef char RecoveredGlobal_8030E6E0_lbl_804758E8_size[sizeof(RecoveredGlobal_8030E6E0_lbl_804758E8) == 0x20 ? 1 : -1];
-void TAdChrSelBSlotGC__sub_8030E6E0(u8 *arg0) {
+void reset_plate_positions__16TAdChrSelBSlotGCFPv(u8 *arg0) {
     if (get_global_state__16TAdChrSelBSlotGCFv((void *)(arg0)) == 0x19) {
         TAdPlyChrSelPlateGC__sub_802C4DD0((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) (&lbl_804758E8.value));
         TAdPlyChrSelPlateGC__sub_802C4DD0((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&lbl_804758E8.value + 8));

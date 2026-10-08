@@ -58,7 +58,7 @@ void TLobby__sub_803C588C(void);
 void TLobby__sub_803C90B0(void);
 void flush_update__6TLobbyFv(void *, int);
 void TLobby__sub_803CC114(void);
-void TLobby__sub_803CC1D0(void);
+void init_afs_adxf_state__6TLobbyFv(void);
 void TLobby__sub_803D1CC0(void);
 void TLobby__sub_803D25DC(void);
 void TLobby__sub_803D2E44(void);
@@ -106,7 +106,7 @@ M2C_UNK TLobby__sub_803D259C();
 M2C_UNK TLobby__sub_803D2E04();
 M2C_UNK TLobby__sub_803D2E94();
 M2C_UNK TLobby__sub_803D3194();
-M2C_UNK TLobby__sub_803D33F4();
+M2C_UNK set_callback_params__6TLobbyFii();
 M2C_UNK SVM_DelCbSvr__6TLobbyFii(int, void *);
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK release_ref__6TLobbyFv();
@@ -342,7 +342,7 @@ void notify_error__6TLobbyFPv(const char *arg0) {
 void set_params__6TLobbyFii(s32 arg0, s32 arg1) {
     lobby_error_callback = arg0;
     tlobby_error_callback_arg = arg1;
-    TLobby__sub_803D33F4();
+    set_callback_params__6TLobbyFii();
 }
 
 extern s32 lbl_805D7530;
@@ -416,7 +416,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         TLobby__sub_803C588C();
         TLobby__sub_803C90B0();
         reset_sound_buffers__6TLobbyFv();
-        TLobby__sub_803CC1D0();
+        init_afs_adxf_state__6TLobbyFv();
         TLobby__sub_803CC114();
         flush_update__6TLobbyFv((void *)TLobby__sub_803C5B2C, 0);
         memset(lbl_80572120, 0, 0xA80);

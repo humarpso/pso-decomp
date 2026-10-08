@@ -1295,7 +1295,7 @@ struct Src_801F8F14 {
     u32 f38;
 };
 
-void TQuestVmDownLoadServer__sub_801F8F14(void) {
+void reset_download_state__22TQuestVmDownLoadServerFv(void) {
     TQuestVmDownLoadServer__data_805D5F00 = 0;
     TQuestVmDownLoadServer__data_805D5F04 = 0;
     TQuestVmDownLoadServer__data_805D5F08 = 0;

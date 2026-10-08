@@ -58,13 +58,13 @@ void update_trade_window__19TWindowSubTradeMainFPv(u32);
 extern u8 TLobby__data_80540BD0[];
 extern s8 TLobby__data_805D688A;
 extern u32 TLobby__data_805D6898;
-void TLobby__sub_802D35B0(S_802D35B0 *arg0);
+void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0);
 void transfer_trade_item_amount__6TLobbyFPvUii(void *, s32, s32, void *);
 void update_trade_window__19TWindowSubTradeMainFPv(u32);
 extern u8 TLobby__data_80540BD0[];
 extern s8 TLobby__data_805D688A;
 extern u32 TLobby__data_805D6898;
-void TLobby__sub_802D3544(S_802D3544 *arg0);
+void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0);
 M2C_UNK get_shared_text_buffer();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK refresh_player_status__6TLobbyFv(int);
@@ -132,7 +132,7 @@ void update_flag_by_state__6TLobbyFPv(void *arg0) {
     }
 }
 
-void TLobby__sub_802D3544(S_802D3544 *arg0) {
+void handle_trade_item_amount__6TLobbyFPv(S_802D3544 *arg0) {
     s32 t = arg0->f5;
     switch (t) {
     case 0:
@@ -149,7 +149,7 @@ void TLobby__sub_802D3544(S_802D3544 *arg0) {
     }
 }
 
-void TLobby__sub_802D35B0(S_802D35B0 *arg0) {
+void handle_trade_item_move__6TLobbyFPv(S_802D35B0 *arg0) {
     s32 t = arg0->f5;
     switch (t) {
     case 0:

@@ -238,7 +238,7 @@ extern char lbl_8047C758[];
 void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
 M2C_UNK OSResumeThread(void *);
 M2C_UNK VIWaitForRetrace();
-M2C_UNK TLobby__sub_803D3344();
+M2C_UNK run_callbacks_group2__6TLobbyFv();
 extern u8 lbl_80575E80[];
 extern Cb_803CBA58 lbl_805D4680;
 extern s32 lbl_805D7540;
@@ -455,8 +455,8 @@ void set_rate_mode__6TLobbyFi(s32 arg0);
 s32 try_post_command__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_receive_check__6TLobbyFPv(u8 *arg0);
 u32 PADReceiveCheckCallback(int, int, int, void *, int, int);
-M2C_UNK TLobby__sub_803D3344();
-M2C_UNK TLobby__sub_803D33F4();
+M2C_UNK run_callbacks_group2__6TLobbyFv();
+M2C_UNK set_callback_params__6TLobbyFii();
 u32 dispatch_receive_update__6TLobbyFv(int, int, int, void *, int, void *, int, int);
 M2C_UNK memset(void *, int, int);
 s32 notify_field_4__6TLobbyFPv(int);
@@ -1333,11 +1333,11 @@ s32 TLobby__sub_803CB844(void) {
 }
 
 void TLobby__sub_803CBA18(void) {
-    TLobby__sub_803D33F4();
+    set_callback_params__6TLobbyFii();
 }
 
 void TLobby__sub_803CBA38(void) {
-    TLobby__sub_803D3344();
+    run_callbacks_group2__6TLobbyFv();
 }
 
 void worker_thread_loop__6TLobbyFv(void) {
@@ -1361,7 +1361,7 @@ void TLobby__sub_803CBB14(void) {
         VIWaitForRetrace();
         lbl_805D75A0++;
         lbl_805D7540++;
-        TLobby__sub_803D3344();
+        run_callbacks_group2__6TLobbyFv();
         if (lbl_805D75BC == 0) {
             OSResumeThread(lbl_80575E80);
             if (lbl_805D4680.fn != NULL) {

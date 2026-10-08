@@ -33,7 +33,7 @@ extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 lbl_805DF52C;
 extern const f32 lbl_805DF530;
 extern const f32 lbl_805DF534;
-s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0);
+s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -55,7 +55,7 @@ extern s32 lbl_805D6C30;
 extern u8 lbl_805D6C34;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF538;
-s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0);
+s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0);
 void run_task__13TBoss6KakusanFv(u8 *arg0);
 }
 
@@ -71,7 +71,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 
 int TBoss6Kakusan__sub_8032263C(void) { return 0; }
 
-s32 TBoss6Kakusan__sub_80322644(Obj_80322644 *arg0) {
+s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0) {
     if (arg0->pos.y < lbl_805DF52C || arg0->pos.y > lbl_805DF530) {
         return 1;
     }
@@ -138,7 +138,7 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         *(s32 *)&b.y = 0;
         copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0x54), &b);
     }
-    if (TBoss6Kakusan__sub_80322644((Obj_80322644 *)arg0) != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
+    if (is_out_of_range__13TBoss6KakusanFPv((Obj_80322644 *)arg0) != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }

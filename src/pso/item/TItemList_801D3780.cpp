@@ -100,7 +100,7 @@ u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8
 u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 M2C_UNK TItemList__sub_801D5884(void *, int);
 extern M2C_UNK lbl_804C4480[];
-u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
+u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
 s32 get_lobby_flag__6TLobbyFv(void);
 s32 get_enemy_count__9TObjEneDDFv(void);
 s32 get_game_mode__6TLobbyFv(void);
@@ -269,7 +269,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
     void *o;
     o = __nw__7TObjectFUl(0x58);
     if (o != NULL) {
-        o = TItemList__sub_801D3BD4((u8 *)(o), (u8 *)(tl_07), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), arg3);
+        o = ct_init_placement_ring__9TItemListFPvPviPvPvc((u8 *)(o), (u8 *)(tl_07), (s32)(arg0), (u8 *)(arg1), (u8 *)(arg2), arg3);
     }
     return o;
 }
@@ -292,7 +292,7 @@ void *TItemList__sub_801D3B64(void *arg0, s16 arg1) {
 extern M2C_UNK lbl_804C4498[];
 
 typedef char RecoveredGlobal_801D3BD4_lbl_804C4480_size[sizeof(RecoveredGlobal_801D3BD4_lbl_804C4480) == 0x18 ? 1 : -1];
-u8 *TItemList__sub_801D3BD4(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
+u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
     TItemList__sub_801D401C((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&lbl_804C4480).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;

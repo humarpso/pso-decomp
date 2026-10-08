@@ -224,7 +224,7 @@ extern char lbl_8044BF50[];
 void load_selected_slot__12TQuestListVMFPv(u8 *arg0);
 s32 strcmp(const char *, const char *);
 extern s32 lbl_805D5544;
-s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e);
+s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 *e);
 int obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -762,7 +762,7 @@ M2C_UNK build_download_list__12TQuestListVMFPv(void *p) {
 }
 #undef arg0
 
-s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e) {
+s32 is_downloadable_new_entry__12TQuestListVMFPvPv(QL_802193F0 *q, Ent_802193F0 *e) {
     s32 i;
     if (e->a == -1 || e->c == -1) {
         return 0;
@@ -798,7 +798,7 @@ void process_download_entry__12TQuestListVMFPv(QL_802194BC *q) {
                 set_field_20__12TQuestListVMFPvi(arg0, (void *)2);
             } else if (decrypt_quest_data__12TQuestListVMFPviiUi(dl.data + 8, dl.size - 8, TQuestListVM__data_805D6200, TQuestListVM__data_805D6204) != 0) {
                 e = (Ent_802194BC *)TQuestListVM__data_805D6200;
-                if (TQuestListVM__sub_802193F0((QL_802193F0 *)arg0, (Ent_802193F0 *)e) != 0) {
+                if (is_downloadable_new_entry__12TQuestListVMFPvPv((QL_802193F0 *)arg0, (Ent_802193F0 *)e) != 0) {
                     memcpy(q->recs[count].name, e->name, 0x20);
                     memcpy(q->recs[count].desc, e->desc, 0x80);
                     q->recs[count].type = e->c;

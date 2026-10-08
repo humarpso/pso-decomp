@@ -99,7 +99,7 @@ void *create__17TChCrTagPlGraphicFPv(void *arg0) {
 struct Ent_802A3534 { f32 a; f32 b; u8 pad[0x10]; };
 extern f32 lbl_804665C4[];
 
-void TChCrTagPlGraphic__sub_802A3534(void) {
+void create_matching_tags__17TChCrTagPlGraphicFv(void) {
     s32 i, j;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 12; j++) {

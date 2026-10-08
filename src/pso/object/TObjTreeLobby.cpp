@@ -88,7 +88,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
 void queue_destruction__7TObjectFv(void *);
 Ctrl_80364B6C *get_player_by_client_id(u16);
-void TObjTreeLobby__sub_80364B6C(Obj_80364B6C *arg0);
+void send_destroy_to_player__13TObjTreeLobbyFPv(Obj_80364B6C *arg0);
 void *TObjTreeLobby__sub_80364BE8(void *arg0, s16 arg1);
 void *__dt__13TObjTreeLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -204,7 +204,7 @@ void *TObjTreeLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6FC4;
     return arg0;
 }
-void TObjTreeLobby__sub_80364B6C(Obj_80364B6C *arg0) {
+void send_destroy_to_player__13TObjTreeLobbyFPv(Obj_80364B6C *arg0) {
     Ctrl_80364B6C *c = get_player_by_client_id(arg0->h20);
     if (c != 0) {
         P_80364B6C sp10;

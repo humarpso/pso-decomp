@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #include <stddef.h>
 struct Obj_8004D8C8;
 struct Obj_8004D92C;
-extern "C" void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
-extern "C" void TBoss4DarkFalz__sub_8004D92C(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out);
+extern "C" void get_defeat_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
+extern "C" void get_demo2_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out);
 extern "C" s32 TBoss4DarkFalz__sub_8004D990(u8 *arg0);
 extern "C" void TBoss4DarkFalz__sub_8004D9A0(void* p, s32 v);
 struct Stack_8004C5E8 {
@@ -80,7 +80,7 @@ void change_state__14TBoss4DarkFalzFPvi(void*, M2C_UNK);
 s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
 extern const f32 TBoss4DarkFalz__data_805D893C;
 extern const f32 lbl_805D8944;
-void TBoss4DarkFalz__sub_8004C704(u8 *arg0);
+void update_countdown_shrink__14TBoss4DarkFalzFPv(u8 *arg0);
 void change_state__14TBoss4DarkFalzFPvi(void*, M2C_UNK);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 TBoss4DarkFalz__sub_8004B730(void *, f32, int);
@@ -223,7 +223,7 @@ void begin_defeat_sequence__14TBoss4DarkFalzFPv(u8 *arg0) {
         create__11TObjDFDemo5FPvPvPv(arg0, lbl_80485454, 0);
     }
     if ((void *) (*(u8 * *)&TBoss4DarkFalz__data_805D4D64) != NULL) {
-        ((M2C_UNK (*)(void *, void *, void *, void *))TBoss4DarkFalz__sub_8004D8C8)((*(u8 * *)&TBoss4DarkFalz__data_805D4D64), arg0 + 0x2D6, arg0 + 0x2D4, sp8);
+        ((M2C_UNK (*)(void *, void *, void *, void *))get_defeat_params__14TBoss4DarkFalzFPvPvPvPv)((*(u8 * *)&TBoss4DarkFalz__data_805D4D64), arg0 + 0x2D6, arg0 + 0x2D4, sp8);
         queue_destruction__7TObjectFv((*(u8 * *)&TBoss4DarkFalz__data_805D4D64));
         (*(u8 * *)&TBoss4DarkFalz__data_805D4D64) = NULL;
         var_r29 = 0;
@@ -272,7 +272,7 @@ void TBoss4DarkFalz__sub_8004C5E8(u8 *arg0) {
 
 void enter_state_126__14TBoss4DarkFalzFPv(void* a0) { *(int*)((char*)a0 + 0x380) = 126; lbl_805D4D68 = 2; TBoss4DarkFalz__sub_8004B7DC(); push_players_out_of_zone__14TBoss4DarkFalzFii(a0, (void*)2); }
 
-void TBoss4DarkFalz__sub_8004C704(u8 *arg0) {
+void update_countdown_shrink__14TBoss4DarkFalzFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     temp_f1 = TBoss4DarkFalz__data_805D893C - ((f32) M2C_FIELD(arg0, s32 *, 0x380) / lbl_805D8944);
@@ -449,7 +449,7 @@ void enter_demo2_phase__14TBoss4DarkFalzFPv(Obj_8004C940 *arg0) {
     create_demo2__14TBoss4DarkFalzFPvPvPvPv(arg0, &arg0->pos, arg0->f3a8, flag);
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x35);
     if ((u32)TBoss4DarkFalz__data_805D4D60 != 0) {
-        ((void (*)(void *, u16 *, u16 *, u16 *))TBoss4DarkFalz__sub_8004D92C)((void *)TBoss4DarkFalz__data_805D4D60, &arg0->f2d6, &arg0->f2d4, arr);
+        ((void (*)(void *, u16 *, u16 *, u16 *))get_demo2_params__14TBoss4DarkFalzFPvPvPvPv)((void *)TBoss4DarkFalz__data_805D4D60, &arg0->f2d6, &arg0->f2d4, arr);
         queue_destruction__7TObjectFv((void *)TBoss4DarkFalz__data_805D4D60);
         TBoss4DarkFalz__data_805D4D60 = 0;
         for (i = 0; i < 4; i++) {
@@ -612,9 +612,9 @@ struct V_8004D1E4 { f32 x, y, z; };
 extern "C" {
 s32 TBoss4DarkFalz__sub_8004D990(u8 *arg0);
 u16 obj_getArrU16_FC(void *obj, s32 i);
-void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
+void get_defeat_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out);
 u16 obj_getArrU16_FC(void *obj, s32 i);
-void TBoss4DarkFalz__sub_8004D92C(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out);
+void get_demo2_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out);
 void *get_player_data__10TObjPlayerFi(s32);
 f32 horizontal_distance_squared(void *, void *);
 extern s32 lbl_805D586C;
@@ -691,7 +691,7 @@ void check_players_near_center__14TBoss4DarkFalzFPv(void *self) {
 
 void TBoss4DarkFalz__sub_8004D29C(void* p) { if (check_demo_mode__10TObjPlayerFv(p) == 0) { ((int (*)(void*, void*))change_state__14TBoss4DarkFalzFPvi)(p, (void*)1); } }
 
-void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
+void get_defeat_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) {
     s32 i;
     *a = self->f2d6;
     *b = self->f2d4;
@@ -700,7 +700,7 @@ void TBoss4DarkFalz__sub_8004D8C8(Obj_8004D8C8 *self, u16 *a, u16 *b, u16 *out) 
     }
 }
 
-void TBoss4DarkFalz__sub_8004D92C(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out) {
+void get_demo2_params__14TBoss4DarkFalzFPvPvPvPv(Obj_8004D92C *self, u16 *a, u16 *b, u16 *out) {
     s32 i;
     *a = self->f2d6;
     *b = self->f2d4;

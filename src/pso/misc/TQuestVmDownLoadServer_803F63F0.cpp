@@ -146,7 +146,7 @@ s32 parse_config_int__22TQuestVmDownLoadServerFPvUi(char *s, u32 n);
 char *strncpy(char *, const char *, unsigned long);
 s32 fn_803F71BC(char *);
 extern s32 lbl_805D79E8;
-s32 TQuestVmDownLoadServer__sub_803F70C0(char *s, u32 n);
+s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n);
 }
 
 extern "C" {
@@ -155,7 +155,7 @@ extern "C" {
 #pragma peephole off
 #pragma scheduling off
 #define GET(f) parse_config_int__22TQuestVmDownLoadServerFPvUi(s, n)
-#define GETL() TQuestVmDownLoadServer__sub_803F70C0(s, n)
+#define GETL() get_config_line__22TQuestVmDownLoadServerFPvUi(s, n)
 #define CPY(dst, len) TQuestVmDownLoadServer__sub_803F7128(dst, s, n, len)
 s32 parse_config_line__22TQuestVmDownLoadServerFPvUiPv(char *s, u32 n, Q_803F63F0 *q) {
     char buf[8];
@@ -319,7 +319,7 @@ s32 parse_config_int__22TQuestVmDownLoadServerFPvUi(char *s, u32 n) {
 #pragma push
 #pragma peephole off
 #pragma scheduling off
-s32 TQuestVmDownLoadServer__sub_803F70C0(char *s, u32 n) {
+s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n) {
     char buf[0x20];
     s32 r;
     if (n > 0x20) {

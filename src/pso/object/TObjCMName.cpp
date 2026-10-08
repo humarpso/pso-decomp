@@ -414,7 +414,7 @@ void open_name_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_proportion_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_auto_mk_menu__14TObjCMMainMenuFPv(void *arg0);
 void open_hair_menu__14TObjCMMainMenuFPv(void *arg0);
-void TObjCMMainMenu__sub_8029756C(u8 *arg0);
+void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0);
 void draw_footer_divider__14TObjCMMainMenuFPv(Menu_80297DB8 *self);
 void TObjCMMainMenu__vt7(void);
 void TObjCMMainMenu__sub_80298310(void);
@@ -533,11 +533,11 @@ extern void *lbl_804DBAA0[2];
 extern void *lbl_804DBAA8[3];
 extern void *lbl_804DBAB4[5];
 void *TObjCMMainMenu__data_804DB950[30] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0,
-    (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0, (void *)0xffffffff,
-    (void *)&open_hair_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C,
-    (void *)0x0, (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0,
-    (void *)0xffffffff, (void *)&TObjCMMainMenu__sub_8029756C, (void *)0x0, (void *)0xffffffff,
+    (void *)0x0, (void *)0xffffffff, (void *)&open_assign_menu__14TObjCMMainMenuFPv, (void *)0x0,
+    (void *)0xffffffff, (void *)&open_assign_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff,
+    (void *)&open_hair_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff, (void *)&open_assign_menu__14TObjCMMainMenuFPv,
+    (void *)0x0, (void *)0xffffffff, (void *)&open_assign_menu__14TObjCMMainMenuFPv, (void *)0x0,
+    (void *)0xffffffff, (void *)&open_assign_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff,
     (void *)&open_proportion_menu__14TObjCMMainMenuFPv, (void *)0x0, (void *)0xffffffff, (void *)&open_name_menu__14TObjCMMainMenuFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&open_auto_mk_menu__14TObjCMMainMenuFPv, (void *)0x0,
     (void *)0xffffffff, (void *)&confirm_selection__14TObjCMMainMenuFPv,
@@ -1406,7 +1406,7 @@ void open_hair_menu__14TObjCMMainMenuFPv(void *arg0) {
     ((M2C_UNK (*)(s32))create__14TObjCMHairMenuFPv)(M2C_FIELD(arg0, s32 *, 0x50));
 }
 
-void TObjCMMainMenu__sub_8029756C(u8 *arg0) {
+void open_assign_menu__14TObjCMMainMenuFPv(u8 *arg0) {
     play_sound_effect((s32)(0x52D01), (s32)(0U), (s32)(0), (s32)(0));
     TObjCMMainMenu__data_805D659C = 1;
     ((s32 (*)(s32, s32))create__16TObjCMAssignMenuFPvPv)(M2C_FIELD(arg0, s32 *, 0x50), M2C_FIELD(&TObjCMMainMenu__data_804DB9C8.value, M2C_UNK *, (M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x24), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x2C) * 4)) * 0x10)));

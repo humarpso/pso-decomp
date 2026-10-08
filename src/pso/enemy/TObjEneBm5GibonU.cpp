@@ -193,7 +193,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 enemy_validate_retained_target(void *);
 s32 check_v2_mode__9TObjEneDDFv();
-M2C_UNK TObjEneDD__sub_800BA318(void *, void *);
+M2C_UNK send_damage_message__9TObjEneDDFiPv(void *, void *);
 M2C_UNK TObjEneDD__sub_800BA378(void *, void *);
 M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -2101,8 +2101,8 @@ void queue_destruction__7TObjectFv(void *self);
 void TObjEneBm5GibonU__sub_800CD5B8(void *self, s32 msg);
 extern s32 lbl_805D5550;
 s32 TObjEneBm5GibonU__sub_800CCB24(Obj_800CCB24 *self);
-void TObjEneBm5GibonU__sub_800D086C(Obj_800D086C *self);
-void TObjEneBm5GibonU__sub_800D08E4(Obj_800D08E4 *self);
+void damage_linked_entity__16TObjEneBm5GibonUFPv(Obj_800D086C *self);
+void damage_linked_entity_type10__16TObjEneBm5GibonUFPv(Obj_800D08E4 *self);
 s32 fn_8002B630(Col_800CCB74 *, void *);
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 u8 check_hit_sphere__16TObjEneBm5GibonUFPvif(Ene_800CCB74 *arg0, s32 arg1, f32 scale);
@@ -3071,9 +3071,9 @@ void action__16TObjEneBm5GibonUFPvi(u8 *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x518) = (s32) (M2C_FIELD(arg0, s32 *, 0x518) + 1);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x518);
         if (temp_r0 == 0x1E) {
-            TObjEneBm5GibonU__sub_800D08E4((Obj_800D08E4 *)(arg0));
+            damage_linked_entity_type10__16TObjEneBm5GibonUFPv((Obj_800D08E4 *)(arg0));
         } else if (temp_r0 == 0x28) {
-            TObjEneBm5GibonU__sub_800D086C((Obj_800D086C *)(arg0));
+            damage_linked_entity__16TObjEneBm5GibonUFPv((Obj_800D086C *)(arg0));
         }
         ((VObj_CE_800CCC4C *)arg0)->m87();
         update_enemy_collision_flags__10TObjPlayerFPv(arg0);
@@ -3343,7 +3343,7 @@ void TObjEneBm5GibonU__sub_800CEBD8(u8 *arg0, s32 arg1) {
                             if ((s32) M2C_FIELD(arg0, s32 *, 0x464) != 0) {
                                 TObjEneDD__sub_800BA378((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x390)));
                             } else {
-                                TObjEneDD__sub_800BA318((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x390)));
+                                send_damage_message__9TObjEneDDFiPv((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x390)));
                             }
                         }
                     }
@@ -3984,7 +3984,7 @@ void TObjEneBm5GibonU__sub_800D0738(u8 *arg0, u32 arg1, s32 arg2) {
     }
 }
 
-void TObjEneBm5GibonU__sub_800D086C(Obj_800D086C *self) {
+void damage_linked_entity__16TObjEneBm5GibonUFPv(Obj_800D086C *self) {
     u8 *r = find_entity_by_id(self->f474);
     if (r != 0) {
         Dmg_800D086C d;
@@ -3994,7 +3994,7 @@ void TObjEneBm5GibonU__sub_800D086C(Obj_800D086C *self) {
     }
 }
 
-void TObjEneBm5GibonU__sub_800D08E4(Obj_800D08E4 *self) {
+void damage_linked_entity_type10__16TObjEneBm5GibonUFPv(Obj_800D08E4 *self) {
     u8 *r = find_entity_by_id(self->f474);
     if (r != 0) {
         Dmg_800D08E4 d;
@@ -4088,7 +4088,7 @@ struct Obj_800D0BD8 { u8 pad[0x38]; Vec_800D0BD8 pos; };
 
 extern "C" {
 f32 newton_sqrtf(f32);
-f32 TObjEneBm5GibonU__sub_800D0BD8(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2);
+f32 calc_xz_direction_to__16TObjEneBm5GibonUFPvPvPv(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2);
 }
 
 extern "C" {
@@ -4136,7 +4136,7 @@ void set_flag__16TObjEneBm5GibonUFPv(void* p) { *(u32*)((char*)p + 0x4ac) |= 0x1
 
 #pragma push
 #pragma fp_contract on
-f32 TObjEneBm5GibonU__sub_800D0BD8(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2) {
+f32 calc_xz_direction_to__16TObjEneBm5GibonUFPvPvPv(Obj_800D0BD8 *arg0, Vec_800D0BD8 *arg1, Vec_800D0BD8 *arg2) {
     f32 dx;
     f32 dz;
     dx = arg0->pos.x - arg1->x;
@@ -4731,7 +4731,7 @@ void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self);
 s32 __dt__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
 void* reset__16TObjEneBm5GibonUFPv(void* p);
 void __register_global_object(void *obj, void *dtor, void *chain);
-void TObjEneBm5GibonU__sub_800D1D14(void);
+void register_global_objects__16TObjEneBm5GibonUFv(void);
 void __dt__9TObjEneDDFv(void *, s32);
 void TObjEneBm5GibonU__sub_800D18AC(s32 arg0);
 s32 destroy__16TObjEneBm5GibonUFis(s32 arg0, s16 arg1);
@@ -5131,7 +5131,7 @@ void TObjEneBm5GibonU__sub_800D1CF8(O_800D1CF8 *self) {
 
 #pragma push
 #pragma opt_propagation off
-void TObjEneBm5GibonU__sub_800D1D14(void) {
+void register_global_objects__16TObjEneBm5GibonUFv(void) {
     G_800D1D14 *g = &TObjEneBm5GibonU__data_80500E78;
     __register_global_object(reset__16TObjEneBm5GibonUFPv(g->obj1), (void *)__dt__16TObjEneBm5GibonUFis, g->chain1);
     __register_global_object(reset__16TObjEneBm5GibonUFPv(g->obj2), (void *)__dt__16TObjEneBm5GibonUFis, g->chain2);

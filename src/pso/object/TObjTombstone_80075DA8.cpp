@@ -24,7 +24,7 @@ extern const f32 TObjTombstone__data_805D9178;
 extern const f32 TObjTombstone__data_805D917C;
 extern const f32 lbl_805D91B4;
 extern const f32 lbl_805D91B8;
-void TObjTombstone__sub_80076190(u8 *arg0);
+void update_rise__13TObjTombstoneFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void subtract_vector(void *, void *);
 f32 vector_length(void *);
@@ -93,7 +93,7 @@ s32 is_player_nearby__13TObjTombstoneFPv(void *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjTombstone__sub_80076190(u8 *arg0) {
+void update_rise__13TObjTombstoneFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     if ((is_other_tombstone_closer__13TObjTombstoneFPv() == 0) && (M2C_FIELD(arg0, f32 *, 0xB0) < TObjTombstone__data_805D917C)) {
@@ -118,7 +118,7 @@ void run_task__13TObjTombstoneFv(void *arg0) {
         return;
     }
     M2C_FIELD(arg0, f32 *, 0xB0) = get_distance_to_local_player_xz__13TObjTombstoneFPvPv(arg0);
-    TObjTombstone__sub_80076190((u8 *)(arg0));
+    update_rise__13TObjTombstoneFPv((u8 *)(arg0));
     if (is_player_nearby__13TObjTombstoneFPv((void *)(arg0)) != 0) {
         TObjTombstone__sub_80075DFC(arg0);
     }

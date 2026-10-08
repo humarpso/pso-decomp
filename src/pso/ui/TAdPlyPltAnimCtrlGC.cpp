@@ -25,7 +25,7 @@ s32 TAdPlyPltAnimCtrlGC__sub_80355148(O_80355148 *self);
 s32 get_state_flag__9TMainTaskFv();
 void render__19TAdPlyPltAnimCtrlGCFv(void *self);
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
-void TAdPlyPltAnimCtrlGC__sub_80355D5C(void *, void *);
+void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(void *, void *);
 extern u32 lbl_804792B0[];
 void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0);
 }
@@ -106,7 +106,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     case 1:
         if (M2C_FIELD(arg0, u32 *, 0x20) >= lbl_804792B0[0]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(0)) != NULL) {
-                TAdPlyPltAnimCtrlGC__sub_80355D5C(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         }
@@ -114,7 +114,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     case 2:
         if (M2C_FIELD(arg0, u32 *, 0x20) >= lbl_804792B0[1]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(1)) != NULL) {
-                TAdPlyPltAnimCtrlGC__sub_80355D5C(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             M2C_FIELD(arg0, s32 *, 0x1C) = 3;
         }
@@ -122,7 +122,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     case 3:
         if (M2C_FIELD(arg0, u32 *, 0x20) >= lbl_804792B0[2]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(2)) != NULL) {
-                TAdPlyPltAnimCtrlGC__sub_80355D5C(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             M2C_FIELD(arg0, s32 *, 0x1C) = 4;
         }
@@ -130,7 +130,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     case 4:
         if (M2C_FIELD(arg0, u32 *, 0x20) >= lbl_804792B0[3]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(3)) != NULL) {
-                TAdPlyPltAnimCtrlGC__sub_80355D5C(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             M2C_FIELD(arg0, s32 *, 0x1C) = 5;
         }
@@ -138,7 +138,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     case 5:
         if (M2C_FIELD(arg0, u32 *, 0x20) >= lbl_804792B0[4]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(4)) != NULL) {
-                TAdPlyPltAnimCtrlGC__sub_80355D5C(p, arg0 + 0x24);
+                start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
             M2C_FIELD(arg0, s32 *, 0x1C) = 6;
         }

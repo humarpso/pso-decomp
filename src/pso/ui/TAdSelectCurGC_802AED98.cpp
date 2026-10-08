@@ -46,7 +46,7 @@ extern const s32 lbl_80470764[];
 extern const s32 lbl_80470778[];
 extern const s32 lbl_805D5544;
 extern u32 lbl_805D6700;
-void TLobby__sub_802AF1CC(void);
+void apply_menu_cursor_selection__6TLobbyFv(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_0x48__14TAdSelectCurGCFPv(void *, int);
@@ -175,7 +175,7 @@ void TLobby__sub_802AF198(void) {
     }
 }
 
-void TLobby__sub_802AF1CC(void) {
+void apply_menu_cursor_selection__6TLobbyFv(void) {
     update_menu_cursor__6TLobbyFv();
     M2CCopy_14 a = *(const M2CCopy_14 *)lbl_80470764;
     M2CCopy_14 b = *(const M2CCopy_14 *)lbl_80470778;

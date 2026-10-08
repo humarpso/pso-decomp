@@ -92,7 +92,7 @@ M2C_UNK TKeyBoardControl__sub_8025CBCC(u32);
 M2C_UNK TKeyBoardControl__sub_8025CC04(u32);
 s32 translate_key_char__16TKeyBoardControlFPviPv(void *, s32, u16 *);
 u8 TKeyBoardControl__sub_8025F2F8(void *, u8);
-s32 TKeyBoardControl__sub_8025F3D4(void *, s32, u8);
+s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *, s32, u8);
 s32 TKeyBoardControl__sub_8025F4A0();
 int TWindowKeyBoardHard__sub_8025EB68(void* p);
 s32 TWindowKeyBoardHard__sub_80260438(void *);
@@ -310,7 +310,7 @@ s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     }
 }
 
-s32 TKeyBoardControl__sub_8025F3D4(void *arg0, s32 arg1, u8 arg2) {
+s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *arg0, s32 arg1, u8 arg2) {
     extern u8 lbl_804CFAE4[];
     extern u8 lbl_805D392C[8];
     u32 st;
@@ -350,7 +350,7 @@ void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
         return;
     }
     if (poll_input__16TKeyBoardControlFPv((void *)(arg0)) < 3U) {
-        if (TKeyBoardControl__sub_8025F3D4(arg0, arg1, (u8) sp8) == 0) {
+        if (lookup_key_repeat_state__16TKeyBoardControlFPviUc(arg0, arg1, (u8) sp8) == 0) {
             sp8 = (u16) TKeyBoardControl__sub_8025F2F8(arg0, (u8) sp8);
             goto block_7;
         }

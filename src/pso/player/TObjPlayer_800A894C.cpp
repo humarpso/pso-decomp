@@ -284,7 +284,7 @@ M2C_UNK TBoss3Volopt__sub_800D8D88(void *);
 M2C_UNK advance_animation_playback(void *);
 void TObjPlayer__sub_800A8E04(u8 *arg0);
 M2C_UNK render_anim_model_at_pos__12TBoss3VoloptFPv();
-void TObjPlayer__sub_800A8B0C(u8 *arg0);
+void render_model_and_set_attach_points__10TObjPlayerFPv(u8 *arg0);
 void obj_setFlags30(void *, u32);
 void TObjPlayer__sub_800A8C1C(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
@@ -466,7 +466,7 @@ void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0) {
     }
 }
 
-void TObjPlayer__sub_800A8B0C(u8 *arg0) {
+void render_model_and_set_attach_points__10TObjPlayerFPv(u8 *arg0) {
     render_anim_model_at_pos__12TBoss3VoloptFPv();
     ((VObj_18 *)(arg0))->m63(0x13, arg0 + 0x3D4);
     ((VObj_18 *)(arg0))->m63(0x28, arg0 + 0x3E0);

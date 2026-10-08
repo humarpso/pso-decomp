@@ -28,7 +28,7 @@ extern RecoveredGlobal_8017DDA8_lbl_804B53D0 lbl_804B53D0;
 extern RecoveredGlobal_8017DDA8_lbl_804B5408 lbl_804B5408;
 extern u32 lbl_805D5AF8;
 extern u32 lbl_805D5AFC;
-void TOWreckAncient__sub_8017DDA8(void);
+void load_resources__14TOWreckAncientFv(void);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
@@ -86,7 +86,7 @@ void free_statics__14TOWreckAncientFv(void) {
 
 extern M2C_UNK __vt__14TOWreckAncient[];
 
-void TOWreckAncient__sub_8017DDA8(void) {
+void load_resources__14TOWreckAncientFv(void) {
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r0;

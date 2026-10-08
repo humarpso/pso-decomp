@@ -133,7 +133,7 @@ s32 fn_802839A4(int);
 u32 TWindowSubSymbolChatFaceType__ct(int, int, void *);
 u32 TWindowSubSymbolChatHelp__ct(u32, void *, void *);
 s16 calc_symbol_index__20TWindowSubSymbolChatFPv(int);
-M2C_UNK TWindowSubSymbolChat__sub_80284D68(int, int);
+M2C_UNK select_index_and_scroll__20TWindowSubSymbolChatFPvi(int, int);
 M2C_UNK update_height__20TWindowSubSymbolChatFPv(int);
 M2C_UNK open__20TWindowSubSymbolChatFPvi(int, void *);
 M2C_UNK fn_80285A28(int, void *);
@@ -467,7 +467,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x4C) = create_parts__20TWindowSubSymbolChatFv((void *) (arg0));
             fn_80285A28((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (void *) (&TWindowSubSymbolChat__data_805D64A0));
         }
-        TWindowSubSymbolChat__sub_80284D68((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (int) (M2C_FIELD(arg0, s16 *, 0x1E)));
+        select_index_and_scroll__20TWindowSubSymbolChatFPvi((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (int) (M2C_FIELD(arg0, s16 *, 0x1E)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x54) == 0U) {
             var_r0_2 = ((u32)__nw__7TObjectFUl((int) (0x74)));
             if (var_r0_2 != 0U) {
@@ -530,7 +530,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x4C) = create_parts__20TWindowSubSymbolChatFv((void *) (arg0));
             open__20TWindowSubSymbolChatFPvi((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (void *) (&TWindowSubSymbolChat__data_805D6494));
         }
-        TWindowSubSymbolChat__sub_80284D68((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (int) (M2C_FIELD(arg0, s16 *, 0x1E)));
+        select_index_and_scroll__20TWindowSubSymbolChatFPvi((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (int) (M2C_FIELD(arg0, s16 *, 0x1E)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x54) == 0U) {
             var_r0_3 = ((u32)__nw__7TObjectFUl((int) (0x74)));
             if (var_r0_3 != 0U) {
@@ -611,7 +611,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x4C) = create_parts__20TWindowSubSymbolChatFv((void *) (arg0));
             update_height__20TWindowSubSymbolChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x4C)));
         }
-        TWindowSubSymbolChat__sub_80284D68((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (int) (M2C_FIELD(arg0, s16 *, 0x1E)));
+        select_index_and_scroll__20TWindowSubSymbolChatFPvi((int) (M2C_FIELD(arg0, u32 *, 0x4C)), (int) (M2C_FIELD(arg0, s16 *, 0x1E)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x54) == 0U) {
             var_r0_4 = ((u32)__nw__7TObjectFUl((int) (0x74)));
             if (var_r0_4 != 0U) {

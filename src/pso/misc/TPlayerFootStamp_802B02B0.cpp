@@ -14,7 +14,7 @@ M2C_UNK TBoss6PlotFalz__sub_802ABBC4(void *, void *);
 M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
 M2C_UNK end_cutscene_camera__14TBoss6PlotFalzFPv();
 M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
-M2C_UNK TBoss6Type2__sub_802BD3CC(void *, void *, void *, void *);
+M2C_UNK get_phase_values__11TBoss6Type2FPvPvPvPv(void *, void *, void *, void *);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK destroy_static_instance__14TBoss6PlotFalzFv(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
@@ -51,7 +51,7 @@ void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0) {
     s32 var_r29;
 
     if ((u32) TBoss6PlotFalz__data_805D66F4 != 0U) {
-        TBoss6Type2__sub_802BD3CC((void *) (TBoss6PlotFalz__data_805D66F4), (void *) (arg0 + 0x2D6), (void *) (arg0 + 0x2D4), (void *) (sp8));
+        get_phase_values__11TBoss6Type2FPvPvPvPv((void *) (TBoss6PlotFalz__data_805D66F4), (void *) (arg0 + 0x2D6), (void *) (arg0 + 0x2D4), (void *) (sp8));
         var_r29 = 0;
         do {
             obj_setArrS16_FC((void *) (arg0), (int) (var_r29), (void *) (sp8[var_r29]));

@@ -142,7 +142,7 @@ extern M2C_UNK lbl_80491478[];
 void *destroy_with_particle_cleanup__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void TObjPlayer__sub_800AB970(void);
 void set_param__12TObjEneLappyFPvi(void *, s32);
-void TObjPlayer__sub_800ABC24(u8 *arg0);
+void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 extern s32 lbl_805D50C4;
@@ -619,7 +619,7 @@ void TObjPlayer__sub_800ABB38(Obj_800ABB38 *o) {
     }
 }
 
-void TObjPlayer__sub_800ABC24(u8 *arg0) {
+void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x334);

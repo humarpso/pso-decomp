@@ -46,7 +46,7 @@ void *lbl_804EFBE4[7] = {
 };
 
 #define lbl_804EFBE4 ((M2C_UNK *)lbl_804EFBE4)
-W_80340F00 *TWindowDD__sub_80340F00(W_80340F00 *arg0);
+W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0);
 
 void *dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -59,7 +59,7 @@ void *dt__9TWindowDDFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-W_80340F00 *TWindowDD__sub_80340F00(W_80340F00 *arg0) {
+W_80340F00 *construct_variant_b__9TWindowDDFPv(W_80340F00 *arg0) {
     construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFBD0, 4, lbl_804EFBC8);
     arg0->p18 = lbl_804EFBE4;
     arg0->f0 = lbl_805D42D0;
@@ -73,7 +73,7 @@ W_80340F00 *TWindowDD__sub_80340F00(W_80340F00 *arg0) {
 void *TWindowDD__sub_80340F70(void) {
     void *o = __nw__7TObjectFUl(0x70);
     if (o != NULL) {
-        o = (void *)TWindowDD__sub_80340F00((W_80340F00 *)o);
+        o = (void *)construct_variant_b__9TWindowDDFPv((W_80340F00 *)o);
     }
     return o;
 }

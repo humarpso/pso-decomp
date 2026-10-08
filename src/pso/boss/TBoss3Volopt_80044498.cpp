@@ -759,11 +759,11 @@ extern u32 *TBoss3Volopt__data_805D4CFC;
 extern u32 *TBoss3Volopt__data_805D4CEC;
 extern u8 *TBoss3Volopt__data_805D4D00;
 extern u8 *TBoss3Volopt__data_805D4D08;
-void TBoss3Volopt__sub_80045928(void *arg0);
+void reset_visual_state__12TBoss3VoloptFPv(void *arg0);
 void TBoss3Volopt__sub_8004824C(void *);
 void broadcast_state__12TBoss3VoloptFPv(void *);
 void broadcast_values__12TBoss3VoloptFPv(Obj_80045328 *self);
-void TBoss3Volopt__sub_80045928(void *arg0);
+void reset_visual_state__12TBoss3VoloptFPv(void *arg0);
 void advance_animation_playback(void *);
 void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
 void queue_destruction__7TObjectFv(void *);
@@ -1307,7 +1307,7 @@ void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss3Volopt__sub_80045928(void *arg0) {
+void reset_visual_state__12TBoss3VoloptFPv(void *arg0) {
     Obj_80045928 *self = (Obj_80045928 *)arg0;
     self->color = lbl_804845C4[0];
     self->scale.x = lbl_804845AC.x;
@@ -1844,7 +1844,7 @@ void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self) {
     case 0:
         self->flags &= ~0x40000;
         self->anim = 0;
-        TBoss3Volopt__sub_80045928(self);
+        reset_visual_state__12TBoss3VoloptFPv(self);
         self->state = 1;
     case 1:
         advance_animation_playback(self);

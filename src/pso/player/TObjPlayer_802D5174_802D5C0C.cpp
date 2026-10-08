@@ -156,7 +156,7 @@ struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
 extern "C" {
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 s16 get_validated_attack_stage(void *);
-void TObjPlayer__sub_802D5D18(u8 *arg0);
+void fire_spread_shot__10TObjPlayerFPv(u8 *arg0);
 int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 M2C_UNK draw_weapon_model(void *);
 void TObjPlayer__sub_802D5E8C(u8 *arg0);
@@ -216,7 +216,7 @@ void create_cane_effect_from_state__10TObjPlayerFPv(void *arg0) {
     extern unsigned char lbl_804E23F0[];
     extern const float lbl_805DE7A0;
 
-void TObjPlayer__sub_802D5D18(u8 *arg0) {
+void fire_spread_shot__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     u8 *temp_r3;
     temp_r3 = M2C_FIELD(arg0, u8 **, 0xF0);

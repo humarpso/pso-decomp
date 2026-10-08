@@ -112,7 +112,7 @@ s32 handle_confirm_input__9TWindowDDFPv(void *);
 void run_state__9TWindowDDFPv(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s16 TWindowDD__sub_8034214C(int);
-void TWindowDD__sub_803478DC(void *, int);
+void destroy_menu_entry__9TWindowDDFPvi(void *, int);
 void TWindowDD__sub_80347980(void *);
 s32 *get_entry__9TWindowDDFii(void *, s32);
 void update__9TWindowDDFPvPv(void *, void *);
@@ -277,11 +277,11 @@ void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0) {
     entry = get_entry__9TWindowDDFii(arg0, arg0->ids[arg0->depth]);
     TWindowDD__sub_80347980(arg0);
     if (*entry & 8) {
-        TWindowDD__sub_803478DC(arg0, 0);
+        destroy_menu_entry__9TWindowDDFPvi(arg0, 0);
     } else if ((child = arg0->child[arg0->depth]) != NULL) {
         update__9TWindowDDFPvPv(arg0, child);
     }
-    TWindowDD__sub_803478DC(arg0, 1);
+    destroy_menu_entry__9TWindowDDFPvi(arg0, 1);
     arg0->depth--;
     if (*entry & 4) {
         arg0->fBC--;

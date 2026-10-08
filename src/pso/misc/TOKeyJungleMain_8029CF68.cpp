@@ -131,7 +131,7 @@ extern u32 TOKeyJungleMain__data_805D65E0;
 extern const f32 lbl_805DDD38;
 extern const f32 lbl_805DDD3C;
 void TOKeyJungleMain__vt14(u8 *arg0);
-s32 TLevelSelect__sub_801F441C(s32, s32);
+s32 get_difficulty_flag_bit__12TLevelSelectFii(s32, s32);
 extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__data_804653C8;
 extern s32 lbl_805D5550;
 void TOKeyJungleMain__vt12(u8 *arg0);
@@ -249,7 +249,7 @@ void TOKeyJungleMain__vt12(u8 *arg0) {
     s32 temp_r31;
     if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
         temp_r31 = M2C_FIELD(arg0, s32 *, 0xD4);
-        if (TLevelSelect__sub_801F441C(lbl_805D5550, M2C_FIELD(&TOKeyJungleMain__data_804653C8.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))) != 0) {
+        if (get_difficulty_flag_bit__12TLevelSelectFii(lbl_805D5550, M2C_FIELD(&TOKeyJungleMain__data_804653C8.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0xC8) * 4))) != 0) {
             M2C_FIELD(arg0, s32 *, 0xD4) = 1;
         } else {
             M2C_FIELD(arg0, s32 *, 0xD4) = 0;

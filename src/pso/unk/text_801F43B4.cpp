@@ -29,7 +29,7 @@ void copy_card_window_data(void) {
     }
 }
 
-s32 TLevelSelect__sub_801F441C(s32 n, s32 flag) {
+s32 get_difficulty_flag_bit__12TLevelSelectFii(s32 n, s32 flag) {
     s32 v;
     s32 bit;
     s32 byteIdx;

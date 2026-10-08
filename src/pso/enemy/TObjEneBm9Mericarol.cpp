@@ -267,7 +267,7 @@ extern const f32 lbl_805DE728;
 extern const f32 lbl_805DE740;
 extern const f32 lbl_805DE744;
 extern const f32 lbl_805DE748;
-void TObjEneBm9Mericarol__sub_802D078C(u8 *arg0);
+void init_size_tier_and_offsets__19TObjEneBm9MericarolFPv(u8 *arg0);
 s32 TObjEneBm9Mericarol__sub_802CEDA0(void *, void *);
 s32 handle_motion_event__19TObjEneBm9MericarolFPvi(void *, void *);
 s32 TObjEneBm9Mericarol__sub_802CF178(void *, void *);
@@ -618,7 +618,7 @@ s32 get_phase__19TObjEneBm9MericarolFPv(void* p) { return *(s32*)((char*)p + 0x4
 
 #pragma push
 #pragma opt_common_subs off
-void TObjEneBm9Mericarol__sub_802D078C(u8 *arg0) {
+void init_size_tier_and_offsets__19TObjEneBm9MericarolFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x45C) = (s32) M2C_FIELD(arg0, s32 *, 0x368);
@@ -791,7 +791,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     init_common__18TObjEneMe3SinowZoaFPv(self->o46C);
     self->f0 = lbl_805D3F28;
     invoke_initialization_hook__9TObjEneDDFPv(self, arg2);
-    TObjEneBm9Mericarol__sub_802D078C((u8 *)self);
+    init_size_tier_and_offsets__19TObjEneBm9MericarolFPv((u8 *)self);
     self->f438 = 0;
     if (calc_boss4_scale__10TObjPlayerFi((s32)self) <= lbl_805DE750) {
         self->f438 |= 0x400;

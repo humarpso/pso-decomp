@@ -105,7 +105,7 @@ f32 TObjGyaranzoMissile__sub_800D40EC(s32);
 extern f32 lbl_805D51F0;
 extern f32 TObjGyaranzoMissile__speed_scale;
 extern f32 TObjGyaranzoMissile__max_range;
-void TObjGyaranzoMissile__sub_800D1F84(u8 *arg0);
+void init_params_from_table__19TObjGyaranzoMissileFPv(u8 *arg0);
 s32 check_path_obstructed(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -140,7 +140,7 @@ M2C_UNK TBoss3Volopt__sub_800D8D88(void *, s32);
 M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK, s32);
 
-void TObjGyaranzoMissile__sub_800D1F84(u8 *arg0) {
+void init_params_from_table__19TObjGyaranzoMissileFPv(u8 *arg0) {
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) = TObjGyaranzoMissile__sub_800D40EC(1);
     lbl_805D51F0 = TObjGyaranzoMissile__sub_800D40EC(2);
     TObjGyaranzoMissile__speed_scale = TObjGyaranzoMissile__sub_800D40EC(3);

@@ -170,7 +170,7 @@ extern const f32 lbl_805DFDF8;
 void spawn_slicer_shot__10TObjPlayerFPv(u8 *weapon);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 void *find_entity_by_id(s32);
-void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK fill_status_info__10TObjPlayerFPvPv(u32, void *);
 M2C_UNK init_vtable_c4__10TObjPlayerFPv(void *, s32, void *);
@@ -271,7 +271,7 @@ u8 *TObjPlayer__sub_8034F1AC(u8 *arg0) {
     }
     return NULL;
 }
-void TObjPlayer__sub_8034F204(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r5;
     void *temp_r3;
     temp_r3 = find_entity_by_id(arg2);
@@ -327,7 +327,7 @@ extern M2C_UNK lbl_804F0908[];
 void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0908;
-    M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = ((M2C_UNK *)TObjPlayer__sub_8034F204);
+    M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = ((M2C_UNK *)spawn_particle_at_entity_slot__10TObjPlayerFiiii);
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
 }

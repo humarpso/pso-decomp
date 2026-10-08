@@ -176,7 +176,7 @@ int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 void TObjPlayer__sub_8008E708(void *self);
 void *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
-void TObjEneBalClawClaw__sub_8009097C(u32, u16);
+void enter_hit_state__18TObjEneBalClawClawFPvs(u32, u16);
 s32 check_active__18TObjEneBalClawClawFPv(void *);
 s32 get_target_id__13TWindowLockOnFPv(void *);
 u32 find_entity_by_id(u16);
@@ -398,7 +398,7 @@ s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self) {
         }
     }
     for (j = 0; j < self->count; j++) {
-        TObjEneBalClawClaw__sub_8009097C(find_entity_by_id(self->ids[j]), self->field1C);
+        enter_hit_state__18TObjEneBalClawClawFPvs(find_entity_by_id(self->ids[j]), self->field1C);
     }
     return self->count;
 }

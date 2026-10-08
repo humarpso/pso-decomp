@@ -148,7 +148,7 @@ void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
 void copy4__18TAdChrMoveEffectGCFPvPv(void* p, void* q);
 void update_disp_value__20TWindowSubStatusDispFPv(void *arg0);
 void * TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1);
-u8 * TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1);
+u8 * init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1);
 void draw_visible_window_entries(void *self, List_80257BC0 *list, void *ctx);
 void update_window_entry_list(Win_80257C28 *self, List_80257C28 *list);
 void destroy_all_items__20TWindowSubStatusDispFPv(List_80257CB8 *arg0);
@@ -156,10 +156,10 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
 void TWindowSubStatusDisp__sub_80258050(void);
 void TWindowSubStatusDisp__sub_80258054(void);
 void * deleting_destructor__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
-void * TWindowSubStatusDisp__sub_80258100(void *, void *, s32);
+void * init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(void *, void *, s32);
 void * reset_entry__20TWindowSubStatusDispFPvii(void *, void *, s32);
 void * TWindowSubStatusDisp__sub_80259D3C(void *, void *, s32);
-void * TWindowSubStatusDisp__sub_8025A0A4(void *, void *, s32);
+void * init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A594(void *, void *, s32);
 void * TWindowHelpItem__sub_8025A95C(void *, void *, s32);
 void * construct_text_entry(void *, void *, s32);
@@ -311,7 +311,7 @@ void *TWindowSubStatusDisp__sub_80257AF4(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TWindowSubStatusDisp__sub_80257B4C(u8 *arg0, u8 *arg1) {
+u8 *init_layout_entry_copy__20TWindowSubStatusDispFPvPv(u8 *arg0, u8 *arg1) {
     ((M2C_UNK (*)(void))init_from__20TWindowSubStatusDispFPvPvi)();
     M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_80257B4C_lbl_804CF948 *)&lbl_804CF948).value;
     M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg0, f32 *, 0x24);
@@ -391,7 +391,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 0:
                 o = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
                 if (o != NULL) {
-                    o = TWindowSubStatusDisp__sub_80258100(o, rec, arg2);
+                    o = init_layout_entry_rect__20TWindowSubStatusDispFPvPvs(o, rec, arg2);
                 }
                 *out = o;
                 rec += 0x14 / 4;
@@ -407,7 +407,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 2:
                 o = alloc__23TAdSinglePlyChrSelectGCFPv(0x68);
                 if (o != NULL) {
-                    o = ((Ctor_80257D44)TWindowSubStatusDisp__sub_80257B4C)(o, rec, arg2);
+                    o = ((Ctor_80257D44)init_layout_entry_copy__20TWindowSubStatusDispFPvPv)(o, rec, arg2);
                 }
                 *out = o;
                 rec += 0x2C / 4;
@@ -431,7 +431,7 @@ void init_window_layout_entries(List_80257D44 *self, Desc_80257D44 *desc, s32 ar
             case 5:
                 o = alloc__23TAdSinglePlyChrSelectGCFPv(0x30);
                 if (o != NULL) {
-                    o = TWindowSubStatusDisp__sub_8025A0A4(o, rec, arg2);
+                    o = init_layout_entry_scaled__20TWindowSubStatusDispFPvPvi(o, rec, arg2);
                 }
                 *out = o;
                 rec += 0x1C / 4;

@@ -484,7 +484,7 @@ M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 extern s32 TObjEneDolmOlm__data_805D6A1C;
 extern const f32 lbl_805DE6F4;
-void TObjEneDolmOlm__sub_803020C4(void);
+void toggle_effect_render__14TObjEneDolmOlmFv(void);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(void *, void *, int, int);
 void TObjEneDolmOlm__sub_80300EB0(s32 arg0);
@@ -611,7 +611,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(void *);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjEneDolmOlm__sub_803020C4(void);
+void toggle_effect_render__14TObjEneDolmOlmFv(void);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -1652,7 +1652,7 @@ void TObjEneDolmOlm__sub_80302004(Ene_80302004 *self) {
     }
 }
 
-void TObjEneDolmOlm__sub_803020C4(void) {
+void toggle_effect_render__14TObjEneDolmOlmFv(void) {
     switch (TObjEneDolmOlm__data_805D6A1C) {
     case 0x15:
     case 0x1d:
@@ -1735,7 +1735,7 @@ void render_body__14TObjEneDolmOlmFPv(Ene_803021AC *arg0) {
         }
         toggle_particle_effect__10TObjPlayerFv();
         TObjEneDolmOlm__data_805D6A1C = 0;
-        set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneDolmOlm__sub_803020C4);
+        set_global_state__16TObjEneRe7BeruraFi((void *)toggle_effect_render__14TObjEneDolmOlmFv);
         if (arg0->f390 == 1) {
             if (arg0->sub.m8() != 0) {
                 lbl_805D5660 = some_id_805c6f74;

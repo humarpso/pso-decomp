@@ -24,7 +24,7 @@ void init_pkt_cmd_6A__19TWindowSubTradeMainFPv(void *p);
 void send_60_update__19TWindowSubTradeMainFPv(void *p);
 void send_6x6A_set_boss_warp_flags__16TObjCityMainWarpFPvUs(Obj_80186CC8 *self, u16 value);
 u8 is_current_floor_switch_set(int);
-void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0);
+void update_floor_switch_state__16TObjCityMainWarpFPv(Obj_80186DA0 *arg0);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x174) = 0x12C;
     }
 }
-void TObjCityMainWarp__sub_80186DA0(Obj_80186DA0 *arg0) {
+void update_floor_switch_state__16TObjCityMainWarpFPv(Obj_80186DA0 *arg0) {
     switch (arg0->fE0) {
     case 0:
         arg0->fD0 = 0;

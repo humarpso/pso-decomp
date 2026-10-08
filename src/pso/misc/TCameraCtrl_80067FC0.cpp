@@ -69,7 +69,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 extern G_80068018 lbl_8050E208;
 extern M2C_UNK lbl_80488838[];
-O_80068018 *TCameraCtrl__sub_80068018(O_80068018 *self);
+O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self);
 Vec_8006835C *get_target__11TCameraCtrlFPv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32, void *);
@@ -149,7 +149,7 @@ void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-O_80068018 *TCameraCtrl__sub_80068018(O_80068018 *self) {
+O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self) {
     TCameraCtrl__sub_80068714((void *)(self));
     *(void **)((u8 *)self + 0x18) = ((char *)&lbl_80488838);
     self->x38 = 0;

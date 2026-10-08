@@ -41,7 +41,7 @@ struct Stack_8022BF8C_more_8022be64_1 {
 
 extern "C" {
 f32 vector_length(void *, f32);
-void TTecLuker__sub_8022BF8C(u8 *arg0);
+void count_if_within_range__9TTecLukerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -79,7 +79,7 @@ void tick_lifetime__9TTecLukerFPv(void *arg0) {
     }
 }
 
-void TTecLuker__sub_8022BF8C(u8 *arg0) {
+void count_if_within_range__9TTecLukerFPv(u8 *arg0) {
     Stack_8022BF8C_more_8022be64_1 stack;
     f32 temp_f1;
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0x20) - M2C_FIELD(arg0, f32 *, 0x7C);

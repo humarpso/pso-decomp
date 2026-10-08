@@ -194,15 +194,15 @@ struct Obj_8017FE58 {
 extern "C" {
 M2C_UNK set_global_param__8TObjFishFi(int);
 void render__8TObjChipFPv(u8 *arg0);
-void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
-void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
+void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
+void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80180AA4___vt__8TObjChip __vt__8TObjChip;
 extern s32 lbl_805D3240;
 extern const f32 lbl_805DBB94;
 extern const f32 lbl_805DBB98;
 u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2);
-void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1);
+void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80180AA4___vt__8TObjChip __vt__8TObjChip;
 extern s32 lbl_805D3240;
@@ -526,7 +526,7 @@ u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TObjChip.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;
-    TObjChip__sub_80180B38((u8 *)(arg0 + 0x24), (u8 *)(arg2));
+    copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DBB94;
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DBB98;
     M2C_FIELD(arg0, s32 *, 0x230) = 1;
@@ -536,7 +536,7 @@ u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
     return arg0;
 }
 
-void TObjChip__sub_80180B38(u8 *arg0, u8 *arg1) {
+void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
     M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
     M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
@@ -557,7 +557,7 @@ u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80180BD4___vt__8TObjChip *)&__vt__8TObjChip).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;
-    TObjChip__sub_80180B38((u8 *)(arg0 + 0x24), (u8 *)(arg2));
+    copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DBB94;
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DBB98;
     M2C_FIELD(arg0, s32 *, 0x230) = 1;

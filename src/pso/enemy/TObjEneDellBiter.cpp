@@ -1974,7 +1974,7 @@ u8 * TObjEneDellBiter__sub_80303204(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt104(u8 *arg0);
 void TObjEneDellBiter__vt103(void* p);
-void TObjEneDellBiter__sub_80303894(void);
+void step_demo_script__16TObjEneDellBiterFv(void);
 void state_death__16TObjEneDellBiterFPvi(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_80303AA0(u8 *arg0, s32 arg1);
 void TObjEneDellBiter__sub_80303F04(u8 *arg0, s32 arg1);
@@ -2000,7 +2000,7 @@ void spawn_front_particle__16TObjEneDellBiterFPv(u8 *arg0);
 void update_attack_effect__16TObjEneDellBiterFi(s32 arg0);
 s32 TObjEneDellBiter__sub_80305C40(u8 *arg0);
 void TObjEneDellBiter__sub_80305E1C(u8 *arg0);
-void TObjEneDellBiter__sub_80305F58(u8 *arg0);
+void init_target_offsets__16TObjEneDellBiterFPv(u8 *arg0);
 void update_particle_emitters__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt86(void);
 void TObjEneDellBiter__sub_80306110(u8 *arg0);
@@ -2553,7 +2553,7 @@ void TObjEneDellBiter__vt104(u8 *arg0) {
     }
 }
 
-void TObjEneDellBiter__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((int (*)(void*))TObjEneDellBiter__sub_80305F58)(p); } }
+void TObjEneDellBiter__vt103(void* p) { if (get_target_info__9TObjEneDDFPv(p) != 0) { ((int (*)(void*))init_target_offsets__16TObjEneDellBiterFPv)(p); } }
 
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 #define VO ((VObj_18_1fdb47 *)(arg0))
@@ -2622,7 +2622,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, F(s32, 0x60));
             scale_matrix(0, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8, TObjEneDellBiter__data_805DEFB8);
-            set_global_state__16TObjEneRe7BeruraFi((void *)TObjEneDellBiter__sub_80303894);
+            set_global_state__16TObjEneRe7BeruraFi((void *)step_demo_script__16TObjEneDellBiterFv);
             if (vis == 1) {
                 draw__16TObjEneRe7BeruraFPv(arg0);
             } else {
@@ -2648,7 +2648,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
 #undef F
 #undef VO
 
-void TObjEneDellBiter__sub_80303894(void) {
+void step_demo_script__16TObjEneDellBiterFv(void) {
     s32 temp_r4;
     switch (TObjEneDellBiter__data_805D6A34) {
     case 9:
@@ -3701,7 +3701,7 @@ void TObjEneDellBiter__sub_80305E1C(u8 *arg0) {
     }
 }
 
-void TObjEneDellBiter__sub_80305F58(u8 *arg0) {
+void init_target_offsets__16TObjEneDellBiterFPv(u8 *arg0) {
   const f32 *new_var;
   *((f32 *) (((s8 *) arg0) + 0x4A8)) = (f32) (lbl_805DF030 + (*((f32 *) (((s8 *) arg0) + 0x354))));
   *((f32 *) (((s8 *) arg0) + 0x4AC)) = (f32) (lbl_805DF030 + (*((f32 *) (((s8 *) arg0) + 0x358))));
@@ -3946,7 +3946,7 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
     __construct_array((void *)((char *)arg0 + 1008), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D4078;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
-    TObjEneDellBiter__sub_80305F58((u8 *)(arg0));
+    init_target_offsets__16TObjEneDellBiterFPv((u8 *)(arg0));
     init_params__16TObjEneDellBiterFPv(arg0);
     return arg0;
 }

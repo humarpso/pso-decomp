@@ -18,7 +18,7 @@ extern "C" {
 void *destroy_technique_base__9TTecLukerFPvs(void *arg0, s16 arg1);
 void dispatch_state__9TTecLukerFPv(void *arg0);
 void free_collision_body_parts(void *);
-M2C_UNK TTecLuker__sub_8022BF8C(void *);
+M2C_UNK count_if_within_range__9TTecLukerFPv(void *);
 M2C_UNK TTecLuker__sub_8022C008();
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
@@ -30,7 +30,7 @@ void dispatch_state__9TTecLukerFPv(void *arg0) {
     switch (temp_r0) {
     case 0:
         TTecLuker__sub_8022C008();
-        TTecLuker__sub_8022BF8C(arg0);
+        count_if_within_range__9TTecLukerFPv(arg0);
         return;
     case 1:
         ((VObj_8022C03C_8022BEAC *)arg0)->m5();

@@ -493,7 +493,7 @@ void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
 void play_band_sound__16TObjEneRe7BeruraFPv(u8 *arg0);
-void TObjEneRe7Berura__sub_80094CD0(void *self);
+void reload_stats_from_tables__16TObjEneRe7BeruraFPv(void *self);
 void destroy_parts__16TObjEneRe7BeruraFPv(Obj_80094D3C *self);
 void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
 s32 TObjEneRe7Berura__sub_80094DB4(void *arg0);
@@ -915,7 +915,7 @@ void play_band_sound__16TObjEneRe7BeruraFPv(u8 *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
-void TObjEneRe7Berura__sub_80094CD0(void *self) {
+void reload_stats_from_tables__16TObjEneRe7BeruraFPv(void *self) {
     reload_stats_keep_hp_tp__9TObjEneDDFPv(self, ((void * *)TObjEneRe7Berura__data_805D4F58)[TObjEneRe7Berura__data_80439DA8[1]],
                             ((void * *)TObjEneRe7Berura__data_805007D4)[TObjEneRe7Berura__data_80439DB0[1]],
                             ((void * *)TObjEneRe7Berura__data_805D4F5C)[TObjEneRe7Berura__data_80439DB8[1]]);

@@ -668,7 +668,7 @@ s32 calc_hit_zone_index__10TObjPlayerFPv(Obj_8003FBC8 *self);
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
 void update_state_spin__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8003FFE4(void *arg0);
-void TObjPlayer__sub_80040038(void *arg0);
+void update_reaction_animation__10TObjPlayerFPv(void *arg0);
 void update_grabbed_state__10TObjPlayerFPv(void *arg0);
 void teardown_render_state__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_80040558(void * _w0);
@@ -1374,7 +1374,7 @@ void TObjPlayer__sub_8003FFE4(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80040038(void *arg0) {
+void update_reaction_animation__10TObjPlayerFPv(void *arg0) {
     Obj_80040038 *self = (Obj_80040038 *)arg0;
     switch (self->state) {
     case 0:
@@ -1529,7 +1529,7 @@ void dispatch_reaction_state__10TObjPlayerFPv(Obj_8004055C *arg0) {
     case 1: TObjPlayer__sub_8003F9D4((void *)(arg0)); return;
     case 2: TObjPlayer__sub_800401CC((u8 *)(arg0)); return;
     case 4: update_grabbed_state__10TObjPlayerFPv(arg0); return;
-    case 5: TObjPlayer__sub_80040038(arg0); return;
+    case 5: update_reaction_animation__10TObjPlayerFPv(arg0); return;
     case 7: update_state_spin__10TObjPlayerFPv(arg0); return;
     case 9: TObjPlayer__sub_8003F81C((u8 *)(arg0)); return;
     case 10: update_topple_state__10TObjPlayerFPv((u8 *)(arg0)); break;

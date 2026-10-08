@@ -169,7 +169,7 @@ void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void TObjPlayer__sub_8032E648();
 void create_network_object__10TObjPlayerFiPvi();
 extern const f32 lbl_805E0260;
-void TObjPlayer__sub_80362DE8(void *arg0, Obj_80362DE8 *arg1);
+void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *arg1);
 s32 spawn_particle_effect(void *, s32);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
@@ -383,7 +383,7 @@ void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void TObjPlayer__sub_80362DE8(void *arg0, Obj_80362DE8 *arg1) {
+void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *arg1) {
     u8 sp8[16];
     arg1->f4C = lbl_805E0260;
     arg1->i58 = 0xC000;

@@ -6,7 +6,7 @@ extern "C" {
 
 void *TAdMultiSaveGC__ct(void *arg0);
 void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1);
-void TAdSinglePlyChrSelectGC__sub_801FE538(void);
+void copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv(void);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
@@ -56,7 +56,7 @@ void *TAdMultiSaveGC__ct(void *arg0) {
     if (o2 != NULL) {
         __ct__12TAdBackTxtGCFv(o2, arg0);
     }
-    TAdSinglePlyChrSelectGC__sub_801FE538();
+    copy_chr_slots_from_request__23TAdSinglePlyChrSelectGCFv();
     return arg0;
 }
 

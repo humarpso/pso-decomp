@@ -30,7 +30,7 @@ extern s32 lbl_805D6460;
 void chat_log_remove_line(s32 arg0);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
 void chat_log_remove_line(s32 arg0);
-s32 TLobby__sub_8026A680(void);
+s32 find_free_chat_log_slot__6TLobbyFv(void);
 s32 strlen();
 void chat_log_add_line(s32 arg0);
 s32 chat_text_lacks_language_tag(const char *text);
@@ -63,7 +63,7 @@ void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0) {
 
 typedef char RecoveredGlobal_8026A6DC_lbl_805187D8_size[sizeof(RecoveredGlobal_8026A6DC_lbl_805187D8) == 0x78 ? 1 : -1];
 
-s32 TLobby__sub_8026A680(void) {
+s32 find_free_chat_log_slot__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 30; i++) {
         if (((char * *)&lbl_805187D8)[i] == 0) {
@@ -144,14 +144,14 @@ void chat_log_add_line(s32 arg0) {
     s32 var_r28;
     s32 var_r30;
     temp_r29 = strlen();
-    var_r30 = TLobby__sub_8026A680();
+    var_r30 = find_free_chat_log_slot__6TLobbyFv();
     var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
     if (var_r28 == 0) {
         do {
             chat_log_remove_line((s32) (0));
             var_r28 = (s32) heap_alloc__5THeapFUl(lbl_805D6460, temp_r29 + 1);
         } while (var_r28 == 0);
-        var_r30 = TLobby__sub_8026A680();
+        var_r30 = find_free_chat_log_slot__6TLobbyFv();
     }
     temp_r30 = var_r30 * 4;
     M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0) = var_r28;

@@ -25,7 +25,7 @@ struct Pos_8013319C { s32 x; s32 y; };
 struct Poss_8013319C { Pos_8013319C p[4]; };
 
 extern "C" {
-s32 TLevelSelect__sub_801F441C(int, int);
+s32 get_difficulty_flag_bit__12TLevelSelectFii(int, int);
 int count_unlocked_difficulties__12TLevelSelectFv(void);
 void TKeyBoardControl__sub_8000F9CC(s32);
 void queue_destruction__7TObjectFv(void *);
@@ -79,17 +79,17 @@ int count_unlocked_difficulties__12TLevelSelectFv(void) {
     u8 f;
     int n;
     f = 0;
-    if (TLevelSelect__sub_801F441C(0, 0x35) != 0 || TLevelSelect__sub_801F441C(0, 0x57) != 0) {
+    if (get_difficulty_flag_bit__12TLevelSelectFii(0, 0x35) != 0 || get_difficulty_flag_bit__12TLevelSelectFii(0, 0x57) != 0) {
         f = 1;
     }
     n = f;
     f = 0;
-    if (TLevelSelect__sub_801F441C(1, 0x37) != 0 || TLevelSelect__sub_801F441C(1, 0x57) != 0) {
+    if (get_difficulty_flag_bit__12TLevelSelectFii(1, 0x37) != 0 || get_difficulty_flag_bit__12TLevelSelectFii(1, 0x57) != 0) {
         f = 1;
     }
     n += f;
     f = 0;
-    if (TLevelSelect__sub_801F441C(2, 0x37) != 0 || TLevelSelect__sub_801F441C(2, 0x57) != 0) {
+    if (get_difficulty_flag_bit__12TLevelSelectFii(2, 0x37) != 0 || get_difficulty_flag_bit__12TLevelSelectFii(2, 0x57) != 0) {
         f = 1;
     }
     n += f;

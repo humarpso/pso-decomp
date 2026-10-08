@@ -25,7 +25,7 @@ void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 s32 get_field230__22TQuestVmDownLoadServerFv(void);
 extern char lbl_805DC718[4];
 void TQuestVmDownLoadServer__sub_8022241C(s32 arg0);
-void *TQuestListOnline__sub_80217504(void);
+void *get_selected_entry__16TQuestListOnlineFv(void);
 void TQuestVmDownLoadServer__sub_80222704(void *arg0, s32 arg1);
 void *get_selected_quest_text__19TQuestListChallengeFv(void);
 s32 get_game_play_mode(void);
@@ -92,7 +92,7 @@ void TQuestVmDownLoadServer__sub_80222480(void *arg0) {
             break;
         }
     } else {
-        p = TQuestListOnline__sub_80217504();
+        p = get_selected_entry__16TQuestListOnlineFv();
     }
     if (p != 0) {
         TQuestVmDownLoadServer__sub_80222704(arg0, (s32)p);

@@ -30,7 +30,7 @@ extern s32 TLobby__data_805D5EE0;
 void init_floor_encounter_sections__6TLobbyFv(void);
 void handle_msg_type1__6TLobbyFi(s32);
 extern s16 TLobby__data_805127D0[];
-void TLobby__sub_801F3BC4(void);
+void handle_msg_type1_for_idle_slots__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -102,7 +102,7 @@ void init_floor_encounter_sections__6TLobbyFv(void) {
         }
     }
 }
-void TLobby__sub_801F3BC4(void) {
+void handle_msg_type1_for_idle_slots__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 0x12; i++) {
         switch (TLobby__data_805127D0[i]) {

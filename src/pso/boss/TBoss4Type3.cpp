@@ -679,7 +679,7 @@ void TBoss4Type2__sub_80056B3C(void *arg0, s32 lo, s32 hi);
 void find_target_pos__11TBoss4Type2FPvPv(O_80056C30 *self, Vec_80056C30 *out);
 void set_grid_pos__11TBoss4Type2FPvPv(void *arg0, void *arg1);
 f32 compute_wave_offset__11TBoss4Type2Ff(f32 farg0);
-void TBoss4Type2__sub_80056F38(Obj_80056F38 *self, s32 arg1, s32 arg2);
+void send_attack_code__11TBoss4Type2FPvii(Obj_80056F38 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056F90(Obj_80056F90 *self, s32 arg1, s32 arg2);
 void TBoss4Type2__sub_80056FEC(Obj_80056FEC *self, s32 arg1);
 s32 TBoss4Type2__sub_80057048(void *, int);
@@ -736,7 +736,7 @@ void TBoss4Type3__vt3(Obj_80059390 *self);
 void TBoss4Type3__vt2(void *arg0);
 void TBoss4Type3__vt1(void* p);
 void TBoss4Type3__vt0(void* p);
-void TBoss4Type3__sub_80059450(u8 *arg0);
+void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0);
 void update_target_effect_timer__11TBoss4Type3FPv(void *arg0);
 void handle_damage_taken__11TBoss4Type3FPv(O_80059618 *o);
 int TBoss4Type3__sub_800599F4(void*, void*, void*);
@@ -750,7 +750,7 @@ void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 a
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
 void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
-void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
+void destroy_parts__11TBoss4Type3FPv(Obj_8005A2A4 *self);
 void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);
 void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 arg1);
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
@@ -1752,7 +1752,7 @@ void TBoss4Type3__vt0(void* p) { *(s32*)((char*)p + 0x398) = 147; }
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss4Type3__sub_80059450(u8 *arg0) {
+void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_80059450, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80059450, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80059450, sp10) == 0x8) ? 1 : -1];
@@ -2092,7 +2092,7 @@ void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0) {
     }
 }
 
-void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self) {
+void destroy_parts__11TBoss4Type3FPv(Obj_8005A2A4 *self) {
     s32 i;
     for (i = 0; i < 13; i++) {
         if (self->parts[i] != 0) {
@@ -2238,7 +2238,7 @@ S_8005AD50 *destroy__11TBoss4Type3FPvs(S_8005AD50 *o, s16 flag) {
     if (o != 0) {
         o->vt = lbl_80487184;
         fn_8004AA04(o->f378);
-        ((void (*)(void *))TBoss4Type3__sub_8005A2A4)(o);
+        ((void (*)(void *))destroy_parts__11TBoss4Type3FPv)(o);
         if (o->f51c != 0) {
             __dt__11TBoss4Type3FPvs(o->f51c, 1);
             o->f51c = 0;

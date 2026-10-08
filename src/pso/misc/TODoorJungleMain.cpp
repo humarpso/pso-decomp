@@ -83,7 +83,7 @@ s32 is_any_player_near(s32 arg0) {
 extern "C" {
 void fn_801F4560(int, int);
 extern s32 TOKeyJungleMain__data_804653C8[];
-void TOKeyJungleMain__sub_8029B2C4(void* _w0);
+void init_key_slots__15TOKeyJungleMainFPv(void* _w0);
 }
 
 extern "C" {
@@ -92,11 +92,11 @@ void TLobby__sub_8029B2A4(void* p);
 void *TODoorJungleMain__create(void *arg0);
 void *__nw__7TObjectFUl(int);
 
-void TLobby__sub_8029B2A4(void* p) { TOKeyJungleMain__sub_8029B2C4((void*)(p)); }
+void TLobby__sub_8029B2A4(void* p) { init_key_slots__15TOKeyJungleMainFPv((void*)(p)); }
 
 extern void *tl_05;
 
-void TOKeyJungleMain__sub_8029B2C4(void* _w0) {
+void init_key_slots__15TOKeyJungleMainFPv(void* _w0) {
     s32 i;
     s32 j;
     for (i = 0; i < 4; i++) {
@@ -290,7 +290,7 @@ struct Mtx_8029B640 { f32 m[12]; };
 extern "C" {
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-s32 TLevelSelect__sub_801F441C(s32, s32);
+s32 get_difficulty_flag_bit__12TLevelSelectFii(s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TOKeyJungleMain__data_804653C8[3];
 extern s32 lbl_805D5550;
@@ -380,7 +380,7 @@ void TODoorJungleMain__vt12(Door_8029B524 *self) {
         prev = self->count;
         self->count = 0;
         for (i = 0; i < 3; i++) {
-            if (TLevelSelect__sub_801F441C(lvl, TOKeyJungleMain__data_804653C8[i]) != 0) {
+            if (get_difficulty_flag_bit__12TLevelSelectFii(lvl, TOKeyJungleMain__data_804653C8[i]) != 0) {
                 self->count++;
             }
         }

@@ -44,7 +44,7 @@ extern "C" {
 extern RecoveredGlobal_802F3CA0_lbl_80474508 lbl_80474508;
 extern RecoveredGlobal_802F3CA0_lbl_80474530 lbl_80474530;
 extern RecoveredGlobal_802F3CA0_lbl_80474558 lbl_80474558;
-void TBoss8Dragon__sub_802F3CA0(u8 *arg0, s8 arg1);
+void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1);
 void TObjLight__sub_801337F8(s32);
 void scale_matrix(s32, f32, f32, f32);
 void rotate_matrix_y(s32, s32);
@@ -73,7 +73,7 @@ extern "C" {
 typedef char RecoveredGlobal_802F3CA0_lbl_80474508_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474508) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_802F3CA0_lbl_80474530_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474530) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_802F3CA0_lbl_80474558_size[sizeof(RecoveredGlobal_802F3CA0_lbl_80474558) == 0x28 ? 1 : -1];
-void TBoss8Dragon__sub_802F3CA0(u8 *arg0, s8 arg1) {
+void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1) {
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x3E8) = (s32) arg1;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3E8);

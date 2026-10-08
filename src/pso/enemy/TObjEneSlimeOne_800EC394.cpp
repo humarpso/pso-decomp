@@ -19,7 +19,7 @@ void advance_animation_playback(s32);
 extern s8 lbl_805D52C4;
 extern f32 lbl_805D52C0;
 extern f32 lbl_805DA760;
-void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0);
+void advance_animation_state__15TObjEneSlimeOneFPv(Obj_800EC6D0 *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_attack_target__15TObjEneSlimeOneFPv(void* p);
 int get_instance__15TObjEneSlimeOneFv(void);
@@ -160,7 +160,7 @@ void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void TObjEneSlimeOne__sub_800EC6D0(Obj_800EC6D0 *arg0) {
+void advance_animation_state__15TObjEneSlimeOneFPv(Obj_800EC6D0 *arg0) {
     s32 s = arg0->state;
     if (s == -1) {
         return;

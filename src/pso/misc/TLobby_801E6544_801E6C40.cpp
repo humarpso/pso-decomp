@@ -30,7 +30,7 @@ u32 find_item_by_id(int);
 s32 TObjPlayer__sub_801C1AC8();
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
-void TLobby__sub_801E6D18(void);
+void check_item_usable_by_player__6TLobbyFv(void);
 u8 *get_player_by_client_id(s32);
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
@@ -44,8 +44,8 @@ void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
 void *memcpy(void *, const void *, u32);
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
-void TLobby__sub_801E6DC4(void);
-s32 TOChatSensorCapture__sub_8015A8D8(u16 arg0, const char *arg1);
+void copy_slot_entity_data__6TLobbyFv(void);
+s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
 extern RecoveredGlobal_801E6D18_TLobby__data_80512220 TLobby__data_80512220;
 extern s32 TLobby__data_805D5E78;
 void TLobby__sub_801E6E88(void);
@@ -80,7 +80,7 @@ void TLobby__sub_801E6CA4(void) {
     }
 }
 
-void TLobby__sub_801E6D18(void) {
+void check_item_usable_by_player__6TLobbyFv(void) {
     u8 temp_r31;
     temp_r31 = (u8) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4);
     if (find_item_by_id((int) (M2C_FIELD(&TLobby__data_80512220.value, s32 *, 0))) != 0U) {
@@ -97,7 +97,7 @@ void TLobby__sub_801E6D18(void) {
 void create_singleton__6TLobbyFv(void) { create_singleton__6TLobbyFPv((void*)(tl_01)); }
 typedef char RecoveredGlobal_801E6E20_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6E20_TLobby__data_80512220) == 0x20 ? 1 : -1];
 
-void TLobby__sub_801E6DC4(void) {
+void copy_slot_entity_data__6TLobbyFv(void) {
     u8 buf[0x3C];
     u8 idx;
     idx = (u8) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4);
@@ -119,7 +119,7 @@ void TLobby__sub_801E6E20(void) {
 void TLobby__sub_801E6E88(void) {
     u8 idx;
     idx = (u8) TLobby__data_80512220.value;
-    if (TOChatSensorCapture__sub_8015A8D8((u16) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4),
+    if (store_player_name__19TOChatSensorCaptureFUsPv((u16) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 4),
                                           (const char *) M2C_FIELD(&TLobby__data_80512220.value, s32 *, 8)) != 0) {
         *(s32 *) (TLobby__data_805D5E78 + ((idx * 4) & 0x3FC)) = 1;
         return;

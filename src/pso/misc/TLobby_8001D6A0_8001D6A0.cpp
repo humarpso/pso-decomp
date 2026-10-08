@@ -36,7 +36,7 @@ void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node);
 Ent_8001D768 *TLobby__sub_8001D768(Obj_8001D768 *self);
 Node_8001D808 *archive_pool_alloc(Pool_8001D808 *pool, u32 size);
 void TLobby__sub_8001D9E8(void* p);
-void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool);
+void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool);
 s32 get_card_window_area__6TLobbyFv(void);
 s32 get_flag_bit0__6TLobbyFv(void);
 void send_disable_auto_reply__9TProtocolFv(s32);
@@ -68,7 +68,7 @@ void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg
     aram_read_sync__6TLobbyFiiii(0, M2C_FIELD(arg1, s32 *, 8));
 }
 
-void TLobby__sub_8001D6E0(Pool_8001D6E0 *pool) {
+void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool) {
     Node_8001D6E0 *cur;
     Node_8001D6E0 *n;
     cur = pool->head->next;
@@ -107,7 +107,7 @@ void archive_pool_free(Pool_8001D7AC *pool, Node_8001D7AC *node) {
             node->next = cur;
             node->prev = prev;
             cur->prev = node;
-            TLobby__sub_8001D6E0((Pool_8001D6E0 *)(pool));
+            merge_adjacent_free_blocks__6TLobbyFPv((Pool_8001D6E0 *)(pool));
             return;
         }
     }

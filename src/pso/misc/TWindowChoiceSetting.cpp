@@ -121,7 +121,7 @@ extern const f32 lbl_805DD1EC;
 extern const f32 lbl_805DD1F0;
 #pragma push
 #pragma fp_contract on
-void TWindowChoiceSetting__sub_802689EC(W_802689EC *w) {
+void update_scroll_offset__20TWindowChoiceSettingFPv(W_802689EC *w) {
     f32 v;
     if (w->f7c != 0 && w->f50 == 0) {
         v = lbl_805DD1E4 + (f32)(w->f74 * 20);
@@ -318,7 +318,7 @@ void handle_choice_input__20TWindowSubStatusDispFPv(u8 *arg0) {
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     step_window_tween((void *) (arg0));
-    ((s32 (*)(void *))TWindowChoiceSetting__sub_802689EC)((void *) (arg0));
+    ((s32 (*)(void *))update_scroll_offset__20TWindowChoiceSettingFPv)((void *) (arg0));
     ((s32 (*)(void *))clamp_scroll__20TWindowChoiceSettingFPv)((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }

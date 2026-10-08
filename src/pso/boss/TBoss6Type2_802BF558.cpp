@@ -21,7 +21,7 @@ s32 set_action_state__11TBoss6Type2FPvPv(void * a0, s32 a1);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
 int send_state_action_packet__11TBoss6Type2FPv(void*);
 int send_action_packet__11TBoss6Type2FPvc(void*, void*);
-void TBoss6Type2__sub_802BF65C(u8 *arg0);
+void send_state_action__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern s32 lbl_805D6750;
 extern u8 lbl_805D6754;
@@ -30,7 +30,7 @@ extern const f32 lbl_805DE4DC;
 void TBoss6Type2__sub_802BF9A8(u8 *arg0);
 s32 spawn_particle_slot__11TBoss6Type2FPvi(void *, s32);
 s32 TBoss6Type2__sub_802BB7C0(void *);
-void TBoss6Type2__sub_802BF6CC(S_802BF6CC *arg0);
+void reset_timers_and_spawn_particle__11TBoss6Type2FPv(S_802BF6CC *arg0);
 }
 
 extern "C" {
@@ -116,7 +116,7 @@ void update_zako_spawn_timer__11TBoss6Type2FPv(void *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BF65C(u8 *arg0) {
+void send_state_action__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x460) == 0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x374);
@@ -136,7 +136,7 @@ void TBoss6Type2__sub_802BF65C(u8 *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BF6CC(S_802BF6CC *arg0) {
+void reset_timers_and_spawn_particle__11TBoss6Type2FPv(S_802BF6CC *arg0) {
     arg0->f45C = 0x4B;
     arg0->f460 = 0x4B;
     arg0->f504 = 0;

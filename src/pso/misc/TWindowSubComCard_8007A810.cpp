@@ -25,7 +25,7 @@ extern "C" {
 u32 TWindowSubComCard__sub_8007B070(u8 *arg0);
 M2C_UNK strncpy(void *, void *, int);
 void TWindowSubComCard__sub_8007B230(u8 *arg0, void *arg1);
-M2C_UNK TWindowSubComCard__sub_8007AA70(Big *, s32);
+M2C_UNK copy_struct__17TWindowSubComCardFPvPv(Big *, s32);
 M2C_UNK init_card__17TWindowSubComCardFPvPv(M2C_UNK *, s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv();
 M2C_UNK init_guild_card__17TWindowSubComCardFPv(M2C_UNK *);
@@ -64,7 +64,7 @@ void TWindowSubComCard__sub_8007AF10(s32 arg0) {
     s32 temp;
     init_guild_card__17TWindowSubComCardFPv(&sp8);
     temp = get_keyboard_mode__17TWindowSubComCardFv();
-    TWindowSubComCard__sub_8007AA70(&spC, temp);
+    copy_struct__17TWindowSubComCardFPvPv(&spC, temp);
     init_card__17TWindowSubComCardFPvPv(&sp8, arg0);
 }
 #pragma pop

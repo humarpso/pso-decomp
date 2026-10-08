@@ -47,7 +47,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801532C8_lbl_804AF7C8 lbl_804AF7C8;
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
 extern s32 lbl_805D2E84;
-u8 *TObjFogCollisionPoison__sub_801532C8(u8 *arg0, u8 *arg1, s32 arg2);
+u8 *construct_with_index__22TObjFogCollisionPoisonFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void record_hit__22TObjFogCollisionPoisonFPvii(void *arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_801532C8_TObjFogCollisionPoison__data_8050D430 TObjFogCollisionPoison__data_8050D430;
 void record_fog_collision_hit(s32 arg0, s32 arg1, s32 arg2);
@@ -196,7 +196,7 @@ u8 *TObjFogCollisionPoison__sub_80153258(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjFogCollisionPoison__sub_801532C8(u8 *arg0, u8 *arg1, s32 arg2) {
+u8 *construct_with_index__22TObjFogCollisionPoisonFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804AF7C8.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E84;
@@ -216,14 +216,14 @@ void create__22TObjFogCollisionPoisonFv(void) {
     if (is_split_screen() == 0) {
         obj = __nw__7TObjectFUl(0x30);
         if (obj != NULL) {
-            TObjFogCollisionPoison__sub_801532C8((u8 *)(obj), (u8 *)(tl_05), (s32)(lbl_805D53A0));
+            construct_with_index__22TObjFogCollisionPoisonFPvPvi((u8 *)(obj), (u8 *)(tl_05), (s32)(lbl_805D53A0));
         }
     } else {
         var_r31 = 0;
         do {
             obj = __nw__7TObjectFUl(0x30);
             if (obj != NULL) {
-                TObjFogCollisionPoison__sub_801532C8((u8 *)(obj), (u8 *)(tl_05), (s32)(var_r31));
+                construct_with_index__22TObjFogCollisionPoisonFPvPvi((u8 *)(obj), (u8 *)(tl_05), (s32)(var_r31));
             }
             var_r31 += 1;
         } while (var_r31 != 4);

@@ -9,7 +9,7 @@ void *alloc_from_obj_heap__10TObjPlayerFPv(u32);
 void *setup_state__10TObjPlayerFPv(void *, s32, void *);
 void *init_needle_effect__10TObjPlayerFPv(void *, s32, void *);
 void *enter_state_341__10TObjPlayerFPv(void *, s32, void *);
-void *TObjPlayer__sub_802D595C(void *, s32, void *);
+void *init_mag_effect_state__10TObjPlayerFPv(void *, s32, void *);
 void *init_type_447__10TObjPlayerFPv(void *, s32, void *);
 void *init_vtable_and_handlers_341__10TObjPlayerFPv(void *, s32, void *);
 void *init_vtable_and_field200__10TObjPlayerFPv(void *, s32, void *);
@@ -54,7 +54,7 @@ void *create_object_by_type__10TObjPlayerFPv(u8 *arg0) {
         case 3:
             p = alloc_from_obj_heap__10TObjPlayerFPv(0x254);
             if (p != NULL) {
-                p = TObjPlayer__sub_802D595C(p, tl_05, arg0);
+                p = init_mag_effect_state__10TObjPlayerFPv(p, tl_05, arg0);
             }
             return p;
         }

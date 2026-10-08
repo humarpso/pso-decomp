@@ -86,7 +86,7 @@ void update_ground_check__15TObjEneDelDepthFPv(u8 *arg0);
 void TObjEneDelDepth__sub_803152A0(u8 *arg0);
 void TObjEneDelDepth__sub_803152C0(u8 *arg0);
 void TObjEneDelDepth__sub_80315888(u8 *arg0);
-void TObjEneDelDepth__sub_80316364(s32);
+void update_animation_frame__15TObjEneDelDepthFPv(s32);
 void run_task__15TObjEneDelDepthFv(Ene_80315720 *o);
 f32 cos_table_lookup(s32);
 f32 sin_table_lookup(s32);
@@ -1656,7 +1656,7 @@ void run_task__15TObjEneDelDepthFv(Ene_80315720 *o) {
     if (o->f3F0 != 0) {
         submit_cursor_candidate(o, -1);
     }
-    TObjEneDelDepth__sub_80316364(o->f37C);
+    update_animation_frame__15TObjEneDelDepthFPv(o->f37C);
     TObjEneDelDepth__sub_803152A0((u8 *)o);
     if (o->idx != 0xD) {
         minimap_render_dot(o->pos, -0x5DB4, 1, 0);

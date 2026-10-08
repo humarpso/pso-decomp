@@ -71,7 +71,7 @@ void TWindow__close(void *);
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 extern const f32 lbl_805DF780;
-void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0);
+void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0);
 u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32, s32);
 s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(M2C_UNK, s32);
 M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(void *);
@@ -103,7 +103,7 @@ s32 get_state_flag__9TMainTaskFv();
 void render__18TAdEnterPasswordGCFv(void *self);
 void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void TAdEnterPasswordGC__sub_8032BC1C(O_8032BC1C *arg0);
+void update_children__18TAdEnterPasswordGCFPv(O_8032BC1C *arg0);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *);
 s32 update_keyboard__17TWindowSubComCardFPv(void *);
 s32 get_selected_slot__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -148,7 +148,7 @@ void render__18TAdEnterPasswordGCFv(void *self) {
     }
 }
 
-void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0) {
+void close_window_and_destroy__18TAdEnterPasswordGCFPv(u8 *arg0) {
     s32 temp_r4;
     u8 *temp_r3;
     u8 *temp_r3_2;
@@ -336,7 +336,7 @@ void TAdEnterPasswordGC__sub_8032BBF0(T_8032BBF0 *self) {
     self->count = 0;
 }
 
-void TAdEnterPasswordGC__sub_8032BC1C(O_8032BC1C *arg0) {
+void update_children__18TAdEnterPasswordGCFPv(O_8032BC1C *arg0) {
     s32 i;
     for (i = 0; i < ((O2_8032BC1C *)arg0)->n; i++) {
         if (arg0->items[i] != 0 && all_parents_unqueued_for_destruction__7TObjectFv(arg0->items[i]) != 0) {

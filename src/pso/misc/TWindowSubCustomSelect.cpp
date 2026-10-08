@@ -48,7 +48,7 @@ extern const f32 lbl_805DD5C4;
 extern const f32 lbl_805DD5C8;
 extern const f32 lbl_805DD5CC;
 extern const f32 lbl_805DD5D0;
-void TWindowSubCustomSelect__sub_80277638(u8 *arg0, u8 *arg1);
+void draw_cursor__22TWindowSubCustomSelectFPvPv(u8 *arg0, u8 *arg1);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 s32 initialize_subwindow__9TWindowDDFPv(void *);
@@ -91,7 +91,7 @@ extern const f32 lbl_805DD5B4;
 extern const f32 lbl_805DD5B8;
 extern const f32 lbl_805DD5BC;
 extern const f32 lbl_805DD5C0;
-s32 TWindowSubCustomSelect__sub_80277368(void *a);
+s32 update_list_scroll__22TWindowSubCustomSelectFPv(void *a);
 s32 can_use_palette_action__10TObjPlayerFPvUcUc(s32, u8, u8);
 Big_80277AEC *get_player_by_client_id(int);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
@@ -139,7 +139,7 @@ typedef char RecoveredGlobal_80277408_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 
 typedef struct Stack_80277368 Stack_80277368;
 #pragma fp_contract on
-s32 TWindowSubCustomSelect__sub_80277368(void *a) {
+s32 update_list_scroll__22TWindowSubCustomSelectFPv(void *a) {
   u8 *arg0 = (u8 *) a;
   Stack_80277368 stack;
   u8 *new_var;
@@ -200,7 +200,7 @@ void handle_grid_navigation__22TWindowSubCustomSelectFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubCustomSelect__sub_80277638(u8 *arg0, u8 *arg1) {
+void draw_cursor__22TWindowSubCustomSelectFPvPv(u8 *arg0, u8 *arg1) {
     Stack_80277638 stack;
     stack.sp8 = (lbl_805DD5C8 * (f32) (s8) M2C_FIELD(arg0, u8 *, 0x70)) + lbl_805DD5C4;
     stack.spC = (TWindowSubCustomSelect__data_805DD5B0 * (f32) (s8) M2C_FIELD(arg0, u8 *, 0x71)) + lbl_805DD5CC;
@@ -263,7 +263,7 @@ void render__22TWindowSubCustomSelectFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_palette_cells__22TWindowSubCustomSelectFv((void *)((void *) (arg0)), (int)((int) (temp_r3)));
-    TWindowSubCustomSelect__sub_80277638((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
+    draw_cursor__22TWindowSubCustomSelectFPvPv((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r3)));
     forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x7C)), (int) (temp_r3));
     draw_window_scrollbar((int) (M2C_FIELD(arg0, s32 *, 0x80)), (int) (temp_r3), (void *) (arg0 + 0x68));
 }
@@ -286,7 +286,7 @@ void run_task__22TWindowSubCustomSelectFv(u8 *arg0) {
             handle_cancel__22TWindowSubCustomSelectFPv((void *) (arg0));
         }
     }
-    TWindowSubCustomSelect__sub_80277368((void *)((void *) (arg0)));
+    update_list_scroll__22TWindowSubCustomSelectFPv((void *)((void *) (arg0)));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD5E4) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x7C)));
         increment_counter__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x80)));

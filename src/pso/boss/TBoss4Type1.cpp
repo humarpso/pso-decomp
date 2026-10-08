@@ -311,9 +311,9 @@ void TRaderMapCore__sub_80053670(u8 *arg0);
 void pick_target_position__13TRaderMapCoreFPvPv(O_80053914 *self, Vec_80053914 *out);
 void set_map_position__13TRaderMapCoreFPvPv(void *arg0, void *arg1);
 void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0);
-void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b);
+void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b);
 void apply_packed_state__11TBoss4Type2FPvUi(void *arg0, u32 arg1);
-void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+void send_darkfalz_code__11TBoss4Type2FPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void send_state_to_target__11TBoss4Type2FPvi(Obj_80053CEC *self, s32 arg1);
 void fn_80053D4C(Obj_80053D4C *arg0);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
@@ -448,7 +448,7 @@ struct S_80052E10 {
     u8 pad3cc[4];
     s32 f3d0;
 };
-extern "C" void TBoss4Type2__sub_80052E10(S_80052E10 *o);
+extern "C" void start_motion_for_index__11TBoss4Type2FPv(S_80052E10 *o);
 extern "C" void TBoss4Type2__sub_80052EF8(O_80052EF8 *o);
 extern "C" void TBoss4Type2__sub_800530C0(Obj_800530C0 *arg0);
 extern "C" u8 lbl_8043750C[];
@@ -476,9 +476,9 @@ void *lbl_80485B08[80] = {
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052EF8, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052EEC, (void *)0x0, (void *)0xffffffff,
     (void *)&TBoss4Type2__sub_80052EE8, (void *)0x0, (void *)0xffffffff, (void *)&tick_state_398_timer__11TBoss4Type2FPv,
-    (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052E10, (void *)0x0,
+    (void *)0x0, (void *)0xffffffff, (void *)&start_motion_for_index__11TBoss4Type2FPv, (void *)0x0,
     (void *)0xffffffff, (void *)&update_spawn_uro__14TBoss4DarkFalzFPv, (void *)0x0, (void *)0xffffffff,
-    (void *)&TBoss4Type2__sub_80052E10, (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052CA0,
+    (void *)&start_motion_for_index__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052CA0,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss4Type2__sub_80052C58, (void *)0x0,
     (void *)0xffffffff, (void *)&update_state__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff,
     (void *)&update_attack_countdown__11TBoss4Type2FPv, (void *)0x0, (void *)0xffffffff, (void *)&init_child_and_set_timer__11TBoss4Type2FPv,
@@ -889,7 +889,7 @@ void update_spawn_uro__14TBoss4DarkFalzFPv(Obj_80052CDC *arg0) {
     }
 }
 
-void TBoss4Type2__sub_80052E10(S_80052E10 *o) {
+void start_motion_for_index__11TBoss4Type2FPv(S_80052E10 *o) {
     set_motion_index__11TBoss4Type2FPvi((u8 *)o, ((s32 *)lbl_804861F4)[o->idx]);
     o->f3c8 = 0;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)lbl_804860C0 + 0x28, &((P2_80052E10 *)lbl_80486200)[o->idx]);
@@ -1045,8 +1045,8 @@ void fn_80053440(Obj_80053440 *arg0) {
 void TBoss4Type2__sub_80053504(u8 *arg0) {
     s32 spC;
     s32 sp8;
-    ((void (*)(void *, void *, void *))TBoss4Type2__sub_80053B48)(arg0, &spC, &sp8);
-    ((void (*)(void *, s32, s32, s32))TBoss4Type2__sub_80053C8C)(arg0, 2, spC, sp8);
+    ((void (*)(void *, void *, void *))calc_scale_slot_indices__11TBoss4Type2FPvPvPv)(arg0, &spC, &sp8);
+    ((void (*)(void *, s32, s32, s32))send_darkfalz_code__11TBoss4Type2FPviii)(arg0, 2, spC, sp8);
 }
 
 void check_state_transition__11TBoss4Type2FPv(void *arg0) {
@@ -1197,7 +1197,7 @@ void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0) {
 extern int fold_flush_2;
 #pragma pop
 
-void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b) {
+void calc_scale_slot_indices__11TBoss4Type2FPvPvPv(S_80053B48 *o, s32 *a, s32 *b) {
     f32 s;
     s32 v;
     v = o->f3a0 + (s32)(lbl_805D8B64 * calc_boss4_scale__10TObjPlayerFi(o));
@@ -1235,7 +1235,7 @@ void apply_packed_state__11TBoss4Type2FPvUi(void *arg0, u32 arg1) {
     ((M2C_UNK (*)(void *, int))set_state__11TBoss4Type2FPvi)(arg0, n);
 }
 
-void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+void send_darkfalz_code__11TBoss4Type2FPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x38C));
     if (temp_r3 != NULL) {

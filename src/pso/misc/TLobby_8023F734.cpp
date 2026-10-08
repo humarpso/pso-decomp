@@ -65,7 +65,7 @@ s32 tick_sound_voice(SoundRequestVoice *v);
 u32 advance_rng__6TLobbyFPv(void *);
 void TLobby__sub_80241798(Sound_80241798 *arg0);
 u32 advance_rng__6TLobbyFPv(void *);
-void TLobby__sub_80240E8C(u8 *arg0);
+void update_random_flip_flag__6TLobbyFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -188,7 +188,7 @@ s32 tick_sound_voice(SoundRequestVoice *v) {
     return 0;
 }
 
-void TLobby__sub_80240E8C(u8 *arg0) {
+void update_random_flip_flag__6TLobbyFPv(u8 *arg0) {
     switch (M2C_FIELD(arg0, s32 *, 0x10)) {
     case 0:
         switch (M2C_FIELD(arg0, s32 *, 0x14)) {
@@ -453,7 +453,7 @@ s32 init_sound_voice__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s
     switch (M2C_FIELD(arg0, s32 *, 0xC)) {
     case 0:
         M2C_FIELD(arg0, s32 *, 4) = -1;
-        TLobby__sub_80240E8C((u8 *)(arg0));
+        update_random_flip_flag__6TLobbyFPv((u8 *)(arg0));
         break;
     }
     return 0;

@@ -38,7 +38,7 @@ extern RecoveredGlobal_8035D10C___vt__12TBoss6Thanks __vt__12TBoss6Thanks;
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1);
 void TBoss6Thanks__sub_8035CCAC(s32 arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
-void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0);
+void destroy_effects__12TBoss6ThanksFPv(W_8035CC50 *arg0);
 void request_destroy__11TBoss4Type2FUi(void *);
 void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, int);
@@ -103,7 +103,7 @@ void update_particle_emitters__12TBoss6ThanksFPv(void *arg0) {
     }
 }
 
-void TBoss6Thanks__sub_8035CC50(W_8035CC50 *arg0) {
+void destroy_effects__12TBoss6ThanksFPv(W_8035CC50 *arg0) {
     s32 i;
     for (i = 0; i < 4; i++) {
         if (arg0->e[i].p != NULL) {
@@ -170,7 +170,7 @@ u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks *)&__vt__12TBoss6Thanks).value;
         TBoss6Thanks__sub_8035CB40();
-        TBoss6Thanks__sub_8035CC50((W_8035CC50 *)((s32) arg0));
+        destroy_effects__12TBoss6ThanksFPv((W_8035CC50 *)((s32) arg0));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((s32) arg0);

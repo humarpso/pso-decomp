@@ -13,7 +13,7 @@ struct Obj_8031F070 { u8 pad[0x410]; s32 count; u8 pad2[4]; u16 ids[6]; };
 
 extern "C" {
 u8 *find_entity_by_id(u16);
-void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1);
+void remove_child_entity__12TObjEneReconFPvPv(Obj_8031EF14 *arg0, u8 *arg1);
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *find_entity_by_id(u16);
 u16 TObjEneRecon__sub_8031D878();
@@ -28,7 +28,7 @@ s32 has_child_in_anim_5__12TObjEneReconFPv(Obj_8031F070 *arg0);
 
 extern "C" {
 
-void TObjEneRecon__sub_8031EF14(Obj_8031EF14 *arg0, u8 *arg1) {
+void remove_child_entity__12TObjEneReconFPvPv(Obj_8031EF14 *arg0, u8 *arg1) {
     s32 i;
     for (i = 0; i < 6; i++) {
         if (find_entity_by_id(arg0->ids[i]) == arg1) {

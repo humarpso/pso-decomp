@@ -9,10 +9,10 @@ struct Obj_800A6B14;
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, int);
-s32 TObjPlayer__sub_800A65FC(u8 *arg0);
+s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, int);
-s32 TObjPlayer__sub_800A66BC(u8 *arg0);
+s32 update_action_hold_recovery__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -1333,7 +1333,7 @@ extern RecoveredGlobal_800A6BE0_lbl_80500978 lbl_80500978;
 extern s32 lbl_805D505C;
 extern s32 lbl_805D5060;
 extern const f32 lbl_805D9A14;
-void TObjPlayer__sub_800A6BE0(void);
+void step_cutscene_frame__10TObjPlayerFv(void);
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_800A6B14*, const Vec_800A6B14*))(VecCopy__FP3VecPC3Vec))
 #define subtract_vector ((f32 (*)(void*, void*))(subtract_vector))
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -1385,7 +1385,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjPlayer__sub_800A6BE0(void);
+void step_cutscene_frame__10TObjPlayerFv(void);
 extern Vec_800A6C54 lbl_8043A8A4;
 extern RecoveredGlobal_800A6BE0_lbl_80500978 lbl_80500978;
 extern u8 lbl_8058D490[];
@@ -1620,7 +1620,7 @@ void TObjPlayer__sub_800A64E8(u8 *arg0) {
 
 #define P_800A677C(p) ((Obj_800A677C *)(p))
 
-s32 TObjPlayer__sub_800A65FC(u8 *arg0) {
+s32 update_landing_recovery__10TObjPlayerFPv(u8 *arg0) {
     if (update_movement_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
@@ -1642,7 +1642,7 @@ s32 TObjPlayer__sub_800A65FC(u8 *arg0) {
     return 0;
 }
 
-s32 TObjPlayer__sub_800A66BC(u8 *arg0) {
+s32 update_action_hold_recovery__10TObjPlayerFPv(u8 *arg0) {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
@@ -1801,7 +1801,7 @@ extern void *tl_04;
 
 typedef char RecoveredGlobal_800A6BE0_lbl_804FF5E8_size[sizeof(RecoveredGlobal_800A6BE0_lbl_804FF5E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_800A6BE0_lbl_80500978_size[sizeof(RecoveredGlobal_800A6BE0_lbl_80500978) == 0x10 ? 1 : -1];
-void TObjPlayer__sub_800A6BE0(void) {
+void step_cutscene_frame__10TObjPlayerFv(void) {
     if ((s32) lbl_805D505C == 0x15) {
         rotate_matrix_x((int) (0), (void *) (lbl_805D5060));
     }
@@ -1825,7 +1825,7 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         lbl_805D505C = 0;
         lbl_805D5060 = M2C_FIELD(arg0, s32 *, 0x39C);
-        set_global_state__16TObjEneRe7BeruraFi((void *)TObjPlayer__sub_800A6BE0);
+        set_global_state__16TObjEneRe7BeruraFi((void *)step_cutscene_frame__10TObjPlayerFv);
         toggle_particle_effect__10TObjPlayerFv();
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 11:

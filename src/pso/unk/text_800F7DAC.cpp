@@ -67,14 +67,14 @@ void init_fadeout_state__6TLobbyFi(s32 arg0);
 void step_fade_opacity_decrease(u8 *arg0);
 void set_fade_params__6TLobbyFi(s32 arg0);
 s32 get_quest_thread_state__6TLobbyFv(void);
-u8 * TLobby__sub_800F81A8(u8 *arg0, s16 arg1);
+u8 * dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1);
 void * ct_register__6TLobbyFPv(void *arg0);
 s32 TLobby__sub_800F8250(void *arg0, f32 farg0);
 void TLobby__sub_800F838C(u8 *arg0);
 u8 * TLobby__sub_800F8428(u8 *arg0, s16 arg1);
 void * TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7);
 void TLobby__sub_800F8530(void);
-void TLobby__sub_800F8534(u8 *arg0);
+void update_fade_in_alpha__6TLobbyFPv(u8 *arg0);
 void * TLobby__sub_800F85C0(void *arg0, s16 arg1);
 void* init_entry_fields__6TLobbyFPviii(void* a0, int a1, int a2, int a3);
 void TLobby__sub_800F8690(u8 *arg0);
@@ -277,7 +277,7 @@ s32 get_quest_thread_state__6TLobbyFv(void) {
     return 0;
 }
 
-u8 *TLobby__sub_800F81A8(u8 *arg0, s16 arg1) {
+u8 *dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499970.value;
         (*(s32 *)&lbl_805D5330) = 0;
@@ -357,7 +357,7 @@ void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, 
 
 void TLobby__sub_800F8530(void) {  }
 
-void TLobby__sub_800F8534(u8 *arg0) {
+void update_fade_in_alpha__6TLobbyFPv(u8 *arg0) {
     M2C_UNK (*temp_r12)();
     M2C_FIELD(arg0, f32 *, 0x1C) += 2.0f;
     if (M2C_FIELD(arg0, f32 *, 0x1C) >= 128.0f) {

@@ -129,7 +129,7 @@ extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
 void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item);
 u8 find_adjacent_matching_slot__10TObjPlayerFUc(u8);
-u8 TObjPlayer__sub_8010494C(u8);
+u8 get_next_matching_special_index__10TObjPlayerFUc(u8);
 s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
@@ -514,7 +514,7 @@ void TLobby__sub_8021599C(Obj_8021599C *obj) {
             obj->slot = find_adjacent_matching_slot__10TObjPlayerFUc(obj->slot);
             break;
         case 1:
-            obj->slot = TObjPlayer__sub_8010494C(obj->slot);
+            obj->slot = get_next_matching_special_index__10TObjPlayerFUc(obj->slot);
             break;
         }
     }

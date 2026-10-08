@@ -54,7 +54,7 @@ extern RecoveredGlobal_80173330_lbl_804B3A18 lbl_804B3A18;
 extern u32 TORainbowCave01__data_805D5A70;
 void TORainbowCave01__sub_80173330(void);
 u8 * init_map_object_base(void *);
-void TORainbowCave01__sub_8017307C(u8 *arg0, int, f32, f32);
+void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int, f32, f32);
 extern M2C_UNK __vt__15TORainbowCave01[];
 extern s32 lbl_805D30D4;
 extern u32 TORainbowCave01__data_805D5A70;
@@ -108,7 +108,7 @@ extern void *tl_05;
 
 #pragma push
 #pragma fp_contract on
-void TORainbowCave01__sub_8017307C(u8 *arg0, int _w1, f32 _w2, f32 _w3) {
+void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int _w1, f32 _w2, f32 _w3) {
     f32 k = 0.0009765625f;
     M2C_FIELD(arg0, f32 *, 0xC8) = 1.0f / ((f32) M2C_FIELD(arg0, s32 *, 0x84) * k + 29.999998f);
     M2C_FIELD(arg0, f32 *, 0xD0) = 4e+04f + (f32) M2C_FIELD(arg0, s32 *, 0x8C);
@@ -215,7 +215,7 @@ u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) 400.0f;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (4e+04f);
     M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (0.0f);
-    TORainbowCave01__sub_8017307C((u8 *)((void *) (arg0)), (int)((int) (temp_r4)), (f32) ((4e+04f)), (f32) (400.0f));
+    init_light_params__15TORainbowCave01FPviff((u8 *)((void *) (arg0)), (int)((int) (temp_r4)), (f32) ((4e+04f)), (f32) (400.0f));
     return arg0;
 }
 

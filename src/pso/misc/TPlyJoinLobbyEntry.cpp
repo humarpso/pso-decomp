@@ -377,7 +377,7 @@ void set_flag_and_update__6TLobbyFv();
 s32 TLobby__sub_801A3E8C();
 s32 TLobby__sub_801A51C0(void *);
 VObj_18_80135208 * TPacket__ct(void*, s32);
-s32 TKeyBoardControl__sub_801A57D0();
+s32 any_pad_input_active__16TKeyBoardControlFv();
 s32 fill_player_record__10TObjPlayerFPvPv(void *, void *);
 s32 TObjPlayer__sub_801B4FD8(void *);
 s32 get_player_by_client_id(void *);
@@ -562,7 +562,7 @@ void update_idle_timeout__6TLobbyFPv(u8 *arg0) {
     if (TWindowCtrlMain__sub_8024CE58() == 0) {
         (*(Obj_80134F9C * *)&TLobby__data_805D5608) = 0;
     }
-    if (TKeyBoardControl__sub_80132368(TKeyBoardControl__data_80506270) != 0 || TKeyBoardControl__sub_801A57D0() != 0) {
+    if (TKeyBoardControl__sub_80132368(TKeyBoardControl__data_80506270) != 0 || any_pad_input_active__16TKeyBoardControlFv() != 0) {
         t->start = t->now;
         t->state = 0;
         if ((*(Obj_80134F9C * *)&TLobby__data_805D5608) != 0) {

@@ -57,7 +57,7 @@ s32 get_com_card_data__6TLobbyFv(void);
 extern u8 lbl_80517EE0[];
 void find_and_load_com_card__6TLobbyFUi(u32 arg0);
 void __copy(void *, void *, int);
-Entry_80242380 *TLobby__sub_80242380(Entry_80242380 *dst, Entry_80242380 *src);
+Entry_80242380 *copy_com_card_entry__6TLobbyFPvPv(Entry_80242380 *dst, Entry_80242380 *src);
 char *TLobby__sub_80242458(char *src, char *dst);
 }
 
@@ -109,11 +109,11 @@ void find_and_load_com_card__6TLobbyFUi(u32 arg0) {
         if (arg0 == TLobby__sub_802428F8()) break;
     }
     if (i < n) {
-        TLobby__sub_80242380((Entry_80242380 *)(lbl_80517EE0), (Entry_80242380 *)(get_com_card_entry__6TLobbyFi(i)));
+        copy_com_card_entry__6TLobbyFPvPv((Entry_80242380 *)(lbl_80517EE0), (Entry_80242380 *)(get_com_card_entry__6TLobbyFi(i)));
     }
 }
 
-Entry_80242380 *TLobby__sub_80242380(Entry_80242380 *dst, Entry_80242380 *src) {
+Entry_80242380 *copy_com_card_entry__6TLobbyFPvPv(Entry_80242380 *dst, Entry_80242380 *src) {
     dst->id = src->id;
     dst->f4 = src->f4;
     __copy(dst->name, src->name, 0x11);

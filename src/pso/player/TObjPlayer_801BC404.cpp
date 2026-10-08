@@ -17,16 +17,16 @@ int copy_header_struct__6TLobbyFPvPv(void*, void*);
 int set_floor__10TObjPlayerFPvi(void*, void*);
 int set_floor_index__10TObjPlayerFPvi(void*, void*);
 int set_play_time__10TObjPlayerFPvi(void*, void*);
-s32 TLevelSelect__sub_801F441C(s32, s32);
+s32 get_difficulty_flag_bit__12TLevelSelectFii(s32, s32);
 
 s32 has_active_camera_event__10TObjPlayerFv(void) {
     if (get_instance__6TLobbyFv() == 0) {
-        if ((check_camera_mode__10TObjPlayerFv() == 0) && (TLevelSelect__sub_801F441C(0, 0xB) == 0) && (TLevelSelect__sub_801F441C(1, 0xB) == 0) && (TLevelSelect__sub_801F441C(2, 0xB) == 0) && (TLevelSelect__sub_801F441C(3, 0xB) == 0)) {
+        if ((check_camera_mode__10TObjPlayerFv() == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(0, 0xB) == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(1, 0xB) == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(2, 0xB) == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(3, 0xB) == 0)) {
             return 0;
         }
         goto block_14;
     }
-    if ((get_instance__6TLobbyFv() == 1) && (check_camera_mode__10TObjPlayerFv() == 0) && (TLevelSelect__sub_801F441C(0, 0x5B) == 0) && (TLevelSelect__sub_801F441C(1, 0x5B) == 0) && (TLevelSelect__sub_801F441C(2, 0x5B) == 0) && (TLevelSelect__sub_801F441C(3, 0x5B) == 0)) {
+    if ((get_instance__6TLobbyFv() == 1) && (check_camera_mode__10TObjPlayerFv() == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(0, 0x5B) == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(1, 0x5B) == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(2, 0x5B) == 0) && (get_difficulty_flag_bit__12TLevelSelectFii(3, 0x5B) == 0)) {
         return 0;
     }
 block_14:

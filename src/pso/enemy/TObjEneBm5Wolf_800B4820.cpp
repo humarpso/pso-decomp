@@ -1121,7 +1121,7 @@ void approach_target__14TObjEneBm5WolfFPvf(void *, f32);
 M2C_UNK advance_pose_turn__14TObjEneBm5WolfFPvi(void *, s32);
 s32 enemy_validate_retained_target(void *);
 s32 check_v2_mode__9TObjEneDDFv();
-M2C_UNK TObjEneDD__sub_800BA318(void *, void *);
+M2C_UNK send_damage_message__9TObjEneDDFiPv(void *, void *);
 M2C_UNK TObjEneDD__sub_800BA378(void *, void *);
 M2C_UNK move_with_wall_slide_on_ground__9TObjEneDDFPvfff(void *, f32, f32, f32);
 M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
@@ -1846,7 +1846,7 @@ void update_lunge__14TObjEneBm5WolfFv(u8 *arg0, s32 arg1) {
                             if ((s32) M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
                                 TObjEneDD__sub_800BA378((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x390)));
                             } else {
-                                TObjEneDD__sub_800BA318((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x390)));
+                                send_damage_message__9TObjEneDDFiPv((void *) (arg0), (void *) (M2C_FIELD(arg0, u8 **, 0x390)));
                             }
                         }
                     }

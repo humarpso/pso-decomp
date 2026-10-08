@@ -16,7 +16,7 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 TQuestVmDownLoadServer__sub_8006EF6C(int);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
-void THunterGuildSeqOffline__sub_80213F14(void);
+void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void);
 }
 
 extern "C" {
@@ -44,7 +44,7 @@ void THunterGuildSeqOffline__sub_80213EBC(void) {
         M2C_FIELD(lbl_805D61B8, s32 *, 0x34) = 2;
     }
 }
-void THunterGuildSeqOffline__sub_80213F14(void) {
+void reset_quest_list_vm__22THunterGuildSeqOfflineFv(void) {
     if ((void *) (*(u8 * *)&lbl_805D61B8) != NULL) {
         ((VObj_18 *)((*(u8 * *)&lbl_805D61B8)))->m5(TQuestVmDownLoadServer__sub_8006EF6C((int) (0x43)), 1);
         set_field_20__12TQuestListVMFPvi((void *)((void *) ((*(u8 * *)&lbl_805D61B8))), (M2C_UNK)((int) (9)));

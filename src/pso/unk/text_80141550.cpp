@@ -20,7 +20,7 @@ extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
 void set_shadow_material_state(void);
 void copy_config__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_80141604(void);
+void init_default_config__10TObjPlayerFv(void);
 }
 
 extern "C" {
@@ -54,7 +54,7 @@ u32 lbl_8050BFF0[4];
 Cfg_80141604 lbl_8050C000;
 Cfg_80141604 lbl_8050C014;
 Cfg_80141604 lbl_8050C028;
-void TObjPlayer__sub_80141604(void) {
+void init_default_config__10TObjPlayerFv(void) {
     lbl_8050C000.a = 7;
     lbl_8050C000.b = 1;
     lbl_8050C000.c = 1;

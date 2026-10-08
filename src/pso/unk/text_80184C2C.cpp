@@ -35,7 +35,7 @@ extern s32 lbl_805D5B3C;
 extern s32 lbl_805D5B40;
 extern s32 lbl_805D5B44;
 extern void *lbl_805D5B48;
-void TLobby__sub_80184D28(void);
+void free_buffers__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ void clear_global_array__6TLobbyFPv(void* _w0) {
     }
 }
 
-void TLobby__sub_80184D28(void) {
+void free_buffers__6TLobbyFv(void) {
     s32 i;
     if (lbl_805D5B48 != NULL) {
         destroy_buffer_pair(lbl_805D5B48, 1);

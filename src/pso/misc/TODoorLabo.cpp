@@ -75,7 +75,7 @@ void load_resources__10TODoorLaboFv(void);
 s32 get_bml_model(s32, s32);
 extern s32 lbl_80465FF8[];
 extern s32 lbl_805D6618;
-void TODoorLabo__sub_8029F9EC(void *arg0);
+void init_model_by_type__10TODoorLaboFPv(void *arg0);
 Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0);
 }
 
@@ -172,7 +172,7 @@ void load_resources__10TODoorLaboFv(void) {
     (*(s32 *)&lbl_805D662C) = load_gvm_texture_file(lbl_8046605C);
 }
 
-void TODoorLabo__sub_8029F9EC(void *arg0) {
+void init_model_by_type__10TODoorLaboFPv(void *arg0) {
     s32 tbl[2];
     tbl[0] = lbl_80465FF8[0];
     tbl[1] = lbl_80465FF8[1];
@@ -218,7 +218,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     init_collision_body_parts(arg0, lbl_804DC864, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    TODoorLabo__sub_8029F9EC(arg0);
+    init_model_by_type__10TODoorLaboFPv(arg0);
     arg0->fBC = (u8 *)get_bml_motion(lbl_805D6618, 0);
     arg0->fB4 = (f32)M2C_FIELD(arg0->fBC, u32 *, 4) - lbl_805DDDB8;
     arg0->fB8 = lbl_805DDDBC;

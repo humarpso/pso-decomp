@@ -987,8 +987,8 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0);
 void pick_random_target__8TObjFishFPv(u8 *self);
 void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1);
 #define set_state_and_send__8TObjFishFPvi ((s32 (*)(void *, int))set_state_and_send__8TObjFishFPvi)
-M2C_UNK TBoss7LaserPtcl__sub_802EEE24(void *, void *);
-u32 TBoss7LaserLight__sub_802EEF10(void *, void *, int, int);
+M2C_UNK push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
+u32 construct_with_params__16TBoss7LaserLightFPviii(void *, void *, int, int);
 M2C_UNK fn_8035A8E0(int, void *);
 M2C_UNK calc_world_position__15TBoss7LaserPtclFPvPv(int, int);
 s32 is_state_2__15TBoss7LaserPtclFPv(void *);
@@ -1460,7 +1460,7 @@ void handle_6xA9_barba_ray_boss_actions(void *arg0);
 void TObjPlayer__sub_802ECAA4(Ply_802ECAA4 *o);
 u8 TObjPlayer__sub_802ECB10(void *arg0);
 void TObjFish__sub_802ECB38(u8 *arg0);
-void TObjFish__sub_802ECB70(u8 *arg0, s32 arg1);
+void apply_damage_and_set_effect__8TObjFishFPvi(u8 *arg0, s32 arg1);
 void TObjFish__sub_802ECBDC(Fish_802ECBDC *self);
 void TObjFish__sub_802ECC44(Fish_802ECC44 *self);
 void pick_random_target__8TObjFishFPv(u8 *self);
@@ -2038,20 +2038,20 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x71C) == 0U) {
                     var_r0_2 = __nw__7TObjectFUl((int) (0x124));
                     if (var_r0_2 != 0U) {
-                        var_r0_2 = TBoss7LaserLight__sub_802EEF10((void *) var_r0_2, (void *) (arg0), (int) (6), (int) (0x208));
+                        var_r0_2 = construct_with_params__16TBoss7LaserLightFPviii((void *) var_r0_2, (void *) (arg0), (int) (6), (int) (0x208));
                     }
                     M2C_FIELD(arg0, u32 *, 0x71C) = var_r0_2;
                 } else {
-                    TBoss7LaserPtcl__sub_802EEE24(M2C_FIELD(arg0, void **, 0x71C), temp_r30_2);
+                    push_ring_point__15TBoss7LaserPtclFPvPv(M2C_FIELD(arg0, void **, 0x71C), temp_r30_2);
                 }
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x720) == 0U) {
                     var_r0_3 = __nw__7TObjectFUl((int) (0x124));
                     if (var_r0_3 != 0U) {
-                        var_r0_3 = TBoss7LaserLight__sub_802EEF10((void *) var_r0_3, (void *) (arg0), (int) (0xF), (int) (0x209));
+                        var_r0_3 = construct_with_params__16TBoss7LaserLightFPviii((void *) var_r0_3, (void *) (arg0), (int) (0xF), (int) (0x209));
                     }
                     M2C_FIELD(arg0, u32 *, 0x720) = var_r0_3;
                 } else {
-                    TBoss7LaserPtcl__sub_802EEE24(M2C_FIELD(arg0, void **, 0x720), temp_r30_2);
+                    push_ring_point__15TBoss7LaserPtclFPvPv(M2C_FIELD(arg0, void **, 0x720), temp_r30_2);
                 }
             }
             temp_r4 = (u8 *)((void *)((u8 *)(lbl_80472D90) + -4));
@@ -3655,7 +3655,7 @@ void TObjFish__sub_802ECB38(u8 *arg0) {
     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x3A312, arg0 + 0x38);
 }
 
-void TObjFish__sub_802ECB70(u8 *arg0, s32 arg1) {
+void apply_damage_and_set_effect__8TObjFishFPvi(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x6FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6FC) - (s32) (lbl_805DEA14 * (f32) arg1));
     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x3B213, arg0 + 0x38);
 }

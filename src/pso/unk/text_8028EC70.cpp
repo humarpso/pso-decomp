@@ -41,13 +41,13 @@ s32 get_display_index__12TCharaMakingFPv(void *);
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 extern Row_8028EE20 lbl_804D8E20[];
 s32 TAdSinglePlyChrSelectGC__sub_8028EE20(void *arg0, void *arg1_);
-s32 TAdSinglePlyChrSelectGC__sub_8028EC70(A_8028EC70 *a, B_8028EC70 *b);
+s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b);
 s32 TAdSinglePlyChrSelectGC__sub_8028ECCC(A_8028ECCC *a, B_8028ECCC *b);
 }
 
 extern "C" {
 
-s32 TAdSinglePlyChrSelectGC__sub_8028EC70(A_8028EC70 *a, B_8028EC70 *b) {
+s32 is_entry_equal__23TAdSinglePlyChrSelectGCFPvPv(A_8028EC70 *a, B_8028EC70 *b) {
     s32 i;
     if (a->e != b->e) {
         return 0;

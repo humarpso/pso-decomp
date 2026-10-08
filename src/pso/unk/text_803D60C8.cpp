@@ -21,14 +21,14 @@ extern s32 lbl_805D7684;
 extern u32 lbl_805D7688;
 extern u32 lbl_805D768C;
 extern s32 lbl_805D7690;
-void TLobby__sub_803D60C8(u32 arg0, u32 arg1, s32 arg2);
+void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_803D6140_lbl_8058C960_size[sizeof(RecoveredGlobal_803D6140_lbl_8058C960) == 0x100 ? 1 : -1];
 
-void TLobby__sub_803D60C8(u32 arg0, u32 arg1, s32 arg2) {
+void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2) {
     u8 *base = lbl_8047E220;
     if (arg0 == 0) {
         report_error_message__6TLobbyFi((s32)(base + 0x138));

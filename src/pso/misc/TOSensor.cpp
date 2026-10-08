@@ -43,7 +43,7 @@ struct Player_801756C4 { u8 pad[0x38]; f32 pos[3]; };
 
 extern "C" {
 void TOSensorAncient01__vt14(u8 *arg0);
-void TOSensorAncient01__sub_8017585C(u8 *arg0);
+void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
 void play_persistent_sound(int, void *, void *, int, int);
 void TOSensor__sub_8017546C(u8 *arg0);
@@ -235,7 +235,7 @@ void TOSensorAncient01__vt23(void) {  }
 
 #pragma push
 #pragma opt_common_subs off
-void TOSensorAncient01__sub_8017585C(u8 *arg0) {
+void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0xF4) & 1) {
         M2C_FIELD(arg0, f32 *, 0xF0) += (0.26666668f);
         if ((4.0f) < M2C_FIELD(arg0, f32 *, 0xF0)) {
@@ -257,12 +257,12 @@ void TOSensorAncient01__vt15(void *arg0) {
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
     M2C_FIELD(arg0, s32 *, 0xEC) = (s32) (temp_r4 + 0x28F);
-    TOSensorAncient01__sub_8017585C((u8 *)((s32) arg0));
+    update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32) arg0));
 }
 void TOSensorAncient01__vt14(u8 *arg0) {
     s32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0xEC) += (1.31e+03f);
-    TOSensorAncient01__sub_8017585C((u8 *)((s32)(arg0)));
+    update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32)(arg0)));
     temp_r3 = M2C_FIELD(arg0, s32 *, 0xE8);
     if (temp_r3 > 0) {
         M2C_FIELD(arg0, s32 *, 0xE8) = (s32) (temp_r3 - 1);

@@ -95,7 +95,7 @@ void TObjEneBalClawClaw__sub_80090798(void *);
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 extern const f32 lbl_805D9694;
-void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1);
+void enter_hit_state__18TObjEneBalClawClawFPvs(u8 *arg0, s16 arg1);
 void apply_actor_gravity(void *, s32, f32);
 f32 update_enemy_wander_move(void *, Vec_80090A70 *, s32, Sub_80090A70 *, f32);
 void select_enemy_destination(void *, Vec_80090A70 *, s32);
@@ -138,7 +138,7 @@ void clear_flag__18TObjEneBalClawClawFPv(void *arg0) {
     reset_active_state__18TObjEneBalClawClawFPv();
 }
 
-void TObjEneBalClawClaw__sub_8009097C(u8 *arg0, s16 arg1) {
+void enter_hit_state__18TObjEneBalClawClawFPvs(u8 *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 0x3C6) = arg1;
     M2C_FIELD(arg0, s16 *, 0x338) = arg1;
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x20000000);

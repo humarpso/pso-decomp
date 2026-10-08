@@ -397,7 +397,7 @@ s32 update_state__15TObjEnemyCustomFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 M2C_UNK TObjEnemyCustom__ct(void *);
 s32 update_walk_to_target__10TObjPlayerFPv(void *);
-M2C_UNK TObjGyaranzoMissile__sub_800D1F84(void *);
+M2C_UNK init_params_from_table__19TObjGyaranzoMissileFPv(void *);
 s32 update__19TObjGyaranzoMissileFPv(void *);
 s32 fn_800D2900(void *);
 s32 fn_800D2A68(void *);
@@ -1365,7 +1365,7 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     M2C_FIELD(arg0, u8 **, 0x350) = (u8 *) lbl_804941DC;
     bind_enemy_combat_stats((void *) (arg0), (void *) (lbl_805D51E0), (void *) (lbl_805D51E4), (void *) (lbl_805D51E8));
-    TObjGyaranzoMissile__sub_800D1F84((void *) (arg0));
+    init_params_from_table__19TObjGyaranzoMissileFPv((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));

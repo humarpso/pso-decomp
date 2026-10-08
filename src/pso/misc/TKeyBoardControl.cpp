@@ -81,9 +81,9 @@ void release_input__16TKeyBoardControlFPv(void *arg0);
 void TKeyBoardControl__sub_802613A4(void *arg0);
 void release__16TKeyBoardControlFPv(void *arg0);
 void close__19TWindowKeyBoardSoftFPv(void* p);
-s32 TWindowKeyBoardSoft__sub_80261480(u8 *arg0, u8 *arg1, u8 *arg2);
+s32 hit_test_relative__19TWindowKeyBoardSoftFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 f32 TWindowKeyBoardSoft__sub_802614DC(u8 *, u8 *, f32, f32, f32, f32);
-f32 TWindowSubComCard__sub_80244818(u8 *arg0);
+f32 get_normalized_progress__17TWindowSubComCardFPv(u8 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_802616BC(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_80261DD8(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_8026227C(void *, int);
@@ -320,7 +320,7 @@ void release__16TKeyBoardControlFPv(void *arg0) {
 
 void close__19TWindowKeyBoardSoftFPv(void* p) { if (*(unsigned int*)((char*)p + 0x6c) != 0) { fn_8025CD10(*(void**)((char*)p + 0x6c)); ((int (*)(void*))update_focus_flags__19TWindowKeyBoardSoftFPv)(p); } }
 
-s32 TWindowKeyBoardSoft__sub_80261480(u8 *arg0, u8 *arg1, u8 *arg2) {
+s32 hit_test_relative__19TWindowKeyBoardSoftFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f3;
     f32 temp_f5;
     temp_f3 = M2C_FIELD(arg2, f32 *, 4);
@@ -332,7 +332,7 @@ f32 TWindowKeyBoardSoft__sub_802614DC(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, 
     f32 t;
     f32 v;
 
-    t = TWindowSubComCard__sub_80244818(arg0);
+    t = get_normalized_progress__17TWindowSubComCardFPv(arg0);
     if (t >= 1.0f) {
         return 1.0f;
     }

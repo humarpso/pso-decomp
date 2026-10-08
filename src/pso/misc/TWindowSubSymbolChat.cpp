@@ -13,7 +13,7 @@ struct M2CCopy_3C { u8 bytes[0x3C]; };
 
 extern "C" {
 s32 __copy(void *, void *, int);
-s32 *TWindowSubSymbolChat__sub_80283850(s32 *arg0, s32 *arg1);
+s32 *copy_chat_entry__20TWindowSubSymbolChatFPvPv(s32 *arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -48,10 +48,10 @@ void set_flag_bit1__20TWindowSubSymbolChatFPv(s32 *arg0) {
 }
 
 s32 commit__20TWindowSubSymbolChatFi(s32 arg0, s32 * _w1) {
-    TWindowSubSymbolChat__sub_80283850((s32 *)(arg0), (s32 *)(_w1));
+    copy_chat_entry__20TWindowSubSymbolChatFPvPv((s32 *)(arg0), (s32 *)(_w1));
     return arg0;
 }
-s32 *TWindowSubSymbolChat__sub_80283850(s32 *arg0, s32 *arg1) {
+s32 *copy_chat_entry__20TWindowSubSymbolChatFPvPv(s32 *arg0, s32 *arg1) {
     u8 *temp_r4;
     u8 *temp_r5;
     M2C_FIELD(arg0, s32 *, 0) = M2C_FIELD(arg1, s32 *, 0);

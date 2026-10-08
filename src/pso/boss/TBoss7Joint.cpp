@@ -254,7 +254,7 @@ M2C_UNK init_boss_stats__11TBoss7JointFPv(void *);
 M2C_UNK clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
 M2C_UNK TObjFish__sub_802EC468(void *, f32, f32);
-M2C_UNK TObjFish__sub_802ECB70(int, int, int);
+M2C_UNK apply_damage_and_set_effect__8TObjFishFPvi(int, int, int);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void clear_obj_links(void *);
@@ -278,7 +278,7 @@ void TBoss7Joint__vt60(u8 *arg0) {
     temp_r31 = M2C_FIELD(arg0, s16 *, 0x2B8) - temp_r4;
     if (is_part_active__11TBoss7JointFPv((void *) (arg0), (int) (temp_r4)) != 0U) {
         TObjFish__sub_802EC468((void *) (arg0 + 0x38), (f32) (lbl_805DEBB0), (f32) (lbl_805DEBB4));
-        TObjFish__sub_802ECB70((int) (M2C_FIELD(arg0, s32 *, 0x10)), (int) (temp_r31), (int) (M2C_FIELD(arg0, u16 *, 0x2D4)));
+        apply_damage_and_set_effect__8TObjFishFPvi((int) (M2C_FIELD(arg0, s32 *, 0x10)), (int) (temp_r31), (int) (M2C_FIELD(arg0, u16 *, 0x2D4)));
     } else {
         M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) - temp_r31);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x3C4) <= 0) {

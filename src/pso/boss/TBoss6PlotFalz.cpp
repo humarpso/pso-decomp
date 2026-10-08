@@ -795,7 +795,7 @@ u32 create__11TBoss6Type1Fi(void *, int);
 void spawn_type1__14TBoss6PlotFalzFPv(u8 *arg0);
 u32 create__11TBoss6Type2Fi(void *, int);
 void spawn_type2__14TBoss6PlotFalzFPv(u8 *arg0);
-f32 TBoss6Mine__sub_802ABD88(s32 *arg0);
+f32 next_random_float__10TBoss6MineFPv(s32 *arg0);
 extern RecoveredGlobal_802ABBC4_lbl_804705CC lbl_804705CC;
 s32 TBoss6PlotFalz__sub_802ABBC4(M2C_UNK arg0, s32 arg1);
 extern RecoveredGlobal_802ABC14_lbl_804705C0 lbl_804705C0;
@@ -873,7 +873,7 @@ void ensure_field384__14TBoss6PlotFalzFPv(void *arg0) {
     }
 }
 
-f32 TBoss6Mine__sub_802ABD88(s32 *arg0) {
+f32 next_random_float__10TBoss6MineFPv(s32 *arg0) {
     *arg0 = TBoss6Type1__sub_802ABDEC((s32)((void *) (*arg0)));
     return (f32) (*arg0 & 0x7FFF) / 32767.0f;
 }

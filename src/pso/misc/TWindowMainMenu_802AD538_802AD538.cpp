@@ -128,7 +128,7 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w);
 int is_item_active__15TWindowMainMenuFPv(void* p);
 void TWindowMainMenu__sub_802AD74C(void* p);
 void set_symbol_chat_parts__15TWindowMainMenuFPv(void* p, void * _w1);
-void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3);
+void init_row_entry__15TWindowMainMenuFPvicc(u8 *arg0, s32 arg1, s8 arg2, s8 arg3);
 void init_color__15TWindowMainMenuFPv(void *a0);
 void pop_level__15TWindowMainMenuFPv(MM_802AD90C *arg0);
 void park_selection__15TWindowMainMenuFPv(Menu_802AD980 *arg0);
@@ -139,7 +139,7 @@ int TWindowMainMenu__sub_802ADB00(u8 *arg0);
 void clear_menu_flags__15TWindowMainMenuFPv(void* p);
 int is_flag_set__15TWindowMainMenuFPv(void* p);
 int get_menu_flag__15TWindowMainMenuFPv(void* p);
-u8 * TWindowMainMenu__sub_802ADB34(s32 arg0, s32 arg1);
+u8 * find_active_item_by_id__15TWindowMainMenuFii(s32 arg0, s32 arg1);
 s32 find_free_slot__15TWindowMainMenuFi(s32 arg0);
 int TWindowMainMenu__sub_802ADC04(Obj_802ADC04 *self);
 s32 count_active_items__15TWindowMainMenuFi(s32 arg0);
@@ -257,7 +257,7 @@ void set_symbol_chat_parts__15TWindowMainMenuFPv(void* p, void * _w1) { copy_vec
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
+void init_row_entry__15TWindowMainMenuFPvicc(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)((void *) (arg0)), (void *)((void *) (arg1)));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)((void *) (arg0 + 8)), (void *)((void *) (arg1)));
     M2C_FIELD(arg0, s8 *, 0x10) = arg3;
@@ -424,7 +424,7 @@ int get_menu_flag__15TWindowMainMenuFPv(void* p) { return *(u8*)((char*)p + 0x60
 
 #pragma push
 #pragma fp_contract on
-u8 *TWindowMainMenu__sub_802ADB34(s32 arg0, s32 arg1) {
+u8 *find_active_item_by_id__15TWindowMainMenuFii(s32 arg0, s32 arg1) {
     s32 var_r31;
     u8 *var_r30;
     s32 var_r29;
@@ -520,13 +520,13 @@ s32 append_child_rows__15TWindowMainMenuFPvi(Menu_802ADD38 *arg0, s32 arg1) {
         return 0;
     }
     ((M2C_UNK (*)(void *, void *, s32))get_row_position__15TWindowMainMenuFiPvi)(arg0, sp8, n + arg0->count);
-    slot = ((s32 (*)(void *, s32))TWindowMainMenu__sub_802ADB34)(arg0, arg1);
+    slot = ((s32 (*)(void *, s32))find_active_item_by_id__15TWindowMainMenuFii)(arg0, arg1);
     if (slot == 0) {
         slot = ((s32 (*)(void *))find_free_slot__15TWindowMainMenuFi)(arg0);
         if (slot == 0) {
             return 0;
         }
-        ((M2C_UNK (*)(s32, void *, s8, s8))TWindowMainMenu__sub_802AD790)(slot, sp8, arg1, -(n * 2));
+        ((M2C_UNK (*)(s32, void *, s8, s8))init_row_entry__15TWindowMainMenuFPvicc)(slot, sp8, arg1, -(n * 2));
     } else {
         set_symbol_chat_parts__15TWindowMainMenuFPv((void *)slot, sp8);
     }

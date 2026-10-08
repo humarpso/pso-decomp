@@ -11,13 +11,13 @@ void TBoss6Type2__sub_8032F5C4(void *);
 s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF978;
 extern const f32 lbl_805DF97C;
-void TBoss6Type2__sub_80336E6C(u8 *arg0);
+void update_recover_timer__11TBoss6Type2FPv(u8 *arg0);
 s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void TBoss6Type2__sub_80336F54(u8 *arg0);
 int ensure_particle_emitter__11TBoss6Type2FPvi(void*, void*);
-void TBoss6Type2__sub_8032F304();
+void spawn_mag_mines__11TBoss6Type2FPv();
 void TBoss6Type2__sub_80337054(O_80337054 *arg0);
 }
 
@@ -46,7 +46,7 @@ s32 set_action__11TBoss6Type2FPvi(void * a0 = 0, s32 a1 = 0);
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss6Type2__sub_80336E6C(u8 *arg0) {
+void update_recover_timer__11TBoss6Type2FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x400) = (f32) (M2C_FIELD(arg0, f32 *, 0x400) + lbl_805DF978);
     if (M2C_FIELD(arg0, f32 *, 0x400) < lbl_805DF97C) {
         M2C_FIELD(arg0, f32 *, 0x400) = (f32) lbl_805DF97C;
@@ -97,7 +97,7 @@ void TBoss6Type2__sub_80337054(O_80337054 *arg0) {
     arg0->f3cc = 0x25;
     switch (arg0->f410) {
     case 0:
-        TBoss6Type2__sub_8032F304();
+        spawn_mag_mines__11TBoss6Type2FPv();
         break;
     default:
         break;

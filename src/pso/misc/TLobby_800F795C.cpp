@@ -36,7 +36,7 @@ void bswap_field__6TLobbyFPv(void* p);
 void reset_keyboard_control__6TLobbyFv(void);
 int TLobby__send_and_handle_60(void*);
 void TLobby__sub_800F7A8C(s32 arg0);
-s32 TLobby__sub_800F7B08(s32 arg0);
+s32 run_cleanup_callbacks__6TLobbyFi(s32 arg0);
 extern Ent_800F7A8C *lbl_804998C8[];
 s32 is_area_transfer_pending();
 int bswap_16__FPUs(void*);
@@ -83,7 +83,7 @@ void TLobby__sub_800F7A8C(s32 arg0) {
         }
     }
 }
-s32 TLobby__sub_800F7B08(s32 arg0) {
+s32 run_cleanup_callbacks__6TLobbyFi(s32 arg0) {
     Ent_800F7B08 *p = (Ent_800F7B08 *)lbl_804998C8[arg0];
     void (*fn)();
     if (p == 0) {

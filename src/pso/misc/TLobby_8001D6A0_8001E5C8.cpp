@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern f32 TLobby__data_805D7EC8;
-s32 TLobby__sub_8001E6D4(s32 arg0);
+s32 calc_time_from_hms__6TLobbyFi(s32 arg0);
 s32 TLobby__sub_8001E75C(void *arg0);
 }
 
@@ -19,7 +19,7 @@ extern s32 lbl_805D6060;
 s32 get_instance__6TLobbyFv(void) {
     return lbl_805D6060;
 }
-s32 TLobby__sub_8001E6D4(s32 arg0) {
+s32 calc_time_from_hms__6TLobbyFi(s32 arg0) {
   s32 *new_var;
   int new_var2;
   s32 temp_r31_2;

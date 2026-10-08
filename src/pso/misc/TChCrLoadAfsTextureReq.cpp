@@ -64,7 +64,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__22TChCrLoadAfsTextureReq[];
 extern void *lbl_805D3B50;
 u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4);
-void TChCrLoadAfsTextureReq__sub_8028C310(R_8028C310 *arg0);
+void init_texture_table__22TChCrLoadAfsTextureReqFPv(R_8028C310 *arg0);
 void __dt__7TObjectFv(void *, s32);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void __dl__7TObjectFPv(void *);
@@ -180,7 +180,7 @@ Req_8028C1F0 *__dt__22TChCrLoadAfsTextureReqFv(Req_8028C1F0 *arg0, s16 arg1) {
     return arg0;
 }
 
-void TChCrLoadAfsTextureReq__sub_8028C310(R_8028C310 *arg0) {
+void init_texture_table__22TChCrLoadAfsTextureReqFPv(R_8028C310 *arg0) {
     s32 i;
     arg0->f58 = arg0->f30->cnt;
     if (arg0->f58 <= 0 || arg0->f58 > 8) return;
@@ -204,7 +204,7 @@ u8 *TChCrLoadAfsTextureReq__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 *arg3, s32 arg4
     *M2C_FIELD(arg0, s32 **, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x6C) = 0;
     M2C_FIELD(arg0, s32 *, 0x70) = arg4;
-    TChCrLoadAfsTextureReq__sub_8028C310((R_8028C310 *)(arg0));
+    init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(arg0));
     return arg0;
 }
 
@@ -216,7 +216,7 @@ void *init__22TChCrLoadAfsTextureReqFPvPvPv(void *arg0, void *arg1, void *arg2) 
     M2C_FIELD(arg0, void **, 0x6C) = M2C_FIELD(arg2, void **, 0x4);
     M2C_FIELD(arg0, void **, 0x34) = M2C_FIELD(arg2, void **, 0x8);
     M2C_FIELD(arg0, void **, 0x70) = M2C_FIELD(arg2, void **, 0xC);
-    TChCrLoadAfsTextureReq__sub_8028C310((R_8028C310 *)(arg0));
+    init_texture_table__22TChCrLoadAfsTextureReqFPv((R_8028C310 *)(arg0));
     return arg0;
 }
 

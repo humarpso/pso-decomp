@@ -65,7 +65,7 @@ void TObjWarpBase__vt15(M2C_UNK arg0, s32 arg1);
 s32 fn_8019DD24(void *, int);
 void *get_player_by_client_id(u32);
 s32 TWindow__close(int);
-void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1);
+void close_player_window__11TObjMapWarpFiUs(s32 arg0, u16 arg1);
 s32 get_localized_text_entry(s32, s32);
 s32 add_text_entry__19TWindowSubTradeMainFPviiii(s32, s32, s32, s32, s32);
 s32 create_window_menu(s32, s32, s32);
@@ -155,7 +155,7 @@ void open_player_warp_window__11TObjMapWarpFii(s32 arg0, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TObjMapWarp__sub_8019D644(s32 arg0, u16 arg1) {
+void close_player_window__11TObjMapWarpFiUs(s32 arg0, u16 arg1) {
     u32 temp_r3;
     u32 temp_r3_2;
     u8 *temp_r31;

@@ -68,7 +68,7 @@ extern s32 TEndingPic__data_805D6EE0;
 extern s32 lbl_805D6EE4;
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DFF30;
-void TEndingPic__sub_80353018(T_80353018 *arg0, s32 arg1);
+void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -244,7 +244,7 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
 
 int TEndingPic__sub_80353010(void) {  return lbl_805D4F14; }
 
-void TEndingPic__sub_80353018(T_80353018 *arg0, s32 arg1) {
+void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1) {
     VObj_18_c82b17 *o = arg0->obj;
     if (o != NULL) {
         Q_80353018 q;
@@ -257,8 +257,8 @@ void TEndingPic__sub_80353018(T_80353018 *arg0, s32 arg1) {
     }
 }
 
-void set_phase_18__10TEndingPicFPv(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(18)); }
-void TEndingPic__sub_803530A0(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(17)); }
+void set_phase_18__10TEndingPicFPv(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(18)); }
+void TEndingPic__sub_803530A0(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(17)); }
 
 void update_player_object__10TEndingPicFPv(void *arg0) {
     void *temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
@@ -268,8 +268,8 @@ void update_player_object__10TEndingPicFPv(void *arg0) {
     }
 }
 
-void TEndingPic__sub_80353110(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(16)); }
-void TEndingPic__sub_80353134(void* p) { TEndingPic__sub_80353018((T_80353018 *)(p), (s32)(15)); }
+void TEndingPic__sub_80353110(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(16)); }
+void TEndingPic__sub_80353134(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(15)); }
 void update_shield__10TEndingPicFPv(void *arg0) {
     add_actor_hp(M2C_FIELD(arg0, s32 *, 0xF0), get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, s32 *, 0xF0)));
 }

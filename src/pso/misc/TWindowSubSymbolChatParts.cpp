@@ -109,7 +109,7 @@ struct Parts_80285B84 {
     s32 sub8C;
 };
 
-M2C_UNK TWindowSubSymbolChat__sub_8007714C(struct TWSC *, s32);
+M2C_UNK remove_slot_shift_down__20TWindowSubSymbolChatFPvi(struct TWSC *, s32);
 M2C_UNK TWindowSubSymbolChat__sub_800771B0(struct TWSC *, s32);
 s32 TWindowSubSymbolChat__sub_800771C4(struct TWSC *, s32);
 s32 refresh_parts__20TWindowSubSymbolChatFPv();
@@ -192,7 +192,7 @@ void select_symbol_chat_slot(void) {
     temp_r29 = get_instance__20TWindowSubSymbolChatFv();
     temp_r3 = calc_remaining_slots__20TWindowSubSymbolChatFv();
     if (temp_r3 > temp_r30) {
-        TWindowSubSymbolChat__sub_8007714C(temp_r29, temp_r30);
+        remove_slot_shift_down__20TWindowSubSymbolChatFPvi(temp_r29, temp_r30);
         return;
     }
     temp_r30 -= temp_r3;
@@ -212,7 +212,7 @@ s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubSymbolChat__sub_80284D68(Win_80284D68 *arg0, s32 arg1) {
+void select_index_and_scroll__20TWindowSubSymbolChatFPvi(Win_80284D68 *arg0, s32 arg1) {
     Vec2_80284D68 v;
 
     if (arg1 >= arg0->count) {

@@ -152,10 +152,10 @@ f32 TBoss2DeRolLe__sub_80034CF8(void);
 extern u8 *TBoss2DeRolLe__instance;
 void TBoss2DeRolLe__sub_80034DCC(s32 arg0);
 extern f32 TBoss2DeRolLe__data_805D82BC;
-void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1);
+void switch_phase_stats__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 M2C_UNK update_local_colliders_from_world(s32, Vec *);
-void TBoss2DeRolLe__sub_80034F40(s32 arg0);
+void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 int play_sound(void *, int);
 void spawn_offset_particle__13TBoss2DeRolLeFiff(s32, f32, f32);
 void set_flags_play_sound__13TBoss2DeRolLeFPv(void *);
@@ -342,7 +342,7 @@ void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     ((void (*)(void *, void *))reload_stats_for_phase__13TBoss2DeRolLeFPvi)(arg0, M2C_FIELD(arg0, void **, 0x3C4));
 }
 
-void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1) {
+void switch_phase_stats__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1) {
     u8 *temp_r5;
     temp_r5 = M2C_FIELD(arg1, u8 **, 0xA4);
     if (temp_r5 != NULL) {
@@ -355,7 +355,7 @@ void TBoss2DeRolLe__sub_80034D58(u8 *arg0, u8 *arg1) {
 
 void TBoss2DeRolLe__sub_80034DCC(s32 arg0) {
     if ((void *) TBoss2DeRolLe__instance != NULL) {
-        TBoss2DeRolLe__sub_80034D58((u8 *)(TBoss2DeRolLe__instance), (u8 *)(arg0));
+        switch_phase_stats__13TBoss2DeRolLeFPvPv((u8 *)(TBoss2DeRolLe__instance), (u8 *)(arg0));
     }
 }
 
@@ -407,7 +407,7 @@ void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034E90 *self, s32 kind) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss2DeRolLe__sub_80034F40(s32 arg0) {
+void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0) {
     Vec sp20;
     Vec sp14;
     Vec sp8;

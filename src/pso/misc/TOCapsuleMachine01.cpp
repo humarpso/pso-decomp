@@ -61,7 +61,7 @@ extern RecoveredGlobal_8015A734_lbl_804AFF00 lbl_804AFF00;
 extern u8 *TOCapsuleMachine01__data_805D58C0;
 extern s32 TOCapsuleMachine01__data_805D58C8;
 extern s32 lbl_805D58CC;
-void TOCapsuleMachine01__sub_8015A734(void);
+void alloc_and_load_resource__18TOCapsuleMachine01Fv(void);
 }
 
 extern "C" {
@@ -141,7 +141,7 @@ void TOCapsuleMachine01__sub_8015A6F0(void) {
 
 typedef struct RecoveredFields_8015A734_var_r4 RecoveredFields_8015A734_var_r4;
 typedef struct RecoveredGlobal_8015A734_lbl_804AFF00 RecoveredGlobal_8015A734_lbl_804AFF00;
-void TOCapsuleMachine01__sub_8015A734(void) {
+void alloc_and_load_resource__18TOCapsuleMachine01Fv(void) {
   int temp_r3;
   long long new_var2;
   int var_r4;

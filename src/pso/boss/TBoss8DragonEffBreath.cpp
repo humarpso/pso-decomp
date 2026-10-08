@@ -34,7 +34,7 @@ void render__21TBoss8DragonEffBreathFv(void);
 void run_task__21TBoss8DragonEffBreathFv(u8 *arg0);
 M2C_UNK vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
-M2C_UNK TBoss8Dragon__sub_802FB290(u32, void *, int, int);
+M2C_UNK setup_breath_instance__12TBoss8DragonFPviUii(u32, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 get_enemy_entity(int);
@@ -56,7 +56,7 @@ void run_task__21TBoss8DragonEffBreathFv(u8 *arg0) {
         return;
     }
     if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (M2C_FIELD(arg0, u16 *, 0x38)))) != 0U)) {
-        TBoss8Dragon__sub_802FB290(ent, (void *) (arg0 + 0x1C), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0x3C)));
+        setup_breath_instance__12TBoss8DragonFPviUii(ent, (void *) (arg0 + 0x1C), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0x3C)));
     }
 }
 

@@ -46,7 +46,7 @@ void render__25TObjCityMainWarpChallengeFv(u8 *arg0);
 void update_state__25TObjCityMainWarpChallengeFPv(void *arg0);
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object(s32);
-M2C_UNK TObjCityMainWarp__sub_80186DA0();
+M2C_UNK update_floor_switch_state__16TObjCityMainWarpFPv();
 M2C_UNK update_warp_sequence__16TObjCityMainWarpFPv();
 M2C_UNK update_challenge_state__16TObjCityMainWarpFPv();
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
@@ -82,7 +82,7 @@ void update_state__25TObjCityMainWarpChallengeFPv(void *arg0) {
         update_challenge_warp_window();
         return;
     case 4:
-        TObjCityMainWarp__sub_80186DA0();
+        update_floor_switch_state__16TObjCityMainWarpFPv();
         return;
     }
 }

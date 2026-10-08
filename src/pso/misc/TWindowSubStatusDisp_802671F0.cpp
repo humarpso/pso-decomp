@@ -58,7 +58,7 @@ M2C_UNK copy_position__11TWindowMenuFPvPv(void *, void *);
 M2C_UNK setup_entry_msg_d1__20TWindowSubStatusDispFPvi(s32, s32);
 M2C_UNK setup_entry_msg_d0__20TWindowSubStatusDispFPvi(s32, s32);
 M2C_UNK init_no_item_entry__20TWindowSubStatusDispFPvi(s32, s32);
-M2C_UNK TWindowSubStatusDisp__sub_802589AC(s32, u8, u8, int, s32, s32);
+M2C_UNK init_entry__20TWindowSubStatusDispFPvccUcUii(s32, u8, u8, int, s32, s32);
 M2C_UNK fn_80266BD0(s32, u8 *, u8 *, s16);
 M2C_UNK TWindowSubStatusDisp__sub_80258A28(s32, s32, s32);
 s32 get_localized_text_entry(M2C_UNK, s32);
@@ -114,7 +114,7 @@ M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
 
 void select_cursor_entry__6TLobbyFPv(void *arg0);
 void calc_list_content_extent(struct List_80266E34 *s);
-void TWindowSubStatusDisp__sub_80266EB8(u8 *arg0);
+void clamp_scroll_offset__20TWindowSubStatusDispFPv(u8 *arg0);
 void advance_line__19TWindowSubShortMailFPvi(void *arg0, s32 arg1);
 void advance_status_disp_entry(void *arg0, s32 arg1);
 void add_list_entry__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
@@ -168,7 +168,7 @@ void calc_list_content_extent(struct List_80266E34 *s) {
     }
 }
 
-void TWindowSubStatusDisp__sub_80266EB8(u8 *arg0) {
+void clamp_scroll_offset__20TWindowSubStatusDispFPv(u8 *arg0) {
     Stack_80266EB8 stack;
     f32 temp_f1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
@@ -215,7 +215,7 @@ void draw_entry__22TWindowSubShortCutListFPviUcii(void *arg0, s32 arg1, u8 arg2,
 
     if ((s16) M2C_FIELD(arg0, s16 *, 0x72) < (s16) M2C_FIELD(arg0, s16 *, 0x76)) {
         fn_80266BD0(arg1, &sp9, &sp8, M2C_FIELD(arg0, s16 *, 0x20));
-        TWindowSubStatusDisp__sub_802589AC(get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72)), sp9, sp8, arg2, arg3, arg4);
+        init_entry__20TWindowSubStatusDispFPvccUcUii(get_array_entry__20TWindowSubStatusDispFPvi(arg0, M2C_FIELD(arg0, s16 *, 0x72)), sp9, sp8, arg2, arg3, arg4);
         M2C_FIELD(arg0, s16 *, 0x72) = (s16) (M2C_FIELD(arg0, s16 *, 0x72) + 1);
     }
 }

@@ -83,7 +83,7 @@ struct Sel_8028CD18 {
 
 extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 TAdSinglePlyChrSelectGC__sub_8028C938(u8 *arg0);
+s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void *create__12TChCrLoadAfsFPvPvPv(void *, int, void *);
 void *TAdSinglePlyChrSelectGC__sub_8028CF8C(void *, s32, s32);
 void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *, s32, s32, s32);
@@ -133,7 +133,7 @@ s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     return 1;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8028C938(u8 *arg0) {
+s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 off;
     s32 i;
     i = 0;
@@ -331,7 +331,7 @@ void *TAdSinglePlyChrSelectGC__sub_8028CFBC(void *arg0, s32 arg1, s32 arg2, s32 
 void close_and_destroy__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 *temp_r4;
 
-    if (TAdSinglePlyChrSelectGC__sub_8028C938((u8 *)(arg0)) != 0) {
+    if (are_all_selections_done__23TAdSinglePlyChrSelectGCFPv((u8 *)(arg0)) != 0) {
         load_preview_models__23TAdSinglePlyChrSelectGCFPv((void *)(arg0));
         temp_r4 = M2C_FIELD(arg0, s32 **, 0x3C);
         *temp_r4 &= 0xFFFFFF7F;

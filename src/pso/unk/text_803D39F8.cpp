@@ -48,7 +48,7 @@ s32 TLobby__sub_803D3B2C(S_803D3B2C *arg0);
 extern G_803D3A4C lbl_8047E0E0;
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
-void TLobby__sub_803D3A4C(S_803D3A4C *s, s32 unit);
+void set_list_unit__6TLobbyFPvi(S_803D3A4C *s, s32 unit);
 }
 
 extern "C" {
@@ -66,7 +66,7 @@ s32 TLobby__sub_803D39F8(u8 *arg0) {
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 
 typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
-void TLobby__sub_803D3A4C(S_803D3A4C *s, s32 unit) {
+void set_list_unit__6TLobbyFPvi(S_803D3A4C *s, s32 unit) {
     if (s == NULL) {
         if (lbl_805D7678 != NULL) {
             lbl_805D7678(lbl_805D767C, &lbl_8047E0E0.value, 0);

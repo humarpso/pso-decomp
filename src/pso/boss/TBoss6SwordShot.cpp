@@ -43,7 +43,7 @@ struct VObj_8035663C : VBase_8035663C {
 extern "C" {
 u8 *__nw__7TObjectFUl(M2C_UNK);
 u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 void TBoss6SwordWave__sub_80356DDC(s32 arg0, u8 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -66,7 +66,7 @@ void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
 void *spawn_particle_effect_with_flags(void *, int, int);
 void spawn_particle_effect(void *, int);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
-u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
@@ -83,7 +83,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 get_point__10TBoss6RockFiPvPv(s32, void *, void *);
 M2C_UNK TBoss6Rock__sub_80353E5C(s32);
-u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 void TBoss6SwordWave__sub_80356D10(W_80356D10 *arg0, u8 arg1);
 M2C_UNK vec3_add_to(void *, void *);
@@ -102,7 +102,7 @@ s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFPv();
 s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 s32 get_rotation_timer__11TBoss6Type2FPv(int);
-u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1);
+u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1);
 u8 TBoss6SwordWave__sub_80356D08(u32 arg1, u32 arg2);
 f32 vector_length(void *);
 M2C_UNK subtract_vector(void *, void *);
@@ -306,7 +306,7 @@ s32 spawn_wave_ring_particles__15TBoss6SwordWaveFPv(void *arg0) {
     step = (s32)(lbl_805DFFFC * f);
     for (ang = 0; ang < 0x10000; ang += step) {
         s32 seg = ((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(o->x30, ang);
-        if (((s32 (*)(void *, s32))TBoss6SwordWave__sub_80356C80)(o->x30, seg) != 0) {
+        if (((s32 (*)(void *, s32))test_rock_bit__15TBoss6SwordWaveFiUc)(o->x30, seg) != 0) {
             Vec_803564F4 v = o->pos;
             v.x += o->radius * sin_table_lookup(ang);
             v.z += o->radius * cos_table_lookup(ang);
@@ -347,7 +347,7 @@ M2C_UNK check_player_hits__15TBoss6SwordWaveFPv(void *a) {
             }
             t = ((u8 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30,
                         (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(dir.x, dir.z)));
-            if (((s32 (*)(void *, u8))TBoss6SwordWave__sub_80356C80)(arg0 + 0x30, t) == 0) {
+            if (((s32 (*)(void *, u8))test_rock_bit__15TBoss6SwordWaveFiUc)(arg0 + 0x30, t) == 0) {
                 continue;
             }
             v = M2C_FIELD(arg0, s32 *, 0x5C);
@@ -391,7 +391,7 @@ M2C_UNK break_rocks_in_wave__15TBoss6SwordWaveFPv(void *a) {
         }
         t = ((u8 (*)(void *, s32))TBoss6SwordWave__sub_80356D08)(arg0 + 0x30,
                 (s32)(lbl_804793B0 * get_ad_end_text_start__10TObjPlayerFv(d.x, d.z)));
-        if (((s32 (*)(void *, u8))TBoss6SwordWave__sub_80356C80)(arg0 + 0x30, t) == 0) {
+        if (((s32 (*)(void *, u8))test_rock_bit__15TBoss6SwordWaveFiUc)(arg0 + 0x30, t) == 0) {
             continue;
         }
         ((void (*)(void *, u8))TBoss6SwordWave__sub_80356D10)(arg0 + 0x30, t);
@@ -490,7 +490,7 @@ u8 *TBoss6SwordWave__sub_80356C10(s32 arg0, s32 arg1, s32 arg2, s32 arg3, f32 fa
 }
 #pragma pop
 
-u8 TBoss6SwordWave__sub_80356C80(s32 arg0, u8 arg1) {
+u8 test_rock_bit__15TBoss6SwordWaveFiUc(s32 arg0, u8 arg1) {
     typedef char sp8_offset[(offsetof(Stack_80356C80, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80356C80, spC) == 0x4) ? 1 : -1];
     Stack_80356C80 stack;

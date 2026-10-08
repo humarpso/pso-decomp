@@ -127,7 +127,7 @@ extern "C" {
 
 void handle_message__12TObjEneReconFPvi(void *arg0, s32 arg1);
 
-M2C_UNK TObjEneRecon__sub_8031EF14(u32, void *);
+M2C_UNK remove_child_entity__12TObjEneReconFPvPv(u32, void *);
 
 void handle_message__12TObjEneReconFPvi(void *arg0, s32 arg1) {
     u32 temp;
@@ -136,7 +136,7 @@ void handle_message__12TObjEneReconFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 1);
         M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) & 0xFFFFFFFD);
         if ((temp = ((u32 (*)(u16)) find_entity_by_id)(M2C_FIELD(arg0, u16 *, 0x434))) != 0U) {
-            TObjEneRecon__sub_8031EF14(temp, arg0);
+            remove_child_entity__12TObjEneReconFPvPv(temp, arg0);
         }
         break;
     case 5:

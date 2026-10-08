@@ -461,7 +461,7 @@ int query_lobby_state__10TObjPlayerFPv(void* p);
 void distribute_experience(TObjPlayer_800F6B68 *self);
 void award_enemy_experience(u8 *arg0, s32 arg1);
 void update_prev_position__10TObjPlayerFPv(u8 *arg0);
-void TObjPlayer__sub_800F6E2C(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
+void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2);
 void unlink_enemy_group_relations(u8 *arg0);
 s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
 void apply_by_index__9TObjEnemyFs(s16, void *);
@@ -830,7 +830,7 @@ void update_prev_position__10TObjPlayerFPv(u8 *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
-void TObjPlayer__sub_800F6E2C(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2) {
+void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node_800F6E2C *arg2) {
     Node_800F6E2C *p = arg1->f34C;
     Node_800F6E2C *q = arg2->f34C;
     if (p != NULL) {

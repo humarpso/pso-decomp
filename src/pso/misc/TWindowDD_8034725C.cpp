@@ -106,7 +106,7 @@ s32 TWindowDD__sub_80347204(s16);
 s32 TWindowDD__sub_80347238();
 u8 TWindowDD__sub_80347858(s16 arg0);
 void queue_destruction__7TObjectFv(void *);
-void TWindowDD__sub_803478DC(W_803478DC *arg0, s32 arg1);
+void destroy_menu_entry__9TWindowDDFPvi(W_803478DC *arg0, s32 arg1);
 s32 TWindowDD__sub_80348B70(s32);
 M2C_UNK init_and_set_field50__9TWindowDDFPvPv(u32, s32);
 
@@ -250,7 +250,7 @@ s32 TWindowDD_is_id_in_range_5AC_5F9(s16 arg0) {
     return var_r3;
 }
 
-void TWindowDD__sub_803478DC(W_803478DC *arg0, s32 arg1) {
+void destroy_menu_entry__9TWindowDDFPvi(W_803478DC *arg0, s32 arg1) {
     if (arg0->e[arg0->base + arg1].p != NULL) {
         queue_destruction__7TObjectFv(arg0->e[arg0->base + arg1].p);
         arg0->e[arg0->base + arg1].p = NULL;

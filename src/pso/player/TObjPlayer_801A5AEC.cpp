@@ -508,7 +508,7 @@ extern s32 lbl_805D34C8;
 extern s8 lbl_805D5D08;
 extern s8 keyboard_reset_button_pressed;
 extern s8 pad_recalibration_hold_frames[4];
-void TKeyBoardControl__sub_801A6854(void);
+void init_pad_state__16TKeyBoardControlFv(void);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 s32 read_input__16TKeyBoardControlFi(u8);
 void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1);
@@ -637,7 +637,7 @@ void TKeyBoardControl__sub_801A67A4(Rec_801A67A4 *arg0, Rec_801A67A4 *arg1) {
   new_var->f4C = arg1->f4C;
 }
 
-void TKeyBoardControl__sub_801A6854(void) {
+void init_pad_state__16TKeyBoardControlFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         lbl_8050E568[i] = 0;

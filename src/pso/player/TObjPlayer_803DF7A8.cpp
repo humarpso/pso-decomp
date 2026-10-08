@@ -72,7 +72,7 @@ void TObjPlayer__sub_803DAE1C(void *, int, void *);
 extern char lbl_804FC7F8[];
 extern char lbl_805D46F0[4];
 void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *arg3);
-void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
+void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 void Dolphin_GXInitTexObj(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E1D90 *, s32);
@@ -86,7 +86,7 @@ extern const f64 lbl_805E1028;
 extern const f64 lbl_805E1030;
 f32 project_point_onto_line(V_803E18C0 *p, Line_803E18C0 *l, V_803E18C0 *out);
 s32 test_aabb_overlap__10TObjPlayerFPvPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
-void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
+void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx);
 s32 TObjPlayer__sub_803DFB1C(Vec_803E1B1C *a, Vec_803E1B1C *b);
 s32 __SITransfer(Vec_803E1B1C *a, Vec_803E1B1C *b);
 extern const Faces_803E0ED4 lbl_8047E438;
@@ -179,8 +179,8 @@ s32 test_box_overlap__10TObjPlayerFPvPv(Vec_803E1B1C *boxA, Vec_803E1B1C *boxB) 
     s32 *fb;
     int k;
     mask = 0;
-    TObjPlayer__sub_803E1B1C((struct Vec_803E1B1C *)(boxA), (struct Vec_803E1B1C *)(&mnA), (struct Vec_803E1B1C *)(&mxA));
-    TObjPlayer__sub_803E1B1C((struct Vec_803E1B1C *)(boxB), (struct Vec_803E1B1C *)(&mnB), (struct Vec_803E1B1C *)(&mxB));
+    calc_bounds_min_max__10TObjPlayerFPvPvPv((struct Vec_803E1B1C *)(boxA), (struct Vec_803E1B1C *)(&mnA), (struct Vec_803E1B1C *)(&mxA));
+    calc_bounds_min_max__10TObjPlayerFPvPvPv((struct Vec_803E1B1C *)(boxB), (struct Vec_803E1B1C *)(&mnB), (struct Vec_803E1B1C *)(&mxB));
     if (test_aabb_overlap__10TObjPlayerFPvPvPvPv((u8 *)&mnA, (u8 *)&mxA, (u8 *)&mnB, (u8 *)&mxB) != 0) {
     Faces_803E0ED4 faces = lbl_8047E438;
     for (i = 0; i < 6; i++) {
@@ -328,7 +328,7 @@ f32 xyz_distance(Vec_803E1A58 *a, Vec_803E1A58 *b) {
 
 
 
-void TObjPlayer__sub_803E1B1C(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx) {
+void calc_bounds_min_max__10TObjPlayerFPvPvPv(struct Vec_803E1B1C *pts, struct Vec_803E1B1C *mn, struct Vec_803E1B1C *mx) {
     s32 i;
     mn->x = pts->x;
     mn->y = pts->y;

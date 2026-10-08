@@ -57,7 +57,7 @@ void *create__9TWindowDDFv(void);
 void init__9TWindowDDFPv(void* p);
 void set_scale__9TWindowDDFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_draw__9TWindowDDFPv(void* p);
-void *TWindowDD__sub_803409A4(void *);
+void *construct_variant_a__9TWindowDDFPv(void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -230,7 +230,7 @@ struct W_803409A4 { u8 pad0[0x18]; void *p18; u8 pad1c[0x5C - 0x1C]; s32 f5c; s3
 void *construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 
 #define arg0 ((W_803409A4 *)arg0v)
-void *TWindowDD__sub_803409A4(void *arg0v) {
+void *construct_variant_a__9TWindowDDFPv(void *arg0v) {
     construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFB98, 4, lbl_804EFB90);
     arg0->p18 = lbl_804EFBAC;
     arg0->f60 = 1;
@@ -244,7 +244,7 @@ void *TWindowDD__sub_803409A4(void *arg0v) {
 void *create__9TWindowDDFv(void) {
     void *o = __nw__7TObjectFUl(0x6C);
     if (o != NULL) {
-        o = TWindowDD__sub_803409A4(o);
+        o = construct_variant_a__9TWindowDDFPv(o);
     }
     return o;
 }

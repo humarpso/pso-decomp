@@ -34,7 +34,7 @@ void TWindow__close(void *);
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 extern const f32 lbl_805DF9E8;
-void TAdEnterPPPPassGC__sub_80338FC0(u8 *arg0);
+void close_windows_and_advance__17TAdEnterPPPPassGCFPv(u8 *arg0);
 s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 void set_ppp_password__6TLobbyFi(s32);
@@ -111,7 +111,7 @@ void render__17TAdEnterPPPPassGCFv(void *self) {
     }
 }
 
-void TAdEnterPPPPassGC__sub_80338FC0(u8 *arg0) {
+void close_windows_and_advance__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     s32 temp_r4;
     u8 *temp_r3;
     u8 *temp_r3_2;

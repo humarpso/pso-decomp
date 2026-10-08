@@ -5567,7 +5567,7 @@ void TObjEneMe1Gee__sub_802A4D4C(void);
 #define g51C4 (*(Del_800CC808 **)&TObjEneMe1Gee__data_805D51C4)
 #define g51C0 (*(Del_800CC808 **)&TObjEneMe1Gee__data_805D51C0)
 #define g51B0 (*(void **)&TObjEneMe1Gee__data_805D51B0)
-void TObjEneMe1Gee__sub_800CC808(void) {
+void free_globals__13TObjEneMe1GeeFv(void) {
     if (g51C4 != NULL) {
         delete g51C4;
         g51C4 = NULL;

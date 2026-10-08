@@ -23,7 +23,7 @@ struct Ent_802F3974 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 setup_attack_slot__12TBoss8DragonFiUiiiPv(void *, void *, void *, void *, void *);
-s32 TBoss8Dragon__sub_80359DC4(int, int, void *, void *);
+s32 ct_attack_object__12TBoss8DragonFPviii(int, int, void *, void *);
 extern s32 tl_04;
 s32 spawn_attack_object__12TBoss8DragonFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 u16 obj_getField1c(void *);
@@ -142,7 +142,7 @@ s32 spawn_attack_object__12TBoss8DragonFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 
         temp_r3 = __nw__7TObjectFUl((int) (0x8A4));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = TBoss8Dragon__sub_80359DC4((int) (temp_r3), (int) (tl_04), (void *) (&stack.sp8), (void *) (arg3));
+            var_r0 = ct_attack_object__12TBoss8DragonFPviii((int) (temp_r3), (int) (tl_04), (void *) (&stack.sp8), (void *) (arg3));
         }
         return var_r0;
     }

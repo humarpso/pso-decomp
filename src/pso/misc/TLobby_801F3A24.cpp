@@ -50,7 +50,7 @@ extern "C" {
 
 void rebuild_all__6TLobbyFi(int a0);
 int init_floor_encounter_sections__6TLobbyFv(void);
-int TLobby__sub_801F3BC4(void);
+int handle_msg_type1_for_idle_slots__6TLobbyFv(void);
 int init_id_tables__6TLobbyFv(void);
 int free_boss4rock__6TLobbyFv(void);
 int TLobby__sub_8020A2AC(void);
@@ -59,7 +59,7 @@ int init_sub_state__6TLobbyFPv(void);
 
     extern int TLobby__data_805D5EE0;
     extern short TLobby__data_805D6134;
-void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; TLobby__sub_801F3BC4(); init_sub_state__6TLobbyFPv(); TLobby__sub_8020A2AC(); init_floor_encounter_sections__6TLobbyFv(); free_boss4rock__6TLobbyFv(); rebuild_entry__6TLobbyFPv(); init_id_tables__6TLobbyFv(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
+void rebuild_all__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; handle_msg_type1_for_idle_slots__6TLobbyFv(); init_sub_state__6TLobbyFPv(); TLobby__sub_8020A2AC(); init_floor_encounter_sections__6TLobbyFv(); free_boss4rock__6TLobbyFv(); rebuild_entry__6TLobbyFPv(); init_id_tables__6TLobbyFv(); TLobby__data_805D6134 = 1; TLobby__data_805D5EE0 = 0; }
 typedef char RecoveredGlobal_801F3DEC_TLobby__data_805127D0_size[sizeof(RecoveredGlobal_801F3DEC_TLobby__data_805127D0) == 0x28 ? 1 : -1];
 
 void set_quest_floor_designation_ex(s16 mode, s32 floor, s32 area, s32 layout, s32 entities) {

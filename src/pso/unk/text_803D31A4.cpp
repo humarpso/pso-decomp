@@ -31,11 +31,11 @@ M2C_UNK memset(void *, int, int);
 extern s32 lbl_805D7658;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-void TLobby__sub_803D31A4(void);
+void init_callback_tables__6TLobbyFv(void);
 extern M2C_UNK lbl_805D765C;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-void TLobby__sub_803D33F4(s32 arg0, s32 arg1);
+void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1);
 void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
 void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
 void TLobby__sub_803D346C(s32 arg0);
@@ -81,7 +81,7 @@ Cb_803D3678 lbl_8058B5D8[7][4];
 RecoveredGlobal_803D31A4_lbl_8058B6B8 lbl_8058B6B8;
 RecoveredGlobal_803D31A4_lbl_8058B6D4 lbl_8058B6D4;
 
-void TLobby__sub_803D31A4(void) {
+void init_callback_tables__6TLobbyFv(void) {
     if ((s32) lbl_805D7658 == 0) {
         memset((void *) (&lbl_8058B6B8.value), (int) (0), (int) (0x1C));
         memset((void *) (&lbl_805D766C), (int) (0), (int) (8));
@@ -121,7 +121,7 @@ s32 TLobby__sub_803D3224(void) {
 s32 TLobby__sub_803D32B4(void) {
     return run_callbacks_803D3224(4);
 }
-s32 TLobby__sub_803D3344(void) {
+s32 run_callbacks_group2__6TLobbyFv(void) {
     return run_callbacks_803D3224(2);
 }
 #pragma pop
@@ -134,7 +134,7 @@ void TLobby__sub_803D33E4(s32 arg0, s32 arg1) {
     lbl_805D766C.a = arg0;
     lbl_805D766C.b = arg1;
 }
-void TLobby__sub_803D33F4(s32 arg0, s32 arg1) {
+void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1) {
     if (((M2C_UNK (*)(s32)) M2C_FIELD(&lbl_805D766C, M2C_UNK (**)(s32), 0)) != NULL) {
         M2C_FIELD(&lbl_805D766C, M2C_UNK (**)(s32), 0)(M2C_FIELD(&lbl_805D766C, s32 *, 4));
     }
