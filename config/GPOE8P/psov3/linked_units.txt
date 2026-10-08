@@ -2098,6 +2098,7 @@ pso/misc/TWindowTradeRequest.cpp
 pso/misc/TWindowTradeRequest_802E0170.cpp
 pso/misc/TWindowUserSort.cpp
 pso/misc/TWindow_80217288.cpp
+pso/misc/TeneFakeTecThunderEff.cpp
 pso/misc/item_param.cpp
 pso/misc/item_pmt.cpp
 pso/misc/pso_const_ids.cpp

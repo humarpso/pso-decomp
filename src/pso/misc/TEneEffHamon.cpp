@@ -73,7 +73,7 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
 void run_task__12TEneEffHamonFv(u8 *arg0);
-void TTecZondeEff__sub_800A39A8(void *);
+void TTecZondeEff__sub_800A39A8(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_80490A18[];
 extern s32 lbl_805D29E0;
@@ -108,7 +108,7 @@ extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
-void TTecZondeEff__sub_800A39A8(void *);
+void TTecZondeEff__sub_800A39A8(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
 extern Entry_800A4064 *lbl_80500970[];
 extern s32 lbl_805D5038;
@@ -212,171 +212,6 @@ u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     }
     M2C_FIELD(arg0, f32 *, 0x44) = (f32) (lbl_805D99E4 / (f32) arg2);
     M2C_FIELD(arg0, f32 *, 0x48) = (f32) (lbl_805D99EC / (f32) arg2);
-    return arg0;
-}
-
-#pragma push
-#pragma fp_contract on
-#pragma fp_contract on
-void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
-    Vtx_800A3D1C verts[34];
-    Vec_800A3D1C out[17];
-    f32 sa[17];
-    f32 sb[17];
-    Vec_800A3D1C v;
-    f32 sw;
-    f32 sh;
-    f32 cy;
-    f32 cx;
-    f32 one;
-    f32 prevX;
-    f32 prevY;
-    f32 prevZ;
-    f32 curX;
-    f32 curY;
-    f32 dx;
-    f32 dy;
-    f32 vv;
-    f32 u0;
-    f32 w;
-    f32 a;
-    f32 b;
-    f32 inv;
-    f32 nx;
-    f32 ny;
-    u32 color;
-    Vec_800A3D1C *q;
-    Vtx_800A3D1C *p;
-    s32 i;
-    s32 j;
-    if (o->active == 0) {
-        return;
-    }
-    lbl_805D5660 = some_id_805c6f74;
-    some_id_805c6f74 |= 0x10;
-    sw = lbl_8058D4F8.sw;
-    cx = lbl_8058D4F8.cx;
-    cy = lbl_8058D4F8.cy;
-    sh = sw * (lbl_805D9A00 / (lbl_805D9A00 * lbl_8058D4F8.aspect));
-    color = o->color | 0xFFFFFF;
-    for (i = 0; i < o->count; i++) {
-        matrix_mult_vec(0, &o->pts[i], &v);
-        if (v.z >= lbl_805D99F0) {
-            v.z = lbl_805D99F0;
-        }
-        w = lbl_805D99F0 / -v.z;
-        v.y = -v.y;
-        a = sh * w;
-        b = sw * w;
-        out[i].x = v.x * a + cx;
-        sa[i] = a;
-        out[i].y = v.y * b + cy;
-        sb[i] = b;
-        out[i].z = w;
-    }
-    vv = lbl_805D99FC;
-    u0 = vv;
-    p = verts;
-    q = &out[1];
-    prevX = out[0].x;
-    prevY = out[0].y;
-    prevZ = out[0].z;
-    one = lbl_805D99F0;
-    for (j = 0; j < o->count - 1; j++) {
-        curY = q->y;
-        curX = q->x;
-        dy = curY - prevY;
-        dx = curX - prevX;
-        inv = one / newton_sqrtf(dx * dx + dy * dy);
-        dx *= inv;
-        dy *= inv;
-        nx = one * (dy * sa[j]);
-        ny = one * (-dx * sb[j]);
-        p[0].x = prevX + nx;
-        p[0].y = prevY + ny;
-        p[0].z = prevZ;
-        p[0].u = u0;
-        p[0].v = vv;
-        p[0].color = color;
-        p[1].x = prevX - nx;
-        p[1].y = prevY - ny;
-        p[1].z = prevZ;
-        prevZ = q->z;
-        q++;
-        p[1].u = one;
-        p[1].v = vv;
-        vv += one;
-        p[1].color = color;
-        p += 2;
-        prevX = curX;
-        prevY = curY;
-    }
-    nx = lbl_805D99F0 * (dy * sa[o->count - 1]);
-    ny = lbl_805D99F0 * (-dx * sb[o->count - 1]);
-    p[0].x = prevX + nx;
-    p[0].y = prevY + ny;
-    p[0].z = prevZ;
-    p[0].u = lbl_805D99FC;
-    p[0].v = vv;
-    p[0].color = color;
-    p[1].x = prevX - nx;
-    p[1].y = prevY - ny;
-    p[1].z = prevZ;
-    p[1].u = lbl_805D99F0;
-    p[1].v = vv;
-    p[1].color = color;
-    init_xyz_limits__10TObjPlayerFv();
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, lbl_805D5038, 1);
-    set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
-}
-#pragma pop
-
-#pragma push
-#pragma fp_contract on
-void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
-    s32 i;
-    if (self->active != 0) {
-        TTecZondeEff__sub_800A39A8(self);
-        lbl_805D5038 = *lbl_80500970[0][self->type].inner->p;
-        for (i = 0; i < self->count; i++) {
-            self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(self->timer * 0x1800) + lbl_805D9A04);
-        }
-        for (i = 0; i < self->count; i++) {
-            f32 s = self->scale[i];
-            self->out[i].x = self->dir[i].x * s + self->base[i].x;
-            self->out[i].y = self->dir[i].y * s + self->base[i].y;
-            self->out[i].z = self->dir[i].z * s + self->base[i].z;
-        }
-        self->timer++;
-    }
-}
-#pragma pop
-
-void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1) {
-    if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490A18;
-        __dt__7TObjectFv(arg0, 0);
-        if (arg1 > 0) {
-            __dl__7TObjectFPv(arg0);
-        }
-    }
-    return arg0;
-}
-typedef char RecoveredGlobal_800A4204_lbl_80490A18_size[sizeof(RecoveredGlobal_800A4204_lbl_80490A18) == 0x18 ? 1 : -1];
-u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
-    __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800A4204_lbl_80490A18 *)&lbl_80490A18).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29E0;
-    M2C_FIELD(arg0, s32 *, 0x338) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x33C) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x330) = 0;
-    M2C_FIELD(arg0, s32 *, 0x334) = 0;
-    M2C_FIELD(arg0, s32 *, 0x344) = arg4;
-    TTecZondeEff__sub_800A39A8(arg0);
-    M2C_FIELD(arg0, s32 *, 0x328) = 0;
-    M2C_FIELD(arg0, s32 *, 0x32C) = 0xFF000000;
-    M2C_FIELD(arg0, s32 *, 0x340) = 0;
     return arg0;
 }
 

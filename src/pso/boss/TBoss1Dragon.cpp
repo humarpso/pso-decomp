@@ -2448,23 +2448,32 @@ void *TBoss1Dragon__data_80480CE0[8] = {
     (void *)0x2, (void *)0x3, (void *)0x4, (void *)0x5,
     (void *)0x6, (void *)0x7, (void *)0x8, (void *)0x20,
 };
-void *boss1_dragon_sequence_remap_table[18] = {
+void *boss1_dragon_sequence_remap_table[8] = {
     (void *)0x0, (void *)0x0, (void *)0x2, (void *)0x3,
     (void *)0x3, (void *)0x3, (void *)0x0, (void *)0x0,
+};
+void *lbl_80480D20[10] = {
     (void *)0x2, (void *)0x3, (void *)0x2, (void *)0x3,
     (void *)0x4, (void *)0x5, (void *)0x6, (void *)0x22,
     (void *)0x8, (void *)0x20,
 };
-void *lbl_80480D48[45] = {
+void *lbl_80480D48[10] = {
     (void *)0x0, (void *)0x0, (void *)0x2, (void *)0x0,
     (void *)0x2, (void *)0x3, (void *)0x3, (void *)0x3,
-    (void *)0x0, (void *)0x0, (void *)0x5, (void *)0x6,
+    (void *)0x0, (void *)0x0,
+};
+void *lbl_80480D70[14] = {
+    (void *)0x5, (void *)0x6,
     (void *)0xf, (void *)0x10, (void *)0x12, (void *)0x11,
     (void *)0x12, (void *)0x11, (void *)0x12, (void *)0x13,
     (void *)0x8, (void *)0x2, (void *)0x3, (void *)0x21,
+};
+void *lbl_80480DA8[12] = {
     (void *)0x5, (void *)0x6, (void *)0xf, (void *)0x10,
     (void *)0x12, (void *)0x11, (void *)0x12, (void *)0x23,
     (void *)0x13, (void *)0x8, (void *)0x2, (void *)0x3,
+};
+void *lbl_80480DD8[9] = {
     (void *)0x21, (void *)0x12, (void *)0x14, (void *)0x15,
     (void *)0x16, (void *)0x17, (void *)0x11, (void *)0x12,
     (void *)0x13,
@@ -6753,6 +6762,62 @@ void remap_sequence_after_recovery__12TBoss1DragonFPv(u8 *arg0) {
         }
         next_sequence_action__12TBoss1DragonFv(arg0);
     }
+}
+
+struct Dragon_8002830C {
+    u8 pad0[0x67C];
+    s32 seqPos;
+};
+
+M2C_UNK next_sequence_action__12TBoss1DragonFv(void *vself) {
+#define self ((Dragon_8002830C *)vself)
+    s32 idx;
+    s32 *seq;
+    s32 code;
+    s32 again;
+
+    s32 pos = self->seqPos;
+    if (pos < 50) {
+        idx = pos;
+        switch (isV2Mode__12TBoss1DragonFv()) {
+        case 0:
+            seq = (s32 *)TBoss1Dragon__data_80480CE0;
+            break;
+        case 1:
+            seq = (s32 *)lbl_80480D20;
+            break;
+        }
+    } else {
+        idx = pos - 50;
+        switch (isV2Mode__12TBoss1DragonFv()) {
+        case 0:
+            seq = (s32 *)lbl_80480D70;
+            break;
+        case 1:
+            seq = (s32 *)lbl_80480DA8;
+            break;
+        }
+    }
+    do {
+        code = seq[idx];
+        again = 0;
+        idx++;
+        self->seqPos++;
+        switch (code) {
+        case 32:
+            self->seqPos = 0;
+            again = 1;
+            idx = 0;
+            break;
+        case 33:
+            self->seqPos = 50;
+            again = 1;
+            idx = 0;
+            break;
+        }
+    } while (again != 0);
+    ((M2C_UNK (*)(void *, s32))request_state_change__12TBoss1DragonFPvs)(self, code);
+#undef self
 }
 
 struct Pkt_800284B4 {

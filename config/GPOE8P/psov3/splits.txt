@@ -878,6 +878,7 @@ pso/misc/TQuestVmDownLoadServer_8006FC34.cpp:
 pso/misc/TLobby_8006FF4C.cpp:
 	.text       start:0x8006FF4C end:0x800709C4
 	.data       start:0x8048C348 end:0x8048C9D8
+	.sbss       start:0x805D4E34 end:0x805D4E38
 
 pso/misc/TChallenge.cpp:
 	.text       start:0x800709C4 end:0x80070A00
@@ -1777,8 +1778,12 @@ pso/unk/text_800A0EDC.cpp:
 	.sdata2     start:0x805D9980 end:0x805D99C4
 
 pso/misc/TEneEffHamon.cpp:
-	.text       start:0x800A36A8 end:0x800A4288
+	.text       start:0x800A36A8 end:0x800A39A8
 	.rodata     start:0x8043A710 end:0x8043A718
+
+pso/misc/TeneFakeTecThunderEff.cpp:
+	.text       start:0x800A39A8 end:0x800A4288
+	.rodata     start:0x8043A730 end:0x8043A738
 
 pso/player/TObjPlayer_800A4288.cpp:
 	.text       start:0x800A4288 end:0x800A73F8
@@ -11363,7 +11368,7 @@ pso/boss/TBoss6Type1_802B20C0.cpp:
 
 pso/boss/TBoss6Type1.cpp:
 	.text       start:0x802B4A70 end:0x802B97E0
-	.rodata     start:0x80471040 end:0x80471048
+	.rodata     start:0x80471040 end:0x80471050
 	.data       start:0x804DF8B8 end:0x804DF950
 	.sdata2     start:0x805DE2D0 end:0x805DE3C4
 
@@ -12331,7 +12336,7 @@ pso/misc/TPlayerBattleCtrl4P.cpp:
 pso/misc/TPlayerBattleCtrl4P_803123F4.cpp:
 	.text       start:0x803123F4 end:0x80312BDC
 	.data       start:0x804E7D30 end:0x804E80C0
-	.sbss       start:0x805D6AB4 end:0x805D6AB8
+	.sbss       start:0x805D6AB4 end:0x805D6ABC
 
 pso/misc/TPlayerBattleCtrl4P_80312BDC.cpp:
 	.text       start:0x80312BDC end:0x80312C50
@@ -12553,7 +12558,9 @@ pso/ui/TAdGameStartLineGC.cpp:
 
 pso/ui/TAdEnterSerialAccessGC.cpp:
 	.text       start:0x803212D4 end:0x80322438
-	.rodata     start:0x804765D0 end:0x804765D8
+	.rodata     start:0x804765D0 end:0x804765F8
+	.data       start:0x804EC9EC end:0x804ECA0C
+	.sdata2     start:0x805DF50C end:0x805DF518
 
 pso/boss/TBoss6Kakusan.cpp:
 	.text       start:0x80322438 end:0x80322B50

@@ -293,6 +293,24 @@ struct Boss_802B81A4 {
 };
 
 struct Blend_802B81A4 { s32 ids[2]; f32 ts[2]; };
+struct Motion_802B8384 { s32 f0; u32 frames; };
+
+struct Anim_802B8384 {
+    Motion_802B8384 *motion;
+    f32 t;
+    f32 speed;
+    f32 blend;
+    f32 rate;
+    s32 f14;
+    f32 f18;
+};
+
+struct Boss_802B8384 {
+    u8 pad0[0x43C];
+    s32 f43C;
+    s32 f440;
+    Anim_802B8384 anims[2];
+};
 
 extern "C" {
 struct V3_802B5AD4 { f32 x, y, z; };
@@ -371,6 +389,8 @@ void clear_global_state__10TObjPlayerFv();
 extern s32 lbl_804DF614[];
 extern const f32 TBoss6Type1__data_805DE2D0;
 void draw_part_motions__11TBoss6Type1FPv(Boss_802B81A4 *arg0);
+extern const s32 lbl_805DE3C8;
+void TBoss6Type1__sub_802B8384(Boss_802B8384 *self);
 }
 
 extern "C" {
@@ -463,7 +483,7 @@ s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 extern u8 lbl_80471014[];
 s32 get_bml_motion(s32, s32);
 extern Tbl_802B82B8 TBoss6Type1__data_804DF61C[];
-extern s32 TBoss6Type1__data_805DE3C4;
+extern const s32 TBoss6Type1__data_805DE3C4;
 void spawn_effect_slot__11TBoss6Type1FPvi(u8 *arg0, s32 arg1);
 s32 count_matches__11TBoss6Type1FPvii(T1_802B529C *arg0, s32 arg1, s32 arg2);
 extern const f32 TBoss6Type1__data_805DE2D0;
@@ -1978,6 +1998,48 @@ void draw_part_motions__11TBoss6Type1FPv(Boss_802B81A4 *arg0) {
 }
 
 void copy_transform__11TBoss6Type1FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); *(f32*)((char*)p + 0x10) = *(f32*)((char*)q + 0x10); *(u32*)((char*)p + 0x14) = *(u32*)((char*)q + 0x14); *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x18); }
+
+void TBoss6Type1__sub_802B8384(Boss_802B8384 *self) {
+    s32 cur;
+    s32 i;
+    Anim_802B8384 *a;
+    f32 len;
+    f32 b;
+    f32 lim;
+    s32 n;
+    cur = lbl_805DE3C8;
+    n = TBoss6Type1__data_805DE3C4;
+    for (i = 0; i < n; i++) {
+        if (i == cur) continue;
+        a = &self->anims[i];
+        len = a->motion->frames;
+        a->t += a->speed;
+        if (a->t >= len) a->t -= len;
+        if (TBoss6Type1__data_805DE2D0 != a->blend) {
+            if ((a->blend += a->rate) >= TBoss6Type1__data_805DE2E4) a->blend = TBoss6Type1__data_805DE2D0;
+        }
+    }
+    a = &self->anims[lbl_805DE3C8];
+    len = a->motion->frames;
+    a->t += a->speed;
+    switch (self->f440) {
+    case 0:
+        if (a->t >= len) a->t -= len;
+        break;
+    case 1:
+        break;
+    case 2:
+        lim = len - TBoss6Type1__data_805DE2E4;
+        if (a->t >= lim) {
+            a->t = lim;
+            set_motion_set__11TBoss6Type1FPvi((void *)(self), (s32)(TBoss6Type1__data_804DF61C[self->f43C].f4));
+        }
+        break;
+    }
+    if (TBoss6Type1__data_805DE2D0 != a->blend) {
+        if ((a->blend += a->rate) >= TBoss6Type1__data_805DE2E4) a->blend = TBoss6Type1__data_805DE2D0;
+    }
+}
 
 void set_motion_set__11TBoss6Type1FPvi(void *arg0_, s32 arg1) {
     Boss_802B82B8 *arg0 = (Boss_802B82B8 *)arg0_;

@@ -23,6 +23,34 @@ struct TPlayerBattleCtrl4P_80312620 {
 };
 typedef void (TPlayerBattleCtrl4P_80312620::*Pmf_80312620)();
 
+struct C_803124C0 {
+    u8 pad[0x29c];
+    s32 state;
+     void f1(); void f2(); void f3(); void f4();
+};
+typedef void (C_803124C0::*Fn_803124C0)();
+
+struct C_8031257C {
+    u8 pad[0x29c];
+    s32 state;
+     void f1(); void f2(); void f3();
+};
+typedef void (C_8031257C::*Fn_8031257C)();
+
+struct C_80312794 {
+    u8 pad[0x29c];
+    s32 state;
+     void f1(); void f2();
+};
+typedef void (C_80312794::*Fn_80312794)();
+
+struct TPlayerBattleCtrl4P_80312818 {
+    virtual void m0();
+    void s0(); void s1(); void s2(); void s3(); void s4();
+    void s5(); void s6(); void s7(); void s8();
+};
+typedef void (TPlayerBattleCtrl4P_80312818::*Pmf_80312818)();
+
 extern "C" {
 
 void TPlayerBattleCtrl4P__vt0(void* p);
@@ -57,11 +85,11 @@ extern u8 lbl_805DF238[];
 extern u8 lbl_805DF23C[];
 void render__7TObjectFv();
 void render_shadows__7TObjectFv();
-void TPlayerBattleCtrl4P__vt1();
-void TPlayerBattleCtrl4P__vt2();
+void TPlayerBattleCtrl4P__vt1(TPlayerBattleCtrl4P_80312818 *self);
+void TPlayerBattleCtrl4P__vt2(C_80312794 *self);
 void TPlayerBattleCtrl4P__vt3(TPlayerBattleCtrl4P_80312620 *self);
-void TPlayerBattleCtrl4P__vt4();
-void TPlayerBattleCtrl4P__vt5();
+void TPlayerBattleCtrl4P__vt4(C_8031257C *self);
+void TPlayerBattleCtrl4P__vt5(C_803124C0 *self);
 void TPlayerBattleCtrl4P__vt6();
 void TPlayerBattleCtrl4P__vt8();
 void TPlayerBattleCtrl4P__vt9();
@@ -118,27 +146,21 @@ void dispatch_mode_action__19TPlayerBattleCtrl4PFPv(Self_80312994 *self) {
 
 void TPlayerBattleCtrl4P__vt0(void* p) { init_battle__19TPlayerBattleCtrl4PFPv(p); TPlayerBattleCtrl4P__sub_803112AC(p, (void*)1); }
 
-void *lbl_804E7DF8[66] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt6, (void *)0x0,
-    (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt7, (void *)0x0, (void *)0xffffffff,
-    (void *)&TPlayerBattleCtrl4P__vt8, (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt9,
-    (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt10, (void *)0x0,
-    (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt11, (void *)0x0, (void *)0xffffffff,
-    (void *)&TPlayerBattleCtrl4P__vt12, (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt13,
-    (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt14, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xffffffff,
-    (void *)&TPlayerBattleCtrl4P__vt15, (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt16,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0,
-};
-u8 lbl_805D6AB5;
-u8 lbl_805D6AB6;
+void TPlayerBattleCtrl4P__vt1(TPlayerBattleCtrl4P_80312818 *self) {
+    static Pmf_80312818 tbl[9] = {
+        &TPlayerBattleCtrl4P_80312818::s0, &TPlayerBattleCtrl4P_80312818::s1,
+        &TPlayerBattleCtrl4P_80312818::s2, &TPlayerBattleCtrl4P_80312818::s3,
+        &TPlayerBattleCtrl4P_80312818::s4, &TPlayerBattleCtrl4P_80312818::s5,
+        &TPlayerBattleCtrl4P_80312818::s6, &TPlayerBattleCtrl4P_80312818::s7,
+        &TPlayerBattleCtrl4P_80312818::s8,
+    };
+    (self->*tbl[*(s32 *)((u8 *)self + 0x29C)])();
+}
+
+void TPlayerBattleCtrl4P__vt2(C_80312794 *self) {
+    static Fn_80312794 tbl[2] = { &C_80312794::f1, &C_80312794::f2 };
+    (self->*tbl[self->state])();
+}
 
 void TPlayerBattleCtrl4P__vt3(TPlayerBattleCtrl4P_80312620 *self) {
     static Pmf_80312620 tbl[10] = {
@@ -151,21 +173,18 @@ void TPlayerBattleCtrl4P__vt3(TPlayerBattleCtrl4P_80312620 *self) {
     (self->*tbl[*(s32 *)((u8 *)self + 0x29C)])();
 }
 
+void TPlayerBattleCtrl4P__vt4(C_8031257C *self) {
+    static Fn_8031257C tbl[3] = { &C_8031257C::f1, &C_8031257C::f2, &C_8031257C::f3 };
+    (self->*tbl[self->state])();
+}
+
+void TPlayerBattleCtrl4P__vt5(C_803124C0 *self) {
+    static Fn_803124C0 tbl[4] = { &C_803124C0::f1, &C_803124C0::f2, &C_803124C0::f3, &C_803124C0::f4 };
+    (self->*tbl[self->state])();
+}
+
 #pragma defer_codegen off
 
-void *lbl_804E7FF0[42] = {
-    (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt27, (void *)0x0,
-    (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt28, (void *)0x0, (void *)0xffffffff,
-    (void *)&TPlayerBattleCtrl4P__vt29, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xffffffff,
-    (void *)&TPlayerBattleCtrl4P__vt30, (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt31,
-    (void *)0x0, (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt32, (void *)0x0,
-    (void *)0xffffffff, (void *)&TPlayerBattleCtrl4P__vt33, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
-    (void *)0x0, (void *)0x0,
-};
 void *TPlayerBattleCtrl4P_player_name_formats[4] = {
     (void *)&lbl_805DF230, (void *)&lbl_805DF234, (void *)&lbl_805DF238, (void *)&lbl_805DF23C,
 };

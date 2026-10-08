@@ -1018,6 +1018,89 @@ void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
+extern const f32 lbl_805DA838;
+extern const f32 lbl_805DA87C;
+extern const f32 lbl_805DA880;
+s32 enemy_has_live_target(void *);
+f32 get_node_world_y__16TObjEneMe3StelthFPv(void *);
+void TObjEneMe3Stelth__sub_800F3BC8(u8 *arg0, s32 arg1) {
+    M2C_UNK update_distance_state__16TObjEneMe3StelthFPv(void *);
+    f32 temp_f1;
+    f32 temp_f1_2;
+    f32 temp_f31;
+    s32 temp_r0;
+
+    switch (arg1) {
+    case 4:
+        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        set_field_378__9TObjEneDDFPvi(arg0, 0xD);
+        ((VObj_18_4f5f2e *)(arg0))->m94();
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF9);
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) | 1);
+        M2C_FIELD(arg0, s32 *, 0x424) = 0;
+        M2C_FIELD(arg0, f32 *, 0x430) = (f32) TObjEneMe3Stelth__data_805DA840;
+        if (enemy_has_live_target(arg0) != 0) {
+            enemy_copy_target_destination(arg0);
+            update_velocity__9TObjEneDDFPv(arg0);
+        }
+        break;
+    case 3:
+        if ((s32) M2C_FIELD(arg0, s32 *, 0x424) == 3) {
+            transition_enemy_state(arg0, 0xD);
+        }
+        break;
+    case 0:
+        temp_r0 = M2C_FIELD(arg0, s32 *, 0x424);
+        switch (temp_r0) {
+        case 0:
+            temp_f31 = get_node_world_y__16TObjEneMe3StelthFPv(arg0);
+            advance_animation_playback(arg0);
+            M2C_FIELD(arg0, f32 *, 0x434) = get_node_world_y__16TObjEneMe3StelthFPv(arg0);
+            M2C_FIELD(arg0, f32 *, 0x3D0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3D0) + (temp_f31 - M2C_FIELD(arg0, f32 *, 0x434)));
+            M2C_FIELD(arg0, s32 *, 0x424) = 1;
+            M2C_FIELD(arg0, f32 *, 0x3D4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3D0) - M2C_FIELD(arg0, f32 *, 0x3C));
+            break;
+        case 1:
+            advance_animation_playback(arg0);
+            if (M2C_FIELD(arg0, f32 *, 0xC0) > lbl_805DA838) {
+                M2C_FIELD(arg0, f32 *, 0xC0) = *(const f32 *)&lbl_805DA838;
+            }
+            M2C_FIELD(arg0, f32 *, 0x430) -= lbl_805DA87C;
+            if (M2C_FIELD(arg0, f32 *, 0x430) < lbl_805DA880) {
+                M2C_FIELD(arg0, f32 *, 0x430) = *(const f32 *)&lbl_805DA880;
+            }
+            M2C_FIELD(arg0, f32 *, 0x3D0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3D0) + M2C_FIELD(arg0, f32 *, 0x430));
+            temp_f1 = get_node_world_y__16TObjEneMe3StelthFPv(arg0);
+            M2C_FIELD(arg0, f32 *, 0x3D0) = (f32) (M2C_FIELD(arg0, f32 *, 0x3D0) - (temp_f1 - M2C_FIELD(arg0, f32 *, 0x434)));
+            M2C_FIELD(arg0, f32 *, 0x434) = temp_f1;
+            if (M2C_FIELD(arg0, f32 *, 0x3D0) < M2C_FIELD(arg0, f32 *, 0x3C)) {
+                M2C_FIELD(arg0, f32 *, 0x3D0) = M2C_FIELD(arg0, f32 *, 0x3C);
+                M2C_FIELD(arg0, s32 *, 0x424) = 2;
+                play_hit_effect__16TObjEneMe3StelthFi(arg0);
+            }
+            break;
+        case 2:
+            if (((int (*)(void *))get_flag_b4__21TObjEneMe3ShinowaRealFPv)(arg0) != 0) {
+                M2C_FIELD(arg0, s16 *, 0xB8) = 9;
+                M2C_FIELD(arg0, s32 *, 0x424) = 3;
+                M2C_FIELD(arg0, f32 *, 0x3D0) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
+                M2C_FIELD(arg0, f32 *, 0x3D4) = (f32) TObjEneMe3Stelth__data_805DA840;
+            }
+            advance_animation_playback(arg0);
+            break;
+        }
+        ((VObj_18_4f5f2e *)(arg0))->m100();
+        update_distance_state__16TObjEneMe3StelthFPv(arg0);
+        ((VObj_18_4f5f2e *)(arg0))->m87();
+        M2C_FIELD(arg0, f32 *, 0x3D4) = (f32) (M2C_FIELD(arg0, f32 *, 0x3D0) - M2C_FIELD(arg0, f32 *, 0x3C));
+        break;
+    case 5:
+        M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFFE);
+        M2C_FIELD(arg0, f32 *, 0x3D4) = (f32) TObjEneMe3Stelth__data_805DA840;
+        break;
+    }
+}
+
 void update_state_fade_in__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     s32 enemy_validate_retained_target(void *, s32);
     M2C_UNK update_distance_state__16TObjEneMe3StelthFPv(void *);

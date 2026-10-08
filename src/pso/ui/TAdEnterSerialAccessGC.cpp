@@ -1,4 +1,5 @@
 #include "types.h"
+#pragma readonly_strings on
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -207,8 +208,6 @@ u8 *TAdEnterSerialAccessGC__sub_80321738(void);
 int sprintf(char *, const char *, ...);
 void sscanf(int, const char *, ...);
 M2C_UNK memset(void *, int, int);
-extern char lbl_804765E0[];
-extern char lbl_804765E8[];
 extern char lbl_80543010[];
 extern u32 lbl_805DF508;
 char *hex_to_decimal_string__22TAdEnterSerialAccessGCFi(int arg0);
@@ -281,7 +280,6 @@ extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
 void draw_screen__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 void sscanf(int, const char *, ...);
-extern char lbl_804765D8[];
 s32 parse_serial_value__22TAdEnterSerialAccessGCFv(void);
 }
 
@@ -453,7 +451,7 @@ typedef char RecoveredGlobal_80321874_lbl_80543090_size[sizeof(RecoveredGlobal_8
 s32 parse_serial_value__22TAdEnterSerialAccessGCFv(void) {
     s32 sp8;
     sp8 = 0;
-    sscanf(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C, lbl_804765D8, &sp8);
+    sscanf(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C, "%08x", &sp8);
     return sp8;
 }
 
@@ -505,10 +503,10 @@ typedef char RecoveredGlobal_80321B28_lbl_8050E3B8_size[((sizeof(RecoveredGlobal
 
 char *convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi(int arg0) {
     u32 v = 0;
-    sscanf(arg0, lbl_804765E0, &v);
+    sscanf(arg0, "%08X", &v);
     memset(lbl_80543050, 0, 0x40);
     if (v != 0) {
-        sprintf(lbl_80543050, lbl_804765E8, v);
+        sprintf(lbl_80543050, "%010lu", v);
     }
     return lbl_80543050;
 }
@@ -517,7 +515,7 @@ char *hex_to_decimal_string__22TAdEnterSerialAccessGCFi(int arg0) {
     s32 v = 0;
     sscanf(arg0, (const char *)&lbl_805DF508, &v);
     memset(lbl_80543010, 0, 0x40);
-    sprintf(lbl_80543010, lbl_804765E0, v);
+    sprintf(lbl_80543010, "%08X", v);
     return lbl_80543010;
 }
 
@@ -709,6 +707,99 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
 
 void TAdEnterSerialAccessGC__sub_80321F18(void* p) { TAdEnterSerialAccessGC__sub_80321B28((u8 *)(p), (int)(1)); }
 void TAdEnterSerialAccessGC__sub_80321F3C(void* p) { TAdEnterSerialAccessGC__sub_80321B28((u8 *)(p), (int)(0)); }
+
+struct TAdEnterSerialAccessGC_80321F60 {
+    u8 pad0[0x40];
+    s32 field_40;
+    s32 field_44;
+    s32 field_48;
+    u8 pad4C[0x4];
+    void *field_50;
+    void *field_54;
+    s32 field_58;
+    s32 field_5C;
+    s32 field_60;
+};
+u32 calc_text_width(void *);
+void request_transition__21TAdMultiChgGameModeGCFv(void);
+void *__ct__10TAdTitleGCFv(void *, void *, s32);
+u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(void *, s32);
+void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self) {
+    void *p;
+    f32 w;
+
+    w = 320.0f - (f32)(calc_text_width((void *)get_localized_text_entry(0x17, (void *)4)) >> 1);
+    lbl_804EC9B0[0].b = 250.0f;
+    lbl_804EC9B0[0].a = w;
+    self->field_40 = TAdEnterSerialAccessGC__data_805D6C24;
+    switch (TAdEnterSerialAccessGC__data_805D6C24) {
+    case 0:
+        TAdEnterSerialAccessGC__data_805D6C24 = 1;
+        break;
+    case 1:
+        self->field_60 = 0;
+        p = __nw__7TObjectFUl(0x138);
+        if (p != NULL) {
+            p = __ct__10TAdTitleGCFv(p, self, 0xA);
+        }
+        self->field_50 = p;
+        self->field_58 = open_message_window__22TAdEnterSerialAccessGCFPvPv(self, (void *)0);
+        self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
+        if (self->field_54 != NULL) {
+            reset_input_state__22TAdEnterSerialAccessGCFPv((int)self->field_54);
+            add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__data_804764E8);
+            set_active__22TAdEnterSerialAccessGCFPv((int)self->field_54);
+        }
+        TAdEnterSerialAccessGC__data_805D6C20 = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 0);
+        TAdEnterSerialAccessGC__data_805D6C24 = 2;
+        break;
+    case 2:
+        TAdEnterSerialAccessGC__sub_80321F3C(self);
+        break;
+    case 3:
+        self->field_60 = 0;
+        if (self->field_54 != NULL) {
+            reset_input_state__22TAdEnterSerialAccessGCFPv((int)self->field_54);
+            add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__data_804764E8);
+            set_active__22TAdEnterSerialAccessGCFPv((int)self->field_54);
+        }
+        p = __nw__7TObjectFUl(0x138);
+        if (p != NULL) {
+            p = __ct__10TAdTitleGCFv(p, self, 0xB);
+        }
+        self->field_50 = p;
+        self->field_58 = open_message_window__22TAdEnterSerialAccessGCFPvPv(self, (void *)1);
+        self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
+        TAdEnterSerialAccessGC__data_805D6C20 = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 1);
+        TAdEnterSerialAccessGC__data_805D6C24 = 4;
+        break;
+    case 4:
+        TAdEnterSerialAccessGC__sub_80321F18(self);
+        break;
+    case 5:
+        if ((f32)++self->field_48 > 4.5f) {
+            TAdEnterSerialAccessGC__data_805D6C24 = self->field_44;
+        }
+        break;
+    case 6:
+        if (self->field_54 != NULL) {
+            queue_destruction__7TObjectFv(self->field_54);
+            self->field_54 = NULL;
+        }
+        request_transition__21TAdMultiChgGameModeGCFv();
+        break;
+    case 7:
+        if (self->field_54 != NULL) {
+            queue_destruction__7TObjectFv(self->field_54);
+            self->field_54 = NULL;
+        }
+        init_state__22TAdEnterSerialAccessGCFv();
+        break;
+    }
+    if (self->field_40 != TAdEnterSerialAccessGC__data_805D6C24) {
+        self->field_48 = 0;
+    }
+}
 
 extern M2C_UNK __vt__22TAdEnterSerialAccessGC[];
 
