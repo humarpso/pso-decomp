@@ -2044,7 +2044,7 @@ typedef struct Tbl_80407418 {
 } Tbl_80407418;
 
 s32 TLobby__sub_80408388(s16);
-void TLobby__sub_80409FC4(s16, s16);
+s32 TLobby__sub_80409FC4(s16, s32);
 
 s32 TLobby__sub_80407418(s16 id) {
     Tbl_80407418 *t = (Tbl_80407418 *)&lbl_805C1AB0;
@@ -3132,6 +3132,11 @@ void TLobby__sub_803F86BC(void *);
 s32 TLobby__sub_80421844(void *);
 void tick_connection_timeouts__6TLobbyFv(void);
 
+typedef struct Ent_80409FC4 { s16 st; s16 pad2; s32 (*f4)(s32); s32 (*f8)(s32); s32 (*fC)(s32); s32 (*f10)(s32); u8 pad14[0x30-0x14]; } Ent_80409FC4;
+typedef struct Tbl_80409FC4 { s16 count; Ent_80409FC4 *list; } Tbl_80409FC4;
+typedef struct Ent_8040A630 { s16 f0; u8 pad[0x3A]; } Ent_8040A630;
+typedef struct G_8040A630 { u8 pad[0x40]; s16 n; u8 pad2[2]; Ent_8040A630 *p; } G_8040A630;
+
 #pragma push
 #pragma opt_propagation off
 s32 TLobby__sub_80409F44(s16 i, s32 arg) {
@@ -3147,6 +3152,24 @@ s32 TLobby__sub_80409F44(s16 i, s32 arg) {
         return -2;
     }
     return e->f10(arg);
+}
+#pragma pop
+
+#pragma push
+#pragma opt_propagation off
+s32 TLobby__sub_80409FC4(s16 i, s32 arg) {
+    Ent_80409FC4 *e;
+    if (i < 0 || i > (*(Tbl_80409FC4 *)&lbl_805D7AF8).count) {
+        return -0x10F;
+    }
+    e = (*(Tbl_80409FC4 *)&lbl_805D7AF8).list + i;
+    if (e->st == 0) {
+        return -2;
+    }
+    if (e->fC == 0) {
+        return -2;
+    }
+    return e->fC(arg);
 }
 #pragma pop
 
@@ -3304,6 +3327,17 @@ void init_net_tables__6TLobbyFv(void) {
     }
     TLobby__sub_804218AC(tick_connection_timeouts__6TLobbyFv, 1000);
 }
+
+#pragma push
+#pragma opt_propagation off
+s32 TLobby__sub_8040A630(s16 i) {
+    G_8040A630 *g = (G_8040A630 *)&lbl_805C1AF0;
+    if (i < 0 || i > g->n) { return -2; }
+    Ent_8040A630 *e = (Ent_8040A630 *)((u8 *)g->p + i * 0x3C);
+    if (e->f0 == 0) { return -2; }
+    return close_and_reset_connection__6TLobbyFPv((u8 *)e);
+}
+#pragma pop
 
 typedef struct Rec_8040AD64 {
     u32 used;

@@ -157,6 +157,41 @@ struct Obj_803C7C10 {
     s16 f290[12]; u8 f2a8[1][16];
 };
 
+struct Strm_803C6860;
+struct Buf_803C6860 { void *data; s32 size; };
+
+struct VT_803C6860 {
+    void *pad[6];
+    void (*lock)(Strm_803C6860 *, s32, s32, Buf_803C6860 *);
+    void (*unlock)(Strm_803C6860 *, s32, Buf_803C6860 *);
+    void (*commit)(Strm_803C6860 *, s32, Buf_803C6860 *);
+};
+
+struct Strm_803C6860 { VT_803C6860 *vt; };
+
+struct Obj_803C6860 {
+    u8 pad_0[0x48];
+    s32 f48;
+    s32 f4c;
+    s32 f50;
+    s32 f54;
+    s32 f58;
+    s32 f5c;
+    s32 f60;
+    s32 f64;
+    s32 f68;
+    s32 f6c;
+    s32 f70;
+    s32 f74;
+    s32 f78;
+    s32 f7c;
+    u8 pad_80[0x2C8 - 0x80];
+    s16 f2c8;
+    s16 f2ca;
+    s16 f2cc;
+    s16 f2ce;
+};
+
 struct Buf_803C7748 { void *data; s32 size; };
 struct Strm_803C7748;
 struct VT_803C7748 {
@@ -497,6 +532,196 @@ void clear_net_buffer_1680__6TLobbyFv(void) {
 void clear_buffer_1680__6TLobbyFv(void) {
     memset((void *) (&lbl_80573AC0.value), (int) (0), (int) (0x1680));
 }
+
+u32 strlen(const char *);
+extern char *lbl_805D4664;
+
+#pragma push
+#pragma opt_propagation off
+#pragma dont_inline off
+#pragma inline_depth(4)
+
+inline s32 put8_803C6860(Strm_803C6860 *s, const void *v) {
+    Buf_803C6860 b;
+    s->vt->lock(s, 0, 1, &b);
+    if (b.size < 1) {
+        s->vt->unlock(s, 0, &b);
+        return 0;
+    }
+    memcpy(b.data, v, 1);
+    s->vt->commit(s, 1, &b);
+    return 1;
+}
+
+inline s32 put16_803C6860(Strm_803C6860 *s, const void *v) {
+    Buf_803C6860 b;
+    s->vt->lock(s, 0, 2, &b);
+    if (b.size < 2) {
+        s->vt->unlock(s, 0, &b);
+        return 0;
+    }
+    s16 *d = (s16 *)b.data;
+    *d = *(const s16 *)v;
+    s->vt->commit(s, 1, &b);
+    return 1;
+}
+
+inline s32 put32_803C6860(Strm_803C6860 *s, const void *v) {
+    Buf_803C6860 b;
+    s->vt->lock(s, 0, 4, &b);
+    if (b.size < 4) {
+        s->vt->unlock(s, 0, &b);
+        return 0;
+    }
+    s32 *d = (s32 *)b.data;
+    *d = *(const s32 *)v;
+    s->vt->commit(s, 1, &b);
+    return 1;
+}
+
+inline s32 putn_803C6860(Strm_803C6860 *s, void *src, s32 n) {
+    Buf_803C6860 b;
+    s->vt->lock(s, 0, n, &b);
+    if (b.size < n) {
+        s->vt->unlock(s, 0, &b);
+        return 0;
+    }
+    memcpy(b.data, src, (u16)n);
+    s->vt->commit(s, 1, &b);
+    return n;
+}
+
+s32 TLobby__sub_803C6860(Obj_803C6860 *o, Strm_803C6860 *s) {
+    u8 c;
+    u16 h;
+    u16 h2;
+    s32 w;
+    s32 len;
+    s32 total;
+    s32 i;
+    s32 lim;
+
+    len = strlen(lbl_805D4664);
+    h = 0x8000;
+    if (put16_803C6860(s, &h) != 1) {
+        goto fail;
+    }
+    h2 = o->f48;
+    if (put16_803C6860(s, &h2) != 1) {
+        goto fail;
+    }
+    c = o->f4c;
+    if (put8_803C6860(s, &c) != 1) {
+        goto fail;
+    }
+    c = o->f50;
+    if (put8_803C6860(s, &c) != 1) {
+        goto fail;
+    }
+    c = o->f54;
+    if (put8_803C6860(s, &c) != 1) {
+        goto fail;
+    }
+    c = o->f58;
+    if (put8_803C6860(s, &c) != 1) {
+        goto fail;
+    }
+    w = o->f5c;
+    if (put32_803C6860(s, &w) != 1) {
+        goto fail;
+    }
+    w = o->f60;
+    if (put32_803C6860(s, &w) != 1) {
+        goto fail;
+    }
+    h = o->f64;
+    if (put16_803C6860(s, &h) != 1) {
+        goto fail;
+    }
+    c = 4;
+    if (put8_803C6860(s, &c) != 1) {
+        goto fail;
+    }
+    c = 0;
+    if (put8_803C6860(s, &c) != 1) {
+        goto fail;
+    }
+    w = 0;
+    if (put32_803C6860(s, &w) != 1) {
+        goto fail;
+    }
+    h = o->f2c8;
+    if (put16_803C6860(s, &h) != 1) {
+        goto fail;
+    }
+    h = o->f2cc;
+    if (put16_803C6860(s, &h) != 1) {
+        goto fail;
+    }
+    h = o->f2ca;
+    if (put16_803C6860(s, &h) != 1) {
+        goto fail;
+    }
+    h = o->f2ce;
+    if (put16_803C6860(s, &h) != 1) {
+        goto fail;
+    }
+    total = 0x1C;
+    if (o->f6c > 0) {
+        h = o->f68;
+        if (put16_803C6860(s, &h) != 1) {
+            goto fail;
+        }
+        h = o->f6c;
+        if (put16_803C6860(s, &h) != 1) {
+            goto fail;
+        }
+        total += 4;
+        for (i = 0; i < o->f6c; i++) {
+            h = i;
+            if (put16_803C6860(s, &h) != 1) {
+                goto fail;
+            }
+            h = 1;
+            if (put16_803C6860(s, &h) != 1) {
+                goto fail;
+            }
+            w = o->f70;
+            if (put32_803C6860(s, &w) != 1) {
+                goto fail;
+            }
+            w = o->f74;
+            if (put32_803C6860(s, &w) != 1) {
+                goto fail;
+            }
+            w = o->f78;
+            if (put32_803C6860(s, &w) != 1) {
+                goto fail;
+            }
+            w = o->f7c;
+            if (put32_803C6860(s, &w) != 1) {
+                goto fail;
+            }
+            total += 0x14;
+        }
+    }
+    c = 0;
+    lim = o->f48 - len;
+    for (; total < lim; total++) {
+        if (put8_803C6860(s, &c) != 1) {
+            goto fail;
+        }
+    }
+    if (putn_803C6860(s, lbl_805D4664, len) != len) {
+        goto fail;
+    }
+    total += len;
+    return total + 4;
+fail:
+    return 0;
+}
+
+#pragma pop
 
 #pragma push
 #pragma opt_propagation off
