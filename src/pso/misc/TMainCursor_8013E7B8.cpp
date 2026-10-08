@@ -6,7 +6,7 @@ s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
-int copy_target_record__11TMainCursorFPvPv(void* a0 = 0);
+void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1);
 void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);
 int check_field_24__11TMainCursorFPv(void* p);
@@ -82,5 +82,99 @@ void reset_target__11TMainCursorFi(s32 arg0) {
     set_target_index__11TMainCursorFPvs((void*)(arg0), (void*)(0xFFFF));
     set_target_id__11TMainCursorFPvs((void*)(arg0), 0);
 }
+
+}
+
+#include "types.h"
+
+struct Obj_8013E800 { u16 a; };
+
+extern "C" {
+void TMainCursor__sub_8013E800(Obj_8013E800 *self);
+}
+
+extern "C" {
+
+void TMainCursor__sub_8013E800(Obj_8013E800 *self) {
+    self->a = 0xffff;
+}
+
+}
+
+#include "types.h"
+
+extern "C" {
+
+s32 get_body_exclude_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0xc); }
+s32 get_body_include_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x8); }
+s32 get_actor_exclude_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x14); }
+s32 get_actor_include_mask__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x10); }
+void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2) { ((int (*)(void *))copy_target_record__11TMainCursorFPvPv)(a2); }
+
+}
+
+#include "types.h"
+
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Rec_8013E870 { u8 pad[0x124]; };
+
+struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
+
+extern "C" {
+void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i);
+}
+
+extern "C" {
+
+void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, u16 *, 0);
+    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
+    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+}
+void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i) {
+    TMainCursor__sub_8013E8A0((void*)(&self->recs[i]));
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3);
+
+int TMainCursor__sub_8013E8A0(void* p) { return TObjPlayer__sub_8013DEF8(p); }
+int get_selected_entry__11TMainCursorFPv(void* p) { return is_channel_active__11TMainCursorFPv(p); }
+int get_active__11TMainCursorFPv(void* p) { return get_enabled__11TMainCursorFPv(p); }
+int TMainCursor__sub_8013E900(void* p) { return get_type__11TMainCursorFPv(p); }
+s16 TMainCursor__sub_8013E920(void* p) { return *(s16*)((char*)p + 0x2); }
+void TMainCursor__sub_8013E928(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
+void TMainCursor__sub_8013E930(void* p, s16 v) { *(s16*)((char*)p + 0x0) = v; }
+u16 get_target_id__11TMainCursorFPv(void* p) { return *(u16*)((char*)p + 0x20); }
+int is_cursor_clear__11TMainCursorFPv(void* p) { return (test_flags_any((char*)p + 0x1c, 1)) == 0; }
+
+void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3) {
+    M2C_FIELD(arg0, s16 *, 0) = arg1;
+    M2C_FIELD(arg0, s16 *, 2) = arg2;
+    M2C_FIELD(arg0, s16 *, 4) = arg3;
+}
+
+void set_color_mode__11TMainCursorFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x10) = v; }
+void set_color__11TMainCursorFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x8) = v; }
+void set_field_0c__11TMainCursorFPvi(void* p, s32 v) { *(s32*)((char*)p + 0xc) = v; }
+void set_flags__11TMainCursorFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x14) = v; }
+
+int TMainCursor__sub_8013E9A0(void* p) { return TMainCursor__sub_8013DFC4(p); }
+int TMainCursor__sub_8013E9C0(void* p) { return set_slot__20TWindowActionPaletteFPvUc(p); }
+int TMainCursor__sub_8013E9E0(void* p) { return set_mode__20TWindowActionPaletteFPvUc(p); }
+void TMainCursor__sub_8013EA00(void* p, s32 v) { *(s32*)((char*)p + 0x0) = v; }
 
 }

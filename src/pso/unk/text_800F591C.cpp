@@ -17,6 +17,7 @@ struct StripRef_800F591C { s16 *strip; s16 *uv; };
 
 extern "C" {
 void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
+void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 extern s32 lbl_805D5320;
 void count_plist_strips_by_texture(void *ctx, void *plist, void *arg);
 extern StripRef_800F591C *lbl_805D5318;
@@ -26,6 +27,18 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex);
 }
 
 extern "C" {
+
+void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg) {
+    do {
+        if (node->model != 0 && node->model->plist != 0) {
+            ((void (*)(void *, void *, void *))collect_plist_strips_by_texture)(ctx, node->model->plist, arg);
+        }
+        if (node->child != 0) {
+            collect_model_strips_by_texture(ctx, node->child, arg);
+        }
+        node = node->sibling;
+    } while (node != 0);
+}
 
 void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
     s16 c;

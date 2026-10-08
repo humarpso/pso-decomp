@@ -1,16 +1,27 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+u16 get_id__11TMainCursorFPv(void* p);
+int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1);
+int get_enabled__11TMainCursorFPv(void*);
+int get_type__11TMainCursorFPv(void*);
+int is_same_target__11TMainCursorFPvPv(void *a, void *b);
+}
+
 extern "C" {
 
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
-int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
 int copy_target_record__11TMainCursorFPvPv(void* a0 = 0);
 void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2);
 void update_cursor_pos__13TLockOnCursorFPv(void* p);
 int check_field_24__11TMainCursorFPv(void* p);
-u16 get_id__11TMainCursorFPv(void* p);
 int TMainCursor__sub_8013E310(void* p);
 int TMainCursor__sub_8013E338(void* p);
 int TMainCursor__sub_8013E358(void* p);
@@ -70,12 +81,32 @@ int test_flags_any(void*, int);
 int TMainCursor__sub_8013B2A4(void*);
 int TObjPlayer__sub_8013DEF8(void*);
 int is_channel_active__11TMainCursorFPv(void*);
-int get_enabled__11TMainCursorFPv(void*);
-int get_type__11TMainCursorFPv(void*);
 int set_slot__20TWindowActionPaletteFPvUc(void*);
 int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
+
+int is_same_target__11TMainCursorFPvPv(void *a, void *b) {
+    u8 result = 0;
+    if (TMainCursor__sub_8013E40C((u8 *)a, get_id__11TMainCursorFPv((void*)(b))) != 0) {
+        if (((u8)get_type__11TMainCursorFPv((void*)(a))) == ((u8)get_type__11TMainCursorFPv((void*)(b)))) {
+            if (((u8)get_enabled__11TMainCursorFPv((void*)(a))) == ((u8)get_enabled__11TMainCursorFPv((void*)(b)))) {
+                result = 1;
+            }
+        }
+    }
+    return result;
+}
+
+int TMainCursor__sub_8013E40C(u8 *arg0, u16 arg1) {
+    return (u8) (arg1 == get_id__11TMainCursorFPv((void*)(arg0)));
+}
+
+}
+
+#include "types.h"
+
+extern "C" {
 
 void* get_list__11TMainCursorFPv(void* p) { return (char*)p + 0xc; }
 int update_target_sub__11TMainCursorFPv(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x20, 1); }

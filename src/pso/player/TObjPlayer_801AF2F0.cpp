@@ -3084,6 +3084,19 @@ extern "C" {
 void cancel_status_effects__10TObjPlayerFPv(Pl_801B0B88 *p_);
 }
 
+extern "C" {
+s32 TObjPlayer__sub_801BE2C8(void *);
+void TObjPlayer__sub_801BE2C0(void *, s32);
+s32 TObjPlayer__sub_801AF290(void *p) {
+    s32 v;
+    s32 r = 0;
+    s32 cur = TObjPlayer__sub_801BE2C8(p);
+    v = cur + 1;
+    if (v >= ((s32 (*)(void *, s32))calc_stat_threshold__10TObjPlayerFPv)(p, cur)) { v = 0; r = 1; }
+    TObjPlayer__sub_801BE2C0(p, v);
+    return r;
+}
+}
 s32 calc_stat_threshold__10TObjPlayerFPv(void *arg0) {
     s32 var_r31;
     var_r31 = ((VObj_801AF2F0*)arg0)->m14();

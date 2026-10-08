@@ -140,6 +140,7 @@ force_active:
   - TObjPlayer__sub_800405D8
   - TObjPlayer__sub_80040ADC
   - TObjPlayer__sub_800DA1F4
+  - TObjPlayer__sub_801AA61C
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BF31C
   - TObjPlayer__sub_801BF5F0

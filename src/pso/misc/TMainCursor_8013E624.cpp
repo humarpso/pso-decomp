@@ -1,9 +1,17 @@
 #include "types.h"
 
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 __dl__FPv(void* a0);
+s32 delete_this__11TMainCursorFis(s32 arg0, s16 arg1);
+}
+
 extern "C" {
 
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
-s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
 int is_same_target__11TMainCursorFPvPv(void* a0 = 0, void* a1 = 0);
 int copy_target_record__11TMainCursorFPvPv(void* a0 = 0);
@@ -76,6 +84,19 @@ int set_slot__20TWindowActionPaletteFPvUc(void*);
 int set_mode__20TWindowActionPaletteFPvUc(void*);
 int TMainCursor__sub_8013DFC4(void*);
 int set_target_index__11TMainCursorFPvs(void*, void* a1 = 0);
+
+s32 delete_this__11TMainCursorFis(s32 arg0, s16 arg1) {
+    if ((arg0 != 0) && (arg1 > 0)) {
+        ((M2C_UNK)__dl__FPv((void*)(arg0)));
+    }
+    return arg0;
+}
+
+}
+
+#include "types.h"
+
+extern "C" {
 
 s32 destroy__11TMainCursorFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
