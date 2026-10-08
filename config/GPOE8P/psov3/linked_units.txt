@@ -1245,6 +1245,7 @@ pso/misc/TLobby_803DE778.cpp
 pso/misc/TLobby_803DF1FC.cpp
 pso/misc/TLobby_803E2D50.cpp
 pso/misc/TLockOnCursor.cpp
+pso/misc/TLockOnCursor_8013D91C.cpp
 pso/misc/TLockOnCursor_8013E0D0.cpp
 pso/misc/TLockOnCursor_8013EA08.cpp
 pso/misc/TLockOnCursor_8013EB80.cpp
@@ -1587,6 +1588,7 @@ pso/misc/TQuestBgmCtrl_801E63F4.cpp
 pso/misc/TQuestColCtrl.cpp
 pso/misc/TQuestColCtrl_8003F3BC.cpp
 pso/misc/TQuestColCtrl_80195CF0.cpp
+pso/misc/TQuestListOnline.cpp
 pso/misc/TQuestListOnline_801F6530.cpp
 pso/misc/TQuestListOnline_802150E8.cpp
 pso/misc/TQuestListOnline_80217464.cpp
@@ -1613,6 +1615,7 @@ pso/misc/TQuestVmDownLoadServer_801F9010.cpp
 pso/misc/TQuestVmDownLoadServer_8033BC88.cpp
 pso/misc/TQuestVmDownLoadServer_8033C22C.cpp
 pso/misc/TQuestVmDownLoadServer_803E5668.cpp
+pso/misc/TQuestVmDownLoadServer_803F63F0.cpp
 pso/misc/TRaderMapCore_8002F588.cpp
 pso/misc/TRaderMapCore_801A6CEC.cpp
 pso/misc/TRaderMapCore_801A6CEC_801A6CEC.cpp
@@ -2072,6 +2075,7 @@ pso/misc/TWindowSubSymbolChat_8028239C.cpp
 pso/misc/TWindowSubSymbolChat_802838C4.cpp
 pso/misc/TWindowSubSymbolChat_80283954.cpp
 pso/misc/TWindowSubSymbolChat_802839C0.cpp
+pso/misc/TWindowSubSymbolChat_80285E10.cpp
 pso/misc/TWindowSubSymbolChat_802ACF5C.cpp
 pso/misc/TWindowSubTechnique.cpp
 pso/misc/TWindowSubTechnique_80286B0C.cpp
@@ -2436,6 +2440,7 @@ pso/player/TObjPlayer_80104860.cpp
 pso/player/TObjPlayer_80105874.cpp
 pso/player/TObjPlayer_8010853C.cpp
 pso/player/TObjPlayer_80108854.cpp
+pso/player/TObjPlayer_80109344.cpp
 pso/player/TObjPlayer_80109344_80109464.cpp
 pso/player/TObjPlayer_80109344_801094B0.cpp
 pso/player/TObjPlayer_8010A050.cpp
@@ -3010,6 +3015,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801FBF54_801FE9D0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54_801FEAFC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54_801FEC34.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54_801FF260.cpp
+pso/ui/TAdSinglePlyChrSelectGC_801FBF54_801FF464.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54_801FFD78.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp
@@ -3433,6 +3439,7 @@ pso/unk/text_80153A7C_80153AD4.cpp
 pso/unk/text_80156BBC.cpp
 pso/unk/text_801582C4.cpp
 pso/unk/text_80158360.cpp
+pso/unk/text_8015AAF8.cpp
 pso/unk/text_8015C048.cpp
 pso/unk/text_8015C534.cpp
 pso/unk/text_8015C680.cpp
@@ -3705,6 +3712,7 @@ pso/unk/text_802530D0.cpp
 pso/unk/text_80253154.cpp
 pso/unk/text_80253630.cpp
 pso/unk/text_80253698.cpp
+pso/unk/text_8025373C.cpp
 pso/unk/text_80253974.cpp
 pso/unk/text_8025CD10.cpp
 pso/unk/text_8025FF8C.cpp

@@ -82,6 +82,7 @@ force_active:
   - TAdChrSelBSlotGC__sub_8030F3A0
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
+  - TAdSinglePlyChrSelectGC__sub_801FFCFC
   - TAdSinglePlyChrSelectGC__sub_8028EE20
   - TBoss1DragonColli_sphere_chain_desc
   - TBoss3VoloptP01_class_name
@@ -99,7 +100,6 @@ force_active:
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
   - TKeyBoardControl_key_bit_table
-  - TLobby__sub_80070A78
   - TLobby__sub_800F9F08
   - TLobby__sub_801037A0
   - TLobby__sub_80227A94
@@ -176,6 +176,7 @@ force_active:
   - TRecvGenerateID__sub_801DFBC4
   - TTecRaBarta_class_name
   - TTecRaFoie_class_name
+  - TTecRaZonde__band_profile_table
   - TTecRaZonde_class_name
   - TWindowActionPalette__sub_801C1C20
   - TWindowHelpItem__sub_8025A900
@@ -400,6 +401,10 @@ force_active:
   - attach_model__13TParticleCtrlFPviiiif
   - bind_controller_devices
   - blocking_vsync__6TLobbyFPv
+  - boss2_tunnel_color
+  - boss2_tunnel_color_table
+  - boss2_tunnel_model_index_table
+  - boss2_tunnel_model_order_table
   - break_apart__15TObjEneMe1GiGueFPv
   - break_rocks_in_wave__15TBoss6SwordWaveFPv
   - bswap_enemy_set_row_fields
@@ -407,6 +412,7 @@ force_active:
   - bswap_object_row_fields
   - bswap_pair__14TPlyDispConfigFPv
   - bswap_udp_test_header__6TLobbyFPv
+  - build_beam_points__12TTecZondeEffFPv
   - build_box_triangles__10TObjMapCsnFPv
   - build_default_save_file__23TAdSinglePlyChrSelectGCFv
   - build_download_list__12TQuestListVMFPv
@@ -460,6 +466,7 @@ force_active:
   - clamp_hp_value__10TObjPlayerFPvPv
   - clamp_params_and_init__14TOTrapSeabed01FPv
   - clear_bit__15TBoss6SwordWaveFPvUc
+  - clear_entry_flags__17TBoss5GryphonDemoFPv
   - clear_flag_in_state7__14TObjEneBalClawFPv
   - clear_photon_blast_slots__10TObjPlayerFv
   - clear_segment_flags__17TBoss1DragonColliFPv
@@ -501,6 +508,7 @@ force_active:
   - controller_default_pad_state
   - copy_character_to_slot__23TAdSinglePlyChrSelectGCFUiiUii
   - copy_chat_entry__20TWindowSubSymbolChatFPvPv
+  - copy_config_string__22TQuestVmDownLoadServerFPvPvUiUi
   - copy_debris_params__8TObjChipFPvPv
   - copy_gauge_warn_vec__10TObjPlayerFv
   - copy_matrix3x3_to_global__10TObjPlayerFPv
@@ -514,6 +522,7 @@ force_active:
   - copy_ring_buffer_window__15TObjBoss2TunnelFPv
   - copy_state__12TWindowTimerFPvPv
   - copy_state__16TKeyBoardControlFPvPv
+  - copy_state_block__6TLobbyFv
   - copy_struct28__17TWindowSubComCardFii
   - copy_struct_f8__6TLobbyFii
   - copy_vec4_forward__15TPlyPhotonChairFi
@@ -699,6 +708,7 @@ force_active:
   - get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi
   - get_card_serial_and_code__15TAdPlayerLoadGCFiPv
   - get_clamped_level__19TObjEneBm9MericarolFPv
+  - get_config_line__22TQuestVmDownLoadServerFPvUi
   - get_entity_distance_or_default__11TWindowCtrlFiPvUs
   - get_entry_by_index__12TObjNpcEnemyFs
   - get_event_theme_index__17TObjParticleLobbyFv
@@ -708,6 +718,7 @@ force_active:
   - get_lobby_theme_clamped__16TObjCurtainLobbyFv
   - get_material_limit_for_class
   - get_model__23TObjSeabedSuisoBrakableFi
+  - get_move_done_result__24TObjWaitEntryHairMoveSimFPv
   - get_selected_blast__13TWindowSubMagFPv
   - get_serial_text__22TAdEnterSerialAccessGCFii
   - get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv
@@ -857,8 +868,6 @@ force_active:
   - lbl_80472C38
   - lbl_80472C48
   - lbl_80478088
-  - lbl_80483400
-  - lbl_80483470
   - lbl_80483480
   - lbl_80483EEC
   - lbl_8048E758
@@ -1020,6 +1029,7 @@ force_active:
   - load_selected_slot__12TQuestListVMFPv
   - load_supplementary_t_rel__6TSceneFv
   - load_tam_file__6TSceneFi
+  - lobby_pulse_color_table
   - logo_load_callback_table
   - lookup_attack_marker
   - lookup_item_category__9TWindowDDFi
@@ -1074,6 +1084,7 @@ force_active:
   - open_windows__22TAdMultiPlyChrSelectGCFPv
   - pack_weapon_trail_color
   - parse_color_code__6TLobbyFPv
+  - parse_config_int__22TQuestVmDownLoadServerFPvUi
   - parse_message_tag__6TLobbyFv
   - particle_regular_bml_descriptor
   - pick_random_destination__11TODragonflyFPvf
@@ -1092,6 +1103,8 @@ force_active:
   - push_model_fade_color__10TObjPlayerFPv
   - push_nearby_players__10TObjPlayerFPv
   - queue_deferred_photon_blast_hit
+  - rabarta_band_emitter_table
+  - rafoie_burst_table
   - read_stream_u8
   - read_u16_le__9TLanguageFv
   - read_u32_le__9TLanguageFv
@@ -1389,6 +1402,7 @@ force_active:
   - spawn_fire_explosion__10TObjPlayerFUii
   - spawn_fire_explosion_at_item__10TObjPlayerFii
   - spawn_fire_explosion_for_item__10TObjPlayerFii
+  - spawn_hit_particle_trio__10TObjPlayerFPv
   - spawn_hit_particles__10TObjPlayerFiPv
   - spawn_laser__12TPhotonPillaFPv
   - spawn_lightning_at_angle__16TBGLightningCtrlFPvi
@@ -1431,6 +1445,7 @@ force_active:
   - tick_display_timer__15TWindowHelpItemFPv
   - tick_fade_counter__6TLobbyFPv
   - tick_persistent_sound__15TObjIllGillKageFPv
+  - title_pulse_color_table
   - to_le_uint16_t__FUs
   - transfer_to_town__9TObjLukerFv
   - traverse_animated_node_tree
