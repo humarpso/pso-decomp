@@ -155,14 +155,14 @@ void *TShopEquipmentSellWindow__ct(void *, s32, void *, s32, s32);
 void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *);
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(void *);
 extern void *tl_05;
-void TShopEquipmentGearSequence__sub_8021B438(S_8021B438 *self);
+void open_sell_window__26TShopEquipmentGearSequenceFPv(S_8021B438 *self);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 reset_controller_input_state(void);
 void *__nw__7TObjectFUl(u32);
 void *TShopArmorListWindow__ct(void *, s32, void *, s32);
 void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *);
 extern void *tl_05;
-void TShopEquipmentGearSequence__sub_8021B4B0(S_8021B4B0 *self);
+void open_armor_list_window__26TShopEquipmentGearSequenceFPv(S_8021B4B0 *self);
 s32 obj_getField1c(s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
@@ -188,7 +188,7 @@ typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
 
-void TShopEquipmentGearSequence__sub_8021B438(S_8021B438 *self) {
+void open_sell_window__26TShopEquipmentGearSequenceFPv(S_8021B438 *self) {
     W_8021B438 *o = (W_8021B438 *)__nw__7TObjectFUl(0x3ac);
     if (o != 0) {
         o = (W_8021B438 *)(TShopEquipmentSellWindow__ct(o, (s32)tl_05, self, self->f24, 0x2a));
@@ -199,7 +199,7 @@ void TShopEquipmentGearSequence__sub_8021B438(S_8021B438 *self) {
     set_field_20__12TQuestListVMFPvi(self, 5);
 }
 
-void TShopEquipmentGearSequence__sub_8021B4B0(S_8021B4B0 *self) {
+void open_armor_list_window__26TShopEquipmentGearSequenceFPv(S_8021B4B0 *self) {
     W_8021B4B0 *o = (W_8021B4B0 *)__nw__7TObjectFUl(0x1f8);
     if (o != 0) {
         o = (W_8021B4B0 *)(TShopArmorListWindow__ct(o, (s32)tl_05, self, self->f24));
@@ -275,10 +275,10 @@ void TShopEquipmentGearSequence__vt9(u8 *arg0) {
         update_buy_sell_choice__26TShopEquipmentGearSequenceFPv((void *)((void *) (arg0)));
         return;
     case 3:
-        TShopEquipmentGearSequence__sub_8021B4B0((S_8021B4B0 *)((void *) (arg0)));
+        open_armor_list_window__26TShopEquipmentGearSequenceFPv((S_8021B4B0 *)((void *) (arg0)));
         return;
     case 4:
-        TShopEquipmentGearSequence__sub_8021B438((S_8021B438 *)((void *) (arg0)));
+        open_sell_window__26TShopEquipmentGearSequenceFPv((S_8021B438 *)((void *) (arg0)));
         return;
     case 6:
         try_close__26TShopEquipmentGearSequenceFPv((void *) (arg0));

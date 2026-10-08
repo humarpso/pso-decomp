@@ -109,7 +109,7 @@ void xfree__FPv(u32);
 extern s32 lbl_804CB850[];
 extern u32 lbl_805D62DC;
 extern u32 lbl_805D62EC;
-void TLobby__sub_80227794(void);
+void shutdown_buffers__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -209,7 +209,7 @@ void update_music_fade(void) {
 void TLobby__sub_8022776C(void) {
     VISetPreRetraceCallback((M2C_UNK *)(&TLobby__sub_80227A6C.value));
 }
-void TLobby__sub_80227794(void) {
+void shutdown_buffers__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 3; i++) {
         TLobby__sub_803CA194(lbl_804CB850[i]);

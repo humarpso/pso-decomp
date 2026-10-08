@@ -269,7 +269,7 @@ extern M2C_UNK lbl_804A6F78[];
 extern void *TObjLight__data_80506370[3];
 extern void *lbl_805D5564;
 extern s32 TObjLight__data_805D5568;
-void *TObjLight__sub_80133718(void *arg0, int _w1);
+void *init_map_light__9TObjLightFPvi(void *arg0, int _w1);
 }
 
 extern "C" {
@@ -357,7 +357,7 @@ void submit_scene_ambient_color(void) {
 
 void TObjLight__sub_80133714(void) {  }
 
-void *TObjLight__sub_80133718(void *arg0, int _w1) {
+void *init_map_light__9TObjLightFPvi(void *arg0, int _w1) {
     s32 i;
     init_object__9TObjLightFPv(arg0);
     *(void ***)((u8 *)arg0 + 0x18) = ((void * *)&lbl_804A6F78);
@@ -520,7 +520,7 @@ void init_map_lights(u8 *arg0) {
     }
     temp_r3_3 = __nw__7TObjectFUl((int) (0x1C));
     if (temp_r3_3 != 0U) {
-        TObjLight__sub_80133718((void *)((int) (temp_r3_3)), (int)((int) (tl_02)));
+        init_map_light__9TObjLightFPvi((void *)((int) (temp_r3_3)), (int)((int) (tl_02)));
     }
 }
 

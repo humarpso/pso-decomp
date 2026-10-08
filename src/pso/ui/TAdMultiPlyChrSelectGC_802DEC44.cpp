@@ -23,7 +23,7 @@ extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_slot_active__23TAdSinglePlyChrSelectGCFUi();
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(int);
+M2C_UNK reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(int);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
@@ -104,7 +104,7 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
-    TAdMultiPlyChrSelectGC__sub_802C5594((int) (M2C_FIELD(arg0, s32 *, 0x5C)));
+    reset_cursor_state__22TAdMultiPlyChrSelectGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) (&TAdMultiPlyChrSelectGC__data_804727B0.value), (int) (0));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__data_804727B0.value + 8), (int) (0));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__data_804727B0.value + 0x10), (int) (0));

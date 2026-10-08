@@ -31,11 +31,11 @@ extern "C" {
 void check_cancel_input__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0);
 void handle_input__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
+M2C_UNK clear_entries__18TAdChrMoveEffectGCFPv();
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
 M2C_UNK set_state__15TAdPlayerLoadGCFi(M2C_UNK);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(s32);
+M2C_UNK reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK set_field_1c__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -58,7 +58,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x58) = 0;
         }
         if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
-            TAdChrMoveEffectGC__sub_803490AC();
+            clear_entries__18TAdChrMoveEffectGCFPv();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         return;
@@ -74,9 +74,9 @@ void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x80) = 0U;
         }
         if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
-            TAdChrMoveEffectGC__sub_803490AC();
+            clear_entries__18TAdChrMoveEffectGCFPv();
         }
-        TAdMultiPlyChrSelectGC__sub_802C5594(M2C_FIELD(arg0, s32 *, 0x5C));
+        reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C));
         M2C_FIELD(arg0, s32 *, 0x20) = 0x24;
     }
 }

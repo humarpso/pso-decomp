@@ -81,7 +81,7 @@ extern s32 lbl_805D53A0;
 extern const f32 lbl_805D9170;
 extern const f32 TObjTombstone__data_805D9174;
 extern f32 TObjTombstone__data_805D917C;
-s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0);
+s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 f32 get_fov__11TCameraCtrlFv();
@@ -155,7 +155,7 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     return 0;
 }
 
-s32 TObjTombstone__sub_80075070(Obj_80075070 *arg0) {
+s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
     f32 best;
     f32 d;
     u32 pl;

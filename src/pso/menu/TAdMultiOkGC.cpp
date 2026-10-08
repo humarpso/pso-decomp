@@ -53,14 +53,14 @@ extern s32 lbl_805D6A48;
 extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;
 extern const f32 lbl_805DF048;
-void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1);
+void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TAdMultiOkGC__sub_80306B04(void *arg0, int arg1) {
+void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     E_80306B04 *e;
     s32 i;
     f32 base;
@@ -87,7 +87,7 @@ void render__12TAdMultiOkGCFv(Ok_80306C10 *o) {
     if (get_state_flag__9TMainTaskFv() != 1) {
         init_xyz_limits__10TObjPlayerFv();
         for (i = 0; i < o->count; i++) {
-            TAdMultiOkGC__sub_80306B04((void *)(o), (int)(i));
+            draw_entry__12TAdMultiOkGCFPvi((void *)(o), (int)(i));
         }
         reset_transform_state__10TObjPlayerFv();
     }

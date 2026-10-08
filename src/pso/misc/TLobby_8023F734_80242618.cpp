@@ -33,7 +33,7 @@ void *get_com_card_entry__6TLobbyFi(s32);
 void TLobby__sub_802426E8(s32 arg0);
 int get_com_card_data__6TLobbyFv(void);
 M2C_UNK get_id__6TLobbyFPv(void *);
-s32 TLobby__sub_80242794(u32 arg0);
+s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0);
 }
 
 extern "C" {
@@ -95,7 +95,7 @@ void TLobby__sub_802426E8(s32 arg0) {
     (*(s32 *)&lbl_805D63DC) -= 1;
 }
 
-s32 TLobby__sub_80242794(u32 arg0) {
+s32 remove_com_card_by_id__6TLobbyFUi(u32 arg0) {
     s32 i;
     s32 n;
     n = ((s32)get_com_card_data__6TLobbyFv());

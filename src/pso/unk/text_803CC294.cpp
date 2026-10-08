@@ -58,6 +58,12 @@ struct Snd_803CC980 {
     s32 f14; u8 pad_18[0x20 - 0x18]; s32 f20; s32 f24; s32 f28;
 };
 
+typedef s32 M2C_UNK;
+struct Ent_803CC884 {
+    s8 used; s8 state; s8 f2; u8 f3; u32 f4; VObj_803CC980 *f8; u8 pad_c[0x14 - 0xC];
+    s32 f14; u8 pad_18[0x20 - 0x18]; s32 f20; s32 f24; s32 f28; u8 pad_2c[0x138 - 0x2C];
+};
+
 extern "C" {
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
@@ -128,6 +134,17 @@ extern LogEnt_803CD16C lbl_8057B7D0[];
 extern s32 lbl_805D75E0;
 extern s32 lbl_805D75E4;
 s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0);
+M2C_UNK release_ref__6TLobbyFv();
+M2C_UNK init_once__6TLobbyFv();
+M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
+s8 TLobby__sub_803C8B2C(u32);
+M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
+extern Slot_803CD16C lbl_8057CBD0[];
+extern s32 lbl_805D75E4;
+void TLobby__sub_803CC884(void);
+M2C_UNK TLobby__sub_803CCE9C(Slot_803CD16C *);
+extern Slot_803CD16C lbl_8057CBD0[];
+void TLobby__sub_803CCE40(void);
 }
 
 extern "C" {
@@ -221,6 +238,33 @@ typedef char RecoveredGlobal_803CCB5C_lbl_8047CA28_size[sizeof(RecoveredGlobal_8
 #pragma push
 #pragma inline_depth(4)
 #pragma dont_inline off
+
+void TLobby__sub_803CC884(void) {
+    Ent_803CC884 *p;
+    s32 i;
+    s32 sp8;
+    init_once__6TLobbyFv();
+    for (i = 0; i < 0x10; i++) {
+        p = (Ent_803CC884 *)&lbl_8057CBD0[i];
+        if (p->used == 1 && p->state == 2) {
+            p->state = TLobby__sub_803C8B2C(p->f4);
+            TLobby__sub_803C85AC(p->f4, &sp8);
+            p->f20 = sp8;
+            if (p->state == 3 || p->state == 4) {
+                p->f14 += p->f20;
+                if (p->f8 != NULL && p->f2 == 0) {
+                    if (lbl_805D75E4 == 1) {
+                        invalidate_cache__6TLobbyFv(p->f24, p->f28);
+                    }
+                    p->f8->vt->fn(p->f8);
+                    p->f8 = NULL;
+                }
+            }
+        }
+    }
+    release_ref__6TLobbyFv();
+}
+
 s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0) {
     s32 sp8;
     {
@@ -353,6 +397,18 @@ inline s32 open_803CD16C(Slot_803CD16C *s, s32 arg0, s32 arg1) {
     s->f10 = c << 11;
     return 0;
 }
+
+void TLobby__sub_803CCE40(void) {
+    s32 i;
+    Slot_803CD16C *p;
+    for (i = 0; i < 0x10; i++) {
+        p = &lbl_8057CBD0[i];
+        if (p->used == 1) {
+            TLobby__sub_803CCE9C(p);
+        }
+    }
+}
+
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1) {
     Slot_803CD16C *s;
     {

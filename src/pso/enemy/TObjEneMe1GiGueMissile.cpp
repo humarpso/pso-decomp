@@ -37,7 +37,7 @@ int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
 M2C_UNK TObjPlayer__sub_802A445C(void *, int);
 M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
-M2C_UNK TNeedleShoot__sub_802A4694(void *);
+M2C_UNK update_position__12TNeedleShootFPv(void *);
 extern const f32 lbl_805DE6DC;
 extern const f32 lbl_805DE6E0;
 void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0);
@@ -174,7 +174,7 @@ void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
     if (temp_f1 >= lbl_805DE6E0) {
         M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
     }
-    TNeedleShoot__sub_802A4694((void *) (arg0));
+    update_position__12TNeedleShootFPv((void *) (arg0));
     update_lifetime__22TObjEneMe1GiGueMissileFPv((void *) (arg0));
     TObjPlayer__sub_802A445C((void *) (arg0), (int) (1));
 }

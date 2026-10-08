@@ -106,7 +106,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *lbl_805D4B88;
 extern u8 *lbl_805D4BA4;
-void TObjPlayer__sub_8002EBCC(void);
+void create_breakup_model__10TObjPlayerFv(void);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
 void TObjPlayer__sub_8002E974(u8 *arg0);
@@ -291,7 +291,7 @@ void TObjPlayer__sub_8002EB88(void) {
 
 extern M2C_UNK lbl_804820C0[];
 
-void TObjPlayer__sub_8002EBCC(void) {
+void create_breakup_model__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x10);

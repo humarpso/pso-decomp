@@ -1313,9 +1313,9 @@ M2C_UNK reset_cameras_to_actor(M2C_UNK, M2C_UNK);
 s32 is_quest_active();
 M2C_UNK reset_battle_camera__11TCameraCtrlFPv();
 void TCameraCtrl__sub_8006B3B8(Vec_801EE220 *, Vec_801EE220 *);
-int TCameraCtrl__sub_8006CCEC(void*);
+int reset_to_local_player__11TCameraCtrlFv(void*);
 void TCameraCtrl__sub_8006CD2C(Vec_801E9400 *, int, Vec_801E9400 *, int *);
-void TCameraCtrl__sub_8006CD78(Vec_801E945C *, Vec_801E945C *, Vec_801E945C *);
+void set_fixed_position_and_target__11TCameraCtrlFPvPv(Vec_801E945C *, Vec_801E945C *, Vec_801E945C *);
 void request_follow_camera_offsets(Vec_801EF134 *, Vec_801EF134 *, u16);
 int TCameraCtrl__sub_8006D460(void*);
 int end_conversation_camera(void*);
@@ -2004,7 +2004,7 @@ void clear_flag_bit2__11TWindowCtrlFv(void);
 int suppress_slot__11TWindowCtrlFi(void*);
 int unsuppress_slot__11TWindowCtrlFi(void*);
 void set_field28__11TWindowCtrlFs(u16);
-M2C_UNK TWindowCtrl__sub_8024B328(int, void *);
+M2C_UNK close_windows_by_flags__11TWindowCtrlFUs(int, void *);
 void open__11TWindowCtrlFiii(s32, s32, s32);
 void open_default__11TWindowCtrlFPvi(u16, s32);
 s32 TWindowHelpItem__ct(s32, s32, s32);
@@ -2877,7 +2877,7 @@ void TLobby__sub_801E88E8(u8 reg, u8 src) {
     TLobby__data_805D5E78[reg] = b.i;
 }
 
-void TLobby__sub_801E8930(u8 i, u8 slot) {
+void spawn_object_from_registers__6TLobbyFUcUc(u8 i, u8 slot) {
     u8 start = i;
     Vec_801E8930 v;
     Spawn_801E8930 s;
@@ -3135,7 +3135,7 @@ void TLobby__sub_801E93B4(u8 src, u8 dst) {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-int TLobby__sub_801E93E0(void* p) { return TCameraCtrl__sub_8006CCEC(p); }
+int TLobby__sub_801E93E0(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
 #pragma pop
 
 #pragma push
@@ -3166,7 +3166,7 @@ void TLobby__sub_801E945C(void) {
     b.x = p[1].x;
     b.y = p[1].y;
     b.z = p[1].z;
-    TCameraCtrl__sub_8006CD78(&a, &b, p);
+    set_fixed_position_and_target__11TCameraCtrlFPvPv(&a, &b, p);
 }
 #pragma pop
 
@@ -3189,7 +3189,7 @@ void TLobby__sub_801E94CC(s32 i, s32 k) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E9580(s32 arg0) {
-    TWindowCtrl__sub_8024B328((int) ((u16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
+    close_windows_by_flags__11TWindowCtrlFUs((int) ((u16) M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, ((arg0 * 4) & 0x3FC))), (void *) ((*(s32 *)&TLobby__data_805D5E78)));
 }
 #pragma pop
 
@@ -7763,7 +7763,7 @@ void qst_op_p_look_at(void) {
     quest_player_face_actor((u16) M2C_FIELD(&(*(RecoveredGlobal_801F053C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 0), (u16) M2C_FIELD(&(*(RecoveredGlobal_801F053C_TLobby__data_80512220 *)&TLobby__data_80512220).value, s32 *, 4));
 }
 
-void TLobby__sub_801F0574(u8 arg0) {
+void spawn_particle_at_entity__6TLobbyFUc(u8 arg0) {
     Vec_801F0574 v;
     u16 id;
     s16 kind;
@@ -8101,7 +8101,7 @@ void qst_op_mesend(void) {
     clear_flag_2__11TWindowCtrlFv();
     id = lbl_805D5EA0;
     if (id < 100) {
-        ((void (*)(u16))TWindowCtrl__sub_8024B328)(id);
+        ((void (*)(u16))close_windows_by_flags__11TWindowCtrlFUs)(id);
         return;
     }
     start = get_game_mode__6TLobbyFv();
@@ -8116,7 +8116,7 @@ void qst_op_mesend(void) {
                 v = get_field_d4(p);
             }
             if (v == id) {
-                ((void (*)(s32))TWindowCtrl__sub_8024B328)(f);
+                ((void (*)(s32))close_windows_by_flags__11TWindowCtrlFUs)(f);
                 return;
             }
         }

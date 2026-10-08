@@ -411,7 +411,7 @@ s32 is_inactive__10TObjPlayerFPv(void *);
 s32 is_alive__9TObjEneDDFPv(void *);
 s32 get_enemy_count__9TObjEneDDFv(void);
 s32 find_active_entity_by_id(void *);
-int TObjPlayer__sub_80102CE0(void*);
+int bswap_pkt_u32x2__10TObjPlayerFPv(void*);
 f32 horizontal_distance_squared(void *, void *);
 u32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 void init_equipment__10TNpcPlayerFPv(void *);
@@ -497,10 +497,10 @@ void TNpcPlayer__sub_80152B98(u8 *arg0);
 void update_lobby__10TNpcPlayerFPv(void* p);
 void bswap_6x43_packet(void* p);
 void TNpcPlayer__sub_80152C28(u8 *arg0);
-void TNpcPlayer__sub_80152C48(u8 *arg0);
+void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0);
 void TNpcPlayer__sub_80152C8C(N_80152C8C *arg0);
 u8 TNpcPlayer__sub_80152CE8(u8 *arg0);
-void * TNpcPlayer__sub_80152D04(void *arg0);
+void * init_cast_technique_cmd__10TNpcPlayerFPv(void *arg0);
 void TNpcPlayer__sub_80152D64(void* p);
 void reset_model__10TNpcPlayerFPv(void* p);
 void init_model__10TNpcPlayerFPv(void* p);
@@ -2926,7 +2926,7 @@ void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind) {
     Msg_80150A34 m;
     u8 *actor;
 
-    ((void (*)(void *))TNpcPlayer__sub_80152D04)(&m);
+    ((void (*)(void *))init_cast_technique_cmd__10TNpcPlayerFPv)(&m);
     actor = self->p78->actor;
     if (kind == 15 || kind == 16) {
         ((M2C_UNK (*)(void *, int))request_chatter__10TNpcPlayerFPvUi)(self, 0x16);
@@ -2951,7 +2951,7 @@ void request_technique_cast__10TNpcPlayerFPvi(Npc_80150A34 *self, s32 kind) {
             ((void (*)(void *, u16))set_type__10TNpcPlayerFPvs)(m.sub, ((s32 (*)(void *))get_npc_state__10TNpcPlayerFPv)(self->p78));
             set_state__10TNpcPlayerFPvs(m.sub, TNpcPlayer__sub_801528DC(self->p78));
         }
-        ((void (*)(void *))TNpcPlayer__sub_80152C48)(&m);
+        ((void (*)(void *))finalize_and_send_packet__10TNpcPlayerFPv)(&m);
     }
 }
 
@@ -3769,7 +3769,7 @@ void TNpcPlayer__sub_80152C28(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
-void TNpcPlayer__sub_80152C48(u8 *arg0) {
+void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TNpcPlayer__sub_80152CE8((u8 *)(arg0))) >> 2U) & 0x3F);
     TNpcPlayer__sub_80152C8C((N_80152C8C *)((void*)((void*)((void *) (arg0)))));
     TLobby__send_and_handle_60((void*)((void *) (arg0)));
@@ -3787,7 +3787,7 @@ u8 TNpcPlayer__sub_80152CE8(u8 *arg0) {
     return (u8) (0x30 - ((0xA - (s8) M2C_FIELD(arg0, u8 *, 7)) * 4));
 }
 
-void *TNpcPlayer__sub_80152D04(void *arg0) {
+void *init_cast_technique_cmd__10TNpcPlayerFPv(void *arg0) {
     TNpcPlayer__sub_80152D64((void*)((void *)((char *)arg0 + 4)));
     __construct_array((void *)((char *)arg0 + 8), fn_80152EF8, 0, 4, 10);
     M2C_FIELD(arg0, u8 *, 0x0) = 71;
@@ -3799,13 +3799,13 @@ void TNpcPlayer__sub_80152D64(void* p) { *(u8*)((char*)p + 0x3) = 0; *(u8*)((cha
 
 void reset_model__10TNpcPlayerFPv(void* p) { init_model__10TNpcPlayerFPv((void*)(p)); update_players__6TLobbyFi(p); }
 
-void init_model__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); TObjPlayer__sub_80102CE0((char*)p + 0x4); }
+void init_model__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x4); }
 
 void reset_move_state__10TNpcPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(unsigned char*)((char*)a0 + 0x0) = 66; *(unsigned char*)((char*)a0 + 0x1) = 3; }
 
 void sync_from_lobby__10TNpcPlayerFPv(void* p) { swap_endian__10TNpcPlayerFPv((void*)((void*)(p))); update_players__6TLobbyFi(p); }
 
-void swap_endian__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); TObjPlayer__sub_80102CE0((char*)p + 0x4); bswap_32__FPUl((char*)p + 0xc); }
+void swap_endian__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x4); bswap_32__FPUl((char*)p + 0xc); }
 
 void TNpcPlayer__sub_80152E74(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(int*)((char*)a0 + 0xc) = 0; *(unsigned char*)((char*)a0 + 0x0) = 64; *(unsigned char*)((char*)a0 + 0x1) = 4; }
 

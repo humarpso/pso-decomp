@@ -319,7 +319,7 @@ void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);
 extern "C" {
 void run_task__5TItemFPv();
-void TItem__sub_8010263C();
+void dispatch_state__5TItemFPv();
 void render__5TItemFPv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
@@ -385,7 +385,7 @@ void *lbl_8049FF88[46] = {
     0,
     (void *)TItemProArmor__sub_80117730,
     (void *)run_task__5TItemFPv,
-    (void *)TItem__sub_8010263C,
+    (void *)dispatch_state__5TItemFPv,
     (void *)render__5TItemFPv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,
@@ -434,7 +434,7 @@ void *__vt__13TItemProArmor[51] = {
     0,
     (void *)__dt__13TItemProArmorFv,
     (void *)run_task__5TItemFPv,
-    (void *)TItem__sub_8010263C,
+    (void *)dispatch_state__5TItemFPv,
     (void *)render__5TItemFPv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,

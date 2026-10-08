@@ -3,7 +3,7 @@ extern "C" {
 extern char *lbl_805187D8[];
 void append_line__17TWindowMessageLogFPvi(void *, char *);
 void complete_reveal__14TWindowMessageFPv(void *);
-void TWindowMessageLog__sub_8026A434(void *);
+void clamp_scroll_offset__17TWindowMessageLogFPv(void *);
 void load_chat_history__17TWindowMessageLogFPv(void *window);
 }
 
@@ -17,7 +17,7 @@ void load_chat_history__17TWindowMessageLogFPv(void *window) {
         }
     }
     complete_reveal__14TWindowMessageFPv(window);
-    TWindowMessageLog__sub_8026A434(window);
+    clamp_scroll_offset__17TWindowMessageLogFPv(window);
 }
 
 }

@@ -26,7 +26,7 @@ extern V2_802A1C04 lbl_804663EC[];
 extern const f32 lbl_805DDE10;
 extern const f32 lbl_805DDE14;
 extern const f32 lbl_805DDE18;
-void TObjCMAssignMenu__sub_802A1C04(Self_802A1C04 *self);
+void draw_char_info_sprites__16TObjCMAssignMenuFPv(Self_802A1C04 *self);
 }
 
 extern "C" {
@@ -35,7 +35,7 @@ int get_selected_index__15TChCrCharSelectFv(void);
 
     extern int TChCrCharSelect__data_805D6590;
 int get_selected_index__15TChCrCharSelectFv(void) {  return TChCrCharSelect__data_805D6590; }
-void TObjCMAssignMenu__sub_802A1C04(Self_802A1C04 *self) {
+void draw_char_info_sprites__16TObjCMAssignMenuFPv(Self_802A1C04 *self) {
     f32 alpha;
     s32 c;
     alpha = lbl_805DDE10;

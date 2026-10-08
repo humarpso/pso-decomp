@@ -13,7 +13,7 @@ void replace_file_extension__6TLobbyFPvPvPv(Name_8020A768 *, s32, const void *);
 s32 get_player_floor__6TLobbyFi(s32);
 void bswap_enemy_set_row(Ent_8020A768 *);
 void reserve_enemy_set_actor_ids(Ent_8020A768 *, s32, s32);
-void TLobby__sub_8020B374(s32, Ent_8020A768 *, s32);
+void init_floor_enemy_count__6TLobbyFiPvUi(s32, Ent_8020A768 *, s32);
 extern u8 lbl_8044BBA8[];
 extern Ent_8020A768 *TLobby__data_805D60F0;
 extern s32 TLobby__data_805D60F4;
@@ -55,7 +55,7 @@ s32 load_enemy_set_file(s32 arg0, s32 arg1) {
     }
     floor = get_player_floor__6TLobbyFi(arg0);
     reserve_enemy_set_actor_ids(TLobby__data_805D60F0, n, floor);
-    TLobby__sub_8020B374(arg0, TLobby__data_805D60F0, size);
+    init_floor_enemy_count__6TLobbyFiPvUi(arg0, TLobby__data_805D60F0, size);
     return 1;
 }
 s32 load_object_set_file(s32 arg0, s32 arg1) {

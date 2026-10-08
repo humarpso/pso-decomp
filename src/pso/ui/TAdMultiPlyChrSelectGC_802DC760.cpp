@@ -28,7 +28,7 @@ struct Pair_802DC8A0 { u8 d[8]; };
 extern "C" {
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5594(int);
+M2C_UNK reset_cursor_state__22TAdMultiPlyChrSelectGCFPv(int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5A44(int, void *, int);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
@@ -174,7 +174,7 @@ void TAdMultiPlyChrSelectGC__sub_802DCA20(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         return;
     }
-    TAdMultiPlyChrSelectGC__sub_802C5594((int) (M2C_FIELD(arg0, s32 *, 0x5C)));
+    reset_cursor_state__22TAdMultiPlyChrSelectGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) (&TAdMultiPlyChrSelectGC__data_804727B0.value), (int) (1));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__data_804727B0.value + 8), (int) (1));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (M2C_FIELD(arg0, s32 *, 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__data_804727B0.value + 0x10), (int) (1));

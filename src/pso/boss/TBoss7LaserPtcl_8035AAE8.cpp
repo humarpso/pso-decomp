@@ -56,7 +56,7 @@ void TBoss7LaserPtcl__sub_8035AF10(void);
 void TBoss7LaserPtcl__sub_8035AF14(void);
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1);
 void render__15TBoss7LaserPtclFv(void);
-void TBoss7LaserPtcl__sub_8035AA98(void *);
+void destroy_particles__15TBoss7LaserPtclFi(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
@@ -67,7 +67,7 @@ extern M2C_UNK __vt__15TBoss7LaserPtcl[];
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss7LaserPtcl;
-        TBoss7LaserPtcl__sub_8035AA98(arg0);
+        destroy_particles__15TBoss7LaserPtclFi(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

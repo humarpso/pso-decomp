@@ -157,7 +157,7 @@ extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
 s32 tcp_stat__FsPsPsPUlPUl(s32 a, s16 *b, s16 *c, u32 *d, u32 *e);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-s16 TLobby__sub_8041DB58(int);
+s16 tcp_get_socket_handle__6TLobbyFs(int);
 s32 TLobby__sub_8041E224(int);
 s16 validate_tcp_handle__6TLobbyFs(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
@@ -188,7 +188,7 @@ s16 TLobby__sub_80415690();
 void TLobby__sub_80415AEC(void);
 s16 TLobby__sub_80415B38();
 s32 TLobby__sub_80418A7C(void);
-s16 TLobby__sub_80418ACC();
+s16 init_packet_fragment_pools__6TLobbyFv();
 void TLobby__sub_80419A00(void);
 s16 TLobby__sub_80419A34(int);
 s16 TLobby__sub_80419B04();
@@ -206,7 +206,7 @@ M2C_UNK NetStoreCurrentThread(void *);
 M2C_UNK NetSuspendCurrentThread();
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 M2C_UNK init_packet_header__6TLobbyFPvi(void *, void *);
-s16 TLobby__sub_8041DB58(int);
+s16 tcp_get_socket_handle__6TLobbyFs(int);
 s16 TLobby__sub_8041DBD4(int, void *, s16, void *);
 s16 validate_tcp_handle__6TLobbyFs(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
@@ -215,7 +215,7 @@ s16 tcp_receive__FsPFss_vsPUc(s32 a, void *cb, s32 len, void *buf);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-s16 TLobby__sub_8041DB58(int);
+s16 tcp_get_socket_handle__6TLobbyFs(int);
 M2C_UNK TLobby__sub_8041E2EC(int, void *, void *);
 s32 tcp_connect_start__6TLobbyFsis(int, void *, u16);
 s16 validate_tcp_handle__6TLobbyFs(int);
@@ -224,7 +224,7 @@ s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, 
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-s16 TLobby__sub_8041DB58(int);
+s16 tcp_get_socket_handle__6TLobbyFs(int);
 s32 TLobby__sub_8041E5E4(int, void *, u16);
 s16 validate_tcp_handle__6TLobbyFs(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
@@ -278,7 +278,7 @@ extern s32 lbl_805D7B28;
 extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
 extern u32 lbl_805D7B58;
-s32 TLobby__sub_80423844(u8 *arg0);
+s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 u16 str_length__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
@@ -334,7 +334,7 @@ s16 init_network_stack__6TLobbyFv(void) {
                 if (var_r31 >= 0) {
                     var_r31 = TLobby__sub_80420C9C();
                     if (var_r31 >= 0) {
-                        var_r31 = TLobby__sub_80418ACC();
+                        var_r31 = init_packet_fragment_pools__6TLobbyFv();
                         if (var_r31 >= 0) {
                             var_r31 = TLobby__sub_8040DDB0();
                             if (var_r31 >= 0) {
@@ -551,7 +551,7 @@ s16 tcp_receive__FsPFss_vsPUc(s32 a, void *cb, s32 len, void *buf) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -4;
     }
-    if (TLobby__sub_8041DB58(a) == 1) {
+    if (tcp_get_socket_handle__6TLobbyFs(a) == 1) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -9;
     }
@@ -639,7 +639,7 @@ s32 tcp_abort__Fs(s32 a) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -4;
     }
-    st = TLobby__sub_8041DB58(m);
+    st = tcp_get_socket_handle__6TLobbyFs(m);
     if (st == -1 || st == 1) {
         unlock_mutex__10TUdpSocketFi((void *)lbl_805C1C50.value);
         return -9;
@@ -692,7 +692,7 @@ s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, 
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -4;
     }
-    if (TLobby__sub_8041DB58(a) != 0) {
+    if (tcp_get_socket_handle__6TLobbyFs(a) != 0) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -9;
     }
@@ -718,7 +718,7 @@ s32 tcp_bind__FsP10at_ip_addrUs(s32 a, void *addr, u16 port) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -4;
     }
-    if (TLobby__sub_8041DB58(a) != 0) {
+    if (tcp_get_socket_handle__6TLobbyFs(a) != 0) {
         unlock_mutex__10TUdpSocketFi((void *)g->f0);
         return -9;
     }
@@ -911,7 +911,7 @@ s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
     return p - arg0;
 }
 
-s32 TLobby__sub_80423844(u8 *arg0) {
+s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
     s32 m;
     u8 *p;
     u16 len;

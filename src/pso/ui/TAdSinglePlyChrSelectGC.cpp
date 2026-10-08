@@ -45,7 +45,7 @@ void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK fn_802D50B8(void *, P_802D4F2C *, P_802D4F2C *, P_802D4F2C *);
-s32 TAdMultiPlyChrSelectGC__sub_802E1024(void *, int, int, int);
+s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
 extern u8 lbl_80472510[];
 extern u8 lbl_80472530[];
@@ -197,7 +197,7 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
         __ct__10TAdTitleGCFv(p, arg0, 0);
     }
     M2C_FIELD(arg0, s32 *, 0x28) = get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(arg0, 0);
-    M2C_FIELD(arg0, s32 *, 0x30) = TAdMultiPlyChrSelectGC__sub_802E1024(arg0, 0, -1, 0);
+    M2C_FIELD(arg0, s32 *, 0x30) = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(arg0, 0, -1, 0);
     p = __nw__7TObjectFUl(0x44);
     if (p != NULL) {
         p = __ct__13TAdGuideTxtGCFv(p, arg0);

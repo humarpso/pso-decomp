@@ -21,7 +21,7 @@ struct C4_803490D8 { u8 b[4]; };
 struct P_803490D8 { V2_803490D8 a; V2_803490D8 b; C4_803490D8 c; C4_803490D8 d; V2_803490D8 e; };
 
 extern "C" {
-void TAdChrMoveEffectGC__sub_803490AC(O_803490AC *self);
+void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self);
 void TAdChrMoveEffectGC__sub_803491F8(void *, void *);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -67,7 +67,7 @@ void TAdChrMoveEffectGC__sub_80349038(void *arg0) {
     }
 }
 
-void TAdChrMoveEffectGC__sub_803490AC(O_803490AC *self) {
+void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self) {
     s32 i;
     self->n = 0;
     for (i = 0; i < 16; i++) {

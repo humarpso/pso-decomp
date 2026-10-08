@@ -10,12 +10,12 @@ extern s32 lbl_805D5550;
 extern void *tl_00;
 extern void *tl_04;
 extern s32 lbl_805D6A5C;
-u8 *fn_80307964(u8 *arg0);
+u8 *init_ending_movie(u8 *arg0);
 }
 
 extern "C" {
 
-u8 *fn_80307964(u8 *arg0) {
+u8 *init_ending_movie(u8 *arg0) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, tl_04);
     *(void **)(arg0 + 0x18) = lbl_804E71A0;

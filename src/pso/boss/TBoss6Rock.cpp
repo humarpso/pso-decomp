@@ -76,7 +76,7 @@ extern const f32 lbl_805DFF6C;
 extern const f32 lbl_805DFF70;
 extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
-void TBoss6Rock__sub_80353FF0(u8 *arg0);
+void randomize_motion__10TBoss6RockFPv(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
 s32 play_sound_effect(s32, u32, int, s32);
 M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
@@ -422,7 +422,7 @@ void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 
 
 #pragma push
 #pragma fp_contract on
-void TBoss6Rock__sub_80353FF0(u8 *arg0) {
+void randomize_motion__10TBoss6RockFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
     M2C_FIELD(arg0, s32 *, 0x64) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
@@ -453,7 +453,7 @@ void break_and_release__10TBoss6RockFPv(u8 *arg0) {
         spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
         play_sound_effect(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object__10TBoss6RockFPv((void*)(arg0));
-        TBoss6Rock__sub_80353FF0((u8 *)(arg0));
+        randomize_motion__10TBoss6RockFPv((u8 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0xC4) = 0;
     }
 }

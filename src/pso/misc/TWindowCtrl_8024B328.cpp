@@ -19,7 +19,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void TWindow__close(void *);
 extern u32 TWindowCtrl__data_805D63F8;
-void TWindowCtrl__sub_8024B328(u16 arg0);
+void close_windows_by_flags__11TWindowCtrlFUs(u16 arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 u16 get_flags__11TWindowCtrlFPv(void *);
 void complete_speech_balloon(void *);
@@ -34,7 +34,7 @@ s32 is_actor_speech_balloon_done(u16 arg0);
 
 extern "C" {
 
-void TWindowCtrl__sub_8024B328(u16 arg0) {
+void close_windows_by_flags__11TWindowCtrlFUs(u16 arg0) {
     u32 i;
     void *w;
     if (TWindowCtrl__data_805D63F8 != 0) {

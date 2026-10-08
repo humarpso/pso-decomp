@@ -210,7 +210,7 @@ s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
 s32 TFogCtrl__sub_800FAC84(void* p);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 void* get_entry__8TFogCtrlFi(int a0);
-void TFogCtrl__sub_800FAD08(void);
+void clear_split_screen_fog__8TFogCtrlFv(void);
 void update_all__8TFogCtrlFv(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 s32 apply_fog_entry(void *arg0);
@@ -367,7 +367,7 @@ void* get_entry__8TFogCtrlFi(int a0) {  return (char*)((*(int *)&lbl_805D5388)) 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TFogCtrl__sub_800FAD08(void) {
+void clear_split_screen_fog__8TFogCtrlFv(void) {
     u32 temp_r3;
     if (is_split_screen() == 1) {
         temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 *)&TFogCtrl__data_80501188).value, M2C_UNK *, ((get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_mode__11TCameraCtrlFv())) * 4) & 0x3FFFC));

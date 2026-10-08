@@ -2,14 +2,14 @@
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TBoss7LaserPtcl__sub_8035AA98(s32 arg0);
+void destroy_particles__15TBoss7LaserPtclFi(s32 arg0);
 }
 
 extern "C" {
 
 void render__15TBoss7LaserPtclFv(void);
 
-void TBoss7LaserPtcl__sub_8035AA98(s32 arg0) {
+void destroy_particles__15TBoss7LaserPtclFi(s32 arg0) {
   void **var_r30;
   s32 var_r29;
   u8 *temp_r3;

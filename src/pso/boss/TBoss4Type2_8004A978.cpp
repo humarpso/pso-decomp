@@ -8,7 +8,7 @@ struct Obj_8004A98C { s32 count; u8 pad[4]; s32 x; s32 y; void **items; };
 
 extern "C" {
 void scroll_strip_uvs(void *, s16, s16);
-void TBoss4Type2__sub_8004A98C(Obj_8004A98C *self);
+void scroll_strips__11TBoss4Type2FPv(Obj_8004A98C *self);
 }
 
 extern "C" {
@@ -20,7 +20,7 @@ extern s32 lbl_805D4D74;
 u8 is_active__11TBoss4Type2Fv(void) {
     return (u8) (lbl_805D4D74 != 0);
 }
-void TBoss4Type2__sub_8004A98C(Obj_8004A98C *self) {
+void scroll_strips__11TBoss4Type2FPv(Obj_8004A98C *self) {
     s32 i;
     self->x += 8;
     for (i = 0; i < self->count; i++) {

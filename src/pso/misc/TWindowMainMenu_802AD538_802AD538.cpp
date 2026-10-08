@@ -151,7 +151,7 @@ void set_target_y__15TWindowMainMenuFPvf(void *arg0, f32 farg0);
 void update_scaled_position__15TWindowMainMenuFi(s32 arg0);
 void draw_entries_reversed__15TWindowMainMenuFiPv(s32 arg0, u8 *arg1);
 Rect_802AE2B0 * setup_content_frame__15TWindowMainMenuFPv(u8 *arg0);
-void TWindowMainMenu__sub_802AE380(void *arg0);
+void update_slide_position__15TWindowMainMenuFPv(void *arg0);
 void handle_cancel__15TWindowMainMenuFPv(void *arg0);
 void handle_confirm__15TWindowMainMenuFPv(u8 *arg0);
 void handle_navigation_input__15TWindowMainMenuFPv(u8 *arg0);
@@ -578,7 +578,7 @@ Rect_802AE2B0 *setup_content_frame__15TWindowMainMenuFPv(u8 *arg0) {
     return r;
 }
 
-void TWindowMainMenu__sub_802AE380(void *arg0) {
+void update_slide_position__15TWindowMainMenuFPv(void *arg0) {
     s16 temp_r4;
     if (TWindowSubAreaMapDisp__sub_80246948() != 0) {
         set_target_y__15TWindowMainMenuFPvf(arg0, lbl_805DE158);

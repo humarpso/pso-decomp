@@ -46,7 +46,7 @@ Cursor_8022CDE8 *find_by_pos__11TMainCursorFiss(u32, int, s16);
 void *TObjPlayer__sub_80116620(void *, int);
 u16 get_type_id__10TObjPlayerFPv(void *);
 s32 get_obj_id__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801D9AD0(void *, int, u16, s32);
+void set_slot_type_state__10TObjPlayerFiiss(void *, int, u16, s32);
 void set_tech_level__10TObjPlayerFPvs(void *, s16);
 s32 get_target__13TLockOnCursorFPv(void *);
 void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner);
@@ -154,7 +154,7 @@ s32 get_level_tier__10TObjPlayerFi(s32 arg0) {
 }
 #define ONE_SLOT()                                                                       \
     if (get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)) != 0xFFFF) { \
-        TObjPlayer__sub_801D9AD0(slots, 0,                                                \
+        set_slot_type_state__10TObjPlayerFiiss(slots, 0,                                                \
             get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)),           \
             get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, 0)));           \
         set_tech_level__10TObjPlayerFPvs(slots, 1);                                      \
@@ -263,7 +263,7 @@ void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) 
         int i;
         for (i = 0; i < get_target__13TLockOnCursorFPv(c->list); i++) {
             if (get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)) != 0xFFFF) {
-                TObjPlayer__sub_801D9AD0(slots, n,
+                set_slot_type_state__10TObjPlayerFiiss(slots, n,
                     get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)),
                     get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)));
                 n++;
@@ -284,7 +284,7 @@ void capture_technique_targets__10TObjPlayerFv(int kind, Owner_8022CDE8 *owner) 
         int i;
         int n = 0;
         for (i = 0; i < get_target__13TLockOnCursorFPv(c->list); i++) {
-            TObjPlayer__sub_801D9AD0(slots, n,
+            set_slot_type_state__10TObjPlayerFiiss(slots, n,
                 get_type_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)),
                 get_obj_id__10TObjPlayerFPv(TObjPlayer__sub_80116620(c->list, n)));
             n++;

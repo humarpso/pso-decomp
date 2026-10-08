@@ -18,7 +18,7 @@ extern u8 lbl_80474344[];
 extern u8 lbl_804E48C4[];
 extern void *lbl_805D6950;
 extern void *lbl_805D6954;
-void fn_802F0E94(void);
+void load_boss7_common_resources(void);
 }
 
 extern "C" {
@@ -36,7 +36,7 @@ void fn_802F0E24(void) {
     TLobby__sub_8001FE7C(lbl_805D6950, 1);
     lbl_805D6950 = 0;
 }
-void fn_802F0E94(void) {
+void load_boss7_common_resources(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {

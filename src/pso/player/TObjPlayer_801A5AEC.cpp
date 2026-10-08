@@ -77,7 +77,7 @@ s32 TKeyBoardControl__sub_80132310(s32);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
 u8 TKeyBoardControl__sub_8013239C(void *, int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
-s32 TKeyBoardControl__sub_801A5B00(void);
+s32 get_ascii_key__16TKeyBoardControlFv(void);
 s32 check_reset_button__16TKeyBoardControlFv();
 void reset_system();
 s32 DVDCheckDisk();
@@ -125,7 +125,7 @@ struct Kb_801A6910 {
 };
 struct Def_804C2308 { u32 w[13]; };
 extern "C" {
-s32 TKeyBoardControl__sub_801A6910(Kb_801A6910 *self);
+s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self);
 void fn_801A69E4(s32 arg0, s32 *arg1);
 Def_804C2308 lbl_804C2308 = { 0, 0, 0, 0xFFFFFFFF, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 u32 lbl_804C233C[6] = { 16, 32, 64, 128, 4, 2 };
@@ -141,7 +141,7 @@ void reset_fields__10TObjPlayerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32
 
 typedef struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270 RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270;
 typedef char RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270_size[((sizeof(RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270)) == 0xB0) ? (1) : (-1)];
-s32 TKeyBoardControl__sub_801A5B00(void) {
+s32 get_ascii_key__16TKeyBoardControlFv(void) {
   short new_var;
   s32 temp_r3;
   s32 var_r3;
@@ -272,7 +272,7 @@ void update_input_frame__16TKeyBoardControlFv(void) {
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__data_80506270.value));
     if (is_split_screen() == 0) {
         temp_r31 = (u8 *)&lbl_8050E208.value + 0x160;
-        ((M2C_UNK (*)(int))TKeyBoardControl__sub_801A6910)((int) (temp_r31));
+        ((M2C_UNK (*)(int))poll_key_state__16TKeyBoardControlFPv)((int) (temp_r31));
         update_button_hold_counters((int) (temp_r31));
     }
 }
@@ -654,7 +654,7 @@ void TKeyBoardControl__sub_801A6854(void) {
     }
     lbl_805D34C8 = 1;
 }
-s32 TKeyBoardControl__sub_801A6910(Kb_801A6910 *self) {
+s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
     s32 i;
     u8 n;
     s32 j;

@@ -15,7 +15,7 @@ M2C_UNK init_xyz_limits__10TObjPlayerFv();
 M2C_UNK reset_line_width();
 M2C_UNK set_line_width(s32);
 void TWindowSubComCard__sub_80245A10(u8 *arg0, s32 arg1, void *r, f32 len);
-f32 TWindowSubComCard__sub_803D6438(f32);
+f32 trunc_float__17TWindowSubComCardFf(f32);
 extern u16 lbl_805D63F4;
 extern s16 lbl_805D63F6;
 void draw_window_scanlines(u8 *arg0, u8 *arg1);
@@ -106,7 +106,7 @@ s32 open_singleton__19TWindowKeyBoardSoftFiiii(void *, void *, void *, int, f32)
 M2C_UNK init_window_layout_entries(void *, int, int);
 s32 fn_8026CB68();
 M2C_UNK TWindowCtrlMain__sub_8026CC28();
-M2C_UNK TWindowCtrlMain__sub_8026CCA4(void *);
+M2C_UNK resort_window_order__15TWindowCtrlMainFPv(void *);
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 
 extern int lbl_805D3614;
@@ -296,7 +296,7 @@ void draw_default_entry__9TWindowDDFi(s32 arg0) {
 void set_field_1c__6TLobbyFPvf(void *arg0, f32 farg0) {
     TWindowCtrlMain__sub_8026CC28();
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
-    TWindowCtrlMain__sub_8026CCA4(arg0);
+    resort_window_order__15TWindowCtrlMainFPv(arg0);
 }
 
 bool fn_80244D70(u8 *arg0, u8 *arg1, u8 *arg2) {
@@ -355,7 +355,7 @@ void TWindowBase__ct(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     M2C_FIELD(arg0, f32 *, 0x1C) = temp_f1;
     M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805DCAE0;
     M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    ((M2C_UNK (*)(void *, f32))TWindowCtrlMain__sub_8026CCA4)((void *) (arg0), (f32) (temp_f1));
+    ((M2C_UNK (*)(void *, f32))resort_window_order__15TWindowCtrlMainFPv)((void *) (arg0), (f32) (temp_f1));
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
     M2C_FIELD(arg0, s16 *, 0x20) = arg3;
     init_window_layout_entries((void *) (arg0 + 0x24), (int) (M2C_FIELD(arg1, s32 *, 0xC)), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
@@ -512,8 +512,8 @@ void draw_window_scanlines(u8 *arg0, u8 *arg1) {
     case 1:
         return;
     }
-    n1 = TWindowSubComCard__sub_803D6438((12.0f + M2C_FIELD(arg0, f32 *, 0x44)) / 4.0f);
-    n2 = TWindowSubComCard__sub_803D6438((M2C_FIELD(arg0, f32 *, 0x4C) - 24.0f) / 4.0f);
+    n1 = trunc_float__17TWindowSubComCardFf((12.0f + M2C_FIELD(arg0, f32 *, 0x44)) / 4.0f);
+    n2 = trunc_float__17TWindowSubComCardFf((M2C_FIELD(arg0, f32 *, 0x4C) - 24.0f) / 4.0f);
     y = ((5.0f * ((f32)lbl_805D63F6 - 0.2f * (f32)n1) - 100.0f) - 12.0f) - M2C_FIELD(arg0, f32 *, 0x40);
     if (y <= 0.0f) {
         return;

@@ -61,7 +61,7 @@ void TLobby__sub_803DDD94(S_803DDD94 *d, S_803DDD94 *s);
 void TLobby__sub_803DDCE8(u32 *p);
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
-void TLobby__sub_803DDF4C(void);
+void seek_gvrt_chunk__6TLobbyFv(void);
 s32 calc_gvm_entry_stride(u16 arg0);
 void TObjPlayer__sub_803DD6DC(struct Obj_803DD6DC *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
@@ -82,7 +82,7 @@ s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32
 s32 TObjPlayer__sub_803DDA68(Obj_803DDA68 *obj, s32 idx);
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
 M2C_UNK TObjPlayer__sub_803DA7E0();
-s32 TObjPlayer__sub_803DA5A8(Slot_803DDB34 **, Rec_803DDB34 **);
+s32 find_free_slot__10TObjPlayerFPvPv(Slot_803DDB34 **, Rec_803DDB34 **);
 s32 TObjPlayer__sub_803DA8E4(s32, s32, s32, s32 *);
 M2C_UNK TObjPlayer__sub_803DAB7C(Obj_803DDA68 *, s32, s32);
 extern s32 lbl_805D7758;
@@ -97,7 +97,7 @@ s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDCE8(u32 *p);
 void TLobby__sub_803DDD20(s32 arg0);
 void TLobby__sub_803DDD40(s32 arg0, s32 arg1);
-void TLobby__sub_803DDF4C(void);
+void seek_gvrt_chunk__6TLobbyFv(void);
 s32 calc_gvm_entry_stride(u16 arg0);
 void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
 extern S_803DA7E0 lbl_8058D470;
@@ -308,7 +308,7 @@ s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx) {
     case -1:
         return -1;
     case 0:
-        h = TObjPlayer__sub_803DA5A8(&slot, &rec);
+        h = find_free_slot__10TObjPlayerFPvPv(&slot, &rec);
         if (h < 0) {
             return -1;
         }
@@ -462,7 +462,7 @@ s32 calc_gvm_entry_stride(u16 arg0) {
     return r;
 }
 
-void TLobby__sub_803DDF4C(void) {
+void seek_gvrt_chunk__6TLobbyFv(void) {
     s32 spC;
     s32 sp8;
     do {
@@ -521,7 +521,7 @@ s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list) {
     list->count = ((GvmTextureHeader_803DDDC8 *)hdr)->directoryCount;
     replace_gvm_texture_directory(list, calc_gvm_entry_stride(((GvmTextureHeader_803DDDC8 *)hdr)->flags), (GvmTextureHeader_803DDDC8 *)hdr);
     TLobby__sub_803DDD40(hdr[1] + 8, 0);
-    TLobby__sub_803DDF4C();
+    seek_gvrt_chunk__6TLobbyFv();
     n = list->count;
     for (i = 0; i < n; i++) {
         for (k = 0; k < n; k++) {

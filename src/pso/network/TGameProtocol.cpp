@@ -22,7 +22,7 @@ extern "C" {
 void TLobby__sub_8007EB20(const char *, ...);
 void TLobby__sub_801A54E8(void *);
 void clear_send_buffer__7TPacketFPv(void *);
-void fn_801E416C(void *);
+void dispatch_pso_data_commands(void *);
 extern char lbl_80449784[];
 }
 
@@ -290,7 +290,7 @@ void TGameProtocol::run_task() {
     for (n = ((Head_801E4260 *)lbl_805D5E48)->first; n != 0; n = *(Node_801E4260 **)((u8 *)n + 0xC)) {
         TLobby__sub_8007EB20(lbl_80449784, *(s32 *)n, n);
         if (*(s8 *)((u8 *)n + 0x2B) == 0) {
-            fn_801E416C(n);
+            dispatch_pso_data_commands(n);
             n->m6();
         }
         if (*(u16 *)((u8 *)n + 6) == *(u32 *)((u8 *)this + 0x1C)) {

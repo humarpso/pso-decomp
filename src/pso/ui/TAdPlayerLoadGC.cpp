@@ -299,7 +299,7 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 extern s32 lbl_805D3F50;
 u32 calc_text_width(const char *);
-u8 *TAdSubPlyItemGC__sub_802D6D28(s32 arg0, s32 arg1);
+u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1);
 extern const f32 lbl_805DE7CC;
 extern const f32 lbl_805DE7D0;
 void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self);
@@ -322,9 +322,9 @@ void render__15TAdSubPlyItemGCFv(Item_802D6BEC *self) {
                 render_status_line__15TAdSubPlyItemGCFPvi(self->names[i], (self->alpha[i] << 24) | 0xFFFFFF,
                     self->base[i].x, self->base[i].y, lbl_805DE7C8);
                 if (self->ids[i] != 0) {
-                    render_status_line__15TAdSubPlyItemGCFPvi((const char *)TAdSubPlyItemGC__sub_802D6D28((s32)self, self->ids[i]),
+                    render_status_line__15TAdSubPlyItemGCFPvi((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i]),
                         (self->alpha[i] << 24) | 0x111111, lbl_805DE7C0 + self->pos[i].x, self->pos[i].y, lbl_805DE7C4);
-                    render_status_line__15TAdSubPlyItemGCFPvi((const char *)TAdSubPlyItemGC__sub_802D6D28((s32)self, self->ids[i]),
+                    render_status_line__15TAdSubPlyItemGCFPvi((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i]),
                         (self->alpha[i] << 24) | 0xFFFFFF, self->pos[i].x, self->pos[i].y, lbl_805DE7C8);
                 }
             }
@@ -332,7 +332,7 @@ void render__15TAdSubPlyItemGCFv(Item_802D6BEC *self) {
     }
 }
 
-u8 *TAdSubPlyItemGC__sub_802D6D28(s32 arg0, s32 arg1) {
+u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1) {
     memset(lbl_80540FB0, 0, 0x40);
     sprintf(lbl_80540FB0, lbl_804725E0, arg1);
     return lbl_80540FB0;
@@ -344,13 +344,13 @@ void TAdSubPlyItemGC__sub_802D6D88(S_802D6D88 *arg0) {
         arg0->f[i] = 0;
     }
 }
-void TAdSubPlyItemGC__sub_802D6DAC(Item_802D6BEC *self, Entry_802D6DAC *e) {
+void set_entry_text__15TAdSubPlyItemGCFPvPv(Item_802D6BEC *self, Entry_802D6DAC *e) {
     s32 i = e->idx;
     strncpy(self->names[i], e->str, 0xFE);
     self->ids[i] = e->id;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&self->base[i], &e->pos);
     self->pos[i].x = (lbl_805DE7CC + self->base[i].x) -
-                     (f32)calc_text_width((const char *)TAdSubPlyItemGC__sub_802D6D28((s32)self, self->ids[i]));
+                     (f32)calc_text_width((const char *)format_level_text__15TAdSubPlyItemGCFii((s32)self, self->ids[i]));
     self->pos[i].y = lbl_805DE7D0 + self->base[i].y;
     self->alpha[i] = 0;
     self->flags[i] = 1;
@@ -360,7 +360,7 @@ void run_task__15TAdSubPlyItemGCFv(Self_802D6E7C *self) {
     u32 i;
     for (i = 0; i < 4; i++) {
         self->pos[i].x = (lbl_805DE7CC + self->base[i].x) -
-                         (f32)calc_text_width(((const char *(*)(void *, s32))TAdSubPlyItemGC__sub_802D6D28)(self, self->ids[i]));
+                         (f32)calc_text_width(((const char *(*)(void *, s32))format_level_text__15TAdSubPlyItemGCFii)(self, self->ids[i]));
         self->pos[i].y = lbl_805DE7D0 + self->base[i].y;
         if (self->flags[i] != 0) {
             self->alpha[i] += 0xB;

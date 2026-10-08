@@ -68,7 +68,7 @@ u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1);
 void TObjPlayer__sub_8033C84C(void* p);
 void clear_render_effect_state__10TObjPlayerFPv(void *arg0);
 void *create_instance__8TObjFishFPv(void *arg0);
-M2C_UNK TBoss6PlotFalz__sub_802AC25C(void *);
+M2C_UNK free_buffer_pairs__14TBoss6PlotFalzFPv(void *);
 M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
 M2C_UNK restore_player_cameras();
 M2C_UNK post_translate_matrix(M2C_UNK *);
@@ -189,7 +189,7 @@ u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK*)&lbl_804EF9C0;
         restore_player_cameras();
         refresh_players_equipment__14TBoss6PlotFalzFPv();
-        TBoss6PlotFalz__sub_802AC25C(arg0 + 0x40);
+        free_buffer_pairs__14TBoss6PlotFalzFPv(arg0 + 0x40);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x60) != 0U) {
             init_state_1__8TObjFishFPv(M2C_FIELD(arg0, void **, 0x60));
             M2C_FIELD(arg0, u32 *, 0x60) = 0U;

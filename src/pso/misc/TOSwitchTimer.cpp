@@ -57,7 +57,7 @@ void TOSwitchTimer__sub_80178588(void);
 void *create__13TOSwitchTimerFPv(void *arg0);
 void run_task__13TOSwitchTimerFv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TOChatSensor__sub_801781D8(void *);
+M2C_UNK send_switch_states__12TOChatSensorFPv(void *);
 u8 is_current_floor_switch_set(u16);
 M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(int);
@@ -106,7 +106,7 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x94);
         M2C_FIELD(arg0, s32 *, 0x94) = (s32) (temp_r3_2 + 1);
         if (temp_r3_2 == (s32) M2C_FIELD(arg0, s32 *, 0xA0)) {
-            TOChatSensor__sub_801781D8(arg0);
+            send_switch_states__12TOChatSensorFPv(arg0);
             M2C_FIELD(arg0, s32 *, 0x90) = 0;
         }
         break;

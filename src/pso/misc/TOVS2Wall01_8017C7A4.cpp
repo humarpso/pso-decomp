@@ -64,7 +64,7 @@ extern RecoveredGlobal_8017C7DC_lbl_804B4EBC lbl_804B4EBC;
 extern u32 TOVS2Wall01__data_805D5AE8;
 extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
-void TOVS2Wall01__sub_8017C7DC(void);
+void load_resources__11TOVS2Wall01Fv(void);
 }
 
 extern "C" {
@@ -103,7 +103,7 @@ void release_model__11TOVS2Wall01Fv(void) {
 extern M2C_UNK lbl_804B528C[];
 
 typedef struct RecoveredGlobal_8017C7DC_lbl_804B4EBC RecoveredGlobal_8017C7DC_lbl_804B4EBC;
-void TOVS2Wall01__sub_8017C7DC(void) {
+void load_resources__11TOVS2Wall01Fv(void) {
   s32 temp_r31;
   s32 temp_r3;
   s32 var_r0;

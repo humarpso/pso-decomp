@@ -8,7 +8,7 @@ extern "C" {
 
 s32 find_action_slot__11TMainCursorFiPvsii(s32 arg0, void *arg1, s16 arg2, s32 arg3, s32 arg4);
 u8 get_type__11TMainCursorFPv(s32);
-s32 TMainCursor__sub_8013DF5C(s32, u8, u8);
+s32 matches_type_and_enabled__11TMainCursorFiUcUc(s32, u8, u8);
 s32 TObjPlayer__sub_801D84F0(s32);
 s32 TWindowActionPalette__sub_801C1C68(s32, s32);
 
@@ -29,7 +29,7 @@ s32 find_action_slot__11TMainCursorFiPvsii(s32 arg0, void *arg1, s16 arg2, s32 a
                     }
                     goto block_8;
                 }
-                if (TMainCursor__sub_8013DF5C(temp_r31, (u8) arg2, (u8) arg3) != 0) {
+                if (matches_type_and_enabled__11TMainCursorFiUcUc(temp_r31, (u8) arg2, (u8) arg3) != 0) {
                     return 0;
                 }
                 goto block_8;
@@ -46,7 +46,7 @@ loop_9:
         }
         goto block_14;
     }
-    if (TMainCursor__sub_8013DF5C(var_r29, (u8) arg2, (u8) arg3) != 0) {
+    if (matches_type_and_enabled__11TMainCursorFiUcUc(var_r29, (u8) arg2, (u8) arg3) != 0) {
         return var_r30;
     }
 block_14:

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80102CE0(void* p);
+void bswap_pkt_u32x2__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80102D14(void* p);
 int TLobby__send_and_handle_60(void* a0 = 0);
 int TObjPlayer__sub_80102BD0(void);
@@ -32,7 +32,7 @@ void set_facing__10TObjPlayerFPvs(void* p, s16 v);
 int swap_6x61_fields__10TObjPlayerFPv(void* a0 = 0);
 int test_item_flags__10TObjPlayerFPvUi(void* p, u32 m);
 
-void TObjPlayer__sub_80102CE0(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
+void bswap_pkt_u32x2__10TObjPlayerFPv(void* p) { bswap_32__FPUl(p); bswap_32__FPUl((char*)p + 0x4); }
 void TObjPlayer__sub_80102D14(void* p) { swap_6x61_fields__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
 
 }

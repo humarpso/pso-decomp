@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK TBoss6Type2__sub_80356F28(M2C_UNK, s32, s32, s32, s32);
+M2C_UNK send_subordinate_actions__11TBoss6Type2Fiiiii(M2C_UNK, s32, s32, s32, s32);
 
 void TBoss6Type2__sub_80356E50(s32 arg0, s32 arg1, s32 arg2) {
-    TBoss6Type2__sub_80356F28(0, arg0, arg1, arg2, arg0);
+    send_subordinate_actions__11TBoss6Type2Fiiiii(0, arg0, arg1, arg2, arg0);
 }
 
 struct Pkt_80356F28 { u8 b[0x40]; };
@@ -24,7 +24,7 @@ extern const f32 lbl_805E001C;
 extern const f32 lbl_805E0020;
 extern const f32 lbl_805E0024;
 
-s32 TBoss6Type2__sub_80356F28(s32 kind, s32 ids, s32 n, s32 force, s32 unused) {
+s32 send_subordinate_actions__11TBoss6Type2Fiiiii(s32 kind, s32 ids, s32 n, s32 force, s32 unused) {
     Pkt_80356F28 pkt;
     s32 i;
 

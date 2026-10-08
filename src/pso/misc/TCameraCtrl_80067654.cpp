@@ -25,7 +25,7 @@ extern const f32 lbl_805D8F28;
 extern const f32 lbl_805D8F2C;
 extern const f32 lbl_805D8F30;
 extern const f32 lbl_805D8F34;
-void TCameraCtrl__sub_800676A0(u8 *arg0);
+void update_follow_position__11TCameraCtrlFPv(u8 *arg0);
 void set_target__11TCameraCtrlFPvUi(void *, u32);
 u8 * TCameraCtrl__sub_80068714(void *);
 s32 get_player_by_client_id(u32);
@@ -63,7 +63,7 @@ void * TCameraCtrl__vt11(void) {
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl__sub_800676A0(u8 *arg0) {
+void update_follow_position__11TCameraCtrlFPv(u8 *arg0) {
     Stack_800676A0 stack;
     f32 temp_f1;
     f32 temp_f2;

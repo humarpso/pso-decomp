@@ -12,7 +12,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 M2C_UNK fn_8009E1D4(s32, void *);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TTecZondeEff__sub_8023DADC(void *, s32, void *, void *, f32);
+M2C_UNK construct__12TTecZondeEffFPvPvPvPvf(void *, s32, void *, void *, f32);
 M2C_UNK subtract_vector(void *, void *);
 extern s32 tl_05;
 extern const f32 lbl_805D9948;
@@ -47,7 +47,7 @@ void update_zonde_projectile(u8 *arg0) {
     temp_f31 = update_scale__15TObjBoss2TunnelFPv(&sp8);
     M2C_UNK nw_ret = __nw__7TObjectFUl(0x260);
     if (nw_ret != 0U) {
-        TTecZondeEff__sub_8023DADC((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);
+        construct__12TTecZondeEffFPvPvPvPvf((void *)nw_ret, tl_05, arg0 + 0x38, &sp8, temp_f31);
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0x50);
     if (var_r31 != 0) {

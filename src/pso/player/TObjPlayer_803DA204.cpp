@@ -37,7 +37,7 @@ extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
 extern s32 lbl_805D7764;
 extern Rec_803DA688 *lbl_805D7768;
-s32 TObjPlayer__sub_803DA5A8(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1);
+s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1);
 extern s32 lbl_805D775C;
 extern Slot_803DA5A8 *lbl_805D7760;
 void TObjPlayer__sub_803DA388(Slot_803DA388 *p, s32 n);
@@ -126,7 +126,7 @@ s32 TObjPlayer__sub_803DA55C(u32 arg0) {
     return -1;
 }
 
-s32 TObjPlayer__sub_803DA5A8(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1) {
+s32 find_free_slot__10TObjPlayerFPvPv(Rec_803DA688 **arg0, Slot_803DA5A8 **arg1) {
     s32 i;
     Rec_803DA688 *p;
     Slot_803DA5A8 *q;

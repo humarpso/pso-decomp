@@ -24,7 +24,7 @@ u8 *get_player_by_client_id(s32);
 M2C_UNK init_select_txt__10TObjPlayerFPv(int);
 M2C_UNK copy_lobby_header__10TObjPlayerFPvi(int, int);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
-void TObjPlayer__sub_801BDCF8(void);
+void refresh_player_lobby_headers__10TObjPlayerFv(void);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__data_8050EA70;
 s32 check_flag_at_428__10TObjPlayerFPv(void *);
 void create__10TObjPlayerFUii(u16, void *);
@@ -54,7 +54,7 @@ void TObjPlayer__sub_801BDC98(void) {
     } while (i < 12);
 }
 
-void TObjPlayer__sub_801BDCF8(void) {
+void refresh_player_lobby_headers__10TObjPlayerFv(void) {
   s32 var_r31;
   u8 *temp_r3;
   M2C_UNK *var_r29;

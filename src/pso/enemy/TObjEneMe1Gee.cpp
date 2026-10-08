@@ -1449,7 +1449,7 @@ M2C_UNK enemy_init_acquire_period(void *, int);
 M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
 M2C_UNK initialize_enemy_state__9TObjEneDDFPv(void *, int);
 M2C_UNK check_state_flag_1__9TObjEneDDFPv(void *);
-M2C_UNK TObjEneDD__sub_800BA9BC(void *, int, int);
+M2C_UNK set_part_position__9TObjEneDDFPvPvi(void *, int, int);
 M2C_UNK init_model__9TObjEneDDFPv(void *, void *, int);
 M2C_UNK set_active__9TObjEneDDFPv(void *);
 M2C_UNK init_position_vectors__9TObjEneDDFPv(void *);
@@ -3453,7 +3453,7 @@ int TObjEneMe1Gee__vt107(void);
 void TObjEneMe1Gee__vt111(void *arg0);
 void TObjEneMe1Gee__sub_800CB69C(void*);
 void destroy_subobj__13TObjEneMe1GeeFPv(void* p, void * _w1);
-void TObjEneMe1Gee__sub_800CB7BC(u8 *arg0);
+void update_fade_sequence__13TObjEneMe1GeeFPv(u8 *arg0);
 void TObjEneMe1Gee__sub_800CB968(s32 arg0);
 s32 handle_message__13TObjEneMe1GeeFii(s32 arg0, s32 arg1);
 s32 TObjEneMe1Gee__vt106(u8 *arg0);
@@ -3645,7 +3645,7 @@ void TObjEneMe1Gee__sub_800C8BCC(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
-        ((M2C_UNK (*)(void *))TObjEneMe1Gee__sub_800CB7BC)((void *) (arg0));
+        ((M2C_UNK (*)(void *))update_fade_sequence__13TObjEneMe1GeeFPv)((void *) (arg0));
         TObjEneMe1Gee__sub_800C84C8((void *) (arg0));
     }
     ((M2C_UNK (*)(void *))copy_pos__13TObjEneMe1GeeFPv)((void *) (arg0));
@@ -5057,7 +5057,7 @@ void TObjEneMe1Gee__sub_800CB764(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x488) = 0;
 }
 
-void TObjEneMe1Gee__sub_800CB7BC(u8 *arg0) {
+void update_fade_sequence__13TObjEneMe1GeeFPv(u8 *arg0) {
     switch (M2C_FIELD(arg0, s32 *, 0x47C)) {
     case 0:
         break;
@@ -5390,7 +5390,7 @@ void run_task__13TObjEneMe1GeeFv(u8 *arg0) {
     }
     if (((VObj_18_7dcedb *)(arg0))->m81() != 4) {
         ((VObj_18_7dcedb *)(arg0))->m83();
-        ((void (*)(void *))TObjEneMe1Gee__sub_800CB7BC)(arg0);
+        ((void (*)(void *))update_fade_sequence__13TObjEneMe1GeeFPv)(arg0);
     }
     ((void (*)(void *))copy_pos__13TObjEneMe1GeeFPv)(arg0);
     ((int (*)(void *))set_player_state_default__12TBoss8DragonFPv)(arg0);
@@ -5474,7 +5474,7 @@ void init_state__13TObjEneMe1GeeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x484) = 0;
     M2C_FIELD(arg0, s32 *, 0x488) = 0;
     copy_pos__13TObjEneMe1GeeFPv((u8 *)((void *) (arg0)));
-    TObjEneDD__sub_800BA9BC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xA4)), (int) (0));
+    set_part_position__9TObjEneDDFPvPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xA4)), (int) (0));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     ((VObj_18_3bc1aa *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
     if (M2C_FIELD(arg0, void **, 0x3C0) != NULL) {

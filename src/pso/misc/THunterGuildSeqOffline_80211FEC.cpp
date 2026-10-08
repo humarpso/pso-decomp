@@ -17,7 +17,7 @@ s32 get_player_by_client_id(int);
 M2C_UNK advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
 extern s32 TLobby__data_805D53AC;
 extern f32 THunterGuildSeqOffline__data_805DC648;
-void THunterGuildSeqOffline__sub_80212230(u8 *arg0);
+void update_member_proximity__22THunterGuildSeqOfflineFPv(u8 *arg0);
 s32 get_field_3e0__12TBoss3VoloptFPv(int);
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
@@ -135,7 +135,7 @@ s32 check_party_gathered__22THunterGuildSeqOfflineFv(void) {
     return result;
 }
 
-void THunterGuildSeqOffline__sub_80212230(u8 *arg0) {
+void update_member_proximity__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
     s32 var_r30;

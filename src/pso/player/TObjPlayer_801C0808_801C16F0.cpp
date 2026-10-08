@@ -12,7 +12,7 @@ int bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C16F0(void* p, void* a1);
 void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C172C(void* p);
-s32 TLobby__sub_801E4534(s32);
+s32 send_60_sized__6TLobbyFPv(s32);
 void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
@@ -27,7 +27,7 @@ void TObjPlayer__sub_801C1760(void* p);
 void TObjPlayer__sub_801C17D0(u8 *arg0);
 void TObjPlayer__sub_801C1760(void* p);
 void TObjPlayer__sub_801C17EC(void* p);
-s32 TLobby__sub_801E4534(s32);
+s32 send_60_sized__6TLobbyFPv(s32);
 void TObjPlayer__sub_801C1760(void* p);
 void TObjPlayer__sub_801C17EC(void* p);
 void TObjPlayer__sub_801C1820(void* p);
@@ -44,7 +44,7 @@ void* handle_6x1F_set_floor__10TObjPlayerFPvPv(void* p, void* a1);
 int TFontSmallLobby__sub_801C0228(void*);
 s32 TLobby__send_and_handle_60(s32);
 s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
-s32 TLobby__sub_801E4534(s32);
+s32 send_60_sized__6TLobbyFPv(s32);
 int test_flags_any(void*, int);
 int __dl__FPv();
 s32 bswap_16__FPUs(s32);
@@ -58,7 +58,7 @@ s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 
 void TObjPlayer__sub_801C16F0(void* p, void* a1) { bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(p); send_subcommand_to_client__6TLobbyFPvUi((s32)(p), (s32)(a1)); }
 
-void TObjPlayer__sub_801C172C(void* p) { bswap_pkt_u32x5__10TObjPlayerFPv((void*)(p)); TLobby__sub_801E4534((s32)(p)); }
+void TObjPlayer__sub_801C172C(void* p) { bswap_pkt_u32x5__10TObjPlayerFPv((void*)(p)); send_60_sized__6TLobbyFPv((s32)(p)); }
 
 void TObjPlayer__sub_801C1760(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_32__FPUl((s32)((char*)p + 0x4)); }
 
@@ -70,7 +70,7 @@ void TObjPlayer__sub_801C17D0(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
-void TObjPlayer__sub_801C17EC(void* p) { TObjPlayer__sub_801C1760((void*)(p)); TLobby__sub_801E4534((s32)(p)); }
+void TObjPlayer__sub_801C17EC(void* p) { TObjPlayer__sub_801C1760((void*)(p)); send_60_sized__6TLobbyFPv((s32)(p)); }
 
 void TObjPlayer__sub_801C1820(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_32__FPUl((s32)((char*)p + 0x4)); }
 

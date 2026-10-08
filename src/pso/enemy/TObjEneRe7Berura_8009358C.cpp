@@ -568,7 +568,7 @@ struct Sub_80094624 : SBase_80094624 {
 extern "C" {
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv();
-M2C_UNK TObjEneRe7Berura__sub_80094BFC(void *);
+M2C_UNK play_band_sound__16TObjEneRe7BeruraFPv(void *);
 s32 is_over_limit__16TObjEneRe7BeruraFPv(void *);
 s32 step_toward_target__16TObjEneRe7BeruraFPvii(void *, int, int);
 M2C_UNK init_fields4B8__16TObjEneRe7BeruraFPv(void *);
@@ -887,7 +887,7 @@ void TObjEneRe7Berura__sub_80093888(u8 *arg0, s32 arg1) {
                         reset_timer__11TBoss4Type3FPv(((Timers_80093888 *)arg0)->t[var_r29]);
                     }
                 }
-                TObjEneRe7Berura__sub_80094BFC((void *) (arg0));
+                play_band_sound__16TObjEneRe7BeruraFPv((void *) (arg0));
             }
             break;
         case 1:
@@ -1089,7 +1089,7 @@ void TObjEneRe7Berura__sub_800940E8(u8 *arg0, s32 arg1) {
         break;
     case 0:
         advance_animation_playback();
-        TObjEneRe7Berura__sub_80094BFC((void *) (arg0));
+        play_band_sound__16TObjEneRe7BeruraFPv((void *) (arg0));
         if (update_linked_position__14TObjEneEpsilonFPv((void *) (arg0), (f32) (TObjEneRe7Berura__data_805D9724)) != 0) {
             enemy_copy_target_destination((void *) (arg0));
             update_velocity__9TObjEneDDFPv((void *) (arg0));

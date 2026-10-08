@@ -236,6 +236,17 @@ M2C_UNK set_count__6TLobbyFPvi(int, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern char lbl_8047C758[];
 void TLobby__sub_803CB20C(Obj_803CB20C *arg0);
+M2C_UNK OSResumeThread(void *);
+M2C_UNK VIWaitForRetrace();
+M2C_UNK TLobby__sub_803D3344();
+extern u8 lbl_80575E80[];
+extern Cb_803CBA58 lbl_805D4680;
+extern s32 lbl_805D7540;
+extern s32 lbl_805D75A0;
+extern s32 lbl_805D75B4;
+extern s32 lbl_805D75B8;
+extern s32 lbl_805D75BC;
+void TLobby__sub_803CBB14(void);
 }
 extern "C" {
 extern const u32 lbl_805E0D5C[1];
@@ -348,7 +359,7 @@ void TLobby__sub_803CBA58(void);
 extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
-void TLobby__sub_803CA0C8(Stream_803CA0C8 *self, s32 arg1);
+void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1);
 M2C_UNK OSResumeThread(void *);
 M2C_UNK OSSetThreadPriority(void *, int);
 M2C_UNK TLobby__sub_803D3860(char *);
@@ -400,7 +411,7 @@ M2C_UNK TLobby__sub_803C89C4(void *);
 M2C_UNK TLobby__sub_803C8B38(int);
 M2C_UNK DVDReadAbsAsyncPrio(int);
 M2C_UNK memset(void *, int, int);
-M2C_UNK TLobby__sub_803C07F4(void *);
+M2C_UNK reset_entry__6TLobbyFPv(void *);
 M2C_UNK clear_entry__6TLobbyFi(void *);
 M2C_UNK TLobby__sub_803CC070(void *);
 M2C_UNK TLobby__sub_803D198C(void *);
@@ -771,7 +782,7 @@ void configure_audio_stream_output(Stream_803C9FCC *self) {
 
 struct Stream_803C9FCC;
 
-void TLobby__sub_803CA0C8(Stream_803CA0C8 *self, s32 arg1) {
+void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         self->parts[i]->vt->update(self->parts[i]);
@@ -831,7 +842,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
         TLobby__sub_803CC070(arg0->fc);
     }
     if (arg0->f4 != NULL) {
-        TLobby__sub_803C07F4(arg0->f4);
+        reset_entry__6TLobbyFPv(arg0->f4);
     }
     if (arg0->f8 != NULL) {
         TLobby__sub_803C8B38((int)arg0->f8);
@@ -960,7 +971,7 @@ void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
         notify_error__6TLobbyFPv(lbl_8047C6C0);
         return;
     }
-    TLobby__sub_803CA0C8((Stream_803CA0C8 *)(arg0), (s32)(r));
+    start_stream_playback__6TLobbyFPvi((Stream_803CA0C8 *)(arg0), (s32)(r));
     arg0[2] = 2;
     arg0[0x98] = 0;
     release_ref__6TLobbyFv();
@@ -1343,6 +1354,22 @@ void TLobby__sub_803CBA58(void) {
         }
     }
     lbl_805D75BC = 1;
+}
+
+void TLobby__sub_803CBB14(void) {
+    while (lbl_805D75B8 == 1) {
+        VIWaitForRetrace();
+        lbl_805D75A0++;
+        lbl_805D7540++;
+        TLobby__sub_803D3344();
+        if (lbl_805D75BC == 0) {
+            OSResumeThread(lbl_80575E80);
+            if (lbl_805D4680.fn != NULL) {
+                lbl_805D4680.fn(lbl_805D4680.arg);
+            }
+        }
+    }
+    lbl_805D75B4 = 1;
 }
 
 void TLobby__sub_803CBBB0(void) {

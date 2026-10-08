@@ -106,7 +106,7 @@ int set_global_param__8TObjFishFi(void*);
 void set_texture_num(s32);
 void reset_particles__13TParticleCtrlFv(void);
 void TParticleCtrl__sub_803E2A1C(void *, int);
-void TParticleCtrl__sub_803E2B68(s32 arg0);
+void setup_particle_draw__13TParticleCtrlFi(s32 arg0);
 
 extern void *__vt__12TBGLightning[];
 extern void *__vt__16TBGLightningCtrl[];
@@ -249,7 +249,7 @@ void fn_802A9DF4(Obj_802A9DF4 *self, Vec_802A9DF4 *dir) {
     p.z = self->pos.z - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(idx + lbl_8046FC8C[self->f1c]);
-    TParticleCtrl__sub_803E2B68(1);
+    setup_particle_draw__13TParticleCtrlFi(1);
     fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }
@@ -283,7 +283,7 @@ void fn_802A9F48(Obj_802A9F48 *self, Vec_802A9F48 *dir) {
     p.z = self->pos.z + dir->z * (-3.0f * self->f2c) - 0.5f * d.z;
     TBGLightningCtrl__sub_802A9A08();
     set_texture_num(0);
-    TParticleCtrl__sub_803E2B68(1);
+    setup_particle_draw__13TParticleCtrlFi(1);
     fn_802A9D40((void *)(self), (f32 *)(&p), (f32 *)(&d), (s32)(__cvt_fp2unsigned(4278190080.0f * scale) | 0xFFFFFF));
     reset_particles__13TParticleCtrlFv();
 }

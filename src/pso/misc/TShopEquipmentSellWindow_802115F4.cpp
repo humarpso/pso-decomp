@@ -4,7 +4,7 @@ extern "C" {
 
 s32 get_result__24TShopEquipmentSellWindowFPv(void* p);
 int is_confirmed__24TShopEquipmentSellWindowFPv(void* p);
-int TAdSinglePlyChrSelectGC__sub_80211584(void* a0 = 0);
+int init_item_entry__23TAdSinglePlyChrSelectGCFPv(void* a0 = 0);
 void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p);
 int copy_entry_bytes__10TObjPlayerFPvPv(void*, void*);
 void TShopWindowBase__sub_802115F0(void);

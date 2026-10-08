@@ -86,7 +86,7 @@ extern const f32 lbl_805D8C74;
 void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * create_yutai__11TBoss4Type3FPvPvPv(void *, void *, void *);
-void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1);
 void request_destroy__11TBoss4Type2FUi(void *);
 u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
@@ -672,7 +672,7 @@ void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 ar
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
 void TBoss4Type3__sub_8005A4F4(void *, void *, f32);
-void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1);
 void TBoss4Type3__sub_8005A6A4(u8 *arg0);
 void draw__11TBoss4Type3FPv(void *arg0);
 void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
@@ -1875,7 +1875,7 @@ union MemberAction_80057598 { s32 words[3]; void (TBoss4Type2_80057598::*action)
 s32 is_field378_zero__14TBoss4DarkFalzFPv(void *);
 void update_collisions__10TObjPlayerFPv(void *);
 void submit_cursor_candidate(void *, int);
-void TBoss4Type2__sub_8004A98C(void *);
+void scroll_strips__11TBoss4Type2FPv(void *);
 extern Vec_80057598 lbl_80437720[];
 extern Vec_80057598 lbl_8043772C[];
 extern const f32 lbl_805D8BD4;
@@ -1923,7 +1923,7 @@ void update_main__11TBoss4Type2FPv(u8 *arg0) {
         if (M2C_FIELD(arg0, void **, 0x430) != NULL) {
             copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x430), &pos);
         }
-        TBoss4Type2__sub_8004A98C(arg0 + 0x378);
+        scroll_strips__11TBoss4Type2FPv(arg0 + 0x378);
     }
     {
         Vec_80057598 a = lbl_80437720[0];

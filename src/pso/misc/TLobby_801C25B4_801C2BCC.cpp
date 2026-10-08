@@ -66,7 +66,7 @@ extern s32 tl_05;
 void TLobby__sub_801C2CEC(void);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 M2C_UNK send_6x7D_set_battle_mode_data__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_801E4534(void *);
+M2C_UNK send_60_sized__6TLobbyFPv(void *);
 s32 rand();
 void send_6x7D_set_battle_mode_data(void);
 }
@@ -176,7 +176,7 @@ void send_6x7D_set_battle_mode_data(void) {
         }
     }
     send_6x7D_set_battle_mode_data__6TLobbyFPv(&msg);
-    TLobby__sub_801E4534(&msg);
+    send_60_sized__6TLobbyFPv(&msg);
 }
 
 void init__6TLobbyFPv(void *arg0) {

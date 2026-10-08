@@ -20,7 +20,7 @@ M2C_UNK set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 lbl_804DC2E0[];
 extern s32 lbl_805D65C8;
 extern const f32 lbl_805DDD10;
-void TAdRayGC__sub_8029BCB4(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3);
+void draw_ray_quads__8TAdRayGCFiPvPvi(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -33,7 +33,7 @@ M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK queue_destruction__7TObjectFv();
 
-void TAdRayGC__sub_8029BCB4(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3) {
+void draw_ray_quads__8TAdRayGCFiPvPvi(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3) {
     u32 i;
     E_8029BCB4 *p;
     switch (arg3) {
@@ -69,14 +69,14 @@ void render__8TAdRayGCFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
         switch (temp_r0) {
         case 0:
-            TAdRayGC__sub_8029BCB4((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20)), (void *)(-1), (s32)(0));
+            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20)), (void *)(-1), (s32)(0));
             break;
         case 1:
-            TAdRayGC__sub_8029BCB4((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20)), (void *)(-1), (s32)(0));
-            TAdRayGC__sub_8029BCB4((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
+            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20)), (void *)(-1), (s32)(0));
+            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         case 2:
-            TAdRayGC__sub_8029BCB4((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
+            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         }
         abs__4cXyzCFv(0, 8);

@@ -158,7 +158,7 @@ void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void* TFontSmallLobby__sub_801C030C(void* p, void* a1);
 void TFontSmallLobby__sub_801C02D0(void* p);
 void TFontSmallLobby__sub_801C0378(void* p);
-int TLobby__sub_801E4534(void*);
+int send_60_sized__6TLobbyFPv(void*);
 void TFontSmallLobby__sub_801C02D0(void* p);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
@@ -223,7 +223,7 @@ void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_32__FPUl(void*);
 int bswap_16__FPUs(void*);
-void TObjPlayer__sub_801C0678(void *arg0);
+void bswap_change_hp_packet__10TObjPlayerFPv(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C04DC(void* p);
 int TLobby__send_and_handle_60(void*);
@@ -341,7 +341,7 @@ void TFontSmallLobby__sub_801C0350(O_801C0350 *p) {
     p->b = 2;
 }
 
-void TFontSmallLobby__sub_801C0378(void* p) { TFontSmallLobby__sub_801C02D0((void*)(p)); TLobby__sub_801E4534(p); }
+void TFontSmallLobby__sub_801C0378(void* p) { TFontSmallLobby__sub_801C02D0((void*)(p)); send_60_sized__6TLobbyFPv(p); }
 
 void TFontSmallLobby__sub_801C03AC(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_32__FPUl((char*)p + 0x4); }
 
@@ -389,7 +389,7 @@ void fn_801C0630(void* p) { *(u8*)((char*)p + 0x0) = 34; *(u8*)((char*)p + 0x1) 
 
 void fn_801C0644(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void TObjPlayer__sub_801C0678(void *arg0) {
+void bswap_change_hp_packet__10TObjPlayerFPv(void *arg0) {
     read_be16_field2__10TObjPlayerFPv((void*)(arg0));
     bswap_32__FPUl((void*)((void *)((char *)arg0 + 4)));
     bswap_16__FPUs((void*)((void *)((char *)arg0 + 8)));
@@ -412,7 +412,7 @@ void TObjPlayer__sub_801C0708(O_801C0708 *p) {
     p->b = 3;
 }
 
-void TObjPlayer__sub_801C0734(void* p) { TObjPlayer__sub_801C0678((void *)((void*)(p))); TLobby__send_and_handle_60(p); }
+void TObjPlayer__sub_801C0734(void* p) { bswap_change_hp_packet__10TObjPlayerFPv((void *)((void*)(p))); TLobby__send_and_handle_60(p); }
 
 void TObjPlayer__sub_801C0768(void *arg0) {
     read_be16_field2__10TObjPlayerFPv((void*)(arg0));

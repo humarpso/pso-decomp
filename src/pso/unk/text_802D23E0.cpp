@@ -47,7 +47,7 @@ extern u16 lbl_805D6888;
 extern u8 TLobby__data_805D688B;
 extern u32 TLobby__data_805D6898;
 void TLobby__sub_802D245C(void);
-M2C_UNK TLobby__sub_802D3284(M2C_UNK, M2C_UNK);
+M2C_UNK send_trade_proposal_result__6TLobbyFcc(M2C_UNK, M2C_UNK);
 M2C_UNK forward_to_child__19TWindowSubTradeMainFPvi(u32, M2C_UNK);
 extern u16 lbl_805D6888;
 extern u8 TLobby__data_805D688B;
@@ -123,7 +123,7 @@ void TLobby__sub_802D2518(void) {
     if (!(lbl_805D6888 & 0x10)) {
         lbl_805D6890 = 0;
         if (lbl_805D6888 & 0x20) {
-            TLobby__sub_802D3284(3, 4);
+            send_trade_proposal_result__6TLobbyFcc(3, 4);
             lbl_805D6888 &= 0xFFFFFFDF;
             if ((u32) TLobby__data_805D6898 != 0U) {
                 forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 0);
@@ -132,7 +132,7 @@ void TLobby__sub_802D2518(void) {
         }
     } else if (!(lbl_805D6888 & 0x20)) {
         if (lbl_805D6890++ >= 0x1E) {
-            TLobby__sub_802D3284(3, 0);
+            send_trade_proposal_result__6TLobbyFcc(3, 0);
             lbl_805D6888 |= 0x20;
             if ((u32) TLobby__data_805D6898 != 0U) {
                 forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 1);
@@ -143,7 +143,7 @@ void TLobby__sub_802D2518(void) {
     } else if (!(lbl_805D6888 & 0x80)) {
         lbl_805D6890 = 0;
         if (lbl_805D6888 & 0x100) {
-            TLobby__sub_802D3284(4, 4);
+            send_trade_proposal_result__6TLobbyFcc(4, 4);
             if ((u32) TLobby__data_805D6898 != 0U) {
                 forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 1);
             }
@@ -152,7 +152,7 @@ void TLobby__sub_802D2518(void) {
         }
     } else if (!(lbl_805D6888 & 0x100)) {
         if (lbl_805D6890++ >= 0x1E) {
-            TLobby__sub_802D3284(4, 0);
+            send_trade_proposal_result__6TLobbyFcc(4, 0);
             lbl_805D6888 |= 0x100;
             if ((u32) TLobby__data_805D6898 != 0U) {
                 forward_to_child__19TWindowSubTradeMainFPvi(TLobby__data_805D6898, 2);

@@ -53,7 +53,7 @@ void TLobby__sub_802D361C(O_802D361C *self);
 s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
 void TLobby__sub_802D3654(O_802D3654 *self);
-void TLobby__sub_802D1E64(void *, s32, s32, void *);
+void move_trade_item_amount__6TLobbyFPvUii(void *, s32, s32, void *);
 void update_trade_window__19TWindowSubTradeMainFPv(u32);
 extern u8 TLobby__data_80540BD0[];
 extern s8 TLobby__data_805D688A;
@@ -154,7 +154,7 @@ void TLobby__sub_802D35B0(S_802D35B0 *arg0) {
     switch (t) {
     case 0:
         if (arg0->f2 == TLobby__data_805D688A) {
-            TLobby__sub_802D1E64(TLobby__data_80540BD0 + 0x1F0, arg0->f8, arg0->fC, TLobby__data_80540BD0);
+            move_trade_item_amount__6TLobbyFPvUii(TLobby__data_80540BD0 + 0x1F0, arg0->f8, arg0->fC, TLobby__data_80540BD0);
             if (TLobby__data_805D6898 != 0) {
                 update_trade_window__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
             }

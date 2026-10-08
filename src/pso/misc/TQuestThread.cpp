@@ -220,7 +220,7 @@ void TQuestThread__sub_801F5ECC(void);
 void * destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
 void destroy_quest_obj__12TQuestThreadFv(void);
 s32 create_by_mode__12TQuestThreadFv(void);
-u8 * TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 * init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 u8 * load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3);
 QThread_801F6418 * construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *self, void *unused, void *scene);
 void set_status_flag_80__12TQuestThreadFPv(void* p);
@@ -947,14 +947,14 @@ s32 create_by_mode__12TQuestThreadFv(void) {
         var_r30 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (var_r30 != 0) {
             temp_r31 = get_quest_count__16TQuestListOnlineFv();
-            var_r30 = (s32)TQuestThread__sub_801F624C((u8 *)(var_r30), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31));
+            var_r30 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31));
         }
         return var_r30;
     case 3:
         var_r30_2 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_2 != 0) {
             temp_r31_2 = TQuestListVM__sub_801F6530();
-            var_r30_2 = (s32)TQuestThread__sub_801F624C((u8 *)(var_r30_2), (s32)(tl_su), (s32)(get_instance__12TQuestListVMFv()), (s32)(temp_r31_2));
+            var_r30_2 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30_2), (s32)(tl_su), (s32)(get_instance__12TQuestListVMFv()), (s32)(temp_r31_2));
         }
         reset__12TQuestListVMFv();
         return var_r30_2;
@@ -962,7 +962,7 @@ s32 create_by_mode__12TQuestThreadFv(void) {
         var_r30_3 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0x1A4);
         if (var_r30_3 != 0) {
             temp_r31_3 = get_quest_count__16TQuestListOnlineFv();
-            var_r30_3 = (s32)TQuestThread__sub_801F624C((u8 *)(var_r30_3), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31_3));
+            var_r30_3 = (s32)init_from_script__12TQuestThreadFPviii((u8 *)(var_r30_3), (s32)(tl_su), (s32)(TQuestListOnline__sub_801F6540()), (s32)(temp_r31_3));
         }
         return var_r30_3;
     case 5:
@@ -978,7 +978,7 @@ s32 create_by_mode__12TQuestThreadFv(void) {
 
 #pragma push
 #pragma fp_contract on
-u8 *TQuestThread__sub_801F624C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;

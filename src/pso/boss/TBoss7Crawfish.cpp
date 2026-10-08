@@ -114,7 +114,7 @@ M2C_UNK apply_status_effect__10TObjPlayerFi(void *);
 M2C_UNK reset_global_table();
 s32 get_instance__16TObjOnlineEndingFv();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
-M2C_UNK TBoss7Crawfish__sub_8030895C(void *, void *);
+M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *, void *);
 void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o);
 }
 
@@ -172,7 +172,7 @@ void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
                 o->slots[o->count].a = e->a;
                 o->slots[o->count].b = e->b;
                 o->count++;
-                TBoss7Crawfish__sub_8030895C(o, e);
+                apply_hit_to_target__14TBoss7CrawfishFPvPv(o, e);
             }
         }
     }
@@ -216,7 +216,7 @@ void TBoss7Crawfish__sub_80308910(u8 *arg0) {
 
 #define arg0 ((s32)arg0_)
 #define arg1 ((u8 *)arg1_)
-M2C_UNK TBoss7Crawfish__sub_8030895C(void *arg0_, void *arg1_) {
+M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
     Pair_8030895C p;
 
     u8 *temp_r31;

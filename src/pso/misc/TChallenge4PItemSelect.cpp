@@ -24,7 +24,7 @@ void init__9TItemDataFv(void *);
 s32 get_selected_menu_value(void *);
 void TChallenge4PResult__sub_8034B694(s32, M2C_UNK, s32);
 extern RecoveredGlobal_8034B158_lbl_804F00C8 lbl_804F00C8;
-void TChallenge4PItemSelect__sub_8034B158(u8 *arg0);
+void submit_selected_item__22TChallenge4PItemSelectFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -78,7 +78,7 @@ extern const f32 lbl_805DFDA0;
 extern const f32 lbl_805DFDA4;
 
 typedef char RecoveredGlobal_8034B158_lbl_804F00C8_size[sizeof(RecoveredGlobal_8034B158_lbl_804F00C8) == 0x60 ? 1 : -1];
-void TChallenge4PItemSelect__sub_8034B158(u8 *arg0) {
+void submit_selected_item__22TChallenge4PItemSelectFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_8034B158, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8034B158, sp9) == 0x1) ? 1 : -1];
     typedef char spA_offset[(offsetof(Stack_8034B158, spA) == 0x2) ? 1 : -1];
@@ -139,7 +139,7 @@ void run_task__22TChallenge4PItemSelectFv(u8 *arg0) {
         challenge4p_item_select_open_menu((void *)arg0);
         return;
     case 1:
-        TChallenge4PItemSelect__sub_8034B158((u8 *)(arg0));
+        submit_selected_item__22TChallenge4PItemSelectFPv((u8 *)(arg0));
         return;
     case 2:
         queue_destruction_with_callback__22TChallenge4PItemSelectFPv((void *)arg0);

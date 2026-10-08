@@ -1261,7 +1261,7 @@ void free_bits__18TObjEneRe4SorcererFv(void);
 void * create__18TObjEneRe4SorcererFPv(void *arg0);
 void load_resources__18TObjEneRe4SorcererFv(void);
 void TBoss3Volopt__sub_800F059C(void);
-s32 TBoss3Volopt__sub_800F05A0(s32 arg0);
+s32 remap_area_sound_id__12TBoss3VoloptFi(s32 arg0);
 s32 remap_area_sound_id(s32 arg0, s32 arg1);
 void destroy_buffer_pair(void*, int);
 u8 * alloc_tables__6TLobbyFPvii(void *, s32, s32);
@@ -2804,7 +2804,7 @@ void load_resources__18TObjEneRe4SorcererFv(void) {
 
 void TBoss3Volopt__sub_800F059C(void) {  }
 
-s32 TBoss3Volopt__sub_800F05A0(s32 arg0) {
+s32 remap_area_sound_id__12TBoss3VoloptFi(s32 arg0) {
     s32 masked;
     s32 result;
     s32 state;

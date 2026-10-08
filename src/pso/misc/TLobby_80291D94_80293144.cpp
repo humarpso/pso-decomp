@@ -121,7 +121,7 @@ void TLobby__sub_802934E0(void);
 s32 get_main_phase();
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TLobby__sub_8029359C(void *arg0);
+s32 check_destruction_by_phase__6TLobbyFPv(void *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 u32 get_player_by_client_id(u32);
@@ -132,7 +132,7 @@ u32 get_player_by_client_id(u32);
 u8 *get_card_window__17TWindowSubComCardFUi(s32);
 void TLobby__sub_800703D0(void *, void *);
 void TLobby__sub_802934E0(void);
-void TLobby__sub_8029350C(void);
+void snapshot_player_card_status__6TLobbyFv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 void create_obj_tag_challenge(s32);
 extern s32 tl_07;
@@ -519,7 +519,7 @@ void TLobby__sub_802934E0(void) {
     for (i = 0; i < 4; i++) (*(G_802934E0 *)&lbl_804DB1F0).r[i].f = 0;
 }
 
-void TLobby__sub_8029350C(void) {
+void snapshot_player_card_status__6TLobbyFv(void) {
     s32 i;
     TLobby__sub_802934E0();
     for (i = 0; i < 4; i++) {
@@ -531,7 +531,7 @@ void TLobby__sub_8029350C(void) {
     }
 }
 
-s32 TLobby__sub_8029359C(void *arg0) {
+s32 check_destruction_by_phase__6TLobbyFPv(void *arg0) {
     switch (get_main_phase()) {
     case 15:
         queue_destruction__7TObjectFv(arg0);
@@ -544,11 +544,11 @@ s32 TLobby__sub_8029359C(void *arg0) {
     }
 }
 
-void maybe_handle_destruction__6TLobbyFPv(void* p) { if (TLobby__sub_8029359C((void *)((void*)(p))) == 0) { TLobby__sub_802933FC((void *)(p)); } }
+void maybe_handle_destruction__6TLobbyFPv(void* p) { if (check_destruction_by_phase__6TLobbyFPv((void *)((void*)(p))) == 0) { TLobby__sub_802933FC((void *)(p)); } }
 
 void update_destruction_countdown__6TLobbyFPv(void *arg0) {
     if (TAdPlayerLoadGC__sub_801E1510() != 1) {
-        if (TLobby__sub_8029359C((void *)((void*)(arg0))) == 1) {
+        if (check_destruction_by_phase__6TLobbyFPv((void *)((void*)(arg0))) == 1) {
             queue_destruction__7TObjectFv(arg0);
         }
         maybe_handle_destruction__6TLobbyFPv((void*)((void*)(arg0)));
@@ -557,11 +557,11 @@ void update_destruction_countdown__6TLobbyFPv(void *arg0) {
 }
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
-void TLobby__sub_800707F4(void *, void *);
+void copy_challenge_settings__6TLobbyFPvPv(void *, void *);
 void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((u8 *)arg0 + 0x18) = (void *)lbl_804DB888;
-        TLobby__sub_800707F4(lbl_804DB1F0, &lbl_804DAB60);
+        copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &lbl_804DAB60);
         lbl_805D6580 = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -572,15 +572,15 @@ void *TLobby__sub_802936AC(void *arg0, s16 arg1) {
 }
 struct C_80293720 { s32 f0; u8 pad4[0x14]; void *f18; s32 f1c; s32 f20; s32 f24; s32 f28; };
 void __ct__7TObjectFP7TObject(void *, void *);
-void TLobby__sub_800707F4(void *, void *);
+void copy_challenge_settings__6TLobbyFPvPv(void *, void *);
 void fn_80076B14(void *);
 extern s32 lbl_805D3CA8;
 C_80293720 *TChallenge4P__ct(C_80293720 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->f18 = lbl_804DB888;
     arg0->f0 = lbl_805D3CA8;
-    TLobby__sub_800707F4(lbl_804DB1F0, &lbl_804DAB60);
-    ((void (*)(void *))TLobby__sub_8029350C)(arg0);
+    copy_challenge_settings__6TLobbyFPvPv(lbl_804DB1F0, &lbl_804DAB60);
+    ((void (*)(void *))snapshot_player_card_status__6TLobbyFv)(arg0);
     arg0->f1c = 0;
     arg0->f20 = 0;
     arg0->f24 = 1;

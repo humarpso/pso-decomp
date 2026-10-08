@@ -4,7 +4,7 @@ extern "C" {
 
 int copy_entry_bytes__10TObjPlayerFPvPv(void*, void*);
 void copy_data__18TCheckRoomSequenceFPvPv(void* p, void* a1);
-int TAdSinglePlyChrSelectGC__sub_80211584(void* a0 = 0);
+int init_item_entry__23TAdSinglePlyChrSelectGCFPv(void* a0 = 0);
 void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p);
 void TShopWindowBase__sub_802115F0(void);
 int is_confirmed__24TShopEquipmentSellWindowFPv(void* p);

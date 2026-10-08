@@ -2650,7 +2650,7 @@ int TObjEneMe1Canadin__vt107(void);
 void TObjEneMe1Canadin__vt111(void *arg0);
 void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1);
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1);
-void TObjEneMe1CanadinLeader__sub_8009E504(void *);
+void update_fade_sequence__23TObjEneMe1CanadinLeaderFPv(void *);
 struct Canadin_8009E504 {
     u8 pad0[0x4A4];
     f32 f4a4;
@@ -2722,7 +2722,7 @@ void setup__9TObjEneDDFPvii(void *, int, int);
 s32 is_alive__9TObjEneDDFPv(void *);
 s32 is_player_entity_id();
 int TObjEneDD__vt86(void*);
-void TObjEneDD__sub_800BA9BC(void *, s32, s32);
+void set_part_position__9TObjEneDDFPvPvi(void *, s32, s32);
 void init_model__9TObjEneDDFPv(void *, void *, s32);
 void set_active__9TObjEneDDFPv(void *);
 M2C_UNK move_with_wall_slide_commit__9TObjEneDDFPvfff(void *, f32, f32, f32);
@@ -3582,7 +3582,7 @@ void run_task__23TObjEneMe1CanadinLeaderFv(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
-        TObjEneMe1CanadinLeader__sub_8009E504((void *) (arg0));
+        update_fade_sequence__23TObjEneMe1CanadinLeaderFPv((void *) (arg0));
         update_formation_state__23TObjEneMe1CanadinLeaderFPv((void *)((void *) (arg0)));
     }
     ((M2C_UNK (*)(void *))copy_pos__17TObjEneMe1CanadinFPv)((void *) (arg0));
@@ -4722,7 +4722,7 @@ void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
 }
 
 #define p ((Canadin_8009E504 *)pv)
-void TObjEneMe1CanadinLeader__sub_8009E504(void *pv) {
+void update_fade_sequence__23TObjEneMe1CanadinLeaderFPv(void *pv) {
     switch (p->state) {
     case 0:
         break;
@@ -5017,7 +5017,7 @@ void run_task__17TObjEneMe1CanadinFv(u8 *arg0) {
     }
     if (((VObj_18_7dcedb *)(arg0))->m81() != 4) {
         ((VObj_18_7dcedb *)(arg0))->m83();
-        ((void (*)(void *))TObjEneMe1CanadinLeader__sub_8009E504)(arg0);
+        ((void (*)(void *))update_fade_sequence__23TObjEneMe1CanadinLeaderFPv)(arg0);
     }
     copy_pos__17TObjEneMe1CanadinFPv((u8 *)(arg0));
     ((int (*)(void *))set_player_state_default__12TBoss8DragonFPv)(arg0);
@@ -5105,7 +5105,7 @@ void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x4C0) = 0;
     M2C_FIELD(arg0, s32 *, 0x4C4) = 0;
     copy_pos__17TObjEneMe1CanadinFPv(arg0);
-    TObjEneDD__sub_800BA9BC(arg0, M2C_FIELD(arg0, s32 *, 0xA4), 0);
+    set_part_position__9TObjEneDDFPvPvi(arg0, M2C_FIELD(arg0, s32 *, 0xA4), 0);
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     ((VObj_8009F004 *)arg0)->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
     if (M2C_FIELD(arg0, void **, 0x3C0) != NULL) {

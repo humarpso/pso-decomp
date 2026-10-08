@@ -191,7 +191,7 @@ s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
 extern M2C_UNK lbl_805D4918;
 extern s32 lbl_805D7C98;
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
+s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern s16 lbl_805D4828;
 s16 TLobby__sub_80426BD8(void);
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lbl_805CFC20;
@@ -303,11 +303,11 @@ s32 EXIDma(s32, void *, s32, u32, void *);
 void TLobby__sub_80429AC8(s32, void *);
 extern u8 lbl_805D1120[];
 extern u32 lbl_805D7C68;
-void TLobby__sub_80429A38(s32 chan, void *ctx);
+void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
 void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_8042B9C0(void *p);
+s32 poll_exi_status__6TLobbyFPv(void *p);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
@@ -397,7 +397,7 @@ u8 *TLobby__sub_80425870(s32 arg0);
 extern u32 lbl_805D7BA8;
 void TLobby__sub_804253A0(s32 a);
 void cancel_thread_if_running__6TLobbyFi(void *);
-void TLobby__sub_803F9B48(void *);
+void deactivate_entry_by_key__6TLobbyFUi(void *);
 void TLobby__sub_80419DDC(void *);
 void TLobby__sub_80425BD0(void);
 extern s16 lbl_805D4828;
@@ -509,7 +509,7 @@ s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3) {
 
 #pragma push
 #pragma opt_propagation off
-s32 TLobby__sub_804249F0(s16 arg0, Arg_804249F0 *arg1) {
+s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1) {
     s32 TLobby__sub_80424830(u8 *p, u8 tag, u8 **out);
     G_804249F0 *g = &lbl_805C1E00;
     Pkt_804249F0 *pk;
@@ -640,7 +640,7 @@ void TLobby__sub_804259F0(void) {
 void TLobby__sub_80425B70(void) {
     if ((u32)lbl_805D7BB4 != 0) {
         cancel_thread_if_running__6TLobbyFi((void *)lbl_805D7BB4);
-        TLobby__sub_803F9B48((void *)lbl_805D7BB4);
+        deactivate_entry_by_key__6TLobbyFUi((void *)lbl_805D7BB4);
         lbl_805D7BB4 = 0;
     }
     TLobby__sub_80419DDC((void *)TLobby__sub_80425BD0);
@@ -652,7 +652,7 @@ void TLobby__sub_80425B70(void) {
 
 void TLobby__sub_80425BD0(void) {
     s32 sp8;
-    if (TLobby__sub_8042B9C0((void *)(&sp8)) == 1) {
+    if (poll_exi_status__6TLobbyFPv((void *)(&sp8)) == 1) {
         if (sp8 != (s32) lbl_805D7BB8) {
             lbl_805D7BB8 = sp8;
             lbl_805D7BBC = 1U;
@@ -954,7 +954,7 @@ s16 TLobby__sub_80426BD8(void) {
     if ((s16) lbl_805D4828 != -1) {
         return lbl_805D4828;
     }
-    if (TLobby__sub_8042B9C0((void *)((void *) (&sp8))) == 1) {
+    if (poll_exi_status__6TLobbyFPv((void *)((void *) (&sp8))) == 1) {
         if (sp8 == 1) {
             return 1;
         }
@@ -1035,7 +1035,7 @@ void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
 void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 
-void TLobby__sub_80429A38(s32 chan, void *ctx);
+void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 
 void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 
@@ -1047,7 +1047,7 @@ void TLobby__sub_8042B560(s32 arg0);
 
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 
-s32 TLobby__sub_8042B9C0(void *p);
+s32 poll_exi_status__6TLobbyFPv(void *p);
 
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 
@@ -1075,7 +1075,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0);
 
 s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
+s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
 s32 fn_8042E8B8(void);
 

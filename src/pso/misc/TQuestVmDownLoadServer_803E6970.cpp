@@ -414,7 +414,7 @@ extern M2C_UNK *lbl_805D78CC;
 extern M2C_UNK *lbl_805D78D0;
 extern M2C_UNK *lbl_805D78D4;
 extern M2C_UNK *lbl_805D78D8;
-void TQuestVmDownLoadServer__sub_803E6ED0(void);
+void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 extern RecoveredGlobal_803E721C_lbl_8047E698 lbl_8047E698;
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0);
 s32 strcpy(void *, void *);
@@ -902,7 +902,7 @@ void TQuestVmDownLoadServer__sub_803E6B70(u8 *dst, s32 start, s32 count, s32 mod
 typedef char RecoveredGlobal_803E6ED0_lbl_805A0470_size[sizeof(RecoveredGlobal_803E6ED0_lbl_805A0470) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_803E6ED0_lbl_805A0498_size[sizeof(RecoveredGlobal_803E6ED0_lbl_805A0498) == 0x138 ? 1 : -1];
 typedef char RecoveredGlobal_803E6ED0_lbl_805A05D0_size[sizeof(RecoveredGlobal_803E6ED0_lbl_805A05D0) == 0xC8 ? 1 : -1];
-void TQuestVmDownLoadServer__sub_803E6ED0(void) {
+void init_buffer_pointers__22TQuestVmDownLoadServerFv(void) {
     lbl_805D78CC = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
     lbl_805D78D0 = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
     lbl_805D78D4 = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;

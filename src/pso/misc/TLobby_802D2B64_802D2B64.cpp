@@ -30,7 +30,7 @@ extern u8 TLobby__data_805D688B;
 void TLobby__sub_802D2BC0(S_802D2BC0 *arg0);
 M2C_UNK send_cancel_trade__9TProtocolFv(s32);
 void reset__6TLobbyFv(void);
-void TLobby__sub_802D3284(s32, s32);
+void send_trade_proposal_result__6TLobbyFcc(s32, s32);
 extern s32 TLobby__data_805D5580;
 extern u8 TLobby__data_805D688B;
 void cancel_trade__6TLobbyFv(void);
@@ -123,7 +123,7 @@ void cancel_trade__6TLobbyFv(void) {
     case 0:
         break;
     case 1: case 2: case 3: case 4: case 5: case 6:
-        TLobby__sub_802D3284(5, 4);
+        send_trade_proposal_result__6TLobbyFcc(5, 4);
         reset__6TLobbyFv();
         break;
     case 7:

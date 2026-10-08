@@ -7,13 +7,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 get_battle_mode__10TObjPlayerFPv(void *);
 void set_field_1ab__10TObjPlayerFPvUc(void *, u8);
-void TObjPlayer__sub_802C3BE0(u8 *arg0, u8 *arg1);
+void copy_battle_mode__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 u8 get_byte_339__10TObjPlayerFPv(void *);
 void set_field_18f__10TObjPlayerFPvUc(void *, u8);
-void TObjPlayer__sub_802C3C18(u8 *arg0, u8 *arg1);
+void copy_byte_339_to_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 u8 get_mag_level__10TObjPlayerFPv(void *);
 void set_action_state__10TObjPlayerFPvUc(void *, u8);
-void TObjPlayer__sub_802C3C50(u8 *arg0, u8 *arg1);
+void copy_mag_level_to_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -28,15 +28,15 @@ int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 
 void begin_action_from_char_select__10TObjPlayerFv(void) { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); begin_action_state__10TObjPlayerFPv(); }
 
-void TObjPlayer__sub_802C3BE0(u8 *arg0, u8 *arg1) {
+void copy_battle_mode__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     set_field_1ab__10TObjPlayerFPvUc(arg1, get_battle_mode__10TObjPlayerFPv(arg0));
 }
 
-void TObjPlayer__sub_802C3C18(u8 *arg0, u8 *arg1) {
+void copy_byte_339_to_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     set_field_18f__10TObjPlayerFPvUc(arg1, get_byte_339__10TObjPlayerFPv(arg0));
 }
 
-void TObjPlayer__sub_802C3C50(u8 *arg0, u8 *arg1) {
+void copy_mag_level_to_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     set_action_state__10TObjPlayerFPvUc(arg1, get_mag_level__10TObjPlayerFPv(arg0));
 }
 

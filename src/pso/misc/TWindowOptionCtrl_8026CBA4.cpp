@@ -63,7 +63,7 @@ void TWindowCtrlMain__sub_8026CC28(Win_8026CC28 *w) {
     }
 }
 
-void TWindowCtrlMain__sub_8026CCA4(Node_8026CCA4 *w) {
+void resort_window_order__15TWindowCtrlMainFPv(Node_8026CCA4 *w) {
     Node_8026CCA4 *n;
     Grp_8026CCA4 *g;
     Node_8026CCA4 *last;

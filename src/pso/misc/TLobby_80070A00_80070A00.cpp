@@ -31,7 +31,7 @@ void init_on_main_phase__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80074C20();
 M2C_UNK TLobby__sub_8006F848(M2C_UNK *);
 u32 create__10TChallengeFv();
-M2C_UNK TObjTombstone__sub_800765B4();
+M2C_UNK load_resources__13TObjTombstoneFv();
 
 s32 get_main_phase();
 extern M2C_UNK lbl_804385B0[];
@@ -50,7 +50,7 @@ void init_on_main_phase__6TLobbyFv(void) {
         if ((s32) TLobby__data_805D4E30 != 0) {
             lbl_805D4E28 = create__10TChallengeFv();
             lbl_805D4E2C = 1;
-            TObjTombstone__sub_800765B4();
+            load_resources__13TObjTombstoneFv();
             TLobby__sub_8006F848(lbl_804385B0);
         }
     }

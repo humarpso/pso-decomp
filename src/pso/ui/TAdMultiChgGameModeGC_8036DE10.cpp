@@ -68,7 +68,7 @@ s32 is_visible__17TWindowSubComCardFPv(void *);
 void close_window_30__21TAdMultiChgGameModeGCFPv(void *arg0);
 void close_window__21TAdMultiChgGameModeGCFPv(void* p);
 s32 get_selected_menu_value(void *);
-void TAdMultiChgGameModeGC__sub_8036E3D4(u8 *arg0);
+void handle_menu_input__21TAdMultiChgGameModeGCFPv(u8 *arg0);
 void *__nw__7TObjectFUl(int);
 void *__ct__9TAdBackGCFv(void *, void *);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
@@ -88,7 +88,7 @@ s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E6A0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E6EC(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FD6B4();
-s32 TAdSinglePlyChrSelectGC__sub_801FF200();
+s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv();
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0);
 void TAdMultiChgGameModeGC__sub_8036E750(void);
@@ -342,7 +342,7 @@ M2C_UNK setup_mode_menu__21TAdMultiChgGameModeGCFPvi(void *arg0, M2C_UNK arg1) {
 }
 #undef self
 
-void TAdMultiChgGameModeGC__sub_8036E3D4(u8 *arg0) {
+void handle_menu_input__21TAdMultiChgGameModeGCFPv(u8 *arg0) {
     s32 temp_r3_2;
     u8 *temp_r3;
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void *)(arg0))) == 0) {
@@ -436,7 +436,7 @@ void TAdMultiChgGameModeGC__sub_8036E6EC(void) {  }
 void TAdMultiChgGameModeGC__sub_8036E6F0(s32 arg0) {
     if (((int)handle_mode_selection__21TAdMultiChgGameModeGCFPv((void *)((void*)arg0))) == 0) {
         TAdSinglePlyChrSelectGC__sub_801FD6B4();
-        if (TAdSinglePlyChrSelectGC__sub_801FF200() != 0) {
+        if (encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv() != 0) {
             set_state__21TAdMultiChgGameModeGCFPvi((u8 *)((void *)((void*)((void *) (arg0)))), (s32)((M2C_UNK)((void*)((int) (7)))));
             return;
         }

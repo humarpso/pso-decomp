@@ -24,7 +24,7 @@ M2C_UNK update_visibility__20TWindowSubSymbolChatFPv(s32);
 s32 set_selection__20TWindowSubSymbolChatFPvUi(void *, int);
 s32 get_window_layout_position(M2C_UNK);
 s32 is_card_confirmed__20TWindowSubSymbolChatFPv(void *arg0);
-u8 *TWindowSubSymbolChat__sub_802826E4(void *, s32);
+u8 *create_chat_symbol_window__20TWindowSubSymbolChatFii(void *, s32);
 s32 TWindowSubSymbolChat__sub_8028379C();
 void update_sub_window__20TWindowSubSymbolChatFPv(u8 *arg0);
 s32 add__20TWindowSubSymbolChatFPviiiii(int, int, int, int, int, int);
@@ -117,7 +117,7 @@ M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
 s32 draw_card_icon__17TWindowSubComCardFiii(s32, M2C_UNK, s32);
 M2C_UNK draw_text_gray__17TWindowSubComCardFiiii(s32, s32, M2C_UNK, M2C_UNK);
 M2C_UNK ensure_status_display__20TWindowSubStatusDispFPvi(s32, s32);
-M2C_UNK fn_80284CB8(s32);
+M2C_UNK select_symbol_chat_slot(s32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, M2C_UNK, M2C_UNK);
 s32 get_cursor_pos__20TWindowShortListCtrlFPv(s32);
 M2C_UNK get_keyboard_field_6c__15TWindowMakeTeamFPv(s32, s32);
@@ -197,7 +197,7 @@ void update_sub_window__20TWindowSubSymbolChatFPv(u8 *arg0) {
         }
     } else {
         if ((void *) M2C_FIELD(arg0, u8 **, 0x34) == NULL) {
-            M2C_FIELD(arg0, u8 **, 0x34) = TWindowSubSymbolChat__sub_802826E4(arg0, 0);
+            M2C_FIELD(arg0, u8 **, 0x34) = create_chat_symbol_window__20TWindowSubSymbolChatFii(arg0, 0);
             set_selection__20TWindowSubSymbolChatFPvUi((void *) (M2C_FIELD(arg0, u8 **, 0x34)), (int) (TWindowSubSymbolChat__sub_8028379C()));
             M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), s32 *, 0x64) = 1;
             copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (M2C_FIELD(arg0, u8 **, 0x30) + 0x30), (int) (get_window_layout_position((M2C_UNK)((int) (0x7C)))));
@@ -216,7 +216,7 @@ void update_state__20TWindowSubSymbolChatFPv(void *arg0) {
         M2C_FIELD(arg0, s8 *, 0x1C) = 0x18;
         return;
     case 26:
-        fn_80284CB8(M2C_FIELD(arg0, s32 *, 0x4C));
+        select_symbol_chat_slot(M2C_FIELD(arg0, s32 *, 0x4C));
         update_visibility__20TWindowSubSymbolChatFPv(M2C_FIELD(arg0, s32 *, 0x30));
         if (compute_total_height__20TWindowSubSymbolChatFv() <= 0) {
             M2C_FIELD(arg0, s8 *, 0x1C) = 4;

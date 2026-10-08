@@ -38,7 +38,7 @@ void TObjPlayer__sub_801BEF44(void *, void *);
 void TObjPlayer__sub_801C1F78(void *, s32);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D955C(void *, s32);
-void TObjPlayer__sub_801D9B90(void *, s32);
+void copy_all_technique_entries__10TObjPlayerFPvPv(void *, s32);
 void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_801BC948 *src);
 }
 
@@ -72,7 +72,7 @@ void init_session_technique_caps__10TObjPlayerFPvPv(Player_801BC948 *self, Src_8
     s32 i;
     TObjPlayer__sub_801C1F78(self->f4ac, obj_getField1c(self));
     TObjPlayer__sub_801D955C(self->techs, get_class_index__10TObjPlayerFPv(self));
-    TObjPlayer__sub_801D9B90(self->techs, 0x1D);
+    copy_all_technique_entries__10TObjPlayerFPvPv(self->techs, 0x1D);
     for (i = 0; i < 0x13; i++) {
         clamp_and_set_unit_value__10TObjPlayerFiUci(self, src->levels[i] + src->bonus[i].pad[0], i);
     }

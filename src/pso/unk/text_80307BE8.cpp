@@ -9,14 +9,14 @@ s32 get_field_3e4__10TObjPlayerFPv();
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
 M2C_UNK advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
-void fn_80307BE8(u8 *arg0);
+void update_players_in_range(u8 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void fn_80307BE8(u8 *arg0) {
+void update_players_in_range(u8 *arg0) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r28;

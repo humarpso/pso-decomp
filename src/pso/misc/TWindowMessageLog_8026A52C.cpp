@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_fade_offset__17TWindowMessageLogFPv(void *arg0);
-M2C_UNK TWindowMessageLog__sub_8026A434(void *);
+M2C_UNK clamp_scroll_offset__17TWindowMessageLogFPv(void *);
 M2C_UNK update_fade__17TWindowSubComCardFPv();
 
 extern f32 lbl_805DD240;
@@ -22,7 +22,7 @@ void update_fade_offset__17TWindowMessageLogFPv(void *arg0) {
     if (lbl_805DD240 != temp_f1) {
         M2C_FIELD(arg0, f32 *, 0x84) = (f32) (M2C_FIELD(arg0, f32 *, 0x84) - temp_f1);
         M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (M2C_FIELD(arg0, f32 *, 0x6C) - temp_f1);
-        TWindowMessageLog__sub_8026A434(arg0);
+        clamp_scroll_offset__17TWindowMessageLogFPv(arg0);
     }
 }
 

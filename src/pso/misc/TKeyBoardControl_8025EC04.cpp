@@ -90,7 +90,7 @@ void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1);
 M2C_UNK TKeyBoardControl__sub_8025CBC0(u32);
 M2C_UNK TKeyBoardControl__sub_8025CBCC(u32);
 M2C_UNK TKeyBoardControl__sub_8025CC04(u32);
-s32 TKeyBoardControl__sub_8025EDB4(void *, s32, u16 *);
+s32 translate_key_char__16TKeyBoardControlFPviPv(void *, s32, u16 *);
 u8 TKeyBoardControl__sub_8025F2F8(void *, u8);
 s32 TKeyBoardControl__sub_8025F3D4(void *, s32, u8);
 s32 TKeyBoardControl__sub_8025F4A0();
@@ -160,7 +160,7 @@ u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1) {
 }
 
 #define arg0 ((Ctl_8025EDB4 *)arg0_)
-s32 TKeyBoardControl__sub_8025EDB4(void *arg0_, s32 arg1, u16 *arg2) {
+s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg2) {
     s32 shift;
     u32 f;
     u16 c;
@@ -344,7 +344,7 @@ void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 7;
         return;
     }
-    temp_r31 = TKeyBoardControl__sub_8025EDB4(arg0, arg1, &sp8);
+    temp_r31 = translate_key_char__16TKeyBoardControlFPviPv(arg0, arg1, &sp8);
     if (sp8 == 0x1F) {
         M2C_FIELD(arg0, s32 *, 0x6C) = 7;
         return;

@@ -70,7 +70,7 @@ extern M2C_UNK lbl_8048C9D8[];
 extern u32 lbl_805D4E28;
 s32 TLobby__sub_80070FD8(void);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
-M2C_UNK TLobby__sub_8006F888(void *, void *, int, int);
+M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
 extern RecoveredGlobal_800713C8_lbl_804FF82C lbl_804FF82C;
 M2C_UNK *TLobby__sub_800713C8(void);
 extern M2C_UNK lbl_8048C9D8[];
@@ -364,7 +364,7 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg) {
 M2C_UNK *TLobby__sub_800713C8(void) {
     s32 temp_r3;
     temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
-    TLobby__sub_8006F888((void *) (&lbl_804FF82C.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
+    decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_804FF82C.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
     return &lbl_804FF82C.value;
 }
 

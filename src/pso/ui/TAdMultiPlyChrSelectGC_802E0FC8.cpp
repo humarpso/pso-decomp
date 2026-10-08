@@ -13,7 +13,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 void *init_player__22TAdMultiPlyChrSelectGCFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 extern RecoveredGlobal_802E1024_lbl_804E2F68 lbl_804E2F68;
-s32 TAdMultiPlyChrSelectGC__sub_802E1024(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
 extern "C" {
@@ -38,7 +38,7 @@ void *init_player__22TAdMultiPlyChrSelectGCFPvPvPvPvPv(void *arg0, void *arg1, v
 extern u32 lbl_805D68D8;
 
 typedef char RecoveredGlobal_802E1024_lbl_804E2F68_size[sizeof(RecoveredGlobal_802E1024_lbl_804E2F68) == 0x10 ? 1 : -1];
-s32 TAdMultiPlyChrSelectGC__sub_802E1024(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r30;
     s32 temp_r3;
     s32 var_r0;

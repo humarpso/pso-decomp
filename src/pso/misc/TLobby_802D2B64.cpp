@@ -40,7 +40,7 @@ void TLobby__sub_802D30E8(s32 arg0);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 extern s8 TLobby__data_805D688A;
-void TLobby__sub_802D3284(s8 arg0, s8 arg1);
+void send_trade_proposal_result__6TLobbyFcc(s8 arg0, s8 arg1);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 extern s8 TLobby__data_805D688A;
@@ -192,7 +192,7 @@ char TLobby__sub_802D3228(s8 arg0, s32 arg1, s32 arg2) {
   prepare_and_send_trade_packet__6TLobbyFPvPv((void *)((s32) (&stack.sp8)), (void *)((s32) ((s8) (*(u8 *)&TLobby__data_805D688A))));
 }
 
-void TLobby__sub_802D3284(s8 arg0, s8 arg1) {
+void send_trade_proposal_result__6TLobbyFcc(s8 arg0, s8 arg1) {
   G_ModifyTradeProposal_6xA6 packet;
   s8 new_var;
   arg1++;

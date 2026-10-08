@@ -139,12 +139,12 @@ M2C_UNK create_fire_explosion_effect(void *, void *, s32, s32, f32);
 M2C_UNK TObjPlayer__sub_802E449C(void *);
 extern s32 tl_particle;
 extern const f32 lbl_805DF0B8;
-s32 fn_80308294(u32 a0, s32 a1);
+s32 spawn_fire_explosion_at(u32 a0, s32 a1);
 }
 
 extern "C" {
 
-s32 fn_80308294(u32 a0, s32 a1) {
+s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     Info_8034F4FC info;
     void *o;
     TObjPlayer__sub_802E449C(&info);

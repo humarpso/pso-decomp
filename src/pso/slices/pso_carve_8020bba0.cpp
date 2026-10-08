@@ -4,7 +4,7 @@ struct Obj_8020BBA0 { u8 pad[0xC]; Obj_8020BBA0 *next; u8 pad2[4]; Obj_8020BBA0 
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-void TLobby__sub_8020BBA0(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1);
+void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1);
 }
 
 extern "C" {
@@ -20,7 +20,7 @@ int attach_objects_by_id__6TLobbyFi(void);
 int TLobby__sub_8020DBCC(void);
 int init_switch_table(void);
 
-void TLobby__sub_8020BBA0(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1) {
+void destroy_child_recursive__6TLobbyFPvPv(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1) {
     Obj_8020BBA0 *p = arg0->child;
     Obj_8020BBA0 *cur;
     while (arg0->child != 0 && p != 0) {
@@ -29,7 +29,7 @@ void TLobby__sub_8020BBA0(Obj_8020BBA0 *arg0, Obj_8020BBA0 *arg1) {
         if (cur == arg1) {
             queue_destruction__7TObjectFv(cur);
         } else {
-            TLobby__sub_8020BBA0(cur, arg1);
+            destroy_child_recursive__6TLobbyFPvPv(cur, arg1);
         }
     }
 }

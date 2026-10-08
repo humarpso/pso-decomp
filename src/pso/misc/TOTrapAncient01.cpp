@@ -261,7 +261,7 @@ extern RecoveredGlobal_80179E34_lbl_804B4834 lbl_804B4834;
 extern u32 TOTrapAncient01__data_805D5AD0;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
-void TOTrapAncient01__sub_80179E34(void);
+void load_resources__15TOTrapAncient01Fv(void);
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
 M2C_UNK unregister_object_by_id(void *);
 M2C_UNK free_collision_body_parts(void *);
@@ -478,7 +478,7 @@ extern M2C_UNK lbl_8050BEE0[];
 extern M2C_UNK lbl_804A7468[];
 
 typedef struct RecoveredGlobal_80179E34_lbl_804B4834 RecoveredGlobal_80179E34_lbl_804B4834;
-void TOTrapAncient01__sub_80179E34(void) {
+void load_resources__15TOTrapAncient01Fv(void) {
   s32 temp_r31;
   int new_var;
   s32 temp_r3;

@@ -53,7 +53,7 @@ s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u32 lbl_8050DB70[];
 extern s32 lbl_805D3190;
 extern int lbl_805D5AC8;
-void TOSymbolchatColli__sub_801789D4(void);
+void load_symbol_chat_data__17TOSymbolchatColliFv(void);
 }
 
 extern "C" {
@@ -128,7 +128,7 @@ void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(lbl
 
 extern M2C_UNK __vt__17TOSymbolchatColli[];
 
-void TOSymbolchatColli__sub_801789D4(void) {
+void load_symbol_chat_data__17TOSymbolchatColliFv(void) {
     s32 h;
     s32 i;
     lbl_805D5AC8 = alloc_buffer__11TOBoss4RockFPv(0x840);

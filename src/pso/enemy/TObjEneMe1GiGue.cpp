@@ -51,7 +51,7 @@ s32 check_vector_bit__15TObjEneMe1GiGueFii(s32 arg0, s32 arg1);
 void TObjEneMe1GiGue__sub_802CACD8(u8 *arg0);
 s32 check_and_trigger__15TObjEneMe1GiGueFi(s32 arg0);
 void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1);
-void TObjEneMe1GiGue__sub_802CAF24(s32 arg0);
+void load_params__15TObjEneMe1GiGueFi(s32 arg0);
 void update_direction__15TObjEneMe1GiGueFPv(void *arg0);
 void TObjEneMe1GiGue__sub_802CB03C(u8 *arg0);
 s32 TObjEneMe1GiGue__sub_802CB10C(S_802CB10C *arg0);
@@ -676,7 +676,7 @@ extern f32 lbl_805D6848;
 extern f32 lbl_805D684C;
 extern s32 lbl_805D6850;
 extern s32 lbl_805D6854;
-void TObjEneMe1GiGue__sub_802CAF24(s32 arg0);
+void load_params__15TObjEneMe1GiGueFi(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
@@ -804,7 +804,7 @@ void find_open_direction__15TObjEneMe1GiGueFPvPv(u8 *arg0, Vec_802CAD98 *arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneMe1GiGue__sub_802CAF24(s32 arg0) {
+void load_params__15TObjEneMe1GiGueFi(s32 arg0) {
     lbl_805D6840 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 1);
     lbl_805D6844 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 2);
     lbl_805D6848 = TObjEneMe1GiGue__sub_802CDAD8(arg0, 3);
@@ -2092,7 +2092,7 @@ f32 xz_distance_squared(void *, void *);
 M2C_UNK submit_cursor_candidate(void *, int);
 M2C_UNK minimap_render_dot(void *, int, int, int);
 void * __nw__7TObjectFUl(int);
-#define TObjEneMe1GiGue__sub_802CAF24 ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CAF24)
+#define load_params__15TObjEneMe1GiGueFi ((M2C_UNK (*)(void *))load_params__15TObjEneMe1GiGueFi)
 #define init__15TObjEneMe1GiGueFPv ((s32 (*)(void *))init__15TObjEneMe1GiGueFPv)
 #define TObjEneMe1GiGue__sub_802CB378 ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB378)
 #define TObjEneMe1GiGue__sub_802CB6D4 ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CB6D4)
@@ -2127,7 +2127,7 @@ extern void *tl_04;
 
 void TObjEneMe1GiGue__sub_802CD054(void) {  }
 }
-#undef TObjEneMe1GiGue__sub_802CAF24
+#undef load_params__15TObjEneMe1GiGueFi
 #undef init__15TObjEneMe1GiGueFPv
 #undef TObjEneMe1GiGue__sub_802CB378
 #undef TObjEneMe1GiGue__sub_802CB6D4
@@ -2299,7 +2299,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
 #undef pop_matrix
 #undef set_global_flag__10TObjPlayerFv
 #undef clear_global_state__10TObjPlayerFv
-#define TObjEneMe1GiGue__sub_802CAF24 ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CAF24)
+#define load_params__15TObjEneMe1GiGueFi ((M2C_UNK (*)(void *))load_params__15TObjEneMe1GiGueFi)
 #define init__15TObjEneMe1GiGueFPv ((s32 (*)(void *))init__15TObjEneMe1GiGueFPv)
 #define TObjEneMe1GiGue__sub_802CB378 ((s32 (*)(void *))TObjEneMe1GiGue__sub_802CB378)
 #define TObjEneMe1GiGue__sub_802CB6D4 ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CB6D4)
@@ -2370,7 +2370,7 @@ void update_movement__15TObjEneMe1GiGueFPv(u8 *arg0) {
     u8 *temp_r3_4;
 
     if (check_demo_mode__10TObjPlayerFv() == 1) {
-        TObjEneMe1GiGue__sub_802CAF24((void *) (arg0));
+        load_params__15TObjEneMe1GiGueFi((void *) (arg0));
         ((M2C_UNK (*)(void *))TObjEneMe1GiGue__sub_802CD054)((void *) (arg0));
         return;
     }
@@ -2499,7 +2499,7 @@ extern int fold_flush_0;
 
 }
 
-#undef TObjEneMe1GiGue__sub_802CAF24
+#undef load_params__15TObjEneMe1GiGueFi
 #undef init__15TObjEneMe1GiGueFPv
 #undef TObjEneMe1GiGue__sub_802CB378
 #undef TObjEneMe1GiGue__sub_802CB6D4
@@ -2609,7 +2609,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, void **, 0x350) = lbl_804E12E8;
     bind_enemy_combat_stats(arg0, lbl_805D6828, lbl_805D682C, lbl_805D6830);
     update_direction__15TObjEneMe1GiGueFPv(arg0);
-    ((void (*)(void *))TObjEneMe1GiGue__sub_802CAF24)(arg0);
+    ((void (*)(void *))load_params__15TObjEneMe1GiGueFi)(arg0);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));

@@ -20,6 +20,13 @@ extern u8 *TLobby__data_805D6CD4;
 extern const f32 lbl_805DF7A8;
 extern const f32 lbl_805DF7AC;
 void TLobby__sub_8032C9A8(s32 arg0, s32 arg1);
+s32 GBAJoyBootAsync(s32, s32, s32, u8 *, s32, u8 *, void (*)(s32, s32));
+void TLobby__sub_8032C7A8(s32, s32);
+extern s32 TLobby__data_805D6CCC;
+extern s32 lbl_805D6CD0;
+extern u8 *TLobby__data_805D6CD4;
+extern u8 lbl_805D6CD8;
+s32 TLobby__sub_8032CB08(void);
 }
 
 extern "C" {
@@ -57,6 +64,15 @@ void TLobby__sub_8032C9A8(s32 arg0, s32 arg1) {
     }
 }
 #pragma pop
+
+s32 TLobby__sub_8032CB08(void) {
+    if (GBAJoyBootAsync(3, 0, 4, TLobby__data_805D6CD4, lbl_805D6CD0, &lbl_805D6CD8, TLobby__sub_8032C7A8) == 0) {
+        TLobby__data_805D6CCC = 3;
+        return 1;
+    }
+    TLobby__data_805D6CCC = 1;
+    return 0;
+}
 
 void TLobby__sub_8032CDC0(void) { lbl_805D6CD9 = 0; lbl_805D6CDA = 0; }
 

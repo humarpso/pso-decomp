@@ -225,7 +225,7 @@ void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
 s32 refresh_collision_body_centers(void *);
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0);
 void update_collisions__10TObjPlayerFPv(void *);
-void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self);
+void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self);
 }
 
 extern "C" {
@@ -278,7 +278,7 @@ void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self) {
     self->angle += 0x800;
 }
 
-void TBoss3VoloptHiraisin__sub_800411F0(Hira_800411F0 *self) {
+void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
     switch (self->state) {
     case 0:
         self->unkB8 = 4;
@@ -378,7 +378,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 #undef advance_animation_playback
 #define copy_position__20TBoss3VoloptHiraisinFi ((M2C_UNK (*)(void *))copy_position__20TBoss3VoloptHiraisinFi)
 #define TBoss3VoloptHiraisin__sub_8004118C ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_8004118C)
-#define TBoss3VoloptHiraisin__sub_800411F0 ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_800411F0)
+#define update_drop__20TBoss3VoloptHiraisinFPv ((M2C_UNK (*)())update_drop__20TBoss3VoloptHiraisinFPv)
 #define TBoss3VoloptHiraisin__sub_80041314 ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_80041314)
 #define fn_80040FDC ((M2C_UNK (*)())fn_80040FDC)
 #define lbl_805D4C88 (*(void **)&lbl_805D4C88)
@@ -486,7 +486,7 @@ void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
         TBoss3VoloptHiraisin__sub_80041314();
         break;
     case 5:
-        TBoss3VoloptHiraisin__sub_800411F0();
+        update_drop__20TBoss3VoloptHiraisinFPv();
         break;
     case 7:
         fn_80040FDC();
@@ -555,7 +555,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 }
 #undef copy_position__20TBoss3VoloptHiraisinFi
 #undef TBoss3VoloptHiraisin__sub_8004118C
-#undef TBoss3VoloptHiraisin__sub_800411F0
+#undef update_drop__20TBoss3VoloptHiraisinFPv
 #undef TBoss3VoloptHiraisin__sub_80041314
 #undef fn_80040FDC
 #undef lbl_805D4C88

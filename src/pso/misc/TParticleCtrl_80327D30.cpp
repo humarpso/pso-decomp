@@ -67,7 +67,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_texture_num(int);
 M2C_UNK reset_particles__13TParticleCtrlFv();
 M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
-M2C_UNK TParticleCtrl__sub_803E2B68(int);
+M2C_UNK setup_particle_draw__13TParticleCtrlFi(int);
 extern u8 lbl_804C5820[];
 extern u8 *lbl_805D4DF0;
 void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o);
@@ -112,7 +112,7 @@ void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o) {
         load_projected_texture_matrix(1.1333334f);
         set_global_param__8TObjFishFi(*(s32 *)(lbl_804C5820 + 0x16C));
         set_texture_num(o->f31);
-        TParticleCtrl__sub_803E2B68(1);
+        setup_particle_draw__13TParticleCtrlFi(1);
         GXSetNumTevStages(2);
         GXSetNumTexGens(2);
         play_particle__13TParticleCtrlFPvis((void *)(o->f40), (s32)(0), (s16)(-1));

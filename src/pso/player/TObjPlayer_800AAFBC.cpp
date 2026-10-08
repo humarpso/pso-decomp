@@ -220,7 +220,7 @@ M2C_UNK spawn_particle_effect(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern Pair_800AB0EC lbl_8043ACEC[];
 extern const f32 lbl_805D9B58;
-M2C_UNK TObjPlayer__sub_800AB0EC(void *arg0, int arg1);
+M2C_UNK try_hit_target__10TObjPlayerFPvi(void *arg0, int arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
 f32 newton_sqrtf();
@@ -318,7 +318,7 @@ s32 TObjPlayer__sub_800AB068(u8 *arg0) {
   return 0;
 }
 
-M2C_UNK TObjPlayer__sub_800AB0EC(void *arg0, int arg1) {
+M2C_UNK try_hit_target__10TObjPlayerFPvi(void *arg0, int arg1) {
     u8 *e = (u8 *)arg1;
     Obj_800AB0EC *o = (Obj_800AB0EC *)arg0;
     if (e != NULL && !(*(s32 *)(e + 0x30) & 0xA00) && !(xz_distance_squared(o->pos, e + 0x2FC) > lbl_805D9B58)) {
@@ -366,7 +366,7 @@ void TObjPlayer__sub_800AB1C8(u8 *arg0) {
     {
     }
     new_var = get_player_by_client_id((int) var_r31);
-    TObjPlayer__sub_800AB0EC((void *)((void *) arg0), (int)((int) new_var));
+    try_hit_target__10TObjPlayerFPvi((void *)((void *) arg0), (int)((int) new_var));
     var_r31 += 1;
   }
   while (var_r31 < 0xC);

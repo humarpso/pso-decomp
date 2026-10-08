@@ -9,7 +9,7 @@ extern u8 lbl_804E0C00[];
 extern s32 lbl_80540B30[5];
 extern s32 lbl_80540B44[5];
 extern void *lbl_805D6808;
-void TObjSeabedSuisoBrakable__sub_802C9A58(void);
+void load_shared_models__23TObjSeabedSuisoBrakableFv(void);
 }
 
 extern "C" {
@@ -24,7 +24,7 @@ void set_damage__20TOTrapChainSawDamageFPvi(void* p, s32 v);
 void TOTrapChainSaw__vt23(void);
 void TOTrapChainSaw__vt14(void);
 
-void TObjSeabedSuisoBrakable__sub_802C9A58(void) {
+void load_shared_models__23TObjSeabedSuisoBrakableFv(void) {
     void *p;
     s32 i;
     s32 h;

@@ -27,7 +27,7 @@ int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
 extern s32 *TLobby__data_805D5E78;
 extern char lbl_805DC4B4[4];
-void TLobby__sub_801E6AA0(s32 arg0);
+void append_int_param__6TLobbyFi(s32 arg0);
 int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
 extern char lbl_80449C90[];
@@ -36,7 +36,7 @@ int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
 extern s32 *TLobby__data_805D5E78;
 extern char lbl_805DC4B0[4];
-void TLobby__sub_801E6A60(s32 arg0);
+void append_float_value__6TLobbyFi(s32 arg0);
 int sprintf(char *, const char *, ...);
 void append_string(s32 arg0);
 s32 TObjItemOKWindow__sub_801F3268();
@@ -107,13 +107,13 @@ void TLobby__sub_801E6A04(void) {
     append_string((s32)buf);
 }
 
-void TLobby__sub_801E6A60(s32 arg0) {
+void append_float_value__6TLobbyFi(s32 arg0) {
     char buf[64];
     sprintf(buf, lbl_805DC4B0, ((f32 *)TLobby__data_805D5E78)[arg0]);
     append_string((s32)buf);
 }
 
-void TLobby__sub_801E6AA0(s32 arg0) {
+void append_int_param__6TLobbyFi(s32 arg0) {
     char buf[64];
     sprintf(buf, lbl_805DC4B4, TLobby__data_805D5E78[arg0]);
     append_string((s32)buf);

@@ -63,7 +63,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void *spawn_particle_effect(void *, int);
 s32 play_sound_effect(int, void *, int, int);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
-void TBoss4Type2__sub_8004A98C(void *);
+void scroll_strips__11TBoss4Type2FPv(void *);
 void queue_destruction__7TObjectFv(void *);
 void TBoss3Volopt__sub_8004DA7C(u8 *self);
 }
@@ -198,7 +198,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
         break;
     }
-    TBoss4Type2__sub_8004A98C(self + 0x94);
+    scroll_strips__11TBoss4Type2FPv(self + 0x94);
     if (++M2C_FIELD(self, s32 *, 0x90) >= 0x118) {
         queue_destruction__7TObjectFv(self);
     }

@@ -16,7 +16,7 @@ void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src);
 extern u16 lbl_805D5CD4;
 extern u16 lbl_805D5CD6;
-u16 TLobby__sub_801A2078(s32 arg);
+u16 alloc_actor_ids__6TLobbyFi(s32 arg);
 }
 
 extern "C" {
@@ -73,13 +73,13 @@ u16 get_or_assign_actor_id(void *arg0, s32 arg1) {
             break;
         default:
         case 0x40000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = TLobby__sub_801A2078((s32)(arg1));
+            M2C_FIELD(arg0, u16 *, 0x1C) = alloc_actor_ids__6TLobbyFi((s32)(arg1));
             break;
         }
     }
     return M2C_FIELD(arg0, u16 *, 0x1C);
 }
-u16 TLobby__sub_801A2078(s32 arg) {
+u16 alloc_actor_ids__6TLobbyFi(s32 arg) {
     u16 n = arg;
     s32 id = lbl_805D5CD4;
     if (id + n + 1 >= 0xFFFF) {

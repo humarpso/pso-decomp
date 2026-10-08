@@ -11,21 +11,21 @@ void TAdSinglePlyChrSelectGC__sub_801FF2D4(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 load_system_file(s32);
-s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32);
+s32 verify_save_checksum__23TAdSinglePlyChrSelectGCFi(s32);
 extern s32 lbl_805D5FA8;
-u8 TAdSinglePlyChrSelectGC__sub_801FF310(void);
+u8 load_system_file_blocking__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 load_selected_character__23TAdSinglePlyChrSelectGCFv();
 s32 apply_loaded_character__23TAdSinglePlyChrSelectGCFi(s32);
 extern s32 lbl_805D5FA8;
-u8 TAdSinglePlyChrSelectGC__sub_801FF384(void);
+u8 load_character_and_wait__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
 void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
 s32 load_player__23TAdSinglePlyChrSelectGCFv();
 s32 load_and_verify_data(s32);
 extern s32 lbl_805D5FA8;
-u8 TAdSinglePlyChrSelectGC__sub_801FF3F4(void);
+u8 load_player_and_wait__23TAdSinglePlyChrSelectGCFv(void);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ void TAdSinglePlyChrSelectGC__sub_801FF2D4(void) {
     lbl_805D5FA8 = 0;
     if (r == 0) lbl_805D5FA8 = 1;
 }
-u8 TAdSinglePlyChrSelectGC__sub_801FF310(void) {
+u8 load_system_file_blocking__23TAdSinglePlyChrSelectGCFv(void) {
     s32 r = load_system_file(1);
     lbl_805D5FA8 = 0;
     if (r == 0) {
@@ -70,9 +70,9 @@ u8 TAdSinglePlyChrSelectGC__sub_801FF310(void) {
         run_save_load_sequence__23TAdSinglePlyChrSelectGCFv();
     }
     lbl_805D5FA8 = 0;
-    return TAdSinglePlyChrSelectGC__sub_801FFE44(1) == 0;
+    return verify_save_checksum__23TAdSinglePlyChrSelectGCFi(1) == 0;
 }
-u8 TAdSinglePlyChrSelectGC__sub_801FF384(void) {
+u8 load_character_and_wait__23TAdSinglePlyChrSelectGCFv(void) {
     s32 r = load_selected_character__23TAdSinglePlyChrSelectGCFv();
     lbl_805D5FA8 = 0;
     if (r == 0) {
@@ -87,7 +87,7 @@ u8 TAdSinglePlyChrSelectGC__sub_801FF384(void) {
     lbl_805D5FA8 = 0;
     return apply_loaded_character__23TAdSinglePlyChrSelectGCFi(1) == 0;
 }
-u8 TAdSinglePlyChrSelectGC__sub_801FF3F4(void) {
+u8 load_player_and_wait__23TAdSinglePlyChrSelectGCFv(void) {
     s32 r = load_player__23TAdSinglePlyChrSelectGCFv();
     lbl_805D5FA8 = 0;
     if (r == 0) {

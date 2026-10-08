@@ -30,10 +30,10 @@ extern "C" {
 
 void reset_selection__9TWindowDDFPv(void* a0);
 void update_selected_id__9TWindowDDFPv(void *arg0);
-int TWindowDD__sub_803467CC(void);
+int build_item_list__9TWindowDDFPv(void);
 
     extern short lbl_805D6E24;
-void reset_selection__9TWindowDDFPv(void* a0) { *(short*)((char*)a0 + 0x1c) = -1; lbl_805D6E24 = -1; TWindowDD__sub_803467CC(); }
+void reset_selection__9TWindowDDFPv(void* a0) { *(short*)((char*)a0 + 0x1c) = -1; lbl_805D6E24 = -1; build_item_list__9TWindowDDFPv(); }
 
 extern s16 lbl_805D6E24;
 

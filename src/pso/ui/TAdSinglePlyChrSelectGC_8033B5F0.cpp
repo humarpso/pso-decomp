@@ -101,7 +101,7 @@ extern "C" {
 extern "C" void reset_default_view__11TCameraCtrlFv();
 extern "C" void init_default_view__11TCameraCtrlFv();
 extern "C" void TCameraCtrl__sub_8006A35C();
-extern "C" void TWindowCtrlMain__sub_8024D690();
+extern "C" void free_all_windows__15TWindowCtrlMainFv();
 extern "C" void TWindowCtrlMain__sub_8024D838();
 extern "C" void free_global__23TAdSinglePlyChrSelectGCFv();
 extern "C" void free_keyboard_soft_resources__6TLobbyFv();
@@ -113,7 +113,7 @@ extern "C" void update_keyboard_menu__6TLobbyFv();
 void *lbl_804EF728[12] = {
     (void *)&TCameraCtrl__sub_8006A35C, (void *)&reset__11TCameraCtrlFv, (void *)&init_default_view__11TCameraCtrlFv, (void *)&reset_default_view__11TCameraCtrlFv,
     (void *)&register_texture_f256_ad_pic_2, (void *)&free_global__23TAdSinglePlyChrSelectGCFv, (void *)&register_texture_f256_backtext, (void *)&free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
-    (void *)&TWindowCtrlMain__sub_8024D838, (void *)&TWindowCtrlMain__sub_8024D690, (void *)&update_keyboard_menu__6TLobbyFv, (void *)&free_keyboard_soft_resources__6TLobbyFv,
+    (void *)&TWindowCtrlMain__sub_8024D838, (void *)&free_all_windows__15TWindowCtrlMainFv, (void *)&update_keyboard_menu__6TLobbyFv, (void *)&free_keyboard_soft_resources__6TLobbyFv,
 };
 
 void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {

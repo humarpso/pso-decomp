@@ -50,7 +50,7 @@ extern char lbl_8047DF3C[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern M2C_UNK lbl_805D765C;
-void TLobby__sub_803D3678(s32 arg0, s32 arg1);
+void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
 int vsprintf(char *s, const char *fmt, va_list ap);
 extern M2C_UNK lbl_805D765C;
@@ -67,7 +67,7 @@ extern char lbl_8047DF5C[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 extern M2C_UNK lbl_805D765C;
-s32 TLobby__sub_803D3750(s32 arg0, s32 fn, s32 arg);
+s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg);
 }
 
 extern "C" {
@@ -189,7 +189,7 @@ void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg) {
     }
 }
 
-void TLobby__sub_803D3678(s32 arg0, s32 arg1) {
+void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1) {
     if (arg1 < 0 || arg1 >= 4) {
         strncpy((char *)lbl_8058B4A0, lbl_8047DF3C, 0xFF);
         if (CB765C.fn != 0) {
@@ -207,7 +207,7 @@ void TLobby__sub_803D3678(s32 arg0, s32 arg1) {
 }
 
 #define CB765C (*(P_803D3860 *)&lbl_805D765C)
-s32 TLobby__sub_803D3750(s32 arg0, s32 fn, s32 arg) {
+s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg) {
     Cb_803D3678 *c;
     s32 i;
     if ((void (*)(s32))lbl_805D766C.a != 0) {

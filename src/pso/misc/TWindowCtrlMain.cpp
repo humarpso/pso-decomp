@@ -57,7 +57,7 @@ extern void *TWindowCtrlMain__data_805D6408;
 extern void *TWindowCtrlMain__data_805D640C;
 extern void *TWindowCtrlMain__data_805D6410;
 extern void *TWindowCtrlMain__data_805D6414;
-void TWindowCtrlMain__sub_8024D690(void);
+void free_all_windows__15TWindowCtrlMainFv(void);
 M2C_UNK load_hud_palette_textures();
 void init_fields__15TWindowCtrlMainFPv(void *);
 M2C_UNK TWindowKeyBoardSoft__sub_8024EDF8();
@@ -194,7 +194,7 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     return arg0;
 }
 
-void TWindowCtrlMain__sub_8024D690(void) {
+void free_all_windows__15TWindowCtrlMainFv(void) {
     W_8024D690 *root;
     s32 i;
     root = (W_8024D690 *)TWindowCtrlMain__data_805D6408;

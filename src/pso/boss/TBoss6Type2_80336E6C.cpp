@@ -16,7 +16,7 @@ s32 set_action__11TBoss6Type2FPvi(void * a0, s32 a1);
 extern const f32 lbl_805DF980;
 extern const f32 lbl_805DF984;
 void TBoss6Type2__sub_80336F54(u8 *arg0);
-int TBoss6Type2__sub_8032E7B4(void*, void*);
+int ensure_particle_emitter__11TBoss6Type2FPvi(void*, void*);
 void TBoss6Type2__sub_8032F304();
 void TBoss6Type2__sub_80337054(O_80337054 *arg0);
 }
@@ -33,8 +33,8 @@ void tick_attack_timer__11TBoss6Type2FPv(void *arg0);
 void update_attack_state__11TBoss6Type2FPv(void *arg0);
 void update_effect_subsystems__11TBoss6Type2FPv(void *arg0);
 int play_sound_effect(void*, void*, void*, void*);
-int TBoss6Type2__sub_8032E770(void*, void*);
-int TBoss6Type2__sub_8032E7B4(void*, void*);
+int destroy_part_object__11TBoss6Type2Fii(void*, void*);
+int ensure_particle_emitter__11TBoss6Type2FPvi(void*, void*);
 s32 enforce_min_distance__11TBoss6Type2FPv(void *);
 s32 push_out_from_points__11TBoss6Type2FPv(void *);
 s32 push_out_from_target__11TBoss6Type2FPv(void *);
@@ -63,7 +63,7 @@ void TBoss6Type2__sub_80336E6C(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); TBoss6Type2__sub_8032E770((void*)(p), (void*)((void*)0)); }
+void TBoss6Type2__sub_80336F00(void* p) { *(int*)((char*)p + 0x3cc) = 0; play_sound_effect((void*)438292, (char*)p + 0x38, (void*)0, (void*)0); destroy_part_object__11TBoss6Type2Fii((void*)(p), (void*)((void*)0)); }
 
 #pragma push
 #pragma opt_common_subs off
@@ -80,11 +80,11 @@ void TBoss6Type2__sub_80336F54(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; TBoss6Type2__sub_8032E7B4(p, (void*)0); }
+void TBoss6Type2__sub_80336FB8(void* p) { *(int*)((char*)p + 0x3cc) = 0; ensure_particle_emitter__11TBoss6Type2FPvi(p, (void*)0); }
 void tick_attack_timer__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) - 1);
     if ((s32) M2C_FIELD(arg0, s32 *, 0x3CC) < 0) {
-        TBoss6Type2__sub_8032E770((void*)(arg0), (void*)(3));
+        destroy_part_object__11TBoss6Type2Fii((void*)(arg0), (void*)(3));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x40C) != 0) {
             set_action__11TBoss6Type2FPvi(arg0, 1);
             return;
@@ -102,7 +102,7 @@ void TBoss6Type2__sub_80337054(O_80337054 *arg0) {
     default:
         break;
     }
-    TBoss6Type2__sub_8032E7B4((void*)(arg0), (void*)((void *)3));
+    ensure_particle_emitter__11TBoss6Type2FPvi((void*)(arg0), (void*)((void *)3));
 }
 
 void update_effect_subsystems__11TBoss6Type2FPv(void *arg0) {

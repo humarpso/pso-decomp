@@ -89,7 +89,7 @@ s32 TLobby__sub_80076F48(void *, void *);
 s32 send_symbol_chat__20TWindowSubSymbolChatFPv(void *);
 s32 TWindowSubSymbolChat__sub_80077704(void *);
 extern s32 lbl_805D53A0;
-void TWindowSubSymbolChat__sub_80076F88(s32 *arg0);
+void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0);
 s32 play_sound_effect(s32, u32, s16, s32);
 extern RecoveredGlobal_800773BC_lbl_80438830 lbl_80438830;
 void TWindowSubSymbolChat__sub_800773BC(s32 arg0);
@@ -161,7 +161,7 @@ extern "C" {
 }
 extern "C" {
 
-void TWindowSubSymbolChat__sub_80076F88(s32 *arg0) {
+void send_selected_symbol_chat__20TWindowSubSymbolChatFPv(s32 *arg0) {
     G_SymbolChat_6x07 packet;
     s32 temp_r4;
     TWindowSubSymbolChat__sub_80077704((void *) (&packet.header));

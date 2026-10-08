@@ -140,7 +140,7 @@ void update_technique_slot__10TTecRaFoieFi(s32 handle, s32 pitch, s32 c);
 s32 play_sound_effect(s32 id, void *pos, s32 a, s32 b);
 void *__nw__7TObjectFUl(int);
 void construct_area_technique_base(void *, void *, void *, void *, int);
-void TTecRaZonde__sub_80238D10(u8 *arg0);
+void calc_damage__11TTecRaZondeFPv(u8 *arg0);
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -388,7 +388,7 @@ u8 *create_fire_explosion_effect(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f3
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
-void TTecRaZonde__sub_80238D10(u8 *arg0);
+void calc_damage__11TTecRaZondeFPv(u8 *arg0);
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
@@ -459,7 +459,7 @@ void TTecRaZonde__vt6(struct Self_80238C6C *self) {
     }
 }
 
-void TTecRaZonde__sub_80238D10(u8 *arg0) {
+void calc_damage__11TTecRaZondeFPv(u8 *arg0) {
   s32 new_var;
   new_var = calc_technique_parameters((int) 8, (int) ((RecoveredFields_80238D10_arg0 *) arg0)->field_78, (int) 0xFFFF);
   copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (int) new_var);
@@ -599,7 +599,7 @@ void *TTecRaZonde__ct(void *self_, void *source, void *origin, void *level) {
     construct_area_technique_base(self_, source, origin, origin, (int)level);
     self->vt = __vt__11TTecRaZonde;
     self->f0 = (u32)lbl_805D3808;
-    TTecRaZonde__sub_80238D10((u8 *)self);
+    calc_damage__11TTecRaZondeFPv((u8 *)self);
     if (self->holder != 0) {
         self->holder->eff->scale = (5.0f) + self->range;
     }

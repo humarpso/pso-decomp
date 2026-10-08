@@ -755,7 +755,7 @@ s32 TLobby__sub_80419A7C(void);
 s16 TLobby__sub_8041579C(void *);
 s32 TLobby__sub_8041EB74(u8 *arg0);
 s16 TLobby__sub_8041579C(void *);
-s32 TLobby__sub_8041EBC4(u8 *arg0);
+s32 close_if_open__6TLobbyFPv(u8 *arg0);
 void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 s16 TLobby__sub_8040A2BC(void *, s16);
@@ -804,7 +804,7 @@ s64 OSGetTime();
 void get_time_ms__6TLobbyFPv(s32 *out);
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
-void TLobby__sub_803F9B48(u32 key);
+void deactivate_entry_by_key__6TLobbyFUi(u32 key);
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
 s32 OSGetCurrentThread();
@@ -1117,7 +1117,7 @@ void cancel_thread_if_running__6TLobbyFi(s32 arg0);
 
 void TLobby__sub_803F9B28(void);
 
-void TLobby__sub_803F9B48(u32 key);
+void deactivate_entry_by_key__6TLobbyFUi(u32 key);
 
 s32 TLobby__sub_803F9C78(void);
 
@@ -3023,7 +3023,7 @@ s32 TLobby__sub_8040A3C0(void) {
 void TLobby__sub_803F86C0(void *);
 void TLobby__sub_804218AC(void (*)(void), int);
 
-void TLobby__sub_8040A45C(void) {
+void init_net_tables__6TLobbyFv(void) {
     G_8040A45C *g = &lbl_805C1AF0;
     s16 i;
 
@@ -3550,7 +3550,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1) {
 s32 TLobby__sub_8040E780(s32, s32, s32, s32, s32, s32, void *);
 s32 TLobby__sub_80410A98(s32, void *, void *, void *, void *);
 
-s32 TLobby__sub_8040D86C(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, void *arg4, void *arg5) {
+s32 dispatch_by_addr_family__6TLobbyFiPvPvPvPvPv(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, void *arg4, void *arg5) {
     switch (*(s32 *)arg2) {
     case 4:
         return TLobby__sub_8040E780(arg0, *(s32 *)(arg1 + 4), *(s32 *)(arg2 + 4), arg3[0], arg3[1], arg3[2], arg5);
@@ -4302,7 +4302,7 @@ typedef char RecoveredFields_804143BC_arg0_0_offset[offsetof(RecoveredFields_804
 typedef char RecoveredFields_804143BC_arg0_1_offset[offsetof(RecoveredFields_804143BC_arg0, field_1) == 0x1 ? 1 : -1];
 #pragma push
 #pragma scheduling off
-s32 TLobby__sub_804143BC(u8 *arg0) {
+s32 get_ipv6_addr_scope__6TLobbyFPv(u8 *arg0) {
     s16 var_r0;
     s16 var_r0_2;
     s16 var_r0_3;
@@ -5537,7 +5537,7 @@ struct E_804184DC {
     u8 key[0x20];
 };
 
-E_804184DC *TLobby__sub_804184DC(u8 *addr, u8 *key, s16 klen) {
+E_804184DC *find_or_alloc_cache_entry__6TLobbyFPvPvs(u8 *addr, u8 *key, s16 klen) {
     E_804184DC *e;
     s16 n;
     E_804184DC *oldest_b;
@@ -5756,7 +5756,7 @@ s32 TLobby__sub_80418A7C(void) {
     return 0;
 }
 
-s32 TLobby__sub_80418ACC(void) {
+s32 init_packet_fragment_pools__6TLobbyFv(void) {
     s16 i;
     A_80418ACC *a;
     B_80418ACC *b;
@@ -5856,8 +5856,8 @@ s32 TLobby__sub_80419A7C(void) {
     lock_mutex__6TLobbyFi((int)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 0))));
     cancel_thread_if_running__6TLobbyFi((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 0xC))));
     cancel_thread_if_running__6TLobbyFi((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 8))));
-    TLobby__sub_803F9B48((u32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 0xC))));
-    TLobby__sub_803F9B48((u32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 8))));
+    deactivate_entry_by_key__6TLobbyFUi((u32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 0xC))));
+    deactivate_entry_by_key__6TLobbyFUi((u32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 8))));
     TLobby__sub_803F94A0((u32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 4))));
     unlock_mutex__10TUdpSocketFi((int)((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 0))));
     TLobby__sub_803F95E4((int) (M2C_FIELD(&(*(RecoveredGlobal_80419A7C_lbl_805C1C50 *)&lbl_805C1C50).value, s32 *, 0)));
@@ -6009,7 +6009,7 @@ s32 TLobby__sub_8041D524(A_8041D524 *a, s32 x) {
     return 0;
 }
 
-s16 TLobby__sub_8041DB58(s16 i) {
+s16 tcp_get_socket_handle__6TLobbyFs(s16 i) {
     s16 r;
     if (i < 0 || i >= lbl_805C1D48.n) {
         r = -4;
@@ -6215,7 +6215,7 @@ s16 tcp_connect_start__6TLobbyFsis(s16 arg0, s32 arg1, s16 arg2) {
     }
     r = TLobby__sub_8041EC14((u8 *)e);
     if (r < 0) {
-        TLobby__sub_8041EBC4((u8 *)e);
+        close_if_open__6TLobbyFPv((u8 *)e);
         return r;
     }
     M2C_FIELD(e, u32 *, 0x23C) = get_adjusted_slot_count__6TLobbyFPv((u8 *)e);
@@ -6253,7 +6253,7 @@ s32 TLobby__sub_8041EB74(u8 *arg0) {
     return 0;
 }
 
-s32 TLobby__sub_8041EBC4(u8 *arg0) {
+s32 close_if_open__6TLobbyFPv(u8 *arg0) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0x14) == 0) {
         return -1;
     }

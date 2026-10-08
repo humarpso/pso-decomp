@@ -145,7 +145,7 @@ void * TObjEnvSoundEx__create(void *arg0) {
 }
 
 f32 get_random_float__8TObjFishFv(f32);
-s32 TObjEnvSoundEx__sub_8019054C(u8 *arg0);
+s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 extern M2C_UNK __vt__14TObjEnvSoundEx[];
 extern s32 lbl_805D334C;
@@ -158,7 +158,7 @@ struct RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx {
     u8 remaining[0x30];
 };
 
-s32 TObjEnvSoundEx__sub_8019054C(u8 *arg0) {
+s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0) {
     s32 var_r31;
     u32 temp_r4;
     var_r31 = 1;
@@ -247,7 +247,7 @@ u8 *TObjEnvSoundEx__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D334C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    TObjEnvSoundEx__sub_8019054C((u8 *)((void *) (arg0)));
+    init_sound_params__14TObjEnvSoundExFPv((u8 *)((void *) (arg0)));
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) (-127.0f);
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;

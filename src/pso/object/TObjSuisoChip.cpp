@@ -613,7 +613,7 @@ extern s32 lbl_805D3E00;
 extern const f32 lbl_805DDFF8;
 #pragma push
 #pragma opt_propagation off
-void TObjSeabedSuisoBrakable__sub_802A6BD0(void *arg0) {
+void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     Obj_802A6BD0 *self = (Obj_802A6BD0 *)arg0;
     u32 v;
 
@@ -654,7 +654,7 @@ Obj_802A6DA8 *init__23TObjSeabedSuisoBrakableFPvii(Obj_802A6DA8 *self, s32 arg1,
     *(M2C_UNK **)((u8 *)self + 0x18) = (M2C_UNK *)lbl_804DD7F4;
     *(s32 *)self = lbl_805D3E00;
     self->m5(arg2);
-    TObjSeabedSuisoBrakable__sub_802A6BD0(self);
+    init_kind_params__23TObjSeabedSuisoBrakableFPv(self);
     self->kind = (s32)get_random_float__8TObjFishFv((f32)self->f84);
     if (self->kind > 3) {
         self->kind = 3;

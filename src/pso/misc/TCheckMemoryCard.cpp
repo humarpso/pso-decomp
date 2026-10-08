@@ -36,7 +36,7 @@ void * create__16TCheckMemoryCardFPvPvPv(void *arg0, void *arg1, void *arg2);
 void render__16TCheckMemoryCardFv(void);
 s32 TKeyBoardControl__sub_8000F8EC();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
-int TWindowSubComCard__sub_8033BF90(void*);
+int close_windows__17TWindowSubComCardFPv(void*);
 s32 set_state__17TWindowSubComCardFPvi(void *, s32);
 int TWindowSubComCard__sub_8033C178(void* p);
 void TWindowSubComCard__sub_8033C198(void);

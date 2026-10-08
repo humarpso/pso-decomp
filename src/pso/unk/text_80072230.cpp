@@ -65,7 +65,7 @@ s32 is_flag_set__6TLobbyFv();
 s32 send_and_handle_60_wrapper__6TLobbyFPv(void *);
 s32 TLobby__sub_800727EC(void *);
 extern s32 lbl_805D53A0;
-void TLobby__sub_80072308(s32 arg0);
+void send_challenge_retry_cmd__6TLobbyFi(s32 arg0);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
 void TLobby__sub_800725E0(void);
@@ -142,7 +142,7 @@ void TLobby__sub_800722AC(s32 arg0) {
     TLobby__sub_80072724(&stack);
 }
 
-void TLobby__sub_80072308(s32 arg0) {
+void send_challenge_retry_cmd__6TLobbyFi(s32 arg0) {
     typedef char sp8_offset[(offsetof(Stack_80072308, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80072308, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80072308, sp10) == 0x8) ? 1 : -1];

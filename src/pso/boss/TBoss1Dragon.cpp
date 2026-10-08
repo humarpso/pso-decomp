@@ -1816,7 +1816,7 @@ s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 u32 get_player_by_client_id(s32);
 extern s32 TLobby__data_805D53AC;
-u16 TBoss1Dragon__sub_800273E0(void *arg0);
+u16 find_player_on_floor__12TBoss1DragonFPv(void *arg0);
 M2C_UNK clearState__12TBoss1DragonFv(void *);
 M2C_UNK advance_animation_playback();
 s32 isV2Mode__12TBoss1DragonFv(void);
@@ -6271,7 +6271,7 @@ void init_control_mode__12TBoss1DragonFPv(Obj_80027320 *self) {
     self->f6e4 = lbl_8050E208 + 0x20;
     if (((s32 (*)(void *))is_main_phase_15__9TObjEneDDFv)(lbl_8050E208) != 0) {
         if (TBoss1Dragon__data_805D4B3C == 0xFFFF) {
-            id = TBoss1Dragon__sub_800273E0((void *)(self));
+            id = find_player_on_floor__12TBoss1DragonFPv((void *)(self));
         } else {
             id = TBoss1Dragon__data_805D4B3C;
         }
@@ -6289,7 +6289,7 @@ void init_control_mode__12TBoss1DragonFPv(Obj_80027320 *self) {
 
 #pragma push
 #pragma fp_contract on
-u16 TBoss1Dragon__sub_800273E0(void *arg0) {
+u16 find_player_on_floor__12TBoss1DragonFPv(void *arg0) {
     u8 *p;
     u16 idx;
     u16 i;

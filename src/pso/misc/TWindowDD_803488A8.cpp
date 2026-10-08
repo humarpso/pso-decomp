@@ -39,7 +39,7 @@ void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 get_draw_count__9TWindowDDFPv(void **arg0);
 s32 get_entry__9TWindowDDFi(s32 arg0);
 M2C_UNK TWindowDD__sub_803403F8(Buf *, M2C_UNK);
-s32 TWindowDD__sub_803485F4(s32, s32 *);
+s32 can_append_chars__9TWindowDDFiPv(s32, s32 *);
 M2C_UNK TWindowDD__sub_803489B8(s32, Buf *, M2C_UNK);
 M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, M2C_UNK, s32, M2C_UNK);
 s32 strlen();
@@ -50,7 +50,7 @@ void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2) {
 
     if (arg0 != 0) {
         temp_r31 = strlen();
-        if (TWindowDD__sub_803485F4(temp_r31, arg2) != 0) {
+        if (can_append_chars__9TWindowDDFiPv(temp_r31, arg2) != 0) {
             strncpy(arg1 + *arg2, arg0, temp_r31);
             *arg2 += temp_r31;
         }

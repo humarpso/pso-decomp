@@ -29,7 +29,7 @@ struct Req_803E5D20
 };
 
 extern "C" {
-void TQuestVmDownLoadServer__sub_803E6ED0(void);
+void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 s32 TQuestVmDownLoadServer__sub_803F0890(void);
 extern s32 lbl_805D782C;
 extern s32 lbl_805D7834;
@@ -42,12 +42,12 @@ extern s32 lbl_805D7834;
 s32 TQuestVmDownLoadServer__sub_803E5EFC(void);
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8039DCE0(int, int);
-void TQuestVmDownLoadServer__sub_803E6ED0(void);
+void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 M2C_UNK TQuestVmDownLoadServer__sub_803EE2F4(int, void *);
 extern s32 lbl_805D7834;
 extern s32 lbl_805D78C0;
 M2C_UNK strcpy(int, int);
-void TQuestVmDownLoadServer__sub_803E6ED0(void);
+void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 M2C_UNK TQuestVmDownLoadServer__sub_803EE2F4(int, void *);
 u8 * TQuestVmDownLoadServer__sub_803EE828(void);
 extern s32 lbl_805D7834;
@@ -86,7 +86,7 @@ extern s32 lbl_805D78EC;
 extern s32 lbl_805D78F0;
 s32 handle_list_scroll__22TQuestVmDownLoadServerFPv(s32 *arg0);
 M2C_UNK strcpy(int, int);
-void TQuestVmDownLoadServer__sub_803E6ED0(void);
+void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 s32 TQuestVmDownLoadServer__sub_803E9F54(int);
 M2C_UNK TQuestVmDownLoadServer__sub_803EA9E8(int, int, int, int);
 s32 count_chain_nodes__22TQuestVmDownLoadServerFPv(int);
@@ -418,7 +418,7 @@ s32 TQuestVmDownLoadServer__sub_803E5EB8(void) {
     if ((s32) lbl_805D782C == 0) {
         return -1;
     }
-    TQuestVmDownLoadServer__sub_803E6ED0();
+    init_buffer_pointers__22TQuestVmDownLoadServerFv();
     TQuestVmDownLoadServer__sub_803F0890();
     lbl_805D7834 = 0;
     return 0;
@@ -480,7 +480,7 @@ s32 TQuestVmDownLoadServer__sub_803E60CC(s32 *arg0) {
     temp_r31 = M2C_FIELD(arg0, s32 *, 0);
     TQuestVmDownLoadServer__sub_803EE2F4((int) (0), (void *) (lbl_805D78C0));
     strcpy((int) (temp_r31), (int) (((s32)TQuestVmDownLoadServer__sub_803EE828())));
-    TQuestVmDownLoadServer__sub_803E6ED0();
+    init_buffer_pointers__22TQuestVmDownLoadServerFv();
     lbl_805D7834 = 1;
     return 0;
 }
@@ -562,7 +562,7 @@ s32 OSFillFPUContext(s32 *arg0) {
     b = (s8 *)arg0[2];
     if (id != 0) {
         if (lbl_805D7834 >= 2) {
-            TQuestVmDownLoadServer__sub_803E6ED0();
+            init_buffer_pointers__22TQuestVmDownLoadServerFv();
         }
         if (TQuestVmDownLoadServer__sub_803EDC20(id) < 0) {
             return -1;

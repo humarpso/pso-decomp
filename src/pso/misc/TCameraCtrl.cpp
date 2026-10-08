@@ -728,8 +728,8 @@ void reset_split_flag__11TCameraCtrlFPv(void *arg0);
 void set_target__11TCameraCtrlFii(int a0, int a1);
 void set_target_coords__11TCameraCtrlFii(int a0, int a1);
 M2C_UNK TCameraCtrl__sub_8006AF9C(void *, M2C_UNK);
-int TCameraCtrl__sub_8006CCEC(void*);
-int TCameraCtrl__sub_8006CD78(void*);
+int reset_to_local_player__11TCameraCtrlFv(void*);
+int set_fixed_position_and_target__11TCameraCtrlFPvPv(void*);
 s32 get_state_flag__9TMainTaskFv();
 s32 is_split_screen();
 
@@ -1030,7 +1030,7 @@ int is_quest_active(void) {  return lbl_805D5ED8; }
 
 int TCameraCtrl__sub_8006B370(void) { return 0; }
 
-int reset_battle_camera__11TCameraCtrlFPv(void* p) { return TCameraCtrl__sub_8006CCEC(p); }
-int TCameraCtrl__sub_8006B3B8(void* p) { return TCameraCtrl__sub_8006CD78(p); }
+int reset_battle_camera__11TCameraCtrlFPv(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
+int TCameraCtrl__sub_8006B3B8(void* p) { return set_fixed_position_and_target__11TCameraCtrlFPvPv(p); }
 
 }

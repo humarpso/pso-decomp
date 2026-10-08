@@ -177,7 +177,7 @@ extern "C" {
 s32 check_v2_mode__9TObjEneDDFv();
 u8 *load_enemy_bml_resource_named(M2C_UNK *, M2C_UNK *);
 u8 *load_enemy_bml_resource(M2C_UNK *);
-s32 TObjPlayer__sub_800C4D88();
+s32 create_render_texture__10TObjPlayerFv();
 s32 TObjPlayer__sub_800F0928();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
@@ -380,7 +380,7 @@ void TObjPlayer__sub_800C44C4(void) {
     lbl_805D5178 = 0;
     lbl_805D517C = 0;
     lbl_805D5180 = 0;
-    TObjPlayer__sub_800C4D88();
+    create_render_texture__10TObjPlayerFv();
     TObjPlayer__sub_800F0928();
     stack.sp8 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 0);
     stack.spC = M2C_FIELD(&lbl_8043BB90.value, s32 *, 4);

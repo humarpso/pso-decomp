@@ -28,7 +28,7 @@ struct A_8028ECCC { u8 pad0[4]; s16 v[5]; s8 e; };
 struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
 
 extern "C" {
-s32 TAdSinglePlyChrSelectGC__sub_8028EF90(int);
+s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
 u32 TAdSinglePlyChrSelectGC__sub_8028F150();
 s32 TAdSinglePlyChrSelectGC__sub_8028F198(void *);
@@ -97,7 +97,7 @@ void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
 block_7:
             h = TAdSinglePlyChrSelectGC__sub_8028F150();
             if (h == 0U) {
-                if (TAdSinglePlyChrSelectGC__sub_8028EF90((int) (1)) == 0) {
+                if (evict_char_entries__23TAdSinglePlyChrSelectGCFi((int) (1)) == 0) {
                     return;
                 }
                 h = TAdSinglePlyChrSelectGC__sub_8028F150();

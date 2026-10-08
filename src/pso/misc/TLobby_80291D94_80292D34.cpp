@@ -27,7 +27,7 @@ s32 TLobby__sub_80292DA0(s32 seed, u16 card);
 extern "C" {
 
 s32 calc_min_challenge_progress__6TLobbyFv(void);
-s32 TLobby__sub_80292CA4(s32);
+s32 count_card_layout_entries__6TLobbyFv(s32);
 u32 get_player_by_client_id(s32);
 s32 get_layout_id__20TWindowSubStatusDispFv();
 M2C_UNK resolve_player_slot__20TWindowSubStatusDispFi(M2C_UNK);
@@ -42,7 +42,7 @@ s32 calc_min_challenge_progress__6TLobbyFv(void) {
     var_r30 = 0;
     do {
         if (get_player_by_client_id(var_r30) != 0U) {
-            temp_r3 = TLobby__sub_80292CA4(var_r30);
+            temp_r3 = count_card_layout_entries__6TLobbyFv(var_r30);
             if (var_r31 > temp_r3) {
                 var_r31 = temp_r3;
             }

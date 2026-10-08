@@ -32,7 +32,7 @@ void TWindowSubTradeMain__sub_802D2860(void);
 void draw_offer__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1);
 void draw_request__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1);
 void TLobby__sub_802D1DE4(void *, void *, void *);
-void TLobby__sub_802D1E64(void *, void *, void *);
+void move_trade_item_amount__6TLobbyFPvUii(void *, void *, void *);
 void TLobby__sub_802D3228(int, void *, void *);
 void draw_item_slot__19TWindowSubTradeMainFPv(void *);
 
@@ -100,7 +100,7 @@ extern void *TLobby__data_805D6898;
 
 void draw_request__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     TLobby__sub_802D3228(1, arg0, arg1);
-    TLobby__sub_802D1E64(TLobby__data_80540BD0, arg0, arg1);
+    move_trade_item_amount__6TLobbyFPvUii(TLobby__data_80540BD0, arg0, arg1);
     if (TLobby__data_805D6898 != NULL) {
         draw_item_slot__19TWindowSubTradeMainFPv(TLobby__data_805D6898);
     }

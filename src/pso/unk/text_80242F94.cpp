@@ -34,7 +34,7 @@ extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 M2C_UNK *TBoss3Volopt__sub_80242F94(u32 arg0);
 s32 is_active__12TBoss3VoloptFPv(int);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
-M2C_UNK *TBoss3Volopt__sub_80243010(void);
+M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void);
 void reset_state__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
 extern Pt_80243070 lbl_80518700[];
@@ -74,7 +74,7 @@ loop_1:
 }
 
 typedef char RecoveredGlobal_80243010_lbl_80518580_size[sizeof(RecoveredGlobal_80243010_lbl_80518580) == 0x180 ? 1 : -1];
-M2C_UNK *TBoss3Volopt__sub_80243010(void) {
+M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;

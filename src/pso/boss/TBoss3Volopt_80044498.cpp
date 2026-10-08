@@ -738,7 +738,7 @@ void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804845E8 TBoss3Volopt__data_804845E8;
 extern RecoveredGlobal_80045628_TBoss3Volopt__data_804FF038 TBoss3Volopt__data_804FF038;
 extern RecoveredGlobal_8004585C_lbl_804FF04C lbl_804FF04C;
-void TBoss3Volopt__sub_8004585C(u8 *arg0);
+void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0);
 extern s16 lbl_804FF030[];
 void TBoss3Volopt__sub_80044CB8(O_80044CB8 *self);
 void TBoss3Volopt__sub_80047408(V_80047408 *self);
@@ -1291,7 +1291,7 @@ void TBoss3Volopt__sub_800457A0(u8 *arg0) {
 typedef char RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8_size[sizeof(RecoveredGlobal_8004585C_TBoss3Volopt__data_804845E8) == 0x28 ? 1 : -1];
 typedef char RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038_size[sizeof(RecoveredGlobal_8004585C_TBoss3Volopt__data_804FF038) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_8004585C_lbl_804FF04C_size[sizeof(RecoveredGlobal_8004585C_lbl_804FF04C) == 0x80 ? 1 : -1];
-void TBoss3Volopt__sub_8004585C(u8 *arg0) {
+void spawn_breakup_models__12TBoss3VoloptFPv(u8 *arg0) {
     M2C_UNK sp8;
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x388);

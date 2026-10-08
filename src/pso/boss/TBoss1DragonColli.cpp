@@ -66,7 +66,7 @@ E_8002B4CC *alloc_buffer__11TOBoss4RockFPv(s32);
 M2C_UNK register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-s16 TLobby__sub_801A2078(int);
+s16 alloc_actor_ids__6TLobbyFi(int);
 extern u8 lbl_80481B90[];
 extern M2C_UNK lbl_80481BD4[];
 extern s32 lbl_805D2658;
@@ -215,7 +215,7 @@ s32 create_sphere_chain__17TBoss1DragonColliFiPviPvf(int arg0, void *arg1, int a
     self->vt = ((u8 *)&lbl_80481BD4);
     self->f0 = lbl_805D2658;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
-    self->f1c = TLobby__sub_801A2078(0);
+    self->f1c = alloc_actor_ids__6TLobbyFi(0);
     self->count = arg2;
     self->elems = alloc_buffer__11TOBoss4RockFPv(self->count * 0x2C);
     step = lbl_805D8120 * scale;

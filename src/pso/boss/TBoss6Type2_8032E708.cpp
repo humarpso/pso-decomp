@@ -329,8 +329,8 @@ extern Ent_8032FFC0 lbl_804EDD94[];
 void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1);
 void TBoss6Type2__sub_8032FD78(void *arg0);
 s32 request_destroy__11TBoss4Type2FUi(int);
-void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
-void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
+void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
+void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
 void update_all_parts__11TBoss6Type2FPv(s32 arg0);
 s32 TBoss6Type2__sub_8032F174(u8 *arg0);
 void TBoss6Type2__sub_8032FF24(u8 *arg0, s32 arg1);
@@ -347,7 +347,7 @@ void TBoss6Type2__sub_8032F2C4(T_8032F2C4 *self);
 u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 
-void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1);
+void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1);
 void TBoss6MagMine__sub_80369598(void *, void *);
 void TBoss6Type2__sub_8032F304(O_8032F304 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -381,8 +381,8 @@ void spawn_particle_effect_with_flags(void *, s32, s32);
 s32 get_state__11TBoss6Type2FPv(int);
 s32 is_active__11TBoss6Type2FPv(int);
 s32 TBoss6Type2__sub_8032E748(T_8032E748 *self);
-void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1);
-void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1);
+void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1);
+void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1);
 void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TBoss6Type2__sub_802BD2D0(void *, void *, void *);
@@ -477,7 +477,7 @@ s32 TBoss6Type2__sub_8032E748(T_8032E748 *self) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1) {
+void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
     u32 temp_r3;
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
@@ -489,7 +489,7 @@ void TBoss6Type2__sub_8032E770(s32 arg0, s32 arg1) {
 }
 #pragma pop
 
-void TBoss6Type2__sub_8032E7B4(O_8032E7B4 *arg0, s32 arg1) {
+void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1) {
     if (arg0->arr[arg1] == 0) {
         V3_8032E7B4 v = arg0->pos;
         arg0->arr[arg1] = create_particle_emitter(&v, lbl_804773BC[arg1].a);
@@ -521,22 +521,22 @@ void TBoss6Type2__sub_8032E8DC(Obj_8032E8DC *arg0) {
     case 25:
     case 26:
         if (TBoss6Type2__sub_8032E748((T_8032E748 *)arg0) != 0) {
-            TBoss6Type2__sub_8032E7B4((O_8032E7B4 *)arg0, 1);
+            ensure_particle_emitter__11TBoss6Type2FPvi((O_8032E7B4 *)arg0, 1);
         } else {
-            TBoss6Type2__sub_8032E770((s32)arg0, 1);
+            destroy_part_object__11TBoss6Type2Fii((s32)arg0, 1);
         }
-        TBoss6Type2__sub_8032E770((s32)arg0, 2);
+        destroy_part_object__11TBoss6Type2Fii((s32)arg0, 2);
         break;
     case 5:
     case 9:
     case 10:
     case 11:
-        TBoss6Type2__sub_8032E770((s32)arg0, 1);
-        TBoss6Type2__sub_8032E7B4((O_8032E7B4 *)arg0, 2);
+        destroy_part_object__11TBoss6Type2Fii((s32)arg0, 1);
+        ensure_particle_emitter__11TBoss6Type2FPvi((O_8032E7B4 *)arg0, 2);
         break;
     default:
-        TBoss6Type2__sub_8032E770((s32)arg0, 1);
-        TBoss6Type2__sub_8032E770((s32)arg0, 2);
+        destroy_part_object__11TBoss6Type2Fii((s32)arg0, 1);
+        destroy_part_object__11TBoss6Type2Fii((s32)arg0, 2);
         break;
     }
     if (!(arg0->f3C8 & 0x1F) && is_active__11TBoss6Type2FPv(arg0->f378) != 0) {
@@ -548,7 +548,7 @@ void update_all_parts__11TBoss6Type2FPv(s32 arg0) {
     s32 var_r31;
     var_r31 = 0;
     do {
-        TBoss6Type2__sub_8032E770(arg0, var_r31);
+        destroy_part_object__11TBoss6Type2Fii(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 < 4);
 }

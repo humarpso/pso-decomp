@@ -41,7 +41,7 @@ void TBoss8Dragon__sub_80065F2C(void);
 void TBoss8Dragon__sub_80065F30(void);
 void TBoss8Dragon__sub_80065F34(void);
 void TBoss8Dragon__sub_80065F4C(void* p);
-void TBoss8Dragon__sub_80065F80(void *arg0);
+void byteswap_action_packet__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_8006602C(void* p);
 void TBoss8Dragon__sub_800660A4(void* p);
 void TBoss8Dragon__sub_80066108(void);
@@ -127,9 +127,9 @@ void TBoss8Dragon__sub_80065F30(void) {  }
 void TBoss8Dragon__sub_80065F34(void) {  }
 void init_color__12TBoss8DragonFPv(void* p) { *(u8*)((char*)p + 0x0) = 160; *(u8*)((char*)p + 0x1) = 10; }
 
-void TBoss8Dragon__sub_80065F4C(void* p) { TBoss8Dragon__sub_80065F80((void *)((void *)((void*)((void*)(p))))); TLobby__send_and_handle_60(p); }
+void TBoss8Dragon__sub_80065F4C(void* p) { byteswap_action_packet__12TBoss8DragonFPv((void *)((void *)((void*)((void*)(p))))); TLobby__send_and_handle_60(p); }
 
-void TBoss8Dragon__sub_80065F80(void *arg0) {
+void byteswap_action_packet__12TBoss8DragonFPv(void *arg0) {
     read_be16_field2__10TObjPlayerFPv((void *)(arg0));
     TBoss8Dragon__sub_80065FD4((O_80065FD4 *)((void *)((void *)((void *)((char *)arg0 + 20)))));
     bswap_32__FPUl((s32)((void *)((char *)arg0 + 4)));

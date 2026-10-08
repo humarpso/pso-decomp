@@ -93,7 +93,7 @@ u8 is_current_room__10TObjRoomIdFPv(void *arg0);
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1);
 s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 void TLobby__sub_801A1FD8(void);
-u16 TLobby__sub_801A2078(s32);
+u16 alloc_actor_ids__6TLobbyFi(s32);
 u16 TLobby__sub_801A20C8(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);

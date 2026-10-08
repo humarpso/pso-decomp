@@ -52,7 +52,7 @@ extern const f32 lbl_805D89F8;
 void TObjPlayer__sub_8004F2A8(Obj_8004F2A8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
-void TBoss4Type2__sub_8004A98C(void *);
+void scroll_strips__11TBoss4Type2FPv(void *);
 void set_scripted_camera_pose(void *, void *, void *);
 u32 spawn_particle_effect(void *, s32);
 u32 create_particle_emitter(void *, s32);
@@ -175,7 +175,7 @@ void update_effect_timeline__11TBoss4Type2FPv(Self_8004F3D4 *self) {
   {
     self->fFC = *new_var;
   }
-  TBoss4Type2__sub_8004A98C(((u8 *) self) - -0x90);
+  scroll_strips__11TBoss4Type2FPv(((u8 *) self) - -0x90);
   if ((++self->fF8) >= 0xF0)
   {
     queue_destruction__7TObjectFv(self);

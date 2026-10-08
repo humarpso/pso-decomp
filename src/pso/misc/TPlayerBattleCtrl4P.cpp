@@ -44,7 +44,7 @@ s64 OSGetTime(void);
 void set_timer_window_time__11TWindowCtrlFi(s32);
 M2C_UNK TPlayerBattleCtrl4P__sub_803112AC(void *, M2C_UNK);
 s32 is_battle_decided__19TPlayerBattleCtrl4PFPv(void *);
-void TPlayerBattleCtrl4P__sub_80310910(void *, s32);
+void update_timed_events__19TPlayerBattleCtrl4PFPvi(void *, s32);
 void update_player_alive_flags__19TPlayerBattleCtrl4PFPv(void *);
 void TPlayerBattleCtrl4P__sub_80310C08(void *);
 void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o);
@@ -155,7 +155,7 @@ void TPlayerBattleCtrl4P__vt16(Ctl_80311FA0 *o) {
     } else {
         o->f25C = 300;
     }
-    TPlayerBattleCtrl4P__sub_80310910(o, secs);
+    update_timed_events__19TPlayerBattleCtrl4PFPvi(o, secs);
     if (--o->f248 <= 0) {
         update_player_alive_flags__19TPlayerBattleCtrl4PFPv(o);
         o->f248 = 0x5A;

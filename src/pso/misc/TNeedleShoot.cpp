@@ -10,11 +10,11 @@ void run_task__12TNeedleShootFv(void *arg0);
 
 M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
 M2C_UNK TNeedleShoot__sub_802A4668();
-M2C_UNK TNeedleShoot__sub_802A4694();
+M2C_UNK update_position__12TNeedleShootFPv();
 
 void run_task__12TNeedleShootFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB8) == 1) {
-        TNeedleShoot__sub_802A4694();
+        update_position__12TNeedleShootFPv();
         update_lifetime__22TObjEneMe1GiGueMissileFPv(arg0);
         return;
     }

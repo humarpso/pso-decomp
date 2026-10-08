@@ -185,7 +185,7 @@ M2C_UNK tmp_buf_release__6TLobbyFi(M2C_UNK *);
 s32 TLobby__sub_8001EEF4();
 extern M2C_UNK TQuestListVM__data_8044BF20[];
 extern int evt2_random_enemies_mode;
-void TQuestListVM__sub_802186A8(void);
+void load_vm__12TQuestListVMFv(void);
 u8 * __ct__15TShopWindowBaseFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
@@ -395,7 +395,7 @@ void close_windows__12TQuestListVMFPv(void *arg0) {
     extern int evt2_random_enemies_mode;
 void set_enemy_mode_3__12TQuestListVMFv(void) { set_enemy_mode_flag__6TLobbyFv(); evt2_random_enemies_mode = 3; TKeyBoardControl__sub_8000F950(); }
 
-void TQuestListVM__sub_802186A8(void) {
+void load_vm__12TQuestListVMFv(void) {
     if (TLobby__sub_8001EEF4() == 0) {
         tmp_buf_release__6TLobbyFi((M2C_UNK *)((s32) &TQuestListVM__data_8044BF20));
     }

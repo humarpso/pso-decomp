@@ -134,7 +134,7 @@ int TTecLuker__sub_80235054(void* p);
 void read_be16_field2__10TObjPlayerFPv(void *);
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-void TTecLuker__sub_80234FC4(void *arg0);
+void byteswap_telepipe_packet__9TTecLukerFPv(void *arg0);
 int fn_80235078(void *arg0);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -145,7 +145,7 @@ void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void TTecLuker__sub_80234F90(void* p);
 void TTecLuker__sub_80235028(void* p);
-void TTecLuker__sub_802340E4(u8 *arg0);
+void send_telepipe_packet__9TTecLukerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -200,7 +200,7 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u16 id, s32 res);
 u8 *construct_field_collider__9TTecLukerFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void set_position_from__14TBoss4DarkFalzFPvPv(void *c, Vec_802347B4 *pos);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
-void TTecLuker__sub_802340E4(u8 *arg0);
+void send_telepipe_packet__9TTecLukerFPv(u8 *arg0);
 extern s32 tl_07;
 extern s32 tl_05;
 void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s);
@@ -210,7 +210,7 @@ void __dl__7TObjectFPv(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 extern u8 lbl_804CCA0C[];
 Obj_8023448C *TTecLuker__sub_8023448C(Obj_8023448C *arg0, s16 arg1);
-void TTecLuker__sub_80234FC4(void *arg0);
+void byteswap_telepipe_packet__9TTecLukerFPv(void *arg0);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
@@ -507,7 +507,7 @@ void init_fields__9TTecLukerFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
 }
 
-void TTecLuker__sub_802340E4(u8 *arg0) {
+void send_telepipe_packet__9TTecLukerFPv(u8 *arg0) {
     Stack_802340E4 stack;
     TTecLuker__sub_80235028((void*)((void *) (&stack.sp8)));
     stack.spC = M2C_FIELD(arg0, u16 *, 0);
@@ -537,7 +537,7 @@ void handle_6x68_set_telepipe_state(Pkt_802341B0 *pkt) {
     Rec_8023402C *rec;
     u32 other;
     u32 local;
-    TTecLuker__sub_80234FC4(pkt);
+    byteswap_telepipe_packet__9TTecLukerFPv(pkt);
     if (pkt->rec.owner == 0xffff) {
         return;
     }
@@ -710,7 +710,7 @@ void setup_telepipe_field__9TTecLukerFPv(Pipe_802347B4 *s) {
         s->floor = get_current_floor();
         h = get_stat_by_key_state__10TObjPlayerFPv(s->player);
         ((Write_802347B4)write_telepipe_record)(s->player + 0x830, obj_getField1c(s->player), s->floor, (u8 *)&s->pos, h);
-        TTecLuker__sub_802340E4(s->player + 0x830);
+        send_telepipe_packet__9TTecLukerFPv(s->player + 0x830);
     }
 }
 
@@ -963,9 +963,9 @@ void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
 
-void TTecLuker__sub_80234F90(void* p) { TTecLuker__sub_80234FC4((void *)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
+void TTecLuker__sub_80234F90(void* p) { byteswap_telepipe_packet__9TTecLukerFPv((void *)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
 
-void TTecLuker__sub_80234FC4(void *arg0) {
+void byteswap_telepipe_packet__9TTecLukerFPv(void *arg0) {
     read_be16_field2__10TObjPlayerFPv(arg0);
     bswap_16__FPUs((s32)((void *)((char *)arg0 + 4)));
     bswap_16__FPUs((s32)((void *)((char *)arg0 + 6)));

@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 f64 floor(f64);
 extern const f32 lbl_805E0DE0;
-f32 TWindowSubComCard__sub_803D6438(f32 farg0);
+f32 trunc_float__17TWindowSubComCardFf(f32 farg0);
 f64 ceil(f64);
 extern const f32 lbl_805E0DE8;
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32 farg0);
@@ -17,7 +17,7 @@ extern "C" {
 
 #pragma push
 #pragma scheduling off
-f32 TWindowSubComCard__sub_803D6438(f32 farg0) {
+f32 trunc_float__17TWindowSubComCardFf(f32 farg0) {
     if (farg0 < lbl_805E0DE0) {
         return -(f32) floor(-farg0);
     }

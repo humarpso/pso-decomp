@@ -79,7 +79,7 @@ void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 extern Slot_8028F150 lbl_8051D288[];
 extern u32 lbl_805D6520;
 extern E_8028F210 *lbl_805D6540;
-s32 TAdSinglePlyChrSelectGC__sub_8028EF90(s32 arg0);
+s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void advance_animation_playback(s32);
 s32 query_state__12TCharaMakingFv(void);
 void TAdSinglePlyChrSelectGC__sub_8028ED54(void);
@@ -1168,7 +1168,7 @@ void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     }
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8028EF90(s32 arg0) {
+s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     s32 n;
     s32 k;
     E_8028F210 *p;

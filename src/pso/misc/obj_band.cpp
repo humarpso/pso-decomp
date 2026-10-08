@@ -126,7 +126,7 @@ void advance_animation_playback(Anim_80143504 *a);
 M2C_UNK set_motion_interpolation_flag(void *, f64);
 s32 TBoss1Dragon__sub_80143960(void *, int);
 void * get_anim_entry__10TObjPlayerFPvi(void *, s16);
-M2C_UNK TObjPlayer__sub_801E2CCC(s32, void *, f32);
+M2C_UNK draw_ginja_model_tree__10TObjPlayerFPvPv(s32, void *, f32);
 M2C_UNK draw_ginja_model__10TObjPlayerFPvi(s32, s32, f32);
 M2C_UNK render_model_tree__12TBoss8DragonFPvPv(u32, s32, f32);
 int get_current_matrix(void*);
@@ -393,7 +393,7 @@ void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     setup_actor_draw_lighting();
     if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
-        TObjPlayer__sub_801E2CCC(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+        draw_ginja_model_tree__10TObjPlayerFPvPv(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
     } else {
         set_npc_enemy_param(lbl_805D7710);
         draw_ginja_model__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));

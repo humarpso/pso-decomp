@@ -27,7 +27,7 @@ extern "C" {
 P_80323348 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
 s32 is_state_1f__14TBoss6PlotFalzFUi();
-void TBoss6GravBall__sub_80323348(void);
+void clear_player_grav_flags__14TBoss6GravBallFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
@@ -93,7 +93,7 @@ int destroy_part__14TBoss6GravBallFii(void*, void*);
 void init_parts__14TBoss6GravBallFPv(void* p);
 void render__14TBoss6GravBallFv(void);
 
-void TBoss6GravBall__sub_80323348(void) {
+void clear_player_grav_flags__14TBoss6GravBallFv(void) {
     s32 n = get_game_mode__6TLobbyFv();
     s32 i;
     for (i = 0; i < n; i++) {

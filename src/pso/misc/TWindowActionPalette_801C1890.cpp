@@ -118,7 +118,7 @@ void TObjPlayer__sub_801C18AC(void* p);
 s32 read_be16_field2__10TObjPlayerFPv();
 s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
-void TObjPlayer__sub_801C1914(s32 arg0);
+void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801C19C8(void* p, f32 v);
 void TObjPlayer__sub_801C19C8(void* p, f32 v);
 s32 TLobby__sub_801C19D0(void* p);
@@ -217,10 +217,10 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern s32 TBoss2DeRolLe__data_805D4BC4;
 s32 TObjPlayer__sub_801C1FBC(s32 arg0, s16 arg1);
-void TObjPlayer__sub_801C1914(s32 arg0);
+void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801C18E0(void* p);
 s32 TLobby__send_and_handle_60(s32);
-void TObjPlayer__sub_801C1914(s32 arg0);
+void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
@@ -359,7 +359,7 @@ extern "C" {
 f32 fn_801C19A4(void* p);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
 s32 send_subcommand_to_client__6TLobbyFPvUi(s32, s32);
-s32 TLobby__sub_801E4534(s32);
+s32 send_60_sized__6TLobbyFPv(s32);
 s32 TLobby__send_and_handle_60(s32);
 int __dl__FPv();
 s32 bswap_16__FPUs(s32);
@@ -381,9 +381,9 @@ void TObjPlayer__sub_801C1890(u8 *arg0) {
 
 void TObjPlayer__sub_801C18AC(void* p) { TObjPlayer__sub_801C1820((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
 
-void TObjPlayer__sub_801C18E0(void* p) { TObjPlayer__sub_801C1914((s32)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
+void TObjPlayer__sub_801C18E0(void* p) { byteswap_set_position_cmd__10TObjPlayerFi((s32)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
 
-void TObjPlayer__sub_801C1914(s32 arg0) {
+void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv();
     bswap_16__FPUs(arg0 + 4);
     bswap_16__FPUs(arg0 + 6);

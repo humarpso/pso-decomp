@@ -18,18 +18,18 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK create_timed_particle_emitter(void *, int, int, int);
 M2C_UNK spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
-void TBoss3Volopt__sub_800D8F78(s32 arg0);
+void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
 s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void play_area_variant_sound__12TBoss3VoloptFi(s32 arg0);
-void TBoss3Volopt__sub_800D8F78(s32 arg0);
-s32 TBoss3Volopt__sub_800F05A0(int);
+void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
+s32 remap_area_sound_id__12TBoss3VoloptFi(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void TBoss3Volopt__sub_800D8D88(s32 arg0);
-void TBoss3Volopt__sub_800D8F78(s32 arg0);
-s32 TBoss3Volopt__sub_800F05A0(int);
+void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
+s32 remap_area_sound_id__12TBoss3VoloptFi(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0);
@@ -151,10 +151,10 @@ void TBoss3Volopt__sub_800D8D88(s32 arg0) {
         play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(TBoss3Volopt__sub_800F05A0(0x4003AB20), (void *)arg0, 0, 0);
+        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFi(0x4003AB20), (void *)arg0, 0, 0);
         break;
     }
-    TBoss3Volopt__sub_800D8F78(arg0);
+    spawn_particles_at__12TBoss3VoloptFi(arg0);
 }
 
 void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0) {
@@ -177,13 +177,13 @@ void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0) {
         play_sound_effect(0x4003A359, (void *)arg0, 0, 0);
         break;
     default:
-        play_sound_effect(TBoss3Volopt__sub_800F05A0(0x4003AB37), (void *)arg0, 0, 0);
+        play_sound_effect(remap_area_sound_id__12TBoss3VoloptFi(0x4003AB37), (void *)arg0, 0, 0);
         break;
     }
-    TBoss3Volopt__sub_800D8F78(arg0);
+    spawn_particles_at__12TBoss3VoloptFi(arg0);
 }
 
-void TBoss3Volopt__sub_800D8F78(s32 arg0) {
+void spawn_particles_at__12TBoss3VoloptFi(s32 arg0) {
     Stack_800D8F78 stack;
     f32 temp_f1;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0));

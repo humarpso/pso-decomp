@@ -25,7 +25,7 @@ extern "C" {
 void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
 M2C_UNK TWindowMainMenu__sub_802AD7F0(void *);
-M2C_UNK TWindowMainMenu__sub_802AE380(void *);
+M2C_UNK update_slide_position__15TWindowMainMenuFPv(void *);
 M2C_UNK handle_navigation_input__15TWindowMainMenuFPv(void *);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -58,7 +58,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     } while (var_r31 < 8);
     handle_navigation_input__15TWindowMainMenuFPv(arg0);
     initialize_subwindow__9TWindowDDFPv(arg0);
-    TWindowMainMenu__sub_802AE380(arg0);
+    update_slide_position__15TWindowMainMenuFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);
     temp_r3_2 = M2C_FIELD(arg0, u8 *, 0x60);
     if (temp_r3_2 & 8) {

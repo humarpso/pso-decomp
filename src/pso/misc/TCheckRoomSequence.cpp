@@ -161,7 +161,7 @@ s32 bank_credit_meseta(s32 v, s32 i);
 void init__9TItemDataFv(void *);
 void TCheckRoomSequence__sub_80211408(Obj_80211408 *self);
 void init__9TItemDataFv(void *);
-void TAdSinglePlyChrSelectGC__sub_80211584(Obj_80211584 *self);
+void init_item_entry__23TAdSinglePlyChrSelectGCFPv(Obj_80211584 *self);
 void TWindow__close(TWin_8020F070 *);
 void TCheckRoomSequence__sub_8020F070(TCheckRoomSequence_8020F070 *self);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -1259,14 +1259,14 @@ u8 is_item_record_empty(u8 *arg0) {
 
 #pragma push
 #pragma optimization_level 1
-void TAdSinglePlyChrSelectGC__sub_80211584(Obj_80211584 *self) {
+void init_item_entry__23TAdSinglePlyChrSelectGCFPv(Obj_80211584 *self) {
     init__9TItemDataFv(self);
     self->a = 0;
     self->b = 0;
 }
 #pragma pop
 
-void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p) { TAdSinglePlyChrSelectGC__sub_80211584((Obj_80211584 *)((void*)(p))); return p; }
+void* TAdSinglePlyChrSelectGC__sub_802115C0(void* p) { init_item_entry__23TAdSinglePlyChrSelectGCFPv((Obj_80211584 *)((void*)(p))); return p; }
 
 void TShopWindowBase__sub_802115F0(void) {  }
 

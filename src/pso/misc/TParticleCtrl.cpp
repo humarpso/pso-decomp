@@ -211,7 +211,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_texture_num(int);
 M2C_UNK reset_particles__13TParticleCtrlFv();
 M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
-M2C_UNK TParticleCtrl__sub_803E2B68(int);
+M2C_UNK setup_particle_draw__13TParticleCtrlFi(int);
 extern Tex_80086248 lbl_804C5820[];
 extern u8 *lbl_805D4DF0;
 extern const f32 lbl_805D94D8;
@@ -530,7 +530,7 @@ void draw_particle_refraction_quad(Ctrl_80086248 *self) {
     load_projected_texture_matrix(lbl_805D94D8);
     set_global_param__8TObjFishFi(*(s32 *)((u8 *)lbl_804C5820 + 0x16C));
     set_texture_num(self->tex);
-    TParticleCtrl__sub_803E2B68(1);
+    setup_particle_draw__13TParticleCtrlFi(1);
     GXSetNumTevStages(2);
     GXSetNumTexGens(2);
     GXSetTevOp(0, 0);

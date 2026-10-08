@@ -116,7 +116,7 @@ M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TBoss6Type1__sub_803204B8(void *, void *, void *);
+void set_effect_points__11TBoss6Type1FPvPvPv(void *, void *, void *);
 s32 get_game_mode__6TLobbyFv();
 Pl_8033E0F0 *get_player_data__10TObjPlayerFi(s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
@@ -350,7 +350,7 @@ void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0) {
         mid.x *= lbl_805DFAB0;
         mid.y *= lbl_805DFAB0;
         mid.z *= lbl_805DFAB0;
-        TBoss6Type1__sub_803204B8(arg0->fb0, &a, lbl_8047817C);
+        set_effect_points__11TBoss6Type1FPvPvPv(arg0->fb0, &a, lbl_8047817C);
     }
     if (arg0->timer == 0x23A) {
         s32 n = get_game_mode__6TLobbyFv();

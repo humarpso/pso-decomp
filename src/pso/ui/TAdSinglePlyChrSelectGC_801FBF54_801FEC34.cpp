@@ -27,7 +27,7 @@ s32 get_field_118__22TAdEnterSerialAccessGCFv();
 extern RecoveredGlobal_801FF200_lbl_80513910 lbl_80513910;
 extern u32 lbl_805D5F58;
 extern s32 lbl_805D5F78;
-s32 TAdSinglePlyChrSelectGC__sub_801FF200(void);
+s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_instance__15TAdPlayerLoadGCFv();
 void wait_ready_loop__6TLobbyFv(void);
 s32 get_localized_text_entry(s32, s32);
@@ -276,7 +276,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
     return result;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_801FF200(void) {
+s32 encrypt_save_and_write__23TAdSinglePlyChrSelectGCFv(void) {
     s32 temp_r3;
     temp_r3 = get_field_118__22TAdEnterSerialAccessGCFv();
     M2C_FIELD(&lbl_80513910.value, s32 *, 4) = temp_r3;

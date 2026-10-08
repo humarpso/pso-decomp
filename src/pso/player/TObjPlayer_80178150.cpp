@@ -23,7 +23,7 @@ extern "C" {
 s32 send_state__12TOChatSensorFPv(void *);
 s32 init_packet_type__12TOChatSensorFPv(void *);
 s32 clear_floor_switch_flag(int, int);
-void TOChatSensor__sub_801781D8(u8 *arg0);
+void send_switch_states__12TOChatSensorFPv(u8 *arg0);
 void TOChatSensor__sub_8015B274(void *);
 s32 clear_floor_switch_flag(int, int);
 s32 set_floor_switch_flag(int, int);
@@ -57,7 +57,7 @@ void handle_6x93_set_switch_flag_from_timer(Pkt_80178178 *p) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-void TOChatSensor__sub_801781D8(u8 *arg0) {
+void send_switch_states__12TOChatSensorFPv(u8 *arg0) {
     typedef char sp8_offset[(offsetof(Stack_801781D8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_801781D8, spC) == 0x4) ? 1 : -1];
     typedef char spE_offset[(offsetof(Stack_801781D8, spE) == 0x6) ? 1 : -1];

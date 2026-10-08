@@ -492,7 +492,7 @@ void state_attack__16TObjEneRe7BeruraFPvi(u8 *arg0, s32 arg1);
 void TObjEneRe7Berura__sub_80094A9C(void *self, s32 msg);
 void TObjEneRe7Berura__vt85(s32 arg0, u32 arg1, s32 arg2);
 s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0);
-void TObjEneRe7Berura__sub_80094BFC(u8 *arg0);
+void play_band_sound__16TObjEneRe7BeruraFPv(u8 *arg0);
 void TObjEneRe7Berura__sub_80094CD0(void *self);
 void TObjEneRe7Berura__sub_80094D3C(Obj_80094D3C *self);
 void TObjEneRe7Berura__sub_80094D98(u8 *arg0);
@@ -907,7 +907,7 @@ s32 check_death_trigger__16TObjEneRe7BeruraFPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjEneRe7Berura__sub_80094BFC(u8 *arg0) {
+void play_band_sound__16TObjEneRe7BeruraFPv(u8 *arg0) {
     if ((objInBand__FP7GameObjf(arg0, lbl_805D9770) != 0) || (objInBand__FP7GameObjf(arg0, TObjEneRe7Berura__data_805D9764) != 0)) {
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003BC1F)), (u32) (arg0 + 0x38), 0, 0);
     }

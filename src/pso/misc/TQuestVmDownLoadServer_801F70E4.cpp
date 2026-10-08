@@ -123,7 +123,7 @@ s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, s32, M2C_UNK);
 M2C_UNK select_if_mc_present__13TAdMcSelectGCFv();
 extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
-void TQuestVmDownLoadServer__sub_801F7CC0(u8 *arg0);
+void handle_confirm_input__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 init_single_player_chr_select__6TLobbyFPv(s32);
 void TQuestVmDownLoadServer__sub_801F8FA4(void);
 extern RecoveredGlobal_801F84AC_lbl_80512BDC lbl_80512BDC;
@@ -216,7 +216,7 @@ void close_window__22TQuestVmDownLoadServerFPv(void *arg0);
 void open__22TQuestVmDownLoadServerFPv(void *arg0);
 M2C_UNK set_flag_4__9TObjLukerFPv(void *);
 void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void* p);
-void TQuestVmDownLoadServer__sub_801F7CC0(u8 *arg0);
+void handle_confirm_input__22TQuestVmDownLoadServerFPv(u8 *arg0);
 void handle_confirm_window__22TQuestVmDownLoadServerFPv(void *arg0);
 void find_free_file_names__22TQuestVmDownLoadServerFPv(QVm_801F7890 *self);
 void TQuestVmDownLoadServer__sub_801F770C(u8 *arg0);
@@ -680,7 +680,7 @@ void check_memcard_slot__22TQuestVmDownLoadServerFPv(u8 *arg0) {
 }
 #pragma pop
 
-void TQuestVmDownLoadServer__sub_801F7CC0(u8 *arg0) {
+void handle_confirm_input__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)&lbl_8050E208.value + 0x20;
     if (TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) {
@@ -854,7 +854,7 @@ void TQuestVmDownLoadServer__vt1(u8 *arg0) {
             if (M2C_FIELD(arg0, void **, 0x29C) != NULL) {
                 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x29C));
             }
-            TQuestVmDownLoadServer__sub_801F7CC0(arg0);
+            handle_confirm_input__22TQuestVmDownLoadServerFPv(arg0);
         }
         break;
     case 5:
@@ -1252,7 +1252,7 @@ struct Src_801F8E4C {
     u32 f38;
 };
 
-void TQuestVmDownLoadServer__sub_801F8E4C(void) {
+void free_download_buffers__22TQuestVmDownLoadServerFv(void) {
     Src_801F8E4C *s0;
     Src_801F8E4C *s1;
     Src_801F8E4C *s2;

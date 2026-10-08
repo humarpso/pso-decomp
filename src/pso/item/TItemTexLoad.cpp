@@ -7,7 +7,7 @@ extern "C" void free__11TOBoss4RockFUi(void*);
 struct TexLoad_8011D180 { u8 pad0[0x20]; s32 state; s32 f24; s32 handle; };
 extern "C" {
 s32 TLobby__sub_8001EEF4();
-void TItemTexLoad__sub_8011CEDC(TexLoad_8011D180 *);
+void load_texture_archive__12TItemTexLoadFPv(TexLoad_8011D180 *);
 void load_texture__12TItemTexLoadFPvi(TexLoad_8011D180 *, s32);
 s32 TLobby__sub_803CC4C0(s32);
 s32 TLobby__sub_803CCE9C(s32);
@@ -20,7 +20,7 @@ void TItemTexLoad::run_task() {
         case 3:
             TLobby__sub_803CCE9C(SELF->handle);
             if (TLobby__sub_8001EEF4() != 0) {
-                TItemTexLoad__sub_8011CEDC(SELF);
+                load_texture_archive__12TItemTexLoadFPv(SELF);
             } else {
                 SELF->state = 3;
             }
@@ -35,7 +35,7 @@ void TItemTexLoad::run_task() {
         }
     } else if (SELF->state == 3) {
         if (TLobby__sub_8001EEF4() != 0) {
-            TItemTexLoad__sub_8011CEDC(SELF);
+            load_texture_archive__12TItemTexLoadFPv(SELF);
         }
     }
 }

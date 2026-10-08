@@ -76,7 +76,7 @@ M2C_UNK reset_save_header__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 *lbl_805D5F6C;
 extern s32 lbl_805D5F9C;
-s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0);
+s32 verify_save_checksum__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv();
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5F68;
@@ -100,11 +100,11 @@ extern s32 lbl_805D5F5C;
 extern s32 lbl_805D5F94;
 void TAdSinglePlyChrSelectGC__sub_80200418(void);
 void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
-s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1);
+s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 get_ptr_4__10TObjPlayerFPv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
 M2C_UNK clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(s32);
-M2C_UNK TObjPlayer__sub_802C3720(void *);
+M2C_UNK reset_action_palette__10TObjPlayerFPv(void *);
 M2C_UNK init_character_stats_for_level(u8, void *, s32);
 M2C_UNK init_class_starting_inventory(void *);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
@@ -148,7 +148,7 @@ void subtractive_rng_seed(void *, s32);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
-s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1);
+s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 register_callback__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 extern u8 lbl_8051381C[];
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
@@ -179,7 +179,7 @@ s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void TAdSinglePlyChrSelectGC__sub_801FCCB4(void *, s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCCC0(u8 *arg0);
 void set_id__23TAdSinglePlyChrSelectGCFPvi(void *, s32);
-s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1);
+s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 extern u8 lbl_8051381C[];
 extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
@@ -202,7 +202,7 @@ s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FCD3C(s32);
 void render_frame__23TAdSinglePlyChrSelectGCFv(void);
-s32 TAdSinglePlyChrSelectGC__sub_801FD8B8(s32, s32, s32, s32);
+s32 compare_save_headers__23TAdSinglePlyChrSelectGCFPvPvPvPv(s32, s32, s32, s32);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C(void);
 void increment_counter__23TAdSinglePlyChrSelectGCFv();
 void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -315,7 +315,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_801FFDFC(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TAdSinglePlyChrSelectGC__sub_801FFE44(s32 arg0) {
+s32 verify_save_checksum__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     u32 temp_r31;
     u32 temp_r3;
     memcpy((void *)((*(u32 * *)&lbl_805D5F6C)), (s32)(lbl_805D5F9C + 0x2048), (M2C_UNK)(0x11C));
@@ -528,11 +528,11 @@ void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (b != 0) {
         b = init_char_slots__23TAdSinglePlyChrSelectGCFi(b);
     }
-    TAdSinglePlyChrSelectGC__sub_80200690(a, (s32)arg0);
+    copy_save_data__23TAdSinglePlyChrSelectGCFii(a, (s32)arg0);
     subtractive_rng_seed(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].b);
     subtractive_rng_make_shuffle(lbl_8051381C);
     subtractive_rng_unshuffle(lbl_8051381C, a, b, 0x1156C);
-    TAdSinglePlyChrSelectGC__sub_80200690((s32)arg0, b);
+    copy_save_data__23TAdSinglePlyChrSelectGCFii((s32)arg0, b);
     register_callback__23TAdSinglePlyChrSelectGCFis(b, 1);
     register_callback__23TAdSinglePlyChrSelectGCFis(a, 1);
     subtractive_rng_seed(lbl_8051381C, ((Ser_80200560 *)&lbl_80513910)[0].a);
@@ -541,7 +541,7 @@ void decrypt_char_data__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     subtractive_rng_xor_buffer(lbl_8051381C, arg0, 0x11568);
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_80200690(s32 arg0, s32 arg1) {
+s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     Save_80200690 *dst = (Save_80200690 *)arg0;
     Save_80200690 *src = (Save_80200690 *)arg1;
     Slot_80200690 *d;
@@ -579,11 +579,11 @@ M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1
     if (b != 0) {
         b = init_char_slots__23TAdSinglePlyChrSelectGCFi(b);
     }
-    TAdSinglePlyChrSelectGC__sub_80200690(a, (s32)self);
+    copy_save_data__23TAdSinglePlyChrSelectGCFii(a, (s32)self);
     subtractive_rng_seed(lbl_8051381C, ((Ser_80200778 *)&lbl_80513910)[0].b);
     subtractive_rng_make_shuffle(lbl_8051381C);
     TAdSinglePlyChrSelectGC__sub_8007C1CC(lbl_8051381C, a, b, 0x1156C);
-    TAdSinglePlyChrSelectGC__sub_80200690((s32)self, b);
+    copy_save_data__23TAdSinglePlyChrSelectGCFii((s32)self, b);
     register_callback__23TAdSinglePlyChrSelectGCFis(b, 1);
     register_callback__23TAdSinglePlyChrSelectGCFis(a, 1);
 }
@@ -668,7 +668,7 @@ void reset_character_data__23TAdSinglePlyChrSelectGCFv(void) {
         M2C_FIELD(lbl_805D5F60, s8 *, 0) = 0;
         init_class_starting_inventory(lbl_805D5F60);
         init_character_stats_for_level(M2C_FIELD(lbl_805D5F60, u8 *, 0x3A1), lbl_805D5F60, M2C_FIELD(lbl_805D5F60, s32 *, 0x364));
-        TObjPlayer__sub_802C3720(lbl_805D5F60);
+        reset_action_palette__10TObjPlayerFPv(lbl_805D5F60);
         M2C_FIELD(lbl_805D5F60, s32 *, 0x36C) = 0;
     }
     if ((void *) lbl_805D5F64 != NULL) {
@@ -752,7 +752,7 @@ s32 save_online_character__23TAdSinglePlyChrSelectGCFv(void) {
         memset((void *)obj, 0, 0x1156C);
         memcpy((void *)obj, buf + 0x2048, 0x1156C);
         decrypt_char_data__23TAdSinglePlyChrSelectGCFPv((void *)obj);
-        if (TAdSinglePlyChrSelectGC__sub_801FD8B8(TAdSinglePlyChrSelectGC__sub_801FCD3C(obj),
+        if (compare_save_headers__23TAdSinglePlyChrSelectGCFPvPvPvPv(TAdSinglePlyChrSelectGC__sub_801FCD3C(obj),
                 get_card_window__17TWindowSubComCardFUi(0xFFFF), obj, get_instance__23TAdSinglePlyChrSelectGCFv()) != 7) {
             if (buf != 0) {
                 safe_free__23TAdSinglePlyChrSelectGCFUi(buf);

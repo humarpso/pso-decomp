@@ -302,7 +302,7 @@ s32 TObjEnemyCustom__sub_800C7860(void *);
 u8 *TObjEneBalClawClaw__sub_80091C58(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 s32 update_chase_state__18TObjEneBalClawClawFPv(void *);
 s32 TObjEneBalClawClaw__sub_8009060C(void *);
-s32 TObjEneBalClawClaw__sub_800906C8(void *);
+s32 update_drop__18TObjEneBalClawClawFPv(void *);
 s32 update_move_to_target__18TObjEneBalClawClawFPv(void *);
 s32 update_follow_parent__18TObjEneBalClawClawFPv(void *);
 s32 TObjEneBalClawClaw__sub_80090D3C(void *);
@@ -644,7 +644,7 @@ void update_state__18TObjEneBalClawClawFPv(u8 *arg0) {
         action__18TObjEneBalClawClawFPv((void *) new_var);
         return;
       case 9:
-        TObjEneBalClawClaw__sub_800906C8(new_var = new_var);
+        update_drop__18TObjEneBalClawClawFPv(new_var = new_var);
         return;
       case 10:
         update_follow_parent__18TObjEneBalClawClawFPv(new_var);

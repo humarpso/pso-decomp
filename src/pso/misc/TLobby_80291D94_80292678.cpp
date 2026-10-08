@@ -42,7 +42,7 @@ s32 get_map_id__13TRaderMapCoreFPv(void *);
 Pl_80292730 *get_player_by_client_id(s32);
 Pl_80292730 *create_player_object(s32, s32, void *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
-void TObjPlayer__sub_801D9B38(void *, int);
+void set_all_technique_levels__10TObjPlayerFPvPv(void *, int);
 void begin_action_state__10TObjPlayerFPv(void *);
 void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, void *);
 void rebuild_players_for_stage__6TLobbyFi(s32 arg0);
@@ -130,7 +130,7 @@ void rebuild_players_for_stage__6TLobbyFi(s32 arg0) {
             set_position_from__14TBoss4DarkFalzFPvPv(p, &pos);
             save_position__14TBoss4DarkFalzFi(p);
             p->v6();
-            TObjPlayer__sub_801D9B38((u8 *)p + 0x428, 0xFF);
+            set_all_technique_levels__10TObjPlayerFPvPv((u8 *)p + 0x428, 0xFF);
             if (tbl->entries != NULL) {
                 for (e = tbl->entries; e->id != 0xFF; e++) {
                     clamp_and_set_unit_value__10TObjPlayerFiUci(p, e->id, e->val);

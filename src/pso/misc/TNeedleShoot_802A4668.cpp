@@ -16,7 +16,7 @@ struct VObj_802A4668 : Base_802A4668 {
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK TNeedleShoot__sub_802A4544(void *, f32, f32);
-void TNeedleShoot__sub_802A4694(u8 *arg0);
+void update_position__12TNeedleShootFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -29,7 +29,7 @@ void TNeedleShoot__sub_802A4668(void *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-void TNeedleShoot__sub_802A4694(u8 *arg0) {
+void update_position__12TNeedleShootFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg0 + 0x6C));

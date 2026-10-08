@@ -72,7 +72,7 @@ s32 get_status_flag__6TLobbyFPv(void *);
 void *build_menu__19TWindowSubShortMailFv(void *);
 void clear_transition_flag__17TWindowSubComCardFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
-void *TLobby__sub_80225924(s32);
+void *find_short_mail_by_id__6TLobbyFUi(s32);
 s32 TWindowSubShortMail__sub_8007B834(void *);
 void *create_keyboard__19TWindowSubShortMailFv(void);
 s32 get_window_layout_position(int);
@@ -129,7 +129,7 @@ u8 get_field_cc__19TWindowSubShortMailFPv(void* p);
 void* get_mail_ptr__19TWindowSubShortMailFPv(void* p);
 void render__19TWindowSubShortMailFv(void);
 void update__19TWindowSubShortMailFPv(void *arg0);
-M2C_UNK TLobby__sub_8001DA00();
+M2C_UNK sync_auto_reply_state__6TLobbyFv();
 M2C_UNK TLobby__sub_802258C8();
 s32 get_selected_menu_value(s32);
 void TWindow__close(void *);
@@ -235,7 +235,7 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
         } else if (is_visible__17TWindowSubComCardFPv(o->w44) != 0) {
             void *p;
             o->f30 = select_cursor_entry__6TLobbyFPv(o->w38);
-            p = TLobby__sub_80225924(o->f30);
+            p = find_short_mail_by_id__6TLobbyFUi(o->f30);
             if (p != NULL) {
                 o->f2c = TWindowSubShortMail__sub_8007B834(p);
             }
@@ -436,7 +436,7 @@ void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x40) = 0U;
         }
         TLobby__sub_802258C8();
-        TLobby__sub_8001DA00();
+        sync_auto_reply_state__6TLobbyFv();
         __dt__7TObjectFv((void *)(arg0), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));

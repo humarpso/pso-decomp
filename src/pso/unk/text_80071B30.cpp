@@ -51,7 +51,7 @@ void clear_header_struct__10TObjPlayerFPv(Hdr_80071BC0 *);
 Plr_80071BC0 *get_player_by_client_id(s32);
 Plr_80071BC0 *create_player_object(s32, s32, TPlyCharData *);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
-void TObjPlayer__sub_801D9B38(void *, s32);
+void set_all_technique_levels__10TObjPlayerFPvPv(void *, s32);
 void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
 void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, TPlyCharData *);
 extern Tbl_80071BC0 lbl_8048A088[];
@@ -136,7 +136,7 @@ void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
             set_position_from__14TBoss4DarkFalzFPvPv(p, &pos);
             save_position__14TBoss4DarkFalzFi(p);
             p->m6();
-            TObjPlayer__sub_801D9B38((u8 *)p + 0x428, 0xff);
+            set_all_technique_levels__10TObjPlayerFPvPv((u8 *)p + 0x428, 0xff);
             if (t->list != NULL) {
                 for (e = t->list; e->id != 0xff; e++) {
                     clamp_and_set_unit_value__10TObjPlayerFiUci(p, e->id, e->val);

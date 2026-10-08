@@ -464,7 +464,7 @@ void *init__22THunterGuildSeqOfflineFPvPvPv(void *arg0, void *arg1, void *arg2) 
     return arg0;
 }
 
-void TBoss3Volopt__sub_800F88D8(Fade_800F88D8 *self) {
+void draw_screen_fade__12TBoss3VoloptFPv(Fade_800F88D8 *self) {
     Quad_800F88D8 q;
     u32 col[4];
     f32 pos[8];

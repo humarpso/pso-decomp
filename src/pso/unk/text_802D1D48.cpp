@@ -15,7 +15,7 @@ void TLobby__sub_802D1DE4(u8 *arg0, u32 arg1, s32 arg2);
 s32 get_trade_obj_ptr__6TLobbyFPv(s32);
 u8 *TLobby__sub_802D230C(void *);
 u8 * TLobby__sub_802D2334(void *, u32);
-void TLobby__sub_802D1E64(u8 *arg0, u32 arg1, s32 arg2);
+void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
 void clear_stale_entries__6TLobbyFPv(void *);
 s32 add_trade_item__6TLobbyFPvUii(void *, s32, s32);
 s32 TLobby__sub_802D1D48(S_802D1D48 *arg0, s32 *arg1);
@@ -59,7 +59,7 @@ void TLobby__sub_802D1DE4(u8 *arg0, u32 arg1, s32 arg2) {
         }
     }
 }
-void TLobby__sub_802D1E64(u8 *arg0, u32 arg1, s32 arg2) {
+void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2) {
   s32 var_r3;
   u8 *temp_r3;
   u8 *temp_r3_2;

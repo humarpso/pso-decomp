@@ -591,7 +591,7 @@ extern const s32 lbl_805DE3AC;
 extern const s32 lbl_805DE3B0;
 extern const s32 lbl_805DE3B4;
 extern const f32 lbl_805DE3B8;
-void TBoss6Type1__sub_802B7B44(Boss_802B7B44 *self);
+void update_sway__11TBoss6Type1FPv(Boss_802B7B44 *self);
 }
 
 extern "C" {
@@ -1791,7 +1791,7 @@ typedef struct Stack_802B7D74_boss6_1 Stack_802B7D74_boss6_1;
 
 #pragma push
 #pragma fp_contract on
-void TBoss6Type1__sub_802B7B44(Boss_802B7B44 *self) {
+void update_sway__11TBoss6Type1FPv(Boss_802B7B44 *self) {
     f32 d;
     f32 target;
     s32 v;

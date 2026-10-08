@@ -170,7 +170,7 @@ u32 TLobby__sub_803CB5C4();
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
-Rec_803C3E88 *TLobby__sub_803C3E88(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 u32 GXSetCopyFilter(void *, void *, void *, void *, void *, void *, void *);
 M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C30E8(u8 *arg0, s32 arg1, s32 arg2);
@@ -722,7 +722,7 @@ inline void free_803C3E88(Rec_803C3E88 *r) {
         r->used = 0;
     }
 }
-Rec_803C3E88 *TLobby__sub_803C3E88(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 i;
     Rec_803C3E88 *r;
     for (i = 0; i < 16; i++) {

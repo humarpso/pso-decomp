@@ -156,7 +156,7 @@ f32 vec3_add_to(void *, void *);
 extern const f32 TObjEnePanarms__data_805DA49C;
 extern const f32 TObjEnePanarms__data_805DA4A0;
 extern const f32 lbl_805DA4D8;
-void TObjEnePanarms__sub_800DDFDC(u8 *arg0);
+void update_fall__14TObjEnePanarmsFPv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TObjEnePanarms__sub_800DFB44(s32);
 s32 get_state_flag__14TObjEnePanarmsFPv(void *);
@@ -808,7 +808,7 @@ void TObjEnePanarms__sub_800DDED8(u8 *arg0) {
     set_field_b8__14TObjEnePanarmsFPvs(arg0, var_r30);
 }
 
-void TObjEnePanarms__sub_800DDFDC(u8 *arg0) {
+void update_fall__14TObjEnePanarmsFPv(u8 *arg0) {
   Stack_800DDFDC stack;
   f32 temp_f1;
   *((f32 *) (((s8 *) arg0) + 0x37C)) = (f32) ((*((f32 *) (((s8 *) arg0) + 0x37C))) + lbl_805DA4D8);

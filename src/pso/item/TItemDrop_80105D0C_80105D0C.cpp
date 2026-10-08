@@ -25,7 +25,7 @@ extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D2B78;
 extern s32 TItemDrop__data_805D5470;
 extern s32 TItemDrop__data_805D5474;
-void TItemDrop__sub_8010643C(void);
+void refresh_drop_table_if_changed__9TItemDropFv(void);
 u8 can_drop__9TItemDropFv(void);
 u8 get_bool_from_1d6ddc__9TItemDropFPv(void *);
 u8 TItemDrop__sub_80107B04(void *);
@@ -332,7 +332,7 @@ void count_unit_star_buckets__9TItemDropFv(void) {
         }
     }
 }
-void TItemDrop__sub_8010643C(void) {
+void refresh_drop_table_if_changed__9TItemDropFv(void) {
     if (lbl_805D2B78 != calc_drop_offset__9TItemDropFi(get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8)) ||
         TItemDrop__data_805D5470 != get_drop_table_mode_flags()) {
         TItemDrop__data_805D5474 = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);

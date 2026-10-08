@@ -81,7 +81,7 @@ u32 *TWindowSubStatusDisp__sub_8006F134(void *, s32);
 u32 get_card_window__17TWindowSubComCardFUi(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
 s32 TLobby__sub_8006F38C(s32 arg0);
-void TLobby__sub_8006F888(void *arg0, void *arg1, int arg2);
+void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2);
 }
 
 extern "C" {
@@ -154,10 +154,10 @@ void TLobby__sub_8006F48C(void) {
         return;
     }
     if (TBL_8006F48C.count > 0) {
-        TLobby__sub_8006F888((void *)(cur), (void *)(win->name), (int)(12));
+        decode_obfuscated_string__6TLobbyFPvPvi((void *)(cur), (void *)(win->name), (int)(12));
         for (i = 0; i < TBL_8006F48C.count; i++) {
             e = &TBL_8006F48C.entries[i];
-            TLobby__sub_8006F888((void *)(key), (void *)(e), (int)(12));
+            decode_obfuscated_string__6TLobbyFPvPvi((void *)(key), (void *)(e), (int)(12));
             if (strncmp(key, cur, 12) == 0) {
                 strncpy(win->name, e->name, 11);
                 win->term = 0;
@@ -216,7 +216,7 @@ void TLobby__sub_8006F848(s32 arg0) {
     M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
 }
 
-void TLobby__sub_8006F888(void *arg0, void *arg1, int arg2) {
+void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2) {
     u8 *dst = (u8 *)arg0;
     u8 *src = (u8 *)arg1;
     s32 n = arg2;

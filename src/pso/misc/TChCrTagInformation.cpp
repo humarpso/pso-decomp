@@ -14,7 +14,7 @@ s32 get_selected_char__15TChCrCharSelectFv();
 void get_instance__15TChCrCharSelectFv();
 void fn_80309890(void *, s32);
 extern const f32 lbl_805DDE1C;
-void TChCrTagInformation__sub_802A1E8C(Tag_802A1E8C *arg0);
+void update_selected_char__19TChCrTagInformationFPv(Tag_802A1E8C *arg0);
 }
 
 extern "C" {
@@ -24,14 +24,14 @@ void *__dt__19TChCrTagInformationFv(void *arg0, s16 arg1);
 int render__19TChCrTagInformationFv(void* p);
 void run_task__19TChCrTagInformationFv(void* p);
 int update_fade__8TChCrTagFPv(void*);
-int TObjCMAssignMenu__sub_802A1C04(void*);
+int draw_char_info_sprites__16TObjCMAssignMenuFPv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__8TChCrTagFv(void *, int);
 void fn_803098DC(void);
 
-int render__19TChCrTagInformationFv(void* p) { return TObjCMAssignMenu__sub_802A1C04(p); }
+int render__19TChCrTagInformationFv(void* p) { return draw_char_info_sprites__16TObjCMAssignMenuFPv(p); }
 
-void TChCrTagInformation__sub_802A1E8C(Tag_802A1E8C *arg0) {
+void update_selected_char__19TChCrTagInformationFPv(Tag_802A1E8C *arg0) {
     s32 c;
     if (arg0->f24 < lbl_805DDE1C) {
         fn_80309890(arg0, -1);
@@ -51,7 +51,7 @@ void TChCrTagInformation__sub_802A1E8C(Tag_802A1E8C *arg0) {
     }
 }
 
-void run_task__19TChCrTagInformationFv(void* p) { update_fade__8TChCrTagFPv(p); TChCrTagInformation__sub_802A1E8C((Tag_802A1E8C *)(p)); }
+void run_task__19TChCrTagInformationFv(void* p) { update_fade__8TChCrTagFPv(p); update_selected_char__19TChCrTagInformationFPv((Tag_802A1E8C *)(p)); }
 int TChCrTagInformation__vt4(void) { return 0; }
 
 extern M2C_UNK __vt__19TChCrTagInformation[];

@@ -36,7 +36,7 @@ u32 TLobby__sub_8034C1FC();
 void clear_if_current__26TWindowSubInformationBoardFUi(void *);
 M2C_UNK init_once_data__6TLobbyFUi(void *);
 M2C_UNK flush_pending_send__6TLobbyFv();
-M2C_UNK TLobby__sub_8034C304();
+M2C_UNK set_info_board_text__6TLobbyFi();
 M2C_UNK set_page__26TWindowSubInformationBoardFPvi(void *, int);
 M2C_UNK TWindowSubInformationBoard__sub_8034CC68(void *, s16);
 u32 open_keyboard__26TWindowSubInformationBoardFi(void *);
@@ -149,7 +149,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
         }
         if (update_keyboard__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C))) != 0) {
             temp_r30 = realloc_buffer__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x3C)));
-            TLobby__sub_8034C304();
+            set_info_board_text__6TLobbyFi();
             flush_pending_send__6TLobbyFv();
             free__11TOBoss4RockFUi((int) (temp_r30));
             M2C_FIELD(arg0, u8 *, 0x1C) = 0xBU;

@@ -3,7 +3,7 @@
 extern "C" {
 s32 count_members__6TLobbyFv(void);
 void open_member_name_window__22THunterGuildSeqOfflineFPv(void*);
-void THunterGuildSeqOffline__sub_80212230(void*);
+void update_member_proximity__22THunterGuildSeqOfflineFPv(void*);
 void TWindow__close(s32);
 void* memset(void*, int, unsigned long);
 extern const char* lbl_805D3650;
@@ -16,7 +16,7 @@ void TMemberCheck::run_task() {
         lbl_805D6180 = n;
         open_member_name_window__22THunterGuildSeqOfflineFPv(this);
     }
-    THunterGuildSeqOffline__sub_80212230(this);
+    update_member_proximity__22THunterGuildSeqOfflineFPv(this);
 }
 
 TMemberCheck::~TMemberCheck() {

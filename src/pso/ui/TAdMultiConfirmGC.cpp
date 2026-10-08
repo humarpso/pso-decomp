@@ -48,7 +48,7 @@ void __ct__13TAdTitleTexGCFv(void *, void *);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(void *, s32, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(u32);
-void *TAdMultiPlyChrSelectGC__sub_802E1024(void *, u32, u32, s32);
+void *get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, u32, u32, s32);
 void fn_802FF7EC(void *);
 void *__ct__12TAdMultiOkGCFv(void *, void *, OkArg_802FFA3C *);
 void __ct__18TAdMultiPlayerNoGCFv(void *, void *, u32, u32, s32);
@@ -165,7 +165,7 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
     arg.count = self->count;
     arg.mask = 0;
     for (j = 0; j < (n = self->count); j++) {
-        self->players[j] = TAdMultiPlyChrSelectGC__sub_802E1024(self, n + 1, j, self->ids[j]);
+        self->players[j] = get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(self, n + 1, j, self->ids[j]);
         if ((p = __nw__7TObjectFUl(0x48)) != 0) {
             __ct__18TAdMultiPlayerNoGCFv(p, self, self->count, j, self->ids[j]);
         }

@@ -10,7 +10,7 @@ s32 get_shared_text_buffer();
 M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
 M2C_UNK strncpy(int, int, int);
 extern s32 lbl_805D6E98;
-void TLobby__sub_8034C304(s32 arg0);
+void set_info_board_text__6TLobbyFi(s32 arg0);
 extern s32 lbl_805D6E98;
 extern u32 lbl_805D6E9C;
 void reset_info_board__6TLobbyFv(void);
@@ -54,7 +54,7 @@ void flush_pending_send__6TLobbyFv(void) {
 s32 get_card_window_field__6TLobbyFv(void) {
     return get_card_window__17TWindowSubComCardFUi(0xFFFF) + 0x20FC;
 }
-void TLobby__sub_8034C304(s32 arg0) {
+void set_info_board_text__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
     temp_r31 = (u8 *)(get_card_window__17TWindowSubComCardFUi((M2C_UNK)(0xFFFFU)) + 0x20FC);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (get_shared_text_buffer()));

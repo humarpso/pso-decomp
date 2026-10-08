@@ -55,7 +55,7 @@ extern RecoveredGlobal_8011A350_main_task main_task;
 void TItemReverseTech__sub_8011A3D8(void);
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(int);
-s32 fn_800F7D30(int, int, int);
+s32 prs_decompress_alloc(int, int, int);
 int set_stream_and_load_file__6TLobbyFi(char *);
 int free__11TOBoss4RockFUi(void*);
 int alloc_buffer__11TOBoss4RockFPv(u32);
@@ -147,7 +147,7 @@ void load_textures__16TItemReverseTechFv(void) {
     file = set_stream_and_load_file__6TLobbyFi(name->s);
     if (file != 0) {
         buf = alloc_buffer__11TOBoss4RockFPv(0x200000);
-        if (buf != 0 && fn_800F7D30(file, buf, 0x200000) > 0) {
+        if (buf != 0 && prs_decompress_alloc(file, buf, 0x200000) > 0) {
             load_gvm_texture_archive(buf, TItemReverseTech__data_805D54D0);
         }
         free__11TOBoss4RockFUi((void *)buf);

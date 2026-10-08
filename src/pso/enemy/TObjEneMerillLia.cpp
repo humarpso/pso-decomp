@@ -626,7 +626,7 @@ M2C_UNK TObjPlayer__sub_800C4E08(void *);
 M2C_UNK update_target_near_flag(void *);
 void TObjEneMerillLia__sub_800D5480(u8 *arg0);
 void TObjPlayer__sub_800F6E2C(void *, void *, void *);
-void TObjPlayer__sub_800F7118(void *);
+void link_into_group_chain__10TObjPlayerFPv(void *);
 s32 countChildren__9TObjEnemyFv(void *);
 s32 is_action_available__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
@@ -1268,7 +1268,7 @@ void TObjEneMerillLia__sub_800D5BCC(u8 *arg0) {
     advance_animation_playback(o);
     if (o->state != 1) {
         o->state = 1;
-        TObjPlayer__sub_800F7118(o);
+        link_into_group_chain__10TObjPlayerFPv(o);
         o->f378 = is_action_available__10TObjPlayerFv(o);
     }
     o->count = countChildren__9TObjEnemyFv(o);

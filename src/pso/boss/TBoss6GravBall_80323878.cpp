@@ -58,7 +58,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK destroy_part__14TBoss6GravBallFii(void *, int);
 M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
-void TBoss6GravBall__sub_80323348(void *);
+void clear_player_grav_flags__14TBoss6GravBallFv(void *);
 M2C_UNK TBoss6GravBall__sub_803233AC();
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 M2C_UNK spawn_particle_effect(void *, int);
@@ -123,7 +123,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (7));
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (8));
         M2C_FIELD(arg0, s32 *, 0xB4) = 0;
-        TBoss6GravBall__sub_80323348((void *)((void *) (arg0)));
+        clear_player_grav_flags__14TBoss6GravBallFv((void *)((void *) (arg0)));
         M2C_FIELD(arg0, s32 *, 0xB0) = 2;
         play_sound_effect((int) (0x4003C417), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
         return;
@@ -200,7 +200,7 @@ void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFPv(arg0);
-        TBoss6GravBall__sub_80323348((void *)(arg0));
+        clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

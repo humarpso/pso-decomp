@@ -6,11 +6,11 @@ extern "C" {
 void run_task__11TWindowCtrlFv(void* p);
 void render__11TWindowCtrlFv(void);
 int update__11TWindowCtrlFPv(void*);
-int TWindowCtrl__sub_8024C024(void*);
+int update_open_sequence__11TWindowCtrlFPv(void*);
 int update_game_modes__6TLobbyFv(void);
 
 void render__11TWindowCtrlFv(void) {  }
-void run_task__11TWindowCtrlFv(void* p) { TWindowCtrl__sub_8024C024(p); update__11TWindowCtrlFPv(p); update_game_modes__6TLobbyFv(); }
+void run_task__11TWindowCtrlFv(void* p) { update_open_sequence__11TWindowCtrlFPv(p); update__11TWindowCtrlFPv(p); update_game_modes__6TLobbyFv(); }
 
 }
 #else
@@ -544,10 +544,10 @@ void init_all_default__11TWindowCtrlFPv(void *arg0) {
 extern "C" {
 
 void show_party_effect__11TWindowCtrlFPvPvPv(void* a0, void* a1, void* a2);
-int TWindowEffectParty__sub_8024F82C(void*, void*, void*, void*, void*);
+int create__18TWindowEffectPartyFPviiUi(void*, void*, void*, void*, void*);
 
     extern int tl_07;
-void show_party_effect__11TWindowCtrlFPvPvPv(void* a0, void* a1, void* a2) { TWindowEffectParty__sub_8024F82C((void*)(tl_07), a0, a1, a2, a0); }
+void show_party_effect__11TWindowCtrlFPvPvPv(void* a0, void* a1, void* a2) { create__18TWindowEffectPartyFPviiUi((void*)(tl_07), a0, a1, a2, a0); }
 
 }
 #endif
@@ -557,10 +557,10 @@ void show_party_effect__11TWindowCtrlFPvPvPv(void* a0, void* a1, void* a2) { TWi
 extern "C" {
 
 void create_party_effect__11TWindowCtrlFPvPv(void* a0, void* a1);
-int TWindowEffectParty__sub_8024F82C(void*, void*, void*, void*);
+int create__18TWindowEffectPartyFPviiUi(void*, void*, void*, void*);
 
     extern int tl_07;
-void create_party_effect__11TWindowCtrlFPvPv(void* a0, void* a1) { TWindowEffectParty__sub_8024F82C((void*)(tl_07), a0, a1, (void*)0); }
+void create_party_effect__11TWindowCtrlFPvPv(void* a0, void* a1) { create__18TWindowEffectPartyFPviiUi((void*)(tl_07), a0, a1, (void*)0); }
 
 }
 #endif

@@ -16,7 +16,7 @@ void TWindowSubComCard__sub_8033C198(void);
 int TWindowSubComCard__sub_8033C19C(void* p);
 void render__16TCheckMemoryCardFv(void);
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
-int TWindowSubComCard__sub_8033BF90(void*);
+int close_windows__17TWindowSubComCardFPv(void*);
 
 void init_from_keyboard_state__22TQuestVmDownLoadServerFPv(void *arg0) {
     s32 var_r31;

@@ -315,7 +315,7 @@ void reset_state__14TObjEnePanarmsFPv(void* a0);
 void spawn_periodic_particle__14TObjEnePanarmsFPv(u8 *arg0);
 void attack_target_player__14TObjEnePanarmsFPvi(u8 *arg0, s32 arg1);
 s32 try_move_with_detour__14TObjEnePanarmsFPvPv(u8 *arg0, Vec_800E18B0 *arg1);
-void TObjEnePanarms__sub_800E1A44(u8 *arg0);
+void update_offset_from_parent__14TObjEnePanarmsFPv(u8 *arg0);
 void TObjEnePanarms__sub_800E1B50(u8 *arg0);
 void calc_part_position__14TObjEnePanarmsFPvPvPv(u8 *arg0, u8 *arg1, s32 *arg2);
 void TObjEnePanarms__sub_800E1C8C(void *arg0, s32 arg1, s32 arg2);
@@ -1297,7 +1297,7 @@ extern int fold_flush_6;
 #pragma auto_inline off
 #pragma dont_inline off
 #pragma fp_contract on
-void TObjEnePanarms__sub_800E1A44(u8 *arg0) {
+void update_offset_from_parent__14TObjEnePanarmsFPv(u8 *arg0) {
     f32 x;
     f32 z;
     f32 s;
@@ -1403,7 +1403,7 @@ int do_action_2__14TObjEnePanarmsFPv(void* p) { return ((int (*)(void*, int))TOb
 #pragma auto_inline off
 #pragma dont_inline off
 void init_state__14TObjEnePanarmsFi(s32 arg0) {
-    TObjEnePanarms__sub_800E1A44((u8 *)(arg0));
+    update_offset_from_parent__14TObjEnePanarmsFPv((u8 *)(arg0));
     ((int (*)(void*, int))TObjEnePanarms__sub_800E1C98)((void*)(arg0), 3);
 }
 extern int fold_flush_13;

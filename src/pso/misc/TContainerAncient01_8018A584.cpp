@@ -195,7 +195,7 @@ s32 check_demo_mode__10TObjPlayerFv();
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
 M2C_UNK TContainerAncient01__sub_8018A688(void *);
-void TContainerAncient01__sub_8018A914(void *);
+void check_open_trigger__19TContainerAncient01FPv(void *);
 M2C_UNK submit_cursor_candidate(void *, int, f32);
 M2C_UNK run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01R__data_805D5B94;
@@ -553,7 +553,7 @@ void TContainerAncient01__sub_8018A890(u8 *arg0) {
   }
 }
 
-void TContainerAncient01__sub_8018A914(void *arg0) {
+void check_open_trigger__19TContainerAncient01FPv(void *arg0) {
     Obj_8018A914 *self = (Obj_8018A914 *)arg0;
     s32 hit;
     u16 i;
@@ -693,7 +693,7 @@ void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
             temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
             switch (temp_r0) {
             case 0:
-                ((M2C_UNK (*)(void *))TContainerAncient01__sub_8018A914)((void *) (arg0));
+                ((M2C_UNK (*)(void *))check_open_trigger__19TContainerAncient01FPv)((void *) (arg0));
                 break;
             case 1:
                 TContainerAncient01__sub_8018A890((u8 *)((void *) (arg0)));
@@ -705,7 +705,7 @@ void update_state_machine__19TContainerAncient01FPv(u8 *arg0) {
                 M2C_FIELD(arg0, s16 *, 0x326) = 0;
                 M2C_FIELD(arg0, s16 *, 0xB8) = (s16) M2C_FIELD(arg0, s16 *, 0x326);
                 M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) (*(const f32 *)&TContainerAncient01__data_805DBD1C);
-                ((M2C_UNK (*)(void *))TContainerAncient01__sub_8018A914)((void *) (arg0));
+                ((M2C_UNK (*)(void *))check_open_trigger__19TContainerAncient01FPv)((void *) (arg0));
                 break;
             }
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4);

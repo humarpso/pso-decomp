@@ -26,7 +26,7 @@ s32 TObjPlayer__sub_801AFD8C(void *);
 s32 get_player_by_client_id(u32);
 M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
 M2C_UNK strncpy(void *, void *, int);
-s32 fn_8007B370(u8 *arg0, u32 arg1);
+s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
 }
 
 extern "C" {
@@ -34,7 +34,7 @@ extern "C" {
 typedef struct VBase_18_26c590 VBase_18_26c590;
 typedef struct VObj_18_26c590 VObj_18_26c590;
 #define PSO_VCALL_VObj_18_26c590_m10(_self) (((VObj_18_26c590 *)(_self))->m10())
-s32 fn_8007B370(u8 *arg0, u32 arg1) {
+s32 fill_guild_card_from_player(u8 *arg0, u32 arg1) {
   unsigned char new_var;
   s32 temp_r3;
   u8 *temp_r4;

@@ -374,7 +374,7 @@ s32 advance_lobby_pigeon_path(void *);
 void *destroy_lobby_pigeon(void *arg0, s16 arg1);
 void * create_child_object__10TObjPlayerFPv(void *arg0);
 void destroy_instance__10TObjPlayerFv(void);
-void TObjPlayer__sub_802C13C8(void);
+void load_kamome_resources__10TObjPlayerFv(void);
 s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self);
 s32 TObjPlayer__sub_802C1660(Obj_802C1660 *self);
 void draw_debug_lines__10TObjPlayerFPv(u8 *arg0);
@@ -382,7 +382,7 @@ void * dt_path_obj__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void * TObjPlayer__sub_802C19E8(void *arg0);
 void * create__10TObjPlayerFPv(void *arg0);
 void free_statics__10TObjPlayerFv(void);
-void TObjPlayer__sub_802C1B9C(void);
+void load_jungle_bird_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self);
 s32 TObjPlayer__sub_802C1E34(Obj_802C1E34 *self);
 void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0);
@@ -390,7 +390,7 @@ void * deleting_dtor_pathobj__10TObjPlayerFPvs(void *arg0, s16 arg1);
 u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2);
 void * create_path_obj__10TObjPlayerFPv(void *arg0);
 void free_chr_select__10TObjPlayerFv(void);
-void TObjPlayer__sub_802C2244(void);
+void load_jungle_ebi_resources__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_802C2548(Obj_802C2548 *self);
 void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0);
 void * TObjPlayer__sub_802C27A4(void *arg0, s16 arg1);
@@ -619,7 +619,7 @@ void destroy_instance__10TObjPlayerFv(void) {
     }
 }
 
-void TObjPlayer__sub_802C13C8(void) {
+void load_kamome_resources__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -816,7 +816,7 @@ void free_statics__10TObjPlayerFv(void) {
     }
 }
 
-void TObjPlayer__sub_802C1B9C(void) {
+void load_jungle_bird_resources__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -1002,7 +1002,7 @@ void free_chr_select__10TObjPlayerFv(void) {
     }
 }
 
-void TObjPlayer__sub_802C2244(void) {
+void load_jungle_ebi_resources__10TObjPlayerFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);

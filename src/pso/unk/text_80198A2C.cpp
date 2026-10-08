@@ -34,7 +34,7 @@ s16 get_timer_value__12TWindowTimerFi(s32);
 f32 xyz_distance(Vec_80199674*,void*);
 f32 vector_length(Vec_8019978C*);
 void normalize_vector(Vec_8019978C*);
-s32 fn_8019978C(Obj_8019978C*,Vec_8019978C*,Vec_8019978C*);
+s32 reflect_velocity_off_collision(Obj_8019978C*,Vec_8019978C*,Vec_8019978C*);
 void fn_80199674(u8*);
 extern void* lbl_804B8D94[];
 extern void* lbl_804B8DA0[];
@@ -787,14 +787,14 @@ Hit_8019978C *csnVector(Vec_8019978C *, Vec_8019978C *, s32);
 f32 vec3_dot(Vec_8019978C *, Vec_8019978C *);
 f32 vector_length(Vec_8019978C *);
 void normalize_vector(Vec_8019978C *);
-s32 fn_8019978C(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v);
+s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-s32 fn_8019978C(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v) {
+s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978C *v) {
     Vec_8019978C end;
     Vec_8019978C dir;
     Vec_8019978C a;
@@ -1037,7 +1037,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #define lbl_8050DD50 (*(int (*)[1])&lbl_8050DD50)
 #define xyz_distance ((f32 (*)(void*,void*))xyz_distance)
 #define vector_length ((f32 (*)(void*,f32))vector_length)
-#define fn_8019978C ((s32 (*)(void*,void*,void*))fn_8019978C)
+#define reflect_velocity_off_collision ((s32 (*)(void*,void*,void*))reflect_velocity_off_collision)
 #define lbl_804B8D94 (*(Vec_8019A104 *)&lbl_804B8D94)
 #define lbl_804B8DA0 (*(Vec_8019A104 *)&lbl_804B8DA0)
 
@@ -1198,7 +1198,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     self->vel.y += self->f33c;
     vec3_add_to(&self->pos, &self->vel);
     for (;;) {
-        if (i++ >= 3 || fn_8019978C(self, &q, &self->vel) == 0) {
+        if (i++ >= 3 || reflect_velocity_off_collision(self, &q, &self->vel) == 0) {
             break;
         }
         VecCopy__FP3VecPC3Vec(&self->pos, &q);
@@ -1416,6 +1416,6 @@ int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCt
 #undef lbl_8050DD50
 #undef xyz_distance
 #undef vector_length
-#undef fn_8019978C
+#undef reflect_velocity_off_collision
 #undef lbl_804B8D94
 #undef lbl_804B8DA0

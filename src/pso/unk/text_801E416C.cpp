@@ -20,12 +20,12 @@ int sprintf(char *, const char *, ...);
 extern char lbl_80449770[];
 extern u8 lbl_804C5260[];
 extern Handler_801E416C lbl_804C5284[];
-void fn_801E416C(Buf_801E416C *b);
+void dispatch_pso_data_commands(Buf_801E416C *b);
 }
 
 extern "C" {
 
-void fn_801E416C(Buf_801E416C *b) {
+void dispatch_pso_data_commands(Buf_801E416C *b) {
     char msg[0x80];
     u8 *pkt;
     s32 i;

@@ -190,7 +190,7 @@ s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
 extern M2C_UNK lbl_805D4918;
 extern s32 lbl_805D7C98;
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
+s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern s16 lbl_805D4828;
 s16 TLobby__sub_80426BD8(void);
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lbl_805CFC20;
@@ -303,11 +303,11 @@ s32 EXIDma(s32, void *, s32, u32, void *);
 void TLobby__sub_80429AC8(s32, void *);
 extern u8 lbl_805D1120[];
 extern u32 lbl_805D7C68;
-void TLobby__sub_80429A38(s32 chan, void *ctx);
+void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
 void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_8042B9C0(void *p);
+s32 poll_exi_status__6TLobbyFPv(void *p);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
@@ -422,7 +422,7 @@ s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3);
 
 #pragma push
 #pragma opt_propagation off
-s32 TLobby__sub_804249F0(s16 arg0, Arg_804249F0 *arg1);
+s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1);
 #pragma pop
 
 void TLobby__sub_80424CA8(void);
@@ -532,7 +532,7 @@ void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
 void start_exi_dma_read__6TLobbyFUs(u16 arg0);
 
-void TLobby__sub_80429A38(s32 chan, void *ctx);
+void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 
 void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 
@@ -544,7 +544,7 @@ void TLobby__sub_8042B560(s32 arg0);
 
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 
-s32 TLobby__sub_8042B9C0(void *p);
+s32 poll_exi_status__6TLobbyFPv(void *p);
 
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
 
@@ -645,7 +645,7 @@ s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     return 1;
 }
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0) {
+s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if ((arg0 == 0) && ((s32) lbl_805D7C98 == 3)) {
         lbl_805D7C98 = 1;
         if (EXILock(0, 2U, 0U) == 0) {

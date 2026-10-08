@@ -38,7 +38,7 @@ M2C_UNK reset_state__9TItemLoadFPv(void *);
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 lbl_805D2BF0;
-void TItemLoad__sub_8010F68C(Load_8010F68C *self);
+void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self);
 }
 
 extern "C" {
@@ -116,7 +116,7 @@ void TItemLoad__sub_8010F61C(Load_8010F61C *self, s32 id, s32 arg2) {
     }
 }
 
-void TItemLoad__sub_8010F68C(Load_8010F68C *self) {
+void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
     u32 pos;
     s32 tag;
     s32 size;

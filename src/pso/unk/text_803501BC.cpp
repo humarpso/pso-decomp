@@ -15,12 +15,12 @@ T_803501BC *get_item_pmt_entry__10TObjPlayerFUc(u8);
 s32 rand(void);
 extern const f32 lbl_805DFE28;
 extern const f32 lbl_805DFE2C;
-void fn_803501BC(void *arg0);
+void replace_item_with_random_result(void *arg0);
 }
 
 extern "C" {
 
-void fn_803501BC(void *arg0) {
+void replace_item_with_random_result(void *arg0) {
     T_803501BC *t;
     t = get_item_pmt_entry__10TObjPlayerFUc(get_slot_count__14TItemProShieldFPv(arg0));
     if (t != NULL) {

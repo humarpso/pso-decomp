@@ -343,7 +343,7 @@ s32 register_object__6TLobbyFPv(s32);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 void TObjPlayer__sub_8002E7C8(void);
-void TObjPlayer__sub_8002EBCC(void);
+void create_breakup_model__10TObjPlayerFv(void);
 void TBoss2Fin__sub_800367C4(void);
 void TBoss2Mine__sub_80038D88(void);
 void TBoss2Tentacle__sub_8003A0AC(void);
@@ -746,7 +746,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     p = &lbl_804FE328[10];
     p->kind = 0x1F;
     p->next = 0;
-    TObjPlayer__sub_8002EBCC();
+    create_breakup_model__10TObjPlayerFv();
     TObjPlayer__sub_8002E7C8();
     init_all_slots__11TWindowCtrlFv();
 }

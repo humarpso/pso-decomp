@@ -135,7 +135,7 @@ s16 compute_total_height__20TWindowSubSymbolChatFv();
 s32 calc_remaining_slots__20TWindowSubSymbolChatFv();
 s32 TWindowSubSymbolChat__sub_80283974();
 void fn_80284C04(u8 *arg0);
-void fn_80284CB8(void);
+void select_symbol_chat_slot(void);
 s32 calc_symbol_index__20TWindowSubSymbolChatFPv(void *arg0);
 void handle_cancel__25TWindowSubSymbolChatPartsFPv(void *arg0);
 void add_part__25TWindowSubSymbolChatPartsFPv(void *arg0);
@@ -183,7 +183,7 @@ void fn_80284C04(u8 *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
-void fn_80284CB8(void) {
+void select_symbol_chat_slot(void) {
     s32 var_r31;
     s32 temp_r30;
     s32 temp_r3;

@@ -42,7 +42,7 @@ extern const f32 lbl_805D8F40;
 extern const f32 lbl_805D8F44;
 extern const f32 lbl_805D8F48;
 extern const f32 lbl_805D8F4C;
-void TCameraCtrl__sub_8006786C(void *p_);
+void update_target_follow__11TCameraCtrlFPv(void *p_);
 }
 
 extern "C" {
@@ -68,7 +68,7 @@ void set_target__11TCameraCtrlFPvUi(void *arg0, u32 arg1) {
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl__sub_8006786C(void *p_) {
+void update_target_follow__11TCameraCtrlFPv(void *p_) {
 #define arg0 ((u8 *)p_)
     typedef char sp8_offset[(offsetof(Stack_8006786C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006786C, spC) == 0x4) ? 1 : -1];
@@ -171,7 +171,7 @@ void init_state__11TCameraCtrlFPv(void *arg0) {
     if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208 + 0x20, 0x10000) != 0) {
         update_follow_camera__11TCameraCtrlFv(arg0);
     } else {
-        TCameraCtrl__sub_8006786C((void *)(arg0));
+        update_target_follow__11TCameraCtrlFPv((void *)(arg0));
     }
     M2C_FIELD(arg0, s32 *, 0x38) = (s32) (M2C_FIELD(arg0, s32 *, 0x38) | 0x10);
 }

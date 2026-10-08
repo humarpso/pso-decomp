@@ -116,7 +116,7 @@ void TLobby__sub_80422E30(s16, s32, s32, s16);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1);
 void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
-s16 TLobby__sub_8040D86C(void *, void *, void *, s32, s32, int);
+s16 dispatch_by_addr_family__6TLobbyFiPvPvPvPvPv(void *, void *, void *, s32, s32, int);
 s16 TLobby__sub_8040D8F0(void *, void *, int, void *, int);
 s16 select_source_address__6TLobbyFPvPv(void *, void *);
 s16 TLobby__sub_8040DA54(void *, void *);
@@ -501,7 +501,7 @@ s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src
     add_item_80420FC8(pkt, e->f6, 8);
     e->fC = 0;
     e->fC = TLobby__sub_8040D8F0(src, dst, 0x11, pkt, 1);
-    return TLobby__sub_8040D86C(pkt, dst, src, arg5 + 4, arg5 + 4, 0x11);
+    return dispatch_by_addr_family__6TLobbyFiPvPvPvPvPv(pkt, dst, src, arg5 + 4, arg5 + 4, 0x11);
 }
 #pragma pop
 

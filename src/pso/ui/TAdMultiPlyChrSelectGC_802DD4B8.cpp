@@ -8,7 +8,7 @@ extern "C" {
 
 void update_card_select_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
+M2C_UNK clear_entries__18TAdChrMoveEffectGCFPv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 M2C_UNK reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
@@ -56,7 +56,7 @@ void update_state__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
             M2C_FIELD(arg0, u32 *, 0x80) = 0U;
         }
         if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
-            TAdChrMoveEffectGC__sub_803490AC();
+            clear_entries__18TAdChrMoveEffectGCFPv();
         }
         M2C_FIELD(arg0, s32 *, 0x20) = 0x12;
     }

@@ -92,7 +92,7 @@ extern u32 lbl_805D4DF0;
 extern s32 TCameraCtrl__data_805D4E10;
 u8 *init_conversation_camera__11TCameraCtrlFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void TCameraCtrl__sub_8006CD78(void *, void *);
+void set_fixed_position_and_target__11TCameraCtrlFPvPv(void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 void normalize_vector(void *);
@@ -102,7 +102,7 @@ extern const f32 lbl_805D8FFC;
 M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void queue_destruction__7TObjectFv(void *);
 s32 TCameraCtrl__sub_8006BADC(void);
-void TCameraCtrl__sub_8006CD78(void *, void *);
+void set_fixed_position_and_target__11TCameraCtrlFPvPv(void *, void *);
 void approach_vector_fixed_distance(Vec_8006B6A8 *, Vec_8006B6A8 *, Vec_8006B6A8 *, f32);
 extern u32 lbl_805D4DF0;
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0);
@@ -120,7 +120,7 @@ void update_active_player__11TCameraCtrlFv(void);
 void update_battle_camera__11TCameraCtrlFv(void);
 M2C_UNK restore_player_cameras();
 void *TCameraCtrl__sub_8006BA68(void *);
-void TCameraCtrl__sub_8006CCEC();
+void reset_to_local_player__11TCameraCtrlFv();
 M2C_UNK activate_body_collision__10TObjPlayerFPv();
 M2C_UNK deactivate_body_collision__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
@@ -223,7 +223,7 @@ extern M2C_UNK lbl_80488AF0[];
 void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
     approach_vector_fixed_distance(&arg0->v34, &arg0->v28, &arg0->v34, arg0->f1C);
     if (TCameraCtrl__sub_8006BADC() == 1) {
-        TCameraCtrl__sub_8006CD78((void *)(lbl_805D4DF0 + 0x178), &arg0->v34);
+        set_fixed_position_and_target__11TCameraCtrlFPvPv((void *)(lbl_805D4DF0 + 0x178), &arg0->v34);
     }
     arg0->f20++;
     if (arg0->f20 == arg0->f22 + arg0->f24 || TCameraCtrl__sub_8006BADC() == 0) {
@@ -234,7 +234,7 @@ void TCameraCtrl__sub_8006B6A8(Cam_8006B6A8 *arg0) {
 void *destroy__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488AF0;
-        TCameraCtrl__sub_8006CCEC();
+        reset_to_local_player__11TCameraCtrlFv();
         __dt__7TObjectFv((void *)(arg0), (int)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *)(arg0));
@@ -272,7 +272,7 @@ M2C_UNK TCameraCtrl__sub_8006B798(void *p, s32 arg1, s32 arg2, s32 arg3, s32 arg
     arg0->pos.z = d.z * dist + VIEW_8006B798->pos.z;
     arg0->f1c = xyz_distance(&arg0->pos, &VIEW_8006B798->tgt) / (f32)arg0->f22;
     arg0->f20 = 0;
-    TCameraCtrl__sub_8006CD78(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
+    set_fixed_position_and_target__11TCameraCtrlFPvPv(&VIEW_8006B798->pos, &VIEW_8006B798->tgt);
     return (M2C_UNK)arg0;
 #undef arg0
 }

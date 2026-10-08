@@ -76,9 +76,9 @@ s32 TObjPlayer__sub_801C0124(void *, s16);
 s32 get_ptr_4__10TObjPlayerFPv(s8 *);
 s32 get_class_stat_entry__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(s32, u8 *, E_802C4698 *);
-void TObjPlayer__sub_802C3BE0(void *, void *);
-void TObjPlayer__sub_802C3C18(void *, void *);
-void TObjPlayer__sub_802C3C50(void *, void *);
+void copy_battle_mode__10TObjPlayerFPvPv(void *, void *);
+void copy_byte_339_to_record__10TObjPlayerFPvPv(void *, void *);
+void copy_mag_level_to_record__10TObjPlayerFPvPv(void *, void *);
 void apply_pending_action__10TObjPlayerFii(void *, void *);
 void set_field_157__10TObjPlayerFPvUc(void *p, u8 v);
 void set_byte_13b__10TObjPlayerFPvUc(void *p, u8 v);
@@ -114,9 +114,9 @@ M2C_UNK export_inventory_entry__10TObjPlayerFiPv(Item_802C3F74 *, s32);
 s32 get_class_stat_entry__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
-void TObjPlayer__sub_802C3BE0(void *, void *);
-void TObjPlayer__sub_802C3C18(void *, void *);
-void TObjPlayer__sub_802C3C50(void *, void *);
+void copy_battle_mode__10TObjPlayerFPvPv(void *, void *);
+void copy_byte_339_to_record__10TObjPlayerFPvPv(void *, void *);
+void copy_mag_level_to_record__10TObjPlayerFPvPv(void *, void *);
 void apply_pending_action__10TObjPlayerFii(void *, void *);
 void set_field_157__10TObjPlayerFPvUc(void *p, u8 v);
 void set_byte_13b__10TObjPlayerFPvUc(void *p, u8 v);
@@ -188,9 +188,9 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     set_facing__10TObjPlayerFPvs(arg0, facing);
     M2C_FIELD(arg1, s8 *, 3) = TObjPlayer__sub_801AFD8C(arg0);
     apply_pending_action__10TObjPlayerFii(arg0, arg1);
-    TObjPlayer__sub_802C3C50(arg0, arg1);
-    TObjPlayer__sub_802C3C18(arg0, arg1);
-    TObjPlayer__sub_802C3BE0(arg0, arg1);
+    copy_mag_level_to_record__10TObjPlayerFPvPv(arg0, arg1);
+    copy_byte_339_to_record__10TObjPlayerFPvPv(arg0, arg1);
+    copy_battle_mode__10TObjPlayerFPvPv(arg0, arg1);
     set_flag_524288__10TObjPlayerFPv(arg0);
 }
 void TObjPlayer__sub_802C3F74(u8 *arg0, s8 *arg1) {
@@ -264,9 +264,9 @@ void TObjPlayer__sub_802C3F74(u8 *arg0, s8 *arg1) {
         set_flag_40__10TObjPlayerFPv(arg1);
     }
     apply_pending_action__10TObjPlayerFii(arg0, arg1);
-    TObjPlayer__sub_802C3C50(arg0, arg1);
-    TObjPlayer__sub_802C3C18(arg0, arg1);
-    TObjPlayer__sub_802C3BE0(arg0, arg1);
+    copy_mag_level_to_record__10TObjPlayerFPvPv(arg0, arg1);
+    copy_byte_339_to_record__10TObjPlayerFPvPv(arg0, arg1);
+    copy_battle_mode__10TObjPlayerFPvPv(arg0, arg1);
     set_flag_524288__10TObjPlayerFPv(arg0);
 }
 

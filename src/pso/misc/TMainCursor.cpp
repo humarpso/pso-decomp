@@ -22,7 +22,7 @@ void TKeyBoardControl__sub_8000F984(void);
 extern s32 lbl_805D49B8;
 void mark_area_change_pending(void);
 void TKeyBoardControl__sub_8000F9A4(void);
-int TMainCursor__sub_8013DF5C(void*, void* a1, void* a2);
+int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1, void* a2);
 extern M2C_UNK lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
@@ -156,6 +156,6 @@ u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32
     return arg0;
 }
 
-int TMainCursor__sub_8013BE98(void* p, void* _w1, void* _w2) { return TMainCursor__sub_8013DF5C((void*)(p), (void*)(_w1), (void*)(_w2)); }
+int TMainCursor__sub_8013BE98(void* p, void* _w1, void* _w2) { return matches_type_and_enabled__11TMainCursorFiUcUc((void*)(p), (void*)(_w1), (void*)(_w2)); }
 
 }

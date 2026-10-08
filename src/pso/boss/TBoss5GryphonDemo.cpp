@@ -56,7 +56,7 @@ u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 void register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
-s16 TLobby__sub_801A2078(s32);
+s16 alloc_actor_ids__6TLobbyFi(s32);
 extern M2C_UNK lbl_80488668[];
 extern M2C_UNK lbl_804886AC[];
 extern s32 lbl_805D2808;
@@ -134,7 +134,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, 
     construct_collider_proxy__10TObjPlayerFPv(arg0);
     arg0->vt = lbl_804886AC;
     arg0->f0 = lbl_805D2808;
-    arg0->f1c = TLobby__sub_801A2078(0);
+    arg0->f1c = alloc_actor_ids__6TLobbyFi(0);
     VecCopy__FP3VecPC3Vec(arg0->posbuf, arg3);
     arg0->count = arg2;
     arg0->segs = (Seg_800663DC *)alloc_buffer__11TOBoss4RockFPv(arg0->count * 0x2C);

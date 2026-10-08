@@ -31,7 +31,7 @@ void update_layout_height__17TWindowSubComCardFPvf(f32);
 s32 init_shop_judgment_window(void *);
 extern T_8032C118 lbl_804772E8[];
 extern const f32 lbl_805DF788;
-s32 TAdYesNoBaseGC__sub_8032C118(O_8032C118 *arg0);
+s32 create_menu_window__14TAdYesNoBaseGCFPv(O_8032C118 *arg0);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ s32 TAdYesNoBaseGC__sub_8032C0B4(u8 *arg0) {
     return temp_r31;
 }
 
-s32 TAdYesNoBaseGC__sub_8032C118(O_8032C118 *arg0) {
+s32 create_menu_window__14TAdYesNoBaseGCFPv(O_8032C118 *arg0) {
     T_8032C118 t = lbl_804772E8[0];
     s32 r = init_shop_judgment_window(&t);
     update_layout_height__17TWindowSubComCardFPvf(lbl_805DF788);
@@ -102,7 +102,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
     switch (temp_r0) {
     case 0:
         M2C_FIELD(arg0, u32 *, 0x40) = TAdYesNoBaseGC__sub_8032C0B4((u8 *)(arg0));
-        M2C_FIELD(arg0, u32 *, 0x44) = TAdYesNoBaseGC__sub_8032C118((O_8032C118 *)(arg0));
+        M2C_FIELD(arg0, u32 *, 0x44) = create_menu_window__14TAdYesNoBaseGCFPv((O_8032C118 *)(arg0));
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
         break;
     case 1:

@@ -91,7 +91,7 @@ int get_max_players__6TLobbyFv(void);
 int get_height__15TWindowSnapShotFv(void);
 extern u32 lbl_805D6694;
 extern s32 lbl_805D6698;
-void TLobby__sub_802A7C5C(void);
+void alloc_snapshot_buffer__6TLobbyFv(void);
 s32 free_if_positive__6TLobbyFis(s32, s16);
 M2C_UNK free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
@@ -227,7 +227,7 @@ s32 copy_if_space(void) {
     return 1;
 }
 
-void TLobby__sub_802A7C5C(void) {
+void alloc_snapshot_buffer__6TLobbyFv(void) {
   s32 temp_r31;
   s32 temp_r31_2;
   u32 temp_r3;

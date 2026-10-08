@@ -57,7 +57,7 @@ f32 TObjTombstone__sub_8007598C(Obj_8007598C *self, void * _w1);
 s32 submit_card_password__17TWindowSubComCardFi(char *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804387F8[];
-void TObjTombstone__sub_80075AE8(Obj_80075AE8 *self);
+void format_quoted_name__13TObjTombstoneFPv(Obj_80075AE8 *self);
 s32 submit_card_password__17TWindowSubComCardFi(char *);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int sprintf(char *, const char *, ...);
@@ -66,7 +66,7 @@ void build_name_text__13TObjTombstoneFPv(Obj_80075BE0 *self);
 const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_80438808[];
-void TObjTombstone__sub_80075C60(Obj_80075C60 *self);
+void format_label__13TObjTombstoneFPv(Obj_80075C60 *self);
 Ply_8007598C * get_player_by_client_id(s32, void *);
 int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, unsigned long);
@@ -83,7 +83,7 @@ const char *TQuestVmDownLoadServer__sub_8006EF6C(s32);
 s32 enemy_name_for_rt_index(s32);
 int sprintf(char *, const char *, ...);
 char *strncpy(char *, const char *, unsigned long);
-void TObjTombstone__sub_80075B5C(Tomb_80075B5C *self);
+void format_enemy_text__13TObjTombstoneFPv(Tomb_80075B5C *self);
 }
 
 extern "C" {
@@ -157,7 +157,7 @@ void format_date_text__13TObjTombstoneFPv(Tomb_80075A00 *self) {
     }
 }
 
-void TObjTombstone__sub_80075AE8(Obj_80075AE8 *self) {
+void format_quoted_name__13TObjTombstoneFPv(Obj_80075AE8 *self) {
     char *buf = self->buf;
     if (self->name[0] == 0 || submit_card_password__17TWindowSubComCardFi(self->name) != 0) {
         buf[0] = 0;
@@ -167,7 +167,7 @@ void TObjTombstone__sub_80075AE8(Obj_80075AE8 *self) {
     buf[0x2F] = 0;
 }
 
-void TObjTombstone__sub_80075B5C(Tomb_80075B5C *self) {
+void format_enemy_text__13TObjTombstoneFPv(Tomb_80075B5C *self) {
     char fmt[0x30];
     char *text = self->text;
     s32 name;
@@ -193,7 +193,7 @@ void build_name_text__13TObjTombstoneFPv(Obj_80075BE0 *self) {
     buf[0x2F] = 0;
 }
 
-void TObjTombstone__sub_80075C60(Obj_80075C60 *self) {
+void format_label__13TObjTombstoneFPv(Obj_80075C60 *self) {
     sprintf(self->buf, lbl_80438808, TQuestVmDownLoadServer__sub_8006EF6C(0x4D), self->val);
     self->buf[0x2F] = 0;
 }

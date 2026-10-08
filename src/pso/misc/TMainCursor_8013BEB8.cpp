@@ -72,7 +72,7 @@ M2C_UNK fn_8004438C(void *);
 M2C_UNK store_sorted_record__11TMainCursorFPvPvPv(s32, Ent_8013C678 *, Ent_8013C678 *);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
 s32 is_channel_active__11TMainCursorFPv();
-int TMainCursor__sub_8013DF5C(void*, void* a1 = 0, void* a2 = 0);
+int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
 int TMainCursor__sub_8013E870(void*, void*);
 u8 TMainCursor__sub_8013E900(s32);
 M2C_UNK get_record_at__11TMainCursorFPvi(void *, int);
@@ -86,7 +86,7 @@ M2C_UNK set_size__11TMainCursorFPvf(f32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (is_channel_active__11TMainCursorFPv() != 0) {
-        return TMainCursor__sub_8013DF5C((void*)(arg0), (void*)(arg1), (void*)(arg2));
+        return matches_type_and_enabled__11TMainCursorFiUcUc((void*)(arg0), (void*)(arg1), (void*)(arg2));
     }
     return 0;
 }

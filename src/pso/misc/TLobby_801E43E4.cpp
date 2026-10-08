@@ -12,7 +12,7 @@ extern s32 lbl_805D5E50;
 void TLobby__send_and_handle_60(u8 *arg0);
 M2C_UNK TProtocol__send_60(int, int, int);
 extern u32 TLobby__data_805D5580;
-void TLobby__sub_801E4534(u8 *arg0);
+void send_60_sized__6TLobbyFPv(u8 *arg0);
 M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
 M2C_UNK dispatch_6x_subcommand(void *);
 extern u32 lbl_805D53A0;
@@ -118,7 +118,7 @@ void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1) {
     }
 }
 
-void TLobby__sub_801E4534(u8 *arg0) {
+void send_60_sized__6TLobbyFPv(u8 *arg0) {
     int size = arg0[1] * 4;
     if (TLobby__data_805D5580 != 0) {
         TProtocol__send_60(TLobby__data_805D5580, (int)arg0, size);

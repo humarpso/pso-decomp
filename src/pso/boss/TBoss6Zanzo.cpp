@@ -35,7 +35,7 @@ void TBoss6Zanzo__sub_803205A0(s32 *arg0, s32 *arg1);
 void TBoss6Zanzo__sub_80320534(Obj_80320534 *arg0, Src_80320534 *arg1, Src_80320534 *arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
-void TBoss6Type1__sub_803204B8(Ef_803204B8 *o, f32 *a, u32 *b);
+void set_effect_points__11TBoss6Type1FPvPvPv(Ef_803204B8 *o, f32 *a, u32 *b);
 void __dt__7TObjectFv(void *, int);
 void __dl__FPv(void *);
 void free__11TOBoss4RockFUi(void *);
@@ -63,7 +63,7 @@ int set_depth_buffer_settings_1__Fv(void*);
 
 s32 fn_803204B0(void* p) { return *(s32*)((char*)p + 0x4); }
 
-void TBoss6Type1__sub_803204B8(Ef_803204B8 *o, f32 *a, u32 *b) {
+void set_effect_points__11TBoss6Type1FPvPvPv(Ef_803204B8 *o, f32 *a, u32 *b) {
     Ent_803204B8 *p;
     Ent_803204B8 *end;
     f32 *a2 = a;

@@ -681,7 +681,7 @@ s32 is_phase_complete__11TBoss6Type2FPv(void *arg0);
 s32 TBoss6Type2__sub_802BA944(Boss_802BA944 *o);
 s32 TBoss6Type2__sub_802BA9E4(T2_802BA9E4 *arg0);
 void trigger_screen_pos__11TBoss6Type2FPv(void *arg0);
-s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self);
+s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self);
 void TBoss6Type2__sub_802BAD04(s32 arg0);
 void TBoss6Type2__sub_802BB180(void);
 void init_range__11TBoss6Type2Fv(void);
@@ -704,11 +704,11 @@ void TBoss6Type2__sub_802BBF54(u8 *arg0);
 void update_segments__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BC050(Obj_802BC050 *o);
 s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0);
-s32 TBoss6Type2__sub_802BC23C(struct Boss_802BC23C *arg0);
+s32 choose_random_motion__11TBoss6Type2FPv(struct Boss_802BC23C *arg0);
 s32 is_target_valid__11TBoss6Type2FPv(void *arg0);
 void update_attack_switch__11TBoss6Type2FPv(u8 *arg0);
 void play_phase_sound__11TBoss6Type2FPv(u8 *arg0);
-void TBoss6Type2__sub_802BC4CC(u8 *arg0);
+void play_sound_if_no_target__11TBoss6Type2FPv(u8 *arg0);
 void update_countdown__11TBoss6Type2FPv(void *arg0);
 u8 is_active__11TBoss6Type2FPv(void *arg0);
 void TBoss6Type2__sub_802BC62C(u8 *arg0);
@@ -1304,7 +1304,7 @@ void cache_fish_params__11TBoss6Type2FPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x56C) = get_bml_model(M2C_FIELD(arg0, s32 *, 0x3FC), 0xA);
 }
 
-void update_zako__11TBoss6Type2FPv(void* p) { ((int (*)(void*, void*))vec3_add_to)((char*)p + 0x38, (char*)p + 0x524); ((int (*)(void*))TBoss6Type2__sub_802BAB80)(p); }
+void update_zako__11TBoss6Type2FPv(void* p) { ((int (*)(void*, void*))vec3_add_to)((char*)p + 0x38, (char*)p + 0x524); ((int (*)(void*))snap_to_ground__11TBoss6Type2FPv)(p); }
 
 void TBoss6Type2__sub_802BA7B0(void* p) { *(s32*)((char*)p + 0x520) = -1; }
 
@@ -1380,7 +1380,7 @@ void trigger_screen_pos__11TBoss6Type2FPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TBoss6Type2__sub_802BAB80(Obj_802BAB80 *self) {
+s32 snap_to_ground__11TBoss6Type2FPv(Obj_802BAB80 *self) {
     Vec_802BAB80 p;
     f32 t;
     VecCopy__FP3VecPC3Vec(&p, &self->pos);
@@ -1810,7 +1810,7 @@ s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0) {
     return var_r31;
 }
 
-s32 TBoss6Type2__sub_802BC23C(struct Boss_802BC23C *arg0) {
+s32 choose_random_motion__11TBoss6Type2FPv(struct Boss_802BC23C *arg0) {
     s32 m;
     f32 r;
     f32 a;
@@ -1885,7 +1885,7 @@ void play_phase_sound__11TBoss6Type2FPv(u8 *arg0) {
     }
 }
 
-void TBoss6Type2__sub_802BC4CC(u8 *arg0) {
+void play_sound_if_no_target__11TBoss6Type2FPv(u8 *arg0) {
     if (is_target_valid__11TBoss6Type2FPv((void *)(arg0)) == 0) {
         play_sound_effect((M2C_UNK)(M2C_FIELD(&lbl_804712FC.value, M2C_UNK *, (TBoss6Type2__sub_802BD870(M2C_FIELD(arg0, u32 *, 0x2E4)) * 4))), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(1));
     }
@@ -1932,13 +1932,13 @@ u8 is_active__11TBoss6Type2FPv(void *arg0) {
 void TBoss6Type2__sub_802BC62C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x518) = 0x34;
     M2C_FIELD(arg0, s32 *, 0x51C) = 1;
-    ((void (*)(void *))TBoss6Type2__sub_802BC4CC)(arg0);
+    ((void (*)(void *))play_sound_if_no_target__11TBoss6Type2FPv)(arg0);
 }
 
 void TBoss6Type2__sub_802BC65C(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x518) = 0x34;
     M2C_FIELD(arg0, s32 *, 0x51C) = 0;
-    ((void (*)(void *))TBoss6Type2__sub_802BC4CC)(arg0);
+    ((void (*)(void *))play_sound_if_no_target__11TBoss6Type2FPv)(arg0);
 }
 
 void reset_indices__11TBoss6Type2FPv(void *arg0) {
@@ -2846,7 +2846,7 @@ void build_state_packet__11TBoss6Type2FPvPv(u8 *arg0, u8 *arg1) {
     u16 sp8;
     M2C_FIELD(arg1, u16 *, 2) = (u16) M2C_FIELD(arg0, u16 *, 0x1C);
     M2C_FIELD(arg1, s8 *, 8) = (s8) (lbl_805DE4D0 * (TBoss6Type2__data_805DE468 * (f32) rand()));
-    M2C_FIELD(arg1, s8 *, 9) = ((s32 (*)(void *))TBoss6Type2__sub_802BC23C)(arg0);
+    M2C_FIELD(arg1, s8 *, 9) = ((s32 (*)(void *))choose_random_motion__11TBoss6Type2FPv)(arg0);
     M2C_FIELD(arg1, s8 *, 0xA) = (s8) M2C_FIELD(arg0, s32 *, 0x428);
     M2C_FIELD(arg1, s8 *, 0xB) = (s8) M2C_FIELD(arg0, s32 *, 0x430);
     M2C_FIELD(arg1, s8 *, 0xC) = (s8) M2C_FIELD(arg0, u16 *, 0x464);

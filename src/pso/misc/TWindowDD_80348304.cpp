@@ -26,12 +26,12 @@ int TWindowDD__sub_8034B008(s32, s32);
 void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
 void append_prompt_newline__9TWindowDDFPvPv(u8 *arg0, s32 *arg1);
 M2C_UNK TWindow__close(void *);
-void TWindowDD__sub_80348520(void *p);
+void close_all_windows__9TWindowDDFPv(void *p);
 s32 get_player_count__10TObjPlayerFv();
 s32 is_flag_set__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 TWindowDD__sub_80348398(u8 *arg0);
-s32 TWindowDD__sub_803485F4(s32 arg0, s32 *arg1);
+s32 can_append_chars__9TWindowDDFiPv(s32 arg0, s32 *arg1);
 }
 
 extern "C" {
@@ -112,7 +112,7 @@ s32 TWindowDD__sub_80348470(u8 *arg0) {
     return ((temp_r3 - 3) == 0) ? 2 : 0;
 }
 
-void set_state__9TWindowDDFPv(void* p) { *(int*)((char*)p + 0xa8) = 3; TWindowDD__sub_80348520((void *)((void*)(p))); }
+void set_state__9TWindowDDFPv(void* p) { *(int*)((char*)p + 0xa8) = 3; close_all_windows__9TWindowDDFPv((void *)((void*)(p))); }
 
 void TWindowDD__sub_803484C4(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0xA8) = 2;
@@ -120,10 +120,10 @@ void TWindowDD__sub_803484C4(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) != 0) {
         reset_selection__9TWindowDDFPv((void *) (arg0), (void *) (arg0 + 0xC4));
     }
-    TWindowDD__sub_80348520((void *)((void*)((void *) (arg0))));
+    close_all_windows__9TWindowDDFPv((void *)((void*)((void *) (arg0))));
 }
 
-void TWindowDD__sub_80348520(void *p) {
+void close_all_windows__9TWindowDDFPv(void *p) {
     W_80348520 *w = (W_80348520 *)p;
     s32 i;
     if (w->f84 != NULL) {
@@ -154,7 +154,7 @@ void TWindowDD__sub_80348520(void *p) {
 
 extern s32 TWindowDD__data_805D6E08;
 
-s32 TWindowDD__sub_803485F4(s32 arg0, s32 *arg1) {
+s32 can_append_chars__9TWindowDDFiPv(s32 arg0, s32 *arg1) {
     s32 t = *arg1;
     return (arg0 + t + 1) < 0x80;
 }
@@ -181,7 +181,7 @@ void update_state__9TWindowDDFv(void) {
 
 void append_prompt_newline__9TWindowDDFPvPv(u8 *arg0, s32 *arg1) {
     s32 p = *arg1;
-    if (((s32)TWindowDD__sub_803485F4((s32)((s32)(3)), (s32 *)((s32 *)(arg1)))) != 0) {
+    if (((s32)can_append_chars__9TWindowDDFiPv((s32)((s32)(3)), (s32 *)((s32 *)(arg1)))) != 0) {
         arg0[p++] = 0xA;
         arg0[p++] = 0x3E;
         arg0[p++] = 0x20;

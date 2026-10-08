@@ -15,7 +15,7 @@ s32 TWindowEffectParty__sub_8024F690(u8 *arg0, f32 farg0, f32 farg1);
 void *__nw__7TObjectFUl(u32);
 void *TWindowEffectParty__ct(void *, void *, u16, u16, s32);
 extern s32 lbl_805D53A0;
-void *TWindowEffectParty__sub_8024F82C(void *owner, s32 from, s32 to, u32 kind);
+void *create__18TWindowEffectPartyFPviiUi(void *owner, s32 from, s32 to, u32 kind);
 }
 
 extern "C" {
@@ -76,7 +76,7 @@ void set_slot_position__18TWindowEffectPartyFiiPv(s32 arg0, s32 arg1, void *arg2
         M2C_FIELD(arg2, f32 *, 4) = (f32) (lbl_805DCCD0 + M2C_FIELD(temp_r3, f32 *, 0x34));
     }
 }
-void *TWindowEffectParty__sub_8024F82C(void *owner, s32 from, s32 to, u32 kind) {
+void *create__18TWindowEffectPartyFPviiUi(void *owner, s32 from, s32 to, u32 kind) {
     s32 id;
     u16 b;
     u16 a;

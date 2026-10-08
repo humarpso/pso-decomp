@@ -27,14 +27,14 @@ extern unsigned char main_task[];
 void run_main_frame__16TKeyBoardControlFv(void);
 M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
-M2C_UNK TAdEndText__sub_8001B370();
+M2C_UNK load_ending_font__10TAdEndTextFv();
 M2C_UNK set_ending_callback__6TLobbyFv();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
 M2C_UNK reset_controller_input_state();
 M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
 int render_tick__Fv(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_80307964();
+M2C_UNK init_ending_movie();
 M2C_UNK set_screen_size(f32, f32);
 extern int lbl_805D6A58;
 extern const f32 lbl_805DF0B0;
@@ -89,11 +89,11 @@ void start_ending_sequence(void) {
     reset_controller_input_state();
     TKeyBoardControl__sub_8000F91C(2);
     TKeyBoardControl__sub_8000F90C(2);
-    TAdEndText__sub_8001B370();
+    load_ending_font__10TAdEndTextFv();
     update_keyboard_menu__6TLobbyFv();
     set_ending_callback__6TLobbyFv();
     if (__nw__7TObjectFUl(0x1C) != 0U) {
-        fn_80307964();
+        init_ending_movie();
     }
     render_tick__Fv();
 }

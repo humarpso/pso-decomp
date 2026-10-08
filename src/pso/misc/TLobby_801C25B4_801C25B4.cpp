@@ -27,7 +27,7 @@ void show_score_results__6TLobbyFPv(void *);
 extern s16 lbl_80511CB0[];
 extern s32 lbl_805D53A0;
 extern s32 TLobby__data_805D53AC;
-void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t);
+void update_battle_sync__6TLobbyFPvi(Lobby_801C2898 *self, s32 t);
 u32 get_player_by_client_id(s32);
 s32 TLobby__sub_801C19D0(void *);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
@@ -153,7 +153,7 @@ u8 check_battle_end__6TLobbyFv(void) {
     return cnt <= 1;
 }
 
-void TLobby__sub_801C2898(Lobby_801C2898 *self, s32 t) {
+void update_battle_sync__6TLobbyFPvi(Lobby_801C2898 *self, s32 t) {
     s32 i;
     switch (self->state) {
     case 0:

@@ -49,7 +49,7 @@ u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_ready_state__22TAdMultiPlyChrSelectGCFPv(s32);
 M2C_UNK create_effects__14TAdGameStartGCFPv(s32);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, M2C_UNK);
-M2C_UNK TAdChrMoveEffectGC__sub_803490AC();
+M2C_UNK clear_entries__18TAdChrMoveEffectGCFPv();
 void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
@@ -84,7 +84,7 @@ extern "C" {
 void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 u32 open_yes_no_window__16TAdChrSelASlotGCFiii(u32, M2C_UNK *, s32);
 s32 TAdChrSelBSlotGC__sub_8030E378(s32, s32);
-s32 TAdMultiPlyChrSelectGC__sub_802DBDE0(void *, s32);
+s32 create_confirm_window__22TAdMultiPlyChrSelectGCFv(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 M2C_UNK close__17TWindowSubComCardFPv(void *);
@@ -175,7 +175,7 @@ void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         load_tables(temp_r30);
         if (TAdSinglePlyChrSelectGC__sub_801FE800(temp_r30) != 0) {
             if (TAdChrSelBSlotGC__sub_8030E378(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {
-                M2C_FIELD(arg0, s32 *, 0x88) = TAdMultiPlyChrSelectGC__sub_802DBDE0(arg0, get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C)));
+                M2C_FIELD(arg0, s32 *, 0x88) = create_confirm_window__22TAdMultiPlyChrSelectGCFv(arg0, get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C)));
                 M2C_FIELD(arg0, s32 *, 0x20) = 0xF;
                 return;
             }
@@ -293,7 +293,7 @@ void reset_to_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r3;
     if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
-        TAdChrMoveEffectGC__sub_803490AC();
+        clear_entries__18TAdChrMoveEffectGCFPv();
     }
     if (TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
         TAdMultiPlyChrSelectGC__sub_802C6920();

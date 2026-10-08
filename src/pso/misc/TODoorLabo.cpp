@@ -278,12 +278,12 @@ extern u8 lbl_804DC834[];
 extern s32 lbl_805D6618;
 extern s32 lbl_805D661C;
 extern s32 lbl_805D6620;
-void fn_8029FC88(void);
+void load_labo_door_resources(void);
 }
 
 extern "C" {
 
-void fn_8029FC88(void) {
+void load_labo_door_resources(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
         r = load_resource_from_descriptor(r, 5, lbl_804DC834, 0, 0, 0);

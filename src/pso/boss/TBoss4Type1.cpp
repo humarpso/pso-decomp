@@ -270,7 +270,7 @@ s32 get_bml_motion(s32, s32);
 M2C_UNK TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *);
-void TBoss4Type2__sub_8004A98C(void *);
+void scroll_strips__11TBoss4Type2FPv(void *);
 void fn_8004AA04(void *);
 s32 TBoss4DarkFalz__sub_8004AF5C(s32, s16 *, s16 *);
 void send_code_25_4__14TBoss4DarkFalzFPvi(void *, s32);
@@ -314,11 +314,11 @@ void TBoss4Type2__sub_80053AD4(Obj_80053AD4 *arg0);
 void TBoss4Type2__sub_80053B48(S_80053B48 *o, s32 *a, s32 *b);
 void TBoss4Type2__sub_80053BF4(void *arg0, u32 arg1);
 void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-void TBoss4Type2__sub_80053CEC(Obj_80053CEC *self, s32 arg1);
+void send_state_to_target__11TBoss4Type2FPvi(Obj_80053CEC *self, s32 arg1);
 void fn_80053D4C(Obj_80053D4C *arg0);
 f32 calc_wave_offset__11TBoss4Type2Ff(f32 farg0);
 void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2);
-void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in);
+void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in);
 void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1);
 u8 * TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void draw_parts__8TObjFishFPv(u8 *arg0);
@@ -814,7 +814,7 @@ void update_scale_state__11TBoss4Type2FPv(void *arg0) {
         }
         ((M2C_UNK (*)(void *, M2C_UNK *))pick_target_position__13TRaderMapCoreFPvPv)(arg0, &sp8);
         ((M2C_UNK (*)(void *, M2C_UNK *))set_map_position__13TRaderMapCoreFPvPv)(arg0, &sp8);
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss4Type2__sub_80053CEC)(arg0, var_r31);
+        ((M2C_UNK (*)(void *, M2C_UNK))send_state_to_target__11TBoss4Type2FPvi)(arg0, var_r31);
     }
 }
 
@@ -923,7 +923,7 @@ void TBoss4Type2__sub_80052EF8(O_80052EF8 *o) {
     {
         Vec_80052EF8 a = lbl_804861C4[o->f3a4];
         Vec_80052EF8 b = lbl_804861C4[o->f3a0];
-        ((M2C_UNK (*)(void *, Vec_80052EF8 *, Vec_80052EF8 *))TBoss4Type2__sub_80054224)(o, &a, &b);
+        ((M2C_UNK (*)(void *, Vec_80052EF8 *, Vec_80052EF8 *))set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv)(o, &a, &b);
     }
     ((M2C_UNK (*)(void *, s32, s32))calc_scaled_field__11TBoss4Type2FPvii)(o, ((s32 (*)(void *, s32, s32))TBoss4Type2__sub_80054384)(o, o->f3a4, o->f3ac), ((s32 (*)(void *, s32, s32))TBoss4Type2__sub_80054384)(o, o->f3a0, o->f3a8));
     ((M2C_UNK (*)(s32, void *, void *, s32, s32))play_persistent_sound)(0x4003A80D, o, o->f38, 0, 0);
@@ -940,7 +940,7 @@ void TBoss4Type2__sub_8005307C(void* p) { *(u32*)((char*)p + 0x398) = *(u32*)((c
 
 void update_flag800_state__11TBoss4Type2FPv(void *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x30) & 0x800) {
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss4Type2__sub_80053CEC)((void *)(arg0), (M2C_UNK)(4));
+        ((M2C_UNK (*)(void *, M2C_UNK))send_state_to_target__11TBoss4Type2FPvi)((void *)(arg0), (M2C_UNK)(4));
         return;
     }
     ((M2C_UNK (*)(void *))TBoss4Type2__sub_80053504)((void *)(arg0));
@@ -950,7 +950,7 @@ void TBoss4Type2__sub_800530C0(Obj_800530C0 *arg0) {
     arg0->f39c = ((f32 (*)(void *, f32))calc_wave_offset__11TBoss4Type2Ff)(arg0, lbl_805D8B18 - (f32)arg0->timer / lbl_805D8B1C);
     Vec_800530C0 a = lbl_80437604;
     Vec_800530C0 b = lbl_80437610;
-    ((void (*)(void *, Vec_800530C0 *, Vec_800530C0 *))TBoss4Type2__sub_80054224)(arg0, &a, &b);
+    ((void (*)(void *, Vec_800530C0 *, Vec_800530C0 *))set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv)(arg0, &a, &b);
     if (--arg0->timer < 0) {
         ((M2C_UNK (*)(void *, int))set_state__11TBoss4Type2FPvi)(arg0, 1);
     }
@@ -1038,7 +1038,7 @@ void fn_80053440(Obj_80053440 *arg0) {
             copy_pos__11TNowLoadingFPvPv(arg0->b[i], &v);
         }
     }
-    TBoss4Type2__sub_8004A98C(arg0->f378);
+    scroll_strips__11TBoss4Type2FPv(arg0->f378);
     ((void (*)(s32, void *, void *, s32, s32))play_persistent_sound)(0x4003BC0E, arg0, &arg0->pos, 0x40, 2);
 }
 
@@ -1051,10 +1051,10 @@ void TBoss4Type2__sub_80053504(u8 *arg0) {
 
 void check_state_transition__11TBoss4Type2FPv(void *arg0) {
     if (((s32 (*)(s32))TBoss4DarkFalz__sub_8004D990)(M2C_FIELD(arg0, s32 *, 0x38C)) <= (s32) (0xC - M2C_FIELD(arg0, s32 *, 0x3C4))) {
-        ((M2C_UNK (*)(void *, M2C_UNK))TBoss4Type2__sub_80053CEC)(arg0, 5);
+        ((M2C_UNK (*)(void *, M2C_UNK))send_state_to_target__11TBoss4Type2FPvi)(arg0, 5);
         return;
     }
-    ((M2C_UNK (*)(void *, M2C_UNK))TBoss4Type2__sub_80053CEC)(arg0, 6);
+    ((M2C_UNK (*)(void *, M2C_UNK))send_state_to_target__11TBoss4Type2FPvi)(arg0, 6);
 }
 
 void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0) {
@@ -1072,10 +1072,10 @@ void TBoss4Type2__sub_800535A8(Boss_800535A8 *arg0) {
         case 9:
             ((void (*)(void *, void *))pick_target_position__13TRaderMapCoreFPvPv)(arg0, pos);
             set_map_position__13TRaderMapCoreFPvPv(arg0, pos);
-            ((M2C_UNK (*)(void *, M2C_UNK))TBoss4Type2__sub_80053CEC)(arg0, r);
+            ((M2C_UNK (*)(void *, M2C_UNK))send_state_to_target__11TBoss4Type2FPvi)(arg0, r);
             break;
         default:
-            ((M2C_UNK (*)(void *, M2C_UNK))TBoss4Type2__sub_80053CEC)(arg0, 0xA);
+            ((M2C_UNK (*)(void *, M2C_UNK))send_state_to_target__11TBoss4Type2FPvi)(arg0, 0xA);
             break;
         }
     } else {
@@ -1243,7 +1243,7 @@ void TBoss4Type2__sub_80053C8C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     }
 }
 
-void TBoss4Type2__sub_80053CEC(Obj_80053CEC *self, s32 arg1) {
+void send_state_to_target__11TBoss4Type2FPvi(Obj_80053CEC *self, s32 arg1) {
     if (self->target != 0) {
         send_code_25_4__14TBoss4DarkFalzFPvi(self->target, (arg1 & 0xF) | ((self->f3a0 & 3) << 4) | ((self->f3a0 & 3) << 6) | ((self->f3a8 & 3) << 8) | ((self->f3a8 & 3) << 10) | ((self->f3b0 & 0xF) << 12) | ((self->f3b4 & 0xF) << 16));
     }
@@ -1360,7 +1360,7 @@ void calc_scaled_field__11TBoss4Type2FPvii(void *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) (arg1 + (s32) (M2C_FIELD(arg0, f32 *, 0x39C) * (f32) angle_diff_s16(arg1, arg2)));
 }
 
-void TBoss4Type2__sub_80054224(S_80054224 *o, void *src, V_80054224 *in) {
+void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, V_80054224 *in) {
     V_80054224 v = *in;
     ((void (*)(void *))subtract_vector)(&v);
     v.x *= o->f39c;

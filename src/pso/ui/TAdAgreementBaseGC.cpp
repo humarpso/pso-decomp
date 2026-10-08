@@ -70,7 +70,7 @@ extern const f32 lbl_805DF700;
 extern const f32 lbl_805DF704;
 extern const f32 lbl_805DF708;
 extern const f32 lbl_805DF70C;
-void TAdAgreementBaseGC__sub_803296E8(void);
+void draw_agreement_text__18TAdAgreementBaseGCFv(void);
 }
 
 extern "C" {
@@ -92,7 +92,7 @@ void TAdAgreementBaseGC__sub_803296C4(void *self) {
 
 #pragma push
 #pragma fp_contract on
-void TAdAgreementBaseGC__sub_803296E8(void) {
+void draw_agreement_text__18TAdAgreementBaseGCFv(void) {
     Pos_803296E8 pos[2];
     u32 i;
     draw_window_frame();
@@ -112,7 +112,7 @@ typedef char RecoveredGlobal_80329830_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80329830_lbl_8050E3B8_size[sizeof(RecoveredGlobal_80329830_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
 void TAdAgreementBaseGC__sub_803297F8(void) {
-    create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804770BC, lbl_804770C4, (void *)TAdAgreementBaseGC__sub_803296E8);
+    create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804770BC, lbl_804770C4, (void *)draw_agreement_text__18TAdAgreementBaseGCFv);
 }
 
 void update_state__18TAdAgreementBaseGCFPv(u8 *arg0) {

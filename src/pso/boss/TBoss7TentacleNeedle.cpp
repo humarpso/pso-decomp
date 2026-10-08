@@ -139,11 +139,11 @@ s32 notify_fish_obj__10TObjPlayerFPv(int);
 s32 queue_boss_effect__10TObjPlayerFPv(int);
 s32 TObjPlayer__sub_802E80A0();
 void draw_effect__10TObjPlayerFv(void *);
-void TBoss7Tentacle__sub_802EF800(u8 *arg0);
+void restart_particle_effect__14TBoss7TentacleFPv(u8 *arg0);
 s32 TBoss7Tentacle__sub_802EF898(void *p, f32 d);
 s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0);
 void TBoss7Tentacle__sub_802EF954(void* p);
-void TBoss7Tentacle__sub_802EF99C(u8 *arg0);
+void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0);
 void TBoss7Tentacle__sub_802EFB1C(u8 *arg0);
 void advance_needle_timer__20TBoss7TentacleNeedleFPv(void *arg0);
 void render__20TBoss7TentacleNeedleFv(void *arg0);
@@ -219,7 +219,7 @@ void TBoss7Tentacle__sub_802F08A8(Ten_802F08A8 *o);
 extern V_802F0A5C TBoss7Tentacle__data_80541838[];
 }
 
-void TBoss7Tentacle__sub_802EF800(u8 *arg0) {
+void restart_particle_effect__14TBoss7TentacleFPv(u8 *arg0) {
   s32 temp_r31;
   s32 temp_r3;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0x40)))) != 0U)
@@ -260,7 +260,7 @@ s32 advance_toward_limit__14TBoss7TentacleFPvf(void *arg0, f32 farg0) {
 
 void TBoss7Tentacle__sub_802EF954(void* p) { if (advance_toward_limit__14TBoss7TentacleFPvf((void *)(p), TBoss7Tentacle__data_805DEC00) != 0) { queue_destruction__7TObjectFv(p); disallow_rendering__7TObjectFv(p); } }
 
-void TBoss7Tentacle__sub_802EF99C(u8 *arg0) {
+void damage_nearby_players__14TBoss7TentacleFPv(u8 *arg0) {
     s32 i;
     u8 *p;
     TBoss7Tentacle__sub_802EF898((void *)(arg0), lbl_805DEC08);
@@ -297,7 +297,7 @@ void TBoss7Tentacle__sub_802EFB1C(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x74);
     if ((lbl_805DEC14 < temp_f1) && (temp_f1 <= lbl_805DEC18)) {
-        TBoss7Tentacle__sub_802EF800((u8 *)(arg0));
+        restart_particle_effect__14TBoss7TentacleFPv((u8 *)(arg0));
     }
     if (advance_toward_limit__14TBoss7TentacleFPvf(arg0, TBoss7Tentacle__data_805DEC00) != 0) {
         M2C_FIELD(arg0, s32 *, 0x38) = 2;
@@ -342,7 +342,7 @@ void run_task__20TBoss7TentacleNeedleFv(void *arg0) {
         ((M2C_UNK (*)(void))TBoss7Tentacle__sub_802EFB1C)();
         return;
     case 2:
-        ((M2C_UNK (*)(void))TBoss7Tentacle__sub_802EF99C)();
+        ((M2C_UNK (*)(void))damage_nearby_players__14TBoss7TentacleFPv)();
         return;
     case 3:
         ((M2C_UNK (*)(void))TBoss7Tentacle__sub_802EF954)();

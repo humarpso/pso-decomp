@@ -99,7 +99,7 @@ extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
 extern const f32 lbl_805DBF00;
 void TObjQuestColBase__sub_80196C60(u8 *arg0);
-u16 TLobby__sub_801A2078(u16);
+u16 alloc_actor_ids__6TLobbyFi(u16);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 lbl_805D33E8;
@@ -171,7 +171,7 @@ u8 *TObjQuestColBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
   temp_r6 = -1;
   if (((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C == temp_r6)
   {
-    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = TLobby__sub_801A2078(0);
+    ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = alloc_actor_ids__6TLobbyFi(0);
   }
   temp_r6 = lbl_805D5C48;
   lbl_805D5C48 = temp_r6 + 1;

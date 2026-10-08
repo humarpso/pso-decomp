@@ -50,7 +50,7 @@ extern RecoveredGlobal_80191874_lbl_804FF610 lbl_804FF610;
 extern s32 lbl_805D4DF0;
 extern const f32 lbl_805DBE2C;
 extern const f32 lbl_805DBE30;
-s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1);
+s16 update_visibility__13TObjHashiBaseFPvff(u8 *arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ extern M2C_UNK __vt__13TObjHashiBase[];
 #pragma opt_common_subs off
 #pragma fp_contract on
 typedef char RecoveredGlobal_80191874_lbl_804FF610_size[sizeof(RecoveredGlobal_80191874_lbl_804FF610) == 0xC ? 1 : -1];
-s16 TObjHashiBase__sub_80191874(u8 *arg0, f32 farg0, f32 farg1) {
+s16 update_visibility__13TObjHashiBaseFPvff(u8 *arg0, f32 farg0, f32 farg1) {
     typedef char sp8_offset[(offsetof(Stack_80191874, sp8) == 0x0) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80191874, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80191874, sp14) == 0xC) ? 1 : -1];

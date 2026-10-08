@@ -13,7 +13,7 @@ u32 get_player_by_client_id(s32);
 s32 TWindowSubTradeMain__sub_802D3924(s32);
 extern s8 TLobby__data_805D688A;
 extern u8 TLobby__data_805D688B;
-void TLobby__sub_802D3820(void);
+void update_trade_partner__6TLobbyFv(void);
 void update_both_halves__6TLobbyFPv(void *);
 void close_trade_request__6TLobbyFv(void);
 extern Half_802D38B4 TLobby__data_80540BD0[];
@@ -54,7 +54,7 @@ void update_battle_mode__6TLobbyFv(void) {
 
     extern short lbl_805D6888;
 
-void TLobby__sub_802D3820(void) {
+void update_trade_partner__6TLobbyFv(void) {
     if ((s8) TLobby__data_805D688B == 0) {
         return;
     }

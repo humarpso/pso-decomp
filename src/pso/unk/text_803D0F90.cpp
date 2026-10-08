@@ -66,7 +66,7 @@ s32 TLobby__sub_803D1400(S_803D1400 *arg0);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 extern char lbl_8047DD58[];
-s32 TLobby__sub_803D1330(Obj_803D1330 *arg0, s32 arg1);
+s32 get_queue_entry_key__6TLobbyFPvi(Obj_803D1330 *arg0, s32 arg1);
 void set_callback__6TLobbyFUii(u32 arg0, s32 arg1);
 void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
@@ -179,7 +179,7 @@ u8 *find_stream_by_id__6TLobbyFPvi(Obj_803D1234 *arg0, s32 arg1) {
     return arg0->recs[i].body;
 }
 
-s32 TLobby__sub_803D1330(Obj_803D1330 *arg0, s32 arg1) {
+s32 get_queue_entry_key__6TLobbyFPvi(Obj_803D1330 *arg0, s32 arg1) {
     if (arg0 == 0) {
         log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;

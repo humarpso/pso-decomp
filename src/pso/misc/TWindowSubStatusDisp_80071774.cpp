@@ -21,7 +21,7 @@ s32 TWindowSubStatusDisp__sub_8006F0D8(void *, void *);
 s32 get_valid_slot__6TLobbyFi(int);
 u32 get_card_window__17TWindowSubComCardFUi(u32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
-s32 TLobby__sub_8006F888(void *, void *, int);
+s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
 extern M2C_UNK lbl_805D2858;
 M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0);
@@ -85,7 +85,7 @@ M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     if (arg0 == 0U) {
         return &lbl_805D2858;
     }
-    TLobby__sub_8006F888((void *) (&lbl_804FF820.value), (void *) (arg0 + 0xD8), (int) (0xC));
+    decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_804FF820.value), (void *) (arg0 + 0xD8), (int) (0xC));
     return &lbl_804FF820.value;
 }
 

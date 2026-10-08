@@ -12,12 +12,12 @@ void request_destroy__11TBoss4Type2FUi(u32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 u32 create_particle_emitter(void *, int);
-void TBoss4Type2__sub_8004F904(u8 *arg0);
+void update_particle_emitters__11TBoss4Type2FPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TBoss4Type2__sub_8004F904(u8 *arg0) {
+void update_particle_emitters__11TBoss4Type2FPv(u8 *arg0) {
     s32 temp_r0;
     u32 *var_r29;
     s32 var_r28;

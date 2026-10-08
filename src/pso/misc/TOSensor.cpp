@@ -64,7 +64,7 @@ f32 horizontal_distance_squared(void *, void *);
 Player_801756C4 *get_player_by_client_id(s32);
 u16 get_window_id__11TWindowCtrlFv();
 extern s32 lbl_805D53A0;
-s32 TOSensor__sub_801756C4(Obj_801756C4 *self);
+s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self);
 }
 
 extern "C" {
@@ -181,7 +181,7 @@ void update_switch_state__8TOSensorFPv(Obj_801755BC *self) {
     }
 }
 
-s32 TOSensor__sub_801756C4(Obj_801756C4 *self) {
+s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self) {
     Player_801756C4 *pl;
     if (self->state != 1) {
         pl = get_player_by_client_id(lbl_805D53A0);

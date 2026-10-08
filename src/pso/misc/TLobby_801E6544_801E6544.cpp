@@ -74,8 +74,8 @@ s32 expand_message_substitutions(s32 arg0, s32 arg1);
 void append_color_code__6TLobbyFi(s32 arg0);
 s32 parse_f_index(s32 a0);
 s32 parse_r_index(char *);
-void TLobby__sub_801E6A60(s32);
-void TLobby__sub_801E6AA0(s32);
+void append_float_value__6TLobbyFi(s32);
+void append_int_param__6TLobbyFi(s32);
 s32 TLobby__sub_801E6BB8();
 s8 read_byte_advance__6TLobbyFv();
 int strcmp(const char *, const char *);
@@ -86,7 +86,7 @@ M2C_UNK append_string(void *);
 int strcmp(const char *, const char *);
 extern char lbl_80449C64[];
 extern M2C_UNK TLobby__data_805DC4A0;
-void TLobby__sub_801E6728(void);
+void append_unit_list_name__6TLobbyFv(void);
 char *TLobby__sub_80070ACC();
 M2C_UNK append_string(void *);
 int strcmp(const char *, const char *);
@@ -151,11 +151,11 @@ void parse_message_tag__6TLobbyFv() {
         case 0x3E:
             buf[i] = 0;
             if ((idx = parse_r_index(buf)) != -1) {
-                TLobby__sub_801E6AA0(idx);
+                append_int_param__6TLobbyFi(idx);
                 return;
             }
             if ((idx = parse_f_index((s32)buf)) != -1) {
-                TLobby__sub_801E6A60(idx);
+                append_float_value__6TLobbyFi(idx);
                 return;
             }
             if ((idx = parse_color_code__6TLobbyFPv((char *)(buf))) != -1) {
@@ -175,7 +175,7 @@ void parse_message_tag__6TLobbyFv() {
     }
 }
 
-void TLobby__sub_801E6728(void) {
+void append_unit_list_name__6TLobbyFv(void) {
     char *s;
     s = get_unit_list__6TLobbyFv();
     if (strcmp(s, (const char *)&TLobby__data_805DC4A0) == 0) {

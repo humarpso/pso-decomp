@@ -20,7 +20,7 @@ s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32);
-void TAdSinglePlyChrSelectGC__sub_800FFB38(Self_800FFB38 *self);
+void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self);
 }
 
 extern "C" {
@@ -48,7 +48,7 @@ s32 interpolate_along_curve__10TObjPlayerFPvPv(void *arg0, void *arg1) {
 }
 #pragma pop
 
-void TAdSinglePlyChrSelectGC__sub_800FFB38(Self_800FFB38 *self) {
+void transform_vertex_list__23TAdSinglePlyChrSelectGCFPv(Self_800FFB38 *self) {
     f32 v[3];
     s32 stride;
     u32 *p;

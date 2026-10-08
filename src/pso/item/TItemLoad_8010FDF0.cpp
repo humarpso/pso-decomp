@@ -38,7 +38,7 @@ int alloc_buffer__11TOBoss4RockFPv(void*);
 M2C_UNK construct__9TItemDropFPv(M2C_UNK *);
 s32 create_item_buff(s32);
 M2C_UNK destroy__9TItemDropFPvs(M2C_UNK *, M2C_UNK);
-s32 fn_800F7D30(s32, u32, s32);
+s32 prs_decompress_alloc(s32, u32, s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
     extern int lbl_805D5494;
@@ -66,7 +66,7 @@ void *load_buffer__9TItemLoadFPvUii(void *arg0, u32 arg1, s32 arg2) {
         M2C_FIELD(arg0, u32 *, 0) = alloc_buffer__11TOBoss4RockFPv((void*)(arg2));
         temp_r3 = create_item_buff(arg2);
         if ((temp_r3 != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) && (read_disc_file(arg1, temp_r3) > 0)) {
-            temp_r31 = fn_800F7D30(temp_r3, M2C_FIELD(arg0, u32 *, 0), arg2);
+            temp_r31 = prs_decompress_alloc(temp_r3, M2C_FIELD(arg0, u32 *, 0), arg2);
             construct__9TItemDropFPv((M2C_UNK *)&sp8);
             sp8.field1c = M2C_FIELD(arg0, u32 *, 0);
             sp8.field20 = temp_r31;

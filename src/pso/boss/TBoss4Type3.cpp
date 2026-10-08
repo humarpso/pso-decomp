@@ -169,7 +169,7 @@ extern const f32 lbl_805D8C74;
 void update_radar_markers__11TBoss4Type3FPv(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * create_yutai__11TBoss4Type3FPvPvPv(void *, void *, void *);
-void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1);
 void request_destroy__11TBoss4Type2FUi(void *);
 u32 spawn_particle_effect(void *, int);
 u32 create_particle_emitter(void *, int);
@@ -756,7 +756,7 @@ void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 ar
 void TBoss4Type3__sub_8005A438(Obj_8005A438 *self);
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q);
 void TBoss4Type3__sub_8005A4F4(void *, void *, f32);
-void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1);
+void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1);
 void TBoss4Type3__sub_8005A6A4(u8 *arg0);
 void draw__11TBoss4Type3FPv(void *arg0);
 void advance_afterimage__11TBoss4Type3FPv(u8 *arg0);
@@ -1312,7 +1312,7 @@ void TBoss4Type3__vt39(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x398) == 0x31) {
         play_sound_effect(0x4003AA2E, 0, 0, 0);
         spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (s16)M2C_FIELD(arg0, u16 *, 0x3B8));
-        TBoss4Type3__sub_8005A678(arg0, 5);
+        set_anim_state__11TBoss4Type3FPvi(arg0, 5);
     }
     pos = arg0 + 0x474;
     if (M2C_FIELD(arg0, s32 *, 0x398) < 0x12) {
@@ -1455,7 +1455,7 @@ void TBoss4Type3__vt33(u8 *arg0) {
     void *p;
     sub = arg0 + 0x474;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0x62) {
-        ((M2C_UNK (*)(void *, int))TBoss4Type3__sub_8005A678)(arg0, 7);
+        ((M2C_UNK (*)(void *, int))set_anim_state__11TBoss4Type3FPvi)(arg0, 7);
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x398) == 0x49) {
         p = ((void * (*)(void *, int))spawn_particle_effect)(sub, 0x133);
@@ -1516,7 +1516,7 @@ void TBoss4Type3__vt30(O_80058BA0 *o) {
         if ((o->f428 = ((void * (*)(void *, int))create_particle_emitter)(b, 0xF7)) != 0) {
             set_flags__11TBoss4Type2FPvUi(o->f428, 0x40);
         }
-        ((M2C_UNK (*)(void *, int))TBoss4Type3__sub_8005A678)(o, 6);
+        ((M2C_UNK (*)(void *, int))set_anim_state__11TBoss4Type3FPvi)(o, 6);
     } else if (o->f398 == 0x75) {
         if (o->f424 != 0) {
             request_destroy__11TBoss4Type2FUi(o->f424);
@@ -1706,7 +1706,7 @@ void TBoss4Type3__vt8(u8 *arg0) {
 void TBoss4Type3__vt7(u8 *arg0) {
     reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x524)));
     reset_timer__11TBoss4Type3FPv((int) (M2C_FIELD(arg0, s32 *, 0x528)));
-    ((M2C_UNK (*)(void *, int))TBoss4Type3__sub_8005A678)((void *) (arg0), (int) (((M2C_FIELD(arg0, s32 *, 0x374) - 4) & 1) + 3));
+    ((M2C_UNK (*)(void *, int))set_anim_state__11TBoss4Type3FPvi)((void *) (arg0), (int) (((M2C_FIELD(arg0, s32 *, 0x374) - 4) & 1) + 3));
     M2C_FIELD(arg0, s32 *, 0x52C) = 0;
     M2C_FIELD(arg0, s32 *, 0x398) = 0x31;
 }
@@ -2119,7 +2119,7 @@ void set_action_from_table__11TBoss4Type3FPvi(TBoss4Type3_8005A398 *self, s32 ar
     MemberAction_8005A398 m;
     TBoss4Type3__sub_8005A150();
     self->f374 = arg1;
-    ((void (*)(void *, s32))TBoss4Type3__sub_8005A678)(self, lbl_80486C98[self->f374].f4);
+    ((void (*)(void *, s32))set_anim_state__11TBoss4Type3FPvi)(self, lbl_80486C98[self->f374].f4);
     m.words[0] = lbl_80486C98[self->f374].f8;
     m.words[1] = lbl_80486C98[self->f374].fc;
     m.words[2] = lbl_80486C98[self->f374].f10;
@@ -2149,7 +2149,7 @@ void TBoss4Type3__sub_8005A438(Obj_8005A438 *self) {
 
 void copy_pair__11TBoss4Type3FPvPv(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); }
 
-void TBoss4Type3__sub_8005A678(u8 *arg0, s32 arg1) {
+void set_anim_state__11TBoss4Type3FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
         M2C_FIELD(arg0, s32 *, 0x3F0) = arg1;
         M2C_FIELD(arg0, f32 *, 0x3F4) = (f32) TBoss4Type3__data_805D8C40;

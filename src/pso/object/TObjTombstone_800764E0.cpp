@@ -13,7 +13,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK TObjTombstone__sub_80074FAC();
 extern RecoveredGlobal_800765B4_lbl_8048D240 lbl_8048D240;
 extern u32 TObjTombstone__data_805D4E48;
-void TObjTombstone__sub_800765B4(void);
+void load_resources__13TObjTombstoneFv(void);
 }
 
 extern "C" {
@@ -57,7 +57,7 @@ void destroy__13TObjTombstoneFv(void) {
         TObjTombstone__sub_80074FAC();
     }
 }
-void TObjTombstone__sub_800765B4(void) {
+void load_resources__13TObjTombstoneFv(void) {
     s32 temp_r3;
     s32 var_r0;
     if ((void *) (*(u8 * *)&TObjTombstone__data_805D4E48) == NULL) {

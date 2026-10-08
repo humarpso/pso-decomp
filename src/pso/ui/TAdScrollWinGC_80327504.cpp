@@ -28,7 +28,7 @@ s32 get_localized_text_entry(M2C_UNK, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void complete_reveal__14TWindowMessageFPv(s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
-void TWindowMessageLog__sub_8026A494(s32);
+void update_scroll_position__17TWindowMessageLogFPv(s32);
 void TAdScrollWinGC__sub_8026A5F8(s32);
 s32 fn_8026A9D8(void *, void *, M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
@@ -128,7 +128,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
         break;
     }
     complete_reveal__14TWindowMessageFPv(M2C_FIELD(arg0, s32 *, 0x40));
-    TWindowMessageLog__sub_8026A494(M2C_FIELD(arg0, s32 *, 0x40));
+    update_scroll_position__17TWindowMessageLogFPv(M2C_FIELD(arg0, s32 *, 0x40));
     TAdScrollWinGC__sub_8026A5F8(M2C_FIELD(arg0, s32 *, 0x40));
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DF6B4;
     M2C_FIELD(arg0, f32 *, 0x30) = lbl_805DF6B8;

@@ -59,7 +59,7 @@ void set_code_14_1__10TObjPlayerFPv(void* p);
 void update_and_send__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TLobby__send_and_handle_60(void*);
-int TObjPlayer__sub_80102CE0(void*);
+int bswap_pkt_u32x2__10TObjPlayerFPv(void*);
 int TObjPlayer__sub_801BEE34(void*);
 int TObjPlayer__sub_801C0768(void*);
 int bswap_16__FPUs(void*);

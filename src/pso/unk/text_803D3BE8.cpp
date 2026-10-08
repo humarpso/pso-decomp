@@ -38,7 +38,7 @@ M2C_UNK memset(void *, int, int);
 extern M2C_UNK lbl_8047E0C8[];
 extern RecoveredCallback_4873a87e26d6 lbl_805D7678;
 extern s32 lbl_805D767C;
-void TLobby__sub_803D3FCC(File_803D3FCC *arg0);
+void close_file_handle__6TLobbyFPv(File_803D3FCC *arg0);
 void TLobby__sub_803D3988(void);
 void TLobby__sub_803D39C0(void);
 extern M2C_UNK lbl_8047E18C[];
@@ -63,7 +63,7 @@ char *strcpy(char *, const char *);
 extern char lbl_8058B6F0[];
 extern char lbl_8047DF90[];
 extern File_803D4058 lbl_8058B81C[];
-File_803D4058 *TLobby__sub_803D4058(const char *name, s32 arg1, s32 mode);
+File_803D4058 *alloc_file_entry__6TLobbyFPvii(const char *name, s32 arg1, s32 mode);
 }
 
 extern "C" {
@@ -100,7 +100,7 @@ s32 TLobby__sub_803D3EE4(File_803D3EE4 *arg0, s32 arg1, s32 arg2) {
     return arg0->pos;
 }
 
-void TLobby__sub_803D3FCC(File_803D3FCC *arg0) {
+void close_file_handle__6TLobbyFPv(File_803D3FCC *arg0) {
     if (arg0 != 0) {
         if (arg0 == 0) {
             if (lbl_805D7678 != 0) {
@@ -165,7 +165,7 @@ inline File_803D4058 *find_free_803D4058(void) {
     }
     return r;
 }
-File_803D4058 *TLobby__sub_803D4058(const char *name, s32 arg1, s32 mode) {
+File_803D4058 *alloc_file_entry__6TLobbyFPvii(const char *name, s32 arg1, s32 mode) {
     char *base = lbl_8047DF90;
     File_803D4058 *f;
     if (name == 0) {

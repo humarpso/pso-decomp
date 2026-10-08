@@ -69,7 +69,7 @@ s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 M2C_UNK set_help_text__15TWindowHelpItemFii(u8 *, s32);
 extern const f32 lbl_805DD570;
 extern const f32 lbl_805DD574;
-int TWindowSubCustomEquip__sub_8027654C(void *arg0, void *arg1);
+int layout_selection_parts__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1);
 s32 select_action_palette__10TObjPlayerFi(u8 *, s32);
 u8 *get_player_by_client_id(s32);
 s32 TWindowActionPalette__sub_801C1D7C(s32, s32, s32);
@@ -102,7 +102,7 @@ void set_relative_pos__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg0, f32 *, 4) = (f32) (M2C_FIELD(arg1, f32 *, 0xC) - lbl_805DD56C);
 }
 
-int TWindowSubCustomEquip__sub_8027654C(void *arg0, void *arg1) {
+int layout_selection_parts__21TWindowSubCustomEquipFPvPv(void *arg0, void *arg1) {
     Vec2_8027654C pos;
     u8 *p;
     u8 *a;
@@ -136,7 +136,7 @@ int TWindowSubCustomEquip__sub_8027654C(void *arg0, void *arg1) {
     M2C_FIELD(d, u16 *, 0) |= 2;
 }
 
-void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8(p, (void*)9); TWindowSubCustomEquip__sub_802766C8(p, (void*)0); TWindowSubCustomEquip__sub_8027654C((void *)(p), (void *)((void*)9)); }
+void reset_selection__21TWindowSubCustomEquipFPv(void* p) { TWindowSubCustomEquip__sub_802766C8(p, (void*)9); TWindowSubCustomEquip__sub_802766C8(p, (void*)0); layout_selection_parts__21TWindowSubCustomEquipFPvPv((void *)(p), (void *)((void*)9)); }
 
 s32 refresh_palette_slots__21TWindowSubCustomEquipFPv(void *arg0) {
     u8 *player;

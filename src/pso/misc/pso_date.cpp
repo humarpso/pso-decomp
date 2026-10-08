@@ -20,7 +20,7 @@ void prepare_ginja_model(void *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *lbl_805D4698;
-void TObjPlayer__sub_801E2CCC(void *arg0, void *arg1);
+void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
 }
 
 void DateToSeconds(DateStamp* date, int* out) {
@@ -65,7 +65,7 @@ int VISetBlack(int);
 void fn_801E2C50(void) {  }
 void reset_system(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 0); }
 void system_reset(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 1); }
-void TObjPlayer__sub_801E2CCC(void *arg0, void *arg1) {
+void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     bind_motion_blend_channels(arg1);
     void *g = lbl_805D4698;
     M2C_FIELD(g, void (**)(), 0xC) = draw_ginja_model_lists;

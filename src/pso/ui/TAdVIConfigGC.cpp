@@ -57,7 +57,7 @@ s32 allow_rendering__7TObjectFv(u32);
 void disallow_rendering__7TObjectFv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 s32 count_members__6TLobbyFv();
-M2C_UNK fn_80307BE8(void *);
+M2C_UNK update_players_in_range(void *);
 void update_visibility__13TAdVIConfigGCFPv(u8 *arg0);
 void set_close_flag__19TWindowSubTradeMainFPv(u32);
 void set_visible__19TWindowSubTradeMainFPv(u32);
@@ -135,7 +135,7 @@ void update_visibility__13TAdVIConfigGCFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 4) = temp_r3;
         open_player_names_window__13TAdVIConfigGCFPv((Cfg_80307D00 *)((void *) (arg0)));
     }
-    fn_80307BE8((void *) (arg0));
+    update_players_in_range((void *) (arg0));
     temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
     if (temp_r3_2 != NULL) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x18) != 0) {

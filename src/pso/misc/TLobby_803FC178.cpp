@@ -745,7 +745,7 @@ s32 TLobby__sub_80419A7C(void);
 s16 TLobby__sub_8041579C(void *);
 s32 TLobby__sub_8041EB74(u8 *arg0);
 s16 TLobby__sub_8041579C(void *);
-s32 TLobby__sub_8041EBC4(u8 *arg0);
+s32 close_if_open__6TLobbyFPv(u8 *arg0);
 void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 s16 TLobby__sub_8040A2BC(void *, s16);
@@ -794,7 +794,7 @@ s64 OSGetTime();
 void get_time_ms__6TLobbyFPv(s32 *out);
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
-void TLobby__sub_803F9B48(u32 key);
+void deactivate_entry_by_key__6TLobbyFUi(u32 key);
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
 s32 OSGetCurrentThread();
@@ -1093,7 +1093,7 @@ void cancel_thread_if_running__6TLobbyFi(s32 arg0);
 
 void TLobby__sub_803F9B28(void);
 
-void TLobby__sub_803F9B48(u32 key);
+void deactivate_entry_by_key__6TLobbyFUi(u32 key);
 
 s32 TLobby__sub_803F9C78(void);
 
@@ -3202,7 +3202,7 @@ s32 TLobby__sub_8040A3C0(void);
 void TLobby__sub_803F86C0(void *);
 void TLobby__sub_804218AC(void (*)(void), int);
 
-void TLobby__sub_8040A45C(void);
+void init_net_tables__6TLobbyFv(void);
 
 typedef struct Rec_8040AD64 {
     u32 used;
@@ -3310,7 +3310,7 @@ s32 TLobby__sub_8040C9E0(u8 *arg0, u8 *arg1);
 s32 TLobby__sub_8040E780(s32, s32, s32, s32, s32, s32, void *);
 s32 TLobby__sub_80410A98(s32, void *, void *, void *, void *);
 
-s32 TLobby__sub_8040D86C(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, void *arg4, void *arg5);
+s32 dispatch_by_addr_family__6TLobbyFiPvPvPvPvPv(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, void *arg4, void *arg5);
 
 u16 TLobby__sub_8040D8F0(u8 *arg0, u8 *arg1, s8 arg2, u8 *arg3, s16 arg4);
 
@@ -3463,7 +3463,7 @@ typedef char RecoveredFields_804143BC_arg0_0_offset[offsetof(RecoveredFields_804
 typedef char RecoveredFields_804143BC_arg0_1_offset[offsetof(RecoveredFields_804143BC_arg0, field_1) == 0x1 ? 1 : -1];
 #pragma push
 #pragma scheduling off
-s32 TLobby__sub_804143BC(u8 *arg0);
+s32 get_ipv6_addr_scope__6TLobbyFPv(u8 *arg0);
 #pragma pop
 
 #pragma push
@@ -3715,7 +3715,7 @@ struct E_804184DC {
     u8 key[0x20];
 };
 
-E_804184DC *TLobby__sub_804184DC(u8 *addr, u8 *key, s16 klen);
+E_804184DC *find_or_alloc_cache_entry__6TLobbyFPvPvs(u8 *addr, u8 *key, s16 klen);
 
 typedef struct G_80418670 { u8 pad0[4]; s16 f4; u8 pad6[0xA]; Ent_80418670 *f10; } G_80418670;
 s32 TLobby__sub_803F9EC4(void *, void *, int);
@@ -3752,7 +3752,7 @@ void TLobby__sub_80419258(void);
 extern G_80418ACC lbl_805C1C38;
 s32 TLobby__sub_80418A7C(void);
 
-s32 TLobby__sub_80418ACC(void);
+s32 init_packet_fragment_pools__6TLobbyFv(void);
 
 struct E_80418BD8 { u8 pad[0xC]; };
 struct A_80418BD8 { u8 pad[4]; u32 n; u8 pad2[8]; E_80418BD8 e[1]; };
@@ -3807,7 +3807,7 @@ void reset_slot_index__6TLobbyFPv(u8 *arg0);
 struct A_8041D524 { u8 pad[0x320]; s16 n; u8 pad2[0xA]; s32 v0; u8 pad3[0xC]; s32 v1; };
 s32 TLobby__sub_8041D524(A_8041D524 *a, s32 x);
 
-s16 TLobby__sub_8041DB58(s16 i);
+s16 tcp_get_socket_handle__6TLobbyFs(s16 i);
 
 s32 get_field_d8__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_8041ED8C(int, void *, void *, void *);
@@ -3850,7 +3850,7 @@ s32 validate_tcp_handle__6TLobbyFs(s16 i);
 
 s32 TLobby__sub_8041EB74(u8 *arg0);
 
-s32 TLobby__sub_8041EBC4(u8 *arg0);
+s32 close_if_open__6TLobbyFPv(u8 *arg0);
 
 void init_msg__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);

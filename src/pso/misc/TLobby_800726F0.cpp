@@ -92,7 +92,7 @@ M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK play_cue_stream_file(M2C_UNK *);
 extern M2C_UNK lbl_804385D4[];
 void handle_loss_sequence(void *arg0);
-M2C_UNK TLobby__sub_80072308(s32);
+M2C_UNK send_challenge_retry_cmd__6TLobbyFi(s32);
 void close_window_2c__6TLobbyFPv(void* p);
 void open_loss_menu__6TLobbyFPv(void *arg0);
 void send_45_and_close_windows__6TLobbyFv(void * _w0);
@@ -376,7 +376,7 @@ void update_challenge_retry__6TLobbyFPv(void *arg0) {
             var_r31 = 1;
             goto block_6;
         }
-        TLobby__sub_80072308(lbl_8048D120[temp_r3]);
+        send_challenge_retry_cmd__6TLobbyFi(lbl_8048D120[temp_r3]);
         send_45_and_close_windows__6TLobbyFv(arg0);
         play_player_default_effect__6TLobbyFv((s32)(arg0));
         M2C_FIELD(arg0, s32 *, 0x24) = 1;
@@ -532,7 +532,7 @@ void run_task__18TObjChallengeRetryFv(u8 *arg0) {
 
 TObjChallengeRetry::~TObjChallengeRetry() {
     if (m_20 != 0 && m_24 == 0) {
-        TLobby__sub_80072308(0);
+        send_challenge_retry_cmd__6TLobbyFi(0);
     }
 }
 

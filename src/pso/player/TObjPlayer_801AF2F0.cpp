@@ -2362,7 +2362,7 @@ s32 TObjPlayer__sub_801B58DC(u8 *arg0);
 s32 is_action_channel_available__10TObjPlayerFii(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801B5990(s32 arg0, s32 arg1);
 void TObjPlayer__sub_801B59C4(s32 arg0);
-void TObjPlayer__sub_801B59F8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
+void set_action_palette_entry__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void TObjPlayer__sub_801B5A44(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void TObjPlayer__sub_801B5A88(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_action_palette_entry__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -2678,7 +2678,7 @@ M2C_UNK fn_801C05E8(Ctx_801B1BA4 *);
 M2C_UNK fn_801C05FC(Ctx_801B1BA4 *);
 M2C_UNK fn_801C0630(Ctx_801B1C8C *);
 M2C_UNK fn_801C0644(Ctx_801B1C8C *);
-void TObjPlayer__sub_801C0678(Pkt_801B1D8C *);
+void bswap_change_hp_packet__10TObjPlayerFPv(Pkt_801B1D8C *);
 void TObjPlayer__sub_801C06BC(Pkt_801B1D8C *, s32);
 void TObjPlayer__sub_801C0708(void *);
 void TObjPlayer__sub_801C0734(void *);
@@ -2920,8 +2920,8 @@ f32 get_class_technique_boost(s32, s32);
 void split_capped_value__10TObjPlayerFUcPvPv(u8, void *, void *);
 void update_all_units__10TObjPlayerFii(void *, u8);
 void level_up_all_techniques__10TObjPlayerFPvi(void *, u8);
-void TObjPlayer__sub_801D9B38(void *, s32);
-void TObjPlayer__sub_801D9B90(void *, s32);
+void set_all_technique_levels__10TObjPlayerFPvPv(void *, s32);
+void copy_all_technique_entries__10TObjPlayerFPvPv(void *, s32);
 s32 reset_slots__10TObjPlayerFPv(void *);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
@@ -3859,11 +3859,11 @@ void apply_battle_rules_to_players__6TLobbyFv(void) {
         lv = TLobby__sub_801D6DDC(q);
         switch (fn_801D7204(q)) {
         case 1:
-            TObjPlayer__sub_801D9B90(p->f428, 0xFF);
-            TObjPlayer__sub_801D9B38(p->f428, 0xFF);
+            copy_all_technique_entries__10TObjPlayerFPvPv(p->f428, 0xFF);
+            set_all_technique_levels__10TObjPlayerFPvPv(p->f428, 0xFF);
             break;
         case 2:
-            TObjPlayer__sub_801D9B90(p->f428, 0x1D);
+            copy_all_technique_entries__10TObjPlayerFPvPv(p->f428, 0x1D);
             update_all_units__10TObjPlayerFii(p->f428, lv);
             break;
         }
@@ -4351,7 +4351,7 @@ void handle_6x2F_change_player_hp(s32 arg0) {
     u32 player;
     TObjPlayer__sub_801C0708(&pkt);
     TObjPlayer__sub_801C06BC(&pkt, arg0);
-    TObjPlayer__sub_801C0678(&pkt);
+    bswap_change_hp_packet__10TObjPlayerFPv(&pkt);
     if (validate_6x2F_change_player_hp(&pkt) == 0) {
         return;
     }
@@ -5936,7 +5936,7 @@ extern int fold_flush_6;
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_801B59F8(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
+void set_action_palette_entry__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     set_palette_entry__20TWindowActionPaletteFiiiii((s32)((TObjPlayer*)arg0)->select_action_palette(arg1), arg2, arg3, arg4, arg5);
 }
 extern int fold_flush_7;
@@ -8153,8 +8153,8 @@ void TObjPlayer__sub_801BBB98(void *arg0) {
 }
 
 void TObjPlayer__sub_801BBBD0(s32 arg0) {
-    TObjPlayer__sub_801B59F8(arg0, 0, 0, 0, 1, 0);
-    TObjPlayer__sub_801B59F8(arg0, 0, 1, 0, 1, 0);
+    set_action_palette_entry__10TObjPlayerFiiiiii(arg0, 0, 0, 0, 1, 0);
+    set_action_palette_entry__10TObjPlayerFiiiiii(arg0, 0, 1, 0, 1, 0);
 }
 
 void TObjPlayer__sub_801BBC2C(void* p) { *(s32*)((char*)p + 0x424) = 0; }

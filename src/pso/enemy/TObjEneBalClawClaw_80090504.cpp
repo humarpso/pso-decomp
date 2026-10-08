@@ -82,7 +82,7 @@ void apply_actor_gravity(void *, int, f32);
 void obj_setFlags30(void *, u32);
 void advance_animation_playback(void *);
 extern const f32 TObjEneBalClawClaw__data_805D968C;
-void TObjEneBalClawClaw__sub_800906C8(Claw_800906C8 *self);
+void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self);
 void apply_actor_gravity(void *, int, f32);
 s32 move_with_wall_slide(void *);
 void calc_velocity_toward_destination(void *self, Vec_80090850 pos, Vec_80090850 dest, f32 speed);
@@ -158,7 +158,7 @@ void TObjEneBalClawClaw__sub_8009060C(u8 *arg0) {
     }
 }
 
-void TObjEneBalClawClaw__sub_800906C8(Claw_800906C8 *self) {
+void update_drop__18TObjEneBalClawClawFPv(Claw_800906C8 *self) {
     switch (self->state) {
     case -1:
         break;

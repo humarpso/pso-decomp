@@ -954,7 +954,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 get_random_float__8TObjFishFv(f32);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 M2C_UNK TObjPlayer__sub_800F6E2C(void *, void *, void *);
-M2C_UNK TObjPlayer__sub_800F7118(void *);
+M2C_UNK link_into_group_chain__10TObjPlayerFPv(void *);
 s32 is_action_available__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(int, int, int);
@@ -1268,7 +1268,7 @@ void *alloc_buffer__11TOBoss4RockFPv(s32);
 void pso_load_texture__6TLobbyFPv(void *, void *);
 void set_render_rect__10TObjPlayerFPviiii(void *, void *, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
-void TObjPlayer__sub_800C4D88(void) {
+void create_render_texture__10TObjPlayerFv(void) {
     set_render_rect__10TObjPlayerFPviiii(&lbl_80500C00, lbl_805D5188 = alloc_buffer__11TOBoss4RockFPv(0x800), 0x902, 0x20, 0x20);
     set_texture_name(&lbl_80500C24, &lbl_80500C00, 0x18696, 0x40800000);
     ((Node_800C4D88 *)lbl_80500C30)->p = &lbl_80500C24;
@@ -1708,7 +1708,7 @@ void beast_idle_update(u8 *arg0) {
     ((void (*)(void *))advance_animation_playback)(arg0);
     if (M2C_FIELD(arg0, s16 *, 0x328) != 1) {
         M2C_FIELD(arg0, s16 *, 0x328) = 1;
-        TObjPlayer__sub_800F7118(arg0);
+        link_into_group_chain__10TObjPlayerFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x378) = is_action_available__10TObjPlayerFv(arg0);
     }
     M2C_FIELD(arg0, s32 *, 0x37C) = countChildren__9TObjEnemyFv(arg0);

@@ -47,7 +47,7 @@ extern s32 TLobby__data_805D6120;
 extern u32 TLobby__data_805D6124;
 extern s32 TLobby__data_805D6128;
 extern s16 TLobby__data_805D6134;
-void TLobby__sub_8020DB44(void);
+void setup_floor_decorations__6TLobbyFv(void);
 void *memset(void *, int, unsigned long);
 extern A_8020DBCC *TLobby__data_805D6140;
 extern B_8020DBCC *TLobby__data_805D6144;
@@ -148,7 +148,7 @@ void TLobby__sub_8020DB08(void) {
 }
 #pragma pop
 
-void TLobby__sub_8020DB44(void) {
+void setup_floor_decorations__6TLobbyFv(void) {
     Vec3_8020DB44 v;
     s32 t;
     s32 r;

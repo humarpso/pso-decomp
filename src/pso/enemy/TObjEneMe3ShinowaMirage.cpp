@@ -505,7 +505,7 @@ s32 is_player_entity_id(u16);
 void set_field_378__9TObjEneDDFPvi(void *, s32);
 int transition_enemy_state(void*, int);
 void activate_mirage__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1);
-u8 *TObjEneMe3ShinowaReal__sub_800E4554(void *, s32);
+u8 *get_or_create_mirage__21TObjEneMe3ShinowaRealFPvi(void *, s32);
 void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(void *);
 s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
 M2C_UNK advance_animation_playback(void *, int);
@@ -831,7 +831,7 @@ void TObjEneMe3ShinowaReal__vt112(u8 *arg0, s32 arg1) {
                 n = 0;
                 for (; ok < 5; ok++) {
                     if (I(0x3D4) != ok) {
-                        activate_mirage__23TObjEneMe3ShinowaMirageFPvi(TObjEneMe3ShinowaReal__sub_800E4554(arg0, n++), ok);
+                        activate_mirage__23TObjEneMe3ShinowaMirageFPvi(get_or_create_mirage__21TObjEneMe3ShinowaRealFPvi(arg0, n++), ok);
                     }
                 }
                 transition_enemy_state(arg0, 8);

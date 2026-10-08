@@ -14,7 +14,7 @@ u8 * load_buffer__9TItemLoadFPvUii(void *, u32, s32);
 extern RecoveredGlobal_80019E60_lbl_804340D8 lbl_804340D8;
 extern s32 lbl_805D49D8;
 extern u32 lbl_805D49DC;
-void TLobby__sub_80019E60(void);
+void load_draw_line_task__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ void free_item_loader__6TLobbyFv(void) {
         lbl_805D49D8 = 0;
     }
 }
-void TLobby__sub_80019E60(void) {
+void load_draw_line_task__6TLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)8);

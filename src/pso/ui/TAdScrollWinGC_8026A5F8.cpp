@@ -13,7 +13,7 @@ struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
 extern "C" {
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 int send_and_handle__6TLobbyFPvii(void *, int, int);
-M2C_UNK TWindowMessageLog__sub_8026A494(void *);
+M2C_UNK update_scroll_position__17TWindowMessageLogFPv(void *);
 void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
@@ -51,7 +51,7 @@ void fn_8026A61C(void* p, f32 v) { *(f32*)((char*)p + 0x94) += v; }
 
 void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1) {
     send_and_handle__6TLobbyFPvii(arg0, arg1, 0x502);
-    TWindowMessageLog__sub_8026A494((void *) (arg0));
+    update_scroll_position__17TWindowMessageLogFPv((void *) (arg0));
 }
 
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0) {

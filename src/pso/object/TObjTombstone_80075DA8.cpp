@@ -18,7 +18,7 @@ struct Tomb_80076098 {
 };
 
 extern "C" {
-s32 TObjTombstone__sub_80075070();
+s32 is_other_tombstone_closer__13TObjTombstoneFPv();
 extern const f32 TObjTombstone__data_805D9174;
 extern const f32 TObjTombstone__data_805D9178;
 extern const f32 TObjTombstone__data_805D917C;
@@ -44,10 +44,10 @@ void init_parts__13TObjTombstoneFPv(void* p);
 void run_task__13TObjTombstoneFv(void *arg0);
 f32 TObjTombstone__sub_8007598C(void *);
 int format_date_text__13TObjTombstoneFPv(void*);
-int TObjTombstone__sub_80075AE8(void*);
-int TObjTombstone__sub_80075B5C(void*);
+int format_quoted_name__13TObjTombstoneFPv(void*);
+int format_enemy_text__13TObjTombstoneFPv(void*);
 int build_name_text__13TObjTombstoneFPv(void*);
-int TObjTombstone__sub_80075C60(void*);
+int format_label__13TObjTombstoneFPv(void*);
 int format_player_name__13TObjTombstoneFPv(void*);
 M2C_UNK TObjTombstone__sub_80075DFC(void *);
 void __dl__7TObjectFPv(void *);
@@ -55,7 +55,7 @@ s32 check_owner__13TObjTombstoneFPv();
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-void init_parts__13TObjTombstoneFPv(void* p) { format_player_name__13TObjTombstoneFPv(p); TObjTombstone__sub_80075C60(p); build_name_text__13TObjTombstoneFPv(p); TObjTombstone__sub_80075B5C(p); TObjTombstone__sub_80075AE8(p); format_date_text__13TObjTombstoneFPv(p); }
+void init_parts__13TObjTombstoneFPv(void* p) { format_player_name__13TObjTombstoneFPv(p); format_label__13TObjTombstoneFPv(p); build_name_text__13TObjTombstoneFPv(p); format_enemy_text__13TObjTombstoneFPv(p); format_quoted_name__13TObjTombstoneFPv(p); format_date_text__13TObjTombstoneFPv(p); }
 
 extern s32 lbl_805D4E4C;
 
@@ -96,7 +96,7 @@ s32 is_player_nearby__13TObjTombstoneFPv(void *arg0) {
 void TObjTombstone__sub_80076190(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
-    if ((TObjTombstone__sub_80075070() == 0) && (M2C_FIELD(arg0, f32 *, 0xB0) < TObjTombstone__data_805D917C)) {
+    if ((is_other_tombstone_closer__13TObjTombstoneFPv() == 0) && (M2C_FIELD(arg0, f32 *, 0xB0) < TObjTombstone__data_805D917C)) {
         temp_f1 = M2C_FIELD(arg0, f32 *, 0xB4) + lbl_805D91B4;
         M2C_FIELD(arg0, f32 *, 0xB4) = temp_f1;
         if (temp_f1 > TObjTombstone__data_805D9178) {

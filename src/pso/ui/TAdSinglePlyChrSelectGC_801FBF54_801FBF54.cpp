@@ -88,7 +88,7 @@ void __construct_array(void*, void*, void*, int, int);
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
-u8 *TAdSinglePlyChrSelectGC__sub_801FC984(u8 *arg0);
+u8 *init_char_record__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 Buf_801FBFD0 *alloc__22TQuestVmDownLoadServerFPv(u32);
 s32 TAdPlayerLoadGC__sub_801E1B50(void *);
@@ -121,7 +121,7 @@ extern int lbl_805D5F58;
 extern s32 lbl_805D5F7C;
 extern s32 lbl_805D5F84;
 s32 load_save_from_card__23TAdSinglePlyChrSelectGCFv(void);
-void TAdSinglePlyChrSelectGC__sub_80211584(void *);
+void init_item_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 TAdSinglePlyChrSelectGC__sub_801FC0C8(S_801FC0C8 *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_80202B1C(s32, s32);
 u8 TAdSinglePlyChrSelectGC__sub_80202B30();
@@ -252,7 +252,7 @@ s32 TAdSinglePlyChrSelectGC__sub_801FC0C8(S_801FC0C8 *arg0) {
     arg0->f248 = 0;
     arg0->f24C = 0;
     for (i = 0; i < 200; i++) {
-        TAdSinglePlyChrSelectGC__sub_80211584(&arg0->items[i]);
+        init_item_entry__23TAdSinglePlyChrSelectGCFPv(&arg0->items[i]);
     }
     return 1;
 }
@@ -528,10 +528,10 @@ s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     return arg0;
 }
 
-void* init_char_data__23TAdSinglePlyChrSelectGCFPv(void* p) { __ct__12TPlyCharDataFv(p); TAdSinglePlyChrSelectGC__sub_801FC984((u8 *)((char*)p + 0x41c)); return p; }
+void* init_char_data__23TAdSinglePlyChrSelectGCFPv(void* p) { __ct__12TPlyCharDataFv(p); init_char_record__23TAdSinglePlyChrSelectGCFPv((u8 *)((char*)p + 0x41c)); return p; }
 
 typedef char RecoveredGlobal_80202A40_lbl_8051381C_size[sizeof(RecoveredGlobal_80202A40_lbl_8051381C) == 0xE8 ? 1 : -1];
-u8 *TAdSinglePlyChrSelectGC__sub_801FC984(u8 *arg0) {
+u8 *init_char_record__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     __construct_array((void*)(arg0 + 0x250), (void*)((void *)TAdSinglePlyChrSelectGC__sub_802115C0), (void*)(0), (int)(0x18), (int)(0xc8));
     init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv((void*)(arg0 + 0x1510));
     return arg0;

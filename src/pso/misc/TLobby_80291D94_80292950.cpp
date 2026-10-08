@@ -39,7 +39,7 @@ s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
 u8 *get_card_window__17TWindowSubComCardFUi();
-s32 TLobby__sub_80292CA4(void);
+s32 count_card_layout_entries__6TLobbyFv(void);
 s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
 s32 *TWindowSubStatusDisp__sub_8006F0D8(void *, s32);
 s32 get_valid_slot__6TLobbyFi(s32);
@@ -187,7 +187,7 @@ s32 TLobby__sub_80292BB8(s32 seed, u16 card, s32 id) {
     return 1;
 }
 
-s32 TLobby__sub_80292CA4(void) {
+s32 count_card_layout_entries__6TLobbyFv(void) {
     u8 *win = get_card_window__17TWindowSubComCardFUi();
     s32 layout;
     s32 id;

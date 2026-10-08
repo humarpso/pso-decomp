@@ -63,7 +63,7 @@ s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(int, int, int);
-void TLobby__sub_80146CB8(s32 arg0);
+void set_ppp_password__6TLobbyFi(s32 arg0);
 void TLobby__sub_8014672C(s32 *arg0);
 extern s32 lbl_805D56D8;
 extern s32 lbl_805D56DC;
@@ -464,7 +464,7 @@ u8 *TLobby__sub_80146CA0(s32 arg0) {
     return (u8 *)&(*(RecoveredGlobal_80146CA0_lbl_8050C784 *)&lbl_8050C784).value + (arg0 << 5) + 0x438;
 }
 
-void TLobby__sub_80146CB8(s32 arg0) {
+void set_ppp_password__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
     TLobby__sub_8014618C();
     is_state_active__6TLobbyFv();
@@ -606,7 +606,7 @@ extern RecoveredGlobal_80147A74_lbl_804EF500 lbl_804EF500;
 M2C_UNK *TAdEnterPPPPassGC__sub_80147A74(void);
 void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
 void OSReport(const char *, ...);
-s16 TLobby__sub_8040A45C();
+s16 init_net_tables__6TLobbyFv();
 s16 TLobby__sub_8040ADE8(Req_801471A0 *);
 extern char lbl_8043F3F0[];
 extern char lbl_8043F404[];
@@ -632,7 +632,7 @@ s32 set_dns_servers__6TLobbyFv(void) {
     Req_801471A0 req;
     s16 r1;
     s16 r2;
-    if (TLobby__sub_8040A45C() == 0) {
+    if (init_net_tables__6TLobbyFv() == 0) {
         lbl_805D570C = 1;
         req.type = 4;
         req.addr = lbl_805D56DC;

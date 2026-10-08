@@ -210,7 +210,7 @@ s32 TFogCtrl__sub_800FAC10(s32 arg1, s32 arg0);
 s32 TFogCtrl__sub_800FAC84(void* p);
 void copy_fog_entry(u8 *arg0, u8 *arg1);
 void* get_entry__8TFogCtrlFi(int a0);
-void TFogCtrl__sub_800FAD08(void);
+void clear_split_screen_fog__8TFogCtrlFv(void);
 void update_all__8TFogCtrlFv(void);
 void clear_active_flag__8TFogCtrlFPv(void *arg0);
 s32 apply_fog_entry(void *arg0);

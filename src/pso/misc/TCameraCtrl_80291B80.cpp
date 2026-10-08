@@ -20,7 +20,7 @@ void* TCameraCtrl__sub_80291CBC(void* a0);
     extern int lbl_805D6598;
 int TObjCMMainMenu__sub_80291D44(void);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
-M2C_UNK TLobby__sub_8006F888(void *, void *, int, int);
+M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
 extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
 M2C_UNK *TLobby__sub_80291D4C(void);
 }
@@ -49,7 +49,7 @@ typedef char RecoveredGlobal_80291D4C_lbl_80540958_size[sizeof(RecoveredGlobal_8
 M2C_UNK *TLobby__sub_80291D4C(void) {
     s32 temp_r3;
     temp_r3 = get_card_window__17TWindowSubComCardFUi(0xFFFFU);
-    TLobby__sub_8006F888((void *) (&lbl_80540958.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
+    decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_80540958.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
     return &lbl_80540958.value;
 }
 

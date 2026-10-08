@@ -237,7 +237,7 @@ extern M2C_UNK lbl_804A73D0[];
 int clear_session_buffers__6TLobbyFv(void);
 M2C_UNK call_funcs_reverse__6TLobbyFPvUi(M2C_UNK *, M2C_UNK);
 int stop_audio_streams__6TLobbyFv(void);
-M2C_UNK TQuestVmDownLoadServer__sub_801F8E4C();
+M2C_UNK free_download_buffers__22TQuestVmDownLoadServerFv();
 int refresh_render_state__6TLobbyFv(void);
 int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
@@ -694,7 +694,7 @@ s32 init_forest_b(void) {
     return 1;
 }
 void update_floor_download__6TLobbyFv(void) {
-    TQuestVmDownLoadServer__sub_801F8E4C();
+    free_download_buffers__22TQuestVmDownLoadServerFv();
     reset_keyboard_control__6TLobbyFv();
     update_current_floor__6TLobbyFv();
     call_funcs_reverse__6TLobbyFPvUi(lbl_804A73D0, 0x30);

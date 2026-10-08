@@ -239,7 +239,7 @@ void TItemProUnit__vt42(u8 *arg0) {
 extern "C" {
 void __dt__12TItemProUnitFv();
 void run_task__5TItemFPv();
-void TItem__sub_8010263C();
+void dispatch_state__5TItemFPv();
 void render__5TItemFPv();
 void TLobby__sub_801A1FD8();
 void apply_object_set_data();
@@ -286,7 +286,7 @@ void *__vt__12TItemProUnit[51] = {
     0,
     (void *)__dt__12TItemProUnitFv,
     (void *)run_task__5TItemFPv,
-    (void *)TItem__sub_8010263C,
+    (void *)dispatch_state__5TItemFPv,
     (void *)render__5TItemFPv,
     (void *)TLobby__sub_801A1FD8,
     (void *)apply_object_set_data,

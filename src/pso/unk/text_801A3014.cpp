@@ -211,7 +211,7 @@ void process_pending_resources();
 void create_map_csn_ctrl__6TLobbyFv();
 M2C_UNK TLobby__sub_80141038(void *, int, int);
 M2C_UNK init_limits__6TLobbyFv();
-M2C_UNK TObjPlayer__sub_801BDCF8();
+M2C_UNK refresh_player_lobby_headers__10TObjPlayerFv();
 M2C_UNK TObjPlayer__sub_801BDC98();
 M2C_UNK set_enemy_mode_flag__6TLobbyFv();
 M2C_UNK clear_quest_floor_designations();
@@ -222,7 +222,7 @@ M2C_UNK clear_all_floor_handlers();
 M2C_UNK create_by_mode__12TQuestThreadFv();
 M2C_UNK sync_story_select__6TLobbyFv();
 M2C_UNK set_state__16TAdStorySelectGCFi(int);
-M2C_UNK TQuestListVM__sub_802186A8();
+M2C_UNK load_vm__12TQuestListVMFv();
 void *__nw__7TObjectFUl(u32);
 M2C_UNK setup_split_screen();
 extern u32 lbl_805D5EE8;
@@ -464,7 +464,7 @@ void rebuild_area_keep_players__6TLobbyFv(void) {
     reset_controller_input_state();
     render_tick__Fv();
     render_tick__Fv();
-    TObjPlayer__sub_801BDCF8();
+    refresh_player_lobby_headers__10TObjPlayerFv();
     TObjPlayer__sub_801BDC98();
     for (i = 0; i < get_game_mode__6TLobbyFv(); i++) {
         void *q = get_player_data__10TObjPlayerFi(i);
@@ -507,7 +507,7 @@ void rebuild_area_keep_players__6TLobbyFv(void) {
     set_enemy_mode_flag__6TLobbyFv();
     init_limits__6TLobbyFv();
     setup_quest_list__6TLobbyFv();
-    TQuestListVM__sub_802186A8();
+    load_vm__12TQuestListVMFv();
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         load_area_scene_and_init(&lbl_80515BA0);
     } else {

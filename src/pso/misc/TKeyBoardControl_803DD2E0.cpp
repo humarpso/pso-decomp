@@ -40,13 +40,13 @@ extern const f32 lbl_805E0F94;
 extern const f32 lbl_805E0F98;
 
 void update_camera__16TKeyBoardControlFv(void);
-M2C_UNK TCameraCtrl__sub_803DD300();
+M2C_UNK init_projection_state__11TCameraCtrlFv();
 
 void update_camera__16TKeyBoardControlFv(void) {
-    TCameraCtrl__sub_803DD300();
+    init_projection_state__11TCameraCtrlFv();
 }
 
-s32 TCameraCtrl__sub_803DD300() {
+s32 init_projection_state__11TCameraCtrlFv() {
     s32 i;
     Cam_803DD300 *c = &lbl_8058D4F8;
 

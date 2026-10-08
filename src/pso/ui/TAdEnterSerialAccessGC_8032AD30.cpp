@@ -19,7 +19,7 @@ void send_and_handle__6TLobbyFPvii(s32, s32, int);
 s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
 extern u8 lbl_80477178[];
 extern u8 lbl_80477180[];
-s32 TAdEnterSerialAccessGC__sub_8032AE54(void *arg0, void *arg1);
+s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1);
 int sprintf(char *, const char *, ...);
 void sscanf(int, const char *, ...);
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
@@ -60,7 +60,7 @@ int forward_input__22TAdEnterSerialAccessGCFPv(void* p);
 s32 has_serial_input__22TAdEnterSerialAccessGCFv(void);
 void store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1);
-int TAdEnterSerialAccessGC__sub_8032B1A4(void *arg0, s32 arg1, char *arg2);
+int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2);
 s32 TAdPsoPassSaveGC__sub_8032B584();
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
@@ -93,7 +93,7 @@ void TAdEnterSerialAccessGC__sub_8032AE1C(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);
 }
 
-s32 TAdEnterSerialAccessGC__sub_8032AE54(void *arg0, void *arg1) {
+s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1) {
     s32 r = update_window_mode_from_progress__6TLobbyFiPv(lbl_80477178, lbl_80477180);
     send_and_handle__6TLobbyFPvii(r, get_localized_text_entry(0x17, arg1), 1);
     return r;
@@ -175,7 +175,7 @@ char *serial_to_hex_string__22TAdEnterSerialAccessGCFi(int arg0) {
     return lbl_80543468;
 }
 
-int TAdEnterSerialAccessGC__sub_8032B1A4(void *arg0, s32 arg1, char *arg2) {
+int validate_input__22TAdEnterSerialAccessGCFPviPv(void *arg0, s32 arg1, char *arg2) {
     s32 i;
     s32 n;
 
@@ -210,6 +210,6 @@ int TAdEnterSerialAccessGC__sub_8032B1A4(void *arg0, s32 arg1, char *arg2) {
     return 1;
 }
 
-int forward_input__22TAdEnterSerialAccessGCFPv(void* p) { return ((int (*)(void *))TAdEnterSerialAccessGC__sub_8032B1A4)(p); }
+int forward_input__22TAdEnterSerialAccessGCFPv(void* p) { return ((int (*)(void *))validate_input__22TAdEnterSerialAccessGCFPviPv)(p); }
 
 }

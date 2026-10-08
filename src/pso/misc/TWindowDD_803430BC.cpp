@@ -198,7 +198,7 @@ List_803467CC *get_element_ptr__9TWindowDDFi(s16);
 List_803467CC *get_entry__9TWindowDDFi(s32, s16);
 extern s32 TWindowDD__data_805D6E08;
 extern u32 TWindowDD__data_805D6E1C;
-void TWindowDD__sub_803467CC(u8 *arg0);
+void build_item_list__9TWindowDDFPv(u8 *arg0);
 M2C_UNK TWindowDD__sub_8034734C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
 M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
@@ -252,7 +252,7 @@ void free_buffers__9TWindowDDFv(void);
 s32 update_close_flag__9TWindowDDFPv(void *arg0);
 void free_nodes_with_id__6TLobbyFUi(void*);
 M2C_UNK TWindowDD__sub_80347EF4();
-void TWindowDD__sub_80348520(void *);
+void close_all_windows__9TWindowDDFPv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 classify_id__9TWindowDDFs();
@@ -631,7 +631,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TWindowDD;
-        TWindowDD__sub_80348520(arg0);
+        close_all_windows__9TWindowDDFPv(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1384,7 +1384,7 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     return var_r31;
 }
 #define BUF_803467CC ((Buf_803467CC *)TWindowDD__data_805D6E1C)
-void TWindowDD__sub_803467CC(u8 *arg0) {
+void build_item_list__9TWindowDDFPv(u8 *arg0) {
     s32 kind;
     s16 id;
     List_803467CC *sel;

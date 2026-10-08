@@ -8,7 +8,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 int TWindowSubComCard__sub_80249220(void *, void *);
 s32 TWindowChoiceSetting__ct(int, void *, void *);
-s32 TWindowSubComCard__sub_802491C4(s32 arg0, s32 arg1, s32 arg2);
+s32 create_choice_setting_window__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
 s32 get_field_74__17TWindowSubComCardFPv(void *);
 extern const f32 lbl_805DCBB8;
@@ -47,7 +47,7 @@ void TWindowSubComCard__sub_80249144(void *arg0) {
     }
 }
 
-s32 TWindowSubComCard__sub_802491C4(s32 arg0, s32 arg1, s32 arg2) {
+s32 create_choice_setting_window__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
     TWindowSubComCard__sub_80249220((void *)((void *) (arg1)), (void *)((void *) (arg2)));

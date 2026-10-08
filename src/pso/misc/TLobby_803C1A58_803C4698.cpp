@@ -64,7 +64,7 @@ void TLobby__sub_803D25DC(void);
 void TLobby__sub_803D2E44(void);
 void TLobby__sub_803D2ED4(void);
 void SVM_SetCbSvrId__6TLobbyFiiii(int, int, void *, int);
-s32 TLobby__sub_803D3750(int, void *, int);
+s32 svm_set_cb_svr__6TLobbyFiii(int, void *, int);
 M2C_UNK memset(void *, int, int);
 void ar_alloc__6TLobbyFv(void);
 void get_state_zero__6TLobbyFv(void);
@@ -83,6 +83,7 @@ s32 strlen(const char *);
 extern char lbl_80572000[];
 extern const char lbl_805E0D28[2];
 void format_number_pair__6TLobbyFiiPvi(s32 arg0, s32 arg1, char *arg2, s32 arg3);
+s32 TLobby__sub_803C48C8(u8 *arg0, s32 arg1, u16 *arg2);
 }
 
 extern "C" {
@@ -106,7 +107,7 @@ M2C_UNK TLobby__sub_803D2E04();
 M2C_UNK TLobby__sub_803D2E94();
 M2C_UNK TLobby__sub_803D3194();
 M2C_UNK TLobby__sub_803D33F4();
-M2C_UNK TLobby__sub_803D3678(int, void *);
+M2C_UNK SVM_DelCbSvr__6TLobbyFii(int, void *);
 M2C_UNK init_once__6TLobbyFv();
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK shutdown_cleanup__6TLobbyFv();
@@ -214,6 +215,20 @@ s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3) {
     } else {
         arg2[0] = arg3[0] = arg2[1] = arg3[1] = 0;
     }
+    return 0;
+}
+
+s32 TLobby__sub_803C48C8(u8 *arg0, s32 arg1, u16 *arg2) {
+    if (arg1 < 0x12) {
+        return -1;
+    }
+    if (M2C_FIELD(arg0, u16 *, 0) != 0x8000) {
+        return -2;
+    }
+    if ((s16) M2C_FIELD(arg0, s16 *, 2) < 0xE) {
+        return -1;
+    }
+    *arg2 = M2C_FIELD(arg0, u16 *, 0x10);
     return 0;
 }
 
@@ -376,9 +391,9 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         si_get_type_async__6TLobbyFv();
         release_and_close_all_slots__6TLobbyFv();
         init_once__6TLobbyFv();
-        TLobby__sub_803D3678((int) (2), (void *) (1));
-        TLobby__sub_803D3678((int) (2), (void *) (3));
-        TLobby__sub_803D3678((int) (4), (void *) (lbl_805D753C));
+        SVM_DelCbSvr__6TLobbyFii((int) (2), (void *) (1));
+        SVM_DelCbSvr__6TLobbyFii((int) (2), (void *) (3));
+        SVM_DelCbSvr__6TLobbyFii((int) (4), (void *) (lbl_805D753C));
         TLobby__sub_803D3194();
         release_ref__6TLobbyFv();
         init_once__6TLobbyFv();
@@ -409,7 +424,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         if (lbl_805D4658 == 1) {
             SVM_SetCbSvrId__6TLobbyFiiii(2, 1, (void *)get_state_zero__6TLobbyFv, 0);
             SVM_SetCbSvrId__6TLobbyFiiii(2, 3, (void *)ar_alloc__6TLobbyFv, 0);
-            lbl_805D753C = TLobby__sub_803D3750(4, (void *)process_connection_state__6TLobbyFv, 0);
+            lbl_805D753C = svm_set_cb_svr__6TLobbyFiii(4, (void *)process_connection_state__6TLobbyFv, 0);
         }
         lbl_805D7540 = 0;
         release_ref__6TLobbyFv();

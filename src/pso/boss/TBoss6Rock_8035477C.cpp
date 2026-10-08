@@ -28,7 +28,7 @@ extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 create__10TBoss6RockFv();
-s32 TBoss6Rock__sub_80353FF0(void *);
+s32 randomize_motion__10TBoss6RockFPv(void *);
 extern RecoveredGlobal_80354948___vt__10TBoss6Rock __vt__10TBoss6Rock;
 extern RecoveredGlobal_80354948_TBoss6Rock__data_805437F8 TBoss6Rock__data_805437F8;
 extern s32 lbl_805D438C;
@@ -86,7 +86,7 @@ u8 *TBoss6Rock__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     M2C_FIELD(arg0, s32 *, 0xBC) = 0;
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
-    TBoss6Rock__sub_80353FF0((void *) (arg0));
+    randomize_motion__10TBoss6RockFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     M2C_FIELD(arg0, s32 *, 0xC4) = 0;
     M2C_FIELD(arg0, s32 *, 0xE4) = create__10TBoss6RockFv();

@@ -43,7 +43,7 @@ void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, int);
 extern u8 TBoss4Thanks__data_80479B40[];
 extern Ent_8035C35C lbl_80479B58[];
-void TBoss4Thanks__sub_8035C35C(void *arg0);
+void update_particle_emitters__12TBoss4ThanksFPv(void *arg0);
 void *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
@@ -82,7 +82,7 @@ extern const f32 lbl_805E0188;
 extern const f32 lbl_805E018C;
 extern const f32 lbl_805E0190;
 
-void TBoss4Thanks__sub_8035C35C(void *arg0) {
+void update_particle_emitters__12TBoss4ThanksFPv(void *arg0) {
     Obj_8035C35C *o = (Obj_8035C35C *)arg0;
     s32 i;
     for (i = 0; i < 4; i++) {
@@ -145,7 +145,7 @@ void update_fade_out__12TBoss4ThanksFPv(void *arg0) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x30) == 0) {
             play_sound_effect(0x40033231, 0, 0, 0);
         }
-        TBoss4Thanks__sub_8035C35C((void *)(arg0));
+        update_particle_emitters__12TBoss4ThanksFPv((void *)(arg0));
         M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (lbl_805E0188 * (lbl_805E018C - ((f32) M2C_FIELD(arg0, s32 *, 0x30) / lbl_805E0190)));
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x30);
         if (temp_r3 == 0x78) {

@@ -99,7 +99,7 @@ void TLobby__sub_802255CC(s32 a, s32 b);
 int get_short_mail_ctrl__6TLobbyFv(void);
 void *TLobby__sub_8022598C(int a0);
 s32 get_lobby_id__6TLobbyFPv(void* p);
-void *TLobby__sub_80225924(u32 id);
+void *find_short_mail_by_id__6TLobbyFUi(u32 id);
 extern unsigned char lbl_80513F70[];
 extern int lbl_805D6274;
 s32 move_words__6TLobbyFPvPvi(int, void *, void *);
@@ -189,7 +189,7 @@ void generate_shop_technique_pool(s32);
 void generate_shop_rare_tool_pool(s32);
 void generate_shop_common_tool_pool(s32);
 extern u32 lbl_805D6260;
-void TLobby__sub_802244B0(s32 idx);
+void generate_shop_inventory__6TLobbyFi(s32 idx);
 }
 
 extern "C" {
@@ -219,7 +219,7 @@ int TLobby__sub_80225A08(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
     extern int lbl_805D6264;
-void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; TLobby__sub_802244B0((s32)(a0)); }
+void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
 
 extern M2C_UNK lbl_80513F20[];
 extern u32 lbl_805D6260;
@@ -228,7 +228,7 @@ s32 lbl_80513EF0[4];
 s32 lbl_80513F00[4];
 s32 lbl_80513F10[4];
 s32 lbl_80513F20[4];
-void TLobby__sub_802244B0(s32 idx) {
+void generate_shop_inventory__6TLobbyFi(s32 idx) {
     if (lbl_805D6260 != 0) {
         if (lbl_80513F10[idx] == 0) {
             lbl_80513F10[idx] = 1;
@@ -791,7 +791,7 @@ void TLobby__sub_802258C8(void) {
   while (var_r31 < 8);
 }
 
-void *TLobby__sub_80225924(u32 id) {
+void *find_short_mail_by_id__6TLobbyFUi(u32 id) {
     s32 count = ((s32)get_short_mail_ctrl__6TLobbyFv());
     s32 i;
     for (i = 0; i < count; i++) {

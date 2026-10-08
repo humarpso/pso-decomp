@@ -144,7 +144,7 @@ void TLobby__sub_803C6800(void);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 void TLobby__sub_803C9DB4(void *);
-void TLobby__sub_803CA0C8(void *, s32);
+void start_stream_playback__6TLobbyFPvi(void *, s32);
 void set_lsc_min__6TLobbyFPvi(void *, s32);
 void reset_lsc_state__6TLobbyFPv(void *);
 void TLobby__sub_803C5D24(u8 *arg0);
@@ -335,7 +335,7 @@ void TLobby__sub_803C5D24(u8 *arg0) {
     temp_r31 = (u8 *)(((Fields_arg0*)arg0)->field_94);
     TLobby__sub_803C9DB4(arg0);
     init_once__6TLobbyFv();
-    TLobby__sub_803CA0C8(arg0, ((Fields_arg0*)arg0)->field_10);
+    start_stream_playback__6TLobbyFPvi(arg0, ((Fields_arg0*)arg0)->field_10);
     temp_r3 = (void **)(((Fields_arg0*)arg0)->field_14);
     temp_r4 = (u8 *)(*temp_r3);
     M2C_FIELD(temp_r4, M2C_UNK (**)(void **, void *), 0x14)(temp_r3, temp_r4);

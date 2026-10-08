@@ -19,12 +19,12 @@ void clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
 void update_party_status_rows__11TWindowCtrlFPv(Ctrl_8024C024 *);
 extern s16 lbl_8044EBD4[];
 extern s16 lbl_8044EBE0[];
-void TWindowCtrl__sub_8024C024(Ctrl_8024C024 *o);
+void update_open_sequence__11TWindowCtrlFPv(Ctrl_8024C024 *o);
 }
 
 extern "C" {
 
-void TWindowCtrl__sub_8024C024(Ctrl_8024C024 *o) {
+void update_open_sequence__11TWindowCtrlFPv(Ctrl_8024C024 *o) {
     if (is_split_screen() != 0) {
         if (o->timer == lbl_8044EBD4[o->step]) {
             if (o->split[o->step] != NULL) {

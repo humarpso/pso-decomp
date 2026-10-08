@@ -82,7 +82,7 @@ void copy_short_fields__6TLobbyFPvPv(void *, void *);
 s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void init__17TOBarrierEnergy01FPv(void *);
 void update_and_send_60__6TLobbyFPv(void *);
-void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src);
+void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src);
 void play_door_sound(u8 *arg0);
 u8 is_current_floor_switch_set(u16);
 }
@@ -131,7 +131,7 @@ u8 *TODoorAncient09__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 
 void TODoorCave01__vt18(void) {  }
 
-void TODoorCave01__sub_80161320(Self_80161320 *self, State_80161320 *src) {
+void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
     State_80161320 st;
     Obj_80161320 *obj;
     if (src != 0) {
@@ -254,7 +254,7 @@ void TODoorCave01__vt12(u8 *arg0) {
             d->flags |= 1;
             if (d->obj != NULL && ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 1) != 0) {
                 st.a = 1;
-                TODoorCave01__sub_80161320((Self_80161320 *)arg0, &st);
+                send_state__12TODoorCave01FPvPv((Self_80161320 *)arg0, &st);
                 ((s32 (*)(u8 *, void *, s16))access_object_saved_state)(arg0, &st, 0);
             }
         }

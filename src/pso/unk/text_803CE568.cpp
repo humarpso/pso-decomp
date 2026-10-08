@@ -20,6 +20,8 @@ struct Rec_803CFD2C {
     u8 pad5[0xB];
 };
 
+struct V_803CEF60 { void (*fn)(); };
+
 extern "C" {
 extern M2C_UNK lbl_8047D7AC[];
 extern M2C_UNK lbl_8047D7C8[];
@@ -64,6 +66,8 @@ void cvFsSetDefDev__6TLobbyFPv(char *arg0);
 void *memset(void *, s32, u32);
 extern s32 lbl_805D7600;
 void SIGetTypeAsync(void);
+extern Ent_803CF958 lbl_80581B68[];
+void TLobby__sub_803CEF60(void);
 }
 
 extern "C" {
@@ -86,6 +90,18 @@ s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0) {
     }
     return var_r31;
 }
+
+void TLobby__sub_803CEF60(void) {
+    s32 i;
+    Ent_803CF958 *p;
+    for (i = 0; i < 0x20; i++) {
+        p = &lbl_80581B68[i];
+        if ((V_803CEF60 *)p->a != 0 && ((V_803CEF60 *)p->a)->fn != 0) {
+            ((V_803CEF60 *)p->a)->fn();
+        }
+    }
+}
+
 void TLobby__sub_803CEFC8(u8 *arg0) {
     M2C_UNK (*temp_r12)(s32);
     if (arg0 == NULL) {

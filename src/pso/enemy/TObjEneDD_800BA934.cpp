@@ -39,7 +39,7 @@ void set_part_local_pos__9TObjEneDDFPvPvi(Obj_800BAAE4 *self, Vec_800BAAE4 *v, s
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 void rotate_xz_pair_by_angle(f32 *x, f32 *z, s32 angle);
 void vec3_add_to(Vec_800BA9BC *a, Vec_800BA9BC *b);
-void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
+void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i);
 void VecCopy__FP3VecPC3Vec(Vec_800BAAE4 *dst, const Vec_800BAAE4 *src);
 int matrix_mult_vec(void *, void *, void *);
 int set_matrix_identity__10TObjPlayerFPv(void *);
@@ -72,7 +72,7 @@ void transform_part_positions__9TObjEneDDFPv(Obj_800BA934 *self) {
     pop_matrix();
 }
 
-void TObjEneDD__sub_800BA9BC(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
+void set_part_position__9TObjEneDDFPvPvi(Obj_800BA9BC *self, Vec_800BA9BC *v, s32 i) {
     Vec_800BA9BC *p;
     VecCopy__FP3VecPC3Vec((Vec_800BAAE4 *)(&self->parts[i].a), (const Vec_800BAAE4 *)(v));
     p = &self->parts[i].b;

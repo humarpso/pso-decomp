@@ -29,7 +29,7 @@ void TLobby__sub_8020BCE4(void);
 s32 get_current_floor();
 Ent_8020BC50 *get_object_count__6TLobbyFPv();
 s32 get_obj_table_entry__6TLobbyFi();
-void TLobby__sub_8020BBA0(int, int);
+void destroy_child_recursive__6TLobbyFPvPv(int, int);
 extern s32 tl_02;
 extern s32 tl_05;
 extern s32 tl_06;
@@ -57,10 +57,10 @@ void TLobby__sub_8020BC50(void) {
     n = get_obj_table_entry__6TLobbyFi();
     for (i = 0; i < n; i++, p++) {
         if (p->f40 != 0) {
-            TLobby__sub_8020BBA0(tl_02, p->f40);
-            TLobby__sub_8020BBA0(tl_05, p->f40);
-            TLobby__sub_8020BBA0(tl_06, p->f40);
-            TLobby__sub_8020BBA0(tl_07, p->f40);
+            destroy_child_recursive__6TLobbyFPvPv(tl_02, p->f40);
+            destroy_child_recursive__6TLobbyFPvPv(tl_05, p->f40);
+            destroy_child_recursive__6TLobbyFPvPv(tl_06, p->f40);
+            destroy_child_recursive__6TLobbyFPvPv(tl_07, p->f40);
             p->f40 = 0;
         }
     }

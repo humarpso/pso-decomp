@@ -332,7 +332,7 @@ void TRaderMapCore__sub_801F9630(s32 arg0);
 void GXSetScissor(u32, u32, u32, u32);
 extern const f32 TRaderMapCore__data_805DC538;
 extern const f32 TRaderMapCore__data_805DC53C;
-s32 TRaderMapCore__sub_801F9228(void *self, int mode, void *arg2);
+s32 set_view_scissor__13TRaderMapCoreFPviPv(void *self, int mode, void *arg2);
 s32 TCameraCtrl__sub_80069304();
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 s32 check_flag_100__10TObjPlayerFPv(u32);
@@ -547,7 +547,7 @@ void show_radar__13TRaderMapCoreFv(void) {
 }
 
 #pragma fp_contract on
-s32 TRaderMapCore__sub_801F9228(void *self, int mode, void *arg2) {
+s32 set_view_scissor__13TRaderMapCoreFPviPv(void *self, int mode, void *arg2) {
     Rect_801F9228 *rect = (Rect_801F9228 *)arg2;
     u32 w;
     u32 h;
@@ -1018,7 +1018,7 @@ void setup_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     GXSetScissorBoxOffset((int) (0), (int) (0));
     TCameraCtrl__sub_801E32D8((f32) (TRaderMapCore__data_805DC538), (f32) (TRaderMapCore__data_805DC53C));
     TCameraCtrl__sub_8006AF9C((void *) (lbl_805D4DF0), (int) (0));
-    TRaderMapCore__sub_801F9228((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&lbl_804C8784.value + (arg1 * 0x10))));
+    set_view_scissor__13TRaderMapCoreFPviPv((void *)((void *) (arg0)), (int)((int) (0)), (void *)((void *) ((u8 *)&lbl_804C8784.value + (arg1 * 0x10))));
     apply_distant_light__9TObjLightFv();
     end_effect_render__13TParticleCtrlFv();
 }
@@ -1055,7 +1055,7 @@ void begin_map_view__13TRaderMapCoreFii(s32 arg0, s32 arg1) {
     stack.sp50 = M2C_FIELD(temp_r5, f32 *, 0xC);
     stack.sp3C = M2C_FIELD(temp_r5, f32 *, 0x10);
     TRaderMapCore__sub_801F9178((void *) (arg0), (void *) (&stack.sp24));
-    TRaderMapCore__sub_801F9228((void *)((void *) (arg0)), (int)((int) (2)), (void *)((void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_lbl_804C8784 *)&lbl_804C8784).value + (arg1 * 0x10))));
+    set_view_scissor__13TRaderMapCoreFPviPv((void *)((void *) (arg0)), (int)((int) (2)), (void *)((void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_lbl_804C8784 *)&lbl_804C8784).value + (arg1 * 0x10))));
     setup_overhead_projection__13TRaderMapCoreFv((s32)((void *) (arg0)), (Cam_801F9314 *)((void *) ((u8 *)&(*(RecoveredGlobal_801FA9D8_TRaderMapCore__data_80513708 *)&TRaderMapCore__data_80513708).value + (arg1 * 0x28))));
     stack.sp18 = M2C_FIELD(&lbl_8044A770.value, s32 *, 0);
     stack.sp1C = M2C_FIELD(&lbl_8044A770.value, s32 *, 4);

@@ -55,7 +55,7 @@ u8 * get_element__10TObjPlayerFPvi(void *, int);
 int TObjPlayer__sub_803131AC(void* a0);
 void *TObjPlayer__sub_803131B4(void *, int);
 s32 get_section_id__10TObjPlayerFPv(void *);
-void *TObjPlayer__sub_80312CCC(void *list, s32 section);
+void *find_by_section_id__10TObjPlayerFPvi(void *list, s32 section);
 }
 
 extern "C" {
@@ -90,7 +90,7 @@ void release_photon_blast_requests(void *registry) {
     }
 }
 
-void *TObjPlayer__sub_80312CCC(void *list, s32 section) {
+void *find_by_section_id__10TObjPlayerFPvi(void *list, s32 section) {
     s32 n;
     s32 i;
     u8 *e;

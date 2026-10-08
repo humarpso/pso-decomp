@@ -68,7 +68,7 @@ void update_mail_count__19TWindowSubShortMailFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
 s32 get_shared_text_buffer();
 M2C_UNK send_simple_mail__6TLobbyFiPv(s32, s32);
-u32 TLobby__sub_80225924(s32);
+u32 find_short_mail_by_id__6TLobbyFUi(s32);
 s32 TLobby__sub_8022598C(s32);
 int TLobby__sub_802421C4(void*);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
@@ -139,7 +139,7 @@ void update_mail_count__19TWindowSubShortMailFPv(void *arg0) {
         temp_r3 = select_cursor_entry__6TLobbyFPv((void*)(M2C_FIELD(arg0, s32 *, 0x38)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) != temp_r3) {
             M2C_FIELD(arg0, s32 *, 0x24) = temp_r3;
-            if (TLobby__sub_80225924(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
+            if (find_short_mail_by_id__6TLobbyFUi(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) {
                 send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x3C), get_mail_ptr__19TWindowSubShortMailFPv(), 0x482);
             }
         }

@@ -1354,8 +1354,8 @@ void TNpcPlayer__sub_80152B98(Pkt_801CDED4 *);
 M2C_UNK update_lobby__10TNpcPlayerFPv(void *);
 void bswap_6x43_packet(Pkt_801CF128 *);
 M2C_UNK TNpcPlayer__sub_80152C28(void *);
-void TNpcPlayer__sub_80152C48(void *);
-void TNpcPlayer__sub_80152D04(void *);
+void finalize_and_send_packet__10TNpcPlayerFPv(void *);
+void init_cast_technique_cmd__10TNpcPlayerFPv(void *);
 void reset_model__10TNpcPlayerFPv(void *);
 void init_model__10TNpcPlayerFPv(void *cmd);
 void reset_move_state__10TNpcPlayerFPv(void *cmd);
@@ -1488,7 +1488,7 @@ int TFontSmallLobby__sub_801C0228(void*);
 void TObjPlayer__sub_801C0708(void *);
 void TObjPlayer__sub_801C0734(void *);
 void TObjPlayer__sub_801C18E0(void *);
-void TObjPlayer__sub_801C1914(void *);
+void byteswap_set_position_cmd__10TObjPlayerFi(void *);
 void TObjPlayer__sub_801C1978(void *);
 M2C_UNK TObjPlayer__sub_801C1B60(void *);
 void set_photon_blast_kind(void *, s32);
@@ -2060,7 +2060,7 @@ M2C_UNK TLobby__sub_8024AC20(int);
 void dispatch_to_child__11TWindowCtrlFiPv(u16, s32);
 s32 check_hit_by_id__10TObjPlayerFiii(s32, s32, s32);
 M2C_UNK release_photon_blast_requests(u32);
-u8 * TObjPlayer__sub_80312CCC(void *, int);
+u8 * find_by_section_id__10TObjPlayerFPvi(void *, int);
 void create_party_effects__10TObjPlayerFPvi(void *, s32);
 s32 find_first_valid_target_id__10TObjPlayerFPv(void*);
 void TObjPlayer__sub_80312E98(void *, s32);
@@ -4488,7 +4488,7 @@ void TObjPlayer__sub_801CBC90(s32 arg0) {
 
 u8 *TObjPlayer__sub_801CBCC4(s32 arg0) {
     if ((void *) lbl_805D5D68 != NULL) {
-        return TObjPlayer__sub_80312CCC(lbl_805D5D68, arg0);
+        return find_by_section_id__10TObjPlayerFPvi(lbl_805D5D68, arg0);
     }
     return NULL;
 }
@@ -5200,7 +5200,7 @@ void request_technique_cast__10TObjPlayerFPv(Player_801CD72C *self) {
         m1.id = ((s32 (*)(void *))obj_getField1c)(self);
         m1.level = lo;
         send_swap_field6__10TObjPlayerFPv(&m1);
-        TNpcPlayer__sub_80152D04(&m2);
+        init_cast_technique_cmd__10TNpcPlayerFPv(&m2);
         m2.id = ((s32 (*)(void *))obj_getField1c)(self);
         m2.tech = tech;
         m2.lv = hi;
@@ -5211,7 +5211,7 @@ void request_technique_cast__10TObjPlayerFPv(Player_801CD72C *self) {
         for (i = 0; i < count; i++) {
             copy_tech_params__10TObjPlayerFPvPv(dst++, src++);
         }
-        TNpcPlayer__sub_80152C48(&m2);
+        finalize_and_send_packet__10TNpcPlayerFPv(&m2);
     }
 }
 
@@ -6386,7 +6386,7 @@ void handle_6x3F_set_position(void *arg0) {
     Player_801D0634 *p;
     TObjPlayer__sub_801C1978(&m);
     ((void (*)(void *, void *))TObjPlayer__sub_801D2540)(&m, arg0);
-    TObjPlayer__sub_801C1914(&m);
+    byteswap_set_position_cmd__10TObjPlayerFi(&m);
     if (validate_6x3F_set_position(&m) != 0) {
         p = (Player_801D0634 *)((void * (*)(s32))get_player_by_client_id)(m.id);
         if (p != NULL) {

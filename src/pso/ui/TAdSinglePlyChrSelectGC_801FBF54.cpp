@@ -80,7 +80,7 @@ s32 load_chr_select_slot__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FEBBC();
 M2C_UNK load_selected_char__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK load_and_verify_data(int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFE44(int);
+M2C_UNK verify_save_checksum__23TAdSinglePlyChrSelectGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFEBC();
 M2C_UNK apply_loaded_character__23TAdSinglePlyChrSelectGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200418();
@@ -105,7 +105,7 @@ M2C_UNK getDateStamp__FP9DateStamp(M2C_UNK *);
 void clear_all_story_flags();
 Card_80201354 *get_card_window__17TWindowSubComCardFUi(u32);
 void *get_char_index__23TAdSinglePlyChrSelectGCFUi(u32);
-void TAdSinglePlyChrSelectGC__sub_80211584(void *);
+void init_item_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
 void TWindowShortListCtrl__sub_8026E884(void *);
 void TAdSinglePlyChrSelectGC__sub_8028DC1C();
@@ -133,7 +133,7 @@ void init_timestamped_data(void);
 s32 update_elapsed_time__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
 s32 init_char_slots__23TAdSinglePlyChrSelectGCFi(s32 allocation);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200690(s32, s32);
+M2C_UNK copy_save_data__23TAdSinglePlyChrSelectGCFii(s32, s32);
 u32 TAdSinglePlyChrSelectGC__sub_80201204(s32, M2C_UNK);
 void __dl__FPv(void*);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -207,7 +207,7 @@ s32 init_and_register__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     if (var_r29 != 0) {
         var_r29 = init_char_slots__23TAdSinglePlyChrSelectGCFi(var_r29);
     }
-    TAdSinglePlyChrSelectGC__sub_80200690(var_r29, arg0);
+    copy_save_data__23TAdSinglePlyChrSelectGCFii(var_r29, arg0);
     temp_r30 = get_type__23TAdSinglePlyChrSelectGCFPv(var_r29);
     set_id__23TAdSinglePlyChrSelectGCFPvi(var_r29, 0);
     temp_r31 = TAdSinglePlyChrSelectGC__sub_80201204(var_r29, 0x1156C);
@@ -271,7 +271,7 @@ s32 init_fresh_character_card(void) {
     card->f248 = 0;
     card->f24C = 0;
     for (i = 0; i < 200; i++) {
-        TAdSinglePlyChrSelectGC__sub_80211584(&card->items[i]);
+        init_item_entry__23TAdSinglePlyChrSelectGCFPv(&card->items[i]);
     }
     load_symbol_chat_data__20TWindowSubSymbolChatFPv(card);
     set_fresh_card_flag(card);
@@ -456,7 +456,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
         break;
     case 17:
         if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F8C)) == 0) {
-            TAdSinglePlyChrSelectGC__sub_801FFE44((int) (1));
+            verify_save_checksum__23TAdSinglePlyChrSelectGCFi((int) (1));
             if ((s32) lbl_805D5FA8 != 0) {
                 lbl_805D5FA8 = 0;
                 load_selected_char__23TAdSinglePlyChrSelectGCFv();
@@ -469,7 +469,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
         break;
     case 16:
         if (TAdPlayerLoadGC__sub_801E1B50((void *) (lbl_805D5F8C)) == 0) {
-            TAdSinglePlyChrSelectGC__sub_801FFE44((int) (0));
+            verify_save_checksum__23TAdSinglePlyChrSelectGCFi((int) (0));
             if ((s32) lbl_805D5FA8 != 0) {
                 lbl_805D5FA8 = 0;
                 load_selected_char__23TAdSinglePlyChrSelectGCFv();

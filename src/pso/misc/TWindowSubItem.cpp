@@ -113,7 +113,7 @@ s32 get_player_by_client_id(s32);
 M2C_UNK TObjPlayer__sub_801B7B58(int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(int);
 s32 get_selected_entry__14TWindowSubItemFPv(void *arg0);
-void TWindowSubItem__sub_802797FC(u8 *arg0);
+void use_selected_item__14TWindowSubItemFPv(u8 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 u32 get_usable_action_flags__5TItemFPvUiUi(int, int, int);
 s32 get_item_info__10TObjPlayerFiiPv(int, int, void *);
@@ -188,7 +188,7 @@ s32 select_cursor_entry__6TLobbyFPv(int);
 s32 get_window_layout_position(M2C_UNK);
 void assign_item_to_palette__20TWindowShortListCtrlFUiUi(s32, s32);
 void set_displayed_item__14TWindowSubItemFPvi(void *arg0, s32 arg1);
-void TWindowSubItem__sub_802797FC(u8 *arg0);
+void use_selected_item__14TWindowSubItemFPv(u8 *arg0);
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
@@ -294,7 +294,7 @@ s32 has_armor_with_unit_slot(void *arg0, int arg1) {
 
 #pragma push
 #pragma scheduling off
-void TWindowSubItem__sub_802797FC(u8 *arg0) {
+void use_selected_item__14TWindowSubItemFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
     temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, u32 *, 0x24)));
@@ -658,7 +658,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
                 return;
             }
             if (get_status_flag__6TLobbyFPv(LIST) != 0) {
-                TWindowSubItem__sub_802797FC(arg0);
+                use_selected_item__14TWindowSubItemFPv(arg0);
                 clear_selected_and_update_entry__14TWindowSubItemFPv(LIST);
                 F(u8, 0x1C) = 8;
                 return;

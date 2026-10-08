@@ -257,7 +257,7 @@ void TObjRoomId__sub_80141CF4(void *dst, void *src, f32 t);
 extern char lbl_80440830[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DB3A0;
-void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self);
+void draw_debug_event_no__23TOContainerAncientEnemyFPv(Obj_80188814 *self);
 s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
@@ -356,7 +356,7 @@ f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0) {
     return lbl_805DB39C;
 }
 
-void TOContainerAncientEnemy__sub_8015BB8C(Obj_80188814 *self) {
+void draw_debug_event_no__23TOContainerAncientEnemyFPv(Obj_80188814 *self) {
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     debug_printf_at(0x130020, lbl_80440830, self->id);
     set_global_count__12TObjNpcEnemyFi(0xF0F0F0FF);

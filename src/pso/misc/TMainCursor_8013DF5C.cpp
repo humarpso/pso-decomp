@@ -11,7 +11,7 @@ extern "C" {
 void TMainCursor__sub_8013DFC4(u8 *arg0);
 u8 get_enabled__11TMainCursorFPv(void* p);
 u8 get_type__11TMainCursorFPv(void* p);
-int TMainCursor__sub_8013DF5C(s32 arg0, u8 arg1, u8 arg2);
+int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2);
 void fn_8013E020(Obj_8013E020 *self);
 }
 
@@ -33,7 +33,7 @@ u8 get_enabled__11TMainCursorFPv(void* p);
 void set_mode__20TWindowActionPaletteFPvUc(void* p, u8 v);
 void set_slot__20TWindowActionPaletteFPvUc(void* p, u8 v);
 
-int TMainCursor__sub_8013DF5C(s32 arg0, u8 arg1, u8 arg2) {
+int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2) {
     s32 var_r31;
     var_r31 = 0;
     if ((arg1 == get_type__11TMainCursorFPv((void*)(arg0))) && (arg2 == get_enabled__11TMainCursorFPv((void*)(arg0)))) {

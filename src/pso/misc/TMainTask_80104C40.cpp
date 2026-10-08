@@ -9,7 +9,7 @@ extern "C" {
 void cleanup_game_objects__9TMainTaskFv(void);
 M2C_UNK TEnding__sub_8008C9F8();
 M2C_UNK TItemDisconnectCtrl__ct();
-M2C_UNK TItemDrop__sub_8010643C();
+M2C_UNK refresh_drop_table_if_changed__9TItemDropFv();
 M2C_UNK create__9TItemLoadFv();
 M2C_UNK TLobby__sub_80103B70(s32);
 M2C_UNK clear_object_count__6TLobbyFv();
@@ -45,11 +45,11 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
         set_flags__10TObjPlayerFPvUi(&lbl_805D5440, 1);
         if ((temp_r30 != 0xE) && (temp_r30 == 0xF)) {
-            TItemDrop__sub_8010643C();
+            refresh_drop_table_if_changed__9TItemDropFv();
         }
     }
     if (get_game_play_mode() == 1) {
-        TItemDrop__sub_8010643C();
+        refresh_drop_table_if_changed__9TItemDropFv();
     }
     if ((temp_r30 == 0xF) && (__nw__7TObjectFUl(0x1C) != 0U)) {
         TItemDisconnectCtrl__ct();

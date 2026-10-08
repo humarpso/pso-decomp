@@ -8,12 +8,12 @@ void TLobby__sub_80102EBC(void *p);
 void copy_item_data__6TLobbyFPvPv(void *p, void *q);
 void normalize__9TItemDataFv(void *p);
 void send_item_and_handle_60__6TLobbyFPv(void *p);
-void TItem__sub_80101E7C(void *item, u16 client_id);
+void send_owner_item_packet__5TItemFPvUs(void *item, u16 client_id);
 }
 
 extern "C" {
 
-void TItem__sub_80101E7C(void *item, u16 client_id) {
+void send_owner_item_packet__5TItemFPvUs(void *item, u16 client_id) {
     Pkt_80101E7C pkt;
     TLobby__sub_80102EBC(&pkt);
     pkt.client_id = client_id;

@@ -203,7 +203,7 @@ s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
 extern M2C_UNK lbl_805D4918;
 extern s32 lbl_805D7C98;
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
+s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern s16 lbl_805D4828;
 s16 TLobby__sub_80426BD8(void);
 s16 TLobby__sub_80427D0C(s16 arg0);
@@ -306,11 +306,11 @@ s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXIDma(s32, void *, s32, u32, void *);
 extern u32 lbl_805D7C68;
-void TLobby__sub_80429A38(s32 chan, void *ctx);
+void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
 void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-s32 TLobby__sub_8042B9C0(void *p);
+s32 poll_exi_status__6TLobbyFPv(void *p);
 char *strcat(char *, const char *);
 char *strcpy(char *, const char *);
 void TAdSinglePlyChrSelectGC__sub_8042D49C(char *);
@@ -442,7 +442,7 @@ s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3);
 
 #pragma push
 #pragma opt_propagation off
-s32 TLobby__sub_804249F0(s16 arg0, Arg_804249F0 *arg1);
+s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1);
 #pragma pop
 
 void TLobby__sub_80424CA8(void);
@@ -576,10 +576,10 @@ void start_exi_dma_read__6TLobbyFUs(u16 arg0) {
     EXISelect(0, 2, 5);
     EXIImm(0, &cmd, 4, 1, 0);
     EXISync(0);
-    EXIDma(0, lbl_805D0B20, len, 0, lbl_805D7C68 != 0 ? (void *)TLobby__sub_80429A38 : (void *)TLobby__sub_80429AC8);
+    EXIDma(0, lbl_805D0B20, len, 0, lbl_805D7C68 != 0 ? (void *)start_exi_dma_write__6TLobbyFiPv : (void *)TLobby__sub_80429AC8);
 }
 
-void TLobby__sub_80429A38(s32 chan, void *ctx) {
+void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx) {
     u32 len;
     s32 cmd;
     len = (lbl_805D7C68 + 0x1F) & ~0x1F;
@@ -755,7 +755,7 @@ void TLobby__sub_8042B58C(u32 arg0, s32 arg1) {
     EXIUnlock(0);
 }
 
-s32 TLobby__sub_8042B9C0(void *p) {
+s32 poll_exi_status__6TLobbyFPv(void *p) {
     s32 *arg0 = (s32 *)p;
     u8 buf[2];
     s32 v;
@@ -829,7 +829,7 @@ s32 TAdSinglePlyChrSelectGC__sub_8042E768(u32 arg0);
 
 s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
-s32 TAdSinglePlyChrSelectGC__sub_8042E84C(s32 arg0);
+s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 
 s32 fn_8042E8B8(void);
 

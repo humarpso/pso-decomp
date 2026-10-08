@@ -55,7 +55,7 @@ s32 TWindowSubComCard__sub_80273004(void);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 u8 *get_card_window__17TWindowSubComCardFUi(u32);
-s32 TWindowSubComCard__sub_802491C4(s32, void *, s32);
+s32 create_choice_setting_window__17TWindowSubComCardFiii(s32, void *, s32);
 void disable_entry_by_id__17TWindowSubComCardFPvi(void *, u32);
 void update_next_entry__17TWindowSubComCardFPviii(s32, void *, void *, u32);
 void create_sub_window__20TWindowChoiceSettingFPvi(s32, void *);
@@ -231,7 +231,7 @@ s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0) {
     List_80272CB0 *l;
     card = get_card_window__17TWindowSubComCardFUi(0xFFFF);
     hard = open_hard_keyboard__6TLobbyFPv(*(void **)(arg0 + 0x20));
-    w = TWindowSubComCard__sub_802491C4(get_window_layout_position(0x8C), lbl_8044F6BC, 6);
+    w = create_choice_setting_window__17TWindowSubComCardFiii(get_window_layout_position(0x8C), lbl_8044F6BC, 6);
     create_sub_window__20TWindowChoiceSettingFPvi(w, get_message_10__20TWindowSubStatusDispFPv(0x6D));
     update_next_entry__17TWindowSubComCardFPviii(w, get_message_10__20TWindowSubStatusDispFPv(0x6D), ((GetMsg_80272CB0)get_message_10__17TWindowSubComCardFPvPv)(arg0, (void *)hard), 0);
     l = *(List_80272CB0 **)(arg0 + 0x58);

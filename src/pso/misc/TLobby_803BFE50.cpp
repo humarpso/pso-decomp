@@ -99,6 +99,8 @@ struct Snd_803C0BE8 {
     s32 bytes;
 };
 
+struct Rec_803C0018 { u8 state; u8 pad[0x9B]; };
+
 extern "C" {
 extern s8 lbl_805D74B8;
 void hwSetTimeOffset(s8 arg0);
@@ -165,7 +167,7 @@ void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 M2C_UNK memset(void *, int, int);
-void TLobby__sub_803C07F4(u8 *arg0);
+void reset_entry__6TLobbyFPv(u8 *arg0);
 M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void TLobby__sub_803C0AD8(void);
@@ -191,6 +193,9 @@ s32 get_client_count__6TLobbyFPv(int);
 void TLobby__sub_803C0F98(Snd_803C0F98 *arg0);
 s32 get_client_count__6TLobbyFPv(int);
 void EXIGetID(Snd_803C0BE8 *arg0);
+void TLobby__sub_803C0074(void *);
+extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
+void GXFlush(void);
 }
 
 extern "C" {
@@ -256,6 +261,16 @@ s32 TLobby__sub_803C0010(u8 *arg0) {
 }
 
 struct Obj_803C0628;
+
+void GXFlush(void) {
+    s32 i;
+    for (i = 0; i < 0x10; i++) {
+        if ((s32)((Rec_803C0018 *)&lbl_80570AC0)[i].state == 1) {
+            TLobby__sub_803C0074(&((Rec_803C0018 *)&lbl_80570AC0)[i]);
+        }
+    }
+}
+
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
     S_803C0628 *arg0 = (S_803C0628 *)arg0_;
     s32 h;
@@ -310,7 +325,7 @@ s32 TLobby__sub_803C07E8(Obj_803C07E8 *self) {
     return self->b;
 }
 
-void TLobby__sub_803C07F4(u8 *arg0) {
+void reset_entry__6TLobbyFPv(u8 *arg0) {
     u8 *temp_r3;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 4));

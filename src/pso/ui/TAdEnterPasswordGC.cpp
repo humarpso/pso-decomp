@@ -73,7 +73,7 @@ extern s32 lbl_805D6CA4;
 extern const f32 lbl_805DF780;
 void TAdEnterPasswordGC__sub_8032B5B0(u8 *arg0);
 u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32, s32);
-s32 TAdEnterSerialAccessGC__sub_8032AE54(M2C_UNK, s32);
+s32 show_message_window__22TAdEnterSerialAccessGCFPvPv(M2C_UNK, s32);
 M2C_UNK reset_input_state__22TAdEnterSerialAccessGCFPv(void *);
 M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 M2C_UNK set_active__22TAdEnterSerialAccessGCFPv(int);
@@ -262,7 +262,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
 }
 
 void TAdEnterPasswordGC__sub_8032B904(s32 arg0) {
-    M2C_FIELD(arg0, s32 *, 0x30) = TAdEnterSerialAccessGC__sub_8032AE54(arg0, 2);
+    M2C_FIELD(arg0, s32 *, 0x30) = show_message_window__22TAdEnterSerialAccessGCFPvPv(arg0, 2);
     M2C_FIELD(arg0, s32 *, 0x34) = TAdEnterSerialAccessGC__sub_8032AE1C((void *) (arg0));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
         reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, void **, 0x2C));

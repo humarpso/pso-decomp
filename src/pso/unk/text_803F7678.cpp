@@ -111,7 +111,7 @@ s32 TLobby__sub_803F8044(s32 arg0);
 void TLobby__sub_803F95E4(u32);
 void TLobby__sub_803F97E8(s32);
 void cancel_thread_if_running__6TLobbyFi(s32);
-void TLobby__sub_803F9B48(u32);
+void deactivate_entry_by_key__6TLobbyFUi(u32);
 s16 TLobby__sub_80427D0C(s16);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 TLobby__sub_80428094(s16);
@@ -126,7 +126,7 @@ M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
 void TLobby__sub_803F95E4(u32);
 void cancel_thread_if_running__6TLobbyFi(s32);
-void TLobby__sub_803F9B48(u32);
+void deactivate_entry_by_key__6TLobbyFUi(u32);
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 void stop_network_thread__6TLobbyFv(void);
 extern s32 lbl_805D7A10;
@@ -160,7 +160,7 @@ void NetSuspendCurrentThread(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32, s32, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042E184(void);
 void TLobby__sub_803F7D5C(s32 arg0);
-void TLobby__sub_803F7AF4(void);
+void queue_thread_main__6TLobbyFv(void);
 s32 TAdSinglePlyChrSelectGC__sub_8042E320(s32, s32, void *);
 extern s32 lbl_805D7A2C;
 void TLobby__sub_803F7D54(s32 arg0);
@@ -201,7 +201,7 @@ s16 TLobby__sub_803F9B94(void *, void *);
 s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);
 void TAdSinglePlyChrSelectGC__sub_8042E488(s32);
-void TLobby__sub_803F7AF4(void);
+void queue_thread_main__6TLobbyFv(void);
 extern u8 lbl_805AECB0[];
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 extern s16 lbl_805D47F0;
@@ -449,7 +449,7 @@ typedef char RecoveredGlobal_803F7A30_lbl_805C18A0_size[sizeof(RecoveredGlobal_8
 void stop_network_thread__6TLobbyFv(void) {
     lock_mutex__6TLobbyFi((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0)));
     cancel_thread_if_running__6TLobbyFi((s32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
-    TLobby__sub_803F9B48((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
+    deactivate_entry_by_key__6TLobbyFUi((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
     unlock_mutex__10TUdpSocketFi((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0)));
     TLobby__sub_803F95E4((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0))));
 }
@@ -461,7 +461,7 @@ void TLobby__sub_803F7A90(void) {
     TLobby__sub_803F9B28(((P_803F7A90 *)&lbl_805C18A0)[0].b);
 }
 
-void TLobby__sub_803F7AF4(void) {
+void queue_thread_main__6TLobbyFv(void) {
     Q_803F7AF4 *p;
     for (;;) {
         p = TLobby__sub_803F7B74();
@@ -744,7 +744,7 @@ loop_3:
         }
     } else {
         cancel_thread_if_running__6TLobbyFi(lbl_805D7A08);
-        TLobby__sub_803F9B48((u32) lbl_805D7A08);
+        deactivate_entry_by_key__6TLobbyFUi((u32) lbl_805D7A08);
         TLobby__sub_803F95E4(lbl_805D7A0C);
 block_10:
         if ((u32) (TAdSinglePlyChrSelectGC__sub_8042E768(0U) - 2) <= 1U) {
@@ -783,7 +783,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
             if (TLobby__sub_803F96AC(&lbl_805D7A0C) < 0) {
                 return 2;
             }
-            if (TLobby__sub_803F9B94((void *)TLobby__sub_803F7AF4, &lbl_805D7A08) < 0) {
+            if (TLobby__sub_803F9B94((void *)queue_thread_main__6TLobbyFv, &lbl_805D7A08) < 0) {
                 return 2;
             }
             TLobby__sub_803F9B28(lbl_805D7A08);

@@ -1086,7 +1086,7 @@ struct Obj_802AC3E8 { u8 pad[0x38]; Vec_802AC3E8 pos; u8 pad2[0xA4 - 0x44]; Sub_
 extern "C" {
 void destroy_buffer_pair(void *p, s32 flag);
 int free__11TOBoss4RockFUi(void *p);
-void TBoss6PlotFalz__sub_802AC25C(Obj_8004AA04 *self);
+void free_buffer_pairs__14TBoss6PlotFalzFPv(Obj_8004AA04 *self);
 void refresh_equipment_slot__10TObjPlayerFv(void *p);
 void refresh_players_equipment__14TBoss6PlotFalzFPv(void *self);
 void scroll_strip_uvs(u32, s16, s16);
@@ -1132,7 +1132,7 @@ void TBoss6PlotFalz__sub_802AC1D8(Obj_802AC1D8 *o, s32 dx, s32 dy) {
     }
 }
 
-void TBoss6PlotFalz__sub_802AC25C(Obj_8004AA04 *self) {
+void free_buffer_pairs__14TBoss6PlotFalzFPv(Obj_8004AA04 *self) {
     s32 i;
     for (i = 0; i < self->count; i++) {
         if (self->items[i] != 0) {

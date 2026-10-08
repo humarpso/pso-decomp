@@ -8,7 +8,7 @@ s32 TObjPlayer__sub_801C21C4(void *, s32);
 s32 TObjPlayer__sub_801C21D4(void *, s32);
 void clamp_and_set_unit_value__10TObjPlayerFiUci(void *, u8, s16);
 void TObjPlayer__sub_801D955C(void *, s32);
-void TObjPlayer__sub_801D9B90(void *, s32);
+void copy_all_technique_entries__10TObjPlayerFPvPv(void *, s32);
 void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1);
 }
 
@@ -37,7 +37,7 @@ void TObjPlayer__sub_801BCA14(u8 *arg0, void *arg1) {
     s32 i;
     TObjPlayer__sub_801C1F78(arg0 + 0x4AC, obj_getField1c());
     TObjPlayer__sub_801D955C(arg0 + 0x428, get_class_index__10TObjPlayerFPv(arg0));
-    TObjPlayer__sub_801D9B90(arg0 + 0x428, 0x1D);
+    copy_all_technique_entries__10TObjPlayerFPvPv(arg0 + 0x428, 0x1D);
     i = 0;
     do {
         clamp_and_set_unit_value__10TObjPlayerFiUci(arg0, TObjPlayer__sub_801C21D4(arg1, i) + TObjPlayer__sub_801C21C4(arg1, i), (s16)i);

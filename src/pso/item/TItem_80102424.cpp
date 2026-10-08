@@ -170,7 +170,7 @@ extern const f32 lbl_805DAAA0;
 void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-void TItem__sub_8010263C(TItem_8010263C *self);
+void dispatch_state__5TItemFPv(TItem_8010263C *self);
 }
 
 extern "C" {
@@ -241,7 +241,7 @@ void *lbl_8049E958[24] = {
     (void *)0x3f800000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
     (void *)0x3f800000, (void *)0x0, (void *)0x3f800000, (void *)0x0,
 };
-void TItem__sub_8010263C(TItem_8010263C *self) {
+void dispatch_state__5TItemFPv(TItem_8010263C *self) {
     void (TItem_8010263C::*fn)();
     if (all_parents_unqueued_for_destruction__7TObjectFv(self) != 0) {
         static void (TItem_8010263C::*tbl[4])() = {

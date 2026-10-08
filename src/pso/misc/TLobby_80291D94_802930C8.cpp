@@ -8,7 +8,7 @@ int TLobby__sub_80293124(void* p);
 void *create_challenge4p__6TLobbyFv(void);
 int destroy_tombstone__6TLobbyFPv(void* p);
 void *TChallenge4P__ct(void *, void *);
-int TObjTombstone__sub_800765B4(void*);
+int load_resources__13TObjTombstoneFv(void*);
 void *__nw__7TObjectFUl(int);
 int destroy__13TObjTombstoneFv(void*);
 
@@ -23,6 +23,6 @@ void *create_challenge4p__6TLobbyFv(void) {
 }
 
 int destroy_tombstone__6TLobbyFPv(void* p) { return destroy__13TObjTombstoneFv(p); }
-int TLobby__sub_80293124(void* p) { return TObjTombstone__sub_800765B4(p); }
+int TLobby__sub_80293124(void* p) { return load_resources__13TObjTombstoneFv(p); }
 
 }

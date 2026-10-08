@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void advance_field28__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_800FFB38();
+M2C_UNK transform_vertex_list__23TAdSinglePlyChrSelectGCFPv();
 
 void advance_field28__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    TAdSinglePlyChrSelectGC__sub_800FFB38();
+    transform_vertex_list__23TAdSinglePlyChrSelectGCFPv();
     M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + 0x444);
 }
 

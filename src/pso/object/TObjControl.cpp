@@ -27,7 +27,7 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 u16 obj_getField1c(void *);
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
-void TObjPlayer__sub_800F7118(Ply_800F7118 *self);
+void link_into_group_chain__10TObjPlayerFPv(Ply_800F7118 *self);
 }
 
 extern "C" {
@@ -1000,7 +1000,7 @@ extern "C" {
         } \
         tail = q; \
     }
-void TObjPlayer__sub_800F7118(Ply_800F7118 *self) {
+void link_into_group_chain__10TObjPlayerFPv(Ply_800F7118 *self) {
     Ply_800F7118 *p;
     Ply_800F7118 *head;
     Ply_800F7118 *tail;

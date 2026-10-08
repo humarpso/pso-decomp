@@ -18,7 +18,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 play_sound_effect(s32, void *, s32, s32);
 extern s32 enable_v2_features;
 extern const f32 lbl_805DB3D8;
-void TBoss3Volopt__sub_8015D97C(u8 *arg0);
+void play_proximity_sound__12TBoss3VoloptFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ void TBoss3Volopt__sub_8015D7B0(u8 *arg0) {
         break;
     }
 }
-void TBoss3Volopt__sub_8015D97C(u8 *arg0) {
+void play_proximity_sound__12TBoss3VoloptFPv(u8 *arg0) {
     if ((*(s32 *)(arg0 + 0xD0) & 1) && is_any_player_within_radius_xz(lbl_805DB3D8) == 1) {
         *(s32 *)(arg0 + 0xAC) = 1;
         set_indexed_flags(arg0, 0, 8);

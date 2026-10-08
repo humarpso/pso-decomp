@@ -29,7 +29,7 @@ extern "C" {
 s32 poll_memcard_status__15TAdPlayerLoadGCFPv(void *);
 void TWindowSubComCard__sub_8033C10C(u8 *arg0);
 void TWindow__close(void *);
-void TWindowSubComCard__sub_8033BF90(u8 *arg0);
+void close_windows__17TWindowSubComCardFPv(u8 *arg0);
 extern RecoveredGlobal_8033C024_lbl_804EF940 lbl_804EF940;
 void set_state__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 u32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -126,7 +126,7 @@ void create_message_and_menu__17TWindowSubComCardFPvUiiUiUi(void *arg0, u32 arg1
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubComCard__sub_8033BF90(u8 *arg0) {
+void close_windows__17TWindowSubComCardFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
@@ -197,7 +197,7 @@ void TWindowSubComCard__sub_8033C10C(u8 *arg0) {
     }
 }
 
-void TWindowSubComCard__sub_8033C178(void* p) { TWindowSubComCard__sub_8033BF90((u8 *)(p)); }
+void TWindowSubComCard__sub_8033C178(void* p) { close_windows__17TWindowSubComCardFPv((u8 *)(p)); }
 void TWindowSubComCard__sub_8033C198(void) {  }
 int TWindowSubComCard__sub_8033C19C(void* p) { return update_card_display__17TWindowSubComCardFPvPvPvPvPv(p, 0, -1, -1, -1); }
 void TWindowSubComCard__sub_8033C1CC(O_8033C1CC *arg0) {
