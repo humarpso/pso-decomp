@@ -3928,11 +3928,8 @@ pso/unk/text_80123C50.cpp:
 	.text       start:0x80123C50 end:0x80123E2C
 	.rodata     start:0x8043E938 end:0x8043E940
 
-pso/slices/run_80123E2C.cpp:
-	.text       start:0x80123E2C end:0x80123E6C
-
 pso/item/TItemEquipVariant_80123E6C.cpp:
-	.text       start:0x80123E6C end:0x80123EC4
+	.text       start:0x80123E2C end:0x80123EC4
 
 pso/unk/text_80123EC4.cpp:
 	.text       start:0x80123EC4 end:0x80123F70
@@ -4888,11 +4885,8 @@ pso/item/TItemEquipVariant_8012F5F8.cpp:
 pso/player/TObjPlayer_8012F650.cpp:
 	.text       start:0x8012F650 end:0x8012F6CC
 
-pso/slices/run_8012F6CC.cpp:
-	.text       start:0x8012F6CC end:0x8012F704
-
 pso/unk/text_8012F704.cpp:
-	.text       start:0x8012F704 end:0x8012F7D8
+	.text       start:0x8012F6CC end:0x8012F7D8
 
 pso/item/TItemEquipVariant_8012F7D8.cpp:
 	.text       start:0x8012F7D8 end:0x8012F830
@@ -5488,10 +5482,7 @@ pso/misc/TMovie_801444C0.cpp:
 	.text       start:0x801444C0 end:0x80144778
 
 pso/misc/TMovie_80144778.cpp:
-	.text       start:0x80144778 end:0x801449DC
-
-pso/slices/run_801449DC.cpp:
-	.text       start:0x801449DC end:0x801449FC
+	.text       start:0x80144778 end:0x801449FC
 
 pso/system/TNECFontEORFunction.cpp:
 	.text       start:0x801449FC end:0x80144AC8
@@ -7637,25 +7628,7 @@ pso/player/TObjPlayer_801BE66C.cpp:
 	.text       start:0x801BE66C end:0x801BE778
 
 pso/player/TObjPlayer_801BE778.cpp:
-	.text       start:0x801BE778 end:0x801BE890
-
-pso/slices/pso_carve_801be890.cpp:
-	.text       start:0x801BE890 end:0x801BE8E4
-
-pso/player/TObjPlayer_801BE8E4.cpp:
-	.text       start:0x801BE8E4 end:0x801BE8F4
-
-pso/slices/pso_carve_801be8f4.cpp:
-	.text       start:0x801BE8F4 end:0x801BE918
-
-pso/player/TObjPlayer_801BE918.cpp:
-	.text       start:0x801BE918 end:0x801BEA38
-
-pso/slices/pso_carve_801bea38.cpp:
-	.text       start:0x801BEA38 end:0x801BEA4C
-
-pso/player/TObjPlayer_801BEA4C.cpp:
-	.text       start:0x801BEA4C end:0x801BEB0C
+	.text       start:0x801BE778 end:0x801BEB0C
 
 pso/player/TObjPlayer_801BEB0C.cpp:
 	.text       start:0x801BEB0C end:0x801BEC44
@@ -8004,21 +7977,9 @@ pso/player/TObjPlayer_801D7C5C.cpp:
 pso/misc/TPlyDispConfigSmth.cpp:
 	.text       start:0x801D7CF4 end:0x801D7D4C
 
-pso/unk/text_801D7D4C.cpp:
-	.text       start:0x801D7D4C end:0x801D8474
-	.data       start:0x804C44C8 end:0x804C453C
-
-pso/slices/pso_carve_801d8474.cpp:
-	.text       start:0x801D8474 end:0x801D84A8
-
 pso/player/TObjPlayer_801D84A8.cpp:
-	.text       start:0x801D84A8 end:0x801D84B0
-
-pso/slices/pso_carve_801d84b0.cpp:
-	.text       start:0x801D84B0 end:0x801D84CC
-
-pso/player/TObjPlayer_801D84CC_801D84CC.cpp:
-	.text       start:0x801D84CC end:0x801D859C
+	.text       start:0x801D7D4C end:0x801D859C
+	.data       start:0x804C44C8 end:0x804C453C
 
 pso/player/TObjPlayer_801D84CC_801D859C.cpp:
 	.text       start:0x801D859C end:0x801D86B8
@@ -8079,13 +8040,7 @@ pso/player/TObjPlayer_801D9E08.cpp:
 	.text       start:0x801D9E08 end:0x801D9E10
 
 pso/player/TObjPlayer_801D9E10.cpp:
-	.text       start:0x801D9E10 end:0x801D9E18
-
-pso/slices/pso_carve_801d9e18.cpp:
-	.text       start:0x801D9E18 end:0x801D9E40
-
-pso/player/TObjPlayer_801D9E40.cpp:
-	.text       start:0x801D9E40 end:0x801D9E50
+	.text       start:0x801D9E10 end:0x801D9E50
 
 pso/unk/text_801D9E50.cpp:
 	.text       start:0x801D9E50 end:0x801D9EB4
@@ -8776,13 +8731,7 @@ pso/misc/TLobby_8020A744.cpp:
 	.text       start:0x8020A744 end:0x8020A768
 
 pso/unk/text_8020A768.cpp:
-	.text       start:0x8020A768 end:0x8020A900
-
-pso/slices/pso_carve_8020a900.cpp:
-	.text       start:0x8020A900 end:0x8020A9C4
-
-pso/unk/text_8020A9C4.cpp:
-	.text       start:0x8020A9C4 end:0x8020AB30
+	.text       start:0x8020A768 end:0x8020AB30
 
 pso/misc/TLobby_8020AB30.cpp:
 	.text       start:0x8020AB30 end:0x8020AB50
@@ -8797,22 +8746,13 @@ pso/unk/text_8020AD40.cpp:
 	.text       start:0x8020AD40 end:0x8020B03C
 
 pso/misc/TLobby_8020B03C.cpp:
-	.text       start:0x8020B03C end:0x8020B0C4
-
-pso/slices/pso_carve_8020b0c4.cpp:
-	.text       start:0x8020B0C4 end:0x8020B118
-
-pso/unk/text_8020B118.cpp:
-	.text       start:0x8020B118 end:0x8020B334
+	.text       start:0x8020B03C end:0x8020B334
 
 pso/misc/TLobby_8020B334.cpp:
 	.text       start:0x8020B334 end:0x8020B374
 
 pso/unk/text_8020B374.cpp:
-	.text       start:0x8020B374 end:0x8020B454
-
-pso/slices/run_8020B454.cpp:
-	.text       start:0x8020B454 end:0x8020B47C
+	.text       start:0x8020B374 end:0x8020B47C
 
 pso/unk/text_8020B47C.cpp:
 	.text       start:0x8020B47C end:0x8020B588
@@ -8823,17 +8763,11 @@ pso/misc/TLobby_8020B588.cpp:
 pso/unk/text_8020B5CC.cpp:
 	.text       start:0x8020B5CC end:0x8020BBA0
 
-pso/slices/pso_carve_8020bba0.cpp:
-	.text       start:0x8020BBA0 end:0x8020BC08
-
 pso/misc/TLobby_8020BC08.cpp:
-	.text       start:0x8020BC08 end:0x8020BC50
+	.text       start:0x8020BBA0 end:0x8020BC50
 
 pso/unk/text_8020BC50.cpp:
-	.text       start:0x8020BC50 end:0x8020BF14
-
-pso/slices/pso_carve_8020bf14.cpp:
-	.text       start:0x8020BF14 end:0x8020BF68
+	.text       start:0x8020BC50 end:0x8020BF68
 
 pso/misc/TLobby_8020BF68.cpp:
 	.text       start:0x8020BF68 end:0x8020BF88
@@ -8856,11 +8790,8 @@ pso/unk/text_8020C354.cpp:
 pso/enemy/TObjEnemy_8020C3E0.cpp:
 	.text       start:0x8020C3E0 end:0x8020C5A4
 
-pso/slices/run_8020C5A4.cpp:
-	.text       start:0x8020C5A4 end:0x8020C608
-
 pso/misc/TLobby_8020C608.cpp:
-	.text       start:0x8020C608 end:0x8020C73C
+	.text       start:0x8020C5A4 end:0x8020C73C
 
 pso/unk/text_8020C73C.cpp:
 	.text       start:0x8020C73C end:0x8020C8A4
@@ -8929,13 +8860,7 @@ pso/misc/TLobby_8020E3BC.cpp:
 	.text       start:0x8020E3BC end:0x8020E400
 
 pso/misc/TLobby_8020E400.cpp:
-	.text       start:0x8020E400 end:0x8020E470
-
-pso/slices/pso_carve_8020e470.cpp:
-	.text       start:0x8020E470 end:0x8020E4C0
-
-pso/misc/TLobby_8020E4C0.cpp:
-	.text       start:0x8020E4C0 end:0x8020E700
+	.text       start:0x8020E400 end:0x8020E700
 
 pso/unk/text_8020E700.cpp:
 	.text       start:0x8020E700 end:0x8020ED20
@@ -9017,17 +8942,8 @@ pso/misc/TLobby_80211CE0.cpp:
 pso/unk/text_80211D58.cpp:
 	.text       start:0x80211D58 end:0x80211EC4
 
-pso/slices/pso_carve_80211ec4.cpp:
-	.text       start:0x80211EC4 end:0x80211F0C
-
 pso/misc/TLobby_80211F0C.cpp:
-	.text       start:0x80211F0C end:0x80211F54
-
-pso/slices/pso_carve_80211f54.cpp:
-	.text       start:0x80211F54 end:0x80211FA0
-
-pso/misc/TLobby_80211FA0.cpp:
-	.text       start:0x80211FA0 end:0x80211FEC
+	.text       start:0x80211EC4 end:0x80211FEC
 
 pso/misc/THunterGuildSeqOffline_80211FEC.cpp:
 	.text       start:0x80211FEC end:0x802123E0
@@ -9913,11 +9829,8 @@ pso/unk/text_8024ACEC.cpp:
 pso/unk/text_8024AD30.cpp:
 	.text       start:0x8024AD30 end:0x8024AD74
 
-pso/slices/run_8024AD74.cpp:
-	.text       start:0x8024AD74 end:0x8024ADAC
-
 pso/misc/TWindowCtrl_8024ADAC.cpp:
-	.text       start:0x8024ADAC end:0x8024AE34
+	.text       start:0x8024AD74 end:0x8024AE34
 
 pso/misc/TWindowCtrl_8024AE34.cpp:
 	.text       start:0x8024AE34 end:0x8024AEAC
@@ -9935,13 +9848,7 @@ pso/misc/TWindowCtrl_8024B0E0.cpp:
 	.text       start:0x8024B0E0 end:0x8024B1A0
 
 pso/misc/TWindowCtrl_8024B1A0.cpp:
-	.text       start:0x8024B1A0 end:0x8024B2F4
-
-pso/slices/run_8024B2F4.cpp:
-	.text       start:0x8024B2F4 end:0x8024B328
-
-pso/misc/TWindowCtrl_8024B328.cpp:
-	.text       start:0x8024B328 end:0x8024B558
+	.text       start:0x8024B1A0 end:0x8024B558
 
 pso/misc/TWindowCtrl_8024B558.cpp:
 	.text       start:0x8024B558 end:0x8024B5E0
@@ -10015,13 +9922,7 @@ pso/misc/TWindowCtrl_8024C56C.cpp:
 	.text       start:0x8024C56C end:0x8024C598
 
 pso/misc/TWindowCtrl_8024C598.cpp:
-	.text       start:0x8024C598 end:0x8024C5C4
-
-pso/slices/pso_carve_8024c5c4.cpp:
-	.text       start:0x8024C5C4 end:0x8024C5D8
-
-pso/misc/TWindowCtrl_8024C5D8.cpp:
-	.text       start:0x8024C5D8 end:0x8024C5FC
+	.text       start:0x8024C598 end:0x8024C5FC
 
 pso/misc/TWindowCtrl_8024C5FC.cpp:
 	.text       start:0x8024C5FC end:0x8024C640
@@ -10036,13 +9937,7 @@ pso/misc/TWindowCtrl_8024C680.cpp:
 	.text       start:0x8024C680 end:0x8024C6CC
 
 pso/misc/TWindowCtrl_8024C6CC.cpp:
-	.text       start:0x8024C6CC end:0x8024C7C4
-
-pso/slices/pso_carve_8024c7c4.cpp:
-	.text       start:0x8024C7C4 end:0x8024C7D4
-
-pso/misc/TWindowCtrl_8024C7D4.cpp:
-	.text       start:0x8024C7D4 end:0x8024C820
+	.text       start:0x8024C6CC end:0x8024C820
 
 pso/misc/TWindowCtrlMain_8024C820.cpp:
 	.text       start:0x8024C820 end:0x8024C8A4
@@ -10817,14 +10712,8 @@ pso/misc/TWindowSubQuestBoard_8027D1E8.cpp:
 pso/unk/text_8027D230.cpp:
 	.text       start:0x8027D230 end:0x8027D2A0
 
-pso/slices/pso_carve_8027d2a0.cpp:
-	.text       start:0x8027D2A0 end:0x8027D2EC
-
-pso/slices/pso_carve_8027d2ec.cpp:
-	.text       start:0x8027D2EC end:0x8027D3BC
-
 pso/misc/TWindowSubQuestBoardSelect_8027D3BC.cpp:
-	.text       start:0x8027D3BC end:0x8027D444
+	.text       start:0x8027D2A0 end:0x8027D444
 
 pso/misc/TWindowSubQuestBoardSelect_8027D444.cpp:
 	.text       start:0x8027D444 end:0x8027D5F0
@@ -11525,17 +11414,8 @@ pso/menu/TChCrTagOccHeader.cpp:
 	.text       start:0x802A2BF8 end:0x802A2D10
 	.data       start:0x804DCC38 end:0x804DCC58
 
-pso/misc/TChCrTagOccHeader.cpp:
-	.text       start:0x802A2D10 end:0x802A2D6C
-
-pso/slices/pso_carve_802a2d6c.cpp:
-	.text       start:0x802A2D6C end:0x802A2DB8
-
-pso/slices/pso_carve_802a2db8.cpp:
-	.text       start:0x802A2DB8 end:0x802A2DF4
-
 pso/misc/TChCrTagOccupation.cpp:
-	.text       start:0x802A2DF4 end:0x802A3138
+	.text       start:0x802A2D10 end:0x802A3138
 	.rodata     start:0x80466488 end:0x80466490
 	.data       start:0x804DCC58 end:0x804DCC78
 
@@ -12947,19 +12827,7 @@ pso/enemy/TObjEneRecon_8031DD40.cpp:
 	.text       start:0x8031DD40 end:0x8031DD7C
 
 pso/enemy/TObjEneRecon_8031DD7C.cpp:
-	.text       start:0x8031DD7C end:0x8031DE88
-
-pso/slices/pso_carve_8031de88.cpp:
-	.text       start:0x8031DE88 end:0x8031DEF0
-
-pso/enemy/TObjEneRecon_8031DEF0.cpp:
-	.text       start:0x8031DEF0 end:0x8031DF94
-
-pso/slices/pso_carve_8031df94.cpp:
-	.text       start:0x8031DF94 end:0x8031DFCC
-
-pso/enemy/TObjEneRecon_8031DFCC.cpp:
-	.text       start:0x8031DFCC end:0x8031DFD0
+	.text       start:0x8031DD7C end:0x8031DFD0
 
 pso/enemy/TObjEneRecon_8031DFD0.cpp:
 	.text       start:0x8031DFD0 end:0x8031E574

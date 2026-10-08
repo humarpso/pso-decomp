@@ -46,3 +46,13 @@ s32 load_object_set_entries__6TLobbyFiPvUi(s32 arg0, u8 *arg1, u32 arg2) {
 }
 
 }
+
+#include "types.h"
+
+extern "C" {
+
+int get_object_type__6TLobbyFi(int a0) {  return ((int *)&TLobby__data_80513CC8)[a0]; }
+
+int get_obj_table_entry__6TLobbyFi(int a0) {  return ((int *)&TLobby__data_80513C80)[a0]; }
+
+}

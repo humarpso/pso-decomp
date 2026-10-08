@@ -1,3 +1,59 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+u8 * __ct__8TChCrTagFv(void *, s32);
+void *__ct__17TChCrTagOccHeaderFv(void *arg0);
+
+extern const f32 lbl_805DDECC;
+extern M2C_UNK __vt__17TChCrTagOccHeader[];
+extern const f32 lbl_805DDED0;
+extern void *lbl_805D3DA8;
+
+void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
+    ((void (*)(void *))__ct__8TChCrTagFv)(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TChCrTagOccHeader;
+    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DA8;
+    M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDECC;
+    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDED0;
+    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DDECC;
+    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DDED0;
+    return arg0;
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+extern "C" {
+
+void *__nw__7TObjectFUl(int);
+extern void *tl_03;
+
+void *create_ch_cr_tag_occ_header(void *arg0) {
+    void *o = __nw__7TObjectFUl(0x40);
+    if (o != NULL) {
+        o = ((void *(*)(void *, void *, void *))__ct__17TChCrTagOccHeaderFv)(o, tl_03, arg0);
+    }
+    return o;
+}
+
+}
+
+#include "types.h"
+
+extern "C" {
+
+void create_all_ch_cr_tag_headers(void);
+
+void create_all_ch_cr_tag_headers(void) { { int i; for (i = 0; i < 15; i++) { ((int (*)(void *))create_ch_cr_tag_occ_header)((void*)i); } } }
+
+}
+
 #include "pso/TChCrTagOccupation.h"
 #include "pso/TMath.h"
 #include "types.h"

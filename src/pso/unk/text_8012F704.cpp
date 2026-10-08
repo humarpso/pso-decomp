@@ -2,6 +2,18 @@
 
 extern "C" {
 
+    extern const float lbl_805DAFB8;
+void TObjPlayer__sub_8012F6CC(void* a0) { *(int*)((char*)a0 + 0x204) = 0; *(float*)((char*)a0 + 0x200) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1fc) = lbl_805DAFB8; *(float*)((char*)a0 + 0x1f8) = lbl_805DAFB8; }
+
+    extern const float lbl_805DAFBC;
+void TObjPlayer__sub_8012F6E8(void* a0) { *(int*)((char*)a0 + 0x204) = 10922; *(float*)((char*)a0 + 0x200) = lbl_805DAFBC; *(float*)((char*)a0 + 0x1fc) = lbl_805DAFBC; *(float*)((char*)a0 + 0x1f8) = lbl_805DAFBC; }
+
+}
+
+#include "types.h"
+
+extern "C" {
+
 struct Owner_8012F704 { u8 pad[0x60]; s32 f60; };
 struct Self_8012F704 { u8 pad0[0x24]; s32 f24; u8 pad28[0xF0 - 0x28]; Owner_8012F704 *owner; u8 padF4[0x188 - 0xF4]; s32 f188; };
 struct Vec_8012F704 { f32 x, y, z; };
