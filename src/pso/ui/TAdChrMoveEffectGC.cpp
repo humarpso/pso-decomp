@@ -3,6 +3,9 @@
 #include "types.h"
 typedef s32 M2C_UNK;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+struct S_803491F8 { u32 w[8]; };
+
 extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
@@ -10,6 +13,7 @@ void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
 extern const f32 lbl_805DFCE8;
 extern const f32 lbl_805DFCEC;
 void fn_80348E34(u8 *arg0);
+void TAdChrMoveEffectGC__sub_803491F8(S_803491F8 *arg0, S_803491F8 *arg1);
 }
 
 extern "C" {
@@ -90,7 +94,6 @@ struct P_803490D8 { V2_803490D8 a; V2_803490D8 b; C4_803490D8 c; C4_803490D8 d; 
 
 extern "C" {
 void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self);
-void TAdChrMoveEffectGC__sub_803491F8(void *, void *);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
@@ -157,11 +160,23 @@ void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1) {
     s32 i;
     for (i = 0; i < 16; i++) {
-        TAdChrMoveEffectGC__sub_803491F8(&arg0->e[i], arg1);
+        TAdChrMoveEffectGC__sub_803491F8((S_803491F8 *)(&arg0->e[i]), (S_803491F8 *)(arg1));
     }
     reset_effect_entries__18TAdChrMoveEffectGCFPv((void *)(arg0));
     arg0->f20 = 1;
 }
+
+#pragma push
+#pragma optimization_level 1
+void TAdChrMoveEffectGC__sub_803491F8(S_803491F8 *arg0, S_803491F8 *arg1) {
+    u32 b, a;
+    a = arg1->w[0]; b = arg1->w[1]; arg0->w[0] = a; arg0->w[1] = b;
+    a = arg1->w[2]; b = arg1->w[3]; arg0->w[2] = a; arg0->w[3] = b;
+    arg0->w[4] = arg1->w[4];
+    arg0->w[5] = arg1->w[5];
+    a = arg1->w[6]; b = arg1->w[7]; arg0->w[6] = a; arg0->w[7] = b;
+}
+#pragma pop
 
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

@@ -56,6 +56,16 @@ struct Group_80203F0C {
 
 struct Root_80203F0C { u8 pad[8]; s16 count; u8 pad2[6]; Group_80203F0C *groups; };
 
+struct Vec_802043CC { f32 x, y, z; };
+
+struct W_802043CC { s32 a, b, c; };
+
+struct Cam_802043CC { u8 pad[0x178]; Vec_802043CC pos; u8 pad2[0x10]; s32 angY; u8 pad3[4]; s32 f19C; };
+
+struct Ent_802043CC { s32 id; s32 n; s32 start; };
+
+struct Tbl_802043CC { u32 pad; s32 count; Ent_802043CC ents[1]; };
+
 extern "C" {
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 SceneMaterialSection *find_scene_room_by_id(s32 id);
@@ -162,6 +172,28 @@ extern s32 TScene__data_805D5FE0;
 extern void (*TScene__data_805D5FEC)(Vec_8020533C *, Ang_8020533C *, u32);
 extern void (*TScene__data_805D5FF0)(u32);
 
+void VecCopy__FP3VecPC3Vec(void *, void *);
+f32 xz_distance_squared(void *, void *);
+s32 find_section_at_position__6TSceneFPv(void *arg0);
+SceneMaterialSection *find_scene_room_by_id(s32 id);
+void update_room_object_visibility__6TSceneFPvPv(void *task, SceneMaterialSection *room);
+s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
+void TScene__sub_80204D7C(s32);
+f32 vec3_dot(void *, void *);
+void normalize_vector(Vec_80204024 *);
+void push_matrix_from(void *);
+void rotate_matrix_y(s32, s32);
+void rotate_vector_by_matrix(s32, void *, Vec_80204024 *);
+void pop_matrix(void);
+void subtract_vector(void *, void *);
+extern W_802043CC lbl_8044A858[];
+extern u8 lbl_8058D490[];
+extern Root_80204024 *lbl_805D4DF0;
+extern SceneMaterialRoot* TScene__data_805D5FCC;
+extern Tbl_802043CC *TScene__data_805D6020;
+extern const f32 TScene__data_805DC5D8;
+extern const f32 lbl_805DC5E4;
+void TScene__sub_802043CC(s32 arg0);
 }
 
 extern "C" {
@@ -569,6 +601,92 @@ s32 is_split_screen(void);
 #define CAM ((Cam_80204688 *)lbl_805D4DF0)
 #define TEST ((s32 (*)(f32, void *, void *, void *, Vec_80204024 *))TScene__sub_80204024)
 #define VIS ((s32 (*)(void *, void *, f32, f32))is_in_view_depth__6TSceneFf)
+
+#pragma push
+#pragma opt_propagation off
+#pragma opt_lifetimes off
+void TScene__sub_802043CC(s32 arg0) {
+    Vec_802043CC dir;
+    Vec_802043CC fwd;
+    Vec_802043CC out;
+    Tbl_802043CC *tbl;
+    s32 j;
+    Ent_802043CC *e;
+    s16 *ids;
+    SceneMaterialSection *room;
+    s32 sec;
+    s32 i;
+    f32 d;
+    sec = find_section_at_position__6TSceneFPv(&(*(Cam_802043CC * *)&lbl_805D4DF0)->pos);
+    if (sec < 0) {
+        TScene__sub_80204D7C(arg0);
+        return;
+    }
+    tbl = TScene__data_805D6020;
+    for (i = 0, e = tbl->ents; i < tbl->count; e++, i++) {
+        if (e->id == sec) {
+            break;
+        }
+    }
+    if (i >= tbl->count) {
+        TScene__sub_80204D7C(arg0);
+        return;
+    }
+    room = find_scene_room_by_id(sec);
+    if (room != NULL) {
+        room->flags |= 0x10000;
+    }
+    tbl = (Tbl_802043CC *)((u8 *)tbl + tbl->count * 0xC);
+    ids = (s16 *)tbl->ents;
+    for (j = 0; j < e->n; j++) {
+        room = find_scene_room_by_id(ids[e->start + j]);
+        if (room != NULL) {
+            d = xz_distance_squared(room->position, &(*(Cam_802043CC * *)&lbl_805D4DF0)->pos);
+            if (d < room->radius * room->radius) {
+                room->flags |= 0x10000;
+            } else {
+                VecCopy__FP3VecPC3Vec(&dir, room->position);
+                subtract_vector(&dir, &(*(Cam_802043CC * *)&lbl_805D4DF0)->pos);
+                normalize_vector((Vec_80204024 *)(&dir));
+                fwd.x = TScene__data_805DC5D8;
+                fwd.y = TScene__data_805DC5D8;
+                fwd.z = lbl_805DC5E4;
+                push_matrix_from(lbl_8058D490);
+                rotate_matrix_y(0, (*(Cam_802043CC * *)&lbl_805D4DF0)->angY);
+                rotate_vector_by_matrix((s32)(0), (void *)(&fwd), (Vec_80204024 *)(&out));
+                pop_matrix();
+                normalize_vector((Vec_80204024 *)(&out));
+                if (vec3_dot(&dir, &out) < TScene__data_805DC5D8) {
+                    room->flags &= ~0x10000;
+                } else if (d < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->radius * (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->radius) {
+                    room->flags |= 0x10000;
+                } else {
+                    room->flags &= ~0x10000;
+                }
+            }
+        }
+    }
+    {
+        W_802043CC w = lbl_8044A858[0];
+        Vec_802043CC out2;
+        SceneMaterialSection *s;
+        s32 k;
+        push_matrix_from(lbl_8058D490);
+        rotate_matrix_y(0, (*(Cam_802043CC * *)&lbl_805D4DF0)->angY);
+        rotate_vector_by_matrix((s32)(0), (void *)(&w), (Vec_80204024 *)(&out2));
+        normalize_vector((Vec_80204024 *)(&out2));
+        pop_matrix();
+        s = (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->sections;
+        for (k = 0; k < (*(SceneMaterialRoot * *)&TScene__data_805D5FCC)->count; k++, s++) {
+            if (s->flags & 0x80000) {
+                update_room_object_visibility__6TSceneFPvPv((void *)arg0, s);
+            } else if (s->id < 0) {
+                check_object_in_view_cone__6TSceneFiPvPvPvi((s32)(arg0), (Obj_80204B78 *)(s), (Vec_80204024 *)(&(*(Cam_802043CC * *)&lbl_805D4DF0)->pos), (void *)(&out2), (s32)((*(Cam_802043CC * *)&lbl_805D4DF0)->f19C));
+            }
+        }
+    }
+}
+#pragma pop
 
 void cull_sections__6TSceneFPv(Task_80204688 *task) {
     static f32 s_near = lbl_805DC5E8;

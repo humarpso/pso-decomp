@@ -500,6 +500,14 @@ typedef struct Pool_804081C0 { u8 pad0[0x24]; u8 *f24; } Pool_804081C0;
 
 typedef struct Out_804081C0 { u8 *f0; u8 *f4; u8 *f8; u8 *fC; u8 *f10; } Out_804081C0;
 
+struct Ent_8040A13C { s16 f0; s16 f2; u8 pad[0x2C]; };
+
+struct G_8040A13C { s16 n; Ent_8040A13C *p; };
+
+struct Ent_8040A19C { s16 f0; s16 f2; u8 pad[0x2C]; };
+
+struct G_8040A19C { s16 n; Ent_8040A19C *p; };
+
 extern "C" {
 s32 clear_flag_bit4__6TLobbyFiPv(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -658,7 +666,6 @@ extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
 extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
 u8 * TLobby__sub_80413264(void *, s32);
 s32 TLobby__sub_80413230(u8 *arg0, s32 arg1);
-s32 TLobby__sub_8040A19C(s16);
 void TLobby__sub_804136AC(s16 arg0);
 s32 TLobby__sub_8040A25C(s16);
 void TLobby__sub_804136CC(s16 arg0);
@@ -952,6 +959,10 @@ void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
 u8 *alloc_free_entry__6TLobbyFv();
 extern Tbl_80408718 lbl_805C1AB0;
 Pkt_804081C0 *alloc_packet_with_header__6TLobbyFPvPv(Out_804081C0 *arg0, u8 *arg1);
+extern s16 lbl_805D7AF8;
+s32 TLobby__sub_8040A13C(s16 i);
+extern s16 lbl_805D7AF8;
+s32 TLobby__sub_8040A19C(s16 i);
 }
 
 extern "C" {
@@ -3095,6 +3106,30 @@ typedef struct Mgr_8040A3C0 {
 void TLobby__sub_803F86BC(void *);
 s32 TLobby__sub_80421844(void *);
 void tick_connection_timeouts__6TLobbyFv(void);
+
+#pragma push
+#pragma optimization_level 2
+s32 TLobby__sub_8040A13C(s16 i) {
+    if (i < 0 || i > (*(G_8040A13C *)&lbl_805D7AF8).n) { return 0; }
+    Ent_8040A13C *e = (*(G_8040A13C *)&lbl_805D7AF8).p;
+    if (e[i].f0 == 0) { return 0; }
+    if (e[i].f2 & 0x40) { return 1; }
+    return 0;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 2
+s32 TLobby__sub_8040A19C(s16 i) {
+    Ent_8040A19C *e;
+    if (i < 0 || i > (*(G_8040A19C *)&lbl_805D7AF8).n) { return 0; }
+    e = (*(G_8040A19C *)&lbl_805D7AF8).p;
+    if (*(s16 *)((u8 *)e + i * 0x30) == 0) { return 0; }
+    e = (Ent_8040A19C *)((u8 *)e + i * 0x30);
+    if (e->f2 & 0x20) { return 1; }
+    return 0;
+}
+#pragma pop
 
 s32 TLobby__sub_8040A3C0(void) {
     s32 ret;

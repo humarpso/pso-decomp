@@ -241,6 +241,53 @@ struct Trap_801797D4 : VObj_801797D4 {
     f32 f354;
 };
 
+struct Vec_80179B8C { f32 x, y, z; };
+
+struct Node_80179B8C { u8 pad0[4]; s32 f4; u8 mtx[0x2C - 8]; Node_80179B8C *child; };
+
+struct FadeBase_80179B8C { char pad[0x14]; };
+
+struct Fade_80179B8C : FadeBase_80179B8C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    u8 pad18[4];
+};
+
+struct VBase_80179B8C { char pad[0x18]; };
+
+struct VObj_80179B8C : VBase_80179B8C {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+};
+
+struct Trap_80179B8C : VObj_80179B8C {
+    u8 pad1C[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x34 - 0x28];
+    Node_80179B8C *model;
+    u8 pos38[0x60 - 0x38];
+    s32 f60;
+    u8 pad64[0x6C - 0x64];
+    f32 f6C;
+    u8 pad70[0x340 - 0x70];
+    s32 f340;
+    u8 pad344[0x358 - 0x344];
+    Fade_80179B8C fades[4];
+};
+
 extern "C" {
 void set_triggered_state__6TOTrapFPvUi(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
@@ -308,6 +355,34 @@ extern const f32 lbl_805DBA48;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA54;
 void TOTrapAncient01__vt80(Trap_801797D4 *self);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+void update_obstruction_fade(void *);
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+s32 check_demo_mode__10TObjPlayerFv(void);
+s32 rand(void);
+int rotate_matrix_y(int, int);
+int push_matrix();
+int pop_matrix();
+int post_translate_matrix(void *);
+int set_global_param__8TObjFishFi(int);
+int draw_ginja_model(int);
+void translate_matrix(s32, f32, f32, f32);
+int begin_effect_render__13TParticleCtrlFv();
+int end_effect_render__13TParticleCtrlFv();
+extern s32 some_id_805c6f74;
+extern s32 lbl_805D5660;
+extern s32 lbl_805D5664;
+extern s32 lbl_805D5668;
+extern s32 lbl_805D7780;
+extern s32 lbl_805D7784;
+extern const f32 TOTrapAncient01__data_805DBA4C;
+extern const f32 lbl_805DBA58;
+extern const f32 lbl_805DBA5C;
+extern const f32 lbl_805DBA60;
+extern const f32 lbl_805DBA64;
+extern const f32 lbl_805DBA68;
+void render__15TOTrapAncient01Fv(Trap_80179B8C *self);
 }
 
 extern "C" {
@@ -456,6 +531,62 @@ void TOTrapAncient01__vt80(Trap_801797D4 *self) {
         return;
     }
 }
+
+#pragma push
+#pragma opt_lifetimes off
+#pragma fp_contract on
+void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
+    Fade_80179B8C *fade;
+    Node_80179B8C *n;
+    s32 i;
+    Vec_80179B8C v;
+    i = 0;
+    if (is_split_screen() != 0) {
+        i = get_camera_mode__11TCameraCtrlFv();
+    }
+    fade = &self->fades[i];
+    update_obstruction_fade(fade);
+    self->f340 = self->m8(lbl_805DBA58, lbl_805DBA5C);
+    if (self->f340 == 1) {
+        if (updateFromCamera__15RenderFadeStateFPCf(fade, self->pos38) == 1) {
+            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5664 = lbl_805D7784;
+            lbl_805D5668 = lbl_805D7780;
+            fade->m6();
+        }
+        push_matrix();
+        post_translate_matrix(self->pos38);
+        rotate_matrix_y(0, self->f60);
+        if (check_demo_mode__10TObjPlayerFv() != 1 && self->f6C <= TOTrapAncient01__data_805DBA4C) {
+            v.x = lbl_805DBA60 * (lbl_805DBA64 * (f32)rand()) - lbl_805DBA68;
+            v.y = TOTrapAncient01__data_805DBA4C;
+            v.z = lbl_805DBA60 * (lbl_805DBA64 * (f32)rand()) - lbl_805DBA68;
+            post_translate_matrix(&v);
+        }
+        set_global_param__8TObjFishFi(self->f24);
+        n = self->model;
+        push_matrix();
+        translate_matrix(0, TOTrapAncient01__data_805DBA4C, self->f6C, TOTrapAncient01__data_805DBA4C);
+        post_translate_matrix(n->mtx);
+        draw_ginja_model(self->model->f4);
+        n = n->child;
+        push_matrix();
+        post_translate_matrix(n->mtx);
+        begin_effect_render__13TParticleCtrlFv();
+        draw_ginja_model(n->f4);
+        end_effect_render__13TParticleCtrlFv();
+        pop_matrix();
+        pop_matrix();
+        pop_matrix();
+        if (updateFromCamera__15RenderFadeStateFPCf(fade, self->pos38) == 1) {
+            fade->m7();
+            lbl_805D7784 = lbl_805D5664;
+            lbl_805D7780 = lbl_805D5668;
+            some_id_805c6f74 = lbl_805D5660;
+        }
+    }
+}
+#pragma pop
 
 void *create__15TOTrapAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3C8);

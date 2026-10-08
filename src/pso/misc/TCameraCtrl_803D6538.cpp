@@ -121,6 +121,8 @@ struct MotionQuaternionKey {
 
 struct SplineKey_803D7288 { u32 frame; f32 value[3]; };
 
+struct Cam_803D66DC { f32 f0, f4, f8, fC, f10, f14, f18, f1C, f20, f24; };
+
 extern "C" {
 
 s32 sample_motion_vector_channel(s32 arg0);
@@ -152,6 +154,10 @@ void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
                                         f32 frame);
 u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output);
+extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
+extern G_803D6688 lbl_8058D4F8;
+extern const f32 lbl_805E0E10;
+void TCameraCtrl__sub_803D66DC(Cam_803D66DC *arg0);
 }
 
 extern "C" {
@@ -324,6 +330,24 @@ void set_screen_size(f32 farg0, f32 farg1) {
 
 #pragma push
 #pragma use_lmw_stmw off
+
+#pragma push
+#pragma opt_common_subs off
+void TCameraCtrl__sub_803D66DC(Cam_803D66DC *arg0) {
+    f32 c, b, a;
+    (*(Cam_803D66DC *)&lbl_8058D4F8).f18 = a = arg0->f18;
+    (*(Cam_803D66DC *)&lbl_8058D4F8).f8 = b = arg0->f8;
+    (*(Cam_803D66DC *)&lbl_8058D4F8).fC = c = arg0->fC;
+    (*(Cam_803D66DC *)&lbl_8058D4F8).f0 = (*(Cam_803D66DC *)&lbl_8058D4F8).f1C * a;
+    (*(Cam_803D66DC *)&lbl_8058D4F8).f4 = -((*(Cam_803D66DC *)&lbl_8058D4F8).f20 * a);
+    (*(Cam_803D66DC *)&lbl_8058D4F8).f10 = lbl_805E0E10 / (*(Cam_803D66DC *)&lbl_8058D4F8).f0;
+    (*(Cam_803D66DC *)&lbl_8058D4F8).f14 = lbl_805E0E10 / (*(Cam_803D66DC *)&lbl_8058D4F8).f4;
+    (*(Cam_803D66DC *)&lbl_8058D4D0).f8 = (*(Cam_803D66DC *)&lbl_8058D4D0).f20 - b;
+    (*(Cam_803D66DC *)&lbl_8058D4D0).fC = (*(Cam_803D66DC *)&lbl_8058D4D0).f18 - b;
+    (*(Cam_803D66DC *)&lbl_8058D4D0).f10 = (*(Cam_803D66DC *)&lbl_8058D4D0).f24 - c;
+    (*(Cam_803D66DC *)&lbl_8058D4D0).f14 = (*(Cam_803D66DC *)&lbl_8058D4D0).f1C - c;
+}
+#pragma pop
 
 void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 farg2) {
     s32 h;

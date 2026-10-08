@@ -82,7 +82,6 @@ extern "C" {
 int strncmp(const char *, const char *, unsigned long);
 char *strncpy(char *, const char *, unsigned long);
 int atoi(const char *);
-void TQuestVmDownLoadServer__sub_803F7128(char *, char *, u32, int);
 extern char lbl_805A8C08[];
 extern char lbl_805D4710[8];
 extern char lbl_805D4718[8];
@@ -147,6 +146,9 @@ char *strncpy(char *, const char *, unsigned long);
 s32 fn_803F71BC(char *);
 extern s32 lbl_805D79E8;
 s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n);
+char *strncpy(char *, const char *, unsigned long);
+extern s32 lbl_805D79E8;
+s32 TQuestVmDownLoadServer__sub_803F7128(char *arg0, char *arg1, u32 arg2, u32 arg3);
 }
 
 extern "C" {
@@ -330,6 +332,30 @@ s32 get_config_line__22TQuestVmDownLoadServerFPvUi(char *s, u32 n) {
     r = fn_803F71BC(&buf[5]);
     lbl_805D79E8 = 1;
     return r;
+}
+#pragma pop
+
+#pragma push
+#pragma optimization_level 2
+#pragma scheduling off
+#pragma peephole off
+s32 TQuestVmDownLoadServer__sub_803F7128(char *arg0, char *arg1, u32 arg2, u32 arg3) {
+    if (arg2 <= 4) {
+        *arg0 = 0;
+    } else {
+        arg2 -= 5;
+        if (arg2 > arg3) {
+            strncpy(arg0, arg1 + 5, arg3);
+            char c = arg0[arg3 - 1];
+            if ((u8)c >= 0x80) {
+                arg0[arg3 - 1] = 0;
+            }
+        } else {
+            strncpy(arg0, arg1 + 5, arg2);
+        }
+    }
+    lbl_805D79E8 = 1;
+    return 0;
 }
 #pragma pop
 

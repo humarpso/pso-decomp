@@ -50,6 +50,40 @@ struct Mon_80172220 : VObj_80172220 {
 
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct VBase_18_1a504b { char pad[0x18]; };
+
+struct VObj_18_1a504b : VBase_18_1a504b {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual M2C_UNK m5(s32);
+};
+
+struct Obj_80172550 {
+    s32 f0;
+    u8 pad4[0x18 - 0x4];
+    void *vt;
+    u8 pad1c[0x24 - 0x1C];
+    s32 f24;
+    u8 pad28[0x30 - 0x28];
+    u32 f30;
+    s32 f34;
+    u8 pad38[0x84 - 0x38];
+    s32 f84;
+    u8 pad88[0xAC - 0x88];
+    s32 fAC;
+    u8 padB0[0xC0 - 0xB0];
+    f32 fC0;
+    f32 fC4;
+    u8 padC8[0xCC - 0xC8];
+    f32 fCC;
+    f32 fD0;
+    f32 fD4;
+};
+
 extern "C" {
 void TLobby__sub_8001FE7C(void *, s32);
 extern s32 TOMonitorMachine01__data_8050DB68[];
@@ -88,13 +122,23 @@ extern s32 TOMonitorMachine01__data_8050DB68[];
 extern void *TOMonitorMachine01__data_805D5A58;
 extern s32 TOMonitorMachine01__data_805D5A5C;
 void load_resources__18TOMonitorMachine01Fv(void);
+s32 TObjFish__sub_8001EDB0(void *, s32);
+s32 get_bml_model(void *, s32);
+s32 init_map_object_base(void *, s32);
+extern M2C_UNK __vt__18TOMonitorMachine01[];
+extern s32 lbl_805D30B4;
+extern void *TOMonitorMachine01__data_805D5A58;
+extern s32 tl_05;
+extern const f32 TOMonitorMachine01__data_805DB8F8;
+extern const f32 lbl_805DB90C;
+extern const f32 lbl_805DB910;
+void *TOMonitorMachine01__ct(void *arg0_, void *arg1);
 }
 
 extern "C" {
 
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1);
 void *create__18TOMonitorMachine01FPv(void *arg0);
-void *TOMonitorMachine01__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -201,7 +245,7 @@ void render__18TOMonitorMachine01Fv(Mon_80172220 *self) {
 void *create__18TOMonitorMachine01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD8);
     if (o != NULL) {
-        o = TOMonitorMachine01__ct(o, arg0);
+        o = TOMonitorMachine01__ct((void *)(o), (void *)(arg0));
     }
     return o;
 }
@@ -244,5 +288,31 @@ void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
+#pragma push
+#pragma opt_common_subs off
+void *TOMonitorMachine01__ct(void *arg0_, void *arg1) {
+#define self ((Obj_80172550 *)arg0_)
+    init_map_object_base(arg0_, tl_05);
+    self->vt = __vt__18TOMonitorMachine01;
+    self->f0 = lbl_805D30B4;
+    ((VObj_18_1a504b *)(arg0_))->m5((s32)arg1);
+    self->f34 = get_bml_model(TOMonitorMachine01__data_805D5A58, 0);
+    self->f24 = TObjFish__sub_8001EDB0(TOMonitorMachine01__data_805D5A58, 0);
+    self->fC0 = lbl_805DB90C;
+    self->fC4 = lbl_805DB910;
+    self->f30 |= 0x40000000;
+    self->fAC = 0;
+    self->fCC = TOMonitorMachine01__data_805DB8F8;
+    self->fD0 = TOMonitorMachine01__data_805DB8F8;
+    self->fD4 = TOMonitorMachine01__data_805DB8F8;
+    if (self->f84 < 0) {
+        self->f84 = 0;
+    } else if (self->f84 >= 4) {
+        self->f84 = 3;
+    }
+    return arg0_;
+#undef self
+}
+#pragma pop
 
 }

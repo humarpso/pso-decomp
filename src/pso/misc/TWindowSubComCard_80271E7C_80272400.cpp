@@ -19,6 +19,10 @@ struct List_80272CB0 {
     Ent_80272CB0 ents[1];
 };
 
+struct Entry_80272B60 { u16 id; u16 val; u8 name[0x1C]; };
+
+struct ChrSel_80272B60 { u8 f0; u8 count; u8 pad[2]; Entry_80272B60 e[1]; };
+
 extern "C" {
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
@@ -61,7 +65,6 @@ void update_next_entry__17TWindowSubComCardFPviii(s32, void *, void *, u32);
 void create_sub_window__20TWindowChoiceSettingFPvi(s32, void *);
 s32 get_window_layout_position(M2C_UNK);
 void *find_entry_rest__17TWindowSubComCardFPvPvi(void *, void *, s32);
-void get_message_10__17TWindowSubComCardFPvPv(void *p, void *a1);
 void set_flag_10__17TWindowSubComCardFPv(s32);
 extern u8 lbl_8044F6BC[];
 s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0);
@@ -75,6 +78,21 @@ s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
 s32 get_window_layout_position(M2C_UNK);
 extern const f32 lbl_805DD50C;
 s32 TWindowSubComCard__sub_802728CC(void);
+s32 find_value_by_key__17TWindowSubComCardFPvUs(s32, u16);
+ChrSel_80272B60 *get_chr_select__17TWindowSubComCardFv();
+s32 open_hard_keyboard__6TLobbyFPv(void *);
+M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
+M2C_UNK set_selected_index__17TWindowSubComCardFPvs(s32, s16);
+M2C_UNK align_menu_entry_positions(s32);
+M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(s32, f32, f32);
+M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, void *, int, int);
+s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
+void *find_entry_value_by_id__17TWindowSubComCardFPvi(s32, s32);
+s32 get_window_layout_position(M2C_UNK);
+u8 * get_message_10__17TWindowSubComCardFPvPv(void *p, void *a1);
+extern const f32 TWindowSubComCard__data_805DD514;
+extern const f32 lbl_805DD518;
+s32 TWindowSubComCard__sub_80272B60(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -219,6 +237,50 @@ void open_mode4_window__17TWindowSubComCardFv(void) {
 }
 
 typedef void *(*GetMsg_80272CB0)(void *, void *);
+
+#pragma push
+#pragma opt_loop_invariants off
+s32 TWindowSubComCard__sub_80272B60(u8 *arg0, s32 arg1, s32 arg2) {
+    s32 i;
+    s32 count;
+    s32 idx;
+    u16 val;
+    u16 sel;
+    s32 win;
+    Entry_80272B60 *e;
+    ChrSel_80272B60 *cs;
+    win = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position(0x8D), 0x20, find_entry_value_by_id__17TWindowSubComCardFPvi(M2C_FIELD(arg0, s32 *, 0x7C), arg2));
+    if (arg2 == 0) {
+        forward_trade_action_default__16TObjCityMainWarpFPviii(win, get_message_10__17TWindowSubComCardFPvPv((void *)(arg0), (void *)(0)), 6, 0);
+        forward_trade_action_default__16TObjCityMainWarpFPviii(win, get_message_10__17TWindowSubComCardFPvPv((void *)(arg0), (void *)(1)), 6, 1);
+        set_selected_index__17TWindowSubComCardFPvs(win, open_hard_keyboard__6TLobbyFPv((void *)(M2C_FIELD(arg0, s32 *, 0x20))));
+    } else {
+        sel = find_value_by_key__17TWindowSubComCardFPvUs(arg1, arg2);
+        cs = get_chr_select__17TWindowSubComCardFv();
+        count = cs->count;
+        e = cs->e;
+        idx = 0;
+        i = 0;
+        while (i < count) {
+            if (e->id == arg2) {
+                val = e->val;
+                forward_trade_action_default__16TObjCityMainWarpFPviii(win, e->name, 6, val);
+                if (sel == val) {
+                    set_selected_index__17TWindowSubComCardFPvs(win, idx);
+                }
+                idx++;
+            }
+            i++;
+            e++;
+        }
+    }
+    set_flag70_bit10__16TObjCityMainWarpFPv(win);
+    set_scroll_target__17TWindowSubComCardFPvff(win, lbl_805DD518, TWindowSubComCard__data_805DD514);
+    align_menu_entry_positions(win);
+    return win;
+}
+#pragma pop
+
 s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0) {
     s32 i;
     u8 *card;

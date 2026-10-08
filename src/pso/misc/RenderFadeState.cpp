@@ -3,6 +3,19 @@
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
+typedef struct Fade_800D7AD0 {
+    f32 value;
+    u8 pad[0x14];
+    s32 mode;
+} Fade_800D7AD0;
+
+extern "C" {
+extern const f32 lbl_805DA368;
+extern const f32 lbl_805DA36C;
+extern const f32 lbl_805DA370;
+void fn_800D7AD0(Fade_800D7AD0 *arg0);
+}
+
 extern "C" {
 
 struct RenderFadeState_800D7BB0 {
@@ -42,6 +55,26 @@ void RenderFadeState::fadeOut() {
 }
 
 extern "C" {
+
+#pragma push
+#pragma opt_common_subs off
+void fn_800D7AD0(Fade_800D7AD0 *arg0) {
+    f32 v = arg0->value;
+    if (arg0->mode == 0) {
+        v -= lbl_805DA368;
+        if (v < lbl_805DA36C) {
+            v = lbl_805DA36C;
+        }
+    } else {
+        v += lbl_805DA368;
+        if (v > lbl_805DA370) {
+            v = lbl_805DA370;
+        }
+    }
+    arg0->value = v;
+}
+#pragma pop
+
 void update_obstruction_fade(RenderFadeState_800D7BB0* state) {
     f32 adjustment = state->adjustment;
     if (state->restoring == 0) {

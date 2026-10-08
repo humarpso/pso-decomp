@@ -57,6 +57,7 @@ struct Kb_80132650 {
     u32 tab[4];
 };
 
+struct K_8013276C;
 extern "C" {
 void render__16TKeyBoardControlFv(void);
 void render__16TKeyBoardControlFv(void);
@@ -71,7 +72,6 @@ u8 get_key_state_2__16TKeyBoardControlFPv(void* p);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
-M2C_UNK TKeyBoardControl__sub_80132824(s32);
 M2C_UNK init_pad_states__16TKeyBoardControlFv();
 M2C_UNK fn_803F1864(M2C_UNK *);
 void reset_input__16TKeyBoardControlFi(s32 arg0);
@@ -114,6 +114,10 @@ void TKeyBoardControl__sub_80132650(Kb_80132650 *kb);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
 void push_key_to_buffer__16TKeyBoardControlFPvUc(Kb_801324F8 *self, u8 arg1);
+void reset_keys__16TKeyBoardControlFPv(void *arg0);
+void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
+void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
+void TKeyBoardControl__sub_80132824(s32 arg0);
 }
 
 extern "C" {
@@ -420,9 +424,23 @@ void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
     }
 }
 
+#pragma push
+#pragma opt_loop_invariants off
+void TKeyBoardControl__sub_80132824(s32 arg0) {
+    s32 i;
+    ((u8 *)arg0)[0] = 4;
+    ((u8 *)arg0)[1] = 1;
+    clear_key_state__16TKeyBoardControlFPv((K_8013276C *)arg0);
+    reset_keys__16TKeyBoardControlFPv((void *)arg0);
+    for (i = 0; i < 4; i++) {
+        TKeyBoardControl__sub_801327DC((M2C_UNK)arg0, i);
+    }
+}
+#pragma pop
+
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
     init_pad_states__16TKeyBoardControlFv();
-    TKeyBoardControl__sub_80132824(arg0);
+    TKeyBoardControl__sub_80132824((s32)(arg0));
     fn_803F1864(((M2C_UNK *)append_next_char_global__16TKeyBoardControlFv));
 }
 typedef char RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];

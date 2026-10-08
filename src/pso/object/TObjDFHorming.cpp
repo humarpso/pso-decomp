@@ -13,6 +13,12 @@ extern s32 lbl_805D586C;
 extern const f32 lbl_805D890C;
 extern const f32 lbl_805D8918;
 u16 pick_random_target_player__11TBoss4Type3Fv(void);
+void play_sound_effect(s32, s32, s32, s32);
+s32 rand();
+extern const f32 lbl_805D8918;
+extern const f32 lbl_805D8930;
+extern const f32 lbl_805D8934;
+void TBoss4DarkFalz__sub_8004BAC4(void *arg0);
 }
 
 extern "C" {
@@ -671,29 +677,38 @@ void freeze_all_players__14TBoss4DarkFalzFPv(void *self) {
         }
     }
 }
+#pragma push
+#pragma opt_common_subs off
+#pragma fp_contract on
+void TBoss4DarkFalz__sub_8004BAC4(void *arg0) {
+    s32 temp_r0;
+    s32 temp_r0_2;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    if (temp_r0 >= 9 || temp_r0 < 4) {
+        return;
+    }
+    {
+        temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x374) - 1;
+        M2C_FIELD(arg0, s32 *, 0x374) = temp_r0_2;
+        if (temp_r0_2 < 0) {
+            if ((lbl_805D8918 * (f32) rand()) < lbl_805D8930) {
+                play_sound_effect((s32)(0x3A300), (s32)(0), (s32)(0), (s32)(0));
+            } else {
+                play_sound_effect((s32)(0x3A801), (s32)(0), (s32)(0), (s32)(0));
+            }
+            {
+                f32 r = lbl_805D8918 * (f32) rand();
+                M2C_FIELD(arg0, s32 *, 0x374) = (s32) ((lbl_805D8934 * r) + lbl_805D8934);
+            }
+        }
+    }
+}
+#pragma pop
 
 #pragma push
 #pragma fp_contract on
 #define lbl_805D8918 (*(f32 *)&lbl_805D8918)
-void TBoss4DarkFalz__sub_8004BAC4(void *arg0) {
-    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-        if (--M2C_FIELD(arg0, s32 *, 0x374) < 0) {
-            if (lbl_805D8918 * (f32) rand() < lbl_805D8930) {
-                play_sound_effect(0x3A300, 0, 0, 0);
-            } else {
-                play_sound_effect(0x3A801, 0, 0, 0);
-            }
-            f32 r = lbl_805D8918 * (f32) rand();
-            M2C_FIELD(arg0, s32 *, 0x374) = (s32) (lbl_805D8934 * r + lbl_805D8934);
-        }
-        break;
-    }
-}
+
 #undef lbl_805D8918
 #pragma pop
 

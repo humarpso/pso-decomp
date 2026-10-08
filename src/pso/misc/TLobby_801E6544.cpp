@@ -7,6 +7,16 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
+u32 get_player_by_client_id(s32);
+s16 obj_getS16_32C(u8 *);
+s16 get_field_2b8__14TItemProShieldFPv(u8 *);
+extern int* TLobby__data_805D5E78;
+extern const f32 lbl_805DC4C4;
+extern const f32 lbl_805DC4D0;
+void qst_op_p_hpstat(void);
+}
+
+extern "C" {
 
 struct Glob_801E75F0 { s32 f0; s32 f4; s32 f8; s32 fC; s32 f10; u8 rest[0xC]; };
 
@@ -2183,6 +2193,10 @@ extern int tl_01;
 extern void *tl_03;
 extern void *tl_04;
 extern s32 tl_05;
+
+extern "C" {
+extern RecoveredGlobal_801F027C_TLobby__data_80512220 TLobby__data_80512220;
+}
 
 void request_1c38_1_7__6TLobbyFv(void) {
     ((M2C_UNK (*)(M2C_UNK, M2C_UNK))pop_stack_into_slots__6TLobbyFii)(1, 7);
@@ -7744,6 +7758,38 @@ void qst_op_p_dead(void) {
 block_7:
     M2C_FIELD((*(s32 *)&TLobby__data_805D5E78), M2C_UNK *, (temp_r31 * 4)) = 0;
 }
+
+#pragma push
+#pragma opt_propagation off
+#pragma opt_common_subs off
+void qst_op_p_hpstat(void) {
+    s32 reg;
+    f32 pct;
+    f32 limit;
+    void *obj;
+    f32 hp;
+    s32 player;
+    s32 *args = (s32 *)&TLobby__data_80512220;
+    int *regs = (*(int * *)&TLobby__data_805D5E78);
+    reg = args[0];
+    pct = regs[reg];
+    player = args[1];
+    if (lbl_805DC4C4 == pct) {
+        (*(int * *)&TLobby__data_805D5E78)[reg] = 0;
+        return;
+    }
+    limit = lbl_805DC4D0 / pct;
+    obj = (void *)((s32)get_player_by_client_id(player));
+    if (obj != NULL) {
+        hp = obj_getS16_32C((u8 *)(obj));
+        if (hp / get_field_2b8__14TItemProShieldFPv((u8 *)(obj)) < limit) {
+            (*(int * *)&TLobby__data_805D5E78)[reg] = 1;
+            return;
+        }
+    }
+    (*(int * *)&TLobby__data_805D5E78)[reg] = 0;
+}
+#pragma pop
 
 void qst_op_p_move(u8 arg0) {
     Vec_801F0458 pos;

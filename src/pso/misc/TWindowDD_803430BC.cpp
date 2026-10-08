@@ -88,6 +88,8 @@ struct Win_803438C4 {
     s16 xE0;
 };
 
+struct R_80343BC0 { s16 a; s16 b; u32 w[6]; };
+
 extern "C" {
 M2C_UNK free_child__9TWindowDDFPv(int);
 M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
@@ -233,7 +235,6 @@ s32 get_cursor_index__9TWindowDDFPv(int);
 void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0);
 void TWindowDD__sub_803434F4(u8 *arg0);
 void run_state__9TWindowDDFPv(u8 *arg0);
-M2C_UNK TWindowDD__sub_80343BC0(void *, void *);
 void TWindowDD__sub_80347CC8(void *, void *);
 M2C_UNK spawn_window__9TWindowDDFv();
 M2C_UNK play_se__9TWindowDDFv();
@@ -243,6 +244,7 @@ s32 test_input_flag_4__9TWindowDDFPv(void *);
 M2C_UNK set_state__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803484C4(void *);
 void run_task__9TWindowDDFv(u8 *arg0);
+void TWindowDD__sub_80343BC0(R_80343BC0 *arg0, R_80343BC0 *arg1);
 }
 
 extern "C" {
@@ -563,7 +565,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
                 case 0:
                     play_sound__9TWindowDDFv();
                     TWindowDD__sub_803484C4(w);
-                    TWindowDD__sub_80343BC0(w->xC0, &w->xE0);
+                    TWindowDD__sub_80343BC0((R_80343BC0 *)(w->xC0), (R_80343BC0 *)(&w->xE0));
                     break;
                 case 1:
                     play_se__9TWindowDDFv();
@@ -601,7 +603,7 @@ void run_task__9TWindowDDFv(u8 *arg0) {
                 w->xA8 = 1;
                 set_clamped_selection__9TWindowDDFPvi(w->x80, get_cursor_index__9TWindowDDFPv((int)w->subs[w->idx]));
                 TWindowDD__sub_80341AE0((int)cur);
-                TWindowDD__sub_80343BC0(&w->xE0, &w->xC4);
+                TWindowDD__sub_80343BC0((R_80343BC0 *)(&w->xE0), (R_80343BC0 *)(&w->xC4));
                 if (w->xE0 > 0) {
                     w->xE0--;
                     TWindowDD__sub_80347CC8(w, &w->xE0);
@@ -627,6 +629,19 @@ void run_task__9TWindowDDFv(u8 *arg0) {
         break;
     }
 }
+
+#pragma push
+#pragma optimization_level 1
+void TWindowDD__sub_80343BC0(R_80343BC0 *arg0, R_80343BC0 *arg1) {
+    u32 a, b;
+    arg0->a = arg1->a;
+    arg0->b = arg1->b;
+    b = arg1->w[0]; a = arg1->w[1]; arg0->w[0] = b; arg0->w[1] = a;
+    b = arg1->w[2]; a = arg1->w[3]; arg0->w[2] = b; arg0->w[3] = a;
+    arg0->w[4] = arg1->w[4];
+    arg0->w[5] = arg1->w[5];
+}
+#pragma pop
 
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
