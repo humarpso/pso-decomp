@@ -563,12 +563,9 @@ pso/unk/text_8004D9A8.cpp:
 	.sdata2     start:0x805D8968 end:0x805D8988
 
 pso/object/TObjDFDemo0.cpp:
-	.text       start:0x8004E020 end:0x8004E428
+	.text       start:0x8004E020 end:0x8004E6D0
 	.rodata     start:0x80437370 end:0x80437378
 	.sdata2     start:0x805D8988 end:0x805D898C
-
-pso/unk/text_8004E428.cpp:
-	.text       start:0x8004E428 end:0x8004E6D0
 
 pso/unk/text_8004E6D0.cpp:
 	.text       start:0x8004E6D0 end:0x8004E918
@@ -2581,16 +2578,10 @@ pso/misc/TLobby_800F8AA8_800F8D08.cpp:
 	.text       start:0x800F8D08 end:0x800F8DC8
 	.data       start:0x80499A00 end:0x80499A40
 
-pso/misc/TLobby_800F8AA8_800F8DC8.cpp:
-	.text       start:0x800F8DC8 end:0x800F8F40
-	.sdata2     start:0x805DA918 end:0x805DA930
-
-pso/misc/TLobby_800F8AA8_800F8F40.cpp:
-	.text       start:0x800F8F40 end:0x800F8F58
-
 pso/misc/TLobby_800F8AA8.cpp:
-	.text       start:0x800F8F58 end:0x800F93B4
+	.text       start:0x800F8DC8 end:0x800F93B4
 	.data       start:0x8049C624 end:0x8049C658
+	.sdata2     start:0x805DA918 end:0x805DA930
 
 pso/unk/text_800F93B4.cpp:
 	.text       start:0x800F93B4 end:0x800F93F0
@@ -2768,14 +2759,8 @@ pso/unk/text_800FE154.cpp:
 pso/misc/TGStream_800FE1C4.cpp:
 	.text       start:0x800FE1C4 end:0x800FE300
 
-pso/object/TObjWaitEntryHairMoveSim_800FE300.cpp:
-	.text       start:0x800FE300 end:0x800FE45C
-
-pso/object/TObjWaitEntryHairMoveSim_800FE45C.cpp:
-	.text       start:0x800FE45C end:0x800FE510
-
 pso/object/TObjWaitEntryHairMoveSim.cpp:
-	.text       start:0x800FE510 end:0x800FE834
+	.text       start:0x800FE300 end:0x800FE834
 	.data       start:0x8049CBA8 end:0x8049DCBC
 
 pso/object/TObjEZBoneRotPlayer_800FE834.cpp:
@@ -6553,11 +6538,8 @@ pso/unk/text_801815A0.cpp:
 	.text       start:0x801815A0 end:0x801815F8
 
 pso/unk/text_801815F8.cpp:
-	.text       start:0x801815F8 end:0x801817AC
+	.text       start:0x801815F8 end:0x801819FC
 	.rodata     start:0x80443BA0 end:0x80443BA8
-
-pso/unk/text_801817AC.cpp:
-	.text       start:0x801817AC end:0x801819FC
 
 pso/misc/TLobby_801819FC.cpp:
 	.text       start:0x801819FC end:0x80181B60
@@ -6586,64 +6568,9 @@ pso/unk/text_80183018.cpp:
 	.text       start:0x80183018 end:0x801830BC
 
 pso/unk/text_801830BC.cpp:
-	.text       start:0x801830BC end:0x801837C8
-	.rodata     start:0x80444210 end:0x80444218
-
-pso/object/TObjCity_Season_FireWorkCtrl.cpp:
-	.text       start:0x801837C8 end:0x8018386C
-
-pso/unk/text_8018386C.cpp:
-	.text       start:0x8018386C end:0x801838D4
-
-pso/misc/TLobby_801838D4.cpp:
-	.text       start:0x801838D4 end:0x80183994
-
-pso/object/TObjCity_Season_Board.cpp:
-	.text       start:0x80183994 end:0x80183A38
-
-pso/unk/text_80183A38.cpp:
-	.text       start:0x80183A38 end:0x80183BFC
+	.text       start:0x801830BC end:0x80184C2C
+	.rodata     start:0x80444210 end:0x80444268
 	.sdata2     start:0x805DBC1C end:0x805DBC5C
-
-pso/unk/text_80183BFC.cpp:
-	.text       start:0x80183BFC end:0x80183C5C
-
-pso/object/TObjCity_Season_SonicAdv2.cpp:
-	.text       start:0x80183C5C end:0x80183D00
-
-pso/unk/text_80183D00.cpp:
-	.text       start:0x80183D00 end:0x80183E64
-
-pso/object/TObjCity_Season_21_21.cpp:
-	.text       start:0x80183E64 end:0x80183F24
-
-pso/unk/text_80183F24.cpp:
-	.text       start:0x80183F24 end:0x80184078
-
-pso/object/TObjCity_Season_HalloweenPumpkin.cpp:
-	.text       start:0x80184078 end:0x8018411C
-
-pso/unk/text_8018411C.cpp:
-	.text       start:0x8018411C end:0x80184210
-
-pso/object/TObjCity_Season_XmasWreath.cpp:
-	.text       start:0x80184210 end:0x80184408
-
-pso/object/TObjCity_Season_XmasTree.cpp:
-	.text       start:0x80184408 end:0x80184620
-
-pso/object/TObjCity_Season_ValentineHeart.cpp:
-	.text       start:0x80184620 end:0x80184810
-
-pso/object/TObjCity_Season_EasterEgg.cpp:
-	.text       start:0x80184810 end:0x80184AB8
-	.rodata     start:0x80444260 end:0x80444268
-
-pso/object/TObjCity_Season_EasterEgg_80184AB8.cpp:
-	.text       start:0x80184AB8 end:0x80184B44
-
-pso/unk/text_80184B44.cpp:
-	.text       start:0x80184B44 end:0x80184C2C
 
 pso/unk/text_80184C2C.cpp:
 	.text       start:0x80184C2C end:0x80185248
@@ -11650,18 +11577,9 @@ pso/object/LobbyPigeonTheme.cpp:
 	.text       start:0x802C0A38 end:0x802C0A74
 
 pso/object/LobbyPigeonPath.cpp:
-	.text       start:0x802C0A74 end:0x802C0DA0
-
-pso/object/LobbyPigeonSelection.cpp:
-	.text       start:0x802C0DA0 end:0x802C0E5C
-
-pso/unk/text_802C0E5C.cpp:
-	.text       start:0x802C0E5C end:0x802C311C
+	.text       start:0x802C0A74 end:0x802C3284
 	.rodata     start:0x80471968 end:0x80471978
 	.sdata2     start:0x805DE4F8 end:0x805DE514
-
-pso/object/TObjPathObj.cpp:
-	.text       start:0x802C311C end:0x802C3284
 
 pso/ui/TAdStorySelectGC_802C3284.cpp:
 	.text       start:0x802C3284 end:0x802C367C
@@ -11766,15 +11684,8 @@ pso/unk/text_802C9C18.cpp:
 	.text       start:0x802C9C18 end:0x802C9DF0
 
 pso/misc/TOTrapSeabed01.cpp:
-	.text       start:0x802C9DF0 end:0x802CA2F0
-	.rodata     start:0x804720D8 end:0x804720E0
-
-pso/misc/TOTrapSeabed01_802CA2F0.cpp:
-	.text       start:0x802CA2F0 end:0x802CA5F0
-
-pso/misc/TOTrapSeabed01_802CA5F0.cpp:
-	.text       start:0x802CA5F0 end:0x802CAA84
-	.rodata     start:0x804720E0 end:0x804720E8
+	.text       start:0x802C9DF0 end:0x802CAA84
+	.rodata     start:0x804720D8 end:0x804720E8
 	.sdata2     start:0x805DE644 end:0x805DE658
 
 pso/enemy/TObjEneMe1GiGue.cpp:
@@ -13296,10 +13207,7 @@ pso/misc/TLobby_8033A810.cpp:
 	.text       start:0x8033A810 end:0x8033A8EC
 
 pso/ui/TAdSinglePlyChrSelectGC_8033A8EC.cpp:
-	.text       start:0x8033A8EC end:0x8033B5F0
-
-pso/ui/TAdSinglePlyChrSelectGC_8033B5F0.cpp:
-	.text       start:0x8033B5F0 end:0x8033BAB4
+	.text       start:0x8033A8EC end:0x8033BAB4
 	.data       start:0x804EF728 end:0x804EF8C0
 	.sbss       start:0x805D6D94 end:0x805D6D98
 
@@ -13499,12 +13407,9 @@ pso/misc/TWindowDD_80348C54.cpp:
 pso/misc/TWindowDD_80348D0C.cpp:
 	.text       start:0x80348D0C end:0x80348E34
 
-pso/unk/text_80348E34.cpp:
-	.text       start:0x80348E34 end:0x80348FCC
-	.rodata     start:0x80478710 end:0x80478718
-
 pso/ui/TAdChrMoveEffectGC.cpp:
-	.text       start:0x80348FCC end:0x803495B4
+	.text       start:0x80348E34 end:0x803495B4
+	.rodata     start:0x80478710 end:0x80478718
 
 pso/ui/TAdMultiPlyChrSelectGC_803495B4.cpp:
 	.text       start:0x803495B4 end:0x8034960C

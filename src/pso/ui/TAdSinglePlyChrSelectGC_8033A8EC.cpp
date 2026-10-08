@@ -1,3 +1,5 @@
+#pragma push
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -46,12 +48,12 @@ extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033A9F0(u8 *arg0);
 int queue_destruction__7TObjectFv(void*);
 int queue_destruction__23TAdSinglePlyChrSelectGCFPv(void* p);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
+struct TAdSinglePlyChrSelectGC__sub_8033B5F0; void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
 M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 s32 setup__23TAdSinglePlyChrSelectGCFi(s32);
 void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 s32 TAdSinglePlyChrSelectGC__sub_801FDA4C();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
+
 M2C_UNK set_player_index__23TAdSinglePlyChrSelectGCFi(M2C_UNK);
 void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void TAdSinglePlyChrSelectGC__sub_8033B9E0(void *);
@@ -67,7 +69,8 @@ M2C_UNK render_tick__Fv();
 M2C_UNK set_and_notify__6TLobbyFi(int);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
-extern RecoveredGlobal_8033B264_lbl_804EF728 lbl_804EF728;
+extern void *lbl_804EF728[];
+#define lbl_804EF728 (*(RecoveredGlobal_8033B264_lbl_804EF728 *)&lbl_804EF728)
 extern RecoveredGlobal_8033B264_main_task main_task;
 void TAdSinglePlyChrSelectGC__sub_8033B264(void);
 M2C_UNK TWindow__close(void *);
@@ -92,7 +95,7 @@ s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
 s32 get_selected_menu_value(int);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
+
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 tl_fade;
 void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0);
@@ -112,7 +115,7 @@ u32 __nw__7TObjectFUl(int);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
+
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern s32 tl_fade;
 extern s32 lbl_805D6D90;
@@ -126,7 +129,7 @@ s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 void check_ready__23TAdSinglePlyChrSelectGCFv(void);
 void set_char_slots__23TAdSinglePlyChrSelectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void init_warps__23TAdSinglePlyChrSelectGCFPv(void* a0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
+
 extern s32 lbl_805D6D90;
 void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F92C();
@@ -166,12 +169,12 @@ M2C_UNK set_and_notify__6TLobbyFi(int);
 M2C_UNK play_area_music(void *);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK TWindowCtrlMain__ct(u32);
-M2C_UNK construct__23TAdSinglePlyChrSelectGCFPv(u32);
+void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 extern V3_8033B39C lbl_80477D60[];
 extern V3_8033B39C lbl_80477D6C[];
 extern u8 lbl_80477D90[];
 extern u8 lbl_804A6F34[];
-extern RecoveredGlobal_8033B264_lbl_804EF728 lbl_804EF728;
+
 extern u8 lbl_8050EA40[];
 extern s32 tl_camera;
 extern s32 lbl_805D6D90;
@@ -202,9 +205,9 @@ s32 init__22THunterGuildSeqOfflineFPvPvPv(u32, int, void *);
 u32 __nw__7TObjectFUl(int);
 s32 update_window_mode_from_progress__6TLobbyFiPv(M2C_UNK *, M2C_UNK *);
 void close_window__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8033B5F0(void *);
+
 s32 get_field_44__23TAdSinglePlyChrSelectGCFPv(void *);
-s32 TAdSinglePlyChrSelectGC__sub_8033B9F8(void *);
+struct TAdSinglePlyChrSelectGC__sub_8033B9F8; u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
 int TAdSinglePlyChrSelectGC__sub_8033B244(void* p);
 extern M2C_UNK lbl_80477D48[];
 extern M2C_UNK lbl_80477D50[];
@@ -251,12 +254,12 @@ void TAdSinglePlyChrSelectGC__sub_8033AA64(O_8033AA64 *arg0) {
         switch (get_selected_menu_value(arg0->f3c)) {
         case 0:
             arg0->f2c = 0;
-            TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+            ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
             close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
             break;
         default:
             arg0->f2c = 0xE;
-            TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+            ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
             close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
             u32 o = __nw__7TObjectFUl(0x28);
             if (o != 0U) {
@@ -271,7 +274,7 @@ void handle_player_load__23TAdSinglePlyChrSelectGCFPv(O_8033AB04 *arg0) {
     u32 p;
     if (probe_card_slot__15TAdPlayerLoadGCFi(arg0->f24) == 0) {
         arg0->f2C = 0;
-        TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+        ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
         return;
     }
     switch (get_instance__15TAdPlayerLoadGCFv()) {
@@ -307,7 +310,7 @@ void update_setup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+    ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
 }
 
 void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
@@ -333,7 +336,7 @@ void check_memcard_space__23TAdSinglePlyChrSelectGCFPv(O_8033AC44 *arg0) {
 void TAdSinglePlyChrSelectGC__sub_8033ACF4(O_8033ACF4 *arg0) {
     if (probe_card_slot__15TAdPlayerLoadGCFi(arg0->f24) == 0) {
         arg0->f2C = 0;
-        TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+        ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
         return;
     }
     switch (get_instance__15TAdPlayerLoadGCFv()) {
@@ -368,7 +371,7 @@ void update_select_state__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+    ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
 }
 
 void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
@@ -423,7 +426,7 @@ void handle_load_result__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
 void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
     u32 o;
     if (M2C_FIELD(arg0, void **, 0x40) != 0) {
-        if (TAdSinglePlyChrSelectGC__sub_8033B9F8(M2C_FIELD(arg0, void **, 0x40)) == 1) {
+        if (((s32 (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B9F8)(M2C_FIELD(arg0, void **, 0x40)) == 1) {
             queue_destruction__7TObjectFv((void*)(M2C_FIELD(arg0, void **, 0x40)));
             M2C_FIELD(arg0, void **, 0x40) = 0;
             M2C_FIELD(arg0, s32 *, 0x2C) = 2;
@@ -435,7 +438,7 @@ void TAdSinglePlyChrSelectGC__sub_8033B0AC(void *arg0) {
             queue_destruction__7TObjectFv((void*)(M2C_FIELD(arg0, void **, 0x40)));
             M2C_FIELD(arg0, void **, 0x40) = 0;
             M2C_FIELD(arg0, s32 *, 0x2C) = 0xE;
-            TAdSinglePlyChrSelectGC__sub_8033B5F0(arg0);
+            ((M2C_UNK (*)(void *))TAdSinglePlyChrSelectGC__sub_8033B5F0)(arg0);
             close_window__23TAdSinglePlyChrSelectGCFPv(arg0);
             o = __nw__7TObjectFUl(0x28);
             if (o != 0U) {
@@ -519,7 +522,7 @@ void init_single_player_char_select_scene(void) {
     }
     p = __nw__7TObjectFUl(0x44);
     if (p != 0) {
-        construct__23TAdSinglePlyChrSelectGCFPv(p);
+        ((M2C_UNK (*)(u32))construct__23TAdSinglePlyChrSelectGCFPv)(p);
     }
     TKeyBoardControl__sub_8000F90C(2);
     lbl_805D6D90 = 0;
@@ -545,3 +548,215 @@ typedef char RecoveredGlobal_8033B264_lbl_804EF728_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8033B264_main_task_size[sizeof(RecoveredGlobal_8033B264_main_task) == 0x34 ? 1 : -1];
 
 }
+
+#pragma pop
+
+#undef lbl_804EF728
+#pragma push
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+class Sel_8033B640 {
+public:
+    void s0(); void s1(); void s2(); void s3(); void s4();
+    void s5(); void s6(); void s7(); void s8(); void s9();
+    void s10(); void s11(); void s12(); void s13(); void s14();
+    u8 pad[0x2C];
+    s32 state;
+};
+
+typedef void (Sel_8033B640::*SelFn_8033B640)();
+
+struct RecoveredGlobal_8033B9C4_lbl_80513910 {
+    M2C_UNK value;
+    u8 remaining[0xC];
+};
+
+extern "C" {
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+extern void *lbl_804EF8C0[];
+extern s32 tl_01;
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_8033B9EC(void* p);
+extern void *lbl_804EF8C0[];
+extern s32 tl_01;
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_8033B9EC(void* p);
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_8033B9E0(void* p);
+extern void *lbl_804EF8C0[];
+extern s32 tl_01;
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+void TAdSinglePlyChrSelectGC__sub_8033B9E0(void* p);
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+s32 get_field_44__23TAdSinglePlyChrSelectGCFPv(void* p);
+extern void *lbl_804EF8C0[];
+extern s32 tl_01;
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+s32 get_field_44__23TAdSinglePlyChrSelectGCFPv(void* p);
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+M2C_UNK __ct__12TAdBackTxtGCFv(void *, void *);
+M2C_UNK __ct__7TObjectFP7TObject(void *, s32);
+M2C_UNK __ct__9TAdBackGCFv(void *, void *);
+
+s32 get_flag_count__23TAdSinglePlyChrSelectGCFv();
+M2C_UNK init_slots__23TAdSinglePlyChrSelectGCFv();
+extern void *lbl_804EF8C0[];
+extern s32 tl_01;
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0);
+void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+void free_buffer__23TAdSinglePlyChrSelectGCFPv(void *);
+extern void* lbl_804EF8C0[];
+void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1);
+void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
+M2C_UNK TWindow__close(void *);
+s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
+extern void* lbl_804EF8C0[];
+void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0);
+extern RecoveredGlobal_8033B9C4_lbl_80513910 lbl_80513910;
+void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
+extern char lbl_804C8914[];
+bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(void *, void *);
+extern u8 lbl_804C88C0[];
+extern char lbl_804C8914[];
+extern u8 lbl_804C89BC[];
+s32 has_no_save_files__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+}
+
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+}
+extern "C" {
+
+extern "C" void reset_default_view__11TCameraCtrlFv();
+extern "C" void init_default_view__11TCameraCtrlFv();
+extern "C" void reset_view_state__11TCameraCtrlFv();
+extern "C" void free_all_windows__15TWindowCtrlMainFv();
+extern "C" void TWindowCtrlMain__sub_8024D838();
+extern "C" void free_global__23TAdSinglePlyChrSelectGCFv();
+extern "C" void free_keyboard_soft_resources__6TLobbyFv();
+extern "C" void free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv();
+extern "C" void register_texture_f256_ad_pic_2();
+extern "C" void register_texture_f256_backtext();
+extern "C" void reset__11TCameraCtrlFv();
+extern "C" void update_keyboard_menu__6TLobbyFv();
+void *lbl_804EF728[12] = {
+    (void *)&reset_view_state__11TCameraCtrlFv, (void *)&reset__11TCameraCtrlFv, (void *)&init_default_view__11TCameraCtrlFv, (void *)&reset_default_view__11TCameraCtrlFv,
+    (void *)&register_texture_f256_ad_pic_2, (void *)&free_global__23TAdSinglePlyChrSelectGCFv, (void *)&register_texture_f256_backtext, (void *)&free_singleton_805D65C0__23TAdSinglePlyChrSelectGCFv,
+    (void *)&TWindowCtrlMain__sub_8024D838, (void *)&free_all_windows__15TWindowCtrlMainFv, (void *)&update_keyboard_menu__6TLobbyFv, (void *)&free_keyboard_soft_resources__6TLobbyFv,
+};
+
+void TAdSinglePlyChrSelectGC__sub_8033B5F0(void *arg0) {
+    void *temp_r3 = M2C_FIELD(arg0, void **, 0x38);
+    if ((u32) temp_r3 != 0U) {
+        if (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) != 0) {
+            TWindow__close(M2C_FIELD(arg0, void **, 0x38));
+            M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        }
+    }
+}
+
+void dispatch_state__23TAdSinglePlyChrSelectGCFPv(Sel_8033B640 *arg0) {
+    static SelFn_8033B640 table[15] = {
+        &Sel_8033B640::s0, &Sel_8033B640::s1, &Sel_8033B640::s2,
+        &Sel_8033B640::s3, &Sel_8033B640::s4, &Sel_8033B640::s5,
+        &Sel_8033B640::s6, &Sel_8033B640::s7, &Sel_8033B640::s8,
+        &Sel_8033B640::s9, &Sel_8033B640::s10, &Sel_8033B640::s11,
+        &Sel_8033B640::s12, &Sel_8033B640::s13, &Sel_8033B640::s14,
+    };
+    (arg0->*table[arg0->state])();
+}
+
+void *destroy__23TAdSinglePlyChrSelectGCFPvs(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK*)lbl_804EF8C0;
+        free_buffer__23TAdSinglePlyChrSelectGCFPv(arg0);
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+void *construct__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+    void *p;
+    __ct__7TObjectFP7TObject(arg0, tl_01);
+    M2C_FIELD(arg0, void **, 0x18) = lbl_804EF8C0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) ((s8 (*)(void *))get_chr_select_state__23TAdSinglePlyChrSelectGCFv)(lbl_804EF8C0);
+    M2C_FIELD(arg0, s32 *, 0x28) = get_flag_count__23TAdSinglePlyChrSelectGCFv();
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    p = ((void * (*)(M2C_UNK))__nw__7TObjectFUl)(0x24);
+    if (p != NULL) {
+        __ct__9TAdBackGCFv(p, arg0);
+    }
+    p = ((void * (*)(M2C_UNK))__nw__7TObjectFUl)(0x28);
+    if (p != NULL) {
+        __ct__12TAdBackTxtGCFv(p, arg0);
+    }
+    ((M2C_UNK (*)(void *))alloc_download_buffer__23TAdSinglePlyChrSelectGCFPv)(arg0);
+    ((M2C_UNK (*)(void *))clear_buffer)(arg0);
+    init_slots__23TAdSinglePlyChrSelectGCFv();
+    return arg0;
+}
+
+typedef char RecoveredGlobal_8033B9C4_lbl_80513910_size[sizeof(RecoveredGlobal_8033B9C4_lbl_80513910) == 0x10 ? 1 : -1];
+void TAdSinglePlyChrSelectGC__sub_8033B9C4(s32 arg0) {
+    M2C_FIELD(&lbl_80513910.value, s32 *, 4) = arg0;
+    M2C_FIELD(&lbl_80513910.value, s32 *, 0) = arg0;
+}
+
+s32 get_field_44__23TAdSinglePlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p + 0x44); }
+
+void TAdSinglePlyChrSelectGC__sub_8033B9E0(void* p) { *(s32*)((char*)p + 0x40) = 1; }
+
+void TAdSinglePlyChrSelectGC__sub_8033B9EC(void* p) { *(s32*)((char*)p + 0x4c) = 1; }
+
+u8 TAdSinglePlyChrSelectGC__sub_8033B9F8(u8 *arg0) {
+    return (u8) (M2C_FIELD(arg0, s32 *, 0x3C) == 1);
+}
+
+s32 has_no_save_files__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+    if (find_card_file__15TAdPlayerLoadGCFiPv(arg0, ((u8 *)&lbl_804C8914)) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C88C0) != 0 || find_card_file__15TAdPlayerLoadGCFiPv(arg0, lbl_804C89BC) != 0) {
+        return 0;
+    }
+    return 1;
+}
+
+bool TAdSinglePlyChrSelectGC__sub_8033BA84(void *self) {
+    return !find_card_file__15TAdPlayerLoadGCFiPv(self, lbl_804C8914);
+}
+
+}
+
+#pragma pop

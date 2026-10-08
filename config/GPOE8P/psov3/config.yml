@@ -423,7 +423,6 @@ force_active:
   - check_attack_hits__19TObjEneBm9MericarolFPv
   - check_floor_contact__18TObjEneMe3SinowZoaFPvPv
   - check_hit_by_id_276__10TObjPlayerFPvi
-  - check_hold_player__14TOTrapSeabed01FPv
   - check_local_player_in_range__12TObjRaderColFPv
   - check_open_trigger__19TContainerAncient01FPv
   - check_player_contact__14TOTrapChainSawFPv
@@ -566,7 +565,6 @@ force_active:
   - draw_node_tree__18TObjLaboDesignBaseFiPv
   - draw_node_tree__19TODoorFourLightBaseFPvPv
   - draw_object_tree__11TObjDoaEx01FPvi
-  - draw_object_tree__14TOTrapSeabed01FPvPv
   - draw_object_tree_recursive
   - draw_palette_cells__22TWindowSubCustomSelectFv
   - draw_part_models__15TODoorMachine01FiPvi
@@ -1239,7 +1237,6 @@ force_active:
   - spawn_scattered_lightning_strikes
   - spawn_slow_effect__10TObjPlayerFii
   - standing_state__14TObjEneBm5WolfFPvi
-  - start_bone_rot_player__24TObjWaitEntryHairMoveSimFPv
   - start_entry_timer__6TLobbyFPvUsi
   - start_quest_mission
   - start_udp_test_game__6TLobbyFv

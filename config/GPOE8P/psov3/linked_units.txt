@@ -992,7 +992,6 @@ pso/misc/TLobby_800F8AA8_800F8AD0.cpp
 pso/misc/TLobby_800F8AA8_800F8B20.cpp
 pso/misc/TLobby_800F8AA8_800F8C2C.cpp
 pso/misc/TLobby_800F8AA8_800F8D08.cpp
-pso/misc/TLobby_800F8AA8_800F8F40.cpp
 pso/misc/TLobby_800F9690.cpp
 pso/misc/TLobby_800F9A60.cpp
 pso/misc/TLobby_800F9D38.cpp
@@ -1058,7 +1057,6 @@ pso/misc/TLobby_8015C944_8015C944.cpp
 pso/misc/TLobby_80160804.cpp
 pso/misc/TLobby_8016ACC8.cpp
 pso/misc/TLobby_801819FC.cpp
-pso/misc/TLobby_801838D4.cpp
 pso/misc/TLobby_8018A20C.cpp
 pso/misc/TLobby_8018A20C_8018A20C.cpp
 pso/misc/TLobby_8018A20C_8018A360.cpp
@@ -1516,8 +1514,6 @@ pso/misc/TOTrapAncient02R.cpp
 pso/misc/TOTrapChainSawDamage_802C9BF8.cpp
 pso/misc/TOTrapChainSawEdge.cpp
 pso/misc/TOTrapChainSaw_802C9BE4.cpp
-pso/misc/TOTrapSeabed01.cpp
-pso/misc/TOTrapSeabed01_802CA2F0.cpp
 pso/misc/TOTrap_80179140.cpp
 pso/misc/TOTrap_801791EC.cpp
 pso/misc/TOTrap_801792AC.cpp
@@ -2218,8 +2214,6 @@ pso/npc/TObjNpcSecretaryBase.cpp
 pso/npc/TObjNpcSoldierBase.cpp
 pso/npc/TObjNpcSoldierMacho.cpp
 pso/npc/TObjNpcSoutokufu.cpp
-pso/object/LobbyPigeonPath.cpp
-pso/object/LobbyPigeonSelection.cpp
 pso/object/LobbyPigeonTheme.cpp
 pso/object/TObjAreaWarpQuest.cpp
 pso/object/TObjAreaWarp_80307B70.cpp
@@ -2254,16 +2248,6 @@ pso/object/TObjCityMainWarpChallenge.cpp
 pso/object/TObjCityMainWarp_801867F4.cpp
 pso/object/TObjCityMainWarp_80186C44.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
-pso/object/TObjCity_Season_21_21.cpp
-pso/object/TObjCity_Season_Board.cpp
-pso/object/TObjCity_Season_EasterEgg.cpp
-pso/object/TObjCity_Season_EasterEgg_80184AB8.cpp
-pso/object/TObjCity_Season_FireWorkCtrl.cpp
-pso/object/TObjCity_Season_HalloweenPumpkin.cpp
-pso/object/TObjCity_Season_SonicAdv2.cpp
-pso/object/TObjCity_Season_ValentineHeart.cpp
-pso/object/TObjCity_Season_XmasTree.cpp
-pso/object/TObjCity_Season_XmasWreath.cpp
 pso/object/TObjCollision.cpp
 pso/object/TObjCurtainLobby_8035B87C.cpp
 pso/object/TObjDFDemo2.cpp
@@ -2339,7 +2323,6 @@ pso/object/TObjOnlineEnding_802E4B80_802E4B80.cpp
 pso/object/TObjOnlineEnding_802E4B80_802E522C.cpp
 pso/object/TObjParticle.cpp
 pso/object/TObjParticleLobby.cpp
-pso/object/TObjPathObj.cpp
 pso/object/TObjQuestCol.cpp
 pso/object/TObjQuestCol2.cpp
 pso/object/TObjQuestCol2_80196E68.cpp
@@ -2389,8 +2372,6 @@ pso/object/TObjVoloptCage_80048CDC.cpp
 pso/object/TObjVoloptCage_8004912C.cpp
 pso/object/TObjVoloptPillar.cpp
 pso/object/TObjVoloptShutter.cpp
-pso/object/TObjWaitEntryHairMoveSim_800FE300.cpp
-pso/object/TObjWaitEntryHairMoveSim_800FE45C.cpp
 pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
@@ -3543,13 +3524,6 @@ pso/unk/text_801815A0.cpp
 pso/unk/text_80181F10.cpp
 pso/unk/text_80182E90.cpp
 pso/unk/text_80183018.cpp
-pso/unk/text_801830BC.cpp
-pso/unk/text_8018386C.cpp
-pso/unk/text_80183BFC.cpp
-pso/unk/text_80183D00.cpp
-pso/unk/text_80183F24.cpp
-pso/unk/text_8018411C.cpp
-pso/unk/text_80184B44.cpp
 pso/unk/text_80189E3C.cpp
 pso/unk/text_80189F24.cpp
 pso/unk/text_8018A150.cpp

@@ -1,3 +1,5 @@
+#pragma push
+
 #include "types.h"
 typedef s32 M2C_UNK;
 
@@ -18,8 +20,8 @@ extern u8 lbl_804B593C[];
 extern s32 lbl_805D3248;
 extern const f32 lbl_805DBBC8;
 Obj_801815F8 *construct_traffic_manager(Obj_801815F8 *arg0);
-Info_80181698 *get_city_common_motion(s32);
-void *get_city_common_model(s32);
+s32 get_city_common_motion(s32 i);
+s32 get_city_common_model(s32 i);
 void bind_motion_context(s32, f32);
 void sample_motion_node_transform(void *, void *, void *, void *, void *);
 extern s32 lbl_80443B18[];
@@ -61,7 +63,7 @@ s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
     f32 sp8[4];
     f32 lim;
     s32 r;
-    Info_80181698 *m = get_city_common_motion(lbl_80443B18[arg0]);
+    Info_80181698 *m = ((Info_80181698 * (*)(s32))get_city_common_motion)(lbl_80443B18[arg0]);
     u32 n = m->n;
     r = 1;
     lim = (f32)(n - 1);
@@ -70,7 +72,7 @@ s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
         r = 0;
     }
     bind_motion_context((s32)m, farg0);
-    void *t = get_city_common_model(lbl_80443B2C[arg0]);
+    void *t = ((void * (*)(s32))get_city_common_model)(lbl_80443B2C[arg0]);
     sample_motion_node_transform(t, arg1, &sp24, &sp18, &sp8);
     return r;
 }
@@ -86,3 +88,36 @@ void fn_80181750(void) {
 }
 
 }
+
+#pragma pop
+
+#pragma push
+
+#include "types.h"
+struct E_801819CC { s32 a; s32 b; };
+
+struct O_801819CC { u8 pad[0x430]; E_801819CC *entries; };
+
+struct E_801819E4 { s32 a; s32 b; s32 c; s32 d; };
+
+struct O_801819E4 { u8 pad[0x42c]; E_801819E4 *entries; };
+
+extern "C" {
+extern O_801819CC *lbl_805D5B28;
+s32 get_city_common_motion(s32 i);
+extern O_801819CC *lbl_805D5B28;
+s32 get_city_common_model(s32 i);
+}
+
+extern "C" {
+
+s32 get_city_common_motion(s32 i) {
+    return lbl_805D5B28->entries[i].b;
+}
+s32 get_city_common_model(s32 i) {
+    return (*(O_801819E4 * *)&lbl_805D5B28)->entries[i].c;
+}
+
+}
+
+#pragma pop
