@@ -2045,10 +2045,24 @@ pso/enemy/TObjEneRe2Flower_800C3E14.cpp:
 	.data       start:0x804933A8 end:0x804933D8
 
 pso/player/TObjPlayer_800C4714.cpp:
-	.text       start:0x800C4714 end:0x800C69E8
+	.text       start:0x800C4714 end:0x800C4B78
+	.rodata     start:0x8043BC10 end:0x8043BC48
+	.data       start:0x804933D8 end:0x80493438
+	.sdata      start:0x805D2A50 end:0x805D2A54
+	.sdata2     start:0x805DA004 end:0x805DA020
+
+pso/enemy/TObjEneRe2Flower_800C4B78.cpp:
+	.text       start:0x800C4B78 end:0x800C4E08
+	.rodata     start:0x8043BC48 end:0x8043BC64
+	.data       start:0x80493438 end:0x80493450
+	.bss        start:0x80500C00 end:0x80500C38
+	.sdata      start:0x805D2A58 end:0x805D2A5C
+	.sdata2     start:0x805DA020 end:0x805DA028
+
+pso/enemy/TObjEneBeast_800C4E08.cpp:
+	.text       start:0x800C4E08 end:0x800C69E8
 	.rodata     start:0x8043BC78 end:0x8043BC88
 	.data       start:0x804935EC end:0x80493614
-	.bss        start:0x80500C00 end:0x80500C30
 
 pso/unk/text_800C69E8.cpp:
 	.text       start:0x800C69E8 end:0x800C6CF0
@@ -2096,19 +2110,16 @@ pso/enemy/TObjEneMe1Gee.cpp:
 	.sdata2     start:0x805DA0D8 end:0x805DA0E8
 
 pso/enemy/TObjEneBm5GibonU.cpp:
-	.text       start:0x800CCB24 end:0x800D1F84
+	.text       start:0x800CCB24 end:0x800D1E4C
 	.ctors      start:0x80433F5C end:0x80433F60
 	.rodata     start:0x8043C0F0 end:0x8043C0F8
 	.data       start:0x80493CA0 end:0x80494104
 	.bss        start:0x80500E78 end:0x80500ED0
 	.sdata2     start:0x805DA158 end:0x805DA258
 
-pso/object/TObjGyaranzoMissile_800D1F84.cpp:
-	.text       start:0x800D1F84 end:0x800D2900
-	.rodata     start:0x8043C3A8 end:0x8043C428
-
 pso/enemy/TObjEneGyaranzo.cpp:
-	.text       start:0x800D2900 end:0x800D40D8
+	.text       start:0x800D1E4C end:0x800D40D8
+	.rodata     start:0x8043C3A8 end:0x8043C428
 	.data       start:0x80494108 end:0x804943FC
 	.sdata2     start:0x805DA27C end:0x805DA280
 

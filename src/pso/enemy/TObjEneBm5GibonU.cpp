@@ -5162,30 +5162,6 @@ s32 try_activate__16TObjEneBm5GibonUFi(s32 arg0) {
     }
     return 0;
 }
-void update_walk_to_target__10TObjPlayerFPv(Ene_800D1E4C *arg0) {
-    switch (arg0->state) {
-    case -1:
-        break;
-    case 0:
-        arg0->col->flags &= ~0x380000;
-        arg0->flags30 &= ~0x100;
-        arg0->fB8 = 1;
-        VecCopy__FP3VecPC3Vec(&arg0->v29C, &arg0->target);
-        arg0->state = 1;
-    case 1:
-        advance_animation_playback(arg0);
-        apply_actor_gravity(arg0, 0, lbl_805DA258);
-        VecCopy__FP3VecPC3Vec(&arg0->v290, &arg0->v2FC);
-        calc_velocity_toward_destination(arg0, arg0->v290, arg0->v29C, arg0->param->speed);
-        update_angle__10TObjPlayerFPviPv(arg0, arg0->param->turn, arg0->v308);
-        move_with_wall_slide(arg0);
-        update_collisions__10TObjPlayerFPv(arg0);
-        if (xz_distance_squared(&arg0->pos, &arg0->target) <= lbl_805DA25C) {
-            update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
-        }
-        break;
-    }
-}
 
 }
 
