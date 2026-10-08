@@ -132,13 +132,27 @@ extern const f32 lbl_805DFA98;
 extern const f32 lbl_805DFAB0;
 extern const f32 lbl_805DFAB4;
 void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0);
+void clear_render_callback__8TObjFishFv(int);
+void TObjFish__sub_800E3074(int);
+void reset_fish_globals__8TObjFishFv();
+void TBoss6PlotFalz__sub_802ABF44(f32);
+void push_matrix();
+void pop_matrix();
+void post_translate_matrix(void *);
+int set_global_param__8TObjFishFi(void);
+void draw_model_motion(int, int, f32);
+void set_global_flag__10TObjPlayerFv();
+void clear_global_state__10TObjPlayerFv();
+extern const f32 lbl_805DFA98;
+extern const f32 lbl_805DFA9C;
+extern const f32 lbl_805DFAA4;
+void TObjFish__sub_8033DFB4(u8 *arg0);
 }
 
 extern "C" {
 
 void update__8TObjFishFPv(void* p);
 void TObjFish__sub_8033DE60(void*);
-int TObjFish__sub_8033DFB4(void*);
 int TObjPlayer__sub_803078B0(void);
 int load_list_texture(int, int, int, int);
 void init_particle_effect__10TObjPlayerFv(void);
@@ -219,7 +233,37 @@ void TObjFish__sub_8033DE60(void *p) {
 }
 #undef arg0
 
-void update__8TObjFishFPv(void* p) { TObjFish__sub_8033DFB4(p); TObjFish__sub_8033DE60(p); TObjFish__sub_8033DD4C((void *)(p)); render_effect__8TObjFishFPv(p); }
+void TObjFish__sub_8033DFB4(u8 *arg0) {
+    f32 var_f31;
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x50);
+    if (temp_r0 < 0x101) {
+        var_f31 = lbl_805DFA9C;
+    } else if (temp_r0 >= 0x10F) {
+        var_f31 = lbl_805DFA98;
+    } else {
+        var_f31 = (f32) (0x10F - temp_r0) / lbl_805DFAA4;
+    }
+    if (lbl_805DFA98 != var_f31) {
+        if (var_f31 < lbl_805DFA9C) {
+            TBoss6PlotFalz__sub_802ABF44(var_f31);
+        }
+        push_matrix();
+        set_global_flag__10TObjPlayerFv();
+        post_translate_matrix(arg0 + 0x58);
+        ((int (*)(s32))set_global_param__8TObjFishFi)(M2C_FIELD(arg0, s32 *, 0x20));
+        TObjFish__sub_800E3074(M2C_FIELD(arg0, s32 *, 0x70));
+        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x1C), M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, f32 *, 0x4C));
+        clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x70));
+        clear_global_state__10TObjPlayerFv();
+        pop_matrix();
+        if (var_f31 < lbl_805DFA9C) {
+            reset_fish_globals__8TObjFishFv();
+        }
+    }
+}
+
+void update__8TObjFishFPv(void* p) { TObjFish__sub_8033DFB4((u8 *)(p)); TObjFish__sub_8033DE60(p); TObjFish__sub_8033DD4C((void *)(p)); render_effect__8TObjFishFPv(p); }
 
 #pragma push
 #pragma pool_data off

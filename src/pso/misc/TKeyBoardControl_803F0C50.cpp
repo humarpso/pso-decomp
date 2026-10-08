@@ -92,6 +92,21 @@ struct Kbd_803F1210 {
     u8 cur[4];
 };
 
+typedef s32 M2C_UNK;
+struct Kbd_803F1210;
+struct Kb_803F132C {
+    u8 type;
+    u8 pad1[0x1B];
+    s32 err;
+    u8 pad20[0x14];
+    u8 prev[4];
+    u8 cur[4];
+    u8 queue[32];
+    u32 count;
+    u32 head;
+    u8 pad64[4];
+};
+
 extern "C" {
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 u8 TKeyBoardControl__sub_803F1548(s32 arg0);
@@ -142,6 +157,10 @@ void SIEnablePolling(u32);
 s32 SIGetResponse(s32, void *);
 extern s32 lbl_805D793C;
 void TKeyBoardControl__sub_803F1560(s32 arg0);
+extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
+void *memset(void *, int, u32);
+void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p);
+void TKeyBoardControl__sub_803F132C(s32 chan);
 }
 
 extern "C" {
@@ -374,6 +393,76 @@ void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p) {
         p->cur[n] = 0;
     }
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline s32 kb_push_803F132C(Kb_803F132C *k, u8 c) {
+    if (k->count < 32) {
+        k->queue[(k->head + k->count) & 31] = c;
+        k->count++;
+        return 1;
+    }
+    return 0;
+}
+void TKeyBoardControl__sub_803F132C(s32 chan) {
+    Kb_803F132C *k;
+    u8 c;
+    s32 j;
+    s32 i;
+    s32 j2;
+    u8 c2;
+    s32 i2;
+    k = &((Kb_803F132C *)&lbl_805A2720)[chan];
+    if (k->err == -1) {
+        memset(k->prev, 0, 4);
+        memset(k->cur, 0, 4);
+    }
+    if (k->err != 0) {
+        return;
+    }
+    switch (k->type) {
+    case 1:
+    case 2:
+        TKeyBoardControl__sub_803F1210((Kbd_803F1210 *)k);
+        break;
+    default:
+        return;
+    }
+    for (i = 0; i < 4 && k->count < 32; i++) {
+        c = k->prev[i];
+        if (c != 0) {
+            for (j = 0; j < 4; j++) {
+                if (c == k->cur[j]) {
+                    break;
+                }
+            }
+            if (j == 4) {
+                if (!kb_push_803F132C(k, c | 0x80)) {
+                    k->err = -4;
+                    return;
+                }
+            }
+        }
+    }
+    for (i2 = 0; i2 < 4; i2++) {
+        c2 = k->cur[i2];
+        if (c2 != 0) {
+            for (j2 = 0; j2 < 4; j2++) {
+                if (c2 == k->prev[j2]) {
+                    break;
+                }
+            }
+            if (j2 == 4) {
+                if (!kb_push_803F132C(k, c2)) {
+                    k->err = -4;
+                    return;
+                }
+            }
+        }
+    }
+}
+#pragma pop
 
 u8 TKeyBoardControl__sub_803F1548(s32 arg0) {
     return M2C_FIELD(((u8 *)&lbl_805A2720.value + (arg0 * 0x68)), u8 *, 1);

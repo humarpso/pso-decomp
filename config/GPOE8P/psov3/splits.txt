@@ -10000,6 +10000,8 @@ pso/misc/TWindowCtrl_8024B794.cpp:
 
 pso/misc/TWindowCtrl_8024B7D4.cpp:
 	.text       start:0x8024B7D4 end:0x8024B9C0
+	.rodata     start:0x8044EBE8 end:0x8044EBF0
+	.sdata2     start:0x805DCBE8 end:0x805DCC18
 
 pso/misc/TWindowCtrl_8024B9C0.cpp:
 	.text       start:0x8024B9C0 end:0x8024BB30
@@ -15896,6 +15898,7 @@ pso/misc/TLobby_804048E8.cpp:
 
 pso/misc/TLobby_804050DC.cpp:
 	.text       start:0x804050DC end:0x8041ED8C
+	.data       start:0x804FD84C end:0x804FD890
 
 pso/unk/text_8041ED8C.cpp:
 	.text       start:0x8041ED8C end:0x80421178

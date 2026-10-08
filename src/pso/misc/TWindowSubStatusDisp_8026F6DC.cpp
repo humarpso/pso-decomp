@@ -4,6 +4,26 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
+struct Disp_8026F9F4 { u8 p0[0x20]; s16 id; u8 p1[0x42]; void *windows[5]; };
+
+extern "C" {
+int obj_getArrWord_254(void *p, int i);
+void * get_player_by_client_id();
+void *__nw__7TObjectFUl(int);
+s32 fn_80244994(void *);
+void TWindow__close(void *);
+s32 set_field_1c__6TLobbyFPvf(void *, f32);
+void *get_card_name_ptr__14TWindowComCardFPv(void *p);
+s32 get_status_effect_icon_index(u32 arg0);
+void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
+void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1);
+void *TWindowComCard__sub_80249ED8(void *, void *, void *, s32, s32, s32);
+f32 get_scale__20TWindowSubStatusDispFPv(void *p);
+extern const f32 lbl_805DD38C;
+extern const f32 lbl_805DD398;
+void TWindowComCard__sub_8026F9F4(Disp_8026F9F4 *arg0, void *arg1);
+}
+
 extern "C" {
 
 struct VtBase4_8026f71c_more_8026f8cc_0 { void *vtable; };
@@ -134,6 +154,10 @@ extern const f32 lbl_805DD3F4;
 extern const f32 lbl_805DD3F8;
 extern const f32 lbl_805DD3FC;
 
+extern "C" {
+s32 get_photon_blast_chain(Slots_80270060 *);
+}
+
 void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4))));
@@ -218,6 +242,79 @@ s32 update_hp_entry__20TWindowSubStatusDispFPv(u8 *arg0) {
     }
     start_text_color_transition((void *)((int) (temp_r31)), (M2C_UNK)((int) (var_r4)), (f32) (lbl_805DD394));
     return var_r30;
+}
+
+void TWindowComCard__sub_8026F9F4(Disp_8026F9F4 *arg0, void *arg1) {
+    Slots_80270060 buf;
+    s32 k;
+    s32 count;
+    s32 i;
+    s32 j;
+    s32 name;
+    void *w;
+    void *player;
+    player = ((void *(*)(s32))get_player_by_client_id)(arg0->id);
+    if (player == NULL || fn_80244994(arg0) == 0) {
+        for (i = 0; i < 5; i++) {
+            if (arg0->windows[i] != NULL) {
+                TWindow__close(arg0->windows[i]);
+                arg0->windows[i] = NULL;
+            }
+        }
+        return;
+    }
+    count = 0;
+    j = 0;
+    i = ((s32 (*)(Slots_80270060 *, s32))get_photon_blast_chain)(&buf, arg0->id);
+    if (i == 1 || i == 2) {
+        for (i = 0; buf.type[i] != -1; i++) {
+            if (buf.id[i] == arg0->id) {
+                break;
+            }
+        }
+        name = (s32)get_card_name_ptr__14TWindowComCardFPv((void *)i);
+        w = arg0->windows[j];
+        if (w == NULL) {
+            w = __nw__7TObjectFUl(0x74);
+            if (w != NULL) {
+                w = TWindowComCard__sub_80249ED8(w, arg0, arg1, 0, name, arg0->id);
+            }
+            arg0->windows[j] = w;
+            set_field_1c__6TLobbyFPvf(arg0->windows[j], lbl_805DD38C + get_scale__20TWindowSubStatusDispFPv(arg0));
+        } else {
+            TWindowComCard__sub_80249D7C((u8 *)w, 0);
+            set_selected_index__14TWindowComCardFPvi(arg0->windows[j], name);
+        }
+        count = 1;
+    } else if (arg0->windows[j] != NULL) {
+        TWindow__close(arg0->windows[j]);
+        arg0->windows[j] = NULL;
+    }
+    j++;
+    for (k = 0; k < 4; k++, j++) {
+        s32 word = obj_getArrWord_254(player, k);
+        if (word == 0) {
+            if (arg0->windows[j] != NULL) {
+                TWindow__close(arg0->windows[j]);
+                arg0->windows[j] = NULL;
+            }
+        } else {
+            name = get_status_effect_icon_index(word);
+            w = arg0->windows[j];
+            if (w == NULL) {
+                w = __nw__7TObjectFUl(0x74);
+                if (w != NULL) {
+                    w = TWindowComCard__sub_80249ED8(w, arg0, arg1, count, name, arg0->id);
+                }
+                arg0->windows[j] = w;
+                set_field_1c__6TLobbyFPvf(arg0->windows[j], lbl_805DD398 + ((f32)k + get_scale__20TWindowSubStatusDispFPv(arg0)));
+            } else {
+                TWindowComCard__sub_80249D7C((u8 *)w, count);
+                set_selected_index__14TWindowComCardFPvi(arg0->windows[j], name);
+            }
+            count++;
+        }
+    }
 }
 
 #pragma push

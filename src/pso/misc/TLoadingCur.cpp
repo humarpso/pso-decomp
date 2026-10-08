@@ -45,6 +45,10 @@ struct Self_8001CD90 {
     u8 f44[0xC];
 };
 
+struct Obj_8001CCD4 { u8 pad0[0x38]; f32 f38; f32 f3c; f32 f40; };
+
+struct V2_8001CCD4 { f32 x, y; };
+
 extern "C" {
 extern const f32 lbl_805D7E94;
 extern const f32 lbl_805D7E98;
@@ -74,13 +78,20 @@ extern const f32 lbl_805D7EB4;
 extern const f32 lbl_805D7EB8;
 extern const f32 lbl_805D7EBC;
 void run_task__11TLoadingCurFv(void *arg0);
+s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2);
+s32 project_world_to_screen(int, void *, void *);
+void push_matrix(void);
+void pop_matrix(void);
+extern const f32 TLoadingCur__data_805D7E9C;
+extern const f32 lbl_805D7EA8;
+extern const f32 lbl_805D7EAC;
+int TLoadingCur__sub_8001CCD4(void *arg0);
 }
 
 extern "C" {
 
 void *__dt__11TLoadingCurFv(void *arg0, s16 arg1);
 int render__11TLoadingCurFv(void* p);
-int TLoadingCur__sub_8001CCD4(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
@@ -111,7 +122,28 @@ s32 TLoadingCur__sub_8001CC28(M2C_UNK arg0, u8 *arg1, u8 *arg2) {
     return (u32)__cntlzw((u32)((((temp_f0 * temp_f0) + (temp_f1 * temp_f1)) <= TLoadingCur__data_805D7E9C))) >> 5;
 }
 
-int render__11TLoadingCurFv(void* p) { return TLoadingCur__sub_8001CCD4(p); }
+int TLoadingCur__sub_8001CCD4(void *arg0) {
+    Obj_8001CCD4 *self = (Obj_8001CCD4 *)arg0;
+    f32 sp10[2];
+    V2_8001CCD4 v;
+    push_matrix();
+    project_world_to_screen(0, (u8 *)self + 0x2c, sp10);
+    pop_matrix();
+    if (TLoadingCur__sub_8001CC28((M2C_UNK)((s32)self), (u8 *)((u8 *)sp10), (u8 *)((u8 *)&v)) != 0) {
+        f32 t[3];
+        t[0] = v.x;
+        t[1] = v.y;
+        t[2] = TLoadingCur__data_805D7E9C;
+        t[0] *= lbl_805D7EA8;
+        t[1] *= lbl_805D7EAC;
+        t[2] *= lbl_805D7EA8;
+        self->f38 += t[0];
+        self->f3c += t[1];
+        self->f40 += t[2];
+    }
+}
+
+int render__11TLoadingCurFv(void* p) { return TLoadingCur__sub_8001CCD4((void *)(p)); }
 
 extern M2C_UNK __vt__11TLoadingCur[];
 

@@ -40,6 +40,48 @@ struct Out_803CDEC8 {
     Ent2_803CDEC8 e2[1];
 };
 
+#define BE32_803CDB0C(p) (((p)[0] << 24) | ((p)[1] << 16) | ((p)[2] << 8) | (p)[3])
+#define BE16_803CDB0C(p) (((p)[0] << 8) | (p)[1])
+struct Stream_803CDB0C;
+struct Chunk_803CDB0C {
+    u8 *data;
+    s32 len;
+};
+
+struct Hdr_803CDB0C {
+    u32 magic;
+    s32 size;
+    u8 b[2];
+    s16 len;
+    s32 w;
+};
+
+struct StreamVt_803CDB0C {
+    u8 pad[0x18];
+    void (*get)(Stream_803CDB0C *, s32, s32, Chunk_803CDB0C *);
+    void (*release)(Stream_803CDB0C *, s32, Chunk_803CDB0C *);
+    void (*commit)(Stream_803CDB0C *, s32, Chunk_803CDB0C *);
+    s32 (*avail)(Stream_803CDB0C *, s32);
+};
+
+struct Stream_803CDB0C {
+    StreamVt_803CDB0C *vt;
+};
+
+struct Obj_803CDB0C {
+    u8 f0;
+    s8 f1;
+    s8 nch;
+    u8 pad3;
+    s8 f4;
+    u8 pad5[3];
+    s32 f8;
+    u8 padC[0x10];
+    Stream_803CDB0C *src;
+    Stream_803CDB0C *ch[0x23];
+    s8 n;
+};
+
 extern "C" {
 void TLobby__sub_803CE198(Obj_803CE198 *self, s32 i, s32 *a, s32 *b);
 char *strncpy(char *, const char *, u32);
@@ -61,6 +103,11 @@ int memcmp(const void *, const void *, unsigned long);
 unsigned long strlen(const char *);
 extern char *lbl_805D4688;
 s32 TLobby__sub_803CDEC8(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2);
+void TLobby__sub_803D1FD4(void);
+void lock_enter__6TLobbyFv(void);
+void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
+void *memcpy(void *, const void *, u32);
+s32 TLobby__sub_803CDB0C(Obj_803CDB0C *o);
 }
 
 extern "C" {
@@ -114,6 +161,103 @@ s32 TLobby__sub_803CD840(s32 id, const char *name, s32 arg2, Ent_803CD840 *e) {
     e->f8 = 0;
     return 0;
 }
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+static inline s32 parse_803CDB0C(u8 *data, u32 len, Hdr_803CDB0C *h) {
+    u8 *p;
+    if (len < 0x10) {
+        return 0;
+    }
+    p = data;
+    *(u32 *)((u8 *)h + 0) = BE32_803CDB0C(p);
+    p += 4;
+    *(s32 *)((u8 *)h + 4) = BE32_803CDB0C(p);
+    p += 4;
+    ((u8 *)h)[8] = *p++;
+    ((u8 *)h)[9] = *p++;
+    *(s16 *)((u8 *)h + 10) = BE16_803CDB0C(p);
+    p += 2;
+    *(s32 *)((u8 *)h + 12) = BE32_803CDB0C(p);
+    p += 4;
+    if (p - data != sizeof(Hdr_803CDB0C)) {
+        while (1) {
+        }
+    }
+    return 0x10;
+}
+s32 TLobby__sub_803CDB0C(Obj_803CDB0C *o) {
+    Stream_803CDB0C *s;
+    Stream_803CDB0C **ch;
+    s32 n;
+    s32 i;
+    s32 ret;
+    s32 c;
+    s32 len;
+    s32 j;
+    Hdr_803CDB0C hdr;
+    Chunk_803CDB0C c1;
+    Chunk_803CDB0C c2;
+    Chunk_803CDB0C tmp;
+    ret = -3;
+    ch = o->ch;
+    n = o->n;
+    s = o->src;
+    for (i = 0; i < n; i++) {
+        s->vt->get(s, 1, 0x7FFFFFFF, &c1);
+        if (parse_803CDB0C(c1.data, c1.len, &hdr) == 0) {
+            s->vt->release(s, 1, &c1);
+            return ret;
+        }
+        if (c1.len < hdr.size + 8) {
+            s->vt->release(s, 1, &c1);
+            return ret;
+        }
+        if (hdr.magic == 0x41495845) {
+            TLobby__sub_803D3130(&c1, hdr.size + 8, &c1, &c2);
+            s->vt->commit(s, 0, &c1);
+            s->vt->release(s, 1, &c2);
+            if (s->vt->avail(s, 1) <= 0) {
+                o->f4 = 0;
+            }
+            if (o->f4 == 0) {
+                o->f1 = 3;
+            }
+            return ret;
+        }
+        c = hdr.b[0];
+        if (c >= o->nch) {
+            while (1) {
+            }
+        }
+        if (ch[c]->vt->avail(ch[c], 0) < hdr.len) {
+            s->vt->release(s, 1, &c1);
+            return ret;
+        }
+        lock_enter__6TLobbyFv();
+        ret = hdr.w;
+        TLobby__sub_803D3130(&c1, hdr.size + 8, &c1, &c2);
+        s->vt->release(s, 1, &c2);
+        TLobby__sub_803D3130(&c1, 0x10, &c1, &c2);
+        if (c2.len < hdr.len) {
+            while (1) {
+            }
+        }
+        len = hdr.len;
+        for (j = 0; j < len; j += tmp.len) {
+            ch[c]->vt->get(ch[c], 0, c2.len - j, &tmp);
+            memcpy(tmp.data, c2.data + j, tmp.len);
+            ch[c]->vt->commit(ch[c], 1, &tmp);
+        }
+        s->vt->commit(s, 0, &c1);
+        s->vt->commit(s, 0, &c2);
+        o->f8 = c2.len + (c1.len + o->f8);
+        TLobby__sub_803D1FD4();
+    }
+    return ret;
+}
+#pragma pop
 
 s32 TLobby__sub_803CDEC8(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2) {
     s32 len;

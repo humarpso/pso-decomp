@@ -925,6 +925,8 @@ B_803FADA0 *TLobby__sub_80401CE8(s32);
 u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
+s32 TLobby__sub_80414D54(u8 *arg0, u8 *arg1, s16 arg2);
+s32 TLobby__sub_80414EF8(u8 *a, u8 *b, s16 bits);
 }
 
 extern "C" {
@@ -4235,6 +4237,121 @@ s32 TLobby__sub_80414B54(s32 arg0, s32 arg1) {
         return 1;
     }
     return 0;
+}
+
+s32 TLobby__sub_80414D54(u8 *arg0, u8 *arg1, s16 arg2) {
+    s16 n;
+    s16 rem;
+    s32 a;
+    s32 b;
+    if (arg2 <= 0) {
+        return 0;
+    }
+    rem = arg2 % 8;
+    n = arg2 / 8;
+    while (n > 0) {
+        if (*arg0 != *arg1) {
+            return *arg0 - *arg1;
+        }
+        arg0--;
+        arg1--;
+        n--;
+    }
+    switch (rem) {
+    case 1:
+        a = *arg0 & 1;
+        b = *arg1 & 1;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    case 2:
+        a = *arg0 & 3;
+        b = *arg1 & 3;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    case 3:
+        a = *arg0 & 7;
+        b = *arg1 & 7;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    case 4:
+        a = *arg0 & 0xF;
+        b = *arg1 & 0xF;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    case 5:
+        a = *arg0 & 0x1F;
+        b = *arg1 & 0x1F;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    case 6:
+        a = *arg0 & 0x3F;
+        b = *arg1 & 0x3F;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    case 7:
+        a = *arg0 & 0x7F;
+        b = *arg1 & 0x7F;
+        if (a != b) {
+            return a - b;
+        }
+        return 0;
+    }
+    return 0;
+}
+
+s32 TLobby__sub_80414EF8(u8 *a, u8 *b, s16 bits) {
+    s16 n;
+    s16 rem;
+    if (bits <= 0) {
+        return 0;
+    }
+    rem = bits % 8;
+    n = bits / 8;
+    for (; n > 0; n--) {
+        if (*a != *b) {
+            return *a - *b;
+        }
+        a++;
+        b++;
+    }
+    switch (rem) {
+    case 1:
+        if ((*a & 0x80) != (*b & 0x80)) return (*a & 0x80) - (*b & 0x80);
+        return 0;
+    case 2:
+        if ((*a & 0xC0) != (*b & 0xC0)) return (*a & 0xC0) - (*b & 0xC0);
+        return 0;
+    case 3:
+        if ((*a & 0xE0) != (*b & 0xE0)) return (*a & 0xE0) - (*b & 0xE0);
+        return 0;
+    case 4:
+        if ((*a & 0xF0) != (*b & 0xF0)) return (*a & 0xF0) - (*b & 0xF0);
+        return 0;
+    case 5:
+        if ((*a & 0xF8) != (*b & 0xF8)) return (*a & 0xF8) - (*b & 0xF8);
+        return 0;
+    case 6:
+        if ((*a & 0xFC) != (*b & 0xFC)) return (*a & 0xFC) - (*b & 0xFC);
+        return 0;
+    case 7:
+        if ((*a & 0xFE) != (*b & 0xFE)) return (*a & 0xFE) - (*b & 0xFE);
+        return 0;
+    case 0:
+    default:
+        return 0;
+    }
 }
 
 void TLobby__sub_804150EC(void) {

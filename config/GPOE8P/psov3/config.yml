@@ -891,6 +891,7 @@ force_active:
   - step_ground_technique_projectile
   - step_placement_search
   - strstr
+  - subtractive_rng_refill
   - teardown_render_state__10TObjPlayerFPv
   - tick_battle_music_timer
   - transfer_to_town__9TObjLukerFv

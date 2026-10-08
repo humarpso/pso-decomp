@@ -25,6 +25,9 @@ void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32
 extern u8 lbl_80500398[256], lbl_80500498[256];
 extern u16 TAdSinglePlyChrSelectGC__sub_8007C584(s32*,u16);
 void subtractive_rng_make_shuffle(s32* stream);
+extern void* memcpy(void*,const void*,u32);
+extern u8 lbl_80500398[256], lbl_80500398[256];
+void TAdSinglePlyChrSelectGC__sub_8007C1CC(void* stream,const u8* source,u8* destination,u32 size);
 }
 
 extern "C" {
@@ -42,6 +45,14 @@ void subtractive_rng_unshuffle(void* stream,const u8* source,u8* destination,u32
  memcpy(destination,source,size);
  for(block=0;block<(size>>8);block++) {
   for(i=0;i<256;i++) destination[(block<<8)+lbl_80500498[i]]=source[(block<<8)+i];
+ }
+}
+
+void TAdSinglePlyChrSelectGC__sub_8007C1CC(void* stream,const u8* source,u8* destination,u32 size) {
+ u32 block,i;
+ memcpy(destination,source,size);
+ for(block=0;block<(size>>8);block++) {
+  for(i=0;i<256;i++) destination[(block<<8)+lbl_80500398[i]]=source[(block<<8)+i];
  }
 }
 

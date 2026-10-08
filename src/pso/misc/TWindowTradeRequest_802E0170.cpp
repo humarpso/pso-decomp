@@ -34,6 +34,8 @@ struct RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest
   u8 remaining[0x14];
 };
 
+struct Obj_802E0174 { u8 pad[0x1C]; s32 state; void *card; };
+
 extern "C" {
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK init_parts__10TObjPlayerFPv();
@@ -65,17 +67,55 @@ extern s32 lbl_805D3F70;
 extern s32 lbl_805D53A0;
 extern const f32 lbl_805DE8A0;
 u8 *TWindowTradeRequest__ct(u8 *arg0);
+void TWindowTradeRequest__sub_80249FCC();
+s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
+s32 get_card_data__17TWindowSubComCardFPv(void *);
+s32 TWindowSubComCard__sub_802A57FC(void *);
+void reset_trade__19TWindowTradeRequestFv();
+void TLobby__sub_802D23E0();
+void run_task__19TWindowTradeRequestFv(Obj_802E0174 *arg0);
 }
 
 extern "C" {
 
 void render__19TWindowTradeRequestFv(void);
-int run_task__19TWindowTradeRequestFv(void);
 
 void render__19TWindowTradeRequestFv(void) {  }
 
-int run_task__19TWindowTradeRequestFv(void) { return 0; }
 typedef char RecoveredGlobal_802E0224___vt__19TWindowTradeRequest_size[sizeof(RecoveredGlobal_802E0224___vt__19TWindowTradeRequest) == 0x18 ? 1 : -1];
+
+void run_task__19TWindowTradeRequestFv(Obj_802E0174 *arg0) {
+    s32 slot;
+    switch (arg0->state) {
+    case 0:
+    case 1:
+        if (get_card_data__17TWindowSubComCardFPv(arg0->card) != 0) {
+            reset_trade__19TWindowTradeRequestFv();
+            TWindowTradeRequest__sub_80249FCC();
+            arg0->state = 3;
+            break;
+        }
+        if (TWindowSubComCard__sub_802A57FC(arg0->card) != 0) {
+            slot = get_slot_or_neg1__17TWindowSubComCardFPv(arg0->card);
+            if (slot == 0) {
+                TLobby__sub_802D23E0();
+                TWindowTradeRequest__sub_80249FCC();
+                arg0->state = 2;
+            }
+            if (slot == 1) {
+                reset_trade__19TWindowTradeRequestFv();
+                TWindowTradeRequest__sub_80249FCC();
+                arg0->state = 3;
+            }
+        }
+        break;
+    case 2:
+    case 3:
+    default:
+        break;
+    }
+}
+
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TWindowTradeRequest.value;

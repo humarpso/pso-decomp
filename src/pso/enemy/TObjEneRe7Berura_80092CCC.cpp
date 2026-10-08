@@ -256,6 +256,89 @@ struct F_8009331C {
     f32 f4D0;
 };
 
+struct VBase_14_fddec9 { char pad[0x14]; };
+
+struct VObj_14_fddec9 : VBase_14_fddec9 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8();
+};
+
+struct Fade_80092CCC { VObj_14_fddec9 v; u8 pad[0x1C - sizeof(VObj_14_fddec9)]; };
+
+struct VBase_18_1fdb47 { char pad[0x18]; };
+
+struct VObj_18_1fdb47 : VBase_18_1fdb47 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8(f32, f32);
+    virtual s32 m9(f32, f32, f32);
+    virtual void m10(); virtual void m11(); virtual void m12(); virtual void m13(); virtual void m14();
+    virtual void m15(); virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23(); virtual void m24();
+    virtual void m25(); virtual void m26(); virtual void m27(); virtual void m28(); virtual void m29();
+    virtual void m30(); virtual void m31(); virtual void m32(); virtual void m33(); virtual void m34();
+    virtual void m35(); virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43(); virtual void m44();
+    virtual void m45(); virtual void m46(); virtual void m47(); virtual void m48(); virtual void m49();
+    virtual void m50(); virtual void m51(); virtual void m52(); virtual void m53(); virtual void m54();
+    virtual void m55(); virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63(); virtual void m64();
+    virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69();
+    virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74();
+    virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78(); virtual void m79();
+    virtual void m80(); virtual void m81(); virtual void m82(); virtual void m83(); virtual void m84();
+    virtual void m85(); virtual void m86(); virtual void m87(); virtual void m88(); virtual void m89();
+    virtual void m90(); virtual void m91(); virtual void m92(); virtual void m93(); virtual void m94();
+    virtual void m95(); virtual void m96(); virtual void m97(); virtual void m98(); virtual void m99();
+    virtual void m100(); virtual void m101(); virtual void m102(); virtual void m103();
+    virtual void m104();
+};
+
+struct Vec_80092CCC { f32 x, y, z; };
+
+struct Elem_80092CCC { u8 data[0x64]; };
+
+struct Berura_80092CCC {
+    VObj_18_1fdb47 v;
+    u8 pad1C[0x24 - sizeof(VObj_18_1fdb47)];
+    s32 f24;
+    u8 pad28[0x10];
+    Vec_80092CCC pos;
+    u8 pad44[0x1C];
+    s32 f60;
+    u8 pad64[0x2FC - 0x64];
+    Vec_80092CCC f2FC;
+    u8 pad308[0x326 - 0x308];
+    s16 f326;
+    u8 pad328[0x3C0 - 0x328];
+    s32 f3C0;
+    s32 f3C4;
+    u32 f3C8;
+    u8 pad3CC[4];
+    s32 f3D0;
+    u8 pad3D4[4];
+    Fade_80092CCC f3D8;
+    u8 pad3F4[8];
+    u8 f3FC[0x418 - 0x3FC];
+    u32 f418[2];
+    Vec_80092CCC f420[2];
+    u8 pad438[0x448 - 0x438];
+    Fade_80092CCC fades[2];
+};
+
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -280,6 +363,54 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 s32 play_sound_effect(s32, void *, s32, s32);
 s32 advance_animation_playback(void *);
 void TObjEneRe7Berura__sub_8009331C(VObj_18_444bc5 *obj, s32 mode);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 is_split_screen();
+s32 get_camera_mode__11TCameraCtrlFv();
+s32 check_demo_mode__10TObjPlayerFv();
+M2C_UNK fn_80095DD0(void *);
+M2C_UNK fn_80095DF4(void *);
+s32 is_main_phase_15__9TObjEneDDFv();
+M2C_UNK clear_global_flag_400__9TObjEneDDFv();
+M2C_UNK update_player_state__9TObjEneDDFPv(void *, void *, int);
+M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
+M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
+s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
+M2C_UNK update_obstruction_fade(void *);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+M2C_UNK scroll_strip_uvs(s32, int, int);
+M2C_UNK render_world_model__10TObjPlayerFPv(void *);
+M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 toggle_flag_9__10TObjPlayerFPv(void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK post_translate_matrix(void *);
+M2C_UNK set_global_param__8TObjFishFi(int);
+M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+void advance_state__16TObjEneRe7BeruraFv(void);
+void demo_frame_callback__16TObjEneRe7BeruraFv(void);
+extern Vec_80092CCC lbl_80439EC4[];
+extern Elem_80092CCC TObjEneRe7Berura__data_805007DC[];
+extern s32 lbl_805D4F68;
+extern s32 lbl_805D4F6C;
+extern s32 lbl_805D4F70;
+extern s32 lbl_805D4F74;
+extern s32 lbl_805D4F78;
+extern void *lbl_805D4F7C;
+extern s32 *lbl_805D4F84;
+extern s16 *lbl_805D4F88;
+extern s32 lbl_805D4F8C;
+extern s32 lbl_805D5660;
+extern s32 some_id_805c6f74;
+extern const f32 TObjEneRe7Berura__data_805D9724;
+extern const f32 lbl_805D9728;
+extern const f32 TObjEneRe7Berura__data_805D972C;
+extern const f32 TObjEneRe7Berura__data_805D9730;
+extern const f32 lbl_805D9734;
+extern const f32 lbl_805D9E84;
+extern const f32 lbl_805D9E88;
+void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o);
 }
 
 extern "C" {
@@ -291,6 +422,141 @@ M2C_UNK get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 extern s32 lbl_805D4F68;
 extern s32 lbl_805D4F6C;
 extern s32 some_id_805c6f74;
+
+void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
+    s32 fade;
+    s32 mode;
+    s32 cam;
+    s32 i;
+    s32 f1;
+    s32 f2;
+    s32 l3;
+    s32 l4;
+    if (check_demo_mode__10TObjPlayerFv() != 0) {
+        o->v.m104();
+        return;
+    }
+    cam = 0;
+    if (is_split_screen() != 0) {
+        cam = get_camera_mode__11TCameraCtrlFv();
+    }
+    if (o->f3C0 & 1) {
+        mode = 0;
+    } else if (is_main_phase_15__9TObjEneDDFv() != 0) {
+        mode = o->v.m9(lbl_805D9E88, lbl_805D9E84, lbl_805D9728);
+    } else if (o->v.m8(TObjEneRe7Berura__data_805D9724, lbl_805D9728) != 0) {
+        mode = 1;
+    } else {
+        mode = 0;
+    }
+    if (mode != 0) {
+        if (o->f326 != 0xB) {
+            Vec_80092CCC v = lbl_80439EC4[0];
+            update_player_state__9TObjEneDDFPv(o, &v, 0);
+        }
+        update_secondary_light__9TObjEneDDFPv(o);
+        lbl_805D5660 = some_id_805c6f74;
+        clear_global_flag_400__9TObjEneDDFv();
+        some_id_805c6f74 &= ~0x810;
+        toggle_particle_effect__10TObjPlayerFv();
+        for (i = 0; i < 2; i++) {
+            if (o->f418[i] & 1) {
+                fn_80095DF4(&TObjEneRe7Berura__data_805007DC[i]);
+            }
+        }
+        *lbl_805D4F84 = o->f3C4;
+        lbl_805D4F88[0] = o->f3C8;
+        lbl_805D4F88[1] = o->f3C8 >> 16;
+        scroll_strip_uvs(lbl_805D4F8C, (s16)o->f3D0, 0);
+        fade = (s32)&o->fades[cam];
+        update_obstruction_fade((void *)fade);
+        cam = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
+        set_global_param__8TObjFishFi(o->f24);
+        push_matrix();
+        post_translate_matrix(&o->pos);
+        rotate_matrix_y(0, o->f60);
+        if (o->f326 == 5) {
+            lbl_805D4F68 = 0;
+            lbl_805D4F6C = 0;
+            (*(void * *)&lbl_805D4F70) = o->f420;
+            o->f420[0].x = lbl_805D9728;
+            o->f420[0].y = TObjEneRe7Berura__data_805D972C;
+            o->f420[0].z = TObjEneRe7Berura__data_805D9730;
+            o->f420[1].x = lbl_805D9728;
+            o->f420[1].y = TObjEneRe7Berura__data_805D972C;
+            o->f420[1].z = lbl_805D9734;
+            lbl_805D4F74 = (o->f418[0] >> 2) & 1;
+            lbl_805D4F78 = (o->f418[1] >> 2) & 1;
+            lbl_805D4F7C = o->f3FC;
+            if (cam != 0) {
+                lbl_805D4F78 = 0;
+                lbl_805D4F74 = 0;
+                ((Fade_80092CCC *)fade)->v.m6();
+                f1 = 1;
+                if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+                    f1 = 0;
+                }
+                if (f1 != 0) {
+                    set_global_state__16TObjEneRe7BeruraFi((void *)demo_frame_callback__16TObjEneRe7BeruraFv);
+                    draw__16TObjEneRe7BeruraFPv(o);
+                    set_global_state__16TObjEneRe7BeruraFi(0);
+                }
+                ((Fade_80092CCC *)fade)->v.m7();
+            } else {
+                set_global_state__16TObjEneRe7BeruraFi((void *)demo_frame_callback__16TObjEneRe7BeruraFv);
+                if (mode == 1) {
+                    draw__16TObjEneRe7BeruraFPv(o);
+                } else {
+                    render_world_model__10TObjPlayerFPv(o);
+                }
+                set_global_state__16TObjEneRe7BeruraFi(0);
+            }
+        } else {
+            lbl_805D4F68 = 0;
+            lbl_805D4F6C = 0;
+            if (o->f3C0 & 2) {
+                if (o->f3D8.v.m8() != 0) {
+                    o->f3D8.v.m6();
+                    f2 = 1;
+                    if (toggle_flag_9__10TObjPlayerFPv(o) != 0) {
+                        f2 = 0;
+                    }
+                    if (f2 != 0) {
+                        set_global_state__16TObjEneRe7BeruraFi((void *)advance_state__16TObjEneRe7BeruraFv);
+                        draw__16TObjEneRe7BeruraFPv(o);
+                        set_global_state__16TObjEneRe7BeruraFi(0);
+                    }
+                    o->f3D8.v.m7();
+                }
+            } else if (cam != 0) {
+                ((Fade_80092CCC *)fade)->v.m6();
+                set_global_state__16TObjEneRe7BeruraFi((void *)advance_state__16TObjEneRe7BeruraFv);
+                draw__16TObjEneRe7BeruraFPv(o);
+                set_global_state__16TObjEneRe7BeruraFi(0);
+                ((Fade_80092CCC *)fade)->v.m7();
+            } else if (mode == 1) {
+                draw__16TObjEneRe7BeruraFPv(o);
+            } else {
+                render_world_model__10TObjPlayerFPv(o);
+            }
+        }
+        pop_matrix();
+        update_primary_light__9TObjEneDDFPv(o);
+        for (l3 = 0; l3 < 2; l3++) {
+            if (o->f418[l3] & 1) {
+                fn_80095DD0(&TObjEneRe7Berura__data_805007DC[l3]);
+            }
+        }
+        end_effect_render__13TParticleCtrlFv();
+        some_id_805c6f74 = lbl_805D5660;
+        return;
+    }
+    if (o->f326 == 5) {
+        for (l4 = 0; l4 < 2; l4++) {
+            VecCopy__FP3VecPC3Vec(&o->f420[l4], &o->pos);
+        }
+    }
+}
 
 void advance_state__16TObjEneRe7BeruraFv(void) {
     switch ((s32) lbl_805D4F68) {

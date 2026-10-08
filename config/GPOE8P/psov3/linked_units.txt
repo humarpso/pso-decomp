@@ -536,6 +536,7 @@ pso/item/TItemDropSub_80107BF0.cpp
 pso/item/TItemDropSub_80107C40.cpp
 pso/item/TItemDrop_800F93F0.cpp
 pso/item/TItemDrop_800F9C00_800F9CA4.cpp
+pso/item/TItemDrop_80105D0C_80105D0C.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
 pso/item/TItemEffArmorParticle_80364328.cpp
@@ -1961,6 +1962,7 @@ pso/misc/TWindowSubComCard_8007A810.cpp
 pso/misc/TWindowSubComCard_8007A810_8007A810.cpp
 pso/misc/TWindowSubComCard_8007A810_8007A894.cpp
 pso/misc/TWindowSubComCard_8007A810_8007A94C.cpp
+pso/misc/TWindowSubComCard_8007A810_8007AA40.cpp
 pso/misc/TWindowSubComCard_8007A810_8007AAF4.cpp
 pso/misc/TWindowSubComCard_8007A810_8007AB24.cpp
 pso/misc/TWindowSubComCard_8007A810_8007AB54.cpp
@@ -2114,6 +2116,7 @@ pso/misc/TWindowSubTradeMessage.cpp
 pso/misc/TWindowTimer.cpp
 pso/misc/TWindowTimer_80198814.cpp
 pso/misc/TWindowTradeRequest.cpp
+pso/misc/TWindowTradeRequest_802E0170.cpp
 pso/misc/TWindowUserSort.cpp
 pso/misc/TWindow_80217288.cpp
 pso/misc/item_param.cpp
@@ -3216,6 +3219,7 @@ pso/unk/text_8007841C.cpp
 pso/unk/text_8007A7A0.cpp
 pso/unk/text_8007A7B8.cpp
 pso/unk/text_8007B370.cpp
+pso/unk/text_8007C0CC.cpp
 pso/unk/text_8007F4B8.cpp
 pso/unk/text_8007F574.cpp
 pso/unk/text_8007FA24.cpp
@@ -3287,6 +3291,7 @@ pso/unk/text_800FCC78.cpp
 pso/unk/text_800FD8A0.cpp
 pso/unk/text_800FD930.cpp
 pso/unk/text_800FD944.cpp
+pso/unk/text_800FE0A8.cpp
 pso/unk/text_800FE154.cpp
 pso/unk/text_800FEA34.cpp
 pso/unk/text_800FFC6C.cpp
@@ -3815,6 +3820,7 @@ pso/unk/text_80278460.cpp
 pso/unk/text_802787F0.cpp
 pso/unk/text_80278964.cpp
 pso/unk/text_802789E0.cpp
+pso/unk/text_80278BD8.cpp
 pso/unk/text_80278E48.cpp
 pso/unk/text_8027ACF8.cpp
 pso/unk/text_8027C13C.cpp

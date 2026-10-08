@@ -51,6 +51,14 @@ extern char lbl_805DAAC8;
 extern char lbl_805DAACC;
 extern char lbl_805DAAD0;
 void format_drop_table_filename(void *out, s32 arg1);
+void init_drop_table__9TItemDropFv(void);
+u32 roll_channel_below__9TItemDropFPviUi(void *, u8, s32);
+void TItemData__sub_8010CDC8(u8 *, s16);
+M2C_UNK init__9TItemDataFv(void *);
+u8 *lookup_item_pmt_record(u8 *);
+extern u8 *TItemDrop__data_805D5468;
+extern u8 *TItemDrop__data_805D546C;
+void select_unit_drop__9TItemDropFv(void *self, u8 kind, u8 *item);
 }
 
 extern "C" {
@@ -223,6 +231,65 @@ void set_drop_index__9TItemDropFPvPv(void *arg0, void *arg1) {
 }
 
 extern u8 *TItemDrop__data_805D5468;
+
+void select_unit_drop__9TItemDropFv(void *self, u8 kind, u8 *item) {
+    u8 *p;
+    u32 n;
+    s32 i;
+    u32 pick;
+    s32 r;
+    u8 *data;
+    s16 v;
+    u8 cnt;
+    if (kind >= 0xD) {
+        return;
+    }
+    init__9TItemDataFv(item);
+    item[0] = 1;
+    item[1] = 3;
+    init_drop_table__9TItemDropFv();
+    cnt = TItemDrop__data_805D546C[kind];
+    if (cnt == 0) {
+        return;
+    }
+    pick = roll_channel_below__9TItemDropFPviUi(self, cnt, 0xB);
+    n = 0;
+    for (i = 0; i < 0x88; i++) {
+        if (TItemDrop__data_805D5468[i] == kind) {
+            if (n == pick) {
+                if (i < 0x50) {
+                    item[2] = i / 5;
+                    r = (u8)(i % 5);
+                    data = lookup_item_pmt_record(item);
+                    if (data == NULL) {
+                        return;
+                    }
+                    v = *(s16 *)(data + 0xC);
+                    switch (r) {
+                    case 0:
+                        TItemData__sub_8010CDC8(item, -(v * 2));
+                        break;
+                    case 1:
+                        TItemData__sub_8010CDC8(item, -v);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        TItemData__sub_8010CDC8(item, v);
+                        break;
+                    case 4:
+                        TItemData__sub_8010CDC8(item, v * 2);
+                        break;
+                    }
+                } else if (kind < 0x88) {
+                    item[2] = i - 0x40;
+                }
+                return;
+            }
+            n++;
+        }
+    }
+}
 
 void init_drop_table__9TItemDropFv(void) {
     s32 var_r31;

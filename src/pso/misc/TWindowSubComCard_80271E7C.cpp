@@ -21,6 +21,7 @@ struct ComEntry_8027375C { u8 data[0xD4]; };
 
 struct ComList_8027375C { u8 pad[4]; ComEntry_8027375C entries[1]; };
 
+typedef s32 M2C_UNK;
 extern "C" {
 M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -141,7 +142,6 @@ u32 TWindowSubComCard__sub_80272EBC(void *);
 M2C_UNK TWindowSubComCard__sub_80272EF0(void *, int);
 u32 TWindowSubComCard__sub_80273004(void *);
 s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0);
-u32 TWindowSubComCard__sub_802730E0(void *);
 s32 confirm_and_free__17TWindowSubComCardFPv(void *arg0);
 s32 open_menu__17TWindowSubComCardFv(void);
 s32 TWindowSubComCard__sub_80273308(void);
@@ -165,6 +165,14 @@ extern M2C_UNK lbl_805DD534;
 extern const f32 lbl_805DD538;
 extern const f32 lbl_805DD53C;
 void run_task__17TWindowSubComCardFv(u8 *arg0);
+s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
+s32 get_window_layout_position(M2C_UNK);
+M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(s32);
+M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
+M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
+s32 TWindowMessageYesNo__sub_802A59D8(void *, s32, M2C_UNK, M2C_UNK);
+extern const f32 TWindowSubComCard__data_805DD520;
+s32 TWindowSubComCard__sub_802730E0(u8 *arg0);
 }
 
 extern "C" {
@@ -202,6 +210,15 @@ s32 open_yesno_dialog__17TWindowSubComCardFPv(void *arg0) {
 }
 
 extern const f32 lbl_805DD524;
+
+s32 TWindowSubComCard__sub_802730E0(u8 *arg0) {
+    s32 temp_r30;
+    temp_r30 = TWindowMessageYesNo__sub_802A59D8(arg0, M2C_FIELD(arg0, s32 *, 0x20), 0, 0);
+    forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(temp_r30, get_message_10__20TWindowSubStatusDispFPv(0xFC), get_window_layout_position(0x96), (*(f32 *)&TWindowSubComCard__data_805DD520));
+    free_member__17TWindowSubComCardFPv(temp_r30, 1);
+    notify_warp_flag70__19TWindowSubShortMailFPv(temp_r30);
+    return temp_r30;
+}
 
 s32 confirm_and_free__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r29;
@@ -1027,7 +1044,7 @@ void run_task__17TWindowSubComCardFv(u8 *arg0) {
             M2C_FIELD(arg0, u32 *, 0x74) = 0U;
         }
         if ((u32) M2C_FIELD(arg0, u32 *, 0x70) == 0U) {
-            M2C_FIELD(arg0, u32 *, 0x70) = TWindowSubComCard__sub_802730E0((void *) (arg0));
+            M2C_FIELD(arg0, u32 *, 0x70) = TWindowSubComCard__sub_802730E0((u8 *)((void *) (arg0)));
         }
         M2C_FIELD(arg0, u8 *, 0x1C) = 0x3EU;
     case 0x3E:

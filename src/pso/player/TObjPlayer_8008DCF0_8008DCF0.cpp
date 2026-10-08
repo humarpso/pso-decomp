@@ -108,6 +108,68 @@ struct P_8008E310 {
 
 struct E_8008E310 { u8 pad[0x3C0]; f32 f3C0; };
 
+struct Obj_8008E18C;
+struct VBase_18_4841bb { char pad[0x18]; };
+
+struct VObj_18_4841bb : VBase_18_4841bb {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual M2C_UNK m53();
+};
+
+struct Self_8008E934 { u8 pad[0x3C4]; s32 ids[4]; };
+
 extern "C" {
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
@@ -169,7 +231,6 @@ void clear_active_flag__13TParticleCtrlFPv(u32);
 void enable__13TParticleCtrlFPv(u32);
 int reset_enemy_state__10TObjPlayerFPv(void* p);
 s32 TObjPlayer__sub_8008E098(Obj_8008E098 *self);
-void TObjPlayer__sub_8008E934(void *, s32);
 int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
 void TObjEneBalClawClaw__sub_800907DC(void *);
 void clear_flag__18TObjEneBalClawClawFPv(void *);
@@ -180,6 +241,23 @@ extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9634;
 extern const f32 lbl_805D9638;
 void TObjPlayer__sub_8008E310(P_8008E310 *arg0);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+int reset_enemy_state__10TObjPlayerFPv(void* p);
+int get_flag_0x388_b24__10TObjPlayerFPv(void *p);
+M2C_UNK advance_animation_playback(void *);
+extern const f32 lbl_805D9620;
+void TObjPlayer__sub_8008E254(void *arg0);
+void set_hp_clamped__10TObjPlayerFPvs(void *, s16);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+M2C_UNK TObjEneBalClawClaw__sub_8008DC90(void *);
+void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s32 *angle_out);
+void TObjPlayer__sub_80090418(void *self, s32 i);
+void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
+void *create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
+void set_param__12TObjEneLappyFPvi(void *, s32);
+u8 *get_enemy_entity(u16);
+extern u8 lbl_8048EEA8[];
+void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1);
 }
 
 extern "C" {
@@ -340,6 +418,33 @@ void TObjPlayer__sub_8008E18C(Obj_8008E18C *self, s32 slot, Vec_8008E18C *out, s
     pop_matrix();
 }
 
+void TObjPlayer__sub_8008E254(void *arg0) {
+    s32 temp_r0;
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    switch (temp_r0) {
+    case -1:
+        break;
+    case 0:
+        if (get_flag_0x388_b24__10TObjPlayerFPv(arg0) == 0) {
+            reset_enemy_state__10TObjPlayerFPv(arg0);
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
+        TObjPlayer__sub_8008E934((void *)(arg0), (s32)(0));
+        M2C_FIELD(arg0, s16 *, 0x33C) = 0x1E;
+        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        return;
+    case 1:
+        advance_animation_playback(arg0);
+        apply_actor_gravity(arg0, 0, lbl_805D9620);
+        M2C_FIELD(arg0, s16 *, 0x33C)--;
+        if (M2C_FIELD(arg0, s16 *, 0x33C) <= 0) {
+            reset_enemy_state__10TObjPlayerFPv(arg0);
+        }
+        return;
+    }
+}
+
 void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
     s32 all;
     s32 cnt;
@@ -415,7 +520,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
             queue_destruction__7TObjectFv(arg0->emit1);
             arg0->emit1 = 0;
             spawn_particle_effect(arg0->f2FC, 0x129);
-            TObjPlayer__sub_8008E934(arg0, 1);
+            TObjPlayer__sub_8008E934((void *)(arg0), (s32)(1));
             advance_animation_playback(arg0);
             arg0->flags &= ~0x04000000;
             arg0->f33C = 0x1E;
@@ -434,7 +539,7 @@ void TObjPlayer__sub_8008E310(P_8008E310 *arg0) {
         break;
     case -1:
         if (arg0->flags & 0x04000000) {
-            TObjPlayer__sub_8008E934(arg0, 1);
+            TObjPlayer__sub_8008E934((void *)(arg0), (s32)(1));
             advance_animation_playback(arg0);
         }
         if (get_flag_0x388_b24__10TObjPlayerFPv(arg0) == 0) {
@@ -521,5 +626,79 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
         }
     }
 }
+#pragma push
+#pragma opt_propagation off
+#define arg0 ((u8 *)arg0_)
+void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
+    Vec_8008E18C a;
+    Vec_8008E18C b;
+    s32 angA;
+    s32 angB;
+    s32 i;
+    s32 id;
+    s32 id2;
+    s32 n;
+    s32 k;
+    u8 *ent;
+    s32 j;
+    if (arg1 == 1) {
+        M2C_FIELD(arg0, u32 *, 0x388) |= 0x01000000;
+        set_param__12TObjEneLappyFPvi(arg0, 0x28);
+        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        TObjPlayer__sub_80090418(arg0, 1);
+        M2C_FIELD(arg0, s16 *, 0x3DA) = 0;
+        ((VObj_18_4841bb *)(arg0))->m53();
+    } else {
+        M2C_FIELD(arg0, u32 *, 0x388) &= ~0x01000000;
+        set_param__12TObjEneLappyFPvi(arg0, 0x27);
+        M2C_FIELD(arg0, s16 *, 0xB8) = 5;
+        TObjPlayer__sub_80090418(arg0, 0);
+        ((VObj_18_4841bb *)(arg0))->m53();
+        if (!(M2C_FIELD(arg0, u32 *, 0x388) & 0x40000)) {
+            M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x32C) / (M2C_FIELD(arg0, s16 *, 0x3D8) + 1);
+            if (M2C_FIELD(arg0, s16 *, 0x32C) <= 0) {
+                M2C_FIELD(arg0, s16 *, 0x32C) = 1;
+            }
+            M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+            if (M2C_FIELD(arg0, u32 *, 0x80) != 0) {
+                M2C_FIELD(arg0, u32 *, 0x388) |= 0x40000;
+                for (i = 0; i < 4; i++) {
+                    id = M2C_FIELD(arg0, u16 *, 0x1C) + i;
+                    id2 = M2C_FIELD(arg0, s16 *, 0x2C) + i;
+                    id++;
+                    id2++;
+                    TObjPlayer__sub_8008E18C((Obj_8008E18C *)arg0, i, &a, &angA);
+                    ((void *(*)(void *, u16, void *, void *, void *, void *))create__18TObjEneBalClawClawFPvPvPvPvPvPv)(arg0, id, (void *)id2, &a, (void *)angA, (void *)M2C_FIELD(arg0, s16 *, 0x32C));
+                }
+            }
+        } else {
+            n = 0;
+            for (k = 0; k < M2C_FIELD(arg0, s16 *, 0x3D8); k++) {
+                ent = get_enemy_entity(((Self_8008E934 *)arg0)->ids[k]);
+                if (ent != NULL) {
+                    TObjPlayer__sub_8008E18C((Obj_8008E18C *)arg0, k, &b, &angB);
+                    TObjEneBalClawClaw__sub_80090A10(ent, (u8 *)&b, angB, M2C_FIELD(arg0, s16 *, 0x32C));
+                    n++;
+                }
+            }
+            if (n > 0) {
+                M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x32C) / (n + 1);
+                for (j = 0; j < M2C_FIELD(arg0, s16 *, 0x3D8); j++) {
+                    if ((ent = get_enemy_entity(((Self_8008E934 *)arg0)->ids[j])) != NULL) {
+                        set_hp_clamped__10TObjPlayerFPvs(ent, M2C_FIELD(arg0, s16 *, 0x32C));
+                    }
+                }
+            }
+        }
+        M2C_FIELD(arg0, s16 *, 0x3D8) = 0;
+    }
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    M2C_FIELD(arg0, u8 **, 0x350) = lbl_8048EEA8 + arg1 * 0x1C;
+    TObjEneBalClawClaw__sub_8008DC90(arg0);
+    M2C_FIELD(arg0, s32 *, 0x368) = arg1;
+    M2C_FIELD(arg0, s32 *, 0x3D4) = 0;
+}
+#undef arg0
+#pragma pop
 
 }
