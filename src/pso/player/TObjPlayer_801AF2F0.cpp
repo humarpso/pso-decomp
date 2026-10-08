@@ -2993,7 +2993,7 @@ s32 validate_6x27_use_item(void *);
 s32 validate_6x26_unequip_item(void *);
 s32 validate_6x25_equip_item(void *);
 s32 validate_6x24_teleport_player(Pkt_801B1EE0 *);
-s32 TObjEneHoldEffect__sub_8036C9D8(void *);
+s32 validate_6xAE_set_animation_state(void *);
 s32 validate_6x21_inter_level_warp(void *);
 s32 validate_6x20_set_position(void *);
 s32 validate_6x1F_set_player_floor(void *);
@@ -7584,7 +7584,7 @@ void handle_6xAE_set_animation_state(void *arg0) {
     TObjPlayer__sub_801C15E4(&m);
     copy_from__10TObjPlayerFPvPv(&m, arg0);
     bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(&m);
-    if (TObjEneHoldEffect__sub_8036C9D8(&m) != 0) {
+    if (validate_6xAE_set_animation_state(&m) != 0) {
         p = get_player_by_client_id(m.slot);
         if (p != NULL && ((s32 (*)(void))is_lobby_floor_15__15TFontSmallLobbyFv)() != 0 && ((s32 (*)(void *, u32))test_action_mask__10TObjPlayerFPvi)(p, 0x01000000) == 0 && (m.flags & 0x04000000)) {
             set_state_flags__10TObjPlayerFPvUi(p, m.flags & 0x1C000000);
