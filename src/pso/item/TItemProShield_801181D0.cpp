@@ -51,7 +51,7 @@ struct Status_80118558 { s8 a; u8 b; u8 pad[2]; u32 c; s32 d; s32 e; s32 f; };
 extern "C" {
 void TItemProShield__vt12(u8 *arg0);
 s32 set_dfp_bonus__9TItemDataFPvs(s32 a0, int a1);
-s32 TItemData__sub_8010CE1C(s32 a0, int a1);
+s32 set_bswapped_field_8__9TItemDataFPvs(s32 a0, int a1);
 void TItemProShield__vt16(void *arg0, void *arg1);
 int TItemEquipBase__sub_8010A82C(void*);
 int TItemProShield__vt43(void* p);
@@ -162,7 +162,7 @@ int TItemProShield__vt44(void* p) { return update_with_player__14TItemEquipBaseF
 void TItemProShield__vt49(void) {  }
 void set_params__14TItemProShieldFiPv(s32 arg0, void *arg1) {
     set_dfp_bonus__9TItemDataFPvs(arg0, M2C_FIELD(arg1, u8 *, 0x198));
-    TItemData__sub_8010CE1C(arg0, M2C_FIELD(arg1, u8 *, 0x199));
+    set_bswapped_field_8__9TItemDataFPvs(arg0, M2C_FIELD(arg1, u8 *, 0x199));
 }
 
 void TItemProShield__vt12(u8 *arg0) {
@@ -184,7 +184,7 @@ void TItemProShield__vt14(void *arg0) {
 }
 void TItemProShield__vt16(void *arg0, void *arg1) {
     set_dfp_bonus__9TItemDataFPvs((s32)(arg1), (int)(M2C_FIELD(arg0, u8 *, 0x198)));
-    TItemData__sub_8010CE1C((s32)(arg1), (int)(M2C_FIELD(arg0, u8 *, 0x199)));
+    set_bswapped_field_8__9TItemDataFPvs((s32)(arg1), (int)(M2C_FIELD(arg0, u8 *, 0x199)));
 }
 int TItemProShield__vt43(void* p) { return TItemEquipBase__sub_8010A82C(p); }
 void TItemProShield__vt42(u8 *arg0) {

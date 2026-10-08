@@ -25,7 +25,7 @@ extern E_8023FF38 lbl_805162EC[];
 void TLobby__sub_8023FF38(void);
 extern E_8023FF38 lbl_805162EC[];
 void start_voice_fade(void *, s32);
-void TLobby__sub_8023FF64(s32 arg0);
+void fade_voice_channels__6TLobbyFi(s32 arg0);
 void TLobby__sub_800F8DA0(void *, int, int, u32);
 void read_checked_align__6TLobbyFiii(void *, int, u32);
 void *adxf_open_afs__6TLobbyFii(int, int);
@@ -49,7 +49,7 @@ void TLobby__sub_8023FF38(void) {
         lbl_805162EC[i].f40 = -0x100;
     }
 }
-void TLobby__sub_8023FF64(s32 arg0) {
+void fade_voice_channels__6TLobbyFi(s32 arg0) {
     s32 i;
     for (i = 0; i < 0x20; i++) {
         start_voice_fade(&lbl_805162EC[i], arg0);

@@ -57,7 +57,7 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 void spawn_rocks_around_players__11TBoss6Type2FPv(void *);
 void select_next_state__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BE6D4(T2_802BE6D4 *arg0);
+void update_rock_spawn_state__11TBoss6Type2FPv(T2_802BE6D4 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK spawn_particle_effect(void *, int);
 u32 get_player_by_client_id(int);
@@ -70,7 +70,7 @@ M2C_UNK create__14TBoss6EffHyouiFPvPvPv(int, int, int);
 extern const f32 lbl_805DE404;
 extern const f32 lbl_805DE4E8;
 extern const f32 lbl_805DE4EC;
-void TBoss6Type2__sub_802BE9AC(Obj_802BE9AC *arg0);
+void start_flow_soul_effect__11TBoss6Type2FPv(Obj_802BE9AC *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802BB768(void *);
 void * create_flow_soul__11TBoss6Type2FPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -89,14 +89,14 @@ extern s32 lbl_805D6778;
 extern u8 lbl_805D677C;
 extern const f32 lbl_805DE400;
 extern const f32 lbl_805DE4E8;
-void TBoss6Type2__sub_802BED74(u8 *arg0);
+void spawn_death_soul__11TBoss6Type2FPv(u8 *arg0);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TBoss6Type2__sub_802BA598(void *, s32, s32);
 M2C_UNK trigger_screen_pos__11TBoss6Type2FPv(void *);
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0, s32 a1);
-void TBoss6Type2__sub_802BF2D0(u8 *arg0);
+void update_death_sequence__11TBoss6Type2FPv(u8 *arg0);
 }
 
 extern "C" {
@@ -128,7 +128,7 @@ M2C_UNK TBoss6Type2__sub_802BB768(void *);
 s32 TBoss6Type2__sub_802BB7C0(void *);
 s32 choose_random_motion__11TBoss6Type2FPv();
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0 = 0, s32 a1 = 0);
-int TBoss6Type2__sub_802BDC5C(void*);
+int send_state_action_packet__11TBoss6Type2FPv(void*);
 int send_action_packet__11TBoss6Type2FPvc(void*, void*);
 void TBoss6Type2__sub_802BF904(void* p);
 void TBoss6Type2__vt42(void);
@@ -195,7 +195,7 @@ void TBoss6Type2__sub_802BE6A0(u8 *arg0) {
     TBoss6Type2__sub_802BB768(arg0);
 }
 
-void TBoss6Type2__sub_802BE6D4(T2_802BE6D4 *arg0) {
+void update_rock_spawn_state__11TBoss6Type2FPv(T2_802BE6D4 *arg0) {
     s32 d = arg0->f45C - arg0->f460;
     if (arg0->f460 >= 0x1E && d % 30 == 0) {
         spawn_rocks_around_players__11TBoss6Type2FPv(arg0);
@@ -287,7 +287,7 @@ void update_charge_timer__11TBoss6Type2FPv(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss6Type2__sub_802BE9AC(Obj_802BE9AC *arg0) {
+void start_flow_soul_effect__11TBoss6Type2FPv(Obj_802BE9AC *arg0) {
     static s32 dur = (s32)(lbl_805DE4E8 / lbl_805DE404);
     Vec_802BE9AC v;
     u32 pl;
@@ -386,7 +386,7 @@ void TBoss6Type2__sub_802BEC28(u8 *arg0) {
 }
 #pragma pop
 
-void TBoss6Type2__sub_802BED74(u8 *arg0) {
+void spawn_death_soul__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     if ((s8) lbl_805D677C == 0) {
         lbl_805D677C = 1;
@@ -483,7 +483,7 @@ void init_attack_timers__11TBoss6Type2FPv(u8 *arg0) {
     TBoss6Type2__sub_802BB768(arg0);
 }
 
-void TBoss6Type2__sub_802BF2D0(u8 *arg0) {
+void update_death_sequence__11TBoss6Type2FPv(u8 *arg0) {
     s32 d;
     s32 t;
     TBoss6Type2__sub_802BA598(arg0, M2C_FIELD(arg0, s32 *, 0x460), M2C_FIELD(arg0, s32 *, 0x45C));

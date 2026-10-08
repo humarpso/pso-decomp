@@ -452,7 +452,7 @@ void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
 M2C_UNK TLobby__sub_800F6510(void *, void *);
 s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind);
-void TObjPlayer__sub_800F673C(VObj_800F673C *arg0, Msg_800F673C *arg1);
+void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
 void call_vt78__10TObjPlayerFPv(void *arg0);
 void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
 Ene_800F6464 * get_enemy_entity(u16);
@@ -699,7 +699,7 @@ s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
     return ret;
 }
 
-void TObjPlayer__sub_800F673C(VObj_800F673C *arg0, Msg_800F673C *arg1) {
+void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1) {
     s32 flags;
     Pair_800F673C p;
     arg0->f32C = arg0->f2B8 - arg1->f6;

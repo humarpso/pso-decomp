@@ -694,7 +694,7 @@ void update__8TObjChipFPv();
 void dispatch_vt9__8TObjChipFPv();
 void render_shadows__7TObjectFv();
 void init_chips__8TObjChipFPv();
-void TObjChip__sub_801803C0();
+void spawn_chips__8TObjChipFPvPv();
 void TObjSuisoChip__vt6();
 void tick_chips__8TObjChipFPv();
 void TObjSuisoChip__vt8();
@@ -714,7 +714,7 @@ void TORockCave__sub_80175464();
 void TORockCaveBrakable__sub_80174CC4();
 void TObjSeabedSuisoBrakable__vt17();
 void *__vt__13TObjSuisoChip[14] = {
-    0, 0, (void *)__dt__13TObjSuisoChipFv, (void *)update__8TObjChipFPv, (void *)dispatch_vt9__8TObjChipFPv, (void *)render_shadows__7TObjectFv, (void *)init_chips__8TObjChipFPv, (void *)TObjChip__sub_801803C0, (void *)TObjSuisoChip__vt6, (void *)tick_chips__8TObjChipFPv, (void *)TObjSuisoChip__vt8, (void *)render__8TObjChipFPv, (void *)TObjSuisoChip__vt10, (void *)draw_chips__8TObjChipFPv
+    0, 0, (void *)__dt__13TObjSuisoChipFv, (void *)update__8TObjChipFPv, (void *)dispatch_vt9__8TObjChipFPv, (void *)render_shadows__7TObjectFv, (void *)init_chips__8TObjChipFPv, (void *)spawn_chips__8TObjChipFPvPv, (void *)TObjSuisoChip__vt6, (void *)tick_chips__8TObjChipFPv, (void *)TObjSuisoChip__vt8, (void *)render__8TObjChipFPv, (void *)TObjSuisoChip__vt10, (void *)draw_chips__8TObjChipFPv
 };
 void *__vt__23TObjSeabedSuisoBrakable[20] = {
     0, 0, (void *)__dt__23TObjSeabedSuisoBrakableFv, (void *)update_break_state__18TORockCaveBrakableFPv, (void *)render__23TObjSeabedSuisoBrakableFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568, (void *)TObjSeabedSuisoBrakable__vt12, (void *)TORockCave__sub_80175464, (void *)TObjSeabedSuisoBrakable__vt14, (void *)TObjSeabedSuisoBrakable__vt15, (void *)TORockCaveBrakable__sub_80174CC4, (void *)TObjSeabedSuisoBrakable__vt17

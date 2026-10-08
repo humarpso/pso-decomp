@@ -155,7 +155,7 @@ struct Self_8005AE60 {
 
 extern "C" {
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-void TBoss4Type3__sub_8005A1AC(Obj_8005A1AC *arg0);
+void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK add_radar_scaled_marker(void *, u32, int, int, f32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -748,7 +748,7 @@ void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
-void TBoss4Type3__sub_80059FC4(u8 *arg0);
+void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
 void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);
@@ -1014,7 +1014,7 @@ extern "C" u8 TObjPlayer__sub_80018F64[];
 extern "C" void TObjPlayer__sub_80019568();
 extern "C" u8 TObjPlayer__sub_800F5E08[];
 extern "C" void TObjPlayer__sub_800F65D0();
-extern "C" void TObjPlayer__sub_800F673C();
+extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" u8 TObjPlayer__sub_800F698C[];
 extern "C" void apply_switch_attack__10TObjPlayerFi();
 extern "C" void call_vt78__10TObjPlayerFPv();
@@ -1194,7 +1194,7 @@ void *lbl_80487184[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&TObjPlayer__sub_80010B44, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&TObjPlayer__sub_80010A84, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
-    (void *)&TObjPlayer__sub_800F673C, (void *)&TObjPlayer__sub_800F698C, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&TObjPlayer__sub_800F698C, (void *)&fn_800F5D80,
 };
 #define lbl_80486FB0 ((u8 *)lbl_80486FB0)
 #define lbl_80486FBC ((u8 *)lbl_80486FBC)
@@ -2007,7 +2007,7 @@ void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1) {
 
 #pragma push
 #pragma opt_common_subs off
-void TBoss4Type3__sub_80059FC4(u8 *arg0) {
+void update_scale_sound__11TBoss4Type3FPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f1_3;
@@ -2073,7 +2073,7 @@ void TBoss4Type3__sub_80059FC4(u8 *arg0) {
 extern int fold_flush_8;
 #pragma pop
 
-void TBoss4Type3__sub_8005A1AC(Obj_8005A1AC *arg0) {
+void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0) {
     Vec_8005A1AC *pos[8] = {
         &arg0->f48c, &arg0->f498, &arg0->f4d4, &arg0->f4e0,
         &arg0->f444, &arg0->f450, &arg0->f45c, 0

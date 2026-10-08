@@ -65,7 +65,7 @@ extern const f32 lbl_805DB358;
 extern const f32 lbl_805DB35C;
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
-void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1);
+void update_blink_state__16TOCakeshopCave01FPvPv(void *arg0, void *arg1);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
@@ -106,7 +106,7 @@ M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
 
-void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1) {
+void update_blink_state__16TOCakeshopCave01FPvPv(void *arg0, void *arg1) {
     TOCakeshopCave01_80159E24 *o = (TOCakeshopCave01_80159E24 *)arg0;
     s32 i = (s32)arg1;
     switch (o->state[i]) {
@@ -133,7 +133,7 @@ void TOCakeshopCave01__sub_80159E24(void *arg0, void *arg1) {
     }
 }
 
-void run_task__16TOCakeshopCave01Fv(void* p) { { int i; for (i = 0; i < 8; i++) { TOCakeshopCave01__sub_80159E24((void *)(p), (void *)((void*)i)); } } }
+void run_task__16TOCakeshopCave01Fv(void* p) { { int i; for (i = 0; i < 8; i++) { update_blink_state__16TOCakeshopCave01FPvPv((void *)(p), (void *)((void*)i)); } } }
 
 void render__16TOCakeshopCave01Fv(u8 *arg0) {
     Model_80159F78 *m;

@@ -273,7 +273,7 @@ extern Rec_8001F128 *lbl_805D4AE4;
 extern s32 lbl_805D4AE8;
 extern u8 *lbl_805D4AEC;
 extern M2C_UNK lbl_805D7F10;
-s32 TLobby__sub_8001F128(u8 *arg0, u8 *arg1);
+s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -340,7 +340,7 @@ extern s32 lbl_805D4ACC;
 extern u32 lbl_805D4AD8;
 
 #define self ((Ctx_8001F128 *) arg0)
-s32 TLobby__sub_8001F128(u8 *arg0, u8 *arg1) {
+s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     s32 n;
     switch (self->state) {
     case 0:

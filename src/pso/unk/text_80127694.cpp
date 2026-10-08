@@ -61,12 +61,12 @@ s16 get_uid__10TObjPlayerFPv(void *);
 void *TObjPlayer__sub_80121248(void *, int);
 s32 TObjPlayer__sub_8012125C(void *);
 void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
-void TObjPlayer__sub_80127694(u8 *arg0);
+void update_zonde_effect__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80127694(u8 *arg0) {
+void update_zonde_effect__10TObjPlayerFPv(u8 *arg0) {
     u8 pos[12];
     Rec_80127694 rec;
     void *st;

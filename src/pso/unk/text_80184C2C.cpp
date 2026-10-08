@@ -8,13 +8,13 @@ struct Obj_80185160 { u8 pad[0x8C]; s32 dest; };
 
 extern "C" {
 extern int lbl_8050DC20[];
-void TLobby__sub_80184D00(void* _w0);
+void clear_global_array__6TLobbyFPv(void* _w0);
 extern int lbl_8050DC20[];
 extern s32 lbl_80444268[];
 extern s32 lbl_805D55A0;
-void TLobby__sub_80184D00(void* _w0);
+void clear_global_array__6TLobbyFPv(void* _w0);
 void TLobby__sub_80184C80(void *p);
-void TObjLaboMapWarp__sub_80185400(void *);
+void clamp_index__15TObjLaboMapWarpFPv(void *);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_804449C0[];
@@ -63,7 +63,7 @@ int TLobby__sub_80184C6C(int a0) {  return lbl_8050DC20[a0]; }
 
 void TLobby__sub_80184C80(void *p) {
     s32 i;
-    TLobby__sub_80184D00((void*)(p));
+    clear_global_array__6TLobbyFPv((void*)(p));
     for (i = 0; i < 6; i++) {
         if (lbl_805D55A0 == lbl_80444268[i]) {
             lbl_8050DC20[i] = 1;
@@ -72,8 +72,8 @@ void TLobby__sub_80184C80(void *p) {
     }
 }
 
-void TLobby__sub_80184CE0(void* p) { TLobby__sub_80184D00((void*)(p)); }
-void TLobby__sub_80184D00(void* _w0) {
+void TLobby__sub_80184CE0(void* p) { clear_global_array__6TLobbyFPv((void*)(p)); }
+void clear_global_array__6TLobbyFPv(void* _w0) {
     s32 i;
     for (i = 0; i < 6; i++) {
         ((s32 *)&lbl_8050DC20)[i] = 0;
@@ -107,7 +107,7 @@ void TLobby__sub_80184D28(void) {
 }
 
 void TObjLaboMapWarp__vt17(Obj_80185160 *self) {
-    TObjLaboMapWarp__sub_80185400(self);
+    clamp_index__15TObjLaboMapWarpFPv(self);
     set_global_count__12TObjNpcEnemyFi(0xFF00FF);
     debug_printf_at(0x13001C, lbl_804449C0);
     debug_printf_at(0x13001D, lbl_804449D0);

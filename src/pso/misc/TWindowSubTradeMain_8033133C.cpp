@@ -81,7 +81,7 @@ M2C_UNK free_member__17TWindowSubComCardFPv(s32, int);
 M2C_UNK open_yes_no_prompt(s32, s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, s32, s32);
 extern const f32 TWindowSubTradeMain__data_805DF858;
-s32 TWindowSubTradeMain__sub_803313B0(u8 *arg0);
+s32 open_confirm_yes_no__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 chat_accept_submission(void *);
@@ -120,7 +120,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 s32 get_state__19TWindowSubTradeMainFv(void *, void *);
-s32 TLobby__sub_802D26C8();
+s32 check_trade_items_and_show_error__6TLobbyFv();
 s32 TWindowSubTradeMain__sub_802D2808();
 void TWindowSubTradeMain__sub_802D2824();
 void TWindowSubTradeMain__sub_802D2834();
@@ -139,13 +139,13 @@ void set_displayed_item__19TWindowSubTradeMainFPvi(void *, void *);
 void *create_help_item__19TWindowSubTradeMainFPv(void *);
 void *create_input_number__19TWindowSubTradeMainFPvi(void *, s32);
 void *create_list__19TWindowSubTradeMainFPv(void *);
-void *TWindowSubTradeMain__sub_803310BC(void *);
-void *TWindowSubTradeMain__sub_80331178(void *);
-void *TWindowSubTradeMain__sub_80331238(void *);
+void *open_trade_equip_window__19TWindowSubTradeMainFPv(void *);
+void *create_trade_window__19TWindowSubTradeMainFPv(void *);
+void *open_confirm_prompt__19TWindowSubTradeMainFPv(void *);
 int TWindowSubTradeMain__sub_8033131C(void* p);
 void open_status_window__19TWindowSubTradeMainFi(s32 arg0);
 void update_from_lobby__19TWindowSubTradeMainFi(s32 arg0);
-s32 TWindowSubTradeMain__sub_803313B0(u8 *arg0);
+s32 open_confirm_yes_no__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 create_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 build_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0);
 void TWindowSubTradeMain__sub_803323C8(void *);
@@ -173,7 +173,7 @@ void update_from_lobby__19TWindowSubTradeMainFi(s32 arg0) {
 typedef struct RecoveredFields_80331434_arg0 RecoveredFields_80331434_arg0;
 #pragma fp_contract on
 
-s32 TWindowSubTradeMain__sub_803313B0(u8 *arg0) {
+s32 open_confirm_yes_no__19TWindowSubTradeMainFPv(u8 *arg0) {
     s32 w = create__19TWindowMessageYesNoFPvPvPvPv(arg0, M2C_FIELD(arg0, s32 *, 0x28), 0, 0);
     open_yes_no_prompt(w, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0xE6), get_window_layout_position(0x5F), TWindowSubTradeMain__data_805DF858);
     free_member__17TWindowSubComCardFPv(w, 1);
@@ -236,10 +236,10 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
     case 0:
     case 1:
         if (o->offer == 0) {
-            o->offer = TWindowSubTradeMain__sub_80331178(o);
+            o->offer = create_trade_window__19TWindowSubTradeMainFPv(o);
         }
         if (o->request == 0) {
-            o->request = TWindowSubTradeMain__sub_803310BC(o);
+            o->request = open_trade_equip_window__19TWindowSubTradeMainFPv(o);
         }
         if (o->menu == 0) {
             o->menu = (void *)build_trade_menu__19TWindowSubTradeMainFPv((u8 *)o);
@@ -491,7 +491,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
             request_close__19TWindowSubTradeMainFPv(o->menu);
         }
         if (o->card == 0) {
-            o->card = TWindowSubTradeMain__sub_80331238(o);
+            o->card = open_confirm_prompt__19TWindowSubTradeMainFPv(o);
         }
         o->state = 0x18;
     case 24:
@@ -521,14 +521,14 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
         if (o->menu != 0) {
             request_close__19TWindowSubTradeMainFPv(o->menu);
         }
-        if ((n = TLobby__sub_802D26C8()) != 0) {
+        if ((n = check_trade_items_and_show_error__6TLobbyFv()) != 0) {
             if (o->card == 0) {
                 o->card = (void *)((int (*)(void *, s32))TWindowSubTradeMain__sub_8033131C)(o, n);
             }
             o->state = 0x1C;
         } else {
             if (o->card == 0) {
-                o->card = ((void *)TWindowSubTradeMain__sub_803313B0((u8 *)(o)));
+                o->card = ((void *)open_confirm_yes_no__19TWindowSubTradeMainFPv((u8 *)(o)));
             }
             o->state = 0x1B;
         }

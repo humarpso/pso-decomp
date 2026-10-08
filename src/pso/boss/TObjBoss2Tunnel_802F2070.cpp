@@ -107,7 +107,7 @@ M2C_UNK draw_particle_effect(int);
 M2C_UNK draw_tunnel_segment(int);
 M2C_UNK fn_802F1DAC(int);
 M2C_UNK fn_802F1E54(int);
-void TObjBoss2Tunnel__sub_802F2348(u8 *arg0);
+void draw_segments__15TObjBoss2TunnelFPv(u8 *arg0);
 s32 is_split_screen();
 s32 get_current_floor();
 M2C_UNK reset_floats__15TObjBoss2TunnelFPv(void *);
@@ -183,7 +183,7 @@ s32 check_both__15TObjBoss2TunnelFi(s32 arg0) {
     return temp_r3 | temp_r31;
 }
 
-void TObjBoss2Tunnel__sub_802F2348(u8 *arg0) {
+void draw_segments__15TObjBoss2TunnelFPv(u8 *arg0) {
     Nd_802F2348 *n;
     if (query_teammate_state__9TObjEneDDFPv() == 0) {
         for (n = M2C_FIELD(arg0, Li_802F2348 **, 0x90)->head; n != 0; n = n->next) {

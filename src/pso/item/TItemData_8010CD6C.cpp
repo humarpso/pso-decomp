@@ -39,7 +39,7 @@ extern "C" {
 int bswap_16__FPUs(void*);
 void set_unit_modifier__9TItemDataFPvs(u8 *arg0, s16 arg1);
 int bswap_16__FPUs(void*);
-void TItemData__sub_8010CE1C(u8 *arg0, s16 arg1);
+void set_bswapped_field_8__9TItemDataFPvs(u8 *arg0, s16 arg1);
 int bswap_16__FPUs(void*);
 void set_dfp_bonus__9TItemDataFPvs(u8 *arg0, s16 arg1);
 int test_flag3__9TItemDataFPv(void *);
@@ -188,7 +188,7 @@ s16 get_bswap16_field8__9TItemDataFPv(void *arg0) {
     return sp8;
 }
 
-void TItemData__sub_8010CE1C(u8 *arg0, s16 arg1) {
+void set_bswapped_field_8__9TItemDataFPvs(u8 *arg0, s16 arg1) {
     M2C_FIELD(arg0, s16 *, 8) = arg1;
     bswap_16__FPUs((void*)((void *) (arg0 + 8)));
 }

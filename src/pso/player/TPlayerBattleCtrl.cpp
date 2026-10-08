@@ -8,7 +8,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TLobby__sub_801C38E8(void *);
 s32 TLobby__sub_801C3AF4(void *);
-s32 TLobby__sub_801C418C(void *);
+s32 end_battle_mode_cleanup__6TLobbyFPv(void *);
 s32 update_duel_result__6TLobbyFPv(void *);
 s32 update_timed_wait__6TLobbyFPv(void *);
 s32 update_battle_intro__6TLobbyFPv(void *);
@@ -47,7 +47,7 @@ void update_player_battle_ctrl_state(void *arg0) {
         update_duel_result__6TLobbyFPv((void *) (arg0));
         return;
     case 4:
-        TLobby__sub_801C418C((void *) (arg0));
+        end_battle_mode_cleanup__6TLobbyFPv((void *) (arg0));
         return;
     case 5:
         TLobby__sub_801C3AF4((void *) (arg0));

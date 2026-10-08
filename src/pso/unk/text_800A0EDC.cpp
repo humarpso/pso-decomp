@@ -275,7 +275,7 @@ void fn_800A0FDC(u8 *arg0);
 void TObjPlayer__sub_800A100C(s32 _w0);
 s32 TObjPlayer__sub_800A1010(s32 arg0);
 s32 TObjPlayer__sub_800A1058(s32 arg0);
-void TObjPlayer__sub_800A1298(void);
+void init_scale_global__10TObjPlayerFv(void);
 void update_move_to_destination__10TObjPlayerFPv(Obj_800A12C0 *o);
 s32 update_hide_sequence__10TObjPlayerFPv(u8 *arg0);
 void trigger_action_if_not_flagged__10TObjPlayerFPv(void *arg0);
@@ -429,7 +429,7 @@ extern "C" {
 void TObjPlayer__sub_800F65D0();
 }
 extern "C" {
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 }
 extern "C" {
 void add_actor_exp();
@@ -723,7 +723,7 @@ void *lbl_804907EC[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
 };
 
 extern M2C_UNK lbl_804909C4[];
@@ -857,7 +857,7 @@ void step_along_ground__10TObjPlayerFPv(u8 *arg0) {
 extern int fold_flush_0;
 #pragma pop
 
-void TObjPlayer__sub_800A1298(void) {
+void init_scale_global__10TObjPlayerFv(void) {
     lbl_805D5008 = ((f32 (*)(int))TObjPlayer__sub_800A3200)((int) (3));
 }
 
@@ -1229,7 +1229,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     init_collision_body_parts(self, lbl_80490780, 1);
     F(void *, 0x350) = lbl_80490748;
     bind_enemy_combat_stats(self, lbl_805D4FF8[F(s32, 0x368)], lbl_805D4FFC[F(s32, 0x368)], lbl_805D5000[F(s32, 0x368)]);
-    ((void (*)(void *))TObjPlayer__sub_800A1298)(self);
+    ((void (*)(void *))init_scale_global__10TObjPlayerFv)(self);
     F(s16, 0x32C) = F(s16, 0x2B8);
     F(s16, 0x32E) = F(s16, 0x2BA);
     F(s16, 0x33E) = F(s16, 0x32C);

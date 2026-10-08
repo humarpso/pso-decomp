@@ -79,7 +79,7 @@ M2C_UNK init_item_data__10TObjPlayerFPvi(void *, int);
 M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, u8);
 Ent_802D3134 *TLobby__sub_802D29AC(s32);
 extern s8 TLobby__data_805D688A;
-void TLobby__sub_802D3134(Trade_802D3134 *arg0);
+void build_trade_item_list__6TLobbyFPv(Trade_802D3134 *arg0);
 s32 get_shared_text_buffer();
 M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK refresh_player_status__6TLobbyFv(s32);
@@ -146,7 +146,7 @@ void TLobby__sub_802D30E8(s32 arg0) {
     prepare_and_send_trade_packet__6TLobbyFPvPv((void *) (&packet.header), (void *) (arg0));
 }
 
-void TLobby__sub_802D3134(Trade_802D3134 *arg0) {
+void build_trade_item_list__6TLobbyFPv(Trade_802D3134 *arg0) {
     Item_802D3134 item;
     Ent_802D3134 *list;
     s32 c;

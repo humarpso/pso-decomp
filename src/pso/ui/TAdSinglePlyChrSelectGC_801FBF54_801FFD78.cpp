@@ -99,7 +99,7 @@ extern RecoveredGlobal_801FFF14_lbl_80513910 lbl_80513910;
 extern s32 lbl_805D5F5C;
 extern s32 lbl_805D5F94;
 void TAdSinglePlyChrSelectGC__sub_80200418(void);
-void *TAdSinglePlyChrSelectGC__sub_801FDFB8(void *, void *);
+void *copy_char_slot_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
 s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 get_ptr_4__10TObjPlayerFPv();
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FCD04(s32);
@@ -257,7 +257,7 @@ s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, M2C_UNK);
 M2C_UNK memcpy(void *, s32, M2C_UNK);
 extern s32 *lbl_805D5F70;
 extern s32 lbl_805D5F9C;
-void TAdSinglePlyChrSelectGC__sub_801FFEBC(void);
+void verify_save_checksum__23TAdSinglePlyChrSelectGCFv(void);
 void TAdPlayerLoadGC__sub_801E14E4(File_80200A44 *);
 void TAdPlayerLoadGC__sub_801E14E8(File_80200A44 *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, File_80200A44 *);
@@ -267,7 +267,7 @@ M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern u8 lbl_804C88C0[];
 extern s32 lbl_805D5F68;
 extern s32 lbl_805D5F98;
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8();
+M2C_UNK build_save_file__23TAdSinglePlyChrSelectGCFv();
 void TAdPlayerLoadGC__sub_801E14E4(File_80200A44 *);
 void TAdPlayerLoadGC__sub_801E14E8(File_80200A44 *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, File_80200A44 *);
@@ -277,7 +277,7 @@ M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern u8 lbl_804C88C0[];
 extern s32 *lbl_805D5F6C;
 extern s32 lbl_805D5F9C;
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998();
+M2C_UNK build_default_save_file__23TAdSinglePlyChrSelectGCFv();
 }
 
 extern "C" {
@@ -334,7 +334,7 @@ s32 verify_save_checksum__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 typedef char RecoveredGlobal_801FFF14_lbl_80513910_size[sizeof(RecoveredGlobal_801FFF14_lbl_80513910) == 0x10 ? 1 : -1];
 
-void TAdSinglePlyChrSelectGC__sub_801FFEBC(void) {
+void verify_save_checksum__23TAdSinglePlyChrSelectGCFv(void) {
     u32 sum;
     u32 r;
     memcpy((void *)((void *)lbl_805D5F70), (s32)(lbl_805D5F9C + 0x2048), (M2C_UNK)(0x11C));
@@ -352,14 +352,14 @@ void TAdSinglePlyChrSelectGC__sub_801FFF14(void) {
     M2C_FIELD(&lbl_80513910.value, s32 *, 4) = temp_r3;
     M2C_FIELD(&lbl_80513910.value, s32 *, 0) = temp_r3;
     TAdSinglePlyChrSelectGC__sub_802000C8((void *)((void *) (lbl_805D5F68)), (void *)((void *) (&lbl_80513910.value)));
-    TAdSinglePlyChrSelectGC__sub_802008E8();
+    build_save_file__23TAdSinglePlyChrSelectGCFv();
     TAdSinglePlyChrSelectGC__sub_801FFF98((void *)((void *) (lbl_805D5F68)));
 }
 
 void create_instance__23TAdSinglePlyChrSelectGCFv(void) {
     *lbl_805D5F6C = 0;
     *lbl_805D5F6C = TAdSinglePlyChrSelectGC__sub_80201204(lbl_805D5F6C, 0x11C);
-    TAdSinglePlyChrSelectGC__sub_80200998();
+    build_default_save_file__23TAdSinglePlyChrSelectGCFv();
 }
 
 extern s32 lbl_805D5544;
@@ -550,7 +550,7 @@ s32 copy_save_data__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     d = dst->slots;
     s = src->slots;
     do {
-        TAdSinglePlyChrSelectGC__sub_801FDFB8(d, s);
+        copy_char_slot_data__23TAdSinglePlyChrSelectGCFPvPv(d, s);
         d++;
         s++;
     } while (d < &dst->slots[7]);
@@ -589,7 +589,7 @@ M2C_UNK encrypt_save_data__23TAdSinglePlyChrSelectGCFPvPv(void *arg0, void *arg1
 }
 #undef self
 
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8() {
+M2C_UNK build_save_file__23TAdSinglePlyChrSelectGCFv() {
     s32 base = (s32)lbl_804C88C0;
     File_80200A44 f;
     memset((void *)(&f), 0, sizeof(f));
@@ -607,7 +607,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_802008E8() {
     TAdPlayerLoadGC__sub_801E14E4(&f);
 }
 
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80200998() {
+M2C_UNK build_default_save_file__23TAdSinglePlyChrSelectGCFv() {
     s32 base = (s32)lbl_804C88C0;
     File_80200A44 f;
     memset((void *)(&f), 0, sizeof(f));

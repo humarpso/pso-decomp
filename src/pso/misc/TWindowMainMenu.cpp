@@ -74,7 +74,7 @@ extern RecoveredGlobal_8026492C___vt__15TWindowMainMenu __vt__15TWindowMainMenu;
 u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1);
 void TWindowMainMenu__sub_80263D7C(void *, int);
 void add_menu_entry__15TWindowMainMenuFPvs(void *, s16);
-void TWindowMainMenu__sub_80263DBC(void *);
+void update_selection_value__15TWindowMainMenuFPv(void *);
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *, int);
 void close_child_window__15TWindowMainMenuFPv(void *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
@@ -215,7 +215,7 @@ void handle_menu_selection__15TWindowMainMenuFPv(Menu_802647CC *arg0) {
             }
             add_menu_entry__15TWindowMainMenuFPvs(arg0, id);
             TWindowMainMenu__sub_80263D7C(arg0, arg0->depth--);
-            TWindowMainMenu__sub_80263DBC(arg0);
+            update_selection_value__15TWindowMainMenuFPv(arg0);
             close_submenu__15TWindowMainMenuFPvPv(arg0, arg0->ents);
         }
     }

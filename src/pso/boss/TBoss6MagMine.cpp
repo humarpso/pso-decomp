@@ -225,7 +225,7 @@ f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 extern const f32 TBoss6MagMine__data_805E0314;
 extern const f32 lbl_805E031C;
-s32 TBoss6MagMine__sub_80368CE4(void *arg0_);
+s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
 M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
 s32 get_next_point__14TBoss6PlotFalzFPvPvPv(u32, void *, void *);
@@ -233,7 +233,7 @@ s32 get_phase__8TObjFishFPv();
 s32 get_mag_mine_ptr__11TBoss6Type1FPv(u32);
 u32 get_hp__14TBoss6PlotFalzFv();
 s32 create__13TBoss6MagMineFi(s32 arg0);
-void TBoss6MagMine__sub_80369598(void *arg0, void *arg1);
+void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1);
 }
 
 extern "C" {
@@ -368,7 +368,7 @@ void explode__13TBoss6MagMineFPv(Mine_80368C14 *o) {
     play_sound_effect(0x4003BA1E, &o->pos, 0, 0);
 }
 
-s32 TBoss6MagMine__sub_80368CE4(void *arg0_) {
+s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_) {
     M_80368CE4 *arg0 = (M_80368CE4 *)arg0_;
     Vec_80368C14 d;
     s32 n;
@@ -407,7 +407,7 @@ extern M2C_UNK lbl_804F322C[];
 #pragma opt_common_subs off
 void TBoss6MagMine__vt2(u8 *arg0) {
     f32 temp_f1;
-    if (TBoss6MagMine__sub_80368CE4((void *)((void *) (arg0))) != 0) {
+    if (is_player_in_range__13TBoss6MagMineFPv((void *)((void *) (arg0))) != 0) {
         M2C_FIELD(arg0, s32 *, 0x394) = 0x96;
     }
     M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + lbl_805E0324);
@@ -529,7 +529,7 @@ s32 create__13TBoss6MagMineFi(s32 arg0) {
     return var_r31;
 }
 
-void TBoss6MagMine__sub_80369598(void *arg0, void *arg1) {
+void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *arg0, void *arg1) {
     Params_80369598 p;
     u32 boss;
     boss = get_hp__14TBoss6PlotFalzFv();

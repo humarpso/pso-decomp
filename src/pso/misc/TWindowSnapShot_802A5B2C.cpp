@@ -15,14 +15,14 @@ M2C_UNK strcpy(void *, void *);
 s32 strlen(void *);
 void fn_802A5CC4(u8 *arg0, s32 arg1);
 void free__11TOBoss4RockFUi(void *);
-void TWindowSnapShot__sub_802A5D28(void *arg0);
+void free_buffer__15TWindowSnapShotFPv(void *arg0);
 int fn_802A5B74(s32, s32);
 void fn_802A5B2C(s32 arg0);
 int fn_802A5BFC(s32, s32);
 M2C_UNK __dl__FPv(void *);
 extern M2C_UNK lbl_804DD098[];
 void *TWindowSnapShot__sub_802A5EDC(void *arg0, s16 arg1);
-void TWindowSnapShot__sub_802A5D28(void *arg0);
+void free_buffer__15TWindowSnapShotFPv(void *arg0);
 void reset__15TWindowSnapShotFPv(u8 *arg0);
 extern M2C_UNK lbl_804DD098[];
 void update_both__15TWindowSnapShotFPv(void* p);
@@ -112,7 +112,7 @@ void fn_802A5CC4(u8 *arg0, s32 arg1) {
     strcpy((void *) (arg0 + 0x1C), (void *) (arg1));
 }
 
-void TWindowSnapShot__sub_802A5D28(void *arg0) {
+void free_buffer__15TWindowSnapShotFPv(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x8) != NULL) {
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x8));
         M2C_FIELD(arg0, u32 *, 0x8) = 0;
@@ -132,7 +132,7 @@ s32 open_stream__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0xC) = read_whole_file__8TGStreamFiPv(arg1, M2C_FIELD(arg0, s32 *, 8));
     if (TWindowSnapShot__sub_802A605C((u8 *)(arg0)) == 0) {
         set_mode__15TWindowSnapShotFPvi((void*)(arg0), (s32)(2));
-        TWindowSnapShot__sub_802A5D28((void *)((void*)((void*)(arg0))));
+        free_buffer__15TWindowSnapShotFPv((void *)((void*)((void*)(arg0))));
         return 0;
     }
     return 1;
@@ -175,7 +175,7 @@ u8 *TWindowSnapShot__sub_802A5F24(u8 *arg0) {
     return arg0;
 }
 
-void update_both__15TWindowSnapShotFPv(void* p) { TWindowSnapShot__sub_802A5D28((void *)(p)); reset__15TWindowSnapShotFPv((u8 *)(p)); }
+void update_both__15TWindowSnapShotFPv(void* p) { free_buffer__15TWindowSnapShotFPv((void *)(p)); reset__15TWindowSnapShotFPv((u8 *)(p)); }
 s32 start_capture__15TWindowSnapShotFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
         set_mode__15TWindowSnapShotFPvi((void*)((void *)((void*)((void*)(arg0)))), (s32)((s32)((s32)(3))));

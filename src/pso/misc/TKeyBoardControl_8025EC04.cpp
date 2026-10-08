@@ -48,7 +48,7 @@ extern RecoveredGlobal_8025ED80_lbl_8049E278 lbl_8049E278;
 u16 TKeyBoardControl__sub_8025ED80(u8 *arg0, s32 arg1);
 s32 TKeyBoardControl__sub_801321B4(void *);
 s32 TKeyBoardControl__sub_80132274(void *);
-s32 TKeyBoardControl__sub_801322E4(void *);
+s32 is_key_57_pressed__16TKeyBoardControlFi(void *);
 s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
 extern M2C_UNK TKeyBoardControl__data_80506270[];
@@ -364,7 +364,7 @@ block_7:
     }
 }
 
-void TKeyBoardControl__sub_8025FBE8(Ctl_8025F21C *c) {
+void process_all_key_states__16TKeyBoardControlFPv(Ctl_8025F21C *c) {
     s32 i;
     s32 n;
     if (!(c->f60 & 2)) {
@@ -394,7 +394,7 @@ void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC6
     } else {
         arg0->field_60 &= 0xFFFFFFFD;
     }
-    if (TKeyBoardControl__sub_801322E4(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
+    if (is_key_57_pressed__16TKeyBoardControlFi(&(*(RecoveredGlobal_8025FC60_TKeyBoardControl__data_80506270 *)&TKeyBoardControl__data_80506270).value) != 0) {
         arg0->field_60 |= 4;
     } else {
         arg0->field_60 &= 0xFFFFFFFB;

@@ -60,7 +60,7 @@ void update_and_send__10TObjPlayerFPv(void* p);
 int TFontSmallLobby__sub_801C01BC(void*);
 int TLobby__send_and_handle_60(void*);
 int bswap_pkt_u32x2__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_801BEE34(void*);
+int bswap_status_effect_data__10TObjPlayerFPv(void*);
 int byteswap_packet_body__10TObjPlayerFPv(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -83,11 +83,11 @@ void init_cmd_6x24__10TObjPlayerFPv(void *arg0) {
 }
 
 void send_lobby_update__10TObjPlayerFPv(void* p) { byteswap_packet_body__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
-void bswap_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); TObjPlayer__sub_801BEE34((char*)p + 0x4); }
+void bswap_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_status_effect_data__10TObjPlayerFPv((char*)p + 0x4); }
 void set_code_13_3__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 13; *(u8*)((char*)p + 0x1) = 3; }
 void update_and_send__10TObjPlayerFPv(void* p) { bswap_status_effect__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void set_code_14_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 14; *(u8*)((char*)p + 0x1) = 1; }
-void apply_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); TObjPlayer__sub_801BEE34((char*)p + 0x4); }
+void apply_status_effect__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_status_effect_data__10TObjPlayerFPv((char*)p + 0x4); }
 #pragma push
 #pragma opt_common_subs off
 #pragma pop

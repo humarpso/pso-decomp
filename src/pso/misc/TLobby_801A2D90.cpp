@@ -17,7 +17,7 @@ s32 is_split_screen();
 extern s32 lbl_805D53A0;
 extern s32 lbl_805D53A8;
 void apply_char_to_players__6TLobbyFv(void);
-M2C_UNK THunterGuildSeqOffline__sub_80213430();
+M2C_UNK reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
 M2C_UNK reset_floor_items__6TLobbyFv();
 M2C_UNK reset_item_id_counters__6TLobbyFv();
 int clear_counter__6TLobbyFv(void);
@@ -112,7 +112,7 @@ void reset_quest_state__6TLobbyFv(void) {
         queue_destruction__7TObjectFv(lbl_805D5EE8);
     }
     clear_enabled_main_warps();
-    THunterGuildSeqOffline__sub_80213430();
+    reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
     clear_counter__6TLobbyFv();
     reset_door_state__6TLobbyFv();
     reset_instance__8TObjDoorFv();

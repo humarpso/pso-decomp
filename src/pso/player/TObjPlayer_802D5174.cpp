@@ -115,7 +115,7 @@ void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
 void TObjPlayer__sub_802D564C(Pl_802D564C *arg0);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-M2C_UNK TObjPlayer__sub_803D8BFC(int, void *, int);
+M2C_UNK rotate_matrix_about_axis__10TObjPlayerFPvii(int, void *, int);
 M2C_UNK set_matrix_identity__10TObjPlayerFPv(int);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 void push_matrix(void);
@@ -228,7 +228,7 @@ void TObjPlayer__sub_802D577C(void *arg0_) {
             push_matrix();
             set_matrix_identity__10TObjPlayerFPv(0);
             post_translate_matrix(q);
-            TObjPlayer__sub_803D8BFC(0, &b, ang);
+            rotate_matrix_about_axis__10TObjPlayerFPvii(0, &b, ang);
             transform_point_by_current_matrix(&a, p);
             pop_matrix();
             ang += step;

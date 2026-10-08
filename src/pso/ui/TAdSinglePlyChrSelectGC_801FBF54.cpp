@@ -81,7 +81,7 @@ M2C_UNK TAdSinglePlyChrSelectGC__sub_801FEBBC();
 M2C_UNK load_selected_char__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK load_and_verify_data(int);
 M2C_UNK verify_save_checksum__23TAdSinglePlyChrSelectGCFi(int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FFEBC();
+M2C_UNK verify_save_checksum__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK apply_loaded_character__23TAdSinglePlyChrSelectGCFi(int);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80200418();
 M2C_UNK prepare_save_data__23TAdSinglePlyChrSelectGCFv();
@@ -510,7 +510,7 @@ void run_save_load_sequence__23TAdSinglePlyChrSelectGCFv(void) {
         break;
     case 22:
         if (TAdPlayerLoadGC__sub_801E1B50((void *) (1)) == 0) {
-            TAdSinglePlyChrSelectGC__sub_801FFEBC();
+            verify_save_checksum__23TAdSinglePlyChrSelectGCFv();
             if ((s32) lbl_805D5FA8 != 0) {
                 lbl_805D5FA8 = 0;
                 TAdSinglePlyChrSelectGC__sub_801FEBBC();

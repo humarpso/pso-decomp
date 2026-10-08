@@ -102,7 +102,7 @@ s32 OSFillFPUContext(s32 *arg0);
 u16 jis_to_sjis__22TQuestVmDownLoadServerFUs(u16 arg0);
 s32 TQuestVmDownLoadServer__sub_803EDF64(s16 *, s32, u16 *, s32 *);
 extern s16 lbl_80596264[0x200];
-s32 TQuestVmDownLoadServer__sub_803E64C8(s32 *arg0);
+s32 convert_jis_to_sjis_string__22TQuestVmDownLoadServerFPv(s32 *arg0);
 M2C_UNK TQuestVmDownLoadServer__sub_803EE870(void *, int);
 M2C_UNK TQuestVmDownLoadServer__sub_803E9F20(int);
 M2C_UNK TQuestVmDownLoadServer__sub_803EAE84(int, int, int);
@@ -582,7 +582,7 @@ s32 OSFillFPUContext(s32 *arg0) {
     lbl_805D7834 = 3;
     return count_chain_nodes__22TQuestVmDownLoadServerFPv(((Ent_803E639C *)&lbl_80595998)[0].c);
 }
-s32 TQuestVmDownLoadServer__sub_803E64C8(s32 *arg0) {
+s32 convert_jis_to_sjis_string__22TQuestVmDownLoadServerFPv(s32 *arg0) {
     u16 buf[4];
     s32 cnt;
     u8 *src;

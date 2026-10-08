@@ -275,7 +275,7 @@ void set_flag8_and_field20__15TWindowHelpItemFPvi(s32, s32);
 M2C_UNK set_flag_0x10__15TWindowHelpItemFPvi(s32, M2C_UNK);
 s32 check_equip_requirements(s32, M2C_UNK, M2C_UNK *);
 void update_stat_comparison__15TWindowHelpItemFv(Help_802549B0 *self);
-void TWindowHelpItem__sub_802553F8(T_802553F8 *o);
+void invoke_callback_pmf__15TWindowHelpItemFPv(T_802553F8 *o);
 }
 
 extern "C" {
@@ -729,7 +729,7 @@ void TWindowHelpItem__vt0(HelpItem_802551C4 *self) {
     }
 }
 
-void TWindowHelpItem__sub_802553F8(T_802553F8 *o) {
+void invoke_callback_pmf__15TWindowHelpItemFPv(T_802553F8 *o) {
     if (o->pmf) {
         (o->*(o->pmf))();
     }

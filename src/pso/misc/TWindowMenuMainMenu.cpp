@@ -24,7 +24,7 @@ extern "C" {
 
 void *__dt__19TWindowMenuMainMenuFv(void *arg0, s16 arg1);
 void run_task__19TWindowMenuMainMenuFv(u8 *arg0);
-M2C_UNK TWindowMainMenu__sub_802AD7F0(void *);
+M2C_UNK update_item_tween__15TWindowMainMenuFPv(void *);
 M2C_UNK update_slide_position__15TWindowMainMenuFPv(void *);
 M2C_UNK handle_navigation_input__15TWindowMainMenuFPv(void *);
 void __dl__7TObjectFPv(void *);
@@ -52,7 +52,7 @@ void run_task__19TWindowMenuMainMenuFv(u8 *arg0) {
     var_r30 = arg0 + 0x64;
     var_r31 = 0;
     do {
-        TWindowMainMenu__sub_802AD7F0(var_r30);
+        update_item_tween__15TWindowMainMenuFPv(var_r30);
         var_r31 += 1;
         var_r30 += 0x18;
     } while (var_r31 < 8);

@@ -62,7 +62,7 @@ void TObjPlayer__sub_801BEE24(void* p, s16 v);
 void TObjPlayer__sub_801BEE2C(void* p, s16 v);
 void TObjPlayer__sub_801BEE2C(void* p, s16 v);
 void bswap_32__FPUl(void *);
-void TObjPlayer__sub_801BEE34(void *arg0);
+void bswap_status_effect_data__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_801BEEE0(void* p, void* q);
 void TObjPlayer__sub_801BEEE0(void* p, void* q);
 void TObjPlayer__sub_801BEF30(void* p, void* q);
@@ -237,7 +237,7 @@ void TObjPlayer__sub_801BEE24(void* p, s16 v) { *(s16*)((char*)p + 0x2be) = v; }
 
 void TObjPlayer__sub_801BEE2C(void* p, s16 v) { *(s16*)((char*)p + 0x2bc) = v; }
 
-void TObjPlayer__sub_801BEE34(void *arg0) {
+void bswap_status_effect_data__10TObjPlayerFPv(void *arg0) {
     bswap_32__FPUl(arg0);
     bswap_32__FPUl((void *)((char *)arg0 + 4));
 }

@@ -37,7 +37,7 @@ u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 void queue_destruction__7TObjectFv(void *);
 void fn_8028AE1C(void *);
 void *create_smoke__15TObjBoss5PillarFPvPv(Pillar_8028B488 *, void *);
-void TObjBoss5Pillar__sub_8028B488(Pillar_8028B488 *arg0);
+void update_collapse_state__15TObjBoss5PillarFPv(Pillar_8028B488 *arg0);
 }
 
 extern "C" {
@@ -75,7 +75,7 @@ void render__15TObjBoss5PillarFPv(u8 *arg0) {
 
 extern M2C_UNK __vt__15TObjBoss5Pillar[];
 
-void TObjBoss5Pillar__sub_8028B488(Pillar_8028B488 *arg0) {
+void update_collapse_state__15TObjBoss5PillarFPv(Pillar_8028B488 *arg0) {
     u32 last;
     switch (arg0->state) {
     case 0:

@@ -22,7 +22,7 @@ s32 open_keyboard__26TWindowSubInformationBoardFi(s32 arg0);
 void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1);
 void show_card_a7__26TWindowSubInformationBoardFPv(void *arg0);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
-s32 TLobby__sub_8034C1FC();
+s32 get_info_board_ptr__6TLobbyFv();
 s32 get_window_layout_position(M2C_UNK);
 s32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK destroy_keyboard__17TWindowSubComCardFPv(s32);
@@ -37,7 +37,7 @@ void set_page__26TWindowSubInformationBoardFPvi(void *arg0, s32 arg1) {
     s32 temp_r3;
 
     if (((s32) M2C_FIELD(arg0, s32 *, 0x24) != arg1) && (arg1 != -1)) {
-        temp_r3 = TLobby__sub_8034C1FC();
+        temp_r3 = get_info_board_ptr__6TLobbyFv();
         if (temp_r3 != 0) {
             M2C_FIELD(arg0, s32 *, 0x24) = arg1;
             send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x34), temp_r3 + (arg1 * 0xBC) + 0x14, 0x80);

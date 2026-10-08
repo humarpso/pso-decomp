@@ -88,19 +88,19 @@ struct T_80422E30 {
 struct P_8042315C { s32 type; s32 a; s32 b; s32 c; s32 pad10; s16 n; s16 m; s32 d; };
 
 extern "C" {
-s32 TLobby__sub_80406AE4(void);
+s32 shutdown_network_handle__6TLobbyFv(void);
 s32 TLobby__sub_80409AA8(void);
 s32 TLobby__sub_8040DD68(void);
 s32 TLobby__sub_8040ED28(void);
 s32 shutdown_ipv6__6TLobbyFv(void);
 s32 TLobby__sub_8041112C(void);
-s32 TLobby__sub_80415650(void);
+s32 reset_net_value__6TLobbyFv(void);
 void TLobby__sub_80415AEC(void);
 s32 TLobby__sub_80418A7C(void);
 void TLobby__sub_80419A00(void);
 s32 TLobby__sub_80419A7C(void);
 s32 TLobby__sub_8041A1D8(void);
-s32 TLobby__sub_80420C5C(void);
+s32 reset_stack_module__6TLobbyFv(void);
 s32 cleanup_subsystems__6TLobbyFv(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 lbl_805C1C50;
@@ -171,7 +171,7 @@ s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb
 extern S_804220A0 *lbl_805C1D48[];
 s32 TLobby__sub_804220A0(s32 idx_, void (*cb)(s16, s16, s32), s16 arg2, s32 *arg3);
 void OSReport(const char *, ...);
-s32 TLobby__sub_80406AE4(void);
+s32 shutdown_network_handle__6TLobbyFv(void);
 s16 TLobby__sub_80406B14();
 s32 TLobby__sub_80409AA8(void);
 s16 TLobby__sub_80409AD8();
@@ -183,7 +183,7 @@ s32 shutdown_ipv6__6TLobbyFv(void);
 s16 init_ipv6_interfaces__6TLobbyFv();
 s32 TLobby__sub_8041112C(void);
 s16 TUdpSocket__sub_8041118C();
-s32 TLobby__sub_80415650(void);
+s32 reset_net_value__6TLobbyFv(void);
 s16 TLobby__sub_80415690();
 void TLobby__sub_80415AEC(void);
 s16 TLobby__sub_80415B38();
@@ -194,7 +194,7 @@ s16 TLobby__sub_80419A34(int);
 s16 TLobby__sub_80419B04();
 s32 TLobby__sub_8041A1D8(void);
 s16 TLobby__sub_8041A230();
-s32 TLobby__sub_80420C5C(void);
+s32 reset_stack_module__6TLobbyFv(void);
 s16 TLobby__sub_80420C9C();
 extern char lbl_804800F0[];
 extern u32 TLobby__network_stack_init_count;
@@ -304,10 +304,10 @@ s32 cleanup_subsystems__6TLobbyFv(void) {
     shutdown_ipv6__6TLobbyFv();
     TLobby__sub_8040DD68();
     TLobby__sub_80418A7C();
-    TLobby__sub_80420C5C();
+    reset_stack_module__6TLobbyFv();
     TLobby__sub_8041A1D8();
-    TLobby__sub_80406AE4();
-    TLobby__sub_80415650();
+    shutdown_network_handle__6TLobbyFv();
+    reset_net_value__6TLobbyFv();
     TLobby__sub_80419A00();
     return 0;
 }
@@ -380,7 +380,7 @@ block_24:
                             goto block_25;
                         }
 block_25:
-                        TLobby__sub_80420C5C();
+                        reset_stack_module__6TLobbyFv();
                         goto block_26;
                     }
 block_26:
@@ -388,11 +388,11 @@ block_26:
                     goto block_27;
                 }
 block_27:
-                TLobby__sub_80406AE4();
+                shutdown_network_handle__6TLobbyFv();
                 goto block_28;
             }
 block_28:
-            TLobby__sub_80415650();
+            reset_net_value__6TLobbyFv();
             goto block_29;
         }
 block_29:

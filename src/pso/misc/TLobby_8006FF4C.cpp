@@ -98,7 +98,7 @@ extern s32 tl_07;
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
 void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK TLobby__sub_800725E0(void *);
+M2C_UNK send_6x7c_reset__6TLobbyFv(void *);
 u32 get_player_by_client_id(s32);
 extern void *lbl_8048C9D8[];
 extern s32 lbl_805D53A0;
@@ -493,7 +493,7 @@ void TLobby__sub_80070254(L_80070254 *arg0) {
     if (found != 0) {
         arg0->x24++;
         if (arg0->x24 % 30 == 0) {
-            TLobby__sub_800725E0(arg0);
+            send_6x7c_reset__6TLobbyFv(arg0);
         }
     } else {
         arg0->x24 = 0;

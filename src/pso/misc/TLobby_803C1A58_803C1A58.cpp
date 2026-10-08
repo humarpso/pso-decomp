@@ -200,9 +200,9 @@ s16 get_field_a8__6TLobbyFPv(u8 *arg0);
 s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
 s16 get_slot__6TLobbyFPv(u8 *arg0);
 void init_scroll__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void TLobby__sub_803C1A8C(Strm_803C1A8C *o);
+void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o);
 M2C_UNK TLobby__sub_803C1DC4();
-void TLobby__sub_803C263C(Strm_803C1A8C *o);
+void decode_stream_chunk__6TLobbyFPv(Strm_803C1A8C *o);
 void TLobby__sub_803C2A00(Strm_803C1A8C *o);
 s32 get_client_count__6TLobbyFPv(int);
 extern s16 lbl_804F9B80[];
@@ -214,13 +214,13 @@ M2C_UNK reset_field_0C__6TLobbyFPv(int);
 
 void dispatch_network_state__6TLobbyFPv(u8 *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0xAA) == 1) {
-        TLobby__sub_803C1A8C((Strm_803C1A8C *)arg0);
+        decode_pcm8_stream__6TLobbyFPv((Strm_803C1A8C *)arg0);
         return;
     }
     TLobby__sub_803C1DC4();
 }
 
-void TLobby__sub_803C1A8C(Strm_803C1A8C *o) {
+void decode_pcm8_stream__6TLobbyFPv(Strm_803C1A8C *o) {
     u8 *src = o->src;
     if (o->state == 1 && get_client_count__6TLobbyFPv(o->id) == 0) {
         s16 *l;
@@ -333,7 +333,7 @@ void dispatch_by_state__6TLobbyFPv(u8 *arg0) {
 
     temp_r0 = M2C_FIELD(arg0, s16 *, 0xAA);
     if (temp_r0 == 2) {
-        TLobby__sub_803C263C((Strm_803C1A8C *)arg0);
+        decode_stream_chunk__6TLobbyFPv((Strm_803C1A8C *)arg0);
         return;
     }
     if (temp_r0 == 1) {
@@ -343,7 +343,7 @@ void dispatch_by_state__6TLobbyFPv(u8 *arg0) {
     TLobby__sub_803C2D38();
 }
 
-void TLobby__sub_803C263C(Strm_803C1A8C *o) {
+void decode_stream_chunk__6TLobbyFPv(Strm_803C1A8C *o) {
     u8 *src = o->src;
 
     if (o->state == 1 && get_client_count__6TLobbyFPv(o->id) == 0) {

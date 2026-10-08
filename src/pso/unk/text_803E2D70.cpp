@@ -230,7 +230,7 @@ extern s32 lbl_805D7788;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D77D0;
 extern u32 lbl_805D77D4;
-void TObjPlayer__sub_803E4354(void *);
+void setup_model_draw_state__10TObjPlayerFPv(void *);
 }
 
 extern "C" {
@@ -692,7 +692,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     }
 }
 
-void TObjPlayer__sub_803E4354(void *) {
+void setup_model_draw_state__10TObjPlayerFPv(void *) {
     Mtx_803E4354 scale;
     Mtx_803E4354 trans;
     Mtx_803E4354 m;
@@ -773,7 +773,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
 }
 
 void draw_chunk_model(void *arg0) {
-    TObjPlayer__sub_803E4354((void *)(arg0));
+    setup_model_draw_state__10TObjPlayerFPv((void *)(arg0));
     draw_chunk_vertices_cached__10TObjPlayerFPv(arg0);
     end_chunk_draw__10TObjPlayerFv();
 }
@@ -781,7 +781,7 @@ void draw_chunk_model(void *arg0) {
 #pragma push
 #pragma scheduling off
 void draw_chunk_object(void *arg0) {
-    TObjPlayer__sub_803E4354((void *)(arg0));
+    setup_model_draw_state__10TObjPlayerFPv((void *)(arg0));
     transform_chunk_object_tree(arg0, (void (*)(void *))draw_chunk_vertices_cached__10TObjPlayerFPv);
     end_chunk_draw__10TObjPlayerFv();
 }

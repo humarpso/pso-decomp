@@ -23,7 +23,7 @@ void text_builder_reset(void);
 s8 *parse_text_control_codes(s8 *, s32 *, s32);
 extern s32 lbl_805D5544;
 extern u8 *lbl_805D6338;
-s8 *TWindowSubStatusDisp__sub_80228F84(s8 *s);
+s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s);
 }
 
 extern "C" {
@@ -32,7 +32,7 @@ void TWindowSubStatusDisp__sub_80228F5C(s32 arg0) {
     lbl_805D6338 = fn_80228E98(arg0, lbl_805D6338);
 }
 
-s8 *TWindowSubStatusDisp__sub_80228F84(s8 *s) {
+s8 *copy_message_page_text__20TWindowSubStatusDispFPv(s8 *s) {
     s32 sjis;
     s8 *d;
     sjis = 0;

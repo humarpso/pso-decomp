@@ -64,7 +64,7 @@ s32 TLobby__sub_8010385C(s32 arg0);
 s32 TLobby__sub_80103B44(s32 arg0);
 extern s32 lbl_805D5424;
 extern s32 lbl_805D5428;
-u16 TLobby__sub_80103AD4(void);
+u16 pop_free_id__6TLobbyFv(void);
 extern s32 lbl_805D5424;
 extern s32 lbl_805D5428;
 s32 TLobby__sub_80103B04(u16 arg0);
@@ -264,7 +264,7 @@ s32 write_sync_item_state__6TLobbyFPv(void *arg0) {
 }
 #pragma pop
 
-u16 TLobby__sub_80103AD4(void) {
+u16 pop_free_id__6TLobbyFv(void) {
     s32 temp_r0;
     if ((s32) lbl_805D5428 != 0) {
         temp_r0 = lbl_805D5428 - 1;

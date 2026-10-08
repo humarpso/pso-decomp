@@ -3777,12 +3777,12 @@ struct Vec_802ED3E4 { f32 x, y, z; };
 
 extern "C" {
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
-u8 TObjFish__sub_802ED068(u8 *arg0);
+u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0);
 extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
-u32 TObjFish__sub_802ED144(u8 *arg0);
+u32 update_phase_settling__8TObjFishFPv(u8 *arg0);
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
-u32 TObjFish__sub_802ED254(u8 *arg0);
+u32 update_anim_state__8TObjFishFPv(u8 *arg0);
 M2C_UNK bind_motion_context(int, f32);
 M2C_UNK compose_motion_node_matrix(int);
 M2C_UNK scale_matrix(int, f32, f32, f32);
@@ -3791,7 +3791,7 @@ M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 extern u8 lbl_8058D490[];
 M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
-u8 TObjFish__sub_802ECF50(u8 *arg0);
+u8 update_phase_rising__8TObjFishFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -3804,7 +3804,7 @@ void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 
 #pragma push
 #pragma opt_common_subs off
-u8 TObjFish__sub_802ECF50(u8 *arg0) {
+u8 update_phase_rising__8TObjFishFPv(u8 *arg0) {
     f32 var_f2;
     s32 temp_r0;
     s32 var_r3;
@@ -3847,7 +3847,7 @@ u8 TObjFish__sub_802ECF50(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-u8 TObjFish__sub_802ED068(u8 *arg0) {
+u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0) {
     s32 temp_r0;
     s32 var_r3;
     TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670);
@@ -3882,7 +3882,7 @@ u8 TObjFish__sub_802ED068(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 #pragma opt_propagation off
-u32 TObjFish__sub_802ED144(u8 *arg0) {
+u32 update_phase_settling__8TObjFishFPv(u8 *arg0) {
     s32 temp_r0;
     u8 var_r3;
     TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x630));
@@ -3922,7 +3922,7 @@ u32 TObjFish__sub_802ED144(u8 *arg0) {
 
 #pragma push
 #pragma opt_common_subs off
-u32 TObjFish__sub_802ED254(u8 *arg0) {
+u32 update_anim_state__8TObjFishFPv(u8 *arg0) {
     s32 temp_r0;
     u8 var_r3;
     TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x670));
@@ -4139,7 +4139,7 @@ s32 register_boss__6TLobbyFPv(M2C_UNK);
 M2C_UNK reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
 void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1);
 M2C_UNK update_local_colliders_from_world(void *, void *);
-void TObjFish__sub_802ED73C(u8 *arg0);
+void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0);
 }
 #define VecCopy__FP3VecPC3Vec ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
@@ -4208,7 +4208,7 @@ void flee_if_disturbed__8TObjFishFPv(u8 *arg0) {
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
     }
 }
-void TObjFish__sub_802ED73C(u8 *arg0) {
+void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0) {
     u8 sp8[0xC];
     f32 f;
     s32 set;

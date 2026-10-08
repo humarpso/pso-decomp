@@ -115,14 +115,14 @@ void clear_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
 s32 get_pipe_interaction_latch(void* p);
 int TObjPlayer__sub_80019664(void);
-void TTecLuker__sub_80234F90(void* p);
+void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
 s32 TLobby__send_and_handle_60(s32);
 int TObjPlayer__sub_80019664(void);
 extern M2C_UNK lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 lbl_805D5FC0;
 extern s32 lbl_805D5D6C;
-void TTecLuker__sub_80234F90(void* p);
+void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
 void TTecLuker__sub_80235028(void* p);
 void TTecLuker__sub_80235028(void* p);
 void TTecLuker__sub_8023503C(void* p);
@@ -143,7 +143,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(s32);
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void VecCopy__FP3VecPC3Vec(void *, void *);
-void TTecLuker__sub_80234F90(void* p);
+void send_swapped_telepipe_packet__9TTecLukerFPv(void* p);
 void TTecLuker__sub_80235028(void* p);
 void send_telepipe_packet__9TTecLukerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -515,7 +515,7 @@ void send_telepipe_packet__9TTecLukerFPv(u8 *arg0) {
     stack.spE = M2C_FIELD(arg0, s16 *, 2);
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (arg0 + 8));
     stack.sp20 = M2C_FIELD(arg0, s32 *, 0x14);
-    TTecLuker__sub_80234F90((void*)((void *) (&stack.sp8)));
+    send_swapped_telepipe_packet__9TTecLukerFPv((void*)((void *) (&stack.sp8)));
 }
 
 void write_telepipe_record(u8 *arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4) {
@@ -963,7 +963,7 @@ void clear_pipe_interaction_latch(void* p) { *(s32*)((char*)p + 0xb0) = 0; }
 
 s32 get_pipe_interaction_latch(void* p) { return *(s32*)((char*)p + 0xb0); }
 
-void TTecLuker__sub_80234F90(void* p) { byteswap_telepipe_packet__9TTecLukerFPv((void *)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
+void send_swapped_telepipe_packet__9TTecLukerFPv(void* p) { byteswap_telepipe_packet__9TTecLukerFPv((void *)((void*)(p))); TLobby__send_and_handle_60((s32)(p)); }
 
 void byteswap_telepipe_packet__9TTecLukerFPv(void *arg0) {
     read_be16_field2__10TObjPlayerFPv(arg0);

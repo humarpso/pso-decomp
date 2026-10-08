@@ -26,7 +26,7 @@ struct Obj_8007F0E4 {
 
 M2C_UNK queue_destruction__7TObjectFv(void *);
 void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TObjWarpString__sub_8007EE8C(void *arg0, s32 x0, s32 y0, s8 *str);
+M2C_UNK draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
 s32 fn_8007F4B8(void *, s32, f32);
 s32 calc_text_width(s8 *);
 void draw_string__14TObjWarpStringFPviff(s8 *, u32, f32, f32);
@@ -95,7 +95,7 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
 extern int fold_flush_0;
 #pragma pop
 
-M2C_UNK TObjWarpString__sub_8007EE8C(void *arg0, s32 x0, s32 y0, s8 *str) {
+M2C_UNK draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str) {
     f32 x;
     f32 y;
     f32 xr;
@@ -129,7 +129,7 @@ void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {
             var_r5 = 0x64;
         }
         sprintf(&sp8, lbl_80438AD8, var_r5);
-        TObjWarpString__sub_8007EE8C(arg0, (s32) farg0, (s32) farg1, &sp8);
+        draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(arg0, (s32) farg0, (s32) farg1, &sp8);
     }
 }
 
@@ -158,7 +158,7 @@ void draw_countdown_timer(Obj_8007F0E4 *self, f32 x, f32 y) {
     } else {
         ((int (*)(char *, const char *, ...))sprintf)(buf, lbl_80438AEC, secs, frac);
     }
-    ((M2C_UNK (*)(void *, s32, s32, char *))TObjWarpString__sub_8007EE8C)(self, (s32)x, (s32)y, buf);
+    ((M2C_UNK (*)(void *, s32, s32, char *))draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv)(self, (s32)x, (s32)y, buf);
     if (self->f30 > 0 && self->f24 - self->f30 > 0x4B && self->f1C > lbl_805D92B0) {
         k = lbl_805D929C;
         r = k / self->f1C;

@@ -27,7 +27,7 @@ extern const f32 lbl_805DDFD4;
 extern const f32 lbl_805DDFD8;
 extern const f32 lbl_805DDFDC;
 extern const f32 lbl_805DDFE0;
-void TObjCMAssignMenu__sub_802A5208(Tag_802A5208 *self);
+void draw_frame__16TObjCMAssignMenuFPv(Tag_802A5208 *self);
 }
 
 extern "C" {
@@ -43,7 +43,7 @@ void free_dialing_gc__6TLobbyFv(void) {
         lbl_805D6668 = 0U;
     }
 }
-void TObjCMAssignMenu__sub_802A5208(Tag_802A5208 *self) {
+void draw_frame__16TObjCMAssignMenuFPv(Tag_802A5208 *self) {
     f32 a;
     a = lbl_805DDFC8;
     if (self->t < lbl_805DDFCC) {

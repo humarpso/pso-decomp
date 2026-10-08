@@ -9,12 +9,12 @@ s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(M2C_UNK);
 extern s32 TObjCityMainWarp__data_805D5B54;
-void TObjCityMainWarp__sub_8018667C(void *self);
+void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self);
 s32 is_split_screen();
 int is_main_phase_15__9TObjEneDDFv(void*);
 s32 get_story_flag(M2C_UNK);
 extern s32 TObjCityMainWarp__data_805D5B54;
-void TObjCityMainWarp__sub_80186748(void *self);
+void init_visible_mask__16TObjCityMainWarpFPv(void *self);
 }
 
 extern "C" {
@@ -156,7 +156,7 @@ s32 get_localized_text_entry(s32, s32);
 void render__15TObjLaboMapWarpFv(u8 *arg0);
 void run_task__15TObjLaboMapWarpFv(u8 *arg0);
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p);
-void TObjLaboMapWarp__sub_80185400(u8 *arg0);
+void clamp_index__15TObjLaboMapWarpFPv(u8 *arg0);
 void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1);
 void release_static_resource__15TObjLaboMapWarpFv(void);
 void TObjLaboMapWarp__sub_80185514(void);
@@ -301,7 +301,7 @@ void run_task__15TObjLaboMapWarpFv(u8 *arg0) {
 
 int is_field88_zero__15TObjLaboMapWarpFPv(void* p) { return *(u32*)((char*)p + 0x88) == 0; }
 
-void TObjLaboMapWarp__sub_80185400(u8 *arg0) {
+void clamp_index__15TObjLaboMapWarpFPv(u8 *arg0) {
     s32 var_r0;
     var_r0 = M2C_FIELD(arg0, s32 *, 0x8C);
     if (var_r0 < 0) {
@@ -319,7 +319,7 @@ void TObjLaboMapWarp__vt13(u8 *arg0, s32 arg1) {
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
     if ((u32) M2C_FIELD(temp_r31, u32 *, 0xEC) == 0U) {
         M2C_FIELD(temp_r31, u32 *, 0xEC) = create_window_menu(get_window_layout_position(0x33), 1, arg1);
-        TObjLaboMapWarp__sub_80185400((u8 *)((void *) (arg0)));
+        clamp_index__15TObjLaboMapWarpFPv((u8 *)((void *) (arg0)));
         add_text_entry__19TWindowSubTradeMainFPviiii(M2C_FIELD(temp_r31, u32 *, 0xEC), get_localized_text_entry(9, M2C_FIELD(&lbl_80444878.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 4))), 0xA, 0, -1);
         set_flag70_bit10__16TObjCityMainWarpFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
         set_flag_40__16TAdChrSelASlotGCFPv((int) (M2C_FIELD(temp_r31, u32 *, 0xEC)));
@@ -370,7 +370,7 @@ void *TObjLaboMapWarp__ct(void *arg0) {
     TObjMapWarp__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjLaboMapWarp;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D32B4;
-    ((void (*)(void *))TObjLaboMapWarp__sub_80185400)(arg0);
+    ((void (*)(void *))clamp_index__15TObjLaboMapWarpFPv)(arg0);
     M2C_FIELD(arg0, f32 *, 0xAC) = lbl_805DBC8C;
     M2C_FIELD(arg0, f32 *, 0xFC) = lbl_805DBC90;
     return arg0;
@@ -723,7 +723,7 @@ void clear_active_bit__16TObjCityMainWarpFv(void) {
         TObjCityMainWarp__data_805D5B50 &= ~(1 << temp_r3);
     }
 }
-void TObjCityMainWarp__sub_8018667C(void *self) {
+void update_warp_flags_from_story__16TObjCityMainWarpFPv(void *self) {
     M2C_UNK var_r31;
     M2C_UNK var_r3;
     s32 temp_r0;
@@ -753,7 +753,7 @@ void TObjCityMainWarp__sub_8018667C(void *self) {
         TObjCityMainWarp__data_805D5B54 &= ~(1 << var_r5);
     }
 }
-void TObjCityMainWarp__sub_80186748(void *self) {
+void init_visible_mask__16TObjCityMainWarpFPv(void *self) {
     M2C_UNK var_r3;
     s32 temp_r0;
     s32 temp_r0_2;

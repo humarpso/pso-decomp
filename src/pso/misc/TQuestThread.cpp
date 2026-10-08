@@ -214,7 +214,7 @@ void clear_all_floor_handlers(void* _w0);
 void clear_buffer__12TQuestThreadFPv(void* p);
 void handle_6x77_sync_quest_register(u8 *arg0);
 char * TQuestThread__sub_801F5E58(void);
-void TQuestThread__sub_801F5E7C(void);
+void clear_thread_state__12TQuestThreadFv(void);
 s32 get_register__12TQuestThreadFPvi(u8 *arg0, s32 arg1);
 void TQuestThread__sub_801F5ECC(void);
 void * destroy__12TQuestThreadFPvs(void *arg0, s16 arg1);
@@ -859,7 +859,7 @@ char *TQuestThread__sub_801F5E58(void) {
     return lbl_8044A5D0;
 }
 
-void TQuestThread__sub_801F5E7C(void) {
+void clear_thread_state__12TQuestThreadFv(void) {
     memset((void*)((void *) (&lbl_805129F8.value)), (void*)((int) (0)), (void*)((int) (0xD8)));
 }
 
@@ -877,7 +877,7 @@ void *destroy__12TQuestThreadFPvs(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = TQuestThread__data_804C8678;
         if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 0) {
             (*(s32 *)&lbl_805D5EE8) = 0;
-            ((M2C_UNK (*)(void))TQuestThread__sub_801F5E7C)();
+            ((M2C_UNK (*)(void))clear_thread_state__12TQuestThreadFv)();
         } else {
             (*(s32 *)&lbl_805D5EEC) = 0;
         }
@@ -992,7 +992,7 @@ u8 *init_from_script__12TQuestThreadFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg
         init_quest_script_context(M2C_FIELD(arg0, s32 *, 0x198), arg0 + 0x24);
         M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
     }
-    ((M2C_UNK (*)(void))TQuestThread__sub_801F5E7C)();
+    ((M2C_UNK (*)(void))clear_thread_state__12TQuestThreadFv)();
     return arg0;
 }
 extern int fold_flush_2;
@@ -1024,7 +1024,7 @@ u8 *load_quest_root_script(u8 *arg0, void *parent, void *arg2, s32 arg3) {
                 ((M2C_UNK (*)(void *, void *, M2C_UNK))__ct__12TQuestThreadFv)(mem, arg0, 0);
             }
         }
-        ((M2C_UNK (*)(void))TQuestThread__sub_801F5E7C)();
+        ((M2C_UNK (*)(void))clear_thread_state__12TQuestThreadFv)();
         break;
     case 1:
         size = update_lobby_scene__6TSceneFPv(arg2);
@@ -1060,7 +1060,7 @@ QThread_801F6418 *construct_load_quest__12TQuestThreadFPvPvPv(QThread_801F6418 *
         init_quest_script_context(self->f198, (u8 *)self + 0x24);
         self->f1A0 = 0;
     }
-    ((M2C_UNK (*)(void))TQuestThread__sub_801F5E7C)();
+    ((M2C_UNK (*)(void))clear_thread_state__12TQuestThreadFv)();
     return self;
 }
 

@@ -32,8 +32,8 @@ s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor);
 s32 is_split_screen();
 s32 get_instance__6TLobbyFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-M2C_UNK TObjCityMainWarp__sub_8018667C();
-M2C_UNK TObjCityMainWarp__sub_80186748();
+M2C_UNK update_warp_flags_from_story__16TObjCityMainWarpFPv();
+M2C_UNK init_visible_mask__16TObjCityMainWarpFPv();
 void update_unlock_flags__16TObjCityMainWarpFv(void);
 s32 get_story_flag(M2C_UNK);
 extern s32 TObjCityMainWarp__data_805D5B50;
@@ -119,10 +119,10 @@ void update_main_warp_visible_mask(s32 arg0) {
         update_unlock_flags__16TObjCityMainWarpFv();
         break;
     case 1:
-        TObjCityMainWarp__sub_80186748();
+        init_visible_mask__16TObjCityMainWarpFPv();
         break;
     case 2:
-        TObjCityMainWarp__sub_8018667C();
+        update_warp_flags_from_story__16TObjCityMainWarpFPv();
         break;
     }
     for (i = 11; i < 15; i++) {

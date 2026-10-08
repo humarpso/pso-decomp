@@ -132,8 +132,8 @@ void *alloc_particle_memory(int);
 u8 * init_orbit_sprite_particle(void *, void *, void *, void *, s32, u16, s16);
 u8 *create_orbit_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, s16 arg5);
 void *alloc_particle_memory(int);
-void *TParticleCtrl__sub_8008B060(void *, void *, void *, void *, void *);
-void *TParticleCtrl__sub_8008B060(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
+void *init_random_particle__13TParticleCtrlFPvPvPvPvPv(void *, void *, void *, void *, void *);
+void *init_random_particle__13TParticleCtrlFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void * alloc_child_particle__13TParticleCtrlFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 extern const f32 TParticleCtrl__data_805D9528;
 int queue_destruction__7TObjectFv(void *);
@@ -170,7 +170,7 @@ extern const f32 TParticleCtrl__data_805D9558;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9568;
 extern const f32 lbl_805D956C;
-u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
+u8 *init_random_particle__13TParticleCtrlFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 u8 * init_particle_base(void *, void *, s32);
 int get_object__13TParticleCtrlFPv(void *);
 s32 rand(void);
@@ -392,7 +392,7 @@ void * create_random_particle(void *arg0, void *arg1, void *arg2) {
     void *o;
     o = alloc_particle_memory(0xc4);
     if (o != NULL) {
-        o = TParticleCtrl__sub_8008C21C((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
+        o = init_random_particle__13TParticleCtrlFPvPvPvi((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1), (s32)(arg2));
     }
     return o;
 }
@@ -566,7 +566,7 @@ u8 *construct_radial_particle(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, u16 arg4, 
 }
 #pragma pop
 
-u8 *TParticleCtrl__sub_8008C21C(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
+u8 *init_random_particle__13TParticleCtrlFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     struct Fields_arg0 { u8 pad_0[24]; M2C_UNK * field_18; u16 field_1C; u8 pad_1E[6]; u16 field_24; u8 pad_26[2]; f32 field_28; f32 field_2C; f32 field_30; f32 field_34; f32 field_38; f32 field_3C; f32 field_40; f32 field_44; u8 pad_48[20]; f32 field_5C; u8 pad_60[8]; f32 field_68; u8 pad_6C[4]; f32 field_70; f32 field_74; f32 field_78; };
     struct Fields_arg1 { u8 pad_0[24]; f32 field_18; f32 field_1C; f32 field_20; f32 field_24; f32 field_28; u8 pad_2C[4]; f32 field_30; u8 pad_34[4]; f32 field_38; u8 pad_3C[12]; s32 field_48; s32 field_4C; u8 pad_50[56]; u8 field_88; };
     struct Fields_arg2 { f32 field_0; f32 field_4; f32 field_8; };

@@ -188,7 +188,7 @@ void *ct__13TItemProArmorFPv(void *arg0);
 void *init_vtable__13TItemProArmorFPv(void *arg0);
 void update_armor__13TItemProArmorFPv(void* p);
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1);
-s32 TItemData__sub_8010CE1C(void *, u8);
+s32 set_bswapped_field_8__9TItemDataFPvs(void *, u8);
 s32 set_dfp_bonus__9TItemDataFPvs(void *, u8);
 void TItemObject__ct(void *);
 s32 get_tool_pmt_amount_byte(void *);
@@ -313,7 +313,7 @@ void TItemProArmor__sub_801178D4(u8 *arg0) {
 void write_item_data__13TItemProArmorFPvPv(void *arg0, void *arg1) {
     M2C_FIELD(arg1, u8 *, 5) = (u8) M2C_FIELD(arg0, u8 *, 0x192);
     set_dfp_bonus__9TItemDataFPvs(arg1, M2C_FIELD(arg0, u8 *, 0x193));
-    TItemData__sub_8010CE1C(arg1, M2C_FIELD(arg0, u8 *, 0x194));
+    set_bswapped_field_8__9TItemDataFPvs(arg1, M2C_FIELD(arg0, u8 *, 0x194));
 }
 
 typedef void *(*Ctor4_80117954)(void *, void *, s32, s32);

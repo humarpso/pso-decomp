@@ -66,7 +66,7 @@ extern RecoveredGlobal_8013D7E0_lbl_804A7164 target_cursor_color_table;
 extern u8 *lbl_805D4DF0;
 extern const f32 TMainCursor__data_805DB0C0;
 s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
-s32 TObjPlayer__sub_801B5990(s32, s32);
+s32 is_effect_channel_active__10TObjPlayerFii(s32, s32);
 s32 get_action_palette_entry__10TObjPlayerFii(s32, s32);
 s32 TObjPlayer__sub_801B5AF8(s32, s32);
 s32 try_camera_action__10TObjPlayerFii(s32, u16);
@@ -173,7 +173,7 @@ s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg
     sub = get_action_palette_entry__10TObjPlayerFii(arg1, arg2);
     switch (kind) {
     case 1:
-        if (TObjPlayer__sub_801B5990(arg1, 0) != 0) {
+        if (is_effect_channel_active__10TObjPlayerFii(arg1, 0) != 0) {
             return 1;
         }
         break;
@@ -188,7 +188,7 @@ s32 get_action_cursor_priority__11TMainCursorFPvii(void *arg0, s32 arg1, s32 arg
         }
         break;
     case 4:
-        if (TObjPlayer__sub_801B5990(arg1, arg2) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && test_action_mask__10TObjPlayerFPvi(arg1, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
+        if (is_effect_channel_active__10TObjPlayerFii(arg1, arg2) != 0 && reset_key_machine_state__10TObjPlayerFv() != 0 && test_action_mask__10TObjPlayerFPvi(arg1, 0x43001E) != 0 && ((s32)sub == 0xA || (s32)sub == 9)) {
             return 0xF;
         }
         break;

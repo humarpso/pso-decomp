@@ -32,7 +32,7 @@ Ent_802F376C *get_enemy_entity(u16);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
 extern u32 lbl_805D6978;
 extern const f32 lbl_805DED48;
-s32 TBoss8Dragon__sub_802F376C(Ent_802F376C *arg0);
+s32 is_closest_part__12TBoss8DragonFPv(Ent_802F376C *arg0);
 u16 obj_getField1c(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 Ent_802F376C *get_enemy_entity(u16);
@@ -40,7 +40,7 @@ u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
 extern u32 lbl_805D6978;
 extern const f32 lbl_805DED48;
 extern const f32 lbl_805DED4C;
-s32 TBoss8Dragon__sub_802F3878(Ent_802F3878 *arg0);
+s32 push_apart_from_parts__12TBoss8DragonFPv(Ent_802F3878 *arg0);
 u16 obj_getField1c(void *);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 Ent_802F376C *get_enemy_entity(u16);
@@ -48,12 +48,12 @@ u16 get_part_count_plus__12TBoss8DragonFPvi(void *, int);
 extern u32 lbl_805D6978;
 extern const f32 lbl_805DED48;
 extern const f32 lbl_805DED4C;
-s32 TBoss8Dragon__sub_802F3974(Ent_802F3974 *arg0);
+s32 is_near_other_part__12TBoss8DragonFPv(Ent_802F3974 *arg0);
 }
 
 extern "C" {
 
-s32 TBoss8Dragon__sub_802F376C(Ent_802F376C *arg0) {
+s32 is_closest_part__12TBoss8DragonFPv(Ent_802F376C *arg0) {
     Vec_802F376C v;
     f32 len;
     s32 i;
@@ -83,7 +83,7 @@ s32 TBoss8Dragon__sub_802F376C(Ent_802F376C *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TBoss8Dragon__sub_802F3878(Ent_802F3878 *arg0) {
+s32 push_apart_from_parts__12TBoss8DragonFPv(Ent_802F3878 *arg0) {
     Vec_802F3878 v;
     f32 d;
     s32 i;
@@ -111,7 +111,7 @@ s32 TBoss8Dragon__sub_802F3878(Ent_802F3878 *arg0) {
 }
 #pragma pop
 
-s32 TBoss8Dragon__sub_802F3974(Ent_802F3974 *arg0) {
+s32 is_near_other_part__12TBoss8DragonFPv(Ent_802F3974 *arg0) {
     Vec_802F3974 v;
     s32 i;
     if (lbl_805D6978 == 0) {

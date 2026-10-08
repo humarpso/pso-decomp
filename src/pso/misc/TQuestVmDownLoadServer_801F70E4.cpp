@@ -288,7 +288,7 @@ M2C_UNK TWindow__close(void *);
 u32 init_shop_judgment_window(s32);
 s32 get_window_layout_position(int);
 M2C_UNK update_state__13TAdMcSelectGCFv();
-s32 TAdMcSelectGC__sub_80329DD0();
+s32 get_selected_slot_index__13TAdMcSelectGCFv();
 void clear_field2A0__22TQuestVmDownLoadServerFv(void);
 void TQuestVmDownLoadServer__sub_801F6B98(void);
 extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
@@ -633,7 +633,7 @@ void check_memcard_slot__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     s32 cap;
     u8 *seq;
     {
-        s32 t = TAdMcSelectGC__sub_80329DD0();
+        s32 t = get_selected_slot_index__13TAdMcSelectGCFv();
         slot = t;
     }
     if (probe_card_slot__15TAdPlayerLoadGCFi(slot) != 0 && probe_and_check_card__15TAdPlayerLoadGCFi(slot) != 0) {

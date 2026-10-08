@@ -117,7 +117,7 @@ extern const f32 lbl_805D85F8;
 extern const f32 lbl_805D85FC;
 void render__15TObjBoss2TunnelFv(u8 *arg0);
 f32 sin_table_lookup(s32);
-s32 TObjBoss2Tunnel__sub_8003C1E0(void *);
+s32 check_flag_or_state__15TObjBoss2TunnelFi(void *);
 s32 is_flag_set__15TObjBoss2TunnelFv(void *);
 void TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
 f32 get_random_float__8TObjFishFv(f32);
@@ -324,14 +324,14 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
     o->fa4 = (s32)((f32)o->fa4 + lbl_805D8600);
     o->fa0 = (s32)(lbl_805D8604 * sin_table_lookup(o->fa4));
     o->fac = lbl_805D860C * sin_table_lookup(o->f9c) + lbl_805D8608;
-    if (TObjBoss2Tunnel__sub_8003C1E0(o) != 0) {
+    if (check_flag_or_state__15TObjBoss2TunnelFi(o) != 0) {
         o->fa8 = (o->fa0 * 2) / 3;
     } else {
         o->fa8 = o->fa0 / 2;
     }
     switch (o->f64) {
     case 0:
-        if (TObjBoss2Tunnel__sub_8003C1E0(o) != 0) {
+        if (check_flag_or_state__15TObjBoss2TunnelFi(o) != 0) {
             if (is_flag_set__15TObjBoss2TunnelFv(o) != 0) {
                 o->f94 = lbl_805D8610;
             } else {
@@ -343,7 +343,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
         }
         break;
     case 1:
-        if (TObjBoss2Tunnel__sub_8003C1E0(o) == 0) {
+        if (check_flag_or_state__15TObjBoss2TunnelFi(o) == 0) {
             o->f64 = 3;
             tmp = get_random_float__8TObjFishFv(o->f98);
             TObjBoss2Tunnel__sub_8007DEE4(o->f68, lbl_805D8618, lbl_805D861C, o->f98, -update_position__15TObjBoss2TunnelFPv(o->f68), lbl_805D8608);
@@ -355,7 +355,7 @@ void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o) {
         }
         break;
     case 2:
-        if (TObjBoss2Tunnel__sub_8003C1E0(o) == 0) {
+        if (check_flag_or_state__15TObjBoss2TunnelFi(o) == 0) {
             o->f64 = 3;
             TObjBoss2Tunnel__sub_8007DEE4(o->f68, lbl_805D8618, lbl_805D861C, lbl_805D8620, TObjBoss2Tunnel__data_805D85E0, lbl_805D8608);
         }

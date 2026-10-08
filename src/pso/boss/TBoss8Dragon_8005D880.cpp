@@ -717,7 +717,7 @@ extern const f32 lbl_805D8DB4;
 void choose_next_action__12TBoss8DragonFPvPv(u8 *arg0, u32 *arg1);
 M2C_UNK TBoss8Dragon__sub_80064C94(void *arg0, void *);
 f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1);
-s32 TBoss8Dragon__sub_8005E9E8(s32 self, s32 arg1, s32 arg2);
+s32 random_in_table_range__12TBoss8DragonFiii(s32 self, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -1701,9 +1701,9 @@ void TBoss8Dragon__sub_8006536C(void);
 void update_animation_by_state__12TBoss8DragonFPv(struct VObj_80065370_80062BA0 *obj);
 Obj_80065658 * TBoss8Dragon__sub_80065658(Obj_80065658 *o, s16 flag);
 M2C_UNK init_color__12TBoss8DragonFPv(void *);
-int TBoss8Dragon__sub_80065F4C(void*);
+int send_spawn_params_packet__12TBoss8DragonFPv(void*);
 void byteswap_action_packet__12TBoss8DragonFPv(void *);
-void TBoss8Dragon__sub_8006602C(void *);
+void send_boss_actions__12TBoss8DragonFPv(void *);
 void bswap_boss_actions__12TBoss8DragonFi(void *);
 void TBoss8Dragon__sub_800660A4(void *);
 M2C_UNK attach_particle_model(s32, s32, s32, M2C_UNK, M2C_UNK, f32);
@@ -1966,7 +1966,7 @@ extern "C" {
 void TBoss8Dragon__sub_8006116C();
 }
 extern "C" {
-void TBoss8Dragon__sub_80061434(u8 *, s32);
+void handle_descend_state__12TBoss8DragonFPvi(u8 *, s32);
 }
 extern "C" {
 void TBoss8Dragon__sub_800615FC();
@@ -2125,7 +2125,7 @@ extern "C" {
 void TObjPlayer__sub_800F65D0();
 }
 extern "C" {
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 }
 extern "C" {
 void add_actor_exp();
@@ -2501,7 +2501,7 @@ void *lbl_80487CD8[213] = {
     (void *)&TBoss8Dragon__sub_80062018, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061D34,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061B8C, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800618CC, (void *)0x0, (void *)0xffffffff,
-    (void *)&TBoss8Dragon__sub_800615FC, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80061434,
+    (void *)&TBoss8Dragon__sub_800615FC, (void *)0x0, (void *)0xffffffff, (void *)&handle_descend_state__12TBoss8DragonFPvi,
     (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_8006116C, (void *)0x0,
     (void *)0xffffffff, (void *)&TBoss8Dragon__sub_800610D0, (void *)0x0, (void *)0xffffffff,
     (void *)&state_move__12TBoss8DragonFPvi, (void *)0x0, (void *)0xffffffff, (void *)&TBoss8Dragon__sub_80060D9C,
@@ -2618,7 +2618,7 @@ void *lbl_804882C8[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TBoss8Dragon__sub_80063718,
     (void *)&update_colliders__9TObjEneDDFPv, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -3046,7 +3046,7 @@ s32 get_random_sign__12TBoss8DragonFiPvi(s32 arg0, Ent_8005E868 *arg1, s32 arg2)
 s32 calc_product__12TBoss8DragonFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r31;
 
-    temp_r31 = TBoss8Dragon__sub_8005E9E8((s32)(arg0), (s32)(arg1), (s32)(arg3));
+    temp_r31 = random_in_table_range__12TBoss8DragonFiii((s32)(arg0), (s32)(arg1), (s32)(arg3));
     return temp_r31 * ((s32 (*)(s32, s32, s32))get_random_sign__12TBoss8DragonFiPvi)(arg0, arg1, arg2);
 }
 
@@ -3062,7 +3062,7 @@ s32 TBoss8Dragon__sub_8005E9D8(void *self, O_8005E9D8 *o, s32 i) {
     return o->e[i].a;
 }
 
-s32 TBoss8Dragon__sub_8005E9E8(s32 self, s32 arg1, s32 arg2) {
+s32 random_in_table_range__12TBoss8DragonFiii(s32 self, s32 arg1, s32 arg2) {
     u8 *temp_r8;
     temp_r8 = (u8 *)(arg1 + (arg2 * 8));
     return (s32) ((f32 (*)(s32, f32, f32))random_in_range__12TBoss8DragonFff)(self, (f32) M2C_FIELD(temp_r8, s32 *, 8), (f32) M2C_FIELD(temp_r8, s32 *, 0xC));
@@ -3102,7 +3102,7 @@ void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f31;
     s32 temp_r31;
     s32 temp_r3;
-    temp_r3 = ((s32 (*)(void *, void *, int))TBoss8Dragon__sub_8005E9E8)((void *) (arg0), (void *) (arg2), (int) (0));
+    temp_r3 = ((s32 (*)(void *, void *, int))random_in_table_range__12TBoss8DragonFiii)((void *) (arg0), (void *) (arg2), (int) (0));
     switch (temp_r3) {
     case 0:
         temp_r31 = (s32) (lbl_80437EB0 * get_ad_end_text_start__10TObjPlayerFv((f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x40))));
@@ -3116,11 +3116,11 @@ void TBoss8Dragon__sub_8005EBDC(u8 *arg0, u8 *arg1, u8 *arg2) {
         break;
     }
     M2C_FIELD(arg1, f32 *, 0xC) = TBoss8Dragon__sub_8005EAD0((void *)arg0, (void *)arg2, 0);
-    M2C_FIELD(arg1, s32 *, 0x10) = ((s32 (*)(void *, void *, int))TBoss8Dragon__sub_8005E9E8)((void *) (arg0), (void *) (arg2), (int) (1));
+    M2C_FIELD(arg1, s32 *, 0x10) = ((s32 (*)(void *, void *, int))random_in_table_range__12TBoss8DragonFiii)((void *) (arg0), (void *) (arg2), (int) (1));
 }
 
 void calc_params__12TBoss8DragonFiPvi(s32 arg0, void *arg1, s32 arg2) {
-    M2C_FIELD(arg1, s32 *, 4) = TBoss8Dragon__sub_8005E9E8((s32)(arg0), (s32)(arg2), (s32)(1));
+    M2C_FIELD(arg1, s32 *, 4) = random_in_table_range__12TBoss8DragonFiii((s32)(arg0), (s32)(arg2), (s32)(1));
     M2C_FIELD(arg1, f32 *, 0xC) = ((f32 (*)(s32, s32, M2C_UNK))TBoss8Dragon__sub_8005EAD0)(arg0, arg2, 0);
     M2C_FIELD(arg1, f32 *, 0x10) = ((f32 (*)(s32, s32, M2C_UNK))TBoss8Dragon__sub_8005EAD0)(arg0, arg2, 1);
     M2C_FIELD(arg1, s32 *, 8) = ((s32 (*)(s32, s32, M2C_UNK))get_random_sign__12TBoss8DragonFiPvi)(arg0, arg2, 0);
@@ -3659,7 +3659,7 @@ struct Vec_80061434 { f32 x, y, z; };
 M2C_UNK eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, s32, s32, void *, f32);
 extern const f32 lbl_805D8E38;
 
-void TBoss8Dragon__sub_80061434(u8 *arg0, s32 arg1) {
+void handle_descend_state__12TBoss8DragonFPvi(u8 *arg0, s32 arg1) {
     Vec_80061434 out;
     Vec_80061434 at;
 
@@ -4940,7 +4940,7 @@ extern int fold_flush_25;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)p + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)p + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x60); TBoss8Dragon__sub_80065F4C(a1); }
+void copy_spawn_params__12TBoss8DragonFPvPv(void* p, void* a1) { *(short*)((char*)a1 + 0x2) = *(unsigned short*)((char*)p + 0x1c); VecCopy__FP3VecPC3Vec((void*)((char*)a1 + 0x4), (void*)((char*)p + 0x38)); *(void**)((char*)a1 + 0x10) = *(void**)((char*)p + 0x60); send_spawn_params_packet__12TBoss8DragonFPv(a1); }
 #pragma pop
 
 #pragma push
@@ -4966,7 +4966,7 @@ void TBoss8Dragon__sub_80064AB0(O_80064AB0 *self) {
     p.kind = self->kind;
     p.x = self->x;
     p.z = self->z;
-    TBoss8Dragon__sub_8006602C(&p);
+    send_boss_actions__12TBoss8DragonFPv(&p);
 }
 extern int fold_flush_26;
 #pragma pop

@@ -8,14 +8,14 @@ typedef struct Ctrl_8024B8A0 {
 
 extern "C" {
 f32 cos_table_lookup(s32);
-void TWindowCtrl__sub_8024B8A0(Ctrl_8024B8A0 *o);
+void update_pulse_color__11TWindowCtrlFPv(Ctrl_8024B8A0 *o);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void TWindowCtrl__sub_8024B8A0(Ctrl_8024B8A0 *o) {
+void update_pulse_color__11TWindowCtrlFPv(Ctrl_8024B8A0 *o) {
     f32 t;
     f32 a;
     t = (u32)o->timer % 100;

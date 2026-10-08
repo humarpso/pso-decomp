@@ -128,7 +128,7 @@ E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 void set_flag_40__10TObjPlayerFPv(void *);
 void set_flag_524288__10TObjPlayerFPv(void *p);
 void set_flag_80000__10TObjPlayerFPv(void *p);
-void TObjPlayer__sub_802C3F74(u8 *arg0, s8 *arg1);
+void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1);
 }
 
 extern "C" {
@@ -193,7 +193,7 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     copy_battle_mode__10TObjPlayerFPvPv(arg0, arg1);
     set_flag_524288__10TObjPlayerFPv(arg0);
 }
-void TObjPlayer__sub_802C3F74(u8 *arg0, s8 *arg1) {
+void export_state_to_record__10TObjPlayerFPvPv(u8 *arg0, s8 *arg1) {
     Item_802C3F74 *items[30];
     s16 hp;
     s16 facing;

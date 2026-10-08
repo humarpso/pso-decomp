@@ -50,12 +50,12 @@ char *TLobby__sub_802424A4(char *s, s32 a, s32 b);
 char *build_text_from_comma_list__6TLobbyFPv(char *list);
 s32 send_find_user__9TProtocolFR16TPlyGuildCardTagUl(void *, Tag_802421C4 *, s32);
 extern u32 TLobby__data_805D5580;
-void TLobby__sub_802421C4(s32 arg0);
+void send_find_user_self_tag__6TLobbyFi(s32 arg0);
 void* get_com_card_entry__6TLobbyFi(int a0);
 u32 TLobby__sub_802428F8(void);
 s32 get_com_card_data__6TLobbyFv(void);
 extern u8 lbl_80517EE0[];
-void TLobby__sub_80242308(u32 arg0);
+void find_and_load_com_card__6TLobbyFUi(u32 arg0);
 void __copy(void *, void *, int);
 Entry_80242380 *TLobby__sub_80242380(Entry_80242380 *dst, Entry_80242380 *src);
 char *TLobby__sub_80242458(char *src, char *dst);
@@ -85,7 +85,7 @@ void TLobby__sub_8024218C(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*
 s32 get_field_308__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x308); }
 int forward_8024273C__6TLobbyFPv(void* p) { return TLobby__sub_8024273C(p); }
 
-void TLobby__sub_802421C4(s32 arg0) {
+void send_find_user_self_tag__6TLobbyFi(s32 arg0) {
     if ((u32) TLobby__data_805D5580 != 0U) {
         Tag_802421C4 tag = *(Tag_802421C4 *)((u8 *)TLobby__data_805D5580 + 0x1900);
         send_find_user__9TProtocolFR16TPlyGuildCardTagUl((void *)TLobby__data_805D5580, &tag, arg0);
@@ -100,7 +100,7 @@ void TLobby__sub_802422EC(void *arg0, void *arg1) {
 
     extern unsigned char lbl_80517F9C[];
 
-void TLobby__sub_80242308(u32 arg0) {
+void find_and_load_com_card__6TLobbyFUi(u32 arg0) {
     s32 n;
     s32 i;
     n = get_com_card_data__6TLobbyFv();

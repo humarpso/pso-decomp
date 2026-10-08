@@ -58,7 +58,7 @@ void set_flag0_bit20__15TWindowHelpItemFPv(void* p);
 void update_cursor_selection__15TWindowHelpItemFPv(void *arg0);
 void update_display__15TWindowHelpItemFPv(u8 *arg0);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
-M2C_UNK TWindowHelpItem__sub_802553F8(void *);
+M2C_UNK invoke_callback_pmf__15TWindowHelpItemFPv(void *);
 M2C_UNK dispatch_item_help__15TWindowHelpItemFv(void *);
 s32 handle_list_page_flip_input(s32);
 s32 setup_window_draw_context(void *, void *);
@@ -124,7 +124,7 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
         } else {
             decay_page_arrow_offset(M2C_FIELD(arg0, s32 *, 0x64));
         }
-        TWindowHelpItem__sub_802553F8(arg0);
+        invoke_callback_pmf__15TWindowHelpItemFPv(arg0);
     }
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_fade__17TWindowSubComCardFPv(arg0);

@@ -14,7 +14,7 @@ u8 * __dt__15TWindowMainMenuFv(void *, s16);
 extern M2C_UNK __vt__17TWindowMainMenu1P[];
 u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1);
 void TCameraCtrl__sub_800694A8(void);
-void TCameraCtrl__sub_800695E8(void *);
+void apply_view_params_if_flagged__11TCameraCtrlFPv(void *);
 void set_field18__15TWindowCtrlMainFf(f32, s32);
 void set_depth__15TWindowCtrlMainFf(f32, s32);
 extern const f32 lbl_805DD8A0;
@@ -109,7 +109,7 @@ void update_backdrop_transition__17TWindowMainMenu1PFPv(u8 *arg0) {
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (lbl_805DD8C8 * (*((f32 *) (((s8 *) arg0) + 0xA4))));
   if ((*((s32 *) (((s8 *) arg0) + 0x4C))) & 2)
   {
-    TCameraCtrl__sub_800695E8(((u8 *) arg0) + 0x64);
+    apply_view_params_if_flagged__11TCameraCtrlFPv(((u8 *) arg0) + 0x64);
   }
 }
 

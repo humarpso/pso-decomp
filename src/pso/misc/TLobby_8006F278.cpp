@@ -63,7 +63,7 @@ extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 lbl_8048C9D8;
 s32 TLobby__sub_8006F5B0(s32 arg0);
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lbl_804FF800;
-void TLobby__sub_8006F848(s32 arg0);
+void set_name_string__6TLobbyFi(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
 s32 get_valid_slot__6TLobbyFi(int id);
@@ -211,7 +211,7 @@ block_12:
     return 1;
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
-void TLobby__sub_8006F848(s32 arg0) {
+void set_name_string__6TLobbyFi(s32 arg0) {
     strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
     M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
 }

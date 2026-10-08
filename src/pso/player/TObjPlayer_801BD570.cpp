@@ -27,7 +27,7 @@ void init_from_source__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_801BD240(void *, void *);
 void TObjPlayer__sub_801BD384(void *, void *);
 void update_body_parts__10TObjPlayerFPv(void *, void *);
-void TObjPlayer__sub_801BEC50(void *);
+void init_vec_record__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BEC78(void *);
 void TObjPlayer__sub_801BF660(void *);
 void reset_and_return__10TObjPlayerFi(void *);
@@ -91,7 +91,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BEC78((void *)((char *)arg0 + 1656));
     forward_release__10TObjPlayerFPv((void *)((char *)arg0 + 1708));
     TObjPlayer__sub_801BF660((void *)((char *)arg0 + 1840));
-    TObjPlayer__sub_801BEC50((void *)((char *)arg0 + 1860));
+    init_vec_record__10TObjPlayerFPv((void *)((char *)arg0 + 1860));
     init_sub_objects__10TObjPlayerFPv((void *)((char *)arg0 + 1876));
     init_partial__10TObjPlayerFi((void *)((char *)arg0 + 1988));
     clear_base__10TObjPlayerFPv((void *)((char *)arg0 + 1992));
@@ -142,7 +142,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BEC78((void *)((char *)arg0 + 1656));
     forward_release__10TObjPlayerFPv((void *)((char *)arg0 + 1708));
     TObjPlayer__sub_801BF660((void *)((char *)arg0 + 1840));
-    TObjPlayer__sub_801BEC50((void *)((char *)arg0 + 1860));
+    init_vec_record__10TObjPlayerFPv((void *)((char *)arg0 + 1860));
     init_sub_objects__10TObjPlayerFPv((void *)((char *)arg0 + 1876));
     init_partial__10TObjPlayerFi((void *)((char *)arg0 + 1988));
     clear_base__10TObjPlayerFPv((void *)((char *)arg0 + 1992));

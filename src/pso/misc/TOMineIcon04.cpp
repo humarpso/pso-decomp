@@ -90,7 +90,7 @@ void TOMineTrap__sub_80170340();
 void TOMineTrap__sub_80170348();
 void TOMineTrap__sub_80170350();
 void TOMineTrap__sub_80170354();
-void TOMineTrap__sub_80170450();
+void spawn_disp_objects__10TOMineTrapFPv();
 void TOMineTrap__sub_80170524();
 void TOMineTrap__sub_80170570();
 void TOMineTrap__sub_80170768();
@@ -252,7 +252,7 @@ void *__vt__12TOMineIcon04[87] = {
     (void *)TOMineIcon04__vt78,
     (void *)spawn_effect__10TOMineTrapFi,
     (void *)TOMineIcon04__vt80,
-    (void *)TOMineTrap__sub_80170450,
+    (void *)spawn_disp_objects__10TOMineTrapFPv,
     (void *)TOMineIcon04__vt82,
     (void *)TOMineTrap__sub_80170570,
     (void *)TOMineTrap__sub_80170A5C,

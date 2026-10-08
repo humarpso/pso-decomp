@@ -29,7 +29,7 @@ extern "C" {
 
 void init_on_main_phase__6TLobbyFv(void);
 M2C_UNK TLobby__sub_80074C20();
-M2C_UNK TLobby__sub_8006F848(M2C_UNK *);
+M2C_UNK set_name_string__6TLobbyFi(M2C_UNK *);
 u32 create__10TChallengeFv();
 M2C_UNK load_resources__13TObjTombstoneFv();
 
@@ -51,7 +51,7 @@ void init_on_main_phase__6TLobbyFv(void) {
             lbl_805D4E28 = create__10TChallengeFv();
             lbl_805D4E2C = 1;
             load_resources__13TObjTombstoneFv();
-            TLobby__sub_8006F848(lbl_804385B0);
+            set_name_string__6TLobbyFi(lbl_804385B0);
         }
     }
 }

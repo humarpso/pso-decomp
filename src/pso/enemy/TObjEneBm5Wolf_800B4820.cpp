@@ -1176,8 +1176,8 @@ void update_state__14TObjEneBm5WolfFPv(void *arg0);
 M2C_UNK advance_pose_turn__14TObjEneBm5WolfFPvi(void *, s32);
 M2C_UNK select_subtype__14TObjEneBm5WolfFPv(void *);
 u32 find_pack_leader__14TObjEneBm5WolfFi(s32);
-M2C_UNK TObjEneBm5Wolf__sub_800B8570(void *);
-M2C_UNK TObjEneBm5Wolf__sub_800B85A0(void *);
+M2C_UNK update_default__14TObjEneBm5WolfFi(void *);
+M2C_UNK apply_global_to_position__14TObjEneBm5WolfFi(void *);
 M2C_UNK transition_enemy_state(void *, M2C_UNK);
 M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -1301,9 +1301,9 @@ void update_state__14TObjEneBm5WolfFPv(void *arg0) {
         select_subtype__14TObjEneBm5WolfFPv(arg0);
         if (temp_r31 != (s32) M2C_FIELD(arg0, s32 *, 0x3D8)) {
             if (temp_r31 != 0) {
-                TObjEneBm5Wolf__sub_800B8570(arg0);
+                update_default__14TObjEneBm5WolfFi(arg0);
             } else {
-                TObjEneBm5Wolf__sub_800B85A0(arg0);
+                apply_global_to_position__14TObjEneBm5WolfFi(arg0);
             }
         }
         update_collision_center__14TObjEneBm5WolfFPv(arg0);
@@ -2641,7 +2641,7 @@ void fn_80010EC4(void);
 void fn_80010EC0(void);
 void fn_80010EBC(void);
 void TObjEneDD__vt77(void);
-void TObjPlayer__sub_800F673C(void);
+void apply_hit_message_flags__10TObjPlayerFPvPv(void);
 void apply_set_data__9TObjEnemyFPvPv(void);
 void fn_800F5D80(void);
 void TObjEneEpsilon__vt81(void);
@@ -2746,7 +2746,7 @@ void *lbl_804922F8[107] = {
     (void *)fn_80010EC0,
     (void *)fn_80010EBC,
     (void *)TObjEneDD__vt77,
-    (void *)TObjPlayer__sub_800F673C,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
     (void *)apply_set_data__9TObjEnemyFPvPv,
     (void *)fn_800F5D80,
     (void *)TObjEneEpsilon__vt81,

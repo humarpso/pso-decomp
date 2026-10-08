@@ -18,7 +18,7 @@ void *memcpy(void *, const void *, u32);
 extern s32 lbl_805D53F0;
 extern TItem_80101B20 **lbl_805D53F4;
 extern s32 lbl_805D5450;
-s32 TItem__sub_80101BE4(TItem_80101BE4 *item);
+s32 insert_sorted_by_id__5TItemFPv(TItem_80101BE4 *item);
 }
 
 extern "C" {
@@ -49,7 +49,7 @@ s32 unregister_item__5TItemFPv(TItem_80101B20 *item) {
     }
     return -1;
 }
-s32 TItem__sub_80101BE4(TItem_80101BE4 *item) {
+s32 insert_sorted_by_id__5TItemFPv(TItem_80101BE4 *item) {
     s32 id;
     s32 lo;
     s32 mid;

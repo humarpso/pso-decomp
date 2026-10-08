@@ -113,19 +113,19 @@ u32 get_slot_value__10TObjPlayerFPvi(s32, s32);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DE0;
-void TObjPlayer__sub_801D5468(Node_801D5468 *arg0);
+void unequip_invalid_items_recursive__10TObjPlayerFPv(Node_801D5468 *arg0);
 M2C_UNK copy_to_item_data__5TItemFPvPv(M2C_UNK, M2C_UNK *);
 s32 compare_item_data_masked(M2C_UNK *, s32, s32);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DFC;
-void *TObjPlayer__sub_801D55A4(Node_801D55A4 *root);
+void *find_inventory_item_matching_data__10TObjPlayerFPv(Node_801D55A4 *root);
 s32 get_field_d8__10TObjPlayerFPv(s32);
 s32 get_owner_if_alive__10TObjPlayerFPv(void *arg0);
 s32 is_item_valid__9TItemListFi(void *);
 extern s32 lbl_805D5DE8;
 extern s32 lbl_805D5DF0;
-void *TObjPlayer__sub_801D56D0(Node_801D56D0 *root);
+void *find_inventory_item_by_field_d8__10TObjPlayerFPv(Node_801D56D0 *root);
 }
 
 extern "C" {
@@ -217,7 +217,7 @@ void collect_alive_owners__10TObjPlayerFPv(void *arg0) {
 extern s32 lbl_805D5DF4;
 extern s32 lbl_805D5DFC;
 
-void TObjPlayer__sub_801D5468(Node_801D5468 *arg0) {
+void unequip_invalid_items_recursive__10TObjPlayerFPv(Node_801D5468 *arg0) {
     Node_801D5468 *n;
     Obj_801D5468 *o;
     for (n = arg0->child; n != NULL; n = n->next) {
@@ -228,7 +228,7 @@ void TObjPlayer__sub_801D5468(Node_801D5468 *arg0) {
                 unequip_item__10TObjPlayerFiPv(lbl_805D5DE0, o);
             }
         }
-        TObjPlayer__sub_801D5468(n);
+        unequip_invalid_items_recursive__10TObjPlayerFPv(n);
     }
 }
 
@@ -251,7 +251,7 @@ void count_items_recursive__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void *TObjPlayer__sub_801D55A4(Node_801D55A4 *root) {
+void *find_inventory_item_matching_data__10TObjPlayerFPv(Node_801D55A4 *root) {
     s32 data[8];
     Node_801D55A4 *node;
     void *found;
@@ -266,7 +266,7 @@ void *TObjPlayer__sub_801D55A4(Node_801D55A4 *root) {
                 }
             }
         }
-        found = TObjPlayer__sub_801D55A4(node);
+        found = find_inventory_item_matching_data__10TObjPlayerFPv(node);
         if (found != NULL) {
             return found;
         }
@@ -297,7 +297,7 @@ void *find_matching_inventory_item_node(ItemNode_801D563C *root) {
     return NULL;
 }
 
-void *TObjPlayer__sub_801D56D0(Node_801D56D0 *root) {
+void *find_inventory_item_by_field_d8__10TObjPlayerFPv(Node_801D56D0 *root) {
     Node_801D56D0 *node;
     void *found;
     u32 owner;
@@ -311,7 +311,7 @@ void *TObjPlayer__sub_801D56D0(Node_801D56D0 *root) {
                 lbl_805D5DF0 += 1;
             }
         }
-        found = TObjPlayer__sub_801D56D0(node);
+        found = find_inventory_item_by_field_d8__10TObjPlayerFPv(node);
         if (found != NULL) {
             return found;
         }

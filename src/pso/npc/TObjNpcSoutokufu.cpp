@@ -122,7 +122,7 @@ extern u32 TObjNpcSoutokufu__data_805D64C0;
 u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void spawn_switch_attack__12TBoss8DragonFPv(void *);
 void spawn_attack_effect__12TBoss8DragonFPv(void *);
-s32 TBoss8Dragon__sub_80067034(void *, void *, f32);
+s32 is_within_xz_distance__12TBoss8DragonFPvPvf(void *, void *, f32);
 f32 calc_sq_offset__12TBoss8DragonFPvf(void *, void *, f32);
 extern void *lbl_805D4DD8;
 extern const f32 lbl_805DD8E8;
@@ -200,7 +200,7 @@ void trigger_switches_in_range__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, vo
     list = ow->list;
     off = calc_sq_offset__12TBoss8DragonFPvf(arg2, ow, lbl_805DD8E8);
     for (n = list->head; n != NULL; n = n->next) {
-        if (!(n->flags & 8) && TBoss8Dragon__sub_80067034(arg1, n, off) != 0) {
+        if (!(n->flags & 8) && is_within_xz_distance__12TBoss8DragonFPvPvf(arg1, n, off) != 0) {
             sp[0] = n->f8;
             sp[1] = n->fc;
             sp[2] = n->f10;

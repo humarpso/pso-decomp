@@ -10,7 +10,7 @@ struct O_801BEC78 { u16 a; u16 pad; s32 b; };
 
 extern "C" {
 extern const f32 TObjPlayer__data_805DC278;
-void TObjPlayer__sub_801BEC50(O_801BEC50 *p);
+void init_vec_record__10TObjPlayerFPv(O_801BEC50 *p);
 void TObjPlayer__sub_801BEC78(O_801BEC78 *p);
 }
 
@@ -95,7 +95,7 @@ int unregister_sub__10TObjPlayerFPv(void* p);
 
 int is_mounted__15TPlyPhotonChairFPv(void* p) { return (*(u32*)((char*)p + 0x334) >> 26) & 0x1; }
 
-void TObjPlayer__sub_801BEC50(O_801BEC50 *p) {
+void init_vec_record__10TObjPlayerFPv(O_801BEC50 *p) {
     p->a = 0xFFFF;
     p->b = 0;
     p->x = p->y = p->z = TObjPlayer__data_805DC278;

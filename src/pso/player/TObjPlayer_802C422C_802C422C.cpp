@@ -8,7 +8,7 @@ extern "C" {
 
 s32 sync_state__10TObjPlayerFi(s32 arg0);
 u32 update_battle_controller__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_802C3F74(u32, s32);
+M2C_UNK export_state_to_record__10TObjPlayerFPvPv(u32, s32);
 M2C_UNK create__13TPlyOnCreatedFPvPv(u16, M2C_UNK *);
 
 extern M2C_UNK fn_802C4748[];
@@ -21,7 +21,7 @@ s32 sync_state__10TObjPlayerFi(s32 arg0) {
         create__13TPlyOnCreatedFPvPv((u16) lbl_805D53A0, fn_802C4748);
         return 0;
     }
-    TObjPlayer__sub_802C3F74(temp_r3, arg0);
+    export_state_to_record__10TObjPlayerFPvPv(temp_r3, arg0);
     return 1;
 }
 

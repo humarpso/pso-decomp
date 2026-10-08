@@ -226,7 +226,7 @@ void init_forward__10TObjPlayerFPv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_item_by_id(s32);
 void set_item_count__6TLobbyFPvs(void *, s32);
-s32 TLobby__sub_80103AD4(void);
+s32 pop_free_id__6TLobbyFv(void);
 f32 *get_weapon_range_record(s32, s32);
 s32 get_extended_state__10TObjPlayerFPv(s32);
 s8 TObjPlayer__sub_80121238(s32);
@@ -462,7 +462,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     reset_fields_1e__10TTecSlicerFPv(self->fe8);
     self->f0 = lbl_805D3828;
     disallow_rendering__7TObjectFv(self);
-    set_item_count__6TLobbyFPvs(self, TLobby__sub_80103AD4());
+    set_item_count__6TLobbyFPvs(self, pop_free_id__6TLobbyFv());
     self->f110 = init->f8;
     self->f24 = init->f4;
     self->f114 = init->f0;

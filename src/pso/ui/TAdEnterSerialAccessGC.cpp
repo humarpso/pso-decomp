@@ -278,11 +278,11 @@ void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0);
 void draw_serial_plates__22TAdEnterSerialAccessGCFv(void);
 extern V_803212F8 lbl_804EC9B0[];
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
-void TAdEnterSerialAccessGC__sub_803212F8(void *arg0, void *arg1);
+void draw_screen__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1);
 s32 get_instance__23TAdSinglePlyChrSelectGCFv();
 void sscanf(int, const char *, ...);
 extern char lbl_804765D8[];
-s32 TAdEnterSerialAccessGC__sub_8032182C(void);
+s32 parse_serial_value__22TAdEnterSerialAccessGCFv(void);
 }
 
 extern "C" {
@@ -311,7 +311,7 @@ void render__22TAdEnterSerialAccessGCFv(void *self) {
     }
 }
 
-void TAdEnterSerialAccessGC__sub_803212F8(void *arg0, void *arg1) {
+void draw_screen__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1) {
     draw_window_frame();
     render_status_line__15TAdSubPlyItemGCFPvi((void *)get_localized_text_entry(0x17, (void *)4), -1, lbl_804EC9B0[0].a, lbl_804EC9B0[0].b, TAdEnterSerialAccessGC__data_805DF4DC);
     draw_serial_plates__22TAdEnterSerialAccessGCFv();
@@ -450,7 +450,7 @@ typedef char RecoveredGlobal_80321874_lbl_80476518_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80321874_lbl_80543090_size[sizeof(RecoveredGlobal_80321874_lbl_80543090) == 0x14 ? 1 : -1];
 
-s32 TAdEnterSerialAccessGC__sub_8032182C(void) {
+s32 parse_serial_value__22TAdEnterSerialAccessGCFv(void) {
     s32 sp8;
     sp8 = 0;
     sscanf(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C, lbl_804765D8, &sp8);
@@ -522,7 +522,7 @@ char *hex_to_decimal_string__22TAdEnterSerialAccessGCFi(int arg0) {
 }
 
 void TAdEnterSerialAccessGC__sub_80321A90(void) {
-    create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804764D8, lbl_804764E0, (void *)TAdEnterSerialAccessGC__sub_803212F8);
+    create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_804764D8, lbl_804764E0, (void *)draw_screen__22TAdEnterSerialAccessGCFPvPv);
 }
 
 s32 open_message_window__22TAdEnterSerialAccessGCFPvPv(void *arg0, void *arg1) {

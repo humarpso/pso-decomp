@@ -53,17 +53,17 @@ void start_duel_battle__6TLobbyFPv(Lobby_801C2F40 *self);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 extern s32 lbl_805D2A98;
-void TLobby__sub_801C2C90(void *arg0);
+void destroy_matching_children__6TLobbyFPv(void *arg0);
 s32 obj_getField1c();
 M2C_UNK reset_cameras_to_actor(s32, M2C_UNK);
 M2C_UNK TObjPlayer__sub_801BC068(s32, u16);
 s32 update_battle_controller__10TObjPlayerFv();
-void TLobby__sub_801C2C90(void *arg0);
+void destroy_matching_children__6TLobbyFPv(void *arg0);
 M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK init_scene_objects__6TLobbyFv();
 extern u16 lbl_80511CC0[];
 extern s32 tl_05;
-void TLobby__sub_801C2CEC(void);
+void finish_chr_select_scene_init__6TLobbyFv(void);
 M2C_UNK build_6x7D_set_battle_mode_data(void *);
 M2C_UNK send_6x7D_set_battle_mode_data__6TLobbyFPv(void *);
 M2C_UNK send_60_sized__6TLobbyFPv(void *);
@@ -131,19 +131,19 @@ void TLobby__sub_801C2C70(void) {
     }
 }
 
-void TLobby__sub_801C2C90(void *arg0) {
+void destroy_matching_children__6TLobbyFPv(void *arg0) {
     void *var_r31;
     var_r31 = M2C_FIELD(arg0, void **, 0x14);
 while (var_r31 != NULL) {
         if (check_value_equals__13TQuestColCtrlFPvi(var_r31, lbl_805D2A98) != 0) {
             queue_destruction__7TObjectFv(var_r31);
         }
-        TLobby__sub_801C2C90(var_r31);
+        destroy_matching_children__6TLobbyFPv(var_r31);
         var_r31 = M2C_FIELD(var_r31, void **, 0xC);
     }
 }
 
-void TLobby__sub_801C2CEC(void) {
+void finish_chr_select_scene_init__6TLobbyFv(void) {
     s32 temp_r3;
     init_scene_objects__6TLobbyFv();
     temp_r3 = update_battle_controller__10TObjPlayerFv();
@@ -151,7 +151,7 @@ void TLobby__sub_801C2CEC(void) {
         TObjPlayer__sub_801BC068(temp_r3, lbl_80511CC0[(u16)obj_getField1c()]);
         reset_cameras_to_actor(temp_r3, 0);
     }
-    TLobby__sub_801C2C90((void *)tl_05);
+    destroy_matching_children__6TLobbyFPv((void *)tl_05);
     destroy__23TAdSinglePlyChrSelectGCFv();
 }
 

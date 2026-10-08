@@ -6,12 +6,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 TObjPlayer__sub_801D9514(s32, s32);
 s32 is_invalid_slot__10TObjPlayerFUc(u8);
-bool TObjPlayer__sub_801D999C(s32 arg0, s32 arg1, u8 arg2);
+bool is_slot_within_limit__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2);
 }
 
 extern "C" {
 
-bool TObjPlayer__sub_801D999C(s32 arg0, s32 arg1, u8 arg2) {
+bool is_slot_within_limit__10TObjPlayerFiiUc(s32 arg0, s32 arg1, u8 arg2) {
     if (is_invalid_slot__10TObjPlayerFUc(arg2) != 0) {
         return 1;
     }

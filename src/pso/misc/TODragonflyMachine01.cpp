@@ -58,7 +58,7 @@ extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 extern const f32 lbl_805DB5B0;
 extern const f32 lbl_805DB5B4;
-void TODragonflyMachine01__sub_80165434(void);
+void create_attack_effect__20TODragonflyMachine01Fv(void);
 }
 
 extern "C" {
@@ -143,7 +143,7 @@ void unload_static_data__20TODragonflyMachine01Fv(void) {
 
 extern M2C_UNK __vt__20TODragonflyMachine01[];
 
-void TODragonflyMachine01__sub_80165434(void) {
+void create_attack_effect__20TODragonflyMachine01Fv(void) {
     T4_80165434 sp8;
     O_80165434 *o;
     s32 z = 0;

@@ -571,7 +571,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1);
 u32 __cvt_fp2unsigned(f32);
 extern const f32 TObjEneMe1Canadin__data_805D98B4;
 extern const f32 lbl_805D9914;
-void TObjEneMe1Canadin__sub_8009E3E4(u8 *arg0);
+void pack_color_rgba__17TObjEneMe1CanadinFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -2931,7 +2931,7 @@ extern "C" {
 void TObjPlayer__sub_800F65D0();
 }
 extern "C" {
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 }
 extern "C" {
 void add_actor_exp();
@@ -3198,7 +3198,7 @@ void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state__17TObjEneMe1CanadinFPvUii,
     (void *)&update__17TObjEneMe1CanadinFPv, (void *)&call_dd_vt86__17TObjEneMe1CanadinFPv, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -4535,7 +4535,7 @@ void TObjEneMe1Canadin__vt108(u8 *arg0, s32 arg1) {
             M2C_FIELD(arg0, f32 *, 0x4A8) = p[1];
             M2C_FIELD(arg0, f32 *, 0x4AC) = p[2];
             M2C_FIELD(arg0, f32 *, 0x4B0) = p[3];
-            TObjEneMe1Canadin__sub_8009E3E4((u8 *)(arg0));
+            pack_color_rgba__17TObjEneMe1CanadinFPv((u8 *)(arg0));
         }
         M2C_FIELD(arg0, s32 *, 0x470) = 0;
         return;
@@ -4838,14 +4838,14 @@ void TObjEneMe1Canadin__vt111(void *arg0) {
     *lbl_805D4FF0 = M2C_FIELD(arg0, s32 *, 0x4B4);
 }
 
-void TObjEneMe1Canadin__sub_8009E3E4(u8 *arg0) {
+void pack_color_rgba__17TObjEneMe1CanadinFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x4B4) = ((u8) __cvt_fp2unsigned(lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4AC)) << 24)
         | ((u8) __cvt_fp2unsigned(lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4B0)) << 16)
         | ((u8) __cvt_fp2unsigned(TObjEneMe1Canadin__data_805D98B4 * (lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4A4))) << 8)
         | (u8) __cvt_fp2unsigned(lbl_805D9914 * M2C_FIELD(arg0, f32 *, 0x4A8));
 }
 
-void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)p + 0x4a4); TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p)); }
+void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)p + 0x4a4); pack_color_rgba__17TObjEneMe1CanadinFPv((u8 *)(p)); }
 
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
     reset_map_core__17TObjEneMe1CanadinFPv((void *)((void *) (arg0)), (void *)((void *) (&lbl_8043A2A0.value)));
@@ -4867,7 +4867,7 @@ void update_fade_sequence__23TObjEneMe1CanadinLeaderFPv(void *pv) {
             p->f4a4 = lbl_805D9898;
             p->state = 0;
         }
-        TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p));
+        pack_color_rgba__17TObjEneMe1CanadinFPv((u8 *)(p));
         break;
     case 2:
         if (p->f4a4 < lbl_805D98D4) {
@@ -4876,7 +4876,7 @@ void update_fade_sequence__23TObjEneMe1CanadinLeaderFPv(void *pv) {
             p->f4a4 = lbl_805D98D4;
             p->state = 0;
         }
-        TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p));
+        pack_color_rgba__17TObjEneMe1CanadinFPv((u8 *)(p));
         break;
     case 3:
         p->timer++;
@@ -4894,7 +4894,7 @@ void update_fade_sequence__23TObjEneMe1CanadinLeaderFPv(void *pv) {
                 p->f4a4 = lbl_805D98D4;
                 break;
             }
-            TObjEneMe1Canadin__sub_8009E3E4((u8 *)(p));
+            pack_color_rgba__17TObjEneMe1CanadinFPv((u8 *)(p));
         }
         break;
     }

@@ -19,12 +19,12 @@ extern char lbl_80480270[];
 extern s32 lbl_805D7CA8;
 extern u8 *lbl_805D7CC0;
 extern s32 lbl_805D7CC4;
-s32 TAdTrialModemChkGC__sub_8042EA10(void);
+s32 init_modem_check_params__18TAdTrialModemChkGCFv(void);
 }
 
 extern "C" {
 
-s32 TAdTrialModemChkGC__sub_8042EA10(void) {
+s32 init_modem_check_params__18TAdTrialModemChkGCFv(void) {
     if ((s32) lbl_805D7CA8 == 0) {
         return -1;
     }

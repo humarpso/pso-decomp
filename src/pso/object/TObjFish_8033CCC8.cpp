@@ -37,7 +37,7 @@ void clear_global_state__10TObjPlayerFv(void);
 extern const f32 lbl_805DFA58;
 extern const f32 lbl_805DFA5C;
 extern const f32 lbl_805DFA60;
-void TObjFish__sub_8033CCC8(u8 *arg0);
+void render_fade_model__8TObjFishFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -53,7 +53,7 @@ void *__nw__7TObjectFUl(int);
 void init_state_1__8TObjFishFPv(void *);
 void request_destroy__11TBoss4Type2FUi(void *);
 
-void TObjFish__sub_8033CCC8(u8 *arg0) {
+void render_fade_model__8TObjFishFPv(u8 *arg0) {
     f32 var_f31;
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x44);
@@ -85,7 +85,7 @@ void TObjFish__sub_8033CCC8(u8 *arg0) {
     }
 }
 
-void TObjFish__sub_8033CDD8(void* p) { TObjFish__sub_8033CCC8((u8 *)(p)); }
+void TObjFish__sub_8033CDD8(void* p) { render_fade_model__8TObjFishFPv((u8 *)(p)); }
 
 extern M2C_UNK lbl_804EF9EC[];
 

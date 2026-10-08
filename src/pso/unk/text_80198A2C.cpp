@@ -892,7 +892,7 @@ void direction_to_rotation_yx(void *, void *, void *);
 s32 approach_angle_limited(int, int, int);
 s32 matrix_mult_vec(int, void *, void *);
 M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK TObjPlayer__sub_803D8BFC(int, void *, int);
+M2C_UNK rotate_matrix_about_axis__10TObjPlayerFPvii(int, void *, int);
 M2C_UNK set_position_vec3__10TObjPlayerFPvPv(int, void *);
 f32 vec_squared_length(void *);
 s32 push_matrix_from(void *);
@@ -962,7 +962,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     scale_matrix(0, rate, rate, rate);
     set_chunk_material_color(&color);
     if (vec_squared_length(&dir)) {
-        TObjPlayer__sub_803D8BFC(0, &dir, F(s32, 0x338));
+        rotate_matrix_about_axis__10TObjPlayerFPvii(0, &dir, F(s32, 0x338));
     }
     rotate_matrix_y(0, F(s32, 0x334));
     if (lobby_gvm_texture_handles != 0 && lbl_805D5C60 != 0) {

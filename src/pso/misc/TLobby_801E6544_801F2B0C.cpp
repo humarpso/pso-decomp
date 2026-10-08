@@ -12,7 +12,7 @@ struct RecoveredGlobal_801F2BCC_TLobby__data_80512240 {
 extern "C" {
 extern int TLobby__data_80512240[];
 extern int TLobby__data_805D5E8C;
-s32 TLobby__sub_801F2BCC(void);
+s32 pop_stack_value__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -59,7 +59,7 @@ extern int TLobby__data_805D5E8C;
     extern int TLobby__data_805D5E70;
 
 typedef char RecoveredGlobal_801F2BCC_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F2BCC_TLobby__data_80512240) == 0x100 ? 1 : -1];
-s32 TLobby__sub_801F2BCC(void) {
+s32 pop_stack_value__6TLobbyFv(void) {
     s32 temp_r4;
     if ((s32) (*(s32 *)&TLobby__data_805D5E8C) > 0) {
         temp_r4 = (*(s32 *)&TLobby__data_805D5E8C) - 1;

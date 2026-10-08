@@ -43,7 +43,7 @@ s32 init_xyz_limits__10TObjPlayerFv();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 s32 draw_with_camera__6TLobbyFiiif(int, int, int, f32);
-s32 TAdTrialAgreementGC__sub_80335918(void *, void *, int);
+s32 draw_record_with_camera__19TAdTrialAgreementGCFiii(void *, void *, int);
 s32 TAdTrialAgreementGC__sub_8033596C(void* p);
 s32 get_record__6TLobbyFi(int);
 s32 bind_title_texture_list();
@@ -148,21 +148,21 @@ void render_screen__19TAdTrialAgreementGCFPv(u8 *arg0) {
         if ((temp_r0 == 1) || (temp_r0 == 2)) {
             var_r31 = 0xB;
             do {
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (var_r31), (int) (var_r31));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (var_r31), (int) (var_r31));
                 var_r31 += 1;
             } while (var_r31 != 0xF);
             bind_title_texture_list();
             init_xyz_limits__10TObjPlayerFv();
             temp_r31 = TAdTrialAgreementGC__sub_8033596C((void*)((void *) (arg0)));
             if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 1) {
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (temp_r31 + 0xF), (int) (0xF));
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (temp_r31 + 0x13), (int) (0x13));
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (temp_r31 + 0x17), (int) (0x17));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (temp_r31 + 0xF), (int) (0xF));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (temp_r31 + 0x13), (int) (0x13));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (temp_r31 + 0x17), (int) (0x17));
             }
             if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 2) {
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (temp_r31 + 0x1B), (int) (0x1B));
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (temp_r31 + 0x1F), (int) (0x1F));
-                TAdTrialAgreementGC__sub_80335918((void *) (arg0), (void *) (temp_r31 + 0x23), (int) (0x23));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (temp_r31 + 0x1B), (int) (0x1B));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (temp_r31 + 0x1F), (int) (0x1F));
+                draw_record_with_camera__19TAdTrialAgreementGCFiii((void *) (arg0), (void *) (temp_r31 + 0x23), (int) (0x23));
             }
             reset_transform_state__10TObjPlayerFv();
         }

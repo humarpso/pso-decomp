@@ -12,7 +12,7 @@ M2C_UNK advance_enemy_id_counter(u16);
 M2C_UNK advance_object_id_counter(u16);
 M2C_UNK convert_quest_object_rows(void *, s32);
 M2C_UNK assign_object_ids__6TLobbyFPviPv(void *, u32, s32);
-M2C_UNK TLobby__sub_8020B2DC();
+M2C_UNK sum_floor_enemy_counts__6TLobbyFv();
 M2C_UNK TLobby__sub_8020B308(s32);
 M2C_UNK load_object_set_entries__6TLobbyFiPvUi(s32, void *, s32);
 M2C_UNK bswap_32__FPUl(s32 *);
@@ -102,7 +102,7 @@ void setup_quest_list__6TLobbyFv(void) {
     TLobby__data_805D6148 = TLobby__data_805D60E0;
     TLobby__data_805D614C = TLobby__data_805D60E4;
     TLobby__sub_8020B308(TLobby__data_805D60E0);
-    TLobby__sub_8020B2DC();
+    sum_floor_enemy_counts__6TLobbyFv();
 }
 
 }

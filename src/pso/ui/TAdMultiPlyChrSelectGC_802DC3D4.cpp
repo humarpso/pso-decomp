@@ -19,7 +19,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, M2C_UNK *);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK set_status_value__22TAdMultiPlyChrSelectGCFPvi(s32, u32);
-M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, s32);
+M2C_UNK setup_move_effect_params__18TAdChrMoveEffectGCFPvii(u32, s32, s32);
 extern s8 lbl_80472880[];
 extern s8 lbl_80472888[];
 extern s8 lbl_8050E3B8[];
@@ -131,7 +131,7 @@ loop_9:
         }
         gs = get_global_state__22TAdMultiPlyChrSelectGCFv();
         if (gs != 0U) {
-            TAdChrMoveEffectGC__sub_803490D8(gs, M2C_FIELD(arg0, s32 *, 0x38) - 4, var_r30 + 3);
+            setup_move_effect_params__18TAdChrMoveEffectGCFPvii(gs, M2C_FIELD(arg0, s32 *, 0x38) - 4, var_r30 + 3);
         }
         load_tables(M2C_FIELD(arg0, s32 *, 0x38));
         set_status_value__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x60), var_r30);

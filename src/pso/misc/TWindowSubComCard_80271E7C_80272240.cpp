@@ -36,12 +36,12 @@ s32 create_card_list__17TWindowSubComCardFiiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 
 s32 create__14TWindowComCardFPvPv(s32 a0 = 0, s32 a1 = 0);
 s32 create_for_card__14TWindowComCardFiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
 s32 get_card_slot__17TWindowSubComCardFi(s32 a0 = 0);
-s32 TWindowSubComCard__sub_8007A860(s32);
+s32 get_card_entry_data__17TWindowSubComCardFPv(s32);
 s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 int get_message_10__20TWindowSubStatusDispFPv(void*);
 int get_card_entry__17TWindowSubComCardFi(void);
 int get_card_id__17TWindowSubComCardFPv(void);
-int TLobby__sub_802421C4(void);
+int send_find_user_self_tag__6TLobbyFi(void);
 int get_selected_menu_value(void*);
 void send_cmd_133__17TWindowSubComCardFv(void);
 s32 get_window_layout_position(s32 a0 = 0);
@@ -50,7 +50,7 @@ int fn_802754EC(void);
 void set_card_index__17TWindowSubComCardFPvi(void *arg0, s32 arg1) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != arg1) {
         M2C_FIELD(arg0, s32 *, 0x28) = arg1;
-        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x6C), TWindowSubComCard__sub_8007A860(arg1), 0x82);
+        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x6C), get_card_entry_data__17TWindowSubComCardFPv(arg1), 0x82);
     }
 }
 typedef char RecoveredGlobal_8034CC68_lbl_80478C3C_size[sizeof(RecoveredGlobal_8034CC68_lbl_80478C3C) == 0xC ? 1 : -1];

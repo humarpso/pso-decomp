@@ -113,7 +113,7 @@ void *find_placement_obstruction(void *self, Body_801D3E20 *s);
 extern const f32 lbl_805DC3C8;
 s32 reset_placement_search_ring(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-void TItemList__sub_801D588C(void *, int);
+void lookup_entry_by_count__9TItemListFPvi(void *, int);
 void TItemList__sub_801D59A0(void *, int);
 void TItemList__sub_801D5A70(void *);
 void update_placement_search(u8 *arg0);
@@ -125,7 +125,7 @@ void send_6x2A_drop_item__10TObjPlayerFv(void *, s32, void *, s32);
 void send_6x29_delete_item__10TObjPlayerFPvii(void *, s32, s32);
 void *get_player_by_client_id(u16);
 void *get_ptr_0x44__9TItemListFPv(void *);
-void TItemList__sub_801D588C(void *, int);
+void lookup_entry_by_count__9TItemListFPvi(void *, int);
 s32 TItemList__sub_801D58DC(void *);
 u8 *TItemList__sub_801D58E4(void *);
 void TItemList__sub_801D591C(void *);
@@ -194,7 +194,7 @@ void run_item_drop_search_task(u8 *arg0) {
         }
         break;
     case 2:
-        TItemList__sub_801D588C(arg0, *(s32 *)(arg0 + 0x54));
+        lookup_entry_by_count__9TItemListFPvi(arg0, *(s32 *)(arg0 + 0x54));
         break;
     }
     queue_destruction__7TObjectFv(arg0);
@@ -259,7 +259,7 @@ void update_placement_search(u8 *arg0) {
         TItemList__sub_801D5A70(arg0);
         break;
     case 2:
-        TItemList__sub_801D588C(arg0, M2C_FIELD(arg0, s32 *, 0x54));
+        lookup_entry_by_count__9TItemListFPvi(arg0, M2C_FIELD(arg0, s32 *, 0x54));
         break;
     }
     queue_destruction__7TObjectFv(arg0);

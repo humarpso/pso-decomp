@@ -82,7 +82,7 @@ extern "C" void draw_date_time__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E13C8();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1F8C();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E1FAC();
-extern "C" void TAdSinglePlyChrSelectGC__sub_802E203C();
+extern "C" void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E2158();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E22A4();
 extern "C" void TAdSinglePlyChrSelectGC__sub_802E23E8();
@@ -169,7 +169,7 @@ void *lbl_804E3050[149] = {
     (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0, (void *)0xffffffff, (void *)&build_selection_summary__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E22A4, (void *)0x0,
     (void *)0xffffffff, (void *)&create_result_bg__23TAdSinglePlyChrSelectGCFi, (void *)0x0, (void *)0xffffffff,
-    (void *)&TAdSinglePlyChrSelectGC__sub_802E2158, (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E203C,
+    (void *)&TAdSinglePlyChrSelectGC__sub_802E2158, (void *)0x0, (void *)0xffffffff, (void *)&show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv,
     (void *)0x0, (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E1FAC, (void *)0x0,
     (void *)0xffffffff, (void *)&TAdSinglePlyChrSelectGC__sub_802E1F8C, (void *)0x0, (void *)0xffffffff,
     (void *)&update_state__23TAdSinglePlyChrSelectGCFPv,

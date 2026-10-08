@@ -106,7 +106,7 @@ s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2)
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_to_screen__13TObjTombstoneFPvPvPv(void *arg0, f32 *arg1, void *arg2);
 u32 calc_text_width(const char *);
-u32 TWindowSubStatusDisp__sub_80144C6C(const char *);
+u32 calc_text_width__20TWindowSubStatusDispFPv(const char *);
 void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
 f32 sin_table_lookup(s32);
 u32 strlen(const char *);
@@ -273,7 +273,7 @@ M2C_UNK draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
         P_800753DC p = screen;
         name = self->names[i];
         if (strlen(name) != 0) {
-            p.x -= lbl_805D918C * TWindowSubStatusDisp__sub_80144C6C(name);
+            p.x -= lbl_805D918C * calc_text_width__20TWindowSubStatusDispFPv(name);
             if (a > TObjTombstone__data_805D9174) {
                 s32 j;
                 for (j = 0; j < 8; j++) {

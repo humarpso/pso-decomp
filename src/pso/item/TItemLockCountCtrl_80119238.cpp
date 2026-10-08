@@ -30,7 +30,7 @@ void apply_unit_immunity__18TItemLockCountCtrlFi(int arg0);
 void apply_battle_ctrl_effect(int arg0);
 void notify_stealth_enemies_08(int arg0);
 void set_battle_ctrl_flag30__18TItemLockCountCtrlFi(int arg0);
-void TItemLockCountCtrl__sub_80119444(void);
+void init_effect_table__18TItemLockCountCtrlFv(void);
 }
 
 extern "C" {
@@ -118,7 +118,7 @@ void TItemLockCountCtrl__sub_801193D8(void) {
         p = TItemLockCountCtrl__ct(p, 0, 0xC, a, b);             \
     }                                                            \
     lbl_80506228[idx] = (VObj_801193D8 *)p;
-void TItemLockCountCtrl__sub_80119444(void) {
+void init_effect_table__18TItemLockCountCtrlFv(void) {
     void *p;
     MK_80119444(0, set_battle_ctrl_flag30__18TItemLockCountCtrlFi, TItemLockCountCtrl__sub_80119238)
     MK_80119444(1, apply_unit_immunity__18TItemLockCountCtrlFi, fn_80119204)

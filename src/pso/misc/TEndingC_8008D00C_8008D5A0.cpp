@@ -87,7 +87,7 @@ struct VObj_18 : VBase_18 {
 
 extern "C" {
 M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
-void TObjEneBalClaw__sub_8008D5C0(u8 *arg0);
+void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -109,7 +109,7 @@ void TEndingPic__sub_8008D5AC(void) { TEndingPic__data_805D6EE0 = 1; }
     extern int lbl_805D4F08;
 int TEnding__sub_8008D5B8(void) {  return lbl_805D4F08; }
 
-void TObjEneBalClaw__sub_8008D5C0(u8 *arg0) {
+void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 7) {
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
@@ -118,7 +118,7 @@ void TObjEneBalClaw__sub_8008D5C0(u8 *arg0) {
 
 s32 TObjEneBalClaw__vt37(s32 arg0) {
     if (update_movement_status__10TObjPlayerFv() != 0) {
-        TObjEneBalClaw__sub_8008D5C0((u8 *)(arg0));
+        clear_flag_in_state7__14TObjEneBalClawFPv((u8 *)(arg0));
         return 1;
     }
     return 0;
@@ -126,7 +126,7 @@ s32 TObjEneBalClaw__vt37(s32 arg0) {
 
 s32 TObjEneBalClaw__vt34(s32 arg0) {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
-        TObjEneBalClaw__sub_8008D5C0((u8 *)(arg0));
+        clear_flag_in_state7__14TObjEneBalClawFPv((u8 *)(arg0));
         return 1;
     }
     return 0;

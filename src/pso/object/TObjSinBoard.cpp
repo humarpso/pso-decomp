@@ -72,7 +72,7 @@ extern u32 lbl_805D5C58;
 void render__12TObjSinBoardFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern u8 lbl_8050DDAC[];
-void TWindowTimer__sub_8019841C(void *arg0);
+void update_input_hold__12TWindowTimerFPv(void *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
 M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
@@ -203,7 +203,7 @@ void draw_hinged_model__10TObjPlayerFPv(u8 *arg0) {
         pop_matrix();
     }
 }
-void TWindowTimer__sub_8019841C(void *arg0) {
+void update_input_hold__12TWindowTimerFPv(void *arg0) {
     s32 t;
     if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
         if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x10 : 1)) {

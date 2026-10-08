@@ -24,7 +24,7 @@ M2C_UNK close_and_dispatch__23TAdSinglePlyChrSelectGCFPvPvPvPvPv(void *, void *,
 M2C_UNK create_backgrounds__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 sprintf(void *, const void *, ...);
 extern M2C_UNK lbl_80472988[];
-void TAdSinglePlyChrSelectGC__sub_802E203C(u8 *arg0);
+void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ void TAdSinglePlyChrSelectGC__sub_802E1FAC(u8 *arg0) {
         break;
     }
 }
-void TAdSinglePlyChrSelectGC__sub_802E203C(u8 *arg0) {
+void show_confirm_dialog__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
     s32 str;
     s32 t;
     s32 t2;

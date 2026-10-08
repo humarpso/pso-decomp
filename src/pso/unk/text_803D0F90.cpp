@@ -48,7 +48,7 @@ struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
 extern "C" {
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
-s32 TLobby__sub_803D0F90(Obj_803D0F90 *p);
+s32 get_lsc_value__6TLobbyFPv(Obj_803D0F90 *p);
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
 s32 TLobby__sub_803D13C0(Obj_803D13C0 *p);
@@ -113,12 +113,12 @@ void notify_dvd_read__6TLobbyFv(void);
 void enter_lock__6TLobbyFv(void);
 void TLobby__sub_803D1D28(Ent_803D1C24 *);
 extern Ent_803D1C24 lbl_80583058[];
-void TLobby__sub_803D1444(void);
+void poll_active_connections__6TLobbyFv(void);
 }
 
 extern "C" {
 
-s32 TLobby__sub_803D0F90(Obj_803D0F90 *p) {
+s32 get_lsc_value__6TLobbyFPv(Obj_803D0F90 *p) {
     if (p == 0) {
         log_printf__6TLobbyFPvi(lbl_8047DCF0);
         return -1;
@@ -220,7 +220,7 @@ s32 TLobby__sub_803D1400(S_803D1400 *arg0) {
     return arg0->f;
 }
 
-void TLobby__sub_803D1444(void) {
+void poll_active_connections__6TLobbyFv(void) {
     u8 sp8[8];
     s32 i;
     ((void (*)(void *))enter_lock__6TLobbyFv)(sp8);

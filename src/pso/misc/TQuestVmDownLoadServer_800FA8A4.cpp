@@ -44,14 +44,14 @@ void destroy_instance__22TQuestVmDownLoadServerFv(void);
 int get_serial_access__22TQuestVmDownLoadServerFPv(void* p);
 int poll_serial_access__22TQuestVmDownLoadServerFPv(void* p);
 int update__22TQuestVmDownLoadServerFPv(void* p);
-int TAdEnterSerialAccessGC__sub_8032182C(void*);
+int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 int update_all__8TFogCtrlFv(void*);
 
-int get_serial_access__22TQuestVmDownLoadServerFPv(void* p) { return TAdEnterSerialAccessGC__sub_8032182C(p); }
-int poll_serial_access__22TQuestVmDownLoadServerFPv(void* p) { return TAdEnterSerialAccessGC__sub_8032182C(p); }
+int get_serial_access__22TQuestVmDownLoadServerFPv(void* p) { return parse_serial_value__22TAdEnterSerialAccessGCFv(p); }
+int poll_serial_access__22TQuestVmDownLoadServerFPv(void* p) { return parse_serial_value__22TAdEnterSerialAccessGCFv(p); }
 int update__22TQuestVmDownLoadServerFPv(void* p) { return update_all__8TFogCtrlFv(p); }
 
 extern M2C_UNK lbl_8049C700[];

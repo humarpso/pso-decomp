@@ -90,7 +90,7 @@ u32 calc_text_width(char *s);
 u32 get_font_char_advance(u16 arg0);
 u16 map_char_to_font_code(u16 c);
 extern const f32 lbl_805DB19C;
-u32 TWindowSubStatusDisp__sub_80144C6C(char *s);
+u32 calc_text_width__20TWindowSubStatusDispFPv(char *s);
 u32 get_font_char_advance(u16 arg0);
 extern const f32 lbl_805DB19C;
 u32 TWindowSubStatusDisp__sub_80144E9C(char *s);
@@ -147,7 +147,7 @@ void set_glyph_quad_extents(u8 arg0, u8 *arg1) {
 typedef struct RecoveredGlobal_80144FCC_lbl_804A74F0 RecoveredGlobal_80144FCC_lbl_804A74F0;
 typedef char RecoveredGlobal_80144FCC_lbl_804A74F0_size[((sizeof(RecoveredGlobal_80144FCC_lbl_804A74F0)) == 0x2FC) ? (1) : (-1)];
 
-u32 TWindowSubStatusDisp__sub_80144C6C(char *s) {
+u32 calc_text_width__20TWindowSubStatusDispFPv(char *s) {
     f32 max = lbl_805DB19C;
     u32 w = 0;
     u8 c;

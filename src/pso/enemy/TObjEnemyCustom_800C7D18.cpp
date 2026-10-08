@@ -105,7 +105,7 @@ void fn_80010EC4();
 void fn_80010EC0();
 void fn_80010EBC();
 void call_player_preserving_field__15TObjEnemyCustomFPv();
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 void apply_set_data__9TObjEnemyFPvPv();
 void fn_800F5D80();
 void *__vt__15TObjEnemyCustom[83] = {
@@ -189,7 +189,7 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)fn_80010EC0,
     (void *)fn_80010EBC,
     (void *)call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)TObjPlayer__sub_800F673C,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
     (void *)apply_set_data__9TObjEnemyFPvPv,
     (void *)fn_800F5D80,
 };

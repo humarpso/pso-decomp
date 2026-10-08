@@ -21,7 +21,7 @@ void assign_item_id__6TLobbyFPv(void *);
 void apply_item_flags__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_8010043C(void *, s32);
 void set_mode__5TItemFPvc(void *, s32);
-void TItem__sub_80101BE4(void *);
+void insert_sorted_by_id__5TItemFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
 void set_item_count__6TLobbyFPvs(void *, s32);
 void TItem__sub_801031C0(void *);
@@ -74,7 +74,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
         set_mode__5TItemFPvc(self, 3);
     }
     assign_item_id__6TLobbyFPv(self);
-    TItem__sub_80101BE4(self);
+    insert_sorted_by_id__5TItemFPv(self);
     return self;
 }
 

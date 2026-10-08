@@ -711,7 +711,7 @@ s32 advance_animation_playback(void *);
 M2C_UNK create__10TTecDebandFiii(void *, void *, s32);
 M2C_UNK create__9TTecSiftaFPvPvPv(void *, void *, s32);
 extern f32 *TObjEneMe3Stelth__data_80501104[];
-void TObjEneMe3Stelth__sub_800F2C8C(u8 *arg0, s32 arg1);
+void update_state_resta_cast__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -721,7 +721,7 @@ extern "C" {
 #define F(T, o) (*(T *)(arg0 + (o)))
 #define VO ((VObj_18_6a7bb5 *)(arg0))
 
-void TObjEneMe3Stelth__sub_800F2C8C(u8 *arg0, s32 arg1) {
+void update_state_resta_cast__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
         M2C_FIELD(arg0, s16 *, 0xB8) = 8;
@@ -1018,7 +1018,7 @@ void state_chase_target__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
 }
 #pragma pop
 
-void TObjEneMe3Stelth__sub_800F3E40(u8 *arg0, s32 arg1) {
+void update_state_fade_in__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
     s32 enemy_validate_retained_target(void *, s32);
     M2C_UNK update_distance_state__16TObjEneMe3StelthFPv(void *);
     extern const s32 lbl_805DA884;

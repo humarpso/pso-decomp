@@ -23,7 +23,7 @@ void PSMTXConcat(void *, void *, void *);
 void PSMTXRotAxisRad(void *, void *, f32);
 extern u8 *lbl_805D7774;
 extern f64 lbl_805E0ED8;
-void TObjPlayer__sub_803D8BFC(u8 *arg0, s32 arg1, s32 arg2);
+void rotate_matrix_about_axis__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ void set_monitor_position_vec3__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
 
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803D8BFC(u8 *arg0, s32 arg1, s32 arg2) {
+void rotate_matrix_about_axis__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 sp8[0x30];
     u8 *m;
     if (arg0 == 0) {

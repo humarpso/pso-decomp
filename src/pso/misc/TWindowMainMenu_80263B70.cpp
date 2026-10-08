@@ -23,7 +23,7 @@ void destroy_submenu__15TWindowMainMenuFPv(void* p);
 void update_description_text__15TWindowMainMenuFPvi(void *arg0, s32 arg1);
 void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0);
 u32 create_message_window__6TLobbyFiiUis(u32, M2C_UNK *, M2C_UNK, s32);
-M2C_UNK TWindowMainMenu__sub_80263DBC(void *);
+M2C_UNK update_selection_value__15TWindowMainMenuFPv(void *);
 u32 get_window_layout_position(M2C_UNK);
 int TWindow__close(void*);
 M2C_UNK call_if_split_screen(u32, s32);
@@ -39,7 +39,7 @@ void update_keyboard_card_state__15TWindowMainMenuFPv(void *arg0) {
         M2C_FIELD(arg0, s16 *, 0x52) = 0;
         return;
     }
-    TWindowMainMenu__sub_80263DBC(arg0);
+    update_selection_value__15TWindowMainMenuFPv(arg0);
 }
 
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(u8 *arg0, s16 *arg1, s32 *arg2) {

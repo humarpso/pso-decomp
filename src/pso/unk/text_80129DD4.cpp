@@ -67,13 +67,13 @@ extern "C" {
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
 M2C_UNK TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129DD4_lbl_8043E968 lbl_8043E968;
-void TObjPlayer__sub_80129DD4(u8 *arg0);
+void draw_icon_slots__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80129DD4_lbl_8043E968_size[sizeof(RecoveredGlobal_80129DD4_lbl_8043E968) == 0x18 ? 1 : -1];
-void TObjPlayer__sub_80129DD4(u8 *arg0) {
+void draw_icon_slots__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     TObjPlayer__sub_80128A70();
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (1), (void *) (&sp8));

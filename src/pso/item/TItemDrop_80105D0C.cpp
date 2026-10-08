@@ -473,7 +473,7 @@ struct Def_80106D0C {
 void set_drop_index__9TItemDropFPvPv(void *, void *);
 Def_80106D0C *lookup_item_pmt_record(u8 *);
 void set_dfp_bonus__9TItemDataFPvs(u8 *, s32);
-void TItemData__sub_8010CE1C(u8 *, s32);
+void set_bswapped_field_8__9TItemDataFPvs(u8 *, s32);
 
 #define item ((u8 *)item_)
 void roll_armor_bonuses__9TItemDropFv(s32 rng, void *item_) {
@@ -492,7 +492,7 @@ void roll_armor_bonuses__9TItemDropFv(s32 rng, void *item_) {
             r = ((f32 (*)(u8 *, u32))roll_table_ratio__9TItemDropFPvUi)((u8 *)rng, 12);
             set_dfp_bonus__9TItemDataFPvs(item, (s32)(def->a * r));
             r = ((f32 (*)(u8 *, u32))roll_table_ratio__9TItemDropFPvUi)((u8 *)rng, 13);
-            TItemData__sub_8010CE1C(item, (s32)(def->b * r));
+            set_bswapped_field_8__9TItemDataFPvs(item, (s32)(def->b * r));
         }
         break;
     }

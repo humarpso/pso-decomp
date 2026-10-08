@@ -49,7 +49,7 @@ s32 test_flag_2000000__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void update_owner_visibility__5TItemFPv(u8 *arg0);
 M2C_UNK load_projection_tex_matrix__15TOTrapAncient02Fi(void *);
-void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1);
+void load_projection_tex__10TObjPlayerFii(M2C_UNK arg0, s32 arg1);
 s32 test_flags_any(M2C_UNK *, M2C_UNK);
 extern M2C_UNK lbl_805D53EC;
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
@@ -91,7 +91,7 @@ s32 get_stat__10TObjPlayerFPv(s32);
 s16 calc_equip_bonus__10TObjPlayerFUs(u16 arg0);
 s32 obj_isState2_324(int);
 s32 get_field_d8__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80102D14(void *);
+M2C_UNK bswap_and_send_6x61__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_80102D84(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void send_6x61_activate_mag_effect(u8 *arg0, s32 arg1);
@@ -148,7 +148,7 @@ void update_owner_visibility__5TItemFPv(u8 *arg0) {
     TObjPlayer__sub_80102C58((void *) (arg0));
 }
 
-void TObjPlayer__sub_80100EB4(M2C_UNK arg0, s32 arg1) {
+void load_projection_tex__10TObjPlayerFii(M2C_UNK arg0, s32 arg1) {
     load_projection_tex_matrix__15TOTrapAncient02Fi((void *) (arg1));
 }
 
@@ -271,7 +271,7 @@ void send_6x61_activate_mag_effect(u8 *arg0, s32 arg1) {
         TObjPlayer__sub_80102D84((void *) (&stack.sp8));
         stack.spC = get_field_d8__10TObjPlayerFPv((void *) (arg0));
         stack.sp10 = arg1;
-        TObjPlayer__sub_80102D14((void *) (&stack.sp8));
+        bswap_and_send_6x61__10TObjPlayerFPv((void *) (&stack.sp8));
     }
 }
 void handle_6x61_activate_mag_effect(void *arg0) {

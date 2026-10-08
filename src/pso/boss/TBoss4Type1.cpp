@@ -322,7 +322,7 @@ void set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv(S_80054224 *o, void *src, 
 void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1);
 u8 * TBoss4Type2__sub_80054384(void *self, s32 i, s32 j);
 void draw_parts__8TObjFishFPv(u8 *arg0);
-void TBoss4Type2__sub_80054530(u8 *arg0, s32 arg1);
+void set_motion_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1);
 void fn_8005455C(u8 *arg0);
 void render_effects__10TObjPlayerFPv(void* p);
 void snapshot_position__10TObjPlayerFPv(u8 *arg0);
@@ -846,7 +846,7 @@ void update_state__11TBoss4Type2FPv(void *arg0) {
 }
 
 void TBoss4Type2__sub_80052C58(u8 *arg0) {
-    ((void (*)(void *, s32))TBoss4Type2__sub_80054530)(arg0, M2C_FIELD(&lbl_80486218.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3A8) * 4)));
+    ((void (*)(void *, s32))set_motion_index__11TBoss4Type2FPvi)(arg0, M2C_FIELD(&lbl_80486218.value, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x3A8) * 4)));
     M2C_FIELD(arg0, s32 *, 0x398) = 0x3C;
 }
 
@@ -890,7 +890,7 @@ void update_spawn_uro__14TBoss4DarkFalzFPv(Obj_80052CDC *arg0) {
 }
 
 void TBoss4Type2__sub_80052E10(S_80052E10 *o) {
-    TBoss4Type2__sub_80054530((u8 *)o, ((s32 *)lbl_804861F4)[o->idx]);
+    set_motion_index__11TBoss4Type2FPvi((u8 *)o, ((s32 *)lbl_804861F4)[o->idx]);
     o->f3c8 = 0;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)lbl_804860C0 + 0x28, &((P2_80052E10 *)lbl_80486200)[o->idx]);
     o->f3d0 = 6;
@@ -1383,7 +1383,7 @@ void set_state__11TBoss4Type2FPvi(Boss_800542B0 *arg0, s32 arg1) {
         }
     }
     arg0->f3d0 = 5;
-    TBoss4Type2__sub_80054530((u8 *)arg0, lbl_80485C48[arg0->state].f4);
+    set_motion_index__11TBoss4Type2FPvi((u8 *)arg0, lbl_80485C48[arg0->state].f4);
     Act_800542B0 f = lbl_80485C48[arg0->state].enter;
     if (f) {
         (arg0->*f)();
@@ -1432,7 +1432,7 @@ void draw_parts__8TObjFishFPv(u8 *arg0) {
 extern int fold_flush_4;
 #pragma pop
 
-void TBoss4Type2__sub_80054530(u8 *arg0, s32 arg1) {
+void set_motion_index__11TBoss4Type2FPvi(u8 *arg0, s32 arg1) {
     if (arg1 != -1) {
         M2C_FIELD(arg0, s32 *, 0x3E4) = arg1;
         M2C_FIELD(arg0, f32 *, 0x3E8) = (f32) lbl_805D8B20;

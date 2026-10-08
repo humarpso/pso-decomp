@@ -13,7 +13,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void update_move_flag__10TBoss2MineFPv(void *arg0);
 void init_params__10TBoss2MineFPvif(u8 *arg0, s32 arg1, f32 farg0);
 void set_state_by_distance__10TBoss2MineFPvi(void *arg0, s32 arg1);
-void TBoss2Mine__sub_80038760(Mine_80038760 *self);
+void update_pulse_state__10TBoss2MineFPv(Mine_80038760 *self);
 void TBoss2Mine__sub_80038908(O_80038908 *self);
 void save_position__10TBoss2MineFPv(void* p);
 void *__dt__10TBoss2MineFv(void *arg0, s16 arg1);
@@ -22,7 +22,7 @@ extern M2C_UNK lbl_80482D04[];
 }
 
 #define VecCopy__FP3VecPC3Vec ((M2C_UNK (*)(void *, s32))VecCopy__FP3VecPC3Vec)
-#define TBoss2Mine__sub_80038760 ((M2C_UNK (*)(void *))TBoss2Mine__sub_80038760)
+#define update_pulse_state__10TBoss2MineFPv ((M2C_UNK (*)(void *))update_pulse_state__10TBoss2MineFPv)
 
 struct VBase_18_4225ac { char pad[0x18]; };
 
@@ -193,7 +193,7 @@ void TBoss2Mine__sub_800375C0(u8 *arg0, s32 arg1) {
             M2C_FIELD(arg0, f32 *, 0x304) = v.z * s + M2C_FIELD(arg0, f32 *, 0x304);
         }
         set_state_by_distance__10TBoss2MineFPvi(arg0, M2C_FIELD(arg0, s32 *, 0x3CC));
-        TBoss2Mine__sub_80038760(arg0);
+        update_pulse_state__10TBoss2MineFPv(arg0);
         M2C_FIELD(arg0, f32 *, 0x38) = M2C_FIELD(arg0, f32 *, 0x2FC);
         M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x304);
         ((VObj_18_4225ac *)(arg0))->m87();
@@ -335,7 +335,7 @@ void TBoss2Mine__sub_80037C6C(void *arg0) {
 }
 
 #undef VecCopy__FP3VecPC3Vec
-#undef TBoss2Mine__sub_80038760
+#undef update_pulse_state__10TBoss2MineFPv
 
 extern "C" {
 
@@ -358,7 +358,7 @@ void *TBoss2Mine__sub_80037C8C(void *arg0, s16 arg1) {
 #define init_params__10TBoss2MineFPvif ((M2C_UNK (*)(void *, int, f32))init_params__10TBoss2MineFPvif)
 #define calc_elapsed_scaled__9TObjEneDDFv ((f32 (*)(void *, int, int))calc_elapsed_scaled__9TObjEneDDFv)
 #define play_sound_effect ((M2C_UNK (*)(int, void *, int, int, int))play_sound_effect)
-#define TBoss2Mine__sub_80038760 ((M2C_UNK (*)(void *))TBoss2Mine__sub_80038760)
+#define update_pulse_state__10TBoss2MineFPv ((M2C_UNK (*)(void *))update_pulse_state__10TBoss2MineFPv)
 
 struct VBase { char pad[0x18]; };
 
@@ -449,7 +449,7 @@ void TBoss2Mine__sub_80037D4C(u8 *arg0, s32 arg1) {
                 M2C_FIELD(arg0, s32 *, 0x3C8) = 2;
             }
             set_state_by_distance__10TBoss2MineFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x3CC)));
-            TBoss2Mine__sub_80038760((void *) (arg0));
+            update_pulse_state__10TBoss2MineFPv((void *) (arg0));
             break;
         }
         break;
@@ -527,7 +527,7 @@ void TBoss2Mine__sub_800380B8(u8 *arg0, u8 *arg1, u8 *arg2) {
 #undef init_params__10TBoss2MineFPvif
 #undef calc_elapsed_scaled__9TObjEneDDFv
 #undef play_sound_effect
-#undef TBoss2Mine__sub_80038760
+#undef update_pulse_state__10TBoss2MineFPv
 #define play_sound_effect ((s32 (*)(s32, u32, s16, s32))play_sound_effect)
 #define TBoss2Mine__ct ((void *(*)(void *, s32, s16, s16, s32))TBoss2Mine__ct)
 #define TBoss2Mine__sub_80038908 ((void (*)(void *))TBoss2Mine__sub_80038908)
@@ -1139,7 +1139,7 @@ void TBoss2Mine__vt85(void *arg0, s32 arg1, s32 arg2) {
     }
 }
 
-void TBoss2Mine__sub_80038760(Mine_80038760 *self) {
+void update_pulse_state__10TBoss2MineFPv(Mine_80038760 *self) {
     self->timer++;
     switch (self->state) {
     case 2:

@@ -19,7 +19,7 @@ M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0, s32 a1);
 void TBoss6Type2__sub_802BF834(u8 *arg0);
-int TBoss6Type2__sub_802BDC5C(void*);
+int send_state_action_packet__11TBoss6Type2FPv(void*);
 int send_action_packet__11TBoss6Type2FPvc(void*, void*);
 void TBoss6Type2__sub_802BF65C(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -59,8 +59,8 @@ s32 TBoss6Type2__sub_802BB768();
 s32 TBoss6Type2__sub_802BB7C0(void *);
 s32 set_action_state__11TBoss6Type2FPvPv(void * a0 = 0, s32 a1 = 0);
 s32 choose_next_index__11TBoss6Type2FPv(void *);
-s32 TBoss6Type2__sub_802BD7EC(void *);
-int TBoss6Type2__sub_802BDC5C(void*);
+s32 pick_random_other_index__11TBoss6Type2FPv(void *);
+int send_state_action_packet__11TBoss6Type2FPv(void*);
 int send_action_packet__11TBoss6Type2FPvc(void*, void*);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 s32 get_phase__11TBoss6Type2FPv(void *);
@@ -130,7 +130,7 @@ void TBoss6Type2__sub_802BF65C(u8 *arg0) {
             send_action_packet__11TBoss6Type2FPvc((void*)(arg0), (void*)(0xC));
             return;
         default:
-            TBoss6Type2__sub_802BDC5C((void*)(arg0));
+            send_state_action_packet__11TBoss6Type2FPv((void*)(arg0));
             break;
         }
     }
@@ -203,7 +203,7 @@ void TBoss6Type2__sub_802BF834(u8 *arg0) {
     }
 }
 
-void check_state_0x460_eq0__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 0) { TBoss6Type2__sub_802BDC5C(p); } }
+void check_state_0x460_eq0__11TBoss6Type2FPv(void* p) { if (*(int*)((char*)p + 0x460) == 0) { send_state_action_packet__11TBoss6Type2FPv(p); } }
 void TBoss6Type2__sub_802BF904(void* p) { *(s32*)((char*)p + 0x45c) = 45; *(s32*)((char*)p + 0x460) = 45; }
 void tick_action_timer__11TBoss6Type2FPv(void *arg0) {
     s32 temp_r0;
@@ -285,7 +285,7 @@ void select_attack_state__11TBoss6Type2FPv(void *arg0) {
             return;
         }
         if (get_phase__11TBoss6Type2FPv(arg0) == 0xD) {
-            M2C_FIELD(arg0, s32 *, 0x428) = TBoss6Type2__sub_802BD7EC(arg0);
+            M2C_FIELD(arg0, s32 *, 0x428) = pick_random_other_index__11TBoss6Type2FPv(arg0);
             M2C_FIELD(arg0, s32 *, 0x430) = choose_next_index__11TBoss6Type2FPv(arg0);
             send_action_packet__11TBoss6Type2FPvc((void*)(arg0), (void*)(1));
             return;

@@ -68,7 +68,7 @@ s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
 extern RecoveredGlobal_8030E6E0_lbl_804758E8 lbl_804758E8;
 void TAdChrSelBSlotGC__sub_8030E6E0(u8 *arg0);
 u8 * TAdSinglePlyChrSelectGC__sub_801FE3E4(u32);
-bool TAdChrSelBSlotGC__sub_8030E378(M2C_UNK arg0, u32 arg1);
+bool is_slot_state_one__16TAdChrSelBSlotGCFiUi(M2C_UNK arg0, u32 arg1);
 s32 get_state_flag__9TMainTaskFv();
 void render__16TAdChrSelBSlotGCFv(void *self);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
@@ -101,7 +101,7 @@ void render__16TAdChrSelBSlotGCFv(void *self) {
     }
 }
 
-bool TAdChrSelBSlotGC__sub_8030E378(M2C_UNK arg0, u32 arg1) {
+bool is_slot_state_one__16TAdChrSelBSlotGCFiUi(M2C_UNK arg0, u32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(TAdSinglePlyChrSelectGC__sub_801FE3E4(arg1));
     if ((u32)(temp_r3) == 0) {

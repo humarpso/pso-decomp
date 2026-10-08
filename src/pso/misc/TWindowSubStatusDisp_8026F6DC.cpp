@@ -106,7 +106,7 @@ M2C_UNK apply_context_transform_to_rect(u8 *, Rect_80270394 *);
 M2C_UNK start_text_color_transition(void *, M2C_UNK, f32);
 M2C_UNK set_text_entry_string(void *, s32, M2C_UNK);
 M2C_UNK set_sprite_uv_from_pixels(s32, f32, f32);
-void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0);
+void start_hp_text_color_transition__20TWindowSubStatusDispFPv(u8 *arg0);
 void init_gauge_entry__20TWindowSubStatusDispFPv(void *arg0);
 void update_status_entry__20TWindowSubStatusDispFi(s32 arg0);
 s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0);
@@ -158,7 +158,7 @@ extern "C" {
 s32 get_photon_blast_chain(Slots_80270060 *);
 }
 
-void TWindowSubStatusDisp__sub_8026F6DC(u8 *arg0) {
+void start_hp_text_color_transition__20TWindowSubStatusDispFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((s32)get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4))));
     M2C_FIELD(temp_r3, f32 *, 0x20) = (f32) (*(const f32 *)&lbl_805DD388);
@@ -199,7 +199,7 @@ s32 update_hp_gauge__20TWindowSubStatusDispFi(s32 arg0) {
     get_width__11TWindowCtrlFPv();
     temp_r3 = get_player_by_client_id();
     if (temp_r3 == NULL) {
-        TWindowSubStatusDisp__sub_8026F6DC((u8 *)(arg0));
+        start_hp_text_color_transition__20TWindowSubStatusDispFPv((u8 *)(arg0));
         return 0xFF008CFC;
     }
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(4));

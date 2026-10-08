@@ -593,7 +593,7 @@ void enter_appear_state__15TObjEneDelDepthFPv(u8 *arg0);
 void update_state__15TObjEneDelDepthFPv(void *arg0);
 void enter_state8__15TObjEneDelDepthFPv(u8 *arg0);
 void start_move_toward_player__15TObjEneDelDepthFPv(u8 *arg0);
-void TObjEneDelDepth__sub_80314D1C(u8 *arg0);
+void update_scale_pulse__15TObjEneDelDepthFPv(u8 *arg0);
 void TObjEneDelDepth__sub_80314E78(void* a0);
 void TObjEneDelDepth__sub_80314EC4(u8 *arg0);
 void TObjEneDelDepth__sub_80315064(u8 *arg0);
@@ -1383,7 +1383,7 @@ extern int fold_flush_2;
 
 #pragma push
 #pragma fp_contract on
-void TObjEneDelDepth__sub_80314D1C(u8 *arg0) {
+void update_scale_pulse__15TObjEneDelDepthFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f1_3;

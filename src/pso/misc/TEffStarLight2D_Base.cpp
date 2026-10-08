@@ -78,7 +78,7 @@ extern void *tl_particle;
 u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 int copy_position__15TEffStarLight2DFPv(void* p);
 void copy_from_subobject__15TEffStarLight2DFPvPv(void *, void *);
-void TEffStarLight2D_Base__sub_80084C64(Eff_80084C64 *self);
+void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self);
 }
 
 extern "C" {
@@ -115,7 +115,7 @@ void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
     TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 8)), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 4)), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 0)), (void *) (&lbl_804393AC.value), (f32) (lbl_805D9450));
 }
 
-void TEffStarLight2D_Base__sub_80084C64(Eff_80084C64 *self) {
+void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self) {
     Sprite_80084C64 s;
     if (self->sub == NULL) {
         return;

@@ -49,7 +49,7 @@ void TWindowKeyBoardSoft__sub_80080CC0(Field_80080CC0 *f);
 s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1);
 void TWindowKeyBoardSoft__sub_800808FC(Kb_800808FC *kb, u16 ch);
 s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u16 code, u32 *x, u32 *y, u32 *count);
-s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1);
+s32 check_text_overflow__19TWindowKeyBoardSoftFPvPv(F_80080DFC *arg0, u16 *arg1);
 extern s32 lbl_805D5544;
 void TWindowKeyBoardSoft__sub_8008081C(Kb_8008081C *kb, char *s);
 extern u16 keyboard_soft_small_kana_sjis[];
@@ -329,7 +329,7 @@ s32 measure_char_overflow__19TWindowKeyBoardSoftFPvUsPvPvPv(Field_80080D1C *f, u
     return (*y >= f->linePixels) ? 1 : 0;
 }
 
-s32 TWindowKeyBoardSoft__sub_80080DFC(F_80080DFC *arg0, u16 *arg1) {
+s32 check_text_overflow__19TWindowKeyBoardSoftFPvPv(F_80080DFC *arg0, u16 *arg1) {
     u32 x;
     u32 y;
     u32 count;

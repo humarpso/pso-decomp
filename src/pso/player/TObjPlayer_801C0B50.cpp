@@ -7,12 +7,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TObjPlayer__sub_801C0C04(u8 *arg0);
-void TObjPlayer__sub_801C0C24(void* p);
+void send_swapped_packet_6x30__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C0CC4(u8 *arg0);
 void TObjPlayer__sub_801C0D7C(u8 *arg0);
-void TObjPlayer__sub_801C0D9C(void* p);
+void bswap_and_send_body_dwords2__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801C0E40(u8 *arg0);
-void TObjPlayer__sub_801C0E5C(void* p);
+void send_use_item_cmd__10TObjPlayerFPv(void* p);
 void bswap_and_send_packet__10TObjPlayerFi(s32 arg0);
 void bswap_body_dwords2__10TObjPlayerFi(s32 arg0);
 void bswap_body_dwords__10TObjPlayerFi(s32 arg0);
@@ -56,7 +56,7 @@ void TObjPlayer__sub_801C0C04(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 3;
 }
 
-void TObjPlayer__sub_801C0C24(void* p) { swap_endian__10TObjPlayerFi((s32)(p)); TLobby__send_and_handle_60((void*)(p)); }
+void send_swapped_packet_6x30__10TObjPlayerFPv(void* p) { swap_endian__10TObjPlayerFi((s32)(p)); TLobby__send_and_handle_60((void*)(p)); }
 
 void swap_endian__10TObjPlayerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv();
@@ -102,7 +102,7 @@ void TObjPlayer__sub_801C0D7C(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 3;
 }
 
-void TObjPlayer__sub_801C0D9C(void* p) { bswap_body_dwords2__10TObjPlayerFi((s32)((s32)(p))); TLobby__send_and_handle_60((void*)((void*)(p))); }
+void bswap_and_send_body_dwords2__10TObjPlayerFPv(void* p) { bswap_body_dwords2__10TObjPlayerFi((s32)((s32)(p))); TLobby__send_and_handle_60((void*)((void*)(p))); }
 
 void bswap_cmd_u32__10TObjPlayerFi(s32 arg0) {
     read_be16_field2__10TObjPlayerFPv();
@@ -120,6 +120,6 @@ void TObjPlayer__sub_801C0E40(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
-void TObjPlayer__sub_801C0E5C(void* p) { bswap_cmd_u32__10TObjPlayerFi((s32)((s32)(p))); TLobby__send_and_handle_60((void*)((void*)(p))); }
+void send_use_item_cmd__10TObjPlayerFPv(void* p) { bswap_cmd_u32__10TObjPlayerFi((s32)((s32)(p))); TLobby__send_and_handle_60((void*)((void*)(p))); }
 
 }

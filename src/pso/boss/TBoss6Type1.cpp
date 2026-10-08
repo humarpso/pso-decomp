@@ -410,7 +410,7 @@ void TBoss6Type1__sub_802B5970(s32 arg0);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 extern RecoveredGlobal_802B7E88_lbl_80470CEC lbl_80470CEC;
 extern const f32 TBoss6Type1__data_805DE2D0;
-void TBoss6Type1__sub_802B7E88(u8 *arg0);
+void load_params_from_table__11TBoss6Type1FPv(u8 *arg0);
 extern const f32 TBoss6Type1__data_805DE2D0;
 extern const s32 lbl_805DE3A8;
 extern const s32 lbl_805DE3B0;
@@ -1886,7 +1886,7 @@ void latch_phase_counter__11TBoss6Type1FPv(void *arg0) {
 }
 
 typedef char RecoveredGlobal_802B7E88_lbl_80470CEC_size[sizeof(RecoveredGlobal_802B7E88_lbl_80470CEC) == 0x30 ? 1 : -1];
-void TBoss6Type1__sub_802B7E88(u8 *arg0) {
+void load_params_from_table__11TBoss6Type1FPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2B));
     M2C_FIELD(arg0, s32 *, 0x47C) = (s32) M2C_FIELD(temp_r3, f32 *, 0);
@@ -2403,7 +2403,7 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     for (i = 0; i < 32; i++) {
         ((Arr_802B93C4 *)arg0)->arr[i] = 0;
     }
-    TBoss6Type1__sub_802B7E88(arg0);
+    load_params_from_table__11TBoss6Type1FPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x4AC) = 0;
     M2C_FIELD(arg0, f32 *, 0x4B4) = TBoss6Type1__data_805DE2E4;
     latch_phase_counter__11TBoss6Type1FPv(arg0);

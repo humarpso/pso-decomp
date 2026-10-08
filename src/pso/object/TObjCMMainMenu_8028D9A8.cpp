@@ -30,7 +30,7 @@ extern RecoveredGlobal_8028D9B4_lbl_8051C094 lbl_8051C094;
 M2C_UNK *TObjCMMainMenu__sub_8028D9A8(void);
 M2C_UNK strncpy(void *, void *, int);
 extern RecoveredGlobal_8028DA0C_lbl_8051C07C lbl_8051C07C;
-void TObjCMMainMenu__sub_8028DA0C(s32 arg0);
+void copy_char_name__14TObjCMMainMenuFi(s32 arg0);
 extern RecoveredGlobal_8028D9B4_lbl_8051C094 lbl_8051C094;
 void TObjCMMainMenu__sub_8028D9F8(void);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
@@ -73,13 +73,13 @@ void TObjCMMainMenu__sub_8028D9F8(void) {
     M2C_FIELD(&(*(RecoveredGlobal_8028D9F8_lbl_8051C094 *)&lbl_8051C094).value, s8 *, 0x31) = -1;
 }
 
-void TObjCMMainMenu__sub_8028DA0C(s32 arg0) {
+void copy_char_name__14TObjCMMainMenuFi(s32 arg0) {
     strncpy((void *) (&lbl_8051C07C.value), (void *) (arg0), (int) (0xC));
     M2C_FIELD(&lbl_8051C07C.value, s8 *, 0xC) = 0;
 }
 
 void select_char_menu__14TObjCMMainMenuFv(void) {
-    TObjCMMainMenu__sub_8028DA0C((s32)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370));
+    copy_char_name__14TObjCMMainMenuFi((s32)(get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF) + 0x370));
 }
 
 s32 validate_character_name__14TObjCMMainMenuFPv(s8 *arg0) {

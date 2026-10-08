@@ -150,13 +150,13 @@ M2C_UNK all_parents_unqueued_for_destruction__7TObjectFv();
 void run_task__14TObjEneBm5WolfFPv(u8 *arg0);
 void update__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
-void TObjEneBm5Wolf__sub_800B8570(s32 arg0);
+void update_default__14TObjEneBm5WolfFi(s32 arg0);
 void update__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 TObjEneBm5Wolf__data_80500B78;
 void TObjEneBm5Wolf__sub_800B85D0(s32 arg0);
 void apply_to_position__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B8570_TObjEneBm5Wolf__data_80500B8C TObjEneBm5Wolf__data_80500B8C;
-void TObjEneBm5Wolf__sub_800B85A0(s32 arg0);
+void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0);
 void apply_to_position__14TObjEneBm5WolfFPvPv(s32, s32);
 extern RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78 TObjEneBm5Wolf__data_80500B78;
 void TObjEneBm5Wolf__sub_800B8600(s32 arg0);
@@ -255,7 +255,7 @@ u8 *TObjEneBm5Wolf__sub_800B8174(u8 *arg0, s16 arg1) {
         }
         TObjEneBm5Wolf__sub_800B85D0((s32) arg0);
         if (M2C_FIELD(arg0, s32 *, 0x3D8) != 0) {
-            TObjEneBm5Wolf__sub_800B8570((s32) arg0);
+            update_default__14TObjEneBm5WolfFi((s32) arg0);
         }
         free_collision_body_parts(arg0);
         destroy__14TObjEneBm5WolfFis(arg0 + 0x3CC, -1);
@@ -280,14 +280,14 @@ Wolf_800B850C *find_pack_leader__14TObjEneBm5WolfFi(s32 id) {
     return 0;
 }
 
-void TObjEneBm5Wolf__sub_800B8570(s32 arg0) {
+void update_default__14TObjEneBm5WolfFi(s32 arg0) {
     update__14TObjEneBm5WolfFPvPv((s32) &TObjEneBm5Wolf__data_80500B8C.value, arg0 + 0x3CC);
 }
 
 typedef char RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78_size[sizeof(RecoveredGlobal_800B85D0_TObjEneBm5Wolf__data_80500B78) == 0x14 ? 1 : -1];
 
 typedef char RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C_size[sizeof(RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C) == 0xC ? 1 : -1];
-void TObjEneBm5Wolf__sub_800B85A0(s32 arg0) {
+void apply_global_to_position__14TObjEneBm5WolfFi(s32 arg0) {
     apply_to_position__14TObjEneBm5WolfFPvPv((s32) &(*(RecoveredGlobal_800B85A0_TObjEneBm5Wolf__data_80500B8C *)&TObjEneBm5Wolf__data_80500B8C).value, arg0 + 0x3CC);
 }
 

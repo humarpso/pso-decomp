@@ -904,7 +904,7 @@ M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *, int);
 extern u8 *lbl_80540B7C[];
 extern const f32 lbl_805DE70C;
-s32 TObjEneBm9Mericarol__sub_802CF6AC(Ene_802CF6AC *o);
+s32 check_attack_hits__19TObjEneBm9MericarolFPv(Ene_802CF6AC *o);
 }
 
 extern "C" {
@@ -1254,7 +1254,7 @@ void TObjEneBm9Mericarol__sub_802CF4F8(u8 *arg0, s32 arg1) {
   }
 }
 
-s32 TObjEneBm9Mericarol__sub_802CF6AC(Ene_802CF6AC *o) {
+s32 check_attack_hits__19TObjEneBm9MericarolFPv(Ene_802CF6AC *o) {
     s32 ret;
     s32 i;
     VObj_18_9e4fef *p;
@@ -1361,7 +1361,7 @@ void TObjEneDD__sub_802CF7B4(u8 *arg0, s32 arg1) {
             if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) & 0x200000) {
                 var_r30 = 1;
             }
-            TObjEneBm9Mericarol__sub_802CF6AC((Ene_802CF6AC *)((void *) (arg0)));
+            check_attack_hits__19TObjEneBm9MericarolFPv((Ene_802CF6AC *)((void *) (arg0)));
             M2C_FIELD(arg0, f32 *, 0x4A8) = (f32) (M2C_FIELD(arg0, f32 *, 0x4A8) + M2C_FIELD(arg0, f32 *, 0x444));
             if (M2C_FIELD(arg0, f32 *, 0x4A8) >= lbl_805DE724) {
                 var_r30 = 1;

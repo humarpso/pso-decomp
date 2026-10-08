@@ -49,13 +49,13 @@ struct Buf_803D28D8 { u8 *ptr; s32 len; };
 extern "C" {
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
-void TLobby__sub_803D2A14(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out);
+void read_ring_buffer_span__6TLobbyFPviiPv(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
-bool TLobby__sub_803D2640(Obj_803D2640 *o, s32 mode, s32 n, s32 *out);
+bool calc_ring_buffer_available__6TLobbyFPviiPv(Obj_803D2640 *o, s32 mode, s32 n, s32 *out);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
-void TLobby__sub_803D274C(u8 *arg0, s32 arg1, u8 *arg2);
+void commit_ring_buffer_read__6TLobbyFPviPv(u8 *arg0, s32 arg1, u8 *arg2);
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void *memcpy(void *, const void *, unsigned long);
@@ -67,7 +67,7 @@ extern "C" {
 #define MIN_803D2A14(a, b) ((a) < (b) ? (a) : (b))
 
 #define MIN_803D2640(a, b) ((a) < (b) ? (a) : (b))
-bool TLobby__sub_803D2640(Obj_803D2640 *o, s32 mode, s32 n, s32 *out) {
+bool calc_ring_buffer_available__6TLobbyFPviiPv(Obj_803D2640 *o, s32 mode, s32 n, s32 *out) {
     s32 t;
     lock_enter__6TLobbyFv();
     if (mode == 0) {
@@ -87,7 +87,7 @@ bool TLobby__sub_803D2640(Obj_803D2640 *o, s32 mode, s32 n, s32 *out) {
     return !(n - mode);
 }
 
-void TLobby__sub_803D274C(u8 *arg0, s32 arg1, u8 *arg2) {
+void commit_ring_buffer_read__6TLobbyFPviPv(u8 *arg0, s32 arg1, u8 *arg2) {
     M2C_UNK (*temp_r12)(s32, M2C_UNK);
     M2C_UNK (*temp_r12_2)(s32, M2C_UNK);
     M2C_UNK (*temp_r12_3)(s32, M2C_UNK);
@@ -167,7 +167,7 @@ void TLobby__sub_803D28D8(Obj_803D28D8 *o, s32 mode, Buf_803D28D8 *b) {
     restore_interrupts_nested__6TLobbyFv();
 }
 
-void TLobby__sub_803D2A14(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out) {
+void read_ring_buffer_span__6TLobbyFPviiPv(Ring_803D2A14 *r, s32 which, s32 max, Span_803D2A14 *out) {
     lock_enter__6TLobbyFv();
     if (which == 0) {
         out->len = MIN_803D2A14(r->avail0, r->extra + (r->size - r->pos0));

@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 * get_card_entry__17TWindowSubComCardFi(void *self);
-u8 *TWindowSubComCard__sub_8007A860(void *self);
+u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self);
 }
 
 extern "C" {
@@ -25,7 +25,7 @@ void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
         }
     }
 }
-u8 *TWindowSubComCard__sub_8007A860(void *self) {
+u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self) {
     u8 *p = get_card_entry__17TWindowSubComCardFi((void *)(self));
     if (p == 0) {
         return 0;

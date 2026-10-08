@@ -11,7 +11,7 @@ struct O_8003C21C { u8 pad[0x5c]; s32 p; };
 extern "C" {
 s32 is_flag_set__15TObjBoss2TunnelFv(s32 a0 = 0);
 s32 TObjBoss2Tunnel__sub_8003C1C8(void);
-s32 TObjBoss2Tunnel__sub_8003C1E0(s32 arg0);
+s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0);
 u8 *TObjBoss2Tunnel__sub_8003C21C(O_8003C21C *self);
 }
 
@@ -28,7 +28,7 @@ extern u32 TObjBoss2Tunnel__global_flags;
 s32 is_flag_set__15TObjBoss2TunnelFv(s32 _w0) {
     return ((u32) TObjBoss2Tunnel__global_flags >> 0xCU) & 1;
 }
-s32 TObjBoss2Tunnel__sub_8003C1E0(s32 arg0) {
+s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0) {
     s32 temp_r31;
     s32 temp_r3;
     temp_r31 = TObjBoss2Tunnel__sub_8003C1C8();

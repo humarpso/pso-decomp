@@ -25,13 +25,13 @@ s32 is_boss_area();
 s32 reset_key_machine_state__10TObjPlayerFv();
 void *__nw__7TObjectFUl(u32);
 extern s32 enable_v2_features;
-s32 TOMineTrap__sub_8016FD30(u32 arg0, s16 arg1, s16 arg2);
+s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 void *TOMineDisp__ct(void *, void *, u16);
 void *__nw__7TObjectFUl(u32);
 extern s32 lbl_805D53A0;
-void TOMineTrap__sub_80170450(u8 *arg0);
+void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0);
 }
 
 struct VBase_18 { char pad[0x18]; };
@@ -505,7 +505,7 @@ void destroy_matching_traps__10TOMineTrapFv(void) {
     }
 }
 
-s32 TOMineTrap__sub_8016FD30(u32 arg0, s16 arg1, s16 arg2) {
+s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2) {
     u16 id;
     void *player;
     void *obj;
@@ -585,7 +585,7 @@ s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     return 0;
 }
 
-void TOMineTrap__sub_80170450(u8 *arg0) {
+void spawn_disp_objects__10TOMineTrapFPv(u8 *arg0) {
     u8 *obj;
     u16 i;
     if (is_split_screen() == 0) {

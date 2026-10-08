@@ -10,12 +10,12 @@ s32 pop_matrix(void);
 f32 post_translate_matrix(void);
 void draw_trail_strip__10TObjPlayerFPvPvi(s32, s32, s32);
 extern const f32 lbl_805D9864;
-void TObjPlayer__sub_8009A434(u8 *arg0);
+void draw_trail_pair__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8009A434(u8 *arg0) {
+void draw_trail_pair__10TObjPlayerFPv(u8 *arg0) {
     push_matrix();
     ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x20);
     rotate_matrix_y(0U, M2C_FIELD(arg0, s32 *, 0x34));

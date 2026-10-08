@@ -30,17 +30,17 @@ extern M2C_UNK __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_filtered_event_theme__6TLobbyFv();
-s32 TObjParticleLobby__sub_80369654(void);
+s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 s32 check_demo_mode__10TObjPlayerFv(void);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void enable__13TParticleCtrlFPv(void *);
-s32 TObjParticleLobby__sub_80369654(void);
+s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 void TObjParticleLobby__sub_80369698(void);
 void run_task__17TObjParticleLobbyFv(Self_803696A0 *o);
 void set_param_ptr__11TBoss4Type2FPvi(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u16);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 TObjParticleLobby__sub_80369654(void);
+s32 get_event_theme_index__17TObjParticleLobbyFv(void);
 void setup_emitter__17TObjParticleLobbyFPv(void *arg0);
 }
 
@@ -57,7 +57,7 @@ void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-s32 TObjParticleLobby__sub_80369654(void) {
+s32 get_event_theme_index__17TObjParticleLobbyFv(void) {
     s32 r = get_filtered_event_theme__6TLobbyFv();
     switch (r) {
     case 12:
@@ -80,7 +80,7 @@ void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
     }
     switch (o->state) {
     case 0:
-        if (o->target == ((s32 (*)(void *))TObjParticleLobby__sub_80369654)(o)) {
+        if (o->target == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(o)) {
             o->state = 2;
         }
         if (o->ctrl != NULL) {
@@ -110,7 +110,7 @@ void run_task__17TObjParticleLobbyFv(Self_803696A0 *o) {
         break;
     case 3:
     default:
-        if (o->target != ((s32 (*)(void *))TObjParticleLobby__sub_80369654)(o)) {
+        if (o->target != ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(o)) {
             o->state = 1;
         }
         break;
@@ -155,7 +155,7 @@ void setup_emitter__17TObjParticleLobbyFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0xD0) = 0;
         break;
     }
-    if (M2C_FIELD(arg0, s32 *, 0xD0) == ((s32 (*)(void *))TObjParticleLobby__sub_80369654)(arg0)) {
+    if (M2C_FIELD(arg0, s32 *, 0xD0) == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(arg0)) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     } else {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;

@@ -240,7 +240,7 @@ int rand(void);
 extern const f32 TObjChip__data_805DBB84;
 extern const f32 lbl_805DBB88;
 extern const f32 lbl_805DBB8C;
-s32 TObjChip__sub_801803C0(u8 *arg0, u8 *arg1);
+s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 int rand(void);
 extern const f32 TObjChip__data_805DBB84;
@@ -413,7 +413,7 @@ void tick_chips__8TObjChipFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-s32 TObjChip__sub_801803C0(u8 *arg0, u8 *arg1) {
+s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
     IVec_801803C0 *r = (IVec_801803C0 *)arg1;
     Task_801803C0 *t = (Task_801803C0 *)arg0;
     Chip_801803C0 *c;

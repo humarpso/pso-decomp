@@ -207,8 +207,8 @@ M2C_UNK close__12TQuestListVMFPv(void *arg0);
 M2C_UNK TQuestListVM__sub_8021884C(void *);
 void update_close__12TQuestListVMFPv(void *arg0);
 M2C_UNK quest_vm_load(void *arg0);
-void TQuestListVM__sub_8021916C(void *);
-void TQuestListVM__sub_802194BC(QL_802194BC *);
+void update_lobby_selection__12TQuestListVMFPv(void *);
+void process_download_entry__12TQuestListVMFPv(QL_802194BC *);
 M2C_UNK load_quest_vm__12TQuestListVMFPv(u8 *arg0);
 M2C_UNK init__12TQuestListVMFPv(void* p);
 void TQuestListVM__vt9(u8 *arg0);
@@ -313,7 +313,7 @@ void scan_memcard_quest_files__12TQuestListVMFPv(void *arg0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, char *, s32);
-void TQuestListVM__sub_8021969C(Obj_8021969C *arg0);
+void load_selected_player_slot__12TQuestListVMFPv(Obj_8021969C *arg0);
 s32 get_flag_bit2__6TLobbyFPv(void *);
 s32 get_status_flag__6TLobbyFPv(void *);
 void *memcpy(void *, const void *, unsigned long);
@@ -686,7 +686,7 @@ M2C_UNK quest_vm_load(void *arg0) {
 }
 
 #define arg0 ((Obj_8021916C *)arg0_)
-void TQuestListVM__sub_8021916C(void *arg0_) {
+void update_lobby_selection__12TQuestListVMFPv(void *arg0_) {
     s32 sel;
 
     if (arg0->f2374 != NULL && get_flag_bit2__6TLobbyFPv(arg0->f2374) != 0) {
@@ -783,7 +783,7 @@ s32 TQuestListVM__sub_802193F0(QL_802193F0 *q, Ent_802193F0 *e) {
 
 #define arg0 ((u8 *)q)
 #define count (q->count)
-void TQuestListVM__sub_802194BC(QL_802194BC *q) {
+void process_download_entry__12TQuestListVMFPv(QL_802194BC *q) {
     Dl_802194BC dl;
     Ent_802194BC *e;
 
@@ -831,7 +831,7 @@ void TQuestListVM__sub_802194BC(QL_802194BC *q) {
 
 #define q ((QL_80219748 *)arg0)
 
-void TQuestListVM__sub_8021969C(Obj_8021969C *arg0) {
+void load_selected_player_slot__12TQuestListVMFPv(Obj_8021969C *arg0) {
     if (arg0->f2388 != 0) {
         if (TAdPlayerLoadGC__sub_801E1B50(arg0->recs[arg0->sel].slot) == 0) {
             if (load_player_slot__23TAdSinglePlyChrSelectGCFPvii(arg0->recs[arg0->sel].slot, (char *)&arg0->recs[arg0->sel], arg0->f2388) == 0) {
@@ -969,16 +969,16 @@ void TQuestListVM__vt9(u8 *arg0) {
         scan_memcard_quest_files__12TQuestListVMFPv((void *)((void *) (arg0)));
         return;
     case 3:
-        TQuestListVM__sub_8021969C((Obj_8021969C *)((void *) (arg0)));
+        load_selected_player_slot__12TQuestListVMFPv((Obj_8021969C *)((void *) (arg0)));
         return;
     case 4:
-        TQuestListVM__sub_802194BC((QL_802194BC *) (arg0));
+        process_download_entry__12TQuestListVMFPv((QL_802194BC *) (arg0));
         return;
     case 5:
         build_download_list__12TQuestListVMFPv((void *)((void *) (arg0)));
         return;
     case 6:
-        TQuestListVM__sub_8021916C((void *) (arg0));
+        update_lobby_selection__12TQuestListVMFPv((void *) (arg0));
         return;
     case 7:
         quest_vm_load((void *) (arg0));

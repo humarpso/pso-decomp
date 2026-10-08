@@ -12,7 +12,7 @@ M2C_UNK init_pad_binding(void *, void *, int);
 void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0);
 s32 obj_getField1c(void *);
 s32 get_card_window__17TWindowSubComCardFUi(u32);
-s32 TObjPlayer__sub_801AEF80(u8 *arg0);
+s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -42,7 +42,7 @@ void update_battle_control_if_unlocked__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
-s32 TObjPlayer__sub_801AEF80(u8 *arg0) {
+s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0) {
     return M2C_FIELD(get_card_window__17TWindowSubComCardFUi((u32) ((u16)obj_getField1c(arg0))), s32 *, 0x244);
 }
 

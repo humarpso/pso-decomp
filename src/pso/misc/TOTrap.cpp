@@ -208,7 +208,7 @@ struct Obj_80178E10 { u8 pad0[0x2A8]; u8 *target; u8 pad1[0x7A]; s16 state; u8 p
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
-void TOTrap__sub_80179028(u8 *arg0);
+void update_trap_state__6TOTrapFPv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 s32 obj_getField1c(u32);
 s32 check_player_flag1__6TLobbyFPv(s32);
@@ -410,7 +410,7 @@ f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1) {
   return TOTrap__data_805DBA3C;
 }
 
-void TOTrap__sub_80179028(u8 *arg0) {
+void update_trap_state__6TOTrapFPv(u8 *arg0) {
     s16 temp_r0;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((VObj_18 *)(arg0))->m86();

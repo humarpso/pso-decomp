@@ -89,7 +89,7 @@ s32 refresh_item_list__19TWindowSubTradeMainFPvPv(u32, s32);
 s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
 s32 TLobby__sub_802D29AC();
 extern M2C_UNK lbl_8047748C[];
-s32 TWindowSubTradeMain__sub_803310BC(Self_803310BC *arg0);
+s32 open_trade_equip_window__19TWindowSubTradeMainFPv(Self_803310BC *arg0);
 Plr_803310BC *get_player_by_client_id(s32);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
@@ -102,14 +102,14 @@ s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
 s32 TLobby__sub_802D299C();
 s8 get_trade_mode__6TLobbyFv();
 extern M2C_UNK lbl_80477484[];
-s32 TWindowSubTradeMain__sub_80331178(Self_80331178 *arg0);
+s32 create_trade_window__19TWindowSubTradeMainFPv(Self_80331178 *arg0);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
 s32 get_window_layout_position(s32);
 M2C_UNK free_member__17TWindowSubComCardFPv(u8 *, int);
 M2C_UNK open_yes_no_prompt(u8 *, int, int, int, f32);
 u8 * create__19TWindowMessageYesNoFPvPvPvPv(void *, void *, void *, void *);
 extern f32 TWindowSubTradeMain__data_805DF858;
-u8 *TWindowSubTradeMain__sub_80331238(u8 *arg0);
+u8 *open_confirm_prompt__19TWindowSubTradeMainFPv(u8 *arg0);
 }
 
 extern "C" {
@@ -348,7 +348,7 @@ s32 create_list__19TWindowSubTradeMainFPv(void *arg0) {
     return temp_r31;
 }
 
-s32 TWindowSubTradeMain__sub_803310BC(Self_803310BC *arg0) {
+s32 open_trade_equip_window__19TWindowSubTradeMainFPv(Self_803310BC *arg0) {
     Plr_803310BC *p;
     s32 w;
     p = get_player_by_client_id(arg0->f28);
@@ -365,7 +365,7 @@ s32 TWindowSubTradeMain__sub_803310BC(Self_803310BC *arg0) {
     return w;
 }
 
-s32 TWindowSubTradeMain__sub_80331178(Self_80331178 *arg0) {
+s32 create_trade_window__19TWindowSubTradeMainFPv(Self_80331178 *arg0) {
     Plr_80331178 *p;
     s32 w;
     p = ((Plr_80331178 *)get_player_by_client_id(get_trade_mode__6TLobbyFv()));
@@ -382,7 +382,7 @@ s32 TWindowSubTradeMain__sub_80331178(Self_80331178 *arg0) {
     return w;
 }
 
-u8 *TWindowSubTradeMain__sub_80331238(u8 *arg0) {
+u8 *open_confirm_prompt__19TWindowSubTradeMainFPv(u8 *arg0) {
     u8 *w;
     w = create__19TWindowMessageYesNoFPvPvPvPv(arg0, *(void **)(arg0 + 0x28), NULL, NULL);
     open_yes_no_prompt(w, get_message_10__20TWindowSubStatusDispFPv(0x20), get_message_10__20TWindowSubStatusDispFPv(0xE4), get_window_layout_position(0x5F), TWindowSubTradeMain__data_805DF858);

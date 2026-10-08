@@ -45,7 +45,7 @@ void handle_scroll_input__9TWindowDDFPv(u8 *arg0);
 int TWindowDD__sub_80342158(u8 *arg0);
 M2C_UNK init_window_layout_entries(void *, void *, int);
 extern RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50 TWindowDD__data_804EFC50;
-void TWindowDD__sub_80341F9C(u8 *arg0);
+void init_layout_entries__9TWindowDDFPv(u8 *arg0);
 extern const f32 TWindowDD__data_805DFB20;
 void TWindowDD__sub_803421D0(u8 *arg0, u8 *arg1);
 s16 *alloc_buffer__11TOBoss4RockFPv(int);
@@ -176,7 +176,7 @@ void handle_scroll_input__9TWindowDDFPv(u8 *arg0) {
 }
 #pragma pop
 
-void init_and_mark_field8C__9TWindowDDFPv(void* p) { TWindowDD__sub_80341F9C((u8 *)(p)); load_element_list__9TWindowDDFPv((Win_80341FFC *)(p)); *(int*)((char*)p + 0x8c) = 1; }
+void init_and_mark_field8C__9TWindowDDFPv(void* p) { init_layout_entries__9TWindowDDFPv((u8 *)(p)); load_element_list__9TWindowDDFPv((Win_80341FFC *)(p)); *(int*)((char*)p + 0x8c) = 1; }
 
 void free_child__9TWindowDDFPv(void *arg0) {
     if (M2C_FIELD(arg0, void **, 0x80) != NULL) {
@@ -188,12 +188,12 @@ void free_child__9TWindowDDFPv(void *arg0) {
     M2C_FIELD(arg0, u32 *, 0x7C) = 0;
 }
 
-void init_child__9TWindowDDFPvPv(void* p, void* a1) { free_child__9TWindowDDFPv((void *)(p)); *(void**)((char*)p + 0x70) = a1; TWindowDD__sub_80341F9C((u8 *)(p)); load_element_list__9TWindowDDFPv((Win_80341FFC *)(p)); reset_fields__9TWindowDDFPv((void*)(p)); *(int*)((char*)p + 0x8c) = 1; }
+void init_child__9TWindowDDFPvPv(void* p, void* a1) { free_child__9TWindowDDFPv((void *)(p)); *(void**)((char*)p + 0x70) = a1; init_layout_entries__9TWindowDDFPv((u8 *)(p)); load_element_list__9TWindowDDFPv((Win_80341FFC *)(p)); reset_fields__9TWindowDDFPv((void*)(p)); *(int*)((char*)p + 0x8c) = 1; }
 
     extern const float TWindowDD__data_805DFCA8;
 
 typedef char RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80341F9C_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
-void TWindowDD__sub_80341F9C(u8 *arg0) {
+void init_layout_entries__9TWindowDDFPv(u8 *arg0) {
     M2C_FIELD(&TWindowDD__data_804EFC50.value, s32 *, 4) = (s32) M2C_FIELD(arg0, s32 *, 0x78);
     init_window_layout_entries((void *) (arg0 + 0x24), (void *) (&TWindowDD__data_804EFC50.value), (int) (M2C_FIELD(arg0, s16 *, 0x20)));
 }

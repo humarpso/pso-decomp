@@ -58,7 +58,7 @@ s32 fn_801D40D4(s32 arg0, Rec_801D40D4 *arg1, u8 *arg2);
 u8 *get_ptr_4__10TObjPlayerFPv();
 int reset(void* p);
 s32 is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(void *);
-void TAdSinglePlyChrSelectGC__sub_801FC138(void *);
+void remove_matching_entries__23TAdSinglePlyChrSelectGCFi(void *);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 void memcpy(void *, void *, s32);
 void remove_list_entry_by_id(s32 arg0);
@@ -116,7 +116,7 @@ void remove_list_entry_by_id(s32 arg0) {
         for (i = 0; i < n; p++, i++) {
             if (p->id == arg0) {
                 if (is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(p->sub) != 0) {
-                    TAdSinglePlyChrSelectGC__sub_801FC138(cnt);
+                    remove_matching_entries__23TAdSinglePlyChrSelectGCFi(cnt);
                 }
                 rem = n - i;
                 *cnt -= 1;

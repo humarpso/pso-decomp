@@ -107,7 +107,7 @@ struct O_80420DE4 { u8 pad0[8]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1A[2]; u8 f
 extern "C" {
 M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
-s32 TLobby__sub_80420C5C(void);
+s32 reset_stack_module__6TLobbyFv(void);
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
 void TLobby__sub_8041FE44(O_8041FE44 *o);
 s32 TLobby__sub_803F9F04(void *, void *, int);
@@ -370,7 +370,7 @@ s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2) {
     return 0;
 }
 
-s32 TLobby__sub_80420C5C(void) {
+s32 reset_stack_module__6TLobbyFv(void) {
     TLobby__sub_803F87C4((void *) (&lbl_805C1DF0.value));
     lbl_805C1DF0.value = 0;
     return 0;

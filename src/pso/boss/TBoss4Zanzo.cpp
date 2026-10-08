@@ -71,7 +71,7 @@ struct Obj_80055BC0 { u8 pad[0x450]; Vec_80055BC0 f450; Vec_80055BC0 f45c; };
 extern "C" {
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern u8 lbl_80487150[];
-void TBoss4Type3__sub_8005A1AC(Obj_8005A1AC *arg0);
+void copy_positions_to_parts__11TBoss4Type3FPv(Obj_8005A1AC *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK add_radar_scaled_marker(void *, u32, int, int, f32);
 M2C_UNK vec3_add_to(void *, void *);
@@ -664,7 +664,7 @@ void spawn_random_effect__11TBoss4Type3Fi(s32 arg0);
 void TBoss4Type3__sub_80059EA8(Obj_80059EA8 *self, s32 arg1, s32 arg2);
 void send_packed_action__11TBoss4Type3FPviii(Obj_80059F04 *self, s32 arg1, s32 arg2, s32 arg3);
 void TBoss4Type3__sub_80059F64(Obj_80059F64 *self, s32 arg1);
-void TBoss4Type3__sub_80059FC4(u8 *arg0);
+void update_scale_sound__11TBoss4Type3FPv(u8 *arg0);
 void TBoss4Type3__sub_8005A150(void);
 void TBoss4Type3__sub_8005A2A4(Obj_8005A2A4 *self);
 void create_particle_emitters__11TBoss4Type3FPv(Obj_8005A300 *self);

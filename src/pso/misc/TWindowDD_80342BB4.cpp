@@ -11,7 +11,7 @@ void update_layout__9TWindowDDFPv(void *arg0);
 M2C_UNK TWindowDD__sub_80342B5C(s32);
 M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
-M2C_UNK TWindowDD__sub_80347B70();
+M2C_UNK update_selection_state__9TWindowDDFPv();
 M2C_UNK TWindowDD__sub_80347C50();
 s32 TWindowDD__sub_803482B0(void *);
 M2C_UNK play_se__9TWindowDDFv();
@@ -33,7 +33,7 @@ void update_dispatch__9TWindowDDFi(s32 arg0) {
 }
 
 void update_layout__9TWindowDDFPv(void *arg0) {
-    TWindowDD__sub_80347B70();
+    update_selection_state__9TWindowDDFPv();
     if (test_input_flag_4__9TWindowDDFPv((void *)(arg0)) != 0) {
         play_sound__9TWindowDDFv();
         M2C_FIELD(arg0, s32 *, 0xB4) = 0x14;

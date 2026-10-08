@@ -19,7 +19,7 @@ void init_resources__9TItemLoadFv(void);
 extern RecoveredGlobal_801058AC_lbl_8049EE60 lbl_8049EE60;
 extern M2C_UNK lbl_805D5440;
 extern int lbl_805D5444;
-void TObjPlayer__sub_801058AC(void);
+void init_game_resources__10TObjPlayerFv(void);
 }
 
 extern "C" {
@@ -40,7 +40,7 @@ int test_flag3__9TItemDataFPv(void* p);
 void free_item_globals__10TObjPlayerFv(void) { TItemDrop__sub_8010F168((void*)(lbl_805D5444), (void*)1); lbl_805D5444 = 0; free_all__9TItemLoadFv(); free_all_and_init__9TItemBuffFv(); }
 
 typedef char RecoveredGlobal_801058AC_lbl_8049EE60_size[sizeof(RecoveredGlobal_801058AC_lbl_8049EE60) == 0x78 ? 1 : -1];
-void TObjPlayer__sub_801058AC(void) {
+void init_game_resources__10TObjPlayerFv(void) {
     fn_80103674();
     init_resources__9TItemLoadFv();
     (*(s32 *)&lbl_805D5444) = fn_8010F210((s32) &lbl_8049EE60.value);

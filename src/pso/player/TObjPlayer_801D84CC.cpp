@@ -164,7 +164,7 @@ s32 get_ply_level_table_row(s8 arg0, s32 arg1);
 s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
 s8 get_class_index__10TObjPlayerFPv(s32);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
-s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1);
+s32 get_class_state_field__10TObjPlayerFii(s32 arg0, s32 arg1);
 s16 get_tech_level__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 lookup_attack_marker(s32, s16, s16, s32);
@@ -582,7 +582,7 @@ s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1) {
 
     extern int lbl_805D5E10;
 
-s32 TObjPlayer__sub_801D921C(s32 arg0, s32 arg1) { return get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), arg1); }
+s32 get_class_state_field__10TObjPlayerFii(s32 arg0, s32 arg1) { return get_current_state_field__10TObjPlayerFv(get_class_index__10TObjPlayerFPv(arg0), arg1); }
 
 s32 get_ply_level_table_row(s8 arg0, s32 arg1) {
   s32 temp_r30;

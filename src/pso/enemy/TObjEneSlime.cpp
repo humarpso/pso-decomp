@@ -102,7 +102,7 @@ void release_split_slimes__12TObjEneSlimeFPv(Obj_800EB910 *self);
 void TObjEneSlime__sub_800EB9F0(void* p, void* q);
 void spawn_slime_in_slot(void *, s32, s32, s32);
 extern const Slot_800EB984 lbl_8043D218;
-void TObjEneSlime__sub_800EB984(Obj_800EB984 *self);
+void init_slots__12TObjEneSlimeFPv(Obj_800EB984 *self);
 M2C_UNK TObjFish__sub_8001EDB0(void *, int);
 M2C_UNK get_bml_model(void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -154,7 +154,7 @@ void release_split_slimes__12TObjEneSlimeFPv(Obj_800EB910 *self) {
     }
 }
 
-void TObjEneSlime__sub_800EB984(Obj_800EB984 *self) {
+void init_slots__12TObjEneSlimeFPv(Obj_800EB984 *self) {
     s32 i;
     for (i = 0; i < 4; i++) {
         TObjEneSlime__sub_800EB9F0(&self->slots[i], (void *)&lbl_8043D218);

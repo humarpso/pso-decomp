@@ -9,7 +9,7 @@ struct Obj_8022F42C { u8 pad[0xA6]; s16 state; };
 extern "C" {
 M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
-void TTecDeband__sub_8022F42C(Obj_8022F42C *arg0);
+void play_state_sound__10TTecDebandFPv(Obj_8022F42C *arg0);
 }
 
 extern "C" {
@@ -50,7 +50,7 @@ u8 *init_from_source__9TObjLightFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x30) = play_sound_effect((int) (0x4002BB1F), (void *) (arg0 + 0x20), (int) (0), (int) (0));
     return arg0;
 }
-void TTecDeband__sub_8022F42C(Obj_8022F42C *arg0) {
+void play_state_sound__10TTecDebandFPv(Obj_8022F42C *arg0) {
     s32 r;
     switch (arg0->state) {
     case 0:

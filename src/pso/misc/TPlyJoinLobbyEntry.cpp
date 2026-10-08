@@ -70,7 +70,7 @@ void add_status_disp_entry__6TLobbyFPvii(void *, void *, int);
 void * open_default__23TShopJudgmentItemWindowFi(void *);
 extern char lbl_8043EFF8[];
 extern void *TLobby__data_805D55D0;
-void TLobby__sub_80136FA0(s32 arg0, Ent_80136FA0 *arg1);
+void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1);
 }
 
 extern "C" {
@@ -1264,7 +1264,7 @@ void handle_game_join__6TLobbyFPv(Pkt_80136C94 *pkt) {
     mark_area_change_pending();
 }
 
-void TLobby__sub_80136FA0(s32 arg0, Ent_80136FA0 *arg1) {
+void open_information_list__6TLobbyFiPv(s32 arg0, Ent_80136FA0 *arg1) {
     void *w = lbl_8043EFF8;
     s32 i;
     void *old = TLobby__data_805D55D0;

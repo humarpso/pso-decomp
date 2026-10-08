@@ -58,7 +58,7 @@ struct Obj_80108C90 {
 };
 void disallow_rendering__7TObjectFv(void *);
 void fn_8002B630(void *, void *);
-s32 TLobby__sub_80103AD4();
+s32 pop_free_id__6TLobbyFv();
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void initialize_linked_object_reference(void *, void *);
 void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
@@ -302,7 +302,7 @@ Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 
     self->f_B0 = b;
     fn_8002B630(self->sub, lbl_8043E1A0);
     if ((u16)obj_getField1c(self) == 0xFFFF) {
-        set_item_count__6TLobbyFPvs(self, TLobby__sub_80103AD4());
+        set_item_count__6TLobbyFPvs(self, pop_free_id__6TLobbyFv());
     }
     initialize_linked_object_reference(self, self->sub);
     reset_photon_effect__10TObjPlayerFPv(self);

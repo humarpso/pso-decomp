@@ -343,7 +343,7 @@ s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TLobby__sub_804251C0(s32, void *);
 extern s32 lbl_805D4820;
 extern volatile s32 lbl_805D7BA0;
-s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3);
+s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 s32 TLobby__sub_803F9EC4(void *, void *, int);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_8042BC00(void *);
@@ -372,7 +372,7 @@ M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
 extern Ent_804253F8 lbl_805C30C0[0x20];
 void TLobby__sub_804253F8(u32 arg0);
 extern Ent_804253F8 lbl_805C30C0[0x20];
-u8 *TLobby__sub_80425870(s32 arg0);
+u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 extern G_804249F0 lbl_805C1E00;
 extern s32 lbl_805D7B0C;
 extern s32 lbl_805D7B10;
@@ -397,9 +397,9 @@ extern M2C_UNK lbl_805D7C38;
 u8 exi_read_status_byte__6TLobbyFv(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-u8 *TLobby__sub_80425870(s32 arg0);
+u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 extern u32 lbl_805D7BA8;
-void TLobby__sub_804253A0(s32 a);
+void clear_message_entry__6TLobbyFi(s32 a);
 void cancel_thread_if_running__6TLobbyFi(void *);
 void deactivate_entry_by_key__6TLobbyFUi(void *);
 void TLobby__sub_80419DDC(void *);
@@ -409,7 +409,7 @@ extern s32 lbl_805D7BB0;
 extern s32 lobby_message_thread_handle;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
-void TLobby__sub_80425B70(void);
+void reset_message_thread__6TLobbyFv(void);
 extern u8 lbl_805CF3C8[];
 s32 TLobby__sub_80426998(s16 arg0, u16 arg1);
 }
@@ -428,7 +428,7 @@ s32 get_task_count__6TLobbyFv(void) {
     return lbl_805D4820;
 }
 
-s32 TLobby__sub_803F91D0(void *);
+s32 get_time_seconds__6TLobbyFPv(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 void TLobby__sub_80425288(s32, s32, void *);
 extern u32 lbl_805D7B64;
@@ -447,7 +447,7 @@ void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0) {
         TLobby__sub_803F9F04(&v, p, 4);
         w = v;
         TLobby__sub_80425288(7, 4, &w);
-        TLobby__sub_803F91D0(&lbl_805D7B78);
+        get_time_seconds__6TLobbyFPv(&lbl_805D7B78);
         lbl_805D7B7C = lbl_805D7B78 + lbl_805D7B64;
         if (find_dhcp_option__6TLobbyFPvUcPv(arg0, 0x3A, &p) == 4) {
             TLobby__sub_803F9F04(&v, p, 4);
@@ -495,7 +495,7 @@ u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out) {
     return 0;
 }
 
-s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3) {
+s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3) {
     lbl_805D7BA0 = 0;
     if ((*(volatile s32 *)&lbl_805D4820) != 3 && (*(volatile s32 *)&lbl_805D4820) != 4 && (*(volatile s32 *)&lbl_805D4820) != 5) {
         lbl_805D7BA0 = 2;
@@ -605,11 +605,11 @@ static inline Ent_804253F8 *find_804253F8(u32 arg0) {
     return &lbl_805C30C0[i];
 }
 
-void TLobby__sub_804253A0(s32 a) {
+void clear_message_entry__6TLobbyFi(s32 a) {
     R_804253A0 *r;
     u8 unused[8];
     lock_mutex__6TLobbyFi((void *)lbl_805D7BA8);
-    r = (R_804253A0 *)TLobby__sub_80425870(a);
+    r = (R_804253A0 *)find_entry_by_address__6TLobbyFi(a);
     unlock_mutex__10TUdpSocketFi((void *)lbl_805D7BA8);
     if (r != 0) {
         r->a = 0;
@@ -626,7 +626,7 @@ void TLobby__sub_804253F8(u32 arg0) {
 }
 #pragma pop
 
-u8 *TLobby__sub_80425870(s32 arg0) {
+u8 *find_entry_by_address__6TLobbyFi(s32 arg0) {
     s32 i;
     for (i = 0; i < 32; i++) {
         if (((Ent_80425870 *)&lbl_805C30C0)[i].used != 0 && ((Ent_80425870 *)&lbl_805C30C0)[i].base <= (u32)arg0 && (u32)arg0 < ((Ent_80425870 *)&lbl_805C30C0)[i].base + 0x600) {
@@ -643,7 +643,7 @@ void TLobby__sub_804259F0(void) {
     TLobby__sub_803F95E4(lbl_805D7BA8);
 }
 
-void TLobby__sub_80425B70(void) {
+void reset_message_thread__6TLobbyFv(void) {
     if ((u32)lobby_message_thread_handle != 0) {
         cancel_thread_if_running__6TLobbyFi((void *)lobby_message_thread_handle);
         deactivate_entry_by_key__6TLobbyFUi((void *)lobby_message_thread_handle);
@@ -681,7 +681,7 @@ s32 post_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 ok;
     u8 *p;
     if (arg3 != 0) {
-        p = TLobby__sub_80425870((s32)(arg1));
+        p = find_entry_by_address__6TLobbyFi((s32)(arg1));
     } else {
         p = TLobby__sub_804256B8(arg1);
     }
@@ -711,7 +711,7 @@ void message_thread_loop__6TLobbyFv(void) {
             OSReceiveMessage(lbl_805CF380, &sp8, 1);
             lbl_805D7BCC -= 1;
         }
-        TLobby__sub_804253A0((s32)(id));
+        clear_message_entry__6TLobbyFi((s32)(id));
     }
 }
 
@@ -813,7 +813,7 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
 }
 
 void TLobby__sub_804264D4(s32 arg0) {
-    TLobby__sub_804253A0((s32)(arg0));
+    clear_message_entry__6TLobbyFi((s32)(arg0));
 }
 
 u16 TLobby__sub_804264F4(s32 *arg0, u16 *arg1) {

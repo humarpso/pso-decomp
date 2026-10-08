@@ -13,7 +13,7 @@ void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
 void fn_8032AC9C();
 extern char lbl_80477188[];
 extern char lbl_80477190[];
-void TAdEnterSerialAccessGC__sub_8032AE1C(void);
+void create_default_callback__22TAdEnterSerialAccessGCFv(void);
 s32 get_localized_text_entry(int, void *);
 void send_and_handle__6TLobbyFPvii(s32, s32, int);
 s32 update_window_mode_from_progress__6TLobbyFiPv(void *, void *);
@@ -89,7 +89,7 @@ u32 create_keyboard_control__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
     return (u32)kb;
 }
 
-void TAdEnterSerialAccessGC__sub_8032AE1C(void) {
+void create_default_callback__22TAdEnterSerialAccessGCFv(void) {
     create_callback__22TAdEnterSerialAccessGCFPvPvPv(lbl_80477188, lbl_80477190, (void *)fn_8032AC9C);
 }
 

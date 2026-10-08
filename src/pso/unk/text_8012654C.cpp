@@ -59,12 +59,12 @@ struct VObj_18 : VBase_18 {
 extern "C" {
 s32 is_mag_active__10TObjPlayerFPv(void *, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
-void TObjPlayer__sub_8012654C(u8 *arg0);
+void spawn_mag_effects__10TObjPlayerFPv(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012654C(u8 *arg0) {
+void spawn_mag_effects__10TObjPlayerFPv(u8 *arg0) {
     M2C_UNK sp8;
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1FC);

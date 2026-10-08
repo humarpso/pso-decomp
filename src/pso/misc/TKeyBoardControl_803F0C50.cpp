@@ -146,9 +146,9 @@ extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 extern s32 lbl_805D7930;
 void OSClearContext(OSContext_803F0F84 *);
 void OSSetCurrentContext(OSContext_803F0F84 *);
-void TKeyBoardControl__sub_803F0F84(s32 chan, u32 status, OSContext_803F0F84 *ctx);
+void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OSContext_803F0F84 *ctx);
 void *memcpy(void *, const void *, u32);
-void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p);
+void update_pressed_keys__16TKeyBoardControlFPv(Kbd_803F1210 *p);
 s32 SITransfer(s32 chan, void *out, u32 outBytes, void *in, u32 inBytes, void (*cb)(s32, u32, OSContext_803F0F84 *), s64 delay);
 OSContext_803F0F84 *OSGetCurrentContext(void);
 s32 __OSReschedule(void);
@@ -159,7 +159,7 @@ extern s32 lbl_805D793C;
 void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0);
 extern RecoveredGlobal_803F1548_lbl_805A2720 lbl_805A2720;
 void *memset(void *, int, u32);
-void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p);
+void update_pressed_keys__16TKeyBoardControlFPv(Kbd_803F1210 *p);
 void update_key_events__16TKeyBoardControlFi(s32 chan);
 }
 
@@ -292,7 +292,7 @@ s32 TKeyBoardControl__sub_803F0F44(void) {
     return 1;
 }
 
-void TKeyBoardControl__sub_803F0F84(s32 chan, u32 status, OSContext_803F0F84 *ctx) {
+void handle_pad_transfer_done__16TKeyBoardControlFiUiPv(s32 chan, u32 status, OSContext_803F0F84 *ctx) {
     Pad_803F0F84 *p = &((Pad_803F0F84 *)&lbl_805A2720)[chan];
     u8 unused[8];
     OSContext_803F0F84 tmp;
@@ -337,7 +337,7 @@ void TKeyBoardControl__sub_803F107C(s32 chan, u32 type) {
     }
     TKeyBoardControl__sub_803F0CF4(chan, type);
     if (p->a != 0) {
-        if (SITransfer(chan, p->out, p->outBytes, p->in, p->inBytes, TKeyBoardControl__sub_803F0F84, p->delay) != 0) {
+        if (SITransfer(chan, p->out, p->outBytes, p->in, p->inBytes, handle_pad_transfer_done__16TKeyBoardControlFiUiPv, p->delay) != 0) {
             return;
         }
         p->x1c = -2;
@@ -372,7 +372,7 @@ s32 start_get_type_async__16TKeyBoardControlFiiii(s32 arg0, s32 arg1, s32 arg2, 
     return 0;
 }
 
-void TKeyBoardControl__sub_803F1210(Kbd_803F1210 *p) {
+void update_pressed_keys__16TKeyBoardControlFPv(Kbd_803F1210 *p) {
     s32 n;
     memcpy(p->prev, p->cur, 4);
     if (p->k0 == 1 || p->k0 == 2) {
@@ -424,7 +424,7 @@ void update_key_events__16TKeyBoardControlFi(s32 chan) {
     switch (k->type) {
     case 1:
     case 2:
-        TKeyBoardControl__sub_803F1210((Kbd_803F1210 *)k);
+        update_pressed_keys__16TKeyBoardControlFPv((Kbd_803F1210 *)k);
         break;
     default:
         return;

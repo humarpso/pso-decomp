@@ -1458,7 +1458,7 @@ void run_task__14TBoss6PlotFalzFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 M2C_UNK load_resources__10TBoss6TubeFv();
 M2C_UNK fn_802E52AC();
-M2C_UNK TBoss6Rock__sub_80354B18();
+M2C_UNK load_resources__10TBoss6RockFv();
 M2C_UNK TItemEffOrgaFlowShot__sub_80357210();
 M2C_UNK TLobby__sub_8036DDE8();
 extern RecoveredGlobal_802ACBE4_lbl_804DE200 lbl_804DE200;
@@ -1684,7 +1684,7 @@ void load_resources__14TBoss6PlotFalzFv(void) {
     if ((u32) var_r0 != 0U) {
         TLobby__sub_8036DDE8();
         TItemEffOrgaFlowShot__sub_80357210();
-        TBoss6Rock__sub_80354B18();
+        load_resources__10TBoss6RockFv();
         load_resources__10TBoss6TubeFv();
         fn_802E52AC();
     }

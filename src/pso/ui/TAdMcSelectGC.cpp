@@ -19,7 +19,7 @@ struct Self_80329EC8 {
 extern "C" {
 u32 get_mc_count__13TAdMcSelectGCFv();
 s32 get_slot_index__13TAdMcSelectGCFPv(void *);
-s32 TAdMcSelectGC__sub_80329DD0(void);
+s32 get_selected_slot_index__13TAdMcSelectGCFv(void);
 s32 get_state_flag__9TMainTaskFv();
 void render__13TAdMcSelectGCFv(void *self);
 void *create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
@@ -75,7 +75,7 @@ void update_state__13TAdMcSelectGCFv(void) {
     }
 }
 
-s32 TAdMcSelectGC__sub_80329DD0(void) {
+s32 get_selected_slot_index__13TAdMcSelectGCFv(void) {
     s32 var_r0;
     u8 *temp_r3;
     temp_r3 = (u8 *)(((int)get_mc_count__13TAdMcSelectGCFv()));

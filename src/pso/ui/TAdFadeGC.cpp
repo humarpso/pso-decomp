@@ -44,11 +44,11 @@ extern "C" {
 
 void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2);
 void render__9TAdFadeGCFv(void* p);
-void TAdFadeGC__sub_802C79C8(u8 *);
+void draw_fade__9TAdFadeGCFPv(u8 *);
 void __ct__7TObjectFP7TObject(void *);
 void render__18TObjTradeCollisionFv(void);
 
-void TAdFadeGC__sub_802C79C8(u8 *arg0) {
+void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
     f32 pos[8];
     Desc_802C79C8 d;
     u32 col[4];
@@ -112,7 +112,7 @@ void TAdFadeGC__sub_802C79C8(u8 *arg0) {
     }
 }
 
-void render__9TAdFadeGCFv(void* p) { if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) { TAdFadeGC__sub_802C79C8((u8 *)p); } }
+void render__9TAdFadeGCFv(void* p) { if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) { draw_fade__9TAdFadeGCFPv((u8 *)p); } }
 
 extern M2C_UNK __vt__9TAdFadeGC[];
 extern const f32 TAdFadeGC__data_805DE5E8;

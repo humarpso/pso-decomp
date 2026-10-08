@@ -661,10 +661,10 @@ s32 TBoss3Volopt__sub_8003F398();
 void set_grabbed_state__10TObjPlayerFi(s32 arg0);
 void update_topple_state__10TObjPlayerFPv(u8 *arg0);
 void link_photon__10TObjPlayerFUs(u16 arg0);
-s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1);
+s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
 void TObjPlayer__sub_8003F81C(u8 *arg0);
 void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self);
+s32 calc_hit_zone_index__10TObjPlayerFPv(Obj_8003FBC8 *self);
 s32 calc_spin_value__10TObjPlayerFPv(void *arg0);
 void update_state_spin__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_8003FFE4(void *arg0);
@@ -795,7 +795,7 @@ extern "C" {
 void TObjPlayer__sub_800F65D0();
 }
 extern "C" {
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 }
 extern "C" {
 void add_actor_exp();
@@ -1008,12 +1008,12 @@ void *lbl_80483A10[83] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
-    (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80,
 };
 #define lbl_80483A10 ((M2C_UNK *)lbl_80483A10)
 
 extern "C" {
-s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1);
+s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1);
 }
 
 void set_grabbed_state__10TObjPlayerFi(s32 arg0) {
@@ -1091,7 +1091,7 @@ void link_photon__10TObjPlayerFUs(u16 arg0) {
     }
 }
 
-s32 TObjPlayer__sub_8003F730(Obj_8003F730 *self, s32 _w1) {
+s32 alloc_boss_target_slot__10TObjPlayerFPvi(Obj_8003F730 *self, s32 _w1) {
     s32 i;
     s32 idx;
     for (i = 0; i < 6; i++) {
@@ -1193,7 +1193,7 @@ void TObjPlayer__sub_8003F9D4(void *arg0_) {
                 if (temp_r0_2 < 0) {
                     M2C_FIELD(arg0, s32 *, 0x3BC) = 5;
                 }
-                if (((s32 (*)(void *))TObjPlayer__sub_8003F730)((void *) (arg0)) == 1) {
+                if (((s32 (*)(void *))alloc_boss_target_slot__10TObjPlayerFPvi)((void *) (arg0)) == 1) {
                     M2C_FIELD(arg0, s32 *, 0x37C) = 0;
                 }
             } else {
@@ -1226,13 +1226,13 @@ void set_boss_target_pos__10TObjPlayerFPviii(void *arg0, s32 arg1, s32 arg2, s32
         M2C_FIELD(arg0, s32 *, 0x3C0) = arg2;
         M2C_FIELD(arg0, s32 *, 0x3C4) = arg3;
         lbl_805D4C64 = 0;
-        TObjPlayer__sub_8003F730((Obj_8003F730 *)(arg0), (s32)(temp_r4));
+        alloc_boss_target_slot__10TObjPlayerFPvi((Obj_8003F730 *)(arg0), (s32)(temp_r4));
         M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
         ((VObj_8003FB3C_8003F4C0 *)arg0)->m57();
     }
 }
 
-s32 TObjPlayer__sub_8003FBC8(Obj_8003FBC8 *self) {
+s32 calc_hit_zone_index__10TObjPlayerFPv(Obj_8003FBC8 *self) {
     s32 r;
     s32 d;
     s32 angle;
@@ -1539,7 +1539,7 @@ void dispatch_reaction_state__10TObjPlayerFPv(Obj_8004055C *arg0) {
 void TObjPlayer__sub_800405D8(u8 *arg0) {
   f32 var_f1;
   s32 temp_r3;
-  lbl_805D4C14 = TObjPlayer__sub_8003FBC8((Obj_8003FBC8 *)(arg0));
+  lbl_805D4C14 = calc_hit_zone_index__10TObjPlayerFPv((Obj_8003FBC8 *)(arg0));
   if (check_demo_mode__10TObjPlayerFv() == 1)
   {
     TObjPlayer__sub_80040558((void *)((void *)((void *) arg0)));

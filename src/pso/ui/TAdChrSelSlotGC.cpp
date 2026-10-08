@@ -102,7 +102,7 @@ void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
 extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
-void TAdChrSelSlotGC__sub_802C7314(TAdChrSelSlotGC_802C7314 *self);
+void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self);
 }
 
 extern "C" {
@@ -148,7 +148,7 @@ void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void TAdChrSelSlotGC__sub_802C7314(TAdChrSelSlotGC_802C7314 *self) {
+void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self) {
     u32 i;
     for (i = 0; i < 5; i++) {
         if (self->visible[i] != 0) {
@@ -173,7 +173,7 @@ void render__15TAdChrSelSlotGCFv(void *arg0) {
 block_5:
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 0xA);
-        TAdChrSelSlotGC__sub_802C7314((TAdChrSelSlotGC_802C7314 *)(arg0));
+        draw_slot_icons__15TAdChrSelSlotGCFPv((TAdChrSelSlotGC_802C7314 *)(arg0));
         abs__4cXyzCFv(0, 8);
         abs__4cXyzCFv(1, 6);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 0) {

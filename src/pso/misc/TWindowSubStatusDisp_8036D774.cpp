@@ -49,7 +49,7 @@ extern s32 lbl_805D7018;
 extern s32 lbl_805D701C;
 void draw_split_screen_hud__20TWindowSubStatusDispFv(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Desc_8036D774 *, int, int, f32);
-void TWindowSubStatusDisp__sub_8036D774(void);
+void draw_split_screen_dividers__20TWindowSubStatusDispFv(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
@@ -71,7 +71,7 @@ void TWindowSubStatusDisp__sub_8036D994(void);
 
 extern "C" {
 
-void TWindowSubStatusDisp__sub_8036D774(void) {
+void draw_split_screen_dividers__20TWindowSubStatusDispFv(void) {
     f32 verts[8];
     Desc_8036D774 d;
     u32 cols[4];
@@ -202,7 +202,7 @@ void draw_split_screen_hud__20TWindowSubStatusDispFv(void) {
         draw_bottom_bar__20TWindowSubStatusDispFv();
         TWindowSubStatusDisp__sub_8036D994();
         draw_tiled_background__20TWindowSubStatusDispFv();
-        TWindowSubStatusDisp__sub_8036D774();
+        draw_split_screen_dividers__20TWindowSubStatusDispFv();
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();
         restore_saved_depth_alpha_state();

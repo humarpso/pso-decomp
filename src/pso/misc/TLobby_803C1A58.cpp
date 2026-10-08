@@ -82,7 +82,7 @@ M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2);
 s32 cv_fs_tell__6TLobbyFPv(int);
-s32 TLobby__sub_803C8A14(S_803C8A14 *arg0);
+s32 init_stream_position__6TLobbyFPv(S_803C8A14 *arg0);
 }
 
 struct RecoveredGlobal_803C90B0_lbl_80575140 {
@@ -296,7 +296,7 @@ M2C_UNK TLobby__sub_803CE240();
 M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803D13C0(int);
-M2C_UNK TLobby__sub_803D1444();
+M2C_UNK poll_active_connections__6TLobbyFv();
 M2C_UNK set_global_805D7520__6TLobbyFi();
 
 s32 ar_alloc__6TLobbyFv(void) {
@@ -311,11 +311,11 @@ s32 get_state_zero__6TLobbyFv(void) {
 
 s32 process_connection_state__6TLobbyFv(void) {
     if (TLobby__sub_803CB844() == 1) {
-        TLobby__sub_803D1444();
+        poll_active_connections__6TLobbyFv();
         TLobby__sub_803CE240();
     } else {
         TLobby__sub_803CBA38();
-        TLobby__sub_803D1444();
+        poll_active_connections__6TLobbyFv();
         TLobby__sub_803CE240();
     }
     return 0;
@@ -693,7 +693,7 @@ static inline s32 get_pos_803C8A14(S_803C8A14 *s) {
     }
     return 0;
 }
-s32 TLobby__sub_803C8A14(S_803C8A14 *arg0) {
+s32 init_stream_position__6TLobbyFPv(S_803C8A14 *arg0) {
     if (arg0->f14 == 0) {
         arg0->f34 = 0;
         arg0->pos = 0;

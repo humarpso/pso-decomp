@@ -22,7 +22,7 @@ u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK set_mode__6TLobbyFi(int);
 u32 OSGetSoundMode();
 extern s8 lbl_805D3708;
-int TLobby__sub_80226328(void *);
+int init_sound_mode__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_80227D38();
 extern Ent_80226294 lbl_805145F0[];
 extern s32 lbl_805D62B0;
@@ -82,9 +82,9 @@ void stop_sound_request(s32 idx) {
     }
 }
 
-int TLobby__sub_80226308(void* p) { return TLobby__sub_80226328((void *)(p)); }
+int TLobby__sub_80226308(void* p) { return init_sound_mode__6TLobbyFPv((void *)(p)); }
 
-int TLobby__sub_80226328(void *) {
+int init_sound_mode__6TLobbyFPv(void *) {
     u8 *p;
     if (OSGetSoundMode() == 0U) {
         lbl_805D3708 = 1;

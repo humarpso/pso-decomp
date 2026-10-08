@@ -65,7 +65,7 @@ void TItemProUnit__vt42(u8 *arg0);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
-void TItemProUnit__sub_80118D58(u8 *arg0);
+void apply_unit_effect_flags__12TItemProUnitFPv(u8 *arg0);
 void set_unit_modifier__9TItemDataFPvs(Out_80118958 *out, s16 v);
 void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out);
 f32 TItemProUnit__sub_8011901C(void *);
@@ -335,7 +335,7 @@ void *__vt__12TItemProUnit[51] = {
     (void *)TItemEquipBase__sub_8010A788,
 };
 
-void TItemProUnit__sub_80118D58(u8 *arg0) {
+void apply_unit_effect_flags__12TItemProUnitFPv(u8 *arg0) {
     s16 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s16 *, 0x18C);
     switch (temp_r4) {
@@ -399,7 +399,7 @@ u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
         M2C_FIELD(arg0, s16 *, 0x1BC) = 0;
     }
     memset(arg0 + 0x192, 0, 0x26);
-    TItemProUnit__sub_80118D58((u8 *)(arg0));
+    apply_unit_effect_flags__12TItemProUnitFPv((u8 *)(arg0));
     return arg0;
 }
 

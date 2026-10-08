@@ -64,12 +64,12 @@ void set_tev_stage_mode(s32 arg0);
 s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E24E0(void);
 s32 apply_cached_blend_mode(s32 arg0);
-s32 TObjPlayer__sub_803E2504(void);
+s32 apply_blend_mode_1__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
 s32 TObjPlayer__sub_803E2640(void);
 s32 GXSetNumTexGens(s32 arg0);
 M2C_UNK GXSetTexCoordGen2(int, int, int, int, int, int);
-void TObjPlayer__sub_803E2664(void);
+void setup_tex_gen__10TObjPlayerFv(void);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK GXSetNumTevStages(void *);
@@ -114,7 +114,7 @@ void setup_opaque_color_draw(void) {
 }
 
 void TObjPlayer__sub_803E21DC(void) {
-    TObjPlayer__sub_803E2504();
+    apply_blend_mode_1__10TObjPlayerFv();
     setup_vertex_format__10TObjPlayerFv();
 }
 
@@ -124,7 +124,7 @@ void setup_render__10TObjPlayerFv(void) {
 }
 
 void setup_blended_textured_draw(void) {
-    TObjPlayer__sub_803E2504();
+    apply_blend_mode_1__10TObjPlayerFv();
     setup_vtx_desc__10TObjPlayerFv();
 }
 
@@ -186,7 +186,7 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
     GXSetVtxAttrFmt((int) (4), (int) (0xD), (int) (1), (int) (4), (int) (0));
     setup_color_channels__10TObjPlayerFi((int)((int) (1)));
     set_tev_stage_mode((s32)((int) (1)));
-    TObjPlayer__sub_803E2664();
+    setup_tex_gen__10TObjPlayerFv();
 }
 
 #pragma push
@@ -205,7 +205,7 @@ s32 TObjPlayer__sub_803E24E0(void) { return apply_cached_blend_mode(0x0); }
 
 #pragma push
 #pragma scheduling off
-s32 TObjPlayer__sub_803E2504(void) { return apply_cached_blend_mode(0x1); }
+s32 apply_blend_mode_1__10TObjPlayerFv(void) { return apply_cached_blend_mode(0x1); }
 #pragma pop
 
 #pragma push
@@ -244,7 +244,7 @@ void set_tev_stage_mode(s32 arg0) {
 s32 TObjPlayer__sub_803E2640(void) { return GXSetNumTexGens(0x0); }
 #pragma push
 #pragma scheduling off
-void TObjPlayer__sub_803E2664(void) {
+void setup_tex_gen__10TObjPlayerFv(void) {
     GXSetNumTexGens((s32)(1U));
     GXSetTexCoordGen2((int) (0), (int) (1), (int) (4), (int) (0x3C), (int) (0), (int) (0x7D));
 }

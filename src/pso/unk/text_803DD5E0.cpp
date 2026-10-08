@@ -72,7 +72,7 @@ s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
 M2C_UNK TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
-s32 TObjPlayer__sub_803D9E04(void);
+s32 is_gvm_load_ok__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 M2C_UNK TObjPlayer__sub_803DAC1C(s32);
 s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx);
@@ -104,7 +104,7 @@ extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
 M2C_UNK TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
-s32 TObjPlayer__sub_803D9E04(void);
+s32 is_gvm_load_ok__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
 M2C_UNK TObjPlayer__sub_803DAC1C(s32);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
@@ -255,7 +255,7 @@ s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx) {
         TObjPlayer__sub_803DAC1C(handle);
         return -1;
     }
-    while (TObjPlayer__sub_803D9E04() != 1) {
+    while (is_gvm_load_ok__10TObjPlayerFv() != 1) {
     }
     return 1;
 }
@@ -553,7 +553,7 @@ s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list) {
                     return -1;
                 }
                 do {
-                } while (TObjPlayer__sub_803D9E04() != 1);
+                } while (is_gvm_load_ok__10TObjPlayerFv() != 1);
                 break;
             }
         }

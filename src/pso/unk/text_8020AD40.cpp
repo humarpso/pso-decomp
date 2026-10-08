@@ -28,7 +28,7 @@ s32 is_area_transfer_pending();
 M2C_UNK advance_enemy_id_counter(int);
 s32 get_floor_map_selection(int, void *);
 M2C_UNK load_area_enemy_set(int, int, int, int);
-M2C_UNK TLobby__sub_8020B2DC();
+M2C_UNK sum_floor_enemy_counts__6TLobbyFv();
 extern s32 TLobby__data_805D60E4;
 extern s32 TLobby__data_805D60EC;
 extern s32 TLobby__data_805D614C;
@@ -130,7 +130,7 @@ block_6:
     if (var_r31 >= 0x12) {
         advance_enemy_id_counter((int) ((u16) TLobby__data_805D60EC));
         TLobby__data_805D614C = TLobby__data_805D60E4;
-        TLobby__sub_8020B2DC();
+        sum_floor_enemy_counts__6TLobbyFv();
         return 1;
     }
     goto loop_1;

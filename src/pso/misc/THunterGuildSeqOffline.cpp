@@ -181,7 +181,7 @@ void clear_instance_table__22THunterGuildSeqOfflineFv(void);
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 void THunterGuildSeqOffline__sub_8021339C(void);
 extern s32 THunterGuildSeqOffline__quest_result_callbacks[];
-void THunterGuildSeqOffline__sub_80213430(void* _w0);
+void reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv(void* _w0);
 void open_greeting__22THunterGuildSeqOfflineFPv(u8 *arg0);
 void resolve_active_quest_result__22THunterGuildSeqOfflineFPv(u8 *arg0);
 void open_judgment_window__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -391,11 +391,11 @@ void notify_quest_thread__22THunterGuildSeqOfflineFv(void) {
     }
 }
 
-void THunterGuildSeqOffline__sub_80213410(void* p) { THunterGuildSeqOffline__sub_80213430((void*)(p)); }
+void THunterGuildSeqOffline__sub_80213410(void* p) { reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv((void*)(p)); }
 
 extern void *lbl_805D61BC;
 
-void THunterGuildSeqOffline__sub_80213430(void* _w0) {
+void reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv(void* _w0) {
     s32 i;
     for (i = 0; i < 4; i++) THunterGuildSeqOffline__quest_result_callbacks[i] = -1;
 }

@@ -121,7 +121,7 @@ M2C_UNK publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 lbl_80434478[];
 extern Light_8001A6A8 lbl_804344CC[];
 extern s8 lbl_805D49E4;
-int TObjPlayer__sub_8001A6A8(void *p);
+int publish_light_color__10TObjPlayerFPv(void *p);
 }
 
 extern "C" {
@@ -158,7 +158,7 @@ extern s8 lbl_805D49E4;
 extern s32 lbl_805D49E8;
 extern s32 lbl_805D5550;
 
-int TObjPlayer__sub_8001A6A8(void *p) {
+int publish_light_color__10TObjPlayerFPv(void *p) {
     ColorF_8001A6A8 c;
     c.r = lbl_80434478[lbl_805D49E4].r / 255.0f;
     c.g = lbl_80434478[lbl_805D49E4].g / 255.0f;
@@ -189,7 +189,7 @@ void update_flag890_state__10TObjPlayerFi(s32 arg0) {
 }
 
 void TObjPlayer__sub_8001A860(void) {  }
-void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); TObjPlayer__sub_8001A6A8((void *)(p)); }
+void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); publish_light_color__10TObjPlayerFPv((void *)(p)); }
 
 extern M2C_UNK lbl_80480938[];
 

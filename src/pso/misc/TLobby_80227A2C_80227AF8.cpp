@@ -203,7 +203,7 @@ struct RecoveredGlobal_800693F4_TCameraCtrl__data_804FF634 { M2C_UNK value; u8 r
 extern "C" {
 M2C_UNK set_clamped_field27c__6TLobbyFPvf(M2C_UNK *);
 extern M2C_UNK lbl_80514F64[];
-void TLobby__sub_80227B48(void);
+void apply_clamped_field_27c__6TLobbyFv(void);
 M2C_UNK get_field_0x280__6TLobbyFPv(M2C_UNK *);
 extern M2C_UNK lbl_80514F64[];
 void TLobby__sub_80227CC0(void);
@@ -240,7 +240,7 @@ M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 u16 TCameraCtrl__sub_8006A5DC();
 int TLobby__sub_8023F754(void*);
 int fade_out_sound_slot(void*, int);
-int TLobby__sub_8023FF64(void*);
+int fade_voice_channels__6TLobbyFi(void*);
 s32 get_player_by_client_id(s32);
 M2C_UNK bswap_6xB2_play_sound();
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -263,7 +263,7 @@ s32 is_special_sound_id(u32 x) {
     return 0;
 }
 
-void TLobby__sub_80227B48(void) {
+void apply_clamped_field_27c__6TLobbyFv(void) {
     set_clamped_field27c__6TLobbyFPvf((M2C_UNK *)(&(*(RecoveredGlobal_8000F7FC_lbl_80515F48 *)&lbl_80514F64).value));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
@@ -346,7 +346,7 @@ typedef char RecoveredGlobal_80069D04_camera_controller_registry_size[sizeof(Rec
 typedef char RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
 
 int release_sound_with_fade(void* p) { return fade_out_sound_slot(p, 64); }
-int TLobby__sub_80227D38(void) { return TLobby__sub_8023FF64((void*)(0)); }
+int TLobby__sub_80227D38(void) { return fade_voice_channels__6TLobbyFi((void*)(0)); }
 
 s32 normalize_sound_request(u32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     s32 r;

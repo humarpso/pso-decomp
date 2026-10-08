@@ -25,14 +25,14 @@ void find_first_inventory_entry__10TObjPlayerFPvi(void* a0, int a1);
 void destroy_subobjects__10TObjPlayerFPvi(void* a0, int a1);
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1);
 void start_inventory_update__10TObjPlayerFPvi(void* a0, int a1);
-int TObjPlayer__sub_801D55A4(void*);
+int find_inventory_item_matching_data__10TObjPlayerFPv(void*);
 int find_matching_inventory_item_node(void*);
-int TObjPlayer__sub_801D56D0(void*);
+int find_inventory_item_by_field_d8__10TObjPlayerFPv(void*);
 int queue_destruction__7TObjectFv(void*);
 int run_tasks__7TObjectFv(void*);
 
     extern int lbl_805D5DFC;
-void find_first_inventory_entry__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DFC = a1; TObjPlayer__sub_801D55A4((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void find_first_inventory_entry__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DFC = a1; find_inventory_item_matching_data__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
     extern int lbl_805D5DFC;
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DFC = a1; find_matching_inventory_item_node((void*)(*(int*)((char*)a0 + 0x1c4))); }
@@ -60,6 +60,6 @@ void destroy_subobjects_recursive__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void start_inventory_update__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DE8 = a1; lbl_805D5DF0 = 0; TObjPlayer__sub_801D56D0((void*)(*(int*)((char*)a0 + 0x1c4))); }
+void start_inventory_update__10TObjPlayerFPvi(void* a0, int a1) { lbl_805D5DE8 = a1; lbl_805D5DF0 = 0; find_inventory_item_by_field_d8__10TObjPlayerFPv((void*)(*(int*)((char*)a0 + 0x1c4))); }
 
 }

@@ -9,7 +9,7 @@ struct RecoveredGlobal_8019608C_lbl_8050DD08 {
 };
 
 extern "C" {
-void TNpcPlayer__sub_8034E054(u16, void *);
+void send_warp_toward_player__10TNpcPlayerFUsPv(u16, void *);
 extern RecoveredGlobal_8019608C_lbl_8050DD08 lbl_8050DD08;
 extern s32 lbl_805D5C4C;
 void fn_8019608C(void);
@@ -20,7 +20,7 @@ extern "C" {
 typedef char RecoveredGlobal_8019608C_lbl_8050DD08_size[sizeof(RecoveredGlobal_8019608C_lbl_8050DD08) == 0x10 ? 1 : -1];
 void fn_8019608C(void) {
     if ((s32) lbl_805D5C4C != 0) {
-        TNpcPlayer__sub_8034E054(1U, &lbl_8050DD08.value);
+        send_warp_toward_player__10TNpcPlayerFUsPv(1U, &lbl_8050DD08.value);
     }
 }
 

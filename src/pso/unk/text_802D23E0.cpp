@@ -40,20 +40,20 @@ extern u8 TLobby__data_805D688B;
 void send_trade_proposal_modify__6TLobbyFv(void);
 M2C_UNK send_trade_list__6TLobbyFPvPv(s32, M2C_UNK *);
 M2C_UNK clear_flag400__6TLobbyFv();
-M2C_UNK TLobby__sub_802D3134(M2C_UNK *);
+M2C_UNK build_trade_item_list__6TLobbyFPv(M2C_UNK *);
 M2C_UNK TWindowSubTradeMain__sub_80330A84();
 extern s32 TLobby__data_805D5580;
 extern u16 lbl_805D6888;
 extern u8 TLobby__data_805D688B;
 extern u32 TLobby__data_805D6898;
-void TLobby__sub_802D245C(void);
+void update_trade_list_send__6TLobbyFv(void);
 M2C_UNK send_trade_proposal_result__6TLobbyFcc(M2C_UNK, M2C_UNK);
 M2C_UNK forward_to_child__19TWindowSubTradeMainFPvi(u32, M2C_UNK);
 extern u16 lbl_805D6888;
 extern u8 TLobby__data_805D688B;
 extern s32 lbl_805D6890;
 extern u32 TLobby__data_805D6898;
-void TLobby__sub_802D2518(void);
+void update_trade_proposal_state__6TLobbyFv(void);
 s32 TLobby__sub_802D1D48(void *, void *);
 M2C_UNK update_both_halves__6TLobbyFPv(void *);
 u8 * TLobby__sub_802D27E0(s32 arg0, s32 arg1);
@@ -61,7 +61,7 @@ s32 show_event_message__6TLobbyFiii(void *, int, int);
 extern Half_802D26C8 TLobby__data_80540BD0[4];
 extern u32 lbl_805D53A0;
 extern s8 TLobby__data_805D688A;
-s32 TLobby__sub_802D26C8(void);
+s32 check_trade_items_and_show_error__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -93,7 +93,7 @@ void send_trade_proposal_modify__6TLobbyFv(void) {
   }
 }
 
-void TLobby__sub_802D245C(void) {
+void update_trade_list_send__6TLobbyFv(void) {
     u8 sp8[0x288];
     switch ((s8) TLobby__data_805D688B) {
     case 5:
@@ -102,7 +102,7 @@ void TLobby__sub_802D245C(void) {
         }
         break;
     case 6:
-        TLobby__sub_802D3134((M2C_UNK *)sp8);
+        build_trade_item_list__6TLobbyFPv((M2C_UNK *)sp8);
         send_trade_list__6TLobbyFPvPv(TLobby__data_805D5580, (M2C_UNK *)sp8);
         lbl_805D6888 |= 0x400;
         if ((u32) TLobby__data_805D6898 != 0U) {
@@ -119,7 +119,7 @@ void TLobby__sub_802D245C(void) {
     }
 }
 
-void TLobby__sub_802D2518(void) {
+void update_trade_proposal_state__6TLobbyFv(void) {
     if (!(lbl_805D6888 & 0x10)) {
         lbl_805D6890 = 0;
         if (lbl_805D6888 & 0x20) {
@@ -174,7 +174,7 @@ void TLobby__sub_802D268C(void) {
 }
 #pragma pop
 
-s32 TLobby__sub_802D26C8(void) {
+s32 check_trade_items_and_show_error__6TLobbyFv(void) {
     s32 code;
     Pair_802D26C8 buf;
     s32 r;

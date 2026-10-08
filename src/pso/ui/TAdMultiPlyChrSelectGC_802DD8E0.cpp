@@ -83,7 +83,7 @@ extern "C" {
 
 void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 u32 open_yes_no_window__16TAdChrSelASlotGCFiii(u32, M2C_UNK *, s32);
-s32 TAdChrSelBSlotGC__sub_8030E378(s32, s32);
+s32 is_slot_state_one__16TAdChrSelBSlotGCFiUi(s32, s32);
 s32 create_confirm_window__22TAdMultiPlyChrSelectGCFv(void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
@@ -174,7 +174,7 @@ void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     if (get_selection__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x5C)) != 0) {
         load_tables(temp_r30);
         if (TAdSinglePlyChrSelectGC__sub_801FE800(temp_r30) != 0) {
-            if (TAdChrSelBSlotGC__sub_8030E378(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {
+            if (is_slot_state_one__16TAdChrSelBSlotGCFiUi(M2C_FIELD(arg0, s32 *, 0x6C), temp_r30) == 0) {
                 M2C_FIELD(arg0, s32 *, 0x88) = create_confirm_window__22TAdMultiPlyChrSelectGCFv(arg0, get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C)));
                 M2C_FIELD(arg0, s32 *, 0x20) = 0xF;
                 return;

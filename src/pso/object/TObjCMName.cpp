@@ -122,7 +122,7 @@ f32 get_right_trigger_ratio__16TObjCMProportionFv();
 extern s32 TObjCMMainMenu__data_805D659C;
 extern const f32 lbl_805DDBF4;
 extern const f32 lbl_805DDBF8;
-void TObjCMMainMenu__sub_80298314(void * _w0);
+void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0);
 }
 
 extern "C" {
@@ -1631,7 +1631,7 @@ void TObjCMMainMenu__vt7(void) {  }
 
 void TObjCMMainMenu__sub_80298310(void) {  }
 
-void TObjCMMainMenu__sub_80298314(void * _w0) {
+void update_random_proportion_action__14TObjCMMainMenuFPv(void * _w0) {
     f32 temp_f31;
     f32 temp_f31_2;
     if (is_active__23TAdSinglePlyChrSelectGCFv() != 0) {
@@ -1818,7 +1818,7 @@ void run_task__14TObjCMMainMenuFv(Menu_802987AC *arg0) {
     };
     (arg0->*table[TObjCMMainMenu__data_805D659C])();
     lbl_805D6598 = arg0->f24[arg0->f2c];
-    TObjCMMainMenu__sub_80298314((void *)(arg0));
+    update_random_proportion_action__14TObjCMMainMenuFPv((void *)(arg0));
     ((void (*)(void *))TObjCMMainMenu__sub_80298310)(arg0);
     switch (TObjCMMainMenu__data_805D659C) {
     case 4:

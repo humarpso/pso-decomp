@@ -126,7 +126,7 @@ void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
 void TAdSinglePlyChrSelectGC__sub_80202D7C(void *, void *);
-Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_80202C68 *arg1);
+Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
 u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1);
@@ -276,7 +276,7 @@ void TAdSinglePlyChrSelectGC__sub_80202C3C(Obj_80202C3C *self) {
     }
 }
 
-Save_80202C68 *TAdSinglePlyChrSelectGC__sub_80202C68(Save_80202C68 *arg0, Save_80202C68 *arg1) {
+Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1) {
     Slot_80202C68 *d;
     Slot_80202C68 *s;
     arg0->hdr = arg1->hdr;

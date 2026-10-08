@@ -40,7 +40,7 @@ void TObjSuisoChip__vt8(void* p);
 int get_max_players__6TLobbyFv(void);
 M2C_UNK TObjChip__vt6();
 int TObjChip__vt8(void*, void*);
-int TWindowSnapShot__sub_802A5D28(void*);
+int free_buffer__15TWindowSnapShotFPv(void*);
 s32 alloc_buffer__15TWindowSnapShotFPv(void *);
 s32 fn_802A5C7C(void *);
 s32 fn_802A5CB8(void *);

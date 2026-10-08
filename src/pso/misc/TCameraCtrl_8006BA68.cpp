@@ -37,7 +37,7 @@ E_8006BAB4 *TCameraCtrl__sub_8006BAB4(O_8006BAB4 *self, s32 i);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Pad_8006BB1C lbl_8050E208;
-void TCameraCtrl__sub_8006BB1C(Obj_8006BB1C *arg0);
+void update_debug_orbit_camera__11TCameraCtrlFPv(Obj_8006BB1C *arg0);
 }
 
 extern "C" {
@@ -80,7 +80,7 @@ extern M2C_UNK lbl_80488B38[];
 
 #pragma push
 #pragma fp_contract on
-void TCameraCtrl__sub_8006BB1C(Obj_8006BB1C *arg0) {
+void update_debug_orbit_camera__11TCameraCtrlFPv(Obj_8006BB1C *arg0) {
     Pad_8006BB1C *pad = &lbl_8050E208;
     u32 btn = pad->buttons;
     s16 sx = pad->sx;

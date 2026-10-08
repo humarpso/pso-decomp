@@ -16,7 +16,7 @@ void *get_global_state__23TAdSinglePlyChrSelectGCFv();
 s32 set_language__19TWindowKeyBoardSoftFc(s8);
 M2C_UNK close_option_window__6TLobbyFv();
 M2C_UNK init_layout_positions__6TLobbyFv();
-s16 TLobby__sub_80226328();
+s16 init_sound_mode__6TLobbyFPv();
 M2C_UNK set_sound_output_mode__6TLobbyFi(s16);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK play_area_music();
@@ -48,7 +48,7 @@ void apply_selection_change__17TWindowOptionCtrlFPv(void *arg0) {
 void init_selection_indices__17TWindowOptionCtrlFPv(void *arg0) {
     s16 temp_r3;
 
-    temp_r3 = TLobby__sub_80226328();
+    temp_r3 = init_sound_mode__6TLobbyFPv();
     M2C_FIELD(arg0, s16 *, 0x1E) = temp_r3;
     M2C_FIELD(arg0, s16 *, 0x20) = temp_r3;
 }

@@ -423,7 +423,7 @@ void TObjEneMe3SinowZoa__sub_80316C3C(Obj_80316C3C *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 f32 receive_direct_attack__10TObjPlayerFv(void *, int, int);
 void transition_enemy_state(void *, s16);
-f32 TObjEneMe3SinowZoa__sub_80316A74(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32 arg3);
+f32 receive_damage_and_transition__18TObjEneMe3SinowZoaFPviii(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32 arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(int);
 M2C_UNK fn_8002B630(int, void *);
@@ -431,7 +431,7 @@ u32 get_valid_target_player__10TNpcPlayerFv(int);
 M2C_UNK init_all_slots__10TObjPlayerFv();
 M2C_UNK update_enemy_collision_flags__10TObjPlayerFPv(void *);
 extern u8 sinow_zoa_collision_parts[];
-u32 TObjEneMe3SinowZoa__sub_80316B20(u8 *arg0, void *arg1);
+u32 check_move_collision__18TObjEneMe3SinowZoaFPvPv(u8 *arg0, void *arg1);
 }
 
 extern "C" {
@@ -458,7 +458,7 @@ inline s32 seek_80316C3C(Obj_80316C3C *arg0, Vec_80316C3C *diff) {
     return angle;
 }
 
-f32 TObjEneMe3SinowZoa__sub_80316A74(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32 arg3) {
+f32 receive_damage_and_transition__18TObjEneMe3SinowZoaFPviii(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32 arg3) {
     f32 temp_f31;
     temp_f31 = ((f32 (*)(void *, s32, Pair_80316A74, s32, s32, s32))receive_direct_attack__10TObjPlayerFv)(arg0, arg1, arg2, arg3, -1, -1);
     if (M2C_FIELD(arg0, s32 *, 0x3C0) == 1 && calc_boss4_scale__10TObjPlayerFi(arg0) <= M2C_FIELD(arg0, f32 *, 0x3F0)) {
@@ -469,7 +469,7 @@ f32 TObjEneMe3SinowZoa__sub_80316A74(u8 *arg0, s32 arg1, Pair_80316A74 arg2, s32
     return temp_f31;
 }
 
-u32 TObjEneMe3SinowZoa__sub_80316B20(u8 *arg0, void *arg1) {
+u32 check_move_collision__18TObjEneMe3SinowZoaFPvPv(u8 *arg0, void *arg1) {
     u8 *o;
     u32 r;
     u32 saved;

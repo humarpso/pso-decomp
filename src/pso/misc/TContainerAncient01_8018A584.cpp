@@ -224,7 +224,7 @@ extern const f32 TContainerAncient01__data_805DBD3C;
 extern const f32 lbl_805DBD40;
 extern const f32 TContainerAncient01__data_805DBD44;
 extern const f32 lbl_805DBD48;
-void TContainerAncient01__sub_8018A9D8(u8 *arg0);
+void init_positions__19TContainerAncient01FPv(u8 *arg0);
 void request_box_item_drop(void *, void *, int);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, u32);
 void trigger_spawn__19TContainerAncient01FPvPvPv(void *, void *, void *);
@@ -582,7 +582,7 @@ void check_open_trigger__19TContainerAncient01FPv(void *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TContainerAncient01__sub_8018A9D8(u8 *arg0) {
+void init_positions__19TContainerAncient01FPv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x33C) = (f32) (TContainerAncient01__data_805DBD3C + (M2C_FIELD(arg0, f32 *, 0x68) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     M2C_FIELD(arg0, f32 *, 0x340) = (f32) (lbl_805DBD40 + (M2C_FIELD(arg0, f32 *, 0x6C) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
     M2C_FIELD(arg0, f32 *, 0x344) = (f32) (TContainerAncient01__data_805DBD44 + (M2C_FIELD(arg0, f32 *, 0x70) - (*(const f32 *)&TContainerAncient01__data_805DBD10)));
@@ -788,7 +788,7 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     self->pos74.y = c->y * lbl_805DBD5C + self->pos74.y;
     VecCopy__FP3VecPC3Vec(&self->pos2fc, &self->pos74);
     self->state = 0;
-    TContainerAncient01__sub_8018A9D8((u8 *)self);
+    init_positions__19TContainerAncient01FPv((u8 *)self);
     return self;
 }
 #pragma pop

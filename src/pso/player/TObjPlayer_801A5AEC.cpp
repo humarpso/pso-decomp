@@ -66,7 +66,7 @@ struct Obj_801A5F1C { u8 pad0[0x94]; s32 base[4]; };
 
 extern "C" {
 M2C_UNK check_and_read__16TKeyBoardControlFi(void *);
-void TKeyBoardControl__sub_801A5EA0(u8 arg0);
+void read_key_checked__16TKeyBoardControlFUc(u8 arg0);
 s32 is_split_screen();
 M2C_UNK TKeyBoardControl__sub_80132650(void *);
 M2C_UNK update_button_hold_counters(int);
@@ -262,7 +262,7 @@ s32 func_801A5E54__Fv(void) {
     return (lbl_805D49B4 != 0) ? 0 : lbl_805D5D09;
 }
 
-void TKeyBoardControl__sub_801A5EA0(u8 arg0) {
+void read_key_checked__16TKeyBoardControlFUc(u8 arg0) {
     check_and_read__16TKeyBoardControlFi((void *) (arg0));
 }
 typedef char RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];

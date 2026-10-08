@@ -366,7 +366,7 @@ extern const f32 TCameraCtrl__data_805D8FC0;
 extern const f32 TCameraCtrl__data_805D8FC4;
 void restore_full_screen_view__11TCameraCtrlFv(void);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__data_804FF628;
-void TCameraCtrl__sub_800695E8(u8 *arg0);
+void apply_view_params_if_flagged__11TCameraCtrlFPv(u8 *arg0);
 s32 is_split_screen();
 s32 get_instance__11TCameraCtrlFv(void);
 s32 get_mode__11TCameraCtrlFPv(void *);
@@ -979,7 +979,7 @@ s32 TCameraCtrl__sub_800695A0(u8 *arg0) {
     return 1;
 }
 
-void TCameraCtrl__sub_800695E8(u8 *arg0) {
+void apply_view_params_if_flagged__11TCameraCtrlFPv(u8 *arg0) {
     if (M2C_FIELD(&TCameraCtrl__data_804FF628.value, s32 *, 8) & 0x400) {
         set_view_params__11TCameraCtrlFPv((u8 *)(arg0));
     }

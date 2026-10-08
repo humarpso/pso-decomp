@@ -78,7 +78,7 @@ s32 is_child_visible__17TWindowSubComCardFPv(s32);
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(u32);
 M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE2D0();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_801FE338(s32);
+M2C_UNK clear_slot_body__23TAdSinglePlyChrSelectGCFi(s32);
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 M2C_UNK clear_transition_flag__17TWindowSubComCardFPv(u32);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C561C(s32);
@@ -235,7 +235,7 @@ void update_card_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
                 close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x98));
                 M2C_FIELD(arg0, u32 *, 0x98) = 0U;
             }
-            TAdSinglePlyChrSelectGC__sub_801FE338(TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C))) + 4);
+            clear_slot_body__23TAdSinglePlyChrSelectGCFi(TAdMultiPlyChrSelectGC__sub_802DFFE8((s32)(M2C_FIELD(arg0, s32 *, 0x5C))) + 4);
             set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x68), 0xF);
             M2C_FIELD(arg0, s32 *, 0x20) = 8;
             break;

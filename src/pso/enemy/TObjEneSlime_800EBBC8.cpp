@@ -99,7 +99,7 @@ extern "C" {
 s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
 s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
-s32 TObjEneSlime__sub_800EB984(void *);
+s32 init_slots__12TObjEneSlimeFPv(void *);
 s32 initialize__9TObjEnemyFPv(void *);
 extern M2C_UNK __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
@@ -151,7 +151,7 @@ u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
         M2C_FIELD(arg0, s32 *, 0x3B4) = 4;
     }
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
-    TObjEneSlime__sub_800EB984((void *) (arg0));
+    init_slots__12TObjEneSlimeFPv((void *) (arg0));
     return arg0;
 }
 

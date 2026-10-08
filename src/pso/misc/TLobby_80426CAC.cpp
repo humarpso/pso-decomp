@@ -152,7 +152,7 @@ extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 extern u32 lbl_805D7BC0;
 void TLobby__sub_80425BD0(void);
-void TLobby__sub_804253A0(s32);
+void clear_message_entry__6TLobbyFi(s32);
 void TLobby__sub_804264D4(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
@@ -271,7 +271,7 @@ s32 OSSendMessage(void *mq, void *msg, s32 flags);
 u8 *TLobby__sub_804256B8(s32);
 s32 post_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 OSReceiveMessage(void *, void *, int);
-void TLobby__sub_804253A0(s32);
+void clear_message_entry__6TLobbyFi(s32);
 void TLobby__sub_80425D88(u8 v);
 void TLobby__sub_8042B334(s32 arg0, s32 arg1, s32 arg2);
 extern u8 lbl_805CF240[];
@@ -342,7 +342,7 @@ s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 s32 TLobby__sub_804251C0(s32, void *);
 extern s32 lbl_805D4820;
 extern volatile s32 lbl_805D7BA0;
-s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3);
+s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 s32 TLobby__sub_803F9EC4(void *, void *, int);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 s32 TLobby__sub_8042BC00(void *);
@@ -369,7 +369,7 @@ M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
 extern Ent_804253F8 lbl_805C30C0[0x20];
 void TLobby__sub_804253F8(u32 arg0);
 extern Ent_804253F8 lbl_805C30C0[0x20];
-u8 *TLobby__sub_80425870(s32 arg0);
+u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 extern G_804249F0 lbl_805C1E00;
 extern s32 lbl_805D7B0C;
 extern s32 lbl_805D7B10;
@@ -425,7 +425,7 @@ extern s32 lbl_805D4820;
 
 s32 get_task_count__6TLobbyFv(void);
 
-s32 TLobby__sub_803F91D0(void *);
+s32 get_time_seconds__6TLobbyFPv(void *);
 s32 TLobby__sub_803F9F04(void *, void *, int);
 void TLobby__sub_80425288(s32, s32, void *);
 extern u32 lbl_805D7B64;
@@ -438,7 +438,7 @@ void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0);
 
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 
-s32 TLobby__sub_80424910(s32 arg0, void *arg1, void *arg2, void *arg3);
+s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 
 #pragma push
 #pragma opt_propagation off
@@ -454,7 +454,7 @@ static inline Ent_804253F8 *find_804253F8(u32 arg0);
 void TLobby__sub_804253F8(u32 arg0);
 #pragma pop
 
-u8 *TLobby__sub_80425870(s32 arg0);
+u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 
 void TLobby__sub_804259F0(void);
 

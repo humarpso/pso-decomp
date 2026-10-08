@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void update_state_wait_card__22TAdMultiPlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, s32);
+M2C_UNK setup_move_effect_params__18TAdChrMoveEffectGCFPvii(u32, s32, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848();
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(void *, M2C_UNK *);
 s32 get_card_data__17TWindowSubComCardFPv(s32);
@@ -76,7 +76,7 @@ void update_state_wait_card__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
                 {
                     u32 temp_u0 = get_global_state__22TAdMultiPlyChrSelectGCFv();
                     if (temp_u0 != 0U) {
-                        TAdChrMoveEffectGC__sub_803490D8(temp_u0, temp_r31 + 3, temp_r3_2);
+                        setup_move_effect_params__18TAdChrMoveEffectGCFPvii(temp_u0, temp_r31 + 3, temp_r3_2);
                     }
                 }
                 M2C_FIELD(arg0, s32 *, 0x80) = TAdMultiPlyChrSelectGC__sub_802DBEC4(arg0, lbl_80472868);

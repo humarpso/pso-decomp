@@ -72,7 +72,7 @@ M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
 M2C_UNK reset__6TLobbyFi();
 extern s8 TLobby__data_805D688A;
-void TLobby__sub_802D368C(O_802D368C *self);
+void update_status_message__6TLobbyFPv(O_802D368C *self);
 M2C_UNK TLobby__sub_802D3AA8();
 extern s8 TLobby__data_805D688A;
 extern s8 TLobby__data_805D688B;
@@ -189,7 +189,7 @@ void TLobby__sub_802D3654(O_802D3654 *self) {
     }
 }
 
-void TLobby__sub_802D368C(O_802D368C *self) {
+void update_status_message__6TLobbyFPv(O_802D368C *self) {
     switch (self->state) {
     case 0:
         text_builder_reset();

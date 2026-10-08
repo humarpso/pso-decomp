@@ -33,7 +33,7 @@ s32 get_current_floor(void);
 extern QuestSavedEnemyFloor_8020C1F0 TLobby__data_80513AD0[];
 extern QuestEnemyRow_8020C1F0 *TLobby__data_805D6114;
 extern s32 TLobby__data_805D6118;
-s32 TLobby__sub_8020C118(void);
+s32 count_quest_enemies_flag8__6TLobbyFv(void);
 }
 
 extern "C" {
@@ -73,7 +73,7 @@ void TLobby__sub_8020C07C(s32 pl, s16 b, s16 a, s32 mask, s32 set) {
     }
 }
 
-s32 TLobby__sub_8020C118(void) {
+s32 count_quest_enemies_flag8__6TLobbyFv(void) {
     s32 n = 0;
     s32 i;
     s32 j;

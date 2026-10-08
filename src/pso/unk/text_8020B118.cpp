@@ -36,7 +36,7 @@ extern s32 TLobby__data_805D60F4;
 extern s16 TLobby__data_805D6134;
 void load_set_gsl_files__6TLobbyFv(void);
 extern s32 TLobby__data_80513CC8[];
-s32 TLobby__sub_8020B2DC(void);
+s32 sum_floor_enemy_counts__6TLobbyFv(void);
 extern s32 TLobby__data_80513C80[];
 s32 TLobby__sub_8020B308(void);
 extern struct Floor_8020B260 TLobby__data_80513AD0[];
@@ -116,7 +116,7 @@ s32 TLobby__sub_8020B260(s32 floor, s16 room, s16 group, s32 bits) {
     return n;
 }
 
-s32 TLobby__sub_8020B2DC(void) {
+s32 sum_floor_enemy_counts__6TLobbyFv(void) {
     s32 sum = 0;
     s32 i;
     for (i = 0; i < 18; i++) sum += TLobby__data_80513CC8[i];

@@ -409,7 +409,7 @@ s32 transform_relative_position__9TObjEneDDFPvPv(void *, void *);
 s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 u32 find_entity_by_id(u16);
-s32 TObjEneRe4Sorcerer__sub_800EFB60(s32 arg0, f32 farg0, f32 farg1);
+s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
 }
 
 extern "C" {
@@ -1439,7 +1439,7 @@ extern "C" {
 void TObjPlayer__sub_800F65D0();
 }
 extern "C" {
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 }
 extern "C" {
 void add_actor_exp();
@@ -1697,7 +1697,7 @@ void *__vt__18TObjEneRe4Sorcerer[107] = {
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
     (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
-    (void *)&TObjPlayer__sub_800F673C, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
+    (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&fn_800F5D80, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&TObjEneRe4Sorcerer__vt85,
     (void *)&TObjEneRe4Sorcerer__vt86, (void *)&TObjEneDD__vt86, (void *)&TObjEneDD__vt87, (void *)&TObjEneDD__vt88,
     (void *)&TObjEneDD__vt89, (void *)&TObjEneDD__vt90, (void *)&TObjEneDD__vt91, (void *)&TObjEneDD__vt92,
@@ -2510,7 +2510,7 @@ void TObjEneRe4Sorcerer__sub_800EF95C(Obj_800EF95C *self, f32 speed) {
 
 s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
     if (tick_period_counter(arg0, arg0 + 0x3B0, 0x1E) != 0) {
-        return TObjEneRe4Sorcerer__sub_800EFB60((s32)(arg0), farg0, farg1);
+        return select_attack_target__18TObjEneRe4SorcererFiff((s32)(arg0), farg0, farg1);
     }
     if (enemy_has_live_target(arg0) != 0) {
         return 1;
@@ -2519,7 +2519,7 @@ s32 try_attack__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
     return 0;
 }
 
-s32 TObjEneRe4Sorcerer__sub_800EFB60(s32 arg0, f32 farg0, f32 farg1) {
+s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1) {
 #define self ((Obj_800EFB60 *)arg0)
     f32 d;
     f32 best;

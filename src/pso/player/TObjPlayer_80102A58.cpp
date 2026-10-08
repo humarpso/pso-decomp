@@ -11,7 +11,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(s32 size);
 u32 init_bosses__6TLobbyFPv(void *p);
 void alloc_and_init_object_b4__10TObjPlayerFv(void);
 void alloc_and_run_object__10TObjPlayerFv(void);
-void TObjPlayer__sub_801058AC(void);
+void init_game_resources__10TObjPlayerFv(void);
 void inc_player_count__10TObjPlayerFv(void);
 extern s32 lbl_805D53F0;
 extern u32 lbl_805D53F4;
@@ -110,7 +110,7 @@ void alloc_game_systems__10TObjPlayerFv(void) {
     lbl_805D5400 = (u32)p;
     alloc_and_init_object_b4__10TObjPlayerFv();
     alloc_and_run_object__10TObjPlayerFv();
-    TObjPlayer__sub_801058AC();
+    init_game_resources__10TObjPlayerFv();
     inc_player_count__10TObjPlayerFv();
 }
 

@@ -45,7 +45,7 @@ void handle_confirm_state__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_confirm_start__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 void update_state_move__22TAdMultiPlyChrSelectGCFPv(void *arg0);
 M2C_UNK clear_entries__18TAdChrMoveEffectGCFPv();
-M2C_UNK TAdChrMoveEffectGC__sub_803490D8(u32, s32, u32);
+M2C_UNK setup_move_effect_params__18TAdChrMoveEffectGCFPvii(u32, s32, u32);
 M2C_UNK create_effects__14TAdGameStartGCFPv(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(M2C_UNK);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
@@ -236,7 +236,7 @@ loop_7:
         }
         temp_u = get_global_state__22TAdMultiPlyChrSelectGCFv();
         if (temp_u != 0U) {
-            TAdChrMoveEffectGC__sub_803490D8(temp_u, ret, (u32)iter + 3);
+            setup_move_effect_params__18TAdChrMoveEffectGCFPvii(temp_u, ret, (u32)iter + 3);
         }
         TAdMultiPlyChrSelectGC__sub_802E0024(M2C_FIELD(arg0, s32 *, 0x5C), (u32)iter);
         set_state__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x5C), 1);

@@ -427,7 +427,7 @@ void partner_compute_stalled_detour(u8 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *
 s32 partner_route_around_wall(Self_8014EE98 *self, Vec_8014E3B0 *from, Vec_8014E3B0 *to, Vec_8014E3B0 *d, Vec_8014E3B0 *out, Vec_8014E3B0 *out2);
 s32 partner_find_wall_segment(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 s32 partner_probe_obstacles(View_8014F140 *view);
-s32 TNpcPlayer__sub_8014F28C(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
+s32 partition_sort_entries__10TNpcPlayerFiPvii(s32 self, Ent_8014F28C *a, s32 lo, s32 hi);
 void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 find_parts_in_range__10TNpcPlayerFPvPvif(View_8014F424 *view, void *pos, s32 id, f32 range);
 s32 scan_nearby_enemies__10TNpcPlayerFPvPvf(View_8014F57C *view, void *pos, f32 range);
@@ -2276,7 +2276,7 @@ s32 partner_probe_obstacles(View_8014F140 *view) {
     return 0;
 }
 
-s32 TNpcPlayer__sub_8014F28C(s32 self, Ent_8014F28C *a, s32 lo, s32 hi) {
+s32 partition_sort_entries__10TNpcPlayerFiPvii(s32 self, Ent_8014F28C *a, s32 lo, s32 hi) {
     Ent_8014F28C tmp;
     f32 pivot;
     s32 i;
@@ -2307,7 +2307,7 @@ void quick_sort__10TNpcPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
 
     if (arg2 < arg3) {
-        temp_r3 = ((s32 (*)(void))TNpcPlayer__sub_8014F28C)();
+        temp_r3 = ((s32 (*)(void))partition_sort_entries__10TNpcPlayerFiPvii)();
         quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(temp_r3 - 1));
         quick_sort__10TNpcPlayerFiiii((s32)(arg0), (s32)(arg1), (s32)(temp_r3 + 1), (s32)(arg3));
     }

@@ -42,11 +42,11 @@ s32 create_menu_window__17TWindowSubComCardFv(void);
 s32 get_window_layout_position(M2C_UNK);
 s32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 extern char lbl_8044F6C4[];
-void TWindowSubComCard__sub_80272A64(void);
+void open_mode4_window__17TWindowSubComCardFv(void);
 s32 get_window_layout_position(M2C_UNK);
 s32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, M2C_UNK *, M2C_UNK);
 extern char lbl_8044F6AC[];
-void TWindowSubComCard__sub_80272EBC(void);
+void open_layout_window__17TWindowSubComCardFv(void);
 void *get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
 s32 draw_card_icon__17TWindowSubComCardFiii(int, int, void *);
@@ -85,7 +85,7 @@ s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 void update_display_value__17TWindowSubComCardFUiUiPv(u32 arg0, u32 arg1, s32 *arg2);
 void update_selection__17TWindowSubComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 TKeyBoardControl__ct(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, s32);
-s32 TWindowSubComCard__sub_8007A860(s32);
+s32 get_card_entry_data__17TWindowSubComCardFPv(s32);
 s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
 s32 get_card_slot__17TWindowSubComCardFi(M2C_UNK);
 s32 get_selected_menu_value(u32);
@@ -130,7 +130,7 @@ s32 create_keyboard__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     if (var_r31 != 0) {
         var_r31 = TKeyBoardControl__ct(var_r31, arg0, 0xC6, 3, 4, lbl_805D53A0);
     }
-    get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, TWindowSubComCard__sub_8007A860(arg1));
+    get_keyboard_field_6c__15TWindowMakeTeamFPv(var_r31, get_card_entry_data__17TWindowSubComCardFPv(arg1));
     set_sub_position__15TWindowMakeTeamFPvPv(var_r31, get_window_layout_position((M2C_UNK)(0xBB)));
     set_keyboard_flag62_bit2__15TWindowMakeTeamFPv(var_r31);
     destroy_keyboard__17TWindowSubComCardFPv(var_r31);
@@ -214,7 +214,7 @@ s32 create_menu_window__17TWindowSubComCardFv(void) {
   align_menu_entry_positions((s32)((int) temp_r31_2));
   return temp_r31_2;
 }
-void TWindowSubComCard__sub_80272A64(void) {
+void open_mode4_window__17TWindowSubComCardFv(void) {
     set_window_mode_4__6TLobbyFPvii((M2C_UNK)(get_window_layout_position((M2C_UNK)(0x8f))), (M2C_UNK *)(lbl_8044F6C4), (M2C_UNK)(1));
 }
 
@@ -253,7 +253,7 @@ s32 create_entry_list_window__17TWindowSubComCardFPv(u8 *arg0) {
     return w;
 }
 
-void TWindowSubComCard__sub_80272EBC(void) {
+void open_layout_window__17TWindowSubComCardFv(void) {
     set_window_mode_4__6TLobbyFPvii((M2C_UNK)(get_window_layout_position((M2C_UNK)(0x80))), (M2C_UNK *)(lbl_8044F6AC), (M2C_UNK)(1));
 }
 s32 TWindowSubComCard__sub_80273004(void) {

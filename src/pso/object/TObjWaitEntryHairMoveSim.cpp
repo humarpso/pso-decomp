@@ -50,7 +50,7 @@ s32 TObjWaitEntryHairMoveSim__sub_800FE698(Obj_800FE698 *o);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(s32);
 void create__19TObjEZBoneRotPlayerFPvPvPv(void *, s32, void *);
 void create_hairmove__10TObjPlayerFPvPvPv(void *, void *, s32);
-void TObjWaitEntryHairMoveSim__sub_800FE5A0(void *arg0);
+void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0);
 }
 
 extern "C" {
@@ -620,7 +620,7 @@ void *lbl_8049DC8C[6] = {
 
 void run_task__24TObjWaitEntryHairMoveSimFv(void *arg0) {
     if ((s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), s32 *, 0xCFC) == 0) {
-        TObjWaitEntryHairMoveSim__sub_800FE5A0((void *)(arg0));
+        create_hair_effects__24TObjWaitEntryHairMoveSimFPv((void *)(arg0));
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -636,7 +636,7 @@ void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1) {
     return arg0;
 }
 
-void TObjWaitEntryHairMoveSim__sub_800FE5A0(void *arg0) {
+void create_hair_effects__24TObjWaitEntryHairMoveSimFPv(void *arg0) {
     Self_800FE5A0 *self = (Self_800FE5A0 *)arg0;
     EntX_800FE5A0 *e;
     s32 v;

@@ -94,8 +94,8 @@ extern unsigned char lbl_80514F64[];
 extern char lbl_80514F58[];
 void TLobby__sub_80228118(void);
 char *strcpy(char *dst, const char *src);
-void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
-void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
+void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
+void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
 void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s);
 extern char lbl_805DC788[4];
@@ -110,7 +110,7 @@ s32 is_ready__6TLobbyFPv(void *);
 extern M2C_UNK lbl_8044C8D0[];
 extern M2C_UNK lbl_8044C960[];
 void load_floor_sound_bank(s32 arg0);
-void TLobby__sub_80228A74(O_80228A74 *self, const char *src);
+void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src);
 void clear_work_buffer(u8 *arg0);
 void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s);
 }
@@ -124,7 +124,7 @@ s32 init_range_zero__6TLobbyFPv(void* arg0);
 void refresh_render_state__6TLobbyFv(void);
 void set_area__6TLobbyFPvi(void *arg0, s32 arg1);
 s32 get_floor_map_terrain(s32);
-int TLobby__sub_80227B48(float);
+int apply_clamped_field_27c__6TLobbyFv(float);
 int pop_sound_groups__6TLobbyFPvi(void*, void*);
 void __ct__7TObjectFP7TObject(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -134,7 +134,7 @@ int render_tick__Fv(void);
 
     extern unsigned char lbl_80514F64[];
     extern float lbl_805DC76C;
-void refresh_render_state__6TLobbyFv(void) { pop_sound_groups__6TLobbyFPvi(lbl_80514F64, (void*)0); TLobby__sub_80227B48(lbl_805DC76C); render_tick__Fv(); }
+void refresh_render_state__6TLobbyFv(void) { pop_sound_groups__6TLobbyFPvi(lbl_80514F64, (void*)0); apply_clamped_field_27c__6TLobbyFv(lbl_805DC76C); render_tick__Fv(); }
 
 void load_floor_sound_bank(s32 arg0) {
     s32 temp_r0;
@@ -145,7 +145,7 @@ void load_floor_sound_bank(s32 arg0) {
         temp_r31 = M2C_FIELD(((u8 *)(lbl_8044C8D0) + temp_r0), s32 *, 0);
         if (temp_r31 >= 0) {
             if (arg0 < 0x24) {
-                ((M2C_UNK (*)(void *, f32))TLobby__sub_80227B48)((void *) (lbl_8044C960), (f32) (M2C_FIELD(((u8 *)(lbl_8044C960) + temp_r0), f32 *, 0)));
+                ((M2C_UNK (*)(void *, f32))apply_clamped_field_27c__6TLobbyFv)((void *) (lbl_8044C960), (f32) (M2C_FIELD(((u8 *)(lbl_8044C960) + temp_r0), f32 *, 0)));
             }
             validate_and_set_selection__6TLobbyFPvi((void *) (lbl_80514F64), (int) (temp_r31));
             do {
@@ -355,7 +355,7 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     for (;;) {
         switch (*s) {
         case 0:
-            TLobby__sub_80228A74(self, start);
+            add_token__6TLobbyFPvPv(self, start);
             return;
         case '"':
             if (quoted) {
@@ -375,7 +375,7 @@ void tokenize_args__6TLobbyFPvPv(O_80228A74 *self, char *s) {
             } else {
                 *s = 0;
                 s++;
-                TLobby__sub_80228A74(self, start);
+                add_token__6TLobbyFPvPv(self, start);
                 start = s;
             }
             break;
@@ -395,7 +395,7 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     for (;;) {
         switch (*s) {
         case 0:
-            TLobby__sub_80228A74(self, start);
+            add_token__6TLobbyFPvPv(self, start);
             return;
         case '"':
             if (quoted) {
@@ -416,7 +416,7 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
             } else {
                 *s = 0;
                 s++;
-                TLobby__sub_80228A74(self, start);
+                add_token__6TLobbyFPvPv(self, start);
                 start = s;
             }
             break;
@@ -427,7 +427,7 @@ void parse_csv_line__6TLobbyFPvPv(O_80228A74 *self, char *s) {
     }
 }
 
-void TLobby__sub_80228A74(O_80228A74 *self, const char *src) {
+void add_token__6TLobbyFPvPv(O_80228A74 *self, const char *src) {
     strcpy(self->names[((P_80228A74 *)self)->count++], src);
 }
 

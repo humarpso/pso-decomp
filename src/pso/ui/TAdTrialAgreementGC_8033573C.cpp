@@ -37,7 +37,7 @@ extern "C" {
 s32 draw_with_camera__6TLobbyFiiif(void *, void *, int, f32);
 s32 get_record__6TLobbyFi(void *);
 extern const f32 lbl_805DF8B0;
-void TAdTrialAgreementGC__sub_80335918(M2C_UNK arg0, s32 arg1, s32 arg2);
+void draw_record_with_camera__19TAdTrialAgreementGCFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TAdScrollWinGC__ct(int, void *, int, int);
@@ -124,7 +124,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     return arg0;
 }
 
-void TAdTrialAgreementGC__sub_80335918(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void draw_record_with_camera__19TAdTrialAgreementGCFiii(M2C_UNK arg0, s32 arg1, s32 arg2) {
     draw_with_camera__6TLobbyFiiif((void *) (get_record__6TLobbyFi((void *) (arg1))), (void *) (arg2), (int) (0x20), (f32) (lbl_805DF8B0));
 }
 

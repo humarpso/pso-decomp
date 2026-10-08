@@ -22,7 +22,7 @@ extern s32 TBoss6Rock__data_80543778[];
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
 extern s32 lbl_805D6EFC;
-void TBoss6Rock__sub_80354B18(void);
+void load_resources__10TBoss6RockFv(void);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ void free_data__10TBoss6RockFv(void) {
         TBoss6Rock__data_805D6EF4 = 0U;
     }
 }
-void TBoss6Rock__sub_80354B18(void) {
+void load_resources__10TBoss6RockFv(void) {
     u32 r;
     s32 i;
     r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);

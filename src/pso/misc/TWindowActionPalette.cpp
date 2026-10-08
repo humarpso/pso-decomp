@@ -47,12 +47,12 @@ s32 is_split_screen();
 s32 fn_8002AE08(s32);
 s32 get_sub_value__8TItemMagFi(int);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
-u16 TObjPlayer__sub_801B5A88(int, int, int, int);
+u16 select_action_palette_and_apply__10TObjPlayerFiiii(int, int, int, int);
 s32 refresh_effect__10TObjPlayerFi(int);
 s32 get_player_by_client_id(int);
-s32 TWindowActionPalette__sub_801C1C00(void *);
-u16 TWindowActionPalette__sub_801C1DB8(int, int);
-s32 TWindowActionPalette__sub_801C1E1C(int, int);
+s32 handle_input_forward__20TWindowActionPaletteFPv(void *);
+u16 get_entry_by_index__20TWindowActionPaletteFPvi(int, int);
+s32 get_slot_type_for_index__20TWindowActionPaletteFPvi(int, int);
 u16 get_current_target_id__10TObjPlayerFv();
 void* get_array_entry__20TWindowSubStatusDispFPvi(TWindowActionPalette*,int);
 s32 set_help_text__15TWindowHelpItemFii(void *, int);
@@ -301,24 +301,24 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     } else {
         M2C_FIELD(help, s32 *, 0x2C) = 0xFF666666;
     }
-    v = TObjPlayer__sub_801B5A88(player, 0, 0, 0);
+    v = select_action_palette_and_apply__10TObjPlayerFiiii(player, 0, 0, 0);
     if (v == 0) {
-        v = TWindowActionPalette__sub_801C1DB8(effect, 1);
-        update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, TWindowActionPalette__sub_801C1E1C(effect, 1), v);
+        v = get_entry_by_index__20TWindowActionPaletteFPvi(effect, 1);
+        update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, get_slot_type_for_index__20TWindowActionPaletteFPvi(effect, 1), v);
     } else {
         update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, 7, v);
     }
-    if (TObjPlayer__sub_80354D5C((u16)M2C_FIELD(arg0, s16 *, 0x20)) != 0 && TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {
+    if (TObjPlayer__sub_80354D5C((u16)M2C_FIELD(arg0, s16 *, 0x20)) != 0 && handle_input_forward__20TWindowActionPaletteFPv((void *)(player + 0x500)) != 0) {
         update_slot_icon__20TWindowActionPaletteFPviii((void *)(arg0), (int)(1), (int)(7), (int)(7));
     } else {
-        v = TWindowActionPalette__sub_801C1DB8(effect, 2);
-        update_slot_sprites__20TWindowActionPaletteFv(arg0, 1, TWindowActionPalette__sub_801C1E1C(effect, 2), v);
+        v = get_entry_by_index__20TWindowActionPaletteFPvi(effect, 2);
+        update_slot_sprites__20TWindowActionPaletteFv(arg0, 1, get_slot_type_for_index__20TWindowActionPaletteFPvi(effect, 2), v);
     }
-    v = TWindowActionPalette__sub_801C1DB8(effect, 3);
-    update_slot_sprites__20TWindowActionPaletteFv(arg0, 2, TWindowActionPalette__sub_801C1E1C(effect, 3), v);
+    v = get_entry_by_index__20TWindowActionPaletteFPvi(effect, 3);
+    update_slot_sprites__20TWindowActionPaletteFv(arg0, 2, get_slot_type_for_index__20TWindowActionPaletteFPvi(effect, 3), v);
     target = get_current_target_id__10TObjPlayerFv();
     if (target == 0xFFFF || target == M2C_FIELD(arg0, s16 *, 0x20) || get_sub_value__8TItemMagFi(player) <= 0) {
-        if (TWindowActionPalette__sub_801C1C00((void *)(player + 0x500)) != 0) {
+        if (handle_input_forward__20TWindowActionPaletteFPv((void *)(player + 0x500)) != 0) {
             if (is_split_screen() != 0) {
                 set_bank_panel_art__20TWindowActionPaletteFPvi(SELF, 3);
             } else {

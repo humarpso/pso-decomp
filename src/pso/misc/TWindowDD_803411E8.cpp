@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void set_text_entry_string(void *, u32, s32);
-void TWindowDD__sub_803412F0(u8 *arg0, u32 arg1);
+void set_first_entry_text__9TWindowDDFPvUi(u8 *arg0, u32 arg1);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void refresh_status_display__9TWindowDDFv(void);
 extern const f32 TWindowDD__data_805DFB58;
@@ -51,7 +51,7 @@ void TWindowDD__sub_803412A0(u8 *arg0) {
 }
 #pragma pop
 
-void TWindowDD__sub_803412F0(u8 *arg0, u32 arg1) {
+void set_first_entry_text__9TWindowDDFPvUi(u8 *arg0, u32 arg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0));
     if (temp_r3 != NULL) {

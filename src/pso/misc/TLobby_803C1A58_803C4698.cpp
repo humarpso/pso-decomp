@@ -50,7 +50,7 @@ extern s32 tlobby_error_callback_arg;
 void notify_error__6TLobbyFPv(const char *arg0);
 s32 TLobby__sub_803C47F8(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
-void TLobby__sub_803C0B08(void);
+void reset_sound_buffers__6TLobbyFv(void);
 M2C_UNK release_ref__6TLobbyFv();
 M2C_UNK init_once__6TLobbyFv();
 void TLobby__sub_803C4698(void);
@@ -415,7 +415,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         TLobby__sub_803D25DC();
         TLobby__sub_803C588C();
         TLobby__sub_803C90B0();
-        TLobby__sub_803C0B08();
+        reset_sound_buffers__6TLobbyFv();
         TLobby__sub_803CC1D0();
         TLobby__sub_803CC114();
         flush_update__6TLobbyFv((void *)TLobby__sub_803C5B2C, 0);

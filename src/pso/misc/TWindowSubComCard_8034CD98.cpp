@@ -18,7 +18,7 @@ M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, void *, i
 void *draw_card_icon__17TWindowSubComCardFiii(M2C_UNK, int, void *);
 M2C_UNK get_window_layout_position(M2C_UNK);
 s16 get_field_72__17TWindowSubComCardFPv(void *);
-L_8034CDE0 *TLobby__sub_8034C1FC();
+L_8034CDE0 *get_info_board_ptr__6TLobbyFv();
 extern const f32 lbl_805DFDD8;
 extern const f32 lbl_805DFDDC;
 void *TWindowSubComCard__sub_8034CDE0(void);
@@ -43,7 +43,7 @@ void *TWindowSubComCard__sub_8034CDE0(void) {
     void *w;
     s32 i;
     s32 n;
-    it = (I_8034CDE0 *)TLobby__sub_8034C1FC();
+    it = (I_8034CDE0 *)get_info_board_ptr__6TLobbyFv();
     if (it == NULL) {
         return 0;
     }

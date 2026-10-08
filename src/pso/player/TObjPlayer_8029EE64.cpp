@@ -60,7 +60,7 @@ void TObjPlayer__sub_8029EE2C(void);
 void set_id__6TSceneFi(void *f);
 void set_active_scene__6TSceneFi(void *f);
 int set_instance__6TSceneFi(void *f);
-int TScene__sub_8029F3E8(void);
+int set_scene_callbacks__6TSceneFv(void);
 void VecCopy__FP3VecPC3Vec(Vec_8029EFFC *, Vec_8029EFFC *);
 f32 get_random_float__8TObjFishFv(f32);
 Pl_8029EFFC *get_player_by_client_id(s32);
@@ -273,7 +273,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
 }
 
 void TSceneSora__sub_8029F3E4(void) {  }
-int TScene__sub_8029F3E8(void) {
+int set_scene_callbacks__6TSceneFv(void) {
     set_id__6TSceneFi((void *)setup_projection_texture__10TObjPlayerFiii);
     set_active_scene__6TSceneFi((void *)clear_state_if_flag80__10TObjPlayerFi);
     return set_instance__6TSceneFi((void *)TObjPlayer__sub_8029EE2C);

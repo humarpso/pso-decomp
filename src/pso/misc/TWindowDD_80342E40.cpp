@@ -30,7 +30,7 @@ M2C_UNK TWindowDD__sub_80341AF8(int);
 M2C_UNK TWindowDD__sub_80343108(void *, int, void *, void *);
 s32 classify_id__9TWindowDDFs();
 M2C_UNK TWindowDD__sub_80347CC8(void *, void *);
-M2C_UNK TWindowDD__sub_80347EF4();
+M2C_UNK get_current_child_index__9TWindowDDFPv();
 M2C_UNK reset_index__9TWindowDDFPv(void *);
 M2C_UNK set_field14__9TWindowDDFPvi(void *, int);
 s32 TWindowDD__sub_80348D88(void *);
@@ -47,7 +47,7 @@ s32 TWindowDD__sub_80348424(void *, s16);
 s16 TWindowDD__sub_80348448(void *, s32);
 M2C_UNK set_state__9TWindowDDFPv(void *);
 M2C_UNK fn_8034AED4(s32);
-void TWindowDD__sub_80342ED0(W_80342ED0 *arg0);
+void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ extern "C" {
 void update__9TWindowDDFPv(void *arg0);
 M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
-M2C_UNK TWindowDD__sub_80347B70();
+M2C_UNK update_selection_state__9TWindowDDFPv();
 M2C_UNK play_se__9TWindowDDFv();
 M2C_UNK play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
@@ -63,7 +63,7 @@ s32 test_input_flag_4__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803484C4(void *);
 
 void update__9TWindowDDFPv(void *arg0) {
-    TWindowDD__sub_80347B70();
+    update_selection_state__9TWindowDDFPv();
     if (test_input_flag_4__9TWindowDDFPv(arg0) != 0) {
         play_sound__9TWindowDDFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB0) == 1) {
@@ -81,7 +81,7 @@ void update__9TWindowDDFPv(void *arg0) {
     }
 }
 
-void TWindowDD__sub_80342ED0(W_80342ED0 *arg0) {
+void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0) {
     s32 id;
     TWindowDD__sub_80347C50();
     if (test_input_flag_4__9TWindowDDFPv(arg0) != 0) {
@@ -106,7 +106,7 @@ u8 TWindowDD__sub_80342F84(u8 *arg0) {
     u8 *var_r3;
     var_r31 = 0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x84) == 0U) {
-        TWindowDD__sub_80347EF4();
+        get_current_child_index__9TWindowDDFPv();
         temp_r3 = classify_id__9TWindowDDFs();
         if (temp_r3 != 7) {
             TWindowDD__sub_80343108((void *) (arg0), (int) (0), lbl_80478618[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));

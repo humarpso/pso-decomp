@@ -13,7 +13,7 @@ struct Obj_80263DBC { u8 pad[0x28]; E_80263DBC arr[4]; u8 pad2[0x50 - 0x48]; s16
 
 extern "C" {
 void TWindowMainMenu__sub_80263D7C(Obj_80263D7C *o);
-void TWindowMainMenu__sub_80263DBC(Obj_80263DBC *o);
+void update_selection_value__15TWindowMainMenuFPv(Obj_80263DBC *o);
 }
 
 extern "C" {
@@ -70,7 +70,7 @@ void add_menu_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
     e->f2 = arg1;
     e->f4 = (s32) M2C_FIELD(arg0, s32 *, 0x5C);
 }
-void TWindowMainMenu__sub_80263DBC(Obj_80263DBC *o) {
+void update_selection_value__15TWindowMainMenuFPv(Obj_80263DBC *o) {
     E_80263DBC *e = &o->arr[o->f50];
     if (e->b != o->f5c) {
         o->f52 = 0;

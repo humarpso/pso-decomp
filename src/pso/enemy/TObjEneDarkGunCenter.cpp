@@ -99,7 +99,7 @@ void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void TObjPlayer__sub_80019568();
 void TObjPlayer__sub_800F65D0();
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 void add_actor_exp();
 void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
@@ -239,7 +239,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)fn_80010EC0,
     (void *)fn_80010EBC,
     (void *)call_vt78__10TObjPlayerFPv,
-    (void *)TObjPlayer__sub_800F673C,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv,
     (void *)apply_set_data__9TObjEnemyFPvPv,
     (void *)fn_800F5D80,
 };

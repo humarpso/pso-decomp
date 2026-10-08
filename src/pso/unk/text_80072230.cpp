@@ -50,7 +50,7 @@ struct Pkt7C_80072230 { u32 hdr; u16 id; u8 pad6[2]; u8 recs[0x100]; };
 extern "C" {
 M2C_UNK send_challenge_packet__6TLobbyFPv(void *);
 M2C_UNK TLobby__sub_800728FC(void *);
-void TLobby__sub_800724F0(M2C_UNK arg0, s32 arg1);
+void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
@@ -68,7 +68,7 @@ extern s32 lbl_805D53A0;
 void send_challenge_retry_cmd__6TLobbyFi(s32 arg0);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
-void TLobby__sub_800725E0(void);
+void send_6x7c_reset__6TLobbyFv(void);
 s32 is_flag_set__6TLobbyFv();
 s32 byteswap_challenge_packet__6TLobbyFPv(void *);
 void TLobby__sub_80070024(void *, s32);
@@ -210,7 +210,7 @@ void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt) {
     TLobby__sub_80070024(lbl_805D4E28, pkt->idx);
 }
 
-void TLobby__sub_800724F0(M2C_UNK arg0, s32 arg1) {
+void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800724F0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800724F0, spC) == 0x4) ? 1 : -1];
     Stack_800724F0 stack;
@@ -245,7 +245,7 @@ void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt) {
     TLobby__sub_800703D0(rec->data, pkt->recs);
 }
 
-void TLobby__sub_800725E0(void) {
+void send_6x7c_reset__6TLobbyFv(void) {
     Pkt_800725E0 pkt;
     init_pkt_cmd_7C__6TLobbyFPv(&pkt);
     pkt.f4 = 0xFFFF;

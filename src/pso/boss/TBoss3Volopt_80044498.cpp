@@ -731,7 +731,7 @@ extern const f32 TBoss3Volopt__data_805D87E8;
 extern const f32 lbl_805D87F4;
 extern const f32 lbl_805D87F8;
 extern const f32 lbl_805D87FC;
-void TBoss3Volopt__sub_80045DC4(u8 *arg0);
+void update_fade_state__12TBoss3VoloptFPv(u8 *arg0);
 void set_flag8_list__12TBoss3VoloptFPv(void *);
 void render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32, s32, s32, s32);
@@ -771,8 +771,8 @@ void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2);
 void *__nw__7TObjectFUl(M2C_UNK);
 void rebuild_parts__12TBoss3VoloptFPv(S_80045010 *o);
 void TBoss3Volopt__sub_80044680(void *);
-void TBoss3Volopt__sub_80045DC4(u8 *arg0);
-void TBoss3Volopt__sub_80045EEC(void *);
+void update_fade_state__12TBoss3VoloptFPv(u8 *arg0);
+void update_pillar_heal_state__12TBoss3VoloptFPv(void *);
 void TBoss3Volopt__sub_80046260(void *);
 void TBoss3Volopt__sub_800465B0(void *);
 void TBoss3Volopt__sub_800472D4(Obj_800472D4 *self);
@@ -1425,7 +1425,7 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss3Volopt__sub_80045DC4(u8 *arg0) {
+void update_fade_state__12TBoss3VoloptFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     s8 var_r4;
@@ -1478,7 +1478,7 @@ inline f32 max_80045EEC(f32 a, f32 b) { return (a > b) ? a : b; }
 inline s32 imin_80045EEC(s32 a, s32 b) { return (a < b) ? a : b; }
 inline f32 min_80045EEC(f32 a, f32 b) { return (a < b) ? a : b; }
 #define arg0 ((u8 *)arg0_)
-void TBoss3Volopt__sub_80045EEC(void *arg0_) {
+void update_pillar_heal_state__12TBoss3VoloptFPv(void *arg0_) {
     if (M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) {
         M2C_FIELD(arg0, s32 *, 0x374) = 0;
     }
@@ -1958,8 +1958,8 @@ void run_state__12TBoss3VoloptFPv(S_80047714 *o) {
     case 5: update_death_sequence__12TBoss3VoloptFPv((void *)(o)); return;
     case 9: TBoss3Volopt__sub_800465B0(o); return;
     case 10: TBoss3Volopt__sub_80046260(o); return;
-    case 11: TBoss3Volopt__sub_80045EEC(o); return;
-    case 7: TBoss3Volopt__sub_80045DC4((u8 *)(o)); return;
+    case 11: update_pillar_heal_state__12TBoss3VoloptFPv(o); return;
+    case 7: update_fade_state__12TBoss3VoloptFPv((u8 *)(o)); return;
     case 12: TBoss3Volopt__sub_80044680(o); return;
     case 3: return;
     case 6: return;

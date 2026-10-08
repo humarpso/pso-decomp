@@ -28,7 +28,7 @@ u8 *TWindowSubComCard__sub_80275228(void);
 void TWindowSubComCard__sub_802721D8(u8 *arg0);
 u8 *TWindowSubComCard__sub_80272034(Win_80272034 *arg0, Key_80272034 *arg1, s32 arg2);
 void fn_80077814(void *, u16, s32);
-s32 TWindowSubComCard__sub_80077840(void *, u16);
+s32 find_value_by_key__17TWindowSubComCardFPvUs(void *, u16);
 s32 open_hard_keyboard__6TLobbyFPv(void *);
 void *get_field_20__17TWindowSubComCardFPv(void *);
 void *get_selected_entry__17TWindowSubComCardFPv(void *);
@@ -50,9 +50,9 @@ void init_layout__17TWindowSubComCardFv(void);
 void send_cmd_133__17TWindowSubComCardFv(void);
 void send_command__17TWindowSubComCardFi(s32 arg0);
 void send_state_if_dirty__17TWindowSubComCardFPv(u8 *arg0);
-int TLobby__sub_802421C4(void);
+int send_find_user_self_tag__6TLobbyFi(void);
 s32 create_for_card__14TWindowComCardFiii(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0);
-s32 TWindowSubComCard__sub_8007A860(s32);
+s32 get_card_entry_data__17TWindowSubComCardFPv(s32);
 int get_card_entry__17TWindowSubComCardFi(void);
 s32 get_card_slot__17TWindowSubComCardFi(s32 a0 = 0);
 int get_selected_menu_value(void*);
@@ -102,7 +102,7 @@ void TWindowSubComCard__sub_80271F04(u8 *arg0, Ent_80271F04 *arg1, s32 arg2, s32
                 }
             }
         }
-    } else if (arg3 != TWindowSubComCard__sub_80077840(arg1, arg2)) {
+    } else if (arg3 != find_value_by_key__17TWindowSubComCardFPvUs(arg1, arg2)) {
         arg0[0x1D] |= 1;
         fn_80077814(arg1, arg2, arg3);
         set_entry_string_by_id__15TWindowMakeTeamFPvPvi(*(void **)(arg0 + 0x7C), get_field_20__17TWindowSubComCardFPv(get_selected_entry__17TWindowSubComCardFPv(*(void **)(arg0 + 0x64))), arg2);
@@ -139,7 +139,7 @@ void init_layout__17TWindowSubComCardFv(void) {
     create_card_list__17TWindowSubComCardFiiii(get_window_layout_position(0x91), temp_r31, 0x1C, 1);
 }
 void send_cmd_133__17TWindowSubComCardFv(void) { get_window_layout_position(133); fn_802754EC(); }
-void cleanup__17TWindowSubComCardFPv(void* p) { get_selected_menu_value(*(void**)((char*)p + 0x84)); get_card_entry__17TWindowSubComCardFi(); get_card_id__17TWindowSubComCardFPv(); TLobby__sub_802421C4(); }
+void cleanup__17TWindowSubComCardFPv(void* p) { get_selected_menu_value(*(void**)((char*)p + 0x84)); get_card_entry__17TWindowSubComCardFi(); get_card_id__17TWindowSubComCardFPv(); send_find_user_self_tag__6TLobbyFi(); }
 #pragma scheduling off
 void TWindowSubComCard__sub_802721D8(u8 *arg0) {
   u8 *new_var;

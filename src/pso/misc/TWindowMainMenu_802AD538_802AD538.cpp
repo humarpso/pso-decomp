@@ -268,7 +268,7 @@ void TWindowMainMenu__sub_802AD790(u8 *arg0, s32 arg1, s8 arg2, s8 arg3) {
 extern int fold_flush_0;
 #pragma pop
 
-void TWindowMainMenu__sub_802AD7F0(Item_802AD7F0 *p) {
+void update_item_tween__15TWindowMainMenuFPv(Item_802AD7F0 *p) {
     if (is_item_active__15TWindowMainMenuFPv(p) != 0) {
         if (p->x14 <= 0) {
             p->x8 = p->x0;

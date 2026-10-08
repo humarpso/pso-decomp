@@ -33,7 +33,7 @@ extern const f32 lbl_805D90B8;
 extern const f32 lbl_805D90BC;
 extern const f32 lbl_805D90C0;
 extern const f32 lbl_805D90C4;
-s32 TObjBagWarnWin__sub_8006EC20(void *arg0);
+s32 should_show_warning__14TObjBagWarnWinFPv(void *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 M2C_UNK set_position_xy(u32, f32, f32);
@@ -50,7 +50,7 @@ void open_message_window__14TObjBagWarnWinFPv(u8 *arg0);
 
 extern "C" {
 
-s32 TObjBagWarnWin__sub_8006EC20(void *arg0) {
+s32 should_show_warning__14TObjBagWarnWinFPv(void *arg0) {
     Ctrl_8006EC20 *ctrl;
     if (TLobby__sub_80211C3C() != 3) {
         return 0;
@@ -85,7 +85,7 @@ void run_task__14TObjBagWarnWinFv(u8 *arg0) {
     s32 temp_r0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
         if (TWindowCtrlMain__sub_8024CE58() != 0) {
-            if (TObjBagWarnWin__sub_8006EC20((void *)((void *) (arg0))) != 0) {
+            if (should_show_warning__14TObjBagWarnWinFPv((void *)((void *) (arg0))) != 0) {
                 temp_r0 = M2C_FIELD(arg0, s32 *, 0xA0) - 1;
                 M2C_FIELD(arg0, s32 *, 0xA0) = temp_r0;
                 if (temp_r0 < 0) {
@@ -98,7 +98,7 @@ void run_task__14TObjBagWarnWinFv(u8 *arg0) {
                 open_message_window__14TObjBagWarnWinFPv((u8 *)((void *) (arg0)));
             }
         }
-    } else if (TObjBagWarnWin__sub_8006EC20((void *)((void *) (arg0))) == 0) {
+    } else if (should_show_warning__14TObjBagWarnWinFPv((void *)((void *) (arg0))) == 0) {
         TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
         M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
         M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;

@@ -1960,7 +1960,7 @@ void TLobby__sub_803CBFF0(void);
 void query_available_size__6TLobbyFv(void);
 void TLobby__sub_803CC030(void);
 void dispatch_packet__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803D4448();
+M2C_UNK set_stream_channel_pan__6TLobbyFPvii();
 M2C_UNK set_sound_stream_volume();
 M2C_UNK TLobby__sub_803D4654();
 M2C_UNK TLobby__sub_803D4704();
@@ -1971,7 +1971,7 @@ M2C_UNK TLobby__sub_803D4CA0();
 M2C_UNK TLobby__sub_803D504C();
 
 void TLobby__sub_803CBF50(void) {
-    TLobby__sub_803D4448();
+    set_stream_channel_pan__6TLobbyFPvii();
 }
 
 void trigger_sub_task__6TLobbyFv(void) {
@@ -2164,7 +2164,7 @@ extern "C" {
 void update_scroll__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803CE544(u32 arg0, s32 arg1);
 M2C_UNK set_scroll_position__6TLobbyFPvi(int, void *);
-M2C_UNK TLobby__sub_803C8A14(int);
+M2C_UNK init_stream_position__6TLobbyFPv(int);
 M2C_UNK set_scroll_offset__6TLobbyFPvi(int, int);
 M2C_UNK TLobby__sub_803CE198(int, int, void *, void *);
 s32 get_scroll_offset__6TLobbyFPv(int);
@@ -2184,7 +2184,7 @@ void update_scroll__6TLobbyFPv(u8 *arg0) {
         TLobby__sub_803CE198((int) (M2C_FIELD(arg0, s32 *, 4)), (int) (M2C_FIELD(arg0, s32 *, 0x1B0)), (void *) (&spC), (void *) (&sp8));
         set_scroll_offset__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (spC / 2048));
         set_scroll_position__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 8)), (void *) ((s32) (spC + sp8) / 2048));
-        TLobby__sub_803C8A14((int) (M2C_FIELD(arg0, s32 *, 8)));
+        init_stream_position__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 8)));
         update_scroll_impl__6TLobbyFv();
     }
 }

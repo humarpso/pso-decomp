@@ -224,7 +224,7 @@ void free_resources__12TBoss8DragonFv(void);
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
 s32 TBoss8Dragon__sub_8002DB04(void *arg0);
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1);
-Grid_8002DB7C *TBoss8Dragon__sub_8002DB7C(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material);
+Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material);
 void apply_default_velocity_scale__12TBoss8DragonFv(void);
 f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
@@ -523,7 +523,7 @@ void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Grid_8002DB7C *TBoss8Dragon__sub_8002DB7C(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material) {
+Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material) {
     s32 i;
     s32 first;
     s32 second;

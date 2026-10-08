@@ -235,7 +235,7 @@ M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
 M2C_UNK set_count__6TLobbyFPvi(int, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern char lbl_8047C758[];
-void TLobby__sub_803CB20C(Obj_803CB20C *arg0);
+void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
 M2C_UNK OSResumeThread(void *);
 M2C_UNK VIWaitForRetrace();
 M2C_UNK TLobby__sub_803D3344();
@@ -296,7 +296,7 @@ s32 TLobby__sub_803CB844(void);
 extern s32 lbl_805D7540;
 void set_range__6TLobbyFPvii(void *, int, int);
 M2C_UNK set_scroll_position__6TLobbyFPvi(void *, int);
-void TLobby__sub_803C8A14(void *);
+void init_stream_position__6TLobbyFPv(void *);
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
 void configure_audio_stream_output(Stream_803C9FCC *self);
@@ -759,7 +759,7 @@ void configure_audio_stream_output(Stream_803C9FCC *self) {
     Stream_803C9FCC *pp;
     set_range__6TLobbyFPvii(self->f8, self->f3e << 11, self->f3c << 11);
     set_scroll_position__6TLobbyFPvi(self->f8, 0x19);
-    TLobby__sub_803C8A14(self->f8);
+    init_stream_position__6TLobbyFPv(self->f8);
     v = self->f10;
     pp = self;
     for (i = 0; i < self->count; i++) {
@@ -1087,7 +1087,7 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
             set_field_3c__6TLobbyFPvi(t, e);
             set_field_44__6TLobbyFPvi(t, 0);
             set_field_40__6TLobbyFPvi(t, 0);
-            TLobby__sub_803BFFFC(t, (void *)TLobby__sub_803CB20C, arg0);
+            TLobby__sub_803BFFFC(t, (void *)adxt_trap_entry_update__6TLobbyFPv, arg0);
         } else {
             if (self->f8 != NULL) {
                 set_scroll_position__6TLobbyFPvi(self->f8, 0x7FFFFFFF);
@@ -1151,7 +1151,7 @@ void TLobby__sub_803CB194(u8 *arg0) {
     set_scroll_offset__6TLobbyFPvi(temp_r31, temp_r3 / 2048);
 }
 
-void TLobby__sub_803CB20C(Obj_803CB20C *arg0) {
+void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0) {
     Buf_803CB20C b;
     Strm_803CB20C *s;
     s32 off;

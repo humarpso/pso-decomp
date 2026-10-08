@@ -47,7 +47,7 @@ int play_sound_effect(void*, void*, void*, void*);
 M2C_UNK TWindowDD__sub_8034435C();
 M2C_UNK TWindowDD__sub_80344568();
 M2C_UNK TWindowDD__sub_80344774();
-M2C_UNK TWindowDD__sub_80344980();
+M2C_UNK format_message_text__9TWindowDDFPvPvUs();
 M2C_UNK TWindowDD__sub_80344F54();
 M2C_UNK TWindowDD__sub_80345608();
 M2C_UNK TWindowDD__sub_80345C64();
@@ -174,7 +174,7 @@ void update_state__9TWindowDDFv(void) {
         TWindowDD__sub_80344F54();
         return;
     case 3:
-        TWindowDD__sub_80344980();
+        format_message_text__9TWindowDDFPvPvUs();
         return;
     }
 }

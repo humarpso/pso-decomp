@@ -32,7 +32,7 @@ M2C_UNK play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 get_selected_menu_value(int);
 s32 get_cursor_pos__20TWindowShortListCtrlFPv(int);
-u32 TLobby__sub_8034C1FC();
+u32 get_info_board_ptr__6TLobbyFv();
 void clear_if_current__26TWindowSubInformationBoardFUi(void *);
 M2C_UNK init_once_data__6TLobbyFUi(void *);
 M2C_UNK flush_pending_send__6TLobbyFv();
@@ -102,7 +102,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
             play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
             M2C_FIELD(arg0, u8 *, 0x1C) = 5U;
         }
-        if (TLobby__sub_8034C1FC() != 0U) {
+        if (get_info_board_ptr__6TLobbyFv() != 0U) {
             M2C_FIELD(arg0, u8 *, 0x1C) = 6U;
             break;
         }

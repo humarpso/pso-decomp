@@ -23,7 +23,7 @@ s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
 s32 TAdPlayerLoadGC__sub_801FD770();
 s32 TAdPlayerLoadGC__sub_801FD814();
 s32 TAdSinglePlyChrSelectGC__sub_801FEB84();
-s32 TAdSinglePlyChrSelectGC__sub_801FF2D4();
+s32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv();
 int fn_802D6BDC(void);
 void fn_802D6BE4(int a0);
 extern M2C_UNK lbl_804C88C0[];
@@ -118,7 +118,7 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0) {
         }
         break;
     case 8:
-        if ((u32)TAdSinglePlyChrSelectGC__sub_801FF2D4() != 0xFFFFFF05U) {
+        if ((u32)load_system_file_flag__23TAdSinglePlyChrSelectGCFv() != 0xFFFFFF05U) {
             M2C_FIELD(arg0, u32 *, 0x1C) = 9U;
         }
         break;

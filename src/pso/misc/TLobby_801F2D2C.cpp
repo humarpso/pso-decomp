@@ -88,7 +88,7 @@ extern u32 TLobby__data_805D5EBC;
 extern u32 TLobby__data_805D5EC0;
 extern u16 TLobby__data_805D5EC8;
 extern u16 TLobby__data_805D5ECA;
-void TLobby__sub_801F301C(u8 *arg0);
+void load_quest_globals__6TLobbyFPv(u8 *arg0);
 M2C_UNK memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__data_80512220;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__data_80512240;
@@ -115,7 +115,7 @@ extern u32 TLobby__data_805D5EBC;
 extern u32 TLobby__data_805D5EC0;
 extern u16 TLobby__data_805D5EC8;
 extern u16 TLobby__data_805D5ECA;
-void TLobby__sub_801F2EF4(u8 *arg0);
+void save_quest_state_to_record__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
 M2C_UNK *TObjItemOKWindow__sub_801F3268(void);
 unsigned char read_packet_byte__6TLobbyFv(void);
@@ -201,9 +201,9 @@ unsigned char read_packet_byte__6TLobbyFv(void) { return TLobby__data_805D5E70[T
 s32 dispatch_quest__6TLobbyFi(s32 arg0) {
     s32 temp_r31;
 
-    TLobby__sub_801F301C((u8 *)(arg0));
+    load_quest_globals__6TLobbyFPv((u8 *)(arg0));
     temp_r31 = dispatch_quest_opcode();
-    TLobby__sub_801F2EF4((u8 *)(arg0));
+    save_quest_state_to_record__6TLobbyFPv((u8 *)(arg0));
     return temp_r31;
 }
 
@@ -271,7 +271,7 @@ s32 dispatch_quest_opcode(void) {
     return TLobby__data_805D5E98;
 }
 
-void TLobby__sub_801F2EF4(u8 *arg0) {
+void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&TLobby__data_805D5E70);
     M2C_FIELD(arg0, s32 *, 4) = (s32) TLobby__data_805D5E74;
     M2C_FIELD(arg0, s32 *, 8) = (s32) TLobby__data_805D5E78;
@@ -306,7 +306,7 @@ void TLobby__sub_801F2EF4(u8 *arg0) {
     M2C_FIELD(arg0, u16 *, 0x172) = (u16) TLobby__data_805D5ECA;
 }
 
-void TLobby__sub_801F301C(u8 *arg0) {
+void load_quest_globals__6TLobbyFPv(u8 *arg0) {
     (*(s32 *)&TLobby__data_805D5E70) = M2C_FIELD(arg0, s32 *, 0);
     TLobby__data_805D5E74 = M2C_FIELD(arg0, s32 *, 4);
     TLobby__data_805D5E78 = M2C_FIELD(arg0, s32 *, 8);

@@ -65,7 +65,7 @@ s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
 void disable_disconnected_ports__16TKeyBoardControlFv(void);
 bool TKeyBoardControl__sub_801321B4(s32);
 s32 check_input_ready__16TKeyBoardControlFi(s32 arg0);
-bool TKeyBoardControl__sub_801322E4(s32 arg0);
+bool is_key_57_pressed__16TKeyBoardControlFi(s32 arg0);
 s32 TKeyBoardControl__sub_80132310(s32 arg0);
 u8 get_key_state_2__16TKeyBoardControlFPv(void* p);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
@@ -113,7 +113,7 @@ void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
 void TKeyBoardControl__sub_80132650(Kb_80132650 *kb);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__data_80506270;
-void TKeyBoardControl__sub_8013240C(Kb_801324F8 *self, u8 arg1);
+void push_key_to_buffer__16TKeyBoardControlFPvUc(Kb_801324F8 *self, u8 arg1);
 }
 
 extern "C" {
@@ -244,7 +244,7 @@ s32 check_input_ready__16TKeyBoardControlFi(s32 arg0) {
     if (TKeyBoardControl__sub_80132310((s32)(arg0)) != 0) {
         return 0;
     }
-    if (((s32 (*)(s32))TKeyBoardControl__sub_801322E4)((s32)(arg0)) != 0) {
+    if (((s32 (*)(s32))is_key_57_pressed__16TKeyBoardControlFi)((s32)(arg0)) != 0) {
         return 0;
     }
     if (((s32 (*)(s32))TKeyBoardControl__sub_801321B4)(arg0) != 0) {
@@ -273,7 +273,7 @@ bool TKeyBoardControl__sub_80132274(s32 arg0) {
     return ((s32)TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x5BU)))) != 0;
 }
 
-bool TKeyBoardControl__sub_801322E4(s32 arg0) {
+bool is_key_57_pressed__16TKeyBoardControlFi(s32 arg0) {
     return TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)(arg0)), (u8)((int)(0x57U))) != 0;
 }
 s32 TKeyBoardControl__sub_80132310(s32 arg0) {
@@ -308,7 +308,7 @@ s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1) {
 
 u8 get_key_state__16TKeyBoardControlFPv(void* p) { return *(u8*)((char*)p + 0x1); }
 
-void TKeyBoardControl__sub_8013240C(Kb_801324F8 *self, u8 arg1) {
+void push_key_to_buffer__16TKeyBoardControlFPvUc(Kb_801324F8 *self, u8 arg1) {
     K_8013239C *arg0 = (K_8013239C *)self;
     u8 t;
     if ((get_key_state__16TKeyBoardControlFPv(&TKeyBoardControl__data_80506270) != 0 && arg1 == 0x5B) || (u8)(arg1 - 0x54) <= 2 || arg1 == 0x57) {
@@ -345,7 +345,7 @@ void TKeyBoardControl__sub_801324F8(Kb_801324F8 *arg0, u8 arg1) {
         if (p->key == arg1) {
             p->timer--;
             if (p->timer <= 0) {
-                TKeyBoardControl__sub_8013240C((Kb_801324F8 *)(arg0), arg1);
+                push_key_to_buffer__16TKeyBoardControlFPvUc((Kb_801324F8 *)(arg0), arg1);
                 p->timer += 6;
             }
             return;

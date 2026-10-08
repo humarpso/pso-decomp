@@ -126,7 +126,7 @@ void TAdMultiChgGameModeGC__sub_8036EA24(u8 *arg0);
 extern RecoveredGlobal_8036EA24_lbl_804F3908 lbl_804F3908;
 void set_state__21TAdMultiChgGameModeGCFPvi(u8 *arg0, s32 arg1);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
-u32 TAdSinglePlyChrSelectGC__sub_801FF2D4(void);
+u32 load_system_file_flag__23TAdSinglePlyChrSelectGCFv(void);
 void TAdMultiChgGameModeGC__sub_8036E7DC(void *self);
 s32 handle_mode_selection__21TAdMultiChgGameModeGCFPv(void *arg0);
 void TAdMultiChgGameModeGC__sub_8036DEDC(void *self);
@@ -470,7 +470,7 @@ void TAdMultiChgGameModeGC__sub_8036E7DC(void *self) {
     if (handle_mode_selection__21TAdMultiChgGameModeGCFPv(self) != 0) {
         return;
     }
-    if (TAdSinglePlyChrSelectGC__sub_801FF2D4() == 0xFFFFFF05) {
+    if (load_system_file_flag__23TAdSinglePlyChrSelectGCFv() == 0xFFFFFF05) {
         return;
     }
 }

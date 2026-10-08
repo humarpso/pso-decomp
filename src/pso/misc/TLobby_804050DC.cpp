@@ -526,7 +526,7 @@ extern RecoveredGlobal_803F89DC_lbl_805B94BC lbl_805B94BC;
 void TLobby__sub_803F89DC(u8 *arg0);
 extern RecoveredGlobal_803F895C_lbl_805AEEB0 lbl_805AEEB0;
 void TLobby__sub_803F8A28(u8 *arg0);
-void TLobby__sub_80425B70(void);
+void reset_message_thread__6TLobbyFv(void);
 void TLobby__sub_803F8AB8(void);
 s32 OSGetTick();
 void NetStoreTick(s32 *arg0);
@@ -554,7 +554,7 @@ s32 TLobby__sub_8039DAFC(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
 void strlen(s32);
 M2C_UNK memmove();
-void TLobby__sub_803F9EA4(void);
+void memmove_wrapper__6TLobbyFv(void);
 M2C_UNK memcmp();
 M2C_UNK memset();
 M2C_UNK memcpy();
@@ -617,7 +617,7 @@ extern s32 lbl_805D7AC8;
 s16 TLobby__sub_80405140(void);
 void TLobby__sub_803F8A08(void *);
 extern s16 lbl_805D7AF0;
-s32 TLobby__sub_80406AE4(void);
+s32 shutdown_network_handle__6TLobbyFv(void);
 s32 TUdpSocket__sub_80407508(void);
 void TLobby__sub_804073B8(void);
 s32 TLobby__sub_80407C60(s16, s32);
@@ -667,7 +667,7 @@ s16 TLobby__sub_804148A8(u8 *arg0);
 s32 NetIPv6IsMulticast(u8 *arg0);
 s32 is_zero_16_bytes__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803F9EC4(void * _w0, void * _w1, int _w2);
-s32 TLobby__sub_80414B54(s32 arg0, s32 arg1);
+s32 compare_sockaddr_bytes__6TLobbyFii(s32 arg0, s32 arg1);
 s16 TLobby__sub_8041510C(void);
 void TLobby__sub_804150EC(void);
 void TLobby__sub_8041615C(void);
@@ -740,7 +740,7 @@ extern RecoveredGlobal_8040FF0C_lbl_805C1B78 lbl_805C1B78;
 s32 shutdown_ipv6__6TLobbyFv(void);
 void TLobby__sub_803F89D8(void *);
 extern RecoveredGlobal_80415650_lbl_805C1BF8 lbl_805C1BF8;
-s32 TLobby__sub_80415650(void);
+s32 reset_net_value__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803F8E9C();
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
@@ -799,7 +799,7 @@ extern u16 lbl_805D7A60;
 extern Ent_803F8D84 *lbl_805D7A64;
 s32 TLobby__sub_803F8DBC(s32 size);
 s64 OSGetTime();
-void TLobby__sub_803F91D0(s32 *out);
+void get_time_seconds__6TLobbyFPv(s32 *out);
 s64 OSGetTime();
 void get_time_ms__6TLobbyFPv(s32 *out);
 extern u16 lbl_805D7A68;
@@ -936,8 +936,8 @@ u8 *TLobby__sub_80402B3C(u8 *p, u32 v);
 extern u8 lbl_805D7A74[1];
 void TLobby__sub_803FADA0(B_803FADA0 **arg0, A_803FADA0 *arg1, s32 arg2, s32 arg3, void *arg4);
 s32 TLobby__sub_80414D54(u8 *arg0, u8 *arg1, s16 arg2);
-s32 TLobby__sub_80414EF8(u8 *a, u8 *b, s16 bits);
-s32 TLobby__sub_80414764(u8 *arg0, u8 *arg1);
+s32 compare_bit_prefix__6TLobbyFPvPvs(u8 *a, u8 *b, s16 bits);
+s32 init_default_packet_header__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 void TLobby__sub_803F8B78(void *);
 s32 clear_table_entry_locked__6TLobbyFs(s16 arg0);
 extern RecoveredGlobal_8041552C_lbl_805C1BE0 lbl_805C1BE0;
@@ -951,7 +951,7 @@ void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
 void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
 u8 *alloc_free_entry__6TLobbyFv();
 extern Tbl_80408718 lbl_805C1AB0;
-Pkt_804081C0 *TLobby__sub_804081C0(Out_804081C0 *arg0, u8 *arg1);
+Pkt_804081C0 *alloc_packet_with_header__6TLobbyFPvPv(Out_804081C0 *arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -1090,7 +1090,7 @@ s32 TLobby__sub_803F8DBC(s32 size);
 
 s32 cancel_pending_alarms__6TLobbyFv(void);
 
-void TLobby__sub_803F91D0(s32 *out);
+void get_time_seconds__6TLobbyFPv(s32 *out);
 
 void get_time_ms__6TLobbyFPv(s32 *out);
 
@@ -1134,7 +1134,7 @@ void copy_string__6TLobbyFPvPv(void *arg0, void *arg1);
 
 u32 str_length__6TLobbyFi(s32 arg0);
 
-void TLobby__sub_803F9EA4(void);
+void memmove_wrapper__6TLobbyFv(void);
 
 s32 TLobby__sub_803F9EC4(void * _w0, void * _w1, int _w2);
 
@@ -1251,7 +1251,7 @@ s32 TLobby__sub_803FD560(s16 i);
 
 struct N_80405298;
 void TLobby__sub_80405298(N_80405298 *o, s32 v);
-void TLobby__sub_803FDA68(void *);
+void update_countdown_state__6TLobbyFPv(void *);
 
 void TLobby__sub_803FD694(u8 *arg0);
 
@@ -1277,7 +1277,7 @@ struct Self_803FDA68 {
     void *f30;
 };
 
-void TLobby__sub_803FDA68(void *arg0);
+void update_countdown_state__6TLobbyFPv(void *arg0);
 
 struct V_803FE600;
 struct O_803FE600 {
@@ -1893,7 +1893,7 @@ s32 TLobby__sub_804062A0(s16 arg0) {
     }
 }
 
-s32 TLobby__sub_80406AE4(void) {
+s32 shutdown_network_handle__6TLobbyFv(void) {
     TLobby__sub_803F8A08((void *)((void *) (&lbl_805D7AF0)));
     lbl_805D7AF0 = 0;
     return 0;
@@ -2092,7 +2092,7 @@ inline void Clear_8040799C(Peer_8040799C *p) {
 
 inline void Send_8040799C(Ent_8040799C *e, void *name) {
     Out_8040799C o;
-    void *r = TLobby__sub_804081C0((Out_804081C0 *)(&o), (u8 *)(e));
+    void *r = alloc_packet_with_header__6TLobbyFPvPv((Out_804081C0 *)(&o), (u8 *)(e));
     if (r != NULL) {
         o.a->f6 = 1;
         TLobby__sub_803F9F04(o.b, e->a12, e->fE);
@@ -2153,7 +2153,7 @@ s32 TLobby__sub_803F9EC4(void * _w0, void * _w1, int _w2);
 void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);
 
 struct Tbl_80408718;
-Pkt_804081C0 *TLobby__sub_804081C0(Out_804081C0 *arg0, u8 *arg1) {
+Pkt_804081C0 *alloc_packet_with_header__6TLobbyFPvPv(Out_804081C0 *arg0, u8 *arg1) {
     s16 len;
     Pkt_804081C0 *pkt;
     u8 *buf;
@@ -2447,7 +2447,7 @@ struct Hdr_80408C24 { u8 dst[6]; u8 src[6]; u16 type; };
 
 s16 TLobby__sub_804098B4(void *);
 M2C_UNK TLobby__sub_80409908(void *, void *);
-M2C_UNK TLobby__sub_804253A0(void *);
+M2C_UNK clear_message_entry__6TLobbyFi(void *);
 u8 *TLobby__sub_8042558C(s32);
 struct Tbl_80408F2C;
 extern Tbl_80408F2C lbl_805C1AD8;
@@ -2526,7 +2526,7 @@ s32 send_ethernet_frame__6TLobbyFssPvPv(s16 idx, s16 mode, u8 *addr, void *pkt) 
     TLobby__sub_803F9F04(c->buf, &hdr, 0xE);
     len = TLobby__sub_804098B4(pkt);
     if (len > 0x5DC) {
-        TLobby__sub_804253A0(c->buf);
+        clear_message_entry__6TLobbyFi(c->buf);
         return -2;
     }
     TLobby__sub_80409908(c->buf + 0xE, pkt);
@@ -2537,7 +2537,7 @@ s32 send_ethernet_frame__6TLobbyFssPvPv(s16 idx, s16 mode, u8 *addr, void *pkt) 
     if (fn != NULL) {
         fn(c->handle, c->buf, len + 0xE);
     } else {
-        TLobby__sub_804253A0(c->buf);
+        clear_message_entry__6TLobbyFi(c->buf);
         return -0x111;
     }
     return 0;
@@ -3768,7 +3768,7 @@ s32 compare_sockaddr__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
         }
         var_r3 = (u8 *)(arg0 + 4);
         var_r4 = (u8 *)(arg1 + 4);
-        return TLobby__sub_80414B54((s32)((int) (var_r3)), (s32)((int) (var_r4)));
+        return compare_sockaddr_bytes__6TLobbyFii((s32)((int) (var_r3)), (s32)((int) (var_r4)));
     default:
     case 0:
         var_r3 = (u8 *)((void *)-1);
@@ -4285,7 +4285,7 @@ s16 TLobby__sub_80412210(s16 idx) {
             remove_80412210(g, b, d);
         }
         TLobby__sub_80409D7C(idx, ifc->f2, 2, (s32)grp->f2);
-        TLobby__sub_80414764(c, grp->f2);
+        init_default_packet_header__6TLobbyFPvPv(c, grp->f2);
         TLobby__sub_80409CE0(idx, ifc->f2, 2, (s32)c);
         next = grp->f28;
         grp->f0 = 0;
@@ -4310,7 +4310,7 @@ s16 TLobby__sub_80412210(s16 idx) {
             }
         }
     }
-    TLobby__sub_80414764(c, ifc->f4);
+    init_default_packet_header__6TLobbyFPvPv(c, ifc->f4);
     TLobby__sub_80409CE0(idx, ifc->f2, 2, (s32)c);
     TLobby__sub_8041481C(c, 2);
     TLobby__sub_80409CE0(idx, ifc->f2, 2, (s32)c);
@@ -4496,7 +4496,7 @@ s16 *TLobby__sub_8041471C(s16 arg0) {
 }
 #pragma pop
 
-s32 TLobby__sub_80414764(u8 *arg0, u8 *arg1) {
+s32 init_default_packet_header__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, u8 *, 0) = 0xFF;
     M2C_FIELD(arg0, s8 *, 1) = 2;
     M2C_FIELD(arg0, s8 *, 2) = 0;
@@ -4642,7 +4642,7 @@ s32 is_zero_16_bytes__6TLobbyFPv(u8 *arg0) {
     return 1;
 }
 
-s32 TLobby__sub_80414B54(s32 arg0, s32 arg1) {
+s32 compare_sockaddr_bytes__6TLobbyFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     temp_r3 = TLobby__sub_803F9EC4((void *) (arg0), (void *) (arg1), (int) (0x10));
     if (temp_r3 < 0) {
@@ -4726,7 +4726,7 @@ s32 TLobby__sub_80414D54(u8 *arg0, u8 *arg1, s16 arg2) {
     return 0;
 }
 
-s32 TLobby__sub_80414EF8(u8 *a, u8 *b, s16 bits) {
+s32 compare_bit_prefix__6TLobbyFPvPvs(u8 *a, u8 *b, s16 bits) {
     s16 n;
     s16 rem;
     if (bits <= 0) {
@@ -4861,7 +4861,7 @@ s32 TLobby__sub_80415604(s16 h, u8 *p) {
 }
 
 typedef char RecoveredGlobal_80415650_lbl_805C1BF8_size[sizeof(RecoveredGlobal_80415650_lbl_805C1BF8) == 0x10 ? 1 : -1];
-s32 TLobby__sub_80415650(void) {
+s32 reset_net_value__6TLobbyFv(void) {
     TLobby__sub_803F89D8((void *)((void *) (&lbl_805C1BF8.value)));
     lbl_805C1BF8.value = 0;
     return 0;
@@ -5010,7 +5010,7 @@ s32 TLobby__sub_80416008(s32 arg0, s32 arg1) {
     ((Fields_temp_r3*)temp_r3)->field_4 = 0;
     ((Fields_temp_r3*)temp_r3)->field_8 = 0;
     TUdpSocket__sub_803F9EE4((void *) (&stack.sp10), (int) (0), (int) (0x10));
-    TLobby__sub_80414764((u8 *)((void *) (&stack.sp20)), (u8 *)((void *) (arg0)));
+    init_default_packet_header__6TLobbyFPvPv((u8 *)((void *) (&stack.sp20)), (u8 *)((void *) (arg0)));
     temp_r31 = TLobby__sub_80417FA8((int) (temp_r3), (void *) (arg0), (void *) (&stack.sp10), (void *) (arg1), (int) (0));
     release_entry__10TUdpSocketFPv((void *) (temp_r3));
     return temp_r31;
@@ -5560,7 +5560,7 @@ s32 TLobby__sub_80417D1C(u8 *arg0) {
     } else {
         TLobby__sub_804145D4(sp1C, M2C_FIELD(arg0, s16 *, 8));
     }
-    TLobby__sub_80414764((u8 *)(sp2C), (u8 *)(arg0 + 0x16));
+    init_default_packet_header__6TLobbyFPvPv((u8 *)(sp2C), (u8 *)(arg0 + 0x16));
     temp_r31 = TLobby__sub_80417FA8((int)temp_r3, arg0 + 0x16, sp1C, (void *)M2C_FIELD(arg0, s16 *, 8), 0);
     release_entry__10TUdpSocketFPv(temp_r3);
     return temp_r31;

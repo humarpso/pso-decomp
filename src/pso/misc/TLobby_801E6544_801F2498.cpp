@@ -44,7 +44,7 @@ void qst_op_leti(int a0, int a1);
 void qst_op_nop(void);
 void qst_op_ret(void);
 void qst_op_sync(void);
-s32 TLobby__sub_801F2BCC();
+s32 pop_stack_value__6TLobbyFv();
 M2C_UNK clear_story_flag(s32);
 s32 get_story_flag(s32);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
@@ -137,7 +137,7 @@ void qst_op_ret(void) {
 
     temp_r31 = (u32) (-TLobby__data_805D5E8C & ~TLobby__data_805D5E8C) >> 0x1FU;
     if (temp_r31 != 0) {
-        TLobby__data_805D5E90 = TLobby__sub_801F2BCC();
+        TLobby__data_805D5E90 = pop_stack_value__6TLobbyFv();
     }
     if (temp_r31 == 0) {
         TLobby__data_805D5E98 = 2;

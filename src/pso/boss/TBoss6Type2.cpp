@@ -178,7 +178,7 @@ void advance_position__11TBoss6Type2FPv(u8 *arg0);
 void TBoss6Type2__sub_802BBF54(u8 *arg0);
 M2C_UNK TBoss6Type2__sub_802BC124(void *);
 void update_countdown__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self);
+void update_motion_tracks__11TBoss6Type2FPv(Obj_802BCD2C *self);
 extern const f32 lbl_805DE4C0;
 void run_task__11TBoss6Type2Fv(u8 *arg0);
 s32 get_bml_motion(int, int);
@@ -257,7 +257,7 @@ void reset_indices__11TBoss6Type2FPv(void *arg0);
 void reset_attack_counter__11TBoss6Type2FPv(void *arg0);
 void copy_anim_state__11TBoss6Type2FPv(void *arg0);
 void set_screen_pos__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BC754(u8 *arg0);
+void load_battle_params__11TBoss6Type2FPv(u8 *arg0);
 void init_motion_entries__11TBoss6Type2FPv(O_802BCEF4 *o);
 void set_action_state__11TBoss6Type2FPvPv(void *ov, void *vv);
 void TBoss6Type2__sub_802BE4E0(s32 *arg0, s32 *arg1);
@@ -282,11 +282,11 @@ s32 TBoss6Type2__sub_802BD870(u32 v);
 s32 rand(void);
 extern const f32 TBoss6Type2__data_805DE468;
 extern const f32 lbl_805DE4C4;
-s32 TBoss6Type2__sub_802BD7EC(Boss_802BD7EC *o);
+s32 pick_random_other_index__11TBoss6Type2FPv(Boss_802BD7EC *o);
 int TBoss6Type2__sub_802BB694(void);
 void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
 void send_action_packet_if_idle__11TBoss6Type2FPviPv(void *arg0, s32 arg1, M2C_UNK *arg2);
-void TBoss6Type2__sub_802BDC5C(u8 *arg0);
+void send_state_action_packet__11TBoss6Type2FPv(u8 *arg0);
 }
 
 extern "C" {
@@ -669,7 +669,7 @@ void TBoss6Type2__sub_802B9F0C(T2_802B9EE4 *arg0);
 void aim_toward_point__11TBoss6Type2FPvPv(Boss_802B9F3C *arg0, Vec_802B9A68 *arg1);
 void TBoss6Type2__sub_802BA000(T2_802BA000 *arg0);
 void TBoss6Type2__sub_802BA078(Boss_802BA078 *arg0);
-void TBoss6Type2__sub_802BA158(Obj_802BA158 *self);
+void reset_fish_fields__11TBoss6Type2FPv(Obj_802BA158 *self);
 void restore_target_player_state__11TBoss6Type2FPv(u8 *arg0);
 void copy_vec2__11TBoss6Type2FPvPv(void* p, void* q);
 s32 grab_player__11TBoss6Type2FPvUs(u8 *arg0, u16 arg1);
@@ -724,7 +724,7 @@ void reset_attack_counter__11TBoss6Type2FPv(void *arg0);
 s32 calc_field4f0_delta__11TBoss6Type2FPv(void *arg0);
 void copy_anim_state__11TBoss6Type2FPv(void *arg0);
 void set_screen_pos__11TBoss6Type2FPv(void *arg0);
-void TBoss6Type2__sub_802BC754(u8 *arg0);
+void load_battle_params__11TBoss6Type2FPv(u8 *arg0);
 void TBoss6Type2__sub_802BCC54(void *, int);
 void copy_transform__11TBoss6Type2FPvPv(void* p, void* q);
 Blk_802BCFD4 * TBoss6Type2__sub_802BCFD4(Blk_802BCFD4 *d, Blk_802BCFD4 *s);
@@ -1168,7 +1168,7 @@ extern int fold_flush_8;
 #pragma opt_common_subs off
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
-void TBoss6Type2__sub_802BA158(Obj_802BA158 *self) {
+void reset_fish_fields__11TBoss6Type2FPv(Obj_802BA158 *self) {
     self->f55c = 0xFFFF;
     self->f570 = 0;
     self->f58c = 0;
@@ -1189,7 +1189,7 @@ void restore_target_player_state__11TBoss6Type2FPv(u8 *arg0) {
     if (id != 0xFFFF) {
         temp_r3 = get_player_by_client_id(id);
         if (temp_r3 == NULL) {
-            TBoss6Type2__sub_802BA158((Obj_802BA158 *)((void *)((void *) (arg0))));
+            reset_fish_fields__11TBoss6Type2FPv((Obj_802BA158 *)((void *)((void *) (arg0))));
             return;
         }
         copy_vec2__11TBoss6Type2FPvPv((void*)((void *) (temp_r3 + 0xCF4)), (void*)((void *) (arg0 + 0x574)));
@@ -1198,7 +1198,7 @@ void restore_target_player_state__11TBoss6Type2FPv(u8 *arg0) {
         M2C_FIELD(temp_r3, s32 *, 0x8B0) = (s32) M2C_FIELD(arg0, s32 *, 0x590);
         M2C_FIELD(temp_r3, s32 *, 0x8AC) = (s32) M2C_FIELD(arg0, s32 *, 0x594);
         M2C_FIELD(temp_r3, s32 *, 0x8B4) = (s32) M2C_FIELD(arg0, s32 *, 0x598);
-        TBoss6Type2__sub_802BA158((Obj_802BA158 *)((void *)((void *) (arg0))));
+        reset_fish_fields__11TBoss6Type2FPv((Obj_802BA158 *)((void *)((void *) (arg0))));
     }
 }
 extern int fold_flush_10;
@@ -1277,7 +1277,7 @@ void update_possess_target__11TBoss6Type2FPv(u8 *arg0) {
         if (done != 0) {
             ((int (*)(void *))restore_target_player_state__11TBoss6Type2FPv)(arg0);
             M2C_FIELD(arg0, u16 *, 0x464) = 0xFFFF;
-            M2C_FIELD(arg0, s32 *, 0x428) = TBoss6Type2__sub_802BD7EC((Boss_802BD7EC *)(arg0));
+            M2C_FIELD(arg0, s32 *, 0x428) = pick_random_other_index__11TBoss6Type2FPv((Boss_802BD7EC *)(arg0));
             M2C_FIELD(arg0, s32 *, 0x430) = ((s32 (*)(void *))choose_next_index__11TBoss6Type2FPv)(arg0);
         }
         switch (M2C_FIELD(arg0, s32 *, 0x374)) {
@@ -1293,7 +1293,7 @@ void reset_counters__11TBoss6Type2FPv(void *arg0) {
     if ((u16) M2C_FIELD(arg0, u16 *, 0x55C) != 0xFFFF) {
         ((M2C_UNK (*)(void))restore_target_player_state__11TBoss6Type2FPv)();
     }
-    ((M2C_UNK (*)(void *))TBoss6Type2__sub_802BA158)(arg0);
+    ((M2C_UNK (*)(void *))reset_fish_fields__11TBoss6Type2FPv)(arg0);
     M2C_FIELD(arg0, s32 *, 0x560) = 0;
     M2C_FIELD(arg0, s32 *, 0x564) = 0;
     M2C_FIELD(arg0, s32 *, 0x568) = 0;
@@ -1301,7 +1301,7 @@ void reset_counters__11TBoss6Type2FPv(void *arg0) {
 }
 
 void cache_fish_params__11TBoss6Type2FPv(void *arg0) {
-    ((M2C_UNK (*)(void))TBoss6Type2__sub_802BA158)();
+    ((M2C_UNK (*)(void))reset_fish_fields__11TBoss6Type2FPv)();
     M2C_FIELD(arg0, s32 *, 0x560) = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x3FC), 0xB);
     M2C_FIELD(arg0, s32 *, 0x564) = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x3FC), 0xA);
     M2C_FIELD(arg0, s32 *, 0x568) = get_bml_model(M2C_FIELD(arg0, s32 *, 0x3FC), 0xB);
@@ -2017,7 +2017,7 @@ extern int fold_flush_12;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-void TBoss6Type2__sub_802BC754(u8 *arg0) {
+void load_battle_params__11TBoss6Type2FPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3_2;
     u8 *temp_r3;
@@ -2166,7 +2166,7 @@ void draw_body_models__11TBoss6Type2FPv(u8 *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
-void TBoss6Type2__sub_802BCD2C(Obj_802BCD2C *self) {
+void update_motion_tracks__11TBoss6Type2FPv(Obj_802BCD2C *self) {
     s32 i;
     Trk_802BCD2C *e;
     f32 n;
@@ -2310,7 +2310,7 @@ void run_task__11TBoss6Type2Fv(u8 *arg0) {
         }
     }
 #undef o
-    TBoss6Type2__sub_802BCD2C((Obj_802BCD2C *) (arg0));
+    update_motion_tracks__11TBoss6Type2FPv((Obj_802BCD2C *) (arg0));
     advance_position__11TBoss6Type2FPv(arg0);
     TBoss6Type2__sub_802BBE20((void *) (arg0));
     update_parts_flags__11TBoss6Type2FPv((void *) (arg0));
@@ -2597,7 +2597,7 @@ extern int fold_flush_26;
 #pragma auto_inline off
 #pragma dont_inline off
 
-s32 TBoss6Type2__sub_802BD7EC(Boss_802BD7EC *o) {
+s32 pick_random_other_index__11TBoss6Type2FPv(Boss_802BD7EC *o) {
     s32 t = TBoss6Type2__sub_802BD870(o->f2E4);
     s32 r = t + (s32)(lbl_805DE4C4 * (TBoss6Type2__data_805DE468 * (f32)rand())) + 1;
     if (r >= 4) {
@@ -2748,7 +2748,7 @@ extern int fold_flush_29;
 #pragma auto_inline off
 #pragma dont_inline off
 
-void TBoss6Type2__sub_802BDC5C(u8 *arg0) {
+void send_state_action_packet__11TBoss6Type2FPv(u8 *arg0) {
     M2C_UNK sp8;
     s32 var_r31;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x424) != 0) {
@@ -2973,7 +2973,7 @@ s32 TBoss6Type2__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     M2C_FIELD(arg0, u16 *, 0x46A) = 0xFFFF;
     M2C_FIELD(arg0, s32 *, 0x46C) = -1;
     M2C_FIELD(arg0, s32 *, 0x470) = 0;
-    TBoss6Type2__sub_802BC754(arg0);
+    load_battle_params__11TBoss6Type2FPv(arg0);
     set_screen_pos__11TBoss6Type2FPv(arg0);
     copy_anim_state__11TBoss6Type2FPv(arg0);
     reset_attack_counter__11TBoss6Type2FPv(arg0);

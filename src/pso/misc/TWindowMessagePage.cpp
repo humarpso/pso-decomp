@@ -43,7 +43,7 @@ int render__18TWindowMessagePageFv(void* p);
 void set_text__18TWindowMessagePageFiii(s32 a, s32 b, s32 c);
 void update_message__18TWindowMessagePageFPv(void *arg0);
 s32 get_shared_text_buffer();
-u32 TWindowSubStatusDisp__sub_80228F84(u32);
+u32 copy_message_page_text__20TWindowSubStatusDispFPv(u32);
 M2C_UNK text_builder_reset();
 void __dl__7TObjectFPv(void *);
 void __dt__14TWindowMessageFv(void *, int);
@@ -60,7 +60,7 @@ s32 is_ready__18TWindowMessagePageFPv(void *arg0) {
 void update_message__18TWindowMessagePageFPv(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
         text_builder_reset();
-        M2C_FIELD(arg0, u32 *, 0x94) = TWindowSubStatusDisp__sub_80228F84(M2C_FIELD(arg0, u32 *, 0x94));
+        M2C_FIELD(arg0, u32 *, 0x94) = copy_message_page_text__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x94));
         send_and_handle__6TLobbyFPvii(arg0, get_shared_text_buffer(), M2C_FIELD(arg0, s32 *, 0x90));
     }
 }

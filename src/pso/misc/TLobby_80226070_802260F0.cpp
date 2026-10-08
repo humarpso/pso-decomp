@@ -9,7 +9,7 @@ extern "C" {
 void init_layout_positions__6TLobbyFv(void);
 M2C_UNK reset_global__6TLobbyFv();
 M2C_UNK close_option_window__6TLobbyFv();
-s32 TLobby__sub_80226328(void);
+s32 init_sound_mode__6TLobbyFPv(void);
 
 extern s32 lbl_805D627C;
 extern s32 lbl_805D6290;
@@ -18,7 +18,7 @@ extern s32 lbl_805D62A4;
 void init_layout_positions__6TLobbyFv(void) {
     lbl_805D627C = -0x50;
     lbl_805D62A4 = -0x5A;
-    if (TLobby__sub_80226328() == 1) {
+    if (init_sound_mode__6TLobbyFPv() == 1) {
         lbl_805D627C -= 0x32;
     }
     lbl_805D6290 = -0xA;

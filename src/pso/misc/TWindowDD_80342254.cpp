@@ -17,7 +17,7 @@ extern "C" {
 s16 TWindowDD__sub_80342158(int);
 M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
-M2C_UNK TWindowDD__sub_80347B70(void *);
+M2C_UNK update_selection_state__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_80347C50();
 M2C_UNK play_se__9TWindowDDFv();
 M2C_UNK play_sound__9TWindowDDFv();
@@ -134,7 +134,7 @@ s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1) {
 void TWindowDD__sub_80342428(u8 *arg0) {
   u8 *new_var;
   TWindowDD__sub_80347C50();
-  TWindowDD__sub_80347B70((void *) arg0);
+  update_selection_state__9TWindowDDFPv((void *) arg0);
   if (test_input_flag_4__9TWindowDDFPv((void *) arg0))
   {
     play_sound__9TWindowDDFv();

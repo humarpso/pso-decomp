@@ -18,7 +18,7 @@ extern const f32 lbl_805DFCE0;
 extern const f32 lbl_805DFCE4;
 f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1);
 extern Src_80348A9C TWindowDD__data_805434E8[][8];
-void TWindowDD__sub_80348A9C(Dst_80348A9C *self, s32 idx);
+void copy_point_table__9TWindowDDFPvi(Dst_80348A9C *self, s32 idx);
 extern s32 *TWindowDD__data_805D6E18;
 extern s32 *TWindowDD__data_805D6E28;
 extern s16 *lbl_805D6E34;
@@ -66,7 +66,7 @@ void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     temp_r31 = get_draw_count__9TWindowDDFPv((void **)(lbl_805D63F0));
     TWindowDD__sub_80348AD4(M2C_FIELD(arg0, f32 *, 0x54), farg0);
     reset_entries__9TWindowDDFPvf(&sp8, -1);
-    TWindowDD__sub_80348A9C((Dst_80348A9C *)(&sp8), (s32)(arg2));
+    copy_point_table__9TWindowDDFPvi((Dst_80348A9C *)(&sp8), (s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));
     TWindowDD__sub_803489B8(arg1, &sp8, 0);
     draw_transformed_primitive__9TWindowDDFPvPvPvPv(&sp8, 8, temp_r31, 1);
@@ -110,7 +110,7 @@ void TWindowDD__sub_80348A2C(void *arg0, void *arg1) {
   *((f32 *) new_var2) = temp_f4;
 }
 
-void TWindowDD__sub_80348A9C(Dst_80348A9C *self, s32 idx) {
+void copy_point_table__9TWindowDDFPvi(Dst_80348A9C *self, s32 idx) {
     s32 i;
     Src_80348A9C *s = TWindowDD__data_805434E8[idx];
     for (i = 0; i < 8; i++) {

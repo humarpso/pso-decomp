@@ -146,13 +146,13 @@ s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_8012A6B4(u8 *arg0);
 extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
-s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2);
+s32 apply_mode_effect__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2);
 s32 get_extended_state__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_80121238(s32);
 u16 get_uid__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80121248(s32, s32);
 s32 TObjPlayer__sub_8012125C(s32);
-s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2);
+s32 apply_mode_effect__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2);
 s32 resolve_hittable_target(s32, s32);
 void TObjPlayer__sub_8012A470(Pl_8012A470 *arg0);
 }
@@ -197,13 +197,13 @@ void TObjPlayer__sub_8012A470(Pl_8012A470 *arg0) {
       r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) TObjPlayer__sub_80121238(e)));
       if (r != 0)
       {
-        TObjPlayer__sub_8012A508(arg0, r, v);
+        apply_mode_effect__10TObjPlayerFPvUii(arg0, r, v);
       }
     }
   }
 }
 
-s32 TObjPlayer__sub_8012A508(void *arg0, u32 arg1, s32 arg2) {
+s32 apply_mode_effect__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2) {
     Self_8012A508 *self = (Self_8012A508 *)arg0;
     VObj_8012A508 *obj = (VObj_8012A508 *)arg1;
     u32 f;
@@ -238,7 +238,7 @@ void TObjPlayer__sub_8012A5E8(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4
             case 1:
             case 2:
                 if (arg3 == 2) {
-                    TObjPlayer__sub_8012A508((void *)(arg0), (u32)(arg2), (s32)(arg4));
+                    apply_mode_effect__10TObjPlayerFPvUii((void *)(arg0), (u32)(arg2), (s32)(arg4));
                 } else {
                     deliver_hit__11TItemWeaponFPviPviif(arg0, f, arg2, arg3, arg4, farg0);
                 }

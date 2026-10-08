@@ -89,7 +89,7 @@ void *TOSparkMachine01__ct(void *arg0, void *arg1);
 s32 rand(void);
 extern const f32 lbl_805DB9E8;
 extern const f32 TOSparkMachine01__data_805DB9EC;
-void TOSparkMachine01__sub_80177088(void *arg0, s32 i);
+void update_spark_toggle__16TOSparkMachine01FPvi(void *arg0, s32 i);
 void begin_effect_render__13TParticleCtrlFv(void *);
 void end_effect_render__13TParticleCtrlFv();
 void rotate_matrix_y(int, int);
@@ -111,7 +111,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-void TOSparkMachine01__sub_80177088(void *arg0, s32 i) {
+void update_spark_toggle__16TOSparkMachine01FPvi(void *arg0, s32 i) {
     Obj_80177088 *self = (Obj_80177088 *)arg0;
     switch (self->on[i]) {
     case 1:
@@ -136,7 +136,7 @@ void run_task__16TOSparkMachine01Fv(u8 *arg0) {
     if (TOSparkMachine01__data_805DB9EC < M2C_FIELD(arg0, f32 *, 0x6C)) {
         var_r31 = 0;
         do {
-            TOSparkMachine01__sub_80177088((void *)(arg0), (s32)(var_r31));
+            update_spark_toggle__16TOSparkMachine01FPvi((void *)(arg0), (s32)(var_r31));
             var_r31 += 1;
         } while (var_r31 < 4);
         return;
@@ -144,7 +144,7 @@ void run_task__16TOSparkMachine01Fv(u8 *arg0) {
     M2C_FIELD(arg0, s8 *, 0xA3) = 0;
     M2C_FIELD(arg0, s8 *, 0xA2) = 0;
     M2C_FIELD(arg0, s8 *, 0xA0) = 0;
-    TOSparkMachine01__sub_80177088((void *)(arg0), (s32)(1));
+    update_spark_toggle__16TOSparkMachine01FPvi((void *)(arg0), (s32)(1));
 }
 
 void render__16TOSparkMachine01Fv(Obj_801771F4 *self) {

@@ -70,7 +70,7 @@ s32 get_shared_text_buffer();
 M2C_UNK send_simple_mail__6TLobbyFiPv(s32, s32);
 u32 find_short_mail_by_id__6TLobbyFUi(s32);
 s32 TLobby__sub_8022598C(s32);
-int TLobby__sub_802421C4(void*);
+int send_find_user_self_tag__6TLobbyFi(void*);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 int get_card_entry__17TWindowSubComCardFi(void);
 M2C_UNK TWindowSubComCard__sub_80225E80(s32, s32);
@@ -110,7 +110,7 @@ M2C_UNK set_status_flag_80__12TQuestThreadFPv(s32);
 M2C_UNK set_sub_position__15TWindowMakeTeamFPvPv(s32, s32);
 M2C_UNK update_chat_window(s32);
 
-void TWindowSubShortMail__sub_8027E620(void* p) { select_cursor_entry__6TLobbyFPv((void*)(*(void**)((char*)p + 0x38))); get_card_entry__17TWindowSubComCardFi(); TLobby__sub_802421C4(*(void**)((char*)p + 0x2c)); }
+void TWindowSubShortMail__sub_8027E620(void* p) { select_cursor_entry__6TLobbyFPv((void*)(*(void**)((char*)p + 0x38))); get_card_entry__17TWindowSubComCardFi(); send_find_user_self_tag__6TLobbyFi(*(void**)((char*)p + 0x2c)); }
 
 void close__19TWindowSubShortMailFPv(void *arg0) {
     s32 temp_r31;

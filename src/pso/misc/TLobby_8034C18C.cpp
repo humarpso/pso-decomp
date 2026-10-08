@@ -14,7 +14,7 @@ struct Big_8034C1D0 { u32 a; Body_8034C1D0 b; };
 extern "C" {
 extern s32 lbl_805D6E98;
 extern u32 lbl_805D6E9C;
-void *TLobby__sub_8034C1FC(void);
+void *get_info_board_ptr__6TLobbyFv(void);
 s32 TLobby__sub_8034C1D0(u32 dst, s32 src);
 }
 
@@ -36,7 +36,7 @@ s32 TLobby__sub_8034C1D0(u32 dst, s32 src) {
     *(Big_8034C1D0 *)dst = *(Big_8034C1D0 *)src;
 }
 
-void *TLobby__sub_8034C1FC(void) {
+void *get_info_board_ptr__6TLobbyFv(void) {
     void *p;
     if (!(lbl_805D6E98 & 2)) {
         return NULL;

@@ -36,7 +36,7 @@ extern const f32 lbl_805DE270;
 extern const f32 lbl_805DE274;
 extern const f32 lbl_805DE278;
 extern const f32 lbl_805DE27C;
-void TBoss6Tube__sub_802B138C(u8 *arg0);
+void update_wobble__10TBoss6TubeFPv(u8 *arg0);
 void get_bml_model(s32, s32);
 s32 query_teammate_state__9TObjEneDDFPv(void);
 void func_80141618__Fv(void);
@@ -175,7 +175,7 @@ void TBoss6Tube__sub_802B129C(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TBoss6Tube__sub_802B138C(u8 *arg0) {
+void update_wobble__10TBoss6TubeFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + (s32) ((lbl_805DE274 * (lbl_805DE268 * (f32) rand())) + lbl_805DE270));
     if ((f32) M2C_FIELD(arg0, s32 *, 0x24) <= TBoss6Tube__data_805DE250) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0;

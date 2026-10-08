@@ -11,7 +11,7 @@ void run_task__10TBoss6TubeFv(void *arg0);
 s32 query_teammate_state__9TObjEneDDFPv();
 s32 TBoss6EmptyWarp__sub_802B1018();
 M2C_UNK TBoss6Tube__sub_802B1218(void *);
-M2C_UNK TBoss6Tube__sub_802B138C(void *);
+M2C_UNK update_wobble__10TBoss6TubeFPv(void *);
 M2C_UNK spawn_trap__10TBoss6TubeFi(void *);
 M2C_UNK update_timer__10TBoss6TubeFPv(void *);
 
@@ -29,7 +29,7 @@ void run_task__10TBoss6TubeFv(void *arg0) {
             TBoss6Tube__sub_802B1218(arg0);
             return;
         case 2:
-            TBoss6Tube__sub_802B138C(arg0);
+            update_wobble__10TBoss6TubeFPv(arg0);
             break;
         }
     }

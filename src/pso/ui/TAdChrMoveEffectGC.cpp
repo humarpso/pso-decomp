@@ -26,14 +26,14 @@ void TAdChrMoveEffectGC__sub_803491F8(void *, void *);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
-void TAdChrMoveEffectGC__sub_80349038(void *arg0);
+void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void copy4__18TAdChrMoveEffectGCFPvPv(void *, void *);
 void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1);
 extern V2_803490D8 lbl_804786B0[];
 extern C4_803490D8 lbl_804786E8[];
 extern u8 lbl_804786F0[];
-void TAdChrMoveEffectGC__sub_803490D8(void *arg0, s32 arg1, s32 arg2);
+void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -53,7 +53,7 @@ void render__18TAdChrMoveEffectGCFv(void* p) { if (get_state_flag__9TMainTaskFv(
 extern M2C_UNK __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;
 
-void TAdChrMoveEffectGC__sub_80349038(void *arg0) {
+void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0) {
     E_80349038 *e;
     s32 i;
     ((E_80349038 *)arg0)->f1C = 0;
@@ -76,7 +76,7 @@ void clear_entries__18TAdChrMoveEffectGCFPv(O_803490AC *self) {
 }
 
 struct W_80349194;
-void TAdChrMoveEffectGC__sub_803490D8(void *arg0, s32 arg1, s32 arg2) {
+void setup_move_effect_params__18TAdChrMoveEffectGCFPvii(void *arg0, s32 arg1, s32 arg2) {
     P_803490D8 p;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.a, &lbl_804786B0[arg1]);
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(&p.b, &lbl_804786B0[arg2]);
@@ -91,7 +91,7 @@ void TAdChrMoveEffectGC__sub_80349194(W_80349194 *arg0, void *arg1) {
     for (i = 0; i < 16; i++) {
         TAdChrMoveEffectGC__sub_803491F8(&arg0->e[i], arg1);
     }
-    TAdChrMoveEffectGC__sub_80349038((void *)(arg0));
+    reset_effect_entries__18TAdChrMoveEffectGCFPv((void *)(arg0));
     arg0->f20 = 1;
 }
 

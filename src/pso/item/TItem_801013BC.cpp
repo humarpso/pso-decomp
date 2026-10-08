@@ -45,7 +45,7 @@ void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
 M2C_UNK format_item_name__9TItemDataFv(M2C_UNK *, s32);
 int unregister_item__5TItemFPv(void*);
-s32 TLobby__sub_80103AD4();
+s32 pop_free_id__6TLobbyFv();
 void calc_display_grade__9TItemDataFPv(void *);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(s32, M2C_UNK, M2C_UNK);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
@@ -112,7 +112,7 @@ void unregister_from_world__5TItemFi(s32 arg0) {
 
 void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
     if ((u16) obj_getField1c((void *)(arg0)) == 0xFFFF) {
-        set_item_count__6TLobbyFPvs(arg0, TLobby__sub_80103AD4());
+        set_item_count__6TLobbyFPvs(arg0, pop_free_id__6TLobbyFv());
         reset_photon_effect__10TObjPlayerFPv(arg0);
         if (arg1 != 0) {
             clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 1);

@@ -198,7 +198,7 @@ void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void TObjPlayer__sub_80019568();
 void TObjPlayer__sub_800F65D0();
-void TObjPlayer__sub_800F673C();
+void apply_hit_message_flags__10TObjPlayerFPvPv();
 void add_actor_exp();
 void apply_action_hold_status();
 void apply_anti_technique__10TObjPlayerFv();
@@ -291,7 +291,7 @@ void *lbl_804EDDEC[83] = {
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)TObjPlayer__sub_800F65D0, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)call_vt78__10TObjPlayerFPv,
-    (void *)TObjPlayer__sub_800F673C, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)fn_800F5D80,
+    (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)fn_800F5D80,
 };
 
 }
@@ -348,7 +348,7 @@ u32 create_particle_emitter(void *, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 
 void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1);
-void TBoss6MagMine__sub_80369598(void *, void *);
+void spawn_mag_mine_at__13TBoss6MagMineFPvPv(void *, void *);
 void TBoss6Type2__sub_8032F304(O_8032F304 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_action__11TBoss6Type2FPvi(u8 *arg0, s32 arg1);
@@ -813,7 +813,7 @@ void TBoss6Type2__sub_8032F304(O_8032F304 *arg0) {
     void *m = arg0->mine;
     s32 i;
     for (i = 0; i < arg0->n; i++) {
-        TBoss6MagMine__sub_80369598(m, &arg0->v[i]);
+        spawn_mag_mine_at__13TBoss6MagMineFPvPv(m, &arg0->v[i]);
     }
 }
 
@@ -1164,7 +1164,7 @@ void change_motion__11TBoss6Type2FPvi(u8 *arg0, s32 arg1) {
     }
 }
 #pragma pop
-void TBoss6Type2__sub_8032FFC0(O_8032FFC0 *arg0) {
+void update_motion_playback__11TBoss6Type2FPv(O_8032FFC0 *arg0) {
     f32 n;
     f32 lim;
 
@@ -1376,7 +1376,7 @@ void update_main__11TBoss6Type2FPv(u8 *arg0) {
             }
         }
         update_rotation_ramp__11TBoss6Type2FPv((void *) (arg0));
-        TBoss6Type2__sub_8032FFC0((O_8032FFC0 *) (arg0));
+        update_motion_playback__11TBoss6Type2FPv((O_8032FFC0 *) (arg0));
         save_position__10TObjPlayerFi((s32) (arg0));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x388) != 0) {
             update_collisions__10TObjPlayerFPv((void *) (arg0));
