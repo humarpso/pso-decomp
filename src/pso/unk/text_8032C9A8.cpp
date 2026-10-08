@@ -27,6 +27,13 @@ extern s32 lbl_805D6CD0;
 extern u8 *TLobby__data_805D6CD4;
 extern u8 lbl_805D6CD8;
 s32 start_gba_joyboot__6TLobbyFv(void);
+void TLobby__sub_8032CDD0(void* p);
+extern u8 TLobby__data_805434A8[];
+extern s32 TLobby__data_805D6CCC;
+extern s32 lbl_805D6CD0;
+extern u8 *TLobby__data_805D6CD4;
+extern u8 lbl_805D6CD8;
+void TLobby__sub_8032CD7C(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -73,6 +80,18 @@ s32 start_gba_joyboot__6TLobbyFv(void) {
     TLobby__data_805D6CCC = 1;
     return 0;
 }
+
+#pragma push
+#pragma optimization_level 1
+#pragma dont_inline on
+void TLobby__sub_8032CD7C(u8 *arg0, s32 arg1) {
+    TLobby__data_805D6CD4 = arg0;
+    lbl_805D6CD0 = arg1;
+    lbl_805D6CD8 = 0;
+    TLobby__sub_8032CDD0(TLobby__data_805434A8);
+    TLobby__data_805D6CCC = 0;
+}
+#pragma pop
 
 void TLobby__sub_8032CDC0(void) { lbl_805D6CD9 = 0; lbl_805D6CDA = 0; }
 

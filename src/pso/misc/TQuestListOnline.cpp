@@ -66,6 +66,8 @@ struct QEnt_80217C1C { u8 type; u8 pad1[0x27]; u8 name[0x98 - 0x28]; };
 
 struct QList_80217C1C { u8 f0; u8 count; u8 pad2[2]; QEnt_80217C1C ents[1]; };
 
+struct T_80217B30 { u8 pad[0x38]; s32 f38; };
+
 extern "C" {
 s32 obj_getField1c(int);
 s32 get_camera_id__11TCameraCtrlFv();
@@ -127,6 +129,16 @@ extern u8 *TQuestListOnline__data_805D6190;
 extern s32 lbl_805D61F8;
 extern u8 lbl_805DC6A0;
 void TQuestListOnline__sub_80217C1C(Obj_80217C1C *arg0);
+extern T_80217B30 TQuestListOnline__data_80513E24;
+extern T_80217B30 TQuestListOnline__data_80513DE8;
+extern s32 TQuestListOnline__data_805D61E4;
+extern s32 lbl_805D61E8;
+extern s32 lbl_805D61EC;
+extern s32 lbl_805D61F0;
+extern s32 lbl_805D61F4;
+s32 prs_decompress_buffer(s32, s32);
+int set_field_20__12TQuestListVMFPvi(void*, int);
+void TQuestListOnline__sub_80217B30(void *self);
 }
 
 extern "C" {
@@ -225,6 +237,19 @@ void handle_quest_confirm__16TQuestListOnlineFPv(u8 *arg0) {
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (int)(1));
     }
 }
+
+#pragma push
+#pragma optimization_level 2
+#pragma dont_inline on
+void TQuestListOnline__sub_80217B30(void *self) {
+    lbl_805D61F0 = prs_decompress_buffer(TQuestListOnline__data_80513E24.f38, TQuestListOnline__data_805D61E4);
+    lbl_805D61E8 = TQuestListOnline__data_805D61E4;
+    TQuestListOnline__data_805D61E4 += lbl_805D61F0;
+    lbl_805D61F4 = prs_decompress_buffer(TQuestListOnline__data_80513DE8.f38, TQuestListOnline__data_805D61E4);
+    lbl_805D61EC = TQuestListOnline__data_805D61E4;
+    set_field_20__12TQuestListVMFPvi((void*)(self), (int)((void *)7));
+}
+#pragma pop
 
 void request_quest_list__16TQuestListOnlineFi(s32 arg0) {
     if (TLobby__sub_8001EEF4() != 0) {

@@ -381,7 +381,6 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjEneRe4Sorcerer__sub_800EDF94();
 extern s32 TObjEneRe4Sorcerer__data_805D52E4;
 extern s32 TObjEneRe4Sorcerer__data_805D52E8;
 extern f32 TObjEneRe4Sorcerer__data_805D52EC;
@@ -410,6 +409,14 @@ s32 get_enemy_count__9TObjEneDDFv(void);
 f32 horizontal_distance_squared(void *, void *);
 u32 find_entity_by_id(u16);
 s32 select_attack_target__18TObjEneRe4SorcererFiff(s32 arg0, f32 farg0, f32 farg1);
+M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+void begin_effect_render__13TParticleCtrlFv(void);
+void scale_matrix(s32, s32, f32, f32, f32);
+extern s32 TObjEneRe4Sorcerer__data_805D52E4;
+extern s32 TObjEneRe4Sorcerer__data_805D52E8;
+extern f32 TObjEneRe4Sorcerer__data_805D52EC;
+extern s32 some_id_805c6f74;
+void TObjEneRe4Sorcerer__sub_800EDF94(void);
 }
 
 extern "C" {
@@ -1788,6 +1795,33 @@ void render__18TObjEneRe4SorcererFv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
     }
 }
+
+#pragma push
+#pragma opt_propagation off
+void TObjEneRe4Sorcerer__sub_800EDF94(void) {
+    s32 t;
+    switch (TObjEneRe4Sorcerer__data_805D52E4) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+        break;
+    case 0x34:
+        f32 k = TObjEneRe4Sorcerer__data_805D52EC;
+        t = some_id_805c6f74;
+        TObjEneRe4Sorcerer__data_805D52E8 = t;
+        some_id_805c6f74 = t & 0xFFFF7FFF;
+        scale_matrix(0, t, k, k, k);
+        begin_effect_render__13TParticleCtrlFv();
+        break;
+    case 0x37:
+        some_id_805c6f74 = TObjEneRe4Sorcerer__data_805D52E8;
+        toggle_particle_effect__10TObjPlayerFv();
+        break;
+    }
+    TObjEneRe4Sorcerer__data_805D52E4 += 1;
+}
+#pragma pop
 
 void handle_death_state__18TObjEneRe4SorcererFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
