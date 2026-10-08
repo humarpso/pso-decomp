@@ -1,4 +1,9 @@
 #include "types.h"
+#define lbl_805D9ADC 2.0f
+#define lbl_805D9AE0 0.0f
+#define lbl_805D9AE4 100.0f
+#define lbl_805D9AE8 6.0f
+#define lbl_805D9AEC 7.0f
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -79,6 +84,14 @@ struct VObj_18_fe09eb : VBase_18_fe09eb {
     virtual M2C_UNK m63(M2C_UNK, void *);
 };
 
+struct Mdl_800AA82C { u8 pad[8]; s32 f8; s32 fC; };
+
+struct Res_800AA82C { u8 pad[0x42C]; Mdl_800AA82C *mdl; s32 f430; };
+
+struct Node_800AA82C { u32 flags; u8 pad[0x30 - 4]; s32 f30; };
+
+struct Desc_800AA82C { s32 a; void *b; s32 c; s32 d; };
+
 extern "C" {
 void enemy_set_heading_velocity(void *, s32, f32);
 s32 check_path_obstructed(void *, void *);
@@ -107,10 +120,6 @@ M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 M2C_UNK play_sound_effect(M2C_UNK, void *, int, int);
 void *__nw__7TObjectFUl(int);
-extern const f32 lbl_805D9ADC;
-extern const f32 lbl_805D9AE0;
-extern const f32 lbl_805D9AE8;
-extern const f32 lbl_805D9AEC;
 void TObjPlayer__sub_800A8FB4(void *arg0_);
 
 void TLobby__sub_8001FE7C(void *, s32);
@@ -125,6 +134,46 @@ extern s32 lbl_805D5094;
 extern s32 lbl_805D5098;
 extern void *lbl_805D50A4;
 
+s32 dispatch_shared_handler_a__6TLobbyFPv(int);
+s32 register_object__6TLobbyFPv(int);
+s32 dispatch_shared_handler_b__6TLobbyFPv(int);
+s32 register_boss__6TLobbyFPv(int);
+s32 get_bml_motion(void *, int);
+s32 get_bml_model(void *, int);
+void *load_resource_from_descriptor(void *, int, void *, int, int, int);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
+void *init_from_model__11TBreakUpMdlFPvi(void *, s32);
+void TObjPlayer__sub_800A4294(void);
+s32 check_v2_mode__9TObjEneDDFv();
+Res_800AA82C *load_enemy_bml_resource_named(void *, void *);
+s32 query_field_30__12TBoss3VoloptFPvPv(void *, void *);
+void draw_trail_with_colors(void *, s32, s32, int, int);
+void *init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
+Node_800AA82C *collect_and_count__12TBoss3VoloptFUii(s32, int);
+s32 load_gvm_texture_file(void *);
+void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
+extern u8 lbl_8043ACA4[];
+extern u8 lbl_8043ACBC[];
+extern u8 lbl_8043ACD0[];
+extern u8 lbl_804910D4[];
+extern s16 lbl_804912C0[];
+extern Res_800AA82C *lbl_805D5090;
+extern s32 lbl_805D5094;
+extern s32 lbl_805D5098;
+extern Node_800AA82C *lbl_805D509C;
+extern Node_800AA82C *lbl_805D50A0;
+extern void *lbl_805D50A4;
+extern const f32 lbl_805D9AF0;
+extern const f32 lbl_805D9B10;
+extern const f32 lbl_805D9B20;
+extern const f32 lbl_805D9B34;
+extern const f32 lbl_805D9B38;
+extern const f32 lbl_805D9B3C;
+extern const f32 lbl_805D9B40;
+extern const f32 lbl_805D9B44;
+extern const f32 lbl_805D9B48;
+extern const f32 lbl_805D9B4C;
+void TObjPlayer__sub_800AA82C(void);
 }
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -288,7 +337,6 @@ void render_model_and_set_attach_points__10TObjPlayerFPv(u8 *arg0);
 void obj_setFlags30(void *, u32);
 void TObjPlayer__sub_800A8C1C(u8 *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
-extern const f32 lbl_805D9AE0;
 void update_timed_state__10TObjPlayerFPv(void *arg0);
 s32 find_active_entity_by_id(u16);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -320,7 +368,6 @@ void TObjPlayer__sub_800A8E04(u8 *arg0);
 void run_synced_state_handler__10TObjPlayerFPv(Obj_800AA528 *arg0);
 s32 clear_flag8_all__12TBoss3VoloptFPv(void *);
 s32 set_flag8_list__12TBoss3VoloptFPv(void *);
-extern u8 lbl_805009A0[];
 void TBoss3Volopt__sub_800A8A7C(Obj_800A8A7C *arg0);
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK move_with_wall_slide(void *);
@@ -336,8 +383,6 @@ M2C_UNK check_enemy_body_collisions(void *);
 M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
 extern M2C_UNK lbl_804910E4[];
 extern M2C_UNK lbl_804910EC[];
-extern const f32 lbl_805D9AE0;
-extern const f32 lbl_805D9AE4;
 void TObjPlayer__sub_800A8C4C(u8 *arg0);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -373,7 +418,6 @@ M2C_UNK target_nearest_player__10TObjPlayerFPvf(void *, f32);
 s32 find_target_in_range__10TObjPlayerFPvf(void *, f32);
 s32 find_active_entity_by_id(u16);
 f32 xz_distance_squared(void *, void *);
-extern const f32 lbl_805D9AE0;
 extern const f32 lbl_805D9B10;
 extern const f32 lbl_805D9B14;
 extern const f32 lbl_805D9B18;
@@ -396,7 +440,6 @@ M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, int, int);
 M2C_UNK play_sound_effect(M2C_UNK, void *, int, int);
 extern M2C_UNK lbl_804910E4[];
 extern M2C_UNK lbl_804910EC[];
-extern const f32 lbl_805D9AE0;
 void TObjPlayer__sub_800A9E9C(void *arg0_);
 }
 
@@ -409,7 +452,19 @@ s32 update_shock_clock__10TObjPlayerFPv();
 s32 update_movement_status__10TObjPlayerFv();
 M2C_UNK create_dead_spot__10TObjPlayerFiif(void *, s16, f32);
 
-extern const f32 lbl_805D9ADC;
+struct Ids_800AA82C { s16 v[2]; };
+const Ids_800AA82C lbl_805D9AD8 = {{0x1E, 0x1F}};
+__declspec(section ".data") s32 lbl_805009A0[2];
+__declspec(section ".data") s32 lbl_805009A8[2];
+__declspec(section ".data") s32 lbl_805009B0[2];
+s32 lbl_805009B8[20];
+u8 lbl_80500A08[0x10];
+u8 lbl_80500A18[0x30];
+u8 lbl_80500A48[0xA8];
+__declspec(section ".data") s32 lbl_80500AF0[2];
+__declspec(section ".data") s32 lbl_80500AF8[2];
+
+#define lbl_805009A0 ((u8 *)lbl_805009A0)
 
 void set_flag_start_effect__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
@@ -1243,5 +1298,93 @@ void free_effect_resources__10TObjPlayerFv(void) {
         lbl_80500AF8[1] = 0;
     }
 }
+#pragma push
+#pragma opt_common_subs off
+#pragma opt_propagation off
+void TObjPlayer__sub_800AA82C(void) {
+    s32 *t;
+    Node_800AA82C *nodes[3];
+    void *p;
+    s32 m;
+    s32 i;
+    s32 mdl;
+    Node_800AA82C *n;
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        lbl_805D5090 = load_enemy_bml_resource_named(lbl_804910D4, lbl_8043ACA4);
+    } else {
+        p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
+        if (p != NULL) {
+            p = load_resource_from_descriptor(p, 5, lbl_804910D4, 0, 0, 0);
+        }
+        lbl_805D5090 = (Res_800AA82C *)p;
+    }
+    lbl_805D5094 = *(s32 *)((u8 *)lbl_805D5090->mdl + 0x1C);
+    if (check_v2_mode__9TObjEneDDFv() != 0) {
+        lbl_805D5098 = load_gvm_texture_file(lbl_8043ACBC);
+    } else {
+        lbl_805D5098 = load_gvm_texture_file(lbl_8043ACD0);
+    }
+    n = collect_and_count__12TBoss3VoloptFUii(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x17);
+    n->f30 = 0;
+    TObjPlayer__sub_800A4294();
+    lbl_805D509C = collect_and_count__12TBoss3VoloptFUii(lbl_805D5090->mdl->f8, 0x15);
+    lbl_805D50A0 = collect_and_count__12TBoss3VoloptFUii(lbl_805D5090->mdl->f8, 0x2A);
+    collect_and_count__12TBoss3VoloptFUii(*(s32 *)((u8 *)lbl_805D5090->mdl + 0x18), 0x15)->flags |= 8;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
+    if (p != NULL) {
+        p = init_from_model__11TBreakUpMdlFPvi(p, lbl_805D5090->mdl->f8);
+    }
+    lbl_805D50A4 = p;
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B34, lbl_805D9B38, lbl_805D9AF0);
+    }
+    lbl_80500AF0[0] = (s32)p;
+    draw_trail_with_colors((void *)lbl_80500AF0[0], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 6), 0x1C, 0x24);
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B3C, lbl_805D9B20, lbl_805D9AF0);
+    }
+    lbl_80500AF8[0] = (s32)p;
+    draw_trail_with_colors((void *)lbl_80500AF8[0], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 6), 0x2E, 0x32);
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B40, lbl_805D9B44, lbl_805D9AF0);
+    }
+    t = lbl_80500AF0;
+    t[1] = (s32)p;
+    draw_trail_with_colors((void *)t[1], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 7), 0x1C, 0x24);
+    p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
+    if (p != NULL) {
+        p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9B10, lbl_805D9B48, lbl_805D9AF0);
+    }
+    t = lbl_80500AF8;
+    t[1] = (s32)p;
+    draw_trail_with_colors((void *)t[1], get_bml_model(lbl_805D5090, 0), get_bml_motion(lbl_805D5090, 7), 0x2E, 0x32);
+    for (i = 0; i < 2; i++) {
+        ((s32 *)lbl_805009A0)[i] = register_boss__6TLobbyFPv(i + 0x1B);
+        lbl_805009A8[i] = dispatch_shared_handler_b__6TLobbyFPv(i + 0x1B);
+        lbl_805009B0[i] = register_object__6TLobbyFPv(i + 0x1B);
+        lbl_805009B8[i] = dispatch_shared_handler_a__6TLobbyFPv(i + 0x1B);
+    }
+    mdl = lbl_805D5090->mdl->f8;
+    for (i = 0; i < 3; i++) {
+        nodes[i] = collect_and_count__12TBoss3VoloptFUii(mdl, lbl_804912C0[i]);
+    }
+    query_field_30__12TBoss3VoloptFPvPv(nodes[0], lbl_80500A08);
+    query_field_30__12TBoss3VoloptFPvPv(nodes[1], lbl_80500A18);
+    query_field_30__12TBoss3VoloptFPvPv(nodes[2], lbl_80500A48);
+    {
+        Ids_800AA82C ids = lbl_805D9AD8;
+        Desc_800AA82C d = {0, &lbl_804910F4, 1, 0x140000};
+        s32 j;
+        d.a = lbl_805D5090->f430;
+        for (j = 0; j < 2; j++) {
+            Mdl_800AA82C *e = &lbl_805D5090->mdl[j];
+            spawn_npc_enemy__6TLobbyFsiiiff(ids.v[j], e->f8, e->fC, &d, lbl_805D9B4C, lbl_805D9AE0);
+        }
+    }
+}
+#pragma pop
 
 }

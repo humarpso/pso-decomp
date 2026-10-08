@@ -104,7 +104,10 @@ struct Hdr_80420DE4 { u16 src; u16 dst; u16 len; u16 sum; };
 
 struct O_80420DE4 { u8 pad0[8]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1A[2]; u8 f1C[4]; };
 
+struct E_80420C9C { u8 c0; u8 c1; u8 c2; u8 c3; s16 f4; u8 pad6[0x3E]; };
+struct G_80420C9C { s16 count; s16 f2; s16 f4; s16 f6; E_80420C9C *ents; };
 extern "C" {
+void TLobby__sub_803F87C8(void *);
 M2C_UNK TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 reset_stack_module__6TLobbyFv(void);
@@ -151,6 +154,7 @@ s32 udp_input__6TLobbyFPvPvPvi(O_80420DE4 *arg0, Addr_80420DE4 *src, Addr_80420D
 }
 
 extern "C" {
+RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 
 typedef char RecoveredGlobal_80420C5C_lbl_805C1DF0_size[sizeof(RecoveredGlobal_80420C5C_lbl_805C1DF0) == 0x10 ? 1 : -1];
 
@@ -375,6 +379,29 @@ s32 reset_stack_module__6TLobbyFv(void) {
     lbl_805C1DF0.value = 0;
     return 0;
 }
+#define G_ (*(G_80420C9C *)&lbl_805C1DF0)
+s32 TLobby__sub_80420C9C(void) {
+    s16 i;
+    E_80420C9C *e;
+
+    TLobby__sub_803F87C8(&G_);
+    e = G_.ents;
+    i = 0;
+    while (i < G_.count) {
+        e->c0 = 0x55;
+        e->c1 = 0x43;
+        e->c2 = 0x42;
+        e->c3 = i;
+        e->f4 = 0;
+        i++;
+        e++;
+    }
+    G_.f2 = 0;
+    G_.f4 = 0x7FF;
+    G_.f6 = 0x400;
+    return 0;
+}
+#undef G_
 s32 TLobby__sub_80420D38(u16 arg0, u8 arg1) {
     s16 i;
     E_80420D38 *e;

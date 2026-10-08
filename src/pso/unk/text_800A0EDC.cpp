@@ -22,6 +22,68 @@ struct VObj_18_800A2F94 : VBase_18_800A2F94 {
 struct Atk_800A2F94 { s32 w[4]; };
 struct Obj_800A2F94 { u8 pad[0x3F0]; s32 f3F0[4]; };
 
+typedef s32 M2C_UNK;
+struct V_800A1FEC { f32 x, y, z; };
+
+struct Obj_800A1FEC {
+    u8 pad0[0x30];
+    u32 f30;
+    u8 pad34[0x38 - 0x34];
+    V_800A1FEC pos;
+    u8 pad44[0xB8 - 0x44];
+    s16 fB8;
+    u8 padBA[0xC0 - 0xBA];
+    f32 fC0;
+    u8 padC4[0x2A8 - 0xC4];
+    u8 *target;
+    u8 pad2AC[0x338 - 0x2AC];
+    u16 f338;
+    u8 pad33A[0x37C - 0x33A];
+    s32 state;
+    u8 pad380[0x388 - 0x380];
+    u32 f388;
+    u8 pad38C[0x394 - 0x38C];
+    f32 f394;
+    u8 pad398[0x39A - 0x398];
+    s16 timer;
+    u8 pad39C[0x3B0 - 0x39C];
+    s32 count;
+    V_800A1FEC f3B4;
+    V_800A1FEC f3C0[4];
+    void *parts[4];
+};
+
+typedef struct Obj_800A1814 Obj_800A1814;
+struct Sub_800A2390 { u8 pad[0x18]; u32 f18; };
+
+struct P_800A2390 {
+    u8 pad0[0x30];
+    u32 f30;
+    u8 pad34[0x60 - 0x34];
+    s32 f60;
+    s32 f64;
+    u8 pad68[0xA4 - 0x68];
+    Sub_800A2390 *fA4;
+    u8 padA8[0xB8 - 0xA8];
+    s16 fB8;
+    u8 padBA[0x308 - 0xBA];
+    f32 f308;
+    f32 f30C;
+    f32 f310;
+    u8 pad314[0x37C - 0x314];
+    s32 state;
+    u8 pad380[0x388 - 0x380];
+    u32 f388;
+    u8 pad38C[0x398 - 0x38C];
+    s16 f398;
+    u8 pad39A[0x39E - 0x39A];
+    s16 f39E;
+    f32 f3A0;
+    f32 f3A4;
+    s32 f3A8;
+    s32 f3AC;
+};
+
 extern "C" {
 M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
 M2C_UNK obj_clearFlags30(void *, s32);
@@ -31,6 +93,44 @@ M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805D9984;
 void TObjPlayer__sub_800A16C4(u8 *arg0);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK obj_clearFlags30(void *, s32);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, M2C_UNK);
+M2C_UNK spawn_particle_effect(void *, int);
+s32 TObjPlayer__sub_800A3210(s32 i, s32 _w1, s32 _w2);
+int is_flag_set_388_bit26__10TObjPlayerFPv(void* p);
+u8 *TObjPlayer__sub_800A34E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
+void *TObjPlayer__sub_800A4204(void *, void *, void *, void *, s32);
+void find_target_in_range__10TObjPlayerFPvf(void *, f32);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_sound_effect(int, void *, int, int);
+void * __nw__7TObjectFUl(int);
+extern const f32 lbl_805D9984;
+extern const f32 lbl_805D9994;
+extern const f32 lbl_805D99AC;
+extern const f32 lbl_805D99B0;
+s32 TObjPlayer__sub_800A1FEC(void *arg0);
+M2C_UNK apply_actor_gravity(void *, M2C_UNK, f32);
+M2C_UNK obj_clearFlags30(void *, s32);
+void enemy_set_heading_velocity(void *, f32, s32);
+void step_along_ground__10TObjPlayerFPv(u8 *arg0);
+f32 TObjPlayer__sub_800A3200(s32 arg0);
+M2C_UNK advance_animation_playback(void *);
+M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+extern s32 lbl_805D53A4;
+extern const f32 lbl_805D9984;
+extern const f32 lbl_805D99B4;
+extern const f32 lbl_805D99B8;
+extern const f32 lbl_805D99BC;
+extern const f32 lbl_805D99C4;
+s32 TObjPlayer__sub_800A2390(void *arg0_);
 }
 
 extern "C" {
@@ -289,8 +389,6 @@ void TObjPlayer__sub_800A1974(void);
 s32 TObjPlayer__sub_800A1C84(void *);
 void TObjPlayer__sub_800A1D70(u8 *arg0);
 void handle_status_326__10TObjPlayerFPv(void *arg0);
-s32 TObjPlayer__sub_800A1FEC(void *);
-s32 TObjPlayer__sub_800A2390(void *);
 void set_hidden_flag__10TObjPlayerFPv(void *arg0);
 s32 TObjPlayer__sub_800A27CC(void *);
 void apply_fall_damage_flag__10TObjPlayerFi(s32 arg0);
@@ -751,6 +849,10 @@ extern const f32 lbl_805D99D8;
 extern const f32 lbl_805D99DC;
 extern void *tl_04;
 
+extern "C" {
+void spawn_hamon_effects__10TObjPlayerFPviif(Obj_800A1814 *o, s32 arg1, s32 arg2, f32 farg0);
+}
+
 u8 *TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     Obj_800A0EDC *o;
     s32 i;
@@ -939,10 +1041,10 @@ void TObjPlayer__sub_800A1520(u8 *arg0) {
         TObjPlayer__sub_800A27CC((void *) arg0);
         return;
       case 1:
-        TObjPlayer__sub_800A2390(arg0);
+        TObjPlayer__sub_800A2390((void *)(arg0));
         return;
       case 2:
-        TObjPlayer__sub_800A1FEC((void *) arg0);
+        TObjPlayer__sub_800A1FEC((void *)((void *) arg0));
         return;
       case 4:
         TObjPlayer__sub_800A1D70((u8 *)((void *) arg0));
@@ -1134,6 +1236,239 @@ void handle_status_326__10TObjPlayerFPv(void *arg0) {
         set_state__15TObjEneMe1GiGueFPvi(arg0, 4);
     }
 }
+
+#define self ((Obj_800A1FEC *)arg0)
+#pragma push
+#pragma opt_loop_invariants off
+s32 TObjPlayer__sub_800A1FEC(void *arg0) {
+    switch (self->state) {
+    case 0:
+        self->f30 |= 0x200000;
+        self->f388 &= 0xFFB7FFFF;
+        self->count = 0;
+        self->fB8 = 3;
+        play_sound_effect(0x4003B52F, &self->pos, 0, 0);
+        play_sound_effect(0x4003AD29, (u8 *)arg0 + 0x38, 0, 0);
+        self->state = 1;
+        break;
+    case 1:
+        if (self->fC0 >= lbl_805D9994) {
+            self->f394 = lbl_805D99AC;
+        }
+        if (self->fB8 != 4) break;
+        self->f388 |= 0x200000;
+        self->timer = ((s32 (*)(s32))TObjPlayer__sub_800A3210)(0);
+        self->state = 2;
+        play_sound_effect(0x4003B52A, &self->pos, 0, 0);
+        {
+            s32 i;
+            for (i = 0; i < 4; i++) {
+                void *p = __nw__7TObjectFUl(0x348);
+                if (p != NULL) {
+                    p = TObjPlayer__sub_800A4204(p, self, &self->f3B4, &self->f3C0[i], 2);
+                }
+                self->parts[i] = p;
+            }
+        }
+        break;
+    case 2:
+        self->f394 = lbl_805D99AC;
+        if (--self->timer > 0) break;
+        self->timer = 4;
+        self->f388 &= ~0x200000;
+        {
+            s32 i;
+            for (i = 0; i < 4; i++) {
+                void *q = self->parts[i];
+                if (q != NULL) {
+                    queue_destruction__7TObjectFv(q);
+                    self->parts[i] = NULL;
+                }
+            }
+        }
+        self->state = 3;
+        if (is_flag_set_388_bit26__10TObjPlayerFPv(self) != 0) {
+            spawn_particle_effect(&self->f3B4, 0xD8);
+        } else {
+            spawn_particle_effect(&self->f3B4, 0xD2);
+        }
+        break;
+    case 3:
+        self->f394 = lbl_805D99AC;
+        if (--self->timer > 0) break;
+        self->count++;
+        self->timer = 15;
+        self->state = 4;
+        find_target_in_range__10TObjPlayerFPvf(self, lbl_805D99B0);
+        if (self->f338 == 0xFFFF) break;
+        {
+            u8 *p = (u8 *)__nw__7TObjectFUl(0xD4);
+            if (p != NULL) {
+                TObjPlayer__sub_800A34E8(p, (u8 *)self, (s32)&self->f3B4, (s32)(self->target + 0x2FC));
+            }
+        }
+        play_sound_effect(0x40039E2B, &self->pos, 0, 0);
+        break;
+    case 4:
+        self->f394 = lbl_805D99AC;
+        if (--self->timer > 0) break;
+        self->state = 5;
+        self->fB8 = 13;
+        self->f394 = lbl_805D9984;
+        break;
+    case 5:
+        if (self->fB8 != 0) break;
+        if (self->count < 2) {
+            self->state = 1;
+            self->fB8 = 3;
+            break;
+        }
+        update_if_active__15TObjEneMe1GiGueFPv(self, 1);
+        break;
+    case -1:
+        self->f388 &= ~0x200000;
+        self->f30 &= ~0x200000;
+        {
+            s32 i;
+            for (i = 0; i < 4; i++) {
+                void *q = self->parts[i];
+                if (q != NULL) {
+                    queue_destruction__7TObjectFv(q);
+                    self->parts[i] = NULL;
+                }
+            }
+        }
+        break;
+    }
+    obj_clearFlags30(self, 0x40000);
+    advance_animation_playback(self);
+    apply_actor_gravity(self, 0, lbl_805D9984);
+    update_collisions__10TObjPlayerFPv(self);
+    minimap_render_dot(&self->pos, -23988, 1, 0);
+    submit_cursor_candidate(self, -1);
+}
+#pragma pop
+#undef self
+
+#pragma push
+#pragma dont_inline off
+#pragma inline_depth(4)
+inline f32 fmax_800A2390(f32 a, f32 b) {
+    if (a > b) {
+        return a;
+    }
+    return b;
+}
+s32 TObjPlayer__sub_800A2390(void *arg0_) {
+    P_800A2390 *arg0 = (P_800A2390 *)arg0_;
+    obj_clearFlags30(arg0, 0x40000);
+    switch (arg0->state) {
+    case 0:
+        arg0->f388 &= ~0x00200000;
+        arg0->f388 |= 0x400000;
+        if (arg0->f388 & 0x10000) {
+            arg0->f388 &= ~0x30000;
+            arg0->f310 = lbl_805D9984;
+            arg0->f30C = lbl_805D9984;
+            arg0->f308 = lbl_805D9984;
+            arg0->state = 1;
+        } else {
+            arg0->f30 &= 0xFBFBFFFF;
+            arg0->state = 3;
+        }
+        break;
+    case 1:
+        apply_actor_gravity(arg0, 0, lbl_805D9984);
+        arg0->f64 -= 0x1000;
+        if (arg0->f64 < 0) {
+            arg0->f64 = 0;
+        }
+        if (arg0->f30 & 0x800000) {
+            arg0->f64 = 0;
+            arg0->fB8 = 2;
+            arg0->state = 2;
+            arg0->f30 &= 0xFBFBFFFF;
+            arg0->fA4->f18 &= ~4;
+            arg0->fA4->f18 |= 2;
+            spawn_hamon_effects__10TObjPlayerFPviif((Obj_800A1814 *)arg0, 0xF, 0, lbl_805D99B4);
+            spawn_hamon_effects__10TObjPlayerFPviif((Obj_800A1814 *)arg0, 0xF, 3, lbl_805D99B8);
+            spawn_hamon_effects__10TObjPlayerFPviif((Obj_800A1814 *)arg0, 0xF, 6, lbl_805D99BC);
+        }
+        break;
+    case 2:
+        apply_actor_gravity(arg0, 0, lbl_805D9984);
+        if (arg0->fB8 == 0) {
+            arg0->state = 3;
+        }
+        break;
+    case 3:
+        arg0->f64 = 0;
+        arg0->fA4->f18 &= ~4;
+        arg0->fA4->f18 |= 2;
+        advance_animation_playback(arg0);
+        if (arg0->f388 & 0x20000) {
+            arg0->f388 &= ~0x20000;
+            arg0->f388 |= 0x80000;
+            if (arg0->f388 & 0x40000) {
+                arg0->f388 &= ~0x40000;
+                arg0->state = 4;
+            } else {
+                arg0->f398 = 0;
+                arg0->state = 6;
+            }
+        } else {
+            arg0->f388 &= ~0x80000;
+        }
+        break;
+    case 6:
+        arg0->f60 += 0x555;
+        arg0->f398++;
+        if (arg0->f398 >= 4) {
+            arg0->state = 4;
+        }
+        break;
+    case 4:
+        arg0->f3A8 = arg0->f60;
+        arg0->f3A0 = TObjPlayer__sub_800A3200(0);
+        arg0->f3A4 = lbl_805D9984;
+        arg0->f3AC = 0;
+        arg0->f39E = 0;
+        arg0->fB8 = 1;
+        arg0->state = 5;
+        arg0->f64 = 0;
+        arg0->fA4->f18 &= ~4;
+        arg0->fA4->f18 |= 2;
+    case 5:
+        advance_animation_playback(arg0);
+        enemy_set_heading_velocity(arg0, arg0->f3A0, arg0->f3A8);
+        step_along_ground__10TObjPlayerFPv((u8 *)arg0);
+        arg0->f3A4 += arg0->f3A0;
+        arg0->f3A0 = fmax_800A2390(-0.2f + arg0->f3A0, 0.5f);
+        if (arg0->f3A4 >= TObjPlayer__sub_800A3200(1)) {
+            arg0->f388 &= ~0x80000;
+            arg0->state = 3;
+        }
+        play_persistent_sound(0x4003AD28, arg0, (u8 *)arg0 + 0x38, 0, 0);
+        if (arg0->f3AC > 0) {
+            arg0->f3AC--;
+            if (arg0->fA4->f18 & 0x300000) {
+                arg0->f3A8 += 0x4000;
+                arg0->f3AC = 5;
+            }
+        }
+        if (!(lbl_805D53A4 & 2)) {
+            spawn_hamon_effects__10TObjPlayerFPviif((Obj_800A1814 *)arg0, 0xF, 0, lbl_805D99C4);
+        }
+        apply_actor_gravity(arg0, 0, lbl_805D9984);
+        break;
+    case -1:
+        break;
+    }
+    update_collisions__10TObjPlayerFPv(arg0);
+    minimap_render_dot((u8 *)arg0 + 0x38, -0x5DB4, 1, 0);
+    return submit_cursor_candidate(arg0, -1);
+}
+#pragma pop
 
 void set_hidden_flag__10TObjPlayerFPv(void *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800)) {

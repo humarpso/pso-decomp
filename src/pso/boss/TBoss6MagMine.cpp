@@ -166,6 +166,19 @@ struct Vec_80369598 { f32 x, y, z; };
 struct Params_80369598 { u8 pad0[6]; s16 f6; s16 f8; u8 padA[6]; Vec_80369598 pos; u8 pad1C[0x40 - 0x1C]; Vec_80369598 a; Vec_80369598 b; };
 
 extern "C" {
+void *__vt__13TBoss6MagMine[11] = {
+    (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41700000,
+    (void *)0x0, (void *)0x0, (void *)0x803b, (void *)0x0,
+    (void *)0x0, (void *)0x0, (void *)0x0,
+};
+void vec3_add_to(void *, void *);
+s32 check_demo_mode__10TObjPlayerFv(void *);
+void copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 query_teammate_state__9TObjEneDDFPv();
+void update_collisions__10TObjPlayerFPv(void *);
+void submit_cursor_candidate(void *, int);
+void add_radar_scaled_marker(void *, int, int, int, f32);
+s32 is_boss_active__14TBoss6PlotFalzFv();
 extern const f32 TBoss6MagMine__data_805E0310;
 void TBoss6MagMine__sub_80368994(u8 *arg0);
 extern const f32 lbl_805E0324;
@@ -208,7 +221,6 @@ s32 get_fish_count__8TObjFishFv();
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 M2C_UNK normalize_vector(void *);
-extern u8 __vt__13TBoss6MagMine[];
 extern M2C_UNK lbl_804F322C[];
 extern s32 lbl_805D44B0;
 extern const f32 TBoss6MagMine__data_805E0310;
@@ -436,6 +448,92 @@ void TBoss6MagMine__vt1(u8 *arg0) {
     }
 }
 #pragma pop
+
+struct Vec_80368F20 { f32 x, y, z; };
+struct Mine_80368F20 { u8 pad[0x38]; Vec_80368F20 pos; u8 pad44[0x378 - 0x44]; Vec_80368F20 vel; Vec_80368F20 home; s32 f390; };
+
+void TBoss6MagMine__vt0(Mine_80368F20 *m) {
+    m->vel.y += -0.25f;
+    if (m->vel.y < -20.0f) {
+        m->vel.y = -20.0f;
+    }
+    vec3_add_to(&m->pos, &m->vel);
+    if (m->pos.y < -20.0f) {
+        m->pos.x = m->home.x;
+        m->pos.z = m->home.z;
+        m->f390 = 1;
+    }
+}
+
+struct Vec_80368FA0 { f32 x, y, z; };
+
+class TBoss6MagMine_80368FA0 {
+public:
+    void m0();
+    void m1();
+    void m2();
+    void m3();
+    void m4();
+    u8 pad0[0x38];
+    Vec_80368FA0 pos;
+    Vec_80368FA0 prev;
+    u8 pad50[0x390 - 0x50];
+    s32 state;
+    u8 pad394[0x3A8 - 0x394];
+    f32 f3A8;
+    s32 f3AC;
+    void *f3B0;
+};
+
+void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
+    s32 color;
+    if (check_demo_mode__10TObjPlayerFv(self) != 0) {
+        return;
+    }
+    if (is_boss_active__14TBoss6PlotFalzFv() == 0) {
+        self->state = 4;
+    }
+    if (query_teammate_state__9TObjEneDDFPv() != 0) {
+        return;
+    }
+    ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&self->prev, &self->pos);
+    static void (TBoss6MagMine_80368FA0::*tbl[5])() = {
+        &TBoss6MagMine_80368FA0::m0, &TBoss6MagMine_80368FA0::m1, &TBoss6MagMine_80368FA0::m2,
+        &TBoss6MagMine_80368FA0::m3, &TBoss6MagMine_80368FA0::m4,
+    };
+    void (TBoss6MagMine_80368FA0::*m)() = tbl[self->state];
+    if (m) {
+        (self->*m)();
+    }
+    copy_pos__13TBoss6MagMineFi((s32)self);
+    if (self->state == 2) {
+        update_collisions__10TObjPlayerFPv(self);
+        submit_cursor_candidate(self, -1);
+    }
+    if (self->state != 0) {
+        color = 0xFF7F5126;
+        if (self->state == 2) {
+            color = 0xFFFFA24C;
+        }
+        add_radar_scaled_marker(&self->pos, color, 1, 1, TBoss6MagMine__data_805E0310);
+    }
+    self->f3A8 += -0.06666667f;
+    if (self->f3A8 < 0.0f) {
+        self->f3A8 = 0.0f;
+    }
+    switch (self->state) {
+    case 0:
+        self->f3AC += 0x1111;
+        break;
+    case 1:
+    case 2:
+        self->f3AC += 0x888;
+        break;
+    }
+    if (self->f3B0 != 0) {
+        copy_pos__11TNowLoadingFPvPv(self->f3B0, &self->pos);
+    }
+}
 
 void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {

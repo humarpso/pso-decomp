@@ -1561,6 +1561,9 @@ s16 TLobby__sub_80403F4C(void *ov, Strm_80405A74 **spp);
 
 void TLobby__sub_80405000(u32 arg0);
 
+u32 lbl_805C1AD8[6];
+#define lbl_805C1AD8 (*(Tbl_80408F2C *)lbl_805C1AD8)
+
 void TLobby__sub_804050DC(s16 arg0) {
     M2C_FIELD(&lbl_805C18A0.value, s16 *, 8) = arg0;
 }
@@ -2430,6 +2433,102 @@ void run_connect_step__6TLobbyFv(void) {
     TLobby__sub_8040881C();
 }
 
+typedef void (*Fn_8040881C)(void);
+typedef s16 (*Init_8040881C)(s16);
+
+struct Desc_8040881C {
+    Init_8040881C fn;
+    u8 pad4[0x18];
+};
+
+struct Ent_8040881C {
+    s16 used;
+    s16 id;
+    s16 idx;
+    u8 pad6[0xA];
+};
+
+struct G_8040881C {
+    s16 count;
+    s16 n2;
+    s16 n4;
+    s16 n6;
+    Desc_8040881C *descs;
+    Ent_8040881C *ents;
+    void *p10;
+    void *p14;
+};
+
+s32 TLobby__sub_80408E98(s16 id, u8 *a, u8 *b);
+s32 TLobby__sub_80408F2C(s16 id, u8 *pkt);
+s32 TLobby__sub_80409130(s16 arg0, s16 arg1, s32 arg2);
+s32 send_ethernet_frame__6TLobbyFssPvPv(s16 idx, s16 mode, u8 *addr, void *pkt);
+void TLobby__sub_80408FD8(void);
+void TLobby__sub_8040920C(void);
+void TLobby__sub_804092FC(void);
+void TLobby__sub_8040939C(void);
+void TLobby__sub_804093EC(void);
+void TLobby__sub_804094B8(void);
+void TLobby__sub_8040970C(void);
+struct Tbl_80408F2C;
+#define LG_8040881C (*(G_8040881C *)&lbl_805C1AD8)
+s16 TLobby__sub_8040881C(void) {
+    Fn_8040881C fns[11];
+    s16 r;
+    s16 first;
+    s16 cnt;
+    s16 i;
+    Ent_8040881C *e;
+    Desc_8040881C *d;
+    Ent_8040881C **pe;
+
+    TLobby__sub_803F8AD8((Desc_803F8AD8 *)&LG_8040881C);
+    pe = &LG_8040881C.ents;
+    TUdpSocket__sub_803F9EE4(*pe, 0, LG_8040881C.n2 * 0x10);
+    TUdpSocket__sub_803F9EE4(LG_8040881C.p10, 0, LG_8040881C.n4 * 0x10);
+    TUdpSocket__sub_803F9EE4(LG_8040881C.p14, 0, LG_8040881C.n6 * 0x5F8);
+    fns[0] = TLobby__sub_8040970C;
+    fns[1] = TLobby__sub_804094B8;
+    fns[2] = TLobby__sub_804093EC;
+    fns[3] = TLobby__sub_8040939C;
+    fns[4] = TLobby__sub_804092FC;
+    fns[5] = TLobby__sub_8040920C;
+    fns[6] = (Fn_8040881C)TLobby__sub_80409130;
+    fns[7] = TLobby__sub_80408FD8;
+    fns[8] = (Fn_8040881C)TLobby__sub_80408F2C;
+    fns[9] = (Fn_8040881C)TLobby__sub_80408E98;
+    fns[10] = (Fn_8040881C)send_ethernet_frame__6TLobbyFssPvPv;
+    first = -1;
+    cnt = LG_8040881C.count;
+    d = LG_8040881C.descs;
+    e = *pe;
+    i = 0;
+    while (i < cnt) {
+        if (d->fn != NULL) {
+            r = d->fn(i);
+            if (r < 0) {
+                return r;
+            }
+        } else {
+            return -0x111;
+        }
+        r = TLobby__sub_80409A3C((u8 *)fns, 0x7C);
+        if (r < 0) {
+            return r;
+        }
+        if (first < 0) {
+            first = r;
+        }
+        e->used = 1;
+        e->id = r;
+        e->idx = i;
+        d++;
+        i++;
+        e++;
+    }
+    return first;
+}
+
 typedef s32 (*SendFn_80408C24)(s16, u8 *, s16);
 struct If_80408C24 { u8 pad[0x18]; SendFn_80408C24 send; };
 struct Conn_80408C24 { s16 used; s16 id; s16 handle; u8 mac[6]; u8 *buf; };
@@ -2450,7 +2549,6 @@ M2C_UNK TLobby__sub_80409908(void *, void *);
 M2C_UNK clear_message_entry__6TLobbyFi(void *);
 u8 *TLobby__sub_8042558C(s32);
 struct Tbl_80408F2C;
-extern Tbl_80408F2C lbl_805C1AD8;
 
 #pragma push
 #pragma dont_inline off
@@ -2604,8 +2702,6 @@ typedef struct Tbl_80408F2C {
     u8 pad8[0xC];
     Buf_80408F2C *bufs;
 } Tbl_80408F2C;
-
-extern Tbl_80408F2C lbl_805C1AD8;
 
 s32 TLobby__sub_80408F2C(s16 id, u8 *pkt) {
     Tbl_80408F2C *t = &lbl_805C1AD8;

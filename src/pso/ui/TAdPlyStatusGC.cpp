@@ -83,7 +83,6 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 get_status__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK setup_button__16TAdGuideButtonGCFPvPv(int, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
-extern RecoveredGlobal_8033F9DC_lbl_804783E0 lbl_804783E0;
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 lbl_8050E3B8;
 extern s32 TAdPlyStatusGC__data_805D6DB0;
 extern s32 TAdPlyStatusGC__data_805D6DB8;
@@ -92,7 +91,7 @@ extern s32 TAdPlyStatusGC__data_805D6DB8;
 void TAdPlyStatusGC__sub_8033F900(u8 *arg0, s32 arg1);
 void set_field_1c__6TLobbyFPvf(f32);
 s32 create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
-void TAdPlyStatusGC__sub_8033F3D8();
+void TAdPlyStatusGC__sub_8033F3D8(void *arg0, void *arg1);
 extern u8 lbl_804783D8[];
 extern const f32 lbl_805DFAEC;
 s32 TAdPlyStatusGC__sub_8033F8B0(void *arg0, void *arg1);
@@ -140,9 +139,100 @@ M2C_UNK disallow_rendering__7TObjectFv();
 u32 get_player_index__14TAdPlyStatusGCFv();
 int get_state_flag__9TMainTaskFv(void*);
 
+void *lbl_804EFAC0[8] = {
+    (void *)0x42a60000, (void *)0x41200000, (void *)0x42e60000, (void *)0x42280000,
+    (void *)0x0, (void *)0x0, (void *)0x3f800000, (void *)0x3f800000,
+};
+void *lbl_804EFAE0[6] = {
+    (void *)0x40800000, (void *)0x42280000, (void *)0x40800000, (void *)0x42780000,
+    (void *)0x40800000, (void *)0x42a40000,
+};
+void *lbl_804EFAF8[6] = {
+    (void *)0x42700000, (void *)0x42280000, (void *)0x42700000, (void *)0x42780000,
+    (void *)0x42700000, (void *)0x42a40000,
+};
 void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
+
+#define lbl_804EFAC0 (*(Box_8033F3D8 *)lbl_804EFAC0)
+#define lbl_804EFAE0 ((Vec2_8033F3D8 *)lbl_804EFAE0)
+#define lbl_804EFAF8 ((Vec2_8033F3D8 *)lbl_804EFAF8)
+#define OFF_8033F3D8 (lbl_804783E0[TAdPlyStatusGC__data_805D6DB0])
+#pragma push
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct Vec2_8033F3D8 { f32 x, y; };
+struct Box_8033F3D8 { f32 v[8]; };
+struct Layout_8033F3D8 {
+    Box_8033F3D8 box;
+    Vec2_8033F3D8 a[3];
+    Vec2_8033F3D8 b[3];
+    u8 rest[0x48];
+};
+struct Item_8033F3D8 { s8 valid; u8 pad[0xF]; };
+struct Status_8033F3D8 { u8 pad[8]; u32 f8; };
+
+void draw_window_frame(void *);
+void draw_window_text(Vec2_8033F3D8 *, void *, s32, s32, f32);
+void set_text_draw_params(void *, s32, s32, f32, f32);
+s32 is_unloaded__12TChCrLoadAfsFPv(s32);
+Status_8033F3D8 **get_status_sub__14TAdPlyStatusGCFPv(s32);
+void set_global_param__8TObjFishFi(void *);
+void begin_screen_draw(s32);
+void get_player__20TWindowSubStatusDispFv();
+void draw_textured_quad_at_depth(Box_8033F3D8 *, f32);
+void set_draw_texture_and_color(s32, s32);
+extern const f32 lbl_805DFAE0;
+extern const f32 lbl_805DFAE4;
+extern Vec2_8033F3D8 lbl_804783E0[];
+void TAdPlyStatusGC__sub_8033F3D8(void *arg0, void *arg1) {
+    Item_8033F3D8 items[3];
+    Box_8033F3D8 box;
+    Vec2_8033F3D8 pts[3];
+    Vec2_8033F3D8 pts2[3];
+    s32 i;
+
+    draw_window_frame(arg0);
+    if ((u32)lbl_805D6DAC != 0 && is_unloaded__12TChCrLoadAfsFPv(lbl_805D6DAC) != 0 && TAdPlyStatusGC__data_805D6DB8 != 0 &&
+        (*get_status_sub__14TAdPlyStatusGCFPv(lbl_805D6DAC))->f8 != 0) {
+        box = lbl_804EFAC0;
+        box.v[0] = lbl_804EFAC0.v[0] + OFF_8033F3D8.x;
+        box.v[2] = lbl_804EFAC0.v[2] + OFF_8033F3D8.x;
+        box.v[1] = lbl_804EFAC0.v[1] + OFF_8033F3D8.y;
+        box.v[3] = lbl_804EFAC0.v[3] + OFF_8033F3D8.y;
+        set_global_param__8TObjFishFi(get_status_sub__14TAdPlyStatusGCFPv(lbl_805D6DAC));
+        begin_screen_draw(1);
+        set_draw_texture_and_color(0, -1);
+        draw_textured_quad_at_depth(&box, lbl_805DFAE0);
+        get_player__20TWindowSubStatusDispFv();
+    }
+    format_status_strings__14TAdPlyStatusGCFPv((char *)items);
+    set_text_draw_params(arg1, 1, 1, lbl_805DFAE0, lbl_805DFAE4);
+    for (i = 0; i < 3; i++) {
+        pts[i].x = lbl_804EFAE0[i].x + OFF_8033F3D8.x;
+        pts[i].y = lbl_804EFAE0[i].y + OFF_8033F3D8.y;
+    }
+    draw_window_text(&pts[0], (void *)get_localized_text_entry(0x26, 1), -1, 0, lbl_805DFAE4);
+    draw_window_text(&pts[1], (void *)get_localized_text_entry(0x26, 2), -1, 0, lbl_805DFAE4);
+    draw_window_text(&pts[2], (void *)get_localized_text_entry(0x26, 3), -1, 0, lbl_805DFAE4);
+    for (i = 0; i < 3; i++) {
+        pts2[i].x = lbl_804EFAF8[i].x + OFF_8033F3D8.x;
+        pts2[i].y = lbl_804EFAF8[i].y + OFF_8033F3D8.y;
+    }
+    if (items[0].valid == 0 || items[1].valid == 0 || items[2].valid == 0) {
+        return;
+    }
+    draw_window_text(&pts2[0], &items[0], -1, 0, lbl_805DFAE4);
+    draw_window_text(&pts2[1], &items[1], -1, 0, lbl_805DFAE4);
+    draw_window_text(&pts2[2], &items[2], -1, 0, lbl_805DFAE4);
+}
+#undef OFF_8033F3D8
+#define lbl_804783E0 (*(RecoveredGlobal_8033F9DC_lbl_804783E0 *)lbl_804783E0)
+#undef lbl_804EFAC0
+#undef lbl_804EFAE0
+#undef lbl_804EFAF8
 
 void format_status_strings__14TAdPlyStatusGCFPv(char *buf) {
     u8 *c;
@@ -283,6 +373,23 @@ void close_window__14TAdPlyStatusGCFPv(void *arg0) {
         disallow_rendering__7TObjectFv();
     }
 }
+class C_8033FAD8 {
+public:
+    u8 pad[0x1C];
+    s32 idx;
+    s32 last;
+    void m0();
+    void m1();
+    void m2();
+};
+
+void run_task__14TAdPlyStatusGCFv(C_8033FAD8 *self) {
+    static void (C_8033FAD8::*tbl[3])() = {
+        &C_8033FAD8::m0, &C_8033FAD8::m1, &C_8033FAD8::m2,
+    };
+    (self->*tbl[self->idx])();
+    self->last = self->idx;
+}
 u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     if (arg0 != NULL) {
@@ -339,3 +446,5 @@ TAdPlyStatusGC_8033FC14 *TAdPlyStatusGC__ct(TAdPlyStatusGC_8033FC14 *self, void 
 }
 
 }
+#pragma pop
+#undef lbl_804783E0

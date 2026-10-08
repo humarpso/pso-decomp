@@ -1839,7 +1839,8 @@ pso/enemy/TObjEneDarkGunCenter.cpp:
 pso/unk/text_800A0EDC.cpp:
 	.text       start:0x800A0EDC end:0x800A36A8
 	.rodata     start:0x8043A6B0 end:0x8043A6F8
-	.data       start:0x80490608 end:0x8049095C
+	.data       start:0x80490608 end:0x80490998
+	.sdata2     start:0x805D9980 end:0x805D99C4
 
 pso/misc/TEneEffHamon.cpp:
 	.text       start:0x800A36A8 end:0x800A4288
@@ -1872,8 +1873,10 @@ pso/unk/text_800A887C.cpp:
 
 pso/player/TObjPlayer_800A894C.cpp:
 	.text       start:0x800A894C end:0x800AAC5C
+	.rodata     start:0x8043AC68 end:0x8043AC78
 	.data       start:0x80491414 end:0x8049145C
-	.sdata2     start:0x805D9AF0 end:0x805D9AFC
+	.bss        start:0x805009A0 end:0x80500B00
+	.sdata2     start:0x805D9AD8 end:0x805D9AFC
 
 pso/unk/text_800AAC5C.cpp:
 	.text       start:0x800AAC5C end:0x800AAD28
@@ -1956,6 +1959,7 @@ pso/enemy/TObjEneBm5Wolf.cpp:
 	.text       start:0x800B8668 end:0x800B8B00
 	.ctors      start:0x80433F58 end:0x80433F5C
 	.rodata     start:0x8043B5B8 end:0x8043B5C0
+	.bss        start:0x80500B40 end:0x80500B98
 
 pso/object/TObjCGrass.cpp:
 	.text       start:0x800B8B00 end:0x800B9194
@@ -2586,6 +2590,7 @@ pso/misc/TLobby_800F8AA8_800F8F40.cpp:
 
 pso/misc/TLobby_800F8AA8.cpp:
 	.text       start:0x800F8F58 end:0x800F93B4
+	.data       start:0x8049C624 end:0x8049C658
 
 pso/unk/text_800F93B4.cpp:
 	.text       start:0x800F93B4 end:0x800F93F0
@@ -5030,6 +5035,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801334D4.cpp:
 pso/object/TObjLight_80133568.cpp:
 	.text       start:0x80133568 end:0x80134A40
 	.rodata     start:0x8043ED90 end:0x8043ED98
+	.bss        start:0x80506320 end:0x80506A60
 	.sdata2     start:0x805DB088 end:0x805DB08C
 
 pso/misc/TLobby.cpp:
@@ -13370,6 +13376,8 @@ pso/unk/text_8033F314.cpp:
 
 pso/ui/TAdPlyStatusGC.cpp:
 	.text       start:0x8033F380 end:0x8033FD48
+	.data       start:0x804EFAC0 end:0x804EFB58
+	.sbss       start:0x805D6DBC end:0x805D6DC0
 
 pso/ui/TAdPlyStatusGC_8033FD48.cpp:
 	.text       start:0x8033FD48 end:0x8033FE28
@@ -14091,6 +14099,9 @@ pso/enemy/TObjEneIllGill.cpp:
 pso/boss/TBoss6MagMine.cpp:
 	.text       start:0x8036897C end:0x80369654
 	.rodata     start:0x8047A370 end:0x8047A378
+	.data       start:0x804F3188 end:0x804F322C
+	.sbss       start:0x805D6FE8 end:0x805D6FF0
+	.sdata2     start:0x805E0310 end:0x805E0340
 
 pso/object/TObjParticleLobby.cpp:
 	.text       start:0x80369654 end:0x80369B5C
@@ -15587,10 +15598,12 @@ pso/misc/TLobby_804048E8.cpp:
 pso/misc/TLobby_804050DC.cpp:
 	.text       start:0x804050DC end:0x8041ED8C
 	.data       start:0x804FD84C end:0x804FD890
+	.bss        start:0x805C1AD8 end:0x805C1AF0
 
 pso/unk/text_8041ED8C.cpp:
 	.text       start:0x8041ED8C end:0x80421178
 	.data       start:0x804FD890 end:0x804FD8F0
+	.bss        start:0x805C1DF0 end:0x805C1E00
 
 pso/misc/TUdpSocket_80421178.cpp:
 	.text       start:0x80421178 end:0x80421518
