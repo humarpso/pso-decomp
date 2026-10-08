@@ -7,6 +7,18 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
+extern "C" {
+void *__dt__15TBoss6SwordShotFv(void *arg0, s16 arg1);
+void run_task__15TBoss6SwordShotFv(u8 *arg0);
+void render__7TObjectFv();
+void render_shadows__7TObjectFv();
+void __dt__7TObjectFv(void *, int);
+void __dl__7TObjectFPv(void *);
+void *__vt__15TBoss6SwordShot[6] = {
+    0, 0, (void *)__dt__15TBoss6SwordShotFv, (void *)run_task__15TBoss6SwordShotFv,
+    (void *)render__7TObjectFv, (void *)render_shadows__7TObjectFv,
+};
+}
 struct Stack_80356C80 {
     s32 sp8;
     s32 spC;
@@ -195,7 +207,16 @@ void run_task__15TBoss6SwordShotFv(u8 *arg0) {
         }
     }
 }
-TBoss6SwordShot::~TBoss6SwordShot() {}
+void *__dt__15TBoss6SwordShotFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        *(void **)((u8 *)arg0 + 0x18) = __vt__15TBoss6SwordShot;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
 
 }
 
@@ -220,7 +241,6 @@ extern "C" {
 u8 *fn_8035648C(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
-extern M2C_UNK __vt__15TBoss6SwordShot[];
 extern s32 lbl_805D43AC;
 extern const f32 lbl_805DFFE8;
 extern const f32 lbl_805DFFF0;
@@ -238,7 +258,7 @@ u8 *TBoss6SwordShot__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     f32 v;
     void *p;
     __ct__7TObjectFP7TObject(arg0, (void *)arg1);
-    self->vt18 = __vt__15TBoss6SwordShot;
+    self->vt18 = (M2C_UNK *)__vt__15TBoss6SwordShot;
     self->f0 = lbl_805D43AC;
     self->owner = arg1;
     VecCopy__FP3VecPC3Vec(&self->pos, (void *)arg2);

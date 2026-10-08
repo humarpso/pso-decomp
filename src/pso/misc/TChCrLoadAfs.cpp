@@ -1,3 +1,102 @@
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+extern "C" {
+
+int is_unloaded__12TChCrLoadAfsFPv(void* p);
+void release_load_slot__12TChCrLoadAfsFPv(void *arg0);
+s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0);
+
+int is_unloaded__12TChCrLoadAfsFPv(void* p) { return *(u32*)((char*)p + 0x4a8) == 0; }
+
+extern s32 lbl_805D64D8;
+
+void release_load_slot__12TChCrLoadAfsFPv(void *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != 0) {
+        if ((s32) lbl_805D64D8 == 0) {
+            M2C_FIELD(arg0, s32 *, 0x2C) = 3;
+            return;
+        }
+        M2C_FIELD(arg0, s32 *, 0x30) = 0;
+        lbl_805D64D8 = 0;
+    }
+}
+
+extern s32 lbl_805D64D8;
+
+s32 try_begin_load__12TChCrLoadAfsFPv(void *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x30) != 0) {
+        M2C_FIELD(arg0, s32 *, 0x2C) = 3;
+        return 0;
+    }
+    if ((s32) lbl_805D64D8 != 0) {
+        return 0;
+    }
+    M2C_FIELD(arg0, s32 *, 0x30) = 1;
+    lbl_805D64D8 = 1;
+    return 1;
+}
+
+}
+
+#define try_begin_load__12TChCrLoadAfsFPv (*(s32 (*)())&try_begin_load__12TChCrLoadAfsFPv)
+#define release_load_slot__12TChCrLoadAfsFPv (*(void (*)(void *))&release_load_slot__12TChCrLoadAfsFPv)
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct L_8028B948 { u8 pad[0x1c]; s32 f1c; u8 pad2[0xc]; s32 f2c; };
+
+extern "C" {
+s32 TLobby__sub_803CC4C0(int);
+void TLobby__sub_803CCE9C(int);
+void poll_load__12TChCrLoadAfsFPv(L_8028B948 *arg0);
+}
+
+extern "C" {
+
+void TChCrLoadAfs__sub_8028B940(void);
+void TChCrLoadAfs__sub_8028B944(void);
+s32 TLobby__sub_803CC53C(u32);
+s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
+u32 adxf_open_afs__6TLobbyFii(s32, s32);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
+
+void TChCrLoadAfs__sub_8028B940(void) {  }
+void TChCrLoadAfs__sub_8028B944(void) {  }
+void poll_load__12TChCrLoadAfsFPv(L_8028B948 *arg0) {
+    switch (TLobby__sub_803CC4C0(arg0->f1c)) {
+    case 2:
+        return;
+    case 3:
+        TLobby__sub_803CCE9C(arg0->f1c);
+        arg0->f1c = 0;
+        break;
+    case 1:
+    default:
+        arg0->f2c = 3;
+        return;
+    }
+    release_load_slot__12TChCrLoadAfsFPv(arg0);
+    arg0->f2c = 2;
+}
+
+}
+
+#undef release_load_slot__12TChCrLoadAfsFPv
+#undef try_begin_load__12TChCrLoadAfsFPv
+
+#define try_begin_load__12TChCrLoadAfsFPv (*(s32 (*)())&try_begin_load__12TChCrLoadAfsFPv)
+#define release_load_slot__12TChCrLoadAfsFPv (*(int (*)(void *))&release_load_slot__12TChCrLoadAfsFPv)
+#define TLobby__sub_803CCE9C (*(int (*)(int))&TLobby__sub_803CCE9C)
+#define TLobby__sub_803CC4C0 (*(int (*)(int))&TLobby__sub_803CC4C0)
+
 #include "pso/TChCrLoadAfs.h"
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -36,10 +135,6 @@ struct Ld_8028BE00 {
 };
 
 extern "C" {
-u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 TLobby__sub_803CC53C(u32);
-s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
-u32 adxf_open_afs__6TLobbyFii(s32, s32);
 extern Te_8028BFA4 player_class_texture_archive_table[];
 void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -49,9 +144,6 @@ s32 strcmp(const char *, const char *);
 extern Te_8028BFA4 player_class_texture_archive_table[];
 extern const f32 lbl_805DD920;
 s32 find_player_texture_name_ordinal(u8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-int TLobby__sub_803CC4C0(int);
-int TLobby__sub_803CCE9C(int);
 int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 void set_render_rect__10TObjPlayerFPviiii(void *, s32, s32, s32, s32);
 void set_texture_name(void *, void *, s32, s32);
@@ -60,11 +152,7 @@ void update_loading__22TChCrLoadAfsTextureReqFPv(Ld_8028BE00 *arg0);
 }
 
 extern "C" {
-int TLobby__sub_803CC4C0(int);
 int adxf_stop__6TLobbyFPv(int);
-int TLobby__sub_803CCE9C(int);
-int safe_free__23TAdSinglePlyChrSelectGCFUi(int);
-int release_load_slot__12TChCrLoadAfsFPv(void *);
 }
 
 #include "types.h"
@@ -78,15 +166,8 @@ extern "C" {
 void *TChCrLoadAfs__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 void * create__12TChCrLoadAfsFPvPvPv(void *arg0, void *arg1, void *arg2);
 void start_download__12TChCrLoadAfsFPv(void *arg0);
-void TChCrLoadAfs__sub_8028B940(void);
-void TChCrLoadAfs__sub_8028B944(void);
-s32 TLobby__sub_803CC53C(u32);
-s32 read_checked_align__6TLobbyFiii(u32, s32, u32);
-u32 adxf_open_afs__6TLobbyFii(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
-u32 alloc__22TQuestVmDownLoadServerFPv(s32);
-s32 try_begin_load__12TChCrLoadAfsFPv();
 
 void start_download__12TChCrLoadAfsFPv(void *arg0) {
     s32 temp_r3_2;
@@ -301,3 +382,8 @@ void start_read__22TChCrLoadAfsTextureReqFPv(Cl_8028BFA4 *arg0) {
 }
 
 }
+
+#undef TLobby__sub_803CC4C0
+#undef TLobby__sub_803CCE9C
+#undef release_load_slot__12TChCrLoadAfsFPv
+#undef try_begin_load__12TChCrLoadAfsFPv

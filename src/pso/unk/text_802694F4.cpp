@@ -54,8 +54,6 @@ struct Q_80269664 {
 struct Ent_80269664 { u8 pad0[0xC]; f32 y; u8 pad10[4]; f32 h; };
 
 extern "C" {
-extern const f32 lbl_805DD224;
-extern const f32 lbl_805DD228;
 void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *arg0);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 void set_default_status__17TWindowDuelResultFPvi(void *, s32);
@@ -71,7 +69,6 @@ void scroll_up_line__14TWindowMessageFPvPv(u8 *arg0, u8 *arg1);
 void retire_scrolled_lines__14TWindowMessageFPv(Q_802697B4 *w);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u32 get_field_20__17TWindowSubComCardFPv(void *);
-extern const f32 lbl_805DD220;
 void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0);
 }
 
@@ -134,7 +131,7 @@ void update_line_timers__14TWindowMessageFPv(Q_80269664 *arg0) {
     m = &arg0->meta[idx];
     while (get_field_20__17TWindowSubComCardFPv(e) != 0 && m->timer <= 0 && (m->flags & 4)) {
         m->flags &= ~4;
-        h = lbl_805DD220 + (e->y + e->h);
+        h = (1.0f) + (e->y + e->h);
         if (arg0->height < h) {
             arg0->height = h;
         }
@@ -184,9 +181,9 @@ void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *ar
     f32 var_f1;
     temp_f3 = arg0->field_84;
     temp_f2 = temp_f3 - arg0->field_6C;
-    var_f1 = lbl_805DD224 * temp_f2;
-    if (var_f1 < lbl_805DD228) {
-        var_f1 = lbl_805DD228;
+    var_f1 = (0.15f) * temp_f2;
+    if (var_f1 < (15.0f)) {
+        var_f1 = (15.0f);
     }
     if (temp_f2 < var_f1) {
         arg0->field_6C = temp_f3;
@@ -195,5 +192,44 @@ void update_scroll__14TWindowMessageFPv(struct RecoveredFields_802698C4_arg0 *ar
     arg0->field_6C += var_f1;
 }
 #pragma pop
+
+}
+
+#include "types.h"
+
+#pragma fp_contract on
+extern "C" {
+
+s32 get_shared_text_buffer(void);
+u32 calc_text_width(const char *);
+u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
+void text_builder_append(const char *);
+void text_builder_reset(void);
+s32 append_message_window_line(void *, s32, u32, s32);
+extern const f32 lbl_805DD234;
+
+#pragma readonly_strings on
+s32 add_label_value_line__17TWindowOptionCtrlFPvPvPvUi(u8 *arg0, const char *arg1, const char *arg2, u32 arg3) {
+    const char *sep;
+    f32 x;
+    s32 r;
+    u8 *e;
+
+    sep = " : ";
+    text_builder_reset();
+    text_builder_append(arg1);
+    text_builder_append(sep);
+    text_builder_append(arg2);
+    e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, *(s32 *)(arg0 + 0x88));
+    r = append_message_window_line(arg0, get_shared_text_buffer(), arg3 | 2, -1);
+    if (r != 0) {
+        x = (0.5f) * (*(f32 *)(arg0 + 0x38) - lbl_805DD234);
+        x -= (f32)calc_text_width(arg1);
+        x -= (0.5f) * (f32)calc_text_width(sep);
+        *(f32 *)(e + 8) = x;
+    }
+    return r;
+}
+#pragma readonly_strings reset
 
 }

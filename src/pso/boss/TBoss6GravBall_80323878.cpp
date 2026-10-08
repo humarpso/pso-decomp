@@ -19,6 +19,14 @@ public:
     void s0(); void s1(); void s2();
 };
 typedef void (TBoss6GravBall_80323BBC::*Act_80323BBC)();
+class TBoss6GravBall {
+public:
+    void update_state(void *);
+    void update_charge_effects(void *);
+    void update_lifetime(void *);
+};
+typedef void (TBoss6GravBall::*ActP_80323BBC)(void *);
+typedef void (TBoss6GravBall::*Act0_80323BBC)();
 
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv(void *);
@@ -186,12 +194,12 @@ void run_task__14TBoss6GravBallFv(TBoss6GravBall_80323BBC *arg0) {
     if (query_teammate_state__9TObjEneDDFPv() != 0) {
         return;
     }
-    static Act_80323BBC tbl[3] = {
-        &TBoss6GravBall_80323BBC::s0, &TBoss6GravBall_80323BBC::s1, &TBoss6GravBall_80323BBC::s2,
+    static ActP_80323BBC tbl[3] = {
+        &TBoss6GravBall::update_state, &TBoss6GravBall::update_charge_effects, &TBoss6GravBall::update_lifetime,
     };
-    Act_80323BBC a = tbl[arg0->state];
+    Act0_80323BBC a = (Act0_80323BBC)tbl[arg0->state];
     if (a) {
-        (arg0->*a)();
+        (((TBoss6GravBall *)arg0)->*a)();
     }
     arg0->counter++;
 }

@@ -1,5 +1,86 @@
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Base_8003B138 { char pad[0x18]; };
+struct VObj_8003B138 : Base_8003B138 {
+    virtual void m0();
+    virtual void m1();
+};
+
+extern "C" {
+
+void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0);
+struct Obj_8003B250;
+void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0);
+void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void *__nw__7TObjectFUl(M2C_UNK);
+s32 get_particle_by_index__13TParticleCtrlFi(s32);
+
+void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0) {
+    void *var_r31;
+
+    var_r31 = __nw__7TObjectFUl(0x78);
+    if (var_r31 != NULL) {
+        var_r31 = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(var_r31, arg0, get_particle_by_index__13TParticleCtrlFi(arg1), 1, 0, 0, 1, 0x40);
+    }
+#define release_children__15TObjBoss2TunnelFPvf ((M2C_UNK (*)(void *, f32))release_children__15TObjBoss2TunnelFPvf)
+    if (var_r31 != NULL) {
+        ((VObj_8003B138 *)var_r31)->m1();
+        release_children__15TObjBoss2TunnelFPvf(var_r31, farg0);
+    }
+}
+
+}
+
+#undef release_children__15TObjBoss2TunnelFPvf
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Child_8003B250 { u8 pad0[0x44]; f32 f44; };
+struct Obj_8003B250 { u8 pad0[0x14]; Child_8003B250 *child; };
+struct Obj_8003B1FC { u8 pad[0x14]; Obj_8003B1FC *child; u8 pad2[0x3c - 0x18]; u8 xf[0xC]; };
+
+extern "C" {
+s32 vec3_add_to(void *, void *);
+s32 set_parent__7TObjectFP7TObject(void *, void *);
+extern void *TObjBoss2Tunnel_parent_object;
+void detach_children__15TObjBoss2TunnelFPvPv(Obj_8003B1FC *self, void *arg);
+}
+
+extern "C" {
+
+void TObjBoss2Tunnel__sub_8003B1D8(void);
+
+extern const f32 lbl_805D85D8;
+
+void TObjBoss2Tunnel__sub_8003B1D8(void) {
+    ((void (*)(f32))release_children__15TObjBoss2TunnelFPvf)(lbl_805D85D8);
+}
+void detach_children__15TObjBoss2TunnelFPvPv(Obj_8003B1FC *self, void *arg) {
+    Obj_8003B1FC *c;
+    while ((c = self->child) != 0) {
+        vec3_add_to(c->xf, arg);
+        set_parent__7TObjectFP7TObject(c, TObjBoss2Tunnel_parent_object);
+    }
+}
+void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0) {
+    Child_8003B250 *c;
+    while ((c = arg0->child) != NULL) {
+        c->f44 = c->f44 + farg0;
+        set_parent__7TObjectFP7TObject(c, TObjBoss2Tunnel_parent_object);
+    }
+}
+
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct S_8003C108 {
@@ -85,7 +166,6 @@ typedef struct Vec_8003B6E8 {
 } Vec_8003B6E8;
 
 extern "C" {
-void release_children__15TObjBoss2TunnelFPvf(u32, f32);
 s32 create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *, s32, s32);
 void enable__13TParticleCtrlFPv(void *);
 extern Rec_8003C108 lbl_80483590[];
@@ -93,7 +173,8 @@ extern const f32 lbl_805D85B0;
 extern const f32 lbl_805D8650;
 void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o);
 s32 get_state_flag__9TMainTaskFv();
-s32 TObjBoss2Tunnel__sub_8003C21C(void *, void *);
+struct O_8003C21C;
+u8 * TObjBoss2Tunnel__sub_8003C21C(O_8003C21C *self);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
@@ -117,27 +198,28 @@ extern const f32 lbl_805D85F8;
 extern const f32 lbl_805D85FC;
 void render__15TObjBoss2TunnelFv(u8 *arg0);
 f32 sin_table_lookup(s32);
-s32 check_flag_or_state__15TObjBoss2TunnelFi(void *);
-s32 is_flag_set__15TObjBoss2TunnelFv(void *);
+s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0);
+s32 is_flag_set__15TObjBoss2TunnelFv(s32 _w0);
 void TObjBoss2Tunnel__sub_8007DEE4(void *, f32, f32, f32, f32, f32);
 f32 get_random_float__8TObjFishFv(f32);
 f32 update_position__15TObjBoss2TunnelFPv(void *);
 s32 advance_phase__15TObjBoss2TunnelFPv(void *, f32 *);
 void set_global_flag_100__15TObjBoss2TunnelFv(void);
-void copy_ring_buffer_window__15TObjBoss2TunnelFPv(void *);
-void init_queue_from_start__15TObjBoss2TunnelFPv(void *);
-void shift_queue_push_next__15TObjBoss2TunnelFPv(void *);
+struct S_8003C2E4;
+void copy_ring_buffer_window__15TObjBoss2TunnelFPv(S_8003C2E4 *o);
+struct Obj_8003C374;
+void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self);
+struct Obj_8003C2A0;
+void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self);
 s32 update_first_active_fog__8TFogCtrlFv(void);
-void *__nw__7TObjectFUl(int);
-void init__15TObjBoss2TunnelFPv(void *, void *);
+void * init__15TObjBoss2TunnelFPv(void *arg0);
 f32 rand_signed_unit(void);
 int rand(void);
 void *__ct__13TObjBoss2DustFv(void *, void *, Vec_8003B6E8 *);
 void play_sound_effect(int, void *, int, int);
 void play_persistent_sound(int, void *, int, int, int);
-void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o);
-void enable_fog__15TObjBoss2TunnelFv(void *);
-void enable_fog__15TObjBoss2TunnelFPv(void *);
+void enable_fog__15TObjBoss2TunnelFv(void);
+void enable_fog__15TObjBoss2TunnelFPv(void *arg0);
 s32 is_active__15TObjBoss2TunnelFv(void);
 void TObjBoss2Tunnel__sub_801339EC(f32, f32, f32);
 extern u32 TObjBoss2Tunnel__global_flags;
@@ -167,12 +249,22 @@ extern const f32 lbl_805D8644;
 extern const f32 lbl_805D8648;
 void run_task__15TObjBoss2TunnelFv(Tunnel_8003B6E8 *o);
 }
+#define release_children__15TObjBoss2TunnelFPvf ((void (*)(u32, f32))release_children__15TObjBoss2TunnelFPvf)
+#define TObjBoss2Tunnel__sub_8003C21C ((s32 (*)(void *, void *))TObjBoss2Tunnel__sub_8003C21C)
+#define check_flag_or_state__15TObjBoss2TunnelFi ((s32 (*)(void *))check_flag_or_state__15TObjBoss2TunnelFi)
+#define is_flag_set__15TObjBoss2TunnelFv ((s32 (*)(void *))is_flag_set__15TObjBoss2TunnelFv)
+#define copy_ring_buffer_window__15TObjBoss2TunnelFPv ((void (*)(void *))copy_ring_buffer_window__15TObjBoss2TunnelFPv)
+#define init_queue_from_start__15TObjBoss2TunnelFPv ((void (*)(void *))init_queue_from_start__15TObjBoss2TunnelFPv)
+#define shift_queue_push_next__15TObjBoss2TunnelFPv ((void (*)(void *))shift_queue_push_next__15TObjBoss2TunnelFPv)
+#define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
+#define init__15TObjBoss2TunnelFPv ((void (*)(void *, void *))init__15TObjBoss2TunnelFPv)
+#define enable_fog__15TObjBoss2TunnelFv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFv)
+#define enable_fog__15TObjBoss2TunnelFPv ((void (*)(void *))enable_fog__15TObjBoss2TunnelFPv)
 
 extern "C" {
 
 void TObjBoss2Tunnel__sub_8003B2B0(void);
 void *__ct__7TObjectFP7TObject(void *, void *);
-void *__nw__7TObjectFUl(int);
 
 extern void *tl_07;
 extern void *TObjBoss2Tunnel_parent_object;
@@ -590,3 +682,393 @@ void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o) {
 }
 
 }
+
+#undef release_children__15TObjBoss2TunnelFPvf
+#undef TObjBoss2Tunnel__sub_8003C21C
+#undef check_flag_or_state__15TObjBoss2TunnelFi
+#undef is_flag_set__15TObjBoss2TunnelFv
+#undef copy_ring_buffer_window__15TObjBoss2TunnelFPv
+#undef init_queue_from_start__15TObjBoss2TunnelFPv
+#undef shift_queue_push_next__15TObjBoss2TunnelFPv
+#undef __nw__7TObjectFUl
+#undef init__15TObjBoss2TunnelFPv
+#undef enable_fog__15TObjBoss2TunnelFv
+#undef enable_fog__15TObjBoss2TunnelFPv
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct S_8003C21C { u8 pad[0x1f]; u8 x; };
+
+struct O_8003C21C { u8 pad[0x5c]; s32 p; };
+
+extern "C" {
+s32 TObjBoss2Tunnel__sub_8003C1C8(void);
+}
+
+extern "C" {
+
+s32 TObjBoss2Tunnel__sub_8003C1C8(void) {
+    return ((u32) TObjBoss2Tunnel__global_flags >> 0xDU) & 1;
+}
+
+s32 is_flag_set__15TObjBoss2TunnelFv(s32 _w0) {
+    return ((u32) TObjBoss2Tunnel__global_flags >> 0xCU) & 1;
+}
+s32 check_flag_or_state__15TObjBoss2TunnelFi(s32 arg0) {
+    s32 temp_r31;
+    s32 temp_r3;
+    temp_r31 = TObjBoss2Tunnel__sub_8003C1C8();
+    temp_r3 = is_flag_set__15TObjBoss2TunnelFv((s32)(arg0));
+    return temp_r3 | temp_r31;
+}
+u8 *TObjBoss2Tunnel__sub_8003C21C(O_8003C21C *self) {
+    if (self->p == 0) {
+        return 0;
+    }
+    return &((S_8003C21C *)self->p)->x;
+}
+
+}
+
+#define TObjBoss2Tunnel__global_flags (*(s32 *)&TObjBoss2Tunnel__global_flags)
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Obj_8003C374 { u8 pad[0x28]; s32 start; s32 q[6]; };
+
+struct Obj_8003C2A0 { u8 pad[0x2c]; s32 q[6]; s32 idx; };
+
+struct S_8003C2E4 {
+    u8 pad0[0x28];
+    s32 f28;
+    s32 t[6];
+};
+
+extern "C" {
+extern s32 lbl_804834BC[];
+extern s32 lbl_804834D4[];
+extern s32 lbl_80483550[];
+extern s32 lbl_804834D4[];
+}
+
+extern "C" {
+
+M2C_UNK update_all__8TFogCtrlFii(s32, M2C_UNK);
+
+void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
+    update_all__8TFogCtrlFii((s32)(M2C_FIELD(arg0, s32 *, 0xB0)), (M2C_UNK)(1));
+    TObjBoss2Tunnel__global_flags |= 4;
+}
+
+void enable_fog__15TObjBoss2TunnelFv(void) {
+    update_all__8TFogCtrlFii((s32)(0xB), (M2C_UNK)(1));
+    TObjBoss2Tunnel__global_flags |= 2;
+}
+
+void shift_queue_push_next__15TObjBoss2TunnelFPv(Obj_8003C2A0 *self) {
+    s32 i;
+    for (i = 0; i < 5; i++) {
+        self->q[i] = self->q[i + 1];
+    }
+    self->q[5] = lbl_80483550[self->idx++];
+}
+
+void copy_ring_buffer_window__15TObjBoss2TunnelFPv(S_8003C2E4 *o) {
+    s32 idx = o->f28;
+    s32 n = 6;
+    s32 i;
+    s32 j;
+    if (idx + 6 > 0x1F) {
+        n = 0x1F - idx;
+    }
+    s32 k = idx;
+    for (i = 0; i < n; i++, k++) {
+        o->t[i] = lbl_804834D4[k];
+    }
+    for (j = 0; i < 6; i++, j++) {
+        o->t[i] = lbl_804834D4[j];
+    }
+}
+
+void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self) {
+    s32 k = self->start;
+    s32 n = 6 - k;
+    s32 i;
+    s32 j;
+    for (i = 0; i < n; i++) {
+        self->q[i] = lbl_804834BC[k++];
+    }
+    for (j = 0; i < 6; i++, j++) {
+        self->q[i] = lbl_804834D4[j];
+    }
+}
+
+}
+
+#undef TObjBoss2Tunnel__global_flags
+#define boss2_tunnel_instance (*(void * *)&boss2_tunnel_instance)
+#define TObjBoss2Tunnel__data_805D8614 (*(f32 *)&TObjBoss2Tunnel__data_805D8614)
+#define TObjBoss2Tunnel__global_flags (*(s32 *)&TObjBoss2Tunnel__global_flags)
+#define init_queue_from_start__15TObjBoss2TunnelFPv ((void (*)(Tunnel_8003C45C *))init_queue_from_start__15TObjBoss2TunnelFPv)
+#define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
+#define __ct__7TObjectFP7TObject ((void (*)(void *))__ct__7TObjectFP7TObject)
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Tunnel_8003C45C {
+    s32 name;
+    u8 pad4[0x18 - 4];
+    void *vt;
+    f32 f1C;
+    f32 f20;
+    s32 i24;
+    s32 i28;
+    u8 pad2C[0x44 - 0x2C];
+    s32 i44;
+    u8 pad48[4];
+    f32 f4C;
+    f32 f50;
+    f32 f54;
+    s32 i58;
+    s32 i5C;
+    f32 f60;
+    s32 i64;
+    u8 sub68[0x94 - 0x68];
+    f32 f94;
+    f32 f98;
+    s32 i9C;
+    s32 iA0;
+    s32 iA4;
+    s32 iA8;
+    f32 fAC;
+    s32 iB0;
+    s32 iB4;
+    s32 iB8;
+    s32 iBC;
+    void *splash[2];
+    s32 c8[4];
+    s32 d8;
+};
+
+extern "C" {
+void queue_destruction__7TObjectFv(void *);
+extern s32 *lbl_805D4C04;
+extern s32 *lbl_805D4C08;
+extern const f32 lbl_805D8654;
+void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0);
+void TObjBoss2Tunnel__sub_8003C5F8(void);
+void TObjBoss2Tunnel__sub_8003C610(void);
+u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
+void reset_floats__15TObjBoss2TunnelFPv(void *a0);
+s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
+extern u8 lbl_80435E90[];
+extern u8 lbl_80483578[];
+extern M2C_UNK __vt__15TObjBoss2Tunnel[];
+extern s32 lbl_805D2708;
+extern const f32 TObjBoss2Tunnel__data_805D85E0;
+void *TObjBoss2Tunnel__ct(void *arg0, void *arg1);
+}
+
+extern "C" {
+
+void TObjBoss2Tunnel__sub_8003C648(void);
+void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1);
+void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1);
+void clear_global_flag_3000__15TObjBoss2TunnelFv(void);
+void clear_target_flags__15TObjBoss2TunnelFv(void);
+void *create__15TObjBoss2TunnelFv(void);
+void set_global_flag_200__15TObjBoss2TunnelFv(void);
+void set_global_flag_400__15TObjBoss2TunnelFv(void);
+void set_global_flag_800__15TObjBoss2TunnelFv(void);
+void __dl__7TObjectFPv(void *);
+void __dt__7TObjectFv(void *, int);
+void dt__15TObjBoss2TunnelFis(void *, int);
+
+extern M2C_UNK __vt__15TObjBoss2Tunnel[];
+
+void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss2Tunnel;
+        dt__15TObjBoss2TunnelFis((s8 *)arg0 + 0x68, -1);
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
+    Tunnel_8003C45C *self = (Tunnel_8003C45C *)arg0;
+    s32 i;
+    s32 j;
+    __ct__7TObjectFP7TObject(arg0);
+    self->vt = ((s32 *)&__vt__15TObjBoss2Tunnel);
+    reset_floats__15TObjBoss2TunnelFi((s32)self->sub68);
+    self->name = lbl_805D2708;
+    self->i24 = 0;
+    TObjBoss2Tunnel__global_flags = 0;
+    self->f1C = TObjBoss2Tunnel__data_805D85E0;
+    self->f20 = TObjBoss2Tunnel__data_805D85E0;
+    self->i28 = 0;
+    init_queue_from_start__15TObjBoss2TunnelFPv(self);
+    self->i5C = 0;
+    self->f60 = TObjBoss2Tunnel__data_805D85E0;
+    self->i44 = 0;
+    self->f4C = TObjBoss2Tunnel__data_805D85E0;
+    self->f50 = TObjBoss2Tunnel__data_805D85E0;
+    self->f54 = TObjBoss2Tunnel__data_805D85E0;
+    self->i58 = 0;
+    self->i64 = 0;
+    reset_floats__15TObjBoss2TunnelFPv(self->sub68);
+    self->f94 = TObjBoss2Tunnel__data_805D8614;
+    self->f98 = TObjBoss2Tunnel__data_805D85E0;
+    self->iB0 = 0x21;
+    self->iB4 = 0;
+    self->iB8 = 0;
+    self->iBC = 0;
+    self->i9C = 0;
+    self->iA4 = 0;
+    self->iA0 = 0;
+    self->iA8 = 0;
+    self->fAC = TObjBoss2Tunnel__data_805D85E0;
+    for (i = 0; i < 2; i++) {
+        u8 *o = (u8 *)__nw__7TObjectFUl(0x40);
+        if (o != NULL) {
+            o = TObjBoss2RaftSplash__ct(o, (u8 *)self, lbl_80483578 + i * 0xC, lbl_80435E90 + i * 0xC, &self->f20);
+        }
+        self->splash[i] = o;
+    }
+    for (j = 0; j < 4; j++) {
+        self->c8[j] = 0;
+    }
+    self->d8 = 0xA;
+    return self;
+}
+
+void set_global_flag_200__15TObjBoss2TunnelFv(void) {
+    TObjBoss2Tunnel__global_flags |= 0x200;
+}
+
+void set_global_flag_100__15TObjBoss2TunnelFv(void) {
+    TObjBoss2Tunnel__global_flags |= 0x100;
+}
+
+s32 is_active__15TObjBoss2TunnelFv(void) {
+    return TObjBoss2Tunnel__global_flags & 1;
+}
+
+void clear_global_flag_3000__15TObjBoss2TunnelFv(void) {
+    TObjBoss2Tunnel__global_flags &= 0xFFFFCFFF;
+}
+
+void TObjBoss2Tunnel__sub_8003C5F8(void) {
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) |= 0x2000;
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x1000;
+}
+
+void TObjBoss2Tunnel__sub_8003C610(void) {
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) |= 0x1000;
+    (*(u32 *)&TObjBoss2Tunnel__global_flags) &= ~0x2000;
+}
+
+void set_global_flag_800__15TObjBoss2TunnelFv(void) {
+    TObjBoss2Tunnel__global_flags |= 0x800;
+}
+
+void set_global_flag_400__15TObjBoss2TunnelFv(void) {
+    TObjBoss2Tunnel__global_flags |= 0x400;
+}
+
+void TObjBoss2Tunnel__sub_8003C648(void) {  }
+
+extern void *tl_02;
+
+void *create__15TObjBoss2TunnelFv(void) {
+    void *o = __nw__7TObjectFUl(0xDC);
+    if (o != NULL) {
+        o = TObjBoss2Tunnel__ct((void *)(o), (void *)(tl_02));
+    }
+    return o;
+}
+
+extern s32 *lbl_805D4C04;
+extern s32 *lbl_805D4C08;
+
+void clear_target_flags__15TObjBoss2TunnelFv(void) {
+    s32 *temp_r3;
+    s32 *temp_r3_2;
+
+    TObjBoss2Tunnel__global_flags = 0;
+    temp_r3 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(boss2_tunnel_instance, void **, 0x42C), void **, 0xA8), void **, 0x2C), s32 **, 0x30);
+    lbl_805D4C08 = temp_r3;
+    temp_r3_2 = M2C_FIELD(temp_r3, s32 **, 0x30);
+    lbl_805D4C04 = temp_r3_2;
+    *temp_r3_2 &= 0xFFFFFFFE;
+    *lbl_805D4C08 &= 0xFFFFFFFE;
+}
+
+extern M2C_UNK lbl_804835D8[];
+
+#pragma push
+#pragma opt_common_subs off
+void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0) {
+    f32 temp_f1;
+    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0x1E) {
+        M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + TObjBoss2Tunnel__data_805D8614);
+        temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
+        if (temp_f1 > lbl_805D8654) {
+            M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D8654;
+            queue_destruction__7TObjectFv(arg0);
+            return;
+        }
+        M2C_FIELD((*(u8 * *)&lbl_805D4C04), f32 *, 8) = (f32) -temp_f1;
+        M2C_FIELD((*(u8 * *)&lbl_805D4C08), f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+    }
+}
+#pragma pop
+
+void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804835D8;
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+extern M2C_UNK lbl_804835D8[];
+extern const f32 TObjBoss2Tunnel__data_805D85E0;
+
+void *init__15TObjBoss2TunnelFPv(void *arg0) {
+    __ct__7TObjectFP7TObject(arg0);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804835D8;
+    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    M2C_FIELD(arg0, f32 *, 0x20) = TObjBoss2Tunnel__data_805D85E0;
+    return arg0;
+}
+
+}
+
+#undef init_queue_from_start__15TObjBoss2TunnelFPv
+#undef __nw__7TObjectFUl
+#undef __ct__7TObjectFP7TObject
+
+#undef TObjBoss2Tunnel__global_flags
+#undef TObjBoss2Tunnel__data_805D8614
+#undef boss2_tunnel_instance

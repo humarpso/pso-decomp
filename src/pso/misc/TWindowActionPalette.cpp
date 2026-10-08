@@ -149,12 +149,6 @@ void free_if_valid__14TPlyDispConfigFis(void *, s16);
 extern u32 __vt__20TWindowActionPalette[6];
 }
 
-void TWindowActionPalette::render() {
-    s32 context = setup_window_draw_context(this, &scale);
-    draw_visible_window_entries(this, &children, context);
-    draw_frame__20TWindowActionPaletteFv((void *)(this), (int)(context));
-}
-
 void set_bank_panel_art__20TWindowActionPaletteFPvi(TWindowActionPalette* self,unsigned short state) {
     void* sprite=get_array_entry__20TWindowSubStatusDispFPvi(self,1);
     set_sprite_uv_from_pixels(sprite,lbl_8044E604[state][0],lbl_8044E604[state][1]);
@@ -272,6 +266,12 @@ void draw_frame__20TWindowActionPaletteFv(void *self, int arg1) {
     }
 }
 #pragma pop
+
+void TWindowActionPalette::render() {
+    s32 context = setup_window_draw_context(this, &scale);
+    draw_visible_window_entries(this, &children, context);
+    draw_frame__20TWindowActionPaletteFv((void *)(this), (int)(context));
+}
 
 void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     s32 player;

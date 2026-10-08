@@ -1,3 +1,7 @@
+extern "C" {
+
+}
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -163,7 +167,6 @@ void TObjPlayer__sub_800D37F4(u8 *arg0);
 void apply_actor_gravity(void *, int, f32);
 void enemy_turn_toward_dest(void *, s32);
 u8 * VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0);
 M2C_UNK spawn_particle_effect(void *, int);
 void TObjPlayer__sub_800C7168(void *, Vec_800D3314, void *, f32, f32);
@@ -179,24 +182,17 @@ extern s32 lbl_805D53A4;
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA270;
 void TObjPlayer__sub_800D3314(u8 *arg0);
-void apply_actor_gravity(void *, int, f32);
 s32 update_angle__10TObjPlayerFPviPv(void *, void *, void *);
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
 M2C_UNK spawn_missile_volley__19TObjGyaranzoMissileFPv();
 s16 TObjGyaranzoMissile__sub_800D40FC(int);
-s32 advance_animation_playback(void *);
-void update_collisions__10TObjPlayerFPv(void *);
 M2C_UNK subtract_vector(void *, void *);
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA274;
 extern const f32 lbl_805DA278;
 void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0);
-void apply_actor_gravity(void *, int, f32);
 M2C_UNK move_with_wall_slide(void *);
 s32 check_path_obstructed(void *, Vec_800D30A8 *);
-s32 advance_animation_playback(void *);
-void update_collisions__10TObjPlayerFPv(void *);
 extern const f32 lbl_805DA258;
 extern const f32 lbl_805DA280;
 void TObjPlayer__sub_800D30A8(Obj_800D30A8 *arg0);
@@ -370,7 +366,6 @@ struct E_800D3ED8 { u8 pad[0x1C]; };
 struct Gy_800D3ED8 { u8 pad[0x3EC]; E_800D3ED8 e3EC[4]; };
 
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
-u8 * VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 s32 obj_clearFlags30(void *, int);
 s32 is_split_screen();
@@ -426,7 +421,6 @@ void create_dead_spot__10TObjPlayerFiif(void *, s32, f32);
 void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int, int, int);
 M2C_UNK initialize_enemy_photon_effect(void *);
-s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 void * TObjControl__ct(void *, void *);
 void refresh_lobby_state__10TObjPlayerFPv(void *);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
@@ -437,14 +431,12 @@ M2C_UNK select_actor_lighting(void *);
 M2C_UNK render_world_model__10TObjPlayerFPv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
-s32 advance_animation_playback(void *);
 s32 free_collision_body_parts(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK minimap_render_dot(void *, M2C_UNK, M2C_UNK, M2C_UNK);
 void send_entity_set_flags__6TLobbyFPv(void *);
-s32 play_sound_effect(void *, void *, int, int);
 s32 toggle_flag_9__10TObjPlayerFPv(void *);
 s32 __dl__7TObjectFPv(void *);
 void * __nw__7TObjectFUl(int);

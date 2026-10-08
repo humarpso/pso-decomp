@@ -128,6 +128,13 @@ extern u32 lbl_805D6DB4;
 extern char lbl_805DFAE8[4];
 void format_status_strings__14TAdPlyStatusGCFPv(char *buf);
 }
+extern "C" {
+u32 lbl_805D6DA8;
+s32 lbl_805D6DAC;
+s32 TAdPlyStatusGC__data_805D6DB0;
+u32 lbl_805D6DB4;
+s32 TAdPlyStatusGC__data_805D6DB8;
+}
 
 extern "C" {
 

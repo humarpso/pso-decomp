@@ -20,9 +20,7 @@ struct Laser_80156CA0 {
 };
 
 extern "C" {
-extern const f32 lbl_805DB2B4;
 void fn_80156CEC(u8 *arg0);
-extern const f32 lbl_805DB2AC;
 s32 fn_80156C88(f32 *arg0);
 f32 xz_distance_squared(void *, void *);
 s32 fn_80156C88(f32 *arg0);
@@ -30,7 +28,6 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 *lbl_805D4DF0;
 s32 fn_80156BBC(O_80156BBC *arg0, void *arg1);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern const f32 lbl_805DB2A8;
 s32 fn_80156C38(f32 *arg0);
 void step_laser_fence_fade(struct Laser_80156CA0 *p);
 }
@@ -53,11 +50,11 @@ s32 fn_80156C38(f32 *arg0) {
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         return 0;
     }
-    return *arg0 < lbl_805DB2A8;
+    return *arg0 < (0.0f);
 }
 
 s32 fn_80156C88(f32 *arg0) {
-    return *arg0 > lbl_805DB2AC;
+    return *arg0 > (-1.0f);
 }
 
 void step_laser_fence_fade(struct Laser_80156CA0 *p) {
@@ -74,7 +71,7 @@ void step_laser_fence_fade(struct Laser_80156CA0 *p) {
 
 void fn_80156CEC(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = 1;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805DB2B4;
+    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (3e+02f);
     ((VObj_14 *)(arg0))->m3();
 }
 

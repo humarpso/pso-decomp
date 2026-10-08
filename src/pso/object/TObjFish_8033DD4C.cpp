@@ -55,7 +55,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void init_state_1__8TObjFishFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
-extern u8 lbl_804EFA38[];
+extern void *lbl_804EFA38[];
 O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1);
 void clear_render_callback__8TObjFishFv(int);
 void set_draw_callback_list__8TObjFishFPv(int);
@@ -94,16 +94,8 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern u8 lbl_804780A0[];
-extern u8 lbl_804780C4[];
-extern u8 lbl_804780E4[];
-extern u8 lbl_80478104[];
-extern u8 lbl_80478134[];
-extern u8 lbl_80478140[];
-extern u8 lbl_804EFA38[];
-extern s32 lbl_805D42B0;
-extern const f32 lbl_805DFA98;
-extern const f32 lbl_805DFAB8;
+extern void *lbl_804EFA38[];
+#define lbl_804EFA38 ((u8 *)lbl_804EFA38)
 void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2);
 void request_destroy__11TBoss4Type2FUi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -124,13 +116,6 @@ s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(int);
 void queue_destruction__7TObjectFv(void *);
-extern Vec_8033E0F0 lbl_804780AC[];
-extern Vec_8033E0F0 lbl_804780B8[];
-extern Rng_8033E0F0 lbl_8047814C[];
-extern u8 lbl_8047817C[];
-extern const f32 lbl_805DFA98;
-extern const f32 lbl_805DFAB0;
-extern const f32 lbl_805DFAB4;
 void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0);
 void clear_render_callback__8TObjFishFv(int);
 void set_draw_callback_list__8TObjFishFPv(int);
@@ -143,9 +128,6 @@ int set_global_param__8TObjFishFi(void);
 void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
-extern const f32 lbl_805DFA98;
-extern const f32 lbl_805DFA9C;
-extern const f32 lbl_805DFAA4;
 void TObjFish__sub_8033DFB4(u8 *arg0);
 }
 
@@ -159,6 +141,32 @@ void init_particle_effect__10TObjPlayerFv(void);
 int render_effect__8TObjFishFPv(void*);
 int set_global_param__8TObjFishFi(void);
 
+}
+extern "C" const char lbl_80478088[] = "TBoss6Demo21_TYPE2_DEAD";
+extern "C" const u32 lbl_804780A0[3] = {0xc61c4000, 0x0, 0x0};
+extern "C" const u32 lbl_804780AC[3] = {0x0, 0x0, 0xc30e0000};
+extern "C" const u32 lbl_804780B8[3] = {0x0, 0xc0000000, 0x40cccccd};
+extern "C" const u32 lbl_804780C4[8] = {0x24, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
+extern "C" const u32 lbl_804780E4[8] = {0x19, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
+extern "C" const u32 lbl_80478104[12] = {0x2, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
+extern "C" const u32 lbl_80478134[3] = {0x0, 0x0, 0x0};
+extern "C" const u32 lbl_80478140[3] = {0x1010000, 0x0, 0x3f333333};
+extern "C" const u32 lbl_8047814C[12] = {0x0, 0x8e, 0x228, 0xfa, 0x13a, 0x22a, 0x11d, 0x1ac, 0x22e, 0xf2, 0x13a, 0x179};
+extern "C" const u32 lbl_8047817C[3] = {0xffff4000, 0xffffff60, 0xffff4000};
+extern "C" const char *lbl_805D42B0 = lbl_80478088;
+#define lbl_805D42B0 (*(s32 *)&lbl_805D42B0)
+#define lbl_804780A0 ((u8 *)lbl_804780A0)
+#define lbl_804780AC ((Vec_8033E0F0 *)lbl_804780AC)
+#define lbl_804780B8 ((Vec_8033E0F0 *)lbl_804780B8)
+#define lbl_804780C4 ((u8 *)lbl_804780C4)
+#define lbl_804780E4 ((u8 *)lbl_804780E4)
+#define lbl_80478104 ((u8 *)lbl_80478104)
+#define lbl_80478134 ((u8 *)lbl_80478134)
+#define lbl_80478140 ((u8 *)lbl_80478140)
+#define lbl_8047814C ((Rng_8033E0F0 *)lbl_8047814C)
+#define lbl_8047817C ((u8 *)lbl_8047817C)
+#pragma pool_data off
+extern "C" {
 #define arg0 ((u8 *) p)
 
 #undef arg0
@@ -238,14 +246,14 @@ void TObjFish__sub_8033DFB4(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x50);
     if (temp_r0 < 0x101) {
-        var_f31 = lbl_805DFA9C;
+        var_f31 = (1.0f);
     } else if (temp_r0 >= 0x10F) {
-        var_f31 = lbl_805DFA98;
+        var_f31 = (0.0f);
     } else {
-        var_f31 = (f32) (0x10F - temp_r0) / lbl_805DFAA4;
+        var_f31 = (f32) (0x10F - temp_r0) / (14.0f);
     }
-    if (lbl_805DFA98 != var_f31) {
-        if (var_f31 < lbl_805DFA9C) {
+    if ((0.0f) != var_f31) {
+        if (var_f31 < (1.0f)) {
             set_fade_material_color__14TBoss6PlotFalzFf(var_f31);
         }
         push_matrix();
@@ -257,7 +265,7 @@ void TObjFish__sub_8033DFB4(u8 *arg0) {
         clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x70));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
-        if (var_f31 < lbl_805DFA9C) {
+        if (var_f31 < (1.0f)) {
             reset_fish_globals__8TObjFishFv();
         }
     }
@@ -347,9 +355,9 @@ void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0) {
         pm = (s32)&mid;
         VecCopy__FP3VecPC3Vec((void *)pm, &a);
         vec3_add_to((void *)pm, (void *)pb);
-        mid.x *= lbl_805DFAB0;
-        mid.y *= lbl_805DFAB0;
-        mid.z *= lbl_805DFAB0;
+        mid.x *= (0.5f);
+        mid.y *= (0.5f);
+        mid.z *= (0.5f);
         set_effect_points__11TBoss6Type1FPvPvPv(arg0->fb0, &a, lbl_8047817C);
     }
     if (arg0->timer == 0x23A) {
@@ -364,8 +372,8 @@ void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0) {
                 Vec_8033E0F0 d;
                 VecCopy__FP3VecPC3Vec(&d, &p->pos);
                 subtract_vector(&d, &c);
-                d.y = lbl_805DFA98;
-                if (!(vector_length(&d) > lbl_805DFAB4)) {
+                d.y = (0.0f);
+                if (!(vector_length(&d) > (0.25f))) {
                     p->f30 |= 0x600;
                 }
             }
@@ -439,11 +447,11 @@ void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x58, lbl_804780A0);
     VecCopy__FP3VecPC3Vec(&v, arg2);
     subtract_vector(&v, lbl_804780A0);
-    v.y = lbl_805DFA98;
-    if (vector_length(&v) > lbl_805DFAB8) {
+    v.y = (0.0f);
+    if (vector_length(&v) > 60.0f) {
         normalize_vector(&v);
-        v.x *= lbl_805DFAB8;
-        v.z *= lbl_805DFAB8;
+        v.x *= 60.0f;
+        v.z *= 60.0f;
     }
     vec3_add_to(arg0 + 0x58, &v);
     void *count = get_fish_count__8TObjFishFv();
@@ -469,7 +477,7 @@ void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2) {
         ((Fish_8033E688 *)arg0)->arr[i] = 0;
     }
     M2C_FIELD(arg0, s32 *, 0xB0) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 3, 0xF);
-    M2C_FIELD(arg0, f32 *, 0x4C) = lbl_805DFA98;
+    M2C_FIELD(arg0, f32 *, 0x4C) = (0.0f);
     M2C_FIELD(arg0, s32 *, 0x50) = 0;
     return arg0;
 }
@@ -485,4 +493,10 @@ void * fn_8033E8C0(void *arg0, void *arg1) {
     return o;
 }
 
+void render_shadows__7TObjectFv();
 }
+#undef lbl_804EFA38
+extern "C" void *lbl_804EFA38[6] = {
+    0, 0, (void *)&TObjFish__sub_8033E5A8, (void *)&TObjFish__sub_8033E0F0,
+    (void *)&update__8TObjFishFPv, (void *)&render_shadows__7TObjectFv,
+};

@@ -18,26 +18,15 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
 f32 xz_distance_squared(void *, void *);
 bool is_player_outside_trade_radius(u8 *arg0, u32 arg1);
-extern const f32 TAdFadeGC__data_805DE5E8;
-extern const f32 lbl_805DE604;
-extern const f32 lbl_805DE60C;
-extern const f32 lbl_805DE610;
 void TAdFadeGC__sub_802C7DBC(void *arg0, void *arg1);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 int all_parents_unqueued_for_destruction__7TObjectFv(void*);
-extern const f32 lbl_805DE5F0;
-extern const f32 lbl_805DE600;
-extern const f32 lbl_805DE608;
 void run_task__9TAdFadeGCFv(void *arg0);
 M2C_UNK draw_color_lines(void *, int, int, f32);
 M2C_UNK draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32, f32, f32);
 M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
-extern f32 lbl_805D6800;
-extern s8 lbl_805D6804;
-extern const f32 lbl_805DE5EC;
-extern const f32 lbl_805DE5F4;
-extern const f32 lbl_805DE5F8;
-extern const f32 lbl_805DE5FC;
+f32 lbl_805D6800;
+s8 lbl_805D6804;
 }
 
 extern "C" {
@@ -47,6 +36,10 @@ void render__9TAdFadeGCFv(void* p);
 void draw_fade__9TAdFadeGCFPv(u8 *);
 void __ct__7TObjectFP7TObject(void *);
 void render__18TObjTradeCollisionFv(void);
+
+extern const char lbl_80471D70[] = "TAdFadeGC";
+const char *lbl_805D3EF0 = lbl_80471D70;
+#define lbl_805D3EF0 (*(void **)&lbl_805D3EF0)
 
 void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
     f32 pos[8];
@@ -66,23 +59,23 @@ void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
         abs__4cXyzCFv(0, 0xB);
         abs__4cXyzCFv(1, 4);
         for (i = 0; i < 120; i++) {
-            d.pos[0] = TAdFadeGC__data_805DE5E8;
-            y = lbl_805DE5EC * (f32) i;
+            d.pos[0] = (0.0f);
+            y = (8.0f) * (f32) i;
             d.pos[1] = y;
             d.col[0] = 0x0FFFFFFF;
             d.pos[2] = M2C_FIELD(arg0, f32 *, 0x20);
             d.pos[3] = y;
             d.col[1] = 0xFFFFFFFF;
-            d.pos[4] = lbl_805DE5F0;
-            y2 = lbl_805DE5F4 + y;
+            d.pos[4] = (6.4e+02f);
+            y2 = (4.0f) + y;
             d.pos[5] = y2;
             d.col[2] = 0xFFFFFFFF;
-            d.pos[6] = lbl_805DE5F0 - M2C_FIELD(arg0, f32 *, 0x20);
+            d.pos[6] = (6.4e+02f) - M2C_FIELD(arg0, f32 *, 0x20);
             d.pos[7] = y2;
             d.col[3] = 0xFFFFFFFF;
             if (lbl_805D6804 == 0) {
                 lbl_805D6804 = 1;
-                lbl_805D6800 = lbl_805DE5F8;
+                lbl_805D6800 = (-1.0f);
             }
             draw_color_lines(&d, 4, 7, lbl_805D6800);
         }
@@ -91,23 +84,23 @@ void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
         break;
     case 1:
     case 2:
-        d.pos[0] = TAdFadeGC__data_805DE5E8;
-        d.pos[1] = TAdFadeGC__data_805DE5E8;
+        d.pos[0] = (0.0f);
+        d.pos[1] = (0.0f);
         c = M2C_FIELD(arg0, u32 *, 0x30);
         d.col[0] = (c << 8) | (c >> 24);
-        d.pos[2] = TAdFadeGC__data_805DE5E8;
-        d.pos[3] = lbl_805DE5FC;
+        d.pos[2] = (0.0f);
+        d.pos[3] = (4.8e+02f);
         c = M2C_FIELD(arg0, u32 *, 0x30);
         d.col[1] = (c << 8) | (c >> 24);
-        d.pos[4] = lbl_805DE5F0;
-        d.pos[5] = lbl_805DE5FC;
+        d.pos[4] = (6.4e+02f);
+        d.pos[5] = (4.8e+02f);
         c = M2C_FIELD(arg0, u32 *, 0x30);
         d.col[2] = (c << 8) | (c >> 24);
-        d.pos[6] = lbl_805DE5F0;
-        d.pos[7] = TAdFadeGC__data_805DE5E8;
+        d.pos[6] = (6.4e+02f);
+        d.pos[7] = (0.0f);
         c = M2C_FIELD(arg0, u32 *, 0x30);
         d.col[3] = (c << 8) | (c >> 24);
-        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 7, lbl_805DE5F8, lbl_805DE5FC, TAdFadeGC__data_805DE5E8);
+        draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 7, (-1.0f), (4.8e+02f), (0.0f));
         break;
     }
 }
@@ -115,8 +108,6 @@ void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
 void render__9TAdFadeGCFv(void* p) { if (all_parents_unqueued_for_destruction__7TObjectFv(p) != 0) { draw_fade__9TAdFadeGCFPv((u8 *)p); } }
 
 extern M2C_UNK __vt__9TAdFadeGC[];
-extern const f32 TAdFadeGC__data_805DE5E8;
-extern void *lbl_805D3EF0;
 
 void run_task__9TAdFadeGCFv(void *arg0) {
     f32 temp_f0;
@@ -129,8 +120,8 @@ void run_task__9TAdFadeGCFv(void *arg0) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
         switch (temp_r0) {
         case 0:
-            M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805DE600);
-            M2C_FIELD(arg0, f32 *, 0x20) = (M2C_FIELD(arg0, f32 *, 0x20) > lbl_805DE5F0) ? lbl_805DE5F0 : M2C_FIELD(arg0, f32 *, 0x20);
+            M2C_FIELD(arg0, f32 *, 0x20) += 60.0f;
+            M2C_FIELD(arg0, f32 *, 0x20) = (M2C_FIELD(arg0, f32 *, 0x20) > (6.4e+02f)) ? (6.4e+02f) : M2C_FIELD(arg0, f32 *, 0x20);
             return;
         case 1: {
             M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) + M2C_FIELD(arg0, f32 *, 0x34));
@@ -140,7 +131,7 @@ void run_task__9TAdFadeGCFv(void *arg0) {
                 return;
             }
             temp_f1 = M2C_FIELD(arg0, f32 *, 0x2C);
-            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (((s32) (lbl_805DE608 * temp_f1) << 0x18) | 0xFF0000 | 0xFFFF);
+            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (((s32) ((255.0f) * temp_f1) << 0x18) | 0xFF0000 | 0xFFFF);
             return;
         }
         case 2: {
@@ -151,7 +142,7 @@ void run_task__9TAdFadeGCFv(void *arg0) {
                 queue_destruction__7TObjectFv(arg0);
                 return;
             }
-            M2C_FIELD(arg0, s32 *, 0x30) = (s32) ((s32) (lbl_805DE608 * temp_f1_2) << 0x18);
+            M2C_FIELD(arg0, s32 *, 0x30) = (s32) ((s32) ((255.0f) * temp_f1_2) << 0x18);
             break;
         }
         }
@@ -163,14 +154,14 @@ void TAdFadeGC__sub_802C7DBC(void *arg0, void *arg1) {
     case 0:
         break;
     case 1:
-        M2C_FIELD(arg0, f32 *, 0x2C) = TAdFadeGC__data_805DE5E8;
+        M2C_FIELD(arg0, f32 *, 0x2C) = (0.0f);
         M2C_FIELD(arg0, s32 *, 0x30) = 0;
-        M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DE60C;
+        M2C_FIELD(arg0, f32 *, 0x34) = (0.025f);
         break;
     case 2:
-        M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DE604;
+        M2C_FIELD(arg0, f32 *, 0x2C) = (1.0f);
         M2C_FIELD(arg0, s32 *, 0x30) = 0;
-        M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DE610;
+        M2C_FIELD(arg0, f32 *, 0x34) = -0.06666667f;
         break;
     }
 }
@@ -180,7 +171,7 @@ void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TAdFadeGC;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3EF0;
     M2C_FIELD(arg0, u32 *, 0x1C) = -1;
-    M2C_FIELD(arg0, f32 *, 0x20) = TAdFadeGC__data_805DE5E8;
+    M2C_FIELD(arg0, f32 *, 0x20) = (0.0f);
     M2C_FIELD(arg0, void **, 0x28) = arg2;
     TAdFadeGC__sub_802C7DBC((void *)(arg0), (void *)(M2C_FIELD(arg0, void **, 0x28)));
     return arg0;

@@ -1,4 +1,67 @@
 #include "types.h"
+
+extern "C" {
+
+int render__17TChCrTagOccHeaderFv(void* p);
+int fn_802A2A00(void*);
+
+int render__17TChCrTagOccHeaderFv(void* p) { return fn_802A2A00(p); }
+
+}
+
+#include "pso/TChCrTagOccHeader.h"
+
+TChCrTagOccHeader::~TChCrTagOccHeader() {}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+
+struct Hdr_802A2C30 {
+    u8 pad[0x20];
+    s32 f20;
+};
+
+extern "C" {
+s32 get_selected_index__15TChCrCharSelectFv();
+s32 get_selected_char__15TChCrCharSelectFv();
+s32 get_instance__15TChCrCharSelectFv();
+s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0);
+}
+
+extern "C" {
+
+void run_task__17TChCrTagOccHeaderFv(u8 *arg0);
+M2C_UNK update_fade__8TChCrTagFPv();
+
+void run_task__17TChCrTagOccHeaderFv(u8 *arg0) {
+    update_fade__8TChCrTagFPv();
+    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) + 1);
+}
+s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0) {
+    switch (get_selected_index__15TChCrCharSelectFv()) {
+    case 0:
+        if (arg0->f20 < 3 && arg0->f20 == get_selected_char__15TChCrCharSelectFv()) {
+            return 1;
+        }
+        break;
+    default:
+        if (arg0->f20 >= 3 && arg0->f20 - 3 == get_instance__15TChCrCharSelectFv()) {
+            return 1;
+        }
+        break;
+    }
+    return 0;
+}
+
+}
+
+#define update_fade__8TChCrTagFPv (*(void (*)())&update_fade__8TChCrTagFPv)
+#define get_selected_char__15TChCrCharSelectFv (*(s32 (*)(void *))&get_selected_char__15TChCrCharSelectFv)
+
+#include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
@@ -89,7 +152,6 @@ struct Obj_802A2F78 { u8 pad[0x20]; s32 f20; };
 extern "C" {
 void draw_ui_sprite_shaded(s32 sprite_id, const vec2f *position, const vec2f *scale,
                            f32 depth, f32 alpha, f32 brightness);
-s32 get_selected_index__15TChCrCharSelectFv();
 extern vec2f lbl_80466474[];
 extern vec2f lbl_8046647C[];
 extern const f32 lbl_805DDED8;
@@ -103,7 +165,6 @@ extern const f32 lbl_805DDEF4;
 extern const f32 lbl_805DDEF8;
 extern const f32 lbl_805DDEFC;
 void fn_802A2DF4(Tag_802A2DF4 *self);
-u8 * __ct__8TChCrTagFv(void *, s32);
 extern void *__vt__18TChCrTagOccupation[];
 void *__dt__8TChCrTagFv(void *, s16);
 void __dl__7TObjectFPv(void *);
@@ -116,7 +177,6 @@ extern const f32 lbl_805DDF0C;
 extern const f32 lbl_805DDF10;
 extern const f32 lbl_805DDF14;
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2);
-s32 get_selected_char__15TChCrCharSelectFv(void *self);
 int TChCrTagOccupation__vt4(Obj_802A2F78 *self);
 }
 
@@ -125,7 +185,6 @@ extern "C" {
 void *create__18TChCrTagOccupationFPv(void *arg0);
 void create_all__18TChCrTagOccupationFv(void);
 int render__18TChCrTagOccupationFv(void* p);
-void *__nw__7TObjectFUl(int);
 
 #pragma push
 #pragma fp_contract on
@@ -217,7 +276,6 @@ void create_all__18TChCrTagOccupationFv(void) { { int i; for (i = 0; i < 3; i++)
 }
 
 extern "C" {
-void update_fade__8TChCrTagFPv();
 void render_shadows__7TObjectFv();
 void *__vt__18TChCrTagOccupation[7] = {
     0,
@@ -229,3 +287,6 @@ void *__vt__18TChCrTagOccupation[7] = {
     (void *)TChCrTagOccupation__vt4,
 };
 }
+
+#undef get_selected_char__15TChCrCharSelectFv
+#undef update_fade__8TChCrTagFPv

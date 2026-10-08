@@ -53,8 +53,6 @@ u8 *init__21TWindowSubComCardListFPviii(void *, s32, s32, s32);
 s32 get_window_layout_position(int);
 
 extern s32 lbl_805D38F0;
-extern const f32 lbl_805DCCB0;
-extern const f32 lbl_805DCCB4;
 u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1);
 s32 get_localized_text_entry(int, int);
 u8 *get_player_by_client_id(int);
@@ -78,7 +76,6 @@ void init_window_layout_entries(void *, void *, int);
 void set_text_entry_string(void *, void *, int);
 void set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern u8 lbl_8050EA40[];
-extern const f32 lbl_805DCCAC;
 void TWindowDuelResult__vt0(Win_8024F094 *self);
 }
 
@@ -98,7 +95,7 @@ void destroy_window_base__9TWindowDDFPvs(void *, int);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 
 extern "C" u8 lbl_805D63F0[];
-extern "C" u8 lbl_805DCCA8[];
+extern "C" const char lbl_805DCCA8[] = ":";
 void *TWindowDuelResult__data_804CEBA0[140] = {
     (void *)0x13, (void *)0x1, (void *)0x3, (void *)0x0,
     (void *)0x0, (void *)0x3f000000, (void *)0xffffffff, (void *)0x0,
@@ -259,7 +256,7 @@ void TWindowDuelResult__vt0(Win_8024F094 *self) {
             TWindowSubStatusDisp__sub_80228F5C(e->value);
             set_text_entry_string(d, (void *)get_shared_text_buffer(text_builder_append(get_localized_text_entry(0x10, 0xD))), 0x20);
             refresh_status_display__9TWindowDDFv(d);
-            *(f32 *)(d + 8) = lbl_805DCCAC - *(f32 *)(d + 0x10);
+            *(f32 *)(d + 8) = (372.0f) - *(f32 *)(d + 0x10);
         }
     }
 }
@@ -339,14 +336,14 @@ u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     }
     M2C_FIELD(arg0, u8 **, 0x68) = var_r0;
     if (get_camera_id__11TCameraCtrlFv() > 2) {
-        M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805DCCB0;
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) lbl_805DCCB0;
+        M2C_FIELD(arg0, f32 *, 0x60) = (f32) (0.8f);
+        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (0.8f);
     } else if (get_camera_id__11TCameraCtrlFv() == 2) {
-        M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805DCCB4;
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) lbl_805DCCB4;
+        M2C_FIELD(arg0, f32 *, 0x60) = (f32) (1.0f);
+        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (1.0f);
     } else {
-        M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805DCCB4;
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) lbl_805DCCB4;
+        M2C_FIELD(arg0, f32 *, 0x60) = (f32) (1.0f);
+        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (1.0f);
     }
     TWindowDuelResult__sub_8024F3CC((void *) (arg0));
     return arg0;

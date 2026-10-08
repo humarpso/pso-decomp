@@ -35,7 +35,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_80369DF0_lbl_804F33E0 lbl_804F33E0;
 extern u32 TObjSuisouLobby__data_805D6FF0;
 extern s32 lbl_805D6FF4;
 void load_resources__15TObjSuisouLobbyFv(void);
@@ -56,13 +55,8 @@ M2C_UNK rotate_matrix_y(int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
-extern Vec_80369ED4 lbl_8047A3D0[];
-extern Vec_80369ED4 lbl_8047A3DC[];
-extern M2C_UNK __vt__15TObjSuisouLobby[];
-extern s32 lbl_805D44C4;
 extern u32 TObjSuisouLobby__data_805D6FF0;
 extern s32 lbl_805D6FF4;
-extern const f32 TObjSuisouLobby__data_805E0350;
 void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2);
 }
 
@@ -92,9 +86,30 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 
+void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1);
+void render__15TObjSuisouLobbyFv(u8 *arg0);
+void render_shadows__7TObjectFv(); void TLobby__sub_801A1FD8(); void apply_object_set_data(); void release_member_90__10TObjPlayerFPv();
+void TParticleCtrl__sub_801A2124(); void update_object_view_visibility(); void classify_actor_view_detail();
+void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568();
+#pragma readonly_strings on
+__declspec(section ".data") void *lbl_804F33D8[2] = { (void *)"lobby_suisou_s_waku.gj", 0 };
+#pragma explicit_zero_data on
+void *lbl_805D44C0 = (void *)0;
+#pragma explicit_zero_data reset
+void *lbl_804F33E0[4] = { (void *)"bm_obj_lobby_suisou.bml", (void *)lbl_804F33D8, (void *)&lbl_805D44C0, (void *)0x10000 };
+char *lbl_805D44C4 = "TObjSuisouLobby";
+void *__vt__15TObjSuisouLobby[14] = {
+    0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,
+    (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data,
+    (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility,
+    (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568,
+};
+const f32 lbl_8047A3D0[1][3] = { { 0.0f, 0.0f, 60.0f } };
+const f32 lbl_8047A3DC[1][3] = { { 0.0f, 0.0f, -60.0f } };
+#define lbl_804F33E0 (*(RecoveredGlobal_80369DF0_lbl_804F33E0 *)lbl_804F33E0)
+#define lbl_8047A3D0 ((const Vec_80369ED4 *)lbl_8047A3D0)
+#define lbl_8047A3DC ((const Vec_80369ED4 *)lbl_8047A3DC)
 void TObjSuisouLobby__sub_80369B5C(void) {  }
-
-extern const f32 TObjSuisouLobby__data_805E0350;
 
 void render__15TObjSuisouLobbyFv(u8 *arg0) {
     f32 temp_f1;
@@ -107,7 +122,7 @@ void render__15TObjSuisouLobbyFv(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
             temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
-            scale_matrix((int) (0), (f32) (temp_f1), (f32) (TObjSuisouLobby__data_805E0350), (f32) (temp_f1));
+            scale_matrix((int) (0), (f32) (temp_f1), 1.0f, (f32) (temp_f1));
         }
         draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         pop_matrix();
@@ -187,8 +202,6 @@ void destroy_instance__15TObjSuisouLobbyFv(void) {
     }
 }
 
-extern M2C_UNK __vt__15TObjSuisouLobby[];
-
 void load_resources__15TObjSuisouLobbyFv(void) {
     s32 temp_r3;
     s32 var_r0;
@@ -203,7 +216,7 @@ void load_resources__15TObjSuisouLobbyFv(void) {
 
 void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjSuisouLobby;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__15TObjSuisouLobby;
         if (M2C_FIELD(arg0, void **, 0xD4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD4)); M2C_FIELD(arg0, M2C_UNK *, 0xD4) = 0; }
         if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD8)); M2C_FIELD(arg0, M2C_UNK *, 0xD8) = 0; }
         destroy_key_base__5TOKeyFPvs(arg0, 0);
@@ -218,8 +231,8 @@ void *__dt__15TObjSuisouLobbyFv(void *arg0, s16 arg1) {
 #define self ((Self_80369ED4 *)arg0)
 void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
     init_map_object_base(arg0, arg1);
-    *(void ***)((u8 *)arg0 + 0x18) = ((void * *)&__vt__15TObjSuisouLobby);
-    *(s32 *)arg0 = lbl_805D44C4;
+    *(void ***)((u8 *)arg0 + 0x18) = ((void * *)__vt__15TObjSuisouLobby);
+    *(s32 *)arg0 = (s32)lbl_805D44C4;
     ((VObj_80369ED4 *)arg0)->m5(arg2);
     {
         Vec_80369ED4 v = lbl_8047A3D0[0];
@@ -253,7 +266,7 @@ void *TObjSuisouLobby__ct(void *arg0, void *arg1, void *arg2) {
         self->state = 3;
     }
     ((void (*)(void *))TObjSuisouLobby__sub_80369D68)(arg0);
-    self->cc = TObjSuisouLobby__data_805E0350;
+    self->cc = 1.0f;
     self->x34 = *(s32 *)(*(u8 **)((u8 *)TObjSuisouLobby__data_805D6FF0 + 0x42C) + 8);
     self->x24 = lbl_805D6FF4;
     return arg0;

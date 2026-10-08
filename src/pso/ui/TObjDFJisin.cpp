@@ -2,6 +2,7 @@
 #include "dolphin/mtx.h"
 #include <stddef.h>
 #include "pso/TObject.h"
+#include "pso/TObjDFTenchuFuru.h"
 class TObjDFJisin : public TObject {
 public:
     virtual void render();
@@ -779,4 +780,302 @@ void *__vt__13TObjDFRecBall[] = {
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
 };
+}
+
+#include "pso/boss/TObjDFRecover.h"
+
+extern "C" {
+void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1);
+void run_task__13TObjDFRecoverFv();
+void __dt__7TObjectFv(void *, s16);
+void *__vt__13TObjDFRecover[] = {
+    0,
+    0,
+    (void *)__dt__13TObjDFRecoverFv,
+    (void *)run_task__13TObjDFRecoverFv,
+    (void *)render__7TObjectFv,
+    (void *)render_shadows__7TObjectFv,
+};
+}
+
+extern "C" {
+s32 is_state_ready__14TBoss4DarkFalzFv();
+void request_destroy__11TBoss4Type2FUi(void *);
+s32 set_flags__11TBoss4Type2FPvUi(int, int);
+s32 play_sound_effect(int, int, int, int);
+s32 spawn_effect__11TBoss4Type3Fsss(int, int, int);
+}
+
+#pragma push
+#pragma fp_contract on
+void TObjDFRecover::run_task() {
+    f32 position[3];
+    s32 current_phase;
+    s32 target_address;
+    u32 effect_address;
+    u16 id;
+    if (is_state_ready__14TBoss4DarkFalzFv() == 0) {
+        ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
+        return;
+    }
+    id = target_id;
+    if ((id == 0xFFFF) || ((target_address = ((s32 (*)(u16))get_player_by_client_id)(id)) == 0)) {
+        ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
+        return;
+    }
+    ((s32 (*)(void *, const void *))VecCopy__FP3VecPC3Vec)(position, (void *) (target_address + 0x2FC));
+    countdown = countdown - 1;
+    current_phase = phase;
+    switch (current_phase) {
+    case 0:
+        if (countdown <= 0) {
+            effect_address = ((u32 (*)(void *, int))create_particle_emitter)(position, 0xEB);
+            effect = (void*)effect_address;
+            if (effect_address == 0U) {
+                ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
+                return;
+            }
+            set_flags__11TBoss4Type2FPvUi((int) (effect), 0x40);
+            countdown = 0xA;
+            phase = 1;
+        }
+        break;
+    case 1:
+        ((s32 (*)(int, void *))copy_pos__11TNowLoadingFPvPv)((int) (effect), position);
+        if (countdown <= 0) {
+            request_destroy__11TBoss4Type2FUi(effect);
+            effect = NULL;
+            spawn_effect__11TBoss4Type3Fsss(0xC0, 0xF, (int) ((s16) target_id));
+            countdown = 0xB;
+            phase = 2;
+            return;
+        }
+        break;
+    case 2:
+        if ((countdown % 5) == 0) {
+            play_sound_effect(0x4003AD19, 0, 0, 0);
+            ((s32 (*)(int, void *, void *))create__13TObjDFRecBallFPvPvPv)((int)m_up, position, cached_position);
+        }
+        if (countdown <= 0) {
+            ((s32 (*)(void *))queue_destruction__7TObjectFv)(this);
+        }
+        break;
+    }
+}
+#pragma pop
+
+extern "C" {
+void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, void **, 0x18) = __vt__13TObjDFRecover;
+        if (M2C_FIELD(arg0, void **, 0x2C) != 0) request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x2C));
+        __dt__7TObjectFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+}
+
+extern "C" {
+extern const char *lbl_805D27B8;
+}
+TObjDFRecover::TObjDFRecover(TObject *parent, u16 id, const f32 *position) : TObject(parent) {
+    m_name = lbl_805D27B8;
+    target_id = id;
+    effect = NULL;
+    ((s32 (*)(void *, const void *))VecCopy__FP3VecPC3Vec)(cached_position, position);
+    phase = 0;
+    countdown = 5;
+}
+
+#include "pso/boss/TObjDFRecover.h"
+
+TObjDFRecover *TObjDFRecover::create(TObject *parent, u16 id, const f32 *position) {
+    return new TObjDFRecover(parent, id, position);
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru {
+    M2C_UNK value;
+    u8 remaining[0x14];
+};
+
+struct RecoveredGlobal_80051A18_lbl_804FF240 {
+    M2C_UNK value;
+    u8 remaining[0x5C];
+};
+
+#include <stddef.h>
+struct RecoveredGlobal_80051AD0_lbl_804858B4 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80051AD0_lbl_804FF228 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredGlobal_80051AD0_lbl_804FF234 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+
+struct RecoveredFields_80051AD0_var_r31 {
+    s32 field_0;
+    u8 unknown_4[0x28];
+    u8 * field_2C;
+    u8 * field_30;
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+s32 create_particle_emitter(s32, s32);
+void __ct__7TObjectFP7TObject(void *, void *);
+extern RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru __vt__16TObjDFTenchuFuru;
+extern s32 lbl_805D27B4;
+extern const f32 lbl_805D8AA0;
+u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
+M2C_UNK get_current_matrix(void *);
+extern RecoveredGlobal_80051A18_lbl_804FF240 lbl_804FF240;
+extern int lbl_805D4D78;
+void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void);
+s32 matrix_mult_vec(int, void *, void *);
+f32 rotate_matrix_by_node_angles(void *, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+f32 post_translate_matrix(void *);
+extern RecoveredGlobal_80051AD0_lbl_804858B4 lbl_804858B4;
+extern RecoveredGlobal_80051AD0_lbl_804FF228 lbl_804FF228;
+extern RecoveredGlobal_80051AD0_lbl_804FF234 lbl_804FF234;
+extern int lbl_805D4D78;
+void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0);
+}
+
+extern "C" {
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_BITWISE(type, expr) ((type)(expr))
+extern "C" {
+s32 is_state_ready__14TBoss4DarkFalzFv();
+s32 is_active__14TBoss4DarkFalzFv();
+extern const f32 lbl_805D8AC0;
+void run_task__16TObjDFTenchuFuruFv(u8 *arg0);
+}
+
+extern "C" {
+
+int TObjDFTenchuFuru__sub_80051A7C(void);
+void * create__16TObjDFTenchuFuruFPvPv(void *arg0, void *arg1);
+void register_callback__16TObjDFTenchuFuruFv(void);
+void *__nw__7TObjectFUl(int);
+int set_global_state__16TObjEneRe7BeruraFi(void*);
+
+#pragma push
+#pragma fp_contract on
+void run_task__16TObjDFTenchuFuruFv(u8 *arg0) {
+    s32 temp_r0;
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805D8AC0);
+    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
+        ((M2C_UNK (*)(void *, void *))copy_pos__11TNowLoadingFPvPv)(M2C_FIELD(arg0, void **, 0x2C), (void *) (arg0 + 0x1C));
+    }
+    temp_r0 = M2C_FIELD(arg0, s32 *, 0x28) - 1;
+    M2C_FIELD(arg0, s32 *, 0x28) = temp_r0;
+    if ((temp_r0 < 0) || ((is_active__14TBoss4DarkFalzFv() == 0) && (is_state_ready__14TBoss4DarkFalzFv() == 0))) {
+        ((M2C_UNK (*)(void *))queue_destruction__7TObjectFv)((void *) (arg0));
+    }
+}
+#pragma pop
+
+typedef char RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru_size[sizeof(RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru) == 0x18 ? 1 : -1];
+TObjDFTenchuFuru::~TObjDFTenchuFuru() {
+    if (m_2c != nullptr) ((void (*)(void*))request_destroy__11TBoss4Type2FUi)(m_2c);
+}
+u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
+    u8 *temp_r3;
+    __ct__7TObjectFP7TObject(arg0, arg1);
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TObjDFTenchuFuru.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27B4;
+    M2C_FIELD(arg0, s32 *, 0x28) = 5;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
+    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805D8AA0);
+    temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
+    M2C_FIELD(arg0, u8 **, 0x2C) = temp_r3;
+    if (temp_r3 != NULL) {
+        ((void (*)(void *, s32))set_flags__11TBoss4Type2FPvUi)(M2C_FIELD(arg0, u8 **, 0x2C), 0x40);
+    }
+    return arg0;
+}
+
+void * create__16TObjDFTenchuFuruFPvPv(void *arg0, void *arg1) {
+    void *o;
+    o = __nw__7TObjectFUl(0x30);
+    if (o != NULL) {
+        o = TObjDFTenchuFuru__ct((u8 *)(o), (u8 *)(arg0), (u8 *)(arg1));
+    }
+    return o;
+}
+
+typedef char RecoveredGlobal_80051A18_lbl_804FF240_size[sizeof(RecoveredGlobal_80051A18_lbl_804FF240) == 0x60 ? 1 : -1];
+void capture_matrix_by_frame__16TObjDFTenchuFuruFv(void) {
+    switch ((s32) (*(s32 *)&lbl_805D4D78)) {
+    case 0x3B:
+        get_current_matrix((void *) (&lbl_804FF240.value));
+        break;
+    case 0x3A:
+        get_current_matrix((void *) ((u8 *)&lbl_804FF240.value + 0x30));
+        break;
+    }
+    (*(s32 *)&lbl_805D4D78) += 1;
+}
+
+int TObjDFTenchuFuru__sub_80051A7C(void) { return set_global_state__16TObjEneRe7BeruraFi((void*)(0)); }
+
+    extern int lbl_805D4D78;
+void register_callback__16TObjDFTenchuFuruFv(void) { lbl_805D4D78 = 0; set_global_state__16TObjEneRe7BeruraFi(((unsigned char *)capture_matrix_by_frame__16TObjDFTenchuFuruFv)); }
+typedef char RecoveredGlobal_80051AD0_lbl_804858B4_size[sizeof(RecoveredGlobal_80051AD0_lbl_804858B4) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80051AD0_lbl_804FF228_size[sizeof(RecoveredGlobal_80051AD0_lbl_804FF228) == 0xC ? 1 : -1];
+typedef char RecoveredGlobal_80051AD0_lbl_804FF234_size[sizeof(RecoveredGlobal_80051AD0_lbl_804FF234) == 0xC ? 1 : -1];
+typedef char RecoveredFields_80051AD0_var_r31_0_offset[offsetof(RecoveredFields_80051AD0_var_r31, field_0) == 0x0 ? 1 : -1];
+typedef char RecoveredFields_80051AD0_var_r31_2C_offset[offsetof(RecoveredFields_80051AD0_var_r31, field_2C) == 0x2C ? 1 : -1];
+typedef char RecoveredFields_80051AD0_var_r31_30_offset[offsetof(RecoveredFields_80051AD0_var_r31, field_30) == 0x30 ? 1 : -1];
+void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0) {
+    u8 *temp_r3;
+    u8 *var_r31;
+    var_r31 = (u8 *)(arg0);
+    do {
+        push_matrix();
+        post_translate_matrix((void *) (var_r31 + 8));
+        rotate_matrix_by_node_angles((void *) (var_r31 + 0x14), (int) (((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_0 & 0x20));
+        scale_current_matrix((void *) (var_r31 + 0x20));
+        switch ((s32) (*(s32 *)&lbl_805D4D78)) {
+        case 0x3B:
+            matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF228.value));
+            break;
+        case 0x3A:
+            matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF234.value));
+            break;
+        }
+        (*(s32 *)&lbl_805D4D78) += 1;
+        temp_r3 = (u8 *)(((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_2C);
+        if (temp_r3 != NULL) {
+            transform_node_tree__16TObjDFTenchuFuruFPv(temp_r3);
+        }
+        pop_matrix();
+        var_r31 = (u8 *)(((RecoveredFields_80051AD0_var_r31 *)var_r31)->field_30);
+    } while (var_r31 != NULL);
+}
+
 }
