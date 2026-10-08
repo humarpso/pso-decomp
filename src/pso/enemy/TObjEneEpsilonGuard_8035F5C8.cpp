@@ -971,7 +971,6 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
-void TObjEneEpsilonGuard__sub_803601D4(void);
 extern M2C_UNK main_task[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -1032,6 +1031,15 @@ extern const f32 lbl_805E022C;
 extern const f32 lbl_805E0230;
 extern const f32 lbl_805E0234;
 void TObjEneEpsilonGuard__sub_803616E4(void *arg0_, s32 arg1);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+void get_camera_ctrl__9TObjEneDDFPv(void *, void *);
+extern const f64 lbl_80479E90[];
+extern u8 lbl_805439F0[];
+extern s32 lbl_805D6F90;
+extern u8 *lbl_805D6F94;
+extern u8 *lbl_805D6F98;
+extern u8 *lbl_805D6F9C;
+void TObjEneEpsilonGuard__sub_803601D4(void);
 }
 
 extern "C" {
@@ -1270,6 +1278,24 @@ void set_guard_state__19TObjEneEpsilonGuardFPv(void *arg0, s32 _w1) {
     advance_animation_playback((void *)((void *)((void *)((void *)((void *)(arg0))))));
 }
 void TObjEneEpsilonGuard__sub_803601D0(void) {  }
+
+void TObjEneEpsilonGuard__sub_803601D4(void) {
+    switch (lbl_805D6F90) {
+    case 0x1C:
+    case 0x26:
+    case 0x30:
+    case 0x3A:
+        get_camera_ctrl__9TObjEneDDFPv(lbl_805439F0, (*(f32 * *)&lbl_805D6F98));
+        *(*(s32 * *)&lbl_805D6F94) = (s32)((*(const f64 *)&lbl_80479E90) * get_ad_end_text_start__10TObjPlayerFv(
+            (*(f32 * *)&lbl_805D6F98)[0] - (*(f32 * *)&lbl_805D6F9C)[0],
+            (*(f32 * *)&lbl_805D6F98)[2] - (*(f32 * *)&lbl_805D6F9C)[2]));
+        (*(f32 * *)&lbl_805D6F98) += 3;
+        (*(s32 * *)&lbl_805D6F94)++;
+        break;
+    }
+    lbl_805D6F90++;
+}
+
 void render_body_effect__19TObjEneEpsilonGuardFPv(u8 *arg0) {
     f32 temp_f1;
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
