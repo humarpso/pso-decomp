@@ -128,6 +128,7 @@ force_active:
   - TOSensor__sub_80175514
   - TOTrapChainSawDamage_class_name
   - TOTrapChainSawEdge_class_name
+  - TObjEneBm9Mericarol__sub_802CED50
   - TObjEneDD__sub_800BB980
   - TObjEneDelDepth_motion_file_list
   - TObjEneDelDepth_motion_names
@@ -136,6 +137,10 @@ force_active:
   - TObjEneRecon__vt85
   - TObjFish__sub_800E2FFC
   - TObjGrass__sub_800BFB8C
+  - TObjOnlineEndingHexLine__direction_table
+  - TObjOnlineEndingHexLine__hex_line_params
+  - TObjOnlineEndingHexLine_corner_offsets
+  - TObjOnlineEndingHexMove__default_move_params
   - TObjPlayer__sub_800181DC
   - TObjPlayer__sub_800405D8
   - TObjPlayer__sub_80040ADC
@@ -308,6 +313,7 @@ force_active:
   - __dt__21TItemReverseTechPart2Fv
   - __dt__21TODummyKeyCave01SoundFv
   - __dt__22TChallenge4PItemSelectFv
+  - __dt__23TObjOnlineEndingHexMoveFv
   - __dt__23TObjSeabedSuisoBrakableFPvs
   - __dt__23TObjSeabedSuisoBrakableFv
   - __dt__25THunterGuildSeqOnlineTaskFv
@@ -393,6 +399,7 @@ force_active:
   - byteswap_6x75_packet__6TLobbyFPv
   - calc_area_parameters__10TTecRaFoieFPv
   - calc_circle_offset__14TObjEneBm5WolfFPvPvPv
+  - calc_clamp_offset__11TLoadingCurFiPvPv
   - calc_damage__11TTecRaZondeFPv
   - calc_death_slide_speed__14TObjEneBm5WolfFPvf
   - calc_highlight_scale__12TChCrTagNameFPv
@@ -400,6 +407,8 @@ force_active:
   - calc_lunge_aim__14TObjEneBm5WolfFPv
   - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFPv
+  - calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv
+  - calc_slot_offset_position__10TObjPlayerFPviPvPv
   - calc_small_font_scale
   - call_state_action__14TBoss6PlotFalzFPv
   - capture_attachment__17TObjEneBm3FlyNestFv
@@ -410,6 +419,7 @@ force_active:
   - chat_log_remove_line
   - chat_text_lacks_language_tag
   - check_any_player_in_range__12TObjRaderColFPv
+  - check_attack_hits__19TObjEneBm9MericarolFPv
   - check_floor_contact__18TObjEneMe3SinowZoaFPvPv
   - check_hit_by_id_276__10TObjPlayerFPvi
   - check_hold_player__14TOTrapSeabed01FPv
@@ -546,6 +556,7 @@ force_active:
   - draw_object_tree__14TOTrapSeabed01FPvPv
   - draw_object_tree_recursive
   - draw_palette_cells__22TWindowSubCustomSelectFv
+  - draw_part_models__15TODoorMachine01FiPvi
   - draw_parts__12TODoorCave02FPvPv
   - draw_ray_quads__8TAdRayGCFiPvPvi
   - draw_shadow_on_ground
@@ -859,6 +870,7 @@ force_active:
   - mcmdWait
   - merge_adjacent_free_blocks__6TLobbyFPv
   - move_around_center__15TObjEneMe1GiGueFPvPvf
+  - online_ending_hex_line_param
   - open_armor_list_window__26TShopEquipmentGearSequenceFPv
   - open_buy_window__22TShopEquipmentSequenceFPv
   - open_challenge_progress_window__6TLobbyFPvPv
@@ -884,6 +896,7 @@ force_active:
   - open_sell_window__22TShopEquipmentSequenceFPv
   - open_sell_window__26TShopEquipmentGearSequenceFPv
   - open_windows__22TAdMultiPlyChrSelectGCFPv
+  - pack_weapon_trail_color
   - parse_color_code__6TLobbyFPv
   - parse_message_tag__6TLobbyFv
   - particle_regular_bml_descriptor
@@ -945,6 +958,7 @@ force_active:
   - render__15TBoss2PhotonPadFv
   - render__15TBoss3VoloptP01Fv
   - render__15TBoss7PhotonPadFv
+  - render__15TObjLiveMonitorFv
   - render__16TAdStorySelectGCFv
   - render__16TBGLightningCtrlFv
   - render__16TBoss1DragonDemoFv
@@ -1059,6 +1073,7 @@ force_active:
   - run_task__15TItemEffLandHitFv
   - run_task__15TItemMagGrowEffFv
   - run_task__15TObjDeadListWinFv
+  - run_task__15TObjLiveMonitorFv
   - run_task__15TObjSoloPlayWinFv
   - run_task__16TAdStorySelectGCFv
   - run_task__16TBGLightningCtrlFv
@@ -1097,6 +1112,7 @@ force_active:
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
   - run_task__22TChallenge4PItemSelectFv
+  - run_task__23TObjOnlineEndingHexMoveFv
   - run_task__25THunterGuildSeqOnlineTaskFv
   - run_task__26TBoss5GryphonLightningHornFv
   - run_task__26TBoss5GryphonLightningWingFv
@@ -1192,6 +1208,7 @@ force_active:
   - step_fade_opacity_decrease
   - step_fade_opacity_increase
   - step_ground_technique_projectile
+  - step_line__23TObjOnlineEndingHexLineFPv
   - step_placement_search
   - store_challenge_seeds__6TLobbyFi
   - strstr
@@ -1253,6 +1270,7 @@ force_active:
   - update_letterbox_hide__9TCineCtrlFPv
   - update_letterbox_show__9TCineCtrlFPv
   - update_light_direction__12TCharaMakingFPv
+  - update_line_params__23TObjOnlineEndingHexLineFv
   - update_list_scroll__22TWindowSubCustomSelectFPv
   - update_load_state__9TItemLoadFPv
   - update_lobby_selection__12TQuestListVMFPv

@@ -339,6 +339,7 @@ pso/enemy/TObjEneBm3FlyNest.cpp
 pso/enemy/TObjEneBm3Fly_800B012C.cpp
 pso/enemy/TObjEneBm5Wolf_800B4820.cpp
 pso/enemy/TObjEneBm5Wolf_800B7B14.cpp
+pso/enemy/TObjEneBm9Mericarol_802CECE0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D04C0.cpp
 pso/enemy/TObjEneBm9Mericarol_802D05BC.cpp
 pso/enemy/TObjEneBm9Mericarol_802D17F4.cpp
@@ -368,6 +369,7 @@ pso/enemy/TObjEneDarkGunCenter.cpp
 pso/enemy/TObjEneDarkGunner.cpp
 pso/enemy/TObjEneDelDepthBomb_80316244.cpp
 pso/enemy/TObjEneDelDepth_80315AD8.cpp
+pso/enemy/TObjEneDelDepth_8031624C.cpp
 pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDf2Bringer_80097100.cpp
 pso/enemy/TObjEneDf2Bringer_80099F0C.cpp
@@ -462,6 +464,7 @@ pso/enemy/TObjEneRe4Sorcerer_801E3F14.cpp
 pso/enemy/TObjEneRe7BeruraPunch.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095E18.cpp
 pso/enemy/TObjEneRe7BeruraPunch_80095EA0.cpp
+pso/enemy/TObjEneRe7Berura_80092CCC.cpp
 pso/enemy/TObjEneRe7Berura_800967C0.cpp
 pso/enemy/TObjEneRe7Berura_803E4CE0.cpp
 pso/enemy/TObjEneRecon.cpp
@@ -931,6 +934,7 @@ pso/misc/TLanguage_803DAF68.cpp
 pso/misc/TLazerFenceSw.cpp
 pso/misc/TLevelSelect.cpp
 pso/misc/TLoadCtrl.cpp
+pso/misc/TLoadingCur.cpp
 pso/misc/TLoadingCur_801A6DE0.cpp
 pso/misc/TLobby.cpp
 pso/misc/TLobby_80019E24.cpp
@@ -1419,6 +1423,7 @@ pso/misc/TODoorFourLightBase.cpp
 pso/misc/TODoorFourLightSpace.cpp
 pso/misc/TODoorJungleMain.cpp
 pso/misc/TODoorLabo.cpp
+pso/misc/TODoorMachine01.cpp
 pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVoShip.cpp
 pso/misc/TODoorVoShip_8021A05C.cpp
@@ -2228,6 +2233,7 @@ pso/object/TObjBgmCol_8017E7F0.cpp
 pso/object/TObjBigTuitate.cpp
 pso/object/TObjButterflyLobby_8007A5D8.cpp
 pso/object/TObjButterflyLobby_80350958.cpp
+pso/object/TObjCGrass.cpp
 pso/object/TObjCHTimeWin.cpp
 pso/object/TObjCHTimeWin_80074C94.cpp
 pso/object/TObjCHTimeWin_80074C94_80074CF0.cpp
@@ -2326,6 +2332,7 @@ pso/object/TObjMesBase.cpp
 pso/object/TObjMistCtrl.cpp
 pso/object/TObjMotion.cpp
 pso/object/TObjOnlineEnding.cpp
+pso/object/TObjOnlineEndingHexLine.cpp
 pso/object/TObjOnlineEnding_802E4B80_802E4B80.cpp
 pso/object/TObjOnlineEnding_802E4B80_802E522C.cpp
 pso/object/TObjParticle.cpp
@@ -2386,6 +2393,7 @@ pso/object/TObjWarpBase.cpp
 pso/object/TObjWarpBoss03.cpp
 pso/object/TObjWarpBoss03_801A2AEC.cpp
 pso/object/TObjWarpBoss_8019F510.cpp
+pso/object/TObjWarpJungMain.cpp
 pso/object/TObjWarpJung_801A03D8.cpp
 pso/object/TObjWarpLobby.cpp
 pso/object/TObjWarpLobby_801A0760.cpp
@@ -2430,6 +2438,7 @@ pso/player/TObjPlayer_80083594.cpp
 pso/player/TObjPlayer_80083B38.cpp
 pso/player/TObjPlayer_800847A8.cpp
 pso/player/TObjPlayer_80084B84.cpp
+pso/player/TObjPlayer_8008DCF0_8008DCF0.cpp
 pso/player/TObjPlayer_8008DCF0_8008FC0C.cpp
 pso/player/TObjPlayer_8008DCF0_8008FFE4.cpp
 pso/player/TObjPlayer_80090448.cpp
@@ -3096,11 +3105,13 @@ pso/ui/TFontSmallTask.cpp
 pso/ui/TObjBagWarnWin.cpp
 pso/ui/TObjBagWarnWin_8006EED4.cpp
 pso/ui/TObjBagWarnWin_8006EF24.cpp
+pso/ui/TObjCMHexTile.cpp
 pso/ui/TObjDFJisin.cpp
 pso/ui/TObjDFTenchuFuru_80051B98.cpp
 pso/ui/TObjDFTenchuFuru_80051D5C.cpp
 pso/ui/TObjDFTenchuFuru_80052000.cpp
 pso/ui/TObjDFYutai.cpp
+pso/ui/TObjLiveMonitor.cpp
 pso/ui/TObjNewFloorWin.cpp
 pso/ui/TWindowCtrlSub.cpp
 pso/unk/text_8000F740.cpp
@@ -3282,6 +3293,7 @@ pso/unk/text_8011BE50.cpp
 pso/unk/text_8011BEF0.cpp
 pso/unk/text_8011D2B4.cpp
 pso/unk/text_8011D3B8.cpp
+pso/unk/text_8011E2AC.cpp
 pso/unk/text_8011F63C.cpp
 pso/unk/text_8011F710.cpp
 pso/unk/text_8011FC24.cpp
@@ -3459,6 +3471,7 @@ pso/unk/text_80144AC8.cpp
 pso/unk/text_80145750.cpp
 pso/unk/text_80145A44.cpp
 pso/unk/text_80145A94.cpp
+pso/unk/text_801482F8.cpp
 pso/unk/text_8014952C.cpp
 pso/unk/text_8014AAC4.cpp
 pso/unk/text_8014AB24.cpp
@@ -3851,6 +3864,7 @@ pso/unk/text_802C9960.cpp
 pso/unk/text_802C9A58.cpp
 pso/unk/text_802C9C18.cpp
 pso/unk/text_802CE510.cpp
+pso/unk/text_802CE68C.cpp
 pso/unk/text_802D14F4.cpp
 pso/unk/text_802D1C84.cpp
 pso/unk/text_802D1D48.cpp
